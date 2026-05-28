@@ -13,9 +13,30 @@
   --font-serif: "Instrument Serif", ui-serif, "Times New Roman", Georgia, serif;
   --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, sans-serif;
   --font-mono: ui-monospace, "JetBrains Mono", "SF Mono", Menlo, Monaco, monospace;
+
+  /* 衬线字体的"斜体开关"：英文页 italic 漂亮，中文页强制 normal（避免浏览器伪斜体）
+     所有用 var(--font-serif) 的标题/装饰文字都应用 font-style: var(--font-serif-style) */
+  --font-serif-style: italic;
+
   --topbar-h: 64px;
   font-family: var(--font-sans);
   font-feature-settings: "ss01", "cv11";
+}
+
+/* 中文环境：
+   - Latin 字符仍优先用 Instrument Serif（upright 形态自然不假斜）
+   - 中文字符走系统级中文衬线（Songti / Source Han Serif / Noto Serif SC）
+   - font-style 强制 normal，避免浏览器对 CJK 做 fake italic skew
+   - 给衬线中文一点 letter-spacing 让排版更稳 */
+html[lang^="zh"] {
+  --font-serif: "Instrument Serif", "Source Han Serif SC", "Noto Serif SC",
+                "Songti SC", "STSong", "SimSun", ui-serif, "Times New Roman", serif;
+  --font-serif-style: normal;
+}
+html[lang^="zh"] :is(h1, h2, h3, .footer-wordmark, .library-title, .card-title,
+                    .about-num, .pack-head h3, .drawer-title-row h2, .empty-title,
+                    .preview-title, .preview-md h1, .preview-md h2, .preview-md h3) {
+  letter-spacing: 0.01em;
 }
 
 * {
@@ -124,7 +145,7 @@ input:focus-visible {
   font-family: var(--font-serif);
   font-size: 32px;
   font-weight: 400;
-  font-style: italic;
+  font-style: var(--font-serif-style);
   line-height: 1;
   letter-spacing: -0.8px;
   color: var(--ink);
@@ -341,7 +362,7 @@ input:focus-visible {
 
 .search-wrap input::placeholder {
   color: var(--muted-soft);
-  font-style: italic;
+  font-style: var(--font-serif-style);
 }
 
 .chip-row {
@@ -508,7 +529,7 @@ input:focus-visible {
 
 .card-title {
   font-family: var(--font-serif);
-  font-style: italic;
+  font-style: var(--font-serif-style);
   font-size: 24px;
   font-weight: 400;
   line-height: 1.05;
@@ -671,7 +692,7 @@ input:focus-visible {
   font-family: var(--font-serif);
   font-size: clamp(56px, 9vw, 132px);
   font-weight: 400;
-  font-style: italic;
+  font-style: var(--font-serif-style);
   line-height: 0.94;
   letter-spacing: -2.5px;
   color: var(--ink);
@@ -703,7 +724,7 @@ input:focus-visible {
 
 .footer-wordmark {
   font-family: var(--font-serif);
-  font-style: italic;
+  font-style: var(--font-serif-style);
   font-size: 22px;
   font-weight: 400;
   letter-spacing: -0.5px;
@@ -861,7 +882,7 @@ input:focus-visible {
 
 .library-title {
   font-family: var(--font-serif);
-  font-style: italic;
+  font-style: var(--font-serif-style);
   font-size: 36px;
   font-weight: 400;
   line-height: 1.0;
@@ -935,7 +956,7 @@ input:focus-visible {
 
 .about-num {
   font-family: var(--font-serif);
-  font-style: italic;
+  font-style: var(--font-serif-style);
   font-size: clamp(80px, 9vw, 132px);
   font-weight: 400;
   line-height: 0.85;
@@ -964,7 +985,7 @@ input:focus-visible {
   font-family: var(--font-serif);
   font-size: 32px;
   font-weight: 400;
-  font-style: italic;
+  font-style: var(--font-serif-style);
   line-height: 1.08;
   letter-spacing: -0.6px;
   color: var(--ink);
@@ -985,7 +1006,7 @@ input:focus-visible {
 .about-section h2 {
   margin: 8px 0 12px;
   font-family: var(--font-serif);
-  font-style: italic;
+  font-style: var(--font-serif-style);
   font-size: 44px;
   font-weight: 400;
   line-height: 1.05;
@@ -1054,7 +1075,7 @@ input:focus-visible {
 .empty-title {
   margin: 0 0 8px;
   font-family: var(--font-serif);
-  font-style: italic;
+  font-style: var(--font-serif-style);
   font-size: 28px;
   font-weight: 400;
   letter-spacing: -0.4px;
@@ -1275,7 +1296,7 @@ input:focus-visible {
 
 .pack-head h3 {
   font-family: var(--font-serif);
-  font-style: italic;
+  font-style: var(--font-serif-style);
   font-size: 22px;
   font-weight: 400;
   line-height: 1.25;
@@ -1439,7 +1460,7 @@ input:focus-visible {
 .drawer-title-row h2 {
   margin: 0;
   font-family: var(--font-serif);
-  font-style: italic;
+  font-style: var(--font-serif-style);
   font-size: clamp(48px, 5vw, 64px);
   font-weight: 400;
   line-height: 0.95;
@@ -1630,7 +1651,7 @@ input:focus-visible {
   font-family: var(--font-serif);
   font-size: 30px;
   font-weight: 400;
-  font-style: italic;
+  font-style: var(--font-serif-style);
   line-height: 1.1;
   letter-spacing: -0.4px;
 }
@@ -1756,7 +1777,7 @@ input:focus-visible {
 .preview-title {
   margin: 0 0 6px;
   font-family: var(--font-serif);
-  font-style: italic;
+  font-style: var(--font-serif-style);
   font-size: 20px;
   font-weight: 400;
   letter-spacing: -0.3px;
@@ -2022,7 +2043,7 @@ input:focus-visible {
 
 .preview-md h1 {
   font-family: var(--font-serif);
-  font-style: italic;
+  font-style: var(--font-serif-style);
   font-size: clamp(36px, 5vw, 52px);
   font-weight: 400;
   line-height: 1.05;
@@ -2033,7 +2054,7 @@ input:focus-visible {
 
 .preview-md h2 {
   font-family: var(--font-serif);
-  font-style: italic;
+  font-style: var(--font-serif-style);
   font-size: 28px;
   font-weight: 400;
   line-height: 1.15;
@@ -2046,7 +2067,7 @@ input:focus-visible {
 
 .preview-md h3 {
   font-family: var(--font-serif);
-  font-style: italic;
+  font-style: var(--font-serif-style);
   font-size: 22px;
   font-weight: 400;
   margin: 32px 0 8px;
@@ -2072,7 +2093,7 @@ input:focus-visible {
   padding: 12px 20px;
   border-left: 3px solid var(--ink);
   background: var(--bg);
-  font-style: italic;
+  font-style: var(--font-serif-style);
   color: var(--muted);
 }
 
@@ -2157,7 +2178,14 @@ input:focus-visible {
 }
 
 .preview-md strong { color: var(--ink); font-weight: 600; }
-.preview-md em { font-style: italic; }
+.preview-md em { font-style: var(--font-serif-style); }
+/* 中文页 markdown 强调：用 accent 色细下划线代替伪斜体（中文 italic 视觉破坏严重） */
+html[lang^="zh"] .preview-md em {
+  text-decoration: underline;
+  text-decoration-color: var(--accent);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
 
 /* ─── JSON / code 类预览 ─── */
 .preview-code {
