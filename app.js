@@ -1983,18 +1983,71 @@ collectForm.addEventListener("submit", (event) => {
   startCollect();
 });
 
-/* ====== Language toggle wiring ====== */
-function syncLangToggle() {
-  document.querySelectorAll(".lang-option").forEach((btn) => {
-    btn.classList.toggle("active", btn.dataset.lang === window.i18n.current);
-  });
+/* ====== Language dropdown wiring ====== */
+const langTrigger = document.querySelector("#langTrigger");
+const langTriggerCode = document.querySelector("#langTriggerCode");
+const langDropdown = document.querySelector("#langDropdown");
+
+/** 渲染下拉菜单的选项（按 i18n.supported 顺序，标记当前 active） */
+function renderLangDropdown() {
+  if (!langDropdown) return;
+  const cur = window.i18n.current;
+  langDropdown.innerHTML = window.i18n.supported.map((code) => {
+    const m = window.i18n.meta[code];
+    const active = code === cur;
+    return `<li role="option" aria-selected="${active}" class="lang-item${active ? " active" : ""}" data-lang="${code}">
+      <span class="lang-item-code">${m.code}</span>
+      <span class="lang-item-native">${m.native}</span>
+    </li>`;
+  }).join("");
 }
 
-document.querySelectorAll(".lang-option").forEach((btn) => {
-  btn.addEventListener("click", () => {
-    window.i18n.set(btn.dataset.lang);
+/** 刷新顶栏触发器上的简码（中 / 繁 / EN / 日 / 한）+ 重渲下拉 */
+function syncLangToggle() {
+  if (!langTrigger) return;
+  const cur = window.i18n.current;
+  const m = window.i18n.meta[cur];
+  if (m && langTriggerCode) langTriggerCode.textContent = m.code;
+  renderLangDropdown();
+}
+
+function closeLangDropdown() {
+  if (!langDropdown) return;
+  langDropdown.hidden = true;
+  langTrigger.setAttribute("aria-expanded", "false");
+}
+
+function openLangDropdown() {
+  if (!langDropdown) return;
+  renderLangDropdown();
+  langDropdown.hidden = false;
+  langTrigger.setAttribute("aria-expanded", "true");
+}
+
+if (langTrigger && langDropdown) {
+  langTrigger.addEventListener("click", (e) => {
+    e.stopPropagation();
+    if (langDropdown.hidden) openLangDropdown();
+    else closeLangDropdown();
   });
-});
+
+  langDropdown.addEventListener("click", (e) => {
+    const item = e.target.closest(".lang-item");
+    if (!item) return;
+    window.i18n.set(item.dataset.lang);
+    closeLangDropdown();
+  });
+
+  // 点其他地方关菜单
+  document.addEventListener("click", (e) => {
+    if (!langDropdown.hidden && !e.target.closest(".lang-menu")) closeLangDropdown();
+  });
+
+  // ESC 关
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && !langDropdown.hidden) closeLangDropdown();
+  });
+}
 syncLangToggle();
 
 window.addEventListener("i18n:change", () => {

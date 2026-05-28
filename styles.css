@@ -263,40 +263,115 @@ input:focus-visible {
   color: var(--ink);
 }
 
-/* ====== Language toggle ====== */
-.lang-toggle {
+/* ====== Language menu (dropdown for 5+ langs) ====== */
+.lang-menu {
+  position: relative;
   display: inline-flex;
   align-items: center;
   margin-left: 4px;
-  padding: 3px;
+}
+
+.lang-trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  height: 30px;
+  padding: 0 10px 0 12px;
   border-radius: 999px;
   background: var(--bg-quiet);
-}
-
-.lang-option {
-  display: inline-grid;
-  height: 24px;
-  min-width: 28px;
-  place-items: center;
-  padding: 0 8px;
-  border-radius: 999px;
-  background: transparent;
-  color: var(--muted);
+  color: var(--ink);
   cursor: pointer;
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 600;
   letter-spacing: 0.04em;
-  transition: color 160ms ease, background 160ms ease;
+  transition: background 160ms ease;
 }
 
-.lang-option:hover {
-  color: var(--ink);
-}
-
-.lang-option.active {
-  color: var(--ink);
+.lang-trigger:hover {
   background: var(--bg);
-  box-shadow: 0 1px 2px rgba(10, 10, 10, 0.06), 0 0 0 1px var(--line);
+  box-shadow: 0 0 0 1px var(--line);
+}
+
+.lang-trigger[aria-expanded="true"] {
+  background: var(--bg);
+  box-shadow: 0 0 0 1px var(--line);
+}
+
+.lang-trigger-code {
+  display: inline-block;
+  min-width: 18px;
+  text-align: center;
+}
+
+.lang-caret {
+  width: 10px;
+  height: 10px;
+  color: var(--muted);
+  transition: transform 160ms ease;
+}
+
+.lang-trigger[aria-expanded="true"] .lang-caret {
+  transform: rotate(180deg);
+}
+
+.lang-dropdown {
+  position: absolute;
+  top: calc(100% + 6px);
+  right: 0;
+  min-width: 180px;
+  margin: 0;
+  padding: 4px;
+  list-style: none;
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  box-shadow: 0 12px 32px -12px rgba(10, 10, 10, 0.22);
+  z-index: 40;
+}
+
+.lang-dropdown[hidden] {
+  display: none;
+}
+
+.lang-item {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  color: var(--ink-soft);
+  cursor: pointer;
+  transition: background 140ms ease, color 140ms ease;
+}
+
+.lang-item:hover {
+  background: var(--bg-quiet);
+  color: var(--ink);
+}
+
+.lang-item.active {
+  background: var(--ink);
+  color: var(--bg);
+}
+
+.lang-item-code {
+  flex: 0 0 22px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  opacity: 0.7;
+}
+
+.lang-item.active .lang-item-code {
+  opacity: 0.85;
+}
+
+.lang-item-native {
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0;
 }
 
 /* ====== APP SHELL ====== */
@@ -2648,13 +2723,22 @@ body.modal-open {
     font-size: 12px;
   }
 
-  /* 语言切换更紧 */
-  .lang-toggle { padding: 2px; }
-  .lang-option {
-    height: 22px;
-    min-width: 26px;
-    padding: 0 6px;
-    font-size: 10px;
+  /* 语言菜单 —— 移动端更紧凑 */
+  .lang-trigger {
+    height: 26px;
+    padding: 0 8px 0 10px;
+    font-size: 11px;
+  }
+  .lang-dropdown {
+    right: 0;
+    left: auto;
+    min-width: 160px;
+  }
+  .lang-item {
+    padding: 8px 10px;
+  }
+  .lang-item-native {
+    font-size: 12px;
   }
 
   /* 导航 pill 单行横向滚动（在窄屏幕也不会换行） */

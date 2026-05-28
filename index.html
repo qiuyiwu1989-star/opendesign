@@ -112,9 +112,12 @@
         <button class="text-button reset-button" id="resetViewButton" type="button" data-i18n-aria-label="actions.reset.aria">
           <span data-i18n="actions.reset">重置</span>
         </button>
-        <div class="lang-toggle" role="group" data-i18n-aria-label="actions.lang.aria">
-          <button type="button" class="lang-option" data-lang="zh">中</button>
-          <button type="button" class="lang-option" data-lang="en">EN</button>
+        <div class="lang-menu" data-i18n-aria-label="actions.lang.aria">
+          <button type="button" class="lang-trigger" id="langTrigger" aria-haspopup="listbox" aria-expanded="false" data-i18n-aria-label="actions.lang.aria">
+            <span class="lang-trigger-code" id="langTriggerCode">中</span>
+            <svg class="lang-caret" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 5l3 3 3-3" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <ul class="lang-dropdown" id="langDropdown" role="listbox" hidden></ul>
         </div>
       </div>
     </header>
