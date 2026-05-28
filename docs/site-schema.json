@@ -1,0 +1,338 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://opendesign.cc/docs/site-schema.json",
+  "title": "OpenDesign Site Entry",
+  "description": "Single curated site file at sites/<slug>.json. Locked at schema_version 0.3.",
+  "type": "object",
+  "required": ["id", "schema_version", "url", "title", "tags", "status", "added_at"],
+  "additionalProperties": false,
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9-]*[a-z0-9]$",
+      "description": "Stable slug. Must equal the filename without extension."
+    },
+    "schema_version": {
+      "type": "string",
+      "enum": ["0.3"],
+      "description": "Bump only via RFC. Used by migration scripts."
+    },
+    "url": {
+      "type": "string",
+      "format": "uri",
+      "description": "Canonical URL of the original site."
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Brand name. Never translated."
+    },
+    "image": {
+      "type": "string",
+      "format": "uri",
+      "description": "Card thumbnail URL (typically a thum.io / mshots / r2.dev URL)."
+    },
+    "tags": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "description": "Canonical English tags (e.g. 'SaaS', 'Editorial'). Translation handled by i18n.tag() in app.js."
+    },
+    "status": {
+      "type": "string",
+      "enum": ["pending", "screenshot", "vision_done", "translated", "completed"],
+      "description": "Ingest pipeline state. 'failed:<reason>' uses last_error in _meta instead."
+    },
+    "added_at": {
+      "type": "string",
+      "format": "date",
+      "description": "YYYY-MM-DD when first ingested."
+    },
+    "added_by": {
+      "type": "string",
+      "description": "'curator' or 'community:<github-handle>'.",
+      "default": "curator"
+    },
+
+    "_meta": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "vision_model": { "type": "string", "description": "e.g. 'mimo-v2.5'" },
+        "vision_prompt_version": { "type": "string", "description": "e.g. '0.3' — see docs/prompts.md" },
+        "vision_at": { "type": "string", "format": "date-time" },
+        "vision_tokens": { "type": "integer", "minimum": 0 },
+        "vision_cost_usd": { "type": "number", "minimum": 0 },
+        "translation_model": { "type": "string" },
+        "translation_at": { "type": "string", "format": "date-time" },
+        "translation_tokens": { "type": "integer", "minimum": 0 },
+        "translation_cost_usd": { "type": "number", "minimum": 0 },
+        "total_cost_usd": { "type": "number", "minimum": 0 },
+        "last_error": { "type": ["string", "null"] },
+        "retries": { "type": "integer", "minimum": 0 }
+      }
+    },
+
+    "spec": {
+      "type": "object",
+      "description": "11-layer Tokens spec. Numeric / categorical fields are language-independent.",
+      "additionalProperties": false,
+      "properties": {
+        "identity": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "_locale_neutral": {
+              "type": "object",
+              "description": "Identity has no language-neutral data; all fields live in spec_i18n."
+            }
+          }
+        },
+        "colors": {
+          "type": "object",
+          "description": "All values are language-independent hex / rgba strings.",
+          "additionalProperties": false,
+          "properties": {
+            "bg":         { "type": ["string", "null"] },
+            "bgSoft":     { "type": ["string", "null"] },
+            "bgQuiet":    { "type": ["string", "null"] },
+            "ink":        { "type": ["string", "null"] },
+            "inkSoft":    { "type": ["string", "null"] },
+            "muted":      { "type": ["string", "null"] },
+            "mutedSoft":  { "type": ["string", "null"] },
+            "accent":     { "type": ["string", "null"] },
+            "line":       { "type": ["string", "null"] }
+          }
+        },
+        "typography": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "display": { "type": ["string", "null"], "description": "Font category, e.g. humanist-sans (NOT a brand name)." },
+            "body":    { "type": ["string", "null"] },
+            "mono":    { "type": ["string", "null"] },
+            "scale": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "required": ["token", "size"],
+                "properties": {
+                  "token":  { "type": "string", "enum": ["display", "h1", "h2", "h3", "body", "body-lg", "small", "caption"] },
+                  "size":   { "type": "number", "minimum": 8 },
+                  "lh":     { "type": "number" },
+                  "weight": { "type": "integer", "minimum": 100, "maximum": 900 },
+                  "ls":     { "type": "string" },
+                  "use":    { "type": "string", "description": "Language-relative — duplicated in spec_i18n." }
+                }
+              }
+            }
+          }
+        },
+        "spacing": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "base":  { "type": "number" },
+            "scale": { "type": "array", "items": { "type": "number" } }
+          }
+        },
+        "surfaces": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "radius": {
+              "type": "object",
+              "properties": {
+                "sm":   { "type": ["number", "null"] },
+                "md":   { "type": ["number", "null"] },
+                "lg":   { "type": ["number", "null"] },
+                "pill": { "type": ["number", "null"] }
+              }
+            }
+          }
+        },
+        "layout": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "container":   { "type": ["number", "null"] },
+            "paragraph":   { "type": ["number", "null"] },
+            "columns":     { "type": ["number", "null"] },
+            "gutter":      { "type": ["number", "null"] },
+            "breakpoints": { "type": "array", "items": { "type": "number" } }
+          }
+        },
+        "motion": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "durations": {
+              "type": "object",
+              "properties": {
+                "micro":  { "type": ["number", "null"] },
+                "small":  { "type": ["number", "null"] },
+                "medium": { "type": ["number", "null"] }
+              }
+            },
+            "easing": { "type": ["string", "null"], "description": "cubic-bezier(...) or keyword." }
+          }
+        }
+      }
+    },
+
+    "desc": {
+      "type": "object",
+      "description": "5-lang display descriptions, shown in drawer insight grid and library cards.",
+      "required": ["en"],
+      "additionalProperties": false,
+      "properties": {
+        "en":    { "$ref": "#/$defs/DescBlock" },
+        "zh-CN": { "$ref": "#/$defs/DescBlock" },
+        "zh-TW": { "$ref": "#/$defs/DescBlock" },
+        "ja":    { "$ref": "#/$defs/DescBlock" },
+        "ko":    { "$ref": "#/$defs/DescBlock" }
+      }
+    },
+
+    "spec_i18n": {
+      "type": "object",
+      "description": "Language-relative parts of the 11-layer spec, fed into the AI System Prompt.",
+      "required": ["en"],
+      "additionalProperties": false,
+      "properties": {
+        "en":    { "$ref": "#/$defs/SpecI18nBlock" },
+        "zh-CN": { "$ref": "#/$defs/SpecI18nBlock" },
+        "zh-TW": { "$ref": "#/$defs/SpecI18nBlock" },
+        "ja":    { "$ref": "#/$defs/SpecI18nBlock" },
+        "ko":    { "$ref": "#/$defs/SpecI18nBlock" }
+      }
+    },
+
+    "pack": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "available":  { "type": "boolean" },
+        "zip_url":    { "type": "string", "format": "uri-reference" },
+        "zip_size":   { "type": "integer", "minimum": 0 },
+        "folder_url": { "type": "string", "format": "uri-reference" },
+        "file_count": { "type": "integer", "minimum": 0 }
+      }
+    }
+  },
+
+  "$defs": {
+    "DescBlock": {
+      "type": "object",
+      "description": "Five descriptive fields per language — rendered in detail drawer.",
+      "additionalProperties": false,
+      "properties": {
+        "palette":     { "type": "string", "minLength": 1, "maxLength": 500 },
+        "layout":      { "type": "string", "minLength": 1, "maxLength": 500 },
+        "interaction": { "type": "string", "minLength": 1, "maxLength": 500 },
+        "motion":      { "type": "string", "minLength": 1, "maxLength": 500 },
+        "notes":       { "type": "string", "minLength": 1, "maxLength": 500 }
+      }
+    },
+    "SpecI18nBlock": {
+      "type": "object",
+      "description": "Language-relative fragments of the 11-layer spec. Fed into AI System Prompt.",
+      "additionalProperties": false,
+      "properties": {
+        "identity": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "keywords": { "type": "array", "items": { "type": "string" } },
+            "analogy":  { "type": "string" },
+            "oneLiner": { "type": "string" }
+          }
+        },
+        "colors": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "principle": { "type": "string" }
+          }
+        },
+        "typography": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "rules": { "type": "array", "items": { "type": "string" } },
+            "scaleUses": {
+              "type": "array",
+              "items": { "type": "string" },
+              "description": "use string per scale entry, parallel index."
+            }
+          }
+        },
+        "spacing": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "rhythm": { "type": "string" }
+          }
+        },
+        "surfaces": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "shadows": { "type": "array", "items": { "type": "string" } },
+            "borders": { "type": "string" }
+          }
+        },
+        "layout": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "skeleton": { "type": "string" }
+          }
+        },
+        "components": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "button": { "type": ["string", "null"] },
+            "card":   { "type": ["string", "null"] },
+            "chip":   { "type": ["string", "null"] },
+            "input":  { "type": ["string", "null"] },
+            "hero":   { "type": ["string", "null"] }
+          }
+        },
+        "motion": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "patterns": { "type": "array", "items": { "type": "string" } }
+          }
+        },
+        "interaction": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "hover":      { "type": ["string", "null"] },
+            "click":      { "type": ["string", "null"] },
+            "transition": { "type": ["string", "null"] },
+            "keyboard":   { "type": ["string", "null"] }
+          }
+        },
+        "voice": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "tone":          { "type": "string" },
+            "headlineStyle": { "type": "string" },
+            "ctaStyle":      { "type": "string" },
+            "avoid":         { "type": "array", "items": { "type": "string" } }
+          }
+        },
+        "donts":        { "type": "array", "items": { "type": "string", "minLength": 1 }, "minItems": 4 },
+        "systemPrompt": { "type": "string", "minLength": 50, "maxLength": 1200 }
+      }
+    }
+  }
+}
