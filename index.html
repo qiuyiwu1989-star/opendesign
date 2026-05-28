@@ -404,12 +404,16 @@
       <form class="modal-card" id="collectForm">
         <div class="modal-head">
           <div>
-            <p class="eyebrow" data-i18n="modal.eyebrow">自动收录</p>
-            <h2 data-i18n="modal.heading">丢进一个链接，自动生成灵感条目</h2>
+            <p class="eyebrow" data-i18n="modal.eyebrow">预览（不持久化）</p>
+            <h2 data-i18n="modal.heading">丢进一个链接，看 AI 怎么解读它</h2>
           </div>
           <button class="icon-button" data-close-modal type="button" data-i18n-aria-label="modal.close.aria">
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18" /></svg>
           </button>
+        </div>
+        <div class="owner-preview-banner">
+          <strong data-i18n="modal.preview.banner.heading">⚠️ 这只是预览</strong>
+          <span data-i18n="modal.preview.banner.body">刷新页面就没了。要正式收录，curator 走 CLI：复制下方命令到本地终端跑，90 秒后 live 上线 5 语言 SEO 详情页。</span>
         </div>
         <label class="url-drop" id="urlDropZone">
           <span data-i18n="modal.url.label">粘贴或拖入网址</span>
@@ -434,6 +438,17 @@
         </div>
         <p class="spec-hint hidden" id="previewSpecHint"></p>
         <button class="submit-button" id="autoCollectButton" type="submit" data-i18n="modal.button.start">开始分析</button>
+
+        <!-- Curator 正式收录入口：CLI 命令一键复制 -->
+        <div class="curator-cli-box" id="curatorCliBox" hidden>
+          <p class="eyebrow" data-i18n="modal.curator.label">正式收录 · Curator CLI</p>
+          <pre class="curator-cli-cmd" id="curatorCliCmd"></pre>
+          <div class="curator-cli-actions">
+            <button type="button" class="mini-button" id="curatorCliCopyBtn" data-i18n="modal.curator.copy">复制命令</button>
+            <a class="mini-button" href="https://github.com/qiuyiwu1989-star/opendesign/blob/main/docs/curator-workflow.md" target="_blank" rel="noopener noreferrer" data-i18n="modal.curator.docs">看完整流程</a>
+          </div>
+          <p class="curator-cli-note" data-i18n="modal.curator.note">本地跑这条命令，90 秒后 live、5 语言 SEO 详情页全齐、commit + push + deploy 自动。</p>
+        </div>
       </form>
     </aside>
 

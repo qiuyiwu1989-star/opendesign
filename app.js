@@ -422,20 +422,48 @@ function screenshotForUrl(url) {
  */
 
 async function fetchMicrolinkMeta(url) {
-  const endpoint = `https://api.microlink.io/?url=${encodeURIComponent(url)}&screenshot=true&meta=true`;
-  const res = await fetch(endpoint);
-  if (!res.ok) throw new Error(`microlink HTTP ${res.status}`);
-  const json = await res.json();
-  if (json.status !== "success" || !json.data) throw new Error("microlink 返回失败");
-  const d = json.data;
+  // 1) 优先 microlink（含截图 + meta）
+  try {
+    const endpoint = `https://api.microlink.io/?url=${encodeURIComponent(url)}&screenshot=true&meta=true`;
+    const res = await fetch(endpoint);
+    if (res.ok) {
+      const json = await res.json();
+      if (json.status === "success" && json.data) {
+        const d = json.data;
+        return {
+          title: d.title || "",
+          description: d.description || "",
+          screenshot: (d.screenshot && d.screenshot.url) || `https://image.thum.io/get/width/1440/${url}`,
+          image: d.image && d.image.url,
+          logo: d.logo && d.logo.url,
+          lang: d.lang,
+          author: d.author || "",
+          _source: "microlink"
+        };
+      }
+    }
+    console.warn("[microlink] returned non-success, falling back to thum.io");
+  } catch (err) {
+    console.warn("[microlink] threw, falling back to thum.io:", err.message);
+  }
+
+  // 2) Fallback：thum.io 截图，无 meta（title/desc 从 URL 推断）
+  const host = (() => {
+    try { return new URL(url).hostname.replace(/^www\./, ""); }
+    catch { return url; }
+  })();
+  const titleGuess = host.split(".")[0]
+    .split(/[-_]/).filter(Boolean)
+    .map(s => s.charAt(0).toUpperCase() + s.slice(1)).join(" ");
   return {
-    title: d.title || "",
-    description: d.description || "",
-    screenshot: d.screenshot && d.screenshot.url,
-    image: d.image && d.image.url,
-    logo: d.logo && d.logo.url,
-    lang: d.lang,
-    author: d.author || ""
+    title: titleGuess,
+    description: "",
+    screenshot: `https://image.thum.io/get/width/1440/${url}`,
+    image: null,
+    logo: null,
+    lang: null,
+    author: "",
+    _source: "thum.io-fallback"
   };
 }
 
@@ -1453,6 +1481,9 @@ async function startCollect() {
     return;
   }
 
+  // 同时填充 curator CLI 命令（让 owner 一键复制走正式收录）
+  updateCuratorCliCommand(rawUrl);
+
   collectState = "running";
   collectUrlInput.disabled = true;
   autoCollectButton.disabled = true;
@@ -1989,6 +2020,35 @@ collectForm.addEventListener("submit", (event) => {
   event.preventDefault();
   startCollect();
 });
+
+/* Curator CLI command box: 用户一粘 URL 就显示一键 ingest 命令 */
+function updateCuratorCliCommand(url) {
+  const box = document.querySelector("#curatorCliBox");
+  const cmd = document.querySelector("#curatorCliCmd");
+  if (!box || !cmd) return;
+  try {
+    const cleanUrl = new URL(/^https?:\/\//i.test(url) ? url : `https://${url}`).toString();
+    cmd.textContent = `python3 scripts/ingest.py --url ${cleanUrl} --auto-publish`;
+    box.hidden = false;
+  } catch {
+    box.hidden = true;
+  }
+}
+
+// 用户输入 URL 时也同步更新（不用等点提交）
+collectUrlInput.addEventListener("input", () => updateCuratorCliCommand(collectUrlInput.value.trim()));
+
+const curatorCliCopyBtn = document.querySelector("#curatorCliCopyBtn");
+if (curatorCliCopyBtn) {
+  curatorCliCopyBtn.addEventListener("click", () => {
+    const text = document.querySelector("#curatorCliCmd")?.textContent || "";
+    if (!text) return;
+    navigator.clipboard.writeText(text).then(
+      () => showToast(t("toast.cli.copied")),
+      () => showToast(text)
+    );
+  });
+}
 
 /* ====== Language dropdown wiring ====== */
 const langTrigger = document.querySelector("#langTrigger");

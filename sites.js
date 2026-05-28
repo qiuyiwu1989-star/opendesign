@@ -1418,6 +1418,137 @@ window.STYLE_ATLAS_SITES = [
     }
   },
   {
+    "id": "jupi",
+    "title": "Jupi",
+    "url": "https://jupi.co/",
+    "image": "https://image.thum.io/get/width/1440/https://jupi.co/",
+    "tags": [
+      "Editorial",
+      "Product",
+      "Refined"
+    ],
+    "palette": "A stark white background with neutral grays and a single muted blue accent color.",
+    "layout": "A completely blank, centered layout featuring only a geometric graphic and a logotype.",
+    "interaction": "No interactive elements or hover states are visible in this minimal design.",
+    "motion": "No animations or transitions are visible in this static, minimalist composition.",
+    "notes": "This site is worth including as a prime example of extreme minimalism and the power of negative space in modern web design.",
+    "spec": {
+      "colors": {
+        "bg": "#FFFFFF",
+        "bgSoft": null,
+        "bgQuiet": null,
+        "ink": "#4A4A4A",
+        "inkSoft": null,
+        "muted": "#C8C8C8",
+        "mutedSoft": null,
+        "accent": "#1F5182",
+        "line": "rgba(0, 0, 0, 0)",
+        "principle": "White background with a single high-chroma blue accent and neutral grays."
+      },
+      "typography": {
+        "display": "slab-serif",
+        "body": "slab-serif",
+        "mono": null,
+        "scale": [
+          {
+            "token": "display",
+            "size": 32,
+            "lh": 1.2,
+            "weight": 400,
+            "ls": "0px",
+            "use": "Logo text"
+          }
+        ]
+      },
+      "spacing": {
+        "base": 4,
+        "scale": [
+          4,
+          8,
+          16,
+          24,
+          32,
+          48,
+          64,
+          96
+        ],
+        "rhythm": "Generous white space"
+      },
+      "surfaces": {
+        "radius": {
+          "sm": 0,
+          "md": 0,
+          "lg": 0,
+          "pill": 0
+        },
+        "shadows": [],
+        "borders": "None visible"
+      },
+      "layout": {
+        "container": 1280,
+        "paragraph": 680,
+        "columns": 12,
+        "gutter": 24,
+        "breakpoints": [
+          768,
+          1024
+        ],
+        "skeleton": "Centered layout with no visible structure"
+      },
+      "motion": {
+        "durations": {
+          "micro": 220,
+          "small": 400,
+          "medium": 800
+        },
+        "easing": "cubic-bezier(0.25, 0.1, 0.25, 1)"
+      },
+      "identity": {
+        "keywords": [
+          "minimal",
+          "clean",
+          "minimalist",
+          "geometric",
+          "abstract"
+        ],
+        "analogy": "A blank canvas with a single geometric accent",
+        "oneLiner": "A highly minimal, blank canvas design with a subtle geometric graphic and a simple logotype."
+      },
+      "components": {
+        "button": "None visible",
+        "card": "None visible",
+        "chip": "None visible",
+        "input": "None visible",
+        "hero": "Full-page centered graphic and logo"
+      },
+      "interaction": {
+        "hover": "None visible",
+        "click": "None visible",
+        "transition": "None visible",
+        "keyboard": "None visible"
+      },
+      "voice": {
+        "tone": "Quiet, abstract",
+        "headlineStyle": "Simple, lower-case logotype",
+        "ctaStyle": "None visible",
+        "avoid": [
+          "Complexity",
+          "Visual clutter",
+          "Excessive text"
+        ]
+      },
+      "donts": [
+        "Don't use a busy background — screenshot shows a solid white background.",
+        "Don't add unnecessary text — screenshot shows only a logo and a graphic.",
+        "Don't use multiple accent colors — screenshot shows only a single blue accent.",
+        "Don't use rounded containers or cards — screenshot shows a completely flat, borderless layout.",
+        "Don't use complex typography hierarchy — screenshot shows a simple, single-weight logotype.",
+        "Don't add drop shadows or depth — screenshot shows a completely flat design."
+      ],
+      "systemPrompt": "This is a hyper-minimalist, abstract landing page consisting of a white background, a simple geometric ring graphic, and a logotype. The palette is strictly white (#FFFFFF) with neutral grays (#C8C8C8, #4A4A4A) and a single, muted blue accent (#1F5182). The typography uses a simple slab-serif category for the logotype. Critical donts: avoid adding any visible navigation, headers, or footers; never use multiple accent colors or complex gradients; avoid adding any text besides the logo; do not use borders, shadows, or container backgrounds; keep the layout strictly centered with massive white space."
+    }
+  },
+  {
     "id": "linear",
     "title": "Linear",
     "url": "https://linear.app",
