@@ -21,6 +21,7 @@ FILES=(
   i18n.js
   sites.js
   sites-specs.json
+  sites-i18n.json
   supabase-config.js
   favicon.svg
   og-cover.png

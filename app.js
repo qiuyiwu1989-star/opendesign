@@ -733,7 +733,10 @@ function filteredSites() {
   const query = searchQuery.trim().toLowerCase();
   const list = sites.filter((site) => {
     const tagMatch = activeTag === "All" || site.tags.includes(activeTag);
-    const text = [site.title, site.url, site.notes, ...site.tags].join(" ").toLowerCase();
+    // 搜索覆盖多语言 notes —— 日语用户搜「ブラウザ」也能找到 Arc
+    const overlay = sitesI18n[site.id] || {};
+    const allNotes = Object.values(overlay).map((o) => o && o.notes).filter(Boolean);
+    const text = [site.title, site.url, site.notes, ...allNotes, ...site.tags].join(" ").toLowerCase();
     return tagMatch && (!query || text.includes(query));
   });
   if (sortMode === "popular") {
@@ -905,10 +908,10 @@ function openDetail(siteId) {
   document.querySelector("#drawerUrl").href = activeSite.url;
   document.querySelector("#drawerTags").innerHTML = activeSite.tags.map((tag) => `<span>${tag}</span>`).join("");
   document.querySelector("#insightGrid").innerHTML = [
-    [t("drawer.insight.color"), activeSite.palette],
-    [t("drawer.insight.layout"), activeSite.layout],
-    [t("drawer.insight.interaction"), activeSite.interaction],
-    [t("drawer.insight.motion"), activeSite.motion]
+    [t("drawer.insight.color"),       localizedField(activeSite, "palette")],
+    [t("drawer.insight.layout"),      localizedField(activeSite, "layout")],
+    [t("drawer.insight.interaction"), localizedField(activeSite, "interaction")],
+    [t("drawer.insight.motion"),      localizedField(activeSite, "motion")]
   ]
     .map(([title, body]) => `<section class="insight-card"><h3>${title}</h3><p>${body}</p></section>`)
     .join("");
@@ -1065,7 +1068,7 @@ function section0Source(site, domain, today) {
     `- **标签**: ${(site.tags || []).join(" · ") || "—"}`,
     `- **截图**: ${site.image}`,
     `- **收录时间**: ${today}`,
-    site.notes ? `- **收录原因**: ${site.notes}` : null,
+    localizedField(site, "notes") ? `- **收录原因**: ${localizedField(site, "notes")}` : null,
     ""
   ].filter(Boolean).join("\n");
 }
@@ -1075,7 +1078,7 @@ function section1Identity(site, spec) {
   if (!id) {
     return [
       "## 1. 设计气质 DNA",
-      `- ${site.notes || "克制、清晰、真实内容优先"}`,
+      `- ${localizedField(site, "notes") || "克制、清晰、真实内容优先"}`,
       ""
     ].join("\n");
   }
@@ -1093,7 +1096,7 @@ function section2Colors(spec, site) {
   if (!c) {
     return [
       "## 2. 颜色 Tokens",
-      `- 描述: ${site.palette || "—"}`,
+      `- 描述: ${localizedField(site, "palette") || "—"}`,
       "- ⚠️ 缺精确 hex tokens（待 AI 分析或人工补齐）",
       ""
     ].join("\n");
@@ -1186,7 +1189,7 @@ function section6Layout(spec, site) {
   if (!l) {
     return [
       "## 6. 布局 Layout",
-      `- 页面骨架: ${site.layout || "—"}`,
+      `- 页面骨架: ${localizedField(site, "layout") || "—"}`,
       ""
     ].join("\n");
   }
@@ -1198,7 +1201,7 @@ function section6Layout(spec, site) {
     `- **响应式断点**: ${(l.breakpoints || []).join(" / ") || "—"} px`,
     "",
     "### 页面骨架",
-    l.skeleton || site.layout || "—",
+    l.skeleton || localizedField(site, "layout") || "—",
     ""
   ].join("\n");
 }
@@ -1225,7 +1228,7 @@ function section8Motion(spec, site) {
   if (!m) {
     return [
       "## 8. 动效 Motion",
-      `- 描述: ${site.motion || "—"}`,
+      `- 描述: ${localizedField(site, "motion") || "—"}`,
       ""
     ].join("\n");
   }
@@ -1251,7 +1254,7 @@ function section9Interaction(spec, site) {
   if (!i) {
     return [
       "## 9. 交互 Interaction",
-      `- 核心交互: ${site.interaction || "—"}`,
+      `- 核心交互: ${localizedField(site, "interaction") || "—"}`,
       ""
     ].join("\n");
   }
@@ -1317,7 +1320,7 @@ function defaultSystemPrompt(site, spec, domain) {
   if (spec.typography && spec.typography.display) parts.push(`字体：标题 ${spec.typography.display}，正文 ${spec.typography.body || "无衬线"}。`);
   if (spec.layout && spec.layout.skeleton) parts.push(`页面骨架：${spec.layout.skeleton}`);
   if (spec.donts && spec.donts.length) parts.push(`禁用清单：${spec.donts.join("；")}。`);
-  if (!spec.identity) parts.push(`视觉关键词：${site.palette || "克制、清晰、真实内容优先"}`);
+  if (!spec.identity) parts.push(`视觉关键词：${localizedField(site, "palette") || "克制、清晰、真实内容优先"}`);
   return parts.join(" ");
 }
 
@@ -2083,13 +2086,14 @@ applyHash();
 (async () => {
   await Promise.all([
     mergeExternalSpecs(),
-    loadPacksIndex()
+    loadPacksIndex(),
+    loadSitesI18n()
   ]);
   await store.init();
-  // spec / packs / supabase 任一有变化都要重渲
+  // spec / packs / i18n / supabase 任一有变化都要重渲
   renderAll();
   if (detailDrawer.classList.contains("open") && activeSite) {
-    openDetail(activeSite.id);   // 重新渲染抽屉用新 spec / 显示下载按钮
+    openDetail(activeSite.id);   // 重新渲染抽屉用新 spec / 显示下载按钮 / 用新语言
   }
 })();
 
@@ -2113,6 +2117,40 @@ async function mergeExternalSpecs() {
   } catch (err) {
     // 文件不存在 / 解析失败都没事，正常运行
   }
+}
+
+/* ====== Sites i18n overlay ======
+ * 把 site 的 palette/layout/interaction/motion/notes 5 个字段按当前语言取出来。
+ * 数据存在 sites-i18n.json（侧旁文件，独立维护）。
+ * Fallback 链：requested-lang → en → site.<field>（sites.js 里的老字段，bw-compat）
+ */
+let sitesI18n = {};
+
+async function loadSitesI18n() {
+  try {
+    const res = await fetch("./sites-i18n.json", { cache: "no-cache" });
+    if (!res.ok) return;
+    const data = await res.json();
+    // 剥掉 _meta，剩下都是 site_id → { lang → fields }
+    Object.keys(data).forEach((k) => {
+      if (!k.startsWith("_")) sitesI18n[k] = data[k];
+    });
+    console.info(`[i18n] loaded sites-i18n for ${Object.keys(sitesI18n).length} sites`);
+  } catch (err) {
+    // 静默 fallback 到 sites.js 自带字段
+  }
+}
+
+/** 取当前语言下的字段值，多层回退保证不报错 */
+function localizedField(site, field) {
+  const lang = (window.i18n && window.i18n.current) || "en";
+  const overlay = sitesI18n[site.id];
+  if (overlay) {
+    if (overlay[lang] && overlay[lang][field]) return overlay[lang][field];
+    if (overlay.en   && overlay.en[field])   return overlay.en[field];
+    if (overlay["zh-CN"] && overlay["zh-CN"][field]) return overlay["zh-CN"][field];
+  }
+  return site[field] || "";
 }
 
 /** 设计素材包索引（site.id → {file, size}）—— 决定详情抽屉是否显示「下载」按钮 */
