@@ -10,19 +10,24 @@
     "Editorial",
     "Collaboration"
   ],
-  "status": "pending",
+  "status": "vision_done",
   "added_at": "2026-05-28",
   "added_by": "curator",
   "_meta": {
-    "total_cost_usd": 0.0
+    "total_cost_usd": 0.0,
+    "vision_model": "mimo-v2.5",
+    "vision_prompt_version": "0.3",
+    "vision_at": "2026-05-28T19:03:23+00:00",
+    "vision_tokens": 3482,
+    "vision_cost_usd": 0.0387
   },
   "desc": {
     "en": {
-      "palette": "Near-black base with saturated orange-red accents; bold type, generous whitespace.",
-      "layout": "Editorial-bold: oversized italic display headline sits in the center of the hero; features below break into magazine-style chapters.",
-      "interaction": "Subtle underlines on hover; scroll triggers headline transitions.",
-      "motion": "Mid-tempo fade and slide — steady pacing, never showy.",
-      "notes": "The most design-forward presentation-tool site — proof that a SaaS doesn't have to look like a SaaS."
+      "palette": "High-contrast dark theme with black base, white text, and vibrant green accent for key actions",
+      "layout": "Full-width hero sections with centered content, generous whitespace, and strong vertical rhythm",
+      "interaction": "Smooth, subtle transitions with clear hover states and focus indicators",
+      "motion": "Elegant, understated animations with fast micro-interactions and smooth easing",
+      "notes": "Excellent example of modern SaaS design with strong typography hierarchy and premium dark aesthetic"
     },
     "zh-CN": {
       "palette": "近黑底配高饱和橙红强调，文字大胆 + 大幅留白",
@@ -53,5 +58,188 @@
       "notes": "프레젠테이션 도구 사이트 중 가장 디자인 지향적 — SaaS 가 SaaS 처럼 보이지 않아도 됨을 증명."
     }
   },
-  "spec_i18n": {}
+  "spec_i18n": {
+    "en": {
+      "identity": {
+        "keywords": [
+          "presentation",
+          "collaboration",
+          "SaaS",
+          "design-forward",
+          "bold",
+          "editorial"
+        ],
+        "analogy": "A bold, design-forward tool for creating professional presentations that feels like a high-end editorial magazine",
+        "oneLiner": "A bold, design-forward presentation platform for modern teams"
+      },
+      "colors": {
+        "principle": "High-contrast with vibrant accent for key actions, dark base for premium feel"
+      },
+      "typography": {
+        "rules": [
+          "Use geometric sans-serif for headlines and body",
+          "Maintain tight letter-spacing for large display text",
+          "Use weight 500 for headlines, 400 for body",
+          "Ensure sufficient contrast ratios on dark backgrounds"
+        ],
+        "scaleUses": [
+          "Large hero headlines",
+          "Section headlines",
+          "Subsection headlines",
+          "Body text",
+          "Captions and small text"
+        ]
+      },
+      "spacing": {
+        "rhythm": "Consistent 4px base with generous spacing for premium feel"
+      },
+      "surfaces": {
+        "shadows": [
+          "0 4px 24px rgba(0, 0, 0, 0.3)",
+          "0 8px 32px rgba(0, 0, 0, 0.4)",
+          "0 0 120px rgba(185, 255, 102, 0.15)"
+        ],
+        "borders": "1px solid rgba(255, 255, 255, 0.15)"
+      },
+      "layout": {
+        "skeleton": "Full-width hero with centered content, generous whitespace, strong vertical rhythm"
+      },
+      "components": {
+        "button": "Two styles: primary (green fill, dark text, rounded) and secondary (white outline, white text, rounded)",
+        "card": "Dark cards with subtle borders, rounded corners, and slight glow effects",
+        "chip": "Small rounded tags with subtle backgrounds",
+        "input": "Dark input fields with white text, subtle borders, rounded corners",
+        "hero": "Full-width with gradient purple overlay, large typography, centered content, floating UI elements"
+      },
+      "motion": {
+        "patterns": [
+          "Smooth fade-ins for content sections",
+          "Subtle parallax on hero elements",
+          "Gentle hover transitions on interactive elements"
+        ]
+      },
+      "interaction": {
+        "hover": "Color shift on buttons, slight scale on cards, opacity change on links",
+        "click": "Subtle press effect on buttons, focus ring for accessibility",
+        "transition": "Smooth color and transform transitions (150-300ms)",
+        "keyboard": "Focus visible on interactive elements, logical tab order"
+      },
+      "voice": {
+        "tone": "Confident, professional, innovative",
+        "headlineStyle": "Bold, concise, action-oriented",
+        "ctaStyle": "Direct, clear, benefit-focused",
+        "avoid": [
+          "Jargon-heavy language",
+          "Overly casual tone",
+          "Complex sentence structures"
+        ]
+      },
+      "donts": [
+        "Don't use decorative serif fonts — screenshot shows clean geometric sans-serif typography",
+        "Don't add gradients to buttons — screenshot shows flat, solid color buttons",
+        "Don't use thin borders on cards — screenshot shows subtle, low-contrast borders",
+        "Don't create cluttered layouts — screenshot shows generous whitespace and clear hierarchy",
+        "Don't use multiple competing accent colors — screenshot shows single vibrant green accent",
+        "Don't use small, cramped spacing — screenshot shows generous padding and margins",
+        "Don't use complex icon sets — screenshot shows simple, minimal icons"
+      ],
+      "systemPrompt": "Pitch is a bold, design-forward SaaS presentation platform. Key colors: black (#000000) background, white (#ffffff) text, vibrant green (#b9ff66) accent for CTAs, deep purple gradient overlays. Typography uses geometric sans-serif (similar to Inter or Circular) with tight letter-spacing for display text. Critical donts: never use decorative serifs, never add gradients to buttons, never create cluttered layouts. The design emphasizes generous whitespace, high contrast, and premium dark aesthetics with subtle glow effects and minimal borders."
+    }
+  },
+  "spec": {
+    "colors": {
+      "bg": "#000000",
+      "bgSoft": "#1a1a1a",
+      "bgQuiet": null,
+      "ink": "#ffffff",
+      "inkSoft": "rgba(255, 255, 255, 0.8)",
+      "muted": "rgba(255, 255, 255, 0.5)",
+      "mutedSoft": "rgba(255, 255, 255, 0.3)",
+      "accent": "#b9ff66",
+      "line": "rgba(255, 255, 255, 0.15)"
+    },
+    "typography": {
+      "display": "geometric-sans",
+      "body": "geometric-sans",
+      "mono": null,
+      "scale": [
+        {
+          "token": "display",
+          "size": 72,
+          "lh": 1.0,
+          "weight": 500,
+          "ls": "-2px"
+        },
+        {
+          "token": "h1",
+          "size": 48,
+          "lh": 1.1,
+          "weight": 500,
+          "ls": "-1px"
+        },
+        {
+          "token": "h2",
+          "size": 32,
+          "lh": 1.2,
+          "weight": 500,
+          "ls": "-0.5px"
+        },
+        {
+          "token": "body",
+          "size": 16,
+          "lh": 1.5,
+          "weight": 400,
+          "ls": "0"
+        },
+        {
+          "token": "caption",
+          "size": 14,
+          "lh": 1.4,
+          "weight": 400,
+          "ls": "0"
+        }
+      ]
+    },
+    "spacing": {
+      "base": 4,
+      "scale": [
+        4,
+        8,
+        12,
+        16,
+        24,
+        32,
+        48,
+        64,
+        96,
+        128
+      ]
+    },
+    "surfaces": {
+      "radius": {
+        "sm": 4,
+        "md": 8,
+        "lg": 12,
+        "pill": 999
+      }
+    },
+    "layout": {
+      "container": 1280,
+      "paragraph": 680,
+      "columns": 12,
+      "gutter": 24,
+      "breakpoints": [
+        768,
+        1024
+      ]
+    },
+    "motion": {
+      "durations": {
+        "micro": 150,
+        "small": 300,
+        "medium": 500
+      },
+      "easing": "cubic-bezier(0.16, 1, 0.3, 1)"
+    }
+  }
 }

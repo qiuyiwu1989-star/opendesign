@@ -126,7 +126,7 @@
                 "type": "object",
                 "required": ["token", "size"],
                 "properties": {
-                  "token":  { "type": "string", "enum": ["display", "h1", "h2", "h3", "body", "body-lg", "small", "caption"] },
+                  "token":  { "type": "string", "pattern": "^[a-z][a-z0-9-]*$", "description": "kebab-case token name. Common: display/h1/h2/h3/body/small/caption, but display-lg, body-lg etc. also accepted." },
                   "size":   { "type": "number", "minimum": 8 },
                   "lh":     { "type": "number" },
                   "weight": { "type": "integer", "minimum": 100, "maximum": 900 },

@@ -10,14 +10,24 @@
     "Library",
     "Grid"
   ],
-  "status": "vision_done",
+  "status": "completed",
   "added_at": "2026-05-28",
   "added_by": "curator",
   "_meta": {
     "vision_model": "mimo-v2.5",
     "vision_prompt_version": "0.2_legacy",
     "vision_at": "2026-05-28T02:43:14.659Z",
-    "total_cost_usd": 0.0
+    "total_cost_usd": 0.0672,
+    "translation_model": "mimo-v2.5",
+    "translation_at": "2026-05-28T18:59:55+00:00",
+    "translation_tokens": 15942,
+    "translation_cost_usd": 0.0531,
+    "narrative_model": "mimo-v2.5",
+    "narrative_prompt_version": "0.3",
+    "narrative_at": "2026-05-28T19:00:05+00:00",
+    "narrative_tokens": 2116,
+    "narrative_cost_usd": 0.0141,
+    "narrative_status": "ok"
   },
   "spec": {
     "colors": {
@@ -224,7 +234,384 @@
         "标题长度不超过5个实义英文词 —— 核心标题'Discover real-world design inspiration'控制在6词且核心动作词简短"
       ],
       "systemPrompt": "你为设计工具网站构建系统。页面背景为纯白#FFFFFF与浅灰#F5F5F5交替。标题用geometric-sans 700 weight，正文用humanist-sans 400，全部无衬线。hero区垂直居中，图标在上，标题大而醒目。导航为固定胶囊形。CTA按钮为黑色pill形实心与白色pill形描边。留白慷慨，但功能区紧凑。严格使用黑白灰，绝不引入品牌色或渐变。标题直接、简短、功能导向，避免营销腔。"
+    },
+    "zh-CN": {
+      "identity": {
+        "keywords": [
+          "胶囊导航",
+          "设计灵感",
+          "社会证明",
+          "整洁排版",
+          "图标居中"
+        ],
+        "analogy": "是建筑师的材料库，而非设计杂志",
+        "oneLiner": "设计团队的UI参考素材库"
+      },
+      "colors": {
+        "principle": "纯白与浅灰交替，无品牌色干扰内容浏览"
+      },
+      "typography": {
+        "rules": [
+          "标题（display）居中，字重700，-1px字距",
+          "正文不居中，与标题形成对比",
+          "分类/屏幕标题（h2）加粗，作为列表分组标识"
+        ],
+        "scaleUses": [
+          "首屏核心标题，单行或双行",
+          "区块标题，如‘Trusted by’",
+          "正文描述与标签",
+          "导航与列表项文字"
+        ]
+      },
+      "spacing": {
+        "rhythm": "慷慨到适中的节奏变化：hero区留白巨大，搜索/分类区紧凑实用"
+      },
+      "surfaces": {
+        "shadows": [
+          "仅导航胶囊和搜索框有微弱投影，用于分层"
+        ],
+        "borders": "导航栏和搜索框有1px浅灰边线，无卡片式边框"
+      },
+      "layout": {
+        "skeleton": "顶部胶囊导航 → 居中图标+标题+副标题+双按钮 hero → 公司 logo 横排 → 浅灰背景区块内搜索框 + 三栏分类列表"
+      },
+      "components": {
+        "button": "胶囊形（pill）。黑色实心主按钮('Join for free')，白色描边副按钮('See our plans')",
+        "card": null,
+        "chip": null,
+        "input": "圆角搜索框，浅灰背景，左侧放大镜图标，右侧相机图标",
+        "hero": "垂直居中排列：圆角 App 图标 → 大标题 → 副标题 → 双 CTA 按钮"
+      },
+      "motion": {
+        "patterns": [
+          "导航栏固定且可能带模糊效果（sticky+backdrop-blur）",
+          "按钮可能有悬停时的轻微缩放或颜色变化"
+        ]
+      },
+      "interaction": {
+        "hover": "按钮可能有轻微缩放或背景色微调",
+        "click": "无信息",
+        "transition": "无信息",
+        "keyboard": "无信息"
+      },
+      "voice": {
+        "tone": "直接、专业、工具导向",
+        "headlineStyle": "简洁的祈使句或陈述句，强调‘真实世界’和‘灵感’",
+        "ctaStyle": "动词+名词，明确行动指令，如‘Join for free’",
+        "avoid": [
+          "夸张的营销话术",
+          "模糊的愿景描述",
+          "感叹号堆砌"
+        ]
+      },
+      "donts": [
+        "不做渐变或复杂背景 —— 截图全是纯白或浅灰纯色块",
+        "不用复杂动画或视差滚动 —— 布局静态、功能优先",
+        "不用衬线字体做标题 —— 全部标题和正文均为无衬线体",
+        "不用彩色或渐变色做强调 —— 除 app 图标外无高彩度颜色",
+        "不做多栏复杂 hero —— hero 区域严格居中单栏",
+        "标题长度不超过5个实义英文词 —— 核心标题'Discover real-world design inspiration'控制在6词且核心动作词简短"
+      ],
+      "systemPrompt": "你为设计工具网站构建系统。页面背景为纯白#FFFFFF与浅灰#F5F5F5交替。标题用geometric-sans 700 weight，正文用humanist-sans 400，全部无衬线。hero区垂直居中，图标在上，标题大而醒目。导航为固定胶囊形。CTA按钮为黑色pill形实心与白色pill形描边。留白慷慨，但功能区紧凑。严格使用黑白灰，绝不引入品牌色或渐变。标题直接、简短、功能导向，避免营销腔。"
+    },
+    "zh-TW": {
+      "identity": {
+        "keywords": [
+          "膠囊導航",
+          "設計靈感",
+          "社會證明",
+          "整潔排版",
+          "圖標居中"
+        ],
+        "analogy": "是建築師的 Materials Library，不是設計雜誌",
+        "oneLiner": "設計團隊的 UI 參考素材庫"
+      },
+      "colors": {
+        "principle": "純白與淺灰交替，無品牌色干擾內容瀏覽"
+      },
+      "typography": {
+        "rules": [
+          "標題（display）居中，字重700，-1px字距",
+          "正文不居中，與標題形成對比",
+          "分類/螢幕標題（h2）加粗，作為列表分組標識"
+        ],
+        "scaleUses": [
+          "首屏核心標題，單行或雙行",
+          "區塊標題，如‘Trusted by’",
+          "正文描述與標籤",
+          "導航與列表項文字"
+        ]
+      },
+      "spacing": {
+        "rhythm": "慷慨到適中的節奏變化：hero區留白巨大，搜尋/分類區緊湊實用"
+      },
+      "surfaces": {
+        "shadows": [
+          "僅導航膠囊和搜尋框有微弱投影，用於分層"
+        ],
+        "borders": "導航欄和搜尋框有1px淺灰邊線，無卡片式邊框"
+      },
+      "layout": {
+        "skeleton": "頂部膠囊導航 → 居中圖標+標題+副標題+雙按鈕 hero → 公司 logo 橫排 → 淺灰背景区塊內搜尋框 + 三欄分類列表"
+      },
+      "components": {
+        "button": "膠囊形（pill）。黑色實心主按鈕('Join for free')，白色描邊副按鈕('See our plans')",
+        "card": null,
+        "chip": null,
+        "input": "圓角搜尋框，淺灰背景，左側放大鏡圖標，右側相機圖標",
+        "hero": "垂直居中排列：圓角 App 圖標 → 大標題 → 副標題 → 雙 CTA 按鈕"
+      },
+      "motion": {
+        "patterns": [
+          "導航欄固定且可能帶模糊效果（sticky+backdrop-blur）",
+          "按鈕可能有懸停時的輕微縮放或顏色變化"
+        ]
+      },
+      "interaction": {
+        "hover": "按鈕可能有輕微縮放或背景色微調",
+        "click": "無資訊",
+        "transition": "無資訊",
+        "keyboard": "無資訊"
+      },
+      "voice": {
+        "tone": "直接、專業、工具導向",
+        "headlineStyle": "簡潔的祈使句或陳述句，強調‘真實世界’和‘靈感’",
+        "ctaStyle": "動詞+名詞，明確行動指令，如‘Join for free’",
+        "avoid": [
+          "誇張的行銷話術",
+          "模糊的願景描述",
+          "感嘆號堆砌"
+        ]
+      },
+      "donts": [
+        "不做漸變或複雜背景 —— 截圖全是純白或淺灰純色塊",
+        "不用複雜動畫或視差滾動 —— 佈局靜態、功能優先",
+        "不用襯線字體做標題 —— 全部標題和正文均為無襯線體",
+        "不用彩色或漸變色做強調 —— 除 app 圖標外無高彩度顏色",
+        "不做多欄複雜 hero —— hero 區域嚴格居中單欄",
+        "標題長度不超過5個實義英文詞 —— 核心標題'Discover real-world design inspiration'控制在6詞且核心動作詞簡短"
+      ],
+      "systemPrompt": "你為設計工具網站建構系統。頁面背景為純白#FFFFFF與淺灰#F5F5F5交替。標題用geometric-sans 700 weight，正文用humanist-sans 400，全部無襯線。hero區垂直居中，圖標在上，標題大而醒目。導航為固定膠囊形。CTA按鈕為黑色pill形實心與白色pill形描邊。留白慷慨，但功能區緊湊。嚴格使用黑白灰，絕不引入品牌色或漸變。標題直接、簡短、功能導向，避免行銷腔。"
+    },
+    "ja": {
+      "identity": {
+        "keywords": [
+          "カプセルナビゲーション",
+          "デザインインスピレーション",
+          "ソーシャルプルーフ",
+          "整ったタイポグラフィ",
+          "アイコン中央揃え"
+        ],
+        "analogy": "建築家のマテリアルライブラリであり、デザイン雑誌ではない",
+        "oneLiner": "デザインチームのUIリファレンス素材集"
+      },
+      "colors": {
+        "principle": "純白と淡いグレーを交互に使用し、ブランド色がコンテンツ閲覧を妨げないようにする"
+      },
+      "typography": {
+        "rules": [
+          "見出し（display）は中央揃え、ウェイト700、字間-1px",
+          "本文は非中央揃えとし、見出しとのコントラストを生む",
+          "カテゴリ/画面タイトル（h2）は太字にし、リストのグループ区切りとする"
+        ],
+        "scaleUses": [
+          "ファーストビューの核心見出し、1行または2行",
+          "ブロック見出し、例：「Trusted by」",
+          "本文の説明とラベル",
+          "ナビゲーションおよびリストアイテムのテキスト"
+        ]
+      },
+      "spacing": {
+        "rhythm": "適度から多めへのリズム変化：ヒーローエリアは余白をたっぷりと、検索/カテゴリエリアは実用的にコンパクトに"
+      },
+      "surfaces": {
+        "shadows": [
+          "ナビゲーションカプセルと検索ボックスのみに薄いシャドウを適用し、レイヤー感を演出"
+        ],
+        "borders": "ナビゲーションバーと検索ボックスに1pxの淡いグレーの境界線を設定し、カード型の枠線は使用しない"
+      },
+      "layout": {
+        "skeleton": "トップのカプセルナビゲーション → 中央揃えアイコン＋見出し＋サブ見出し＋2つのCTAボタンのヒーローエリア → 会社ロゴの横並び → 淡いグレー背景ブロック内の検索ボックス＋3カラムのカテゴリリスト"
+      },
+      "components": {
+        "button": "カプセル形（pill）。黑色塗りつぶしのプライマリボタン（'Join for free'）、白い縁取りのセカンダリボタン（'See our plans'）",
+        "card": null,
+        "chip": null,
+        "input": "角丸の検索ボックス、淡いグレーの背景、左側に虫眼鏡アイコン、右側にカメラアイコン",
+        "hero": "垂直方向に中央揃えで配置：角丸アプリアイコン → 大きな見出し → サブ見出し → 2つのCTAボタン"
+      },
+      "motion": {
+        "patterns": [
+          "ナビゲーションバーは固定表示で、ぼかし効果（sticky+backdrop-blur）を伴う可能性がある",
+          "ボタンにはホバー時に軽微なスケールアップや色の変化が可能发生する"
+        ]
+      },
+      "interaction": {
+        "hover": "ボタンには軽微なスケールアップや背景色の微調整が可能发生する",
+        "click": "情報なし",
+        "transition": "情報なし",
+        "keyboard": "情報なし"
+      },
+      "voice": {
+        "tone": "直接的、専門的、ツール指向",
+        "headlineStyle": "簡潔な命令形または陳述形で、「実際の」や「インスピレーション」を強調",
+        "ctaStyle": "動詞＋名詞の形式で明確なアクション指示、例：「Join for free」",
+        "avoid": [
+          "誇張されたマーケティング表現",
+          "曖昧なビジョンの記述",
+          "感嘆符の乱用"
+        ]
+      },
+      "donts": [
+        "グラデーションや複雑な背景を使用しない —— スクリーンショットはすべて純白または淡いグレーの単色ブロック",
+        "複雑なアニメーションやパララックススクロールを使用しない —— レイアウトは静的で機能優先",
+        "見出しにセリフフォントを使用しない —— すべての見出しと本文はサンセリフ",
+        "彩色やグラデーション色で強調表現を行わない —— アプリアイコン以外に高彩度カラーは使用しない",
+        "複雑なマルチカラムヒーローエリアを作成しない —— ヒーローエリアは厳密に中央揃えの単一カラム",
+        "見出しの長さは実質的な英単語5個以内 —— 核心見出し「Discover real-world design inspiration」は6語に留め、核となる動詞は簡潔に"
+      ],
+      "systemPrompt": "設計ツール用のウェブサイトのシステムを構築します。ページ背景は純白#FFFFFFと淡いグレー#F5F5F5を交互に使用します。見出しにはgeometric-sansのウェイト700、本文にはhumanist-sansのウェイト400、すべてサンセリフです。ヒーローエリアは垂直方向に中央揃えで、アイコンが上に位置します。見出しは大きく目立つようにします。ナビゲーションは固定カプセル形です。CTAボタンは黑色のpill形塗りつぶしと白いpill形縁取りです。余白はたっぷりととりますが、機能エリアはコンパクトにします。黒白灰のみを厳密に使用し、ブランド色やグラデーションは絶対に導入しません。見出しは直接的で短く機能指向とし、マーケティング調は避けます。"
+    },
+    "ko": {
+      "identity": {
+        "keywords": [
+          "캡슐 내비게이션",
+          "디자인 영감",
+          "사회적 증거",
+          "깔끔한 타이포그래피",
+          "아이콘 중앙 정렬"
+        ],
+        "analogy": "건축가의 자료실이지, 디자인 잡지가 아닙니다",
+        "oneLiner": "디자인 팀을 위한 UI 레퍼런스 라이브러리"
+      },
+      "colors": {
+        "principle": "순백과 연한 회색이 교차하며, 브랜드 컬러가 콘텐츠 탐색을 방해하지 않습니다"
+      },
+      "typography": {
+        "rules": [
+          "제목(display)은 중앙 정렬, weight 700, letter-spacing -1px",
+          "본문은 중앙 정렬하지 않아 제목과 대비를 이룹니다",
+          "카테고리/화면 제목(h2)은 굵게 처리하여 목록 그룹을 표시합니다"
+        ],
+        "scaleUses": [
+          "첫 화면 핵심 제목, 1~2줄 구성",
+          "섹션 제목, 예: 'Trusted by'",
+          "본문 설명과 라벨",
+          "내비게이션 및 목록 항목 텍스트"
+        ]
+      },
+      "spacing": {
+        "rhythm": "풍부에서 적당한 리듬 변화: 히어로 영역은 넉넉한 여백, 검색/카테고리 영역은 실용적으로 압축"
+      },
+      "surfaces": {
+        "shadows": [
+          "캡슐 내비게이션과 검색 상자에만 미세한 그림자를 적용하여 계층을 형성합니다"
+        ],
+        "borders": "내비게이션 바와 검색 상자에 1px 연한 회색 테두리, 카드 스타일 테두리는 없음"
+      },
+      "layout": {
+        "skeleton": "상단 캡슐 내비게이션 → 중앙 정렬 아이콘 + 제목 + 부제목 + 듀얼 버튼 히어로 → 회사 로고 가로 나열 → 연한 회색 배경 영역 내 검색 상자 + 3컬럼 카테고리 목록"
+      },
+      "components": {
+        "button": "캡슐 형태(pill). 검정색 실선 메인 버튼('Join for free'), 흰색 테두리 보조 버튼('See our plans')",
+        "card": null,
+        "chip": null,
+        "input": "둥근 모서리 검색 상자, 연한 회색 배경, 왼쪽 돋보기 아이콘, 오른쪽 카메라 아이콘",
+        "hero": "수직 중앙 정렬 구성: 둥근 앱 아이콘 → 큰 제목 → 부제목 → 듀얼 CTA 버튼"
+      },
+      "motion": {
+        "patterns": [
+          "내비게이션 바는 고정되며 흐림 효과(sticky+backdrop-blur) 적용 가능",
+          "버튼은 호버 시 미세한 축소 또는 색상 변화 가능"
+        ]
+      },
+      "interaction": {
+        "hover": "버튼에 미세한 축소 또는 배경색 미세 조정 가능",
+        "click": "정보 없음",
+        "transition": "정보 없음",
+        "keyboard": "정보 없음"
+      },
+      "voice": {
+        "tone": "직설적, 전문적, 도구 지향적",
+        "headlineStyle": "간결한 명령문 또는 서술문, '실제世界'와 '영감'을 강조",
+        "ctaStyle": "동사+명사 구조, 명확한 행동 지침, 예: 'Join for free'",
+        "avoid": [
+          "과장된 마케팅 표현",
+          "모호한 비전 서술",
+          "느낌표 남발"
+        ]
+      },
+      "donts": [
+        "그라디언트나 복잡한 배경 사용 금지 — 스크린샷은 모두 순백 또는 연한 회색 단색 블록",
+        "복잡한 애니메이션이나 패럴랙스 스크롤 사용 금지 — 레이아웃은 정적, 기능 우선",
+        "제목에 세리프 폰트 사용 금지 — 모든 제목과 본문은 무세체",
+        "컬러풀하거나 그라디언트로 강조하지 않음 — 앱 아이콘 외 고채도 색상 사용 금지",
+        "복잡한 멀티컬럼 히어로 구성 금지 — 히어로 영역은 엄격히 중앙 정렬 단일 컬럼",
+        "제목은 5개의 실질 영어 단어 이내 — 핵심 제목'Discover real-world design inspiration'은 6단어이며 핵심 동사가 간결"
+      ],
+      "systemPrompt": "당신은 디자인 도구 웹사이트의 시스템을 구축합니다. 페이지 배경은 순백#FFFFFF과 연한 회색#F5F5F5가 교차합니다. 제목은 geometric-sans weight 700, 본문은 humanist-sans weight 400, 모두 무세체입니다. 히어로 영역은 수직 중앙 정렬, 아이콘은 상단에, 제목은 크고 명확합니다. 내비게이션은 고정 캡슐 형태입니다. CTA 버튼은 검정 pill 형태 실선과 흰 pill 형태 테두리입니다. 여백은 풍부하나 기능 영역은 압축적입니다. 엄격히 흑백 회색만 사용하며, 절대 브랜드 컬러나 그라디언트를 도입하지 않습니다. 제목은 직접적, 간결, 기능 지향적이며 마케팅 톤을 피합니다."
     }
   },
-  "narrative": {}
+  "narrative": {
+    "en": {
+      "ch1_intro": "Mobbin functions as an architect's Materials Library—a vast, organized archive of real-world construction rather than a curated exhibition of finished designs. Its identity is built on systematic restraint, where the interface recedes to let the collected screenshots speak as the primary material. This is a tool for examination, not admiration, prioritizing function and reference over inspirational narrative.",
+      "ch2_intro": "The palette is a deliberate non-palette: a pure-white workbench base with black type and a minimal, functional touch of brand orange. This monochromatic rigor ensures the interface never competes with the colorful app screenshots it exists to present.",
+      "ch2_outro": "The principle is absolute neutrality; the system itself is a blank frame for the content it houses.",
+      "ch3_intro": "Typography employs a clear hierarchy of geometric-sans for commanding display titles and a more humanist-sans for functional body text, both strictly sans-serif. The voice is direct and instructional, using weight and centering to guide attention rather than decorative styling.",
+      "ch4_intro": "The rhythm shifts dramatically between generous, open hero space and tightly packed, utilitarian search and category zones.",
+      "ch5_intro": "Surfaces are defined by function, not decoration: a fixed navigation capsule and search field are subtly lifted from the flat plane with minimal shadow and a fine border. There are no decorative cards or complex containers; the layout is a series of pure, stacked content blocks.",
+      "ch6_intro": "The skeleton is a strict, single-column composition: a fixed capsule navigation bar yields to a vertically centered hero cluster. Below this, a horizontal proof-line of company logos precedes the primary three-column grid of interface screenshots, which forms the core browsing experience.",
+      "ch7_intro": "Interaction is restrained and purposeful, with hover states providing subtle feedback like a slight scale change. The philosophy prioritizes a static, predictable layout for efficient scanning, avoiding any animation that would distract from the reference material itself.",
+      "ch8_intro": "The editorial voice is direct, professional, and tool-oriented, using concise imperatives or declarative statements that emphasize real-world utility. It avoids superlatives, vague visionary language, and excessive punctuation to maintain a tone of practical authority.",
+      "ch8_outro": "The system deliberately avoids decorative gradients, complex animations, serif type, and chromatic emphasis, maintaining a strict monochrome utility that lets the collected works provide all the color."
+    },
+    "zh-CN": {
+      "ch1_intro": "Mobbin 的定位如同建筑师的材料库——一个庞大而有序的实景素材档案，而非精心策划的成品展览。其设计语言建立于系统化的克制之上，界面退居幕后，让收集的截图作为核心素材自然呈现。这是一个用于审视与参考的工具，而非激发灵感的叙事载体，功能与参考价值优先于装饰性表达。",
+      "ch2_intro": "配色方案是一种刻意的“非配色”：以纯白为工作台基底，搭配黑色字体与极简的功能性品牌橙点缀。这种单色系的严谨性确保界面永远不会与它所要展示的多彩应用截图形成视觉竞争。",
+      "ch2_outro": "核心原则是绝对中立：系统本身即为内容呈现的空白画框。",
+      "ch3_intro": "字体系统采用清晰的层级结构：几何无衬线字体用于醒目的标题，更具人文气质的无衬线字体用于功能性正文，二者均严格保持无衬线形态。表达方式直接而富有指导性，通过字重与居中排布引导视线，而非依赖装饰性样式。",
+      "ch4_intro": "布局节奏在开阔的留白展示区与紧凑实用的搜索分类区之间形成鲜明对比。",
+      "ch5_intro": "界面元素由功能定义，而非装饰：固定的导航胶囊与搜索栏通过极细的边框与微阴影，从平面背景中轻轻浮现。没有装饰性卡片或复杂容器，整个布局由纯粹的内容区块纵向堆叠构成。",
+      "ch6_intro": "骨架采用严格的单栏构图：固定的胶囊导航栏下方是垂直居中的核心展示区。其下横向排列着品牌标识证明带，再过渡到三栏网格的界面截图矩阵，构成核心浏览体验。",
+      "ch7_intro": "交互设计克制而精准：悬停状态仅通过细微的缩放变化提供反馈。设计哲学强调静态、可预测的布局以支持高效浏览，避免任何可能分散参考注意力的动画效果。",
+      "ch8_intro": "编辑语气直接、专业且工具导向，多用简洁的祈使句或陈述句突出实用价值。避免使用最高级词汇、模糊的愿景式表达及过度标点，保持务实权威的语调。",
+      "ch8_outro": "系统刻意规避装饰性渐变、复杂动画、衬线字体与色彩强调，维持纯粹的单色工具感，让所收录的作品自身提供所有色彩表现。"
+    },
+    "zh-TW": {
+      "ch1_intro": "Mobbin 就像建築師的材料圖書館——一座龐大、有系統、歸檔過的真實世界素材庫，而非精心策展的成品設計展。其設計基礎在於有系統的克制，讓介面退居幕後，使截圖成為主要的呈現材料。這是一個用於檢視而非欣賞的工具，優先考慮功能與參考價值，而非靈感敘事。",
+      "ch2_intro": "色彩方案是刻意的「無方案」：純白的工作台底色搭配黑色字體，以及極簡、功能性的品牌橘色點綴。這種單色調的嚴謹性，確保了介面永遠不會與其要呈現的豐富色彩應用程式截圖爭奪視線。",
+      "ch2_outro": "原則是絕對的中立性；系統本身是為其內容提供的空白畫框。",
+      "ch3_intro": "字體層級分明：幾何無襯線字體用於醒目的標題，較具人文風格的無襯線字體用於功能性的內文，兩者皆嚴格採用無襯線字體。語氣直接且具指導性，運用字重與置中來引導注意力，而非裝飾性樣式。",
+      "ch4_intro": "節奏在寬敞、開放的首頁區塊與緊湊、實用的搜尋及分類區之間，有著戲劇性的轉變。",
+      "ch5_intro": "表面的定義來自功能而非裝飾：固定的導航膠囊按鈕與搜尋欄，透過極簡的陰影與細緻邊框，從平坦表面微微浮起。沒有裝飾性卡片或複雜容器；版面是一系列純粹、垂直堆疊的內容區塊。",
+      "ch6_intro": "骨架結構是嚴謹的單欄版面配置：固定的膠囊導航欄讓位給垂直置中的首頁區塊組合。下方是一排公司標誌組成的橫向信任線，接著是三欄式的介面截圖主網格，這構成了核心的瀏覽體驗。",
+      "ch7_intro": "互動設計克制而有目的，hover 狀態提供細微回饋，如微幅的縮放變化。其哲學優先考慮靜態、可預測的版面，以利高效掃視，避免任何會分散參考素材本身注意力的動畫。",
+      "ch8_intro": "編輯語氣直接、專業且工具導向，使用簡潔的祈使句或陳述句，強調其在真實世界的實用性。它避免了最高級形容詞、模糊的願景式語言以及過多的標點符號，以維持務實的權威感。",
+      "ch8_outro": "此系統刻意避免裝飾性漸層、複雜動畫、襯線字體以及色彩強調，維持嚴格的單色調實用性，讓收錄的作品自身提供所有色彩。"
+    },
+    "ja": {
+      "ch1_intro": "Mobbinは、建築家の材料ライブラリとして機能します。完成したデザインのキュレーションされた展示ではなく、実際の建築物の広大で体系化されたアーカイブです。そのアイデンティティは、システム的な抑制の上に構築されており、インターフェースが退くことで、収集されたスクリーンショットが主要な材料として語れるようになっています。これは称賛のためのツールではなく、検査のためのツールです。インスピレーションの物語よりも、機能と参照を優先しています。",
+      "ch2_intro": "パレットは意図的なノン・パレットです：純白の作業台ベースに、黒い文字と、最小限で機能的なブランドオレンジのタッチを加えたものです。この単色の厳密さにより、インターフェースは、 presenting ために存在するカラフルなアプリスクリーンショットと競合することがありません。",
+      "ch2_outro": "原則は絶対の中立性です。システム自体は、格納するコンテンツのための無地の額縁です。",
+      "ch3_intro": "タイポグラフィは、支配的なディスプレイタイトルに幾何学・サンセリフを、機能的な本文テキストにはよりヒューマニスト・サンセリフを、明確な階層構造で採用し、両方とも厳密にサンセリフです。声は直接的で指示的であり、装飾的なスタイリングではなく、ウェイトとセンタリングを使用して注意を誘導します。",
+      "ch4_intro": "リズムは、広々としたオープンなヒーロースペースと、密に詰め込まれた実用的な検索およびカテゴリゾーンとの間で、劇的に変化します。",
+      "ch5_intro": "表面は装飾ではなく機能によって定義されます：固定されたナビゲーションカプセルと検索フィールドは、最小限のシャドウと細いボーダーによって、平坦な面から微妙に浮き上がっています。装飾的なカードや複雑なコンテナはなく、レイアウトは一連の純粋で積み重なったコンテンツブロックです。",
+      "ch6_intro": "骨格は厳格な単一カラム構成です：固定されたカプセルナビゲーションバーが、垂直にセンタリングされたヒーロークラスタに譲ります。その下、会社ロゴの水平なラインが、インターフェーススクリーンショットの主要な3カラムグリッド、つまりブラウジング体験のコアを形成します。",
+      "ch7_intro": "インタラクションは抑制的で目的指向です。hover状態は、わずかなスケール変更などの微妙なフィードバックを提供します。この哲学は、参照材料自体から注意をそらすアニメーションを避け、効率的なスキャンのために静的で予測可能なレイアウトを優先します。",
+      "ch8_intro": "エディトリアル・ボイスは、直接的で、専門的で、ツール指向です。簡潔な命令形や、実際の実用性を強調する宣言的な文を用います。最高級の形容詞、曖じいビジョンの言葉、過度の句読点を避け、実践的な権威のトーンを維持します。",
+      "ch8_outro": "システムは、意図的に装飾的なグラデーション、複雑なアニメーション、セリフ体の文字、彩色による強調を避けています。厳格なモノクロームの実用性を維持し、収集された作品にすべての色彩を提供させます。"
+    },
+    "ko": {
+      "ch1_intro": "Mobbin은 건축가의 재료 도서관처럼 기능합니다. 완성된 디자인의 기획된 전시가 아니라, 실제 구현된 구성 요소들의 광대하고 체계적으로 정리된 아카이브입니다. 그 정체성은 체계적인 절제 위에 세워져 있으며, 인터페이스는 수집된 스크린샷이 주요 재료로 발언할 수 있도록 물러납니다. 이는 감상이 아닌 분석을 위한 도구로, 영감을 주는 서사보다 기능과 참조를 우선시합니다.",
+      "ch2_intro": "팔레트는 의도적인 비팔레트입니다: 순백의 작업대 베이스에 검은 글꼴과 최소한의 기능적 브랜드 오렌지 터치만을 적용했습니다. 이러한 단색의 엄밀함은 인터페이스가 존재하는 목적인 다채로운 앱 스크린샷과 절대 경쟁하지 않도록 보장합니다.",
+      "ch2_outro": "원칙은 절대적 중립성이며, 시스템 자체는 내용물을 담는 빈 프레임입니다.",
+      "ch3_intro": "타이포그래피는 강렬한 전시 제목을 위한 기하학적 산세리프의 명확한 계층과 기능적인 본문을 위한 더 인문학적 산세리프를 사용하며, 둘 다 엄격히 산세리프입니다. 어조는 직접적이고 지시적이며, 장식적 스타일링 대신 굵기와 중앙 정렬을 사용해 주의를 안내합니다.",
+      "ch4_intro": "리듬은 헐거운 오픈 히어로 영역과 빡빡하고 실용적인 검색 및 카테고리 구역 사이에서 극적으로 전환됩니다.",
+      "ch5_intro": "표면은 장식이 아닌 기능으로 정의됩니다: 고정된 내비게이션 캡슐과 검색 필드는 최소한의 그림자와 미세한 테두리로 평면에서 미묘하게 떠 있습니다. 장식적 카드나 복잡한 컨테이너는 없으며, 레이아웃은 순수한 콘텐츠 블록의 직렬 스택입니다.",
+      "ch6_intro": "골격은 엄격한 단일 칼럼 구성입니다: 고정된 캡슐 내비게이션 바는 수직으로 중앙 정렬된 히어로 클러스터에 자리를 양보합니다. 그 아래에는 인터페이스 스크린샷의 3칼럼 그리드인 주요 브라우징 경험에 앞서 회사 로고들의 수평 증거 라인이 위치합니다.",
+      "ch7_intro": "상호작용은 절제되고 목적이 뚜렷하며, hover 상태는 약한 스케일 변화와 같은 미묘한 피드백을 제공합니다. 이 철학은 참조 자료 자체로부터 산만해지는 모든 애니메이션을 피하면서 효율적인 스캔을 위한 정적이고 예측 가능한 레이아웃을 우선시합니다.",
+      "ch8_intro": "에디토리얼 어조는 직접적이고 전문적이며 도구 지향적이며, 실제 세계의 유용성을 강조하는 간결한 명령형이나 서술형 진술을 사용합니다. 과장된 표현, 모호한 비전적 언어, 과도한 구두점을 피하여 실용적 권위의 톤을 유지합니다.",
+      "ch8_outro": "시스템은 의도적으로 장식적 그래디언트, 복잡한 애니메이션, 세리프 서체, 색상 강조를 피하며, 수집된 작품들이 모든 색상을 제공하도록 엄격한 단색 유틸리티를 유지합니다."
+    }
+  }
 }

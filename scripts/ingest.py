@@ -80,10 +80,14 @@ def call_mimo(
     system: str | None = None,
     max_tokens: int = 4096,
     timeout: int = 90,
+    enable_thinking: bool = False,
 ) -> dict:
     """
     POST 到任意 Anthropic-format endpoint。返回:
       { content_text, input_tokens, output_tokens, raw }
+
+    重要：mimo-v2.5 默认开 extended thinking，会用掉一半 output token + 增加 JSON 被截风险。
+    本函数默认 disable thinking，输出只剩 JSON，省 ~50% output cost。
     """
     api_key = os.environ.get("ANTHROPIC_API_KEY")
     base_url = (os.environ.get("ANTHROPIC_BASE_URL") or "https://api.anthropic.com").rstrip("/")
@@ -99,6 +103,9 @@ def call_mimo(
     }
     if system:
         payload["system"] = system
+    if not enable_thinking:
+        # mimo 兼容 anthropic extended thinking API；关掉省 token
+        payload["thinking"] = {"type": "disabled"}
 
     body = json.dumps(payload).encode("utf-8")
     req = urllib.request.Request(
@@ -134,15 +141,33 @@ def parse_json_from_response(text: str) -> dict:
     """
     s = text.strip()
     if s.startswith("```"):
-        # 去 fence
         s = re.sub(r"^```(?:json)?\s*", "", s)
         s = re.sub(r"\s*```$", "", s)
-    # 找第一个 { 到最后一个 }
     start = s.find("{")
     end = s.rfind("}")
     if start < 0 or end < 0:
         raise ValueError(f"No JSON object found in response: {text[:200]}")
-    return json.loads(s[start:end + 1])
+    candidate = s[start:end + 1]
+    try:
+        return json.loads(candidate)
+    except json.JSONDecodeError:
+        # 容错：去掉 JSON 中的尾随逗号 ", }" / ", ]" 后再 try 一次
+        cleaned = re.sub(r",\s*([}\]])", r"\1", candidate)
+        return json.loads(cleaned)
+
+
+def call_mimo_with_retry(messages, *, system=None, max_tokens=4096, retries: int = 2, **kwargs):
+    """Wraps call_mimo with 1-shot retry on JSONDecodeError + transient HTTP."""
+    last_err = None
+    for attempt in range(retries):
+        try:
+            return call_mimo(messages, system=system, max_tokens=max_tokens, **kwargs)
+        except Exception as e:
+            last_err = e
+            if attempt < retries - 1:
+                time.sleep(1.5 ** attempt)
+                continue
+    raise last_err
 
 
 # ============================================================
@@ -294,7 +319,7 @@ def step_vision(site: dict, *, dry_run: bool = False) -> dict:
     result = call_mimo(
         messages=[{"role": "user", "content": user_msg}],
         system=vision_prompt_system(),
-        max_tokens=4096,
+        max_tokens=6000,  # vision JSON ~1500 token + mimo thinking ~3000 token，留头
     )
     parsed = parse_json_from_response(result["content_text"])
 
@@ -350,7 +375,7 @@ def step_translate_spec(site: dict, *, dry_run: bool = False) -> dict:
         result = call_mimo(
             messages=[{"role": "user", "content": f"Translate this English design-spec fragment into {LANG_NATIVE[lang]}.\n\n```json\n{json.dumps(payload, ensure_ascii=False, indent=2)}\n```"}],
             system=translate_prompt_system(lang),
-            max_tokens=3000,
+            max_tokens=4500,  # mimo extended thinking 占输出预算大头
         )
         parsed = parse_json_from_response(result["content_text"])
         # 严格：只在我们请求了的字段写回
@@ -388,9 +413,9 @@ def step_narrative(site: dict, *, dry_run: bool = False) -> dict:
             result = call_mimo(
                 messages=[{"role": "user", "content": user_text}],
                 system=narrative_prompt_system("en"),
-                max_tokens=2000,
+                max_tokens=3500,  # mimo 内部 thinking + JSON 输出，预留头部
             )
-            narrative["en"] = parse_json_from_response(result["content_text"])
+            narrative["en"] = normalize_narrative(parse_json_from_response(result["content_text"]))
             meta = site.setdefault("_meta", {})
             meta["narrative_model"] = os.environ.get("ANTHROPIC_MODEL", "mimo-v2.5")
             meta["narrative_prompt_version"] = NARRATIVE_PROMPT_VERSION
@@ -411,9 +436,9 @@ def step_narrative(site: dict, *, dry_run: bool = False) -> dict:
             result = call_mimo(
                 messages=[{"role": "user", "content": f"Translate this narrative JSON to {LANG_NATIVE[lang]}.\n\n```json\n{json.dumps(narrative['en'], ensure_ascii=False, indent=2)}\n```"}],
                 system=translate_prompt_system(lang),
-                max_tokens=2000,
+                max_tokens=3500,
             )
-            narrative[lang] = parse_json_from_response(result["content_text"])
+            narrative[lang] = normalize_narrative(parse_json_from_response(result["content_text"]))
             meta = site.setdefault("_meta", {})
             meta["translation_tokens"] = meta.get("translation_tokens", 0) + result["input_tokens"] + result["output_tokens"]
             meta["translation_cost_usd"] = round(meta.get("translation_cost_usd", 0.0) + estimate_cost("translate", result), 4)
@@ -491,6 +516,33 @@ def split_spec(spec: dict) -> tuple[dict, dict]:
     if "donts" in spec:       relative["donts"] = spec["donts"]
     if "systemPrompt" in spec: relative["systemPrompt"] = spec["systemPrompt"]
     return neutral, relative
+
+
+_NARRATIVE_KEYS = {"ch1_intro","ch2_intro","ch2_outro","ch3_intro","ch4_intro",
+                   "ch5_intro","ch6_intro","ch7_intro","ch8_intro","ch8_outro"}
+
+def normalize_narrative(n: dict) -> dict:
+    """mimo 偶尔拼错 key（c8_outro / chapter1_intro 等），尽量纠正。"""
+    if not isinstance(n, dict): return n
+    fixed = {}
+    for k, v in n.items():
+        nk = k
+        if nk in _NARRATIVE_KEYS:
+            fixed[nk] = v; continue
+        # c8_outro → ch8_outro
+        if nk.startswith("c") and not nk.startswith("ch"):
+            candidate = "ch" + nk[1:]
+            if candidate in _NARRATIVE_KEYS:
+                fixed[candidate] = v; continue
+        # chapter1_intro → ch1_intro
+        m = re.match(r"^chapter(\d+)_(intro|outro)$", nk)
+        if m:
+            candidate = f"ch{m.group(1)}_{m.group(2)}"
+            if candidate in _NARRATIVE_KEYS:
+                fixed[candidate] = v; continue
+        # 其它 key 保留（schema 用 additionalProperties: false 会兜底）
+        fixed[nk] = v
+    return fixed
 
 
 def estimate_cost(step: str, result: dict) -> float:

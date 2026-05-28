@@ -10,14 +10,24 @@
     "Friendly",
     "Product"
   ],
-  "status": "vision_done",
+  "status": "completed",
   "added_at": "2026-05-28",
   "added_by": "curator",
   "_meta": {
     "vision_model": "mimo-v2.5",
     "vision_prompt_version": "0.2_legacy",
     "vision_at": "2026-05-28T02:39:39.292Z",
-    "total_cost_usd": 0.0
+    "total_cost_usd": 0.0683,
+    "translation_model": "mimo-v2.5",
+    "translation_at": "2026-05-28T18:46:06+00:00",
+    "translation_tokens": 16184,
+    "translation_cost_usd": 0.0538,
+    "narrative_model": "mimo-v2.5",
+    "narrative_prompt_version": "0.3",
+    "narrative_at": "2026-05-28T18:46:15+00:00",
+    "narrative_tokens": 2172,
+    "narrative_cost_usd": 0.0145,
+    "narrative_status": "ok"
   },
   "spec": {
     "colors": {
@@ -224,6 +234,322 @@
         "不在按钮上写「Get Started for Free」—— 用「Try Dia」三词搞定"
       ],
       "systemPrompt": "你是科技产品发布页设计师。配色：高饱和靛蓝实色（上下两端）+ 纯白 hero + 黑色 CTA；标题用 transitional serif 粗体 700，副标题 humanist sans 400；锯齿波形 SVG clip-path 做区隔过渡；hero 居中单列：标题→副标题→黑色圆角按钮→产品预览；引言区蓝底白字大衬线斜体；按钮极简不超过 3 词；不用渐变 / 不用功能 grid / 不放 hero 全屏图 / 标题不用无衬线 / 不用企业级话术。"
+    },
+    "zh-CN": {
+      "identity": {
+        "keywords": [
+          "锯齿波形装饰",
+          "高对比蓝白",
+          "粗衬线标题",
+          "消费品温度",
+          "自信宣言"
+        ],
+        "analogy": "是 Apple 产品发布页的排版精度 × Tumblr 早期的俏皮装饰，不是 Figma 企业官网",
+        "oneLiner": "用消费品发布会的排版自信，把浏览器重新定义成值得期待的「产品」"
+      },
+      "colors": {
+        "principle": "调色板为空，无法提取精确色值；观察到蓝/白/黑三色主导，蓝色占据上下两端，白色留给 hero 和预览区"
+      },
+      "typography": {
+        "rules": [
+          "主标题和引言均用粗衬线体 700 weight，不做细体",
+          "引言使用斜体斜杠引号装饰",
+          "副标题 humanist-sans 400，不加粗"
+        ],
+        "scaleUses": [
+          "首屏主标题「Meet Dia...」",
+          "副标题安全更新说明",
+          "蓝色区域大引言",
+          "THE VERGE 来源署名"
+        ]
+      },
+      "spacing": {
+        "rhythm": "慷慨：hero 区上下各留约 96-128px，引言区亦然"
+      },
+      "surfaces": {
+        "shadows": [
+          "浏览器预览区有微弱投影营造悬浮感"
+        ],
+        "borders": "无显式边框，靠色块和投影区隔"
+      },
+      "layout": {
+        "skeleton": "顶部导航 → 锯齿过渡 → hero 标题+副标题+CTA → 浏览器产品预览 → 锯齿过渡 → 蓝底大引言+署名 → 下载按钮双列 → 页脚"
+      },
+      "components": {
+        "button": "黑色圆角大按钮，内含图标+文字+箭头，约 56px 高；下载按钮为蓝紫色半透明圆角胶囊",
+        "card": null,
+        "chip": "蓝色小圆角标签「Work」带下拉箭头",
+        "input": null,
+        "hero": "居中单列：粗衬线大标题 + humanist 副标题 + 黑色 CTA 按钮 + 浏览器预览截图"
+      },
+      "motion": {
+        "patterns": [
+          "锯齿波形边缘暗示 SVG clip-path 动画",
+          "按钮箭头 → 暗示悬停平移"
+        ]
+      },
+      "interaction": {
+        "hover": "按钮黑色实色，推断悬停加深或微微放大",
+        "click": null,
+        "transition": "锯齿波形可能有 scroll 视差",
+        "keyboard": null
+      },
+      "voice": {
+        "tone": "轻松自信的科技发布语气，不端着",
+        "headlineStyle": "陈述句直接命名产品，不用疑问或命令",
+        "ctaStyle": "「Try Dia →」行动导向但不急迫",
+        "avoid": [
+          "不用技术术语堆砌",
+          "不用企业级安全话术",
+          "不用「革命性」等过度营销词"
+        ]
+      },
+      "donts": [
+        "不做严肃企业蓝 —— 截图蓝是高饱和靛蓝非企业 navy",
+        "不用渐变色块填充 —— 所有色块均为实色",
+        "标题不用无衬线体 —— 截图主标题全部用粗衬线",
+        "不放功能列表 grid —— hero 只有一个标题+一个按钮+一张预览",
+        "不用 hero 全屏背景图 —— hero 是纯白底+文字居中",
+        "不在按钮上写「Get Started for Free」—— 用「Try Dia」三词搞定"
+      ],
+      "systemPrompt": "你是科技产品发布页设计师。配色：高饱和靛蓝实色（上下两端）+ 纯白 hero + 黑色 CTA；标题用 transitional serif 粗体 700，副标题 humanist sans 400；锯齿波形 SVG clip-path 做区隔过渡；hero 居中单列：标题→副标题→黑色圆角按钮→产品预览；引言区蓝底白字大衬线斜体；按钮极简不超过 3 词；不用渐变 / 不用功能 grid / 不放 hero 全屏图 / 标题不用无衬线 / 不用企业级话术。"
+    },
+    "zh-TW": {
+      "identity": {
+        "keywords": [
+          "鋸齒波形裝飾",
+          "高對比藍白",
+          "粗襯線標題",
+          "消費品溫度",
+          "自信宣言"
+        ],
+        "analogy": "是 Apple 產品發布頁的排版精度 × Tumblr 早期的俏皮裝飾，不是 Figma 企業官網",
+        "oneLiner": "用消費品發布會的排版自信，把瀏覽器重新定義成值得期待的「產品」"
+      },
+      "colors": {
+        "principle": "色盤為空，無法提取精確色值；觀察到藍/白/黑三色主導，藍色佔據上下兩端，白色留給 hero 和預覽區"
+      },
+      "typography": {
+        "rules": [
+          "主標題和引言均用粗襯線體 700 weight，不做細體",
+          "引言使用斜體斜線引號裝飾",
+          "副標題 humanist-sans 400，不加粗"
+        ],
+        "scaleUses": [
+          "首屏主標題「Meet Dia...」",
+          "副標題安全更新說明",
+          "藍色區域大引言",
+          "THE VERGE 來源署名"
+        ]
+      },
+      "spacing": {
+        "rhythm": "慷慨：hero 區上下各留約 96-128px，引言區亦然"
+      },
+      "surfaces": {
+        "shadows": [
+          "瀏覽器預覽區有微弱投影營造懸浮感"
+        ],
+        "borders": "無顯式邊框，靠色塊和投影區隔"
+      },
+      "layout": {
+        "skeleton": "頂部導航 → 鋸齒過渡 → hero 標題+副標題+CTA → 瀏覽器產品預覽 → 鋸齒過渡 → 藍底大引言+署名 → 下載按鈕雙欄 → footer"
+      },
+      "components": {
+        "button": "黑色圓角大按鈕，內含圖示+文字+箭頭，約 56px 高；下載按鈕為藍紫色半透明圓角膠囊",
+        "card": null,
+        "chip": "藍色小圓角標籤「Work」帶下拉箭頭",
+        "input": null,
+        "hero": "居中單欄：粗襯線大標題 + humanist 副標題 + 黑色 CTA 按鈕 + 瀏覽器預覽截圖"
+      },
+      "motion": {
+        "patterns": [
+          "鋸齒波形邊緣暗示 SVG clip-path 動畫",
+          "按鈕箭頭 → 暗示懸停平移"
+        ]
+      },
+      "interaction": {
+        "hover": "按鈕黑色實色，推斷懸停加深或微微放大",
+        "click": null,
+        "transition": "鋸齒波形可能有 scroll 視差",
+        "keyboard": null
+      },
+      "voice": {
+        "tone": "輕鬆自信的科技發布語氣，不端著",
+        "headlineStyle": "陳述句直接命名產品，不用疑問或命令",
+        "ctaStyle": "「Try Dia →」行動導向但不急迫",
+        "avoid": [
+          "不用技術術語堆砌",
+          "不用企業級安全話術",
+          "不用「革命性」等過度營銷詞"
+        ]
+      },
+      "donts": [
+        "不做嚴肅企業藍 —— 截圖藍是高飽和靛藍非企業 navy",
+        "不用漸變色塊填充 —— 所有色塊均為實色",
+        "標題不用無襯線體 —— 截圖主標題全部用粗襯線",
+        "不放功能列表 grid —— hero 只有一個標題+一個按鈕+一張預覽",
+        "不用 hero 全屏背景圖 —— hero 是純白底+文字居中",
+        "不在按鈕上寫「Get Started for Free」—— 用「Try Dia」三詞搞定"
+      ],
+      "systemPrompt": "你是科技產品發布頁設計師。配色：高飽和靛藍實色（上下兩端）+ 純白 hero + 黑色 CTA；標題用 transitional serif 粗體 700，副標題 humanist sans 400；鋸齒波形 SVG clip-path 做區隔過渡；hero 居中單欄：標題→副標題→黑色圓角按鈕→產品預覽；引言區藍底白字大襯線斜體；按鈕極簡不超過 3 詞；不用漸變 / 不用功能 grid / 不放 hero 全屏圖 / 標題不用無襯線 / 不用企業級話術。"
+    },
+    "ja": {
+      "identity": {
+        "keywords": [
+          "ノコギリ波装飾",
+          "ハイコントラストの青と白",
+          "太いセリフ見出し",
+          "コンシューマー製品の温もり",
+          "自信に満ちた宣言"
+        ],
+        "analogy": "Apple製品リリースページのタイポグラフィ精度 × Tumblr初期の遊び心ある装飾であり、Figma企業サイトではない",
+        "oneLiner": "コンシューマー製品発表会のタイポグラフィの自信を持ち、ブラウザを待つ価値のある「製品」として再定義する"
+      },
+      "colors": {
+        "principle": "パレットは空で、正確な色値は抽出不可。青/白/黒の3色が支配的で、青が上下端に配置され、白はヒーローおよびプレビューエリアに使用されていることを観察"
+      },
+      "typography": {
+        "rules": [
+          "主見出しとイントロは太いセリフ体 700ウェイトを使用し、細体は使用しない",
+          "イントロは斜線引用符装飾を伴うイタリックを使用",
+          "サブ見出しは humanist-sans 400で、太字にしない"
+        ],
+        "scaleUses": [
+          "ファーストビューの主見出し「Meet Dia...」",
+          "サブ見出しのセキュリティ更新説明",
+          "青いエリアの大きなイントロ",
+          "THE VERGEの出典クレジット"
+        ]
+      },
+      "spacing": {
+        "rhythm": "ゆとり：ヒーローエリア上下に各約96-128pxの余白、イントロエリアも同様"
+      },
+      "surfaces": {
+        "shadows": [
+          "ブラウザプレビューエリアに浮遊感を演出する微細な影"
+        ],
+        "borders": "明示的なボーダーはなく、色ブロックと影で区切る"
+      },
+      "layout": {
+        "skeleton": "トップナビ → ノコギリ波形遷移 → ヒーロー見出し+サブ見出し+CTA → ブラウザ製品プレビュー → ノコギリ波形遷移 → 青背景の大きなイントロ+署名 → ダウンロードボタン2列 → フッター"
+      },
+      "components": {
+        "button": "黒い角丸の大ボタンで、アイコン+テキスト+矢印を内包し、高さ約56px。ダウンロードボタンは青紫色半透明角丸カプセル型",
+        "card": null,
+        "chip": "青い小さな角丸ラベル「Work」にドロップダウン矢印付き",
+        "input": null,
+        "hero": "中央単一カラム：太いセリフの大見出し + humanistサブ見出し + 黒CTAボタン + ブラウザプレビュースクリーンショット"
+      },
+      "motion": {
+        "patterns": [
+          "ノコギリ波形の縁がSVG clip-pathアニメーションを示唆",
+          "ボタンの矢印 → ホバー時の水平移動を示唆"
+        ]
+      },
+      "interaction": {
+        "hover": "ボタンは黒の実色で、ホバー時に暗くなるかわずかに拡大されると推測",
+        "click": null,
+        "transition": "ノコギリ波形にはscrollパララックスが含まれる可能性",
+        "keyboard": null
+      },
+      "voice": {
+        "tone": "リラックスした自信のある技術リリースの口調で、堅苦しくない",
+        "headlineStyle": "製品を直接名乗る陳述文を使用し、疑問文や命令文は使わない",
+        "ctaStyle": "「Try Dia →」行動を促すが、急迫感はない",
+        "avoid": [
+          "技術用語の詰め込み",
+          "エンタープライズ級セキュリティ表現",
+          "「革命的」など過度なマーケティング用語"
+        ]
+      },
+      "donts": [
+        "シリアスな企業青を使用しない — スクリーンショットの青は高彩度のインディゴであり、企業用ネイビーではない",
+        "グラデーション色ブロックで塗りつぶさない — すべての色ブロックは実色",
+        "見出しにサンセリフを使用しない — スクリーンショットの主見出しはすべて太いセリフ",
+        "機能リストグリッドを配置しない — ヒーローは見出し1つ+ボタン1つ+プレビュー1枚のみ",
+        "ヒーローにフルスクリーン背景画像を使用しない — ヒーローは純白背景+テキスト中央揃え",
+        "ボタンに「Get Started for Free」を記載しない — 「Try Dia」の3語で十分"
+      ],
+      "systemPrompt": "あなたは技術製品リリースページデザイナーです。配色：高彩度インディゴの実色（上下端）+ 純白ヒーロー + 黒CTA；見出しはtransitional serif太字700、サブ見出しはhumanist sans 400；ノコギリ波形SVG clip-pathで区切り遷移；ヒーローは中央単一カラム：見出し→サブ見出し→黒角丸ボタン→製品プレビュー；イントロエリアは青背景白文字の大セリフイタリック；ボタンは極端に簡潔で3語以内；グラデーション不可 / 機能グリッド不可 / ヒーローフルスクリーン画像不可 / 見出しにサンセリフ不可 / エンタープライズ級表現不可。"
+    },
+    "ko": {
+      "identity": {
+        "keywords": [
+          "톱니파형 장식",
+          "고대비 블루&화이트",
+          "굵은 세리프 제목",
+          "소비재 온도感",
+          "자신감 있는 선언"
+        ],
+        "analogy": "Apple 제품 출시 페이지의 조판 정밀도 × Tumblr 초기의 장난스러운 장식. Figma 기업 공식 사이트는 아닙니다.",
+        "oneLiner": "소비재 출시发布会의 조판 자신감으로, 브라우저를 다시 기대할 만한 '제품'으로 재정의합니다."
+      },
+      "colors": {
+        "principle": "패lettes가 비어 있어 정확한 색상을 추출할 수 없습니다. 파란색/흰색/검은색 세 가지 색상이 주도하며, 파란색은 상하 양 끝에, 흰색은 hero 및 미리보기 영역에 사용되었습니다."
+      },
+      "typography": {
+        "rules": [
+          "주제목과 인용문 모두 굵은 세리프체 700 weight 사용, 얇은체 사용 없음",
+          "인용문은 이탤릭체와 슬래시 따옴표로 장식",
+          "부제목은 humanist-sans 400, 볼드 없음"
+        ],
+        "scaleUses": [
+          "첫 화면 주제목 「Meet Dia...」",
+          "부제목 보안 업데이트 설명",
+          "파란색 영역 대인용문",
+          "THE VERGE 출처 서명"
+        ]
+      },
+      "spacing": {
+        "rhythm": "여유롭게: hero 영역 상하 각 약 96-128px, 인용문 영역도 마찬가지"
+      },
+      "surfaces": {
+        "shadows": [
+          "브라우저 미리보기 영역에 연한 그림자를 넣어 떠 있는 느낌 연출"
+        ],
+        "borders": "명시적 테두리 없음, 색상 블록과 그림자로 구분"
+      },
+      "layout": {
+        "skeleton": "상단 네비게이션 → 톱니파형 전환 → hero 주제목+부제목+CTA → 브라우저 제품 미리보기 → 톱니파형 전환 → 파란색 바탕 대인용문+서명 → 다운로드 버튼 2열 → footer"
+      },
+      "components": {
+        "button": "검은색 둥근 모서리 큰 버튼, 아이콘+텍스트+화살표 포함, 약 56px 높이; 다운로드 버튼은 블루퍼플 반투명 둥근 캡슐 형태",
+        "card": null,
+        "chip": "파란색 작은 둥근 모서리 라벨 「Work」에 드롭다운 화살표 포함",
+        "input": null,
+        "hero": "가운데 정렬 단일 열: 굵은 세리프 주제목 + humanist 부제목 + 검은색 CTA 버튼 + 브라우저 미리보기 스크린샷"
+      },
+      "motion": {
+        "patterns": [
+          "톱니파형 가장자리는 SVG clip-path 애니메이션을 시사",
+          "버튼 화살표 → hover 시 이동을 시사"
+        ]
+      },
+      "interaction": {
+        "hover": "버튼 검은색 실색, hover 시 어두워지거나 살짝 확대되는 것으로 추정",
+        "click": null,
+        "transition": "톱니파형은 scroll 시 패럴랙스 효과가 있을 수 있음",
+        "keyboard": null
+      },
+      "voice": {
+        "tone": "자신감 있으면서도 편안한 톤의 기술 출시 어조, 딱딱하지 않음",
+        "headlineStyle": "제품을 직접 명명하는 평서문, 의문문이나 명령문 사용 없음",
+        "ctaStyle": "「Try Dia →」 행동을 유도하지만 급하지 않은 어조",
+        "avoid": [
+          "기술 용어 나열하지 않음",
+          "기업형 보안 관련 표현 사용하지 않음",
+          "「혁명적」과 같은 과장된 마케팅 단어 사용하지 않음"
+        ]
+      },
+      "donts": [
+        "진지한 기업형 블루 사용하지 않음 — 스크린샷 속 파란색은 고채도 인디고, 기업형 네이비가 아님",
+        "그라데이션 색상 블록 채우기 사용하지 않음 — 모든 색상 블록은 단색",
+        "제목에 산세리프체 사용하지 않음 — 스크린샷 주제목 모두 굵은 세리프 사용",
+        "기능 목록 그리드 배치하지 않음 — hero에는 주제목+버튼+미리보기 이미지만",
+        "hero 전체 화면 배경 이미지 사용하지 않음 — hero는 순백 배경+가운데 정렬 텍스트",
+        "버튼에 「Get Started for Free」 적지 않음 — 「Try Dia」 세 단어로 처리"
+      ],
+      "systemPrompt": "당신은 기술 제품 출시 페이지 디자이너입니다. 색상: 고채도 인디고 단색(상하 양 끝) + 순백 hero + 검은색 CTA; 제목은 transitional serif 볼드 700, 부제목은 humanist sans 400; 톱니파형 SVG clip-path로 영역 구분 전환; hero는 가운데 정렬 단일 열: 주제목→부제목→검은색 둥근 모서리 버튼→제품 미리보기; 인용문 영역은 파란색 바탕 흰색 글씨 대세리프 이탤릭; 버튼은 미니멀하게 3단어 이하; 그라데이션 사용하지 않음 / 기능 그리드 사용하지 않음 / hero 전체 화면 이미지 사용하지 않음 / 제목에 산세리프 사용하지 않음 / 기업형 표현 사용하지 않음."
     }
   },
   "pack": {
@@ -233,5 +559,66 @@
     "folder_url": "/packs/arc/",
     "file_count": 16
   },
-  "narrative": {}
+  "narrative": {
+    "en": {
+      "ch1_intro": "Arc Browser's identity rests on a deliberate collision of two sensibilities: the typographic precision of an Apple product page and the playful ornamentation of early Tumblr. The system treats a browser not as utility software but as a consumer product worth anticipating, using confident declarations instead of feature lists.",
+      "ch2_intro": "The palette is restricted to a high-saturation indigo, pure white, and black — a trio that avoids corporate navy in favor of a bold, consumer-friendly hue. Blue anchors the top and bottom of the composition, reserving white for the hero and product preview areas.",
+      "ch2_outro": "Every color application is a solid block; gradients are never used as a fill or transition between sections.",
+      "ch3_intro": "Headlines are set in a transitional serif at 700 weight, lending a declarative, editorial gravity to product statements. Subtitles use a humanist sans-serif at regular weight, creating a deliberate contrast between announcement and explanation.",
+      "ch4_intro": "Spacing follows a generous rhythm, with approximately 96 to 128 pixels of breathing room above and below the hero and pull-quote sections.",
+      "ch5_intro": "Depth is communicated through a faint shadow beneath the browser preview, suggesting a slight elevation off the page. Explicit borders are absent; separation is achieved entirely through color blocks and these subtle shadows.",
+      "ch6_intro": "The skeleton flows from a top navigation through a serrated SVG transition into a centered, single-column hero with a headline, subhead, and call-to-action. This leads to the product preview, another serrated transition, a blue-grounded pull-quote, a dual-column download button area, and finally the footer.",
+      "ch7_intro": "Motion is implied by the serrated wave edges, suggesting an SVG clip-path animation as a primary transition device. Interaction cues are minimal and purposeful, such as a subtle horizontal shift on button hover, keeping the focus on scroll-driven storytelling.",
+      "ch8_intro": "The editorial voice is casual and confident, naming the product directly in declarative headlines without rhetorical questions or forceful commands. It avoids technical jargon, corporate security rhetoric, and hyperbolic terms like 'revolutionary'.",
+      "ch8_outro": "The system deliberately omits feature grids, full-bleed hero background images, and multi-word CTAs in favor of singular focus and brevity."
+    },
+    "zh-CN": {
+      "ch1_intro": "Arc 浏览器的身份建立在两种设计感知的刻意碰撞之上：苹果产品页面的排版精确性，与早期 Tumblr 的趣味装饰性。该系统不将浏览器视为实用工具，而是将其作为值得期待的消费级产品来呈现，采用自信的宣言式表达而非功能列表。",
+      "ch2_intro": "调色板限定于高饱和度的靛蓝色、纯白色和黑色——这一组合避开了企业感的深蓝色，转而采用大胆、亲和消费者的色调。蓝色锚定构图的上下部分，白色则预留给主视觉和产品预览区域。",
+      "ch2_outro": "所有色彩应用均为纯色块；渐变从未用作填充或区域间的过渡。",
+      "ch3_intro": "标题采用过渡衬线字体，字重700，为产品宣言赋予声明式的、编辑的庄重感。副标题使用人文无衬线字体常规字重，在宣告与解释之间形成刻意的对比。",
+      "ch4_intro": "间距遵循舒展的节奏，主视觉和引述区块上下约有96至128像素的呼吸空间。",
+      "ch5_intro": "深度通过浏览器预览下方微弱的阴影来传达，暗示其略微浮于页面之上。没有显式的边框；分隔完全通过色块和这些细微的阴影实现。",
+      "ch6_intro": "骨架结构从顶部导航开始，通过锯齿状的SVG过渡，进入居中的单栏主视觉区，包含标题、副标题和行动号召。随后是产品预览、另一个锯齿状过渡、蓝色底色的引述区块、双栏下载按钮区域，最后是页脚。",
+      "ch7_intro": "动态感通过锯齿状的波浪边缘来暗示，表明SVG clip-path动画是主要的过渡手段。交互提示简约而明确，例如按钮hover时的微妙水平位移，将焦点保持在滚动驱动的叙事上。",
+      "ch8_intro": "编辑语调随意而自信，在声明式标题中直接点明产品名称，不使用修辞性提问或强制命令。它避免技术术语、企业安全宣传话术，以及诸如“革命性”之类的夸张词汇。",
+      "ch8_outro": "该系统刻意省略了功能网格、全出血主视觉背景图和多词行动号召，转而追求单一焦点与简洁。"
+    },
+    "zh-TW": {
+      "ch1_intro": "Arc 瀏覽器的識別建立在兩種美學的刻意碰撞之上：Apple 產品頁面的排版精準度，與早期 Tumblr 的俏皮裝飾風格。這套系統將瀏覽器視為值得期待的消費產品，而非實用工具軟體，以自信的宣言取代功能列表。",
+      "ch2_intro": "色盤僅限於高飽和度的靛藍、純白與黑色——這組配色避開企業海軍藍，選擇大膽且適合消費者的色調。藍色構成構圖的頂部與底部，白色則保留給主要區域與產品預覽區塊。",
+      "ch2_outro": "所有色彩應用均為實心色塊；漸層從未用於區塊填充或過渡效果。",
+      "ch3_intro": "標題採用過渡型襯線字體，字重 700，賦予產品聲明一種具宣告性、編輯般的莊重感。副標題使用人文主義無襯線字體，保持常規字重，在宣告與說明之間創造刻意的對比。",
+      "ch4_intro": "間距遵循寬裕的節奏，主要區域與引言區塊上下各保留約 96 至 128 像素的呼吸空間。",
+      "ch5_intro": "深度透過瀏覽器預覽下方淡淡的陰影傳達，暗示其微微浮於頁面之上。明確的邊框並不存在；區隔完全透過色塊與這些細膩陰影實現。",
+      "ch6_intro": "骨架結構從頂部導覽開始，經過鋸齒狀 SVG 過渡，進入居中的單欄主視覺，包含標題、副標題與行動呼籲。接著是產品預覽、另一段鋸齒狀過渡、藍底引言區、雙欄下載按鈕區域，最後是頁尾。",
+      "ch7_intro": "動態感由鋸齒狀波浪邊緣暗示，表明以 SVG clip-path 動畫作為主要的過渡裝置。互動提示極簡且有目的性，例如按鈕 hover 時輕微的水平位移，讓焦點保持在滾動驅動的敘事上。",
+      "ch8_intro": "編輯語氣隨意而自信，在宣告式標題中直接稱呼產品名稱，不使用修辭式疑問或強制性指令。它避開技術術語、企業安全宣傳與誇大詞彙如「革命性」。",
+      "ch8_outro": "此系統刻意省略功能網格、全出血主視覺背景圖與多詞行動呼籲，以追求單一焦點與簡潔。"
+    },
+    "ja": {
+      "ch1_intro": "Arc Browserのアイデンティティは、2つの感性の意図的な衝突に基づいています。Appleの製品ページのようなタイポグラフィの精緻さと、初期のTumblrのような遊び心ある装飾性です。このシステムはブラウザをユーティリティソフトウェアではなく、待ち遠しい消費者製品として扱い、機能一覧ではなく自信に満ちた宣言を使用します。",
+      "ch2_intro": "パレットは、高彩度のインディゴ、純白、黒に限定されています。これは、コーポレートなネイビーを避け、大胆で消費者に優しい色調を選ぶ3色の組み合わせです。青は構図の上下を支え、白はヒーローおよび製品プレビュー領域に割り当てられます。",
+      "ch2_outro": "すべての色の適用は純粋なブロック形式であり、グラデーションはセクション間の塗りつぶしや遷移として決して使用されません。",
+      "ch3_intro": "見出しはウェイト700のトランジショナルセリフ体で設定され、製品ステートメントに宣言的で編集的な重厚感を与えます。字幕は通常ウェイトのヒューマニストサンセリフを使用し、告知と説明の間に意図的なコントラストを生み出します。",
+      "ch4_intro": "間隔は寛容なリズムに従い、ヒーローおよびプルクォートセクションの上下に約96〜128ピクセルの余白が確保されています。",
+      "ch5_intro": "深みはブラウザプレビューの下に配置されたかすかな影を通じて表現され、ページから少し浮き上がっていることを示唆します。明示的なボーダーは存在せず、分離は色のブロックとこれらの微細な影によって完全に実現されます。",
+      "ch6_intro": "スケルトンはトップナビゲーションから、ギザギザのSVG遷移を経て、見出し、サブヘッド、CTAを備えた中央揃えの単一カラムヒーローに流れるように構成されています。これは製品プレビュー、別のギザギザの遷移、青地のプルクォート、2カラムのダウンロードボタン領域、そして最終的にフッターにつながります。",
+      "ch7_intro": "モーションはギザギザの波縁によって暗示され、主要な遷移デバイスとしてSVG clip-pathアニメーションを示唆します。インタラクションのヒントは最小限で意図的であり、ボタンのhover時の微妙な水平シフトなど、フォーカスをスクロール駆動のストーリーテリングに保ちます。",
+      "ch8_intro": "編集上の声はカジュアルかつ自信に満ちており、修辞疑問や強引な命令を避け、宣言的な見出しで製品を直接的に名称します。技術用語、企業のセキュリティ修辞、『革命的』のような誇張された用語は避けられます。",
+      "ch8_outro": "このシステムは、機能グリッド、フルブリードヒーローバックグラウンド画像、複数の単語からなるCTAを意図的に省略し、単一の焦点と簡潔さを優先しています。"
+    },
+    "ko": {
+      "ch1_intro": "Arc 브라우저의 아이덴티티는 두 감각의 의도적인 충돌에 기반합니다. 애플 제품 페이지의 타이포그래피적 정밀함과 초기 트umblr의 장난스러운 장식성이 결합된 것입니다. 이 시스템은 브라우저를 단순한 유틸리티 소프트웨어가 아닌, 기대할 만한 가치가 있는 소비재 제품으로 대우하며, 기능 목록 대신 자신감 있는 선언을 사용합니다.",
+      "ch2_intro": "팔레트는 고채도 인디고, 순수 화이트, 블랙으로 제한됩니다. 이 삼중 조합은 기업용 네이비를 피하고 대신 대담하고 소비자 친화적인 색조를 선택합니다. 블루는 구성의 상단과 하단을 고정하고, 화이트는 히어로 및 제품 프리뷰 영역에 배정됩니다.",
+      "ch2_outro": "모든 색상 적용은 단색 블록으로 이루어지며, 그라디언트는 채우기나 섹션 간 전환에 절대 사용되지 않습니다.",
+      "ch3_intro": "제목은 700 웨이트의 트랜지셔널 세리프로 설정되어, 제품 진술에 선언적이고 에디토리얼한 무게감을 부여합니다. 부제목은 일반 웨이트의 휴머니스트 산세리프를 사용하여, 발표와 설명 사이에 의도적인 대비를 만듭니다.",
+      "ch4_intro": "간격은 풍부한 리듬을 따르며, 히어로 및 풀쿼트 섹션의 상하에 약 96~128픽셀의 여유 공간을 둡니다.",
+      "ch5_intro": "깊이는 브라우저 프리뷰 아래의 은은한 그림자를 통해 전달되어, 페이지에서 약간 떠 있는 느낌을 줍니다. 명시적인 테두리는 없으며, 분리는 완전히 색상 블록과 이러한 미묘한 그림자를 통해 이루어집니다.",
+      "ch6_intro": "스켈레톤은 상단 내비게이션에서 톱니 모양 SVG 전환을 거쳐, 제목, 부제, 행동 유도 문구가 있는 중앙 정렬 단일 열 히어로로 흘러갑니다. 이후 제품 프리뷰, 또 다른 톱니 전환, 블루 배경의 풀쿼트, 이중 열 다운로드 버튼 영역, 그리고 마지막으로 푸터로 이어집니다.",
+      "ch7_intro": "모션은 톱니 파형 가장자를 통해 암시되며, 주요 전환 장치로서 SVG clip-path 애니메이션을 시사합니다. 상호작용 신호는 최소한이면서 의도적이며, 예를 들어 버튼 hover 시 미묘한 수평 이동 등으로, 스크롤 기반 스토리텔링에 집중합니다.",
+      "ch8_intro": "에디토리얼 음성은 캐주얼하고 자신감 있으며, 수사적 질문이나 강제적 명령 없이 선언적 제목에서 제품을 직접 지칭합니다. 기술 전문 용어, 기업 보안 레토릭, '혁명적인' 같은 과장된 표현을 피합니다.",
+      "ch8_outro": "이 시스템은 기능 그리드, 전체 폭 히어로 배경 이미지, 여러 단어의 CTA를 의도적으로 생략하고, 대신 단일 초점과 간결함을 지향합니다."
+    }
+  }
 }

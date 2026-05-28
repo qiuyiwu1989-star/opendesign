@@ -9,14 +9,25 @@
     "3D",
     "Experimental"
   ],
-  "status": "vision_done",
+  "status": "failed:JSONDecodeError",
   "added_at": "2026-05-28",
   "added_by": "curator",
   "_meta": {
     "vision_model": "mimo-v2.5",
     "vision_prompt_version": "0.2_legacy",
     "vision_at": "2026-05-28T02:47:04.651Z",
-    "total_cost_usd": 0.0
+    "total_cost_usd": 0.0,
+    "translation_model": "mimo-v2.5",
+    "translation_at": "2026-05-28T18:57:04+00:00",
+    "translation_tokens": 9658,
+    "translation_cost_usd": 0.0322,
+    "narrative_model": "mimo-v2.5",
+    "narrative_prompt_version": "0.3",
+    "narrative_at": "2026-05-28T18:57:13+00:00",
+    "narrative_tokens": 2037,
+    "narrative_cost_usd": 0.0136,
+    "narrative_status": "ok",
+    "last_error": "Expecting ',' delimiter: line 5 column 67 (char 309)"
   },
   "spec": {
     "colors": {
@@ -207,6 +218,318 @@
         "不添加装饰性边框或分割线 —— 截图以3D物体为视觉元素，无额外装饰"
       ],
       "systemPrompt": "你是创意技术作品集页面设计师。配色以中性背景+高对比度3D物体颜色（紫、黑、白）为主；标题用geometric-sans字体，粗体大写，字号突出；布局慷慨留白，导航固定；不做静态图片/不用浅色背景/不用小字体标题/不隐藏菜单/不用传统网格/不加装饰边框。Hero是全屏交互式3D物体展示，强调实时体验，文案大胆自信。"
+    },
+    "zh-CN": {
+      "identity": {
+        "keywords": [
+          "沉浸式",
+          "实时交互",
+          "科技感",
+          "视觉冲击",
+          "创意技术"
+        ],
+        "analogy": "是游戏引擎的实时渲染demo，不是Behance上的静态作品集",
+        "oneLiner": "以交互本身证明能力的创意技术作品集"
+      },
+      "colors": {
+        "principle": "以高对比度3D物体颜色（紫、黑、白）为主，背景中性"
+      },
+      "typography": {
+        "rules": [
+          "标题使用sentence case，无大写",
+          "导航辅助文字全大写加宽字距",
+          "3D物体本身无字体，依赖图形"
+        ],
+        "scaleUses": [
+          "首屏主标题，突出技术宣言",
+          "导航元素如'MENU'和底部'+'符号"
+        ]
+      },
+      "spacing": {
+        "rhythm": "慷慨留白：导航与hero间、hero内部、3D物体周围均有大量空白，节奏舒缓"
+      },
+      "surfaces": {
+        "shadows": [
+          "3D物体投射强烈阴影，UI按钮无阴影",
+          "整体无卡片或浮层阴影"
+        ],
+        "borders": "按钮有细边框（如'LET'S TALK'），其他元素无边线"
+      },
+      "layout": {
+        "skeleton": "顶部固定导航 → hero大标题 + 交互式3D物体展示 → 底部滚动提示区 → 隐藏更多内容"
+      },
+      "components": {
+        "button": "pill形状，深色背景，白色文字，带圆角（约999px），有细边框",
+        "card": null,
+        "chip": null,
+        "input": null,
+        "hero": "全屏或近全屏高度，左侧大标题文本，右侧/中央交互式3D物体，底部有'+'图标和'SCROLL TO EXPLORE'文字提示"
+      },
+      "motion": {
+        "patterns": [
+          "3D物体支持鼠标交互旋转（从光标推断）",
+          "页面可能有scroll reveal动画（从'SCROLL TO EXPLORE'推断）"
+        ]
+      },
+      "interaction": {
+        "hover": "按钮hover时可能改变背景色或轻微放大（从常见UI模式推断）",
+        "click": null,
+        "transition": null,
+        "keyboard": null
+      },
+      "voice": {
+        "tone": "大胆、自信、技术导向，使用'epic'、'blow people's minds'等夸张词汇",
+        "headlineStyle": "句子式描述，直接陈述能力，无修辞疑问或标语",
+        "ctaStyle": "行动导向，如'LET'S TALK'简洁直接",
+        "avoid": [
+          "避免谦虚或保守的表述",
+          "避免抽象术语如'synergy'",
+          "避免过度营销语言如'best'"
+        ]
+      },
+      "donts": [
+        "不做静态图片展示 —— 截图是交互式3D物体而非静态图",
+        "不用浅色背景主导 —— 截图背景为深色或中性色块",
+        "不使用小字体标题 —— 截图标题大而突出，占据视觉中心",
+        "不隐藏导航菜单 —— 截图有明确'MENU'按钮，导航可见",
+        "不使用传统网格布局 —— 截图布局自由，3D物体溢出容器",
+        "不添加装饰性边框或分割线 —— 截图以3D物体为视觉元素，无额外装饰"
+      ],
+      "systemPrompt": "你是创意技术作品集页面设计师。配色以中性背景+高对比度3D物体颜色（紫、黑、白）为主；标题用geometric-sans字体，粗体大写，字号突出；布局慷慨留白，导航固定；不做静态图片/不用浅色背景/不用小字体标题/不隐藏菜单/不用传统网格/不加装饰边框。Hero是全屏交互式3D物体展示，强调实时体验，文案大胆自信。"
+    },
+    "zh-TW": {
+      "identity": {
+        "keywords": [
+          "沉浸式",
+          "即時互動",
+          "科技感",
+          "視覺衝擊",
+          "創意技術"
+        ],
+        "analogy": "是遊戲引擎的即時運算示範，不是 Behance 上的靜態作品集",
+        "oneLiner": "以互動本身證明能力的創意技術作品集"
+      },
+      "colors": {
+        "principle": "以高對比度 3D 物體顏色（紫、黑、白）為主，背景中性"
+      },
+      "typography": {
+        "rules": [
+          "標題使用 sentence case，無大寫",
+          "導覽輔助文字全大寫加寬字距",
+          "3D 物體本身無字體，依賴圖形"
+        ],
+        "scaleUses": [
+          "首頁主標題，突顯技術宣言",
+          "導覽元素如 'MENU' 和底部 '+' 符號"
+        ]
+      },
+      "spacing": {
+        "rhythm": "慷慨留白：導覽與 hero 間、hero 內部、3D 物體周圍均有大量空白，節奏舒緩"
+      },
+      "surfaces": {
+        "shadows": [
+          "3D 物體投射強烈陰影，UI 按鈕無陰影",
+          "整體無卡片或浮層陰影"
+        ],
+        "borders": "按鈕有細邊框（如 'LET'S TALK'），其他元素無邊線"
+      },
+      "layout": {
+        "skeleton": "頂部固定導覽 → hero 大標題 + 互動式 3D 物體展示 → 底部滾動提示區 → 隱藏更多內容"
+      },
+      "components": {
+        "button": "膠囊形狀，深色背景，白色文字，帶圓角（約 999px），有細邊框",
+        "card": null,
+        "chip": null,
+        "input": null,
+        "hero": "全螢幕或近全螢幕高度，左側大標題文字，右側/中央互動式 3D 物體，底部有 '+' 圖示和 'SCROLL TO EXPLORE' 文字提示"
+      },
+      "motion": {
+        "patterns": [
+          "3D 物體支援滑鼠互動旋轉（從游標推斷）",
+          "頁面可能有滾動出現動畫（從 'SCROLL TO EXPLORE' 推斷）"
+        ]
+      },
+      "interaction": {
+        "hover": "按鈕 hover 時可能改變背景色或輕微放大（從常見 UI 模式推斷）",
+        "click": null,
+        "transition": null,
+        "keyboard": null
+      },
+      "voice": {
+        "tone": "大膽、自信、技術導向，使用 'epic'、'blow people's minds' 等誇張詞彙",
+        "headlineStyle": "句子式描述，直接陳述能力，無修辭疑問或標語",
+        "ctaStyle": "行動導向，如 'LET'S TALK' 簡潔直接",
+        "avoid": [
+          "避免謙虛或保守的表述",
+          "避免抽象術語如 'synergy'",
+          "避免過度行銷語言如 'best'"
+        ]
+      },
+      "donts": [
+        "不做靜態圖片展示 —— 截圖是互動式 3D 物體而非靜態圖",
+        "不用淺色背景主導 —— 截圖背景為深色或中性色塊",
+        "不使用小字體標題 —— 截圖標題大而突出，佔據視覺中心",
+        "不隱藏導覽選單 —— 截圖有明確 'MENU' 按鈕，導覽可見",
+        "不使用傳統網格佈局 —— 截圖佈局自由，3D 物體溢出容器",
+        "不添加裝飾性邊框或分割線 —— 截圖以 3D 物體為視覺元素，無額外裝飾"
+      ],
+      "systemPrompt": "你是創意技術作品集頁面設計師。配色以中性背景 + 高對比度 3D 物體顏色（紫、黑、白）為主；標題用 geometric-sans 字體，粗體大寫，字號突出；佈局慷慨留白，導覽固定；不做靜態圖片/不用淺色背景/不用小字體標題/不隱藏選單/不用傳統網格/不加裝飾邊框。Hero 是全螢幕互動式 3D 物體展示，強調即時體驗，文案大膽自信。"
+    },
+    "ja": {
+      "identity": {
+        "keywords": [
+          "没入型",
+          "リアルタイムインタラクション",
+          "テクノロジー感",
+          "ビジュアルインパクト",
+          "クリエイティブテクノロジー"
+        ],
+        "analogy": "ゲームエンジンのリアルタイムレンダリングデモであり、Behanceの静的ポートフォリオではありません",
+        "oneLiner": "インタラクション自体が能力を証明するクリエイティブテクノロジーポートフォリオ"
+      },
+      "colors": {
+        "principle": "高コントラストの3Dオブジェクトカラー（紫、黒、白）を主体とし、背景はニュートラル"
+      },
+      "typography": {
+        "rules": [
+          "見出しはsentence caseを使用し、大文字は使用しない",
+          "ナビゲーションの補助テキストは全て大文字で字間を広げる",
+          "3Dオブジェクト自体にフォントはなく、グラフィックに依存する"
+        ],
+        "scaleUses": [
+          "トップ画面のメイン見出し、テクノロジー宣言を強調",
+          "「MENU」や底部の「+」記号などのナビゲーション要素"
+        ]
+      },
+      "spacing": {
+        "rhythm": "豊かな余白：ナビゲーションとヒーローの間、ヒーロー内部、3Dオブジェクト周囲に多量の空白があり、リズムが緩やか"
+      },
+      "surfaces": {
+        "shadows": [
+          "3Dオブジェクトは強い影を落とすが、UIボタンは影なし",
+          "全体的にカードやオーバーレイの影はない"
+        ],
+        "borders": "ボタンには細いボーダー（例：'LET'S TALK'）があるが、他の要素にはボーダーなし"
+      },
+      "layout": {
+        "skeleton": "上部固定ナビゲーション → ヒーローの大見出し＋インタラクティブ3Dオブジェクト表示 → 底部スクロールヒントエリア → 隠された追加コンテンツ"
+      },
+      "components": {
+        "button": "ピル形、ダーク背景、白文字、丸み帯び（約999px）、細いボーダー付き",
+        "card": null,
+        "chip": null,
+        "input": null,
+        "hero": "フルスクリーンまたはそれに近い高さ、左側に大見出しテキスト、右側/中央にインタラクティブ3Dオブジェクト、底部に「+」アイコンと「SCROLL TO EXPLORE」テキストヒント"
+      },
+      "motion": {
+        "patterns": [
+          "3Dオブジェクトはマウスインタラクションによる回転をサポート（カーソルから推測）",
+          "ページにはscroll revealアニメーションがある可能性がある（「SCROLL TO EXPLORE」から推測）"
+        ]
+      },
+      "interaction": {
+        "hover": "ボタンのhover時に背景色が変わったり、わずかに拡大したりする可能性がある（一般的なUIパターンから推測）",
+        "click": null,
+        "transition": null,
+        "keyboard": null
+      },
+      "voice": {
+        "tone": "大胆、自信、テクノロジー志向。「epic」「blow people's minds」などの誇張表現を使用",
+        "headlineStyle": "文による記述、能力を直接的に述べ、修辞疑問や標語は使用しない",
+        "ctaStyle": "行動导向、例えば「LET'S TALK」のように簡潔で直接的",
+        "avoid": [
+          "謙虚または保守的な表現を避ける",
+          "「synergy」のような抽象用語を避ける",
+          "「best」のような過度なマーケティング言語を避ける"
+        ]
+      },
+      "donts": [
+        "静的画像表示をしない — スクリーンショットはインタラクティブ3Dオブジェクトであり、静的画像ではない",
+        "明るい背景を主導させない — スクリーンショットの背景はダークまたはニュートラル色のブロック",
+        "小さなフォントの見出しを使用しない — スクリーンショットの見出しは大きく目立ち、視覚の中心を占める",
+        "ナビゲーションメニューを隠さない — スクリーンショットには明確な「MENU」ボタンがあり、ナビゲーションは見える",
+        "伝統的なグリッドレイアウトを使用しない — スクリーンショットのレイアウトは自由で、3Dオブジェクトはコンテナからはみ出す",
+        "装飾的なボーダーや区切り線を追加しない — スクリーンショットは3Dオブジェクトを視覚要素とし、余計な装飾はない"
+      ],
+      "systemPrompt": "あなたはクリエイティブテクノロジーポートフォリオページのデザイナーです。配色はニュートラル背景に高コントラストの3Dオブジェクトカラー（紫、黒、白）を主体とし、見出しはgeometric-sansフォント、太字大文字、際立ったフォントサイズ；レイアウトは豊かな余白、ナビゲーションは固定；静的画像を使用せず、明るい背景を主導せず、小さなフォントの見出しを使用せず、メニューを隠さず、伝統的なグリッドを使用せず、装飾的なボーダーは追加しない。ヒーローはフルスクリーンのインタラクティブ3Dオブジェクト表示であり、リアルタイム体験を強調し、コピーは大胆で自信に満ちている。"
+    },
+    "ko": {
+      "identity": {
+        "keywords": [
+          "몰입형",
+          "실시간 인터랙션",
+          "기술적 감성",
+          "시각적 임팩트",
+          "크리에이티브 기술"
+        ],
+        "analogy": "게임 엔진의 실시간 렌더링 데모이지, Behance의 정적 포트폴리오가 아닙니다",
+        "oneLiner": "인터랙션 자체로 역량을 증명하는 크리에이티브 기술 포트폴리오"
+      },
+      "colors": {
+        "principle": "고대비 3D 오브젝트 컬러(보라, 검정, 흰색)를 주로 사용하며, 배경은 중립적입니다"
+      },
+      "typography": {
+        "rules": [
+          "제목은 문장형 대소문자 사용, 대문자 사용 금지",
+          "네비게이션 보조 텍스트는 전체 대문자에 넓은 자간 적용",
+          "3D 오브젝트 자체에는 폰트가 없으며, 그래픽에 의존합니다"
+        ],
+        "scaleUses": [
+          "첫 화면 메인 제목, 기술적 선언 강조",
+          "네비게이션 요소인 'MENU'와 하단의 '+' 심볼"
+        ]
+      },
+      "spacing": {
+        "rhythm": "여유로운 여백: 네비게이션과 히어로 사이, 히어로 내부, 3D 오브젝트 주변에 넓은 공간을 확보하여 완만한 리듬감을 형성합니다"
+      },
+      "surfaces": {
+        "shadows": [
+          "3D 오브젝트는 강한 그림자를 투영하며, UI 버튼은 그림자가 없습니다",
+          "전체적으로 카드나 플로팅 레이어 그림자는 사용하지 않습니다"
+        ],
+        "borders": "버튼에 얇은 테두리가 있습니다(예: 'LET'S TALK'), 다른 요소는 테두리가 없습니다"
+      },
+      "layout": {
+        "skeleton": "상단 고정 네비게이션 → 히어로 대제목 + 인터랙티브 3D 오브젝트 전시 → 하단 스크롤 힌트 영역 → 숨겨진 추가 콘텐츠"
+      },
+      "components": {
+        "button": "필 모양, 어두운 배경, 흰색 텍스트, 둥근 모서리(약 999px), 얇은 테두리 적용",
+        "card": null,
+        "chip": null,
+        "input": null,
+        "hero": "전체 화면 또는 거의 전체 화면 높이, 왼쪽에 대제목 텍스트, 오른쪽/중앙에 인터랙티브 3D 오브젝트, 하단에 '+' 아이콘과 'SCROLL TO EXPLORE' 텍스트 힌트"
+      },
+      "motion": {
+        "patterns": [
+          "3D 오브젝트는 마우스 인터랙션을 통한 회전을 지원합니다(커서에서 추론)",
+          "페이지에 스크롤 리빌 애니메이션이 있을 수 있습니다('SCROLL TO EXPLORE'에서 추론)"
+        ]
+      },
+      "interaction": {
+        "hover": "버튼 hover 시 배경색 변경 또는 약간의 확대 효과가 있을 수 있습니다(일반적인 UI 패턴에서 추론)",
+        "click": null,
+        "transition": null,
+        "keyboard": null
+      },
+      "voice": {
+        "tone": "대담하고 자신감 있으며 기술 중심적, 'epic', 'blow people's minds'와 같은 과장된 어휘 사용",
+        "headlineStyle": "문장 형태의 설명, 역량을 직접적으로 서술하며, 수사적 의문이나 슬로건 사용 금지",
+        "ctaStyle": "행동 지향적, 'LET'S TALK'처럼 간결하고 직접적",
+        "avoid": [
+          "겸손하거나 보수적인 표현 피하기",
+          "'synergy'와 같은 추상적 용어 피하기",
+          "'best'와 같은 과도한 마케팅 언어 피하기"
+        ]
+      },
+      "donts": [
+        "정적 이미지 전시 금지 — 스크린샷은 인터랙티브 3D 오브젝트이지 정적 이미지가 아닙니다",
+        "밝은 배경 사용 금지 — 스크린샷 배경은 어둡거나 중립적인 컬러 블록입니다",
+        "작은 폰트 제목 사용 금지 — 스크린샷 제목은 크고 두드러지며 시각적 중심을 차지합니다",
+        "네비게이션 메뉴 숨기기 금지 — 스크린샷에 명확한 'MENU' 버튼이 있으며, 네비게이션이 보입니다",
+        "전통적인 그리드 레이아웃 사용 금지 — 스크린샷 레이아웃은 자유롭며, 3D 오브젝트가 컨테이너를 벗어납니다",
+        "장식적인 테두리나 구분선 추가 금지 — 스크린샷은 3D 오브젝트를 시각 요소로 사용하며, 추가 장식이 없습니다"
+      ],
+      "systemPrompt": "크리에이티브 기술 포트폴리오 페이지 디자이너입니다. 배경은 중립적 배경+고대비 3D 오브젝트 컬러(보라, 검정, 흰색)를 중심으로 구성합니다. 제목은 geometric-sans 폰트, 굵은 두께의 대문자, 크기 강조. 레이아웃은 여유로운 여백을 확보하며, 네비게이션은 고정. 정적 이미지 사용 금지/밝은 배경 사용 금지/작은 폰트 제목 사용 금지/메뉴 숨기기 금지/전통적 그리드 사용 금지/장식적 테두리 추가 금지. 히어로는 전체 화면 인터랙티브 3D 오브젝트 전시로, 실시간 경험을 강조하며, 문구는 대담하고 자신감 있게 작성합니다."
     }
   },
   "pack": {
@@ -216,5 +539,18 @@
     "folder_url": "/packs/lusion/",
     "file_count": 10
   },
-  "narrative": {}
+  "narrative": {
+    "en": {
+      "ch1_intro": "Lusion's system operates like a real-time rendering engine, not a static portfolio. Every element serves to prove capability through interaction, building a digital space where the interface itself is the primary demonstration of craft.",
+      "ch2_intro": "The palette is built on a stark field of neutral darks, designed to make the luminous accents—electric purple, pure white—feel like objects of light suspended in a void. This high-contrast approach treats color not as decoration, but as a spotlight for the 3D assets that are the site's true subjects.",
+      "ch2_outro": "The guiding principle is contrast as focus: the background recedes to amplify the interactive object.",
+      "ch3_intro": "Typography here is architectural and declarative, using geometric sans-serifs for structural clarity. Headlines adopt a bold, sentence-case presence, while auxiliary text like 'MENU' is set in tracked uppercase, creating a clean typographic hierarchy that frames but never competes with the visual experience.",
+      "ch4_intro": "Rhythm is defined by generous, deliberate emptiness.",
+      "ch5_intro": "Depth is communicated through a single, potent tool: the strong, direct shadow cast by the 3D objects themselves. The interface layer above—buttons, navigation—remains flat and borderless, save for the fine outline on a pill-shaped call-to-action, creating a clear distinction between the dimensional subject and the minimal UI controlling it.",
+      "ch6_intro": "The layout is a sparse, immersive canvas. A fixed top navigation anchors the experience, while a hero section dedicates most of its volume to a central, interactive 3D form, with large typography positioned alongside it. Subsequent content is revealed through scrolling, maintaining the scene-like composition.",
+      "ch7_intro": "Motion is inherent and interactive, with the primary 3D object responding directly to cursor movement. This continuous, ambient reactivity establishes a core principle: the user's engagement is not passive consumption, but active exploration of a live digital environment.",
+      "ch8_intro": "The editorial voice is bold, technical, and unapologetically direct. It uses declarative statements about capability, avoiding hesitant language or abstract marketing terms in favor of confident, action-oriented propositions.",
+      "ch8_outro": "They deliberately omit traditional portfolio elements—static screenshots, decorative grids, subtle pastels—in favor of a raw, proof-through-performance ethos."
+    }
+  }
 }
