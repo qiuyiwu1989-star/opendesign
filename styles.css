@@ -402,6 +402,82 @@ input:focus-visible {
   color: var(--bg);
 }
 
+/* 排序切换 pill —— 跟 nav-pill 同款气质，右侧靠齐 */
+.sort-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  margin-left: auto;
+  flex: 0 0 auto;
+  padding: 4px;
+  background: var(--bg-quiet);
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+.sort-option {
+  height: 28px;
+  padding: 0 12px;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--muted);
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  transition: color 160ms ease, background 160ms ease;
+}
+
+.sort-option:hover {
+  color: var(--ink);
+}
+
+.sort-option.active {
+  color: var(--ink);
+  background: var(--bg);
+  box-shadow: 0 1px 2px rgba(10, 10, 10, 0.06), 0 0 0 1px var(--line);
+}
+
+/* 全站累计收藏小标 —— 卡片右上 */
+.save-count-chip {
+  display: inline-flex;
+  align-items: center;
+  min-width: 22px;
+  height: 20px;
+  padding: 0 6px;
+  border-radius: 999px;
+  background: var(--bg-quiet);
+  color: var(--muted);
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  user-select: none;
+}
+
+.site-card[data-saved="true"] .save-count-chip {
+  background: var(--ink);
+  color: var(--bg);
+}
+
+/* 列表页底部「N 收藏」 */
+.library-save-count {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin: 8px 0 0;
+  color: var(--muted);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+}
+
+.library-save-count svg {
+  width: 11px;
+  height: 11px;
+}
+
 /* ====== CANVAS ====== */
 
 .canvas-surface {
@@ -2620,6 +2696,9 @@ body.modal-open {
   .search-wrap input { font-size: 13px; }
 
   .chip { height: 24px; padding: 0 10px; font-size: 11px; }
+
+  .sort-pill { padding: 3px; gap: 0; }
+  .sort-option { height: 22px; padding: 0 8px; font-size: 11px; }
 
   /* ───── Canvas：上方留出三层（topbar + nav-pill + filter-rail） ───── */
   .canvas-surface {

@@ -9,6 +9,7 @@ let sites = loadSites();
 let activeSite = sites[0];
 let activeTag = "All";
 let searchQuery = "";
+let sortMode = "curated"; // "curated"（curator 给的顺序）| "popular"（全站收藏 desc）
 let currentView = "canvas";
 let viewState = { x: -110, y: -70, scale: 1 };
 let dragging = false;
@@ -80,6 +81,7 @@ const SAVED_KEY = "style-atlas-saved";
 const LIKED_KEY = "style-atlas-liked";
 const VISITOR_KEY = "style-atlas-visitor";
 const LIKE_COUNTS_KEY = "style-atlas-like-counts";
+const SAVE_COUNTS_KEY = "style-atlas-save-counts";
 
 function readIdSet(key) {
   try {
@@ -105,6 +107,19 @@ function readLikeCounts() {
 
 function writeLikeCounts(map) {
   localStorage.setItem(LIKE_COUNTS_KEY, JSON.stringify(Object.fromEntries(map)));
+}
+
+function readSaveCounts() {
+  try {
+    const obj = JSON.parse(localStorage.getItem(SAVE_COUNTS_KEY) || "{}");
+    return new Map(Object.entries(obj));
+  } catch {
+    return new Map();
+  }
+}
+
+function writeSaveCounts(map) {
+  localStorage.setItem(SAVE_COUNTS_KEY, JSON.stringify(Object.fromEntries(map)));
 }
 
 function getVisitorId() {
@@ -141,6 +156,7 @@ const store = {
   saved: readIdSet(SAVED_KEY),
   liked: readIdSet(LIKED_KEY),
   likeCounts: readLikeCounts(),
+  saveCounts: readSaveCounts(),
   backend: supabaseClient ? "supabase" : "local",
 
   isSaved(id) { return this.saved.has(id); },
@@ -152,11 +168,23 @@ const store = {
     return this.liked.has(id) ? 1 : 0;
   },
 
+  /** 全站累计收藏数（含当前访客）。 */
+  saveCount(id) {
+    if (this.backend === "supabase") return this.saveCounts.get(id) || 0;
+    return this.saved.has(id) ? 1 : 0;
+  },
+
   toggleSaved(id) {
     const wasSaved = this.saved.has(id);
-    if (wasSaved) this.saved.delete(id);
-    else this.saved.add(id);
+    if (wasSaved) {
+      this.saved.delete(id);
+      this.saveCounts.set(id, Math.max(0, (this.saveCounts.get(id) || 1) - 1));
+    } else {
+      this.saved.add(id);
+      this.saveCounts.set(id, (this.saveCounts.get(id) || 0) + 1);
+    }
     writeIdSet(SAVED_KEY, this.saved);
+    writeSaveCounts(this.saveCounts);
     if (supabaseClient) this._push("saves", id, wasSaved);
     return !wasSaved;
   },
@@ -199,10 +227,11 @@ const store = {
   async init() {
     if (!supabaseClient) return;
     try {
-      const [savesRes, likesRes, countsRes] = await Promise.all([
+      const [savesRes, likesRes, likeCountsRes, saveCountsRes] = await Promise.all([
         supabaseClient.from("saves").select("site_id").eq("visitor_id", visitorId),
         supabaseClient.from("likes").select("site_id").eq("visitor_id", visitorId),
-        supabaseClient.from("site_like_counts").select("*")
+        supabaseClient.from("site_like_counts").select("*"),
+        supabaseClient.from("site_save_counts").select("*")
       ]);
 
       const remoteSaved = new Set((savesRes.data || []).map((r) => r.site_id));
@@ -216,8 +245,10 @@ const store = {
       writeIdSet(SAVED_KEY, this.saved);
       writeIdSet(LIKED_KEY, this.liked);
 
-      this.likeCounts = new Map((countsRes.data || []).map((r) => [r.site_id, r.like_count]));
+      this.likeCounts = new Map((likeCountsRes.data || []).map((r) => [r.site_id, r.like_count]));
+      this.saveCounts = new Map((saveCountsRes.data || []).map((r) => [r.site_id, r.save_count]));
       writeLikeCounts(this.likeCounts);
+      writeSaveCounts(this.saveCounts);
     } catch (err) {
       console.warn("[supabase] init read failed", err);
     }
@@ -653,11 +684,20 @@ function buildSiteFromUrl(rawUrl) {
 
 function filteredSites() {
   const query = searchQuery.trim().toLowerCase();
-  return sites.filter((site) => {
+  const list = sites.filter((site) => {
     const tagMatch = activeTag === "All" || site.tags.includes(activeTag);
     const text = [site.title, site.url, site.notes, ...site.tags].join(" ").toLowerCase();
     return tagMatch && (!query || text.includes(query));
   });
+  if (sortMode === "popular") {
+    // 按全站累计收藏 DESC，相同时按 curator 原顺序作 stable tie-breaker
+    const order = new Map(sites.map((s, i) => [s.id, i]));
+    return [...list].sort((a, b) => {
+      const diff = store.saveCount(b.id) - store.saveCount(a.id);
+      return diff !== 0 ? diff : order.get(a.id) - order.get(b.id);
+    });
+  }
+  return list;
 }
 
 function renderAll() {
@@ -721,6 +761,7 @@ function renderCanvas() {
               <span class="card-title">${site.title}</span>
               <span class="card-meta-right">
                 <span class="card-tags">${tagText}</span>
+                ${saveCountChip(site.id)}
                 <button class="card-save" type="button" data-save="${site.id}" aria-label="${t(saved ? "drawer.save.done" : "drawer.save")}" aria-pressed="${saved}">
                   <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-4.5-9.3-9A5.4 5.4 0 0 1 12 6a5.4 5.4 0 0 1 9.3 6c-2.3 4.5-9.3 9-9.3 9Z" /></svg>
                 </button>
@@ -741,6 +782,7 @@ function renderLibrary() {
 
 function libraryCardHTML(site, index) {
   const saved = store.isSaved(site.id);
+  const count = store.saveCount(site.id);
   return `
     <article class="library-card" data-id="${site.id}"${saved ? ' data-saved="true"' : ""}>
       <div class="library-thumb">
@@ -754,9 +796,17 @@ function libraryCardHTML(site, index) {
         <span class="library-num">${t("library.num", { n: String(index + 1).padStart(2, "0") })}</span>
         <p class="library-domain">${domainFromUrl(site.url)}</p>
         <p class="library-tags">${site.tags.join(" · ")}</p>
+        ${count > 0 ? `<p class="library-save-count" aria-label="${t("count.saves.aria", { n: count })}"><svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M12 21s-7-4.5-9.3-9A5.4 5.4 0 0 1 12 6a5.4 5.4 0 0 1 9.3 6c-2.3 4.5-9.3 9-9.3 9Z"/></svg> ${t("count.saves", { n: count })}</p>` : ""}
       </div>
     </article>
   `;
+}
+
+/** 小标：全站累计收藏数。0 时不显示（编辑型留白）。 */
+function saveCountChip(siteId) {
+  const n = store.saveCount(siteId);
+  if (n <= 0) return "";
+  return `<span class="save-count-chip" title="${t("count.saves.aria", { n })}" aria-label="${t("count.saves.aria", { n })}">${n}</span>`;
 }
 
 function renderSaved() {
@@ -827,6 +877,7 @@ function refreshDrawerActions() {
   const saveBtn = document.querySelector("#drawerSaveButton");
   const likeBtn = document.querySelector("#drawerLikeButton");
   const likeCount = document.querySelector("#drawerLikeCount");
+  const saveCount = document.querySelector("#drawerSaveCount");
   if (saveBtn) {
     const saved = store.isSaved(activeSite.id);
     saveBtn.setAttribute("aria-pressed", saved);
@@ -838,6 +889,11 @@ function refreshDrawerActions() {
     likeBtn.querySelector(".action-label").textContent = t(liked ? "drawer.like.done" : "drawer.like");
   }
   if (likeCount) likeCount.textContent = store.likeCount(activeSite.id);
+  if (saveCount) {
+    const n = store.saveCount(activeSite.id);
+    saveCount.textContent = n > 0 ? n : "";
+    saveCount.hidden = n <= 0;
+  }
 
   renderPackManifest();
 }
@@ -1578,6 +1634,17 @@ tagFilters.addEventListener("click", (event) => {
 searchInput.addEventListener("input", (event) => {
   searchQuery = event.target.value;
   renderAll();
+});
+
+/* 排序切换 —— 精选顺序 vs 热门（按全站累计收藏数 desc） */
+document.querySelectorAll(".sort-option").forEach((btn) => {
+  btn.addEventListener("click", () => {
+    const next = btn.dataset.sort;
+    if (next === sortMode) return;
+    sortMode = next;
+    document.querySelectorAll(".sort-option").forEach((b) => b.classList.toggle("active", b.dataset.sort === sortMode));
+    renderAll();
+  });
 });
 
 document.querySelectorAll("[data-close]").forEach((element) => {
