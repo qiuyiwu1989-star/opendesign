@@ -136,27 +136,30 @@ python3 synthesize.py extracts/your-site-com
 ## 当前状态（v0.3）
 
 ### 数据
-- ✅ **80+ 收录站**（持续增长，原始 20 + VoltAgent 65 批次扩张中）
+- ✅ **80+ 收录站**（VoltAgent 65 + 自有 20+，持续扩张）
 - ✅ **每个 spec ×5 语言**（zh-CN / zh-TW / en / ja / ko）—— 600+ desc 块、800+ 叙事段
-- ✅ **每个 site 配套 mimo 11-layer + Google `DESIGN.md`** 双格式输出，Claude / Cursor / v0 / Stitch 都能直读
-- ✅ **5000+ 静态 SEO 页**（5 lang × 1000 sites scale）
+- ✅ **每个 site 双格式输出** —— `DESIGN_SPEC.<lang>.md`（我们的 5 语言 magazine）+ `DESIGN.md`（Google Stitch 兼容）
+- ✅ **5000+ 静态 SEO 页**（5 lang × N sites）含 hreflang × x-default
+
+### 前端
+- ✅ **8 语言 UI**：zh-CN / zh-TW / en / ja / ko / **fr / es / ru**（UN 大语种）+ navigator.language 自动识别
+- ✅ **Tag 智能化**：按频次排序 + 计数 badge + 同现 tag 关联推荐
+- ✅ **同气质推荐**：基于 tag Jaccard + 颜色相似度，详情抽屉自动推 4 个相似站
+- ✅ **收藏 / 点赞 / sync code** 跨设备携带（无账号，无 PII）
 
 ### 流水线
 - ✅ **一键 `ingest.py --auto-publish`** —— URL → live URL 一条命令 90 秒
-- ✅ **质量门** —— 颜色 / 字体类别 / donts / 5 lang coverage 全自动校验，过不了的隔离 review
-- ✅ **Token 经济** —— 每站 ~$0.10，1000 站 ~$100；vision 1 次 + 廉价 text 翻译 4 次
+- ✅ **质量门** —— 颜色 / 字体类别 / donts / 5 lang coverage 全自动校验，过不了的标 `needs_review`
+- ✅ **截图 3 级 fallback** —— thum.io → microlink → Google Pagespeed
+- ✅ **Token 经济** —— 每站 ~$0.10，1000 站 ~$100
 
-### 前端 + 基建
-- ✅ **5 语言 UI**（tags / spec / MD 全翻）+ navigator.language 自动识别
-- ✅ **Supabase 收藏 / 点赞** + sync code 跨设备携带（无账号）
-- ✅ **SEO 完整**：sitemap.xml 带 hreflang × N、llms.txt、robots.txt、JSON-LD、OG cover
+### Roadmap
+- 🚧 1000 站规模（预算 $100，~24 小时跑完）
+- 🚧 Arabic (ar) + RTL 支持（v0.4）
+- 🚧 VS Code / Cursor 插件 + npm `@opendesign/fetch-spec`
+- 🚧 现存站 fr/es/ru 内容翻译 backfill（~$3）
 
-### Roadmap 持续
-- 🚧 1000 站规模目标（预算 $100，~24 小时跑完）
-- 🚧 VS Code / Cursor 插件
-- 🚧 npm `@opendesign/fetch-spec`
-
-→ 完整路线图：[ROADMAP.md](ROADMAP.md) · 收录手册：[docs/curator-workflow.md](docs/curator-workflow.md)
+→ [ROADMAP.md](ROADMAP.md) · [收录手册](docs/curator-workflow.md) · [质量门规则](docs/quality-gate.md)
 
 ---
 
