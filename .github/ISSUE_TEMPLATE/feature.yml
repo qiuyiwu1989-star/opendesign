@@ -1,0 +1,74 @@
+name: 功能 / 改进建议 / Feature request
+description: 提议新功能、改进或新加 spec 层
+title: "[Feature] "
+labels: ["enhancement"]
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## 功能 / 改进建议
+
+        在提议前，建议先看 [ROADMAP.md](https://github.com/qiuyiwu1989-star/opendesign/blob/main/ROADMAP.md) 是否已规划。
+
+  - type: dropdown
+    id: scope
+    attributes:
+      label: 涉及范围
+      options:
+        - 11-layer Tokens 标准本身（新增层 / 改字段）
+        - 前端体验（浏览 / 详情 / 移动端）
+        - AI Agent 协议（folder URL / fetch）
+        - Curator 工具（extract / synthesize / pack）
+        - 文档 / 翻译
+        - GitHub workflow / CI / Release
+        - 其他
+    validations:
+      required: true
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: 这个建议解决什么问题
+      description: 在解决方案之前，先描述问题。
+      placeholder: |
+        当我把 spec 喂给 Cursor，AI 不知道哪里该用深色 hover、哪里该用浅色，
+        因为 11 层目前没明确分离 dark mode token mapping。
+    validations:
+      required: true
+
+  - type: textarea
+    id: solution
+    attributes:
+      label: 建议的解决方案
+      placeholder: |
+        在 v0.4 加 darkMode 层：
+        {
+          darkMode: {
+            bg: '#0A0A0B',
+            ink: '#F5F5F7',
+            mapping: { ... }
+          }
+        }
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: 你考虑过的其他方案
+      placeholder: 可选 —— 帮我们理解你的设计权衡
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: contribute
+    attributes:
+      label: 你愿意参与实现吗？
+      options:
+        - label: 我愿意为这个功能开 PR
+          required: false
+        - label: 我愿意帮 review 别人的实现
+          required: false
+        - label: 仅提议
+          required: false

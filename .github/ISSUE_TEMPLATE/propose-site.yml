@@ -1,0 +1,140 @@
+name: 提名一个网站 / Propose a site
+description: 推荐一个值得 OpenDesign 收录的网页
+title: "[Site] "
+labels: ["proposal", "needs-review"]
+assignees:
+  - qiuyiwu1989-star
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## 提名一个新网站
+
+        填这个表大约 1 分钟。如果通过初审，我们会跑 AI vision + Playwright 抽取生成完整 design pack。
+
+        在提交前，请快速看一眼 [选片标准](https://github.com/qiuyiwu1989-star/opendesign/blob/main/CONTRIBUTING.md#选片标准)。
+
+  - type: input
+    id: url
+    attributes:
+      label: 网站 URL
+      description: 主域名 + 路径（不必首页）。如果只有内页能体现气质，请贴内页。
+      placeholder: https://linear.app
+    validations:
+      required: true
+
+  - type: input
+    id: name
+    attributes:
+      label: 网站名 / 品牌名
+      placeholder: Linear
+    validations:
+      required: true
+
+  - type: textarea
+    id: why
+    attributes:
+      label: 为什么值得收录
+      description: |
+        用 1-2 句话说出**独特设计立场**。
+
+        ✅ 好的写法：「暗融化 UI，所有 chrome 趋近背景；强反差 emphasis only 用在 CTA」
+
+        ❌ 不好的写法：「设计精美」「很高级」「视觉冲击力强」
+      placeholder: |
+        Linear 用极暗的灰阶（背景 #08090A），所有 nav / sidebar / toolbar 都靠极小色差区分，
+        而 CTA 和高亮态用纯白 + 微紫，构成「无干扰 / 一击即中」的产品语言。
+    validations:
+      required: true
+
+  - type: input
+    id: analogy
+    attributes:
+      label: 类比（必填，可刁钻）
+      description: |
+        类比一个不同领域的事物 —— 杂志、电影、物件、城市、艺术家。要具体，不要宽泛。
+        ✅「是 Apartamento 杂志的厨房特辑，不是 Wallpaper*」
+        ❌「像高端杂志」
+      placeholder: 像 Braun 计算器的内部走线 —— 全是功能元素却 quiet
+    validations:
+      required: true
+
+  - type: dropdown
+    id: vibe
+    attributes:
+      label: 主要气质（多选）
+      multiple: true
+      options:
+        - Editorial 编辑型
+        - Minimal 极简
+        - Brutalist 粗粝
+        - Maximalist 繁茂
+        - Dark mode 暗黑
+        - Soft / Pastel 柔和
+        - Monospace / Hacker tech
+        - Magazine 杂志感
+        - Studio / Portfolio 工作室
+        - 3D / Generative
+        - Editorial illustration 编辑插画
+        - Other
+    validations:
+      required: true
+
+  - type: input
+    id: vibe_pages
+    attributes:
+      label: 1-3 个最能体现气质的页面 URL
+      description: 用逗号分隔。可以是首页、产品页、关于页、case study 任意。
+      placeholder: https://linear.app, https://linear.app/method, https://linear.app/now
+    validations:
+      required: false
+
+  - type: dropdown
+    id: scope
+    attributes:
+      label: 这个网站属于
+      options:
+        - 营销 / 落地页（marketing site）
+        - 产品 UI（in-app screenshots）
+        - 内容 / 媒体（editorial / magazine）
+        - 工作室作品集（agency portfolio）
+        - 个人作品集（personal site）
+        - 设计系统文档（design system docs）
+        - 出版物（publishing）
+        - 其他
+    validations:
+      required: true
+
+  - type: textarea
+    id: dna
+    attributes:
+      label: 你猜它的 Don'ts 会是什么（可选）
+      description: |
+        你认为这个网站**故意不做**什么？这一层往往最能定义气质。
+      placeholder: |
+        - 不用渐变 —— 全程 flat color
+        - 不用 carousel —— 静态单图
+        - 标题不超过 6 个字
+        - 不用 emoji
+    validations:
+      required: false
+
+  - type: input
+    id: contact
+    attributes:
+      label: 你想被署名吗？
+      description: 留 GitHub 用户名 / Twitter / 邮箱。可选。如果不填默认匿名贡献。
+      placeholder: "@your-github"
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: 确认
+      options:
+        - label: 我读了 [选片标准](https://github.com/qiuyiwu1989-star/opendesign/blob/main/CONTRIBUTING.md#选片标准)，认为这个站符合
+          required: true
+        - label: 我理解 OpenDesign 提取的是设计**原则**（颜色 token / 字体类别 / 间距节奏），不会重新发布该站的品牌资产 / 文案
+          required: true

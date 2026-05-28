@@ -1,0 +1,68 @@
+name: 报告 Bug / Bug report
+description: 报告 OpenDesign 网站或工具里的问题
+title: "[Bug] "
+labels: ["bug"]
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## 报告 Bug
+
+        感谢你帮我们让 OpenDesign 更稳。
+
+  - type: dropdown
+    id: area
+    attributes:
+      label: 哪里出了问题
+      options:
+        - 网站 opendesign.cc（浏览 / 收藏 / 详情）
+        - 网站 AI Owner 模式（?owner=1）
+        - Pack 下载 / 解压
+        - AI agent fetch /packs/<slug>/
+        - extract.py / synthesize.py / pack.sh CLI
+        - Edge Function analyze-site
+        - sites.js / sites-specs.json 数据错误
+        - 文档错 / 链接坏
+        - 其他
+    validations:
+      required: true
+
+  - type: textarea
+    id: describe
+    attributes:
+      label: 描述 bug
+      description: 简洁描述发生了什么、你期望什么、实际是什么。
+      placeholder: |
+        我做 X
+        我期望 Y
+        实际 Z
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: 重现步骤
+      placeholder: |
+        1. 访问 https://opendesign.cc/#/sites/apple
+        2. 点「下载素材包」
+        3. ZIP 缺失 mobile 截图
+    validations:
+      required: false
+
+  - type: input
+    id: env
+    attributes:
+      label: 环境（浏览器 / OS / Node 版本 / Python 版本）
+      placeholder: Chrome 120 / macOS 14 / Python 3.11
+    validations:
+      required: false
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: 日志 / 截图 / 错误信息
+      description: 越具体越好。可以拖图片到这里。
+    validations:
+      required: false

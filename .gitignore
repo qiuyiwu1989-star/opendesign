@@ -1,0 +1,46 @@
+# 提取工具的中间产物 —— 体积大且可重新生成
+extract/extracts/
+
+# Supabase CLI 本地状态（含 linked-project.json）
+supabase/.temp/
+supabase/.branches/
+
+# 设计素材包 ZIP —— 走 GitHub Releases 不进 git tree
+*-design-pack.zip
+extract/*.zip
+
+# 临时文件
+/tmp/*
+*.bak
+*.bak.*
+.DS_Store
+Thumbs.db
+
+# 编辑器
+.vscode/
+.idea/
+.claude/
+*.swp
+*~
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+venv/
+.venv/
+
+# Node
+node_modules/
+npm-debug.log*
+
+# 本地环境 / 私密配置（如果未来有）
+.env
+.env.local
+.env.*.local
+
+# 注意：以下文件「看起来像秘密但实际是公开的」，要进 git：
+#   - supabase-config.js（anon key 公开，靠 RLS 保护）
+#   - sites-specs.json（AI 生成的开放数据）
+#   - packs-index.json（pack 清单元数据）

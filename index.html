@@ -1,0 +1,411 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="theme-color" content="#ffffff" />
+    <title>OpenDesign · 优质网页设计资源库</title>
+    <meta
+      name="description"
+      content="OpenDesign 是一个优质网页设计资源库 —— 把值得反复回看的网页设计沉淀成可被 AI 学习复用的 Markdown 设计系统规范。"
+    />
+    <link rel="canonical" href="https://opendesign.cc/" />
+    <meta property="og:title" content="OpenDesign · 优质网页设计资源库" />
+    <meta property="og:description" content="把值得反复回看的网页设计沉淀成可被 AI 学习复用的 Markdown 设计系统规范。" />
+    <meta property="og:url" content="https://opendesign.cc/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://opendesign.cc/og-cover.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="OpenDesign · 优质网页设计资源库 · 11 层 Tokens 设计系统" />
+    <meta property="og:site_name" content="OpenDesign" />
+    <meta property="og:locale" content="zh_CN" />
+    <meta property="og:locale:alternate" content="en_US" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="OpenDesign · 优质网页设计资源库" />
+    <meta name="twitter:description" content="把值得反复回看的网页设计沉淀成可被 AI 学习复用的 Markdown 设计系统规范。" />
+    <meta name="twitter:image" content="https://opendesign.cc/og-cover.png" />
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+    <link rel="apple-touch-icon" href="./favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&display=swap" />
+    <link rel="stylesheet" href="./styles.css" />
+
+    <!-- JSON-LD 结构化数据：WebSite + Organization + ItemList -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebSite",
+          "@id": "https://opendesign.cc/#website",
+          "url": "https://opendesign.cc/",
+          "name": "OpenDesign",
+          "description": "把值得反复回看的网页设计沉淀成可被 AI 学习复用的 Markdown 设计系统规范。",
+          "inLanguage": ["zh-CN", "en"],
+          "publisher": { "@id": "https://opendesign.cc/#organization" },
+          "potentialAction": {
+            "@type": "SearchAction",
+            "target": "https://opendesign.cc/#/tags/{search_term_string}",
+            "query-input": "required name=search_term_string"
+          }
+        },
+        {
+          "@type": "Organization",
+          "@id": "https://opendesign.cc/#organization",
+          "name": "OpenDesign",
+          "url": "https://opendesign.cc/",
+          "logo": "https://opendesign.cc/favicon.svg",
+          "description": "OpenDesign 是一个开放的网页美学资源库。每条收录附带 11 层 Tokens 结构的 Markdown 设计系统规范，可直接喂给 Claude / Cursor / v0 / Lovable 生成同气质新页面。"
+        },
+        {
+          "@type": "CollectionPage",
+          "@id": "https://opendesign.cc/#collection",
+          "url": "https://opendesign.cc/",
+          "name": "OpenDesign · 网页设计精选",
+          "isPartOf": { "@id": "https://opendesign.cc/#website" },
+          "about": {
+            "@type": "Thing",
+            "name": "Web Design References",
+            "description": "Curated high-quality websites with reusable design tokens"
+          }
+        }
+      ]
+    }
+    </script>
+
+    <!-- 百度统计 Baidu Analytics -->
+    <script>
+      var _hmt = _hmt || [];
+      (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?e83757828db0e57520651bc1be79715c";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+      })();
+    </script>
+  </head>
+  <body>
+    <header class="topbar" aria-label="Primary navigation">
+      <a class="brand" href="#" data-i18n-aria-label="brand.aria">
+        <span class="brand-text">
+          <span class="brand-name">OpenDesign<span class="brand-mark-dot" aria-hidden="true">·</span></span>
+          <span class="brand-sub" data-i18n="brand.sub">curated web design</span>
+        </span>
+      </a>
+      <nav class="nav-pill" data-i18n-aria-label="nav.aria">
+        <button class="nav-item active" data-view="canvas" type="button" data-i18n="nav.atlas">图集</button>
+        <button class="nav-item" data-view="library" type="button" data-i18n="nav.library">列表</button>
+        <button class="nav-item" data-view="saved" type="button">
+          <span data-i18n="nav.saved">收藏</span>
+          <span class="nav-badge" id="savedBadge" hidden>0</span>
+        </button>
+        <button class="nav-item" data-view="about" type="button" data-i18n="nav.about">关于</button>
+      </nav>
+      <div class="actions">
+        <button class="text-button" id="importButton" type="button" hidden>
+          <span data-i18n="actions.collect">＋ 收录</span>
+        </button>
+        <button class="text-button reset-button" id="resetViewButton" type="button" data-i18n-aria-label="actions.reset.aria">
+          <span data-i18n="actions.reset">重置</span>
+        </button>
+        <div class="lang-toggle" role="group" data-i18n-aria-label="actions.lang.aria">
+          <button type="button" class="lang-option" data-lang="zh">中</button>
+          <button type="button" class="lang-option" data-lang="en">EN</button>
+        </div>
+      </div>
+    </header>
+
+    <noscript>
+      <div style="max-width: 800px; margin: 96px auto; padding: 32px; font-family: system-ui, sans-serif; line-height: 1.6;">
+        <h1 style="font-family: serif; font-style: italic; font-size: 56px; margin: 0 0 16px;">OpenDesign</h1>
+        <p style="font-size: 18px; color: #444; margin-bottom: 32px;">把值得反复回看的网页设计沉淀成可被 AI 学习复用的 Markdown 设计系统规范。</p>
+        <p style="color: #666; margin-bottom: 24px;">本站需要 JavaScript 才能完整浏览（拖拽画布 / 详情抽屉 / 收藏功能）。下方是纯文本版的全部精选列表 —— 也欢迎 LLM 抓取者直接读
+          <a href="/llms.txt" style="color: #b4451c;">/llms.txt</a> 或
+          <a href="/sites.js" style="color: #b4451c;">/sites.js</a> 获取结构化数据。</p>
+        <h2 style="font-family: serif; font-style: italic; font-size: 32px; margin: 48px 0 16px;">精选网页设计资源</h2>
+        <ul style="list-style: none; padding: 0;">
+          <li style="padding: 12px 0; border-bottom: 1px solid #eee;"><a href="/#/sites/linear" style="color: #0a0a0a; font-weight: 500;">Linear</a> · <span style="color: #666;">SaaS 项目管理设计天花板</span></li>
+          <li style="padding: 12px 0; border-bottom: 1px solid #eee;"><a href="/#/sites/stripe" style="color: #0a0a0a; font-weight: 500;">Stripe</a> · <span style="color: #666;">Fintech 站设计的金标准</span></li>
+          <li style="padding: 12px 0; border-bottom: 1px solid #eee;"><a href="/#/sites/vercel" style="color: #0a0a0a; font-weight: 500;">Vercel</a> · <span style="color: #666;">开发者世界的 Apple.com</span></li>
+          <li style="padding: 12px 0; border-bottom: 1px solid #eee;"><a href="/#/sites/framer" style="color: #0a0a0a; font-weight: 500;">Framer</a> · <span style="color: #666;">用产品本身的动效当 marketing</span></li>
+          <li style="padding: 12px 0; border-bottom: 1px solid #eee;"><a href="/#/sites/arc" style="color: #0a0a0a; font-weight: 500;">Arc Browser</a> · <span style="color: #666;">浏览器做出消费品的温度感</span></li>
+          <li style="padding: 12px 0; border-bottom: 1px solid #eee;"><a href="/#/sites/raycast" style="color: #0a0a0a; font-weight: 500;">Raycast</a> · <span style="color: #666;">Mac 工具站当代代表</span></li>
+          <li style="padding: 12px 0; border-bottom: 1px solid #eee;"><a href="/#/sites/stripe-press" style="color: #0a0a0a; font-weight: 500;">Stripe Press</a> · <span style="color: #666;">出版物设计语言迁到网页</span></li>
+          <li style="padding: 12px 0; border-bottom: 1px solid #eee;"><a href="/#/sites/cosmos" style="color: #0a0a0a; font-weight: 500;">Cosmos</a> · <span style="color: #666;">灵感采集类天花板</span></li>
+          <li style="padding: 12px 0; border-bottom: 1px solid #eee;"><a href="/#/sites/brittany-chiang" style="color: #0a0a0a; font-weight: 500;">Brittany Chiang</a> · <span style="color: #666;">开发者作品集事实模板</span></li>
+          <li style="padding: 12px 0; border-bottom: 1px solid #eee;"><a href="/#/sites/mobbin" style="color: #0a0a0a; font-weight: 500;">Mobbin</a> · <span style="color: #666;">Mobile UI 参考库标杆</span></li>
+          <li style="padding: 12px 0; border-bottom: 1px solid #eee;"><a href="/#/sites/apple" style="color: #0a0a0a; font-weight: 500;">Apple</a> · <span style="color: #666;">硬件产品页的母语</span></li>
+          <li style="padding: 12px 0; border-bottom: 1px solid #eee;"><a href="/#/sites/pitch" style="color: #0a0a0a; font-weight: 500;">Pitch</a> · <span style="color: #666;">SaaS 可以不像 SaaS</span></li>
+          <li style="padding: 12px 0; border-bottom: 1px solid #eee;"><a href="/#/sites/opal-camera" style="color: #0a0a0a; font-weight: 500;">Opal Camera</a> · <span style="color: #666;">把硬件当作奢侈品来讲</span></li>
+          <li style="padding: 12px 0; border-bottom: 1px solid #eee;"><a href="/#/sites/atlas" style="color: #0a0a0a; font-weight: 500;">Atlas</a> · <span style="color: #666;">Fintech 不落俗套</span></li>
+          <li style="padding: 12px 0; border-bottom: 1px solid #eee;"><a href="/#/sites/lusion" style="color: #0a0a0a; font-weight: 500;">Lusion</a> · <span style="color: #666;">Portfolio 用交互本身做证明</span></li>
+          <li style="padding: 12px 0; border-bottom: 1px solid #eee;"><a href="/#/sites/metalab" style="color: #0a0a0a; font-weight: 500;">Metalab</a> · <span style="color: #666;">项目集合做成决策友好的浏览</span></li>
+          <li style="padding: 12px 0; border-bottom: 1px solid #eee;"><a href="/#/sites/height" style="color: #0a0a0a; font-weight: 500;">Height</a> · <span style="color: #666;">App 页教好产品模型</span></li>
+          <li style="padding: 12px 0; border-bottom: 1px solid #eee;"><a href="/#/sites/amie" style="color: #0a0a0a; font-weight: 500;">Amie</a> · <span style="color: #666;">app 个性化又仍然功能性</span></li>
+          <li style="padding: 12px 0; border-bottom: 1px solid #eee;"><a href="/#/sites/diagram" style="color: #0a0a0a; font-weight: 500;">Diagram</a> · <span style="color: #666;">AI 工具如何解释魔法</span></li>
+          <li style="padding: 12px 0; border-bottom: 1px solid #eee;"><a href="/#/sites/reflect" style="color: #0a0a0a; font-weight: 500;">Reflect</a> · <span style="color: #666;">效率工具感觉深思熟虑</span></li>
+        </ul>
+      </div>
+    </noscript>
+
+    <main class="app-shell">
+      <section class="canvas-view active" id="canvasView" data-i18n-aria-label="canvas.aria">
+        <aside class="filter-rail" data-i18n-aria-label="filter.aria">
+          <label class="search-wrap">
+            <input id="searchInput" type="search" data-i18n-placeholder="filter.search.placeholder" autocomplete="off" />
+          </label>
+          <div class="chip-row" id="tagFilters"></div>
+        </aside>
+        <div class="canvas-surface" id="canvasSurface" role="application" data-i18n-aria-label="canvas.surface.aria">
+          <div class="canvas-grid" id="canvasGrid"></div>
+        </div>
+        <div class="canvas-footnote" id="canvasFootnote" aria-hidden="true"></div>
+      </section>
+
+      <section class="panel-view" id="libraryView" data-i18n-aria-label="library.aria">
+        <div class="panel-head">
+          <p class="eyebrow" id="libraryEyebrow"></p>
+          <h1 data-i18n="library.heading">把好网站沉淀成可复用的设计语料。</h1>
+          <p class="panel-lead" data-i18n="library.lead">列表视图便于快速扫描和搜索。点击任意一条进入详情，可复制或下载它的 Markdown 风格迁移规范。</p>
+        </div>
+        <div class="library-list" id="libraryList"></div>
+        <footer class="panel-footer">
+          <div class="footer-wordmark">OpenDesign</div>
+          <div class="footer-meta">
+            <span data-i18n="footer.tagline">CURATED · OPEN · FREE</span>
+          </div>
+          <div class="footer-link">opendesign.cc</div>
+        </footer>
+      </section>
+
+      <section class="panel-view" id="savedView" data-i18n-aria-label="saved.aria">
+        <div class="panel-head">
+          <p class="eyebrow" id="savedEyebrow"></p>
+          <h1 data-i18n="saved.heading">你保存下来的网页美学。</h1>
+          <p class="panel-lead" data-i18n="saved.lead">收藏会同步到云端，同一台设备 / 同一个浏览器下次回来还在。</p>
+        </div>
+        <div class="library-list" id="savedList"></div>
+        <div class="empty-state" id="savedEmpty" hidden>
+          <p class="empty-title" data-i18n="saved.empty.title">还没收藏任何网站</p>
+          <p class="empty-sub" data-i18n="saved.empty.sub">在图集或列表里点心形 ♥ 收藏喜欢的条目，会出现在这里。</p>
+        </div>
+        <footer class="panel-footer">
+          <div class="footer-wordmark">OpenDesign</div>
+          <div class="footer-meta">
+            <span data-i18n="saved.footer.note">云端同步收藏</span>
+          </div>
+          <div class="footer-link">opendesign.cc</div>
+        </footer>
+      </section>
+
+      <section class="panel-view" id="aboutView" data-i18n-aria-label="about.aria">
+        <div class="panel-head">
+          <p class="eyebrow" data-i18n="about.eyebrow">关于 · OpenDesign</p>
+          <h1 data-i18n="about.heading">把那些"看一眼就知道很贵"的网站，拆成 AI 也能学的语料。</h1>
+          <p class="panel-lead" data-i18n="about.lead">OpenDesign 是一个开放的网页美学资源库。每一个收录都附带一份 Markdown 设计系统规范 —— 不是文案，不是版式 PSD，而是把视觉、布局、交互、动效抽象成 AI 可直接复用的迁移指令。</p>
+        </div>
+
+        <div class="about-stack">
+          <article class="about-row">
+            <span class="about-num" aria-hidden="true">01</span>
+            <div class="about-row-body">
+              <p class="eyebrow"><span data-i18n="about.card.01.label">标准</span></p>
+              <h2 data-i18n="about.card.01.title">统一的 11 层 Tokens 结构</h2>
+              <p data-i18n="about.card.01.body">每个条目按相同结构整理...</p>
+            </div>
+          </article>
+          <article class="about-row">
+            <span class="about-num" aria-hidden="true">02</span>
+            <div class="about-row-body">
+              <p class="eyebrow"><span data-i18n="about.card.02.label">用法</span></p>
+              <h2 data-i18n="about.card.02.title">喂给 AI 生成同气质网页</h2>
+              <p data-i18n="about.card.02.body">在图集或列表里挑一个...</p>
+            </div>
+          </article>
+          <article class="about-row">
+            <span class="about-num" aria-hidden="true">03</span>
+            <div class="about-row-body">
+              <p class="eyebrow"><span data-i18n="about.card.03.label">立场</span></p>
+              <h2 data-i18n="about.card.03.title">克制，是这里的唯一标准</h2>
+              <p data-i18n="about.card.03.body">不收录炫技但没有内容的页面...</p>
+            </div>
+          </article>
+          <article class="about-row">
+            <span class="about-num" aria-hidden="true">04</span>
+            <div class="about-row-body">
+              <p class="eyebrow"><span data-i18n="about.card.04.label">开放</span></p>
+              <h2 data-i18n="about.card.04.title">所有规范开放复用</h2>
+              <p data-i18n="about.card.04.body">所有 Markdown 规范开放给任何人复制...</p>
+            </div>
+          </article>
+        </div>
+
+        <div class="about-section">
+          <p class="eyebrow" data-i18n="about.sample.eyebrow">示例 · 一份规范长什么样</p>
+          <h2 id="aboutSampleTitle">规范示例</h2>
+          <p class="panel-lead about-sample-lead" data-i18n="about.sample.lead">下面是当前精选中的一份完整 Markdown 设计系统规范...</p>
+          <pre class="spec-example"><code id="specExample"></code></pre>
+        </div>
+
+        <div class="about-section about-contact">
+          <p class="eyebrow" data-i18n="about.contact.eyebrow">投稿</p>
+          <h2 data-i18n="about.contact.heading">发现了值得收录的网站？</h2>
+          <p class="panel-lead" data-i18n="about.contact.lead">把链接发给我们，符合收录标准的会被加入资源库。</p>
+          <div class="contact-links">
+            <a class="contact-link" href="mailto:hi@opendesign.cc">hi@opendesign.cc</a>
+          </div>
+        </div>
+
+        <footer class="panel-footer">
+          <div class="footer-wordmark">OpenDesign</div>
+          <div class="footer-meta">
+            <span data-i18n="about.footer.updated">最近更新</span>
+            <span id="lastUpdated"></span>
+          </div>
+          <div class="footer-link">opendesign.cc</div>
+        </footer>
+      </section>
+    </main>
+
+    <aside class="detail-drawer" id="detailDrawer" aria-hidden="true">
+      <div class="drawer-backdrop" data-close></div>
+      <article class="drawer-card" role="dialog" aria-modal="true" aria-labelledby="drawerTitle">
+        <button class="icon-button drawer-close" data-close type="button" data-i18n-aria-label="drawer.close.aria">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18" /></svg>
+        </button>
+        <div class="drawer-media" id="drawerMedia"></div>
+        <div class="drawer-body">
+          <div class="drawer-title-row">
+            <div>
+              <p class="eyebrow" id="drawerDomain"></p>
+              <h2 id="drawerTitle"></h2>
+            </div>
+            <div class="drawer-actions">
+              <button class="action-button save-button" id="drawerSaveButton" type="button" aria-pressed="false" data-i18n-aria-label="drawer.save.aria">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-4.5-9.3-9A5.4 5.4 0 0 1 12 6a5.4 5.4 0 0 1 9.3 6c-2.3 4.5-9.3 9-9.3 9Z" /></svg>
+                <span class="action-label" data-i18n="drawer.save">收藏</span>
+                <span class="action-count" id="drawerSaveCount" hidden></span>
+              </button>
+              <button class="action-button like-button" id="drawerLikeButton" type="button" aria-pressed="false" data-i18n-aria-label="drawer.like.aria">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 11v9H4v-9h3Zm3 9h7.2a2 2 0 0 0 2-1.6l1.4-7a2 2 0 0 0-2-2.4H14V5a2 2 0 0 0-3.5-1.3L7 8v12h3Z" /></svg>
+                <span class="action-label" data-i18n="drawer.like">点赞</span>
+                <span class="action-count" id="drawerLikeCount">0</span>
+              </button>
+              <a class="visit-button" id="drawerUrl" href="#" target="_blank" rel="noreferrer" data-i18n-aria-label="drawer.visit.aria">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8" /></svg>
+                <span data-i18n="drawer.visit.text">打开原站</span>
+              </a>
+            </div>
+          </div>
+          <div class="drawer-tags" id="drawerTags"></div>
+          <div class="insight-grid" id="insightGrid"></div>
+
+          <!-- 设计素材包 manifest 区（按 packsIndex 数据动态显示/隐藏）-->
+          <section class="pack-manifest" id="packManifest" hidden>
+            <div class="pack-head">
+              <div>
+                <p class="eyebrow"><span data-i18n="pack.eyebrow">设计素材包 / DESIGN PACK</span> · <span id="packCount">0</span> <span data-i18n="pack.files">文件</span> · <span id="packZipSize">0 MB</span></p>
+                <h3 data-i18n="pack.pitch">不只是一个 MD —— 含真 computed styles + 真字体清单 + 17 张滚动证据截图 + AI 就绪 markdown。</h3>
+              </div>
+              <div class="pack-actions">
+                <a class="pack-cta primary" id="packDownloadZip" href="#" download>
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v12m-5-5 5 5 5-5M5 20h14" /></svg>
+                  <span data-i18n="pack.download.zip">下载 ZIP</span>
+                  <span class="pack-cta-size" id="packCtaZipSize"></span>
+                </a>
+                <button class="pack-cta secondary" id="packCopyAgentUrl" type="button" data-i18n-aria-label="pack.copy.agentUrl.aria">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 9h11v11H9zM4 4h11v3M4 4v11h3" /></svg>
+                  <span data-i18n="pack.copy.agentUrl">复制 AI Agent URL</span>
+                </button>
+              </div>
+            </div>
+            <ul class="pack-files" id="packFilesList"></ul>
+          </section>
+
+          <div class="markdown-box">
+            <div class="box-head">
+              <span data-i18n="drawer.md.title">MD 设计规范</span>
+              <div class="box-actions">
+                <button class="mini-button" id="copyMarkdownButton" type="button" data-i18n="drawer.md.copy">复制</button>
+                <button class="mini-button" id="downloadMarkdownButton" type="button" data-i18n="drawer.md.download">下载</button>
+                <button class="mini-button" id="copyJsonButton" type="button" hidden data-i18n="drawer.md.copyJson">复制 JSON</button>
+              </div>
+            </div>
+            <pre><code id="markdownOutput"></code></pre>
+          </div>
+        </div>
+      </article>
+    </aside>
+
+    <aside class="collect-modal" id="collectModal" aria-hidden="true">
+      <div class="modal-backdrop" data-close-modal></div>
+      <form class="modal-card" id="collectForm">
+        <div class="modal-head">
+          <div>
+            <p class="eyebrow" data-i18n="modal.eyebrow">自动收录</p>
+            <h2 data-i18n="modal.heading">丢进一个链接，自动生成灵感条目</h2>
+          </div>
+          <button class="icon-button" data-close-modal type="button" data-i18n-aria-label="modal.close.aria">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18" /></svg>
+          </button>
+        </div>
+        <label class="url-drop" id="urlDropZone">
+          <span data-i18n="modal.url.label">粘贴或拖入网址</span>
+          <input id="collectUrlInput" name="url" required inputmode="url" placeholder="https://example.com" />
+        </label>
+        <div class="intake-preview" id="intakePreview">
+          <div class="preview-shot" id="previewShot">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14" /></svg>
+          </div>
+          <div class="preview-copy">
+            <p class="preview-title" id="previewTitle" data-i18n="modal.preview.waiting.title">等待链接</p>
+            <p class="preview-meta" id="previewMeta" data-i18n="modal.preview.waiting.meta">粘 URL 后点「开始分析」...</p>
+            <div class="preview-palette" id="previewPalette" data-i18n-aria-label="modal.palette.aria"></div>
+            <div class="preview-tags" id="previewTags"></div>
+          </div>
+        </div>
+        <div class="pipeline-list" data-i18n-aria-label="modal.pipeline.aria">
+          <span data-pipeline="url" data-i18n="modal.pipeline.url">① 清洗 URL</span>
+          <span data-pipeline="meta" data-i18n="modal.pipeline.meta">② microlink 抓取</span>
+          <span data-pipeline="palette" data-i18n="modal.pipeline.palette">③ 抽取调色板</span>
+          <span data-pipeline="ai" data-i18n="modal.pipeline.ai">④ AI 解读</span>
+        </div>
+        <p class="spec-hint hidden" id="previewSpecHint"></p>
+        <button class="submit-button" id="autoCollectButton" type="submit" data-i18n="modal.button.start">开始分析</button>
+      </form>
+    </aside>
+
+    <!-- 资产预览模态：MD 渲染 + 图 lightbox + JSON mono -->
+    <aside class="asset-preview" id="assetPreview" aria-hidden="true">
+      <div class="preview-backdrop" data-close-preview></div>
+      <article class="preview-card" role="dialog" aria-modal="true">
+        <header class="preview-head">
+          <div class="preview-meta">
+            <span class="preview-icon" id="previewIcon">📄</span>
+            <span class="preview-name" id="previewName"></span>
+            <span class="preview-size" id="previewSize"></span>
+          </div>
+          <div class="preview-actions">
+            <a class="mini-button" id="previewDownload" href="#" download data-i18n="preview.download">下载该文件</a>
+            <button class="icon-button" data-close-preview type="button" data-i18n-aria-label="preview.close">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18" /></svg>
+            </button>
+          </div>
+        </header>
+        <div class="preview-body" id="previewBody"></div>
+      </article>
+    </aside>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <script src="https://cdn.jsdelivr.net/npm/marked@11.2.0/marked.min.js"></script>
+    <script src="./i18n.js"></script>
+    <script src="./sites.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
+    <script src="./supabase-config.js"></script>
+    <script src="./app.js"></script>
+  </body>
+</html>

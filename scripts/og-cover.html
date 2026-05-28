@@ -1,0 +1,129 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@500;600&display=swap" />
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    width: 1200px; height: 630px;
+    background: #ffffff;
+    font-family: "Inter", system-ui, sans-serif;
+    color: #0a0a0a;
+    -webkit-font-smoothing: antialiased;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    overflow: hidden;
+  }
+  .left {
+    padding: 88px 0 88px 88px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .mark {
+    font-family: "Inter", system-ui, sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #737373;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .mark::before {
+    content: "";
+    width: 32px;
+    height: 1px;
+    background: #0a0a0a;
+  }
+  .title {
+    font-family: "Instrument Serif", serif;
+    font-style: italic;
+    font-size: 108px;
+    font-weight: 400;
+    line-height: 0.95;
+    letter-spacing: -3px;
+    color: #0a0a0a;
+  }
+  .title-sub {
+    font-family: "Instrument Serif", serif;
+    font-style: italic;
+    font-size: 28px;
+    line-height: 1.3;
+    letter-spacing: -0.5px;
+    color: #1f1f1f;
+    margin-top: 32px;
+    max-width: 460px;
+  }
+  .url {
+    font-family: ui-monospace, "JetBrains Mono", Menlo, monospace;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    color: #0a0a0a;
+  }
+  .right {
+    position: relative;
+    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+    overflow: hidden;
+    display: grid;
+    place-items: center;
+  }
+  .right-content {
+    color: #ffffff;
+    text-align: center;
+    padding: 48px;
+  }
+  .layers {
+    font-family: ui-monospace, Menlo, monospace;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    line-height: 2;
+    color: rgba(255,255,255,0.7);
+  }
+  .layers strong {
+    color: #ffffff;
+    font-weight: 500;
+  }
+  .badge {
+    display: inline-block;
+    font-family: "Instrument Serif", serif;
+    font-style: italic;
+    font-size: 64px;
+    line-height: 1;
+    color: #ffffff;
+    margin-bottom: 40px;
+  }
+  .accent {
+    color: #b4451c;
+  }
+</style>
+</head>
+<body>
+  <div class="left">
+    <div class="mark">CURATED WEB DESIGN</div>
+    <div>
+      <div class="title">OpenDesign<span class="accent">·</span></div>
+      <div class="title-sub">把值得反复回看的网页设计沉淀成可被 AI 学习复用的 Markdown 设计系统规范。</div>
+    </div>
+    <div class="url">opendesign.cc</div>
+  </div>
+  <div class="right">
+    <div class="right-content">
+      <div class="badge">11 Tokens</div>
+      <div class="layers">
+        Identity · Colors · Typography<br>
+        Spacing · Surfaces · Layout<br>
+        Components · Motion · Interaction<br>
+        Voice · <strong>Don'ts</strong>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
