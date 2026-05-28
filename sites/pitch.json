@@ -10,16 +10,26 @@
     "Editorial",
     "Collaboration"
   ],
-  "status": "vision_done",
+  "status": "completed",
   "added_at": "2026-05-28",
   "added_by": "curator",
   "_meta": {
-    "total_cost_usd": 0.0,
+    "total_cost_usd": 0.1059,
     "vision_model": "mimo-v2.5",
     "vision_prompt_version": "0.3",
     "vision_at": "2026-05-28T19:03:23+00:00",
     "vision_tokens": 3482,
-    "vision_cost_usd": 0.0387
+    "vision_cost_usd": 0.0387,
+    "translation_model": "mimo-v2.5",
+    "translation_at": "2026-05-28T19:04:22+00:00",
+    "translation_tokens": 16052,
+    "translation_cost_usd": 0.0534,
+    "narrative_model": "mimo-v2.5",
+    "narrative_prompt_version": "0.3",
+    "narrative_at": "2026-05-28T19:04:31+00:00",
+    "narrative_tokens": 2068,
+    "narrative_cost_usd": 0.0138,
+    "narrative_status": "ok"
   },
   "desc": {
     "en": {
@@ -144,6 +154,350 @@
         "Don't use complex icon sets — screenshot shows simple, minimal icons"
       ],
       "systemPrompt": "Pitch is a bold, design-forward SaaS presentation platform. Key colors: black (#000000) background, white (#ffffff) text, vibrant green (#b9ff66) accent for CTAs, deep purple gradient overlays. Typography uses geometric sans-serif (similar to Inter or Circular) with tight letter-spacing for display text. Critical donts: never use decorative serifs, never add gradients to buttons, never create cluttered layouts. The design emphasizes generous whitespace, high contrast, and premium dark aesthetics with subtle glow effects and minimal borders."
+    },
+    "zh-CN": {
+      "identity": {
+        "keywords": [
+          "演示",
+          "协作",
+          "SaaS",
+          "设计驱动",
+          "大胆",
+          "编辑感"
+        ],
+        "analogy": "一个大胆、设计驱动的工具，用于创建专业演示文稿，感觉像一本高端的编辑杂志",
+        "oneLiner": "一个大胆、设计驱动的演示平台，面向现代团队"
+      },
+      "colors": {
+        "principle": "高对比度搭配用于关键操作的鲜明强调色，深色基底营造高端质感"
+      },
+      "typography": {
+        "rules": [
+          "标题和正文均使用几何无衬线字体",
+          "为大号展示文本保持紧凑的字间距",
+          "标题使用字重 500，正文使用字重 400",
+          "确保在深色背景上有足够的对比度"
+        ],
+        "scaleUses": [
+          "大型主标题",
+          "章节标题",
+          "子章节标题",
+          "正文文本",
+          "说明文字和小号文本"
+        ]
+      },
+      "spacing": {
+        "rhythm": "基于一致的 4px 栅格，使用宽松的间距营造高端质感"
+      },
+      "surfaces": {
+        "shadows": [
+          "0 4px 24px rgba(0, 0, 0, 0.3)",
+          "0 8px 32px rgba(0, 0, 0, 0.4)",
+          "0 0 120px rgba(185, 255, 102, 0.15)"
+        ],
+        "borders": "1px solid rgba(255, 255, 255, 0.15)"
+      },
+      "layout": {
+        "skeleton": "全宽主视觉区域，居中内容，充足的留白，强烈的垂直节奏"
+      },
+      "components": {
+        "button": "两种样式：主要按钮（绿色填充、深色文字、圆角）和次要按钮（白色描边、白色文字、圆角）",
+        "card": "深色卡片，带有微妙的边框、圆角和轻微的发光效果",
+        "chip": "小型圆角标签，带有微妙的背景色",
+        "input": "深色输入框，白色文字，微妙的边框，圆角",
+        "hero": "全宽区域，带有渐变紫色覆盖层，大号字体，居中内容，浮动 UI 元素"
+      },
+      "motion": {
+        "patterns": [
+          "内容区域的平滑淡入",
+          "主视觉元素的微妙视差效果",
+          "交互元素的柔和 hover 过渡"
+        ]
+      },
+      "interaction": {
+        "hover": "按钮颜色变化，卡片轻微缩放，链接透明度变化",
+        "click": "按钮的微妙按压效果，以及用于无障碍的 focus 环",
+        "transition": "平滑的颜色和变换过渡（150-300ms）",
+        "keyboard": "交互元素具有可见的 focus 状态，遵循逻辑的 tab 键顺序"
+      },
+      "voice": {
+        "tone": "自信、专业、创新",
+        "headlineStyle": "大胆、简洁、行动导向",
+        "ctaStyle": "直接、清晰、聚焦于收益",
+        "avoid": [
+          "术语过多",
+          "过于随意的语气",
+          "复杂的句子结构"
+        ]
+      },
+      "donts": [
+        "不要使用装饰性衬线字体——截图显示的是简洁的几何无衬线字体排版",
+        "不要在按钮上添加渐变——截图显示的是扁平的纯色按钮",
+        "不要在卡片上使用细边框——截图显示的是微妙、低对比度的边框",
+        "不要创建杂乱的布局——截图显示的是充足的留白和清晰的层次结构",
+        "不要使用多个相互竞争的强调色——截图显示的是单一的鲜明绿色强调色",
+        "不要使用小而拥挤的间距——截图显示的是充足的内边距和外边距",
+        "不要使用复杂的图标集——截图显示的是简单、极简的图标"
+      ],
+      "systemPrompt": "Pitch 是一个大胆、设计驱动的 SaaS 演示平台。关键颜色：黑色（#000000）背景、白色（#ffffff）文字、用于 CTA 的鲜明绿色（#b9ff66）强调色、深紫色渐变覆盖层。字体使用几何无衬线体（类似 Inter 或 Circular），展示文本采用紧凑的字间距。关键禁忌：切勿使用装饰性衬线字体，切勿在按钮上添加渐变，切勿创建杂乱的布局。设计强调充足的留白、高对比度以及具有微妙发光效果和极简边框的高端深色美学。"
+    },
+    "zh-TW": {
+      "identity": {
+        "keywords": [
+          "簡報",
+          "協作",
+          "SaaS",
+          "設計導向",
+          "大膽",
+          "編輯風格"
+        ],
+        "analogy": "一款大膽、設計導向的工具，用於製作專業簡報，質感如同高端編輯雜誌",
+        "oneLiner": "一款為現代團隊打造的大膽、設計導向簡報平台"
+      },
+      "colors": {
+        "principle": "高對比度搭配鮮明的關鍵操作強調色，深色基底營造高端質感"
+      },
+      "typography": {
+        "rules": [
+          "使用幾何無襯線字體作為標題與內文",
+          "大型展示文字維持緊湊的字距",
+          "標題使用字重 500，內文使用 400",
+          "確保深色背景上具備足夠的對比度"
+        ],
+        "scaleUses": [
+          "大型主視覺標題",
+          "章節標題",
+          "小節標題",
+          "內文",
+          "註解與小字"
+        ]
+      },
+      "spacing": {
+        "rhythm": "以一致的 4px 為基準，搭配寬裕間距營造高端質感"
+      },
+      "surfaces": {
+        "shadows": [
+          "0 4px 24px rgba(0, 0, 0, 0.3)",
+          "0 8px 32px rgba(0, 0, 0, 0.4)",
+          "0 0 120px rgba(185, 255, 102, 0.15)"
+        ],
+        "borders": "1px solid rgba(255, 255, 255, 0.15)"
+      },
+      "layout": {
+        "skeleton": "全幅主視覺區域，置中內容，寬裕留白，強烈垂直節奏"
+      },
+      "components": {
+        "button": "兩種樣式：主要（綠色填充、深色文字、圓角）與次要（白色外框、白色文字、圓角）",
+        "card": "深色卡片，搭配細微邊框、圓角與微光效果",
+        "chip": "小型圓角標籤，帶有細微背景色",
+        "input": "深色輸入欄位，白色文字、細微邊框、圓角",
+        "hero": "全幅設計，搭配漸層紫色覆蓋層、大型字體、置中內容、浮動 UI 元素"
+      },
+      "motion": {
+        "patterns": [
+          "內容區塊平滑淡入",
+          "主視覺元素細微視差效果",
+          "互動元素輕柔的 hover 過渡"
+        ]
+      },
+      "interaction": {
+        "hover": "按鈕色彩變化，卡片輕微放大，連結透明度改變",
+        "click": "按鈕細微點擊效果，焦點環以利無障礙使用",
+        "transition": "平滑的色彩與 transform 過渡（150-300ms）",
+        "keyboard": "互動元素顯示焦點，邏輯化的 tab 順序"
+      },
+      "voice": {
+        "tone": "自信、專業、創新",
+        "headlineStyle": "大膽、簡潔、行動導向",
+        "ctaStyle": "直接、清晰、強調效益",
+        "avoid": [
+          "過多術語的語言",
+          "過於隨意的語氣",
+          "複雜的句式結構"
+        ]
+      },
+      "donts": [
+        "勿使用裝飾性襯線字體 — 螢幕截圖顯示的是簡潔的幾何無襯線字體排版",
+        "勿為按鈕添加漸層效果 — 螢幕截圖顯示的是平面單色按鈕",
+        "勿在卡片上使用細邊框 — 螢幕截圖顯示的是細微、低對比度的邊框",
+        "勿創造雜亂的佈局 — 螢幕截圖顯示的是寬裕留白與清晰的層次結構",
+        "勿使用多種競爭的強調色 — 螢幕截圖顯示的是單一鮮明的綠色強調色",
+        "勿使用狹小擁擠的間距 — 螢幕截圖顯示的是寬裕的內距與外距",
+        "勿使用複雜的圖示集 — 螢幕截圖顯示的是簡約、極簡的圖示"
+      ],
+      "systemPrompt": "Pitch 是一款大膽、設計導向的 SaaS 簡報平台。主要顏色：黑色（#000000）背景、白色（#ffffff）文字、鮮明綠色（#b9ff66）用於 CTA 強調、深紫色漸層覆蓋層。字體使用幾何無襯線字體（類似 Inter 或 Circular），展示文字字距緊湊。關鍵禁忌：絕不使用裝飾性襯線字體、絕不為按鈕添加漸層、絕不創造雜亂的佈局。設計強調寬裕留白、高對比度，以及帶有微光效果與簡約邊框的高端深色美學。"
+    },
+    "ja": {
+      "identity": {
+        "keywords": [
+          "プレゼンテーション",
+          "コラボレーション",
+          "SaaS",
+          "デザイン重視",
+          "大胆",
+          "エディトリアル"
+        ],
+        "analogy": "高級エディトリアル雑誌のような、プロフェッショナルなプレゼンテーションを作成するための、大胆でデザイン重視のツール",
+        "oneLiner": "モダンなチームのための、大胆でデザイン重視のプレゼンテーションプラットフォーム"
+      },
+      "colors": {
+        "principle": "主要アクションには鮮やかなアクセントを用いた高コントラスト、高級感のあるダークベース"
+      },
+      "typography": {
+        "rules": [
+          "ヘッドラインと本文にはジオメトリック・サンセリフを使用",
+          "大きなディスプレイテキストでは、タイトな文字間隔を維持",
+          "ヘッドラインにはウェイト500、本文には400を使用",
+          "ダーク背景で十分なコントラスト比を確保"
+        ],
+        "scaleUses": [
+          "大きなヒーローヘッドライン",
+          "セクションヘッドライン",
+          "サブセクションヘッドライン",
+          "本文テキスト",
+          "キャプションおよび小文字テキスト"
+        ]
+      },
+      "spacing": {
+        "rhythm": "高級感を演出するたっぷりのスペーシングを備えた、一貫した4pxベース"
+      },
+      "surfaces": {
+        "shadows": [
+          "0 4px 24px rgba(0, 0, 0, 0.3)",
+          "0 8px 32px rgba(0, 0, 0, 0.4)",
+          "0 0 120px rgba(185, 255, 102, 0.15)"
+        ],
+        "borders": "1px solid rgba(255, 255, 255, 0.15)"
+      },
+      "layout": {
+        "skeleton": "コンテンツを中央揃えにしたフルワイドヒーロー、たっぷりのホワイトスペース、強い垂直リズム"
+      },
+      "components": {
+        "button": "2スタイル：プライマリ（グリーン塗り、ダークテキスト、角丸）とセカンダリ（ホワイトアウトライン、ホワイトテキスト、角丸）",
+        "card": "微細なボーダー、角丸、そしてわずかなグロー効果を持つダークカード",
+        "chip": "微細な背景を持つ小さな角丸タグ",
+        "input": "ダーク背景、ホワイトテキスト、微細なボーダー、角丸の入力フィールド",
+        "hero": "フルワイド、グラデーション・パープルオーバーレイ、大きなタイポグラフィ、コンテンツ中央揃え、フローティングUI要素"
+      },
+      "motion": {
+        "patterns": [
+          "コンテンツセクションのスムーズなフェードイン",
+          "ヒーロー要素の微細なパララックス",
+          "インタラクティブ要素の優しいhoverトランジション"
+        ]
+      },
+      "interaction": {
+        "hover": "ボタンの色のシフト、カードのわずかなスケール変化、リンクの透明度の変化",
+        "click": "ボタンの微細な押下効果、アクセシビリティのためのフォーカスリング",
+        "transition": "色とトランスフォームのスムーズなトランジション（150-300ms）",
+        "keyboard": "インタラクティブ要素へのフォーカス表示、論理的なタブ順序"
+      },
+      "voice": {
+        "tone": "自信、プロフェッショナル、革新的",
+        "headlineStyle": "大胆、簡潔、アクション重視",
+        "ctaStyle": "直接的、明確、メリット重視",
+        "avoid": [
+          "専門用語の乱用",
+          "過度にカジュアルなトーン",
+          "複雑な文構造"
+        ]
+      },
+      "donts": [
+        "装飾的なセリフフォントを使用しない — スクリーンショットはクリーンなジオメトリック・サンセリフのタイポグラフィを示しています",
+        "ボタンにグラデーションを追加しない — スクリーンショットはフラットで単色のボタンを示しています",
+        "カードに細いボーダーを使用しない — スクリーンショットは微細で低コントラストのボーダーを示しています",
+        "雑然としたレイアウトを作成しない — スクリーンショットはたっぷりのホワイトスペースと明確な階層を示しています",
+        "複数の競合するアクセントカラーを使用しない — スクリーンショットは単一の鮮やかなグリーンアクセントを示しています",
+        "小さく窮屈なスペーシングを使用しない — スクリーンショットはたっぷりのパディングとマージンを示しています",
+        "複雑なアイコンセットを使用しない — スクリーンショットはシンプルでミニマルなアイコンを示しています"
+      ],
+      "systemPrompt": "Pitchは、大胆でデザイン重視のSaaSプレゼンテーションプラットフォームです。主要カラー：黒（#000000）背景、白（#ffffff）テキスト、CTA用の鮮やかなグリーン（#b9ff66）アクセント、深いパープルグラデーションオーバーレイ。タイポグラフィは、ディスプレイテキストにタイトな文字間隔を持つジオメトリック・サンセリフ（InterやCircularに類似）を使用。重要な禁止事項：装飾的なセリフを一切使用しない、ボタンにグラデーションを一切追加しない、雑然としたレイアウトを一切作成しない。デザインは、たっぷりのホワイトスペース、高コントラスト、微細なグロー効果とミニマルなボーダーを備えた高級ダーク美学を重視しています。"
+    },
+    "ko": {
+      "identity": {
+        "keywords": [
+          "프레젠테이션",
+          "협업",
+          "SaaS",
+          "design-forward",
+          "대담한",
+          "에디토리얼"
+        ],
+        "analogy": "전문적인 프레젠테이션을 만들기 위한 대담하고 디자인 중심의 도구로, 하이엔드 에디토리얼 매거진을 연상시킵니다",
+        "oneLiner": "현대 팀을 위한 대담하고 디자인 중심의 프레젠테이션 플랫폼"
+      },
+      "colors": {
+        "principle": "핵심 작업을 위한 선명한 강조색을 사용한 고대비, 프리미엄 느낌을 위한 어두운 베이스"
+      },
+      "typography": {
+        "rules": [
+          "헤드라인과 본문에 기하학적 산세리프를 사용합니다",
+          "큰 디스플레이 텍스트는 좁은 자간을 유지합니다",
+          "헤드라인에는 weight 500, 본문에는 400을 사용합니다",
+          "어두운 배경에서 충분한 대비율을 확보합니다"
+        ],
+        "scaleUses": [
+          "큰 히어로 헤드라인",
+          "섹션 헤드라인",
+          "하위 섹션 헤드라인",
+          "본문 텍스트",
+          "캡션 및 작은 텍스트"
+        ]
+      },
+      "spacing": {
+        "rhythm": "프리미엄 느낌을 위한 넉넉한 간격과 함께 4px 기본 리듬을 유지합니다"
+      },
+      "surfaces": {
+        "shadows": [
+          "0 4px 24px rgba(0, 0, 0, 0.3)",
+          "0 8px 32px rgba(0, 0, 0, 0.4)",
+          "0 0 120px rgba(185, 255, 102, 0.15)"
+        ],
+        "borders": "1px solid rgba(255, 255, 255, 0.15)"
+      },
+      "layout": {
+        "skeleton": "중앙 정렬된 콘텐츠를 가진 전체 너비 히어로, 넉넉한 여백, 강한 수직 리듬"
+      },
+      "components": {
+        "button": "두 가지 스타일: primary (그린 필, 어두운 텍스트, 둥근 모서리) 및 secondary (화이트 윤곽, 화이트 텍스트, 둥근 모서리)",
+        "card": "미세한 윤곽, 둥근 모서리, 약간의 글로우 효과가 있는 어두운 카드",
+        "chip": "미세한 배경을 가진 작은 둥근 태그",
+        "input": "화이트 텍스트, 미세한 윤곽, 둥근 모서리가 있는 어두운 입력 필드",
+        "hero": "그래디언트 퍼플 오버레이, 큰 타이포그래피, 중앙 정렬 콘텐츠, 떠 있는 UI 요소가 있는 전체 너비"
+      },
+      "motion": {
+        "patterns": [
+          "콘텐츠 섹션을 위한 부드러운 페이드인",
+          "히어로 요소에 대한 미세한 패럴랙스",
+          "인터랙티브 요소에 대한 부드러운 hover 트랜지션"
+        ]
+      },
+      "interaction": {
+        "hover": "버튼의 색상 변화, 카드의 약간의 스케일 변화, 링크의 불투명도 변화",
+        "click": "버튼의 미세한 누르기 효과, 접근성을 위한 focus 링",
+        "transition": "부드러운 색상 및 transform 트랜지션 (150-300ms)",
+        "keyboard": "인터랙티브 요소에서 focus가 보임, 논리적인 탭 순서"
+      },
+      "voice": {
+        "tone": "자신감 있는, 전문적인, 혁신적인",
+        "headlineStyle": "대담하고, 간결하며, 행동 지향적",
+        "ctaStyle": "직접적이고, 명료하며, 이점 중심적",
+        "avoid": [
+          "전문 용어가 많은 언어",
+          "지나치게 캐주얼한 어조",
+          "복잡한 문장 구조"
+        ]
+      },
+      "donts": [
+        "장식용 세리프를 사용하지 않습니다 — 스크린샷은 깔끔한 기하학적 산세리프 타이포그래피를 보여줍니다",
+        "버튼에 그래디언트를 추가하지 않습니다 — 스크린샷은 플랫하고 단색 버튼을 보여줍니다",
+        "카드에 얇은 윤곽을 사용하지 않습니다 — 스크린샷은 미세하고 저대비 윤곽을 보여줍니다",
+        "혼잡한 레이아웃을 만들지 않습니다 — 스크린샷은 넉넉한 여백과 명확한 계층을 보여줍니다",
+        "경쟁적인 강조색을 여러 개 사용하지 않습니다 — 스크린샷은 단일 선명한 그린 강조색을 보여줍니다",
+        "좁고 빡빡한 간격을 사용하지 않습니다 — 스크린샷은 넉넉한 패딩과 마진을 보여줍니다",
+        "복잡한 아이콘 세트를 사용하지 않습니다 — 스크린샷은 단순하고 미니멀한 아이콘을 보여줍니다"
+      ],
+      "systemPrompt": "Pitch는 대담하고 디자인 중심의 SaaS 프레젠테이션 플랫폼입니다. 주요 색상: 블랙(#000000) 배경, 화이트(#ffffff) 텍스트, CTA를 위한 선명한 그린(#b9ff66) 강조색, 딥 퍼플 그래디언트 오버레이. 타이포그래피는 기하학적 산세리프(Inter 또는 Circular 유사)를 사용하며, 디스플레이 텍스트에는 좁은 자간을 적용합니다. 중요한 금지 사항: 절대 장식용 세리프를 사용하지 않고, 버튼에 그래디언트를 추가하지 않으며, 혼잡한 레이아웃을 만들지 않습니다. 디자인은 넉넉한 여백, 고대비, 그리고 미세한 글로우 효과와 미니멀한 윤곽을 가진 프리미엄 다크 미학을 강조합니다."
     }
   },
   "spec": {
@@ -240,6 +594,68 @@
         "medium": 500
       },
       "easing": "cubic-bezier(0.16, 1, 0.3, 1)"
+    }
+  },
+  "narrative": {
+    "en": {
+      "ch1_intro": "Pitch's design system is a study in controlled contrast: a dark, expansive canvas that sets the stage for content to perform. It adopts the meticulous hierarchy of a high-end editorial magazine, where every element—from typography to interaction—serves a clear communicative purpose. The result is a tool that feels less like software and more like a curated publication.",
+      "ch2_intro": "The color system operates on a principle of dramatic focus. A high-contrast palette of black and white establishes a premium, cinematic foundation, while a single, vibrant green accent cuts through to direct attention to primary actions.",
+      "ch2_outro": "This restrained, accent-driven approach ensures the interface never competes with the user's own content.",
+      "ch3_intro": "Typography is the system's core voice, delivered through a geometric sans-serif that is both modern and authoritative. The rules enforce a clean, tight-set character for large display text, using weight to create a clear, immediate hierarchy between headlines and body copy.",
+      "ch4_intro": "Spatial rhythm is defined by a consistent 4px base unit, applied with generous padding to create a feeling of openness and premium air.",
+      "ch5_intro": "Depth is constructed through shadow and translucency, not heavy ornament. Dark surfaces are lifted by layered box-shadows and a subtle, signature glow, while low-contrast borders provide just enough definition to separate elements.",
+      "ch6_intro": "The layout skeleton favors full-width hero sections that command the viewport, with content centered on a strong vertical axis. Generous whitespace is not a void but a structural element, giving components room to breathe and reinforcing the system's bold typographic scale.",
+      "ch7_intro": "Motion philosophy is one of elegant understatement. Animations are smooth, purposeful, and fast, using fades and subtle parallax to guide focus without drawing attention to the transition itself.",
+      "ch8_intro": "The editorial voice is confident and direct, mirroring the interface's boldness. It favors concise, action-oriented headlines and clear, benefit-focused calls to action, avoiding jargon and complex constructions.",
+      "ch8_outro": "The system deliberately excludes decorative serif fonts, gradient buttons, and cluttered layouts to preserve its core principle of focused, premium clarity."
+    },
+    "zh-CN": {
+      "ch1_intro": "Pitch 的设计系统是对克制对比的深入研究：深邃而广阔的画布为内容搭建了舞台，使其得以尽情展现。它汲取了高端编辑杂志的严谨层级理念，从排版到交互，每一个元素都服务于清晰的传播目的。最终呈现的工具，与其说是软件，不如说是一部精心编排的出版物。",
+      "ch2_intro": "色彩系统遵循戏剧性聚焦的原则。黑白高对比调色板奠定了高端、电影般的基调，而一抹鲜明的绿色点缀则巧妙地引导视线，聚焦于核心操作。",
+      "ch2_outro": "这种克制、以点缀色驱动的方式，确保界面永远不会与用户自身的产生竞争。",
+      "ch3_intro": "排版是系统的核心表达，通过一款兼具现代感与权威感的几何无衬线字体来传递。规范强调为大型展示文字保持清晰、紧凑的字距，利用字重在标题与正文之间建立清晰、即时的层级关系。",
+      "ch4_intro": "空间韵律由一致的 4px 基准单元定义，通过充裕的内边距应用，营造出开阔与高级感的氛围。",
+      "ch5_intro": "层次感通过阴影与半透明来构建，而非繁复的装饰。深色表面通过层叠的盒阴影与微妙的标志性光效得以提升，而低对比度的边框则提供了恰到好处的界定，以分隔各个元素。",
+      "ch6_intro": "布局骨架偏爱占据视口的通栏首屏区域，内容则沿着强烈的垂直轴线居中。充裕的留白并非空洞，而是一种结构性元素，为组件提供了呼吸空间，并强化了系统大胆的排版比例。",
+      "ch7_intro": "动效哲学是优雅的克制。动画流畅、有目的且快速，运用淡入淡出与微妙的视差效果来引导焦点，同时避免让过渡本身成为关注点。",
+      "ch8_intro": "编辑语气自信而直接，映射了界面的大胆风格。它偏爱简洁、以行动为导向的标题，以及清晰、以利益点为核心的号召性用语，避免使用行话与复杂的句式。",
+      "ch8_outro": "该系统刻意排除了装饰性衬线字体、渐变按钮与杂乱的布局，以恪守其专注于高级清晰度的核心原则。"
+    },
+    "zh-TW": {
+      "ch1_intro": "Pitch 的設計系統展現了 controlled contrast 的精妙研究：深邃而廣闊的畫布，為內容演出搭建舞台。它採用了高端編輯雜誌的嚴謹層級結構，從排版到互動，每一個元素都服務於清晰的溝通目的。最終成品，使其感覺不像一款軟體，而更像一本精心策劃的刊物。",
+      "ch2_intro": "色彩系統基於戲劇性焦點的原則運作。高對比的黑白配色奠定了優質、電影感的基調，而一抹鮮明的綠色強調色則脫穎而出，將注意力引導至主要操作。",
+      "ch2_outro": "這種克制且以強調色為導向的方法，確保了介面永遠不會與使用者自身的內容相競爭。",
+      "ch3_intro": "排版是系統的核心語音，透過兼具現代感與權威性的幾何無襯線字體呈現。規則確立了簡潔、緊湊的大型顯示文字風格，並運用字重在標題與內文之間建立清晰、即時的層級關係。",
+      "ch4_intro": "空間節奏由一致的 4px 基礎單位定義，並以寬裕的 padding 實踐，營造出開闊感與高級的空氣感。",
+      "ch5_intro": "深度透過陰影與半透明度建構，而非厚重的裝飾。深色表面透過多層 box-shadow 與微妙、標誌性的光暈得以提升，而低對比的邊框則提供足夠的輪廓以區分元素。",
+      "ch6_intro": "版面結構傾向於佔據整個視口的寬幅主視覺區域，內容沿著強烈的垂直軸線居中。大量的空白並非空洞，而是一種結構性元素，賦予組件呼吸空間，並強化系統大膽的排版尺度。",
+      "ch7_intro": "動效哲學是優雅而低調的。動畫流暢、有目的且迅速，使用淡入淡出與細微的 parallax 引導焦點，而不讓轉場本身成為注意力的中心。",
+      "ch8_intro": "編輯語音自信而直接，反映了介面的大膽風格。它偏好簡潔、以行動為導向的標題，以及清晰、聚焦於效益的號召用語，避免術語與複雜句構。",
+      "ch8_outro": "系統刻意排除了裝飾性襯線字體、漸層按鈕與雜亂的版面，以維護其專注、優質清晰度的核心原則。"
+    },
+    "ja": {
+      "ch1_intro": "Pitchのデザインシステムは、制御された対比の探究です。暗く広大なキャンバスが、コンテンツがその役割を果たす舞台を設定します。ハイエンドなエディトリアル雑誌の精緻な階層構造を採用し、タイポグラフィからインタラクションまで、すべての要素が明確なコミュニケーション目的を持っています。その結果、ソフトウェアというよりは、厳選された出版物のように感じられるツールが生まれています。",
+      "ch2_intro": "カラーシステムは、劇的な焦点の原理に基づいています。黒と白のハイコントラストなパレットが、プレミアムでシネマティックな基盤を確立し、鮮やかなグリーンのアクセントが視線をプライマリアクションへと誘導します。",
+      "ch2_outro": "この抑制された、アクセント重視のアプローチにより、インターフェースがユーザー自身のコンテンツと競争することを防いでいます。",
+      "ch3_intro": "タイポグラフィはシステムの中心的な声であり、モダンかつ権威のある幾何学的サンセリフで表現されます。ルールは、大型ディスプレイテキストに対してクリーンで引きの強い字設定を適用し、ウェイトの変化により、見出しと本文の間に明確で即時の階層を生み出します。",
+      "ch4_intro": "空間のリズムは、一貫した4pxのベースユニットで定義され、十分なpaddingを適用することで、開放感とプレミアムな空気感を生み出します。",
+      "ch5_intro": "深度は、重厚な装飾ではなく、シャドウと半透明性によって構築されます。暗いサーフェスは、レイヤードなbox-shadowと微かなシグネチャーグローによって浮かび上がり、低コントラストのボーダーが、要素を分離するために必要な最小限の定義を提供します。",
+      "ch6_intro": "レイアウトのスケルトンは、ビューポートを支配するフルワイドのヒーローセクションを優先し、コンテンツは強い垂直軸を中心に配置されます。豊富な余白は空虚ではなく、構造要素として機能し、コンポーネントに息をつかせ、システムの大胆なタイポグラフィスケールを強化します。",
+      "ch7_intro": "モーションの哲学は、洗練された控えめさにあります。アニメーションは滑らかで目的に沿ったものであり、フェードや微かなparallaxを使用して、遷移自体に注意を引かずにフォーカスを誘導します。",
+      "ch8_intro": "エディトリアルボイスは、インターフェースの大胆さを反映し、自信に満ちて直接的です。簡潔で行動を促す見出し、明確でメリットに焦点を当てたCTAを好み、専門用語や複雑な構造は避けます。",
+      "ch8_outro": "システムは、焦点を絞ったプレミアムな明瞭さという核心原則を保つため、装飾的なセリフフォント、グラデーションボタン、雑然としたレイアウトを意図的に排除しています。"
+    },
+    "ko": {
+      "ch1_intro": "Pitch의 디자인 시스템은 통제된 대비의 연구입니다: 어두운 넓은 캔버스가 내용이 빛나도록 무대를 마련합니다. 세련된 편집 잡지의 세밀한 계층 구조를 채택하여, 모든 요소—타이포그래피부터 인터랙션까지—명확한 의사소통 목적을 갖추고 있습니다. 결과적으로 소프트웨어보다 큐레이션된 출판물에 가까운 도구가 탄생합니다.",
+      "ch2_intro": "색상 시스템은 극적인 집중이라는 원칙으로 운영됩니다. 흑백의 고대비 팔레트가 프리미엄적이고 시네마틱한 기반을 확립하며, 단 하나의 생동감 넘치는 그린 액센트가 주요 액션으로 시선을 유도합니다.",
+      "ch2_outro": "이 절제되고 액센트 중심의 접근 방식은 인터페이스가 사용자의 자체적인 콘텐츠와 경쟁하지 않도록 보장합니다.",
+      "ch3_intro": "타이포그래피는 시스템의 핵심 음성으로, 현대적이면서도 권위 있는 기하학적 고딕 서체를 통해 전달됩니다. 규칙은 큰 디스플레이 텍스트에 대해 깔끔하고 촘촘한 세팅을 강제하여, 헤드라인과 본문 간의 명확하고 즉각적인 계층 구조를 무게감으로 생성합니다.",
+      "ch4_intro": "공간 리듬은 일관된 4px 기본 단위로 정의되며, 넉넉한 padding을 적용하여 개방감과 프리미엄한 여백의 느낌을 만듭니다.",
+      "ch5_intro": "깊이는 장식이 아닌 그림자와 반투명성을 통해 구축됩니다. 어두운 표면은 겹쳐진 box-shadow와 미묘한 시그니처 글로우로 떠오르며, 저대비 테두리는 요소를 분리하기에 충분한 경계를 제공합니다.",
+      "ch6_intro": "레이아웃 스켈레톤은 뷰포트를 장악하는 풀폭 영웅 섹션을 선호하며, 콘텐츠는 강력한 수직 축을 중심으로 정렬됩니다. 넉넉한 여백은 공허가 아닌 구조적 요소로, 구성 요소에 숨 쉴 공간을 주고 시스템의 대담한 타이포그래피 스케일을 강화합니다.",
+      "ch7_intro": "모션 철학은 우아한 절제입니다. 애니메이션은 부드럽고 목적 지향적이며 빠르게 진행되며, 전환 자체에 주목을 끌지 않으면서 초점을 유도하기 위해 페이드와 미묘한 parallax를 사용합니다.",
+      "ch8_intro": "편집 음성은 인터페이스의 대담함을 반영하여 자신감 있고 직접적입니다. 간결하고 행동 지향적인 헤드라인과 명확한, 이점 중심의 콜 투 액션을 선호하며, 전문 용어와 복잡한 구조를 피합니다.",
+      "ch8_outro": "이 시스템은 집중적이고 프리미엄한 명확성이라는 핵심 원칙을 보존하기 위해 장식용 세리프 폰트, 그라데이션 버튼, 그리고 지저분한 레이아웃을 의도적으로 제외합니다."
     }
   }
 }

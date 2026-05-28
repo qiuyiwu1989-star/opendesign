@@ -10,14 +10,24 @@
     "Refined",
     "Developer Tools"
   ],
-  "status": "vision_done",
+  "status": "completed",
   "added_at": "2026-05-28",
   "added_by": "curator",
   "_meta": {
     "vision_model": "mimo-v2.5",
     "vision_prompt_version": "0.2_legacy",
     "vision_at": "2026-05-28T02:40:28.553Z",
-    "total_cost_usd": 0.0
+    "total_cost_usd": 0.0831,
+    "translation_model": "mimo-v2.5",
+    "translation_at": "2026-05-28T19:06:14+00:00",
+    "translation_tokens": 19813,
+    "translation_cost_usd": 0.066,
+    "narrative_model": "mimo-v2.5",
+    "narrative_prompt_version": "0.3",
+    "narrative_at": "2026-05-28T19:06:25+00:00",
+    "narrative_tokens": 2568,
+    "narrative_cost_usd": 0.0171,
+    "narrative_status": "ok"
   },
   "spec": {
     "colors": {
@@ -229,7 +239,400 @@
         "不放 social proof —— 截图里无用户头像、评价、logo 墙或数字指标"
       ],
       "systemPrompt": "你是深色模式极简工具官网设计师。配色：纯黑 #000000 背景 + 纯白文字 + 灰色副标题，无 accent 色参与 UI；标题用 geometric-sans 500 weight 不加粗，正文同族 400 weight；按钮为白色圆角胶囊 flat 填充无投影；hero 为纯文字居中布局无产品截图；section 间距 96-160px 极度慷慨留白；不用渐变/不用卡片/不用感叹号/不用 social proof /不用粗体标题。语气自信克制，句号结尾，CTA 用动词开头的功能描述。"
+    },
+    "zh-CN": {
+      "identity": {
+        "keywords": [
+          "极简",
+          "深色模式",
+          "工具自信",
+          "无装饰",
+          "慷慨留白"
+        ],
+        "analogy": "是 Terminal 的纯黑 + Apple HIG 的排版精度，不是 Hacker News 的极客绿字也不是 Vercel 的渐变暗色",
+        "oneLiner": "用最少的视觉元素传达最大的工具信心"
+      },
+      "colors": {
+        "principle": "纯黑白灰三阶：黑底白字为主，灰色仅用于副标题和导航链接，无品牌色参与 UI 层"
+      },
+      "typography": {
+        "rules": [
+          "标题永远 500 weight，不用 bold/700+",
+          "标题用句号结尾，语气陈述而非感叹",
+          "monospace 仅用于版本号和命令行安装提示",
+          "导航链接 500 weight 14px，不加粗"
+        ],
+        "scaleUses": [
+          "首屏主标题，两行居中，句号结尾",
+          "hero 副标题描述文案",
+          "版本号与安装命令信息",
+          "按钮内文字"
+        ]
+      },
+      "spacing": {
+        "rhythm": "慷慨——hero 上方约 160px 垂直空间，标题与副标题间距 24px，副标题与按钮组间距约 96px，整体留白占页面 70%+"
+      },
+      "surfaces": {
+        "shadows": [
+          "无可见投影，按钮和导航均为平面无 elevation"
+        ],
+        "borders": "导航底部一条 1px 极细灰线分隔；按钮为纯色填充无边框；'Try the new Raycast' 用 1px 细边框圆角容器"
+      },
+      "layout": {
+        "skeleton": "fixed top nav（logo + 横向链接 + 右侧登录/下载）→ 大面积留白 → 居中 display 标题 → 副标题 → 两个并排下载按钮 → 版本信息 → CTA 链接 → 大面积黑色留白"
+      },
+      "components": {
+        "button": "白色实色圆角胶囊按钮，内含平台图标 + 文字，高度约 44px；nav 右侧 Download 按钮相同样式；无投影无渐变",
+        "card": null,
+        "chip": "底部 'Try the new Raycast | Learn more →' 为 1px 细边框圆角胶囊，内部分两段文字",
+        "input": null,
+        "hero": "纯文字居中 hero，display 标题 + body 副标题 + 双按钮 + 版本信息，无图片无动画截图无产品预览"
+      },
+      "motion": {
+        "patterns": [
+          "按钮悬停可能有背景色微调（从静态截图推断）",
+          "Learn more 箭头暗示 hover 有位移动效"
+        ]
+      },
+      "interaction": {
+        "hover": "按钮可能有 opacity 或背景亮度微调；导航链接可能有颜色变亮",
+        "click": null,
+        "transition": "所有过渡应保持 200ms 以内，符合工具型产品的快节奏预期",
+        "keyboard": "作为启动器类工具，官网应暗示键盘优先的操作心智"
+      },
+      "voice": {
+        "tone": "自信、克制、陈述事实，不推销不煽情",
+        "headlineStyle": "短句陈述，句号结尾，不加感叹号，如 'Your shortcut to everything.'",
+        "ctaStyle": "动词开头的功能描述：'Download for Mac' / 'Learn more'，不用 'Get started' 或 'Sign up free'",
+        "avoid": [
+          "感叹号",
+          "营销感形容词如 'amazing/incredible'",
+          "长句标题",
+          "用户评价或数字社会证明"
+        ]
+      },
+      "donts": [
+        "不做渐变或纹理背景 —— 截图里是 #000000 纯黑无任何渐变",
+        "不用多色 accent —— 截图里唯一彩色是 logo 的红色闪电图标，UI 层全无彩色",
+        "不用粗体标题 —— 截图里 hero 标题是 500 weight 中等粗细，非 bold",
+        "不用卡片或阴影层次 —— 截图里无任何 elevation 或 card 组件",
+        "不在 hero 放产品截图或动画 —— 截图里 hero 下方直接是按钮和大量留白",
+        "不在按钮用渐变或投影 —— 按钮是纯白 flat 填充无任何 depth",
+        "不用感叹号结尾 —— 截图里标题和副标题全是句号或无标点",
+        "不放 social proof —— 截图里无用户头像、评价、logo 墙或数字指标"
+      ],
+      "systemPrompt": "你是深色模式极简工具官网设计师。配色：纯黑 #000000 背景 + 纯白文字 + 灰色副标题，无 accent 色参与 UI；标题用 geometric-sans 500 weight 不加粗，正文同族 400 weight；按钮为白色圆角胶囊 flat 填充无投影；hero 为纯文字居中布局无产品截图；section 间距 96-160px 极度慷慨留白；不用渐变/不用卡片/不用感叹号/不用 social proof /不用粗体标题。语气自信克制，句号结尾，CTA 用动词开头的功能描述。"
+    },
+    "zh-TW": {
+      "identity": {
+        "keywords": [
+          "極簡",
+          "深色模式",
+          "工具自信",
+          "無裝飾",
+          "慷慨留白"
+        ],
+        "analogy": "是 Terminal 的純黑 + Apple HIG 的排版精度，不是 Hacker News 的極客綠字也不是 Vercel 的漸變暗色",
+        "oneLiner": "用最少的視覺元素傳達最大的工具信心"
+      },
+      "colors": {
+        "principle": "純黑白灰三階：黑底白字為主，灰色僅用於副標題和導覽連結，無品牌色參與 UI 層"
+      },
+      "typography": {
+        "rules": [
+          "標題永遠 500 weight，不用 bold/700+",
+          "標題用句號結尾，語氣陳述而非驚嘆",
+          "monospace 僅用於版本號和命令列安裝提示",
+          "導覽連結 500 weight 14px，不加粗"
+        ],
+        "scaleUses": [
+          "首頁主標題，兩行居中，句號結尾",
+          "hero 副標題描述文案",
+          "版本號與安裝命令資訊",
+          "按鈕內文字"
+        ]
+      },
+      "spacing": {
+        "rhythm": "慷慨——hero 上方約 160px 垂直空間，標題與副標題間距 24px，副標題與按鈕組間距約 96px，整體留白佔頁面 70%+"
+      },
+      "surfaces": {
+        "shadows": [
+          "無可見投影，按鈕和導覽均為平面無 elevation"
+        ],
+        "borders": "導覽底部一條 1px 極細灰線分隔；按鈕為純色填充無邊框；'Try the new Raycast' 用 1px 細邊框圓角容器"
+      },
+      "layout": {
+        "skeleton": "固定頂部導覽（logo + 橫向連結 + 右側登入/下載）→ 大面積留白 → 居中 display 標題 → 副標題 → 兩個並排下載按鈕 → 版本資訊 → CTA 連結 → 大面積黑色留白"
+      },
+      "components": {
+        "button": "白色實色圓角膠囊按鈕，內含平台圖示 + 文字，高度約 44px；導覽右側 Download 按鈕同樣樣式；無投影無漸變",
+        "card": null,
+        "chip": "底部 'Try the new Raycast | Learn more →' 為 1px 細邊框圓角膠囊，內部分兩段文字",
+        "input": null,
+        "hero": "純文字居中 hero，display 標題 + body 副標題 + 雙按鈕 + 版本資訊，無圖片無動畫截圖無產品預覽"
+      },
+      "motion": {
+        "patterns": [
+          "按鈕懸停可能有背景色微調（從靜態截圖推斷）",
+          "Learn more 箭頭暗示 hover 有位移動效"
+        ]
+      },
+      "interaction": {
+        "hover": "按鈕可能有 opacity 或背景亮度微調；導覽連結可能有顏色變亮",
+        "click": null,
+        "transition": "所有過渡應保持 200ms 以內，符合工具型產品的快節奏預期",
+        "keyboard": "作為啟動器類工具，官網應暗示鍵盤優先的操作心智"
+      },
+      "voice": {
+        "tone": "自信、克制、陳述事實，不推銷不煽情",
+        "headlineStyle": "短句陳述，句號結尾，不加驚嘆號，如 'Your shortcut to everything.'",
+        "ctaStyle": "動詞開頭的功能描述：'Download for Mac' / 'Learn more'，不用 'Get started' 或 'Sign up free'",
+        "avoid": [
+          "驚嘆號",
+          "行銷感形容詞如 'amazing/incredible'",
+          "長句標題",
+          "用戶評價或數字社會證明"
+        ]
+      },
+      "donts": [
+        "不做漸變或紋理背景 —— 截圖裡是 #000000 純黑無任何漸變",
+        "不用多色 accent —— 截圖裡唯一彩色是 logo 的紅色閃電圖示，UI 層全無彩色",
+        "不用粗體標題 —— 截圖裡 hero 標題是 500 weight 中等粗細，非 bold",
+        "不用卡片或陰影層次 —— 截圖裡無任何 elevation 或 card 元件",
+        "不在 hero 放產品截圖或動畫 —— 截圖裡 hero 下方直接是按鈕和大量留白",
+        "不在按鈕用漸變或投影 —— 按鈕是純白 flat 填充無任何 depth",
+        "不用驚嘆號結尾 —— 截圖裡標題和副標題全是句號或無標點",
+        "不放 social proof —— 截圖裡無用戶頭像、評價、logo 牆或數字指標"
+      ],
+      "systemPrompt": "你是深色模式極簡工具官網設計師。配色：純黑 #000000 背景 + 純白文字 + 灰色副標題，無 accent 色參與 UI；標題用 geometric-sans 500 weight 不加粗，正文同族 400 weight；按鈕為白色圓角膠囊 flat 填充無投影；hero 為純文字居中佈局無產品截圖；section 間距 96-160px 極度慷慨留白；不用漸變/不用卡片/不用驚嘆號/不用 social proof /不用粗體標題。語氣自信克制，句號結尾，CTA 用動詞開頭的功能描述。"
+    },
+    "ja": {
+      "identity": {
+        "keywords": [
+          "ミニマル",
+          "ダークモード",
+          "ツールとしての自信",
+          "飾り気なし",
+          "寛大な余白"
+        ],
+        "analogy": "ターミナルの純黒 + Apple HIG のタイポグラフィ精度であり、Hacker News のギークな緑文字でも Vercel のグラデーション暗色でもない",
+        "oneLiner": "視覚要素を最小限に抑え、ツールとしての最大の自信を伝える"
+      },
+      "colors": {
+        "principle": "黒・白・グレーの3段階を厳守：黒地に白文字を基本とし、グレーはサブタイトルやナビリンクにのみ使用。UI層にはブランドカラーを一切使用しない"
+      },
+      "typography": {
+        "rules": [
+          "見出しは常に500ウェイト。bold/700以上は使用しない",
+          "見出しはピリオドで締め、宣言的かつ感情を抑えた口調にする",
+          "monospaceはバージョン番号やコマンドラインのインストール指示にのみ使用",
+          "ナビリンクは500ウェイト14px。太字にしない"
+        ],
+        "scaleUses": [
+          "トップページのメイン見出し。2行で中央揃え、ピリオド付き",
+          "ヒーローセクションのサブタイトル説明文",
+          "バージョン番号とインストールコマンド情報",
+          "ボタン内のテキスト"
+        ]
+      },
+      "spacing": {
+        "rhythm": "寛大に — ヒーロー上には約160pxの垂直スペース。見出しとサブタイトルの間隔は24px、サブタイトルとボタン群の間隔は約96px。全体の余白はページの70%以上を占める"
+      },
+      "surfaces": {
+        "shadows": [
+          "目に見える影は一切なし。ボタンとナビゲーションはすべてフラットでlevationを用いない"
+        ],
+        "borderss": "ナビゲーション底部には1pxの極細グレー線で区切る。ボタンは純色塗りで境界線なし。「Try the new Raycast」は1pxの細い境界線を持つ角丸コンテナ"
+      },
+      "layout": {
+        "skeleton": "固定トップナビ（ロゴ + 横リンク + 右侧ログイン/ダウンロード）→ 大量の余白 → 中央揃えのdisplay見出し → サブタイトル → 並列の2つのダウンロードボタン → バージョン情報 → CTAリンク → 大量の黒い余白"
+      },
+      "components": {
+        "button": "白の実色角丸カプセルボタン。プラットフォームアイコン + テキストを内包。高さは約44px。ナビ右側のDownloadボタンも同スタイル。影もグラデーションもなし",
+        "card": null,
+        "chip": "底部の「Try the new Raycast | Learn more →」は1pxの細い境界線を持つ角丸カプセル。内部は2つのテキストセグメントに分割",
+        "input": null,
+        "hero": "テキストのみ中央揃えのヒーロー。display見出し + bodyサブタイトル + 2つのボタン + バージョン情報。画像、アニメーション、スクリーンショット、製品プレビューは一切なし"
+      },
+      "motion": {
+        "patterns": [
+          "ボタンのホバー時に背景色が微調整される可能性あり（静止スクリーンショットから推測）",
+          "Learn moreの矢印は、ホバー時に移動効果を示唆している"
+        ]
+      },
+      "interaction": {
+        "hover": "ボタンはオパシティまたは背景の明るさが微調整される可能性あり。ナビリンクは色が明るくなる可能性あり",
+        "click": null,
+        "transition": "すべてのトランジションは200ms以内に保ち、ツール系製品の素早いテンポに適合させる",
+        "keyboard": "ランチャー系ツールとして、公式サイトはキーボード優先の操作イメージを暗に示すべき"
+      },
+      "voice": {
+        "tone": "自信があり、自制が効き、事実を陈述する。販売的でも煽動的でもない",
+        "headlineStyle": "短い宣言文で、ピリオドで締め、感嘆符は付けない。例：「Your shortcut to everything.」",
+        "ctaStyle": "動詞で始まる機能的記述：「Download for Mac」や「Learn more」。「Get started」や「Sign up free」は使用しない",
+        "avoid": [
+          "感嘆符",
+          "「amazing/incredible」のようなマーケティング調の形容詞",
+          "長い見出し文",
+          "ユーザーレビューや数字による社会的証明"
+        ]
+      },
+      "donts": [
+        "グラデーションやテクスチャの背景を使用しない — スクリーンショットでは#000000の純黒で、いかなるグラデーションもない",
+        "マルチカラーのアクセントカラーを使用しない — スクリーンショットで唯一のカラーはロゴの赤い稲妻アイコンで、UI層にカラーは一切ない",
+        "太字の見出しを使用しない — スクリーンショットではヒーロー見出しが500ウェイト（中程度の太さ）であり、boldではない",
+        "カードや影のレイヤリングを使用しない — スクリーンショットではlevationやカードコンポーネントは一切ない",
+        "ヒーローに製品のスクリーンショットやアニメーションを配置しない — スクリーンショットではヒーローの直下にボタンと大量の余白が続く",
+        "ボタンにグラデーションや影を使用しない — ボタンは純白のフラット塗りで、いかなるdepthもなし",
+        "感嘆符で締めない — スクリーンショットでは見出しやサブタイトルがすべてピリオドか句読点なし",
+        "ソーシャルプルーフを配置しない — スクリーンショットではユーザーアバターやレビューやロゴの壁や数値指標は一切ない"
+      ],
+      "systemPrompt": "あなたはダークモードのミニマルなツール公式サイトデザイナーです。配色：純黒#000000背景 + 純白文字 + グレーのサブタイトル。UIにはアクセントカラーを使用しない。見出しはgeometric-sans 500ウェイトで太字にせず、本文は同一フォントファミリーの400ウェイト。ボタンは白の角丸カプセルでフラット塗り、影なし。ヒーローはテキストのみ中央揃えレイアウトで製品スクリーンショットなし。セクション間隔は96〜160pxと極めて寛大な余白。グラデーション/カード/感嘆符/ソーシャルプルーフ/太字見出しは使用しない。口調は自信と自制があり、ピリオドで締め、CTAは動詞で始まる機能的記述。"
+    },
+    "ko": {
+      "identity": {
+        "keywords": [
+          "미니멀리즘",
+          "다크 모드",
+          "도구 자신감",
+          "무장식",
+          "관대한 여백"
+        ],
+        "analogy": "Terminal의 순수 블랙 + Apple HIG의 조판 정밀도, Hacker News의 geeky green 텍스트나 Vercel의 그라디언트 다크 테마가 아닙니다",
+        "oneLiner": "최소한의 시각 요소로 최대의 도구 자신감을 전달합니다"
+      },
+      "colors": {
+        "principle": "순수 흑백 회 3단계: 흰 글자 위주의 검은 배경, 부제목과 내비게이션 링크에만 회색 사용, UI 계층에 브랜드 컬러 미참여"
+      },
+      "typography": {
+        "rules": [
+          "제목은 항상 500 웨이트, bold/700 이상 사용 금지",
+          "제목은 마침표로 끝맺음, 감탄보다는 서술형 어조",
+          "monospace는 버전 번호와 명령줄 설치 안내에만 사용",
+          "내비게이션 링크 500 웨이트 14px, 볼드 처리 없음"
+        ],
+        "scaleUses": [
+          "첫 화면 메인 제목, 두 줄 중앙 정렬, 마침표로 끝맺음",
+          "히어로 부제목 설명 카피",
+          "버전 번호와 설치 명령 정보",
+          "버튼 내부 텍스트"
+        ]
+      },
+      "spacing": {
+        "rhythm": "관대한——히어로 상단 약 160px 수직 공간, 제목과 부제목 간격 24px, 부제목과 버튼 그룹 간격 약 96px, 전체 여백이 페이지의 70% 이상 차지"
+      },
+      "surfaces": {
+        "shadows": [
+          "보이는 그림자 없음, 버튼과 내비게이션 모두 플랫하고 elevation 없음"
+        ],
+        "borders": "내비게이션 하단에 1px 극세 회색선으로 구분; 버튼은 순수 채우고 테두리 없음; 'Try the new Raycast'는 1px 세련된 둥근 모서리 컨테이너"
+      },
+      "layout": {
+        "skeleton": "고정 상단 내비게이션(로고 + 가로 링크 + 우측 로그인/다운로드) → 넓은 여백 → 중앙 display 제목 → 부제목 → 나란히 배치된 두 개의 다운로드 버튼 → 버전 정보 → CTA 링크 → 넓은 검은 여백"
+      },
+      "components": {
+        "button": "흰색 실속 둥근 캡슐 버튼, 플랫폼 아이콘 + 텍스트 포함, 높이 약 44px; 내비 우측 다운로드 버튼 동일 스타일; 그림자 그라디언트 없음",
+        "card": null,
+        "chip": "하단 'Try the new Raycast | Learn more →'는 1px 세련된 둥근 캡슐, 내부 두 단락 텍스트로 구분",
+        "input": null,
+        "hero": "순수 텍스트 중앙 정렬 히어로, display 제목 + 본문 부제목 + 듀얼 버튼 + 버전 정보, 이미지나 애니메이션 스크린샷, 제품 프리뷰 없음"
+      },
+      "motion": {
+        "patterns": [
+          "버튼 호버 시 배경색 미세 조정 가능(정적 스크린샷으로 추정)",
+          "Learn more 화살표가 호버 이동 효과 암시"
+        ]
+      },
+      "interaction": {
+        "hover": "버튼 opacity 또는 배경 밝기 미세 조정 가능; 내비게이션 링크 밝은 색상 변화 가능",
+        "click": null,
+        "transition": "모든 전환은 200ms 이내 유지, 도구형 제품의 빠른 리듬 기대에 부합",
+        "keyboard": "런처 계열 도구로서 공식 사이트가 키보드 우선的操作 기본 설정을 암시해야 함"
+      },
+      "voice": {
+        "tone": "자신감 있고 절제되며 사실을 서술, 판촉이나 감정 자극 없음",
+        "headlineStyle": "마침표로 끝맺는 짧은 서술형 문장, 감탄号 없음, 예: 'Your shortcut to everything.'",
+        "ctaStyle": "동사로 시작하는 기능 설명: 'Download for Mac' / 'Learn more', 'Get started'나 'Sign up free' 사용 금지",
+        "avoid": [
+          "감탄号",
+          "'amazing/incredible'과 같은 마케팅형 형용사",
+          "긴 제목 문장",
+          "사용자 평가나 수치적 소셜 프루프"
+        ]
+      },
+      "donts": [
+        "그라디언트나 텍스처 배경 사용 금지 — 스크린샷에는任何形式의 그라디언트 없는 순수 #000000 블랙",
+        "다색 악센트 사용 금지 — 스크린샷에서 유일한 컬러는 로고의 빨간색 번개 아이콘, UI 계층에는 컬러 없음",
+        "볼드 제목 사용 금지 — 스크린샷에서 히어로 제목은 500 웨이트 중간 굵기, bold 아님",
+        "카드나 그림자 레이어 사용 금지 — 스크린샷에 elevation이나 card 컴포넌트 없음",
+        "히어로에 제품 스크린샷이나 애니메이션 배치 금지 — 스크린샷에서 히어로 하단은 버튼과 넓은 여백으로 직접 이어짐",
+        "버튼에 그라디언트나 그림자 사용 금지 — 버튼은 순수 흰색 flat 채우고 깊이감 없음",
+        "감탄号로 끝맺음 금지 — 스크린샷에서 제목과 부제목 모두 마침표 또는 무표시",
+        "소셜 프루프 배치 금지 — 스크린샷에 사용자 아바타, 평가, 로고 월 또는 수치 지표 없음"
+      ],
+      "systemPrompt": "당신은 다크 모드 미니멀 도구 공식 사이트 디자이너입니다. 색상: 순수 블랙 #000000 배경 + 순수 화이트 텍스트 + 부제목용 회색, UI에 악센트 컬러 미참여; 제목은 geometric-sans 500 웨이트 볼드 처리 없이, 본문은 동일 패밀리 400 웨이트; 버튼은 흰색 둥근 캡슐 flat 채우고 그림자 없이; 히어로는 제품 스크린샷 없는 순수 텍스트 중앙 정렬 레이아웃; 섹션 간격 96-160px으로 매우 관대한 여백; 그라디언트/카드/감탄号/소셜 프루프/볼드 제목 사용 금지. 어조는 자신감 있고 절제되며 마침표로 끝맺음, CTA는 동사로 시작하는 기능 설명."
     }
   },
-  "narrative": {}
+  "narrative": {
+    "en": {
+      "ch1_intro": "Raycast's visual identity is the Terminal's pure black married to Apple HIG's typographic precision — a synthesis of command-line austerity and interface-grade refinement. It communicates maximum tool confidence through minimal visual means, rejecting both the hacker-green phosphor of old terminals and the gradient-soaked dark modes of contemporary marketing.",
+      "ch2_intro": "The palette is a deliberate void: pure black (#000000) grounds every surface, white carries all primary text, and grey exists only for secondary labels and navigation links. No accent color participates in the UI layer — the sole chromatic element is the red lightning bolt in the logo, kept outside the interface proper.",
+      "ch2_outro": "Color restraint is structural, not decorative — it keeps focus on function and prevents any hue from competing with the user's own terminal or editor palette.",
+      "ch3_intro": "Typography operates in a geometric sans-serif family across two weights: 500 for all headings (never bold, never 700+) and 400 for body copy. Monospace appears only where it belongs — version numbers and command-line installation strings — reinforcing the tool's lineage without letting it dominate the reading layer.",
+      "ch4_intro": "Vertical rhythm is generous to the point of architectural: the hero section floats within roughly 160px of breathing room above, with 24px between title and subtitle and 96px before the button group, ensuring whitespace exceeds 70% of the viewport.",
+      "ch5_intro": "Elevation is absent — no drop shadows lift buttons or navigation from the ground plane, keeping every element firmly on the same depth plane. Borders are surgical: a single 1px grey line under the navigation bar, a 1px outlined capsule for the promotional chip, and nothing else.",
+      "ch6_intro": "The skeleton is a fixed top navigation bar — logo left, horizontal links center, login and download right — flowing into vast black space before the centered display title, subtitle, two side-by-side download buttons, version information, a CTA link, and then more black emptiness stretching to the footer. The layout is a vertical column of centered elements, each given room to breathe.",
+      "ch7_intro": "Motion is minimal and sub-200ms, calibrated to the rhythm keyboard-first users anticipate — hover states may adjust button opacity or background brightness, and the 'Learn more' arrow suggests a subtle translation on interaction. Every transition exists to confirm an action, never to entertain.",
+      "ch8_intro": "The editorial voice is confident, restrained, and factual: short declarative sentences ending in periods, never exclamation marks, with CTAs written as verb-first functional descriptions ('Download for Mac', 'Learn more'). Marketing adjectives, social proof, user testimonials, and numeric social metrics are systematically excluded.",
+      "ch8_outro": "Raycast deliberately omits gradients, card-based hierarchies, bold headlines, product screenshots in the hero, and any form of social validation — the absence is the statement."
+    },
+    "zh-CN": {
+      "ch1_intro": "Raycast 的视觉识别是 Terminal 的纯黑与 Apple HIG 的排版精度相结合——命令行的严谨与界面级精致感的融合。它通过极简的视觉手段传达出极致的工具信心，既摒弃了旧终端机的荧光绿，也拒绝了当代营销中渐变饱和的深色模式。",
+      "ch2_intro": "配色是精心设计的虚空：纯黑（#000000）作为所有界面的基底，白色承载所有主要文本，灰色仅用于次要标签和导航链接。没有强调色参与界面层——唯一的色彩元素是 logo 中的红色闪电，且置于界面主体之外。",
+      "ch2_outro": "色彩克制是结构性的，而非装饰性的——它将焦点保持在功能上，避免任何色调与用户自身的终端或编辑器配色竞争。",
+      "ch3_intro": "字体采用几何无衬线字体系列，使用两种字重：所有标题使用 500（从不加粗，从不使用 700+），正文使用 400。等宽字体仅出现在其应属之处——版本号和命令行安装字符串——这强化了工具的渊源，又不让其主导阅读层。",
+      "ch4_intro": "垂直节奏宽裕到近乎建筑感：首屏区域在上方约有 160px 的呼吸空间，标题与副标题之间有 24px 间距，按钮组之前有 96px 间距，确保留白超过视口的 70%。",
+      "ch5_intro": "没有层级提升——没有投影将按钮或导航从底面抬起，所有元素都牢固地位于同一深度平面。边框极其精确：导航栏下方一条 1px 灰线，促销标签一个 1px 描边胶囊，别无其他。",
+      "ch6_intro": "骨架是一个固定的顶部导航栏——logo 在左，水平链接居中，登录和下载在右——之后是广阔的黑色空间，中央是展示标题、副标题、两个并排的下载按钮、版本信息、一个 CTA 链接，然后是更多延伸至页脚的黑色虚空。布局是一个垂直居中的元素列，每个元素都留有充足的呼吸空间。",
+      "ch7_intro": "动效极简且低于 200ms，校准至以键盘优先用户所预期的节奏——hover 状态可能调整按钮透明度或背景亮度，'了解更多' 箭头在交互时暗示细微的平移。每个过渡效果都存在是为了确认操作，而非娱乐。",
+      "ch8_intro": "编辑语调自信、克制且注重事实：以句号结尾的简短陈述句，从不使用感叹号，CTA 写成动词在前的功能性描述（如 'Download for Mac'、'Learn more'）。营销形容词、社会认同、用户证言和数字社交指标都被系统性地排除。",
+      "ch8_outro": "Raycast 刻意省略了渐变、卡片式层级、粗体标题、首屏产品截图以及任何形式的社会认同——这种缺席本身就是宣言。"
+    },
+    "zh-TW": {
+      "ch1_intro": "Raycast 的視覺識別，是終端機純黑與 Apple HIG 字型精準度的結合——命令列簡約與介面級精緻的融合。它以最極簡的視覺手段，傳達出最高的工具信任感，拒絕了舊式終端機的駭客綠螢光，也迴避了當代行銷中過度渲染的漸層暗色模式。",
+      "ch2_intro": "色調是一個刻意的留白：純黑（#000000）為所有表面奠基，白色承載所有主要文字，而灰色僅用於次要標籤與導覽連結。沒有任何強調色參與 UI 層級——唯一的色彩元素是標誌中的紅色閃電，並被排除在實際介面之外。",
+      "ch2_outro": "色彩的克制是結構性的，而非裝飾性的——它將焦點保持在功能上，並防止任何色調與使用者自身的終端機或編輯器色盤產生競爭。",
+      "ch3_intro": "字型在幾何無襯線字族中運作，分為兩種字重：500 用於所有標題（從不使用粗體，從不超過 700+），400 用於內文。等寬字體僅出現在該出現的地方——版本號與命令列安裝指令——強化工具的傳承，而不讓其主導閱讀層級。",
+      "ch4_intro": "垂直節奏慷慨至建築般的程度：首頁區塊在上方約 160px 的呼吸空間中浮現，標題與副標題間距 24px，按鈕組前預留 96px，確保留白區域佔據超過 70% 的視窗。",
+      "ch5_intro": "高度感完全缺席——沒有陰影將按鈕或導覽從地平面抬起，讓所有元素穩固地保持在同一深度平面上。邊框如外科手術般精準：導覽列下方一條 1px 灰線，促銷標籤一個 1px 描邊的膠囊形狀，僅此而已。",
+      "ch6_intro": "骨架是一個固定的頂部導覽列——標誌在左，水平連結居中，登入與下載在右——後方延伸著廣闊的黑色空間，接著是置中的展示標題、副標題、兩個並列的下載按鈕、版本資訊、一個 CTA 連結，然後是延伸至頁尾的更多黑色虛無。佈局是垂直的置中元素欄位，每個元素都享有呼吸的空間。",
+      "ch7_intro": "動態效果極簡且低於 200ms，校準至鍵盤優先使用者預期的節奏——hover 狀態可能調整按鈕的透明度或背景亮度，「了解更多」箭頭在互動時暗示微幅的位移。每個過渡動畫都為了確認動作而存在，從不為了取悅。",
+      "ch8_intro": "編輯語氣自信、克制且實事求是：以句號結尾的簡短陳述句，從不使用驚嘆號，CTA 以動詞優先的功能性描述撰寫（「下載 Mac 版」、「了解更多」）。行銷用詞、社群認證、使用者見證與數位化社群指標被系統性地排除。",
+      "ch8_outro": "Raycast 刻意省略了漸層、卡片式層級、粗體標題、首頁區塊中的產品截圖，以及任何形式的社會驗證——這種缺席本身就是一種宣言。"
+    },
+    "ja": {
+      "ch1_intro": "Raycastのビジュアルアイデンティティは、ターミナルの純粋なブラックとApple HIGのタイポグラフィ精度を融合させたもの——コマンドラインの厳格さとインターフェース品質の洗練の統合です。最小限の視覚手段を通じて最大限のツール信頼性を伝え、旧来のターミナルのハッカーグリーンや、現代マーケティングのグラデーション暗いモードの両方を拒絶します。",
+      "ch2_intro": "パレットは意図的な空白です：純粋なブラック（#000000）がすべての表面を基盤とし、ホワイトがすべての主要テキストを担い、グレーはセカンダリラベルとナビゲーションリンクにのみ存在します。アクセントカラーはUIレイヤーに参加しません——唯一のクロマティック要素はロゴ内の赤い稲妻で、それはインターフェース本体の外に留められます。",
+      "ch2_outro": "色彩の抑制は構造的であり、装飾的ではありません——機能に集中し、ユーザー自身のターミナルやエディターパレットと競合する色相を防止します。",
+      "ch3_intro": "タイポグラフィは2つのウェイトを持つ幾何学的サンセリフファミリーで機能します：すべての見出しには500（太字、700+は決して使用せず）、本文には400を使用。モノスペースは適切な場所にのみ現れます——バージョン番号とコマンドラインインストール文字列——ツールの系譜を強調しつつ、閲覧レイヤーを支配させません。",
+      "ch4_intro": "縦のリズムは建築的なまでに手厚いです：ヒーローセクションは上下約160pxの余白を確保して浮遊し、タイトルとサブタイトルの間は24px、ボタングループの前は96pxとし、余白がビューポートの70%を超えるようにします。",
+      "ch5_intro": "高さの概念は存在しません——ドロップシャドウでボタンやナビゲーションを地面から持ち上げることはなく、すべての要素を同一の深度面上にしっかり固定します。ボーダーは外科的です：ナビゲーションバーの下に単一の1pxグレーライン、プロモーションチップに1pxのアウトラインカプセル、それ以外はありません。",
+      "ch6_intro": "骨格は固定されたトップナビゲーションバーです——左にロゴ、中央に水平リンク、右にログインとダウンロード——中央配置のディスプレイタイトル、サブタイトル、並列の2つのダウンロードボタン、バージョン情報、CTAリンク、そしてフッターまで続く広大なブラックスペースへと流れます。レイアウトは中央配置の要素の縦列であり、それぞれに息を吹き込む空間が与えられます。",
+      "ch7_intro": "モーションは最小限で200ms以下に制限され、キーボード優先ユーザーが予測するリズムに合わせて較正されます：ホバー状態ではボタンの不透明度や背景の明るさを調整し、「詳しく見る」矢印はインタラクション時に微細なトランスレーションを示唆します。すべてのトランジションはアクションを確認するために存在し、娛樂目的ではありません。",
+      "ch8_intro": "編集上の声は自信に満ち、抑制的で、事実的です：短い宣言文で Period で終わり、感嘆符は決して使用せず、CTAは動詞優先の機能的記述として書かれます（「Mac版ダウンロード」「詳しく見る」）。マーケティング用形容詞、社会的証明、ユーザー証言、数値的ソーシャル指標は体系的に除外されます。",
+      "ch8_outro": "Raycastは意図的にグラデーション、カードベースの階層、太字の見出し、ヒーローの製品スクリーンショット、およびあらゆる形式の社会的検証を省略します——その欠如自体がステートメントです。"
+    },
+    "ko": {
+      "ch1_intro": "Raycast의 시각적 정체성은 터미널의 순수한 검은색과 Apple HIG의 타이포그래피적 정밀함이 결합된 것으로 — 명령줄의 절제와 인터페이스 등급의 세련됨이 융합된 것입니다. 해커 그린 인광체나 현대 마케팅의 그라디언트가 풍부한 다크 모드를 모두 거부하면서, 최소한의 시각적 수단으로 최대한의 도구 신뢰성을 전달합니다.",
+      "ch2_intro": "팔레트는 의도적인 공허입니다: 순수한 검은색(#000000)이 모든 표면을 기반으로 하며, 흰색이 모든 기본 텍스트를 담당하고, 회색은 보조 레이블과 내비게이션 링크에만 존재합니다. 강조 색상은 UI 계층에 참여하지 않습니다 — 유일한 색상 요소는 로고의 붙은색 번개 표시로, 인터페이스 본체 외부에 유지됩니다.",
+      "ch2_outro": "색상 절제는 장식적이 아니라 구조적입니다 — 기능에 초점을 유지하고, 어떤 색조도 사용자의 자체 터미널이나 편집기 팔레트와 경쟁하지 않도록 방지합니다.",
+      "ch3_intro": "타이포그래피는 두 가지 두께를 가진 기하학적 sans-serif 계열로 작동합니다: 모든 제목에 500 (절대 bold가 아니며, 700 이상이 아님)과 본문에 400. 모노스페이스는 그에 맞는 곳에만 나타납니다 — 버전 번호와 명령줄 설치 문자열 — 도구의 계통을 강화하되 읽기 계층을 지배하지 않도록 합니다.",
+      "ch4_intro": "수직 리듬은 건축적일 정도로 넉넉합니다: 히어로 섹션은 위쪽에 약 160px의 호흡 공간 내에서 떠 있으며, 제목과 부제목 사이에 24px, 버튼 그룹 전에 96px가 있어, 여백이 뷰포트의 70% 이상을 차지하도록 보장합니다.",
+      "ch5_intro": "고도감은 부재합니다: 드롭 섀도우가 버튼이나 내비게이션을 지면에서 끌어 올리지 않아, 모든 요소가 동일한 깊이 평면에 확고히 위치합니다. 경계선은 정밀합니다: 내비게이션 바 아래에 1px 회색 선 하나, 프로모션 칩에 1px 윤곽선 캡슐, 그 외에는 없습니다.",
+      "ch6_intro": "골격은 고정된 상단 내비게이션 바입니다 — 로고는 왼쪽, 수평 링크는 중앙, 로그인과 다운로드는 오른쪽 — 중심 전시 제목, 부제목, 나란히 놓인 두 개의 다운로드 버튼, 버전 정보, CTA 링크가 나타나기 전에 광활한 검은 공간으로 흘러가며, 그 후에는 푸터까지 뻗어나가는 검은 여백이 더 이어집니다. 레이아웃은 중심이 잡힌 요소들의 수직 열로, 각각에 호흡할 공간이 주어집니다.",
+      "ch7_intro": "모션은 최소한이며 200ms 미만으로, 키보드 우선 사용자가 예상하는 리듬에 맞춰 조정됩니다: hover 상태는 버튼 불투명도나 배경 밝기를 조정할 수 있으며, 'Learn more' 화살표는 상호작용 시 미세한 변환을 암시합니다. 모든 전이는 오직 동작을 확인하기 위해 존재하며, 결코 오락을 위해 존재하지 않습니다.",
+      "ch8_intro": "에디토리얼 어조는 자신감 있고, 절제되어 있으며, 사실적입니다: 짧은 선언문이 마침표로 끝나며, 절대 감탄사를 사용하지 않고, CTA는 동사 우선 기능적 설명으로 작성됩니다('Download for Mac', 'Learn more'). 마케팅 형용사, 사회적 증거, 사용자 평가, 그리고 수치적 소셜 지표는 체계적으로 제외됩니다.",
+      "ch8_outro": "Raycast는 의도적으로 그라디언트, 카드 기반 계층, 굵은 헤드라인, 히어로의 제품 스크린샷, 그리고 모든 형태의 사회적 검증을 생략합니다 — 부재가 바로 그 진술입니다."
+    }
+  }
 }

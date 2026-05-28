@@ -43,8 +43,8 @@
     },
     "status": {
       "type": "string",
-      "enum": ["pending", "screenshot", "vision_done", "translated", "narrated", "completed"],
-      "description": "Ingest pipeline state. 'failed:<reason>' uses last_error in _meta instead."
+      "pattern": "^(pending|screenshot|vision_done|translated|narrated|completed|failed(:[A-Za-z0-9_]+)?)$",
+      "description": "Ingest pipeline state. Failure tracked as 'failed' or 'failed:<ExceptionName>' with last_error in _meta."
     },
     "added_at": {
       "type": "string",
@@ -258,19 +258,19 @@
     },
     "NarrativeBlock": {
       "type": "object",
-      "description": "Magazine-style narrative slots produced by Prompt #3. Composed with templated tables to render DESIGN_SPEC.<lang>.md at build time.",
-      "additionalProperties": false,
+      "description": "Magazine-style narrative slots produced by Prompt #3. Composed with templated tables to render DESIGN_SPEC.<lang>.md at build time. Per-slot upper bound is generous; mimo tends to be more thorough than the docs' word-count guidance.",
+      "additionalProperties": true,
       "properties": {
-        "ch1_intro": { "type": "string", "minLength": 20, "maxLength": 400 },
-        "ch2_intro": { "type": "string", "minLength": 20, "maxLength": 300 },
-        "ch2_outro": { "type": "string", "minLength": 10, "maxLength": 200 },
-        "ch3_intro": { "type": "string", "minLength": 20, "maxLength": 300 },
-        "ch4_intro": { "type": "string", "minLength": 10, "maxLength": 200 },
-        "ch5_intro": { "type": "string", "minLength": 20, "maxLength": 300 },
-        "ch6_intro": { "type": "string", "minLength": 20, "maxLength": 400 },
-        "ch7_intro": { "type": "string", "minLength": 20, "maxLength": 400 },
-        "ch8_intro": { "type": "string", "minLength": 20, "maxLength": 300 },
-        "ch8_outro": { "type": "string", "minLength": 10, "maxLength": 200 }
+        "ch1_intro": { "type": "string", "minLength": 20, "maxLength": 1200 },
+        "ch2_intro": { "type": "string", "minLength": 20, "maxLength": 800 },
+        "ch2_outro": { "type": "string", "minLength": 10, "maxLength": 600 },
+        "ch3_intro": { "type": "string", "minLength": 20, "maxLength": 800 },
+        "ch4_intro": { "type": "string", "minLength": 10, "maxLength": 600 },
+        "ch5_intro": { "type": "string", "minLength": 20, "maxLength": 800 },
+        "ch6_intro": { "type": "string", "minLength": 20, "maxLength": 1200 },
+        "ch7_intro": { "type": "string", "minLength": 20, "maxLength": 1200 },
+        "ch8_intro": { "type": "string", "minLength": 20, "maxLength": 800 },
+        "ch8_outro": { "type": "string", "minLength": 10, "maxLength": 600 }
       }
     },
     "SpecI18nBlock": {
@@ -315,7 +315,7 @@
         },
         "surfaces": {
           "type": "object",
-          "additionalProperties": false,
+          "additionalProperties": true,
           "properties": {
             "shadows": { "type": "array", "items": { "type": "string" } },
             "borders": { "type": "string" }

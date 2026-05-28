@@ -9,14 +9,15 @@
     "SaaS",
     "Calm"
   ],
-  "status": "vision_done",
+  "status": "failed:JSONDecodeError",
   "added_at": "2026-05-28",
   "added_by": "curator",
   "_meta": {
     "vision_model": "mimo-v2.5",
     "vision_prompt_version": "0.2_legacy",
     "vision_at": "2026-05-28T02:50:50.854Z",
-    "total_cost_usd": 0.0
+    "total_cost_usd": 0.0,
+    "last_error": "Extra data: line 83 column 1 (char 3186)"
   },
   "spec": {
     "colors": {
@@ -218,6 +219,166 @@
         "不用 emoji 装饰标题 —— 标题纯文字无 emoji 点缀"
       ],
       "systemPrompt": "你是暗色沉浸式产品落地页设计师。背景极深近黑，文字白色，紫色光晕是唯一高彩度焦点；标题用 geometric-sans 500 weight 简短祈使句，正文同族 400 weight；CTA 按钮紫色描边不实心填充；不用衬线 / 不用亮色背景 / 不用 drop shadow / 不用 emoji / 标题不超过 5 词 / hero 必须有产品截图。整体气质冷静克制，像天文馆不是游乐场。"
+    },
+    "zh-CN": {
+      "identity": {
+        "keywords": [
+          "暗色沉浸",
+          "紫色光晕",
+          "产品截图主导",
+          "极简导航",
+          "科技克制"
+        ],
+        "analogy": "是 Linear 的冷峻暗色不是 Notion 的温暖纸感，是天文馆穹顶投影不是咖啡馆菜单",
+        "oneLiner": "用深色画布和紫色光晕把笔记工具包装成一个安静的思维宇宙"
+      },
+      "colors": {
+        "principle": "调色盘为空无法提取具体色值，但视觉上是深色底 + 白色文字 + 紫色光晕作为唯一高彩度焦点"
+      },
+      "typography": {
+        "rules": [
+          "标题 500 字重非粗体，保持克制",
+          "全文无衬线，不混用衬线字体",
+          "徽章文字用中等字重，不做全大写"
+        ],
+        "scaleUses": [
+          "首屏主标题 Think better with Reflect",
+          "副标题和导航文字",
+          "徽章提示文字 New: Our AI integration"
+        ]
+      },
+      "spacing": {
+        "rhythm": "慷慨留白，hero 区域上下大量呼吸空间，徽章到标题约 32px，标题到副标题约 16px，副标题到产品截图约 48px"
+      },
+      "surfaces": {
+        "shadows": [
+          "不做传统投影，用紫色辉光 glow 代替投影来突出产品截图"
+        ],
+        "borders": "极少量边线，产品截图用微弱深色描边，CTA 按钮用紫色描边"
+      },
+      "layout": {
+        "skeleton": "顶部导航栏 → 居中徽章提示 → 大标题 → 副标题 → 紫色光晕装饰 → 产品截图 mockup（内含侧边栏 + 编辑区 + 日历）"
+      },
+      "components": {
+        "button": "CTA 为紫色描边圆角按钮，无实心填充，文字白色；Login 为纯文字链接无背景",
+        "card": "产品截图本身呈现为深色圆角卡片形态，内含多面板布局",
+        "chip": "徽章为深色半透明背景 + 圆角胶囊形 + 紫色小图标前缀",
+        "input": "截图内搜索框为深色背景 + 圆角 + 灰色 placeholder + 快捷键提示",
+        "hero": "居中文字型 hero：徽章 → 大标题 → 副标题 → 全宽紫色极光光晕 → 产品截图嵌入"
+      },
+      "motion": {
+        "patterns": [
+          "紫色光晕暗示可能有呼吸式脉动动画",
+          "产品截图悬浮在光晕上方暗示可能有 scroll parallax",
+          "徽章带 New 标签暗示可能有入场动效"
+        ]
+      },
+      "interaction": {
+        "hover": "CTA 按钮大概率有紫色辉光增强或背景填充变化，导航链接可能有文字颜色变亮",
+        "click": null,
+        "transition": null,
+        "keyboard": null
+      },
+      "voice": {
+        "tone": "平静、自信、略带智识感，不说教不卖力推销",
+        "headlineStyle": "简短动词开头的祈使句式 Think better with…，不堆砌形容词",
+        "ctaStyle": "功能性直白 CTA Start free trial，不带感叹号不加修饰",
+        "avoid": [
+          "避免感叹号",
+          "避免全大写喊叫式标题",
+          "避免过度承诺型措辞如 best / ultimate / insane"
+        ]
+      },
+      "donts": [
+        "不用亮色或白色背景 —— 截图全程深色接近 #0B0B14 的暗色底",
+        "不用衬线字体 —— 标题和正文全部为无衬线",
+        "不用实心填充品牌色按钮 —— CTA 按钮是紫色描边而非实心紫色填充",
+        "不在 hero 放纯文字无视觉 —— hero 底部有产品截图 mockup 和光晕装饰",
+        "不用传统投影 —— 用紫色 glow 光晕代替阴影做层次",
+        "不做多栏 hero 文案 —— 标题居中单列，副标题紧跟其下",
+        "不用 emoji 装饰标题 —— 标题纯文字无 emoji 点缀"
+      ],
+      "systemPrompt": "你是暗色沉浸式产品落地页设计师。背景极深近黑，文字白色，紫色光晕是唯一高彩度焦点；标题用几何无衬线 500 字重简短祈使句，正文同族 400 字重；CTA 按钮紫色描边不实心填充；不用衬线 / 不用亮色背景 / 不用投影 / 不用 emoji / 标题不超过 5 词 / hero 必须有产品截图。整体气质冷静克制，像天文馆不是游乐场。"
+    },
+    "zh-TW": {
+      "identity": {
+        "keywords": [
+          "暗色沉浸",
+          "紫色光暈",
+          "產品截圖主導",
+          "極簡導航",
+          "科技克制"
+        ],
+        "analogy": "是 Linear 的冷峻暗色不是 Notion 的溫暖紙感，是天文館穹頂投影不是咖啡館菜單",
+        "oneLiner": "用深色畫布和紫色光暈把筆記工具包裝成一個安靜的思維宇宙"
+      },
+      "colors": {
+        "principle": "palette 為空無法提取具體色值，但視覺上是深色底 + 白色文字 + 紫色光暈作為唯一高彩度焦點"
+      },
+      "typography": {
+        "rules": [
+          "標題 500 weight 非 bold，保持克制",
+          "全文無襯線，不混用 serif",
+          "badge 文字用中等字重不做全大寫"
+        ],
+        "scaleUses": [
+          "首屏主標題 Think better with Reflect",
+          "副標題和導航文字",
+          "badge 提示文字 New: Our AI integration"
+        ]
+      },
+      "spacing": {
+        "rhythm": "慷慨留白，hero 區域上下大量呼吸空間，badge 到標題約 32px，標題到副標題約 16px，副標題到產品截圖約 48px"
+      },
+      "surfaces": {
+        "shadows": [
+          "不做傳統 drop shadow，用 purple 輝光 glow 代替投影來突出產品截圖"
+        ],
+        "borders": "極少量邊線，產品截圖用微弱深色描邊，CTA 按鈕用紫色描邊"
+      },
+      "layout": {
+        "skeleton": "頂部導覽列 → 居中 badge 提示 → 大標題 → 副標題 → 紫色光暈裝飾 → 產品截圖 mockup（內含側邊欄 + 編輯區 + 日曆）"
+      },
+      "components": {
+        "button": "CTA 為紫色描邊圓角按鈕，無實心填充，文字白色；Login 為純文字連結無背景",
+        "card": "產品截圖本身呈現為深色圓角卡片形態，內含多面板佈局",
+        "chip": "badge 為深色半透明背景 + 圓角膠囊形 + 紫色小圖示前綴",
+        "input": "截圖內搜尋框為深色背景 + 圓角 + 灰色 placeholder + 快捷鍵提示",
+        "hero": "居中文字型 hero：badge → 大標題 → 副標題 → 全寬紫色極光光暈 → 產品截圖嵌入"
+      },
+      "motion": {
+        "patterns": [
+          "紫色光暈暗示可能有呼吸式脈動動畫",
+          "產品截圖懸浮在光暈上方暗示可能有 scroll parallax",
+          "badge 帶 New 標籤暗示可能有入場動效"
+        ]
+      },
+      "interaction": {
+        "hover": "CTA 按鈕大概率有紫色輝光增強或背景填充變化，導覽連結可能有文字顏色變亮",
+        "click": null,
+        "transition": null,
+        "keyboard": null
+      },
+      "voice": {
+        "tone": "平靜、自信、略帶智識感，不說教不賣力推銷",
+        "headlineStyle": "簡短動詞開頭的祈使句式 Think better with…，不堆砌形容詞",
+        "ctaStyle": "功能性直白 CTA Start free trial，不帶驚嘆號不加修飾",
+        "avoid": [
+          "避免驚嘆號",
+          "避免 all-caps 喊叫式標題",
+          "避免過度承諾型措辭如 best / ultimate / insane"
+        ]
+      },
+      "donts": [
+        "不用亮色或白色背景 —— 截圖全程深色接近 #0B0B14 的暗色底",
+        "不用襯線字體 —— 標題和正文全部為無襯線",
+        "不用實心填充品牌色按鈕 —— CTA 按鈕是紫色描邊而非實心紫色填充",
+        "不在 hero 放純文字無視覺 —— hero 底部有產品截圖 mockup 和光暈裝飾",
+        "不用傳統 drop shadow —— 用紫色 glow 光暈代替陰影做層次",
+        "不做多欄 hero 文案 —— 標題居中單列，副標題緊跟其下",
+        "不用 emoji 裝飾標題 —— 標題純文字無 emoji 點綴"
+      ],
+      "systemPrompt": "你是暗色沉浸式產品落地頁設計師。背景極深近黑，文字白色，紫色光暈是唯一高彩度焦點；標題用 geometric-sans 500 weight 簡短祈使句，正文同族 400 weight；CTA 按鈕紫色描邊不實心填充；不用襯線 / 不用亮色背景 / 不用 drop shadow / 不用 emoji / 標題不超過 5 詞 / hero 必須有產品截圖。整體氣質冷靜克制，像天文館不是遊樂場。"
     }
   },
   "narrative": {}
