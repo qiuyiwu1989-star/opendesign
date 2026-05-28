@@ -10,6 +10,8 @@ let activeSite = sites[0];
 let activeTag = "All";
 let searchQuery = "";
 let sortMode = "curated"; // "curated"（curator 给的顺序）| "popular"（全站收藏 desc）
+let sitesI18n = {};        // overlay：site_id → { lang → { palette, layout, interaction, motion, notes } }
+let packsIndex = {};       // overlay：site_id → { file, size, agentUrl, ... }
 let currentView = "canvas";
 let viewState = { x: -110, y: -70, scale: 1 };
 let dragging = false;
@@ -733,10 +735,11 @@ function filteredSites() {
   const query = searchQuery.trim().toLowerCase();
   const list = sites.filter((site) => {
     const tagMatch = activeTag === "All" || site.tags.includes(activeTag);
-    // 搜索覆盖多语言 notes —— 日语用户搜「ブラウザ」也能找到 Arc
+    // 搜索覆盖多语言 notes + 多语言 tags —— 日语用户搜「ブラウザ」/「フィンテック」也能命中
     const overlay = sitesI18n[site.id] || {};
     const allNotes = Object.values(overlay).map((o) => o && o.notes).filter(Boolean);
-    const text = [site.title, site.url, site.notes, ...allNotes, ...site.tags].join(" ").toLowerCase();
+    const localizedTags = site.tags.map((tg) => window.i18n.tag(tg));
+    const text = [site.title, site.url, site.notes, ...allNotes, ...site.tags, ...localizedTags].join(" ").toLowerCase();
     return tagMatch && (!query || text.includes(query));
   });
   if (sortMode === "popular") {
@@ -772,9 +775,10 @@ function renderLibraryCount() {
 
 function renderFilters() {
   const tags = ["All", ...new Set(sites.flatMap((site) => site.tags))];
+  // data-tag 保留 canonical 英文（filter 匹配用），label 走 i18n.tag 显示当前语言
   tagFilters.innerHTML = tags
     .map((tag) => {
-      const label = tag === "All" ? t("chip.all") : tag;
+      const label = tag === "All" ? t("chip.all") : window.i18n.tag(tag);
       return `<button class="chip ${tag === activeTag ? "active" : ""}" type="button" data-tag="${tag}">${label}</button>`;
     })
     .join("");
@@ -795,7 +799,7 @@ function renderCanvas() {
       const row = Math.floor(index / columns);
       const x = offsetX + col * spacingX;
       const y = offsetY + row * spacingY;
-      const tagText = site.tags.slice(0, 3).join(" · ");
+      const tagText = site.tags.slice(0, 3).map((tg) => window.i18n.tag(tg)).join(" · ");
       const saved = store.isSaved(site.id);
       return `
         <div class="site-node" style="transform: translate3d(${x}px, ${y}px, 0);">
@@ -845,7 +849,7 @@ function libraryCardHTML(site, index) {
         <h3 class="library-title">${site.title}</h3>
         <span class="library-num">${t("library.num", { n: String(index + 1).padStart(2, "0") })}</span>
         <p class="library-domain">${domainFromUrl(site.url)}</p>
-        <p class="library-tags">${site.tags.join(" · ")}</p>
+        <p class="library-tags">${site.tags.map((tg) => window.i18n.tag(tg)).join(" · ")}</p>
         ${count > 0 ? `<p class="library-save-count" aria-label="${t("count.saves.aria", { n: count })}"><svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M12 21s-7-4.5-9.3-9A5.4 5.4 0 0 1 12 6a5.4 5.4 0 0 1 9.3 6c-2.3 4.5-9.3 9-9.3 9Z"/></svg> ${t("count.saves", { n: count })}</p>` : ""}
       </div>
     </article>
@@ -906,7 +910,7 @@ function openDetail(siteId) {
   document.querySelector("#drawerDomain").textContent = domainFromUrl(activeSite.url);
   document.querySelector("#drawerTitle").textContent = activeSite.title;
   document.querySelector("#drawerUrl").href = activeSite.url;
-  document.querySelector("#drawerTags").innerHTML = activeSite.tags.map((tag) => `<span>${tag}</span>`).join("");
+  document.querySelector("#drawerTags").innerHTML = activeSite.tags.map((tag) => `<span>${window.i18n.tag(tag)}</span>`).join("");
   document.querySelector("#insightGrid").innerHTML = [
     [t("drawer.insight.color"),       localizedField(activeSite, "palette")],
     [t("drawer.insight.layout"),      localizedField(activeSite, "layout")],
@@ -2123,9 +2127,8 @@ async function mergeExternalSpecs() {
  * 把 site 的 palette/layout/interaction/motion/notes 5 个字段按当前语言取出来。
  * 数据存在 sites-i18n.json（侧旁文件，独立维护）。
  * Fallback 链：requested-lang → en → site.<field>（sites.js 里的老字段，bw-compat）
+ * 注：sitesI18n 变量声明在文件顶部状态区，避免 TDZ。
  */
-let sitesI18n = {};
-
 async function loadSitesI18n() {
   try {
     const res = await fetch("./sites-i18n.json", { cache: "no-cache" });
@@ -2153,8 +2156,8 @@ function localizedField(site, field) {
   return site[field] || "";
 }
 
-/** 设计素材包索引（site.id → {file, size}）—— 决定详情抽屉是否显示「下载」按钮 */
-let packsIndex = {};
+/** 设计素材包索引（site.id → {file, size}）—— 决定详情抽屉是否显示「下载」按钮
+ *  注：packsIndex 变量声明在文件顶部状态区，避免 TDZ。 */
 async function loadPacksIndex() {
   try {
     const res = await fetch("./packs-index.json", { cache: "no-cache" });

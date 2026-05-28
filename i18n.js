@@ -30,6 +30,74 @@
   // 平滑迁移老用户 localStorage "zh" → "zh-CN"
   const LEGACY_LANG_MAP = { "zh": "zh-CN" };
 
+  /* ====== 标签翻译表 ======
+   * 48 个 site 标签的 5 语言映射。
+   * 真值（canonical）始终是英文版（用于 site.tags 数组 / filter 匹配 / activeTag 状态）
+   * 显示时调用 i18n.tag("Editorial") → 当前语言版本
+   * 未登记的标签自动 fallback 到原英文
+   *
+   * 行业通用术语（SaaS / AI / 3D / App UI）在 CJK 也保留英文，符合实际使用习惯。
+   */
+  const TAG_I18N = {
+    "3D":              { "zh-CN":"3D",       "zh-TW":"3D",       "ja":"3D",                 "ko":"3D" },
+    "AI":              { "zh-CN":"AI",       "zh-TW":"AI",       "ja":"AI",                 "ko":"AI" },
+    "Agency":          { "zh-CN":"机构",      "zh-TW":"機構",      "ja":"エージェンシー",       "ko":"에이전시" },
+    "App UI":          { "zh-CN":"App UI",    "zh-TW":"App UI",    "ja":"App UI",            "ko":"앱 UI" },
+    "Bold":            { "zh-CN":"大胆",      "zh-TW":"大膽",      "ja":"大胆",                "ko":"볼드" },
+    "Bold Typography": { "zh-CN":"大字体",    "zh-TW":"大字型",    "ja":"大胆な書体",          "ko":"볼드 타이포" },
+    "Books":           { "zh-CN":"出版",      "zh-TW":"出版",      "ja":"出版",                "ko":"출판" },
+    "Calendar":        { "zh-CN":"日程",      "zh-TW":"行事曆",    "ja":"カレンダー",          "ko":"캘린더" },
+    "Calm":            { "zh-CN":"平静",      "zh-TW":"平靜",      "ja":"静謐",                "ko":"정적" },
+    "Case Study":      { "zh-CN":"案例集",    "zh-TW":"案例集",    "ja":"ケーススタディ",       "ko":"케이스 스터디" },
+    "Clean":           { "zh-CN":"干净",      "zh-TW":"乾淨",      "ja":"クリーン",            "ko":"클린" },
+    "Collaboration":   { "zh-CN":"协作",      "zh-TW":"協作",      "ja":"コラボ",              "ko":"협업" },
+    "Consumer":        { "zh-CN":"消费品",    "zh-TW":"消費品",    "ja":"コンシューマー",       "ko":"컨슈머" },
+    "Curation":        { "zh-CN":"策展",      "zh-TW":"策展",      "ja":"キュレーション",       "ko":"큐레이션" },
+    "Dark Mode":       { "zh-CN":"暗色模式",  "zh-TW":"暗色模式",  "ja":"ダークモード",         "ko":"다크 모드" },
+    "Design Tools":    { "zh-CN":"设计工具",  "zh-TW":"設計工具",  "ja":"デザインツール",       "ko":"디자인 도구" },
+    "Developer":       { "zh-CN":"开发者",    "zh-TW":"開發者",    "ja":"デベロッパー",         "ko":"개발자" },
+    "Developer Tools": { "zh-CN":"开发工具",  "zh-TW":"開發工具",  "ja":"開発ツール",          "ko":"개발자 도구" },
+    "Editorial":       { "zh-CN":"编辑型",    "zh-TW":"編輯型",    "ja":"エディトリアル",       "ko":"에디토리얼" },
+    "Experimental":    { "zh-CN":"实验性",    "zh-TW":"實驗性",    "ja":"実験的",              "ko":"실험적" },
+    "Expressive":      { "zh-CN":"表达性",    "zh-TW":"表達性",    "ja":"表現的",              "ko":"표현적" },
+    "Fintech":         { "zh-CN":"金融科技",  "zh-TW":"金融科技",  "ja":"フィンテック",         "ko":"핀테크" },
+    "Friendly":        { "zh-CN":"友好",      "zh-TW":"友好",      "ja":"フレンドリー",         "ko":"친근함" },
+    "Gallery":         { "zh-CN":"画廊",      "zh-TW":"畫廊",      "ja":"ギャラリー",          "ko":"갤러리" },
+    "Geometric":       { "zh-CN":"几何",      "zh-TW":"幾何",      "ja":"ジオメトリック",       "ko":"기하학" },
+    "Gradient":        { "zh-CN":"渐变",      "zh-TW":"漸變",      "ja":"グラデーション",       "ko":"그라데이션" },
+    "Grid":            { "zh-CN":"栅格",      "zh-TW":"網格",      "ja":"グリッド",            "ko":"그리드" },
+    "Hardware":        { "zh-CN":"硬件",      "zh-TW":"硬體",      "ja":"ハードウェア",         "ko":"하드웨어" },
+    "Library":         { "zh-CN":"资源库",    "zh-TW":"資源庫",    "ja":"ライブラリ",          "ko":"라이브러리" },
+    "Minimal":         { "zh-CN":"极简",      "zh-TW":"極簡",      "ja":"ミニマル",            "ko":"미니멀" },
+    "Mobile UI":       { "zh-CN":"移动 UI",   "zh-TW":"行動 UI",   "ja":"モバイル UI",         "ko":"모바일 UI" },
+    "Monochrome":      { "zh-CN":"黑白",      "zh-TW":"黑白",      "ja":"モノクロ",            "ko":"모노크롬" },
+    "Motion":          { "zh-CN":"动效",      "zh-TW":"動效",      "ja":"モーション",          "ko":"모션" },
+    "Notes":           { "zh-CN":"笔记",      "zh-TW":"筆記",      "ja":"ノート",              "ko":"노트" },
+    "Photographic":    { "zh-CN":"摄影感",    "zh-TW":"攝影感",    "ja":"写真的",              "ko":"사진적" },
+    "Playful":         { "zh-CN":"玩味",      "zh-TW":"玩味",      "ja":"プレイフル",          "ko":"위트" },
+    "Portfolio":       { "zh-CN":"作品集",    "zh-TW":"作品集",    "ja":"ポートフォリオ",       "ko":"포트폴리오" },
+    "Premium":         { "zh-CN":"高级",      "zh-TW":"高級",      "ja":"プレミアム",          "ko":"프리미엄" },
+    "Product":         { "zh-CN":"产品",      "zh-TW":"產品",      "ja":"プロダクト",          "ko":"프로덕트" },
+    "Productivity":    { "zh-CN":"生产力",    "zh-TW":"生產力",    "ja":"プロダクティビティ",   "ko":"생산성" },
+    "Reference":       { "zh-CN":"参考",      "zh-TW":"參考",      "ja":"リファレンス",         "ko":"레퍼런스" },
+    "Refined":         { "zh-CN":"精致",      "zh-TW":"精緻",      "ja":"洗練",                "ko":"정제됨" },
+    "Restraint":       { "zh-CN":"克制",      "zh-TW":"克制",      "ja":"抑制",                "ko":"절제" },
+    "SaaS":            { "zh-CN":"SaaS",      "zh-TW":"SaaS",      "ja":"SaaS",                "ko":"SaaS" },
+    "Studio":          { "zh-CN":"工作室",    "zh-TW":"工作室",    "ja":"スタジオ",            "ko":"스튜디오" },
+    "Tooling":         { "zh-CN":"工具",      "zh-TW":"工具",      "ja":"ツーリング",          "ko":"툴링" },
+    "Typography":      { "zh-CN":"字体",      "zh-TW":"字型",      "ja":"タイポグラフィ",       "ko":"타이포" },
+    "Warm":            { "zh-CN":"暖色",      "zh-TW":"暖色",      "ja":"温かみ",              "ko":"따뜻함" }
+  };
+
+  /** 翻译一个 canonical tag 字符串到当前语言；未登记则原样返回 */
+  function localizedTag(canonical) {
+    if (!canonical) return "";
+    if (currentLang === "en") return canonical;
+    const entry = TAG_I18N[canonical];
+    if (!entry) return canonical;
+    return entry[currentLang] || canonical;
+  }
+
   /** 把 navigator / URL / localStorage 给的任意 BCP47 tag 归一化到 SUPPORTED 中的一个 */
   function normalizeLang(raw) {
     if (!raw) return null;
@@ -989,11 +1057,12 @@
 
   window.i18n = {
     t,
+    tag: localizedTag,        // 标签翻译：i18n.tag("Editorial") → "编辑型"
     get current() { return currentLang; },
     set: setLang,
     supported: SUPPORTED,
-    meta: LANG_META,         // 新增：给下拉菜单用
-    normalize: normalizeLang, // 新增：导出归一化逻辑，方便调试
+    meta: LANG_META,
+    normalize: normalizeLang,
     apply: applyI18n
   };
 
