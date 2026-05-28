@@ -98,7 +98,7 @@ def build_legacy_sites_js(sites: list[dict]) -> str:
         # 把 desc.en 解出来给 palette/layout/interaction/motion/notes
         desc_en = s.get("desc", {}).get("en", {})
         # spec 复原：合并 spec (lang-neutral) + spec_i18n.en (lang-relative)
-        spec_obj = {**s.get("spec", {})}
+        spec_obj = {**(s.get("spec") or {})}
         i18n_en = s.get("spec_i18n", {}).get("en", {})
         if i18n_en:
             # identity / components / interaction / voice 直接 merge

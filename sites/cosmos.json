@@ -10,62 +10,47 @@
     "Photographic",
     "Editorial"
   ],
-  "status": "completed",
+  "status": "failed:JSONDecodeError",
   "added_at": "2026-05-28",
   "added_by": "curator",
   "_meta": {
+    "vision_prompt_version": "0.3",
     "vision_model": "mimo-v2.5",
-    "vision_prompt_version": "0.2_legacy",
-    "vision_at": "2026-05-28T02:42:08.203Z",
-    "total_cost_usd": 0.0522,
-    "translation_model": "mimo-v2.5",
-    "translation_at": "2026-05-28T19:16:42+00:00",
-    "translation_tokens": 10939,
-    "translation_cost_usd": 0.0364,
-    "narrative_model": "mimo-v2.5",
-    "narrative_prompt_version": "0.3",
-    "narrative_at": "2026-05-28T19:16:52+00:00",
-    "narrative_tokens": 2369,
-    "narrative_cost_usd": 0.0158,
-    "narrative_status": "ok"
+    "vision_at": "2026-05-28T19:54:53+00:00",
+    "vision_tokens": 3274,
+    "vision_cost_usd": 0.0364,
+    "last_error": "Invalid control character at: line 67 column 14 (char 2027)"
   },
   "spec": {
     "colors": {
-      "bg": null,
+      "bg": "#F7F5F2",
       "bgSoft": null,
       "bgQuiet": null,
-      "ink": null,
+      "ink": "#1A1A1A",
       "inkSoft": null,
       "muted": null,
       "mutedSoft": null,
       "accent": null,
-      "line": null
+      "line": "rgba(0, 0, 0, 0.1)"
     },
     "typography": {
-      "display": "geometric-sans",
-      "body": "geometric-sans",
+      "display": "grotesque-sans",
+      "body": "grotesque-sans",
       "mono": null,
       "scale": [
         {
           "token": "display",
-          "size": 68,
-          "lh": 1.05,
+          "size": 64,
+          "lh": 1.0,
           "weight": 500,
-          "ls": "normal"
+          "ls": "-1px"
         },
         {
-          "token": "caption",
-          "size": 13,
-          "lh": 1.4,
-          "weight": 500,
-          "ls": "0.12em uppercase"
-        },
-        {
-          "token": "body",
+          "token": "label",
           "size": 14,
-          "lh": 1.4,
+          "lh": 1.0,
           "weight": 500,
-          "ls": "normal"
+          "ls": "1px"
         }
       ]
     },
@@ -74,553 +59,269 @@
       "scale": [
         4,
         8,
-        12,
         16,
         24,
         32,
         48,
         64,
-        96,
-        128
+        96
       ]
     },
     "surfaces": {
       "radius": {
-        "sm": 8,
-        "md": 20,
+        "sm": 4,
+        "md": 24,
         "lg": 999,
         "pill": 999
       }
     },
     "layout": {
-      "container": 1200,
-      "paragraph": 560,
-      "columns": 1,
-      "gutter": 0,
+      "container": 1280,
+      "paragraph": 680,
+      "columns": 12,
+      "gutter": 24,
       "breakpoints": [
         768,
-        1024,
-        1440
+        1024
       ]
     },
     "motion": {
       "durations": {
-        "micro": null,
-        "small": null,
-        "medium": null
+        "micro": 200,
+        "small": 300,
+        "medium": 600
       },
-      "easing": null
+      "easing": "cubic-bezier(0.25, 0.1, 0.25, 1)"
     }
   },
   "desc": {
     "en": {
-      "palette": "Pure-white gallery base — the visual energy comes entirely from the curated works themselves.",
-      "layout": "Pinterest-style masonry, but quieter — generous gaps between cards, never crowded, always breathing.",
-      "interaction": "Hover lifts a card just slightly and fades the title in; click enters an immersive lightbox.",
-      "motion": "Slow 600–900ms image scaling — a cinematic feel.",
-      "notes": "The ceiling for inspiration-collection sites — OpenDesign's peer (and reference) in this lane."
+      "palette": "Strictly dual-tone using a warm off-white background and near-black text, completely devoid of vibrant accents.",
+      "layout": "A highly restrained, centered single-column layout with generous vertical whitespace to emphasize the typography.",
+      "interaction": "Minimalist and unobtrusive, relying on clean button states and standard input interactions.",
+      "motion": "Implied smooth transitions to maintain the calm, sophisticated atmosphere without visual noise.",
+      "notes": "An excellent example of 'editorial minimalism' in web design, proving that high contrast and space can create a premium feel."
     },
     "zh-CN": {
-      "palette": "纯白画廊底色 + 全靠收录作品本身的色彩驱动视觉",
-      "layout": "Pinterest-like 瀑布流但更克制 —— 卡片间距大、不挤、有呼吸",
-      "interaction": "Hover 卡片极轻微上浮 + 标题渐显，点击进入沉浸式 lightbox",
-      "motion": "600-900ms 缓慢图片缩放，cinema 感",
-      "notes": "灵感采集类站的天花板，OpenDesign 在这个赛道的同行（也是参照）"
+      "palette": "采用暖调米白背景与近乎黑色的文字，形成严格双色调，完全摒弃鲜艳的点缀色。",
+      "layout": "高度克制、居中的单栏布局，留有充足的垂直留白，以凸显排版设计。",
+      "interaction": "简约而不突兀，依靠干净的按钮状态和标准输入交互实现。",
+      "motion": "通过暗示性的平滑过渡来维持平静、精致的氛围，避免视觉干扰。",
+      "notes": "网页设计中“编辑极简主义”的绝佳范例，证明了高对比度与留白能营造出高端感。"
     },
     "zh-TW": {
-      "palette": "純白畫廊底色 + 全靠收錄作品本身的色彩驅動視覺",
-      "layout": "Pinterest-like 瀑布流但更克制 —— 卡片間距大、不擠、有呼吸",
-      "interaction": "Hover 卡片極輕微上浮 + 標題漸顯,點擊進入沉浸式 lightbox",
-      "motion": "600-900ms 緩慢圖片縮放,cinema 感",
-      "notes": "靈感蒐集類站的天花板,OpenDesign 在這個賽道的同行(也是參照)"
-    },
-    "ja": {
-      "palette": "純白のギャラリー地、視覚エネルギーは収録作品自体の色から生まれる。",
-      "layout": "Pinterest 風メイソンリーだが、より抑制的 — カード間隔は大きく、決して窮屈にならず、呼吸がある。",
-      "interaction": "Hover でカードがわずかに浮き、タイトルがフェードイン、クリックで没入型 lightbox へ。",
-      "motion": "600–900ms のゆったりした画像スケール、シネマ感。",
-      "notes": "インスピレーション収集サイトの天井 — OpenDesign の同行(そして参照)。"
-    },
-    "ko": {
-      "palette": "순백 갤러리 베이스 — 시각적 에너지는 수록된 작품 자체의 색에서만 나옴.",
-      "layout": "Pinterest 같은 메이슨리지만 더 절제됨 — 카드 간격은 넓고, 답답하지 않고, 호흡이 있음.",
-      "interaction": "Hover 시 카드가 살짝만 떠오르고 타이틀이 페이드인, 클릭하면 몰입형 라이트박스로.",
-      "motion": "600–900ms 의 느린 이미지 스케일링, 시네마 감각.",
-      "notes": "영감 수집 사이트의 천장 — OpenDesign 의 동료(이자 참고)."
+      "palette": "嚴格使用雙色調，以溫暖的米白色背景搭配近黑色文字，完全不使用鮮豔的強調色。",
+      "layout": "高度克制的中央單欄式佈局，搭配大量垂直留白以突顯排版。",
+      "interaction": "簡約而不顯眼，依賴簡潔的按鈕狀態與標準輸入互動。",
+      "motion": "隱含流暢的過渡效果，以維持平靜、精緻的氛圍，避免視覺干擾。",
+      "notes": "網頁設計中「編輯式極簡主義」的絕佳範例，證明高對比與留白能營造出優質感。"
     }
   },
   "spec_i18n": {
     "en": {
       "identity": {
         "keywords": [
-          "极简",
-          "文字驱动",
-          "慷慨留白",
-          "无装饰",
-          "暖中性"
+          "inspiration",
+          "space",
+          "curation",
+          "discovery"
         ],
-        "analogy": "是 early Medium 的呼吸感首页，不是 Pinterest 的信息瀑布",
-        "oneLiner": "灵感采集工具的纯文字极简入口页"
+        "analogy": "A minimalist gallery or high-end lifestyle editorial platform.",
+        "oneLiner": "A refined curation platform for finding and sharing visual inspiration."
       },
       "colors": {
-        "principle": "palette 为空，所有颜色 token 填 null；视觉上为暖白底 + 纯黑文字的极简双色体系"
+        "principle": "Extreme restraint with a warm, off-white background and high-contrast dark ink for focus."
       },
       "typography": {
         "rules": [
-          "标题 weight 500 不用 bold 700+，保持克制",
-          "品牌标签全大写 + 宽 letter-spacing，与标题形成层级",
-          "全页统一使用同一几何无衬线字族，无混搭"
+          "Display text is large, tightly tracked, and centered.",
+          "Uppercase tracking is used for short category labels.",
+          "Weight is kept to regular and medium for a refined look."
         ],
         "scaleUses": [
-          "首屏主标题两行居中",
-          "COSMOS 品牌标签全大写宽字距",
-          "按钮文字和导航链接"
+          "Main hero headline",
+          "Uppercase category labels"
         ]
       },
       "spacing": {
-        "rhythm": "慷慨，hero 区上方约 280px 留白，标题与按钮间距约 48px，按钮之间 12px"
+        "rhythm": "Generous vertical spacing emphasizes the empty space and breathing room."
       },
       "surfaces": {
-        "shadows": [
-          "全页无任何阴影，所有元素平面化"
-        ],
-        "borders": "仅搜索框和菜单按钮使用 1px 细线描边，其余元素无边框"
+        "shadows": [],
+        "borders": "Thin, subtle outlines on inputs and secondary buttons; no heavy container borders."
       },
       "layout": {
-        "skeleton": "顶部导航栏（logo + 菜单按钮 + 搜索框 + 登录/注册）→ 大面积留白 → 居中文本 hero（品牌标签 + 主标题 + 双按钮）→ 下方全部空白"
+        "skeleton": "Centered single-column layout with massive vertical padding to focus on typography."
       },
       "components": {
-        "button": "全圆角 pill 形状；主按钮为实心黑底白字，次按钮为白底黑字加 1px 浅灰描边；高度约 48px，padding 水平 24px",
+        "button": "Pill-shaped (fully rounded) with solid dark fill or thin border; high contrast.",
         "card": null,
         "chip": null,
-        "input": "搜索框为 pill 全圆角，1px 浅灰描边，左侧放大镜图标，右侧相机图标和彩色色轮图标，placeholder 灰色文字",
-        "hero": "纯文本居中 hero：上方小字全大写品牌名 COSMOS，中间两行大标题 Your space for inspiration，下方并排两个 pill 按钮（Sign up 黑色实心 + Get the app 白色描边）"
-      },
-      "motion": {
-        "patterns": [
-          "搜索框内彩色色轮图标暗示可能有颜色筛选交互",
-          "导航菜单按钮有下拉箭头暗示展开交互",
-          "静态截图无法确认动画"
-        ]
+        "input": "Pill-shaped search bar with rounded corners and subtle border.",
+        "hero": "Centered typography with generous whitespace and dual pill-shaped CTAs."
       },
       "interaction": {
-        "hover": "按钮可能有背景色反转或微弱透明度变化（基于 pill 按钮常见交互模式推断）",
-        "click": null,
-        "transition": null,
-        "keyboard": null
+        "hover": "Subtle opacity change or background shift on buttons.",
+        "click": "Immediate response.",
+        "transition": "Smooth, unobtrusive state changes.",
+        "keyboard": "Standard focus rings likely present but not visible in static screenshot."
       },
       "voice": {
-        "tone": "平静、邀请式，无推销感，语气像在说一个空间而不是推销一个产品",
-        "headlineStyle": "简短两个词组，无修饰语，无感叹号，不解释功能只描述状态",
-        "ctaStyle": "极简祈使句，两个词以内（Sign up / Get the app），不用 '免费' '立即' 等促销词",
+        "tone": "Inviting, calm, and sophisticated.",
+        "headlineStyle": "Short, evocative, and centered; focuses on the feeling rather than features.",
+        "ctaStyle": "Direct and simple ('Sign up', 'Get the app').",
         "avoid": [
-          "避免使用感叹号",
-          "避免功能描述性标题",
-          "避免 '免费试用' '立即开始' 等促销用语",
-          "避免在 hero 中放长段解释文案"
+          "Technical jargon",
+          "Aggressive sales language",
+          "Visual clutter"
         ]
       },
       "donts": [
-        "不放图片或插画 —— hero 区纯文字无任何视觉素材，下方完全留白",
-        "不用渐变色或彩色背景 —— 全页单色暖白底无任何色彩渐变",
-        "不加阴影或浮起效果 —— 按钮、搜索框、导航元素均无 box-shadow",
-        "不用衬线字体 —— 全页从标题到按钮统一使用几何无衬线体",
-        "不用多列布局 —— 所有内容严格居中单列排列",
-        "不放 footer 或页脚内容 —— 截图中 hero 以下区域完全空白无内容",
-        "不用强对比 accent 色做 CTA —— 仅用黑白两色区分主次按钮",
-        "不在标题中用全大写 —— 主标题为 sentence case，仅品牌标签用全大写"
+        "Don't use a pure white background — screenshot shows a warm off-white (#F7F5F2).",
+        "Don't add drop shadows or heavy borders — screenshot shows completely flat surfaces.",
+        "Don't use a vibrant accent color — screenshot relies solely on black and off-white.",
+        "Don't use complex grid layouts — screenshot shows a strictly centered, single-column flow.",
+        "Don't use serif typography — screenshot shows only clean, neutral sans-serif types.",
+        "Don't clutter the interface with icons — screenshot is extremely minimal, relying on text and space."
       ],
-      "systemPrompt": "你是极简灵感平台首页设计师。页面为暖白底 + 纯黑文字的极简双色体系，无 accent 色、无渐变、无阴影。标题用几何无衬线体 500 weight 不超过 700，品牌标签全大写宽字距做层级。所有交互元素（按钮、搜索框、菜单）统一 pill 全圆角。hero 居中纯文字，两行标题不超过 5 个词，下方最多两个 pill 按钮。留白慷慨（hero 上方 280px+），单列居中布局。不用图片插画 / 不加阴影 / 不用衬线体 / 不放促销文案 / 不用多列 / 不在 hero 放长段文字。"
+      "systemPrompt": "Cosmos is a minimalist, editorial curation platform for visual inspiration. It positions itself through extreme restraint, using a warm off-white background (#F7F5F2) and high-contrast dark ink (#1A1A1A). The typography is exclusively neutral, grotesque-sans, with tight tracking on large display text and uppercase labels. Critical constraints include: never introduce a vibrant accent color, maintain generous whitespace, and avoid any drop shadows or heavy borders. The layout is strictly centered and single-column, emphasizing the content rather than the interface structure."
     },
     "zh-CN": {
       "identity": {
         "keywords": [
-          "极简",
-          "文字驱动",
-          "慷慨留白",
-          "无装饰",
-          "暖中性"
+          "灵感",
+          "空间",
+          "策展",
+          "发现"
         ],
-        "analogy": "是早期 Medium 的呼吸感首页，不是 Pinterest 的信息瀑布",
-        "oneLiner": "灵感采集工具的纯文字极简入口页"
+        "analogy": "一个极简画廊或高端生活方式编辑平台。",
+        "oneLiner": "一个用于发现与分享视觉灵感的精致策展平台。"
       },
       "colors": {
-        "principle": "调色板为空，所有颜色 token 填 null；视觉上为暖白底 + 纯黑文字的极简双色体系"
+        "principle": "极度克制，采用温暖的米白背景和高对比度的深墨色以聚焦内容。"
       },
       "typography": {
         "rules": [
-          "标题 weight 500 不用 bold 700+，保持克制",
-          "品牌标签全大写 + 宽 letter-spacing，与标题形成层级",
-          "全页统一使用同一几何无衬线字族，无混搭"
+          "展示文字采用大字号、紧密字距并居中排列。",
+          "短类别标签使用大写字母追踪间距。",
+          "字体粗细保持常规和中等，以呈现精致感。"
         ],
         "scaleUses": [
-          "首屏主标题两行居中",
-          "COSMOS 品牌标签全大写宽字距",
-          "按钮文字和导航链接"
+          "主视觉标题",
+          "大写类别标签"
         ]
       },
       "spacing": {
-        "rhythm": "慷慨，hero 区上方约 280px 留白，标题与按钮间距约 48px，按钮之间 12px"
+        "rhythm": "充足的垂直间距强调了留白与呼吸空间。"
       },
       "surfaces": {
-        "shadows": [
-          "全页无任何阴影，所有元素平面化"
-        ],
-        "border": "仅搜索框和菜单按钮使用 1px 细线描边，其余元素无边框"
+        "shadows": [],
+        "borders": "输入框和次要按钮采用纤细、微妙的描边；无厚重容器边框。"
       },
       "layout": {
-        "skeleton": "顶部导航栏（logo + 菜单按钮 + 搜索框 + 登录/注册）→ 大面积留白 → 居中文本 hero（品牌标签 + 主标题 + 双按钮）→ 下方全部空白"
+        "skeleton": "居中的单栏布局，通过巨大的垂直内边距聚焦于排版。"
       },
       "components": {
-        "button": "全圆角 pill 形状；主按钮为实心黑底白字，次按钮为白底黑字加 1px 浅灰描边；高度约 48px，padding 水平 24px",
+        "button": "胶囊形（完全圆角），采用纯色深填充或细描边；高对比度。",
         "card": null,
         "chip": null,
-        "input": "搜索框为 pill 全圆角，1px 浅灰描边，左侧放大镜图标，右侧相机图标和彩色色轮图标，placeholder 灰色文字",
-        "hero": "纯文本居中 hero：上方小字全大写品牌名 COSMOS，中间两行大标题 Your space for inspiration，下方并排两个 pill 按钮（Sign up 黑色实心 + Get the app 白色描边）"
-      },
-      "motion": {
-        "patterns": [
-          "搜索框内彩色色轮图标暗示可能有颜色筛选交互",
-          "导航菜单按钮有下拉箭头暗示展开交互",
-          "静态截图无法确认动画"
-        ]
+        "input": "胶囊形搜索栏，圆角并带有微妙描边。",
+        "hero": "居中排版，留有充足空白，并置两个胶囊形行动号召按钮。"
       },
       "interaction": {
-        "hover": "按钮可能有背景色反转或微弱透明度变化（基于 pill 按钮常见交互模式推断）",
-        "click": null,
-        "transition": null,
-        "keyboard": null
+        "hover": "按钮呈现细微的透明度变化或背景切换。",
+        "click": "即时响应。",
+        "transition": "平滑、无干扰的状态切换。",
+        "keyboard": "可能存在标准焦点环，但在静态截图中不可见。"
       },
       "voice": {
-        "tone": "平静、邀请式，无推销感，语气像在说一个空间而不是推销一个产品",
-        "headlineStyle": "简短两个词组，无修饰语，无感叹号，不解释功能只描述状态",
-        "ctaStyle": "极简祈使句，两个词以内（Sign up / Get the app），不用 '免费' '立即' 等促销词",
+        "tone": "富有吸引力、平静且精致。",
+        "headlineStyle": "简短、富有感染力且居中；聚焦感受而非功能特性。",
+        "ctaStyle": "直接而简洁（例如‘注册’、‘获取应用’）。",
         "avoid": [
-          "避免使用感叹号",
-          "避免功能描述性标题",
-          "避免 '免费试用' '立即开始' 等促销用语",
-          "避免在 hero 中放长段解释文案"
+          "技术术语",
+          "侵略性销售语言",
+          "视觉杂乱"
         ]
       },
       "donts": [
-        "不放图片或插画 —— hero 区纯文字无任何视觉素材，下方完全留白",
-        "不用渐变色或彩色背景 —— 全页单色暖白底无任何色彩渐变",
-        "不加阴影或浮起效果 —— 按钮、搜索框、导航元素均无 box-shadow",
-        "不用衬线字体 —— 全页从标题到按钮统一使用几何无衬线体",
-        "不用多列布局 —— 所有内容严格居中单列排列",
-        "不放 footer 或页脚内容 —— 截图中 hero 以下区域完全空白无内容",
-        "不用强对比 accent 色做 CTA —— 仅用黑白两色区分主次按钮",
-        "不在标题中用全大写 —— 主标题为 sentence case，仅品牌标签用全大写"
+        "不要使用纯白背景——截图显示为温暖的米白色（#F7F5F2）。",
+        "不要添加投影或厚重边框——截图显示为完全平面的表面。",
+        "不要使用鲜艳的点缀色——截图仅依靠黑色与米白色。",
+        "不要使用复杂的网格布局——截图显示为严格居中的单栏流程。",
+        "不要使用衬线字体——截图仅显示干净、中性的无衬线字体。",
+        "不要在界面中堆砌图标——截图极为简约，仅依靠文字与留白。"
       ],
-      "systemPrompt": "你是极简灵感平台首页设计师。页面为暖白底 + 纯黑文字的极简双色体系，无 accent 色、无渐变、无阴影。标题用几何无衬线体 500 weight 不超过 700，品牌标签全大写宽字距做层级。所有交互元素（按钮、搜索框、菜单）统一 pill 全圆角。hero 居中纯文字，两行标题不超过 5 个词，下方最多两个 pill 按钮。留白慷慨（hero 上方 280px+），单列居中布局。不用图片插画 / 不加阴影 / 不用衬线体 / 不放促销文案 / 不用多列 / 不在 hero 放长段文字。"
+      "systemPrompt": "Cosmos 是一个极简的、编辑驱动的视觉灵感策展平台。它通过极度克制的视觉设计确立自身定位，采用温暖的米白色背景（#F7F5F2）和高对比度的深墨色文字（#1A1A1A）。排版完全使用中性无衬线字体，大字号展示文字采用紧密字距，类别标签则使用大写字母。关键约束包括：绝不引入鲜艳的点缀色，保持充足的留白，并避免任何投影或厚重边框。布局严格采用居中单栏形式，强调内容本身而非界面结构。"
     },
     "zh-TW": {
       "identity": {
         "keywords": [
-          "極簡",
-          "文字驅動",
-          "慷慨留白",
-          "無裝飾",
-          "暖中性"
+          "靈感",
+          "空間",
+          "策展",
+          "探索"
         ],
-        "analogy": "是早期 Medium 的呼吸感首頁，不是 Pinterest 的資訊瀑布",
-        "oneLiner": "靈感採集工具的純文字極簡入口頁"
+        "analogy": "一個極簡畫廊或高端生活方式編輯平台。",
+        "oneLiner": "一個精緻的視覺靈感策展與分享平台。"
       },
       "colors": {
-        "principle": "調色盤為空，所有顏色 token 填 null；視覺上為暖白底 + 純黑文字的極簡雙色體系"
+        "principle": "極度克制，採用溫暖的米白色背景與高對比深色墨水以聚焦視覺。"
       },
       "typography": {
         "rules": [
-          "標題 weight 500 不用 bold 700+，保持克制",
-          "品牌標籤全大寫 + 寬 letter-spacing，與標題形成層級",
-          "全頁統一使用同一幾何無襯線字族，無混搭"
+          "標題文字大、字距緊湊且置中排列。",
+          "短型分類標籤使用大寫字距調整。",
+          "字重維持在 Regular 與 Medium 以呈現精緻感。"
         ],
         "scaleUses": [
-          "首屏主標題兩行居中",
-          "COSMOS 品牌標籤全大寫寬字距",
-          "按鈕文字和導航連結"
+          "主視覺標題",
+          "大寫分類標籤"
         ]
       },
       "spacing": {
-        "rhythm": "慷慨，hero 區上方約 280px 留白，標題與按鈕間距約 48px，按鈕之間 12px"
+        "rhythm": "寬裕的垂直間距強調空間感與呼吸感。"
       },
       "surfaces": {
-        "shadows": [
-          "全頁無任何陰影，所有元素平面化"
-        ],
-        "border": "僅搜尋框和選單按鈕使用 1px 細線描邊，其餘元素無邊框"
+        "shadows": [],
+        "borders": "輸入框與次要按鈕使用細微邊框；不使用厚重的容器邊框。"
       },
       "layout": {
-        "skeleton": "頂部導航欄（logo + 選單按鈕 + 搜尋框 + 登入/註冊）→ 大面積留白 → 居中文本 hero（品牌標籤 + 主標題 + 雙按鈕）→ 下方全部空白"
+        "skeleton": "中央單欄式佈局，搭配大量垂直內距以聚焦排版。"
       },
       "components": {
-        "button": "全圓角 pill 形狀；主按鈕為實心黑底白字，次按鈕為白底黑字加 1px 淺灰描邊；高度約 48px，padding 水平 24px",
+        "button": "膠囊形狀（完全圓角）搭配實心深色填充或細邊框；高對比度。",
         "card": null,
         "chip": null,
-        "input": "搜尋框為 pill 全圓角，1px 淺灰描邊，左側放大鏡圖示，右側相機圖示和彩色色輪圖示，placeholder 灰色文字",
-        "hero": "純文字居中 hero：上方小字全大寫品牌名 COSMOS，中間兩行大標題 Your space for inspiration，下方並排兩個 pill 按鈕（Sign up 黑色實心 + Get the app 白色描邊）"
-      },
-      "motion": {
-        "patterns": [
-          "搜尋框內彩色色輪圖示暗示可能有顏色篩選互動",
-          "導航選單按鈕有下拉箭頭暗示展開互動",
-          "靜態截圖無法確認動畫"
-        ]
+        "input": "膠囊形狀的搜尋欄，圓角搭配細微邊框。",
+        "hero": "置中排版搭配大量留白與雙膠囊形狀的行動號召按鈕。"
       },
       "interaction": {
-        "hover": "按鈕可能有背景色反轉或微弱透明度變化（基於 pill 按鈕常見互動模式推斷）",
-        "click": null,
-        "transition": null,
-        "keyboard": null
+        "hover": "按鈕細微的透明度變化或背景位移。",
+        "click": "即時回應。",
+        "transition": "流暢、不顯眼的狀態變化。",
+        "keyboard": "標準焦點環可能存在，但在靜態截圖中不可見。"
       },
       "voice": {
-        "tone": "平靜、邀請式，無推銷感，語氣像在說一個空間而不是推銷一個產品",
-        "headlineStyle": "簡短兩個詞組，無修飾語，無驚嘆號，不解釋功能只描述狀態",
-        "ctaStyle": "極簡祈使句，兩個詞以內（Sign up / Get the app），不用 '免費' '立即' 等促銷詞",
+        "tone": "親切、平靜且精緻。",
+        "headlineStyle": "簡短、引人遐思且置中；著重感受而非功能。",
+        "ctaStyle": "直接簡潔（「立即註冊」、「下載應用程式」）。",
         "avoid": [
-          "避免使用驚嘆號",
-          "避免功能描述性標題",
-          "避免 '免費試用' '立即開始' 等促銷用語",
-          "避免在 hero 中放長段解釋文案"
+          "技術術語",
+          "激進的銷售語言",
+          "視覺雜亂"
         ]
       },
       "donts": [
-        "不放圖片或插畫 —— hero 區純文字無任何視覺素材，下方完全留白",
-        "不用漸變色或彩色背景 —— 全頁單色暖白底無任何色彩漸變",
-        "不加陰影或浮起效果 —— 按鈕、搜尋框、導航元素均無 box-shadow",
-        "不用襯線字體 —— 全頁從標題到按鈕統一使用幾何無襯線體",
-        "不用多列佈局 —— 所有內容嚴格居中單列排列",
-        "不放 footer 或頁尾內容 —— 截圖中 hero 以下區域完全空白無內容",
-        "不用強對比 accent 色做 CTA —— 僅用黑白兩色區分主次按鈕",
-        "不在標題中用全大寫 —— 主標題為 sentence case，僅品牌標籤用全大寫"
+        "不要使用純白背景 — 截圖顯示為溫暖的米白色（#F7F5F2）。",
+        "不要添加陰影或厚重邊框 — 截圖顯示為完全平面的表面。",
+        "不要使用鮮豔的強調色 — 截圖僅依賴黑色與米白色。",
+        "不要使用複雜的網格佈局 — 截圖顯示為嚴格置中的單欄式流程。",
+        "不要使用襯線字體 — 截圖僅顯示乾淨、中性的無襯線字體。",
+        "不要用圖示使介面雜亂 — 截圖極度簡約，依賴文字與空間。"
       ],
-      "systemPrompt": "你是極簡靈感平台首頁設計師。頁面為暖白底 + 純黑文字的極簡雙色體系，無 accent 色、無漸變、無陰影。標題用幾何無襯線體 500 weight 不超過 700，品牌標籤全大寫寬字距做層級。所有互動元素（按鈕、搜尋框、選單）統一 pill 全圓角。hero 居中純文字，兩行標題不超過 5 個詞，下方最多兩個 pill 按鈕。留白慷慨（hero 上方 280px+），單列居中佈局。不用圖片插畫 / 不加陰影 / 不用襯線體 / 不放促銷文案 / 不用多列 / 不在 hero 放長段文字。"
-    },
-    "ja": {
-      "identity": {
-        "keywords": [
-          "ミニマル",
-          "テキスト駆動",
-          "惜しまない余白",
-          "装飾なし",
-          "ウォーム・ニュートラル"
-        ],
-        "analogy": "早期 Medium の呼吸感あるトップページであり、Pinterest の情報の滝ではない",
-        "oneLiner": "インスピレーション収集ツールの、純粋なテキスト・ミニマル・ランディングページ"
-      },
-      "colors": {
-        "principle": "パレットは空、すべてのカラートークンはnull；視覚的にはウォームホワイト背景＋纯黒テキストの極簡二色体系"
-      },
-      "typography": {
-        "rules": [
-          "見出しのweightは500、bold（700+）は使用せず、克制を保つ",
-          "ブランドラベルは全角大文字＋広いletter-spacingで、見出しとの階層を形成",
-          "ページ全体で同一のジオメトリック・サンセリフ・ファミリーを使用し、混在しない"
-        ],
-        "scaleUses": [
-          "ヒーロー領域のメイン見出しは2行で中央揃え",
-          "COSMOSブランドラベルは全角大文字、広い字間",
-          "ボタンテキストとナビゲーションリンク"
-        ]
-      },
-      "spacing": {
-        "rhythm": "惜しまない余白。ヒーロー領域上部に約280pxの余白、見出しとボタンの間隔は約48px、ボタン間は12px"
-      },
-      "surfaces": {
-        "shadows": [
-          "ページ全体にいかなる影もなし、すべての要素はフラット化"
-        ],
-        "borders": "検索ボックスとメニューボタンのみ1pxの細線ボーダーを使用、それ以外の要素はボーダーなし"
-      },
-      "layout": {
-        "skeleton": "トップナビゲーションバー（ロゴ＋メニューボタン＋検索ボックス＋ログイン/登録）→ 大きな余白 → 中央揃えテキストヒーロー（ブランドラベル＋メイン見出し＋2つのボタン）→ 以下はすべて空白"
-      },
-      "components": {
-        "button": "完全な丸み（ピル形状）；プライマリボタンは黒背景白文字、セカンダリボタンは白背景黒文字に1pxのライトグレー描線；高さは約48px、水平padding 24px",
-        "card": null,
-        "chip": null,
-        "input": "検索ボックスはピル形状、1pxのライトグレー描線、左側に虫眼鏡アイコン、右側にカメラアイコンとカラーウィールアイコン、プレースホルダーはグレーテキスト",
-        "hero": "テキストのみ中央揃えヒーロー：上部に小さな全角大文字ブランド名COSMOS、中央に2行の大きな見出し「Your space for inspiration」、下部に並べた2つのピルボタン（「Sign up」黒背景実線 ＋ 「Get the app」白背景描線）"
-      },
-      "motion": {
-        "patterns": [
-          "検索ボックス内のカラーウィールアイコンは、カラー筛选の可能性を示唆",
-          "ナビゲーションメニューボタンのドロップダウン矢印は、展開の可能性を示唆",
-          "静止スクリーンショットではアニメーションの確認ができない"
-        ]
-      },
-      "interaction": {
-        "hover": "ボタンには背景色の反転や微かな透明度の変化があるかもしれない（ピルボタンの一般的なインタラクションパターンから推測）",
-        "click": null,
-        "transition": null,
-        "keyboard": null
-      },
-      "voice": {
-        "tone": "落ち着いた、招待するようなトーン。販売感はなく、製品を売り込むのではなく、ある空間について話しているかのような口調",
-        "headlineStyle": "短い2つの句。修飾語なし、感嘆符なし。機能を説明せず、状態のみを記述",
-        "ctaStyle": "極簡の命令形。2語以内（Sign up / Get the app）。「無料」「今すぐ」等のプロモーション語は使用不可",
-        "avoid": [
-          "感嘆符の使用を避ける",
-          "機能説明的な見出しを避ける",
-          "「無料トライアル」「今すぐ始める」等のプロモーション表現を避ける",
-          "ヒーローに長い説明テキストを置くのを避ける"
-        ]
-      },
-      "donts": [
-        "画像やイラストを置かない — ヒーロー領域はテキストのみで、いかなるビジュアル素材もなく、以下は完全に空白",
-        "グラデーション色やカラフルな背景を使用しない — ページ全体で単色のウォームホワイト背景に、いかなる色のグラデーションもなし",
-        "シャドウや浮き上がり効果を加えない — ボタン、検索ボックス、ナビゲーション要素すべてにbox-shadowなし",
-        "セリフフォントを使用しない — ページ全体、見出しからボタンまで統一してジオメトリック・サンセリフ体を使用",
-        "複数カラムレイアウトを使用しない — すべてのコンテンツは厳密に中央揃えの単一カラムで配置",
-        "フッターやページ下部コンテンツを置かない — スクリーンショットではヒーロー以下の領域は完全に空白でコンテンツなし",
-        "強コントラストのアクセントカラーをCTAに使用しない — 黒と白の2色のみでプライマリとセカンダリのボタンを区別",
-        "見出しに全角大文字を使用しない — メイン見出しはセンテンスケース、ブランドラベルのみ全角大文字"
-      ],
-      "systemPrompt": "あなたはミニマル・インスピレーション・プラットフォームのトップページデザイナーです。ページはウォームホワイト背景＋纯黒テキストの極簡二色体系で、アクセントカラー、グラデーション、シャドウは一切ありません。見出しにはジオメトリック・サンセリフ体のweight 500を使用し、700以上にはしません。ブランドラベルは全角大文字、広い字間で階層を形成します。すべてのインタラクティブ要素（ボタン、検索ボックス、メニュー）は統一してピル形状の完全な丸みです。ヒーローは中央揃えのテキストのみで、2行の見出しは5語以内、下部には最大2つのピルボタンを配置します。余白は惜しみなく使い（ヒーロー上部に280px以上）、単一カラムの中央揃えレイアウトです。画像・イラストは不使用、シャドウは不追加、セリフフォントは不使用、プロモーション文言は不使用、複数カラムは不使用、ヒーローに長いテキストは不配置です。"
-    },
-    "ko": {
-      "identity": {
-        "keywords": [
-          "미니멀",
-          "텍스트 중심",
-          "여유로운 여백",
-          "장식 없음",
-          "웜 네이럴"
-        ],
-        "analogy": "초기 Medium의 숨쉬는 듯한 홈페이지, Pinterest의 정보 폭포가 아닙니다",
-        "oneLiner": "영감 수집 도구의 순수 텍스트 미니멀 진입 페이지"
-      },
-      "colors": {
-        "principle": "팔레트는 비어 있으며, 모든 색상 토큰은 null로 설정됩니다. 시각적으로는 웜 화이트 배경 + 순수 블랙 텍스트의 미니멀 이중색 체계입니다"
-      },
-      "typography": {
-        "rules": [
-          "제목은 weight 500을 사용하며, bold 700 이상은 사용하지 않아 절제를 유지합니다",
-          "브랜드 라벨은 전부 대문자 + 넓은 letter-spacing으로, 제목과 계층을 형성합니다",
-          "전체 페이지에 동일한 기하학적 고딕 서체 패밀리를 통일 사용하며, 혼합하지 않습니다"
-        ],
-        "scaleUses": [
-          "첫 화면 주 제목은 두 줄 중앙 정렬",
-          "COSMOS 브랜드 라벨은 전부 대문자 넓은 자간",
-          "버튼 텍스트와 내비게이션 링크"
-        ]
-      },
-      "spacing": {
-        "rhythm": "여유로움. 히어로 영역 상단에 약 280px 여백, 제목과 버튼 사이 간격 약 48px, 버튼 간 12px"
-      },
-      "surfaces": {
-        "shadows": [
-          "전체 페이지에 그림자가 전혀 없으며, 모든 요소는 플랫 디자인입니다"
-        ],
-        "borders": "검색 상자와 메뉴 버튼에만 1px 얇은 테두리를 사용하며, 나머지 요소에는 테두리가 없습니다"
-      },
-      "layout": {
-        "skeleton": "상단 내비게이션 바 (로고 + 메뉴 버튼 + 검색 상자 + 로그인/가입) → 넓은 여백 → 중앙 정렬된 텍스트 히어로 (브랜드 라벨 + 주 제목 + 이중 버튼) → 하단 전체 빈 공간"
-      },
-      "components": {
-        "button": "완전 둥근 pill 형태; 주 버튼은 솔리드 블랙 배경 화이트 텍스트, 보조 버튼은 화이트 배경 블랙 텍스트에 1px 밝은 회색 테두리; 높이 약 48px, 수평 padding 24px",
-        "card": null,
-        "chip": null,
-        "input": "검색 상자는 pill 완전 둥근 형태, 1px 밝은 회색 테두리, 왼쪽 돋보기 아이콘, 오른쪽 카메라 아이콘과 컬러 휠 아이콘, placeholder는 회색 텍스트",
-        "hero": "텍스트 중앙 정렬 히어로: 상단 소문자 전부 대문자 브랜드명 COSMOS, 중간 두 줄 큰 제목 Your space for inspiration, 하단 나란히 pill 두 개 버튼 (Sign up 블랙 솔리드 + Get the app 화이트 테두리)"
-      },
-      "motion": {
-        "patterns": [
-          "검색 상자 내 컬러 휠 아이콘은 색상 필터링 인터랙션 가능성을 암시합니다",
-          "내비게이션 메뉴 버튼의 아래쪽 화살표는 펼치기 인터랙션을 암시합니다",
-          "정적 스크린샷으로는 애니메이션 확인 불가"
-        ]
-      },
-      "interaction": {
-        "hover": "버튼은 배경색 반전 또는 미세한 불투명도 변화가 있을 수 있습니다 (pill 버튼 일반적인 인터랙션 패턴 기반 추정)",
-        "click": null,
-        "transition": null,
-        "keyboard": null
-      },
-      "voice": {
-        "tone": "평온하고 초대하는 느낌, 판매하지 않는 어조, 공간에 대해 말하는 듯한 어조",
-        "headlineStyle": "짧은 두 구절, 수식어 없음, 감탄사 없음, 기능 설명 없이 상태만 묘사",
-        "ctaStyle": "미니멀 명령형, 두 단어 이내 (Sign up / Get the app), '무료' '지금' 같은 프로모션 단어 사용 안 함",
-        "avoid": [
-          "감탄사 사용 회피",
-          "기능 묘사형 제목 회피",
-          "'무료 체험' '바로 시작' 같은 프로모션 표현 회피",
-          "히어로에 긴 설명 문단 배치 회피"
-        ]
-      },
-      "donts": [
-        "이미지나 일러스트레이션 배치하지 않음 — 히어로 영역은 순수 텍스트에 어떤 시각 자료도 없으며, 하단은 완전히 빈 공간",
-        "그라데이션 색상이나 컬러 배경 사용하지 않음 — 전체 페이지 단색 웜 화이트 배경에 어떤 색상 그라데이션도 없음",
-        "그림자나 떠오르는 효과 추가하지 않음 — 버튼, 검색 상자, 내비게이션 요소 모두 box-shadow 없음",
-        "세리프 서체 사용하지 않음 — 전체 페이지 제목부터 버튼까지 기하학적 고딕 서체 통일 사용",
-        "다열 레이아웃 사용하지 않음 — 모든 콘텐츠는 엄격히 중앙 정렬 단일 열 배치",
-        "푸터 또는 하단 콘텐츠 배치하지 않음 — 스크린샷에서 히어로 아래 영역은 완전히 빈 공간으로 콘텐츠 없음",
-        "강한 대비 악센트 색상으로 CTA 사용하지 않음 — 블랙과 화이트 두 색상으로 주/보조 버튼 구분",
-        "제목에 전부 대문자 사용하지 않음 — 주 제목은 sentence case이며, 브랜드 라벨에만 전부 대문자 사용"
-      ],
-      "systemPrompt": "당신은 미니멀 영감 플랫폼 홈페이지 디자이너입니다. 페이지는 웜 화이트 배경 + 순수 블랙 텍스트의 미니멀 이중색 체계이며, 악센트 색상, 그라데이션, 그림자 없음. 제목은 기하학적 고딕 서체 500 weight를 사용하며 700을 초과하지 않음, 브랜드 라벨은 전부 대문자 넓은 자간으로 계층 형성. 모든 인터랙션 요소 (버튼, 검색 상자, 메뉴)는 pill 완전 둥근 형태 통일. 히어로는 중앙 정렬 순수 텍스트, 두 줄 제목은 5단어 이내, 하단 최대 pill 버튼 두 개. 여유로운 여백 (히어로 상단 280px 이상), 단일 열 중앙 정렬 레이아웃. 이미지/일러스트 사용 안 함 / 그림자 추가 안 함 / 세리프 서체 사용 안 함 / 프로모션 텍스트 배치 안 함 / 다열 사용 안 함 / 히어로에 긴 설명 문단 배치 안 함."
+      "systemPrompt": "Cosmos 是一個極簡、編輯式的視覺靈感策展平台。它透過極度克制來定位自身，採用溫暖的米白色背景（#F7F5F2）與高對比的深色墨水（#1A1A1A）。排版僅使用中性無襯線字體，大型標題文字與標籤採用緊湊字距。關鍵限制包括：永不引入鮮豔的強調色，維持寬裕的留白，並避免任何陰影或厚重邊框。佈局嚴格採用置中單欄式，強調內容而非介面結構。"
     }
   },
-  "narrative": {
-    "en": {
-      "ch1_intro": "The design system for Cosmos is a framework of deliberate emptiness, a pure-white gallery base where the visual energy comes entirely from the curated works themselves. Its identity is defined by a set of stark constraints: no shadows, no color accents, no serif fonts. It is a site that understands its own role is to disappear, leaving only a quiet stage for inspiration.",
-      "ch2_intro": "The palette is an act of radical reduction: a warm white ground and pure black text form the entire visual system. There are no accent colors or gradients; the chromatic experience is deferred entirely to the user's collected images.",
-      "ch2_outro": "The guiding principle is that the interface should be a neutral substrate, not a competing voice.",
-      "ch3_intro": "A single geometric sans-serif typeface is used universally, creating a unified, text-driven voice. The hierarchy is established through deliberate contrast: titles are set at a restrained weight of 500, while brand labels use all-caps and wide tracking to differentiate themselves.",
-      "ch4_intro": "Spatial rhythm is generous and breathing, with a generous 280px of empty space above the hero section establishing a calm, unhurried pace.",
-      "ch5_intro": "Depth is conveyed through absence; there are no shadows or floating effects to lift elements off the page. All surfaces exist on a single, flat plane, with borders used sparingly—only a 1px line for essential interactive containers like the search box and menu button.",
-      "ch6_intro": "The layout skeleton is a study in focused simplicity. A top navigation bar gives way to expansive white space, which frames a centered text hero. The content column below the hero remains intentionally blank in this initial view.",
-      "ch7_intro": "Motion philosophy is cinematic and understated, favoring slow, deliberate image scaling. Interactions are hinted at through affordances like a color wheel icon in the search bar, suggesting a latent layer of filtering without cluttering the interface.",
-      "ch8_intro": "The editorial voice is calm and invitational, describing a space rather than selling a product. It avoids promotional language, exclamation points, and explanatory headlines, using only the most minimal imperative verbs for calls to action.",
-      "ch8_outro": "By design, it deliberately omits all visual decoration, promotional copy, and multi-column layouts to maintain its singular focus."
-    },
-    "zh-CN": {
-      "ch1_intro": "Cosmos 的设计系统是一个精心设计的空白框架，一个纯白色的展览基底，视觉能量完全来自精选的作品本身。它的身份由一系列严格的约束所定义：无阴影、无色彩点缀、无衬线字体。这是一个理解自身角色在于消失的网站，只为灵感留下一个安静的舞台。",
-      "ch2_intro": "调色板是一次彻底的精简：温暖的白色基底与纯黑文本构成了整个视觉系统。没有强调色或渐变；色彩体验完全委托给用户收集的图片。",
-      "ch2_outro": "指导原则是界面应作为中立的基底，而非竞争性的声音。",
-      "ch3_intro": "一种几何无衬线字体被统一使用，营造出统一的、以文本为驱动的声调。层级通过刻意的对比建立：标题采用克制的 500 字重，而品牌标签则使用全大写和宽字距以示区分。",
-      "ch4_intro": "空间节奏宽敞且富有呼吸感，英雄区上方留有充裕的 280px 空白，确立了平静、从容的节奏。",
-      "ch5_intro": "深度通过缺席来传达；没有阴影或浮动效果将元素从页面上提离。所有表面存在于单一的平面上，边框使用极为克制——仅为搜索框和菜单按钮等必要的交互容器使用 1px 的线条。",
-      "ch6_intro": "布局骨架是对聚焦简约的研究。顶部导航栏让位于广阔的空白，框架出一个居中的文本英雄区。在初始视图中，英雄区下方的内容列刻意保持空白。",
-      "ch7_intro": "动效哲学是电影感且内敛的，偏好缓慢、审慎的图像缩放。交互通过功能暗示来提示，例如搜索栏中的色轮图标，暗示了一个潜在的筛选层，而不使界面显得杂乱。",
-      "ch8_intro": "编辑语气平静且具有邀请性，描述一个空间而非推销产品。它避免使用促销性语言、感叹号和解释性标题，仅使用最极简的祈使动词作为行动号召。",
-      "ch8_outro": "在设计上，它刻意省略了所有视觉装饰、促销文案和多栏布局，以保持其单一的专注。"
-    },
-    "zh-TW": {
-      "ch1_intro": "Cosmos 的設計系統是一個刻意留白的框架，一個純白的畫廊基底，視覺能量完全來自策展的作品本身。其特質由一組極簡約束所定義：無陰影、無色彩強調、無襯線字體。這是一個理解自身角色在於消失的網站，只留下一個安靜的舞台，供靈感呈現。",
-      "ch2_intro": "色彩調性是一種徹底的簡化：溫暖的白色基底與純黑文字構成完整的視覺系統。沒有強調色或漸層；色彩體驗完全交由使用者所收集的圖片來呈現。",
-      "ch2_outro": "指導原則是：介面應作為中性基底，而非一個與內容競爭的聲音。",
-      "ch3_intro": "統一使用單一幾何無襯線字體，營造統一、以文字為導向的語調。層級透過刻意的對比來建立：標題以克制的 500 字重設定，而品牌標籤則使用全大寫與寬鬆字距來區分。",
-      "ch4_intro": "空間節奏寬敞而舒展，主視覺區域上方留有慷慨的 280px 空白，確立了平靜、從容的步調。",
-      "ch5_intro": "深度透過缺席來傳達；沒有陰影或浮動效果將元素抬離頁面。所有表面都存在於單一、平坦的平面上，邊框僅謹慎使用——僅為搜尋框和選單按鈕等必要的互動容器使用 1px 線條。",
-      "ch6_intro": "版面骨架是專注於簡潔的研究。頂端導覽列讓位給大片的白色空間，框住一個置中的文字主視覺。在此初始視圖中，主視覺下方的內容欄位刻意保持空白。",
-      "ch7_intro": "動態哲學具電影感且內斂，偏好緩慢、有分寸的圖片縮放。互動透過可供性（如搜尋列中的色輪圖示）來暗示，提示了潛在的篩選層級，而不使介面雜亂。",
-      "ch8_intro": "編輯語調平靜且具邀請性，描述一個空間而非銷售產品。它避免使用促銷語言、驚嘆號與解釋性標題，僅使用最簡約的命令動詞作為行動呼籲。",
-      "ch8_outro": "經過設計，它刻意省略所有視覺裝飾、促銷文案與多欄版面，以維持其單一的專注。"
-    },
-    "ja": {
-      "ch1_intro": "Cosmosのデザインシステムは、意図的な空白のフレームワークであり、純白のギャラリーベースです。視覚的なエネルギーは、厳選された作品そのものから完全に生まれます。そのアイデンティティは、一連の厳格な制約によって定義されます。影なし、カラーアクセントなし、セリフフォントなし。このサイトは、自身の役割が消え去ることであることを理解しており、インスピレーションのための静かな舞台だけを残します。",
-      "ch2_intro": "パレットは、徹底的な簡約の行為です。暖かみのあるホワイトの背景と純黒のテキストが、視覚システム全体を構成します。アクセントカラーもグラデーションもありません。色の体験は、完全にユーザーが収集した画像に委ねられます。",
-      "ch2_outro": "指針となる原則は、インターフェースが中立的な基盤であり、競い合う声であってはならないというものです。",
-      "ch3_intro": "1つの幾何学的なサンセリフフォントが普遍的に使用され、統一された、テキスト主導の声を生み出します。階層構造は、意図的なコントラストによって確立されます。タイトルは控えめな500のウェイトで設定され、ブランドラベルは大文字と広めのトラッキングを使用して区別されます。",
-      "ch4_intro": "空間のリズムはゆったりと呼吸するように設計され、ヒーローセクションの上にたっぷりと280pxの余白を設け、落ち着いた、急がないペースを確立します。",
-      "ch5_intro": "奥行きは、不在によって表現されます。要素をページから浮き上がらせるための影や浮遊効果はありません。すべてのサーフェスは1つのフラットな平面に存在し、ボーダーは控えめにのみ使用されます。検索ボックスやメニューボタンなど、必須のインタラクティブコンテナには1pxのラインを用いるだけです。",
-      "ch6_intro": "レイアウトの骨格は、集中したシンプルさの探究です。トップナビゲーションバーは、広大な余白に道を譲り、中央揃えのテキストヒーローをフレーミングします。ヒーローの下のコンテンツカラムは、初期ビューでは意図的に空白のままです。",
-      "ch7_intro": "モーションの哲学は、シネマティックかつ控えめで、ゆっくりとした、意図的な画像のスケーリングを重視します。インタラクションは、検索バーのカラーホイールアイコンなどのアフォーダンスを通じて示唆され、インターフェースを雑踏にすることなく、潜在的なフィルタリングの層を示唆します。",
-      "ch8_intro": "編集の声は穏やかで招き入れるようなものであり、製品を売るのではなく、空間を描写します。プロモーション的な言葉、感嘆符、説明的な見出しを避け、CTA（行動喚起）には最小限の命令形動詞のみを使用します。",
-      "ch8_outro": "設計により、単一の焦点を維持するために、すべての視覚装飾、プロモーションコピー、およびマルチカラムレイアウトを意図的に省略しています。"
-    },
-    "ko": {
-      "ch1_intro": "Cosmos를 위한 디자인 시스템은 의도된 여백의 프레임워크로, 순백의 갤러리 기반 위에 시각적 에너지가 큐레이션된 작품 자체에서만 나오는 공간입니다. 이 정체성은 몇 가지 가혹한 제약으로 정의됩니다: 그림자 없음, 컬러 액센트 없음, 세리프 서체 없음. 이 사이트는 자신의 역할이 사라져 영감을 위한 고요한 무대만 남기는 것임을 이해합니다.",
-      "ch2_intro": "팔레트는 급진적인 축소의 행위입니다: 따뜻한 화이트 배경과 순수한 블랙 텍스트가 전체 시각 시스템을 구성합니다. 액센트 컬러나 그래디언트는 없습니다; 컬러 경험은 전적으로 사용자가 수집한 이미지에 위임됩니다.",
-      "ch2_outro": "지침 원칙은 인터페이스가 경쟁하는 목소리가 아닌 중립적인 기반여야 한다는 것입니다.",
-      "ch3_intro": "단일 기하학적 고딕 서체가 보편적으로 사용되어 통일된, 텍스트 중심의 톤을 만듭니다. 계층은 의도적인 대비를 통해 확립됩니다: 제목은 절제된 500 웨이트로 설정되고, 브랜드 레이블은 대문자와 넓은 트래킹을 사용하여 자신을 구별합니다.",
-      "ch4_intro": "공간 리듬은 넉넉하고 숨 쉬듯 여유롭습니다, 히어로 섹션 위의 280px 넉넉한 여백이 차분하고 서두르지 않는 페이스를 확립합니다.",
-      "ch5_intro": "깊이는 부재를 통해 전달됩니다; 페이지에서 요소들을 들어 올리는 그림자나 부유 효과는 없습니다. 모든 표면은 하나의 평평한 평면 위에 존재하며, 테두리는 절제되게 사용됩니다—검색 상자와 메뉴 버튼과 같은 필수 인터랙티브 컨테이너에만 1px 라인을 적용합니다.",
-      "ch6_intro": "레이아웃 골격은 집중된 단순함의 연구입니다. 상단 내비게이션 바는 넓은 여백으로 이어지며, 이 여백이 중앙 정렬된 텍스트 히어로를 프레임합니다. 히어로 아래의 콘텐츠 컬럼은 이 초기 뷰에서 의도적으로 비워둡니다.",
-      "ch7_intro": "모션 철학은 시네마틱하고 절제되며, 느리고 의도적인 이미지 스케일링을 선호합니다. 인터랙션은 검색 바의 컬러 휠 아이콘과 같은 어포던스를 통해 암시되어, 인터페이스를 복잡하게 하지 않으면서 필터링의 잠재적 계층을 시사합니다.",
-      "ch8_intro": "에디토리얼 톤은 차분하고 초대하는 느낌으로, 제품을 판매하기보다 공간을 묘사합니다. 프로모션성 언어, 감탄사, 설명적 헤드라인을 피하고, 호출_to_액션에 가장 미니멀한 명령형 동사만 사용합니다.",
-      "ch8_outro": "설계상, 단일한 초점을 유지하기 위해 모든 시각적 장식, 프로모션 카피, 다중 컬럼 레이아웃을 의도적으로 생략합니다."
-    }
-  }
+  "narrative": {}
 }

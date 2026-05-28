@@ -1,0 +1,621 @@
+{
+  "id": "minimax",
+  "schema_version": "0.3",
+  "url": "https://www.minimax.io",
+  "title": "Minimax",
+  "image": "https://image.thum.io/get/width/1440/https://www.minimax.io",
+  "tags": [
+    "AI",
+    "Product",
+    "SaaS",
+    "Clean",
+    "Geometric"
+  ],
+  "status": "completed",
+  "added_at": "2026-05-29",
+  "added_by": "ingest",
+  "_meta": {
+    "vision_model": "mimo-v2.5",
+    "vision_prompt_version": "0.3",
+    "vision_at": "2026-05-28T20:11:06+00:00",
+    "vision_tokens": 3377,
+    "vision_cost_usd": 0.0375,
+    "translation_model": "mimo-v2.5",
+    "translation_at": "2026-05-28T20:12:00+00:00",
+    "translation_tokens": 14862,
+    "translation_cost_usd": 0.0496,
+    "narrative_model": "mimo-v2.5",
+    "narrative_prompt_version": "0.3",
+    "narrative_at": "2026-05-28T20:12:06+00:00",
+    "narrative_tokens": 1830,
+    "narrative_cost_usd": 0.0122,
+    "narrative_status": "ok",
+    "total_cost_usd": 0.0993
+  },
+  "spec": {
+    "colors": {
+      "bg": "#FFFFFF",
+      "bgSoft": "#F8F9FA",
+      "bgQuiet": "#F0F0F0",
+      "ink": "#1A1A1A",
+      "inkSoft": "#4A4A4A",
+      "muted": "#8A8A8A",
+      "mutedSoft": "#B0B0B0",
+      "accent": "#E84D3D",
+      "line": "rgba(0,0,0,0.1)"
+    },
+    "typography": {
+      "display": "geometric-sans",
+      "body": "humanist-sans",
+      "mono": null,
+      "scale": [
+        {
+          "token": "display",
+          "size": 48,
+          "lh": 1.1,
+          "weight": 600,
+          "ls": "-0.5px"
+        },
+        {
+          "token": "heading",
+          "size": 24,
+          "lh": 1.3,
+          "weight": 600,
+          "ls": "-0.2px"
+        },
+        {
+          "token": "body",
+          "size": 16,
+          "lh": 1.5,
+          "weight": 400,
+          "ls": "0"
+        }
+      ]
+    },
+    "spacing": {
+      "base": 4,
+      "scale": [
+        4,
+        8,
+        16,
+        24,
+        32,
+        48,
+        64,
+        96
+      ]
+    },
+    "surfaces": {
+      "radius": {
+        "sm": 4,
+        "md": 8,
+        "lg": 16,
+        "pill": 999
+      }
+    },
+    "layout": {
+      "container": 1200,
+      "paragraph": 600,
+      "columns": 12,
+      "gutter": 24,
+      "breakpoints": [
+        768,
+        1024
+      ]
+    },
+    "motion": {
+      "durations": {
+        "micro": 150,
+        "small": 300,
+        "medium": 500
+      },
+      "easing": "cubic-bezier(0.4, 0, 0.2, 1)"
+    }
+  },
+  "spec_i18n": {
+    "en": {
+      "identity": {
+        "keywords": [
+          "AI",
+          "Models",
+          "Engineering",
+          "Self-improvement",
+          "Full-stack"
+        ],
+        "analogy": "A clean, technical dashboard for AI development",
+        "oneLiner": "A professional AI platform interface emphasizing technical capability and clean design"
+      },
+      "colors": {
+        "principle": "Clean white backgrounds with warm coral accents for emphasis"
+      },
+      "typography": {
+        "rules": [
+          "Use geometric sans-serif for headlines and headings",
+          "Use humanist sans-serif for body text and descriptions",
+          "Maintain generous line height for readability",
+          "Use letter spacing for large display text"
+        ],
+        "scaleUses": [
+          "Main headline",
+          "Section headings",
+          "Body text"
+        ]
+      },
+      "spacing": {
+        "rhythm": "8px vertical rhythm system with consistent spacing between sections"
+      },
+      "surfaces": {
+        "shadows": [
+          "0 1px 3px rgba(0,0,0,0.1)",
+          "0 4px 12px rgba(0,0,0,0.08)",
+          "0 8px 24px rgba(0,0,0,0.12)"
+        ],
+        "borders": "1px solid rgba(0,0,0,0.1)"
+      },
+      "layout": {
+        "skeleton": "12-column grid with centered content containers"
+      },
+      "components": {
+        "button": "Pill-shaped buttons with solid fill or outline styling",
+        "card": "White cards with subtle shadows and rounded corners",
+        "chip": "Small rounded tags with accent colors",
+        "input": "Clean input fields with minimal borders",
+        "hero": "Centered headline with supporting text and action buttons"
+      },
+      "motion": {
+        "patterns": [
+          "Smooth hover transitions on interactive elements",
+          "Subtle fade-in for content loading"
+        ]
+      },
+      "interaction": {
+        "hover": "Scale and shadow enhancement on cards",
+        "click": "Subtle press effect on buttons",
+        "transition": "Smooth color and opacity transitions",
+        "keyboard": "Focus states with visible outlines"
+      },
+      "voice": {
+        "tone": "Professional and technical",
+        "headlineStyle": "Concise and action-oriented",
+        "ctaStyle": "Direct and specific to capabilities",
+        "avoid": [
+          "Overly casual language",
+          "Excessive exclamation marks",
+          "Jargon without explanation"
+        ]
+      },
+      "donts": [
+        "Don't use dark backgrounds — screenshot shows clean white primary background",
+        "Don't use decorative script fonts — screenshot shows geometric sans-serif for headlines",
+        "Don't use neon colors — screenshot shows warm coral accent with muted tones",
+        "Don't use complex gradients — screenshot shows solid colors and subtle gradients",
+        "Don't overcrowd the layout — screenshot shows generous whitespace and clear hierarchy",
+        "Don't use harsh shadows — screenshot shows soft, diffused shadows on cards"
+      ],
+      "systemPrompt": "This is a professional AI platform interface for MiniMax, emphasizing technical capability and clean design. The design uses a clean white background (#FFFFFF) with warm coral accent (#E84D3D) for emphasis. Typography combines geometric sans-serif for headlines with humanist sans-serif for body text, maintaining clear hierarchy through size and weight variations. The layout follows a 12-column grid system with centered containers and generous whitespace. Key features include pill-shaped buttons, cards with subtle shadows, and smooth hover interactions. Critical design principles: maintain clean whitespace, use geometric typography for technical credibility, and ensure coral accents draw attention to key actions without overwhelming the interface."
+    },
+    "zh-CN": {
+      "identity": {
+        "keywords": [
+          "AI",
+          "Models",
+          "Engineering",
+          "Self-improvement",
+          "Full-stack"
+        ],
+        "analogy": "一个干净、技术化的AI开发仪表盘",
+        "oneLiner": "一个强调技术能力和简洁设计的专业AI平台界面"
+      },
+      "colors": {
+        "principle": "干净的白色背景，搭配温暖的珊瑚色点缀以示强调"
+      },
+      "typography": {
+        "rules": [
+          "标题和标题使用几何无衬线字体",
+          "正文和描述使用人文主义无衬线字体",
+          "保持充足的行高以增强可读性",
+          "大型显示文本使用字母间距"
+        ],
+        "scaleUses": [
+          "主标题",
+          "章节标题",
+          "正文"
+        ]
+      },
+      "spacing": {
+        "rhythm": "基于8px的垂直节奏系统，章节间距保持一致"
+      },
+      "surfaces": {
+        "shadows": [
+          "0 1px 3px rgba(0,0,0,0.1)",
+          "0 4px 12px rgba(0,0,0,0.08)",
+          "0 8px 24px rgba(0,0,0,0.12)"
+        ],
+        "borders": "1px solid rgba(0,0,0,0.1)"
+      },
+      "layout": {
+        "skeleton": "采用12列网格，内容容器居中"
+      },
+      "components": {
+        "button": "药丸形按钮，采用纯色填充或描边样式",
+        "card": "白色卡片，带有细微阴影和圆角",
+        "chip": "小尺寸的圆角标签，采用强调色",
+        "input": "简洁的输入框，边框极简",
+        "hero": "居中的标题，配有辅助文本和操作按钮"
+      },
+      "motion": {
+        "patterns": [
+          "交互元素上的平滑悬停过渡",
+          "内容加载时的细微淡入效果"
+        ]
+      },
+      "interaction": {
+        "hover": "卡片的缩放与阴影增强",
+        "click": "按钮的细微按压效果",
+        "transition": "颜色与不透明度的平滑过渡",
+        "keyboard": "带有可见轮廓的焦点状态"
+      },
+      "voice": {
+        "tone": "专业且技术化",
+        "headlineStyle": "简洁且以行动为导向",
+        "ctaStyle": "直接且针对具体能力",
+        "avoid": [
+          "过于随意的语言",
+          "过多的感叹号",
+          "未经解释的术语"
+        ]
+      },
+      "donts": [
+        "不要使用深色背景 — 截图显示主要背景为干净的白色",
+        "不要使用装饰性手写字体 — 截图显示标题使用几何无衬线字体",
+        "不要使用霓虹色 — 截图显示使用温暖的珊瑚色点缀和柔和色调",
+        "不要使用复杂渐变 — 截图显示使用纯色和细微渐变",
+        "不要过度拥挤布局 — 截图显示充足的留白和清晰的层级",
+        "不要使用生硬的阴影 — 截图显示卡片使用柔和、扩散的阴影"
+      ],
+      "systemPrompt": "这是一个专业的MiniMax AI平台界面，强调技术能力和简洁设计。设计采用干净的白色背景(#FFFFFF)并搭配温暖的珊瑚色点缀(#E84D3D)进行强调。字体结合了标题的几何无衬线字体和正文的人文主义无衬线字体，并通过大小和字重变化保持清晰的层级。布局遵循12列网格系统，内容容器居中，并留有充足留白。主要特点包括药丸形按钮、带有细微阴影的卡片以及平滑的悬停交互。关键设计原则：保持干净的留白，使用几何字体以建立技术可信度，并确保珊瑚色点缀吸引对关键操作的注意，同时不破坏界面整体感。"
+    },
+    "zh-TW": {
+      "identity": {
+        "keywords": [
+          "AI",
+          "模型",
+          "工程",
+          "自我改進",
+          "全端"
+        ],
+        "analogy": "一個潔淨、技術性的 AI 開發控制面板",
+        "oneLiner": "強調技術能力與潔淨設計的專業 AI 平台介面"
+      },
+      "colors": {
+        "principle": "以潔淨白色背景搭配溫潤珊瑚色強調作為重點"
+      },
+      "typography": {
+        "rules": [
+          "標題與標題使用幾何無襯線字體",
+          "內文與描述使用人文無襯線字體",
+          "保持充足行高以提升可讀性",
+          "大型展示文字使用字間距調整"
+        ],
+        "scaleUses": [
+          "主標題",
+          "章節標題",
+          "內文"
+        ]
+      },
+      "spacing": {
+        "rhythm": "8px 垂直節奏系統，章節間保持一致間距"
+      },
+      "surfaces": {
+        "shadows": [
+          "0 1px 3px rgba(0,0,0,0.1)",
+          "0 4px 12px rgba(0,0,0,0.08)",
+          "0 8px 24px rgba(0,0,0,0.12)"
+        ],
+        "borders": "1px solid rgba(0,0,0,0.1)"
+      },
+      "layout": {
+        "skeleton": "12 欄格線系統，內容容器置中"
+      },
+      "components": {
+        "button": "藥丸形按鈕，提供實心填充或外框樣式",
+        "card": "白色卡片，帶有細膩陰影與圓角",
+        "chip": "小型圓角標籤，使用強調色",
+        "input": "潔淨的輸入欄位，邊框極簡",
+        "hero": "置中標題，搭配輔助文字與操作按鈕"
+      },
+      "motion": {
+        "patterns": [
+          "互動元素上流暢的 hover 過渡效果",
+          "內容載入時細膩的淡入效果"
+        ]
+      },
+      "interaction": {
+        "hover": "卡片的縮放與陰影增強效果",
+        "click": "按鈕的細膩按下效果",
+        "transition": "流暢的顏色與透明度過渡",
+        "keyboard": "聚焦狀態具有可見外框"
+      },
+      "voice": {
+        "tone": "專業且具技術性",
+        "headlineStyle": "簡潔且以行動為導向",
+        "ctaStyle": "直接且明確指出能力",
+        "avoid": [
+          "過於隨意的語言",
+          "過多的驚嘆號",
+          "未經解釋的術語"
+        ]
+      },
+      "donts": [
+        "勿使用深色背景 — 截圖顯示以潔淨白色為主要背景",
+        "勿使用裝飾性手寫體字體 — 截圖顯示標題使用幾何無襯線字體",
+        "勿使用霓虹色調 — 截圖顯示溫潤珊瑚色強調搭配柔和色調",
+        "勿使用複雜漸層 — 截圖顯示實色與細膩漸層",
+        "勿使佈局過於擁擠 — 截圖顯示充足留白與清晰層級",
+        "勿使用強烈陰影 — 截圖顯示卡片上的柔和、漫射陰影"
+      ],
+      "systemPrompt": "這是一個為 MiniMax 設計的專業 AI 平台介面，強調技術能力與潔淨設計。設計採用潔淨白色背景（#FFFFFF）搭配溫潤珊瑚色強調（#E84D3D）。字體組合標題使用幾何無襯線字體，內文使用人文無襯線字體，透過大小與字重變化維持清晰層級。佈局遵循 12 欄格線系統，容器置中並搭配充足留白。關鍵特色包含藥丸形按鈕、帶有細膩陰影的卡片，以及流暢的 hover 互動。關鍵設計原則：保持潔淨留白、使用幾何字體建立技術可信度、確保珊瑚色強調吸引注意力至關鍵操作而不使介面過載。"
+    },
+    "ja": {
+      "identity": {
+        "keywords": [
+          "AI",
+          "Models",
+          "Engineering",
+          "Self-improvement",
+          "Full-stack"
+        ],
+        "analogy": "AI開発のためのクリーンで技術的なダッシュボード",
+        "oneLiner": "技術的な能力とクリーンなデザインを強調した、プロフェッシャナルなAIプラットフォームインターフェース"
+      },
+      "colors": {
+        "principle": "強調のための、温かいコーラルのアクセントを配したクリーンなホワイト背景"
+      },
+      "typography": {
+        "rules": [
+          "見出しとヘッドラインにはジオメトリック・サンセリフを使用",
+          "本文と説明にはヒューマニスト・サンセリフを使用",
+          "読みやすさのため、十分な行間を維持",
+          "大きな表示テキストには文字間隔を使用"
+        ],
+        "scaleUses": [
+          "メインヘッドライン",
+          "セクション見出し",
+          "本文"
+        ]
+      },
+      "spacing": {
+        "rhythm": "セクション間の一定の間隔を持つ8px縦リズムシステム"
+      },
+      "surfaces": {
+        "shadows": [
+          "0 1px 3px rgba(0,0,0,0.1)",
+          "0 4px 12px rgba(0,0,0,0.08)",
+          "0 8px 24px rgba(0,0,0,0.12)"
+        ],
+        "borders": "1px solid rgba(0,0,0,0.1)"
+      },
+      "layout": {
+        "skeleton": "コンテンツコンテナをセンタリングした12カラムグリッド"
+      },
+      "components": {
+        "button": "塗りつぶしまたはアウトラインスタイルの、ピル型ボタン",
+        "card": "控えめなシャドウと角丸を持つホワイトカード",
+        "chip": "アクセントカラーを持つ、小さな角丸タグ",
+        "input": "控えめなボーダーを持つクリーンな入力フィールド",
+        "hero": "サポートテキストとアクションボタンを持つ、センタリングされたヘッドライン"
+      },
+      "motion": {
+        "patterns": [
+          "インタラクティブ要素上的なスムーズなhover遷移",
+          "コンテンツ読み込み時の控えめなフェードイン"
+        ]
+      },
+      "interaction": {
+        "hover": "カード上的なスケールとシャドウの強調",
+        "click": "ボタン上的な控えめな押下効果",
+        "transition": "カラーや不透明度のスムーズな遷移",
+        "keyboard": "アウトラインが見えるフォーカス状態"
+      },
+      "voice": {
+        "tone": "プロフェッシャナルで技術的",
+        "headlineStyle": "簡潔で行動を促す",
+        "ctaStyle": "機能に対して直接的で具体的",
+        "avoid": [
+          "過度にカジュアルな言葉遣い",
+          "過度な感嘆符",
+          "説明のない専門用語"
+        ]
+      },
+      "donts": [
+        "ダーク背景を使用しない — スクリーンショットではクリーンなホワイトがプライマリ背景であることを示す",
+        "飾りフォントを使用しない — スクリーンショットでは見出しにジオメトリック・サンセリフを使用していることを示す",
+        "ネオンカラーを使用しない — スクリーンショットでは落ち着いたトーンの温かいコーラルアクセントを使用していることを示す",
+        "複雑なグラデーションを使用しない — スクリーンショットでは単色と控えめなグラデーションを使用していることを示す",
+        "レイアウトを詰め込みすぎない — スクリーンショットでは十分な余白と明確な階層があることを示す",
+        "強いシャドウを使用しない — スクリーンショットではカード上的な柔らかく拡散したシャドウがあることを示す"
+      ],
+      "systemPrompt": "これはMiniMaxのためのプロフェッシャナルなAIプラットフォームインターフェースで、技術的な能力とクリーンなデザインを強調しています。デザインはクリーンなホワイト背景（#FFFFFF）をベースに、強調のための温かいコーラルアクセント（#E84D3D）を使用しています。タイポグラフィは、見出しにジオメトリック・サンセリフを、本文にヒューマニスト・サンセリフを組み合わせ、サイズとウェイトの変化によって明確な階層を維持しています。レイアウトは、センタリングされたコンテナと十分な余白を有する12カラムグリッドシステムに従います。主な特徴には、ピル型ボタン、控えめなシャドウを持つカード、スムーズなhoverインタラクションが含まれます。重要なデザイン原則：クリーンな余白を維持し、技術的な信頼性のためにジオメトリックなタイポグラフィを使用し、インターフェースを圧倒することなく、主要なアクションへの注目を集めるためにコーラルアクセントを確保すること。"
+    },
+    "ko": {
+      "identity": {
+        "keywords": [
+          "AI",
+          "Models",
+          "Engineering",
+          "Self-improvement",
+          "Full-stack"
+        ],
+        "analogy": "AI 개발을 위한 깨끗하고 기술적인 대시보드",
+        "oneLiner": "기술적 역량과 깨끗한 디자인을 강조하는 전문적인 AI 플랫폼 인터페이스"
+      },
+      "colors": {
+        "principle": "강조를 위한 따뜻한 산호색 포인트가 있는 깨끗한 흰색 배경"
+      },
+      "typography": {
+        "rules": [
+          "헤드라인 및 제목에는 기하학적 sans-serif 사용",
+          "본문 텍스트 및 설명에는 인간론적 sans-serif 사용",
+          "가독성을 위해 넉넉한 행간 유지",
+          "큰 디스플레이 텍스트에는 자간 사용"
+        ],
+        "scaleUses": [
+          "메인 헤드라인",
+          "섹션 제목",
+          "본문 텍스트"
+        ]
+      },
+      "spacing": {
+        "rhythm": "섹션 간 일관된 간격을 가진 8px 세로 리듬 시스템"
+      },
+      "surfaces": {
+        "shadows": [
+          "0 1px 3px rgba(0,0,0,0.1)",
+          "0 4px 12px rgba(0,0,0,0.08)",
+          "0 8px 24px rgba(0,0,0,0.12)"
+        ],
+        "borders": "1px solid rgba(0,0,0,0.1)"
+      },
+      "layout": {
+        "skeleton": "중앙 정렬된 콘텐츠 컨테이너가 있는 12컬럼 그리드"
+      },
+      "components": {
+        "button": "단일 채우기 또는 아웃라인 스타일의 알약 모양 버튼",
+        "card": "섬세한 그림자와 둥근 모서리가 있는 흰색 카드",
+        "chip": "포인트 색상이 적용된 작은 둥근 태그",
+        "input": "최소한의 테두리가 있는 깨끗한 입력 필드",
+        "hero": "지원 텍스트와 액션 버튼이 있는 중앙 정렬 헤드라인"
+      },
+      "motion": {
+        "patterns": [
+          "상호작용 요소에 부드러운 hover 전환",
+          "콘텐츠 로딩 시 섬세한 페이드인"
+        ]
+      },
+      "interaction": {
+        "hover": "카드의 스케일 및 그림자 강화",
+        "click": "버튼의 섬세한 클릭 효과",
+        "transition": "색상 및 불투명도의 부드러운 전환",
+        "keyboard": "눈에 띄는 윤곽선이 있는 포커스 상태"
+      },
+      "voice": {
+        "tone": "전문적이고 기술적인",
+        "headlineStyle": "간결하고 행동을 유도하는",
+        "ctaStyle": "직접적이고 역량에 구체적인",
+        "avoid": [
+          "지나치게 캐주얼한 언어",
+          "과도한 느낌표",
+          "설명 없는 전문 용어"
+        ]
+      },
+      "donts": [
+        "어두운 배경을 사용하지 마세요 — 스크린샷은 깨끗한 흰색 주 배경을 보여줍니다.",
+        "장식용 스크립트 폰트를 사용하지 마세요 — 스크린샷은 헤드라인에 기하학적 sans-serif를 보여줍니다.",
+        "네온색을 사용하지 마세요 — 스크린샷은 따뜻한 산호색 포인트와 차분한 톤을 보여줍니다.",
+        "복잡한 그라디언트를 사용하지 마세요 — 스크린샷은 단색과 섬세한 그라디언트를 보여줍니다.",
+        "레이아웃을 복잡하게 만들지 마세요 — 스크린샷은 넉넉한 여백과 명확한 계층을 보여줍니다.",
+        "가혹한 그림자를 사용하지 마세요 — 스크린샷은 카드에 부드럽고 확산된 그림자를 보여줍니다."
+      ],
+      "systemPrompt": "이것은 MiniMax를 위한 전문적인 AI 플랫폼 인터페이스로, 기술적 역량과 깨끗한 디자인을 강조합니다. 디자인은 강조를 위해 깨끗한 흰색 배경(#FFFFFF)과 따뜻한 산호색 포인트(#E84D3D)를 사용합니다. 타이포그래피는 헤드라인에 기하학적 sans-serif, 본문에 인간론적 sans-serif를 결합하여 크기와 굵기 변형을 통해 명확한 계층을 유지합니다. 레이아웃은 중앙 정렬된 컨테이너와 넉넉한 여백을 가진 12컬럼 그리드 시스템을 따릅니다. 주요 특징으로는 알약 모양 버튼, 섬세한 그림자가 있는 카드, 부드러운 hover 상호작용이 포함됩니다. 핵심 디자인 원칙: 깨끗한 여백 유지, 기술적 신뢰감을 위한 기하학적 타이포그래피 사용, 인터페이스를 압도하지 않으면서 주요 액션에 주의를 끄는 산호색 포인트 보장."
+    }
+  },
+  "desc": {
+    "en": {
+      "palette": "Clean white backgrounds with warm coral accents and muted grays for technical credibility",
+      "layout": "12-column grid with centered containers and generous whitespace for clear content hierarchy",
+      "interaction": "Smooth hover transitions and subtle press effects for professional feedback",
+      "motion": "Subtle, professional animations that enhance without distracting from technical content",
+      "notes": "This site demonstrates effective AI platform design balancing technical capability with approachable, clean aesthetics"
+    },
+    "zh-CN": {
+      "palette": "干净的白色背景，搭配温暖的珊瑚色点缀和柔和的灰色，营造技术可信度",
+      "layout": "采用12列网格布局，内容居中容器，并留有充足留白，以形成清晰的内容层级",
+      "interaction": "平滑的悬停过渡与细微的按压效果，提供专业反馈",
+      "motion": "细微、专业的动画效果，在增强体验的同时不干扰技术内容",
+      "notes": "该网站展示了有效的AI平台设计，兼顾了技术能力与平易近人、干净的美学"
+    },
+    "zh-TW": {
+      "palette": "以潔淨白色背景為基底，搭配溫潤珊瑚色強調與柔和灰色，營造技術可信度",
+      "layout": "採用 12 欄格線系統，置中容器搭配充足留白，建立清晰的內容層級",
+      "interaction": "流暢的 hover 過渡與細膩的按下效果，提供專業反饋",
+      "motion": "細膩、專業的動畫效果，強化體驗而不分散技術內容的注意力",
+      "notes": "此網站展示了有效的 AI 平台設計，在技術能力與親和、潔淨的美學之間取得平衡"
+    },
+    "ja": {
+      "palette": "温かいコーラルのアクセントと、技術的な信頼性を示す落ち着いたグレーを配した、クリーンなホワイト背景",
+      "layout": "コンテンツの階層を明確にするための、十分な余白を有するセンタリングされたコンテナと12カラムグリッド",
+      "interaction": "プロフェッシャナルなフィードバックのための、スムーズなhover遷移と控えめな押下効果",
+      "motion": "技術的なコンテンツから注意をそらすことなく、それを高める控えめでプロフェッシャナルなアニメーション",
+      "notes": "このサイトは、技術的な能力と親しみやすさ、クリーンな美学のバランスをとった効果的なAIプラットフォームデザインを示しています"
+    },
+    "ko": {
+      "palette": "깨끗한 흰색 배경과 따뜻한 산호색 포인트, 그리고 기술적 신뢰감을 주는 차분한 회색으로 구성",
+      "layout": "12컬럼 그리드와 중앙 정렬된 컨테이너, 그리고 명확한 콘텐츠 계층을 위한 넉넉한 여백",
+      "interaction": "전문적인 피드백을 위한 부드러운 hover 전환과 섬세한 클릭 효과",
+      "motion": "기술적 콘텐츠에 집중을 흐트리지 않으면서 향상시키는 섬세하고 전문적인 애니메이션",
+      "notes": "이 사이트는 기술적 역량과 친근하고 깨끗한 미학의 균형을 보여주는 효과적인 AI 플랫폼 디자인을 시연합니다."
+    }
+  },
+  "narrative": {
+    "en": {
+      "ch1_intro": "The design system for MiniMax functions as a clean, technical dashboard for AI development. Its DNA is built on the principles of engineering clarity and self-improvement, translating a complex, full-stack platform into an interface of precise, uncluttered control.",
+      "ch2_intro": "The palette is anchored by clean white backgrounds, which provide a neutral stage for content. **Warm coral accents** are reserved for points of emphasis, drawing the eye to key actions with purpose.",
+      "ch2_outro": "The principle is clarity: color serves function, never decoration.",
+      "ch3_intro": "Type is set in a clear hierarchy of **geometric sans-serif** for headlines and **humanist sans-serif** for body text. This pairing establishes technical credibility while ensuring approachable, readable descriptions.",
+      "ch4_intro": "An 8px vertical rhythm system governs the layout, creating consistent spacing and a predictable visual cadence between all sections.",
+      "ch5_intro": "Depth is articulated through soft, diffused shadows that lift cards and surfaces from the background. A consistent, minimal border definition maintains structure without visual weight.",
+      "ch6_intro": "The structural skeleton is a 12-column grid, organizing content into centered containers. This framework enforces generous whitespace, establishing a clear and navigable hierarchy.",
+      "ch7_intro": "Motion is professional and subtle, designed to provide feedback without distraction. Interactions like hover transitions and content loading are smooth and purposeful, supporting the interface’s technical tone.",
+      "ch8_intro": "The editorial voice is professional and technical, favoring concise, action-oriented headlines. Language is direct and specific, avoiding jargon without explanation to maintain clarity.",
+      "ch8_outro": "The system deliberately avoids dark backgrounds, decorative typography, and neon color schemes to preserve its core identity of clean, technical credibility."
+    },
+    "zh-CN": {
+      "ch1_intro": "MiniMax 的设计系统如同 AI 开发的简洁技术仪表盘。其基因植根于工程清晰与自我完善的理念，将复杂的全栈平台转化为精确、无冗余的控制界面。",
+      "ch2_intro": "调色板以纯净白色背景为基底，为内容提供中性舞台。**暖珊瑚色点缀**专用于强调区域，引导视线聚焦关键操作。",
+      "ch2_outro": "核心原则是清晰：色彩服务于功能，而非装饰。",
+      "ch3_intro": "字体层级采用**几何无衬线体**作为标题，**人文无衬线体**作为正文。这种搭配既建立技术可信度，又确保描述易读、亲切。",
+      "ch4_intro": "8 像素垂直韵律系统规范布局，在所有版块间创造一致间距与可预期的视觉节奏。",
+      "ch5_intro": "层次通过柔和漫射阴影呈现，使卡片与界面元素从背景中浮现。极简且一致的边框定义维持结构清晰，避免视觉负担。",
+      "ch6_intro": "结构骨架采用 12 列网格，将内容组织于居中容器内。该框架强调留白，建立清晰可导航的视觉层级。",
+      "ch7_intro": "动效专业而克制，旨在提供反馈而不分散注意力。悬停过渡与内容加载等交互流畅且目的明确，契合界面的技术基调。",
+      "ch8_intro": "编辑语调专业且技术化，偏好简洁、行动导向的标题。语言直接具体，避免未经解释的术语以保持清晰度。",
+      "ch8_outro": "该系统刻意规避深色背景、装饰性字体和霓虹配色，以保持其干净、技术化的核心身份。"
+    },
+    "zh-TW": {
+      "ch1_intro": "MiniMax 的設計系統宛如一個簡潔、技術感強的 AI 開發儀表板。其核心基於工程清晰與自我進化的原則，將複雜的全端平台轉化為精準、無雜亂的控制介面。",
+      "ch2_intro": "調色板以乾淨的白色背景為基礎，為內容提供中性舞台。**溫暖的珊瑚色強調色**則專用於關鍵重點，以目的性引導視線聚焦於核心操作。",
+      "ch2_outro": "原則在於清晰：色彩服務功能，絕非裝飾。",
+      "ch3_intro": "字型採用清晰的層級結構：標題使用**幾何無襯線字體**，內文則採用**人文主義無襯線字體**。此搭配在確立技術可信度的同時，也確保了易於親近且易於閱讀的描述體驗。",
+      "ch4_intro": "8px 的垂直節奏系統主導版面配置，創造一致的間距並在所有區塊之間建立可預期的視覺韻律。",
+      "ch5_intro": "深度透過柔和、漫射的陰影來詮釋，使卡片與平面從背景中輕柔浮現。一致且簡約的邊框定義，在不增加視覺重量的情況下維持了結構感。",
+      "ch6_intro": "結構骨架是一個 12 欄的格線系統，將內容組織成置中的容器。此框架強制實踐了慷慨的留白，建立起清晰且易於導航的層級結構。",
+      "ch7_intro": "動態效果專業而細膩，旨在提供回饋而不造成干擾。諸如 hover 過渡動畫與內容載入等互動，皆流暢且具目的性，支援了介面整體的技術語調。",
+      "ch8_intro": "編輯語調專業且技術導向，偏好簡潔、行動導向的標題。語言直接且具體，避免未加解釋的行話，以維持清晰度。",
+      "ch8_outro": "此系統刻意避開深色背景、裝飾性字型及霓虹色彩方案，以維護其簡潔、技術可信度的核心識別。"
+    },
+    "ja": {
+      "ch1_intro": "MiniMaxのデザインシステムは、AI開発のためのクリーンで技術的なダッシュボードとして機能します。そのDNAは、エンジニアリングの明瞭性と自己改善の原理に基づいており、複雑なフルスタックプラットフォームを、正確で無駄のないコントロールのインターフェースに翻訳しています。",
+      "ch2_intro": "パレットは、コンテンツに中立的な舞台を提供するクリーンな白い背景に anchors されています。**ウォームコーラルのアクセント**は、強調ポイントとして保留され、意図を持って主要なアクションに視線を引きつけます。",
+      "ch2_outro": "原則は明瞭性です。色は機能に仕え、装飾ではありません。",
+      "ch3_intro": "書体は、見出しに**幾何学サンセリフ**、本文に**ヒューマニストサンセリフ**という明確な階層で設定されています。このペアリングは技術的な信頼性を確立しながら、親しみやすく、読みやすい説明を保証します。",
+      "ch4_intro": "8pxの垂直リズムシステムがレイアウトを支配し、一貫したスペーシングと、すべてのセクション間の予測可能なビジュアルな韻律を生み出しています。",
+      "ch5_intro": "奥行きは、カードやサーフェスを背景から浮かび上がらせる柔らかく拡散されたシャドウによって表現されています。一貫した、最小限のボーダー定義は、視覚的な重みなしに構造を維持します。",
+      "ch6_intro": "構造の骨格は12カラムグリッドであり、コンテンツを中央揃えのコンテナに組織化します。このフレームワークは、豊富なホワイトスペースを強制し、明確でナビゲーションしやすい階層を確立します。",
+      "ch7_intro": "モーションはプロフェッショナルで控えめで、気を散らさずにフィードバックを提供するように設計されています。hover transitionやコンテンツの読み込みなどのインタラクションは滑らかで意図的であり、インターフェースの技術的なトーンをサポートします。",
+      "ch8_intro": "エディトリアルボイスはプロフェッショナルで技術的であり、簡潔でアクション导向の見出しを重視します。言語は直接的で具体的であり、明瞭性を維持するために説明なしに専門用語を避けています。",
+      "ch8_outro": "システムは、クリーンで技術的な信頼性という核心のアイデンティティを保つために、暗い背景、装飾的な書体、ネオンカラースキームを意図的に避けています。"
+    },
+    "ko": {
+      "ch1_intro": "MiniMax를 위한 디자인 시스템은 AI 개발을 위한 깔끔하고 기술적인 대시보드로 기능합니다. 이 시스템의 핵심은 엔지니어링의 명확성과 자기 개선의 원칙 위에 구축되었으며, 복잡한 풀스택 플랫폼을 정확하고 정돈된 제어의 인터페이스로 변환합니다.",
+      "ch2_intro": "팔레트는 깨끗한 흰색 배경을 중심으로 하여, 콘텐츠를 위한 중립적인 무대를 제공합니다. **따뜻한 산호색 강조점**은 강조가 필요한 부분에만 사용되어, 핵심 작업으로 시선을 의도적으로 이끕니다.",
+      "ch2_outro": "원칙은 명확성입니다: 색상은 기능을 위해 존재하며, 결코 장식을 위해서가 아닙니다.",
+      "ch3_intro": "타이포그래피는 헤드라인에 **기하학적 산세리프**와 본문에 **휴머니스트 산세리프**를 사용하여 명확한 계층 구조로 설정됩니다. 이 조합은 기술적 신뢰성을 확립하면서도 접근 가능하고 읽기 쉬운 설명을 보장합니다.",
+      "ch4_intro": "8px 수직 리듬 시스템이 레이아웃을 관리하여 일관된 간격과 모든 섹션 간의 예측 가능한 시각적 리듬을 만듭니다.",
+      "ch5_intro": "깊이는 부드럽고 확산된 그림자를 통해 표현되어 카드와 표면을 배경에서 들어 올립니다. 일관되고 최소화된 테두리 정의는 시각적 무게감 없이 구조를 유지합니다.",
+      "ch6_intro": "구조적 골격은 12열 그리드로, 콘텐츠를 중앙 정렬된 컨테이너로 구성합니다. 이 프레임워크는 넉넉한 여백을 강제하여 명확하고 탐색 가능한 계층 구조를 확립합니다.",
+      "ch7_intro": "모션은 전문적이고 미묘하게 설계되어, 방해 없이 피드백을 제공합니다. hover 전환과 콘텐츠 로딩 같은 상호작용은 부드럽고 의도적이며, 인터페이스의 기술적 톤을 지원합니다.",
+      "ch8_intro": "에디토리얼 톤은 전문적이고 기술적이며, 간결하고 행동 지향적인 헤드라인을 선호합니다. 언어는 직접적이고 구체적이며, 명확성을 유지하기 위해 설명 없이 전문 용어를 사용하지 않습니다.",
+      "ch8_outro": "이 시스템은 깔끔하고 기술적인 신뢰성이라는 핵심 정체성을 보존하기 위해, 어두운 배경, 장식적 타이포그래피, 네온 색상 체계를 의도적으로 피합니다."
+    }
+  }
+}

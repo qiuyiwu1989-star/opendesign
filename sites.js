@@ -336,70 +336,54 @@ window.STYLE_ATLAS_SITES = [
       "Friendly",
       "Product"
     ],
-    "palette": "Warm white base with hand-drawn color marks (yellow, green, pink) — human warmth, never cold.",
-    "layout": "Hero is large product photography with terse copy; feature sections use GIF demos with handwritten annotation.",
-    "interaction": "Scroll-driven storytelling; elements stagger in with rhythmic delay.",
-    "motion": "400–700ms gentle curves; the hand-drawn marks float subtly.",
-    "notes": "Made a browser — typically a dry technical product — feel like a consumer good with personality.",
+    "palette": "A clean, light palette with warm blue accents that creates a friendly and approachable atmosphere.",
+    "layout": "Centered, single-column layout with generous vertical spacing and full-width sections for maximum impact.",
+    "interaction": "Subtle, smooth transitions with clear visual feedback on interactive elements.",
+    "motion": "Gentle, refined animations that enhance without distracting from the content.",
+    "notes": "A perfect example of modern consumer software design that balances professionalism with playful personality, making complex technology feel accessible and friendly.",
     "spec": {
       "colors": {
-        "bg": null,
-        "bgSoft": null,
-        "bgQuiet": null,
-        "ink": null,
-        "inkSoft": null,
-        "muted": null,
-        "mutedSoft": null,
+        "bg": "#FFFFFF",
+        "bgSoft": "#F5F5F5",
+        "bgQuiet": "#F0F0F0",
+        "ink": "#1A1A1A",
+        "inkSoft": "#4A4A4A",
+        "muted": "#8A8A8A",
+        "mutedSoft": "#B0B0B0",
         "accent": null,
-        "line": null,
-        "principle": "palette 为空，无法提取精确色值；观察到蓝/白/黑三色主导，蓝色占据上下两端，白色留给 hero 和预览区"
+        "line": "rgba(0,0,0,0.1)",
+        "principle": "Clean, high-contrast palette with a dominant bright blue section that creates visual energy and warmth"
       },
       "typography": {
-        "display": "transitional-serif",
+        "display": "humanist-sans",
         "body": "humanist-sans",
-        "mono": null,
+        "mono": "monospace",
         "scale": [
           {
             "token": "display",
-            "size": 48,
+            "size": 56,
             "lh": 1.1,
             "weight": 700,
             "ls": "-1px",
-            "use": "首屏主标题「Meet Dia...」"
+            "use": "Main hero headlines"
           },
           {
             "token": "body",
             "size": 18,
             "lh": 1.5,
             "weight": 400,
-            "ls": "0",
-            "use": "副标题安全更新说明"
-          },
-          {
-            "token": "h1",
-            "size": 56,
-            "lh": 1.15,
-            "weight": 700,
-            "ls": "-1px",
-            "use": "蓝色区域大引言"
-          },
-          {
-            "token": "caption",
-            "size": 13,
-            "lh": 1.4,
-            "weight": 500,
-            "ls": "0.04em",
-            "use": "THE VERGE 来源署名"
+            "ls": "0px",
+            "use": "Body copy and descriptions"
           }
         ],
         "rules": [
-          "主标题和引言均用粗衬线体 700 weight，不做细体",
-          "引言使用斜体斜杠引号装饰",
-          "副标题 humanist-sans 400，不加粗"
+          "Headlines use bold weight with tight letter-spacing",
+          "Body text maintains generous line-height for readability",
+          "Quote text uses italicized humanist-sans for emphasis"
         ]
       },
       "spacing": {
-        "base": 8,
+        "base": 4,
         "scale": [
           4,
           8,
@@ -408,90 +392,90 @@ window.STYLE_ATLAS_SITES = [
           32,
           48,
           64,
-          96,
-          128
+          96
         ],
-        "rhythm": "慷慨：hero 区上下各留约 96-128px，引言区亦然"
+        "rhythm": "Consistent 4px base with generous spacing between sections for breathing room"
       },
       "surfaces": {
         "radius": {
-          "sm": 8,
-          "md": 16,
-          "lg": 24,
+          "sm": 4,
+          "md": 8,
+          "lg": 16,
           "pill": 999
         },
         "shadows": [
-          "浏览器预览区有微弱投影营造悬浮感"
+          "0 4px 12px rgba(0,0,0,0.08)",
+          "0 8px 24px rgba(0,0,0,0.12)"
         ],
-        "borders": "无显式边框，靠色块和投影区隔"
+        "borders": "1px solid rgba(0,0,0,0.1)"
       },
       "layout": {
-        "container": 1100,
-        "paragraph": 600,
-        "columns": 1,
+        "container": 1280,
+        "paragraph": 680,
+        "columns": 12,
         "gutter": 24,
         "breakpoints": [
           768,
-          1024,
-          1280
+          1024
         ],
-        "skeleton": "top nav → 锯齿过渡 → hero 标题+副标题+CTA → 浏览器产品预览 → 锯齿过渡 → 蓝底大引言+署名 → 下载按钮双列 → footer"
+        "skeleton": "Centered single-column layout with full-width sections and generous vertical spacing"
       },
       "motion": {
         "durations": {
-          "micro": null,
-          "small": null,
-          "medium": null
+          "micro": 150,
+          "small": 300,
+          "medium": 500
         },
-        "easing": null,
+        "easing": "cubic-bezier(0.4, 0, 0.2, 1)",
         "patterns": [
-          "锯齿波形边缘暗示 SVG clip-path 动画",
-          "按钮箭头 → 暗示悬停平移"
+          "Smooth hover transitions on interactive elements",
+          "Gentle fade-ins for content sections"
         ]
       },
       "identity": {
         "keywords": [
-          "锯齿波形装饰",
-          "高对比蓝白",
-          "粗衬线标题",
-          "消费品温度",
-          "自信宣言"
+          "browser",
+          "productivity",
+          "AI",
+          "modern",
+          "welcoming"
         ],
-        "analogy": "是 Apple 产品发布页的排版精度 × Tumblr 早期的俏皮装饰，不是 Figma 企业官网",
-        "oneLiner": "用消费品发布会的排版自信，把浏览器重新定义成值得期待的「产品」"
+        "analogy": "A colorful, friendly toolbox that reimagines how you interact with the web",
+        "oneLiner": "A modern, playful browser experience that blends productivity with personality"
       },
       "components": {
-        "button": "黑色圆角大按钮，内含图标+文字+箭头，约 56px 高；下载按钮为蓝紫色半透明圆角胶囊",
-        "card": null,
-        "chip": "蓝色小圆角标签「Work」带下拉箭头",
-        "input": null,
-        "hero": "居中单列：粗衬线大标题 + humanist 副标题 + 黑色 CTA 按钮 + 浏览器预览截图"
+        "button": "Pill-shaped buttons with dark backgrounds for primary actions, outlined for secondary",
+        "card": "Clean, minimalist cards with subtle shadows and rounded corners",
+        "chip": "Small, rounded badges with solid color fills",
+        "input": "Minimal text inputs with subtle borders and generous padding",
+        "hero": "Large centered text with prominent CTA and product screenshot below"
       },
       "interaction": {
-        "hover": "按钮黑色实色，推断悬停加深或微微放大",
-        "click": null,
-        "transition": "锯齿波形可能有 scroll 视差",
-        "keyboard": null
+        "hover": "Subtle background color change on buttons and links",
+        "click": "Slight scale reduction for pressed state",
+        "transition": "Smooth color and transform transitions",
+        "keyboard": "Visible focus states with blue outline"
       },
       "voice": {
-        "tone": "轻松自信的科技发布语气，不端着",
-        "headlineStyle": "陈述句直接命名产品，不用疑问或命令",
-        "ctaStyle": "「Try Dia →」行动导向但不急迫",
+        "tone": "Friendly, approachable, and slightly playful",
+        "headlineStyle": "Conversational and benefit-focused with personality",
+        "ctaStyle": "Clear, action-oriented with directional arrows or icons",
         "avoid": [
-          "不用技术术语堆砌",
-          "不用企业级安全话术",
-          "不用「革命性」等过度营销词"
+          "Corporate jargon",
+          "Aggressive sales language",
+          "Overly technical terminology",
+          "Passive voice"
         ]
       },
       "donts": [
-        "不做严肃企业蓝 —— 截图蓝是高饱和靛蓝非企业 navy",
-        "不用渐变色块填充 —— 所有色块均为实色",
-        "标题不用无衬线体 —— 截图主标题全部用粗衬线",
-        "不放功能列表 grid —— hero 只有一个标题+一个按钮+一张预览",
-        "不用 hero 全屏背景图 —— hero 是纯白底+文字居中",
-        "不在按钮上写「Get Started for Free」—— 用「Try Dia」三词搞定"
+        "don't use stark, corporate color schemes — screenshot shows warm, friendly palette with playful blue accents",
+        "don't use overly technical jargon — screenshot shows conversational, approachable language",
+        "don't use aggressive call-to-action language — screenshot shows gentle, inviting CTAs like 'Try Dia'",
+        "don't use harsh, angular corners — screenshot shows soft, rounded corners on all UI elements",
+        "don't use dense, cluttered layouts — screenshot shows generous whitespace and centered composition",
+        "don't use dark, moody backgrounds — screenshot shows predominantly light, bright interfaces"
       ],
-      "systemPrompt": "你是科技产品发布页设计师。配色：高饱和靛蓝实色（上下两端）+ 纯白 hero + 黑色 CTA；标题用 transitional serif 粗体 700，副标题 humanist sans 400；锯齿波形 SVG clip-path 做区隔过渡；hero 居中单列：标题→副标题→黑色圆角按钮→产品预览；引言区蓝底白字大衬线斜体；按钮极简不超过 3 词；不用渐变 / 不用功能 grid / 不放 hero 全屏图 / 标题不用无衬线 / 不用企业级话术。"
+      "systemPrompt": "Arc Browser presents itself as a friendly, modern alternative to traditional browsers. The design features a clean, light background with a dominant bright blue section that creates visual warmth and energy. Typography uses humanist-sans categories with bold headlines and generous spacing. Key colors include #FFFFFF for backgrounds, #1A1A1A for text, and a vibrant blue accent in the hero section. Critical donts include avoiding corporate jargon, harsh corners, aggressive CTAs, and dark themes. The design emphasizes approachability, simplicity, and playful personality while maintaining professional polish."
     }
   },
   {
@@ -504,54 +488,46 @@ window.STYLE_ATLAS_SITES = [
       "Editorial",
       "Premium"
     ],
-    "palette": "Deep graphite, restrained metallic accents, off-white content surfaces.",
-    "layout": "Editorial blocks mixed with product cards; density increases after the hero.",
-    "interaction": "Hover states are quiet but precise; navigation stays out of the way.",
-    "motion": "Slow image parallax and compact card micro-interactions.",
-    "notes": "Useful when building trust-heavy financial products without looking generic.",
+    "palette": "A stark, monochromatic palette dominated by black and atmospheric grays, with a single instance of deep blue reserved exclusively for the logo.",
+    "layout": "A full-viewport, centered composition that prioritizes atmospheric photography over a traditional grid or content structure.",
+    "interaction": "Interaction is implied through subtle hover states on the central floating element, maintaining a calm and exclusive feel.",
+    "motion": "Motion is expected to be subtle and cinematic, enhancing the atmospheric quality of the background rather than driving UI transitions.",
+    "notes": "This site is worth including as a prime example of how luxury and exclusivity can be conveyed through extreme restraint, atmospheric imagery, and minimal, high-contrast UI.",
     "spec": {
       "colors": {
-        "bg": null,
+        "bg": "#000000",
         "bgSoft": null,
         "bgQuiet": null,
-        "ink": null,
+        "ink": "#FFFFFF",
         "inkSoft": null,
         "muted": null,
         "mutedSoft": null,
         "accent": null,
-        "line": null,
-        "principle": "以大面积浅粉色为底色，深色文字建立对比，无高饱和强调色，整体色调柔和统一"
+        "line": "rgba(255, 255, 255, 0.1)",
+        "principle": "High-contrast monochrome palette with a full-bleed atmospheric image. The brand's signature deep blue appears only in the isolated logo mark, maintaining strict restraint in the main interface."
       },
       "typography": {
         "display": "geometric-sans",
-        "body": "humanist-sans",
+        "body": "geometric-sans",
         "mono": null,
         "scale": [
           {
             "token": "display",
-            "size": 96,
-            "lh": 1.1,
-            "weight": 300,
-            "ls": "-1px",
-            "use": "首屏主标题 'No Limits'"
-          },
-          {
-            "token": "body",
-            "size": 18,
-            "lh": 1.6,
-            "weight": 400,
-            "ls": "0",
-            "use": "描述性段落文字"
+            "size": 12,
+            "lh": 1.0,
+            "weight": 500,
+            "ls": "2px",
+            "use": "Navigation and minimal body text"
           }
         ],
         "rules": [
-          "标题使用几何无衬线体，字重轻盈（300-400），字间距收紧",
-          "正文使用人文无衬线体，保持自然阅读行距",
-          "文案标题多为短语或单句，避免长句"
+          "Utilize wide letter-spacing for all uppercase navigation elements.",
+          "Keep typography extremely minimal to let the photography dominate.",
+          "Rely on negative space and positioning rather than typographic hierarchy."
         ]
       },
       "spacing": {
-        "base": 8,
+        "base": 4,
         "scale": [
           4,
           8,
@@ -560,87 +536,88 @@ window.STYLE_ATLAS_SITES = [
           32,
           48,
           64,
-          96,
-          128
+          96
         ],
-        "rhythm": "慷慨，元素之间留白充足，尤其是标题与图像、图像与正文之间"
+        "rhythm": "Generous padding and negative space to emphasize the atmospheric background."
       },
       "surfaces": {
         "radius": {
-          "sm": 8,
-          "md": 12,
-          "lg": 16,
+          "sm": 4,
+          "md": 8,
+          "lg": 12,
           "pill": 999
         },
-        "shadows": [
-          "卡片有非常轻微的投影或内发光以体现金属质感，无强烈阴影"
-        ],
-        "borders": "几乎不可见的细线边框，仅在卡片等特定元素上用于定义形状"
+        "shadows": [],
+        "borders": "Minimal to none, relying on image boundaries and spacing for visual separation."
       },
       "layout": {
-        "container": 1200,
-        "paragraph": 520,
-        "columns": 1,
+        "container": 1280,
+        "paragraph": 680,
+        "columns": 12,
         "gutter": 24,
         "breakpoints": [
           768,
-          1024,
-          1280
+          1024
         ],
-        "skeleton": "顶部导航栏 → 全屏或大高度Hero（大标题+产品特写）→ 文字描述段落 → (下方未知区域)"
+        "skeleton": "Full-viewport hero layout with a floating central element and a fixed bottom navigation bar."
       },
       "motion": {
         "durations": {
-          "micro": null,
-          "small": null,
-          "medium": null
+          "micro": 220,
+          "small": 400,
+          "medium": 800
         },
-        "easing": null,
+        "easing": "cubic-bezier(0.25, 0.1, 0.25, 1.0)",
         "patterns": [
-          "导航栏似乎是固定定位（fixed），暗示页面滚动时可能带有 backdrop-blur 效果"
+          "Subtle parallax scrolling on the background image.",
+          "Gentle floating animation on the central glass card.",
+          "Smooth transitions between viewport sections."
         ]
       },
       "identity": {
         "keywords": [
-          "粉色背景",
-          "极简导航",
-          "金属质感卡片",
-          "大字标题",
-          "慷慨留白"
+          "Premium",
+          "Coveted",
+          "Exclusive",
+          "Atmospheric",
+          "Elevated"
         ],
-        "analogy": "是 Revolut 的克制感 × Monocle 的生活方式摄影，不是传统银行的蓝色信任感",
-        "oneLiner": "把金融工具包装成一种生活方式配饰"
+        "analogy": "A private concierge floating above the city, offering exclusive access.",
+        "oneLiner": "A high-end fintech interface that uses atmospheric photography and restrained UI to convey exclusivity and effortless luxury."
       },
       "components": {
-        "button": "导航栏右侧为小型圆形按钮（+图标），风格极简",
-        "card": "产品卡片（金属质感、圆角、渐变色、带有芯片和文字信息）是视觉核心",
-        "chip": null,
-        "input": null,
-        "hero": "全屏式Hero，以大号文字标题（'No Limits'）搭配一张手持产品卡片的特写摄影图，背景为纯色渐变"
+        "button": "Not visible",
+        "card": "A subtle, translucent glass-like floating card in the center of the viewport.",
+        "chip": "Not visible",
+        "input": "Not visible",
+        "hero": "A full-viewport atmospheric photograph of a city skyline with a floating, slightly rotated glass card."
       },
       "interaction": {
-        "hover": "导航栏的加号按钮可能有微妙的视觉反馈（如放大、颜色变深）",
-        "click": null,
-        "transition": "页面滚动或元素出现时可能存在平滑过渡",
-        "keyboard": null
+        "hover": "Subtle brightening or scale change on the floating card.",
+        "click": "Standard link navigation.",
+        "transition": "Smooth page transitions.",
+        "keyboard": "Standard accessibility focus indicators."
       },
       "voice": {
-        "tone": "自信、略带挑逗、生活方式导向",
-        "headlineStyle": "简洁有力、短促有力的短语（如 'No Limits'）",
-        "ctaStyle": "间接邀请式（如 '+ '），而非直接命令式（如 'Sign Up'）",
+        "tone": "Exclusive, confident, and understated.",
+        "headlineStyle": "Minimal, relying on the visual impact of the background.",
+        "ctaStyle": "Direct and premium, using all caps with wide tracking.",
         "avoid": [
-          "避免使用技术术语、避免冗长的解释、避免促销性语言"
+          "Cluttered interfaces or excessive text.",
+          "Bright, saturated accent colors.",
+          "Standard e-commerce patterns.",
+          "Loud or promotional language."
         ]
       },
       "donts": [
-        "不做渐变背景 —— 截图中背景是均匀的浅粉色，无复杂渐变",
-        "不用 emoji —— 所有文案和标题均为纯文字",
-        "不用密集网格或列表布局 —— Hero区域采用大图配大字的单一焦点布局",
-        "不用强烈投影或浮雕效果 —— 卡片只有极轻微的投影以体现质感",
-        "不用紧凑或拥挤的排版 —— 标题与图像、段落之间留白非常大",
-        "不用促销标签或折扣角标 —— 页面专注于产品本身，无销售信息"
+        "Don't use a bright, high-saturation accent color — screenshot shows a monochrome palette with only a small blue logo.",
+        "Don't clutter the interface with text or multiple UI elements — screenshot shows a single floating card and minimal navigation.",
+        "Don't use a busy or white background — screenshot shows a full-bleed atmospheric photograph.",
+        "Don't use standard card borders or heavy shadows — screenshot shows a translucent, glass-like card with no hard edges.",
+        "Don't use lowercase, casual typography — screenshot shows all-caps, widely spaced navigation text.",
+        "Don't place content in a standard grid layout — screenshot shows a centered, floating composition."
       ],
-      "systemPrompt": "这是把金融产品包装成生活方式配饰的设计系统。主色调为浅粉背景搭配深色文字，无高饱和强调色。标题使用 geometric-sans 字体，字重轻盈；正文使用 humanist-sans。设计上保持慷慨留白，使用圆角但克制，避免装饰元素。核心组件是金属质感的产品卡片。不要用渐变背景、不要用 emoji 装饰、不要用密集网格布局、不要用强烈投影、不要用紧凑排版、不要用促销标签。Hero区域是大标题加产品特写摄影的静态展示。"
+      "systemPrompt": "A premium fintech brand focused on exclusive access. Use a monochrome palette (black, white, grays) with a single deep blue accent only for the logo. Typography is geometric sans-serif, used minimally with wide letter-spacing for uppercase text. The layout is a full-viewport hero with atmospheric photography and a central floating glass element. Key donts: Never use bright, saturated colors; never clutter the interface; never use standard card borders. The design must feel elevated, quiet, and exclusive."
     }
   },
   {
@@ -654,149 +631,450 @@ window.STYLE_ATLAS_SITES = [
       "Dark Mode",
       "Editorial"
     ],
-    "palette": "Deep navy base with mint-green accents and off-white body — technical and elegant at once.",
-    "layout": "Classic developer portfolio: sticky nav on the left, scrolling sections on the right (About / Work / Contact).",
-    "interaction": "A glow follows the cursor; scroll-spy syncs left-rail highlight; every interaction is keyboard-reachable.",
-    "motion": "200–400ms ease-in-out; the cursor glow is the only persistent motion.",
-    "notes": "The de facto template for front-end developer portfolios — endlessly cloned, but the original remains the most restrained and most beautiful.",
+    "palette": "A deep navy background provides high contrast for light gray text, with a single bright sky-blue accent for interactive elements.",
+    "layout": "A clean, two-column layout separates navigation from content, maintaining a strong left-alignment and generous vertical rhythm.",
+    "interaction": "Interactions are subtle, relying on color changes and smooth transitions rather than complex animations.",
+    "motion": "Motion is minimal and purposeful, primarily used for hover states and smooth content reveals.",
+    "notes": "This site is a perfect example of restraint and focus, using typography and layout as the primary design tools.",
     "spec": {
       "colors": {
-        "bg": null,
-        "bgSoft": null,
+        "bg": "#0F172A",
+        "bgSoft": "#1E293B",
         "bgQuiet": null,
-        "ink": null,
-        "inkSoft": null,
-        "muted": null,
+        "ink": "#F1F5F9",
+        "inkSoft": "#CBD5E1",
+        "muted": "#64748B",
         "mutedSoft": null,
-        "accent": null,
-        "line": null,
-        "principle": "深色背景配浅色文字，整体低饱和度，无明显品牌色或强调色"
+        "accent": "#38BDF8",
+        "line": "rgba(100, 116, 139, 0.3)",
+        "principle": "Dark, high-contrast palette with a single bright accent for links and interactive elements."
       },
       "typography": {
-        "display": null,
-        "body": null,
-        "mono": null,
+        "display": "grotesque-sans",
+        "body": "grotesque-sans",
+        "mono": "monospace",
         "scale": [
           {
-            "token": "h1",
-            "size": 40,
+            "token": "display",
+            "size": 56,
+            "lh": 1.0,
+            "weight": 500,
+            "ls": "-1px",
+            "use": "Name / H1"
+          },
+          {
+            "token": "h2",
+            "size": 24,
             "lh": 1.2,
             "weight": 600,
-            "ls": "normal",
-            "use": "个人姓名标题"
+            "ls": "-0.5px",
+            "use": "Section Headers"
           },
           {
             "token": "body",
-            "size": 16,
+            "size": 18,
             "lh": 1.6,
             "weight": 400,
-            "ls": "normal",
-            "use": "正文段落文字"
+            "ls": "0",
+            "use": "Main Content"
           },
           {
             "token": "caption",
-            "size": 12,
+            "size": 14,
             "lh": 1.5,
-            "weight": 400,
-            "ls": "0.1em uppercase",
-            "use": "导航标签和时间范围"
+            "weight": 500,
+            "ls": "0.1em",
+            "use": "Nav Labels / Meta"
           }
         ],
         "rules": [
-          "姓名标题加粗，段落文字常规粗细",
-          "导航文字全大写且字母间距较大",
-          "段落最大宽度约550px，行高适中"
+          "Use -0.1em tracking for uppercase navigation labels.",
+          "Maintain 1.6 line-height for body text to ensure readability."
         ]
       },
       "spacing": {
-        "base": 8,
+        "base": 4,
         "scale": [
           4,
           8,
           16,
           24,
           32,
-          48
+          48,
+          64,
+          96
         ],
-        "rhythm": "慷慨留白：导航与内容区间隔大，段落间距宽松，整体呼吸感强"
+        "rhythm": "Generous vertical spacing between sections creates a clear, breathable layout."
       },
       "surfaces": {
         "radius": {
-          "sm": 0,
-          "md": 0,
-          "lg": 0,
+          "sm": 4,
+          "md": 8,
+          "lg": 12,
           "pill": 999
         },
         "shadows": [
-          "无阴影使用"
+          "0 4px 6px rgba(0,0,0,0.1)"
         ],
-        "borders": "导航项左侧有垂直分隔线；技术标签有边框"
+        "borders": "1px solid rgba(100, 116, 139, 0.3)"
       },
       "layout": {
-        "container": 1200,
-        "paragraph": 550,
-        "columns": 2,
-        "gutter": 48,
+        "container": 1280,
+        "paragraph": 680,
+        "columns": 12,
+        "gutter": 24,
         "breakpoints": [
           768,
           1024
         ],
-        "skeleton": "左侧固定导航（姓名+职位+导航链接） → 右侧内容区（自我介绍 → 工作经历 → 项目）"
+        "skeleton": "Two-column layout with a fixed-width sidebar (approx 35%) for navigation and a fluid content area."
       },
       "motion": {
         "durations": {
-          "micro": null,
-          "small": null,
-          "medium": null
+          "micro": 150,
+          "small": 300,
+          "medium": 600
         },
-        "easing": null,
+        "easing": "cubic-bezier(0.4, 0, 0.2, 1)",
         "patterns": [
-          "导航链接可能有悬停颜色变化",
-          "内容区可能有平滑滚动"
+          "Subtle color transitions on hover.",
+          "Fade-in effects for content sections."
         ]
       },
       "identity": {
         "keywords": [
-          "极简",
-          "开发者作品集",
-          "深色模式",
-          "纯文本",
-          "左侧固定导航"
+          "developer",
+          "portfolio",
+          "minimal",
+          "clean",
+          "accessible"
         ],
-        "analogy": "是深蓝背景上的白字工程笔记，不是设计师的Dribbble展示页",
-        "oneLiner": "一个前端工程师的个人简历和项目展示网站"
+        "analogy": "A minimalist code editor meets a refined editorial layout.",
+        "oneLiner": "A clean, dark-mode developer portfolio emphasizing typography and readability."
       },
       "components": {
-        "button": null,
-        "card": null,
-        "chip": "技术标签（JavaScript, TypeScript等），小圆角边框样式，文字为浅色",
-        "input": null,
-        "hero": "纯文本自我介绍，无图片，分为姓名、职位、个人陈述三个层次"
+        "button": "Standard text links with hover color transitions, no button background.",
+        "card": "Minimalist cards for project or job entries with clear separation.",
+        "chip": "Pill-shaped tags with semi-transparent backgrounds for skills.",
+        "input": "Minimal, borderless inputs with bottom-border focus states.",
+        "hero": "Simple text-based hero with a large name and tagline, no imagery."
       },
       "interaction": {
-        "hover": "导航链接和可能的技术标签有悬停效果",
-        "click": null,
-        "transition": null,
-        "keyboard": null
+        "hover": "Links and interactive elements change color or opacity smoothly.",
+        "click": "Standard pointer interactions with visual feedback.",
+        "transition": "Smooth transitions for all state changes.",
+        "keyboard": "Focusable elements should have a visible, accessible outline."
       },
       "voice": {
-        "tone": "专业、自信、清晰",
-        "headlineStyle": "直接陈述事实，如姓名、职位、公司名",
-        "ctaStyle": "无明显CTA按钮，引导通过导航浏览不同部分",
+        "tone": "Professional, concise, and personal.",
+        "headlineStyle": "Direct and impactful, using a large, clean sans-serif font.",
+        "ctaStyle": "Subtle text-based links that blend into the reading flow.",
         "avoid": [
-          "避免过度营销语言",
-          "避免使用感叹号和夸张表述"
+          "Marketing fluff",
+          "Excessive exclamation marks",
+          "Jargon without context"
         ]
       },
       "donts": [
-        "不做彩色渐变背景 —— 截图里是纯色深蓝背景",
-        "不用图片作为Hero主视觉 —— Hero是纯文本介绍",
-        "不用大段的装饰性图标或插画 —— 截图里几乎无装饰元素",
-        "不做卡片式内容布局 —— 内容直接平铺在页面上",
-        "不使用居中对齐的大段文字 —— 主体内容左对齐",
-        "不在导航使用汉堡菜单 —— 截图是桌面端，导航直接展开"
+        "Don't use bright, neon accents — the screenshot shows a single, restrained sky-blue accent.",
+        "Don't add decorative backgrounds or gradients — the design relies on solid, dark colors.",
+        "Don't use serif fonts for body text — the design uses a clean, humanist sans-serif.",
+        "Don't overuse borders and shadows — the design relies on spacing and typography for hierarchy.",
+        "Don't use centered text for main content — the layout is strictly left-aligned.",
+        "Don't include stock photography or avatars — the hero section is purely typographic."
       ],
-      "systemPrompt": "这是一个前端工程师的个人作品集网站。采用深色模式（深蓝背景，浅灰文字），无彩色强调色。布局为左侧固定导航（全大写链接）+右侧内容区，内容区宽度约550px。字体为无衬线字体，标题加粗，段落常规粗细。导航项有左侧垂直分隔线。技术标签使用小圆角边框。整体风格极简、专业，以文字内容为主，避免图片装饰和渐变。留白慷慨，呼吸感强。"
+      "systemPrompt": "This is a minimalist, dark-mode developer portfolio that prioritizes readability and clean typography. The design features a dark navy background (#0F172A) with light gray text (#F1F5F9) and a single bright accent color (#38BDF8) for links and highlights. The layout is a two-column structure with a fixed sidebar for navigation and a fluid main content area. Typography is exclusively humanist sans-serif, using varied scales and weights to create hierarchy. Critical constraints include avoiding decorative elements, maintaining generous whitespace, and ensuring all interactive states have smooth, subtle transitions. Avoid centering text, using serif fonts, or introducing multiple high-chroma accent colors."
+    }
+  },
+  {
+    "id": "claude",
+    "title": "Claude",
+    "url": "https://claude.com",
+    "image": "https://image.thum.io/get/width/1440/https://claude.com",
+    "tags": [
+      "AI",
+      "Productivity",
+      "Clean",
+      "Calm",
+      "Premium"
+    ],
+    "palette": "A warm, neutral palette dominated by off-white backgrounds, dark ink text, and subtle grays.",
+    "layout": "A spacious two-column layout with a clear visual hierarchy and generous whitespace.",
+    "interaction": "Subtle and unobtrusive, focusing on clarity and ease of use.",
+    "motion": "Minimal and smooth, enhancing the calm and focused atmosphere.",
+    "notes": "A perfect example of a calm, premium AI interface that prioritizes focus and clarity over visual noise.",
+    "spec": {
+      "colors": {
+        "bg": "#FAF7F5",
+        "bgSoft": null,
+        "bgQuiet": null,
+        "ink": "#1A1A1A",
+        "inkSoft": null,
+        "muted": "#666666",
+        "mutedSoft": null,
+        "accent": null,
+        "line": "rgba(0,0,0,0.1)",
+        "principle": "Warm, neutral, and calm"
+      },
+      "typography": {
+        "display": "transitional-serif",
+        "body": "humanist-sans",
+        "mono": "monospace",
+        "scale": [
+          {
+            "token": "display",
+            "size": 56,
+            "lh": 1.1,
+            "weight": 500,
+            "ls": "-1px",
+            "use": "Hero headline"
+          },
+          {
+            "token": "headline",
+            "size": 40,
+            "lh": 1.2,
+            "weight": 500,
+            "ls": "-0.5px",
+            "use": "Section headings"
+          },
+          {
+            "token": "body",
+            "size": 16,
+            "lh": 1.5,
+            "weight": 400,
+            "ls": "0px",
+            "use": "Body copy"
+          }
+        ]
+      },
+      "spacing": {
+        "base": 4,
+        "scale": [
+          4,
+          8,
+          16,
+          24,
+          32,
+          48,
+          64,
+          96
+        ],
+        "rhythm": "8px baseline grid"
+      },
+      "surfaces": {
+        "radius": {
+          "sm": 4,
+          "md": 8,
+          "lg": 12,
+          "pill": 999
+        },
+        "shadows": [
+          "0 4px 12px rgba(0,0,0,0.05)"
+        ],
+        "borders": "1px solid rgba(0,0,0,0.1)"
+      },
+      "layout": {
+        "container": 1200,
+        "paragraph": 680,
+        "columns": 12,
+        "gutter": 24,
+        "breakpoints": [
+          768,
+          1024
+        ],
+        "skeleton": "Two-column layout"
+      },
+      "motion": {
+        "durations": {
+          "micro": 200,
+          "small": 400,
+          "medium": 800
+        },
+        "easing": "cubic-bezier(0.4, 0, 0.2, 1)"
+      },
+      "identity": {
+        "keywords": [
+          "artificial intelligence",
+          "assistant",
+          "productivity",
+          "thoughtful"
+        ],
+        "analogy": "A calm, high-end co-working space",
+        "oneLiner": "A calm, focused AI assistant designed for professional thinking."
+      },
+      "components": {
+        "button": "Pill-shaped or rectangular with solid black background",
+        "card": "Rounded rectangles with subtle borders and shadows",
+        "chip": "Rounded pills with subtle backgrounds",
+        "input": "Clean rectangular fields with subtle borders",
+        "hero": "Split layout with large serif headline on left, visual on right"
+      },
+      "interaction": {
+        "hover": "Subtle color change or shadow increase",
+        "click": "Immediate visual feedback",
+        "transition": "Smooth fade or slide",
+        "keyboard": "Standard focus outlines"
+      },
+      "voice": {
+        "tone": "Calm, professional, and reassuring",
+        "headlineStyle": "Concise and action-oriented",
+        "ctaStyle": "Direct and clear",
+        "avoid": [
+          "Jargon",
+          "Hype",
+          "Aggressive language"
+        ]
+      },
+      "donts": [
+        "Don't use neon or highly saturated colors — screenshot shows a muted, warm neutral palette",
+        "Don't use heavy drop shadows — screenshot shows subtle, soft shadows",
+        "Don't use sans-serif fonts for headlines — screenshot shows serif fonts for display typography",
+        "Don't clutter the interface — screenshot shows generous whitespace and minimal elements",
+        "Don't use harsh borders — screenshot shows subtle, light borders",
+        "Don't use aggressive animation — screenshot shows a static, calm interface"
+      ],
+      "systemPrompt": "This is a calm, premium AI assistant website. The design uses a warm, neutral color palette with a soft off-white background and dark ink text. Typography features serif fonts for headlines and sans-serif for body text. The layout is clean and spacious with generous whitespace. Critical donts: avoid neon colors, heavy shadows, sans-serif headlines, clutter, harsh borders, and aggressive animation."
+    }
+  },
+  {
+    "id": "cohere",
+    "title": "Cohere",
+    "url": "https://cohere.com",
+    "image": "https://image.thum.io/get/width/1440/https://cohere.com",
+    "tags": [
+      "AI",
+      "Developer Tools",
+      "Clean",
+      "Premium",
+      "Product"
+    ],
+    "palette": "A strictly controlled, high-contrast palette dominated by pure black and white, creating a bold and authoritative visual identity.",
+    "layout": "A clean, spacious, single-column centered layout that prioritizes readability and clear hierarchy.",
+    "interaction": "Subtle, professional hover states and transitions that reinforce the premium feel without distraction.",
+    "motion": "Minimal and purposeful, likely limited to standard UI transitions given the serious enterprise tone.",
+    "notes": "This site is an excellent example of restrained, high-impact SaaS design that relies on typography and whitespace to convey power and trust.",
+    "spec": {
+      "colors": {
+        "bg": "#FFFFFF",
+        "bgSoft": null,
+        "bgQuiet": null,
+        "ink": "#000000",
+        "inkSoft": null,
+        "muted": null,
+        "mutedSoft": null,
+        "accent": null,
+        "line": "rgba(0, 0, 0, 0.1)",
+        "principle": "High-contrast black-and-white foundation with subtle accent usage."
+      },
+      "typography": {
+        "display": "geometric-sans",
+        "body": "geometric-sans",
+        "mono": null,
+        "scale": [
+          {
+            "token": "display",
+            "size": 72,
+            "lh": 1.0,
+            "weight": 500,
+            "ls": "-2px",
+            "use": "Main hero headline"
+          },
+          {
+            "token": "body",
+            "size": 16,
+            "lh": 1.5,
+            "weight": 400,
+            "ls": "0",
+            "use": "Paragraph and navigation text"
+          }
+        ]
+      },
+      "spacing": {
+        "base": 4,
+        "scale": [
+          4,
+          8,
+          16,
+          24,
+          32,
+          48,
+          64,
+          96
+        ],
+        "rhythm": "Generous vertical spacing creates a clean, uncluttered feel."
+      },
+      "surfaces": {
+        "radius": {
+          "sm": 8,
+          "md": 12,
+          "lg": 16,
+          "pill": 999
+        },
+        "shadows": [],
+        "borders": "Subtle 1px borders or no borders, relying on spacing and layout."
+      },
+      "layout": {
+        "container": 1200,
+        "paragraph": 640,
+        "columns": 12,
+        "gutter": 24,
+        "breakpoints": [
+          768,
+          1024
+        ],
+        "skeleton": "A centered, single-column hero layout transitioning into a multi-column visual grid."
+      },
+      "motion": {
+        "durations": {
+          "micro": 220,
+          "small": 400,
+          "medium": 800
+        },
+        "easing": "cubic-bezier(0.25, 0.1, 0.25, 1)"
+      },
+      "identity": {
+        "keywords": [
+          "AI",
+          "Enterprise",
+          "Ownership",
+          "Security",
+          "Open-source"
+        ],
+        "analogy": "A clean, authoritative enterprise software leader.",
+        "oneLiner": "A professional, high-contrast SaaS homepage emphasizing data ownership and powerful AI infrastructure for enterprises."
+      },
+      "components": {
+        "button": "Solid black rounded pill for primary actions; outline or text links for secondary.",
+        "card": "Large, visually rich cards with rounded corners for showcasing products and use cases.",
+        "chip": "Subtle status indicators (like 'READY') with small colored dots.",
+        "input": "Simple text input field with minimal styling.",
+        "hero": "Large centered headline with subtext and prominent call-to-action buttons."
+      },
+      "interaction": {
+        "hover": "Subtle changes in opacity or color for buttons and links.",
+        "click": "Standard button press states.",
+        "transition": "Smooth transitions between states.",
+        "keyboard": "Standard tab navigation focus states."
+      },
+      "voice": {
+        "tone": "Authoritative, confident, and direct.",
+        "headlineStyle": "Short, punchy, and declarative statements.",
+        "ctaStyle": "Clear and action-oriented (e.g., 'Request a demo', 'Explore products').",
+        "avoid": [
+          "Jargon without context",
+          "Playful or overly casual language",
+          "Vague promises"
+        ]
+      },
+      "donts": [
+        "Don't use multiple competing colors — screenshot shows a predominantly black-and-white palette.",
+        "Don't use decorative or script fonts — screenshot uses clean geometric sans-serif typography.",
+        "Don't clutter the interface with too many elements — screenshot uses generous whitespace.",
+        "Don't use harsh box shadows — screenshot relies on clean edges and spacing.",
+        "Don't use complex gradients in the UI — screenshot uses solid colors and photographic imagery.",
+        "Don't use small, cramped buttons — screenshot features large, touch-friendly targets."
+      ],
+      "systemPrompt": "This is a premium, enterprise-focused AI SaaS website (Cohere) that uses a high-contrast black-and-white color palette with clean geometric sans-serif typography. The layout is spacious and authoritative, emphasizing trust and ownership. Critical design constraints include avoiding multi-color palettes, decorative fonts, and cluttered interfaces. The design should maintain a strict professional tone suitable for enterprise buyers."
     }
   },
   {
@@ -810,58 +1088,50 @@ window.STYLE_ATLAS_SITES = [
       "Photographic",
       "Editorial"
     ],
-    "palette": "Pure-white gallery base — the visual energy comes entirely from the curated works themselves.",
-    "layout": "Pinterest-style masonry, but quieter — generous gaps between cards, never crowded, always breathing.",
-    "interaction": "Hover lifts a card just slightly and fades the title in; click enters an immersive lightbox.",
-    "motion": "Slow 600–900ms image scaling — a cinematic feel.",
-    "notes": "The ceiling for inspiration-collection sites — OpenDesign's peer (and reference) in this lane.",
+    "palette": "Strictly dual-tone using a warm off-white background and near-black text, completely devoid of vibrant accents.",
+    "layout": "A highly restrained, centered single-column layout with generous vertical whitespace to emphasize the typography.",
+    "interaction": "Minimalist and unobtrusive, relying on clean button states and standard input interactions.",
+    "motion": "Implied smooth transitions to maintain the calm, sophisticated atmosphere without visual noise.",
+    "notes": "An excellent example of 'editorial minimalism' in web design, proving that high contrast and space can create a premium feel.",
     "spec": {
       "colors": {
-        "bg": null,
+        "bg": "#F7F5F2",
         "bgSoft": null,
         "bgQuiet": null,
-        "ink": null,
+        "ink": "#1A1A1A",
         "inkSoft": null,
         "muted": null,
         "mutedSoft": null,
         "accent": null,
-        "line": null,
-        "principle": "palette 为空，所有颜色 token 填 null；视觉上为暖白底 + 纯黑文字的极简双色体系"
+        "line": "rgba(0, 0, 0, 0.1)",
+        "principle": "Extreme restraint with a warm, off-white background and high-contrast dark ink for focus."
       },
       "typography": {
-        "display": "geometric-sans",
-        "body": "geometric-sans",
+        "display": "grotesque-sans",
+        "body": "grotesque-sans",
         "mono": null,
         "scale": [
           {
             "token": "display",
-            "size": 68,
-            "lh": 1.05,
+            "size": 64,
+            "lh": 1.0,
             "weight": 500,
-            "ls": "normal",
-            "use": "首屏主标题两行居中"
+            "ls": "-1px",
+            "use": "Main hero headline"
           },
           {
-            "token": "caption",
-            "size": 13,
-            "lh": 1.4,
-            "weight": 500,
-            "ls": "0.12em uppercase",
-            "use": "COSMOS 品牌标签全大写宽字距"
-          },
-          {
-            "token": "body",
+            "token": "label",
             "size": 14,
-            "lh": 1.4,
+            "lh": 1.0,
             "weight": 500,
-            "ls": "normal",
-            "use": "按钮文字和导航链接"
+            "ls": "1px",
+            "use": "Uppercase category labels"
           }
         ],
         "rules": [
-          "标题 weight 500 不用 bold 700+，保持克制",
-          "品牌标签全大写 + 宽 letter-spacing，与标题形成层级",
-          "全页统一使用同一几何无衬线字族，无混搭"
+          "Display text is large, tightly tracked, and centered.",
+          "Uppercase tracking is used for short category labels.",
+          "Weight is kept to regular and medium for a refined look."
         ]
       },
       "spacing": {
@@ -869,100 +1139,86 @@ window.STYLE_ATLAS_SITES = [
         "scale": [
           4,
           8,
-          12,
           16,
           24,
           32,
           48,
           64,
-          96,
-          128
+          96
         ],
-        "rhythm": "慷慨，hero 区上方约 280px 留白，标题与按钮间距约 48px，按钮之间 12px"
+        "rhythm": "Generous vertical spacing emphasizes the empty space and breathing room."
       },
       "surfaces": {
         "radius": {
-          "sm": 8,
-          "md": 20,
+          "sm": 4,
+          "md": 24,
           "lg": 999,
           "pill": 999
         },
-        "shadows": [
-          "全页无任何阴影，所有元素平面化"
-        ],
-        "borders": "仅搜索框和菜单按钮使用 1px 细线描边，其余元素无边框"
+        "shadows": [],
+        "borders": "Thin, subtle outlines on inputs and secondary buttons; no heavy container borders."
       },
       "layout": {
-        "container": 1200,
-        "paragraph": 560,
-        "columns": 1,
-        "gutter": 0,
+        "container": 1280,
+        "paragraph": 680,
+        "columns": 12,
+        "gutter": 24,
         "breakpoints": [
           768,
-          1024,
-          1440
+          1024
         ],
-        "skeleton": "顶部导航栏（logo + 菜单按钮 + 搜索框 + 登录/注册）→ 大面积留白 → 居中文本 hero（品牌标签 + 主标题 + 双按钮）→ 下方全部空白"
+        "skeleton": "Centered single-column layout with massive vertical padding to focus on typography."
       },
       "motion": {
         "durations": {
-          "micro": null,
-          "small": null,
-          "medium": null
+          "micro": 200,
+          "small": 300,
+          "medium": 600
         },
-        "easing": null,
-        "patterns": [
-          "搜索框内彩色色轮图标暗示可能有颜色筛选交互",
-          "导航菜单按钮有下拉箭头暗示展开交互",
-          "静态截图无法确认动画"
-        ]
+        "easing": "cubic-bezier(0.25, 0.1, 0.25, 1)"
       },
       "identity": {
         "keywords": [
-          "极简",
-          "文字驱动",
-          "慷慨留白",
-          "无装饰",
-          "暖中性"
+          "inspiration",
+          "space",
+          "curation",
+          "discovery"
         ],
-        "analogy": "是 early Medium 的呼吸感首页，不是 Pinterest 的信息瀑布",
-        "oneLiner": "灵感采集工具的纯文字极简入口页"
+        "analogy": "A minimalist gallery or high-end lifestyle editorial platform.",
+        "oneLiner": "A refined curation platform for finding and sharing visual inspiration."
       },
       "components": {
-        "button": "全圆角 pill 形状；主按钮为实心黑底白字，次按钮为白底黑字加 1px 浅灰描边；高度约 48px，padding 水平 24px",
+        "button": "Pill-shaped (fully rounded) with solid dark fill or thin border; high contrast.",
         "card": null,
         "chip": null,
-        "input": "搜索框为 pill 全圆角，1px 浅灰描边，左侧放大镜图标，右侧相机图标和彩色色轮图标，placeholder 灰色文字",
-        "hero": "纯文本居中 hero：上方小字全大写品牌名 COSMOS，中间两行大标题 Your space for inspiration，下方并排两个 pill 按钮（Sign up 黑色实心 + Get the app 白色描边）"
+        "input": "Pill-shaped search bar with rounded corners and subtle border.",
+        "hero": "Centered typography with generous whitespace and dual pill-shaped CTAs."
       },
       "interaction": {
-        "hover": "按钮可能有背景色反转或微弱透明度变化（基于 pill 按钮常见交互模式推断）",
-        "click": null,
-        "transition": null,
-        "keyboard": null
+        "hover": "Subtle opacity change or background shift on buttons.",
+        "click": "Immediate response.",
+        "transition": "Smooth, unobtrusive state changes.",
+        "keyboard": "Standard focus rings likely present but not visible in static screenshot."
       },
       "voice": {
-        "tone": "平静、邀请式，无推销感，语气像在说一个空间而不是推销一个产品",
-        "headlineStyle": "简短两个词组，无修饰语，无感叹号，不解释功能只描述状态",
-        "ctaStyle": "极简祈使句，两个词以内（Sign up / Get the app），不用 '免费' '立即' 等促销词",
+        "tone": "Inviting, calm, and sophisticated.",
+        "headlineStyle": "Short, evocative, and centered; focuses on the feeling rather than features.",
+        "ctaStyle": "Direct and simple ('Sign up', 'Get the app').",
         "avoid": [
-          "避免使用感叹号",
-          "避免功能描述性标题",
-          "避免 '免费试用' '立即开始' 等促销用语",
-          "避免在 hero 中放长段解释文案"
+          "Technical jargon",
+          "Aggressive sales language",
+          "Visual clutter"
         ]
       },
       "donts": [
-        "不放图片或插画 —— hero 区纯文字无任何视觉素材，下方完全留白",
-        "不用渐变色或彩色背景 —— 全页单色暖白底无任何色彩渐变",
-        "不加阴影或浮起效果 —— 按钮、搜索框、导航元素均无 box-shadow",
-        "不用衬线字体 —— 全页从标题到按钮统一使用几何无衬线体",
-        "不用多列布局 —— 所有内容严格居中单列排列",
-        "不放 footer 或页脚内容 —— 截图中 hero 以下区域完全空白无内容",
-        "不用强对比 accent 色做 CTA —— 仅用黑白两色区分主次按钮",
-        "不在标题中用全大写 —— 主标题为 sentence case，仅品牌标签用全大写"
+        "Don't use a pure white background — screenshot shows a warm off-white (#F7F5F2).",
+        "Don't add drop shadows or heavy borders — screenshot shows completely flat surfaces.",
+        "Don't use a vibrant accent color — screenshot relies solely on black and off-white.",
+        "Don't use complex grid layouts — screenshot shows a strictly centered, single-column flow.",
+        "Don't use serif typography — screenshot shows only clean, neutral sans-serif types.",
+        "Don't clutter the interface with icons — screenshot is extremely minimal, relying on text and space."
       ],
-      "systemPrompt": "你是极简灵感平台首页设计师。页面为暖白底 + 纯黑文字的极简双色体系，无 accent 色、无渐变、无阴影。标题用几何无衬线体 500 weight 不超过 700，品牌标签全大写宽字距做层级。所有交互元素（按钮、搜索框、菜单）统一 pill 全圆角。hero 居中纯文字，两行标题不超过 5 个词，下方最多两个 pill 按钮。留白慷慨（hero 上方 280px+），单列居中布局。不用图片插画 / 不加阴影 / 不用衬线体 / 不放促销文案 / 不用多列 / 不在 hero 放长段文字。"
+      "systemPrompt": "Cosmos is a minimalist, editorial curation platform for visual inspiration. It positions itself through extreme restraint, using a warm off-white background (#F7F5F2) and high-contrast dark ink (#1A1A1A). The typography is exclusively neutral, grotesque-sans, with tight tracking on large display text and uppercase labels. Critical constraints include: never introduce a vibrant accent color, maintain generous whitespace, and avoid any drop shadows or heavy borders. The layout is strictly centered and single-column, emphasizing the content rather than the interface structure."
     }
   },
   {
@@ -975,63 +1231,74 @@ window.STYLE_ATLAS_SITES = [
       "Tooling",
       "Gradient"
     ],
-    "palette": "High-contrast UI, bright generative accents, clean product chrome.",
-    "layout": "Tool capability is introduced through focused modules and short proof points.",
-    "interaction": "Generated moments are previewed as small, legible transformations.",
-    "motion": "Magical but controlled: quick previews, crisp state swaps, visible cause and effect.",
-    "notes": "Reference for AI tooling where the interface needs to explain the magic.",
+    "palette": "",
+    "layout": "",
+    "interaction": "",
+    "motion": "",
+    "notes": ""
+  },
+  {
+    "id": "elevenlabs",
+    "title": "Elevenlabs",
+    "url": "https://elevenlabs.io",
+    "image": "https://image.thum.io/get/width/1440/https://elevenlabs.io",
+    "tags": [
+      "SaaS",
+      "AI",
+      "Product",
+      "Clean",
+      "Productivity"
+    ],
+    "palette": "A clean, high-contrast palette of pure white, black, and a warm light gray (#F5F3F0) for subtle surface differentiation.",
+    "layout": "A spacious, traditional SaaS landing page layout with a prominent hero section and clear content hierarchy.",
+    "interaction": "Interaction relies on standard, accessible hover and focus states with smooth transitions for a polished feel.",
+    "motion": "Motion is minimal and functional, focused on subtle fades and transitions for a professional experience.",
+    "notes": "This site exemplifies a clean, professional design system for a technical product, balancing authority with readability.",
     "spec": {
       "colors": {
-        "bg": null,
-        "bgSoft": null,
+        "bg": "#FFFFFF",
+        "bgSoft": "#F5F3F0",
         "bgQuiet": null,
-        "ink": null,
-        "inkSoft": null,
-        "muted": null,
+        "ink": "#000000",
+        "inkSoft": "#525252",
+        "muted": "#9CA3AF",
         "mutedSoft": null,
         "accent": null,
-        "line": null,
-        "principle": "无明确 palette，全黑深空背景与发光彩色元素（轨道、行星）形成高对比视觉焦点。"
+        "line": "rgba(0, 0, 0, 0.1)",
+        "principle": "High-contrast black and white with warm gray accents for a professional, clean aesthetic."
       },
       "typography": {
-        "display": "geometric-sans",
-        "body": "geometric-sans",
+        "display": "transitional-serif",
+        "body": "humanist-sans",
         "mono": null,
         "scale": [
           {
             "token": "display",
-            "size": 56,
-            "lh": 1.05,
-            "weight": 700,
-            "ls": "-0.02em",
-            "use": "首屏核心宣言大标题"
+            "size": 48,
+            "lh": 1.1,
+            "weight": 400,
+            "ls": "-0.5px",
+            "use": "Hero headline"
           },
           {
             "token": "body",
-            "size": 18,
-            "lh": 1.5,
+            "size": 16,
+            "lh": 1.6,
             "weight": 400,
-            "ls": "0",
-            "use": "副标题与描述文字"
-          },
-          {
-            "token": "caption",
-            "size": 14,
-            "lh": 1.4,
-            "weight": 500,
-            "ls": "0",
-            "use": "导航链接与按钮文字"
+            "ls": "0px",
+            "use": "Body copy"
           }
         ],
         "rules": [
-          "标题使用几何sans-serif，700 weight，字距收紧",
-          "副标题为灰色(#A0A0A0左右)，用于视觉降级",
-          "导航和按钮文字为500 weight，保持清晰"
+          "Use transitional-serif for primary headlines to convey authority.",
+          "Use humanist-sans for all body and UI text for clarity and readability.",
+          "Avoid overly decorative or script fonts."
         ]
       },
       "spacing": {
-        "base": 8,
+        "base": 4,
         "scale": [
+          4,
           8,
           16,
           24,
@@ -1040,7 +1307,7 @@ window.STYLE_ATLAS_SITES = [
           64,
           96
         ],
-        "rhythm": "慷慨。Hero区域上下留白极大，标题与副标题、按钮间距疏朗，营造呼吸感与视觉仪式感。"
+        "rhythm": "Consistent 4px base unit creates a predictable, clean grid."
       },
       "surfaces": {
         "radius": {
@@ -1050,79 +1317,75 @@ window.STYLE_ATLAS_SITES = [
           "pill": 999
         },
         "shadows": [
-          "按钮有微弱发光效果，3D行星元素有精致的光照和发光阴影，背景有微弱的点状光源光晕"
+          "0 1px 3px rgba(0, 0, 0, 0.05)"
         ],
-        "borders": "极简，仅在“Explore the future”按钮上看到一圈极细的、半透明的浅色描边。"
+        "borders": "Thin, light borders are used sparingly for definition."
       },
       "layout": {
         "container": 1200,
-        "paragraph": 500,
+        "paragraph": 680,
         "columns": 12,
         "gutter": 24,
         "breakpoints": [
-          640,
           768,
-          1024,
-          1280
+          1024
         ],
-        "skeleton": "顶部固定导航栏 → 深色全屏背景 + 居中大标题/副标题/CTA按钮 → 底部装饰性3D轨道与行星插画，暗示下方有更多产品介绍。"
+        "skeleton": "Classic hero section with headline, subcopy, and CTA buttons, followed by a product showcase area."
       },
       "motion": {
         "durations": {
-          "micro": null,
-          "small": null,
-          "medium": null
+          "micro": 150,
+          "small": 300,
+          "medium": 500
         },
-        "easing": null,
+        "easing": "cubic-bezier(0.4, 0, 0.2, 1)",
         "patterns": [
-          "轨道上的3D球体可能围绕中心缓慢旋转或浮动",
-          "悬停时按钮或链接可能有光效或颜色微变"
+          "Subtle fade-in for content loading.",
+          "Smooth transitions for tab switching."
         ]
       },
       "identity": {
         "keywords": [
-          "科幻感",
-          "AI先锋",
-          "产品发布感",
-          "深空主题",
-          "精致的3D渲染"
+          "professional",
+          "authoritative",
+          "technical",
+          "reliable"
         ],
-        "analogy": "是 Stripe Sessions 的产品发布页 × 苹果的 WWDC 科幻主题，不是 Figma 的官方文档",
-        "oneLiner": "发布未来感AI设计工具的科幻产品页"
+        "analogy": "A high-end enterprise software brochure",
+        "oneLiner": "A clean, professional SaaS interface for an AI voice platform."
       },
       "components": {
-        "button": "药丸形（pill），半透明深灰背景+细白边框+白色文字，悬停状态可能有发光增强。",
-        "card": null,
-        "chip": null,
-        "input": null,
-        "hero": "深空背景下的单屏宣言：居中的巨大白色几何无衬线标题、灰色副标题、药丸形CTA按钮，下方漂浮着代表不同AI功能的彩色3D球体，由发光的同心圆轨道连接。"
+        "button": "High-contrast solid black pill buttons for primary actions, ghost/outline buttons for secondary actions.",
+        "card": "Large, soft-background cards with subtle borders and generous padding for product sections.",
+        "chip": "Pill-shaped navigation chips with clear active/inactive states.",
+        "input": "Clean, minimal input fields with subtle borders.",
+        "hero": "Split layout with large serif headline on the left and descriptive copy on the right."
       },
       "interaction": {
-        "hover": "按钮和导航链接可能有发光、颜色变亮或轻微放大的hover效果。",
-        "click": "按钮触发页面内滚动或跳转至产品介绍区域。",
-        "transition": "页面间或区域间的过渡可能平滑且有科技感。",
-        "keyboard": null
+        "hover": "Subtle background change or underline for text links and buttons.",
+        "click": "Immediate feedback with a slight scale or opacity change.",
+        "transition": "Smooth color and background transitions.",
+        "keyboard": "Standard focus outlines for accessibility."
       },
       "voice": {
-        "tone": "自信、简洁、充满未来科技感，像发布一项颠覆性技术。",
-        "headlineStyle": "短促有力的宣言句式（\"Design tools from the future.\"），直接定义品类。",
-        "ctaStyle": "使用祈使动词（Explore）和未来感词汇（the future），简洁无赘述。",
+        "tone": "Professional, confident, and slightly technical.",
+        "headlineStyle": "Clear, declarative statements in a serif font.",
+        "ctaStyle": "Direct action verbs like 'Sign up' or 'Contact sales'.",
         "avoid": [
-          "避免冗长的、功能罗列式的文案",
-          "避免使用过于活泼或口语化的网络用语",
-          "避免传统的企业级或管理软件用语"
+          "Overly casual or playful language.",
+          "Excessive exclamation points.",
+          "Jargon without explanation."
         ]
       },
       "donts": [
-        "不做纯白或浅色背景 —— 截图是深空全黑背景",
-        "不用传统的左右分栏或网格布局 —— Hero区域是中心辐射式布局",
-        "不使用真实人物照片或传统摄影 —— 视觉主体是抽象的、发光的3D球体",
-        "标题不用衬线字体 —— 截图中标题为几何无衬线体",
-        "不用大面积的渐变色块背景 —— 背景是纯深色加上微弱的点状光源光晕",
-        "按钮不用方形或直角矩形 —— 截图中按钮为圆角药丸形",
-        "CTA文案不超过4个英文词 —— 截图中按钮文字为'Explore the future'"
+        "Don't use bright, saturated colors — the screenshot shows a neutral, high-contrast palette.",
+        "Don't use playful or rounded sans-serif display fonts — the screenshot uses a transitional-serif.",
+        "Don't add decorative illustrations or icons — the screenshot is text and UI element focused.",
+        "Don't use dark mode — the screenshot is predominantly white/light background.",
+        "Don't use complex gradients — the screenshot uses flat colors and subtle grays.",
+        "Don't use heavy shadows or 3D effects — the screenshot uses minimal depth and clean borders."
       ],
-      "systemPrompt": "你是一位发布未来感AI设计工具的产品页面设计师。整体视觉基于深空背景，使用几何无衬线体（geometric-sans），标题700 weight并收紧字距。核心色系为深黑背景与发光元素，无亮色accent。关键规则：不用衬线字体、不用方形按钮（必须是药丸形）、不用真实照片、Hero区域保持巨大留白和中心聚焦。按钮采用半透明背景加细边框。页面气质类似高端AI产品的发布公告，简洁、自信、充满科技感。"
+      "systemPrompt": "This is a professional, enterprise-focused SaaS landing page for an AI voice platform. The design is clean, high-contrast, and uses a neutral palette of black, white, and warm grays (bgSoft: #F5F3F0). The typography mixes a transitional-serif for authoritative headlines with a humanist-sans for readable body copy. Key critical donts: never use bright saturated colors, avoid playful sans-serifs for headlines, and do not add decorative illustrations. The layout is spacious and uses a classic hero structure with pill-shaped buttons and soft-background cards. The overall feel is reliable and technical, suitable for a B2B product."
     }
   },
   {
@@ -1285,137 +1548,11 @@ window.STYLE_ATLAS_SITES = [
       "Productivity",
       "App UI"
     ],
-    "palette": "Cool neutrals, blue signal states, tidy interface surfaces.",
-    "layout": "Product UI is the center; marketing copy supports real workflow screens.",
-    "interaction": "Interface previews behave like working software rather than static decoration.",
-    "motion": "Short UI-state transitions with clear before and after states.",
-    "notes": "Best for app pages where screenshots must teach the product model quickly.",
-    "spec": {
-      "colors": {
-        "bg": null,
-        "bgSoft": null,
-        "bgQuiet": null,
-        "ink": null,
-        "inkSoft": null,
-        "muted": null,
-        "mutedSoft": null,
-        "accent": null,
-        "line": null,
-        "principle": "以纯黑为底，纯白文字为主，彩色仅用于标志点缀"
-      },
-      "typography": {
-        "display": "geometric-sans",
-        "body": "geometric-sans",
-        "mono": null,
-        "scale": [
-          {
-            "token": "display",
-            "size": 64,
-            "lh": 1.1,
-            "weight": 500,
-            "ls": "-0.02em",
-            "use": "首屏核心标语"
-          },
-          {
-            "token": "body",
-            "size": 16,
-            "lh": 1.5,
-            "weight": 400,
-            "ls": "normal",
-            "use": "副标题、说明文字和FAQ"
-          }
-        ],
-        "rules": [
-          "标题使用高对比度白色（#FFFFFF 或接近）",
-          "正文使用中灰色"
-        ]
-      },
-      "spacing": {
-        "base": 8,
-        "scale": [
-          8,
-          16,
-          24,
-          32,
-          48,
-          64,
-          96
-        ],
-        "rhythm": "慷慨：标题与副标题间、内容块与底部间留有大量垂直空间"
-      },
-      "surfaces": {
-        "radius": {
-          "sm": 4,
-          "md": 8,
-          "lg": 16,
-          "pill": 999
-        },
-        "shadows": [],
-        "borders": "用于勾勒中央卡片和输入框，线条较细"
-      },
-      "layout": {
-        "container": 800,
-        "paragraph": 600,
-        "columns": 1,
-        "gutter": 24,
-        "breakpoints": [],
-        "skeleton": "全屏深色背景，中心化布局：顶部Logo → 大标题 → 副标题 → Email输入框与按钮 → 带边框的About卡片 → 底部FAQ文字"
-      },
-      "motion": {
-        "durations": {
-          "micro": null,
-          "small": null,
-          "medium": null
-        },
-        "easing": null,
-        "patterns": [
-          "导航栏似乎是固定的"
-        ]
-      },
-      "identity": {
-        "keywords": [
-          "深色背景",
-          "极简布局",
-          "科技感",
-          "彩色点缀",
-          "聚焦文案"
-        ],
-        "analogy": "是早期 macOS 深色模式界面，不是花哨的 SaaS dashboard",
-        "oneLiner": "一个用极简深色背景和彩色光点强调的AI工具落地页"
-      },
-      "components": {
-        "button": "矩形，带轻微圆角，有描边，内含彩色图标和白色文字",
-        "card": "带圆角边框的透明或深灰色卡片，内含标题和副标题",
-        "chip": null,
-        "input": "单行输入框，有轻微描边，灰色占位文字",
-        "hero": "居中排列，包含彩色Logo、白色大标题、灰色副标题和一个Email订阅表单"
-      },
-      "interaction": {
-        "hover": null,
-        "click": null,
-        "transition": null,
-        "keyboard": null
-      },
-      "voice": {
-        "tone": "直接、自信、略带挑衅（‘Stop... For good.’）",
-        "headlineStyle": "简短、有力、使用句号断句",
-        "ctaStyle": "明确、行动导向（‘Join the waitlist’）",
-        "avoid": [
-          "避免冗长解释",
-          "避免温和的、试探性的措辞",
-          "避免多行副标题"
-        ]
-      },
-      "donts": [
-        "不做多色渐变背景 —— 截图是纯黑底",
-        "不使用复杂的阴影效果 —— 卡片仅有细线边框",
-        "不使用图片作为主要排版元素 —— Hero和卡片区域完全由文字构成",
-        "不使用衬线字体 —— 所有可见文字都是无衬线体",
-        "不使用多栏布局 —— 整个页面是单列居中",
-        "不使用高饱和度的按钮填充色 —— 按钮使用边框样式"
-      ],
-      "systemPrompt": "这是一个深色背景的极简产品落地页设计。核心：纯黑（#000000）背景，纯白（#FFFFFF）大标题，灰色正文。标题使用几何无衬线体（geometric-sans），高字重（500），居中排列，字号巨大且行高紧凑。正文400字重，中灰色。关键元素：中央内容区最大宽度800px，大量垂直留白（慷慨节奏），边框用于勾勒卡片和输入框。整体视觉聚焦于文案本身，彩色仅出现在Logo。遵循规则：不做渐变背景/不使用衬线字体/不使用多栏布局/不使用阴影/按钮不用实色填充。"
-    }
+    "palette": "",
+    "layout": "",
+    "interaction": "",
+    "motion": "",
+    "notes": ""
   },
   {
     "id": "jupi",
@@ -1559,44 +1696,36 @@ window.STYLE_ATLAS_SITES = [
       "App UI",
       "Dark Mode"
     ],
-    "palette": "Deep-space background with high-contrast white type; restrained violet-blue signal color; hover reveals a gradient glow.",
-    "layout": "Hero is a real product UI screenshot; sections below break by feature module — tight pacing, no marketing fluff.",
-    "interaction": "Subtle gradient sweep on hover; feature cards lift in a 3D parallax that adds depth.",
-    "motion": "Mostly 200–400ms ease-out; the glow animation uses longer easing for a premium feel.",
-    "notes": "The ceiling for project-management tool design — what every SaaS product secretly wants to copy.",
+    "palette": "Strict monochrome palette dominated by near-black backgrounds, white text, and muted grays.",
+    "layout": "Clean, left-aligned layout with generous whitespace and a standard top navigation structure.",
+    "interaction": "Subtle, rapid hover states and transitions that emphasize speed and precision.",
+    "motion": "Fast, subtle animations with standard easing curves to maintain a high-performance feel.",
+    "notes": "This site represents the pinnacle of modern SaaS design, using extreme minimalism to convey power and precision.",
     "spec": {
       "colors": {
-        "bg": null,
+        "bg": "#0E0E10",
         "bgSoft": null,
         "bgQuiet": null,
-        "ink": null,
+        "ink": "#FFFFFF",
         "inkSoft": null,
-        "muted": null,
+        "muted": "#8A8F98",
         "mutedSoft": null,
         "accent": null,
-        "line": null,
-        "principle": "深色模式下的极简单色配色，依赖白色文字与深色背景形成强对比"
+        "line": "rgba(255, 255, 255, 0.1)",
+        "principle": "Extreme contrast with minimal color, using monochrome and muted grays to emphasize precision and focus."
       },
       "typography": {
-        "display": "geometric-sans",
-        "body": "geometric-sans",
-        "mono": null,
+        "display": "grotesque-sans",
+        "body": "grotesque-sans",
+        "mono": "monospace",
         "scale": [
           {
             "token": "display",
-            "size": 56,
-            "lh": 1.1,
+            "size": 64,
+            "lh": 1.0,
             "weight": 500,
-            "ls": "-1px",
-            "use": "首屏主标题"
-          },
-          {
-            "token": "h1",
-            "size": 48,
-            "lh": 1.2,
-            "weight": 500,
-            "ls": "0",
-            "use": "区块标题"
+            "ls": "-2px",
+            "use": "Hero headline"
           },
           {
             "token": "body",
@@ -1604,25 +1733,12 @@ window.STYLE_ATLAS_SITES = [
             "lh": 1.5,
             "weight": 400,
             "ls": "0",
-            "use": "正文内容"
-          },
-          {
-            "token": "caption",
-            "size": 12,
-            "lh": 1.4,
-            "weight": 500,
-            "ls": "0.06em",
-            "use": "导航栏链接文字"
+            "use": "Body text"
           }
-        ],
-        "rules": [
-          "标题使用 500 weight，不使用粗体",
-          "导航文字全大写，字间距加大",
-          "caption 使用小号、中等字重、加大字间距"
         ]
       },
       "spacing": {
-        "base": 8,
+        "base": 4,
         "scale": [
           4,
           8,
@@ -1633,89 +1749,80 @@ window.STYLE_ATLAS_SITES = [
           64,
           96
         ],
-        "rhythm": "慷慨的留白，内容呼吸感强"
+        "rhythm": "Generous whitespace and tight vertical rhythm in navigation"
       },
       "surfaces": {
         "radius": {
-          "sm": 0,
-          "md": 0,
-          "lg": 0,
+          "sm": 4,
+          "md": 6,
+          "lg": 8,
           "pill": 999
         },
-        "shadows": [
-          "无阴影，依赖平面与边线区分层级"
-        ],
-        "borders": "极细的白色线条用于分割导航元素"
+        "shadows": [],
+        "borders": "Subtle, thin borders using rgba(255, 255, 255, 0.1)"
       },
       "layout": {
         "container": 1200,
-        "paragraph": 640,
-        "columns": 1,
+        "paragraph": 680,
+        "columns": 12,
         "gutter": 24,
         "breakpoints": [
           768,
-          1024,
-          1200
+          1024
         ],
-        "skeleton": "顶部固定导航栏 → 巨大的左对齐 hero 标题区域 → 下方内容区域（被截断）"
+        "skeleton": "Standard top navigation with logo, links, and CTAs; large hero section with left-aligned text"
       },
       "motion": {
         "durations": {
-          "micro": null,
-          "small": null,
-          "medium": null
+          "micro": 220,
+          "small": 400,
+          "medium": 800
         },
-        "easing": null,
-        "patterns": [
-          "导航栏可能的 backdrop-blur 效果",
-          "按钮和导航项的悬停状态"
-        ]
+        "easing": "cubic-bezier(0.4, 0, 0.2, 1)"
       },
       "identity": {
         "keywords": [
-          "深色模式",
-          "克制留白",
-          "几何字体",
-          "功能优先",
-          "水平导航"
+          "precision",
+          "efficiency",
+          "professional",
+          "minimalist",
+          "high-performance"
         ],
-        "analogy": "是安静的、只有键盘敲击声的深夜实验室，不是科技公司的未来感办公室",
-        "oneLiner": "为专业团队打造的、极度克制的工具感界面"
+        "analogy": "A high-end cockpit of a modern jet",
+        "oneLiner": "A premium, high-performance product development system designed for teams and agents, characterized by extreme precision and minimalism."
       },
       "components": {
-        "button": "白底黑字、直角、中等尺寸的按钮，如右上角的 Sign up",
-        "card": null,
+        "button": "Minimal pill-shaped button with white background and dark text",
+        "card": "Subtle, minimal cards with thin borders",
         "chip": null,
         "input": null,
-        "hero": "左对齐的大号标题，下方有副标题和按钮，占据大部分视口"
+        "hero": "Large, left-aligned grotesque-sans headline on dark background"
       },
       "interaction": {
-        "hover": "按钮和导航项可能有背景色或透明度的微妙变化",
-        "click": null,
-        "transition": null,
-        "keyboard": null
+        "hover": "Subtle opacity change or color shift",
+        "click": "Immediate response",
+        "transition": "Smooth, rapid transitions",
+        "keyboard": "Standard tab navigation"
       },
       "voice": {
-        "tone": "直接、专业、功能导向",
-        "headlineStyle": "陈述性短语，全小写",
-        "ctaStyle": "动词开头，简短直接（如 Log in， Sign up）",
+        "tone": "Professional, precise, and confident",
+        "headlineStyle": "Bold, direct statements about product development",
+        "ctaStyle": "Clean, minimalist buttons with clear actions",
         "avoid": [
-          "不使用情感化表达",
-          "不使用夸张的修饰词",
-          "不使用感叹号"
+          "playful language",
+          "excessive decoration",
+          "complex gradients"
         ]
       },
       "donts": [
-        "不用亮色背景 —— 截图里背景是纯黑 #000000",
-        "不做下拉菜单 —— 导航项都是平铺的链接，没有下拉箭头或二级菜单",
-        "标题不做居中对齐 —— hero 标题是严格的左对齐",
-        "不用卡片阴影 —— 截图里没有看到带阴影的卡片元素",
-        "不在文案中放大头像或个人照片 —— 截图里没有用户头像",
-        "不用品牌色按钮 —— 唯一的 Sign up 按钮是白底黑字",
-        "不用 carousel 或轮播 —— hero 区域是静态的单一标题",
-        "不做渐变文字或背景 —— 所有文字都是纯白色，背景是纯黑色"
+        "Don't use bright, saturated colors — screenshot shows a strict monochrome palette with muted grays",
+        "Don't use decorative serif fonts — screenshot shows clean grotesque-sans typography",
+        "Don't use rounded corners heavily — screenshot shows minimal, tight border-radius on elements",
+        "Don't add busy background patterns — screenshot shows solid dark backgrounds with subtle noise",
+        "Don't use drop shadows or heavy depth effects — screenshot relies on thin borders for separation",
+        "Don't center the hero text — screenshot shows strict left-alignment of the main headline"
       ],
-      "systemPrompt": "以深色背景 #000000、白色文字 #FFFFFF、几何无衬线字体（geometric-sans）构建极简工具感界面。采用左对齐、直角、无装饰的设计。禁止亮色背景、禁止导航下拉菜单、禁止卡片阴影、禁止品牌色按钮、禁止首屏使用动画或大图。保持信息密度高、留白慷慨、视觉层级清晰。"
+      "systemPrompt": "A premium SaaS tool for product development teams, characterized by extreme minimalism and high-performance design. The palette is strictly monochrome with a near-black background (#0E0E10), white ink, and muted grays for secondary elements. Typography uses clean grotesque-sans fonts with tight tracking and bold weights for headlines. Key donts include avoiding bright colors, decorative serifs, heavy shadows, and centered hero text. The design emphasizes precision, speed, and professional focus."
     }
   },
   {
@@ -1728,147 +1835,11 @@ window.STYLE_ATLAS_SITES = [
       "3D",
       "Experimental"
     ],
-    "palette": "Black field, luminous accents, strong image contrast.",
-    "layout": "Immersive canvas-first composition with sparse navigation and large media.",
-    "interaction": "Pointer movement drives visual feedback; browsing feels like exploring a scene.",
-    "motion": "Continuous ambient movement balanced by quick hover responses.",
-    "notes": "Strong reference for portfolio work where the interaction itself is the proof.",
-    "spec": {
-      "colors": {
-        "bg": null,
-        "bgSoft": null,
-        "bgQuiet": null,
-        "ink": null,
-        "inkSoft": null,
-        "muted": null,
-        "mutedSoft": null,
-        "accent": null,
-        "line": null,
-        "principle": "以高对比度3D物体颜色（紫、黑、白）为主，背景中性"
-      },
-      "typography": {
-        "display": "geometric-sans",
-        "body": null,
-        "mono": null,
-        "scale": [
-          {
-            "token": "display",
-            "size": 56,
-            "lh": 1.1,
-            "weight": 700,
-            "ls": "-1px",
-            "use": "首屏主标题，突出技术宣言"
-          },
-          {
-            "token": "caption",
-            "size": 12,
-            "lh": 1.4,
-            "weight": 500,
-            "ls": "0.1em uppercase",
-            "use": "导航元素如'MENU'和底部'+'符号"
-          }
-        ],
-        "rules": [
-          "标题使用sentence case，无大写",
-          "导航辅助文字全大写加宽字距",
-          "3D物体本身无字体，依赖图形"
-        ]
-      },
-      "spacing": {
-        "base": 8,
-        "scale": [
-          4,
-          8,
-          16,
-          24,
-          32,
-          48,
-          64,
-          96
-        ],
-        "rhythm": "慷慨留白：导航与hero间、hero内部、3D物体周围均有大量空白，节奏舒缓"
-      },
-      "surfaces": {
-        "radius": {
-          "sm": 4,
-          "md": 8,
-          "lg": 16,
-          "pill": 999
-        },
-        "shadows": [
-          "3D物体投射强烈阴影，UI按钮无阴影",
-          "整体无卡片或浮层阴影"
-        ],
-        "borders": "按钮有细边框（如'LET'S TALK'），其他元素无边线"
-      },
-      "layout": {
-        "container": 1200,
-        "paragraph": 800,
-        "columns": 1,
-        "gutter": 24,
-        "breakpoints": [
-          768,
-          1024,
-          1440
-        ],
-        "skeleton": "顶部固定导航 → hero大标题 + 交互式3D物体展示 → 底部滚动提示区 → 隐藏更多内容"
-      },
-      "motion": {
-        "durations": {
-          "micro": null,
-          "small": null,
-          "medium": null
-        },
-        "easing": null,
-        "patterns": [
-          "3D物体支持鼠标交互旋转（从光标推断）",
-          "页面可能有scroll reveal动画（从'SCROLL TO EXPLORE'推断）"
-        ]
-      },
-      "identity": {
-        "keywords": [
-          "沉浸式",
-          "实时交互",
-          "科技感",
-          "视觉冲击",
-          "创意技术"
-        ],
-        "analogy": "是游戏引擎的实时渲染demo，不是Behance上的静态作品集",
-        "oneLiner": "以交互本身证明能力的创意技术作品集"
-      },
-      "components": {
-        "button": "pill形状，深色背景，白色文字，带圆角（约999px），有细边框",
-        "card": null,
-        "chip": null,
-        "input": null,
-        "hero": "全屏或近全屏高度，左侧大标题文本，右侧/中央交互式3D物体，底部有'+'图标和'SCROLL TO EXPLORE'文字提示"
-      },
-      "interaction": {
-        "hover": "按钮hover时可能改变背景色或轻微放大（从常见UI模式推断）",
-        "click": null,
-        "transition": null,
-        "keyboard": null
-      },
-      "voice": {
-        "tone": "大胆、自信、技术导向，使用'epic'、'blow people's minds'等夸张词汇",
-        "headlineStyle": "句子式描述，直接陈述能力，无修辞疑问或标语",
-        "ctaStyle": "行动导向，如'LET'S TALK'简洁直接",
-        "avoid": [
-          "避免谦虚或保守的表述",
-          "避免抽象术语如'synergy'",
-          "避免过度营销语言如'best'"
-        ]
-      },
-      "donts": [
-        "不做静态图片展示 —— 截图是交互式3D物体而非静态图",
-        "不用浅色背景主导 —— 截图背景为深色或中性色块",
-        "不使用小字体标题 —— 截图标题大而突出，占据视觉中心",
-        "不隐藏导航菜单 —— 截图有明确'MENU'按钮，导航可见",
-        "不使用传统网格布局 —— 截图布局自由，3D物体溢出容器",
-        "不添加装饰性边框或分割线 —— 截图以3D物体为视觉元素，无额外装饰"
-      ],
-      "systemPrompt": "你是创意技术作品集页面设计师。配色以中性背景+高对比度3D物体颜色（紫、黑、白）为主；标题用geometric-sans字体，粗体大写，字号突出；布局慷慨留白，导航固定；不做静态图片/不用浅色背景/不用小字体标题/不隐藏菜单/不用传统网格/不加装饰边框。Hero是全屏交互式3D物体展示，强调实时体验，文案大胆自信。"
-    }
+    "palette": "",
+    "layout": "",
+    "interaction": "",
+    "motion": "",
+    "notes": ""
   },
   {
     "id": "metalab",
@@ -1880,62 +1851,81 @@ window.STYLE_ATLAS_SITES = [
       "Case Study",
       "Clean"
     ],
-    "palette": "Bright white, sharp black type, confident accent-color moments.",
-    "layout": "Case-study index with generous thumbnails and direct project framing.",
-    "interaction": "Fast card transitions, readable hover labels, direct external-path actions.",
-    "motion": "Snappy fades and image scale, no decorative delay.",
-    "notes": "Good template for turning project collections into decision-friendly browsing.",
+    "palette": "",
+    "layout": "",
+    "interaction": "",
+    "motion": "",
+    "notes": ""
+  },
+  {
+    "id": "minimax",
+    "title": "Minimax",
+    "url": "https://www.minimax.io",
+    "image": "https://image.thum.io/get/width/1440/https://www.minimax.io",
+    "tags": [
+      "AI",
+      "Product",
+      "SaaS",
+      "Clean",
+      "Geometric"
+    ],
+    "palette": "Clean white backgrounds with warm coral accents and muted grays for technical credibility",
+    "layout": "12-column grid with centered containers and generous whitespace for clear content hierarchy",
+    "interaction": "Smooth hover transitions and subtle press effects for professional feedback",
+    "motion": "Subtle, professional animations that enhance without distracting from technical content",
+    "notes": "This site demonstrates effective AI platform design balancing technical capability with approachable, clean aesthetics",
     "spec": {
       "colors": {
-        "bg": null,
-        "bgSoft": null,
-        "bgQuiet": null,
-        "ink": null,
-        "inkSoft": null,
-        "muted": null,
-        "mutedSoft": null,
-        "accent": null,
-        "line": null,
-        "principle": "深色主导，紫色高光点缀，营造科技神秘感。"
+        "bg": "#FFFFFF",
+        "bgSoft": "#F8F9FA",
+        "bgQuiet": "#F0F0F0",
+        "ink": "#1A1A1A",
+        "inkSoft": "#4A4A4A",
+        "muted": "#8A8A8A",
+        "mutedSoft": "#B0B0B0",
+        "accent": "#E84D3D",
+        "line": "rgba(0,0,0,0.1)",
+        "principle": "Clean white backgrounds with warm coral accents for emphasis"
       },
       "typography": {
-        "display": "transitional-serif",
+        "display": "geometric-sans",
         "body": "humanist-sans",
         "mono": null,
         "scale": [
           {
             "token": "display",
-            "size": 80,
+            "size": 48,
             "lh": 1.1,
-            "weight": 400,
-            "ls": "-1px",
-            "use": "首屏大标题'We make interfaces'"
+            "weight": 600,
+            "ls": "-0.5px",
+            "use": "Main headline"
+          },
+          {
+            "token": "heading",
+            "size": 24,
+            "lh": 1.3,
+            "weight": 600,
+            "ls": "-0.2px",
+            "use": "Section headings"
           },
           {
             "token": "body",
-            "size": 14,
+            "size": 16,
             "lh": 1.5,
             "weight": 400,
             "ls": "0",
-            "use": "描述性小字文本"
-          },
-          {
-            "token": "caption",
-            "size": 12,
-            "lh": 1.4,
-            "weight": 500,
-            "ls": "0.05em",
-            "use": "左侧品牌名列表"
+            "use": "Body text"
           }
         ],
         "rules": [
-          "标题使用衬线字体斜体或正常体，weight 400-500",
-          "正文无衬线小字，line-height适中",
-          "品牌名列表全大写或首字母大写，无衬线"
+          "Use geometric sans-serif for headlines and headings",
+          "Use humanist sans-serif for body text and descriptions",
+          "Maintain generous line height for readability",
+          "Use letter spacing for large display text"
         ]
       },
       "spacing": {
-        "base": 8,
+        "base": 4,
         "scale": [
           4,
           8,
@@ -1946,7 +1936,7 @@ window.STYLE_ATLAS_SITES = [
           64,
           96
         ],
-        "rhythm": "慷慨留白，hero区域空间宽松，文本间有呼吸感"
+        "rhythm": "8px vertical rhythm system with consistent spacing between sections"
       },
       "surfaces": {
         "radius": {
@@ -1956,78 +1946,225 @@ window.STYLE_ATLAS_SITES = [
           "pill": 999
         },
         "shadows": [
-          "3D图形有自然阴影，UI元素阴影轻微"
+          "0 1px 3px rgba(0,0,0,0.1)",
+          "0 4px 12px rgba(0,0,0,0.08)",
+          "0 8px 24px rgba(0,0,0,0.12)"
         ],
-        "borders": "无明显边线，依赖色块和间距分隔"
+        "borders": "1px solid rgba(0,0,0,0.1)"
       },
       "layout": {
         "container": 1200,
-        "paragraph": 300,
-        "columns": 2,
-        "gutter": 32,
+        "paragraph": 600,
+        "columns": 12,
+        "gutter": 24,
         "breakpoints": [
-          640,
           768,
-          1024,
-          1280
+          1024
         ],
-        "skeleton": "固定导航栏 → 全屏hero区含3D图形和标题 → 左侧品牌列表导航 → 隐藏式footer"
+        "skeleton": "12-column grid with centered content containers"
       },
       "motion": {
         "durations": {
-          "micro": null,
-          "small": null,
-          "medium": null
+          "micro": 150,
+          "small": 300,
+          "medium": 500
         },
-        "easing": null,
+        "easing": "cubic-bezier(0.4, 0, 0.2, 1)",
         "patterns": [
-          "导航栏可能固定且有backdrop blur效果",
-          "品牌列表可能有hover高亮"
+          "Smooth hover transitions on interactive elements",
+          "Subtle fade-in for content loading"
         ]
       },
       "identity": {
         "keywords": [
-          "深色背景",
-          "3D抽象",
-          "品牌列表",
-          "极简导航",
-          "大标题衬线"
+          "AI",
+          "Models",
+          "Engineering",
+          "Self-improvement",
+          "Full-stack"
         ],
-        "analogy": "是数字艺术装置的沉浸体验，不是传统企业网站",
-        "oneLiner": "用抽象视觉和简洁文案展示数字产品设计的专业性"
+        "analogy": "A clean, technical dashboard for AI development",
+        "oneLiner": "A professional AI platform interface emphasizing technical capability and clean design"
       },
       "components": {
-        "button": "圆角矩形，深色背景浅色文字，小尺寸",
-        "card": null,
-        "chip": null,
-        "input": null,
-        "hero": "全屏深色背景，大型3D抽象图形居中，标题和小字文本叠加在图形上"
+        "button": "Pill-shaped buttons with solid fill or outline styling",
+        "card": "White cards with subtle shadows and rounded corners",
+        "chip": "Small rounded tags with accent colors",
+        "input": "Clean input fields with minimal borders",
+        "hero": "Centered headline with supporting text and action buttons"
       },
       "interaction": {
-        "hover": "品牌名列表项可能有背景色或文字颜色变化",
-        "click": "导航点击切换内容",
-        "transition": "页面切换可能平滑滚动",
-        "keyboard": "可能支持键盘导航"
+        "hover": "Scale and shadow enhancement on cards",
+        "click": "Subtle press effect on buttons",
+        "transition": "Smooth color and opacity transitions",
+        "keyboard": "Focus states with visible outlines"
       },
       "voice": {
-        "tone": "专业、自信、简洁",
-        "headlineStyle": "直接陈述式，如'We make interfaces'",
-        "ctaStyle": "无明显CTA按钮，文案导向",
+        "tone": "Professional and technical",
+        "headlineStyle": "Concise and action-oriented",
+        "ctaStyle": "Direct and specific to capabilities",
         "avoid": [
-          "避免冗长描述",
-          "避免花哨修饰",
-          "避免非专业术语"
+          "Overly casual language",
+          "Excessive exclamation marks",
+          "Jargon without explanation"
         ]
       },
       "donts": [
-        "不做亮色背景 —— 截图全是深色背景",
-        "不用无衬线大标题 —— 截图标题是衬线字体",
-        "不用多列文本布局 —— 截图文本集中右侧",
-        "不用装饰性图案覆盖 —— 3D图形是主要视觉但非装饰",
-        "不用卡片容器展示品牌 —— 品牌以列表形式出现",
-        "不用动画图标或徽章 —— 截图静态无动态元素"
+        "Don't use dark backgrounds — screenshot shows clean white primary background",
+        "Don't use decorative script fonts — screenshot shows geometric sans-serif for headlines",
+        "Don't use neon colors — screenshot shows warm coral accent with muted tones",
+        "Don't use complex gradients — screenshot shows solid colors and subtle gradients",
+        "Don't overcrowd the layout — screenshot shows generous whitespace and clear hierarchy",
+        "Don't use harsh shadows — screenshot shows soft, diffused shadows on cards"
       ],
-      "systemPrompt": "你是深色科技感产品展示页面设计师。配色：深色背景为主，紫色高光点缀，无亮色accent；标题用transitional-serif衬线字体，正文humanist-sans无衬线；hero区全屏3D抽象图形，标题叠加；左侧品牌名列表导航；留白慷慨；不用亮色背景/不用无衬线大标题/不用多列文本/不用卡片布局/不用装饰图案/不用动画图标。文案简洁专业，避免冗余。"
+      "systemPrompt": "This is a professional AI platform interface for MiniMax, emphasizing technical capability and clean design. The design uses a clean white background (#FFFFFF) with warm coral accent (#E84D3D) for emphasis. Typography combines geometric sans-serif for headlines with humanist sans-serif for body text, maintaining clear hierarchy through size and weight variations. The layout follows a 12-column grid system with centered containers and generous whitespace. Key features include pill-shaped buttons, cards with subtle shadows, and smooth hover interactions. Critical design principles: maintain clean whitespace, use geometric typography for technical credibility, and ensure coral accents draw attention to key actions without overwhelming the interface."
+    }
+  },
+  {
+    "id": "mistral",
+    "title": "Mistral",
+    "url": "https://mistral.ai",
+    "image": "https://image.thum.io/get/width/1440/https://mistral.ai",
+    "tags": [
+      "AI",
+      "Product",
+      "Clean",
+      "Premium",
+      "Editorial"
+    ],
+    "palette": "A clean, high-contrast palette with a white background, dark ink text, and a single bold, deep orange accent color.",
+    "layout": "A spacious, editorial 12-column grid layout that prioritizes whitespace and clear typographic hierarchy.",
+    "interaction": "Minimal and focused, using simple underlined text links with small arrow icons for navigation and calls to action.",
+    "motion": "Subtle and professional, with smooth transitions that do not distract from the content.",
+    "notes": "This site is a great example of how to blend a premium, authoritative brand identity with a modern tech aesthetic using restrained color and elegant typography.",
+    "spec": {
+      "colors": {
+        "bg": "#FFFFFF",
+        "bgSoft": null,
+        "bgQuiet": null,
+        "ink": "#1A1A1A",
+        "inkSoft": null,
+        "muted": "#666666",
+        "mutedSoft": null,
+        "accent": "#E65100",
+        "line": "rgba(0, 0, 0, 0.1)",
+        "principle": "Clean, high-contrast light background with a single bold orange accent."
+      },
+      "typography": {
+        "display": "transitional-serif",
+        "body": "humanist-sans",
+        "mono": null,
+        "scale": [
+          {
+            "token": "display",
+            "size": 52,
+            "lh": 1.05,
+            "weight": 400,
+            "ls": "-0.5px",
+            "use": "Hero and section headlines"
+          },
+          {
+            "token": "h2",
+            "size": 32,
+            "lh": 1.2,
+            "weight": 400,
+            "ls": "-0.2px",
+            "use": "Sub-headlines"
+          }
+        ],
+        "rules": [
+          "Headlines use a refined transitional serif with medium weight.",
+          "Body text is a neutral humanist sans-serif for readability."
+        ]
+      },
+      "spacing": {
+        "base": 4,
+        "scale": [
+          4,
+          8,
+          16,
+          24,
+          32,
+          48,
+          64,
+          96
+        ],
+        "rhythm": "Generous vertical spacing to create a calm, breathable layout."
+      },
+      "surfaces": {
+        "radius": {
+          "sm": 4,
+          "md": 8,
+          "lg": 12,
+          "pill": 999
+        },
+        "shadows": [],
+        "borders": "1px solid rgba(0,0,0,0.1) for separation."
+      },
+      "layout": {
+        "container": 1200,
+        "paragraph": 680,
+        "columns": 12,
+        "gutter": 24,
+        "breakpoints": [
+          768,
+          1024
+        ],
+        "skeleton": "Standard 12-column grid with ample horizontal padding."
+      },
+      "motion": {
+        "durations": {
+          "micro": 220,
+          "small": 400,
+          "medium": 800
+        },
+        "easing": "cubic-bezier(0.25, 0.1, 0.25, 1)",
+        "patterns": [
+          "Subtle hover states on navigation and links."
+        ]
+      },
+      "identity": {
+        "keywords": [
+          "AI systems",
+          "customized",
+          "frontier intelligence",
+          "enterprise"
+        ],
+        "analogy": "A high-end consultancy meets cutting-edge tech lab",
+        "oneLiner": "Premium AI systems builder with a clean, confident editorial aesthetic."
+      },
+      "components": {
+        "button": "Underlined text links with small arrow icons for navigation; solid fill for primary actions in nav.",
+        "card": "Content sections defined by whitespace and horizontal rules rather than containers.",
+        "chip": "Logo strips as monochromatic greyscale icons.",
+        "input": "None visible.",
+        "hero": "Full-width vibrant gradient landscape image with large serif headline and two text links."
+      },
+      "interaction": {
+        "hover": "Subtle color change or underline appearance.",
+        "click": "Immediate visual feedback.",
+        "transition": "Smooth, unobtrusive transitions.",
+        "keyboard": "Standard tab navigation expected."
+      },
+      "voice": {
+        "tone": "Confident, authoritative, and professional.",
+        "headlineStyle": "Declarative statements in a refined serif font.",
+        "ctaStyle": "Action-oriented text links (\"Get in touch\", \"Start building\").",
+        "avoid": [
+          "Playful slang",
+          "Overly technical jargon",
+          "Aggressive sales language"
+        ]
+      },
+      "donts": [
+        "Don't use neon or overly saturated colors — the palette uses a single deep orange accent against white.",
+        "Don't use heavy drop shadows — the design relies on whitespace and clean typography for hierarchy.",
+        "Don't use a sans-serif for large headlines — the design distinctly uses a transitional serif for display text.",
+        "Don't clutter the layout with too many UI elements — the design prioritizes generous negative space.",
+        "Don't use rounded, bubbly shapes — the design aesthetic is sharp, geometric, and refined.",
+        "Don't use a dark background for the main site — it is predominantly light with a vibrant hero image."
+      ],
+      "systemPrompt": "This design represents a premium, enterprise-focused AI company. It features a clean, light background with a single deep orange accent color (#E65100) and a refined transitional serif font for headlines to convey authority and sophistication. The layout is spacious and editorial, avoiding clutter. Critical donts: Do not use multiple bright colors; Do not use sans-serif for headlines; Do not add heavy drop shadows; Do not use playful or bubbly elements; Do not clutter the interface; Do not use a dark mode for the primary view."
     }
   },
   {
@@ -2041,70 +2178,70 @@ window.STYLE_ATLAS_SITES = [
       "Library",
       "Grid"
     ],
-    "palette": "Pure-white workbench base, black type, a touch of brand orange — letting the collected works lead.",
-    "layout": "Three-column responsive grid; each card is a real app screenshot with a minimal caption.",
-    "interaction": "Hover lifts the card slightly and floats a tag in; clicking enters flow-level deep browsing.",
-    "motion": "200ms hover feedback + 600ms lightbox transition — restrained and effective.",
-    "notes": "The benchmark for mobile-UI reference libraries — OpenDesign for desktop, Mobbin for mobile.",
+    "palette": "Strictly monochromatic with black text on white backgrounds, using grays for secondary information.",
+    "layout": "Centered hero section with generous whitespace, transitioning to a structured grid for browsing.",
+    "interaction": "Minimal but precise interactions with subtle hover states and clear visual feedback.",
+    "motion": "Very subtle, almost imperceptible transitions that prioritize performance and clarity.",
+    "notes": "Exemplary restraint in design where typography and spacing create a professional, trustworthy reference tool.",
     "spec": {
       "colors": {
-        "bg": null,
-        "bgSoft": null,
+        "bg": "#FFFFFF",
+        "bgSoft": "#F5F5F5",
         "bgQuiet": null,
-        "ink": null,
-        "inkSoft": null,
-        "muted": null,
+        "ink": "#000000",
+        "inkSoft": "#666666",
+        "muted": "#999999",
         "mutedSoft": null,
         "accent": null,
-        "line": null,
-        "principle": "纯白与浅灰交替，无品牌色干扰内容浏览"
+        "line": "rgba(0,0,0,0.1)",
+        "principle": "Extreme restraint with high-contrast typography and neutral backgrounds."
       },
       "typography": {
-        "display": "geometric-sans",
-        "body": "humanist-sans",
+        "display": "grotesque-sans",
+        "body": "grotesque-sans",
         "mono": null,
         "scale": [
           {
             "token": "display",
-            "size": 64,
+            "size": 56,
             "lh": 1.1,
             "weight": 700,
-            "ls": "-1px",
-            "use": "首屏核心标题，单行或双行"
+            "ls": "-1.5px",
+            "use": "Main headline"
           },
           {
-            "token": "h2",
+            "token": "h1",
             "size": 40,
             "lh": 1.2,
-            "weight": 600,
+            "weight": 700,
             "ls": "-0.5px",
-            "use": "区块标题，如‘Trusted by’"
+            "use": "Section headings"
           },
           {
             "token": "body",
-            "size": 16,
-            "lh": 1.5,
+            "size": 18,
+            "lh": 1.6,
             "weight": 400,
-            "ls": "normal",
-            "use": "正文描述与标签"
+            "ls": "0px",
+            "use": "Subheadings and descriptions"
           },
           {
-            "token": "caption",
+            "token": "body-sm",
             "size": 14,
-            "lh": 1.4,
-            "weight": 500,
-            "ls": "normal",
-            "use": "导航与列表项文字"
+            "lh": 1.5,
+            "weight": 400,
+            "ls": "0px",
+            "use": "Captions and labels"
           }
         ],
         "rules": [
-          "标题（display）居中，字重700，-1px字距",
-          "正文不居中，与标题形成对比",
-          "分类/屏幕标题（h2）加粗，作为列表分组标识"
+          "Tight letter-spacing for headlines",
+          "Generous line-height for body text",
+          "High contrast for readability"
         ]
       },
       "spacing": {
-        "base": 8,
+        "base": 4,
         "scale": [
           4,
           8,
@@ -2114,89 +2251,91 @@ window.STYLE_ATLAS_SITES = [
           32,
           48,
           64,
+          80,
           96
         ],
-        "rhythm": "慷慨到适中的节奏变化：hero区留白巨大，搜索/分类区紧凑实用"
+        "rhythm": "Consistent 8px grid with generous vertical spacing for breathing room."
       },
       "surfaces": {
         "radius": {
           "sm": 4,
           "md": 8,
-          "lg": 999,
+          "lg": 12,
           "pill": 999
         },
         "shadows": [
-          "仅导航胶囊和搜索框有微弱投影，用于分层"
+          "0px 1px 2px rgba(0,0,0,0.05)",
+          "0px 4px 12px rgba(0,0,0,0.08)"
         ],
-        "borders": "导航栏和搜索框有1px浅灰边线，无卡片式边框"
+        "borders": "1px solid rgba(0,0,0,0.1) for inputs and cards."
       },
       "layout": {
         "container": 1200,
-        "paragraph": 600,
-        "columns": 1,
+        "paragraph": 680,
+        "columns": 12,
         "gutter": 24,
         "breakpoints": [
           768,
-          1024,
-          1200
+          1024
         ],
-        "skeleton": "顶部胶囊导航 → 居中图标+标题+副标题+双按钮 hero → 公司 logo 横排 → 浅灰背景区块内搜索框 + 三栏分类列表"
+        "skeleton": "Centered content with generous white space and clear visual hierarchy."
       },
       "motion": {
         "durations": {
-          "micro": null,
-          "small": null,
-          "medium": null
+          "micro": 150,
+          "small": 250,
+          "medium": 400
         },
-        "easing": null,
+        "easing": "cubic-bezier(0.4, 0.0, 0.2, 1)",
         "patterns": [
-          "导航栏固定且可能带模糊效果（sticky+backdrop-blur）",
-          "按钮可能有悬停时的轻微缩放或颜色变化"
+          "Subtle hover effects on interactive elements",
+          "Smooth transitions between states"
         ]
       },
       "identity": {
         "keywords": [
-          "胶囊导航",
-          "设计灵感",
-          "社会证明",
-          "整洁排版",
-          "图标居中"
+          "design inspiration",
+          "UI reference",
+          "component library",
+          "mobile apps",
+          "web apps"
         ],
-        "analogy": "是建筑师的 Materials Library，不是设计杂志",
-        "oneLiner": "设计团队的UI参考素材库"
+        "analogy": "A well-organized visual encyclopedia for digital design.",
+        "oneLiner": "A comprehensive design reference platform for discovering real-world UI patterns."
       },
       "components": {
-        "button": "胶囊形（pill）。黑色实心主按钮('Join for free')，白色描边副按钮('See our plans')",
-        "card": null,
-        "chip": null,
-        "input": "圆角搜索框，浅灰背景，左侧放大镜图标，右侧相机图标",
-        "hero": "垂直居中排列：圆角 App 图标 → 大标题 → 副标题 → 双 CTA 按钮"
+        "button": "Pill-shaped primary with black fill, secondary with border.",
+        "card": "Subtle shadow with rounded corners for content containers.",
+        "chip": "Tag-like elements for filtering.",
+        "input": "Rounded search bar with placeholder text and icons.",
+        "hero": "Centered layout with large typography, logo, and dual CTAs."
       },
       "interaction": {
-        "hover": "按钮可能有轻微缩放或背景色微调",
-        "click": "无信息",
-        "transition": "无信息",
-        "keyboard": "无信息"
+        "hover": "Subtle opacity changes or color shifts on buttons and links.",
+        "click": "Immediate visual feedback with slight scale reduction.",
+        "transition": "Smooth transitions for state changes and navigation.",
+        "keyboard": "Logical tab order with visible focus states."
       },
       "voice": {
-        "tone": "直接、专业、工具导向",
-        "headlineStyle": "简洁的祈使句或陈述句，强调‘真实世界’和‘灵感’",
-        "ctaStyle": "动词+名词，明确行动指令，如‘Join for free’",
+        "tone": "Professional, clear, and authoritative yet approachable.",
+        "headlineStyle": "Bold, concise statements that communicate value proposition directly.",
+        "ctaStyle": "Action-oriented with clear verbs ('Join', 'See our plans').",
         "avoid": [
-          "夸张的营销话术",
-          "模糊的愿景描述",
-          "感叹号堆砌"
+          "Jargon",
+          "Overly technical language",
+          "Marketing fluff",
+          "Passive voice"
         ]
       },
       "donts": [
-        "不做渐变或复杂背景 —— 截图全是纯白或浅灰纯色块",
-        "不用复杂动画或视差滚动 —— 布局静态、功能优先",
-        "不用衬线字体做标题 —— 全部标题和正文均为无衬线体",
-        "不用彩色或渐变色做强调 —— 除 app 图标外无高彩度颜色",
-        "不做多栏复杂 hero —— hero 区域严格居中单栏",
-        "标题长度不超过5个实义英文词 —— 核心标题'Discover real-world design inspiration'控制在6词且核心动作词简短"
+        "Don't use vibrant accent colors — screenshot shows a monochromatic palette with black and gray only.",
+        "Don't use serif fonts — screenshot shows a clean grotesque-sans typeface throughout.",
+        "Don't add excessive shadows or 3D effects — screenshot shows minimal, subtle depth cues.",
+        "Don't center every text block — screenshot uses left-aligned text for lists and categories.",
+        "Don't use rounded containers with heavy borders — screenshot uses minimal border styling.",
+        "Don't overcrowd the interface — screenshot demonstrates generous white space and breathing room."
       ],
-      "systemPrompt": "你为设计工具网站构建系统。页面背景为纯白#FFFFFF与浅灰#F5F5F5交替。标题用geometric-sans 700 weight，正文用humanist-sans 400，全部无衬线。hero区垂直居中，图标在上，标题大而醒目。导航为固定胶囊形。CTA按钮为黑色pill形实心与白色pill形描边。留白慷慨，但功能区紧凑。严格使用黑白灰，绝不引入品牌色或渐变。标题直接、简短、功能导向，避免营销腔。"
+      "systemPrompt": "This is a clean, reference-focused design system for a UI library platform. Positioning: A comprehensive design reference tool for professionals. Key hex colors: #000000 (ink), #FFFFFF (bg), #F5F5F5 (bgSoft), #666666 (inkSoft). Font categories: grotesque-sans for all text. Critical donts: Don't use vibrant accent colors (monochromatic only), don't use serif fonts (clean sans-serif only), don't add excessive shadows (minimal depth). The design prioritizes clarity and readability with extreme restraint, using typography hierarchy and spacing as primary design tools."
     }
   },
   {
@@ -2581,71 +2720,41 @@ window.STYLE_ATLAS_SITES = [
       "Refined",
       "Developer Tools"
     ],
-    "palette": "Deep violet-black base with a warm orange accent and high-contrast white type — the whole site reads like a refined dark macOS app.",
-    "layout": "Hero is a real spotlight-launcher screenshot; below, feature panels resemble macOS App Store feature cards.",
-    "interaction": "A subtle gradient halo on hover; keyboard shortcut hints everywhere.",
-    "motion": "Tight 150–250ms — precise pacing matching what keyboard-first users expect.",
-    "notes": "The contemporary template for Mac-tool sites — dark mode handled with extraordinary restraint.",
+    "palette": "A strict, high-contrast monochromatic palette using absolute black and white for maximum clarity.",
+    "layout": "A centered, single-column layout with generous whitespace that focuses attention on the core message.",
+    "interaction": "Clean, pill-shaped buttons and minimal interactive elements prioritize function over form.",
+    "motion": "Implied subtle, smooth transitions consistent with a refined, high-performance tool.",
+    "notes": "This site is a masterclass in minimalist, developer-focused design that uses extreme contrast and restraint to convey power and reliability.",
     "spec": {
       "colors": {
-        "bg": null,
+        "bg": "#000000",
         "bgSoft": null,
         "bgQuiet": null,
-        "ink": null,
+        "ink": "#FFFFFF",
         "inkSoft": null,
-        "muted": null,
+        "muted": "#888888",
         "mutedSoft": null,
         "accent": null,
-        "line": null,
-        "principle": "纯黑白灰三阶：黑底白字为主，灰色仅用于副标题和导航链接，无品牌色参与 UI 层"
+        "line": "rgba(255, 255, 255, 0.1)",
+        "principle": "High-contrast, monochromatic dark mode with absolute black background."
       },
       "typography": {
-        "display": "geometric-sans",
-        "body": "geometric-sans",
-        "mono": "mono",
+        "display": "humanist-sans",
+        "body": "humanist-sans",
+        "mono": "monospace",
         "scale": [
           {
             "token": "display",
-            "size": 60,
-            "lh": 1.1,
+            "size": 64,
+            "lh": 1.05,
             "weight": 500,
-            "ls": "-0.02em",
-            "use": "首屏主标题，两行居中，句号结尾"
-          },
-          {
-            "token": "body",
-            "size": 18,
-            "lh": 1.6,
-            "weight": 400,
-            "ls": "0",
-            "use": "hero 副标题描述文案"
-          },
-          {
-            "token": "caption",
-            "size": 13,
-            "lh": 1.5,
-            "weight": 400,
-            "ls": "0",
-            "use": "版本号与安装命令信息"
-          },
-          {
-            "token": "caption",
-            "size": 14,
-            "lh": 1.4,
-            "weight": 500,
-            "ls": "0",
-            "use": "按钮内文字"
+            "ls": "-2px",
+            "use": "Main hero headline"
           }
-        ],
-        "rules": [
-          "标题永远 500 weight，不用 bold/700+",
-          "标题用句号结尾，语气陈述而非感叹",
-          "monospace 仅用于版本号和命令行安装提示",
-          "导航链接 500 weight 14px，不加粗"
         ]
       },
       "spacing": {
-        "base": 8,
+        "base": 4,
         "scale": [
           4,
           8,
@@ -2654,94 +2763,82 @@ window.STYLE_ATLAS_SITES = [
           32,
           48,
           64,
-          96,
-          128,
-          160
+          96
         ],
-        "rhythm": "慷慨——hero 上方约 160px 垂直空间，标题与副标题间距 24px，副标题与按钮组间距约 96px，整体留白占页面 70%+"
+        "rhythm": "Generous vertical spacing to emphasize the minimalist aesthetic."
       },
       "surfaces": {
         "radius": {
-          "sm": 6,
-          "md": 12,
-          "lg": 16,
+          "sm": 4,
+          "md": 8,
+          "lg": 12,
           "pill": 999
         },
-        "shadows": [
-          "无可见投影，按钮和导航均为平面无 elevation"
-        ],
-        "borders": "导航底部一条 1px 极细灰线分隔；按钮为纯色填充无边框；'Try the new Raycast' 用 1px 细边框圆角容器"
+        "shadows": [],
+        "borders": "Subtle, low-opacity borders for separation without visual weight."
       },
       "layout": {
-        "container": 800,
-        "paragraph": 520,
-        "columns": 1,
-        "gutter": 0,
+        "container": 1280,
+        "paragraph": 680,
+        "columns": 12,
+        "gutter": 24,
         "breakpoints": [
           768,
-          1024,
-          1280
+          1024
         ],
-        "skeleton": "fixed top nav（logo + 横向链接 + 右侧登录/下载）→ 大面积留白 → 居中 display 标题 → 副标题 → 两个并排下载按钮 → 版本信息 → CTA 链接 → 大面积黑色留白"
+        "skeleton": "Centered single-column hero layout with strict vertical alignment."
       },
       "motion": {
         "durations": {
-          "micro": 150,
-          "small": 200,
-          "medium": null
+          "micro": 220,
+          "small": 400,
+          "medium": 800
         },
-        "easing": "cubic-bezier(0.25, 0.1, 0.25, 1)",
-        "patterns": [
-          "按钮悬停可能有背景色微调（从静态截图推断）",
-          "Learn more 箭头暗示 hover 有位移动效"
-        ]
+        "easing": "cubic-bezier(0.25, 0.1, 0.25, 1)"
       },
       "identity": {
         "keywords": [
-          "极简",
-          "深色模式",
-          "工具自信",
-          "无装饰",
-          "慷慨留白"
+          "Productivity",
+          "Developer",
+          "Launcher",
+          "Extensible",
+          "Fast"
         ],
-        "analogy": "是 Terminal 的纯黑 + Apple HIG 的排版精度，不是 Hacker News 的极客绿字也不是 Vercel 的渐变暗色",
-        "oneLiner": "用最少的视觉元素传达最大的工具信心"
+        "analogy": "A high-performance sports car for the operating system.",
+        "oneLiner": "A powerful, extensible productivity launcher for developers and power users."
       },
       "components": {
-        "button": "白色实色圆角胶囊按钮，内含平台图标 + 文字，高度约 44px；nav 右侧 Download 按钮相同样式；无投影无渐变",
-        "card": null,
-        "chip": "底部 'Try the new Raycast | Learn more →' 为 1px 细边框圆角胶囊，内部分两段文字",
-        "input": null,
-        "hero": "纯文字居中 hero，display 标题 + body 副标题 + 双按钮 + 版本信息，无图片无动画截图无产品预览"
+        "button": "Pill-shaped with light background for primary actions, dark for secondary.",
+        "card": "Minimal, borderless, relying on spacing for separation.",
+        "chip": "Inline pill-shaped badges for version information.",
+        "input": "Clean, borderless inputs focused on functionality.",
+        "hero": "Large, centered text block with high-contrast typography and clear call-to-action."
       },
       "interaction": {
-        "hover": "按钮可能有 opacity 或背景亮度微调；导航链接可能有颜色变亮",
-        "click": null,
-        "transition": "所有过渡应保持 200ms 以内，符合工具型产品的快节奏预期",
-        "keyboard": "作为启动器类工具，官网应暗示键盘优先的操作心智"
+        "hover": "Subtle opacity or color shift on interactive elements.",
+        "click": "Immediate visual feedback.",
+        "transition": "Smooth, quick transitions for state changes.",
+        "keyboard": "Full keyboard navigation support implied by developer tool positioning."
       },
       "voice": {
-        "tone": "自信、克制、陈述事实，不推销不煽情",
-        "headlineStyle": "短句陈述，句号结尾，不加感叹号，如 'Your shortcut to everything.'",
-        "ctaStyle": "动词开头的功能描述：'Download for Mac' / 'Learn more'，不用 'Get started' 或 'Sign up free'",
+        "tone": "Confident, professional, and direct.",
+        "headlineStyle": "Short, punchy, and benefit-driven statements.",
+        "ctaStyle": "Clear, actionable commands with minimal fluff.",
         "avoid": [
-          "感叹号",
-          "营销感形容词如 'amazing/incredible'",
-          "长句标题",
-          "用户评价或数字社会证明"
+          "Jargon",
+          "Overly casual language",
+          "Excessive punctuation"
         ]
       },
       "donts": [
-        "不做渐变或纹理背景 —— 截图里是 #000000 纯黑无任何渐变",
-        "不用多色 accent —— 截图里唯一彩色是 logo 的红色闪电图标，UI 层全无彩色",
-        "不用粗体标题 —— 截图里 hero 标题是 500 weight 中等粗细，非 bold",
-        "不用卡片或阴影层次 —— 截图里无任何 elevation 或 card 组件",
-        "不在 hero 放产品截图或动画 —— 截图里 hero 下方直接是按钮和大量留白",
-        "不在按钮用渐变或投影 —— 按钮是纯白 flat 填充无任何 depth",
-        "不用感叹号结尾 —— 截图里标题和副标题全是句号或无标点",
-        "不放 social proof —— 截图里无用户头像、评价、logo 墙或数字指标"
+        "Don't use bright, saturated colors — screenshot shows a strictly monochromatic palette.",
+        "Don't add gradients or textures — screenshot shows flat, solid backgrounds only.",
+        "Don't use decorative serif fonts — screenshot uses clean, modern sans-serif typography.",
+        "Don't clutter the interface — screenshot shows generous whitespace and minimal elements.",
+        "Don't use rounded rectangles with large radius — screenshot shows subtle, small-radius corners.",
+        "Don't use drop shadows for depth — screenshot relies on high contrast for hierarchy."
       ],
-      "systemPrompt": "你是深色模式极简工具官网设计师。配色：纯黑 #000000 背景 + 纯白文字 + 灰色副标题，无 accent 色参与 UI；标题用 geometric-sans 500 weight 不加粗，正文同族 400 weight；按钮为白色圆角胶囊 flat 填充无投影；hero 为纯文字居中布局无产品截图；section 间距 96-160px 极度慷慨留白；不用渐变/不用卡片/不用感叹号/不用 social proof /不用粗体标题。语气自信克制，句号结尾，CTA 用动词开头的功能描述。"
+      "systemPrompt": "This site is a high-performance productivity tool for developers, positioned as a fast and reliable launcher. Key hex colors are #000000 (background) and #FFFFFF (text), with #888888 for muted elements. Typography uses clean, humanist sans-serif categories for both display and body text. Critical donts include avoiding bright colors, gradients, decorative serifs, clutter, large border radii, and drop shadows. The design prioritizes absolute clarity and a premium, refined feel through monochromatic minimalism."
     }
   },
   {
@@ -2754,158 +2851,11 @@ window.STYLE_ATLAS_SITES = [
       "SaaS",
       "Calm"
     ],
-    "palette": "Paper white, muted gray, focused blue-black text.",
-    "layout": "A calm writing/product narrative with feature blocks that never overwhelm.",
-    "interaction": "Keyboard-centric product cues and quiet hover affordances.",
-    "motion": "Minimal motion, mostly used to clarify mental-model transitions.",
-    "notes": "Good for productivity tools that should feel thoughtful instead of loud.",
-    "spec": {
-      "colors": {
-        "bg": null,
-        "bgSoft": null,
-        "bgQuiet": null,
-        "ink": null,
-        "inkSoft": null,
-        "muted": null,
-        "mutedSoft": null,
-        "accent": null,
-        "line": null,
-        "principle": "palette 为空无法提取具体色值，但视觉上是深色底 + 白色文字 + 紫色光晕作为唯一高彩度焦点"
-      },
-      "typography": {
-        "display": "geometric-sans",
-        "body": "geometric-sans",
-        "mono": null,
-        "scale": [
-          {
-            "token": "display",
-            "size": 52,
-            "lh": 1.1,
-            "weight": 500,
-            "ls": "-1px",
-            "use": "首屏主标题 Think better with Reflect"
-          },
-          {
-            "token": "body",
-            "size": 18,
-            "lh": 1.5,
-            "weight": 400,
-            "ls": "0",
-            "use": "副标题和导航文字"
-          },
-          {
-            "token": "caption",
-            "size": 13,
-            "lh": 1.4,
-            "weight": 500,
-            "ls": "0",
-            "use": "badge 提示文字 New: Our AI integration"
-          }
-        ],
-        "rules": [
-          "标题 500 weight 非 bold，保持克制",
-          "全文无衬线，不混用 serif",
-          "badge 文字用中等字重不做全大写"
-        ]
-      },
-      "spacing": {
-        "base": 8,
-        "scale": [
-          4,
-          8,
-          12,
-          16,
-          24,
-          32,
-          48,
-          64,
-          96
-        ],
-        "rhythm": "慷慨留白，hero 区域上下大量呼吸空间，badge 到标题约 32px，标题到副标题约 16px，副标题到产品截图约 48px"
-      },
-      "surfaces": {
-        "radius": {
-          "sm": 4,
-          "md": 8,
-          "lg": 12,
-          "pill": 999
-        },
-        "shadows": [
-          "不做传统 drop shadow，用 purple 辉光 glow 代替投影来突出产品截图"
-        ],
-        "borders": "极少量边线，产品截图用微弱深色描边，CTA 按钮用紫色描边"
-      },
-      "layout": {
-        "container": 1100,
-        "paragraph": 520,
-        "columns": 1,
-        "gutter": 24,
-        "breakpoints": [
-          640,
-          768,
-          1024,
-          1280
-        ],
-        "skeleton": "顶部导航栏 → 居中 badge 提示 → 大标题 → 副标题 → 紫色光晕装饰 → 产品截图 mockup（内含侧边栏 + 编辑区 + 日历）"
-      },
-      "motion": {
-        "durations": {
-          "micro": null,
-          "small": null,
-          "medium": null
-        },
-        "easing": null,
-        "patterns": [
-          "紫色光晕暗示可能有呼吸式脉动动画",
-          "产品截图悬浮在光晕上方暗示可能有 scroll parallax",
-          "badge 带 New 标签暗示可能有入场动效"
-        ]
-      },
-      "identity": {
-        "keywords": [
-          "暗色沉浸",
-          "紫色光晕",
-          "产品截图主导",
-          "极简导航",
-          "科技克制"
-        ],
-        "analogy": "是 Linear 的冷峻暗色不是 Notion 的温暖纸感，是天文馆穹顶投影不是咖啡馆菜单",
-        "oneLiner": "用深色画布和紫色光晕把笔记工具包装成一个安静的思维宇宙"
-      },
-      "components": {
-        "button": "CTA 为紫色描边圆角按钮，无实心填充，文字白色；Login 为纯文字链接无背景",
-        "card": "产品截图本身呈现为深色圆角卡片形态，内含多面板布局",
-        "chip": "badge 为深色半透明背景 + 圆角胶囊形 + 紫色小图标前缀",
-        "input": "截图内搜索框为深色背景 + 圆角 + 灰色 placeholder + 快捷键提示",
-        "hero": "居中文字型 hero：badge → 大标题 → 副标题 → 全宽紫色极光光晕 → 产品截图嵌入"
-      },
-      "interaction": {
-        "hover": "CTA 按钮大概率有紫色辉光增强或背景填充变化，导航链接可能有文字颜色变亮",
-        "click": null,
-        "transition": null,
-        "keyboard": null
-      },
-      "voice": {
-        "tone": "平静、自信、略带智识感，不说教不卖力推销",
-        "headlineStyle": "简短动词开头的祈使句式 Think better with…，不堆砌形容词",
-        "ctaStyle": "功能性直白 CTA Start free trial，不带感叹号不加修饰",
-        "avoid": [
-          "避免感叹号",
-          "避免 all-caps 喊叫式标题",
-          "避免过度承诺型措辞如 best / ultimate / insane"
-        ]
-      },
-      "donts": [
-        "不用亮色或白色背景 —— 截图全程深色接近 #0B0B14 的暗色底",
-        "不用衬线字体 —— 标题和正文全部为无衬线",
-        "不用实心填充品牌色按钮 —— CTA 按钮是紫色描边而非实心紫色填充",
-        "不在 hero 放纯文字无视觉 —— hero 底部有产品截图 mockup 和光晕装饰",
-        "不用传统 drop shadow —— 用紫色 glow 光晕代替阴影做层次",
-        "不做多栏 hero 文案 —— 标题居中单列，副标题紧跟其下",
-        "不用 emoji 装饰标题 —— 标题纯文字无 emoji 点缀"
-      ],
-      "systemPrompt": "你是暗色沉浸式产品落地页设计师。背景极深近黑，文字白色，紫色光晕是唯一高彩度焦点；标题用 geometric-sans 500 weight 简短祈使句，正文同族 400 weight；CTA 按钮紫色描边不实心填充；不用衬线 / 不用亮色背景 / 不用 drop shadow / 不用 emoji / 标题不超过 5 词 / hero 必须有产品截图。整体气质冷静克制，像天文馆不是游乐场。"
-    }
+    "palette": "",
+    "layout": "",
+    "interaction": "",
+    "motion": "",
+    "notes": ""
   },
   {
     "id": "stripe-press",
@@ -2918,75 +2868,50 @@ window.STYLE_ATLAS_SITES = [
       "Premium",
       "Typography"
     ],
-    "palette": "Ivory base with publishing accents — deep ink-green, oxblood, navy — each book carrying its own palette.",
-    "layout": "Fully editorial: a book cover is the hero; body text uses a true newspaper grid, serif type, and generous leading.",
-    "interaction": "Page-style scrolling; hover only nudges a cover up slightly — never breaks the read.",
-    "motion": "Almost no motion — used only for page transitions to echo the metaphor of turning a page.",
-    "notes": "The benchmark for porting publishing design language to the web — required viewing for any editorial-leaning site.",
+    "palette": "A deeply restrained near-monochrome palette of dark brown-black and warm off-white, creating a sophisticated and focused reading environment.",
+    "layout": "An ultra-minimal, vertically-oriented layout that prioritizes extreme negative space and content readability over dense information architecture.",
+    "interaction": "Interactions are expected to be subtle and unhurried, likely involving gentle fades and opacity changes that maintain the site's calm demeanor.",
+    "motion": "Motion would be slow and deliberate, using smooth easing curves to reinforce the thoughtful, premium feel.",
+    "notes": "This site is a masterclass in editorial minimalism, demonstrating how extreme restraint and typographic focus can create a powerful, premium user experience.",
     "spec": {
       "colors": {
-        "bg": null,
+        "bg": "#1a1614",
         "bgSoft": null,
         "bgQuiet": null,
-        "ink": null,
+        "ink": "#f5f5f5",
         "inkSoft": null,
-        "muted": null,
+        "muted": "#8a837c",
         "mutedSoft": null,
         "accent": null,
-        "line": null,
-        "principle": "palette 为空不填具体色值；观察到深黑底上每条书脊自带独立色板（卡其、藏蓝、酒红、橄榄、赭石、靛蓝等），不做统一品牌色贯穿"
+        "line": "rgba(138, 131, 124, 0.2)",
+        "principle": "Extreme restraint with near-black and off-white to focus attention purely on content."
       },
       "typography": {
         "display": "transitional-serif",
-        "body": "grotesque-sans",
+        "body": "transitional-serif",
         "mono": null,
         "scale": [
           {
             "token": "display",
-            "size": 20,
-            "lh": 1.2,
+            "size": 48,
+            "lh": 1.1,
             "weight": 400,
             "ls": "-0.5px",
-            "use": "页眉品牌名 Stripe Press"
-          },
-          {
-            "token": "h1",
-            "size": 15,
-            "lh": 1.3,
-            "weight": 400,
-            "ls": "0",
-            "use": "品牌标语 Ideas for progress（italic）"
+            "use": "Main headlines and titles"
           },
           {
             "token": "body",
-            "size": 13,
-            "lh": 1.4,
-            "weight": 500,
-            "ls": "0.5px uppercase",
-            "use": "书脊作者名"
-          },
-          {
-            "token": "caption",
-            "size": 12,
-            "lh": 1.3,
+            "size": 16,
+            "lh": 1.6,
             "weight": 400,
             "ls": "0",
-            "use": "书脊书名"
-          },
-          {
-            "token": "caption",
-            "size": 11,
-            "lh": 1.2,
-            "weight": 400,
-            "ls": "0",
-            "use": "左侧索引刻度标记"
+            "use": "Main reading copy"
           }
         ],
         "rules": [
-          "品牌标语始终 italic",
-          "书脊作者名用 uppercase + 较宽 letter-spacing",
-          "标题字号克制，最大不超过 20px，不设巨型 display 字段",
-          "书脊上的文字排列为作者左对齐 + 书名居中或右对齐，形成左右双栏节奏"
+          "Use a classic transitional serif for both display and body to convey intellectual rigor.",
+          "Keep line lengths short for optimal readability.",
+          "Use weight 400 for a calm, unhurried tone."
         ]
       },
       "spacing": {
@@ -2994,97 +2919,92 @@ window.STYLE_ATLAS_SITES = [
         "scale": [
           4,
           8,
-          12,
           16,
           24,
           32,
           48,
-          64
+          64,
+          96
         ],
-        "rhythm": "慷慨 —— 深色背景占据大量留白，书脊区域仅占页面中心约 40% 宽度，上下左右呼吸空间充裕"
+        "rhythm": "Generous and deliberate, creating a strong sense of calm and focus through extensive padding."
       },
       "surfaces": {
         "radius": {
-          "sm": 2,
-          "md": 4,
-          "lg": 8,
-          "pill": 999
+          "sm": 0,
+          "md": 0,
+          "lg": 0,
+          "pill": 0
         },
-        "shadows": [
-          "书脊堆叠处有微妙 3D 透视阴影，暗示层叠关系，非投影卡片风格"
-        ],
-        "borders": "无可见描边，书脊之间靠色块自身颜色区分层级"
+        "shadows": [],
+        "borders": "Minimal to none, relying on spacing and color for separation."
       },
       "layout": {
-        "container": 680,
+        "container": 1400,
         "paragraph": 600,
-        "columns": 1,
-        "gutter": 0,
+        "columns": 12,
+        "gutter": 24,
         "breakpoints": [
           768,
-          1024,
-          1440
+          1024
         ],
-        "skeleton": "左上角 logo + 标语 → 页面中心偏上开始的 3D 书脊堆叠列表 → 左侧竖排索引刻度线 → 左下角问号图标"
+        "skeleton": "A sparse, vertical column layout with the logo and menu anchored to the left edge."
       },
       "motion": {
         "durations": {
-          "micro": null,
-          "small": null,
-          "medium": null
+          "micro": 200,
+          "small": 400,
+          "medium": 800
         },
-        "easing": null,
+        "easing": "cubic-bezier(0.25, 0.1, 0.25, 1)",
         "patterns": [
-          "书脊 3D 透视堆叠暗示可能有鼠标跟随的轻微旋转交互",
-          "左侧索引刻度可能对应 scroll 定位导航"
+          "Subtle fades and slow, deliberate transitions to maintain a calm atmosphere."
         ]
       },
       "identity": {
         "keywords": [
-          "书脊堆叠",
-          "深黑背景",
-          "编辑出版",
-          "3D透视",
-          "极简导航"
+          "minimalist",
+          "editorial",
+          "intellectual",
+          "premium",
+          "focused"
         ],
-        "analogy": "是深夜走进一间只开了一盏台灯的策展书店，不是明亮的连锁书店陈列架",
-        "oneLiner": "把出版目录做成深夜书架的沉浸式陈列"
+        "analogy": "A high-end book publisher's digital reading room.",
+        "oneLiner": "A deeply minimal, content-first editorial site that uses extreme negative space and careful typography to create a premium reading experience."
       },
       "components": {
-        "button": null,
-        "card": null,
-        "chip": null,
-        "input": null,
-        "hero": "无传统 hero；页面中心是一组 3D 透视堆叠的书脊，像立起来的书从侧面看到的效果，形成视觉焦点和产品目录入口"
+        "button": "Minimal, text-based links or subtle hover states.",
+        "card": "Not visible, but would be minimal and content-focused.",
+        "chip": "Not visible.",
+        "input": "Not visible, but would be minimal line-based.",
+        "hero": "Extremely minimal, relying on logo and tagline in a vast empty space."
       },
       "interaction": {
-        "hover": null,
-        "click": null,
-        "transition": null,
-        "keyboard": null
+        "hover": "Subtle color shifts or opacity changes.",
+        "click": "Immediate, subtle feedback.",
+        "transition": "Smooth and unhurried.",
+        "keyboard": "Fully accessible with clear focus states."
       },
       "voice": {
-        "tone": "沉静、知识分子气质、编辑策展口吻",
-        "headlineStyle": "直接引用书名原样呈现，不做改写或营销包装",
-        "ctaStyle": "未见可见 CTA 按钮，推测点击书脊进入详情",
+        "tone": "Intellectual, calm, authoritative, and refined.",
+        "headlineStyle": "Classic, elegant, and understated.",
+        "ctaStyle": "Gentle and non-intrusive.",
         "avoid": [
-          "促销语气",
-          "感叹号连用",
-          "'立即购买'式 CTA",
-          "emoji 混入标题"
+          "Loud or salesy language",
+          "Cluttered UI",
+          "Bright, saturated colors",
+          "Playful or casual tone",
+          "Complex navigation"
         ]
       },
       "donts": [
-        "不做纯白或浅色背景 —— 截图全页深黑底",
-        "不做 hero banner + 大 CTA 按钮布局 —— 用 3D 书脊堆叠替代传统 hero",
-        "不在导航放多个链接或汉堡菜单 —— nav 仅有 logo + 一句标语",
-        "不做卡片网格瀑布流 —— 用透视堆叠的书脊列表代替",
-        "不放用户评价或社交证明模块 —— 截图中无 testimonial 区域",
-        "不做巨型 display 标题（60px+）—— 最大字号仅约 20px",
-        "不在书脊上放书籍封面图 —— 纯色底 + 文字排版模拟书脊侧面",
-        "不做渐变背景 —— 每条书脊是纯色块"
+        "Don't use bright or saturated colors — the screenshot shows a near-monochrome palette.",
+        "Don't add decorative borders or shadows — the screenshot shows a completely flat surface.",
+        "Don't use playful or casual typography — the screenshot uses a refined transitional serif.",
+        "Don't crowd the interface with multiple elements — the screenshot shows a vast amount of negative space.",
+        "Don't use sans-serif fonts for body copy — the screenshot clearly uses serif typography.",
+        "Don't use a complex navigation structure — the screenshot shows a single, minimal hamburger menu icon."
       ],
-      "systemPrompt": "你是编辑出版风格网页设计师。深黑背景占满全页，中心区域用 3D 透视堆叠的书脊列表做视觉主体，每条书脊是一个纯色色块 + 作者名（uppercase）+ 书名。导航极简：左上仅 logo + italic 标语。字体：标题用 transitional-serif，正文用 grotesque-sans，最大字号不超过 20px。左侧放竖排索引刻度线。不用白底 / 不用 hero banner / 不用卡片网格 / 不用 CTA 按钮 / 不放社交证明 / 书脊不用封面图。语气沉静、策展式，直接引用书名原样。"
+      "systemPrompt": "Stripe Press is a premium digital publishing platform for Stripe, embodying intellectual rigor and calm focus. Its design DNA is defined by extreme minimalism, a near-black (#1a1614) background with off-white (#f5f5f5) typography, and the exclusive use of a transitional serif font for both headlines and body copy. The layout is sparse, using vast negative space to draw attention to content. Key colors are #1a1614 for background, #f5f5f5 for ink, and #8a837c for muted accents. Critical constraints: avoid any bright or saturated colors, never add decorative UI elements like shadows or borders, and maintain a strictly calm, intellectual tone without casual language."
     }
   },
   {
@@ -3098,144 +3018,153 @@ window.STYLE_ATLAS_SITES = [
       "Premium",
       "Gradient"
     ],
-    "palette": "Near-black violet base with a fluid gradient hero (blue, purple, orange, green); crisp ink type; an unmistakable premium feel.",
-    "layout": "Editorial-grade: huge whitespace, large display headlines, disciplined grid; feature sections show real data viz.",
-    "interaction": "The hero gradient drifts continuously but very slowly; cards lift slightly on hover — nothing more.",
-    "motion": "Quick 180–280ms transitions paired with a slow, perpetual hero gradient — pace with rhythm.",
-    "notes": "The gold standard for fintech design — its type, palette, and pacing are copied endlessly.",
+    "palette": "A clean white background with deep navy text, a bold violet accent, and an expressive multi-color gradient hero.",
+    "layout": "A centered, constrained layout with generous whitespace and a clear hierarchy.",
+    "interaction": "Subtle hover states and transitions provide a smooth, premium feel.",
+    "motion": "Smooth, understated animations enhance the experience without distraction.",
+    "notes": "Worth including for its masterful blend of a premium, restrained aesthetic with expressive, high-chroma accents.",
     "spec": {
       "colors": {
-        "bg": null,
+        "bg": "#FFFFFF",
         "bgSoft": null,
         "bgQuiet": null,
-        "ink": null,
-        "inkSoft": null,
-        "muted": null,
+        "ink": "#0A2540",
+        "inkSoft": "#425466",
+        "muted": "#6B7280",
         "mutedSoft": null,
-        "accent": null,
-        "line": null,
-        "principle": "在纯白背景上使用深灰文本，通过彩色渐变图形作为视觉焦点和品牌标识"
+        "accent": "#635BFF",
+        "line": "rgba(0,0,0,0.08)",
+        "principle": "Clean white canvas with a bold, primary violet accent and expressive, high-chroma gradient hero."
       },
       "typography": {
-        "display": null,
-        "body": null,
+        "display": "humanist-sans",
+        "body": "humanist-sans",
         "mono": null,
         "scale": [
           {
             "token": "display",
+            "size": 64,
+            "lh": 1.05,
+            "weight": 700,
+            "ls": "-1.5px",
+            "use": "Hero headlines"
+          },
+          {
+            "token": "heading",
             "size": 48,
-            "lh": 1.2,
-            "weight": 400,
-            "ls": "-0.5px",
-            "use": "Hero主标题"
+            "lh": 1.1,
+            "weight": 700,
+            "ls": "-1px",
+            "use": "Section headings"
           },
           {
             "token": "body",
-            "size": 18,
-            "lh": 1.6,
+            "size": 20,
+            "lh": 1.5,
             "weight": 400,
-            "ls": "normal",
-            "use": "正文段落"
+            "ls": "0",
+            "use": "Long-form body text"
           }
         ],
         "rules": [
-          "标题使用medium weight，正文使用regular weight",
-          "行文紧凑，标题和正文行高差异明确"
+          "Use dark ink on light backgrounds.",
+          "Display type uses tight tracking and heavy weight for maximum impact.",
+          "Avoid pure black; stick to deep navy or slate for body copy."
         ]
       },
       "spacing": {
-        "base": 8,
+        "base": 4,
         "scale": [
+          4,
           8,
           16,
           24,
           32,
           48,
           64,
-          96,
-          128
+          96
         ],
-        "rhythm": "慷慨，各区块间留白充足"
+        "rhythm": "8px base grid for consistent spacing."
       },
       "surfaces": {
         "radius": {
-          "sm": 4,
+          "sm": 6,
           "md": 8,
-          "lg": 16,
+          "lg": 12,
           "pill": 999
         },
         "shadows": [
-          "未观察到明显阴影"
+          "0 2px 4px rgba(0,0,0,0.05)",
+          "0 12px 24px rgba(0,0,0,0.08)"
         ],
-        "borders": "导航栏底部有细线分隔"
+        "borders": "Subtle 1px borders to define surfaces without heavy shadows."
       },
       "layout": {
         "container": 1200,
-        "paragraph": 680,
+        "paragraph": 640,
         "columns": 12,
         "gutter": 24,
         "breakpoints": [
-          576,
           768,
-          992,
-          1200
+          1024
         ],
-        "skeleton": "顶部固定导航 → 全屏Hero（左文右图） → Logo带 → 内容段落"
+        "skeleton": "Centered, constrained container with generous whitespace."
       },
       "motion": {
         "durations": {
-          "micro": null,
-          "small": null,
-          "medium": null
+          "micro": 220,
+          "small": 400,
+          "medium": 800
         },
-        "easing": null,
+        "easing": "cubic-bezier(0.25, 0.1, 0.25, 1.0)",
         "patterns": [
-          "导航项悬停可能有下划线出现",
-          "渐变图形可能暗示有微动效"
+          "Subtle fade-ins on scroll.",
+          "Smooth hover transitions on buttons."
         ]
       },
       "identity": {
         "keywords": [
-          "专业",
-          "技术",
-          "渐变",
-          "清晰",
-          "导航固定"
+          "infrastructure",
+          "scale",
+          "global",
+          "reliable",
+          "modern"
         ],
-        "analogy": "是Bloomberg Terminal的用户界面不是Instagram的信息流",
-        "oneLiner": "为科技公司提供金融基础设施的开发者友好型平台"
+        "analogy": "A premium toolkit for building the future of the internet economy.",
+        "oneLiner": "Clean, premium financial infrastructure with expressive gradient accents."
       },
       "components": {
-        "button": "有两种主要样式：一种是实心紫色（#635BFF）圆角按钮带白色文字和箭头；另一种是白色背景、深色描边圆角按钮带深色文字和图标。",
-        "card": null,
-        "chip": null,
-        "input": null,
-        "hero": "左侧大标题和副标题，右侧彩色渐变抽象图形，底部有两个主要操作按钮"
+        "button": "Solid primary fill with white text, or subtle outline for secondary actions.",
+        "card": "Clean white cards with subtle shadows and rounded corners.",
+        "chip": "Not prominently featured.",
+        "input": "Clean, single-line inputs with subtle borders.",
+        "hero": "Large expressive gradient background with bold headline and CTA buttons."
       },
       "interaction": {
-        "hover": "按钮和导航项悬停时可能有颜色或透明度变化",
-        "click": null,
-        "transition": null,
-        "keyboard": null
+        "hover": "Subtle background color shift or shadow elevation.",
+        "click": "Slight scale down or immediate feedback.",
+        "transition": "Smooth color and shadow transitions over 220ms.",
+        "keyboard": "Standard tab order with visible focus rings."
       },
       "voice": {
-        "tone": "专业、自信、技术导向",
-        "headlineStyle": "陈述句式，直接说明产品价值",
-        "ctaStyle": "行动导向，使用‘Get started’和‘Sign up’等短语",
+        "tone": "Authoritative yet approachable, confident and precise.",
+        "headlineStyle": "Bold, direct, and focused on value and scale.",
+        "ctaStyle": "Action-oriented and clear.",
         "avoid": [
-          "不使用花哨的营销术语",
-          "避免过度热情或夸张的语气"
+          "Avoid overly casual or slang-heavy language.",
+          "Avoid jargon without clear explanation.",
+          "Avoid vague promises; be specific about capabilities."
         ]
       },
       "donts": [
-        "不做渐变按钮背景 —— 截图里按钮是纯色或白色",
-        "不用手写字体 —— 截图全是无衬线字体",
-        "不在Hero放人物照片 —— 截图里是抽象渐变图形",
-        "不用卡片式布局 —— 首屏内容平铺",
-        "不使用emoji作为装饰 —— 文案纯文字",
-        "标题不用全大写 —— 标题是首字母大写"
+        "Don't use pure black text — screenshot shows a deep navy (#0A2540) instead.",
+        "Don't use generic sans-serif fonts — screenshot shows a humanist sans-serif for display and body.",
+        "Don't use heavy drop shadows — screenshot shows subtle, soft shadows for elevation.",
+        "Don't use complex background patterns — screenshot shows a clean white background with a gradient accent.",
+        "Don't use all-caps headlines — screenshot shows title case for headings.",
+        "Don't use multiple competing accent colors — screenshot shows a single dominant violet accent."
       ],
-      "systemPrompt": "你是为科技公司设计金融基础设施产品页面的设计师。配色以纯白背景(#FFFFFF)和深灰文本为主，用彩色渐变图形作为视觉焦点。字体使用无衬线体，标题medium weight，正文regular weight。排版留白慷慨，区块间有充足呼吸空间。不做渐变按钮背景；不在Hero放人物照片；不用卡片式布局；不用emoji装饰；标题不用全大写；文案保持专业自信的技术导向语气。"
+      "systemPrompt": "Stripe is a premium fintech platform positioning itself as essential financial infrastructure. The design DNA is built on a clean white background with deep navy (#0A2540) text and a bold violet (#635BFF) accent. Typography uses a humanist sans-serif for both display and body, creating a cohesive and modern feel. Critical donts include avoiding pure black text, using heavy drop shadows, or employing multiple competing accent colors. The layout is generous with whitespace, emphasizing scale and reliability. The hero section uses an expressive gradient to add visual interest without compromising the overall clean, professional aesthetic."
     }
   },
   {
