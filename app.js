@@ -993,10 +993,10 @@ function groupPackFiles(files) {
     const shotStart = rest.findIndex((f) => f.category === "shot");
     const sectionRow = {
       name: `03_desktop_section_*.png`,
-      _displayName: `桌面滚动分段 × ${sections.length}`,
+      _displayName: t("pack.dyn.scrollSegments.name", { n: sections.length }),
       size: totalSize,
       category: "shot",
-      desc: `${sections.length} 张滚动截图（90% viewport 步进，作为视觉证据）`,
+      desc: t("pack.dyn.scrollSegments.desc", { n: sections.length }),
       _isGroup: true,
       _items: sections
     };
@@ -1021,7 +1021,7 @@ function packFileRowHTML(f, slug) {
     <li class="pack-file" data-category="${f.category}">
       <span class="pack-file-icon">${icon}</span>
       <a class="pack-file-name" href="${href}" target="${target}" rel="noreferrer">${displayName}</a>
-      <span class="pack-file-desc">${f.desc || ""}</span>
+      <span class="pack-file-desc">${window.i18n.packDesc(f.desc) || ""}</span>
       <span class="pack-file-size">${sizeText}</span>
     </li>
   `;
@@ -1043,10 +1043,10 @@ function createMarkdown(site) {
   const domain = domainFromUrl(site.url);
   const today = new Date().toISOString().slice(0, 10);
   return [
-    `# ${site.title} · 设计系统迁移规范`,
+    `# ${t("md.title", { title: site.title })}`,
     "",
-    `> 用途：把 ${domain} 的视觉、结构、交互、动效、文案规则抽离成可被 AI 直接复用的设计 DNA。`,
-    `> 只迁移气质、节奏和组织方式 —— 不复制品牌资产、不抄文案。`,
+    `> ${t("md.purpose", { domain })}`,
+    `> ${t("md.scope")}`,
     "",
     section0Source(site, domain, today),
     section1Identity(site, spec),
@@ -1066,13 +1066,13 @@ function createMarkdown(site) {
 
 function section0Source(site, domain, today) {
   return [
-    "## 0. 来源 Source",
-    `- **URL**: ${site.url}`,
-    `- **域名**: ${domain}`,
-    `- **标签**: ${(site.tags || []).join(" · ") || "—"}`,
-    `- **截图**: ${site.image}`,
-    `- **收录时间**: ${today}`,
-    localizedField(site, "notes") ? `- **收录原因**: ${localizedField(site, "notes")}` : null,
+    t("md.h0"),
+    `- **${t("md.s0.url")}**: ${site.url}`,
+    `- **${t("md.s0.domain")}**: ${domain}`,
+    `- **${t("md.s0.tags")}**: ${(site.tags || []).map((tg) => window.i18n.tag(tg)).join(" · ") || "—"}`,
+    `- **${t("md.s0.shot")}**: ${site.image}`,
+    `- **${t("md.s0.addedAt")}**: ${today}`,
+    localizedField(site, "notes") ? `- **${t("md.s0.reason")}**: ${localizedField(site, "notes")}` : null,
     ""
   ].filter(Boolean).join("\n");
 }
@@ -1081,16 +1081,16 @@ function section1Identity(site, spec) {
   const id = spec.identity;
   if (!id) {
     return [
-      "## 1. 设计气质 DNA",
-      `- ${localizedField(site, "notes") || "克制、清晰、真实内容优先"}`,
+      t("md.h1"),
+      `- ${localizedField(site, "notes") || t("md.s1.fallback")}`,
       ""
     ].join("\n");
   }
   return [
-    "## 1. 设计气质 DNA",
-    `- **一句话**: ${id.oneLiner || "—"}`,
-    `- **关键词**: ${(id.keywords || []).join(" · ") || "—"}`,
-    `- **类比**: ${id.analogy || "—"}`,
+    t("md.h1"),
+    `- **${t("md.s1.oneliner")}**: ${id.oneLiner || "—"}`,
+    `- **${t("md.s1.keywords")}**: ${(id.keywords || []).join(" · ") || "—"}`,
+    `- **${t("md.s1.analogy")}**: ${id.analogy || "—"}`,
     ""
   ].join("\n");
 }
@@ -1099,90 +1099,90 @@ function section2Colors(spec, site) {
   const c = spec.colors;
   if (!c) {
     return [
-      "## 2. 颜色 Tokens",
-      `- 描述: ${localizedField(site, "palette") || "—"}`,
-      "- ⚠️ 缺精确 hex tokens（待 AI 分析或人工补齐）",
+      t("md.h2"),
+      `- ${t("md.s2.desc")}: ${localizedField(site, "palette") || "—"}`,
+      `- ${t("md.s2.warnTokens")}`,
       ""
     ].join("\n");
   }
   const rows = [
-    ["--bg",        c.bg,        "主页面底色"],
-    ["--bg-soft",   c.bgSoft,    "内容卡片底"],
-    ["--bg-quiet",  c.bgQuiet,   "深色 / 安静区域"],
-    ["--ink",       c.ink,       "正文、按钮文字"],
-    ["--ink-soft",  c.inkSoft,   "次级文字"],
-    ["--muted",     c.muted,     "metadata / placeholder"],
-    ["--muted-soft", c.mutedSoft, "更弱的提示"],
-    ["--accent",    c.accent,    "唯一强调色（如有）"],
-    ["--line",      c.line,      "分隔线"]
+    ["--bg",         c.bg,        t("md.s2.use.bg")],
+    ["--bg-soft",    c.bgSoft,    t("md.s2.use.bgSoft")],
+    ["--bg-quiet",   c.bgQuiet,   t("md.s2.use.bgQuiet")],
+    ["--ink",        c.ink,       t("md.s2.use.ink")],
+    ["--ink-soft",   c.inkSoft,   t("md.s2.use.inkSoft")],
+    ["--muted",      c.muted,     t("md.s2.use.muted")],
+    ["--muted-soft", c.mutedSoft, t("md.s2.use.mutedSoft")],
+    ["--accent",     c.accent,    t("md.s2.use.accent")],
+    ["--line",       c.line,      t("md.s2.use.line")]
   ].filter(([, v]) => v != null && v !== "");
   return [
-    "## 2. 颜色 Tokens",
+    t("md.h2"),
     "",
-    "| Token | 值 | 用法 |",
+    `| ${t("md.s2.col.token")} | ${t("md.s2.col.value")} | ${t("md.s2.col.use")} |`,
     "|---|---|---|",
     ...rows.map(([k, v, use]) => `| \`${k}\` | \`${v}\` | ${use} |`),
     "",
-    c.principle ? `**用色原则**：${c.principle}` : null,
+    c.principle ? `**${t("md.s2.principle")}**: ${c.principle}` : null,
     ""
   ].filter(Boolean).join("\n");
 }
 
 function section3Typography(spec) {
-  const t = spec.typography;
-  if (!t) {
-    return ["## 3. 字体 Typography", "- ⚠️ 待 AI 分析或人工补齐", ""].join("\n");
+  const ty = spec.typography;
+  if (!ty) {
+    return [t("md.h3"), `- ${t("md.s3.warn")}`, ""].join("\n");
   }
   return [
-    "## 3. 字体 Typography",
+    t("md.h3"),
     "",
-    "### 字体族",
-    `- **Display**: ${t.display || "—"}`,
-    `- **Body**: ${t.body || "—"}`,
-    `- **Mono**: ${t.mono || "—"}`,
+    `### ${t("md.s3.family")}`,
+    `- **Display**: ${ty.display || "—"}`,
+    `- **Body**: ${ty.body || "—"}`,
+    `- **Mono**: ${ty.mono || "—"}`,
     "",
-    "### 字号阶",
+    `### ${t("md.s3.scale")}`,
     "",
-    "| Token | Size | Line-height | Weight | Letter-spacing | 用法 |",
+    `| ${t("md.s2.col.token")} | ${t("md.s3.col.size")} | ${t("md.s3.col.lh")} | ${t("md.s3.col.weight")} | ${t("md.s3.col.ls")} | ${t("md.s3.col.use")} |`,
     "|---|---|---|---|---|---|",
-    ...((t.scale || []).map(s =>
+    ...((ty.scale || []).map(s =>
       `| ${s.token} | ${s.size}px | ${s.lh} | ${s.weight} | ${s.ls} | ${s.use} |`
     )),
     "",
-    (t.rules && t.rules.length) ? "### 字体规则\n" + t.rules.map(r => `- ${r}`).join("\n") : null,
+    (ty.rules && ty.rules.length) ? `### ${t("md.s3.rules")}\n` + ty.rules.map(r => `- ${r}`).join("\n") : null,
     ""
   ].filter(Boolean).join("\n");
 }
 
 function section4Spacing(spec) {
   const s = spec.spacing;
-  if (!s) return ["## 4. 间距 Spacing", "- ⚠️ 待补齐", ""].join("\n");
+  if (!s) return [t("md.h4"), `- ${t("md.s4.warn")}`, ""].join("\n");
   return [
-    "## 4. 间距 Spacing",
-    `- **基础单位**: ${s.base}px`,
-    `- **间距阶**: ${(s.scale || []).join(" / ")} px`,
-    s.rhythm ? `- **节奏**: ${s.rhythm}` : null,
+    t("md.h4"),
+    `- **${t("md.s4.base")}**: ${s.base}px`,
+    `- **${t("md.s4.scale")}**: ${(s.scale || []).join(" / ")} px`,
+    s.rhythm ? `- **${t("md.s4.rhythm")}**: ${s.rhythm}` : null,
     ""
   ].filter(Boolean).join("\n");
 }
 
 function section5Surfaces(spec) {
   const s = spec.surfaces;
-  if (!s) return ["## 5. 圆角 / 阴影 / 边线", "- ⚠️ 待补齐", ""].join("\n");
+  if (!s) return [t("md.h5"), `- ${t("md.s4.warn")}`, ""].join("\n");
   const r = s.radius || {};
   return [
-    "## 5. 圆角 / 阴影 / 边线",
+    t("md.h5"),
     "",
-    "### 圆角",
-    `- 小元件: ${r.sm ?? "—"}${r.sm != null ? "px" : ""}`,
-    `- 中元件: ${r.md ?? "—"}${r.md != null ? "px" : ""}`,
-    `- 大卡片 / 模态: ${r.lg ?? "—"}${r.lg != null ? "px" : ""}`,
-    `- Pill (chip/button): ${r.pill ?? 999}px`,
+    `### ${t("md.s5.radius")}`,
+    `- ${t("md.s5.r.sm")}: ${r.sm ?? "—"}${r.sm != null ? "px" : ""}`,
+    `- ${t("md.s5.r.md")}: ${r.md ?? "—"}${r.md != null ? "px" : ""}`,
+    `- ${t("md.s5.r.lg")}: ${r.lg ?? "—"}${r.lg != null ? "px" : ""}`,
+    `- ${t("md.s5.r.pill")}: ${r.pill ?? 999}px`,
     "",
-    "### 阴影",
+    `### ${t("md.s5.shadows")}`,
     ...((s.shadows || ["—"]).map(x => `- ${x}`)),
     "",
-    "### 边线",
+    `### ${t("md.s5.borders")}`,
     `- ${s.borders || "—"}`,
     ""
   ].join("\n");
@@ -1192,19 +1192,19 @@ function section6Layout(spec, site) {
   const l = spec.layout;
   if (!l) {
     return [
-      "## 6. 布局 Layout",
-      `- 页面骨架: ${localizedField(site, "layout") || "—"}`,
+      t("md.h6"),
+      `- ${t("md.s6.skeletonLabel")}: ${localizedField(site, "layout") || "—"}`,
       ""
     ].join("\n");
   }
   return [
-    "## 6. 布局 Layout",
-    `- **容器最大宽度**: ${l.container || "—"}px`,
-    `- **段落最大宽度**: ${l.paragraph || "—"}px`,
-    `- **栅格**: ${l.columns || "—"} 列, gutter ${l.gutter || "—"}px`,
-    `- **响应式断点**: ${(l.breakpoints || []).join(" / ") || "—"} px`,
+    t("md.h6"),
+    `- **${t("md.s6.container")}**: ${l.container || "—"}px`,
+    `- **${t("md.s6.paragraph")}**: ${l.paragraph || "—"}px`,
+    `- **${t("md.s6.columns")}**: ${t("md.s6.colsFmt", { n: l.columns || "—", g: l.gutter || "—" })}`,
+    `- **${t("md.s6.breakpoints")}**: ${(l.breakpoints || []).join(" / ") || "—"} px`,
     "",
-    "### 页面骨架",
+    `### ${t("md.s6.skeletonLabel")}`,
     l.skeleton || localizedField(site, "layout") || "—",
     ""
   ].join("\n");
@@ -1212,7 +1212,7 @@ function section6Layout(spec, site) {
 
 function section7Components(spec) {
   const c = spec.components;
-  if (!c) return ["## 7. 组件 Components", "- ⚠️ 待补齐", ""].join("\n");
+  if (!c) return [t("md.h7"), `- ${t("md.s4.warn")}`, ""].join("\n");
   const rows = [
     ["Button", c.button],
     ["Card",   c.card],
@@ -1221,7 +1221,7 @@ function section7Components(spec) {
     ["Hero",   c.hero]
   ].filter(([, v]) => v);
   return [
-    "## 7. 组件 Components",
+    t("md.h7"),
     "",
     ...rows.map(([name, recipe]) => `### ${name}\n${recipe}\n`)
   ].join("\n");
@@ -1231,24 +1231,24 @@ function section8Motion(spec, site) {
   const m = spec.motion;
   if (!m) {
     return [
-      "## 8. 动效 Motion",
-      `- 描述: ${localizedField(site, "motion") || "—"}`,
+      t("md.h8"),
+      `- ${t("md.s8.desc")}: ${localizedField(site, "motion") || "—"}`,
       ""
     ].join("\n");
   }
   const d = m.durations || {};
   return [
-    "## 8. 动效 Motion",
+    t("md.h8"),
     "",
-    "| 名称 | duration | 用途 |",
+    `| ${t("md.s8.col.name")} | ${t("md.s8.col.duration")} | ${t("md.s8.col.use")} |`,
     "|---|---|---|",
-    `| micro | ${d.micro || "—"}ms | hover / 状态切换 / focus |`,
-    `| small | ${d.small || "—"}ms | 卡片提升 / 浮层 |`,
-    `| medium | ${d.medium || "—"}ms | 图片缩放 / drawer open |`,
+    `| micro | ${d.micro || "—"}ms | ${t("md.s8.use.micro")} |`,
+    `| small | ${d.small || "—"}ms | ${t("md.s8.use.small")} |`,
+    `| medium | ${d.medium || "—"}ms | ${t("md.s8.use.medium")} |`,
     "",
-    `- **Easing**: \`${m.easing || "—"}\``,
+    `- **${t("md.s8.easing")}**: \`${m.easing || "—"}\``,
     "",
-    (m.patterns && m.patterns.length) ? "### 动效模式\n" + m.patterns.map(p => `- ${p}`).join("\n") : null,
+    (m.patterns && m.patterns.length) ? `### ${t("md.s8.patterns")}\n` + m.patterns.map(p => `- ${p}`).join("\n") : null,
     ""
   ].filter(Boolean).join("\n");
 }
@@ -1257,13 +1257,13 @@ function section9Interaction(spec, site) {
   const i = spec.interaction;
   if (!i) {
     return [
-      "## 9. 交互 Interaction",
-      `- 核心交互: ${localizedField(site, "interaction") || "—"}`,
+      t("md.h9"),
+      `- ${t("md.s9.core")}: ${localizedField(site, "interaction") || "—"}`,
       ""
     ].join("\n");
   }
   return [
-    "## 9. 交互 Interaction",
+    t("md.h9"),
     `- **Hover**: ${i.hover || "—"}`,
     `- **Click**: ${i.click || "—"}`,
     `- **Transition**: ${i.transition || "—"}`,
@@ -1274,13 +1274,13 @@ function section9Interaction(spec, site) {
 
 function section10Voice(spec) {
   const v = spec.voice;
-  if (!v) return ["## 10. 文案语气 Voice", "- ⚠️ 待补齐", ""].join("\n");
+  if (!v) return [t("md.h10"), `- ${t("md.s4.warn")}`, ""].join("\n");
   return [
-    "## 10. 文案语气 Voice",
-    `- **语气**: ${v.tone || "—"}`,
-    `- **标题写法**: ${v.headlineStyle || "—"}`,
-    `- **CTA**: ${v.ctaStyle || "—"}`,
-    (v.avoid && v.avoid.length) ? `- **避免**: ${v.avoid.join("、")}` : null,
+    t("md.h10"),
+    `- **${t("md.s10.tone")}**: ${v.tone || "—"}`,
+    `- **${t("md.s10.headline")}**: ${v.headlineStyle || "—"}`,
+    `- **${t("md.s10.cta")}**: ${v.ctaStyle || "—"}`,
+    (v.avoid && v.avoid.length) ? `- **${t("md.s10.avoid")}**: ${v.avoid.join(" / ")}` : null,
     ""
   ].filter(Boolean).join("\n");
 }
@@ -1289,15 +1289,15 @@ function section11Donts(spec) {
   const d = spec.donts;
   if (!d || !d.length) {
     return [
-      "## 11. 禁用清单 Don't",
-      "- 不要做纯渐变背景或无内容的抽象 hero",
-      "- 不要让卡片、按钮、标签发生文字溢出",
-      "- 不要为了视觉丰富而增加无意义装饰元素",
+      t("md.h11"),
+      `- ${t("md.s11.f1")}`,
+      `- ${t("md.s11.f2")}`,
+      `- ${t("md.s11.f3")}`,
       ""
     ].join("\n");
   }
   return [
-    "## 11. 禁用清单 Don't",
+    t("md.h11"),
     ...d.map(item => `- ❌ ${item}`),
     ""
   ].join("\n");
@@ -1306,9 +1306,9 @@ function section11Donts(spec) {
 function section12SystemPrompt(site, spec, domain) {
   const prompt = spec.systemPrompt || defaultSystemPrompt(site, spec, domain);
   return [
-    "## 12. 迁移提示词 System Prompt",
+    t("md.h12"),
     "",
-    "把下面这段整段复制到 Claude / Cursor / v0 / Lovable 等 AI 助手的 system prompt，让它按这份规范生成新页面：",
+    t("md.s12.intro"),
     "",
     "```",
     prompt,
@@ -1318,13 +1318,13 @@ function section12SystemPrompt(site, spec, domain) {
 }
 
 function defaultSystemPrompt(site, spec, domain) {
-  const parts = [`你是一位设计师。请按 ${domain} 的设计语言生成新页面，但不要复制品牌资产或文案，只迁移气质、节奏和组织方式。`];
-  if (spec.identity && spec.identity.oneLiner) parts.push(`定位：${spec.identity.oneLiner}`);
-  if (spec.colors && spec.colors.principle) parts.push(`配色：${spec.colors.principle}`);
-  if (spec.typography && spec.typography.display) parts.push(`字体：标题 ${spec.typography.display}，正文 ${spec.typography.body || "无衬线"}。`);
-  if (spec.layout && spec.layout.skeleton) parts.push(`页面骨架：${spec.layout.skeleton}`);
-  if (spec.donts && spec.donts.length) parts.push(`禁用清单：${spec.donts.join("；")}。`);
-  if (!spec.identity) parts.push(`视觉关键词：${localizedField(site, "palette") || "克制、清晰、真实内容优先"}`);
+  const parts = [t("md.dp.head", { domain })];
+  if (spec.identity && spec.identity.oneLiner) parts.push(t("md.dp.identity", { oneLiner: spec.identity.oneLiner }));
+  if (spec.colors && spec.colors.principle) parts.push(t("md.dp.colors", { principle: spec.colors.principle }));
+  if (spec.typography && spec.typography.display) parts.push(t("md.dp.typo", { display: spec.typography.display, body: spec.typography.body || t("md.dp.typoFallback") }));
+  if (spec.layout && spec.layout.skeleton) parts.push(t("md.dp.layout", { skeleton: spec.layout.skeleton }));
+  if (spec.donts && spec.donts.length) parts.push(t("md.dp.donts", { list: spec.donts.join(t("md.s11.donts.sep")) }));
+  if (!spec.identity) parts.push(t("md.dp.keywords", { kw: localizedField(site, "palette") || t("md.s1.fallback") }));
   return parts.join(" ");
 }
 
