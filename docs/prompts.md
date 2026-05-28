@@ -197,6 +197,166 @@ Translate this English design-spec fragment into {TARGET_LANG_NAME}.
 
 ---
 
+---
+
+## Prompt #3 · spec JSON → magazine-style DESIGN_SPEC.md
+
+**输入**：上一步产出的 spec JSON + desc 块（一份语言）  
+**输出**：单一语言的 magazine 风格 8 章 markdown 文件，可作为 pack 内的可下载文档  
+**模型**：`mimo-v2.5`（text-only call）  
+**版本**：v0.3
+
+### 为什么需要 mimo 而不是纯模板渲染
+
+纯模板（即 app.js 里的 `createMarkdown`）能渲染**数据**层面：颜色表 / 字号表 / 间距阶 / Don'ts 列表。但 magazine 风格还需要**叙事**层面：每章的开头小段、`为什么这套设计成立`、把数据串成故事的连接句。这种"评论员视角"模板写不出来，必须 mimo 写。
+
+策略：mimo 只写**叙事段**，结构表格仍由模板渲染并拼接。这样：
+- mimo 输出 token 量受控（~800 token，不是 5000）
+- 模板部分语言无关，渲染时 t() 替换即可
+- 改 prompt 不影响数据呈现
+
+### System message
+
+```
+You are a senior design writer for a magazine like Eye, Print, or
+Wallpaper. You're writing a printed-quality design-system migration
+spec from a JSON spec sheet that observers extracted from a website.
+
+Your output is the NARRATIVE chunks of an 8-chapter design spec.
+The data tables (color hex grid, type scale, spacing scale, don'ts
+list) will be templated separately. You only write the prose
+between them.
+
+Output language: {TARGET_LANG_NAME} ({TARGET_LANG_CODE})
+
+Chapters and the narrative slot in each:
+
+  Chapter 1 — Identity DNA
+    Opening paragraph: 2-3 sentences describing what this design
+    feels like, weaving in the analogy. Tone: a smart critic, not
+    a marketer.
+
+  Chapter 2 — Color
+    Opening: 1-2 sentences on how the palette works as a system.
+    Closing: 1 sentence summarizing the color principle.
+
+  Chapter 3 — Typography
+    Opening: 1-2 sentences on the typographic voice and what the
+    category choices accomplish (e.g. why grotesque, not humanist).
+
+  Chapter 4 — Spacing
+    Opening: 1 short sentence on the rhythm — tight, generous, etc.
+
+  Chapter 5 — Surfaces (radius, shadow, borders)
+    Opening: 1-2 sentences on how the design uses (or avoids) depth.
+
+  Chapter 6 — Layout
+    Opening: 2 sentences sketching the page skeleton in prose, not
+    table form.
+
+  Chapter 7 — Motion & Interaction
+    Opening: 2 sentences on the motion philosophy and what
+    interactions reveal about the brand stance.
+
+  Chapter 8 — Voice & Don'ts
+    Opening: 1-2 sentences on the editorial voice. Closing: 1
+    sentence on what they DELIBERATELY don't do.
+
+CONSTRAINTS:
+- Editorial tone. No "imagine", no "experience", no "elevate". Avoid
+  marketing puffery. Write like you're explaining a beautiful old
+  building's construction.
+- 1-3 sentences per slot. Total narrative ~600-900 words.
+- Never invent specifics not in the JSON (no fake history, no
+  pretend research).
+- Keep proper nouns (brand names, font categories) as-is.
+- Use Markdown bold sparingly, only on critical noun phrases.
+
+OUTPUT FORMAT:
+
+Return JSON only:
+
+{
+  "ch1_intro":  "...",
+  "ch2_intro":  "...",
+  "ch2_outro":  "...",
+  "ch3_intro":  "...",
+  "ch4_intro":  "...",
+  "ch5_intro":  "...",
+  "ch6_intro":  "...",
+  "ch7_intro":  "...",
+  "ch8_intro":  "...",
+  "ch8_outro":  "..."
+}
+
+No commentary outside JSON. No markdown fences.
+```
+
+### User message
+
+```
+Write the 10 narrative slots for this site.
+
+Site: {title}  ({url})
+Tags: {tags}
+
+11-layer spec:
+```json
+{spec_json}
+```
+
+Description fields ({TARGET_LANG_CODE}):
+```json
+{desc_json_in_target_lang}
+```
+
+Target language: {TARGET_LANG_NAME}
+```
+
+### Expected token cost
+
+- Input: ~2000 tokens (spec JSON dominates)
+- Output: ~1000 tokens (10 narrative slots)
+- Per language: ~$0.02
+
+### Rendering at build time
+
+`scripts/build.py` does the actual MD composition:
+
+```python
+narrative = mimo_prompt3(spec, desc, target_lang)  # → 10 chunks
+
+md = render_template(
+    site=site,
+    spec=spec,
+    desc=desc,
+    narrative=narrative,
+    lang=target_lang
+)
+# Combines:
+# - h1 + opening quote
+# - Chapter 1: ch1_intro + identity table
+# - Chapter 2: ch2_intro + color hex grid + ch2_outro
+# - Chapter 3: ch3_intro + typography scale table
+# - ... etc
+
+write(f"dist/packs/{slug}/DESIGN_SPEC.{lang}.md", md)
+```
+
+### Idempotency
+
+`_meta.narrative_at` records when this was run; if rerunning ingest
+and `narrative_at` exists for a (slug, lang), skip the call. Force
+rerun: `--rerun-narrative` flag.
+
+### Failure recovery
+
+If JSON parse fails: re-issue once. If 2nd parse fails: mark
+`_meta.narrative_status: "failed:json_parse"`, leave previous
+narrative (or nothing) intact, continue with other steps.
+
+---
+
 ## Token Budget · canonical accounting
 
 | Step | Calls per site | Cost per call | Subtotal |
@@ -204,9 +364,15 @@ Translate this English design-spec fragment into {TARGET_LANG_NAME}.
 | Screenshot (microlink) | 1 | $0 | $0 |
 | Vision spec (Prompt #1) | 1 | $0.05 | $0.05 |
 | Translation × 4 langs (Prompt #2) | 4 | $0.01 | $0.04 |
-| **Total per site** | 6 | | **~$0.09** |
+| Narrative en (Prompt #3) | 1 | $0.02 | $0.02 |
+| Narrative × 4 langs (Prompt #2 retargeted) | 4 | $0.01 | $0.04 |
+| **Total per site** | 11 | | **~$0.15** |
 
-1000 sites → **~$90**. With 5% retries → **~$95**.
+1000 sites → **~$150**. With 5% retries → **~$158**.
+
+Note: narrative translations reuse Prompt #2 — the en narrative
+fragment is just one more field in the translation request, not a
+separate prompt template.
 
 ---
 

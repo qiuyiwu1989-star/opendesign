@@ -159,7 +159,7 @@ dist/                        ← build 产物，不入 git
 
 ## 2. AI 调用路径（token 经济性）
 
-### 2.1 三阶段：截图 → vision → 翻译
+### 2.1 四阶段：截图 → vision → 翻译 → 可下载文档
 
 ```
 URL
@@ -170,8 +170,12 @@ URL
   ↓
 [Step 3] mimo-v2.5 text（en → zh-CN/zh-TW/ja/ko）   ← 4 次纯文本调用 (~$0.01 each)
   ↓
-sites/<slug>.json
+[Step 4] mimo-v2.5 text（spec → narrative）         ← 1 次 en (~$0.02) + 翻译 4 次 (~$0.01 each)
+  ↓                                                    叙事段会和模板表格拼成可下载 DESIGN_SPEC.md
+sites/<slug>.json  +  dist/packs/<slug>/DESIGN_SPEC.<lang>.md
 ```
+
+**每站总成本 ~$0.15** · 1000 站 = $150（含 5% 重试）
 
 ### 2.2 为什么 vision 只调一次
 
@@ -241,17 +245,22 @@ for lang in ["zh-CN", "zh-TW", "ja", "ko"]:
                           ┌────────────┐
                           │vision_done │ ← spec 已有，en desc 已抽出
                           └─────┬──────┘
-                                │ translate to 4 langs
+                                │ translate spec/desc to 4 langs
                                 ↓
                           ┌────────────┐
-                          │ translated │ ← desc.zh-CN/zh-TW/ja/ko 都齐
+                          │ translated │ ← desc.* / spec_i18n.* 5 lang 齐
                           └─────┬──────┘
+                                │ Prompt #3 narrative en + 4 lang translation
+                                ↓
+                          ┌─────────────┐
+                          │narrated     │ ← DESIGN_SPEC.md 可下载文档 5 lang 齐
+                          └─────┬───────┘
                                 │ (optional) Playwright pack
                                 ↓
                           ┌────────────┐
                           │ completed  │ ← 全齐，可上架
                           └────────────┘
-                                
+
                           ┌────────────┐
                           │failed:<x>  │ ← 任一步抛错都进这里
                           └────────────┘   单独 retry 不影响其它

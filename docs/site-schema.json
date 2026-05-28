@@ -43,7 +43,7 @@
     },
     "status": {
       "type": "string",
-      "enum": ["pending", "screenshot", "vision_done", "translated", "completed"],
+      "enum": ["pending", "screenshot", "vision_done", "translated", "narrated", "completed"],
       "description": "Ingest pipeline state. 'failed:<reason>' uses last_error in _meta instead."
     },
     "added_at": {
@@ -70,6 +70,12 @@
         "translation_at": { "type": "string", "format": "date-time" },
         "translation_tokens": { "type": "integer", "minimum": 0 },
         "translation_cost_usd": { "type": "number", "minimum": 0 },
+        "narrative_model": { "type": "string" },
+        "narrative_prompt_version": { "type": "string", "description": "e.g. '0.3' — see docs/prompts.md Prompt #3" },
+        "narrative_at": { "type": "string", "format": "date-time" },
+        "narrative_tokens": { "type": "integer", "minimum": 0 },
+        "narrative_cost_usd": { "type": "number", "minimum": 0 },
+        "narrative_status": { "type": ["string", "null"], "description": "ok | failed:json_parse | failed:rate_limit ..." },
         "total_cost_usd": { "type": "number", "minimum": 0 },
         "last_error": { "type": ["string", "null"] },
         "retries": { "type": "integer", "minimum": 0 }
@@ -211,6 +217,19 @@
       }
     },
 
+    "narrative": {
+      "type": "object",
+      "description": "Magazine-style narrative slots produced by Prompt #3, woven into DESIGN_SPEC.md at build time. Each language has 10 slot strings.",
+      "additionalProperties": false,
+      "properties": {
+        "en":    { "$ref": "#/$defs/NarrativeBlock" },
+        "zh-CN": { "$ref": "#/$defs/NarrativeBlock" },
+        "zh-TW": { "$ref": "#/$defs/NarrativeBlock" },
+        "ja":    { "$ref": "#/$defs/NarrativeBlock" },
+        "ko":    { "$ref": "#/$defs/NarrativeBlock" }
+      }
+    },
+
     "pack": {
       "type": "object",
       "additionalProperties": false,
@@ -235,6 +254,23 @@
         "interaction": { "type": "string", "minLength": 1, "maxLength": 500 },
         "motion":      { "type": "string", "minLength": 1, "maxLength": 500 },
         "notes":       { "type": "string", "minLength": 1, "maxLength": 500 }
+      }
+    },
+    "NarrativeBlock": {
+      "type": "object",
+      "description": "Magazine-style narrative slots produced by Prompt #3. Composed with templated tables to render DESIGN_SPEC.<lang>.md at build time.",
+      "additionalProperties": false,
+      "properties": {
+        "ch1_intro": { "type": "string", "minLength": 20, "maxLength": 400 },
+        "ch2_intro": { "type": "string", "minLength": 20, "maxLength": 300 },
+        "ch2_outro": { "type": "string", "minLength": 10, "maxLength": 200 },
+        "ch3_intro": { "type": "string", "minLength": 20, "maxLength": 300 },
+        "ch4_intro": { "type": "string", "minLength": 10, "maxLength": 200 },
+        "ch5_intro": { "type": "string", "minLength": 20, "maxLength": 300 },
+        "ch6_intro": { "type": "string", "minLength": 20, "maxLength": 400 },
+        "ch7_intro": { "type": "string", "minLength": 20, "maxLength": 400 },
+        "ch8_intro": { "type": "string", "minLength": 20, "maxLength": 300 },
+        "ch8_outro": { "type": "string", "minLength": 10, "maxLength": 200 }
       }
     },
     "SpecI18nBlock": {
