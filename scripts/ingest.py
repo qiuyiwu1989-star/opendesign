@@ -135,25 +135,66 @@ def call_mimo(
     }
 
 
+def _extract_first_balanced_object(s: str) -> str:
+    """从第一个 { 开始扫描配对的 }，忽略字符串内的括号。"""
+    start = s.find("{")
+    if start < 0:
+        return ""
+    depth = 0
+    in_str = False
+    esc = False
+    for i in range(start, len(s)):
+        ch = s[i]
+        if in_str:
+            if esc:
+                esc = False
+            elif ch == "\\":
+                esc = True
+            elif ch == '"':
+                in_str = False
+            continue
+        if ch == '"':
+            in_str = True
+        elif ch == "{":
+            depth += 1
+        elif ch == "}":
+            depth -= 1
+            if depth == 0:
+                return s[start:i + 1]
+    return ""
+
+
 def parse_json_from_response(text: str) -> dict:
     """
-    mimo 经常会用 ```json ... ``` 包；直接 strip 不靠谱，宽松解析。
+    mimo 经常会用 ```json ... ``` 包；尾部也可能跟评论文本。
+    用平衡括号扫描出第一个完整 JSON 对象。
     """
     s = text.strip()
     if s.startswith("```"):
         s = re.sub(r"^```(?:json)?\s*", "", s)
         s = re.sub(r"\s*```$", "", s)
-    start = s.find("{")
-    end = s.rfind("}")
-    if start < 0 or end < 0:
-        raise ValueError(f"No JSON object found in response: {text[:200]}")
-    candidate = s[start:end + 1]
+
+    candidate = _extract_first_balanced_object(s)
+    if not candidate:
+        # 退路：旧的 first-{ to last-} 切片
+        start = s.find("{")
+        end = s.rfind("}")
+        if start < 0 or end < 0:
+            raise ValueError(f"No JSON object found in response: {text[:200]}")
+        candidate = s[start:end + 1]
+
     try:
         return json.loads(candidate)
     except json.JSONDecodeError:
-        # 容错：去掉 JSON 中的尾随逗号 ", }" / ", ]" 后再 try 一次
+        # 1) 去尾随逗号
         cleaned = re.sub(r",\s*([}\]])", r"\1", candidate)
-        return json.loads(cleaned)
+        try:
+            return json.loads(cleaned)
+        except json.JSONDecodeError:
+            # 2) 去 markdown 引号 “ ” 等
+            cleaned = cleaned.replace("“", '"').replace("”", '"')
+            cleaned = cleaned.replace("‘", "'").replace("’", "'")
+            return json.loads(cleaned)
 
 
 def call_mimo_with_retry(messages, *, system=None, max_tokens=4096, retries: int = 2, **kwargs):

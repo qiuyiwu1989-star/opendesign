@@ -9,15 +9,25 @@
     "SaaS",
     "Calm"
   ],
-  "status": "failed:JSONDecodeError",
+  "status": "completed",
   "added_at": "2026-05-28",
   "added_by": "curator",
   "_meta": {
     "vision_model": "mimo-v2.5",
     "vision_prompt_version": "0.2_legacy",
     "vision_at": "2026-05-28T02:50:50.854Z",
-    "total_cost_usd": 0.0,
-    "last_error": "Extra data: line 83 column 1 (char 3186)"
+    "total_cost_usd": 0.0543,
+    "last_error": "Extra data: line 83 column 1 (char 3186)",
+    "translation_model": "mimo-v2.5",
+    "translation_at": "2026-05-28T19:18:51+00:00",
+    "translation_tokens": 11652,
+    "translation_cost_usd": 0.0388,
+    "narrative_model": "mimo-v2.5",
+    "narrative_prompt_version": "0.3",
+    "narrative_at": "2026-05-28T19:19:01+00:00",
+    "narrative_tokens": 2330,
+    "narrative_cost_usd": 0.0155,
+    "narrative_status": "ok"
   },
   "spec": {
     "colors": {
@@ -379,7 +389,228 @@
         "不用 emoji 裝飾標題 —— 標題純文字無 emoji 點綴"
       ],
       "systemPrompt": "你是暗色沉浸式產品落地頁設計師。背景極深近黑，文字白色，紫色光暈是唯一高彩度焦點；標題用 geometric-sans 500 weight 簡短祈使句，正文同族 400 weight；CTA 按鈕紫色描邊不實心填充；不用襯線 / 不用亮色背景 / 不用 drop shadow / 不用 emoji / 標題不超過 5 詞 / hero 必須有產品截圖。整體氣質冷靜克制，像天文館不是遊樂場。"
+    },
+    "ja": {
+      "identity": {
+        "keywords": [
+          "暗色沉浸",
+          "紫色光晕",
+          "製品スクリーンショット主導",
+          "極簡ナビゲーション",
+          "テクノロジーの抑制"
+        ],
+        "analogy": "Linearの冷徹な暗色であり、Notionの温かな紙の質感ではありません。プラネタリウムのドームプロジェクションであり、カフェのメニューではありません。",
+        "oneLiner": "濃い色のキャンバスと紫色の光晕でノートツールを、静かな思考の宇宙へと包装します。"
+      },
+      "colors": {
+        "principle": "パレットは空で具体的な色値は抽出できませんが、視覚的にはダークベース＋白色文字＋紫色の光晕が唯一の高彩度アクセントとなっています。"
+      },
+      "typography": {
+        "rules": [
+          "見出しは500ウェイト、boldではなく、抑制を保ちます",
+          "全文サンセリフ、セリフ体は混在させません",
+          "バッジ文字は中程度のウェイトを使用し、全大文字にはしません"
+        ],
+        "scaleUses": [
+          "ファーストビューのメイン見出し Think better with Reflect",
+          "サブ見出しとナビゲーションテキスト",
+          "バッジの補足テキスト New: Our AI integration"
+        ]
+      },
+      "spacing": {
+        "rhythm": "たっぷりと余白を設けます。ヒーローエリアの上下には広く呼吸するスペースを。バッジから見出しまで約32px、見出しからサブ見出しまで約16px、サブ見出しから製品スクリーンショットまで約48px。"
+      },
+      "surfaces": {
+        "shadows": [
+          "従来のドロップシャドウは使用せず、製品スクリーンショットの強調には紫色の光晕（グロウ）を投影の代わりに使用します"
+        ],
+        "borders": "極力控えめなボーダー。製品スクリーンショットには微細なダーク色のボーダー、CTAボタンには紫色のボーダー。"
+      },
+      "layout": {
+        "skeleton": "トップナビゲーションバー → 中央配置のバッジ補足 → 大見出し → サブ見出し → 紫色の光晕装飾 → 製品スクリーンショットのモックアップ（サイドバー＋編集エリア＋カレンダーを含む）"
+      },
+      "components": {
+        "button": "CTAは紫色ボーダーの角丸ボタンで、塗りつぶしはなく、文字は白色。Loginはテキストリンクのみで背景なし。",
+        "card": "製品スクリーンショット自体がダークな角丸カードの形态呈现され、内部に複数パネルのレイアウトを含みます。",
+        "chip": "バッジはダークな半透明背景＋角丸カプセル形＋紫色の小さなアイコンプレフィックス。",
+        "input": "スクリーンショット内の検索ボックスはダーク背景＋角丸＋グレーのプレースホルダー＋ショートカットキーの提示。",
+        "hero": "中央テキスト型ヒーロー：バッジ → 大見出し → サブ見出し → 全幅の紫色オーロラ光晕 → 製品スクリーンショットの埋め込み。"
+      },
+      "motion": {
+        "patterns": [
+          "紫色の光晕は、呼吸するようなパルスアニメーションの可能性を示唆します",
+          "製品スクリーンショットが光晕の上に浮遊している様子は、scroll parallaxの可能性を示唆します",
+          "バッジにNewタグが付いていることは、エンターアニメーションの可能性を示唆します"
+        ]
+      },
+      "interaction": {
+        "hover": "CTAボタンは紫色のグロウが強化されたり、背景の塗りつぶしが変化したりする可能性が高い。ナビゲーションリンクはテキストの明るさが変化するかもしれない。",
+        "click": null,
+        "transition": null,
+        "keyboard": null
+      },
+      "voice": {
+        "tone": "静かで、自信に満ち、やや知的な雰囲気。説教めいたり、過度に推销したりしません。",
+        "headlineStyle": "短い動詞で始まる命令形のスタイル Think better with…、形容詞を詰め込みません。",
+        "ctaStyle": "機能的で率直なCTA Start free trial、感嘆符は使用せず、修飾も加えません。",
+        "avoid": [
+          "感嘆符の使用を避ける",
+          "all-capsの叫ぶような見出しを避ける",
+          "best / ultimate / insane などの過度な約束を含む表現を避ける"
+        ]
+      },
+      "donts": [
+        "明るい色や白い背景を使用しない —— スクリーンショットは常に #0B0B14 に近いダーク色の背景",
+        "セリフ体を使用しない —— 見出しと本文すべてサンセリフ体",
+        "塗りつぶしのブランドカラーボタンを使用しない —— CTAボタンは紫色のボーダーであり、塗りつぶしの紫色ではない",
+        "ヒーローにテキストのみで視覚要素を入れない —— ヒーローの下部には製品スクリーンショットのモックアップと光晕装飾がある",
+        "従来のドロップシャドウを使用しない —— 階層表現には紫色のグロウ光晕を影の代わりに使用",
+        "マルチカラムのヒーローテキストを作成しない —— 見出しは中央揃えの単一カラム、サブ見出しはその直下",
+        "見出しを絵文字で装飾しない —— 見出しは純粋なテキストで絵文字は一切使用しない"
+      ],
+      "systemPrompt": "あなたは暗色のインマーシブ製品ランディングページデザイナーです。背景は極めて暗く黒に近い。文字は白色。紫色の光晕が唯一の高彩度アクセント。見出しはgeometric-sansの500ウェイトで短い命令形文。本文は同一フォントファミリーの400ウェイト。CTAボタンは紫色ボーダーで塗りつぶしはしない。セリフ体は使用しない／明るい背景は使用しない／ドロップシャドウは使用しない／絵文字は使用しない／見出しは5語以内／ヒーローには必ず製品スクリーンショットを含める。全体的な雰囲気は冷静で抑制されており、遊園地ではなくプラネタリウムのようです。"
+    },
+    "ko": {
+      "identity": {
+        "keywords": [
+          "다크 몰입",
+          "퍼플 글로우",
+          "제품 스크린샷 주도",
+          "극도로 미니멀한 내비게이션",
+          "기술적 절제"
+        ],
+        "analogy": "Linear의 차가운 다크 톤이지 Notion의 따뜻한 종이 질감이 아니며, 천문관 돔 프로젝션이지 카페 메뉴가 아니다.",
+        "oneLiner": "다크 캔버스와 퍼플 글로우로 노트 도구를 조용한 사고의 우주로 포장합니다."
+      },
+      "colors": {
+        "principle": "팔레트가 비어 구체적 색상을 추출할 수 없지만, 시각적으로는 다크 배경 + 화이트 텍스트 + 유일한 고채도 포인트인 �플 글로우입니다."
+      },
+      "typography": {
+        "rules": [
+          "제목은 500 웨이트, 볼드가 아닌 절제된 무게감",
+          "전체 본문은 산세리프, 세리프 혼용 없음",
+          "배지 텍스트는 중간 웨이트로 전 대문자(올캡스) 사용 안 함"
+        ],
+        "scaleUses": [
+          "첫 화면 메인 제목 Think better with Reflect",
+          "부제목 및 내비게이션 텍스트",
+          "배지 알림 텍스트 New: Our AI integration"
+        ]
+      },
+      "spacing": {
+        "rhythm": "관대한 여백, 히어로 영역 상하에 넉넉한 호흡 공간, 배지에서 제목까지 약 32px, 제목에서 부제목까지 약 16px, 부제목에서 제품 스크린샷까지 약 48px"
+      },
+      "surfaces": {
+        "shadows": [
+          "전통적인 드롭 섀도우 대신 �플 글로우를 사용하여 제품 스크린샷을 강조함"
+        ],
+        "borders": "최소한의 보더, 제품 스크린샷에는 은은한 다크 스타크, CTA 버튼에는 �플 보더 사용"
+      },
+      "layout": {
+        "skeleton": "상단 내비게이션 바 → 중앙 배지 알림 → 대제목 → 부제목 → �플 글로우 데코레이션 → 제품 스크린샷 목업(사이드바 + 편집 영역 + 캘린더 포함)"
+      },
+      "components": {
+        "button": "CTA는 �플 보더가 있는 둥근 모서리 버튼, 솔리드 채우기 없음, 텍스트 화이트; 로그인은 배경 없는 순수 텍스트 링크",
+        "card": "제품 스크린샷 자체가 다크 둥근 모서리 카드 형태로, 내부에 다중 패널 레이아웃을 담고 있음",
+        "chip": "배지는 다크 반투명 배경 + 둥근 모서리 캡슐형 + �플 소형 아이콘 접두사",
+        "input": "스크린샷 내 검색창은 다크 배경 + 둥근 모서리 + 회색 플레이스홀더 + 단축키 힌트",
+        "hero": "중앙 정렬 텍스트형 히어로: 배지 → 대제목 → 부제목 → 전체 폭 �플 오로라 글로우 → 제품 스크린샷 삽입"
+      },
+      "motion": {
+        "patterns": [
+          "퍼플 글로우는 호흡하는 듯한 펄스 애니메이션 가능성을 암시",
+          "제품 스크린샷이 글로우 위에 떠 있는 것은 스크롤 패럴랙스 가능성을 암시",
+          "New 태그가 있는 배지는入场动效(입장 모션 이펙트) 가능성을 암시"
+        ]
+      },
+      "interaction": {
+        "hover": "CTA 버튼은 �플 글로우 강화 또는 배경 채우기 변화가 있을 가능성이 높고, 내비게이션 링크는 텍스트 밝기 변화가 있을 수 있음",
+        "click": null,
+        "transition": null,
+        "keyboard": null
+      },
+      "voice": {
+        "tone": "차분하고, 자신감 있고, 약간의 지적 느낌을 주며, 교훈적이거나 과도하게 판매하지 않음",
+        "headlineStyle": "간결한 동사로 시작하는 명령형 문장 Think better with…, 형용사 나열 없음",
+        "ctaStyle": "기능적이고 직설적인 CTA Start free trial, 느낌표 없음, 수식어 없음",
+        "avoid": [
+          "느낌표 사용 회피",
+          "올캡스(전 대문자) 함성형 제목 회피",
+          "과도한 약속형 문구(예: best / ultimate / insane) 회피"
+        ]
+      },
+      "donts": [
+        "밝은 색상 또는 화이트 배경 사용 금지 — 스크린샷은 전체적으로 #0B0B14에 가까운 다크 배경 유지",
+        "세리프 폰트 사용 금지 — 제목과 본문 모두 산세리프",
+        "솔리드 채우기 브랜드색 버튼 사용 금지 — CTA 버튼은 �플 솔리드 채우기가 아닌 �플 보더",
+        "히어로에 시각 요소 없는 순수 텍스트 금지 — 히어로 하단에 제품 스크린샷 목업과 글로우 데코레이션 배치",
+        "전통적인 드롭 섀도우 사용 금지 — �플 글로우로 레이어링 처리",
+        "멀티컬럼 히어로 카피 금지 — 제목은 중앙 정렬 싱글 컬럼, 부제목은 바로 아래 배치",
+        "이모지로 제목 장식 금지 — 제목은 순수 텍스트, 이모지 없음"
+      ],
+      "systemPrompt": "당신은 다크 몰입형 제품 랜딩 페이지 디자이너입니다. 배경은 거의 검은색에 가까운 극도로 어두운 톤, 텍스트는 화이트, 유일한 고채도 포인트는 �플 글로우; 제목은 geometric-sans 500 웨이트의 간결한 명령형 문장, 본문은 같은 폰트 패밀리 400 웨이트; CTA 버튼은 �플 솔리드 채우기가 아닌 �플 보더; 세리프 사용 금지 / 밝은 배경 사용 금지 / 드롭 섀도우 사용 금지 / 이모지 사용 금지 / 제목 5 단어 이내 / 히어로에는 반드시 제품 스크린샷 포함. 전체 분위기는 차분하고 절제된, 천문관 같지 놀이공원 같지 않은 느낌."
     }
   },
-  "narrative": {}
+  "narrative": {
+    "en": {
+      "ch1_intro": "Reflect operates within a narrow band of controlled intensity—a digital planetarium where content unfolds beneath a dome of near-black canvas. The system's identity hinges on a single chromatic event: a purple aurora that serves as the sole high-saturation focal point, drawing the eye without disrupting the stillness. Every other element recedes into the dark, subordinate to this one luminous accent.",
+      "ch2_intro": "The palette is structured around absence. Backgrounds push toward absolute darkness, text holds at paper-white, and muted gray occupies the functional middle ground. The purple glow—used as an ambient gradient rather than a flat swatch—becomes the system's only chromatic signature.",
+      "ch2_outro": "Color restraint is the principle: if a surface does not need hue, it receives none.",
+      "ch3_intro": "All typography is sans-serif, mixed with no serif counterpart. Headlines carry a 500 weight that reads as measured rather than emphatic; the imperative sentence structure ('Think better with Reflect') delivers intent through brevity, not typographic force.",
+      "ch4_intro": "Rhythm is generous and deliberate—hero content breathes with roughly 32px between badge and headline, 16px between headline and subtitle, and 48px before the product screenshot begins.",
+      "ch5_intro": "Traditional drop shadows are absent. Depth is communicated through the purple aurora glow that sits behind the product screenshot, creating separation by luminance rather than darkness. Borders appear sparingly: a faint dark stroke around the screenshot card and a purple outline on the CTA button.",
+      "ch6_intro": "The hero skeleton runs as a single centered column: navigation bar at top, then a small badge ('New: Our AI integration'), the main headline, the subtitle, the full-width purple aurora gradient, and finally the product screenshot mockup containing sidebar, editor, and calendar panels. There are no multi-column text arrangements—the layout is axial and uninterrupted.",
+      "ch7_intro": "Motion philosophy treats animation as structural clarification, not decoration. The purple aurora's implied breathing pulse and the screenshot's elevated position above the glow suggest parallax and subtle ambient movement reserved for scroll and entry moments, never for attention-seeking.",
+      "ch8_intro": "The voice is calm, confident, and faintly intellectual—imperative headlines built on short verbs, CTAs stripped to functional plainness ('Start free trial', no exclamation marks). Every sentence avoids superlatives, emoji, and all-caps shouting.",
+      "ch8_outro": "What this system deliberately omits—light backgrounds, serif type, solid-fill brand buttons, emoji, drop shadows, multi-column hero copy—defines its boundaries as clearly as what it contains."
+    },
+    "zh-CN": {
+      "ch1_intro": "Reflect 在一个可控的窄强度带内运作——一个数字天象厅，内容在近乎纯黑的穹顶下展开。系统的核心识别力系于一个色彩事件：一道紫色极光，作为唯一的高饱和焦点，吸引视线而不扰动静谧。其他所有元素都退入暗处，服从于这一处发光点。",
+      "ch2_intro": "调色板围绕“缺失”构建。背景趋近纯黑，文字保持纸白，柔和的灰色占据功能性的中间地带。紫色辉光——作为环境渐变而非纯色色块使用——成为系统唯一的色彩签名。",
+      "ch2_outro": "克制色彩是核心原则：若表面无需色调，则不赋予任何色彩。",
+      "ch3_intro": "所有字体均为无衬线体，不与衬线体混用。标题采用 500 字重，阅读感偏沉稳而非强调；祈使句结构（例如“Think better with Reflect”）通过简洁而非字体力度传达意图。",
+      "ch4_intro": "节奏宽裕且审慎——核心内容在徽标与标题间留出约 32px 间距，标题与副标题间 16px，产品截图前则预留 48px 空间。",
+      "ch5_intro": "传统投影效果被摒弃。深度感通过产品截图后方的紫色极光辉光传达，以亮度而非暗度创造层次。边框仅少量使用：截图卡片周围有细微深色描边，CTA 按钮则带有紫色轮廓。",
+      "ch6_intro": "核心骨架采用单一居中栏布局：顶部导航栏，随后是小型徽标（“New: Our AI integration”）、主标题、副标题、全宽紫色极光渐变，最后是包含侧边栏、编辑器和日历面板的产品截图模型。不存在多栏文本排列——布局是轴向且不间断的。",
+      "ch7_intro": "动态哲学将动画视为结构性阐释，而非装饰。紫色极光暗示的呼吸脉动感，以及截图在辉光上方的悬浮位置，暗示着视差与微妙的环境动态，仅用于滚动与进入时刻，从不用于吸引注意力。",
+      "ch8_intro": "语气平静、自信且略带理性——祈使句标题基于短动词构建，CTA 剥离至功能性朴素（“Start free trial”，无感叹号）。每个句子都避免最高级、表情符号和全大写强调。",
+      "ch8_outro": "该系统刻意省略的内容——浅色背景、衬线字体、纯色填充品牌按钮、表情符号、投影效果、多栏核心文案——与其包含的元素一样，清晰定义了其边界。"
+    },
+    "zh-TW": {
+      "ch1_intro": "Reflect 在一個受控強度的狹窄範圍內運作——一個數位天文館，內容在一個近乎黑色的帆布穹頂下展開。系統的識別關鍵在於一個單一的色彩事件：一道紫色極光，作為唯一的飽和度焦點，吸引目光卻不破壞寧靜。所有其他元素都退入黑暗中，從屬於這一個發光的強調色。",
+      "ch2_intro": "調色板的建構圍繞著「缺席」。背景趨向絕對黑暗，文字維持紙張般的白色，而低飽和的灰色佔據功能性的中間地帶。紫色光輝——作為環境漸層而非平面色塊使用——成為系統唯一的色彩標記。",
+      "ch2_outro": "色彩克制是核心原則：如果一個表面不需要色相，它就不會獲得任何顏色。",
+      "ch3_intro": "所有字體皆為無襯線體，不與任何襯線字體搭配。標題使用 500 字重，呈現出沉著而非強調的感覺；祈使句結構（「用 Reflect 思考得更好」）透過簡潔而非字體力量來傳達意圖。",
+      "ch4_intro": "節奏寬裕且刻意——主要內容在徽章與標題之間約留有 32px 的間距，標題與副標題之間 16px，而在產品截圖開始前則有 48px 的呼吸空間。",
+      "ch5_intro": "傳統陰影效果是缺席的。深度感透過位於產品截圖後方的紫色極光光輝來傳達，以亮度而非暗度來創造分隔。邊框僅少量出現：截圖卡片周圍有微弱的深色描邊，CTA 按鈕則有紫色外框。",
+      "ch6_intro": "主要骨架以單一居中欄位運行：頂端是導覽列，接著是小型徽章（「新增：我們的 AI 整合」）、主要標題、副標題、全寬的紫色極光漸層，最後是包含側邊欄、編輯器和日曆面板的產品截圖模型。沒有多欄文字佈局——版面是軸向且不間斷的。",
+      "ch7_intro": "動效哲學將動畫視為結構性的清晰化表達，而非裝飾。紫色極光隱含的呼吸脈動，以及截圖相對於光輝所處的抬升位置，暗示著視差和細微的環境動態，這些僅保留給滾動與進入的時刻，從不用於吸引注意力。",
+      "ch8_intro": "語氣是冷靜、自信且略帶知性的——以短動詞構成的祈使句標題、CTA 被剝離至功能性的樸實（「開始免費試用」，無驚嘆號）。每個句子都避開最高級、表情符號與全大寫的喊叫式排版。",
+      "ch8_outro": "這個系統刻意省略的內容——淺色背景、襯線字體、實心填充的品牌按鈕、表情符號、陰影效果、多欄主要文案——如同它所包含的內容一樣，清晰地定義了其邊界。"
+    },
+    "ja": {
+      "ch1_intro": "Reflectは、管理された強度の狭い帯域内で動作します。暗黒のキャンバスのドームの下でコンテンツが展開される、デジタルプラネタリウムのような空間です。システムのアイデンティティは、単一の色のイベントに依存しています。紫色のオーロラが唯一の高彩度の焦点として機能し、静寂を乱すことなく視線を引きます。他のすべての要素は闇に退き、この一つの光るアクセントに従属します。",
+      "ch2_intro": "パレットは「不在」を中心に構成されています。背景は絶対的な暗闇に向かって押し進められ、テキストは紙の白を保ち、控えめなグレーが機能的な中間地帯を占めます。紫色の光は、フラットなスウォッチとしてではなく、環境グラデーションとして使用され、システム唯一の色彩的な特徴となります。",
+      "ch2_outro": "色彩の抑制が原則です：表面に色相が不要であれば、色は与えられません。",
+      "ch3_intro": "すべてのタイポグラフィはサンセリフで、セリフ体の対構成要素は混在しません。見出しは500のウェイトで、強調的というよりは落ち着いた印象で読まれます。命令的な文構造（「Reflectでより深く考える」）は、タイポグラフィ的な力ではなく、簡潔さを通じて意図を伝えます。",
+      "ch4_intro": "リズムは寛容で意図的です。ヒーローコンテンツは、バッジと見出しの間が約32px、見出しとサブタイトルの間が16px、製品スクリーンショットが始まる前が48pxという余裕を持って息づきます。",
+      "ch5_intro": "従来のドロップシャドウは排除されています。奥行きは、製品スクリーンショットの背後にある紫色のオーロラの光によって表現され、暗闇ではなく光度によって分離を生み出します。ボーダーは控えめに使用されます。スクリーンショットカードの周囲に微細なダークストロークと、CTAボタンに紫色のアウトラインが施されます。",
+      "ch6_intro": "ヒーロースケルトンは単一の中央揃えカラムとして構成されます。上部にナビゲーションバー、その後に小さなバッジ（「新機能：当社のAI統合」）、メインの見出し、サブタイトル、フルワイドの紫色のオーロラグラデーション、そしてサイドバー、エディター、カレンダーパネルを含む製品スクリーンショットのモックアップが続きます。複数カラムのテキスト配置はなく、レイアウトは軸線的で途切れることなく続きます。",
+      "ch7_intro": "モーション哲学は、アニメーションを装飾ではなく、構造的な明確化として扱います。紫色のオーロラが暗示する呼吸するパルスと、スクリーンショットが光の上に浮かび上がる位置は、パララックスと微細な環境的な動きを示唆しており、スクロールやエントリーの瞬間にのみ保留され、決して注意を引くためのものではありません。",
+      "ch8_intro": "声は冷静で、自信に満ち、わずかに知的です。短い動詞に基づいた命令形の見出し、機能的な平明さに引き算されたCTA（「無料トライアルを開始」、感嘆符なし）。すべての文は、極端な表現、絵文字、全角の大文字による叫びを避けます。",
+      "ch8_outro": "このシステムが意図的に除外するもの（明るい背景、セリフ体、塗りつぶしのブランドボタン、絵文字、ドロップシャドウ、複数カラムのヒーローコピー）は、包含するものと同様に明確に、その境界を定義しています。"
+    },
+    "ko": {
+      "ch1_intro": "Reflect는 통제된 강도의 좁은 범위 내에서 작동합니다—콘텐츠가 거의 검은 캔버스 돔 아래에서 펼쳐지는 디지털 천문관입니다. 시스템의 정체성은 하나의 색상 이벤트에 달려 있습니다: 보라색 오로라입니다. 이는 시각을 끌어들이지만 고요함을 깨뜨리지 않는 유일한 고채도 초점 역할을 합니다. 다른 모든 요소는 이 하나의 빛나는 포인트에 종속되어 어둠 속으로 물러납니다.",
+      "ch2_intro": "팔레트는 부재를 중심으로 구조화됩니다. 배경은 절대적 어둠을 향해 밀려나고, 텍스트는 종이 흰색을 유지하며, 은은한 회색은 기능적인 중간 지대를 차지합니다. 보라색 발광체는 평면 색상이 아닌 앰비언트 그라디언트로 사용되며, 시스템의 유일한 색상 서명이 됩니다.",
+      "ch2_outro": "색상 절제가 원칙입니다: 표면에 색조가 필요하지 않으면, 아무것도 부여되지 않습니다.",
+      "ch3_intro": "모든 타이포그래피는 sans-serif이며, 어떤 serif 대응물과도 혼합되지 않습니다. 헤드라인은 500 웨이트를 사용하여 강조보다는 절제된 느낌을 줍니다; 명령형 문장 구조('Reflect로 더 나은 생각을')는 타이포그래피적 힘이 아닌 간결함을 통해 의도를 전달합니다.",
+      "ch4_intro": "리듬은 넉넉하고 의도적입니다—히어로 콘텐츠는 배지와 헤드라인 사이 약 32px, 헤드라인과 부제목 사이 16px, 제품 스크린샷 시작 전 48px의 여유를 둡니다.",
+      "ch5_intro": "전통적인 드롭 섀도우는 없습니다. 깊이는 제품 스크린샷 뒤에 위치한 보라색 오로라 발광체를 통해 전달되며, 어둠이 아닌 휘도를 통해 분리를 만듭니다. 테두리는 절제되게 나타납니다: 스크린샷 카드 주변의 은은한 어두운 스트로크와 CTA 버튼의 보라색 외곽선.",
+      "ch6_intro": "히어로 스켈레톤은 단일 중앙 정렬 열로 구성됩니다: 상단의 네비게이션 바, 그 다음 작은 배지('New: Our AI integration'), 메인 헤드라인, 부제목, 전체 폭의 보라색 오로라 그라디언트, 그리고 사이드바, 에디터, 캘린더 패널을 포함한 제품 스크린샷 목업. 다중 열 텍스트 배열은 없으며, 레이아웃은 축적이고 중단되지 않습니다.",
+      "ch7_intro": "모션 철학은 애니메이션을 장식이 아닌 구조적 명확화로 대우합니다. 보라색 오로라의 암시적 호흡 펄스와 발광체 위에 떠 있는 스크린샷의 위치는 패럴랙스와 scroll 및 진입 순간에만 예약된 미묘한 앰비언트 움직임을 시사하며, 절대로 주의를 끌기 위한 것이 아닙니다.",
+      "ch8_intro": "어조는 차분하고 자신감 있으며, 지적이기까지 합니다—짧은 동사로 만든 명령형 헤드라인, 기능적 평범함으로 다듬어진 CTA('Start free trial', 느낌표 없음). 모든 문장은 최상급, 이모지, 전체 대문자 강조를 피합니다.",
+      "ch8_outro": "이 시스템이 의도적으로 생략하는 것들—밝은 배경, serif 타입, 단색 채움 브랜드 버튼, 이모지, 드롭 섀도우, 다중 열 히어로 카피—는 포함된 것만큼이나 명확하게 그 경계를 정의합니다."
+    }
+  }
 }

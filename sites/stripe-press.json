@@ -10,14 +10,24 @@
     "Premium",
     "Typography"
   ],
-  "status": "vision_done",
+  "status": "completed",
   "added_at": "2026-05-28",
   "added_by": "curator",
   "_meta": {
     "vision_model": "mimo-v2.5",
     "vision_prompt_version": "0.2_legacy",
     "vision_at": "2026-05-28T02:41:18.522Z",
-    "total_cost_usd": 0.0
+    "total_cost_usd": 0.0703,
+    "translation_model": "mimo-v2.5",
+    "translation_at": "2026-05-28T19:08:59+00:00",
+    "translation_tokens": 16609,
+    "translation_cost_usd": 0.0553,
+    "narrative_model": "mimo-v2.5",
+    "narrative_prompt_version": "0.3",
+    "narrative_at": "2026-05-28T19:09:07+00:00",
+    "narrative_tokens": 2247,
+    "narrative_cost_usd": 0.015,
+    "narrative_status": "ok"
   },
   "spec": {
     "colors": {
@@ -235,6 +245,342 @@
         "不做渐变背景 —— 每条书脊是纯色块"
       ],
       "systemPrompt": "你是编辑出版风格网页设计师。深黑背景占满全页，中心区域用 3D 透视堆叠的书脊列表做视觉主体，每条书脊是一个纯色色块 + 作者名（uppercase）+ 书名。导航极简：左上仅 logo + italic 标语。字体：标题用 transitional-serif，正文用 grotesque-sans，最大字号不超过 20px。左侧放竖排索引刻度线。不用白底 / 不用 hero banner / 不用卡片网格 / 不用 CTA 按钮 / 不放社交证明 / 书脊不用封面图。语气沉静、策展式，直接引用书名原样。"
+    },
+    "zh-CN": {
+      "identity": {
+        "keywords": [
+          "书脊堆叠",
+          "深黑背景",
+          "编辑出版",
+          "3D透视",
+          "极简导航"
+        ],
+        "analogy": "是深夜走进一间只开了一盏台灯的策展书店，不是明亮的连锁书店陈列架",
+        "oneLiner": "把出版目录做成深夜书架的沉浸式陈列"
+      },
+      "colors": {
+        "principle": "palette 为空不填具体色值；观察到深黑底上每条书脊自带独立色板（卡其、藏蓝、酒红、橄榄、赭石、靛蓝等），不做统一品牌色贯穿"
+      },
+      "typography": {
+        "rules": [
+          "品牌标语始终 italic",
+          "书脊作者名用 uppercase + 较宽 letter-spacing",
+          "标题字号克制，最大不超过 20px，不设巨型 display 字段",
+          "书脊上的文字排列为作者左对齐 + 书名居中或右对齐，形成左右双栏节奏"
+        ],
+        "scaleUses": [
+          "页眉品牌名 Stripe Press",
+          "品牌标语 Ideas for progress（italic）",
+          "书脊作者名",
+          "书脊书名",
+          "左侧索引刻度标记"
+        ]
+      },
+      "spacing": {
+        "rhythm": "慷慨 —— 深色背景占据大量留白，书脊区域仅占页面中心约 40% 宽度，上下左右呼吸空间充裕"
+      },
+      "surfaces": {
+        "shadows": [
+          "书脊堆叠处有微妙 3D 透视阴影，暗示层叠关系，非投影卡片风格"
+        ],
+        "borders": "无可见描边，书脊之间靠色块自身颜色区分层级"
+      },
+      "layout": {
+        "skeleton": "左上角 logo + 标语 → 页面中心偏上开始的 3D 书脊堆叠列表 → 左侧竖排索引刻度线 → 左下角问号图标"
+      },
+      "components": {
+        "button": null,
+        "card": null,
+        "chip": null,
+        "input": null,
+        "hero": "无传统 hero；页面中心是一组 3D 透视堆叠的书脊，像立起来的书从侧面看到的效果，形成视觉焦点和产品目录入口"
+      },
+      "motion": {
+        "patterns": [
+          "书脊 3D 透视堆叠暗示可能有鼠标跟随的轻微旋转交互",
+          "左侧索引刻度可能对应 scroll 定位导航"
+        ]
+      },
+      "interaction": {
+        "hover": null,
+        "click": null,
+        "transition": null,
+        "keyboard": null
+      },
+      "voice": {
+        "tone": "沉静、知识分子气质、编辑策展口吻",
+        "headlineStyle": "直接引用书名原样呈现，不做改写或营销包装",
+        "ctaStyle": "未见可见 CTA 按钮，推测点击书脊进入详情",
+        "avoid": [
+          "促销语气",
+          "感叹号连用",
+          "'立即购买'式 CTA",
+          "emoji 混入标题"
+        ]
+      },
+      "donts": [
+        "不做纯白或浅色背景 —— 截图全页深黑底",
+        "不做 hero banner + 大 CTA 按钮布局 —— 用 3D 书脊堆叠替代传统 hero",
+        "不在导航放多个链接或汉堡菜单 —— nav 仅有 logo + 一句标语",
+        "不做卡片网格瀑布流 —— 用透视堆叠的书脊列表代替",
+        "不放用户评价或社交证明模块 —— 截图中无 testimonial 区域",
+        "不做巨型 display 标题（60px+）—— 最大字号仅约 20px",
+        "不在书脊上放书籍封面图 —— 纯色底 + 文字排版模拟书脊侧面",
+        "不做渐变背景 —— 每条书脊是纯色块"
+      ],
+      "systemPrompt": "你是编辑出版风格网页设计师。深黑背景占满全页，中心区域用 3D 透视堆叠的书脊列表做视觉主体，每条书脊是一个纯色色块 + 作者名（uppercase）+ 书名。导航极简：左上仅 logo + italic 标语。字体：标题用 transitional-serif，正文用 grotesque-sans，最大字号不超过 20px。左侧放竖排索引刻度线。不用白底 / 不用 hero banner / 不用卡片网格 / 不用 CTA 按钮 / 不放社交证明 / 书脊不用封面图。语气沉静、策展式，直接引用书名原样。"
+    },
+    "zh-TW": {
+      "identity": {
+        "keywords": [
+          "書脊堆疊",
+          "深黑背景",
+          "編輯出版",
+          "3D透視",
+          "極簡導覽"
+        ],
+        "analogy": "是深夜走進一間只開了一盞檯燈的策展書店，不是明亮的連鎖書店陳列架",
+        "oneLiner": "把出版目錄做成深夜書架的沉浸式陳列"
+      },
+      "colors": {
+        "principle": "調色盤為空，不填具體色值；觀察到深黑底上每條書脊自帶獨立色板（卡其、藏藍、酒紅、橄欖、赭石、靛藍等），不做統一品牌色貫穿"
+      },
+      "typography": {
+        "rules": [
+          "品牌標語始終 italic",
+          "書脊作者名用 uppercase + 較寬 letter-spacing",
+          "標題字號克制，最大不超過 20px，不設巨型 display 欄位",
+          "書脊上的文字排列為作者左對齊 + 書名居中或右對齊，形成左右雙欄節奏"
+        ],
+        "scaleUses": [
+          "頁首品牌名 Stripe Press",
+          "品牌標語 Ideas for progress（italic）",
+          "書脊作者名",
+          "書脊書名",
+          "左側索引刻度標記"
+        ]
+      },
+      "spacing": {
+        "rhythm": "慷慨 —— 深色背景佔據大量留白，書脊區域僅佔頁面中心約 40% 寬度，上下左右呼吸空間充裕"
+      },
+      "surfaces": {
+        "shadows": [
+          "書脊堆疊處有微妙 3D 透視陰影，暗示層疊關係，非投影卡片風格"
+        ],
+        "borders": "無可見描邊，書脊之間靠色塊自身顏色區分層級"
+      },
+      "layout": {
+        "skeleton": "左上角 logo + 標語 → 頁面中心偏上開始的 3D 書脊堆疊列表 → 左側豎排索引刻度線 → 左下角問號圖示"
+      },
+      "components": {
+        "button": null,
+        "card": null,
+        "chip": null,
+        "input": null,
+        "hero": "無傳統 hero；頁面中心是一組 3D 透視堆疊的書脊，像立起來的書從側面看到的效果，形成視覺焦點和產品目錄入口"
+      },
+      "motion": {
+        "patterns": [
+          "書脊 3D 透視堆疊暗示可能有滑鼠跟隨的輕微旋轉互動",
+          "左側索引刻度可能對應 scroll 定位導覽"
+        ]
+      },
+      "interaction": {
+        "hover": null,
+        "click": null,
+        "transition": null,
+        "keyboard": null
+      },
+      "voice": {
+        "tone": "沉靜、知識分子氣質、編輯策展口吻",
+        "headlineStyle": "直接引用書名原樣呈現，不做改寫或行銷包裝",
+        "ctaStyle": "未見可見 CTA 按鈕，推測點擊書脊進入詳情",
+        "avoid": [
+          "促銷語氣",
+          "驚嘆號連用",
+          "'立即購買'式 CTA",
+          "emoji 混入標題"
+        ]
+      },
+      "donts": [
+        "不做純白或淺色背景 —— 截圖全頁深黑底",
+        "不做 hero banner + 大 CTA 按鈕版面 —— 用 3D 書脊堆疊替代傳統 hero",
+        "不在導覽放多個連結或漢堡選單 —— nav 僅有 logo + 一句標語",
+        "不做卡片格線瀑布流 —— 用透視堆疊的書脊列表代替",
+        "不放使用者評價或社交證明模組 —— 截圖中無 testimonial 區域",
+        "不做巨型 display 標題（60px+）—— 最大字號僅約 20px",
+        "不在書脊上放書籍封面圖 —— 純色底 + 文字排版模擬書脊側面",
+        "不做漸層背景 —— 每條書脊是純色塊"
+      ],
+      "systemPrompt": "你是編輯出版風格網頁設計師。深黑背景佔滿全頁，中心區域用 3D 透視堆疊的書脊列表做視覺主體，每條書脊是一個純色色塊 + 作者名（uppercase）+ 書名。導覽極簡：左上僅 logo + italic 標語。字體：標題用 transitional-serif，正文用 grotesque-sans，最大字號不超過 20px。左側放豎排索引刻度線。不用白底 / 不用 hero banner / 不用卡片格線 / 不用 CTA 按鈕 / 不放社交證明 / 書脊不用封面圖。語氣沉靜、策展式，直接引用書名原樣。"
+    },
+    "ja": {
+      "identity": {
+        "keywords": [
+          "書背の積み重ね",
+          "濃密な黒背景",
+          "編集・出版",
+          "3D透視",
+          "極小主义導覽"
+        ],
+        "analogy": "明かりを一灯だけ灯した深夜のキュレーション書店に入り込むような体験。明るいチェーン書店の陳列棚とは対照的。",
+        "oneLiner": "出版カタログを深夜の書棚の没入型陳列として提示する"
+      },
+      "colors": {
+        "principle": "パレットは空欄とし、具体的な色値は指定しない。各書背が独自のカラーパレット（カーキ、ネイビー、ワインレッド、オリーブ、オーカー、インディゴなど）を持つ深黒背景を観察。統一されたブランドカラーで一貫させることはしない。"
+      },
+      "typography": {
+        "rules": [
+          "ブランドタグラインは常に italic",
+          "書背の著者名は uppercase + やや広めの letter-spacing",
+          "見出しフォントサイズは抑制し、最大でも20pxを超えない。巨大な display フィールドは設定しない",
+          "書背の文字配置は、著者名が左揃え + 書名が中央または右揃えとし、左右二段組のリズムを形成する"
+        ],
+        "scaleUses": [
+          "ヘッダのブランド名 Stripe Press",
+          "ブランドタグライン Ideas for progress（italic）",
+          "書背の著者名",
+          "書背の書名",
+          "左側インデックスの刻度線"
+        ]
+      },
+      "spacing": {
+        "rhythm": "ゆとりがある —— 暗い背景が空間を多く占め、書背領域はページ中央の約40%の幅のみを占有。上下左右に十分な余白がある"
+      },
+      "surfaces": {
+        "shadows": [
+          "書背の積み重ね部分には微細な3D透視阴影があり、重なり関係を示唆。カードに影を落とすスタイルではない"
+        ],
+        "borders": "目に見える罫線はなく、書背同士は各色塊の色によって階層を区別する"
+      },
+      "layout": {
+        "skeleton": "左上にロゴ + タグライン → ページ中央やや上から始まる3D書背積み重ねリスト → 左側の縦型インデックス刻度線 → 左下のクエスチョンマークアイコン"
+      },
+      "components": {
+        "button": null,
+        "card": null,
+        "chip": null,
+        "input": null,
+        "hero": "従来の hero はなし。ページ中心は3D透視で積み重ねられた書背の一群。立った本を横から見たような効果で、ビジュアルの焦点かつ製品カタログへの入り口となる"
+      },
+      "motion": {
+        "patterns": [
+          "書背の3D透視積み重ねは、マウスに追従する微細な回転インタラクションの可能性を示唆",
+          "左側のインデックス刻度は scroll 位置に対応したナビゲーションに該当する可能性"
+        ]
+      },
+      "interaction": {
+        "hover": null,
+        "click": null,
+        "transition": null,
+        "keyboard": null
+      },
+      "voice": {
+        "tone": "静謐、知的、編集策展の口調",
+        "headlineStyle": "書名をそのまま引用し、改変やマーケティング包装を行わない",
+        "ctaStyle": "目に見える CTA ボタンは未確認。書背をクリックして詳細に入る形式と推測",
+        "avoid": [
+          "プロモーション調の口調",
+          "感嘆符の連続使用",
+          "'今すぐ購入'のような CTA",
+          "絵文字を見出しに混入"
+        ]
+      },
+      "donts": [
+        "純白や明るい背景にしない —— スクリーンショットではページ全体が深黒背景",
+        "hero バナー + 大きな CTA ボタンのレイアウトにしない —— 従来の hero の代わりに3D書背積み重ねを使用",
+        "ナビゲーションに多数のリンクやハンバーガーメニューを置かない —— nav はロゴ + 一文のタグラインのみ",
+        "カードグリッドやマソンリーレイアウトにしない —— 透視積み重ねの書背リストで代替",
+        "ユーザーレビューやソーシャルプルーフモジュールを置かない —— スクリーンショットにtestimonial 区域なし",
+        "巨大な display 見出し（60px以上）にしない —— 最大フォントサイズは約20px",
+        "書背に書籍のカバー画像を置かない —— 純色背景 + 文字組版で書背の側面を模擬",
+        "グラデーション背景にしない —— 各書背は純色の色塊"
+      ],
+      "systemPrompt": "あなたは編集出版スタイルのウェブデザイナーです。深黒背景がページ全体を覆い、中心エリアに3D透視で積み重ねられた書背リストがビジュアルの主体となります。各書背は純色の色塊 + 著者名（uppercase）+ 書名で構成。ナビゲーションは極小主义で、左上にはロゴ + italic タグラインのみ。フォントは、見出しに transitional-serif、本文に grotesque-sans を使用し、最大フォントサイズは20pxを超えない。左側に縦型インデックス刻度線を配置。白背景 / hero バナー / カードグリッド / CTA ボタン / ソーシャルプルーフ / 書背のカバー画像は使用しない。口調は静謐で策展的、書名はそのまま引用。"
+    },
+    "ko": {
+      "identity": {
+        "keywords": [
+          "책등 스택",
+          "딥 블랙 배경",
+          "에디토리얼 퍼블리싱",
+          "3D 퍼스펙티브",
+          "미니멀 내비게이션"
+        ],
+        "analogy": "밝은 체인 서점 진열대가 아니라, 깊은 밤 테이블 랜턴 하나만 켜진 큐레이션 서점에 들어선 기분",
+        "oneLiner": "출판 카탈로그를 깊은 밤의 책장 인스턴트 큐레이션으로 구현"
+      },
+      "colors": {
+        "principle": "팔레트는 공란으로 두어 특정 색상을 지정하지 않음; 딥 블랙 배경 위 각 책등이 자체적인 독립 색상(카키, 네이비, 와인 레드, 올리브, 오커, 인디고 등)을 가지며, 통일된 브랜드 컬러를 전체적으로 적용하지 않음"
+      },
+      "typography": {
+        "rules": [
+          "브랜드 슬로건은 항상 italic",
+          "책등 저자명은 uppercase + 넓은 letter-spacing",
+          "타이틀 폰트 크기는 절제하여 최대 20px를 넘지 않으며, 거대한 display 필드를 설정하지 않음",
+          "책등의 텍스트 배열은 저자 좌측 정렬 + 서명 중앙 또는 우측 정렬로 이중 칼럼 리듬을 형성"
+        ],
+        "scaleUses": [
+          "헤더 브랜드명 Stripe Press",
+          "브랜드 슬로건 Ideas for progress (italic)",
+          "책등 저자명",
+          "책등 서명",
+          "좌측 인덱스 스케일 마커"
+        ]
+      },
+      "spacing": {
+        "rhythm": "넉넉함 — 다크 배경이 여백의 대부분을 차지하며, 책등 영역은 페이지 중앙의 약 40% 폭만 차지하여 상하좌우에 충분한 호흡 공간 확보"
+      },
+      "surfaces": {
+        "shadows": [
+          "책등 스택 부분에 미묘한 3D 퍼스펙티브 섀도우가 있어 겹겹이 쌓인 관계를 암시하며, 프로젝션 카드 스타일은 아님"
+        ],
+        "borders": "보이는 테두리 없음; 책등 간의 구분은 각 색상 블록의 고유 색상으로 계층을 구분"
+      },
+      "layout": {
+        "skeleton": "좌상단 로고 + 슬로건 → 페이지 중앙 상단부터 시작하는 3D 책등 스택 리스트 → 좌측 세로 인덱스 스케일 라인 → 좌하단 물음표 아이콘"
+      },
+      "components": {
+        "button": null,
+        "card": null,
+        "chip": null,
+        "input": null,
+        "hero": "전통적인 hero 없음; 페이지 중앙은 3D 퍼스펙티브로 스택된 책등 집합으로, 옆에서 본 세워진 책처럼 보이며 시각적 초점과 제품 카탈로그 진입점을 형성"
+      },
+      "motion": {
+        "patterns": [
+          "책등의 3D 퍼스펙티브 스택은 마우스 팔로우를 통한 미세한 회전 인터랙션 가능성을 암시",
+          "좌측 인덱스 스케일은 scroll 포지셔닝 내비게이션에 해당할 수 있음"
+        ]
+      },
+      "interaction": {
+        "hover": null,
+        "click": null,
+        "transition": null,
+        "keyboard": null
+      },
+      "voice": {
+        "tone": "고요하고, 지적 분위기의, 에디토리얼 큐레이션 톤",
+        "headlineStyle": "서명 원문을 그대로 직접 인용하여 제시하며, 각색이나 마케팅 포장 없음",
+        "ctaStyle": "보이는 CTA 버튼 없음; 책등을 클릭하면 상세 페이지로 이동할 것으로 추정",
+        "avoid": [
+          "프로모션 톤",
+          "감탄사 연속 사용",
+          "'바로 구매' 스타일 CTA",
+          "제목에 이모지 혼입"
+        ]
+      },
+      "donts": [
+        "순백 또는 밝은 배경 사용 금지 — 스크린샷 전체 페이지가 딥 블랙 배경",
+        "hero 배너 + 대형 CTA 버튼 레이아웃 사용 금지 — 3D 책등 스택으로 전통적 hero 대체",
+        "내비게이션에 여러 링크 또는 햄버거 메뉴 배치 금지 — nav에는 로고 + 한 줄 슬로건만",
+        "카드 그리드瀑布流 사용 금지 — 퍼스펙티브 스택된 책등 리스트로 대체",
+        "사용자 후기 또는 소셜 프루프 모듈 배치 금지 — 스크린샷에 testimonial 영역 없음",
+        "거대한 display 제목 (60px 이상) 사용 금지 — 최대 폰트 크기는 약 20px",
+        "책등에 도서 표지 이미지 배치 금지 — 단색 배경 + 텍스트 타이포그래피로 책등 측면을 시뮬레이션",
+        "그라디언트 배경 사용 금지 — 각 책등은 단색 블록"
+      ],
+      "systemPrompt": "당신은 에디토리얼 퍼블리싱 스타일 웹 디자이너입니다. 딥 블랙 배경이 전체 페이지를 차지하며, 중앙 영역은 3D 퍼스펙티브로 스택된 책등 리스트가 시각적 주체를 이룹니다. 각 책등은 단색 블록 + 저자명 (uppercase) + 서명입니다. 내비게이션은 미니멀: 좌상단에 로고 + italic 슬로건만. 폰트: 제목은 transitional-serif, 본문은 grotesque-sans, 최대 폰트 크기는 20px 이하. 좌측에 세로 인덱스 스케일 라인 배치. 흰색 배경 사용 금지 / hero 배너 사용 금지 / 카드 그리드 사용 금지 / CTA 버튼 사용 금지 / 소셜 프루프 배치 금지 / 책등에 표지 이미지 사용 금지. 톤은 고요하고, 큐레이션 스타일이며, 서명은 그대로 직접 인용합니다."
     }
   },
   "pack": {
@@ -244,5 +590,66 @@
     "folder_url": "/packs/stripe-press/",
     "file_count": 17
   },
-  "narrative": {}
+  "narrative": {
+    "en": {
+      "ch1_intro": "Stripe Press is not a bookstore; it is a reading room after hours. The analogy is a策展 gallery lit by a single lamp — a space where the architecture of attention is as considered as the books themselves.",
+      "ch2_intro": "There is no universal brand palette. The system operates on a principle of curated individuality, where each book spine introduces its own discrete color — khaki, navy, oxblood, olive — creating a rhythmic, varied landscape against the deep black field.",
+      "ch2_outro": "Color here is informational and compositional, not decorative or unifying.",
+      "ch3_intro": "The typographic voice is restrained and editorial, built on a dialogue between a transitional serif for titles and a grotesque sans for supporting text. A strict 20px ceiling on size enforces a posture of quiet confidence over loud proclamation.",
+      "ch4_intro": "Spacing is generous and deliberate, establishing a slow, contemplative rhythm where the central column of book spines breathes within a vast expanse of dark ground.",
+      "ch5_intro": "Depth is implied, not declared. Subtle 3D perspective shadows at the base of stacked spines suggest physical layering, while the absence of borders or card containers keeps the surface clean and object-focused.",
+      "ch6_intro": "The skeleton is a minimal, left-anchored frame: a discreet logo and tagline in the upper corner, a vertical index scale running along the left edge, and the core visual weight — the stacked list of book spines — occupying the central upper axis. It is a layout of deliberate negative space, where the absence of a traditional hero banner or navigation bar defines the structure.",
+      "ch7_intro": "Motion is minimal and purposeful, serving the central metaphor of interacting with physical objects. Any interaction, like a subtle rotation on hover or scroll-linked indexing, should feel like the slight shift of a book in one’s hand, not a digital transition.",
+      "ch8_intro": "The editorial voice is curatorial and direct, presenting titles as found artifacts rather than marketing copy. Language is sparse, with a知识分子’s restraint, avoiding exclamation and any hint of commercial urgency.",
+      "ch8_outro": "The system is defined as much by what it omits — no light backgrounds, no CTA buttons, no social proof, no cover imagery on the spines — as by what it includes."
+    },
+    "zh-CN": {
+      "ch1_intro": "Stripe Press 并非书店；它是打烊后的阅览室。这个类比如同一个策展画廊，仅由一盏灯照亮——一个注意力建筑与书籍本身同等重要的空间。",
+      "ch2_intro": "不存在通用的品牌调色板。该系统基于一种精心策划的个性原则运作，每本书的书脊都引入其独特的离散色彩——卡其、海军蓝、牛血红、橄榄绿——在深黑背景上创造出富有节奏、层次多样的景观。",
+      "ch2_outro": "这里的色彩是信息性与构图性的，而非装饰性或统一性的。",
+      "ch3_intro": "排版声音克制而具有编辑性，建立于过渡衬线体用于标题与无衬线体用于辅助文本之间的对话。严格的 20px 尺寸上限，确立了一种安静自信的姿态，而非喧嚣宣告。",
+      "ch4_intro": "间距充裕而审慎，建立了一种缓慢、沉思的节奏，中央的书脊列在广阔的深色底色中得以呼吸。",
+      "ch5_intro": "深度是被暗示的，而非明示的。堆叠书脊底部微妙的 3D 透视阴影暗示了物理层叠，而边框或卡片容器的缺失则保持了表面的整洁与对物体的关注。",
+      "ch6_intro": "骨架是一个极简的左锚定框架：角落里有低调的标志和标语，左侧边缘有垂直索引刻度，而核心视觉重量——堆叠的书脊列表——占据中央上轴。这是一种对负空间进行深思熟虑的布局，没有传统的主视觉横幅或导航栏来定义其结构。",
+      "ch7_intro": "动效极简且有针对性，服务于与物理对象交互这一核心隐喻。任何交互，如 hover 时的微妙旋转或滚动链接索引，都应感觉如同手中书籍的轻微移动，而非数字过渡。",
+      "ch8_intro": "编辑声音是策展式且直接的，将标题呈现为发现的物件，而非营销文案。语言精炼，带有知识分子的克制，避免使用感叹号和任何商业紧迫感的暗示。",
+      "ch8_outro": "该系统的定义既在于其包含的内容，也同样在于其省略的内容——没有浅色背景、没有 CTA 按钮、没有社会认同、书脊上没有封面图像。"
+    },
+    "zh-TW": {
+      "ch1_intro": "Stripe Press 不是書店，而是打烊後的閱讀室。其類比為一座僅以一盞燈照明的策展畫廊——在這個空間裡，注意力的架構與書籍本身同樣經過深思熟慮。",
+      "ch2_intro": "並不存在普世的品牌色盤。此系統運作於一種策展式的個體性原則，每本書脊各自引入獨特的色彩——卡其、海軍藍、深赭、橄欖——在深邃的黑色基底上，創造出富有節律且多變的景觀。",
+      "ch2_outro": "此處的色彩是資訊性與構成性的，而非裝飾性或統一性的。",
+      "ch3_intro": "字體的語調是克制且編輯性的，建立於過渡襯線體用於標題與無襯線體用於輔助文本之間的對話。嚴格的 20px 字體上限，強調了一種沉靜自信而非喧囂宣示的姿態。",
+      "ch4_intro": "間距寬裕且經過深思，確立了一種緩慢、沉思的節奏，讓書脊的中央 Column 在廣闊的深色背景中得以呼吸。",
+      "ch5_intro": "深度是暗示的，而非宣告的。堆疊書脊底部細微的 3D 透視陰影暗示了物理層次，而邊框或卡片容器的闕如則維持了版面的乾淨與物件導向。",
+      "ch6_intro": "骨架是一個極簡、左對齊的框架：角落處低調的標誌與標語，左側邊緣的垂直索引刻度，以及核心視覺重量——堆疊的書脊列表——佔據中央上方軸線。這是一個刻意運用負空間的佈局，傳統的主視覺橫幅或導覽列的缺席定義了其結構。",
+      "ch7_intro": "動態效果是極簡且有目的性的，服務於與實體物件互動的核心隱喻。任何互動，如懸停時的細微旋轉或捲動時的索引連結，都應感覺像是手中書籍的輕微移動，而非數位轉場。",
+      "ch8_intro": "編輯語調是策展式且直接的，將標題呈現為被發現的文物而非行銷文案。語言簡潔，帶有知識分子的克制，避免感嘆號與任何商業急迫感。",
+      "ch8_outro": "此系統的定義在於其所省略的——無淺色背景、無 CTA 按鈕、無社會證明、書脊上無封面影像——與其所包含的同樣重要。"
+    },
+    "ja": {
+      "ch1_intro": "Stripe Pressは書店ではなく、閉館後のリーディングルームです。このアナロジーは、一隻のランプに照らされたキュレーション・ギャラリーです。本の建築と同様に、注目の空間が慎重に構想される場所です。",
+      "ch2_intro": "普遍的なブランドパレットはありません。このシステムはキュレーションされた個性の原理に基づき、各書籍の背表紙が独自の離散的な色——カーキ、ネイビー、オークスブラッド、オリーブ——を導入し、深い黒の背景に対してリズミカルで変化に富む風景を生み出します。",
+      "ch2_outro": "ここでの色は、情報的で構成的なものであり、装飾的でも統一的なものでもありません。",
+      "ch3_intro": "タイポグラフィの声は控えめで編集的であり、見出し用のトランジショナル・セリフと補足テキスト用のグロテスク・サンセリフの対話に基づいています。サイズに厳格な20pxの上限を設けることで、大きく誇示するのではなく、静かな自信の姿勢を強制します。",
+      "ch4_intro": "間隔は寛容で意図的であり、書籍の背表紙の中心列が広範な暗い地面の空間内で呼吸する、缓慢で瞑想的なリズムを確立します。",
+      "ch5_intro": "奥行きは明示されず、暗示されます。積み重ねられた背表紙の底部にある微細な3D透視シャドウは物理的な層を示唆し、境界線やカードコンテナの不在は表面をクリーンでオブジェクト・フォーカスに保ちます。",
+      "ch6_intro": "骨格はミニマルで左側にアンカーされたフレームです。上部隅に控えめなロゴとタグライン、左端に沿って垂直なインデックススケール、そして中心上の軸を占めるコアビジュアルウェイト——積み重ねられた書籍の背表紙のリスト。これは意図的な負の空間のレイアウトであり、従来のヒーローバナーやナビゲーションバーの不在が構造を定義します。",
+      "ch7_intro": "動きは最小限で目的があり、物理的なオブジェクトと対話する中心的なメタファーに仕えます。ホバー時の微細な回転やスクロール連動のインデックスingなど、すべてのインタラクションは、デジタルな遷移ではなく、手の中の本がわずかに動くように感じられるべきです。",
+      "ch8_intro": "編集声はキュレーション的で直接的であり、見出しをマーケティングコピーではなく、見つけられたアーティファクトとして提示します。言語は控えめで、インテリゲンツィアの抑制があり、感嘆符や商業的緊急性の一切の兆しを避けます。",
+      "ch8_outro": "このシステムは、含まれるものと同様に、省かれるもの——明るい背景、CTAボタン、ソーシャルプルーフ、背表紙のカバーイメージ——によって定義されます。"
+    },
+    "ko": {
+      "ch1_intro": "Stripe Press는 서점이 아닙니다. 영업 시간이 끝난 후의 독서실입니다. 비유하자면, 단 하나의 램프로 밝혀진 큐레이팅된 갤러리 같은 곳—주의의 건축이 책 자체만큼이나 세심하게 고려되는 공간입니다.",
+      "ch2_intro": "보편적인 브랜드 팔레트는 존재하지 않습니다. 이 시스템은 큐레이팅된 개성의 원칙 위에 작동하며, 각 책 등지는 자체의 고유한 색상—카키, 네이비, 다크 레드, 올리브—을 도입하여, 짙은 검은 배경 위에 리듬감 있고 다양한 풍경을 만들어냅니다.",
+      "ch2_outro": "여기서 색상은 정보적이고 구성적인 것이지, 장식적이거나 통일성을 위한 것이 아닙니다.",
+      "ch3_intro": "타이포그래피 음성은 절제되고 편집적입니다. 제목을 위한 트랜지셔널 세리프와 본문을 위한 그로테스크 산스 간의 대화를 기반으로 합니다. 엄격한 20px의 크기 상한은 큰 선언보다는 조용한 자신감의 자세를 강제합니다.",
+      "ch4_intro": "여백은 넉넉하고 의도적입니다. 중앙의 책 등지 기둥이 넓은 어둠의 공간 속에서 숨 쉴 수 있도록, 느리고 사색적인 리듬을 확립합니다.",
+      "ch5_intro": "깊이는 선언되지는 않고 암시됩니다. 쌓인 등지의 하단에 있는 미묘한 3D 원근감 그림자는 물리적 층위를 시사하며, 테두리나 카드 컨테이너의 부재는 표면을 깔끔하게 유지하고 객체에 집중하게 합니다.",
+      "ch6_intro": "골격은 최소화된 좌측 고정 프레임입니다: 상단 모서리에 절제된 로고와 슬로건, 왼쪽 가장자리를 따라 수직 인덱스 스케일, 그리고 중앙 상단 축을 차지하는 핵심 시각적 무게중심—책 등지의 스택 목록. 이는 전통적인 히어로 배너나 내비게이션 바의 부재가 구조를 정의하는, 의도적 여백의 레이아웃입니다.",
+      "ch7_intro": "모션은 최소화되고 목적을 가지며, 물리적 객체와 상호작용하는 중심 비유에 복무합니다. hover 시의 미세한 회전이나 스크롤 연동 인덱싱 같은 어떤 상호작용도, 디지털 전환이 아닌 손 안의 책이 살짝 움직이는 느낌이어야 합니다.",
+      "ch8_intro": "편집 음성은 큐레이팅적이고 직접적입니다. 제목을 마케팅 카피가 아닌 발견된 유물로 제시합니다. 언어는 간결하며, 지식인의 절제를 갖추고, 감탄사와 상업적 긴급함의 어떤 암시도 피합니다.",
+      "ch8_outro": "시스템은 포함하는 것만큼이나 생략한 것—밝은 배경, CTA 버튼, 사회적 증명, 등지 위의 표지 이미지—에 의해 정의됩니다."
+    }
+  }
 }
