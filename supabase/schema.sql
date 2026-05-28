@@ -62,38 +62,31 @@ grant select on public.site_like_counts to anon;
 grant select on public.site_save_counts to anon;
 
 -- ============ Sync Code（v0.2 · 收藏跨设备携带） ============
--- 设计：用户在 Device A 生成一个易记的 code（如 "quiet-fern-42"），
---      Device B 输入这个 code 后，把自己的 localStorage visitor_id 替换为
---      Device A 的 visitor_id —— 之前在 A 上的收藏自动出现。
--- 不需要邮箱、密码、OAuth；不持久化任何 PII。
--- 代价：拿到 code 的任何人都能看到那个浏览器的收藏，所以 UI 里要提醒不要外发。
+-- 设计：每个 visitor 有且仅有 1 个固定的 code（visitor_id 是 PK，1:1）
+-- 流程：
+--   Device A 第一次点「我的同步码」→ 表里 INSERT (visitor_id_A, 随机 code)；之后任何时候点都返回同一个 code
+--   Device B 输入这个 code → SELECT visitor_id WHERE code=? → 替换 Device B 的 localStorage → reload
+-- 安全考量：拿到 code 的人都能看到那个 visitor 的收藏，所以 UI 里要提醒不要外发。
 
-create table if not exists public.sync_codes (
-  code         text primary key,
-  visitor_id   uuid not null,
+drop table if exists public.sync_codes cascade;
+
+create table public.sync_codes (
+  visitor_id   uuid        primary key,
+  code         text        not null unique,
   created_at   timestamptz not null default now(),
   last_used_at timestamptz
 );
 
-create index if not exists sync_codes_visitor_idx on public.sync_codes (visitor_id);
-
 alter table public.sync_codes enable row level security;
 
-drop policy if exists "anon can create sync code" on public.sync_codes;
-drop policy if exists "anon can lookup sync code" on public.sync_codes;
-drop policy if exists "anon can touch sync code"  on public.sync_codes;
-
--- INSERT：任何匿名访客可以为自己生成一个 code
-create policy "anon can create sync code"
-  on public.sync_codes for insert to anon
-  with check (true);
-
--- SELECT：任何人凭 code 可以查 visitor_id（绑定流程必需）
 create policy "anon can lookup sync code"
   on public.sync_codes for select to anon
   using (true);
 
--- UPDATE：允许更新 last_used_at（轻量心跳，方便后续做清理；不允许改 visitor_id）
+create policy "anon can create sync code"
+  on public.sync_codes for insert to anon
+  with check (true);
+
 create policy "anon can touch sync code"
   on public.sync_codes for update to anon
   using (true)

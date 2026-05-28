@@ -269,13 +269,20 @@ const store = {
 /* ====== SYNC CODE ======
  * 让用户把 anonymous visitor_id 跨设备携带 —— 不需要账号、邮箱、密码。
  *
- * 流程：
- *   Device A：generate → 拿到 code 如 "quiet-fern-42" → 写入 sync_codes 表
- *   Device B：bind(code) → 查表拿到 visitor_id_A → 替换 localStorage → reload
+ * 设计：每个 visitor 在 sync_codes 表里有且仅有一行（visitor_id 是 PK）。
+ *   - 第一次点「我的同步码」：lazy INSERT (visitor_id, 随机 code) → 拿到 code
+ *   - 之后任何时候点：SELECT 已有的 → 返回同一个 code
+ *   - localStorage 也 cache 一份，无网情况下也能秒显
  *
- * 安全考量：拿到 code 的人都能看那个 visitor 的收藏，所以 UI 里要提醒
- *   「不要把 code 发给别人 / 不要贴公开页面」。
+ * 流程：
+ *   Device A: getMySyncCode() → "quiet-fern-42"（固定，不变）
+ *   Device B: bindSyncCode("quiet-fern-42") → SELECT visitor_id WHERE code=?
+ *             → 替换 Device B 的 localStorage visitor_id → reload
+ *
+ * 安全：拿到 code 的人都能看到那个 visitor 的收藏，UI 里要提醒不要外发。
  */
+const MY_SYNC_CODE_KEY = "style-atlas-my-sync-code";
+
 const SYNC_ADJECTIVES = [
   "quiet","sharp","soft","bold","slow","warm","crisp","plush","rapt","keen",
   "swift","still","clear","vast","olive","rose","dove","steel","wool","milk",
@@ -289,29 +296,67 @@ const SYNC_NOUNS = [
   "loom","brook","gable","atlas","wren","poppy","cairn","grove","cypress","lichen"
 ];
 
-function generateSyncCode() {
+function generateSyncCodeString() {
   const a = SYNC_ADJECTIVES[Math.floor(Math.random() * SYNC_ADJECTIVES.length)];
   const n = SYNC_NOUNS[Math.floor(Math.random() * SYNC_NOUNS.length)];
   const d = String(Math.floor(Math.random() * 90) + 10);
   return `${a}-${n}-${d}`;
 }
 
-/** 在 Supabase 写入一个新 code 指向当前 visitor_id；冲突时重试。 */
-async function createSyncCode(maxRetries = 5) {
+/**
+ * 拿到当前 visitor 的固定 sync code（幂等）。
+ * 1. 先看 localStorage 缓存
+ * 2. 没有 → 查 DB（SELECT WHERE visitor_id=?）
+ * 3. DB 也没有 → INSERT 一个新的（冲突重试到 maxRetries）
+ * 4. 成功后写回 localStorage 缓存
+ */
+async function getMySyncCode(maxRetries = 5) {
   if (!supabaseClient) throw new Error("SUPABASE_REQUIRED");
+
+  // 1) localStorage 缓存
+  const cached = localStorage.getItem(MY_SYNC_CODE_KEY);
+  if (cached) return cached;
+
+  // 2) 查 DB
+  const { data: existing, error: selErr } = await supabaseClient
+    .from("sync_codes")
+    .select("code")
+    .eq("visitor_id", visitorId)
+    .maybeSingle();
+  if (selErr) throw selErr;
+  if (existing && existing.code) {
+    localStorage.setItem(MY_SYNC_CODE_KEY, existing.code);
+    return existing.code;
+  }
+
+  // 3) DB 也没有 → 生成 + INSERT，code 冲突时重试
   for (let i = 0; i < maxRetries; i++) {
-    const code = generateSyncCode();
+    const code = generateSyncCodeString();
     const { error } = await supabaseClient
       .from("sync_codes")
-      .insert({ code, visitor_id: visitorId });
-    if (!error) return code;
-    // 23505 = unique_violation
+      .insert({ visitor_id: visitorId, code });
+    if (!error) {
+      localStorage.setItem(MY_SYNC_CODE_KEY, code);
+      return code;
+    }
+    // 23505 = unique_violation。可能 visitor_id 撞 PK（并发竞态）或 code 撞 unique。
     if (error.code !== "23505") throw error;
+    // 如果 PK 冲突（visitor_id 已存在），说明并发场景下别的 tab 已经写入了，重新 SELECT
+    const { data: again } = await supabaseClient
+      .from("sync_codes")
+      .select("code")
+      .eq("visitor_id", visitorId)
+      .maybeSingle();
+    if (again && again.code) {
+      localStorage.setItem(MY_SYNC_CODE_KEY, again.code);
+      return again.code;
+    }
+    // 否则是 code 撞了 unique，下一轮换个 code 重试
   }
   throw new Error("CODE_GENERATION_FAILED");
 }
 
-/** 用 code 查回原 visitor_id；返回 { visitorId, createdAt } 或抛错 NOT_FOUND。 */
+/** 用 code 查回原 visitor_id。返回 { visitorId } 或抛 NOT_FOUND。 */
 async function lookupSyncCode(rawCode) {
   if (!supabaseClient) throw new Error("SUPABASE_REQUIRED");
   const code = (rawCode || "").trim().toLowerCase();
@@ -331,10 +376,12 @@ async function lookupSyncCode(rawCode) {
 /** 绑定后切换 localStorage 的 visitor_id 并清掉本地缓存。调用方应在成功后 reload。 */
 function applySyncedVisitorId(newVisitorId) {
   localStorage.setItem(VISITOR_KEY, newVisitorId);
-  // 清掉本地 saves/likes 缓存，让 reload 后从云端拉新的
+  // 清掉本地 saves/likes/sync-code 缓存，让 reload 后从云端拉新的
   localStorage.removeItem(SAVED_KEY);
   localStorage.removeItem(LIKED_KEY);
   localStorage.removeItem(LIKE_COUNTS_KEY);
+  localStorage.removeItem(SAVE_COUNTS_KEY);
+  localStorage.removeItem(MY_SYNC_CODE_KEY);
 }
 
 function domainFromUrl(url) {
@@ -1693,11 +1740,11 @@ async function openCreateSyncModal() {
   syncCreateModal.setAttribute("aria-hidden", "false");
   document.body.classList.add("modal-open");
   try {
-    const code = await createSyncCode();
+    const code = await getMySyncCode();
     lastCreatedSyncCode = code;
     syncCodeDisplay.textContent = code;
   } catch (err) {
-    console.warn("[sync] create failed", err);
+    console.warn("[sync] get-my-code failed", err);
     syncCodeDisplay.textContent = "—";
     showToast(t("sync.error.create"));
   }
