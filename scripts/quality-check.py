@@ -53,7 +53,8 @@ def check_site(site: dict) -> tuple[list[str], list[str]]:
     slug = site.get("id", "?")
 
     # ---- Colors ----
-    colors = site.get("spec", {}).get("colors", {})
+    spec_block = site.get("spec") or {}
+    colors = spec_block.get("colors") or {}
     if not colors:
         errors.append("colors block missing entirely")
     else:
@@ -65,7 +66,7 @@ def check_site(site: dict) -> tuple[list[str], list[str]]:
             errors.append(f"colors: only {filled} non-null tokens (need ≥ 3)")
 
     # ---- Typography ----
-    typo = site.get("spec", {}).get("typography", {})
+    typo = spec_block.get("typography") or {}
     for field in ("display", "body"):
         val = (typo.get(field) or "").lower().strip()
         if not val:

@@ -343,12 +343,63 @@ def step_screenshot(site: dict) -> dict:
     return site
 
 
-def fetch_image_base64(url: str, timeout: int = 60) -> tuple[str, str]:
-    """返回 (base64_str, media_type)"""
-    with urllib.request.urlopen(url, timeout=timeout) as r:
+def _fetch_url_bytes(url: str, timeout: int = 60) -> tuple[bytes, str]:
+    req = urllib.request.Request(url, headers={
+        "User-Agent": "Mozilla/5.0 (compatible; OpenDesignBot/0.3; +https://opendesign.cc)"
+    })
+    with urllib.request.urlopen(req, timeout=timeout) as r:
         media = r.headers.get("Content-Type", "image/png").split(";")[0].strip()
         data = r.read()
-    return base64.b64encode(data).decode("ascii"), media
+    return data, media
+
+
+def fetch_image_base64(url: str, timeout: int = 60, original_url: str | None = None) -> tuple[str, str]:
+    """
+    返回 (base64_str, media_type).
+    若 thum.io 返回 403/429（rate-limit），自动换 microlink / Google Pagespeed.
+    """
+    sources = [url]
+    # 推断原 URL 用于 fallback 截图服务
+    if original_url is None and "thum.io/get/width/" in url:
+        try:
+            original_url = url.split("thum.io/get/width/")[1].split("/", 1)[1]
+            if not original_url.startswith("http"):
+                original_url = "https://" + original_url
+        except IndexError:
+            original_url = None
+    if original_url:
+        # microlink 是 anthropic 兼容的，免费 50/day
+        sources.append(f"https://api.microlink.io/?url={urllib.parse.quote(original_url)}&screenshot=true&embed=screenshot.url")
+        # Google Pagespeed Insights 截图 endpoint（公开 + 无限制）
+        sources.append(f"https://www.googleapis.com/pagespeedonline/v5/runPagespeed?url={urllib.parse.quote(original_url)}&category=performance")
+
+    last_err = None
+    for src in sources:
+        try:
+            data, media = _fetch_url_bytes(src, timeout=timeout)
+            # microlink 在 embed=screenshot.url 模式直接返回图片 bytes ✓
+            # Pagespeed 返回 JSON 含 finalScreenshot.data；这里跳过它（复杂解析）
+            if "googleapis.com" in src:
+                # 解析 Pagespeed 响应中的 base64 截图
+                import json as _json
+                resp = _json.loads(data.decode("utf-8"))
+                shot = (resp.get("lighthouseResult", {})
+                            .get("audits", {})
+                            .get("final-screenshot", {})
+                            .get("details", {})
+                            .get("data", ""))
+                if shot.startswith("data:image/"):
+                    media = shot.split(";")[0].replace("data:", "")
+                    b64 = shot.split(",", 1)[1]
+                    return b64, media
+                continue
+            if data.startswith(b"<!"):  # HTML error page
+                last_err = f"got HTML from {src[:60]}"; continue
+            return base64.b64encode(data).decode("ascii"), media
+        except Exception as e:
+            last_err = f"{type(e).__name__}: {str(e)[:120]}"
+            continue
+    raise RuntimeError(f"all screenshot sources failed; last: {last_err}")
 
 
 def step_vision(site: dict, *, dry_run: bool = False) -> dict:
