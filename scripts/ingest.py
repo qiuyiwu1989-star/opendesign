@@ -615,8 +615,33 @@ def estimate_cost(step: str, result: dict) -> float:
 # ============================================================
 
 def slug_from_url(url: str) -> str:
+    """从 URL 推 slug。先扫 sites/ 找已注册的 URL（不同 URL 形态 → 同一 slug），
+    没有再 derive 新 slug。"""
+    # 1) 优先：现有 sites/<slug>.json 里有匹配 URL 的，复用 slug
+    if SITES_DIR.exists():
+        try:
+            target_host = urllib.parse.urlparse(url).netloc.lower().replace("www.", "")
+            for p in SITES_DIR.glob("*.json"):
+                try:
+                    s = json.loads(p.read_text(encoding="utf-8"))
+                    existing_host = urllib.parse.urlparse(s.get("url", "")).netloc.lower().replace("www.", "")
+                    if existing_host and existing_host == target_host:
+                        return p.stem  # 复用现有 slug（如 atlascard.com → atlas）
+                except Exception:
+                    continue
+        except Exception:
+            pass
+
+    # 2) 新 URL：从 host 派生 slug
     parsed = urllib.parse.urlparse(url)
-    host = parsed.netloc.lower().replace("www.", "").replace(".com", "").replace(".io", "").replace(".net", "").replace(".app", "").replace(".so", "").replace(".dev", "").replace(".co", "")
+    host = parsed.netloc.lower().replace("www.", "")
+    # 去 TLD（多 TLD 优雅处理）
+    for tld in (".com.cn", ".co.uk", ".co.jp",
+                ".com", ".io", ".net", ".app", ".so", ".dev", ".co", ".ai",
+                ".org", ".tech", ".cloud", ".global", ".world", ".design"):
+        if host.endswith(tld):
+            host = host[:-len(tld)]
+            break
     host = re.sub(r"[^a-z0-9-]+", "-", host).strip("-")
     return host or "unknown"
 
@@ -698,6 +723,20 @@ def run_auto_publish(processed_slugs: list[str]):
     if not run(["python3", "scripts/validate-sites.py", "--strict"], "validate schema"):
         print(f"  {ANSI['r']}Stopped: fix schema errors then re-run with --auto-publish.{ANSI['x']}")
         return False
+
+    # 质量门 —— 比 schema 严：颜色 / donts / 字体类别 / 5 lang 齐 等
+    # 失败的 site 自动 quarantine 成 needs_review，不阻止其它 site 上架
+    print(f"  · quality check (auto-quarantine bad ones)")
+    qc = subprocess.run(
+        ["python3", "scripts/quality-check.py", "--auto-quarantine", *processed_slugs],
+        cwd=str(ROOT), capture_output=True, text=True
+    )
+    if qc.stdout:
+        # 只打印失败行（包含 ✗）
+        for line in qc.stdout.splitlines():
+            if "✗" in line or "needs_review" in line or "error" in line.lower():
+                print(f"    {line}")
+    # qc 退出非 0 是 expected（有 site 失败质量门），但不阻止 publish 其它的
 
     if not run(["python3", "scripts/build.py"], "build dist/ (SEO HTML + downloadable MD)"):
         return False

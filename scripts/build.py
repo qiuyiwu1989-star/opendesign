@@ -549,6 +549,184 @@ def render_design_spec_md(site: dict, lang: str) -> str:
 
 
 # ============================================================
+# Build target #4b: DESIGN.md (Google Stitch / VoltAgent compat)
+# ============================================================
+# 让我们的 spec 同时能被 Google Stitch + Anthropic Claude + Cursor + Lovable 用。
+# 11 层 spec → YAML front matter + 8 章 markdown body（Google design.md 格式）。
+
+def to_kebab(s: str) -> str:
+    import re as _re
+    return _re.sub(r"(?<!^)(?=[A-Z])", "-", s or "").lower()
+
+
+def render_google_design_md(site: dict, lang: str = "en") -> str:
+    """生成 Google design.md 格式（YAML front matter + 8 章 prose）"""
+    slug = site["id"]
+    title = site["title"]
+    spec = site.get("spec", {})
+    spec_i18n = site.get("spec_i18n", {}).get(lang) or site.get("spec_i18n", {}).get("en") or {}
+
+    colors = spec.get("colors", {}) or {}
+    typo = spec.get("typography", {}) or {}
+    rounded = (spec.get("surfaces", {}) or {}).get("radius", {}) or {}
+    spacing = spec.get("spacing", {}) or {}
+
+    # ---- YAML front matter ----
+    lines = ["---"]
+    lines.append(f"name: {title}")
+    desc = (site.get("desc", {}).get(lang) or {}).get("notes", "")
+    if desc: lines.append(f"description: \"{desc[:200]}\"")
+    lines.append("version: alpha")
+    lines.append("")
+
+    # Colors → kebab-case tokens（Google 用 primary/secondary/tertiary/neutral，
+    # 我们 bg/ink/accent ... 映射过去 + 保留我们原 name 也加）
+    if any(colors.values()):
+        lines.append("colors:")
+        # Google-style mapping
+        if colors.get("bg"):     lines.append(f'  background: "{colors["bg"]}"')
+        if colors.get("ink"):    lines.append(f'  primary: "{colors["ink"]}"')
+        if colors.get("inkSoft"):lines.append(f'  secondary: "{colors["inkSoft"]}"')
+        if colors.get("accent"): lines.append(f'  tertiary: "{colors["accent"]}"')
+        if colors.get("muted"):  lines.append(f'  neutral: "{colors["muted"]}"')
+        # Our 11-layer 原 token 名也保留
+        for k in ("bgSoft", "bgQuiet", "mutedSoft", "line"):
+            if colors.get(k):
+                lines.append(f'  {to_kebab(k)}: "{colors[k]}"')
+        lines.append("")
+
+    # Typography
+    if typo.get("scale"):
+        lines.append("typography:")
+        for s in typo["scale"]:
+            tok = s.get("token", "body")
+            family = typo.get("display") if "display" in tok else typo.get("body") or typo.get("display") or "sans-serif"
+            size_px = s.get("size", 16)
+            lines.append(f"  {tok}:")
+            if family: lines.append(f"    fontFamily: {family}")
+            lines.append(f"    fontSize: {size_px}px")
+            if s.get("lh"):     lines.append(f"    lineHeight: {s['lh']}")
+            if s.get("weight"): lines.append(f"    fontWeight: {s['weight']}")
+            if s.get("ls"):     lines.append(f"    letterSpacing: \"{s['ls']}\"")
+        lines.append("")
+
+    # Rounded
+    if any(v is not None for v in rounded.values()):
+        lines.append("rounded:")
+        for k in ("sm", "md", "lg", "pill"):
+            v = rounded.get(k)
+            if v is not None:
+                lines.append(f"  {k}: {v}px")
+        lines.append("")
+
+    # Spacing
+    if spacing.get("scale"):
+        lines.append("spacing:")
+        # 第一个是 xs, 第二个是 sm, etc.
+        scale_keys = ["xs", "sm", "md", "lg", "xl", "2xl", "3xl"]
+        for i, v in enumerate(spacing["scale"][:7]):
+            lines.append(f"  {scale_keys[i] if i < len(scale_keys) else f's{i}'}: {v}px")
+        lines.append("")
+
+    lines.append("---")
+    lines.append("")
+
+    # ---- Markdown body (8 sections) ----
+    ident = spec_i18n.get("identity") or {}
+    lines.append("## Overview")
+    lines.append("")
+    if ident.get("oneLiner"): lines.append(ident["oneLiner"])
+    elif desc:                lines.append(desc)
+    if ident.get("analogy"):
+        lines.append("")
+        lines.append(f"*{ident['analogy']}*")
+    lines.append("")
+
+    if any(colors.values()):
+        lines.append("## Colors")
+        lines.append("")
+        if spec_i18n.get("colors", {}).get("principle"):
+            lines.append(spec_i18n["colors"]["principle"])
+            lines.append("")
+        for k, label in [("bg","Background"),("ink","Primary text"),("inkSoft","Secondary text"),("accent","Accent"),("muted","Muted"),("line","Borders")]:
+            if colors.get(k):
+                lines.append(f"- **{label} (`{colors[k]}`)** — uses `{to_kebab(k)}` token")
+        lines.append("")
+
+    if typo.get("display") or typo.get("body"):
+        lines.append("## Typography")
+        lines.append("")
+        if typo.get("display"): lines.append(f"- **Display:** {typo['display']}")
+        if typo.get("body"):    lines.append(f"- **Body:** {typo['body']}")
+        if typo.get("mono"):    lines.append(f"- **Mono:** {typo['mono']}")
+        if spec_i18n.get("typography", {}).get("rules"):
+            lines.append("")
+            for r in spec_i18n["typography"]["rules"]:
+                lines.append(f"- {r}")
+        lines.append("")
+
+    if spacing.get("scale"):
+        lines.append("## Layout")
+        lines.append("")
+        if spec_i18n.get("layout", {}).get("skeleton"):
+            lines.append(spec_i18n["layout"]["skeleton"])
+            lines.append("")
+        if spec_i18n.get("spacing", {}).get("rhythm"):
+            lines.append(f"*Rhythm:* {spec_i18n['spacing']['rhythm']}")
+            lines.append("")
+
+    if spec_i18n.get("surfaces"):
+        sf = spec_i18n["surfaces"]
+        lines.append("## Elevation & Depth")
+        lines.append("")
+        if sf.get("shadows"):
+            for sh in sf["shadows"]:
+                lines.append(f"- {sh}")
+        if sf.get("borders"):
+            lines.append(f"- Borders: {sf['borders']}")
+        lines.append("")
+
+    if rounded:
+        lines.append("## Shapes")
+        lines.append("")
+        for k in ("sm","md","lg","pill"):
+            v = rounded.get(k)
+            if v is not None: lines.append(f"- `{k}`: {v}px")
+        lines.append("")
+
+    comps = spec_i18n.get("components") or {}
+    if any(comps.values()):
+        lines.append("## Components")
+        lines.append("")
+        for name in ("button","card","chip","input","hero"):
+            recipe = comps.get(name)
+            if recipe: lines.append(f"- **{name}:** {recipe}")
+        lines.append("")
+
+    donts = spec_i18n.get("donts") or []
+    if donts:
+        lines.append("## Do's and Don'ts")
+        lines.append("")
+        lines.append("**Don't:**")
+        for d in donts:
+            lines.append(f"- {d}")
+        lines.append("")
+
+    sp = spec_i18n.get("systemPrompt")
+    if sp:
+        lines.append("---")
+        lines.append("")
+        lines.append("## System Prompt (paste into AI agent)")
+        lines.append("")
+        lines.append("```")
+        lines.append(sp)
+        lines.append("```")
+        lines.append("")
+
+    return "\n".join(lines)
+
+
+# ============================================================
 # Build target #5: sitemap.xml with hreflang
 # ============================================================
 
@@ -661,22 +839,30 @@ def main():
         print(f"  ✓ dist/seo/<lang>/sites/<slug>.html ({total_html} pages)")
 
     # 4) DESIGN_SPEC.<lang>.md per pack（如果该 site 有 narrative）
+    #    + DESIGN.md (Google Stitch / VoltAgent compat 格式) per slug
     if not args.legacy_only:
         packs_dir = DIST_DIR / "packs"
         md_count = 0
+        design_md_count = 0
         for s in sites:
-            if not s.get("narrative"):
-                continue
             slug_dir = packs_dir / s["id"]
             slug_dir.mkdir(parents=True, exist_ok=True)
+            # 我们的 magazine 风格（叙事 + 表格）
             for lang in LANGS:
                 if not s.get("narrative", {}).get(lang):
                     continue
                 md = render_design_spec_md(s, lang)
                 (slug_dir / f"DESIGN_SPEC.{lang}.md").write_text(md, encoding="utf-8")
                 md_count += 1
+            # Google Stitch / VoltAgent 兼容（YAML front matter + 8 章）
+            if s.get("spec") and any(v for v in s.get("spec", {}).get("colors", {}).values()):
+                gmd = render_google_design_md(s, "en")
+                (slug_dir / "DESIGN.md").write_text(gmd, encoding="utf-8")
+                design_md_count += 1
         if md_count:
             print(f"  ✓ dist/packs/<slug>/DESIGN_SPEC.<lang>.md ({md_count} files)")
+        if design_md_count:
+            print(f"  ✓ dist/packs/<slug>/DESIGN.md ({design_md_count} files · Google format)")
 
     # 5) Sitemap
     if not args.legacy_only:
