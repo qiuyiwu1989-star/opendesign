@@ -477,6 +477,76 @@ input:focus-visible {
   color: var(--bg);
 }
 
+/* 频次 badge —— chip 内右侧小数字 */
+.chip-count {
+  display: inline-block;
+  margin-left: 6px;
+  padding: 0 5px;
+  border-radius: 999px;
+  background: rgba(10, 10, 10, 0.06);
+  color: var(--muted);
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0;
+  line-height: 18px;
+  vertical-align: middle;
+}
+.chip.active .chip-count {
+  background: rgba(255, 255, 255, 0.18);
+  color: var(--bg);
+}
+
+/* 「相关 tag」推荐条 */
+.related-tags {
+  display: inline-flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-left: 12px;
+  padding-left: 12px;
+  border-left: 1px solid var(--line);
+}
+.related-tags-eyebrow {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-right: 4px;
+}
+.related-tag-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 0 10px;
+  height: 24px;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--muted);
+  border: 1px dashed var(--line-strong);
+  cursor: pointer;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  transition: color 160ms ease, border-color 160ms ease, background 160ms ease;
+}
+.related-tag-chip:hover {
+  color: var(--ink);
+  border-color: var(--ink);
+  background: var(--bg-quiet);
+}
+.related-tag-count {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--muted-soft);
+}
+
+/* 移动端 related-tags 换行 */
+@media (max-width: 760px) {
+  .related-tags { margin: 8px 0 0; padding-left: 0; border-left: 0; width: 100%; }
+}
+
 /* 排序切换 pill —— 跟 nav-pill 同款气质，右侧靠齐 */
 .sort-pill {
   display: inline-flex;
@@ -2437,6 +2507,80 @@ html[lang^="zh"] .preview-md em {
     padding: 20px 16px;
     font-size: 11px;
   }
+}
+
+/* ====== 详情抽屉 · 相关推荐 ====== */
+.related-sites {
+  margin: 48px 0 32px;
+  padding-top: 32px;
+  border-top: 1px solid var(--line);
+}
+.related-sites-title {
+  margin: 0 0 18px;
+  font-family: var(--font-serif);
+  font-style: var(--font-serif-style);
+  font-size: 24px;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+}
+.related-sites-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 16px;
+}
+.related-site-card {
+  display: block;
+  border-radius: 8px;
+  overflow: hidden;
+  background: var(--bg);
+  border: 1px solid var(--line);
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease;
+}
+.related-site-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--ink);
+  box-shadow: 0 8px 24px -12px rgba(10,10,10,0.18);
+}
+.related-site-thumb {
+  aspect-ratio: 16 / 10;
+  background: var(--bg-quiet);
+  overflow: hidden;
+}
+.related-site-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.related-site-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 12px 14px 14px;
+}
+.related-site-name {
+  font-family: var(--font-serif);
+  font-style: var(--font-serif-style);
+  font-size: 18px;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+}
+.related-site-tags {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.related-site-shared {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--accent);
+  letter-spacing: 0.04em;
 }
 
 /* ====== SYNC CODE ====== */

@@ -801,15 +801,67 @@ function renderLibraryCount() {
     .replace(/⌘/g, '<span class="mono">⌘</span>');
 }
 
+/** 统计每个 tag 的出现频次（在当前 sites 数据集里） */
+function tagFrequency() {
+  const freq = new Map();
+  for (const s of sites) {
+    for (const t of s.tags || []) freq.set(t, (freq.get(t) || 0) + 1);
+  }
+  return freq;
+}
+
+/** 与某个 tag "常同现" 的其它 tag —— 用于点选 tag 后展示「也试试」 */
+function relatedTags(activeTag, limit = 5) {
+  if (activeTag === "All" || !activeTag) return [];
+  const cooccur = new Map();
+  for (const s of sites) {
+    if (!(s.tags || []).includes(activeTag)) continue;
+    for (const t of s.tags) {
+      if (t === activeTag) continue;
+      cooccur.set(t, (cooccur.get(t) || 0) + 1);
+    }
+  }
+  return [...cooccur.entries()]
+    .sort((a, b) => b[1] - a[1])
+    .slice(0, limit)
+    .map(([tag, n]) => ({ tag, count: n }));
+}
+
 function renderFilters() {
-  const tags = ["All", ...new Set(sites.flatMap((site) => site.tags))];
-  // data-tag 保留 canonical 英文（filter 匹配用），label 走 i18n.tag 显示当前语言
+  const freq = tagFrequency();
+  // 按频次 desc 排序；同频次走 alpha
+  const sorted = [...freq.keys()].sort((a, b) => {
+    const d = (freq.get(b) || 0) - (freq.get(a) || 0);
+    return d !== 0 ? d : a.localeCompare(b);
+  });
+  const tags = ["All", ...sorted];
+
   tagFilters.innerHTML = tags
     .map((tag) => {
-      const label = tag === "All" ? t("chip.all") : window.i18n.tag(tag);
-      return `<button class="chip ${tag === activeTag ? "active" : ""}" type="button" data-tag="${tag}">${label}</button>`;
+      const isAll = tag === "All";
+      const label = isAll ? t("chip.all") : window.i18n.tag(tag);
+      const count = isAll ? sites.length : (freq.get(tag) || 0);
+      const countBadge = count > 0 ? `<span class="chip-count">${count}</span>` : "";
+      return `<button class="chip ${tag === activeTag ? "active" : ""}" type="button" data-tag="${tag}">${label}${countBadge}</button>`;
     })
     .join("");
+
+  // 渲染 related-tags 提示（当前 active 不是 All 时）
+  renderRelatedTags();
+}
+
+function renderRelatedTags() {
+  const host = document.querySelector("#relatedTags");
+  if (!host) return;
+  if (activeTag === "All") { host.innerHTML = ""; host.hidden = true; return; }
+  const rel = relatedTags(activeTag, 5);
+  if (!rel.length) { host.innerHTML = ""; host.hidden = true; return; }
+  host.hidden = false;
+  host.innerHTML =
+    `<span class="related-tags-eyebrow">${t("filter.related")}</span> ` +
+    rel.map(({ tag, count }) =>
+      `<button class="related-tag-chip" type="button" data-tag="${tag}">${window.i18n.tag(tag)} <span class="related-tag-count">${count}</span></button>`
+    ).join("");
 }
 
 function renderCanvas() {
@@ -948,11 +1000,97 @@ function openDetail(siteId) {
     .map(([title, body]) => `<section class="insight-card"><h3>${title}</h3><p>${body}</p></section>`)
     .join("");
   document.querySelector("#markdownOutput").textContent = createMarkdown(activeSite);
+  renderRelatedSites(activeSite);
   refreshDrawerActions();
   detailDrawer.classList.add("open");
   detailDrawer.setAttribute("aria-hidden", "false");
   setHash(`#/sites/${activeSite.id}`, { silent: true });
 }
+
+/* ====== 相关推荐（详情抽屉底部）======
+ * 相似度计算：tag Jaccard (0..1) × 1.0  +  accent 色相似度 (0..1) × 0.4
+ * → 选 top 4，过滤已收藏 / 同 id
+ */
+function colorDistance(hexA, hexB) {
+  if (!hexA || !hexB) return Infinity;
+  const p = (h) => {
+    const m = h.replace("#","").match(/(\w\w)(\w\w)(\w\w)/);
+    return m ? [parseInt(m[1],16), parseInt(m[2],16), parseInt(m[3],16)] : null;
+  };
+  const a = p(hexA), b = p(hexB);
+  if (!a || !b) return Infinity;
+  return Math.sqrt(a.reduce((s, v, i) => s + (v - b[i]) ** 2, 0));
+}
+
+function relatedSitesFor(site, limit = 4) {
+  const myTags = new Set(site.tags || []);
+  if (myTags.size === 0) return [];
+  const myBg = site.spec && site.spec.colors && site.spec.colors.bg;
+  const myAccent = site.spec && site.spec.colors && site.spec.colors.accent;
+
+  const scored = [];
+  for (const other of sites) {
+    if (other.id === site.id) continue;
+    const otherTags = new Set(other.tags || []);
+    // Jaccard
+    const inter = [...myTags].filter((t) => otherTags.has(t)).length;
+    const uni = new Set([...myTags, ...otherTags]).size;
+    const jaccard = uni > 0 ? inter / uni : 0;
+    if (jaccard < 0.1) continue;
+
+    // bg / accent 色距（归一化到 0..1）
+    let colorSim = 0;
+    if (myBg && other.spec && other.spec.colors && other.spec.colors.bg) {
+      const d = colorDistance(myBg, other.spec.colors.bg);
+      if (isFinite(d)) colorSim += 1 - Math.min(d / 441, 1); // max RGB dist
+    }
+    if (myAccent && other.spec && other.spec.colors && other.spec.colors.accent) {
+      const d = colorDistance(myAccent, other.spec.colors.accent);
+      if (isFinite(d)) colorSim += (1 - Math.min(d / 441, 1)) * 0.5;
+    }
+
+    const score = jaccard * 1.0 + colorSim * 0.4;
+    scored.push({ site: other, score, jaccard, sharedTags: inter });
+  }
+
+  return scored
+    .sort((a, b) => b.score - a.score)
+    .slice(0, limit);
+}
+
+function renderRelatedSites(site) {
+  const section = document.querySelector("#relatedSites");
+  const grid = document.querySelector("#relatedSitesGrid");
+  if (!section || !grid) return;
+
+  const rel = relatedSitesFor(site, 4);
+  if (rel.length === 0) {
+    section.hidden = true;
+    return;
+  }
+  section.hidden = false;
+
+  grid.innerHTML = rel.map(({ site: s, sharedTags }) => `
+    <a class="related-site-card" data-related="${s.id}" href="#/sites/${s.id}">
+      <div class="related-site-thumb">
+        <img src="${s.image}" alt="${s.title}" loading="lazy" />
+      </div>
+      <div class="related-site-meta">
+        <span class="related-site-name">${s.title}</span>
+        <span class="related-site-tags">${(s.tags || []).slice(0, 2).map((tg) => window.i18n.tag(tg)).join(" · ")}</span>
+        <span class="related-site-shared">${t("drawer.related.shared", { n: sharedTags })}</span>
+      </div>
+    </a>
+  `).join("");
+}
+
+// 点相关推荐 → 切到那个 site
+document.querySelector("#relatedSitesGrid")?.addEventListener("click", (e) => {
+  const card = e.target.closest("[data-related]");
+  if (!card) return;
+  e.preventDefault();
+  openDetail(card.dataset.related);
+});
 
 function refreshDrawerActions() {
   if (!activeSite) return;
@@ -1714,6 +1852,15 @@ tagFilters.addEventListener("click", (event) => {
   renderAll();
   if (tag === "All") setHash(viewToHash(currentView), { silent: true });
   else setHash(`#/tags/${encodeURIComponent(tag)}`, { silent: true });
+});
+
+// 「相关 tag」点击也切 filter
+document.querySelector("#relatedTags")?.addEventListener("click", (event) => {
+  const chip = event.target.closest(".related-tag-chip");
+  if (!chip) return;
+  activeTag = chip.dataset.tag;
+  renderAll();
+  setHash(`#/tags/${encodeURIComponent(activeTag)}`, { silent: true });
 });
 
 searchInput.addEventListener("input", (event) => {

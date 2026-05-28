@@ -162,6 +162,7 @@
             <input id="searchInput" type="search" data-i18n-placeholder="filter.search.placeholder" autocomplete="off" />
           </label>
           <div class="chip-row" id="tagFilters"></div>
+          <div class="related-tags" id="relatedTags" hidden></div>
           <div class="sort-pill" role="tablist" aria-label="排序">
             <button class="sort-option active" type="button" data-sort="curated" data-i18n="sort.curated">精选顺序</button>
             <button class="sort-option" type="button" data-sort="popular" data-i18n="sort.popular">热门</button>
@@ -382,6 +383,12 @@
               </div>
             </div>
             <ul class="pack-files" id="packFilesList"></ul>
+          </section>
+
+          <!-- 相关推荐：基于 tag 重叠 + 颜色相近 -->
+          <section class="related-sites" id="relatedSites" hidden>
+            <h3 class="related-sites-title" data-i18n="drawer.related.title">同气质推荐</h3>
+            <div class="related-sites-grid" id="relatedSitesGrid"></div>
           </section>
 
           <div class="markdown-box">
