@@ -133,19 +133,30 @@ python3 synthesize.py extracts/your-site-com
 
 ---
 
-## 当前状态
+## 当前状态（v0.3）
 
-- ✅ **20 个高质量种子站** —— Apple / Linear / Stripe / Vercel / Framer / Arc / Raycast / Cosmos / Mobbin / etc.
-- ✅ **16 个 AI 生成 spec**（mimo-v2.5 vision）
-- ✅ **5 个完整 pack 可下载**（Apple, Linear, Lusion, Arc, Stripe Press）
-- ✅ **中英双语 UI**
-- ✅ **Supabase 收藏 / 点赞云同步**
-- ✅ **SEO + GEO 完整**（sitemap / robots / llms.txt）
-- 🚧 补完剩余 15 个 pack
-- 🚧 每条独立 SEO 详情页
-- 🚧 社区投稿审核工作流
+### 数据
+- ✅ **80+ 收录站**（持续增长，原始 20 + VoltAgent 65 批次扩张中）
+- ✅ **每个 spec ×5 语言**（zh-CN / zh-TW / en / ja / ko）—— 600+ desc 块、800+ 叙事段
+- ✅ **每个 site 配套 mimo 11-layer + Google `DESIGN.md`** 双格式输出，Claude / Cursor / v0 / Stitch 都能直读
+- ✅ **5000+ 静态 SEO 页**（5 lang × 1000 sites scale）
 
-→ 完整路线图：[ROADMAP.md](ROADMAP.md)
+### 流水线
+- ✅ **一键 `ingest.py --auto-publish`** —— URL → live URL 一条命令 90 秒
+- ✅ **质量门** —— 颜色 / 字体类别 / donts / 5 lang coverage 全自动校验，过不了的隔离 review
+- ✅ **Token 经济** —— 每站 ~$0.10，1000 站 ~$100；vision 1 次 + 廉价 text 翻译 4 次
+
+### 前端 + 基建
+- ✅ **5 语言 UI**（tags / spec / MD 全翻）+ navigator.language 自动识别
+- ✅ **Supabase 收藏 / 点赞** + sync code 跨设备携带（无账号）
+- ✅ **SEO 完整**：sitemap.xml 带 hreflang × N、llms.txt、robots.txt、JSON-LD、OG cover
+
+### Roadmap 持续
+- 🚧 1000 站规模目标（预算 $100，~24 小时跑完）
+- 🚧 VS Code / Cursor 插件
+- 🚧 npm `@opendesign/fetch-spec`
+
+→ 完整路线图：[ROADMAP.md](ROADMAP.md) · 收录手册：[docs/curator-workflow.md](docs/curator-workflow.md)
 
 ---
 
