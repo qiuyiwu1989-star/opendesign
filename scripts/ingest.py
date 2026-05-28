@@ -228,10 +228,19 @@ HARD CONSTRAINTS:
 - donts MUST have at least 6 entries, each reverse-validated against the screenshot. Format: "don't do X — screenshot shows Y instead".
 - accent MUST be null if no single dominant high-chroma color exists.
 - systemPrompt MUST be 250 words max and include: positioning, key hex colors, font categories, at least 3 critical donts.
+- tags: 3-5 strings chosen from this canonical taxonomy (case-sensitive):
+  SaaS, Productivity, App UI, Dark Mode, Editorial, Premium, Fintech, Bold Typography,
+  Gradient, Developer Tools, Geometric, Monochrome, Bold, Design Tools, Expressive,
+  Motion, Playful, Consumer, Warm, Friendly, Product, Hardware, Restraint, Curation,
+  Gallery, Photographic, Studio, 3D, Experimental, Portfolio, Developer, Books,
+  Typography, Reference, Mobile UI, Library, Grid, Collaboration, Agency, Case Study,
+  Clean, AI, Tooling, Calendar, Notes, Calm, Refined.
+  Choose tags that match what the screenshot ACTUALLY shows. If none match well, use ["Editorial"] as the safe minimum.
 
 OUTPUT FORMAT (return JSON exactly matching this shape):
 
 {
+  "tags": ["...", "...", "..."],
   "spec": {
     "identity":    { "keywords": [...], "analogy": "...", "oneLiner": "..." },
     "colors":      { "bg": "#...", "bgSoft": null, "bgQuiet": null, "ink": "#...", "inkSoft": null, "muted": "#...", "mutedSoft": null, "accent": "#... or null", "line": "rgba(...)", "principle": "..." },
@@ -372,6 +381,10 @@ def step_vision(site: dict, *, dry_run: bool = False) -> dict:
     site["spec"] = neutral
     site.setdefault("spec_i18n", {})["en"] = relative
     site.setdefault("desc", {})["en"] = parsed["desc"]
+
+    # mimo 建议的 tags（curator 可后续编辑），仅在 site.tags 为空时填
+    if not site.get("tags") and isinstance(parsed.get("tags"), list):
+        site["tags"] = [t for t in parsed["tags"] if isinstance(t, str) and t.strip()][:5]
 
     meta = site.setdefault("_meta", {})
     meta["vision_model"] = os.environ.get("ANTHROPIC_MODEL", "mimo-v2.5")
@@ -660,7 +673,79 @@ def parse_args():
     ap.add_argument("--dry-run", action="store_true", help="show what would be called, don't hit API")
     ap.add_argument("--budget", type=float, default=999.0, help="stop when cumulative cost exceeds this (USD)")
     ap.add_argument("--limit", type=int, help="cap number of sites processed in this run")
+    ap.add_argument("--title", help="override site title (default: derived from slug)")
+    ap.add_argument("--tags", help="comma-separated tags override (e.g. 'SaaS,Productivity'). Default: mimo auto-suggests")
+    ap.add_argument("--auto-publish", action="store_true",
+                    help="after ingest: validate → build → commit → push → deploy. From URL to live site in one command.")
     return ap.parse_args()
+
+
+def run_auto_publish(processed_slugs: list[str]):
+    """ingest 完成后跑 validate → build → commit → push → deploy。"""
+    import subprocess
+
+    print(f"\n{ANSI['b']}▸ auto-publish · {len(processed_slugs)} site(s){ANSI['x']}")
+
+    def run(cmd, desc):
+        print(f"  · {desc}")
+        r = subprocess.run(cmd, cwd=str(ROOT), capture_output=True, text=True)
+        if r.returncode != 0:
+            tail = (r.stderr or r.stdout or "")[-500:]
+            print(f"    {ANSI['r']}✗ {desc} failed:{ANSI['x']} {tail}")
+            return False
+        return True
+
+    if not run(["python3", "scripts/validate-sites.py", "--strict"], "validate schema"):
+        print(f"  {ANSI['r']}Stopped: fix schema errors then re-run with --auto-publish.{ANSI['x']}")
+        return False
+
+    if not run(["python3", "scripts/build.py"], "build dist/ (SEO HTML + downloadable MD)"):
+        return False
+
+    # Git add + commit (only sites/<new>.json + dist/legacy/* + sitemap.xml)
+    subprocess.run(["git", "add", "-A"], cwd=str(ROOT))
+    diff = subprocess.run(["git", "diff", "--staged", "--quiet"], cwd=str(ROOT))
+    if diff.returncode == 0:
+        print(f"  · git: no changes to commit (already up to date)")
+    else:
+        slug_list = ", ".join(processed_slugs)
+        commit_msg = (
+            f"data: ingest {slug_list}\n\n"
+            f"Automated via scripts/ingest.py --auto-publish.\n\n"
+            f"Co-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>"
+        )
+        r = subprocess.run(["git", "commit", "-m", commit_msg], cwd=str(ROOT), capture_output=True, text=True)
+        if r.returncode == 0:
+            print(f"  · git commit ✓")
+            push = subprocess.run(["git", "push", "origin", "main"], cwd=str(ROOT), capture_output=True, text=True)
+            if push.returncode == 0:
+                print(f"  · git push ✓")
+            else:
+                print(f"  {ANSI['y']}⚠ git push failed (will retry next time):{ANSI['x']} {push.stderr[-200:]}")
+
+    # Sync built legacy files to root + deploy
+    for f in ["sites.js", "sites-specs.json", "sites-i18n.json"]:
+        src = ROOT / "dist" / "legacy" / f
+        if src.exists():
+            (ROOT / f).write_bytes(src.read_bytes())
+    src = ROOT / "dist" / "sitemap.xml"
+    if src.exists():
+        (ROOT / "sitemap.xml").write_bytes(src.read_bytes())
+
+    env = os.environ.copy()
+    env["SKIP_BUILD"] = "1"  # 已经 build 过了
+    print(f"  · deploy to nginx...")
+    r = subprocess.run(["bash", "scripts/deploy.sh"], cwd=str(ROOT), env=env, capture_output=True, text=True)
+    if r.returncode != 0:
+        print(f"    {ANSI['r']}✗ deploy failed:{ANSI['x']} {r.stderr[-500:]}")
+        return False
+    print(f"  · deploy ✓")
+
+    print(f"\n{ANSI['g']}{ANSI['b']}✓ Published:{ANSI['x']}")
+    for slug in processed_slugs:
+        print(f"  https://opendesign.cc/en/sites/{slug}")
+        print(f"  https://opendesign.cc/ja/sites/{slug}")
+    return True
 
 
 def main():
@@ -696,6 +781,7 @@ def main():
     started_at = time.time()
     cumulative_cost = 0.0
     summary = {"completed": 0, "narrated": 0, "translated": 0, "vision_done": 0, "failed": 0}
+    newly_completed: list[str] = []
 
     for i, (slug, url) in enumerate(targets, 1):
         try:
@@ -704,6 +790,12 @@ def main():
             print(f"{ANSI['r']}✗{ANSI['x']} {slug}: {e}")
             summary["failed"] += 1
             continue
+
+        # 命令行覆盖
+        if args.title and (not site.get("title") or site.get("title") == slug.replace("-", " ").title()):
+            site["title"] = args.title
+        if args.tags:
+            site["tags"] = [t.strip() for t in args.tags.split(",") if t.strip()]
 
         prev_status = site.get("status", "pending")
         print(f"\n{ANSI['b']}[{i}/{len(targets)}] {slug}{ANSI['x']} ({prev_status}) → {site['url']}")
@@ -725,6 +817,9 @@ def main():
         color = ANSI["g"] if st == "completed" else ANSI["y"]
         print(f"  {color}✓ {st}{ANSI['x']}  · ${cost:.4f}  · cumulative ${cumulative_cost:.2f}")
 
+        if st == "completed":
+            newly_completed.append(slug)
+
         if cumulative_cost >= args.budget:
             print(f"\n{ANSI['y']}⚠ budget ${args.budget:.2f} reached, stopping.{ANSI['x']}")
             break
@@ -734,6 +829,10 @@ def main():
     for k, v in summary.items():
         if v:
             print(f"  {k}: {v}")
+
+    # 3) --auto-publish: validate → build → commit → push → deploy
+    if args.auto_publish and newly_completed and not args.dry_run:
+        run_auto_publish(newly_completed)
 
 
 if __name__ == "__main__":
