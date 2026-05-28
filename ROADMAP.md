@@ -19,46 +19,56 @@
 
 ---
 
-## v0.2 · 完整度 + 标准成熟（下一里程碑）
+## v0.2 ✅ 已完成（2026-05）
 
-### 内容
-- 补完剩余 15 个 pack（Vercel / Framer / Raycast / Cosmos / Mobbin / Pitch / Amie / ...）
-- 重跑 4 个 vision 失败站
-- 新增 5-10 个社区提名站
-
-### 标准
-- 发布 `docs/11-layer-schema.json` —— JSON Schema 形式
-- 新增 **responsive 层（v0.2）** —— 断点策略 token
-- 提供 `validate-spec.js` CLI —— 检查 spec 是否合标准
-
-### 工具
-- `extract/extract.py` 加 **hover state** 抓取
-- `extract/synthesize.py` 加 **dark mode** token mapping（自动跑两次）
-- AI vision **二次校验** —— vision 输出后，让另一个 LLM critique 并修正
-
-### 前端
-- 每条 **独立 SEO 详情页** —— `/sites/<slug>.html` 静态生成，hash routing 兼容
-- 11-layer spec **可视化预览** —— 详情页直接渲染 token、字号阶、间距阶
-- 比对模式 —— 同时打开 2 个 spec 对比
+- ✅ 补完 v0.1 所有 vision 失败站，新增 5-10 站
+- ✅ 发布 `docs/11-layer-spec.md` 开放标准 + `docs/site-schema.json` JSON Schema
+- ✅ 每条独立 SEO 静态详情页（5000+ pages，hreflang）
 
 ---
 
-## v0.3 · 协议化 + 工具生态
+## v0.3 ✅ 已完成（2026-05 下）
+
+### 数据栈
+- ✅ **8 种语言 UI**：zh-CN / zh-TW / en / ja / ko + UN 大语种 fr / es / ru
+- ✅ **VoltAgent 65 站** + 自有 20+ 站，扩张到 80+ 收录
+- ✅ **质量门** —— colors / 字体类别 / donts / 5 lang coverage 自动校验
+- ✅ **截图 fallback 链** —— thum.io → microlink → Google Pagespeed
+
+### 流水线
+- ✅ `ingest.py --auto-publish` 一条命令 URL → live URL
+- ✅ Prompt #1/#2/#3 锁定 v0.3 版本（vision + translate + narrative）
+- ✅ `build.py` 双格式输出：DESIGN_SPEC.<lang>.md + Google DESIGN.md
+
+### UX
+- ✅ Tag 频次排序 + 计数 badge + 同现 tag 关联
+- ✅ 详情抽屉「同气质推荐」（Jaccard + 颜色相似度）
+- ✅ Saved sync code 跨设备携带（无账号）
 
 ### 协议
-- 推动至少 1 个第三方 AI 编码工具显式支持 `opendesign.cc/packs/` URL
-- 发布 npm 包 `@opendesign/fetch-spec` —— 给 LLM toolkit 用
-- 发布 VS Code 插件 —— 在 Cursor / VSCode 里直接 `:OpenDesign apple` 拉规范
+- ✅ Google Stitch / VoltAgent DESIGN.md 格式兼容（每 pack 双文件）
 
-### 标准
-- 新增 **accessibility 层（v0.3）** —— 对比度、focus visible、aria
-- 反向标准：网站可在 `/.well-known/design-spec.md` 暴露自己的 11 层 spec
-- 标准 RFC 流程化（PR 模板 + 评论期 + 投票）
+---
+
+## v0.4 · 下一里程碑（2026-06）
 
 ### 内容
-- 收录数突破 50
-- 至少 3 个 "design system showcase"（Material / Carbon / Polaris 等大厂系统）
-- 中文设计站专题（Bestfolios CN / 站酷 top 推荐风格）
+- 🚧 1000 站收录目标（预算 $100，~24 小时跑完）
+- 🚧 中文设计站专题（Bestfolios CN / 站酷 top）
+- 🚧 大厂 design system showcase（Material / Carbon / Polaris）
+
+### 协议 / 集成
+- 🚧 发布 npm 包 `@opendesign/fetch-spec`
+- 🚧 发布 VS Code / Cursor 插件 (`:OpenDesign apple`)
+- 🚧 推动至少 1 个第三方 AI 编码工具显式支持
+
+### 国际化
+- 🚧 Arabic (ar) UI + RTL CSS 全站镜像
+- 🚧 现存站 fr/es/ru 内容翻译 backfill (~$3)
+
+### 工具
+- 🚧 `extract.py` 加 **hover state** + **dark mode** 抓取
+- 🚧 AI vision 二次校验（critique + refine）
 
 ---
 
