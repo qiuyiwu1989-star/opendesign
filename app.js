@@ -235,6 +235,77 @@ const store = {
   }
 };
 
+/* ====== SYNC CODE ======
+ * 让用户把 anonymous visitor_id 跨设备携带 —— 不需要账号、邮箱、密码。
+ *
+ * 流程：
+ *   Device A：generate → 拿到 code 如 "quiet-fern-42" → 写入 sync_codes 表
+ *   Device B：bind(code) → 查表拿到 visitor_id_A → 替换 localStorage → reload
+ *
+ * 安全考量：拿到 code 的人都能看那个 visitor 的收藏，所以 UI 里要提醒
+ *   「不要把 code 发给别人 / 不要贴公开页面」。
+ */
+const SYNC_ADJECTIVES = [
+  "quiet","sharp","soft","bold","slow","warm","crisp","plush","rapt","keen",
+  "swift","still","clear","vast","olive","rose","dove","steel","wool","milk",
+  "glass","river","marble","clay","ash","dusk","dawn","mossy","linen","velvet",
+  "amber","mauve","ivory","slate","pearl","azure","sable","cedar","frost","drift"
+];
+const SYNC_NOUNS = [
+  "fern","cocoa","lemon","lake","ink","kite","fawn","vega","otto","iris",
+  "jade","ember","glade","vellum","onyx","reef","dune","ferry","beam","tide",
+  "rye","indigo","plume","quill","sage","silk","umber","cove","heron","fjord",
+  "loom","brook","gable","atlas","wren","poppy","cairn","grove","cypress","lichen"
+];
+
+function generateSyncCode() {
+  const a = SYNC_ADJECTIVES[Math.floor(Math.random() * SYNC_ADJECTIVES.length)];
+  const n = SYNC_NOUNS[Math.floor(Math.random() * SYNC_NOUNS.length)];
+  const d = String(Math.floor(Math.random() * 90) + 10);
+  return `${a}-${n}-${d}`;
+}
+
+/** 在 Supabase 写入一个新 code 指向当前 visitor_id；冲突时重试。 */
+async function createSyncCode(maxRetries = 5) {
+  if (!supabaseClient) throw new Error("SUPABASE_REQUIRED");
+  for (let i = 0; i < maxRetries; i++) {
+    const code = generateSyncCode();
+    const { error } = await supabaseClient
+      .from("sync_codes")
+      .insert({ code, visitor_id: visitorId });
+    if (!error) return code;
+    // 23505 = unique_violation
+    if (error.code !== "23505") throw error;
+  }
+  throw new Error("CODE_GENERATION_FAILED");
+}
+
+/** 用 code 查回原 visitor_id；返回 { visitorId, createdAt } 或抛错 NOT_FOUND。 */
+async function lookupSyncCode(rawCode) {
+  if (!supabaseClient) throw new Error("SUPABASE_REQUIRED");
+  const code = (rawCode || "").trim().toLowerCase();
+  if (!code) throw new Error("EMPTY_CODE");
+  const { data, error } = await supabaseClient
+    .from("sync_codes")
+    .select("code, visitor_id, created_at")
+    .eq("code", code)
+    .maybeSingle();
+  if (error) throw error;
+  if (!data) throw new Error("NOT_FOUND");
+  // best-effort 心跳，失败忽略
+  supabaseClient.from("sync_codes").update({ last_used_at: new Date().toISOString() }).eq("code", code).then(() => {}, () => {});
+  return { visitorId: data.visitor_id, createdAt: data.created_at };
+}
+
+/** 绑定后切换 localStorage 的 visitor_id 并清掉本地缓存。调用方应在成功后 reload。 */
+function applySyncedVisitorId(newVisitorId) {
+  localStorage.setItem(VISITOR_KEY, newVisitorId);
+  // 清掉本地 saves/likes 缓存，让 reload 后从云端拉新的
+  localStorage.removeItem(SAVED_KEY);
+  localStorage.removeItem(LIKED_KEY);
+  localStorage.removeItem(LIKE_COUNTS_KEY);
+}
+
 function domainFromUrl(url) {
   try {
     return new URL(url).hostname.replace(/^www\./, "");
@@ -1515,6 +1586,113 @@ document.querySelectorAll("[data-close]").forEach((element) => {
 
 document.querySelectorAll("[data-close-modal]").forEach((element) => {
   element.addEventListener("click", closeModal);
+});
+
+/* ====== Sync code modals 行为 ====== */
+const syncCreateModal = document.querySelector("#syncCreateModal");
+const syncBindModal = document.querySelector("#syncBindModal");
+const syncCodeDisplay = document.querySelector("#syncCodeDisplay");
+const syncCodeCopyBtn = document.querySelector("#syncCodeCopyBtn");
+const syncBindForm = document.querySelector("#syncBindForm");
+const syncBindInput = document.querySelector("#syncBindInput");
+const syncBindWarn = document.querySelector("#syncBindWarn");
+const syncBindSubmit = document.querySelector("#syncBindSubmit");
+let lastCreatedSyncCode = null;
+
+function closeSyncModals() {
+  syncCreateModal.classList.remove("open");
+  syncCreateModal.setAttribute("aria-hidden", "true");
+  syncBindModal.classList.remove("open");
+  syncBindModal.setAttribute("aria-hidden", "true");
+  document.body.classList.remove("modal-open");
+  syncBindWarn.hidden = true;
+}
+
+document.querySelectorAll("[data-close-sync]").forEach((el) => {
+  el.addEventListener("click", (e) => {
+    if (e.currentTarget === e.target || e.target.matches("[data-close-sync]") || e.target.closest("[data-close-sync]") === e.currentTarget) {
+      closeSyncModals();
+    }
+  });
+});
+
+async function openCreateSyncModal() {
+  if (!supabaseClient) {
+    showToast(t("sync.error.offline"));
+    return;
+  }
+  syncCodeDisplay.textContent = "···";
+  syncCreateModal.classList.add("open");
+  syncCreateModal.setAttribute("aria-hidden", "false");
+  document.body.classList.add("modal-open");
+  try {
+    const code = await createSyncCode();
+    lastCreatedSyncCode = code;
+    syncCodeDisplay.textContent = code;
+  } catch (err) {
+    console.warn("[sync] create failed", err);
+    syncCodeDisplay.textContent = "—";
+    showToast(t("sync.error.create"));
+  }
+}
+
+function openBindSyncModal() {
+  if (!supabaseClient) {
+    showToast(t("sync.error.offline"));
+    return;
+  }
+  syncBindInput.value = "";
+  syncBindWarn.hidden = true;
+  syncBindModal.classList.add("open");
+  syncBindModal.setAttribute("aria-hidden", "false");
+  document.body.classList.add("modal-open");
+  setTimeout(() => syncBindInput.focus(), 80);
+}
+
+document.addEventListener("click", (e) => {
+  const action = e.target.closest("[data-action]")?.dataset.action;
+  if (action === "open-create-sync") openCreateSyncModal();
+  if (action === "open-bind-sync") openBindSyncModal();
+});
+
+syncCodeCopyBtn.addEventListener("click", () => {
+  if (!lastCreatedSyncCode) return;
+  navigator.clipboard.writeText(lastCreatedSyncCode).then(
+    () => showToast(t("sync.create.copied")),
+    () => showToast(lastCreatedSyncCode)
+  );
+});
+
+syncBindForm.addEventListener("submit", async (e) => {
+  e.preventDefault();
+  const code = syncBindInput.value.trim().toLowerCase();
+  if (!code) return;
+  syncBindWarn.hidden = true;
+  syncBindSubmit.disabled = true;
+  syncBindSubmit.textContent = t("sync.bind.submitting");
+  try {
+    const { visitorId: newId } = await lookupSyncCode(code);
+    applySyncedVisitorId(newId);
+    showToast(t("sync.bind.success"));
+    // 等 toast 出来一下，再 reload 让新 visitor_id 生效
+    setTimeout(() => { location.reload(); }, 600);
+  } catch (err) {
+    console.warn("[sync] bind failed", err);
+    syncBindWarn.textContent = err.message === "NOT_FOUND"
+      ? t("sync.bind.error.notfound")
+      : t("sync.bind.error.generic");
+    syncBindWarn.hidden = false;
+    syncBindSubmit.disabled = false;
+    syncBindSubmit.textContent = t("sync.bind.submit");
+  }
+});
+
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape") {
+    if (syncCreateModal.classList.contains("open") || syncBindModal.classList.contains("open")) {
+      closeSyncModals();
+    }
+  }
 });
 
 document.querySelector("#copyMarkdownButton").addEventListener("click", copyMarkdown);

@@ -194,12 +194,23 @@
         <div class="panel-head">
           <p class="eyebrow" id="savedEyebrow"></p>
           <h1 data-i18n="saved.heading">你保存下来的网页美学。</h1>
-          <p class="panel-lead" data-i18n="saved.lead">收藏会同步到云端，同一台设备 / 同一个浏览器下次回来还在。</p>
+          <p class="panel-lead" data-i18n="saved.lead">收藏存在这个浏览器，云端有备份。换设备？用「同步码」把收藏带过去 —— 不需要账号。</p>
         </div>
         <div class="library-list" id="savedList"></div>
         <div class="empty-state" id="savedEmpty" hidden>
           <p class="empty-title" data-i18n="saved.empty.title">还没收藏任何网站</p>
           <p class="empty-sub" data-i18n="saved.empty.sub">在图集或列表里点心形 ♥ 收藏喜欢的条目，会出现在这里。</p>
+          <p class="empty-sub" style="margin-top: 16px;" data-i18n-html="saved.empty.bind">在另一台设备已经收藏过？<button class="text-link" data-action="open-bind-sync">绑定一个同步码</button></p>
+        </div>
+
+        <!-- 同步码工具条 —— 永远显示在 saved 页底部，方便随时生成 / 绑定 -->
+        <div class="sync-bar" id="syncBar">
+          <p class="sync-bar-eyebrow" data-i18n="sync.eyebrow">跨设备携带</p>
+          <p class="sync-bar-lead" data-i18n="sync.lead">想把这台设备的收藏带到手机 / 另一台电脑？生成一个同步码即可。不需要邮箱密码。</p>
+          <div class="sync-bar-actions">
+            <button class="pill-button" data-action="open-create-sync" data-i18n="sync.action.create">生成同步码</button>
+            <button class="pill-button pill-button-ghost" data-action="open-bind-sync" data-i18n="sync.action.bind">绑定一个同步码</button>
+          </div>
         </div>
         <footer class="panel-footer">
           <div class="footer-wordmark">OpenDesign</div>
@@ -438,6 +449,44 @@
         </header>
         <div class="preview-body" id="previewBody"></div>
       </article>
+    </aside>
+
+    <!-- Sync code modals (生成 / 绑定) -->
+    <aside class="sync-modal" id="syncCreateModal" aria-hidden="true">
+      <div class="modal-backdrop" data-close-sync></div>
+      <div class="modal-card sync-modal-card" role="dialog" aria-modal="true" aria-labelledby="syncCreateTitle">
+        <button class="icon-button modal-close" data-close-sync type="button" data-i18n-aria-label="sync.close.aria">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18" /></svg>
+        </button>
+        <p class="eyebrow" data-i18n="sync.create.eyebrow">同步码 · 已生成</p>
+        <h2 id="syncCreateTitle" data-i18n="sync.create.title">把它记好</h2>
+        <p class="sync-code-display" id="syncCodeDisplay">··· · ··· · ··</p>
+        <div class="sync-modal-actions">
+          <button class="pill-button" id="syncCodeCopyBtn" type="button" data-i18n="sync.create.copy">复制</button>
+        </div>
+        <p class="sync-modal-note" data-i18n="sync.create.note">在另一台设备打开 opendesign.cc → 「我的收藏」→ 「绑定同步码」→ 输入这串码。收藏会跟过来。</p>
+        <p class="sync-modal-warn" data-i18n="sync.create.warn">⚠️ 任何拿到这个码的人都能看到这个浏览器的收藏。不要发给别人，不要贴到公开页面。</p>
+      </div>
+    </aside>
+
+    <aside class="sync-modal" id="syncBindModal" aria-hidden="true">
+      <div class="modal-backdrop" data-close-sync></div>
+      <form class="modal-card sync-modal-card" id="syncBindForm" role="dialog" aria-modal="true" aria-labelledby="syncBindTitle">
+        <button class="icon-button modal-close" data-close-sync type="button" data-i18n-aria-label="sync.close.aria">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18" /></svg>
+        </button>
+        <p class="eyebrow" data-i18n="sync.bind.eyebrow">同步码 · 绑定</p>
+        <h2 id="syncBindTitle" data-i18n="sync.bind.title">输入在另一台设备生成的码</h2>
+        <label class="sync-input-wrap">
+          <input type="text" id="syncBindInput" placeholder="quiet-fern-42" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" required />
+        </label>
+        <p class="sync-modal-warn" id="syncBindWarn" hidden></p>
+        <div class="sync-modal-actions">
+          <button type="button" class="pill-button pill-button-ghost" data-close-sync data-i18n="sync.bind.cancel">取消</button>
+          <button type="submit" class="pill-button" id="syncBindSubmit" data-i18n="sync.bind.submit">绑定</button>
+        </div>
+        <p class="sync-modal-note" data-i18n="sync.bind.note">绑定后，这个浏览器会切换到那台设备的收藏夹。当前浏览器原本的收藏（如果有）会被替换为新的（旧数据未删，但不再显示）。</p>
+      </form>
     </aside>
 
     <div class="toast" id="toast" role="status" aria-live="polite"></div>

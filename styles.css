@@ -2226,6 +2226,245 @@ html[lang^="zh"] .preview-md em {
   }
 }
 
+/* ====== SYNC CODE ====== */
+
+/* saved 页底部的同步工具条 —— hairline 包围、编辑型留白 */
+.sync-bar {
+  max-width: 1240px;
+  margin: 96px auto 0;
+  padding: 32px 28px;
+  border-top: 1px solid var(--ink);
+  border-bottom: 1px solid var(--line);
+}
+
+.sync-bar-eyebrow {
+  margin: 0 0 8px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.sync-bar-lead {
+  max-width: 56ch;
+  margin: 0 0 20px;
+  color: var(--ink-soft);
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.sync-bar-actions {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+/* 共用 pill 按钮 —— 用在 sync-bar、modal 内 */
+.pill-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 18px;
+  border: 1px solid var(--ink);
+  border-radius: 999px;
+  background: var(--ink);
+  color: var(--bg);
+  cursor: pointer;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  transition: background 0.18s ease, color 0.18s ease, transform 0.18s ease;
+}
+
+.pill-button:hover:not(:disabled) {
+  background: transparent;
+  color: var(--ink);
+  transform: translateY(-1px);
+}
+
+.pill-button:disabled {
+  opacity: 0.45;
+  cursor: wait;
+}
+
+.pill-button-ghost {
+  background: transparent;
+  color: var(--ink);
+}
+
+.pill-button-ghost:hover:not(:disabled) {
+  background: var(--bg-quiet);
+  color: var(--ink);
+  transform: translateY(-1px);
+}
+
+/* 文字链按钮（用在 empty state 文案中嵌入"绑定一个同步码"） */
+.text-link {
+  padding: 0;
+  border: 0;
+  border-bottom: 1px solid var(--ink);
+  background: transparent;
+  color: var(--ink);
+  cursor: pointer;
+  font: inherit;
+}
+
+.text-link:hover {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+}
+
+/* Sync 模态 —— 跟现有 .modal-card 同构，但更紧凑 */
+.sync-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.sync-modal.open {
+  display: flex;
+}
+
+.sync-modal .modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(10, 10, 10, 0.42);
+  backdrop-filter: blur(2px);
+}
+
+.sync-modal-card {
+  position: relative;
+  width: 100%;
+  max-width: 480px;
+  padding: 36px 32px 28px;
+  background: var(--bg);
+  border: 1px solid var(--line-strong);
+  border-radius: 14px;
+  box-shadow: 0 24px 60px -20px rgba(10, 10, 10, 0.22);
+  text-align: left;
+}
+
+.sync-modal-card .modal-close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+}
+
+.sync-modal-card .eyebrow {
+  margin: 0 0 6px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.sync-modal-card h2 {
+  margin: 0 0 20px;
+  font-family: var(--font-serif);
+  font-style: var(--font-serif-style);
+  font-size: 26px;
+  font-weight: 400;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+}
+
+.sync-code-display {
+  display: block;
+  margin: 0 0 20px;
+  padding: 18px 20px;
+  background: var(--bg-quiet);
+  border-radius: 8px;
+  border: 1px dashed var(--line-strong);
+  font-family: var(--font-mono);
+  font-size: 22px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: var(--ink);
+  text-align: center;
+  user-select: all;
+  word-break: break-all;
+}
+
+.sync-modal-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 18px;
+}
+
+.sync-input-wrap {
+  display: block;
+  margin-bottom: 14px;
+}
+
+.sync-input-wrap input {
+  display: block;
+  width: 100%;
+  padding: 14px 18px;
+  border: 1px solid var(--line-strong);
+  border-radius: 8px;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-mono);
+  font-size: 16px;
+  letter-spacing: 0.02em;
+  outline: none;
+  transition: border-color 0.18s ease;
+}
+
+.sync-input-wrap input:focus {
+  border-color: var(--ink);
+}
+
+.sync-modal-note {
+  margin: 12px 0 0;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+.sync-modal-warn {
+  margin: 8px 0 16px;
+  padding: 10px 14px;
+  background: rgba(180, 69, 28, 0.06);
+  border-left: 2px solid var(--accent);
+  border-radius: 4px;
+  color: var(--ink-soft);
+  font-size: 12px;
+  line-height: 1.55;
+}
+
+body.modal-open {
+  overflow: hidden;
+}
+
+@media (max-width: 600px) {
+  .sync-bar {
+    margin-top: 64px;
+    padding: 24px 16px;
+  }
+  .sync-modal-card {
+    padding: 28px 22px 22px;
+  }
+  .sync-modal-card h2 {
+    font-size: 22px;
+  }
+  .sync-code-display {
+    font-size: 18px;
+  }
+}
+
 /* ====== TOAST ====== */
 
 .toast {

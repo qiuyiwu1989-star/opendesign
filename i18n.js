@@ -55,11 +55,36 @@
       "saved.aria": "我的收藏",
       "saved.eyebrow": "收藏 · 共 {count} 个网站",
       "saved.heading": "你保存下来的网页美学。",
-      "saved.lead": "收藏存在你这个浏览器里 —— 关掉 / 重启 / 几天后回来都还在。换设备或换浏览器会变成新访客（暂未开放账号同步）。",
+      "saved.lead": "收藏存在这个浏览器，云端有备份。换设备？用「同步码」把收藏带过去 —— 不需要账号。",
       "saved.empty.title": "还没收藏任何网站",
       "saved.empty.sub": "在图集或列表里点心形 ♥ 收藏喜欢的条目，会出现在这里。",
+      "saved.empty.bind": "在另一台设备已经收藏过？<button class=\"text-link\" data-action=\"open-bind-sync\">绑定一个同步码</button>",
       "saved.footer.note": "本浏览器存储",
       "footer.tagline": "精选 · 开放 · 免费",
+
+      // sync code
+      "sync.eyebrow": "跨设备携带",
+      "sync.lead": "想把这台设备的收藏带到手机 / 另一台电脑？生成一个同步码即可。不需要邮箱密码。",
+      "sync.action.create": "生成同步码",
+      "sync.action.bind": "绑定一个同步码",
+      "sync.create.eyebrow": "同步码 · 已生成",
+      "sync.create.title": "把它记好",
+      "sync.create.copy": "复制",
+      "sync.create.copied": "已复制到剪贴板",
+      "sync.create.note": "在另一台设备打开 opendesign.cc → 「我的收藏」→ 「绑定同步码」→ 输入这串码。收藏会跟过来。",
+      "sync.create.warn": "⚠️ 任何拿到这个码的人都能看到这个浏览器的收藏。不要发给别人，不要贴到公开页面。",
+      "sync.bind.eyebrow": "同步码 · 绑定",
+      "sync.bind.title": "输入在另一台设备生成的码",
+      "sync.bind.submit": "绑定",
+      "sync.bind.submitting": "绑定中…",
+      "sync.bind.cancel": "取消",
+      "sync.bind.success": "已绑定，正在加载收藏…",
+      "sync.bind.note": "绑定后，这个浏览器会切换到那台设备的收藏夹。当前浏览器原本的收藏（如果有）会被替换为新的（旧数据未删，但不再显示）。",
+      "sync.bind.error.notfound": "没找到这个同步码。请检查拼写。",
+      "sync.bind.error.generic": "绑定失败。请稍后重试。",
+      "sync.close.aria": "关闭",
+      "sync.error.offline": "网络未就绪，暂时不能同步。",
+      "sync.error.create": "生成失败，请稍后重试。",
 
       // about
       "about.aria": "关于 OpenDesign",
@@ -202,11 +227,35 @@
       "saved.aria": "My saves",
       "saved.eyebrow": "Saved · {count} sites",
       "saved.heading": "Your collected web aesthetics.",
-      "saved.lead": "Saves stay in this browser — close, restart, return days later, they persist. A new device or browser starts as a new visitor (account sync not yet available).",
+      "saved.lead": "Saves live in this browser, with a cloud backup. Switching devices? Use a sync code to bring them along — no account needed.",
       "saved.empty.title": "Nothing saved yet",
       "saved.empty.sub": "Tap the ♥ heart on any card in Atlas or Library to save it here.",
+      "saved.empty.bind": "Already saved on another device? <button class=\"text-link\" data-action=\"open-bind-sync\">Bind a sync code</button>",
       "saved.footer.note": "browser-local storage",
       "footer.tagline": "CURATED · OPEN · FREE",
+
+      "sync.eyebrow": "Carry saves across devices",
+      "sync.lead": "Want to bring this browser's saves to your phone or another computer? Generate a sync code. No email, no password.",
+      "sync.action.create": "Generate sync code",
+      "sync.action.bind": "Bind a sync code",
+      "sync.create.eyebrow": "Sync code · generated",
+      "sync.create.title": "Save this somewhere",
+      "sync.create.copy": "Copy",
+      "sync.create.copied": "Copied to clipboard",
+      "sync.create.note": "On another device, open opendesign.cc → My Saves → Bind a sync code → paste this string. Your saves will follow.",
+      "sync.create.warn": "⚠️ Anyone with this code can see this browser's saves. Don't share it; don't post it publicly.",
+      "sync.bind.eyebrow": "Sync code · bind",
+      "sync.bind.title": "Enter the code generated on another device",
+      "sync.bind.submit": "Bind",
+      "sync.bind.submitting": "Binding…",
+      "sync.bind.cancel": "Cancel",
+      "sync.bind.success": "Bound. Loading saves…",
+      "sync.bind.note": "After binding, this browser switches to that device's saves. Any existing saves here will be replaced (not deleted in the cloud, just no longer shown).",
+      "sync.bind.error.notfound": "No such sync code. Check the spelling.",
+      "sync.bind.error.generic": "Bind failed. Please try again.",
+      "sync.close.aria": "Close",
+      "sync.error.offline": "Network not ready, sync unavailable right now.",
+      "sync.error.create": "Generation failed, please try again.",
 
       "about.aria": "About OpenDesign",
       "about.eyebrow": "About · OpenDesign",
@@ -347,6 +396,10 @@
     scope.querySelectorAll("[data-i18n]").forEach((el) => {
       const key = el.dataset.i18n;
       el.textContent = t(key);
+    });
+    // 富文本（含 HTML / <button>）—— 谨慎使用，仅用于可控的内部翻译值
+    scope.querySelectorAll("[data-i18n-html]").forEach((el) => {
+      el.innerHTML = t(el.dataset.i18nHtml);
     });
     // placeholder
     scope.querySelectorAll("[data-i18n-placeholder]").forEach((el) => {
