@@ -201,7 +201,7 @@
   const TRANSLATIONS = {
     "zh-CN": {
       "brand.aria": "OpenDesign 首页",
-      "brand.sub": "策展网页美学",
+      "brand.sub": "每个网站的 DESIGN.md",
 
       "nav.aria": "导航",
       "nav.atlas": "图集",
@@ -480,7 +480,7 @@
 
     "zh-TW": {
       "brand.aria": "OpenDesign 首頁",
-      "brand.sub": "策展網頁美學",
+      "brand.sub": "每個網站的 DESIGN.md",
 
       "nav.aria": "導覽",
       "nav.atlas": "圖集",
@@ -757,7 +757,7 @@
 
     "en": {
       "brand.aria": "OpenDesign home",
-      "brand.sub": "CURATED · WEB AESTHETICS",
+      "brand.sub": "A DESIGN.md FOR ANY SITE",
 
       "nav.aria": "Navigation",
       "nav.atlas": "Atlas",
@@ -1035,7 +1035,7 @@
 
     "ja": {
       "brand.aria": "OpenDesign ホーム",
-      "brand.sub": "厳選・ウェブ美学",
+      "brand.sub": "あらゆるサイトの DESIGN.md",
 
       "nav.aria": "ナビゲーション",
       "nav.atlas": "アトラス",
@@ -1313,7 +1313,7 @@
 
     "ko": {
       "brand.aria": "OpenDesign 홈",
-      "brand.sub": "큐레이션 · 웹 미학",
+      "brand.sub": "모든 사이트의 DESIGN.md",
 
       "nav.aria": "내비게이션",
       "nav.atlas": "아틀라스",
@@ -1594,7 +1594,7 @@
     // ─────────────────────────────────────────
     "fr": {
       "brand.aria": "Accueil OpenDesign",
-      "brand.sub": "CURATION · ESTHÉTIQUES WEB",
+      "brand.sub": "UN DESIGN.md POUR CHAQUE SITE",
       "nav.aria": "Navigation",
       "nav.atlas": "Atlas",
       "nav.library": "Liste",
@@ -1671,7 +1671,7 @@
     // ─────────────────────────────────────────
     "es": {
       "brand.aria": "Inicio OpenDesign",
-      "brand.sub": "CURADURÍA · ESTÉTICAS WEB",
+      "brand.sub": "UN DESIGN.md PARA CADA SITIO",
       "nav.aria": "Navegación",
       "nav.atlas": "Atlas",
       "nav.library": "Lista",
@@ -1748,7 +1748,7 @@
     // ─────────────────────────────────────────
     "ru": {
       "brand.aria": "Главная OpenDesign",
-      "brand.sub": "КУРИРОВАНИЕ · ВЕБ-ЭСТЕТИКА",
+      "brand.sub": "DESIGN.md ДЛЯ ЛЮБОГО САЙТА",
       "nav.aria": "Навигация",
       "nav.atlas": "Атлас",
       "nav.library": "Список",
