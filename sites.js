@@ -9,6 +9,426 @@ function shot(url, w = 1440) {
 
 window.STYLE_ATLAS_SITES = [
   {
+    "id": "about-meta",
+    "title": "About Meta",
+    "url": "https://about.meta.com",
+    "image": "https://image.thum.io/get/width/1440/https://about.meta.com",
+    "tags": [
+      "Corporate",
+      "Technology",
+      "Gradient",
+      "Premium",
+      "Bold Typography"
+    ],
+    "palette": "A soft, expansive pastel gradient background dominated by light blue with subtle hints of pink and green, contrasted by dark text and a single vibrant blue accent.",
+    "layout": "Full-viewport, immersive hero layout with central content and generous whitespace, featuring floating elements at the edges.",
+    "interaction": "Clean, focused interactions on a minimal set of elements, with standard hover and click feedback.",
+    "motion": "Subtle background animations and smooth transitions for a modern, fluid feel.",
+    "notes": "Worth including as a prime example of modern, high-scale corporate branding using expansive gradients and generous whitespace to convey a future-oriented vision.",
+    "spec": {
+      "colors": {
+        "bg": "#E0F4FF",
+        "bgSoft": null,
+        "bgQuiet": null,
+        "ink": "#000000",
+        "inkSoft": null,
+        "muted": "#6C6C6C",
+        "mutedSoft": null,
+        "accent": "#0064E0",
+        "line": "rgba(0,0,0,0.1)",
+        "principle": "Soft, expansive pastel gradients with high-contrast dark typography and a single vibrant blue accent."
+      },
+      "typography": {
+        "display": "geometric-sans",
+        "body": "geometric-sans",
+        "mono": null,
+        "scale": [
+          {
+            "token": "display",
+            "size": 56,
+            "lh": 1.1,
+            "weight": 500,
+            "ls": "-0.02em",
+            "use": "Main headline"
+          }
+        ]
+      },
+      "spacing": {
+        "base": 4,
+        "scale": [
+          4,
+          8,
+          16,
+          24,
+          32,
+          48,
+          64,
+          96
+        ],
+        "rhythm": "generous whitespace to emphasize scale and openness"
+      },
+      "surfaces": {
+        "radius": {
+          "sm": 4,
+          "md": 8,
+          "lg": 16,
+          "pill": 999
+        },
+        "shadows": [],
+        "borders": "none visible"
+      },
+      "layout": {
+        "container": 1280,
+        "paragraph": 680,
+        "columns": 12,
+        "gutter": 24,
+        "breakpoints": [
+          768,
+          1024
+        ],
+        "skeleton": "full-screen, immersive hero with central content and floating elements"
+      },
+      "motion": {
+        "durations": {
+          "micro": 220,
+          "small": 400,
+          "medium": 800
+        },
+        "easing": "cubic-bezier(0.25, 0.1, 0.25, 1)",
+        "patterns": [
+          "subtle background animations",
+          "floating UI elements"
+        ]
+      },
+      "identity": {
+        "keywords": [
+          "connection",
+          "future",
+          "human",
+          "scale",
+          "corporate"
+        ],
+        "analogy": "a modern, expansive tech conglomerate",
+        "oneLiner": "A futuristic, high-scale corporate presence focused on human connection."
+      },
+      "components": {
+        "button": "pill-shaped, solid blue background, white text",
+        "card": "rounded corners, likely clean with subtle borders or shadows",
+        "chip": null,
+        "input": null,
+        "hero": "immersive, full-viewport gradient background with a central text block and floating elements at the edges"
+      },
+      "interaction": {
+        "hover": "subtle scale or color shift on interactive elements",
+        "click": "immediate visual feedback",
+        "transition": "smooth color and position changes",
+        "keyboard": "standard focus indicators"
+      },
+      "voice": {
+        "tone": "visionary, corporate, optimistic",
+        "headlineStyle": "bold, direct statements about the future",
+        "ctaStyle": "simple, action-oriented, pill-shaped",
+        "avoid": [
+          "aggressive sales language",
+          "cluttered layouts",
+          "dense text blocks"
+        ]
+      },
+      "donts": [
+        "don't use sharp, rectangular buttons — screenshot shows pill-shaped buttons",
+        "don't use harsh, solid backgrounds — screenshot shows soft, expansive pastel gradients",
+        "don't use decorative, serif typography — screenshot shows clean, geometric sans-serif fonts",
+        "don't use dark backgrounds as primary — screenshot shows light, airy pastel backgrounds",
+        "don't clutter the interface with many elements — screenshot shows generous whitespace",
+        "don't use multiple competing accent colors — screenshot shows a single dominant blue accent"
+      ],
+      "systemPrompt": "Design a futuristic, expansive corporate website for a major technology conglomerate focused on human connection. Use soft, expansive pastel gradients (like #E0F4FF) for backgrounds, with high-contrast dark typography (#000000) and a single vibrant blue accent (#0064E0). Typography should be clean, geometric sans-serif, with bold display fonts for visionary headlines. Layouts must be highly spacious, with generous whitespace and pill-shaped UI elements. Critical constraints: never use harsh, solid backgrounds; avoid sharp, rectangular buttons; never use dense text blocks or cluttered interfaces. The overall tone should be visionary, optimistic, and grand in scale."
+    }
+  },
+  {
+    "id": "airbnb",
+    "title": "Airbnb",
+    "url": "https://www.airbnb.com",
+    "image": "https://image.thum.io/get/width/1440/https://www.airbnb.com",
+    "tags": [
+      "Consumer",
+      "Marketplace",
+      "Travel",
+      "Mobile UI",
+      "Product"
+    ],
+    "palette": "A clean white canvas with light gray surfaces and a single, vibrant pink accent for primary actions.",
+    "layout": "A centered, responsive grid with horizontal scrolling carousels for browsing listings.",
+    "interaction": "Subtle hover elevations and smooth transitions that emphasize content over interface.",
+    "motion": "Minimal and functional, focusing on smooth scrolling and subtle fades for content loading.",
+    "notes": "A masterclass in scalable, image-forward marketplace design that balances high-density information with a clean, inviting aesthetic.",
+    "spec": {
+      "colors": {
+        "bg": "#FFFFFF",
+        "bgSoft": "#F7F7F7",
+        "bgQuiet": null,
+        "ink": "#222222",
+        "inkSoft": "#717171",
+        "muted": "#B0B0B0",
+        "mutedSoft": null,
+        "accent": "#FF385C",
+        "line": "rgba(0,0,0,0.08)",
+        "principle": "High-contrast neutrals with a single, vibrant action color."
+      },
+      "typography": {
+        "display": "grotesque-sans",
+        "body": "grotesque-sans",
+        "mono": null,
+        "scale": [
+          {
+            "token": "display",
+            "size": 28,
+            "lh": 1.2,
+            "weight": 700,
+            "ls": "-0.5px",
+            "use": "Section headings"
+          },
+          {
+            "token": "body",
+            "size": 14,
+            "lh": 1.5,
+            "weight": 400,
+            "ls": "0px",
+            "use": "Listing details and descriptions"
+          }
+        ]
+      },
+      "spacing": {
+        "base": 4,
+        "scale": [
+          4,
+          8,
+          12,
+          16,
+          24,
+          32,
+          48,
+          64
+        ],
+        "rhythm": "Standard 4px grid system"
+      },
+      "surfaces": {
+        "radius": {
+          "sm": 4,
+          "md": 12,
+          "lg": 16,
+          "pill": 999
+        },
+        "shadows": [
+          "0px 6px 20px rgba(0,0,0,0.1)"
+        ],
+        "borders": "1px solid rgba(0,0,0,0.08)"
+      },
+      "layout": {
+        "container": 1280,
+        "paragraph": 680,
+        "columns": 12,
+        "gutter": 24,
+        "breakpoints": [
+          768,
+          1024
+        ],
+        "skeleton": "A standard grid layout with a prominent search bar at the top, followed by horizontal scrollable carousels of image-rich cards."
+      },
+      "motion": {
+        "durations": {
+          "micro": 150,
+          "small": 250,
+          "medium": 500
+        },
+        "easing": "cubic-bezier(0.25, 0.1, 0.25, 1)",
+        "patterns": [
+          "Smooth horizontal scrolling for carousels",
+          "Subtle fade-in for lazy-loaded images"
+        ]
+      },
+      "identity": {
+        "keywords": [
+          "Travel",
+          "Accommodation",
+          "Marketplace",
+          "Peer-to-peer"
+        ],
+        "analogy": "A welcoming, trust-focused digital marketplace for unique stays.",
+        "oneLiner": "A global marketplace platform connecting travelers with unique local accommodations."
+      },
+      "components": {
+        "button": "Pill-shaped search button with icon; clean text links.",
+        "card": "Image-forward cards with rounded corners, subtle shadow on hover, and concise text metadata.",
+        "chip": "Guest favorite badge; text pills for location/category.",
+        "input": "Shadow-elevated search bar with segmented input fields.",
+        "hero": "A unified, floating search component acting as the primary interface anchor."
+      },
+      "interaction": {
+        "hover": "Subtle elevation increase on cards; color change on interactive text.",
+        "click": "Immediate visual feedback; heart icon toggle.",
+        "transition": "150ms ease for color and shadow changes.",
+        "keyboard": "Standard tab navigation with visible focus states."
+      },
+      "voice": {
+        "tone": "Inviting, trustworthy, and direct.",
+        "headlineStyle": "Clear, descriptive nouns (e.g., 'Popular homes in Miami').",
+        "ctaStyle": "Action-oriented but friendly.",
+        "avoid": [
+          "Overly technical jargon",
+          "Aggressive sales language",
+          "Complex sentence structures"
+        ]
+      },
+      "donts": [
+        "Don't use heavy drop shadows — screenshot shows very subtle, soft elevation shadows.",
+        "Don't use multiple competing accent colors — screenshot relies on a single pink accent.",
+        "Don't use centered, decorative typography — screenshot uses left-aligned, functional headings.",
+        "Don't use complex grid overlays — screenshot shows a clean, simple 1-2 column content flow.",
+        "Don't use dark mode by default — screenshot displays a bright, white-background interface.",
+        "Don't use serif fonts — screenshot shows a clean, modern sans-serif typeface."
+      ],
+      "systemPrompt": "Airbnb is a global consumer marketplace for travel accommodations. The visual identity is built on a clean, white canvas with a vibrant pink (#FF385C) accent used sparingly for key actions and branding. The typography is a clean, neutral grotesque sans-serif that prioritizes legibility. Critical design rules: avoid heavy visual noise, keep shadows minimal and soft, and never use multiple competing accent colors. The layout is card-based and image-forward, focusing on high-quality photography to drive user engagement."
+    }
+  },
+  {
+    "id": "airtable",
+    "title": "Airtable",
+    "url": "https://www.airtable.com",
+    "image": "https://image.thum.io/get/width/1440/https://www.airtable.com",
+    "tags": [
+      "Clean",
+      "Productivity",
+      "SaaS",
+      "Tooling",
+      "Reference"
+    ],
+    "palette": "A minimalist, neutral palette dominated by white and dark grey, designed to recede and let user content take focus.",
+    "layout": "A clean, centered layout with generous whitespace and a clear vertical hierarchy, optimized for readability and task focus.",
+    "interaction": "Standard, subtle hover and focus states provide clear feedback without visual noise, emphasizing functional clarity.",
+    "motion": "Motion is minimal and functional, limited to subtle fades and transitions that support state changes without distraction.",
+    "notes": "This site is a perfect example of a utility-first design where the interface deliberately stays out of the way of the user's work.",
+    "spec": {
+      "colors": {
+        "bg": "#FFFFFF",
+        "bgSoft": null,
+        "bgQuiet": null,
+        "ink": "#333333",
+        "inkSoft": null,
+        "muted": "#999999",
+        "mutedSoft": null,
+        "accent": null,
+        "line": "rgba(0, 0, 0, 0.1)",
+        "principle": "Minimalist, neutral palette that lets user data and content stand out."
+      },
+      "typography": {
+        "display": "humanist-sans",
+        "body": "humanist-sans",
+        "mono": null,
+        "scale": [
+          {
+            "token": "display",
+            "size": 56,
+            "lh": 1.0,
+            "weight": 500,
+            "ls": "-1px",
+            "use": "Primary headlines and branding."
+          }
+        ]
+      },
+      "spacing": {
+        "base": 4,
+        "scale": [
+          4,
+          8,
+          16,
+          24,
+          32,
+          48,
+          64,
+          96
+        ],
+        "rhythm": "Consistent 4px-based spacing scale for predictable vertical and horizontal rhythm."
+      },
+      "surfaces": {
+        "radius": {
+          "sm": 4,
+          "md": 8,
+          "lg": 12,
+          "pill": 999
+        },
+        "shadows": [],
+        "borders": "Subtle, light grey borders for minimal separation."
+      },
+      "layout": {
+        "container": 1280,
+        "paragraph": 680,
+        "columns": 12,
+        "gutter": 24,
+        "breakpoints": [
+          768,
+          1024
+        ],
+        "skeleton": "Clean, centered content structure."
+      },
+      "motion": {
+        "durations": {
+          "micro": 220,
+          "small": 400,
+          "medium": 800
+        },
+        "easing": "cubic-bezier(0.4, 0, 0.2, 1)",
+        "patterns": [
+          "subtle fade-ins",
+          "smooth transitions"
+        ]
+      },
+      "identity": {
+        "keywords": [
+          "productivity",
+          "database",
+          "spreadsheet",
+          "tool",
+          "organization"
+        ],
+        "analogy": "A highly organized, digital workspace.",
+        "oneLiner": "A modern, user-friendly database and spreadsheet hybrid for organizing everything."
+      },
+      "components": {
+        "button": "Clean, solid buttons with subtle radius.",
+        "card": "Minimalist cards with light borders.",
+        "chip": "Simple, rounded chips for tags or filters.",
+        "input": "Standard input fields with light borders and focus states.",
+        "hero": "Centered content with clear typography."
+      },
+      "interaction": {
+        "hover": "Subtle color changes or elevation.",
+        "click": "Immediate feedback with state changes.",
+        "transition": "Smooth, 200-400ms transitions for state changes.",
+        "keyboard": "Full keyboard navigation support."
+      },
+      "voice": {
+        "tone": "Professional, helpful, and clear.",
+        "headlineStyle": "Direct and benefit-oriented.",
+        "ctaStyle": "Action-oriented and inviting.",
+        "avoid": [
+          "overly technical jargon",
+          "aggressive sales language",
+          "confusing metaphors"
+        ]
+      },
+      "donts": [
+        "Don't use a dark, heavy background — screenshot shows a clean, white background.",
+        "Don't use bold, saturated accent colors — screenshot shows a muted, neutral palette.",
+        "Don't use decorative, script, or serif fonts — screenshot shows a clean, sans-serif font.",
+        "Don't use complex, multi-layered shadows — screenshot shows flat, minimal surfaces.",
+        "Don't use chaotic, dense layouts — screenshot shows generous whitespace and clear hierarchy.",
+        "Don't use playful or whimsical icons — screenshot shows a simple, geometric logo."
+      ],
+      "systemPrompt": "This is a clean, minimal, and highly functional SaaS productivity tool interface. The design focuses on clarity and usability, using a neutral color palette (white background #FFFFFF, dark text #333333) and humanist-sans typography. The layout is spacious with generous whitespace. Critical don'ts: avoid dark backgrounds, saturated accent colors, or decorative fonts. The design should feel professional, organized, and user-centric, prioritizing content and functionality over decoration."
+    }
+  },
+  {
     "id": "amie",
     "title": "Amie",
     "url": "https://amie.so",
@@ -621,6 +1041,471 @@ window.STYLE_ATLAS_SITES = [
     }
   },
   {
+    "id": "binance",
+    "title": "Binance",
+    "url": "https://www.binance.com",
+    "image": "https://image.thum.io/get/width/1440/https://www.binance.com",
+    "tags": [
+      "Fintech",
+      "Dark Mode",
+      "Bold Typography",
+      "Productivity",
+      "Clean"
+    ],
+    "palette": "Deep dark background with strategic yellow accent creates high-contrast fintech aesthetic focused on trust and urgency.",
+    "layout": "Two-column hero layout with main content left and live market data/news sidebar right, optimized for information density.",
+    "interaction": "Subtle hover effects and smooth transitions maintain professional appearance without distracting from financial data.",
+    "motion": "Minimal, purpose-driven animations that enhance usability without compromising the serious financial context.",
+    "notes": "Exemplary dark mode fintech design that uses massive typography and transparent metrics to build trust in cryptocurrency trading.",
+    "spec": {
+      "colors": {
+        "bg": "#0B0E11",
+        "bgSoft": "#1E2329",
+        "bgQuiet": "#2B3139",
+        "ink": "#FFFFFF",
+        "inkSoft": "#848E9C",
+        "muted": "#5E6673",
+        "mutedSoft": "#848E9C",
+        "accent": "#FCD535",
+        "line": "rgba(255,255,255,0.06)",
+        "principle": "High contrast with yellow accent for trust and urgency"
+      },
+      "typography": {
+        "display": "geometric-sans",
+        "body": "humanist-sans",
+        "mono": "monospace",
+        "scale": [
+          {
+            "token": "display",
+            "size": 56,
+            "lh": 1.0,
+            "weight": 700,
+            "ls": "-1px",
+            "use": "hero statistics"
+          },
+          {
+            "token": "display-xl",
+            "size": 72,
+            "lh": 0.95,
+            "weight": 700,
+            "ls": "-2px",
+            "use": "main headline"
+          },
+          {
+            "token": "heading-1",
+            "size": 32,
+            "lh": 1.2,
+            "weight": 600,
+            "ls": "-0.5px",
+            "use": "section titles"
+          },
+          {
+            "token": "body-lg",
+            "size": 18,
+            "lh": 1.6,
+            "weight": 400,
+            "ls": "0",
+            "use": "subheadings"
+          },
+          {
+            "token": "body",
+            "size": 16,
+            "lh": 1.6,
+            "weight": 400,
+            "ls": "0",
+            "use": "paragraphs"
+          },
+          {
+            "token": "caption",
+            "size": 14,
+            "lh": 1.5,
+            "weight": 400,
+            "ls": "0",
+            "use": "metadata"
+          }
+        ],
+        "rules": [
+          "Display font is bold and tightly tracked for impact",
+          "Body text uses regular weight with generous line height for readability",
+          "Monospace font is used for technical data like wallet addresses"
+        ]
+      },
+      "spacing": {
+        "base": 4,
+        "scale": [
+          4,
+          8,
+          12,
+          16,
+          24,
+          32,
+          48,
+          64,
+          96
+        ],
+        "rhythm": "8px grid system with generous padding for dark mode clarity"
+      },
+      "surfaces": {
+        "radius": {
+          "sm": 4,
+          "md": 8,
+          "lg": 12,
+          "pill": 999
+        },
+        "shadows": [
+          "0 4px 24px rgba(0,0,0,0.4)",
+          "0 2px 8px rgba(0,0,0,0.2)"
+        ],
+        "borders": "1px solid rgba(255,255,255,0.06)"
+      },
+      "layout": {
+        "container": 1280,
+        "paragraph": 680,
+        "columns": 12,
+        "gutter": 24,
+        "breakpoints": [
+          768,
+          1024
+        ],
+        "skeleton": "Two-column hero layout with sidebar for market data and news"
+      },
+      "motion": {
+        "durations": {
+          "micro": 150,
+          "small": 250,
+          "medium": 400
+        },
+        "easing": "cubic-bezier(0.4, 0, 0.2, 1)",
+        "patterns": [
+          "Subtle fade transitions on hover states",
+          "Smooth tab switching animations"
+        ]
+      },
+      "identity": {
+        "keywords": [
+          "financial",
+          "trust",
+          "global",
+          "secure",
+          "professional"
+        ],
+        "analogy": "A high-security banking vault meets a digital trading terminal",
+        "oneLiner": "A dark, high-contrast fintech interface designed to project trust and authority through bold typography and strategic yellow accents."
+      },
+      "components": {
+        "button": "Solid yellow accent button with black text for primary CTAs",
+        "card": "Dark cards with subtle borders for market data and news items",
+        "chip": "Tab-like chips for market categories (Popular, New Listing)",
+        "input": "Dark input field with subtle border for email/phone entry",
+        "hero": "Large hero section with massive typography and live market data sidebar"
+      },
+      "interaction": {
+        "hover": "Subtle brightness increase on interactive elements",
+        "click": "Slight scale reduction on buttons",
+        "transition": "All transitions use 150-250ms duration",
+        "keyboard": "Focus states visible on interactive elements"
+      },
+      "voice": {
+        "tone": "Authoritative and trustworthy",
+        "headlineStyle": "Large, bold, declarative statements with statistics",
+        "ctaStyle": "Clear, action-oriented with high contrast",
+        "avoid": [
+          "Playful language",
+          "Excessive exclamation marks",
+          "Vague promises"
+        ]
+      },
+      "donts": [
+        "don't use rounded corners — screenshot shows sharp, rectangular edges on buttons and cards",
+        "don't use multiple accent colors — screenshot shows only yellow as the dominant accent",
+        "don't use thin fonts for headlines — screenshot shows bold, heavy typography for impact",
+        "don't use light backgrounds — screenshot shows deep dark theme with #0B0E11 base",
+        "don't hide critical information — screenshot shows transparent display of user counts and funds",
+        "don't use complex gradients — screenshot shows flat, solid color surfaces"
+      ],
+      "systemPrompt": "This is a dark-themed fintech cryptocurrency exchange interface designed for trust and authority. The color palette uses #0B0E11 as the primary background with #FCD535 yellow as the single accent color for CTAs and important data. Typography uses geometric-sans for display and humanist-sans for body text, with bold weights for headlines. Critical elements include: the hero section shows massive statistics (319M+ users) to establish credibility, live market data appears in a sidebar with red percentage changes, and security features are prominently displayed. Key don'ts: never use light backgrounds, avoid multiple accent colors, don't use thin fonts for headlines, don't hide critical metrics, avoid complex gradients, and don't use rounded corners on primary components. The interface prioritizes clarity and trust through high contrast, transparent data display, and authoritative typography."
+    }
+  },
+  {
+    "id": "bmw-m",
+    "title": "Bmw M",
+    "url": "https://www.bmw-m.com",
+    "image": "https://image.thum.io/get/width/1440/https://www.bmw-m.com",
+    "tags": [
+      "Product",
+      "Hardware",
+      "Clean"
+    ],
+    "palette": "A stark, high-contrast monochrome palette with a single muted technical blue accent for brand identification.",
+    "layout": "A radically minimal, centered composition with vast white space isolating a single 3D graphic element.",
+    "interaction": "The presented view is entirely static, suggesting a focus on formal presentation over interactive exploration.",
+    "motion": "Motion is implied through subtle metallic gradients on static 3D forms rather than explicit animation.",
+    "notes": "This example is worth including as a masterclass in using extreme restraint and negative space to convey premium engineering and product focus.",
+    "spec": {
+      "colors": {
+        "bg": "#FFFFFF",
+        "bgSoft": null,
+        "bgQuiet": null,
+        "ink": "#333333",
+        "inkSoft": null,
+        "muted": "#888888",
+        "mutedSoft": null,
+        "accent": "#0055A4",
+        "line": "rgba(0,0,0,0.1)",
+        "principle": "High-contrast monochrome foundation with a single, confident brand blue."
+      },
+      "typography": {
+        "display": "transitional-serif",
+        "body": "transitional-serif",
+        "mono": null,
+        "scale": [
+          {
+            "token": "display",
+            "size": 48,
+            "lh": 1.1,
+            "weight": 400,
+            "ls": "-0.5px",
+            "use": "Logo/Brand name"
+          }
+        ],
+        "rules": [
+          "Use transitional-serif for all text to convey classic engineering and premium quality."
+        ]
+      },
+      "spacing": {
+        "base": 4,
+        "scale": [
+          4,
+          8,
+          16,
+          24,
+          32,
+          48,
+          64,
+          96
+        ],
+        "rhythm": "Open, generous white space to emphasize form and precision."
+      },
+      "surfaces": {
+        "radius": {
+          "sm": 0,
+          "md": 0,
+          "lg": 0,
+          "pill": 0
+        },
+        "shadows": [],
+        "borders": "None visible; reliance on shape and color for definition."
+      },
+      "layout": {
+        "container": 1200,
+        "paragraph": 680,
+        "columns": 12,
+        "gutter": 24,
+        "breakpoints": [
+          768,
+          1024
+        ],
+        "skeleton": "Centered, single-column composition focused on a primary graphic element."
+      },
+      "motion": {
+        "durations": {
+          "micro": 220,
+          "small": 400,
+          "medium": 800
+        },
+        "easing": "cubic-bezier(0.4, 0, 0.2, 1)",
+        "patterns": [
+          "Subtle, smooth gradients on static elements imply weight and materiality."
+        ]
+      },
+      "identity": {
+        "keywords": [
+          "minimalist",
+          "technical",
+          "premium",
+          "automotive",
+          "precision"
+        ],
+        "analogy": "Precision engineering on a white void",
+        "oneLiner": "A high-performance automotive brand expressing its technical DNA through stark, confident minimalism."
+      },
+      "components": {
+        "button": null,
+        "card": null,
+        "chip": null,
+        "input": null,
+        "hero": "A large, centered 3D ring graphic with a subtle metallic gradient, positioned above the brand mark."
+      },
+      "interaction": {
+        "hover": "None observed; static presentation.",
+        "click": "None observed; static presentation.",
+        "transition": "None observed; static presentation.",
+        "keyboard": "None observed; static presentation."
+      },
+      "voice": {
+        "tone": "Confident, technical, understated luxury.",
+        "headlineStyle": "Classic serif typography for brand identity, conveying heritage and precision.",
+        "ctaStyle": "None visible.",
+        "avoid": [
+          "Loud colors",
+          "Playful elements",
+          "Sans-serif fonts",
+          "Visual clutter"
+        ]
+      },
+      "donts": [
+        "Don't use bright, saturated colors — screenshot shows a restrained monochrome palette with a single muted blue accent.",
+        "Don't use rounded corners or soft shapes — screenshot shows a perfectly circular, sharp-edged ring graphic.",
+        "Don't use sans-serif fonts — screenshot shows a classic transitional-serif typeface for the brand name.",
+        "Don't create a busy or cluttered layout — screenshot shows extreme negative space with a single centered composition.",
+        "Don't use drop shadows or complex layering — screenshot shows a flat graphic with a subtle, self-contained gradient.",
+        "Don't use playful or expressive elements — screenshot shows a strictly formal, product-focused presentation."
+      ],
+      "systemPrompt": "Design for a premium automotive performance brand. The system uses a stark, high-contrast monochrome palette (#FFFFFF background, #333333 ink) with a single technical blue accent (#0055A4). Typography is exclusively transitional-serif, conveying engineering precision and classic luxury. Layouts must be minimal, centered, and use vast white space to let forms breathe. Critical donts: never use sans-serif fonts, avoid any bright or clashing colors, and do not add decorative UI elements like shadows or rounded corners that would undermine the technical, premium aesthetic. The tone is confident, understated, and focused on the product's form."
+    }
+  },
+  {
+    "id": "bmw",
+    "title": "Bmw",
+    "url": "https://www.bmw.com",
+    "image": "https://image.thum.io/get/width/1440/https://www.bmw.com",
+    "tags": [
+      "Premium",
+      "Clean",
+      "Minimalist",
+      "Refinement",
+      "Restraint"
+    ],
+    "palette": "A stark, high-contrast minimalist palette relying on pure white, a subtle metallic gradient ring, and a single blue accent.",
+    "layout": "A strictly centered, single-column layout utilizing vast negative space to focus entirely on the central geometric motif.",
+    "interaction": "No interactive elements are visible, emphasizing a static, premium, and focused viewing experience.",
+    "motion": "Implied smooth, continuous rotation through the use of a segmented metallic gradient on the central ring.",
+    "notes": "Worth including as a prime example of extreme minimalist restraint and premium, precision-focused design.",
+    "spec": {
+      "colors": {
+        "bg": "#FFFFFF",
+        "bgSoft": null,
+        "bgQuiet": null,
+        "ink": "#333333",
+        "inkSoft": null,
+        "muted": "#999999",
+        "mutedSoft": null,
+        "accent": "#2B5797",
+        "line": "rgba(0, 0, 0, 0.1)",
+        "principle": "High-contrast minimalism utilizing a primary white canvas with subtle metallic gradients and a single blue accent."
+      },
+      "typography": {
+        "display": "transitional-serif",
+        "body": "transitional-serif",
+        "mono": null,
+        "scale": [
+          {
+            "token": "display",
+            "size": 48,
+            "lh": 1.1,
+            "weight": 700,
+            "ls": "-0.5px",
+            "use": "Brand mark / headline"
+          }
+        ],
+        "rules": [
+          "Use a transitional serif for the primary brand mark.",
+          "Ensure generous negative space around typography."
+        ]
+      },
+      "spacing": {
+        "base": 4,
+        "scale": [
+          4,
+          8,
+          16,
+          24,
+          32,
+          48,
+          64,
+          96
+        ],
+        "rhythm": "Symmetrical centering with vast negative space"
+      },
+      "surfaces": {
+        "radius": {
+          "sm": 0,
+          "md": 0,
+          "lg": 0,
+          "pill": 999
+        },
+        "shadows": [
+          "0 0 0 transparent"
+        ],
+        "borders": "None"
+      },
+      "layout": {
+        "container": 1280,
+        "paragraph": 680,
+        "columns": 12,
+        "gutter": 24,
+        "breakpoints": [
+          768,
+          1024
+        ],
+        "skeleton": "Single centered column layout with absolute centering"
+      },
+      "motion": {
+        "durations": {
+          "micro": 220,
+          "small": 400,
+          "medium": 800
+        },
+        "easing": "cubic-bezier(0.4, 0.0, 0.2, 1)",
+        "patterns": [
+          "Subtle metallic gradients implying smooth, continuous rotation"
+        ]
+      },
+      "identity": {
+        "keywords": [
+          "Precision",
+          "Minimalism",
+          "Elegance",
+          "Purity"
+        ],
+        "analogy": "A clean, high-end automotive badge or loading state",
+        "oneLiner": "A minimalist, starkly clean interface centered around a singular geometric motif and refined typography."
+      },
+      "components": {
+        "button": "None visible",
+        "card": "None visible",
+        "chip": "None visible",
+        "input": "None visible",
+        "hero": "Centered circular gradient ring acting as the primary focal point"
+      },
+      "interaction": {
+        "hover": "None visible",
+        "click": "None visible",
+        "transition": "None visible",
+        "keyboard": "None visible"
+      },
+      "voice": {
+        "tone": "Silent, Precise, Refined",
+        "headlineStyle": "Minimalist serif with tight tracking",
+        "ctaStyle": "None visible",
+        "avoid": [
+          "Loud colors",
+          "Clutter",
+          "Skeuomorphism"
+        ]
+      },
+      "donts": [
+        "Don't use drop shadows — screenshot shows a completely flat, shadowless canvas.",
+        "Don't use vibrant, saturated backgrounds — screenshot shows a pure white background.",
+        "Don't use complex grid layouts — screenshot shows a strictly single-centered column.",
+        "Don't use playful, rounded typography — screenshot shows a refined transitional serif.",
+        "Don't add busy patterns or textures — screenshot shows a completely smooth, minimalist aesthetic.",
+        "Don't use multiple competing focal points — screenshot shows a single centered circular element."
+      ],
+      "systemPrompt": "A highly minimalist, premium design system centered around a singular, precise circular motif. The palette is starkly restricted to a pure white background (#FFFFFF) with a refined transitional-serif typeface for the primary brand mark and a subtle blue accent (#2B5797) for the secondary logo. The layout is perfectly symmetrical and centered, utilizing vast negative space to emphasize the central element. Critical design constraints: Do not introduce complex shadows or gradients outside the primary metallic ring; do not use a busy multi-column layout; do not use rounded, casual sans-serif typography for the primary brand mark. The overall aesthetic is one of extreme restraint, precision, and premium refinement."
+    }
+  },
+  {
     "id": "brittany-chiang",
     "title": "Brittany Chiang",
     "url": "https://brittanychiang.com",
@@ -787,6 +1672,307 @@ window.STYLE_ATLAS_SITES = [
     }
   },
   {
+    "id": "bugatti",
+    "title": "Bugatti",
+    "url": "https://www.bugatti.com",
+    "image": "https://image.thum.io/get/width/1440/https://www.bugatti.com",
+    "tags": [
+      "Editorial",
+      "Premium",
+      "Clean",
+      "Restraint",
+      "Reference"
+    ],
+    "palette": "Pure monochrome with white background, black text, and grey muted elements.",
+    "layout": "Single centered column with vertically and horizontally centered content on a blank canvas.",
+    "interaction": "Automated browser verification with loading spinner animation and redirect.",
+    "motion": "Simple continuous rotation of the loading indicator.",
+    "notes": "This is a functional security gate rather than a designed webpage, making it a useful reference for minimal verification states but not for brand design patterns.",
+    "spec": {
+      "colors": {
+        "bg": "#FFFFFF",
+        "bgSoft": null,
+        "bgQuiet": null,
+        "ink": "#000000",
+        "inkSoft": null,
+        "muted": "#888888",
+        "mutedSoft": null,
+        "accent": null,
+        "line": "rgba(0,0,0,0)",
+        "principle": "Absolute monochrome functional clarity"
+      },
+      "typography": {
+        "display": "system-ui",
+        "body": "system-ui",
+        "mono": "monospace",
+        "scale": [
+          {
+            "token": "display",
+            "size": 16,
+            "lh": 1.5,
+            "weight": 400,
+            "ls": "0px",
+            "use": "Verification message"
+          }
+        ],
+        "rules": [
+          "Use system-default sans-serif for all text",
+          "Use monospace for technical identifiers"
+        ]
+      },
+      "spacing": {
+        "base": 4,
+        "scale": [
+          4,
+          8,
+          16,
+          24,
+          32,
+          48,
+          64,
+          96
+        ],
+        "rhythm": "Default browser stacking"
+      },
+      "surfaces": {
+        "radius": {
+          "sm": 0,
+          "md": 0,
+          "lg": 0,
+          "pill": 999
+        },
+        "shadows": [],
+        "borders": "None visible"
+      },
+      "layout": {
+        "container": 1200,
+        "paragraph": 800,
+        "columns": 1,
+        "gutter": 0,
+        "breakpoints": [
+          768,
+          1024
+        ],
+        "skeleton": "Single centered column with absolute centering"
+      },
+      "motion": {
+        "durations": {
+          "micro": 1000,
+          "small": 1000,
+          "medium": 1000
+        },
+        "easing": "linear",
+        "patterns": [
+          "Spinner rotation",
+          "Text fade-in"
+        ]
+      },
+      "identity": {
+        "keywords": [
+          "automotive",
+          "luxury",
+          "high-performance",
+          "minimalist",
+          "security"
+        ],
+        "analogy": "A sterile, white laboratory waiting for permission to proceed",
+        "oneLiner": "A utilitarian browser verification gate with zero brand expression."
+      },
+      "components": {
+        "button": "None visible",
+        "card": "None visible",
+        "chip": "None visible",
+        "input": "None visible",
+        "hero": "Centered loading spinner with text below"
+      },
+      "interaction": {
+        "hover": "None",
+        "click": "None",
+        "transition": "Automatic redirect after verification",
+        "keyboard": "None"
+      },
+      "voice": {
+        "tone": "Neutral, technical",
+        "headlineStyle": "Simple declarative statement",
+        "ctaStyle": "None",
+        "avoid": [
+          "Brand language",
+          "Marketing",
+          "Emotional appeals"
+        ]
+      },
+      "donts": [
+        "Don't apply brand colors — screenshot shows pure black and white",
+        "Don't use decorative typography — screenshot uses system fonts only",
+        "Don't add visual flourishes — screenshot is entirely utilitarian",
+        "Don't include navigation or UI controls — screenshot has none",
+        "Don't use rounded corners — screenshot has no shaped elements",
+        "Don't apply shadows or depth — screenshot is completely flat"
+      ],
+      "systemPrompt": "This is a Vercel browser verification checkpoint, not the actual Bugatti website. It serves as a security gateway before accessing the site. The design is purely functional with a white background, black system text, and a grey loading spinner. There is zero brand expression or design DNA to extract. Key colors are #FFFFFF background and #000000 text with #888888 muted text at the bottom. Typography is system-ui sans-serif for the main message and monospace for the technical identifier string. Critical donts: don't apply any brand styling, don't add decorative elements, don't use non-system fonts, don't add color accents, don't create complex layouts, don't include interactive elements beyond the spinner."
+    }
+  },
+  {
+    "id": "cal",
+    "title": "Cal",
+    "url": "https://cal.com",
+    "image": "https://image.thum.io/get/width/1440/https://cal.com",
+    "tags": [
+      "Productivity",
+      "SaaS",
+      "Calendar",
+      "Clean",
+      "Product"
+    ],
+    "palette": "A high-contrast, monochrome palette of black, white, and soft grays, creating a clean and professional look.",
+    "layout": "A structured 12-column grid with generous whitespace, featuring a split hero layout and clearly defined component boundaries.",
+    "interaction": "Subtle hover states and transitions maintain the clean aesthetic without drawing unnecessary attention.",
+    "motion": "Motion is minimal and functional, used only for necessary UI feedback like dropdowns and hover states.",
+    "notes": "This design is a strong example of how a monochrome, developer-focused aesthetic can feel premium and highly functional.",
+    "spec": {
+      "colors": {
+        "bg": "#ffffff",
+        "bgSoft": "#f4f5f6",
+        "bgQuiet": "#f9fafb",
+        "ink": "#111827",
+        "inkSoft": "#374151",
+        "muted": "#6b7280",
+        "mutedSoft": "#9ca3af",
+        "accent": null,
+        "line": "rgba(0,0,0,0.08)",
+        "principle": "High-contrast monochrome with soft gray surfaces for clean, focused interfaces."
+      },
+      "typography": {
+        "display": "grotesque-sans",
+        "body": "humanist-sans",
+        "mono": "monospace",
+        "scale": [
+          {
+            "token": "display",
+            "size": 40,
+            "lh": 1.1,
+            "weight": 700,
+            "ls": "-0.5px",
+            "use": "Main headline"
+          },
+          {
+            "token": "heading",
+            "size": 24,
+            "lh": 1.3,
+            "weight": 600,
+            "ls": "-0.2px",
+            "use": "Section headers"
+          },
+          {
+            "token": "body",
+            "size": 16,
+            "lh": 1.6,
+            "weight": 400,
+            "ls": "0px",
+            "use": "Body text"
+          },
+          {
+            "token": "caption",
+            "size": 14,
+            "lh": 1.5,
+            "weight": 400,
+            "ls": "0px",
+            "use": "Smaller supporting text"
+          }
+        ]
+      },
+      "spacing": {
+        "base": 4,
+        "scale": [
+          4,
+          8,
+          16,
+          24,
+          32,
+          48,
+          64,
+          96
+        ],
+        "rhythm": "4px base unit"
+      },
+      "surfaces": {
+        "radius": {
+          "sm": 4,
+          "md": 8,
+          "lg": 12,
+          "pill": 999
+        },
+        "shadows": [
+          "0 1px 2px rgba(0,0,0,0.05)",
+          "0 4px 12px rgba(0,0,0,0.08)"
+        ],
+        "borders": "1px solid rgba(0,0,0,0.08)"
+      },
+      "layout": {
+        "container": 1280,
+        "paragraph": 680,
+        "columns": 12,
+        "gutter": 24,
+        "breakpoints": [
+          768,
+          1024
+        ],
+        "skeleton": "12-column grid with a 24px gutter."
+      },
+      "motion": {
+        "durations": {
+          "micro": 200,
+          "small": 300,
+          "medium": 500
+        },
+        "easing": "cubic-bezier(0.4, 0.0, 0.2, 1)"
+      },
+      "identity": {
+        "keywords": [
+          "Scheduling",
+          "Open Source",
+          "Developer",
+          "Professional",
+          "Clean"
+        ],
+        "analogy": "A professional Swiss railway clock—functional, precise, and universally legible.",
+        "oneLiner": "A professional, developer-friendly open-source scheduling platform with a clean, monochrome aesthetic."
+      },
+      "components": {
+        "button": "Solid black or white with subtle rounded corners, used for primary actions like sign-up.",
+        "card": "White background with subtle border and padding, used for scheduling interfaces.",
+        "chip": "Small rounded pills with subtle borders, used for duration selectors.",
+        "input": "Clean, bordered inputs with clear placeholders.",
+        "hero": "Split layout with text and a scheduling widget mockup."
+      },
+      "interaction": {
+        "hover": "Subtle color change or scale on interactive elements.",
+        "click": "Immediate response with minimal feedback.",
+        "transition": "Smooth transitions on dropdowns and hover states.",
+        "keyboard": "Standard tab navigation with visible focus states."
+      },
+      "voice": {
+        "tone": "Professional, clear, and direct, emphasizing functionality and ease of use.",
+        "headlineStyle": "Concise and benefit-oriented, focusing on the core value proposition.",
+        "ctaStyle": "Action-oriented and reassuring (e.g., 'No credit card required').",
+        "avoid": [
+          "Overly casual language",
+          "Excessive exclamation points",
+          "Jargon without explanation"
+        ]
+      },
+      "donts": [
+        "Don't use bright accent colors — screenshot shows a monochrome palette of blacks, whites, and grays.",
+        "Don't use decorative or script fonts — screenshot shows clean, legible sans-serif typography.",
+        "Don't use complex gradients or patterns — screenshot shows flat, solid color surfaces.",
+        "Don't use heavy drop shadows — screenshot shows subtle, soft shadows for elevation.",
+        "Don't use irregular or playful shapes — screenshot shows clean, rectangular cards and rounded pills.",
+        "Don't use dense, cluttered layouts — screenshot shows generous whitespace and clear hierarchy."
+      ],
+      "systemPrompt": "A professional, open-source scheduling platform targeting developers and businesses. The design is a clean, monochrome aesthetic using primarily black, white, and soft grays, with a sans-serif typography system. The layout is structured and grid-based, prioritizing clarity and function. Critical design rules: avoid any bright accent colors or decorative elements, maintain high contrast for readability, and ensure generous whitespace to prevent visual clutter. The tone is direct and helpful, focusing on the product's utility and ease of integration."
+    }
+  },
+  {
     "id": "claude",
     "title": "Claude",
     "url": "https://claude.com",
@@ -937,6 +2123,303 @@ window.STYLE_ATLAS_SITES = [
     }
   },
   {
+    "id": "clay",
+    "title": "Clay",
+    "url": "https://clay.global",
+    "image": "https://image.thum.io/get/width/1440/https://clay.global",
+    "tags": [
+      "Editorial",
+      "Clean",
+      "Product",
+      "Calm",
+      "Restraint"
+    ],
+    "palette": "A strictly neutral palette of white and gray, punctuated only by a single deep blue accent in the logo mark.",
+    "layout": "A perfectly centered, symmetrical layout that focuses entirely on the brand mark in the middle of a vast white space.",
+    "interaction": "No interactive elements are visible; the page is a static brand presentation.",
+    "motion": "No motion is visible; the screenshot depicts a static state.",
+    "notes": "The extreme minimalism makes this an excellent reference for stark, centered logo placement and the effective use of negative space.",
+    "spec": {
+      "colors": {
+        "bg": "#FFFFFF",
+        "bgSoft": null,
+        "bgQuiet": null,
+        "ink": "#666666",
+        "inkSoft": null,
+        "muted": "#B3B3B3",
+        "mutedSoft": null,
+        "accent": "#2E5C8A",
+        "line": "rgba(0, 0, 0, 0)",
+        "principle": "High-contrast minimalism relying on negative space"
+      },
+      "typography": {
+        "display": null,
+        "body": "monospaced",
+        "mono": null,
+        "scale": []
+      },
+      "spacing": {
+        "base": 4,
+        "scale": [
+          4,
+          8,
+          16,
+          24,
+          32,
+          48,
+          64,
+          96
+        ],
+        "rhythm": "Centered, symmetric vertical stacking"
+      },
+      "surfaces": {
+        "radius": {
+          "sm": 0,
+          "md": 0,
+          "lg": 0,
+          "pill": 0
+        },
+        "shadows": [],
+        "borders": "none"
+      },
+      "layout": {
+        "container": 1280,
+        "paragraph": 680,
+        "columns": 12,
+        "gutter": 24,
+        "breakpoints": [
+          768,
+          1024
+        ],
+        "skeleton": "Absolute centering of a single logo element"
+      },
+      "motion": {
+        "durations": {
+          "micro": 220,
+          "small": 400,
+          "medium": 800
+        },
+        "easing": "cubic-bezier(0.25, 0.1, 0.25, 1.0)"
+      },
+      "identity": {
+        "keywords": [
+          "minimal",
+          "neutral",
+          "centered",
+          "logo-centric",
+          "clean"
+        ],
+        "analogy": "A blank canvas or a quiet loading state",
+        "oneLiner": "A stark, centered logo presentation on a pure white canvas, emphasizing brand recognition over content."
+      },
+      "components": {
+        "button": null,
+        "card": null,
+        "chip": null,
+        "input": null,
+        "hero": "Single centered logo mark"
+      },
+      "interaction": {
+        "hover": null,
+        "click": null,
+        "transition": null,
+        "keyboard": null
+      },
+      "voice": {
+        "tone": "silent",
+        "headlineStyle": "none",
+        "ctaStyle": "none",
+        "avoid": [
+          "noise",
+          "clutter",
+          "explanation"
+        ]
+      },
+      "donts": [
+        "don't add navigation — screenshot shows a single centered logo",
+        "don't use a dark background — screenshot shows pure white #FFFFFF",
+        "don't include body text — screenshot shows only the brand mark and name",
+        "don't use multiple columns — screenshot shows a centered single-column layout",
+        "don't add drop shadows — screenshot shows flat graphics without shadows",
+        "don't use complex grids — screenshot shows simple vertical centering"
+      ],
+      "systemPrompt": "This site features a minimalist, centered logo presentation on a pure white (#FFFFFF) background. The primary text color is a neutral gray (#666666) used in a monospaced font for the brand name, with a distinct blue accent (#2E5C8A) in the icon mark. The layout is completely centered with heavy use of negative space. Critical donts: never add navigation or secondary UI elements, do not use a dark background, and avoid adding any explanatory body text."
+    }
+  },
+  {
+    "id": "clickhouse",
+    "title": "Clickhouse",
+    "url": "https://clickhouse.com",
+    "image": "https://image.thum.io/get/width/1440/https://clickhouse.com",
+    "tags": [
+      "Developer Tools",
+      "Bold Typography",
+      "Dark Mode",
+      "Clean",
+      "Premium"
+    ],
+    "palette": "Deep charcoal background with crisp white text and a single vibrant electric yellow accent for maximum contrast and focus.",
+    "layout": "Centered, single-column layout with generous vertical spacing between clear, distinct sections.",
+    "interaction": "Minimal and functional interactions focused on clarity and immediate visual feedback for developer-focused tasks.",
+    "motion": "Subtle and purposeful transitions that enhance usability without distracting from the technical content.",
+    "notes": "A prime example of a high-end developer tool interface using dark mode and bold typography to convey performance and reliability.",
+    "spec": {
+      "colors": {
+        "bg": "#111111",
+        "bgSoft": "#1A1A1A",
+        "bgQuiet": "#000000",
+        "ink": "#FFFFFF",
+        "inkSoft": "#E0E0E0",
+        "muted": "#888888",
+        "mutedSoft": "#666666",
+        "accent": "#E8FF00",
+        "line": "rgba(255, 255, 255, 0.1)",
+        "principle": "High-contrast dark theme with a single electric accent to highlight primary actions and key information."
+      },
+      "typography": {
+        "display": "geometric-sans",
+        "body": "humanist-sans",
+        "mono": "monospace",
+        "scale": [
+          {
+            "token": "display",
+            "size": 64,
+            "lh": 1.05,
+            "weight": 700,
+            "ls": "-2px",
+            "use": "Main hero headline"
+          },
+          {
+            "token": "display-small",
+            "size": 40,
+            "lh": 1.1,
+            "weight": 700,
+            "ls": "-1px",
+            "use": "Section headlines"
+          },
+          {
+            "token": "body",
+            "size": 16,
+            "lh": 1.5,
+            "weight": 400,
+            "ls": "0",
+            "use": "Paragraph text"
+          },
+          {
+            "token": "label",
+            "size": 14,
+            "lh": 1.4,
+            "weight": 600,
+            "ls": "0.5px",
+            "use": "Navigation and buttons"
+          }
+        ],
+        "rules": [
+          "Use a clean, bold geometric sans for headlines to convey technical authority.",
+          "Body text should be highly readable humanist sans-serif for documentation.",
+          "All-caps micro text for labels and category headers.",
+          "Ensure tight letter spacing for large display type."
+        ]
+      },
+      "spacing": {
+        "base": 4,
+        "scale": [
+          4,
+          8,
+          12,
+          16,
+          24,
+          32,
+          48,
+          64,
+          96,
+          128
+        ],
+        "rhythm": "Generous vertical spacing between sections to create clear visual hierarchy and reduce cognitive load."
+      },
+      "surfaces": {
+        "radius": {
+          "sm": 4,
+          "md": 8,
+          "lg": 12,
+          "pill": 999
+        },
+        "shadows": [
+          "0 2px 8px rgba(0, 0, 0, 0.3)",
+          "0 8px 32px rgba(0, 0, 0, 0.4)"
+        ],
+        "borders": "Subtle 1px borders using rgba(255, 255, 255, 0.1) to separate elements."
+      },
+      "layout": {
+        "container": 1200,
+        "paragraph": 720,
+        "columns": 12,
+        "gutter": 32,
+        "breakpoints": [
+          768,
+          1024,
+          1280
+        ],
+        "skeleton": "Centered single-column layout with full-width dark sections. Content is vertically stacked with large whitespace blocks between sections."
+      },
+      "motion": {
+        "durations": {
+          "micro": 150,
+          "small": 250,
+          "medium": 400
+        },
+        "easing": "cubic-bezier(0.4, 0, 0.2, 1)",
+        "patterns": [
+          "Fade in on scroll",
+          "Subtle hover state transitions on buttons and links."
+        ]
+      },
+      "identity": {
+        "keywords": [
+          "database",
+          "AI",
+          "performance",
+          "scale",
+          "developer"
+        ],
+        "analogy": "A high-performance engine for modern data infrastructure.",
+        "oneLiner": "The leading database for AI, powering agentic systems with millisecond queries at petabyte scale."
+      },
+      "components": {
+        "button": "Solid yellow (#E8FF00) for primary CTAs with black text. Outlined white borders for secondary actions.",
+        "card": "Dark background (#1A1A1A) with subtle border, used for announcements or feature blocks.",
+        "chip": "Small, rounded label chips for categorization.",
+        "input": "Clean, dark input fields with subtle borders.",
+        "hero": "Full-width dark hero with large centered typography and dual CTAs."
+      },
+      "interaction": {
+        "hover": "Subtle color shifts or brightness changes on interactive elements.",
+        "click": "Immediate visual feedback (scale or color change) on primary buttons.",
+        "transition": "Smooth 150-250ms transitions for all interactive state changes.",
+        "keyboard": "Clear focus outlines on interactive elements for accessibility."
+      },
+      "voice": {
+        "tone": "Authoritative, direct, and technically confident.",
+        "headlineStyle": "Short, powerful, and benefit-oriented statements.",
+        "ctaStyle": "Clear, action-oriented, and value-driven (e.g., 'Start free cloud trial').",
+        "avoid": [
+          "Vague marketing fluff",
+          "Overly complex jargon",
+          "Passive language"
+        ]
+      },
+      "donts": [
+        "Don't use light backgrounds — the screenshot shows a solid dark (#111111) theme.",
+        "Don't use muted or pastel accent colors — the screenshot uses a single high-chroma yellow (#E8FF00).",
+        "Don't use decorative or script fonts — the screenshot uses clean geometric/humanist sans-serifs.",
+        "Don't add excessive shadows or depth — surfaces are flat and defined by subtle borders.",
+        "Don't use center-aligned body text at length — the screenshot shows left-aligned body content.",
+        "Don't clutter the layout with too many elements — the screenshot prioritizes whitespace and clear hierarchy."
+      ],
+      "systemPrompt": "Design for a high-performance developer tool database. Use a dark theme (#111111 background) with a single high-chroma electric yellow (#E8FF00) accent for primary actions. Typography should be bold and geometric for headlines, clean humanist sans for body, with tight letter spacing on large type. Layout is centered and spacious with generous vertical rhythm. Key rules: maintain high contrast, use generous whitespace, avoid decorative elements, keep UI minimal and functional, and prioritize clarity over ornamentation. The voice is authoritative and direct."
+    }
+  },
+  {
     "id": "cohere",
     "title": "Cohere",
     "url": "https://cohere.com",
@@ -1078,60 +2561,67 @@ window.STYLE_ATLAS_SITES = [
     }
   },
   {
-    "id": "cosmos",
-    "title": "Cosmos",
-    "url": "https://www.cosmos.so",
-    "image": "https://image.thum.io/get/width/1440/https://www.cosmos.so",
+    "id": "coinbase",
+    "title": "Coinbase",
+    "url": "https://www.coinbase.com",
+    "image": "https://image.thum.io/get/width/1440/https://www.coinbase.com",
     "tags": [
-      "Curation",
-      "Gallery",
-      "Photographic",
-      "Editorial"
+      "Fintech",
+      "Clean",
+      "Restraint"
     ],
-    "palette": "Strictly dual-tone using a warm off-white background and near-black text, completely devoid of vibrant accents.",
-    "layout": "A highly restrained, centered single-column layout with generous vertical whitespace to emphasize the typography.",
-    "interaction": "Minimalist and unobtrusive, relying on clean button states and standard input interactions.",
-    "motion": "Implied smooth transitions to maintain the calm, sophisticated atmosphere without visual noise.",
-    "notes": "An excellent example of 'editorial minimalism' in web design, proving that high contrast and space can create a premium feel.",
+    "palette": "A strictly monochromatic palette of white and black with a single blue accent for brand identity.",
+    "layout": "A simple, centered, single-column layout with generous whitespace and minimal visual elements.",
+    "interaction": "Standard, accessible link interactions with subtle hover states.",
+    "motion": "Contains only a functional spinner animation for the verification process.",
+    "notes": "This page exemplifies a purely functional, high-trust design system where utility and clarity are paramount, typical of security checkpoints in fintech.",
     "spec": {
       "colors": {
-        "bg": "#F7F5F2",
+        "bg": "#FFFFFF",
         "bgSoft": null,
         "bgQuiet": null,
-        "ink": "#1A1A1A",
-        "inkSoft": null,
-        "muted": null,
+        "ink": "#000000",
+        "inkSoft": "#333333",
+        "muted": "#666666",
         "mutedSoft": null,
-        "accent": null,
+        "accent": "#0052FF",
         "line": "rgba(0, 0, 0, 0.1)",
-        "principle": "Extreme restraint with a warm, off-white background and high-contrast dark ink for focus."
+        "principle": "Maximum contrast for readability and a single brand accent for identity, otherwise strictly monochromatic."
       },
       "typography": {
-        "display": "grotesque-sans",
-        "body": "grotesque-sans",
-        "mono": null,
+        "display": "system-ui",
+        "body": "system-ui",
+        "mono": "monospace",
         "scale": [
           {
             "token": "display",
-            "size": 64,
-            "lh": 1.0,
-            "weight": 500,
-            "ls": "-1px",
-            "use": "Main hero headline"
+            "size": 32,
+            "lh": 1.2,
+            "weight": 600,
+            "ls": "-0.5px",
+            "use": "Domain header"
           },
           {
-            "token": "label",
-            "size": 14,
-            "lh": 1.0,
+            "token": "h1",
+            "size": 24,
+            "lh": 1.3,
             "weight": 500,
-            "ls": "1px",
-            "use": "Uppercase category labels"
+            "ls": "0px",
+            "use": "Page title"
+          },
+          {
+            "token": "body",
+            "size": 16,
+            "lh": 1.5,
+            "weight": 400,
+            "ls": "0px",
+            "use": "Explanatory text"
           }
         ],
         "rules": [
-          "Display text is large, tightly tracked, and centered.",
-          "Uppercase tracking is used for short category labels.",
-          "Weight is kept to regular and medium for a refined look."
+          "Use system-ui font stack for cross-platform consistency.",
+          "Maintain clear hierarchy with weight and size differentiation.",
+          "Avoid decorative typography; keep it purely functional."
         ]
       },
       "spacing": {
@@ -1146,17 +2636,332 @@ window.STYLE_ATLAS_SITES = [
           64,
           96
         ],
-        "rhythm": "Generous vertical spacing emphasizes the empty space and breathing room."
+        "rhythm": "Simple, consistent spacing based on a 4px grid for vertical rhythm."
       },
       "surfaces": {
         "radius": {
           "sm": 4,
-          "md": 24,
-          "lg": 999,
+          "md": 8,
+          "lg": 12,
           "pill": 999
         },
         "shadows": [],
-        "borders": "Thin, subtle outlines on inputs and secondary buttons; no heavy container borders."
+        "borders": "Minimal use of 1px solid borders for container definition, using rgba(0,0,0,0.1)."
+      },
+      "layout": {
+        "container": 1200,
+        "paragraph": 680,
+        "columns": 12,
+        "gutter": 24,
+        "breakpoints": [
+          768,
+          1024
+        ],
+        "skeleton": "A simple, single-column centered layout with generous whitespace, focused content flow."
+      },
+      "motion": {
+        "durations": {
+          "micro": 220,
+          "small": 400,
+          "medium": 800
+        },
+        "easing": "cubic-bezier(0.4, 0, 0.2, 1)",
+        "patterns": [
+          "Spinner animation for verification status"
+        ]
+      },
+      "identity": {
+        "keywords": [
+          "security",
+          "verification",
+          "functional",
+          "minimal",
+          "clear"
+        ],
+        "analogy": "A secure, utilitarian checkpoint before entering a digital financial space.",
+        "oneLiner": "A stark, functional security verification page designed for clarity and trust during a bot protection check."
+      },
+      "components": {
+        "button": "Functional, understated with clear borders and minimal styling.",
+        "card": "A subtle bordered container for the verification widget.",
+        "chip": "N/A",
+        "input": "N/A",
+        "hero": "A simple, text-focused hero area with the domain name and status message."
+      },
+      "interaction": {
+        "hover": "Subtle color or underline change on interactive elements like links.",
+        "click": "Standard browser default for links and buttons.",
+        "transition": "Smooth transitions on hover states for interactive elements.",
+        "keyboard": "Standard tab navigation for accessible link traversal."
+      },
+      "voice": {
+        "tone": "Professional, clear, and reassuring.",
+        "headlineStyle": "Direct and descriptive, stating the current process.",
+        "ctaStyle": "Informational links rather than aggressive calls to action.",
+        "avoid": [
+          "Marketing language",
+          "Playful metaphors",
+          "Excessive exclamation"
+        ]
+      },
+      "donts": [
+        "Don't use decorative fonts — screenshot shows functional system fonts instead.",
+        "Don't add complex background patterns — screenshot shows a plain white background.",
+        "Don't use multiple vibrant accent colors — screenshot shows a single blue accent.",
+        "Don't create dense, cluttered layouts — screenshot shows generous whitespace.",
+        "Don't use rounded, bubbly UI elements — screenshot shows sharp or very slightly rounded corners.",
+        "Don't add heavy drop shadows — screenshot shows flat, borderless surfaces."
+      ],
+      "systemPrompt": "This is a security verification page for a fintech platform, prioritizing absolute clarity and trust over visual flair. The palette is strictly monochromatic (#FFFFFF bg, #000000 ink) with a single functional blue accent (#0052FF). Typography uses system-ui fonts for reliability and speed. Critical donts: Do not use decorative type, do not add background patterns, and do not introduce multiple vibrant colors. The layout is minimal, centered, and focused on communicating the verification status."
+    }
+  },
+  {
+    "id": "composio",
+    "title": "Composio",
+    "url": "https://composio.dev",
+    "image": "https://image.thum.io/get/width/1440/https://composio.dev",
+    "tags": [
+      "SaaS",
+      "AI",
+      "Tooling",
+      "Clean",
+      "Productivity"
+    ],
+    "palette": "A stark, high-contrast light theme using black, white, and a single blue accent color.",
+    "layout": "A centered, single-column layout with generous whitespace and a clear hierarchical structure.",
+    "interaction": "Minimalist and subtle, with smooth hover transitions and clear affordances for interactive elements.",
+    "motion": "Reserved and functional, using subtle fade-ins and smooth transitions to guide the user.",
+    "notes": "The design exemplifies the 'developer tools' aesthetic: clean, efficient, and focused on the utility of the product.",
+    "spec": {
+      "colors": {
+        "bg": "#FFFFFF",
+        "bgSoft": "#F9FAFB",
+        "bgQuiet": null,
+        "ink": "#111827",
+        "inkSoft": "#4B5563",
+        "muted": "#9CA3AF",
+        "mutedSoft": null,
+        "accent": "#3B82F6",
+        "line": "rgba(229, 231, 235, 1)",
+        "principle": "High-contrast, minimalist light theme with blue accents for interactive elements."
+      },
+      "typography": {
+        "display": "geometric-sans",
+        "body": "geometric-sans",
+        "mono": "monospace",
+        "scale": [
+          {
+            "token": "display",
+            "size": 56,
+            "lh": 1.1,
+            "weight": 400,
+            "ls": "-1px",
+            "use": "Primary hero headline"
+          },
+          {
+            "token": "heading",
+            "size": 36,
+            "lh": 1.2,
+            "weight": 400,
+            "ls": "-0.5px",
+            "use": "Section headings"
+          },
+          {
+            "token": "body",
+            "size": 16,
+            "lh": 1.5,
+            "weight": 400,
+            "ls": "0px",
+            "use": "Body text and descriptions"
+          }
+        ],
+        "rules": [
+          "All caps for navigation and CTAs",
+          "Light to medium weights for headings",
+          "Monospace for UI labels and interactive elements"
+        ]
+      },
+      "spacing": {
+        "base": 4,
+        "scale": [
+          4,
+          8,
+          16,
+          24,
+          32,
+          48,
+          64,
+          96
+        ],
+        "rhythm": "Consistent vertical rhythm with generous whitespace between sections."
+      },
+      "surfaces": {
+        "radius": {
+          "sm": 4,
+          "md": 8,
+          "lg": 12,
+          "pill": 999
+        },
+        "shadows": [
+          "0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1)",
+          "0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)"
+        ],
+        "borders": "1px solid #E5E7EB"
+      },
+      "layout": {
+        "container": 1200,
+        "paragraph": 680,
+        "columns": 12,
+        "gutter": 24,
+        "breakpoints": [
+          768,
+          1024
+        ],
+        "skeleton": "Centered content with a maximum-width container. Two-column layout for feature sections."
+      },
+      "motion": {
+        "durations": {
+          "micro": 150,
+          "small": 300,
+          "medium": 500
+        },
+        "easing": "cubic-bezier(0.4, 0, 0.2, 1)",
+        "patterns": [
+          "Subtle fade-in animations for content blocks",
+          "Smooth hover transitions on interactive elements"
+        ]
+      },
+      "identity": {
+        "keywords": [
+          "automation",
+          "AI agents",
+          "productivity",
+          "developer tools",
+          "integration"
+        ],
+        "analogy": "A sleek command center for your digital workflow.",
+        "oneLiner": "Connecting AI agents to thousands of apps to automate tasks and boost productivity."
+      },
+      "components": {
+        "button": "Minimalist, monospace labels, pill-shaped with subtle borders or solid black fill.",
+        "card": "Clean white cards with subtle shadows and rounded corners.",
+        "chip": "Small, rounded tags with light backgrounds.",
+        "input": "Large, rounded text input field with subtle border and placeholder text.",
+        "hero": "Large, centered headline with a prominent AI integration visual and a chat-like input."
+      },
+      "interaction": {
+        "hover": "Subtle color change or opacity shift on buttons and links.",
+        "click": "Slight scale-down effect on buttons.",
+        "transition": "Smooth transitions for color and opacity changes.",
+        "keyboard": "Standard focus outlines for accessibility."
+      },
+      "voice": {
+        "tone": "Confident, direct, and action-oriented.",
+        "headlineStyle": "Punchy, benefit-driven statements that often use monospace for emphasis.",
+        "ctaStyle": "Clear, imperative commands like 'Get started for free'.",
+        "avoid": [
+          "Overly technical jargon",
+          "Passive voice",
+          "Excessive exclamation marks",
+          "Marketing fluff"
+        ]
+      },
+      "donts": [
+        "Don't use complex gradients — the screenshot shows a clean, flat light background.",
+        "Don't use decorative serifs — the typography is strictly geometric sans-serif.",
+        "Don't clutter the interface with multiple accent colors — the palette is dominated by black, white, and a single blue accent.",
+        "Don't use small, cramped spacing — the layout relies on generous whitespace for clarity.",
+        "Don't use heavy, dark shadows — the surfaces have subtle, light elevation.",
+        "Don't use a dark mode by default — the primary interface is clearly light-themed."
+      ],
+      "systemPrompt": "This is a SaaS landing page for an AI tool automation platform called Composio. The design is a clean, minimal light theme with a high-contrast black and white palette, using blue (#3B82F6) as the primary accent color for interactive elements and status indicators. The typography is a geometric sans-serif for display and body text, with monospace used for labels and UI elements. The layout is centered with generous whitespace, featuring a prominent hero section with a large headline and a chat-like input component. Key critical donts: avoid using dark mode or complex gradients, keep typography strictly geometric sans-serif, and maintain a single-accent color approach. The voice is direct and action-oriented, focusing on productivity gains and seamless integration."
+    }
+  },
+  {
+    "id": "cursor",
+    "title": "Cursor",
+    "url": "https://www.cursor.com",
+    "image": "https://image.thum.io/get/width/1440/https://www.cursor.com",
+    "tags": [
+      "Developer Tools",
+      "SaaS",
+      "Productivity",
+      "Clean",
+      "Product"
+    ],
+    "palette": "Minimalist black and white palette that puts all focus on the product demonstration",
+    "layout": "Clean centered hero layout with generous spacing and clear visual hierarchy",
+    "interaction": "Standard button and navigation interactions with clean, predictable states",
+    "motion": "Minimal visible motion, suggesting smooth but understated transitions",
+    "notes": "Excellent example of how developer tools can use extreme restraint to let the product speak for itself",
+    "spec": {
+      "colors": {
+        "bg": "#FFFFFF",
+        "bgSoft": null,
+        "bgQuiet": null,
+        "ink": "#000000",
+        "inkSoft": "#666666",
+        "muted": "#999999",
+        "mutedSoft": null,
+        "accent": null,
+        "line": "rgba(0, 0, 0, 0.1)",
+        "principle": "High-contrast, minimal black and white with no accent colors to keep focus on the product demonstration."
+      },
+      "typography": {
+        "display": "geometric-sans",
+        "body": "humanist-sans",
+        "mono": "monospace",
+        "scale": [
+          {
+            "token": "display",
+            "size": 48,
+            "lh": 1.1,
+            "weight": 600,
+            "ls": "-1.5px",
+            "use": "Primary hero headline"
+          },
+          {
+            "token": "body",
+            "size": 16,
+            "lh": 1.5,
+            "weight": 400,
+            "ls": "0",
+            "use": "General body text and navigation"
+          }
+        ],
+        "rules": [
+          "Headlines use tight tracking and bold weight for impact",
+          "Body text uses standard weight for readability",
+          "Monospace for code and CLI elements"
+        ]
+      },
+      "spacing": {
+        "base": 4,
+        "scale": [
+          4,
+          8,
+          12,
+          16,
+          24,
+          32,
+          48,
+          64,
+          96
+        ],
+        "rhythm": "Consistent 8px grid based spacing with generous whitespace"
+      },
+      "surfaces": {
+        "radius": {
+          "sm": 4,
+          "md": 8,
+          "lg": 12,
+          "pill": 999
+        },
+        "shadows": [
+          "0 1px 3px rgba(0, 0, 0, 0.1)",
+          "0 4px 12px rgba(0, 0, 0, 0.15)"
+        ],
+        "borders": "1px solid #E5E5E5"
       },
       "layout": {
         "container": 1280,
@@ -1167,75 +2972,64 @@ window.STYLE_ATLAS_SITES = [
           768,
           1024
         ],
-        "skeleton": "Centered single-column layout with massive vertical padding to focus on typography."
+        "skeleton": "Centered hero layout with full-width product showcase below"
       },
       "motion": {
         "durations": {
-          "micro": 200,
-          "small": 300,
-          "medium": 600
+          "micro": 220,
+          "small": 400,
+          "medium": 800
         },
-        "easing": "cubic-bezier(0.25, 0.1, 0.25, 1)"
+        "easing": "cubic-bezier(0.4, 0, 0.2, 1)",
+        "patterns": [
+          "No visible motion in the screenshot, but suggests smooth transitions"
+        ]
       },
       "identity": {
         "keywords": [
-          "inspiration",
-          "space",
-          "curation",
-          "discovery"
+          "developer",
+          "productivity",
+          "AI",
+          "coding",
+          "agent",
+          "editor"
         ],
-        "analogy": "A minimalist gallery or high-end lifestyle editorial platform.",
-        "oneLiner": "A refined curation platform for finding and sharing visual inspiration."
+        "analogy": "The intelligent layer on top of a code editor",
+        "oneLiner": "An AI-native code editor designed for building software with natural language and intelligent assistance."
       },
       "components": {
-        "button": "Pill-shaped (fully rounded) with solid dark fill or thin border; high contrast.",
-        "card": null,
-        "chip": null,
-        "input": "Pill-shaped search bar with rounded corners and subtle border.",
-        "hero": "Centered typography with generous whitespace and dual pill-shaped CTAs."
+        "button": "Minimal black background with white text for primary actions, outlined for secondary",
+        "card": "Subtle border with no background, clean container for product UI demonstration",
+        "chip": "Small rounded labels for status indicators",
+        "input": "Clean text input with minimal styling, used in the product demo",
+        "hero": "Large headline with two clear call-to-action buttons"
       },
       "interaction": {
-        "hover": "Subtle opacity change or background shift on buttons.",
-        "click": "Immediate response.",
-        "transition": "Smooth, unobtrusive state changes.",
-        "keyboard": "Standard focus rings likely present but not visible in static screenshot."
+        "hover": "Subtle state change on buttons and navigation links",
+        "click": "Standard button press feedback",
+        "transition": "Smooth transitions between states",
+        "keyboard": "Full keyboard navigation support expected for developer tool"
       },
       "voice": {
-        "tone": "Inviting, calm, and sophisticated.",
-        "headlineStyle": "Short, evocative, and centered; focuses on the feeling rather than features.",
-        "ctaStyle": "Direct and simple ('Sign up', 'Get the app').",
+        "tone": "Confident and professional, focused on productivity and capability",
+        "headlineStyle": "Direct and benefit-oriented, emphasizing extraordinary productivity",
+        "ctaStyle": "Clear action verbs: 'Download', 'Request a demo'",
         "avoid": [
-          "Technical jargon",
-          "Aggressive sales language",
-          "Visual clutter"
+          "Technical jargon in headlines",
+          "Overly casual language",
+          "Excessive exclamation points"
         ]
       },
       "donts": [
-        "Don't use a pure white background — screenshot shows a warm off-white (#F7F5F2).",
-        "Don't add drop shadows or heavy borders — screenshot shows completely flat surfaces.",
-        "Don't use a vibrant accent color — screenshot relies solely on black and off-white.",
-        "Don't use complex grid layouts — screenshot shows a strictly centered, single-column flow.",
-        "Don't use serif typography — screenshot shows only clean, neutral sans-serif types.",
-        "Don't clutter the interface with icons — screenshot is extremely minimal, relying on text and space."
+        "Don't use colorful accents — screenshot shows pure black and white palette",
+        "Don't use decorative fonts — screenshot shows clean geometric and humanist sans-serif",
+        "Don't create busy layouts — screenshot shows generous whitespace and clear hierarchy",
+        "Don't use heavy shadows — screenshot shows subtle, minimal elevation",
+        "Don't add unnecessary borders — screenshot uses only essential structural borders",
+        "Don't clutter with multiple CTAs — screenshot shows just two primary actions"
       ],
-      "systemPrompt": "Cosmos is a minimalist, editorial curation platform for visual inspiration. It positions itself through extreme restraint, using a warm off-white background (#F7F5F2) and high-contrast dark ink (#1A1A1A). The typography is exclusively neutral, grotesque-sans, with tight tracking on large display text and uppercase labels. Critical constraints include: never introduce a vibrant accent color, maintain generous whitespace, and avoid any drop shadows or heavy borders. The layout is strictly centered and single-column, emphasizing the content rather than the interface structure."
+      "systemPrompt": "Cursor is positioned as an AI-powered coding agent that makes developers extraordinarily productive. The design is minimalist with a pure black and white color palette (#000000, #FFFFFF) that keeps focus entirely on the product demonstration. Typography uses geometric and humanist sans-serif categories with tight tracking for headlines to convey confidence and modernity. The layout centers around a clear hero section with large headline and two primary CTAs, followed by an extensive product showcase demonstrating the actual UI. Critical design constraints: avoid any colorful accents or decorative elements, maintain generous whitespace throughout, and never obscure the product UI with visual noise. The voice is professional and direct, emphasizing capability without technical jargon."
     }
-  },
-  {
-    "id": "diagram",
-    "title": "Diagram",
-    "url": "https://diagram.com",
-    "image": "https://pub-8c02bb0f8aa04c19b7b7ee44644801fd.r2.dev/images/768/a1a30e74-b76f-4aba-8b96-ab50c9cc2d8a.jpg",
-    "tags": [
-      "AI",
-      "Tooling",
-      "Gradient"
-    ],
-    "palette": "",
-    "layout": "",
-    "interaction": "",
-    "motion": "",
-    "notes": ""
   },
   {
     "id": "elevenlabs",
@@ -1389,6 +3183,282 @@ window.STYLE_ATLAS_SITES = [
     }
   },
   {
+    "id": "expo",
+    "title": "Expo",
+    "url": "https://expo.dev",
+    "image": "https://image.thum.io/get/width/1440/https://expo.dev",
+    "tags": [
+      "Developer Tools",
+      "Clean",
+      "Tooling",
+      "Product",
+      "Developer"
+    ],
+    "palette": "A stark, high-contrast monochrome palette featuring pure white, dark gray ink, and a metallic gradient element.",
+    "layout": "A completely centered, single-column layout on a full-screen white canvas with generous vertical whitespace.",
+    "interaction": "No interactive elements are visible in this static, logo-focused splash screen.",
+    "motion": "No motion patterns are visible in the static screenshot.",
+    "notes": "This minimalist splash screen is worth including as an example of a stark, developer-focused aesthetic that prioritizes abstract form and whitespace over information density.",
+    "spec": {
+      "colors": {
+        "bg": "#FFFFFF",
+        "bgSoft": null,
+        "bgQuiet": null,
+        "ink": "#333333",
+        "inkSoft": null,
+        "muted": "#999999",
+        "mutedSoft": null,
+        "accent": null,
+        "line": "rgba(0, 0, 0, 0.1)",
+        "principle": "High-contrast monochrome with a single metallic gradient element."
+      },
+      "typography": {
+        "display": "geometric-sans",
+        "body": "geometric-sans",
+        "mono": null,
+        "scale": [
+          {
+            "token": "display",
+            "size": 32,
+            "lh": 1.2,
+            "weight": 400,
+            "ls": "0px",
+            "use": "Brand name"
+          }
+        ]
+      },
+      "spacing": {
+        "base": 4,
+        "scale": [
+          4,
+          8,
+          16,
+          24,
+          32,
+          48,
+          64,
+          96
+        ],
+        "rhythm": "Symmetrical centering with generous whitespace."
+      },
+      "surfaces": {
+        "radius": {
+          "sm": 0,
+          "md": 0,
+          "lg": 0,
+          "pill": 999
+        },
+        "shadows": [],
+        "borders": "None visible"
+      },
+      "layout": {
+        "container": 1920,
+        "paragraph": 680,
+        "columns": 12,
+        "gutter": 24,
+        "breakpoints": [
+          768,
+          1024
+        ],
+        "skeleton": "Centered vertical stack on a full-screen white canvas."
+      },
+      "motion": {
+        "durations": {
+          "micro": 220,
+          "small": 400,
+          "medium": 800
+        },
+        "easing": "cubic-bezier(0.4, 0.0, 0.2, 1)"
+      },
+      "identity": {
+        "keywords": [
+          "Minimalist",
+          "Technical",
+          "Abstract",
+          "Developer Platform"
+        ],
+        "analogy": "A clean, abstract loading state representing a developer tool platform.",
+        "oneLiner": "A stark, minimalist loading screen featuring a metallic donut logo and simple wordmark."
+      },
+      "components": {
+        "button": "None visible",
+        "card": "None visible",
+        "chip": "None visible",
+        "input": "None visible",
+        "hero": "Centered logo and wordmark stack."
+      },
+      "interaction": {
+        "hover": "None visible",
+        "click": "None visible",
+        "transition": "None visible",
+        "keyboard": "None visible"
+      },
+      "voice": {
+        "tone": "Neutral",
+        "headlineStyle": "Minimalist",
+        "ctaStyle": "None",
+        "avoid": [
+          "Complex layouts",
+          "Vibrant colors",
+          "Decorative elements"
+        ]
+      },
+      "donts": [
+        "don't use vibrant colors — screenshot shows a strictly monochrome palette with a metallic gradient",
+        "don't add decorative borders or shadows — screenshot shows completely flat surfaces",
+        "don't use complex multi-column layouts — screenshot shows a single centered column",
+        "don't use dense text or multiple paragraphs — screenshot shows only a wordmark",
+        "don't use playful or rounded UI elements — screenshot shows sharp, geometric forms",
+        "don't use high-chroma accents — screenshot uses only a single muted blue icon"
+      ],
+      "systemPrompt": "This is a minimalist loading or splash screen for a developer tool platform. The layout is a centered vertical stack on a pure white background (#FFFFFF). The primary ink color is dark gray (#333333) used for the wordmark, with a metallic gradient donut icon above it. Typography is a clean, geometric sans-serif category. Critical design rules include avoiding vibrant colors, avoiding complex layouts or decorative elements, and maintaining extreme whitespace. The design is strictly monochrome with high contrast."
+    }
+  },
+  {
+    "id": "ferrari",
+    "title": "Ferrari",
+    "url": "https://www.ferrari.com",
+    "image": "https://image.thum.io/get/width/1440/https://www.ferrari.com",
+    "tags": [
+      "Premium",
+      "Photographic",
+      "Restraint",
+      "Clean",
+      "Editorial"
+    ],
+    "palette": "Strict monochromatic palette with black background and white text, allowing photography to be the primary visual element.",
+    "layout": "Full-viewport hero layout with minimal navigation overlay, prioritizing immersive photography over dense content.",
+    "interaction": "Clean, minimal interactive elements with high-contrast buttons for cookie management.",
+    "motion": "Subtle, refined animations that support the luxury aesthetic without being flashy.",
+    "notes": "This site demonstrates how to maintain premium brand positioning through restraint, using minimal UI and letting photography create emotional impact.",
+    "spec": {
+      "colors": {
+        "bg": "#000000",
+        "bgSoft": null,
+        "bgQuiet": null,
+        "ink": "#FFFFFF",
+        "inkSoft": null,
+        "muted": "#888888",
+        "mutedSoft": null,
+        "accent": null,
+        "line": "rgba(255, 255, 255, 0.1)",
+        "principle": "High contrast with black background and white text, allowing photography to dominate."
+      },
+      "typography": {
+        "display": "geometric-sans",
+        "body": "geometric-sans",
+        "mono": null,
+        "scale": [
+          {
+            "token": "display",
+            "size": 48,
+            "lh": 1.1,
+            "weight": 400,
+            "ls": "0.1em",
+            "use": "navigation labels"
+          }
+        ],
+        "rules": [
+          "All-caps navigation with wide letter spacing",
+          "Clean geometric sans-serif for body text in cookie banner",
+          "High contrast white text on dark background"
+        ]
+      },
+      "spacing": {
+        "base": 4,
+        "scale": [
+          4,
+          8,
+          16,
+          24,
+          32,
+          48,
+          64,
+          96
+        ],
+        "rhythm": "Generous spacing to emphasize photography and create breathing room"
+      },
+      "surfaces": {
+        "radius": {
+          "sm": 4,
+          "md": 8,
+          "lg": 0,
+          "pill": 999
+        },
+        "shadows": [
+          "0 4px 24px rgba(0, 0, 0, 0.6)"
+        ],
+        "borders": "1px solid rgba(255, 255, 255, 0.1)"
+      },
+      "layout": {
+        "container": 1440,
+        "paragraph": 600,
+        "columns": 12,
+        "gutter": 24,
+        "breakpoints": [
+          768,
+          1024,
+          1280
+        ],
+        "skeleton": "Full-bleed hero image with minimal overlay elements"
+      },
+      "motion": {
+        "durations": {
+          "micro": 220,
+          "small": 400,
+          "medium": 800
+        },
+        "easing": "cubic-bezier(0.25, 0.1, 0.25, 1)",
+        "patterns": [
+          "Subtle fade-in for overlay elements"
+        ]
+      },
+      "identity": {
+        "keywords": [
+          "luxury",
+          "automotive",
+          "heritage",
+          "performance",
+          "elegance"
+        ],
+        "analogy": "A high-end automotive brand showroom",
+        "oneLiner": "A premium automotive brand website featuring large-scale photography and restrained, elegant typography."
+      },
+      "components": {
+        "button": "White background with black text, sharp corners, medium weight",
+        "card": "Not visible in current screenshot",
+        "chip": "Not visible in current screenshot",
+        "input": "Not visible in current screenshot",
+        "hero": "Full-viewport photographic hero with dark gradient overlay at bottom"
+      },
+      "interaction": {
+        "hover": "Navigation items underline or brighten on hover",
+        "click": "Cookie management buttons have immediate response",
+        "transition": "Smooth transitions between page states",
+        "keyboard": "Standard tab navigation through interactive elements"
+      },
+      "voice": {
+        "tone": "Sophisticated, authoritative, understated luxury",
+        "headlineStyle": "All-caps with wide letter spacing, clean sans-serif",
+        "ctaStyle": "Direct, action-oriented, high contrast buttons",
+        "avoid": [
+          "Playful language",
+          "Bright colors",
+          "Decorative elements"
+        ]
+      },
+      "donts": [
+        "Don't use bright accent colors — screenshot shows strict black and white palette",
+        "Don't use decorative borders or shadows — screenshot shows minimal surface treatment",
+        "Don't use all-lowercase typography — screenshot shows uppercase navigation",
+        "Don't use playful or rounded UI elements — screenshot shows sharp corners and geometric forms",
+        "Don't use busy backgrounds — screenshot uses full-bleed photography as primary visual",
+        "Don't use dense text layouts — screenshot shows generous spacing and minimal content"
+      ],
+      "systemPrompt": "Ferrari.com embodies premium automotive luxury through restrained black-and-white aesthetics and full-bleed photography. The design uses a geometric sans-serif typeface with wide letter spacing for navigation, creating an authoritative yet elegant feel. Key hex colors are #000000 (background) and #FFFFFF (text), with no visible accent colors. Critical donts: never use bright accent colors, avoid decorative UI elements, and maintain generous spacing to preserve the luxury feel. The site prioritizes photographic storytelling over text, with minimal overlay elements and a dark, sophisticated atmosphere."
+    }
+  },
+  {
     "id": "framer",
     "title": "Framer",
     "url": "https://framer.com",
@@ -1539,20 +3609,581 @@ window.STYLE_ATLAS_SITES = [
     }
   },
   {
-    "id": "height",
-    "title": "Height",
-    "url": "https://height.app",
-    "image": "https://pub-8c02bb0f8aa04c19b7b7ee44644801fd.r2.dev/images/768/3549d2b7-9fa8-45b7-83c8-7ec64b63913e.jpg",
+    "id": "hashicorp",
+    "title": "Hashicorp",
+    "url": "https://www.hashicorp.com",
+    "image": "https://image.thum.io/get/width/1440/https://www.hashicorp.com",
+    "tags": [
+      "Developer Tools",
+      "Clean",
+      "Restraint",
+      "Calm",
+      "Refined"
+    ],
+    "palette": "Monochrome palette with white background and single blue accent for technical credibility.",
+    "layout": "Centered, spacious layout with generous whitespace that focuses attention on key elements.",
+    "interaction": "Subtle, professional interactions that provide clear feedback without distraction.",
+    "motion": "Minimal, purposeful animations that enhance usability without being flashy.",
+    "notes": "Excellent example of restraint in enterprise-focused design, showing how minimal elements can create a professional, trustworthy impression.",
+    "spec": {
+      "colors": {
+        "bg": "#FFFFFF",
+        "bgSoft": null,
+        "bgQuiet": null,
+        "ink": "#2D2D2D",
+        "inkSoft": null,
+        "muted": "#A9A9A9",
+        "mutedSoft": null,
+        "accent": null,
+        "line": "rgba(0, 0, 0, 0.05)",
+        "principle": "Neutral, high-contrast monochrome with a single accent color."
+      },
+      "typography": {
+        "display": "humanist-sans",
+        "body": "humanist-sans",
+        "mono": "humanist-mono",
+        "scale": [
+          {
+            "token": "display",
+            "size": 28,
+            "lh": 1.2,
+            "weight": 600,
+            "ls": "-0.5px",
+            "use": "logo text"
+          },
+          {
+            "token": "body",
+            "size": 16,
+            "lh": 1.5,
+            "weight": 400,
+            "ls": "0px",
+            "use": "body text"
+          }
+        ],
+        "rules": [
+          "Use humanist-sans for all text elements",
+          "Maintain clear contrast between headings and body text"
+        ]
+      },
+      "spacing": {
+        "base": 4,
+        "scale": [
+          4,
+          8,
+          16,
+          24,
+          32,
+          48,
+          64,
+          96
+        ],
+        "rhythm": "Consistent 4px base grid with generous whitespace around elements"
+      },
+      "surfaces": {
+        "radius": {
+          "sm": 4,
+          "md": 8,
+          "lg": 12,
+          "pill": 999
+        },
+        "shadows": [
+          "0 2px 4px rgba(0, 0, 0, 0.1)"
+        ],
+        "borders": "Thin, subtle borders with low contrast"
+      },
+      "layout": {
+        "container": 1280,
+        "paragraph": 680,
+        "columns": 12,
+        "gutter": 24,
+        "breakpoints": [
+          768,
+          1024
+        ],
+        "skeleton": "Centered, focused layout with generous whitespace"
+      },
+      "motion": {
+        "durations": {
+          "micro": 150,
+          "small": 300,
+          "medium": 500
+        },
+        "easing": "cubic-bezier(0.4, 0, 0.2, 1)",
+        "patterns": [
+          "Smooth, subtle transitions",
+          "No flashy animations"
+        ]
+      },
+      "identity": {
+        "keywords": [
+          "developer tools",
+          "infrastructure",
+          "cloud",
+          "enterprise",
+          "minimal"
+        ],
+        "analogy": "A professional engineering firm's clean, uncluttered branding that signals reliability.",
+        "oneLiner": "Clean, enterprise-focused developer tools branding with restrained color palette."
+      },
+      "components": {
+        "button": "Simple, flat buttons with subtle borders or solid fills",
+        "card": "Clean, bordered cards with minimal decoration",
+        "chip": "Simple rounded tags with subtle backgrounds",
+        "input": "Clean input fields with subtle borders",
+        "hero": "Centered, spacious hero with large logo and minimal text"
+      },
+      "interaction": {
+        "hover": "Subtle color shifts or border highlights",
+        "click": "Immediate, responsive feedback",
+        "transition": "Smooth, consistent transitions between states",
+        "keyboard": "Full keyboard navigation support"
+      },
+      "voice": {
+        "tone": "Professional, technical, and authoritative",
+        "headlineStyle": "Clear, direct statements about capabilities",
+        "ctaStyle": "Action-oriented verbs (Get started, Learn more)",
+        "avoid": [
+          "Casual language",
+          "Excessive exclamation marks",
+          "Jargon without explanation"
+        ]
+      },
+      "donts": [
+        "Don't use multiple accent colors — screenshot shows a single blue accent",
+        "Don't use playful or rounded typography — screenshot shows clean humanist-sans",
+        "Don't add decorative backgrounds — screenshot shows solid white background",
+        "Don't use gradient text or overlays — screenshot shows flat, solid colors",
+        "Don't create dense, cluttered layouts — screenshot shows generous whitespace",
+        "Don't use script or decorative fonts — screenshot shows clean, functional typography"
+      ],
+      "systemPrompt": "Design system for Hashicorp, a provider of developer tools for cloud infrastructure. The design should be professional, clean, and restrained, using a monochrome palette with a single blue accent color (#2D65ED). Typography uses humanist-sans for all text with clear hierarchy. Critical constraints: avoid playful or casual elements, maintain generous whitespace, and keep decorations minimal. The interface should feel reliable and enterprise-ready while remaining accessible to developers."
+    }
+  },
+  {
+    "id": "hp",
+    "title": "Hp",
+    "url": "https://www.hp.com",
+    "image": "https://image.thum.io/get/width/1440/https://www.hp.com",
+    "tags": [
+      "Product",
+      "Hardware",
+      "Clean",
+      "Consumer",
+      "Restraint"
+    ],
+    "palette": "A clean, high-contrast palette centered on white and black with a single, dominant corporate blue accent.",
+    "layout": "A structured, grid-based layout with generous whitespace, clear section divisions, and predictable component placement.",
+    "interaction": "Standard, predictable interactions focused on clarity, with subtle hover effects and clear visual feedback on interactive elements.",
+    "motion": "Subtle and functional motion design, primarily used for smooth transitions and minimal hover effects to avoid distraction.",
+    "notes": "A quintessential example of a corporate, hardware-focused e-commerce design that prioritizes clarity, trust, and straightforward product presentation.",
+    "spec": {
+      "colors": {
+        "bg": "#FFFFFF",
+        "bgSoft": null,
+        "bgQuiet": null,
+        "ink": "#1A1A1A",
+        "inkSoft": null,
+        "muted": "#666666",
+        "mutedSoft": null,
+        "accent": "#0096D6",
+        "line": "rgba(0,0,0,0.1)",
+        "principle": "High-contrast corporate clarity with a single dominant brand blue accent"
+      },
+      "typography": {
+        "display": "geometric-sans",
+        "body": "geometric-sans",
+        "mono": null,
+        "scale": [
+          {
+            "token": "display",
+            "size": 48,
+            "lh": 1.0,
+            "weight": 500,
+            "ls": "-0.5px",
+            "use": "Main headline 'Memoria'"
+          },
+          {
+            "token": "headline",
+            "size": 32,
+            "lh": 1.2,
+            "weight": 500,
+            "ls": "-0.25px",
+            "use": "Section headers like 'Our Products'"
+          }
+        ],
+        "rules": [
+          "Geometric sans-serif used across all typography",
+          "Headlines are sentence case",
+          "Weights range from regular to semi-bold"
+        ]
+      },
+      "spacing": {
+        "base": 4,
+        "scale": [
+          4,
+          8,
+          16,
+          24,
+          32,
+          48,
+          64,
+          96
+        ],
+        "rhythm": "Standard 4px base unit with generous section spacing"
+      },
+      "surfaces": {
+        "radius": {
+          "sm": 4,
+          "md": 8,
+          "lg": 12,
+          "pill": 999
+        },
+        "shadows": [
+          "0 2px 8px rgba(0,0,0,0.08)"
+        ],
+        "borders": "1px solid rgba(0,0,0,0.1)"
+      },
+      "layout": {
+        "container": 1280,
+        "paragraph": 680,
+        "columns": 12,
+        "gutter": 24,
+        "breakpoints": [
+          768,
+          1024
+        ],
+        "skeleton": "Standard grid with generous whitespace and clear product card layouts"
+      },
+      "motion": {
+        "durations": {
+          "micro": 220,
+          "small": 400,
+          "medium": 800
+        },
+        "easing": "cubic-bezier(0.4, 0, 0.2, 1)",
+        "patterns": [
+          "Smooth page transitions",
+          "Subtle hover effects on interactive elements"
+        ]
+      },
+      "identity": {
+        "keywords": [
+          "Technology",
+          "Corporate",
+          "Reliable",
+          "Professional",
+          "Global"
+        ],
+        "analogy": "A dependable enterprise hardware provider",
+        "oneLiner": "A clean, corporate e-commerce interface for a global technology brand"
+      },
+      "components": {
+        "button": "Solid primary buttons with rounded corners and clear labels",
+        "card": "Product cards with thin borders, clean imagery, and bottom-aligned text",
+        "chip": null,
+        "input": "Standard text inputs with clear borders",
+        "hero": "Full-width hero with large typography, product imagery, and a clear call-to-action button"
+      },
+      "interaction": {
+        "hover": "Subtle color or opacity change on interactive elements",
+        "click": "Visual feedback through color change",
+        "transition": "Smooth transitions on hover and focus states",
+        "keyboard": "Standard tab navigation with visible focus indicators"
+      },
+      "voice": {
+        "tone": "Professional, helpful, and straightforward",
+        "headlineStyle": "Clear, benefit-driven statements with a focus on savings and features",
+        "ctaStyle": "Direct and action-oriented, such as 'Shop' or 'Accept'",
+        "avoid": [
+          "Overly casual language",
+          "Excessive exclamation marks",
+          "Complex jargon"
+        ]
+      },
+      "donts": [
+        "don't use multiple competing accent colors — screenshot shows a single, dominant blue accent",
+        "don't use serif fonts for headlines — screenshot shows a geometric sans-serif throughout",
+        "don't use dark mode or dark backgrounds — screenshot shows a bright, white-based interface",
+        "don't use complex gradients or decorative textures — screenshot shows flat, solid color blocks",
+        "don't use playful or rounded decorative elements — screenshot shows sharp, professional edges",
+        "don't crowd the layout with too many elements — screenshot shows generous whitespace and clear hierarchy"
+      ],
+      "systemPrompt": "This is a clean, professional e-commerce interface for a global technology brand. The design is characterized by high contrast, a single dominant blue accent color, and a geometric sans-serif typeface. The layout is structured and predictable, prioritizing clarity and ease of navigation for a broad consumer and business audience. Critical donts: avoid multiple competing accent colors, serif fonts, dark mode, complex gradients, playful elements, and crowded layouts. The design maintains a corporate, trustworthy feel with clear product presentations and straightforward calls to action."
+    }
+  },
+  {
+    "id": "ibm",
+    "title": "Ibm",
+    "url": "https://www.ibm.com",
+    "image": "https://image.thum.io/get/width/1440/https://www.ibm.com",
     "tags": [
       "SaaS",
-      "Productivity",
-      "App UI"
+      "Enterprise",
+      "AI",
+      "Clean",
+      "Professional"
     ],
-    "palette": "",
-    "layout": "",
-    "interaction": "",
-    "motion": "",
-    "notes": ""
+    "palette": "A clean, corporate palette dominated by white and IBM's signature blue (#0043CE).",
+    "layout": "A structured 12-column grid layout that organizes complex enterprise information clearly.",
+    "interaction": "Subtle hover states and clear call-to-action buttons guide the user through professional workflows.",
+    "motion": "Minimal, functional animations that prioritize content delivery over visual flair.",
+    "notes": "A prime example of a highly structured, professional enterprise interface that successfully balances brand authority with user experience.",
+    "spec": {
+      "colors": {
+        "bg": "#FFFFFF",
+        "bgSoft": "#F4F4F4",
+        "bgQuiet": null,
+        "ink": "#161616",
+        "inkSoft": "#525252",
+        "muted": "#A8A8A8",
+        "mutedSoft": null,
+        "accent": "#0043CE",
+        "line": "rgba(224, 224, 224, 1)",
+        "principle": "High contrast, enterprise-grade legibility"
+      },
+      "typography": {
+        "display": "sans-serif",
+        "body": "sans-serif",
+        "mono": "monospace",
+        "scale": [
+          {
+            "token": "display",
+            "size": 56,
+            "lh": 1.1,
+            "weight": 300,
+            "ls": "-1px",
+            "use": "Hero headline"
+          }
+        ]
+      },
+      "spacing": {
+        "base": 4,
+        "scale": [
+          4,
+          8,
+          16,
+          24,
+          32,
+          48,
+          64,
+          96
+        ],
+        "rhythm": "Consistent 8-point grid"
+      },
+      "surfaces": {
+        "radius": {
+          "sm": 4,
+          "md": 8,
+          "lg": 12,
+          "pill": 999
+        },
+        "shadows": [
+          "0 2px 8px rgba(0, 0, 0, 0.1)"
+        ],
+        "borders": "1px solid #E0E0E0"
+      },
+      "layout": {
+        "container": 1280,
+        "paragraph": 680,
+        "columns": 12,
+        "gutter": 24,
+        "breakpoints": [
+          768,
+          1024
+        ],
+        "skeleton": "Standard 12-column grid with a sidebar layout on the right"
+      },
+      "motion": {
+        "durations": {
+          "micro": 200,
+          "small": 300,
+          "medium": 500
+        },
+        "easing": "cubic-bezier(0.2, 0, 0.38, 0.9)"
+      },
+      "identity": {
+        "keywords": [
+          "Enterprise",
+          "Reliable",
+          "Professional",
+          "AI-driven"
+        ],
+        "analogy": "A corporate headquarters",
+        "oneLiner": "A professional, enterprise-focused technology interface designed for trust and authority."
+      },
+      "components": {
+        "button": "Solid primary blue button with sharp edges and right-pointing arrows",
+        "card": "White cards with subtle borders and thumbnail images",
+        "chip": "Numbered pagination links",
+        "input": "Standard text input with bottom border",
+        "hero": "Large headline paired with an illustrative image or video"
+      },
+      "interaction": {
+        "hover": "Color fill change on buttons and links",
+        "click": "Immediate visual response",
+        "transition": "Smooth transitions on primary actions",
+        "keyboard": "Visible focus indicators for accessibility"
+      },
+      "voice": {
+        "tone": "Professional, authoritative, and informative",
+        "headlineStyle": "Clear, concise, and action-oriented",
+        "ctaStyle": "Direct calls to action, often accompanied by an arrow icon",
+        "avoid": [
+          "Casual language",
+          "Excessive jargon",
+          "Overly playful elements"
+        ]
+      },
+      "donts": [
+        "Don't use playful or handwritten fonts — screenshot shows a clean, corporate sans-serif",
+        "Don't use dark mode as the primary interface — screenshot shows a predominantly white background",
+        "Don't use excessive gradients or shadows — screenshot shows a flat, clean design",
+        "Don't use a monochromatic palette — screenshot uses a distinct IBM blue as an accent color",
+        "Don't use soft, rounded corners everywhere — screenshot shows sharp or slightly rounded edges",
+        "Don't use center-aligned body text — screenshot shows left-aligned, readable paragraphs"
+      ],
+      "systemPrompt": "This is a professional enterprise software interface designed for trust and authority. It features a clean, white background with a prominent blue accent color (#0043CE) and a highly legible sans-serif typography system. Key characteristics include a 12-column grid layout, clear visual hierarchy, and a focus on content over decoration. Critical design constraints: avoid playful fonts, avoid dark mode as the primary theme, avoid excessive gradients, avoid center-aligned body text, avoid overly rounded corners, and avoid monochromatic palettes."
+    }
+  },
+  {
+    "id": "intercom",
+    "title": "Intercom",
+    "url": "https://www.intercom.com",
+    "image": "https://image.thum.io/get/width/1440/https://www.intercom.com",
+    "tags": [
+      "SaaS",
+      "Clean",
+      "Productivity",
+      "Calm",
+      "Refined"
+    ],
+    "palette": "A stark, monochromatic palette of pure white and dark gray, featuring a single muted gray for the loading animation and a small blue accent in the logo icon.",
+    "layout": "A completely centered, single-element layout that utilizes maximum negative space to focus attention on the minimal brand mark.",
+    "interaction": "No interactive elements are visible, suggesting a passive state like a splash screen or loading sequence.",
+    "motion": "Implied subtle, infinite rotation of the central ring component.",
+    "notes": "This design is a perfect example of extreme restraint and minimalism in UI, serving as an excellent baseline for clean, uncluttered interfaces.",
+    "spec": {
+      "colors": {
+        "bg": "#FFFFFF",
+        "bgSoft": null,
+        "bgQuiet": null,
+        "ink": "#424B52",
+        "inkSoft": null,
+        "muted": "#B0B8C1",
+        "mutedSoft": null,
+        "accent": null,
+        "line": "rgba(0, 0, 0, 0)",
+        "principle": "Strictly monochromatic with a vast amount of negative space and a single splash of brand color in the logo icon."
+      },
+      "typography": {
+        "display": "humanist-sans",
+        "body": "humanist-sans",
+        "mono": null,
+        "scale": [
+          {
+            "token": "logo",
+            "size": 32,
+            "lh": 1.0,
+            "weight": 500,
+            "ls": "0px",
+            "use": "Brand name text"
+          }
+        ],
+        "rules": [
+          "Brand text uses a clean humanist sans-serif.",
+          "Typography is strictly functional and legible."
+        ]
+      },
+      "spacing": {
+        "base": 4,
+        "scale": [
+          4,
+          8,
+          16,
+          24,
+          32,
+          48,
+          64,
+          96
+        ],
+        "rhythm": "Generous whitespace centered around a single focal point."
+      },
+      "surfaces": {
+        "radius": {
+          "sm": 0,
+          "md": 0,
+          "lg": 0,
+          "pill": 999
+        },
+        "shadows": [],
+        "borders": "No visible borders; relies entirely on negative space."
+      },
+      "layout": {
+        "container": 1280,
+        "paragraph": 680,
+        "columns": 12,
+        "gutter": 24,
+        "breakpoints": [
+          768,
+          1024
+        ],
+        "skeleton": "Fully centered single-column layout with maximum negative space."
+      },
+      "motion": {
+        "durations": {
+          "micro": 220,
+          "small": 400,
+          "medium": 800
+        },
+        "easing": "cubic-bezier(0.25, 0.1, 0.25, 1)",
+        "patterns": [
+          "Subtle infinite rotation of the loading ring"
+        ]
+      },
+      "identity": {
+        "keywords": [
+          "minimal",
+          "clean",
+          "professional",
+          "tech",
+          "software"
+        ],
+        "analogy": "A blank canvas or a simple, clean loading screen",
+        "oneLiner": "A minimalist, almost empty interface featuring a loading ring and a subtle logo, emphasizing clarity and restraint."
+      },
+      "components": {
+        "button": "None visible",
+        "card": "None visible",
+        "chip": "None visible",
+        "input": "None visible",
+        "hero": "Minimalist centered logo mark and wordmark against a plain white background."
+      },
+      "interaction": {
+        "hover": "None visible",
+        "click": "None visible",
+        "transition": "None visible",
+        "keyboard": "None visible"
+      },
+      "voice": {
+        "tone": "Silent",
+        "headlineStyle": "None",
+        "ctaStyle": "None",
+        "avoid": [
+          "Clutter",
+          "Text-heavy layouts",
+          "Bright neon colors"
+        ]
+      },
+      "donts": [
+        "Don't add multiple interactive elements — screenshot shows a static centered logo.",
+        "Don't use a complex layout — screenshot shows a single centered element on a plain background.",
+        "Don't use bright, saturated colors — screenshot shows a neutral palette with a single blue logo element.",
+        "Don't add heavy shadows or borders — screenshot shows completely flat elements.",
+        "Don't use decorative typography — screenshot shows a simple, functional sans-serif logo.",
+        "Don't add unnecessary UI components — screenshot shows a minimal loading or splash screen."
+      ],
+      "systemPrompt": "This site design is a minimalist, almost empty splash or loading screen for a tech product. The positioning is highly restrained, focusing entirely on a single, centered loading ring and a subtle wordmark against a vast white background. The key colors are a pure white background (#FFFFFF) and dark gray text (#424B52), with a single muted gray (#B0B8C1) for the loading animation and a subtle blue in the logo icon. The typography relies on a clean, functional humanist-sans for the brand name. Critical donts: never add clutter or multiple interactive elements to the screen; do not use complex layouts or grids; and avoid using bright, saturated colors or heavy decorative typography. The overall aesthetic is one of extreme calm, restraint, and functional clarity."
+    }
   },
   {
     "id": "jupi",
@@ -1683,6 +4314,315 @@ window.STYLE_ATLAS_SITES = [
         "Don't add drop shadows or depth — screenshot shows a completely flat design."
       ],
       "systemPrompt": "This is a hyper-minimalist, abstract landing page consisting of a white background, a simple geometric ring graphic, and a logotype. The palette is strictly white (#FFFFFF) with neutral grays (#C8C8C8, #4A4A4A) and a single, muted blue accent (#1F5182). The typography uses a simple slab-serif category for the logotype. Critical donts: avoid adding any visible navigation, headers, or footers; never use multiple accent colors or complex gradients; avoid adding any text besides the logo; do not use borders, shadows, or container backgrounds; keep the layout strictly centered with massive white space."
+    }
+  },
+  {
+    "id": "kraken",
+    "title": "Kraken",
+    "url": "https://www.kraken.com",
+    "image": "https://image.thum.io/get/width/1440/https://www.kraken.com",
+    "tags": [
+      "Fintech",
+      "Premium",
+      "Clean",
+      "Bold Typography",
+      "Product"
+    ],
+    "palette": "A high-contrast palette of white, black, and dark gray, accented with a vibrant purple for key interactive elements.",
+    "layout": "A clean, single-column layout with generous spacing that transitions into a dark, full-width section to highlight the advanced trading platform.",
+    "interaction": "Subtle hover effects and transitions on buttons and links provide feedback without being distracting.",
+    "motion": "Minimal and purposeful animations are used to guide the user's attention and add polish.",
+    "notes": "This site is a prime example of modern fintech design, balancing professional credibility with a strong, memorable brand identity.",
+    "spec": {
+      "colors": {
+        "bg": "#FFFFFF",
+        "bgSoft": "#F8F8F8",
+        "bgQuiet": "#F0F0F0",
+        "ink": "#1E1E1E",
+        "inkSoft": "#6B6B6B",
+        "muted": "#9A9A9A",
+        "mutedSoft": "#C4C4C4",
+        "accent": "#6B21E2",
+        "line": "rgba(0,0,0,0.08)",
+        "principle": "High-contrast and clean with a distinctive purple accent for CTAs."
+      },
+      "typography": {
+        "display": "geometric-sans",
+        "body": "geometric-sans",
+        "mono": null,
+        "scale": [
+          {
+            "token": "display",
+            "size": 56,
+            "lh": 1.1,
+            "weight": 600,
+            "ls": "-0.02em",
+            "use": "Hero headline"
+          },
+          {
+            "token": "headline",
+            "size": 40,
+            "lh": 1.2,
+            "weight": 600,
+            "ls": "-0.01em",
+            "use": "Section headline"
+          },
+          {
+            "token": "body",
+            "size": 18,
+            "lh": 1.5,
+            "weight": 400,
+            "ls": "0",
+            "use": "Body text"
+          }
+        ],
+        "rules": [
+          "Use sentence case for headlines to maintain a professional tone.",
+          "Ensure sufficient color contrast for readability, especially on dark backgrounds."
+        ]
+      },
+      "spacing": {
+        "base": 4,
+        "scale": [
+          4,
+          8,
+          12,
+          16,
+          24,
+          32,
+          48,
+          64,
+          96
+        ],
+        "rhythm": "Consistent and generous spacing to create a sense of calm and professionalism."
+      },
+      "surfaces": {
+        "radius": {
+          "sm": 4,
+          "md": 8,
+          "lg": 16,
+          "pill": 999
+        },
+        "shadows": [
+          "0 2px 4px rgba(0,0,0,0.06)",
+          "0 4px 12px rgba(0,0,0,0.08)"
+        ],
+        "borders": "Subtle 1px borders to define components."
+      },
+      "layout": {
+        "container": 1280,
+        "paragraph": 700,
+        "columns": 12,
+        "gutter": 24,
+        "breakpoints": [
+          768,
+          1024
+        ],
+        "skeleton": "Full-width hero section followed by a dark, immersive section for the 'Pro' product."
+      },
+      "motion": {
+        "durations": {
+          "micro": 150,
+          "small": 300,
+          "medium": 500
+        },
+        "easing": "cubic-bezier(0.4, 0, 0.2, 1)",
+        "patterns": [
+          "Subtle fade-ins for content sections on scroll.",
+          "Smooth hover transitions for buttons and links."
+        ]
+      },
+      "identity": {
+        "keywords": [
+          "trust",
+          "security",
+          "professional",
+          "powerful",
+          "established"
+        ],
+        "analogy": "A sleek, modern vault for digital assets",
+        "oneLiner": "A professional and trustworthy cryptocurrency exchange platform designed for both casual users and advanced traders."
+      },
+      "components": {
+        "button": "Solid purple with white text, rounded corners, and a hover state.",
+        "card": "Clean cards with subtle borders or shadows, often used to showcase features.",
+        "chip": "Simple text-based navigation with an active state.",
+        "input": "Clean, rounded input fields with a placeholder.",
+        "hero": "Large, centered headline with a supporting subhead and a prominent email input for sign-up."
+      },
+      "interaction": {
+        "hover": "Slight color shift or elevation change for interactive elements.",
+        "click": "Subtle press effect for buttons.",
+        "transition": "All transitions are smooth and unobtrusive.",
+        "keyboard": "Visible focus states for accessibility."
+      },
+      "voice": {
+        "tone": "Authoritative, confident, and empowering.",
+        "headlineStyle": "Direct, benefit-oriented, and bold.",
+        "ctaStyle": "Clear, action-oriented, and prominent.",
+        "avoid": [
+          "Jargon-heavy language without explanation.",
+          "Overly casual or playful tone.",
+          "Exclamation marks or overly aggressive marketing speak."
+        ]
+      },
+      "donts": [
+        "Don't use multiple accent colors — the site relies on a single, strong purple (#6B21E2).",
+        "Don't use overly decorative fonts — the design uses clean, geometric sans-serifs.",
+        "Don't clutter the layout with excessive elements — white space is used generously for clarity.",
+        "Don't use thin, hard-to-read font weights — text is consistently bold or regular for readability.",
+        "Don't use complex gradients in the main UI — gradients are subtle or non-existent.",
+        "Don't use red for positive actions — red is reserved for negative financial indicators like price drops."
+      ],
+      "systemPrompt": "Kraken is a leading cryptocurrency exchange platform targeting both individual and professional traders. The design is clean, trustworthy, and premium, using a predominantly white and dark purple color palette with black text. The primary accent color is a vibrant purple (#6B21E2) used for CTAs and brand elements. Typography is modern and geometric sans-serif, ensuring high readability. The layout is spacious and structured, with a clear hierarchy. Critical donts include: avoid using multiple competing accent colors, do not use decorative or handwritten fonts, and avoid cluttering the interface with excessive visual elements. The dark section for 'Pro' features provides a strong contrast and emphasizes advanced functionality."
+    }
+  },
+  {
+    "id": "lamborghini",
+    "title": "Lamborghini",
+    "url": "https://www.lamborghini.com",
+    "image": "https://image.thum.io/get/width/1440/https://www.lamborghini.com",
+    "tags": [
+      "Premium",
+      "Photographic",
+      "Editorial",
+      "Clean",
+      "Product"
+    ],
+    "palette": "A high-contrast monochrome palette consisting of a deep black background, pure white primary text, and subtle gray for secondary elements.",
+    "layout": "A full-bleed, immersive layout where the primary content is a large-scale photographic hero section with left-aligned text overlays.",
+    "interaction": "Interaction is minimal and refined, focusing on clear navigation and direct calls to action like the 'DISCOVER MORE' button.",
+    "motion": "Motion is likely smooth and cinematic, as suggested by the pause button for a potential hero slideshow.",
+    "notes": "This site is an excellent example of using typography and photography to create a powerful, high-end brand presence without needing complex UI patterns.",
+    "spec": {
+      "colors": {
+        "bg": "#000000",
+        "bgSoft": null,
+        "bgQuiet": null,
+        "ink": "#FFFFFF",
+        "inkSoft": null,
+        "muted": "#888888",
+        "mutedSoft": null,
+        "accent": null,
+        "line": "rgba(255,255,255,0.15)",
+        "principle": "Extreme contrast using a near-black background and white text to let the hero photography dominate."
+      },
+      "typography": {
+        "display": "condensed-grotesque-sans",
+        "body": "grotesque-sans",
+        "mono": null,
+        "scale": [
+          {
+            "token": "display",
+            "size": 96,
+            "lh": 0.9,
+            "weight": 600,
+            "ls": "-1px",
+            "use": "Main hero headline for the car model."
+          },
+          {
+            "token": "subhead",
+            "size": 24,
+            "lh": 1.4,
+            "weight": 500,
+            "ls": "1px",
+            "use": "Brand name above the main headline."
+          }
+        ],
+        "rules": [
+          "Use uppercase for primary headlines.",
+          "Maintain tight tracking for large display type."
+        ]
+      },
+      "spacing": {
+        "base": 4,
+        "scale": [
+          4,
+          8,
+          16,
+          24,
+          32,
+          48,
+          64,
+          96
+        ],
+        "rhythm": "Generous vertical spacing in the hero section to create a sense of scale and luxury."
+      },
+      "surfaces": {
+        "radius": {
+          "sm": 0,
+          "md": 0,
+          "lg": 0,
+          "pill": 999
+        },
+        "shadows": [],
+        "borders": "Minimal and sharp, primarily seen in the cookie policy banner."
+      },
+      "layout": {
+        "container": 1440,
+        "paragraph": 600,
+        "columns": 12,
+        "gutter": 24,
+        "breakpoints": [
+          768,
+          1024
+        ],
+        "skeleton": "Full-bleed hero section with left-aligned content and a fixed top navigation bar."
+      },
+      "motion": {
+        "durations": {
+          "micro": 220,
+          "small": 400,
+          "medium": 800
+        },
+        "easing": "cubic-bezier(0.25, 0.1, 0.25, 1)",
+        "patterns": [
+          "Smooth transitions between hero slides, indicated by the pause icon."
+        ]
+      },
+      "identity": {
+        "keywords": [
+          "luxury",
+          "performance",
+          "precision",
+          "automotive",
+          "iconic"
+        ],
+        "analogy": "A high-end automotive showroom with dramatic lighting and bold presence.",
+        "oneLiner": "A premium automotive site that uses dramatic photography, bold condensed typography, and a restrained dark palette to emphasize luxury and performance."
+      },
+      "components": {
+        "button": "A transparent button with a thin white border and a small arrow icon.",
+        "card": "Not visible in this view.",
+        "chip": "Not visible in this view.",
+        "input": "Not visible in this view.",
+        "hero": "A full-screen photographic background with overlaid large typography and a brand name."
+      },
+      "interaction": {
+        "hover": "Subtle color shifts or opacity changes on navigation links.",
+        "click": "Immediate response on buttons.",
+        "transition": "Smooth transitions between states.",
+        "keyboard": "Standard tab navigation for menu and search."
+      },
+      "voice": {
+        "tone": "Authoritative, confident, and premium.",
+        "headlineStyle": "Bold, condensed, uppercase text.",
+        "ctaStyle": "Clean, underlined text or bordered buttons.",
+        "avoid": [
+          "Rounded corners on UI elements",
+          "Bright neon accent colors",
+          "Playful or casual language"
+        ]
+      },
+      "donts": [
+        "Don't use soft, rounded corners — screenshot shows sharp, angular edges and a rectangular button.",
+        "Don't use a bright, multi-colored palette — screenshot shows a strict black, white, and gray scheme.",
+        "Don't use wide, airy tracking in headlines — screenshot shows very tight letter-spacing.",
+        "Don't use serif fonts for display type — screenshot uses a bold, condensed sans-serif.",
+        "Don't clutter the interface with many elements — screenshot is dominated by a single large image.",
+        "Don't use bright background fills — screenshot uses a nearly solid black background."
+      ],
+      "systemPrompt": "This is a premium automotive website for Lamborghini, characterized by a dark, dramatic aesthetic that prioritizes high-impact photography. The design relies on a near-black background (#000000) with high-contrast white text (#FFFFFF). Typography is a key feature, using a condensed grotesque sans-serif for bold, uppercase display headlines and a standard grotesque sans-serif for body text. The layout is full-bleed and immersive, with a fixed top navigation and a large hero section. Critical donts: avoid rounded corners or soft shadows; the interface is sharp and geometric. Avoid using multiple bright accent colors; the palette is strictly monochrome with high contrast. Avoid cluttered layouts; the design uses significant negative space to emphasize the product."
     }
   },
   {
@@ -1826,36 +4766,308 @@ window.STYLE_ATLAS_SITES = [
     }
   },
   {
-    "id": "lusion",
-    "title": "Lusion",
-    "url": "https://lusion.co",
-    "image": "https://pub-8c02bb0f8aa04c19b7b7ee44644801fd.r2.dev/images/768/k3hmpdepwmim1f6fzbap.jpg",
+    "id": "lovable",
+    "title": "Lovable",
+    "url": "https://lovable.dev",
+    "image": "https://image.thum.io/get/width/1440/https://lovable.dev",
     "tags": [
-      "Studio",
-      "3D",
-      "Experimental"
+      "AI",
+      "Gradient",
+      "Productivity",
+      "Clean",
+      "Tooling"
     ],
-    "palette": "",
-    "layout": "",
-    "interaction": "",
-    "motion": "",
-    "notes": ""
+    "palette": "A clean white canvas dramatically contrasted by a vibrant, multi-hued gradient of pink, orange, and blue.",
+    "layout": "A centered, single-column layout with a full-bleed hero section and generous white space.",
+    "interaction": "Subtle hover effects and smooth transitions create a responsive and engaging user experience.",
+    "motion": "Micro-interactions and transitions are kept fast and smooth to maintain a modern, snappy feel.",
+    "notes": "This site effectively balances a minimalist, professional UI with a bold, expressive gradient, making it a strong example of modern, AI-focused product design.",
+    "spec": {
+      "colors": {
+        "bg": "#FFFFFF",
+        "bgSoft": null,
+        "bgQuiet": null,
+        "ink": "#111111",
+        "inkSoft": null,
+        "muted": "#888888",
+        "mutedSoft": null,
+        "accent": "#FF4D4D",
+        "line": "rgba(0, 0, 0, 0.1)",
+        "principle": "Clean, high-contrast canvas anchored by a vibrant, multi-hued gradient."
+      },
+      "typography": {
+        "display": "geometric-sans",
+        "body": "geometric-sans",
+        "mono": null,
+        "scale": [
+          {
+            "token": "display",
+            "size": 56,
+            "lh": 1.1,
+            "weight": 600,
+            "ls": "-1.5px",
+            "use": "Hero headline"
+          },
+          {
+            "token": "body",
+            "size": 16,
+            "lh": 1.5,
+            "weight": 400,
+            "ls": "0px",
+            "use": "General text and navigation"
+          }
+        ],
+        "rules": [
+          "Headlines use tight tracking for a modern, impactful feel.",
+          "Body text prioritizes readability with generous line-height."
+        ]
+      },
+      "spacing": {
+        "base": 4,
+        "scale": [
+          4,
+          8,
+          16,
+          24,
+          32,
+          48,
+          64,
+          96
+        ],
+        "rhythm": "Consistent 4px base grid ensures alignment across all components."
+      },
+      "surfaces": {
+        "radius": {
+          "sm": 4,
+          "md": 8,
+          "lg": 16,
+          "pill": 999
+        },
+        "shadows": [
+          {
+            "token": "elevation-1",
+            "value": "0 4px 24px rgba(0, 0, 0, 0.08)"
+          }
+        ],
+        "borders": "Subtle, light gray borders used sparingly for input fields and cards."
+      },
+      "layout": {
+        "container": 1200,
+        "paragraph": 640,
+        "columns": 12,
+        "gutter": 24,
+        "breakpoints": [
+          768,
+          1024
+        ],
+        "skeleton": "Centered single-column layout with a full-bleed gradient hero."
+      },
+      "motion": {
+        "durations": {
+          "micro": 150,
+          "small": 300,
+          "medium": 600
+        },
+        "easing": "cubic-bezier(0.4, 0.0, 0.2, 1)",
+        "patterns": [
+          "Subtle fade-ins for content loading.",
+          "Smooth color transitions on hover states."
+        ]
+      },
+      "identity": {
+        "keywords": [
+          "AI-powered",
+          "creative",
+          "accessible",
+          "modern",
+          "inviting"
+        ],
+        "analogy": "A colorful, open invitation to create software without friction",
+        "oneLiner": "A sleek, gradient-forward AI platform that promises effortless app creation through conversation."
+      },
+      "components": {
+        "button": "Solid black pill button with white text for primary actions.",
+        "card": "Rounded rectangular container with a light background for input areas.",
+        "chip": null,
+        "input": "Large, rounded input field with placeholder text and integrated action icons.",
+        "hero": "Full-width section featuring a bold headline, subtitle, and prominent input field over a dynamic gradient."
+      },
+      "interaction": {
+        "hover": "Subtle color shifts or opacity changes on interactive elements.",
+        "click": "Immediate visual feedback via state change.",
+        "transition": "Smooth, fast transitions (150-300ms) for a responsive feel.",
+        "keyboard": "Standard focus rings for accessibility."
+      },
+      "voice": {
+        "tone": "Encouraging, straightforward, and modern.",
+        "headlineStyle": "Short, action-oriented phrases using strong verbs.",
+        "ctaStyle": "Direct and confident, e.g., 'Get started', 'Build'.",
+        "avoid": [
+          "Overly technical jargon.",
+          "Passive or hesitant language.",
+          "Dense paragraphs in primary call-to-action areas."
+        ]
+      },
+      "donts": [
+        "Don't use a dark background — the screenshot clearly shows a white navigation and header area.",
+        "Don't use serif typography — the design exclusively uses clean, geometric sans-serif fonts.",
+        "Don't clutter the interface — the layout is minimal with significant white space.",
+        "Don't use sharp corners — the input field and buttons feature generous rounded corners.",
+        "Don't use muted, earthy tones — the palette is anchored by vibrant, saturated gradients.",
+        "Don't use complex iconography — the design relies on simple text and a few basic icons."
+      ],
+      "systemPrompt": "Lovable is a modern AI-powered development tool with a clean, inviting interface. The design centers on a white canvas dramatically accented by a vibrant, multi-colored gradient (pink, orange, blue). The primary font category is geometric sans-serif, ensuring readability and a contemporary feel. The interface is minimal, featuring generous white space, rounded corners, and high-contrast elements like a solid black 'Get started' button. Key colors include a pure white background, dark ink for text, and a dynamic gradient. Critical design rules: maintain the clean, spacious layout; use the geometric sans-serif font consistently; and rely on vibrant gradients rather than dark backgrounds for visual interest. The tone is encouraging and action-oriented."
+    }
   },
   {
-    "id": "metalab",
-    "title": "Metalab",
-    "url": "https://metalab.com",
-    "image": "https://pub-8c02bb0f8aa04c19b7b7ee44644801fd.r2.dev/images/768/e305d9fe-c103-4dc1-a3c1-c5101a11ad73.jpg",
+    "id": "mastercard",
+    "title": "Mastercard",
+    "url": "https://www.mastercard.com",
+    "image": "https://image.thum.io/get/width/1440/https://www.mastercard.com",
     "tags": [
-      "Agency",
-      "Case Study",
-      "Clean"
+      "Fintech",
+      "Corporate",
+      "Editorial",
+      "Clean",
+      "Consumer"
     ],
-    "palette": "",
-    "layout": "",
-    "interaction": "",
-    "motion": "",
-    "notes": ""
+    "palette": "Clean white canvas with high-contrast black typography and vibrant orange accent buttons.",
+    "layout": "Standard corporate layout with generous whitespace and clear visual hierarchy.",
+    "interaction": "Subtle hover effects and smooth transitions for standard UI interactions.",
+    "motion": "Minimal motion with smooth fade-ins for content loading states.",
+    "notes": "Excellent example of corporate fintech design that balances authority with accessibility through clean typography and generous spacing.",
+    "spec": {
+      "colors": {
+        "bg": "#FFFFFF",
+        "bgSoft": "#F5F5F5",
+        "bgQuiet": null,
+        "ink": "#000000",
+        "inkSoft": "#555555",
+        "muted": "#888888",
+        "mutedSoft": null,
+        "accent": "#E44B23",
+        "line": "rgba(0,0,0,0.1)",
+        "principle": "Clean white canvas with high-contrast black typography and a vibrant brand orange accent."
+      },
+      "typography": {
+        "display": "geometric-sans",
+        "body": "humanist-sans",
+        "mono": null,
+        "scale": [
+          {
+            "token": "display",
+            "size": 64,
+            "lh": 1.05,
+            "weight": 500,
+            "ls": "-1.5px",
+            "use": "Hero headline"
+          },
+          {
+            "token": "body",
+            "size": 20,
+            "lh": 1.5,
+            "weight": 400,
+            "ls": "0",
+            "use": "Supporting text"
+          }
+        ],
+        "rules": [
+          "Use tight letter-spacing for large display headlines",
+          "Maintain high contrast between headline and body text"
+        ]
+      },
+      "spacing": {
+        "base": 4,
+        "scale": [
+          4,
+          8,
+          16,
+          24,
+          32,
+          48,
+          64,
+          96
+        ],
+        "rhythm": "Consistent 4px base grid with generous vertical spacing for readability"
+      },
+      "surfaces": {
+        "radius": {
+          "sm": 4,
+          "md": 8,
+          "lg": 12,
+          "pill": 999
+        },
+        "shadows": [
+          "0 4px 20px rgba(0,0,0,0.15)"
+        ],
+        "borders": "Subtle 1px solid borders for containment"
+      },
+      "layout": {
+        "container": 1280,
+        "paragraph": 680,
+        "columns": 12,
+        "gutter": 24,
+        "breakpoints": [
+          768,
+          1024
+        ],
+        "skeleton": "Standard corporate layout with prominent hero section and clear navigation"
+      },
+      "motion": {
+        "durations": {
+          "micro": 220,
+          "small": 400,
+          "medium": 800
+        },
+        "easing": "cubic-bezier(0.4, 0, 0.2, 1)",
+        "patterns": [
+          "Smooth fade-ins for content loading"
+        ]
+      },
+      "identity": {
+        "keywords": [
+          "Global",
+          "Financial",
+          "Trusted",
+          "Modern",
+          "Empowering"
+        ],
+        "analogy": "A global financial infrastructure provider",
+        "oneLiner": "A clean, corporate fintech site focused on global economic empowerment."
+      },
+      "components": {
+        "button": "Pill-shaped with solid fill or text-only variants",
+        "card": "Clean white containers with subtle shadows",
+        "chip": null,
+        "input": "Clean bordered inputs with clear labels",
+        "hero": "Full-width with large typography and video background"
+      },
+      "interaction": {
+        "hover": "Color shift or subtle scale on interactive elements",
+        "click": "Immediate visual feedback on button press",
+        "transition": "Smooth 220ms transitions for UI state changes",
+        "keyboard": "Standard focus ring navigation"
+      },
+      "voice": {
+        "tone": "Authoritative, professional, and globally minded",
+        "headlineStyle": "Direct, action-oriented statements about global impact",
+        "ctaStyle": "Clear, imperative commands like 'Accept cookies'",
+        "avoid": [
+          "Overly casual language",
+          "Technical jargon",
+          "Aggressive sales pitches"
+        ]
+      },
+      "donts": [
+        "Don't use decorative serif fonts — screenshot shows clean sans-serif typography",
+        "Don't use dark backgrounds as primary — screenshot shows white background with black text",
+        "Don't use rounded cards — screenshot shows sharp corners or minimal radius",
+        "Don't use multiple accent colors — screenshot shows single orange accent against monochrome palette",
+        "Don't use dense text layouts — screenshot shows generous whitespace and clear hierarchy",
+        "Don't use playful illustrations — screenshot shows professional, corporate visual language"
+      ],
+      "systemPrompt": "This is a corporate fintech website for Mastercard. Positioning: A global financial infrastructure provider focused on empowering economies. Key hex colors: #FFFFFF (background), #000000 (text), #E44B23 (accent orange). Font categories: geometric-sans for display, humanist-sans for body. Critical donts: 1) Don't use decorative serifs, 2) Don't use dark backgrounds as primary, 3) Don't use multiple accent colors. The design prioritizes clarity, trust, and global accessibility through clean typography and generous spacing."
+    }
   },
   {
     "id": "minimax",
@@ -2018,6 +5230,339 @@ window.STYLE_ATLAS_SITES = [
         "Don't use harsh shadows — screenshot shows soft, diffused shadows on cards"
       ],
       "systemPrompt": "This is a professional AI platform interface for MiniMax, emphasizing technical capability and clean design. The design uses a clean white background (#FFFFFF) with warm coral accent (#E84D3D) for emphasis. Typography combines geometric sans-serif for headlines with humanist sans-serif for body text, maintaining clear hierarchy through size and weight variations. The layout follows a 12-column grid system with centered containers and generous whitespace. Key features include pill-shaped buttons, cards with subtle shadows, and smooth hover interactions. Critical design principles: maintain clean whitespace, use geometric typography for technical credibility, and ensure coral accents draw attention to key actions without overwhelming the interface."
+    }
+  },
+  {
+    "id": "mintlify",
+    "title": "Mintlify",
+    "url": "https://mintlify.com",
+    "image": "https://image.thum.io/get/width/1440/https://mintlify.com",
+    "tags": [
+      "Developer Tools",
+      "AI",
+      "SaaS",
+      "Clean",
+      "Tooling"
+    ],
+    "palette": "Clean, high-contrast white base with dark text and a single vibrant green accent for active elements and CTAs.",
+    "layout": "Standard documentation layout with sidebar navigation, main content area, and right-side table of contents, using generous whitespace.",
+    "interaction": "Subtle hover and focus transitions on interactive elements, with clear visual feedback.",
+    "motion": "Minimal motion with smooth transitions for hover and focus states.",
+    "notes": "A well-executed example of modern documentation design, combining clean aesthetics with clear information hierarchy and AI integration.",
+    "spec": {
+      "colors": {
+        "bg": "#FFFFFF",
+        "bgSoft": "#F9FAFB",
+        "bgQuiet": "#F3F4F6",
+        "ink": "#111827",
+        "inkSoft": "#4B5563",
+        "muted": "#9CA3AF",
+        "mutedSoft": "#D1D5DB",
+        "accent": "#10B981",
+        "line": "rgba(0,0,0,0.1)",
+        "principle": "Clean, high-contrast white base with a single vibrant green accent for active states and CTAs."
+      },
+      "typography": {
+        "display": "geometric-sans",
+        "body": "humanist-sans",
+        "mono": "monospace",
+        "scale": [
+          {
+            "token": "display",
+            "size": 56,
+            "lh": 1.1,
+            "weight": 700,
+            "ls": "-1.5px",
+            "use": "Main hero headline"
+          },
+          {
+            "token": "h1",
+            "size": 36,
+            "lh": 1.2,
+            "weight": 700,
+            "ls": "-0.5px",
+            "use": "Page titles"
+          },
+          {
+            "token": "h2",
+            "size": 24,
+            "lh": 1.3,
+            "weight": 600,
+            "ls": "0",
+            "use": "Section headings"
+          },
+          {
+            "token": "body",
+            "size": 16,
+            "lh": 1.5,
+            "weight": 400,
+            "ls": "0",
+            "use": "Main content text"
+          },
+          {
+            "token": "small",
+            "size": 14,
+            "lh": 1.4,
+            "weight": 400,
+            "ls": "0",
+            "use": "Navigation, labels, metadata"
+          }
+        ],
+        "rules": [
+          "Headlines use tight letter-spacing",
+          "Body text uses standard letter-spacing for readability",
+          "Green accent color is used for interactive elements and highlights"
+        ]
+      },
+      "spacing": {
+        "base": 4,
+        "scale": [
+          4,
+          8,
+          12,
+          16,
+          24,
+          32,
+          48,
+          64,
+          96,
+          128
+        ],
+        "rhythm": "4px base unit, generous vertical spacing for clarity"
+      },
+      "surfaces": {
+        "radius": {
+          "sm": 4,
+          "md": 8,
+          "lg": 12,
+          "pill": 999
+        },
+        "shadows": [
+          "0 1px 2px 0 rgba(0, 0, 0, 0.05)",
+          "0 4px 6px -1px rgba(0, 0, 0, 0.1)"
+        ],
+        "borders": "1px solid #E5E7EB"
+      },
+      "layout": {
+        "container": 1200,
+        "paragraph": 680,
+        "columns": 12,
+        "gutter": 24,
+        "breakpoints": [
+          768,
+          1024,
+          1280
+        ],
+        "skeleton": "Standard documentation layout: sidebar, main content, right-side table of contents"
+      },
+      "motion": {
+        "durations": {
+          "micro": 150,
+          "small": 250,
+          "medium": 400
+        },
+        "easing": "cubic-bezier(0.4, 0, 0.2, 1)",
+        "patterns": [
+          "Subtle hover transitions on buttons and links",
+          "Smooth focus states for accessibility"
+        ]
+      },
+      "identity": {
+        "keywords": [
+          "documentation",
+          "AI",
+          "platform",
+          "clean",
+          "professional"
+        ],
+        "analogy": "A modern, AI-powered library for technical documentation",
+        "oneLiner": "A clean, AI-integrated documentation platform for developers and teams."
+      },
+      "components": {
+        "button": "Clean, rounded buttons with clear primary (green) and secondary (white/outline) states",
+        "card": "Light gray background with subtle rounded corners and padding",
+        "chip": "Small, pill-shaped elements for labels or tags",
+        "input": "Clean input fields with subtle borders and rounded corners",
+        "hero": "Large, centered headline over a scenic illustration, with email input and CTA"
+      },
+      "interaction": {
+        "hover": "Color change or slight opacity shift on interactive elements",
+        "click": "Subtle scale or opacity feedback",
+        "transition": "Smooth transitions on hover and focus states",
+        "keyboard": "Visible focus rings for keyboard navigation"
+      },
+      "voice": {
+        "tone": "Professional, helpful, and technically confident",
+        "headlineStyle": "Clear, descriptive, and benefit-oriented",
+        "ctaStyle": "Direct and action-oriented (Start for free, Start now)",
+        "avoid": [
+          "Overly casual language",
+          "Jargon without explanation",
+          "Aggressive or pushy sales language"
+        ]
+      },
+      "donts": [
+        "Don't use dark mode — screenshot shows a clean, bright white interface",
+        "Don't use decorative serif fonts — typography is clean, geometric sans-serif",
+        "Don't use overly saturated colors — palette is restrained with white, grays, and a single green accent",
+        "Don't clutter the layout — generous whitespace and clear hierarchy are key",
+        "Don't use sharp corners — elements use rounded corners (4px to pill radius)",
+        "Don't use heavy drop shadows — shadows are subtle and light",
+        "Don't use multiple accent colors — green is the primary interactive color"
+      ],
+      "systemPrompt": "Mintlify is a documentation platform for developers, positioning itself as an intelligent, AI-powered knowledge hub. The design uses a clean white background (#FFFFFF) with dark gray text (#111827) and a single vibrant green accent (#10B981) for interactive elements. Typography features geometric and humanist sans-serif categories for clarity. Key donts: avoid dark mode, avoid decorative serifs, avoid saturated color palettes, avoid cluttered layouts, avoid sharp corners, avoid heavy shadows, and avoid multiple accent colors. The layout follows a standard documentation pattern with sidebar navigation, main content, and optional right-side TOC."
+    }
+  },
+  {
+    "id": "miro",
+    "title": "Miro",
+    "url": "https://miro.com",
+    "image": "https://image.thum.io/get/width/1440/https://miro.com",
+    "tags": [
+      "SaaS",
+      "Collaboration",
+      "Product",
+      "AI",
+      "Clean"
+    ],
+    "palette": "A clean, high-contrast palette centered on white with a vibrant blue accent and dark navy ink.",
+    "layout": "A spacious, centered single-column layout with a clear top navigation bar.",
+    "interaction": "Standard, intuitive interactions with smooth hover transitions on buttons.",
+    "motion": "Subtle and purposeful motion focused on smooth transitions and fades.",
+    "notes": "This site is a prime example of a modern, clean SaaS marketing page that prioritizes clarity and value communication.",
+    "spec": {
+      "colors": {
+        "bg": "#FFFFFF",
+        "bgSoft": null,
+        "bgQuiet": null,
+        "ink": "#050038",
+        "inkSoft": null,
+        "muted": "#5E6C84",
+        "mutedSoft": null,
+        "accent": "#4262FF",
+        "line": "rgba(0,0,0,0.1)",
+        "principle": "Clean white canvas with bold brand accents for clear hierarchy."
+      },
+      "typography": {
+        "display": "geometric-sans",
+        "body": "humanist-sans",
+        "mono": null,
+        "scale": [
+          {
+            "token": "display",
+            "size": 56,
+            "lh": 1.1,
+            "weight": 600,
+            "ls": "-1.5px",
+            "use": "Main hero headline"
+          },
+          {
+            "token": "body",
+            "size": 18,
+            "lh": 1.5,
+            "weight": 400,
+            "ls": "0px",
+            "use": "Supporting text and UI"
+          }
+        ],
+        "rules": [
+          "Headlines use a bold geometric sans for impact.",
+          "Body text uses a legible humanist sans.",
+          "High contrast between ink and background."
+        ]
+      },
+      "spacing": {
+        "base": 4,
+        "scale": [
+          4,
+          8,
+          16,
+          24,
+          32,
+          48,
+          64,
+          96
+        ],
+        "rhythm": "Generous whitespace to focus attention on the central message."
+      },
+      "surfaces": {
+        "radius": {
+          "sm": 4,
+          "md": 8,
+          "lg": 12,
+          "pill": 999
+        },
+        "shadows": [
+          "0px 4px 12px rgba(0,0,0,0.08)"
+        ],
+        "borders": "1px solid rgba(0,0,0,0.1)"
+      },
+      "layout": {
+        "container": 1280,
+        "paragraph": 680,
+        "columns": 12,
+        "gutter": 24,
+        "breakpoints": [
+          768,
+          1024
+        ],
+        "skeleton": "Centered single-column hero with top navigation bar."
+      },
+      "motion": {
+        "durations": {
+          "micro": 220,
+          "small": 400,
+          "medium": 800
+        },
+        "easing": "cubic-bezier(0.25, 0.1, 0.25, 1)",
+        "patterns": [
+          "Subtle fade-ins for content loading.",
+          "Smooth transitions on button hover."
+        ]
+      },
+      "identity": {
+        "keywords": [
+          "collaboration",
+          "visual",
+          "AI",
+          "planning",
+          "teamwork"
+        ],
+        "analogy": "A digital whiteboard canvas for modern teams.",
+        "oneLiner": "The collaboration layer your AI tools are missing."
+      },
+      "components": {
+        "button": "Pill-shaped or rounded rectangle with solid fill.",
+        "card": "Clean white surface with subtle shadow.",
+        "chip": "Small rounded label.",
+        "input": "Rounded rectangle with border.",
+        "hero": "Centered text block with subtle gradient background."
+      },
+      "interaction": {
+        "hover": "Subtle color shift or elevation change.",
+        "click": "Slight depression or immediate feedback.",
+        "transition": "Smooth color and transform transitions.",
+        "keyboard": "Standard focus rings for accessibility."
+      },
+      "voice": {
+        "tone": "Confident, professional, and forward-looking.",
+        "headlineStyle": "Direct and bold, focusing on the value proposition.",
+        "ctaStyle": "Action-oriented and clear (e.g., 'Get started free').",
+        "avoid": [
+          "Overly technical jargon.",
+          "Passive voice.",
+          "Unclear value propositions."
+        ]
+      },
+      "donts": [
+        "Don't use dark backgrounds — screenshot shows a light, white-dominant theme.",
+        "Don't use serif fonts — screenshot shows geometric/humanist sans-serif types.",
+        "Don't use complex gradients — screenshot shows a very subtle, light gradient wash.",
+        "Don't use tight spacing — screenshot shows generous whitespace around elements.",
+        "Don't use sharp corners — screenshot shows rounded buttons and inputs.",
+        "Don't use muted, low-contrast colors — screenshot shows high-contrast ink on white."
+      ],
+      "systemPrompt": "Miro is a SaaS collaboration platform for teams and AI agents. The design is clean and professional, using a white background with a primary blue (#4262FF) accent and dark ink (#050038) text. Typography is a mix of geometric and humanist sans-serifs, emphasizing clarity and modernity. Key donts: do not use dark mode, do not use serif fonts, and do not use complex patterns. The layout is centered and spacious, focusing the user on the main value proposition and call to action."
     }
   },
   {
@@ -2339,6 +5884,781 @@ window.STYLE_ATLAS_SITES = [
     }
   },
   {
+    "id": "mongodb",
+    "title": "Mongodb",
+    "url": "https://www.mongodb.com",
+    "image": "https://image.thum.io/get/width/1440/https://www.mongodb.com",
+    "tags": [
+      "Developer Tools",
+      "SaaS",
+      "Product",
+      "Clean",
+      "Restraint"
+    ],
+    "palette": "A high-contrast, clean palette with deep navy text, a single vibrant green accent, and ample white space for a professional developer-focused aesthetic.",
+    "layout": "A spacious, centered 12-column grid layout with generous white space and clear visual hierarchy.",
+    "interaction": "Smooth, subtle transitions on interactive elements with clear feedback and full keyboard navigation support.",
+    "motion": "Minimal, purposeful animations for state changes and content loading, using consistent easing curves.",
+    "notes": "This site exemplifies clean, functional design for technical audiences, using restraint and clarity to build trust and professionalism.",
+    "spec": {
+      "colors": {
+        "bg": "#ffffff",
+        "bgSoft": null,
+        "bgQuiet": null,
+        "ink": "#112e51",
+        "inkSoft": null,
+        "muted": "#68768a",
+        "mutedSoft": null,
+        "accent": "#00ed64",
+        "line": "rgba(17, 46, 81, 0.12)",
+        "principle": "A high-contrast, clean palette using deep navy for text and a vibrant green accent for highlights against a white background."
+      },
+      "typography": {
+        "display": "geometric-sans",
+        "body": "humanist-sans",
+        "mono": null,
+        "scale": [
+          {
+            "token": "display",
+            "size": 56,
+            "lh": 1.05,
+            "weight": 700,
+            "ls": "-1.5px",
+            "use": "Main headlines"
+          },
+          {
+            "token": "heading",
+            "size": 40,
+            "lh": 1.1,
+            "weight": 600,
+            "ls": "-0.5px",
+            "use": "Section headers"
+          },
+          {
+            "token": "subhead",
+            "size": 24,
+            "lh": 1.3,
+            "weight": 500,
+            "ls": "0px",
+            "use": "Card titles and subheadings"
+          },
+          {
+            "token": "body",
+            "size": 16,
+            "lh": 1.6,
+            "weight": 400,
+            "ls": "0px",
+            "use": "Paragraph text and descriptions"
+          }
+        ],
+        "rules": [
+          "Headlines use tight letter-spacing for a modern, impactful feel.",
+          "Body text maintains a comfortable reading rhythm with generous line height.",
+          "Font weights create a clear hierarchy from bold headlines to regular body text."
+        ]
+      },
+      "spacing": {
+        "base": 4,
+        "scale": [
+          4,
+          8,
+          16,
+          24,
+          32,
+          48,
+          64,
+          96
+        ],
+        "rhythm": "A consistent 4px base grid with an 8px rhythm for comfortable vertical spacing."
+      },
+      "surfaces": {
+        "radius": {
+          "sm": 4,
+          "md": 8,
+          "lg": 12,
+          "pill": 999
+        },
+        "shadows": [
+          "0 1px 3px rgba(0,0,0,0.08)",
+          "0 4px 12px rgba(0,0,0,0.06)"
+        ],
+        "borders": "Minimal, using subtle borders for separation rather than heavy dividers."
+      },
+      "layout": {
+        "container": 1200,
+        "paragraph": 680,
+        "columns": 12,
+        "gutter": 24,
+        "breakpoints": [
+          768,
+          1024
+        ],
+        "skeleton": "A standard 12-column grid with a centered container for content."
+      },
+      "motion": {
+        "durations": {
+          "micro": 200,
+          "small": 350,
+          "medium": 600
+        },
+        "easing": "cubic-bezier(0.25, 0.1, 0.25, 1)",
+        "patterns": [
+          "Smooth fade-ins for content loading",
+          "Subtle hover state transitions on interactive elements"
+        ]
+      },
+      "identity": {
+        "keywords": [
+          "database",
+          "developer",
+          "modern",
+          "reliable",
+          "data"
+        ],
+        "analogy": "A reliable, modern enterprise tool with a clean, professional interface.",
+        "oneLiner": "A clean, developer-focused SaaS platform for data management."
+      },
+      "components": {
+        "button": "Clean, rectangular buttons with clear labels, using the green accent for primary actions.",
+        "card": "Simple cards with subtle borders or shadows, focusing on content clarity.",
+        "chip": "Pill-shaped tags for categorization with muted backgrounds.",
+        "input": "Clean input fields with clear borders and labels.",
+        "hero": "A large, spacious hero section with a prominent headline and call-to-action."
+      },
+      "interaction": {
+        "hover": "Subtle color changes or lifts on interactive elements.",
+        "click": "Clear feedback with immediate state changes.",
+        "transition": "All state changes are animated with smooth, consistent easing.",
+        "keyboard": "Full keyboard navigation support with visible focus states."
+      },
+      "voice": {
+        "tone": "Professional, confident, and technical.",
+        "headlineStyle": "Direct and benefit-focused, using clear, concise language.",
+        "ctaStyle": "Action-oriented and specific, guiding users to the next step.",
+        "avoid": [
+          "Jargon without context",
+          "Overly casual or playful language",
+          "Vague or ambiguous promises"
+        ]
+      },
+      "donts": [
+        "Don't use a dark mode — the screenshot shows a clean, light theme with a white background.",
+        "Don't use vibrant multi-color gradients — the design uses a single, consistent green accent.",
+        "Don't use decorative serif fonts — the typography is clean and sans-serif throughout.",
+        "Don't use heavy drop shadows — shadows are minimal and subtle, used for depth not decoration.",
+        "Don't clutter the interface — the layout is spacious with generous white space between elements.",
+        "Don't use complex illustrations — the visual focus is on clear typography and functional UI components."
+      ],
+      "systemPrompt": "This is a clean, professional SaaS platform for developers, positioning itself as a modern database solution. The key colors are a deep navy ink (#112e51) and a vibrant green accent (#00ed64) against a white background (#ffffff). Typography uses geometric and humanist sans-serif categories for a modern, readable feel. Critical don'ts: avoid dark mode, avoid multi-color gradients, avoid decorative serif fonts, avoid heavy shadows, avoid cluttered layouts, avoid complex illustrations. The design prioritizes clarity, trust, and developer-focused functionality through restraint and clean visual hierarchy."
+    }
+  },
+  {
+    "id": "nike",
+    "title": "Nike",
+    "url": "https://www.nike.com",
+    "image": "https://image.thum.io/get/width/1440/https://www.nike.com",
+    "tags": [
+      "Product",
+      "Bold Typography",
+      "Photographic",
+      "Clean",
+      "Curation"
+    ],
+    "palette": "A high-contrast palette dominated by black and white, allowing vibrant product photography to dictate the color story.",
+    "layout": "Full-bleed imagery and spacious, grid-based sections create a powerful, editorial feel.",
+    "interaction": "Focuses on clear, immediate visual feedback through subtle color shifts and smooth transitions.",
+    "motion": "Utilizes smooth, functional transitions to guide the user experience without distraction.",
+    "notes": "Worth including as a prime example of balancing bold branding with high-functionality e-commerce design.",
+    "spec": {
+      "colors": {
+        "bg": "#FFFFFF",
+        "bgSoft": null,
+        "bgQuiet": null,
+        "ink": "#111111",
+        "inkSoft": null,
+        "muted": "#707072",
+        "mutedSoft": null,
+        "accent": null,
+        "line": "rgba(0, 0, 0, 0.1)",
+        "principle": "High contrast and clean, relying on photography and bold typography for impact."
+      },
+      "typography": {
+        "display": "bold-extended-sans",
+        "body": "neutral-sans",
+        "mono": null,
+        "scale": [
+          {
+            "token": "display",
+            "size": 56,
+            "lh": 0.95,
+            "weight": 800,
+            "ls": "-1px",
+            "use": "Hero Headlines"
+          }
+        ],
+        "rules": [
+          "Use tight tracking and uppercase for primary headlines.",
+          "Body text should be highly legible and neutral."
+        ]
+      },
+      "spacing": {
+        "base": 4,
+        "scale": [
+          4,
+          8,
+          16,
+          24,
+          32,
+          48,
+          64,
+          96
+        ],
+        "rhythm": "Generous spacing to emphasize large photography."
+      },
+      "surfaces": {
+        "radius": {
+          "sm": 0,
+          "md": 0,
+          "lg": 0,
+          "pill": 999
+        },
+        "shadows": [],
+        "borders": "No borders, relies on full-bleed imagery and whitespace."
+      },
+      "layout": {
+        "container": 1440,
+        "paragraph": 680,
+        "columns": 12,
+        "gutter": 24,
+        "breakpoints": [
+          768,
+          1024
+        ],
+        "skeleton": "Full-bleed photography and large content blocks."
+      },
+      "motion": {
+        "durations": {
+          "micro": 200,
+          "small": 300,
+          "medium": 500
+        },
+        "easing": "cubic-bezier(0.4, 0, 0.2, 1)",
+        "patterns": [
+          "Smooth fade-ins for content blocks.",
+          "Subtle transitions for interactive elements."
+        ]
+      },
+      "identity": {
+        "keywords": [
+          "Athletic",
+          "Dynamic",
+          "Performance",
+          "Global",
+          "Iconic"
+        ],
+        "analogy": "A high-performance athletic arena.",
+        "oneLiner": "Global athletic brand leading with dynamic product showcases and bold typography."
+      },
+      "components": {
+        "button": "Solid black or white rounded pill with bold sans-serif label.",
+        "card": "Full-bleed image with overlaid text and a solid background color.",
+        "chip": "Minimal use, focus is on large interactive areas.",
+        "input": "Rounded pill with subtle grey background and placeholder text.",
+        "hero": "Full-width dynamic imagery with bold, centered typography overlay."
+      },
+      "interaction": {
+        "hover": "Subtle color shifts or opacity changes.",
+        "click": "Immediate visual feedback or navigation.",
+        "transition": "Smooth transitions between states.",
+        "keyboard": "Standard focus outlines for accessibility."
+      },
+      "voice": {
+        "tone": "Confident, motivational, and direct.",
+        "headlineStyle": "Short, impactful, and often imperative.",
+        "ctaStyle": "Action-oriented and clear.",
+        "avoid": [
+          "Overly complex sentences.",
+          "Passive voice.",
+          "Generic corporate jargon."
+        ]
+      },
+      "donts": [
+        "Don't use decorative typography — screenshot shows bold, functional sans-serif.",
+        "Don't apply rounded corners to main cards — screenshot shows sharp edges.",
+        "Don't use muted or pastel color palettes — screenshot shows high contrast black, white, and red.",
+        "Don't clutter the layout with too many elements — screenshot shows clear, focused sections.",
+        "Don't use complex shadows — screenshot shows flat, clean surfaces.",
+        "Don't use low-contrast text — screenshot shows highly legible typography."
+      ],
+      "systemPrompt": "A global athletic brand website characterized by bold, dynamic photography and clean, functional design. The primary palette relies on high-contrast black (#111111) and white (#FFFFFF), with occasional vibrant red accents in product imagery. Typography is defined by extended, bold sans-serif for impactful headlines and a neutral sans-serif for body text. Layouts are spacious and grid-based, often utilizing full-bleed imagery to create a sense of scale and performance. Critical design constraints include avoiding decorative fonts, complex shadows, or rounded corners on primary content blocks. The overall feel is confident, direct, and highly functional."
+    }
+  },
+  {
+    "id": "notion",
+    "title": "Notion",
+    "url": "https://www.notion.com",
+    "image": "https://image.thum.io/get/width/1440/https://www.notion.com",
+    "tags": [
+      "SaaS",
+      "Productivity",
+      "Product",
+      "Clean",
+      "Refined"
+    ],
+    "palette": "A deep dark blue background with high-contrast white text and a subtle blue accent for buttons.",
+    "layout": "A centered marketing hero layout with generous vertical spacing and a prominent product screenshot.",
+    "interaction": "Subtle hover transitions on buttons and standard interactive elements.",
+    "motion": "Minimal but present subtle floating animations on decorative background elements.",
+    "notes": "This site is a great example of a clean, focused SaaS landing page that uses a dark theme to make the product UI stand out.",
+    "spec": {
+      "colors": {
+        "bg": "#0f0b30",
+        "bgSoft": null,
+        "bgQuiet": null,
+        "ink": "#ffffff",
+        "inkSoft": null,
+        "muted": null,
+        "mutedSoft": null,
+        "accent": "#2f80ed",
+        "line": "rgba(255, 255, 255, 0.1)",
+        "principle": "A deep, saturated dark blue background that focuses attention on the central product UI, which uses a standard light-mode palette."
+      },
+      "typography": {
+        "display": "humanist-sans",
+        "body": "humanist-sans",
+        "mono": null,
+        "scale": [
+          {
+            "token": "display",
+            "size": 64,
+            "lh": 1.05,
+            "weight": 600,
+            "ls": "-1.5px",
+            "use": "Main hero headline"
+          },
+          {
+            "token": "body",
+            "size": 18,
+            "lh": 1.6,
+            "weight": 400,
+            "ls": "0px",
+            "use": "Subheadline and description text"
+          }
+        ],
+        "rules": [
+          "High contrast white text on dark background",
+          "Large, bold display type for impact",
+          "Clean, legible body text for readability"
+        ]
+      },
+      "spacing": {
+        "base": 4,
+        "scale": [
+          4,
+          8,
+          16,
+          24,
+          32,
+          48,
+          64,
+          96
+        ],
+        "rhythm": "Generous vertical spacing to separate hero content from product screenshot and social proof"
+      },
+      "surfaces": {
+        "radius": {
+          "sm": 4,
+          "md": 8,
+          "lg": 12,
+          "pill": 999
+        },
+        "shadows": [
+          "0 20px 60px rgba(0,0,0,0.5)"
+        ],
+        "borders": "Solid buttons with no visible borders, or very subtle 1px borders on input fields within the UI"
+      },
+      "layout": {
+        "container": 1280,
+        "paragraph": 640,
+        "columns": 12,
+        "gutter": 24,
+        "breakpoints": [
+          768,
+          1024
+        ],
+        "skeleton": "Standard marketing hero layout with centered text, dual CTAs, and a large product screenshot floating below"
+      },
+      "motion": {
+        "durations": {
+          "micro": 200,
+          "small": 400,
+          "medium": 800
+        },
+        "easing": "cubic-bezier(0.25, 0.1, 0.25, 1)",
+        "patterns": [
+          "Subtle floating animations on decorative elements",
+          "Smooth transitions on button hover"
+        ]
+      },
+      "identity": {
+        "keywords": [
+          "productivity",
+          "workspace",
+          "collaboration",
+          "automation",
+          "efficiency"
+        ],
+        "analogy": "A clean, highly organized digital workspace",
+        "oneLiner": "A collaborative workspace that combines notes, docs, wikis, and project management into one tool."
+      },
+      "components": {
+        "button": "Solid fill buttons with rounded corners and subtle hover states",
+        "card": "None visible in hero, though product UI shows standard kanban cards",
+        "chip": "None visible",
+        "input": "None visible in main hero",
+        "hero": "Centered headline and subtext, dual action buttons, large floating product screenshot with decorative background illustrations"
+      },
+      "interaction": {
+        "hover": "Buttons change shade or opacity slightly",
+        "click": "Standard pointer cursor for interactive elements",
+        "transition": "Smooth, short duration transitions for UI state changes",
+        "keyboard": "Standard focus outlines on interactive elements"
+      },
+      "voice": {
+        "tone": "Confident, modern, and professional yet approachable",
+        "headlineStyle": "Bold, short, and catchy statements",
+        "ctaStyle": "Clear and direct action-oriented text like 'Get Notion free'",
+        "avoid": [
+          "Jargon-heavy language",
+          "Overly complex sentence structures",
+          "Aggressive sales tactics"
+        ]
+      },
+      "donts": [
+        "Don't use a light background — screenshot shows a deep dark blue (#0f0b30) hero",
+        "Don't use a rigid, strictly geometric font — screenshot uses a softer humanist sans-serif",
+        "Don't clutter the hero with too many text elements — screenshot uses a single clear headline and subtext",
+        "Don't use harsh neon colors — screenshot uses a muted blue accent and white text",
+        "Don't use heavy drop shadows on everything — screenshot only uses a large shadow under the product UI",
+        "Don't use a monospace font for display text — screenshot uses a clean sans-serif for everything"
+      ],
+      "systemPrompt": "This is Notion, a modern SaaS productivity tool. The design features a deep dark blue (#0f0b30) hero section with high-contrast white text. The typography relies on clean humanist-sans fonts for both display and body text, avoiding overly geometric or rigid styles. The layout is centered and spacious, focusing on a single compelling headline and a large product screenshot. Key donts: avoid using light backgrounds in the hero, avoid harsh neon accent colors, and avoid cluttering the interface with too many competing elements. The overall feel is professional, clean, and focused on the product's utility."
+    }
+  },
+  {
+    "id": "nvidia",
+    "title": "Nvidia",
+    "url": "https://www.nvidia.com",
+    "image": "https://image.thum.io/get/width/1440/https://www.nvidia.com",
+    "tags": [
+      "SaaS",
+      "Clean",
+      "Product",
+      "Premium",
+      "Bold Typography"
+    ],
+    "palette": "High-contrast monochrome base with a single signature green accent (#76b900) used sparingly for primary actions and category markers.",
+    "layout": "Structured 12-column grid with generous whitespace and strict alignment, prioritizing clarity and enterprise-grade professionalism.",
+    "interaction": "Subtle, purposeful hover states and smooth transitions maintain a polished, professional feel without unnecessary decoration.",
+    "motion": "Minimal but precise motion, focusing on functional transitions and content reveals rather than decorative animation.",
+    "notes": "A masterclass in corporate tech branding that balances hardware prestige with software clarity through strict design discipline.",
+    "spec": {
+      "colors": {
+        "bg": "#ffffff",
+        "bgSoft": null,
+        "bgQuiet": "#f5f5f5",
+        "ink": "#000000",
+        "inkSoft": null,
+        "muted": "#76b900",
+        "mutedSoft": null,
+        "accent": "#76b900",
+        "line": "rgba(0, 0, 0, 0.1)",
+        "principle": "High-contrast monochrome base punctuated by a signature green accent for primary actions and category markers."
+      },
+      "typography": {
+        "display": "grotesque-sans",
+        "body": "grotesque-sans",
+        "mono": null,
+        "scale": [
+          {
+            "token": "display",
+            "size": 48,
+            "lh": 1.1,
+            "weight": 700,
+            "ls": "-1px",
+            "use": "Main hero headlines"
+          },
+          {
+            "token": "headline",
+            "size": 32,
+            "lh": 1.2,
+            "weight": 600,
+            "ls": "-0.5px",
+            "use": "Section headers"
+          },
+          {
+            "token": "body",
+            "size": 16,
+            "lh": 1.6,
+            "weight": 400,
+            "ls": "0px",
+            "use": "General paragraph text"
+          }
+        ],
+        "rules": [
+          "Use bold weights for emphasis",
+          "Maintain tight letter spacing for large display text"
+        ]
+      },
+      "spacing": {
+        "base": 4,
+        "scale": [
+          4,
+          8,
+          16,
+          24,
+          32,
+          48,
+          64,
+          96
+        ],
+        "rhythm": "Consistent 8px vertical rhythm with generous whitespace to denote premium status."
+      },
+      "surfaces": {
+        "radius": {
+          "sm": 2,
+          "md": 4,
+          "lg": 8,
+          "pill": 999
+        },
+        "shadows": [],
+        "borders": "1px solid rgba(0, 0, 0, 0.1)"
+      },
+      "layout": {
+        "container": 1280,
+        "paragraph": 680,
+        "columns": 12,
+        "gutter": 24,
+        "breakpoints": [
+          768,
+          1024
+        ],
+        "skeleton": "12-column fluid grid with strict alignment and generous margins."
+      },
+      "motion": {
+        "durations": {
+          "micro": 220,
+          "small": 400,
+          "medium": 800
+        },
+        "easing": "cubic-bezier(0.25, 0.1, 0.25, 1)",
+        "patterns": [
+          "Subtle fade-ins for content reveals",
+          "Smooth scrolling for horizontal carousels"
+        ]
+      },
+      "identity": {
+        "keywords": [
+          "technology",
+          "enterprise",
+          "hardware",
+          "AI",
+          "GPU"
+        ],
+        "analogy": "A high-end tech enterprise brand with a clean, authoritative presence.",
+        "oneLiner": "A bold, enterprise-focused tech brand balancing hardware prestige with software clarity."
+      },
+      "components": {
+        "button": "Solid green primary button with white text, rectangular with slight rounding",
+        "card": "Content cards with minimal borders, featuring category labels in green",
+        "chip": "Green outlined category labels (e.g., 'Data Center')",
+        "input": "Standard clean form inputs (implied)",
+        "hero": "Large headline with supporting paragraph and image in a split layout"
+      },
+      "interaction": {
+        "hover": "State change with slight opacity reduction or color shift",
+        "click": "Immediate visual feedback",
+        "transition": "Smooth transitions for state changes and hover effects",
+        "keyboard": "Standard tab navigation with visible focus states"
+      },
+      "voice": {
+        "tone": "Authoritative, technical, and forward-looking",
+        "headlineStyle": "Bold, declarative statements focusing on technical achievements",
+        "ctaStyle": "Direct and action-oriented (e.g., 'Read the Blog', 'Manage Settings')",
+        "avoid": [
+          "Informal language",
+          "Excessive exclamation points",
+          "Vague technical claims"
+        ]
+      },
+      "donts": [
+        "Don't use rounded corners on buttons — screenshot shows rectangular buttons with slight rounding",
+        "Don't use a dark background for main content — screenshot shows predominantly white background",
+        "Don't use serif fonts — screenshot shows exclusively sans-serif typography",
+        "Don't use multiple accent colors — screenshot shows strictly green (#76b900) as the only accent",
+        "Don't add heavy drop shadows — screenshot shows clean, flat design with minimal shadowing",
+        "Don't use decorative borders — screenshot shows clean separation with minimal borders"
+      ],
+      "systemPrompt": "NVIDIA's website projects a premium, enterprise-focused technology brand. The visual system is built on a high-contrast monochrome palette (#000000, #ffffff) with the signature NVIDIA green (#76b900) as the sole accent for primary CTAs and category markers. Typography relies exclusively on clean, bold sans-serif fonts with tight letter-spacing for display headlines, conveying technical authority. Critical constraints include avoiding dark mode backgrounds for main content, eliminating serif typefaces, and maintaining the strict single-accent color discipline. The layout uses a structured 12-column grid with generous whitespace, while components like buttons maintain sharp, professional geometry without excessive rounding."
+    }
+  },
+  {
+    "id": "ollama",
+    "title": "Ollama",
+    "url": "https://ollama.com",
+    "image": "https://image.thum.io/get/width/1440/https://ollama.com",
+    "tags": [
+      "Developer Tools",
+      "AI",
+      "Clean",
+      "Calm",
+      "Tooling"
+    ],
+    "palette": "A strictly monochrome palette of black ink on white, using red, yellow, and green dots only for terminal status indicators.",
+    "layout": "A centered, spacious layout that prioritizes whitespace and clear hierarchical sections for developer focus.",
+    "interaction": "Subtle hover states and immediate feedback on interactive elements, maintaining a low-friction experience.",
+    "motion": "Minimal and functional motion, likely used for basic transitions without distracting from the utility.",
+    "notes": "Worth including as a prime example of minimalist, utility-first design for developer tools where clarity and speed of use are paramount.",
+    "spec": {
+      "colors": {
+        "bg": "#FFFFFF",
+        "bgSoft": null,
+        "bgQuiet": null,
+        "ink": "#000000",
+        "inkSoft": "#555555",
+        "muted": "#888888",
+        "mutedSoft": null,
+        "accent": null,
+        "line": "rgba(0,0,0,0.1)",
+        "principle": "High-contrast monochrome with a singular touch of color for system status."
+      },
+      "typography": {
+        "display": "grotesque-sans",
+        "body": "grotesque-sans",
+        "mono": "monospace",
+        "scale": [
+          {
+            "token": "display",
+            "size": 48,
+            "lh": 1.1,
+            "weight": 600,
+            "ls": "-1.5px",
+            "use": "Hero headline"
+          },
+          {
+            "token": "heading",
+            "size": 32,
+            "lh": 1.2,
+            "weight": 600,
+            "ls": "-0.5px",
+            "use": "Section title"
+          },
+          {
+            "token": "body",
+            "size": 16,
+            "lh": 1.6,
+            "weight": 400,
+            "ls": "0",
+            "use": "Paragraph"
+          }
+        ],
+        "rules": [
+          "Large headings use tight letter-spacing",
+          "Code blocks use a clear monospace font",
+          "Body text maintains generous line height for readability"
+        ]
+      },
+      "spacing": {
+        "base": 4,
+        "scale": [
+          4,
+          8,
+          16,
+          24,
+          32,
+          48,
+          64,
+          96,
+          128
+        ],
+        "rhythm": "Generous vertical rhythm with large padding between sections."
+      },
+      "surfaces": {
+        "radius": {
+          "sm": 4,
+          "md": 8,
+          "lg": 12,
+          "pill": 999
+        },
+        "shadows": [],
+        "borders": "Thin, subtle borders used for inputs and code blocks."
+      },
+      "layout": {
+        "container": 1120,
+        "paragraph": 600,
+        "columns": 12,
+        "gutter": 24,
+        "breakpoints": [
+          768,
+          1024
+        ],
+        "skeleton": "Centered hero with generous whitespace, followed by a two-column feature section."
+      },
+      "motion": {
+        "durations": {
+          "micro": 150,
+          "small": 300,
+          "medium": 600
+        },
+        "easing": "ease-out"
+      },
+      "identity": {
+        "keywords": [
+          "developer",
+          "AI",
+          "tooling",
+          "open-source",
+          "accessible"
+        ],
+        "analogy": "A developer-friendly CLI dashboard for running AI models locally.",
+        "oneLiner": "The easiest way to build with open models."
+      },
+      "components": {
+        "button": "Solid black rounded-rectangle for primary CTA; white with border for secondary.",
+        "card": "Subtle border with rounded corners, featuring a terminal mockup with status dots.",
+        "chip": "None visible.",
+        "input": "Rounded search bar with subtle border and placeholder text.",
+        "hero": "Centered illustration, large display heading, and a code snippet box."
+      },
+      "interaction": {
+        "hover": "Subtle opacity change or underline on text links.",
+        "click": "Immediate state change.",
+        "transition": "Smooth fade or slide for basic interactions.",
+        "keyboard": "Standard focus rings for accessibility."
+      },
+      "voice": {
+        "tone": "Direct, helpful, and encouraging for developers.",
+        "headlineStyle": "Clear, benefit-oriented statements.",
+        "ctaStyle": "Action-oriented with clear next steps (e.g., terminal command).",
+        "avoid": [
+          "Marketing jargon",
+          "Complex technical obfuscation",
+          "Overly formal corporate language",
+          "Visual clutter"
+        ]
+      },
+      "donts": [
+        "Don't use vibrant or neon accents — the screenshot shows a strictly monochrome palette.",
+        "Don't use decorative serif fonts — the display and body fonts are clean grotesque-sans.",
+        "Don't add heavy drop shadows — the design is flat with minimal depth cues.",
+        "Don't use rounded-full buttons for primary actions — the screenshot shows rounded-rectangle buttons.",
+        "Don't crowd the layout — the screenshot demonstrates generous whitespace and centered sections.",
+        "Don't hide the code snippet — the screenshot prominently features terminal commands."
+      ],
+      "systemPrompt": "Ollama's design is a minimalist, developer-centric interface that prioritizes clarity and utility. The palette is strictly monochrome (black ink on white background), with a tiny splash of red, yellow, and green only for terminal status dots. Typography uses clean grotesque-sans for headlines and body text, with a standard monospace for code. The layout is centered and spacious, utilizing generous whitespace to reduce cognitive load. Critical donts include: avoid using any vibrant accent colors outside the terminal dots, do not use decorative serif fonts, and do not add unnecessary shadows or complex gradients. The overall tone is helpful and direct, focusing on ease of use for building with open-source models."
+    }
+  },
+  {
     "id": "opal-camera",
     "title": "Opal Camera Inc.",
     "url": "https://opalcamera.com",
@@ -2367,9 +6687,9 @@ window.STYLE_ATLAS_SITES = [
         "principle": "主页面 80% 是暖纸 + ink；深色区只用于产品 showcase；不用品牌色做按钮，按钮永远是 ink 黑"
       },
       "typography": {
-        "display": "GT America Mono",
-        "body": "GT America",
-        "mono": "GT America Mono",
+        "display": "grotesque-sans",
+        "body": "grotesque-sans",
+        "mono": "monospace",
         "scale": [
           {
             "token": "display",
@@ -2524,6 +6844,162 @@ window.STYLE_ATLAS_SITES = [
         "标题永不超过 7 个汉字 / 5 个英文词"
       ],
       "systemPrompt": "你是一位极简产品页面设计师。请按以下规范生成新页面：配色用暖纸底 #F7F4ED + ink #101010，深色区用 #0F0F0F；标题字体 GT America Mono 500 weight 永不斜体，正文 GT America 400；留白慷慨，section padding 96-128px；不用渐变、不用阴影做层级、不用 chip；卡片是图 + 下方 caption 结构，不要 panel 框；动效都在 220-800ms 区间，ease-out；hero 永远是产品 still life，标题压在留白处而非图上；CTA 一个动词最多两词；禁用清单：不用 emoji / 不用感叹号 / 不用 carousel / 不用 cookie banner / 标题不超过 7 字。"
+    }
+  },
+  {
+    "id": "opencode",
+    "title": "Opencode",
+    "url": "https://opencode.ai",
+    "image": "https://image.thum.io/get/width/1440/https://opencode.ai",
+    "tags": [
+      "Developer Tools",
+      "CLI",
+      "AI",
+      "Terminal",
+      "Clean"
+    ],
+    "palette": "A strict monochrome palette of white, black, and grays emphasizes technical precision and focus.",
+    "layout": "A spacious, single-column centered layout with generous whitespace separates distinct content sections.",
+    "interaction": "Minimalist hover states and immediate responses align with the functional, CLI-first philosophy.",
+    "motion": "Subtle, almost imperceptible transitions maintain a fast, unobtrusive feel.",
+    "notes": "Worth including as a prime example of a developer-focused, monochrome design system that uses typography (monospace) as its primary expressive element.",
+    "spec": {
+      "colors": {
+        "bg": "#ffffff",
+        "bgSoft": null,
+        "bgQuiet": "#f5f5f5",
+        "ink": "#1a1a1a",
+        "inkSoft": "#666666",
+        "muted": "#999999",
+        "mutedSoft": null,
+        "accent": null,
+        "line": "rgba(0, 0, 0, 0.1)",
+        "principle": "High-contrast, functional, and focused on readability for technical content."
+      },
+      "typography": {
+        "display": "monospace",
+        "body": "sans-serif",
+        "mono": "monospace",
+        "scale": [
+          {
+            "token": "display",
+            "size": 32,
+            "lh": 1.2,
+            "weight": 500,
+            "ls": "-0.5px",
+            "use": "Main headline"
+          },
+          {
+            "token": "body",
+            "size": 16,
+            "lh": 1.6,
+            "weight": 400,
+            "ls": "0px",
+            "use": "Body text and instructions"
+          },
+          {
+            "token": "mono",
+            "size": 14,
+            "lh": 1.5,
+            "weight": 400,
+            "ls": "0px",
+            "use": "Code snippets and terminal commands"
+          }
+        ],
+        "rules": [
+          "Use monospace for headlines, code, and the brand name to emphasize technical precision.",
+          "Use a clean sans-serif for body text for readability.",
+          "Maintain high contrast between text and background."
+        ]
+      },
+      "spacing": {
+        "base": 4,
+        "scale": [
+          4,
+          8,
+          12,
+          16,
+          24,
+          32,
+          48,
+          64
+        ],
+        "rhythm": "Generous whitespace around content blocks for clarity and focus."
+      },
+      "surfaces": {
+        "radius": {
+          "sm": 2,
+          "md": 4,
+          "lg": 8,
+          "pill": 999
+        },
+        "shadows": [],
+        "borders": "1px solid #e0e0e0"
+      },
+      "layout": {
+        "container": 1200,
+        "paragraph": 640,
+        "columns": 12,
+        "gutter": 24,
+        "breakpoints": [
+          768,
+          1024
+        ],
+        "skeleton": "Single-column centered layout with distinct sections for hero and product preview."
+      },
+      "motion": {
+        "durations": {
+          "micro": 150,
+          "small": 300,
+          "medium": 500
+        },
+        "easing": "cubic-bezier(0.4, 0, 0.2, 1)",
+        "patterns": [
+          "Subtle hover effects on interactive elements."
+        ]
+      },
+      "identity": {
+        "keywords": [
+          "open-source",
+          "AI coding agent",
+          "CLI-first",
+          "developer tool"
+        ],
+        "analogy": "A sleek, modern command-line interface wrapper for powerful AI models.",
+        "oneLiner": "The open source AI coding agent."
+      },
+      "components": {
+        "button": "Simple, borderless or lightly bordered, text-focused, like the 'Download' button.",
+        "card": "Minimal, with light borders and padding, used for the code snippet container.",
+        "chip": "Small, rounded pill for status indicators like 'New'.",
+        "input": "Simple text input for the terminal command line.",
+        "hero": "Text-focused with a prominent headline and a functional code snippet."
+      },
+      "interaction": {
+        "hover": "Subtle color or opacity changes on links and buttons.",
+        "click": "Immediate response, no complex animations.",
+        "transition": "Smooth transitions for state changes.",
+        "keyboard": "Full keyboard navigation support, as implied by terminal commands."
+      },
+      "voice": {
+        "tone": "Direct, technical, and confident.",
+        "headlineStyle": "Short, declarative statements in monospace.",
+        "ctaStyle": "Simple, action-oriented text like 'Download now'.",
+        "avoid": [
+          "Marketing jargon",
+          "Overly decorative language",
+          "Complex sentence structures"
+        ]
+      },
+      "donts": [
+        "Don't use serif fonts — the screenshot shows a monospace/sans-serif system.",
+        "Don't use bright, saturated accent colors — the palette is strictly monochrome.",
+        "Don't use heavy drop shadows or gradients — the design is flat and minimal.",
+        "Don't use rounded cards or containers — corners are sharp or very slightly rounded.",
+        "Don't clutter the interface with unnecessary icons — it's text and code-focused.",
+        "Don't use center-aligned body text — key content is left-aligned."
+      ],
+      "systemPrompt": "This is a minimalist, developer-focused landing page for an open-source AI coding agent. The design DNA is defined by a strict monochrome palette (#ffffff background, #1a1a1a ink, #666666 muted) and a typographic system where monospace is used for display text and code, paired with a clean sans-serif for body copy. The layout is spacious and single-column, prioritizing clarity and immediate utility. Critical donts: 1) Never introduce a strong accent color; the design relies on high-contrast black and white. 2) Avoid decorative elements like complex illustrations or gradients; the aesthetic is purely functional. 3) Do not use serif typography; the voice is technical and modern, expressed through monospace and sans-serif. 4) Avoid cluttered layouts; generous whitespace is essential for focus."
     }
   },
   {
@@ -2710,6 +7186,160 @@ window.STYLE_ATLAS_SITES = [
     }
   },
   {
+    "id": "posthog",
+    "title": "Posthog",
+    "url": "https://posthog.com",
+    "image": "https://image.thum.io/get/width/1440/https://posthog.com",
+    "tags": [
+      "Developer Tools",
+      "Product",
+      "AI",
+      "SaaS",
+      "Playful"
+    ],
+    "palette": "A warm, paper-like neutral palette with a bold, energetic orange accent.",
+    "layout": "A clean, centered layout with generous spacing and distinct, bordered content sections.",
+    "interaction": "Standard, subtle hover and click states with smooth color transitions.",
+    "motion": "Minimal, functional motion with basic transitions.",
+    "notes": "This site effectively balances a professional SaaS tool's utility with a playful, approachable brand identity, making complex technical products feel less intimidating.",
+    "spec": {
+      "colors": {
+        "bg": "#f8f7f5",
+        "bgSoft": "#ffffff",
+        "bgQuiet": "#f0ede8",
+        "ink": "#1d1b20",
+        "inkSoft": "#3730a3",
+        "muted": "#6b6562",
+        "mutedSoft": "#a39e98",
+        "accent": "#f54e00",
+        "line": "rgba(0,0,0,0.08)",
+        "principle": "Warm, paper-like neutrals with a bold orange accent."
+      },
+      "typography": {
+        "display": "humanist-sans",
+        "body": "humanist-sans",
+        "mono": "monospace",
+        "scale": [
+          {
+            "token": "display",
+            "size": 40,
+            "lh": 1.1,
+            "weight": 700,
+            "ls": "-0.5px",
+            "use": "Main hero headline"
+          },
+          {
+            "token": "heading",
+            "size": 28,
+            "lh": 1.2,
+            "weight": 600,
+            "ls": "-0.25px",
+            "use": "Section headings"
+          },
+          {
+            "token": "body",
+            "size": 16,
+            "lh": 1.6,
+            "weight": 400,
+            "ls": "0px",
+            "use": "Paragraph text"
+          }
+        ]
+      },
+      "spacing": {
+        "base": 4,
+        "scale": [
+          4,
+          8,
+          16,
+          24,
+          32,
+          48,
+          64,
+          96
+        ],
+        "rhythm": "8px base grid with generous whitespace."
+      },
+      "surfaces": {
+        "radius": {
+          "sm": 4,
+          "md": 8,
+          "lg": 12,
+          "pill": 999
+        },
+        "shadows": [
+          "0 1px 3px rgba(0,0,0,0.1)"
+        ],
+        "borders": "1px solid rgba(0,0,0,0.1)"
+      },
+      "layout": {
+        "container": 1280,
+        "paragraph": 680,
+        "columns": 12,
+        "gutter": 24,
+        "breakpoints": [
+          768,
+          1024
+        ],
+        "skeleton": "Centered, full-width hero with distinct, bordered content sections."
+      },
+      "motion": {
+        "durations": {
+          "micro": 150,
+          "small": 300,
+          "medium": 500
+        },
+        "easing": "cubic-bezier(0.4, 0, 0.2, 1)",
+        "patterns": [
+          "Subtle hover states on buttons and links."
+        ]
+      },
+      "identity": {
+        "keywords": [
+          "playful",
+          "developer-focused",
+          "comprehensive",
+          "transparent",
+          "humorous"
+        ],
+        "analogy": "A quirky, capable co-pilot for product teams.",
+        "oneLiner": "A playful yet powerful SaaS platform for product analytics and development."
+      },
+      "components": {
+        "button": "Solid primary orange button with rounded corners; outlined secondary buttons.",
+        "card": "Bordered white cards with subtle shadows and rounded corners.",
+        "chip": "Small, outlined, rounded tags for categories.",
+        "input": "Rounded search bar with a magnifying glass icon.",
+        "hero": "Two-column layout with text and a playful illustration."
+      },
+      "interaction": {
+        "hover": "Background color darkens slightly; cursor changes to pointer.",
+        "click": "Subtle scale-down or background color change.",
+        "transition": "Smooth color and background transitions.",
+        "keyboard": "Focus rings for accessibility."
+      },
+      "voice": {
+        "tone": "Conversational, slightly irreverent, helpful.",
+        "headlineStyle": "Direct, bold, and action-oriented.",
+        "ctaStyle": "Encouraging and clear.",
+        "avoid": [
+          "Corporate jargon",
+          "Overly formal language",
+          "Vague promises"
+        ]
+      },
+      "donts": [
+        "Don't use a stark white background — screenshot shows a warm, off-white/paper color (#f8f7f5).",
+        "Don't use cold, sterile blues for primary accents — screenshot shows a bold orange (#f54e00).",
+        "Don't use overly geometric or sharp typography — screenshot uses a friendly, humanist sans-serif.",
+        "Don't use heavy, complex box shadows — screenshot shows minimal, subtle shadows.",
+        "Don't use a strictly formal, corporate tone — screenshot uses playful illustrations and conversational text.",
+        "Don't use sharp, 90-degree corners on cards or buttons — screenshot shows consistently rounded corners."
+      ],
+      "systemPrompt": "PostHog's design is a playful yet professional developer tool SaaS. It uses warm, off-white backgrounds (#f8f7f5) with a bold orange accent (#f54e00) and dark ink (#1d1b20). Typography is a friendly humanist sans-serif. The layout is clean with generous spacing and bordered sections. Critical donts: avoid stark white backgrounds, avoid cold blue accents, avoid geometric/sterile typography, avoid heavy shadows, avoid corporate jargon, avoid sharp corners. The design balances humor with functionality, targeting product developers and engineers."
+    }
+  },
+  {
     "id": "raycast",
     "title": "Raycast",
     "url": "https://raycast.com",
@@ -2842,20 +7472,1236 @@ window.STYLE_ATLAS_SITES = [
     }
   },
   {
-    "id": "reflect",
-    "title": "Reflect",
-    "url": "https://reflect.app/home",
-    "image": "https://pub-8c02bb0f8aa04c19b7b7ee44644801fd.r2.dev/images/768/7a1f58c3-e160-4004-8420-866d5b03b2a2.jpg",
+    "id": "renault",
+    "title": "Renault",
+    "url": "https://www.renault.com",
+    "image": "https://image.thum.io/get/width/1440/https://www.renault.com",
     "tags": [
-      "Notes",
-      "SaaS",
-      "Calm"
+      "Editorial",
+      "Refinement",
+      "Premium",
+      "Automotive",
+      "Clean"
     ],
-    "palette": "",
-    "layout": "",
-    "interaction": "",
-    "motion": "",
-    "notes": ""
+    "palette": "A strictly monochromatic high-key palette consisting entirely of white and neutral grays.",
+    "layout": "A single, perfectly centered column layout on a blank white canvas.",
+    "interaction": "No interactive elements are visible in this static placeholder state.",
+    "motion": "No visible animations or transitions are present.",
+    "notes": "This site is a highly minimalist placeholder, useful as a baseline for strict centering and absolute negative space.",
+    "spec": {
+      "colors": {
+        "bg": "#FFFFFF",
+        "bgSoft": null,
+        "bgQuiet": null,
+        "ink": "#222222",
+        "inkSoft": null,
+        "muted": "#999999",
+        "mutedSoft": null,
+        "accent": null,
+        "line": "rgba(0, 0, 0, 0)",
+        "principle": "Extreme high-key minimalism with a monochromatic palette."
+      },
+      "typography": {
+        "display": "geometric-sans",
+        "body": "geometric-sans",
+        "mono": "monospaced",
+        "scale": [
+          {
+            "token": "display",
+            "size": 48,
+            "lh": 1.0,
+            "weight": 400,
+            "ls": "0px",
+            "use": "monogram"
+          },
+          {
+            "token": "body",
+            "size": 32,
+            "lh": 1.2,
+            "weight": 400,
+            "ls": "0px",
+            "use": "logo-text"
+          }
+        ]
+      },
+      "spacing": {
+        "base": 4,
+        "scale": [
+          4,
+          8,
+          16,
+          24,
+          32,
+          48,
+          64,
+          96
+        ],
+        "rhythm": "Strict vertical centering of the entire composition."
+      },
+      "surfaces": {
+        "radius": {
+          "sm": 0,
+          "md": 0,
+          "lg": 0,
+          "pill": 0
+        },
+        "shadows": [],
+        "borders": "No visible borders"
+      },
+      "layout": {
+        "container": 1024,
+        "paragraph": 600,
+        "columns": 12,
+        "gutter": 24,
+        "breakpoints": [
+          768,
+          1024
+        ],
+        "skeleton": "Single column, perfectly centered content block."
+      },
+      "motion": {
+        "durations": {
+          "micro": 220,
+          "small": 400,
+          "medium": 800
+        },
+        "easing": "cubic-bezier(0.25, 0.1, 0.25, 1)"
+      },
+      "identity": {
+        "keywords": [
+          "Automotive",
+          "Minimal",
+          "Technical"
+        ],
+        "analogy": "A blank canvas with a technical watermark.",
+        "oneLiner": "A minimalist, high-key corporate placeholder focusing on a central monogram."
+      },
+      "components": {
+        "button": "none",
+        "card": "none",
+        "chip": "none",
+        "input": "none",
+        "hero": "none"
+      },
+      "interaction": {
+        "hover": "none",
+        "click": "none",
+        "transition": "none",
+        "keyboard": "none"
+      },
+      "voice": {
+        "tone": "minimal",
+        "headlineStyle": "monogram",
+        "ctaStyle": "none",
+        "avoid": [
+          "complex layouts",
+          "vibrant colors",
+          "dense text"
+        ]
+      },
+      "donts": [
+        "don't use vibrant gradients — screenshot shows a solid white background.",
+        "don't add complex navigation — screenshot shows a single centered element.",
+        "don't use dark mode — screenshot shows a pure white background.",
+        "don't use serif typography — screenshot shows a monospace font.",
+        "don't add multiple components — screenshot shows only a single logo and icon.",
+        "don't use a dark background — screenshot shows a bright white canvas."
+      ],
+      "systemPrompt": "This design represents an extreme minimalist placeholder, utilizing a pure white background with a single centered technical element. The palette is strictly monochromatic, featuring only white and neutral grays. The typography is purely functional, using a monospaced font for the text, reminiscent of a loading screen or system prompt. Key constraints include avoiding any visual clutter, gradients, or secondary actions; maintain absolute centering and a completely blank surrounding canvas. This is a baseline, functional state rather than a fully realized UI."
+    }
+  },
+  {
+    "id": "replicate",
+    "title": "Replicate",
+    "url": "https://replicate.com",
+    "image": "https://image.thum.io/get/width/1440/https://replicate.com",
+    "tags": [
+      "Developer Tools",
+      "AI",
+      "Gradient",
+      "Clean",
+      "Tooling"
+    ],
+    "palette": "A vibrant pink-to-yellow gradient hero set against a clean, white utilitarian interface with high-contrast dark text.",
+    "layout": "Full-width gradient hero section leading into a functional, single-column layout for code examples and features.",
+    "interaction": "Standard, clean interactions with clear hover states on navigation and buttons.",
+    "motion": "Minimal motion implied by the static screenshot, likely focused on smooth page transitions.",
+    "notes": "Worth including as a prime example of a modern developer tool interface that balances vibrant branding with functional clarity.",
+    "spec": {
+      "colors": {
+        "bg": "#FFFFFF",
+        "bgSoft": null,
+        "bgQuiet": null,
+        "ink": "#1A1A1A",
+        "inkSoft": null,
+        "muted": "#6B7280",
+        "mutedSoft": null,
+        "accent": null,
+        "line": "rgba(0,0,0,0.06)",
+        "principle": "Vibrant gradient hero against a clean, white utilitarian interface."
+      },
+      "typography": {
+        "display": "geometric-sans",
+        "body": "geometric-sans",
+        "mono": "monospace",
+        "scale": [
+          {
+            "token": "display",
+            "size": 56,
+            "lh": 1.0,
+            "weight": 700,
+            "ls": "-1.5px",
+            "use": "Hero headline"
+          }
+        ]
+      },
+      "spacing": {
+        "base": 4,
+        "scale": [
+          4,
+          8,
+          16,
+          24,
+          32,
+          48,
+          64,
+          96
+        ],
+        "rhythm": "8px grid based"
+      },
+      "surfaces": {
+        "radius": {
+          "sm": 4,
+          "md": 8,
+          "lg": 12,
+          "pill": 999
+        },
+        "shadows": [
+          "0 4px 6px -1px rgba(0,0,0,0.1)"
+        ],
+        "borders": "1px solid rgba(0,0,0,0.06)"
+      },
+      "layout": {
+        "container": 1280,
+        "paragraph": 680,
+        "columns": 12,
+        "gutter": 24,
+        "breakpoints": [
+          768,
+          1024
+        ],
+        "skeleton": "Full-width gradient hero with centered content and code block below."
+      },
+      "motion": {
+        "durations": {
+          "micro": 220,
+          "small": 400,
+          "medium": 800
+        },
+        "easing": "cubic-bezier(0.4, 0, 0.2, 1)"
+      },
+      "identity": {
+        "keywords": [
+          "developer-first",
+          "AI infrastructure",
+          "API",
+          "modern"
+        ],
+        "analogy": "A colorful, developer-friendly API gateway for AI models.",
+        "oneLiner": "A clean, high-chroma developer platform for running AI models via API."
+      },
+      "components": {
+        "button": "Solid black with white text or outlined with black text, pill or slightly rounded.",
+        "card": "Code block with tabbed interface and syntax highlighting.",
+        "chip": "Small, rounded tags for models or technologies.",
+        "input": "Search bar with command palette hint.",
+        "hero": "Large, bold typography over a vibrant, animated gradient background."
+      },
+      "interaction": {
+        "hover": "Subtle color shifts or underlines on navigation links.",
+        "click": "Standard button press states.",
+        "transition": "Smooth transitions between page states.",
+        "keyboard": "Full keyboard navigation support with visible focus indicators."
+      },
+      "voice": {
+        "tone": "Professional, direct, and developer-centric.",
+        "headlineStyle": "Short, punchy, action-oriented phrases.",
+        "ctaStyle": "Clear, imperative commands ('Get started for free').",
+        "avoid": [
+          "Marketing jargon",
+          "Vague promises",
+          "Overly casual language",
+          "Long sentences"
+        ]
+      },
+      "donts": [
+        "Don't use a plain white background for the hero — the screenshot shows a vibrant gradient.",
+        "Don't use decorative fonts — the screenshot uses clean geometric sans-serif for all text.",
+        "Don't use rounded corners everywhere — the code block and buttons have specific, moderate rounding.",
+        "Don't use bright, clashing accent colors in the UI — the vibrancy is contained in the hero gradient.",
+        "Don't use complex, shadowed cards — the UI elements are flat with subtle borders.",
+        "Don't use large, spaced-out layouts — the content is relatively compact and functional."
+      ],
+      "systemPrompt": "Replicate is a developer-first AI infrastructure platform. The design features a vibrant pink-to-yellow gradient hero contrasted with a clean white utility interface. Key colors include a white background (#FFFFFF), dark ink (#1A1A1A), and muted text (#6B7280). Typography uses clean geometric-sans-serif categories. Critical donts: don't use decorative fonts, don't overcomplicate the UI with excessive shadows, and don't use bright accents outside the hero gradient."
+    }
+  },
+  {
+    "id": "resend",
+    "title": "Resend",
+    "url": "https://resend.com",
+    "image": "https://image.thum.io/get/width/1440/https://resend.com",
+    "tags": [
+      "Developer Tools",
+      "SaaS",
+      "Clean",
+      "Premium",
+      "Dark Mode"
+    ],
+    "palette": "Pure monochromatic design using only black and white with subtle gray variations for hierarchy and depth.",
+    "layout": "Left-aligned hero composition with generous vertical spacing and asymmetric balance, prioritizing content clarity.",
+    "interaction": "Minimal interactive feedback with subtle hover states and transparent button treatments.",
+    "motion": "Reserved motion design with micro-interactions that enhance usability without distraction.",
+    "notes": "Excellent example of developer-focused design that prioritizes clarity and technical credibility over visual decoration, establishing trust through restraint and precision.",
+    "spec": {
+      "colors": {
+        "bg": "#000000",
+        "bgSoft": "#0a0a0a",
+        "bgQuiet": "#111111",
+        "ink": "#ffffff",
+        "inkSoft": "#a0a0a0",
+        "muted": "#666666",
+        "mutedSoft": "#444444",
+        "accent": null,
+        "line": "rgba(255, 255, 255, 0.1)",
+        "principle": "Monochromatic foundation with white text on pure black, emphasizing content clarity"
+      },
+      "typography": {
+        "display": "transitional-serif",
+        "body": "humanist-sans",
+        "mono": "monospace",
+        "scale": [
+          {
+            "token": "display",
+            "size": 80,
+            "lh": 1.05,
+            "weight": 400,
+            "ls": "-2px",
+            "use": "hero headline"
+          },
+          {
+            "token": "headline",
+            "size": 48,
+            "lh": 1.1,
+            "weight": 400,
+            "ls": "-1px",
+            "use": "section headlines"
+          },
+          {
+            "token": "title",
+            "size": 32,
+            "lh": 1.2,
+            "weight": 500,
+            "ls": "-0.5px",
+            "use": "card titles"
+          },
+          {
+            "token": "body",
+            "size": 16,
+            "lh": 1.6,
+            "weight": 400,
+            "ls": "0px",
+            "use": "paragraph text"
+          },
+          {
+            "token": "caption",
+            "size": 14,
+            "lh": 1.5,
+            "weight": 400,
+            "ls": "0px",
+            "use": "secondary text"
+          }
+        ],
+        "rules": [
+          "Hero text uses transitional-serif with tight tracking for dramatic impact",
+          "Body text uses humanist-sans for excellent readability on dark backgrounds",
+          "Mono font used for code examples and technical labels",
+          "Weight contrast between display (400) and body (400) creates hierarchy through size"
+        ]
+      },
+      "spacing": {
+        "base": 4,
+        "scale": [
+          4,
+          8,
+          16,
+          24,
+          32,
+          48,
+          64,
+          96,
+          128
+        ],
+        "rhythm": "8px base grid with generous whitespace creating breathing room"
+      },
+      "surfaces": {
+        "radius": {
+          "sm": 4,
+          "md": 8,
+          "lg": 12,
+          "pill": 999
+        },
+        "shadows": [
+          "0 0 0 1px rgba(255,255,255,0.1)",
+          "0 4px 12px rgba(0,0,0,0.3)"
+        ],
+        "borders": "1px solid rgba(255,255,255,0.1)"
+      },
+      "layout": {
+        "container": 1200,
+        "paragraph": 680,
+        "columns": 12,
+        "gutter": 24,
+        "breakpoints": [
+          768,
+          1024,
+          1280
+        ],
+        "skeleton": "Left-aligned hero with generous vertical spacing and asymmetric composition"
+      },
+      "motion": {
+        "durations": {
+          "micro": 150,
+          "small": 250,
+          "medium": 400
+        },
+        "easing": "cubic-bezier(0.16, 1, 0.3, 1)",
+        "patterns": [
+          "Subtle hover states on interactive elements",
+          "Smooth page transitions",
+          "Minimal decorative animations"
+        ]
+      },
+      "identity": {
+        "keywords": [
+          "developer",
+          "email",
+          "infrastructure",
+          "reliability",
+          "simplicity"
+        ],
+        "analogy": "A premium development tool with the clarity of a well-documented API",
+        "oneLiner": "Email infrastructure for developers built with precision and developer-centric design"
+      },
+      "components": {
+        "button": "Pill-shaped with transparent background and subtle border, minimal visual weight",
+        "card": "Dark panels with subtle borders, minimal decoration, content-focused",
+        "chip": "Rounded tags with outline style and subtle background",
+        "input": "Dark background with subtle borders, minimal chrome",
+        "hero": "Large serif headline with supporting sans-serif text and minimal CTA"
+      },
+      "interaction": {
+        "hover": "Subtle color shifts and border highlights on interactive elements",
+        "click": "Immediate response with minimal visual feedback",
+        "transition": "Smooth transitions between states using cubic-bezier easing",
+        "keyboard": "Full keyboard navigation with visible focus states"
+      },
+      "voice": {
+        "tone": "Professional, direct, and developer-focused with technical precision",
+        "headlineStyle": "Clear, concise statements emphasizing value proposition",
+        "ctaStyle": "Minimal text CTAs with transparent buttons, avoiding visual noise",
+        "avoid": [
+          "Marketing jargon or buzzwords",
+          "Overly casual language",
+          "Complex sentences or paragraphs",
+          "Decorative text or filler content"
+        ]
+      },
+      "donts": [
+        "don't use bright accent colors — screenshot shows monochromatic palette with no dominant hue",
+        "don't add decorative gradients or textures — screenshot shows clean black background with subtle noise",
+        "don't use rounded rectangles for primary CTAs — screenshot shows pill-shaped buttons",
+        "don't center-align hero text — screenshot shows left-aligned composition",
+        "don't use heavy shadows or depth effects — screenshot shows minimal, subtle elevation",
+        "don't clutter with multiple font weights — screenshot shows consistent light weights with size hierarchy",
+        "don't use busy layouts with many elements — screenshot shows generous whitespace and minimal components"
+      ],
+      "systemPrompt": "Resend is a premium developer tool for email infrastructure, positioned as 'Email for developers'. The design uses a monochromatic black (#000000) background with white (#ffffff) text, creating a stark, professional aesthetic. Typography features transitional-serif for display text and humanist-sans for body copy, with generous sizing (80px hero) and tight tracking (-2px) for dramatic impact. Key design principles include minimalism, developer-centric clarity, and premium restraint. Critical don'ts: avoid bright accent colors (no accent exists), avoid decorative elements, avoid center-aligned hero text, avoid heavy shadows, avoid complex layouts, and avoid marketing jargon in copy."
+    }
+  },
+  {
+    "id": "revolut",
+    "title": "Revolut",
+    "url": "https://www.revolut.com",
+    "image": "https://image.thum.io/get/width/1440/https://www.revolut.com",
+    "tags": [
+      "Fintech",
+      "Clean",
+      "Consumer",
+      "Product",
+      "Mobile UI"
+    ],
+    "palette": "Pure black and white with a single blue accent in the 3D illustration for maximum clarity and trust.",
+    "layout": "Simple centered vertical stack with generous whitespace, focusing all attention on the security verification message.",
+    "interaction": "Minimal interaction with only the Cloudflare verification widget providing visual feedback through subtle animation.",
+    "motion": "Subtle loading animation in the verification widget to indicate progress without distraction.",
+    "notes": "Worth including as an example of how fintech platforms handle security checkpoints with minimal, trust-focused design that prioritizes user reassurance over visual complexity.",
+    "spec": {
+      "colors": {
+        "bg": "#FFFFFF",
+        "bgSoft": null,
+        "bgQuiet": null,
+        "ink": "#000000",
+        "inkSoft": null,
+        "muted": "#666666",
+        "mutedSoft": null,
+        "accent": null,
+        "line": "rgba(0,0,0,0.1)",
+        "principle": "High-contrast black and white for maximum clarity and trust, with a single blue accent only in the 3D illustration."
+      },
+      "typography": {
+        "display": "geometric-sans",
+        "body": "geometric-sans",
+        "mono": null,
+        "scale": [
+          {
+            "token": "display",
+            "size": 32,
+            "lh": 1.2,
+            "weight": 500,
+            "ls": "-0.5px",
+            "use": "Main heading 'Just a quick security check'"
+          },
+          {
+            "token": "body",
+            "size": 14,
+            "lh": 1.4,
+            "weight": 400,
+            "ls": "0px",
+            "use": "Cloudflare verification text"
+          }
+        ],
+        "rules": [
+          "Headings use medium weight for approachability",
+          "Body text remains at regular weight for legibility",
+          "Generous letter spacing on headlines"
+        ]
+      },
+      "spacing": {
+        "base": 4,
+        "scale": [
+          4,
+          8,
+          16,
+          24,
+          32,
+          48,
+          64,
+          96
+        ],
+        "rhythm": "Consistent 4px grid system with generous whitespace for breathing room"
+      },
+      "surfaces": {
+        "radius": {
+          "sm": 4,
+          "md": 8,
+          "lg": 12,
+          "pill": 999
+        },
+        "shadows": [],
+        "borders": "Thin, light borders only on the verification widget"
+      },
+      "layout": {
+        "container": 1280,
+        "paragraph": 680,
+        "columns": 12,
+        "gutter": 24,
+        "breakpoints": [
+          768,
+          1024
+        ],
+        "skeleton": "Vertically centered single-column layout with generous vertical spacing"
+      },
+      "motion": {
+        "durations": {
+          "micro": 220,
+          "small": 400,
+          "medium": 800
+        },
+        "easing": "cubic-bezier(0.25, 0.1, 0.25, 1)",
+        "patterns": [
+          "subtle loading animation in verification widget"
+        ]
+      },
+      "identity": {
+        "keywords": [
+          "security",
+          "verification",
+          "protection",
+          "trust"
+        ],
+        "analogy": "digital security checkpoint before entering a secure banking environment",
+        "oneLiner": "A minimal security verification page for a fintech platform with a clean, trust-focused design."
+      },
+      "components": {
+        "button": "No buttons visible on this verification page",
+        "card": "Cloudflare verification widget with light border and rounded corners",
+        "chip": "No chips present",
+        "input": "No input fields visible",
+        "hero": "Centered 3D illustration with magnifying glass and minimalist headline"
+      },
+      "interaction": {
+        "hover": "No interactive elements visible",
+        "click": "No clickable elements beyond the verification widget",
+        "transition": "No visible transitions",
+        "keyboard": "No keyboard navigation elements visible"
+      },
+      "voice": {
+        "tone": "reassuring and professional",
+        "headlineStyle": "Simple, friendly security message without technical jargon",
+        "ctaStyle": "No call-to-action buttons present",
+        "avoid": [
+          "technical jargon",
+          "alarmist language",
+          "complex instructions"
+        ]
+      },
+      "donts": [
+        "don't use dark backgrounds — screenshot shows pure white background throughout",
+        "don't add decorative elements — screenshot shows only functional 3D illustration and text",
+        "don't use multiple accent colors — screenshot shows only black, white, and a single blue in the illustration",
+        "don't create complex layouts — screenshot shows simple centered vertical stack",
+        "don't use heavy shadows or depth — screenshot shows flat design with no shadows",
+        "don't add navigation elements — screenshot shows only logo and security content"
+      ],
+      "systemPrompt": "This is a security verification page for Revolut, a fintech platform. The design prioritizes trust and simplicity with a clean white background and black typography. Key colors are #FFFFFF background and #000000 text, with a single blue accent only in the 3D illustration. Typography uses geometric sans-serif for both display and body text. Critical donts: don't add unnecessary navigation, don't use dark backgrounds, don't introduce multiple accent colors, don't create complex layouts, don't add decorative elements beyond the functional illustration, don't use alarmist language in security messaging."
+    }
+  },
+  {
+    "id": "runwayml",
+    "title": "Runwayml",
+    "url": "https://runwayml.com",
+    "image": "https://image.thum.io/get/width/1440/https://runwayml.com",
+    "tags": [
+      "AI",
+      "Dark Mode",
+      "Experimental",
+      "Photographic",
+      "Product"
+    ],
+    "palette": "A monochromatic, high-contrast palette dominated by white, black, and subtle grays, with deep, atmospheric colors provided primarily through photography.",
+    "layout": "A clean, centered layout with a full-width hero followed by structured, well-spaced content sections.",
+    "interaction": "Subtle and functional interactions with minimal animation, focusing on clarity and ease of use.",
+    "motion": "Smooth, professional transitions and fade-ins that enhance the sophisticated feel without being distracting.",
+    "notes": "This site is a strong example of a modern, tech-focused SaaS/AI platform that balances bold visual statements with a restrained and functional design system.",
+    "spec": {
+      "colors": {
+        "bg": "#FFFFFF",
+        "bgSoft": "#F7F7F7",
+        "bgQuiet": "#EAEAEA",
+        "ink": "#000000",
+        "inkSoft": "#333333",
+        "muted": "#666666",
+        "mutedSoft": "#999999",
+        "accent": null,
+        "line": "rgba(0, 0, 0, 0.1)",
+        "principle": "High-contrast, primarily monochromatic with deep photographic dark modes."
+      },
+      "typography": {
+        "display": "grotesque-sans",
+        "body": "grotesque-sans",
+        "mono": null,
+        "scale": [
+          {
+            "token": "display",
+            "size": 56,
+            "lh": 1.05,
+            "weight": 500,
+            "ls": "-1px",
+            "use": "Main Hero Heading"
+          },
+          {
+            "token": "h2",
+            "size": 36,
+            "lh": 1.15,
+            "weight": 500,
+            "ls": "-0.5px",
+            "use": "Section Headings"
+          },
+          {
+            "token": "body",
+            "size": 16,
+            "lh": 1.5,
+            "weight": 400,
+            "ls": "0px",
+            "use": "Primary Text"
+          },
+          {
+            "token": "caption",
+            "size": 12,
+            "lh": 1.4,
+            "weight": 500,
+            "ls": "0.5px",
+            "use": "Navigation & Small Labels"
+          }
+        ],
+        "rules": [
+          "Use uppercase tracking for navigation and small labels.",
+          "Headings use tight letter-spacing and medium weight for a modern, solid feel."
+        ]
+      },
+      "spacing": {
+        "base": 4,
+        "scale": [
+          4,
+          8,
+          16,
+          24,
+          32,
+          48,
+          64,
+          96
+        ],
+        "rhythm": "Consistent 4px base with generous vertical spacing between sections."
+      },
+      "surfaces": {
+        "radius": {
+          "sm": 4,
+          "md": 8,
+          "lg": 12,
+          "pill": 999
+        },
+        "shadows": [
+          "0 1px 2px rgba(0,0,0,0.05)"
+        ],
+        "borders": "1px solid #EAEAEA"
+      },
+      "layout": {
+        "container": 1280,
+        "paragraph": 680,
+        "columns": 12,
+        "gutter": 24,
+        "breakpoints": [
+          768,
+          1024
+        ],
+        "skeleton": "Full-width hero with centered content below."
+      },
+      "motion": {
+        "durations": {
+          "micro": 150,
+          "small": 300,
+          "medium": 600
+        },
+        "easing": "cubic-bezier(0.16, 1, 0.3, 1)",
+        "patterns": [
+          "Smooth fade-ins for elements entering the viewport.",
+          "Subtle transitions on hover states."
+        ]
+      },
+      "identity": {
+        "keywords": [
+          "AI",
+          "Simulation",
+          "World Models",
+          "Generative",
+          "Creative Technology"
+        ],
+        "analogy": "A cinematic exploration of AI capabilities.",
+        "oneLiner": "Building advanced AI models to simulate the world for creative and industrial applications."
+      },
+      "components": {
+        "button": "Minimalist with black fill for primary actions and white fill with black border for secondary.",
+        "card": "Minimalist, often borderless, relying on typography and imagery.",
+        "chip": "Simple rounded badges for navigation or categories.",
+        "input": "Clean lines with minimal ornamentation, focusing on functionality.",
+        "hero": "Large, immersive dark photographic/video background with bold white typography."
+      },
+      "interaction": {
+        "hover": "Subtle scale or opacity changes on interactive elements.",
+        "click": "Immediate feedback with minimal animation.",
+        "transition": "Smooth color and opacity transitions on focus and hover.",
+        "keyboard": "Standard focus states with clear outlines."
+      },
+      "voice": {
+        "tone": "Visionary, sophisticated, and authoritative.",
+        "headlineStyle": "Bold and concise, often making a grand statement.",
+        "ctaStyle": "Direct and action-oriented, e.g., 'Get Started'.",
+        "avoid": [
+          "Playful language",
+          "Excessive exclamation marks",
+          "Informal slang"
+        ]
+      },
+      "donts": [
+        "don't use decorative fonts — screenshot shows clean, functional grotesque-sans.",
+        "don't add gradients to text — screenshot shows solid, flat typography.",
+        "don't use a complex color palette — screenshot shows a largely monochromatic scheme with photographic accents.",
+        "don't clutter the layout with too many elements — screenshot shows generous whitespace and a clear hierarchy.",
+        "don't use heavy drop shadows — screenshot shows very subtle, almost imperceptible elevation.",
+        "don't use rounded corners everywhere — screenshot shows sharp, precise geometry for many elements."
+      ],
+      "systemPrompt": "Runway is an AI research and product company building models to simulate the world. The site's design is clean, sophisticated, and tech-forward, using a monochromatic palette (white, black, grays) with immersive dark photographic heroes. The typography is a clean grotesque-sans, with tight spacing for headlines and a structured layout. Key colors include #000000 for ink, #FFFFFF for background, and #F7F7F7 for soft surfaces. Critical design constraints include avoiding decorative fonts, maintaining generous whitespace, and using minimal, precise geometry without heavy ornamentation. The overall feel is one of cutting-edge innovation and restrained power."
+    }
+  },
+  {
+    "id": "shopify",
+    "title": "Shopify",
+    "url": "https://www.shopify.com",
+    "image": "https://image.thum.io/get/width/1440/https://www.shopify.com",
+    "tags": [
+      "SaaS",
+      "Product",
+      "AI",
+      "Premium",
+      "Clean"
+    ],
+    "palette": "A dark-mode palette centered around deep blacks and high-contrast white text, with a subtle brand green accent.",
+    "layout": "Full-bleed, editorial layout prioritizing large typography and atmospheric photography over traditional UI components.",
+    "interaction": "Smooth, subtle transitions focus on content discovery and clear, unambiguous primary calls to action.",
+    "motion": "Refined, understated animations that enhance the premium feel without distracting from the content.",
+    "notes": "This site perfectly demonstrates a premium, dark-mode B2B SaaS aesthetic that balances high-end editorial photography with functional commerce UI.",
+    "spec": {
+      "colors": {
+        "bg": "#000000",
+        "bgSoft": "#111111",
+        "bgQuiet": "#000000",
+        "ink": "#FFFFFF",
+        "inkSoft": "#E0E0E0",
+        "muted": "#888888",
+        "mutedSoft": "#AAAAAA",
+        "accent": "#95BF47",
+        "line": "rgba(255, 255, 255, 0.1)",
+        "principle": "High-contrast dark mode with stark white text and deep black backgrounds to emphasize premium photography."
+      },
+      "typography": {
+        "display": "transitional-serif",
+        "body": "humanist-sans",
+        "mono": null,
+        "scale": [
+          {
+            "token": "display",
+            "size": 72,
+            "lh": 1.05,
+            "weight": 500,
+            "ls": "-2px",
+            "use": "Hero headlines"
+          },
+          {
+            "token": "headline",
+            "size": 48,
+            "lh": 1.15,
+            "weight": 400,
+            "ls": "-1px",
+            "use": "Section titles"
+          },
+          {
+            "token": "body",
+            "size": 18,
+            "lh": 1.5,
+            "weight": 400,
+            "ls": "0",
+            "use": "Paragraphs"
+          }
+        ],
+        "rules": [
+          "Headlines use a high-contrast serif with moderate weight.",
+          "Body text is clean, highly legible sans-serif.",
+          "Tight letter-spacing on large display text."
+        ]
+      },
+      "spacing": {
+        "base": 4,
+        "scale": [
+          4,
+          8,
+          16,
+          24,
+          32,
+          48,
+          64,
+          96,
+          128
+        ],
+        "rhythm": "Generous whitespace around large typography blocks, maintaining a strong vertical rhythm."
+      },
+      "surfaces": {
+        "radius": {
+          "sm": 6,
+          "md": 12,
+          "lg": 24,
+          "pill": 999
+        },
+        "shadows": [],
+        "borders": "Subtle 1px borders using white with low opacity to separate sections."
+      },
+      "layout": {
+        "container": 1440,
+        "paragraph": 720,
+        "columns": 12,
+        "gutter": 32,
+        "breakpoints": [
+          768,
+          1024,
+          1440
+        ],
+        "skeleton": "Full-width hero sections with centered content, transitioning to grid-based card layouts below."
+      },
+      "motion": {
+        "durations": {
+          "micro": 200,
+          "small": 350,
+          "medium": 600
+        },
+        "easing": "cubic-bezier(0.25, 0.1, 0.25, 1)",
+        "patterns": [
+          "Subtle fade-ins for text blocks.",
+          "Smooth image transitions on hover."
+        ]
+      },
+      "identity": {
+        "keywords": [
+          "commerce",
+          "empowerment",
+          "scale",
+          "innovation",
+          "global"
+        ],
+        "analogy": "A high-end enterprise dashboard meeting an aspirational lifestyle magazine.",
+        "oneLiner": "A premium, dark-themed commerce platform empowering global scale through AI and modern infrastructure."
+      },
+      "components": {
+        "button": "Pill-shaped buttons; solid white for primary actions, outlined for secondary, with dark text.",
+        "card": "Large, image-forward cards with minimal chrome.",
+        "chip": "Minimal, likely text-based or small rounded tags.",
+        "input": "Clean, minimal form fields with subtle borders.",
+        "hero": "Full-bleed photographic background with overlay, featuring large serif typography."
+      },
+      "interaction": {
+        "hover": "Subtle opacity changes and cursor pointer updates.",
+        "click": "Immediate visual feedback, usually color inversion or subtle scale.",
+        "transition": "Smooth 200-300ms transitions on interactive elements.",
+        "keyboard": "Standard tab navigation with focus rings."
+      },
+      "voice": {
+        "tone": "Empowering, professional, aspirational, and authoritative.",
+        "headlineStyle": "Short, punchy, and slightly dramatic.",
+        "ctaStyle": "Direct and action-oriented ('Start for free').",
+        "avoid": [
+          "Jargon-heavy text",
+          "Weak or hesitant language",
+          "Overly complex sentence structures",
+          "Cluttered layouts"
+        ]
+      },
+      "donts": [
+        "Don't use bright, saturated backgrounds — screenshot shows deep blacks and dark photography.",
+        "Don't use heavy, decorative display fonts — screenshot uses clean serif and sans-serif pairings.",
+        "Don't clutter the interface with many small buttons — screenshot shows clear, distinct pill-shaped CTAs.",
+        "Don't use busy, low-quality imagery — screenshot features high-end, atmospheric photography.",
+        "Don't use a light-mode default — screenshot is strictly dark-mode optimized.",
+        "Don't use harsh, solid borders — screenshot relies on contrast and spacing for separation."
+      ],
+      "systemPrompt": "Shopify is a premium commerce platform positioned as a powerful, scalable tool for global entrepreneurs and enterprises. The design utilizes a dark-mode palette (bg #000000, ink #FFFFFF) with a muted green accent (#95BF47) for the brand. Typography pairs a clean humanist-sans body with a high-contrast transitional-serif display face for large, impactful headlines. Critical donts include: do not introduce light-mode elements, avoid cluttering the layout with unnecessary UI chrome, and do not use low-quality or generic stock photography. The overall feel is clean, editorial, and aspirational."
+    }
+  },
+  {
+    "id": "spotify",
+    "title": "Spotify",
+    "url": "https://www.spotify.com",
+    "image": "https://image.thum.io/get/width/1440/https://www.spotify.com",
+    "tags": [
+      "SaaS",
+      "Productivity",
+      "App UI",
+      "Dark Mode",
+      "Music"
+    ],
+    "palette": "A strict dark-themed monochrome palette using #121212 and #181818, designed to prioritize visual content.",
+    "layout": "A structured three-column layout with a fixed navigation sidebar and a scrollable main content area.",
+    "interaction": "Subtle hover states and smooth transitions enhance the browsing experience without being distracting.",
+    "motion": "Minimal, functional motion focused on smooth transitions and carousel sliding.",
+    "notes": "A highly refined dark-mode interface that balances information density with visual clarity, making it an excellent reference for content-heavy applications.",
+    "spec": {
+      "colors": {
+        "bg": "#121212",
+        "bgSoft": "#181818",
+        "bgQuiet": "#282828",
+        "ink": "#FFFFFF",
+        "inkSoft": "#B3B3B3",
+        "muted": "#A7A7A7",
+        "mutedSoft": "#6A6A6A",
+        "accent": null,
+        "line": "rgba(255, 255, 255, 0.1)",
+        "principle": "High contrast for readability in low-light environments, with distinct surface layers to establish hierarchy."
+      },
+      "typography": {
+        "display": "grotesque-sans",
+        "body": "grotesque-sans",
+        "mono": null,
+        "scale": [
+          {
+            "token": "display",
+            "size": 32,
+            "lh": 1.2,
+            "weight": 700,
+            "ls": "-0.5px",
+            "use": "Section headers"
+          },
+          {
+            "token": "title",
+            "size": 24,
+            "lh": 1.2,
+            "weight": 700,
+            "ls": "-0.2px",
+            "use": "Card titles"
+          },
+          {
+            "token": "subtitle",
+            "size": 16,
+            "lh": 1.4,
+            "weight": 700,
+            "ls": "0",
+            "use": "Card subtitles"
+          },
+          {
+            "token": "body",
+            "size": 14,
+            "lh": 1.4,
+            "weight": 400,
+            "ls": "0",
+            "use": "General text"
+          },
+          {
+            "token": "caption",
+            "size": 12,
+            "lh": 1.4,
+            "weight": 400,
+            "ls": "0",
+            "use": "Metadata and badges"
+          }
+        ]
+      },
+      "spacing": {
+        "base": 4,
+        "scale": [
+          4,
+          8,
+          16,
+          24,
+          32,
+          48
+        ],
+        "rhythm": "Consistent 4px grid for tight UI alignment."
+      },
+      "surfaces": {
+        "radius": {
+          "sm": 4,
+          "md": 8,
+          "lg": 12,
+          "pill": 999
+        },
+        "shadows": [],
+        "borders": "1px solid rgba(255, 255, 255, 0.1)"
+      },
+      "layout": {
+        "container": 1280,
+        "paragraph": 680,
+        "columns": 12,
+        "gutter": 24,
+        "breakpoints": [
+          768,
+          1024
+        ],
+        "skeleton": "Fixed left sidebar (280px) with main scrollable content area on the right."
+      },
+      "motion": {
+        "durations": {
+          "micro": 150,
+          "small": 300,
+          "medium": 500
+        },
+        "easing": "cubic-bezier(0.1, 0.9, 0.2, 1)",
+        "patterns": [
+          "Slide carousels horizontally",
+          "Fade in content sections"
+        ]
+      },
+      "identity": {
+        "keywords": [
+          "Streaming",
+          "Music",
+          "Library",
+          "Discover"
+        ],
+        "analogy": "A dark, immersive nightclub with curated shelves",
+        "oneLiner": "A dark-themed music streaming interface focused on content discovery."
+      },
+      "components": {
+        "button": "Pill-shaped, green-filled for primary actions, white-bordered for secondary.",
+        "card": "Dark grey background with image-heavy content and rounded corners.",
+        "chip": "Pill-shaped for metadata (e.g., explicit tag).",
+        "input": "Dark grey background with rounded corners and subtle border.",
+        "hero": "Horizontal carousel cards for trending content."
+      },
+      "interaction": {
+        "hover": "Subtle background brightening on cards and buttons.",
+        "click": "Scale down slightly on press for buttons.",
+        "transition": "Smooth opacity and background color transitions.",
+        "keyboard": "Standard focus outlines, often using brand colors."
+      },
+      "voice": {
+        "tone": "Casual, direct, and inviting.",
+        "headlineStyle": "Bold and concise.",
+        "ctaStyle": "Direct and action-oriented (e.g., 'Create playlist', 'Browse podcasts').",
+        "avoid": [
+          "Overly formal language",
+          "Dense paragraphs"
+        ]
+      },
+      "donts": [
+        "Don't use light mode — screenshot shows a dark (#121212) interface.",
+        "Don't use serif fonts — screenshot shows a clean sans-serif typography system.",
+        "Don't use sharp corners — screenshot shows rounded corners (8-12px radius) on most elements.",
+        "Don't use excessive padding — screenshot shows a compact layout optimized for information density.",
+        "Don't use multiple accent colors — screenshot relies on a monochrome palette with very few colored accents.",
+        "Don't use heavy borders — screenshot relies on background color contrast to separate sections."
+      ],
+      "systemPrompt": "Spotify's web player is a dark-themed music streaming interface designed for deep content discovery. It uses a monochrome palette centered on black (#121212) and dark grey (#181818) to make colorful album art pop. The typography is a clean, geometric grotesque-sans system. Critical donts: never use light mode, avoid sharp corners, and never use serif fonts. The layout uses a fixed sidebar for library navigation and a scrollable main area for recommendations. This design exemplifies high-density content management in a dark-mode environment."
+    }
+  },
+  {
+    "id": "starbucks",
+    "title": "Starbucks",
+    "url": "https://www.starbucks.com",
+    "image": "https://image.thum.io/get/width/1440/https://www.starbucks.com",
+    "tags": [
+      "Editorial"
+    ],
+    "palette": "The palette is stark and minimal, consisting primarily of white and neutral greys with a single blue accent in the logo.",
+    "layout": "The layout is a single, centered column with generous whitespace, creating a focused and uncluttered composition.",
+    "interaction": "No interactive elements are visible, suggesting a static state like a loading screen or splash page.",
+    "motion": "No animation is visible, though the circular logo mark implies a potential for a simple rotation or pulse.",
+    "notes": "This design is worth including as an example of extreme minimalism and corporate placeholder aesthetics.",
+    "spec": {
+      "colors": {
+        "bg": "#FFFFFF",
+        "bgSoft": null,
+        "bgQuiet": null,
+        "ink": "#666666",
+        "inkSoft": null,
+        "muted": "#B0B0B0",
+        "mutedSoft": null,
+        "accent": null,
+        "line": "rgba(0,0,0,0)",
+        "principle": "Stark, minimalist, and predominantly neutral."
+      },
+      "typography": {
+        "display": "geometric-sans",
+        "body": "monospaced",
+        "mono": "monospaced",
+        "scale": [
+          {
+            "token": "display",
+            "size": 24,
+            "lh": 1.2,
+            "weight": 500,
+            "ls": "0px",
+            "use": "Wordmark"
+          }
+        ],
+        "rules": [
+          "All typography appears to be monospaced or strictly geometric."
+        ]
+      },
+      "spacing": {
+        "base": 4,
+        "scale": [
+          4,
+          8,
+          16,
+          24,
+          32,
+          48,
+          64,
+          96
+        ],
+        "rhythm": "Centered, vertically stacked with generous whitespace."
+      },
+      "surfaces": {
+        "radius": {
+          "sm": 0,
+          "md": 0,
+          "lg": 0,
+          "pill": 999
+        },
+        "shadows": [],
+        "borders": "None visible."
+      },
+      "layout": {
+        "container": 1280,
+        "paragraph": 680,
+        "columns": 12,
+        "gutter": 24,
+        "breakpoints": [
+          768,
+          1024
+        ],
+        "skeleton": "A single centered column with vertically stacked elements."
+      },
+      "motion": {
+        "durations": {
+          "micro": 220,
+          "small": 400,
+          "medium": 800
+        },
+        "easing": "cubic-bezier(0.4, 0, 0.2, 1)",
+        "patterns": [
+          "Potential rotation or pulse for the circular element."
+        ]
+      },
+      "identity": {
+        "keywords": [
+          "minimal",
+          "corporate",
+          "loading",
+          "abstract"
+        ],
+        "analogy": "A loading spinner or placeholder screen for a corporate presentation",
+        "oneLiner": "A minimal, corporate loading or placeholder screen featuring a geometric logo mark and monospace wordmark."
+      },
+      "components": {
+        "button": "None visible.",
+        "card": "None visible.",
+        "chip": "None visible.",
+        "input": "None visible.",
+        "hero": "A centered loading spinner or logo mark."
+      },
+      "interaction": {
+        "hover": "None visible.",
+        "click": "None visible.",
+        "transition": "None visible.",
+        "keyboard": "None visible."
+      },
+      "voice": {
+        "tone": "Neutral, corporate, placeholder.",
+        "headlineStyle": "None visible.",
+        "ctaStyle": "None visible.",
+        "avoid": [
+          "Playful or expressive copy",
+          "Dense layouts",
+          "Decorative elements"
+        ]
+      },
+      "donts": [
+        "don't use decorative elements — screenshot shows a single geometric logo mark",
+        "don't use multiple colors — screenshot shows only white, grey, and a single blue accent",
+        "don't use a standard sans-serif font — screenshot shows a monospaced font for the wordmark",
+        "don't create dense layouts — screenshot shows a completely centered, minimalist layout",
+        "don't use complex imagery — screenshot shows only a simple 3D-rendered ring and text",
+        "don't add borders or shadows — screenshot shows a completely flat composition"
+      ],
+      "systemPrompt": "This is a minimalist, corporate placeholder or loading screen. Key hex colors are a stark white background (#FFFFFF) and neutral grey typography (#666666). The primary font category is monospaced, used for both the wordmark and potentially all UI. Critical donts: do not add decorative elements, as the design is severely stripped back; do not use multiple colors, as the palette is strictly monochromatic with one minor blue accent; do not create dense layouts, as the composition relies entirely on generous whitespace."
+    }
   },
   {
     "id": "stripe-press",
@@ -3168,6 +9014,749 @@ window.STYLE_ATLAS_SITES = [
     }
   },
   {
+    "id": "supabase",
+    "title": "Supabase",
+    "url": "https://supabase.com",
+    "image": "https://image.thum.io/get/width/1440/https://supabase.com",
+    "tags": [
+      "Developer Tools",
+      "SaaS",
+      "Product",
+      "Clean",
+      "Geometric"
+    ],
+    "palette": "A clean, high-contrast palette of black on white with a single vibrant green accent.",
+    "layout": "Centered, single-column layout with generous whitespace and a max-width container.",
+    "interaction": "Minimalist hover and transition effects focused on clarity and immediate feedback.",
+    "motion": "Subtle, purposeful transitions for state changes, avoiding unnecessary animation.",
+    "notes": "A prime example of a clean, developer-focused SaaS landing page that prioritizes clarity, trust, and technical credibility over decorative flair.",
+    "spec": {
+      "colors": {
+        "bg": "#FFFFFF",
+        "bgSoft": null,
+        "bgQuiet": null,
+        "ink": "#1A1A1A",
+        "inkSoft": "#555555",
+        "muted": "#888888",
+        "mutedSoft": null,
+        "accent": "#3ECF8E",
+        "line": "rgba(0, 0, 0, 0.1)",
+        "principle": "High-contrast, black-on-white with a single vibrant green accent for primary actions."
+      },
+      "typography": {
+        "display": "geometric-sans",
+        "body": "humanist-sans",
+        "mono": null,
+        "scale": [
+          {
+            "token": "display",
+            "size": 56,
+            "lh": 1.1,
+            "weight": 500,
+            "ls": "-1.5px",
+            "use": "Main hero headline"
+          },
+          {
+            "token": "headline",
+            "size": 32,
+            "lh": 1.2,
+            "weight": 500,
+            "ls": "-0.5px",
+            "use": "Section headings"
+          },
+          {
+            "token": "body",
+            "size": 18,
+            "lh": 1.6,
+            "weight": 400,
+            "ls": "0",
+            "use": "Paragraph text"
+          }
+        ],
+        "rules": [
+          "Headlines are set in a geometric sans-serif with tight letter-spacing.",
+          "Body text uses a clean, readable humanist sans-serif.",
+          "Weight contrast is moderate, using 400 and 500 primarily."
+        ]
+      },
+      "spacing": {
+        "base": 4,
+        "scale": [
+          4,
+          8,
+          16,
+          24,
+          32,
+          48,
+          64,
+          96
+        ],
+        "rhythm": "Consistent 8px-based spacing system with generous whitespace for clarity."
+      },
+      "surfaces": {
+        "radius": {
+          "sm": 4,
+          "md": 8,
+          "lg": 12,
+          "pill": 999
+        },
+        "shadows": [
+          "0 1px 3px rgba(0,0,0,0.04)",
+          "0 4px 12px rgba(0,0,0,0.04)"
+        ],
+        "borders": "1px solid rgba(0, 0, 0, 0.1)"
+      },
+      "layout": {
+        "container": 1200,
+        "paragraph": 680,
+        "columns": 12,
+        "gutter": 24,
+        "breakpoints": [
+          768,
+          1024
+        ],
+        "skeleton": "Centered single-column layout with a max-width container for main content."
+      },
+      "motion": {
+        "durations": {
+          "micro": 200,
+          "small": 300,
+          "medium": 500
+        },
+        "easing": "cubic-bezier(0.4, 0, 0.2, 1)",
+        "patterns": [
+          "Subtle hover state transitions on buttons and navigation."
+        ]
+      },
+      "identity": {
+        "keywords": [
+          "database",
+          "infrastructure",
+          "developer",
+          "open-source",
+          "cloud"
+        ],
+        "analogy": "A modern, clean dashboard for managing backend infrastructure.",
+        "oneLiner": "A developer-focused backend-as-a-service platform with a clean, utilitarian aesthetic."
+      },
+      "components": {
+        "button": "Solid green primary button with rounded corners, and a secondary outline/ghost button with rounded corners.",
+        "card": "White background with subtle border and rounded corners, minimal shadows.",
+        "chip": "Small rounded badges for navigation or labels.",
+        "input": "Not fully visible, but implied to be clean, rounded inputs.",
+        "hero": "Large centered headline with subtitle, followed by primary CTAs."
+      },
+      "interaction": {
+        "hover": "Subtle color or background change on interactive elements.",
+        "click": "Immediate visual feedback, no complex animations.",
+        "transition": "Smooth transitions for color and background changes.",
+        "keyboard": "Standard focus rings for accessibility."
+      },
+      "voice": {
+        "tone": "Direct, technical, and empowering.",
+        "headlineStyle": "Action-oriented and concise.",
+        "ctaStyle": "Clear and value-driven (e.g., 'Start your project').",
+        "avoid": [
+          "Jargon that doesn't serve the developer",
+          "Overly playful or casual language",
+          "Marketing fluff"
+        ]
+      },
+      "donts": [
+        "Don't use multiple competing accent colors — screenshot shows a single dominant green accent.",
+        "Don't use decorative or script fonts — screenshot shows clean, geometric sans-serif typography.",
+        "Don't clutter the layout with dense, multi-column content blocks — screenshot shows generous whitespace and a focused, single-column flow.",
+        "Don't use heavy drop shadows or 3D effects — screenshot shows minimal, subtle shadows for depth.",
+        "Don't use dark mode or dark backgrounds — screenshot shows a light, white-dominant theme.",
+        "Don't use rounded, bubbly UI components — screenshot shows moderately rounded corners, not fully circular."
+      ],
+      "systemPrompt": "Supabase is a developer-focused backend-as-a-service platform with a clean, utilitarian, and highly professional aesthetic. The design uses a high-contrast palette of black ink (#1A1A1A) on a white background (#FFFFFF), with a single vibrant green accent (#3ECF8E) for primary CTAs. Typography is a blend of geometric-sans for headlines and humanist-sans for body text, emphasizing readability and modern structure. The layout is spacious, centered, and single-column, prioritizing clarity and developer trust. Critical design constraints: Do not use multiple competing accent colors; the palette is intentionally restrained. Do not use decorative or script fonts; maintain the clean, technical feel. Do not clutter the layout with dense multi-column blocks; prioritize generous whitespace and focused content flow."
+    }
+  },
+  {
+    "id": "superhuman",
+    "title": "Superhuman",
+    "url": "https://superhuman.com",
+    "image": "https://image.thum.io/get/width/1440/https://superhuman.com",
+    "tags": [
+      "Productivity",
+      "Premium",
+      "Clean",
+      "AI",
+      "Editorial"
+    ],
+    "palette": "A deep, dark navy/purple background with crisp white text and a single subtle purple accent creates a focused, premium, and modern aesthetic.",
+    "layout": "A spacious, centered layout with a prominent hero section gives way to a complex, layered composition of overlapping UI cards and imagery.",
+    "interaction": "Subtle hover states and smooth transitions are implied by the clean, professional interface design.",
+    "motion": "The design suggests swift, efficient animations that complement the product's core value proposition of speed.",
+    "notes": "This site is a strong example of a modern, premium SaaS landing page that uses a dark theme and minimalist typography to convey sophistication and efficiency.",
+    "spec": {
+      "colors": {
+        "bg": "#1a1a2e",
+        "bgSoft": "#16162a",
+        "bgQuiet": "#0f0f1a",
+        "ink": "#ffffff",
+        "inkSoft": "#e0e0e0",
+        "muted": "#8888aa",
+        "mutedSoft": "#666688",
+        "accent": "#7b61ff",
+        "line": "rgba(255,255,255,0.1)",
+        "principle": "Deep, dark backgrounds create focus and a premium feel, with white text for clarity and a subtle purple accent for interactive elements."
+      },
+      "typography": {
+        "display": "geometric-sans",
+        "body": "geometric-sans",
+        "mono": "monospace",
+        "scale": [
+          {
+            "token": "display",
+            "size": 64,
+            "lh": 1.1,
+            "weight": 500,
+            "ls": "-1.5px",
+            "use": "Hero headline"
+          },
+          {
+            "token": "headline",
+            "size": 32,
+            "lh": 1.2,
+            "weight": 500,
+            "ls": "-0.5px",
+            "use": "Section sub-headline"
+          },
+          {
+            "token": "body",
+            "size": 16,
+            "lh": 1.6,
+            "weight": 400,
+            "ls": "0px",
+            "use": "Body text"
+          }
+        ]
+      },
+      "spacing": {
+        "base": 4,
+        "scale": [
+          4,
+          8,
+          16,
+          24,
+          32,
+          48,
+          64,
+          96
+        ],
+        "rhythm": "A consistent 4px base grid with a harmonious scale for vertical rhythm and spacing."
+      },
+      "surfaces": {
+        "radius": {
+          "sm": 4,
+          "md": 8,
+          "lg": 12,
+          "pill": 999
+        },
+        "shadows": [],
+        "borders": "Subtle 1px borders using rgba(255,255,255,0.1) for definition without distraction."
+      },
+      "layout": {
+        "container": 1280,
+        "paragraph": 680,
+        "columns": 12,
+        "gutter": 24,
+        "breakpoints": [
+          768,
+          1024
+        ],
+        "skeleton": "A centered, single-column layout for the hero, transitioning to a complex, layered composition with overlapping cards and imagery."
+      },
+      "motion": {
+        "durations": {
+          "micro": 220,
+          "small": 400,
+          "medium": 800
+        },
+        "easing": "cubic-bezier(0.25, 0.1, 0.25, 1)"
+      },
+      "identity": {
+        "keywords": [
+          "efficiency",
+          "professionalism",
+          "modern",
+          "premium"
+        ],
+        "analogy": "A high-end, streamlined productivity suite for the modern professional.",
+        "oneLiner": "A premium, AI-powered communication suite designed for speed and efficiency."
+      },
+      "components": {
+        "button": "A prominent, rounded-pill primary button with white text on a dark background and a right-arrow icon.",
+        "card": "Semi-transparent cards with subtle borders, showcasing UI elements and content snippets.",
+        "chip": "Small, rounded tags or labels for categorization (e.g., #launch-project-chat).",
+        "input": "Not clearly visible as a standalone component, but the AI chat interface suggests text input fields.",
+        "hero": "A full-width, dark-background section with a large geometric-sans headline, supporting sub-headline, and a single primary CTA."
+      },
+      "interaction": {
+        "hover": "Subtle brightness changes or opacity shifts on interactive elements like buttons and links.",
+        "click": "Immediate visual feedback, likely a slight scale or opacity change.",
+        "transition": "Smooth, quick transitions (220-400ms) for state changes.",
+        "keyboard": "Not visually evident from the static screenshot."
+      },
+      "voice": {
+        "tone": "Confident, efficient, and slightly aspirational.",
+        "headlineStyle": "Concise, action-oriented, and benefit-focused (e.g., 'Everything you want to do, done.').",
+        "ctaStyle": "Direct and imperative (e.g., 'Get Superhuman').",
+        "avoid": [
+          "Passive voice",
+          "Corporate jargon",
+          "Overly complex sentences"
+        ]
+      },
+      "donts": [
+        "Don't use a light or white background — the screenshot shows a deep, dark, almost-navy background.",
+        "Don't use a highly saturated or neon accent color — the screenshot shows a subtle, desaturated purple accent.",
+        "Don't use a serif font for headlines — the screenshot clearly uses a geometric sans-serif for all display text.",
+        "Don't use sharp, squared-off corners on buttons or cards — the screenshot shows a rounded, almost-pill shape for the primary CTA.",
+        "Don't clutter the layout with dense information — the screenshot shows a clean, spacious design with significant white space.",
+        "Don't use multiple competing accent colors — the screenshot uses a single purple accent sparingly against the dark palette."
+      ],
+      "systemPrompt": "This is the website for Superhuman, a premium AI-powered email and productivity suite. It positions itself as the fastest, most efficient tool for high-performing professionals. Key design elements include a deep, dark background (likely #1a1a2e), crisp white text (#ffffff), and a subtle purple accent (#7b61ff). Typography is exclusively a clean geometric sans-serif category. Critical design principles: 1) Maintain extreme focus and minimalism; avoid visual clutter. 2) Use the dark background as the primary canvas; never invert to a light theme. 3) Reserve the purple accent for key interactive elements only; do not use it decoratively. The design exudes premium quality, speed, and modern professionalism."
+    }
+  },
+  {
+    "id": "tesla",
+    "title": "Tesla",
+    "url": "https://www.tesla.com",
+    "image": "https://image.thum.io/get/width/1440/https://www.tesla.com",
+    "tags": [
+      "Premium",
+      "Clean",
+      "Automotive",
+      "Minimal",
+      "Product"
+    ],
+    "palette": "Strict black-and-white palette creating maximum contrast and premium feel.",
+    "layout": "Full-viewport hero sections with centered content blocks and generous whitespace.",
+    "interaction": "Subtle hover effects and smooth scroll transitions between sections.",
+    "motion": "Minimal animation with smooth, purposeful transitions between states.",
+    "notes": "Exemplary premium product website that demonstrates how minimalism can create luxury perception through restraint and focus on product imagery.",
+    "spec": {
+      "colors": {
+        "bg": "#FFFFFF",
+        "bgSoft": null,
+        "bgQuiet": null,
+        "ink": "#000000",
+        "inkSoft": null,
+        "muted": "#666666",
+        "mutedSoft": null,
+        "accent": null,
+        "line": "rgba(0,0,0,0.1)",
+        "principle": "Stark black-and-white contrast to let product imagery dominate"
+      },
+      "typography": {
+        "display": "geometric-sans",
+        "body": "geometric-sans",
+        "mono": null,
+        "scale": [
+          {
+            "token": "display",
+            "size": 64,
+            "lh": 1.0,
+            "weight": 500,
+            "ls": "-1px",
+            "use": "Primary vehicle headings"
+          },
+          {
+            "token": "h2",
+            "size": 48,
+            "lh": 1.1,
+            "weight": 500,
+            "ls": "-0.5px",
+            "use": "Section headings"
+          },
+          {
+            "token": "body",
+            "size": 16,
+            "lh": 1.5,
+            "weight": 400,
+            "ls": "0",
+            "use": "Body text and descriptions"
+          }
+        ],
+        "rules": [
+          "Tight letter-spacing on large display text",
+          "Consistent geometric sans-serif throughout"
+        ]
+      },
+      "spacing": {
+        "base": 4,
+        "scale": [
+          4,
+          8,
+          16,
+          24,
+          32,
+          48,
+          64,
+          96
+        ],
+        "rhythm": "8px baseline grid with generous vertical whitespace"
+      },
+      "surfaces": {
+        "radius": {
+          "sm": 4,
+          "md": 8,
+          "lg": 12,
+          "pill": 999
+        },
+        "shadows": [
+          "none"
+        ],
+        "borders": "Minimal, mostly borderless design with subtle separators"
+      },
+      "layout": {
+        "container": 1440,
+        "paragraph": 680,
+        "columns": 12,
+        "gutter": 24,
+        "breakpoints": [
+          768,
+          1024
+        ],
+        "skeleton": "Full-bleed hero images with centered content blocks"
+      },
+      "motion": {
+        "durations": {
+          "micro": 220,
+          "small": 400,
+          "medium": 800
+        },
+        "easing": "cubic-bezier(0.4, 0, 0.2, 1)",
+        "patterns": [
+          "Smooth scroll transitions",
+          "Subtle fade-ins on scroll"
+        ]
+      },
+      "identity": {
+        "keywords": [
+          "premium",
+          "automotive",
+          "electric",
+          "innovation",
+          "technology",
+          "design-led"
+        ],
+        "analogy": "A high-end automotive showroom with expansive white walls and dramatic product lighting",
+        "oneLiner": "A premium, minimalist product showcase for electric vehicles and clean energy"
+      },
+      "components": {
+        "button": "Minimal rectangular buttons with high contrast",
+        "card": "Full-width vehicle cards with large imagery",
+        "chip": "Simple text links for navigation",
+        "input": "Minimal form fields with bottom borders",
+        "hero": "Full-viewport vehicle photography with overlaid text"
+      },
+      "interaction": {
+        "hover": "Subtle opacity or color changes on interactive elements",
+        "click": "Immediate response with smooth transitions",
+        "transition": "300ms ease for state changes",
+        "keyboard": "Standard focus indicators for accessibility"
+      },
+      "voice": {
+        "tone": "Confident, technical, premium",
+        "headlineStyle": "Short, impactful statements about performance and innovation",
+        "ctaStyle": "Direct action-oriented buttons ('Order Now', 'Learn More')",
+        "avoid": [
+          "Overly casual language",
+          "Decorative elements",
+          "Visual clutter"
+        ]
+      },
+      "donts": [
+        "Don't use multiple competing colors — screenshot shows strict black-and-white palette",
+        "Don't add decorative textures or patterns — screenshot shows clean, unadorned surfaces",
+        "Don't use rounded or playful UI elements — screenshot shows sharp, precise geometry",
+        "Don't clutter with text-heavy descriptions — screenshot shows minimal text with prominent imagery",
+        "Don't use serif or script typefaces — screenshot shows consistent geometric sans-serif",
+        "Don't add unnecessary shadows or depth effects — screenshot shows flat, minimalist design"
+      ],
+      "systemPrompt": "Tesla.com is a premium automotive brand website using a stark minimalist design with black-and-white color palette. Primary background is pure white (#FFFFFF) with black (#000000) text for maximum contrast. Typography is geometric sans-serif, creating a technical, modern feel. The layout uses full-viewport hero images with overlaid text, generous whitespace, and a strict grid system. Key design characteristics include: extreme minimalism with no decorative elements, full-bleed vehicle photography as primary visual, sharp rectangular UI components, and confident technical copy. Critical donts: never use multiple colors or gradients, never add decorative textures, never use rounded or playful elements, never clutter with text, never use serif typefaces, never add unnecessary shadows. The system emphasizes product-as-hero approach with clean, uncluttered presentation that lets the vehicles speak for themselves."
+    }
+  },
+  {
+    "id": "together",
+    "title": "Together",
+    "url": "https://www.together.ai",
+    "image": "https://image.thum.io/get/width/1440/https://www.together.ai",
+    "tags": [
+      "Clean",
+      "SaaS",
+      "AI",
+      "Tooling",
+      "Developer"
+    ],
+    "palette": "Clean neutral palette with white backgrounds, dark gray text, and a single deep blue accent color for brand identity.",
+    "layout": "Centered single-column layout with generous whitespace, 12-column grid system, and consistent 8px spacing rhythm.",
+    "interaction": "Subtle hover effects and smooth transitions with immediate feedback, maintaining professional polish.",
+    "motion": "Minimal motion with subtle fade-ins and smooth state transitions for a refined, unobtrusive experience.",
+    "notes": "Worth including as an example of a modern, clean SaaS design that balances technical sophistication with approachability for developer audiences.",
+    "spec": {
+      "colors": {
+        "bg": "#FFFFFF",
+        "bgSoft": null,
+        "bgQuiet": null,
+        "ink": "#333333",
+        "inkSoft": null,
+        "muted": "#999999",
+        "mutedSoft": null,
+        "accent": "#1E3A5F",
+        "line": "rgba(0, 0, 0, 0.1)",
+        "principle": "Clean, neutral palette with a single deep blue accent for brand identity"
+      },
+      "typography": {
+        "display": "geometric-sans",
+        "body": "geometric-sans",
+        "mono": "monospace",
+        "scale": [
+          {
+            "token": "display",
+            "size": 48,
+            "lh": 1.1,
+            "weight": 700,
+            "ls": "-1px",
+            "use": "Main headlines and hero text"
+          }
+        ],
+        "rules": [
+          "Use geometric sans-serif for all primary text",
+          "Maintain tight letter spacing for display text",
+          "Use monospace for code snippets and technical references"
+        ]
+      },
+      "spacing": {
+        "base": 4,
+        "scale": [
+          4,
+          8,
+          16,
+          24,
+          32,
+          48,
+          64,
+          96
+        ],
+        "rhythm": "8px baseline grid for consistent vertical spacing"
+      },
+      "surfaces": {
+        "radius": {
+          "sm": 4,
+          "md": 8,
+          "lg": 12,
+          "pill": 999
+        },
+        "shadows": [],
+        "borders": "1px solid rgba(0, 0, 0, 0.1)"
+      },
+      "layout": {
+        "container": 1280,
+        "paragraph": 680,
+        "columns": 12,
+        "gutter": 24,
+        "breakpoints": [
+          768,
+          1024
+        ],
+        "skeleton": "Single column centered layout with generous whitespace"
+      },
+      "motion": {
+        "durations": {
+          "micro": 220,
+          "small": 400,
+          "medium": 800
+        },
+        "easing": "cubic-bezier(0.4, 0, 0.2, 1)",
+        "patterns": [
+          "Subtle fade-ins for page transitions",
+          "Smooth hover states on interactive elements"
+        ]
+      },
+      "identity": {
+        "keywords": [
+          "AI platform",
+          "developer tools",
+          "machine learning",
+          "cloud computing",
+          "API"
+        ],
+        "analogy": "A sleek, modern laboratory for building AI models",
+        "oneLiner": "A high-performance platform for building, training, and deploying AI models."
+      },
+      "components": {
+        "button": "Solid filled buttons with rounded corners, primary uses accent color",
+        "card": "Simple white cards with subtle borders and minimal shadows",
+        "chip": "Small rounded tags for categories or labels",
+        "input": "Clean input fields with subtle borders and rounded corners",
+        "hero": "Centered hero section with large typography and minimal imagery"
+      },
+      "interaction": {
+        "hover": "Subtle color shifts or opacity changes on interactive elements",
+        "click": "Immediate visual feedback with slight scale or color change",
+        "transition": "Smooth transitions between states using CSS transitions",
+        "keyboard": "Full keyboard navigation support with visible focus states"
+      },
+      "voice": {
+        "tone": "Professional, technical, and confident",
+        "headlineStyle": "Direct and benefit-focused with clear value propositions",
+        "ctaStyle": "Action-oriented verbs like 'Get Started', 'Try Now', 'Learn More'",
+        "avoid": [
+          "Jargon overload",
+          "Overly casual language",
+          "Vague claims without evidence"
+        ]
+      },
+      "donts": [
+        "Don't use complex gradients — screenshot shows solid colors and subtle transparency",
+        "Don't use rounded corners everywhere — screenshot shows reserved use of border-radius",
+        "Don't use heavy shadows — screenshot shows flat surfaces with minimal elevation",
+        "Don't use multiple accent colors — screenshot shows single blue accent throughout",
+        "Don't use serif fonts — screenshot shows consistent sans-serif typography",
+        "Don't use dense layouts — screenshot shows generous whitespace and breathing room"
+      ],
+      "systemPrompt": "Together.ai is a high-performance AI platform for developers, featuring a clean, professional interface with a neutral color palette accented by deep blue. The design uses geometric sans-serif typography for clarity and readability, with a 12-column grid layout providing structure. Key colors include white backgrounds, dark gray text, and a distinctive blue accent. Critical design principles include generous whitespace, subtle hover interactions, and maintaining visual hierarchy through typography scale. The interface avoids visual clutter, using minimal shadows and borders to maintain focus on content and functionality. The overall aesthetic communicates technical sophistication while remaining approachable for developers building AI applications."
+    }
+  },
+  {
+    "id": "uber",
+    "title": "Uber",
+    "url": "https://www.uber.com",
+    "image": "https://image.thum.io/get/width/1440/https://www.uber.com",
+    "tags": [
+      "Product",
+      "App UI",
+      "Clean",
+      "Geometric",
+      "Restraint"
+    ],
+    "palette": "Strict monochrome palette utilizing high-contrast black and white with neutral grays for a utility-focused aesthetic.",
+    "layout": "Clean, asymmetric two-column hero layout transitioning into a structured grid of feature cards.",
+    "interaction": "Minimalist interactions focused on clear, immediate feedback for form inputs and primary booking actions.",
+    "motion": "Subtle, efficient transitions designed to support the utility of the interface without drawing attention to itself.",
+    "notes": "A prime example of a global, high-traffic utility interface where clarity, trust, and speed of action are the absolute priorities.",
+    "spec": {
+      "colors": {
+        "bg": "#FFFFFF",
+        "bgSoft": null,
+        "bgQuiet": null,
+        "ink": "#000000",
+        "inkSoft": null,
+        "muted": "#757575",
+        "mutedSoft": null,
+        "accent": null,
+        "line": "rgba(0, 0, 0, 0.1)",
+        "principle": "Strict monochrome utility with high contrast for readability and action."
+      },
+      "typography": {
+        "display": "geometric-sans",
+        "body": "geometric-sans",
+        "mono": null,
+        "scale": [
+          {
+            "token": "display",
+            "size": 48,
+            "lh": 1.1,
+            "weight": 700,
+            "ls": "-0.5px",
+            "use": "Main hero headline"
+          }
+        ]
+      },
+      "spacing": {
+        "base": 4,
+        "scale": [
+          4,
+          8,
+          16,
+          24,
+          32,
+          48,
+          64,
+          96
+        ],
+        "rhythm": "Generous vertical spacing between sections to maintain a clean, uncluttered feel."
+      },
+      "surfaces": {
+        "radius": {
+          "sm": 4,
+          "md": 8,
+          "lg": 12,
+          "pill": 999
+        },
+        "shadows": [],
+        "borders": "Subtle 1px borders for input fields and container separation."
+      },
+      "layout": {
+        "container": 1200,
+        "paragraph": 680,
+        "columns": 12,
+        "gutter": 24,
+        "breakpoints": [
+          768,
+          1024
+        ],
+        "skeleton": "Asymmetric two-column hero layout transitioning to a grid of cards."
+      },
+      "motion": {
+        "durations": {
+          "micro": 200,
+          "small": 300,
+          "medium": 500
+        },
+        "easing": "cubic-bezier(0.25, 0.1, 0.25, 1)"
+      },
+      "identity": {
+        "keywords": [
+          "transportation",
+          "mobility",
+          "global",
+          "utility",
+          "accessibility"
+        ],
+        "analogy": "A clean, reliable urban transport network",
+        "oneLiner": "A highly functional, utility-driven interface prioritizing clear booking actions and global brand consistency."
+      },
+      "components": {
+        "button": "Black, pill-shaped primary action buttons with white text; secondary buttons use subtle outlines.",
+        "card": "Horizontal layout cards with subtle borders and padding.",
+        "chip": "Outlined pill-shaped elements for selection states.",
+        "input": "Rectangular fields with subtle bottom borders or full borders.",
+        "hero": "Split layout with large typography on the left and a prominent action area on the right."
+      },
+      "interaction": {
+        "hover": "Subtle background changes or underline effects on interactive text links.",
+        "click": "Immediate visual feedback with minimal transition delay.",
+        "transition": "Smooth state changes for form inputs and button interactions.",
+        "keyboard": "Focus states likely follow standard accessibility outlines."
+      },
+      "voice": {
+        "tone": "Direct, helpful, and straightforward",
+        "headlineStyle": "Short, action-oriented, and benefit-driven phrases.",
+        "ctaStyle": "Clear, imperative verbs.",
+        "avoid": [
+          "Unnecessary jargon",
+          "Overly complex sentences",
+          "Abstract marketing fluff"
+        ]
+      },
+      "donts": [
+        "Don't use bright accent colors — screenshot shows a strictly monochrome palette with no dominant high-chroma hue.",
+        "Don't use serif typography — screenshot shows purely geometric sans-serif fonts throughout.",
+        "Don't use heavy drop shadows — screenshot shows flat, borderless, or subtly bordered surfaces.",
+        "Don't clutter the layout with multiple competing actions — screenshot shows a singular focus on the booking form.",
+        "Don't use playful or rounded corner styles excessively — screenshot shows reserved, slightly rounded corners.",
+        "Don't rely on icon-heavy navigation — screenshot shows text-dominant, clear navigation links."
+      ],
+      "systemPrompt": "The Uber homepage is a highly functional, utility-driven interface designed for immediate action. It uses a strict monochrome palette (black #000000, white #FFFFFF, and neutral grays) to prioritize readability and trust. The typography is entirely geometric sans-serif, ensuring clarity across global contexts. Layout is structured with a clear hierarchy, featuring a prominent booking form in the hero section. Critical design constraints: avoid any high-chroma accent colors, avoid serif fonts, avoid heavy drop shadows, keep the layout uncluttered, and maintain direct, action-oriented copy."
+    }
+  },
+  {
     "id": "vercel",
     "title": "Vercel",
     "url": "https://vercel.com",
@@ -3342,6 +9931,1089 @@ window.STYLE_ATLAS_SITES = [
         "Don't use low-contrast text for readability — screenshot maintains high contrast between ink and background."
       ],
       "systemPrompt": "Vercel's design is a benchmark for modern, developer-focused cloud platforms. Its identity is minimalist, bold, and geometric. Key colors are pure white (#FFFFFF) for background, deep black (#000000) for primary ink, and muted grays (#737373) for secondary text. Accent color is deliberately avoided in the UI system itself. Typography relies on geometric and humanist sans-serif categories for a clean, technical feel. Critical don'ts: 1) Don't use multiple accent colors or busy illustrations that compete with the core monochrome hierarchy. 2) Don't use decorative fonts that undermine the serious, tool-like nature of the interface. 3) Don't add unnecessary shadows or textures that break the clean, flat surface system. The design prioritizes clarity, speed, and professional confidence."
+    }
+  },
+  {
+    "id": "vodafone",
+    "title": "Vodafone",
+    "url": "https://www.vodafone.com",
+    "image": "https://image.thum.io/get/width/1440/https://www.vodafone.com",
+    "tags": [
+      "Editorial",
+      "Clean",
+      "Premium",
+      "Calm",
+      "Restraint"
+    ],
+    "palette": "An ultra-restrained palette of clean white, subtle grays, and a single corporate blue accent.",
+    "layout": "A perfectly centered, minimalist layout with a vertical stack of a graphic and the brand name.",
+    "interaction": "The page is entirely static with no visible interactive elements, buttons, or inputs.",
+    "motion": "No motion or animations are present on this static page.",
+    "notes": "This site is worth including as a prime example of extreme minimalist corporate branding, demonstrating how restraint and whitespace can create a powerful, clean aesthetic.",
+    "spec": {
+      "colors": {
+        "bg": "#FDFDFD",
+        "bgSoft": null,
+        "bgQuiet": null,
+        "ink": "#4A4A4A",
+        "inkSoft": null,
+        "muted": "#A0A0A0",
+        "mutedSoft": null,
+        "accent": "#0056A0",
+        "line": "rgba(0,0,0,0)",
+        "principle": "High-contrast, ultra-restrained palette with a single corporate blue accent."
+      },
+      "typography": {
+        "display": "monospaced",
+        "body": "humanist-sans",
+        "mono": "monospaced",
+        "scale": [
+          {
+            "token": "body",
+            "size": 20,
+            "lh": 1.4,
+            "weight": 400,
+            "ls": "0px",
+            "use": "Brand text"
+          }
+        ],
+        "rules": [
+          "Brand text uses a monospaced typeface.",
+          "Body copy uses a humanist sans-serif."
+        ]
+      },
+      "spacing": {
+        "base": 4,
+        "scale": [
+          4,
+          8,
+          16,
+          24,
+          32,
+          48,
+          64,
+          96
+        ],
+        "rhythm": "Generous whitespace centering the primary elements."
+      },
+      "surfaces": {
+        "radius": {
+          "sm": 4,
+          "md": 8,
+          "lg": 12,
+          "pill": 999
+        },
+        "shadows": [
+          "0 4px 20px rgba(0,0,0,0.05)"
+        ],
+        "borders": "No visible borders."
+      },
+      "layout": {
+        "container": 1280,
+        "paragraph": 680,
+        "columns": 12,
+        "gutter": 24,
+        "breakpoints": [
+          768,
+          1024
+        ],
+        "skeleton": "Centered content with a vertical stack for the icon and brand name."
+      },
+      "motion": {
+        "durations": {
+          "micro": 220,
+          "small": 400,
+          "medium": 800
+        },
+        "easing": "cubic-bezier(0.4, 0.0, 0.2, 1)",
+        "patterns": [
+          "No visible animations."
+        ]
+      },
+      "identity": {
+        "keywords": [
+          "minimal",
+          "corporate",
+          "clean",
+          "professional",
+          "understated"
+        ],
+        "analogy": "A clean, minimalist corporate landing page focused on brand identity.",
+        "oneLiner": "A highly restrained, minimalist corporate identity page featuring a centered logo and subtle gray ring element."
+      },
+      "components": {
+        "button": "None visible.",
+        "card": "None visible.",
+        "chip": "None visible.",
+        "input": "None visible.",
+        "hero": "A minimal hero containing a 3D gray ring and the brand logo."
+      },
+      "interaction": {
+        "hover": "No visible interactive elements.",
+        "click": "No visible interactive elements.",
+        "transition": "None observed.",
+        "keyboard": "None observed."
+      },
+      "voice": {
+        "tone": "Quiet, professional, and understated.",
+        "headlineStyle": "Minimalist logo text.",
+        "ctaStyle": "None visible.",
+        "avoid": [
+          "Loud marketing copy",
+          "Vibrant gradients",
+          "Complex animations",
+          "Cluttered layouts",
+          "Heavy text blocks"
+        ]
+      },
+      "donts": [
+        "Don't use loud marketing copy — screenshot shows a quiet, understated brand page.",
+        "Don't use vibrant gradients — screenshot shows a flat, clean white background.",
+        "Don't use complex animations — screenshot shows a static, still page.",
+        "Don't use cluttered layouts — screenshot shows a perfectly centered, minimal layout.",
+        "Don't use heavy text blocks — screenshot shows almost no text, just the brand name.",
+        "Don't use busy patterns — screenshot shows a completely clean background."
+      ],
+      "systemPrompt": "This site is a highly restrained, minimalist corporate identity page for Vodafone. It features a clean white background, a subtle 3D gray ring graphic, and the thum.io brand name in a monospaced font next to a small blue icon. The palette is ultra-minimal, using primarily white and gray with a single corporate blue (#0056A0) accent. The typography pairs a monospaced font for the brand name with a humanist sans-serif for any secondary text. Critical design constraints: maintain extreme restraint and generous whitespace; do not introduce vibrant colors or complex animations; keep all elements perfectly centered and uncluttered."
+    }
+  },
+  {
+    "id": "warp",
+    "title": "Warp",
+    "url": "https://www.warp.dev",
+    "image": "https://image.thum.io/get/width/1440/https://www.warp.dev",
+    "tags": [
+      "Developer Tools",
+      "Dark Mode",
+      "Bold Typography",
+      "AI",
+      "Clean"
+    ],
+    "palette": "A strict, high-contrast dark mode palette using pure black, white, and a minimal range of grays for hierarchy.",
+    "layout": "A centered, max-width container layout with generous vertical rhythm and a two-column grid for feature presentation.",
+    "interaction": "Minimal and functional, relying on subtle hover transitions on buttons and links within a static presentation.",
+    "motion": "Implied minimal motion, likely limited to hover states and page transitions, emphasizing stability and performance.",
+    "notes": "A prime example of modern SaaS developer tool branding, using a dark, focused aesthetic to convey professionalism and technical sophistication.",
+    "spec": {
+      "colors": {
+        "bg": "#000000",
+        "bgSoft": "#1a1a1a",
+        "bgQuiet": null,
+        "ink": "#ffffff",
+        "inkSoft": "#a0a0a0",
+        "muted": "#6b6b6b",
+        "mutedSoft": null,
+        "accent": null,
+        "line": "rgba(255, 255, 255, 0.1)",
+        "principle": "High-contrast dark mode for focus, with monochromatic scales and subtle borders."
+      },
+      "typography": {
+        "display": "geometric-sans",
+        "body": "geometric-sans",
+        "mono": null,
+        "scale": [
+          {
+            "token": "display",
+            "size": 56,
+            "lh": 1.1,
+            "weight": 500,
+            "ls": "-1.5px",
+            "use": "Main headline"
+          },
+          {
+            "token": "heading",
+            "size": 32,
+            "lh": 1.2,
+            "weight": 500,
+            "ls": "-0.5px",
+            "use": "Section headings"
+          },
+          {
+            "token": "body",
+            "size": 16,
+            "lh": 1.5,
+            "weight": 400,
+            "ls": "0",
+            "use": "Paragraph text"
+          }
+        ],
+        "rules": [
+          "Use tight letter spacing for large display text.",
+          "Maintain clear typographic hierarchy with weight and size contrast.",
+          "Use a geometric sans-serif for a modern, technical feel."
+        ]
+      },
+      "spacing": {
+        "base": 4,
+        "scale": [
+          4,
+          8,
+          12,
+          16,
+          24,
+          32,
+          48,
+          64,
+          96,
+          128
+        ],
+        "rhythm": "Consistent 4px base grid for predictable vertical and horizontal spacing."
+      },
+      "surfaces": {
+        "radius": {
+          "sm": 4,
+          "md": 8,
+          "lg": 12,
+          "pill": 999
+        },
+        "shadows": [],
+        "borders": "Subtle, low-contrast borders (rgba(255,255,255,0.1)) define card and component edges."
+      },
+      "layout": {
+        "container": 1280,
+        "paragraph": 680,
+        "columns": 12,
+        "gutter": 24,
+        "breakpoints": [
+          768,
+          1024
+        ],
+        "skeleton": "Centered content with a max-width container, two-column card grid in the hero section."
+      },
+      "motion": {
+        "durations": {
+          "micro": 200,
+          "small": 300,
+          "medium": 500
+        },
+        "easing": "cubic-bezier(0.4, 0, 0.2, 1)",
+        "patterns": [
+          "Subtle hover state transitions on buttons and links."
+        ]
+      },
+      "identity": {
+        "keywords": [
+          "modern",
+          "agentic",
+          "developer",
+          "professional",
+          "advanced"
+        ],
+        "analogy": "A sleek, dark control panel for the future of software development.",
+        "oneLiner": "A modern, dark-themed developer tool website positioning itself as an advanced agentic development environment."
+      },
+      "components": {
+        "button": "Filled buttons with subtle borders (like Download) and outlined/ghost buttons (like Learn More) with rounded corners.",
+        "card": "Dark, semi-transparent cards with subtle borders containing content and call-to-action buttons.",
+        "chip": "Small, rounded badges (e.g., 'Livestream', 'Case Study') with subtle backgrounds.",
+        "input": null,
+        "hero": "A prominent, centered headline with a supporting subheadline, followed by a two-column grid of feature cards."
+      },
+      "interaction": {
+        "hover": "Buttons and interactive elements have subtle background or opacity changes on hover.",
+        "click": "No visible pressed state in the screenshot.",
+        "transition": "Smooth, short transitions for interactive state changes.",
+        "keyboard": null
+      },
+      "voice": {
+        "tone": "Professional, confident, and forward-looking, targeting technical developers.",
+        "headlineStyle": "Direct, declarative statements about the product's value (e.g., 'Warp is the agentic development environment').",
+        "ctaStyle": "Clear, action-oriented (e.g., 'Learn More', 'Download', 'Sign Up').",
+        "avoid": [
+          "Casual language",
+          "Excessive exclamation points",
+          "Vague marketing fluff"
+        ]
+      },
+      "donts": [
+        "Don't use a light or white background — screenshot shows a pure black (#000000) dark mode theme.",
+        "Don't use serif or humanist fonts — screenshot uses a clean, geometric sans-serif for all text.",
+        "Don't use vibrant, saturated accent colors — screenshot relies on a monochromatic palette with high-contrast white text.",
+        "Don't use rounded, bubbly UI elements — screenshot shows sharp, subtle radii on cards and buttons.",
+        "Don't clutter the layout with dense information — screenshot uses generous whitespace and a clear visual hierarchy.",
+        "Don't use drop shadows for depth — screenshot relies on borders and subtle background contrast instead."
+      ],
+      "systemPrompt": "Warp is a developer tools website for a modern terminal and AI agent platform, using a high-contrast dark mode (#000000 bg) with white (#ffffff) ink. The typography is a clean geometric sans-serif, with a large, bold headline as the focal point. The layout is spacious and centered, featuring a two-column card grid to showcase core products. Key colors are black, white, and muted grays. Critical donts: avoid light themes, avoid serif typography, avoid vibrant accent colors. The design prioritizes clarity, focus, and a premium, technical feel for a developer audience."
+    }
+  },
+  {
+    "id": "webflow",
+    "title": "Webflow",
+    "url": "https://webflow.com",
+    "image": "https://image.thum.io/get/width/1440/https://webflow.com",
+    "tags": [
+      "Productivity",
+      "Clean",
+      "Refined",
+      "Grid",
+      "Tooling"
+    ],
+    "palette": "A minimalist palette centered on high-contrast white and black, with a single vibrant blue accent for primary actions.",
+    "layout": "A clean, centered 12-column grid with generous whitespace, typical of modern SaaS landing pages.",
+    "interaction": "Subtle hover states and smooth transitions create a polished, professional user experience.",
+    "motion": "Animations are likely minimal, focusing on smooth fades and slides for content reveals.",
+    "notes": "This design is a textbook example of a high-converting SaaS landing page, balancing professionalism with approachability.",
+    "spec": {
+      "colors": {
+        "bg": "#FFFFFF",
+        "bgSoft": "#F8F9FA",
+        "bgQuiet": "#F1F3F5",
+        "ink": "#1A1A1A",
+        "inkSoft": "#4A4A4A",
+        "muted": "#6B7280",
+        "mutedSoft": "#9CA3AF",
+        "accent": "#146EF5",
+        "line": "rgba(0, 0, 0, 0.08)",
+        "principle": "High-contrast ink on white for readability, with a single vibrant blue for primary actions."
+      },
+      "typography": {
+        "display": "geometric-sans",
+        "body": "humanist-sans",
+        "mono": "monospace",
+        "scale": [
+          {
+            "token": "display",
+            "size": 64,
+            "lh": 1.1,
+            "weight": 700,
+            "ls": "-1.5px",
+            "use": "Main hero headline"
+          },
+          {
+            "token": "h2",
+            "size": 24,
+            "lh": 1.3,
+            "weight": 600,
+            "ls": "-0.5px",
+            "use": "Section headings in cards"
+          },
+          {
+            "token": "body",
+            "size": 16,
+            "lh": 1.5,
+            "weight": 400,
+            "ls": "0",
+            "use": "General body text"
+          },
+          {
+            "token": "caption",
+            "size": 14,
+            "lh": 1.4,
+            "weight": 500,
+            "ls": "0",
+            "use": "Secondary text and labels"
+          }
+        ]
+      },
+      "spacing": {
+        "base": 4,
+        "scale": [
+          4,
+          8,
+          12,
+          16,
+          24,
+          32,
+          48,
+          64,
+          96
+        ],
+        "rhythm": "8px base grid"
+      },
+      "surfaces": {
+        "radius": {
+          "sm": 4,
+          "md": 8,
+          "lg": 16,
+          "pill": 999
+        },
+        "shadows": [],
+        "borders": "Subtle light gray lines for separation."
+      },
+      "layout": {
+        "container": 1200,
+        "paragraph": 680,
+        "columns": 12,
+        "gutter": 24,
+        "breakpoints": [
+          768,
+          1024
+        ],
+        "skeleton": "12-column grid with generous whitespace."
+      },
+      "motion": {
+        "durations": {
+          "micro": 220,
+          "small": 400,
+          "medium": 800
+        },
+        "easing": "cubic-bezier(0.25, 0.1, 0.25, 1)",
+        "patterns": [
+          "Fade-ins, slide-ins, and smooth scrolling for carousel transitions."
+        ]
+      },
+      "identity": {
+        "keywords": [
+          "professional",
+          "scalable",
+          "empowering",
+          "modern",
+          "structured"
+        ],
+        "analogy": "A high-end corporate tool that feels accessible and empowering.",
+        "oneLiner": "A clean, professional SaaS interface designed for building and scaling digital products."
+      },
+      "components": {
+        "button": "Solid primary blue with white text, pill-shaped for prominent CTAs, standard rectangular for secondary.",
+        "card": "White cards with light borders or soft shadows, containing an image and descriptive text.",
+        "chip": "Small, rounded badges for labels like 'NEW'.",
+        "input": "Standard text fields with clear borders (implied by forms below).",
+        "hero": "Centered headline and subtext with a three-column feature grid below."
+      },
+      "interaction": {
+        "hover": "Subtle background color change or shadow lift on interactive elements.",
+        "click": "Immediate visual feedback, likely a brief scale or opacity change.",
+        "transition": "Smooth transitions between states for a polished feel.",
+        "keyboard": "Focus states are expected to be visible for accessibility."
+      },
+      "voice": {
+        "tone": "Professional, confident, and benefit-oriented.",
+        "headlineStyle": "Direct, action-oriented statements ('Make your website a growth engine').",
+        "ctaStyle": "Clear, encouraging calls to action ('Start for free', 'Get started').",
+        "avoid": [
+          "Slang",
+          "Overly casual language",
+          "Vague promises"
+        ]
+      },
+      "donts": [
+        "Don't use chaotic layouts — screenshot shows a highly structured, centered grid.",
+        "Don't use dark backgrounds — screenshot shows a predominantly white canvas.",
+        "Don't use multiple accent colors — screenshot uses only one dominant blue for CTAs.",
+        "Don't use decorative fonts — screenshot uses clean, geometric sans-serifs.",
+        "Don't use heavy drop shadows — screenshot uses subtle borders or very light shadows.",
+        "Don't overcrowd elements — screenshot uses ample white space between sections."
+      ],
+      "systemPrompt": "This is a clean, professional SaaS homepage design. The layout is structured around a 12-column grid with generous white space, using a white background (#FFFFFF) and dark ink text (#1A1A1A). The primary accent color is a vibrant blue (#146EF5) used for the main call-to-action button. Typography relies on geometric and humanist sans-serif categories for a modern, accessible feel. Critical don'ts: avoid dark mode, avoid decorative fonts, avoid multiple accent colors, avoid heavy shadows, avoid chaotic layouts, avoid low contrast. The design prioritizes clarity, scalability, and a refined, trustworthy aesthetic."
+    }
+  },
+  {
+    "id": "wired",
+    "title": "Wired",
+    "url": "https://www.wired.com",
+    "image": "https://image.thum.io/get/width/1440/https://www.wired.com",
+    "tags": [
+      "Editorial",
+      "Premium",
+      "Clean",
+      "Typography",
+      "Product"
+    ],
+    "palette": "Strict black and white with photographic color, creating high-contrast editorial authority.",
+    "layout": "Two-column editorial grid with dominant lead article and curated sidebar list of stories.",
+    "interaction": "Minimal interactive elements focusing on content consumption and navigation.",
+    "motion": "Subtle transitions emphasizing content hierarchy rather than flashy animations.",
+    "notes": "Iconic example of premium editorial design that balances typographic authority with modern digital clarity.",
+    "spec": {
+      "colors": {
+        "bg": "#FFFFFF",
+        "bgSoft": null,
+        "bgQuiet": null,
+        "ink": "#000000",
+        "inkSoft": null,
+        "muted": "#666666",
+        "mutedSoft": null,
+        "accent": null,
+        "line": "rgba(0, 0, 0, 0.1)",
+        "principle": "High-contrast editorial clarity with photographic vibrancy"
+      },
+      "typography": {
+        "display": "transitional-serif",
+        "body": "humanist-sans",
+        "mono": null,
+        "scale": [
+          {
+            "token": "display",
+            "size": 56,
+            "lh": 1.0,
+            "weight": 700,
+            "ls": "-1px",
+            "use": "Main article headlines"
+          },
+          {
+            "token": "h2",
+            "size": 28,
+            "lh": 1.2,
+            "weight": 700,
+            "ls": "-0.5px",
+            "use": "Secondary headlines and card titles"
+          },
+          {
+            "token": "body",
+            "size": 16,
+            "lh": 1.6,
+            "weight": 400,
+            "ls": "0px",
+            "use": "Article body text and descriptions"
+          },
+          {
+            "token": "caption",
+            "size": 12,
+            "lh": 1.4,
+            "weight": 500,
+            "ls": "1px",
+            "use": "Author names, categories, and metadata"
+          }
+        ]
+      },
+      "spacing": {
+        "base": 4,
+        "scale": [
+          4,
+          8,
+          16,
+          24,
+          32,
+          48,
+          64,
+          96
+        ],
+        "rhythm": "Consistent 4px grid with generous whitespace for readability"
+      },
+      "surfaces": {
+        "radius": {
+          "sm": 0,
+          "md": 0,
+          "lg": 0,
+          "pill": 999
+        },
+        "shadows": [],
+        "borders": "1px solid rgba(0, 0, 0, 0.1) for subtle separation"
+      },
+      "layout": {
+        "container": 1200,
+        "paragraph": 680,
+        "columns": 12,
+        "gutter": 24,
+        "breakpoints": [
+          768,
+          1024
+        ],
+        "skeleton": "Two-column editorial grid with dominant article and sidebar list"
+      },
+      "motion": {
+        "durations": {
+          "micro": 150,
+          "small": 300,
+          "medium": 600
+        },
+        "easing": "cubic-bezier(0.25, 0.1, 0.25, 1)"
+      },
+      "identity": {
+        "keywords": [
+          "news",
+          "technology",
+          "future",
+          "culture"
+        ],
+        "analogy": "A premium technology magazine's digital home",
+        "oneLiner": "Authoritative editorial design for tech and culture news"
+      },
+      "components": {
+        "button": "Minimal text links with uppercase styling",
+        "card": "Horizontal list items with thumbnail, category, title, and author",
+        "chip": "Uppercase category labels like 'BOT INVASION'",
+        "input": "Search and newsletter forms",
+        "hero": "Full-width video or image with overlaid serif typography"
+      },
+      "interaction": {
+        "hover": "Subtle underline or color shift on links and headlines",
+        "click": "Immediate navigation to article pages",
+        "transition": "Smooth page transitions between articles",
+        "keyboard": "Standard tab navigation through articles and sections"
+      },
+      "voice": {
+        "tone": "Authoritative yet accessible technology journalism",
+        "headlineStyle": "Punchy, direct, and often provocative statements",
+        "ctaStyle": "Minimal 'Read More' or direct headline clicks",
+        "avoid": [
+          "Overly casual language",
+          "Excessive jargon without context",
+          "Clickbait without substance"
+        ]
+      },
+      "donts": [
+        "Don't use decorative borders or shadows — screenshot shows clean flat surfaces",
+        "Don't apply rounded corners to cards or buttons — screenshot shows sharp 0px radii",
+        "Don't use a bright accent color for CTAs — screenshot shows black text and minimal color accents",
+        "Don't set body text in a serif font — screenshot shows sans-serif body text for readability",
+        "Don't overcrowd the layout — screenshot maintains generous whitespace between sections",
+        "Don't use complex gradient backgrounds — screenshot shows flat white backgrounds with photographic elements"
+      ],
+      "systemPrompt": "Positioning: Premium technology and culture news publication with authoritative editorial voice. Key hex colors: #000000 for ink, #FFFFFF for background, #666666 for muted text. Font categories: transitional-serif for headlines, humanist-sans for body text. Critical donts: Don't use decorative borders or rounded corners, don't apply bright accent colors to CTAs, don't overcrowd the layout with competing visual elements. This design prioritizes typographic clarity and photographic impact over decorative elements."
+    }
+  },
+  {
+    "id": "wise",
+    "title": "Wise",
+    "url": "https://wise.com",
+    "image": "https://image.thum.io/get/width/1440/https://wise.com",
+    "tags": [
+      "Fintech",
+      "Product",
+      "Clean",
+      "Bold Typography",
+      "Consumer"
+    ],
+    "palette": "A high-energy, two-tone palette of vibrant lime green and deep dark green-black creates immediate contrast and a bold, modern financial brand identity.",
+    "layout": "A focused, single-column layout centers the user's attention on the core value proposition and the functional money transfer calculator.",
+    "interaction": "Interaction is straightforward and functional, with clear, high-contrast buttons and intuitive dropdowns for selecting currencies and destinations.",
+    "motion": "Motion is likely subtle and functional, emphasizing smooth transitions for UI state changes without distracting from the core task.",
+    "notes": "This site is a prime example of bold, confident fintech design that uses strong typography and a vibrant color to build trust and convey speed.",
+    "spec": {
+      "colors": {
+        "bg": "#9FE870",
+        "bgSoft": null,
+        "bgQuiet": null,
+        "ink": "#163300",
+        "inkSoft": null,
+        "muted": null,
+        "mutedSoft": null,
+        "accent": null,
+        "line": "rgba(22, 51, 0, 0.1)",
+        "principle": "High contrast between a vibrant green background and deep dark text for maximum legibility and energy."
+      },
+      "typography": {
+        "display": "geometric-sans",
+        "body": "humanist-sans",
+        "mono": null,
+        "scale": [
+          {
+            "token": "display",
+            "size": 56,
+            "lh": 1.0,
+            "weight": 900,
+            "ls": "-1px",
+            "use": "Hero headlines"
+          },
+          {
+            "token": "display-md",
+            "size": 32,
+            "lh": 1.2,
+            "weight": 900,
+            "ls": "-0.5px",
+            "use": "Section headlines"
+          },
+          {
+            "token": "body-lg",
+            "size": 18,
+            "lh": 1.5,
+            "weight": 400,
+            "ls": "0px",
+            "use": "Hero subtext"
+          },
+          {
+            "token": "body",
+            "size": 16,
+            "lh": 1.5,
+            "weight": 400,
+            "ls": "0px",
+            "use": "Body text"
+          }
+        ],
+        "rules": [
+          "Headlines are bold, uppercase, and set in a geometric sans-serif with tight tracking.",
+          "Body text is a highly legible humanist sans-serif.",
+          "Numerical values in the calculator use a distinct, heavy geometric weight."
+        ]
+      },
+      "spacing": {
+        "base": 4,
+        "scale": [
+          4,
+          8,
+          16,
+          24,
+          32,
+          48,
+          64,
+          96
+        ],
+        "rhythm": "Generous vertical rhythm with clear separation between headline, subtext, and action."
+      },
+      "surfaces": {
+        "radius": {
+          "sm": 8,
+          "md": 12,
+          "lg": 20,
+          "pill": 999
+        },
+        "shadows": [
+          "0 4px 24px rgba(0,0,0,0.08)"
+        ],
+        "borders": "1px solid rgba(22, 51, 0, 0.1)"
+      },
+      "layout": {
+        "container": 1200,
+        "paragraph": 600,
+        "columns": 12,
+        "gutter": 24,
+        "breakpoints": [
+          768,
+          1024
+        ],
+        "skeleton": "Single centered column layout with a dominant calculator component."
+      },
+      "motion": {
+        "durations": {
+          "micro": 220,
+          "small": 400,
+          "medium": 800
+        },
+        "easing": "cubic-bezier(0.4, 0, 0.2, 1)",
+        "patterns": [
+          "Subtle hover effects on interactive elements.",
+          "Clean transitions between states."
+        ]
+      },
+      "identity": {
+        "keywords": [
+          "trust",
+          "speed",
+          "simplicity",
+          "global"
+        ],
+        "analogy": "A modern, efficient international post office.",
+        "oneLiner": "A bold, direct fintech platform focused on clear, fast international money transfers."
+      },
+      "components": {
+        "button": "Pill-shaped with solid dark background and light text.",
+        "card": "White card with rounded corners and subtle shadow for the calculator.",
+        "chip": "Pill-shaped label with light background.",
+        "input": "Bordered dropdown selectors within the card.",
+        "hero": "Massive uppercase headline, supporting text, and primary CTA."
+      },
+      "interaction": {
+        "hover": "Subtle background color shift or opacity change on buttons and links.",
+        "click": "Visual feedback on press states.",
+        "transition": "Smooth transitions for hover and focus states.",
+        "keyboard": "Standard tab navigation through interactive elements."
+      },
+      "voice": {
+        "tone": "Direct, confident, and reassuring.",
+        "headlineStyle": "Action-oriented, bold, and uppercase.",
+        "ctaStyle": "Simple, high-contrast buttons with clear action verbs.",
+        "avoid": [
+          "Jargon",
+          "Uncertainty",
+          "Overly complex language"
+        ]
+      },
+      "donts": [
+        "Don't use a muted or low-contrast palette — the screenshot shows a vibrant, high-contrast green and dark scheme.",
+        "Don't use decorative or serif fonts — the screenshot shows only clean, geometric sans-serif typefaces.",
+        "Don't create a cluttered layout — the screenshot shows a focused, single-column design with ample whitespace.",
+        "Don't use square or sharp corners — the screenshot shows rounded pill shapes and soft container radii.",
+        "Don't use subtle or small typography — the screenshot shows massive, bold, uppercase headlines.",
+        "Don't invent colors — the palette is strictly a vibrant green (#9FE870) and a deep dark green-black (#163300)."
+      ],
+      "systemPrompt": "Wise is a fintech platform for fast, transparent international money transfers. Its design is bold, direct, and clean, using a high-contrast palette of vibrant lime green (#9FE870) and deep dark green-black (#163300). Typography is dominated by massive, uppercase geometric sans-serif headlines and clean humanist sans-serif body text. The layout is focused and single-column. Critical donts: avoid low-contrast palettes, serif fonts, cluttered layouts, sharp corners, and small, timid typography. The design must feel trustworthy, efficient, and globally accessible."
+    }
+  },
+  {
+    "id": "x",
+    "title": "xAI",
+    "url": "https://x.ai",
+    "image": "https://image.thum.io/get/width/1440/https://x.ai",
+    "tags": [
+      "AI",
+      "Dark Mode",
+      "Developer Tools",
+      "Clean",
+      "Bold Typography"
+    ],
+    "palette": "A strictly monochrome, near-black palette with white and gray text, avoiding any saturated accent colors.",
+    "layout": "A sparse, vertically centered layout dominated by a massive, low-contrast wordmark and a single command input.",
+    "interaction": "Minimal, focused interactions centered around the primary input field, with subtle hover states on buttons.",
+    "motion": "Subtle, smooth transitions and fade-ins, maintaining the calm, monolithic aesthetic.",
+    "notes": "This site is worth including as a prime example of a 'Dark Mode' design system for an AI product, using extreme minimalism and scale to create a powerful, authoritative presence.",
+    "spec": {
+      "colors": {
+        "bg": "#0A0A0A",
+        "bgSoft": null,
+        "bgQuiet": null,
+        "ink": "#FFFFFF",
+        "inkSoft": "#A0A0A0",
+        "muted": "#5A5A5A",
+        "mutedSoft": null,
+        "accent": null,
+        "line": "rgba(255, 255, 255, 0.1)",
+        "principle": "A monochrome, near-black palette with minimal contrast, using white and grays for essential text and UI elements against a dark background."
+      },
+      "typography": {
+        "display": "geometric-sans",
+        "body": "geometric-sans",
+        "mono": "monospace",
+        "scale": [
+          {
+            "token": "display",
+            "size": 200,
+            "lh": 0.9,
+            "weight": 400,
+            "ls": "-4px",
+            "use": "The massive 'Grok' wordmark"
+          },
+          {
+            "token": "h1",
+            "size": 14,
+            "lh": 1.4,
+            "weight": 400,
+            "ls": "2px",
+            "use": "Navigation items and announcements"
+          }
+        ],
+        "rules": [
+          "All-caps navigation with wide letter-spacing",
+          "Display text uses very tight letter-spacing at massive scales",
+          "Body text is clean, geometric, and highly legible"
+        ]
+      },
+      "spacing": {
+        "base": 4,
+        "scale": [
+          4,
+          8,
+          16,
+          24,
+          32,
+          48,
+          64,
+          96
+        ],
+        "rhythm": "Generous vertical spacing creates a sense of vast, open space, emphasizing the central elements."
+      },
+      "surfaces": {
+        "radius": {
+          "sm": 4,
+          "md": 8,
+          "lg": 16,
+          "pill": 999
+        },
+        "shadows": [
+          "0 0 0 1px rgba(255,255,255,0.1) for input and button borders",
+          "No drop shadows, maintaining a flat, planar aesthetic"
+        ],
+        "borders": "Subtle 1px borders with rgba(255,255,255,0.1) for definition without weight."
+      },
+      "layout": {
+        "container": 1400,
+        "paragraph": 600,
+        "columns": 12,
+        "gutter": 24,
+        "breakpoints": [
+          768,
+          1024
+        ],
+        "skeleton": "A single, vertically centered hero with a massive wordmark, followed by a centered input field and footer announcement."
+      },
+      "motion": {
+        "durations": {
+          "micro": 150,
+          "small": 300,
+          "medium": 600
+        },
+        "easing": "cubic-bezier(0.4, 0, 0.2, 1)",
+        "patterns": [
+          "Subtle fade-ins for content, smooth hover transitions on buttons"
+        ]
+      },
+      "identity": {
+        "keywords": [
+          "AI",
+          "Grok",
+          "minimalist",
+          "developer",
+          "monolithic"
+        ],
+        "analogy": "A dark, cavernous space where a single monolithic object (the Grok wordmark) emerges from the shadows, accompanied by a simple command interface.",
+        "oneLiner": "A dark, minimalist AI interface dominated by a massive, low-contrast wordmark and a simple command prompt."
+      },
+      "components": {
+        "button": "Ghost buttons with pill shape, subtle border, and monospace, all-caps text.",
+        "card": "Not present, but input fields share the pill shape with subtle borders.",
+        "chip": "Not present.",
+        "input": "A wide, pill-shaped input with placeholder text, a subtle border, and a circular submit button inside.",
+        "hero": "A full-viewport hero dominated by the low-contrast 'Grok' wordmark, creating a sense of scale and presence."
+      },
+      "interaction": {
+        "hover": "Subtle color change or brightness increase on interactive elements.",
+        "click": "Immediate visual feedback, likely a subtle state change.",
+        "transition": "Smooth, quick transitions on interactive elements.",
+        "keyboard": "Standard focus rings, likely using the same subtle border style."
+      },
+      "voice": {
+        "tone": "Authoritative, minimal, and direct.",
+        "headlineStyle": "The massive wordmark speaks for itself; other headlines are small, all-caps, and informational.",
+        "ctaStyle": "All-caps, monospace, and enclosed in a pill-shaped button.",
+        "avoid": [
+          "Excessive decoration",
+          "Bright, saturated colors",
+          "Multiple competing visual hierarchies"
+        ]
+      },
+      "donts": [
+        "Don't use bright or saturated accent colors — screenshot shows a strictly monochrome palette.",
+        "Don't use serif or decorative fonts — screenshot shows a clean, geometric sans-serif throughout.",
+        "Don't add drop shadows or complex gradients — screenshot shows flat surfaces with only subtle borders.",
+        "Don't clutter the layout with multiple columns or dense text — screenshot shows a sparse, centered composition.",
+        "Don't use sentence case for navigation or CTAs — screenshot shows all-caps with wide letter-spacing.",
+        "Don't use rounded rectangles for primary inputs — screenshot shows a full pill shape."
+      ],
+      "systemPrompt": "This is the landing page for x.ai's Grok AI, positioning it as a powerful, developer-focused tool with a bold, monolithic identity. The design is ultra-minimalist and dark, using a near-black background (#0A0A0A) with white and gray text for maximum contrast where needed. Typography is exclusively geometric sans-serif, with navigation in small, spaced all-caps and a massive, low-contrast wordmark dominating the viewport. Key interactions are centered around a pill-shaped input field. Critical don'ts: Do not introduce bright accent colors; the palette is strictly monochrome. Do not use decorative or serif fonts; maintain the clean, geometric sans-serif system. Do not add complex shadows or gradients; keep surfaces flat with subtle borders. The layout is sparse and vertically centered, emphasizing scale and simplicity."
+    }
+  },
+  {
+    "id": "zapier",
+    "title": "Zapier",
+    "url": "https://zapier.com",
+    "image": "https://image.thum.io/get/width/1440/https://zapier.com",
+    "tags": [
+      "SaaS",
+      "Developer Tools",
+      "Productivity",
+      "AI",
+      "Clean"
+    ],
+    "palette": "Minimal professional palette with white, off-white, black, and single orange accent for CTAs.",
+    "layout": "Centered single-column layout with clear visual hierarchy and generous whitespace between sections.",
+    "interaction": "Subtle hover effects on interactive elements with clear primary and secondary button states.",
+    "motion": "Minimal but smooth transitions for micro-interactions and page elements.",
+    "notes": "Excellent example of professional SaaS design with clear trust signals and conversion-focused layout.",
+    "spec": {
+      "colors": {
+        "bg": "#FFFFFF",
+        "bgSoft": "#F8F7F4",
+        "bgQuiet": null,
+        "ink": "#1A1A1A",
+        "inkSoft": "#666666",
+        "muted": "#999999",
+        "mutedSoft": null,
+        "accent": "#E85D04",
+        "line": "rgba(0,0,0,0.1)",
+        "principle": "High contrast with warm accent for CTAs, professional and trustworthy"
+      },
+      "typography": {
+        "display": "grotesque-sans",
+        "body": "grotesque-sans",
+        "mono": null,
+        "scale": [
+          {
+            "token": "display",
+            "size": 52,
+            "lh": 1.1,
+            "weight": 600,
+            "ls": "-1.5px",
+            "use": "Main headline"
+          }
+        ],
+        "rules": [
+          "Headlines use tight letter-spacing and semi-bold weight",
+          "Body text uses regular weight with comfortable line-height",
+          "Small labels use uppercase tracking for hierarchy"
+        ]
+      },
+      "spacing": {
+        "base": 4,
+        "scale": [
+          4,
+          8,
+          16,
+          24,
+          32,
+          48,
+          64,
+          96
+        ],
+        "rhythm": "Consistent vertical rhythm with generous whitespace"
+      },
+      "surfaces": {
+        "radius": {
+          "sm": 4,
+          "md": 8,
+          "lg": 12,
+          "pill": 999
+        },
+        "shadows": [
+          "0 1px 3px rgba(0,0,0,0.08)"
+        ],
+        "borders": "1px solid rgba(0,0,0,0.1)"
+      },
+      "layout": {
+        "container": 1200,
+        "paragraph": 680,
+        "columns": 12,
+        "gutter": 24,
+        "breakpoints": [
+          768,
+          1024
+        ],
+        "skeleton": "Centered single-column layout with full-width hero and constrained content"
+      },
+      "motion": {
+        "durations": {
+          "micro": 150,
+          "small": 300,
+          "medium": 500
+        },
+        "easing": "cubic-bezier(0.4, 0, 0.2, 1)",
+        "patterns": [
+          "Subtle hover transitions on interactive elements",
+          "Smooth page transitions"
+        ]
+      },
+      "identity": {
+        "keywords": [
+          "automation",
+          "integration",
+          "governance",
+          "AI"
+        ],
+        "analogy": "An enterprise dashboard for AI automation control",
+        "oneLiner": "A clean, professional SaaS interface for managing AI automation with clear hierarchy and trust signals"
+      },
+      "components": {
+        "button": "Solid primary button with pill shape, secondary button with outline",
+        "card": "Light background card with subtle border for feature sections",
+        "chip": "Small tab-like chips with selected state",
+        "input": null,
+        "hero": "Centered headline with subtext and dual CTAs, trust metrics below"
+      },
+      "interaction": {
+        "hover": "Color shift on buttons, subtle underline on links",
+        "click": "Immediate response with subtle scale feedback",
+        "transition": "Smooth color and opacity transitions",
+        "keyboard": "Standard focus outlines for accessibility"
+      },
+      "voice": {
+        "tone": "Professional yet approachable, confident without being aggressive",
+        "headlineStyle": "Short, declarative statements with period endings",
+        "ctaStyle": "Action-oriented with clear value proposition",
+        "avoid": [
+          "Overly technical jargon",
+          "Aggressive sales language",
+          "Excessive exclamation marks",
+          "Unclear value propositions"
+        ]
+      },
+      "donts": [
+        "Don't use multiple accent colors — screenshot shows single orange accent",
+        "Don't add heavy shadows — screenshot shows minimal shadow usage",
+        "Don't use decorative fonts — screenshot shows clean sans-serif throughout",
+        "Don't create cluttered layouts — screenshot maintains generous whitespace",
+        "Don't use bright gradients — screenshot uses flat solid colors",
+        "Don't hide navigation — screenshot shows clear persistent header"
+      ],
+      "systemPrompt": "Zapier's design is a clean, professional SaaS interface for AI automation governance. The palette centers on white (#FFFFFF) and warm off-white (#F8F7F4) backgrounds with black (#1A1A1A) text and a single orange accent (#E85D04) for primary CTAs. Typography uses clean grotesque-sans for both display and body, with tight letter-spacing on headlines. Critical don'ts: avoid multiple accent colors (single orange only), no heavy shadows (minimal elevation), no decorative fonts (strictly professional sans-serif). The layout is centered single-column with generous whitespace, clear hierarchy through size and color, and trust signals via metrics and company logos. The voice is professional yet approachable, with short declarative headlines ending in periods."
     }
   }
 ];

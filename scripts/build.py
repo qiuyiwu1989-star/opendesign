@@ -793,10 +793,14 @@ def main():
         print(f"× cleaned {DIST_DIR}")
     DIST_DIR.mkdir(exist_ok=True)
 
-    sites = load_all_sites()
+    all_sites = load_all_sites()
     if args.slug:
-        sites = [s for s in sites if s["id"] == args.slug]
-    print(f"Loaded {len(sites)} sites")
+        all_sites = [s for s in all_sites if s["id"] == args.slug]
+    # 只发布 completed 站 —— pending / failed / needs_review 不进 index/SEO/sitemap
+    # （它们的 sites/<slug>.json 仍在 git 里，curator 修好后重 build 自动上架）
+    sites = [s for s in all_sites if s.get("status") == "completed"]
+    skipped = len(all_sites) - len(sites)
+    print(f"Loaded {len(all_sites)} sites · publishing {len(sites)} completed · skipping {skipped} (pending/failed/review)")
 
     # 1) Index + per-site detail
     if not args.seo_only:

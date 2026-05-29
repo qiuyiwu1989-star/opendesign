@@ -124,6 +124,8 @@ def check_site(site: dict) -> tuple[list[str], list[str]]:
         warnings.append(f"systemPrompt: very long ({len(sp)} chars)")
 
     # ---- 5 lang coverage ----
+    # desc + spec_i18n 是核心数据（详情抽屉 / spec 喂 AI 都用）→ 缺 = error
+    # narrative 是 magazine 文档的锦上添花 → 缺某个 slot = warning，不 block 整站
     desc = site.get("desc", {})
     spec_i18n = site.get("spec_i18n", {})
     narrative = site.get("narrative", {})
@@ -134,13 +136,15 @@ def check_site(site: dict) -> tuple[list[str], list[str]]:
             errors.append(f"desc.{lang}.palette: empty")
         if lang not in spec_i18n:
             errors.append(f"spec_i18n.{lang}: missing")
+        # narrative 缺失只是 warning（DESIGN_SPEC.md 那个 lang 会少几段叙事，不致命）
         if lang not in narrative:
-            errors.append(f"narrative.{lang}: missing")
+            warnings.append(f"narrative.{lang}: missing (DESIGN_SPEC.{lang}.md will have less prose)")
         else:
             n = narrative[lang]
-            for slot in ["ch1_intro", "ch2_intro", "ch6_intro", "ch8_outro"]:
-                if not n.get(slot) or len(n[slot].strip()) < 20:
-                    errors.append(f"narrative.{lang}.{slot}: missing or stub")
+            stub_slots = [slot for slot in ["ch1_intro", "ch2_intro", "ch6_intro", "ch8_outro"]
+                          if not n.get(slot) or len(n[slot].strip()) < 20]
+            if stub_slots:
+                warnings.append(f"narrative.{lang}: stub slots {stub_slots}")
 
     # ---- Tags ----
     if not site.get("tags") or len(site["tags"]) < 2:
