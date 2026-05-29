@@ -9620,6 +9620,159 @@ window.STYLE_ATLAS_SITES = [
     }
   },
   {
+    "id": "sanity",
+    "title": "Sanity",
+    "url": "https://www.sanity.io",
+    "image": "https://api.microlink.io/?url=https%3A%2F%2Fwww.sanity.io&screenshot=true&embed=screenshot.url",
+    "tags": [
+      "Editorial",
+      "Clean",
+      "Developer Tools",
+      "Refinement",
+      "Tooling"
+    ],
+    "palette": "A minimalist monochromatic palette with a single, functional blue accent against a white background.",
+    "layout": "A centered, single-column layout with generous white space and clear visual hierarchy.",
+    "interaction": "Subtle, immediate feedback for interactive elements with smooth transitions.",
+    "motion": "Minimal motion with subtle fades and transitions to maintain focus on content.",
+    "notes": "A prime example of a clean, developer-focused design that prioritizes clarity and functionality over decoration.",
+    "spec": {
+      "colors": {
+        "bg": "#FFFFFF",
+        "bgSoft": null,
+        "bgQuiet": null,
+        "ink": "#333333",
+        "inkSoft": null,
+        "muted": "#999999",
+        "mutedSoft": null,
+        "accent": "#1D4ED8",
+        "line": "rgba(0, 0, 0, 0.1)",
+        "principle": "Minimalist monochrome base with a single, functional blue accent for key brand elements."
+      },
+      "typography": {
+        "display": "transitional-serif",
+        "body": "sans-serif",
+        "mono": "monospace",
+        "scale": [
+          {
+            "token": "display",
+            "size": 56,
+            "lh": 1.1,
+            "weight": 500,
+            "ls": "-1px",
+            "use": "Main logo mark"
+          },
+          {
+            "token": "heading",
+            "size": 32,
+            "lh": 1.2,
+            "weight": 500,
+            "ls": "-0.5px",
+            "use": "Brand name 'thum.io'"
+          }
+        ],
+        "rules": [
+          "Display type is a transitional serif.",
+          "Body type is a clean sans-serif.",
+          "Monospace is used for technical elements."
+        ]
+      },
+      "spacing": {
+        "base": 4,
+        "scale": [
+          4,
+          8,
+          16,
+          24,
+          32,
+          48,
+          64,
+          96
+        ],
+        "rhythm": "Generous, consistent padding around central elements."
+      },
+      "surfaces": {
+        "radius": {
+          "sm": 4,
+          "md": 8,
+          "lg": 12,
+          "pill": 999
+        },
+        "shadows": [
+          "0 1px 3px rgba(0,0,0,0.1)"
+        ],
+        "borders": "Subtle, 1px solid rgba(0,0,0,0.1) for definition."
+      },
+      "layout": {
+        "container": 1280,
+        "paragraph": 680,
+        "columns": 12,
+        "gutter": 24,
+        "breakpoints": [
+          768,
+          1024
+        ],
+        "skeleton": "Centered, single-column focused layout with ample white space."
+      },
+      "motion": {
+        "durations": {
+          "micro": 220,
+          "small": 400,
+          "medium": 800
+        },
+        "easing": "cubic-bezier(0.4, 0.0, 0.2, 1)",
+        "patterns": [
+          "Subtle fade-ins for content loading.",
+          "Smooth transitions for hover states."
+        ]
+      },
+      "identity": {
+        "keywords": [
+          "minimal",
+          "technical",
+          "clean",
+          "focused",
+          "developer"
+        ],
+        "analogy": "A focused developer tool with a clean, monochromatic aesthetic and a subtle brand accent.",
+        "oneLiner": "A clean, developer-focused interface with a monochromatic base and a single blue accent."
+      },
+      "components": {
+        "button": "Clean, flat or slightly raised with blue accent for primary actions.",
+        "card": "Simple white surface with subtle border or shadow.",
+        "chip": "Minimal, outlined style with neutral colors.",
+        "input": "Clean, outlined fields with subtle focus states.",
+        "hero": "Large, centered logo and brand name with generous whitespace."
+      },
+      "interaction": {
+        "hover": "Subtle color shift or shadow elevation.",
+        "click": "Immediate visual feedback with slight scale or press effect.",
+        "transition": "Smooth, 220ms ease-out for interactive elements.",
+        "keyboard": "Clear focus rings for accessibility."
+      },
+      "voice": {
+        "tone": "Professional, technical, and straightforward.",
+        "headlineStyle": "Clear, concise, and focused on functionality.",
+        "ctaStyle": "Direct and action-oriented, using the accent color.",
+        "avoid": [
+          "Overly casual language.",
+          "Excessive exclamation marks.",
+          "Ambiguous technical terms.",
+          "Redundant descriptions."
+        ]
+      },
+      "donts": [
+        "Don't use multiple accent colors — screenshot shows a single blue accent against monochrome.",
+        "Don't apply heavy shadows — screenshot shows minimal, subtle shadow usage.",
+        "Don't use playful, rounded corners — screenshot shows sharp or slightly rounded corners.",
+        "Don't use complex gradients — screenshot shows flat, solid colors.",
+        "Don't overcrowd the layout — screenshot shows ample white space around central elements.",
+        "Don't use decorative typography — screenshot shows clean, functional typefaces."
+      ],
+      "systemPrompt": "This is a clean, developer-focused interface with a minimalist monochromatic palette. The primary background is white (#FFFFFF) with ink (#333333) for text and a single blue accent (#1D4ED8) for key brand elements. Typography is functional, using a transitional serif for display and sans-serif for body text. Critical donts: do not use multiple accent colors, do not apply heavy shadows, and do not overcrowd the layout. The design prioritizes clarity, whitespace, and technical precision for a professional audience."
+    }
+  },
+  {
     "id": "sentry",
     "title": "Sentry",
     "url": "https://sentry.io",
@@ -11930,6 +12083,155 @@ window.STYLE_ATLAS_SITES = [
         "Don't use busy patterns — screenshot shows a completely clean background."
       ],
       "systemPrompt": "This site is a highly restrained, minimalist corporate identity page for Vodafone. It features a clean white background, a subtle 3D gray ring graphic, and the thum.io brand name in a monospaced font next to a small blue icon. The palette is ultra-minimal, using primarily white and gray with a single corporate blue (#0056A0) accent. The typography pairs a monospaced font for the brand name with a humanist sans-serif for any secondary text. Critical design constraints: maintain extreme restraint and generous whitespace; do not introduce vibrant colors or complex animations; keep all elements perfectly centered and uncluttered."
+    }
+  },
+  {
+    "id": "voltagent",
+    "title": "Voltagent",
+    "url": "https://voltagent.dev",
+    "image": "https://image.thum.io/get/width/1440/https://voltagent.dev",
+    "tags": [
+      "Developer Tools",
+      "Clean",
+      "Monochrome",
+      "Bold Typography",
+      "Restraint"
+    ],
+    "palette": "Strict monochromatic palette using only black and white with no accent colors.",
+    "layout": "Clean, centered layout with generous white space and minimal visual elements.",
+    "interaction": "No visible interactive states or animations, focusing on static presentation.",
+    "motion": "No motion or animations visible in the interface.",
+    "notes": "A masterclass in minimalist design restraint, showing how powerful typography and white space can create impact without decoration.",
+    "spec": {
+      "colors": {
+        "bg": "#FFFFFF",
+        "bgSoft": null,
+        "bgQuiet": null,
+        "ink": "#000000",
+        "inkSoft": null,
+        "muted": "#666666",
+        "mutedSoft": null,
+        "accent": null,
+        "line": "rgba(0,0,0,0.1)",
+        "principle": "Strict monochromatic palette with high contrast between black text and white background"
+      },
+      "typography": {
+        "display": "grotesque-sans",
+        "body": "grotesque-sans",
+        "mono": "monospace",
+        "scale": [
+          {
+            "token": "display",
+            "size": 56,
+            "lh": 1.0,
+            "weight": 700,
+            "ls": "-1px",
+            "use": "main headline"
+          },
+          {
+            "token": "body",
+            "size": 16,
+            "lh": 1.5,
+            "weight": 400,
+            "ls": "0px",
+            "use": "paragraph text"
+          }
+        ],
+        "rules": [
+          "Use bold weight for headlines",
+          "Maintain consistent sans-serif typography throughout",
+          "Use monospace for code-related content"
+        ]
+      },
+      "spacing": {
+        "base": 4,
+        "scale": [
+          4,
+          8,
+          16,
+          24,
+          32,
+          48,
+          64,
+          96
+        ],
+        "rhythm": "consistent 4px base grid"
+      },
+      "surfaces": {
+        "radius": {
+          "sm": 0,
+          "md": 0,
+          "lg": 0,
+          "pill": 999
+        },
+        "shadows": [],
+        "borders": "none"
+      },
+      "layout": {
+        "container": 1200,
+        "paragraph": 640,
+        "columns": 12,
+        "gutter": 24,
+        "breakpoints": [
+          768,
+          1024
+        ],
+        "skeleton": "clean centered layout with ample white space"
+      },
+      "motion": {
+        "durations": {
+          "micro": 0,
+          "small": 0,
+          "medium": 0
+        },
+        "easing": "cubic-bezier(0,0,0,0)",
+        "patterns": [
+          "no visible animations"
+        ]
+      },
+      "identity": {
+        "keywords": [
+          "technical",
+          "precise",
+          "restrained",
+          "monochrome",
+          "developer-focused"
+        ],
+        "analogy": "A clean, minimalist code editor interface",
+        "oneLiner": "A restrained, monochromatic developer tool interface with bold typography"
+      },
+      "components": {
+        "button": "minimal, text-based with no visible borders or backgrounds",
+        "card": "no visible card components",
+        "chip": "no chip components visible",
+        "input": "no input components visible",
+        "hero": "large bold headline with clean typography and ample white space"
+      },
+      "interaction": {
+        "hover": "no visible hover states",
+        "click": "no visible click states",
+        "transition": "no visible transitions",
+        "keyboard": "standard keyboard navigation"
+      },
+      "voice": {
+        "tone": "technical and precise",
+        "headlineStyle": "bold, concise, developer-focused language",
+        "ctaStyle": "minimal, text-based calls to action",
+        "avoid": [
+          "decorative elements",
+          "colorful accents",
+          "rounded corners"
+        ]
+      },
+      "donts": [
+        "don't use color accents — screenshot shows strictly monochromatic palette",
+        "don't add rounded corners — screenshot shows sharp rectangular edges",
+        "don't use drop shadows — screenshot shows completely flat surfaces",
+        "don't use decorative borders — screenshot shows minimal to no visible borders",
+        "don't add animations — screenshot shows completely static interface",
+        "don't use multiple font families — screenshot shows consistent typography"
+      ],
+      "systemPrompt": "This is a minimalist developer tool website with a strictly monochromatic color scheme. The palette uses only black (#000000) text on white (#FFFFFF) background with no accent colors. Typography is bold grotesque-sans for headlines and clean sans-serif for body text. The layout features generous white space with a centered container and clean alignment. Critical donts: never add color accents, never use rounded corners, never add drop shadows, never use decorative borders, never add animations, never use multiple font families. The design philosophy emphasizes restraint and technical precision, focusing on content hierarchy through typography and spacing rather than visual decoration."
     }
   },
   {
