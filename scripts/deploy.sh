@@ -62,6 +62,12 @@ if [[ -z "${SKIP_SEO:-}" && -d "${ROOT_DIR}/dist/seo" ]]; then
   MANIFEST+=("dist/seo")
 fi
 
+# 把 dist/packs/ 内容加进去（每站 DESIGN.md + DESIGN_SPEC.<lang>.md，给 Agent URL 用）
+if [[ -d "${ROOT_DIR}/dist/packs" ]]; then
+  echo "  • dist/packs (per-site DESIGN.md + DESIGN_SPEC.<lang>.md)"
+  MANIFEST+=("dist/packs")
+fi
+
 tar --no-xattrs --disable-copyfile -czf "${ARCHIVE}" -C "${ROOT_DIR}" "${MANIFEST[@]}"
 
 echo "▸ Uploading to ${DEPLOY_USER}@${DEPLOY_HOST}"
@@ -79,6 +85,12 @@ ssh "${SSH_OPTS[@]}" "${DEPLOY_USER}@${DEPLOY_HOST}" "
         sudo cp -r '${DEPLOY_PATH}/dist/seo/'\$lang'/'* '${DEPLOY_PATH}/'\$lang'/'
       fi
     done
+  fi &&
+  if [[ -d '${DEPLOY_PATH}/dist/packs' ]]; then
+    # 把每站 DESIGN.md / DESIGN_SPEC.<lang>.md 铺到 <DEPLOY_PATH>/packs/<slug>/
+    # 用 cp -r（不删目标），所以已有的完整 Playwright pack（截图 / ZIP）不被覆盖
+    sudo mkdir -p '${DEPLOY_PATH}/packs' &&
+    sudo cp -r '${DEPLOY_PATH}/dist/packs/'* '${DEPLOY_PATH}/packs/'
   fi &&
   sudo chown -R www-data:www-data '${DEPLOY_PATH}' &&
   sudo find '${DEPLOY_PATH}' -name '._*' -delete &&

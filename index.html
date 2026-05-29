@@ -363,6 +363,24 @@
           <div class="drawer-tags" id="drawerTags"></div>
           <div class="insight-grid" id="insightGrid"></div>
 
+          <!-- 给 AI Agent 的入口（每站都有）：一个 URL / 一段提示词，喂给 Claude/Cursor/v0 -->
+          <section class="agent-block" id="agentBlock">
+            <div class="agent-block-head">
+              <span class="agent-block-icon" aria-hidden="true">🤖</span>
+              <div>
+                <p class="eyebrow" data-i18n="agent.eyebrow">给 AI AGENT 用</p>
+                <h3 class="agent-block-title" data-i18n="agent.title">把这套设计系统交给你的 AI</h3>
+              </div>
+            </div>
+            <p class="agent-block-lead" data-i18n="agent.lead">复制下面这段，粘进 Claude / Cursor / v0 —— AI 会读取这个站的完整 11 层设计系统（颜色 / 字体 / 间距 / 动效 / 禁用清单），按同样的设计语言生成或改造你的页面。</p>
+            <pre class="agent-prompt" id="agentPrompt"></pre>
+            <div class="agent-actions">
+              <button class="pill-button" id="agentCopyPrompt" type="button" data-i18n="agent.copyPrompt">复制 Agent 提示词</button>
+              <button class="pill-button pill-button-ghost" id="agentCopyUrl" type="button" data-i18n="agent.copyUrl">只复制 URL</button>
+              <a class="pill-button pill-button-ghost" id="agentOpenSpec" href="#" target="_blank" rel="noopener noreferrer" data-i18n="agent.openSpec">查看 DESIGN.md</a>
+            </div>
+          </section>
+
           <!-- 设计素材包 manifest 区（按 packsIndex 数据动态显示/隐藏）-->
           <section class="pack-manifest" id="packManifest" hidden>
             <div class="pack-head">

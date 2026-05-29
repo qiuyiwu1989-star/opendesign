@@ -1028,14 +1028,20 @@ function applyTransform() {
 
 function openDetail(siteId) {
   activeSite = sites.find((site) => site.id === siteId) || sites[0];
+  // 用户存过的「刷新版」截图（localStorage）优先，否则用 site.image
+  const shotOverride = localStorage.getItem(`shot-override:${activeSite.id}`);
+  const heroImg = shotOverride || activeSite.image;
   document.querySelector("#drawerMedia").innerHTML = `
-    <a href="${activeSite.url}" target="_blank" rel="noreferrer" aria-label="打开 ${activeSite.title} 原始网页">
-      <img src="${activeSite.image}" alt="${activeSite.title} website screenshot" />
+    <a href="${activeSite.url}" target="_blank" rel="noreferrer" aria-label="${t("drawer.visit.aria")}">
+      <img id="drawerHeroImg" ${imgAttrs({ ...activeSite, image: heroImg }, { lazy: false })} alt="${activeSite.title} screenshot" />
       <span class="media-visit-badge">
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8" /></svg>
-        打开原站
+        ${t("drawer.media.visit")}
       </span>
     </a>
+    <button class="media-refresh" id="drawerRefreshShot" type="button" title="${t("drawer.refreshShot")}" aria-label="${t("drawer.refreshShot")}">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12a9 9 0 1 1-2.64-6.36M21 4v5h-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
   `;
   document.querySelector("#drawerDomain").textContent = domainFromUrl(activeSite.url);
   document.querySelector("#drawerTitle").textContent = activeSite.title;
@@ -1050,6 +1056,7 @@ function openDetail(siteId) {
     .map(([title, body]) => `<section class="insight-card"><h3>${title}</h3><p>${body}</p></section>`)
     .join("");
   document.querySelector("#markdownOutput").textContent = createMarkdown(activeSite);
+  renderAgentBlock(activeSite);
   renderRelatedSites(activeSite);
   refreshDrawerActions();
   detailDrawer.classList.add("open");
@@ -1068,6 +1075,30 @@ function openDetail(siteId) {
 function siteDetailHref(slug) {
   const lang = (window.i18n && window.i18n.current) || "en";
   return `/${lang}/sites/${slug}`;
+}
+
+/* ====== 给 AI Agent 的入口 ======
+ * 每个作品页都有：一个 folder URL（serve DESIGN.md）+ 一段可直接粘的提示词。
+ * Agent URL 协议：opendesign.cc/packs/<slug>/ → nginx 默认 serve DESIGN.md
+ */
+function agentSpecUrl(slug) {
+  return `${location.origin}/packs/${slug}/`;
+}
+
+function agentPromptText(site) {
+  const url = agentSpecUrl(site.id);
+  const name = site.title;
+  return t("agent.promptTemplate", { name, url });
+}
+
+function renderAgentBlock(site) {
+  const block = document.querySelector("#agentBlock");
+  if (!block || !site) return;
+  const promptEl = document.querySelector("#agentPrompt");
+  const openSpec = document.querySelector("#agentOpenSpec");
+  if (promptEl) promptEl.textContent = agentPromptText(site);
+  if (openSpec) openSpec.href = agentSpecUrl(site.id);
+  block.dataset.slug = site.id;
 }
 
 /* ====== 相关推荐（详情抽屉底部）======
@@ -2118,6 +2149,45 @@ document.querySelector("#packCopyAgentUrl").addEventListener("click", () => {
   }).catch(() => {
     showToast(fullUrl);
   });
+});
+
+/* 刷新截图：cache-bust thum.io 重新生成最新一帧，存 localStorage 覆盖 */
+document.querySelector("#drawerMedia")?.addEventListener("click", (e) => {
+  const btn = e.target.closest("#drawerRefreshShot");
+  if (!btn || !activeSite) return;
+  e.preventDefault();
+  e.stopPropagation();
+  const stamp = Date.now();
+  // thum.io noanimate + cache-bust，强制重抓
+  const fresh = `https://image.thum.io/get/width/1440/noanimate/?_cb=${stamp}/${activeSite.url}`;
+  const img = document.querySelector("#drawerHeroImg");
+  if (img) {
+    btn.classList.add("spinning");
+    img.onerror = null;
+    img.onload = () => { btn.classList.remove("spinning"); };
+    img.src = fresh;
+    // 持久化覆盖：下次打开仍是这张新图
+    localStorage.setItem(`shot-override:${activeSite.id}`, fresh);
+    showToast(t("drawer.refreshShot.done"));
+  }
+});
+
+/* Agent block 的复制按钮 */
+document.querySelector("#agentCopyPrompt")?.addEventListener("click", () => {
+  if (!activeSite) return;
+  const text = agentPromptText(activeSite);
+  navigator.clipboard.writeText(text).then(
+    () => showToast(t("agent.promptCopied")),
+    () => showToast(text)
+  );
+});
+document.querySelector("#agentCopyUrl")?.addEventListener("click", () => {
+  if (!activeSite) return;
+  const url = agentSpecUrl(activeSite.id);
+  navigator.clipboard.writeText(url).then(
+    () => showToast(t("agent.urlCopied")),
+    () => showToast(url)
+  );
 });
 
 /* ====== 资产预览模态：点 pack 文件不直接跳走，改成在站内渲染 ====== */

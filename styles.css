@@ -1417,10 +1417,33 @@ input:focus-visible {
 }
 
 .drawer-media {
+  position: relative;
   height: clamp(380px, 56vh, 600px);
   overflow: hidden;
   background: var(--bg-quiet);
 }
+
+/* 刷新截图按钮 —— 左下角，与右下「打开原站」对称 */
+.media-refresh {
+  position: absolute;
+  left: 18px;
+  bottom: 18px;
+  z-index: 3;
+  display: inline-grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.92);
+  color: var(--ink);
+  box-shadow: 0 1px 3px rgba(10, 10, 10, 0.18);
+  cursor: pointer;
+  transition: transform 0.18s ease, background 0.18s ease;
+}
+.media-refresh:hover { background: #fff; transform: translateY(-1px); }
+.media-refresh svg { width: 16px; height: 16px; }
+.media-refresh.spinning svg { animation: spin 0.8s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
 
 .drawer-media a {
   position: relative;
@@ -2544,6 +2567,61 @@ html[lang^="zh"] .preview-md em {
     font-size: 11px;
   }
 }
+
+/* ====== 详情抽屉 · 给 AI Agent 入口 ====== */
+.agent-block {
+  margin: 32px 0;
+  padding: 24px;
+  border: 1px solid var(--ink);
+  border-radius: 12px;
+  background: var(--bg-quiet);
+}
+.agent-block-head {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+.agent-block-icon {
+  font-size: 22px;
+  line-height: 1.2;
+}
+.agent-block-title {
+  margin: 2px 0 0;
+  font-family: var(--font-serif);
+  font-style: var(--font-serif-style);
+  font-size: 22px;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+}
+.agent-block-lead {
+  margin: 0 0 16px;
+  color: var(--ink-soft);
+  font-size: 14px;
+  line-height: 1.6;
+}
+.agent-prompt {
+  margin: 0 0 14px;
+  padding: 14px 16px;
+  background: var(--ink);
+  color: var(--bg);
+  border-radius: 8px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  line-height: 1.6;
+  white-space: pre-wrap;
+  word-break: break-word;
+  max-height: 200px;
+  overflow-y: auto;
+  user-select: all;
+}
+.agent-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.agent-actions .pill-button { text-decoration: none; }
 
 /* ====== 详情抽屉 · 相关推荐 ====== */
 .related-sites {
