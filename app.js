@@ -17,6 +17,8 @@ let viewState = { x: -110, y: -70, scale: 1 };
 let dragging = false;
 let dragStart = { x: 0, y: 0 };
 let panStart = { x: 0, y: 0 };
+let dragMoved = false;            // 区分 tap（点开详情）vs drag（拖画布）
+const DRAG_THRESHOLD = 6;         // 移动超过 6px 才算拖拽
 
 const canvasSurface = document.querySelector("#canvasSurface");
 const canvasGrid = document.querySelector("#canvasGrid");
@@ -393,6 +395,53 @@ function domainFromUrl(url) {
     return url;
   }
 }
+
+/* ====== 截图加载容错 ======
+ * thum.io 偶尔返回占位 / 限速 / 还在生成。给每张 site 图建一条 fallback 链：
+ *   原图 → thum.io?重试 → wsrv.nl 代理 → microlink
+ * 用 data-fallback-idx 记录已重试到第几级，onerror 时前进一级。
+ */
+function imageFallbackChain(site) {
+  const target = site.url;
+  const enc = encodeURIComponent(target);
+  const chain = [];
+  // 1) 原始 image（多半是 thum.io 1440）
+  if (site.image) chain.push(site.image);
+  // 2) thum.io 带 noanimate + 更小宽度（更快返回真图）
+  chain.push(`https://image.thum.io/get/width/1200/noanimate/${target}`);
+  // 3) wsrv.nl 代理（缓存 + 重新取）
+  chain.push(`https://wsrv.nl/?url=${enc}&w=1200&output=jpg`);
+  // 4) microlink 实时截图
+  chain.push(`https://api.microlink.io/?url=${enc}&screenshot=true&embed=screenshot.url`);
+  // 去重
+  return [...new Set(chain)];
+}
+
+/** 生成 <img> 标签的 src + onerror fallback 属性串 */
+function imgAttrs(site, { lazy = true } = {}) {
+  const chain = imageFallbackChain(site);
+  const chainAttr = encodeURIComponent(JSON.stringify(chain));
+  const loading = lazy ? ' loading="lazy"' : "";
+  return `src="${chain[0]}" data-fallback="${chainAttr}" data-fallback-idx="0" onerror="window.__imgFallback&&window.__imgFallback(this)"${loading}`;
+}
+
+// 全局 onerror handler：沿 fallback 链前进
+window.__imgFallback = function (img) {
+  try {
+    const chain = JSON.parse(decodeURIComponent(img.dataset.fallback || "[]"));
+    let idx = parseInt(img.dataset.fallbackIdx || "0", 10) + 1;
+    if (idx < chain.length) {
+      img.dataset.fallbackIdx = String(idx);
+      img.src = chain[idx];
+    } else {
+      // 全失败 → 标记 + 移除 onerror 防死循环
+      img.onerror = null;
+      img.closest(".card-thumb, .library-thumb")?.classList.add("img-failed");
+    }
+  } catch {
+    img.onerror = null;
+  }
+};
 
 function normalizeUrl(value) {
   const trimmed = value.trim();
@@ -885,8 +934,8 @@ function renderCanvas() {
         <div class="site-node" style="transform: translate3d(${x}px, ${y}px, 0);">
           <article class="site-card" data-id="${site.id}"${saved ? ' data-saved="true"' : ""}>
             <div class="card-thumb">
-              <img src="${site.image}" alt="${t("img.alt.screenshot", { title: site.title })}" draggable="false" loading="lazy" />
-              <button class="card-hit" type="button" aria-label="${t("card.open.aria", { title: site.title })}"></button>
+              <img ${imgAttrs(site)} alt="${t("img.alt.screenshot", { title: site.title })}" draggable="false" />
+              <a class="card-hit" href="${siteDetailHref(site.id)}" aria-label="${t("card.open.aria", { title: site.title })}"></a>
               <a class="card-visit" href="${site.url}" target="_blank" rel="noreferrer" aria-label="${t("card.visit.aria", { title: site.title })}">
                 <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8" /></svg>
               </a>
@@ -919,8 +968,9 @@ function libraryCardHTML(site, index) {
   const count = store.saveCount(site.id);
   return `
     <article class="library-card" data-id="${site.id}"${saved ? ' data-saved="true"' : ""}>
+      <a class="library-hit" href="${siteDetailHref(site.id)}" aria-label="${t("card.open.aria", { title: site.title })}"></a>
       <div class="library-thumb">
-        <img src="${site.image}" alt="${t("img.alt.screenshot", { title: site.title })}" loading="lazy" />
+        <img ${imgAttrs(site)} alt="${t("img.alt.screenshot", { title: site.title })}" />
         <button class="card-save library-save" type="button" data-save="${site.id}" aria-label="${t(saved ? "drawer.save.done" : "drawer.save")}" aria-pressed="${saved}">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-4.5-9.3-9A5.4 5.4 0 0 1 12 6a5.4 5.4 0 0 1 9.3 6c-2.3 4.5-9.3 9-9.3 9Z" /></svg>
         </button>
@@ -1004,7 +1054,20 @@ function openDetail(siteId) {
   refreshDrawerActions();
   detailDrawer.classList.add("open");
   detailDrawer.setAttribute("aria-hidden", "false");
-  setHash(`#/sites/${activeSite.id}`, { silent: true });
+  document.body.classList.add("drawer-open");
+  // URL 用真实独立页路径 /{lang}/sites/{slug}（与静态 SEO 页一致、可分享、可索引）
+  // 不用 hash —— 让 URL 看起来就是详情页，刷新时 nginx 给静态 HTML
+  const lang = (window.i18n && window.i18n.current) || "en";
+  const detailPath = `/${lang}/sites/${activeSite.id}`;
+  if (location.pathname !== detailPath) {
+    history.pushState({ site: activeSite.id }, "", detailPath);
+  }
+}
+
+/** 详情页 URL（供卡片 <a href> 用，爬虫可跟随）*/
+function siteDetailHref(slug) {
+  const lang = (window.i18n && window.i18n.current) || "en";
+  return `/${lang}/sites/${slug}`;
 }
 
 /* ====== 相关推荐（详情抽屉底部）======
@@ -1196,8 +1259,11 @@ function packFileRowHTML(f, slug) {
 function closeDetail() {
   detailDrawer.classList.remove("open");
   detailDrawer.setAttribute("aria-hidden", "true");
-  const current = parseHash();
-  if (current.route === "site") setHash(viewToHash(currentView), { silent: true });
+  document.body.classList.remove("drawer-open");
+  // 如果当前 URL 是 /{lang}/sites/{slug} 详情页路径，退回到列表/画布根
+  if (/^\/[a-zA-Z-]+\/sites\//.test(location.pathname)) {
+    history.pushState({}, "", "/" + (location.hash || ""));
+  }
 }
 
 /* ====== Rich Markdown Generator ======
@@ -1704,14 +1770,20 @@ function viewToHash(view) {
   return view === "canvas" ? "#/" : `#/${view}`;
 }
 
+/** 手机上无限画布拖拽体验差 —— 默认进 Library 列表视图。
+ *  桌面默认 canvas。只在「无显式 hash」时生效，用户手动切了不覆盖。 */
+function defaultView() {
+  return window.innerWidth <= 760 ? "library" : "canvas";
+}
+
 function parseHash() {
   const raw = location.hash.replace(/^#\/?/, "");
-  if (!raw) return { route: "view", view: "canvas" };
+  if (!raw) return { route: "view", view: defaultView() };
   const parts = raw.split("/").filter(Boolean);
   if (parts[0] === "sites" && parts[1]) return { route: "site", id: decodeURIComponent(parts[1]) };
   if (parts[0] === "tags" && parts[1]) return { route: "tag", tag: decodeURIComponent(parts[1]) };
   if (["canvas", "library", "saved", "about"].includes(parts[0])) return { route: "view", view: parts[0] };
-  return { route: "view", view: "canvas" };
+  return { route: "view", view: defaultView() };
 }
 
 let suppressHashApply = false;
@@ -1756,8 +1828,11 @@ function applyHash() {
 }
 
 canvasSurface.addEventListener("pointerdown", (event) => {
-  if (event.target.closest("button, a, input")) return;
+  // 只在真正的控件（收藏按钮 / 打开原站链接）上让出事件；
+  // 卡片主图（card-hit / img）也允许开始拖拽 —— 解决手机上按在主图滑不动。
+  if (event.target.closest(".card-save, .card-visit, a, input")) return;
   dragging = true;
+  dragMoved = false;
   dragStart = { x: event.clientX, y: event.clientY };
   panStart = { x: viewState.x, y: viewState.y };
   canvasSurface.setPointerCapture(event.pointerId);
@@ -1765,14 +1840,25 @@ canvasSurface.addEventListener("pointerdown", (event) => {
 
 canvasSurface.addEventListener("pointermove", (event) => {
   if (!dragging) return;
-  viewState.x = panStart.x + event.clientX - dragStart.x;
-  viewState.y = panStart.y + event.clientY - dragStart.y;
-  applyTransform();
+  const dx = event.clientX - dragStart.x;
+  const dy = event.clientY - dragStart.y;
+  if (!dragMoved && Math.hypot(dx, dy) > DRAG_THRESHOLD) {
+    dragMoved = true;
+    canvasSurface.classList.add("is-dragging");
+  }
+  if (dragMoved) {
+    viewState.x = panStart.x + dx;
+    viewState.y = panStart.y + dy;
+    applyTransform();
+  }
 });
 
-canvasSurface.addEventListener("pointerup", () => {
+function endCanvasDrag() {
   dragging = false;
-});
+  canvasSurface.classList.remove("is-dragging");
+}
+canvasSurface.addEventListener("pointerup", endCanvasDrag);
+canvasSurface.addEventListener("pointercancel", endCanvasDrag);
 
 canvasSurface.addEventListener(
   "wheel",
@@ -1798,9 +1884,17 @@ canvasGrid.addEventListener("click", (event) => {
     handleSaveToggle(saveBtn.dataset.save);
     return;
   }
+  // 刚拖完不触发打开（避免拖拽松手误点开）
+  if (dragMoved) { dragMoved = false; return; }
+  // 让出"打开原站"外链
+  if (event.target.closest(".card-visit")) return;
   const card = event.target.closest(".site-card");
-  const hit = event.target.closest(".card-hit");
-  if (card && hit) openDetail(card.dataset.id);
+  if (!card) return;
+  // 普通点击 → 拦截 <a> 跳转，走 SPA 抽屉。
+  // 但 ⌘/Ctrl/中键 点击 → 放行（用户想新标签打开独立页）
+  if (event.metaKey || event.ctrlKey || event.button === 1) return;
+  event.preventDefault();
+  openDetail(card.dataset.id);
 });
 
 function bindListClicks(listEl) {
@@ -1813,6 +1907,17 @@ function bindListClicks(listEl) {
       handleSaveToggle(saveBtn.dataset.save);
       return;
     }
+    // library-hit 是真 <a href="/{lang}/sites/{slug}">（爬虫可跟随）
+    // ⌘/Ctrl/中键 放行新标签；普通点击拦截走 SPA 抽屉
+    const hit = event.target.closest(".library-hit, a.card-hit");
+    if (hit) {
+      if (event.metaKey || event.ctrlKey || event.button === 1) return;
+      event.preventDefault();
+      const card = event.target.closest(".library-card, .site-card");
+      if (card) openDetail(card.dataset.id);
+      return;
+    }
+    // 其它外链（card-visit / library-domain 等）放行
     if (event.target.closest("a")) return;
     const card = event.target.closest(".library-card");
     if (card) openDetail(card.dataset.id);
@@ -2287,8 +2392,35 @@ window.addEventListener("keydown", (event) => {
 window.addEventListener("resize", renderCanvas);
 window.addEventListener("hashchange", applyHash);
 
+/* ====== 路径路由 ======
+ * SPA 现在用 pushState 切到 /{lang}/sites/{slug}。
+ * 处理：(a) 首次直接命中该路径（SPA 接管 index.html fallback 时）
+ *       (b) 浏览器前进/后退
+ */
+function applyPathRoute() {
+  const m = location.pathname.match(/^\/[a-zA-Z-]+\/sites\/([a-z0-9][a-z0-9-]*)\/?$/);
+  if (m) {
+    const slug = m[1];
+    const target = sites.find((s) => s.id === slug);
+    if (target) { openDetail(target.id); return true; }
+  }
+  // 不是详情路径 → 若抽屉开着则关
+  if (detailDrawer.classList.contains("open")) {
+    detailDrawer.classList.remove("open");
+    detailDrawer.setAttribute("aria-hidden", "true");
+    document.body.classList.remove("drawer-open");
+  }
+  return false;
+}
+
+window.addEventListener("popstate", () => {
+  // 优先路径路由（详情页），否则回退 hash 视图路由
+  if (!applyPathRoute()) applyHash();
+});
+
 renderAll();
-applyHash();
+// 启动：先看 URL 是不是详情页路径，否则走 hash
+if (!applyPathRoute()) applyHash();
 
 /* 启动后异步:
  * 1) merge 外部 sites-specs.json 进 curatedSites（AI 批跑产物，独立维护避免污染 sites.js）

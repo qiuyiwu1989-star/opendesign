@@ -11,7 +11,7 @@
     "Clean",
     "Curation"
   ],
-  "status": "failed:JSONDecodeError",
+  "status": "completed",
   "added_at": "2026-05-29",
   "added_by": "ingest",
   "_meta": {
@@ -20,7 +20,18 @@
     "vision_at": "2026-05-28T21:48:49+00:00",
     "vision_tokens": 3438,
     "vision_cost_usd": 0.0382,
-    "last_error": "Expecting value: line 85 column 7 (char 2628)"
+    "last_error": "Expecting value: line 85 column 7 (char 2628)",
+    "translation_model": "mimo-v2.5",
+    "translation_at": "2026-05-29T02:04:37+00:00",
+    "translation_tokens": 7762,
+    "translation_cost_usd": 0.0259,
+    "narrative_model": "mimo-v2.5",
+    "narrative_prompt_version": "0.3",
+    "narrative_at": "2026-05-29T02:04:45+00:00",
+    "narrative_tokens": 1970,
+    "narrative_cost_usd": 0.0131,
+    "narrative_status": "ok",
+    "total_cost_usd": 0.0772
   },
   "spec": {
     "colors": {
@@ -433,6 +444,87 @@
         "過度な画像で雑然としない — スクリーンショットでは戦略的な画像配置によるクリーンなレイアウトが示されている。"
       ],
       "systemPrompt": "The Vergeは、大胆なエディトリアルアイデンティティを持つプレミアムなテックニュース＆レビューパブリケーションです。デザインは、#FFFFFF背景と#000000テキストの高コントラストモノクロームパレットを使用し、鋭い幾何学的sans-serifのディスプレイフォントとhumanist sans-serifの本文テキストを特徴としています。重要な禁止事項には、カードへの角丸、装飾的フォント、カラフルな背景、控えめな影、パステルのアクセントカラーの使用を避けることが含まれます。レイアウトは、広めの余白とクリーンな仕切りを備えたタイポグラフィ階層を優先し、コンテンツの明瞭さに焦点を当てた権威がありながらも親しみやすいビジュアルシステムを生み出しています。"
+    },
+    "ko": {
+      "identity": {
+        "keywords": [
+          "기술",
+          "뉴스",
+          "편집",
+          "디자인 지향",
+          "권위"
+        ],
+        "analogy": "대담한 타이포그래피와 깔끔하고 정보 밀도 높은 레이아웃을 결합한 하이엔드 기술 매거진과 같습니다.",
+        "oneLiner": "독자적이고 타이포그래피적으로 대담한 편집 아이덴티티를 갖춘 프리미엄 기술 뉴스 및 리뷰 출판물입니다."
+      },
+      "colors": {
+        "principle": "날카로운 타이포그래피 계층을 갖춘 고대비 단색 팔레트입니다."
+      },
+      "typography": {
+        "rules": [
+          "디스플레이 폰트는 최대 효과를 위해 좁은 행간을 사용합니다.",
+          "본문 폰트는 일반적인 행간을 사용하여 가독성을 우선시합니다.",
+          "타임스탬프와 같은 보조 정보는 색이 빠진 텍스트를 사용합니다.",
+          "헤드라인과 강조에는 볼드 웨이트를 사용합니다."
+        ],
+        "scaleUses": [
+          "메인 기사 헤드라인",
+          "보조 헤드라인",
+          "기사 본문",
+          "메타데이터, 타임스탬프, 필자 표시"
+        ]
+      },
+      "spacing": {
+        "rhythm": "일관된 4px 그리드와 주요 콘텐츠 블록 주변의 넉넉한 여백을 적용합니다."
+      },
+      "surfaces": {
+        "shadows": [],
+        "borders": "미세한 구분선을 위해 1px solid rgba(0,0,0,0.1)를 사용합니다."
+      },
+      "layout": {
+        "skeleton": "좌측에 대형 추천 기사, 우측에 보조 피드가 있는 메인 콘텐츠 영역입니다."
+      },
+      "components": {
+        "button": "단색 강조색과 흰색 텍스트를 사용한 알약 모양입니다.",
+        "card": "강한 타이포그래피 계층과 미세한 구분선이 있는 깔끔한 모서리입니다.",
+        "chip": "'최신'과 같은 카테고리 태그에 사용되며 단색 배경을 사용합니다.",
+        "input": "깔끔한 테두리와 플레이스홀더 텍스트를 사용한 미니멀 디자인입니다.",
+        "hero": "전체 너비 이미지 위에 대담한 헤드라인과 미니멀 UI가 오버레이된 형태입니다."
+      },
+      "motion": {
+        "patterns": [
+          "인터랙티브 요소의 부드러운 hover 전환.",
+          "로딩 콘텐츠를 위한 미세한 페이드인.",
+          "주의를 분산시키는 애니메이션은 없으며, 콘텐츠 명확성에 집중합니다."
+        ]
+      },
+      "interaction": {
+        "hover": "링크와 인터랙티브 요소에 미세한 색상 변화 또는 밑줄을 적용합니다.",
+        "click": "화려한 피드백 없이 즉각적인 반응을 보입니다.",
+        "transition": "페이지 상태 간의 부드러운 전환을 지원합니다.",
+        "keyboard": "눈에 보이는 focus 상태와 함께 전체 키보드 탐색을 지원합니다."
+      },
+      "voice": {
+        "tone": "명확한 커뮤니케이션에 초점을 맞춘 권위적이면서도 접근 가능한 어조입니다.",
+        "headlineStyle": "주의를 끄는 대담하고 직접적인 진술입니다.",
+        "ctaStyle": "높은 대비를 가진 명확하고 행동 지향적인 버튼입니다.",
+        "avoid": [
+          "신뢰성을 저해하는 지나치게 캐주얼한 언어.",
+          "모호한 행동 유도.",
+          "과도한 느낌표.",
+          "맥락 없는 전문 용어.",
+          "수동태를 사용한 헤드라인."
+        ]
+      },
+      "donts": [
+        "카드에 둥근 모서리를 사용하지 마세요. 스크린샷은 날카롭고 직사각형 요소를 보여줍니다.",
+        "장식용 폰트를 사용하지 마세요. 스크린샷은 깔끔한 기하학적 및 휴머니스트 산세리프 타입을 보여줍니다.",
+        "화려한 배경을 사용하지 마세요. 스크린샷은 흰색 배경과 검정색 텍스트가 주를 이룹니다.",
+        "미세한 그림자를 사용하지 마세요. 스크린샷은 눈에 보이는 drop shadow가 없는 플랫 디자인을 보여줍니다.",
+        "파스텔 톤의 강조색을 사용하지 마세요. 스크린샷은 고대비 흑백과 간헐적인 대담한 색상 강조를 보여줍니다.",
+        "과도한 이미지로 혼란스럽게 하지 마세요. 스크린샷은 전략적 이미지 배치를 갖춘 깔끔한 레이아웃을 보여줍니다."
+      ],
+      "systemPrompt": "The Verge는 대담한 편집 아이덴티티를 갖춘 프리미엄 기술 뉴스 및 리뷰 출판물입니다. 디자인은 #FFFFFF 배경과 #000000 텍스트를 사용하는 고대비 단색 팔레트를 사용하며, 날카로운 기하학적 산세리프 디스플레이 폰트와 휴머니스트 산세리프 본문 텍스트를 특징으로 합니다. 주요 주의사항으로는 카드의 둥근 모서리, 장식용 폰트, 화려한 배경, 미세한 그림자, 파스텔 톤의 강조색 사용 회피가 포함됩니다. 레이아웃은 넉넉한 여백과 깔끔한 구분선을 통해 타이포그래피 계층을 우선시하며, 콘텐츠 명확성에 초점을 맞춘 권위적이면서도 접근 가능한 시각 시스템을 구축합니다."
     }
   },
   "desc": {
@@ -463,6 +555,75 @@
       "interaction": "即座でクリーンなフィードバックを提供する、控えめなhover状態。",
       "motion": "コンテンツから注意をそらさない、滑らかで意図的な最小限のモーション。",
       "notes": "太字のタイポグラフィと規律あるスペーシングにより、情報密度と視覚的な明瞭さのバランスを実現した、大胆なエディトリアルデザインの主要な例として_include_する価値がある。"
+    },
+    "ko": {
+      "palette": "날카로운 타이포그래피 계층을 갖춘 고대비 단색 팔레트입니다.",
+      "layout": "주요 콘텐츠를 강조하는 클린한 2단 편집 레이아웃과 보조 피드로 구성됩니다.",
+      "interaction": "미세한 hover 상태와 즉각적이고 깔끔한 피드백 메커니즘을 적용합니다.",
+      "motion": "콘텐츠에서 주의를 분산시키지 않는 부드럽고 목적이 명확한 최소한의 모션을 사용합니다.",
+      "notes": "강한 타이포그래피와 절제된 간격을 통해 정보 밀도와 시각적 명확성의 균형을 맞추는 대담한 편집 디자인의 대표적인 예로 포함할 가치가 있습니다."
+    }
+  },
+  "narrative": {
+    "en": {
+      "ch1_intro": "The Verge operates as a high-end tech magazine translated to digital, a publication where bold typography and clean, information-dense layouts define its editorial authority. Its identity is built on a foundation of deliberate contrast and typographic weight, creating a system that is both distinctive and immediately recognizable.",
+      "ch2_intro": "The color system is a study in restraint: a high-contrast monochrome palette anchored by pure white and black, designed to serve as a neutral stage for content and imagery. This disciplined approach ensures that when color does appear, it carries clear communicative intent.",
+      "ch2_outro": "The governing principle is that **chromatic noise is minimized** so typographic hierarchy and content can dominate.",
+      "ch3_intro": "Typographic voice is established through a sharp geometric sans-serif for display headlines and a humanist sans-serif for body text, a category pairing that balances authoritative impact with reading comfort. The rules enforce tight leading for maximum headline impact and a clear scale from main article headlines down to muted metadata.",
+      "ch4_intro": "Spacing follows a consistent 4px grid, establishing a predictable rhythm that organizes content blocks and creates generous, breathing whitespace.",
+      "ch5_intro": "Surface definition is achieved not through shadows but through clean, minimal borders—typically a 1px solid line with low-opacity black. This creates clear content separation without introducing depth cues that would distract from the flat, content-first aesthetic.",
+      "ch6_intro": "The layout skeleton is a clean two-column editorial format, dominated by a large featured article area on the left and a secondary content feed on the right. This structure prioritizes visual hierarchy and information density, guiding the eye from primary to supporting stories.",
+      "ch7_intro": "Motion philosophy prioritizes content clarity over decoration, with animations serving a functional purpose in transitions and loading states. The patterns are smooth and subtle, avoiding any effect that would interrupt reading flow or imply physicality that doesn't exist in the flat design.",
+      "ch8_intro": "Editorial voice is authoritative yet accessible, communicated through bold, direct headline statements and clear action-oriented language. The tone avoids ambiguity and passive constructions, ensuring every element serves the publication's credible, design-forward position.",
+      "ch8_outro": "The system deliberately forgoes rounded corners, decorative type, colorful backgrounds, and drop shadows to maintain its sharp, typographically-led clarity."
+    },
+    "zh-CN": {
+      "ch1_intro": "《The Verge》是一本高端科技杂志的数字化呈现，其鲜明的大胆字体与干净、信息密集的版面定义了其编辑权威性。它的身份建立在刻意对比与字体权重的基础之上，打造了一个既独特又具有高度辨识度的系统。",
+      "ch2_intro": "色彩体系是一种克制的研究：以纯白和纯黑为锚点的高对比度单色调色板，旨在为内容和图像提供一个中性的舞台。这种严谨的方法确保了当色彩出现时，它承载着明确的沟通意图。",
+      "ch2_outro": "其指导原则是**最小化色彩干扰**，以便字体层级和内容能够占据主导。",
+      "ch3_intro": "通过用于展示标题的尖锐几何无衬线字体，以及用于正文的人文主义无衬线字体来建立字体声音，这种类别搭配平衡了权威冲击力与阅读舒适度。规则规定了紧凑的行距以最大化标题冲击力，并建立了一个从主要文章标题到淡化元数据的清晰尺度。",
+      "ch4_intro": "间距遵循一致的4px网格，建立了一个可预测的节奏，用于组织内容块并创造宽敞、有呼吸感的留白。",
+      "ch5_intro": "表面定义并非通过阴影，而是通过干净、最小化的边框实现——通常是1px纯色线条，黑色低透明度。这在不引入可能分散对平面、内容优先美学注意力的深度线索的情况下，创造了清晰的内容分隔。",
+      "ch6_intro": "版面骨架是一个干净的两栏编辑格式，左侧以大型特色文章区域为主导，右侧为次要内容流。这种结构优先考虑视觉层级和信息密度，引导视线从主要报道过渡到辅助故事。",
+      "ch7_intro": "动效理念优先考虑内容清晰度而非装饰性，动画在转换和加载状态中服务于功能性目的。动效模式平滑而微妙，避免任何会打断阅读流程或暗示不存在于平面设计中实体感的特效。",
+      "ch8_intro": "编辑风格权威而易读，通过大胆、直接的标题陈述和清晰、以行动为导向的语言来传达。其语气避免歧义和被动结构，确保每个元素都服务于该出版物可信、设计领先的位置。",
+      "ch8_outro": "该系统特意摒弃了圆角、装饰性字体、彩色背景和投影，以保持其锐利、以字体为主导的清晰度。"
+    },
+    "zh-TW": {
+      "ch1_intro": "《The Verge》以數位化形式運作的高階科技雜誌，其出版物以大膽字體與簡潔、資訊密集的版面定義編輯權威。其識別建立於刻意對比與字重基礎之上，創造出既獨特又即刻可辨的系統。",
+      "ch2_intro": "色彩系統體現克制精神：以純白與黑色為基準的高對比單色調色盤，作為內容與影像的中性舞台。這種嚴謹手法確保色彩出現時，皆承載明確的傳達意圖。",
+      "ch2_outro": "核心原則是**最小化色彩干擾**，讓字體層級與內容得以主導。",
+      "ch3_intro": "字體語調透過幾何無襯線字體用於標題、人文無襯線字體用於內文建立，這類字型組合在權威衝擊力與閱讀舒適度間取得平衡。規範強調緊湊行距以強化標題衝擊，並建立從主文章標題到低調元資料的清晰尺度。",
+      "ch4_intro": "間距遵循一致的 4px 格線系統，建立可預期的節奏，組織內容區塊並創造寬裕、具呼吸感的留白空間。",
+      "ch5_intro": "表面定義並非透過陰影，而是透過簡潔、極簡的邊框實現——通常為 1px 實線搭配低透明度黑色。這創造清晰的內容區隔，同時避免引入干擾平坦、內容優先美學的深度提示。",
+      "ch6_intro": "版面架構採用簡潔的雙欄編輯格式，以左側大型特色文章區域為主導，右側輔以次要內容訊息流。此結構優先考慮視覺層級與資訊密度，引導視線從主要故事流向輔助內容。",
+      "ch7_intro": "動態設計哲學以內容清晰度為先於裝飾性，動畫在過渡與載入狀態中承擔功能性目的。動態模式流暢且細膩，避免任何打斷閱讀流程或暗示平面設計中不存在實體質感的效果。",
+      "ch8_intro": "編輯語調權威而親切，透過大膽、直接的標題陳述與清晰的行動導向語言傳達。語氣避免歧義與被動語態，確保每個元素皆服務於出版物可信、設計前衛的定位。",
+      "ch8_outro": "系統刻意捨棄圓角、裝飾性字型、彩色背景與投影，以維持其銳利、以字體為主導的清晰特質。"
+    },
+    "ja": {
+      "ch1_intro": "The Vergeは、デジタルに翻訳された高級テック雑誌として機能しています。大胆なタイポグラフィと、クリーンで情報密度の高いレイアウトが、その編集の権威を定義しています。そのアイデンティティは、意図的なコントラストとタイポグラフィックウェイトの基盤の上に構築されており、独自でありながら直ちに認識できるシステムを生み出しています。",
+      "ch2_intro": "カラーシステムは、抑制の研究です：純白と黒を基盤とした高コントラストのモノクロパレットは、コンテンツと画像のためのニュートラルな舞台として機能するように設計されています。この規律あるアプローチにより、カラーが現れる際には、明確な意図を持ったコミュニケーション手段となることが保証されます。",
+      "ch2_outro": "支配的な原則は、**クロマティックノイズを最小限に抑える**ことで、タイポグラフィック階層とコンテンツが支配的になるようにすることです。",
+      "ch3_intro": "タイポグラフィックボイスは、ディスプレイ見出しに鋭い幾何学的sans-serif、本文にhumanist sans-serifを使用することで確立されます。このカテゴリの組み合わせは、権威あるインパクトと読書の快適さのバランスを取っています。ルールは、最大の見出しインパクトのためにtightな行間を強制し、メイン記事の見出しから控えめなメタデータまで明確なスケールを確立します。",
+      "ch4_intro": "スペーシングは一貫した4pxグリッドに従い、予測可能なリズムを確立し、コンテンツブロックを組織化し、ゆとりのある、呼吸できるホワイトスペースを生み出します。",
+      "ch5_intro": "表面の定義は、シャドウではなく、クリーンで最小限のボーダーによって達成されます—通常、低不透明度の黒の1pxの実線です。これは、フラットでコンテンツファーストの美学を損なうような奥行きの手がかりを導入せずに、明確なコンテンツ分離を生み出します。",
+      "ch6_intro": "レイアウトのスケルトンは、クリーンな2カラムの編集フォーマットで、左側に大きな特集記事エリア、右にサブコンテンツフィードが配置されています。この構造は、ビジュアル階層と情報密度を優先し、視線をメインからサブのストーリーへと導きます。",
+      "ch7_intro": "モーション哲学は、装飾よりもコンテンツの明確さを優先し、アニメーションはトランジションやローディング状態で機能的な目的を果たします。パターンは滑らかで微妙で、読書の流れを中断したり、フラットデザインに存在しない物理性を示唆する効果は避けられます。",
+      "ch8_intro": "編集ボイスは、権威がありながらも親しみやすく、大胆で直接的な見出しの声明と明確なアクション指向の言葉遣いによって伝えられます。トーンは曖昧さや受動的な構文を避け、すべての要素が出版物の信頼性とデザインフォワードな立場に資するようにしています。",
+      "ch8_outro": "システムは、その鋭く、タイポグラフィ主導の明確さを維持するために、角丸、装飾的なタイポ、カラフルな背景、ドロップシャドウを意図的に舍却しています。"
+    },
+    "ko": {
+      "ch1_intro": "The Verge는 대담한 타이포그래피와 깔끔하고 정보 밀도 높은 레이아웃이 편집 권위를 정의하는 고급 기술 매거진이 디지털로 번역된 형식으로 운영됩니다. 그 정체성은 신중한 대비와 타이포그래피의 무게감을 기반으로 하여, 독특하면서도 즉시 인식 가능한 시스템을 만듭니다.",
+      "ch2_intro": "컬러 시스템은 절제에 대한 연구입니다: 순수 흰색과 검정에 기반한 고대비 단색 팔레트는 콘텐츠와 이미지를 위한 중립적인 무대로 설계되었습니다. 이러한 절제된 접근 방식은 색상이 나타날 때, 명확한 의사소통 의도를 지니도록 보장합니다.",
+      "ch2_outro": "**색상 노이즈를 최소화하여** 타이포그래피 계층과 콘텐츠가 지배할 수 있도록 하는 것이 지배 원칙입니다.",
+      "ch3_intro": "타이포그래피 음성은 전면 헤드라인을 위한 날카로운 기하학적 sans-serif와 본문을 위한 humanist sans-serif로 확립됩니다. 이 카테고리 조합은 권위 있는 영향력과 읽기 편안함의 균형을 맞춥니다. 규칙은 최대 헤드라인 효과를 위한 좁은 행간과 주 기사 헤드라인부터 은은한 메타데이터까지 명확한 스케일을 강제합니다.",
+      "ch4_intro": "여백은 일관된 4px 그리드를 따르며, 콘텐츠 블록을 조직하고 넉넉하고 숨 쉴 듯한 여백을 만드는 예측 가능한 리듬을 확립합니다.",
+      "ch5_intro": "표면 정의는 그림자가 아닌 깔끔하고 최소화된 테스트로 달성됩니다—일반적으로 불투명도가 낮은 검정색 1px 실선입니다. 이는 플랫하고 콘텐츠 우선 미학을 방해할 수 있는 깊이 단서를 도입하지 않으면서 명확한 콘텐츠 분리를 만듭니다.",
+      "ch6_intro": "레이아웃 골격은 왼쪽의 큰 특집 기사 영역과 오른쪽의 보조 콘텐츠 피드가 지배하는 깔끔한 2단 편집 형식입니다. 이 구조는 시각적 계층과 정보 밀도를 우선시하여, 시선을 주요 기사에서 보조 기사로 안내합니다.",
+      "ch7_intro": "모션 철학은 장식보다 콘텐츠 명확성을 우선시하며, 애니메이션은 전환 및 로딩 상태에서 기능적인 목적을 수행합니다. 패턴은 매끄럽고 은은하여, 독서 흐름을 방해하거나 플랫 디자인에 존재하지 않는 물리성을 암시하는 효과를 피합니다.",
+      "ch8_intro": "편집 음성은 권위 있으면서도 접근 가능하며, 대담하고 직접적인 헤드라인 진술과 명확한 행동 지향적 언어를 통해 전달됩니다. 어조는 모호함과 수동적 구문을 피하여, 모든 요소가 발행물의 신뢰성 있고 디자인을 지향하는 위치를 뒷받침하도록 보장합니다.",
+      "ch8_outro": "시스템은 날카롭고 타이포그래피가 주도하는 명확성을 유지하기 위해 의도적으로 둥근 모서리, 장식적 서체, 다채로운 배경, 그리고 그림자를 포기합니다."
     }
   }
 }
