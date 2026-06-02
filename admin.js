@@ -114,6 +114,10 @@ function render() {
   $("#count").textContent = `${rows.length} 条 · 全队列 ${allRows.length}`;
   $("#empty").hidden = rows.length > 0;
 
+  // 真相核对：提交的 host 是否真在线上库里 —— 防「标已发布但库中查无此站」状态说谎
+  const hostOf = (u) => { try { return new URL(u).hostname.replace(/^www\./, ""); } catch { return ""; } };
+  const liveHosts = new Set((window.STYLE_ATLAS_SITES || []).map((s) => hostOf(s.url)).filter(Boolean));
+
   $("#rows").innerHTML = rows.map((r) => {
     const host = esc(r.host);
     const note = esc(r.note);
@@ -124,6 +128,10 @@ function render() {
     const total = Number(r.host_total) || 0;
     const kind = r.kind === "pack" ? "pack" : "collect";
     const kindBadge = `<span class="badge kind-${kind}">${KIND_LABEL[kind]}</span>`;
+    const inLib = liveHosts.has(hostOf(r.url) || r.host);
+    const truth = inLib
+      ? `<span class="badge kind-pack" title="库中确有此站">✓ 在库</span>`
+      : (status === "published" ? `<span class="badge rejected" title="标了已发布，但线上库查无此站 —— 状态不实">⚠ 不在库</span>` : "");
     return `
       <tr>
         <td class="host">
@@ -133,7 +141,7 @@ function render() {
         </td>
         <td class="demand">${voters} 人 · ${total} 次</td>
         <td>${esc(fmtDate(r.created_at))}</td>
-        <td><span class="badge ${status}">${STATUS_LABEL[status] || status}</span></td>
+        <td><span class="badge ${status}">${STATUS_LABEL[status] || status}</span> ${truth}</td>
         <td>
           <div class="row-actions">
             <button class="mini" data-act="accept" data-id="${id}" data-cmd="${encodeURIComponent(ingestCmd(r))}">接受 + 复制命令</button>
@@ -420,8 +428,14 @@ $("#rows").addEventListener("click", async (e) => {
       catch { toast("已接受（剪贴板不可用，命令见 console）"); console.log(cmd); }
       await rpcSetStatus(id, "accepted");
     } else if (act === "published") {
+      // 守卫：标已发布前核对这个站是否真在线上库里，防状态说谎（skillhub 那种）
+      const row = allRows.find((r) => String(r.id) === String(id));
+      const hostOf = (u) => { try { return new URL(u).hostname.replace(/^www\./, ""); } catch { return ""; } };
+      const liveHosts = new Set((window.STYLE_ATLAS_SITES || []).map((s) => hostOf(s.url)).filter(Boolean));
+      const inLib = row && liveHosts.has(hostOf(row.url) || row.host);
+      if (!inLib && !confirm("线上库里查不到这个站 —— 它可能还没真收录上线。\n确定仍标记为「已发布」吗？")) return;
       await rpcSetStatus(id, "published");
-      toast("标记为已发布");
+      toast(inLib ? "标记为已发布" : "已标记（注意：库中暂无此站，状态可能不实）");
     } else if (act === "reject") {
       await rpcSetStatus(id, "rejected");
       toast("已拒绝");
