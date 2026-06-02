@@ -201,7 +201,7 @@
   const TRANSLATIONS = {
     "zh-CN": {
       "brand.aria": "OpenDesign 首页",
-      "brand.sub": "每个网站的 DESIGN.md",
+      "brand.sub": "可下载的设计系统库",
 
       "nav.aria": "导航",
       "nav.atlas": "图集",
@@ -227,7 +227,7 @@
       "canvas.recenter.aria": "把画布视图复位到默认位置",
       "canvas.shuffle": "随机探索",
       "canvas.shuffle.aria": "随机重排作品，发现更多可能喜欢的",
-      "canvas.footnote": "共 {count} 个网站 · 拖拽 · ⌘ + 滚轮缩放 · 点击查看",
+      "canvas.footnote": "{count} 个设计系统 · 点开即下载 / 喂 AI 复刻 · 拖拽 · ⌘+滚轮缩放",
 
       "library.aria": "列表视图",
       "library.eyebrow": "列表 · 共 {count} 个网站",
@@ -364,7 +364,7 @@
       "drawer.media.visit": "打开原站",
       "drawer.refreshShot": "刷新截图",
       "drawer.refreshShot.done": "已抓取最新截图（已记住）",
-      "drawer.download.text": "下载素材包",
+      "drawer.download.text": "下载设计系统",
       "drawer.download.aria": "下载设计素材 ZIP（含 11 层 MD 规范 + 真 Token 数据 + 全套截图）",
       "pack.eyebrow": "设计素材包 / DESIGN PACK",
       "pack.files": "个文件",
@@ -883,7 +883,7 @@
 
     "en": {
       "brand.aria": "OpenDesign home",
-      "brand.sub": "A DESIGN.md FOR ANY SITE",
+      "brand.sub": "DOWNLOADABLE DESIGN SYSTEMS",
 
       "nav.aria": "Navigation",
       "nav.atlas": "Atlas",
@@ -908,7 +908,7 @@
       "canvas.recenter.aria": "Reset the canvas view to the default position",
       "canvas.shuffle": "Shuffle",
       "canvas.shuffle.aria": "Randomly reshuffle works to discover more you might like",
-      "canvas.footnote": "{count} sites · drag · ⌘ + scroll to zoom · click to view",
+      "canvas.footnote": "{count} design systems · open to download / feed your AI · drag · ⌘+scroll to zoom",
 
       "library.aria": "Library view",
       "library.eyebrow": "Library · {count} sites",
@@ -1045,7 +1045,7 @@
       "drawer.media.visit": "Open original",
       "drawer.refreshShot": "Refresh screenshot",
       "drawer.refreshShot.done": "Fetched the latest screenshot (remembered)",
-      "drawer.download.text": "Download pack",
+      "drawer.download.text": "Download design system",
       "drawer.download.aria": "Download design pack ZIP (11-layer MD spec + real token data + all screenshots)",
       "pack.eyebrow": "DESIGN PACK",
       "pack.files": "files",
