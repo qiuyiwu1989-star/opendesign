@@ -204,7 +204,7 @@
       "brand.sub": "可下载的设计系统库",
 
       "nav.aria": "导航",
-      "nav.atlas": "图集",
+      "nav.atlas": "探索",
       "nav.library": "列表",
       "nav.saved": "收藏",
       "nav.about": "关于",
@@ -546,10 +546,10 @@
 
     "zh-TW": {
       "brand.aria": "OpenDesign 首頁",
-      "brand.sub": "每個網站的 DESIGN.md",
+      "brand.sub": "可下載的設計系統庫",
 
       "nav.aria": "導覽",
-      "nav.atlas": "圖集",
+      "nav.atlas": "探索",
       "nav.library": "列表",
       "nav.saved": "收藏",
       "nav.about": "關於",
@@ -570,7 +570,7 @@
       "canvas.recenter.aria": "把畫布視圖復位到預設位置",
       "canvas.shuffle": "隨機探索",
       "canvas.shuffle.aria": "隨機重排作品，發現更多可能喜歡的",
-      "canvas.footnote": "共 {count} 個網站 · 拖曳 · ⌘ + 滾輪縮放 · 點擊檢視",
+      "canvas.footnote": "{count} 個設計系統 · 點開即下載 / 餵 AI 複刻 · 拖曳 · ⌘+滾輪縮放",
 
       "library.aria": "列表檢視",
       "library.eyebrow": "列表 · 共 {count} 個網站",
@@ -701,7 +701,7 @@
       "drawer.media.visit": "開啟原站",
       "drawer.refreshShot": "重新整理截圖",
       "drawer.refreshShot.done": "已抓取最新截圖(已記住)",
-      "drawer.download.text": "下載素材包",
+      "drawer.download.text": "下載設計系統",
       "drawer.download.aria": "下載設計素材 ZIP(含 11 層 MD 規範 + 真 Token 資料 + 全套截圖)",
       "pack.eyebrow": "設計素材包 / DESIGN PACK",
       "pack.files": "個檔案",
@@ -886,7 +886,7 @@
       "brand.sub": "DOWNLOADABLE DESIGN SYSTEMS",
 
       "nav.aria": "Navigation",
-      "nav.atlas": "Atlas",
+      "nav.atlas": "Explore",
       "nav.library": "Library",
       "nav.saved": "Saved",
       "nav.about": "About",
@@ -1227,10 +1227,10 @@
 
     "ja": {
       "brand.aria": "OpenDesign ホーム",
-      "brand.sub": "あらゆるサイトの DESIGN.md",
+      "brand.sub": "ダウンロードできるデザインシステム",
 
       "nav.aria": "ナビゲーション",
-      "nav.atlas": "アトラス",
+      "nav.atlas": "探索",
       "nav.library": "リスト",
       "nav.saved": "保存",
       "nav.about": "概要",
@@ -1252,7 +1252,7 @@
       "canvas.recenter.aria": "キャンバス表示を初期位置に戻す",
       "canvas.shuffle": "シャッフル",
       "canvas.shuffle.aria": "作品をランダムに並べ替えて新たな発見",
-      "canvas.footnote": "{count} サイト・ドラッグ・⌘ + スクロールで拡大・クリックで詳細",
+      "canvas.footnote": "{count} 個のデザインシステム · 開いてダウンロード / AI に渡す · ドラッグ · ⌘+スクロールで拡大",
 
       "library.aria": "リスト表示",
       "library.eyebrow": "リスト・{count} サイト",
@@ -1383,7 +1383,7 @@
       "drawer.media.visit": "オリジナルを開く",
       "drawer.refreshShot": "スクショを更新",
       "drawer.refreshShot.done": "最新のスクショを取得しました(記憶済み)",
-      "drawer.download.text": "パックをダウンロード",
+      "drawer.download.text": "デザインシステムをダウンロード",
       "drawer.download.aria": "デザインパック ZIP をダウンロード(11 層 MD 仕様 + 実トークンデータ + 全スクリーンショット)",
       "pack.eyebrow": "DESIGN PACK",
       "pack.files": "ファイル",
@@ -1565,10 +1565,10 @@
 
     "ko": {
       "brand.aria": "OpenDesign 홈",
-      "brand.sub": "모든 사이트의 DESIGN.md",
+      "brand.sub": "다운로드 가능한 디자인 시스템",
 
       "nav.aria": "내비게이션",
-      "nav.atlas": "아틀라스",
+      "nav.atlas": "탐색",
       "nav.library": "목록",
       "nav.saved": "저장",
       "nav.about": "소개",
@@ -1590,7 +1590,7 @@
       "canvas.recenter.aria": "캔버스 뷰를 기본 위치로 되돌리기",
       "canvas.shuffle": "셔플",
       "canvas.shuffle.aria": "작품을 무작위로 재배열해 더 발견하기",
-      "canvas.footnote": "{count} 개 사이트 · 드래그 · ⌘ + 스크롤 확대 · 클릭하여 상세 보기",
+      "canvas.footnote": "{count}개 디자인 시스템 · 열어서 다운로드 / AI에 전달 · 드래그 · ⌘+스크롤 확대",
 
       "library.aria": "목록 보기",
       "library.eyebrow": "목록 · {count} 개 사이트",
@@ -1721,7 +1721,7 @@
       "drawer.media.visit": "원본 열기",
       "drawer.refreshShot": "스크린샷 새로고침",
       "drawer.refreshShot.done": "최신 스크린샷을 가져왔습니다(기억됨)",
-      "drawer.download.text": "팩 다운로드",
+      "drawer.download.text": "디자인 시스템 다운로드",
       "drawer.download.aria": "디자인 팩 ZIP 다운로드(11 층 MD 사양 + 실제 토큰 데이터 + 전체 스크린샷)",
       "pack.eyebrow": "DESIGN PACK",
       "pack.files": "개 파일",
@@ -1906,9 +1906,9 @@
     // ─────────────────────────────────────────
     "fr": {
       "brand.aria": "Accueil OpenDesign",
-      "brand.sub": "UN DESIGN.md POUR CHAQUE SITE",
+      "brand.sub": "SYSTÈMES DE DESIGN À TÉLÉCHARGER",
       "nav.aria": "Navigation",
-      "nav.atlas": "Atlas",
+      "nav.atlas": "Explorer",
       "nav.library": "Liste",
       "nav.saved": "Favoris",
       "nav.about": "À propos",
@@ -1927,7 +1927,7 @@
       "canvas.recenter.aria": "Réinitialiser la vue du canevas",
       "canvas.shuffle": "Mélanger",
       "canvas.shuffle.aria": "Réorganiser au hasard pour découvrir plus",
-      "canvas.footnote": "{count} sites · glisser · ⌘ + molette pour zoomer · cliquer pour voir",
+      "canvas.footnote": "{count} systèmes de design · ouvrir pour télécharger / nourrir votre IA · glisser · ⌘+molette pour zoomer",
       "library.aria": "Vue liste",
       "library.eyebrow": "Liste · {count} sites",
       "library.heading": "Plus qu'un DESIGN.md — un système de design complet à télécharger.",
@@ -1966,7 +1966,7 @@
       "drawer.visit.aria": "Ouvrir le site original",
       "drawer.visit.text": "Ouvrir l'original",
       "drawer.media.visit": "Ouvrir l'original",
-      "drawer.download.text": "Télécharger le pack",
+      "drawer.download.text": "Télécharger le système de design",
       "drawer.save": "Sauvegarder",
       "drawer.save.done": "Sauvegardé",
       "drawer.save.aria": "Sauvegarder",
@@ -1997,9 +1997,9 @@
     // ─────────────────────────────────────────
     "es": {
       "brand.aria": "Inicio OpenDesign",
-      "brand.sub": "UN DESIGN.md PARA CADA SITIO",
+      "brand.sub": "SISTEMAS DE DISEÑO DESCARGABLES",
       "nav.aria": "Navegación",
-      "nav.atlas": "Atlas",
+      "nav.atlas": "Explorar",
       "nav.library": "Lista",
       "nav.saved": "Guardados",
       "nav.about": "Acerca",
@@ -2018,7 +2018,7 @@
       "canvas.recenter.aria": "Restablecer la vista del lienzo",
       "canvas.shuffle": "Mezclar",
       "canvas.shuffle.aria": "Reordenar al azar para descubrir más",
-      "canvas.footnote": "{count} sitios · arrastrar · ⌘ + scroll para zoom · clic para ver",
+      "canvas.footnote": "{count} sistemas de diseño · abrir para descargar / alimentar tu IA · arrastrar · ⌘+rueda para zoom",
       "library.aria": "Vista lista",
       "library.eyebrow": "Lista · {count} sitios",
       "library.heading": "Más que un DESIGN.md — un sistema de diseño completo para descargar.",
@@ -2057,7 +2057,7 @@
       "drawer.visit.aria": "Abrir sitio original",
       "drawer.visit.text": "Abrir original",
       "drawer.media.visit": "Abrir original",
-      "drawer.download.text": "Descargar pack",
+      "drawer.download.text": "Descargar sistema de diseño",
       "drawer.save": "Guardar",
       "drawer.save.done": "Guardado",
       "drawer.save.aria": "Guardar",
@@ -2088,9 +2088,9 @@
     // ─────────────────────────────────────────
     "ru": {
       "brand.aria": "Главная OpenDesign",
-      "brand.sub": "DESIGN.md ДЛЯ ЛЮБОГО САЙТА",
+      "brand.sub": "СКАЧИВАЕМЫЕ ДИЗАЙН-СИСТЕМЫ",
       "nav.aria": "Навигация",
-      "nav.atlas": "Атлас",
+      "nav.atlas": "Обзор",
       "nav.library": "Список",
       "nav.saved": "Сохранённое",
       "nav.about": "О проекте",
@@ -2109,7 +2109,7 @@
       "canvas.recenter.aria": "Сбросить вид холста к началу",
       "canvas.shuffle": "Перемешать",
       "canvas.shuffle.aria": "Случайно перемешать, чтобы открыть больше",
-      "canvas.footnote": "{count} сайтов · перетащить · ⌘ + колесо для масштаба · клик для деталей",
+      "canvas.footnote": "{count} дизайн-систем · открыть для скачивания / для вашего ИИ · тяните · ⌘+колесо для масштаба",
       "library.aria": "Список",
       "library.eyebrow": "Список · {count} сайтов",
       "library.heading": "Больше, чем DESIGN.md — целая дизайн-система для скачивания.",
@@ -2148,7 +2148,7 @@
       "drawer.visit.aria": "Открыть оригинальный сайт",
       "drawer.visit.text": "Открыть оригинал",
       "drawer.media.visit": "Открыть оригинал",
-      "drawer.download.text": "Скачать пак",
+      "drawer.download.text": "Скачать дизайн-систему",
       "drawer.save": "Сохранить",
       "drawer.save.done": "Сохранено",
       "drawer.save.aria": "Сохранить",
