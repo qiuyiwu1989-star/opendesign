@@ -44,6 +44,24 @@ LANGS = ["en", "zh-CN", "zh-TW", "ja", "ko"]
 LANG_HTML = {"en": "en", "zh-CN": "zh-CN", "zh-TW": "zh-TW", "ja": "ja", "ko": "ko"}
 BASE_URL = "https://opendesign.cc"
 
+PACKS_INDEX = ROOT / "packs-index.json"
+try:
+    PACKS = json.loads(PACKS_INDEX.read_text(encoding="utf-8")) if PACKS_INDEX.exists() else {}
+except Exception:
+    PACKS = {}
+
+
+def card_image(site, w=768, h=480):
+    """卡片/OG 图优先用我们抓的真·桌面首屏截图（经 wsrv.nl 缩成小 webp），
+    彻底甩开 thum.io 对 cookie 墙 / 反爬站截到垃圾页（还 HTTP 200，onerror 都不触发）的问题。
+    没有完整包的站回退原 image。此函数不会抛异常（全 .get 带默认），不会拖垮批量逐站 build。"""
+    slug = site.get("id", "")
+    p = PACKS.get(slug) if isinstance(PACKS, dict) else None
+    files = p.get("files", []) if isinstance(p, dict) else []
+    if any(isinstance(f, dict) and f.get("name") == "02_desktop_hero.png" for f in files):
+        return f"/thumbs/{slug}.webp"   # 自托管缩略图（scripts/make-thumbs.py 从真截图生成）
+    return site.get("image", "")
+
 
 def load_all_sites() -> list[dict]:
     if not SITES_DIR.exists():
@@ -70,7 +88,7 @@ def build_sites_index(sites: list[dict]) -> dict:
             "id": s["id"],
             "title": s["title"],
             "url": s["url"],
-            "image": s.get("image", ""),
+            "image": card_image(s),
             "tags": s.get("tags", []),
             "status": s.get("status", "pending"),
             "has_spec": bool(s.get("spec")),
@@ -130,7 +148,7 @@ def build_legacy_sites_js(sites: list[dict]) -> str:
             "id": s["id"],
             "title": s["title"],
             "url": s["url"],
-            "image": s.get("image", ""),
+            "image": card_image(s),
             "tags": s.get("tags", []),
             "palette": desc_en.get("palette", ""),
             "layout": desc_en.get("layout", ""),
@@ -317,7 +335,7 @@ def render_site_html(site: dict, lang: str) -> str:
     )
 
     # Open-graph + JSON-LD
-    og_image = site.get("image", "") or f"{BASE_URL}/og-cover.png"
+    og_image = card_image(site, 1200, 750) or f"{BASE_URL}/og-cover.png"
     json_ld = json.dumps({
         "@context": "https://schema.org",
         "@type": "Article",
@@ -343,7 +361,7 @@ def render_site_html(site: dict, lang: str) -> str:
         eyebrow=L["eyebrow"],
         tagline=tagline,
         tags_html=tags_html,
-        screenshot_url=site.get("image", ""),
+        screenshot_url=card_image(site, 1200, 750),
         screenshot_alt=L["screenshot_alt"],
         visit_label=L["visit"],
         site_url=site["url"],
