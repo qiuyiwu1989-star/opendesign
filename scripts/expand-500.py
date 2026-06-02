@@ -360,11 +360,12 @@ def main():
         path = SITES / f"{slug}.json"
         if path.exists():
             continue
+        # 注意：schema 是 additionalProperties:false —— 只能写 schema 允许的字段。
+        # category 仅用于上面的分类统计（来自 C 元组），不写进 stub。added_at 不是 added。
         path.write_text(json.dumps({
             "id": slug, "schema_version": "0.3", "url": url, "title": title,
             "image": "", "tags": tags, "status": "pending",
-            "added": datetime.now().strftime("%Y-%m-%d"),
-            "category": cat,
+            "added_at": datetime.now().strftime("%Y-%m-%d"),
         }, ensure_ascii=False, indent=2), encoding="utf-8")
         made += 1
     print(f"\n✓ 建了 {made} 个 stub。下一步：export ANTHROPIC_*; bash scripts/upgrade-batch.sh（可断点续跑）")

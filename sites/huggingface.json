@@ -9,8 +9,612 @@
     "community",
     "playful"
   ],
-  "status": "pending",
+  "status": "completed",
   "added_at": "2026-06-02",
   "added_by": "expand-200",
-  "_meta": {}
+  "_meta": {
+    "vision_model": "mimo-v2.5",
+    "vision_prompt_version": "0.3",
+    "vision_source": "playwright-extract:huggingface",
+    "vision_grounded": true,
+    "vision_at": "2026-06-02T14:31:40+00:00",
+    "vision_tokens": 17659,
+    "vision_cost_usd": 0.1962,
+    "translation_model": "mimo-v2.5",
+    "translation_at": "2026-06-02T14:32:49+00:00",
+    "translation_tokens": 17605,
+    "translation_cost_usd": 0.0586,
+    "narrative_model": "mimo-v2.5",
+    "narrative_prompt_version": "0.3",
+    "narrative_at": "2026-06-02T14:32:58+00:00",
+    "narrative_tokens": 2140,
+    "narrative_cost_usd": 0.0143,
+    "narrative_status": "ok",
+    "total_cost_usd": 0.2691
+  },
+  "spec": {
+    "colors": {
+      "bg": "#FFFFFF",
+      "bgSoft": "#F3F4F6",
+      "bgQuiet": "#F8F9FA",
+      "ink": "#000000",
+      "inkSoft": "#3D4654",
+      "muted": "#6B7280",
+      "mutedSoft": "#9CA3AF",
+      "accent": null,
+      "line": "rgba(229, 231, 235, 1)"
+    },
+    "typography": {
+      "display": "humanist-sans",
+      "body": "humanist-sans",
+      "mono": "monospace",
+      "scale": [
+        {
+          "token": "display",
+          "size": 56,
+          "lh": 1.0,
+          "weight": 700,
+          "ls": "-1px"
+        },
+        {
+          "token": "h1",
+          "size": 32,
+          "lh": 1.2,
+          "weight": 700,
+          "ls": "0px"
+        },
+        {
+          "token": "h2",
+          "size": 20,
+          "lh": 1.4,
+          "weight": 600,
+          "ls": "0px"
+        },
+        {
+          "token": "body",
+          "size": 16,
+          "lh": 1.5,
+          "weight": 400,
+          "ls": "0px"
+        },
+        {
+          "token": "caption",
+          "size": 12,
+          "lh": 1.4,
+          "weight": 400,
+          "ls": "0px"
+        }
+      ]
+    },
+    "spacing": {
+      "base": 4,
+      "scale": [
+        4,
+        8,
+        12,
+        16,
+        24,
+        32,
+        48,
+        64,
+        96
+      ]
+    },
+    "surfaces": {
+      "radius": {
+        "sm": 4,
+        "md": 8,
+        "lg": 12,
+        "pill": 999
+      }
+    },
+    "layout": {
+      "container": 1280,
+      "paragraph": 680,
+      "columns": 12,
+      "gutter": 24,
+      "breakpoints": [
+        768,
+        1024
+      ]
+    },
+    "motion": {
+      "durations": {
+        "micro": 150,
+        "small": 200,
+        "medium": 400
+      },
+      "easing": "cubic-bezier(0.4, 0, 0.2, 1)"
+    }
+  },
+  "spec_i18n": {
+    "en": {
+      "identity": {
+        "keywords": [
+          "Collaborative",
+          "Technical",
+          "Friendly",
+          "Open-source",
+          "AI"
+        ],
+        "analogy": "A bustling digital town square for machine learning engineers and researchers.",
+        "oneLiner": "A friendly, high-utility platform for the AI community to collaborate on models, datasets, and apps."
+      },
+      "colors": {
+        "principle": "Clean white backgrounds with subtle gray borders, anchored by a dark navy gradient in the hero."
+      },
+      "typography": {
+        "rules": [],
+        "scaleUses": [
+          "Hero headlines",
+          "Section titles",
+          "Subheadings",
+          "Main text",
+          "Metadata and labels"
+        ]
+      },
+      "spacing": {
+        "rhythm": "Consistent 8px grid with tight 4px micro-spacing."
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(0, 0, 0, 0.1) 0px 1px 2px 0px",
+          "rgba(0, 0, 0, 0.1) 0px 1px 3px 0px",
+          "rgba(0, 0, 0, 0.1) 0px 20px 25px -5px"
+        ],
+        "borders": "1px solid #E5E7EB"
+      },
+      "layout": {
+        "skeleton": "Standard responsive 12-column grid collapsing to single column on mobile."
+      },
+      "components": {
+        "button": "Dark navy filled buttons with white text and pill radius, or transparent with borders.",
+        "card": "White cards with light gray borders and 12px border-radius, used for features and organization listings.",
+        "chip": "Small, rounded tags with light gray backgrounds for categories like tasks and libraries.",
+        "input": "Rounded search fields with subtle gray borders and internal padding.",
+        "hero": "Dark navy to black gradient background with large white text and prominent mascot."
+      },
+      "motion": {
+        "patterns": [
+          "Subtle color transitions on hover",
+          "Scale and translate transforms on interactive elements"
+        ]
+      },
+      "interaction": {
+        "hover": "Lighten background or change border color with 0.15s ease.",
+        "click": "Subtle scale down transform.",
+        "transition": "All properties transition with 0.15s cubic-bezier(0.4, 0, 0.2, 1).",
+        "keyboard": "Visible focus rings for accessibility."
+      },
+      "voice": {
+        "tone": "Friendly, collaborative, and technically precise.",
+        "headlineStyle": "Bold, declarative statements emphasizing community and building.",
+        "ctaStyle": "Direct and action-oriented (e.g., 'Explore', 'Browse').",
+        "avoid": [
+          "Overly corporate jargon",
+          "Aggressive sales language",
+          "Complex academic terminology in primary UI"
+        ]
+      },
+      "donts": [
+        "Don't use aggressive neon accents — the palette relies on navy, gray, and white.",
+        "Don't use heavy drop shadows — only subtle elevation is present on cards.",
+        "Don't use centered text for long paragraphs — alignment is left-justified.",
+        "Don't use fully rounded corners on all elements — a mix of 8px and pill shapes is used.",
+        "Don't use complex illustrations — UI relies on clean icons and a single mascot.",
+        "Don't use dark mode by default — the primary experience is light with a dark hero."
+      ],
+      "systemPrompt": "Hugging Face is a friendly, open-source AI community platform with a clean, developer-focused UI. It uses a high-contrast palette of white backgrounds (#FFFFFF), light grays (#F3F4F6), and a deep navy hero gradient (#1A202C), with black (#000000) text for maximum readability. Typography relies on humanist-sans for the body and bold display weights for headlines. Key design elements include the playful hugging mascot, rounded search bars, and categorized 'chips' for filtering tasks. Critical don'ts: avoid aggressive neon colors, use subtle shadows only, and maintain left-aligned text for readability. The layout is a clean 12-column grid with generous whitespace, emphasizing community trust and technical utility."
+    },
+    "zh-CN": {
+      "identity": {
+        "keywords": [
+          "协作",
+          "技术",
+          "友好",
+          "开源",
+          "AI"
+        ],
+        "analogy": "一个为机器学习工程师和研究人员打造的繁忙数字广场。",
+        "oneLiner": "一个友好、高实用性的平台，供AI社区协作开发模型、数据集和应用程序。"
+      },
+      "colors": {
+        "principle": "以干净的白色背景搭配细微的灰色边框，并以深海军蓝渐变作为视觉锚点。"
+      },
+      "typography": {
+        "rules": [],
+        "scaleUses": [
+          "主标题",
+          "章节标题",
+          "副标题",
+          "正文",
+          "元数据和标签"
+        ]
+      },
+      "spacing": {
+        "rhythm": "基于8px的统一网格，辅以4px的紧凑微间距。"
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(0, 0, 0, 0.1) 0px 1px 2px 0px",
+          "rgba(0, 0, 0, 0.1) 0px 1px 3px 0px",
+          "rgba(0, 0, 0, 0.1) 0px 20px 25px -5px"
+        ],
+        "borders": "1px solid #E5E7EB"
+      },
+      "layout": {
+        "skeleton": "标准的响应式12列网格，在移动设备上折叠为单列。"
+      },
+      "components": {
+        "button": "深海军蓝填充按钮，配白色文字和药丸形圆角，或带边框的透明按钮。",
+        "card": "白色卡片，配浅灰色边框和12px圆角，用于功能和组织列表。",
+        "chip": "小巧的圆角标签，配浅灰色背景，用于分类，如任务和库。",
+        "input": "圆角搜索框，配细微的灰色边框和内边距。",
+        "hero": "深海军蓝至黑色的渐变背景，配大号白色文字和醒目的吉祥物。"
+      },
+      "motion": {
+        "patterns": [
+          "hover 时的细微颜色过渡",
+          "交互元素的缩放和平移变换"
+        ]
+      },
+      "interaction": {
+        "hover": "提亮背景或更改边框颜色，持续 0.15s ease。",
+        "click": "细微的缩放变换。",
+        "transition": "所有属性均使用 0.15s cubic-bezier(0.4, 0, 0.2, 1) 进行过渡。",
+        "keyboard": "为辅助功能提供可见的聚焦环。"
+      },
+      "voice": {
+        "tone": "友好、协作且技术精准。",
+        "headlineStyle": "大胆、陈述性的语句，强调社区和构建。",
+        "ctaStyle": "直接且面向行动（例如，“探索”、“浏览”）。",
+        "avoid": [
+          "过度企业化的术语",
+          "激进的销售语言",
+          "在主要界面中使用复杂的学术术语"
+        ]
+      },
+      "donts": [
+        "不要使用强烈的霓虹色强调 — 调色板依赖于海军蓝、灰色和白色。",
+        "不要使用厚重的投影 — 仅卡片上存在细微的层次感。",
+        "不要对长段落使用居中文本 — 对齐方式为左对齐。",
+        "不要对所有元素使用完全圆角 — 混合使用8px和药丸形状。",
+        "不要使用复杂的插画 — 界面依赖干净的图标和单个吉祥物。",
+        "不要默认使用深色模式 — 主要体验是浅色主题，搭配深色视觉区域。"
+      ],
+      "systemPrompt": "Hugging Face 是一个友好、开源的AI社区平台，拥有干净、面向开发者的UI。它采用高对比度调色板：白色背景 (#FFFFFF)、浅灰色 (#F3F4F6) 和深海军蓝主视觉渐变 (#1A202C)，文字使用黑色 (#000000) 以获得最佳可读性。排版方面，正文使用 humanist-sans 字体，标题使用粗体展示字重。关键设计元素包括活泼的拥抱吉祥物、圆角搜索栏以及用于筛选任务的分类“标签”。关键禁忌：避免使用强烈的霓虹色，仅使用细微阴影，并保持左对齐文本以确保可读性。布局是干净的12列网格，拥有充裕的留白，强调社区信任和技术实用性。"
+    },
+    "zh-TW": {
+      "identity": {
+        "keywords": [
+          "協作",
+          "技術",
+          "友善",
+          "開源",
+          "AI"
+        ],
+        "analogy": "機器學習工程師與研究員的繁華數位城鎮廣場。",
+        "oneLiner": "一個友善、高實用性的平台，讓 AI 社群能協作開發模型、資料集與應用程式。"
+      },
+      "colors": {
+        "principle": "乾淨的白色背景搭配細微灰色邊框，以深海軍藍漸層在首圖區域作為視覺錨點。"
+      },
+      "typography": {
+        "rules": [],
+        "scaleUses": [
+          "首圖標題",
+          "章節標題",
+          "副標題",
+          "主要文字",
+          "中繼資料與標籤"
+        ]
+      },
+      "spacing": {
+        "rhythm": "一致的 8px 網格，搭配緊湊的 4px 微間距。"
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(0, 0, 0, 0.1) 0px 1px 2px 0px",
+          "rgba(0, 0, 0, 0.1) 0px 1px 3px 0px",
+          "rgba(0, 0, 0, 0.1) 0px 20px 25px -5px"
+        ],
+        "borders": "1px solid #E5E7EB"
+      },
+      "layout": {
+        "skeleton": "標準響應式 12 欄網格，在行動裝置上收合成單欄。"
+      },
+      "components": {
+        "button": "深海軍藍填色按鈕，搭配白色文字與膠囊圓角，或是透明帶有邊框的版本。",
+        "card": "白色卡片，帶有淺灰色邊框與 12px 圓角，用於功能特色與組織列表。",
+        "chip": "小型、圓角的標籤，帶有淺灰色背景，用於任務與程式庫等分類。",
+        "input": "圓角搜尋欄位，帶有細微灰色邊框與內部 padding。",
+        "hero": "深海軍藍至黑色的漸層背景，搭配大型白色文字與顯眼的吉祥物。"
+      },
+      "motion": {
+        "patterns": [
+          "hover 時細微的色彩過渡",
+          "互動元素的縮放與位移轉換"
+        ]
+      },
+      "interaction": {
+        "hover": "以 0.15s ease 變化背景亮度或邊框顏色。",
+        "click": "細微的縮小轉換。",
+        "transition": "所有屬性以 0.15s cubic-bezier(0.4, 0, 0.2, 1) 過渡。",
+        "keyboard": "為無障礙設計提供可見的 focus ring。"
+      },
+      "voice": {
+        "tone": "友善、協作且技術精準。",
+        "headlineStyle": "粗體、宣言式的陳述，強調社群與建構。",
+        "ctaStyle": "直接且以行動為導向（例如：「探索」、「瀏覽」）。",
+        "avoid": [
+          "過於企業化的行話",
+          "強勢的銷售用語",
+          "在主要介面中使用複雜的學術術語"
+        ]
+      },
+      "donts": [
+        "避免使用強烈的霓虹色調——調色板依賴海軍藍、灰色與白色。",
+        "避免使用沉重的陰影——卡片僅使用細微的立體感。",
+        "避免在長段落中使用置中文字——對齊方式為左對齊。",
+        "避免在所有元素上使用完全圓角——混合使用 8px 與膠囊形狀。",
+        "避免使用複雜的插圖——介面依賴簡潔的圖標與單一吉祥物。",
+        "避免預設使用深色模式——主要體驗為淺色，搭配深色首圖。"
+      ],
+      "systemPrompt": "Hugging Face 是一個友善、開源的 AI 社群平台，擁有乾淨、以開發者為中心的介面。它使用高對比調色板，包含白色背景 (#FFFFFF)、淺灰色 (#F3F4F6) 與深海軍藍首圖漸層 (#1A202C)，以及黑色 (#000000) 文字以確保最大可讀性。字型依賴 humanist-sans 作為內文，並使用粗體展示字重作為標題。關鍵設計元素包括俏皮的擁抱吉祥物、圓角搜尋列以及用於篩選任務的分類「標籤」。重要禁忌：避免使用強烈霓虹色、僅使用細微陰影，並保持文字左對齊以確保可讀性。佈局採用乾淨的 12 欄網格，搭配充足留白，強調社群信任與技術實用性。"
+    },
+    "ja": {
+      "identity": {
+        "keywords": [
+          "コラボレーティブ",
+          "テクニカル",
+          "フレンドリー",
+          "オープンソース",
+          "AI"
+        ],
+        "analogy": "機械学習エンジニアと研究者のための活気あるデジタル広場。",
+        "oneLiner": "AIコミュニティがモデル、データセット、アプリを共同開発するための、フレンドリーで高実用性のプラットフォーム。"
+      },
+      "colors": {
+        "principle": "明るいグレーの細いボーダーを備えたクリーンな白い背景。ヒーローセクションではダークネイビーのグラデーションでアンカーを取る。"
+      },
+      "typography": {
+        "rules": [],
+        "scaleUses": [
+          "ヒーローヘッドライン",
+          "セクションタイトル",
+          "サブヘッド",
+          "本文",
+          "メタデータおよびラベル"
+        ]
+      },
+      "spacing": {
+        "rhythm": " Tight 4px マイクロスペーシングを含む、一貫した8pxグリッド。"
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(0, 0, 0, 0.1) 0px 1px 2px 0px",
+          "rgba(0, 0, 0, 0.1) 0px 1px 3px 0px",
+          "rgba(0, 0, 0, 0.1) 0px 20px 25px -5px"
+        ],
+        "borders": "1px solid #E5E7EB"
+      },
+      "layout": {
+        "skeleton": "モバイルでは単一カラムに折りたたまれる、標準的なレスポンシブ12カラムグリッド。"
+      },
+      "components": {
+        "button": "白文字と丸みのある角（pill radius）を持つダークネイビーの塗りつぶしボタン、またはボーダー付きの透明ボタン。",
+        "card": "明るいグレーのボーダーと12pxのボーダー半径を持つ白いカード。機能や組織リストに使用。",
+        "chip": "タスクやライブラリなどのカテゴリ用の、明るいグレーの背景を持つ小さな丸みのあるタグ。",
+        "input": "明るいグレーのボーダーと内部パディングを持つ、丸みのある検索フィールド。",
+        "hero": "ダークネイビーからブラックへのグラデーション背景に、大きな白文字と目立つマスコット。"
+      },
+      "motion": {
+        "patterns": [
+          "ホバー時の微細なカラートランジション",
+          "インタラクティブ要素のスケールおよびトランスレートトランスフォーム"
+        ]
+      },
+      "interaction": {
+        "hover": "0.15s easeで背景を明るくする、またはボーダーカラーを変更。",
+        "click": "微細なスケールダウントランスフォーム。",
+        "transition": "すべてのプロパティが0.15s cubic-bezier(0.4, 0, 0.2, 1)でトランジション。",
+        "keyboard": "アクセシビリティのための視覚的フォーカスリング。"
+      },
+      "voice": {
+        "tone": "フレンドリー、コラボレーティブ、かつ技術的に正確。",
+        "headlineStyle": "コミュニティと構築を強調する、太字の宣言的なステートメント。",
+        "ctaStyle": "直接的でアクション指向（例：「探す」「閲覧」）。",
+        "avoid": [
+          "過度に企業的なジャーゴン",
+          "攻撃的な販売言語",
+          "プライマリUIにおける複雑な学術用語"
+        ]
+      },
+      "donts": [
+        "攻撃的なネオンアクセントは使用しない。パレットはネイビー、グレー、白に依存。",
+        "重いドロップシャドウは使用しない。カードには微細なエレベーションのみ。",
+        "長い段落のテキストを中央揃えにしない。配置は左揃え。",
+        "すべての要素に完全な丸みのある角を使用しない。8pxとピル（pill）形状を混合使用。",
+        "複雑なイラストは使用しない。UIはクリーンなアイコンと単一のマスコットに依存。",
+        "デフォルトでダークモードを使用しない。プライマリエクスペリエンスはライトモードで、ヒーローがダーク。"
+      ],
+      "systemPrompt": "Hugging Faceは、クリーンで開発者重視のUIを持つ、フレンドリーなオープンソースAIコミュニティプラットフォームです。白い背景（#FFFFFF）、明るいグレー（#F3F4F6）、ダークネイビーのヒーローグラデーション（#1A202C）によるハイコントラストパレットを使用し、最大限の可読性のために黑色（#000000）のテキストを採用しています。タイポグラフィは、本文にhumanist-sans、見出しには太字のディスプレイウェイトを使用。主要なデザイン要素には、遊び心のある抱擁マスコット、丸みのある検索バー、タスクフィルタリング用のカテゴリ化された「チップ」が含まれます。重要な禁止事項：攻撃的なネオン色は避け、微細なシャドウのみを使用し、可読性のためにテキストは左揃えを維持。レイアウトはクリーンな12カラムグリッドで、豊かな余白を備え、コミュニティの信頼と技術的実用性を重視しています。"
+    },
+    "ko": {
+      "identity": {
+        "keywords": [
+          "협업",
+          "기술적",
+          "친근한",
+          "오픈소스",
+          "AI"
+        ],
+        "analogy": "머신러닝 엔지니어와 연구자들을 위한 번화한 디지털 광장.",
+        "oneLiner": "AI 커뮤니티가 모델, 데이터셋, 앱을 협업할 수 있는 친근하고 높은 실용성을 갖춘 플랫폼."
+      },
+      "colors": {
+        "principle": "미묘한 회색 테두리가 있는 깔끔한 흰색 배경을 기본으로, 히어로 섹션에는 짙은 네이비 그라디언트를 사용합니다."
+      },
+      "typography": {
+        "rules": [],
+        "scaleUses": [
+          "히어로 헤드라인",
+          "섹션 제목",
+          "소제목",
+          "본문",
+          "메타데이터 및 레이블"
+        ]
+      },
+      "spacing": {
+        "rhythm": "단단한 4px 마이크로 간격을 가진 일관된 8px 그리드입니다."
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(0, 0, 0, 0.1) 0px 1px 2px 0px",
+          "rgba(0, 0, 0, 0.1) 0px 1px 3px 0px",
+          "rgba(0, 0, 0, 0.1) 0px 20px 25px -5px"
+        ],
+        "borders": "1px solid #E5E7EB"
+      },
+      "layout": {
+        "skeleton": "모바일에서는 단일 열로 축소되는 표준 반응형 12열 그리드입니다."
+      },
+      "components": {
+        "button": "흰색 텍스트와 알약 모양의 반경을 가진 짙은 네이비 채우기 버튼, 또는 테두리가 있는 투명 버튼입니다.",
+        "card": "밝은 회색 테두리와 12px border-radius를 가진 흰색 카드로, 기능 및 조직 목록에 사용됩니다.",
+        "chip": "태스크 및 라이브러리 같은 카테고리를 위한 밝은 회색 배경의 작고 둥근 태그입니다.",
+        "input": "미묘한 회색 테두리와 내부 패딩이 있는 둥근 검색 필드입니다.",
+        "hero": "짙은 네이비에서 검정으로의 그라디언트 배경에 큰 흰색 텍스트와 돋보이는 마스코트가 있습니다."
+      },
+      "motion": {
+        "patterns": [
+          "hover 시 미묘한 색상 전환",
+          "인터랙티브 요소의 스케일 및 translate 변환"
+        ]
+      },
+      "interaction": {
+        "hover": "0.15s ease로 배경을 밝게 하거나 테두리 색상을 변경합니다.",
+        "click": "미묘한 스케일 다운 변환 효과입니다.",
+        "transition": "모든 속성이 0.15s cubic-bezier(0.4, 0, 0.2, 1)로 전환됩니다.",
+        "keyboard": "접근성을 위한 눈에 띄는 focus rings."
+      },
+      "voice": {
+        "tone": "친근하고 협업적이며 기술적으로 정확한 어조.",
+        "headlineStyle": "커뮤니티와 구축을 강조하는 굵고 단정적인 문구.",
+        "ctaStyle": "직접적이고 행동을 유도하는 문구 (예: '탐색', '찾아보기').",
+        "avoid": [
+          "지나치게 기업적인 전문 용어",
+          "공격적인 판매용 언어",
+          "주요 UI에 사용되는 복잡한 학술 용어"
+        ]
+      },
+      "donts": [
+        "공격적인 네온 악센트를 사용하지 마세요. 팔레트는 네이비, 회색, 흰색에 의존합니다.",
+        "무거운 드롭 그림자를 사용하지 마세요. 카드에는 미묘한 입체감만 사용됩니다.",
+        "긴 단락의 텍스트를 중앙 정렬하지 마세요. 정렬은 왼쪽 정렬입니다.",
+        "모든 요소에 완전히 둥근 모서리를 사용하지 마세요. 8px와 알약 모양을 혼합하여 사용합니다.",
+        "복잡한 일러스트레이션을 사용하지 마세요. UI는 깔끔한 아이콘과 단일 마스코트에 의존합니다.",
+        "기본값으로 다크 모드를 사용하지 마세요. 주요 경험은 밝은 테마와 짙은 히어로 섹션입니다."
+      ],
+      "systemPrompt": "Hugging Face는 깔끔하고 개발자 중심의 UI를 가진 친근한 오픈소스 AI 커뮤니티 플랫폼입니다. 흰색 배경(#FFFFFF), 밝은 회색(#F3F4F6), 그리고 짙은 네이비 히어로 그라디언트(#1A202C)로 구성된 고대비 팔레트를 사용하며, 최대 가독성을 위해 검정(#000000) 텍스트를 사용합니다. 타이포그래피는 본문에 humanist-sans를, 헤드라인에 굵은 display weights를 사용합니다. 핵심 디자인 요소로는 장난스러운 포옹 마스코트, 둥근 검색 바, 그리고 태스크 필터링을 위한 카테고리화된 '칩'이 포함됩니다. 중요한 금지 사항: 공격적인 네온 색상을 피하고, 미묘한 그림자만 사용하며, 가독성을 위해 왼쪽 정렬 텍스트를 유지하세요. 레이아웃은 여백이 넉넉한 깔끔한 12열 그리드로, 커뮤니티 신뢰와 기술적 실용성을 강조합니다."
+    }
+  },
+  "desc": {
+    "en": {
+      "palette": "A clean, high-contrast palette of white, light grays, and deep navy, creating a professional yet approachable environment.",
+      "layout": "A standard 12-column responsive grid with generous whitespace and clear content hierarchy.",
+      "interaction": "Smooth, subtle transitions on hover and click, focusing on usability and feedback.",
+      "motion": "Minimal and functional motion, primarily used for state changes and interactive feedback.",
+      "notes": "This site is an excellent example of balancing a playful mascot with a highly technical, utility-driven interface for a professional developer community."
+    },
+    "zh-CN": {
+      "palette": "以白色、浅灰色和深海军蓝构成的干净、高对比度调色板，营造专业而亲切的环境。",
+      "layout": "标准的12列响应式网格，拥有充裕的留白和清晰的内容层级。",
+      "interaction": "在 hover 和点击时进行平滑、细微的过渡，专注于可用性和反馈。",
+      "motion": "极简且功能性的动效，主要用于状态变化和交互反馈。",
+      "notes": "该网站是平衡活泼吉祥物与高度技术化、实用驱动界面的绝佳范例，面向专业的开发者社区。"
+    },
+    "zh-TW": {
+      "palette": "乾淨、高對比的調色板，包含白色、淺灰色與深海軍藍，營造專業且親切的環境。",
+      "layout": "標準的 12 欄響應式網格，搭配充足的留白與清晰的內容層次。",
+      "interaction": "在 hover 和點擊時提供流暢、細微的過渡效果，專注於可用性與回饋。",
+      "motion": "極簡且功能性的動態效果，主要用於狀態改變與互動回饋。",
+      "notes": "這個網站是平衡俏皮吉祥物與高度技術、實用導向介面的絕佳範例，專為專業開發者社群設計。"
+    },
+    "ja": {
+      "palette": "白、明るいグレー、濃いネイビーによる、クリーンでハイコントラストのパレット。専門的でありながらも親しみやすい環境を演出します。",
+      "layout": "豊富な余白と明確なコンテンツ階層を持つ、標準的な12カラムレスポンシブグリッド。",
+      "interaction": "ホバーおよびクリック時の滑らかで微細なトランジション。使いやすさとフィードバックに重点。",
+      "motion": "最小限かつ機能的なモーション。主に状態変化やインタラクティブなフィードバックに使用。",
+      "notes": "このサイトは、遊び心のあるマスコットと、専門的な開発者コミュニティ向けの高度に技術的で実用主導のインタフェースを巧みにバランスさせた優れた例です。"
+    },
+    "ko": {
+      "palette": "흰색, 밝은 회색, 그리고 짙은 네이비로 구성된 깔끔하고 고대비 팔레트로, 전문적이면서도 친근한 분위기를 조성합니다.",
+      "layout": "여백이 넉넉하고 명확한 콘텐츠 계층을 갖춘 표준 12열 반응형 그리드입니다.",
+      "interaction": "사용성과 피드백에 중점을 둔, hover와 클릭 시 부드럽고 미묘한 전환 효과를 제공합니다.",
+      "motion": "최소한이면서도 기능적인 모션으로, 주로 상태 변화와 인터랙티브 피드백에 사용됩니다.",
+      "notes": "이 사이트는 장난스러운 마스코트와 기술적이고 실용적인 인터페이스의 균형을 잘 보여주는 전문 개발자 커뮤니티의 훌륭한 예시입니다."
+    }
+  },
+  "narrative": {
+    "en": {
+      "ch1_intro": "The system operates like a bustling digital town square for machine learning engineers and researchers—a place where technical rigor meets collaborative spirit. Its identity is built on the duality of being open-source and technically precise, yet fundamentally friendly and inviting. This is not a polished corporate lobby; it is a functional workshop where ideas are built, shared, and put to use.",
+      "ch2_intro": "The palette is one of deliberate high contrast, establishing immediate clarity and focus. Clean white backgrounds provide the canvas, framed by subtle gray borders that define space without adding weight, while the deep navy gradient anchors the hero section with a sense of depth and technical gravity.",
+      "ch2_outro": "The principle is a professional yet approachable environment, using color not for decoration but for hierarchy and legibility.",
+      "ch3_intro": "Typographic choices reinforce the platform's dual nature, pairing a humanist sans-serif for the body to ensure readability in long-form text and documentation with bold display weights for declarative, community-focused headlines. The type scale is functional, supporting everything from prominent hero statements to the precise metadata and labels essential for navigating models and datasets.",
+      "ch4_intro": "Spatial rhythm is governed by a consistent 8px grid, with a 4px micro-spacing for tight internal element padding.",
+      "ch5_intro": "Depth is communicated through restraint. Shadows are soft and subtle—barely perceptible lifts for cards and dropdowns—while borders are fine, 1px lines that delineate surfaces without creating harsh divisions.",
+      "ch6_intro": "The layout skeleton is a standard responsive 12-column grid, providing a structured yet flexible framework for content-dense pages. This grid collapses cleanly to a single column on mobile, maintaining generous whitespace and a clear content hierarchy across all viewports.",
+      "ch7_intro": "Motion is minimal and strictly functional, used to communicate state change and provide interactive feedback rather than for spectacle. Transitions are brief and consistent, focusing on usability through subtle color shifts and transform cues on hover and click.",
+      "ch8_intro": "The editorial voice is friendly, collaborative, and technically precise, favoring bold, declarative statements that emphasize community and building over corporate jargon. Calls to action are direct and action-oriented, while the language in the primary UI deliberately avoids complex academic terminology to remain accessible.",
+      "ch8_outro": "What the system deliberately avoids is just as telling: aggressive neon accents, heavy shadows, centered long-form text, and a default dark mode, all in service of its core identity as a clear, trustworthy utility."
+    },
+    "zh-CN": {
+      "ch1_intro": "该系统如同一个为机器学习工程师和研究人员打造的繁忙数字广场——一个技术严谨与协作精神交融的空间。其身份建立于开源与技术精准的双重特性之上，同时保持着根本性的友好与开放。这不是一个光鲜亮丽的企业大堂，而是一个功能完备的工作坊，思想在此构建、分享并付诸实践。",
+      "ch2_intro": "配色方案采用刻意的高对比度设计，立即建立清晰度与焦点。纯净的白色背景作为画布，辅以微妙的灰色边框界定空间而不增加视觉重量，而深海军蓝渐变则为首要内容区域赋予深度与技术厚重感。",
+      "ch2_outro": "核心原则是打造专业而平易近人的环境，色彩用于构建层级与提升可读性，而非纯粹装饰。",
+      "ch3_intro": "字体选择强化了平台的双重特性：正文采用人文主义无衬线字体以确保长文本与文档的可读性，标题则运用醒目的展示型字重来呈现具有号召力、聚焦社区的宣言。字体比例注重功能性，既能承载醒目的首要内容陈述，也能精准呈现导航模型与数据集时不可或缺的元数据与标签。",
+      "ch4_intro": "空间韵律由统一的 8px 网格掌控，内部元素间采用 4px 微间距实现紧密排布。",
+      "ch5_intro": "深度通过克制手法传达。阴影柔和而细微——仅为卡片和下拉菜单提供几乎难以察觉的浮起效果；边框则是纤细的 1px 线条，清晰划分界面层次而不制造生硬割裂。",
+      "ch6_intro": "布局骨架采用标准的响应式 12 列网格，为内容密集的页面提供结构化且灵活的框架。该网格在移动端平滑收缩为单列布局，在所有视口尺寸下均保持充裕的留白与清晰的内容层级。",
+      "ch7_intro": "动效保持极简且严格功能化，用于传达状态变化与提供交互反馈，而非追求视觉炫技。过渡动画简短一致，通过悬停与点击时的微妙色彩变化与变换提示来聚焦可用性。",
+      "ch8_intro": "编辑语调友好、协作且技术精准，倾向于使用大胆、宣言式的表述来强调社区与构建，而非企业套话。行动号召直接且面向操作，主要界面语言刻意回避复杂的学术术语以保持易用性。",
+      "ch8_outro": "系统刻意规避的元素同样具有说明意义：侵略性的霓虹强调色、沉重阴影、居中排列的长文本以及默认暗色模式——所有这些取舍都服务于其作为清晰、可信实用工具的核心定位。"
+    },
+    "zh-TW": {
+      "ch1_intro": "這個系統運作起來就像一個繁忙的數位市鎮廣場，服務於機器學習工程師與研究人員——一個技術嚴謹與協作精神相遇的地方。它的身分建立於兩個面向：開源且技術精準，但本質上友善且具邀請性。這不是一個打磨光亮的企業大廳；這是一個功能性的工坊， Ideas 在此被建構、分享並付諸實踐。",
+      "ch2_intro": "色彩系統採用了刻意的高對比度，以立即建立清晰度與專注感。潔淨的白色背景作為畫布，以細微的灰色邊框定義空間而不增加負擔，同時深海軍藍漸層為主視覺區塊奠定了深度與技術的厚重感。",
+      "ch2_outro": "原則是營造專業卻平易近人的環境，運用色彩而非為了裝飾，而是為了建立階層與提升易讀性。",
+      "ch3_intro": "字體選擇強化了平台的雙重特質：正文採用人文主義無襯線體，確保長篇文字與文件的可讀性；同時搭配粗壯的標題字重，用於直接、以社群為焦點的標題。字體比例是功能性的，支援從顯眼的主視覺標語，到導覽模型與資料集所需的精確中繼資料與標籤。",
+      "ch4_intro": "空間節奏由一致的 8px 格線掌控，內部元素緊密處則使用 4px 的微距間距。",
+      "ch5_intro": "深度透過節制來傳達。陰影是柔和且細微的——為卡片與下拉式選單帶來幾乎難以察覺的懸浮感；邊框則是精細的 1px 線條，用來區隔表面而不製造生硬的分割。",
+      "ch6_intro": "版面骨架採用標準的響應式 12 欄格線，為內容密集的頁面提供結構化且靈活的框架。此格線在手機上能優雅地收合成單欄，在所有視口尺寸下都保持充足的留白與清晰的內容層次。",
+      "ch7_intro": "動態效果簡約且嚴格功能導向，用於傳達狀態變化並提供互動回饋，而非追求視覺效果。過渡效果短暫且一致，透過 hover 與點擊時細微的色彩變化與變換提示，專注於提升可用性。",
+      "ch8_intro": "編輯語調是友善、協作且技術精準的，偏好直接、有力的陳述，強調社群與建構，而非企業術語。行動呼籲直接且以行動為導向，而主要介面中的語言則刻意避免複雜的學術術語，以保持易於理解。",
+      "ch8_outro": "系統刻意避免的事物同樣發人深省：具侵略性的霓虹強調色、厚重的陰影、置中的長篇文字，以及預設的暗色模式，所有這些都是為了服務其作為清晰、值得信賴的實用工具的核心定位。"
+    },
+    "ja": {
+      "ch1_intro": "このシステムは、機械学習エンジニアと研究者にとって、活気あるデジタルの広場のような場所です。技術的な厳密さと協働の精神が出会う場であり、オープンソースであることと技術的な正確さという二重性に基づいてアイデンティティを構築していますが、根本的には親しみやすく、歓迎する雰囲気を持っています。これは洗練された企業ロビーではなく、アイデアが構築され、共有され、活用される実用的なワークショップです。",
+      "ch2_intro": "パレットは意図的なハイコントラストであり、直感的な明瞭さと焦点を確立します。クリーンな白い背景がキャンバスを提供し、重みを追加せずに空間を定義する微妙なグレーのボーダーで囲まれます。また、深いネイビーのグラデーションがヒーローセクションに深度と技術的な重厚感を与えます。",
+      "ch2_outro": "原則は、プロフェッショナルでありながらも親しみやすい環境を作り出し、装飾のためではなく、階層構造と可読性のためにカラーを使用することです。",
+      "ch3_intro": "タイポグラフィの選択は、プラットフォームの二重性を強調します。本文にはヒューマニストサンセリフを採用し、長文テキストやドキュメントでの可読性を確保します。一方、宣言的でコミュニティ重視の見出しには太字のディスプレイウェイトを組み合わせます。タイプスケールは実用的で、目立つヒーローステートメントから、モデルやデータセットをナビゲートするために不可欠な正確なメタデータやラベルまで、すべてをサポートします。",
+      "ch4_intro": "空間のリズムは、一貫した8pxグリッドによって管理され、要素間の詰まった内部パディングには4pxのマイクロスペーシングが使用されます。",
+      "ch5_intro": "深度は節制によって伝達されます。影は柔らかく、控えめです。カードやドロップダウンにはほとんど感じ取れないほどの浮遊感を出し、ボーダーは1pxの細い線で、厳しい区切りを作ることなく表面を区切ります。",
+      "ch6_intro": "レイアウトの骨格は標準のレスポンシブ12カラムグリッドであり、コンテンツが密集するページに構造化されつつ柔軟なフレームワークを提供します。このグリッドはモバイルで単一カラムにきれいに崩れ、すべてのビューポートにわたって十分なホワイトスペースと明確なコンテンツ階層を維持します。",
+      "ch7_intro": "モーションは最小限で厳密に機能的です。 spectacleのためではなく、状態の変化を伝え、インタラクティブなフィードバックを提供するために使用されます。遷移は短く一貫しており、hoverやクリック時の微妙なカラーシフトや変換の手がかりを通じて、ユーティリティ性に焦点を当てます。",
+      "ch8_intro": "エディトリアルボイスは、フレンドリーで協働的、かつ技術的に正確です。企業用語よりも、コミュニティと構築を強調する、大胆で宣言的なステートメントを好む傾向があります。アクションコールは直接的でアクション指向であり、主要なUIの言語は複雑な学術用語を意図的に避け、アクセシビリティを維持します。",
+      "ch8_outro": "システムが意図的に避けるものもまた、重要な示唆を持っています。アグレッシブなネオンアクセント、重い影、中央揃えの長文テキスト、そしてデフォルトのダークモードはすべて、明確で信頼できるユーティリティとしての中核的アイデンティティのために排除されています。"
+    },
+    "ko": {
+      "ch1_intro": "이 시스템은 머신러닝 엔지니어와 연구자들을 위한 활기찬 디지털 광장처럼 운영됩니다. 기술적 엄밀함과 협력 정신이 만나는 곳이죠. 그 정체성은 오픈 소스이자 기술적으로 정밀하지만, 본질적으로 친근하고 매력적인 이중성 위에 구축되었습니다. 이곳은 세련된 기업 로비가 아닙니다. 아이디어가 구축되고, 공유되고, 활용되는 실용적인 작업실입니다.",
+      "ch2_intro": "팔레트는 의도적인 고대비로 구성되어 즉각적인 명확성과 집중감을 확립합니다. 깨끗한 흰색 배경이 캔버스를 제공하고, 무게감을 더하지 않으면서 공간을 정의하는 섬세한 회색 테두리로 테두리를 두르며, 깊은 네이비 그라데이션은 깊이감과 기술적 무게감을 더해 영웅 섹션을 안정시킵니다.",
+      "ch2_outro": "원칙은 전문적이면서도 친근한 환경을 조성하는 것이며, 장식이 아니라 계층과 가독성을 위해 색상을 사용합니다.",
+      "ch3_intro": "타이포그래피 선택은 플랫폼의 이중적 특성을 강화합니다. 긴 텍스트와 문서에서의 가독성을 위해 본문에는 휴머니스트 산세리프를 사용하고, 선언적이고 커뮤니티 중심적인 헤드라인에는 굵은 표시 글꼴 무게를 사용합니다. 타이포그래피 스케일은 기능적이어서, 두드러진 영웅 구절부터 모델과 데이터셋을 탐색하는 데 필수적인 정확한 메타데이터와 라벨까지 모든 것을 지원합니다.",
+      "ch4_intro": "공간 리듬은 일관된 8px 그리드와 내부 요소 간격이 좁을 때 사용하는 4px 마이크로 간격으로 제어됩니다.",
+      "ch5_intro": "깊이감은 절제를 통해 전달됩니다. 그림자는 부드럽고 섬세합니다. 카드와 드롭다운에 거의 인지할 수 없는 높이감을 주는 정도이며, 표면을 구분하되 가혹한 분리를 만들지 않는 1px의 미세한 테두리가 사용됩니다.",
+      "ch6_intro": "레이아웃 스켈레톤은 표준 반응형 12컬럼 그리드로, 콘텐츠가 밀집된 페이지를 위해 구조적이면서도 유연한 프레임워크를 제공합니다. 이 그리드는 모바일에서 깔끔하게 단일 컬럼으로 축소되며, 모든 뷰포트에 걸쳐 넉넉한 여백과 명확한 콘텐츠 계층을 유지합니다.",
+      "ch7_intro": "모션은 미미하고 엄격하게 기능적이어서, 화려함을 위해가 아니라 상태 변화를 전달하고 상호작용 피드백을 제공하기 위해 사용됩니다. 전환은 간결하고 일관되며, hover와 클릭 시의 미묘한 색상 변화와 변환 신호를 통해 사용성을 강조합니다.",
+      "ch8_outro": "이 시스템이 의도적으로 피하는 것 역시 시사하는 바가 큽니다. 공격적인 네온 악센트, 무거운 그림자, 중앙 정렬된 긴 텍스트, 기본 다크 모드 등은 모두 명확하고 신뢰할 수 있는 유틸리티로서의 핵심 정체성을 위해 배제됩니다."
+    }
+  }
 }

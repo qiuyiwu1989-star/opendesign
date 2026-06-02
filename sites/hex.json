@@ -8,7 +8,7 @@
     "devtools",
     "data"
   ],
-  "status": "vision_done",
+  "status": "completed",
   "added_at": "2026-06-02",
   "added_by": "expand-200",
   "_meta": {
@@ -16,54 +16,72 @@
     "vision_prompt_version": "0.3",
     "vision_source": "playwright-extract:hex",
     "vision_grounded": true,
-    "vision_at": "2026-06-02T14:23:21+00:00",
-    "vision_tokens": 16954,
-    "vision_cost_usd": 0.1884
+    "vision_at": "2026-06-02T14:27:47+00:00",
+    "vision_tokens": 1819,
+    "vision_cost_usd": 0.0202,
+    "translation_model": "mimo-v2.5",
+    "translation_at": "2026-06-02T14:29:01+00:00",
+    "translation_tokens": 17360,
+    "translation_cost_usd": 0.0579,
+    "narrative_model": "mimo-v2.5",
+    "narrative_prompt_version": "0.3",
+    "narrative_at": "2026-06-02T14:29:07+00:00",
+    "narrative_tokens": 2062,
+    "narrative_cost_usd": 0.0137,
+    "narrative_status": "ok",
+    "total_cost_usd": 0.0918
   },
   "spec": {
     "colors": {
-      "bg": "#ffffff",
-      "bgSoft": "#f4f1f2",
-      "bgQuiet": "#e9e5e8",
-      "ink": "#31263b",
-      "inkSoft": "#43394c",
-      "muted": "#89828d",
+      "bg": "#FFFCFC",
+      "bgSoft": "#E9E5E8",
+      "bgQuiet": "#F4F1F2",
+      "ink": "#31263B",
+      "inkSoft": "#43394C",
+      "muted": "#89828D",
       "mutedSoft": null,
-      "accent": null,
-      "line": "rgba(49, 38, 59, 0.57)"
+      "accent": "#E28C8B",
+      "line": "rgba(49, 38, 59, 0.14)"
     },
     "typography": {
-      "display": "didone-serif",
-      "body": "humanist-sans",
-      "mono": "monospaced",
+      "display": "transitional-serif",
+      "body": "geometric-sans",
+      "mono": "monospace",
       "scale": [
         {
           "token": "display",
-          "size": 64,
-          "lh": 1.05,
+          "size": 80,
+          "lh": 1.0,
           "weight": 400,
           "ls": "-1px"
         },
         {
-          "token": "heading",
-          "size": 48,
-          "lh": 1.1,
-          "weight": 700,
-          "ls": "-0.5px"
+          "token": "display2",
+          "size": 80,
+          "lh": 1.0,
+          "weight": 800,
+          "ls": "-1px"
+        },
+        {
+          "token": "h1",
+          "size": 40,
+          "lh": 1.2,
+          "weight": 400,
+          "ls": "normal"
         },
         {
           "token": "body",
-          "size": 16,
-          "lh": 1.5,
+          "size": 14,
+          "lh": 1.57,
           "weight": 400,
-          "ls": "0px"
+          "ls": "normal"
         },
         {
-          "token": "small",
+          "token": "mono",
           "size": 12,
           "lh": 1.5,
           "weight": 400,
-          "ls": "0px"
+          "ls": "normal"
         }
       ]
     },
@@ -83,8 +101,8 @@
     "surfaces": {
       "radius": {
         "sm": 2,
-        "md": 4,
-        "lg": 8,
+        "md": 3,
+        "lg": 4,
         "pill": 9999
       }
     },
@@ -100,106 +118,532 @@
     },
     "motion": {
       "durations": {
-        "micro": 100,
+        "micro": 220,
         "small": 250,
         "medium": 400
       },
       "easing": "cubic-bezier(0.25, 0.1, 0.25, 1)"
     }
   },
+  "desc": {
+    "en": {
+      "palette": "A grounded, minimal palette centered on deep purple-ink (#31263B) and off-white (#FFFCFC) with a subtle, warm dusty rose accent.",
+      "layout": "Centered, spacious layout with a focus on a strong hero section followed by clean, well-structured content blocks.",
+      "interaction": "Interactions are refined and subtle, utilizing smooth background-color and opacity transitions with a custom cubic-bezier curve.",
+      "motion": "Motion is restrained and purposeful, focusing on micro-interactions and smooth state changes rather than complex animations.",
+      "notes": "This site is worth including because it perfectly balances a premium, editorial aesthetic with the functional requirements of a developer-facing tool."
+    },
+    "zh-CN": {
+      "palette": "沉稳、极简的配色方案，以深紫墨色 (#31263B) 和米白色 (#FFFCFC) 为主，辅以微妙、温暖的灰玫瑰色作为点缀。",
+      "layout": "居中、宽敞的布局，重点突出醒目的主视觉区域，随后是清晰、结构良好的内容板块。",
+      "interaction": "交互设计精致而含蓄，采用平滑的背景色和透明度过渡效果，并配合自定义 cubic-bezier 曲线。",
+      "motion": "动效克制且富有目的性，专注于微交互和平滑的状态变化，而非复杂的动画。",
+      "notes": "该网站值得关注，因为它完美平衡了高级感的编辑美学与面向开发者的工具的功能性需求。"
+    },
+    "zh-TW": {
+      "palette": "穩重、簡約的色盤，以深紫墨色 (#31263B) 和米白色 (#FFFCFC) 為主調，並點綴溫潤柔和的玫瑰灰作為細節色。",
+      "layout": "居中且寬敞的版面配置，強調強而有力的首頁主視覺區域，後續則為清晰、結構分明的內容區塊。",
+      "interaction": "互動效果精緻而細膩，運用平滑的背景色與透明度過渡，並搭配自訂的 cubic-bezier 曲線。",
+      "motion": "動態效果克制且具目的性，著重於微互動與流暢的狀態轉換，而非複雜的動畫。",
+      "notes": "此網站值得參考，因其完美平衡了高端、編輯式的美學與面向開發者工具的功能性需求。"
+    },
+    "ja": {
+      "palette": "深いインクパープル（#31263B）とオフホワイト（#FFFCFC）を中心とした、落ち着いたミニマルなパレット。微かな温かみのあるダスティローズのアクセント。",
+      "layout": "中心揃え、ゆったりとしたレイアウト。強力なヒーローセクションを最重要視し、その後にクリーンで構造化されたコンテンツブロックを配置。",
+      "interaction": "洗練された繊細なインタラクション。カスタムcubic-bezierカーブを使用した、スムーズなbackground-colorとopacityのトランジション。",
+      "motion": "抑制された、目的意識のあるモーション。複雑なアニメーションではなく、マイクロインタラクションと滑らかな状態変化に焦点。",
+      "notes": "このサイトは、プレミアムなエディトリアル美学と、開発者向けツールの機能的要件を完璧にバランスさせているため、 inclusionに値します。"
+    },
+    "ko": {
+      "palette": "깊은 보라 잉크(#31263B)와 오프화이트(#FFFCFC)를 중심으로 한 차분하고 미니멀한 팔레트에, 따뜻하고 은은한 더스티 로즈 악센트를 더했습니다.",
+      "layout": "강력한 히어로 섹션을 중심으로 한 여백이 있는 중앙 정렬 레이아웃입니다. 이후 깔끔하고 잘 구성된 콘텐츠 블록이 이어집니다.",
+      "interaction": "세련되고 섬세한 인터랙션을 구현하며, 커스텀 cubic-bezier 곡선을 사용한 부드러운 background-color 및 opacity 트랜지션을 활용합니다.",
+      "motion": "점진적이고 목적 있는 모션을 지향하며, 복잡한 애니메이션보다는 마이크로 인터랙션과 부드러운 상태 변화에 초점을 맞춥니다.",
+      "notes": "이 사이트는 프리미엄/editorial 감성과 개발자 대상 도구의 기능적 요구 사항을 완벽하게 조화시켰기에 포함할 가치가 있습니다."
+    }
+  },
   "spec_i18n": {
     "en": {
       "identity": {
         "keywords": [
-          "analytics",
-          "trust",
-          "insight",
-          "AI",
-          "data",
-          "enterprise"
+          "AI Analytics",
+          "Trust",
+          "Insight",
+          "Data",
+          "Platform"
         ],
-        "analogy": "A sophisticated instrument panel for complex data analysis, blending editorial elegance with developer-grade utility.",
-        "oneLiner": "The AI analytics platform where trust meets insight."
+        "analogy": "A sophisticated data science notebook that blends editorial elegance with technical rigor.",
+        "oneLiner": "An AI-powered analytics platform where trust meets insight."
       },
       "colors": {
-        "principle": "High-contrast, dark-toned text on clean light backgrounds with subtle textural warmth."
+        "principle": "Grounded and trustworthy neutral palette with a warm, subtle accent."
       },
       "typography": {
         "rules": [
-          "Hero headlines alternate between italic Didone serif and bold geometric sans for dynamic contrast.",
-          "Body text uses a clean humanist sans-serif for maximum readability.",
-          "Monospaced fonts are used strictly for code snippets and technical data presentation.",
-          "Uppercase styling is reserved for small labels and UI elements."
+          "Serif for display headlines to add editorial weight.",
+          "Sans-serif for all body and UI elements for clarity.",
+          "Monospace strictly for code blocks."
         ],
         "scaleUses": [
-          "Hero headline emphasizing elegant authority",
-          "Section titles combining serif and bold sans",
-          "Primary reading text for descriptions and content",
-          "UI labels, metadata, and secondary text"
+          "Hero headline",
+          "Hero emphasis",
+          "Sub-hero",
+          "Default text",
+          "Code"
         ]
       },
       "spacing": {
-        "rhythm": "8px base grid with generous vertical spacing for editorial pacing."
+        "rhythm": "Standard 4px base grid with comfortable padding for readable content."
       },
       "surfaces": {
         "shadows": [
-          "0px 0px 0px 1px rgba(0, 0, 0, 0)",
-          "0px 1px 1px 0px rgba(49, 38, 59, 0.14) inset"
+          "0 0 0 1px rgba(0, 0, 0, 0)",
+          "0px 1px 1px 0px inset rgba(49, 38, 59, 0.14)"
         ],
-        "borders": "Subtle 1px borders in dark purple tones for structural definition."
+        "borders": "Subtle, low-contrast borders using the primary ink color at low opacity."
       },
       "layout": {
-        "skeleton": "Wide editorial layout with centered content and generous whitespace."
+        "skeleton": "Centered content column for hero sections, with wide content grids for product details."
       },
       "components": {
-        "button": "Pill-shaped or rounded-rectangle buttons with subtle borders and clean typography.",
-        "card": "Clean surfaces with subtle textural backgrounds and defined borders.",
-        "chip": "Small, rounded label elements with uppercase text.",
-        "input": "Clean input fields with minimal borders and rounded corners.",
-        "hero": "Large editorial-style hero with mixed typography and centered layout."
+        "button": "Primary uses a solid background (implied context) with rounded pill shape; secondary uses a subtle outline with rounded corners.",
+        "card": "Clean cards with very subtle borders and minimal shadows, used for showcasing product features.",
+        "chip": "Small, pill-shaped tags for categorization with low-contrast backgrounds.",
+        "input": "Clean text inputs with subtle borders and monospace styling for code-related fields.",
+        "hero": "Large, impactful hero combining serif and sans-serif typography with product interface snippets."
       },
       "motion": {
         "patterns": [
-          "Background color transitions on hover",
-          "Opacity changes for state feedback",
-          "Transform effects on interactive elements"
+          "Smooth background-color transitions on hover.",
+          "Subtle opacity changes for focus states.",
+          "Transformations for interactive elements."
         ]
       },
       "interaction": {
-        "hover": "Subtle background color shifts and opacity changes.",
-        "click": "Immediate visual feedback through state changes.",
-        "transition": "Smooth 250ms cubic-bezier transitions for most interactive elements.",
-        "keyboard": "Standard focus management with visible focus indicators."
+        "hover": "Subtle background color shifts or opacity changes.",
+        "click": "Immediate visual feedback via background or border transitions.",
+        "transition": "All transitions use the defined cubic-bezier curve for a refined feel.",
+        "keyboard": "Standard focus outlines using subtle 1px borders."
       },
       "voice": {
-        "tone": "Confident, authoritative, and technically precise.",
-        "headlineStyle": "Bold statements combining serif elegance with sans-serif directness.",
-        "ctaStyle": "Clear, action-oriented phrases like 'Get started for free' and 'Request a demo'.",
+        "tone": "Professional, authoritative, yet accessible and inviting.",
+        "headlineStyle": "Concise, powerful statements that blend editorial flair with technical precision.",
+        "ctaStyle": "Direct and action-oriented, encouraging immediate exploration.",
         "avoid": [
-          "Vague promises",
-          "Overly casual language",
-          "Technical jargon without context",
-          "Aggressive sales tactics"
+          "Overly technical jargon without context.",
+          "Vague or fluffy marketing speak.",
+          "Aggressive or loud color palettes.",
+          "Overly complex animations.",
+          "Cluttered or busy layouts."
         ]
       },
       "donts": [
-        "Don't use bright neon accents — screenshot shows muted, dark purple tones as primary colors.",
-        "Don't apply heavy drop shadows — screenshot shows subtle inset borders and minimal depth.",
-        "Don't use playful rounded shapes everywhere — screenshot shows a mix of sharp and slightly rounded elements.",
-        "Don't rely on single-font typography — screenshot shows dynamic mixing of serif and sans-serif fonts.",
-        "Don't use dense, cramped layouts — screenshot shows generous whitespace and editorial pacing.",
-        "Don't implement dark mode as default — screenshot shows light backgrounds with dark text as primary."
+        "Don't use neon or high-chroma accent colors — screenshot shows a subtle, warm dusty rose accent.",
+        "Don't use purely geometric sans-serif for headlines — screenshot prominently features a transitional serif for the main hero.",
+        "Don't use heavy drop shadows or 3D effects — screenshot shows a very flat, subtle design with minimal shadow usage.",
+        "Don't use rounded-lg or rounded-xl on most elements — screenshot shows mostly sharp corners (2px-4px) or pill shapes (9999px).",
+        "Don't use bright, saturated backgrounds — screenshot shows mostly off-white (#FFFCFC) and very light grays.",
+        "Don't use bold weights (700+) for body text — screenshot shows body text consistently at weight 400."
       ],
-      "systemPrompt": "A premium developer analytics platform blending editorial elegance with technical utility. Key colors include dark purple (#31263b) text on clean white (#ffffff) and light gray (#f4f1f2) backgrounds. Typography mixes Didone serif (italicized) for display with humanist sans-serif for body text, creating sophisticated contrast. Critical donts: avoid neon accents, heavy shadows, playful shapes, single-font usage, cramped layouts, and dark mode defaults. The design prioritizes trust, clarity, and authority through generous whitespace, subtle textures, and refined interactions."
+      "systemPrompt": "Design a sophisticated AI analytics platform that blends editorial elegance with technical rigor. The identity is grounded in trust and insight. The color palette is minimal and warm: off-white backgrounds (#FFFCFC), deep purple-ink text (#31263B), and a subtle dusty rose accent (#E28C8B). Typography uses a transitional-serif for display headlines to add weight, and a geometric sans-serif for all UI and body text. Key critical donts: do not use neon accents, do not use geometric sans for display headlines, and do not use heavy shadows or 3D effects. The layout should be centered and spacious, emphasizing readability and professional data presentation."
+    },
+    "zh-CN": {
+      "identity": {
+        "keywords": [
+          "AI 分析",
+          "信赖",
+          "洞察",
+          "数据",
+          "平台"
+        ],
+        "analogy": "一个融合了编辑优雅与技术严谨的精密数据科学笔记。",
+        "oneLiner": "一个让信赖与洞察相遇的 AI 驱动分析平台。"
+      },
+      "colors": {
+        "principle": "沉稳且值得信赖的中性色调，搭配温暖、微妙的点缀色。"
+      },
+      "typography": {
+        "rules": [
+          "标题使用衬线字体，以增加编辑的分量感。",
+          "所有正文和 UI 元素使用无衬线字体，确保清晰易读。",
+          "代码块严格使用等宽字体。"
+        ],
+        "scaleUses": [
+          "主视觉标题",
+          "主视觉强调",
+          "副标题",
+          "默认文本",
+          "代码"
+        ]
+      },
+      "spacing": {
+        "rhythm": "基于标准 4px 网格，内容区域采用舒适的内边距以提升可读性。"
+      },
+      "surfaces": {
+        "shadows": [
+          "0 0 0 1px rgba(0, 0, 0, 0)",
+          "0px 1px 1px 0px inset rgba(49, 38, 59, 0.14)"
+        ],
+        "borders": "微妙、低对比度的边框，使用低不透明度的主墨色。"
+      },
+      "layout": {
+        "skeleton": "主视觉区域采用居中的内容栏，产品详情使用宽幅的内容网格。"
+      },
+      "components": {
+        "button": "主按钮采用实心背景（隐含上下文）和圆角药丸形状；次级按钮采用微妙的描边和圆角。",
+        "card": "干净的卡片，带有非常细微的边框和极简的阴影，用于展示产品功能。",
+        "chip": "小巧的药丸形标签，用于分类，背景对比度低。",
+        "input": "干净的文本输入框，带有细微边框，代码相关字段采用等宽字体样式。",
+        "hero": "大尺寸、富有冲击力的主视觉区域，结合了衬线与无衬线字体，并搭配产品界面片段。"
+      },
+      "motion": {
+        "patterns": [
+          "鼠标悬停时平滑的背景色过渡。",
+          "焦点状态下的微妙透明度变化。",
+          "交互元素的变换效果。"
+        ]
+      },
+      "interaction": {
+        "hover": "微妙的背景色变化或透明度改变。",
+        "click": "通过背景或边框过渡提供即时视觉反馈。",
+        "transition": "所有过渡均使用预设的 cubic-bezier 曲线，以营造精致感。",
+        "keyboard": "使用微妙的 1px 边框作为标准焦点轮廓。"
+      },
+      "voice": {
+        "tone": "专业、权威，同时平易近人且引人入胜。",
+        "headlineStyle": "简洁、有力的陈述，融合了编辑风格与技术精度。",
+        "ctaStyle": "直接且以行动为导向，鼓励立即探索。",
+        "avoid": [
+          "缺乏上下文的过度技术术语。",
+          "模糊或浮夸的营销语言。",
+          "过于强烈或喧闹的配色方案。",
+          "过于复杂的动画。",
+          "杂乱或繁忙的布局。"
+        ]
+      },
+      "donts": [
+        "不要使用霓虹色或高饱和度的点缀色——截图显示的是一种微妙、温暖的灰玫瑰色点缀。",
+        "不要在标题中使用纯几何无衬线字体——截图主视觉区域显著使用了过渡性衬线字体。",
+        "不要使用厚重的投影或 3D 效果——截图显示的是非常扁平、微妙的设计，阴影使用极少。",
+        "不要在大多数元素上使用 rounded-lg 或 rounded-xl——截图显示主要使用尖角（2px-4px）或药丸形状（9999px）。",
+        "不要使用明亮、饱和的背景色——截图主要使用米白色（#FFFCFC）和非常浅的灰色。",
+        "不要在正文使用粗体（700+）——截图显示正文始终使用 400 字重。"
+      ],
+      "systemPrompt": "设计一个融合了编辑优雅与技术严谨的精密 AI 分析平台。其身份建立在信赖与洞察之上。配色方案简约而温暖：米白色背景 (#FFFCFC)，深紫墨色文字 (#31263B)，以及微妙的灰玫瑰色点缀 (#E28C8B)。字体方面，标题使用过渡性衬线字体以增加分量感，所有 UI 和正文使用几何无衬线字体。关键禁忌：不要使用霓虹色点缀，不要在标题中使用几何无衬线字体，不要使用厚重的阴影或 3D 效果。布局应居中且宽敞，强调可读性和专业的数据呈现。"
+    },
+    "zh-TW": {
+      "identity": {
+        "keywords": [
+          "AI 分析",
+          "信賴",
+          "洞見",
+          "資料",
+          "平台"
+        ],
+        "analogy": "一本融合編輯優雅與技術嚴謹的數據科學筆記。",
+        "oneLiner": "一個匯聚信賴與洞見的 AI 分析平台。"
+      },
+      "colors": {
+        "principle": "穩重且值得信賴的中性色盤，搭配溫潤、細膩的強調色。"
+      },
+      "typography": {
+        "rules": [
+          "使用襯線體作為標題字，增添編輯質感。",
+          "所有內文與介面元素採用無線條體，確保清晰易讀。",
+          "等寬體嚴格僅用於程式碼區塊。"
+        ],
+        "scaleUses": [
+          "首頁主標題",
+          "首頁強調文字",
+          "副標題",
+          "預設文字",
+          "程式碼"
+        ]
+      },
+      "spacing": {
+        "rhythm": "標準的 4px 基礎網格，搭配舒適的內距以確保內容的可讀性。"
+      },
+      "surfaces": {
+        "shadows": [
+          "0 0 0 1px rgba(0, 0, 0, 0)",
+          "0px 1px 1px 0px inset rgba(49, 38, 59, 0.14)"
+        ],
+        "borders": "採用主要墨色、低不透明度的細膩低對比邊框。"
+      },
+      "layout": {
+        "skeleton": "首頁主視覺區域採用居中內容欄位，產品細節則使用寬版內容網格。"
+      },
+      "components": {
+        "button": "主要按鈕採用實心背景（隱含情境）與圓角膠囊造型；次要按鈕採用細膩的描邊與圓角設計。",
+        "card": "簡潔的卡片，帶有極細邊框與最小化陰影，用於展示產品功能。",
+        "chip": "小巧的膠囊型標籤，用於分類，背景為低對比色。",
+        "input": "簡潔的文字輸入框，帶有細膩邊框，與程式碼相關欄位採用等寬體樣式。",
+        "hero": "大尺寸、具衝擊力的首頁主視覺，結合襯線與無線條字型，並穿插產品介面片段。"
+      },
+      "motion": {
+        "patterns": [
+          "hover 時平滑的背景色過渡。",
+          "focus 狀態下的細膩透明度變化。",
+          "互動元素的變換效果。"
+        ]
+      },
+      "interaction": {
+        "hover": "細膩的背景色轉換或透明度變化。",
+        "click": "透過背景或邊框過渡提供即時視覺回饋。",
+        "transition": "所有過渡效果均使用指定的 cubic-bezier 曲線，以營造精緻感受。",
+        "keyboard": "標準的 focus 外框，採用細膩的 1px 邊框。"
+      },
+      "voice": {
+        "tone": "專業、具權威性，同時平易近人且具吸引力。",
+        "headlineStyle": "簡潔有力的陳述，融合編輯風格與技術精準度。",
+        "ctaStyle": "直接且以行動為導向，鼓勵立即探索。",
+        "avoid": [
+          "缺乏情境的過度技術術語。",
+          "模糊或空洞的行銷用語。",
+          "強烈或喧鬧的色彩組合。",
+          "過於複雜的動畫效果。",
+          "雜亂或擁擠的版面配置。"
+        ]
+      },
+      "donts": [
+        "勿使用霓虹或高飽和度的強調色——截圖顯示為細膩、溫潤的玫瑰灰強調色。",
+        "勿使用純幾何無線條體作為標題字——截圖明確顯示首頁主標題採用過渡式襯線體。",
+        "勿使用厚重的陰影或 3D 效果——截圖顯示為非常平坦、細膩的設計，陰影使用極少。",
+        "勿在大多數元素上使用 rounded-lg 或 rounded-xl——截圖顯示主要為銳角（2px-4px）或膠囊造型（9999px）。",
+        "勿使用明亮、飽和的背景色——截圖顯示主要為米白色 (#FFFCFC) 與極淺的灰色。",
+        "勿對內文使用粗體（700+）字重——截圖顯示內文一致採用 400 字重。"
+      ],
+      "systemPrompt": "設計一個融合編輯優雅與技術嚴謹的進階 AI 分析平台。其品牌識別植根於信賴與洞見。色盤簡約而溫潤：米白色背景 (#FFFCFC)、深紫墨色文字 (#31263B)，以及細膩的玫瑰灰強調色 (#E28C8B)。字型方面，標題使用過渡式襯線體以增添分量，所有介面與內文則採用幾何無線條體。關鍵禁忌：勿使用霓虹強調色、勿使用幾何無線條體作為標題字、勿使用厚重陰影或 3D 效果。版面應居中且寬敞，強調可讀性與專業的數據呈現。"
+    },
+    "ja": {
+      "identity": {
+        "keywords": [
+          "AI分析",
+          "信頼",
+          "インサイト",
+          "データ",
+          "プラットフォーム"
+        ],
+        "analogy": "エディトリアルの雅さと技術的な厳密性を融合した、洗練されたデータサイエンスノートブック。",
+        "oneLiner": "信頼とインサイトが出会うAI分析プラットフォーム。"
+      },
+      "colors": {
+        "principle": "信頼に足るニュートラルパレットに、温かみのある微かなアクセントを加える。"
+      },
+      "typography": {
+        "rules": [
+          "表示見出しにはセリフ体を使用し、エディトリアルの重みを加える。",
+          "すべての本文とUI要素にはサンセリフ体を使用し、明瞭さを確保する。",
+          "コードブロックには厳密にモノスペース体を使用する。"
+        ],
+        "scaleUses": [
+          "ヒーロー見出し",
+          "ヒーロー強調",
+          "サブヒーロー",
+          "デフォルトテキスト",
+          "コード"
+        ]
+      },
+      "spacing": {
+        "rhythm": "標準の4pxベースグリッド。読みやすいコンテンツ用に、適切なパディングを設定。"
+      },
+      "surfaces": {
+        "shadows": [
+          "0 0 0 1px rgba(0, 0, 0, 0)",
+          "0px 1px 1px 0px inset rgba(49, 38, 59, 0.14)"
+        ],
+        "borders": "プライマリインクカラーを低不透明度で使用した、微細でコントラストの低いボーダー。"
+      },
+      "layout": {
+        "skeleton": "ヒーローセクション用の中央揃えコンテンツカラム、製品詳細用の幅広コンテンツグリッド。"
+      },
+      "components": {
+        "button": "プライマリは塗りつぶし背景（コンテキスト暗示）にカプセル形状。セカンダリは角丸の微細なアウトライン。",
+        "card": "製品機能の見せ場として使用する、非常に微細なボーダーと最小限のシャドウを持つクリーンなカード。",
+        "chip": "カテゴリ分け用の小さなカプセル形タグ。低コントラストの背景。",
+        "input": "クリーンなテキスト入力。微細なボーダーと、コード関連フィールドにはモノスペーススタイル。",
+        "hero": "セリフ体とサンセリフ体を組み合わせた、製品インターフェースの断片を含む、インパクトの大きいヒーロー。"
+      },
+      "motion": {
+        "patterns": [
+          "ホバー時のスムーズなbackground-colorトランジション。",
+          "フォーカス状態の微細なopacity変化。",
+          "インタラクティブ要素のトランスフォーム。"
+        ]
+      },
+      "interaction": {
+        "hover": "微細な背景色のシフトまたはopacityの変化。",
+        "click": "背景またはボーダートランジションによる即座のビジュアルフィードバック。",
+        "transition": "洗練された感触のため、すべてのトランジションで定義されたcubic-bezierカーブを使用。",
+        "keyboard": "微細な1pxボーダーを使用した標準のフォーカスアウトライン。"
+      },
+      "voice": {
+        "tone": "プロフェッショナルで権威がありつつ、アクセスしやすく、歓迎的。",
+        "headlineStyle": "エディトリアルの優雅さと技術的な厳密さを融合した、簡潔で力強いストーテリング。",
+        "ctaStyle": "直接的で行動を促す、即座の探索を促進。",
+        "avoid": [
+          "文脈のない過度に技術的な専門用語。",
+          "曖昧で曖昧なマーケティングスピーク。",
+          "アグレッシブまたは派手なカラーパレット。",
+          "過度に複雑なアニメーション。",
+          "ごちゃごちゃとした忙しないレイアウト。"
+        ]
+      },
+      "donts": [
+        "ネオンや高クロマのアクセントカラーを使用しない — スクリーンショットでは微細で温かみのあるダスティローズアクセントが示されている。",
+        "表示見出しに純粋なジオメトリックサンセリフを使用しない — スクリーンショットではメインヒーローにトランジショナルセリフが際立って使用されている。",
+        "重いドロップシャドウや3D効果を使用しない — スクリーンショットではシャドウを最小限に抑えた、非常にフラットで微細なデザインが示されている。",
+        "ほとんどの要素にrounded-lgやrounded-xlを使用しない — スクリーンショットでは主にシャープな角（2px-4px）またはカプセル形状（9999px）が示されている。",
+        "明るく彩度の高い背景を使用しない — スクリーンショットでは主にオフホワイト（#FFFCFC）と非常に明るいグレーが示されている。",
+        "本文に太字ウェイト（700以上）を使用しない — スクリーンショットでは本文が常にウェイト400で示されている。"
+      ],
+      "systemPrompt": "エディトリアルの雅さと技術的な厳密性を融合した洗練されたAI分析プラットフォームをデザインする。アイデンティティは信頼とインサイトに基づく。カラーパレットはミニマルで温かみがある：オフホワイト背景（#FFFCFC）、深いインクパープルテキスト（#31263B）、微かなダスティローズアクセント（#E28C8B）。タイポグラフィは、表示見出しに重みを加えるためトランジショナルセリフを使用し、すべてのUIと本文にはジオメトリックサンセリフを使用する。重要な制約：ネオンアクセントを使用しない、表示見出しにジオメトリックサンセリフを使用しない、重いシャドウや3D効果を使用しない。レイアウトは中心揃えでゆったりとし、読みやすさと専門的なデータプレゼンテーションを重視する。"
+    },
+    "ko": {
+      "identity": {
+        "keywords": [
+          "AI 분석",
+          "신뢰",
+          "인사이트",
+          "데이터",
+          "플랫폼"
+        ],
+        "analogy": "editorial 우아함과 기술적 엄밀함이 어우러진 정교한 데이터 사이언스 노트북.",
+        "oneLiner": "신뢰와 인사이트가 만나는 AI 기반 분석 플랫폼."
+      },
+      "colors": {
+        "principle": "따뜻하고 은은한 악센트를 더한, 차분하고 신뢰감 있는 중립 팔레트입니다."
+      },
+      "typography": {
+        "rules": [
+          "디스플레이 헤드라인에는 editoria 무게감을 더하기 위해 세리프를 사용합니다.",
+          "모든 본문 및 UI 요소에는 명확성을 위해 산세리프를 사용합니다.",
+          "코드 블록에는 모노스페이스를 엄격히 사용합니다."
+        ],
+        "scaleUses": [
+          "히어로 헤드라인",
+          "히어로 강조",
+          "서브 히어로",
+          "기본 텍스트",
+          "코드"
+        ]
+      },
+      "spacing": {
+        "rhythm": "기본 4px 그리드를 기반으로 하며, 읽기 편한 콘텐츠를 위해 편안한 패딩을 적용합니다."
+      },
+      "surfaces": {
+        "shadows": [
+          "0 0 0 1px rgba(0, 0, 0, 0)",
+          "0px 1px 1px 0px inset rgba(49, 38, 59, 0.14)"
+        ],
+        "borders": "메인 잉크 컬러를 낮은 불투명도로 사용한, 은은하고 대비가 낮은 테두리입니다."
+      },
+      "layout": {
+        "skeleton": "히어로 섹션을 위한 중앙 정렬 콘텐츠 열과 제품 상세를 위한 넓은 콘텐츠 그리드를 사용합니다."
+      },
+      "components": {
+        "button": "메인 버튼은 둥근 pill 형태의 단색 배경(문맥상 암시)을 사용하며, 세컨더리는 둥근 모서리의 은은한 윤곽선을 사용합니다.",
+        "card": "제품 기능을 소개하는 데 사용되는, 은은한 테두리와 최소한의 그림자를 가진 깔끔한 카드입니다.",
+        "chip": "카테고리 분류를 위한 작은 pill 형태의 태그로, 낮은 대비의 배경을 사용합니다.",
+        "input": "은은한 테두리와 코드 관련 필드에 모노스페이스 스타일링을 적용한 깔끔한 텍스트 입력 필드입니다.",
+        "hero": "제품 인터페이스 스니펫과 함께 세리프 및 산세리프 타이포그래피를 결합한, 크고 인상적인 히어로입니다."
+      },
+      "motion": {
+        "patterns": [
+          "hover 시 부드러운 background-color 트랜지션.",
+          "focus 상태를 위한 은은한 opacity 변화.",
+          "인터랙티브 요소를 위한 transform."
+        ]
+      },
+      "interaction": {
+        "hover": "배경색 또는 opacity의 은은한 변화.",
+        "click": "배경 또는 테두리 트랜지션을 통한 즉각적인 시각적 피드백.",
+        "transition": "모든 트랜지션은 세련된 느낌을 위해 정의된 cubic-bezier 곡선을 사용합니다.",
+        "keyboard": "표준 focus 윤곽선에 은은한 1px 테두리를 사용합니다."
+      },
+      "voice": {
+        "tone": "전문적이고 권위 있으나, 접근 가능하고 친근한 어조입니다.",
+        "headlineStyle": "editorial 감각과 기술적 정밀함을 결합한 간결하고 강력한 문장.",
+        "ctaStyle": "즉각적인 탐색을 유도하는, 직접적이고 행동 지향적인 스타일.",
+        "avoid": [
+          "문맥 없는 지나친 기술 용어.",
+          "模稜两可하거나 과장된 마케팅 표현.",
+          "공격적이고 튀는 색상 팔레트.",
+          "지나치게 복잡한 애니메이션.",
+          "지저분하거나 붐비는 레이아웃."
+        ]
+      },
+      "donts": [
+        "네온 또는 고채도 악센트 컬러를 사용하지 마세요 — 스크린샷은 은은하고 따뜻한 더스티 로즈 악센트를 보여줍니다.",
+        "헤드라인에 순수 기하학적 산세리프를 사용하지 마세요 — 스크린샷은 메인 히어로에 전환형 세리프를 두드러게 사용하고 있습니다.",
+        "무거운 드롭 섀도우 또는 3D 효과를 사용하지 마세요 — 스크린샷은 매우 평면적이고 섀도우 사용이 최소화된 은은한 디자인을 보여줍니다.",
+        "대부분의 요소에 rounded-lg 또는 rounded-xl을 사용하지 마세요 — 스크린샷은 주로 날카로운 모서리(2px-4px) 또는 pill 형태(9999px)를 보여줍니다.",
+        "밝고 채도 높은 배경을 사용하지 마세요 — 스크린샷은 주로 오프화이트(#FFFCFC)와 매우 연한 회색을 보여줍니다.",
+        "본문 텍스트에 굵은 무게(700 이상)를 사용하지 마세요 — 스크린샷은 본문 텍스트가 일관되게 무게 400으로 표시됨을 보여줍니다."
+      ],
+      "systemPrompt": "editorial 우아함과 기술적 엄밀함을 어우르는 정교한 AI 분석 플랫폼을 디자인하세요. 정체성은 신뢰와 인사이트에 기반합니다. 색상 팔레트는 미니멀하고 따뜻합니다: 오프화이트 배경(#FFFCFC), 깊은 보라 잉크 텍스트(#31263B), 그리고 은은한 더스티 로즈 악센트(#E28C8B)입니다. 타이포그래피는 무게감을 더하기 위해 디스플레이 헤드라인에 전환형 세리프를 사용하고, 모든 UI 및 본문 텍스트에는 기하학적 산세리프를 사용합니다. 핵심 주의 사항: 네온 악센트를 사용하지 마세요, 디스플레이 헤드라인에 기하학적 산세리프를 사용하지 마세요, 무거운 섀도우 또는 3D 효과를 사용하지 마세요. 레이아웃은 읽기 용이성과 전문적인 데이터 프레젠테이션을 강조하는 중앙 정렬되고 여백이 있는 형태여야 합니다."
     }
   },
-  "desc": {
+  "narrative": {
     "en": {
-      "palette": "A refined palette of dark purples and muted grays on clean whites, creating sophisticated contrast without aggressive color accents.",
-      "layout": "Editorial-style layout with generous whitespace, centered content, and mixed typography that balances elegance with technical clarity.",
-      "interaction": "Subtle hover transitions and state changes with smooth cubic-bezier easing, prioritizing clarity over flashy effects.",
-      "motion": "Minimal but purposeful motion with quick micro-interactions and smooth transitions for a professional feel.",
-      "notes": "Worth including for its successful blend of editorial design principles with developer tool aesthetics, creating a premium feel for data analytics."
+      "ch1_intro": "The system is built around the analogy of a sophisticated data science notebook, one that blends editorial elegance with technical rigor. Every choice in its toolkit—from palette to type—is made to convey trust and insight. It is a design for a platform where clarity is paramount and aesthetic noise is stripped away.",
+      "ch2_intro": "The palette is grounded and minimal, built upon a deep purple-ink and off-white foundation. A single, warm dusty rose accent provides subtle emphasis without visual shouting.",
+      "ch2_outro": "Color is used with restraint, ensuring the interface remains a trustworthy backdrop for data and content rather than a distraction.",
+      "ch3_intro": "Typographic voice is defined by a deliberate split: a **transitional serif** lends editorial weight to display headlines, while a clean **sans-serif** ensures clarity for all interface and body text.",
+      "ch4_intro": "A standard 4px base grid establishes a consistent, comfortable rhythm for spacing throughout the system.",
+      "ch5_intro": "Depth is communicated through subtlety, not drama. Surfaces are defined by low-contrast borders and the faintest of inset shadows, maintaining a near-flat, pristine appearance.",
+      "ch6_intro": "The layout skeleton centers content in a strong column for hero sections, then expands into wider grids for detailed product information. This structure creates a spacious, readable flow that guides the user from overview to detail.",
+      "ch7_intro": "Motion is restrained and purposeful, existing to clarify state changes rather than decorate. All transitions follow a defined cubic-bezier curve for a consistently refined feel.",
+      "ch8_intro": "The editorial voice is professional and authoritative, yet accessible. It favors concise, powerful statements over fluffy marketing speak or unexplained jargon.",
+      "ch8_outro": "The system deliberately avoids high-chroma accents, geometric sans-serif for display, heavy shadows, and complex animations in favor of clarity and professionalism."
+    },
+    "zh-CN": {
+      "ch1_intro": "系统构建于精密数据科学笔记本的隐喻之上，将编辑的优雅与技术的严谨融为一体。工具包中的每一项选择——从调色板到字体——都旨在传递信任与洞见。这是一个为清晰至上的平台而设计的方案，摒弃了所有装饰性的视觉噪音。",
+      "ch2_intro": "配色方案沉稳而简约，以深紫墨色与米白色为基底。一抹温暖的灰玫瑰色作为点缀，在不制造视觉喧嚣的前提下提供微妙的强调。",
+      "ch2_outro": "色彩运用克制，确保界面始终是数据与内容的可靠背景，而非干扰元素。",
+      "ch3_intro": "排版风格由一种刻意的分化所定义：**过渡衬线体**为展示标题赋予编辑的厚重感，而清晰的**无衬线体**则确保所有界面与正文的易读性。",
+      "ch4_intro": "标准的4px基础网格为系统内的间距建立了统一、舒适的节奏。",
+      "ch5_intro": "层次感通过微妙而非戏剧化的方式传达。界面由低对比度的边框和最细微的内阴影来定义，保持着近乎扁平、纯净的外观。",
+      "ch6_intro": "布局骨架将内容集中于英雄区域的强列柱中，随后扩展为更宽的网格以容纳详细的产品信息。这种结构创造了宽敞、易读的浏览流程，引导用户从概览走向细节。",
+      "ch7_intro": "动态效果克制且具有目的性，其存在是为了清晰地呈现状态变化，而非装饰。所有过渡动画均遵循预设的cubic-bezier曲线，以确保一致而精致的体验。",
+      "ch8_intro": "编辑语调专业且具有权威性，同时保持平易近人。它倾向于简洁有力的陈述，而非浮夸的营销话术或未经解释的术语。",
+      "ch8_outro": "系统刻意避免高饱和度点缀色、用于展示的几何无衬线体、厚重的阴影和复杂的动画，以优先保证清晰度与专业性。"
+    },
+    "zh-TW": {
+      "ch1_intro": "此系統圍繞一個精密的資料科學筆記本類比構建，融合了編輯優雅與技術嚴謹。其工具包中的每個選擇——從色盤到字體——都旨在傳達信任與洞察。這是一個為平台設計的方案，其中清晰度至關重要，而審美雜訊則被完全剔除。",
+      "ch2_intro": "色盤基礎而極簡，建立在深紫墨與灰白底色之上。單一、溫暖的霧玫瑰色作為點綴，提供微妙的強調，視覺上不喧賓奪主。",
+      "ch2_outro": "色彩的使用克制而有分寸，確保介面作為數據與內容值得信賴的背景存在，而非干擾。",
+      "ch3_intro": "排版的聲調由刻意的分割定義：一款 **過渡襯線體** 為展示標題賦予編輯份量，而一款清晰的 **無襯線體** 則確保所有介面與內文文字的易讀性。",
+      "ch4_intro": "標準的 4px 基礎網格，為系統整體的間距建立了一致且舒適的節奏。",
+      "ch5_intro": "深度透過細微而非戲劇性的方式傳達。表面由低對比度的邊框與最輕微的內陰影定義，維持近乎平面、純淨的外觀。",
+      "ch6_intro": "版面骨架以強壯的欄位將內容置中於主要區塊，隨後展開為更寬的網格以容納詳細的產品資訊。此結構創造了寬敞、易讀的流動引導，帶領使用者從概覽進入細節。",
+      "ch7_intro": "動態效果克制而有目的，旨在釐清狀態變化而非裝飾。所有過渡效果均遵循既定的 cubic-bezier 曲線，以確保一致而精緻的感受。",
+      "ch8_intro": "編輯的聲調專業且具權威性，同時平易近人。它偏好簡潔有力的陳述，而非空洞的行銷用語或未解釋的術語。",
+      "ch8_outro": "此系統刻意避免高飽和度的強調色、用於展示的幾何無襯線體、厚重的陰影以及複雜的動畫，以換取清晰度與專業性。"
+    },
+    "ja": {
+      "ch1_intro": "このシステムは、洗練されたデータサイエンスノートブックのアナロジーを中心に構築されています。編集の優雅さと技術の厳密さを融合させたものです。ツールキットにおけるすべての選択は、信頼と洞察を伝えるために行われています。これは、明瞭性が最優先され、無駄な視覚的ノイズが排除されたプラットフォームのためのデザインです。",
+      "ch2_intro": "カラーパレットは、落ち着きとミニマルさを基調とし、深い紫系インクとオフホワイトを基盤に構築されています。単一の温かみのあるダスティローズのアクセントが、視覚的な騒ぎなしに微妙な強調を加えます。",
+      "ch2_outro": "色は慎重に使用され、インターフェースがデータやコンテンツの信頼できる背景であり続け、気を散らすものとならないようにしています。",
+      "ch3_intro": "タイポグラフィの声は、意図的な分割によって定義されています。**トランジショナルセリフ**が見出しに編集的な重みを与え、清潔な**サンセリフ**がすべてのインターフェースおよび本文テキストに明瞭性を保証します。",
+      "ch4_intro": "標準的な4pxベースグリッドが、システム全体の間隔に一貫した心地よいリズムを確立します。",
+      "ch5_intro": "奥行きは、ドラマチックさではなく、微妙さによって伝わります。表面は、低コントラストのボーダーと極めて薄いインセットシャドウによって定義され、ほぼフラットで無垢な外観を維持します。",
+      "ch6_intro": "レイアウトのスケルトンは、ヒーローセクションではコンテンツを強力なカラムに集中させ、その後、製品の詳細情報のためにより広いグリッドに展開します。この構造は、ユーザーを概要から詳細へと導く、広々として読みやすいフローを作り出します。",
+      "ch7_intro": "モーションは抑制的かつ目的を持ち、装飾ではなく状態変更を明確するために存在します。すべてのトランジションは、一貫した洗練された感触のために、定義されたcubic-bezier曲線に従います。",
+      "ch8_intro": "編集の声は、プロフェッショナルで権威がありつつも、理解しやすいものです。曖昧なマーケティング言葉や未説明の専門用語よりも、簡潔で力強い statements を重視します。",
+      "ch8_outro": "システムは、明瞭性とプロフェッショナリズムを重視し、意図的にハイクロマアクセント、見出し用のジオメトリックサンセリフ、重いシャドウ、複雑なアニメーションを避けています。"
+    },
+    "ko": {
+      "ch1_intro": "이 시스템은 정교한 데이터 사이언스 노트북의 비유를 중심으로 구축되었으며, 편집적 우아함과 기술적 엄격함을 결합합니다. 도구 모음의 모든 선택은 팔레트부터 타이포그래피까지, 신뢰와 통찰력을 전달하기 위해 만들어졌습니다. 명확성이 가장 중요하고 미학적 잡음이 제거된 플랫폼을 위한 디자인입니다.",
+      "ch2_intro": "팔레트는 깊은 보라색 잉크와 오프화이트 기반 위에 구축된, 차분하고 미니멀한 색상입니다. 단 하나의 따뜻한 더스티 로즈 악센트가 시각적 고함 없이 섬세한 강조를 제공합니다.",
+      "ch2_outro": "색상은 절제하여 사용되어, 인터페이스가 주의를 산만하게 하는 것이 아닌, 데이터와 콘텐츠를 위한 신뢰할 수 있는 배경으로 남도록 보장합니다.",
+      "ch3_intro": "타이포그래피 보이스는 의도적인 분할로 정의됩니다: **트랜지셔널 세리프**가 디스플레이 헤드라인에 편집적 무게감을 부여하는 반면, 깔끔한 **산세리프**는 모든 인터페이스 및 본문 텍스트에 명확성을 보장합니다.",
+      "ch4_intro": "표준 4px 기본 그리드는 시스템 전체에서 간격의 일관되고 편안한 리듬을 확립합니다.",
+      "ch5_intro": "깊이는 드라마가 아닌 미묘함으로 전달됩니다. 표면은 저대비 테두리와 가장 은은한 인셋 그림자로 정의되어, 거의 평면적이고 깨끗한 외관을 유지합니다.",
+      "ch6_intro": "레이아웃 스켈레톤은 히어로 섹션을 위해 콘텐츠를 강한 컬럼으로 중앙에 배치한 후, 상세 제품 정보를 위해 더 넓은 그리드로 확장됩니다. 이 구조는 사용자를 개요에서 상세로 안내하는, 넓고 가독성 있는 흐름을 만듭니다.",
+      "ch7_intro": "모션은 절제되고 의도적이며, 장식하기보다 상태 변화를 명확히 하기 위해 존재합니다. 모든 트랜지션은 지정된 cubic-bezier 곡선을 따라 일관된 세련된 느낌을 제공합니다.",
+      "ch8_intro": "편집 보이스는 전문적이고 권위 있지만, 접근 가능합니다. 빈 marketing speak나 설명 없는 전문 용어보다는 간결하고 강력한 진술을 선호합니다.",
+      "ch8_outro": "시스템은 명확성과 전문성을 위해 고채도 악센트, 디스플레이용 기하학적 산세리프, 무거운 그림자, 복잡한 애니메이션을 의도적으로 피합니다."
     }
   }
 }
