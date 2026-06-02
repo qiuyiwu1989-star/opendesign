@@ -2537,6 +2537,24 @@ if (agentCopyBtn) {
   });
 }
 
+// 顶部「给你的 Agent」入口 —— 切到 About 视图并定位到 agent 区（带短暂高亮）。
+// 把产品核心差异放在首屏最显眼处，让访客一眼知道「这库能喂给我的 AI」。
+const agentTopBtn = document.querySelector("#agentTopBtn");
+if (agentTopBtn) {
+  agentTopBtn.addEventListener("click", () => {
+    switchView("about");
+    setTimeout(() => {
+      const sec = document.querySelector("#agentSection");
+      if (!sec) return;
+      sec.scrollIntoView({ behavior: "smooth", block: "start" });
+      sec.classList.remove("is-flash");
+      void sec.offsetWidth; // 强制 reflow，让高亮动画可重复触发
+      sec.classList.add("is-flash");
+      setTimeout(() => sec.classList.remove("is-flash"), 1700);
+    }, 60);
+  });
+}
+
 syncBindForm.addEventListener("submit", async (e) => {
   e.preventDefault();
   const code = syncBindInput.value.trim().toLowerCase();

@@ -263,6 +263,44 @@ input:focus-visible {
   color: var(--ink);
 }
 
+/* 顶部「给你的 Agent」入口 —— 把产品的核心差异（可被 Agent 读取的设计系统）放到首屏最显眼处 */
+.agent-button {
+  display: inline-flex;
+  height: 30px;
+  align-items: center;
+  gap: 5px;
+  padding: 0 13px;
+  border-radius: 999px;
+  border: 1px solid #e7e5e4;
+  color: var(--ink);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  cursor: pointer;
+  transition: background 160ms ease, border-color 160ms ease, color 160ms ease;
+}
+
+.agent-button .agent-spark {
+  color: #b4451c;
+  font-size: 13px;
+  line-height: 1;
+}
+
+.agent-button:hover {
+  background: #faf8f3;
+  border-color: #efe9dd;
+}
+
+/* 被顶部入口导航到时，给 agent 区一个短暂高亮，让用户一眼看到落点 */
+.about-agent.is-flash {
+  animation: agentFlash 1.6s ease;
+}
+
+@keyframes agentFlash {
+  0%, 100% { background: transparent; }
+  18% { background: #faf3ec; }
+}
+
 /* ====== Language menu (dropdown for 5+ langs) ====== */
 .lang-menu {
   position: relative;
@@ -3367,6 +3405,10 @@ body.drawer-open {
     padding: 0 10px;
     font-size: 12px;
   }
+
+  /* Agent 入口在移动端只留 spark 图标（省横向空间，仍可点） */
+  .agent-button { height: 28px; padding: 0 9px; }
+  .agent-button .agent-button-label { display: none; }
 
   /* 语言菜单 —— 移动端更紧凑 */
   .lang-trigger {
