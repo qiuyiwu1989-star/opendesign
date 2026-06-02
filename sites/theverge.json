@@ -17,66 +17,47 @@
   "_meta": {
     "vision_model": "mimo-v2.5",
     "vision_prompt_version": "0.3",
-    "vision_at": "2026-05-28T21:48:49+00:00",
-    "vision_tokens": 3438,
-    "vision_cost_usd": 0.0382,
+    "vision_at": "2026-05-30T17:59:08+00:00",
+    "vision_tokens": 16532,
+    "vision_cost_usd": 0.1837,
     "last_error": "Expecting value: line 85 column 7 (char 2628)",
     "translation_model": "mimo-v2.5",
-    "translation_at": "2026-05-29T02:04:37+00:00",
-    "translation_tokens": 7762,
-    "translation_cost_usd": 0.0259,
+    "translation_at": "2026-05-30T17:59:57+00:00",
+    "translation_tokens": 16901,
+    "translation_cost_usd": 0.0564,
     "narrative_model": "mimo-v2.5",
     "narrative_prompt_version": "0.3",
     "narrative_at": "2026-05-29T02:04:45+00:00",
     "narrative_tokens": 1970,
     "narrative_cost_usd": 0.0131,
     "narrative_status": "ok",
-    "total_cost_usd": 0.0772
+    "total_cost_usd": 0.2532,
+    "vision_source": "playwright-extract:theverge",
+    "vision_grounded": true
   },
   "spec": {
     "colors": {
-      "bg": "#FFFFFF",
+      "bg": "#131313",
       "bgSoft": null,
       "bgQuiet": null,
-      "ink": "#000000",
-      "inkSoft": "#333333",
-      "muted": "#666666",
-      "mutedSoft": "#999999",
-      "accent": null,
-      "line": "rgba(0,0,0,0.1)"
+      "ink": "#ffffff",
+      "inkSoft": "#949494",
+      "muted": "#949494",
+      "mutedSoft": null,
+      "accent": "#3cffd0",
+      "line": "rgba(148, 148, 148, 0.5)"
     },
     "typography": {
-      "display": "geometric-sans",
+      "display": "display-serif",
       "body": "humanist-sans",
-      "mono": null,
+      "mono": "monospace",
       "scale": [
         {
           "token": "display",
-          "size": 64,
+          "size": 56,
           "lh": 1.0,
-          "weight": 700,
+          "weight": 900,
           "ls": "-1px"
-        },
-        {
-          "token": "h1",
-          "size": 40,
-          "lh": 1.1,
-          "weight": 700,
-          "ls": "-0.5px"
-        },
-        {
-          "token": "body",
-          "size": 16,
-          "lh": 1.5,
-          "weight": 400,
-          "ls": "0"
-        },
-        {
-          "token": "caption",
-          "size": 12,
-          "lh": 1.4,
-          "weight": 400,
-          "ls": "0.5px"
         }
       ]
     },
@@ -95,14 +76,14 @@
     },
     "surfaces": {
       "radius": {
-        "sm": 0,
-        "md": 0,
-        "lg": 0,
+        "sm": 2,
+        "md": 4,
+        "lg": 8,
         "pill": 999
       }
     },
     "layout": {
-      "container": 1200,
+      "container": 1280,
       "paragraph": 680,
       "columns": 12,
       "gutter": 24,
@@ -113,427 +94,20 @@
     },
     "motion": {
       "durations": {
-        "micro": 220,
-        "small": 400,
+        "micro": 150,
+        "small": 300,
         "medium": 800
       },
-      "easing": "cubic-bezier(0.25, 0.1, 0.25, 1)"
-    }
-  },
-  "spec_i18n": {
-    "en": {
-      "identity": {
-        "keywords": [
-          "tech",
-          "news",
-          "editorial",
-          "design-forward",
-          "authoritative"
-        ],
-        "analogy": "A high-end tech magazine that blends bold typography with clean, information-dense layouts.",
-        "oneLiner": "A premium tech news and review publication with a distinctive, typographically bold editorial identity."
-      },
-      "colors": {
-        "principle": "High-contrast monochrome palette with sharp typographic hierarchy."
-      },
-      "typography": {
-        "rules": [
-          "Display font uses tight leading for maximum impact.",
-          "Body font prioritizes readability with standard line height.",
-          "Muted text for secondary information like timestamps.",
-          "Bold weights used for headlines and emphasis."
-        ],
-        "scaleUses": [
-          "Main article headlines",
-          "Secondary headlines",
-          "Article body text",
-          "Metadata, timestamps, bylines"
-        ]
-      },
-      "spacing": {
-        "rhythm": "Consistent 4px grid with generous whitespace around major content blocks."
-      },
-      "surfaces": {
-        "shadows": [],
-        "borders": "1px solid rgba(0,0,0,0.1) for subtle dividers."
-      },
-      "layout": {
-        "skeleton": "Main content area with large featured article on left and secondary feed on right."
-      },
-      "components": {
-        "button": "Pill-shaped with solid accent color and white text.",
-        "card": "Clean edges with strong typographic hierarchy and subtle dividers.",
-        "chip": "Used for category tags like 'LATEST' with solid backgrounds.",
-        "input": "Minimal design with clean borders and placeholder text.",
-        "hero": "Full-width image with overlaid bold headline and minimal UI."
-      },
-      "motion": {
-        "patterns": [
-          "Smooth hover transitions on interactive elements.",
-          "Subtle fade-ins for loading content.",
-          "No distracting animations, focus on content clarity."
-        ]
-      },
-      "interaction": {
-        "hover": "Subtle color change or underline for links and interactive elements.",
-        "click": "Immediate response with no elaborate feedback.",
-        "transition": "Smooth transitions between page states.",
-        "keyboard": "Full keyboard navigation support with visible focus states."
-      },
-      "voice": {
-        "tone": "Authoritative yet accessible, with a focus on clear communication.",
-        "headlineStyle": "Bold, direct statements that capture attention.",
-        "ctaStyle": "Clear action-oriented buttons with high contrast.",
-        "avoid": [
-          "Overly casual language that undermines credibility.",
-          "Ambiguous calls to action.",
-          "Excessive exclamation points.",
-          "Technical jargon without context.",
-          "Passive voice in headlines."
-        ]
-      },
-      "donts": [
-        "Don't use rounded corners on cards — screenshot shows sharp, rectangular elements.",
-        "Don't use decorative fonts — screenshot shows clean geometric and humanist sans-serif types.",
-        "Don't use colorful backgrounds — screenshot shows predominantly white background with black text.",
-        "Don't use subtle shadows — screenshot shows flat design with no visible drop shadows.",
-        "Don't use pastel accent colors — screenshot shows high-contrast black/white with occasional bold color accents.",
-        "Don't clutter with excessive imagery — screenshot shows clean layout with strategic image placement."
-      ],
-      "systemPrompt": "The Verge is a premium tech news and review publication with a bold editorial identity. The design uses a high-contrast monochrome palette with #FFFFFF background and #000000 text, featuring sharp geometric sans-serif display fonts and humanist sans-serif body text. Critical donts include avoiding rounded corners on cards, decorative fonts, colorful backgrounds, subtle shadows, and pastel accent colors. The layout prioritizes typographic hierarchy with generous whitespace and clean dividers, creating an authoritative yet accessible visual system focused on content clarity."
-    },
-    "zh-CN": {
-      "identity": {
-        "keywords": [
-          "科技",
-          "新闻",
-          "编辑",
-          "设计导向",
-          "权威"
-        ],
-        "analogy": "一本高端科技杂志，将大胆的字体设计与简洁、信息密集的布局相融合。",
-        "oneLiner": "一本高端科技新闻与评测刊物，具有鲜明、字体突出的编辑风格。"
-      },
-      "colors": {
-        "principle": "高对比度单色系配色方案，强调清晰的字体层级。"
-      },
-      "typography": {
-        "rules": [
-          "展示字体采用紧凑行距以达到最大视觉冲击力。",
-          "正文字体采用标准行高，优先保证可读性。",
-          "次要信息（如时间戳）使用柔和文字色。",
-          "标题和强调内容使用粗体字重。"
-        ],
-        "scaleUses": [
-          "主文章标题",
-          "次要标题",
-          "文章正文",
-          "元数据、时间戳、署名"
-        ]
-      },
-      "spacing": {
-        "rhythm": "采用一致的4px网格，在主要内容区块周围留有充裕的空白。"
-      },
-      "surfaces": {
-        "shadows": [],
-        "borders": "使用1px solid rgba(0,0,0,0.1)的细微分隔线。"
-      },
-      "layout": {
-        "skeleton": "主内容区域，左侧为大幅特色文章，右侧为次要信息流。"
-      },
-      "components": {
-        "button": "药丸形状，使用实心强调色和白色文字。",
-        "card": "边角利落，具有强烈的字体层级和细微分隔线。",
-        "chip": "用于类似“最新”的分类标签，使用实心背景色。",
-        "input": "极简设计，拥有简洁边框和占位符文字。",
-        "hero": "全宽图片，叠加粗体标题和极简界面元素。"
-      },
-      "motion": {
-        "patterns": [
-          "交互元素上的平滑悬停过渡。",
-          "加载内容的细微淡入效果。",
-          "避免分散注意力的动画，聚焦于内容清晰度。"
-        ]
-      },
-      "interaction": {
-        "hover": "链接和交互元素采用细微的颜色变化或下划线。",
-        "click": "即时响应，无需复杂反馈。",
-        "transition": "页面状态间的平滑过渡。",
-        "keyboard": "支持完整的键盘导航，并显示清晰的聚焦状态。"
-      },
-      "voice": {
-        "tone": "权威而平易近人，专注于清晰的沟通。",
-        "headlineStyle": "大胆、直接的陈述，吸引注意力。",
-        "ctaStyle": "清晰、行动导向的按钮，具有高对比度。",
-        "avoid": [
-          "过于随意的语言，会削弱可信度。",
-          "模糊的行动号召。",
-          "过多的感叹号。",
-          "脱离上下文的技术术语。",
-          "标题中使用被动语态。"
-        ]
-      },
-      "donts": [
-        "不要在卡片上使用圆角——截图显示的是利落的矩形元素。",
-        "不要使用装饰性字体——截图显示的是简洁的几何无衬线和人文无衬线字体。",
-        "不要使用彩色背景——截图显示的是以白色背景和黑色文字为主。",
-        "不要使用细微的阴影——截图显示的是无可见投影的扁平化设计。",
-        "不要使用柔和的强调色——截图显示的是高对比度的黑白配色，偶尔使用大胆的色彩点缀。",
-        "不要用过多的图像杂乱画面——截图显示的是布局简洁，图像放置有策略。"
-      ],
-      "systemPrompt": "The Verge是一本高端科技新闻与评测刊物，具有大胆的编辑风格。设计采用高对比度单色系，背景为#FFFFFF，文字为#000000，使用利落的几何无衬线展示字体和人文无衬线正文字体。关键的禁忌包括：避免卡片使用圆角、装饰性字体、彩色背景、细微阴影以及柔和的强调色。布局通过字体层级、充裕的留白和简洁的分隔线，创造出一个权威而平易近人的视觉系统，专注于内容清晰度。"
-    },
-    "zh-TW": {
-      "identity": {
-        "keywords": [
-          "科技",
-          "新聞",
-          "編輯設計",
-          "設計主導",
-          "權威性"
-        ],
-        "analogy": "結合大膽排版與簡潔、資訊密集佈局的高端科技雜誌。",
-        "oneLiner": "一款具有鮮明、大膽排版編輯風格的頂級科技新聞與評論刊物。"
-      },
-      "colors": {
-        "principle": "高對比單色調配色方案，搭配強烈的排版層級。"
-      },
-      "typography": {
-        "rules": [
-          "標題字體使用緊湊行距以達到最大衝擊力。",
-          "正文字體優先考量可讀性，採用標準行高。",
-          "次要資訊（如時間戳）使用淡化文字。",
-          "標題與強調部分使用粗體。"
-        ],
-        "scaleUses": [
-          "主文章標題",
-          "次要標題",
-          "文章正文",
-          "中繼資料、時間戳、作者署名"
-        ]
-      },
-      "spacing": {
-        "rhythm": "一致的 4px 網格系統，主要內容區塊周圍保留充足留白。"
-      },
-      "surfaces": {
-        "shadows": [],
-        "borders": "使用 1px solid rgba(0,0,0,0.1) 作為細微分隔線。"
-      },
-      "layout": {
-        "skeleton": "主要內容區域，左側為大型主打文章，右側為次要資訊流。"
-      },
-      "components": {
-        "button": "膠囊造型，使用實色強調色與白色文字。",
-        "card": "邊緣清晰，具強烈排版層級與細微分隔線。",
-        "chip": "用於分類標籤（如「最新」），採用實色背景。",
-        "input": "極簡設計，搭配清晰邊框與佔位文字。",
-        "hero": "全寬圖片，搭配覆蓋其上的粗體標題與簡潔介面。"
-      },
-      "motion": {
-        "patterns": [
-          "互動元素的流暢 hover 轉場效果。",
-          "載入內容時的細微淡入效果。",
-          "避免分散注意力的動畫，專注於內容清晰度。"
-        ]
-      },
-      "interaction": {
-        "hover": "連結與互動元素的細微色彩變化或底線效果。",
-        "click": "立即回應，無複雜回饋機制。",
-        "transition": "頁面狀態之間的流暢轉場。",
-        "keyboard": "完整的鍵盤導覽支援，並具有可見的 focus 狀態。"
-      },
-      "voice": {
-        "tone": "具權威性但平易近人，專注於清晰傳達。",
-        "headlineStyle": "大膽、直接的陳述，能吸引注意力。",
-        "ctaStyle": "清晰的行動導向按鈕，具高對比度。",
-        "avoid": [
-          "過於隨意的語言，會削弱可信度。",
-          "模糊的行動號召。",
-          "過多的驚嘆號。",
-          "缺乏脈絡的技術術語。",
-          "標題中使用被動語態。"
-        ]
-      },
-      "donts": [
-        "卡片不要使用圓角 — 截圖顯示為銳利的矩形元素。",
-        "不要使用裝飾性字體 — 截圖顯示為簡潔的幾何與人文無襯線字體。",
-        "不要使用彩色背景 — 截圖顯示以白色背景搭配黑色文字為主。",
-        "不要使用細微陰影 — 截圖顯示為平坦設計，無可見的陰影效果。",
-        "不要使用粉彩色調的強調色 — 截圖顯示為高對比的黑白配色，偶爾搭配大膽的色彩強調。",
-        "不要使用過多圖片造成雜亂 — 截圖顯示為簡潔佈局，圖片 placement 具策略性。"
-      ],
-      "systemPrompt": "The Verge 是一款具有大膽編輯風格的頂級科技新聞與評論刊物。設計採用高對比單色調配色方案，背景為 #FFFFFF，文字為 #000000，標題使用銳利的幾何無襯線字體，正文則使用人文無襯線字體。關鍵禁令包括避免卡片使用圓角、裝飾性字體、彩色背景、細微陰影與粉彩色調的強調色。佈局優先考量排版層級，搭配充足留白與清晰分隔線，營造出專注於內容清晰度、具權威性但平易近人的視覺系統。"
-    },
-    "ja": {
-      "identity": {
-        "keywords": [
-          "テック",
-          "ニュース",
-          "エディトリアル",
-          "デザイン重視",
-          "権威ある"
-        ],
-        "analogy": "太字のタイポグラフィとクリーンで情報密度の高いレイアウトを融合した、ハイエンドなテックマガジン。",
-        "oneLiner": "独自の、タイポグラフィが太字のエディトリアルアイデンティティを持つ、プレミアムなテックニュース＆レビューパブリケーション。"
-      },
-      "colors": {
-        "principle": "鋭いタイポグラフィック階層を持つ高コントラストのモノクロームパレット。"
-      },
-      "typography": {
-        "rules": [
-          "ディスプレイフォントは、最大のインパクトのためにtight leadingを使用。",
-          "本文フォントは、標準の行間で可読性を優先。",
-          "タイムスタンプなどセカンダリ情報には控えめなテキスト。",
-          "見出しと強調にはboldウェイトを使用。"
-        ],
-        "scaleUses": [
-          "メイン記事の見出し",
-          "セカンダリ見出し",
-          "記事本文テキスト",
-          "メタデータ、タイムスタンプ、著者名"
-        ]
-      },
-      "spacing": {
-        "rhythm": "主要なコンテンツブロックの周囲に広めの余白を持つ、一貫した4pxグリッド。"
-      },
-      "surfaces": {
-        "shadows": [],
-        "borders": "控えめな仕切り用の1px solid rgba(0,0,0,0.1)。"
-      },
-      "layout": {
-        "skeleton": "左に大きなフィーチャーアーティクル、右にサブフィードを持つメインコンテンツエリア。"
-      },
-      "components": {
-        "button": "ソリッドなアクセントカラーと白文字の、ピル型。",
-        "card": "クリーンなエッジ、強いタイポグラフィ階層、控えめな仕切り。",
-        "chip": "「LATEST」のようなカテゴリタグに、ソリッドな背景で使用。",
-        "input": "クリーンなボーダーとプレースホルダーテキストを持つ、最小限のデザイン。",
-        "hero": "重ねられた太字の見出しと最小限のUIを持つ、フルワイドの画像。"
-      },
-      "motion": {
-        "patterns": [
-          "インタラクティブ要素の滑らかなhover遷移。",
-          "コンテンツ読み込み時の控えめなフェードイン。",
-          "惑わすアニメーションはなく、コンテンツの明瞭さに焦点。"
-        ]
-      },
-      "interaction": {
-        "hover": "リンクとインタラクティブ要素に対する、控えめな色の変更または下線。",
-        "click": "洗練されたフィードバックのない、即座の応答。",
-        "transition": "ページ状態間の滑らかな遷移。",
-        "keyboard": "視覚的なfocus状態を備えた、完全なキーボードナビゲーションサポート。"
-      },
-      "voice": {
-        "tone": "権威がありながらも親しみやすい、明確なコミュニケーションに焦点。",
-        "headlineStyle": "注意を引く、太字で直接的な記述。",
-        "ctaStyle": "高コントラストの、明確でアクション指向のボタン。",
-        "avoid": [
-          "信頼性を損なう、極端にカジュアルな言葉遣い。",
-          "曖昧な行動喚起。",
-          "過度な感嘆符。",
-          "文脈のない技術用語。",
-          "見出しでの受動態。"
-        ]
-      },
-      "donts": [
-        "カードに角丸を使用しない — スクリーンショットではシャープで矩形の要素が示されている。",
-        "装飾的なフォントを使用しない — スクリーンショットではクリーンな幾何学的sans-serifとhumanist sans-serifが示されている。",
-        "カラフルな背景を使用しない — スクリーンショットでは主に白背景に黒テキストが示されている。",
-        "控えめな影を使用しない — スクリーンショットではドロップシャドウのないフラットデザインが示されている。",
-        "パステルのアクセントカラーを使用しない — スクリーンショットでは高コントラストの黒/白と、時折の大胆なカラーアクセントが示されている。",
-        "過度な画像で雑然としない — スクリーンショットでは戦略的な画像配置によるクリーンなレイアウトが示されている。"
-      ],
-      "systemPrompt": "The Vergeは、大胆なエディトリアルアイデンティティを持つプレミアムなテックニュース＆レビューパブリケーションです。デザインは、#FFFFFF背景と#000000テキストの高コントラストモノクロームパレットを使用し、鋭い幾何学的sans-serifのディスプレイフォントとhumanist sans-serifの本文テキストを特徴としています。重要な禁止事項には、カードへの角丸、装飾的フォント、カラフルな背景、控えめな影、パステルのアクセントカラーの使用を避けることが含まれます。レイアウトは、広めの余白とクリーンな仕切りを備えたタイポグラフィ階層を優先し、コンテンツの明瞭さに焦点を当てた権威がありながらも親しみやすいビジュアルシステムを生み出しています。"
-    },
-    "ko": {
-      "identity": {
-        "keywords": [
-          "기술",
-          "뉴스",
-          "편집",
-          "디자인 지향",
-          "권위"
-        ],
-        "analogy": "대담한 타이포그래피와 깔끔하고 정보 밀도 높은 레이아웃을 결합한 하이엔드 기술 매거진과 같습니다.",
-        "oneLiner": "독자적이고 타이포그래피적으로 대담한 편집 아이덴티티를 갖춘 프리미엄 기술 뉴스 및 리뷰 출판물입니다."
-      },
-      "colors": {
-        "principle": "날카로운 타이포그래피 계층을 갖춘 고대비 단색 팔레트입니다."
-      },
-      "typography": {
-        "rules": [
-          "디스플레이 폰트는 최대 효과를 위해 좁은 행간을 사용합니다.",
-          "본문 폰트는 일반적인 행간을 사용하여 가독성을 우선시합니다.",
-          "타임스탬프와 같은 보조 정보는 색이 빠진 텍스트를 사용합니다.",
-          "헤드라인과 강조에는 볼드 웨이트를 사용합니다."
-        ],
-        "scaleUses": [
-          "메인 기사 헤드라인",
-          "보조 헤드라인",
-          "기사 본문",
-          "메타데이터, 타임스탬프, 필자 표시"
-        ]
-      },
-      "spacing": {
-        "rhythm": "일관된 4px 그리드와 주요 콘텐츠 블록 주변의 넉넉한 여백을 적용합니다."
-      },
-      "surfaces": {
-        "shadows": [],
-        "borders": "미세한 구분선을 위해 1px solid rgba(0,0,0,0.1)를 사용합니다."
-      },
-      "layout": {
-        "skeleton": "좌측에 대형 추천 기사, 우측에 보조 피드가 있는 메인 콘텐츠 영역입니다."
-      },
-      "components": {
-        "button": "단색 강조색과 흰색 텍스트를 사용한 알약 모양입니다.",
-        "card": "강한 타이포그래피 계층과 미세한 구분선이 있는 깔끔한 모서리입니다.",
-        "chip": "'최신'과 같은 카테고리 태그에 사용되며 단색 배경을 사용합니다.",
-        "input": "깔끔한 테두리와 플레이스홀더 텍스트를 사용한 미니멀 디자인입니다.",
-        "hero": "전체 너비 이미지 위에 대담한 헤드라인과 미니멀 UI가 오버레이된 형태입니다."
-      },
-      "motion": {
-        "patterns": [
-          "인터랙티브 요소의 부드러운 hover 전환.",
-          "로딩 콘텐츠를 위한 미세한 페이드인.",
-          "주의를 분산시키는 애니메이션은 없으며, 콘텐츠 명확성에 집중합니다."
-        ]
-      },
-      "interaction": {
-        "hover": "링크와 인터랙티브 요소에 미세한 색상 변화 또는 밑줄을 적용합니다.",
-        "click": "화려한 피드백 없이 즉각적인 반응을 보입니다.",
-        "transition": "페이지 상태 간의 부드러운 전환을 지원합니다.",
-        "keyboard": "눈에 보이는 focus 상태와 함께 전체 키보드 탐색을 지원합니다."
-      },
-      "voice": {
-        "tone": "명확한 커뮤니케이션에 초점을 맞춘 권위적이면서도 접근 가능한 어조입니다.",
-        "headlineStyle": "주의를 끄는 대담하고 직접적인 진술입니다.",
-        "ctaStyle": "높은 대비를 가진 명확하고 행동 지향적인 버튼입니다.",
-        "avoid": [
-          "신뢰성을 저해하는 지나치게 캐주얼한 언어.",
-          "모호한 행동 유도.",
-          "과도한 느낌표.",
-          "맥락 없는 전문 용어.",
-          "수동태를 사용한 헤드라인."
-        ]
-      },
-      "donts": [
-        "카드에 둥근 모서리를 사용하지 마세요. 스크린샷은 날카롭고 직사각형 요소를 보여줍니다.",
-        "장식용 폰트를 사용하지 마세요. 스크린샷은 깔끔한 기하학적 및 휴머니스트 산세리프 타입을 보여줍니다.",
-        "화려한 배경을 사용하지 마세요. 스크린샷은 흰색 배경과 검정색 텍스트가 주를 이룹니다.",
-        "미세한 그림자를 사용하지 마세요. 스크린샷은 눈에 보이는 drop shadow가 없는 플랫 디자인을 보여줍니다.",
-        "파스텔 톤의 강조색을 사용하지 마세요. 스크린샷은 고대비 흑백과 간헐적인 대담한 색상 강조를 보여줍니다.",
-        "과도한 이미지로 혼란스럽게 하지 마세요. 스크린샷은 전략적 이미지 배치를 갖춘 깔끔한 레이아웃을 보여줍니다."
-      ],
-      "systemPrompt": "The Verge는 대담한 편집 아이덴티티를 갖춘 프리미엄 기술 뉴스 및 리뷰 출판물입니다. 디자인은 #FFFFFF 배경과 #000000 텍스트를 사용하는 고대비 단색 팔레트를 사용하며, 날카로운 기하학적 산세리프 디스플레이 폰트와 휴머니스트 산세리프 본문 텍스트를 특징으로 합니다. 주요 주의사항으로는 카드의 둥근 모서리, 장식용 폰트, 화려한 배경, 미세한 그림자, 파스텔 톤의 강조색 사용 회피가 포함됩니다. 레이아웃은 넉넉한 여백과 깔끔한 구분선을 통해 타이포그래피 계층을 우선시하며, 콘텐츠 명확성에 초점을 맞춘 권위적이면서도 접근 가능한 시각 시스템을 구축합니다."
+      "easing": "cubic-bezier(0.4, 0, 0.2, 1)"
     }
   },
   "desc": {
     "en": {
-      "palette": "High-contrast monochrome with sharp typographic hierarchy.",
-      "layout": "Clean two-column editorial layout with large featured content and secondary feed.",
-      "interaction": "Subtle hover states with immediate, clean feedback mechanisms.",
-      "motion": "Minimal motion with smooth, purposeful transitions that don't distract from content.",
-      "notes": "Worth including as a prime example of bold editorial design that balances information density with visual clarity through strong typography and disciplined spacing."
+      "palette": "A dark, high-contrast theme with a dominant bright green accent and crisp white text.",
+      "layout": "A clean, grid-based layout with a primary content area and a secondary sidebar for latest updates.",
+      "interaction": "Subtle hover effects and smooth transitions enhance the user experience without being distracting.",
+      "motion": "Minimal but purposeful motion with quick micro-interactions for responsiveness.",
+      "notes": "The Verge's design is a benchmark for modern editorial sites, balancing bold visual identity with excellent readability and usability."
     },
     "zh-CN": {
       "palette": "高对比度单色系，搭配清晰的字体层级。",
@@ -624,6 +198,368 @@
       "ch7_intro": "모션 철학은 장식보다 콘텐츠 명확성을 우선시하며, 애니메이션은 전환 및 로딩 상태에서 기능적인 목적을 수행합니다. 패턴은 매끄럽고 은은하여, 독서 흐름을 방해하거나 플랫 디자인에 존재하지 않는 물리성을 암시하는 효과를 피합니다.",
       "ch8_intro": "편집 음성은 권위 있으면서도 접근 가능하며, 대담하고 직접적인 헤드라인 진술과 명확한 행동 지향적 언어를 통해 전달됩니다. 어조는 모호함과 수동적 구문을 피하여, 모든 요소가 발행물의 신뢰성 있고 디자인을 지향하는 위치를 뒷받침하도록 보장합니다.",
       "ch8_outro": "시스템은 날카롭고 타이포그래피가 주도하는 명확성을 유지하기 위해 의도적으로 둥근 모서리, 장식적 서체, 다채로운 배경, 그리고 그림자를 포기합니다."
+    }
+  },
+  "spec_i18n": {
+    "en": {
+      "identity": {
+        "keywords": [
+          "tech-news",
+          "modern-editorial",
+          "digital-magazine",
+          "authoritative",
+          "clean"
+        ],
+        "analogy": "A premium tech-focused digital magazine with a clean, modern, and slightly playful aesthetic.",
+        "oneLiner": "The Verge is a leading technology publication featuring bold typography, a dark theme, and a high-contrast accent color."
+      },
+      "colors": {
+        "principle": "A high-contrast dark theme dominated by a primary green accent for focus, with grayscale for supporting text."
+      },
+      "typography": {
+        "rules": [],
+        "scaleUses": [
+          "Main article headlines"
+        ]
+      },
+      "spacing": {
+        "rhythm": "Standard 4px base with generous vertical spacing for readability."
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 2px 2px 0px rgba(0, 0, 0, 0.2)"
+        ],
+        "borders": "Subtle 1px borders in muted gray or black for separation."
+      },
+      "layout": {
+        "skeleton": "Main content area with a right-hand sidebar for latest stories and embedded content."
+      },
+      "components": {
+        "button": "Pill-shaped buttons with a bright accent background and uppercase text.",
+        "card": "Content blocks with subtle borders and clear typography hierarchy.",
+        "chip": "Small tags or labels with uppercase text, often using accent or muted colors.",
+        "input": "Search or input fields with subtle borders and dark backgrounds.",
+        "hero": "Full-width imagery with large, bold headlines overlaid."
+      },
+      "motion": {
+        "patterns": [
+          "Background color transitions on hover (0.15s)",
+          "Smooth rightward transitions for sliding elements (0.3s)"
+        ]
+      },
+      "interaction": {
+        "hover": "Subtle background color changes and cursor pointer on interactive elements.",
+        "click": "Immediate response with potential background shifts.",
+        "transition": "Smooth transitions for background colors and element positioning.",
+        "keyboard": "Standard focus indicators for navigation and interaction."
+      },
+      "voice": {
+        "tone": "Authoritative, modern, and slightly irreverent.",
+        "headlineStyle": "Bold, large, and often punchy or provocative.",
+        "ctaStyle": "Direct and action-oriented, often using uppercase text on accent-colored buttons.",
+        "avoid": [
+          "Lighthearted or overly playful tone",
+          "Weak or passive language",
+          "Visual clutter or excessive ornamentation"
+        ]
+      },
+      "donts": [
+        "Don't use a light theme — screenshot shows a dark, high-contrast background.",
+        "Don't use thin, light fonts for headlines — screenshot shows bold, heavy display type.",
+        "Don't rely on a single neutral color — screenshot uses a bright green accent.",
+        "Don't use small, tight spacing — screenshot shows generous padding and margins.",
+        "Don't use rounded, bubbly UI elements — screenshot shows sharp corners and pill shapes.",
+        "Don't use low-contrast text — screenshot ensures readability with white on dark backgrounds."
+      ],
+      "systemPrompt": "The Verge is a premier technology news and culture publication. Its design system is built on a dark, high-contrast palette (#131313 background, #ffffff ink, #3cffd0 accent) with bold display-serif and humanist-sans typography. It emphasizes clean layouts, generous spacing, and a clear content hierarchy. Critical design rules include maintaining high contrast for readability, using bold typography for impact, and incorporating a vibrant accent color for interactive elements. Avoid light themes, thin fonts, and low-contrast text. The system uses a 4px base scale and supports both desktop and mobile viewing."
+    },
+    "zh-CN": {
+      "identity": {
+        "keywords": [
+          "科技新闻",
+          "现代编辑风格",
+          "数字杂志",
+          "权威性",
+          "简洁"
+        ],
+        "analogy": "一本高端、聚焦科技的数字杂志，具有简洁、现代且略带趣味性的美学。",
+        "oneLiner": "The Verge 是领先的科技出版物，以大胆的排版、深色主题和高对比度的强调色为特色。"
+      },
+      "colors": {
+        "principle": "以高对比度深色主题为主，辅以用于聚焦的主绿色强调色，以及用于辅助文本的灰度色阶。"
+      },
+      "typography": {
+        "rules": [],
+        "scaleUses": [
+          "主文章标题"
+        ]
+      },
+      "spacing": {
+        "rhythm": "采用标准的 4px 基础网格，并提供充足的垂直间距以提升可读性。"
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 2px 2px 0px rgba(0, 0, 0, 0.2)"
+        ],
+        "borders": "使用柔和的灰色或黑色 1px 细边框进行内容分隔。"
+      },
+      "layout": {
+        "skeleton": "主内容区域，右侧配有用于最新故事和嵌入内容的侧边栏。"
+      },
+      "components": {
+        "button": "药丸形按钮，具有明亮的强调色背景和大写文本。",
+        "card": "内容块，带有柔和的边框和清晰的排版层级。",
+        "chip": "小型标签或徽章，使用大写文本，常采用强调色或柔和色。",
+        "input": "搜索或输入框，具有柔和的边框和深色背景。",
+        "hero": "全幅图像，上方叠加大型、醒目的标题。"
+      },
+      "motion": {
+        "patterns": [
+          "hover 时背景颜色的平滑过渡 (0.15s)",
+          "滑动元素的平滑向右过渡 (0.3s)"
+        ]
+      },
+      "interaction": {
+        "hover": "交互元素在 hover 时显示细微的背景颜色变化和手形光标。",
+        "click": "立即响应，可能伴随背景变化。",
+        "transition": "背景颜色和元素位置的平滑过渡。",
+        "keyboard": "用于导航和交互的标准焦点指示器。"
+      },
+      "voice": {
+        "tone": "权威、现代，且略带不羁。",
+        "headlineStyle": "粗体、大号，常具有冲击力或挑衅性。",
+        "ctaStyle": "直接且以行动为导向，常在强调色按钮上使用大写文本。",
+        "avoid": [
+          "轻松或过于 playful 的语气",
+          "虚弱或被动的表达",
+          "视觉杂乱或过度装饰"
+        ]
+      },
+      "donts": [
+        "不要使用浅色主题——截图显示的是深色、高对比度背景。",
+        "不要使用细的、浅色字体作为标题——截图显示的是粗体、厚重的展示型字体。",
+        "不要依赖单一的中性色——截图使用了明亮的绿色强调色。",
+        "不要使用小而紧凑的间距——截图显示了充足的内边距和外边距。",
+        "不要使用圆润、 bubble 风格的 UI 元素——截图显示的是直角和药丸形状。",
+        "不要使用低对比度文本——截图通过深色背景上的白色确保了可读性。"
+      ],
+      "systemPrompt": "The Verge 是领先的科技新闻与文化出版物。其设计系统建立在深色、高对比度的调色板之上（#131313 背景，#ffffff 墨色，#3cffd0 强调色），并结合了粗体的展示型衬线字体和人文主义无衬线字体。它强调简洁的布局、充足的间距和清晰的内容层级。关键的设计规则包括：保持高对比度以确保可读性、使用粗体排版以增强冲击力，以及为交互元素融入鲜明的强调色。避免使用浅色主题、细字体和低对比度文本。该系统采用 4px 基础网格，并支持桌面和移动视图。"
+    },
+    "zh-TW": {
+      "identity": {
+        "keywords": [
+          "科技新聞",
+          "現代編輯風格",
+          "數位雜誌",
+          "權威性",
+          "簡潔"
+        ],
+        "analogy": "一本頂級、專注科技的數位雜誌，擁有簡潔、現代且略帶趣味的視覺美學。",
+        "oneLiner": "The Verge 是領先的科技出版物，以大膽的排版、深色主題與高對比的強調色聞名。"
+      },
+      "colors": {
+        "principle": "採用高對比的深色主題，以主綠色作為聚焦的強調色，並以灰階色系處理輔助文字。"
+      },
+      "typography": {
+        "rules": [],
+        "scaleUses": [
+          "主文章標題"
+        ]
+      },
+      "spacing": {
+        "rhythm": "基於標準 4px 為單位，並採用寬裕的垂直間距以提升可讀性。"
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 2px 2px 0px rgba(0, 0, 0, 0.2)"
+        ],
+        "borders": "使用細微的 1px 邊框，顏色為柔和的灰色或黑色，用於區隔內容。"
+      },
+      "layout": {
+        "skeleton": "主要內容區域搭配右側邊欄，用於呈現最新故事與嵌入式內容。"
+      },
+      "components": {
+        "button": "膠囊形按鈕，採用明亮的強調色背景與大寫文字。",
+        "card": "內容區塊，具有細微邊框與清晰的排版層次。",
+        "chip": "小型標籤或標示，採用大寫文字，常使用強調色或柔和色彩。",
+        "input": "搜尋或輸入欄位，具有細微邊框與深色背景。",
+        "hero": "全寬影像，並疊加大而粗體的標題。"
+      },
+      "motion": {
+        "patterns": [
+          "懸停時背景顏色過渡效果 (0.15s)",
+          "滑動元素的平滑向右過渡 (0.3s)"
+        ]
+      },
+      "interaction": {
+        "hover": "互動元素在懸停時，背景顏色會有細微變化，並顯示游標為 pointer。",
+        "click": "立即回應，可能伴隨背景的微調變化。",
+        "transition": "背景顏色與元素定位的過渡效果需流暢。",
+        "keyboard": "標準的焦點指示器，用於導覽與互動。"
+      },
+      "voice": {
+        "tone": "權威、現代，並略帶不羈。",
+        "headlineStyle": "粗體、大尺寸，通常具有衝擊力或挑釁意味。",
+        "ctaStyle": "直接且以行動為導向，常在強調色按鈕上使用大寫文字。",
+        "avoid": [
+          "輕鬆或過度俏皮的語氣",
+          "微弱或被動的語言",
+          "視覺上的雜亂或過度裝飾"
+        ]
+      },
+      "donts": [
+        "避免使用淺色主題 — 螢幕截圖顯示為深色、高對比背景。",
+        "避免使用細體、淺色的標題字體 — 螢幕截圖顯示為粗體、厚重的展示字型。",
+        "不要只依賴單一中性色 — 螢幕截圖使用了明亮的綠色作為強調色。",
+        "避免使用緊湊的小間距 — 螢幕截圖顯示了寬裕的內距與外距。",
+        "避免使用圓潤、膨脹的 UI 元素 — 螢幕截圖顯示為銳利邊角與膠囊形狀。",
+        "避免使用低對比的文字 — 螢幕截圖透過在深色背景上使用白色文字來確保可讀性。"
+      ],
+      "systemPrompt": "The Verge 是頂尖的科技新聞與文化出版物。其設計系統建立在深色、高對比的色盤上（#131313 背景、#3cffd0 強調色），並採用粗體的展示字型與人文無襯線字型。它強調簡潔的版面配置、寬裕的間距與清晰的內容層次。關鍵設計規則包括：維持高對比以確保可讀性、使用粗體排版以創造視覺衝擊，以及融入鮮明的強調色用於互動元素。避免使用淺色主題、細體字型及低對比文字。系統以 4px 為基礎單位，並支援桌面與行動裝置的檢視體驗。"
+    },
+    "ja": {
+      "identity": {
+        "keywords": [
+          "テックニュース",
+          "モダンエディトリアル",
+          "デジタルマガジン",
+          "権威ある",
+          "クリーン"
+        ],
+        "analogy": "クリーンでモダン、かつ遊び心を少し含んだ美学を持つ、プレミアムなテック中心のデジタルマガジン。",
+        "oneLiner": "The Vergeは、大胆なタイポグラフィ、ダークテーマ、ハイコントラクトなアクセントカラーを特徴とする、先駆的なテクノロジー出版物です。"
+      },
+      "colors": {
+        "principle": "ハイコントラクトなダークテーマを採用し、プライマリグリーンのアクセントでフォーカスを強調し、グレースケールで補助テキストを表現します。"
+      },
+      "typography": {
+        "rules": [],
+        "scaleUses": [
+          "メイン記事の見出し"
+        ]
+      },
+      "spacing": {
+        "rhythm": "標準4pxをベースとし、可読性のために縦方向に広めの間隔を設定。"
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 2px 2px 0px rgba(0, 0, 0, 0.2)"
+        ],
+        "borders": "控えめな1pxのボーダーを、落ち着いたグレーまたはブラックで区切りを表現。"
+      },
+      "layout": {
+        "skeleton": "メインコンテンツエリアに、最新のストーリーや埋め込みコンテンツを配置する右サイドバー。"
+      },
+      "components": {
+        "button": "明るいアクセントカラーの背景に、大文字テキストを配置したピル形状のボタン。",
+        "card": "控えめなボーダーと明確なタイポグラフィ階層を持つコンテンツブロック。",
+        "chip": "大文字テキストを使用した小さなタグやラベルで、アクセントカラーまたは落ち着いた色がよく使われる。",
+        "input": "検索または入力フィールドで、控えめなボーダーとダークな背景を採用。",
+        "hero": "幅全体の画像に、大きく太字の見出しがオーバーレイされる。"
+      },
+      "motion": {
+        "patterns": [
+          "hover時の背景色トランジション (0.15s)",
+          "スライディング要素の滑らかな右方向トランジション (0.3s)"
+        ]
+      },
+      "interaction": {
+        "hover": "インタラクティブ要素に対して、控えめな背景色の変化とカーソルポインタを表示。",
+        "click": "即座に応答し、背景のシフトが発生する可能性がある。",
+        "transition": "背景色や要素の配置に対する滑らかなトランジション。",
+        "keyboard": "ナビゲーションとインタラクションに対する標準的なフォーカスインジケーター。"
+      },
+      "voice": {
+        "tone": "権威があり、モダンで、少し皮肉めいた口調。",
+        "headlineStyle": "大胆で大きく、インパクトや挑発を含むことが多い。",
+        "ctaStyle": "直接的で行動を促すスタイルで、アクセントカラーボタンの大文字テキストがよく使われる。",
+        "avoid": [
+          "軽く明るすぎる、あるいは過度に遊び心のあるトーン",
+          "弱い、あるいは受動的な言葉遣い",
+          "視覚的な雑然さや過度な装飾"
+        ]
+      },
+      "donts": [
+        "ライトテーマを使用しない — スクリーンショットはダークでハイコントラクトな背景を示している。",
+        "見出しに細く軽いフォントを使用しない — スクリーンショットは太字で重いディスプレイタイプを示している。",
+        "単一のニュートラルカラーに依存しない — スクリーンショットは明るいグリーンのアクセントを使用している。",
+        "小さく狭い間隔を使用しない — スクリーンショットは広めのパディングとマージンを示している。",
+        "丸みのある、泡泡のようなUI要素を使用しない — スクリーンショットはシャープなコーナーとピル形状を示している。",
+        "低コントラクトなテキストを使用しない — スクリーンショットはダーク背景に白文字で可読性を確保している。"
+      ],
+      "systemPrompt": "The Vergeは、先駆的なテクノロジーニュースおよびカルチャーの出版物です。そのデザインシステムは、ダークでハイコントラクトなパレット（#131313背景、#131313インク、#3cffd0アクセント）と、大胆なディスプレイセリフおよびヒューマニストサンズタイポグラフィに基づいています。クリーンなレイアウト、広めの間隔、明確なコンテンツ階層を重視します。重要なデザインルールには、可読性のためのハイコントラクトの維持、インパクトのための太字タイポグラフィの使用、インタラクティブ要素のための鮮やかなアクセントカラーの取り入れが含まれます。ライトテーマ、細いフォント、低コントラクトなテキストは避けてください。システムは4pxのベーススケールを使用し、デスクトップとモバイルの両方の表示に対応しています。"
+    },
+    "ko": {
+      "identity": {
+        "keywords": [
+          "tech-news",
+          "modern-editorial",
+          "digital-magazine",
+          "authoritative",
+          "clean"
+        ],
+        "analogy": "클린하고 모던하며 약간의 장난기 있는 미학을 갖춘 프리미엄 기술 전문 디지털 매거진.",
+        "oneLiner": "The Verge는 굵은 타이포그래피, 다크 테마, 그리고 고대비 악센트 컬러를 특징으로 하는 선도적인 기술 출판물입니다."
+      },
+      "colors": {
+        "principle": "포커스를 위한 메인 그린 악센트로 지배되는 고대비 다크 테마와 지원 텍스트를 위한 그레이스케일."
+      },
+      "typography": {
+        "rules": [],
+        "scaleUses": [
+          "메인 기사 헤드라인"
+        ]
+      },
+      "spacing": {
+        "rhythm": "가독성을 위한 충분한 수직 간격의 표준 4px 베이스."
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 2px 2px 0px rgba(0, 0, 0, 0.2)"
+        ],
+        "borders": "구분을 위한 은은한 1px 테두리 (밝은 그레이 또는 블랙)."
+      },
+      "layout": {
+        "skeleton": "최신 기사 및 임베디드 콘텐츠를 위한 오른쪽 사이드바가 있는 메인 콘텐츠 영역."
+      },
+      "components": {
+        "button": "밝은 악센트 배경과 대문자 텍스트를 사용한 알약 모양 버튼.",
+        "card": "은은한 테두리와 명확한 타이포그래피 계층을 가진 콘텐츠 블록.",
+        "chip": "대문자 텍스트를 사용한 작은 태그 또는 라벨, 주로 악센트 또는 밝은 그레이 색상 사용.",
+        "input": "은은한 테두리와 다크 배경을 가진 검색 또는 입력 필드.",
+        "hero": "큰 볼드 헤드라인이 겹쳐진 전폭 이미지."
+      },
+      "motion": {
+        "patterns": [
+          "hover 시 배경색 전환 (0.15s)",
+          "슬라이딩 요소의 부드러운 오른쪽 방향 전환 (0.3s)"
+        ]
+      },
+      "interaction": {
+        "hover": "인터랙티브 요소에서 은은한 배경색 변화 및 커서 포인터.",
+        "click": "잠재적인 배경 변화와 즉각적인 반응.",
+        "transition": "배경색과 요소 위치의 부드러운 전환.",
+        "keyboard": "탐색 및 인터랙션을 위한 표준 focus 표시기."
+      },
+      "voice": {
+        "tone": "권위적이고 모던하며 약간의 거침이 없음.",
+        "headlineStyle": "굵고 크며, 종종 강렬하거나 도발적.",
+        "ctaStyle": "직설적이고 행동 지향적, 악센트 색상 버튼에 대문자 텍스트 사용.",
+        "avoid": [
+          "가볍거나 지나치게 장난스러운 어조",
+          "약하거나 수동적인 언어",
+          "시각적 혼란 또는 과도한 장식"
+        ]
+      },
+      "donts": [
+        "라이트 테마를 사용하지 마세요 — 스크린샷은 다크하고 고대비 배경을 보여줍니다.",
+        "헤드라인에 얇고 가벼운 폰트를 사용하지 마세요 — 스크린샷은 굵고 무거운 디스플레이 타입을 보여줍니다.",
+        "단일 중성 색상에만 의존하지 마세요 — 스크린샷은 밝은 그린 악센트를 사용합니다.",
+        "좁고 작게 간격을 잡지 마세요 — 스크린샷은 충분한 패딩과 마진을 보여줍니다.",
+        "둥글고 버블 같은 UI 요소를 사용하지 마세요 — 스크린샷은 날카로운 코너와 알약 모양을 보여줍니다.",
+        "저대비 텍스트를 사용하지 마세요 — 스크린샷은 다크 배경 위의 흰색으로 가독성을 확보합니다."
+      ],
+      "systemPrompt": "The Verge는 최고의 기술 뉴스 및 문화 출판물입니다. its 디자인 시스템은 다크하고 고대비 팔레트 (#131313 배경, #ffffff 잉크, #3cffd0 악센트) 위에 굵은 디스플레이 세리프 및UMANIST-SANS 타이포그래피로 구축되었습니다. it는 클린한 레이아웃, 충분한 간격, 그리고 명확한 콘텐츠 계층을 강조합니다. 핵심 디자인 규칙은 가독성을 위한 고대비 유지, 임팩트를 위한 볼드 타이포그래피 사용, 그리고 인터랙티브 요소를 위한 활기찬 악센트 컬러 통합을 포함합니다. 라이트 테마, 얇은 폰트, 저대비 텍스트를 피하세요. 이 시스템은 4px 베이스 스케일을 사용하며 데스크톱 및 모바일 뷰잉을 모두 지원합니다."
     }
   }
 }

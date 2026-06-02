@@ -17,51 +17,67 @@
   "_meta": {
     "vision_model": "mimo-v2.5",
     "vision_prompt_version": "0.3",
-    "vision_at": "2026-05-28T20:09:13+00:00",
-    "vision_tokens": 3370,
-    "vision_cost_usd": 0.0374,
+    "vision_at": "2026-05-30T16:32:05+00:00",
+    "vision_tokens": 1631,
+    "vision_cost_usd": 0.0181,
     "translation_model": "mimo-v2.5",
-    "translation_at": "2026-05-28T20:10:10+00:00",
-    "translation_tokens": 15878,
-    "translation_cost_usd": 0.053,
+    "translation_at": "2026-05-30T16:32:54+00:00",
+    "translation_tokens": 25565,
+    "translation_cost_usd": 0.0853,
     "narrative_model": "mimo-v2.5",
     "narrative_prompt_version": "0.3",
     "narrative_at": "2026-05-28T20:10:17+00:00",
     "narrative_tokens": 1931,
     "narrative_cost_usd": 0.0129,
     "narrative_status": "ok",
-    "total_cost_usd": 0.1033
+    "total_cost_usd": 0.1163,
+    "vision_source": "playwright-extract:elevenlabs",
+    "vision_grounded": true
   },
   "spec": {
     "colors": {
-      "bg": "#FFFFFF",
-      "bgSoft": "#F5F3F0",
-      "bgQuiet": null,
+      "bg": "#FDFCFC",
+      "bgSoft": "#F5F3F1",
+      "bgQuiet": "#EBE8E4",
       "ink": "#000000",
-      "inkSoft": "#525252",
-      "muted": "#9CA3AF",
+      "inkSoft": "#777169",
+      "muted": "#E5E5E5",
       "mutedSoft": null,
       "accent": null,
-      "line": "rgba(0, 0, 0, 0.1)"
+      "line": "rgba(0,0,0,0.05)"
     },
     "typography": {
-      "display": "transitional-serif",
+      "display": "geometric-sans",
       "body": "humanist-sans",
-      "mono": null,
+      "mono": "geometric-mono",
       "scale": [
         {
           "token": "display",
-          "size": 48,
-          "lh": 1.1,
-          "weight": 400,
+          "size": 56,
+          "lh": 1.0,
+          "weight": 500,
+          "ls": "-1px"
+        },
+        {
+          "token": "heading",
+          "size": 32,
+          "lh": 1.2,
+          "weight": 500,
           "ls": "-0.5px"
         },
         {
           "token": "body",
-          "size": 16,
+          "size": 18,
           "lh": 1.6,
           "weight": 400,
           "ls": "0px"
+        },
+        {
+          "token": "small",
+          "size": 14,
+          "lh": 1.5,
+          "weight": 400,
+          "ls": "0.14px"
         }
       ]
     },
@@ -82,12 +98,12 @@
       "radius": {
         "sm": 4,
         "md": 8,
-        "lg": 12,
-        "pill": 999
+        "lg": 20,
+        "pill": 9999
       }
     },
     "layout": {
-      "container": 1200,
+      "container": 1280,
       "paragraph": 680,
       "columns": 12,
       "gutter": 24,
@@ -100,400 +116,18 @@
       "durations": {
         "micro": 150,
         "small": 300,
-        "medium": 500
+        "medium": 300
       },
       "easing": "cubic-bezier(0.4, 0, 0.2, 1)"
     }
   },
-  "spec_i18n": {
-    "en": {
-      "identity": {
-        "keywords": [
-          "professional",
-          "authoritative",
-          "technical",
-          "reliable"
-        ],
-        "analogy": "A high-end enterprise software brochure",
-        "oneLiner": "A clean, professional SaaS interface for an AI voice platform."
-      },
-      "colors": {
-        "principle": "High-contrast black and white with warm gray accents for a professional, clean aesthetic."
-      },
-      "typography": {
-        "rules": [
-          "Use transitional-serif for primary headlines to convey authority.",
-          "Use humanist-sans for all body and UI text for clarity and readability.",
-          "Avoid overly decorative or script fonts."
-        ],
-        "scaleUses": [
-          "Hero headline",
-          "Body copy"
-        ]
-      },
-      "spacing": {
-        "rhythm": "Consistent 4px base unit creates a predictable, clean grid."
-      },
-      "surfaces": {
-        "shadows": [
-          "0 1px 3px rgba(0, 0, 0, 0.05)"
-        ],
-        "borders": "Thin, light borders are used sparingly for definition."
-      },
-      "layout": {
-        "skeleton": "Classic hero section with headline, subcopy, and CTA buttons, followed by a product showcase area."
-      },
-      "components": {
-        "button": "High-contrast solid black pill buttons for primary actions, ghost/outline buttons for secondary actions.",
-        "card": "Large, soft-background cards with subtle borders and generous padding for product sections.",
-        "chip": "Pill-shaped navigation chips with clear active/inactive states.",
-        "input": "Clean, minimal input fields with subtle borders.",
-        "hero": "Split layout with large serif headline on the left and descriptive copy on the right."
-      },
-      "motion": {
-        "patterns": [
-          "Subtle fade-in for content loading.",
-          "Smooth transitions for tab switching."
-        ]
-      },
-      "interaction": {
-        "hover": "Subtle background change or underline for text links and buttons.",
-        "click": "Immediate feedback with a slight scale or opacity change.",
-        "transition": "Smooth color and background transitions.",
-        "keyboard": "Standard focus outlines for accessibility."
-      },
-      "voice": {
-        "tone": "Professional, confident, and slightly technical.",
-        "headlineStyle": "Clear, declarative statements in a serif font.",
-        "ctaStyle": "Direct action verbs like 'Sign up' or 'Contact sales'.",
-        "avoid": [
-          "Overly casual or playful language.",
-          "Excessive exclamation points.",
-          "Jargon without explanation."
-        ]
-      },
-      "donts": [
-        "Don't use bright, saturated colors — the screenshot shows a neutral, high-contrast palette.",
-        "Don't use playful or rounded sans-serif display fonts — the screenshot uses a transitional-serif.",
-        "Don't add decorative illustrations or icons — the screenshot is text and UI element focused.",
-        "Don't use dark mode — the screenshot is predominantly white/light background.",
-        "Don't use complex gradients — the screenshot uses flat colors and subtle grays.",
-        "Don't use heavy shadows or 3D effects — the screenshot uses minimal depth and clean borders."
-      ],
-      "systemPrompt": "This is a professional, enterprise-focused SaaS landing page for an AI voice platform. The design is clean, high-contrast, and uses a neutral palette of black, white, and warm grays (bgSoft: #F5F3F0). The typography mixes a transitional-serif for authoritative headlines with a humanist-sans for readable body copy. Key critical donts: never use bright saturated colors, avoid playful sans-serifs for headlines, and do not add decorative illustrations. The layout is spacious and uses a classic hero structure with pill-shaped buttons and soft-background cards. The overall feel is reliable and technical, suitable for a B2B product."
-    },
-    "zh-CN": {
-      "identity": {
-        "keywords": [
-          "专业",
-          "权威",
-          "技术",
-          "可靠"
-        ],
-        "analogy": "高端企业软件宣传册",
-        "oneLiner": "一个简洁、专业的 AI 语音平台 SaaS 界面。"
-      },
-      "colors": {
-        "principle": "采用高对比度的黑白搭配温暖的灰色点缀，营造专业、简洁的美学。"
-      },
-      "typography": {
-        "rules": [
-          "主标题使用过渡型衬线字体以传达权威感。",
-          "所有正文和 UI 文本使用人文主义无衬线字体以确保清晰度和可读性。",
-          "避免使用过于装饰性或手写风格的字体。"
-        ],
-        "scaleUses": [
-          "主视觉标题",
-          "正文文本"
-        ]
-      },
-      "spacing": {
-        "rhythm": "基于 4px 的统一基线单位，创建可预测、整洁的网格。"
-      },
-      "surfaces": {
-        "shadows": [
-          "0 1px 3px rgba(0, 0, 0, 0.05)"
-        ],
-        "borders": "使用纤薄、浅色的边框，仅用于必要的界定。"
-      },
-      "layout": {
-        "skeleton": "经典的主视觉区域，包含标题、副文案和 CTA 按钮，后接产品展示区。"
-      },
-      "components": {
-        "button": "主要操作使用高对比度的纯黑色药丸形按钮，次要操作使用幽灵/轮廓按钮。",
-        "card": "用于产品部分的大尺寸、柔和背景卡片，带有细微边框和充足的内边距。",
-        "chip": "药丸形导航标签，具有清晰的激活/非激活状态。",
-        "input": "简洁、极简的输入框，带有细微边框。",
-        "hero": "分栏布局，左侧为大号衬线标题，右侧为描述性文案。"
-      },
-      "motion": {
-        "patterns": [
-          "内容加载时的细微淡入效果。",
-          "标签切换时的平滑过渡。"
-        ]
-      },
-      "interaction": {
-        "hover": "文本链接和按钮采用细微的背景变化或下划线效果。",
-        "click": "通过轻微的缩放或透明度变化提供即时反馈。",
-        "transition": "平滑的颜色和背景过渡。",
-        "keyboard": "采用标准的焦点轮廓以确保可访问性。"
-      },
-      "voice": {
-        "tone": "专业、自信且略带技术感。",
-        "headlineStyle": "使用衬线字体进行清晰、陈述性的表述。",
-        "ctaStyle": "直接的行动动词，例如“注册”或“联系销售”。",
-        "avoid": [
-          "过于随意或俏皮的语言。",
-          "过多的感叹号。",
-          "未经解释的行业术语。"
-        ]
-      },
-      "donts": [
-        "不要使用明亮、饱和的颜色——截图显示的是中性、高对比度的调色板。",
-        "不要使用俏皮或圆润的无衬线展示字体——截图使用了过渡型衬线字体。",
-        "不要添加装饰性插图或图标——截图专注于文本和 UI 元素。",
-        "不要使用深色模式——截图以白色/浅色背景为主。",
-        "不要使用复杂的渐变——截图使用纯色和细微的灰色。",
-        "不要使用厚重的阴影或 3D 效果——截图使用极简的深度和整洁的边框。"
-      ],
-      "systemPrompt": "这是一个专业、面向企业的 AI 语音平台 SaaS 落地页。设计简洁、高对比度，采用中性调色板，包括黑色、白色和温暖的灰色（bgSoft: #F5F3F0）。字体混合了用于权威标题的过渡型衬线字体和用于可读正文的人文主义无衬线字体。关键禁忌：永远不要使用明亮饱和的颜色，避免为标题使用俏皮的无衬线字体，不要添加装饰性插图。布局宽敞，采用经典的主视觉结构，配有药丸形按钮和柔和背景的卡片。整体感觉可靠且技术性强，适合 B2B 产品。"
-    },
-    "zh-TW": {
-      "identity": {
-        "keywords": [
-          "專業",
-          "權威",
-          "技術",
-          "可靠"
-        ],
-        "analogy": "一本高端企業軟體宣傳手冊",
-        "oneLiner": "一個乾淨、專業的 AI 語音平台 SaaS 介面。"
-      },
-      "colors": {
-        "principle": "高對比的黑白配色，輔以溫暖的灰色調，營造專業、乾淨的美學。"
-      },
-      "typography": {
-        "rules": [
-          "主標題使用過渡襯線體，以傳達權威感。",
-          "所有內文與 UI 文字使用人文無襯線體，以確保清晰度與可讀性。",
-          "避免使用過度裝飾或書法風格的字體。"
-        ],
-        "scaleUses": [
-          "首頁主視覺標題",
-          "內文"
-        ]
-      },
-      "spacing": {
-        "rhythm": "一致的 4px 基礎單位，創造出可預期的乾淨格線。"
-      },
-      "surfaces": {
-        "shadows": [
-          "0 1px 3px rgba(0, 0, 0, 0.05)"
-        ],
-        "borders": "纖細、淺色的邊框謹慎使用，用於定義邊界。"
-      },
-      "layout": {
-        "skeleton": "經典的首頁主視覺區域，包含標題、副標題和 CTA 按鈕，後接產品展示區。"
-      },
-      "components": {
-        "button": "高對比的實心黑色膠囊按鈕用於主要操作，鬼魂/外框按鈕用於次要操作。",
-        "card": "大型、柔和背景的卡片，帶有細微邊框和寬裕的內邊距，用於產品區塊。",
-        "chip": "膠囊形狀的導航標籤，具有明確的啟用/未啟用狀態。",
-        "input": "乾淨、簡約的輸入欄位，帶有細微邊框。",
-        "hero": "分割式佈局，左側為大型襯線體標題，右側為描述性文字。"
-      },
-      "motion": {
-        "patterns": [
-          "內容載入時的細微淡入效果。",
-          "分頁切換時的流暢過渡。"
-        ]
-      },
-      "interaction": {
-        "hover": "文字連結與按鈕的背景或底線細微變化。",
-        "click": "透過輕微的縮放或透明度變化提供即時反饋。",
-        "transition": "顏色與背景的流暢過渡。",
-        "keyboard": "標準的焦點外框以確保無障礙。"
-      },
-      "voice": {
-        "tone": "專業、自信，並帶有輕微的技術感。",
-        "headlineStyle": "使用襯線字體的清晰、陳述性語句。",
-        "ctaStyle": "直接的行動動詞，例如「免費試用」或「聯繫業務」。",
-        "avoid": [
-          "過度隨意或俏皮的語言。",
-          "過多的驚嘆號。",
-          "未經解釋的專業術語。"
-        ]
-      },
-      "donts": [
-        "不要使用明亮、飽和的顏色 —— 截圖顯示的是中性、高對比的色板。",
-        "不要使用俏皮或圓潤的無襯線顯示字體 —— 截圖使用的是過渡襯線體。",
-        "不要添加裝飾性的插圖或圖標 —— 截圖專注於文字與 UI 元素。",
-        "不要使用暗色模式 —— 截圖以白色/淺色背景為主。",
-        "不要使用複雜的漸層 —— 截圖使用平面顏色與細微的灰色。",
-        "不要使用厚重的陰影或 3D 效果 —— 截圖使用最小的深度和乾淨的邊框。"
-      ],
-      "systemPrompt": "這是一個專業、以企業為導向的 AI 語音平台 SaaS 落地頁。設計乾淨、高對比，使用黑、白與溫暖灰色（bgSoft: #F5F3F0）的中性色板。字體搭配使用過渡襯線體於權威性標題，以及人文無襯線體於可讀的內文。關鍵的禁忌：永遠不要使用明亮飽和的顏色，避免在標題使用俏皮的無襯線體，並且不要添加裝飾性插圖。佈局寬敞，採用經典的首頁主視覺結構，搭配膠囊形按鈕與柔和背景的卡片。整體感覺可靠且具技術感，適合 B2B 產品。"
-    },
-    "ja": {
-      "identity": {
-        "keywords": [
-          "プロフェッショナル",
-          "権威ある",
-          "技術的",
-          "信頼できる"
-        ],
-        "analogy": "高級エンタープライズソフトウェアのパンフレット",
-        "oneLiner": "AIボイスプラットフォームのための、清潔でプロフェッショナルなSaaSインターフェース。"
-      },
-      "colors": {
-        "principle": "プロフェッショナルで清潔な美感のための、暖かみのあるグレーのアクセントを加えたハイコントラストな黒と白。"
-      },
-      "typography": {
-        "rules": [
-          "主見出しには権威を伝えるためのtransitional-serifを使用します。",
-          "すべての本文およびUIテキストには、明瞭さと可読性のためにhumanist-sansを使用します。",
-          "過度に装飾的またはスクリプトフォントは避けます。"
-        ],
-        "scaleUses": [
-          "ヒーロー見出し",
-          "本文"
-        ]
-      },
-      "spacing": {
-        "rhythm": "一貫した4pxの基本単位が、予測可能で清潔なグリッドを生み出します。"
-      },
-      "surfaces": {
-        "shadows": [
-          "0 1px 3px rgba(0, 0, 0, 0.05)"
-        ],
-        "borders": "定義を明確にするために、控えめに使用される細く薄いボーダー。"
-      },
-      "layout": {
-        "skeleton": "見出し、サブコピー、CTAボタンを含むクラシックなヒーローセクション、それに続く製品ショーケースエリア。"
-      },
-      "components": {
-        "button": "プライマリアクションにはハイコントラストの黒いソリッドピルボタン、セカンダリアクションにはゴースト/アウトラインボタン。",
-        "card": "製品セクション用の、控えめなボーダーと十分なpaddingを持つ、大きく柔らかい背景のカード。",
-        "chip": "明確なactive/inactive状態を持つ、ピル型のナビゲーションチップ。",
-        "input": "控えめなボーダーを持つ、清潔でミニマルな入力フィールド。",
-        "hero": "左側に大きなセリフの見出し、右側に記述コピーを配置した分割レイアウト。"
-      },
-      "motion": {
-        "patterns": [
-          "コンテンツ読み込み時の控えめなフェードイン。",
-          "タブ切り替え時のスムーズなトランジション。"
-        ]
-      },
-      "interaction": {
-        "hover": "テキストリンクやボタンの、控えめな背景の変化または下線。",
-        "click": "わずかなscaleまたはopacityの変化による即時フィードバック。",
-        "transition": "色と背景の滑らかなトランジション。",
-        "keyboard": "アクセシビリティのための標準的なfocusアウトライン。"
-      },
-      "voice": {
-        "tone": "プロフェッショナルで、自信に満ち、わずかに技術的。",
-        "headlineStyle": "セリフフォントによる、明確で断定的なステートメント。",
-        "ctaStyle": "「サインアップ」や「営業に連絡」のような直接的なアクション動詞。",
-        "avoid": [
-          "過度にカジュアルまたは遊び心のある言葉遣い。",
-          "過度の感嘆符。",
-          "説明のない専門用語。"
-        ]
-      },
-      "donts": [
-        "明るく彩度の高い色を使用しない — スクリーンショットはニュートラルでハイコントラストのパレットを示しています。",
-        "見出しに遊び心のある丸みのあるsans-serif表示フォントを使用しない — スクリーンショットはtransitional-serifを使用しています。",
-        "装飾的なイラストやアイコンを追加しない — スクリーンショットはテキストとUI要素に焦点を当てています。",
-        "ダークモードを使用しない — スクリーンショットは主に白/明るい背景です。",
-        "複雑なグラデーションを使用しない — スクリーンショットはフラットカラーと控えめなグレーを使用しています。",
-        "重い影や3D効果を使用しない — スクリーンショットは最小限の奥行きと清潔なボーダーを使用しています。"
-      ],
-      "systemPrompt": "これは、AIボイスプラットフォームのための、プロフェッショナルでエンタープライズ志向のSaaSランディングページです。デザインは清潔でハイコントラストであり、黒、白、暖かみのあるグレー（bgSoft: #F5F3F0）のニュートラルパレットを使用しています。タイポグラフィは、権威ある見出しのためのtransitional-serifと、可読性のある本文のためのhumanist-sansを組み合わせています。重要な避けるべき点：明るく彩度の高い色を絶対に使用せず、見出しに遊び心のあるsans-serifを避け、装飾的なイラストを追加しないこと。レイアウトはゆったりとしており、ピル型のボタンと柔らかい背景のカードを備えたクラシックなヒーロー構造を採用しています。全体的な印象は信頼でき、技術的であり、B2B製品に適しています。"
-    },
-    "ko": {
-      "identity": {
-        "keywords": [
-          "전문적인",
-          "권위 있는",
-          "기술적인",
-          "신뢰할 수 있는"
-        ],
-        "analogy": "하이엔드 기업용 소프트웨어 브로슈어",
-        "oneLiner": "AI 음성 플랫폼을 위한 깨끗하고 전문적인 SaaS 인터페이스."
-      },
-      "colors": {
-        "principle": "전문적이고 깨끗한 미학을 위해 따뜻한 회색 강조색이 있는 고대비의 흑백."
-      },
-      "typography": {
-        "rules": [
-          "주요 제목에는 권위를 전달하기 위해 transitional-serif를 사용합니다.",
-          "모든 본문 및 UI 텍스트에는 명확성과 가독성을 위해 humanist-sans를 사용합니다.",
-          "지나치게 장식적이거나 필기체 폰트는 사용하지 않습니다."
-        ],
-        "scaleUses": [
-          "히어로 제목",
-          "본문"
-        ]
-      },
-      "spacing": {
-        "rhythm": "일관된 4px 기본 단위는 예측 가능하고 깨끗한 그리드를 만듭니다."
-      },
-      "surfaces": {
-        "shadows": [
-          "0 1px 3px rgba(0, 0, 0, 0.05)"
-        ],
-        "borders": "미세하고 밝은 테두리는 정의를 위해 절제하여 사용됩니다."
-      },
-      "layout": {
-        "skeleton": "제목, 서브 카피, CTA 버튼이 있는 클래식 히어로 섹션, 그 다음 제품 쇼케이스 영역."
-      },
-      "components": {
-        "button": "주요 작업을 위한 고대비 솔리드 검정 필 버튼, 보조 작업을 위한 고스트/아웃라인 버튼.",
-        "card": "제품 섹션을 위해 미묘한 테두리와 넉넉한 패딩이 있는 부드러운 배경의 큰 카드.",
-        "chip": "명확한 활성/비활성 상태를 가진 필 모양의 내비게이션 칩.",
-        "input": "미묘한 테두리가 있는 깨끗하고 미니멀한 입력 필드.",
-        "hero": "왼쪽에 큰 세리프 제목, 오른쪽에 설명 텍스트가 있는 분할 레이아웃."
-      },
-      "motion": {
-        "patterns": [
-          "콘텐츠 로딩 시 미묘한 페이드 인.",
-          "탭 전환 시 매끄러운 전환."
-        ]
-      },
-      "interaction": {
-        "hover": "텍스트 링크와 버튼을 위한 미묘한 배경 변경 또는 밑줄.",
-        "click": "약간의 크기 또는 불투명도 변화로 즉각적인 피드백.",
-        "transition": "매끄러운 색상 및 배경 전환.",
-        "keyboard": "접근성을 위한 표준 focus 윤곽선."
-      },
-      "voice": {
-        "tone": "전문적이고 자신감 있으며 약간 기술적인.",
-        "headlineStyle": "세리프 폰트의 명확하고 선언적인 문장.",
-        "ctaStyle": "'가입하기' 또는 '영업 문의하기'와 같은 직접적인 동사.",
-        "avoid": [
-          "지나치게 캐주얼하거나 장난스러운 언어.",
-          "과도한 느낌표.",
-          "설명 없는 전문 용어."
-        ]
-      },
-      "donts": [
-        "밝고 채도 높은 색상을 사용하지 마세요 — 스크린샷은 중립적이고 고대비의 팔레트를 보여줍니다.",
-        "장난스럽거나 둥근 sans-serif 디스플레이 폰트를 사용하지 마세요 — 스크린샷은 transitional-serif를 사용합니다.",
-        "장식적인 일러스트레이션이나 아이콘을 추가하지 마세요 — 스크린샷은 텍스트와 UI 요소에 집중합니다.",
-        "다크 모드를 사용하지 마세요 — 스크린샷은 주로 흰색/밝은 배경입니다.",
-        "복잡한 그라디언트를 사용하지 마세요 — 스크린샷은 단색과 미묘한 회색을 사용합니다.",
-        "무거운 그림자나 3D 효과를 사용하지 마세요 — 스크린샷은 미니멀한 깊이와 깨끗한 테두리를 사용합니다."
-      ],
-      "systemPrompt": "이것은 AI 음성 플랫폼을 위한 전문적이고 기업 중심의 SaaS 랜딩 페이지입니다. 디자인은 깨끗하고 고대비이며, 검정, 흰색, 따뜻한 회색(bgSoft: #F5F3F0)의 중립 팔레트를 사용합니다. 타이포그래피는 권위 있는 제목을 위한 transitional-serif와 읽기 쉬운 본문을 위한 humanist-sans를 혼합합니다. 핵심 주의 사항: 밝고 채도 높은 색상을 절대 사용하지 말 것, 제목에 장난스러운 sans-serif를 피할 것, 장식적인 일러스트레이션을 추가하지 말 것. 레이아웃은 넉넉하며 필 모양의 버튼과 부드러운 배경 카드를 사용하는 클래식 히어로 구조를 사용합니다. 전체적인 느낌은 신뢰할 수 있고 기술적이며, B2B 제품에 적합합니다."
-    }
-  },
   "desc": {
     "en": {
-      "palette": "A clean, high-contrast palette of pure white, black, and a warm light gray (#F5F3F0) for subtle surface differentiation.",
-      "layout": "A spacious, traditional SaaS landing page layout with a prominent hero section and clear content hierarchy.",
-      "interaction": "Interaction relies on standard, accessible hover and focus states with smooth transitions for a polished feel.",
-      "motion": "Motion is minimal and functional, focused on subtle fades and transitions for a professional experience.",
-      "notes": "This site exemplifies a clean, professional design system for a technical product, balancing authority with readability."
+      "palette": "A warm, neutral palette anchored by off-white backgrounds and deep black ink, complemented by soft, organic gradient accents.",
+      "layout": "A clean, single-column layout with generous whitespace and a centered container, prioritizing readability and clear visual hierarchy.",
+      "interaction": "Smooth, subtle transitions on interactive elements, primarily using color and background changes with a consistent cubic-bezier easing.",
+      "motion": "Minimal and purposeful motion, focusing on smooth 0.15s transitions for hover states and subtle feedback on interaction.",
+      "notes": "Worth including as a prime example of a modern, premium SaaS aesthetic that balances professionalism with a warm, slightly playful feel through its use of soft gradients and rounded shapes."
     },
     "zh-CN": {
       "palette": "简洁、高对比度的调色板，采用纯白、黑色和温暖的浅灰色（#F5F3F0）以实现细微的表面区分。",
@@ -584,6 +218,393 @@
       "ch7_intro": "모션 철학은 최소한의 기능적 지원입니다. 애니메이션은 콘텐츠 로딩을 위한 미세한 페이드와 인터랙티브 상태 변화를 위한 부드러운 트랜지션으로 제한되어, 주의를 분산시키지 않으면서도 세련되고 전문적인 느낌을 보장합니다.",
       "ch8_intro": "에디토리얼 음성은 전문적이고 자신감 있으며 약간 기술적이고, 명확하고 선언적인 진술을 사용합니다. 언어는 직설적이며, '가입하기'나 '영업팀 문의하기'와 같은 직접적인 동사에 의존합니다.",
       "ch8_outro": "이 시스템은 의도적으로 다크 모드, 장식용 일러스트레이션, 장난스러운 타이포그래피, 복잡한 그라디언트를 배제하여, 절제되고 엔터프라이즈 중심적인 특성을 강제합니다."
+    }
+  },
+  "spec_i18n": {
+    "en": {
+      "identity": {
+        "keywords": [
+          "AI voice",
+          "enterprise",
+          "creative",
+          "developer",
+          "audio"
+        ],
+        "analogy": "A high-end recording studio interface brought to a clean digital canvas",
+        "oneLiner": "Premium AI audio platform with a clean, warm, and slightly playful aesthetic."
+      },
+      "colors": {
+        "principle": "High-contrast ink on warm neutrals with soft, organic gradients for accents"
+      },
+      "typography": {
+        "rules": [],
+        "scaleUses": [
+          "Main hero headlines",
+          "Section headings",
+          "Main body text",
+          "Secondary text and labels"
+        ]
+      },
+      "spacing": {
+        "rhythm": "Consistent use of 8px and 16px increments for padding and gaps"
+      },
+      "surfaces": {
+        "shadows": [
+          "0 1px 2px 0 rgba(0,0,0,0.04)",
+          "0 2px 4px 0 rgba(0,0,0,0.04)",
+          "0 0 0 1px rgba(0,0,0,0.06)"
+        ],
+        "borders": "Very subtle 1px borders in rgba(0,0,0,0.05) or rgb(229,229,229)"
+      },
+      "layout": {
+        "skeleton": "Clean, single-column layout with generous whitespace and centered containers"
+      },
+      "components": {
+        "button": "Pill-shaped (9999px radius) with solid black background for primary and white/outlined for secondary",
+        "card": "Light gray background with very subtle border-radius (20px) and soft shadows",
+        "chip": "Pill-shaped with 1px border and transparent background",
+        "input": "Clean with 1px subtle border and rounded corners",
+        "hero": "Large bold headline left-aligned with supporting text and pill buttons"
+      },
+      "motion": {
+        "patterns": [
+          "Smooth transitions for color and background on hover"
+        ]
+      },
+      "interaction": {
+        "hover": "Color and background-color transitions with 0.15s duration",
+        "click": "Subtle transform or opacity change",
+        "transition": "All properties with cubic-bezier(0.4, 0, 0.2, 1)",
+        "keyboard": "Standard focusable elements with visible focus states"
+      },
+      "voice": {
+        "tone": "Professional, innovative, and slightly playful",
+        "headlineStyle": "Large, bold, geometric sans-serif headlines with tight letter-spacing",
+        "ctaStyle": "Pill-shaped buttons with solid black fill for primary actions",
+        "avoid": [
+          "Loud colors",
+          "Aggressive typography",
+          "Cluttered layouts",
+          "Technical jargon in hero copy"
+        ]
+      },
+      "donts": [
+        "Don't use pure white backgrounds — screenshot shows a warm off-white (#FDFCFC) instead",
+        "Don't use sharp corners — screenshot shows 20px radius on large cards and 9999px on buttons",
+        "Don't use high-chroma accent colors — screenshot shows organic, soft gradients instead",
+        "Don't use thin, light fonts for headlines — screenshot shows 500 weight for display text",
+        "Don't use complex backgrounds — screenshot shows clean, mostly flat surfaces",
+        "Don't use tight spacing — screenshot shows generous padding (160px top) and gaps (48px)"
+      ],
+      "systemPrompt": "A premium AI audio platform (SaaS) for enterprises and creators. Key colors are warm off-white (#FDFCFC) for backgrounds, solid black (#000000) for ink, and soft muted tones (#777169, #EBE8E4). Typography combines geometric-sans for display with humanist-sans for body. Critical don'ts: avoid pure white backgrounds, use 9999px pill radius for buttons, never use high-chroma accent colors, use generous whitespace, use 500 font-weight for display text, avoid complex background patterns."
+    },
+    "zh-CN": {
+      "identity": {
+        "keywords": [
+          "AI 语音",
+          "企业",
+          "创意",
+          "开发者",
+          "音频"
+        ],
+        "analogy": "一个高端录音室界面，呈现在简洁的数字画布上",
+        "oneLiner": "一款优质 AI 音频平台，具备简洁、温暖且略带趣味的美学风格。"
+      },
+      "colors": {
+        "principle": "在温暖的中性色调上使用高对比度的墨色，并以柔和、有机的渐变作为点缀"
+      },
+      "typography": {
+        "rules": [],
+        "scaleUses": [
+          "主标题",
+          "章节标题",
+          "主要正文",
+          "次要文本和标签"
+        ]
+      },
+      "spacing": {
+        "rhythm": "统一使用 8px 和 16px 增量来设置 padding 和 gap"
+      },
+      "surfaces": {
+        "shadows": [
+          "0 1px 2px 0 rgba(0,0,0,0.04)",
+          "0 2px 4px 0 rgba(0,0,0,0.04)",
+          "0 0 0 1px rgba(0,0,0,0.06)"
+        ],
+        "borders": "非常细微的 1px 边框，使用 rgba(0,0,0,0.05) 或 rgb(229,229,229)"
+      },
+      "layout": {
+        "skeleton": "简洁的单栏布局，拥有充足的留白和居中容器"
+      },
+      "components": {
+        "button": "药丸形状 (9999px radius)，主要按钮使用纯黑背景，次要按钮使用白色/描边",
+        "card": "浅灰色背景，带有非常细微的 border-radius (20px) 和柔和阴影",
+        "chip": "药丸形状，带有 1px border 和透明背景",
+        "input": "简洁，带有 1px 细微边框和圆角",
+        "hero": "大型加粗标题左对齐，附带说明文字和药丸形按钮"
+      },
+      "motion": {
+        "patterns": [
+          "hover 时颜色和背景的平滑过渡"
+        ]
+      },
+      "interaction": {
+        "hover": "颜色和背景色过渡，持续时间 0.15s",
+        "click": "细微的 transform 或 opacity 变化",
+        "transition": "所有属性使用 cubic-bezier(0.4, 0, 0.2, 1)",
+        "keyboard": "标准可聚焦元素，具有可见的 focus 状态"
+      },
+      "voice": {
+        "tone": "专业、创新且略带趣味",
+        "headlineStyle": "大型、加粗、几何无衬线标题，字间距紧凑",
+        "ctaStyle": "药丸形按钮，主要操作使用纯黑填充",
+        "avoid": [
+          "鲜艳的颜色",
+          "攻击性的排版",
+          "杂乱的布局",
+          "主文案中的技术术语"
+        ]
+      },
+      "donts": [
+        "不要使用纯白色背景 — 截图显示使用的是温暖的米白色 (#FDFCFC)",
+        "不要使用尖锐的圆角 — 截图显示大型卡片使用 20px radius，按钮使用 9999px",
+        "不要使用高饱和度的强调色 — 截图显示使用的是柔和、有机的渐变",
+        "不要使用纤细、浅色的字体作为标题 — 截图显示展示文本使用 500 字重",
+        "不要使用复杂的背景 — 截图显示使用的是简洁、基本平坦的表面",
+        "不要使用紧凑的间距 — 截图显示使用的是充足的 padding (顶部 160px) 和 gap (48px)"
+      ],
+      "systemPrompt": "一款面向企业和创作者的优质 AI 音频平台 (SaaS)。关键颜色：背景使用温暖的米白色 (#FDFCFC)，墨色使用纯黑 (#000000)，以及柔和的中性色调 (#777169, #EBE8E4)。排版结合了几何无衬线字体用于展示，人文无衬线字体用于正文。关键禁忌：避免纯白背景，按钮使用 9999px 药丸形圆角，切勿使用高饱和度强调色，使用充足的留白，展示文本使用 500 字重，避免复杂的背景图案。"
+    },
+    "zh-TW": {
+      "identity": {
+        "keywords": [
+          "AI 語音",
+          "企業",
+          "創意",
+          "開發者",
+          "音訊"
+        ],
+        "analogy": "將高端錄音室的介面，帶入一個簡潔的數位畫布",
+        "oneLiner": "結合簡潔、溫暖與略帶俏皮美學的高階 AI 音訊平台。"
+      },
+      "colors": {
+        "principle": "以暖色調中性色為基底的高對比墨色，並搭配柔和、有機的漸層作為點綴"
+      },
+      "typography": {
+        "rules": [],
+        "scaleUses": [
+          "主視覺大標題",
+          "段落標題",
+          "主要內文",
+          "次要文字與標籤"
+        ]
+      },
+      "spacing": {
+        "rhythm": "以 8px 與 16px 的固定增量，一致性地運用於 padding 與間距"
+      },
+      "surfaces": {
+        "shadows": [
+          "0 1px 2px 0 rgba(0,0,0,0.04)",
+          "0 2px 4px 0 rgba(0,0,0,0.04)",
+          "0 0 0 1px rgba(0,0,0,0.06)"
+        ],
+        "borders": "極為細微的 1px 邊框，顏色為 rgba(0,0,0,0.05) 或 rgb(229,229,229)"
+      },
+      "layout": {
+        "skeleton": "簡潔的單欄式佈局，擁有充足的留白與置中的容器"
+      },
+      "components": {
+        "button": "藥丸形（radius 9999px），主要按鈕為實心黑色背景，次要按鈕為白色或外框樣式",
+        "card": "淺灰色背景，極為細微的 border-radius（20px）與柔和陰影",
+        "chip": "藥丸形，帶有 1px 邊框與透明背景",
+        "input": "簡潔，帶有 1px 細微邊框與圓角",
+        "hero": "大型粗體標題左對齊，搭配輔助文字與藥丸形按鈕"
+      },
+      "motion": {
+        "patterns": [
+          "hover 時，顏色與背景的流暢過渡效果"
+        ]
+      },
+      "interaction": {
+        "hover": "color 與 background-color 的過渡效果，持續時間 0.15s",
+        "click": "細微的 transform 或 opacity 變化",
+        "transition": "所有屬性，使用 cubic-bezier(0.4, 0, 0.2, 1)",
+        "keyboard": "標準的可聚焦元素，並具備可見的 focus 狀態"
+      },
+      "voice": {
+        "tone": "專業、創新，並略帶俏皮",
+        "headlineStyle": "大型、粗體、幾何無襯線字體標題，字距緊湊",
+        "ctaStyle": "藥丸形按鈕，主要操作採實心黑色填充",
+        "avoid": [
+          "過於鮮豔的顏色",
+          "攻擊性過強的字體排印",
+          "雜亂的佈局",
+          "主視覺文案中使用技術術語"
+        ]
+      },
+      "donts": [
+        "不要使用純白色背景——截圖顯示的是溫暖的灰白色 (#FDFCFC)",
+        "不要使用尖銳的直角——截圖顯示大型卡片使用 20px 的圓角，按鈕使用 9999px",
+        "不要使用高飽和度的強烈強調色——截圖顯示的是有機、柔和的漸層",
+        "不要使用纖細、淺色的字體作為標題——截圖顯示展示文字使用 500 字重",
+        "不要使用複雜的背景——截圖顯示的是簡潔、大多為平面的表面",
+        "不要使用擁擠的間距——截圖顯示的是寬裕的 padding（頂部 160px）與間距（48px）"
+      ],
+      "systemPrompt": "一個為企業與創作者打造的高階 AI 音訊平台（SaaS）。關鍵色彩包括：背景使用溫暖的灰白色 (#FDFCFC)、墨色使用實心黑色 (#000000)，以及柔和的低飽和色調 (#777169, #EBE8E4)。字體搭配幾何無襯線字體用於展示，人文無襯線字體用於內文。關鍵禁忌：避免使用純白背景、按鈕採用 9999px 藥丸形圓角、絕不使用高飽和強調色、運用寬裕的留白、展示文字使用 500 字重、避免複雜的背景圖案。"
+    },
+    "ja": {
+      "identity": {
+        "keywords": [
+          "AI音声",
+          "エンタープライズ",
+          "クリエイティブ",
+          "開発者",
+          "オーディオ"
+        ],
+        "analogy": "高品質なレコーディングスタジオのインターフェースを、クリーンなデジタルキャンバスに移植したもの",
+        "oneLiner": "クリーンで温かみのある、少し遊び心のある美学を持つ高級AIオーディオプラットフォーム。"
+      },
+      "colors": {
+        "principle": "温かみのあるニュートラルをベースに、アクセントとして柔らかく有機的なグラデーションを用いた高コントラストのインク"
+      },
+      "typography": {
+        "rules": [],
+        "scaleUses": [
+          "メインヒーロー見出し",
+          "セクション見出し",
+          "本文テキスト",
+          "補助テキストとラベル"
+        ]
+      },
+      "spacing": {
+        "rhythm": "paddingや間隔に8pxと16pxの刻みを一貫して使用"
+      },
+      "surfaces": {
+        "shadows": [
+          "0 1px 2px 0 rgba(0,0,0,0.04)",
+          "0 2px 4px 0 rgba(0,0,0,0.04)",
+          "0 0 0 1px rgba(0,0,0,0.06)"
+        ],
+        "borders": "rgba(0,0,0,0.05)またはrgb(229,229,229)による、非常に微細な1pxボーダー"
+      },
+      "layout": {
+        "skeleton": "余白をたっぷりと使い、コンテナを中央揃えにしたクリーンな単カラムレイアウト"
+      },
+      "components": {
+        "button": "プライマリは黒の塗りつぶし、セカンダリは白/アウトラインの、カプセル型（9999px radius）",
+        "card": "ライトグレーの背景に非常に微細なborder-radius（20px）と柔らかな影",
+        "chip": "1pxボーダーと透明背景のカプセル型",
+        "input": "1pxの微細なボーダーと角丸のクリーンなデザイン",
+        "hero": "左揃えの大きく太字の見出しに、補助テキストとカプセル型ボタンを配置"
+      },
+      "motion": {
+        "patterns": [
+          "hover時のカラーや背景の滑らかな遷移"
+        ]
+      },
+      "interaction": {
+        "hover": "colorとbackground-colorの遷移を0.15sで実行",
+        "click": "微細なtransformやopacityの変化",
+        "transition": "すべてのプロパティにcubic-bezier(0.4, 0, 0.2, 1)を使用",
+        "keyboard": "標準的なフォーカス可能要素に、明確なフォーカス状態を表示"
+      },
+      "voice": {
+        "tone": "プロフェッショナルで革新的、かつ少し遊び心のある",
+        "headlineStyle": "tightなletter-spacingを持つ、大きく太字の幾何学サンセリフ見出し",
+        "ctaStyle": "プライマリアクション用の黒の塗りつぶしカプセル型ボタン",
+        "avoid": [
+          "派手なカラー",
+          "攻撃的なタイポグラフィ",
+          "雑然としたレイアウト",
+          "ヒーローコピーにおける専門用語"
+        ]
+      },
+      "donts": [
+        "純白の背景を使用しない — スクリーンショットでは温かみのあるオフホワイト（#FDFCFC）が使われている",
+        "角張ったデザインを使用しない — スクリーンショットでは大きなカードに20px、ボタンには9999pxの角丸が使われている",
+        "彩度の高いアクセントカラーを使用しない — スクリーンショットでは有機的で柔らかなグラデーションが使われている",
+        "見出しに細く軽いフォントを使用しない — スクリーンショットではdisplayテキストに500ウェイトが使われている",
+        "複雑な背景を使用しない — スクリーンショットではクリーンでほぼフラットなサーフェスが使われている",
+        "詰まった間隔を使用しない — スクリーンショットでは余白がたっぷり（トップ160px）、間隔も広め（48px）に設定されている"
+      ],
+      "systemPrompt": "エンタープライズやクリエイター向けの高級AIオーディオプラットフォーム（SaaS）。背景には温かみのあるオフホワイト（#FDFCFC）、インクには純黒（#000000）、アクセントには柔らかく抑制されたトーン（#777169、#EBE8E4）を主要カラーとする。タイポグラフィは、display用に幾何学サンセリフ、本文用にヒューマニストサンセリフを組み合わせる。重要な禁止事項：純白背景の使用禁止、ボタンには9999pxのカプセル型角丸を使用、彩度の高いアクセントカラーは使用禁止、余白をたっぷりと使用、displayテキストには500フォントウェイトを使用、複雑な背景パターンは使用禁止。"
+    },
+    "ko": {
+      "identity": {
+        "keywords": [
+          "AI 음성",
+          "기업용",
+          "크리에이티브",
+          "개발자",
+          "오디오"
+        ],
+        "analogy": "클린한 디지털 캔버스로 옮겨진 고급 녹음 스튜디오 인터페이스",
+        "oneLiner": "클린하고 따뜻하며 약간 장난스러운 미학을 지닌 프리미엄 AI 오디오 플랫폼입니다."
+      },
+      "colors": {
+        "principle": "따뜻한 중성색 위에 고대비 잉크를 사용하고, 강조를 위해 부드러운 유기적 그라데이션을 적용합니다"
+      },
+      "typography": {
+        "rules": [],
+        "scaleUses": [
+          "메인 히어로 헤드라인",
+          "섹션 제목",
+          "본문 텍스트",
+          "보조 텍스트 및 레이블"
+        ]
+      },
+      "spacing": {
+        "rhythm": "패딩과 간격을 위해 8px 및 16px 단위를 일관되게 사용합니다"
+      },
+      "surfaces": {
+        "shadows": [
+          "0 1px 2px 0 rgba(0,0,0,0.04)",
+          "0 2px 4px 0 rgba(0,0,0,0.04)",
+          "0 0 0 1px rgba(0,0,0,0.06)"
+        ],
+        "borders": "매우 미세한 1px 테두리, rgba(0,0,0,0.05) 또는 rgb(229,229,229) 사용"
+      },
+      "layout": {
+        "skeleton": "여백을 넉넉히 두고 중앙 정렬된 컨테이너를 사용하는 클린한 단일 컬럼 레이아웃"
+      },
+      "components": {
+        "button": "알약 모양(반지름 9999px), 1차는 검정색 배경, 2차는 흰색/아웃라인",
+        "card": "밝은 회색 배경, 매우 미세한 border-radius(20px) 및 부드러운 그림자",
+        "chip": "알약 모양, 1px 테두리 및 투명 배경",
+        "input": "클린한 디자인, 1px 미세한 테두리 및 둥근 모서리",
+        "hero": "좌측 정렬된 크고 볼드한 헤드라인, 보조 텍스트 및 알약 모양 버튼 포함"
+      },
+      "motion": {
+        "patterns": [
+          "hover 시 색상 및 배경에 대한 부드러운 전환"
+        ]
+      },
+      "interaction": {
+        "hover": "0.15s 지속시간으로 색상 및 배경색 전환",
+        "click": "미세한 transform 또는 opacity 변경",
+        "transition": "모든 속성에 cubic-bezier(0.4, 0, 0.2, 1) 사용",
+        "keyboard": "표준 포커스 가능 요소와 명확한 포커스 상태"
+      },
+      "voice": {
+        "tone": "전문적이고 혁신적이며 약간 장난스러운 어조",
+        "headlineStyle": "좁은 자간의 크고 볼드한 기하학적 sans-serif 헤드라인",
+        "ctaStyle": "1차 액션용 검정색 채우기가 적용된 알약 모양 버튼",
+        "avoid": [
+          "화려한 색상",
+          "공격적인 타이포그래피",
+          "복잡한 레이아웃",
+          "히어로 카피에 기술적 전문 용어 사용"
+        ]
+      },
+      "donts": [
+        "순백(#FFFFFF) 배경을 사용하지 마세요 — 스크린샷에서는 따뜻한 오프화이트(#FDFCFC)를 사용합니다",
+        "날카로운 모서리를 사용하지 마세요 — 스크린샷에서는 대형 카드에 20px, 버튼에 9999px 반지름을 사용합니다",
+        "고채도 강조색을 사용하지 마세요 — 스크린샷에서는 유기적이고 부드러운 그라데이션을 사용합니다",
+        "헤드라인에 얇고 가벼운 폰트를 사용하지 마세요 — 스크린샷에서는 디스플레이 텍스트에 500 웨이트를 사용합니다",
+        "복잡한 배경을 사용하지 마세요 — 스크린샷에서는 클린하고 대부분 평면적인 표면을 사용합니다",
+        "좁은 간격을 사용하지 마세요 — 스크린샷에서는 넉넉한 패딩(상단 160px)과 간격(48px)을 사용합니다"
+      ],
+      "systemPrompt": "기업과 크리에이터를 위한 프리미엄 AI 오디오 플랫폼(SaaS)입니다. 주요 색상은 배경용 따뜻한 오프화이트(#FDFCFC), 잉크용 검정(#000000), 그리고 부드러운 무채색(#777169, #EBE8E4)입니다. 타이포그래피는 디스플레이용 기하학적 sans-serif와 본문용 휴머니스트 sans-serif를 결합합니다. 중요 주의사항: 순백 배경 사용 금지, 버튼에 9999px 알약 반지름 사용, 절대로 고채도 강조색 사용 금지, 넉넉한 여백 사용, 디스플레이 텍스트에 500 폰트 웨이트 사용, 복잡한 배경 패턴 사용 금지."
     }
   }
 }

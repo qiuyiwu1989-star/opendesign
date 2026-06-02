@@ -17,44 +17,74 @@
   "_meta": {
     "vision_model": "mimo-v2.5",
     "vision_prompt_version": "0.3",
-    "vision_at": "2026-05-28T21:58:26+00:00",
-    "vision_tokens": 3044,
-    "vision_cost_usd": 0.0338,
+    "vision_at": "2026-05-30T10:51:10+00:00",
+    "vision_tokens": 16920,
+    "vision_cost_usd": 0.188,
     "translation_model": "mimo-v2.5",
-    "translation_at": "2026-05-28T21:59:03+00:00",
-    "translation_tokens": 12429,
-    "translation_cost_usd": 0.0415,
+    "translation_at": "2026-05-30T10:52:00+00:00",
+    "translation_tokens": 22309,
+    "translation_cost_usd": 0.0744,
     "narrative_model": "mimo-v2.5",
     "narrative_prompt_version": "0.3",
     "narrative_at": "2026-05-28T21:59:08+00:00",
     "narrative_tokens": 1627,
     "narrative_cost_usd": 0.0108,
     "narrative_status": "ok",
-    "total_cost_usd": 0.0861
+    "total_cost_usd": 0.2732,
+    "vision_source": "playwright-extract:bugatti",
+    "vision_grounded": true
   },
   "spec": {
     "colors": {
-      "bg": "#FFFFFF",
+      "bg": "#000000",
       "bgSoft": null,
       "bgQuiet": null,
-      "ink": "#000000",
+      "ink": "#FFFFFF",
       "inkSoft": null,
-      "muted": "#888888",
+      "muted": "#999999",
       "mutedSoft": null,
       "accent": null,
-      "line": "rgba(0,0,0,0)"
+      "line": "rgba(255,255,255,0.2)"
     },
     "typography": {
-      "display": "system-ui",
-      "body": "system-ui",
+      "display": "humanist-sans",
+      "body": "humanist-sans",
       "mono": "monospace",
       "scale": [
         {
           "token": "display",
+          "size": 60,
+          "lh": 1.0,
+          "weight": 400,
+          "ls": "-1px"
+        },
+        {
+          "token": "headline",
+          "size": 36,
+          "lh": 1.11,
+          "weight": 400,
+          "ls": "0"
+        },
+        {
+          "token": "body",
           "size": 16,
           "lh": 1.5,
           "weight": 400,
-          "ls": "0px"
+          "ls": "0"
+        },
+        {
+          "token": "caption",
+          "size": 14,
+          "lh": 1.43,
+          "weight": 400,
+          "ls": "0"
+        },
+        {
+          "token": "micro",
+          "size": 12,
+          "lh": 1.33,
+          "weight": 400,
+          "ls": "1.2px"
         }
       ]
     },
@@ -63,9 +93,10 @@
       "scale": [
         4,
         8,
+        12,
         16,
         24,
-        32,
+        36,
         48,
         64,
         96
@@ -73,17 +104,17 @@
     },
     "surfaces": {
       "radius": {
-        "sm": 0,
-        "md": 0,
-        "lg": 0,
-        "pill": 999
+        "sm": 4,
+        "md": 6,
+        "lg": 8,
+        "pill": 9999
       }
     },
     "layout": {
-      "container": 1200,
-      "paragraph": 800,
-      "columns": 1,
-      "gutter": 0,
+      "container": 1440,
+      "paragraph": 680,
+      "columns": 2,
+      "gutter": 36,
       "breakpoints": [
         768,
         1024
@@ -91,387 +122,20 @@
     },
     "motion": {
       "durations": {
-        "micro": 1000,
-        "small": 1000,
-        "medium": 1000
+        "micro": 150,
+        "small": 300,
+        "medium": 700
       },
-      "easing": "linear"
-    }
-  },
-  "spec_i18n": {
-    "en": {
-      "identity": {
-        "keywords": [
-          "automotive",
-          "luxury",
-          "high-performance",
-          "minimalist",
-          "security"
-        ],
-        "analogy": "A sterile, white laboratory waiting for permission to proceed",
-        "oneLiner": "A utilitarian browser verification gate with zero brand expression."
-      },
-      "colors": {
-        "principle": "Absolute monochrome functional clarity"
-      },
-      "typography": {
-        "rules": [
-          "Use system-default sans-serif for all text",
-          "Use monospace for technical identifiers"
-        ],
-        "scaleUses": [
-          "Verification message"
-        ]
-      },
-      "spacing": {
-        "rhythm": "Default browser stacking"
-      },
-      "surfaces": {
-        "shadows": [],
-        "borders": "None visible"
-      },
-      "layout": {
-        "skeleton": "Single centered column with absolute centering"
-      },
-      "components": {
-        "button": "None visible",
-        "card": "None visible",
-        "chip": "None visible",
-        "input": "None visible",
-        "hero": "Centered loading spinner with text below"
-      },
-      "motion": {
-        "patterns": [
-          "Spinner rotation",
-          "Text fade-in"
-        ]
-      },
-      "interaction": {
-        "hover": "None",
-        "click": "None",
-        "transition": "Automatic redirect after verification",
-        "keyboard": "None"
-      },
-      "voice": {
-        "tone": "Neutral, technical",
-        "headlineStyle": "Simple declarative statement",
-        "ctaStyle": "None",
-        "avoid": [
-          "Brand language",
-          "Marketing",
-          "Emotional appeals"
-        ]
-      },
-      "donts": [
-        "Don't apply brand colors — screenshot shows pure black and white",
-        "Don't use decorative typography — screenshot uses system fonts only",
-        "Don't add visual flourishes — screenshot is entirely utilitarian",
-        "Don't include navigation or UI controls — screenshot has none",
-        "Don't use rounded corners — screenshot has no shaped elements",
-        "Don't apply shadows or depth — screenshot is completely flat"
-      ],
-      "systemPrompt": "This is a Vercel browser verification checkpoint, not the actual Bugatti website. It serves as a security gateway before accessing the site. The design is purely functional with a white background, black system text, and a grey loading spinner. There is zero brand expression or design DNA to extract. Key colors are #FFFFFF background and #000000 text with #888888 muted text at the bottom. Typography is system-ui sans-serif for the main message and monospace for the technical identifier string. Critical donts: don't apply any brand styling, don't add decorative elements, don't use non-system fonts, don't add color accents, don't create complex layouts, don't include interactive elements beyond the spinner."
-    },
-    "zh-CN": {
-      "identity": {
-        "keywords": [
-          "汽车",
-          "奢华",
-          "高性能",
-          "极简",
-          "安全"
-        ],
-        "analogy": "一个等待许可进入的无菌白色实验室",
-        "oneLiner": "一个零品牌表达的实用浏览器验证门。"
-      },
-      "colors": {
-        "principle": "绝对单色的功能清晰度"
-      },
-      "typography": {
-        "rules": [
-          "所有文本使用系统默认无衬线字体",
-          "技术标识符使用等宽字体"
-        ],
-        "scaleUses": [
-          "验证信息"
-        ]
-      },
-      "spacing": {
-        "rhythm": "默认浏览器堆叠"
-      },
-      "surfaces": {
-        "shadows": [],
-        "borders": "无可见边框"
-      },
-      "layout": {
-        "skeleton": "单一居中列，绝对居中"
-      },
-      "components": {
-        "button": "无可见元素",
-        "card": "无可见元素",
-        "chip": "无可见元素",
-        "input": "无可见元素",
-        "hero": "居中加载旋转器，下方带文本"
-      },
-      "motion": {
-        "patterns": [
-          "旋转器旋转",
-          "文本淡入"
-        ]
-      },
-      "interaction": {
-        "hover": "无",
-        "click": "无",
-        "transition": "验证后自动重定向",
-        "keyboard": "无"
-      },
-      "voice": {
-        "tone": "中性、技术性",
-        "headlineStyle": "简单陈述句",
-        "ctaStyle": "无",
-        "avoid": [
-          "品牌语言",
-          "营销用语",
-          "情感诉求"
-        ]
-      },
-      "donts": [
-        "勿应用品牌色彩——截图显示纯黑白",
-        "勿使用装饰性字体——截图仅用系统字体",
-        "勿添加视觉修饰——截图完全实用导向",
-        "勿包含导航或UI控件——截图中没有",
-        "勿使用圆角——截图中没有形状元素",
-        "勿应用阴影或深度——截图完全扁平"
-      ],
-      "systemPrompt": "这是Vercel浏览器验证检查点，并非实际的Bugatti网站。它在访问网站前充当安全网关。设计纯粹功能化，白底黑字系统文本，灰色加载旋转器。零品牌表达或可提取的设计DNA。关键颜色为#FFFFFF背景、#000000文本及底部#888888柔和文本。字体为系统UI无衬线字体用于主信息，等宽字体用于技术标识字符串。关键禁忌：勿应用任何品牌样式、勿添加装饰元素、勿使用非系统字体、勿添加色彩点缀、勿创建复杂布局、勿包含旋转器以外的交互元素。"
-    },
-    "zh-TW": {
-      "identity": {
-        "keywords": [
-          "汽車",
-          "奢華",
-          "高性能",
-          "極簡主義",
-          "安全性"
-        ],
-        "analogy": "一個等待獲准進入的潔淨白色實驗室",
-        "oneLiner": "實用導向的瀏覽器驗證閘道，無任何品牌表達。"
-      },
-      "colors": {
-        "principle": "絕對單色調的功能性清晰度"
-      },
-      "typography": {
-        "rules": [
-          "所有文字使用系統預設無襯線字體",
-          "技術標識碼使用等寬字體"
-        ],
-        "scaleUses": [
-          "驗證訊息"
-        ]
-      },
-      "spacing": {
-        "rhythm": "預設瀏覽器堆疊間距"
-      },
-      "surfaces": {
-        "shadows": [],
-        "borders": "無可見邊框"
-      },
-      "layout": {
-        "skeleton": "單欄置中版面，採用絕對置中"
-      },
-      "components": {
-        "button": "無可見按鈕",
-        "card": "無可見卡片",
-        "chip": "無可見標籤",
-        "input": "無可見輸入框",
-        "hero": "置中載入旋轉器，下方配有文字"
-      },
-      "motion": {
-        "patterns": [
-          "旋轉器旋轉",
-          "文字淡入"
-        ]
-      },
-      "interaction": {
-        "hover": "無",
-        "click": "無",
-        "transition": "驗證後自動重新導向",
-        "keyboard": "無"
-      },
-      "voice": {
-        "tone": "中性、技術性",
-        "headlineStyle": "簡約陳述句",
-        "ctaStyle": "無",
-        "avoid": [
-          "品牌用語",
-          "行銷用語",
-          "情感訴求"
-        ]
-      },
-      "donts": [
-        "勿套用品牌色彩——截圖顯示純黑與純白",
-        "勿使用裝飾性字體——截圖僅使用系統字型",
-        "勿添加視覺修飾——截圖完全為實用功能導向",
-        "勿包含導覽或介面控制項——截圖中無此元素",
-        "勿使用圓角——截圖中無造型元素",
-        "勿套用陰影或景深——截圖為完全平面化設計"
-      ],
-      "systemPrompt": "這是 Vercel 瀏覽器驗證檢查點，並非實際的 Bugatti 網站。它作為進入網站前的安全閘道。設計純粹功能導向，採用白色背景、黑色系統文字與灰色載入旋轉器。無任何品牌表達或設計 DNA 可提取。關鍵色彩為 #FFFFFF 背景、#000000 文字，底部有 #888888 柔和文字。字型方面，主要訊息使用 system-ui 無襯線字體，技術標識字串使用等寬字體。關鍵禁忌：勿套用任何品牌風格，勿添加裝飾元素，勿使用非系統字型，勿添加色彩強調，勿建立複雜版面，勿包含旋轉器以外的互動元素。"
-    },
-    "ja": {
-      "identity": {
-        "keywords": [
-          "自動車",
-          "ラグジュアリー",
-          "ハイパフォーマンス",
-          "ミニマリスト",
-          "セキュリティ"
-        ],
-        "analogy": "進行を許可されるのを待つ、無菌の白色ラボ",
-        "oneLiner": "ブランド表現のない、実用的なブラウザ検証ゲート。"
-      },
-      "colors": {
-        "principle": "絶対的なモノクロームの機能的明瞭さ"
-      },
-      "typography": {
-        "rules": [
-          "全テキストにシステムデフォルトのsans-serifを使用",
-          "技術識別子にはmonospaceを使用"
-        ],
-        "scaleUses": [
-          "検証メッセージ"
-        ]
-      },
-      "spacing": {
-        "rhythm": "デフォルトのブラウザスタッキング"
-      },
-      "surfaces": {
-        "shadows": [],
-        "borders": "不可視"
-      },
-      "layout": {
-        "skeleton": "単一の中央揃えカラム、絶対的なセンタリング"
-      },
-      "components": {
-        "button": "不可視",
-        "card": "不可視",
-        "chip": "不可視",
-        "input": "不可視",
-        "hero": "中央配置の読み込みスピナー、その下にテキスト"
-      },
-      "motion": {
-        "patterns": [
-          "スピナー回転",
-          "テキストフェードイン"
-        ]
-      },
-      "interaction": {
-        "hover": "なし",
-        "click": "なし",
-        "transition": "検証後の自動リダイレクト",
-        "keyboard": "なし"
-      },
-      "voice": {
-        "tone": "中立的、技術的",
-        "headlineStyle": "単純な宣言的文",
-        "ctaStyle": "なし",
-        "avoid": [
-          "ブランド言語",
-          "マーケティング",
-          "感情的な訴求"
-        ]
-      },
-      "donts": [
-        "ブランドカラーを適用しない — スクリーンショットは純粋な白黒",
-        "装飾的なタイポグラフィを使用しない — スクリーンショットはシステムフォントのみ",
-        "視覚的な装飾を追加しない — スクリーンショットは完全に実用的",
-        "ナビゲーションやUIコントロールを含めない — スクリーンショットにはない",
-        "角丸を使用しない — スクリーンショットには形状付き要素がない",
-        "影や奥行きを適用しない — スクリーンショットは完全にフラット"
-      ],
-      "systemPrompt": "これはVercelのブラウザ検証チェックポイントであり、実際のBugattiウェブサイトではありません。サイトへのアクセス前のセキュリティゲートとして機能します。デザインは完全に機能的で、白い背景、黒いシステムテキスト、グレーの読み込みスピナーで構成されています。抽出すべきブランド表現やデザインDNAはゼロです。主要カラーは背景#FFFFFF、テキスト#000000、下部の控えめなテキスト#888888です。タイポグラフィはメインメッセージにsystem-ui sans-serif、技術識別子文字列にmonospaceを使用しています。重要な禁止事項：ブランドスタイルを適用しない、装飾要素を追加しない、システムフォント以外を使用しない、カラーアクセントを追加しない、複雑なレイアウトを作成しない、スピナー以外のインタラクティブ要素を含めない。"
-    },
-    "ko": {
-      "identity": {
-        "keywords": [
-          "자동차",
-          "럭셔리",
-          "고성능",
-          "미니멀리즘",
-          "보안"
-        ],
-        "analogy": "진행 허가를 기다리는 무균 상태의 흰색 연구실과 같습니다.",
-        "oneLiner": "모든 브랜드 표현을 배제한 실용적인 브라우저 검증 게이트입니다."
-      },
-      "colors": {
-        "principle": "기능적 명확성을 위한 절대적 모노크롬"
-      },
-      "typography": {
-        "rules": [
-          "모든 텍스트에 시스템 기본 sans-serif 사용",
-          "기술 식별자에는 monospace 사용"
-        ],
-        "scaleUses": [
-          "검증 메시지"
-        ]
-      },
-      "spacing": {
-        "rhythm": "기본 브라우저 스택킹"
-      },
-      "surfaces": {
-        "shadows": [],
-        "borders": "보이는 테두리 없음"
-      },
-      "layout": {
-        "skeleton": "절대 중앙 정렬이 적용된 단일 중앙 열"
-      },
-      "components": {
-        "button": "보이는 요소 없음",
-        "card": "보이는 요소 없음",
-        "chip": "보이는 요소 없음",
-        "input": "보이는 요소 없음",
-        "hero": "텍스트가 아래에 위치한 중앙 정렬 로딩 스피너"
-      },
-      "motion": {
-        "patterns": [
-          "스피너 회전",
-          "텍스트 페이드인"
-        ]
-      },
-      "interaction": {
-        "hover": "없음",
-        "click": "없음",
-        "transition": "검증 후 자동 리디렉션",
-        "keyboard": "없음"
-      },
-      "voice": {
-        "tone": "중립적, 기술적",
-        "headlineStyle": "단순 선언문",
-        "ctaStyle": "없음",
-        "avoid": [
-          "브랜드 언어",
-          "마케팅",
-          "감성적 호소"
-        ]
-      },
-      "donts": [
-        "브랜드 색상을 적용하지 마세요 — 스크린샷은 순수한 흑백입니다",
-        "장식적 타이포그래피를 사용하지 마세요 — 스크린샷은 시스템 폰트만 사용합니다",
-        "시각적 장식을 추가하지 마세요 — 스크린샷은 완전히 실용적입니다",
-        "내비게이션이나 UI 컨트롤을 포함하지 마세요 — 스크린샷에는 없습니다",
-        "둥근 모서리를 사용하지 마세요 — 스크린샷에는 형태가 있는 요소가 없습니다",
-        "그림자나 깊이감을 적용하지 마세요 — 스크린샷은 완전히 플랫합니다"
-      ],
-      "systemPrompt": "이것은 Vercel 브라우저 검증 체크포인트이며, 실제 Bugatti 웹사이트가 아닙니다. 사이트 접속 전 보안 게이트 역할을 합니다. 디자인은 흰색 배경, 검정색 시스템 텍스트, 회색 로딩 스피너로 구성된 순수 기능적입니다. 추출할 브랜드 표현이나 디자인 DNA는 전혀 없습니다. 핵심 색상은 배경 #FFFFFF, 텍스트 #000000, 하단 흐린 텍스트 #888888입니다. 타이포그래피는 주 메시지에 시스템-ui sans-serif, 기술 식별자 문자열에는 monospace를 사용합니다. 중요 참고사항: 어떤 브랜드 스타일링도 적용하지 마세요, 장식 요소를 추가하지 마세요, 시스템 이외의 폰트를 사용하지 마세요, 색상 강조를 추가하지 마세요, 복잡한 레이아웃을 만들지 마세요, 스피너 외의 인터랙티브 요소를 포함하지 마세요."
+      "easing": "cubic-bezier(0.4, 0, 0.2, 1)"
     }
   },
   "desc": {
     "en": {
-      "palette": "Pure monochrome with white background, black text, and grey muted elements.",
-      "layout": "Single centered column with vertically and horizontally centered content on a blank canvas.",
-      "interaction": "Automated browser verification with loading spinner animation and redirect.",
-      "motion": "Simple continuous rotation of the loading indicator.",
-      "notes": "This is a functional security gate rather than a designed webpage, making it a useful reference for minimal verification states but not for brand design patterns."
+      "palette": "Pure black and white with photographic imagery providing all color variation.",
+      "layout": "Full-viewport hero sections with clean two-column grid for vehicle showcase cards.",
+      "interaction": "Minimal and restrained with subtle transitions, ghost buttons, and standard hover states.",
+      "motion": "Cubic-bezier easing for all transitions with extended durations for premium feel.",
+      "notes": "Excellent example of luxury automotive digital design that proves restraint and premium positioning can be achieved with minimal color and typography."
     },
     "zh-CN": {
       "palette": "纯单色，白底黑字，灰色为柔和元素。",
@@ -562,6 +226,433 @@
       "ch7_intro": "모션 철학은 순전히 기능적이고 연속적입니다. 유일한 패턴은 스피너 회전이며, 간단한 텍스트 페이드인과 결합되어 인증 후 자동 리디렉션을 알립니다.",
       "ch8_intro": "목소리는 중립적이고 기술적이며 선언적입니다. 헤드라인은 단순한 진술이며, 어조는 브랜드 언어, 마케팅, 감정적 호소를 모두 회피합니다.",
       "ch8_outro": "모든 브랜드 표현, 인터랙티브 컨트롤, 장식 요소를 의도적으로 포기하여 순수한 보안 유틸리티로 남습니다."
+    }
+  },
+  "spec_i18n": {
+    "en": {
+      "identity": {
+        "keywords": [
+          "luxury",
+          "heritage",
+          "precision",
+          "automotive",
+          "exclusivity"
+        ],
+        "analogy": "A high-end automotive magazine meets a luxury fashion house",
+        "oneLiner": "Ultra-premium automotive brand experience with cinematic imagery and restrained elegance"
+      },
+      "colors": {
+        "principle": "Stark black-and-white contrast with photographic imagery providing all color"
+      },
+      "typography": {
+        "rules": [
+          "All text is white on black backgrounds",
+          "Uppercase used sparingly for navigation and labels",
+          "Generous letter-spacing on uppercase text elements"
+        ],
+        "scaleUses": [
+          "hero headlines",
+          "section titles",
+          "primary body text",
+          "secondary text",
+          "navigation labels and metadata"
+        ]
+      },
+      "spacing": {
+        "rhythm": "Consistent 4px base unit with generous whitespace for luxury feel"
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(0,0,0,0) 0px 0px 0px 0px",
+          "rgba(0,0,0,0.1) 0px 10px 15px -3px",
+          "rgba(0,0,0,0.1) 0px 4px 6px -4px"
+        ],
+        "borders": "1px solid rgba(255,255,255,0.2) for interactive elements, otherwise borderless"
+      },
+      "layout": {
+        "skeleton": "Full-bleed hero sections with 2-column grid for vehicle cards"
+      },
+      "components": {
+        "button": "Minimal ghost buttons with 1px white border, pill-shaped or rectangular with 6px radius",
+        "card": "Full-bleed image cards with text overlay, no visible container borders",
+        "chip": "Not prominently used",
+        "input": "Not prominently used",
+        "hero": "Full-viewport cinematic imagery with centered white text, vertical rhythm"
+      },
+      "motion": {
+        "patterns": [
+          "Fade transitions for state changes",
+          "Transform-based hover effects",
+          "Extended timing for page transitions"
+        ]
+      },
+      "interaction": {
+        "hover": "Subtle opacity or color transitions",
+        "click": "Immediate feedback with reduced opacity",
+        "transition": "All properties with 0.15s or 0.3s cubic-bezier easing",
+        "keyboard": "Standard focus management"
+      },
+      "voice": {
+        "tone": "Authoritative, prestigious, understated",
+        "headlineStyle": "Direct and declarative with mixed case or uppercase",
+        "ctaStyle": "Action-oriented with imperative verbs like 'Witness' or 'Explore'",
+        "avoid": [
+          "Informal language",
+          "Excessive exclamation marks",
+          "Cluttered layouts",
+          "Bright color accents",
+          "Decorative typography"
+        ]
+      },
+      "donts": [
+        "Don't use multiple font weights — screenshot shows consistent weight 400 throughout",
+        "Don't add decorative borders or shadows — screenshot shows minimal to no elevation",
+        "Don't use color accents — screenshot relies entirely on black, white, and photographic colors",
+        "Don't crowd content — screenshot shows generous whitespace between all elements",
+        "Don't use lowercase for navigation — screenshot shows MENU, STORE, WITNESS THE LEGEND all uppercase",
+        "Don't create busy layouts — screenshot shows clean single-column or two-column grid structures"
+      ],
+      "systemPrompt": "Bugatti.com is a luxury automotive brand website with ultra-premium positioning. The design uses a stark black-and-white palette (#000000 background, #FFFFFF text) with cinematic automotive photography providing all visual interest. Typography is humanist-sans-serif at consistent weight 400, with display sizes up to 60px for hero headlines. Layout is minimal with full-bleed sections and generous whitespace. Interactive elements use subtle ghost buttons with white borders. The site exudes restraint and heritage. Critical donts: never use bright color accents, never add decorative shadows or borders, never crowd content with busy layouts, never use multiple font weights, never use lowercase navigation labels, never compromise the generous whitespace."
+    },
+    "zh-CN": {
+      "identity": {
+        "keywords": [
+          "奢华",
+          "传承",
+          "精准",
+          "汽车",
+          "专属"
+        ],
+        "analogy": "高端汽车杂志与奢侈时尚品牌的结合",
+        "oneLiner": "以电影般的影像和克制的优雅，打造超高端汽车品牌体验"
+      },
+      "colors": {
+        "principle": "黑白鲜明对比，所有色彩均来自摄影图像"
+      },
+      "typography": {
+        "rules": [
+          "所有文字均为黑底白字",
+          "大写仅用于导航和标签，且需节制使用",
+          "大写文本元素需提供充足的字间距"
+        ],
+        "scaleUses": [
+          "主视觉标题",
+          "版块标题",
+          "主要正文",
+          "次要文本",
+          "导航标签与元数据"
+        ]
+      },
+      "spacing": {
+        "rhythm": "基于4px的统一单位，以充足的留白营造奢华感"
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(0,0,0,0) 0px 0px 0px 0px",
+          "rgba(0,0,0,0.1) 0px 10px 15px -3px",
+          "rgba(0,0,0,0.1) 0px 4px 6px -4px"
+        ],
+        "borders": "交互元素使用1px实线 rgba(255,255,255,0.2) 边框，其他元素无边框"
+      },
+      "layout": {
+        "skeleton": "全幅主视觉区域，车辆卡片采用双列网格布局"
+      },
+      "components": {
+        "button": "极简幽灵按钮，1px白色边框，药丸形或6px圆角矩形",
+        "card": "全幅图像卡片叠加文字，无可见容器边框",
+        "chip": "未显著使用",
+        "input": "未显著使用",
+        "hero": "全视口电影感影像，居中白色文字，垂直节奏"
+      },
+      "motion": {
+        "patterns": [
+          "状态变化使用淡入淡出过渡",
+          "基于变换的悬停效果",
+          "页面切换使用较长的过渡时间"
+        ]
+      },
+      "interaction": {
+        "hover": "细微的透明度或颜色过渡",
+        "click": "立即反馈，降低透明度",
+        "transition": "所有属性使用0.15s或0.3s cubic-bezier缓动",
+        "keyboard": "标准焦点管理"
+      },
+      "voice": {
+        "tone": "权威、尊贵、内敛",
+        "headlineStyle": "直接且陈述性的，大小写混合或全大写",
+        "ctaStyle": "以动作为导向，使用祈使动词，如“见证”或“探索”",
+        "avoid": [
+          "非正式语言",
+          "过多的感叹号",
+          "杂乱的布局",
+          "明亮的色彩点缀",
+          "装饰性字体"
+        ]
+      },
+      "donts": [
+        "勿使用多种字重——截图显示全文档均使用一致的400字重",
+        "勿添加装饰性边框或阴影——截图显示极少或没有立体效果",
+        "勿使用色彩点缀——截图完全依赖黑、白及摄影图像的色彩",
+        "勿使内容拥挤——截图显示所有元素间留有充足的空白",
+        "勿使用小写导航——截图显示“菜单”、“商店”、“见证传奇”均为全大写",
+        "勿创建繁杂的布局——截图显示为简洁的单列或双列网格结构"
+      ],
+      "systemPrompt": "Bugatti.com 是一个超高端定位的奢侈汽车品牌网站。设计采用黑白鲜明的配色方案（#000000背景，#FFFFFF文字），所有视觉焦点均来自电影感的汽车摄影。字体为humanist-sans-serif，统一使用400字重，主视觉标题尺寸最大可达60px。布局极简，采用全幅区域和充足的留白。交互元素使用带白色边框的细微幽灵按钮。网站整体散发出克制与传承的气息。关键禁忌：绝不要使用明亮的色彩点缀，绝不要添加装饰性阴影或边框，绝不要用繁杂的布局挤占内容，绝不要使用多种字重，绝不要使用小写导航标签，绝不要牺牲充足的留白。"
+    },
+    "zh-TW": {
+      "identity": {
+        "keywords": [
+          "奢華",
+          "傳承",
+          "精準",
+          "汽車",
+          "獨特性"
+        ],
+        "analogy": "頂級汽車雜誌遇上奢華時裝品牌",
+        "oneLiner": "結合電影級影像與內斂優雅的超高端汽車品牌體驗"
+      },
+      "colors": {
+        "principle": "強烈的黑白對比，色彩完全來自攝影影像"
+      },
+      "typography": {
+        "rules": [
+          "所有文字在黑色背景上使用白色",
+          "僅導航與標籤處謹慎使用大寫",
+          "大寫文字元素使用寬鬆的字間距"
+        ],
+        "scaleUses": [
+          "主視覺標題",
+          "章節標題",
+          "主要內文",
+          "輔助文字",
+          "導航標籤與中繼資料"
+        ]
+      },
+      "spacing": {
+        "rhythm": "以 4px 為基礎單位，搭配寬裕的留白以營造奢華感"
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(0,0,0,0) 0px 0px 0px 0px",
+          "rgba(0,0,0,0.1) 0px 10px 15px -3px",
+          "rgba(0,0,0,0.1) 0px 4px 6px -4px"
+        ],
+        "borders": "互動元素使用 1px solid rgba(255,255,255,0.2) 邊框，其餘無邊框"
+      },
+      "layout": {
+        "skeleton": "全出血主視覺區域，車輛卡片採用雙欄格線"
+      },
+      "components": {
+        "button": "極簡幽靈按鈕，搭配 1px 白色邊框，藥丸形或矩形圓角 6px",
+        "card": "全出血圖片卡片搭配文字覆層，無可見容器邊框",
+        "chip": "未顯著使用",
+        "input": "未顯著使用",
+        "hero": "全視野電影級影像，置中白色文字，垂直節奏"
+      },
+      "motion": {
+        "patterns": [
+          "狀態變更時使用淡入淡出轉場",
+          "基於 transform 的 hover 效果",
+          "頁面轉場使用較長的過渡時間"
+        ]
+      },
+      "interaction": {
+        "hover": "細微的透明度或色彩過渡",
+        "click": "立即回饋，降低透明度",
+        "transition": "所有屬性使用 0.15s 或 0.3s cubic-bezier 緩動",
+        "keyboard": "標準的 focus 管理"
+      },
+      "voice": {
+        "tone": "權威、尊貴、內斂",
+        "headlineStyle": "直接陳述式，大小寫混合或全大寫",
+        "ctaStyle": "以行動為導向，使用祈使動詞如「見證」或「探索」",
+        "avoid": [
+          "非正式語言",
+          "過多的驚嘆號",
+          "擁擠的版面配置",
+          "鮮豔的色彩強調",
+          "裝飾性字體排印"
+        ]
+      },
+      "donts": [
+        "不要使用多種字重 — 截圖顯示全程使用一致的 400 字重",
+        "不要添加裝飾性邊框或陰影 — 截圖顯示極簡或無凸起效果",
+        "不要使用色彩強調 — 截圖完全依賴黑、白與攝影色彩",
+        "不要擁擠內容 — 截圖顯示所有元素間有寬裕的留白",
+        "不要使用小寫導航 — 截圖顯示 MENU、STORE、WITNESS THE LEGEND 全為大寫",
+        "不要製作複雜的版面配置 — 截圖顯示乾淨的單欄或雙欄格線結構"
+      ],
+      "systemPrompt": "Bugatti.com 是一個具有超高端定位的奢華汽車品牌網站。設計使用強烈的黑白配色（#000000 背景、#FFFFFF 文字），電影級的汽車攝影提供所有視覺吸引力。字體為 humanist-sans-serif，保持一致的 400 字重，主視覺標題的展示尺寸最大可達 60px。版面極簡，採用全出血區域與寬裕的留白。互動元素使用帶白色邊框的細微幽靈按鈕。網站散發著內斂與傳承氣息。關鍵禁忌：切勿使用鮮豔的色彩強調，切勿添加裝飾性陰影或邊框，切勿以複雜的版面配置擁擠內容，切勿使用多種字重，切勿使用小寫導航標籤，切勿犧牲寬裕的留白。"
+    },
+    "ja": {
+      "identity": {
+        "keywords": [
+          "高級",
+          "遺産",
+          "精密",
+          "自動車",
+          "排他性"
+        ],
+        "analogy": "ハイエンドの自動車雑誌とラグジュアリーファッションハウスの融合",
+        "oneLiner": "シネマティックな画像と控えめなエレガンスによる、超プレミアムな自動車ブランド体験"
+      },
+      "colors": {
+        "principle": "写真画像が全ての色彩を提供する、鮮明な白と黒の対比"
+      },
+      "typography": {
+        "rules": [
+          "全テキストは黒背景に白文字",
+          "ナビゲーションとラベルに大文字を控えめに使用",
+          "大文字テキスト要素に適度な文字間隔を設定"
+        ],
+        "scaleUses": [
+          "ヒーローヘッドライン",
+          "セクションタイトル",
+          "主本文テキスト",
+          "サブテキスト",
+          "ナビゲーションラベルとメタデータ"
+        ]
+      },
+      "spacing": {
+        "rhythm": "一定の4pxベース単位と、高級感を演出する広めの余白"
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(0,0,0,0) 0px 0px 0px 0px",
+          "rgba(0,0,0,0.1) 0px 10px 15px -3px",
+          "rgba(0,0,0,0.1) 0px 4px 6px -4px"
+        ],
+        "borders": "インタラクティブ要素には1px solid rgba(255,255,255,0.2)、それ以外はボーダーレス"
+      },
+      "layout": {
+        "skeleton": "フルブリードヒーローセクションと、車両カード用の2カラムグリッド"
+      },
+      "components": {
+        "button": "1pxの白いボーダーを持つミニマルなゴーストボタン。ピル型または6pxの角丸を持つ長方形",
+        "card": "テキストオーバーレイを持つフルブリード画像カード。目に見えるコンテナボーダーなし",
+        "chip": "目立った使用なし",
+        "input": "目立った使用なし",
+        "hero": "中央揃えの白文字を持つ、フルビューポートのシネマティックな画像と垂直リズム"
+      },
+      "motion": {
+        "patterns": [
+          "状態変化のためのフェードトランジション",
+          "トランスフォームベースのホバーエフェクト",
+          "ページ遷移のための延長タイミング"
+        ]
+      },
+      "interaction": {
+        "hover": "微細な不透明度または色の遷移",
+        "click": "不透明度を下げた即座のフィードバック",
+        "transition": "全プロパティに0.15sまたは0.3sのcubic-bezierイージング",
+        "keyboard": "標準的なフォーカス管理"
+      },
+      "voice": {
+        "tone": "威厳があり、高名で、控えめ",
+        "headlineStyle": "混合ケースまたは大文字による直接的で宣言的なスタイル",
+        "ctaStyle": "「Witness」や「Explore」のような命令形動詞を使った行動指向",
+        "avoid": [
+          "非公式な言語",
+          "過度な感嘆符",
+          "雑然としたレイアウト",
+          "明るいカラーアクセント",
+          "装飾的なタイポグラフィ"
+        ]
+      },
+      "donts": [
+        "複数のフォントウェイトを使用しない — スクリーンショットでは一貫してウェイト400が使用されている",
+        "装飾的なボーダーまたはシャドウを追加しない — スクリーンショットでは最小限からなしのエレベーション",
+        "カラーアクセントを使用しない — スクリーンショットは黒、白、写真の色のみに依存",
+        "コンテンツを詰め込まない — スクリーンショットでは全要素間に広めの余白が設けられている",
+        "ナビゲーションに小文字を使用しない — スクリーンショットではMENU、STORE、WITNESS THE LEGENDが全て大文字",
+        "雑然としたレイアウトを作成しない — スクリーンショットではクリーンな単一カラムまたは2カラムグリッド構造"
+      ],
+      "systemPrompt": "Bugatti.comは超プレミアムポジショニングを持つラグジュアリー自動車ブランドのウェブサイト。デザインは鮮明な白と黒のパレット（#000000背景、#FFFFFFテキスト）と、全ての視覚的興味を提供するシネマティックな自動車写真を採用。タイポグラフィはhumanist-sans-serifで、一貫してウェイト400。ヒーローヘッドラインには最大60pxの表示サイズを使用。レイアウトはミニマルで、フルブリードセクションと広めの余白。インタラクティブ要素は白いボーダーを持つ微細なゴーストボタンを使用。サイトは控えめさと遺産を体現。重要な禁止事項：明るいカラーアクセントを使用しない、装飾的なシャドウやボーダーを追加しない、雑然としたレイアウトでコンテンツを詰め込まない、複数のフォントウェイトを使用しない、小文字のナビゲーションラベルを使用しない、広めの余白を損なわない。"
+    },
+    "ko": {
+      "identity": {
+        "keywords": [
+          "럭셔리",
+          "유산",
+          "정밀함",
+          "자동차",
+          "독점성"
+        ],
+        "analogy": "하이엔드 자동차 매거진과 럭셔리 패션 하우스의 만남",
+        "oneLiner": "시네마틱한 이미지와 절제된 우아함을 갖춘 초프리미엄 자동차 브랜드 경험"
+      },
+      "colors": {
+        "principle": "선명한 흑백 대비에 모든 색상을 사진 이미지로 제공"
+      },
+      "typography": {
+        "rules": [
+          "모든 텍스트는 검은색 배경에 흰색으로 표시",
+          "탐색 및 라벨에 대문자를 절제하여 사용",
+          "대문자 텍스트 요소에 넉넉한 자간"
+        ],
+        "scaleUses": [
+          "히어로 헤드라인",
+          "섹션 제목",
+          "주요 본문 텍스트",
+          "보조 텍스트",
+          "탐색 라벨 및 메타데이터"
+        ]
+      },
+      "spacing": {
+        "rhythm": "럭셔리한 느낌을 위한 넉넉한 여백을 갖춘 일관된 4px 기본 단위"
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(0,0,0,0) 0px 0px 0px 0px",
+          "rgba(0,0,0,0.1) 0px 10px 15px -3px",
+          "rgba(0,0,0,0.1) 0px 4px 6px -4px"
+        ],
+        "borders": "인터랙티브 요소에는 1px solid rgba(255,255,255,0.2), 그 외에는 테두리 없음"
+      },
+      "layout": {
+        "skeleton": "전체 폭 히어로 섹션과 차량 카드를 위한 2열 그리드"
+      },
+      "components": {
+        "button": "최소주의 고스트 버튼, 1px 흰색 테두리, 또는 6px radius의 필 또는 직사각형",
+        "card": "텍스트 오버레이가 있는 전체 폭 이미지 카드, 눈에 띄는 컨테이너 테두리 없음",
+        "chip": "두드러지게 사용되지 않음",
+        "input": "두드러지게 사용되지 않음",
+        "hero": "전체 뷰포트 시네마틱 이미지와 중앙 정렬된 흰색 텍스트, 수직 리듬"
+      },
+      "motion": {
+        "patterns": [
+          "상태 전환을 위한 페이드 전환",
+          "transform 기반 hover 효과",
+          "페이지 전환을 위한 확장된 타이밍"
+        ]
+      },
+      "interaction": {
+        "hover": "미세한 opacity 또는 색상 전환",
+        "click": "감소된 opacity로 즉각적인 피드백",
+        "transition": "모든 속성에 0.15s 또는 0.3s cubic-bezier easing",
+        "keyboard": "표준 포커스 관리"
+      },
+      "voice": {
+        "tone": "권위 있고, 명성 높으며, 절제된",
+        "headlineStyle": "혼합 대문자 또는 대문자를 사용하는 직접적이고 선언적인",
+        "ctaStyle": "'목격하다' 또는 '탐구하다'와 같은 명령형 동사를 사용하는 행동 지향적",
+        "avoid": [
+          "비격식적인 언어",
+          "과도한 느낌표",
+          "지저분한 레이아웃",
+          "밝은 색상 포인트",
+          "장식적인 타이포그래피"
+        ]
+      },
+      "donts": [
+        "여러 폰트 두께를 사용하지 마세요 — 스크린샷에서 일관된 두께 400이 사용되었습니다",
+        "장식적인 테두리나 그림자를 추가하지 마세요 — 스크린샷에서 최소한 또는 부채도 없음",
+        "색상 포인트를 사용하지 마세요 — 스크린샷은 완전히 흑백 및 사진 색상에 의존",
+        "콘텐츠를 빽빽하게 배치하지 마세요 — 스크린샷에서 모든 요소 간 넉넉한 여백",
+        "탐색에 소문자를 사용하지 마세요 — 스크린샷에서 MENU, STORE, WITNESS THE LEGEND 모두 대문자",
+        "바쁜 레이아웃을 만들지 마세요 — 스크린샷에서 깔끔한 단일 열 또는 이중 열 그리드 구조"
+      ],
+      "systemPrompt": "Bugatti.com은 초프리미엄 포지셔닝을 갖춘 럭셔리 자동차 브랜드 웹사이트입니다. 디자인은 모든 시각적 관심사를 시네마틱한 자동차 사진과 함께 사용하는 선명한 흑백 팔레트(#000000 배경, #FFFFFF 텍스트)를 사용합니다. 타이포그래피는 일관된 두께 400의 휴머니스트산세리프이며, 히어로 헤드라인에는 최대 60px의 표시 크기를 사용합니다. 레이아웃은 전체 폭 섹션과 넉넉한 여백을 갖춘 최소주의입니다. 인터랙티브 요소는 흰색 테두리를 갖춘 미세한 고스트 버튼을 사용합니다. 사이트는 절제와 유산을 발산합니다. 중요한 주의사항: 밝은 색상 포인트를 절대 사용하지 마세요, 장식적인 그림자나 테두리를 절대 추가하지 마세요, 바쁜 레이아웃으로 콘텐츠를 절대 빽빽하게 배치하지 마세요, 여러 폰트 두께를 절대 사용하지 마세요, 소문자 탐색 라벨을 절대 사용하지 마세요, 넉넉한 여백을 절대 손상시키지 마세요."
     }
   }
 }

@@ -17,51 +17,67 @@
   "_meta": {
     "vision_model": "mimo-v2.5",
     "vision_prompt_version": "0.3",
-    "vision_at": "2026-05-28T21:21:51+00:00",
-    "vision_tokens": 3243,
-    "vision_cost_usd": 0.036,
+    "vision_at": "2026-05-30T17:39:33+00:00",
+    "vision_tokens": 16683,
+    "vision_cost_usd": 0.1854,
     "translation_model": "mimo-v2.5",
-    "translation_at": "2026-05-28T21:22:38+00:00",
-    "translation_tokens": 14354,
-    "translation_cost_usd": 0.0479,
+    "translation_at": "2026-05-30T17:40:29+00:00",
+    "translation_tokens": 25664,
+    "translation_cost_usd": 0.0856,
     "narrative_model": "mimo-v2.5",
     "narrative_prompt_version": "0.3",
     "narrative_at": "2026-05-28T21:22:45+00:00",
     "narrative_tokens": 1821,
     "narrative_cost_usd": 0.0121,
     "narrative_status": "ok",
-    "total_cost_usd": 0.096
+    "total_cost_usd": 0.2831,
+    "vision_source": "playwright-extract:revolut",
+    "vision_grounded": true
   },
   "spec": {
     "colors": {
-      "bg": "#FFFFFF",
-      "bgSoft": null,
-      "bgQuiet": null,
-      "ink": "#000000",
-      "inkSoft": null,
-      "muted": "#666666",
+      "bg": "#F4F4F4",
+      "bgSoft": "#F7F7F7",
+      "bgQuiet": "#FFFFFF",
+      "ink": "#191C1F",
+      "inkSoft": "#505A63",
+      "muted": "#8D969E",
       "mutedSoft": null,
       "accent": null,
-      "line": "rgba(0,0,0,0.1)"
+      "line": "rgba(25, 28, 31, 1)"
     },
     "typography": {
       "display": "geometric-sans",
-      "body": "geometric-sans",
+      "body": "humanist-sans",
       "mono": null,
       "scale": [
         {
           "token": "display",
-          "size": 32,
+          "size": 52,
+          "lh": 1.0,
+          "weight": 500,
+          "ls": "-0.6px"
+        },
+        {
+          "token": "h2",
+          "size": 38,
           "lh": 1.2,
           "weight": 500,
-          "ls": "-0.5px"
+          "ls": "-0.24px"
         },
         {
           "token": "body",
-          "size": 14,
-          "lh": 1.4,
+          "size": 16,
+          "lh": 1.5,
           "weight": 400,
-          "ls": "0px"
+          "ls": "0.18px"
+        },
+        {
+          "token": "caption",
+          "size": 12,
+          "lh": 1.5,
+          "weight": 400,
+          "ls": "0.12px"
         }
       ]
     },
@@ -81,9 +97,9 @@
     "surfaces": {
       "radius": {
         "sm": 4,
-        "md": 8,
-        "lg": 12,
-        "pill": 999
+        "md": 12,
+        "lg": 20,
+        "pill": 9999
       }
     },
     "layout": {
@@ -98,387 +114,20 @@
     },
     "motion": {
       "durations": {
-        "micro": 220,
-        "small": 400,
-        "medium": 800
+        "micro": 150,
+        "small": 300,
+        "medium": 600
       },
-      "easing": "cubic-bezier(0.25, 0.1, 0.25, 1)"
-    }
-  },
-  "spec_i18n": {
-    "en": {
-      "identity": {
-        "keywords": [
-          "security",
-          "verification",
-          "protection",
-          "trust"
-        ],
-        "analogy": "digital security checkpoint before entering a secure banking environment",
-        "oneLiner": "A minimal security verification page for a fintech platform with a clean, trust-focused design."
-      },
-      "colors": {
-        "principle": "High-contrast black and white for maximum clarity and trust, with a single blue accent only in the 3D illustration."
-      },
-      "typography": {
-        "rules": [
-          "Headings use medium weight for approachability",
-          "Body text remains at regular weight for legibility",
-          "Generous letter spacing on headlines"
-        ],
-        "scaleUses": [
-          "Main heading 'Just a quick security check'",
-          "Cloudflare verification text"
-        ]
-      },
-      "spacing": {
-        "rhythm": "Consistent 4px grid system with generous whitespace for breathing room"
-      },
-      "surfaces": {
-        "shadows": [],
-        "borders": "Thin, light borders only on the verification widget"
-      },
-      "layout": {
-        "skeleton": "Vertically centered single-column layout with generous vertical spacing"
-      },
-      "components": {
-        "button": "No buttons visible on this verification page",
-        "card": "Cloudflare verification widget with light border and rounded corners",
-        "chip": "No chips present",
-        "input": "No input fields visible",
-        "hero": "Centered 3D illustration with magnifying glass and minimalist headline"
-      },
-      "motion": {
-        "patterns": [
-          "subtle loading animation in verification widget"
-        ]
-      },
-      "interaction": {
-        "hover": "No interactive elements visible",
-        "click": "No clickable elements beyond the verification widget",
-        "transition": "No visible transitions",
-        "keyboard": "No keyboard navigation elements visible"
-      },
-      "voice": {
-        "tone": "reassuring and professional",
-        "headlineStyle": "Simple, friendly security message without technical jargon",
-        "ctaStyle": "No call-to-action buttons present",
-        "avoid": [
-          "technical jargon",
-          "alarmist language",
-          "complex instructions"
-        ]
-      },
-      "donts": [
-        "don't use dark backgrounds — screenshot shows pure white background throughout",
-        "don't add decorative elements — screenshot shows only functional 3D illustration and text",
-        "don't use multiple accent colors — screenshot shows only black, white, and a single blue in the illustration",
-        "don't create complex layouts — screenshot shows simple centered vertical stack",
-        "don't use heavy shadows or depth — screenshot shows flat design with no shadows",
-        "don't add navigation elements — screenshot shows only logo and security content"
-      ],
-      "systemPrompt": "This is a security verification page for Revolut, a fintech platform. The design prioritizes trust and simplicity with a clean white background and black typography. Key colors are #FFFFFF background and #000000 text, with a single blue accent only in the 3D illustration. Typography uses geometric sans-serif for both display and body text. Critical donts: don't add unnecessary navigation, don't use dark backgrounds, don't introduce multiple accent colors, don't create complex layouts, don't add decorative elements beyond the functional illustration, don't use alarmist language in security messaging."
-    },
-    "zh-CN": {
-      "identity": {
-        "keywords": [
-          "安全",
-          "验证",
-          "防护",
-          "信任"
-        ],
-        "analogy": "进入安全银行环境前的数字安检关卡",
-        "oneLiner": "金融科技平台的安全验证页面，采用简洁、聚焦信任的设计。"
-      },
-      "colors": {
-        "principle": "采用高对比度黑白配色以最大化清晰度与信任感，仅在3D插画中使用单一蓝色点缀。"
-      },
-      "typography": {
-        "rules": [
-          "标题使用中等字重以增强亲和力",
-          "正文保持常规字重确保可读性",
-          "标题采用宽松字间距"
-        ],
-        "scaleUses": [
-          "主标题「快速安全检查」",
-          "Cloudflare验证文本"
-        ]
-      },
-      "spacing": {
-        "rhythm": "统一4像素网格系统，留有充足留白以确保视觉呼吸感"
-      },
-      "surfaces": {
-        "shadows": [],
-        "borders": "仅验证组件采用细线浅色边框"
-      },
-      "layout": {
-        "skeleton": "垂直居中的单栏布局，纵向间距充足"
-      },
-      "components": {
-        "button": "本验证页面无可见按钮",
-        "card": "Cloudflare验证组件，浅色边框与圆角设计",
-        "chip": "无标签组件",
-        "input": "无可见输入框",
-        "hero": "居中3D插画搭配放大镜与极简标题"
-      },
-      "motion": {
-        "patterns": [
-          "验证组件中的细微加载动画"
-        ]
-      },
-      "interaction": {
-        "hover": "无可见交互元素",
-        "click": "除验证组件外无可点击元素",
-        "transition": "无可见过渡效果",
-        "keyboard": "无可见键盘导航元素"
-      },
-      "voice": {
-        "tone": "安心且专业",
-        "headlineStyle": "简洁友好的安全提示，避免技术术语",
-        "ctaStyle": "无行动号召按钮",
-        "avoid": [
-          "技术术语",
-          "危言耸听的表述",
-          "复杂操作说明"
-        ]
-      },
-      "donts": [
-        "勿使用深色背景——截图显示全程纯白背景",
-        "勿添加装饰性元素——截图仅显示功能性3D插画与文本",
-        "勿使用多种强调色——截图仅包含黑、白及插画中的单一蓝色",
-        "勿构建复杂布局——截图显示简洁居中垂直排列",
-        "勿使用厚重阴影或立体效果——截图显示无阴影的扁平化设计",
-        "勿添加导航元素——截图仅含标识与安全内容"
-      ],
-      "systemPrompt": "这是金融科技平台Revolut的安全验证页面。设计采用纯白背景与黑色字体以突出信任感与简洁性。主色为#FFFFFF背景与#000000文字，仅在3D插画中使用单一蓝色点缀。字体采用几何无衬线体用于标题与正文。关键禁忌：勿添加不必要的导航、勿使用深色背景、勿引入多种强调色、勿构建复杂布局、勿在功能插画外添加装饰元素、勿在安全提示中使用危言耸听的表述。"
-    },
-    "zh-TW": {
-      "identity": {
-        "keywords": [
-          "安全性",
-          "驗證",
-          "防護",
-          "信任"
-        ],
-        "analogy": "進入安全銀行環境前的數位安全檢查點",
-        "oneLiner": "一個金融科技平台的極簡安全驗證頁面，採用乾淨且聚焦信任的設計。"
-      },
-      "colors": {
-        "principle": "高對比的黑白配色以最大化清晰度與信任感，僅在 3D 插圖中使用單一藍色點綴。"
-      },
-      "typography": {
-        "rules": [
-          "標題使用中等字重以增添親和力",
-          "內文保持正常字重以確保可讀性",
-          "標題搭配慷慨的字間距"
-        ],
-        "scaleUses": [
-          "主標題「Just a quick security check」",
-          "Cloudflare 驗證文字"
-        ]
-      },
-      "spacing": {
-        "rhythm": "一致的 4px 格線系統，搭配慷慨的留白以創造呼吸空間"
-      },
-      "surfaces": {
-        "shadows": [],
-        "borders": "僅在驗證小工具上使用細薄、淺色的邊框"
-      },
-      "layout": {
-        "skeleton": "垂直置中的單欄佈局，搭配慷慨的垂直間距"
-      },
-      "components": {
-        "button": "此驗證頁面上沒有可見的按鈕",
-        "card": "帶有淺色邊框與圓角的 Cloudflare 驗證小工具",
-        "chip": "無標籤元件",
-        "input": "無可見的輸入欄位",
-        "hero": "置中的 3D 插圖，搭配放大鏡與極簡標題"
-      },
-      "motion": {
-        "patterns": [
-          "驗證小工具中的細微載入動畫"
-        ]
-      },
-      "interaction": {
-        "hover": "無可見的互動元素",
-        "click": "除驗證小工具外無可點擊元素",
-        "transition": "無可見的轉場效果",
-        "keyboard": "無可見的鍵盤導覽元素"
-      },
-      "voice": {
-        "tone": "令人安心且專業",
-        "headlineStyle": "簡單、友善的安全訊息，避免使用技術術語",
-        "ctaStyle": "無行動呼籲按鈕",
-        "avoid": [
-          "技術術語",
-          "危言聳聽的語言",
-          "複雜的說明"
-        ]
-      },
-      "donts": [
-        "避免使用深色背景——截圖顯示整體為純白背景",
-        "避免添加裝飾性元素——截圖僅顯示功能性 3D 插圖與文字",
-        "避免使用多種點綴色——截圖僅顯示黑、白及插圖中的單一藍色",
-        "避免建立複雜佈局——截圖顯示簡單的垂直置中堆疊",
-        "避免使用厚重陰影或景深——截圖顯示無陰影的扁平化設計",
-        "避免添加導覽元素——截圖僅顯示商標與安全內容"
-      ],
-      "systemPrompt": "This is a security verification page for Revolut, a fintech platform. The design prioritizes trust and simplicity with a clean white background and black typography. Key colors are #FFFFFF background and #000000 text, with a single blue accent only in the 3D illustration. Typography uses geometric sans-serif for both display and body text. Critical donts: don't add unnecessary navigation, don't use dark backgrounds, don't introduce multiple accent colors, don't create complex layouts, don't add decorative elements beyond the functional illustration, don't use alarmist language in security messaging."
-    },
-    "ja": {
-      "identity": {
-        "keywords": [
-          "セキュリティ",
-          "確認",
-          "保護",
-          "信頼"
-        ],
-        "analogy": "安全な銀行環境に入る前のデジタルセキュリティチェックポイント",
-        "oneLiner": "フィンテックプラットフォーム向けの、清潔で信頼重視のデザインによる最小限のセキュリティ確認ページ。"
-      },
-      "colors": {
-        "principle": "最大限の明瞭さと信頼のために高コントラストの白と黒を採用。青のアクセントは3Dイラストのみに使用します。"
-      },
-      "typography": {
-        "rules": [
-          "見出しは親しみやすさのためにミディアムウェイトを使用",
-          "本文は可読性のためにレギュラーウェイトを維持",
-          "見出しには十分な字間を設定"
-        ],
-        "scaleUses": [
-          "メイン見出し『Just a quick security check』",
-          "Cloudflare検証テキスト"
-        ]
-      },
-      "spacing": {
-        "rhythm": "一貫した4pxグリッドシステム、十分な余白で呼吸できる空間を確保"
-      },
-      "surfaces": {
-        "shadows": [],
-        "borders": "検証ウィジェットのみに細く薄いボーダーを設定"
-      },
-      "layout": {
-        "skeleton": "垂直方向に中央揃えの単一カラムレイアウト、十分な垂直間隔を確保"
-      },
-      "components": {
-        "button": "この確認ページにはボタンは表示されません",
-        "card": "薄いボーダーと角丸のあるCloudflare検証ウィジェット",
-        "chip": "チップは存在しません",
-        "input": "入力フィールドは表示されません",
-        "hero": "虫眼鏡付きの3Dイラストとミニマリストな見出しが中央揃え"
-      },
-      "motion": {
-        "patterns": [
-          "検証ウィジェット内の控えめなローディングアニメーション"
-        ]
-      },
-      "interaction": {
-        "hover": "インタラクティブ要素は表示されません",
-        "click": "検証ウィジェット以外にクリック可能な要素はありません",
-        "transition": "表示される遷移はありません",
-        "keyboard": "キーボードナビゲーション要素は表示されません"
-      },
-      "voice": {
-        "tone": "安心感とプロフェッショナルさ",
-        "headlineStyle": "技術用語を避けた、シンプルでフレンドリーなセキュリティメッセージ",
-        "ctaStyle": "コール・トゥ・アクションボタンはありません",
-        "avoid": [
-          "技術用語",
-          "警報を煽るような言葉",
-          "複雑な指示"
-        ]
-      },
-      "donts": [
-        "暗い背景を使用しない — スクリーンショットでは全体を通して純粋な白背景を示しています",
-        "装飾的な要素を追加しない — スクリーンショットでは機能的な3Dイラストとテキストのみを示しています",
-        "複数のアクセントカラーを使用しない — スクリーンショットでは黒、白、イラスト内の単一の青のみを示しています",
-        "複雑なレイアウトを作成しない — スクリーンショットではシンプルな中央揃え縦方向スタックを示しています",
-        "重い影や奥行きを使用しない — スクリーンショットでは影のないフラットデザインを示しています",
-        "ナビゲーション要素を追加しない — スクリーンショットではロゴとセキュリティコンテンツのみを示しています"
-      ],
-      "systemPrompt": "これはフィンテックプラットフォーム、Revolutのセキュリティ確認ページです。デザインは、清潔な白背景と黒のタイポグラフィにより、信頼とシンプルさを優先します。主要カラーは背景#FFFFFF、テキスト#000000で、青のアクセントは3Dイラストのみに使用します。タイポグラフィは、ディスプレイ用と本文用の両方几何学サンセリフを使用。重要な禁止事項: 不要なナビゲーションを追加しない、暗い背景を使用しない、複数のアクセントカラーを導入しない、複雑なレイアウトを作成しない、機能的なイラスト以外の装飾要素を追加しない、セキュリティメッセージで警報を煽るような言葉を使用しない。"
-    },
-    "ko": {
-      "identity": {
-        "keywords": [
-          "보안",
-          "인증",
-          "보호",
-          "신뢰"
-        ],
-        "analogy": "안전한 뱅킹 환경에 입장하기 전의 디지털 보안 검문소",
-        "oneLiner": "깔끔하고 신뢰 중심의 디자인을 적용한 핀테크 플랫폼용 최소 보안 인증 페이지입니다."
-      },
-      "colors": {
-        "principle": "최대한의 명확성과 신뢰감을 위한 고대비 흑백 컬러를 사용하며, 3D 일러스트레이션에만 단일 블루 포인트 컬러를 적용합니다."
-      },
-      "typography": {
-        "rules": [
-          "제목은 접근성을 위해 중간 무게(Medium)를 사용합니다",
-          "본문은 가독성을 위해 일반 무게(Regular)를 유지합니다",
-          "헤드라인에 넉넉한 자간을 적용합니다"
-        ],
-        "scaleUses": [
-          "메인 헤드라인 '간단한 보안 확인입니다'",
-          "Cloudflare 인증 텍스트"
-        ]
-      },
-      "spacing": {
-        "rhythm": "여유로운 화면 공간을 위한 일관된 4px 그리드 시스템"
-      },
-      "surfaces": {
-        "shadows": [],
-        "borders": "인증 위젯에만 적용되는 얇고 밝은 테두리"
-      },
-      "layout": {
-        "skeleton": "여유로운 수직 간격을 가진 수직 중앙 단일 컬럼 레이아웃"
-      },
-      "components": {
-        "button": "이 인증 페이지에는 버튼이 표시되지 않습니다",
-        "card": "밝은 테두리와 둥근 모서리가 적용된 Cloudflare 인증 위젯",
-        "chip": "칩(Chip) 요소가 없습니다",
-        "input": "입력 필드가 표시되지 않습니다",
-        "hero": "돋보기와 미니멀한 헤드라인이 적용된 중앙 정렬 3D 일러스트레이션"
-      },
-      "motion": {
-        "patterns": [
-          "인증 위젯의 미세한 로딩 애니메이션"
-        ]
-      },
-      "interaction": {
-        "hover": "상호작용 가능한 요소가 표시되지 않습니다",
-        "click": "인증 위젯 외에 클릭 가능한 요소가 없습니다",
-        "transition": "눈에 띄는 전환 효과가 없습니다",
-        "keyboard": "키보드 탐색 요소가 표시되지 않습니다"
-      },
-      "voice": {
-        "tone": "안심감을 주는 전문적인 어조",
-        "headlineStyle": "기술 용어 없이 간단하고 친근한 보안 메시지",
-        "ctaStyle": "행동 유도(CTA) 버튼이 없습니다",
-        "avoid": [
-          "기술 용어",
-          "alarmist 언어",
-          "복잡한 지침"
-        ]
-      },
-      "donts": [
-        "어두운 배경을 사용하지 마세요 — 스크린샷에는 순수 흰색 배경만 사용되었습니다",
-        "장식 요소를 추가하지 마세요 — 스크린샷에는 기능적인 3D 일러스트레이션과 텍스트만 표시됩니다",
-        "여러 강조 색상을 사용하지 마세요 — 스크린샷에는 검정, 흰색, 그리고 일러스트레이션 내 단일 블루 컬러만 사용됩니다",
-        "복잡한 레이아웃을 만들지 마세요 — 스크린샷에는 간단한 수직 중앙 스택 레이아웃이 사용됩니다",
-        "무거운 그림자나 깊이감을 사용하지 마세요 — 스크린샷에는 그림자가 없는 플랫 디자인이 적용됩니다",
-        "탐색 요소를 추가하지 마세요 — 스크린샷에는 로고와 보안 콘텐츠만 표시됩니다"
-      ],
-      "systemPrompt": "This is a security verification page for Revolut, a fintech platform. The design prioritizes trust and simplicity with a clean white background and black typography. Key colors are #FFFFFF background and #000000 text, with a single blue accent only in the 3D illustration. Typography uses geometric sans-serif for both display and body text. Critical donts: don't add unnecessary navigation, don't use dark backgrounds, don't introduce multiple accent colors, don't create complex layouts, don't add decorative elements beyond the functional illustration, don't use alarmist language in security messaging."
+      "easing": "cubic-bezier(0.15, 0.5, 0.5, 1)"
     }
   },
   "desc": {
     "en": {
-      "palette": "Pure black and white with a single blue accent in the 3D illustration for maximum clarity and trust.",
-      "layout": "Simple centered vertical stack with generous whitespace, focusing all attention on the security verification message.",
-      "interaction": "Minimal interaction with only the Cloudflare verification widget providing visual feedback through subtle animation.",
-      "motion": "Subtle loading animation in the verification widget to indicate progress without distraction.",
-      "notes": "Worth including as an example of how fintech platforms handle security checkpoints with minimal, trust-focused design that prioritizes user reassurance over visual complexity."
+      "palette": "A strict, high-contrast neutral palette of dark charcoal and light grays, where photography provides the only significant color and visual weight.",
+      "layout": "A spacious, centered layout utilizing a standard 12-column grid with generous vertical padding to create a premium, uncluttered feel.",
+      "interaction": "Subtle, refined interactions focused on smooth opacity and color transitions using a custom cubic-bezier easing curve.",
+      "motion": "Understated and functional motion, primarily used for smooth state transitions and content reveals rather than flashy effects.",
+      "notes": "This site is a prime example of premium fintech design, using restrained UI to let high-quality photography and bold typography build trust and modern appeal."
     },
     "zh-CN": {
       "palette": "纯黑白配色，3D插画中点缀单一蓝色以最大化清晰度与信任感。",
@@ -569,6 +218,403 @@
       "ch7_intro": "모션은 최소적이며 의도적입니다. 인증 위젯 내부의 미세한 로딩 애니메이션으로 제한됩니다. 이는 주의를 산만하게 하지 않으면서 진행 상태를 나타내며, 페이지의 차분하고 여유로운 태도를 유지합니다.",
       "ch8_intro": "어조는 안심시키고 전문적이며, 보안 메시지를 전달하기 위해 단순하고 친근한 언어를 사용합니다. 기술 전문 용어와 호들갑스러운 표현은 사용자 불안을 피하기 위해 의도적으로 제외됩니다.",
       "ch8_outro": "시스템은 장식적 요소, 복잡한 레이아웃, 어두운 배경, 다중 악센트 색상을 의식적으로 피합니다."
+    }
+  },
+  "spec_i18n": {
+    "en": {
+      "identity": {
+        "keywords": [
+          "modern",
+          "financial",
+          "trust",
+          "accessible",
+          "premium"
+        ],
+        "analogy": "A sleek, modern fintech interface that blends photography with clean typography to establish trust and clarity.",
+        "oneLiner": "A clean, photography-driven fintech design that balances premium aesthetics with approachable consumer banking."
+      },
+      "colors": {
+        "principle": "High-contrast neutral palette where photography provides the primary visual interest and color."
+      },
+      "typography": {
+        "rules": [
+          "Use geometric-sans for large display headlines to maintain a modern, bold feel.",
+          "Use humanist-sans for body text to ensure readability and a friendly tone.",
+          "Maintain tight letter-spacing (negative) on large display text for a premium look."
+        ],
+        "scaleUses": [
+          "Large hero headlines",
+          "Section titles",
+          "Body text and UI",
+          "Small UI text and captions"
+        ]
+      },
+      "spacing": {
+        "rhythm": "Generous whitespace with a consistent 4px base scale and large vertical section padding (64px)."
+      },
+      "surfaces": {
+        "shadows": [],
+        "borders": "Minimal and subtle, using 1px borders primarily for structural definition rather than visual flair."
+      },
+      "layout": {
+        "skeleton": "Standard 12-column grid with generous side margins and clear content hierarchy."
+      },
+      "components": {
+        "button": "Highly rounded pill-shaped buttons; primary is dark ink with white text, secondary is outline or ghost.",
+        "card": "Rounded corner containers (12-20px radius) used for app interface mockups and feature highlights.",
+        "chip": "Small pill-shaped tags used for navigation or categorization (e.g., 'Adventure', 'Wedding').",
+        "input": "Minimal, clean input fields with subtle borders, maintaining the overall restraint of the UI.",
+        "hero": "Full-width section featuring large typography overlaid on immersive, high-quality lifestyle photography."
+      },
+      "motion": {
+        "patterns": [
+          "Subtle fade-ins and slide-ups for content reveals on scroll.",
+          "Smooth color and background transitions on interactive elements.",
+          "Refined transitions for modals and overlay states."
+        ]
+      },
+      "interaction": {
+        "hover": "Subtle changes in opacity or background color, maintaining a clean and non-distracting feel.",
+        "click": "Immediate visual feedback with reduced opacity or slight scale change.",
+        "transition": "Smooth, consistent transitions using cubic-bezier(0.15, 0.5, 0.5, 1) across all interactive states.",
+        "keyboard": "Standard focus rings and logical tab order for accessibility."
+      },
+      "voice": {
+        "tone": "Confident, modern, and slightly aspirational, positioning the brand as a forward-thinking financial partner.",
+        "headlineStyle": "Short, bold, and direct statements that emphasize empowerment and redefinition.",
+        "ctaStyle": "Action-oriented and straightforward, focusing on immediate value (e.g., 'Download the app', 'Sign up').",
+        "avoid": [
+          "Overly complex financial jargon.",
+          "Aggressive or pushy sales language.",
+          "Cluttered or dense text blocks.",
+          "Vague promises without clear benefits."
+        ]
+      },
+      "donts": [
+        "Don't use decorative serifs — screenshot shows geometric and humanist sans-serifs exclusively.",
+        "Don't use muted, low-contrast borders — screenshot shows clear but subtle borders only where structurally necessary.",
+        "Don't clutter the layout with excessive UI elements — screenshot shows generous whitespace and focused sections.",
+        "Don't use complex shadows or bevels — screenshot shows flat surfaces with minimal or no shadows.",
+        "Don't use a wide variety of colors — screenshot shows a strict neutral palette of blacks, whites, and grays.",
+        "Don't use sharp, square corners — screenshot shows consistent use of rounded corners (12px to pill) on all components."
+      ],
+      "systemPrompt": "Revolut is a modern fintech consumer banking platform. The design DNA is defined by a clean, neutral palette of dark ink (#191C1F) and light gray (#F4F4F4), with large, high-quality photography providing the primary visual interest. Typography mixes geometric-sans for bold display headlines (tight letter-spacing) with humanist-sans for readable body text. The layout uses a generous 4px base scale with significant whitespace (64px vertical padding) and a standard 12-column grid. Components like buttons and chips use heavily rounded pill shapes (border-radius: 9999px). Critical design constraints: never use decorative serifs, never clutter the layout with excessive UI elements, and never use complex shadows. The overall feel is premium, trustworthy, and highly accessible."
+    },
+    "zh-CN": {
+      "identity": {
+        "keywords": [
+          "现代",
+          "金融",
+          "信赖",
+          "易用",
+          "高端"
+        ],
+        "analogy": "一个流畅、现代的金融科技界面，将摄影与简洁排版相结合，以建立信赖感与清晰度。",
+        "oneLiner": "一个简洁、以摄影为驱动的金融科技设计，在高端美学与亲民的消费银行服务间取得平衡。"
+      },
+      "colors": {
+        "principle": "高对比度中性色板，摄影提供主要的视觉趣味和色彩。"
+      },
+      "typography": {
+        "rules": [
+          "使用几何无衬线体用于大尺寸展示标题，以保持现代、大胆的感觉。",
+          "使用人文无衬线体用于正文，确保可读性和友好的语调。",
+          "在大尺寸展示文本上保持紧凑的字间距（负值），以呈现高端外观。"
+        ],
+        "scaleUses": [
+          "大尺寸主视觉标题",
+          "章节标题",
+          "正文和用户界面",
+          "小尺寸用户界面文本和图注"
+        ]
+      },
+      "spacing": {
+        "rhythm": "充裕的留白，采用一致的 4px 基础比例和较大的垂直章节内边距 (64px)。"
+      },
+      "surfaces": {
+        "shadows": [],
+        "borders": "极简且微妙，主要使用 1px 边框进行结构性定义，而非视觉装饰。"
+      },
+      "layout": {
+        "skeleton": "标准 12 列网格，具有充裕的两侧边距和清晰的内容层级。"
+      },
+      "components": {
+        "button": "高度圆润的药丸形按钮；主按钮为深色墨黑配白色文字，次级按钮为描边或幽灵样式。",
+        "card": "圆角容器（12-20px 圆角半径），用于应用界面模型和功能亮点。",
+        "chip": "小型药丸形标签，用于导航或分类（例如“冒险”、“婚礼”）。",
+        "input": "极简、干净的输入框，带有微妙边框，保持整体界面的克制感。",
+        "hero": "全宽章节，采用大字体排版叠加在沉浸式、高质量的生活方式摄影之上。"
+      },
+      "motion": {
+        "patterns": [
+          "内容在滚动时的微妙淡入和向上滑动效果。",
+          "交互元素上平滑的颜色和背景过渡。",
+          "模态框和覆盖状态的精致过渡。"
+        ]
+      },
+      "interaction": {
+        "hover": "通过透明度或背景颜色的微妙变化，保持简洁、不干扰的感觉。",
+        "click": "通过降低透明度或轻微的尺寸变化提供即时视觉反馈。",
+        "transition": "在所有交互状态中使用 cubic-bezier(0.15, 0.5, 0.5, 1) 进行平滑、一致的过渡。",
+        "keyboard": "标准焦点环和逻辑化的标签顺序，以确保可访问性。"
+      },
+      "voice": {
+        "tone": "自信、现代且略带理想主义，将品牌定位为具有前瞻性的金融伙伴。",
+        "headlineStyle": "简短、加粗、直接的陈述，强调赋能与重新定义。",
+        "ctaStyle": "以行动为导向且直截了当，聚焦于即时价值（例如“下载应用”、“立即注册”）。",
+        "avoid": [
+          "过于复杂的金融术语。",
+          "激进或推销性的销售语言。",
+          "杂乱或密集的文本块。",
+          "没有明确益处的模糊承诺。"
+        ]
+      },
+      "donts": [
+        "不要使用装饰性衬线体——截图显示仅为几何和人文无衬线体。",
+        "不要使用柔和、低对比度的边框——截图显示仅在结构必要时使用清晰但微妙的边框。",
+        "不要用过多的界面元素使布局杂乱——截图显示充裕的留白和聚焦的章节。",
+        "不要使用复杂阴影或斜角——截图显示平面表面，阴影极少或没有。",
+        "不要使用多种颜色——截图显示严格的黑、白、灰中性色板。",
+        "不要使用尖锐、方正的角——截图显示在所有组件上一致使用圆角（12px 到药丸形）。"
+      ],
+      "systemPrompt": "Revolut 是一个现代金融科技消费银行平台。设计DNA由干净的中性色板定义：深色墨黑 (#191C1F) 和浅灰色 (#F4F4F4)，并使用大量高质量摄影提供主要的视觉趣味。排版混合使用几何无衬线体用于大胆的展示标题（紧凑字间距）和人文无衬线体用于易读的正文。布局采用充裕的 4px 基础比例，具有显著的留白（64px 垂直内边距）和标准 12 列网格。按钮和标签等组件使用高度圆润的药丸形状（border-radius: 9999px）。关键设计约束：绝不使用装饰性衬线体，绝不用过多的界面元素使布局杂乱，绝不使用复杂阴影。整体感觉是高端、可信赖且高度易用的。"
+    },
+    "zh-TW": {
+      "identity": {
+        "keywords": [
+          "現代",
+          "金融",
+          "信任",
+          "易於使用",
+          "高端"
+        ],
+        "analogy": "一個流線型、現代的金融科技介面，融合攝影與簡潔的字體排印，以建立信任感與清晰度。",
+        "oneLiner": "一個簡潔、以攝影為主導的金融科技設計，平衡了高端美學與平易近人的消費銀行體驗。"
+      },
+      "colors": {
+        "principle": "高對比的中性色盤，其中攝影提供了主要的視覺興趣與色彩。"
+      },
+      "typography": {
+        "rules": [
+          "使用幾何無襯線字體作為大型展示標題，以維持現代、大膽的感受。",
+          "使用人文無襯線字體作為內文，以確保可讀性與親和的語氣。",
+          "在大型展示文字上保持緊湊的字距（負值），以營造高端感。"
+        ],
+        "scaleUses": [
+          "大型主視覺標題",
+          "章節標題",
+          "內文與使用者介面",
+          "小型使用者介面文字與圖說"
+        ]
+      },
+      "spacing": {
+        "rhythm": "寬裕的留白，使用一致的 4px 基礎比例，以及大型垂直章節內距 (64px)。"
+      },
+      "surfaces": {
+        "shadows": [],
+        "borders": "極簡而細微，主要使用 1px 邊框進行結構定義，而非視覺裝飾。"
+      },
+      "layout": {
+        "skeleton": "標準的 12 欄格線，配備寬裕的側邊邊距與清晰的內容層次。"
+      },
+      "components": {
+        "button": "高度圓角的膠囊按鈕；主要按鈕為深墨色底白字，次要按鈕為外框或幽靈樣式。",
+        "card": "圓角容器 (12-20px 圓角)，用於應用程式介面模型與功能亮點。",
+        "chip": "小型膠囊標籤，用於導航或分類 (例如「探險」、「婚禮」)。",
+        "input": "極簡、乾淨的輸入欄位，帶有細微邊框，維持整體使用者介面的克制感。",
+        "hero": "全寬章節，以大型字體排版覆蓋於沉浸式、高品質的生活方式攝影之上。"
+      },
+      "motion": {
+        "patterns": [
+          "在捲動時，使用細微的淡入與向上滑動來揭示內容。",
+          "在互動元素上使用流暢的顏色與背景過渡效果。",
+          "為彈出視窗與覆蓋狀態使用精緻的過渡效果。"
+        ]
+      },
+      "interaction": {
+        "hover": "opacity 或背景顏色的細微變化，維持簡潔且不分散注意力的感受。",
+        "click": "立即的視覺回饋，使用降低的 opacity 或輕微的縮放變化。",
+        "transition": "在所有互動狀態下，使用 cubic-bezier(0.15, 0.5, 0.5, 1) 實現流暢、一致的過渡效果。",
+        "keyboard": "標準的焦點環與邏輯化的 tab 鍵順序，以確保無障礙性。"
+      },
+      "voice": {
+        "tone": "自信、現代且略帶啟發性，將品牌定位為前瞻性強的金融夥伴。",
+        "headlineStyle": "簡短、大膽且直接的陳述，強調賦權與重新定義。",
+        "ctaStyle": "以行動為導向且直截了當，聚焦於即時價值 (例如「下載應用程式」、「立即註冊」)。",
+        "avoid": [
+          "過於複雜的金融術語。",
+          "具侵略性或推銷式的銷售語言。",
+          "雜亂或密集的文字區塊。",
+          "含糊其辭而缺乏明確益處的承諾。"
+        ]
+      },
+      "donts": [
+        "不要使用裝飾性襯線字體——截圖中僅顯示幾何與人文無襯線字體。",
+        "不要使用柔和、低對比的邊框——截圖中僅在結構必要時顯示清晰但細微的邊框。",
+        "不要用過多的使用者介面元素雜亂版面——截圖顯示寬裕的留白與聚焦的章節。",
+        "不要使用複雜的陰影或斜角——截圖顯示平面表面，陰影極少或無。",
+        "不要使用多樣的色彩——截圖顯示嚴格的黑、白、灰中性色盤。",
+        "不要使用銳利的方形角落——截圖顯示所有元件上一致使用圓角 (從 12px 到膠囊狀)。"
+      ],
+      "systemPrompt": "Revolut 是一個現代的金融科技消費銀行平台。其設計基因由簡潔的中性色盤定義，包含深墨色 (#191C1F) 與淺灰色 (#F4F4F4)，並以大型、高品質的攝影作為主要視覺興趣。字體排印混合了幾何無襯線字體 (緊湊字距) 用於大膽的展示標題，以及人文無襯線字體用於可讀的內文。版面使用寬裕的 4px 基礎比例、顯著的留白 (64px 垂直內距) 與標準的 12 欄格線。按鈕與標籤等元件使用高度圓角的膠囊形狀 (border-radius: 9999px)。關鍵設計限制：絕不使用裝飾性襯線字體、絕不用過多的使用者介面元素雜亂版面、絕不用複雜的陰影。整體感受是高端、可信且高度易於使用。"
+    },
+    "ja": {
+      "identity": {
+        "keywords": [
+          "モダン",
+          "金融",
+          "信頼",
+          "アクセシブル",
+          "プレミアム"
+        ],
+        "analogy": "写真とクリーンなタイポグラフィを融合させ、信頼と明瞭さを確立する、 sleekeでモダンなフィンテックインターフェース。",
+        "oneLiner": "プレミアムな美学と親しみやすい消費者銀行をバランスよく取り入れた、クリーンで写真を重視したフィンテックデザイン。"
+      },
+      "colors": {
+        "principle": "写真が主たる視覚的興味とカラーを提供する、ハイコントラストの中立パレット。"
+      },
+      "typography": {
+        "rules": [
+          "幾何学サンセリフを大きなディスプレイ見出しに使用し、モダンで大胆な印象を維持する。",
+          "本文にはヒューマニストサンセリフを使用し、読みやすさと親しみやすいトーンを確保する。",
+          "大きなディスプレイテキストでは、 tightenな文字間隔（負値）を維持し、プレミアムな見た目を実現する。"
+        ],
+        "scaleUses": [
+          "大きなヒーローヘッドライン",
+          "セクションタイトル",
+          "本文とUI",
+          "小さなUIテキストとキャプション"
+        ]
+      },
+      "spacing": {
+        "rhythm": "一貫した4pxベーススケールと大きなセクション垂直パディング（64px）を備えた、豊かな空白。"
+      },
+      "surfaces": {
+        "shadows": [],
+        "borders": "最小限で微妙。主にビジュアルな装飾ではなく、構造的な定義のために1pxボーダーを使用。"
+      },
+      "layout": {
+        "skeleton": "豊かなサイドマージンと明確なコンテンツヒエラルキーを持つ、標準的な12カラムグリッド。"
+      },
+      "components": {
+        "button": "非常に丸みのあるピル形状ボタン。プライマリはダークインクに白テキスト、セカンダリはアウトラインまたはゴースト。",
+        "card": "アプリインターフェースのモックアップや機能のハイライトに使用される、角丸コンテナ（12-20px radius）。",
+        "chip": "ナビゲーションや分類に使用される小さなピル形状タグ（例：'アドベンチャー'、'ウェディング'）。",
+        "input": "全体的なUIの抑制を維持する、最小限でクリーンなインプットフィールド。微妙なボーダー付き。",
+        "hero": "没入感のある高品質ライフスタイル写真の上に大きなタイポグラフィを重ねた、フルワイドセクション。"
+      },
+      "motion": {
+        "patterns": [
+          "スクロール時のコンテンツ表示のための、微妙なフェードインとスライドアップ。",
+          "インタラクティブ要素の上での滑らかなカラーと背景の遷移。",
+          "モーダルとオーバーレイ状態のための洗練された遷移。"
+        ]
+      },
+      "interaction": {
+        "hover": "クリーンで邪魔にならない印象を維持する、不透明度や背景色の微妙な変化。",
+        "click": "不透明度の低下や微妙なスケール変化による、即座のビジュアルフィードバック。",
+        "transition": "すべてのインタラクティブ状態にわたる、cubic-bezier(0.15, 0.5, 0.5, 1)を使用した滑らかで一貫した遷移。",
+        "keyboard": "アクセシビリティのための標準的なフォーカスリングと論理的なタブ順序。"
+      },
+      "voice": {
+        "tone": "自信に満ち、モダンで、やや志向性を示し、ブランドを未来志向の金融パートナーとして位置づける。",
+        "headlineStyle": "エンパワーメントと再定義を強調する、短く、大胆で、直接的なステートメント。",
+        "ctaStyle": "アクション指向で率直。即時の価値に焦点を当てる（例：'アプリをダウンロード'、'新規登録'）。",
+        "avoid": [
+          "過度に複雑な金融用語。",
+          "攻撃的または押し売り的な販売言葉。",
+          "雑然とした、または密度の高いテキストブロック。",
+          "明確なメリットのない曖昧な約束。"
+        ]
+      },
+      "donts": [
+        "装飾的なセリフを使用しない — スクリーンショットでは幾何学サンセリフとヒューマニストサンセリフのみを使用。",
+        "くすんだ、低コントラストなボーダーを使用しない — スクリーンショットでは構造的に必要な場所でのみ明確だが微妙なボーダーが使用されている。",
+        "過度なUI要素でレイアウトを雑然とさせない — スクリーンショットでは豊かな空白と焦点の絞られたセクションが使用されている。",
+        "複雑なシャドウや斜角を使用しない — スクリーンショットではフラットなサーフェスに最小限またはシャドウなし。",
+        "幅広い色を使用しない — スクリーンショットでは黒、白、グレーの厳格な中立パレットが使用されている。",
+        "鋭い、四角い角を使用しない — スクリーンショットではすべてのコンポーネントで一貫して角丸（12pxからピル）が使用されている。"
+      ],
+      "systemPrompt": "Revolutはモダンなフィンテック消費者銀行プラットフォームです。デザインDNAは、ダークインク（#191C1F）とライトグレー（#F4F4F4）のクリーンで中立的なパレットと、主たる視覚的興味を提供する大型で高品質の写真によって定義されます。タイポグラフィは、大胆なディスプレイ見出し（.tightな文字間隔）に幾何学サンセリフ、読みやすい本文にヒューマニストサンセリフをミックスしています。レイアウトは、4pxベーススケール、豊かな空白（64px垂直パディング）、標準的な12カラムグリッドを使用しています。ボタンやチップなどのコンポーネントは、強く丸みのあるピル形状（border-radius: 9999px）を使用しています。重要なデザイン制約：装飾的なセリフは決して使用せず、過度なUI要素でレイアウトを雑然とさせず、複雑なシャドウを使用しないこと。全体的な印象は、プレミアムで信頼性が高く、アクセシビリティが高いものです。"
+    },
+    "ko": {
+      "identity": {
+        "keywords": [
+          "모던",
+          "금융",
+          "신뢰",
+          "접근성",
+          "프리미엄"
+        ],
+        "analogy": "세련되고 현대적인 핀테크 인터페이스로, 사진과 깔끔한 타이포그래피를 결합하여 신뢰와 명확성을 확립합니다.",
+        "oneLiner": "고급스러운 미학과 친근한 소비자 뱅킹의 균형을 이루는, 사진 중심의 깔끔한 핀테크 디자인."
+      },
+      "colors": {
+        "principle": "사진이 주요 시각적 흥미와 색상을 제공하는 고대비 중성 팔레트."
+      },
+      "typography": {
+        "rules": [
+          "대형 디스플레이 헤드라인에는 기하학적산세리프를 사용하여 현대적이고 굵은 느낌을 유지합니다.",
+          "본문 텍스트에는 휴머니스틱산세리프를 사용하여 가독성과 친근한 톤을 보장합니다.",
+          "대형 디스플레이 텍스트에는 타이트한 자간(음수)을 유지하여 프리미엄 룩을 연출합니다."
+        ],
+        "scaleUses": [
+          "대형 히어로 헤드라인",
+          "섹션 제목",
+          "본문 텍스트 및 UI",
+          "소형 UI 텍스트 및 캡션"
+        ]
+      },
+      "spacing": {
+        "rhythm": "기본 4px 스케일과 넉넉한 세로 섹션 패딩(64px)을 사용한 여유로운 여백."
+      },
+      "surfaces": {
+        "shadows": [],
+        "borders": "최소화되고 미묘하며, 시각적 장식보다는 구조적 정의를 위해 1px 테두리를 주로 사용합니다."
+      },
+      "layout": {
+        "skeleton": "넉넉한 측면 마진과 명확한 콘텐츠 계층을 갖춘 표준 12칼럼 그리드."
+      },
+      "components": {
+        "button": "매우 둥근 알약 모양 버튼; 기본은 검정 잉크에 흰색 텍스트, 보조는 아웃라인 또는 고스트.",
+        "card": "앱 인터페이스 목업과 기능 하이라이트에 사용되는 둥근 모서리 컨테이너(12-20px 반지름).",
+        "chip": "내비게이션 또는 분류에 사용되는 작은 알약 모양 태그(예: 'Adventure', 'Wedding').",
+        "input": "미묘한 테두리의 최소화되고 깔끔한 입력 필드로, UI의 전반적인 절제감을 유지합니다.",
+        "hero": "몰입감 높은 고품질 라이프스타일 사진 위에 큰 타이포그래피를 겹친 전폭 섹션."
+      },
+      "motion": {
+        "patterns": [
+          "scroll 시 콘텐츠를 나타낼 때 미묘한 페이드인 및 슬라이드업.",
+          "인터랙티브 요소의 부드러운 색상 및 배경 전환.",
+          "모달 및 오버레이 상태를 위한 정교한 전환."
+        ]
+      },
+      "interaction": {
+        "hover": "불투명도 또는 배경색의 미묘한 변화로 깔끔하고 방해가 되지 않는 느낌을 유지합니다.",
+        "click": "불투명도 감소 또는 미세한 스케일 변화로 즉각적인 시각적 피드백을 제공합니다.",
+        "transition": "모든 인터랙티브 상태에서 cubic-bezier(0.15, 0.5, 0.5, 1)를 사용한 부드럽고 일관된 전환.",
+        "keyboard": "접근성을 위한 표준 포커스 링과 논리적인 탭 순서."
+      },
+      "voice": {
+        "tone": "자신감 있고 현대적이며 약간 이상적인 브랜드로, 미래지향적인 금융 파트너로 포지셔닝합니다.",
+        "headlineStyle": "역량 강화와 재정의를 강조하는 짧고 굵으며 직접적인 진술.",
+        "ctaStyle": "즉각적인 가치(예: 'Download the app', 'Sign up')에 초점을 맞춘 행동 지향적이고 간결한 스타일.",
+        "avoid": [
+          "지나치게 복잡한 금융 전문 용어.",
+          "공격적이거나 밀어붙이는 듯한 판매 언어.",
+          "지저분하거나 밀집된 텍스트 블록.",
+          "명확한 이점 없는 모호한 약속."
+        ]
+      },
+      "donts": [
+        "장식용 세리프를 사용하지 마세요 — 스크린샷은 기하학적 및 휴머니스틱 산세리프만 보여줍니다.",
+        "흐리고 저대비의 테두리를 사용하지 마세요 — 스크린샷은 구조적으로 필요한 곳에만 명확하지만 미묘한 테두리를 보여줍니다.",
+        "과도한 UI 요소로 레이아웃을 지저분하게 만들지 마세요 — 스크린샷은 넉넉한 여백과 집중된 섹션을 보여줍니다.",
+        "복잡한 그림자나 베벨을 사용하지 마세요 — 스크린샷은 최소화되거나 없는 그림자의 평평한 표면을 보여줍니다.",
+        "다양한 색상을 사용하지 마세요 — 스크린샷은 검정, 흰색, 회색의 엄격한 중성 팔레트를 보여줍니다.",
+        "날카롭고 네모난 모서리를 사용하지 마세요 — 스크린샷은 모든 구성요소에 일관된 둥근 모서리(12px에서 알약) 사용을 보여줍니다."
+      ],
+      "systemPrompt": "Revolut은 현대적인 핀테크 소비자 뱅킹 플랫폼입니다. 디자인 DNA는 검정(#191C1F)과 밝은 회색(#F4F4F4)의 깔끔하고 중성적인 팔레트와, 주요 시각적 흥미를 제공하는 크고 고품질의 사진으로 정의됩니다. 타이포그래피는 굵은 디스플레이 헤드라인(타이트한 자간)을 위한 기하학적산세리프와 가독성 있는 본문 텍스트를 위한 휴머니스틱산세리프를 혼합합니다. 레이아웃은 넉넉한 4px 기본 스케일과 상당한 여백(64px 세로 패딩), 그리고 표준 12칼럼 그리드를 사용합니다. 버튼과 칩 같은 구성요소는 크게 둥근 알약 모양(border-radius: 9999px)을 사용합니다. 핵심 디자인 제약 조건: 절대 장식용 세리프를 사용하지 않고, 절대 과도한 UI 요소로 레이아웃을 지저분하게 만들지 않으며, 절대 복잡한 그림자를 사용하지 않습니다. 전반적인 느낌은 프리미엄하고 신뢰할 수 있으며 매우 접근 가능합니다."
     }
   }
 }

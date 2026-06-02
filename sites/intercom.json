@@ -17,44 +17,67 @@
   "_meta": {
     "vision_model": "mimo-v2.5",
     "vision_prompt_version": "0.3",
-    "vision_at": "2026-05-28T20:57:06+00:00",
-    "vision_tokens": 3767,
-    "vision_cost_usd": 0.0419,
+    "vision_at": "2026-05-30T16:44:11+00:00",
+    "vision_tokens": 17348,
+    "vision_cost_usd": 0.1928,
     "translation_model": "mimo-v2.5",
-    "translation_at": "2026-05-28T20:57:50+00:00",
-    "translation_tokens": 13846,
-    "translation_cost_usd": 0.0461,
+    "translation_at": "2026-05-30T16:45:02+00:00",
+    "translation_tokens": 23475,
+    "translation_cost_usd": 0.0782,
     "narrative_model": "mimo-v2.5",
     "narrative_prompt_version": "0.3",
     "narrative_at": "2026-05-28T20:57:56+00:00",
     "narrative_tokens": 1787,
     "narrative_cost_usd": 0.0119,
     "narrative_status": "ok",
-    "total_cost_usd": 0.0999
+    "total_cost_usd": 0.2829,
+    "vision_source": "playwright-extract:intercom",
+    "vision_grounded": true
   },
   "spec": {
     "colors": {
-      "bg": "#FFFFFF",
-      "bgSoft": null,
-      "bgQuiet": null,
-      "ink": "#424B52",
-      "inkSoft": null,
-      "muted": "#B0B8C1",
+      "bg": "#ffffff",
+      "bgSoft": "#f1eee9",
+      "bgQuiet": "#d3cec6",
+      "ink": "#111111",
+      "inkSoft": "rgba(17,17,17,0.7)",
+      "muted": "rgba(17,17,17,0.4)",
       "mutedSoft": null,
-      "accent": null,
-      "line": "rgba(0, 0, 0, 0)"
+      "accent": "#0007cb",
+      "line": "rgba(17,17,17,0.4)"
     },
     "typography": {
-      "display": "humanist-sans",
+      "display": "geometric-sans",
       "body": "humanist-sans",
-      "mono": null,
+      "mono": "monospace",
       "scale": [
         {
-          "token": "logo",
-          "size": 32,
+          "token": "display",
+          "size": 54,
           "lh": 1.0,
-          "weight": 500,
-          "ls": "0px"
+          "weight": 400,
+          "ls": "-1.6px"
+        },
+        {
+          "token": "h2",
+          "size": 28,
+          "lh": 1.2,
+          "weight": 400,
+          "ls": "-0.96px"
+        },
+        {
+          "token": "body",
+          "size": 16,
+          "lh": 1.5,
+          "weight": 400,
+          "ls": "-0.16px"
+        },
+        {
+          "token": "caption",
+          "size": 14,
+          "lh": 1.4,
+          "weight": 400,
+          "ls": "-0.096px"
         }
       ]
     },
@@ -63,6 +86,7 @@
       "scale": [
         4,
         8,
+        12,
         16,
         24,
         32,
@@ -73,9 +97,9 @@
     },
     "surfaces": {
       "radius": {
-        "sm": 0,
-        "md": 0,
-        "lg": 0,
+        "sm": 4,
+        "md": 8,
+        "lg": 12,
         "pill": 999
       }
     },
@@ -95,378 +119,16 @@
         "small": 400,
         "medium": 800
       },
-      "easing": "cubic-bezier(0.25, 0.1, 0.25, 1)"
-    }
-  },
-  "spec_i18n": {
-    "en": {
-      "identity": {
-        "keywords": [
-          "minimal",
-          "clean",
-          "professional",
-          "tech",
-          "software"
-        ],
-        "analogy": "A blank canvas or a simple, clean loading screen",
-        "oneLiner": "A minimalist, almost empty interface featuring a loading ring and a subtle logo, emphasizing clarity and restraint."
-      },
-      "colors": {
-        "principle": "Strictly monochromatic with a vast amount of negative space and a single splash of brand color in the logo icon."
-      },
-      "typography": {
-        "rules": [
-          "Brand text uses a clean humanist sans-serif.",
-          "Typography is strictly functional and legible."
-        ],
-        "scaleUses": [
-          "Brand name text"
-        ]
-      },
-      "spacing": {
-        "rhythm": "Generous whitespace centered around a single focal point."
-      },
-      "surfaces": {
-        "shadows": [],
-        "borders": "No visible borders; relies entirely on negative space."
-      },
-      "layout": {
-        "skeleton": "Fully centered single-column layout with maximum negative space."
-      },
-      "components": {
-        "button": "None visible",
-        "card": "None visible",
-        "chip": "None visible",
-        "input": "None visible",
-        "hero": "Minimalist centered logo mark and wordmark against a plain white background."
-      },
-      "motion": {
-        "patterns": [
-          "Subtle infinite rotation of the loading ring"
-        ]
-      },
-      "interaction": {
-        "hover": "None visible",
-        "click": "None visible",
-        "transition": "None visible",
-        "keyboard": "None visible"
-      },
-      "voice": {
-        "tone": "Silent",
-        "headlineStyle": "None",
-        "ctaStyle": "None",
-        "avoid": [
-          "Clutter",
-          "Text-heavy layouts",
-          "Bright neon colors"
-        ]
-      },
-      "donts": [
-        "Don't add multiple interactive elements — screenshot shows a static centered logo.",
-        "Don't use a complex layout — screenshot shows a single centered element on a plain background.",
-        "Don't use bright, saturated colors — screenshot shows a neutral palette with a single blue logo element.",
-        "Don't add heavy shadows or borders — screenshot shows completely flat elements.",
-        "Don't use decorative typography — screenshot shows a simple, functional sans-serif logo.",
-        "Don't add unnecessary UI components — screenshot shows a minimal loading or splash screen."
-      ],
-      "systemPrompt": "This site design is a minimalist, almost empty splash or loading screen for a tech product. The positioning is highly restrained, focusing entirely on a single, centered loading ring and a subtle wordmark against a vast white background. The key colors are a pure white background (#FFFFFF) and dark gray text (#424B52), with a single muted gray (#B0B8C1) for the loading animation and a subtle blue in the logo icon. The typography relies on a clean, functional humanist-sans for the brand name. Critical donts: never add clutter or multiple interactive elements to the screen; do not use complex layouts or grids; and avoid using bright, saturated colors or heavy decorative typography. The overall aesthetic is one of extreme calm, restraint, and functional clarity."
-    },
-    "zh-CN": {
-      "identity": {
-        "keywords": [
-          "极简",
-          "简洁",
-          "专业",
-          "科技",
-          "软件"
-        ],
-        "analogy": "一块空白画布或一个简单、干净的加载屏幕",
-        "oneLiner": "一个近乎空白的极简界面，包含一个加载环和一个微妙的Logo，强调清晰度与克制。"
-      },
-      "colors": {
-        "principle": "严格的单色调，配合大量负空间，并在Logo图标中使用一抹品牌色。"
-      },
-      "typography": {
-        "rules": [
-          "品牌文本使用简洁的人文主义无衬线字体。",
-          "排版严格注重功能性与可读性。"
-        ],
-        "scaleUses": [
-          "品牌名称文本"
-        ]
-      },
-      "spacing": {
-        "rhythm": "围绕单一焦点分布的充裕留白。"
-      },
-      "surfaces": {
-        "shadows": [],
-        "borders": "无可见边框；完全依赖负空间。"
-      },
-      "layout": {
-        "skeleton": "完全居中的单列布局，具有最大化负空间。"
-      },
-      "components": {
-        "button": "无可见",
-        "card": "无可见",
-        "chip": "无可见",
-        "input": "无可见",
-        "hero": "极简的居中Logo图标与文字标识，背景为纯白色。"
-      },
-      "motion": {
-        "patterns": [
-          "加载环的微妙无限旋转"
-        ]
-      },
-      "interaction": {
-        "hover": "无可见",
-        "click": "无可见",
-        "transition": "无可见",
-        "keyboard": "无可见"
-      },
-      "voice": {
-        "tone": "静谧",
-        "headlineStyle": "无",
-        "ctaStyle": "无",
-        "avoid": [
-          "杂乱",
-          "文字密集的布局",
-          "明亮的霓虹色"
-        ]
-      },
-      "donts": [
-        "不要添加多个交互元素——截图显示的是一个静态的居中Logo。",
-        "不要使用复杂的布局——截图显示的是纯色背景上的单一居中元素。",
-        "不要使用明亮、高饱和度的颜色——截图显示的是中性色调，仅Logo元素为蓝色。",
-        "不要添加厚重的阴影或边框——截图显示的是完全扁平化的元素。",
-        "不要使用装饰性字体——截图显示的是简洁、功能性的无衬线Logo。",
-        "不要添加不必要的UI组件——截图显示的是一个极简的加载或闪屏。"
-      ],
-      "systemPrompt": "这个网站设计是一款科技产品的极简、近乎空白的闪屏或加载屏幕。定位极其克制，完全聚焦于广阔白色背景中央的一个加载环和微妙的文字标识。关键色彩是纯白背景(#FFFFFF)与深灰色文字(#424B52)，加载动画使用柔和的灰色(#B0B8C1)，Logo图标中带有一丝蓝色。排版依赖于简洁、功能性的无衬线字体来呈现品牌名称。关键禁忌：切勿在屏幕上添加杂乱或多个交互元素；不要使用复杂的布局或网格；避免使用明亮、高饱和的颜色或厚重的装饰性字体。整体美学风格是极致的平静、克制与功能清晰度。"
-    },
-    "zh-TW": {
-      "identity": {
-        "keywords": [
-          "極簡",
-          "簡潔",
-          "專業",
-          "科技",
-          "軟體"
-        ],
-        "analogy": "空白畫布或簡潔的載入畫面",
-        "oneLiner": "以載入環與細微標誌為特色的極簡近乎空白介面，強調清晰與克制。"
-      },
-      "colors": {
-        "principle": "嚴格採用單色調並搭配大量負空間，僅在標誌圖示中點綴單一品牌色彩。"
-      },
-      "typography": {
-        "rules": [
-          "品牌文字使用簡潔的人文主義無襯線字體。",
-          "排版嚴格講求功能性與易讀性。"
-        ],
-        "scaleUses": [
-          "品牌名稱文字"
-        ]
-      },
-      "spacing": {
-        "rhythm": "環繞單一焦點的充裕留白。"
-      },
-      "surfaces": {
-        "shadows": [],
-        "borders": "無可見邊框；完全依賴負空間。"
-      },
-      "layout": {
-        "skeleton": "完全置中的單欄佈局，搭配最大負空間。"
-      },
-      "components": {
-        "button": "無可見元素",
-        "card": "無可見元素",
-        "chip": "無可見元素",
-        "input": "無可見元素",
-        "hero": "純白背景上的極簡置中標誌與文字標記。"
-      },
-      "motion": {
-        "patterns": [
-          "載入環的細微無限旋轉"
-        ]
-      },
-      "interaction": {
-        "hover": "無可見互動",
-        "click": "無可見互動",
-        "transition": "無可見互動",
-        "keyboard": "無可見互動"
-      },
-      "voice": {
-        "tone": "靜默",
-        "headlineStyle": "無",
-        "ctaStyle": "無",
-        "avoid": [
-          "雜亂",
-          "文字密集的佈局",
-          "明亮霓虹色"
-        ]
-      },
-      "donts": [
-        "不要添加多個互動元素——截圖顯示為靜態置中標誌。",
-        "不要使用複雜佈局——截圖顯示為純色背景上的單一置中元素。",
-        "不要使用明亮飽和色彩——截圖顯示為中性色調搭配單一藍色標誌元素。",
-        "不要添加厚重陰影或邊框——截圖顯示為完全扁平化的元素。",
-        "不要使用裝飾性字體——截圖顯示為簡潔功能性無襯線標誌。",
-        "不要添加不必要的UI元件——截圖顯示為極簡載入或閃現畫面。"
-      ],
-      "systemPrompt": "此網站設計為科技產品的極簡近乎空白的閃現或載入畫面。定位極度克制，完全聚焦於廣闊白色背景中央的單一載入環與細微文字標記。關鍵色彩為純白背景(#FFFFFF)與深灰文字(#424B52)，搭配單一柔灰(#B0B8C1)用於載入動畫，並在標誌圖示中加入細微藍色。排版依賴簡潔功能性的人文主義無襯線字體作為品牌名稱。關鍵禁忌：切勿在畫面中添加雜亂或多個互動元素；避免使用複雜佈局或網格；避免使用明亮飽和色彩或厚重裝飾性字體。整體美學追求極致的寧靜、克制與功能性清晰。"
-    },
-    "ja": {
-      "identity": {
-        "keywords": [
-          "ミニマル",
-          "クリーン",
-          "プロフェッショナル",
-          "テック",
-          "ソフトウェア"
-        ],
-        "analogy": "白いキャンバス、またはシンプルでクリーンなロード画面",
-        "oneLiner": "ロードリングと微細なロゴを備えた、最小限のほぼ空のインターフェース。明瞭さと抑制を重視。"
-      },
-      "colors": {
-        "principle": "厳格なモノクロームで、広大なネガティブスペースとロゴアイコンにブランドカラーを1つ使用。"
-      },
-      "typography": {
-        "rules": [
-          "ブランドテキストにはクリーンなヒューマニストサンセリフを使用。",
-          "タイポグラフィは厳密に機能的で読みやすい。"
-        ],
-        "scaleUses": [
-          "ブランド名テキスト"
-        ]
-      },
-      "spacing": {
-        "rhythm": "単一の焦点を中心にした、豊かなホワイトスペース。"
-      },
-      "surfaces": {
-        "shadows": [],
-        "borders": "目立つボーダーは無し。完全にネガティブスペースに依存。"
-      },
-      "layout": {
-        "skeleton": "最大限のネガティブスペースを持つ、完全に中央揃えの単一カラムレイアウト。"
-      },
-      "components": {
-        "button": "表示なし",
-        "card": "表示なし",
-        "chip": "表示なし",
-        "input": "表示なし",
-        "hero": "プレーンな白い背景に、ミニマルな中央配置のロゴマークとワードマーク。"
-      },
-      "motion": {
-        "patterns": [
-          "ロードリングの微細な無限回転"
-        ]
-      },
-      "interaction": {
-        "hover": "表示なし",
-        "click": "表示なし",
-        "transition": "表示なし",
-        "keyboard": "表示なし"
-      },
-      "voice": {
-        "tone": "サイレント",
-        "headlineStyle": "なし",
-        "ctaStyle": "なし",
-        "avoid": [
-          "雑然とした状態",
-          "テキスト過多のレイアウト",
-          "明るいネオンカラー"
-        ]
-      },
-      "donts": [
-        "複数のインタラクティブ要素を追加しない — スクリーンショットは静的な中央配置のロゴを示している。",
-        "複雑なレイアウトを使用しない — スクリーンショットはプレーンな背景上の単一の中央配置要素を示している。",
-        "明るく彩度の高いカラーを使用しない — スクリーンショットはブルーのロゴ要素を1つ持つニュートラルパレットを示している。",
-        "重い影やボーダーを追加しない — スクリーンショットは完全にフラットな要素を示している。",
-        "装飾的なタイポグラフィを使用しない — スクリーンショットはシンプルで機能的なサンセリフのロゴを示している。",
-        "不要なUIコンポーネントを追加しない — スクリーンショットはミニマルなロードまたはスプラッシュ画面を示している。"
-      ],
-      "systemPrompt": "このサイトデザインは、テックプロダクト用のミニマルでほぼ空のスプラッシュまたはロード画面。ポジショニングは非常に抑制的で、広大な白い背景に単一の中央配置ロードリングと微細なワードマークに完全に集中。主なカラーは純白の背景（#FFFFFF）とダークグレーのテキスト（#424B52）、ロードアニメーション用に落ち着いたグレー（#B0B8C1）1色、ロゴアイコンに微細なブルー。タイポグラフィはブランド名にクリーンで機能的なヒューマニストサンセリフを使用。重要な注意点：画面に雑然とした状態や複数のインタラクティブ要素を追加しない；複雑なレイアウトやグリッドを使用しない；明るく彩度の高いカラーや重い装飾的なタイポグラフィを使用しない。全体的な美学は、極度の冷静さ、抑制、機能的明瞭さ。"
-    },
-    "ko": {
-      "identity": {
-        "keywords": [
-          "미니멀",
-          "깔끔",
-          "전문적",
-          "테크",
-          "소프트웨어"
-        ],
-        "analogy": "빈 캔버스 또는 간단하고 깔끔한 로딩 화면",
-        "oneLiner": "로딩 링과 은은한 로고를 특징으로 하는 미니멀하고 거의 비어 있는 인터페이스로, 명확성과 절제를 강조합니다."
-      },
-      "colors": {
-        "principle": "폭넓은 여백과 함께 로고 아이콘에 단일 브랜드 컬러가 사용되는 철저한 단색 팔레트입니다."
-      },
-      "typography": {
-        "rules": [
-          "브랜드 텍스트는 깔끔한 휴머니스트 산세리프를 사용합니다.",
-          "타이포그래피는 기능적이고 가독성이 뛰어납니다."
-        ],
-        "scaleUses": [
-          "브랜드명 텍스트"
-        ]
-      },
-      "spacing": {
-        "rhythm": "단일 초점 주위에 넉넉한 여백을 둔 리듬입니다."
-      },
-      "surfaces": {
-        "shadows": [],
-        "borders": "보이는 테두리가 없습니다. 완전히 여백에 의존합니다."
-      },
-      "layout": {
-        "skeleton": "최대 여백을 사용하는 완전히 중앙 정렬된 단일 열 레이아웃입니다."
-      },
-      "components": {
-        "button": "보이는 것 없음",
-        "card": "보이는 것 없음",
-        "chip": "보이는 것 없음",
-        "input": "보이는 것 없음",
-        "hero": "단색 흰색 배경 위의 미니멀하게 중앙 정렬된 로고 마크와 워드마크."
-      },
-      "motion": {
-        "patterns": [
-          "로딩 링의 미세한 무한 회전"
-        ]
-      },
-      "interaction": {
-        "hover": "보이는 것 없음",
-        "click": "보이는 것 없음",
-        "transition": "보이는 것 없음",
-        "keyboard": "보이는 것 없음"
-      },
-      "voice": {
-        "tone": "정적",
-        "headlineStyle": "없음",
-        "ctaStyle": "없음",
-        "avoid": [
-          "지저분함",
-          "텍스트 중심 레이아웃",
-          "밝은 네온 컬러"
-        ]
-      },
-      "donts": [
-        "여러 상호작용 요소를 추가하지 마세요 — 스크린샷은 정적 중앙 로고를 보여줍니다.",
-        "복잡한 레이아웃을 사용하지 마세요 — 스크린샷은 단색 배경 위에 단일 중앙 요소를 보여줍니다.",
-        "밝고 채도 높은 컬러를 사용하지 마세요 — 스크린샷은 단일 블루 로고 요소가 있는 중성 팔레트를 보여줍니다.",
-        "무거운 그림자나 테두리를 추가하지 마세요 — 스크린샷은 완전히 플랫한 요소를 보여줍니다.",
-        "장식적인 타이포그래피를 사용하지 마세요 — 스크린샷은 단순하고 기능적인 산세리프 로고를 보여줍니다.",
-        "불필요한 UI 컴포넌트를 추가하지 마세요 — 스크린샷은 미니멀한 로딩 또는 스플래시 화면을 보여줍니다."
-      ],
-      "systemPrompt": "이 사이트 디자인은 테크 제품을 위한 미니멀하고 거의 비어 있는 스플래시 또는 로딩 화면입니다. 포지셔닝은 매우 절제되어 있어, 광대한 흰색 배경 위에 단일 중앙 로딩 링과 은은한 워드마크에 온전히 집중합니다. 핵심 컬러는 순백 배경(#FFFFFF)과 진한 회색 텍스트(#424B52)이며, 로딩 애니메이션에는 은은한 회색(#B0B8C1), 로고 아이콘에는 미세한 블루가 사용됩니다. 타이포그래피는 브랜드명에 깔끔하고 기능적인 휴머니스트 산세리프에 의존합니다. 핵심 금지 사항: 화면에 지저분함이나 여러 상호작용 요소를 절대 추가하지 마세요; 복잡한 레이아웃이나 그리드를 사용하지 마세요; 밝고 채도 높은 컬러나 무거운 장식적 타이포그래피를 사용하지 마세요. 전체적인 미학은 극도의 차분함, 절제, 기능적 명확성입니다."
+      "easing": "cubic-bezier(0.4, 0, 0.2, 1)"
     }
   },
   "desc": {
     "en": {
-      "palette": "A stark, monochromatic palette of pure white and dark gray, featuring a single muted gray for the loading animation and a small blue accent in the logo icon.",
-      "layout": "A completely centered, single-element layout that utilizes maximum negative space to focus attention on the minimal brand mark.",
-      "interaction": "No interactive elements are visible, suggesting a passive state like a splash screen or loading sequence.",
-      "motion": "Implied subtle, infinite rotation of the central ring component.",
-      "notes": "This design is a perfect example of extreme restraint and minimalism in UI, serving as an excellent baseline for clean, uncluttered interfaces."
+      "palette": "A high-contrast monochrome foundation with warm beige neutrals and a single deep blue accent.",
+      "layout": "Clean, spacious layout with constrained max-widths and generous vertical rhythm.",
+      "interaction": "Smooth, consistent transitions on interactive properties with a refined easing curve.",
+      "motion": "Subtle and purposeful animations that enhance usability without distraction.",
+      "notes": "A premium example of balancing editorial photography with functional SaaS UI, showcasing restraint and clarity."
     },
     "zh-CN": {
       "palette": "一套由纯白与深灰构成的极简单色调色板，其中加载动画采用了一种柔和的灰色，Logo图标中点缀着一丝蓝色。",
@@ -557,6 +219,383 @@
       "ch7_intro": "모션 철학은 은은하고 영원한 암시입니다. 유일한 애니메이션 요소는 로딩 링으로, 무한히 섬세하게 회전하여 주의를 요구하지 않으면서 활동성을 암시합니다.",
       "ch8_intro": "음성은 침묵하며, 텍스트 커뮤니케이션보다는 시각적 존재감을 통해 작동합니다.任何 혼란스러운 요소, 텍스트 중심 레이아웃, 고요함을 깨는 밝고 채도 높은 색상을 피합니다.",
       "8_outro": "이 시스템은 순수하고 정돈된 인터페이스의 상태를 보존하기 위해 버튼, 카드, 입력 필드 및 기타 인터페이스 구성 요소를 의도적으로 제외합니다."
+    }
+  },
+  "spec_i18n": {
+    "en": {
+      "identity": {
+        "keywords": [
+          "helpdesk",
+          "AI",
+          "customer support",
+          "automation",
+          "enterprise"
+        ],
+        "analogy": "A sophisticated, modern enterprise dashboard that blends high-end editorial photography with clean software UI.",
+        "oneLiner": "The premium AI-native helpdesk that prioritizes clarity, restraint, and elegant functionality."
+      },
+      "colors": {
+        "principle": "A high-contrast monochrome foundation with warm beige neutrals and a single deep blue accent for interactive highlights."
+      },
+      "typography": {
+        "rules": [],
+        "scaleUses": [
+          "Hero headlines",
+          "Section headings",
+          "Body text and paragraphs",
+          "Small text and meta information"
+        ]
+      },
+      "spacing": {
+        "rhythm": "4px base unit with generous vertical spacing for readability."
+      },
+      "surfaces": {
+        "shadows": [
+          "0 0 18px rgba(0,0,0,0.2)"
+        ],
+        "borders": "1px solid rgba(17,17,17,0.4)"
+      },
+      "layout": {
+        "skeleton": "Full-width responsive layout with constrained max-widths for content columns."
+      },
+      "components": {
+        "button": "Solid black or outlined pill-shaped buttons with clean sans-serif typography.",
+        "card": "Clean cards with minimal borders or subtle shadows, often containing product UI screenshots.",
+        "chip": "Simple text tags with subtle background or borders.",
+        "input": "Clean text inputs with subtle borders and rounded corners.",
+        "hero": "Large, expressive typography paired with a side-by-side layout of text and product imagery or photography."
+      },
+      "motion": {
+        "patterns": [
+          "Smooth transitions on color, background-color, and border-color properties.",
+          "Subtle background-size animations for hover states."
+        ]
+      },
+      "interaction": {
+        "hover": "Smooth color and background-color transitions.",
+        "click": "Immediate response with subtle scale or color change.",
+        "transition": "Consistent 0.4s cubic-bezier(0.165, 0.84, 0.44, 1) transition on primary interactive properties.",
+        "keyboard": "Focusable elements with visible outlines or rings."
+      },
+      "voice": {
+        "tone": "Professional, confident, and forward-thinking.",
+        "headlineStyle": "Bold, direct statements about product leadership and AI capabilities.",
+        "ctaStyle": "Clear, action-oriented phrases like 'Start free trial' and 'View demo'.",
+        "avoid": [
+          "Overly casual language",
+          "Vague marketing jargon",
+          "Aggressive urgency tactics"
+        ]
+      },
+      "donts": [
+        "Don't use a dark background for the primary hero — screenshot shows a clean white background.",
+        "Don't use heavily decorative or display serif fonts for headlines — screenshot shows clean geometric sans-serif typography.",
+        "Don't rely on bright, saturated accent colors — screenshot shows a restrained palette with a single deep blue accent.",
+        "Don't use small, cramped typography — screenshot shows generous line heights and letter spacing.",
+        "Don't use complex, busy background patterns — screenshot shows solid colors and photographic imagery.",
+        "Don't use harsh, boxy UI components — screenshot shows rounded buttons and cards."
+      ],
+      "systemPrompt": "Intercom's homepage is a masterclass in modern SaaS design, blending high-end editorial aesthetics with clean, functional UI. The core identity is professional and AI-focused, using a restrained color palette anchored by white (#ffffff), warm beige (#d3cec6), and near-black (#111111) text. Typography is predominantly clean geometric and humanist sans-serif, with a striking 54px display size for hero headlines using tight letter spacing. Key interactions feature smooth 0.4s transitions. Critical design rules: prioritize generous whitespace, avoid overly decorative elements, and maintain a monochrome base with subtle warm neutrals to let product imagery and the deep blue (#0007cb) accent stand out."
+    },
+    "zh-CN": {
+      "identity": {
+        "keywords": [
+          "帮助台",
+          "AI",
+          "客户支持",
+          "自动化",
+          "企业"
+        ],
+        "analogy": "一个精致的现代化企业仪表板，融合了高端编辑摄影与简洁的软件界面。",
+        "oneLiner": "这款高端的AI原生帮助台，优先考虑清晰度、克制力与优雅的功能性。"
+      },
+      "colors": {
+        "principle": "以高对比度的单色为基础，搭配温暖的米色中性色，以及一个用于交互高亮的深蓝色点缀色。"
+      },
+      "typography": {
+        "rules": [],
+        "scaleUses": [
+          "主标题",
+          "章节标题",
+          "正文与段落",
+          "小字与元信息"
+        ]
+      },
+      "spacing": {
+        "rhythm": "以4px为基础单位，搭配充足的垂直间距以提升可读性。"
+      },
+      "surfaces": {
+        "阴影": [
+          "0 0 18px rgba(0,0,0,0.2)"
+        ],
+        "边框": "1px solid rgba(17,17,17,0.4)"
+      },
+      "layout": {
+        "skeleton": "全宽响应式布局，内容列设有最大宽度限制。"
+      },
+      "components": {
+        "button": "实心黑色或描边的胶囊形按钮，搭配简洁的无衬线字体。",
+        "card": "简洁的卡片，带有最小化的边框或微妙的阴影，通常包含产品界面截图。",
+        "chip": "带有微妙背景或边框的简单文本标签。",
+        "input": "带有微妙边框和圆角的简洁文本输入框。",
+        "hero": "大型、富有表现力的字体，搭配文字与产品图像或摄影图片的并排布局。"
+      },
+      "motion": {
+        "patterns": [
+          "在颜色、背景颜色和边框颜色属性上实现平滑过渡。",
+          "在hover状态下实现微妙的背景尺寸动画。"
+        ]
+      },
+      "interaction": {
+        "hover": "平滑的颜色和背景颜色过渡。",
+        "click": "立即响应，带有微妙的缩放或颜色变化。",
+        "transition": "在主要交互属性上使用一致的0.4s cubic-bezier(0.165, 0.84, 0.44, 1)过渡。",
+        "keyboard": "可聚焦的元素带有可见的轮廓或光环。"
+      },
+      "voice": {
+        "tone": "专业、自信、具有前瞻性。",
+        "headlineStyle": "大胆、直接地陈述产品领导力和AI能力。",
+        "ctaStyle": "清晰、以行动为导向的短语，例如“开始免费试用”和“查看演示”。",
+        "avoid": [
+          "过于随意的语言",
+          "模糊的营销术语",
+          "激进的紧迫性策略"
+        ]
+      },
+      "donts": [
+        "不要为首要的Hero部分使用深色背景——截图显示的是干净的白色背景。",
+        "不要为标题使用过于装饰性或展示性的衬线字体——截图显示的是简洁的几何无衬线字体。",
+        "不要依赖明亮、饱和的强调色——截图显示的是克制的配色方案，仅使用一个深蓝色点缀色。",
+        "不要使用小而拥挤的字体排版——截图显示的是充足的行高和字间距。",
+        "不要使用复杂、繁杂的背景图案——截图显示的是纯色和摄影图像。",
+        "不要使用生硬、方正的UI组件——截图显示的是圆角按钮和卡片。"
+      ],
+      "systemPrompt": "Intercom的主页是现代SaaS设计的典范，融合了高端编辑美学与简洁、功能性的界面。其核心身份是专业的、以AI为中心的，使用以白色（#ffffff）、温暖的米色（#d3cec6）和近黑色（#111111）文字为锚点的克制配色方案。字体主要为简洁的几何与人文主义无衬线字体，主标题使用54px的醒目显示尺寸，搭配紧凑的字间距。关键交互采用平滑的0.4秒过渡。关键设计原则：优先考虑充足的留白，避免过度装饰的元素，并以单色基础搭配微妙的温暖中性色，让产品图像和深蓝色（#0007cb）点缀色得以突出。"
+    },
+    "zh-TW": {
+      "identity": {
+        "keywords": [
+          "客服中心",
+          "AI",
+          "客戶支援",
+          "自動化",
+          "企業"
+        ],
+        "analogy": "一個精緻、現代化的企業儀表板，融合了高端編輯攝影與簡潔的軟體 UI。",
+        "oneLiner": "以清晰、克制與優雅功能為優先的頂級 AI 原生客服中心。"
+      },
+      "colors": {
+        "principle": "以高對比單色調為基礎，搭配溫暖的米色中性色調，並以單一深藍色作為互動高亮強調。"
+      },
+      "typography": {
+        "rules": [],
+        "scaleUses": [
+          "首頁標題",
+          "區段標題",
+          "內文與段落",
+          "小型文字與中繼資訊"
+        ]
+      },
+      "spacing": {
+        "rhythm": "以 4px 為基礎單位，並提供寬裕的垂直間距以提升可讀性。"
+      },
+      "surfaces": {
+        "shadows": [
+          "0 0 18px rgba(0,0,0,0.2)"
+        ],
+        "borders": "1px solid rgba(17,17,17,0.4)"
+      },
+      "layout": {
+        "skeleton": "全寬響應式佈局，內容欄位設有受限的最大寬度。"
+      },
+      "components": {
+        "button": "實心黑色或描邊的藥丸形按鈕，搭配簡潔的無襯線字體。",
+        "card": "簡潔的卡片，邊框極簡或帶有細微陰影，通常包含產品 UI 截圖。",
+        "chip": "簡單的文字標籤，帶有細微背景或邊框。",
+        "input": "簡潔的文字輸入框，帶有細微邊框與圓角。",
+        "hero": "大膽、具表現力的字體，搭配文字與產品影像或攝影圖片的並排佈局。"
+      },
+      "motion": {
+        "patterns": [
+          "在 color、background-color 和 border-color 屬性上套用平滑過渡。",
+          "為 hover 狀態套用細微的 background-size 動畫。"
+        ]
+      },
+      "interaction": {
+        "hover": "平滑的 color 與 background-color 過渡效果。",
+        "click": "立即回應，帶有細微的 scale 或 color 變化。",
+        "transition": "在主要互動屬性上套用一致的 0.4s cubic-bezier(0.165, 0.84, 0.44, 1) 過渡。",
+        "keyboard": "可聚焦元素需有可見的外框或光暈。"
+      },
+      "voice": {
+        "tone": "專業、自信且前瞻性。",
+        "headlineStyle": "關於產品領導力與 AI 能力的大膽直接陳述。",
+        "ctaStyle": "清晰、以行動為導向的短語，如「開始免費試用」與「查看演示」。",
+        "avoid": [
+          "過於隨意的語言",
+          "模糊的行銷術語",
+          "激進的緊迫性策略"
+        ]
+      },
+      "donts": [
+        "勿為首頁英雄區使用深色背景——截圖顯示為純淨白色背景。",
+        "勿為標題使用過度裝飾或展示型的襯線字體——截圖顯示為簡潔的幾何無襯線字體。",
+        "勿依賴明亮、飽和的強調色——截圖顯示為克制的配色，僅使用單一深藍色作為強調。",
+        "勿使用小而擁擠的字體——截圖顯示為寬裕的行高與字距。",
+        "勿使用複雜、繁瑣的背景圖案——截圖顯示為純色與攝影影像。",
+        "勿使用生硬、方塊感的 UI 元件——截圖顯示為圓角按鈕與卡片。"
+      ],
+      "systemPrompt": "Intercom 的首頁是現代 SaaS 設計的典範，融合了高端編輯美學與簡潔、功能性 UI。其核心識別專業且聚焦 AI，採用以白色 (#ffffff)、溫暖米色 (#d3cec6) 和近黑 (#111111) 文字為基礎的克制配色。字體主要採用簡潔的幾何與人文無襯線體，首頁標題使用 54px 的醒目展示尺寸，並搭配緊湊的字距。關鍵互動採用平滑的 0.4s 過渡。核心設計原則：優先使用寬裕的留白，避免過度裝飾元素，並保持單色調基礎搭配細微的溫暖中性色調，讓產品影像與深藍色 (#0007cb) 強調色得以突顯。"
+    },
+    "ja": {
+      "identity": {
+        "keywords": [
+          "helpdesk",
+          "AI",
+          "customer support",
+          "automation",
+          "enterprise"
+        ],
+        "analogy": "洗練されたモダンなエンタープライズダッシュボード。ハイエディトリアルな写真とクリーンなソフトウェアUIを融合させたデザインです。",
+        "oneLiner": "明瞭さ、抑制、エレガントな機能性を優先する、プレミアムAIネイティブのヘルプデスクです。"
+      },
+      "colors": {
+        "principle": "高コントラストのモノクロームを基盤とし、暖色系ベージュのニュートラルと、インタラクティブなハイライトのための単一の深い青のアクセントカラーを採用しています。"
+      },
+      "typography": {
+        "rules": [],
+        "scaleUses": [
+          "ヒーローヘッドライン",
+          "セクション見出し",
+          "本文テキストと段落",
+          "小文字テキストとメタ情報"
+        ]
+      },
+      "spacing": {
+        "rhythm": "可読性のため、4pxをベース単位とした広めの縦方向のスペーシング。"
+      },
+      "surfaces": {
+        "shadows": [
+          "0 0 18px rgba(0,0,0,0.2)"
+        ],
+        "borders": "1px solid rgba(17,17,17,0.4)"
+      },
+      "layout": {
+        "skeleton": "コンテンツカラムの最大幅を制限した、フル幅のレスポンシブレイアウト。"
+      },
+      "components": {
+        "button": "クリーンなサンセリフタイポグラフィを用いた、ソリッドブラックまたはアウトライン付きのピル-shaped ボタン。",
+        "card": "最小限のボーダーや微細なシャドウを持つクリーンなカード。製品UIのスクリーンショットを含むことが多いです。",
+        "chip": "微細な背景またはボーダーを持つ、シンプルなテキストタグ。",
+        "input": "微細なボーダーと角丸を持つ、クリーンなテキスト入力フィールド。",
+        "hero": "テキストと製品画像やフォトグラフィを並べたレイアウトと組み合わせた、大型で表現力豊かなタイポグラフィ。"
+      },
+      "motion": {
+        "patterns": [
+          "color、background-color、border-colorプロパティの滑らかなトランジション。",
+          "hover状態のための微細なbackground-sizeアニメーション。"
+        ]
+      },
+      "interaction": {
+        "hover": "滑らかなcolorとbackground-colorのトランジション。",
+        "click": "微細なスケール変化やカラーチェンジによる即座のレスポンス。",
+        "transition": "主要なインタラクティブプロパティに一貫した0.4s cubic-bezier(0.165, 0.84, 0.44, 1)トランジションを適用。",
+        "keyboard": "明確なアウトラインまたはリングを持つ、フォーカス可能な要素。"
+      },
+      "voice": {
+        "tone": "プロフェッショナルで、自信に満ち、先進的。",
+        "headlineStyle": "製品リーダーシップとAI能力についての、太字で直接的なステートメント。",
+        "ctaStyle": "「無料トライアルを開始」や「デモを表示」のような、明確で行動を促すフレーズ。",
+        "avoid": [
+          "過度にカジュアルな言葉遣い",
+          "曖昧なマーケティングジャーゴン",
+          "強引な緊急性を煽る戦術"
+        ]
+      },
+      "donts": [
+        "ヒーローにダーク背景を使用しない — スクリーンショットはクリーンな白い背景を示しています。",
+        "見出しに装飾的すぎるディスプレイセリフフォントを使用しない — スクリーンショットはクリーンなジオメトリックサンセリフタイポグラフィを示しています。",
+        "明るく彩度の高いアクセントカラーに依存しない — スクリーンショットは単一の深い青のアクセントを伴う抑制されたパレットを示しています。",
+        "小さく窮屈なタイポグラフィを使用しない — スクリーンショットは広めの行高と文字間隔を示しています。",
+        "複雑で雑然とした背景パターンを使用しない — スクリーンショットはソリッドカラーとフォトグラフィックなイメージを示しています。",
+        "角張った過激なUIコンポーネントを使用しない — スクリーンショットは角丸のボタンとカードを示しています。"
+      ],
+      "systemPrompt": "Intercomのホームページは、モダンなSaaSデザインの達人です。ハイエディトリアルな美学とクリーンで機能的なUIを融合させています。中核のアイデンティティはプロフェッショナルでAIに焦点を当てており、ホワイト(#ffffff)、暖色系ベージュ(#d3cec6)、およびほぼブラック(#111111)のテキストを基盤とする抑制されたカラーパレットを使用しています。タイポグラフィは主にクリーンなジオメトリックおよびヒューマニストサンセリフで、ヒーローヘッドラインには54pxのディスプレイサイズで Tightな文字間隔を使用しています。重要なインタラクションには滑らかな0.4sトランジションが特徴です。重要なデザインルール：広めのホワイトスペースを優先し、過度に装飾的な要素を避け、モノクロームをベースに暖色系ニュートラルを微妙に加えることで、製品イメージと深い青(#0007cb)のアクセントが際立つようにしてください。"
+    },
+    "ko": {
+      "identity": {
+        "keywords": [
+          "헬프데스크",
+          "AI",
+          "고객 지원",
+          "자동화",
+          "엔터프라이즈"
+        ],
+        "analogy": "고급 에디토리얼 사진과 깔끔한 소프트웨어 UI를 결합한 정교하고 현대적인 엔터프라이즈 대시보드.",
+        "oneLiner": "명확성, 절제, 우아한 기능성을 우선시하는 프리미엄 AI 네이티브 헬프데스크입니다."
+      },
+      "colors": {
+        "principle": "따뜻한 베이지 중성색과 인터랙티브 하이라이트를 위한 단일 딥 블루 악센트가 포함된 고대비 단색 기반."
+      },
+      "typography": {
+        "rules": [],
+        "scaleUses": [
+          "히어로 헤드라인",
+          "섹션 제목",
+          "본문 텍스트 및 단락",
+          "작은 텍스트 및 메타 정보"
+        ]
+      },
+      "spacing": {
+        "rhythm": "가독성을 위한 충분한 수직 간격의 4px 기본 단위."
+      },
+      "surfaces": {
+        "shadows": [
+          "0 0 18px rgba(0,0,0,0.2)"
+        ],
+        "borders": "1px solid rgba(17,17,17,0.4)"
+      },
+      "layout": {
+        "skeleton": "콘텐츠 열의 제한된 최대 너비를 가진 전체 폭 반응형 레이아웃."
+      },
+      "components": {
+        "button": "깔끔한 세리프 타이포그래피가 적용된 검은색 또는 윤곽선이 있는 알약 모양 버튼.",
+        "card": "최소한의 테두리나 은은한 그림자를 가진 깔끔한 카드. 종종 제품 UI 스크린샷을 포함.",
+        "chip": "은은한 배경이나 테두리가 있는 간단한 텍스트 태그.",
+        "input": "은은한 테두리와 둥근 모서리가 있는 깔끔한 텍스트 입력.",
+        "hero": "텍스트와 제품 이미지 또는 사진을 나란히 배치한 레이아웃과 결합된 크고 표현력 있는 타이포그래피."
+      },
+      "motion": {
+        "patterns": [
+          "color, background-color, border-color 속성에 대한 부드러운 전환.",
+          "hover 상태를 위한 은은한 background-size 애니메이션."
+        ]
+      },
+      "interaction": {
+        "hover": "부드러운 color와 background-color 전환.",
+        "click": "미세한 스케일 또는 색상 변화로 즉각적인 응답.",
+        "transition": "기본 인터랙티브 속성에 일관된 0.4s cubic-bezier(0.165, 0.84, 0.44, 1) 전환.",
+        "keyboard": "눈에 보이는 윤곽선이나 링을 가진 포커스 가능한 요소."
+      },
+      "voice": {
+        "tone": "전문적이고 자신감 있으며 미래지향적인.",
+        "headlineStyle": "제품 리더십과 AI 역량에 대한 대담하고 직접적인 진술.",
+        "ctaStyle": "'무료 체험 시작' 및 '데모 보기'와 같이 명확하고 행동 지향적인 구절.",
+        "avoid": [
+          "지나치게 비공식적인 언어",
+          "모호한 마케팅 용어",
+          "공격적인 긴박감 조성 전략"
+        ]
+      },
+      "donts": [
+        "히어로에 어두운 배경을 사용하지 마세요. 스크린샷은 깨끗한 흰색 배경을 보여줍니다.",
+        "헤드라인에 장식적이거나 디스플레이 세리프 글꼴을 사용하지 마세요. 스크린샷은 깔끔한 기하학적 세리프 타이포그래피를 보여줍니다.",
+        "밝고 채도 높은 악센트 색상에 의존하지 마세요. 스크린샷은 단일 딥 블루 악센트가 포함된 절제된 팔레트를 보여줍니다.",
+        "작고 비좁은 타이포그래피를 사용하지 마세요. 스크린샷은 넉넉한 행간과 자간을 보여줍니다.",
+        "복잡하고 바쁜 배경 패턴을 사용하지 마세요. 스크린샷은 단색과 사진 이미지를 보여줍니다.",
+        "거칠고 각진 UI 컴포넌트를 사용하지 마세요. 스크린샷은 둥근 버튼과 카드를 보여줍니다."
+      ],
+      "systemPrompt": "Intercom의 홈페이지는 현대적인 SaaS 디자인의 모범 사례로, 고급 에디토리얼 미학과 깔끔하고 기능적인 UI를 결합합니다. 핵심 정체성은 전문적이고 AI 중심적이며, 흰색(#ffffff), 따뜻한 베이지(#d3cec6), 거의 검정(#111111) 텍스트로 고정된 절제된 색상 팔레트를 사용합니다. 타이포그래피는 주로 깔끔한 기하학적 세리프와 휴머니스트 세리프로 구성되며, 촘촘한 자간을 가진 54px 디스플레이 크기가 주요 헤드라인에 사용됩니다. 주요 인터랙션은 부드러운 0.4초 전환을 특징으로 합니다. 중요한 디자인 규칙: 넉넉한 여백 우선, 지나치게 장식적인 요소 피하기, 제품 이미지와 딥 블루(#0007cb) 악센트가 돋보이도록 따뜻한 중성색의 미세한 변화가 있는 단색 기반 유지."
     }
   }
 }

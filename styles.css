@@ -650,6 +650,56 @@ input:focus-visible {
   will-change: transform;
 }
 
+/* 点「回到原点」时平滑飞回，明确是归位而非闪现 */
+.canvas-grid.recentering {
+  transition: transform 480ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* 画布右下角浮动控件簇：随机探索 + 回到原点 */
+.canvas-controls {
+  position: absolute;
+  right: 24px;
+  bottom: 24px;
+  z-index: 6;
+  display: flex;
+  gap: 10px;
+}
+
+/* 浮动按钮：偏离原点时高亮 */
+.canvas-recenter {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 15px 9px 12px;
+  font: inherit;
+  font-size: 13.5px;
+  color: var(--muted, #6b6b6b);
+  background: rgba(255, 255, 255, 0.86);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+  cursor: pointer;
+  opacity: 0.55;
+  transition: opacity 220ms ease, color 220ms ease, border-color 220ms ease, background 220ms ease, transform 220ms ease;
+}
+
+.canvas-recenter svg { width: 16px; height: 16px; flex: none; }
+
+.canvas-recenter:hover { opacity: 1; color: var(--ink, #111); border-color: var(--line-strong, #ccc); }
+
+/* 偏离原点时：实心高亮 + 轻微脉冲，把"你拖远了，点这里归位"说清楚 */
+.canvas-recenter.is-active {
+  opacity: 1;
+  color: #fff;
+  background: var(--ink, #111);
+  border-color: var(--ink, #111);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.18);
+}
+
+.canvas-recenter.is-active:hover { color: #fff; }
+
 .site-node {
   position: absolute;
   display: flex;
@@ -1274,6 +1324,97 @@ input:focus-visible {
   margin-bottom: 24px;
 }
 
+/* About · 两份文档对比 */
+.about-docs .about-sample-lead { margin-bottom: 32px; }
+
+.docs-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.doc-card {
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  padding: 28px 28px 30px;
+  background: var(--surface, #fff);
+  display: flex;
+  flex-direction: column;
+}
+
+.doc-card-primary {
+  border-color: var(--ink, #111);
+  box-shadow: 0 1px 0 var(--ink, #111);
+}
+
+.doc-card-file {
+  font-family: var(--font-mono, ui-monospace, monospace);
+  font-size: 15px;
+  letter-spacing: -0.2px;
+  margin: 0 0 6px;
+  word-break: break-word;
+}
+
+.doc-card-tag {
+  display: inline-block;
+  align-self: flex-start;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted, #666);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 3px 10px;
+  margin-bottom: 16px;
+}
+
+.doc-card-primary .doc-card-tag {
+  color: var(--ink, #111);
+  border-color: var(--ink, #111);
+}
+
+.doc-card-body {
+  font-size: 15px;
+  line-height: 1.62;
+  color: var(--text, #333);
+  margin: 0 0 18px;
+}
+
+.doc-card-list {
+  list-style: none;
+  margin: auto 0 0;
+  padding: 0;
+  border-top: 1px solid var(--line);
+  padding-top: 16px;
+}
+
+.doc-card-list li {
+  position: relative;
+  padding-left: 18px;
+  font-size: 13.5px;
+  line-height: 1.5;
+  color: var(--muted, #555);
+  margin-bottom: 9px;
+}
+
+.doc-card-list li:last-child { margin-bottom: 0; }
+
+.doc-card-list li::before {
+  content: "—";
+  position: absolute;
+  left: 0;
+  color: var(--muted, #999);
+}
+
+.doc-card-primary .doc-card-list li::before { content: "✓"; color: var(--ink, #111); }
+
+.docs-footnote {
+  margin: 22px 0 0;
+  font-size: 13.5px;
+  line-height: 1.6;
+  color: var(--muted, #666);
+}
+
 .about-section .spec-example {
   min-height: 360px;
   margin: 0;
@@ -1291,6 +1432,15 @@ input:focus-visible {
 
 .about-contact .panel-lead {
   margin-bottom: 24px;
+}
+
+/* 作者区下方的投稿小注（合并自原独立投稿区，去冗余）*/
+.about-submit-note {
+  margin: 30px 0 10px;
+  padding-top: 24px;
+  border-top: 1px solid var(--line);
+  font-size: 14px;
+  color: var(--muted, #6b6b6b);
 }
 
 .contact-links {
@@ -1558,12 +1708,72 @@ input:focus-visible {
 }
 
 /* ─────── 设计素材包 manifest 区 ─────── */
-.pack-manifest {
+.pack-manifest,
+.pack-generate {
   margin: 16px 0 32px;
   padding: 28px 32px;
   border-top: 1px solid var(--ink);
   border-bottom: 1px solid var(--line);
   background: var(--bg-soft);
+}
+
+/* 「生成设计系统」面板（无 ZIP 素材包的作品） */
+.gen-body { margin-top: 18px; }
+
+.gen-steps {
+  list-style: none;
+  margin: 18px 0 0;
+  padding: 0;
+  counter-reset: gen;
+}
+.gen-steps li {
+  position: relative;
+  padding: 8px 0 8px 30px;
+  font-size: 14px;
+  color: var(--muted, #777);
+  opacity: 0.5;
+  transition: opacity 220ms ease, color 220ms ease;
+}
+.gen-steps li::before {
+  counter-increment: gen;
+  content: counter(gen);
+  position: absolute;
+  left: 0;
+  top: 8px;
+  width: 19px;
+  height: 19px;
+  border: 1px solid var(--line-strong, #ccc);
+  border-radius: 999px;
+  font-size: 11px;
+  line-height: 19px;
+  text-align: center;
+}
+.gen-steps li.active { opacity: 1; color: var(--ink, #111); }
+.gen-steps li.done { opacity: 1; color: var(--ink, #111); }
+.gen-steps li.done::before {
+  content: "✓";
+  background: var(--ink, #111);
+  color: #fff;
+  border-color: var(--ink, #111);
+}
+
+.gen-result { margin-top: 4px; }
+.gen-result-note {
+  margin: 0 0 16px;
+  font-size: 14px;
+  color: var(--ink, #111);
+}
+
+/* 「请求生成」后的次要区：即时文档版兜底 */
+.gen-secondary {
+  margin-top: 22px;
+  padding-top: 18px;
+  border-top: 1px solid var(--line);
+}
+.gen-secondary-label {
+  margin: 0 0 12px;
+  font-size: 13px;
+  color: var(--muted, #6b6b6b);
 }
 
 .pack-head {
@@ -2700,6 +2910,64 @@ html[lang^="zh"] .preview-md em {
 /* ====== SYNC CODE ====== */
 
 /* saved 页底部的同步工具条 —— hairline 包围、编辑型留白 */
+/* 我请求的收录 */
+.my-requests {
+  max-width: 1240px;
+  margin: 48px auto 0;
+  padding-top: 28px;
+  border-top: 1px solid var(--line);
+}
+
+.my-requests-head { margin-bottom: 18px; }
+
+.my-requests-lead {
+  margin: 6px 0 0;
+  color: var(--muted, #6b6b6b);
+  font-size: 14px;
+  line-height: 1.55;
+  max-width: 640px;
+}
+
+.my-requests-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.request-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 14px 2px;
+  border-bottom: 1px solid var(--line);
+}
+
+.request-host {
+  color: var(--ink, #111);
+  text-decoration: none;
+  font-size: 15px;
+  word-break: break-word;
+}
+
+.request-host:hover { text-decoration: underline; }
+
+.request-status {
+  flex: none;
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  padding: 3px 11px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  color: var(--muted, #6b6b6b);
+  white-space: nowrap;
+}
+
+.request-pending   .request-status { color: #b25000; border-color: #f0d8c0; background: #fdf6ef; }
+.request-accepted  .request-status { color: #1a7f4b; border-color: #cfe9d9; background: #f0faf4; }
+.request-rejected  .request-status { color: #a11;    border-color: #f0cfcf; background: #fdf2f2; }
+.request-published .request-status { color: #fff;    border-color: var(--ink, #111); background: var(--ink, #111); }
+
 .sync-bar {
   max-width: 1240px;
   margin: 96px auto 0;
@@ -3128,6 +3396,18 @@ body.drawer-open {
   /* 触屏没 hover，常驻显示收藏按钮 */
   .card-save { opacity: 1; }
 
+  /* 手机上「回到原点」更紧凑、常驻可见 */
+  .canvas-controls {
+    right: 12px;
+    bottom: calc(14px + env(safe-area-inset-bottom));
+    gap: 8px;
+  }
+  .canvas-recenter {
+    padding: 8px 13px 8px 11px;
+    font-size: 12.5px;
+    opacity: 0.92;
+  }
+
   /* ───── Panel views：留白收紧但不压扁 ───── */
   .panel-view {
     padding: calc(var(--topbar-h) + 38px + 32px + env(safe-area-inset-top)) 20px calc(64px + env(safe-area-inset-bottom));
@@ -3167,6 +3447,9 @@ body.drawer-open {
   .about-section h2 { font-size: 28px; }
 
   .about-sample-lead { margin-bottom: 16px; }
+
+  .docs-grid { grid-template-columns: 1fr; gap: 16px; }
+  .doc-card { padding: 22px 20px 24px; }
 
   .about-section .spec-example {
     padding: 18px 16px;

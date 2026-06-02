@@ -13,44 +13,60 @@
   "_meta": {
     "vision_model": "mimo-v2.5",
     "vision_prompt_version": "0.3",
-    "vision_at": "2026-05-28T21:34:19+00:00",
-    "vision_tokens": 3658,
-    "vision_cost_usd": 0.0406,
+    "vision_at": "2026-05-30T17:55:15+00:00",
+    "vision_tokens": 16212,
+    "vision_cost_usd": 0.1801,
     "translation_model": "mimo-v2.5",
-    "translation_at": "2026-05-28T21:35:07+00:00",
-    "translation_tokens": 14002,
-    "translation_cost_usd": 0.0468,
+    "translation_at": "2026-05-30T17:56:06+00:00",
+    "translation_tokens": 23760,
+    "translation_cost_usd": 0.0793,
     "narrative_model": "mimo-v2.5",
     "narrative_prompt_version": "0.3",
     "narrative_at": "2026-05-28T21:35:16+00:00",
     "narrative_tokens": 1756,
     "narrative_cost_usd": 0.0117,
     "narrative_status": "ok",
-    "total_cost_usd": 0.0991
+    "total_cost_usd": 0.2711,
+    "vision_source": "playwright-extract:starbucks",
+    "vision_grounded": true
   },
   "spec": {
     "colors": {
       "bg": "#FFFFFF",
       "bgSoft": null,
       "bgQuiet": null,
-      "ink": "#666666",
-      "inkSoft": null,
-      "muted": "#B0B0B0",
+      "ink": "#000000",
+      "inkSoft": "rgba(0,0,0,0.58)",
+      "muted": "rgba(0,0,0,0.58)",
       "mutedSoft": null,
-      "accent": null,
-      "line": "rgba(0,0,0,0)"
+      "accent": "#006241",
+      "line": "rgba(0,0,0,0.12)"
     },
     "typography": {
       "display": "geometric-sans",
-      "body": "monospaced",
-      "mono": "monospaced",
+      "body": "geometric-sans",
+      "mono": "monospace",
       "scale": [
         {
           "token": "display",
-          "size": 24,
+          "size": 48,
+          "lh": 1.0,
+          "weight": 600,
+          "ls": "-1px"
+        },
+        {
+          "token": "h2",
+          "size": 36,
           "lh": 1.2,
-          "weight": 500,
-          "ls": "0px"
+          "weight": 600,
+          "ls": "-1px"
+        },
+        {
+          "token": "body",
+          "size": 16,
+          "lh": 1.5,
+          "weight": 400,
+          "ls": "-0.16px"
         }
       ]
     },
@@ -69,10 +85,10 @@
     },
     "surfaces": {
       "radius": {
-        "sm": 0,
-        "md": 0,
-        "lg": 0,
-        "pill": 999
+        "sm": 4,
+        "md": 8,
+        "lg": 12,
+        "pill": 50
       }
     },
     "layout": {
@@ -87,372 +103,20 @@
     },
     "motion": {
       "durations": {
-        "micro": 220,
-        "small": 400,
-        "medium": 800
+        "micro": 200,
+        "small": 200,
+        "medium": 300
       },
       "easing": "cubic-bezier(0.4, 0, 0.2, 1)"
     }
   },
-  "spec_i18n": {
-    "en": {
-      "identity": {
-        "keywords": [
-          "minimal",
-          "corporate",
-          "loading",
-          "abstract"
-        ],
-        "analogy": "A loading spinner or placeholder screen for a corporate presentation",
-        "oneLiner": "A minimal, corporate loading or placeholder screen featuring a geometric logo mark and monospace wordmark."
-      },
-      "colors": {
-        "principle": "Stark, minimalist, and predominantly neutral."
-      },
-      "typography": {
-        "rules": [
-          "All typography appears to be monospaced or strictly geometric."
-        ],
-        "scaleUses": [
-          "Wordmark"
-        ]
-      },
-      "spacing": {
-        "rhythm": "Centered, vertically stacked with generous whitespace."
-      },
-      "surfaces": {
-        "shadows": [],
-        "borders": "None visible."
-      },
-      "layout": {
-        "skeleton": "A single centered column with vertically stacked elements."
-      },
-      "components": {
-        "button": "None visible.",
-        "card": "None visible.",
-        "chip": "None visible.",
-        "input": "None visible.",
-        "hero": "A centered loading spinner or logo mark."
-      },
-      "motion": {
-        "patterns": [
-          "Potential rotation or pulse for the circular element."
-        ]
-      },
-      "interaction": {
-        "hover": "None visible.",
-        "click": "None visible.",
-        "transition": "None visible.",
-        "keyboard": "None visible."
-      },
-      "voice": {
-        "tone": "Neutral, corporate, placeholder.",
-        "headlineStyle": "None visible.",
-        "ctaStyle": "None visible.",
-        "avoid": [
-          "Playful or expressive copy",
-          "Dense layouts",
-          "Decorative elements"
-        ]
-      },
-      "donts": [
-        "don't use decorative elements — screenshot shows a single geometric logo mark",
-        "don't use multiple colors — screenshot shows only white, grey, and a single blue accent",
-        "don't use a standard sans-serif font — screenshot shows a monospaced font for the wordmark",
-        "don't create dense layouts — screenshot shows a completely centered, minimalist layout",
-        "don't use complex imagery — screenshot shows only a simple 3D-rendered ring and text",
-        "don't add borders or shadows — screenshot shows a completely flat composition"
-      ],
-      "systemPrompt": "This is a minimalist, corporate placeholder or loading screen. Key hex colors are a stark white background (#FFFFFF) and neutral grey typography (#666666). The primary font category is monospaced, used for both the wordmark and potentially all UI. Critical donts: do not add decorative elements, as the design is severely stripped back; do not use multiple colors, as the palette is strictly monochromatic with one minor blue accent; do not create dense layouts, as the composition relies entirely on generous whitespace."
-    },
-    "zh-CN": {
-      "identity": {
-        "keywords": [
-          "极简",
-          "企业",
-          "加载",
-          "抽象"
-        ],
-        "analogy": "企业演示的加载旋转器或占位符屏幕",
-        "oneLiner": "一个极简的企业加载或占位符屏幕，包含几何标志和等宽字体标志。"
-      },
-      "colors": {
-        "principle": "鲜明、极简，且以中性色为主。"
-      },
-      "typography": {
-        "rules": [
-          "所有字体似乎是等宽或严格几何化的。"
-        ],
-        "scaleUses": [
-          "标志"
-        ]
-      },
-      "spacing": {
-        "rhythm": "居中，垂直堆叠，留有充足空白。"
-      },
-      "surfaces": {
-        "shadows": [],
-        "borders": "无可见边框。"
-      },
-      "layout": {
-        "skeleton": "单一居中栏目，元素垂直堆叠。"
-      },
-      "components": {
-        "button": "无可见按钮。",
-        "card": "无可见卡片。",
-        "chip": "无可见标签。",
-        "input": "无可见输入框。",
-        "hero": "居中的加载旋转器或标志。"
-      },
-      "motion": {
-        "patterns": [
-          "圆形元素可能具有旋转或脉动效果。"
-        ]
-      },
-      "interaction": {
-        "hover": "无可见悬停效果。",
-        "click": "无可见点击效果。",
-        "transition": "无可见过渡效果。",
-        "keyboard": "无可见键盘交互。"
-      },
-      "voice": {
-        "tone": "中立、企业、占位符式。",
-        "headlineStyle": "无可见标题样式。",
-        "ctaStyle": "无可见号召性用语样式。",
-        "avoid": [
-          "趣味或富有表现力的文案",
-          "密集的布局",
-          "装饰性元素"
-        ]
-      },
-      "donts": [
-        "不要使用装饰性元素 —— 截图仅显示一个几何标志",
-        "不要使用多种颜色 —— 截图仅显示白色、灰色和单一的蓝色点缀",
-        "不要使用标准无衬线字体 —— 截图显示标志使用等宽字体",
-        "不要创建密集的布局 —— 截图显示完全居中、极简的布局",
-        "不要使用复杂图像 —— 截图仅显示一个简单的 3D 渲染圆环和文字",
-        "不要添加边框或阴影 —— 截图显示完全扁平的构图"
-      ],
-      "systemPrompt": "这是一个极简的企业占位符或加载屏幕。关键十六进制颜色是纯白背景 (#FFFFFF) 和中性灰色文字 (#666666)。主要字体类别为等宽字体，用于标志以及可能所有的 UI 元素。关键禁忌：不要添加装饰性元素，因为设计已极度精简；不要使用多种颜色，因为调色板严格单色，仅有一个次要的蓝色点缀；不要创建密集的布局，因为构图完全依赖于充足的空白。"
-    },
-    "zh-TW": {
-      "identity": {
-        "keywords": [
-          "極簡",
-          "企業",
-          "載入中",
-          "抽象"
-        ],
-        "analogy": "企業簡報的載入指示器或placeholder畫面",
-        "oneLiner": "一個極簡、企業風格的載入或placeholder畫面，採用幾何標誌與等寬字體標題。"
-      },
-      "colors": {
-        "principle": "簡潔、極簡，且以中性色調為主。"
-      },
-      "typography": {
-        "rules": [
-          "所有字體似乎皆為等寬或嚴格幾何造型。"
-        ],
-        "scaleUses": [
-          "標題文字"
-        ]
-      },
-      "spacing": {
-        "rhythm": "居中、垂直堆疊，並搭配充裕的留白。"
-      },
-      "surfaces": {
-        "shadows": [],
-        "borders": "未見邊框。"
-      },
-      "layout": {
-        "skeleton": "單一居中欄位，元素垂直堆疊。"
-      },
-      "components": {
-        "button": "未見按鈕。",
-        "card": "未見卡片。",
-        "chip": "未見標籤。",
-        "input": "未見輸入欄位。",
-        "hero": "居中的載入指示器或標誌。"
-      },
-      "motion": {
-        "patterns": [
-          "圓形元素可能具備旋轉或脈動效果。"
-        ]
-      },
-      "interaction": {
-        "hover": "未見hover效果。",
-        "click": "未見點擊效果。",
-        "transition": "未見轉場效果。",
-        "keyboard": "未見鍵盤互動效果。"
-      },
-      "voice": {
-        "tone": "中性、企業、placeholder風格。",
-        "headlineStyle": "未見標題樣式。",
-        "ctaStyle": "未見CTA樣式。",
-        "avoid": [
-          "活潑或富表現力的文案",
-          "密集的版面佈局",
-          "裝飾性元素"
-        ]
-      },
-      "donts": [
-        "避免使用裝飾性元素——畫面截圖僅顯示一個幾何標誌",
-        "避免使用多種顏色——畫面截圖僅顯示白色、灰色，以及單一的藍色點綴",
-        "避免使用標準無襯線字體——畫面截圖顯示標題採用等寬字體",
-        "避免創建密集版面——畫面截圖顯示完全居中的極簡佈局",
-        "避免使用複雜圖像——畫面截圖僅顯示簡單的3D渲染環與文字",
-        "避免添加邊框或陰影——畫面截圖顯示完全平面的構圖"
-      ],
-      "systemPrompt": "這是一個極簡、企業風格的placeholder或載入畫面。關鍵色碼為純白背景（#FFFFFF）與中性灰色文字（#666666）。主要字體類別為等寬字體，用於標題文字及可能的所有介面。關鍵禁用事項：請勿添加裝飾性元素，因設計已極度精簡；請勿使用多種顏色，因色調嚴格限制為單色調，僅有一處次要藍色點綴；請勿創建密集版面，因構圖完全依賴充裕的留白。"
-    },
-    "ja": {
-      "identity": {
-        "keywords": [
-          "ミニマル",
-          "企業",
-          "ローディング",
-          "抽象"
-        ],
-        "analogy": "企業プレゼンテーション用のローディングスピナーやプレースホルダー画面",
-        "oneLiner": "ジオメトリックなロゴマークとモノスペースのワードマークを備えた、ミニマルな企業向けローディングまたはプレースホルダー画面。"
-      },
-      "colors": {
-        "principle": "厳格、ミニマル、ニュートラルが主。"
-      },
-      "typography": {
-        "rules": [
-          "すべてのタイポグラフィはモノスペースか厳密にジオメトリックに見えます。"
-        ],
-        "scaleUses": [
-          "ワードマーク"
-        ]
-      },
-      "spacing": {
-        "rhythm": "中央揃え、縦に積み重ねられ、豊かなホワイトスペース。"
-      },
-      "surfaces": {
-        "shadows": [],
-        "borders": "見られません。"
-      },
-      "layout": {
-        "skeleton": "縦に積み重ねられた要素を備えた単一の中央カラム。"
-      },
-      "components": {
-        "button": "見られません。",
-        "card": "見られません。",
-        "chip": "見られません。",
-        "input": "見られません。",
-        "hero": "中央揃えのローディングスピナーやロゴマーク。"
-      },
-      "motion": {
-        "patterns": [
-          "円形要素の回転やパルスの可能性。"
-        ]
-      },
-      "interaction": {
-        "hover": "見られません。",
-        "click": "見られません。",
-        "transition": "見られません。",
-        "keyboard": "見られません。"
-      },
-      "voice": {
-        "tone": "ニュートラル、企業、プレースホルダー。",
-        "headlineStyle": "見られません。",
-        "ctaStyle": "見られません。",
-        "avoid": [
-          "遊び心のある、あるいは表現力豊かなコピー",
-          "密集したレイアウト",
-          "装飾的要素"
-        ]
-      },
-      "donts": [
-        "装飾的要素を使用しない — スクリーンショットは単一のジオメトリックなロゴマークのみを示しています",
-        "複数の色を使用しない — スクリーンショットはホワイト、グレー、そして単一のブルーアクセントのみを示しています",
-        "標準的なサンセリフフォントを使用しない — スクリーンショットはワードマークにモノスペースフォントを使用しています",
-        "密集したレイアウトを作成しない — スクリーンショットは完全に中央揃えのミニマルなレイアウトを示しています",
-        "複雑な画像を使用しない — スクリーンショットはシンプルな3Dレンダリングリングとテキストのみを示しています",
-        "ボーダーやシャドウを追加しない — スクリーンショットは完全にフラットな構図を示しています"
-      ],
-      "systemPrompt": "これはミニマルな企業プレースホルダーまたはローディング画面です。主要なカラーコードは厳格なホワイト背景（#FFFFFF）とニュートラルグレーのタイポグラフィ（#666666）です。主要なフォントカテゴリはモノスペースで、ワードマークだけでなく、 potentially すべてのUIに使用されます。重要な禁止事項：デザインが極端に削ぎ落とされているため、装飾的要素を追加しない；パレットが厳密にモノクロで、1つのMinorなブルーアクセントしか含まれないため、複数の色を使用しない；構図が豊かなホワイトスペースに完全に依存しているため、密集したレイアウトを作成しない。"
-    },
-    "ko": {
-      "identity": {
-        "keywords": [
-          "미니멀",
-          "기업",
-          "로딩",
-          "추상"
-        ],
-        "analogy": "기업 발표용 로딩 스피너 또는 플레이스홀더 화면",
-        "oneLiner": "기하학적 로고 마크와 모노스페이스 워드마크를 특징으로 하는 미니멀한 기업용 로딩 또는 플레이스홀더 화면입니다."
-      },
-      "colors": {
-        "principle": "극도로 미니멀하고, 주로 중성적인 색조를 사용합니다."
-      },
-      "typography": {
-        "rules": [
-          "모든 타이포그래피는 모노스페이스이거나 엄격히 기하학적입니다."
-        ],
-        "scaleUses": [
-          "워드마크"
-        ]
-      },
-      "spacing": {
-        "rhythm": "중앙 정렬, 수직 스택에 넉넉한 여백을 사용합니다."
-      },
-      "surfaces": {
-        "shadows": [],
-        "borders": "보이는 테두리 없음."
-      },
-      "layout": {
-        "skeleton": "수직으로 쌓인 요소들이 있는 단일 중앙 정렬 컬럼입니다."
-      },
-      "components": {
-        "button": "보이는 버튼 없음.",
-        "card": "보이는 카드 없음.",
-        "chip": "보이는 칩 없음.",
-        "input": "보이는 입력 필드 없음.",
-        "hero": "중앙 정렬된 로딩 스피너 또는 로고 마크입니다."
-      },
-      "motion": {
-        "patterns": [
-          "원형 요소의 잠재적 회전 또는 펄스."
-        ]
-      },
-      "interaction": {
-        "hover": "보이는 호버 효과 없음.",
-        "click": "보이는 클릭 효과 없음.",
-        "transition": "보이는 트랜지션 없음.",
-        "keyboard": "보이는 키보드 인터랙션 없음."
-      },
-      "voice": {
-        "tone": "중립적, 기업적, 플레이스홀더.",
-        "headlineStyle": "보이는 헤드라인 스타일 없음.",
-        "ctaStyle": "보이는 CTA 스타일 없음.",
-        "avoid": [
-          "장난스럽거나 표현적인 카피",
-          "밀도 높은 레이아웃",
-          "장식적 요소"
-        ]
-      },
-      "donts": [
-        "장식적 요소를 사용하지 마세요 — 스크린샷에는 단일 기하학적 로고 마크만 보입니다",
-        "여러 색상을 사용하지 마세요 — 스크린샷에는 흰색, 회색, 그리고 단일한 블루 액센트만 보입니다",
-        "표준 산세리프 폰트를 사용하지 마세요 — 스크린샷에는 워드마크에 모노스페이스 폰트가 사용되었습니다",
-        "밀도 높은 레이아웃을 만들지 마세요 — 스크린샷에는 완전히 중앙 정렬된 미니멀한 레이아웃만 보입니다",
-        "복잡한 이미지를 사용하지 마세요 — 스크린샷에는 단순한 3D 렌더링 링과 텍스트만 보입니다",
-        "테두리나 그림자를 추가하지 마세요 — 스크린샷에는 완전히 플랫한 구성만 보입니다"
-      ],
-      "systemPrompt": "이것은 미니멀한 기업용 플레이스홀더 또는 로딩 화면입니다. 주요 헥스 색상은 극도로 밝은 흰색 배경(#FFFFFF)과 중성 회색 타이포그래피(#666666)입니다. 주요 폰트 카테고리는 모노스페이스이며, 워드마크와 모든 UI에 잠재적으로 사용됩니다. 중요한 주의사항: 디자인이 극도로 단순화되어 있으므로 장식적 요소를 추가하지 마세요. 팔레트가 단색에 가깝고 단 하나의 미세한 블루 액센트만 사용되므로 여러 색상을 사용하지 마세요. 구성이 넉넉한 여백에 전적으로 의존하므로 밀도 높은 레이아웃을 만들지 마세요."
-    }
-  },
   "desc": {
     "en": {
-      "palette": "The palette is stark and minimal, consisting primarily of white and neutral greys with a single blue accent in the logo.",
-      "layout": "The layout is a single, centered column with generous whitespace, creating a focused and uncluttered composition.",
-      "interaction": "No interactive elements are visible, suggesting a static state like a loading screen or splash page.",
-      "motion": "No animation is visible, though the circular logo mark implies a potential for a simple rotation or pulse.",
-      "notes": "This design is worth including as an example of extreme minimalism and corporate placeholder aesthetics."
+      "palette": "The palette is anchored by a clean white background, deep brand forest greens, and high-contrast black text, creating a fresh and appetizing feel.",
+      "layout": "The layout features large, full-width split-view hero sections alternating with standard centered content, prioritizing large-scale photography.",
+      "interaction": "Interactions are simple and focused on standard web patterns with smooth, subtle transitions on hover states and buttons.",
+      "motion": "Motion is minimal, consisting mostly of quick, standard CSS transitions for color changes and focus states.",
+      "notes": "This site is a great example of a high-traffic consumer brand using a clean, photography-driven layout to promote seasonal products."
     },
     "zh-CN": {
       "palette": "调色板极其克制与极简，主要由白色和中性灰色构成，仅在标志中使用单一蓝色作为点缀。",
@@ -543,6 +207,398 @@
       "ch7_intro": "모션에 대한 디자인 철학은 잠재적으로 유지되며, 원형 로고 마크 자체의 형상에 의해 암시될 뿐입니다. 모든 애니메이션은 최소적이고 기능적일 것입니다—느린 회전이나 미세한 펄스—장식하기보다는 활동을 나타내는 역할을 합니다.",
       "ch8_intro": "에디토리얼 목소리는 완전히 중립적이고 기업적이며, 커뮤니케이션이 아닌 시스템 레이블로 기능합니다. 장난기, 밀도, 장식적 표현을 모두 피하여 기능적 플레이스홀더로서의 역할을 유지합니다.",
       "ch8_outro": "시스템은 의도적으로 인터랙티브 구성 요소, 밀집된 레이아웃, 장식적 요소를 생략하여, 참여 공간이 아닌 전환을 위한 템플릿으로서 자리매김합니다."
+    }
+  },
+  "spec_i18n": {
+    "en": {
+      "identity": {
+        "keywords": [
+          "inviting",
+          "refreshing",
+          "seasonal",
+          "welcoming"
+        ],
+        "analogy": "A bright, modern coffeehouse with large appetizing photography and clear, friendly navigation.",
+        "oneLiner": "A consumer-facing seasonal marketing site driven by large photographic hero sections and a strong green brand identity."
+      },
+      "colors": {
+        "principle": "High-contrast brand green anchors the identity, balanced against clean white backgrounds and vibrant product photography."
+      },
+      "typography": {
+        "rules": [
+          "Headings are uppercase for main navigation",
+          "Body text is highly legible with tight letter-spacing",
+          "Font weight 600 is used for emphasis in headings"
+        ],
+        "scaleUses": [
+          "Section headings",
+          "Promotional copy",
+          "Body text and links"
+        ]
+      },
+      "spacing": {
+        "rhythm": "Generous vertical padding is applied to large hero sections and content blocks to let photography breathe."
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(0, 0, 0, 0.1) 0px 11px 15px 0px",
+          "rgba(0, 0, 0, 0.06) 0px 9px 46px 8px"
+        ],
+        "borders": "Clean 1px borders are used sparingly, mostly for inputs and focus states."
+      },
+      "layout": {
+        "skeleton": "Full-width hero blocks alternate with standard centered content columns."
+      },
+      "components": {
+        "button": "Pill-shaped solid green buttons with white text or white pill buttons with green outlines.",
+        "card": "Large split-view cards combining full-bleed photography with solid green background text blocks.",
+        "chip": "Simple text links for navigation.",
+        "input": "Standard rectangular inputs with rounded corners.",
+        "hero": "Large, full-width split-view combining a prominent food/drink photo on one side with a brand green background and text on the other."
+      },
+      "motion": {
+        "patterns": [
+          "Subtle opacity and transform transitions on hover states",
+          "Smooth color changes for interactive elements"
+        ]
+      },
+      "interaction": {
+        "hover": "Color shifts on text links and background changes on buttons",
+        "click": "Instant visual feedback",
+        "transition": "0.2s ease-out applied globally",
+        "keyboard": "Standard tab focus navigation"
+      },
+      "voice": {
+        "tone": "Friendly, inviting, and celebratory",
+        "headlineStyle": "Short, punchy, and seasonally focused",
+        "ctaStyle": "Direct, action-oriented, and encouraging (e.g., 'Explore the summer menu')",
+        "avoid": [
+          "Generic corporate jargon",
+          "Overly complex sentences",
+          "Harsh or demanding language"
+        ]
+      },
+      "donts": [
+        "Don't use dark backgrounds for the main layout — screenshot shows bright white backgrounds dominating the space.",
+        "Don't use heavy drop shadows on primary elements — screenshot shows minimal, soft shadows mostly on modals.",
+        "Don't use a serif typeface for headings — screenshot shows a consistent sans-serif system throughout.",
+        "Don't use sharp 90-degree corners on buttons — screenshot shows fully rounded 'pill' shapes.",
+        "Don't use small, cramped spacing in hero sections — screenshot shows generous padding around large photography.",
+        "Don't rely on heavy borders for structure — screenshot shows color blocks and whitespace as primary separators."
+      ],
+      "systemPrompt": "This is a consumer-facing seasonal marketing site for a major beverage brand. It features a clean, bright design driven by large, appetizing photography and a strong, recognizable brand green. The palette is anchored by clean white backgrounds, deep forest green accents, and high-contrast black text. Typography relies on a modern geometric sans-serif for both display and body text. Critical donts: avoid dark mode aesthetics, avoid sharp corners on interactive elements, avoid using serif fonts. The layout uses full-width split-view hero cards alternating with centered content, prioritizing clarity and visual appeal over complex UI patterns."
+    },
+    "zh-CN": {
+      "identity": {
+        "keywords": [
+          "邀请感",
+          "清新感",
+          "季节性",
+          "欢迎感"
+        ],
+        "analogy": "一个明亮、现代的咖啡馆，配有大幅诱人的摄影图片和清晰、友好的导航。",
+        "oneLiner": "一个面向消费者的季节性营销网站，以大型摄影主视觉区域和强烈的绿色品牌标识为驱动。"
+      },
+      "colors": {
+        "principle": "高对比度的品牌绿色锚定了整体标识，与纯净的白色背景和生动的产品摄影图片相平衡。"
+      },
+      "typography": {
+        "rules": [
+          "主导航标题采用大写字母",
+          "正文文本具有极高的可读性，字间距紧凑",
+          "标题中使用字体粗细 600 进行强调"
+        ],
+        "scaleUses": [
+          "版块标题",
+          "推广文案",
+          "正文文本和链接"
+        ]
+      },
+      "spacing": {
+        "rhythm": "在大型主视觉区域和内容块上应用宽松的垂直内边距，让摄影图片得以呼吸。"
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(0, 0, 0, 0.1) 0px 11px 15px 0px",
+          "rgba(0, 0, 0, 0.06) 0px 9px 46px 8px"
+        ],
+        "borders": "干净的 1px 边框被谨慎使用，主要用于输入框和焦点状态。"
+      },
+      "layout": {
+        "skeleton": "全宽主视觉块与标准的居中内容列交替出现。"
+      },
+      "components": {
+        "button": "药丸形状的实心绿色按钮配白色文字，或白色药丸按钮配绿色轮廓。",
+        "card": "大型分屏视图卡片，将全出血摄影图片与实心绿色背景的文字块相结合。",
+        "chip": "用于导航的简单文本链接。",
+        "input": "标准圆角矩形输入框。",
+        "hero": "大型、全宽的分屏视图，一侧是突出的食物/饮料照片，另一侧是品牌绿色背景和文字。"
+      },
+      "motion": {
+        "patterns": [
+          "悬停状态下的微妙透明度和变换过渡",
+          "交互元素的平滑颜色变化"
+        ]
+      },
+      "interaction": {
+        "hover": "文本链接上的颜色偏移和按钮上的背景变化",
+        "click": "即时视觉反馈",
+        "transition": "全局应用 0.2s ease-out",
+        "keyboard": "标准 Tab 键焦点导航"
+      },
+      "voice": {
+        "tone": "友好、热情、富有庆祝感",
+        "headlineStyle": "简短、有力、聚焦季节",
+        "ctaStyle": "直接、行动导向、带有鼓励性（例如：“探索夏日菜单”）",
+        "avoid": [
+          "通用的企业术语",
+          "过于复杂的句子",
+          "生硬或命令式的语言"
+        ]
+      },
+      "donts": [
+        "不要在主布局中使用深色背景——截图显示明亮的白色背景主导了空间。",
+        "不要在主要元素上使用厚重的投影——截图显示主要在模态框上使用微小、柔和的阴影。",
+        "不要在标题中使用衬线字体——截图显示整体使用一致的无衬线字体系统。",
+        "不要在按钮上使用尖锐的90度直角——截图显示完全圆润的‘药丸’形状。",
+        "不要在主视觉区域使用狭小、拥挤的间距——截图显示在大型摄影图片周围有宽松的内边距。",
+        "不要依赖厚重的边框来构建结构——截图显示使用色块和空白作为主要分隔符。"
+      ],
+      "systemPrompt": "这是一个面向消费者的季节性营销网站，服务于一个主要饮料品牌。它采用干净、明亮的设计，由大型、诱人的摄影图片和强烈、可识别的品牌绿色驱动。调色板以纯净的白色背景、深森林绿色强调色和高对比度的黑色文本为基础。字体设计依赖于现代几何无衬线字体，用于展示和正文文本。关键禁忌：避免深色模式美学，避免交互元素上的尖锐边角，避免使用衬线字体。布局使用全宽分屏主视觉卡片，与居中内容交替出现，优先考虑清晰度和视觉吸引力，而非复杂的 UI 模式。"
+    },
+    "zh-TW": {
+      "identity": {
+        "keywords": [
+          "溫馨",
+          "清新",
+          "時令感",
+          "好客"
+        ],
+        "analogy": "一間明亮、現代的咖啡館，擁有引人注目的美食攝影與清晰、友善的導航。",
+        "oneLiner": "一個面向消費者的季節性行銷網站，以大型攝影主視覺區塊與強烈的綠色品牌識別為驅動核心。"
+      },
+      "colors": {
+        "principle": "高對比的品牌綠色是識別的核心，並以乾淨的白色背景與鮮明的產品攝影來取得平衡。"
+      },
+      "typography": {
+        "rules": [
+          "主要導航標題使用大寫字母",
+          "內文字體具備高度可讀性，字距緊湊",
+          "標題中使用字重 600 來強調重點"
+        ],
+        "scaleUses": [
+          "區塊標題",
+          "宣傳文案",
+          "內文與連結"
+        ]
+      },
+      "spacing": {
+        "rhythm": "大型主視覺區塊與內容區塊應用寬裕的垂直內邊距，讓攝影圖片得以呼吸。"
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(0, 0, 0, 0.1) 0px 11px 15px 0px",
+          "rgba(0, 0, 0, 0.06) 0px 9px 46px 8px"
+        ],
+        "borders": "乾淨的 1px 邊框僅做少量使用，主要用於輸入框與聚焦狀態。"
+      },
+      "layout": {
+        "skeleton": "全寬的主視覺區塊與標準的置中內容欄位交替出現。"
+      },
+      "components": {
+        "button": "藥丸形狀的實心綠色按鈕搭配白色文字，或白色藥丸按鈕搭配綠色邊框。",
+        "card": "大型分割畫面卡片，結合全出血攝影與實心綠色背景的文字區塊。",
+        "chip": "用於導航的簡潔文字連結。",
+        "input": "標準的圓角矩形輸入框。",
+        "hero": "大型、全寬的分割畫面，一邊是突出的食物/飲品照片，另一邊是品牌綠色背景與文字。"
+      },
+      "motion": {
+        "patterns": [
+          "懸停狀態下細微的透明度與變換過渡效果",
+          "互動元素平滑的顏色變化"
+        ]
+      },
+      "interaction": {
+        "hover": "文字連結的顏色變化與按鈕的背景變化",
+        "click": "即時的視覺回饋",
+        "transition": "全域套用 0.2s ease-out",
+        "keyboard": "標準的 Tab 鍵焦點導航"
+      },
+      "voice": {
+        "tone": "友善、溫馨且充滿慶祝感",
+        "headlineStyle": "簡短、有力、聚焦於時令主題",
+        "ctaStyle": "直接、以行動為導向且具鼓勵性（例如：「探索夏季菜單」）",
+        "avoid": [
+          "通用的企業術語",
+          "過於複雜的句子",
+          "嚴厲或要求性的語言"
+        ]
+      },
+      "donts": [
+        "不要為主要版面使用深色背景——截圖顯示明亮的白色背景佔據了空間。",
+        "不要為主要元素使用厚重的陰影——截圖顯示 minimal、柔和的陰影主要用於模態視窗。",
+        "不要為標題使用襯線字體——截圖顯示了統一的無襯線系統。",
+        "不要為按鈕使用尖銳的 90 度角——截圖顯示完全圓潤的「藥丸」形狀。",
+        "不要在主視覺區塊使用狹窄擁擠的間距——截圖顯示大型攝影圖片周圍有寬裕的內邊距。",
+        "不要依賴厚重的邊框來建立結構——截圖顯示色彩區塊與留白是主要的分隔元素。"
+      ],
+      "systemPrompt": "這是一個面向消費者的季節性行銷網站，屬於一家主要飲料品牌。它採用乾淨、明亮的設計，以大型、引人注目的攝影圖片與強烈、易於辨識的品牌綠色為驅動。色彩組合以乾淨的白色背景、深森林綠強調色與高對比的黑色文字為基礎。字體方面，無論是展示字體或內文字體，皆依賴現代的幾何無襯線字體。關鍵禁忌：避免暗色模式美學、避免互動元素使用尖銳角度、避免使用襯線字體。版面配置採用全寬分割畫面主視覺卡片與置中內容交替出現，優先考慮清晰度與視覺吸引力，而非複雜的 UI 模式。"
+    },
+    "ja": {
+      "identity": {
+        "keywords": [
+          "歓迎",
+          "リフレッシュ",
+          "季節感",
+          "親しみ"
+        ],
+        "analogy": "明るくモダンなコーヒーハウス。大きな食欲をそそる写真と、明確でフレンドリーなナビゲーション。",
+        "oneLiner": "大規模なフォト・ヒーローセクションと強いブランドグリーンのアイデンティティに牽引される、消費者向けの季節マーケティングサイト。"
+      },
+      "colors": {
+        "principle": "ハイコントラストのブランドグリーンがアイデンティティを支え、クリーンなホワイト背景と鮮やかな製品写真とのバランスを取る。"
+      },
+      "typography": {
+        "rules": [
+          "メインナビゲーションは見出しを大文字にする",
+          "本文テキストは高可読性で、文字間隔を詰める",
+          "見出しの強調にはフォントウェイト600を使用する"
+        ],
+        "scaleUses": [
+          "セクション見出し",
+          "プロモーションコピー",
+          "本文とリンク"
+        ]
+      },
+      "spacing": {
+        "rhythm": "大きなヒーローセクションやコンテンツブロックには、写真が呼吸できるよう、ゆったりとした垂直パディングを適用する。"
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(0, 0, 0, 0.1) 0px 11px 15px 0px",
+          "rgba(0, 0, 0, 0.06) 0px 9px 46px 8px"
+        ],
+        "borders": "クリーンな1pxボーダーは控えめに使用し、主に入力欄やフォーカス状態に限定する。"
+      },
+      "layout": {
+        "skeleton": "フルワイドのヒーローブロックと、中央揃えの標準コンテンツカラムが交互に配置される。"
+      },
+      "components": {
+        "button": "白テキストのピン型ソリッドグリーンボタン、またはグリーンアウトラインの白ピンボタン。",
+        "card": "フルブリード写真とソリッドグリーン背景のテキストブロックを組み合わせた、大規模な分割ビュー・カード。",
+        "chip": "ナビゲーション用のシンプルなテキストリンク。",
+        "input": "角丸の標準矩形入力欄。",
+        "hero": "一方に際立つフード/ドリンク写真、もう一方にブランドグリーン背景とテキストを配置した、フルワイドの分割ビュー。"
+      },
+      "motion": {
+        "patterns": [
+          "ホバー状態での微妙な透明度とトランスフォームの遷移",
+          "インタラクティブ要素のスムーズな色の変化"
+        ]
+      },
+      "interaction": {
+        "hover": "テキストリンクの色のシフトと、ボタンの背景変化",
+        "click": "即座の視覚的フィードバック",
+        "transition": "グローバルに0.2s ease-outを適用",
+        "keyboard": "標準のタブフォーカスナビゲーション"
+      },
+      "voice": {
+        "tone": "フレンドリーで歓迎の意を込め、お祝いムード",
+        "headlineStyle": "短く、パンチがあり、季節に焦点を当てる",
+        "ctaStyle": "直接的、アクション指向、奨励的（例：「夏のメニューを探る」）",
+        "avoid": [
+          "一般的な企業用語",
+          "過度に複雑な文",
+          "厳しい、または命令的な言葉"
+        ]
+      },
+      "donts": [
+        "メインレイアウトにダーク背景を使用しない — スクリーンショットでは、明るいホワイト背景がスペースを支配している。",
+        "プライマリ要素に重いドロップシャドウを使用しない — スクリーンショットでは、主にモーダル上に最小限のソフトシャドウが見られる。",
+        "見出しにセリフフォントを使用しない — スクリーンショットでは、一貫したサンセリフシステムが使用されている。",
+        "ボタンにシャープな90度の角を使用しない — スクリーンショットでは、完全に丸みを帯びた「ピン」形状が使用されている。",
+        "ヒーローセクションに小さく窮屈な間隔を使用しない — スクリーンショットでは、大きな写真の周りにゆったりとしたパディングが見られる。",
+        "構造に重いボーダーに依存しない — スクリーンショットでは、カラーブロックとホワイトスペースが主な区切りとして使用されている。"
+      ],
+      "systemPrompt": "これは大手飲料ブランドの消費者向け季節マーケティングサイトです。明るくクリーンなデザインで、大きな食欲をそそる写真と、強く認識可能なブランドグリーンが特徴です。パレットはクリーンなホワイト背景、深いフォレストグリーンのアクセント、ハイコントラストの黒テキストで構成されています。タイポグラフィは、ディスプレイ本文の両方として、モダンなジオメトリックサンセリフに依存しています。重要な禁忌：ダークモードの美学を避け、インタラクティブ要素にシャープな角を避け、セリフフォントの使用を避けること。レイアウトは、フルワイドの分割ビュー・ヒーローカードと中央揃えのコンテンツを交互に配置し、複雑なUIパターンよりも明瞭さと視覚的魅力を優先する。"
+    },
+    "ko": {
+      "identity": {
+        "keywords": [
+          "매력적인",
+          "상쾌한",
+          "계절적인",
+          "환영하는"
+        ],
+        "analogy": "큰 압권의 사진과 명확하고 친근한 내비게이션이 있는 밝고 현대적인 카페.",
+        "oneLiner": "대형 사진 히어로 섹션과 강한 그린 브랜드 아이덴티티를 기반으로 한 소비자 대상 계절 마케팅 사이트."
+      },
+      "colors": {
+        "principle": "고대비 브랜드 그린이 아이덴티티를 중심으로 하며, 깔끔한 흰색 배경과 생생한 제품 사진으로 균형을 이룹니다."
+      },
+      "typography": {
+        "rules": [
+          "주 내비게이션의 제목은 대문자로 표시",
+          "본문 텍스트는 좁은 자간으로 높은 가독성 확보",
+          "제목에서 강조를 위해 폰트 두께 600 사용"
+        ],
+        "scaleUses": [
+          "섹션 제목",
+          "프로모션 카피",
+          "본문 텍스트 및 링크"
+        ]
+      },
+      "spacing": {
+        "rhythm": "사진이 숨을 쉴 수 있도록 큰 히어로 섹션과 콘텐츠 블록에 넉넉한 수직 패딩을 적용합니다."
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(0, 0, 0, 0.1) 0px 11px 15px 0px",
+          "rgba(0, 0, 0, 0.06) 0px 9px 46px 8px"
+        ],
+        "borders": "깔끔한 1px 테두리는 입력 필드와 focus 상태에 주로 절제하여 사용됩니다."
+      },
+      "layout": {
+        "skeleton": "전체 너비의 히어로 블록과 표준 중앙 정렬 콘텐츠 컬럼이 번갈아 배치됩니다."
+      },
+      "components": {
+        "button": "흰색 텍스트 또는 흰색 배경에 그린 윤곽선을 가진 화면 모양의 단색 그린 버튼.",
+        "card": "전체 폭 사진과 단색 그린 배경 텍스트 블록을 결합한 큰 분할 보기 카드.",
+        "chip": "내비게이션용 간단한 텍스트 링크.",
+        "input": "둥근 모서리를 가진 표준 직사각형 입력 필드.",
+        "hero": "한쪽에 두드러진 음식/음료 사진, 다른 쪽에 그린 브랜드 배경과 텍스트를 결합한 큰 전체 너비 분할 보기."
+      },
+      "motion": {
+        "patterns": [
+          "hover 상태에서의 미세한 투명도 및 변환 전환",
+          "인터랙티브 요소의 부드러운 색상 변화"
+        ]
+      },
+      "interaction": {
+        "hover": "텍스트 링크의 색상 변화 및 버튼의 배경 변화",
+        "click": "즉각적인 시각적 피드백",
+        "transition": "전역에 0.2s ease-out 적용",
+        "keyboard": "표준 탭 포커스 내비게이션"
+      },
+      "voice": {
+        "tone": "친근하고 매력적이며 축제 분위기",
+        "headlineStyle": "짧고 임팩트 있으며 계절에 집중",
+        "ctaStyle": "직설적이고 행동 지향적이며 격려하는 (예: '여름 메뉴 살펴보기')",
+        "avoid": [
+          "일반적인 기업 용어",
+          "지나치게 복잡한 문장",
+          "거친이나 요구하는 언어"
+        ]
+      },
+      "donts": [
+        "메인 레이아웃에 어두운 배경을 사용하지 마세요 — 스크린샷에서 밝은 흰색 배경이 공간을 지배하는 것을 볼 수 있습니다.",
+        "주요 요소에 무거운 드롭 섀도우를 사용하지 마세요 — 스크린샷에서 주로 모달에만 최소한의 부드러운 그림자가 사용되는 것을 볼 수 있습니다.",
+        "제목에 세리프 서체를 사용하지 마세요 — 스크린샷에서 전체적으로 일관된 산세리프 시스템을 볼 수 있습니다.",
+        "버튼에 날카로운 90도 모서리를 사용하지 마세요 — 스크린샷에서 완전히 둥근 '화면' 모양을 볼 수 있습니다.",
+        "히어로 섹션에 작고 비좁은 간격을 사용하지 마세요 — 스크린샷에서 큰 사진 주위에 넉넉한 패딩이 있는 것을 볼 수 있습니다.",
+        "구조에 무거운 테두리에 의존하지 마세요 — 스크린샷에서 색상 블록과 여백이 주요 구분 요소로 사용되는 것을 볼 수 있습니다."
+      ],
+      "systemPrompt": "이것은 주요 음료 브랜드를 위한 소비자 대상 계절 마케팅 사이트입니다. 큰 압권의 사진과 강하고 인식 가능한 그린 브랜드를 기반으로 한 깔끔하고 밝은 디자인이 특징입니다. 팔레트는 깔끔한 흰색 배경, 깊은 숲 그린 포인트, 고대비 검정 텍스트로 구성됩니다. 타이포그래피는 디스플레이와 본문 텍스트 모두에 현대적인 기하학적 산세리프에 의존합니다. 주요 주의 사항: 다크 모드 미학 피하기, 인터랙티브 요소의 날카로운 모서리 피하기, 세리프 폰트 사용 피하기. 레이아웃은 전체 너비의 분할 보기 히어로 카드와 중앙 정렬 콘텐츠를 번갈아 배치하며, 복잡한 UI 패턴보다 명확성과 시각적 매력을 우선시합니다."
     }
   }
 }

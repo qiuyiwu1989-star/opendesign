@@ -17,70 +17,58 @@
   "_meta": {
     "vision_model": "mimo-v2.5",
     "vision_prompt_version": "0.3",
-    "vision_at": "2026-05-28T21:14:15+00:00",
-    "vision_tokens": 3596,
-    "vision_cost_usd": 0.04,
+    "vision_at": "2026-05-30T10:27:02+00:00",
+    "vision_tokens": 16318,
+    "vision_cost_usd": 0.1813,
     "translation_model": "mimo-v2.5",
-    "translation_at": "2026-05-28T21:15:13+00:00",
-    "translation_tokens": 16947,
-    "translation_cost_usd": 0.0566,
+    "translation_at": "2026-05-30T10:27:57+00:00",
+    "translation_tokens": 27177,
+    "translation_cost_usd": 0.0907,
     "narrative_model": "mimo-v2.5",
     "narrative_prompt_version": "0.3",
     "narrative_at": "2026-05-28T21:15:23+00:00",
     "narrative_tokens": 2039,
     "narrative_cost_usd": 0.0136,
     "narrative_status": "ok",
-    "total_cost_usd": 0.1102
+    "total_cost_usd": 0.2856,
+    "vision_source": "playwright-extract:binance",
+    "vision_grounded": true
   },
   "spec": {
     "colors": {
-      "bg": "#0B0E11",
-      "bgSoft": "#1E2329",
-      "bgQuiet": "#2B3139",
-      "ink": "#FFFFFF",
-      "inkSoft": "#848E9C",
-      "muted": "#5E6673",
-      "mutedSoft": "#848E9C",
-      "accent": "#FCD535",
-      "line": "rgba(255,255,255,0.06)"
+      "bg": "#181a20",
+      "bgSoft": "#2b3139",
+      "bgQuiet": "#333b47",
+      "ink": "#eaecef",
+      "inkSoft": "#848e9c",
+      "muted": "#707a8a",
+      "mutedSoft": null,
+      "accent": "#f0b90b",
+      "line": "rgba(234,236,239,0.1)"
     },
     "typography": {
       "display": "geometric-sans",
-      "body": "humanist-sans",
+      "body": "geometric-sans",
       "mono": "monospace",
       "scale": [
         {
           "token": "display",
           "size": 56,
-          "lh": 1.0,
+          "lh": 1.1,
           "weight": 700,
           "ls": "-1px"
         },
         {
-          "token": "display-xl",
-          "size": 72,
-          "lh": 0.95,
-          "weight": 700,
-          "ls": "-2px"
-        },
-        {
-          "token": "heading-1",
-          "size": 32,
+          "token": "h1",
+          "size": 40,
           "lh": 1.2,
           "weight": 600,
           "ls": "-0.5px"
         },
         {
-          "token": "body-lg",
-          "size": 18,
-          "lh": 1.6,
-          "weight": 400,
-          "ls": "0"
-        },
-        {
           "token": "body",
           "size": 16,
-          "lh": 1.6,
+          "lh": 1.5,
           "weight": 400,
           "ls": "0"
         },
@@ -100,8 +88,10 @@
         8,
         12,
         16,
+        20,
         24,
         32,
+        40,
         48,
         64,
         96
@@ -111,7 +101,7 @@
       "radius": {
         "sm": 4,
         "md": 8,
-        "lg": 12,
+        "lg": 16,
         "pill": 999
       }
     },
@@ -134,425 +124,13 @@
       "easing": "cubic-bezier(0.4, 0, 0.2, 1)"
     }
   },
-  "spec_i18n": {
-    "en": {
-      "identity": {
-        "keywords": [
-          "financial",
-          "trust",
-          "global",
-          "secure",
-          "professional"
-        ],
-        "analogy": "A high-security banking vault meets a digital trading terminal",
-        "oneLiner": "A dark, high-contrast fintech interface designed to project trust and authority through bold typography and strategic yellow accents."
-      },
-      "colors": {
-        "principle": "High contrast with yellow accent for trust and urgency"
-      },
-      "typography": {
-        "rules": [
-          "Display font is bold and tightly tracked for impact",
-          "Body text uses regular weight with generous line height for readability",
-          "Monospace font is used for technical data like wallet addresses"
-        ],
-        "scaleUses": [
-          "hero statistics",
-          "main headline",
-          "section titles",
-          "subheadings",
-          "paragraphs",
-          "metadata"
-        ]
-      },
-      "spacing": {
-        "rhythm": "8px grid system with generous padding for dark mode clarity"
-      },
-      "surfaces": {
-        "shadows": [
-          "0 4px 24px rgba(0,0,0,0.4)",
-          "0 2px 8px rgba(0,0,0,0.2)"
-        ],
-        "borders": "1px solid rgba(255,255,255,0.06)"
-      },
-      "layout": {
-        "skeleton": "Two-column hero layout with sidebar for market data and news"
-      },
-      "components": {
-        "button": "Solid yellow accent button with black text for primary CTAs",
-        "card": "Dark cards with subtle borders for market data and news items",
-        "chip": "Tab-like chips for market categories (Popular, New Listing)",
-        "input": "Dark input field with subtle border for email/phone entry",
-        "hero": "Large hero section with massive typography and live market data sidebar"
-      },
-      "motion": {
-        "patterns": [
-          "Subtle fade transitions on hover states",
-          "Smooth tab switching animations"
-        ]
-      },
-      "interaction": {
-        "hover": "Subtle brightness increase on interactive elements",
-        "click": "Slight scale reduction on buttons",
-        "transition": "All transitions use 150-250ms duration",
-        "keyboard": "Focus states visible on interactive elements"
-      },
-      "voice": {
-        "tone": "Authoritative and trustworthy",
-        "headlineStyle": "Large, bold, declarative statements with statistics",
-        "ctaStyle": "Clear, action-oriented with high contrast",
-        "avoid": [
-          "Playful language",
-          "Excessive exclamation marks",
-          "Vague promises"
-        ]
-      },
-      "donts": [
-        "don't use rounded corners — screenshot shows sharp, rectangular edges on buttons and cards",
-        "don't use multiple accent colors — screenshot shows only yellow as the dominant accent",
-        "don't use thin fonts for headlines — screenshot shows bold, heavy typography for impact",
-        "don't use light backgrounds — screenshot shows deep dark theme with #0B0E11 base",
-        "don't hide critical information — screenshot shows transparent display of user counts and funds",
-        "don't use complex gradients — screenshot shows flat, solid color surfaces"
-      ],
-      "systemPrompt": "This is a dark-themed fintech cryptocurrency exchange interface designed for trust and authority. The color palette uses #0B0E11 as the primary background with #FCD535 yellow as the single accent color for CTAs and important data. Typography uses geometric-sans for display and humanist-sans for body text, with bold weights for headlines. Critical elements include: the hero section shows massive statistics (319M+ users) to establish credibility, live market data appears in a sidebar with red percentage changes, and security features are prominently displayed. Key don'ts: never use light backgrounds, avoid multiple accent colors, don't use thin fonts for headlines, don't hide critical metrics, avoid complex gradients, and don't use rounded corners on primary components. The interface prioritizes clarity and trust through high contrast, transparent data display, and authoritative typography."
-    },
-    "zh-CN": {
-      "identity": {
-        "keywords": [
-          "金融",
-          "信任",
-          "全球",
-          "安全",
-          "专业"
-        ],
-        "analogy": "高安全性银行金库与数字交易终端的结合",
-        "oneLiner": "一个深色、高对比度的金融科技界面，通过醒目的排版和策略性黄色强调色来传递信任与权威。"
-      },
-      "colors": {
-        "principle": "高对比度搭配黄色强调色，体现信任与紧迫感"
-      },
-      "typography": {
-        "rules": [
-          "展示字体加粗且字间距紧凑，以增强冲击力",
-          "正文使用常规字重搭配充足行高，确保可读性",
-          "等宽字体用于钱包地址等技术数据"
-        ],
-        "scaleUses": [
-          "首屏统计数据",
-          "主标题",
-          "章节标题",
-          "副标题",
-          "段落",
-          "元数据"
-        ]
-      },
-      "spacing": {
-        "rhythm": "8px 网格系统，暗色模式下采用充足内边距以保证清晰度"
-      },
-      "surfaces": {
-        "shadows": [
-          "0 4px 24px rgba(0,0,0,0.4)",
-          "0 2px 8px rgba(0,0,0,0.2)"
-        ],
-        "borders": "1px solid rgba(255,255,255,0.06)"
-      },
-      "layout": {
-        "skeleton": "双栏首屏布局，侧边栏用于展示市场数据和新闻"
-      },
-      "components": {
-        "button": "实心黄色强调按钮，黑色文字用于主要行动号召",
-        "card": "深色卡片搭配微妙边框，用于市场数据和新闻条目",
-        "chip": "标签式芯片，用于市场分类（热门、新上线）",
-        "input": "深色输入框搭配微妙边框，用于邮箱/电话号码输入",
-        "hero": "大型首屏区域，包含大量排版和实时市场数据侧边栏"
-      },
-      "motion": {
-        "patterns": [
-          "hover 状态下的微妙淡入淡出过渡",
-          "平滑的标签切换动画"
-        ]
-      },
-      "interaction": {
-        "hover": "交互元素亮度微妙提升",
-        "click": "按钮轻微缩放",
-        "transition": "所有过渡动画使用 150-250ms 时长",
-        "keyboard": "交互元素上显示焦点状态"
-      },
-      "voice": {
-        "tone": "权威且值得信赖",
-        "headlineStyle": "大型、加粗的陈述式标题，搭配统计数据",
-        "ctaStyle": "清晰、行动导向且高对比度",
-        "avoid": [
-          "俏皮语言",
-          "过多感叹号",
-          "模糊承诺"
-        ]
-      },
-      "donts": [
-        "不要使用圆角——截图显示按钮和卡片边缘为锐利的直角",
-        "不要使用多种强调色——截图显示仅使用黄色作为主要强调色",
-        "不要使用细字体作为标题——截图显示为加粗、厚重的排版以增强冲击力",
-        "不要使用浅色背景——截图显示深色主题，基色为 #0B0E11",
-        "不要隐藏关键信息——截图显示用户数量和资金数据被透明展示",
-        "不要使用复杂渐变——截图显示为平面、纯色表面"
-      ],
-      "systemPrompt": "这是一个为建立信任和权威而设计的暗色主题金融科技加密货币交易界面。色彩方案使用 #0B0E11 作为主背景色，#FCD535 黄色作为单一强调色用于行动号召和重要数据。排版上，展示字体使用几何无衬线字体，正文使用人文主义无衬线字体，标题使用加粗字重。关键元素包括：首屏展示大量统计数据（3.19亿+用户）以建立可信度，侧边栏显示实时市场数据并带有红色百分比变化，安全功能被显著展示。关键禁忌：切勿使用浅色背景，避免多种强调色，不要使用细字体作为标题，不要隐藏关键指标，避免复杂渐变，不要在主要组件上使用圆角。界面通过高对比度、透明的数据展示和权威的排版，优先保证清晰度和信任感。"
-    },
-    "zh-TW": {
-      "identity": {
-        "keywords": [
-          "金融",
-          "信任",
-          "全球",
-          "安全",
-          "專業"
-        ],
-        "analogy": "高安全等級的銀行金庫結合數位交易終端",
-        "oneLiner": "一款深色、高對比的金融科技介面，透過大膽排版與策略性黃色強調，傳達信任與權威。"
-      },
-      "colors": {
-        "principle": "高對比搭配黃色強調，以建立信任與緊迫感"
-      },
-      "typography": {
-        "rules": [
-          "標題字體粗體且字距緊湊，以增強衝擊力",
-          "內文使用常規字重，搭配寬鬆行高以提升可讀性",
-          "等寬字體用於技術性資料，如錢包地址"
-        ],
-        "scaleUses": [
-          "主視覺統計數據",
-          "主標題",
-          "章節標題",
-          "副標題",
-          "段落",
-          "後設資料"
-        ]
-      },
-      "spacing": {
-        "rhythm": "8px 格線系統，搭配寬鬆的內距，以確保深色模式的清晰度"
-      },
-      "surfaces": {
-        "shadows": [
-          "0 4px 24px rgba(0,0,0,0.4)",
-          "0 2px 8px rgba(0,0,0,0.2)"
-        ],
-        "borders": "1px solid rgba(255,255,255,0.06)"
-      },
-      "layout": {
-        "skeleton": "雙欄主視覺佈局，側欄用於市場數據與新聞"
-      },
-      "components": {
-        "button": "實心黃色強調按鈕搭配黑色文字，用於主要行動呼籲",
-        "card": "深色卡片搭配細微邊框，用於市場數據與新聞項目",
-        "chip": "標籤式切片，用於市場類別（熱門、新上架）",
-        "input": "深色輸入欄位搭配細微邊框，用於電子郵件/電話輸入",
-        "hero": "大型主視覺區塊，搭配大規模排版與即時市場數據側欄"
-      },
-      "motion": {
-        "patterns": [
-          "懸停狀態時細微的淡入過渡",
-          "流暢的標籤切換動畫"
-        ]
-      },
-      "interaction": {
-        "hover": "互動元素在懸停時亮度略微提升",
-        "click": "按鈕點擊時略微縮小",
-        "transition": "所有過渡效果使用 150-250ms 持續時間",
-        "keyboard": "互動元素顯示焦點狀態"
-      },
-      "voice": {
-        "tone": "權威且值得信賴",
-        "headlineStyle": "大型、粗體、陳述式標題，搭配統計數據",
-        "ctaStyle": "清晰、以行動為導向，高對比",
-        "avoid": [
-          "俏皮的語言",
-          "過多的驚嘆號",
-          "模糊的承諾"
-        ]
-      },
-      "donts": [
-        "不要使用圓角——截圖顯示按鈕和卡片為銳利、矩形的邊緣",
-        "不要使用多種強調色——截圖顯示僅使用黃色作為主要強調色",
-        "不要使用細體字體作為標題——截圖顯示使用粗體、厚重的字體以增強衝擊力",
-        "不要使用淺色背景——截圖顯示以 #0B0E11 為基底的深色主題",
-        "不要隱藏關鍵資訊——截圖顯示透明地展示用戶數與資金",
-        "不要使用複雜的漸層——截圖顯示為單色、實色的表面"
-      ],
-      "systemPrompt": "這是一款以信任與權威為設計目標的深色主題金融科技加密貨幣交易所介面。色彩方案使用 #0B0E11 作為主要背景，搭配 #FCD535 黃色作為唯一的強調色，用於行動呼籲與重要資料。字體使用 geometric-sans 作為標題字體，humanist-sans 作為內文字體，標題採用粗體字重。關鍵元素包括：主視覺區塊展示大規模統計數據（3.19 億+ 用戶）以建立可信度，即時市場數據以側欄形式呈現，並帶有紅色百分比變動，安全功能則被突出展示。主要注意事項：絕不使用淺色背景、避免多種強調色、不要使用細體字體作為標題、不要隱藏關鍵指標、避免複雜漸層，且不要在主要元件上使用圓角。此介面透過高對比、透明的資料展示與權威性排版，優先考量清晰度與信任感。"
-    },
-    "ja": {
-      "identity": {
-        "keywords": [
-          "金融",
-          "信頼",
-          "グローバル",
-          "セキュア",
-          "プロフェッショナル"
-        ],
-        "analogy": "高セキュリティの銀行金庫とデジタル取引ターミナルの融合",
-        "oneLiner": "大胆なタイポグラフィと戦略的な黄色アクセントを通じて、信頼と権威を投影するようにデザインされた、暗く高コントラストのフィンテックインターフェース。"
-      },
-      "colors": {
-        "principle": "黄色アクセントによる、信頼と緊迫感のための高コントラスト"
-      },
-      "typography": {
-        "rules": [
-          "ディスプレイフォントはインパクトのために太字でトラッキングを詰めます",
-          "本文テキストは可読性のために通常のウェイトと広めの行間を使用します",
-          "ウォレットアドレスなどの技術データにはモノスペースフォントが使用されます"
-        ],
-        "scaleUses": [
-          "ヒーロー統計",
-          "メインヘッドライン",
-          "セクションタイトル",
-          "見出し",
-          "段落",
-          "メタデータ"
-        ]
-      },
-      "spacing": {
-        "rhythm": "暗い画面モードの明瞭さのために広めのパディングを採用した、8pxグリッドシステム"
-      },
-      "surfaces": {
-        "shadows": [
-          "0 4px 24px rgba(0,0,0,0.4)",
-          "0 2px 8px rgba(0,0,0,0.2)"
-        ],
-        "border": "1px solid rgba(255,255,255,0.06)"
-      },
-      "layout": {
-        "skeleton": "マーケットデータとニュースのサイドバーを備えた2カラムのヒーローレイアウト"
-      },
-      "components": {
-        "button": "プライマリCTAには、黒いテキストを持つ固体の黄色アクセントボタン",
-        "card": "マーケットデータやニュース項目用の、微細なボーダーを持つダークカード",
-        "chip": "マーケットカテゴリー（人気、新規上場）のタブ状チップ",
-        "input": "メール／電話番号入力用の、微細なボーダーを持つダークな入力フィールド",
-        "hero": "巨大なタイポグラフィとライブマーケットデータサイドバーを持つ大きなヒーローセクション"
-      },
-      "motion": {
-        "patterns": [
-          "ホバーステートの微細なフェードトランジション",
-          "スムーズなタブ切り替えアニメーション"
-        ]
-      },
-      "interaction": {
-        "hover": "インタラクティブ要素の微細な明るさの増加",
-        "click": "ボタンのわずかなスケール縮小",
-        "transition": "全トランジションは150〜250msの期間を使用",
-        "keyboard": "インタラクティブ要素にフォーカスステートが表示される"
-      },
-      "voice": {
-        "tone": "権威があり信頼できる",
-        "headlineStyle": "統計を伴う、大きく太字の断定的なメッセージ",
-        "ctaStyle": "明確で、アクション重視、かつ高コントラスト",
-        "avoid": [
-          "遊び心のある言葉",
-          "過度な感嘆符",
-          "曖昧な約束"
-        ]
-      },
-      "donts": [
-        "角丸を使用しない — スクリーンショットではボタンやカードにシャープで長方形のエッジが表示されています",
-        "複数のアクセントカラーを使用しない — スクリーンショットでは黄色のみが主要なアクセントとして使用されています",
-        "ヘッドラインに細いフォントを使用しない — スクリーンショットではインパクトのための太く重厚なタイポグラフィが使用されています",
-        "明るい背景を使用しない — スクリーンショットでは #0B0E11 をベースとする深いダークテーマが使用されています",
-        "重要な情報を隠さない — スクリーンショットではユーザー数や資金が透明に表示されています",
-        "複雑なグラデーションを使用しない — スクリーンショットではフラットで固体色のサーフェスが使用されています"
-      ],
-      "systemPrompt": "これは信頼と権威のためにデザインされた、ダークテーマのフィンテック暗号通貨取引インターフェースです。カラーパレットは、プライマリ背景として #0B0E11 を、CTAや重要なデータの単一アクセントカラーとして #FCD535 の黄色を使用しています。タイポグラフィは、ディスプレイ用にジオメトリック・サンセリフ、本文テキストにヒューマニスト・サンセリフを使用し、ヘッドラインには太字のウェイトを採用しています。重要な要素には：信頼性を確立するための巨大な統計（3億1900万ユーザー以上）を表示するヒーローセクション、赤い変動率を表示するサイドバーのライブマーケットデータ、および顕著に表示されるセキュリティ機能が含まれます。主要な禁止事項：明るい背景を決して使用しない、複数のアクセントカラーを避ける、ヘッドラインに細いフォントを使用しない、重要な指標を隠さない、複雑なグラデーションを避け、プライマリコンポーネントに角丸を使用しない。このインターフェースは、高コントラスト、透明性のあるデータ表示、そして権威あるタイポグラフィを通じて、明瞭さと信頼を優先します。"
-    },
-    "ko": {
-      "identity": {
-        "keywords": [
-          "재무",
-          "신뢰",
-          "글로벌",
-          "보안",
-          "전문적"
-        ],
-        "analogy": "고보안 은행 금고와 디지털 거래 터미널의 만남",
-        "oneLiner": "대담한 타이포그래피와 전략적인 노란색 악센트를 통해 신뢰와 권위를 구현하도록 설계된 어두운 고대비 핀테크 인터페이스입니다."
-      },
-      "colors": {
-        "principle": "신뢰와 긴급성을 위한 노란색 악센트의 고대비"
-      },
-      "typography": {
-        "rules": [
-          "디스플레이 폰트는 임팩트를 위해 굵고 자간이 좁습니다",
-          "본문 텍스트는 가독성을 위해 일반 굵기와 넉넉한 행간을 사용합니다",
-          "모노스페이스 폰트는 지갑 주소와 같은 기술 데이터에 사용됩니다"
-        ],
-        "scaleUses": [
-          "히어로 통계",
-          "메인 헤드라인",
-          "섹션 제목",
-          "부제",
-          "단락",
-          "메타데이터"
-        ]
-      },
-      "spacing": {
-        "rhythm": "다크 모드 명확성을 위한 넉넉한 패딩의 8px 그리드 시스템"
-      },
-      "surfaces": {
-        "shadows": [
-          "0 4px 24px rgba(0,0,0,0.4)",
-          "0 2px 8px rgba(0,0,0,0.2)"
-        ],
-        "border": "1px solid rgba(255,255,255,0.06)"
-      },
-      "layout": {
-        "skeleton": "시장 데이터와 뉴스를 위한 사이드바가 포함된 2열 히어로 레이아웃"
-      },
-      "components": {
-        "button": "메인 CTA용 검은 텍스트의 단색 노란색 악센트 버튼",
-        "card": "시장 데이터와 뉴스 항목용 미묘한 테두리의 어두운 카드",
-        "chip": "인기, 신규 상장 등 시장 카테고리용 탭 형태 칩",
-        "input": "이메일/전화번호 입력용 미묘한 테두리의 어두운 입력 필드",
-        "hero": "대형 히어로 섹션과 대담한 타이포그래피, 실시간 시장 데이터 사이드바"
-      },
-      "motion": {
-        "patterns": [
-          "hover 상태의 미묘한 페이드 전환",
-          "부드러운 탭 전환 애니메이션"
-        ]
-      },
-      "interaction": {
-        "hover": "인터랙티브 요소의 미묘한 밝기 증가",
-        "click": "버튼의 약간의 축소",
-        "transition": "모든 전환은 150-250ms 기간을 사용합니다",
-        "keyboard": "인터랙티브 요소에 focus 상태가 표시됩니다"
-      },
-      "voice": {
-        "tone": "권위 있고 신뢰할 수 있는",
-        "headlineStyle": "통계를 포함한 크고 굵은 선언적 진술",
-        "ctaStyle": "고대비의 명확하고 행동 지향적인",
-        "avoid": [
-          "장난스러운 언어",
-          "과도한 느낌표",
-          "모호한 약속"
-        ]
-      },
-      "donts": [
-        "둥근 모서리를 사용하지 마세요 — 스크린샷에서 버튼과 카드의 날카로운 직사각형 모서리가 보입니다",
-        "여러 악센트 색상을 사용하지 마세요 — 스크린샷에서 유일한 지배적 악센트로 노란색만 사용됩니다",
-        "헤드라인에 얇은 폰트를 사용하지 마세요 — 스크린샷에서 임팩트를 위한 굵고 무거운 타이포그래피가 보입니다",
-        "밝은 배경을 사용하지 마세요 — 스크린샷에서 #0B0E11 베이스의 깊은 다크 테마가 보입니다",
-        "중요 정보를 숨기지 마세요 — 스크린샷에서 사용자 수와 자금의 투명한 표시가 보입니다",
-        "복잡한 그라데이션을 사용하지 마세요 — 스크린샷에서 평면적인 단색 표면이 보입니다"
-      ],
-      "systemPrompt": "이것은 신뢰와 권위를 위해 설계된 다크 테마 핀테크 암호화폐 거래소 인터페이스입니다. 색상 팔레트는 #0B0E11를 주 배경으로 사용하고 CTA와 중요한 데이터를 위해 #FCD535 노란색을 단일 악센트 색상으로 사용합니다. 타이포그래피는 디스플레이에 geometric-sans를, 본문 텍스트에 humanist-sans를 사용하며, 헤드라인에는 굵은 굵기를 사용합니다. 핵심 요소는 다음과 같습니다: 히어로 섹션은 신뢰성을 확립하기 위해 대형 통계(319M+ 사용자)를 표시하고, 실시간 시장 데이터는 빨간색 퍼센트 변화와 함께 사이드바에 나타나며, 보안 기능이 두드러지게 표시됩니다. 핵심 지침: 밝은 배경을 절대 사용하지 말고, 여러 악센트 색상을 피하며, 헤드라인에 얇은 폰트를 사용하지 말고, 중요한 메트릭을 숨기지 말며, 복잡한 그라데이션을 피하고, 메인 컴포넌트에 둥근 모서리를 사용하지 마세요. 이 인터페이스는 고대비, 투명한 데이터 표시, 그리고 권위적인 타이포그래피를 통해 명확성과 신뢰를 우선시합니다."
-    }
-  },
   "desc": {
     "en": {
-      "palette": "Deep dark background with strategic yellow accent creates high-contrast fintech aesthetic focused on trust and urgency.",
-      "layout": "Two-column hero layout with main content left and live market data/news sidebar right, optimized for information density.",
-      "interaction": "Subtle hover effects and smooth transitions maintain professional appearance without distracting from financial data.",
-      "motion": "Minimal, purpose-driven animations that enhance usability without compromising the serious financial context.",
-      "notes": "Exemplary dark mode fintech design that uses massive typography and transparent metrics to build trust in cryptocurrency trading."
+      "palette": "The palette is a high-contrast dark theme featuring a deep charcoal background, light gray text, and a signature vibrant yellow accent.",
+      "layout": "A structured 12-column grid system with a 1280px max-width container, using consistent gutters and breakpoints for a professional desktop and mobile experience.",
+      "interaction": "Interactions are smooth and professional, characterized by subtle hover transitions, clear focus states, and prominent modal overlays.",
+      "motion": "Motion is kept minimal and functional, primarily used for subtle micro-interactions and smooth modal transitions to maintain a high-performance feel.",
+      "notes": "This site is a prime example of a high-performance dark-mode interface for complex fintech applications, prioritizing data legibility and professional trust through its restrained but bold color palette."
     },
     "zh-CN": {
       "palette": "深暗背景搭配策略性黄色强调色，营造高对比度、聚焦于信任与紧迫感的金融科技美学。",
@@ -643,6 +221,388 @@
       "ch7_intro": "모션은 목적 지향적이고 절제되어, 퍼포먼스 없이 사용성에 기여합니다. 전환은 매끄럽고 짧으며, 탭 전환이나 상태 변경 같은 상호작용을 확인하는 데 사용되어 인터페이스의 진지하고 전문적인 분위기를 유지합니다.",
       "ch8_intro": "어조는 권위적이고 단호하며, 크고 굵은 헤드라인과 명확하고 행동 지향적인 CTA를 사용합니다. 언어는 정확하고 신뢰할 수 있으며, 시스템의 무게를 훼손할 수 있는 장난스러운 모호함이나 과도한 구두점을 피합니다.",
       "ch8_outro": "의도적으로 생략한 것은 포함한 것만큼이나 중요합니다. 둥근 모서리도, 여러 악센트 색상도, 얇은 헤드라인 폰트도, 복잡한 그라디언트도 없습니다."
+    }
+  },
+  "spec_i18n": {
+    "en": {
+      "identity": {
+        "keywords": [
+          "Global",
+          "Trustworthy",
+          "High-Volume",
+          "Trading"
+        ],
+        "analogy": "A high-performance financial terminal with a commanding dark interface.",
+        "oneLiner": "The world's leading cryptocurrency exchange platform."
+      },
+      "colors": {
+        "principle": "High contrast between a deep dark canvas and a vibrant yellow accent to guide critical user actions."
+      },
+      "typography": {
+        "rules": [
+          "Use geometric sans-serif for all primary display and body text.",
+          "Ensure high contrast (white/gray) on dark backgrounds for maximum legibility."
+        ],
+        "scaleUses": [
+          "Hero headline",
+          "Page sections",
+          "Paragraphs",
+          "Secondary text"
+        ]
+      },
+      "spacing": {
+        "rhythm": "Standard 4px baseline grid for consistent spacing."
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(0, 0, 0, 0.04) 0px 3px 6px 0px"
+        ],
+        "borders": "Thin 1px borders using rgba(234,236,239,0.1) to separate sections subtly."
+      },
+      "layout": {
+        "skeleton": "Standard 12-column grid with responsive behavior for mobile."
+      },
+      "components": {
+        "button": "Primary buttons feature a solid yellow (#f0b90b) background with dark text. Secondary buttons use an outline or muted style.",
+        "card": "Dark-themed cards with subtle borders and slight radius (8px-16px) to group market data or news items.",
+        "chip": "Small, rounded elements (pill shape) for tags or status indicators.",
+        "input": "Dark background inputs with a focused yellow border for visibility.",
+        "hero": "Large, bold typography (up to 56px) highlighting key metrics like user counts."
+      },
+      "motion": {
+        "patterns": [
+          "Smooth transitions for hover states and modal overlays (0.2s-0.25s)."
+        ]
+      },
+      "interaction": {
+        "hover": "Subtle background color shifts or slight brightness changes on interactive elements.",
+        "click": "Clear state changes, often involving the accent yellow color.",
+        "transition": "Consistent use of ease-in-out and cubic-bezier for smoothness.",
+        "keyboard": "Focusable elements are clearly outlined for accessibility."
+      },
+      "voice": {
+        "tone": "Professional, authoritative, and secure.",
+        "headlineStyle": "Direct, high-impact statements (e.g., 'USERS TRUST US').",
+        "ctaStyle": "Action-oriented and prominent, often using the yellow accent.",
+        "avoid": [
+          "Avoid using overly playful or decorative fonts.",
+          "Avoid using light mode backgrounds for the primary trading interface.",
+          "Avoid using multiple competing accent colors."
+        ]
+      },
+      "donts": [
+        "Don't use light or white backgrounds — screenshot shows a dark charcoal (#181a20) as the primary background.",
+        "Don't use serif or display fonts — screenshot shows a clean geometric sans-serif for all typography.",
+        "Don't use multiple competing accent colors — screenshot shows yellow (#f0b90b) as the sole dominant high-chroma color.",
+        "Don't use large border-radius on primary elements — screenshot shows mostly small (4px-8px) or medium (16px) radii.",
+        "Don't use drop shadows for primary hierarchy — screenshot shows reliance on color contrast and spacing instead.",
+        "Don't use soft pastel tones — screenshot shows high-contrast, vibrant yellow against deep dark grays."
+      ],
+      "systemPrompt": "Binance is a professional cryptocurrency exchange platform utilizing a high-contrast dark mode interface. Its design DNA is defined by a deep charcoal background (#181a20) paired with a vibrant yellow accent (#f0b90b) for primary actions and highlights. The typography is a clean geometric sans-serif, emphasizing readability and authority through bold, large-scale displays. Critical rules include: never use light backgrounds, maintain the single-yellow accent system, and avoid decorative fonts. The layout uses a structured 12-column grid with subtle 1px borders to organize complex financial data. This combination ensures a focused, high-performance trading environment that feels both modern and secure."
+    },
+    "zh-CN": {
+      "identity": {
+        "keywords": [
+          "全球化",
+          "可信赖",
+          "高交易量",
+          "交易"
+        ],
+        "analogy": "一个具有醒目深色界面的高性能金融终端。",
+        "oneLiner": "全球领先的加密货币交易平台。"
+      },
+      "colors": {
+        "principle": "在深色画布与活力黄色点缀之间建立高对比度，以引导关键用户操作。"
+      },
+      "typography": {
+        "rules": [
+          "所有主要标题和正文均使用几何无衬线字体。",
+          "在深色背景上确保高对比度（白色/灰色），以实现最佳可读性。"
+        ],
+        "scaleUses": [
+          "主标题",
+          "页面区块",
+          "段落",
+          "次要文本"
+        ]
+      },
+      "spacing": {
+        "rhythm": "采用标准4px基线网格，确保间距统一。"
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(0, 0, 0, 0.04) 0px 3px 6px 0px"
+        ],
+        "borders": "使用 rgba(234,236,239,0.1) 的细1px边框，微妙地分隔区块。"
+      },
+      "layout": {
+        "skeleton": "标准12列网格，具备移动端响应式行为。"
+      },
+      "components": {
+        "button": "主按钮采用纯黄色(#f0b90b)背景配深色文字。次级按钮采用描边或柔和样式。",
+        "card": "深色主题卡片，带有细微边框和轻微圆角（8px-16px），用于归组市场数据或新闻条目。",
+        "chip": "小型、圆角元素（药丸形状），用于标签或状态指示器。",
+        "input": "深色背景输入框，聚焦时显示黄色边框以增强可见性。",
+        "hero": "大号、粗体排版（最大56px），突出显示用户数量等关键指标。"
+      },
+      "motion": {
+        "patterns": [
+          "悬停状态和模态覆盖层采用平滑过渡（0.2s-0.25s）。"
+        ]
+      },
+      "interaction": {
+        "hover": "交互元素在悬停时呈现微妙的背景色偏移或轻微的亮度变化。",
+        "click": "清晰的状态变化，常涉及点缀黄色。",
+        "transition": "统一使用 ease-in-out 和 cubic-bezier 以实现平滑效果。",
+        "keyboard": "可聚焦元素有明确的轮廓，以提升无障碍访问性。"
+      },
+      "voice": {
+        "tone": "专业、权威且安全。",
+        "headlineStyle": "直接、高冲击力的陈述（例如，'用户信赖我们'）。",
+        "ctaStyle": "以行动为导向且醒目，常使用黄色点缀。",
+        "avoid": [
+          "避免使用过于活泼或装饰性的字体。",
+          "避免为主交易界面使用浅色模式背景。",
+          "避免使用多种相互竞争的点缀色。"
+        ]
+      },
+      "donts": [
+        "不要使用浅色或白色背景——截图显示深木炭色（#181a20）作为主要背景。",
+        "不要使用衬线或展示字体——截图显示所有排版均使用干净的几何无衬线字体。",
+        "不要使用多种相互竞争的点缀色——截图显示黄色（#f0b90b）作为唯一的高饱和度主导色。",
+        "不要为主要元素使用大圆角——截图显示主要使用小（4px-8px）或中等（16px）圆角。",
+        "不要使用投影来建立主要层级——截图显示依赖颜色对比和间距来实现。",
+        "不要使用柔和的粉彩色调——截图显示高对比度、活力黄色与深灰色的搭配。"
+      ],
+      "systemPrompt": "Binance 是一个专业的加密货币交易平台，采用高对比度深色模式界面。其设计基因由深木炭色背景（#181a20）与活力黄色点缀（#f0b90b）定义，后者用于主要操作和高亮。排版采用干净的几何无衬线字体，通过粗体、大尺寸的展示强调可读性和权威性。关键规则包括：绝不使用浅色背景，保持单一黄色点缀系统，避免装饰性字体。布局采用结构化的12列网格，辅以细微的1px边框来组织复杂的金融数据。这种组合确保了专注、高性能的交易环境，既现代又安全。"
+    },
+    "zh-TW": {
+      "identity": {
+        "keywords": [
+          "全球化",
+          "值得信賴",
+          "高交易量",
+          "交易"
+        ],
+        "analogy": "一個具有主導性深色介面的高效能金融終端。",
+        "oneLiner": "全球領先的加密貨幣交易平台。"
+      },
+      "colors": {
+        "principle": "在深邃的暗色畫布與鮮明的黃色強調色之間營造高對比度，以引導使用者執行關鍵操作。"
+      },
+      "typography": {
+        "rules": [
+          "所有主要展示文字與內文均使用幾何無襯線字體。",
+          "在深色背景上確保高對比度（白色/灰色）以獲得最佳可讀性。"
+        ],
+        "scaleUses": [
+          "英雄區標題",
+          "頁面區塊",
+          "段落",
+          "次要文字"
+        ]
+      },
+      "spacing": {
+        "rhythm": "採用標準 4px 基線網格，以維持一致的間距。"
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(0, 0, 0, 0.04) 0px 3px 6px 0px"
+        ],
+        "borders": "使用 rgba(234,236,239,0.1) 的 1px 細邊框，細微地分隔各個區塊。"
+      },
+      "layout": {
+        "skeleton": "標準 12 欄網格，並針對行動裝置具備響應式行為。"
+      },
+      "components": {
+        "button": "主要按鈕採用實心黃色 (#f0b90b) 背景搭配深色文字。次要按鈕使用外框或柔和樣式。",
+        "card": "深色主題的卡片，帶有細微邊框與輕微圓角 (8px-16px)，用以歸類市場數據或新聞項目。",
+        "chip": "小型、圓角的元素（膠囊形狀），用於標籤或狀態指示器。",
+        "input": "深色背景的輸入框，聚焦時顯示黃色邊框以提升可見度。",
+        "hero": "大而粗體的字體（最大可達 56px），用以突顯如使用者數量等關鍵指標。"
+      },
+      "motion": {
+        "patterns": [
+          "為懸停狀態與模態覆蓋層提供流暢的過渡效果 (0.2s-0.25s)。"
+        ]
+      },
+      "interaction": {
+        "hover": "互動元素上的背景顏色或亮度會有細微的變化。",
+        "click": "狀態會有明確的改變，通常會涉及強調色黃色。",
+        "transition": "統一使用 ease-in-out 與 cubic-bezier 以確保流暢度。",
+        "keyboard": "可聚焦的元素會有清晰的輪廓，以符合無障礙要求。"
+      },
+      "voice": {
+        "tone": "專業、具權威性且安全可靠。",
+        "headlineStyle": "直接且具衝擊力的陳述（例如：「使用者信賴我們」）。",
+        "ctaStyle": "以行動為導向且醒目，常使用黃色強調色。",
+        "avoid": [
+          "避免使用過於活潑或裝飾性的字體。",
+          "避免在主要交易介面使用淺色模式背景。",
+          "避免使用多個相互競爭的強調色。"
+        ]
+      },
+      "donts": [
+        "不要使用淺色或白色背景——截圖顯示主要背景為深炭灰色 (#181a20)。",
+        "不要使用襯線或展示字體——截圖顯示所有字型均採用簡潔的幾何無襯線字體。",
+        "不要使用多個相互競爭的強調色——截圖顯示黃色 (#f0b90b) 是唯一主要的高彩度顏色。",
+        "不要在主要元素上使用大的邊框圓角——截圖顯示主要使用小 (4px-8px) 或中等 (16px) 圓角。",
+        "不要使用陰影來建立主要層級——截圖顯示主要依賴顏色對比與間距。",
+        "不要使用柔和的粉彩色調——截圖顯示的是高對比度的鮮明黃色與深灰色。"
+      ],
+      "systemPrompt": "Binance 是一個專業的加密貨幣交易平台，採用高對比度的深色模式介面。其設計 DNA 由深炭灰色背景 (#181a20) 與鮮明的黃色強調色 (#f0b90b) 搭配而成，用於主要操作和高亮顯示。字型採用簡潔的幾何無襯線體，透過粗體、大尺寸的展示強調可讀性與權威感。關鍵規則包括：永不使用淺色背景、維持單一黃色強調色系統，以及避免裝飾性字體。佈局使用結構化的 12 欄網格，並以細微的 1px 邊框來組織複雜的金融數據。這種組合確保了一個專注、高效能的交易環境，感覺既現代又安全。"
+    },
+    "ja": {
+      "identity": {
+        "keywords": [
+          "グローバル",
+          "信頼性",
+          "高取引量",
+          "トレーディング"
+        ],
+        "analogy": "commanding dark interfaceを持つ、高性能な金融ターミナル。",
+        "oneLiner": "世界をリードする暗号通貨取引プラットフォーム。"
+      },
+      "colors": {
+        "principle": "深い暗いキャンバスと鮮やかなイエローアクセントの高コントラストにより、重要なユーザー行動を誘導します。"
+      },
+      "typography": {
+        "rules": [
+          "すべてのプライマリディスプレイおよび本文テキストに、ジオメトリックサンセリフを使用します。",
+          "暗い背景上で最大限の可読性のために、高コントラスト（ホワイト/グレー）を確保します。"
+        ],
+        "scaleUses": [
+          "ヒーローヘッドライン",
+          "ページセクション",
+          "段落",
+          "セカンダリテキスト"
+        ]
+      },
+      "spacing": {
+        "rhythm": "一貫したスペーシングのための標準4pxベースライングリッド。"
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(0, 0, 0, 0.04) 0px 3px 6px 0px"
+        ],
+        "borders": "セクションを微妙に区切るための薄い1pxボーダー（rgba(234,236,239,0.1)）。"
+      },
+      "layout": {
+        "skeleton": "モバイル用レスポンシブ動作を備えた標準12カラムグリッド。"
+      },
+      "components": {
+        "button": "プライマリボタンは、暗いテキストを載せたソリッドイエロー（#f0b90b）の背景を特徴とします。セカンダリボタンはアウトラインまたは控えめなスタイルを使用します。",
+        "card": "市場データやニュース項目をグループ化するための、微妙なボーダーと控えめなradius（8px-16px）を持つダークテーマカード。",
+        "chip": "タグやステータスインジケーターのための、小さな丸みのある要素（ピルシェイプ）。",
+        "input": "ダーク背景の入力フィールドで、視認性のためにフォーカス時にイエローボーダーが適用されます。",
+        "hero": "ユーザー数などの主要指標を強調する、大胆なタイポグラフィ（最大56px）。"
+      },
+      "motion": {
+        "patterns": [
+          "hover状態およびモーダルオーバーレイのためのスムーズなトランジション（0.2s-0.25s）。"
+        ]
+      },
+      "interaction": {
+        "hover": "インタラクティブ要素上の微妙な背景色の変化または明度の変化。",
+        "click": "明確な状態変化。多くの場合、アクセントイエローが使用されます。",
+        "transition": "スムーズさのために、ease-in-outとcubic-bezierを一貫して使用します。",
+        "keyboard": "アクセシビリティのために、フォーカス可能な要素には明確なアウトラインが付きます。"
+      },
+      "voice": {
+        "tone": "プロフェッショナルで、権威があり、セキュア。",
+        "headlineStyle": "直接的で、インパクトの大きいステートメント（例：「 USERS TRUST US」）。",
+        "ctaStyle": "行動を促す目立つスタイルで、多くの場合イエローアクセントを使用します。",
+        "avoid": [
+          "過度に遊び心のある装飾的なフォントの使用は避けてください。",
+          "プライマリ取引インターフェースにライトモードの背景を使用しないでください。",
+          "複数の競合するアクセントカラーの使用は避けてください。"
+        ]
+      },
+      "donts": [
+        "ライトまたはホワイトの背景を使用しないでください。スクリーンショットでは、プライマリ背景としてダークチャコール（#181a20）が示されています。",
+        "セリフまたはディスプレイフォントを使用しないでください。スクリーンショットでは、すべてのタイポグラフィにクリーンなジオメトリックサンセリフが示されています。",
+        "複数の競合するアクセントカラーを使用しないでください。スクリーンショットでは、唯一の支配的な高クロマカラーとしてイエロー（#f0b90b）が示されています。",
+        "プライマリ要素に大きなborder-radiusを使用しないでください。スクリーンショットでは、主に小さめ（4px-8px）または中程度（16px）のradiusが示されています。",
+        "プライマリ階層にドロップシャドウを使用しないでください。スクリーンショットでは、代わりにカラー コントラストとスペーシングに依存しています。",
+        "柔らかいパステルトーンを使用しないでください。スクリーンショットでは、深いダークグレーに対する高コントラストの鮮やかなイエローが示されています。"
+      ],
+      "systemPrompt": "Binanceは、高コントラストのダークモードインターフェースを活用するプロフェッショナルな暗号通貨取引プラットフォームです。そのデザインDNAは、プライマリアクションとハイライトのために、深いチャコール背景（#181a20）と鮮やかなイエローアクセント（#f0b90b）の組み合わせによって定義されます。タイポグラフィはクリーンなジオメトリックサンセリフで、太字のスケールの大きいディスプレイを通じて可読性と権威を強調します。重要なルールには、ライト背景を決して使用しないこと、単一のイエローアクセントシステムを維持すること、装飾的なフォントを避けることが含まれます。レイアウトは、複雑な金融データを整理するために微妙な1pxボーダーを備えた構造化された12カラムグリッドを使用します。この組み合わせにより、モダンでセキュアな感覚を持ちながら、集中力の高い高パフォーマンスな取引環境が確保されます。"
+    },
+    "ko": {
+      "identity": {
+        "keywords": [
+          "글로벌",
+          "신뢰성",
+          "고거래량",
+          "트레이딩"
+        ],
+        "analogy": "강력한 다크 인터페이스를 갖춘 고성능 금융 터미널.",
+        "oneLiner": "세계 최고의 암호화폐 거래 플랫폼."
+      },
+      "colors": {
+        "principle": "깊은 다크 캔버스와 생동감 있는 노란색 강조 사이의 높은 대비를 통해 중요한 사용자 액션을 유도합니다."
+      },
+      "typography": {
+        "rules": [
+          "모든 주요 디스플레이 및 본문 텍스트에 기하학적 sans-serif를 사용합니다.",
+          "다크 배경에서 최대 가독성을 위해 높은 대비(흰색/회색)를 보장합니다."
+        ],
+        "scaleUses": [
+          "히어로 헤드라인",
+          "페이지 섹션",
+          "단락",
+          "보조 텍스트"
+        ]
+      },
+      "spacing": {
+        "rhythm": "일관된 간격을 위한 표준 4px 기준선 그리드."
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(0, 0, 0, 0.04) 0px 3px 6px 0px"
+        ],
+        "borders": "섹션을 미묘하게 구분하기 위한 얇은 1px 테두리. rgba(234,236,239,0.1) 사용."
+      },
+      "layout": {
+        "skeleton": "모바일용 반응형 동작을 갖춘 표준 12열 그리드."
+      },
+      "components": {
+        "button": "주요 버튼은 진한 텍스트와 함께 단색 노란색(#f0b90b) 배경을 특징으로 합니다. 보조 버튼은 아웃라인 또는 둔화된 스타일을 사용합니다.",
+        "card": "시장 데이터 또는 뉴스 항목을 그룹화하기 위한 미묘한 테두리와 약간의 반경(8px-16px)을 가진 다크 테마 카드.",
+        "chip": "태그 또는 상태 표시기를 위한 작고 둥근 요소(알약 모양).",
+        "input": "가시성을 위해 포커스 시 노란색 테두리가 나타나는 다크 배경 입력 필드.",
+        "hero": "사용자 수와 같은 핵심 지표를 강조하는 크고 굵은 기하학적 서체(최대 56px)."
+      },
+      "motion": {
+        "patterns": [
+          "호버 상태 및 모달 오버레이를 위한 부드러운 트랜지션(0.2s-0.25s)."
+        ]
+      },
+      "interaction": {
+        "hover": "인터랙티브 요소에서 미묘한 배경색 변화 또는 약간의 밝기 변화.",
+        "click": "주로 노란색 강조 색상이 포함되는 명확한 상태 변화.",
+        "transition": "부드러움을 위해 ease-in-out 및 cubic-bezier를 일관되게 사용.",
+        "keyboard": "접근성을 위해 포커스 가능한 요소가 명확하게 윤곽 처리됨."
+      },
+      "voice": {
+        "tone": "전문적이고 권위적이며 안전한 어조.",
+        "headlineStyle": "직접적이고 강렬한 문장(예: '사용자들은 우리를 신뢰합니다').",
+        "ctaStyle": "자주 노란색 강조를 사용하는, 행동 지향적이고 두드러진 스타일.",
+        "avoid": [
+          "지나치게 장식적이거나 장난스러운 서체 사용을 피합니다.",
+          "주요 트레이딩 인터페이스에 라이트 모드 배경 사용을 피합니다.",
+          "서로 경쟁하는 여러 강조 색상 사용을 피합니다."
+        ]
+      },
+      "donts": [
+        "라이트 또는 흰색 배경을 사용하지 않습니다. 스크린샷은 주요 배경으로 다크 차콜(#181a20)을 보여줍니다.",
+        "세리프 또는 디스플레이 서체를 사용하지 않습니다. 스크린샷은 모든 서체에 깔끔한 기하학적 sans-serif를 보여줍니다.",
+        "서로 경쟁하는 여러 강조 색상을 사용하지 않습니다. 스크린샷은 유일한 지배적 고채도 색상으로 노란색(#f0b90b)을 보여줍니다.",
+        "주요 요소에 큰 border-radius를 사용하지 않습니다. 스크린샷은 대부분 작은(4px-8px) 또는 중간(16px) 반경을 보여줍니다.",
+        "주요 계층 구조를 위해 그림자(drop shadow)를 사용하지 않습니다. 스크린샷은 대신 색상 대비와 간격에 의존함을 보여줍니다.",
+        "부드러운 파스텔톤을 사용하지 않습니다. 스크린샷은 깊은 다크 그레이 위의 고대비, 생생한 노란색을 보여줍니다."
+      ],
+      "systemPrompt": "Binance는 고대비 다크 모드 인터페이스를 활용하는 전문적인 암호화폐 거래 플랫폼입니다. 그 디자인 DNA는 깊은 차콜 배경(#181a20)과 주요 액션 및 하이라이트를 위한 생동감 있는 노란색 강조(#f0b90b)의 조합으로 정의됩니다. 서체는 깔끔한 기하학적 sans-serif로, 굵고 대규모의 디스플레이를 통해 가독성과 권위를 강조합니다. 중요한 규칙에는 라이트 배경 절대 사용 금지, 단일 노란색 강조 시스템 유지, 장식적 서체 사용 금지가 포함됩니다. 레이아웃은 복잡한 금융 데이터를 정리하기 위해 1px의 미묘한 테두리가 있는 구조화된 12열 그리드를 사용합니다. 이 조합은 현대적이면서도 안전하게 느껴지는 집중적이고 고성능의 트레이딩 환경을 보장합니다."
     }
   }
 }

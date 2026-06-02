@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>OpenDesign · 收录后台</title>
+  <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
+  <style>
+    :root {
+      --ink: #111; --muted: #6b6b6b; --line: #e5e3df; --bg: #faf9f7;
+      --ok: #1a7f4b; --warn: #b25000; --no: #a11; --accent: #111;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0; background: var(--bg); color: var(--ink);
+      font: 15px/1.55 -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+    }
+    .wrap { max-width: 1080px; margin: 0 auto; padding: 40px 24px 80px; }
+    header { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; margin-bottom: 8px; }
+    h1 { font-size: 22px; margin: 0; letter-spacing: -0.3px; }
+    .sub { color: var(--muted); font-size: 13.5px; margin: 0 0 28px; }
+    /* 总览 */
+    .overview { margin-bottom: 40px; }
+    .stat-cards { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; margin-bottom: 16px; }
+    @media (max-width: 720px) { .stat-cards { grid-template-columns: repeat(2, 1fr); } }
+    .stat { background: #fff; border: 1px solid var(--line); border-radius: 8px; padding: 14px 16px; }
+    .stat-num { display: block; font-size: 26px; font-weight: 600; letter-spacing: -0.5px; }
+    .stat-label { display: block; font-size: 12px; color: var(--muted); margin-top: 2px; }
+    .stat.ok .stat-num { color: var(--ok); }
+    .stat.warn .stat-num { color: var(--warn); }
+    .progress { height: 8px; background: var(--line); border-radius: 999px; overflow: hidden; margin-bottom: 14px; }
+    .progress-fill { height: 100%; width: 0; background: var(--ok); border-radius: 999px; transition: width .5s ease; }
+    .section-title { font-size: 16px; margin: 36px 0 16px; padding-top: 8px; border-top: 1px solid var(--line); }
+    /* 站点管理 */
+    .sm-search { width: auto; flex: 1; min-width: 160px; max-width: 280px; padding: 7px 11px; font-size: 13.5px; }
+    .sm-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 12px; }
+    .sm-card { border: 1px solid var(--line); border-radius: 8px; overflow: hidden; background: #fff; display: flex; flex-direction: column; }
+    .sm-thumb { display: block; aspect-ratio: 16/10; background: #f0eee9; overflow: hidden; }
+    .sm-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .sm-body { padding: 10px 12px 12px; display: flex; flex-direction: column; gap: 7px; flex: 1; }
+    .sm-top { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+    .sm-title { font-weight: 600; font-size: 14px; }
+    .sm-meta { font-size: 12px; color: var(--muted); }
+    .sm-actions { display: flex; flex-wrap: wrap; gap: 6px; margin-top: auto; }
+    .sm-actions .mini, .sm-actions a.mini { padding: 4px 10px; font-size: 12px; border-radius: 5px; text-decoration: none; display: inline-block; border: 1px solid var(--ink); background: var(--ink); color: #fff; cursor: pointer; }
+    .sm-actions a.ghost, .sm-actions button.ghost { background: #fff; color: var(--ink); }
+    .badge.kind-pack { color: var(--ok); border: 1px solid #cfe9d9; background: #f0f9f3; padding: 2px 8px; border-radius: 999px; font-size: 11px; }
+    .badge.kind-collect { color: var(--muted); border: 1px solid var(--line); background: #fafafa; padding: 2px 8px; border-radius: 999px; font-size: 11px; }
+    /* 发现队列 */
+    .sm-thumb.dsc { position: relative; }
+    .sm-thumb.dsc .src-tag { position: absolute; top: 6px; left: 6px; background: rgba(17,17,17,.78); color: #fff; font-size: 10px; padding: 1px 7px; border-radius: 4px; letter-spacing: .02em; }
+    .sm-thumb.dsc .score-tag { position: absolute; top: 6px; right: 6px; background: rgba(255,255,255,.92); color: var(--ink); font-size: 10px; font-weight: 600; padding: 1px 6px; border-radius: 4px; }
+    .sm-host { font-size: 12px; color: var(--muted); word-break: break-all; }
+    /* 任务队列 */
+    .jobs-hint { font-size: 12px; color: var(--muted); font-weight: normal; }
+    .jobs-list { display: flex; flex-direction: column; gap: 5px; }
+    .jobs-empty { color: var(--muted); font-size: 13px; margin: 0; }
+    .job-row { display: flex; align-items: center; gap: 12px; padding: 8px 12px; border: 1px solid var(--line); border-radius: 6px; background: #fff; font-size: 13px; }
+    .job-kind { width: 84px; color: var(--muted); }
+    .job-slug { font-weight: 600; min-width: 88px; }
+    .job-time { color: var(--muted); font-size: 12px; margin-left: auto; }
+    .job-result { color: var(--muted); font-size: 11.5px; max-width: 260px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .badge.job-pending { color: var(--warn); border: 1px solid #f0d8c0; background: #fdf6ef; padding: 2px 8px; border-radius: 999px; font-size: 11px; }
+    .badge.job-running { color: #1a5fb4; border: 1px solid #c3d9f5; background: #eef4fd; padding: 2px 8px; border-radius: 999px; font-size: 11px; }
+    .badge.job-done { color: var(--ok); border: 1px solid #cfe9d9; background: #f0f9f3; padding: 2px 8px; border-radius: 999px; font-size: 11px; }
+    .badge.job-failed { color: var(--no); border: 1px solid #f0caca; background: #fdf0f0; padding: 2px 8px; border-radius: 999px; font-size: 11px; }
+    /* gate */
+    .gate { max-width: 420px; margin: 80px auto; text-align: center; }
+    .gate h1 { font-size: 20px; margin-bottom: 6px; }
+    .gate p { color: var(--muted); font-size: 14px; margin-bottom: 20px; }
+    input[type=password], input[type=text] {
+      width: 100%; padding: 11px 13px; border: 1px solid var(--line); border-radius: 6px;
+      font-size: 15px; background: #fff; color: var(--ink);
+    }
+    button {
+      font: inherit; cursor: pointer; border: 1px solid var(--ink); background: var(--ink);
+      color: #fff; padding: 9px 16px; border-radius: 6px; transition: opacity .15s;
+    }
+    button:hover { opacity: .85; }
+    button.ghost { background: #fff; color: var(--ink); }
+    button.mini { padding: 4px 10px; font-size: 12.5px; border-radius: 5px; }
+    .toolbar { display: flex; gap: 10px; align-items: center; margin-bottom: 20px; flex-wrap: wrap; }
+    .filters { display: flex; gap: 6px; }
+    .filters button { background: #fff; color: var(--muted); border-color: var(--line); }
+    .filters button.active { background: var(--ink); color: #fff; border-color: var(--ink); }
+    .count { color: var(--muted); font-size: 13px; margin-left: auto; }
+    table { width: 100%; border-collapse: collapse; font-size: 14px; }
+    th, td { text-align: left; padding: 11px 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
+    th { font-size: 12px; text-transform: uppercase; letter-spacing: .05em; color: var(--muted); font-weight: 600; }
+    td.host a { color: var(--ink); font-weight: 600; text-decoration: none; }
+    td.host a:hover { text-decoration: underline; }
+    .note { color: var(--muted); font-size: 12.5px; display: block; margin-top: 2px; }
+    .demand { font-variant-numeric: tabular-nums; white-space: nowrap; }
+    .badge { display: inline-block; padding: 2px 9px; border-radius: 999px; font-size: 12px; border: 1px solid var(--line); }
+    .badge.kind-pack    { color: #5b2bb2; border-color: #ddd0f0; background: #f6f2fd; margin-right: 8px; }
+    .badge.kind-collect { color: #555; border-color: var(--line); background: #fafafa; margin-right: 8px; }
+    .badge.pending   { color: var(--warn); border-color: #f0d8c0; background: #fdf6ef; }
+    .badge.accepted  { color: var(--ok);   border-color: #cfe9d9; background: #f0faf4; }
+    .badge.rejected  { color: var(--no);   border-color: #f0cfcf; background: #fdf2f2; }
+    .badge.published { color: #fff; background: var(--ink); border-color: var(--ink); }
+    .row-actions { display: flex; gap: 6px; flex-wrap: wrap; }
+    .empty { text-align: center; color: var(--muted); padding: 60px 0; }
+    .err { color: var(--no); font-size: 13.5px; margin-top: 10px; min-height: 18px; }
+    .toast {
+      position: fixed; left: 50%; bottom: 28px; transform: translateX(-50%);
+      background: var(--ink); color: #fff; padding: 10px 18px; border-radius: 8px;
+      font-size: 13.5px; opacity: 0; pointer-events: none; transition: opacity .2s; z-index: 50;
+    }
+    .toast.show { opacity: 1; }
+    code { background: #f0eee9; padding: 1px 6px; border-radius: 4px; font-size: 12.5px; }
+  </style>
+</head>
+<body>
+  <!-- 口令门 -->
+  <div class="gate" id="gate">
+    <h1>OpenDesign · 收录后台</h1>
+    <p>输入管理口令（只存本机会话，不上传、不进 git）。</p>
+    <form id="gateForm">
+      <input type="password" id="passInput" placeholder="管理口令" autocomplete="current-password" autofocus />
+      <div style="height:12px"></div>
+      <button type="submit" style="width:100%">进入</button>
+      <p class="err" id="gateErr"></p>
+    </form>
+  </div>
+
+  <!-- 主面板 -->
+  <div class="wrap" id="panel" hidden>
+    <header>
+      <div>
+        <h1>OpenDesign 后台</h1>
+        <p class="sub">总览 · 收录请求队列。「接受」复制本地命令 → 终端跑 → 发布到广场。</p>
+      </div>
+      <button class="ghost mini" id="logoutBtn">退出</button>
+    </header>
+
+    <!-- 总览：一眼看全貌 -->
+    <section class="overview" id="overview">
+      <div class="stat-cards">
+        <div class="stat"><span class="stat-num" id="statTotal">–</span><span class="stat-label">收录站点</span></div>
+        <div class="stat ok"><span class="stat-num" id="statTier2">–</span><span class="stat-label">完整包 Tier-2</span></div>
+        <div class="stat"><span class="stat-num" id="statTier1">–</span><span class="stat-label">文档版 Tier-1</span></div>
+        <div class="stat"><span class="stat-num" id="statPct">–</span><span class="stat-label">完整包覆盖</span></div>
+        <div class="stat warn"><span class="stat-num" id="statQueue">–</span><span class="stat-label">待处理请求</span></div>
+      </div>
+      <div class="progress" aria-label="完整包升级进度"><div class="progress-fill" id="progressFill"></div></div>
+    </section>
+
+    <h2 class="section-title">发现队列 · 待收录 <span class="jobs-hint">（爬虫定期全网发现的好站，点「收录」入队 → 本地 drain 跑完整包上线）</span></h2>
+    <div class="toolbar">
+      <div class="filters" id="dscFilters">
+        <button data-df="pending" class="active">待审阅</button>
+        <button data-df="approved">已收录</button>
+        <button data-df="ignored">已忽略</button>
+        <button data-df="all">全部</button>
+      </div>
+      <button class="ghost mini" id="dscRefresh">刷新</button>
+      <span class="count" id="dscCount"></span>
+    </div>
+    <div class="sm-grid" id="dscGrid"></div>
+    <p class="jobs-empty" id="dscEmpty" hidden>暂无发现。本地跑 <code>python3 scripts/discover.py</code> 去全网找有设计感的站。</p>
+
+    <h2 class="section-title">站点管理</h2>
+    <div class="toolbar">
+      <div class="filters" id="smFilters">
+        <button data-sf="all" class="active">全部</button>
+        <button data-sf="tier2">完整包</button>
+        <button data-sf="tier1">待升级</button>
+      </div>
+      <input type="search" id="smSearch" class="sm-search" placeholder="搜站点名 / slug…" autocomplete="off" />
+      <span class="count" id="smCount"></span>
+    </div>
+    <div class="sm-grid" id="smGrid"></div>
+
+    <h2 class="section-title">任务队列 <span class="jobs-hint">（点「升级 / 刷新主图」入队 → 本地 bash scripts/drain.sh 跑完上线）</span></h2>
+    <div class="jobs-list" id="jobsList"><p class="jobs-empty" id="jobsEmpty">暂无任务。</p></div>
+
+    <h2 class="section-title">收录请求队列</h2>
+
+    <div class="toolbar">
+      <div class="filters" id="filters">
+        <button data-f="pending" class="active">待处理</button>
+        <button data-f="accepted">已接受</button>
+        <button data-f="published">已发布</button>
+        <button data-f="rejected">已拒绝</button>
+        <button data-f="all">全部</button>
+      </div>
+      <button class="ghost mini" id="refreshBtn">刷新</button>
+      <span class="count" id="count"></span>
+    </div>
+
+    <table>
+      <thead>
+        <tr>
+          <th>网站</th>
+          <th>需求</th>
+          <th>提交时间</th>
+          <th>状态</th>
+          <th>操作</th>
+        </tr>
+      </thead>
+      <tbody id="rows"></tbody>
+    </table>
+    <div class="empty" id="empty" hidden>这个分类下还没有请求。</div>
+  </div>
+
+  <div class="toast" id="toast"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
+  <script src="/supabase-config.js"></script>
+  <script src="/sites.js"></script>
+  <script src="/admin.js"></script>
+</body>
+</html>

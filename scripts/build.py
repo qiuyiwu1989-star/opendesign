@@ -188,6 +188,12 @@ def build_legacy_i18n_json(sites: list[dict]) -> dict:
 # Build target #3: SEO static HTML per (site, lang)
 # ============================================================
 
+# 百度统计（国内）+ GA4（境外）—— SEO 落地页也要埋点（搜索流量直接落这里）
+# 注：G-W2RPW945DH 与首页 index.html 保持一致，换成你的 GA4 Measurement ID
+ANALYTICS_SNIPPET = """<script>var _hmt=_hmt||[];(function(){var hm=document.createElement("script");hm.src="https://hm.baidu.com/hm.js?e83757828db0e57520651bc1be79715c";var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(hm,s);})();</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-W2RPW945DH"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-W2RPW945DH',{anonymize_ip:true});</script>"""
+
 HTML_TEMPLATE = """<!doctype html>
 <html lang="{html_lang}">
 <head>
@@ -231,6 +237,7 @@ HTML_TEMPLATE = """<!doctype html>
 <script type="application/ld+json">
 {json_ld}
 </script>
+{analytics}
 </head>
 <body>
 
@@ -357,6 +364,7 @@ def render_site_html(site: dict, lang: str) -> str:
         home_url=BASE_URL + "/",
         notes_label=L["notes_label"],
         notes_text=notes_text or palette,
+        analytics=ANALYTICS_SNIPPET,
     )
 
 
@@ -549,6 +557,48 @@ def render_design_spec_md(site: dict, lang: str) -> str:
 
 
 # ============================================================
+# Build target #4c: per-pack manifest.json (Pack Standard v1 · 自描述)
+# ============================================================
+# Agent 命中 folder URL 即可 GET manifest.json，知道这个作品有哪些文件、哪个层级、怎么用。
+# 契约见 docs/design-pack-standard.md。
+
+def render_pack_manifest(site: dict, doc_langs: list, has_design_md: bool,
+                         has_spec: bool, tier2: dict | None) -> dict:
+    slug = site["id"]
+    agent_url = f"{BASE_URL}/packs/{slug}/"
+    documents = {}
+    if has_design_md:
+        documents["DESIGN.md"] = "Google design.md format (YAML front matter + 8 sections)"
+    for lang in doc_langs:
+        documents[f"DESIGN_SPEC.{lang}.md"] = f"OpenDesign 11-layer spec ({lang})"
+    if has_spec:
+        documents["spec.json"] = "11-layer design tokens (machine-readable)"
+
+    complete = None
+    if tier2 and (tier2.get("files") or tier2.get("zipFile")):
+        complete = {
+            "zip": tier2.get("zipFile"),
+            "zipSize": tier2.get("zipSize") or tier2.get("zip_size"),
+            "fileCount": tier2.get("fileCount") or len(tier2.get("files") or []),
+            "files": [f.get("name") for f in (tier2.get("files") or []) if f.get("name")],
+            "includes": "real computed styles (summary.json), loaded fonts (fonts.json), desktop+mobile screenshots",
+        }
+
+    return {
+        "standard": "design-pack/v1",
+        "slug": slug,
+        "title": site.get("title", ""),
+        "url": site.get("url", ""),
+        "tags": site.get("tags", []),
+        "tier": 2 if complete else 1,
+        "agentUrl": agent_url,
+        "documents": documents,
+        "complete": complete,
+        "usage": ("Feed any DESIGN_SPEC.*.md (or DESIGN.md) into Claude / Cursor / v0 / Lovable, "
+                  "or point your agent at this folder URL to read the full design system."),
+    }
+
+
 # Build target #4b: DESIGN.md (Google Stitch / VoltAgent compat)
 # ============================================================
 # 让我们的 spec 同时能被 Google Stitch + Anthropic Claude + Cursor + Lovable 用。
@@ -727,6 +777,62 @@ def render_google_design_md(site: dict, lang: str = "en") -> str:
 
 
 # ============================================================
+# Build target #5b: llms.txt（GEO —— 给 LLM/Agent 的导览，暴露 /packs/ 协议）
+# ============================================================
+
+def build_llms_txt(sites: list[dict], pidx: dict) -> str:
+    lines = [
+        "# OpenDesign",
+        "",
+        "> 把值得反复回看的网页设计沉淀成可被 AI / Agent 直接复用的设计系统规范。",
+        "",
+        "**核心**: 每一个收录的网站都附带一份**机器可读的完整设计系统** —— 不是文案、不是 PSD，"
+        "而是把视觉 / 布局 / 排版 / 动效 / 交互抽象成 AI（Claude / Cursor / v0 / Lovable）可直接复用的迁移指令。",
+        "",
+        "**正式站点**: https://opendesign.cc/",
+        "**sitemap**: https://opendesign.cc/sitemap.xml",
+        "",
+        "## 给 AI / Agent：怎么用",
+        "",
+        "每个作品都有一个稳定的 **folder URL**，GET 它即得该站的设计系统：",
+        "",
+        "```",
+        "https://opendesign.cc/packs/<slug>/                  → manifest.json 列出全部文件",
+        "https://opendesign.cc/packs/<slug>/DESIGN.md          → Google design.md 兼容格式（YAML + 8 段）",
+        "https://opendesign.cc/packs/<slug>/DESIGN_SPEC.en.md  → OpenDesign 11 层规范（en/zh-CN/zh-TW/ja/ko）",
+        "https://opendesign.cc/packs/<slug>/spec.json          → 11 层设计 tokens（机器可读）",
+        "```",
+        "",
+        "把任意 DESIGN_SPEC.*.md 粘进你的编码 Agent，或让 Agent 直接读 folder URL —— "
+        "它会读到该站完整的 11 层设计系统并按同样的设计语言生成 / 改造页面。",
+        "",
+        "本站全部内容已静态化（每站 × 5 语言独立 HTML），无需执行 JS 即可抓取。",
+        "",
+    ]
+    tier2 = [s for s in sites if s["id"] in pidx]
+    if tier2:
+        lines.append(f"## 完整包（Tier 2 · 含真截图 + 真 computed styles · {len(tier2)} 个）")
+        lines.append("")
+        lines.append("这些站除文档外还含 Playwright 抓取的真实页面证据 + 按频次聚合的真 computed styles：")
+        lines.append("")
+        for s in tier2:
+            lines.append(f"- [{s['title']}](https://opendesign.cc/packs/{s['id']}/) — "
+                         f"ZIP: https://opendesign.cc/packs/{s['id']}/{s['id']}-design-pack.zip")
+        lines.append("")
+    lines.append(f"## 全部收录（{len(sites)} 个）")
+    lines.append("")
+    for s in sites:
+        slug = s["id"]
+        desc = (s.get("desc", {}).get("en") or {}).get("notes") \
+            or (s.get("desc", {}).get("zh-CN") or {}).get("notes") or ""
+        tag = " · Tier-2 完整包" if slug in pidx else ""
+        lines.append(f"- [{s['title']}](https://opendesign.cc/en/sites/{slug}) "
+                     f"→ 设计系统 https://opendesign.cc/packs/{slug}/{tag}"
+                     + (f" — {desc}" if desc else ""))
+    lines.append("")
+    return "\n".join(lines)
+
+
 # Build target #5: sitemap.xml with hreflang
 # ============================================================
 
@@ -842,37 +948,66 @@ def main():
         total_html = len(sites) * len(LANGS)
         print(f"  ✓ dist/seo/<lang>/sites/<slug>.html ({total_html} pages)")
 
-    # 4) DESIGN_SPEC.<lang>.md per pack（如果该 site 有 narrative）
-    #    + DESIGN.md (Google Stitch / VoltAgent compat 格式) per slug
+    # 4) 每个 pack 文件夹（遵守 docs/design-pack-standard.md · Pack Standard v1）：
+    #    Tier 1（必有）：DESIGN.md + DESIGN_SPEC.<lang>.md + spec.json + manifest.json
+    #    Tier 2（有完整包时，来自 packs-index.json）：截图 / summary.json / fonts.json / ZIP
     if not args.legacy_only:
         packs_dir = DIST_DIR / "packs"
+        # 读 Tier 2 清单（哪些 slug 有完整 Playwright 包）
+        try:
+            pidx = json.loads((ROOT / "packs-index.json").read_text(encoding="utf-8"))
+        except Exception:
+            pidx = {}
         md_count = 0
         design_md_count = 0
+        manifest_count = 0
         for s in sites:
-            slug_dir = packs_dir / s["id"]
+            slug = s["id"]
+            slug_dir = packs_dir / slug
             slug_dir.mkdir(parents=True, exist_ok=True)
-            # 我们的 magazine 风格（叙事 + 表格）
+            doc_langs = []
+            # Tier 1 · magazine 风格（叙事 + 表格）每语言一份
             for lang in LANGS:
                 if not s.get("narrative", {}).get(lang):
                     continue
-                md = render_design_spec_md(s, lang)
-                (slug_dir / f"DESIGN_SPEC.{lang}.md").write_text(md, encoding="utf-8")
+                (slug_dir / f"DESIGN_SPEC.{lang}.md").write_text(render_design_spec_md(s, lang), encoding="utf-8")
+                doc_langs.append(lang)
                 md_count += 1
-            # Google Stitch / VoltAgent 兼容（YAML front matter + 8 章）
+            # Tier 1 · Google Stitch / VoltAgent 兼容（YAML front matter + 8 章）
+            has_design_md = False
             if s.get("spec") and any(v for v in s.get("spec", {}).get("colors", {}).values()):
-                gmd = render_google_design_md(s, "en")
-                (slug_dir / "DESIGN.md").write_text(gmd, encoding="utf-8")
+                (slug_dir / "DESIGN.md").write_text(render_google_design_md(s, "en"), encoding="utf-8")
+                has_design_md = True
                 design_md_count += 1
+            # Tier 1 · spec.json（11 层 tokens，机器可读）
+            spec_obj = s.get("spec") or {}
+            if spec_obj:
+                (slug_dir / "spec.json").write_text(
+                    json.dumps(spec_obj, ensure_ascii=False, indent=2), encoding="utf-8")
+            # 每个 pack 一份自描述 manifest.json（Agent 命中 folder URL 即知全貌）
+            (slug_dir / "manifest.json").write_text(
+                json.dumps(render_pack_manifest(s, doc_langs, has_design_md, bool(spec_obj), pidx.get(slug)),
+                           ensure_ascii=False, indent=2),
+                encoding="utf-8")
+            manifest_count += 1
         if md_count:
             print(f"  ✓ dist/packs/<slug>/DESIGN_SPEC.<lang>.md ({md_count} files)")
         if design_md_count:
             print(f"  ✓ dist/packs/<slug>/DESIGN.md ({design_md_count} files · Google format)")
+        if manifest_count:
+            print(f"  ✓ dist/packs/<slug>/manifest.json + spec.json ({manifest_count} packs · Pack Standard v1)")
 
     # 5) Sitemap
     if not args.legacy_only:
         sitemap = build_sitemap(sites)
         (DIST_DIR / "sitemap.xml").write_text(sitemap, encoding="utf-8")
         print(f"  ✓ dist/sitemap.xml ({len(sites)} sites × {len(LANGS)} langs)")
+
+    # 5b) llms.txt（GEO：暴露 /packs/ 协议给 LLM/Agent）→ 写到根（部署直接 serve）
+    if not args.legacy_only:
+        llms = build_llms_txt(sites, pidx)
+        (ROOT / "llms.txt").write_text(llms, encoding="utf-8")
+        print(f"  ✓ llms.txt ({len(sites)} sites · 暴露 /packs/ agent 协议)")
 
     print(f"\nDone. dist/ → {sum(1 for _ in DIST_DIR.rglob('*') if _.is_file())} files")
 

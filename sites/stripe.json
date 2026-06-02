@@ -16,58 +16,67 @@
   "_meta": {
     "vision_prompt_version": "0.3",
     "vision_model": "mimo-v2.5",
-    "vision_at": "2026-05-28T20:03:41+00:00",
-    "vision_tokens": 3398,
-    "vision_cost_usd": 0.0378,
+    "vision_at": "2026-05-30T02:33:26+00:00",
+    "vision_tokens": 1768,
+    "vision_cost_usd": 0.0196,
     "translation_model": "mimo-v2.5",
-    "translation_at": "2026-05-28T20:04:38+00:00",
-    "translation_tokens": 16270,
-    "translation_cost_usd": 0.0542,
+    "translation_at": "2026-05-30T02:34:23+00:00",
+    "translation_tokens": 27566,
+    "translation_cost_usd": 0.0919,
     "narrative_model": "mimo-v2.5",
     "narrative_prompt_version": "0.3",
     "narrative_at": "2026-05-28T20:04:45+00:00",
     "narrative_tokens": 1942,
     "narrative_cost_usd": 0.0129,
     "narrative_status": "ok",
-    "total_cost_usd": 0.1049
+    "total_cost_usd": 0.1244,
+    "vision_source": "playwright-extract:stripe",
+    "vision_grounded": true
   },
   "spec": {
     "colors": {
       "bg": "#FFFFFF",
-      "bgSoft": null,
-      "bgQuiet": null,
-      "ink": "#0A2540",
-      "inkSoft": "#425466",
-      "muted": "#6B7280",
+      "bgSoft": "#F8FAFD",
+      "bgQuiet": "#E5EDF5",
+      "ink": "#061B31",
+      "inkSoft": "#50617A",
+      "muted": "#64748D",
       "mutedSoft": null,
-      "accent": "#635BFF",
-      "line": "rgba(0,0,0,0.08)"
+      "accent": "#533AFD",
+      "line": "rgba(229, 237, 245, 1)"
     },
     "typography": {
-      "display": "humanist-sans",
-      "body": "humanist-sans",
-      "mono": null,
+      "display": "grotesque-sans",
+      "body": "grotesque-sans",
+      "mono": "monospace",
       "scale": [
         {
           "token": "display",
-          "size": 64,
-          "lh": 1.05,
-          "weight": 700,
-          "ls": "-1.5px"
-        },
-        {
-          "token": "heading",
-          "size": 48,
-          "lh": 1.1,
-          "weight": 700,
+          "size": 56,
+          "lh": 1.0,
+          "weight": 500,
           "ls": "-1px"
         },
         {
+          "token": "h2",
+          "size": 32,
+          "lh": 1.2,
+          "weight": 500,
+          "ls": "-0.5px"
+        },
+        {
           "token": "body",
-          "size": 20,
+          "size": 16,
           "lh": 1.5,
           "weight": 400,
           "ls": "0"
+        },
+        {
+          "token": "caption",
+          "size": 14,
+          "lh": 1.4,
+          "weight": 400,
+          "ls": "0.1px"
         }
       ]
     },
@@ -86,15 +95,15 @@
     },
     "surfaces": {
       "radius": {
-        "sm": 6,
+        "sm": 4,
         "md": 8,
         "lg": 12,
         "pill": 999
       }
     },
     "layout": {
-      "container": 1200,
-      "paragraph": 640,
+      "container": 1280,
+      "paragraph": 680,
       "columns": 12,
       "gutter": 24,
       "breakpoints": [
@@ -108,16 +117,16 @@
         "small": 400,
         "medium": 800
       },
-      "easing": "cubic-bezier(0.25, 0.1, 0.25, 1.0)"
+      "easing": "cubic-bezier(0.25, 1, 0.5, 1)"
     }
   },
   "desc": {
     "en": {
-      "palette": "A clean white background with deep navy text, a bold violet accent, and an expressive multi-color gradient hero.",
-      "layout": "A centered, constrained layout with generous whitespace and a clear hierarchy.",
-      "interaction": "Subtle hover states and transitions provide a smooth, premium feel.",
-      "motion": "Smooth, understated animations enhance the experience without distraction.",
-      "notes": "Worth including for its masterful blend of a premium, restrained aesthetic with expressive, high-chroma accents."
+      "palette": "A clean, high-contrast palette dominated by deep navy and vibrant purple accents on a white and light gray foundation.",
+      "layout": "A wide, structured layout with generous whitespace and clear column grids for desktop and mobile.",
+      "interaction": "Smooth, subtle transitions on hover and click states, emphasizing refinement and responsiveness.",
+      "motion": "Refined and purposeful animations that enhance clarity and flow without being distracting.",
+      "notes": "A benchmark for premium SaaS design, showcasing how to blend professional authority with modern, developer-friendly aesthetics through a restrained palette and clean typography."
     },
     "zh-CN": {
       "palette": "以纯净白色背景为底，搭配深海军蓝文字、醒目的紫色点缀，以及富有表现力的多彩渐变首屏。",
@@ -146,403 +155,6 @@
       "interaction": "미세한 hover 상태와 트랜지션이 부드럽고 프리미엄 같은 느낌을 제공합니다.",
       "motion": "방해 없이 경험을 향상시키는 부드럽고 절제된 애니메이션을 사용합니다.",
       "notes": "프리미엄미와 절제된 미학을 표현력이 뛰어나고 고채도 포인트와 능숙하게融合시킨 점이 인상적입니다."
-    }
-  },
-  "spec_i18n": {
-    "en": {
-      "identity": {
-        "keywords": [
-          "infrastructure",
-          "scale",
-          "global",
-          "reliable",
-          "modern"
-        ],
-        "analogy": "A premium toolkit for building the future of the internet economy.",
-        "oneLiner": "Clean, premium financial infrastructure with expressive gradient accents."
-      },
-      "colors": {
-        "principle": "Clean white canvas with a bold, primary violet accent and expressive, high-chroma gradient hero."
-      },
-      "typography": {
-        "rules": [
-          "Use dark ink on light backgrounds.",
-          "Display type uses tight tracking and heavy weight for maximum impact.",
-          "Avoid pure black; stick to deep navy or slate for body copy."
-        ],
-        "scaleUses": [
-          "Hero headlines",
-          "Section headings",
-          "Long-form body text"
-        ]
-      },
-      "spacing": {
-        "rhythm": "8px base grid for consistent spacing."
-      },
-      "surfaces": {
-        "shadows": [
-          "0 2px 4px rgba(0,0,0,0.05)",
-          "0 12px 24px rgba(0,0,0,0.08)"
-        ],
-        "borders": "Subtle 1px borders to define surfaces without heavy shadows."
-      },
-      "layout": {
-        "skeleton": "Centered, constrained container with generous whitespace."
-      },
-      "components": {
-        "button": "Solid primary fill with white text, or subtle outline for secondary actions.",
-        "card": "Clean white cards with subtle shadows and rounded corners.",
-        "chip": "Not prominently featured.",
-        "input": "Clean, single-line inputs with subtle borders.",
-        "hero": "Large expressive gradient background with bold headline and CTA buttons."
-      },
-      "motion": {
-        "patterns": [
-          "Subtle fade-ins on scroll.",
-          "Smooth hover transitions on buttons."
-        ]
-      },
-      "interaction": {
-        "hover": "Subtle background color shift or shadow elevation.",
-        "click": "Slight scale down or immediate feedback.",
-        "transition": "Smooth color and shadow transitions over 220ms.",
-        "keyboard": "Standard tab order with visible focus rings."
-      },
-      "voice": {
-        "tone": "Authoritative yet approachable, confident and precise.",
-        "headlineStyle": "Bold, direct, and focused on value and scale.",
-        "ctaStyle": "Action-oriented and clear.",
-        "avoid": [
-          "Avoid overly casual or slang-heavy language.",
-          "Avoid jargon without clear explanation.",
-          "Avoid vague promises; be specific about capabilities."
-        ]
-      },
-      "donts": [
-        "Don't use pure black text — screenshot shows a deep navy (#0A2540) instead.",
-        "Don't use generic sans-serif fonts — screenshot shows a humanist sans-serif for display and body.",
-        "Don't use heavy drop shadows — screenshot shows subtle, soft shadows for elevation.",
-        "Don't use complex background patterns — screenshot shows a clean white background with a gradient accent.",
-        "Don't use all-caps headlines — screenshot shows title case for headings.",
-        "Don't use multiple competing accent colors — screenshot shows a single dominant violet accent."
-      ],
-      "systemPrompt": "Stripe is a premium fintech platform positioning itself as essential financial infrastructure. The design DNA is built on a clean white background with deep navy (#0A2540) text and a bold violet (#635BFF) accent. Typography uses a humanist sans-serif for both display and body, creating a cohesive and modern feel. Critical donts include avoiding pure black text, using heavy drop shadows, or employing multiple competing accent colors. The layout is generous with whitespace, emphasizing scale and reliability. The hero section uses an expressive gradient to add visual interest without compromising the overall clean, professional aesthetic."
-    },
-    "zh-CN": {
-      "identity": {
-        "keywords": [
-          "基础设施",
-          "规模化",
-          "全球化",
-          "可靠",
-          "现代"
-        ],
-        "analogy": "为构建互联网经济未来而设的高端工具包。",
-        "oneLiner": "简洁、高端的金融基础设施，辅以富有表现力的渐变点缀。"
-      },
-      "colors": {
-        "principle": "纯净白色画布，搭配醒目、主色的紫色点缀，以及富有表现力、高饱和度的渐变首屏。"
-      },
-      "typography": {
-        "rules": [
-          "浅色背景上使用深色墨水文字。",
-          "展示型字体使用紧凑字距和较重字重，以实现最大视觉冲击。",
-          "避免使用纯黑色；正文文本坚持使用深海军蓝或板岩灰。"
-        ],
-        "scaleUses": [
-          "首屏大标题",
-          "章节标题",
-          "长篇正文"
-        ]
-      },
-      "spacing": {
-        "rhythm": "基于 8px 网格的统一间距。"
-      },
-      "surfaces": {
-        "shadows": [
-          "0 2px 4px rgba(0,0,0,0.05)",
-          "0 12px 24px rgba(0,0,0,0.08)"
-        ],
-        "borders": "细腻的 1px 边框定义表面，避免使用厚重阴影。"
-      },
-      "layout": {
-        "skeleton": "居中、受限的容器，留白充裕。"
-      },
-      "components": {
-        "button": "实色主色填充，配白色文字；或为次要操作使用细腻的轮廓样式。",
-        "card": "纯净白色卡片，带细腻阴影与圆角。",
-        "chip": "未突出使用。",
-        "input": "简洁的单行输入框，带细腻边框。",
-        "hero": "大面积富有表现力的渐变背景，搭配醒目标题与 CTA 按钮。"
-      },
-      "motion": {
-        "patterns": [
-          "滚动时细腻的淡入效果。",
-          "按钮上平滑的悬停过渡。"
-        ]
-      },
-      "interaction": {
-        "hover": "背景颜色细微变化或阴影高度提升。",
-        "click": "轻微缩放或即时反馈。",
-        "transition": "220毫秒内平滑的颜色与阴影过渡。",
-        "keyboard": "标准 Tab 顺序，带可见的焦点环。"
-      },
-      "voice": {
-        "tone": "权威而不失亲和，自信且精准。",
-        "headlineStyle": "醒目、直接，聚焦价值与规模。",
-        "ctaStyle": "行动导向，清晰明确。",
-        "avoid": [
-          "避免过于随意或俚语过多的语言。",
-          "避免使用未经清晰解释的行话。",
-          "避免模糊承诺；需具体说明功能。"
-        ]
-      },
-      "donts": [
-        "不要使用纯黑色文本——截图显示的是深海军蓝（#0A2540）。",
-        "不要使用通用无衬线字体——截图显示的是用于展示和正文的人文主义无衬线字体。",
-        "不要使用厚重的投影——截图显示的是用于层次提升的细腻、柔和阴影。",
-        "不要使用复杂的背景图案——截图显示的是纯净白色背景搭配渐变点缀。",
-        "不要使用全大写标题——截图显示的是标题式大小写。",
-        "不要使用多个相互竞争的强调色——截图显示的是单一主导的紫色强调色。"
-      ],
-      "systemPrompt": "Stripe 是一个高端金融科技平台，定位为不可或缺的金融基础设施。其设计 DNA 构建于纯净白色背景，搭配深海军蓝（#0A2540）文字和醒目紫色（#635BFF）点缀。排版使用人文主义无衬线字体，用于展示和正文，营造统一现代感。关键禁忌包括避免纯黑色文本、使用厚重投影或采用多个相互竞争的强调色。布局留白充裕，强调规模与可靠性。首屏使用富有表现力的渐变，在不损害整体简洁、专业美学的前提下增加视觉吸引力。"
-    },
-    "zh-TW": {
-      "identity": {
-        "keywords": [
-          "基礎架構",
-          "擴展",
-          "全球",
-          "可靠",
-          "現代"
-        ],
-        "analogy": "建構網路經濟未來的優質工具包。",
-        "oneLiner": "兼具乾淨質感與表現力漸層強調色的金融基礎架構。"
-      },
-      "colors": {
-        "principle": "以乾淨的白色畫布為基底，搭配大膽的主色紫羅蘭強調色，以及富表現力的高飽和度漸層首頁橫幅。"
-      },
-      "typography": {
-        "rules": [
-          "淺色背景上使用深色墨色文字。",
-          "展示字體採用緊湊字距與粗體，以產生最大衝擊力。",
-          "避免使用純黑色；內文應使用深海軍藍或石板色。"
-        ],
-        "scaleUses": [
-          "首頁標題",
-          "章節標題",
-          "長篇內文"
-        ]
-      },
-      "spacing": {
-        "rhythm": "以 8px 為基礎網格，確保間距一致性。"
-      },
-      "surfaces": {
-        "shadows": [
-          "0 2px 4px rgba(0,0,0,0.05)",
-          "0 12px 24px rgba(0,0,0,0.08)"
-        ],
-        "borders": "使用細微的 1px 邊框來定義介面，避免使用厚重陰影。"
-      },
-      "layout": {
-        "skeleton": "採用置中、受限的容器，並留有充足白空間。"
-      },
-      "components": {
-        "button": "主要按鈕採用實心填充與白色文字，次要操作則使用細微外框樣式。",
-        "card": "使用潔淨的白色卡片，搭配細微陰影與圓角。",
-        "chip": "並非顯著特徵。",
-        "input": "採用乾淨的單行輸入框，並帶有細微邊框。",
-        "hero": "大型、富表現力的漸層背景，搭配粗體標題與行動呼籲按鈕。"
-      },
-      "motion": {
-        "patterns": [
-          "滾動時細微的淡入效果。",
-          "按鈕上流暢的 hover 過渡。"
-        ]
-      },
-      "interaction": {
-        "hover": "細微的背景色彩偏移或陰影提升效果。",
-        "click": "輕微的縮小或立即回饋。",
-        "transition": "色彩與陰影在 220ms 內平滑過渡。",
-        "keyboard": "標準的 Tab 順序，並搭配可見的 focus ring。"
-      },
-      "voice": {
-        "tone": "權威而親切，自信且精準。",
-        "headlineStyle": "大膽、直接，聚焦於價值與規模。",
-        "ctaStyle": "以行動為導向且清晰明確。",
-        "avoid": [
-          "避免過於隨意或充滿俚語的語言。",
-          "避免未附帶清晰解釋的專業術語。",
-          "避免模糊的承諾；應具體說明功能。"
-        ]
-      },
-      "donts": [
-        "不要使用純黑色文字——截圖顯示應使用深海軍藍（#0A2540）。",
-        "不要使用通用的無襯線字體——截圖顯示展示與內文應使用人文主義無襯線字體。",
-        "不要使用厚重的投影——截圖顯示應使用細微、柔和的陰影來創造層次。",
-        "不要使用複雜的背景圖案——截圖顯示應使用潔淨的白色背景搭配漸層強調色。",
-        "不要使用全大寫標題——截圖顯示標題應使用首字母大寫格式。",
-        "不要使用多種相互競爭的強調色——截圖顯示應使用單一的主導紫羅蘭強調色。"
-      ],
-      "systemPrompt": "Stripe 是一個定位為重要金融基礎架構的優質金融科技平台。其設計 DNA 建立在潔淨的白色背景、深海軍藍（#0A2540）文字以及大膽的紫羅蘭（#635BFF）強調色之上。字體方面，展示與內文均採用人文主義無襯線字體，營造連貫且現代的感覺。必須避免的關鍵事項包括：使用純黑色文字、厚重的投影，或採用多種相互競爭的強調色。版面設計留有充足白空間，強調其規模與可靠性。首頁橫幅採用富表現力的漸層，以增添視覺趣味，同時不影響整體乾淨、專業的美學。"
-    },
-    "ja": {
-      "identity": {
-        "keywords": [
-          "インフラストラクチャ",
-          "スケール",
-          "グローバル",
-          "信頼性",
-          "モダン"
-        ],
-        "analogy": "インターネット経済の未来を構築するための、プレミアムツールキット。",
-        "oneLiner": "表現力豊かなグラデーションアクセントを持つ、クリーンで上質な金融インフラ。"
-      },
-      "colors": {
-        "principle": "大胆なプライマリーバイオレットアクセントと、表現力豊かで高彩度のグラデーションヒーローを持つ、クリーンな白キャンバス。"
-      },
-      "typography": {
-        "rules": [
-          "明るい背景に濃いインクを使用します。",
-          "ディスプレイ用フォントは、最大のインパクトのためにタイトなトラッキングと太いウェイトを使用します。",
-          "純粋な黒は避け、本文コピーには深いネイビーやスレートを採用します。"
-        ],
-        "scaleUses": [
-          "ヒーロー見出し",
-          "セクション見出し",
-          "長文の本文テキスト"
-        ]
-      },
-      "spacing": {
-        "rhythm": "一貫した間隔のための8pxベースグリッド。"
-      },
-      "surfaces": {
-        "shadows": [
-          "0 2px 4px rgba(0,0,0,0.05)",
-          "0 12px 24px rgba(0,0,0,0.08)"
-        ],
-        "borders": "重いシャドウを使わずにサーフェスを定義する、控えめな1pxボーダー。"
-      },
-      "layout": {
-        "skeleton": "豊富な余白を持つ、中央揃えで制約のあるコンテナ。"
-      },
-      "components": {
-        "button": "白テキストの塗りつぶしプライマリーフィル、またはサブtlアクションの控えめなアウトライン。",
-        "card": "控えめなシャドウと丸みのある角を持つ、クリーンな白いカード。",
-        "chip": "目立つ形では使用しません。",
-        "input": "控えめなボーダーを持つ、クリーンな単一入力行。",
-        "hero": "大胆な見出しとCTAボタンを持つ、大きな表現力豊かなグラデーション背景。"
-      },
-      "motion": {
-        "patterns": [
-          "スクロール時の控えめなフェードイン。",
-          "ボタンの滑らかなhoverトランジション。"
-        ]
-      },
-      "interaction": {
-        "hover": "控えめな背景色の変化またはシャドウの浮き上がり。",
-        "click": "軽いスケールダウンまたは即座のフィードバック。",
-        "transition": "220msにわたる滑らかな色とシャドウのトランジション。",
-        "keyboard": "可視フォーカスリングを持つ標準的なtab順序。"
-      },
-      "voice": {
-        "tone": "権威がありながらも親しみやすく、自信に満ちて正確。",
-        "headlineStyle": "大胆で直接的、価値とスケールに焦点を当てる。",
-        "ctaStyle": "アクション指向で明確。",
-        "avoid": [
-          "過度にカジュアルな言葉遣いやスラングの多用を避ける。",
-          "明確な説明なしの専門用語を避ける。",
-          "曖昧な約束を避け、能力については具体的に述べる。"
-        ]
-      },
-      "donts": [
-        "純粋な黒のテキストを使用しない — スクリーンショットでは深いネイビー (#0A2540) が使用されている。",
-        "一般的なsans-serifフォントを使用しない — スクリーンショットではディスプレイと本文の両方にhumanist sans-serifが使用されている。",
-        "重いドロップシャドウを使用しない — スクリーンショットでは浮き出し効果のための控えめで柔らかいシャドウが使用されている。",
-        "複雑な背景パターンを使用しない — スクリーンショットではグラデーションアクセント付きのクリーンな白背景が使用されている。",
-        "すべて大文字の見出しを使用しない — スクリーンショットでは見出しにタイトルケースが使用されている。",
-        "複数の競合するアクセントカラーを使用しない — スクリーンショットでは単一の支配的なバイオレットアクセントが使用されている。"
-      ],
-      "systemPrompt": "Stripeは、不可欠な金融インフラとしてポジショニングするプレミアムフィンテックプラットフォームです。デザインDNAは、クリーンな白背景、深いネイビー (#0A2540) のテキスト、大胆なバイオレット (#635BFF) のアクセントに基づいています。タイポグラフィは、ディスプレイと本文の両方にhumanist sans-serifを使用し、調和のとれたモダンな印象を生み出します。重要な禁止事項には、純粋な黒のテキストの使用、重いドロップシャドウの使用、複数の競合するアクセントカラーの使用が含まれます。レイアウトは余白を豊かに使い、スケールと信頼性を強調しています。ヒーローセクションは、全体的なクリーンでプロフェッショナルな美学を損なうことなく、視覚的な趣味を加えるために表現力豊かなグラデーションを使用しています。"
-    },
-    "ko": {
-      "identity": {
-        "keywords": [
-          "인프라",
-          "규모",
-          "글로벌",
-          "신뢰성",
-          "모던"
-        ],
-        "analogy": "인터넷 경제의 미래를 구축하기 위한 프리미엄 도구 키트.",
-        "oneLiner": "표현력 있는 그라디언트 포인트가 적용된 깔끔한 프리미엄 금융 인프라."
-      },
-      "colors": {
-        "principle": "강렬한 기본 바이올렛 포인트와 표현력이 뛰어난 고채도 그라디언트 히어로가 적용된 깨끗한 흰색 캔버스."
-      },
-      "typography": {
-        "rules": [
-          "밝은 배경에는 어두운 잉크를 사용합니다.",
-          "디스플레이 텍스트는 최대 임팩트를 위해 좁은 자간과 무거운 굵기를 사용합니다.",
-          "순수한 검정색은 피하고, 본문에는 깊은 네이비나 슬레이트를 사용합니다."
-        ],
-        "scaleUses": [
-          "히어로 헤드라인",
-          "섹션 제목",
-          "긴 형식 본문"
-        ]
-      },
-      "spacing": {
-        "rhythm": "일관된 간격을 위한 8px 기본 그리드."
-      },
-      "surfaces": {
-        "shadows": [
-          "0 2px 4px rgba(0,0,0,0.05)",
-          "0 12px 24px rgba(0,0,0,0.08)"
-        ],
-        "borders": "무거운 그림자 없이 표면을 정의하기 위한 미세한 1px 테두리."
-      },
-      "layout": {
-        "skeleton": "풍부한 여백을 갖춘 중앙 정렬된 제한된 컨테이너."
-      },
-      "components": {
-        "button": "흰색 텍스트가 있는 단색 기본 채우기 또는 보조 작업을 위한 미세한 윤곽선.",
-        "card": "미세한 그림자와 둥근 모서리가 있는 깨끗한 흰색 카드.",
-        "chip": "눈에 띄게 사용되지 않음.",
-        "input": "미세한 테두리가 있는 깔끔한 단일 줄 입력 필드.",
-        "hero": "강렬한 헤드라인과 CTA 버튼이 있는 크고 표현력 있는 그라디언트 배경."
-      },
-      "motion": {
-        "patterns": [
-          "스크롤 시 미세한 페이드 인.",
-          "버튼의 부드러운 hover 트랜지션."
-        ]
-      },
-      "interaction": {
-        "hover": "미세한 배경색 변화 또는 그림자 상승.",
-        "click": "약간의 축소 또는 즉각적인 피드백.",
-        "transition": "220ms 동안 부드러운 색상 및 그림자 트랜지션.",
-        "keyboard": "보이는 초점 링을 갖춘 표준 탭 순서."
-      },
-      "voice": {
-        "tone": "권위 있으나 친근하고, 자신감 있고 정확합니다.",
-        "headlineStyle": "강렬하고 직접적이며, 가치와 규모에 초점을 맞춥니다.",
-        "ctaStyle": "행동을 유도하며 명확합니다.",
-        "avoid": [
-          "지나치게 캐주얼하거나 비속어가 많은 언어를 피합니다.",
-          "명확한 설명 없이 전문 용어를 사용하는 것을 피합니다.",
-          "모호한 약속을 피하고, 기능에 대해 구체적으로 설명합니다."
-        ]
-      },
-      "donts": [
-        "순수한 검정색 텍스트를 사용하지 않습니다 — 스크린샷에는 대신 깊은 네이비(#0A2540)가 표시됩니다.",
-        "범용적인 sans-serif 폰트를 사용하지 않습니다 — 스크린샷에는 디스플레이와 본문을 위한 humanist sans-serif가 표시됩니다.",
-        "무거운 드롭 그림자를 사용하지 않습니다 — 스크린샷에는 상승감을 위한 미세하고 부드러운 그림자가 표시됩니다.",
-        "복잡한 배경 패턴을 사용하지 않습니다 — 스크린샷에는 그라디언트 포인트가 있는 깨끗한 흰색 배경이 표시됩니다.",
-        "대문자 헤드라인을 사용하지 않습니다 — 스크린샷에는 제목용 title case가 표시됩니다.",
-        "경쟁하는 여러 강조색을 사용하지 않습니다 — 스크린샷에는 단일 주요 바이올렛 포인트가 표시됩니다."
-      ],
-      "systemPrompt": "Stripe는 필수적인 금융 인프라로 자리매김하는 프리미엄 핀테크 플랫폼입니다. 디자인 DNA는 깨끗한 흰색 배경에 깊은 네이비(#0A2540) 텍스트와 강렬한 바이올렛(#635BFF) 포인트를 기반으로 구축되었습니다. 타이포그래피는 humanist sans-serif를 디스플레이와 본문 모두에 사용하여 일관되고 모던한 느낌을 만듭니다. 주요 금지 사항에는 순수한 검정색 텍스트 사용, 무거운 드롭 그림자 사용, 또는 여러 경쟁하는 강조색 사용을 피하는 것이 포함됩니다. 레이아웃은 여백이 넉넉하여 규모와 신뢰성을 강조합니다. 히어로 섹션은 전반적인 깔끔하고 전문적인 미학을 해치지 않으면서 시각적 흥미를 더하기 위해 표현력 있는 그라디언트를 사용합니다."
     }
   },
   "narrative": {
@@ -605,6 +217,398 @@
       "ch7_intro": "모션은 목적 있고 절제되어, 스크롤 시 부드러운 페이드인과 정교한 호버 트랜지션이 적용됩니다. 모든 인터랙션은 콘텐츠에서 주의를 분산시키지 않으면서도 세련되고 프리미엄 느낌을 유지하기 위해 220ms의 색상 및 그림자 트랜지션을 사용합니다.",
       "ch8_intro": "에디토리얼 음성은 권위 있지만 접근 가능합니다—자신감 있고, 정확하며, 대규모에서 가치를 입증하는 데 초점을 맞춥니다. 언어는 직접적이고 구체적이며 전문 용어가 없으며, 항상 기능을 명확하게 설명합니다.",
       "ch8_outro": "이 시스템은 의도적으로 격식 없는 어조, 모호한 약속, 복잡한 배경 패턴을 피하고 대신 인프라가 스스로 말할 수 있도록 깔끔하고 전문적인 미학에 전념합니다."
+    }
+  },
+  "spec_i18n": {
+    "en": {
+      "identity": {
+        "keywords": [
+          "payments",
+          "infrastructure",
+          "global",
+          "developer-first",
+          "reliable"
+        ],
+        "analogy": "The reliable, invisible backbone of the internet economy.",
+        "oneLiner": "A clean, premium developer-focused fintech platform with a sophisticated use of gradients and high-contrast typography."
+      },
+      "colors": {
+        "principle": "A clean, high-contrast palette dominated by deep navy ink and a vibrant purple accent, supported by soft neutral grays and dynamic gradients."
+      },
+      "typography": {
+        "rules": [],
+        "scaleUses": [
+          "Hero headlines",
+          "Section headers",
+          "Paragraph text",
+          "UI labels and small text"
+        ]
+      },
+      "spacing": {
+        "rhythm": "Generous vertical spacing with a 4px base grid ensures clear visual hierarchy and readability."
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 14.088px 21.132px -14.088px rgba(3, 3, 39, 0.25)",
+          "0px 18px 36px -18px rgba(0, 0, 0, 0.1)",
+          "0px 15px 35px 0px rgba(23, 23, 23, 0.08)",
+          "0px 3px 6px 0px rgba(23, 23, 23, 0.06)"
+        ],
+        "borders": "Thin, subtle borders in light gray or purple-tinted grays define edges and inputs."
+      },
+      "layout": {
+        "skeleton": "A wide, centered container with generous side margins and a structured multi-column grid."
+      },
+      "components": {
+        "button": "High-contrast primary buttons (solid purple) and secondary buttons (ghost/outline) with subtle radius.",
+        "card": "Clean cards with soft shadows and light borders, often containing UI mockups or data visualizations.",
+        "chip": "N/A",
+        "input": "Minimalist input fields with subtle bottom borders or light gray backgrounds and small radius.",
+        "hero": "A split layout with a large headline and supporting text on the left, and feature list/visuals on the right."
+      },
+      "motion": {
+        "patterns": [
+          "Smooth color and transform transitions on hover states",
+          "Staggered fade-in animations for text and UI elements"
+        ]
+      },
+      "interaction": {
+        "hover": "Color shifts on text and buttons, subtle elevation changes via shadows.",
+        "click": "Immediate visual feedback with slight scaling or color depth changes.",
+        "transition": "Smooth 0.3s cubic-bezier transitions for color, fill, stroke, and transform properties.",
+        "keyboard": "Standard focus rings and logical tab order for all interactive elements."
+      },
+      "voice": {
+        "tone": "Authoritative, confident, and clear, positioning the platform as the industry standard.",
+        "headlineStyle": "Concise, benefit-driven statements often using strong verbs and clear value propositions.",
+        "ctaStyle": "Direct and action-oriented (e.g., 'Explore Payments', 'See pricing details') in high-contrast buttons.",
+        "avoid": [
+          "Hyperbolic marketing fluff",
+          "Confusing jargon without explanation",
+          "Cluttered or aggressive layouts"
+        ]
+      },
+      "donts": [
+        "Don't use dark mode — the screenshot shows a bright, light-themed interface with a white primary background.",
+        "Don't use overly playful or rounded fonts — the screenshot shows a professional, clean grotesque-sans typography.",
+        "Don't use a chaotic or multi-colored palette — the screenshot shows a restrained palette dominated by white, deep blue, and a single purple accent.",
+        "Don't use heavy, distracting backgrounds — the screenshot shows clean surfaces with very subtle gradients or solid colors.",
+        "Don't use thick, heavy borders — the screenshot shows very thin, 1px borders in light gray or purple tones.",
+        "Don't use complex, cluttered layouts — the screenshot shows generous whitespace and a clear, structured grid."
+      ],
+      "systemPrompt": "Stripe's design DNA is that of a premium, developer-first fintech infrastructure provider, emphasizing clarity, reliability, and modern professionalism. The palette is clean and high-contrast, centered around a white background (#FFFFFF), deep navy ink (#061B31), and a vibrant purple accent (#533AFD), supported by soft neutral grays (#F8FAFD, #E5EDF5). Typography utilizes a clean grotesque-sans for both display and body text, prioritizing readability and a modern technical feel. Critical constraints: avoid dark mode interfaces, do not use overly playful or rounded fonts, and maintain generous whitespace with subtle, clean surfaces rather than heavy borders or aggressive visual elements."
+    },
+    "zh-CN": {
+      "identity": {
+        "keywords": [
+          "支付",
+          "基础设施",
+          "全球化",
+          "开发者优先",
+          "可靠"
+        ],
+        "analogy": "互联网经济中可靠、无形的支柱。",
+        "oneLiner": "一个简洁、高端的开发者优先金融科技平台，对渐变和高对比度排版进行了精细运用。"
+      },
+      "colors": {
+        "principle": "以深邃的墨蓝色和活力的紫色点缀为主导的简洁、高对比度调色板，辅以柔和的中性灰与动态渐变。"
+      },
+      "typography": {
+        "rules": [],
+        "scaleUses": [
+          "主标题",
+          "章节标题",
+          "段落文本",
+          "界面标签与小号文本"
+        ]
+      },
+      "spacing": {
+        "rhythm": "采用4px基础网格的宽松垂直间距，确保清晰的视觉层次和可读性。"
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 14.088px 21.132px -14.088px rgba(3, 3, 39, 0.25)",
+          "0px 18px 36px -18px rgba(0, 0, 0, 0.1)",
+          "0px 15px 35px 0px rgba(23, 23, 23, 0.08)",
+          "0px 3px 6px 0px rgba(23, 23, 23, 0.06)"
+        ],
+        "borders": "定义边缘和输入区域的纤细、微妙的边框，采用浅灰色或带紫色调的灰色。"
+      },
+      "layout": {
+        "skeleton": "一个宽幅、居中的容器，带有充裕的侧边距和结构化的多列网格。"
+      },
+      "components": {
+        "button": "高对比度的主按钮（实心紫色）和次按钮（幽灵/轮廓），带有微妙的圆角。",
+        "card": "简洁的卡片，带有柔和阴影和浅色边框，通常包含界面模型或数据可视化。",
+        "chip": "不适用",
+        "input": "极简的输入框，带有微妙的底边框或浅灰色背景，以及小圆角。",
+        "hero": "分栏布局，左侧为大标题和辅助文本，右侧为功能列表/视觉元素。"
+      },
+      "motion": {
+        "patterns": [
+          "悬停状态下的平滑颜色和变换过渡",
+          "文本和界面元素的交错淡入动画"
+        ]
+      },
+      "interaction": {
+        "hover": "文本和按钮上的颜色变化，通过阴影实现微妙的抬升效果。",
+        "click": "通过轻微的缩放或颜色深度变化提供即时视觉反馈。",
+        "transition": "颜色、填充、描边和变换属性采用平滑的0.3秒 cubic-bezier 过渡。",
+        "keyboard": "所有交互元素均遵循标准焦点环和逻辑选项卡顺序。"
+      },
+      "voice": {
+        "tone": "权威、自信且清晰，将平台定位为行业标准。",
+        "headlineStyle": "简洁、以收益为导向的陈述，常使用强有力的动词和清晰的价值主张。",
+        "ctaStyle": "直接且以行动为导向（例如'探索支付'、'查看定价详情'），置于高对比度按钮中。",
+        "avoid": [
+          "夸张的营销辞令",
+          "未经解释的令人困惑的术语",
+          "杂乱或激进的布局"
+        ]
+      },
+      "donts": [
+        "不要使用深色模式——截图显示的是明亮的浅色主题界面，主背景为白色。",
+        "不要使用过于俏皮或圆润的字体——截图显示的是专业、简洁的 grotesque-sans 排版。",
+        "不要使用混乱或多彩的调色板——截图显示的是以白色、深蓝色和单一紫色点缀为主的克制调色板。",
+        "不要使用厚重、干扰性的背景——截图显示的是非常微妙的渐变或纯色的简洁表面。",
+        "不要使用粗重、厚重的边框——截图显示的是非常纤细的1px浅灰色或紫色调边框。",
+        "不要使用复杂、杂乱的布局——截图显示的是充足的留白和清晰、结构化的网格。"
+      ],
+      "systemPrompt": "Stripe的设计DNA是一位高端、开发者优先的金融科技基础设施提供者，强调清晰度、可靠性和现代专业性。调色板简洁且高对比度，以白色背景（#FFFFFF）、深邃的墨蓝色（#061B31）和活力的紫色点缀（#533AFD）为中心，辅以柔和的中性灰（#F8FAFD, #E5EDF5）。排版使用简洁的 grotesque-sans，兼顾标题和正文，优先考虑可读性和现代科技感。关键约束：避免深色模式界面，不要使用过于俏皮或圆润的字体，保持充足的留白，采用微妙、简洁的表面而非厚重的边框或激进的视觉元素。"
+    },
+    "zh-TW": {
+      "identity": {
+        "keywords": [
+          "支付",
+          "基礎設施",
+          "全球",
+          "開發者優先",
+          "可靠"
+        ],
+        "analogy": "網際網路經濟中可靠、隱形的骨架。",
+        "oneLiner": "一個簡潔、高端、以開發者為中心的金融科技平台，精妙運用了漸層與高對比排版。"
+      },
+      "colors": {
+        "principle": "一個簡潔、高對比的色盤，以深邃的墨藍色為主，搭配充滿活力的紫色強調色，輔以柔和的中性灰與動態漸層。"
+      },
+      "typography": {
+        "rules": [],
+        "scaleUses": [
+          "主標題",
+          "章節標題",
+          "段落文字",
+          "介面標籤與小型文字"
+        ]
+      },
+      "spacing": {
+        "rhythm": "寬裕的垂直間距搭配 4px 基礎網格，確保清晰的視覺層次與可讀性。"
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 14.088px 21.132px -14.088px rgba(3, 3, 39, 0.25)",
+          "0px 18px 36px -18px rgba(0, 0, 0, 0.1)",
+          "0px 15px 35px 0px rgba(23, 23, 23, 0.08)",
+          "0px 3px 6px 0px rgba(23, 23, 23, 0.06)"
+        ],
+        "borders": "以淺灰色或帶紫色調的灰色細微邊框，定義邊緣與輸入欄位。"
+      },
+      "layout": {
+        "skeleton": "一個寬闊、置中的容器，具有寬裕的左右邊距，並採用結構化的多欄網格。"
+      },
+      "components": {
+        "button": "高對比的主要按鈕（實心紫色）與次要按鈕（幽靈/外框），帶有細微圓角。",
+        "card": "簡潔的卡片，帶有柔和陰影與淺色邊框，常包含介面模型或數據視覺化。",
+        "chip": "不適用",
+        "input": "極簡的輸入欄位，帶有細微的底部邊框或淺灰色背景與小圓角。",
+        "hero": "分割式佈局，左側為大型標題與輔助文字，右側為功能列表/視覺素材。"
+      },
+      "motion": {
+        "patterns": [
+          "懸停狀態下流暢的顏色與變形過渡",
+          "文字與介面元素的錯落淡入動畫"
+        ]
+      },
+      "interaction": {
+        "hover": "文字與按鈕的顏色轉換，以及透過陰影產生的細微高度變化。",
+        "click": "立即的視覺回饋，帶有輕微的縮放或顏色深度變化。",
+        "transition": "針對顏色、填充、筆畫與變形屬性，進行流暢的 0.3s cubic-bezier 過渡。",
+        "keyboard": "所有互動元素皆具備標準的焦點環與合理的 Tab 鍵順序。"
+      },
+      "voice": {
+        "tone": "權威、自信且清晰，將平台定位為產業標準。",
+        "headlineStyle": "簡潔、強調效益的陳述，常使用強而有力的動詞與清晰的價值主張。",
+        "ctaStyle": "直接且以行動為導向（例如：「探索支付」、「查看定價細節」），採用高對比按鈕。",
+        "avoid": [
+          "誇張的行銷詞藻",
+          "未加解釋的混亂術語",
+          "雜亂或具侵略性的佈局"
+        ]
+      },
+      "donts": [
+        "勿使用深色模式 — 截圖顯示的是一個明亮、淺色主題的介面，具有白色的主要背景。",
+        "勿使用過於活潑或圓潤的字體 — 截圖顯示的是專業、簡潔的 grotesque-sans 排版。",
+        "勿使用混亂或多色的色盤 — 截圖顯示的是一個受控的色盤，以白色、深藍色與單一紫色強調色為主。",
+        "勿使用厚重、干擾性的背景 — 截圖顯示的是非常簡潔的表面，帶有極其細微的漸層或純色。",
+        "勿使用粗重、厚重的邊框 — 截圖顯示的是非常細的 1px 邊框，採用淺灰色或紫色調。",
+        "勿使用複雜、雜亂的佈局 — 截圖顯示的是寬裕的留白與清晰、結構化的網格。"
+      ],
+      "systemPrompt": "Stripe 的設計 DNA 屬於一個高端、以開發者為先的金融科技基礎設施供應商，強調清晰度、可靠性與現代專業感。色盤簡潔且高對比，以白色背景 (#FFFFFF)、深邃墨藍色 (#061B31) 與充滿活力的紫色強調色 (#533AFD) 為核心，輔以柔和的中性灰 (#F8FAFD, #E5EDF5)。排版採用簡潔的 grotesque-sans 字體於標題與內文，優先考慮可讀性與現代科技感。關鍵限制：避免深色模式介面、不使用過於活潑或圓潤的字體，並保持寬裕的留白，搭配簡潔、乾淨的表面，而非厚重的邊框或具侵略性的視覺元素。"
+    },
+    "ja": {
+      "identity": {
+        "keywords": [
+          "決済",
+          "インフラ",
+          "グローバル",
+          "開発者優先",
+          "信頼性"
+        ],
+        "analogy": "インターネット経済の、信頼性が高く、見えない背骨。",
+        "oneLiner": "クリーンでプレミアムな、開発者中心のフィンテックプラットフォーム。洗練されたグラデーションとハイコントラストのタイポグラフィを駆使しています。"
+      },
+      "colors": {
+        "principle": "クリーンでハイコントラストのパレット。深いネイビーインクを主体に、鮮やかな紫をアクセントに配置。柔らかなニュートラルグレーと動的なグラデーションで補完。"
+      },
+      "typography": {
+        "rules": [],
+        "scaleUses": [
+          "ヒーローヘッドライン",
+          "セクション見出し",
+          "本文テキスト",
+          "UIラベルと小サイズテキスト"
+        ]
+      },
+      "spacing": {
+        "rhythm": "4pxベースグリッドを基にした、ゆったりとした垂直方向の余白。明確なビジュアル階層と可読性を確保します。"
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 14.088px 21.132px -14.088px rgba(3, 3, 39, 0.25)",
+          "0px 18px 36px -18px rgba(0, 0, 0, 0.1)",
+          "0px 15px 35px 0px rgba(23, 23, 23, 0.08)",
+          "0px 3px 6px 0px rgba(23, 23, 23, 0.06)"
+        ],
+        "borders": "薄く、控えめなライトグレーまたは紫みのあるグレーのボーダーで、エッジと入力フィールドを定義します。"
+      },
+      "layout": {
+        "skeleton": "サイドに十分なマージンを設けた、幅広で中央揃えのコンテナ。構造化されたマルチカラムグリッドを使用。"
+      },
+      "components": {
+        "button": "ハイコントラストのプライマリボタン（ソリッド紫）とセカンダリボタン（ゴースト/アウトライン）。控えめな角丸。",
+        "card": "柔らかなシャドウとライトなボーダーを持つクリーンなカード。UIモックアップやデータビジュアライゼーションを含むことが多い。",
+        "chip": "該当なし",
+        "input": "控えめなボトムボーダーまたはライトグレーの背景を持つ、ミニマリストな入力フィールド。小さな角丸。",
+        "hero": "分割レイアウト。左側に大きなヘッドラインと補足テキスト、右側に機能リストやビジュアルを配置。"
+      },
+      "motion": {
+        "patterns": [
+          "hover状態での、スムーズなカラーとトランスフォームの遷移",
+          "テキストやUI要素に対する、ステガードフェードインアニメーション"
+        ]
+      },
+      "interaction": {
+        "hover": "テキストやボタンの色の変化、シャドウによる控えめな高さの変化。",
+        "click": "軽微なスケーリングや色の濃度変化による、即座のビジュアルフィードバック。",
+        "transition": "カラー、フィル、ストローク、トランスフォームプロパティに対する、0.3秒cubic-bezierのスムーズな遷移。",
+        "keyboard": "すべてのインタラクティブ要素に対する、標準的なフォーカスリングと論理的なタブオーダー。"
+      },
+      "voice": {
+        "tone": "権威があり、自信に満ち、明瞭。プラットフォームを業界の標準として位置付ける。",
+        "headlineStyle": "簡潔でメリットを驱动した声明。強い動詞や明確なバリュー・プロポジションを多用。",
+        "ctaStyle": "直接的でアクション指向（例：「決済を探索する」「価格の詳細を見る」）な、ハイコントラストのボタン。",
+        "avoid": [
+          "大げさなマーケティングフレーズ",
+          "説明のない混乱を招く専門用語",
+          "雑然とした、または攻撃的なレイアウト"
+        ]
+      },
+      "donts": [
+        "ダークモードを使用しない — スクリーンショットは、白をプライマリ背景とする明るく、ライトテーマのインターフェースを示しています。",
+        "過度に遊び心のある、または丸みのあるフォントを使用しない — スクリーンショットは、プロフェッショナルでクリーンなゴロテスクサンセリフのタイポグラフィを示しています。",
+        "混沌とした、または多色のパレットを使用しない — スクリーンショットは、白、深い青、単一の紫アクセントを主体とした抑制されたパレットを示しています。",
+        "重く、目を引く背景を使用しない — スクリーンショットは、非常に控えめなグラデーションやソリッドカラーのクリーンなサーフェスを示しています。",
+        "太く、重いボーダーを使用しない — スクリーンショットは、ライトグレーまたは紫調の、非常に薄い1pxのボーダーを示しています。",
+        "複雑で雑然としたレイアウトを使用しない — スクリーンショットは、ゆったりとしたホワイトスペースと明確な構造化グリッドを示しています。"
+      ],
+      "systemPrompt": "StripeのデザインDNAは、プレミアムで開発者優先のフィンテックインフラプロバイダーのもの。明瞭性、信頼性、モダンなプロフェッショナリズムを重視。パレットはクリーンでハイコントラスト。白背景（#FFFFFF）、深いネイビーインク（#061B31）、鮮やかな紫アクセント（#533AFD）を中心に、柔らかなニュートラルグレー（#F8FAFD、#E5EDF5）で補完。タイポグラフィは、ディスプレイ用と本文用の両方でクリーンなゴロテスクサンセリフを使用。可読性とモダンで技術的な感覚を優先。重要な制約：ダークモードインターフェースを避けること、過度に遊び心のあるまたは丸みのあるフォントは使用しないこと、重いボーダーや攻撃的なビジュアル要素よりも、控えめでクリーンなサーフェスを用いたゆったりとしたホワイトスペースを維持すること。"
+    },
+    "ko": {
+      "identity": {
+        "keywords": [
+          "결제",
+          "인프라",
+          "글로벌",
+          "개발자 중심",
+          "신뢰성"
+        ],
+        "analogy": "인터넷 경제의 신뢰할 수 있는, 보이지 않는 중추입니다.",
+        "oneLiner": "세련된 그라데이션과 고대비 타이포그래피를 정교하게 활용하는, 깔끔하고 프리미엄한 개발자 중심 핀테크 플랫폼입니다."
+      },
+      "colors": {
+        "principle": "딥 네이비 잉크와 활기찬 퍼플 악센트를 주도로 하는 깔끔하고 고대비 팔레트이며, 부드러운 중립 그레이와 다이내믹한 그라데이션이 이를 뒷받침합니다."
+      },
+      "typography": {
+        "rules": [],
+        "scaleUses": [
+          "히어로 헤드라인",
+          "섹션 헤더",
+          "본문 텍스트",
+          "UI 레이블 및 소형 텍스트"
+        ]
+      },
+      "spacing": {
+        "rhythm": "4px 기본 그리드를 기반으로 한 넉넉한 수직 간격은 명확한 시각적 계층과 가독성을 보장합니다."
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 14.088px 21.132px -14.088px rgba(3, 3, 39, 0.25)",
+          "0px 18px 36px -18px rgba(0, 0, 0, 0.1)",
+          "0px 15px 35px 0px rgba(23, 23, 23, 0.08)",
+          "0px 3px 6px 0px rgba(23, 23, 23, 0.06)"
+        ],
+        "borders": "엣지와 입력 필드를 정의하는 얇고 은은한 라이트 그레이 또는 퍼플 틴트의 그레이 보더입니다."
+      },
+      "layout": {
+        "skeleton": "넉넉한 좌우 여백과 구조화된 다중 컬럼 그리드를 갖춘 넓은 중앙 정렬 컨테이너입니다."
+      },
+      "components": {
+        "button": "미묘한 둥근 모서리가 있는 고대비 기본 버튼(솔리드 퍼플)과 보조 버튼(고스트/아웃라인)입니다.",
+        "card": "부드러운 그림자와 가벼운 테두리가 있는 깔끔한 카드로, 종종 UI 목업이나 데이터 시각화를 포함합니다.",
+        "chip": "해당 없음",
+        "input": "미묘한 하단 테두리 또는 라이트 그레이 배경과 작은 둥근 모서리가 있는 미니멀리스트 입력 필드입니다.",
+        "hero": "좌측에 대형 헤드라인과 보조 텍스트, 우측에 기능 목록/비주얼이 있는 분할 레이아웃입니다."
+      },
+      "motion": {
+        "patterns": [
+          "hover 상태에서의 부드러운 색상 및 transform 전환",
+          "텍스트 및 UI 요소를 위한 단계별 fade-in 애니메이션"
+        ]
+      },
+      "interaction": {
+        "hover": "텍스트와 버튼의 색상 변화, 그림자를 통한 미묘한 높이 변화입니다.",
+        "click": "약간의 크기 조절이나 색상 깊이 변화로 즉각적인 시각적 피드백을 제공합니다.",
+        "transition": "색상, 채우기, 스트로크 및 transform 속성에 대한 부드러운 0.3s cubic-bezier 전환입니다.",
+        "keyboard": "모든 인터랙티브 요소에 대한 표준 포커스 링과 논리적인 탭 순서입니다."
+      },
+      "voice": {
+        "tone": "권위 있고, 자신감 있으며, 명확하여 플랫폼을 업계 표준으로定位합니다.",
+        "headlineStyle": "강력한 동사와 명확한 가치 제안을 종종 사용하는 간결하고 이점 중심적인 statements입니다.",
+        "ctaStyle": "고대비 버튼에서 직접적이고 행동 지향적입니다 (예: '결제 살펴보기', '가격 세부 사항 보기').",
+        "avoid": [
+          "과장된 마케팅 문구",
+          "설명 없는 혼란스러운 전문 용어",
+          "어지럽거나 공격적인 레이아웃"
+        ]
+      },
+      "donts": [
+        "다크 모드를 사용하지 마세요 — 스크린샷은 흰색 기본 배경을 가진 밝고 라이트 테마 인터페이스를 보여줍니다.",
+        "지나치게 장난기 있거나 둥근 서체를 사용하지 마세요 — 스크린샷은 전문적이고 깔끔한 grotesque-sans 타이포그래피를 보여줍니다.",
+        "혼란스럽거나 다채로운 팔레트를 사용하지 마세요 — 스크린샷은 흰색, 딥 블루, 그리고 단일 퍼플 악센트로 주도되는 절제된 팔레트를 보여줍니다.",
+        "무겁고 산만한 배경을 사용하지 마세요 — 스크린샷은 매우 미묘한 그라데이션이나 단색으로 된 깔끔한 서피스를 보여줍니다.",
+        "두껍고 무거운 테두리를 사용하지 마세요 — 스크린샷은 라이트 그레이 또는 퍼플 톤의 매우 얇은 1px 테두리를 보여줍니다.",
+        "복잡하고 지저분한 레이아웃을 사용하지 마세요 — 스크린샷은 넉넉한 여백과 명확하고 구조화된 그리드를 보여줍니다."
+      ],
+      "systemPrompt": "Stripe의 디자인 DNA는 프리미엄, 개발자 중심 핀테크 인프라 제공업체로서 명확성, 신뢰성, 현대적 전문성을 강조합니다. 팔레트는 흰색 배경(#FFFFFF), 딥 네이비 잉크(#061B31), 활기찬 퍼플 악센트(#533AFD)를 중심으로 하며 부드러운 중립 그레이(#F8FAFD, #E5EDF5)로 뒷받침됩니다. 타이포그래피는 디스플레이와 본문 모두에 깔끔한 grotesque-sans를 사용하여 가독성과 현대적인 기술적 느낌을 우선시합니다. 핵심 제약 조건: 다크 모드 인터페이스를 피하고, 지나치게 장난기 있거나 둥근 서체를 사용하지 않으며, 무거운 테두리나 공격적인 비주얼 요소 대신 미묘하고 깔끔한 서피스로 넉넉한 여백을 유지합니다."
     }
   }
 }

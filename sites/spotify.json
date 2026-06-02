@@ -17,72 +17,67 @@
   "_meta": {
     "vision_model": "mimo-v2.5",
     "vision_prompt_version": "0.3",
-    "vision_at": "2026-05-28T21:46:46+00:00",
-    "vision_tokens": 3390,
-    "vision_cost_usd": 0.0377,
+    "vision_at": "2026-05-31T03:10:26+00:00",
+    "vision_tokens": 17266,
+    "vision_cost_usd": 0.1918,
     "translation_model": "mimo-v2.5",
-    "translation_at": "2026-05-28T21:47:41+00:00",
-    "translation_tokens": 15975,
-    "translation_cost_usd": 0.0532,
+    "translation_at": "2026-05-31T03:11:13+00:00",
+    "translation_tokens": 25319,
+    "translation_cost_usd": 0.0843,
     "narrative_model": "mimo-v2.5",
     "narrative_prompt_version": "0.3",
     "narrative_at": "2026-05-28T21:47:50+00:00",
     "narrative_tokens": 1955,
     "narrative_cost_usd": 0.013,
     "narrative_status": "ok",
-    "total_cost_usd": 0.1039
+    "total_cost_usd": 0.2891,
+    "vision_source": "playwright-extract:spotify",
+    "vision_grounded": true
   },
   "spec": {
     "colors": {
       "bg": "#121212",
-      "bgSoft": "#181818",
-      "bgQuiet": "#282828",
-      "ink": "#FFFFFF",
-      "inkSoft": "#B3B3B3",
-      "muted": "#A7A7A7",
-      "mutedSoft": "#6A6A6A",
-      "accent": null,
-      "line": "rgba(255, 255, 255, 0.1)"
+      "bgSoft": "#1f1f1f",
+      "bgQuiet": "#2a2a2a",
+      "ink": "#ffffff",
+      "inkSoft": "#b3b3b3",
+      "muted": "#7c7c7c",
+      "mutedSoft": null,
+      "accent": "#1ed760",
+      "line": "rgba(255,255,255,0.1)"
     },
     "typography": {
-      "display": "grotesque-sans",
-      "body": "grotesque-sans",
+      "display": "geometric-sans",
+      "body": "geometric-sans",
       "mono": null,
       "scale": [
         {
           "token": "display",
-          "size": 32,
+          "size": 24,
           "lh": 1.2,
           "weight": 700,
           "ls": "-0.5px"
         },
         {
-          "token": "title",
-          "size": 24,
-          "lh": 1.2,
-          "weight": 700,
-          "ls": "-0.2px"
-        },
-        {
-          "token": "subtitle",
+          "token": "heading",
           "size": 16,
           "lh": 1.4,
           "weight": 700,
-          "ls": "0"
+          "ls": "0px"
         },
         {
           "token": "body",
           "size": 14,
-          "lh": 1.4,
+          "lh": 1.5,
           "weight": 400,
-          "ls": "0"
+          "ls": "0px"
         },
         {
           "token": "caption",
-          "size": 12,
+          "size": 13.3,
           "lh": 1.4,
           "weight": 400,
-          "ls": "0"
+          "ls": "0px"
         }
       ]
     },
@@ -91,10 +86,13 @@
       "scale": [
         4,
         8,
+        12,
         16,
         24,
         32,
-        48
+        48,
+        64,
+        96
       ]
     },
     "surfaces": {
@@ -118,381 +116,19 @@
     "motion": {
       "durations": {
         "micro": 150,
-        "small": 300,
-        "medium": 500
+        "small": 200,
+        "medium": 400
       },
-      "easing": "cubic-bezier(0.1, 0.9, 0.2, 1)"
-    }
-  },
-  "spec_i18n": {
-    "en": {
-      "identity": {
-        "keywords": [
-          "Streaming",
-          "Music",
-          "Library",
-          "Discover"
-        ],
-        "analogy": "A dark, immersive nightclub with curated shelves",
-        "oneLiner": "A dark-themed music streaming interface focused on content discovery."
-      },
-      "colors": {
-        "principle": "High contrast for readability in low-light environments, with distinct surface layers to establish hierarchy."
-      },
-      "typography": {
-        "rules": [],
-        "scaleUses": [
-          "Section headers",
-          "Card titles",
-          "Card subtitles",
-          "General text",
-          "Metadata and badges"
-        ]
-      },
-      "spacing": {
-        "rhythm": "Consistent 4px grid for tight UI alignment."
-      },
-      "surfaces": {
-        "shadows": [],
-        "borders": "1px solid rgba(255, 255, 255, 0.1)"
-      },
-      "layout": {
-        "skeleton": "Fixed left sidebar (280px) with main scrollable content area on the right."
-      },
-      "components": {
-        "button": "Pill-shaped, green-filled for primary actions, white-bordered for secondary.",
-        "card": "Dark grey background with image-heavy content and rounded corners.",
-        "chip": "Pill-shaped for metadata (e.g., explicit tag).",
-        "input": "Dark grey background with rounded corners and subtle border.",
-        "hero": "Horizontal carousel cards for trending content."
-      },
-      "motion": {
-        "patterns": [
-          "Slide carousels horizontally",
-          "Fade in content sections"
-        ]
-      },
-      "interaction": {
-        "hover": "Subtle background brightening on cards and buttons.",
-        "click": "Scale down slightly on press for buttons.",
-        "transition": "Smooth opacity and background color transitions.",
-        "keyboard": "Standard focus outlines, often using brand colors."
-      },
-      "voice": {
-        "tone": "Casual, direct, and inviting.",
-        "headlineStyle": "Bold and concise.",
-        "ctaStyle": "Direct and action-oriented (e.g., 'Create playlist', 'Browse podcasts').",
-        "avoid": [
-          "Overly formal language",
-          "Dense paragraphs"
-        ]
-      },
-      "donts": [
-        "Don't use light mode — screenshot shows a dark (#121212) interface.",
-        "Don't use serif fonts — screenshot shows a clean sans-serif typography system.",
-        "Don't use sharp corners — screenshot shows rounded corners (8-12px radius) on most elements.",
-        "Don't use excessive padding — screenshot shows a compact layout optimized for information density.",
-        "Don't use multiple accent colors — screenshot relies on a monochrome palette with very few colored accents.",
-        "Don't use heavy borders — screenshot relies on background color contrast to separate sections."
-      ],
-      "systemPrompt": "Spotify's web player is a dark-themed music streaming interface designed for deep content discovery. It uses a monochrome palette centered on black (#121212) and dark grey (#181818) to make colorful album art pop. The typography is a clean, geometric grotesque-sans system. Critical donts: never use light mode, avoid sharp corners, and never use serif fonts. The layout uses a fixed sidebar for library navigation and a scrollable main area for recommendations. This design exemplifies high-density content management in a dark-mode environment."
-    },
-    "zh-CN": {
-      "identity": {
-        "keywords": [
-          "流媒体",
-          "音乐",
-          "曲库",
-          "发现"
-        ],
-        "analogy": "一个深邃沉浸的夜店空间，配有精选陈列架",
-        "oneLiner": "专注于内容发现的暗色主题音乐流媒体界面。"
-      },
-      "colors": {
-        "principle": "采用高对比度以确保弱光环境下的可读性，通过不同的表面层级建立视觉层次。"
-      },
-      "typography": {
-        "rules": [],
-        "scaleUses": [
-          "区块标题",
-          "卡片标题",
-          "卡片副标题",
-          "正文文本",
-          "元数据与标签"
-        ]
-      },
-      "spacing": {
-        "rhythm": "基于 4px 网格的统一点距，确保界面元素的精准对齐。"
-      },
-      "surfaces": {
-        "shadows": [],
-        "borders": "1px solid rgba(255, 255, 255, 0.1)"
-      },
-      "layout": {
-        "skeleton": "固定左侧边栏（280px），右侧为主可滚动内容区域。"
-      },
-      "components": {
-        "button": "药丸形，主操作为绿色填充，次要操作为白色边框。",
-        "card": "深灰色背景，以图片内容为主，圆角设计。",
-        "chip": "药丸形，用于元数据（例如，显式标签）。",
-        "input": "深灰色背景，圆角设计，带有细微边框。",
-        "hero": "水平轮播卡片，展示热门内容。"
-      },
-      "motion": {
-        "patterns": [
-          "水平滑动轮播",
-          "内容区块淡入"
-        ]
-      },
-      "interaction": {
-        "hover": "卡片与按钮背景微妙提亮。",
-        "click": "按钮按下时轻微缩小。",
-        "transition": "平滑的透明度与背景色过渡。",
-        "keyboard": "标准的聚焦轮廓线，常使用品牌色。"
-      },
-      "voice": {
-        "tone": "轻松、直接、富有亲和力。",
-        "headlineStyle": "粗体且简洁。",
-        "ctaStyle": "直接且面向行动（例如，“创建播放列表”、“浏览播客”）。",
-        "avoid": [
-          "过度正式的语言",
-          "密集的段落"
-        ]
-      },
-      "donts": [
-        "不要使用浅色模式 — 截图展示的是深色（#121212）界面。",
-        "不要使用衬线字体 — 截图展示的是简洁的无衬线字体系统。",
-        "不要使用直角 — 截图显示大多数元素采用圆角（8-12px 半径）。",
-        "不要使用过多内边距 — 截图展示了为信息密度优化的紧凑布局。",
-        "不要使用多种强调色 — 截图依赖单色调色板，仅有极少数彩色点缀。",
-        "不要使用粗重边框 — 截图依赖背景色对比来分隔区块。"
-      ],
-      "systemPrompt": "Spotify 的网页播放器是一个专注于深度内容发现的暗色主题音乐流媒体界面。它使用以黑色（#121212）和深灰色（#181818）为中心的单色调色板，使色彩丰富的专辑封面得以突出。字体系统采用简洁的几何无衬线体。关键禁忌：切勿使用浅色模式，避免使用直角，切勿使用衬线字体。布局采用固定侧边栏用于曲库导航，可滚动主区域用于推荐。此设计典范性地展示了暗色模式环境下的高密度内容管理。"
-    },
-    "zh-TW": {
-      "identity": {
-        "keywords": [
-          "串流",
-          "音樂",
-          "資料庫",
-          "探索"
-        ],
-        "analogy": "一個幽暗、沉浸式的夜店，陳列著精心策展的內容架",
-        "oneLiner": "一個專注於內容探索的深色主題音樂串流介面。"
-      },
-      "colors": {
-        "principle": "在低光源環境中提供高對比度以利閱讀，並透過明確的表面層級建立視覺層次。"
-      },
-      "typography": {
-        "rules": [],
-        "scaleUses": [
-          "區段標題",
-          "卡片標題",
-          "卡片副標題",
-          "一般文字",
-          "元資料與標籤"
-        ]
-      },
-      "spacing": {
-        "rhythm": "採用一致的 4px 格線，確保緊湊的 UI 對齊。"
-      },
-      "surfaces": {
-        "shadows": [],
-        "borders": "1px solid rgba(255, 255, 255, 0.1)"
-      },
-      "layout": {
-        "skeleton": "固定的左側邊欄（280px），右側為可捲動的主要內容區域。"
-      },
-      "components": {
-        "button": "膠囊形狀，主要操作按鈕為綠色填充，次要按鈕為白色邊框。",
-        "card": "深灰色背景，以圖片為主的內容，並採用圓角設計。",
-        "chip": "膠囊形狀，用於呈現元資料（例如：限制級標籤）。",
-        "input": "深灰色背景，採用圓角與細微邊框。",
-        "hero": "用於呈現熱門內容的水平輪播卡片。"
-      },
-      "motion": {
-        "patterns": [
-          "水平滑動輪播",
-          "內容區段淡入"
-        ]
-      },
-      "interaction": {
-        "hover": "卡片與按鈕在 hover 時背景亮度會些微提升。",
-        "click": "按鈕按下時會輕微縮小。",
-        "transition": "流暢的透明度與背景顏色過渡效果。",
-        "keyboard": "標準的焦點外框，通常使用品牌色彩。"
-      },
-      "voice": {
-        "tone": "隨性、直接且具親和力。",
-        "headlineStyle": "粗體且簡潔。",
-        "ctaStyle": "直接且以行動為導向（例如：「建立播放清單」、「瀏覽 podcast」）。",
-        "avoid": [
-          "過度正式的語言",
-          "過於密集的段落"
-        ]
-      },
-      "donts": [
-        "不要使用淺色模式 — 螢幕截圖顯示的是深色（#121212）介面。",
-        "不要使用襯線字體 — 螢幕截圖顯示的是乾淨的無襯線字型系統。",
-        "不要使用尖銳的角 — 螢幕截圖顯示大多數元素都採用圓角（8-12px 半徑）。",
-        "不要使用過多的內距 — 螢幕截圖顯示的是為資訊密度優化的緊湊版面。",
-        "不要使用多種強調色 — 螢幕截圖依賴單色調色盤，僅使用極少數的彩色點綴。",
-        "不要使用厚重的邊框 — 螢幕截圖依賴背景顏色對比來分隔區塊。"
-      ],
-      "systemPrompt": "Spotify 的網路播放器是一個專為深度內容探索而設計的深色主題音樂串流介面。它採用以黑色（#121212）與深灰色（#181818）為核心的單色調色盤，讓色彩豐富的專輯封面更為突出。字型系統是乾淨、幾何風格的 grotesque-sans。重要的禁忌：絕不使用淺色模式、避免尖銳的角，且絕不使用襯線字體。版面採用固定的側邊欄進行資料庫導覽，並以可捲動的主區域呈現推薦內容。此設計是深色模式環境中高密度內容管理的典範。"
-    },
-    "ja": {
-      "identity": {
-        "keywords": [
-          "ストリーミング",
-          "音楽",
-          "ライブラリ",
-          "ディスカバリー"
-        ],
-        "analogy": "キュレーションされた棚を持つ、ダークで没入感のあるナイトクラブ",
-        "oneLiner": "コンテンツディスカバリーに焦点を当てたダークテーマの音楽ストリーミングインターフェース。"
-      },
-      "colors": {
-        "principle": "低照度環境での可読性のための高コントラストと、階層を確立するための明確なサーフェスレイヤー。"
-      },
-      "typography": {
-        "rules": [],
-        "scaleUses": [
-          "セクション見出し",
-          "カードタイトル",
-          "カードサブタイトル",
-          "本文テキスト",
-          "メタデータとバッジ"
-        ]
-      },
-      "spacing": {
-        "rhythm": "タイトなUI整列のための、一貫した4pxグリッド。"
-      },
-      "surfaces": {
-        "shadows": [],
-        "borders": "1px solid rgba(255, 255, 255, 0.1)"
-      },
-      "layout": {
-        "skeleton": "固定の左サイドバー（280px）と、右側のスクロール可能なメインコンテンツ領域。"
-      },
-      "components": {
-        "button": "プライマリアクションにはグリーン塗りのピル型、セカンダリアクションにはホワイトボーダーのピル型。",
-        "card": "画像多めのコンテンツを備えたダークグレー背景と角丸。",
-        "chip": "メタデータ（例：明示的なタグ）用のピル型。",
-        "input": "角丸と控えめなボーダーを備えたダークグレー背景。",
-        "hero": "トレンドコンテンツ用の水平カルーセルカード。"
-      },
-      "motion": {
-        "patterns": [
-          "カルーセルの水平スライド",
-          "コンテンツセクションのフェードイン"
-        ]
-      },
-      "interaction": {
-        "hover": "カードやボタンの控えめな背景の明るさ変化。",
-        "click": "ボタン押下時の軽微なスケールダウン。",
-        "transition": "スムーズな不透明度と背景色のトランジション。",
-        "keyboard": "ブランドカラーをよく使用する、標準的なフォーカスアウトライン。"
-      },
-      "voice": {
-        "tone": "カジュアルで直接的、かつ親しみやすい。",
-        "headlineStyle": "太字で簡潔。",
-        "ctaStyle": "直接的で行動を促す（例：「プレイリスト作成」「ポッドキャストを閲覧」）。",
-        "avoid": [
-          "過度にフォーマルな言語",
-          "詰まった段落"
-        ]
-      },
-      "donts": [
-        "ライトモードを使用しない — スクリーンショットはダーク（#121212）インターフェースを示しています。",
-        "セリフフォントを使用しない — スクリーンショットはクリーンなサンセリフタイポグラフィシステムを示しています。",
-        "シャープな角を使用しない — スクリーンショットはほとんどの要素に角丸（8-12px radius）を使用しています。",
-        "過度なパディングを使用しない — スクリーンショットは情報密度に最適化されたコンパクトなレイアウトを示しています。",
-        "複数のアクセントカラーを使用しない — スクリーンショットはモノクロームパレットと非常に少数のカラーアクセントに依存しています。",
-        "重いボーダーを使用しない — スクリーンショットはセクション分離に背景色のコントラストに依存しています。"
-      ],
-      "systemPrompt": "Spotifyのウェブプレイヤーは、深いコンテンツディスカバリーのために設計されたダークテーマの音楽ストリーミングインターフェースです。カラフルなアルバムアートを目立たせるために、ブラック（#121212）とダークグレー（#181818）を中心としたモノクロームパレットを使用しています。タイポグラフィはクリーンで幾何学的なグロテスクサンシステムです。重要な注意点：ライトモードは決して使用せず、角をシャープにせず、セリフフォントも決して使用しないこと。レイアウトでは、ライブラリナビゲーション用の固定サイドバーと、おすすめ用のスクロール可能なメイン領域を使用しています。このデザインは、ダークモード環境における高密度コンテンツ管理の模範です。"
-    },
-    "ko": {
-      "identity": {
-        "keywords": [
-          "스트리밍",
-          "음악",
-          "라이브러리",
-          "탐색"
-        ],
-        "analogy": "큐레이션된 선반이 있는 어두운 몰입형 나이트클럽",
-        "oneLiner": "콘텐츠 탐색에 중점을 둔 다크 테마 음악 스트리밍 인터페이스입니다."
-      },
-      "colors": {
-        "principle": "저조도 환경에서의 가독성을 위한 고대비, 계층 구조를 확립하기 위한 명확한 표면 레이어입니다."
-      },
-      "typography": {
-        "rules": [],
-        "scaleUses": [
-          "섹션 헤더",
-          "카드 제목",
-          "카드 부제목",
-          "일반 텍스트",
-          "메타데이터 및 배지"
-        ]
-      },
-      "spacing": {
-        "rhythm": "타이트한 UI 정렬을 위한 일관된 4px 그리드입니다."
-      },
-      "surfaces": {
-        "shadows": [],
-        "borders": "1px solid rgba(255, 255, 255, 0.1)"
-      },
-      "layout": {
-        "skeleton": "고정된 왼쪽 사이드바(280px)와 오른쪽의 스크롤 가능한 메인 콘텐츠 영역입니다."
-      },
-      "components": {
-        "button": "주요 작업용은 초록색으로 채워진 필形状, 보조 작업용은 흰색 테두리가 있는 필形状입니다.",
-        "card": "이미지 중심 콘텐츠와 둥근 모서리를 갖진 어두운 회색 배경입니다.",
-        "chip": "메타데이터(예: 유해 태그)용 필形状입니다.",
-        "input": "둥근 모서리와 섬세한 테두리가 있는 어두운 회색 배경입니다.",
-        "hero": "트렌딩 콘텐츠용 수평 캐러셀 카드입니다."
-      },
-      "motion": {
-        "patterns": [
-          "캐러셀을 수평으로 슬라이드",
-          "콘텐츠 섹션 페이드 인"
-        ]
-      },
-      "interaction": {
-        "hover": "카드와 버튼의 섬세한 배경 밝기 변화입니다.",
-        "click": "버튼을 누를 때 약간 축소됩니다.",
-        "transition": "부드러운 불투명도와 배경색 전환입니다.",
-        "keyboard": "표준 포커스 윤곽선으로, 일반적으로 브랜드 색상을 사용합니다."
-      },
-      "voice": {
-        "tone": "캐주얼하고 직접적이며 초대하는 느낌입니다.",
-        "headlineStyle": "대담하고 간결합니다.",
-        "ctaStyle": "직접적이고 행동 지향적입니다(예: '재생목록 만들기', '팟캐스트 찾아보기').",
-        "avoid": [
-          "지나치게 공식적인 언어",
-          "밀도 높은 단락"
-        ]
-      },
-      "donts": [
-        "라이트 모드를 사용하지 마세요 — 스크린샷은 어두운(#121212) 인터페이스를 보여줍니다.",
-        "세리프 글꼴을 사용하지 마세요 — 스크린샷은 깔끔한 산세리프 타이포그래피 시스템을 보여줍니다.",
-        "날카로운 모서리를 사용하지 마세요 — 스크린샷은 대부분의 요소에 둥근 모서리(8-12px 반경)를 보여줍니다.",
-        "과도한 패딩을 사용하지 마세요 — 스크린샷은 정보 밀도를 위해 최적화된 컴팩트 레이아웃을 보여줍니다.",
-        "여러 강조 색상을 사용하지 마세요 — 스크린샷은 매우 적은 색상 강조가 있는 단색 팔레트에 의존합니다.",
-        "두꺼운 테두리를 사용하지 마세요 — 스크린샷은 섹션을 구분하기 위해 배경색 대비에 의존합니다."
-      ],
-      "systemPrompt": "Spotify의 웹 플레이어는 깊은 콘텐츠 탐색을 위해 설계된 다크 테마 음악 스트리밍 인터페이스입니다. 블랙(#121212)과 다크 그레이(#181818)를 중심으로 한 단색 팔레트를 사용하여 다채로운 앨범 아트가 돋보이도록 합니다. 타이포그래피는 깔끔한 기하학적 grotesque-sans 시스템입니다. 중요한 주의사항: 라이트 모드를 절대 사용하지 말 것, 날카로운 모서리를 피할 것, 세리프 글꼴을 절대 사용하지 말 것. 레이아웃은 라이브러리 내비게이션을 위한 고정 사이드바와 추천을 위한 스크롤 가능한 메인 영역을 사용합니다. 이 디자인은 다크 모드 환경에서의 고밀도 콘텐츠 관리를 잘 보여줍니다."
+      "easing": "cubic-bezier(0.3, 0, 0, 1)"
     }
   },
   "desc": {
     "en": {
-      "palette": "A strict dark-themed monochrome palette using #121212 and #181818, designed to prioritize visual content.",
-      "layout": "A structured three-column layout with a fixed navigation sidebar and a scrollable main content area.",
-      "interaction": "Subtle hover states and smooth transitions enhance the browsing experience without being distracting.",
-      "motion": "Minimal, functional motion focused on smooth transitions and carousel sliding.",
-      "notes": "A highly refined dark-mode interface that balances information density with visual clarity, making it an excellent reference for content-heavy applications."
+      "palette": "A dark-themed palette using deep grays (#121212, #1f1f1f) to create an immersive background, accented by a vibrant green (#1ed760) for active states and clear white text for high legibility.",
+      "layout": "A standard sidebar-plus-content layout that prioritizes horizontal scrolling for media discovery and a fixed vertical navigation for library access.",
+      "interaction": "Smooth, fast transitions (150ms) on hover and click states provide immediate feedback, enhancing the fluid feel of the browsing experience.",
+      "motion": "Micro-interactions and card transformations use a specific cubic-bezier easing to feel natural and responsive without being distracting.",
+      "notes": "This site is a masterclass in dark-mode design and content-heavy UI, demonstrating how to maintain a clear hierarchy while keeping the focus on high-contrast imagery and typography."
     },
     "zh-CN": {
       "palette": "严格采用 #121212 和 #181818 的暗色单色调色板，旨在优先突出视觉内容。",
@@ -583,6 +219,408 @@
       "ch7_intro": "모션은 기능적이고 절제되어, 주의를 유도하고 피드백을 제공하지만 과시적이지 않도록 설계되었습니다. 핵심 패턴은 캐러셀의 수평 슬라이딩과 콘텐츠 섹션의 부드러운 페이드인을 포함하여, 공간적 내비게이션과 질서 정연한 로딩의 느낌을 강화합니다.",
       "ch8_intro": "에디토리얼 음성은 캐주얼하고 직설적이며 매력적으로, 플랫폼의 접근 가능하고 개인적인 성격과 일치합니다. 헤드라인은 굵고 간결하며, 호출 버튼은 \"플레이리스트 만들기\"나 \"팟캐스트 둘러보기\"처럼 단순하고 작업 지향적입니다.",
       "ch8_outro": "이 시스템은 집중적이고 콘텐츠 우선의 무결성을 유지하기 위해 의도적으로 라이트 모드, 세리프 타입faces, 날카로운 모서리, 과도한 padding, 여러 강조색, 그리고 무거운 border를 포기합니다."
+    }
+  },
+  "spec_i18n": {
+    "en": {
+      "identity": {
+        "keywords": [
+          "music",
+          "streaming",
+          "audio",
+          "discovery",
+          "media"
+        ],
+        "analogy": "A dark, immersive lounge for music discovery.",
+        "oneLiner": "A dark-themed music streaming platform with content-focused cards and a minimal sidebar."
+      },
+      "colors": {
+        "principle": "Dark surfaces with high-contrast white text and subtle gray hierarchy."
+      },
+      "typography": {
+        "rules": [
+          "Use bold weight for primary titles and section headers.",
+          "Use regular weight for body text and navigation items.",
+          "Maintain tight line-heights for vertical density."
+        ],
+        "scaleUses": [
+          "Section headers",
+          "Card titles",
+          "Subtitles and descriptions",
+          "Small labels and metadata"
+        ]
+      },
+      "spacing": {
+        "rhythm": "8px base rhythm with 12px and 24px increments for content gaps."
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(0,0,0,0.3) 0px 8px 8px 0px",
+          "rgba(0,0,0,0.5) 0px 8px 24px 0px"
+        ],
+        "borders": "1px solid rgba(255,255,255,0.1)"
+      },
+      "layout": {
+        "skeleton": "Fixed left sidebar (~280px) with a fluid main content area."
+      },
+      "components": {
+        "button": "Pill-shaped solid buttons with high contrast or low-emphasis outlines.",
+        "card": "Flat, hoverable content cards with prominent artwork and minimal padding.",
+        "chip": "None clearly visible in the current view.",
+        "input": "Rounded search bar with a subtle dark background and left-aligned icon.",
+        "hero": "Grid-based sections for trending content and artists."
+      },
+      "motion": {
+        "patterns": [
+          "Transform and opacity for card hover states",
+          "Background color transitions for interactive elements"
+        ]
+      },
+      "interaction": {
+        "hover": "Subtle background color shift and slight scale transform for cards.",
+        "click": "Immediate visual feedback via background color change.",
+        "transition": "Fast, linear-feeling transitions for most UI updates.",
+        "keyboard": "Standard focus states for navigation and action elements."
+      },
+      "voice": {
+        "tone": "Casual, inviting, and discovery-oriented.",
+        "headlineStyle": "Direct and action-oriented, often lowercase or sentence case.",
+        "ctaStyle": "Clear and encouraging, using high-contrast pill buttons.",
+        "avoid": [
+          "Formal corporate language",
+          "Overly complex sentence structures",
+          "Visual clutter or unnecessary decorative elements"
+        ]
+      },
+      "donts": [
+        "Don't use light backgrounds — screenshot shows a dark (#121212) environment.",
+        "Don't use serif fonts — screenshot shows a geometric sans-serif typeface.",
+        "Don't use sharp corners on primary buttons — screenshot shows pill-shaped (999px) buttons.",
+        "Don't use excessive drop shadows — screenshot uses only subtle, dark shadows for elevation.",
+        "Don't use a multi-column layout for navigation — screenshot shows a fixed sidebar.",
+        "Don't use bright, multi-colored UI accents — screenshot uses a single green (#1ed760) for active states."
+      ],
+      "systemPrompt": "Design a music streaming platform UI that is content-focused and immersive. Use a dark color palette dominated by #121212 and #1f1f1f, with white (#ffffff) for primary text and #b3b3b3 for secondary text. The signature accent is #1ed760. Typography should use a clean geometric sans-serif. Layout should follow a sidebar-plus-content structure. Critical constraints: never use light backgrounds, never use serif fonts, and keep interactive elements pill-shaped or rounded."
+    },
+    "zh-CN": {
+      "identity": {
+        "keywords": [
+          "音乐",
+          "流媒体",
+          "音频",
+          "发现",
+          "媒体"
+        ],
+        "analogy": "一个用于音乐发现的深色沉浸式空间。",
+        "oneLiner": "一个深色主题的音乐流媒体平台，以内容聚焦的卡片和极简侧边栏为特色。"
+      },
+      "colors": {
+        "principle": "深色背景搭配高对比度的白色文字与微妙的灰色层次。"
+      },
+      "typography": {
+        "rules": [
+          "主标题和版块标题使用粗体。",
+          "正文和导航项使用常规字重。",
+          "保持紧凑的行高以提升垂直信息密度。"
+        ],
+        "scaleUses": [
+          "版块标题",
+          "卡片标题",
+          "副标题与描述",
+          "小标签与元数据"
+        ]
+      },
+      "spacing": {
+        "rhythm": "基于 8px 的节奏，内容间距采用 12px 和 24px 的增量。"
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(0,0,0,0.3) 0px 8px 8px 0px",
+          "rgba(0,0,0,0.5) 0px 8px 24px 0px"
+        ],
+        "borders": "1px solid rgba(255,255,255,0.1)"
+      },
+      "layout": {
+        "skeleton": "固定左侧边栏（约 280px），搭配流动式主内容区域。"
+      },
+      "components": {
+        "button": "胶囊形实心按钮，采用高对比度或低强调轮廓。",
+        "card": "扁平、可悬停的内容卡片，拥有醒目的视觉效果和极简内边距。",
+        "chip": "当前视图中无明显可见的元素。",
+        "input": "圆角搜索栏，带有微妙的深色背景和左对齐图标。",
+        "hero": "基于网格的版块，用于展示热门内容和艺术家。"
+      },
+      "motion": {
+        "patterns": [
+          "卡片悬停状态的变换与透明度变化",
+          "交互元素的背景颜色过渡"
+        ]
+      },
+      "interaction": {
+        "hover": "卡片有微妙的背景颜色变化和轻微的缩放变换。",
+        "click": "通过背景颜色变化提供即时视觉反馈。",
+        "transition": "多数 UI 更新使用快速、线性的过渡效果。",
+        "keyboard": "导航和操作元素使用标准焦点状态。"
+      },
+      "voice": {
+        "tone": "轻松、有邀请感且以发现为导向。",
+        "headlineStyle": "直接且以行动为导向，通常使用小写或句首字母大写。",
+        "ctaStyle": "清晰且有鼓励性，使用高对比度的胶囊按钮。",
+        "avoid": [
+          "正式的企业语言",
+          "过于复杂的句子结构",
+          "视觉杂乱或不必要的装饰元素"
+        ]
+      },
+      "donts": [
+        "不要使用浅色背景——截图显示的是深色（#121212）环境。",
+        "不要使用衬线字体——截图显示的是几何无衬线字体。",
+        "不要在主要按钮上使用尖锐的圆角——截图显示的是胶囊形（999px）按钮。",
+        "不要使用过多的阴影——截图仅使用微妙的深色阴影来体现层次。",
+        "不要使用多列布局进行导航——截图显示的是固定侧边栏。",
+        "不要使用明亮、多彩的 UI 强调色——截图仅使用单一绿色（#1ed760）表示激活状态。"
+      ],
+      "systemPrompt": "设计一个以内容为中心、具有沉浸感的音乐流媒体平台 UI。使用以 #121212 和 #1f1f1f 为主导的深色配色方案，主文本使用白色（#ffffff），次要文本使用 #b3b3b3。标志性的强调色是 #1ed760。字体应使用简洁的几何无衬线体。布局应采用侧边栏加内容的结构。关键约束：绝不使用浅色背景，绝不使用衬线字体，交互元素保持胶囊形或圆角。"
+    },
+    "zh-TW": {
+      "identity": {
+        "keywords": [
+          "音樂",
+          "串流",
+          "音訊",
+          "發現",
+          "媒體"
+        ],
+        "analogy": "一個黑暗、沉浸式的音樂發現休息室。",
+        "oneLiner": "一個深色主題的音樂串流平台，採用內容導向的卡片與極簡側邊欄。"
+      },
+      "colors": {
+        "principle": "深色表面，搭配高對比白色文字與微妙的灰色層次。"
+      },
+      "typography": {
+        "rules": [
+          "主要標題與章節標題使用粗體字重。",
+          "內文與導航項目使用標準字重。",
+          "維持緊湊的行高以實現垂直密度。"
+        ],
+        "scaleUses": [
+          "章節標題",
+          "卡片標題",
+          "副標題與描述",
+          "小型標籤與元資料"
+        ]
+      },
+      "spacing": {
+        "rhythm": "8px 基礎節奏，搭配 12px 與 24px 增量，用於內容間距。"
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(0,0,0,0.3) 0px 8px 8px 0px",
+          "rgba(0,0,0,0.5) 0px 8px 24px 0px"
+        ],
+        "borders": "1px solid rgba(255,255,255,0.1)"
+      },
+      "layout": {
+        "skeleton": "固定左側邊欄（約 280px），搭配流體化的主要內容區域。"
+      },
+      "components": {
+        "button": "藥丸形的實心按鈕，具有高對比或低強度的外框。",
+        "card": "平坦、可懸停的內容卡片，具有醒目的藝術作品與最小的 padding。",
+        "chip": "目前視圖中無明顯可見的元素。",
+        "input": "圓角搜尋列，具有微妙的深色背景與左對齊圖示。",
+        "hero": "用於熱門內容與藝術家的網格式區塊。"
+      },
+      "motion": {
+        "patterns": [
+          "卡片懸停狀態的變換與透明度",
+          "互動元素的背景色彩過渡"
+        ]
+      },
+      "interaction": {
+        "hover": "卡片具有微妙的背景色調變換與輕微的縮放變換。",
+        "click": "透過背景色變化提供即時視覺回饋。",
+        "transition": "大多數 UI 更新使用快速、線性感的過渡。",
+        "keyboard": "導航與動作元素使用標準的 focus 狀態。"
+      },
+      "voice": {
+        "tone": "隨性、引人入勝且著重於發現。",
+        "headlineStyle": "直接且以行動為導向，通常採用小寫或句首大寫。",
+        "ctaStyle": "清晰且具鼓勵性，使用高對比的藥丸形按鈕。",
+        "avoid": [
+          "正式的企業語言",
+          "過於複雜的句子結構",
+          "視覺雜亂或不必要的裝飾元素"
+        ]
+      },
+      "donts": [
+        "不要使用淺色背景——截圖顯示為深色（#121212）環境。",
+        "不要使用襯線字體——截圖顯示為幾何無襯線字體。",
+        "不要在主要按鈕上使用尖角——截圖顯示為藥丸形（999px）按鈕。",
+        "不要使用過多的陰影——截圖僅使用微妙、深色的陰影來表示層次。",
+        "不要使用多欄式導航佈局——截圖顯示為固定側邊欄。",
+        "不要使用明亮、多彩的 UI 強調色——截圖僅使用單一綠色（#1ed760）表示啟用狀態。"
+      ],
+      "systemPrompt": "設計一個以內容為中心、具沉浸感的音樂串流平台 UI。使用以 #121212 和 #1f1f1f 為主的深色調色板，主要文字使用白色（#次要文字使用 #b3b3b3。標誌性強調色為 #1ed760。字體應使用乾淨的幾何無襯線字體。佈局應遵循側邊欄加內容的結構。關鍵限制：切勿使用淺色背景，切勿使用襯線字體，並保持互動元素為藥丸形或圓角。"
+    },
+    "ja": {
+      "identity": {
+        "keywords": [
+          "音楽",
+          "ストリーミング",
+          "オーディオ",
+          "ディスカバリー",
+          "メディア"
+        ],
+        "analogy": "音楽ディスカバリーのための、暗く没入感のあるラウンジ。",
+        "oneLiner": "コンテンツ重視のカードとミニマルなサイドバーを持つ、ダークテーマの音楽ストリーミングプラットフォーム。"
+      },
+      "colors": {
+        "principle": "暗いサーフェスと、高コントラストの白いテキスト、以及微妙なグレースケールの階層構造。"
+      },
+      "typography": {
+        "rules": [
+          "主要なタイトルやセクションヘッダーには太字ウェイトを使用。",
+          "本文テキストやナビゲーション項目には通常ウェイトを使用。",
+          "縦の密度を維持するため、タイトな行高を保つ。"
+        ],
+        "scaleUses": [
+          "セクションヘッダー",
+          "カードタイトル",
+          "サブタイトルと説明文",
+          "小さなラベルとメタデータ"
+        ]
+      },
+      "spacing": {
+        "rhythm": "8pxをベースリズムとし、コンテンツ間隔には12pxと24pxのインクリメントを使用。"
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(0,0,0,0.3) 0px 8px 8px 0px",
+          "rgba(0,0,0,0.5) 0px 8px 24px 0px"
+        ],
+        "borders": "1px solid rgba(255,255,255,0.1)"
+      },
+      "layout": {
+        "skeleton": "固定された左サイドバー（約280px）と、流動的なメインコンテンツ領域。"
+      },
+      "components": {
+        "button": "高コントラストか、低インパジットのアウトラインを持つ、ピル型のソリッドボタン。",
+        "card": "目立つアートワークと最小限のパディングを持つ、フラットでホバー可能なコンテンツカード。",
+        "chip": "現在のビューでは明確に確認できるものはありません。",
+        "input": "微妙なダーク背景と左揃えのアイコンを持つ、角丸の検索バー。",
+        "hero": "トレンドコンテンツやアーティスト向けの、グリッドベースのセクション。"
+      },
+      "motion": {
+        "patterns": [
+          "カードのホバーステートに向けたTransformとopacity",
+          "インタラクティブ要素向けの背景色トランジション"
+        ]
+      },
+      "interaction": {
+        "hover": "カードの微妙な背景色シフトと軽微なスケールトランスフォーム。",
+        "click": "背景色の変更による即座のビジュアルフィードバック。",
+        "transition": "ほとんどのUI更新には、高速でリニアなトランジション。",
+        "keyboard": "ナビゲーションやアクション要素向けの標準フォーカスステート。"
+      },
+      "voice": {
+        "tone": "カジュアルで、誘いかけ、ディスカバリー志向。",
+        "headlineStyle": "直接的でアクション指向。しばしば小文字または文頭大文字で表記。",
+        "ctaStyle": "明確で促進的。高コントラストのピルボタンを使用。",
+        "avoid": [
+          "フォーマルな企業向け言葉遣い",
+          "不必要に複雑な文構造",
+          "視覚的な雑然さや不要な装飾要素"
+        ]
+      },
+      "donts": [
+        "明るい背景を使わない — スクリーンショットはダーク（#121212）環境を示している。",
+        "セリフフォントを使わない — スクリーンショットは幾何学的なサンセリフ書体を示している。",
+        "主要ボタンに鋭い角を使わない — スクリーンショットはピル型（999px）のボタンを示している。",
+        "過度なドロップシャドウを使わない — スクリーンショットは、高さを表現するためにのみ微妙で暗いシャドウを使用している。",
+        "ナビゲーションに複数カラムレイアウトを使わない — スクリーンショットは固定サイドバーを示している。",
+        "明るく、多色のUIアクセントを使わない — スクリーンショットは、アクティブステートに単一のグリーン（#1ed760）を使用している。"
+      ],
+      "systemPrompt": "コンテンツ重視で没入感のある音楽ストリーミングプラットフォームのUIをデザインする。#121212と#1f1f1fを支配とするダークカラーパレットを使用し、プライマリテキストには白（#ffffff）、セカンダリテキストには#b3b3b3を使用する。シグネチャーアクセントは#1ed760。タイポグラフィはクリーンな幾何学的サンセリフを使用。レイアウトはサイドバー＋コンテンツ構造に従う。重要な制約：明るい背景は決して使用せず、セリフフォントは決して使用せず、インタラクティブ要素はピル型または角丸に留める。"
+    },
+    "ko": {
+      "identity": {
+        "keywords": [
+          "음악",
+          "스트리밍",
+          "오디오",
+          "발견",
+          "미디어"
+        ],
+        "analogy": "음악 발견을 위한 어두운 몰입형 라운지입니다.",
+        "oneLiner": "콘텐츠 중심 카드와 미니멀한 사이드바를 갖춘 다크 테마 음악 스트리밍 플랫폼입니다."
+      },
+      "colors": {
+        "principle": "대비가 높은 흰색 텍스트와 섬세한 그레이 계층을 적용한 어두운 표면입니다."
+      },
+      "typography": {
+        "rules": [
+          "주요 제목과 섹션 헤더에는 볼드체를 사용합니다.",
+          "본문 텍스트와 내비게이션 항목에는 레귤러체를 사용합니다.",
+          "수직 밀도를 위해 타이트한 행간을 유지합니다."
+        ],
+        "scaleUses": [
+          "섹션 헤더",
+          "카드 제목",
+          "부제목 및 설명",
+          "작은 레이블 및 메타데이터"
+        ]
+      },
+      "spacing": {
+        "rhythm": "8px 기본 리듬을 사용하며, 콘텐츠 간격을 위해 12px 및 24px 단계를 적용합니다."
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(0,0,0,0.3) 0px 8px 8px 0px",
+          "rgba(0,0,0,0.5) 0px 8px 24px 0px"
+        ],
+        "borders": "1px solid rgba(255,255,255,0.1)"
+      },
+      "layout": {
+        "skeleton": "고정된 왼쪽 사이드바(~280px)와 유동적인 메인 콘텐츠 영역 구조입니다."
+      },
+      "components": {
+        "button": "높은 대비 또는 저강도 윤곽선을 가진 알약 모양의 솔리드 버튼입니다.",
+        "card": "독특한 아트워크와 미니멀한 패딩을 가진 평평하고 호버 가능한 콘텐츠 카드입니다.",
+        "chip": "현재 뷰에서 명확히 보이는 것이 없습니다.",
+        "input": "섬세한 다크 배경과 왼쪽 정렬 아이콘을 가진 둥근 검색창입니다.",
+        "hero": "트렌딩 콘텐츠와 아티스트를 위한 격자 기반 섹션입니다."
+      },
+      "motion": {
+        "patterns": [
+          "카드 호버 상태를 위한 transform 및 opacity",
+          "인터랙티브 요소를 위한 배경색 전환"
+        ]
+      },
+      "interaction": {
+        "hover": "카드에 대한 섬세한 배경색 변화와 약간의 스케일 transform입니다.",
+        "click": "배경색 변경을 통한 즉각적인 시각적 피드백입니다.",
+        "transition": "대부분의 UI 업데이트를 위한 빠르고 선형적인 느낌의 전환입니다.",
+        "keyboard": "내비게이션 및 액션 요소를 위한 표준 포커스 상태입니다."
+      },
+      "voice": {
+        "tone": "캐주얼하고, 친근하며, 발견 지향적입니다.",
+        "headlineStyle": "직관적이고 행동 지향적이며, 종종 소문자 또는 문장 형식을 사용합니다.",
+        "ctaStyle": "명확하고 격려적인, 높은 대비의 알약 모양 버튼을 사용합니다.",
+        "avoid": [
+          "형식적인 기업 언어",
+          "지나치게 복잡한 문장 구조",
+          "시각적 혼란 또는 불필요한 장식적 요소"
+        ]
+      },
+      "donts": [
+        "밝은 배경을 사용하지 않습니다 — 스크린샷은 어두운(#121212) 환경을 보여줍니다.",
+        "세리프 폰트를 사용하지 않습니다 — 스크린샷은 기하학적 산세리프 타입페이스를 보여줍니다.",
+        "주요 버튼에 날카로운 모서리를 사용하지 않습니다 — 스크린샷은 알약 모양(999px) 버튼을 보여줍니다.",
+        "과도한 드롭 섀도우를 사용하지 않습니다 — 스크린샷은 높이감을 위해 섬세하고 어두운 섀도우만 사용합니다.",
+        "내비게이션에 다중 열 레이아웃을 사용하지 않습니다 — 스크린샷은 고정 사이드바를 보여줍니다.",
+        "밝고 다채로운 UI 강조 색상을 사용하지 않습니다 — 스크린샷은 활성 상태를 위해 단일 녹색(#1ed760)을 사용합니다."
+      ],
+      "systemPrompt": "콘텐츠 중심적이고 몰입감 있는 음악 스트리밍 플랫폼 UI를 디자인하세요. #121212와 #1f1f1f로 지배되는 다크 색상 팔레트를 사용하되, 주요 텍스트는 흰색(#ffffff)을, 보조 텍스트는 #b3b3b3를 사용합니다. 시그니처 강조 색상은 #1ed760입니다. 타이포그래피는 깔끔한 기하학적 산세리프체를 사용합니다. 레이아웃은 사이드바 더하기 콘텐츠 구조를 따릅니다. 핵심 제약 조건: 밝은 배경을 절대 사용하지 말고, 세리프 폰트를 절대 사용하지 말며, 인터랙티브 요소는 알약 모양이나 둥글게 만드세요."
     }
   }
 }

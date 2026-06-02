@@ -30,6 +30,8 @@ cp "${ROOT_DIR}/dist/sitemap.xml"              "${ROOT_DIR}/sitemap.xml"
 # 网站运行所需的前端资源
 FILES=(
   index.html
+  admin.html
+  admin.js
   styles.css
   app.js
   i18n.js
@@ -66,6 +68,26 @@ fi
 if [[ -d "${ROOT_DIR}/dist/packs" ]]; then
   echo "  • dist/packs (per-site DESIGN.md + DESIGN_SPEC.<lang>.md)"
   MANIFEST+=("dist/packs")
+fi
+
+# ===== LOCAL_DEPLOY：脚本就跑在 web 服务器上（job runner 用）→ 直接 cp 到 DEPLOY_PATH，不 scp =====
+if [[ -n "${LOCAL_DEPLOY:-}" ]]; then
+  echo "▸ LOCAL_DEPLOY：本机 cp → ${DEPLOY_PATH}"
+  sudo mkdir -p "${DEPLOY_PATH}"
+  for f in "${MANIFEST[@]}"; do
+    if [[ "$f" == "dist/seo" ]]; then
+      for lang in en zh-CN zh-TW ja ko; do
+        [[ -d "${ROOT_DIR}/dist/seo/${lang}" ]] && sudo mkdir -p "${DEPLOY_PATH}/${lang}" && sudo cp -r "${ROOT_DIR}/dist/seo/${lang}/"* "${DEPLOY_PATH}/${lang}/"
+      done
+    elif [[ "$f" == "dist/packs" ]]; then
+      sudo mkdir -p "${DEPLOY_PATH}/packs" && sudo cp -r "${ROOT_DIR}/dist/packs/"* "${DEPLOY_PATH}/packs/"
+    else
+      sudo cp "${ROOT_DIR}/${f}" "${DEPLOY_PATH}/${f}"
+    fi
+  done
+  sudo chown -R www-data:www-data "${DEPLOY_PATH}"
+  echo "✓ LOCAL_DEPLOY done"
+  exit 0
 fi
 
 tar --no-xattrs --disable-copyfile -czf "${ARCHIVE}" -C "${ROOT_DIR}" "${MANIFEST[@]}"

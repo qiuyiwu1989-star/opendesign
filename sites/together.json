@@ -17,44 +17,67 @@
   "_meta": {
     "vision_model": "mimo-v2.5",
     "vision_prompt_version": "0.3",
-    "vision_at": "2026-05-28T20:23:03+00:00",
-    "vision_tokens": 3800,
-    "vision_cost_usd": 0.0422,
+    "vision_at": "2026-05-30T18:01:28+00:00",
+    "vision_tokens": 16813,
+    "vision_cost_usd": 0.1868,
     "translation_model": "mimo-v2.5",
-    "translation_at": "2026-05-28T20:24:00+00:00",
-    "translation_tokens": 15200,
-    "translation_cost_usd": 0.0506,
+    "translation_at": "2026-05-30T18:02:28+00:00",
+    "translation_tokens": 25687,
+    "translation_cost_usd": 0.0856,
     "narrative_model": "mimo-v2.5",
     "narrative_prompt_version": "0.3",
     "narrative_at": "2026-05-28T20:24:06+00:00",
     "narrative_tokens": 1843,
     "narrative_cost_usd": 0.0123,
     "narrative_status": "ok",
-    "total_cost_usd": 0.1051
+    "total_cost_usd": 0.2847,
+    "vision_source": "playwright-extract:together",
+    "vision_grounded": true
   },
   "spec": {
     "colors": {
-      "bg": "#FFFFFF",
+      "bg": "#F6FAFD",
       "bgSoft": null,
       "bgQuiet": null,
-      "ink": "#333333",
+      "ink": "#000000",
       "inkSoft": null,
-      "muted": "#999999",
+      "muted": null,
       "mutedSoft": null,
-      "accent": "#1E3A5F",
-      "line": "rgba(0, 0, 0, 0.1)"
+      "accent": null,
+      "line": "rgba(0,0,0,0.04)"
     },
     "typography": {
-      "display": "geometric-sans",
-      "body": "geometric-sans",
-      "mono": "monospace",
+      "display": "humanist-sans",
+      "body": "humanist-sans",
+      "mono": "geometric-mono",
       "scale": [
         {
           "token": "display",
-          "size": 48,
+          "size": 56,
+          "lh": 1.0,
+          "weight": 500,
+          "ls": "-0.8px"
+        },
+        {
+          "token": "display-sm",
+          "size": 40,
           "lh": 1.1,
-          "weight": 700,
-          "ls": "-1px"
+          "weight": 500,
+          "ls": "-0.8px"
+        },
+        {
+          "token": "body",
+          "size": 16,
+          "lh": 1.25,
+          "weight": 400,
+          "ls": "normal"
+        },
+        {
+          "token": "caption",
+          "size": 11,
+          "lh": 1.4,
+          "weight": 500,
+          "ls": "0.55px"
         }
       ]
     },
@@ -63,19 +86,22 @@
       "scale": [
         4,
         8,
+        12,
         16,
+        20,
         24,
         32,
+        40,
         48,
         64,
-        96
+        88
       ]
     },
     "surfaces": {
       "radius": {
         "sm": 4,
         "md": 8,
-        "lg": 12,
+        "lg": 16,
         "pill": 999
       }
     },
@@ -95,388 +121,16 @@
         "small": 400,
         "medium": 800
       },
-      "easing": "cubic-bezier(0.4, 0, 0.2, 1)"
-    }
-  },
-  "spec_i18n": {
-    "en": {
-      "identity": {
-        "keywords": [
-          "AI platform",
-          "developer tools",
-          "machine learning",
-          "cloud computing",
-          "API"
-        ],
-        "analogy": "A sleek, modern laboratory for building AI models",
-        "oneLiner": "A high-performance platform for building, training, and deploying AI models."
-      },
-      "colors": {
-        "principle": "Clean, neutral palette with a single deep blue accent for brand identity"
-      },
-      "typography": {
-        "rules": [
-          "Use geometric sans-serif for all primary text",
-          "Maintain tight letter spacing for display text",
-          "Use monospace for code snippets and technical references"
-        ],
-        "scaleUses": [
-          "Main headlines and hero text"
-        ]
-      },
-      "spacing": {
-        "rhythm": "8px baseline grid for consistent vertical spacing"
-      },
-      "surfaces": {
-        "shadows": [],
-        "borders": "1px solid rgba(0, 0, 0, 0.1)"
-      },
-      "layout": {
-        "skeleton": "Single column centered layout with generous whitespace"
-      },
-      "components": {
-        "button": "Solid filled buttons with rounded corners, primary uses accent color",
-        "card": "Simple white cards with subtle borders and minimal shadows",
-        "chip": "Small rounded tags for categories or labels",
-        "input": "Clean input fields with subtle borders and rounded corners",
-        "hero": "Centered hero section with large typography and minimal imagery"
-      },
-      "motion": {
-        "patterns": [
-          "Subtle fade-ins for page transitions",
-          "Smooth hover states on interactive elements"
-        ]
-      },
-      "interaction": {
-        "hover": "Subtle color shifts or opacity changes on interactive elements",
-        "click": "Immediate visual feedback with slight scale or color change",
-        "transition": "Smooth transitions between states using CSS transitions",
-        "keyboard": "Full keyboard navigation support with visible focus states"
-      },
-      "voice": {
-        "tone": "Professional, technical, and confident",
-        "headlineStyle": "Direct and benefit-focused with clear value propositions",
-        "ctaStyle": "Action-oriented verbs like 'Get Started', 'Try Now', 'Learn More'",
-        "avoid": [
-          "Jargon overload",
-          "Overly casual language",
-          "Vague claims without evidence"
-        ]
-      },
-      "donts": [
-        "Don't use complex gradients — screenshot shows solid colors and subtle transparency",
-        "Don't use rounded corners everywhere — screenshot shows reserved use of border-radius",
-        "Don't use heavy shadows — screenshot shows flat surfaces with minimal elevation",
-        "Don't use multiple accent colors — screenshot shows single blue accent throughout",
-        "Don't use serif fonts — screenshot shows consistent sans-serif typography",
-        "Don't use dense layouts — screenshot shows generous whitespace and breathing room"
-      ],
-      "systemPrompt": "Together.ai is a high-performance AI platform for developers, featuring a clean, professional interface with a neutral color palette accented by deep blue. The design uses geometric sans-serif typography for clarity and readability, with a 12-column grid layout providing structure. Key colors include white backgrounds, dark gray text, and a distinctive blue accent. Critical design principles include generous whitespace, subtle hover interactions, and maintaining visual hierarchy through typography scale. The interface avoids visual clutter, using minimal shadows and borders to maintain focus on content and functionality. The overall aesthetic communicates technical sophistication while remaining approachable for developers building AI applications."
-    },
-    "zh-CN": {
-      "identity": {
-        "keywords": [
-          "AI平台",
-          "开发者工具",
-          "机器学习",
-          "云计算",
-          "API"
-        ],
-        "analogy": "一个构建AI模型的时尚、现代实验室",
-        "oneLiner": "一个用于构建、训练和部署AI模型的高性能平台。"
-      },
-      "colors": {
-        "principle": "纯净、中性的调色板，以单一深蓝色作为品牌标识的点缀色"
-      },
-      "typography": {
-        "rules": [
-          "所有主要文本使用几何无衬线字体",
-          "标题文本保持紧凑的字间距",
-          "代码片段和技术参考使用等宽字体"
-        ],
-        "scaleUses": [
-          "主标题和首屏文本"
-        ]
-      },
-      "spacing": {
-        "rhythm": "8px基线网格，确保统一的垂直间距"
-      },
-      "surfaces": {
-        "shadows": [],
-        "borders": "1px solid rgba(0, 0, 0, 0.1)"
-      },
-      "layout": {
-        "skeleton": "单栏居中布局，配以充足的留白"
-      },
-      "components": {
-        "button": "圆角实心填充按钮，主要按钮使用点缀色",
-        "card": "简洁的白色卡片，带有细微边框和最小化阴影",
-        "chip": "用于分类或标签的小型圆角标签",
-        "input": "简洁的输入框，带有细微边框和圆角",
-        "hero": "居中的首屏区域，采用大号排版和极简配图"
-      },
-      "motion": {
-        "patterns": [
-          "页面过渡时的微妙淡入效果",
-          "交互元素的平滑悬停状态"
-        ]
-      },
-      "interaction": {
-        "hover": "交互元素上微妙的颜色变化或透明度调整",
-        "click": "即时视觉反馈，伴随轻微的缩放或颜色变化",
-        "transition": "使用CSS transitions实现状态间的平滑过渡",
-        "keyboard": "完整的键盘导航支持，配有清晰可见的焦点状态"
-      },
-      "voice": {
-        "tone": "专业、技术感、自信",
-        "headlineStyle": "直接且以收益为导向，清晰阐述价值主张",
-        "ctaStyle": "行动导向的动词，如“开始使用”、“立即体验”、“了解更多”",
-        "avoid": [
-          "术语堆砌",
-          "过于随意的语言",
-          "缺乏证据的模糊主张"
-        ]
-      },
-      "donts": [
-        "不要使用复杂渐变——截图显示为纯色与微妙的透明效果",
-        "不要过度使用圆角——截图显示border-radius的使用有所节制",
-        "不要使用厚重阴影——截图显示为扁平化界面，仅有最小化的层次感",
-        "不要使用多种点缀色——截图显示全程仅使用单一蓝色点缀色",
-        "不要使用衬线字体——截图显示为统一的无衬线字体排版",
-        "不要使用密集布局——截图显示充足的留白与呼吸空间"
-      ],
-      "systemPrompt": "Together.ai 是一个面向开发者的高性能AI平台，其界面简洁、专业，采用中性调色板并以深蓝色作为点缀。设计使用几何无衬线字体以确保清晰度与可读性，12栏网格布局提供了结构感。关键色彩包括白色背景、深灰色文字和独特的蓝色点缀。关键设计原则包括充足的留白、微妙的悬停交互，以及通过字体层级来维持视觉层次。界面避免视觉杂乱，使用最小化的阴影和边框，将焦点保持在内容与功能上。整体美感传达出技术的复杂性，同时保持对构建AI应用的开发者的亲和力。"
-    },
-    "zh-TW": {
-      "identity": {
-        "keywords": [
-          "AI平台",
-          "開發者工具",
-          "機器學習",
-          "雲端運算",
-          "API"
-        ],
-        "analogy": "一座時尚、現代化的AI模型實驗室",
-        "oneLiner": "高性能平台，用於建構、訓練與部署AI模型。"
-      },
-      "colors": {
-        "principle": "乾淨、中性的色調，搭配單一深藍色強調色，用於品牌識別"
-      },
-      "typography": {
-        "rules": [
-          "主要文字使用幾何無襯線字體",
-          "展示文字維持緊湊的字距",
-          "程式碼片段與技術參考使用等寬字體"
-        ],
-        "scaleUses": [
-          "主標題與主視覺文字"
-        ]
-      },
-      "spacing": {
-        "rhythm": "8px基準網格，確保垂直間距一致"
-      },
-      "surfaces": {
-        "shadows": [],
-        "borders": "1px solid rgba(0, 0, 0, 0.1)"
-      },
-      "layout": {
-        "skeleton": "單欄居中佈局，留有充足空白"
-      },
-      "components": {
-        "button": "實心填滿按鈕，圓角設計，主要使用強調色",
-        "card": "簡潔的白色卡片，帶有細微邊框與極簡陰影",
-        "chip": "小型圓角標籤，用於類別或標示",
-        "input": "乾淨的輸入欄位，帶有細微邊框與圓角",
-        "hero": "居中的主視覺區塊，採用大字體與極簡圖片"
-      },
-      "motion": {
-        "patterns": [
-          "頁面轉換時的細微淡入效果",
-          "互動元素上的流暢hover狀態"
-        ]
-      },
-      "interaction": {
-        "hover": "互動元素上的細微色彩變化或透明度調整",
-        "click": "即時視覺回饋，搭配輕微的縮放或色彩變化",
-        "transition": "使用CSS transitions實現狀態間的流暢過渡",
-        "keyboard": "完整的鍵盤導覽支援，並顯示明確的focus狀態"
-      },
-      "voice": {
-        "tone": "專業、技術性且自信",
-        "headlineStyle": "直接且聚焦於效益，清晰傳達價值主張",
-        "ctaStyle": "以行動為導向的動詞，如「立即開始」、「立即試用」、「深入了解」",
-        "avoid": [
-          "過度術語堆砌",
-          "過於隨意的語言",
-          "缺乏證據的模糊聲明"
-        ]
-      },
-      "donts": [
-        "避免使用複雜漸層——截圖顯示為純色與細微透明度",
-        "避免全面使用圓角——截圖顯示border-radius的保留使用",
-        "避免使用厚重陰影——截圖顯示平面化的表面與極低的高度感",
-        "避免使用多種強調色——截圖顯示全程使用單一藍色強調",
-        "避免使用襯線字體——截圖顯示一致的無襯線字體排印",
-        "避免擁擠的佈局——截圖顯示充足的空白與呼吸空間"
-      ],
-      "systemPrompt": "Together.ai 是一款高性能的AI平台，專為開發者設計，採用簡潔、專業的介面，搭配中性色調與深藍色強調。設計使用幾何無襯線字體，確保清晰易讀，並採用12欄網格佈局提供結構感。關鍵色彩包括白色背景、深灰色文字與獨特的藍色強調。重要設計原則包含充足空白、細微的hover互動，以及透過字體層級維持視覺層次。介面避免視覺雜亂，使用極簡陰影與邊框，將焦點集中在內容與功能。整體美學傳達技術精密度，同時保持對開發AI應用程式的開發者親和力。"
-    },
-    "ja": {
-      "identity": {
-        "keywords": [
-          "AIプラットフォーム",
-          "開発者ツール",
-          "機械学習",
-          "クラウドコンピューティング",
-          "API"
-        ],
-        "analogy": "AIモデルを構築するための、スタイリッシュでモダンなラボラトリー",
-        "oneLiner": "AIモデルの構築、学習、デプロイを行うための高性能プラットフォーム。"
-      },
-      "colors": {
-        "principle": "ブランドアイデンティティを象徴するディープブルーアクセントを1色用いた、クリーンでニュートラルなパレット"
-      },
-      "typography": {
-        "rules": [
-          "すべてのプライマリテキストに幾何学的サンセリフフォントを使用",
-          "見出しやディスプレイテキストはtightな字間で維持",
-          "コードスニペットや技術的な参照にはモノスペースフォントを使用"
-        ],
-        "scaleUses": [
-          "メインの見出しやヒーローテキスト"
-        ]
-      },
-      "spacing": {
-        "rhythm": "一貫した垂直方向のスペーシングのための8pxベースライングリッド"
-      },
-      "surfaces": {
-        "shadows": [],
-        "borders": "1px solid rgba(0, 0, 0, 0.1)"
-      },
-      "layout": {
-        "skeleton": "余白をたっぷりと確保した、中央揃えのシングルカラムレイアウト"
-      },
-      "components": {
-        "button": "角が丸いソリッドで塗りつぶされたボタン。プライマリはアクセントカラーを使用",
-        "card": "控えめなボーダーと最小限のシャドウを持つシンプルな白いカード",
-        "chip": "カテゴリやラベル用の小さな丸みのあるタグ",
-        "input": "控えめなボーダーと角が丸い、クリーンな入力フィールド",
-        "hero": "大きなタイポグラフィと最小限のイメージを用いた中央揃えのヒーローセクション"
-      },
-      "motion": {
-        "patterns": [
-          "ページ遷移時の控えめなフェードイン",
-          "インタラクティブ要素のスムーズなホバーステート"
-        ]
-      },
-      "interaction": {
-        "hover": "インタラクティブ要素に対する、控えめな色の変化や透明度の変化",
-        "click": "わずかなスケールや色の変化による、即座の視覚フィードバック",
-        "transition": "CSSトランジションを用いた、状態間のスムーズな遷移",
-        "keyboard": "フォーカス状態を明確に表示した、フルキーボードナビゲーションサポート"
-      },
-      "voice": {
-        "tone": "プロフェッショナル、テクニカル、そして自信に満ちたトーン",
-        "headlineStyle": "明確なバリュー・プロポジションを提示する、直接的でベネフィット重視のスタイル",
-        "ctaStyle": "「Get Started」「Try Now」「Learn More」のような、アクションを促す動詞",
-        "avoid": [
-          "専門用語の乱用",
-          "過度にカジュアルな言葉遣い",
-          "根拠のない曖昧な主張"
-        ]
-      },
-      "donts": [
-        "複雑なグラデーションを使用しない — スクリーンショットではソリッドカラーと控えめな透明度が示されています",
-        "あらゆる場所に角丸を使用しない — スクリーンショットではborder-radiusの使用が制限されています",
-        "濃いシャドウを使用しない — スクリーンショットでは最小限のlevationのフラットなサーフェスが示されています",
-        "複数のアクセントカラーを使用しない — スクリーンショットでは全体を通してブルーアクセントが1色のみです",
-        "セリフフォントを使用しない — スクリーンショットでは一貫してサンセリフタイポグラフィが使用されています",
-        "詰まったレイアウトを作らない — スクリーンショットではたっぷりの余白と呼吸の余地が確保されています"
-      ],
-      "systemPrompt": "Together.aiは、開発者向けの高性能AIプラットフォームです。ディープブルーでアクセントを加えたニュートラルなカラーパレットを持つ、クリーンでプロフェッショナルなインターフェースを特徴としています。デザインは明瞭性と可読性のために幾何学的サンセリフタイポグラフィを採用し、12カラムグリッドレイアウトが構造を提供しています。主要なカラーには、白の背景、ダークグレーテキスト、そして特徴的なブルーアクセントが含まれます。重要なデザイン原則には、たっぷりとした余白、控えめなホバーインタラクション、タイポグラフィのスケールによる視覚的階層の維持が挙げられます。インターフェースは視覚的な雑然さを避け、コンテンツと機能に焦点を維持するために最小限のシャドウとボーダーを使用しています。全体的な審美性は、AIアプリケーションを構築する開発者にとっても親しみやすい技術的な洗練さを伝えています。"
-    },
-    "ko": {
-      "identity": {
-        "keywords": [
-          "AI 플랫폼",
-          "개발자 도구",
-          "머신 러닝",
-          "클라우드 컴퓨팅",
-          "API"
-        ],
-        "analogy": "AI 모델을 구축하기 위한 매끈하고 현대적인 실험실",
-        "oneLiner": "AI 모델을 구축, 학습 및 배포하기 위한 고성능 플랫폼."
-      },
-      "colors": {
-        "principle": "브랜드 아이덴티티를 위한 단일 딥 블루 강조색으로 구성된 깨끗하고 중립적인 팔레트"
-      },
-      "typography": {
-        "rules": [
-          "모든 기본 텍스트에 기하학적 sans-serif를 사용합니다",
-          "디스플레이 텍스트에는 타이트한 자간을 유지합니다",
-          "코드 스니펫 및 기술 참조에는 monospace를 사용합니다"
-        ],
-        "scaleUses": [
-          "메인 헤드라인 및 히어로 텍스트"
-        ]
-      },
-      "spacing": {
-        "rhythm": "일관된 수직 간격을 위한 8px 기본 그리드"
-      },
-      "surfaces": {
-        "shadows": [],
-        "borders": "1px solid rgba(0, 0, 0, 0.1)"
-      },
-      "layout": {
-        "skeleton": "풍부한 여백을 둔 중앙 정렬 단일 열 레이아웃"
-      },
-      "components": {
-        "button": "둥근 모서리를 가진 단단한 채워진 버튼, 기본값은 강조색을 사용합니다",
-        "card": "미세한 테두리와 최소한의 그림자를 가진 간단한 흰색 카드",
-        "chip": "카테고리 또는 레이블용의 작은 둥근 태그",
-        "input": "미세한 테두리와 둥근 모서리를 가진 깨끗한 입력 필드",
-        "hero": "큰 타이포그래피와 최소한의 이미지를 사용한 중앙 정렬 히어로 섹션"
-      },
-      "motion": {
-        "patterns": [
-          "페이지 전환 시 섬세한 fade-in",
-          "인터랙티브 요소에서의 부드러운 hover 상태"
-        ]
-      },
-      "interaction": {
-        "hover": "인터랙티브 요소에서의 섬세한 색상 변화 또는 불투명도 변경",
-        "click": "약간의 크기 또는 색상 변화로 즉각적인 시각적 피드백",
-        "transition": "CSS 전환을 사용한 상태 간 부드러운 전환",
-        "keyboard": "눈에 보이는 focus 상태를 포함한 완전한 키보드 내비게이션 지원"
-      },
-      "voice": {
-        "tone": "전문적이고, 기술적이며, 자신감 있는",
-        "headlineStyle": "명확한 가치 제안을 포함한 직접적이고 혜택 중심적인",
-        "ctaStyle": "'Get Started', 'Try Now', 'Learn More'와 같은 행동 지향적 동사",
-        "avoid": [
-          "전문 용어 과다 사용",
-          "지나치게 캐주얼한 언어",
-          "근거 없는 모호한 주장"
-        ]
-      },
-      "donts": [
-        "복잡한 gradient를 사용하지 마세요 — 스크린샷은 단색과 미세한 투명도를 보여줍니다",
-        "모든 곳에 둥근 모서리를 사용하지 마세요 — 스크린샷은 절제된 border-radius 사용을 보여줍니다",
-        "무거운 그림자를 사용하지 마세요 — 스크린샷은 최소한의 높이감을 가진 평면 표면을 보여줍니다",
-        "여러 강조색을 사용하지 마세요 — 스크린샷은 전체적으로 단일 블루 강조색을 보여줍니다",
-        "세리프 글꼴을 사용하지 마세요 — 스크린샷은 일관된 sans-serif 타이포그래피를 보여줍니다",
-        "밀집된 레이아웃을 사용하지 마세요 — 스크린샷은 풍부한 여백과 여유 공간을 보여줍니다"
-      ],
-      "systemPrompt": "Together.ai는 개발자를 위한 고성능 AI 플랫폼으로, 딥 블루로 강조된 중립 팔레트를 사용한 깨끗하고 전문적인 인터페이스를 특징으로 합니다. 이 디자인은 명확성과 가독성을 위해 기하학적 sans-serif 타이포그래피를 사용하며, 12열 그리드 레이아웃으로 구조를 제공합니다. 주요 색상은 흰색 배경, 짙은 회색 텍스트 및 독특한 블루 강조색을 포함합니다. 중요한 디자인 원칙은 풍부한 여백, 섬세한 hover 상호작용 및 타이포그래피 스케일을 통한 시각적 계층 유지입니다. 인터페이스는 시각적 혼란을 피하고, 콘텐츠와 기능성에 집중하기 위해 최소한의 그림자와 테두리를 사용합니다. 전반적인 미학은 AI 애플리케이션을 구축하는 개발자들에게 기술적 정교함을 전달하면서도 접근 가능함을 유지합니다."
+      "easing": "cubic-bezier(0.215, 0.61, 0.355, 1)"
     }
   },
   "desc": {
     "en": {
-      "palette": "Clean neutral palette with white backgrounds, dark gray text, and a single deep blue accent color for brand identity.",
-      "layout": "Centered single-column layout with generous whitespace, 12-column grid system, and consistent 8px spacing rhythm.",
-      "interaction": "Subtle hover effects and smooth transitions with immediate feedback, maintaining professional polish.",
-      "motion": "Minimal motion with subtle fade-ins and smooth state transitions for a refined, unobtrusive experience.",
-      "notes": "Worth including as an example of a modern, clean SaaS design that balances technical sophistication with approachability for developer audiences."
+      "palette": "The palette is highly restrained, using a very light, cool-toned blue gradient background with solid black for text and buttons.",
+      "layout": "The layout is a clean, centered, single-column structure with generous spacing and a clear hierarchy.",
+      "interaction": "Interactions are subtle and professional, relying on smooth opacity and background-color transitions.",
+      "motion": "Motion is minimal and functional, using smooth cubic-bezier easing for state changes.",
+      "notes": "This site is a great example of a clean, professional SaaS aesthetic that prioritizes technical credibility over visual flair."
     },
     "zh-CN": {
       "palette": "纯净中性调色板，白色背景、深灰色文字，并以单一深蓝色作为品牌标识的点缀色。",
@@ -567,6 +221,408 @@
       "ch7_intro": "모션은 절제되고 목적 있게 사용됩니다—미세한 페이드 인이 페이지 전환을 표시하고, 부드러운 hover 상태가 상호작용 요소에 피드백을 제공합니다. 철학은 세련됨입니다: 워크플로우를 방해하지 않고 주의를 안내해야 합니다.",
       "ch8_intro": "에디토리얼 톤은 전문적이고 기술적이며 자신감 있어, 개발자에게 직접적으로 이점 중심의 헤드라인과 명확한 가치 제안으로 이야기합니다. 과도한 전문 용어와 모호한 주장을 피하고, 구체성과 증거를 선호합니다.",
       "ch8_outro": "의도적으로 빠진 것이 있는 그대로처럼 의미심장합니다: 복잡한 그라데이션, 무거운 그림자, 밀집된 레이아웃, 그리고 시스템의 핵심인 명확성을 해칠 수 있는 시각적 노이즈가 없습니다."
+    }
+  },
+  "spec_i18n": {
+    "en": {
+      "identity": {
+        "keywords": [
+          "AI native cloud",
+          "inference",
+          "research",
+          "infrastructure"
+        ],
+        "analogy": "A clean, technical lab for AI builders.",
+        "oneLiner": "A developer-first AI infrastructure platform with a clean, professional aesthetic and technical depth."
+      },
+      "colors": {
+        "principle": "High-contrast black text on a very light, cool-toned blue gradient background."
+      },
+      "typography": {
+        "rules": [
+          "Headlines use 'The Future', a humanist sans-serif.",
+          "Body text uses 'The Future'.",
+          "Technical labels and buttons use 'PP Neue Montreal Mono', a geometric monospace.",
+          "Buttons and tags use uppercase with wide letter spacing."
+        ],
+        "scaleUses": [
+          "Hero headline",
+          "Section headlines",
+          "Body text",
+          "Uppercase technical labels"
+        ]
+      },
+      "spacing": {
+        "rhythm": "Standard 4px base grid with generous spacing for large sections."
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(1, 1, 32, 0.1) 0px 4px 10px 0px",
+          "rgba(1, 1, 32, 0.1) -10px 0px 75px 0px"
+        ],
+        "borders": "Subtle 1px borders using rgba(0,0,0,0.04)."
+      },
+      "layout": {
+        "skeleton": "A centered, single-column layout with wide margins and a full-width gradient background."
+      },
+      "components": {
+        "button": "Solid black primary button with white monospace text; white or transparent secondary button with black border.",
+        "card": "Large photo cards with a dark gradient overlay for text and rounded corners.",
+        "chip": "Small uppercase monospace tags with a subtle border and rounded corners.",
+        "input": "Clean, minimalist inputs with subtle borders.",
+        "hero": "Large split layout with bold headline on the left and a 3D illustration on the right."
+      },
+      "motion": {
+        "patterns": [
+          "Smooth background-color and opacity transitions on hover.",
+          "Subtle transform effects on interactive elements."
+        ]
+      },
+      "interaction": {
+        "hover": "Background color change or subtle transform.",
+        "click": "Standard press effect.",
+        "transition": "0.3s to 0.45s transitions using cubic-bezier(0.215, 0.61, 0.355, 1).",
+        "keyboard": "Standard focus rings."
+      },
+      "voice": {
+        "tone": "Confident, technical, and authoritative.",
+        "headlineStyle": "Short, punchy, and aspirational, often using bold typography.",
+        "ctaStyle": "Direct and action-oriented, using uppercase monospace text.",
+        "avoid": [
+          "Vague marketing jargon.",
+          "Overly complex sentences.",
+          "Cluttered or noisy layouts."
+        ]
+      },
+      "donts": [
+        "Don't use multiple high-chroma accent colors — the palette is strictly black, white, and a light blue gradient.",
+        "Don't use serif fonts — the entire site uses sans-serif and monospace categories.",
+        "Don't use rounded pill shapes for large buttons — they use a small 4px border radius.",
+        "Don't use heavy drop shadows — shadows are very subtle and use a low-opacity dark blue.",
+        "Don't use bright, saturated background colors — the background is a very light, desaturated blue.",
+        "Don't use centered text for the main hero — the primary content is left-aligned."
+      ],
+      "systemPrompt": "Together AI is a developer-focused AI infrastructure platform. The design is clean, professional, and technically oriented. The color palette is extremely restrained, featuring a light, cool-toned blue gradient background (#F6FAFD), solid black ink (#000000), and white. Typography uses a humanist sans-serif for headlines and body, and a geometric monospace for technical labels and buttons. The layout is spacious with a centered container and generous padding. Interactions are smooth with subtle transitions. Critical donts: Do not use high-chroma accent colors, as the palette is strictly black and white with a light blue gradient. Do not use serif fonts, as the design is strictly sans-serif and monospace. Do not use heavy shadows or complex textures, as the aesthetic is clean and minimal. Always use uppercase monospace for buttons and technical tags."
+    },
+    "zh-CN": {
+      "identity": {
+        "keywords": [
+          "AI原生云",
+          "推理",
+          "研究",
+          "基础设施"
+        ],
+        "analogy": "一个为AI构建者打造的、洁净且充满技术感的实验室。",
+        "oneLiner": "一个面向开发者的AI基础设施平台，兼具洁净、专业的美学与技术深度。"
+      },
+      "colors": {
+        "principle": "在非常浅、冷色调的蓝色渐变背景上，使用高对比度的黑色文本。"
+      },
+      "typography": {
+        "rules": [
+          "标题使用'The Future'，一款人文无衬线字体。",
+          "正文使用'The Future'。",
+          "技术标签和按钮使用'PP Neue Montreal Mono'，一款几何等宽字体。",
+          "按钮和标签使用大写字母，并带有宽松的字间距。"
+        ],
+        "scaleUses": [
+          "主标题",
+          "章节标题",
+          "正文文本",
+          "大写技术标签"
+        ]
+      },
+      "spacing": {
+        "rhythm": "标准4px基础网格，为大型版块提供宽松的间距。"
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(1, 1, 32, 0.1) 0px 4px 10px 0px",
+          "rgba(1, 1, 32, 0.1) -10px 0px 75px 0px"
+        ],
+        "borders": "使用rgba(0,0,0,0.04)的微妙1px边框。"
+      },
+      "layout": {
+        "skeleton": "居中的单栏布局，具有宽边距和全宽渐变背景。"
+      },
+      "components": {
+        "button": "实心黑色主按钮，配白色等宽文本；白色或透明次按钮，配黑色边框。",
+        "card": "大型图片卡片，带有深色渐变覆盖层以承载文本，并采用圆角设计。",
+        "chip": "小型大写等宽标签，带有微妙边框和圆角。",
+        "input": "洁净、极简的输入框，带有微妙边框。",
+        "hero": "大型分割布局，左侧为加粗标题，右侧为3D插图。"
+      },
+      "motion": {
+        "patterns": [
+          "hover时平滑的background-color和opacity过渡。",
+          "交互元素上的微妙transform效果。"
+        ]
+      },
+      "interaction": {
+        "hover": "背景色变化或微妙的transform。",
+        "click": "标准的按压效果。",
+        "transition": "0.3s至0.45s的过渡，使用cubic-bezier(0.215, 0.61, 0.355, 1)。",
+        "keyboard": "标准的focus环。"
+      },
+      "voice": {
+        "tone": "自信、技术化且权威。",
+        "headlineStyle": "简短、有力且富有抱负，通常使用加粗排版。",
+        "ctaStyle": "直接且以行动为导向，使用大写等宽文本。",
+        "avoid": [
+          "模糊的营销术语。",
+          "过于复杂的句子。",
+          "杂乱或嘈杂的布局。"
+        ]
+      },
+      "donts": [
+        "不要使用多种高饱和度的强调色——调色板严格限定为黑色、白色和浅蓝色渐变。",
+        "不要使用衬线字体——整个网站使用无衬线字体和等宽字体类别。",
+        "不要为大型按钮使用圆润的药丸形状——它们使用小的4px圆角。",
+        "不要使用浓重的投影——阴影非常微妙，并使用低透明度的深蓝色。",
+        "不要使用明亮、饱和的背景色——背景是非常浅、低饱和度的蓝色。",
+        "不要为主标题使用居中文本——主要采用左对齐。"
+      ],
+      "systemPrompt": "Together AI 是一个面向开发者的AI基础设施平台。设计洁净、专业且技术导向。调色板极其克制，以浅色、冷色调的蓝色渐变背景（#F6FAFD）、纯黑墨色（#000000）和白色为特色。排版方面，标题和正文使用人文无衬线字体，技术标签和按钮使用几何等宽字体。布局宽敞，具有居中的容器和充足的内边距。交互流畅，过渡微妙。关键禁忌：不要使用高饱和度的强调色，因为调色板严格限定为黑白配浅蓝色渐变。不要使用衬线字体，因为设计严格采用无衬线和等宽字体。不要使用浓重的阴影或复杂的纹理，因为美学风格是洁净极简的。按钮和技术标签始终使用大写等宽字体。"
+    },
+    "zh-TW": {
+      "identity": {
+        "keywords": [
+          "AI 原生雲端",
+          "推理",
+          "研究",
+          "基礎架構"
+        ],
+        "analogy": "一個為 AI 開發者打造的簡潔技術實驗室。",
+        "oneLiner": "一個以開發者為先的 AI 基礎架構平台，擁有簡潔、專業的美學與技術深度。"
+      },
+      "colors": {
+        "principle": "在非常淺的冷色調藍色漸層背景上，使用高對比度的黑色文字。"
+      },
+      "typography": {
+        "rules": [
+          "標題使用 'The Future'，一種人文主義無襯線字體。",
+          "內文使用 'The Future'。",
+          "技術標籤和按鈕使用 'PP Neue Montreal Mono'，一種幾何等寬字體。",
+          "按鈕和標籤使用大寫字母並加寬字距。"
+        ],
+        "scaleUses": [
+          "首頁標題",
+          "區塊標題",
+          "內文",
+          "大寫技術標籤"
+        ]
+      },
+      "spacing": {
+        "rhythm": "標準的 4px 基礎網格，為大型區塊保留充足間距。"
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(1, 1, 32, 0.1) 0px 4px 10px 0px",
+          "rgba(1, 1, 32, 0.1) -10px 0px 75px 0px"
+        ],
+        "borders": "使用 rgba(0,0,0,0.04) 的細微 1px 邊框。"
+      },
+      "layout": {
+        "skeleton": "置中的單欄佈局，帶有寬邊距和全寬漸層背景。"
+      },
+      "components": {
+        "button": "實心黑色主按鈕搭配白色等寬字體文字；白色或透明的次要按鈕搭配黑色邊框。",
+        "card": "帶有深色漸層疊加文字的大型圖片卡片，並採用圓角設計。",
+        "chip": "小型大寫等寬字體標籤，帶有細微邊框和圓角。",
+        "input": "簡潔、極簡的輸入框，帶有細微邊框。",
+        "hero": "大型分割佈局，左側為粗體標題，右側為 3D 插圖。"
+      },
+      "motion": {
+        "patterns": [
+          "hover 時背景顏色與透明度的平滑過渡。",
+          "互動元素上的細微變換效果。"
+        ]
+      },
+      "interaction": {
+        "hover": "背景顏色改變或細微變換。",
+        "click": "標準按壓效果。",
+        "transition": "使用 cubic-bezier(0.215, 0.61, 0.355, 1) 的 0.3 秒至 0.45 秒過渡。",
+        "keyboard": "標準的 focus 框。"
+      },
+      "voice": {
+        "tone": "自信、技術性且具權威感。",
+        "headlineStyle": "簡短、有力且具啟發性，常使用粗體字型。",
+        "ctaStyle": "直接且以行動為導向，使用大寫等寬字體文字。",
+        "avoid": [
+          "模糊的行銷術語。",
+          "過於複雜的句子。",
+          "雜亂或嘈雜的佈局。"
+        ]
+      },
+      "donts": [
+        "不要使用多種高飽和度的強調色——調色盤嚴格限定為黑色、白色和淺藍色漸層。",
+        "不要使用襯線字體——整個網站使用無襯線和等寬字體類別。",
+        "不要為大型按鈕使用圓潤的藥丸形狀——它們使用小的 4px 圓角。",
+        "不要使用厚重的陰影——陰影非常細微，並使用低不透明度的深藍色。",
+        "不要使用明亮、飽和的背景顏色——背景是非常淺的、低飽和度的藍色。",
+        "不要為主要首頁區塊使用置中文字——主要內容為左對齊。"
+      ],
+      "systemPrompt": "Together AI 是一個以開發者為中心的 AI 基礎架構平台。設計簡潔、專業且以技術為導向。調色盤極度克制，包含淺的冷色調藍色漸層背景 (#F6FAFD)、實心黑色墨水 (#000000) 和白色。字型使用人文主義無襯線字體作為標題和內文，並使用幾何等寬字體作為技術標籤和按鈕。佈局寬敞，帶有置中的容器和充足的內距。互動流暢，帶有細微過渡。關鍵禁止事項：不要使用高飽和度的強調色，因為調色盤嚴格限定為黑色和白色搭配淺藍色漸層。不要使用襯線字體，因為設計嚴格使用無襯線和等寬字體。不要使用厚重的陰影或複雜的紋理，因為美學是簡潔和極簡的。按鈕和技術標籤始終使用大寫等寬字體。"
+    },
+    "ja": {
+      "identity": {
+        "keywords": [
+          "AI ネイティブ クラウド",
+          "推論",
+          "研究",
+          "インフラストラクチャ"
+        ],
+        "analogy": "AI ビルダーのための、クリーンで技術的なラボ。",
+        "oneLiner": "クリーンでプロフェッショナルな美学と技術的深みを持つ、開発者ファーストの AI インフラストラクチャ プラットフォーム。"
+      },
+      "colors": {
+        "principle": "非常に明るく、クールトーンの青いグラデーション背景に、ハイコントラストの黒いテキスト。"
+      },
+      "typography": {
+        "rules": [
+          "見出しにはヒューマニストサンセリフの『The Future』を使用。",
+          "本文にも『The Future』を使用。",
+          "技術ラベルやボタンには幾何学的モノスペースの『PP Neue Montreal Mono』を使用。",
+          "ボタンとタグには大文字と広い字間隔を使用。"
+        ],
+        "scaleUses": [
+          "ヒーロー見出し",
+          "セクション見出し",
+          "本文",
+          "大文字の技術ラベル"
+        ]
+      },
+      "spacing": {
+        "rhythm": "標準の 4px ベースグリッドを採用し、大きなセクションには寛裕なスペーシングを設定。"
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(1, 1, 32, 0.1) 0px 4px 10px 0px",
+          "rgba(1, 1, 32, 0.1) -10px 0px 75px 0px"
+        ],
+        "borders": "rgba(0,0,0,0.04) を使用した、繊細な 1px のボーダー。"
+      },
+      "layout": {
+        "skeleton": "中央揃えの単一カラム レイアウトで、広いマージンとフルワイドのグラデーション背景を採用。"
+      },
+      "components": {
+        "button": "白色モノスペース テキストの塗りつぶし黒のプライマリボタン、黒いボーダーを持つ白色または透明のセカンダリボタン。",
+        "card": "角丸の大きな写真カードで、テキスト用に暗いグラデーション オーバーレイを適用。",
+        "chip": "繊細なボーダーと角丸を持つ、小文字の大文字のモノスペース タグ。",
+        "input": "クリーンでミニマリスティブな入力フィールドで、繊細なボーダーを適用。",
+        "hero": "左に太字の見出し、右に 3D イラストを配置した、大きな分割レイアウト。"
+      },
+      "motion": {
+        "patterns": [
+          "hover 時の、スムーズな背景色と不透明度の遷移。",
+          "インタラクティブ要素への、繊細な transform エフェクト。"
+        ]
+      },
+      "interaction": {
+        "hover": "背景色の変更または繊細な transform。",
+        "click": "標準的な押下エフェクト。",
+        "transition": "cubic-bezier(0.215, 0.61, 0.355, 1) を使用した 0.3 秒から 0.45 秒の遷移。",
+        "keyboard": "標準的な focus リング。"
+      },
+      "voice": {
+        "tone": "自信に満ち、技術的で、権威のあるトーン。",
+        "headlineStyle": "短く、力強く、抱負を語るようなスタイル。太字のタイポグラフィを多用。",
+        "ctaStyle": "直接的で行動を促すスタイル。大文字のモノスペース テキストを使用。",
+        "avoid": [
+          "曖昧なマーケティング ジャンク。",
+          "過度に複雑な文章。",
+          "雑然とした、騒がしいレイアウト。"
+        ]
+      },
+      "donts": [
+        "複数のハイクロマ アクセントカラーを使用しない — パレットは厳密に黒、白、および明るい青のグラデーションで構成。",
+        "セリフフォントを使用しない — サイト全体でサンセリフとモノスペースのカテゴリを使用。",
+        "大きなボタンに丸みのあるピル形状を使用しない — 4px の small border-radius を使用。",
+        "濃いドロップシャドウを使用しない — シャドウは非常に繊細で、低不透明度のダーク ブルーを使用。",
+        "明るく、彩度の高い背景色を使用しない — 背景は非常に明るく、彩度の低いブルー。",
+        "メインのヒーローにセンタリングされたテキストを使用しない — 主要コンテンツは左揃え。"
+      ],
+      "systemPrompt": "Together AI は、開発者を焦点に当てた AI インフラストラクチャ プラットフォームです。デザインはクリーンで、プロフェッショナルかつ技術志向です。カラーパレットは極めて抑制されており、明るいクールトーンの青グラデーション背景 (#F6FAFD)、純黒のインク (#000000)、および白を特徴としています。タイポグラフィでは、見出しと本文にヒューマニストサンセリフを、技術ラベルとボタンに幾何学的モノスペースを使用しています。レイアウトはゆったりとしており、中央揃えのコンテナと寛裕なパディングを採用。インタラクションはスムーズで、繊細な遷移を実現。重要な禁止事項: パレットが厳密に黒と白、および明るい青グラデーションで構成されるため、ハイクロマのアクセントカラーは使用しない。デザインが厳密にサンセリフとモノスペースで構成されるため、セリフフォントは使用しない。美学がクリーンでミニマリスティブであるため、濃いシャドウや複雑なテクスチャは使用しない。ボタンと技術タグには常に大文字のモノスペースを使用。"
+    },
+    "ko": {
+      "identity": {
+        "keywords": [
+          "AI 네이티브 클라우드",
+          "추론",
+          "연구",
+          "인프라"
+        ],
+        "analogy": "AI 빌더를 위한 깔끔한 기술 연구실.",
+        "oneLiner": "깔끔하고 전문적인 미학과 기술적 깊이를 갖춘 개발자 중심 AI 인프라 플랫폼."
+      },
+      "colors": {
+        "principle": "매우 밝고 차가운 톤의 블루 그라데이션 배경에 높은 대비의 검은색 텍스트."
+      },
+      "typography": {
+        "rules": [
+          "제목은 'The Future' humanist-sans-serif를 사용합니다.",
+          "본문은 'The Future'를 사용합니다.",
+          "기술 레이블과 버튼은 기하학적 모노스페이스인 'PP Neue Montreal Mono'를 사용합니다.",
+          "버튼과 태그는 넓은 자간의 대문자를 사용합니다."
+        ],
+        "scaleUses": [
+          "히어로 제목",
+          "섹션 제목",
+          "본문",
+          "대문자 기술 레이블"
+        ]
+      },
+      "spacing": {
+        "rhythm": "표준 4px 기본 그리드를 사용하되, 큰 섹션에는 넉넉한 간격을 둡니다."
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(1, 1, 32, 0.1) 0px 4px 10px 0px",
+          "rgba(1, 1, 32, 0.1) -10px 0px 75px 0px"
+        ],
+        "borders": "rgba(0,0,0,0.04)를 사용한 섬세한 1px 테두리."
+      },
+      "layout": {
+        "skeleton": "폭넓은 마진과 전체 폭 그라데이션 배경을 가진 중앙 정렬 단일 열 레이아웃."
+      },
+      "components": {
+        "button": "흰색 모노스페이스 텍스트가 있는 검은색 단색 기본 버튼; 검은색 테두리가 있는 흰색 또는 투명한 보조 버튼.",
+        "card": "텍스트용 어두운 그라데이션 오버레이와 둥근 모서리가 있는 큰 사진 카드.",
+        "chip": "섬세한 테두리와 둥근 모서리가 있는 소형 대문자 모노스페이스 태그.",
+        "input": "섬세한 테두리가 있는 깔끔하고 미니멀한 입력 필드.",
+        "hero": "왼쪽에 굵은 제목, 오른쪽에 3D 일러스트레이션이 있는 큰 분할 레이아웃."
+      },
+      "motion": {
+        "patterns": [
+          "hover 시 부드러운 배경색 및 불투명도 전환.",
+          "인터랙티브 요소에 미세한 transform 효과."
+        ]
+      },
+      "interaction": {
+        "hover": "배경색 변경 또는 미세한 transform.",
+        "click": "표준 프레스 효과.",
+        "transition": "cubic-bezier(0.215, 0.61, 0.355, 1)를 사용한 0.3초~0.45초 전환.",
+        "keyboard": "표준 focus 링."
+      },
+      "voice": {
+        "tone": "자신감 있고 기술적이며 권위 있는 어조.",
+        "headlineStyle": "굵은 타이포그래피를 자주 사용하는 짧고 강렬하며 영감을 주는 제목.",
+        "ctaStyle": "대문자 모노스페이스 텍스트를 사용하는 직접적이고 행동 지향적인 CTA.",
+        "avoid": [
+          "모호한 마케팅 용어.",
+          "지나치게 복잡한 문장.",
+          "지저분하거나 소란스러운 레이아웃."
+        ]
+      },
+      "donts": [
+        "고채도 강조 색상을 여러 개 사용하지 마세요. 팔레트는 검정, 흰색, 그리고 밝은 블루 그라데이션으로 엄격하게 제한됩니다.",
+        "세리프 폰트를 사용하지 마세요. 전체 사이트는 humanist-sans-serif와 monospace 계열을 사용합니다.",
+        "큰 버튼에 둥근 필 모양을 사용하지 마세요. 4px의 작은 border-radius를 사용합니다.",
+        "무거운 드롭 섀도우를 사용하지 마세요. 섀도우는 매우 미세하며 저opacity 다크 블루를 사용합니다.",
+        "밝고 채도 높은 배경색을 사용하지 마세요. 배경은 매우 밝고 무채도 블루입니다.",
+        "메인 히어로에 중앙 정렬 텍스트를 사용하지 마세요. 주요 콘텐츠는 왼쪽 정렬입니다."
+      ],
+      "systemPrompt": "Together AI는 개발자 중심 AI 인프라 플랫폼입니다. 디자인은 깔끔하고 전문적이며 기술 지향적입니다. 팔레트는 매우 절제되어 밝고 차가운 톤의 블루 그라데이션 배경(#F6FAFD), 단색 검정(#000000), 그리고 흰색을 특징으로 합니다. 타이포그래피는 제목과 본문에 humanist-sans-serif를, 기술 레이블과 버튼에 geometric monospace를 사용합니다. 레이아웃은 중앙 정렬 컨테이너와 넉넉한 padding을 가진 여백이 넓은 공간을 제공합니다. 인터랙션은 미세한 전환으로 부드럽게 작동합니다. 중요한 제약사항: 고채도 강조 색상을 사용하지 마세요. 팔레트는 밝은 블루 그라데이션과 함께 검정, 흰색으로 엄격하게 제한됩니다. 세리프 폰트를 사용하지 마세요. 디자인은 엄격하게 humanist-sans-serif와 monospace입니다. 무거운 그림자나 복잡한 질감을 사용하지 마세요. 미학은 깔끔하고 미니멀합니다. 버튼과 기술 태그에는 항상 대문자 모노스페이스를 사용합니다."
     }
   }
 }

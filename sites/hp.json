@@ -17,51 +17,60 @@
   "_meta": {
     "vision_model": "mimo-v2.5",
     "vision_prompt_version": "0.3",
-    "vision_at": "2026-05-28T21:36:12+00:00",
-    "vision_tokens": 3294,
-    "vision_cost_usd": 0.0366,
+    "vision_at": "2026-05-30T16:37:43+00:00",
+    "vision_tokens": 16085,
+    "vision_cost_usd": 0.1787,
     "translation_model": "mimo-v2.5",
-    "translation_at": "2026-05-28T21:37:09+00:00",
-    "translation_tokens": 15550,
-    "translation_cost_usd": 0.0518,
+    "translation_at": "2026-05-30T16:38:30+00:00",
+    "translation_tokens": 24905,
+    "translation_cost_usd": 0.083,
     "narrative_model": "mimo-v2.5",
     "narrative_prompt_version": "0.3",
     "narrative_at": "2026-05-28T21:37:17+00:00",
     "narrative_tokens": 1899,
     "narrative_cost_usd": 0.0127,
     "narrative_status": "ok",
-    "total_cost_usd": 0.1011
+    "total_cost_usd": 0.2744,
+    "vision_source": "playwright-extract:hp",
+    "vision_grounded": true
   },
   "spec": {
     "colors": {
       "bg": "#FFFFFF",
-      "bgSoft": null,
-      "bgQuiet": null,
-      "ink": "#1A1A1A",
-      "inkSoft": null,
-      "muted": "#666666",
+      "bgSoft": "#F7F7F9",
+      "bgQuiet": "#FAFAFA",
+      "ink": "#000000",
+      "inkSoft": "#191919",
+      "muted": "#1A1A1A",
       "mutedSoft": null,
-      "accent": "#0096D6",
+      "accent": "#007BFF",
       "line": "rgba(0,0,0,0.1)"
     },
     "typography": {
       "display": "geometric-sans",
       "body": "geometric-sans",
-      "mono": null,
+      "mono": "monospace",
       "scale": [
         {
           "token": "display",
-          "size": 48,
-          "lh": 1.0,
+          "size": 50,
+          "lh": 1.04,
           "weight": 500,
           "ls": "-0.5px"
         },
         {
-          "token": "headline",
-          "size": 32,
-          "lh": 1.2,
-          "weight": 500,
-          "ls": "-0.25px"
+          "token": "body",
+          "size": 16,
+          "lh": 1.375,
+          "weight": 400,
+          "ls": "0"
+        },
+        {
+          "token": "caption",
+          "size": 12,
+          "lh": 1.33,
+          "weight": 400,
+          "ls": "0"
         }
       ]
     },
@@ -71,23 +80,24 @@
         4,
         8,
         16,
+        20,
         24,
         32,
+        40,
         48,
-        64,
-        96
+        64
       ]
     },
     "surfaces": {
       "radius": {
         "sm": 4,
         "md": 8,
-        "lg": 12,
-        "pill": 999
+        "lg": 10,
+        "pill": 1000
       }
     },
     "layout": {
-      "container": 1280,
+      "container": 1440,
       "paragraph": 680,
       "columns": 12,
       "gutter": 24,
@@ -98,407 +108,20 @@
     },
     "motion": {
       "durations": {
-        "micro": 220,
-        "small": 400,
-        "medium": 800
+        "micro": 100,
+        "small": 200,
+        "medium": 300
       },
-      "easing": "cubic-bezier(0.4, 0, 0.2, 1)"
-    }
-  },
-  "spec_i18n": {
-    "en": {
-      "identity": {
-        "keywords": [
-          "Technology",
-          "Corporate",
-          "Reliable",
-          "Professional",
-          "Global"
-        ],
-        "analogy": "A dependable enterprise hardware provider",
-        "oneLiner": "A clean, corporate e-commerce interface for a global technology brand"
-      },
-      "colors": {
-        "principle": "High-contrast corporate clarity with a single dominant brand blue accent"
-      },
-      "typography": {
-        "rules": [
-          "Geometric sans-serif used across all typography",
-          "Headlines are sentence case",
-          "Weights range from regular to semi-bold"
-        ],
-        "scaleUses": [
-          "Main headline 'Memoria'",
-          "Section headers like 'Our Products'"
-        ]
-      },
-      "spacing": {
-        "rhythm": "Standard 4px base unit with generous section spacing"
-      },
-      "surfaces": {
-        "shadows": [
-          "0 2px 8px rgba(0,0,0,0.08)"
-        ],
-        "borders": "1px solid rgba(0,0,0,0.1)"
-      },
-      "layout": {
-        "skeleton": "Standard grid with generous whitespace and clear product card layouts"
-      },
-      "components": {
-        "button": "Solid primary buttons with rounded corners and clear labels",
-        "card": "Product cards with thin borders, clean imagery, and bottom-aligned text",
-        "chip": null,
-        "input": "Standard text inputs with clear borders",
-        "hero": "Full-width hero with large typography, product imagery, and a clear call-to-action button"
-      },
-      "motion": {
-        "patterns": [
-          "Smooth page transitions",
-          "Subtle hover effects on interactive elements"
-        ]
-      },
-      "interaction": {
-        "hover": "Subtle color or opacity change on interactive elements",
-        "click": "Visual feedback through color change",
-        "transition": "Smooth transitions on hover and focus states",
-        "keyboard": "Standard tab navigation with visible focus indicators"
-      },
-      "voice": {
-        "tone": "Professional, helpful, and straightforward",
-        "headlineStyle": "Clear, benefit-driven statements with a focus on savings and features",
-        "ctaStyle": "Direct and action-oriented, such as 'Shop' or 'Accept'",
-        "avoid": [
-          "Overly casual language",
-          "Excessive exclamation marks",
-          "Complex jargon"
-        ]
-      },
-      "donts": [
-        "don't use multiple competing accent colors — screenshot shows a single, dominant blue accent",
-        "don't use serif fonts for headlines — screenshot shows a geometric sans-serif throughout",
-        "don't use dark mode or dark backgrounds — screenshot shows a bright, white-based interface",
-        "don't use complex gradients or decorative textures — screenshot shows flat, solid color blocks",
-        "don't use playful or rounded decorative elements — screenshot shows sharp, professional edges",
-        "don't crowd the layout with too many elements — screenshot shows generous whitespace and clear hierarchy"
-      ],
-      "systemPrompt": "This is a clean, professional e-commerce interface for a global technology brand. The design is characterized by high contrast, a single dominant blue accent color, and a geometric sans-serif typeface. The layout is structured and predictable, prioritizing clarity and ease of navigation for a broad consumer and business audience. Critical donts: avoid multiple competing accent colors, serif fonts, dark mode, complex gradients, playful elements, and crowded layouts. The design maintains a corporate, trustworthy feel with clear product presentations and straightforward calls to action."
-    },
-    "zh-CN": {
-      "identity": {
-        "keywords": [
-          "科技",
-          "企业",
-          "可靠",
-          "专业",
-          "全球化"
-        ],
-        "analogy": "一个值得信赖的企业硬件供应商",
-        "oneLiner": "一个面向全球科技品牌的、简洁的企业电子商务界面"
-      },
-      "colors": {
-        "principle": "高对比度的企业清晰感，辅以一个主导的品牌蓝色调"
-      },
-      "typography": {
-        "rules": [
-          "所有文字排版均使用几何无衬线字体",
-          "标题采用句首字母大写",
-          "字重范围从常规到半粗体"
-        ],
-        "scaleUses": [
-          "主标题 'Memoria'",
-          "区域标题，如 'Our Products'"
-        ]
-      },
-      "spacing": {
-        "rhythm": "基于标准 4px 基础单位的节奏，区域间距充足"
-      },
-      "surfaces": {
-        "shadows": [
-          "0 2px 8px rgba(0,0,0,0.08)"
-        ],
-        "borders": "1px solid rgba(0,0,0,0.1)"
-      },
-      "layout": {
-        "skeleton": "标准网格布局，留白充足，产品卡片排布清晰"
-      },
-      "components": {
-        "button": "圆角、带清晰标签的纯色主按钮",
-        "card": "带有细边框、干净图像和底部对齐文字的产品卡片",
-        "chip": null,
-        "input": "带有清晰边框的标准文本输入框",
-        "hero": "全宽度首屏区域，配有大号字体、产品图像和明确的行动号召按钮"
-      },
-      "motion": {
-        "patterns": [
-          "平滑的页面过渡",
-          "交互元素上的细微 hover 效果"
-        ]
-      },
-      "interaction": {
-        "hover": "交互元素上细微的颜色或不透明度变化",
-        "click": "通过颜色变化提供视觉反馈",
-        "transition": "在 hover 和 focus 状态下平滑过渡",
-        "keyboard": "标准 Tab 键导航，带有可见的焦点指示器"
-      },
-      "voice": {
-        "tone": "专业、有帮助且直接",
-        "headlineStyle": "清晰、以利益为导向的陈述，聚焦于节省和功能",
-        "ctaStyle": "直接且以行动为导向，例如“购买”或“接受”",
-        "avoid": [
-          "过于随意的语言",
-          "过多的感叹号",
-          "复杂的行业术语"
-        ]
-      },
-      "donts": [
-        "不要使用多种相互竞争的强调色 —— 截图显示为一个主导的蓝色调",
-        "不要为标题使用衬线字体 —— 截图显示全文使用几何无衬线字体",
-        "不要使用深色模式或深色背景 —— 截图显示为明亮的、以白色为基础的界面",
-        "不要使用复杂的渐变或装饰性纹理 —— 截图显示为纯色色块",
-        "不要使用活泼或圆润的装饰元素 —— 截图显示为锐利、专业的边缘",
-        "不要在布局中挤入过多元素 —— 截图显示充足的留白和清晰的层级"
-      ],
-      "systemPrompt": "这是一个面向全球科技品牌的、简洁专业的电子商务界面。设计特点是高对比度、一个主导的蓝色强调色和几何无衬线字体。布局结构化且可预测，优先考虑面向广泛消费者和商业受众的清晰度和导航便捷性。关键禁忌：避免使用多种相互竞争的强调色、衬线字体、深色模式、复杂渐变、活泼元素和拥挤的布局。设计保持企业化、可信赖的感觉，产品展示清晰，行动号召直接明了。"
-    },
-    "zh-TW": {
-      "identity": {
-        "keywords": [
-          "科技",
-          "企業",
-          "可靠",
-          "專業",
-          "全球"
-        ],
-        "analogy": "一個可靠的企業級硬體供應商",
-        "oneLiner": "一個為全球科技品牌設計的簡潔、企業級電商介面"
-      },
-      "colors": {
-        "principle": "高對比度的企業級清晰感，搭配單一主導的品牌藍色強調"
-      },
-      "typography": {
-        "rules": [
-          "所有排版皆使用幾何無襯線字體",
-          "標題採用句首大寫格式",
-          "字重範圍從 regular 到 semi-bold"
-        ],
-        "scaleUses": [
-          "主標題 'Memoria'",
-          "段落標題，例如 'Our Products'"
-        ]
-      },
-      "spacing": {
-        "rhythm": "以標準 4px 為基準單位，搭配寬裕的段落間距"
-      },
-      "surfaces": {
-        "shadows": [
-          "0 2px 8px rgba(0,0,0,0.08)"
-        ],
-        "borders": "1px solid rgba(0,0,0,0.1)"
-      },
-      "layout": {
-        "skeleton": "標準網格佈局，具有寬裕的留白與清晰的產品卡片排版"
-      },
-      "components": {
-        "button": "實心主按鈕，採用圓角設計與清晰標籤",
-        "card": "產品卡片，具有細邊框、簡潔的圖片，以及底部對齊的文字",
-        "chip": null,
-        "input": "標準文字輸入框，具有清晰的邊框",
-        "hero": "全寬度首圖區域，搭配大字體、產品圖片，以及明確的行動呼籲按鈕"
-      },
-      "motion": {
-        "patterns": [
-          "流暢的頁面轉場",
-          "互動元素上的細微 hover 效果"
-        ]
-      },
-      "interaction": {
-        "hover": "互動元素上的細微顏色或透明度變化",
-        "click": "透過顏色變化提供視覺反饋",
-        "transition": "在 hover 與 focus 狀態下進行流暢轉場",
-        "keyboard": "標準 Tab 鍵導航，具有可見的焦點指示器"
-      },
-      "voice": {
-        "tone": "專業、 helpful 且直接",
-        "headlineStyle": "清晰、以效益為導向的陳述，強調節省與功能",
-        "ctaStyle": "直接且以行動為導向，例如 'Shop' 或 'Accept'",
-        "avoid": [
-          "過於隨意的語言",
-          "過多的驚嘆號",
-          "複雜的行話"
-        ]
-      },
-      "donts": [
-        "不要使用多種相互競爭的強調色——截圖顯示只有一個主導的藍色強調",
-        "不要使用襯線字體作為標題——截圖顯示全程使用幾何無襯線字體",
-        "不要使用深色模式或深色背景——截圖顯示明亮、以白色為基調的介面",
-        "不要使用複雜的漸層或裝飾性紋理——截圖顯示平整、純色的色塊",
-        "不要使用俏皮或圓潤的裝飾元素——截圖顯示銳利、專業的邊角",
-        "不要用太多元素擠滿佈局——截圖顯示寬裕的留白與清晰的層次"
-      ],
-      "systemPrompt": "這是一個為全球科技品牌設計的簡潔、專業電商介面。其設計特點在於高對比度、單一主導的藍色強調色，以及幾何無襯線字體。佈局結構化且可預期，優先考慮廣大消費者與商業受眾的清晰度與導航便利性。關鍵禁忌：避免使用多種相互競爭的強調色、襯線字體、深色模式、複雜漸層、俏皮元素以及擁擠的佈局。該設計保持企業級的、值得信賴的感覺，具有清晰的產品展示與直接的行動呼籲。"
-    },
-    "ja": {
-      "identity": {
-        "keywords": [
-          "テクノロジー",
-          "コーポレート",
-          "信頼性",
-          "プロフェッショナル",
-          "グローバル"
-        ],
-        "analogy": "信頼できるエンタープライズハードウェアプロバイダー",
-        "oneLiner": "グローバルテクノロジーブランド向けの、洗練されたコーポレートe-commerceインターフェース"
-      },
-      "colors": {
-        "principle": "単一の支配的なブランドブルーアクセントによる、ハイコントラストなコーポレートクリアリティ"
-      },
-      "typography": {
-        "rules": [
-          "すべてのタイポグラフィに幾何学的なサンセリフを使用",
-          "見出しはセンテンスケース",
-          "ウェイトはレギュラーからセミボールドの範囲"
-        ],
-        "scaleUses": [
-          "メイン見出し「Memoria」",
-          "「Our Products」のようなセクション見出し"
-        ]
-      },
-      "spacing": {
-        "rhythm": "十分なセクション間隔を持つ、標準4pxベースユニット"
-      },
-      "surfaces": {
-        "shadows": [
-          "0 2px 8px rgba(0,0,0,0.08)"
-        ],
-        "borders": "1px solid rgba(0,0,0,0.1)"
-      },
-      "layout": {
-        "skeleton": "十分な余白と明確な製品カードレイアウトを持つ標準グリッド"
-      },
-      "components": {
-        "button": "角丸で明確なラベルを持つソリッドプライマリボタン",
-        "card": "細いボーダー、クリーンなイメージ、下揃えテキストを持つ製品カード",
-        "chip": null,
-        "input": "明確なボーダーを持つ標準テキスト入力",
-        "hero": "大きなタイポグラフィ、製品イメージ、明確なCTAボタンを持つフル幅ヒーローセクション"
-      },
-      "motion": {
-        "patterns": [
-          "スムーズなページ遷移",
-          "インタラクティブ要素への控えめなhover効果"
-        ]
-      },
-      "interaction": {
-        "hover": "インタラクティブ要素への控えめな色や不透明度の変化",
-        "click": "色の変化による視覚的フィードバック",
-        "transition": "hoverおよびfocus状態におけるスムーズな遷移",
-        "keyboard": "明確なfocusインジケーターを持つ標準タブナビゲーション"
-      },
-      "voice": {
-        "tone": "プロフェッショナルで親切、かつ直截的",
-        "headlineStyle": "節約や機能に焦点を当てた、明確でメリット重視の表現",
-        "ctaStyle": "「購入する」や「同意する」のような、直接的でアクション指向の表現",
-        "avoid": [
-          "過度にカジュアルな言葉遣い",
-          "過度の感嘆符",
-          "複雑な専門用語"
-        ]
-      },
-      "donts": [
-        "複数の競合するアクセントカラーを使用しない — スクリーンショットでは単一の支配的なブルーアクセントが示されています",
-        "見出しにセリフフォントを使用しない — スクリーンショットでは全体的に幾何学的なサンセリフが使われています",
-        "ダークモードやダーク背景を使用しない — スクリーンショットでは明るい、白を基調としたインターフェースが示されています",
-        "複雑なグラデーションや装飾的なテクスチャを使用しない — スクリーンショットではフラットな単色ブロックが使われています",
-        "遊び心のある丸みのある装飾要素を使用しない — スクリーンショットでは鋭くプロフェッショナルなエッジが示されています",
-        "レイアウトに要素を詰め込みすぎない — スクリーンショットでは十分な余白と明確な階層が示されています"
-      ],
-      "systemPrompt": "これはグローバルテクノロジーブランド向けの、洗練されたプロフェッショナルなe-commerceインターフェースです。デザインはハイコントラスト、単一の支配的なブルーアクセントカラー、幾何学的なサンセリフタイポグラフィが特徴です。レイアウトは構造的で予測可能であり、幅広い消費者およびビジネス向け audience のための明確さとナビゲーションの容易さを優先しています。重要な禁止事項：複数の競合するアクセントカラー、セリフフォント、ダークモード、複雑なグラデーション、遊び心のある要素、詰め込まれたレイアウトは避けてください。デザインはコーポレートで信頼感のある雰囲気を保ち、明確な製品プレゼンテーションと直截的なCTAを提供します。"
-    },
-    "ko": {
-      "identity": {
-        "keywords": [
-          "기술",
-          "기업",
-          "신뢰할 수 있는",
-          "전문적인",
-          "글로벌"
-        ],
-        "analogy": "신뢰할 수 있는 기업 하드웨어 공급자",
-        "oneLiner": "글로벌 기술 브랜드를 위한 깨끗하고 기업적인 전자상거래 인터페이스"
-      },
-      "colors": {
-        "principle": "단일 지배적인 브랜드 블루 액센트가 특징인 고대비 기업 명확성"
-      },
-      "typography": {
-        "rules": [
-          "모든 타이포그래피에 기하학적 sans-serif 사용",
-          "제목은 문장 대소문자 사용",
-          "자간은 regular에서 semi-bold까지"
-        ],
-        "scaleUses": [
-          "메인 제목 'Memoria'",
-          "섹션 헤더('Our Products' 등)"
-        ]
-      },
-      "spacing": {
-        "rhythm": "풍부한 섹션 간격을 위한 표준 4px 기본 단위"
-      },
-      "surfaces": {
-        "shadows": [
-          "0 2px 8px rgba(0,0,0,0.08)"
-        ],
-        "borders": "1px solid rgba(0,0,0,0.1)"
-      },
-      "layout": {
-        "skeleton": "풍부한 여백과 명확한 제품 카드 레이아웃을 갖춘 표준 그리드"
-      },
-      "components": {
-        "button": "둥근 모서리와 명확한 레이블을 갖춘 단색 기본 버튼",
-        "card": "얇은 테두리, 깨끗한 이미지, 하단 정렬 텍스트를 갖춘 제품 카드",
-        "chip": null,
-        "input": "명확한 테두리가 있는 표준 텍스트 입력",
-        "hero": "대형 타이포그래피, 제품 이미지, 그리고 명확한 CTA 버튼이 있는 전체 너비 히어로"
-      },
-      "motion": {
-        "patterns": [
-          "부드러운 페이지 전환",
-          "인터랙티브 요소에 대한 미묘한 hover 효과"
-        ]
-      },
-      "interaction": {
-        "hover": "인터랙티브 요소에 대한 미묘한 색상 또는 불투명도 변경",
-        "click": "색상 변경을 통한 시각적 피드백",
-        "transition": "hover 및 focus 상태에서의 부드러운 전환",
-        "keyboard": "표준 탭 탐색 및 명확한 focus 표시기"
-      },
-      "voice": {
-        "tone": "전문적이고 도움이 되며 직관적인 어조",
-        "headlineStyle": "절약과 기능에 중점을 둔 명확하고 혜택 중심적인 문구",
-        "ctaStyle": "'Shop'이나 'Accept'와 같이 직접적이고 행동 지향적인 문구",
-        "avoid": [
-          "지나치게 캐주얼한 언어",
-          "과도한 느낌표",
-          "복잡한 전문 용어"
-        ]
-      },
-      "donts": [
-        "경쟁적인 액센트 색상을 여러 개 사용하지 마세요 — 스크린샷은 단일 지배적인 블루 액센트를 보여줍니다",
-        "제목에 serif 글꼴을 사용하지 마세요 — 스크린샷은 전체적으로 기하학적 sans-serif를 보여줍니다",
-        "다크 모드 또는 어두운 배경을 사용하지 마세요 — 스크린샷은 밝고 흰색 기반 인터페이스를 보여줍니다",
-        "복잡한 그래디언트나 장식적 질감을 사용하지 마세요 — 스크린샷은 플랫하고 단색 블록을 보여줍니다",
-        "장난스럽거나 둥근 장식 요소를 사용하지 마세요 — 스크린샷은 날렵하고 전문적인 가장자리를 보여줍니다",
-        "너무 많은 요소로 레이아웃을 복잡하게 하지 마세요 — 스크린샷은 풍부한 여백과 명확한 계층 구조를 보여줍니다"
-      ],
-      "systemPrompt": "이것은 글로벌 기술 브랜드를 위한 깨끗하고 전문적인 전자상거래 인터페이스입니다. 이 디자인은 고대비, 단일 지배적인 블루 액센트 색상, 그리고 기하학적 sans-serif 타이포그래피가 특징입니다. 레이아웃은 구조화되고 예측 가능하며, 광범위한 소비자 및 비즈니스 청중을 위해 명확성과 탐색 용이성을 우선시합니다. 중요한 주의 사항: 경쟁적인 액센트 색상, serif 글꼴, 다크 모드, 복잡한 그래디언트, 장난스러운 요소, 그리고 복잡한 레이아웃은 피해야 합니다. 이 디자인은 명확한 제품 프레젠테이션과 직관적인 CTA를 통해 기업적이고 신뢰할 수 있는 느낌을 유지합니다."
+      "easing": "linear"
     }
   },
   "desc": {
     "en": {
-      "palette": "A clean, high-contrast palette centered on white and black with a single, dominant corporate blue accent.",
-      "layout": "A structured, grid-based layout with generous whitespace, clear section divisions, and predictable component placement.",
-      "interaction": "Standard, predictable interactions focused on clarity, with subtle hover effects and clear visual feedback on interactive elements.",
-      "motion": "Subtle and functional motion design, primarily used for smooth transitions and minimal hover effects to avoid distraction.",
-      "notes": "A quintessential example of a corporate, hardware-focused e-commerce design that prioritizes clarity, trust, and straightforward product presentation."
+      "palette": "The palette is a high-contrast combination of pure white, deep black, and a single vibrant blue accent.",
+      "layout": "The layout uses a full-width, responsive structure with generous whitespace and diagonal image treatments.",
+      "interaction": "Interactions are subtle, relying on standard linear color and transform transitions.",
+      "motion": "Motion is minimal and functional, used primarily for UI state changes and carousel movements.",
+      "notes": "This site is a perfect example of restrained, professional e-commerce design for consumer hardware."
     },
     "zh-CN": {
       "palette": "一个简洁、高对比度的配色方案，以黑白为主，辅以一个主导的企业蓝色调。",
@@ -589,6 +212,403 @@
       "ch7_intro": "모션은 기능적인 미묘함을 가지고 적용되며, 화려함보다 명확성을 우선시합니다. 매끄러운 전환이 사용자를 상태 변경에 안내하고, hover 효과는 인터랙티브 요소에 조용하지만 즉각적인 피드백을 제공합니다.",
       "ch8_intro": "에디토리얼 어조는 전문적이고, 도움이 되며, 간결합니다. 명확하고 혜택 중심적인 헤드라인과 직접적이고 행동 지향적인 콜 투 액션을 선호하며, 캐주얼한 언어, 과도한 구두점, 복잡한 전문 용어는 피합니다.",
       "ch8_outro": "설계상 이 시스템은 다크 모드, 복잡한 그래디언트, 장난스러운 둥근 요소 또는 세리프 타이포그래피를 사용하지 않으며, 기업적 신뢰성이라는 핵심 정체성을 유지합니다."
+    }
+  },
+  "spec_i18n": {
+    "en": {
+      "identity": {
+        "keywords": [
+          "technology",
+          "innovation",
+          "reliability",
+          "professional",
+          "accessibility"
+        ],
+        "analogy": "A premium electronics retail showroom",
+        "oneLiner": "A clean, restrained global e-commerce site for consumer and business technology."
+      },
+      "colors": {
+        "principle": "High-contrast black and white anchored by a single bright blue action color."
+      },
+      "typography": {
+        "rules": [
+          "Primary font family is a geometric sans-serif.",
+          "Headlines use a medium weight (500) rather than bold.",
+          "Base font size is 16px with a 16px line height for secondary text."
+        ],
+        "scaleUses": [
+          "Hero headlines",
+          "Main content text",
+          "Secondary details and navigation"
+        ]
+      },
+      "spacing": {
+        "rhythm": "Flexible gaps based on a 4px grid with explicit 16px and 24px spacers."
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(0, 0, 0, 0) 0px 0px 10px 0px"
+        ],
+        "borders": "Minimal, mostly 1px solid black or blue outlines."
+      },
+      "layout": {
+        "skeleton": "Full-width hero sections with overlapping diagonal image treatments."
+      },
+      "components": {
+        "button": "Rectangular with sharp corners (0px radius) and solid blue fills or 1px blue outlines.",
+        "card": "Grid-based category cards with minimal borders and generous padding.",
+        "chip": "Standard text or icon buttons.",
+        "input": "Simple text fields with bottom borders or minimal outlines.",
+        "hero": "Split layout with dynamic diagonal image overlaps and large typography."
+      },
+      "motion": {
+        "patterns": [
+          "Color and background-color transitions (0.2s).",
+          "Transform transitions (0.4s) for carousel elements.",
+          "Width and max-height transitions (0.3s) for expanding menus."
+        ]
+      },
+      "interaction": {
+        "hover": "Subtle color or background-color shifts via 0.2s linear transitions.",
+        "click": "Immediate visual response.",
+        "transition": "Consistent use of 0.2s to 0.4s linear or ease-in-out transitions.",
+        "keyboard": "Standard focusable elements with pointer cursors."
+      },
+      "voice": {
+        "tone": "Professional, informative, and accessible.",
+        "headlineStyle": "Direct, feature-focused, and concise.",
+        "ctaStyle": "Action-oriented (e.g., 'Learn More', 'Buy Now').",
+        "avoid": [
+          "Overly technical jargon",
+          "Aggressive marketing language",
+          "Cutesy or informal tones"
+        ]
+      },
+      "donts": [
+        "Don't use border-radius on primary buttons — screenshot shows sharp rectangular corners.",
+        "Don't use multiple accent colors — screenshot shows a single dominant blue for actions.",
+        "Don't use overly decorative fonts — screenshot shows clean geometric sans-serif typography.",
+        "Don't add heavy drop shadows — screenshot shows minimal or transparent shadow effects.",
+        "Don't center-align all body text — screenshot shows mostly left-aligned content.",
+        "Don't use complex gradients — screenshot shows solid colors and photographic imagery."
+      ],
+      "systemPrompt": "This is a restrained, professional hardware and product e-commerce site. Key hex colors are #FFFFFF for background, #000000 for primary ink, and #007BFF for primary action accent. The typography is a clean geometric-sans-serif with medium-weight (500) headlines and regular-weight (400) body text. Critical design constraints include: do not use border-radius on primary buttons (they are sharp rectangles), do not introduce multiple competing accent colors, and do not use heavy drop shadows or overly decorative typography. The layout relies on high-contrast black and white with large photographic hero sections."
+    },
+    "zh-CN": {
+      "identity": {
+        "keywords": [
+          "科技",
+          "创新",
+          "可靠",
+          "专业",
+          "易用"
+        ],
+        "analogy": "高端电子产品零售展厅",
+        "oneLiner": "一个为消费者和企业技术打造的、简洁克制的全球电子商务网站。"
+      },
+      "colors": {
+        "principle": "以单一亮蓝色作为行动色，搭配高对比度的黑白配色。"
+      },
+      "typography": {
+        "rules": [
+          "主字体为几何无衬线体。",
+          "标题使用中等字重 (500)，而非粗体。",
+          "基础字号为 16px，次要文本的行高为 16px。"
+        ],
+        "scaleUses": [
+          "主视觉标题",
+          "主要正文",
+          "次要细节与导航"
+        ]
+      },
+      "spacing": {
+        "rhythm": "基于 4px 网格的灵活间距，并配有明确的 16px 和 24px 间距单元。"
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(0, 0, 0, 0) 0px 0px 10px 0px"
+        ],
+        "borders": "极简，主要使用 1px 实心黑色或蓝色描边。"
+      },
+      "layout": {
+        "skeleton": "全宽主视觉区域，采用重叠的对角线图像处理。"
+      },
+      "components": {
+        "button": "圆角为 0px 的矩形按钮，使用纯色蓝色填充或 1px 蓝色描边。",
+        "card": "基于网格的分类卡片，边框极简，留有充足内边距。",
+        "chip": "标准文本或图标按钮。",
+        "input": "带有底部边框或极简描边的简单文本输入框。",
+        "hero": "分栏布局，搭配动态对角线图像重叠与大号排版。"
+      },
+      "motion": {
+        "patterns": [
+          "颜色和背景色过渡 (0.2s)。",
+          "轮播元素的变换过渡 (0.4s)。",
+          "展开菜单的宽度与最大高度过渡 (0.3s)。"
+        ]
+      },
+      "interaction": {
+        "hover": "通过 0.2s 线性过渡实现微妙的颜色或背景色变化。",
+        "click": "即时的视觉反馈。",
+        "transition": "统一使用 0.2s 到 0.4s 的线性或 ease-in-out 过渡效果。",
+        "keyboard": "标准的可聚焦元素，使用指针光标。"
+      },
+      "voice": {
+        "tone": "专业、信息丰富、易于理解。",
+        "headlineStyle": "直接、聚焦功能、简洁。",
+        "ctaStyle": "行动导向（例如，“了解更多”、“立即购买”）。",
+        "avoid": [
+          "过于专业的术语",
+          "激进的营销语言",
+          "可爱或非正式的语气"
+        ]
+      },
+      "donts": [
+        "不要为主按钮使用圆角——截图显示其为尖锐的矩形角。",
+        "不要使用多种强调色——截图显示动作仅使用单一的主导蓝色。",
+        "不要使用过于装饰性的字体——截图显示为简洁的几何无衬线字体。",
+        "不要添加厚重的投影——截图显示为极简或透明的阴影效果。",
+        "不要将所有正文居中对齐——截图显示内容大多左对齐。",
+        "不要使用复杂的渐变——截图显示为纯色和摄影图像。"
+      ],
+      "systemPrompt": "这是一个克制、专业的硬件和产品电子商务网站。关键十六进制颜色为 #FFFFFF（背景）、#000000（主色墨）和 #007BFF（主行动强调色）。字体为简洁的几何无衬线体，标题为中等字重 (500)，正文为常规字重 (400)。关键设计约束包括：不要为主按钮使用圆角（它们是尖锐的矩形），不要引入多种相互竞争的强调色，以及不要使用厚重的投影或过于装饰性的字体。布局依赖高对比度的黑白配色与大型摄影主视觉区域。"
+    },
+    "zh-TW": {
+      "identity": {
+        "keywords": [
+          "科技",
+          "創新",
+          "可靠",
+          "專業",
+          "易用性"
+        ],
+        "analogy": "高級電子產品零售展示廳",
+        "oneLiner": "一個簡潔、克制的全球電子商務網站，提供消費級與企業級科技產品。"
+      },
+      "colors": {
+        "principle": "以高對比的黑白為基礎，搭配單一亮藍色作為主要互動色彩。"
+      },
+      "typography": {
+        "rules": [
+          "主要字體為幾何無襯線字體。",
+          "標題使用中等字重（500）而非粗體。",
+          "基礎字級為 16px，次要文字行高亦為 16px。"
+        ],
+        "scaleUses": [
+          "主視覺標題",
+          "主要內容文字",
+          "次要細節與導覽"
+        ]
+      },
+      "spacing": {
+        "rhythm": "基於 4px 格線的彈性間距，並明確使用 16px 與 24px 間隔器。"
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(0, 0, 0, 0) 0px 0px 10px 0px"
+        ],
+        "borders": "極簡，大多為 1px 實線黑色或藍色邊框。"
+      },
+      "layout": {
+        "skeleton": "全寬主視覺區塊，搭配重疊的對角線圖片處理。"
+      },
+      "components": {
+        "button": "矩形，銳角（radius 為 0px），實心藍色填充或 1px 藍色邊框。",
+        "card": "基於格線的分類卡片，邊框極簡，內距寬裕。",
+        "chip": "標準文字或圖示按鈕。",
+        "input": "簡約文字輸入框，底部邊框或極簡邊框。",
+        "hero": "分割佈局，動態對角線圖片重疊與大型排版。"
+      },
+      "motion": {
+        "patterns": [
+          "顏色與背景色過渡（0.2 秒）。",
+          "輪播元素的變形過渡（0.4 秒）。",
+          "展開選單的寬度與最大高度過渡（0.3 秒）。"
+        ]
+      },
+      "interaction": {
+        "hover": "透過 0.2 秒線性過渡，進行細微的顏色或背景色變化。",
+        "click": "立即的視覺回饋。",
+        "transition": "統一使用 0.2 至 0.4 秒的 linear 或 ease-in-out 過渡效果。",
+        "keyboard": "標準可聚焦元素，搭配指標游標。"
+      },
+      "voice": {
+        "tone": "專業、資訊豐富且易於理解。",
+        "headlineStyle": "直接、聚焦功能且簡潔。",
+        "ctaStyle": "以行動為導向（例如：「了解更多」、「立即購買」）。",
+        "avoid": [
+          "過度技術性的術語",
+          "侵略性的行銷語言",
+          "可愛或非正式的語氣"
+        ]
+      },
+      "donts": [
+        "勿在主要按鈕上使用 border-radius——截圖顯示為銳利的矩形邊角。",
+        "勿使用多種強調色——截圖顯示僅使用單一主導的藍色作為互動色。",
+        "勿使用過度裝飾性字體——截圖顯示為簡潔的幾何無襯線字體。",
+        "勿添加厚重的陰影效果——截圖顯示為極簡或透明的陰影效果。",
+        "勿將所有內文置中對齊——截圖顯示主要為靠左對齊的內容。",
+        "勿使用複雜的漸層——截圖顯示為實色與攝影圖片。"
+      ],
+      "systemPrompt": "這是一個克制、專業的硬體與產品電子商務網站。關鍵色碼為背景 #FFFFFF、主要文字 #000000，以及主要互動強調色 #007BFF。排版使用簡潔的幾何無襯線字體，標題為中等字重（500），內文為正常字重（400）。關鍵設計限制包括：主要按鈕勿使用 border-radius（應為銳利矩形），勿引入多種競爭的強調色，且勿使用厚重陰影或過度裝飾的字體。佈局依賴高對比的黑白，並搭配大型攝影主視覺區塊。"
+    },
+    "ja": {
+      "identity": {
+        "keywords": [
+          "テクノロジー",
+          "イノベーション",
+          "信頼性",
+          "プロフェッショナル",
+          "アクセシビリティ"
+        ],
+        "analogy": "高級家電のショールーム",
+        "oneLiner": "消費者向け・企業向けテクノロジーのための、クリーンで抑制の効いたグローバルECサイト。"
+      },
+      "colors": {
+        "principle": "単一の明るいブルーのアクセントカラーで anchor を置いた、ハイコントラストな黒と白。"
+      },
+      "typography": {
+        "rules": [
+          "プライマリフォントファミリーは幾何学的 sans-serif。",
+          "見出しにはウェイト500（ミディアム）を使用し、太字は避ける。",
+          "ベースフォントサイズは16px。補助テキストの行間は16px。"
+        ],
+        "scaleUses": [
+          "ヒーロー見出し",
+          "メインコンテンツテキスト",
+          "補助情報とナビゲーション"
+        ]
+      },
+      "spacing": {
+        "rhythm": "4pxグリッドに基づくフレキシブルなギャップ。明示的に16pxと24pxのスペーサーを使用。"
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(0, 0, 0, 0) 0px 0px 10px 0px"
+        ],
+        "borders": "最小限。主に1pxの黒またはブルーの実線アウトライン。"
+      },
+      "layout": {
+        "skeleton": "フルワイドのヒーローセクション。重なる対角線の画像処理を採用。"
+      },
+      "components": {
+        "button": "角が鋭い矩形（radius 0px）。ブルーの塗りつぶし、または1pxのブルーアウトライン。",
+        "card": "グリッドベースのカテゴリカード。最小限のボーダーと広めの padding。",
+        "chip": "標準的なテキストまたはアイコンボタン。",
+        "input": "ボトムボーダーまたは最小限のアウトラインを持つシンプルなテキストフィールド。",
+        "hero": "ダイナミックな対角線画像のオーバーラップと大きなタイポグラフィを備えた分割レイアウト。"
+      },
+      "motion": {
+        "patterns": [
+          "カラーおよび background-color のトランジション（0.2s）。",
+          "カルーセル要素の transform トランジション（0.4s）。",
+          "展開メニューの幅および max-height トランジション（0.3s）。"
+        ]
+      },
+      "interaction": {
+        "hover": "0.2sのリニアトランジションによる、微妙なカラーまたは background-color の変化。",
+        "click": "即座のビジュアルレスポンス。",
+        "transition": "0.2sから0.4sのリニアまたは ease-in-out トランジションを一貫して使用。",
+        "keyboard": "標準のフォーカス可能要素。ポインタカーソルを指定。"
+      },
+      "voice": {
+        "tone": "プロフェッショナル、情報的、アクセシブル。",
+        "headlineStyle": "直接的、機能重視、簡潔。",
+        "ctaStyle": "アクション指向（例：「詳細を見る」「今すぐ購入」）。",
+        "avoid": [
+          "過度な専門用語",
+          "攻撃的なマーケティング言語",
+          "カジュアルまたは無愛想なトーン"
+        ]
+      },
+      "donts": [
+        "プライマリボタンに border-radius を使用しない — スクリーンショットでは鋭い矩形の角が確認できます。",
+        "複数のアクセントカラーを使用しない — スクリーンショットではアクション用の単一の主導的なブルーが確認できます。",
+        "過度に装飾的なフォントを使用しない — スクリーンショットではクリーンな幾何学的 sans-serif タイポグラフィが確認できます。",
+        "重いドロップシャドウを追加しない — スクリーンショットでは最小限または透明のシャドウ効果が確認できます。",
+        "本文テキストを全て中央揃えにしない — スクリーンショットでは主に左揃えのコンテンツが確認できます。",
+        "複雑なグラデーションを使用しない — スクリーンショットでは実色と写真イメージが確認できます。"
+      ],
+      "systemPrompt": "これは抑制の効いた、プロフェッショナルなハードウェアおよびプロダクトECサイトです。主要なHEXカラーは、背景 #FFFFFF、プライマリインク #000000、プライマリアクションアクセント #007BFF です。タイポグラフィはクリーンな幾何学的 sans-serif で、見出しがウェイト500（ミディアム）、本文がウェイト400（レギュラー）です。重要なデザインの制約として、プライマリボタンに border-radius を使用しないこと（鋭い矩形であること）、複数の競合するアクセントカラーを導入しないこと、重いドロップシャドウや過度に装飾的なタイポグラフィを使用しないことが挙げられます。レイアウトは、ハイコントラストな黒と白と、大きな写真ヒーローセクションに依存します。"
+    },
+    "ko": {
+      "identity": {
+        "keywords": [
+          "기술",
+          "혁신",
+          "신뢰성",
+          "전문성",
+          "접근성"
+        ],
+        "analogy": "프리미엄 전자제품 소매 쇼룸",
+        "oneLiner": "소비자 및 기업 기술을 위한 깔끔하고 절제된 글로벌 전자상거래 사이트."
+      },
+      "colors": {
+        "principle": "단일 밝은 블루 액션 컬러로 고정된 고대비 흑백."
+      },
+      "typography": {
+        "rules": [
+          "기본 폰트 패밀리는 기하학적 sans-serif입니다.",
+          "헤드라인은 볼드보다 중간 굵기(500)를 사용합니다.",
+          "기본 폰트 크기는 16px이며 보조 텍스트의 줄 간격도 16px입니다."
+        ],
+        "scaleUses": [
+          "히어로 헤드라인",
+          "본문 콘텐츠",
+          "보조 세부정보 및 내비게이션"
+        ]
+      },
+      "spacing": {
+        "rhythm": "명시적인 16px 및 24px 간격을 포함한 4px 그리드 기반의 유연한 간격."
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(0, 0, 0, 0) 0px 0px 10px 0px"
+        ],
+        "borders": "최소화, 대부분 1px solid 검정 또는 블루 윤곽선."
+      },
+      "layout": {
+        "skeleton": "교차하는 대각선 이미지 처리가 적용된 전체 폭 히어로 섹션."
+      },
+      "components": {
+        "button": "모서리가 날카로운 직사각형(0px radius)에 단색 블루 채우기 또는 1px 블루 윤곽선.",
+        "card": "최소한의 테두리와 넉넉한 패딩을 사용한 그리드 기반 카테고리 카드.",
+        "chip": "표준 텍스트 또는 아이콘 버튼.",
+        "input": "하단 테두리 또는 최소한의 윤곽선이 있는 간단한 텍스트 필드.",
+        "hero": "동적인 대각선 이미지 겹침과 큰 타이포그래피가 있는 분할 레이아웃."
+      },
+      "motion": {
+        "patterns": [
+          "색상 및 background-color 전환(0.2s).",
+          "캐러셀 요소를 위한 Transform 전환(0.4s).",
+          "확장 메뉴를 위한 width 및 max-height 전환(0.3s)."
+        ]
+      },
+      "interaction": {
+        "hover": "0.2s linear 전환을 통한 미묘한 색상 또는 background-color 변화.",
+        "click": "즉각적인 시각적 반응.",
+        "transition": "0.2s에서 0.4s 사이의 linear 또는 ease-in-out 전환의 일관된 사용.",
+        "keyboard": "포인터 커서가 있는 표준 포커스 가능 요소."
+      },
+      "voice": {
+        "tone": "전문적이고 정보적이며 접근 가능한.",
+        "headlineStyle": "직설적이고 기능에 초점을 맞춘 간결한 스타일.",
+        "ctaStyle": "행동 지향적 (예: '자세히 알아보기', '지금 구매').",
+        "avoid": [
+          "지나치게 전문적인 용어",
+          "공격적인 마케팅 언어",
+          "귀엽거나 비격식적인 어조"
+        ]
+      },
+      "donts": [
+        "메인 버튼에 border-radius를 사용하지 마세요 — 스크린샷은 날카로운 직사각형 모서리를 보여줍니다.",
+        "여러 강조색을 사용하지 마세요 — 스크린샷은 액션을 위한 단일 주요 블루를 보여줍니다.",
+        "지나치게 장식적인 폰트를 사용하지 마세요 — 스크린샷은 깔끔한 기하학적 sans-serif 타이포그래피를 보여줍니다.",
+        "무거운 드롭 섀도우를 추가하지 마세요 — 스크린샷은 최소화되거나 투명한 섀도우 효과를 보여줍니다.",
+        "모든 본문 텍스트를 중앙 정렬하지 마세요 — 스크린샷은 대부분 좌측 정렬 콘텐츠를 보여줍니다.",
+        "복잡한 그라데이션을 사용하지 마세요 — 스크린샷은 단색과 사진 이미지를 보여줍니다."
+      ],
+      "systemPrompt": "이 사이트는 절제되고 전문적인 하드웨어 및 제품 전자상거래 사이트입니다. 핵심 hex 색상은 배경 #FFFFFF, 기본 잉크 #000000, 기본 액션 강조색 #007BFF입니다. 타이포그래피는 깔끔한 기하학적 sans-serif로 중간 굵기(500) 헤드라인과 정상 굵기(400) 본문 텍스트를 사용합니다. 핵심 디자인 제약 조건은 다음과 같습니다: 메인 버튼에 border-radius를 사용하지 마세요(날카로운 직사각형), 여러 경쟁 액션 컬러를 도입하지 마세요, 무거운 드롭 섀도우 또는 지나치게 장식적인 타이포그래피를 사용하지 마세요. 레이아웃은 대형 사진 히어로 섹션이 있는 고대비 흑백에 의존합니다."
     }
   }
 }

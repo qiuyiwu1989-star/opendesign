@@ -17,72 +17,60 @@
   "_meta": {
     "vision_model": "mimo-v2.5",
     "vision_prompt_version": "0.3",
-    "vision_at": "2026-05-28T20:58:43+00:00",
-    "vision_tokens": 3568,
-    "vision_cost_usd": 0.0396,
+    "vision_at": "2026-05-30T17:04:22+00:00",
+    "vision_tokens": 17076,
+    "vision_cost_usd": 0.1897,
     "translation_model": "mimo-v2.5",
-    "translation_at": "2026-05-28T20:59:40+00:00",
-    "translation_tokens": 16530,
-    "translation_cost_usd": 0.0552,
+    "translation_at": "2026-05-30T17:05:17+00:00",
+    "translation_tokens": 26535,
+    "translation_cost_usd": 0.0886,
     "narrative_model": "mimo-v2.5",
     "narrative_prompt_version": "0.3",
     "narrative_at": "2026-05-28T20:59:47+00:00",
     "narrative_tokens": 2000,
     "narrative_cost_usd": 0.0133,
     "narrative_status": "ok",
-    "total_cost_usd": 0.1081
+    "total_cost_usd": 0.2916,
+    "vision_source": "playwright-extract:mintlify",
+    "vision_grounded": true
   },
   "spec": {
     "colors": {
       "bg": "#FFFFFF",
-      "bgSoft": "#F9FAFB",
-      "bgQuiet": "#F3F4F6",
-      "ink": "#111827",
-      "inkSoft": "#4B5563",
-      "muted": "#9CA3AF",
-      "mutedSoft": "#D1D5DB",
-      "accent": "#10B981",
-      "line": "rgba(0,0,0,0.1)"
+      "bgSoft": "#F7F7F7",
+      "bgQuiet": null,
+      "ink": "#000000",
+      "inkSoft": null,
+      "muted": "#0D2F2F",
+      "mutedSoft": null,
+      "accent": "#0D2F2F",
+      "line": "rgba(13, 47, 47, 0.5)"
     },
     "typography": {
-      "display": "geometric-sans",
+      "display": "humanist-sans",
       "body": "humanist-sans",
       "mono": "monospace",
       "scale": [
         {
           "token": "display",
-          "size": 56,
+          "size": 40,
           "lh": 1.1,
-          "weight": 700,
-          "ls": "-1.5px"
-        },
-        {
-          "token": "h1",
-          "size": 36,
-          "lh": 1.2,
-          "weight": 700,
-          "ls": "-0.5px"
-        },
-        {
-          "token": "h2",
-          "size": 24,
-          "lh": 1.3,
-          "weight": 600,
-          "ls": "0"
+          "weight": 500,
+          "ls": "-0.8px"
         },
         {
           "token": "body",
           "size": 16,
           "lh": 1.5,
           "weight": 400,
-          "ls": "0"
+          "ls": "0px"
         },
         {
-          "token": "small",
-          "size": 14,
-          "lh": 1.4,
-          "weight": 400,
-          "ls": "0"
+          "token": "label",
+          "size": 12,
+          "lh": 1.5,
+          "weight": 500,
+          "ls": "0.6px"
         }
       ]
     },
@@ -91,463 +79,48 @@
       "scale": [
         4,
         8,
-        12,
         16,
         24,
         32,
         48,
         64,
-        96,
-        128
+        96
       ]
     },
     "surfaces": {
       "radius": {
         "sm": 4,
         "md": 8,
-        "lg": 12,
+        "lg": 16,
         "pill": 999
       }
     },
     "layout": {
-      "container": 1200,
+      "container": 1280,
       "paragraph": 680,
       "columns": 12,
       "gutter": 24,
       "breakpoints": [
         768,
-        1024,
-        1280
+        1024
       ]
     },
     "motion": {
       "durations": {
-        "micro": 150,
-        "small": 250,
-        "medium": 400
+        "micro": 100,
+        "small": 150,
+        "medium": 300
       },
       "easing": "cubic-bezier(0.4, 0, 0.2, 1)"
     }
   },
-  "spec_i18n": {
-    "en": {
-      "identity": {
-        "keywords": [
-          "documentation",
-          "AI",
-          "platform",
-          "clean",
-          "professional"
-        ],
-        "analogy": "A modern, AI-powered library for technical documentation",
-        "oneLiner": "A clean, AI-integrated documentation platform for developers and teams."
-      },
-      "colors": {
-        "principle": "Clean, high-contrast white base with a single vibrant green accent for active states and CTAs."
-      },
-      "typography": {
-        "rules": [
-          "Headlines use tight letter-spacing",
-          "Body text uses standard letter-spacing for readability",
-          "Green accent color is used for interactive elements and highlights"
-        ],
-        "scaleUses": [
-          "Main hero headline",
-          "Page titles",
-          "Section headings",
-          "Main content text",
-          "Navigation, labels, metadata"
-        ]
-      },
-      "spacing": {
-        "rhythm": "4px base unit, generous vertical spacing for clarity"
-      },
-      "surfaces": {
-        "shadows": [
-          "0 1px 2px 0 rgba(0, 0, 0, 0.05)",
-          "0 4px 6px -1px rgba(0, 0, 0, 0.1)"
-        ],
-        "borders": "1px solid #E5E7EB"
-      },
-      "layout": {
-        "skeleton": "Standard documentation layout: sidebar, main content, right-side table of contents"
-      },
-      "components": {
-        "button": "Clean, rounded buttons with clear primary (green) and secondary (white/outline) states",
-        "card": "Light gray background with subtle rounded corners and padding",
-        "chip": "Small, pill-shaped elements for labels or tags",
-        "input": "Clean input fields with subtle borders and rounded corners",
-        "hero": "Large, centered headline over a scenic illustration, with email input and CTA"
-      },
-      "motion": {
-        "patterns": [
-          "Subtle hover transitions on buttons and links",
-          "Smooth focus states for accessibility"
-        ]
-      },
-      "interaction": {
-        "hover": "Color change or slight opacity shift on interactive elements",
-        "click": "Subtle scale or opacity feedback",
-        "transition": "Smooth transitions on hover and focus states",
-        "keyboard": "Visible focus rings for keyboard navigation"
-      },
-      "voice": {
-        "tone": "Professional, helpful, and technically confident",
-        "headlineStyle": "Clear, descriptive, and benefit-oriented",
-        "ctaStyle": "Direct and action-oriented (Start for free, Start now)",
-        "avoid": [
-          "Overly casual language",
-          "Jargon without explanation",
-          "Aggressive or pushy sales language"
-        ]
-      },
-      "donts": [
-        "Don't use dark mode — screenshot shows a clean, bright white interface",
-        "Don't use decorative serif fonts — typography is clean, geometric sans-serif",
-        "Don't use overly saturated colors — palette is restrained with white, grays, and a single green accent",
-        "Don't clutter the layout — generous whitespace and clear hierarchy are key",
-        "Don't use sharp corners — elements use rounded corners (4px to pill radius)",
-        "Don't use heavy drop shadows — shadows are subtle and light",
-        "Don't use multiple accent colors — green is the primary interactive color"
-      ],
-      "systemPrompt": "Mintlify is a documentation platform for developers, positioning itself as an intelligent, AI-powered knowledge hub. The design uses a clean white background (#FFFFFF) with dark gray text (#111827) and a single vibrant green accent (#10B981) for interactive elements. Typography features geometric and humanist sans-serif categories for clarity. Key donts: avoid dark mode, avoid decorative serifs, avoid saturated color palettes, avoid cluttered layouts, avoid sharp corners, avoid heavy shadows, and avoid multiple accent colors. The layout follows a standard documentation pattern with sidebar navigation, main content, and optional right-side TOC."
-    },
-    "zh-CN": {
-      "identity": {
-        "keywords": [
-          "文档",
-          "AI",
-          "平台",
-          "简洁",
-          "专业"
-        ],
-        "analogy": "一个现代、AI驱动的技术文档库",
-        "oneLiner": "为开发者和团队打造的简洁、AI集成的文档平台。"
-      },
-      "colors": {
-        "principle": "纯净、高对比度的白色基底，使用单一醒目的绿色作为活动状态和CTA的强调色。"
-      },
-      "typography": {
-        "rules": [
-          "标题使用紧凑的字间距",
-          "正文使用标准字间距以确保可读性",
-          "绿色强调色用于交互元素和高亮显示"
-        ],
-        "scaleUses": [
-          "主视觉大标题",
-          "页面标题",
-          "章节标题",
-          "主内容文本",
-          "导航、标签、元数据"
-        ]
-      },
-      "spacing": {
-        "rhythm": "以4px为基础单位，采用充裕的垂直间距以保持清晰"
-      },
-      "surfaces": {
-        "shadows": [
-          "0 1px 2px 0 rgba(0, 0, 0, 0.05)",
-          "0 4px 6px -1px rgba(0, 0, 0, 0.1)"
-        ],
-        "borders": "1px solid #E5E7EB"
-      },
-      "layout": {
-        "skeleton": "标准文档布局：侧边栏、主内容区、右侧目录"
-      },
-      "components": {
-        "button": "简洁的圆角按钮，具有明确的主要（绿色）和次要（白色/描边）状态",
-        "card": "浅灰色背景，带有微妙的圆角和内边距",
-        "chip": "小型胶囊状元素，用于标签或标记",
-        "input": "简洁的输入框，带有微妙的边框和圆角",
-        "hero": "大尺寸、居中的标题，置于风景插图之上，配有邮箱输入框和CTA"
-      },
-      "motion": {
-        "patterns": [
-          "按钮和链接上的微妙hover过渡",
-          "平滑的focus状态以支持无障碍访问"
-        ]
-      },
-      "interaction": {
-        "hover": "交互元素上的颜色变化或微妙的透明度变化",
-        "click": "微妙的缩放或透明度反馈",
-        "transition": "hover和focus状态下的平滑过渡",
-        "keyboard": "键盘导航时显示可见的焦点环"
-      },
-      "voice": {
-        "tone": "专业、乐于助人且技术自信",
-        "headlineStyle": "清晰、描述性且以效益为导向",
-        "ctaStyle": "直接且以行动为导向（免费开始，立即开始）",
-        "avoid": [
-          "过于随意的语言",
-          "未经解释的术语",
-          "侵略性或强推式的销售语言"
-        ]
-      },
-      "donts": [
-        "不要使用深色模式——截图展示的是干净、明亮的白色界面",
-        "不要使用装饰性衬线字体——字体采用简洁的几何无衬线体",
-        "不要使用过于饱和的颜色——配色方案克制，以白色、灰色和单一的绿色强调色为主",
-        "不要使布局显得杂乱——充裕的留白和清晰的层级是关键",
-        "不要使用尖锐的直角——元素采用圆角（4px 到胶囊形半径）",
-        "不要使用浓重的阴影——阴影应微妙且轻盈",
-        "不要使用多种强调色——绿色是主要的交互颜色"
-      ],
-      "systemPrompt": "Mintlify 是一个面向开发者的文档平台，定位为一个智能的、AI驱动的知识中心。设计采用纯净的白色背景（#FFFFFF）搭配深灰色文本（#111827），并使用单一的醒目绿色（#10B981）作为交互元素的强调色。字体设计采用几何与人文主义无衬线体类别以确保清晰度。关键禁忌：避免深色模式，避免装饰性衬线体，避免饱和的配色方案，避免杂乱的布局，避免尖锐的直角，避免浓重的阴影，避免使用多种强调色。布局遵循标准文档模式，包含侧边导航、主内容区和可选的右侧目录。"
-    },
-    "zh-TW": {
-      "identity": {
-        "keywords": [
-          "文件",
-          "AI",
-          "平台",
-          "簡潔",
-          "專業"
-        ],
-        "analogy": "一個現代化、AI 驅動的技術文件資料庫",
-        "oneLiner": "一個簡潔、整合 AI 的開發者與團隊文件平台。"
-      },
-      "colors": {
-        "principle": "簡潔的高對比白色基底，搭配單一鮮明的綠色強調互動狀態與行動呼籲。"
-      },
-      "typography": {
-        "rules": [
-          "標題使用緊湊的字距",
-          "內文使用標準字距以確保可讀性",
-          "綠色強調色用於互動元素與重點標示"
-        ],
-        "scaleUses": [
-          "主視覺標題",
-          "頁面標題",
-          "章節標題",
-          "主要內容文字",
-          "導覽、標籤、中繼資料"
-        ]
-      },
-      "spacing": {
-        "rhythm": "以 4px 為基礎單位，垂直間距寬鬆以利清晰呈現"
-      },
-      "surfaces": {
-        "shadows": [
-          "0 1px 2px 0 rgba(0, 0, 0, 0.05)",
-          "0 4px 6px -1px rgba(0, 0, 0, 0.1)"
-        ],
-        "borders": "1px solid #E5E7EB"
-      },
-      "layout": {
-        "skeleton": "標準文件佈局：側邊導覽、主要內容、右側目錄"
-      },
-      "components": {
-        "button": "簡潔的圓角按鈕，具有明確的主要（綠色）與次要（白色/描邊）狀態",
-        "card": "淺灰色背景，帶有細微的圓角與內距",
-        "chip": "小型、膠囊狀的元素，用於標籤或分類",
-        "input": "簡潔的輸入欄位，具有細微邊框與圓角",
-        "hero": "大型、置中的標題，背景為風景插圖，並包含電子郵件輸入欄與行動呼籲"
-      },
-      "motion": {
-        "patterns": [
-          "按鈕與連結上細微的 hover 過渡效果",
-          "為無障礙設計提供的流暢 focus 狀態"
-        ]
-      },
-      "interaction": {
-        "hover": "互動元素上的顏色變化或輕微的透明度調整",
-        "click": "細微的縮放或透明度回饋",
-        "transition": "hover 與 focus 狀態上的流暢過渡",
-        "keyboard": "鍵盤導覽時可見的 focus 環"
-      },
-      "voice": {
-        "tone": "專業、樂於助人且充滿技術自信",
-        "headlineStyle": "清晰、具描述性且強調效益",
-        "ctaStyle": "直接且以行動為導向（免費開始、立即開始）",
-        "avoid": [
-          "過於隨意的語言",
-          "未經解釋的術語",
-          "強勢或咄咄逼人的銷售用語"
-        ]
-      },
-      "donts": [
-        "不要使用深色模式 — 螢幕截圖顯示的是簡潔、明亮的白色介面",
-        "不要使用裝飾性的襯線字體 — 字體排印採用簡潔的幾何無襯線體",
-        "不要使用過於飽和的色彩 — 色彩配置節制，以白色、灰色與單一綠色強調色為主",
-        "不要使佈局顯得擁擠 — 寬鬆的留白與清晰的層級是關鍵",
-        "不要使用尖銳的邊角 — 元素採用圓角（4px 至膠囊半徑）",
-        "不要使用厚重的陰影 — 陰影效果細微且輕盈",
-        "不要使用多種強調色 — 綠色是主要的互動色彩"
-      ],
-      "systemPrompt": "Mintlify 是一個為開發者設計的文件平台，定位為智慧型、AI 驅動的知識中心。設計採用簡潔的白色背景 (#FFFFFF)、深灰色文字 (#111827) 與單一鮮明的綠色 (#10B981) 作為互動元素。字體排印採用幾何與人文無襯線體類別以確保清晰度。重要禁忌：避免深色模式、避免裝飾性襯線體、避免飽和的色彩配置、避免擁擠的佈局、避免尖銳的邊角、避免厚重的陰影，以及避免使用多種強調色。佈局遵循標準文件模式，包含側邊導覽、主要內容及可選的右側目錄。"
-    },
-    "ja": {
-      "identity": {
-        "keywords": [
-          "ドキュメント",
-          "AI",
-          "プラットフォーム",
-          "クリーン",
-          "プロフェッショナル"
-        ],
-        "analogy": "技術ドキュメントのための、現代的なAI搭載ライブラリ",
-        "oneLiner": "開発者とチームのための、クリーンでAI統合されたドキュメントプラットフォーム。"
-      },
-      "colors": {
-        "principle": "クリーンでハイコントラストな白基調のベースに、アクティブ状態やCTAのための単一の鮮やかなグリーンアクセント。"
-      },
-      "typography": {
-        "rules": [
-          "見出しは字間を詰めて使用",
-          "本文テキストは可読性のために標準の字間を使用",
-          "インタラクティブ要素やハイライトにグリーンアクセントカラーを使用"
-        ],
-        "scaleUses": [
-          "メインヒーロー見出し",
-          "ページタイトル",
-          "セクション見出し",
-          "本文テキスト",
-          "ナビゲーション、ラベル、メタデータ"
-        ]
-      },
-      "spacing": {
-        "rhythm": "4pxを基本単位とし、明確さのために縦方向の余白をたっぷりと確保"
-      },
-      "surfaces": {
-        "shadows": [
-          "0 1px 2px 0 rgba(0, 0, 0, 0.05)",
-          "0 4px 6px -1px rgba(0, 0, 0, 0.1)"
-        ],
-        "borders": "1px solid #E5E7EB"
-      },
-      "layout": {
-        "skeleton": "標準的なドキュメントレイアウト：サイドバー、メインコンテンツ、右側の目次"
-      },
-      "components": {
-        "button": "クリーンな角丸ボタン。プライマリ（グリーン）とセカンダリ（白/アウトライン）の状態が明確",
-        "card": "薄いグレー背景に、控えめな角丸と余白",
-        "chip": "ラベルやタグのための、小さなピル形状の要素",
-        "input": "控えめなボーダーと角丸を備えたクリーンなインプットフィールド",
-        "hero": "大きな中央揃えの見出しを風景イラストの上に配置し、メール入力欄とCTAを設置"
-      },
-      "motion": {
-        "patterns": [
-          "ボタンやリンクの微妙なhover遷移",
-          "アクセシビリティのための滑らかなfocus状態"
-        ]
-      },
-      "interaction": {
-        "hover": "インタラクティブ要素のカラーチェンジまたはわずかな透明度の変化",
-        "click": "微妙なスケールまたは透明度のフィードバック",
-        "transition": "hover・focus状態の滑らかな遷移",
-        "keyboard": "キーボードナビゲーションのための明確なフォーカスリング"
-      },
-      "voice": {
-        "tone": "プロフェッショナルで、有益かつ技術的に自信に満ちた",
-        "headlineStyle": "明確で記述的、かつメリットを重視した",
-        "ctaStyle": "直接的で行動を促す（無料で始める、今すぐ始める）",
-        "avoid": [
-          "過度にカジュアルな言葉遣い",
-          "説明なしの専門用語",
-          "攻撃的または押しつけがましい営業言葉"
-        ]
-      },
-      "donts": [
-        "ダークモードを使用しない — スクリーンショットはクリーンで明るい白のインターフェースを示している",
-        "装飾的なセリフフォントを使用しない — タイポグラフィはクリーンで幾何学的なサンセリフ",
-        "過度に鮮やかなカラーを使用しない — パレットは白、グレー、単一のグリーンアクセントで抑制されている",
-        "レイアウトを雑然とさせない — たっぷりの余白と明確な階層が鍵",
-        "鋭い角を使用しない — 要素は角丸を使用（4pxからピル半径）",
-        "重いドロップシャドウを使用しない — シャドウは微妙で軽い",
-        "複数のアクセントカラーを使用しない — グリーンがプライマリのインタラクティブカラー"
-      ],
-      "systemPrompt": "Mintlifyは開発者向けのドキュメントプラットフォームであり、インテリジェントなAI搭載ナレッジハブとして位置づけられている。デザインはクリーンな白の背景（#FFFFFF）にダークグレーのテキスト（#111827）と、インタラクティブ要素のための単一の鮮やかなグリーンアクセント（#10B981）を使用。タイポグラフィは明確さのために幾何学的およびヒューマニスト・サンセリフのカテゴリーを採用。重要な禁止事項：ダークモードの回避、装飾的なセリフの回避、鮮やかなカラー・パレットの回避、雑然としたレイアウトの回避、鋭い角の回避、重いシャドウの回避、複数のアクセントカラーの回避。レイアウトはサイドバーナビゲーション、メインコンテンツ、オプションの右側目次を備えた標準的なドキュメントパターンに準拠。"
-    },
-    "ko": {
-      "identity": {
-        "keywords": [
-          "문서",
-          "AI",
-          "플랫폼",
-          "깔끔한",
-          "전문적인"
-        ],
-        "analogy": "기술 문서를 위한 현대적이고 AI 기반의 도서관",
-        "oneLiner": "개발자와 팀을 위한 깔끔하고 AI가 통합된 문서 플랫폼입니다."
-      },
-      "colors": {
-        "principle": "활성 상태와 CTA를 위해 단일의 선명한 그린 악센트를 적용한 명료한 고대비 화이트 기반입니다."
-      },
-      "typography": {
-        "rules": [
-          "제목은 타이트한 자간을 사용합니다",
-          "본문은 가독성을 위해 표준 자간을 사용합니다",
-          "그린 악센트 색상은 인터랙티브 요소와 강조에 사용됩니다"
-        ],
-        "scaleUses": [
-          "메인 히어로 제목",
-          "페이지 제목",
-          "섹션 제목",
-          "본문 텍스트",
-          "내비게이션, 라벨, 메타데이터"
-        ]
-      },
-      "spacing": {
-        "rhythm": "4px 기본 단위, 명확성을 위한 넉넉한 수직 간격"
-      },
-      "surfaces": {
-        "shadows": [
-          "0 1px 2px 0 rgba(0, 0, 0, 0.05)",
-          "0 4px 6px -1px rgba(0, 0, 0, 0.1)"
-        ],
-        "borders": "1px solid #E5E7EB"
-      },
-      "layout": {
-        "skeleton": "표준 문서 레이아웃: 사이드바, 메인 콘텐츠, 우측 목차"
-      },
-      "components": {
-        "button": "명확한 기본(그린) 및 보조(화이트/아웃라인) 상태를 갖춘 깔끔한 둥근 버튼",
-        "card": "미세한 둥근 모서리와 패딩이 있는 연한 회색 배경",
-        "chip": "라벨이나 태그용의 작은 캡슐형 요소",
-        "input": "미세한 테두리와 둥근 모서리가 있는 깔끔한 입력 필드",
-        "hero": "풍경 일러스트레이션 위에 중앙 정렬된 큰 제목, 이메일 입력 필드 및 CTA 포함"
-      },
-      "motion": {
-        "patterns": [
-          "버튼과 링크에 미세한 hover 트랜지션",
-          "접근성을 위한 부드러운 focus 상태"
-        ]
-      },
-      "interaction": {
-        "hover": "인터랙티브 요소의 색상 변화 또는 미세한 투명도 변화",
-        "click": "미세한 스케일 또는 투명도 피드백",
-        "transition": "hover 및 focus 상태에 부드러운 트랜지션",
-        "keyboard": "키보드 내비게이션을 위한 명확한 focus 링"
-      },
-      "voice": {
-        "tone": "전문적이고, 도움이 되며, 기술적으로 자신감 있는 어조",
-        "headlineStyle": "명료하고, 묘사적이며, 이점 중심적인 스타일",
-        "ctaStyle": "직접적이고 행동 중심적인 스타일 (무료로 시작하기, 지금 시작하기)",
-        "avoid": [
-          "지나치게 캐주얼한 언어",
-          "설명 없는 전문 용어",
-          "공격적이거나 밀어붙이는 듯한 판매 언어"
-        ]
-      },
-      "donts": [
-        "다크 모드를 사용하지 마세요 — 스크린샷은 깔끔하고 밝은 화이트 인터페이스를 보여줍니다",
-        "장식용 세리프 서체를 사용하지 마세요 — 타이포그래피는 깔끔하고 기하학적인 산세리프입니다",
-        "지나치게 채도 높은 색상을 사용하지 마세요 — 팔레트는 화이트, 그레이, 단일 그린 악센트로 절제되어 있습니다",
-        "레이이아웃을 지저분하게 만들지 마세요 — 넉넉한 여백과 명확한 계층이 핵심입니다",
-        "예리한 모서리를 사용하지 마세요 — 요소는 둥근 모서리를 사용합니다 (4px부터 캡슐 반경)",
-        "무거운 드롭 섀도우를 사용하지 마세요 — 섀도우는 미세하고 가볍습니다",
-        "여러 악센트 색상을 사용하지 마세요 — 그린이 주요 인터랙티브 색상입니다"
-      ],
-      "systemPrompt": "Mintlify는 개발자를 위한 문서 플랫폼으로, 지능형 AI 기반 지식 허브로 자리매김하고 있습니다. 디자인은 깔끔한 화이트 배경(#FFFFFF)을 사용하고, 어두운 그레이 텍스트(#111827)와 인터랙티브 요소를 위한 단일의 선명한 그린 악센트(#10B981)를 적용합니다. 타이포그래피는 명확성을 위해 기하학적 및 휴머니스트 산세리프 카테고리를 특징으로 합니다. 핵심 금지 사항: 다크 모드, 장식용 세리프, 고채도 팔레트, 지저분한 레이아웃, 예리한 모서리, 무거운 섀도우, 여러 악센트 색상을 피합니다. 레이아웃은 사이드바 내비게이션, 메인 콘텐츠, 선택적 우측 목차를 갖춘 표준 문서 패턴을 따릅니다."
-    }
-  },
   "desc": {
     "en": {
-      "palette": "Clean, high-contrast white base with dark text and a single vibrant green accent for active elements and CTAs.",
-      "layout": "Standard documentation layout with sidebar navigation, main content area, and right-side table of contents, using generous whitespace.",
-      "interaction": "Subtle hover and focus transitions on interactive elements, with clear visual feedback.",
-      "motion": "Minimal motion with smooth transitions for hover and focus states.",
-      "notes": "A well-executed example of modern documentation design, combining clean aesthetics with clear information hierarchy and AI integration."
+      "palette": "A high-contrast palette of stark white, black, and deep teal-green for a professional, developer-focused aesthetic.",
+      "layout": "Standard 12-column grid with centered content containers, generous whitespace, and clear visual hierarchy.",
+      "interaction": "Smooth color and background transitions on hover, with immediate scale or transform feedback on clicks.",
+      "motion": "Subtle and quick transitions using a standard cubic-bezier easing curve for a polished feel.",
+      "notes": "This site is worth including as a prime example of modern SaaS documentation design, blending professional aesthetics with developer-friendly tooling."
     },
     "zh-CN": {
       "palette": "纯净、高对比度的白色基底，搭配深色文字，并使用单一醒目的绿色作为活动元素和CTA的强调色。",
@@ -638,6 +211,408 @@
       "ch7_intro": "모션은 기능적 미니멀리즘으로 적용되어, 오직 상호작용을 확인하고 접근성을 유지하는 데에만 기여합니다. hover 및 focus 상태에서의 부드러운 전환은 산만하지 않으면서 지속적인 피드백을 제공하여, 인터페이스의 반응적 명확성을 강화합니다.",
       "ch8_intro": "편집 톤은 전문적이고, 유용하며, 기술적으로 자신감 있는 어조를 띠며, 헤드라인은 명확하고, 묘사적이며, 이점 중심적입니다. CTA는 직접적이고 동작에 초점을 맞추며, 공격적인 판매 언어를 피하고 직관적인 유용함을 지향합니다.",
       "ch8_outro": "이 시스템은 의도적으로 다크 모드, 장식용 세리프, 채도 높은 팔레트, 복잡한 레이아웃, 날카로운 모서리, 무거운 드롭 섀도우, 다중 강조색을 배제합니다."
+    }
+  },
+  "spec_i18n": {
+    "en": {
+      "identity": {
+        "keywords": [
+          "documentation",
+          "knowledge",
+          "AI",
+          "enterprise",
+          "developer"
+        ],
+        "analogy": "A clean, modern SaaS interface for developer documentation with an illustrated, stylized hero background.",
+        "oneLiner": "A developer-focused SaaS platform for AI-powered documentation with a clean, professional aesthetic and illustrated hero."
+      },
+      "colors": {
+        "principle": "Clean, high-contrast palette with a deep teal-green accent against stark white and black."
+      },
+      "typography": {
+        "rules": [
+          "Display type uses tight tracking (-0.8px) for large headlines.",
+          "Labels and tags use uppercase with wider tracking (0.6px) for emphasis.",
+          "Monospace font is reserved for code snippets or technical references."
+        ],
+        "scaleUses": [
+          "Main hero headline",
+          "Main body text",
+          "Overline labels and tags"
+        ]
+      },
+      "spacing": {
+        "rhythm": "Consistent 4px grid with generous padding for section separation."
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 2px 4px 0px rgba(13, 47, 47, 0.03)",
+          "0px 2px 4px 0px rgba(255, 255, 255, 0.05)"
+        ],
+        "borders": "1px solid rgba(13, 47, 47, 0.5)"
+      },
+      "layout": {
+        "skeleton": "Standard 12-column grid with centered content containers."
+      },
+      "components": {
+        "button": "Clean, rounded pill-shaped buttons with solid backgrounds or outlines.",
+        "card": "Lightly shadowed cards with rounded corners, often containing illustrations.",
+        "chip": "Small, rounded badges for labels like 'NEW' or category tags.",
+        "input": "Rounded input fields with subtle borders or transparent backgrounds over images.",
+        "hero": "Full-width section with a stylized landscape illustration background and centered text."
+      },
+      "motion": {
+        "patterns": [
+          "Smooth color and background transitions on hover.",
+          "Scale and translate transforms for interactive elements.",
+          "Opacity fades for state changes."
+        ]
+      },
+      "interaction": {
+        "hover": "Subtle color shifts or background changes on interactive elements.",
+        "click": "Immediate scale or transform feedback on buttons and links.",
+        "transition": "All properties transition smoothly over 0.1s to 0.3s.",
+        "keyboard": "Standard focus outlines and keyboard navigation support."
+      },
+      "voice": {
+        "tone": "Professional, helpful, and technically proficient.",
+        "headlineStyle": "Bold, direct, and benefit-oriented.",
+        "ctaStyle": "Clear and action-driven, often using pill-shaped buttons.",
+        "avoid": [
+          "Overly casual language",
+          "Jargon without explanation",
+          "Aggressive sales tactics"
+        ]
+      },
+      "donts": [
+        "Don't use harsh, bright neon colors — screenshot shows a palette of deep teal, white, and black.",
+        "Don't use heavy, decorative serif fonts — screenshot shows clean, modern sans-serif typography.",
+        "Don't create cluttered layouts with many competing elements — screenshot shows ample whitespace and clear hierarchy.",
+        "Don't use sharp, square corners on all elements — screenshot shows rounded corners on cards, buttons, and inputs.",
+        "Don't use complex, realistic photography for all backgrounds — screenshot shows stylized, illustrative backgrounds.",
+        "Don't use a dark mode as the primary interface — screenshot shows a predominantly light interface with a dark hero section."
+      ],
+      "systemPrompt": "Design a clean, professional developer-focused SaaS interface. Use a high-contrast palette of stark white (#FFFFFF), black (#000000), and a deep teal-green accent (#0D2F2F). Typography should be modern humanist-sans-serif with tight tracking for large headlines and uppercase labels with wider tracking. Ensure ample whitespace and clear visual hierarchy. Don't use harsh neon colors, heavy decorative serifs, cluttered layouts, sharp corners on all elements, or realistic photography for backgrounds."
+    },
+    "zh-CN": {
+      "identity": {
+        "keywords": [
+          "文档",
+          "知识",
+          "AI",
+          "企业",
+          "开发者"
+        ],
+        "analogy": "一个简洁、现代的开发者文档SaaS界面，配有风格化的插画主视觉背景。",
+        "oneLiner": "一个面向开发者的AI驱动文档SaaS平台，拥有简洁、专业的美感和插画风格的主视觉区。"
+      },
+      "colors": {
+        "principle": "干净、高对比度的调色板，以深青绿色点缀，搭配纯白与黑色。"
+      },
+      "typography": {
+        "rules": [
+          "展示型字体在大标题中使用紧缩字间距（-0.8px）。",
+          "标签和徽章使用大写字母和更宽的字间距（0.6px）以示强调。",
+          "等宽字体专用于代码片段或技术参考。"
+        ],
+        "scaleUses": [
+          "主标题",
+          "正文",
+          "顶部标签和徽章"
+        ]
+      },
+      "spacing": {
+        "rhythm": "遵循统一的4px网格，并为区块分隔留出充足的padding。"
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 2px 4px 0px rgba(13, 47, 47, 0.03)",
+          "0px 2px 4px 0px rgba(255, 255, 255, 0.05)"
+        ],
+        "borders": "1px solid rgba(13, 47, 47, 0.5)"
+      },
+      "layout": {
+        "skeleton": "标准的12列网格，内容容器居中。"
+      },
+      "components": {
+        "button": "简洁、圆润的药丸形按钮，采用纯色背景或描边样式。",
+        "card": "带有轻微阴影和圆角的卡片，常包含插画内容。",
+        "chip": "小巧、圆润的徽章，用于'新功能'等标签或分类标记。",
+        "input": "圆润的输入框，带有细微边框，或在图片上采用透明背景。",
+        "hero": "全宽区块，配有风格化的风景插画背景，文字居中。"
+      },
+      "motion": {
+        "patterns": [
+          "hover时平滑的颜色和背景过渡。",
+          "交互元素的缩放与位移变换。",
+          "状态变化时的透明度渐变。"
+        ]
+      },
+      "interaction": {
+        "hover": "交互元素上呈现细微的颜色或背景变化。",
+        "click": "按钮和链接在点击时立即提供缩放或变换反馈。",
+        "transition": "所有属性在0.1s至0.3s内平滑过渡。",
+        "keyboard": "遵循标准的focus轮廓并支持键盘导航。"
+      },
+      "voice": {
+        "tone": "专业、有帮助且技术精湛。",
+        "headlineStyle": "加粗、直接，以利益点为导向。",
+        "ctaStyle": "清晰且具有行动驱动力，常使用药丸形按钮。",
+        "avoid": [
+          "过于随意的语言",
+          "未经解释的行业术语",
+          "激进的销售话术"
+        ]
+      },
+      "donts": [
+        "不要使用刺眼、明亮的霓虹色——截图显示调色板为深青绿色、白色和黑色。",
+        "不要使用厚重、装饰性的衬线字体——截图显示为简洁、现代的无衬线字体。",
+        "不要创建包含多个竞争元素的杂乱布局——截图显示有充足的留白和清晰的层次结构。",
+        "不要让所有元素都使用尖锐的直角——截图显示卡片、按钮和输入框均采用圆角。",
+        "不要为所有背景使用复杂、写实的摄影图片——截图显示为风格化的插画背景。",
+        "不要将深色模式作为主要界面——截图显示以浅色界面为主，主视觉区使用深色。"
+      ],
+      "systemPrompt": "设计一个简洁、专业的开发者导向SaaS界面。使用高对比度调色板：纯白（#FFFFFF）、黑色（#000000）和深青绿色点缀（#0D2F2F）。字体采用现代人文无衬线体，大标题使用紧缩字间距，标签使用大写并配以更宽字间距。确保充足的留白和清晰的视觉层次。不要使用刺眼的霓虹色、厚重的装饰性衬线体、杂乱的布局、所有元素都采用尖角，或使用写实摄影作为背景。"
+    },
+    "zh-TW": {
+      "identity": {
+        "keywords": [
+          "文件",
+          "知識",
+          "AI",
+          "企業",
+          "開發者"
+        ],
+        "analogy": "一個簡潔、現代的開發者文件 SaaS 介面，配有風格化的插圖英雄背景区塊。",
+        "oneLiner": "一個以開發者為中心的 AI 驅動文件 SaaS 平台，具有簡潔、專業的美學與插圖英雄背景区塊。"
+      },
+      "colors": {
+        "principle": "乾淨、高對比的調色盤，以深青綠色作為強調色，搭配純白與黑色。"
+      },
+      "typography": {
+        "rules": [
+          "大型標題使用緊湊字距調整 (-0.8px)。",
+          "標籤與標籤使用大寫字母並搭配較寬字距 (0.6px) 以強調。",
+          "等寬字體保留用於程式碼片段或技術參考。"
+        ],
+        "scaleUses": [
+          "主英雄標題",
+          "主要內文文字",
+          "上標籤與標籤"
+        ]
+      },
+      "spacing": {
+        "rhythm": "一致的 4px 格線，並使用充裕的內距來分隔區塊。"
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 2px 4px 0px rgba(13, 47, 47, 0.03)",
+          "0px 2px 4px 0px rgba(255, 255, 255, 0.05)"
+        ],
+        "borders": "1px solid rgba(13, 47, 47, 0.5)"
+      },
+      "layout": {
+        "skeleton": "標準的 12 欄格線，內容容器置中對齊。"
+      },
+      "components": {
+        "button": "簡潔的圓角膠囊按鈕，具有實色背景或外框樣式。",
+        "card": "帶有輕微陰影與圓角的卡片，常包含插圖。",
+        "chip": "用於「NEW」或分類標籤的小型圓角徽章。",
+        "input": "圓角輸入欄位，帶有細微邊框或透明背景，可覆蓋於圖片上。",
+        "hero": "全寬區塊，配有風格化的風景插圖背景與置中文字。"
+      },
+      "motion": {
+        "patterns": [
+          "懸停時平滑的顏色與背景轉換。",
+          "互動元素的縮放與位移變換。",
+          "狀態變化時的透明度淡入淡出。"
+        ]
+      },
+      "interaction": {
+        "hover": "互動元素在懸停時產生細微的顏色或背景變化。",
+        "click": "按鈕與連結立即產生縮放或變換回饋。",
+        "transition": "所有屬性在 0.1s 至 0.3s 內平滑過渡。",
+        "keyboard": "標準的焦點外框與鍵盤導覽支援。"
+      },
+      "voice": {
+        "tone": "專業、有幫助且技術熟練。",
+        "headlineStyle": "大膽、直接且強調效益。",
+        "ctaStyle": "清晰且以行動為導向，常使用膠囊按鈕。",
+        "avoid": [
+          "過於隨意的語言",
+          "未經解釋的行話",
+          "具侵略性的銷售手法"
+        ]
+      },
+      "donts": [
+        "避免使用刺眼的亮霓虹色 — 螢幕截圖顯示深青綠、白色與黑色的調色盤。",
+        "避免使用厚重、裝飾性的襯線字體 — 螢幕截圖顯示簡潔、現代的無襯線字體。",
+        "避免建立包含許多競爭元素的雜亂佈局 — 螢幕截圖顯示充足的留白與清晰的層級。",
+        "避免在所有元素上使用銳利、方正的圓角 — 螢幕截圖顯示卡片、按鈕與輸入欄位上的圓角。",
+        "避免在所有背景中使用複雜、寫實的攝影圖片 — 螢幕截圖顯示風格化的插圖背景。",
+        "避免將深色模式作為主要介面 — 螢幕截圖顯示以淺色介面為主體，配有深色英雄背景区塊。"
+      ],
+      "systemPrompt": "設計一個簡潔、專業的開發者 SaaS 介面。使用由純白 (#FFFFFF)、黑色 (#000000) 與深青綠色強調色 (#0D2F2F) 組成的高對比調色盤。字體應採用現代人文主義無襯線風格，大型標題使用緊湊字距，大寫標籤使用較寬字距。確保充足的留白與清晰的視覺層級。避免使用刺眼的霓虹色、厚重的裝飾性襯線字體、雜亂的佈局、所有元素上的銳利圓角，或用於背景的寫實攝影圖片。"
+    },
+    "ja": {
+      "identity": {
+        "keywords": [
+          "ドキュメント",
+          "ナレッジ",
+          "AI",
+          "エンタープライズ",
+          "開発者"
+        ],
+        "analogy": "開発者向けドキュメントのための、クリーンでモダンなSaaSインターフェース。イラスト入りのスタイリッシュなヒーローバックグラウンド付き。",
+        "oneLiner": "AIを活用したドキュメントに特化した、開発者中心のSaaSプラットフォーム。クリーンでプロフェッショナルな美学と、イラスト入りのヒーローセクションを備える。"
+      },
+      "colors": {
+        "principle": "ダークティールグリーンのアクセントを、纯白と纯黑に対して配置した、クリーンで高コントラストのパレット。"
+      },
+      "typography": {
+        "rules": [
+          "見出しのディスプレイタイプは、 Tightなトラッキング (-0.8px) を使用する。",
+          "ラベルとタグは、強調のため幅広いトラッキング (0.6px) の大文字を使用する。",
+          "モノスペースフォントは、コードスニペットや技術的な参照に限定して使用する。"
+        ],
+        "scaleUses": [
+          "メインヒーロー見出し",
+          "本文テキスト",
+          "オーバーラインラベルとタグ"
+        ]
+      },
+      "spacing": {
+        "rhythm": "セクション分離のためのたっぷりとしたパディングを備えた、一定の4pxグリッド。"
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 2px 4px 0px rgba(13, 47, 47, 0.03)",
+          "0px 2px 4px 0px rgba(255, 255, 255, 0.05)"
+        ],
+        "borders": "1px solid rgba(13, 47, 47, 0.5)"
+      },
+      "layout": {
+        "skeleton": "中央揃えのコンテンツコンテナを持つ、標準的な12カラムグリッド。"
+      },
+      "components": {
+        "button": "クリーンな、角丸のピル型ボタン。塗りつぶし背景またはアウトライン付き。",
+        "card": "角丸の軽いシャドウ付きカード。しばしばイラストを含む。",
+        "chip": "'NEW'やカテゴリタグなどのラベル用の、小さく角丸のバッジ。",
+        "input": "画像の上に配置された、繊細なボーダーまたは透明背景を持つ角丸の入力フィールド。",
+        "hero": "スタイリッシュな風景イラスト背景と中央揃えテキストを持つ、フルワイドセクション。"
+      },
+      "motion": {
+        "patterns": [
+          "ホバー時のスムーズな色と背景の遷移。",
+          "インタラクティブ要素のスケールとtranslate変換。",
+          "状態変化のための不透明度フェード。"
+        ]
+      },
+      "interaction": {
+        "hover": "インタラクティブ要素に対する、繊細な色の変化や背景の変更。",
+        "click": "ボタンやリンクに対する、即座のスケールやtransformフィードバック。",
+        "transition": "すべてのプロパティが0.1秒から0.3秒でスムーズに遷移する。",
+        "keyboard": "標準のフォーカスアウトラインとキーボードナビゲーションサポート。"
+      },
+      "voice": {
+        "tone": "プロフェッショナルで、有益かつ技術的に熟練している。",
+        "headlineStyle": "太字で、直接的、かつ利益を重視する。",
+        "ctaStyle": "明確で行動を促す、しばしばピル型ボタンを使用する。",
+        "avoid": [
+          "過度にカジュアルな言葉",
+          "説明のない専門用語",
+          "攻撃的なセールス戦術"
+        ]
+      },
+      "donts": [
+        "派手で明るいネオンカラーを使用しない — スクリーンショットはダークティール、白、黒のパレットを示している。",
+        "太く装飾的なセリフフォントを使用しない — スクリーンショットはクリーンでモダンなサンセリフタイポグラフィを示している。",
+        "多数の競合する要素を持つ散らかったレイアウトを作成しない — スクリーンショットは十分な余白と明確な階層を示している。",
+        "すべての要素に鋭角の四角い角を使用しない — スクリーンショットはカード、ボタン、入力フィールドに角丸を示している。",
+        "すべての背景に複雑でリアルな写真を使用しない — スクリーンショットはスタイリッシュでイラスト風の背景を示している。",
+        "ダークモードをプライマリインターフェースとして使用しない — スクリーンショットはダークなヒーローセクションを持つ、主にライトなインターフェースを示している。"
+      ],
+      "systemPrompt": "クリーンでプロフェッショナルな、開発者中心のSaaSインターフェースをデザインする。純白 (#FFFFFF)、纯黑 (#000000)、ダークティールグリーンアクセント (#0D2F2F) の高コントラストパレットを使用する。タイポグラフィは、見出しに Tightなトラッキングを持つモダンなヒューマニストサンセリフとし、ラベルには幅広いトラッキングの大文字を使用する。十分な余白と明確な視覚的階層を確保する。派手なネオンカラー、太く装飾的なセリフ、散らかったレイアウト、すべての要素の鋭角、または背景のリアルな写真は使用しない。"
+    },
+    "ko": {
+      "identity": {
+        "keywords": [
+          "문서",
+          "지식",
+          "AI",
+          "기업",
+          "개발자"
+        ],
+        "analogy": "개발자 문서를 위한 깔끔하고 현대적인 SaaS 인터페이스로, 일러스트와 스타일화된 히어로 배경을 가지고 있습니다.",
+        "oneLiner": "AI 기반 문서를 위한 개발자 중심 SaaS 플랫폼으로, 깔끔하고 전문적인 미적 감각과 일러스트 히어로를 갖추고 있습니다."
+      },
+      "colors": {
+        "principle": "깊은 틸-그린 악센트와 순백, 검정이 대비를 이루는 깔끔하고 고대비 팔레트입니다."
+      },
+      "typography": {
+        "rules": [
+          "디스플레이 타입은 대형 헤드라인을 위해 타이트한 트래킹(-0.8px)을 사용합니다.",
+          "라벨과 태그는 강조를 위해 넓은 트래킹(0.6px)의 대문자를 사용합니다.",
+          "모노스페이스 폰트는 코드 스니펫이나 기술 참조용으로 예약됩니다."
+        ],
+        "scaleUses": [
+          "메인 히어로 헤드라인",
+          "메인 본문 텍스트",
+          "오버라인 라벨 및 태그"
+        ]
+      },
+      "spacing": {
+        "rhythm": "섹션 분리를 위한 충분한 패딩을 갖춘 일관된 4px 격자입니다."
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 2px 4px 0px rgba(13, 47, 47, 0.03)",
+          "0px 2px 4px 0px rgba(255, 255, 255, 0.05)"
+        ],
+        "borders": "1px solid rgba(13, 47, 47, 0.5)"
+      },
+      "layout": {
+        "skeleton": "중앙 정렬된 콘텐츠 컨테이너를 갖춘 표준 12열 격자입니다."
+      },
+      "components": {
+        "button": "단색 배경 또는 아웃라인을 사용한 깔끔하고 둥근 알약 형태 버튼입니다.",
+        "card": "둥근 모서리와 함께 은은한 그림자를 사용한 카드로, 종종 일러스트를 포함합니다.",
+        "chip": "'NEW'나 카테고리 태그 같은 라벨을 위한 작고 둥근 배지입니다.",
+        "input": "미세한 테두리 또는 이미지 위의 투명 배경을 사용한 둥근 입력 필드입니다.",
+        "hero": "스타일화된 풍경 일러스트 배경과 중앙 정렬된 텍스트를 사용한 전체 폭 섹션입니다."
+      },
+      "motion": {
+        "patterns": [
+          "호버 시 부드러운 색상 및 배경 전환.",
+          "인터랙티브 요소를 위한 스케일 및 변환.",
+          "상태 변경을 위한 불투명도 페이드."
+        ]
+      },
+      "interaction": {
+        "hover": "인터랙티브 요소에서 은은한 색상 변화 또는 배경 변경.",
+        "click": "버튼과 링크에 즉각적인 스케일 또는 변환 피드백.",
+        "transition": "모든 속성이 0.1초에서 0.3초 동안 부드럽게 전환됩니다.",
+        "keyboard": "표준 포커스 아웃라인과 키보드 내비게이션 지원."
+      },
+      "voice": {
+        "tone": "전문적이고 도움이 되며 기술적으로 숙련된.",
+        "headlineStyle": "대담하고 직접적이며 이점 지향적인.",
+        "ctaStyle": "명확하고 행동을 유도하는 것으로, 종종 알약 형태 버튼을 사용합니다.",
+        "avoid": [
+          "지나치게 캐주얼한 언어",
+          "설명 없는 전문 용어",
+          "공격적인 판매 전략"
+        ]
+      },
+      "donts": [
+        "거칠고 밝은 네온 색상을 사용하지 마세요 — 스크린샷에는 깊은 틸, 흰색, 검정 팔레트가 보입니다.",
+        "무거운 장식용 세리프 폰트를 사용하지 마세요 — 스크린샷에는 깔끔하고 현대적인 산세리프 타이포그래피가 보입니다.",
+        "많은 경쟁 요소로 인한 지저분한 레이아웃을 만들지 마세요 — 스크린샷에는 충분한 여백과 명확한 위계 질서가 보입니다.",
+        "모든 요소에 날카롭고 사각 모서리를 사용하지 마세요 — 스크린샷에는 카드, 버튼, 입력 필드의 둥근 모서리가 보입니다.",
+        "모든 배경에 복잡하고 사실적인 사진을 사용하지 마세요 — 스크린샷에는 스타일화되고 일러스트가 그려진 배경이 보입니다.",
+        "다크 모드를 기본 인터페이스로 사용하지 마세요 — 스크린샷에는 주로 밝은 인터페이스와 어두운 히어로 섹션이 보입니다."
+      ],
+      "systemPrompt": "깔끔하고 전문적인 개발자 중심 SaaS 인터페이스를 설계하세요. 순백(#FFFFFF), 검정(#000000), 깊은 틸-그린 악센트(#0D2F2F)의 고대비 팔레트를 사용하세요. 타이포그래피는 현대적인 휴먼리스트 산세리프를 사용하고, 대형 헤드라인에는 타이트한 트래킹을, 라벨에는 넓은 트래킹의 대문자를 사용하세요. 충분한 여백과 명확한 시각적 위계를 보장하세요. 거친 네온 색상, 무거운 장식용 세리프, 지저분한 레이아웃, 모든 요소의 날카로운 모서리, 또는 배경용 사실적인 사진은 사용하지 마세요."
     }
   }
 }

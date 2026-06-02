@@ -17,51 +17,67 @@
   "_meta": {
     "vision_model": "mimo-v2.5",
     "vision_prompt_version": "0.3",
-    "vision_at": "2026-05-28T21:00:44+00:00",
-    "vision_tokens": 3384,
-    "vision_cost_usd": 0.0376,
+    "vision_at": "2026-05-30T02:43:31+00:00",
+    "vision_tokens": 17444,
+    "vision_cost_usd": 0.1938,
     "translation_model": "mimo-v2.5",
-    "translation_at": "2026-05-28T21:01:42+00:00",
-    "translation_tokens": 15852,
-    "translation_cost_usd": 0.0528,
+    "translation_at": "2026-05-30T02:44:33+00:00",
+    "translation_tokens": 27649,
+    "translation_cost_usd": 0.0921,
     "narrative_model": "mimo-v2.5",
     "narrative_prompt_version": "0.3",
     "narrative_at": "2026-05-28T21:01:49+00:00",
     "narrative_tokens": 1931,
     "narrative_cost_usd": 0.0129,
     "narrative_status": "ok",
-    "total_cost_usd": 0.1033
+    "total_cost_usd": 0.2988,
+    "vision_source": "playwright-extract:notion",
+    "vision_grounded": true
   },
   "spec": {
     "colors": {
-      "bg": "#0f0b30",
-      "bgSoft": null,
-      "bgQuiet": null,
-      "ink": "#ffffff",
-      "inkSoft": null,
-      "muted": null,
-      "mutedSoft": null,
-      "accent": "#2f80ed",
-      "line": "rgba(255, 255, 255, 0.1)"
+      "bg": "#FFFFFF",
+      "bgSoft": "#F9F9F8",
+      "bgQuiet": "#F7F7F5",
+      "ink": "#1B1B1B",
+      "inkSoft": "#37352F",
+      "muted": "#A39E98",
+      "mutedSoft": "#615959",
+      "accent": "#4B7BF5",
+      "line": "rgba(0, 0, 0, 0.11)"
     },
     "typography": {
       "display": "humanist-sans",
       "body": "humanist-sans",
-      "mono": null,
+      "mono": "monospace",
       "scale": [
         {
           "token": "display",
           "size": 64,
-          "lh": 1.05,
-          "weight": 600,
+          "lh": 1.0,
+          "weight": 700,
+          "ls": "-1.875px"
+        },
+        {
+          "token": "heading",
+          "size": 40,
+          "lh": 1.1,
+          "weight": 700,
           "ls": "-1.5px"
         },
         {
           "token": "body",
-          "size": 18,
-          "lh": 1.6,
+          "size": 16,
+          "lh": 1.5,
           "weight": 400,
-          "ls": "0px"
+          "ls": "0"
+        },
+        {
+          "token": "small",
+          "size": 14,
+          "lh": 1.4,
+          "weight": 400,
+          "ls": "0"
         }
       ]
     },
@@ -88,7 +104,7 @@
     },
     "layout": {
       "container": 1280,
-      "paragraph": 640,
+      "paragraph": 680,
       "columns": 12,
       "gutter": 24,
       "breakpoints": [
@@ -102,403 +118,16 @@
         "small": 400,
         "medium": 800
       },
-      "easing": "cubic-bezier(0.25, 0.1, 0.25, 1)"
-    }
-  },
-  "spec_i18n": {
-    "en": {
-      "identity": {
-        "keywords": [
-          "productivity",
-          "workspace",
-          "collaboration",
-          "automation",
-          "efficiency"
-        ],
-        "analogy": "A clean, highly organized digital workspace",
-        "oneLiner": "A collaborative workspace that combines notes, docs, wikis, and project management into one tool."
-      },
-      "colors": {
-        "principle": "A deep, saturated dark blue background that focuses attention on the central product UI, which uses a standard light-mode palette."
-      },
-      "typography": {
-        "rules": [
-          "High contrast white text on dark background",
-          "Large, bold display type for impact",
-          "Clean, legible body text for readability"
-        ],
-        "scaleUses": [
-          "Main hero headline",
-          "Subheadline and description text"
-        ]
-      },
-      "spacing": {
-        "rhythm": "Generous vertical spacing to separate hero content from product screenshot and social proof"
-      },
-      "surfaces": {
-        "shadows": [
-          "0 20px 60px rgba(0,0,0,0.5)"
-        ],
-        "borders": "Solid buttons with no visible borders, or very subtle 1px borders on input fields within the UI"
-      },
-      "layout": {
-        "skeleton": "Standard marketing hero layout with centered text, dual CTAs, and a large product screenshot floating below"
-      },
-      "components": {
-        "button": "Solid fill buttons with rounded corners and subtle hover states",
-        "card": "None visible in hero, though product UI shows standard kanban cards",
-        "chip": "None visible",
-        "input": "None visible in main hero",
-        "hero": "Centered headline and subtext, dual action buttons, large floating product screenshot with decorative background illustrations"
-      },
-      "motion": {
-        "patterns": [
-          "Subtle floating animations on decorative elements",
-          "Smooth transitions on button hover"
-        ]
-      },
-      "interaction": {
-        "hover": "Buttons change shade or opacity slightly",
-        "click": "Standard pointer cursor for interactive elements",
-        "transition": "Smooth, short duration transitions for UI state changes",
-        "keyboard": "Standard focus outlines on interactive elements"
-      },
-      "voice": {
-        "tone": "Confident, modern, and professional yet approachable",
-        "headlineStyle": "Bold, short, and catchy statements",
-        "ctaStyle": "Clear and direct action-oriented text like 'Get Notion free'",
-        "avoid": [
-          "Jargon-heavy language",
-          "Overly complex sentence structures",
-          "Aggressive sales tactics"
-        ]
-      },
-      "donts": [
-        "Don't use a light background — screenshot shows a deep dark blue (#0f0b30) hero",
-        "Don't use a rigid, strictly geometric font — screenshot uses a softer humanist sans-serif",
-        "Don't clutter the hero with too many text elements — screenshot uses a single clear headline and subtext",
-        "Don't use harsh neon colors — screenshot uses a muted blue accent and white text",
-        "Don't use heavy drop shadows on everything — screenshot only uses a large shadow under the product UI",
-        "Don't use a monospace font for display text — screenshot uses a clean sans-serif for everything"
-      ],
-      "systemPrompt": "This is Notion, a modern SaaS productivity tool. The design features a deep dark blue (#0f0b30) hero section with high-contrast white text. The typography relies on clean humanist-sans fonts for both display and body text, avoiding overly geometric or rigid styles. The layout is centered and spacious, focusing on a single compelling headline and a large product screenshot. Key donts: avoid using light backgrounds in the hero, avoid harsh neon accent colors, and avoid cluttering the interface with too many competing elements. The overall feel is professional, clean, and focused on the product's utility."
-    },
-    "zh-CN": {
-      "identity": {
-        "keywords": [
-          "效率",
-          "工作区",
-          "协作",
-          "自动化",
-          "生产力"
-        ],
-        "analogy": "一个干净、高度有序的数字工作区",
-        "oneLiner": "一个将笔记、文档、维基和项目管理集于一身的协作工作区。"
-      },
-      "colors": {
-        "principle": "深邃、饱和的暗蓝色背景，能将注意力聚焦于中央的产品 UI，而 UI 本身使用标准的浅色模式配色。"
-      },
-      "typography": {
-        "rules": [
-          "深色背景上的高对比度白色文字",
-          "用于制造视觉冲击力的大号、粗体展示型文字",
-          "清晰易读、用于内容正文的版式"
-        ],
-        "scaleUses": [
-          "主首屏标题",
-          "副标题与描述性文字"
-        ]
-      },
-      "spacing": {
-        "rhythm": "充足的垂直留白，将首屏内容与产品截图及社会认证分隔开。"
-      },
-      "surfaces": {
-        "shadows": [
-          "0 20px 60px rgba(0,0,0,0.5)"
-        ],
-        "borders": "无可见边框的实心填充按钮，或 UI 内输入框上非常细微的 1px 边框"
-      },
-      "layout": {
-        "skeleton": "标准的营销首屏布局，包含居中文字、双 CTA 按钮，以及下方悬浮的大型产品截图。"
-      },
-      "components": {
-        "button": "圆角实心填充按钮，带有微妙的 hover 状态变化",
-        "card": "首屏中未见，但产品 UI 中展示了标准的看板卡片",
-        "chip": "未见",
-        "input": "主首屏中未见",
-        "hero": "居中的标题与副文本，双操作按钮，大型悬浮产品截图及装饰性背景插图"
-      },
-      "motion": {
-        "patterns": [
-          "装饰元素上的微妙浮动动画",
-          "按钮 hover 时的平滑过渡"
-        ]
-      },
-      "interaction": {
-        "hover": "按钮轻微改变色调或透明度",
-        "click": "交互元素使用标准指针光标",
-        "transition": "UI 状态变化时平滑、短时的过渡",
-        "keyboard": "交互元素上标准的 focus 轮廓"
-      },
-      "voice": {
-        "tone": "自信、现代、专业且平易近人",
-        "headlineStyle": "粗体、简短且引人注目的陈述",
-        "ctaStyle": "清晰直接、面向行动的文字，例如“免费获取 Notion”",
-        "avoid": [
-          "术语过多的语言",
-          "过于复杂的句子结构",
-          "咄咄逼人的销售策略"
-        ]
-      },
-      "donts": [
-        "不要使用浅色背景——截图显示首屏为深邃的暗蓝色（#0f0b30）",
-        "不要使用生硬、严格几何化的字体——截图使用了更柔和的 humanist-sans 字体",
-        "不要在首屏堆砌过多文字元素——截图只使用了清晰的标题和副文本",
-        "不要使用刺眼的霓虹色——截图使用了柔和的蓝色点缀和白色文字",
-        "不要在所有地方都使用厚重的投影——截图仅在产品 UI 下方使用了一个大投影",
-        "不要为展示型文字使用等宽字体——截图的所有文字均使用了清晰的无衬线字体"
-      ],
-      "systemPrompt": "这是 Notion，一款现代的 SaaS 生产力工具。设计采用了深邃的暗蓝色（#0f0b30）首屏部分，搭配高对比度的白色文字。排版依赖清晰的 humanist-sans 字体用于展示和正文，避免了过于几何化或生硬的风格。布局居中且宽松，聚焦于一个引人注目的标题和一张大型产品截图。关键禁忌：避免在首屏使用浅色背景，避免使用刺眼的霓虹色点缀，避免界面堆砌过多相互竞争的元素。整体感觉是专业、干净，并聚焦于产品的实用性。"
-    },
-    "zh-TW": {
-      "identity": {
-        "keywords": [
-          "生產力",
-          "工作空間",
-          "協作",
-          "自動化",
-          "效率"
-        ],
-        "analogy": "一個乾淨、高度組織化的數位工作空間",
-        "oneLiner": "一個結合了筆記、文件、知識庫與專案管理的協作工作空間。"
-      },
-      "colors": {
-        "principle": "深邃飽和的暗藍色背景，能將注意力集中在中央的產品 UI 上，該 UI 採用標準的亮色模式調色盤。"
-      },
-      "typography": {
-        "rules": [
-          "深色背景上的高對比度白色文字",
-          "用於製造視覺衝擊的大型粗體展示字型",
-          "乾淨、易讀的內文以確保可讀性"
-        ],
-        "scaleUses": [
-          "主首頁標題",
-          "副標題與描述文字"
-        ]
-      },
-      "spacing": {
-        "rhythm": "寬裕的垂直間距，用以區隔首頁內容、產品螢幕截圖與社會認證"
-      },
-      "surfaces": {
-        "shadows": [
-          "0 20px 60px rgba(0,0,0,0.5)"
-        ],
-        "borders": "無可見邊框的實心按鈕，或 UI 中輸入欄位上非常細微的 1px 邊框"
-      },
-      "layout": {
-        "skeleton": "標準的行銷首頁佈局，包含居中文字、雙重 CTA，以及下方漂浮的大型產品螢幕截圖"
-      },
-      "components": {
-        "button": "圓角實心填充按鈕，帶有細微的 hover 狀態",
-        "card": "首頁中未顯示，但產品 UI 顯示標準的看板卡片",
-        "chip": "未顯示",
-        "input": "主首頁中未顯示",
-        "hero": "居中的標題與副文本、雙重操作按鈕、帶有裝飾性背景插圖的大型漂浮產品螢幕截圖"
-      },
-      "motion": {
-        "patterns": [
-          "裝飾性元素上的細微浮動動畫",
-          "按鈕 hover 時的平滑轉場"
-        ]
-      },
-      "interaction": {
-        "hover": "按鈕的色調或透明度會輕微改變",
-        "click": "互動元素使用標準的指標游標",
-        "transition": "UI 狀態變換時，採用平滑、短暫的轉場效果",
-        "keyboard": "互動元素使用標準的 focus 輪廓"
-      },
-      "voice": {
-        "tone": "自信、現代、專業且親切",
-        "headlineStyle": "大膽、簡短且引人注目的標語",
-        "ctaStyle": "清晰直接、以行動為導向的文字，例如「免費取得 Notion」",
-        "avoid": [
-          "術語過多的語言",
-          "過於複雜的句型結構",
-          "激進的銷售策略"
-        ]
-      },
-      "donts": [
-        "不要使用淺色背景 — 螢幕截圖顯示的是深邃的暗藍色（#0f0b30）首頁",
-        "不要使用生硬、嚴格幾何的字型 — 螢幕截圖使用較柔和的人文無襯線字型",
-        "不要在首頁堆砌太多文字元素 — 螢幕截圖僅使用單一清晰的標題與副文本",
-        "不要使用刺眼的霓虹色 — 螢幕截圖使用柔和的藍色強調色與白色文字",
-        "不要在所有元素上都使用厚重的陰影 — 螢幕截圖僅在產品 UI 下方使用大型陰影",
-        "不要使用等寬字型作為展示文字 — 螢幕截圖的所有文字都使用乾淨的無襯線字型"
-      ],
-      "systemPrompt": "這是 Notion，一款現代化的 SaaS 生產力工具。設計採用深邃的暗藍色（#0f0b30）首頁區塊，搭配高對比度的白色文字。字型設計依賴乾淨的人文無襯線字體，用於展示與內文，避免過於幾何或生硬的風格。佈局居中且寬敞，專注於單一引人注目的標題與大型產品螢幕截圖。關鍵注意事項：避免在首頁使用淺色背景，避免使用刺眼的霓虹強調色，並避免讓介面充滿過多相互競爭的元素。整體感覺專業、乾淨，並專注於產品的實用性。"
-    },
-    "ja": {
-      "identity": {
-        "keywords": [
-          "生産性",
-          "ワークスペース",
-          "コラボレーション",
-          "自動化",
-          "効率"
-        ],
-        "analogy": "クリーンで非常に整理されたデジタルワークスペース",
-        "oneLiner": "ノート、ドキュメント、ウィキ、プロジェクト管理を1つのツールに統合した、コラボレーション・ワークスペース。"
-      },
-      "colors": {
-        "principle": "中央の製品UIに注目を集める、深く飽和した暗い青の背景。UIには標準的なライトモードのカラーパレットを使用。"
-      },
-      "typography": {
-        "rules": [
-          "暗い背景に高コントラストの白いテキスト",
-          "インパクトを与える大型で太字のディスプレイ・タイプ",
-          "可読性を高めるクリーンで判読しやすい本文テキスト"
-        ],
-        "scaleUses": [
-          "メインヒーローの見出し",
-          "サブ見出しと説明テキスト"
-        ]
-      },
-      "spacing": {
-        "rhythm": "ヒーローコンテンツと製品スクリーンショット、ソーシャルプルーフを分離するための、十分な垂直方向の余白"
-      },
-      "surfaces": {
-        "shadows": [
-          "0 20px 60px rgba(0,0,0,0.5)"
-        ],
-        "borders": "ボーダーのない塗りつぶしボタン、またはUI内の入力フィールドに非常に控えめな1pxボーダー"
-      },
-      "layout": {
-        "skeleton": "中央にテキストを配置し、2つのCTA、下に浮かぶ大きな製品スクリーンショットを配置した、標準的なマーケティング・ヒーローレイアウト"
-      },
-      "components": {
-        "button": "角丸で塗りつぶされたボタン、控えめなhover状態",
-        "card": "ヒーローには表示されず、ただし製品UIには標準的なカンバンカードが表示される",
-        "chip": "表示されず",
-        "input": "メインヒーローには表示されず",
-        "hero": "中央に配置された見出しとサブテキスト、2つのアクション・ボタン、装飾的な背景イラストを伴う大きく浮遊する製品スクリーンショット"
-      },
-      "motion": {
-        "patterns": [
-          "装飾要素への控えめな浮遊アニメーション",
-          "ボタンhover時のスムーズなトランジション"
-        ]
-      },
-      "interaction": {
-        "hover": "ボタンの色調や不透明度がわずかに変化",
-        "click": "インタラクティブ要素には標準的なポインターカーソル",
-        "transition": "UI状態の変更にはスムーズで短い時間のトランジション",
-        "keyboard": "インタラクティブ要素には標準的なfocusアウトライン"
-      },
-      "voice": {
-        "tone": "自信があり、モダンで、プロフェッショナルでありながらも親しみやすい",
-        "headlineStyle": "太字で短く、キャッチーなステートメント",
-        "ctaStyle": "「Get Notion free」のような明確で直接的な、行動を促すテキスト",
-        "avoid": [
-          "専門用語を多用した言葉",
-          "過度に複雑な文章構造",
-          "攻撃的な営業戦術"
-        ]
-      },
-      "donts": [
-        "明るい背景を使用しない — スクリーンショットは深い暗い青（#0f0b30）のヒーローを示している",
-        "厳格で完全に幾何学的なフォントを使用しない — スクリーンショットはより柔らかいヒューマニストサンセリフを使用している",
-        "ヒーローにテキスト要素を詰め込みすぎない — スクリーンショットは単一で明確な見出しとサブテキストを使用している",
-        "刺々しいネオン色を使用しない — スクリーンショットは控えめな青のアクセントと白いテキストを使用している",
-        "すべてに強いドロップシャドウを使用しない — スクリーンショットは製品UIの下にのみ大きなシャドウを使用している",
-        "ディスプレイ・テキストに等幅フォントを使用しない — スクリーンショットはすべてにクリーンなサンセリフを使用している"
-      ],
-      "systemPrompt": "これはNotionです。モダンなSaaS生産性ツールです。デザインは深い暗い青（#0f0b30）のヒーローセクションと高コントラストの白いテキストが特徴です。タイポグラフィはディスプレイおよび本文テキストの両方でクリーンなヒューマニストサンセリフ・フォントに依存し、過度に幾何学的または厳格なスタイルは避けます。レイアウトは中央に配置され、スペースを多用し、単一の魅力的な見出しと大きな製品スクリーンショットに焦点を絞ります。主な禁止事項：ヒーローに明るい背景を使用しない、刺々しいネオンのアクセント色を使用しない、競合する要素を詰め込みすぎでインターフェースを雑然とさせない。全体的な印象は、プロフェッショナルでクリーン、製品の有用性に焦点を絞ったものとなります。"
-    },
-    "ko": {
-      "identity": {
-        "keywords": [
-          "생산성",
-          "작업 공간",
-          "협업",
-          "자동화",
-          "효율성"
-        ],
-        "analogy": "깔끔하고 매우 체계적인 디지털 작업 공간",
-        "oneLiner": "노트, 문서, 위키, 프로젝트 관리를 하나의 도구로 결합한 협업 작업 공간."
-      },
-      "colors": {
-        "principle": "중앙 제품 UI에 주목도를 집중시키는 깊고 채도 높은 남색 배경을 사용하며, 제품 UI는 표준 라이트 모드 팔레트를 따릅니다."
-      },
-      "typography": {
-        "rules": [
-          "다크 배경 위의 높은 대비의 흰색 텍스트",
-          "임팩트를 위한 크고 볼드한 디스플레이 타입",
-          "가독성을 위한 깔끔하고 읽기 쉬운 본문 텍스트"
-        ],
-        "scaleUses": [
-          "메인 히어로 헤드라인",
-          "서브헤드라인 및 설명 텍스트"
-        ]
-      },
-      "spacing": {
-        "rhythm": "히어로 콘텐츠, 제품 스크린샷, 사회적 증명을 구분하기 위한 넉넉한 수직 간격"
-      },
-      "surfaces": {
-        "shadows": [
-          "0 20px 60px rgba(0,0,0,0.5)"
-        ],
-        "borders": "테두리가 보이지 않는 솔리드 버튼, 또는 UI 내 입력 필드에는 매우 은은한 1px 테두리 사용"
-      },
-      "layout": {
-        "skeleton": "중앙 정렬된 텍스트, 이중 CTA, 그리고 아래에 크게 떠 있는 제품 스크린샷을 갖춘 표준 마케팅 히어로 레이아웃"
-      },
-      "components": {
-        "button": "둥근 모서리와 은은한 hover 상태를 가진 솔리드 채우기 버튼",
-        "card": "히어로에는 보이지 않으나, 제품 UI에서 표준 칸반 카드가 사용됨",
-        "chip": "보이지 않음",
-        "input": "메인 히어로에 보이지 않음",
-        "hero": "중앙 정렬된 헤드라인과 서브텍스트, 이중 액션 버튼, 장식용 배경 일러스트레이션과 함께 크게 떠 있는 제품 스크린샷"
-      },
-      "motion": {
-        "patterns": [
-          "장식 요소에 은은한 부유 애니메이션",
-          "버튼 hover 시 부드러운 전환 효과"
-        ]
-      },
-      "interaction": {
-        "hover": "버튼의 색조나 불투명도가 약간 변경됨",
-        "click": "인터랙티브 요소에 대한 표준 포인터 커서",
-        "transition": "UI 상태 변화에 대한 부드럽고 짧은 지속 시간의 전환 효과",
-        "keyboard": "인터랙티브 요소에 대한 표준 focus 윤곽선"
-      },
-      "voice": {
-        "tone": "자신감 있고 현대적이며 전문적이면서도 접근ability 있는 어조",
-        "headlineStyle": "볼드하고 간결하며 임팩트 있는 문구",
-        "ctaStyle": "'Get Notion free'와 같이 명확하고 직접적인 행동 지향적 문구",
-        "avoid": [
-          "전문 용어가 과도한 언어",
-          "지나치게 복잡한 문장 구조",
-          "공격적인 판매 전략"
-        ]
-      },
-      "donts": [
-        "라이트 배경 사용 금지 — 스크린샷은 깊은 남색(#0f0b30) 히어로를 보여줌",
-        "단조롭고 엄격한 기하학적 폰트 사용 금지 — 스크린샷은 더 부드러운 휴머니스트산세리프를 사용",
-        "히어로에 텍스트 요소를 너무 많이 배치하여 혼잡하게 만들지 마세요 — 스크린샷은 단일 명확한 헤드라인과 서브텍스트만 사용",
-        "강렬한 네온 컬러 사용 금지 — 스크린샷은 은은한 블루 악센트와 흰색 텍스트 사용",
-        "모든 요소에 무거운 드롭 섀도우 사용 금지 — 스크린샷은 제품 UI 아래에만 큰 섀도우 사용",
-        "디스플레이 텍스트에 모노스페이스 폰트 사용 금지 — 스크린샷은 모든 곳에 깔끔한 산세리프 사용"
-      ],
-      "systemPrompt": "이것은 현대적인 SaaS 생산성 도구인 Notion입니다. 디자인은 높은 대비의 흰색 텍스트를 사용하는 깊은 남색(#0f0b30) 히어로 섹션이 특징입니다. 타이포그래피는 디스플레이와 본문 텍스트 모두에 깔끔한 휴머니스트산세리프 폰트를 사용하며, 지나치게 기계적이거나 단조로운 스타일을 피합니다. 레이아웃은 중앙 정렬되어 있으며 여백이 넉넉하며, 하나의 설득력 있는 헤드라인과 큰 제품 스크린샷에 집중합니다. 핵심 금지 사항: 히어로에 라이트 배경 사용 금지, 강렬한 네온 악센트 컬러 사용 금지, 너무 많은 경쟁 요소로 인터페이스를 혼잡하게 만들지 마세요. 전체적인 느낌은 전문적이고 깔끔하며 제품의实用性에 집중합니다."
+      "easing": "cubic-bezier(0.645, 0.045, 0.355, 1)"
     }
   },
   "desc": {
     "en": {
-      "palette": "A deep dark blue background with high-contrast white text and a subtle blue accent for buttons.",
-      "layout": "A centered marketing hero layout with generous vertical spacing and a prominent product screenshot.",
-      "interaction": "Subtle hover transitions on buttons and standard interactive elements.",
-      "motion": "Minimal but present subtle floating animations on decorative background elements.",
-      "notes": "This site is a great example of a clean, focused SaaS landing page that uses a dark theme to make the product UI stand out."
+      "palette": "A clean, professional palette centered around white, warm grays, and a single high-chroma blue accent for primary interactive elements.",
+      "layout": "A spacious, 12-column centered grid layout that uses generous whitespace to highlight large typographic elements and detailed product imagery.",
+      "interaction": "Subtle, smooth transitions on hover and click states that provide clear feedback without disrupting the user's focus.",
+      "motion": "Minimalist motion design using standard easing and short durations to enhance UI clarity and responsiveness.",
+      "notes": "A prime example of refined SaaS design, blending bold typography with a highly functional, clean interface."
     },
     "zh-CN": {
       "palette": "深邃的暗蓝色背景，搭配高对比度的白色文字，按钮带有微妙的蓝色点缀。",
@@ -589,6 +218,413 @@
       "ch7_intro": "모션은 절제되고 의도적이며, 주의를 산만하게 하기보다 상호작용을 인식하기 위해 사용됩니다. 배경 요소의 미세한 떠 있는 애니메이션과 버튼 hover 상태의 부드럽고 짧은 전환은 부드럽고 반응적인 생명감을 줍니다.",
       "ch8_intro": "에디토리얼 어조는 자신감 있고 직접적이며, 굵고 짧은 헤드라인과 명확하고 행동 지향적인 행동 유도 문구를 선호합니다. 현대적인 전문성으로 소통하지만 생산성 소프트웨어에 흔한 복잡성과 전문 용어는 피합니다.",
       "ch8_outro": "그들은 의도적으로 밝은 배경, 강한 네온 악센트, 또는 지저분한 계층 구조를 사용하지 않으며, 절제가 집중된 작업 공간의 핵심임을 이해하고 있습니다."
+    }
+  },
+  "spec_i18n": {
+    "en": {
+      "identity": {
+        "keywords": [
+          "notion",
+          "ai",
+          "productivity",
+          "workspace",
+          "agents"
+        ],
+        "analogy": "A highly polished, functional enterprise tool that blends modern SaaS aesthetics with clear, intuitive UI patterns.",
+        "oneLiner": "A premium AI-powered productivity platform that centralizes team knowledge and project management."
+      },
+      "colors": {
+        "principle": "A restrained, neutral base palette anchored by white and warm grays, using a single high-chroma blue for primary actions to maintain a professional, focused environment."
+      },
+      "typography": {
+        "rules": [
+          "Use tight letter-spacing for large display headings.",
+          "Maintain high contrast for body text against light backgrounds.",
+          "Leverage varying font weights (400, 500, 700) to establish clear visual hierarchy."
+        ],
+        "scaleUses": [
+          "Page titles and hero text",
+          "Section headlines",
+          "General reading text",
+          "Secondary text and UI elements"
+        ]
+      },
+      "spacing": {
+        "rhythm": "Consistent 4px grid system ensuring uniform vertical and horizontal rhythm across components."
+      },
+      "surfaces": {
+        "shadows": [
+          "0 1px 0 rgba(0,0,0,0.1)",
+          "0 1px 3px rgba(0,0,0,0.01), 0 3px 7px rgba(0,0,0,0.02), 0 7px 15px rgba(0,0,0,0.02), 0 14px 28px rgba(0,0,0,0.04), 0 23px 52px rgba(0,0,0,0.05)"
+        ],
+        "borders": "Subtle 1px borders using rgba(0,0,0,0.11) for defining containers and separating elements."
+      },
+      "layout": {
+        "skeleton": "A clean, centered layout that transitions from wide content blocks on desktop to a single column on mobile, maintaining generous whitespace."
+      },
+      "components": {
+        "button": "Clean, rounded buttons with solid primary blue fill and high-contrast white text, or subtle outlined/ghost variants.",
+        "card": "Light, elevated cards with subtle shadows and soft rounded corners for showcasing features or dashboard elements.",
+        "chip": "Small, pill-shaped tags used for status indicators or categorization within the UI.",
+        "input": "Minimalist form fields with subtle borders that focus on clarity and ease of use.",
+        "hero": "A massive, bold typographic statement paired with a large, detailed product screenshot."
+      },
+      "motion": {
+        "patterns": [
+          "Smooth background-color transitions on hover.",
+          "Subtle box-shadow expansions for interactive elements.",
+          "Transformations for UI state changes."
+        ]
+      },
+      "interaction": {
+        "hover": "Subtle color shifts or shadow enhancements to indicate interactivity without being distracting.",
+        "click": "Immediate visual feedback, often through background color changes or minor transforms.",
+        "transition": "Standardized 0.2s ease-in transitions for most interactive properties.",
+        "keyboard": "Standard browser-native focus states, ensuring accessibility without custom intrusive outlines."
+      },
+      "voice": {
+        "tone": "Professional, confident, and slightly playful, emphasizing empowerment and efficiency.",
+        "headlineStyle": "Short, punchy, and highly impactful, often using large, bold typography to make a statement.",
+        "ctaStyle": "Direct and benefit-oriented, focusing on immediate action like 'Get Notion free' or 'Request a demo'.",
+        "avoid": [
+          "Technical jargon without clear context",
+          "Overly aggressive or 'salesy' language",
+          "Cluttered or confusing messaging"
+        ]
+      },
+      "donts": [
+        "Don't use high-chroma colors for backgrounds — screenshot shows a dominant white and very light gray palette.",
+        "Don't use decorative serif fonts — screenshot shows a clean, modern humanist-sans-serif for all primary text.",
+        "Don't use heavy, dark borders — screenshot shows subtle, low-opacity borders to define sections.",
+        "Don't clutter the interface with too many CTAs — screenshot shows a focused hierarchy with clear primary actions.",
+        "Don't use complex, multi-colored gradients — screenshot shows solid, flat colors and subtle shadows for depth.",
+        "Don't use aggressive drop shadows — screenshot shows soft, layered shadows that add subtle elevation."
+      ],
+      "systemPrompt": "Position Notion as a premium, highly refined AI productivity workspace. The design relies on a clean, neutral palette of white (#FFFFFF), warm grays (#F9F9F8, #F7F7F5), and a single high-chroma blue accent (#4B7BF5) for primary actions. Typography uses a modern humanist-sans-serif with tight tracking for display text and generous whitespace for readability. Critical constraints: avoid decorative or high-contrast colored backgrounds, maintain a single clear CTA hierarchy, and use subtle, layered shadows for depth instead of heavy borders or complex gradients."
+    },
+    "zh-CN": {
+      "identity": {
+        "keywords": [
+          "notion",
+          "ai",
+          "productivity",
+          "workspace",
+          "agents"
+        ],
+        "analogy": "一款高度打磨、功能齐全的企业工具，融合了现代SaaS美学与清晰、直观的UI模式。",
+        "oneLiner": "一个优质的AI驱动型生产力平台，整合团队知识与项目管理。"
+      },
+      "colors": {
+        "principle": "以白色和暖灰色为基础的克制、中性调色板，辅以单一高饱和度蓝色作为主要操作色，以维持专业、专注的环境。"
+      },
+      "typography": {
+        "rules": [
+          "大型展示标题使用紧凑的字间距。",
+          "正文文本在浅色背景上保持高对比度。",
+          "利用不同的字重（400, 500, 700）建立清晰的视觉层次。"
+        ],
+        "scaleUses": [
+          "页面标题和主视觉文字",
+          "章节标题",
+          "通用阅读文本",
+          "辅助文本和UI元素"
+        ]
+      },
+      "spacing": {
+        "rhythm": "采用统一的4px网格系统，确保组件间垂直和水平节奏的统一。"
+      },
+      "surfaces": {
+        "shadows": [
+          "0 1px 0 rgba(0,0,0,0.1)",
+          "0 1px 3px rgba(0,0,0,0.01), 0 3px 7px rgba(0,0,0,0.02), 0 7px 15px rgba(0,0,0,0.02), 0 14px 28px rgba(0,0,0,0.04), 0 23px 52px rgba(0,0,0,0.05)"
+        ],
+        "borders": "使用rgba(0,0,0,0.11)的细微1px边框，用于界定容器和分隔元素。"
+      },
+      "layout": {
+        "skeleton": "简洁、居中的布局，桌面端为宽内容块，移动端过渡为单列，保持充足的留白。"
+      },
+      "components": {
+        "button": "简洁、圆角的按钮，采用实心主蓝色填充和高对比度白色文本，或提供细微的描边/幽灵按钮变体。",
+        "card": "轻盈、有高度的卡片，带有细微阴影和柔和圆角，用于展示功能或仪表板元素。",
+        "chip": "小型、药丸状的标签，用于UI中的状态指示或分类。",
+        "input": "极简的表单字段，边框细微，注重清晰度和易用性。",
+        "hero": "大胆、醒目的排版陈述，搭配大型、详细的产品截图。"
+      },
+      "motion": {
+        "patterns": [
+          "hover时平滑的背景颜色过渡。",
+          "交互元素的细微box-shadow扩展。",
+          "用于UI状态变化的变换效果。"
+        ]
+      },
+      "interaction": {
+        "hover": "细微的颜色变化或阴影增强，以指示可交互性，同时避免干扰。",
+        "click": "即时的视觉反馈，通常通过背景颜色变化或微小变换实现。",
+        "transition": "针对大多数交互属性，采用标准化的0.2s ease-in过渡效果。",
+        "keyboard": "标准的浏览器原生焦点状态，确保无障碍性，无需自定义侵入式轮廓。"
+      },
+      "voice": {
+        "tone": "专业、自信且略带趣味，强调赋能与效率。",
+        "headlineStyle": "简短、有力且极具冲击力，常使用大型粗体排版进行陈述。",
+        "ctaStyle": "直接且以利益为导向，聚焦于立即行动，如“免费获取Notion”或“申请演示”。",
+        "avoid": [
+          "缺乏明确上下文的技术术语",
+          "过于激进或“推销式”的语言",
+          "杂乱或令人困惑的信息传达"
+        ]
+      },
+      "donts": [
+        "避免使用高饱和度颜色作为背景——截图显示以白色和极浅灰色为主导的调色板。",
+        "避免使用装饰性衬线字体——截图显示所有主要文本均采用简洁、现代的人文主义无衬线字体。",
+        "避免使用厚重、深色的边框——截图显示使用细微、低透明度的边框来界定区域。",
+        "避免在界面上堆砌过多CTA——截图显示具有清晰主要操作的聚焦层次。",
+        "避免使用复杂、多色的渐变——截图显示使用纯色、平面色和细微阴影来营造深度。",
+        "避免使用激进的投影——截图显示使用柔和、分层的阴影来增加微妙的高度感。"
+      ],
+      "systemPrompt": "将Notion定位为一款优质的、高度精致的AI生产力工作空间。设计依赖于白色（#FFFFFF）、暖灰色（#F9F9F8, #F7F7F5）和单一高饱和度蓝色强调色（#4B7BF5）的简洁、中性调色板。排版采用现代人文主义无衬线字体，展示文本字距紧凑，并留有充足空白以确保可读性。关键约束：避免装饰性或高对比度的彩色背景，保持单一清晰的CTA层次，并使用细微、分层的阴影来营造深度，而非厚重边框或复杂渐变。"
+    },
+    "zh-TW": {
+      "identity": {
+        "keywords": [
+          "notion",
+          "ai",
+          "生產力",
+          "工作空間",
+          "代理人"
+        ],
+        "analogy": "一款高度精煉、功能強大的企業工具，融合了現代 SaaS 美學與清晰、直覺的 UI 模式。",
+        "oneLiner": "一款優質的 AI 驅動生產力平台，整合團隊知識與專案管理。"
+      },
+      "colors": {
+        "principle": "以白色與暖灰色為基調的克制、中性基礎調色盤，僅使用單一高飽和度藍色作為主要操作色彩，以維持專業、專注的環境。"
+      },
+      "typography": {
+        "rules": [
+          "大型展示標題使用緊湊的字間距。",
+          "內文與淺色背景保持高對比度。",
+          "運用不同的字重（400、500、700）建立清晰的視覺層次。"
+        ],
+        "scaleUses": [
+          "頁面標題與主視覺文字",
+          "章節標題",
+          "一般閱讀文字",
+          "次要文字與 UI 元素"
+        ]
+      },
+      "spacing": {
+        "rhythm": "一致的 4px 格線系統，確保所有元件的垂直與水平節奏統一。"
+      },
+      "surfaces": {
+        "shadows": [
+          "0 1px 0 rgba(0,0,0,0.1)",
+          "0 1px 3px rgba(0,0,0,0.01), 0 3px 7px rgba(0,0,0,0.02), 0 7px 15px rgba(0,0,0,0.02), 0 14px 28px rgba(0,0,0,0.04), 0 23px 52px rgba(0,0,0,0.05)"
+        ],
+        "borders": "使用 rgba(0,0,0,0.11) 的細微 1px 邊框，用於定義容器與分隔元素。"
+      },
+      "layout": {
+        "skeleton": "簡潔的置中佈局，在桌機版使用寬幅內容區塊，手機版則轉為單欄，並維持充足的留白。"
+      },
+      "components": {
+        "button": "簡潔的圓角按鈕，採用實心主色藍填充與高對比白色文字，或提供細微的外框／透明變體。",
+        "card": "輕盈、有高度感的卡片，帶有細微陰影與柔和圓角，用於展示功能或儀表板元素。",
+        "chip": "小型、膠囊狀的標籤，用於 UI 中的狀態指示或分類。",
+        "input": "極簡的表單欄位，具有細微邊框，專注於清晰度與易用性。",
+        "hero": "一個大膽、巨大的文字宣告，搭配一張大型、詳細的產品截圖。"
+      },
+      "motion": {
+        "patterns": [
+          "hover 時平滑的背景色彩過渡效果。",
+          "互動元件細微的 box-shadow 擴展效果。",
+          "UI 狀態變換時的轉換動畫。"
+        ]
+      },
+      "interaction": {
+        "hover": "透過細微的色彩變化或陰影增強來指示互動性，而不造成干擾。",
+        "click": "立即的視覺回饋，通常透過背景色彩變化或微幅變換實現。",
+        "transition": "大多數互動屬性採用標準化的 0.2s ease-in 過渡效果。",
+        "keyboard": "標準的瀏覽器原生 focus 狀態，確保可及性而不使用自訂的侵入式外框。"
+      },
+      "voice": {
+        "tone": "專業、自信且略帶趣味，強調賦能與效率。",
+        "headlineStyle": "簡短、有力且影響力強，常使用大型、粗體的字體來宣達理念。",
+        "ctaStyle": "直接並以效益為導向，專注於立即行動，例如「免費取得 Notion」或「申請產品展示」。",
+        "avoid": [
+          "缺乏明確脈絡的技術術語",
+          "過於激進或「銷售導向」的語言",
+          "雜亂或令人困惑的訊息傳遞"
+        ]
+      },
+      "donts": [
+        "勿使用高飽和度顏色作為背景 — 截圖顯示以白色和極淺灰色為主的調色盤。",
+        "勿使用裝飾性襯線字體 — 截圖顯示所有主要文字均使用簡潔、現代的人文主義無襯線體。",
+        "勿使用厚重、深色的邊框 — 截圖顯示使用細微、低不透明度的邊框來劃分區塊。",
+        "勿讓介面充斥過多 CTA — 截圖顯示以清晰的主要操作為導向的專注層次結構。",
+        "勿使用複雜、多色的漸層 — 截圖顯示使用實色、平坦的色彩與細微陰影來營造深度。",
+        "勿使用強烈的陰影 — 截圖顯示使用柔和、分層的陰影來增添細微的高度感。"
+      ],
+      "systemPrompt": "將 Notion 定位為一款優質、高度精煉的 AI 生產力工作空間。設計採用以白色（#FFFFFF）、暖灰色（#F9F9F8, #F7F7F5）為主的簡潔、中性調色盤，並使用單一高飽和度藍色（#4B7BF5）作為主要操作強調色。字體採用現代人文主義無襯線體，展示文字使用緊湊字距，並透過充足留白提升可讀性。關鍵限制：避免使用裝飾性或高對比的彩色背景，維持單一清晰的 CTA 層次結構，並使用細微、分層的陰影來營造深度，而非厚重邊框或複雜漸層。"
+    },
+    "ja": {
+      "identity": {
+        "keywords": [
+          "notion",
+          "ai",
+          "生産性",
+          "ワークスペース",
+          "エージェント"
+        ],
+        "analogy": "洗練され機能的なエンタープライズツールであり、モダンなSaaSの美学と明確で直感的なUIパターンを融合させています。",
+        "oneLiner": "チームの知識とプロジェクト管理を一元化する、プレミアムAI駆動の生産性プラットフォーム。"
+      },
+      "colors": {
+        "principle": "白とウォームグレーを基調とした、抑制された中立的なベースパレット。プロフェッションで集中力のある環境を維持するため、プライマリアクションには単一のハイクロマブルーを使用します。"
+      },
+      "typography": {
+        "rules": [
+          "大きなディスプレイ見出しにはタイトな文字間隔を使用します。",
+          "ライト背景に対して本文テキストの高いコントラストを維持します。",
+          "フォントウェイト（400、500、700）を活用し、明確な視覚的階層を構築します。"
+        ],
+        "scaleUses": [
+          "ページタイトルとヒーローテキスト",
+          "セクション見出し",
+          "一般読書テキスト",
+          "セカンダリテキストとUI要素"
+        ]
+      },
+      "spacing": {
+        "rhythm": "コンポーネント全体で均一な垂直および水平リズムを確保する、一貫した4pxグリッドシステム。"
+      },
+      "surfaces": {
+        "shadows": [
+          "0 1px 0 rgba(0,0,0,0.1)",
+          "0 1px 3px rgba(0,0,0,0.01), 0 3px 7px rgba(0,0,0,0.02), 0 7px 15px rgba(0,0,0,0.02), 0 14px 28px rgba(0,0,0,0.04), 0 23px 52px rgba(0,0,0,0.05)"
+        ],
+        "borders": "コンテナの定義や要素の区切りに使用する、rgba(0,0,0,0.11)の微妙な1pxボーダー。"
+      },
+      "layout": {
+        "skeleton": "デスクトップではワイドなコンテンツブロックから、モバイルではシングルカラムに移行する、クリーンで中央揃えのレイアウト。十分なホワイトスペースを維持します。"
+      },
+      "components": {
+        "button": "ソリッドなプライマリブルー塗りつぶしと高コントラストの白テキストを持つ、クリーンで丸みのあるボタン、または微妙なアウトライン/ゴーストバリアント。",
+        "card": "フィーチャーやダッシュボード要素を紹介するための、軽く浮き上がった、微妙なシャドウと柔らかな丸みのある角を持つカード。",
+        "chip": "UI内のステータスインジケーターまたは分類に使用される、小さなピル型タグ。",
+        "input": "明確さと使いやすさに焦点を当てた、微妙なボーダーを持つミニマリストフォームフィールド。",
+        "hero": "巨大で大胆なタイポグラフィステートメントと、大きく詳細な製品スクリーンショットの組み合わせ。"
+      },
+      "motion": {
+        "patterns": [
+          "hover時のスムーズな背景色遷移。",
+          "インタラクティブ要素のための微妙なボックスシャドウ拡張。",
+          "UI状態変化のための変形。"
+        ]
+      },
+      "interaction": {
+        "hover": "気を散らすことなくインタラクティビティを示すための、微妙な色のシフトやシャドウの強調。",
+        "click": "背景色の変更や微小な変形を通じた、即座のビジュアルフィードバック。",
+        "transition": "ほとんどのインタラクティブプロパティに対する、標準化された0.2秒のease-in遷移。",
+        "keyboard": "アクセシビリティを確保しつつ、カスタムの侵食的アウトラインなしの、標準的なブラウザネイティブフォーカス状態。"
+      },
+      "voice": {
+        "tone": "プロフェッショナルで自信に満ち、かつ少し遊び心があり、エンパワーメントと効率性を強調。",
+        "headlineStyle": "短く、力強く、非常にインパクトがあり、通常は大きな太字タイポグラフィを使用して声明を発表。",
+        "ctaStyle": "直接的で利益志向、「Get Notion free」や「Request a demo」のような即時アクションに焦点。",
+        "avoid": [
+          "明確なコンテキストのない技術用語",
+          "過度にアグレッシブまたは「セールス」口調の言葉",
+          "雑然とした混乱したメッセージング"
+        ]
+      },
+      "donts": [
+        "背景にハイクロマカラーを使用しない — スクリーンショットではメインの白と非常に明るいグレーパレットが示されています。",
+        "装飾的なセリフフォントを使用しない — スクリーンショットではすべてのプライマリテキストにクリーンでモダンなヒューマニストサンセリフが示されています。",
+        "太く暗いボーダーを使用しない — スクリーンショットではセクションを定義するために微妙で低不透明度のボーダーが示されています。",
+        "CTAが多すぎてインターフェースを雑踏にしない — スクリーンショットでは明確なプライマリアクションを持つ焦点の当てられた階層が示されています。",
+        "複雑で多色のグラデーションを使用しない — スクリーンショットではソリッドでフラットなカラーと奥行きのための微妙なシャドウが示されています。",
+        "アグレッシブなドロップシャドウを使用しない — スクリーンショットでは微妙な高さを加える柔らかくレイヤードされたシャドウが示されています。"
+      ],
+      "systemPrompt": "Notionをプレミアムで高度に洗練されたAI生産性ワークスペースとして位置付けます。デザインは、白（#FFFFFF）、ウォームグレー（#F9F9F8、#F7F7F5）、プライマリアクション用の単一ハイクロマブルーアクセント（#4B7BF5）を基調としたクリーンで中立的なパレットに依存します。タイポグラフィはモダンなヒューマニストサンセリフを使用し、ディスプレイテキストにはタイトなトラッキングを、可読性のために豊富なホワイトスペースを採用します。重要な制約：装飾的または高コントラストのカラーバックグラウンドの使用を避け、単一で明確なCTA階層を維持し、太いボーダーや複雑なグラデーションの代わりに奥行きを出すために微妙でレイヤードされたシャドウを使用します。"
+    },
+    "ko": {
+      "identity": {
+        "keywords": [
+          "notion",
+          "ai",
+          "생산성",
+          "작업 공간",
+          "에이전트"
+        ],
+        "analogy": "모던 SaaS 미학과 명확하고 직관적인 UI 패턴을 결합한, 세련되고 기능적인 엔터prise 도구입니다.",
+        "oneLiner": "팀 지식과 프로젝트 관리를 중앙 집중화하는 프리미엄 AI 기반 생산성 플랫폼입니다."
+      },
+      "colors": {
+        "principle": "화이트와 웜 그레이에 기반한 절제된 중립 팔레트를 사용하고, 단일 고채도 블루를 주요 액션에 적용하여 전문적이고 집중적인 환경을 유지합니다."
+      },
+      "typography": {
+        "rules": [
+          "큰 디스플레이 제목에는 타이트한 자간을 사용합니다.",
+          "밝은 배경 위의 본문 텍스트는 높은 대비를 유지합니다.",
+          "여러 폰트 웨이트(400, 500, 700)를 활용하여 명확한 시각적 계층을 구축합니다."
+        ],
+        "scaleUses": [
+          "페이지 제목 및 히어로 텍스트",
+          "섹션 헤드라인",
+          "일반 읽기 텍스트",
+          "보조 텍스트 및 UI 요소"
+        ]
+      },
+      "spacing": {
+        "rhythm": "일관된 4px 그리드 시스템을 통해 컴포넌트 전반에 걸쳐 균일한 수직 및 수평 리듬을 보장합니다."
+      },
+      "surfaces": {
+        "shadows": [
+          "0 1px 0 rgba(0,0,0,0.1)",
+          "0 1px 3px rgba(0,0,0,0.01), 0 3px 7px rgba(0,0,0,0.02), 0 7px 15px rgba(0,0,0,0.02), 0 14px 28px rgba(0,0,0,0.04), 0 23px 52px rgba(0,0,0,0.05)"
+        ],
+        "borders": "컨테이너를 정의하고 요소를 분리하기 위해 rgba(0,0,0,0.11)를 사용한 미세한 1px 테두리입니다."
+      },
+      "layout": {
+        "skeleton": "데스크톱에서는 넓은 콘텐츠 블록에서 모바일에서는 단일 컬럼으로 전환되는 깔끔한 중앙 정렬 레이아웃으로, 넉넉한 여백을 유지합니다."
+      },
+      "components": {
+        "button": "단색 프라이머리 블루 채우기와 고대비 화이트 텍스트를 사용하거나, 미세한 아웃라인/고스트 변형을 사용하는 깔끔한 둥근 버튼입니다.",
+        "card": "기능이나 대시보드 요소를 표시하기 위해 미세한 그림자와 부드러운 둥근 모서리를 가진 가볍고 부유한 카드입니다.",
+        "chip": "UI 내에서 상태 표시 또는 분류에 사용되는 작은 알약 모양의 태그입니다.",
+        "input": "명확성과 사용 용이성에 중점을 둔, 미세한 테두리가 있는 미니멀리스트 양식 필드입니다.",
+        "hero": "크고 상세한 제품 스크린샷과 결합된 대담한 타이포그래피 문구입니다."
+      },
+      "motion": {
+        "patterns": [
+          "hover 시 부드러운 배경색 전환.",
+          "인터랙티브 요소를 위한 미세한 box-shadow 확장.",
+          "UI 상태 변화를 위한 변환."
+        ]
+      },
+      "interaction": {
+        "hover": "방해가 되지 않으면서 인터랙티브함을 나타내기 위한 미세한 색상 변화 또는 그림자 강조입니다.",
+        "click": "종종 배경색 변경이나 미세한 변환을 통해 즉각적인 시각적 피드백을 제공합니다.",
+        "transition": "대부분의 인터랙티브 속성을 위한 표준화된 0.2s ease-in 전환입니다.",
+        "keyboard": "접근성을 보장하기 위한 표준 브라우저 네이티브 focus 상태로, 맞춤형으로 침입적인 아웃라인을 사용하지 않습니다."
+      },
+      "voice": {
+        "tone": "전문적이고 자신감 있으며 약간의 재미가 있는, 역량 강화와 효율성을 강조하는 어조입니다.",
+        "headlineStyle": "짧고 강렬하며 매우 인상적인, 종종 큰 볼드 타이포그래피를 사용하여 문구를 전달합니다.",
+        "ctaStyle": "'무료로 Notion 시작하기'나 '데모 요청하기'와 같이 즉각적인 행동에 초점을 맞춘 직접적이고 혜택 지향적인 스타일입니다.",
+        "avoid": [
+          "명확한 맥락 없는 기술 전문 용어",
+          "지나치게 공격적이거나 '영업'적인 언어",
+          "지저분하거나 혼란스러운 메시징"
+        ]
+      },
+      "donts": [
+        "배경에 고채도 색상을 사용하지 마세요 — 스크린샷은 지배적인 화이트와 매우 밝은 회색 팔레트를 보여줍니다.",
+        "장식용 세리프 폰트를 사용하지 마세요 — 스크린샷은 모든 주요 텍스트에 깔끔하고 현대적인 휴머니트산세리프를 사용합니다.",
+        "두껍고 어두운 테두리를 사용하지 마세요 — 스크린샷은 섹션을 정의하기 위해 미세하고 불투명도가 낮은 테두리를 보여줍니다.",
+        "인터페이스를 너무 많은 CTA로 지저분하게 만들지 마세요 — 스크린샷은 명확한 주요 액션이 있는 집중된 계층 구조를 보여줍니다.",
+        "복잡하고 다채로운 그래디언트를 사용하지 마세요 — 스크린샷은 깊이감을 위해 단색, 플랫 색상과 미세한 그림자를 보여줍니다.",
+        "공격적인 드롭 그림자를 사용하지 마세요 — 스크린샷은 미세한 부유감을 더하는 부드럽고 레이어드된 그림자를 보여줍니다."
+      ],
+      "systemPrompt": "Notion을 프리미엄, 고도로 정제된 AI 생산성 작업 공간으로 포지셔닝하세요. 디자인은 화이트(#FFFFFF), 웜 그레이(#F9F9F8, #F7F7F5) 및 주요 액션을 위한 단일 고채도 블루 악센트(#4B7BF5)로 구성된 깔끔하고 중립적인 팔레트에 의존합니다. 타이포그래피는 디스플레이 텍스트를 위한 타이트한 트래킹과 가독성을 위한 넉넉한 여백을 사용하는 현대적인 휴머니트산세리프를 사용합니다. 핵심 제약 사항: 장식적이거나 고대비 컬러 배경을 피하고, 단일 명확한 CTA 계층을 유지하며, 두꺼운 테두리나 복잡한 그래디언트 대신 미세하고 레이어드된 그림자를 사용하여 깊이감을 표현하세요."
     }
   }
 }

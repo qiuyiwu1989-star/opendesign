@@ -17,51 +17,60 @@
   "_meta": {
     "vision_model": "mimo-v2.5",
     "vision_prompt_version": "0.3",
-    "vision_at": "2026-05-28T22:01:31+00:00",
-    "vision_tokens": 3353,
-    "vision_cost_usd": 0.0373,
+    "vision_at": "2026-05-30T16:53:09+00:00",
+    "vision_tokens": 15965,
+    "vision_cost_usd": 0.1774,
     "translation_model": "mimo-v2.5",
-    "translation_at": "2026-05-28T22:02:24+00:00",
-    "translation_tokens": 15587,
-    "translation_cost_usd": 0.052,
+    "translation_at": "2026-05-30T16:53:57+00:00",
+    "translation_tokens": 24441,
+    "translation_cost_usd": 0.0815,
     "narrative_model": "mimo-v2.5",
     "narrative_prompt_version": "0.3",
     "narrative_at": "2026-05-28T22:02:30+00:00",
     "narrative_tokens": 1895,
     "narrative_cost_usd": 0.0126,
     "narrative_status": "ok",
-    "total_cost_usd": 0.1019
+    "total_cost_usd": 0.2715,
+    "vision_source": "playwright-extract:lamborghini",
+    "vision_grounded": true
   },
   "spec": {
     "colors": {
       "bg": "#000000",
-      "bgSoft": null,
+      "bgSoft": "#FFFFFF",
       "bgQuiet": null,
-      "ink": "#FFFFFF",
-      "inkSoft": null,
-      "muted": "#888888",
+      "ink": "#202020",
+      "inkSoft": "#FFFFFF",
+      "muted": "#969696",
       "mutedSoft": null,
       "accent": null,
-      "line": "rgba(255,255,255,0.15)"
+      "line": "rgba(255,255,255,1)"
     },
     "typography": {
-      "display": "condensed-grotesque-sans",
-      "body": "grotesque-sans",
+      "display": "condensed-sans",
+      "body": "humanist-sans",
       "mono": null,
       "scale": [
         {
           "token": "display",
-          "size": 96,
+          "size": 120,
           "lh": 0.9,
-          "weight": 600,
-          "ls": "-1px"
+          "weight": 400,
+          "ls": "-2px"
         },
         {
-          "token": "subhead",
-          "size": 24,
-          "lh": 1.4,
-          "weight": 500,
-          "ls": "1px"
+          "token": "headline",
+          "size": 27,
+          "lh": 1.37,
+          "weight": 400,
+          "ls": "normal"
+        },
+        {
+          "token": "body",
+          "size": 16,
+          "lh": 1.5,
+          "weight": 400,
+          "ls": "normal"
         }
       ]
     },
@@ -70,6 +79,7 @@
       "scale": [
         4,
         8,
+        12,
         16,
         24,
         32,
@@ -88,7 +98,7 @@
     },
     "layout": {
       "container": 1440,
-      "paragraph": 600,
+      "paragraph": 680,
       "columns": 12,
       "gutter": 24,
       "breakpoints": [
@@ -99,386 +109,19 @@
     "motion": {
       "durations": {
         "micro": 220,
-        "small": 400,
+        "small": 300,
         "medium": 800
       },
-      "easing": "cubic-bezier(0.25, 0.1, 0.25, 1)"
-    }
-  },
-  "spec_i18n": {
-    "en": {
-      "identity": {
-        "keywords": [
-          "luxury",
-          "performance",
-          "precision",
-          "automotive",
-          "iconic"
-        ],
-        "analogy": "A high-end automotive showroom with dramatic lighting and bold presence.",
-        "oneLiner": "A premium automotive site that uses dramatic photography, bold condensed typography, and a restrained dark palette to emphasize luxury and performance."
-      },
-      "colors": {
-        "principle": "Extreme contrast using a near-black background and white text to let the hero photography dominate."
-      },
-      "typography": {
-        "rules": [
-          "Use uppercase for primary headlines.",
-          "Maintain tight tracking for large display type."
-        ],
-        "scaleUses": [
-          "Main hero headline for the car model.",
-          "Brand name above the main headline."
-        ]
-      },
-      "spacing": {
-        "rhythm": "Generous vertical spacing in the hero section to create a sense of scale and luxury."
-      },
-      "surfaces": {
-        "shadows": [],
-        "borders": "Minimal and sharp, primarily seen in the cookie policy banner."
-      },
-      "layout": {
-        "skeleton": "Full-bleed hero section with left-aligned content and a fixed top navigation bar."
-      },
-      "components": {
-        "button": "A transparent button with a thin white border and a small arrow icon.",
-        "card": "Not visible in this view.",
-        "chip": "Not visible in this view.",
-        "input": "Not visible in this view.",
-        "hero": "A full-screen photographic background with overlaid large typography and a brand name."
-      },
-      "motion": {
-        "patterns": [
-          "Smooth transitions between hero slides, indicated by the pause icon."
-        ]
-      },
-      "interaction": {
-        "hover": "Subtle color shifts or opacity changes on navigation links.",
-        "click": "Immediate response on buttons.",
-        "transition": "Smooth transitions between states.",
-        "keyboard": "Standard tab navigation for menu and search."
-      },
-      "voice": {
-        "tone": "Authoritative, confident, and premium.",
-        "headlineStyle": "Bold, condensed, uppercase text.",
-        "ctaStyle": "Clean, underlined text or bordered buttons.",
-        "avoid": [
-          "Rounded corners on UI elements",
-          "Bright neon accent colors",
-          "Playful or casual language"
-        ]
-      },
-      "donts": [
-        "Don't use soft, rounded corners — screenshot shows sharp, angular edges and a rectangular button.",
-        "Don't use a bright, multi-colored palette — screenshot shows a strict black, white, and gray scheme.",
-        "Don't use wide, airy tracking in headlines — screenshot shows very tight letter-spacing.",
-        "Don't use serif fonts for display type — screenshot uses a bold, condensed sans-serif.",
-        "Don't clutter the interface with many elements — screenshot is dominated by a single large image.",
-        "Don't use bright background fills — screenshot uses a nearly solid black background."
-      ],
-      "systemPrompt": "This is a premium automotive website for Lamborghini, characterized by a dark, dramatic aesthetic that prioritizes high-impact photography. The design relies on a near-black background (#000000) with high-contrast white text (#FFFFFF). Typography is a key feature, using a condensed grotesque sans-serif for bold, uppercase display headlines and a standard grotesque sans-serif for body text. The layout is full-bleed and immersive, with a fixed top navigation and a large hero section. Critical donts: avoid rounded corners or soft shadows; the interface is sharp and geometric. Avoid using multiple bright accent colors; the palette is strictly monochrome with high contrast. Avoid cluttered layouts; the design uses significant negative space to emphasize the product."
-    },
-    "zh-CN": {
-      "identity": {
-        "keywords": [
-          "奢华",
-          "性能",
-          "精准",
-          "汽车",
-          "标志性"
-        ],
-        "analogy": "一个拥有戏剧性灯光和大胆存在感的高端汽车展厅。",
-        "oneLiner": "一个高端汽车网站，运用戏剧性摄影、加粗的窄体排版和克制的深色配色来强调奢华与性能。"
-      },
-      "colors": {
-        "principle": "使用近乎黑色的背景和白色文字形成极致对比，让英雄摄影成为主导。"
-      },
-      "typography": {
-        "rules": [
-          "主标题使用大写字母。",
-          "大型展示文字保持紧凑的字距。"
-        ],
-        "scaleUses": [
-          "用于车型的英雄区主标题。",
-          "主标题上方的品牌名称。"
-        ]
-      },
-      "spacing": {
-        "rhythm": "英雄区域采用充裕的垂直间距，以营造尺度感和奢华感。"
-      },
-      "surfaces": {
-        "shadows": [],
-        "borders": "极少且锋利，主要出现在Cookie政策横幅上。"
-      },
-      "layout": {
-        "skeleton": "全出血英雄区域，内容左对齐，顶部有固定导航栏。"
-      },
-      "components": {
-        "button": "一个透明按钮，带有细白边框和一个小箭头图标。",
-        "card": "此视图中不可见。",
-        "chip": "此视图中不可见。",
-        "input": "此视图中不可见。",
-        "hero": "全屏摄影背景，叠加了大号字体和品牌名称。"
-      },
-      "motion": {
-        "patterns": [
-          "英雄幻灯片之间平滑过渡，由暂停图标指示。"
-        ]
-      },
-      "interaction": {
-        "hover": "导航链接有细微的颜色变化或透明度变化。",
-        "click": "按钮即时响应。",
-        "transition": "状态之间平滑过渡。",
-        "keyboard": "标准的Tab键导航用于菜单和搜索。"
-      },
-      "voice": {
-        "tone": "权威、自信且高端。",
-        "headlineStyle": "加粗、窄体、大写文字。",
-        "ctaStyle": "简洁、带下划线的文字或带边框的按钮。",
-        "avoid": [
-          "UI元素的圆角",
-          "明亮的霓虹强调色",
-          "俏皮或随意的语言"
-        ]
-      },
-      "donts": [
-        "不要使用柔软的圆角——截图显示的是锋利、有角度的边缘和矩形按钮。",
-        "不要使用明亮、多彩的配色方案——截图显示的是严格的黑、白、灰方案。",
-        "不要在标题中使用宽泛、宽松的字距——截图显示的是非常紧凑的字间距。",
-        "不要在展示字体中使用衬线字体——截图使用的是加粗、窄体的无衬线字体。",
-        "不要用过多元素使界面杂乱——截图由单一的大图主导。",
-        "不要使用明亮的背景填充——截图使用的是近乎纯黑的背景。"
-      ],
-      "systemPrompt": "这是一个为兰博基尼打造的高端汽车网站，以深色、戏剧性的美学为特征，优先考虑高冲击力的摄影。设计依赖于近乎纯黑的背景（#000000）和高对比度的白色文字（#FFFFFF）。排版是关键特征，使用窄体无衬线字体用于加粗、大写的展示标题，标准无衬线字体用于正文。布局是全出血和沉浸式的，带有固定的顶部导航和大型英雄区域。关键禁忌：避免圆角或柔和阴影；界面是锋利和几何化的。避免使用多种明亮的强调色；配色方案是严格的高对比度单色。避免杂乱的布局；设计使用大量的负空间来强调产品。"
-    },
-    "zh-TW": {
-      "identity": {
-        "keywords": [
-          "奢華",
-          "效能",
-          "精準",
-          "汽車",
-          "標誌性"
-        ],
-        "analogy": "一座具有戲劇性燈光和強烈存在感的高端汽車展示間。",
-        "oneLiner": "一個高端汽車網站，運用戲劇性的攝影、粗壯的壓縮字體排印，以及克制的深色調色板來強調奢華與效能。"
-      },
-      "colors": {
-        "principle": "使用近乎黑色的背景與白色文字，創造極致對比，讓英雄區塊的攝影佔據主導地位。"
-      },
-      "typography": {
-        "rules": [
-          "主要標題使用全大寫。",
-          "大型展示字體保持緊湊的字距。"
-        ],
-        "scaleUses": [
-          "用於車款的主要英雄標題。",
-          "位於主標題上方的品牌名稱。"
-        ]
-      },
-      "spacing": {
-        "rhythm": "英雄區塊採用充裕的垂直間距，營造尺度與奢華感。"
-      },
-      "surfaces": {
-        "shadows": [],
-        "borders": "極簡且銳利，主要出現在 Cookie 政策橫幅上。"
-      },
-      "layout": {
-        "skeleton": "全出血英雄區塊，內容置於左側，並配有固定的頂部導航列。"
-      },
-      "components": {
-        "button": "透明按鈕，帶有細白邊框和小型箭頭圖示。",
-        "card": "在此視圖中不可見。",
-        "chip": "在此視圖中不可見。",
-        "input": "在此視圖中不可見。",
-        "hero": "全螢幕攝影背景，疊加大號字體排印與品牌名稱。"
-      },
-      "motion": {
-        "patterns": [
-          "英雄區塊幻燈片之間的流暢轉場，由暫停圖示指示。"
-        ]
-      },
-      "interaction": {
-        "hover": "導航連結上的細微色彩變化或透明度改變。",
-        "click": "按鈕的即時回應。",
-        "transition": "狀態之間的流暢轉場。",
-        "keyboard": "標準 Tab 鍵導航用於選單和搜尋。"
-      },
-      "voice": {
-        "tone": "權威、自信且高端。",
-        "headlineStyle": "粗壯、壓縮的全大寫文字。",
-        "ctaStyle": "乾淨的底線文字或帶邊框的按鈕。",
-        "avoid": [
-          "使用者介面元素上的圓角",
-          "明亮的霓虹強調色",
-          "俏皮或隨意的語言"
-        ]
-      },
-      "donts": [
-        "避免使用柔和的圓角——截圖顯示的是銳利、有角度的邊緣和矩形按鈕。",
-        "避免使用明亮、多彩的調色板——截圖顯示的是嚴格的黑、白、灰配色方案。",
-        "避免在標題中使用寬鬆、空靈的字距——截圖顯示的是非常緊湊的字間距。",
-        "避免在展示字體中使用襯線字體——截圖使用的是粗壯、壓縮的無襯線字體。",
-        "避免讓介面充滿許多元素——截圖由單一的大型圖片主導。",
-        "避免使用明亮的背景填充——截圖使用近乎純黑的背景。"
-      ],
-      "systemPrompt": "這是一個為 Lamborghini 設計的高端汽車網站，以深邃、戲劇性的美學為特色，優先考慮高衝擊力的攝影。設計依賴近乎黑色的背景（#000000）與高對比的白色文字（#FFFFFF）。字體排印是關鍵特色，使用壓縮的 grotesque sans-serif 粗體大寫展示標題，以及標準 grotesque sans-serif 用於內文。版面為全出血且沉浸式，配有固定的頂部導航和大型英雄區塊。關鍵禁忌：避免圓角或柔和陰影；介面應銳利且具幾何感。避免使用多種明亮的強調色；調色板應嚴格採用高對比的單色調。避免擁擠的版面設計；設計應使用大量負空間來強調產品。"
-    },
-    "ja": {
-      "identity": {
-        "keywords": [
-          "ラグジュアリー",
-          "パフォーマンス",
-          "精密",
-          "自動車",
-          "象徴的"
-        ],
-        "analogy": "ドラマチックな照明と大胆な存在感を備えたハイエンドの自動車ショールーム。",
-        "oneLiner": "ドラマチックなフォトグラフィ、大胆なコンデンスタイポグラフィ、抑制されたダークパレットを用いて、ラグジュアリーとパフォーマンスを強調するプレミアム自動車サイト。"
-      },
-      "colors": {
-        "principle": "ヒーローフォトグラフィを支配させるために、ネアブラック背景と白テキストを使用した極端なコントラスト。"
-      },
-      "typography": {
-        "rules": [
-          "プライマリヘッドラインには大文字を使用する。",
-          "大きなディスプレイタイプにはタイトなトラッキングを維持する。"
-        ],
-        "scaleUses": [
-          "車両モデルのメインヒーローヘッドライン。",
-          "メインヘッドラインの上のブランド名。"
-        ]
-      },
-      "spacing": {
-        "rhythm": "ヒーローセクションに幅広な垂直方向のスペースを設け、スケール感とラグジュアリーを演出。"
-      },
-      "surfaces": {
-        "shadows": [],
-        "borders": "最小限かつシャープで、主にクッキーポリシーバナーに見られる。"
-      },
-      "layout": {
-        "skeleton": "左寄せコンテンツと固定トップナビゲーションバーを備えた、フルブリードのヒーローセクション。"
-      },
-      "components": {
-        "button": "細い白いボーダーと小さな矢印アイコンを持つ、透明なボタン。",
-        "card": "このビューでは表示されません。",
-        "chip": "このビューでは表示されません。",
-        "input": "このビューでは表示されません。",
-        "hero": "オーバーレイされた大きなタイポグラフィとブランド名を備えた、フルスクリーンのフォトグラフィック背景。"
-      },
-      "motion": {
-        "patterns": [
-          "一時停止アイコンで示される、ヒーロースライド間のスムーズなトランジション。"
-        ]
-      },
-      "interaction": {
-        "hover": "ナビゲーションリンク上の微妙な色の変化や不透明度の変化。",
-        "click": "ボタン上の即座のレスポンス。",
-        "transition": "状態間のスムーズなトランジション。",
-        "keyboard": "メニューと検索のための標準的なタブナビゲーション。"
-      },
-      "voice": {
-        "tone": "権威があり、自信に満ち、プレミアム。",
-        "headlineStyle": "太字、コンデンス、大文字テキスト。",
-        "ctaStyle": "クリーンなアンダーラインテキストまたはボーダー付きボタン。",
-        "avoid": [
-          "UI要素の角丸",
-          "明るいネオンアクセントカラー",
-          "遊び心のある、あるいはカジュアルな言葉遣い"
-        ]
-      },
-      "donts": [
-        "角丸や柔らかいシャドウは使用しない — スクリーンショットではシャープで角張ったエッジと長方形のボタンが見られる。",
-        "明るい、カラフルなパレットは使用しない — スクリーンショットでは厳格な黒、白、グレーの配色が見られる。",
-        "ヘッドラインの広く、空間のあるトラッキングは使用しない — スクリーンショットでは非常にタイトな文字間隔が見られる。",
-        "ディスプレイタイプにセリフフォントは使用しない — スクリーンショットでは太字のコンデンスサンセリフが使用されている。",
-        "多くの要素でインタフェースを雑然とさせない — スクリーンショットは単一の大きな画像が支配的。",
-        "明るい背景フィルは使用しない — スクリーンショットではほぼ純黒の背景が使用されている。"
-      ],
-      "systemPrompt": "これはランボルギーニのプレミアム自動車サイトで、高インパクトなフォトグラフィを優先する、ダークでドラマチックな美学が特徴です。デザインはネアブラック背景（#000000）とハイコントラストの白テキスト（#FFFFFF）に依存しています。タイポグラフィは主要な特徴であり、太字で大文字のディスプレイヘッドラインにはコンデンス・グロテスク・サンセリフ、本文テキストには標準的なグロテスク・サンセリフが使用されています。レイアウトはフルブリードで没入感があり、固定のトップナビゲーションと大きなヒーローセクションを備えています。重要な禁止事項：角丸や柔らかいシャドウは避ける — インタフェースはシャープで幾何学的です。複数の明るいアクセントカラーの使用は避ける — パレットはハイコントラストのモノクロームに厳密に限定されます。雑然としたレイアウトは避ける — デザインは製品を強調するために多量のネガティブスペースを使用しています。"
-    },
-    "ko": {
-      "identity": {
-        "keywords": [
-          "럭셔리",
-          "퍼포먼스",
-          "정밀함",
-          "자동차",
-          "아이코닉"
-        ],
-        "analogy": "극적인 조명과 강렬한 존재감을 가진 하이엔드 자동차 쇼룸.",
-        "oneLiner": "럭셔리와 퍼포먼스를 강조하기 위해 극적인 포토그래피, 굵은 콘덴스 타이포그래피, 절제된 다크 팔레트를 사용하는 프리미엄 자동차 사이트입니다."
-      },
-      "colors": {
-        "principle": "거의 블랙에 가까운 배경과 흰색 텍스트를 사용하여 극단적인 대비를 이루고, 히어로 포토그래피가 주도할 수 있도록 합니다."
-      },
-      "typography": {
-        "rules": [
-          "주요 헤드라인에는 대문자를 사용합니다.",
-          "대형 디스플레이 타입의 경우 트래킹을 타이트하게 유지합니다."
-        ],
-        "scaleUses": [
-          "차종을 위한 메인 히어로 헤드라인.",
-          "메인 헤드라인 위에 위치하는 브랜드명."
-        ]
-      },
-      "spacing": {
-        "rhythm": "히어로 섹션에 스케일감과 럭셔리함을 부여하기 위한 넉넉한 수직 간격입니다."
-      },
-      "surfaces": {
-        "shadows": [],
-        "borders": "최소화되고 날카로우며, 주로 쿠키 정책 배너에서 확인됩니다."
-      },
-      "layout": {
-        "skeleton": "왼쪽 정렬 콘텐츠와 고정 상단 네비게이션 바가 있는 풀블리드 히어로 섹션."
-      },
-      "components": {
-        "button": "얇은 흰색 테두리와 작은 화살표 아이콘이 있는 투명 버튼.",
-        "card": "이 뷰에서는 보이지 않습니다.",
-        "chip": "이 뷰에서는 보이지 않습니다.",
-        "input": "이 뷰에서는 보이지 않습니다.",
-        "hero": "오버레이된 대형 타이포그래피와 브랜드명이 있는 풀스크린 포토그래피 배경."
-      },
-      "motion": {
-        "patterns": [
-          "일시정지 아이콘으로 표시되는, 히어로 슬라이드 간 부드러운 전환."
-        ]
-      },
-      "interaction": {
-        "hover": "네비게이션 링크에 대한 미세한 색상 변화 또는 불투명도 변경.",
-        "click": "버튼의 즉각적인 반응.",
-        "transition": "상태 간 부드러운 전환.",
-        "keyboard": "메뉴와 검색을 위한 표준 탭 네비게이션."
-      },
-      "voice": {
-        "tone": "권위 있고 자신감 넘치며 프리미엄적인 어조.",
-        "headlineStyle": "굵고 콘덴스된 대문자 텍스트.",
-        "ctaStyle": "깔끔한 밑줄 텍스트 또는 테두리가 있는 버튼.",
-        "avoid": [
-          "UI 요소의 둥근 모서리",
-          "밝은 네온 액센트 컬러",
-          "장난스럽거나 캐주얼한 언어"
-        ]
-      },
-      "donts": [
-        "부드러운 둥근 모서리를 사용하지 마세요. 스크린샷은 날카롭고 각진 모서리와 사각형 버튼을 보여줍니다.",
-        "밝고 다채로운 팔레트를 사용하지 마세요. 스크린샷은 블랙, 화이트, 그레이로 엄격히 구성된 팔레트를 보여줍니다.",
-        "헤드라인에 넓고 여유로운 트래킹을 사용하지 마세요. 스크린샷은 매우 타이트한 자간을 보여줍니다.",
-        "디스플레이 타입에 세리프 폰트를 사용하지 마세요. 스크린샷은 굵고 콘덴스된 산세리프를 사용합니다.",
-        "많은 요소로 인터페이스를 복잡하게 하지 마세요. 스크린샷은 단일 대형 이미지가 지배합니다.",
-        "밝은 배경 채우기를 사용하지 마세요. 스크린샷은 거의 단색 블랙 배경을 사용합니다."
-      ],
-      "systemPrompt": "이것은 람보르기니를 위한 프리미엄 자동차 웹사이트로, 하이 임팩트 포토그래피를 우선시하는 다크하고 극적인 미학이 특징입니다. 디자인은 고대비 흰색 텍스트(#FFFFFF)와 함께 거의 블랙에 가까운 배경(#000000)에 의존합니다. 타이포그래피는 핵심 요소로, 굵고 대문자 디스플레이 헤드라인을 위해 콘덴스드 그로테스크 산세리프를, 본문 텍스트를 위해 표준 그로테스크 산세리프를 사용합니다. 레이아웃은 풀블리드이고 몰입감 있으며, 고정 상단 네비게이션과 대형 히어로 섹션이 있습니다. 중요한 주의사항: 둥근 모서리나 부드러운 그림자를 피하세요. 인터페이스는 날카롭고 기하학적입니다. 여러 밝은 액센트 컬러 사용을 피하세요. 팔레트는 고대비를 가진 엄격한 모노크롬입니다. 복잡한 레이아웃을 피하세요. 디자인은 제품을 강조하기 위해 상당한 네거티브 공간을 사용합니다."
+      "easing": "cubic-bezier(0.12, 1.01, 0.17, 0.98)"
     }
   },
   "desc": {
     "en": {
-      "palette": "A high-contrast monochrome palette consisting of a deep black background, pure white primary text, and subtle gray for secondary elements.",
-      "layout": "A full-bleed, immersive layout where the primary content is a large-scale photographic hero section with left-aligned text overlays.",
-      "interaction": "Interaction is minimal and refined, focusing on clear navigation and direct calls to action like the 'DISCOVER MORE' button.",
-      "motion": "Motion is likely smooth and cinematic, as suggested by the pause button for a potential hero slideshow.",
-      "notes": "This site is an excellent example of using typography and photography to create a powerful, high-end brand presence without needing complex UI patterns."
+      "palette": "High-contrast monochromatic palette with black, white, and subtle greys, allowing photography to provide the color.",
+      "layout": "Full-bleed, immersive layouts with left-aligned text overlays and generous 24px spacing.",
+      "interaction": "Subtle hover and click transitions using 0.3s ease-in-out or custom cubic-bezier curves.",
+      "motion": "Smooth, refined motion with durations ranging from 220ms to 800ms, emphasizing premium quality.",
+      "notes": "This site is worth including as a masterclass in using bold typography and immersive photography to define a luxury brand."
     },
     "zh-CN": {
       "palette": "高对比度的单色配色方案，包含深黑色背景、纯白色主文本和用于次要元素的细微灰色。",
@@ -569,6 +212,393 @@
       "ch7_intro": "모션 철학은 화려한 효과보다 시네마틱한 부드러움을 우선시하며, 이는 히어로 슬라이드 간의 매끄러운 전환에서 볼 수 있습니다. 상호작용 응답은 즉각적이고 직접적이며, 정밀 공학의 느낌을 강화합니다.",
       "ch8_intro": "에디토리얼 목소리는 권위 있고 자신감 넘치며, 프리미엄 자동차 컨텍스트에 맞습니다. 언어는 직접적이고 임팩트가 있으며, 헤드라인에는 굵은 압축 대문자를, 깔끔하고 기능적인 콜 투 액션을 사용합니다.",
       "ch8_outro": "이 시스템은 날카롭고 성능 지향적인 특성을 유지하기 위해 둥근 형태, 밝은 악센트, 그리고 캐주얼한 언어를 의도적으로 피합니다."
+    }
+  },
+  "spec_i18n": {
+    "en": {
+      "identity": {
+        "keywords": [
+          "Performance",
+          "Luxury",
+          "Heritage",
+          "Exclusivity",
+          "Italian"
+        ],
+        "analogy": "A high-end automotive magazine brought to life with cinematic photography and brutalist typography.",
+        "oneLiner": "A premium automotive brand site that uses full-bleed photography and bold condensed typography to convey power and exclusivity."
+      },
+      "colors": {
+        "principle": "High-contrast monochromatic palette that lets the photography carry the brand's energy."
+      },
+      "typography": {
+        "rules": [
+          "All typography is uppercase",
+          "Display type uses a custom condensed sans-serif",
+          "Body copy uses a clean humanist sans-serif"
+        ],
+        "scaleUses": [
+          "Hero headlines and section titles",
+          "Subheadlines and feature callouts",
+          "General body copy and navigation"
+        ]
+      },
+      "spacing": {
+        "rhythm": "Consistent 24px gutter spacing aligns with the base grid."
+      },
+      "surfaces": {
+        "shadows": [],
+        "borders": "1px solid rgba(255,255,255,1) used for outlines and separators."
+      },
+      "layout": {
+        "skeleton": "Full-bleed photography with left-aligned text overlays."
+      },
+      "components": {
+        "button": "Full-width block button with uppercase text and a right arrow, featuring a solid background and sharp edges.",
+        "card": "Image-driven cards with minimal text overlays, no visible borders.",
+        "chip": "Small uppercase tags with thin white borders.",
+        "input": "Minimal search and input fields with subtle underlines.",
+        "hero": "Full-screen immersive video or image backgrounds with massive condensed typography."
+      },
+      "motion": {
+        "patterns": [
+          "Smooth background-color and color transitions on hover",
+          "Slight transform shifts on interactive elements"
+        ]
+      },
+      "interaction": {
+        "hover": "Subtle background-color or color shifts",
+        "click": "Immediate visual feedback via transform or opacity changes",
+        "transition": "All transitions use a 0.3s ease-in-out or a custom cubic-bezier curve",
+        "keyboard": "Focus states likely mirror hover states for accessibility."
+      },
+      "voice": {
+        "tone": "Confident, aspirational, and minimalist.",
+        "headlineStyle": "Short, powerful, all-caps statements.",
+        "ctaStyle": "Direct and action-oriented, often accompanied by an arrow.",
+        "avoid": [
+          "Casual language",
+          "Excessive exclamation marks",
+          "Long-form paragraphs",
+          "Playful emojis"
+        ]
+      },
+      "donts": [
+        "Don't use lowercase for headlines — screenshot shows all typography is uppercase",
+        "Don't use rounded corners on primary components — screenshot shows sharp edges",
+        "Don't use vibrant brand colors — screenshot shows a monochromatic palette",
+        "Don't use script or serif fonts — screenshot shows only sans-serif typography",
+        "Don't clutter the layout with multiple overlapping elements — screenshot shows clean, spacious layouts",
+        "Don't use drop shadows on cards — screenshot shows flat, image-driven components"
+      ],
+      "systemPrompt": "This is a premium automotive brand website. Positioning is luxury and performance, focusing on high-quality photography and minimal UI. Key colors are #000000 for the background and #FFFFFF for the text, creating a high-contrast monochromatic palette. Font categories include a condensed sans for display and a humanist sans for body. Critical donts: avoid lowercase headlines, avoid rounded corners, avoid vibrant colors. The layout is spacious with 24px gutters, and motion is smooth using cubic-bezier easing."
+    },
+    "zh-CN": {
+      "identity": {
+        "keywords": [
+          "性能",
+          "奢华",
+          "传承",
+          "专属",
+          "意大利"
+        ],
+        "analogy": "一本高端汽车杂志，通过电影感摄影和粗野主义排版变得栩栩如生。",
+        "oneLiner": "一个高端汽车品牌网站，运用满版摄影和加粗的压缩字体来传达力量和专属感。"
+      },
+      "colors": {
+        "principle": "高对比度单色配色方案，让摄影来承载品牌能量。"
+      },
+      "typography": {
+        "rules": [
+          "所有文字均为大写",
+          "标题字体使用定制压缩无衬线字体",
+          "正文字体使用简洁的人文主义无衬线字体"
+        ],
+        "scaleUses": [
+          "主标题和章节标题",
+          "副标题和功能亮点",
+          "通用正文和导航"
+        ]
+      },
+      "spacing": {
+        "rhythm": "统一的24px间距与基础网格对齐。"
+      },
+      "surfaces": {
+        "shadows": [],
+        "borders": "使用1px solid rgba(255,255,255,1)作为轮廓和分隔线。"
+      },
+      "layout": {
+        "skeleton": "满版摄影，文字叠加层左对齐。"
+      },
+      "components": {
+        "button": "全宽块状按钮，文字大写并带右箭头，采用纯色背景和直角边缘。",
+        "card": "以图片为主导的卡片，文字叠加极少，无可见边框。",
+        "chip": "带细白边框的小型大写标签。",
+        "input": "极简的搜索和输入框，带细微的下划线。",
+        "hero": "全屏沉浸式视频或图片背景，搭配巨大的压缩字体排版。"
+      },
+      "motion": {
+        "patterns": [
+          "hover时平滑的背景色和颜色过渡",
+          "交互元素上的轻微transform偏移"
+        ]
+      },
+      "interaction": {
+        "hover": "细微的背景色或颜色变化",
+        "click": "通过transform或opacity变化提供即时视觉反馈",
+        "transition": "所有过渡使用0.3s ease-in-out或自定义cubic-bezier曲线",
+        "keyboard": "焦点状态可能镜像hover状态以确保可访问性。"
+      },
+      "voice": {
+        "tone": "自信、富有抱负且极简。",
+        "headlineStyle": "简短有力的大写陈述。",
+        "ctaStyle": "直接且以行动为导向，常伴有箭头。",
+        "avoid": [
+          "随意语言",
+          "过多的感叹号",
+          "冗长的段落",
+          "俏皮的表情符号"
+        ]
+      },
+      "donts": [
+        "不要使用小写标题——截图显示所有文字均为大写",
+        "不要在主要组件上使用圆角——截图显示直角边缘",
+        "不要使用鲜艳的品牌色彩——截图显示单色配色方案",
+        "不要使用手写体或衬线字体——截图仅显示无衬线字体",
+        "不要用多个重叠元素使布局显得杂乱——截图显示干净、宽敞的布局",
+        "不要在卡片上使用投影——截图显示扁平、以图片为主导的组件"
+      ],
+      "systemPrompt": "这是一个高端汽车品牌网站。定位是奢华和性能，聚焦于高质量摄影和极简界面。关键颜色是背景色#000000和文字色#FFFFFF，形成高对比度单色配色方案。字体类别包括用于标题的压缩无衬线字体和用于正文的人文主义无衬线字体。关键禁忌：避免小写标题，避免圆角，避免鲜艳色彩。布局宽敞，间距24px，动效平滑，使用cubic-bezier缓动。"
+    },
+    "zh-TW": {
+      "identity": {
+        "keywords": [
+          "效能",
+          "奢華",
+          "傳承",
+          "獨占性",
+          "義大利"
+        ],
+        "analogy": "一份高端汽車雜誌，透過電影級攝影與粗野主義排版活了起來。",
+        "oneLiner": "一個高端汽車品牌網站，採用全出血攝影與大膽緊縮排版，傳遞力量與獨占性。"
+      },
+      "colors": {
+        "principle": "高對比單色調色盤，讓攝影承載品牌能量。"
+      },
+      "typography": {
+        "rules": [
+          "所有文字均採用大寫",
+          "展示字型使用自訂緊縮無襯線字體",
+          "內文字型採用乾淨的人文主義無襯線字體"
+        ],
+        "scaleUses": [
+          "主視覺標題與章節標題",
+          "副標題與功能亮點",
+          "一般內文與導覽"
+        ]
+      },
+      "spacing": {
+        "rhythm": "一致的 24px 欄間距與基礎格線對齊。"
+      },
+      "surfaces": {
+        "shadows": [],
+        "borders": "使用 1px solid rgba(255,255,255,1) 作為輪廓與分隔線。"
+      },
+      "layout": {
+        "skeleton": "全出血攝影搭配左對齊文字覆蓋。"
+      },
+      "components": {
+        "button": "全寬區塊按鈕，搭配大寫文字與右箭頭，具備實心背景與銳利邊角。",
+        "card": "以圖片為主的卡片，文字覆蓋最小化，無可見邊框。",
+        "chip": "小型大寫標籤，帶有細白邊框。",
+        "input": "極簡搜尋與輸入欄位，帶有細微底線。",
+        "hero": "全螢幕沉浸式影片或圖片背景，搭配巨大緊縮排版。"
+      },
+      "motion": {
+        "patterns": [
+          "懸停時流暢的背景顏色與顏色過渡",
+          "互動元素上的輕微變形位移"
+        ]
+      },
+      "interaction": {
+        "hover": "細微的背景顏色或顏色變化",
+        "click": "透過變形或透明度變化提供即時視覺回饋",
+        "transition": "所有過渡效果使用 0.3s ease-in-out 或自訂 cubic-bezier 曲線",
+        "keyboard": "焦點狀態可能與懸停狀態一致，以利無障礙功能。"
+      },
+      "voice": {
+        "tone": "自信、啟發性且極簡。",
+        "headlineStyle": "簡短、有力、全大寫的陳述。",
+        "ctaStyle": "直接且行動導向，常伴隨箭頭。",
+        "avoid": [
+          "休閒用語",
+          "過多驚嘆號",
+          "長篇段落",
+          "俏皮表情符號"
+        ]
+      },
+      "donts": [
+        "勿使用小寫標題 — 畫面截圖顯示所有文字均為大寫",
+        "勿在主要元件上使用圓角 — 畫面截圖顯示為銳利邊角",
+        "勿使用鮮豔品牌色 — 畫面截圖顯示為單色調色盤",
+        "勿使用手寫體或襯線字體 — 畫面截圖僅顯示無襯線字體",
+        "勿在版面上堆疊多個重疊元素 — 畫面截圖顯示為整潔、寬敞的佈局",
+        "勿在卡片上使用陰影 — 畫面截圖顯示為平面、以圖片為主的元件"
+      ],
+      "systemPrompt": "這是一個高端汽車品牌網站。定位為奢華與性能，聚焦高品質攝影與極簡使用者介面。關鍵顏色為背景色 #000000 與文字色 #FFFFFF，形成高對比單色調色盤。字體類別包含展示用的緊縮無襯線與內文的人文主義無襯線。重要禁忌：避免小寫標題、避免圓角、避免鮮豔色彩。佈局寬敞，欄間距為 24px，動態效果流暢，採用 cubic-bezier 緩動函數。"
+    },
+    "ja": {
+      "identity": {
+        "keywords": [
+          "Performance",
+          "Luxury",
+          "Heritage",
+          "Exclusivity",
+          "Italian"
+        ],
+        "analogy": "シネマティックな写真とブルータリストなタイポグラフィで、高級自動車雑誌を実体化したもの。",
+        "oneLiner": "フルブリード写真と大胆なコンデンスド・タイポグラフィを用い、力強さと特別感を伝える、プレミアム・オートモーティブブランドサイト。"
+      },
+      "colors": {
+        "principle": "写真がブランドのエネルギーを表現できる、ハイコントラストなモノクロパレット。"
+      },
+      "typography": {
+        "rules": [
+          "すべてのタイポグラフィは大文字",
+          "ディスプレイ・タイプにはカスタムのコンデンスド・サンセリフを使用",
+          "本文にはクリーンなヒューマニスト・サンセリフを使用"
+        ],
+        "scaleUses": [
+          "ヒーロー見出しとセクションタイトル",
+          "サブヘッドラインと機能の注釈",
+          "一般的な本文とナビゲーション"
+        ]
+      },
+      "spacing": {
+        "rhythm": "一貫した24pxのガター間隔は、ベースグリッドに沿っています。"
+      },
+      "surfaces": {
+        "shadows": [],
+        "borders": "1px solid rgba(255,255,255,1) をアウトラインとセパレーターに使用。"
+      },
+      "layout": {
+        "skeleton": "フルブリードの写真に、左寄せのテキストオーバーレイ。"
+      },
+      "components": {
+        "button": "大文字テキストと右矢印を持つ、フルワイドのブロックボタン。塗りつぶしの背景と鋭い角が特徴。",
+        "card": "最小限のテキストオーバーレイを持つ、画像中心のカード。目立つボーダーなし。",
+        "chip": "細いホワイトボーダーを持つ、小規模な大文字タグ。",
+        "input": "控えめなアンダーラインを持つ、ミニマルな検索・入力フィールド。",
+        "hero": "巨大なコンデンスド・タイポグラフィを持つ、フルスクリーンの没入型ビデオまたは画像背景。"
+      },
+      "motion": {
+        "patterns": [
+          "hover時のスムーズなbackground-colorとcolorのトランジション",
+          "インタラクティブ要素のわずかなtransformシフト"
+        ]
+      },
+      "interaction": {
+        "hover": "控えめなbackground-colorまたはcolorの変化",
+        "click": "transformまたはopacityの変化による即時フィードバック",
+        "transition": "すべてのトランジションには0.3sのease-in-out、またはカスタムcubic-bezierカーブを使用",
+        "keyboard": "アクセシビリティのため、フォーカス状態はおそらくhover状態を反映します。"
+      },
+      "voice": {
+        "tone": "自信に満ち、志向性が高く、ミニマル。",
+        "headlineStyle": "短く、力強く、大文字のステートメント。",
+        "ctaStyle": "直接的で行動を促すもので、しばしば矢印を伴う。",
+        "avoid": [
+          "カジュアルな言葉遣い",
+          "過度な感嘆符",
+          "長文の段落",
+          "遊び心のある絵文字"
+        ]
+      },
+      "donts": [
+        "見出しに小文字を使用しない — スクリーンショットではすべてのタイポグラフィが大文字である",
+        "プライマリ・コンポーネントに角丸を使用しない — スクリーンショットでは鋭い角である",
+        "鮮やかなブランドカラーを使用しない — スクリーンショットではモノクロパレットである",
+        "スクリプトやセリフフォントを使用しない — スクリーンショットではサンセリフのみ",
+        "レイアウトを複数の重なる要素で散らかさない — スクリーンショットではクリーンで広々としたレイアウトである",
+        "カードにドロップ・シャドウを使用しない — スクリーンショットではフラットで画像中心のコンポーネントである"
+      ],
+      "systemPrompt": "これはプレミアム・オートモーティブブランドのウェブサイトです。ポジショニングはラグジュアリーとパフォーマンスで、高品質な写真とミニマルなUIに焦点を当てます。主要なカラーは背景の#000000とテキストの#FFFFFFで、ハイコントラストなモノクロパレットを構成します。フォントカテゴリにはディスプレイ用のコンデンスド・サンと本文用のヒューマニスト・サンが含まれます。重要な禁止事項: 見出しの小文字、角丸、鮮やかなカラーの使用を避ける。レイアウトは24pxのガターで広々としており、モーションはcubic-bezierイージングを使用してスムーズです。"
+    },
+    "ko": {
+      "identity": {
+        "keywords": [
+          "Performance",
+          "Luxury",
+          "Heritage",
+          "Exclusivity",
+          "Italian"
+        ],
+        "analogy": "시네마틱한 사진과 브루탈리스트 타이포그래피로 구현된 하이엔드 자동차 잡지.",
+        "oneLiner": "풀블리드 사진과 굵은 축약형 타이포그래피를 사용하여 파워와 독점성을 전달하는 프리미엄 자동차 브랜드 사이트."
+      },
+      "colors": {
+        "principle": "브랜드의 에너지를 사진이 이끌어가도록 하는 고대비 단색 팔레트."
+      },
+      "typography": {
+        "rules": [
+          "모든 타이포그래피는 대문자 사용",
+          "디스플레이 타입은 커스텀 축약형 산세리프 사용",
+          "본문은 클린한 휴머니스틱 산세리프 사용"
+        ],
+        "scaleUses": [
+          "히어로 헤드라인 및 섹션 제목",
+          "서브헤드라인 및 기능 강조",
+          "일반 본문 및 네비게이션"
+        ]
+      },
+      "spacing": {
+        "rhythm": "기본 그리드에 정렬된 일관된 24px 거터 간격."
+      },
+      "surfaces": {
+        "shadows": [],
+        "borders": "윤곽선과 구분선에 사용되는 1px solid rgba(255,255,255,1)."
+      },
+      "layout": {
+        "skeleton": "왼쪽 정렬 텍스트 오버레이가 있는 풀블리드 사진."
+      },
+      "components": {
+        "button": "대문자 텍스트와 오른쪽 화살표가 있는 풀幅 블록 버튼, 솔리드 배경과 날카로운 모서리.",
+        "card": "최소한의 텍스트 오버레이가 있는 이미지 중심 카드, 눈에 띄는 테두리 없음.",
+        "chip": "얇은 흰색 테두리가 있는 소형 대문자 태그.",
+        "input": "미묘한 밑줄이 있는 미니멀한 검색 및 입력 필드.",
+        "hero": "거대한 축약형 타이포그래피가 있는 풀스크린 몰입형 비디오 또는 이미지 배경."
+      },
+      "motion": {
+        "patterns": [
+          "hover 시 부드러운 background-color 및 color 전환",
+          "인터랙티브 요소에서의 약간의 transform 변화"
+        ]
+      },
+      "interaction": {
+        "hover": "미묘한 background-color 또는 color 변화",
+        "click": "transform 또는 opacity 변화를 통한 즉각적인 시각적 피드백",
+        "transition": "모든 전환은 0.3s ease-in-out 또는 커스텀 cubic-bezier 커브 사용",
+        "keyboard": "접근성을 위해 focus 상태가 likely hover 상태를 반영."
+      },
+      "voice": {
+        "tone": "자신감 있고, 열망을 불러일으키며, 미니멀한.",
+        "headlineStyle": "짧고 강렬한, 대문자 문장.",
+        "ctaStyle": "직설적이고 행동 지향적이며, 종종 화살표가 동반됨.",
+        "avoid": [
+          "캐주얼한 언어",
+          "지나치게 많은 느낌표",
+          "장문의 문단",
+          "장난스러운 이모지"
+        ]
+      },
+      "donts": [
+        "헤드라인에 소문자를 사용하지 마세요 — 스크린샷은 모든 타이포그래피가 대문자임을 보여줍니다",
+        "주요 컴포넌트에 둥근 모서리를 사용하지 마세요 — 스크린샷은 날카로운 모서리를 보여줍니다",
+        "화려한 브랜드 컬러를 사용하지 마세요 — 스크린샷은 단색 팔레트를 보여줍니다",
+        "스크립트 또는 세리프 폰트를 사용하지 마세요 — 스크린샷은 산세리프 타이포그래피만 보여줍니다",
+        "레이아웃을 여러 겹쳐진 요소로 복잡하게 만들지 마세요 — 스크린샷은 깔끔하고 여유로운 레이아웃을 보여줍니다",
+        "카드에 드롭 섀도우를 사용하지 마세요 — 스크린샷은 플랫한, 이미지 중심 컴포넌트를 보여줍니다"
+      ],
+      "systemPrompt": "이것은 프리미엄 자동차 브랜드 웹사이트입니다. 포지셔닝은 럭셔리와 퍼포먼스이며, 고품질 사진과 미니멀 UI에 초점을 맞춥니다. 핵심 컬러는 배경용 #000000과 텍스트용 #FFFFFF로, 고대비 단색 팔레트를 만듭니다. 폰트 카테고리는 디스플레이용 축약형 산세리프와 본문용 휴머니스틱 산세리프를 포함합니다. 핵심 금지 사항: 소문자 헤드라인 피하기, 둥근 모서리 피하기, 화려한 컬러 피하기. 레이아웃은 24px 거터가 있는 여유로우며, 모션은 cubic-bezier 이징을 사용하여 부드럽게 동작합니다."
     }
   }
 }

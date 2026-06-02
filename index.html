@@ -6,12 +6,19 @@
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="default" />
     <meta name="theme-color" content="#ffffff" />
+    <meta name="baidu-site-verification" content="codeva-3sZTCGP6st" />
     <title>OpenDesign · 优质网页设计资源库</title>
     <meta
       name="description"
       content="OpenDesign 是一个优质网页设计资源库 —— 把值得反复回看的网页设计沉淀成可被 AI 学习复用的 Markdown 设计系统规范。"
     />
     <link rel="canonical" href="https://opendesign.cc/" />
+    <link rel="alternate" hreflang="en" href="https://opendesign.cc/en/" />
+    <link rel="alternate" hreflang="zh-CN" href="https://opendesign.cc/zh-CN/" />
+    <link rel="alternate" hreflang="zh-TW" href="https://opendesign.cc/zh-TW/" />
+    <link rel="alternate" hreflang="ja" href="https://opendesign.cc/ja/" />
+    <link rel="alternate" hreflang="ko" href="https://opendesign.cc/ko/" />
+    <link rel="alternate" hreflang="x-default" href="https://opendesign.cc/" />
     <meta property="og:title" content="OpenDesign · 优质网页设计资源库" />
     <meta property="og:description" content="把值得反复回看的网页设计沉淀成可被 AI 学习复用的 Markdown 设计系统规范。" />
     <meta property="og:url" content="https://opendesign.cc/" />
@@ -27,12 +34,12 @@
     <meta name="twitter:title" content="OpenDesign · 优质网页设计资源库" />
     <meta name="twitter:description" content="把值得反复回看的网页设计沉淀成可被 AI 学习复用的 Markdown 设计系统规范。" />
     <meta name="twitter:image" content="https://opendesign.cc/og-cover.png" />
-    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
-    <link rel="apple-touch-icon" href="./favicon.svg" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/favicon.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&display=swap" />
-    <link rel="stylesheet" href="./styles.css" />
+    <link rel="stylesheet" href="/styles.css" />
 
     <!-- JSON-LD 结构化数据：WebSite + Organization + ItemList -->
     <script type="application/ld+json">
@@ -77,7 +84,7 @@
     }
     </script>
 
-    <!-- 百度统计 Baidu Analytics -->
+    <!-- 百度统计 Baidu Analytics（国内）-->
     <script>
       var _hmt = _hmt || [];
       (function() {
@@ -86,6 +93,15 @@
         var s = document.getElementsByTagName("script")[0];
         s.parentNode.insertBefore(hm, s);
       })();
+    </script>
+
+    <!-- Google Analytics 4（境外）· 把 G-W2RPW945DH 换成你 GA4 属性的 Measurement ID -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-W2RPW945DH"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-W2RPW945DH', { anonymize_ip: true });
     </script>
   </head>
   <body>
@@ -171,6 +187,20 @@
         <div class="canvas-surface" id="canvasSurface" role="application" data-i18n-aria-label="canvas.surface.aria">
           <div class="canvas-grid" id="canvasGrid"></div>
         </div>
+        <div class="canvas-controls">
+          <button class="canvas-recenter" id="canvasShuffle" type="button" data-i18n-aria-label="canvas.shuffle.aria">
+            <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M16 3h5v5M4 20 21 3M21 16v5h-5M15 15l6 6M4 4l5 5" />
+            </svg>
+            <span data-i18n="canvas.shuffle">随机探索</span>
+          </button>
+          <button class="canvas-recenter" id="canvasRecenter" type="button" data-i18n-aria-label="canvas.recenter.aria">
+            <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6">
+              <circle cx="12" cy="12" r="4" /><path d="M12 2v3M12 19v3M2 12h3M19 12h3" stroke-linecap="round" />
+            </svg>
+            <span data-i18n="canvas.recenter">回到原点</span>
+          </button>
+        </div>
         <div class="canvas-footnote" id="canvasFootnote" aria-hidden="true"></div>
       </section>
 
@@ -205,6 +235,16 @@
           <p class="panel-lead" data-i18n="saved.lead">收藏存在这个浏览器，云端有备份。换设备？用「同步码」把收藏带过去 —— 不需要账号。</p>
         </div>
         <div class="library-list" id="savedList"></div>
+
+        <!-- 我请求的收录：用户推荐但还没上广场的，进入我们的审核队列 -->
+        <section class="my-requests" id="myRequests" hidden>
+          <div class="my-requests-head">
+            <p class="eyebrow" data-i18n="requests.eyebrow">我请求的收录</p>
+            <p class="my-requests-lead" data-i18n="requests.lead">你推荐的网站已进入审核队列。我们会跑设计系统管线、通过后发布到广场。</p>
+          </div>
+          <ul class="my-requests-list" id="myRequestsList"></ul>
+        </section>
+
         <div class="empty-state" id="savedEmpty" hidden>
           <p class="empty-title" data-i18n="saved.empty.title">还没收藏任何网站</p>
           <p class="empty-sub" data-i18n="saved.empty.sub">在图集或列表里点心形 ♥ 收藏喜欢的条目，会出现在这里。</p>
@@ -295,6 +335,35 @@
           </article>
         </div>
 
+        <div class="about-section about-docs">
+          <p class="eyebrow" data-i18n="about.docs.eyebrow">每个 pack · 两份文档</p>
+          <h2 data-i18n="about.docs.heading">不止 design.md —— 我们给两份。</h2>
+          <p class="panel-lead" data-i18n="about.docs.lead">Google Stitch 的 DESIGN.md 是一个标准格式的文件，我们完全兼容它；但我们额外给一份更系统、多语言的完整设计系统规范。一个 pack 里两份都有。</p>
+          <div class="docs-grid">
+            <article class="doc-card">
+              <div class="doc-card-file">DESIGN.md</div>
+              <p class="doc-card-tag" data-i18n="about.docs.a.tag">Google Stitch 兼容格式</p>
+              <p class="doc-card-body" data-i18n="about.docs.a.body">YAML front matter（colors / typography / rounded / spacing tokens）+ 8 章 markdown 正文。任何读 design.md 标准的工具（Google Stitch、Cursor、Claude）都能直接吃。这是「通用护照」。</p>
+              <ul class="doc-card-list">
+                <li data-i18n="about.docs.a.l1">YAML 设计 tokens（机器可读）</li>
+                <li data-i18n="about.docs.a.l2">Overview / Colors / Typography / Layout / Components / Do's &amp; Don'ts</li>
+                <li data-i18n="about.docs.a.l3">符合 google-labs-code/design.md 规范</li>
+              </ul>
+            </article>
+            <article class="doc-card doc-card-primary">
+              <div class="doc-card-file">DESIGN_SPEC.&lt;lang&gt;.md</div>
+              <p class="doc-card-tag" data-i18n="about.docs.b.tag">OpenDesign 11 层 · 5 语言</p>
+              <p class="doc-card-body" data-i18n="about.docs.b.body">我们自己的更系统规范：11 层 Tokens 全展开 + magazine 风格叙事 + 可直接粘的 System Prompt。每个 pack 出 5 种语言（中英日韩繁），让非英语 AI / 团队也能用。这是「深度手册」。</p>
+              <ul class="doc-card-list">
+                <li data-i18n="about.docs.b.l1">11 层：身份 / 颜色 / 字体 / 间距 / 表面 / 布局 / 组件 / 动效 / 交互 / 文案 / 禁用清单</li>
+                <li data-i18n="about.docs.b.l2">每条 Don't 可在截图反验证 + 刁钻类比</li>
+                <li data-i18n="about.docs.b.l3">250 字内 System Prompt，复制即用</li>
+              </ul>
+            </article>
+          </div>
+          <p class="docs-footnote" data-i18n="about.docs.footnote">外加：真 computed styles（summary.json）、实际字体清单（fonts.json）、17 张滚动证据截图。整包一个 ZIP 或一个 folder URL 全拿走。</p>
+        </div>
+
         <div class="about-section">
           <p class="eyebrow" data-i18n="about.sample.eyebrow">示例 · 一份规范长什么样</p>
           <h2 id="aboutSampleTitle">规范示例</h2>
@@ -302,10 +371,15 @@
           <pre class="spec-example"><code id="specExample"></code></pre>
         </div>
 
-        <div class="about-section about-contact">
-          <p class="eyebrow" data-i18n="about.contact.eyebrow">投稿</p>
-          <h2 data-i18n="about.contact.heading">发现了值得收录的网站？</h2>
-          <p class="panel-lead" data-i18n="about.contact.lead">把链接发给我们，符合收录标准的会被加入资源库。</p>
+        <div class="about-section about-author">
+          <p class="eyebrow" data-i18n="about.author.eyebrow">策展人</p>
+          <h2 data-i18n="about.author.heading">邱懿武 · Qiu Yiwu</h2>
+          <p class="panel-lead" data-i18n="about.author.lead">OpenDesign 的策展与开发者。专注设计、AI 与产品。</p>
+          <div class="contact-links">
+            <a class="contact-link" href="https://qiuyiwu.com" target="_blank" rel="noopener noreferrer">qiuyiwu.com ↗</a>
+            <a class="contact-link" href="mailto:qiuyiwu@uma.com">qiuyiwu@uma.com</a>
+          </div>
+          <p class="about-submit-note" data-i18n="about.submit.note">发现值得收录的网站？站内点「＋ 收录」请求，或邮件：</p>
           <div class="contact-links">
             <a class="contact-link" href="mailto:hi@opendesign.cc">hi@opendesign.cc</a>
           </div>
@@ -401,6 +475,35 @@
               </div>
             </div>
             <ul class="pack-files" id="packFilesList"></ul>
+          </section>
+
+          <!-- 没有完整 mimo 包的作品：请求生成（进队列，curator 用 mimo 跑）+ 即时文档版兜底 -->
+          <section class="pack-generate" id="packGenerate" hidden>
+            <div class="pack-head">
+              <div>
+                <p class="eyebrow" data-i18n="gen.eyebrow">设计系统 · 完整包</p>
+                <h3 data-i18n="gen.pitch">完整设计系统包（真截图 + 真 computed styles + 11 层规范）由我们用 mimo 生成。点下方请求，生成完成后这里就能下载完整包。</h3>
+              </div>
+            </div>
+            <div class="gen-body" id="genBody">
+              <button class="pack-cta primary" id="genRequestButton" type="button">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13 2 4 14h7l-1 8 9-12h-7l1-8Z" /></svg>
+                <span data-i18n="gen.request">请求生成完整设计系统</span>
+              </button>
+              <p class="gen-result-note" id="genRequested" hidden data-i18n="gen.requested">✓ 已加入生成队列。我们会用 mimo 处理，生成完成后这里可下载完整包。</p>
+
+              <div class="gen-secondary">
+                <p class="gen-secondary-label" data-i18n="gen.secondary.label">想先要点东西？这是即时文档版（不含截图）：</p>
+                <div class="pack-actions">
+                  <button class="pack-cta secondary" id="genDownloadSpec" type="button">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v12m-5-5 5 5 5-5M5 20h14" /></svg>
+                    <span data-i18n="gen.download.spec">下载文档版 ZIP（11 层规范）</span>
+                  </button>
+                  <a class="pack-cta secondary" id="genViewDesign" href="#" target="_blank" rel="noopener noreferrer" data-i18n="gen.view.design">查看 DESIGN.md（Google 格式）</a>
+                  <button class="pack-cta secondary" id="genCopyAgentUrl" type="button" data-i18n="gen.copy.agentUrl">复制 Agent 链接</button>
+                </div>
+              </div>
+            </div>
           </section>
 
           <!-- 相关推荐：基于 tag 重叠 + 颜色相近 -->
@@ -538,10 +641,10 @@
 
     <div class="toast" id="toast" role="status" aria-live="polite"></div>
     <script src="https://cdn.jsdelivr.net/npm/marked@11.2.0/marked.min.js"></script>
-    <script src="./i18n.js"></script>
-    <script src="./sites.js"></script>
+    <script src="/i18n.js"></script>
+    <script src="/sites.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
-    <script src="./supabase-config.js"></script>
-    <script src="./app.js"></script>
+    <script src="/supabase-config.js"></script>
+    <script src="/app.js"></script>
   </body>
 </html>

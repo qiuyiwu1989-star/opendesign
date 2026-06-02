@@ -17,50 +17,66 @@
   "_meta": {
     "vision_model": "mimo-v2.5",
     "vision_prompt_version": "0.3",
-    "vision_at": "2026-05-28T22:03:19+00:00",
-    "vision_tokens": 3607,
-    "vision_cost_usd": 0.0401,
+    "vision_at": "2026-05-30T17:34:29+00:00",
+    "vision_tokens": 16462,
+    "vision_cost_usd": 0.1829,
     "translation_model": "mimo-v2.5",
-    "translation_at": "2026-05-28T22:03:58+00:00",
-    "translation_tokens": 11743,
-    "translation_cost_usd": 0.0392,
+    "translation_at": "2026-05-30T17:35:25+00:00",
+    "translation_tokens": 22358,
+    "translation_cost_usd": 0.0746,
     "narrative_model": "mimo-v2.5",
     "narrative_prompt_version": "0.3",
     "narrative_at": "2026-05-28T22:04:04+00:00",
     "narrative_tokens": 1625,
     "narrative_cost_usd": 0.0108,
     "narrative_status": "ok",
-    "total_cost_usd": 0.0901
+    "total_cost_usd": 0.2683,
+    "vision_source": "playwright-extract:renault",
+    "vision_grounded": true
   },
   "spec": {
     "colors": {
-      "bg": "#FFFFFF",
-      "bgSoft": null,
-      "bgQuiet": null,
-      "ink": "#222222",
-      "inkSoft": null,
-      "muted": "#999999",
+      "bg": "#000000",
+      "bgSoft": "#F2F2F2",
+      "bgQuiet": "#FFFFFF",
+      "ink": "#000000",
+      "inkSoft": "#9E9E9E",
+      "muted": "#9E9E9E",
       "mutedSoft": null,
-      "accent": null,
-      "line": "rgba(0, 0, 0, 0)"
+      "accent": "#65D7D0",
+      "line": "rgba(158, 158, 158, 1)"
     },
     "typography": {
-      "display": "geometric-sans",
-      "body": "geometric-sans",
-      "mono": "monospaced",
+      "display": "humanist-sans",
+      "body": "humanist-sans",
+      "mono": null,
       "scale": [
         {
           "token": "display",
-          "size": 48,
-          "lh": 1.0,
+          "size": 40,
+          "lh": 1.1,
+          "weight": 700,
+          "ls": "-1px"
+        },
+        {
+          "token": "body",
+          "size": 16,
+          "lh": 1.4,
           "weight": 400,
           "ls": "0px"
         },
         {
-          "token": "body",
-          "size": 32,
-          "lh": 1.2,
-          "weight": 400,
+          "token": "caption",
+          "size": 14,
+          "lh": 1.4,
+          "weight": 700,
+          "ls": "0px"
+        },
+        {
+          "token": "small",
+          "size": 12,
+          "lh": 1.3,
+          "weight": 700,
           "ls": "0px"
         }
       ]
@@ -80,15 +96,15 @@
     },
     "surfaces": {
       "radius": {
-        "sm": 0,
-        "md": 0,
-        "lg": 0,
-        "pill": 0
+        "sm": 4,
+        "md": 16,
+        "lg": 24,
+        "pill": 999
       }
     },
     "layout": {
-      "container": 1024,
-      "paragraph": 600,
+      "container": 1280,
+      "paragraph": 680,
       "columns": 12,
       "gutter": 24,
       "breakpoints": [
@@ -98,337 +114,20 @@
     },
     "motion": {
       "durations": {
-        "micro": 220,
-        "small": 400,
-        "medium": 800
+        "micro": 150,
+        "small": 200,
+        "medium": 400
       },
-      "easing": "cubic-bezier(0.25, 0.1, 0.25, 1)"
-    }
-  },
-  "spec_i18n": {
-    "en": {
-      "identity": {
-        "keywords": [
-          "Automotive",
-          "Minimal",
-          "Technical"
-        ],
-        "analogy": "A blank canvas with a technical watermark.",
-        "oneLiner": "A minimalist, high-key corporate placeholder focusing on a central monogram."
-      },
-      "colors": {
-        "principle": "Extreme high-key minimalism with a monochromatic palette."
-      },
-      "typography": {
-        "rules": [],
-        "scaleUses": [
-          "monogram",
-          "logo-text"
-        ]
-      },
-      "spacing": {
-        "rhythm": "Strict vertical centering of the entire composition."
-      },
-      "surfaces": {
-        "shadows": [],
-        "borders": "No visible borders"
-      },
-      "layout": {
-        "skeleton": "Single column, perfectly centered content block."
-      },
-      "components": {
-        "button": "none",
-        "card": "none",
-        "chip": "none",
-        "input": "none",
-        "hero": "none"
-      },
-      "interaction": {
-        "hover": "none",
-        "click": "none",
-        "transition": "none",
-        "keyboard": "none"
-      },
-      "voice": {
-        "tone": "minimal",
-        "headlineStyle": "monogram",
-        "ctaStyle": "none",
-        "avoid": [
-          "complex layouts",
-          "vibrant colors",
-          "dense text"
-        ]
-      },
-      "donts": [
-        "don't use vibrant gradients — screenshot shows a solid white background.",
-        "don't add complex navigation — screenshot shows a single centered element.",
-        "don't use dark mode — screenshot shows a pure white background.",
-        "don't use serif typography — screenshot shows a monospace font.",
-        "don't add multiple components — screenshot shows only a single logo and icon.",
-        "don't use a dark background — screenshot shows a bright white canvas."
-      ],
-      "systemPrompt": "This design represents an extreme minimalist placeholder, utilizing a pure white background with a single centered technical element. The palette is strictly monochromatic, featuring only white and neutral grays. The typography is purely functional, using a monospaced font for the text, reminiscent of a loading screen or system prompt. Key constraints include avoiding any visual clutter, gradients, or secondary actions; maintain absolute centering and a completely blank surrounding canvas. This is a baseline, functional state rather than a fully realized UI."
-    },
-    "zh-CN": {
-      "identity": {
-        "keywords": [
-          "汽车",
-          "极简",
-          "技术"
-        ],
-        "analogy": "带有技术水印的空白画布。",
-        "oneLiner": "一个聚焦于中央字母组合的极简高明度企业占位页面。"
-      },
-      "colors": {
-        "principle": "采用单色配色的极致高明度极简主义。"
-      },
-      "typography": {
-        "rules": [],
-        "scaleUses": [
-          "字母组合",
-          "标志文字"
-        ]
-      },
-      "spacing": {
-        "rhythm": "整个构图严格垂直居中。"
-      },
-      "surfaces": {
-        "shadows": [],
-        "borders": "无可见边框"
-      },
-      "layout": {
-        "skeleton": "单一栏目，内容块完美居中。"
-      },
-      "components": {
-        "button": "无",
-        "card": "无",
-        "chip": "无",
-        "input": "无",
-        "hero": "无"
-      },
-      "interaction": {
-        "hover": "无",
-        "click": "无",
-        "transition": "无",
-        "keyboard": "无"
-      },
-      "voice": {
-        "tone": "极简",
-        "headlineStyle": "字母组合",
-        "ctaStyle": "无",
-        "avoid": [
-          "复杂布局",
-          "鲜艳色彩",
-          "密集文本"
-        ]
-      },
-      "donts": [
-        "不要使用鲜艳渐变——截图显示为纯白背景。",
-        "不要添加复杂导航——截图显示为单一居中元素。",
-        "不要使用深色模式——截图显示为纯白背景。",
-        "不要使用衬线字体——截图显示为等宽字体。",
-        "不要添加多个组件——截图仅显示一个标志和一个图标。",
-        "不要使用深色背景——截图显示为明亮的白色画布。"
-      ],
-      "systemPrompt": "此设计代表了一个极致的极简占位页面，使用纯白背景搭配单一居中的技术元素。配色严格单色，仅包含白色和中性灰色。排版纯粹功能化，文本使用等宽字体，让人联想到加载屏幕或系统提示。关键约束包括避免任何视觉杂乱、渐变或次要操作；保持绝对居中以及完全空白的周围画布。这是一个基线、功能性的状态，而非完全实现的UI。"
-    },
-    "zh-TW": {
-      "identity": {
-        "keywords": [
-          "汽車",
-          "極簡",
-          "技術"
-        ],
-        "analogy": "帶有技術浮水印的空白畫布。",
-        "oneLiner": "極簡的高調企業佔位頁面，聚焦於中央字母組合標誌。"
-      },
-      "colors": {
-        "principle": "極致的高調極簡主義，採用單色調色板。"
-      },
-      "typography": {
-        "rules": [],
-        "scaleUses": [
-          "字母組合標誌",
-          "標誌文字"
-        ]
-      },
-      "spacing": {
-        "rhythm": "整個構圖的嚴格垂直置中。"
-      },
-      "surfaces": {
-        "shadows": [],
-        "borders": "無可見邊框"
-      },
-      "layout": {
-        "skeleton": "單欄位，完美置中的內容區塊。"
-      },
-      "components": {
-        "button": "無",
-        "card": "無",
-        "chip": "無",
-        "input": "無",
-        "hero": "無"
-      },
-      "interaction": {
-        "hover": "無",
-        "click": "無",
-        "transition": "無",
-        "keyboard": "無"
-      },
-      "voice": {
-        "tone": "極簡",
-        "headlineStyle": "字母組合標誌",
-        "ctaStyle": "無",
-        "avoid": [
-          "複雜佈局",
-          "鮮豔色彩",
-          "密集文字"
-        ]
-      },
-      "donts": [
-        "不要使用鮮豔的漸層——截圖顯示純白背景。",
-        "不要添加複雜的導覽——截圖顯示單一置中元素。",
-        "不要使用深色模式——截圖顯示純白背景。",
-        "不要使用襯線字體——截圖顯示等寬字體。",
-        "不要添加多個元件——截圖僅顯示單一標誌與圖示。",
-        "不要使用深色背景——截圖顯示明亮的白色畫布。"
-      ],
-      "systemPrompt": "此設計代表一個極致極簡的佔位頁面，利用純白背景搭配單一置中的技術元素。色板嚴格採用單色調，僅包含白色與中性灰色。字體純粹功能導向，使用等寬字體顯示文字，讓人聯想到載入畫面或系統提示。關鍵限制包括避免任何視覺雜訊、漸層或次要操作；保持絕對置中與完全空白的周圍畫布。這是一個基準的功能狀態，而非完全實現的使用者介面。"
-    },
-    "ja": {
-      "identity": {
-        "keywords": [
-          "Automotive",
-          "Minimal",
-          "Technical"
-        ],
-        "analogy": "テクニカルな透かし入りの白いキャンバス。",
-        "oneLiner": "中央のモノグラムに焦点を当てた、ミニマルなハイキーの企業用プレースホルダー。"
-      },
-      "colors": {
-        "principle": "モノクロームパレットによる極度のハイキーミニマリズム。"
-      },
-      "typography": {
-        "rules": [],
-        "scaleUses": [
-          "monogram",
-          "logo-text"
-        ]
-      },
-      "spacing": {
-        "rhythm": "全体の構図の厳格な垂直センタリング。"
-      },
-      "surfaces": {
-        "shadows": [],
-        "borders": "明確なボーダーなし"
-      },
-      "layout": {
-        "skeleton": "単一カラム、完全に中央揃えされたコンテンツブロック。"
-      },
-      "components": {
-        "button": "なし",
-        "card": "なし",
-        "chip": "なし",
-        "input": "なし",
-        "hero": "なし"
-      },
-      "interaction": {
-        "hover": "なし",
-        "click": "なし",
-        "transition": "なし",
-        "keyboard": "なし"
-      },
-      "voice": {
-        "tone": "minimal",
-        "headlineStyle": "monogram",
-        "ctaStyle": "none",
-        "avoid": [
-          "複雑なレイアウト",
-          "鮮やかな色",
-          "密集したテキスト"
-        ]
-      },
-      "donts": [
-        "鮮やかなグラデーションを使用しない — スクリーンショットは無地の白い背景を示しています。",
-        "複雑なナビゲーションを追加しない — スクリーンショットは単一の中央揃えされた要素を示しています。",
-        "ダークモードを使用しない — スクリーンショットは純白の背景を示しています。",
-        "セリフフォントを使用しない — スクリーンショットはモノスペースフォントを示しています。",
-        "複数のコンポーネントを追加しない — スクリーンショットは単一のロゴとアイコンのみを示しています。",
-        "暗い背景を使用しない — スクリーンショットは明るい白いキャンバスを示しています。"
-      ],
-      "systemPrompt": "このデザインは、純白の背景に単一の中央配置されたテクニカル要素を使用する、極度のミニマルなプレースホルダーを表しています。パレットは厳格にモノクロームで、白とニュートラルグレーのみを採用しています。タイポグラフィは純粋に機能的で、テキストにモノスペースフォントを使用しており、ローディング画面やシステムプロンプトを連想させます。重要な制約として、視覚的な雑然やグラデーション、サブアクションを避け、絶対的なセンタリングと周囲の完全に空白のキャンバスを維持します。これは、完全に実装されたUIではなく、基盤となる機能的状態です。"
-    },
-    "ko": {
-      "identity": {
-        "keywords": [
-          "자동차",
-          "미니멀",
-          "기술적"
-        ],
-        "analogy": "기술적 워터마크가 있는 빈 캔버스.",
-        "oneLiner": "중앙 모노그램에 초점을 맞춘 미니멀한 고명도 기업 플레이스홀더."
-      },
-      "colors": {
-        "principle": "단색 팔레트를 활용한 극도의 고명도 미니멀리즘."
-      },
-      "typography": {
-        "rules": [],
-        "scaleUses": [
-          "모노그램",
-          "로고 텍스트"
-        ]
-      },
-      "spacing": {
-        "rhythm": "전체 구도의 엄격한 수직 중앙 정렬."
-      },
-      "surfaces": {
-        "shadows": [],
-        "borders": "보이는 테두리 없음"
-      },
-      "layout": {
-        "skeleton": "단일 컬럼, 완벽하게 중앙 정렬된 콘텐츠 블록."
-      },
-      "components": {
-        "button": "없음",
-        "card": "없음",
-        "chip": "없음",
-        "input": "없음",
-        "hero": "없음"
-      },
-      "interaction": {
-        "hover": "없음",
-        "click": "없음",
-        "transition": "없음",
-        "keyboard": "없음"
-      },
-      "voice": {
-        "tone": "미니멀",
-        "headlineStyle": "모노그램",
-        "ctaStyle": "없음",
-        "avoid": [
-          "복잡한 레이아웃",
-          "화려한 색상",
-          "빽빽한 텍스트"
-        ]
-      },
-      "donts": [
-        "화려한 gradient 사용 금지 — 스크린샷은 단색 흰색 배경을 보여줍니다.",
-        "복잡한 탐색 요소 추가 금지 — 스크린샷은 단일 중앙 정렬 요소를 보여줍니다.",
-        "다크 모드 사용 금지 — 스크린샷은 순백 배경을 보여줍니다.",
-        "세리프 타이포그래피 사용 금지 — 스크린샷은 모노스페이드 폰트를 보여줍니다.",
-        "여러 컴포넌트 추가 금지 — 스크린샷은 단일 로고와 아이콘만 보여줍니다.",
-        "어두운 배경 사용 금지 — 스크린샷은 밝은 흰색 캔버스를 보여줍니다."
-      ],
-      "systemPrompt": "이 디자인은 순백 배경 위에 단일 중앙 정렬된 기술 요소를 활용하는 극도의 미니멀 플레이스홀더를 나타냅니다. 팔레트는 순백과 중립적인 회색만 사용하는 엄격한 단색입니다. 타이포그래피는 기능적이며, 로딩 화면이나 시스템 프롬프트를 연상시키는 모노스페이드 폰트를 사용합니다. 주요 제약 사항에는 모든 시각적 혼란, gradient 또는 보조 동작 회피가 포함됩니다. 절대적 중앙 정렬과 완전히 비어 주변 캔버스를 유지하세요. 이는 완전히 구현된 UI가 아닌 기준선의 기능적 상태입니다."
+      "easing": "cubic-bezier(0.4, 0, 0.2, 1)"
     }
   },
   "desc": {
     "en": {
-      "palette": "A strictly monochromatic high-key palette consisting entirely of white and neutral grays.",
-      "layout": "A single, perfectly centered column layout on a blank white canvas.",
-      "interaction": "No interactive elements are visible in this static placeholder state.",
-      "motion": "No visible animations or transitions are present.",
-      "notes": "This site is a highly minimalist placeholder, useful as a baseline for strict centering and absolute negative space."
+      "palette": "A strict high-contrast foundation of black and white, accented by a single vibrant teal for interactive highlights.",
+      "layout": "Full-width photographic hero sections transition into structured, spacious editorial grids with generous vertical rhythm.",
+      "interaction": "Standard, smooth micro-interactions with a 0.15s ease transition, providing a refined and responsive feel without being overly animated.",
+      "motion": "Minimal but smooth motion, focusing on subtle state changes rather than complex, distracting animations.",
+      "notes": "An excellent example of a premium corporate site that uses editorial photography and strict typographic hierarchy to convey authority and innovation."
     },
     "zh-CN": {
       "palette": "一种严格的单色高明度配色方案，完全由白色和中性灰色构成。",
@@ -519,6 +218,403 @@
       "ch7_intro": "모션 철학은 정지의 기준선을 고수하며, 현재 상호작용 상태가 정의되지 않았습니다. 제공된 ease 곡선과 지속 시간은 도입될 경우 미묘하고 기계적으로 정밀한 전환을 설명합니다.",
       "ch8_intro": "에디토리얼 톤은 최소한의 어조로 정의되며, 헤드라인은 약자로 나타나고 행동 촉구(call to action)는 부재합니다. 커뮤니케이션은 가장 본질적인 타이포그래피 신호로 축소됩니다.",
       "ch8_outro": "시스템은 복잡한 레이아웃, 화려한 색상, 밀도 높은 텍스트, 다크 모드 및 모든 상호작용 컴포넌트를 의도적으로 생략합니다."
+    }
+  },
+  "spec_i18n": {
+    "en": {
+      "identity": {
+        "keywords": [
+          "Automotive",
+          "Corporate",
+          "Global",
+          "Innovation",
+          "Heritage"
+        ],
+        "analogy": "A premium automotive group corporate portal showcasing innovation and sustainability.",
+        "oneLiner": "A clean, editorial corporate site for the Renault Group, balancing heritage with forward-looking innovation."
+      },
+      "colors": {
+        "principle": "High-contrast black and white foundation with a single teal accent for interactive highlights."
+      },
+      "typography": {
+        "rules": [
+          "Headlines are strictly bold (700) to maintain a strong editorial presence.",
+          "Use tight letter-spacing (e.g., -1px) for large display text to achieve a refined, premium look."
+        ],
+        "scaleUses": [
+          "Main hero headlines and section titles",
+          "Standard paragraph text and descriptions",
+          "Navigation links and category labels",
+          "Date stamps and metadata"
+        ]
+      },
+      "spacing": {
+        "rhythm": "Generous vertical rhythm with large section breaks (64px-104px) to separate editorial blocks."
+      },
+      "surfaces": {
+        "shadows": [
+          "none"
+        ],
+        "borders": "Clean, 1px lines using border colors to subtly divide sections or separate cards."
+      },
+      "layout": {
+        "skeleton": "Full-width photographic hero sections followed by structured editorial grids."
+      },
+      "components": {
+        "button": "Pill-shaped buttons with solid backgrounds, bold text, and standard 19px vertical padding.",
+        "card": "Large photographic cards with rounded corners, overlaying category tags and headlines.",
+        "chip": "Small, rounded pill labels for categorization (e.g., Actualités du Groupe).",
+        "input": "Simple underline or borderless search inputs integrated into the header.",
+        "hero": "Full-bleed, high-quality automotive photography with overlaying text and gradient darkening at the bottom."
+      },
+      "motion": {
+        "patterns": [
+          "Standard micro-interactions for hover and state changes.",
+          "Smooth background-color and border-color transitions on interactive elements."
+        ]
+      },
+      "interaction": {
+        "hover": "Subtle color transitions on interactive elements; buttons and links clearly indicate state changes.",
+        "click": "Immediate visual feedback; clear pointer cursor on all interactive items.",
+        "transition": "0.15s ease transitions for color and background-color to ensure smooth, responsive feel.",
+        "keyboard": "Standard focus outlines and logical tab order for accessibility."
+      },
+      "voice": {
+        "tone": "Professional, authoritative, yet forward-thinking and human-centric.",
+        "headlineStyle": "Bold, concise, and impactful statements summarizing strategic goals or product features.",
+        "ctaStyle": "Direct, action-oriented phrases (e.g., Découvrez le Groupe) using pill-shaped buttons.",
+        "avoid": [
+          "Overly casual slang or non-professional language.",
+          "Dense paragraphs of text without visual breaks.",
+          "Clashing color palettes that deviate from the established black, white, and teal.",
+          "Frantic animations or overly complex interactive elements."
+        ]
+      },
+      "donts": [
+        "Don't use italic typography — screenshot shows bold, upright sans-serif headlines exclusively.",
+        "Don't use vibrant multi-color gradients — screenshot shows solid colors and subtle image darkening gradients.",
+        "Don't use small, dense paragraph layouts — screenshot shows generous spacing and large, readable text blocks.",
+        "Don't use harsh, unrounded corners on main containers — screenshot shows 16px to 24px border-radii.",
+        "Don't use decorative or serif typefaces — screenshot shows exclusively clean humanist-sans-serif fonts.",
+        "Don't use low-contrast text on busy backgrounds — screenshot shows dark gradient overlays to ensure white text readability."
+      ],
+      "systemPrompt": "This site is a premium, editorial corporate portal for the Renault Group, balancing heritage with forward-looking innovation. It relies on a high-contrast black and white foundation, utilizing a single teal accent (#65D7D0) for specific highlights. The typography uses a clean, modern humanist-sans-serif category. Critical donts: never use italics or serif fonts for headlines, avoid dense text blocks without generous spacing, and never place low-contrast text over busy images without a dark gradient overlay. The overall aesthetic is refined, spacious, and highly professional, emphasizing large photographic elements and bold, concise statements."
+    },
+    "zh-CN": {
+      "identity": {
+        "keywords": [
+          "汽车",
+          "企业",
+          "全球",
+          "创新",
+          "传承"
+        ],
+        "analogy": "一个展示创新与可持续性的高端汽车集团企业门户。",
+        "oneLiner": "一个简洁、具有编辑感的雷诺集团企业网站，平衡了传承与前瞻性创新。"
+      },
+      "colors": {
+        "principle": "以高对比度的黑白为基础，搭配单一的蓝绿色（Teal）作为交互高亮色。"
+      },
+      "typography": {
+        "rules": [
+          "标题严格使用粗体（700字重），以保持强烈的编辑感。",
+          "大型展示文本使用紧凑的字间距（例如：-1px），以营造精致、高端的外观。"
+        ],
+        "scaleUses": [
+          "主英雄区标题和章节标题",
+          "标准段落文本和描述",
+          "导航链接和分类标签",
+          "日期戳和元数据"
+        ]
+      },
+      "spacing": {
+        "rhythm": "采用宽松的垂直节奏，章节间留有较大的间距（64px-104px），以分隔编辑块。"
+      },
+      "surfaces": {
+        "shadows": [
+          "无"
+        ],
+        "borders": "使用边框颜色划分出干净的1px线条，用于微妙地区分章节或卡片。"
+      },
+      "layout": {
+        "skeleton": "全宽摄影英雄区，后接结构化的编辑网格。"
+      },
+      "components": {
+        "button": "胶囊形按钮，实色背景，粗体文字，标准的19px垂直内边距。",
+        "card": "大型摄影卡片，圆角设计，叠加分类标签和标题。",
+        "chip": "用于分类的小型圆角胶囊标签（例如：Actualités du Groupe）。",
+        "input": "集成在页眉中的简单下划线或无边框搜索输入框。",
+        "hero": "全出血的高质量汽车摄影，底部叠加文字和渐变暗化效果。"
+      },
+      "motion": {
+        "patterns": [
+          "适用于悬停和状态变化的标准微交互。",
+          "交互元素上平滑的背景色和边框颜色过渡。"
+        ]
+      },
+      "interaction": {
+        "hover": "交互元素上微妙的颜色过渡；按钮和链接清晰地指示状态变化。",
+        "click": "即时的视觉反馈；所有交互项上显示明确的指针光标。",
+        "transition": "0.15秒的ease过渡用于颜色和背景色，以确保平滑、响应迅速的感觉。",
+        "keyboard": "标准的聚焦轮廓和逻辑标签顺序，以确保可访问性。"
+      },
+      "voice": {
+        "tone": "专业、权威，同时具有前瞻性和以人为本的视角。",
+        "headlineStyle": "大胆、简洁、富有冲击力的陈述，总结战略目标或产品特性。",
+        "ctaStyle": "直接、以行动为导向的短语（例如：Découvrez le Groupe），使用胶囊形按钮。",
+        "avoid": [
+          "过于随意的俚语或非专业语言。",
+          "没有视觉分隔的密集段落文本。",
+          "偏离既定的黑、白、蓝绿色调的冲突配色方案。",
+          "杂乱的动画或过于复杂的交互元素。"
+        ]
+      },
+      "donts": [
+        "不要使用斜体字体——截图显示标题仅为粗体、直立的无衬线字体。",
+        "不要使用鲜艳的多色渐变——截图显示为纯色和微妙的图像暗化渐变。",
+        "不要使用小型、密集的段落布局——截图显示为宽松的间距和大而易读的文本块。",
+        "不要在主要容器上使用尖锐、无圆角的边角——截图显示使用16px到24px的圆角。",
+        "不要使用装饰性或衬线字体——截图显示仅使用干净的无衬线字体类别（如 humanist-sans）。",
+        "不要在复杂的背景上使用低对比度文本——截图显示使用深色渐变叠加层以确保白色文本的可读性。"
+      ],
+      "systemPrompt": "这个网站是一个高端、具有编辑感的雷诺集团企业门户，平衡了传承与前瞻性创新。它依赖于高对比度的黑白基础，并使用单一的蓝绿色（#65D7D0）作为特定高亮。字体使用干净、现代的无衬线字体类别（如 humanist-sans）。关键注意事项：标题永远不要使用斜体或衬线字体，避免没有充足间距的密集文本块，永远不要在复杂的图像上放置没有深色渐变叠加层的低对比度文本。整体美学精致、开阔且高度专业，强调大型摄影元素和大胆、简洁的陈述。"
+    },
+    "zh-TW": {
+      "identity": {
+        "keywords": [
+          "汽車",
+          "企業",
+          "全球",
+          "創新",
+          "傳承"
+        ],
+        "analogy": "一個展示創新與永續發展的高階汽車集團企業入口網站。",
+        "oneLiner": "一個簡潔、編輯風格的雷諾集團企業網站，平衡傳承與前瞻創新。"
+      },
+      "colors": {
+        "principle": "以高對比的黑白為基礎，搭配單一藍綠色作為互動高亮強調。"
+      },
+      "typography": {
+        "rules": [
+          "標題嚴格使用粗體（700）以維持強烈的編輯存在感。",
+          "大型展示文字使用緊湊的字母間距（例如 -1px）以達成精緻、高階的視覺感受。"
+        ],
+        "scaleUses": [
+          "主視覺標題與段落標題",
+          "標準段落文字與描述",
+          "導覽連結與分類標籤",
+          "日期戳記與中繼資料"
+        ]
+      },
+      "spacing": {
+        "rhythm": "寬裕的垂直節奏，搭配大型段落間距（64px-104px）以分隔編輯區塊。"
+      },
+      "surfaces": {
+        "shadows": [
+          "無"
+        ],
+        "borders": "使用邊框顏色的簡潔 1px 線條，用以微妙地分隔段落或卡片。"
+      },
+      "layout": {
+        "skeleton": "全寬攝影主視覺區塊，後接結構化的編輯式格線佈局。"
+      },
+      "components": {
+        "button": "實心背景、粗體文字的膠囊形按鈕，標準垂直 padding 為 19px。",
+        "card": "大型攝影卡片，具有圓角，並疊加分類標籤與標題。",
+        "chip": "用於分類的小型圓角膠囊標籤（例如 Actualités du Groupe）。",
+        "input": "整合於頁首的簡約底線或無邊框搜尋輸入框。",
+        "hero": "全出血、高品質的汽車攝影，疊加文字與底部漸層暗化效果。"
+      },
+      "motion": {
+        "patterns": [
+          "標準的微互動，用於 hover 與狀態變化。",
+          "互動元素上平滑的 background-color 與 border-color 過渡效果。"
+        ]
+      },
+      "interaction": {
+        "hover": "互動元素上微妙的顏色過渡；按鈕與連結明確標示狀態變化。",
+        "click": "立即的視覺回饋；所有互動項目上清晰的指標游標。",
+        "transition": "0.15s ease 過渡效果用於顏色與背景色，確保流暢、靈敏的感受。",
+        "keyboard": "標準的外框焦點指示與合乎邏輯的 tab 鍵順序，以符合無障礙規範。"
+      },
+      "voice": {
+        "tone": "專業、權威，同時具有前瞻性並以人為本。",
+        "headlineStyle": "粗體、簡潔且具衝擊力的聲明，總結策略目標或產品特性。",
+        "ctaStyle": "直接、以行動為導向的短語（例如 Découvrez le Groupe），搭配膠囊形按鈕。",
+        "avoid": [
+          "過度隨意的術語或非專業語言。",
+          "缺乏視覺分隔的密集段落文字。",
+          "偏離既定黑、白、藍綠色系的衝突配色方案。",
+          "過於頻繁的動畫或過於複雜的互動元素。"
+        ]
+      },
+      "donts": [
+        "不使用斜體字型 — 螢幕截圖僅顯示粗體、直立的無襯線字體標題。",
+        "不使用鮮豔的多色漸層 — 螢幕截圖顯示實色與細微的圖片暗化漸層。",
+        "不使用小型、密集的段落佈局 — 螢幕截圖顯示寬裕的間距與大型、易讀的文字區塊。",
+        "不在主要容器上使用尖銳、未圓角的邊角 — 螢幕截圖顯示 16px 至 24px 的 border-radii。",
+        "不使用裝飾性或襯線字型 — 螢幕截圖僅顯示簡潔的 humanist-sans-serif 字型。",
+        "不在複雜背景上使用低對比度的文字 — 螢幕截圖顯示深色漸層覆蓋以確保白色文字的可讀性。"
+      ],
+      "systemPrompt": "此網站是雷諾集團的一個高階、編輯風格的企業入口網站，平衡傳承與前瞻創新。它依賴高對比的黑白基礎，並使用單一藍綠色強調（#65D7D0）於特定高亮處。字型使用簡潔、現代的 humanist-sans-serif 類別。關鍵禁止事項：永遠不使用斜體或襯線字型於標題，避免缺乏寬裕間距的密集文字區塊，並永遠不要在未加裝深色漸層覆蓋的情況下，將低對比度文字置於複雜背景圖片上。整體美學精緻、寬敞且高度專業，強調大型攝影元素與粗體、簡潔的聲明。"
+    },
+    "ja": {
+      "identity": {
+        "keywords": [
+          "Automotive",
+          "Corporate",
+          "Global",
+          "Innovation",
+          "Heritage"
+        ],
+        "analogy": "イノベーションとサステナビリティを紹介するプレミアム・オートモーティブグループの企業ポータル。",
+        "oneLiner": "ルノー・グループのためのクリーンでエディトリアルな企業サイト。伝統と未来志向のイノベーションの均衡を図ります。"
+      },
+      "colors": {
+        "principle": "インタラクティブなハイライトに単一のティールアクセントを使用した、ハイコントラストの白黒ベース。"
+      },
+      "typography": {
+        "rules": [
+          "見出しはエディトリアルの存在感を維持するため、厳密に太字（700）で統一します。",
+          "洗練された高級感を実現するため、大型ディスプレイテキストには tight な字間（例：-1px）を使用します。"
+        ],
+        "scaleUses": [
+          "メインヒーロー見出しとセクションタイトル",
+          "標準パラグラフテキストと説明文",
+          "ナビゲーションリンクとカテゴリラベル",
+          "日付スタンプとメタデータ"
+        ]
+      },
+      "spacing": {
+        "rhythm": "エディトリアルブロックを分離するため、大きなセクション区切り（64px-104px）を用いた寛裕な縦のリズム。"
+      },
+      "surfaces": {
+        "shadows": [
+          "none"
+        ],
+        "borders": "border カラーを使用したクリーンな 1px 線で、セクションを繊細に区切るかカードを分離します。"
+      },
+      "layout": {
+        "skeleton": "フルワイドの写真ヒーローセクションに、構造化されたエディトリアルグリッドが続きます。"
+      },
+      "components": {
+        "button": "ソリッド背景、太字テキスト、標準の 19px 垂直 padding を持つピル型ボタン。",
+        "card": "丸みのある角を持ち、カテゴリタグと見出しがオーバーレイされる大型写真カード。",
+        "chip": "カテゴリ分けのための、小さく丸みのあるピル型ラベル（例：Actualités du Groupe）。",
+        "input": "ヘッダーに統合された、シンプルなアンダーラインまたはボーダーレスな検索入力フィールド。",
+        "hero": "オーバーレイテキストと、下部のグラデーション暗転を伴う、フルブリードの高品質オートモーティブ写真。"
+      },
+      "motion": {
+        "patterns": [
+          "hover および状態変化のための標準的なマイクロインタラクション。",
+          "インタラクティブ要素の smooth な background-color および border-color の遷移。"
+        ]
+      },
+      "interaction": {
+        "hover": "インタラクティブ要素の繊細な色の遷移。ボタンとリンクは状態変化を明確に示します。",
+        "click": "即座のビジュアルフィードバック。すべてのインタラクティブ要素には明確なポインタカーソル。",
+        "transition": "color および background-color の 0.15s ease による滑らかで応答性の高い遷移。",
+        "keyboard": "アクセシビリティのための標準的な focus アウトラインと論理的な tab 順序。"
+      },
+      "voice": {
+        "tone": "プロフェッショナルで権威があり、かつ未来志向で人間中心的。",
+        "headlineStyle": "戦略的目標や製品機能を要約した、太字で簡潔かつインパクトのあるステートメント。",
+        "ctaStyle": "Découvrez le Groupe のような、直接的で行動を促すフレーズ。ピル型ボタンを使用。",
+        "avoid": [
+          "過度にカジュアルなスラングや非プロフェッショナルな言葉遣い。",
+          "視覚的な区切りなしに詰め込まれた密なテキスト段落。",
+          "確立された白、黒、ティールから逸脱する色の衝突パレット。",
+          "騒々しいアニメーションや過度に複雑なインタラクティブ要素。"
+        ]
+      },
+      "donts": [
+        "イタリック体のタイポグラフィは使用しない — スクリーンショットでは、太字の立ち上がりサンセリフ見出しが排他的に使用されている。",
+        "鮮やかな多色グラデーションは使用しない — スクリーンショットでは、ソリッドカラーと微妙な画像暗転グラデーションが使用されている。",
+        "密なパラグラフレイアウトは使用しない — スクリーンショットでは、寛裕な間隔と大型で読みやすいテキストブロックが使用されている。",
+        "メインコンテナの角に鋭く角张ったデザインは使用しない — スクリーンショットでは 16px から 24px の border-radii が使用されている。",
+        "装飾的またはセリフ字体は使用しない — スクリーンショットでは、クリーンな humanist-sans-serif フォントのみが使用されている。",
+        "賑やかな背景上に低コントラストのテキストは使用しない — スクリーンショットでは、白文字の可読性を確保するためにダークグラデーションオーバーレイが使用されている。"
+      ],
+      "systemPrompt": "このサイトは、ルノー・グループのためのプレミアムでエディトリアルな企業ポータルです。伝統と未来志向のイノベーションの均衡を図ります。ハイコントラストの白黒ベースに依存し、特定のハイライトに単一のティールアクセント（#65D7D0）を活用します。タイポグラフィはクリーンでモダンな humanist-sans-serif カテゴリを使用します。重要な禁止事項：見出しにイタリック体やセリフフォントを絶対に使用せず、寛裕な間隔のない密なテキストブロックを避け、ダークグラデーションオーバーレイなしに賑やかな画像上に低コントラストのテキストを配置しないこと。全体的な美的感覚は洗練され、空間的で、非常にプロフェッショナルです。大型の写真要素と、太字で簡潔なステートメントを重視します。"
+    },
+    "ko": {
+      "identity": {
+        "keywords": [
+          "자동차",
+          "기업",
+          "글로벌",
+          "혁신",
+          "전통"
+        ],
+        "analogy": "혁신과 지속가능성을 소개하는 프리미엄 자동차 그룹 기업 포털입니다.",
+        "oneLiner": "르노 그룹을 위한 깔끔하고 에디토리얼한 기업 사이트로, 전통과 미래지향적 혁신의 균형을 맞춥니다."
+      },
+      "colors": {
+        "principle": "대비 높은 흑백 기반에, 인터랙티브 하이라이트를 위한 단일 틸(tel) 악센트를 사용합니다."
+      },
+      "typography": {
+        "rules": [
+          "헤드라인은 강한 에디토리얼 감각 유지를 위해 엄격하게 볼드(700)로 설정합니다.",
+          "대형 디스플레이 텍스트에는 좁은 자간(예: -1px)을 사용하여 세련되고 프리미엄스러운 외관을 구현합니다."
+        ],
+        "scaleUses": [
+          "메인 히어로 헤드라인 및 섹션 제목",
+          "일반 본문 텍스트 및 설명",
+          "네비게이션 링크 및 카테고리 레이블",
+          "날짜 표시 및 메타데이터"
+        ]
+      },
+      "spacing": {
+        "rhythm": "에디토리얼 블록을 구분하기 위해 넉넉한 수직 리듬과 큰 섹션 간격(64px-104px)을 사용합니다."
+      },
+      "surfaces": {
+        "shadows": [
+          "없음"
+        ],
+        "borders": "섹션을 미묘하게 구분하거나 카드를 분리하기 위해 테두리 색상을 사용한 깔끔한 1px 라인을 사용합니다."
+      },
+      "layout": {
+        "skeleton": "전체 너비의 사진 히어로 섹션 뒤에 구조화된 에디토리얼 그리드가 이어집니다."
+      },
+      "components": {
+        "button": "단색 배경, 볼드 텍스트, 표준 19px 수직 패딩을 사용한 알약 모양 버튼입니다.",
+        "card": "둥근 모서리가 있는 대형 사진 카드로, 카테고리 태그와 헤드라인이 오버레이됩니다.",
+        "chip": "카테고리 분류를 위한 작고 둥근 알약 모양 레이블(예: Actualités du Groupe)입니다.",
+        "input": "헤더에 통합된 간단한 밑줄 또는 테두리 없는 검색 입력 필드입니다.",
+        "hero": "텍스트와 그라데이션 디아크닝이 오버레이된 전체 폭의 고품질 자동차 사진입니다."
+      },
+      "motion": {
+        "patterns": [
+          "hover 및 상태 변화를 위한 표준 마이크로 인터랙션.",
+          "인터랙티브 요소에서의 부드러운 background-color 및 border-color 트랜지션."
+        ]
+      },
+      "interaction": {
+        "hover": "인터랙티브 요소의 미묘한 색상 전환; 버튼과 링크는 상태 변화를 명확히 표시합니다.",
+        "click": "즉각적인 시각적 피드백; 모든 인터랙티브 항목에 명확한 포인터 커서.",
+        "transition": "부드럽고 반응적인 느낌을 위해 색상 및 background-color에 대한 0.15s ease 트랜지션.",
+        "keyboard": "접근성을 위한 표준 포커스 윤곽 및 논리적인 탭 순서."
+      },
+      "voice": {
+        "tone": "전문적이고 권위 있으나, 미래지향적이며 인간 중심적입니다.",
+        "headlineStyle": "전략적 목표나 제품 특성을 요약하는 볼드하고 간결하며 임팩트 있는 문장.",
+        "ctaStyle": "알약 모양 버튼을 사용하는 직접적이고 행동 지향적인 문구(예: Découvrez le Groupe).",
+        "avoid": [
+          "지나치게 캐주얼한 속어 또는 비전문적 언어.",
+          "시각적 휴식 없이 밀도 높은 문단.",
+          "확립된 흑백 및 틸 색상에서 벗어나는 불협화음 팔레트.",
+          "격렬한 애니메이션 또는 지나치게 복잡한 인터랙티브 요소."
+        ]
+      },
+      "donts": [
+        "이탤릭 타이포그래피를 사용하지 않습니다 — 스크린샷은 볼드하고 직립산세리프 헤드라인만 보여줍니다.",
+        "화려한 다색 그라데이션을 사용하지 않습니다 — 스크린샷은 단색과 미묘한 이미지 디아크닝 그라데이션을 보여줍니다.",
+        "작고 밀도 높은 단락 레이아웃을 사용하지 않습니다 — 스크린샷은 넉넉한 간격과 크고 읽기 쉬운 텍스트 블록을 보여줍니다.",
+        "메인 컨테이너의 날카롭고 둥글지 않은 모서리를 사용하지 않습니다 — 스크린샷은 16px에서 24px의 border-radius를 보여줍니다.",
+        "장식적이거나 세리프 서체를 사용하지 않습니다 — 스크린샷은 깔끔한 휴머니스트산세리프 폰트만 독점적으로 보여줍니다.",
+        "바쁜 배경 위의 저대비 텍스트를 사용하지 않습니다 — 스크린샷은 흰색 텍스트 가독성을 보장하기 위한 어두운 그라데이션 오버레이를 보여줍니다."
+      ],
+      "systemPrompt": "이 사이트는 르노 그룹을 위한 프리미엄, 에디토리얼 기업 포털로, 전통과 미래지향적 혁신의 균형을 맞춥니다. 대비 높은 흑백 기반을 기반으로 하며, 특정 하이라이트를 위해 단일 틸(tel) 악센트(#65D7D0)를 활용합니다. 타이포그래피는 깔끔하고 현대적인 휴머니스트산세리프 계열을 사용합니다. 중요 금지 사항: 헤드라인에 결코 이탤릭이나 세리프 폰트를 사용하지 말 것, 넉넉한 간격 없이 밀도 높은 텍스트 블록을 피할 것, 그리고 어두운 그라데이션 오버레이 없이 바쁜 이미지 위에 저대비 텍스트를 놓지 말 것. 전체적인 미학은 세련되고 여유로우며 매우 전문적이며, 대형 사진 요소와 볼드하고 간결한 문장을 강조합니다."
     }
   }
 }

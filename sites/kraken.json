@@ -17,56 +17,72 @@
   "_meta": {
     "vision_model": "mimo-v2.5",
     "vision_prompt_version": "0.3",
-    "vision_at": "2026-05-28T21:18:03+00:00",
-    "vision_tokens": 3466,
-    "vision_cost_usd": 0.0385,
+    "vision_at": "2026-05-30T16:50:32+00:00",
+    "vision_tokens": 17495,
+    "vision_cost_usd": 0.1944,
     "translation_model": "mimo-v2.5",
-    "translation_at": "2026-05-28T21:19:02+00:00",
-    "translation_tokens": 16339,
-    "translation_cost_usd": 0.0545,
+    "translation_at": "2026-05-30T16:51:38+00:00",
+    "translation_tokens": 28279,
+    "translation_cost_usd": 0.0943,
     "narrative_model": "mimo-v2.5",
     "narrative_prompt_version": "0.3",
     "narrative_at": "2026-05-28T21:19:10+00:00",
     "narrative_tokens": 1989,
     "narrative_cost_usd": 0.0133,
     "narrative_status": "ok",
-    "total_cost_usd": 0.1063
+    "total_cost_usd": 0.302,
+    "vision_source": "playwright-extract:kraken",
+    "vision_grounded": true
   },
   "spec": {
     "colors": {
-      "bg": "#FFFFFF",
-      "bgSoft": "#F8F8F8",
-      "bgQuiet": "#F0F0F0",
-      "ink": "#1E1E1E",
-      "inkSoft": "#6B6B6B",
-      "muted": "#9A9A9A",
-      "mutedSoft": "#C4C4C4",
-      "accent": "#6B21E2",
-      "line": "rgba(0,0,0,0.08)"
+      "bg": "#F5F5F5",
+      "bgSoft": "#E8E8ED",
+      "bgQuiet": "#F6F5F9",
+      "ink": "#101114",
+      "inkSoft": "#686B82",
+      "muted": "#9497A9",
+      "mutedSoft": null,
+      "accent": "#7132F5",
+      "line": "rgba(16,17,20,0.1)"
     },
     "typography": {
       "display": "geometric-sans",
-      "body": "geometric-sans",
-      "mono": null,
+      "body": "humanist-sans",
+      "mono": "monospace",
       "scale": [
         {
           "token": "display",
-          "size": 56,
-          "lh": 1.1,
-          "weight": 600,
-          "ls": "-0.02em"
+          "size": 64,
+          "lh": 1.0,
+          "weight": 500,
+          "ls": "-0.5px"
         },
         {
-          "token": "headline",
-          "size": 40,
-          "lh": 1.2,
-          "weight": 600,
-          "ls": "-0.01em"
+          "token": "heading",
+          "size": 36,
+          "lh": 1.1,
+          "weight": 500,
+          "ls": "0"
         },
         {
           "token": "body",
           "size": 18,
           "lh": 1.5,
+          "weight": 400,
+          "ls": "0"
+        },
+        {
+          "token": "label",
+          "size": 14,
+          "lh": 1.4,
+          "weight": 400,
+          "ls": "0"
+        },
+        {
+          "token": "mono",
+          "size": 12,
+          "lh": 1.3,
           "weight": 400,
           "ls": "0"
         }
@@ -82,21 +98,22 @@
         24,
         32,
         48,
+        56,
         64,
-        96
+        72
       ]
     },
     "surfaces": {
       "radius": {
-        "sm": 4,
-        "md": 8,
-        "lg": 16,
-        "pill": 999
+        "sm": 8,
+        "md": 12,
+        "lg": 20,
+        "pill": 9999
       }
     },
     "layout": {
       "container": 1280,
-      "paragraph": 700,
+      "paragraph": 680,
       "columns": 12,
       "gutter": 24,
       "breakpoints": [
@@ -108,410 +125,18 @@
       "durations": {
         "micro": 150,
         "small": 300,
-        "medium": 500
+        "medium": 400
       },
       "easing": "cubic-bezier(0.4, 0, 0.2, 1)"
     }
   },
-  "spec_i18n": {
-    "en": {
-      "identity": {
-        "keywords": [
-          "trust",
-          "security",
-          "professional",
-          "powerful",
-          "established"
-        ],
-        "analogy": "A sleek, modern vault for digital assets",
-        "oneLiner": "A professional and trustworthy cryptocurrency exchange platform designed for both casual users and advanced traders."
-      },
-      "colors": {
-        "principle": "High-contrast and clean with a distinctive purple accent for CTAs."
-      },
-      "typography": {
-        "rules": [
-          "Use sentence case for headlines to maintain a professional tone.",
-          "Ensure sufficient color contrast for readability, especially on dark backgrounds."
-        ],
-        "scaleUses": [
-          "Hero headline",
-          "Section headline",
-          "Body text"
-        ]
-      },
-      "spacing": {
-        "rhythm": "Consistent and generous spacing to create a sense of calm and professionalism."
-      },
-      "surfaces": {
-        "shadows": [
-          "0 2px 4px rgba(0,0,0,0.06)",
-          "0 4px 12px rgba(0,0,0,0.08)"
-        ],
-        "borders": "Subtle 1px borders to define components."
-      },
-      "layout": {
-        "skeleton": "Full-width hero section followed by a dark, immersive section for the 'Pro' product."
-      },
-      "components": {
-        "button": "Solid purple with white text, rounded corners, and a hover state.",
-        "card": "Clean cards with subtle borders or shadows, often used to showcase features.",
-        "chip": "Simple text-based navigation with an active state.",
-        "input": "Clean, rounded input fields with a placeholder.",
-        "hero": "Large, centered headline with a supporting subhead and a prominent email input for sign-up."
-      },
-      "motion": {
-        "patterns": [
-          "Subtle fade-ins for content sections on scroll.",
-          "Smooth hover transitions for buttons and links."
-        ]
-      },
-      "interaction": {
-        "hover": "Slight color shift or elevation change for interactive elements.",
-        "click": "Subtle press effect for buttons.",
-        "transition": "All transitions are smooth and unobtrusive.",
-        "keyboard": "Visible focus states for accessibility."
-      },
-      "voice": {
-        "tone": "Authoritative, confident, and empowering.",
-        "headlineStyle": "Direct, benefit-oriented, and bold.",
-        "ctaStyle": "Clear, action-oriented, and prominent.",
-        "avoid": [
-          "Jargon-heavy language without explanation.",
-          "Overly casual or playful tone.",
-          "Exclamation marks or overly aggressive marketing speak."
-        ]
-      },
-      "donts": [
-        "Don't use multiple accent colors — the site relies on a single, strong purple (#6B21E2).",
-        "Don't use overly decorative fonts — the design uses clean, geometric sans-serifs.",
-        "Don't clutter the layout with excessive elements — white space is used generously for clarity.",
-        "Don't use thin, hard-to-read font weights — text is consistently bold or regular for readability.",
-        "Don't use complex gradients in the main UI — gradients are subtle or non-existent.",
-        "Don't use red for positive actions — red is reserved for negative financial indicators like price drops."
-      ],
-      "systemPrompt": "Kraken is a leading cryptocurrency exchange platform targeting both individual and professional traders. The design is clean, trustworthy, and premium, using a predominantly white and dark purple color palette with black text. The primary accent color is a vibrant purple (#6B21E2) used for CTAs and brand elements. Typography is modern and geometric sans-serif, ensuring high readability. The layout is spacious and structured, with a clear hierarchy. Critical donts include: avoid using multiple competing accent colors, do not use decorative or handwritten fonts, and avoid cluttering the interface with excessive visual elements. The dark section for 'Pro' features provides a strong contrast and emphasizes advanced functionality."
-    },
-    "zh-CN": {
-      "identity": {
-        "keywords": [
-          "可信",
-          "安全",
-          "专业",
-          "强大",
-          "成熟"
-        ],
-        "analogy": "一个为数字资产打造的精致现代金库",
-        "oneLiner": "一个专业且值得信赖的加密货币交易平台，专为普通用户和高级交易者设计。"
-      },
-      "colors": {
-        "principle": "高对比度与简洁风格，采用独特的紫色作为 CTA 点缀色。"
-      },
-      "typography": {
-        "rules": [
-          "标题采用 sentence case 以保持专业语气。",
-          "确保足够的颜色对比度以提升可读性，尤其是在深色背景上。"
-        ],
-        "scaleUses": [
-          "主标题",
-          "区块标题",
-          "正文"
-        ]
-      },
-      "spacing": {
-        "rhythm": "统一且宽松的间距，营造平静与专业的氛围。"
-      },
-      "surfaces": {
-        "shadows": [
-          "0 2px 4px rgba(0,0,0,0.06)",
-          "0 4px 12px rgba(0,0,0,0.08)"
-        ],
-        "borders": "采用细微的 1px 边框定义组件边界。"
-      },
-      "layout": {
-        "skeleton": "全宽英雄区块，随后是深色沉浸式区块用于展示 'Pro' 产品。"
-      },
-      "components": {
-        "button": "紫色实心填充，白色文字，圆角边框，带 hover 状态。",
-        "card": "简洁卡片配以细微边框或阴影，常用于功能展示。",
-        "chip": "基于文本的简洁导航，带激活状态。",
-        "input": "简洁的圆角输入框，带占位符文本。",
-        "hero": "居中大型标题，配以辅助副标题和突出的邮箱注册输入框。"
-      },
-      "motion": {
-        "patterns": [
-          "内容区块在滚动时进行细微的淡入动画。",
-          "按钮与链接提供平滑的 hover 过渡。"
-        ]
-      },
-      "interaction": {
-        "hover": "交互元素提供细微的颜色变化或高度提升。",
-        "click": "按钮提供细微的按压效果。",
-        "transition": "所有过渡效果平滑且不显眼。",
-        "keyboard": "为无障碍访问提供可见的 focus 状态。"
-      },
-      "voice": {
-        "tone": "权威、自信且富有赋能感。",
-        "headlineStyle": "直接、聚焦利益且醒目。",
-        "ctaStyle": "清晰、行动导向且突出。",
-        "avoid": [
-          "未经解释的繁复术语。",
-          "过于随意或戏谑的语气。",
-          "使用感叹号或过度激进的营销话术。"
-        ]
-      },
-      "donts": [
-        "避免使用多种点缀色——该网站依赖单一、强烈的紫色 (#6B21E2)。",
-        "避免使用过度装饰性字体——设计采用简洁的几何无衬线体。",
-        "避免使用过多元素堆砌布局——应慷慨使用留白以保持清晰。",
-        "避免使用纤细、难以阅读的字重——文本统一使用粗体或常规体以保证可读性。",
-        "避免在主界面中使用复杂渐变——渐变效果应细微或不存在。",
-        "避免为积极操作使用红色——红色仅用于表示下跌等负面金融指标。"
-      ],
-      "systemPrompt": "Kraken 是一个领先的加密货币交易平台，面向个人与专业交易者。设计风格简洁、可信且高端，主要采用白色与深紫色调色板，搭配黑色文字。主点缀色为活力紫 (#6B21E2)，用于 CTA 和品牌元素。字体采用现代几何无衬线体，确保高可读性。布局宽敞且结构清晰，层级分明。关键注意事项包括：避免使用多种相互竞争的点缀色，不使用装饰性或手写字体，避免用过多视觉元素使界面杂乱。用于 'Pro' 功能的深色区块形成强烈对比，以强调其高级功能。"
-    },
-    "zh-TW": {
-      "identity": {
-        "keywords": [
-          "信任",
-          "安全",
-          "專業",
-          "強大",
-          "穩健"
-        ],
-        "analogy": "為數位資產打造的流線型現代金庫",
-        "oneLiner": "一個為一般使用者與進階交易者設計的專業且值得信賴的加密貨幣交易平台。"
-      },
-      "colors": {
-        "principle": "採用高對比且簡潔的配色，並以獨特的紫色作為行動呼吁（CTA）的強調色。"
-      },
-      "typography": {
-        "rules": [
-          "標題使用句首大寫（sentence case），以維持專業語調。",
-          "確保文字與背景有足夠的色彩對比度，特別是在深色背景上。"
-        ],
-        "scaleUses": [
-          "主視覺標題",
-          "區塊標題",
-          "內文"
-        ]
-      },
-      "spacing": {
-        "rhythm": "採用一致且寬裕的間距，營造平靜與專業的氛圍。"
-      },
-      "surfaces": {
-        "shadows": [
-          "0 2px 4px rgba(0,0,0,0.06)",
-          "0 4px 12px rgba(0,0,0,0.08)"
-        ],
-        "borders": "使用細微的 1px 邊框來定義元件。"
-      },
-      "layout": {
-        "skeleton": "採用全寬的主視覺區塊，後接一個深色的沉浸式區塊，用於展示「Pro」產品。"
-      },
-      "components": {
-        "button": "實心紫色按鈕，搭配白色文字、圓角邊框與 hover 狀態。",
-        "card": "簡潔的卡片設計，帶有細微邊框或陰影，常用於展示功能特色。",
-        "chip": "簡約的文字式導航，並包含啟用狀態（active state）。",
-        "input": "簡潔的圓角輸入欄位，帶有佔位符（placeholder）。",
-        "hero": "大型、置中的標題，搭配輔助副標題與顯眼的電子郵件輸入欄位，用於會員註冊。"
-      },
-      "motion": {
-        "patterns": [
-          "內容區塊在滾動時採用細微的淡入效果。",
-          "按鈕與連結採用平滑的 hover 過渡動畫。"
-        ]
-      },
-      "interaction": {
-        "hover": "互動元素產生輕微的顏色變化或高度提升效果。",
-        "click": "按鈕採用細微的按壓效果。",
-        "transition": "所有過渡效果皆流暢且不突兀。",
-        "keyboard": "為無障礙考量，提供清晰的焦點狀態（focus states）。"
-      },
-      "voice": {
-        "tone": "權威、自信且賦能。",
-        "headlineStyle": "直接、聚焦於利益點且粗體呈現。",
-        "ctaStyle": "清晰、以行動為導向且醒目。",
-        "avoid": [
-          "使用未經解釋的術語堆砌。",
-          "過於隨意或俏皮的語調。",
-          "使用驚嘆號或過度激進的行銷用語。"
-        ]
-      },
-      "donts": [
-        "勿使用多種強調色——網站依賴單一、強烈的紫色（#6B21E2）。",
-        "勿使用過於裝飾性的字體——設計採用簡潔的幾何無襯線字體。",
-        "勿在版面上堆砌過多元素——寬裕的留白（white space）用於維持清晰度。",
-        "勿使用纖細、難以辨識的字重——文字始終採用粗體或一般體以確保可讀性。",
-        "勿在主要使用者介面中使用複雜的漸層——漸層效果應極簡或不存在。",
-        "勿使用紅色表示正面操作——紅色僅保留給負面的財務指標，如下跌。"
-      ],
-      "systemPrompt": "Kraken 是一個領先的加密貨幣交易平台，目標客群涵蓋個人與專業交易者。其設計簡潔、值得信賴且具高級感，主要採用白色與深紫色調，並搭配黑色文字。主要強調色是鮮明的紫色（#6B21E2），用於行動呼吁（CTA）與品牌元素。字體為現代幾何無襯線體，確保高度可讀性。版面寬敞且結構分明，具有清晰的層次。關鍵注意事項包括：避免使用多種競爭性的強調色、不使用裝飾性或手寫字體，以及避免在介面上堆砌過多視覺元素。「Pro」功能的深色區塊提供了強烈的對比，並突顯其進階功能。"
-    },
-    "ja": {
-      "identity": {
-        "keywords": [
-          "信頼",
-          "安全",
-          "プロフェッショナル",
-          "パワフル",
-          "確立された"
-        ],
-        "analogy": "デジタル資産のための、スタイリッシュでモダンな金庫",
-        "oneLiner": "一般ユーザーから上級トレーダーまでを対象とした、プロフェッショナルで信頼性の高い仮想通貨取引プラットフォーム。"
-      },
-      "colors": {
-        "principle": "ハイコントラストでクリーン、かつCTAとして独自の紫色のアクセントカラー。"
-      },
-      "typography": {
-        "rules": [
-          "見出しにはSentence caseを使用し、プロフェッショナルなトーンを維持する。",
-          "特にダーク背景において、十分なカラーコントラストを確保し、可読性を担保する。"
-        ],
-        "scaleUses": [
-          "ヒーローヘッドライン",
-          "セクション見出し",
-          "本文テキスト"
-        ]
-      },
-      "spacing": {
-        "rhythm": "一定かつ適度な余白を設け、落ち着きとプロフェッショナリズムを演出する。"
-      },
-      "surfaces": {
-        "shadows": [
-          "0 2px 4px rgba(0,0,0,0.06)",
-          "0 4px 12px rgba(0,0,0,0.08)"
-        ],
-        "borders": "コンポーネントを定義するための、控えめな1pxボーダー。"
-      },
-      "layout": {
-        "skeleton": "フルワイドのヒーローセクションに続き、'Pro'製品を強調するダークで没入型のセクション。"
-      },
-      "components": {
-        "button": "白文字で四角が丸められた、ソリッドな紫のボタン。hover状態あり。",
-        "card": "控えめなボーダーやシャドウを持つクリーンなカード。機能紹介によく使用される。",
-        "chip": "アクティブ状態のある、シンプルなテキストベースのナビゲーション。",
-        "input": "プレースホルダー付きの、クリーンで角丸のインプットフィールド。",
-        "hero": "大きな中央揃えのヘッドライン、補足となるサブヘッド、以及サインアップ用の目立つメール入力欄。"
-      },
-      "motion": {
-        "patterns": [
-          "スクロール時にコンテンツセクションが控えめにフェードインする。",
-          "ボタンやリンクの滑らかなhoverトランジション。"
-        ]
-      },
-      "interaction": {
-        "hover": "インタラクティブ要素に対する、わずかな色の変化や段差の変化。",
-        "click": "ボタンに対する控えめな押し込み効果。",
-        "transition": "すべてのトランジションは滑らかで目立たないもの。",
-        "keyboard": "アクセシビリティを考慮した、明確なフォーカス状態。"
-      },
-      "voice": {
-        "tone": "権威があり、自信に満ち、ユーザーを力づける。",
-        "headlineStyle": "直接的で、利点を訴えかける、太字のスタイル。",
-        "ctaStyle": "明確で、行動を促す、目立つスタイル。",
-        "avoid": [
-          "説明なしの専門用語の多用。",
-          "過度にカジュアルまたは遊び心のあるトーン。",
-          "感嘆符や過度に攻撃的なマーケティング表現。"
-        ]
-      },
-      "donts": [
-        "アクセントカラーを複数使用しない — サイトは単一の強い紫（#6B21E2）に依存しています。",
-        "装飾的なフォントを使用しない — デザインはクリーンな幾何学的サンセリフ体を使用しています。",
-        "余分な要素でレイアウトを雑然とさせない — 明確さを高めるために、余白が豊かに活用されています。",
-        "細く読みにくいフォントウェイトを使用しない — テキストは可読性のために、常に太字またはレギュラーで統一されています。",
-        "メインUIに複雑なグラデーションを使用しない — グラデーションは控えめ、または存在しません。",
-        "ポジティブなアクションに赤色を使用しない — 赤色は価格下落などのネガティブな金融指標にのみ使用されます。"
-      ],
-      "systemPrompt": "Krakenは、個人トレーダーおよびプロトレーダーの両方をターゲットとする主要な仮想通貨取引プラットフォームです。デザインはクリーンで信頼性が高く、プレミアム感があり、主に白とダークパープルのカラーパレットに黒のテキストを使用しています。プライマリアクセントカラーは、CTAやブランド要素に使用される鮮やかな紫（#6B21E2）です。タイポグラフィはモダンで幾何学的なサンセリフ体で、高い可読性を確保しています。レイアウトはスパンのある構造化されたもので、明確な階層を持っています。重要な禁止事項には、複数の競合するアクセントカラーの使用を避ける、装飾的または手書きフォントの使用禁止、以及過度なビジュアル要素でインターフェースを雑然とさせないことなどが挙げられます。「Pro」機能のためのダークセクションは、強力なコントラストを生み出し、高度な機能性を強調しています。"
-    },
-    "ko": {
-      "identity": {
-        "keywords": [
-          "신뢰",
-          "보안",
-          "전문적",
-          "강력한",
-          "검증된"
-        ],
-        "analogy": "디지털 자산을 위한 날렵하고 현대적인 금고",
-        "oneLiner": "일반 사용자와 고급 트레이더 모두를 위해 설계된 전문적이고 신뢰할 수 있는 암호화폐 거래 플랫폼."
-      },
-      "colors": {
-        "principle": "CTA용으로 독보적인 보라색 포인트가 있는 고대비이면서 깔끔한 컬러."
-      },
-      "typography": {
-        "rules": [
-          "전문적인 톤 유지를 위해 제목은 문장 형식을 사용합니다.",
-          "특히 어두운 배경에서 가독성을 위해 충분한 색상 대비를 확보합니다."
-        ],
-        "scaleUses": [
-          "히어로 헤드라인",
-          "섹션 헤드라인",
-          "본문 텍스트"
-        ]
-      },
-      "spacing": {
-        "rhythm": "차분함과 전문성을 느낄 수 있도록 일관되고 넉넉한 간격을 사용합니다."
-      },
-      "surfaces": {
-        "shadows": [
-          "0 2px 4px rgba(0,0,0,0.06)",
-          "0 4px 12px rgba(0,0,0,0.08)"
-        ],
-        "borders": "요소를 정의하기 위해 미묘한 1px 테두리를 사용합니다."
-      },
-      "layout": {
-        "skeleton": "전체 너비의 히어로 섹션 뒤에 'Pro' 제품을 위한 어둡고 몰입감 있는 섹션이 이어집니다."
-      },
-      "components": {
-        "button": "흰색 텍스트, 둥근 모서리, hover 상태가 있는 단색 보라색 버튼.",
-        "card": "기능을 소개하는 데 자주 사용되는 미묘한 테두리나 그림자가 있는 깔끔한 카드.",
-        "chip": "활성 상태가 있는 간단한 텍스트 기반 내비게이션.",
-        "input": "플레이스홀더가 있는 깔끔하고 둥근 입력 필드.",
-        "hero": "중요한 이메일 입력란으로 회원가입을 유도하는 크고 중앙 정렬된 헤드라인과 보조 제목."
-      },
-      "motion": {
-        "patterns": [
-          "스크롤 시 콘텐츠 섹션의 미묘한 페이드인.",
-          "버튼과 링크의 부드러운 hover 전환."
-        ]
-      },
-      "interaction": {
-        "hover": "인터랙티브 요소의 약간의 색상 변화 또는 높이 변화.",
-        "click": "버튼을 위한 미묘한 눌림 효과.",
-        "transition": "모든 전환은 부드럽고 눈에 띄지 않게 처리.",
-        "keyboard": "접근성을 위한 명확한 focus 상태."
-      },
-      "voice": {
-        "tone": "권위 있고, 자신감 있으며, 사용자를 empowerment하는 톤.",
-        "headlineStyle": "직설적이고, 혜택을 강조하며, 굵은 스타일.",
-        "ctaStyle": "명확하고, 행동을 유도하며, 눈에 띄는 스타일.",
-        "avoid": [
-          "설명 없는 전문 용어의 남발.",
-          "지나치게 캐주얼하거나 장난스러운 톤.",
-          "느낌표나 지나치게 공격적인 마케팅 말투."
-        ]
-      },
-      "donts": [
-        "여러 액센트 색상을 사용하지 마세요. 사이트는 하나의 강렬한 보라색(#6B21E2)에 의존합니다.",
-        "지나치게 장식적인 폰트를 사용하지 마세요. 디자인은 깔끔하고 기하학적인 sans-serif를 사용합니다.",
-        "여러 요소로 레이아웃을 복잡하게 하지 마세요. 명확성을 위해 여백을 넉넉하게 활용합니다.",
-        "읽기 어려운 얇은 폰트 굵기를 사용하지 마세요. 가독성을 위해 텍스트는 일관되게 굵거나 일반 두께를 사용합니다.",
-        "메인 UI에 복잡한 그라디언트를 사용하지 마세요. 그라디언트는 미묘하거나 존재하지 않습니다.",
-        "긍정적인 행동에 빨간색을 사용하지 마세요. 빨간색은 가격 하락과 같은 부정적인 재무 지표에만 사용됩니다."
-      ],
-      "systemPrompt": "Kraken은 개인 및 전문 트레이더 모두를 대상으로 하는 선도적인 암호화폐 거래 플랫폼입니다. 디자인은 깔끔하고 신뢰할 수 있으며 프리미엄 느낌을 주며, 주로 흰색과 진한 보라색 팔레트에 검정 텍스트를 사용합니다. 주요 액센트 색상은 CTA 및 브랜드 요소에 사용되는 선명한 보라색(#6B21E2)입니다. 타이포그래피는 현대적이고 기하학적인 sans-serif로 높은 가독성을 보장합니다. 레이아웃은 넓고 구조화되어 명확한 계층 구조를 갖추고 있습니다. 주요 제한 사항으로는: 여러 경쟁 액센트 색상 사용 금지, 장식적이거나 손글씨체 폰트 사용 금지, 과도한 시각적 요소로 인터페이스를 복잡하게 하는 것 금지가 있습니다. 'Pro' 기능을 위한 어두운 섹션은 강력한 대비를 제공하고 고급 기능을 강조합니다."
-    }
-  },
   "desc": {
     "en": {
-      "palette": "A high-contrast palette of white, black, and dark gray, accented with a vibrant purple for key interactive elements.",
-      "layout": "A clean, single-column layout with generous spacing that transitions into a dark, full-width section to highlight the advanced trading platform.",
-      "interaction": "Subtle hover effects and transitions on buttons and links provide feedback without being distracting.",
-      "motion": "Minimal and purposeful animations are used to guide the user's attention and add polish.",
-      "notes": "This site is a prime example of modern fintech design, balancing professional credibility with a strong, memorable brand identity."
+      "palette": "A disciplined palette of neutral grays anchored by a vibrant purple accent and deep charcoal ink.",
+      "layout": "A centered, spacious layout that prioritizes readability and clear conversion funnels.",
+      "interaction": "Subtle, fast transitions on buttons and links provide tactile feedback without distraction.",
+      "motion": "Motion is minimal and functional, used primarily for UI state changes and simple fade-ins.",
+      "notes": "Worth including as a benchmark for 'Clean Fintech' design, showing how to balance professional tooling with accessible, premium aesthetics."
     },
     "zh-CN": {
       "palette": "采用高对比度的黑白深灰调色板，关键交互元素点缀活力紫色。",
@@ -602,6 +227,428 @@
       "ch7_intro": "모션은 화려한 것이 아닌 기능적 세부 사항으로 취급됩니다. 애니메이션은 최소화되고 의도적입니다. 스킬 시의 미세한 페이드 인과 매끄러운 hover 트랜지션은 주의를 안내하고 산만함 없이 상호작용을 확인해 줍니다.",
       "ch8_intro": "에디토리얼 톤은 플랫폼의 전문적 신뢰성에 부합하는 권위적이고 자신감 있으며 empowerment하는 느낌을 줍니다. 헤드라인은 직접적이고 혜택 지향적이며, CTA는 명확하고 행동에 초점을 맞추어, 비격식적인 장난기나 설명 없는 전문 용어를 피합니다.",
       "ch8_outro": "이 시스템은 명확성과 신뢰에 대한 흔들리지 않는 초점을 유지하기 위해, 장식적 폰트, 지저분한 레이아웃, 그리고 경쟁하는 강조색을 의도적으로 피합니다."
+    }
+  },
+  "spec_i18n": {
+    "en": {
+      "identity": {
+        "keywords": [
+          "Kraken",
+          "Crypto",
+          "Trading",
+          "Exchange",
+          "Finance"
+        ],
+        "analogy": "A high-end financial terminal for the digital age, balancing professional tooling with accessible retail entry.",
+        "oneLiner": "A premier cryptocurrency exchange platform offering secure, high-performance trading for individuals and institutions."
+      },
+      "colors": {
+        "principle": "High-contrast dark text on light backgrounds for readability, anchored by a vibrant purple primary accent for conversion elements."
+      },
+      "typography": {
+        "rules": [
+          "Display font is a geometric sans-serif used for high-impact headings.",
+          "Body font is a clean humanist sans-serif optimized for long-form reading.",
+          "Monospace font is used strictly for data, code, and terminal elements."
+        ],
+        "scaleUses": [
+          "Hero headline",
+          "Section headings",
+          "Paragraphs",
+          "UI labels",
+          "Data tables"
+        ]
+      },
+      "spacing": {
+        "rhythm": "Consistent 4px base scale with generous padding (16px, 24px, 54px) creating a balanced, airy layout."
+      },
+      "surfaces": {
+        "shadows": [
+          "0 4px 60px rgba(0,0,0,0)",
+          "0 1px 4px rgba(16,24,40,0.04)",
+          "0 1px 2px rgba(16,24,40,0.04)"
+        ],
+        "borders": "1px solid rgba(16,17,20,0.1)"
+      },
+      "layout": {
+        "skeleton": "Centered single-column hero flowing into a 12-column grid for feature cards and stats."
+      },
+      "components": {
+        "button": "Rounded pill-shaped buttons with high-contrast fill (purple) or transparent with text for secondary actions.",
+        "card": "Rounded rectangular containers (12px radius) with subtle background fills or dark gradients for premium features.",
+        "chip": "Small, rounded labels or status indicators, typically monospace or small sans-serif.",
+        "input": "Clean rectangular fields with a 1px border, rounded corners (8px), and clear placeholder text.",
+        "hero": "Massive typography centered over a clean background, followed by a prominent email capture form."
+      },
+      "motion": {
+        "patterns": [
+          "Opacity and transform transitions on hover for interactive elements.",
+          "Smooth background-color and border-color shifts for state changes.",
+          "Subtle fade-in for loading elements."
+        ]
+      },
+      "interaction": {
+        "hover": "Color and background transitions (0.15s) for buttons and links.",
+        "click": "Subtle opacity or scale reduction for tactile feedback.",
+        "transition": "Smooth easing (0.4, 0, 0.2, 1) across all interactive properties.",
+        "keyboard": "Focus states likely mirror hover states with added outlines (standard browser or custom focus rings)."
+      },
+      "voice": {
+        "tone": "Professional, authoritative, yet empowering and accessible.",
+        "headlineStyle": "Bold, direct statements focusing on ownership and market power.",
+        "ctaStyle": "Action-oriented and urgent (e.g., 'Try Kraken', 'Sign-up now').",
+        "avoid": [
+          "Overly casual or 'crypto-bro' slang.",
+          "Passive or uncertain language.",
+          "Visual clutter or neon-heavy 'gamer' aesthetics.",
+          "Dense walls of text without clear hierarchy."
+        ]
+      },
+      "donts": [
+        "Don't use a heavy drop shadow on cards — screenshot shows flat or very subtle layered backgrounds instead.",
+        "Don't use sharp, square corners — screenshot shows consistent rounding (8px to 20px) on all containers and buttons.",
+        "Don't use a chaotic, multi-color palette — screenshot shows a disciplined purple-accent scheme with neutral grays.",
+        "Don't use a cluttered layout with too many competing elements — screenshot maintains generous whitespace and clear sectioning.",
+        "Don't use decorative, script, or serif fonts for UI elements — screenshot uses clean, functional sans-serif and monospace families.",
+        "Don't use low-contrast text — screenshot maintains high legibility with dark ink on light or dark backgrounds."
+      ],
+      "systemPrompt": "Kraken is a premium cryptocurrency exchange platform. The design language is clean, professional, and empowering, utilizing a high-contrast palette of dark ink (#101114) on light backgrounds (#F5F5F5) with a vibrant purple accent (#7132F5) for primary actions. Typography relies on geometric and humanist sans-serifs for a modern, trustworthy feel, complemented by monospace for data-heavy interfaces. Critical constraints include maintaining generous whitespace, avoiding overly decorative elements, and ensuring all interactive components have clear, pill-shaped affordances. Do not use neon-heavy colors, sharp corners, or dense, unformatted text blocks. The system should feel like a secure, high-performance financial terminal accessible to both retail and professional traders."
+    },
+    "zh-CN": {
+      "identity": {
+        "keywords": [
+          "Kraken",
+          "加密货币",
+          "交易",
+          "交易所",
+          "金融"
+        ],
+        "analogy": "一个为数字时代打造的高端金融终端，在专业工具与便捷的零售入口之间取得平衡。",
+        "oneLiner": "一个领先的加密货币交易平台，为个人和机构提供安全、高性能的交易服务。"
+      },
+      "colors": {
+        "principle": "采用浅色背景上的高对比度深色文本以确保可读性，并以充满活力的紫色主强调色锚定转化元素。"
+      },
+      "typography": {
+        "rules": [
+          "展示字体采用几何无衬线体，用于高冲击力的标题。",
+          "正文字体采用简洁的人文无衬线体，针对长篇阅读进行优化。",
+          "等宽字体严格用于数据、代码和终端元素。"
+        ],
+        "scaleUses": [
+          "主视觉标题",
+          "章节标题",
+          "段落",
+          "UI标签",
+          "数据表格"
+        ]
+      },
+      "spacing": {
+        "rhythm": "基于一致的 4px 基础比例，搭配充裕的内边距（16px, 24px, 54px），营造出平衡、通透的布局。"
+      },
+      "surfaces": {
+        "shadows": [
+          "0 4px 60px rgba(0,0,0,0)",
+          "0 1px 4px rgba(16,24,40,0.04)",
+          "0 1px 2px rgba(16,24,40,0.04)"
+        ],
+        "borders": "1px solid rgba(16,17,20,0.1)"
+      },
+      "layout": {
+        "skeleton": "以居中的单列主视觉开场，随后衔接一个12列网格，用于展示功能卡片和统计数据。"
+      },
+      "components": {
+        "button": "圆角药丸形状的按钮，采用高对比度填充（紫色）或透明背景加文字，用于次要操作。",
+        "card": "圆角矩形容器（12px半径），带有微妙的背景填充或深色渐变，用于高级功能。",
+        "chip": "小巧、圆角的标签或状态指示器，通常使用等宽字体或小型无衬线字体。",
+        "input": "简洁的矩形输入框，带有1px边框、圆角（8px）和清晰的占位文本。",
+        "hero": "在简洁背景上居中放置的巨型排版，后接一个突出的邮箱捕获表单。"
+      },
+      "motion": {
+        "patterns": [
+          "交互元素在悬停时使用透明度和变换过渡。",
+          "状态变化时使用平滑的背景色和边框色切换。",
+          "加载元素使用微妙的淡入效果。"
+        ]
+      },
+      "interaction": {
+        "hover": "按钮和链接的颜色与背景过渡（0.15s）。",
+        "click": "通过微妙的透明度或缩放减小来提供触觉反馈。",
+        "transition": "所有交互属性均使用平滑的缓动（0.4, 0, 0.2, 1）。",
+        "keyboard": "焦点状态通常镜像悬停状态，并增加轮廓（标准浏览器或自定义焦点环）。"
+      },
+      "voice": {
+        "tone": "专业、权威，同时充满赋能感且易于访问。",
+        "headlineStyle": "大胆、直接的陈述，聚焦于所有权与市场力量。",
+        "ctaStyle": "以行动为导向且具有紧迫感（例如，‘尝试 Kraken’，‘立即注册’）。",
+        "avoid": [
+          "过于随意或‘加密圈’黑话。",
+          "被动或不确定的语言。",
+          "视觉杂乱或霓虹灯过重的‘游戏’美学。",
+          "缺乏清晰层级的密集文字墙。"
+        ]
+      },
+      "donts": [
+        "不要在卡片上使用厚重的投影——截图显示为扁平或非常微妙的层叠背景。",
+        "不要使用尖锐、方正的边角——截图显示所有容器和按钮都使用一致的圆角（8px 到 20px）。",
+        "不要使用混乱、多色的调色板——截图显示为以紫色强调为主导、搭配中性灰的配色方案。",
+        "不要使用元素过多、过于杂乱的布局——截图保持了充裕的留白和清晰的区块划分。",
+        "不要在UI元素上使用装饰性、手写体或衬线字体——截图使用简洁、功能性的无衬线体和等宽字体系列。",
+        "不要使用低对比度文本——截图在浅色或深色背景上均使用深色墨水，保持高可读性。"
+      ],
+      "systemPrompt": "Kraken 是一个高端的加密货币交易平台。设计语言简洁、专业且充满赋能感，采用高对比度的调色板：浅色背景（#F5F5F5）上的深色墨水（#101114），并以充满活力的紫色（#7132F5）作为主要操作的强调色。排版依赖于几何无衬线体和人文无衬线体，以营造现代、可信赖的感觉，并辅以等宽字体用于数据密集型界面。关键约束包括保持充裕的留白、避免过度装饰的元素，并确保所有交互组件具有清晰的药丸形状交互提示。不要使用霓虹灯过重的颜色、尖锐的边角或密集、未格式化的文本块。系统应感觉像一个安全、高性能的金融终端，对零售和专业交易者均易于访问。"
+    },
+    "zh-TW": {
+      "identity": {
+        "keywords": [
+          "Kraken",
+          "Crypto",
+          "Trading",
+          "Exchange",
+          "Finance"
+        ],
+        "analogy": "數位時代的高端金融終端，在專業工具與易於上手的零售入口之間取得平衡。",
+        "oneLiner": "頂尖加密貨幣交易平台，為個人與機構提供安全、高效能的交易體驗。"
+      },
+      "colors": {
+        "principle": "採用高對比度設計，淺色背景搭配深色文字以提升可讀性，並以鮮明的紫色作為主要強調色，引導轉換元素。"
+      },
+      "typography": {
+        "rules": [
+          "展示字型使用幾何無襯線字體，用於高影響力的標題。",
+          "內文字型採用簡潔的人文主義無襯線字體，針對長篇閱讀進行優化。",
+          "等寬字體嚴格用於資料、程式碼與終端機介面元素。"
+        ],
+        "scaleUses": [
+          "首屏標題",
+          "章節標題",
+          "段落文字",
+          "介面標籤",
+          "資料表格"
+        ]
+      },
+      "spacing": {
+        "rhythm": "以一致的 4px 基礎比例建立節奏，搭配寬裕的 padding（16px、24px、54px），營造平衡且開闊的版面配置。"
+      },
+      "surfaces": {
+        "shadows": [
+          "0 4px 60px rgba(0,0,0,0)",
+          "0 1px 4px rgba(16,24,40,0.04)",
+          "0 1px 2px rgba(16,24,40,0.04)"
+        ],
+        "borders": "1px solid rgba(16,17,20,0.1)"
+      },
+      "layout": {
+        "skeleton": "採用置中的單欄式首屏設計，後接 12 欄格網系統，用於功能卡片與統計資料區塊。"
+      },
+      "components": {
+        "button": "圓角膠囊狀按鈕，主要動作採用高對比填色（紫色），次要動作則為透明底加文字。",
+        "card": "圓角矩形容器（12px 圓角），帶有細微的背景填色或深色漸層，用於高級功能區塊。",
+        "chip": "小巧的圓角標籤或狀態指示器，通常使用等寬字型或小型無襯線字型。",
+        "input": "簡潔的矩形輸入欄位，帶有 1px 邊框、圓角（8px）及清晰的佔位文字。",
+        "hero": "以巨大字型居中呈現，背景簡潔，下方接續顯著的電子郵件擷取表單。"
+      },
+      "motion": {
+        "patterns": [
+          "互動元素在 hover 時進行透明度與 transform 轉場。",
+          "狀態變化時，背景色與邊框色平滑過渡。",
+          "載入元素採用細微的淡入效果。"
+        ]
+      },
+      "interaction": {
+        "hover": "按鈕與連結在 hover 時，顏色與背景進行平滑轉場（0.15s）。",
+        "click": "透過細微的透明度或縮小效果，提供觸覺回饋。",
+        "transition": "所有互動屬性均採用平滑的緩動曲線（0.4, 0, 0.2, 1）。",
+        "keyboard": "焦點狀態 likely 鏡像 hover 狀態，並添加外框（標準瀏覽器預設或自訂焦點環）。"
+      },
+      "voice": {
+        "tone": "專業、權威，同時具有賦權感與親和力。",
+        "headlineStyle": "大膽、直接的陳述，聚焦於掌控力與市場影響力。",
+        "ctaStyle": "以行動為導向，帶有緊迫感（例如：「試用 Kraken」、「立即註冊」）。",
+        "avoid": [
+          "過於隨意或「加密圈」術語。",
+          "被動或不確定的語氣。",
+          "視覺雜亂或霓虹風格過重的「遊戲」美學。",
+          "缺乏明確層次結構的密集文字牆。"
+        ]
+      },
+      "donts": [
+        "避免在卡片上使用過重的陰影——截圖顯示採用平面或極細微的層疊背景效果。",
+        "避免使用尖銳的直角——截圖顯示所有容器與按鈕均採用一致的圓角（8px 至 20px）。",
+        "避免使用混亂的多色調色盤——截圖顯示採用有紀律的紫色強調配色搭配中性灰。",
+        "避免使用元素過多、相互競爭的擁擠版面——截圖保持寬裕的留白與清晰的區塊劃分。",
+        "避免使用裝飾性、手寫或襯線字型作為介面元素——截圖使用簡潔、功能性的無襯線與等寬字型組合。",
+        "避免使用低對比度文字——截圖在淺色或深色背景上，以深色文字維持高度可讀性。"
+      ],
+      "systemPrompt": "Kraken 是一個高級加密貨幣交易平台。其設計語言簡潔、專業且具有賦權感，採用高對比度調色盤：淺色背景（#F5F5F5）上的深色文字（#101114），並以鮮明的紫色（#7132F5）作為主要行動的強調色。字型方面，幾何與人文主義無襯線字體營造現代且值得信賴的感覺，等寬字型則用於資料密集的介面。關鍵限制包括：維持寬裕的留白、避免過度裝飾元素，並確保所有互動組件具有清晰的膠囊形態。請勿使用霓虹風格過重的顏色、尖銳的直角，或密集且未格式化的文字區塊。整體系統應感覺像一個安全、高效能的金融終端機，同時對零售與專業交易者開放存取。"
+    },
+    "ja": {
+      "identity": {
+        "keywords": [
+          "Kraken",
+          "Crypto",
+          "Trading",
+          "Exchange",
+          "Finance"
+        ],
+        "analogy": "デジタル時代のハイエンド金融ターミナル。プロフェッショナルなツール性と、初心者でもアクセスしやすい投資環境の両立を図る。",
+        "oneLiner": "個人投資家と機関投資家双方に、安全かつ高性能な取引を提供する一流の暗号資産取引プラットフォーム。"
+      },
+      "colors": {
+        "principle": "可読性のため、明るい背景に濃色テキストをハイコントラストで配置。コンバージョン要素には、鮮やかな紫をアクセントカラーとして基盤とする。"
+      },
+      "typography": {
+        "rules": [
+          "ディスプレイフォントは幾何学的サンセリフで、インパクトの大きい見出しに使用。",
+          "本文フォントは長文読書に最適化されたクリーンなヒューマニストサンセリフ。",
+          "モノスペースフォントは、データ、コード、ターミナル要素に厳密に使用。"
+        ],
+        "scaleUses": [
+          "ヒーローヘッドライン",
+          "セクション見出し",
+          "段落",
+          "UIラベル",
+          "データテーブル"
+        ]
+      },
+      "spacing": {
+        "rhythm": "4pxを基準とした一貫したスケール。十分な余白（16px、24px、54px）により、バランスの取れた、息ののびるレイアウトを実現。"
+      },
+      "surfaces": {
+        "shadows": [
+          "0 4px 60px rgba(0,0,0,0)",
+          "0 1px 4px rgba(16,24,40,0.04)",
+          "0 1px 2px rgba(16,24,40,0.04)"
+        ],
+        "borders": "1px solid rgba(16,17,20,0.1)"
+      },
+      "layout": {
+        "skeleton": "中央揃えのシングルカラムヒーローから始まり、フィーチャーカードや統計データ用の12カラムグリッドへと展開する。"
+      },
+      "components": {
+        "button": "角丸のピル型ボタン。ハイコントラストの塗りつぶし（紫）か、セカンダリアクション用の透過背景＋テキスト。",
+        "card": "角丸矩形コンテナ（12px radius）。微細な背景塗りまたはダークグラデーションを用い、プレミアム機能を演出。",
+        "chip": "小型の角丸ラベルまたはステータスインジケーター。一般的にモノスペースまたは小サイズのサンセリフ。",
+        "input": "1pxボーダー、角丸（8px）、明確なプレースホルダーテキストを持つクリーンな矩形フィールド。",
+        "hero": "クリーンな背景の中央に巨大なタイポグラフィを配置し、その下に目立つメールキャプチャフォームを配置。"
+      },
+      "motion": {
+        "patterns": [
+          "インタラクティブ要素のホバー時、不透明度とトランスフォームの遷移。",
+          "ステート変更時の、滑らかなbackground-colorとborder-colorの変化。",
+          "ローディング要素の、微細なフェードイン。"
+        ]
+      },
+      "interaction": {
+        "hover": "ボタンとリンクの、不透明度と背景の遷移（0.15秒）。",
+        "click": "触感フィードバックのための、微細な不透明度またはスケールの縮小。",
+        "transition": "すべてのインタラクティブプロパティに、滑らかなイージング（0.4, 0, 0.2, 1）を適用。",
+        "keyboard": "フォーカスステートは、ホバーステートを模倣し、アウトライン（標準ブラウザまたはカスタムフォーカスリング）を追加。"
+      },
+      "voice": {
+        "tone": "プロフェッショナルで権威がありながら、利用者を力づける、かつ親しみやすいトーン。",
+        "headlineStyle": "オーナーシップと市場の強さに焦点を当てた、太字で率直なステートメント。",
+        "ctaStyle": "アクション重視で、切迫感のある表現（例：'Krakenを試す'、'今すぐ登録'）。",
+        "avoid": [
+          "過度にカジュアルな、または「クリプトBro」的なスラング。",
+          "消極的または曖昧な言葉。",
+          "視覚的な雑然さや、ネオン多用の「ゲーマー」的美学。",
+          "明確な階層構造のない、密集したテキストの壁。"
+        ]
+      },
+      "donts": [
+        "カードに重いドロップシャドウを使用しない — スクリーンショットでは、フラットまたは非常に微細なレイヤード背景が示されている。",
+        "シャープな角を使用しない — スクリーンショットでは、すべてのコンテナとボタンに一貫した角丸（8px～20px）が使用されている。",
+        "カオスでマルチカラーのパレットを使用しない — スクリーンショットでは、ニュートラルグレーに紫のアクセントを用いた規律ある配色が示されている。",
+        "競合する要素が多すぎる雑然としたレイアウトを使用しない — スクリーンショットでは、十分な余白と明確なセクション分けが維持されている。",
+        "装飾的、スクリプト、またはセリフフォントをUI要素に使用しない — スクリーンショットでは、クリーンで機能的なサンセリフおよびモノスペースファミリーが使用されている。",
+        "低コントラストのテキストを使用しない — スクリーンショットでは、明るいまたは暗い背景に濃色テキストを配置し、高い可読性を維持している。"
+      ],
+      "systemPrompt": "Krakenはプレミアム暗号資産取引プラットフォームである。デザイン言語はクリーンでプロフェッショナル、かつ利用者を力づけるものであり、明るい背景（#F5F5F5）にダークインク（#101114）を置いたハイコントラストのパレットを採用。プライマリアクションには鮮やかな紫（#7132F5）をアクセントカラーとして使用。タイポグラフィは、モダンで信頼感のある印象のために幾何学的およびヒューマニストサンセリフを用い、データの多いインターフェースにはモノスペースで補完。重要な制約として、十分な余白の維持、過度な装飾要素の排除、すべてのインタラクティブコンポーネントに明確なピル型のアフォーダンスを確保することを挙げる。ネオン多用の色、シャープな角、密集した未整形のテキストブロックは使用しない。このシステムは、個人投資家からプロフェッショナルトレーダーまでアクセス可能な、安全で高性能な金融ターミナルのように感じられるべきである。"
+    },
+    "ko": {
+      "identity": {
+        "keywords": [
+          "Kraken",
+          "Crypto",
+          "Trading",
+          "Exchange",
+          "Finance"
+        ],
+        "analogy": "디지털 시대를 위한 고급 금융 터미널로, 전문적인 도구와 접근 가능한 리테일 진입점을 균형 있게 결합합니다.",
+        "oneLiner": "개인 및 기관 투자자를 위한 안전하고 고성능의 트레이딩을 제공하는 최고의 암호화폐 거래소 플랫폼입니다."
+      },
+      "colors": {
+        "principle": "가독성을 위해 밝은 배경에 고대비의 어두운 텍스트를 사용하며, 전환 요소를 위한 강렬한 보라색 주요 강조색으로 중심을 잡습니다."
+      },
+      "typography": {
+        "rules": [
+          "디스플레이 폰트는 강렬한 제목에 사용되는 기하학적 sans-serif입니다.",
+          "본문 폰트는 긴 글 읽기에 최적화된 깔끔한 humanist sans-serif입니다.",
+          "모노스페이스 폰트는 데이터, 코드 및 터미널 요소에 엄격히 사용됩니다."
+        ],
+        "scaleUses": [
+          "히어로 헤드라인",
+          "섹션 제목",
+          "단락",
+          "UI 레이블",
+          "데이터 테이블"
+        ]
+      },
+      "spacing": {
+        "rhythm": "일관된 4px 기본 스케일과 넉넉한 padding(16px, 24px, 54px)으로 균형 잡힌 여유로운 레이아웃을 만듭니다."
+      },
+      "surfaces": {
+        "shadows": [
+          "0 4px 60px rgba(0,0,0,0)",
+          "0 1px 4px rgba(16,24,40,0.04)",
+          "0 1px 2px rgba(16,24,40,0.04)"
+        ],
+        "borders": "1px solid rgba(16,17,20,0.1)"
+      },
+      "layout": {
+        "skeleton": "중앙 정렬된 단일 열 히어로에서 기능 카드와 통계를 위한 12열 그리드로 이어집니다."
+      },
+      "components": {
+        "button": "고대비 채우기(보라색) 또는 두 번째 동작을 위한 텍스트가 있는 투명한 형태의 둥근 알약 모양 버튼입니다.",
+        "card": "프리미엄 기능을 위한 미묘한 배경 채우기 또는 어두운 그라데이션이 있는 둥근 직사각형 컨테이너(12px radius)입니다.",
+        "chip": "보통 모노스페이스 또는 작은 sans-serif를 사용하는 작고 둥근 레이블 또는 상태 표시기입니다.",
+        "input": "1px 테두리, 둥근 모서리(8px), 그리고 명확한 플레이스홀더 텍스트가 있는 깔끔한 직사각형 필드입니다.",
+        "hero": "깔끔한 배경 위에 중앙 정렬된 대형 타이포그래피 뒤에 두드러진 이메일 수집 양식이 옵니다."
+      },
+      "motion": {
+        "patterns": [
+          "상호작용 요소에 대한 hover 시 opacity와 transform 전환.",
+          "상태 변화를 위한 부드러운 background-color 및 border-color 변화.",
+          "로딩 요소에 대한 미묘한 fade-in."
+        ]
+      },
+      "interaction": {
+        "hover": "버튼과 링크를 위한 부드러운 color 및 background 전환(0.15s).",
+        "click": "촉각 피드백을 위한 미묘한 opacity 또는 scale 축소.",
+        "transition": "모든 상호작용 속성에 걸친 부드러운 easing(0.4, 0, 0.2, 1).",
+        "keyboard": "Focus 상태는 추가된 윤곽선(표준 브라우저 또는 커스텀 포커스 링)으로 hover 상태를 미러링할 가능성이 높습니다."
+      },
+      "voice": {
+        "tone": "전문적이고 권위 있으면서도 empowerment와 접근성을 갖춘 어조입니다.",
+        "headlineStyle": "소유권과 시장 파워에 초점을 맞춘 굵고 직접적인 성명문 스타일입니다.",
+        "ctaStyle": "행동 지향적이고 긴박감 있는 스타일(예: 'Try Kraken', 'Sign-up now').",
+        "avoid": [
+          "지나치게 캐주얼하거나 '크립토 브로'적인 은어.",
+          "수동적이거나 불확실한 언어.",
+          "시각적 혼란이나 네온이 과도한 '게이머' 미학.",
+          "명확한 계층 없이 밀도 높은 텍스트 벽."
+        ]
+      },
+      "donts": [
+        "카드에 과도한 그림자(drop shadow)를 사용하지 마세요 — 스크린샷은 플랫하거나 매우 미묘한 레이어링된 배경을 보여줍니다.",
+        "날카롭고 네모난 모서리를 사용하지 마세요 — 스크린샷은 모든 컨테이너와 버튼에 일관된 둥글기(8px에서 20px)를 보여줍니다.",
+        "혼란스럽고 다색 팔레트를 사용하지 마세요 — 스크린샷은 중립적인 회색과 절제된 보라색 강조 스킴을 보여줍니다.",
+        "지나치게 많은 경쟁 요소가 있는 복잡한 레이아웃을 사용하지 마세요 — 스크린샷은 넉넉한 여백과 명확한 섹션 구분을 유지합니다.",
+        "UI 요소에 장식적이거나, 스크립트, 세리프 폰트를 사용하지 마세요 — 스크린샷은 깔끔하고 기능적인 sans-serif 및 monospace 계열을 사용합니다.",
+        "저대비 텍스트를 사용하지 마세요 — 스크린샷은 밝은 또는 어두운 배경에 어두운 잉크로 높은 가독성을 유지합니다."
+      ],
+      "systemPrompt": "Kraken은 프리미엄 암호화폐 거래소 플랫폼입니다. 디자인 언어는 깔끔하고, 전문적이며, empowerment를 주는 것으로, 밝은 배경(#F5F5F5)에 어두운 잉크(#101114)의 고대비 팔레트와 주요 동작을 위한 강렬한 보라색 강조(#7132F5)를 활용합니다. 타이포그래피는 현대적이고 신뢰할 수 있는 느낌을 위해 기하학적 및 humanist sans-serif에 의존하며, 데이터가 많은 인터페이스를 위해 모노스페이스로 보완됩니다. 중요한 제약 조건으로는 넉넉한 여백 유지, 과도한 장식 요소 회피, 그리고 모든 상호작용 컴포넌트가 명확한 알약 모양의 affordance를 갖도록 하는 것이 포함됩니다. 네온이 과도한 색상, 날카로운 모서리, 또는 밀도 높고 포맷되지 않은 텍스트 블록을 사용하지 마세요. 시스템은 리테일 및 프로페셔널 트레이더 모두에게 접근 가능한 안전하고 고성능의 금융 터미널처럼 느껴져야 합니다."
     }
   }
 }

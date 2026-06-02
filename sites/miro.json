@@ -17,49 +17,72 @@
   "_meta": {
     "vision_model": "mimo-v2.5",
     "vision_prompt_version": "0.3",
-    "vision_at": "2026-05-28T21:10:24+00:00",
-    "vision_tokens": 3252,
-    "vision_cost_usd": 0.0361,
+    "vision_at": "2026-05-30T17:08:27+00:00",
+    "vision_tokens": 17622,
+    "vision_cost_usd": 0.1958,
     "translation_model": "mimo-v2.5",
-    "translation_at": "2026-05-28T21:11:21+00:00",
-    "translation_tokens": 14818,
-    "translation_cost_usd": 0.0494,
+    "translation_at": "2026-05-30T17:09:22+00:00",
+    "translation_tokens": 25887,
+    "translation_cost_usd": 0.0863,
     "narrative_model": "mimo-v2.5",
     "narrative_prompt_version": "0.3",
     "narrative_at": "2026-05-28T21:11:29+00:00",
     "narrative_tokens": 1834,
     "narrative_cost_usd": 0.0122,
     "narrative_status": "ok",
-    "total_cost_usd": 0.0977
+    "total_cost_usd": 0.2943,
+    "vision_source": "playwright-extract:miro",
+    "vision_grounded": true
   },
   "spec": {
     "colors": {
       "bg": "#FFFFFF",
-      "bgSoft": null,
-      "bgQuiet": null,
-      "ink": "#050038",
-      "inkSoft": null,
-      "muted": "#5E6C84",
-      "mutedSoft": null,
-      "accent": "#4262FF",
+      "bgSoft": "#F0F0F0",
+      "bgQuiet": "#F5F5F5",
+      "ink": "#1C1C1E",
+      "inkSoft": "#555A6A",
+      "muted": "#C7CAD5",
+      "mutedSoft": "#E0E2E8",
+      "accent": "#4B5BF0",
       "line": "rgba(0,0,0,0.1)"
     },
     "typography": {
-      "display": "geometric-sans",
+      "display": "humanist-sans",
       "body": "humanist-sans",
-      "mono": null,
+      "mono": "monospace",
       "scale": [
         {
           "token": "display",
           "size": 56,
           "lh": 1.1,
-          "weight": 600,
+          "weight": 500,
           "ls": "-1.5px"
         },
         {
+          "token": "h1",
+          "size": 48,
+          "lh": 1.15,
+          "weight": 500,
+          "ls": "-1px"
+        },
+        {
+          "token": "h2",
+          "size": 24,
+          "lh": 1.2,
+          "weight": 600,
+          "ls": "-0.5px"
+        },
+        {
           "token": "body",
-          "size": 18,
+          "size": 16,
           "lh": 1.5,
+          "weight": 400,
+          "ls": "0px"
+        },
+        {
+          "token": "small",
+          "size": 12,
+          "lh": 1.6,
           "weight": 400,
           "ls": "0px"
         }
@@ -70,11 +93,15 @@
       "scale": [
         4,
         8,
+        12,
         16,
+        20,
         24,
         32,
+        40,
         48,
         64,
+        80,
         96
       ]
     },
@@ -83,6 +110,7 @@
         "sm": 4,
         "md": 8,
         "lg": 12,
+        "xl": 20,
         "pill": 999
       }
     },
@@ -98,407 +126,20 @@
     },
     "motion": {
       "durations": {
-        "micro": 220,
-        "small": 400,
-        "medium": 800
+        "micro": 150,
+        "small": 200,
+        "medium": 600
       },
-      "easing": "cubic-bezier(0.25, 0.1, 0.25, 1)"
-    }
-  },
-  "spec_i18n": {
-    "en": {
-      "identity": {
-        "keywords": [
-          "collaboration",
-          "visual",
-          "AI",
-          "planning",
-          "teamwork"
-        ],
-        "analogy": "A digital whiteboard canvas for modern teams.",
-        "oneLiner": "The collaboration layer your AI tools are missing."
-      },
-      "colors": {
-        "principle": "Clean white canvas with bold brand accents for clear hierarchy."
-      },
-      "typography": {
-        "rules": [
-          "Headlines use a bold geometric sans for impact.",
-          "Body text uses a legible humanist sans.",
-          "High contrast between ink and background."
-        ],
-        "scaleUses": [
-          "Main hero headline",
-          "Supporting text and UI"
-        ]
-      },
-      "spacing": {
-        "rhythm": "Generous whitespace to focus attention on the central message."
-      },
-      "surfaces": {
-        "shadows": [
-          "0px 4px 12px rgba(0,0,0,0.08)"
-        ],
-        "borders": "1px solid rgba(0,0,0,0.1)"
-      },
-      "layout": {
-        "skeleton": "Centered single-column hero with top navigation bar."
-      },
-      "components": {
-        "button": "Pill-shaped or rounded rectangle with solid fill.",
-        "card": "Clean white surface with subtle shadow.",
-        "chip": "Small rounded label.",
-        "input": "Rounded rectangle with border.",
-        "hero": "Centered text block with subtle gradient background."
-      },
-      "motion": {
-        "patterns": [
-          "Subtle fade-ins for content loading.",
-          "Smooth transitions on button hover."
-        ]
-      },
-      "interaction": {
-        "hover": "Subtle color shift or elevation change.",
-        "click": "Slight depression or immediate feedback.",
-        "transition": "Smooth color and transform transitions.",
-        "keyboard": "Standard focus rings for accessibility."
-      },
-      "voice": {
-        "tone": "Confident, professional, and forward-looking.",
-        "headlineStyle": "Direct and bold, focusing on the value proposition.",
-        "ctaStyle": "Action-oriented and clear (e.g., 'Get started free').",
-        "avoid": [
-          "Overly technical jargon.",
-          "Passive voice.",
-          "Unclear value propositions."
-        ]
-      },
-      "donts": [
-        "Don't use dark backgrounds — screenshot shows a light, white-dominant theme.",
-        "Don't use serif fonts — screenshot shows geometric/humanist sans-serif types.",
-        "Don't use complex gradients — screenshot shows a very subtle, light gradient wash.",
-        "Don't use tight spacing — screenshot shows generous whitespace around elements.",
-        "Don't use sharp corners — screenshot shows rounded buttons and inputs.",
-        "Don't use muted, low-contrast colors — screenshot shows high-contrast ink on white."
-      ],
-      "systemPrompt": "Miro is a SaaS collaboration platform for teams and AI agents. The design is clean and professional, using a white background with a primary blue (#4262FF) accent and dark ink (#050038) text. Typography is a mix of geometric and humanist sans-serifs, emphasizing clarity and modernity. Key donts: do not use dark mode, do not use serif fonts, and do not use complex patterns. The layout is centered and spacious, focusing the user on the main value proposition and call to action."
-    },
-    "zh-CN": {
-      "identity": {
-        "keywords": [
-          "协作",
-          "视觉",
-          "AI",
-          "规划",
-          "团队合作"
-        ],
-        "analogy": "为现代团队打造的数字白板画布。",
-        "oneLiner": "你的 AI 工具所缺失的协作层。"
-      },
-      "colors": {
-        "principle": "干净的白色画布，搭配醒目的品牌色点缀，以建立清晰的层次结构。"
-      },
-      "typography": {
-        "rules": [
-          "标题使用粗体几何无衬线字体，以增强视觉冲击力。",
-          "正文使用易读的人文主义无衬线字体。",
-          "文字与背景之间保持高对比度。"
-        ],
-        "scaleUses": [
-          "主视觉标题",
-          "辅助文本和 UI 元素"
-        ]
-      },
-      "spacing": {
-        "rhythm": "留白充足，以聚焦于核心信息。"
-      },
-      "surfaces": {
-        "shadows": [
-          "0px 4px 12px rgba(0,0,0,0.08)"
-        ],
-        "borders": "1px solid rgba(0,0,0,0.1)"
-      },
-      "layout": {
-        "skeleton": "居中的单栏主视觉区，搭配顶部导航栏。"
-      },
-      "components": {
-        "button": "药丸形或圆角矩形，纯色填充。",
-        "card": "简洁的白色表面，带有细微阴影。",
-        "chip": "小型的圆角标签。",
-        "input": "带边框的圆角矩形。",
-        "hero": "居中的文本区块，带有细微的渐变背景。"
-      },
-      "motion": {
-        "patterns": [
-          "内容加载时使用细微的淡入效果。",
-          "按钮 hover 时平滑过渡。"
-        ]
-      },
-      "interaction": {
-        "hover": "细微的颜色变化或高度变化。",
-        "click": "轻微的按下效果或即时反馈。",
-        "transition": "平滑的颜色和 transform 过渡。",
-        "keyboard": "标准的焦点环，以确保可访问性。"
-      },
-      "voice": {
-        "tone": "自信、专业且面向未来。",
-        "headlineStyle": "直接而有力，聚焦于价值主张。",
-        "ctaStyle": "行动导向且清晰（例如，“免费开始”）。",
-        "avoid": [
-          "过度技术性的行话。",
-          "被动语态。",
-          "不清晰的价值主张。"
-        ]
-      },
-      "donts": [
-        "不要使用深色背景——截图显示的是浅色、以白色为主的设计。",
-        "不要使用衬线字体——截图显示的是几何/人文主义无衬线字体。",
-        "不要使用复杂的渐变——截图显示的是非常细微的浅色渐变。",
-        "不要使用紧凑的间距——截图显示元素周围有充足的留白。",
-        "不要使用尖锐的圆角——截图显示的是圆角按钮和输入框。",
-        "不要使用灰暗、低对比度的颜色——截图显示的是白色背景上的高对比度墨黑色文字。"
-      ],
-      "systemPrompt": "Miro 是一个面向团队和 AI 智能体的 SaaS 协作平台。设计风格简洁专业，采用白色背景，主色为蓝色（#4262FF），文字为深墨黑色（#050038）。字体混合了几何无衬线体和人文主义无衬线体，强调清晰度和现代感。关键禁忌：不要使用深色模式，不要使用衬线字体，不要使用复杂的图案。布局居中且宽敞，将用户的注意力引导至核心价值主张和行动号召上。"
-    },
-    "zh-TW": {
-      "identity": {
-        "keywords": [
-          "協作",
-          "視覺化",
-          "AI",
-          "規劃",
-          "團隊合作"
-        ],
-        "analogy": "專為現代團隊設計的數位白板畫布。",
-        "oneLiner": "您的 AI 工具所欠缺的協作層。"
-      },
-      "colors": {
-        "principle": "乾淨的白色畫布，搭配大膽的品牌強調色以建立清晰的層次結構。"
-      },
-      "typography": {
-        "rules": [
-          "標題使用粗體幾何無襯線字體以強化視覺衝擊。",
-          "內文使用易讀的人文主義無襯線字體。",
-          "墨色與背景之間保持高對比。"
-        ],
-        "scaleUses": [
-          "主視覺標題",
-          "輔助文字與使用者介面"
-        ]
-      },
-      "spacing": {
-        "rhythm": "採用充足的留白，將注意力集中於核心訊息。"
-      },
-      "surfaces": {
-        "shadows": [
-          "0px 4px 12px rgba(0,0,0,0.08)"
-        ],
-        "borders": "1px solid rgba(0,0,0,0.1)"
-      },
-      "layout": {
-        "skeleton": "帶有頂部導覽列的居中單欄主視覺區塊。"
-      },
-      "components": {
-        "button": "膠囊形或圓角矩形，採用實心填充。",
-        "card": "乾淨的白色表面，帶有細微陰影。",
-        "chip": "小型圓角標籤。",
-        "input": "帶有邊框的圓角矩形。",
-        "hero": "居中的文字區塊，背景帶有細微漸層。"
-      },
-      "motion": {
-        "patterns": [
-          "內容載入時採用細膩的淡入效果。",
-          "按鈕 hover 時的平滑過渡效果。"
-        ]
-      },
-      "interaction": {
-        "hover": "細微的顏色變化或高度提升。",
-        "click": "輕微的按壓效果或立即回饋。",
-        "transition": "平滑的顏色與變形過渡。",
-        "keyboard": "標準的焦點環以符合無障礙規範。"
-      },
-      "voice": {
-        "tone": "自信、專業且具前瞻性。",
-        "headlineStyle": "直接且大膽，聚焦於價值主張。",
-        "ctaStyle": "以行動為導向且清晰明確（例如：「免費開始使用」）。",
-        "avoid": [
-          "過度技術性的術語。",
-          "被動語態。",
-          "不明確的價值主張。"
-        ]
-      },
-      "donts": [
-        "避免使用深色背景——截圖顯示的是明亮、以白色為主的主題。",
-        "避免使用襯線字體——截圖顯示的是幾何/人文主義無襯線字體。",
-        "避免使用複雜的漸層——截圖顯示的是非常細膩、淺淡的漸層洗色。",
-        "避免使用緊湊的間距——截圖顯示元素周圍有充足的留白。",
-        "避免使用銳利的角落——截圖顯示的是圓角的按鈕與輸入框。",
-        "避免使用柔和、低對比的顏色——截圖顯示的是白色背景上的高對比墨色文字。"
-      ],
-      "systemPrompt": "Miro 是一個面向團隊與 AI 代理的 SaaS 協作平台。其設計簡潔專業，採用白色背景，搭配主要藍色 (#4262FF) 強調色與深色墨水 (#050038) 文字。字體結合了幾何與人文主義無襯線風格，強調清晰度與現代感。主要禁忌：勿使用深色模式、勿使用襯線字體、勿使用複雜圖樣。佈局居中且寬鬆，將使用者的注意力引導至核心價值主張與行動號召。"
-    },
-    "ja": {
-      "identity": {
-        "keywords": [
-          "コラボレーション",
-          "ビジュアル",
-          "AI",
-          "プランニング",
-          "チームワーク"
-        ],
-        "analogy": "現代のチームのためのデジタルホワイトボードキャンバス。",
-        "oneLiner": "あなたの AI ツールが欠いている、コラボレーションレイヤー。"
-      },
-      "colors": {
-        "principle": "明確な階層構築のため、大胆なブランドアクセントを配したクリーンなホワイトキャンバス。"
-      },
-      "typography": {
-        "rules": [
-          "見出しにはインパクトを重視した幾何学的サンセリフ体。",
-          "本文には可読性の高いヒューマニストサンセリフ体。",
-          "インクと背景の間に高いコントラストを確保。"
-        ],
-        "scaleUses": [
-          "メインヒーロー見出し",
-          "補助テキストおよび UI"
-        ]
-      },
-      "spacing": {
-        "rhythm": "中心となるメッセージに注目を集めるため、ゆとりのあるホワイトスペースを確保。"
-      },
-      "surfaces": {
-        "shadows": [
-          "0px 4px 12px rgba(0,0,0,0.08)"
-        ],
-        "borders": "1px solid rgba(0,0,0,0.1)"
-      },
-      "layout": {
-        "skeleton": "トップナビゲーションバーを備えた中央揃えシングルカラムヒーロー。"
-      },
-      "components": {
-        "button": "ピル型または角丸長方形の塗りつぶしボタン。",
-        "card": "繊細な影を付けたクリーンなホワイトサーフェス。",
-        "chip": "小さな角丸ラベル。",
-        "input": "ボーダー付きの角丸長方形。",
-        "hero": "繊細なグラデーション背景を持つ中央揃えテキストブロック。"
-      },
-      "motion": {
-        "patterns": [
-          "コンテンツ読み込み時の繊細なフェードイン。",
-          "ボタン hover 時の滑らかなトランジション。"
-        ]
-      },
-      "interaction": {
-        "hover": "繊細な色の変化や高さの変化。",
-        "click": "軽い押し込み感や即座のフィードバック。",
-        "transition": "色と transform の滑らかなトランジション。",
-        "keyboard": "アクセシビリティ対応の標準的な focus ring。"
-      },
-      "voice": {
-        "tone": "自信に満ち、プロフェッショナルで、未来志向。",
-        "headlineStyle": "価値提案に焦点を当てた、直接的で大胆な表現。",
-        "ctaStyle": "アクション指向で明確な表現（例：「無料で始める」）。",
-        "avoid": [
-          "過度に専門的なジャーゴン。",
-          "受動態。",
-          "不明確な価値提案。"
-        ]
-      },
-      "donts": [
-        "ダーク背景を使用しない — スクリーンショットはライトでホワイトを基調とするテーマ。",
-        "セリフ体を使用しない — スクリーンショットは幾何学的/ヒューマニストサンセリフ体。",
-        "複雑なグラデーションを使用しない — スクリーンショットは非常に繊細で薄いグラデーションウォッシュ。",
-        "狭い間隔を使用しない — スクリーンショットは要素の周りにゆとりのあるホワイトスペース。",
-        "角の尖ったデザインを使用しない — スクリーンショットは角丸ボタンと入力欄。",
-        "くすんだ低コントラストの色を使用しない — スクリーンショットはホワイト上のハイコントラストなインク。"
-      ],
-      "systemPrompt": "Miro は、チームと AI エージェントのための SaaS コラボレーションプラットフォーム。デザインはクリーンでプロフェッショナルで、ホワイト背景にプライマリブルー（#4262FF）アクセントとダークインク（#050038）テキストを使用。タイポグラフィは幾何学的およびヒューマニストサンセリフの混合で、明瞭さと現代性を強調。重要な禁止事項：ダークモード、セリフ体、複雑なパターンの使用は避けること。レイアウトは中央揃えでゆとりがあり、ユーザーをメインの価値提案とコールトゥアクションに集中させる。"
-    },
-    "ko": {
-      "identity": {
-        "keywords": [
-          "협업",
-          "비주얼",
-          "AI",
-          "기획",
-          "팀워크"
-        ],
-        "analogy": "현대 팀을 위한 디지털 화이트보드 캔버스.",
-        "oneLiner": "AI 도구에 부족한 협업 레이어."
-      },
-      "colors": {
-        "principle": "명확한 계층 구조를 위한 굵은 브랜드 악센트를 가진 깨끗한 화이트 캔버스."
-      },
-      "typography": {
-        "rules": [
-          "헤드라인은 임팩트를 위해 굵은 기하학적 산세리프를 사용합니다.",
-          "본문 텍스트는 가독성 높은 휴머니스트 산세리프를 사용합니다.",
-          "잉크와 배경 사이의 고대비."
-        ],
-        "scaleUses": [
-          "메인 히어로 헤드라인",
-          "서브 텍스트 및 UI"
-        ]
-      },
-      "spacing": {
-        "rhythm": "중심 메시지에 주목을 집중하기 위한 넉넉한 여백."
-      },
-      "surfaces": {
-        "shadows": [
-          "0px 4px 12px rgba(0,0,0,0.08)"
-        ],
-        "borders": "1px solid rgba(0,0,0,0.1)"
-      },
-      "layout": {
-        "skeleton": "상단 내비게이션 바가 있는 중앙 정렬 싱글 칼럼 히어로."
-      },
-      "components": {
-        "button": "솔리드 채우기의 필 또는 둥근 사각형.",
-        "card": "미세한 그림자가 있는 깨끗한 화이트 표면.",
-        "chip": "작은 둥근 라벨.",
-        "input": "테두리가 있는 둥근 사각형.",
-        "hero": "미세한 그라디언트 배경이 있는 중앙 정렬 텍스트 블록."
-      },
-      "motion": {
-        "patterns": [
-          "콘텐츠 로딩을 위한 절제된 페이드 인.",
-          "버튼 hover 시 부드러운 트랜지션."
-        ]
-      },
-      "interaction": {
-        "hover": "미세한 색상 변화 또는 높이 변화.",
-        "click": "약간의 하강 또는 즉각적인 피드백.",
-        "transition": "부드러운 색상 및 transform 트랜지션.",
-        "keyboard": "접근성을 위한 표준 focus ring."
-      },
-      "voice": {
-        "tone": "자신감 있고 전문적이며 미래 지향적인 어조.",
-        "headlineStyle": "가치 제안에 초점을 맞춘 직접적이고 굵은 스타일.",
-        "ctaStyle": "행동 지향적이고 명확한 스타일 (예: '무료로 시작하기').",
-        "avoid": [
-          "지나치게 기술적인 전문 용어.",
-          "수동태.",
-          "불분명한 가치 제안."
-        ]
-      },
-      "donts": [
-        "다크 배경을 사용하지 마세요 — 스크린샷은 밝고 화이트 위주의 테마를 보여줍니다.",
-        "세리프 폰트를 사용하지 마세요 — 스크린샷은 기하학적/휴머니스트 산세리프 타이포그래피를 보여줍니다.",
-        "복잡한 그라디언트를 사용하지 마세요 — 스크린샷은 매우 절제되고 밝은 그라디언트 워시를 보여줍니다.",
-        "좁은 간격을 사용하지 마세요 — 스크린샷은 요소 주위에 넉넉한 여백을 보여줍니다.",
-        "날카로운 모서리를 사용하지 마세요 — 스크린샷은 둥근 버튼과 입력 필드를 보여줍니다.",
-        "침체되고 저대비 색상을 사용하지 마세요 — 스크린샷은 화이트 위의 고대비 잉크를 보여줍니다."
-      ],
-      "systemPrompt": "Miro는 팀과 AI 에이전트를 위한 SaaS 협업 플랫폼입니다. 디자인은 깨끗하고 전문적이며, 화이트 배경에 주요 블루(#4262FF) 악센트와 다크 잉크(#050038) 텍스트를 사용합니다. 타이포그래피는 명확성과 현대성을 강조하는 기하학적 및 휴머니스트 산세리프의 혼합입니다. 주요 주의 사항: 다크 모드를 사용하지 마세요, 세리프 폰트를 사용하지 마세요, 복잡한 패턴을 사용하지 마세요. 레이아웃은 중앙 정렬되어 있으며 여유로워, 사용자가 주요 가치 제안과 콜 투 액션에 집중할 수 있도록 합니다."
+      "easing": "cubic-bezier(0.4, 0, 0.2, 1)"
     }
   },
   "desc": {
     "en": {
-      "palette": "A clean, high-contrast palette centered on white with a vibrant blue accent and dark navy ink.",
-      "layout": "A spacious, centered single-column layout with a clear top navigation bar.",
-      "interaction": "Standard, intuitive interactions with smooth hover transitions on buttons.",
-      "motion": "Subtle and purposeful motion focused on smooth transitions and fades.",
-      "notes": "This site is a prime example of a modern, clean SaaS marketing page that prioritizes clarity and value communication."
+      "palette": "A clean, high-contrast palette dominated by white and near-black, anchored by a single vibrant blue accent for interactive elements.",
+      "layout": "A standard 12-column centered container layout with generous whitespace and a clear vertical hierarchy.",
+      "interaction": "Subtle 0.2s transitions on hover and click states provide a responsive, polished feel.",
+      "motion": "Animations are brief and purposeful, focusing on smooth easing for background and scale changes.",
+      "notes": "Miro exemplifies a professional, high-utility SaaS design that uses minimalism and a single accent color to guide user attention effectively."
     },
     "zh-CN": {
       "palette": "以白色为主的干净、高对比度配色，辅以鲜明的蓝色点缀和深色墨黑。",
@@ -589,6 +230,417 @@
       "ch7_intro": "모션은 미묘하고 의도적이며, 피드백과 연속성을 강화하기 위해 예약됩니다. 전환은 부드럽고 빠르며, 자체적인 효과에 주의를 끌지 않으면서 상호작용을 확인하거나 상태 변화를 신호하는 데 사용됩니다.",
       "ch8_intro": "에디토리얼 어조는 자신감 있고, 전문적이며, 미래 지향적입니다. 카피는 직접적이고 굵으며, 명확한 가치 제안과 행동 지향적인 호출에 초점을 맞춥니다.",
       "ch8_outro": "시스템은 의도적으로 다크 모드, 세리프 타이포그래피, 복잡한 장식 패턴을 피하며, 깨끗하고 고대비의 명확성이라는 이념에 전적으로 헌신합니다."
+    }
+  },
+  "spec_i18n": {
+    "en": {
+      "identity": {
+        "keywords": [
+          "collaboration",
+          "AI",
+          "canvas",
+          "workflow",
+          "planning"
+        ],
+        "analogy": "A digital whiteboard that serves as the central nervous system for team ideation and AI agent collaboration.",
+        "oneLiner": "Miro is the collaboration layer where teams and AI agents think, plan, and build together."
+      },
+      "colors": {
+        "principle": "Clean white canvases with high-contrast dark text for readability, using a singular vibrant blue for primary actions and soft grays for structure."
+      },
+      "typography": {
+        "rules": [
+          "Use font-weight 500 for display headlines to maintain a friendly but professional feel.",
+          "Apply negative letter-spacing (tracking) to larger headlines to tighten the visual rhythm.",
+          "Body text remains at a neutral 400 weight with generous line-height for readability."
+        ],
+        "scaleUses": [
+          "hero headlines",
+          "section titles",
+          "card titles",
+          "paragraph text",
+          "captions and metadata"
+        ]
+      },
+      "spacing": {
+        "rhythm": "Base-4 grid with consistent 8px and 16px intervals for internal padding and component gaps."
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 1px 3px rgba(0,0,0,0.1)",
+          "0px 10px 10px -3.75px rgba(0,0,0,0.06)",
+          "0px 2.28px 2.28px -2.5px rgba(0,0,0,0.16)"
+        ],
+        "borders": "Subtle 1px borders used sparingly for input fields and cards."
+      },
+      "layout": {
+        "skeleton": "Standard 12-column grid with a centered main container."
+      },
+      "components": {
+        "button": "Solid black 'Get started free' and 'Learn more' buttons with pill or rounded-rect shapes; blue primary 'Get started free' in the hero.",
+        "card": "Light gray background cards with rounded corners, containing headlines, icons, and descriptive text.",
+        "chip": "Small pill-shaped elements for user cursors or labels.",
+        "input": "Simple rounded-rect input fields with subtle borders.",
+        "hero": "Centered text-based hero with a prominent input field and CTA button."
+      },
+      "motion": {
+        "patterns": [
+          "Smooth hover transitions on buttons and interactive elements.",
+          "Background-color and transform animations for interactive states."
+        ]
+      },
+      "interaction": {
+        "hover": "Subtle background-color shift or border-color change.",
+        "click": "Scale or transform micro-animation.",
+        "transition": "Standard 0.2s or 0.15s cubic-bezier transitions for responsive feel.",
+        "keyboard": "Standard focus ring for accessibility."
+      },
+      "voice": {
+        "tone": "Empowering, professional, and forward-looking.",
+        "headlineStyle": "Short, punchy, and benefit-driven statements about collaboration and AI.",
+        "ctaStyle": "Direct and action-oriented (e.g., 'Get started free', 'Go to the dashboard').",
+        "avoid": [
+          "Overly technical jargon or dense paragraphs in the hero.",
+          "Aggressive or salesy language.",
+          "Cluttered layouts that distract from the core message."
+        ]
+      },
+      "donts": [
+        "Don't use serif fonts — screenshot shows clean humanist sans-serif typography.",
+        "Don't use a dark mode theme — screenshot shows a predominantly white/light gray background.",
+        "Don't use heavy decorative shadows — screenshot shows subtle, soft shadows.",
+        "Don't use a chaotic multi-color palette — screenshot shows a restrained palette of white, black, gray, and a single blue accent.",
+        "Don't use rigid, sharp corners everywhere — screenshot shows a mix of rounded-rects (12px, 20px) and pill shapes.",
+        "Don't use dense, small text for headlines — screenshot shows large, airy headlines with tight letter-spacing."
+      ],
+      "systemPrompt": "Miro is a collaborative whiteboard SaaS platform. Its visual identity is defined by a clean, light-mode aesthetic (white #FFFFFF and gray #F0F0F0 backgrounds) with high-contrast dark ink (#1C1C1E) for maximum readability. The primary accent color is a vibrant blue (#4B5BF0) used for interactive elements. Typography is humanist-sans with tight letter-spacing for headlines. Critical donts: Never use dark mode as the primary interface. Avoid heavy, complex shadows; keep them subtle. Do not use serif fonts or cluttered, multi-column hero sections. Maintain a clean, centered layout that emphasizes whitespace and clear calls to action."
+    },
+    "zh-CN": {
+      "identity": {
+        "keywords": [
+          "协作",
+          "AI",
+          "画布",
+          "工作流",
+          "规划"
+        ],
+        "analogy": "一块作为团队创意构思与AI智能体协作中枢神经系统的数字白板。",
+        "oneLiner": "Miro 是协作层，团队与AI智能体在此共同思考、规划与构建。"
+      },
+      "colors": {
+        "principle": "采用洁净的白色画布搭配高对比度深色文字以确保可读性，使用单一的鲜明蓝色作为主要操作色，并以柔和的灰色构建结构。"
+      },
+      "typography": {
+        "rules": [
+          "使用 font-weight 500 的 display 标题以保持友好而专业的氛围。",
+          "为大号标题应用负字母间距（tracking）以收紧视觉节奏。",
+          "正文保持中性的 400 字重，并采用充裕的行高以提升可读性。"
+        ],
+        "scaleUses": [
+          "首屏主标题",
+          "章节标题",
+          "卡片标题",
+          "段落文本",
+          "说明文字与元数据"
+        ]
+      },
+      "spacing": {
+        "rhythm": "基于4的网格系统，内部间距与组件间隔采用一致的 8px 和 16px 步进。"
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 1px 3px rgba(0,0,0,0.1)",
+          "0px 10px 10px -3.75px rgba(0,0,0,0.06)",
+          "0px 2.28px 2.28px -2.5px rgba(0,0,0,0.16)"
+        ],
+        "borders": "仅在输入框和卡片上谨慎使用细微的 1px 边框。"
+      },
+      "layout": {
+        "skeleton": "采用标准的12栏网格，主容器居中。"
+      },
+      "components": {
+        "button": "纯黑色的「免费开始」与「了解更多」按钮，采用胶囊形或圆角矩形；首屏主按钮「免费开始」使用蓝色。",
+        "card": "浅灰色背景的圆角卡片，内含标题、图标和描述性文本。",
+        "chip": "用于用户光标或标签的小型胶囊形元素。",
+        "input": "带有细微边框的简洁圆角矩形输入框。",
+        "hero": "居中的文字型首屏区域，包含醒目的输入框和行动号召按钮。"
+      },
+      "motion": {
+        "patterns": [
+          "按钮与交互元素上平滑的 hover 过渡动画。",
+          "交互状态下的背景色与变换动画。"
+        ]
+      },
+      "interaction": {
+        "hover": "细微的背景色变化或边框色改变。",
+        "click": "缩放或变换的微动画。",
+        "transition": "标准 0.2s 或 0.15s cubic-bezier 过渡，营造响应式手感。",
+        "keyboard": "标准的 focus 环以确保无障碍访问。"
+      },
+      "voice": {
+        "tone": "赋能、专业且富有前瞻性。",
+        "headlineStyle": "关于协作与AI的简短、有力、突出收益的陈述。",
+        "ctaStyle": "直接且面向行动（例如：「免费开始」、「前往控制面板」）。",
+        "avoid": [
+          "首屏中使用过于技术化的术语或冗长段落。",
+          "激进或推销式的语言。",
+          "分散核心信息的杂乱布局。"
+        ]
+      },
+      "donts": [
+        "不要使用衬线字体 — 截图显示的是简洁的人文主义无衬线字体排版。",
+        "不要使用深色模式主题 — 截图显示的是以白色/浅灰色为主的背景。",
+        "不要使用厚重的装饰性阴影 — 截图显示的是细微、柔和的阴影。",
+        "不要使用杂乱的多色调色板 — 截图显示的是克制的白色、黑色、灰色和单一蓝色强调色的调色板。",
+        "不要处处使用生硬、尖锐的直角 — 截图显示的是圆角矩形（12px, 20px）与胶囊形的混合使用。",
+        "不要使用密集的小字作为标题 — 截图显示的是大号、留白充足且字母间距紧密的标题。"
+      ],
+      "systemPrompt": "Miro 是一款协作白板 SaaS 平台。其视觉识别由简洁的亮色模式美学（白色 #FFFFFF 和灰色 #F0F0F0 背景）定义，搭配高对比度的深色墨迹（#1C1C1E）以实现最大可读性。主要的强调色是用于交互元素的鲜明蓝色（#4B5BF0）。字体采用人文主义无衬线体，标题具有紧密的字母间距。关键禁忌：切勿将深色模式作为主要界面。避免使用厚重、复杂的阴影；保持其细微。不要使用衬线字体或杂乱的多栏首屏区域。保持简洁、居中的布局，强调留白和清晰的行动号召。"
+    },
+    "zh-TW": {
+      "identity": {
+        "keywords": [
+          "協作",
+          "AI",
+          "畫布",
+          "工作流程",
+          "規劃"
+        ],
+        "analogy": "一個數位白板，作為團隊構思與 AI 代理協作的中樞神經系統。",
+        "oneLiner": "Miro 是團隊與 AI 代理共同思考、規劃與構建的協作平台。"
+      },
+      "colors": {
+        "principle": "採用純淨白色畫布搭配高對比深色文字以確保可讀性，使用單一鮮明藍色作為主要互動色彩，並以柔和灰色構建結構。"
+      },
+      "typography": {
+        "rules": [
+          "標題使用 font-weight 500，維持友善且專業的視覺感受。",
+          "較大的標題採用負字距（tracking）來緊縮視覺節奏。",
+          "內文保持中性 400 字重，搭配寬裕行高以提升可讀性。"
+        ],
+        "scaleUses": [
+          "主視覺標題",
+          "章節標題",
+          "卡片標題",
+          "段落文字",
+          "輔助說明與中繼資料"
+        ]
+      },
+      "spacing": {
+        "rhythm": "基於 Base-4 格線系統，內部間距與元件間隙採用一致的 8px 與 16px 間隔。"
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 1px 3px rgba(0,0,0,0.1)",
+          "0px 10px 10px -3.75px rgba(0,0,0,0.06)",
+          "0px 2.28px 2.28px -2.5px rgba(0,0,0,0.16)"
+        ],
+        "borders": "謹慎使用細微 1px 邊框，主要應用於輸入欄位與卡片。"
+      },
+      "layout": {
+        "skeleton": "標準 12 欄格線佈局，主容器置中對齊。"
+      },
+      "components": {
+        "button": "實心黑色「免費開始」與「瞭解更多」按鈕，採用藥丸形或圓角矩形；首頁主視覺的「免費開始」按鈕使用藍色。",
+        "card": "淺灰色背景卡片，採用圓角設計，包含標題、圖示與說明文字。",
+        "chip": "小型藥丸形元素，用於顯示使用者游標或標籤。",
+        "input": "簡潔的圓角矩形輸入欄位，搭配細微邊框。",
+        "hero": "置中文字型首頁主視覺，搭配醒目輸入欄位與行動呼籲按鈕。"
+      },
+      "motion": {
+        "patterns": [
+          "按鈕與互動元件採用流暢的 hover 轉場效果。",
+          "互動狀態的背景色與 transform 動畫。"
+        ]
+      },
+      "interaction": {
+        "hover": "細微背景色變換或邊框顏色改變。",
+        "click": "縮放或 transform 微型動畫。",
+        "transition": "標準 0.2 秒或 0.15 秒 cubic-bezier 轉場，提供靈敏的互動感受。",
+        "keyboard": "標準 focus ring 確保無障礙訪問。"
+      },
+      "voice": {
+        "tone": "賦予能力、專業且前瞻。",
+        "headlineStyle": "簡短有力、以效益為導向的語句，闡述協作與 AI 價值。",
+        "ctaStyle": "直接且具行動導向（例如：「免費開始」、「前往控制面板」）。",
+        "avoid": [
+          "首頁主視覺避免過度技術術語或冗長段落。",
+          "避免具侵略性或過度推銷的語氣。",
+          "避免雜亂佈局干擾核心訊息傳遞。"
+        ]
+      },
+      "donts": [
+        "不使用襯線字體——截圖顯示乾淨的人文無襯線字體排版。",
+        "不採用深色模式主題——截圖以白色/淺灰色背景為主。",
+        "不使用厚重裝飾性陰影——截圖呈現細微柔和的陰影效果。",
+        "不使用混亂多色調色盤——截圖採用克制的白、黑、灰及單一藍色強調色。",
+        "不使用生硬尖銳的四處圓角——截圖混用圓角矩形（12px、20px）與藥丸形設計。",
+        "不使用密集小字標題——截圖採用寬鬆間距的大型標題。"
+      ]
+    },
+    "ja": {
+      "identity": {
+        "keywords": [
+          "コラボレーション",
+          "AI",
+          "キャンバス",
+          "ワークフロー",
+          "計画"
+        ],
+        "analogy": "チームのアイデア出しとAIエージェントのコラボレーションを担う、デジタルホワイトボード。",
+        "oneLiner": "Miroは、チームとAIエージェントが共に考え、計画し、構築するコラボレーションレイヤーです。"
+      },
+      "colors": {
+        "principle": "クリーンなホワイトキャンバスに、高いコントラストのダークテキストを配置して可読性を確保。主要なアクションには鮮やかなブルーを1色使い、構造には柔らかいグレーを採用します。"
+      },
+      "typography": {
+        "rules": [
+          "親しみやすくプロフェッショナルな印象を保つため、見出しにはフォントウェイト500を使用します。",
+          "大きな見出しにはネガティブな文字間隔（トラッキング）を適用し、ビジュアルリズムを締めます。",
+          "本文テキストは中立的なウェイト400を維持し、十分なline-heightで可読性を確保します。"
+        ],
+        "scaleUses": [
+          "ヒーロー見出し",
+          "セクションタイトル",
+          "カードタイトル",
+          "段落テキスト",
+          "キャプションとメタデータ"
+        ]
+      },
+      "spacing": {
+        "rhythm": "内部パディングやコンポーネント間隔には、一貫した8pxと16pxの間隔を持つ、ベース4グリッドを採用。"
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 1px 3px rgba(0,0,0,0.1)",
+          "0px 10px 10px -3.75px rgba(0,0,0,0.06)",
+          "0px 2.28px 2.28px -2.5px rgba(0,0,0,0.16)"
+        ],
+        "borders": "入力フィールドやカードには、控えめな1pxボーダーを慎重に使用します。"
+      },
+      "layout": {
+        "skeleton": "中央にメインコンテナを配置した、標準的な12カラムグリッド。"
+      },
+      "components": {
+        "button": "「無料で始める」や「詳しく見る」は、ピルまたは角丸長方形の形状を持つソリッドブラックボタン。ヒーロー内の主要な「無料で始める」はブルー。",
+        "card": "角丸のライトグレーベックグラウンドカード。見出し、アイコン、説明テキストを内包。",
+        "chip": "ユーザーカーソルやラベル用の、小さなピル形状の要素。",
+        "input": "控えめなボーダーを持つ、シンプルな角丸長方形の入力フィールド。",
+        "hero": "目立つ入力フィールドとCTAボタンを備えた、中央揃えテキストベースのヒーローセクション。"
+      },
+      "motion": {
+        "patterns": [
+          "ボタンやインタラクティブ要素の、スムーズなhoverトランジション。",
+          "インタラクティブ状態の、背景色とトランスフォームのアニメーション。"
+        ]
+      },
+      "interaction": {
+        "hover": "控えめな背景色の変化や、ボーダーカラーの変更。",
+        "click": "スケールやトランスフォームのマイクロアニメーション。",
+        "transition": "応答感を出すための、標準的な0.2sまたは0.15sのcubic-bezierトランジション。",
+        "keyboard": "アクセシビリティのための、標準的なフォーカスリング。"
+      },
+      "voice": {
+        "tone": "力強く、プロフェッショナルで、未来志向。",
+        "headlineStyle": "コラボレーションとAIに関する、短くインパクトがあり、利益を示すステートメント。",
+        "ctaStyle": "直接的で行動を促すもの（例：「無料で始める」「ダッシュボードへ移動」）。",
+        "avoid": [
+          "ヒーローにおける過度に技術的な専門用語や、密度の高い段落。",
+          "攻撃的または営業的な言葉遣い。",
+          "コアメッセージから注意をそらす、雑然としたレイアウト。"
+        ]
+      },
+      "donts": [
+        "セリフフォントを使用しない — スクリーンショットではクリーンなヒューマニストサンセリフが使われています。",
+        "ダークモードテーマを使用しない — スクリーンショットでは主に白/ライトグレーの背景が使われています。",
+        "重厚な装飾的なシャドウを使用しない — スクリーンショットでは控えめでソフトなシャドウが使われています。",
+        "混沌とした複数カラーパレットを使用しない — スクリーンショットでは白、黒、グレー、単一のブルーアクセントの抑制されたパレットが使われています。",
+        "あらゆる場所に硬く鋭い角を使用しない — スクリーンショットでは角丸長方形（12px、20px）とピル形状が混在しています。",
+        "見出しに密集した小さなテキストを使用しない — スクリーンショットでは大きく息の通った、 Tightな文字間隔の見出しが使われています。"
+      ],
+      "systemPrompt": "MiroはコラボレーティブホワイトボードSaaSプラットフォームです。そのビジュアルアイデンティティは、クリーンなライトモードのエストスティック（ホワイト#FFFFFFとグレー#F0F0F0の背景）で定義され、最大限の可読性のためにダークインク（#1C1C1E）との高いコントラストを持ちます。プライマリアクセントカラーは、インタラクティブ要素に使用される鮮やかなブルー（#4B5BF0）です。タイポグラフィは、見出しにtightな文字間隔を持つヒューマニストサンセリフです。重要な禁止事項：プライマリインターフェースとしてダークモードを使用しない。重厚で複雑なシャドウは避け、控えめに保つ。セリフフォントや雑然とした複数カラムのヒーローセクションを使用しない。余白と明確なCTAを重視した、クリーンで中央揃えのレイアウトを維持する。"
+    },
+    "ko": {
+      "identity": {
+        "keywords": [
+          "협업",
+          "AI",
+          "캔버스",
+          "워크플로우",
+          "기획"
+        ],
+        "analogy": "팀의 아이디어 생성과 AI 에이전트 협업을 위한 중추 신경계 역할을 하는 디지털 화이트보드입니다.",
+        "oneLiner": "Miro는 팀과 AI 에이전트가 함께 생각하고, 계획하고, 구축하는 협업 레이어입니다."
+      },
+      "colors": {
+        "principle": "가독성을 위한 고대비 어두운 텍스트가 있는 깨끗한 흰색 캔버스를 기본으로 하며, 주요 작업에는 단일 강렬한 블루를, 구조에는 부드러운 그레이를 사용합니다."
+      },
+      "typography": {
+        "rules": [
+          "표시 헤드라인에는 친근하면서도 전문적인 느낌을 유지하기 위해 font-weight 500을 사용합니다.",
+          "시각적 리듬을 좁히기 위해 더 큰 헤드라인에는 네거티브 letter-spacing(tracking)을 적용합니다.",
+          "본문 텍스트는 가독성을 위해 중립적인 400 weight와 넉넉한 line-height를 유지합니다."
+        ],
+        "scaleUses": [
+          "영웅 헤드라인",
+          "섹션 제목",
+          "카드 제목",
+          "본문",
+          "캡션 및 메타데이터"
+        ]
+      },
+      "spacing": {
+        "rhythm": "내부 padding과 컴포넌트 간격을 위해 일관된 8px 및 16px 간격을 사용하는 기본 4 그리드입니다."
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 1px 3px rgba(0,0,0,0.1)",
+          "0px 10px 10px -3.75px rgba(0,0,0,0.06)",
+          "0px 2.28px 2.28px -2.5px rgba(0,0,0,0.16)"
+        ],
+        "borders": "입력 필드와 카드에 절제된 1px border를 사용합니다."
+      },
+      "layout": {
+        "skeleton": "중앙 정렬된 메인 컨테이너가 있는 표준 12컬럼 그리드입니다."
+      },
+      "components": {
+        "button": "알약 또는 둥근 사각형 모양의 솔리드 블랙 '무료로 시작하기' 및 '자세히 알아보기' 버튼; 영웅 영역의 주요 '무료로 시작하기'는 블루입니다.",
+        "card": "헤드라인, 아이콘, 설명 텍스트를 포함하는 둥근 모서리의 밝은 회색 배경 카드입니다.",
+        "chip": "사용자 커서 또는 레이블을 위한 작은 알약 모양 요소입니다.",
+        "input": "미세한 border가 있는 간단한 둥근 사각형 입력 필드입니다.",
+        "hero": "주목할 만한 입력 필드와 CTA 버튼이 있는 중앙 정렬 텍스트 기반 영웅 영역입니다."
+      },
+      "motion": {
+        "patterns": [
+          "버튼 및 대화형 요소의 부드러운 hover 전환입니다.",
+          "상호작용 상태를 위한 배경색 및 transform 애니메이션입니다."
+        ]
+      },
+      "interaction": {
+        "hover": "미세한 배경색 변화 또는 border색 변경입니다.",
+        "click": "Scale 또는 transform 마이크로 애니메이션입니다.",
+        "transition": "반응형 느낌을 위한 표준 0.2초 또는 0.15초 cubic-bezier 전환입니다.",
+        "keyboard": "접근성을 위한 표준 focus ring입니다."
+      },
+      "voice": {
+        "tone": "강점 부여, 전문적, 그리고 미래 지향적입니다.",
+        "headlineStyle": "협업과 AI에 대한 간결하고 강렬하며 혜택 중심적인 문장입니다.",
+        "ctaStyle": "직접적이고 행동 중심적입니다(예: '무료로 시작하기', '대시보드로 이동').",
+        "avoid": [
+          "영웅 영역의 지나치게 기술적이거나 밀도 높은 단락.",
+          "공격적이거나 과장된 영업 언어.",
+          "핵심 메시지에서 주의를 산만하게 하는 복잡한 레이아웃."
+        ]
+      },
+      "donts": [
+        "세리프 서체를 사용하지 않습니다 — 스크린샷은 깨끗한 휴머니스트 산세리프 타이포그래피를 보여줍니다.",
+        "다크 모드 테마를 사용하지 않습니다 — 스크린샷은 주로 흰색/밝은 회색 배경을 보여줍니다.",
+        "무거운 장식용 그림자를 사용하지 않습니다 — 스크린샷은 미세하고 부드러운 그림자를 보여줍니다.",
+        "혼란스러운 다색 팔레트를 사용하지 않습니다 — 스크린샷은 흰색, 블랙, 그레이, 그리고 단일 블루 악센트로 구성된 절제된 팔레트를 보여줍니다.",
+        "모든 곳에 딱딱하고 날카로운 모서리를 사용하지 않습니다 — 스크린샷은 둥근 사각형(12px, 20px)과 알약 모양의 조합을 보여줍니다.",
+        "헤드라인에 밀집되고 작은 텍스트를 사용하지 않습니다 — 스크린샷은 넉넉한 letter-spacing이 적용된 크고 여백이 많은 헤드라인을 보여줍니다."
+      ],
+      "systemPrompt": "Miro는 협업 화이트보드 SaaS 플랫폼입니다. 시각적 정체성은 깨끗한 라이트 모드 미학(흰색 #FFFFFF 및 회색 #F0F0F0 배경)과 최대 가독성을 위한 고대비 잉크(#1C1C1E)로 정의됩니다. 주요 강조색은 대화형 요소에 사용되는 강렬한 블루(#4B5BF0)입니다. 타이포그래피는 헤드라인을 위한 좁은 letter-spacing이 적용된 휴머니스트 산세리프입니다. 핵심 금지 사항: 주요 인터페이스로 다크 모드를 절대 사용하지 않습니다. 무거우면서 복잡한 그림자는 피하고, 미세하게 유지합니다. 세리프 서체나 복잡한 다단계 영웅 섹션을 사용하지 않습니다. 여백과 명확한 CTA를 강조하는 깨끗하고 중앙 정렬된 레이아웃을 유지합니다."
     }
   }
 }

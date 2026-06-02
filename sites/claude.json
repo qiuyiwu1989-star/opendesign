@@ -17,32 +17,34 @@
   "_meta": {
     "vision_model": "mimo-v2.5",
     "vision_prompt_version": "0.3",
-    "vision_at": "2026-05-28T20:05:40+00:00",
-    "vision_tokens": 3191,
-    "vision_cost_usd": 0.0355,
+    "vision_at": "2026-05-30T10:01:23+00:00",
+    "vision_tokens": 1899,
+    "vision_cost_usd": 0.0211,
     "translation_model": "mimo-v2.5",
-    "translation_at": "2026-05-28T20:06:23+00:00",
-    "translation_tokens": 13701,
-    "translation_cost_usd": 0.0457,
+    "translation_at": "2026-05-30T10:02:25+00:00",
+    "translation_tokens": 25372,
+    "translation_cost_usd": 0.0846,
     "narrative_model": "mimo-v2.5",
     "narrative_prompt_version": "0.3",
     "narrative_at": "2026-05-28T20:06:30+00:00",
     "narrative_tokens": 1780,
     "narrative_cost_usd": 0.0119,
     "narrative_status": "ok",
-    "total_cost_usd": 0.0931
+    "total_cost_usd": 0.1176,
+    "vision_source": "playwright-extract:claude",
+    "vision_grounded": true
   },
   "spec": {
     "colors": {
-      "bg": "#FAF7F5",
-      "bgSoft": null,
+      "bg": "#FAF9F5",
+      "bgSoft": "#E8E6DC",
       "bgQuiet": null,
-      "ink": "#1A1A1A",
-      "inkSoft": null,
-      "muted": "#666666",
+      "ink": "#141413",
+      "inkSoft": "#30302E",
+      "muted": "#87867F",
       "mutedSoft": null,
       "accent": null,
-      "line": "rgba(0,0,0,0.1)"
+      "line": "rgba(209,207,197,1.0)"
     },
     "typography": {
       "display": "transitional-serif",
@@ -52,23 +54,30 @@
         {
           "token": "display",
           "size": 56,
-          "lh": 1.1,
+          "lh": 1.0,
           "weight": 500,
-          "ls": "-1px"
+          "ls": "-0.02em"
         },
         {
-          "token": "headline",
-          "size": 40,
+          "token": "heading",
+          "size": 30,
           "lh": 1.2,
-          "weight": 500,
-          "ls": "-0.5px"
+          "weight": 400,
+          "ls": "-0.01em"
         },
         {
           "token": "body",
           "size": 16,
           "lh": 1.5,
           "weight": 400,
-          "ls": "0px"
+          "ls": "normal"
+        },
+        {
+          "token": "caption",
+          "size": 12,
+          "lh": 1.5,
+          "weight": 400,
+          "ls": "normal"
         }
       ]
     },
@@ -77,6 +86,7 @@
       "scale": [
         4,
         8,
+        12,
         16,
         24,
         32,
@@ -94,7 +104,7 @@
       }
     },
     "layout": {
-      "container": 1200,
+      "container": 1280,
       "paragraph": 680,
       "columns": 12,
       "gutter": 24,
@@ -106,356 +116,19 @@
     "motion": {
       "durations": {
         "micro": 200,
-        "small": 400,
-        "medium": 800
+        "small": 300,
+        "medium": 500
       },
-      "easing": "cubic-bezier(0.4, 0, 0.2, 1)"
-    }
-  },
-  "spec_i18n": {
-    "en": {
-      "identity": {
-        "keywords": [
-          "artificial intelligence",
-          "assistant",
-          "productivity",
-          "thoughtful"
-        ],
-        "analogy": "A calm, high-end co-working space",
-        "oneLiner": "A calm, focused AI assistant designed for professional thinking."
-      },
-      "colors": {
-        "principle": "Warm, neutral, and calm"
-      },
-      "typography": {
-        "rules": [],
-        "scaleUses": [
-          "Hero headline",
-          "Section headings",
-          "Body copy"
-        ]
-      },
-      "spacing": {
-        "rhythm": "8px baseline grid"
-      },
-      "surfaces": {
-        "shadows": [
-          "0 4px 12px rgba(0,0,0,0.05)"
-        ],
-        "borders": "1px solid rgba(0,0,0,0.1)"
-      },
-      "layout": {
-        "skeleton": "Two-column layout"
-      },
-      "components": {
-        "button": "Pill-shaped or rectangular with solid black background",
-        "card": "Rounded rectangles with subtle borders and shadows",
-        "chip": "Rounded pills with subtle backgrounds",
-        "input": "Clean rectangular fields with subtle borders",
-        "hero": "Split layout with large serif headline on left, visual on right"
-      },
-      "interaction": {
-        "hover": "Subtle color change or shadow increase",
-        "click": "Immediate visual feedback",
-        "transition": "Smooth fade or slide",
-        "keyboard": "Standard focus outlines"
-      },
-      "voice": {
-        "tone": "Calm, professional, and reassuring",
-        "headlineStyle": "Concise and action-oriented",
-        "ctaStyle": "Direct and clear",
-        "avoid": [
-          "Jargon",
-          "Hype",
-          "Aggressive language"
-        ]
-      },
-      "donts": [
-        "Don't use neon or highly saturated colors — screenshot shows a muted, warm neutral palette",
-        "Don't use heavy drop shadows — screenshot shows subtle, soft shadows",
-        "Don't use sans-serif fonts for headlines — screenshot shows serif fonts for display typography",
-        "Don't clutter the interface — screenshot shows generous whitespace and minimal elements",
-        "Don't use harsh borders — screenshot shows subtle, light borders",
-        "Don't use aggressive animation — screenshot shows a static, calm interface"
-      ],
-      "systemPrompt": "This is a calm, premium AI assistant website. The design uses a warm, neutral color palette with a soft off-white background and dark ink text. Typography features serif fonts for headlines and sans-serif for body text. The layout is clean and spacious with generous whitespace. Critical donts: avoid neon colors, heavy shadows, sans-serif headlines, clutter, harsh borders, and aggressive animation."
-    },
-    "zh-CN": {
-      "identity": {
-        "keywords": [
-          "人工智能",
-          "助手",
-          "生产力",
-          "深思熟虑"
-        ],
-        "analogy": "一个宁静、高端的联合办公空间",
-        "oneLiner": "一个为专业思考而设计的、宁静专注的 AI 助手。"
-      },
-      "colors": {
-        "principle": "温暖、中性且宁静"
-      },
-      "typography": {
-        "rules": [],
-        "scaleUses": [
-          "主标题",
-          "章节标题",
-          "正文"
-        ]
-      },
-      "spacing": {
-        "rhythm": "8px 基线网格"
-      },
-      "surfaces": {
-        "shadows": [
-          "0 4px 12px rgba(0,0,0,0.05)"
-        ],
-        "borders": "1px solid rgba(0,0,0,0.1)"
-      },
-      "layout": {
-        "skeleton": "双栏布局"
-      },
-      "components": {
-        "button": "药丸形或矩形，纯黑色背景",
-        "card": "带微弱边框和阴影的圆角矩形",
-        "chip": "带柔和背景色的圆角药丸形",
-        "input": "带微弱边框的简洁矩形输入框",
-        "hero": "分栏布局，左侧为大型衬线字体标题，右侧为视觉图像"
-      },
-      "interaction": {
-        "hover": "微妙的颜色变化或阴影加深",
-        "click": "即时视觉反馈",
-        "transition": "平滑的淡入淡出或滑动效果",
-        "keyboard": "标准焦点轮廓"
-      },
-      "voice": {
-        "tone": "平静、专业且令人安心",
-        "headlineStyle": "简洁且以行动为导向",
-        "ctaStyle": "直接且清晰",
-        "avoid": [
-          "行话",
-          "夸大宣传",
-          "攻击性语言"
-        ]
-      },
-      "donts": [
-        "勿使用霓虹色或高饱和度颜色 — 截图显示的是柔和、温暖的中性色板",
-        "勿使用厚重的投影 — 截图显示的是微妙、柔和的阴影",
-        "勿在标题中使用无衬线字体 — 截图显示的是用于展示性排版的衬线字体",
-        "勿使界面杂乱 — 截图显示的是充足的留白和极简的元素",
-        "勿使用生硬的边框 — 截图显示的是微妙、浅淡的边框",
-        "勿使用激进的动画 — 截图显示的是静态、宁静的界面"
-      ],
-      "systemPrompt": "这是一个宁静、高端的 AI 助手网站。设计采用温暖的中性色板，背景为柔和的米白色，文字为深色。排版上，标题使用衬线字体，正文使用无衬线字体。布局干净、宽敞，留白充足。关键禁忌：避免霓虹色、厚重投影、无衬线字体标题、界面杂乱、生硬边框和激进动画。"
-    },
-    "zh-TW": {
-      "identity": {
-        "keywords": [
-          "人工智慧",
-          "助理",
-          "生產力",
-          "深思熟慮"
-        ],
-        "analogy": "一個冷靜、高端的共享工作空間",
-        "oneLiner": "一位冷靜、專注的 AI 助理，專為專業思考而設計。"
-      },
-      "colors": {
-        "principle": "溫暖、中性且冷靜"
-      },
-      "typography": {
-        "rules": [],
-        "scaleUses": [
-          "主標題",
-          "章節標題",
-          "內文"
-        ]
-      },
-      "spacing": {
-        "rhythm": "8px 基線網格"
-      },
-      "surfaces": {
-        "shadows": [
-          "0 4px 12px rgba(0,0,0,0.05)"
-        ],
-        "borders": "1px solid rgba(0,0,0,0.1)"
-      },
-      "layout": {
-        "skeleton": "雙欄佈局"
-      },
-      "components": {
-        "button": "藥丸形或矩形，具有實心黑色背景",
-        "card": "圓角矩形，帶有細膩的邊框和陰影",
-        "chip": "圓角藥丸形，帶有柔和的背景色",
-        "input": "簡潔的矩形欄位，帶有細膩的邊框",
-        "hero": "分割式佈局，左側為大型襯線字體標題，右側為視覺圖像"
-      },
-      "interaction": {
-        "hover": "細微的色彩變化或陰影加深",
-        "click": "即時的視覺反饋",
-        "transition": "流暢的淡入淡出或滑動",
-        "keyboard": "標準的焦點外框"
-      },
-      "voice": {
-        "tone": "冷靜、專業且令人安心",
-        "headlineStyle": "簡潔且以行動為導向",
-        "ctaStyle": "直接且清晰",
-        "avoid": [
-          "術語",
-          "誇飾",
-          "咄咄逼人的用語"
-        ]
-      },
-      "donts": [
-        "不要使用霓虹或高飽和度的色彩——截圖顯示的是柔和、溫暖的中性色調。",
-        "不要使用厚重的陰影——截圖顯示的是細膩、柔和的陰影。",
-        "不要在標題中使用無襯線字體——截圖顯示標題採用襯線字體。",
-        "不要讓介面雜亂無章——截圖顯示的是充裕的留白與極簡的元素。",
-        "不要使用生硬的邊框——截圖顯示的是細膩、輕盈的邊框。",
-        "不要使用強烈的動畫——截圖顯示的是一個靜態、沉靜的介面。"
-      ],
-      "systemPrompt": "這是一個冷靜、高級的 AI 助理網站。設計採用溫暖、中性的色調，搭配柔和的米白背景與深墨色文字。字體方面，標題使用襯線字體，內文使用無襯線字體。佈局簡潔寬敞，留白充裕。關鍵注意事項：避免使用霓虹色、厚重的陰影、無襯線字體標題、雜亂的介面、生硬的邊框以及強烈的動畫。"
-    },
-    "ja": {
-      "identity": {
-        "keywords": [
-          "人工知能",
-          "アシスタント",
-          "生産性",
-          "思慮深さ"
-        ],
-        "analogy": "落ち着いた、ハイエンドな共同作業スペース",
-        "oneLiner": "プロフェッショナルな思考のために設計された、落ち着いた集中型AIアシスタント。"
-      },
-      "colors": {
-        "principle": "温かみのある、ニュートラルで落ち着いた色調"
-      },
-      "typography": {
-        "rules": [],
-        "scaleUses": [
-          "ヒーローヘッドライン",
-          "セクション見出し",
-          "本文"
-        ]
-      },
-      "spacing": {
-        "rhythm": "8pxベースライングリッド"
-      },
-      "surfaces": {
-        "shadows": [
-          "0 4px 12px rgba(0,0,0,0.05)"
-        ],
-        "borders": "1px solid rgba(0,0,0,0.1)"
-      },
-      "layout": {
-        "skeleton": "2カラムレイアウト"
-      },
-      "components": {
-        "button": "實体の黒背景を持つ、ピル形状または長方形",
-        "card": "繊細なボーダーとシャドウを持つ角丸の長方形",
-        "chip": "繊細な背景を持つ角丸のピル",
-        "input": "繊細なボーダーを持つクリーンな長方形フィールド",
-        "hero": "左に大きなセリフヘッドライン、右にビジュアルを持つ分割レイアウト"
-      },
-      "interaction": {
-        "hover": "繊細な色の変化やシャドウの増加",
-        "click": "即座のビジュアルフィードバック",
-        "transition": "スムーズなフェードまたはスライド",
-        "keyboard": "標準のフォーカスアウトライン"
-      },
-      "voice": {
-        "tone": "落ち着いた、プロフェッショナルで、安心感のあるトーン",
-        "headlineStyle": "簡潔でアクション重視",
-        "ctaStyle": "直接的で明確",
-        "avoid": [
-          "専門用語",
-          "誇大広告",
-          "アグレッシブな言葉"
-        ]
-      },
-      "donts": [
-        "ネオンや彩度の高い色を使わない — スクリーンショットは落ち着いた、暖かみのあるニュートラルパレットを示しています",
-        "重いドロップシャドウを使わない — スクリーンショットは繊細で柔らかいシャドウを示しています",
-        "見出しにサンセリフフォントを使わない — スクリーンショットはディスプレイタイポグラフィにセリフフォントを示しています",
-        "インターフェースを雑然とさせない — スクリーンショットは広々としたホワイトスペースと最小限の要素を示しています",
-        "強調されたボーダーを使わない — スクリーンショットは繊細で薄いボーダーを示しています",
-        "アグレッシブなアニメーションを使わない — スクリーンショットは静的で落ち着いたインターフェースを示しています"
-      ],
-      "systemPrompt": "これは落ち着いた高級AIアシスタントのウェブサイトです。デザインは柔らかいオフホワイトの背景とダークインクのテキストを持つ、温かみのあるニュートラルなカラーパレットを使用しています。タイポグラフィでは見出しにセリフフォント、本文にサンセリフフォントを採用しています。レイアウトはクリーンでゆったりとしており、広々としたホワイトスペースがあります。重要な注意点: ネオン色、重いシャドウ、サンセリフの見出し、雑然としたデザイン、強調されたボーダー、アグレッシブなアニメーションは避けてください。"
-    },
-    "ko": {
-      "identity": {
-        "keywords": [
-          "인공지능",
-          "어시스턴트",
-          "생산성",
-          "사려 깊은"
-        ],
-        "analogy": "고요하고 고급스러운 공유 오피스 공간",
-        "oneLiner": "전문적인 사고를 위해 설계된 차분하고 집중적인 AI 어시스턴트입니다."
-      },
-      "colors": {
-        "principle": "따뜻하고, 중성적이며, 차분한"
-      },
-      "typography": {
-        "rules": [],
-        "scaleUses": [
-          "히어로 헤드라인",
-          "섹션 제목",
-          "본문 텍스트"
-        ]
-      },
-      "spacing": {
-        "rhythm": "8px 베이스라인 그리드"
-      },
-      "surfaces": {
-        "shadows": [
-          "0 4px 12px rgba(0,0,0,0.05)"
-        ],
-        "borders": "1px solid rgba(0,0,0,0.1)"
-      },
-      "layout": {
-        "skeleton": "2단 레이아웃"
-      },
-      "components": {
-        "button": "배경이 짙은 검정색인 알약 모양 또는 직사각형",
-        "card": "은은한 테두리와 그림자가 있는 둥근 직사각형",
-        "chip": "은은한 배경의 둥근 알약 모양",
-        "input": "은은한 테두리가 있는 깔끔한 직사각형 필드",
-        "hero": "왼쪽에 큰 세리프 헤드라인, 오른쪽에 비주얼이 있는 분할 레이아웃"
-      },
-      "interaction": {
-        "hover": "은은한 색상 변화 또는 그림자 강조",
-        "click": "즉각적인 시각적 피드백",
-        "transition": "부드러운 페이드 또는 슬라이드",
-        "keyboard": "표준 포커스 윤곽선"
-      },
-      "voice": {
-        "tone": "차분하고, 전문적이며, 안심시키는",
-        "headlineStyle": "간결하고 행동 지향적인",
-        "ctaStyle": "직관적이고 명확한",
-        "avoid": [
-          "전문 용어",
-          "과장된 표현",
-          "공격적인 언어"
-        ]
-      },
-      "donts": [
-        "네온색 또는 매우 채도 높은 색상을 사용하지 마세요 — 스크린샷은 은은하고 따뜻한 중성 팔레트를 보여줍니다.",
-        "무거운 드롭 섀도우를 사용하지 마세요 — 스크린샷은 은은하고 부드러운 그림자를 보여줍니다.",
-        "헤드라인에 산세리프 글꼴을 사용하지 마세요 — 스크린샷은 디스플레이 타이포그래피에 세리프 글꼴을 보여줍니다.",
-        "인터페이스를 어지럽히지 마세요 — 스크린샷은 넉넉한 여백과 미니멀한 요소를 보여줍니다.",
-        "날카로운 테두리를 사용하지 마세요 — 스크린샷은 은은하고 연한 테두리를 보여줍니다.",
-        "공격적인 애니메이션을 사용하지 마세요 — 스크린샷은 정적이고 차분한 인터페이스를 보여줍니다."
-      ],
-      "systemPrompt": "이것은 차분하고 프리미엄 AI 어시스턴트 웹사이트입니다. 디자인은 부드러운 오프화이트 배경과 짙은 잉크 텍스트를 가진 따뜻하고 중성적인 색상 팔레트를 사용합니다. 타이포그래피는 헤드라인에 세리프 글꼴, 본문에 산세리프 글꼴을 특징으로 합니다. 레이아웃은 넉넉한 여백으로 깔끔하고 여유롭습니다. 중요한 주의사항: 네온색, 무거운 그림자, 산세리프 헤드라인, 인터페이스 혼잡, 날카로운 테두리, 공격적인 애니메이션을 피하세요."
+      "easing": "cubic-bezier(0.165, 0.84, 0.44, 1)"
     }
   },
   "desc": {
     "en": {
-      "palette": "A warm, neutral palette dominated by off-white backgrounds, dark ink text, and subtle grays.",
-      "layout": "A spacious two-column layout with a clear visual hierarchy and generous whitespace.",
-      "interaction": "Subtle and unobtrusive, focusing on clarity and ease of use.",
-      "motion": "Minimal and smooth, enhancing the calm and focused atmosphere.",
-      "notes": "A perfect example of a calm, premium AI interface that prioritizes focus and clarity over visual noise."
+      "palette": "A warm monochrome palette using off-whites, deep charcoals, and subtle warm grays to create a calm, premium aesthetic.",
+      "layout": "A clean, centered 12-column grid with generous gutters and a split hero layout that prioritizes white space.",
+      "interaction": "Subtle, smooth transitions and hover states that provide clear feedback without being distracting.",
+      "motion": "Brief, smooth transitions with a custom cubic-bezier curve that enhance the overall sense of refined calm.",
+      "notes": "Worth including as a masterclass in restrained, premium AI product design that uses traditional typography in a modern web context."
     },
     "zh-CN": {
       "palette": "以米白色背景、深色文字和柔和灰色为主导的温暖中性色板。",
@@ -546,6 +219,418 @@
       "ch7_intro": "모션 철학은 최소한이자 부드러우며, 의도적인 지속 시간 스케일을 사용하여 주의를 끌지 않으면서도 동작을 확인하거나 전환을 안내합니다. 기본 완화 곡선은 모든 움직임이 자연스럽고 서두르지 않은 느낌을 갖도록 보장합니다.",
       "ch8_intro": "편집적 목소리는 차분하고, 전문적이며, 안심시키는 느낌이며, 간결하고 행동 지향적인 헤드라인과 직접적인 호출-to-액션을 사용합니다. 언어는 전문 용어, 과장, 그리고 공격적이거나 지나치게 캐주얼한 어조를 피합니다.",
       "ch8_outro": "의도적인 선택으로, 이 시스템은 시각적 노이즈, 네온 채도, 무거운 그림자, 공격적인 애니메이션을 거부하고 지속적인 초점과 명확성을 지지합니다."
+    }
+  },
+  "spec_i18n": {
+    "en": {
+      "identity": {
+        "keywords": [
+          "thoughtful",
+          "capable",
+          "refined",
+          "intelligent",
+          "reliable"
+        ],
+        "analogy": "A highly sophisticated AI assistant that blends academic rigor with modern, approachable design.",
+        "oneLiner": "A refined, serif-led AI interface that balances premium restraint with warm, human-centric aesthetics."
+      },
+      "colors": {
+        "principle": "Warm monochrome palette relying on off-white backgrounds and deep charcoal text, using subtle warm grays for borders and muted elements."
+      },
+      "typography": {
+        "rules": [
+          "Use transitional-serif for all major headlines and display text.",
+          "Use humanist-sans for all body copy, navigation, and UI components.",
+          "Keep body font weight consistently at 400 to maintain a calm, readable rhythm."
+        ],
+        "scaleUses": [
+          "Primary hero headlines",
+          "Section headings and pricing tiers",
+          "Standard body text and UI elements",
+          "Small print, legal text, and metadata"
+        ]
+      },
+      "spacing": {
+        "rhythm": "Clean, generous spacing with a consistent 4px base grid and ample vertical padding in containers."
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(0, 0, 0, 0.1) 0px 4px 16px 0px",
+          "rgba(209, 207, 197, 1.0) 0px 0px 0px 1px"
+        ],
+        "borders": "Thin 1px borders using a warm neutral gray (rgba(209, 207, 197, 1.0))."
+      },
+      "layout": {
+        "skeleton": "A clean, centered 12-column grid with generous gutters and distinct content blocks."
+      },
+      "components": {
+        "button": "Solid black or white buttons with rounded corners (4px-8px radius) and simple sans-serif labels.",
+        "card": "Cards with subtle 1px warm-gray borders, generous padding, and soft rounded corners (12px).",
+        "chip": "Simple checkmarks with text labels for feature lists.",
+        "input": "Clean, borderless or subtly bordered inputs focused on readability.",
+        "hero": "A split layout with large serif headlines on the left and illustrative UI mockups on the right."
+      },
+      "motion": {
+        "patterns": [
+          "Smooth color transitions on hover and focus states.",
+          "Subtle fade-ins for content appearance.",
+          "Smooth background-color shifts for interactive elements."
+        ]
+      },
+      "interaction": {
+        "hover": "Subtle color shifts or background changes for interactive elements.",
+        "click": "Immediate state change with minimal feedback.",
+        "transition": "All transitions are brief (0.15s - 0.2s) and smooth.",
+        "keyboard": "Standard focus management with visible outlines or subtle background shifts."
+      },
+      "voice": {
+        "tone": "Professional, intelligent, and remarkably calm.",
+        "headlineStyle": "Clear, benefit-driven statements in a refined serif typeface.",
+        "ctaStyle": "Direct, simple, and action-oriented (e.g., 'Try Claude').",
+        "avoid": [
+          "Overly technical jargon in user-facing copy.",
+          "Loud, high-contrast accent colors.",
+          "Aggressive or flashy animations.",
+          "Dense, cluttered layouts."
+        ]
+      },
+      "donts": [
+        "Don't use bright, neon, or high-saturation accent colors — the palette is warm and monochrome.",
+        "Don't use heavy, blocky sans-serifs for headlines — the display font is a refined transitional-serif.",
+        "Don't use tight, dense layouts with small padding — the design prioritizes ample white space.",
+        "Don't use harsh, pure black (#000000) and pure white (#FFFFFF) — the palette uses warm off-whites (#FAF9F5) and deep charcoals (#141413).",
+        "Don't use aggressive, springy, or complex easing curves — transitions are smooth and subtle.",
+        "Don't use rounded pill-shaped buttons everywhere — standard rounded rectangles (4px-8px) are the default for primary actions."
+      ],
+      "systemPrompt": "You are a senior visual systems analyst describing a premium AI product website. The site is positioned as a calm, capable, and highly refined AI assistant. Use a warm monochrome palette anchored by off-white (#FAF9F5) backgrounds and deep charcoal (#141413) text, avoiding any bright accent colors. Typography relies on a transitional-serif for display and a humanist-sans for body text. Layout is centered on a 12-column grid with generous gutters and ample white space. Critical constraints: Do not invent high-chroma colors. Do not use blocky sans-serifs for headlines. Do not create dense or cluttered layouts. Keep the voice professional, intelligent, and remarkably calm, prioritizing clarity and restraint over flashy visuals."
+    },
+    "zh-CN": {
+      "identity": {
+        "keywords": [
+          "深思熟虑",
+          "能力出众",
+          "精致考究",
+          "智慧",
+          "可靠"
+        ],
+        "analogy": "一位高度成熟的AI助手，融合了学术的严谨与现代、亲切的设计。",
+        "oneLiner": "一个精致的、以衬线字体为主导的AI界面，在高端克制与温暖、以人为本的美学之间取得平衡。"
+      },
+      "colors": {
+        "principle": "采用暖色单色调色板，以米白色背景和深炭灰色文字为主，使用柔和的暖灰色作为边框和弱化元素。"
+      },
+      "typography": {
+        "rules": [
+          "所有主要标题和展示文本使用过渡衬线字体。",
+          "所有正文、导航和UI组件使用人文主义无衬线字体。",
+          "正文字重始终保持在400，以维持平静、易读的韵律。"
+        ],
+        "scaleUses": [
+          "主要的大标题",
+          "章节标题和价格层级",
+          "标准正文和UI元素",
+          "小字文本、法律文本和元数据"
+        ]
+      },
+      "spacing": {
+        "rhythm": "简洁、宽松的间距，使用一致的4px基础网格，容器内有充足的垂直内边距。"
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(0, 0, 0, 0.1) 0px 4px 16px 0px",
+          "rgba(209, 207, 197, 1.0) 0px 0px 0px 1px"
+        ],
+        "borders": "使用暖中性灰色（rgba(209, 207, 197, 1.0)）的1px细边框。"
+      },
+      "layout": {
+        "skeleton": "一个简洁、居中的12列网格布局，具有宽大的间距和清晰的内容区块。"
+      },
+      "components": {
+        "button": "实心黑色或白色按钮，圆角（4px-8px半径），使用简洁的无衬线标签。",
+        "card": "卡片带有微妙的1px暖灰色边框、充足的内边距和柔和的圆角（12px）。",
+        "chip": "用于功能列表的简单对勾标记加文本标签。",
+        "input": "简洁、无边框或带微妙边框的输入框，专注于可读性。",
+        "hero": "分屏布局，左侧为大号衬线标题，右侧为说明性的UI模型图。"
+      },
+      "motion": {
+        "patterns": [
+          "hover和focus状态下的平滑颜色过渡。",
+          "内容出现时的微妙淡入效果。",
+          "交互元素的平滑背景色变化。"
+        ]
+      },
+      "interaction": {
+        "hover": "交互元素的微妙颜色变化或背景变化。",
+        "click": "立即的状态变化，带有最小化反馈。",
+        "transition": "所有过渡都非常短暂（0.15秒 - 0.2秒）且平滑。",
+        "keyboard": "标准的焦点管理，带有可见轮廓或微妙的背景变化。"
+      },
+      "voice": {
+        "tone": "专业、智慧且异常平静。",
+        "headlineStyle": "使用精致的衬线字体表达清晰、以利益为导向的陈述。",
+        "ctaStyle": "直接、简洁、以行动为导向（例如，'尝试 Claude'）。",
+        "avoid": [
+          "面向用户的文案中使用过于技术性的术语。",
+          "使用响亮、高对比度的强调色。",
+          "使用激进或花哨的动画效果。",
+          "使用密集、杂乱的布局。"
+        ]
+      },
+      "donts": [
+        "不要使用明亮、霓虹色或高饱和度的强调色——调色板是温暖且单色的。",
+        "不要在标题中使用厚重、方块感的无衬线字体——展示字体是精致的过渡衬线字体。",
+        "不要使用紧凑、密集、小内边距的布局——设计优先考虑充足的留白。",
+        "不要使用刺眼的纯黑色（#000000）和纯白色（#FFFFFF）——调色板使用的是温暖的米白色（#FAF9F5）和深炭灰色（#141413）。",
+        "不要使用激进、有弹性或复杂的缓动曲线——过渡是平滑且微妙的。",
+        "不要到处都使用圆润的药丸形按钮——标准的圆角矩形（4px-8px）是主要操作的默认选择。"
+      ],
+      "systemPrompt": "你是一名资深的视觉系统分析师，正在描述一个高端AI产品网站。该网站定位为一个平静、能力出众且高度精致的AI助手。使用以米白色（#FAF9F5）背景和深炭灰色（#141413）文字为基础的暖色单色调色板，避免使用任何明亮的强调色。排版依赖于用于展示的过渡衬线字体和用于正文的人文主义无衬线字体。布局基于一个12列网格，具有宽大的间距和充足的留白。关键约束：不要发明高色度的颜色。不要在标题中使用方块感的无衬线字体。不要创建密集或杂乱的布局。保持文案专业、智慧且异常平静，优先考虑清晰和克制，而非花哨的视觉效果。"
+    },
+    "zh-TW": {
+      "identity": {
+        "keywords": [
+          "深思熟慮",
+          "能力出眾",
+          "精緻考究",
+          "智慧卓越",
+          "值得信賴"
+        ],
+        "analogy": "一位高度精密的 AI 助理，融合了學術嚴謹性與現代、親切的設計。",
+        "oneLiner": "一個精緻、以襯線體為主的 AI 介面，在高端的克制感與溫暖、以人為本的美學之間取得平衡。"
+      },
+      "colors": {
+        "principle": "溫暖的單色調色盤，以米白色背景搭配深炭灰色文字，並運用微妙的暖灰色處理邊框與低調的元素。"
+      },
+      "typography": {
+        "rules": [
+          "所有主要標題與展示文字使用過渡襯線體。",
+          "所有內文、導覽與 UI 元素使用人文無襯線體。",
+          "內文字重始終保持在 400，以維持平靜、易讀的節奏。"
+        ],
+        "scaleUses": [
+          "主要首頁大標題",
+          "章節標題與定價層級",
+          "標準內文與 UI 元素",
+          "小字、法律文字與中繼資料"
+        ]
+      },
+      "spacing": {
+        "rhythm": "簡潔、寬裕的間距，採用一致的 4px 基礎網格，並在容器中提供充足的垂直內距。"
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(0, 0, 0, 0.1) 0px 4px 16px 0px",
+          "rgba(209, 207, 197, 1.0) 0px 0px 0px 1px"
+        ],
+        "borders": "使用溫暖中性灰（rgba(209, 207, 197, 1.0)）的細 1px 邊框。"
+      },
+      "layout": {
+        "skeleton": "簡潔、置中的 12 欄網格，搭配寬裕的欄溝與分明的內容區塊。"
+      },
+      "components": {
+        "button": "實心黑色或白色按鈕，帶有圓角（4px-8px 半徑）與簡潔的無襯線標籤。",
+        "card": "卡片帶有微妙的 1px 暖灰色邊框、寬裕的內距與柔和的圓角（12px）。",
+        "chip": "用於功能列表的簡潔勾選標記與文字標籤。",
+        "input": "簡潔、無邊框或帶有微妙邊框的輸入框，專注於可讀性。",
+        "hero": "分割式佈局，左側為大型襯線體標題，右側為示意性 UI 模型。"
+      },
+      "motion": {
+        "patterns": [
+          "懸停與聚焦狀態下的平滑色彩過渡。",
+          "內容出現時的微妙淡入效果。",
+          "互動元素的平滑背景色轉換。"
+        ]
+      },
+      "interaction": {
+        "hover": "互動元素的微妙色彩變化或背景改變。",
+        "click": "立即的狀態變化，回饋極簡。",
+        "transition": "所有過渡都很短暫（0.15s - 0.2s）且平滑。",
+        "keyboard": "標準的焦點管理，搭配可見的外框或微妙的背景變化。"
+      },
+      "voice": {
+        "tone": "專業、智慧且異常平靜。",
+        "headlineStyle": "清晰、強調效益的陳述，使用精緻的襯線字體。",
+        "ctaStyle": "直接、簡潔且以行動為導向（例如：「試用 Claude」）。",
+        "avoid": [
+          "面向用戶的文案中使用過於技術性的術語。",
+          "響亮、高對比的強調色彩。",
+          "具侵略性或過於花俏的動畫。",
+          "密集、雜亂的佈局。"
+        ]
+      },
+      "donts": [
+        "請勿使用明亮、霓虹或高飽和度的強調色——此調色盤是溫暖且單色的。",
+        "請勿使用厚重、方塊感的無襯線體作為標題——展示字體是精緻的過渡襯線體。",
+        "請勿使用緊湊、密集且內距較小的佈局——此設計優先考慮充足的留白。",
+        "請勿使用刺眼的純黑（#000000）與純白（#FFFFFF）——此調色盤使用溫暖的米白（#FAF9F5）與深炭灰（#141413）。",
+        "請勿使用具侵略性、彈跳或複雜的緩動曲線——過渡效果應平滑而微妙。",
+        "請勿在所有地方都使用圓角膠囊形按鈕——標準的圓角矩形（4px-8px）是主要操作的預設樣式。"
+      ],
+      "systemPrompt": "您是一位資深視覺系統分析師，正在描述一個高端 AI 產品網站。該網站定位為一位平靜、能力出眾且高度精緻的 AI 助理。請使用以米白色（#FAF9F5）背景與深炭灰色（#141413）文字為基礎的溫暖單色調色盤，避免使用任何明亮的強調色。字體方面，展示文字使用過渡襯線體，內文使用人文無襯線體。佈局以 12 欄網格為中心，搭配寬裕的欄溝與充足的留白。關鍵限制：請勿創造高彩度的顏色。請勿使用方塊感的無襯線體作為標題。請勿創造密集或雜亂的佈局。請保持專業、智慧且異常平靜的語氣，優先考慮清晰與克制，而非花俏的視覺效果。"
+    },
+    "ja": {
+      "identity": {
+        "keywords": [
+          "思慮深い",
+          "優れた",
+          "洗練された",
+          "知的な",
+          "信頼できる"
+        ],
+        "analogy": "学術的な厳密さとモダンで親しみやすいデザインを融合させた、高度に洗練されたAIアシスタント。",
+        "oneLiner": "プレミアムな抑制と温かみのある人間中心の美学をバランスよく兼ね備えた、洗練されたセリフ書体を用いたAIインターフェース。"
+      },
+      "colors": {
+        "principle": "オフホワイトの背景と深いチャコールのテキストに依存する温かみのあるモノクロームパレット。ボーダーや控えめな要素には控えめなウォームグレーを使用。"
+      },
+      "typography": {
+        "rules": [
+          "すべての主要な見出しとディスプレイテキストには、トランジショナルセリフ書体を使用。",
+          "すべての本文、ナビゲーション、およびUIコンポーネントには、ヒューマニストサンセリフ書体を使用。",
+          "落ち着いた、読みやすいリズムを維持するために、本文のフォントウェイトは常に400に保つ。"
+        ],
+        "scaleUses": [
+          "プライマリヒーローヘッドライン",
+          "セクション見出しと価格帯",
+          "標準的な本文とUI要素",
+          "注釈、法的テキスト、およびメタデータ"
+        ]
+      },
+      "spacing": {
+        "rhythm": "一貫した4pxベースグリッドとコンテナ内の豊かな垂直パディングを備えた、クリーンでゆったりとしたスペーシング。"
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(0, 0, 0, 0.1) 0px 4px 16px 0px",
+          "rgba(209, 207, 197, 1.0) 0px 0px 0px 1px"
+        ],
+        "borders": "温かみのあるニュートラルグレー（rgba(209, 207, 197, 1.0)）を使用した薄い1pxのボーダー。"
+      },
+      "layout": {
+        "skeleton": "豊かなガターと明確なコンテンツブロックを持つ、クリーンで中央寄せの12カラムグリッド。"
+      },
+      "components": {
+        "button": "角丸（4px-8px半径）でシンプルなサンセリフラベルを持つ、ソリッドブラックまたはホワイトのボタン。",
+        "card": "控えめな1pxのウォームグレーボーダー、豊かなパディング、そして柔らかな角丸（12px）を持つカード。",
+        "chip": "機能リスト用のテキストラベル付きシンプルなチェックマーク。",
+        "input": "読みやすさに焦点を当てた、クリーンでボーダーレスまたは控えめなボーダーのインプット。",
+        "hero": "左側に大きなセリフ書体の見出し、右側にイラスト的なUIモックアップを持つ分割レイアウト。"
+      },
+      "motion": {
+        "patterns": [
+          "hoverおよびfocus状態での滑らかなカラートランジション。",
+          "コンテンツ表示のための控えめなフェードイン。",
+          "インタラクティブ要素のための滑らかなbackground-colorシフト。"
+        ]
+      },
+      "interaction": {
+        "hover": "インタラクティブ要素のための控えめな色の変化または背景の変化。",
+        "click": "最小限のフィードバックを伴う即時の状態変化。",
+        "transition": "すべてのトランジションは短く（0.15s - 0.2s）、滑らかです。",
+        "keyboard": "可視化されたアウトラインまたは控えめな背景シフトを伴う標準的なフォーカス管理。"
+      },
+      "voice": {
+        "tone": "プロフェッショナルで、知的、そして驚くほど落ち着いています。",
+        "headlineStyle": "洗練されたセリフ書体による、明確でメリット重視の声明。",
+        "ctaStyle": "直接的でシンプル、アクション重視（例：'Try Claude'）。",
+        "avoid": [
+          "ユーザーフェースのコピープロジェクトにおける過度に技術的な専門用語。",
+          "派手でコントラストの強いアクセントカラー。",
+          "攻撃的または華やかなアニメーション。",
+          "密集し、ごちゃごちゃしたレイアウト。"
+        ]
+      },
+      "donts": [
+        "明るいネオン色や彩度の高いアクセントカラーは使用しない — パレットは温かみのあるモノクロームです。",
+        "見出しに重厚で角張ったサンセリフ書体は使用しない — ディスプレイフォントは洗練されたトランジショナルセリフ書体です。",
+        "パディングが小さく密集したレイアウトは使用しない — デザインは十分なホワイトスペースを優先します。",
+        "不快な純黒（#000000）と純白（#FFFFFF）は使用しない — パレットは温かみのあるオフホワイト（#FAF9F5）と深いチャコール（#141413）を使用しています。",
+        "攻撃的でバネのような複雑なイージングカーブは使用しない — トランジションは滑らかで控えめです。",
+        " everywhere ピル型の角丸ボタンは使用しない — プライマリアクションのデフォルトは標準的な角丸長方形（4px-8px）です。"
+      ],
+      "systemPrompt": "あなたはプレミアムなAI製品ウェブサイトを記述するシニアビジュアルシステムアナリストです。このサイトは、落ち着いた、優れた、そして高度に洗練されたAIアシスタントとしてポジショニングされています。オフホワイト（#FAF9F5）の背景と深いチャコール（#141413）のテキストを基調とし、明るいアクセントカラーは一切使用しない温かみのあるモノクロームパレットを使用してください。タイポグラフィはディスプレイ用にトランジショナルセリフ書体、本文用にヒューマニストサンセリフ書体に依存します。レイアウトは、豊かなガターと十分なホワイトスペースを備えた12カラムグリッドを中心に構成します。重要な制約：高彩度な色を発明しないでください。見出しに角張ったサンセリフ書体を使用しないでください。密集した、ごちゃごちゃしたレイアウトを作成しないでください。声調はプロフェッショナルで知的、そして驚くほど落ち着いたものにし、派手なビジュアルよりも明確さと抑制を優先してください。"
+    },
+    "ko": {
+      "identity": {
+        "keywords": [
+          "사려 깊은",
+          "유능한",
+          "세련된",
+          "지능적인",
+          "신뢰할 수 있는"
+        ],
+        "analogy": "학문적 엄밀함과 현대적이고 친근한 디자인을 결합한 고도로 정교한 AI 어시스턴트.",
+        "oneLiner": "프리미엄의 절제와 따뜻하고 인간 중심의 미학을 조화시키는, 세련된 세리프 중심 AI 인터페이스."
+      },
+      "colors": {
+        "principle": "오프화이트 배경과 짙은 차콜 텍스트에 기반한 따뜻한 단색 팔레트. 테두리와 절제된 요소에는 은은한 따뜻한 그레이를 사용합니다."
+      },
+      "typography": {
+        "rules": [
+          "모든 주요 헤드라인과 전시 텍스트에는 트랜지셔널 세리프를 사용합니다.",
+          "모든 본문, 내비게이션 및 UI 컴포넌트에는 휴머니스트산스를 사용합니다.",
+          "본문 폰트 웨이트는 차분하고 읽기 좋은 리듬을 유지하기 위해 400으로 일관되게 유지합니다."
+        ],
+        "scaleUses": [
+          "주요 히어로 헤드라인",
+          "섹션 제목 및 요금제",
+          "일반 본문 텍스트 및 UI 요소",
+          "小型 텍스트, 법적 텍스트 및 메타데이터"
+        ]
+      },
+      "spacing": {
+        "rhythm": "일관된 4px 기본 그리드와 컨테이너 내 충분한 수직 패딩을 갖춘 깔끔하고 넉넉한 간격."
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(0, 0, 0, 0.1) 0px 4px 16px 0px",
+          "rgba(209, 207, 197, 1.0) 0px 0px 0px 1px"
+        ],
+        "borders": "따뜻한 중성 그레이(rgba(209, 207, 197, 1.0))를 사용한 1px 얇은 테두리."
+      },
+      "layout": {
+        "skeleton": "넉넉한 거터와 명확한 콘텐츠 블록을 갖춘 깔끔하고 중앙 정렬된 12칼럼 그리드."
+      },
+      "components": {
+        "button": "둥근 모서리(4px-8px radius)와 간결한 산스 세리프 레이블을 갖진 검정 또는 흰색 단색 버튼.",
+        "card": "은은한 1px 따뜻한 그레이 테두리, 넉넉한 패딩, 그리고 부드러운 둥근 모서리(12px)를 갖춘 카드.",
+        "chip": "기능 목록을 위한 텍스트 레이블이 포함된 간결한 체크마크.",
+        "input": "가독성에 초점을 맞춘 깔끔하고 테두리가 없거나 은은하게 테두리가 있는 입력 필드.",
+        "hero": "좌측에 큰 세리프 헤드라인, 우측에 일러스트레이티브 UI 목업을 배치한 분할 레이아웃."
+      },
+      "motion": {
+        "patterns": [
+          "hover 및 focus 상태에서의 부드러운 색상 전환.",
+          "콘텐츠 표시를 위한 은은한 페이드인.",
+          "인터랙티브 요소를 위한 부드러운 배경색 전환."
+        ]
+      },
+      "interaction": {
+        "hover": "인터랙티브 요소에 대한 은은한 색상 변화 또는 배경 변경.",
+        "click": "최소한의 피드백으로 즉각적인 상태 변경.",
+        "transition": "모든 전환은 짧게(0.15s - 0.2s) 부드럽게 수행됩니다.",
+        "keyboard": "눈에 보이는 윤곽선이나 은은한 배경 변화를 통한 표준 포커스 관리."
+      },
+      "voice": {
+        "tone": "전문적이고 지능적이며, 놀라울 정도로 차분한 어조.",
+        "headlineStyle": "세련된 세리프 서체로 작성된 명확하고 혜택 중심적인 진술.",
+        "ctaStyle": "직접적이고 간결하며, 행동 지향적인 문구(예: 'Claude 체험하기').",
+        "avoid": [
+          "사용자 대상 카피에 지나치게 전문적인 용어 사용.",
+          "강렬하고 대비가 높은 강조 색상.",
+          "공격적이거나 화려한 애니메이션.",
+          "빽빽하고 복잡한 레이아웃."
+        ]
+      },
+      "donts": [
+        "밝은 네온 또는 고채도 강조 색상을 사용하지 마세요. 팔레트는 따뜻하고 단색입니다.",
+        "헤드라인에 무겁고 네모난 산스 세리프를 사용하지 마세요. 전시용 폰트는 세련된 트랜지셔널 세리프입니다.",
+        "좁고 빽빽하며 작은 패딩의 레이아웃을 사용하지 마세요. 디자인은 넉넉한 여백을 우선시합니다.",
+        "가장자리가 날카로운 순수 검정(#000000)과 순백(#FFFFFF)을 사용하지 마세요. 팔레트는 따뜻한 오프화이트(#FAF9F5)와 짙은 차콜(#141413)을 사용합니다.",
+        "공격적이고 탄력 있거나 복잡한 이징 곡선을 사용하지 마세요. 전환은 부드럽고 은은합니다.",
+        "모든 곳에 둥근 알약 모양 버튼을 사용하지 마세요. 기본 주요 액션은 표준 둥근 직사각형(4px-8px)입니다."
+      ],
+      "systemPrompt": "당신은 프리미엄 AI 제품 웹사이트를 설명하는 시니어 비주얼 시스템 분석가입니다. 해당 사이트는 차분하고 유능하며 매우 세련된 AI 어시스턴트로 포지셔닝됩니다. 오프화이트(#FAF9F5) 배경과 짙은 차콜(#141413) 텍스트를 기반으로 한 따뜻한 단색 팔레트를 사용하며, 밝은 강조 색상은 피합니다. 타이포그래피는 전시를 위해 트랜지셔널 세리프, 본문을 위해 휴머니스트산스에 의존합니다. 레이아웃은 넉넉한 거터와 충분한 여백을 갖춘 12칼럼 그리드를 중심으로 합니다. 핵심 제약 조건: 고채도 색상을 만들지 마세요. 헤드라인에 네모난 산스 세리프를 사용하지 마세요. 빽빽하거나 복잡한 레이아웃을 만들지 마세요. 전문적이고 지능적이며 놀라울 정도로 차분한 어조를 유지하되, 화려한 비주얼보다 명확성과 절제를 우선시합니다."
     }
   }
 }

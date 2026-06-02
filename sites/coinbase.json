@@ -15,56 +15,72 @@
   "_meta": {
     "vision_model": "mimo-v2.5",
     "vision_prompt_version": "0.3",
-    "vision_at": "2026-05-28T21:16:15+00:00",
-    "vision_tokens": 3291,
-    "vision_cost_usd": 0.0366,
+    "vision_at": "2026-05-30T10:05:58+00:00",
+    "vision_tokens": 16389,
+    "vision_cost_usd": 0.1821,
     "translation_model": "mimo-v2.5",
-    "translation_at": "2026-05-28T21:17:04+00:00",
-    "translation_tokens": 14609,
-    "translation_cost_usd": 0.0487,
+    "translation_at": "2026-05-30T10:06:52+00:00",
+    "translation_tokens": 24738,
+    "translation_cost_usd": 0.0825,
     "narrative_model": "mimo-v2.5",
     "narrative_prompt_version": "0.3",
     "narrative_at": "2026-05-28T21:17:11+00:00",
     "narrative_tokens": 1801,
     "narrative_cost_usd": 0.012,
     "narrative_status": "ok",
-    "total_cost_usd": 0.0973
+    "total_cost_usd": 0.2766,
+    "vision_source": "playwright-extract:coinbase",
+    "vision_grounded": true
   },
   "spec": {
     "colors": {
       "bg": "#FFFFFF",
-      "bgSoft": null,
+      "bgSoft": "#EEF0F3",
       "bgQuiet": null,
-      "ink": "#000000",
-      "inkSoft": "#333333",
-      "muted": "#666666",
+      "ink": "#0A0B0D",
+      "inkSoft": "#5B616E",
+      "muted": "#5B616E",
       "mutedSoft": null,
       "accent": "#0052FF",
-      "line": "rgba(0, 0, 0, 0.1)"
+      "line": "rgba(10,11,13,0.08)"
     },
     "typography": {
-      "display": "system-ui",
-      "body": "system-ui",
+      "display": "geometric-sans",
+      "body": "humanist-sans",
       "mono": "monospace",
       "scale": [
         {
           "token": "display",
-          "size": 32,
-          "lh": 1.2,
-          "weight": 600,
+          "size": 56,
+          "lh": 1.0,
+          "weight": 500,
+          "ls": "-1px"
+        },
+        {
+          "token": "h2",
+          "size": 40,
+          "lh": 1.1,
+          "weight": 500,
           "ls": "-0.5px"
         },
         {
-          "token": "h1",
-          "size": 24,
-          "lh": 1.3,
-          "weight": 500,
+          "token": "body-lg",
+          "size": 20,
+          "lh": 1.4,
+          "weight": 400,
           "ls": "0px"
         },
         {
           "token": "body",
           "size": 16,
           "lh": 1.5,
+          "weight": 400,
+          "ls": "0px"
+        },
+        {
+          "token": "caption",
+          "size": 14,
+          "lh": 1.15,
           "weight": 400,
           "ls": "0px"
         }
@@ -92,7 +108,7 @@
       }
     },
     "layout": {
-      "container": 1200,
+      "container": 1280,
       "paragraph": 680,
       "columns": 12,
       "gutter": 24,
@@ -103,397 +119,20 @@
     },
     "motion": {
       "durations": {
-        "micro": 220,
+        "micro": 200,
         "small": 400,
         "medium": 800
       },
-      "easing": "cubic-bezier(0.4, 0, 0.2, 1)"
-    }
-  },
-  "spec_i18n": {
-    "en": {
-      "identity": {
-        "keywords": [
-          "security",
-          "verification",
-          "functional",
-          "minimal",
-          "clear"
-        ],
-        "analogy": "A secure, utilitarian checkpoint before entering a digital financial space.",
-        "oneLiner": "A stark, functional security verification page designed for clarity and trust during a bot protection check."
-      },
-      "colors": {
-        "principle": "Maximum contrast for readability and a single brand accent for identity, otherwise strictly monochromatic."
-      },
-      "typography": {
-        "rules": [
-          "Use system-ui font stack for cross-platform consistency.",
-          "Maintain clear hierarchy with weight and size differentiation.",
-          "Avoid decorative typography; keep it purely functional."
-        ],
-        "scaleUses": [
-          "Domain header",
-          "Page title",
-          "Explanatory text"
-        ]
-      },
-      "spacing": {
-        "rhythm": "Simple, consistent spacing based on a 4px grid for vertical rhythm."
-      },
-      "surfaces": {
-        "shadows": [],
-        "borders": "Minimal use of 1px solid borders for container definition, using rgba(0,0,0,0.1)."
-      },
-      "layout": {
-        "skeleton": "A simple, single-column centered layout with generous whitespace, focused content flow."
-      },
-      "components": {
-        "button": "Functional, understated with clear borders and minimal styling.",
-        "card": "A subtle bordered container for the verification widget.",
-        "chip": "N/A",
-        "input": "N/A",
-        "hero": "A simple, text-focused hero area with the domain name and status message."
-      },
-      "motion": {
-        "patterns": [
-          "Spinner animation for verification status"
-        ]
-      },
-      "interaction": {
-        "hover": "Subtle color or underline change on interactive elements like links.",
-        "click": "Standard browser default for links and buttons.",
-        "transition": "Smooth transitions on hover states for interactive elements.",
-        "keyboard": "Standard tab navigation for accessible link traversal."
-      },
-      "voice": {
-        "tone": "Professional, clear, and reassuring.",
-        "headlineStyle": "Direct and descriptive, stating the current process.",
-        "ctaStyle": "Informational links rather than aggressive calls to action.",
-        "avoid": [
-          "Marketing language",
-          "Playful metaphors",
-          "Excessive exclamation"
-        ]
-      },
-      "donts": [
-        "Don't use decorative fonts — screenshot shows functional system fonts instead.",
-        "Don't add complex background patterns — screenshot shows a plain white background.",
-        "Don't use multiple vibrant accent colors — screenshot shows a single blue accent.",
-        "Don't create dense, cluttered layouts — screenshot shows generous whitespace.",
-        "Don't use rounded, bubbly UI elements — screenshot shows sharp or very slightly rounded corners.",
-        "Don't add heavy drop shadows — screenshot shows flat, borderless surfaces."
-      ],
-      "systemPrompt": "This is a security verification page for a fintech platform, prioritizing absolute clarity and trust over visual flair. The palette is strictly monochromatic (#FFFFFF bg, #000000 ink) with a single functional blue accent (#0052FF). Typography uses system-ui fonts for reliability and speed. Critical donts: Do not use decorative type, do not add background patterns, and do not introduce multiple vibrant colors. The layout is minimal, centered, and focused on communicating the verification status."
-    },
-    "zh-CN": {
-      "identity": {
-        "keywords": [
-          "安全",
-          "验证",
-          "功能",
-          "极简",
-          "清晰"
-        ],
-        "analogy": "进入数字金融空间前的安全实用检查点。",
-        "oneLiner": "一个用于机器人保护检查的、强调清晰与信任的功能型安全验证页面。"
-      },
-      "colors": {
-        "principle": "为可读性实现最大对比度，并使用单一的品牌色点缀强化识别，其余严格单色。"
-      },
-      "typography": {
-        "rules": [
-          "使用 system-ui 字体栈以确保跨平台一致性。",
-          "通过字重与字号差异建立清晰的层次结构。",
-          "避免装饰性字体，保持纯粹的功能性。"
-        ],
-        "scaleUses": [
-          "域名标题",
-          "页面标题",
-          "说明文字"
-        ]
-      },
-      "spacing": {
-        "rhythm": "基于 4px 网格的简单、一致的垂直节奏间距。"
-      },
-      "surfaces": {
-        "shadows": [],
-        "borders": "极简使用 1px 实线边框定义容器，颜色为 rgba(0,0,0,0.1)。"
-      },
-      "layout": {
-        "skeleton": "简洁的单栏居中布局，留白充裕，内容流聚焦。"
-      },
-      "components": {
-        "button": "功能性按钮，风格低调，边框清晰，样式极简。",
-        "card": "一个带有微妙边框的验证小部件容器。",
-        "chip": "不适用",
-        "input": "不适用",
-        "hero": "一个简单的文本聚焦区域，包含域名与状态信息。"
-      },
-      "motion": {
-        "patterns": [
-          "用于验证状态的旋转动画"
-        ]
-      },
-      "interaction": {
-        "hover": "交互元素（如链接）上微妙的颜色或下划线变化。",
-        "click": "链接与按钮使用浏览器默认行为。",
-        "transition": "交互元素在 hover 状态下平滑过渡。",
-        "keyboard": "标准的 Tab 键导航，确保链接的无障碍遍历。"
-      },
-      "voice": {
-        "tone": "专业、清晰、令人安心。",
-        "headlineStyle": "直接描述性，陈述当前流程。",
-        "ctaStyle": "信息性链接，而非强硬的号召性用语。",
-        "avoid": [
-          "营销术语",
-          "戏谑的比喻",
-          "过度的感叹号"
-        ]
-      },
-      "donts": [
-        "勿使用装饰性字体——如截图所示，应使用功能性系统字体。",
-        "勿添加复杂的背景图案——如截图所示，应为纯白背景。",
-        "勿使用多种鲜艳的强调色——如截图所示，应为单一蓝色点缀。",
-        "勿创建拥挤、杂乱的布局——如截图所示，应保留充足留白。",
-        "勿使用圆润、鼓胀的 UI 元素——如截图所示，应为直角或极微圆角。",
-        "勿添加厚重的投影——如截图所示，应为扁平、无边框的界面。"
-      ],
-      "systemPrompt": "这是一个金融科技平台的安全验证页面，优先考虑绝对的清晰与信任，而非视觉花哨。调色板严格单色（#FFFFFF 背景，#000000 墨色），辅以单一功能性蓝色点缀（#0052FF）。字体使用 system-ui 以确保可靠性与速度。关键禁忌：勿使用装饰性字体，勿添加背景图案，勿引入多种鲜艳色彩。布局极简、居中，聚焦于传达验证状态。"
-    },
-    "zh-TW": {
-      "identity": {
-        "keywords": [
-          "安全",
-          "驗證",
-          "功能性",
-          "極簡",
-          "清晰"
-        ],
-        "analogy": "進入數位金融空間前，一個安全且實用的檢查站。",
-        "oneLiner": "一個為了在機器人防護檢查期間提供清晰度與信任感而設計的、極簡且功能性的安全驗證頁面。"
-      },
-      "colors": {
-        "principle": "最大化對比度以提升可讀性，並使用單一品牌強調色作為識別，其餘嚴格單色。"
-      },
-      "typography": {
-        "rules": [
-          "使用 system-ui 字體堆疊以確保跨平台一致性。",
-          "透過字重與大小區分，維持清晰的層級結構。",
-          "避免裝飾性字體；保持純粹功能性。"
-        ],
-        "scaleUses": [
-          "網域標頭",
-          "頁面標題",
-          "說明文字"
-        ]
-      },
-      "spacing": {
-        "rhythm": "基於 4px 格線的簡潔、一致間距，建立垂直節奏。"
-      },
-      "surfaces": {
-        "shadows": [],
-        "borders": "最小化使用 1px 實心邊框來定義容器，使用 rgba(0,0,0,0.1)。"
-      },
-      "layout": {
-        "skeleton": "一個簡潔、單欄置中的版面配置，留有大量空白，聚焦內容流動。"
-      },
-      "components": {
-        "button": "功能性、低調，具有清晰邊框與最小化樣式。",
-        "card": "用於驗證小工具的細微邊框容器。",
-        "chip": "不適用",
-        "input": "不適用",
-        "hero": "一個以文字為核心的簡潔 Hero 區域，包含網域名稱與狀態訊息。"
-      },
-      "motion": {
-        "patterns": [
-          "用於驗證狀態的旋轉動畫"
-        ]
-      },
-      "interaction": {
-        "hover": "互動元素（如連結）在 hover 時有細微的顏色或底線變化。",
-        "click": "連結和按鈕採用瀏覽器預設的點擊行為。",
-        "transition": "互動元素的 hover 狀態帶有平滑過渡效果。",
-        "keyboard": "使用標準 Tab 鍵導覽以實現無障礙的連結遍歷。"
-      },
-      "voice": {
-        "tone": "專業、清晰且令人安心。",
-        "headlineStyle": "直接且具描述性，陳述當前流程。",
-        "ctaStyle": "資訊性連結，而非強勢的行動號召。",
-        "avoid": [
-          "行銷用語",
-          "俏皮的比喻",
-          "過多的驚嘆號"
-        ]
-      },
-      "donts": [
-        "不要使用裝飾性字體 — 截圖顯示使用功能性的系統字體。",
-        "不要添加複雜的背景圖樣 — 截圖顯示純白背景。",
-        "不要使用多種鮮豔的強調色 — 截圖顯示單一藍色強調。",
-        "不要建立擁擠、雜亂的版面 — 截圖顯示大量留白。",
-        "不要使用圓潤、膨鬆的 UI 元素 — 截圖顯示銳角或極輕微的圓角。",
-        "不要添加厚重的陰影 — 截圖顯示平面、無邊框的表面。"
-      ],
-      "systemPrompt": "這是一個金融科技平台的安全驗證頁面，絕對的清晰度與信任感優先於視覺華麗。色板嚴格單色（#FFFFFF 背景，#000000 墨色），搭配單一功能性藍色強調（#0052FF）。字體使用 system-ui 以確保可靠性與速度。關鍵禁忌：不要使用裝飾性字體，不要添加背景圖樣，不要引入多種鮮豔色彩。版面極簡、置中，專注於傳達驗證狀態。"
-    },
-    "ja": {
-      "identity": {
-        "keywords": [
-          "セキュリティ",
-          "検証",
-          "機能的",
-          "ミニマル",
-          "明確"
-        ],
-        "analogy": "デジタル金融空間に入る前の、安全で実用的なチェックポイント。",
-        "oneLiner": "ボットプロテクションチェックにおける明瞭さと信頼性を目的とした、厳格で機能的なセキュリティ検証ページ。"
-      },
-      "colors": {
-        "principle": "可読性のための最大コントラストと、アイデンティティのための単一ブランドアクセント。それ以外は厳格にモノクローム。"
-      },
-      "typography": {
-        "rules": [
-          "クロスプラットフォームの一貫性のため、system-uiフォントスタックを使用。",
-          "ウェイトとサイズの差別化により、明確な階層を維持。",
-          "装飾的なタイポグラフィは避け、純粋に機能的に保つ。"
-        ],
-        "scaleUses": [
-          "ドメインヘッダー",
-          "ページタイトル",
-          "説明テキスト"
-        ]
-      },
-      "spacing": {
-        "rhythm": "4pxグリッドに基づいたシンプルで一貫した垂直リズムのスペーシング。"
-      },
-      "surfaces": {
-        "shadows": [],
-        "borders": "コンテナ定義のために1px solidボーダーを最小限に使用。rgba(0,0,0,0.1)で描画。"
-      },
-      "layout": {
-        "skeleton": "豊かな余白を持ったシンプルなシングルカラム中央揃いレイアウト。コンテンツフローに焦点。"
-      },
-      "components": {
-        "button": "明確なボーダーと最小限のスタイリングを備えた、機能的で控えめなデザイン。",
-        "card": "検証ウィジェットのための、控えめにボーダーを引いたコンテナ。",
-        "chip": "N/A",
-        "input": "N/A",
-        "hero": "ドメイン名とステータスメッセージを含む、テキストに焦点を当てたシンプルなヒーローエリア。"
-      },
-      "motion": {
-        "patterns": [
-          "検証ステータスのスピナーアニメーション"
-        ]
-      },
-      "interaction": {
-        "hover": "リンクなどのインタラクティブ要素に対する、控えめな色やアンダーラインの変化。",
-        "click": "リンクとボタンに対する、標準的なブラウザデフォルトの挙動。",
-        "transition": "インタラクティブ要素のhover状態に対する滑らかなトランジション。",
-        "keyboard": "アクセシブルなリンク移動のための標準的なタブナビゲーション。"
-      },
-      "voice": {
-        "tone": "プロフェッショナルで明確、かつ安心感を与えるもの。",
-        "headlineStyle": "現在のプロセスを直接的かつ記述的に述べるスタイル。",
-        "ctaStyle": "アグレッシブなコール・トゥ・アクションではなく、情報的なリンクを採用。",
-        "avoid": [
-          "マーケティング言語",
-          "遊び心のあるメタファー",
-          "過度な感嘆符"
-        ]
-      },
-      "donts": [
-        "装飾的なフォントは使用しない — スクリーンショットには機能的なシステムフォントが使用されている。",
-        "複雑な背景パターンを追加しない — スクリーンショットには単色の白い背景が使用されている。",
-        "複数の鮮やかなアクセントカラーを使用しない — スクリーンショットには単一の青のアクセントが使用されている。",
-        "密集した、ごちゃごちゃしたレイアウトを作成しない — スクリーンショットには豊かな余白が使用されている。",
-        "丸みを帯びた、ふわふわしたUI要素を使用しない — スクリーンショットには角が鋭い、あるいはごくわずかに丸みを帯びたデザインが使用されている。",
-        "重いドロップシャドウを追加しない — スクリーンショットにはフラットでボーダーレスなサーフェスが使用されている。"
-      ],
-      "systemPrompt": "これはフィンテックプラットフォームのセキュリティ検証ページです。ビジュアルな華やかさよりも、絶対的な明瞭さと信頼性を優先します。カラーパレットは厳格にモノクローム（#FFFFFF背景、#000000テキスト）に、単一の機能的な青のアクセント（#0052FF）を加えたものです。タイポグラフィは信頼性と速度のためにsystem-uiフォントを使用。重大な禁止事項：装飾的なタイプは使用せず、背景パターンを追加せず、複数の鮮やかなカラーを導入しないこと。レイアウトはミニマルで、中央揃え、検証ステータスの伝達に焦点を当てています。"
-    },
-    "ko": {
-      "identity": {
-        "keywords": [
-          "보안",
-          "검증",
-          "기능적",
-          "미니멀",
-          "명확"
-        ],
-        "analogy": "디지털 금융 공간에 입장하기 전의 안전하고 실용적인 검문소입니다.",
-        "oneLiner": "봇 보호 검사 중 명확성과 신뢰를 위해 설계된, 날것 그대로의 기능적인 보안 검증 페이지입니다."
-      },
-      "colors": {
-        "principle": "가독성을 위한 최대 대비와 아이덴티티를 위한 단일 브랜드 악센트, 그 외에는 순수 모노크롬입니다."
-      },
-      "typography": {
-        "rules": [
-          "크로스 플랫폼 일관성을 위해 시스템 UI 글꼴 스택을 사용합니다.",
-          "글꼴 두께와 크기 구분을 통해 명확한 계층 구조를 유지합니다.",
-          "장식적인 타이포그래피를 피하고 순수하게 기능적인 수준으로 유지합니다."
-        ],
-        "scaleUses": [
-          "도메인 헤더",
-          "페이지 제목",
-          "설명 텍스트"
-        ]
-      },
-      "spacing": {
-        "rhythm": "수직 리듬을 위한 4px 그리드 기반의 단순하고 일관된 간격입니다."
-      },
-      "surfaces": {
-        "shadows": [],
-        "borders": "컨테이너 정의를 위해 rgba(0,0,0,0.1)를 사용한 1px solid 테두리를 최소한으로 사용합니다."
-      },
-      "layout": {
-        "skeleton": "풍부한 여백을 갖춘 단순하고 중앙 정렬된 단일 컬럼 레이아웃으로, 콘텐츠 흐름에 집중합니다."
-      },
-      "components": {
-        "button": "명확한 테두리와 최소한의 스타일링을 갖춘 기능적이고 절제된 버튼입니다.",
-        "card": "검증 위젯을 위한 미묘하게 테두리가 있는 컨테이너입니다.",
-        "chip": "해당 없음",
-        "input": "해당 없음",
-        "hero": "도메인 이름과 상태 메시지를 담은 단순하고 텍스트 중심의 히어로 영역입니다."
-      },
-      "motion": {
-        "patterns": [
-          "검증 상태를 위한 스피너 애니메이션"
-        ]
-      },
-      "interaction": {
-        "hover": "링크와 같은 상호작용 요소에 미묘한 색상 또는 밑줄 변화입니다.",
-        "click": "링크와 버튼에 대한 표준 브라우저 기본값입니다.",
-        "transition": "상호작용 요소의 hover 상태에 대한 부드러운 전환 효과입니다.",
-        "keyboard": "접근 가능한 링크 탐색을 위한 표준 탭 탐색입니다."
-      },
-      "voice": {
-        "tone": "전문적이고 명확하며 안심시키는 어조입니다.",
-        "headlineStyle": "현재 과정을 명시하는 직접적이고 설명적인 스타일입니다.",
-        "ctaStyle": "공격적인 행동 유도(CTA)보다는 정보성 링크 스타일입니다.",
-        "avoid": [
-          "마케팅 언어",
-          "장난스러운 비유",
-          "지나친 감탄사"
-        ]
-      },
-      "donts": [
-        "장식적인 글꼴을 사용하지 마세요 — 스크린샷은 대신 기능적인 시스템 글꼴을 보여줍니다.",
-        "복잡한 배경 패턴을 추가하지 마세요 — 스크린샷은 단순한 흰색 배경을 보여줍니다.",
-        "여러 가지 밝은 악센트 색상을 사용하지 마세요 — 스크린샷은 단일 블루 악센트를 보여줍니다.",
-        "밀도 높고 지저분한 레이아웃을 만들지 마세요 — 스크린샷은 풍부한 여백을 보여줍니다.",
-        "둥글고 버블 같은 UI 요소를 사용하지 마세요 — 스크린샷은 날카롭거나 아주 미세하게 둥근 모서리를 보여줍니다.",
-        "무거운 드롭 그림자를 추가하지 마세요 — 스크린샷은 플랫하고 테두리 없는 표면을 보여줍니다."
-      ],
-      "systemPrompt": "이것은 시각적 요소보다 절대적인 명확성과 신뢰를 우선시하는 핀테크 플랫폼의 보안 검증 페이지입니다. 팔레트는 순수 모노크롬(#FFFFFF 배경, #000000 텍스트)에 단일 기능적 블루 악센트(#0052FF)를 사용합니다. 타이포그래피는 신뢰성과 속도를 위해 시스템 UI 글꼴을 사용합니다. 중요 금지 사항: 장식적인 타이포그래피를 사용하지 마세요, 배경 패턴을 추가하지 마세요, 여러 가지 밝은 색상을 도입하지 마세요. 레이아웃은 미니멀하고 중앙 정렬되어 검증 상태를 전달하는 데 집중합니다."
+      "easing": "cubic-bezier(0.25, 0.1, 0.25, 1)"
     }
   },
   "desc": {
     "en": {
-      "palette": "A strictly monochromatic palette of white and black with a single blue accent for brand identity.",
-      "layout": "A simple, centered, single-column layout with generous whitespace and minimal visual elements.",
-      "interaction": "Standard, accessible link interactions with subtle hover states.",
-      "motion": "Contains only a functional spinner animation for the verification process.",
-      "notes": "This page exemplifies a purely functional, high-trust design system where utility and clarity are paramount, typical of security checkpoints in fintech."
+      "palette": "A highly restrained palette dominated by white, near-black text, and a single high-chroma brand blue, emphasizing clarity and trust.",
+      "layout": "A spacious, centered 12-column grid layout with generous padding and clean split-screen hero compositions.",
+      "interaction": "Subtle background-color transitions and clear focus states designed for maximum accessibility and predictable user flows.",
+      "motion": "Smooth, subtle transitions on interactive elements with no distracting or excessive animations.",
+      "notes": "A perfect example of a 'restraint-first' fintech design that uses cleanliness and professional typography to establish immediate user trust."
     },
     "zh-CN": {
       "palette": "严格单色的黑白调色板，辅以单一的蓝色点缀以强化品牌识别。",
@@ -584,6 +223,408 @@
       "ch7_intro": "모션은 최소한이며 순전히 기능적이어서, 시스템 상태를 전달하는 단일 스피너 애니메이션으로 제한됩니다. 모든 전환은 꾸밈을 위한 것이 아니라 상호작용 상태에 대한 부드러운 피드백을 제공하기 위해서만 존재합니다.",
       "ch8_intro": "에디토리얼 어조는 전문적이고 명확하며 안심시키는 것으로, 설득력 있는 언어 없이 사실을 직접적으로 전달합니다. 헤드라인은 현재 과정을 설명하고, 링크는 홍보적이기보다 정보적입니다.",
       "ch8_outro": "이 시스템은 단일한 실용적 목적을 위해 의도적으로 마케팅 언어, 장난스러운 비유, 시각적 복잡성을 포기합니다."
+    }
+  },
+  "spec_i18n": {
+    "en": {
+      "identity": {
+        "keywords": [
+          "fintech",
+          "crypto",
+          "trusted",
+          "modern",
+          "accessible"
+        ],
+        "analogy": "A clean, regulated financial institution interface that demystifies digital assets.",
+        "oneLiner": "A highly accessible, trust-focused fintech platform built on a restrained palette and clean sans-serif typography."
+      },
+      "colors": {
+        "principle": "Extreme restraint with high-contrast ink on clean white or soft gray backgrounds, accented only by a primary brand blue."
+      },
+      "typography": {
+        "rules": [
+          "Use geometric-sans for display and bold UI elements",
+          "Use humanist-sans for body text to ensure maximum readability",
+          "Limit weight usage to 400 and 600 to maintain clarity"
+        ],
+        "scaleUses": [
+          "hero-headlines",
+          "section-titles",
+          "sub-headers",
+          "paragraphs",
+          "legal-and-nav"
+        ]
+      },
+      "spacing": {
+        "rhythm": "standard 4px grid with generous padding for breathable layouts"
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 8px 12px 0px rgba(0, 0, 0, 0.12)"
+        ],
+        "borders": "1px solid rgba(10,11,13,0.08)"
+      },
+      "layout": {
+        "skeleton": "wide centered container with balanced 12-column grid"
+      },
+      "components": {
+        "button": "primary blue pill for conversion, outlined or ghost for secondary actions",
+        "card": "clean white or soft gray containers with subtle 12px radius and minimal shadows",
+        "chip": "subtle tag-like elements for categories with light backgrounds",
+        "input": "clean outlined inputs with 12px radius and clear focus states",
+        "hero": "large typography paired with high-fidelity product mockups on split layouts"
+      },
+      "motion": {
+        "patterns": [
+          "smooth background-color transitions on interactive states",
+          "subtle fade-ins for UI components"
+        ]
+      },
+      "interaction": {
+        "hover": "subtle background-color shifts or text-decoration underlines",
+        "click": "immediate visual response with opacity or scale micro-interactions",
+        "transition": "all 0.2s ease-in-out for interactive elements",
+        "keyboard": "accessible focus rings for all interactive components"
+      },
+      "voice": {
+        "tone": "authoritative yet accessible, reassuring, and professional",
+        "headlineStyle": "concise, impactful, and direct statements about the future of finance",
+        "ctaStyle": "clear value propositions like 'Sign up' or 'Learn more'",
+        "avoid": [
+          "hyperbolic claims without footnotes",
+          "overly complex financial jargon",
+          "aggressive or 'get rich quick' language"
+        ]
+      },
+      "donts": [
+        "don't use cluttered layouts — screenshot shows clean, spacious split-screen compositions",
+        "don't rely on dark mode for primary focus — screenshot shows a predominantly light, white background",
+        "don't use aggressive neon colors — screenshot shows a highly restrained palette of blue, black, white, and gray",
+        "don't use playful or rounded display fonts — screenshot shows sharp, geometric sans-serifs for headlines",
+        "don't use heavy decorative borders — screenshot shows minimal, subtle gray borders or none at all",
+        "don't use multiple primary call-to-action colors — screenshot shows a single, consistent primary blue for conversion"
+      ],
+      "systemPrompt": "Design a fintech platform interface that prioritizes trust, clarity, and accessibility. Use a restrained palette centered on white backgrounds, deep black or near-black text (#0A0B0D), and a single primary brand blue (#0052FF) for high-chroma accents. Body text should use a humanist-sans for readability, while headlines and UI elements use a geometric-sans. Embrace generous whitespace and a clean 12-column grid layout. Critical constraints: never use overly decorative typography, avoid dark mode as the primary theme, maintain extreme restraint with the color palette to ensure a professional, regulated feel, and avoid cluttered compositions. Focus on clear, authoritative copy and predictable, accessible interactions."
+    },
+    "zh-CN": {
+      "identity": {
+        "keywords": [
+          "金融科技",
+          "加密货币",
+          "可信赖",
+          "现代",
+          "易用性"
+        ],
+        "analogy": "一个清晰、受监管的金融机构界面，旨在消除数字资产的神秘感。",
+        "oneLiner": "一个高度易用、以信任为核心的金融科技平台，采用克制的色彩搭配和简洁的无衬线字体。"
+      },
+      "colors": {
+        "principle": "在纯白或柔和的灰色背景上，采用高对比度的墨黑色，并仅以品牌主色蓝作为点缀，保持极度克制。"
+      },
+      "typography": {
+        "rules": [
+          "标题和加粗的UI元素使用几何无衬线字体",
+          "正文使用人文无衬线字体以确保最佳可读性",
+          "字重限制为400和600以维持清晰度"
+        ],
+        "scaleUses": [
+          "主视觉标题",
+          "版块标题",
+          "副标题",
+          "段落文本",
+          "法律条款与导航"
+        ]
+      },
+      "spacing": {
+        "rhythm": "标准4px网格，配合充足的内边距以构建透气的布局"
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 8px 12px 0px rgba(0, 0, 0, 0.12)"
+        ],
+        "borders": "1px solid rgba(10,11,13,0.08)"
+      },
+      "layout": {
+        "skeleton": "宽度居中的容器，搭配均衡的12栏网格"
+      },
+      "components": {
+        "button": "主操作采用品牌蓝色的胶囊按钮，次要操作采用描边或透明按钮",
+        "card": "纯净的白色或柔和的灰色容器，带有微妙的12px圆角和极简的阴影",
+        "chip": "用于分类的、带有浅色背景的、类似标签的细微元素",
+        "input": "清晰的描边输入框，12px圆角，具有明确的聚焦状态",
+        "hero": "大号字体搭配高保真的产品模型图，采用分栏布局"
+      },
+      "motion": {
+        "patterns": [
+          "交互状态下的平滑背景色过渡",
+          "UI组件的细微淡入效果"
+        ]
+      },
+      "interaction": {
+        "hover": "微妙的背景色变化或文本下划线",
+        "click": "通过透明度或缩放的微交互提供即时视觉反馈",
+        "transition": "所有交互元素采用 0.2s ease-in-out 过渡",
+        "keyboard": "所有可交互组件均设有无障碍的聚焦环"
+      },
+      "voice": {
+        "tone": "权威而易用，令人安心且专业",
+        "headlineStyle": "简洁、有力、直接地阐述金融的未来",
+        "ctaStyle": "清晰的价值主张，如“注册”或“了解更多”",
+        "avoid": [
+          "无脚注的夸张声明",
+          "过于复杂的金融术语",
+          "激进或“快速致富”的语言"
+        ]
+      },
+      "donts": [
+        "避免使用杂乱的布局——截图显示的是干净、宽敞的分屏构图",
+        "避免依赖暗色模式作为主要焦点——截图显示的是以浅色、白色背景为主的界面",
+        "避免使用激进的霓虹色——截图显示的是一套高度克制的蓝、黑、白、灰色调",
+        "避免使用花哨或圆润的展示字体——截图显示的是标题使用了锐利、几何感的无衬线字体",
+        "避免使用厚重的装饰性边框——截图显示的是极简、微妙的灰色边框或无边框",
+        "避免使用多个主行动号召颜色——截图显示的是单一、一致的品牌蓝色用于转化操作"
+      ],
+      "systemPrompt": "设计一个金融科技平台界面，优先考虑信任、清晰度和易用性。采用以白色背景、深黑色或近黑色文本（#0A0B0D）和单一品牌主色蓝（#0052FF）作为高饱和度点缀的克制色彩方案。正文使用人文无衬线字体以保证可读性，标题和UI元素使用几何无衬线字体。采用充足的留白和清晰的12栏网格布局。关键约束：绝不使用过于装饰性的字体，避免将暗色模式作为主要主题，保持色彩搭配的极度克制以确保专业、受监管的感觉，并避免杂乱的构图。专注于清晰、权威的文案以及可预测、易用的交互。"
+    },
+    "zh-TW": {
+      "identity": {
+        "keywords": [
+          "金融科技",
+          "加密貨幣",
+          "值得信賴",
+          "現代化",
+          "無障礙"
+        ],
+        "analogy": "一個簡潔、合規的金融機構介面，讓數位資產不再神秘。",
+        "oneLiner": "一個高度無障礙、以信任為核心的金融科技平台，採用克制的色彩與簡潔的 sans-serif 字體排印。"
+      },
+      "colors": {
+        "principle": "在純白或柔和灰色背景上，極度克制地使用高對比度墨色，僅以品牌主藍作為點綴。"
+      },
+      "typography": {
+        "rules": [
+          "使用 geometric-sans 作為標題與粗體 UI 元素",
+          "使用 humanist-sans 作為內文，確保最佳可讀性",
+          "限制字重使用 400 與 600，以維持清晰度"
+        ],
+        "scaleUses": [
+          "主視覺標題",
+          "章節標題",
+          "副標題",
+          "段落內文",
+          "法律條款與導覽"
+        ]
+      },
+      "spacing": {
+        "rhythm": "標準 4px 格線，搭配充裕的 padding，打造通透的版面"
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 8px 12px 0px rgba(0, 0, 0, 0.12)"
+        ],
+        "borders": "1px solid rgba(10,11,13,0.08)"
+      },
+      "layout": {
+        "skeleton": "寬版置中容器，搭配平衡的 12 欄格線"
+      },
+      "components": {
+        "button": "用於轉換的主要藍色膠囊按鈕，次要操作則使用描邊或幽靈按鈕",
+        "card": "純白或柔和灰色的容器，帶有細微的 12px 圓角與最小化的陰影",
+        "chip": "用於分類的微小標籤元素，採用淺色背景",
+        "input": "簡潔的描邊輸入框，帶有 12px 圓角與清晰的 focus 狀態",
+        "hero": "大膽的字體排印，搭配高保真產品模型，採用分割版面"
+      },
+      "motion": {
+        "patterns": [
+          "互動狀態下的平滑背景顏色過渡",
+          "UI 元素的細微淡入效果"
+        ]
+      },
+      "interaction": {
+        "hover": "細微的背景顏色變化或文字裝飾底線",
+        "click": "透過透明度或縮放微交互，提供即時的視覺回應",
+        "transition": "所有互動元素使用 0.2s ease-in-out 過渡",
+        "keyboard": "所有互動元件皆提供無障礙的焦點環"
+      },
+      "voice": {
+        "tone": "權威而平易近人，令人安心且專業",
+        "headlineStyle": "簡潔、有力且直接的語句，闡述金融的未來",
+        "ctaStyle": "清晰的價值主張，例如「立即註冊」或「了解更多」",
+        "avoid": [
+          "未附註釋的誇大宣稱",
+          "過度複雜的金融術語",
+          "具侵略性或「快速致富」的用語"
+        ]
+      },
+      "donts": [
+        "不要使用雜亂的版面 — 螢幕截圖顯示的是簡潔、寬敞的分割構圖",
+        "不要依賴深色模式作為主要焦點 — 螢幕截圖顯示的是以淺色、白色為主的背景",
+        "不要使用具侵略性的霓虹色 — 螢幕截圖顯示的是極度克制的調色盤，包含藍色、黑色、白色與灰色",
+        "不要使用俏皮或圓潤的展示字體 — 螢幕截圖顯示的是標題使用銳利、幾何感的 sans-serif",
+        "不要使用厚重的裝飾性邊框 — 螢幕截圖顯示的是極簡、細微的灰色邊框或完全無邊框",
+        "不要使用多個主要號召性用語顏色 — 螢幕截圖顯示的是單一、一致的主藍色用於轉換"
+      ],
+      "systemPrompt": "設計一個優先考慮信任、清晰度與無障礙性的金融科技平台介面。採用以白色背景、深黑或近黑文字（#0A0B0D）為中心，並以單一品牌主藍（#0052FF）作為高彩度點綴的克制調色盤。內文使用 humanist-sans 以確保可讀性，而標題與 UI 元素則使用 geometric-sans。採用寬裕的留白與簡潔的 12 欄格線版面。關鍵限制：切勿使用過度裝飾的字體排印，避免深色模式作為主要主題，保持色彩調色盤的極度克制以確保專業、合規的感覺，並避免雜亂的構圖。專注於清晰、具權威性的文案，以及可預期、無障礙的互動。"
+    },
+    "ja": {
+      "identity": {
+        "keywords": [
+          "フィンテック",
+          "暗号資産",
+          "信頼",
+          "モダン",
+          "アクセシブル"
+        ],
+        "analogy": "デジタル資産を分かりやすく説明する、清潔で規制された金融機関のインターフェース。",
+        "oneLiner": "控えめなパレットとクリーンなサンセリフ書体を基盤とし、アクセシビリティと信頼に重点を置いたフィンテックプラットフォーム。"
+      },
+      "colors": {
+        "principle": "白または淡いグレーの背景に、高コントラストのインク色を用いる極度の抑制。プライマリブランドブルーのみをアクセントとして使用。"
+      },
+      "typography": {
+        "rules": [
+          "ディスプレイおよび太字UI要素にはジオメトリック・サンセリフを使用",
+          "本文テキストには最大限の可読性を確保するためヒューマニスト・サンセリフを使用",
+          "明瞭さを維持するためウェイト使用を400と600に限定"
+        ],
+        "scaleUses": [
+          "ヒーローヘッドライン",
+          "セクションタイトル",
+          "サブヘッダー",
+          "段落",
+          "法的情報およびナビゲーション"
+        ]
+      },
+      "spacing": {
+        "rhythm": "標準4pxグリッドと、呼吸感のあるレイアウトのための十分なpadding"
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 8px 12px 0px rgba(0, 0, 0, 0.12)"
+        ],
+        "borders": "1px solid rgba(10,11,13,0.08)"
+      },
+      "layout": {
+        "skeleton": "バランスの取れた12カラムグリッドを持つ、幅広の中央揃えコンテナ"
+      },
+      "components": {
+        "button": "コンバージョン用のプライマリブルーのピルボタン、二次操作にはアウトラインまたはゴースト",
+        "card": "控えめな12px-radiusと最小限のシャドウを持つ、クリーンな白または淡いグレーのコンテナ",
+        "chip": "カテゴリ用の軽い背景色を持つ、控えめなタグ状要素",
+        "input": "12px-radiusと明確なfocus状態を持つ、クリーンなアウトライン付きインプット",
+        "hero": "分割レイアウトで、高品質な製品モックアップと大きなタイポグラフィを組み合わせ"
+      },
+      "motion": {
+        "patterns": [
+          "インタラクティブ状態でのスムーズなbackground-color遷移",
+          "UIコンポーネントの控えめなフェードイン"
+        ]
+      },
+      "interaction": {
+        "hover": "控えめなbackground-colorの変化またはtext-decorationアンダーライン",
+        "click": "opacityまたはscaleのマイクロインタラクションによる即座の視覚的応答",
+        "transition": "インタラクティブ要素に対する全てのtransitionを0.2s ease-in-out",
+        "keyboard": "すべてのインタラクティブコンポーネントに対するアクセシブルなfocus ring"
+      },
+      "voice": {
+        "tone": "権威がありながらもアクセシブルで、安心感のあるプロフェッショナル",
+        "headlineStyle": "金融の未来についての簡潔で影響力のある、直接的な表現",
+        "ctaStyle": "「サインアップ」や「詳しく見る」のような明確な価値提案",
+        "avoid": [
+          "注釈のない誇大広告",
+          "過度に複雑な金融用語",
+          "アグレッシブまたは「儲ける」系の言葉遣い"
+        ]
+      },
+      "donts": [
+        "雑然としたレイアウトを使用しない — スクリーンショットはクリーンで広々とした分割画面構成を示している",
+        "主なフォーカスにダークモードに依存しない — スクリーンショットは主に明るい白い背景を示している",
+        "アグレッシブなネオンカラーを使用しない — スクリーンショットはブルー、ブラック、ホワイト、グレーの極めて抑制されたパレットを示している",
+        "遊び心のある丸みのあるディスプレイフォントを使用しない — スクリーンショットはヘッドライン用の鋭いジオメトリック・サンセリフを示している",
+        "重い装飾的なボーダーを使用しない — スクリーンショットは最小限の控えめなグレーのボーダー、またはボーダーなしを示している",
+        "複数のプライマリCTAカラーを使用しない — スクリーンショットはコンバージョン用の単一で一貫したプライマリブルーを示している"
+      ],
+      "systemPrompt": "信頼、明瞭さ、アクセシビリティを優先するフィンテックプラットフォームのインターフェースをデザインする。白を基調とした背景、深いブラックまたはそれに近いテキスト（#0A0B0D）、ハイクロマのアクセントとして単一のプライマリブランドブルー（#0052FF）を中心とした控えめなパレットを使用。本文テキストには可読性のためヒューマニスト・サンセリフ、ヘッドラインやUI要素にはジオメトリック・サンセリフを使用。豊かな余白とクリーンな12カラムグリッドレイアウトを取り入れる。重要な制約：過度に装飾的なタイポグラフィは使用せず、ダークモードを主要テーマとせず、プロフェッショナルで規制された感覚を確保するためにカラーパレットを極度に抑制し、雑然とした構成を避ける。明確で権威のあるコピーと予測可能でアクセシブルなインタラクションに焦点を当てる。"
+    },
+    "ko": {
+      "identity": {
+        "keywords": [
+          "핀테크",
+          "크립토",
+          "신뢰할 수 있는",
+          "모던",
+          "접근성"
+        ],
+        "analogy": "디지털 자산을 이해하기 쉽게 만드는 깔끔하고 규제를 준수하는 금융 기관 인터페이스입니다.",
+        "oneLiner": "절제된 팔레트와 깔끔한 고딕 서체 타이포그래피를 기반으로 구축된, 높은 접근성과 신뢰에 초점을 맞춘 핀테크 플랫폼입니다."
+      },
+      "colors": {
+        "principle": "깔끔한 흰색 또는 부드러운 회색 배경 위에 고대비 잉크를 사용한 극도의 절제, 프라이머리 블루만으로 포인트를 줍니다."
+      },
+      "typography": {
+        "rules": [
+          "디스플레이 및 굵은 UI 요소에는 기하학적 고딕(geometric-sans)을 사용합니다",
+          "가독성을 최대화하기 위해 본문에는 휴머니스틱 고딕(humanist-sans)을 사용합니다",
+          "명확성을 유지하기 위해 굵기 사용을 400과 600으로 제한합니다"
+        ],
+        "scaleUses": [
+          "히어로 헤드라인",
+          "섹션 타이틀",
+          "소제목",
+          "본문",
+          "법적 고지 및 내비게이션"
+        ]
+      },
+      "spacing": {
+        "rhythm": "표준 4px 그리드와 넉넉한 padding을 사용하여 시원한 레이아웃을 구현합니다"
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 8px 12px 0px rgba(0, 0, 0, 0.12)"
+        ],
+        "border": "1px solid rgba(10,11,13,0.08)"
+      },
+      "layout": {
+        "skeleton": "균형 잡힌 12칼럼 그리드를 사용한 넓은 중앙 정렬 컨테이너"
+      },
+      "components": {
+        "button": "전환을 위한 프라이머리 블루 필(pill) 버튼, 2차 작업에는 아웃라인 또는 고스트 스타일",
+        "card": "미묘한 12px radius와 최소한의 shadow가 있는 깔끔한 흰색 또는 부드러운 회색 컨테이너",
+        "chip": "밝은 배경을 사용한 카테고리용 미묘한 태그 스타일 요소",
+        "input": "12px radius와 명확한 focus 상태가 있는 깔끔한 아웃라인 입력 필드",
+        "hero": "대형 타이포그래피와 분할 레이아웃 위의 고화질 제품 목업을 결합한 구성"
+      },
+      "motion": {
+        "patterns": [
+          "인터랙티브 상태에서의 부드러운 background-color 전환",
+          "UI 요소를 위한 미묘한 페이드인"
+        ]
+      },
+      "interaction": {
+        "hover": "미묘한 background-color 변화 또는 text-decoration underline",
+        "click": "opacity 또는 scale 마이크로 인터랙션을 통한 즉각적인 시각적 반응",
+        "transition": "인터랙티브 요소에 모두 0.2s ease-in-out",
+        "keyboard": "모든 인터랙티브 컴포넌트를 위한 접근 가능한 focus ring"
+      },
+      "voice": {
+        "tone": "권위 있으면서도 접근 가능하고, 안심시키는, 그리고 전문적인 어조",
+        "headlineStyle": "금융의 미래에 대한 간결하고 임팩트 있으며 직설적인 진술",
+        "ctaStyle": "'가입하기' 또는 '자세히 알아보기'와 같은 명확한 가치 제안",
+        "avoid": [
+          "각주 없는 과장된 주장",
+          "지나치게 복잡한 금융 용어",
+          "공격적이거나 '부자 되기' 식 언어"
+        ]
+      },
+      "donts": [
+        "혼잡한 레이아웃을 사용하지 마세요 — 스크린샷은 깔끔하고 여유로운 분할 화면 구성을 보여줍니다",
+        "주요 초점을 위해 다크 모드에 의존하지 마세요 — 스크린샷은 주로 밝고 흰색 배경을 보여줍니다",
+        "공격적인 네온색을 사용하지 마세요 — 스크린샷은 블루, 블랙, 화이트, 그레이의 매우 절제된 팔레트를 보여줍니다",
+        "장난기 있거나 둥근 디스플레이 폰트를 사용하지 마세요 — 스크린샷은 헤드라인에 날카롭고 기하학적인 고딕을 사용합니다",
+        "무거운 장식 테두리를 사용하지 마세요 — 스크린샷은 최소한의 미묘한 회색 테두리 또는 아예 없는 것을 보여줍니다",
+        "여러 프라이머리 CTA 색상을 사용하지 마세요 — 스크린샷은 전환을 위해 단일하고 일관된 프라이머리 블루를 보여줍니다"
+      ],
+      "systemPrompt": "신뢰, 명확성, 접근성을 우선시하는 핀테크 플랫폼 인터페이스를 디자인하세요. 흰색 배경, 깊은 검정색 또는 거의 검정색 텍스트(#0A0B0D), 그리고 고크로마 액센트를 위한 단일 프라이머리 블루(#0052FF)를 중심으로 절제된 팔레트를 사용하세요. 본문에는 가독성을 위해 휴머니스틱 고딕을, 헤드라인과 UI 요소에는 기하학적 고딕을 사용하세요. 넉넉한 여백과 깔끔한 12칼럼 그리드 레이아웃을 적용하세요. 핵심 제약 조건: 지나치게 장식적인 타이포그래피를 절대 사용하지 말고, 다크 모드를 주요 테마로 사용하지 않으며, 전문적이고 규제를 준수하는 느낌을 보장하기 위해 팔레트를 극도로 절제하며, 혼잡한 구성을 피하세요. 명확하고 권위 있는 카피와 예측 가능하고 접근 가능한 인터랙션에 집중하세요."
     }
   }
 }

@@ -17,56 +17,72 @@
   "_meta": {
     "vision_model": "mimo-v2.5",
     "vision_prompt_version": "0.3",
-    "vision_at": "2026-05-28T20:15:01+00:00",
-    "vision_tokens": 3325,
-    "vision_cost_usd": 0.0369,
+    "vision_at": "2026-05-30T17:19:48+00:00",
+    "vision_tokens": 16324,
+    "vision_cost_usd": 0.1814,
     "translation_model": "mimo-v2.5",
-    "translation_at": "2026-05-28T20:15:56+00:00",
-    "translation_tokens": 15088,
-    "translation_cost_usd": 0.0503,
+    "translation_at": "2026-05-30T17:20:41+00:00",
+    "translation_tokens": 25090,
+    "translation_cost_usd": 0.0836,
     "narrative_model": "mimo-v2.5",
     "narrative_prompt_version": "0.3",
     "narrative_at": "2026-05-28T20:16:03+00:00",
     "narrative_tokens": 1899,
     "narrative_cost_usd": 0.0127,
     "narrative_status": "ok",
-    "total_cost_usd": 0.0999
+    "total_cost_usd": 0.2777,
+    "vision_source": "playwright-extract:ollama",
+    "vision_grounded": true
   },
   "spec": {
     "colors": {
       "bg": "#FFFFFF",
       "bgSoft": null,
-      "bgQuiet": null,
+      "bgQuiet": "#F5F5F5",
       "ink": "#000000",
-      "inkSoft": "#555555",
-      "muted": "#888888",
-      "mutedSoft": null,
+      "inkSoft": "#737373",
+      "muted": "#A3A3A3",
+      "mutedSoft": "#E5E5E5",
       "accent": null,
-      "line": "rgba(0,0,0,0.1)"
+      "line": "rgba(229, 229, 229, 1.0)"
     },
     "typography": {
-      "display": "grotesque-sans",
-      "body": "grotesque-sans",
+      "display": "geometric-sans",
+      "body": "humanist-sans",
       "mono": "monospace",
       "scale": [
         {
           "token": "display",
-          "size": 48,
-          "lh": 1.1,
-          "weight": 600,
-          "ls": "-1.5px"
+          "size": 36,
+          "lh": 1.2,
+          "weight": 400,
+          "ls": "-0.5px"
         },
         {
           "token": "heading",
-          "size": 32,
-          "lh": 1.2,
-          "weight": 600,
-          "ls": "-0.5px"
+          "size": 24,
+          "lh": 1.3,
+          "weight": 400,
+          "ls": "-0.2px"
         },
         {
           "token": "body",
           "size": 16,
-          "lh": 1.6,
+          "lh": 1.5,
+          "weight": 400,
+          "ls": "0"
+        },
+        {
+          "token": "small",
+          "size": 14,
+          "lh": 1.5,
+          "weight": 400,
+          "ls": "0"
+        },
+        {
+          "token": "micro",
+          "size": 12,
+          "lh": 1.3,
           "weight": 400,
           "ls": "0"
         }
@@ -77,13 +93,13 @@
       "scale": [
         4,
         8,
+        12,
         16,
         24,
         32,
         48,
         64,
-        96,
-        128
+        80
       ]
     },
     "surfaces": {
@@ -91,12 +107,12 @@
         "sm": 4,
         "md": 8,
         "lg": 12,
-        "pill": 999
+        "pill": 9999
       }
     },
     "layout": {
-      "container": 1120,
-      "paragraph": 600,
+      "container": 1280,
+      "paragraph": 680,
       "columns": 12,
       "gutter": 24,
       "breakpoints": [
@@ -107,376 +123,19 @@
     "motion": {
       "durations": {
         "micro": 150,
-        "small": 300,
-        "medium": 600
+        "small": 150,
+        "medium": 150
       },
-      "easing": "ease-out"
-    }
-  },
-  "spec_i18n": {
-    "en": {
-      "identity": {
-        "keywords": [
-          "developer",
-          "AI",
-          "tooling",
-          "open-source",
-          "accessible"
-        ],
-        "analogy": "A developer-friendly CLI dashboard for running AI models locally.",
-        "oneLiner": "The easiest way to build with open models."
-      },
-      "colors": {
-        "principle": "High-contrast monochrome with a singular touch of color for system status."
-      },
-      "typography": {
-        "rules": [
-          "Large headings use tight letter-spacing",
-          "Code blocks use a clear monospace font",
-          "Body text maintains generous line height for readability"
-        ],
-        "scaleUses": [
-          "Hero headline",
-          "Section title",
-          "Paragraph"
-        ]
-      },
-      "spacing": {
-        "rhythm": "Generous vertical rhythm with large padding between sections."
-      },
-      "surfaces": {
-        "shadows": [],
-        "borders": "Thin, subtle borders used for inputs and code blocks."
-      },
-      "layout": {
-        "skeleton": "Centered hero with generous whitespace, followed by a two-column feature section."
-      },
-      "components": {
-        "button": "Solid black rounded-rectangle for primary CTA; white with border for secondary.",
-        "card": "Subtle border with rounded corners, featuring a terminal mockup with status dots.",
-        "chip": "None visible.",
-        "input": "Rounded search bar with subtle border and placeholder text.",
-        "hero": "Centered illustration, large display heading, and a code snippet box."
-      },
-      "interaction": {
-        "hover": "Subtle opacity change or underline on text links.",
-        "click": "Immediate state change.",
-        "transition": "Smooth fade or slide for basic interactions.",
-        "keyboard": "Standard focus rings for accessibility."
-      },
-      "voice": {
-        "tone": "Direct, helpful, and encouraging for developers.",
-        "headlineStyle": "Clear, benefit-oriented statements.",
-        "ctaStyle": "Action-oriented with clear next steps (e.g., terminal command).",
-        "avoid": [
-          "Marketing jargon",
-          "Complex technical obfuscation",
-          "Overly formal corporate language",
-          "Visual clutter"
-        ]
-      },
-      "donts": [
-        "Don't use vibrant or neon accents — the screenshot shows a strictly monochrome palette.",
-        "Don't use decorative serif fonts — the display and body fonts are clean grotesque-sans.",
-        "Don't add heavy drop shadows — the design is flat with minimal depth cues.",
-        "Don't use rounded-full buttons for primary actions — the screenshot shows rounded-rectangle buttons.",
-        "Don't crowd the layout — the screenshot demonstrates generous whitespace and centered sections.",
-        "Don't hide the code snippet — the screenshot prominently features terminal commands."
-      ],
-      "systemPrompt": "Ollama's design is a minimalist, developer-centric interface that prioritizes clarity and utility. The palette is strictly monochrome (black ink on white background), with a tiny splash of red, yellow, and green only for terminal status dots. Typography uses clean grotesque-sans for headlines and body text, with a standard monospace for code. The layout is centered and spacious, utilizing generous whitespace to reduce cognitive load. Critical donts include: avoid using any vibrant accent colors outside the terminal dots, do not use decorative serif fonts, and do not add unnecessary shadows or complex gradients. The overall tone is helpful and direct, focusing on ease of use for building with open-source models."
-    },
-    "zh-CN": {
-      "identity": {
-        "keywords": [
-          "开发者",
-          "AI",
-          "工具",
-          "开源",
-          "可访问"
-        ],
-        "analogy": "一个开发者友好的 CLI 仪表板，用于在本地运行 AI 模型。",
-        "oneLiner": "使用开源模型进行构建的最简单方式。"
-      },
-      "colors": {
-        "principle": "高对比度单色设计，仅以单一色彩点缀标示系统状态。"
-      },
-      "typography": {
-        "rules": [
-          "大标题使用紧凑的字间距",
-          "代码块使用清晰的等宽字体",
-          "正文保持充足的行高以提升可读性"
-        ],
-        "scaleUses": [
-          "主标题",
-          "章节标题",
-          "段落"
-        ]
-      },
-      "spacing": {
-        "rhythm": "宽松的垂直韵律，章节间留有大量内边距。"
-      },
-      "surfaces": {
-        "shadows": [],
-        "borders": "用于输入框和代码块的细长、微妙边框。"
-      },
-      "layout": {
-        "skeleton": "居中的首屏区域配以充足留白，后接双栏功能区。"
-      },
-      "components": {
-        "button": "主要操作使用纯黑色圆角矩形按钮；次要操作使用带边框的白色按钮。",
-        "card": "带有圆角的微妙边框，内含一个带状态圆点的终端模拟图。",
-        "chip": "无可见设计。",
-        "input": "带微妙边框和占位符文本的圆角搜索栏。",
-        "hero": "居中插图、大号展示标题以及一个代码片段框。"
-      },
-      "interaction": {
-        "hover": "文本链接在悬停时微妙改变透明度或添加下划线。",
-        "click": "状态即时切换。",
-        "transition": "基础交互采用平滑的淡入或滑动效果。",
-        "keyboard": "采用标准焦点环以保证可访问性。"
-      },
-      "voice": {
-        "tone": "直接、实用且鼓励开发者。",
-        "headlineStyle": "清晰、以益处为导向的陈述。",
-        "ctaStyle": "行动导向，明确下一步操作（例如终端命令）。",
-        "avoid": [
-          "营销术语",
-          "复杂的技术术语混淆",
-          "过于正式的企业语言",
-          "视觉杂乱"
-        ]
-      },
-      "donts": [
-        "不要使用鲜艳或霓虹色的强调色——截图显示的是严格的单色调色板。",
-        "不要使用装饰性衬线字体——标题和正文字体均为简洁的 grotesque-sans。",
-        "不要添加厚重的投影——设计是扁平化的，仅有极少深度提示。",
-        "不要为主要操作使用完全圆形的按钮——截图显示的是圆角矩形按钮。",
-        "不要让布局拥挤——截图展示了充足的留白和居中的章节划分。",
-        "不要隐藏代码片段——截图显著展示了终端命令。"
-      ],
-      "systemPrompt": "Ollama 的设计是一个极简主义、以开发者为中心的界面，优先考虑清晰度与实用性。调色板严格采用单色（黑色墨水配白色背景），仅用少量红、黄、绿点缀终端状态圆点。排版使用简洁的 grotesque-sans 作为标题和正文字体，代码则使用标准等宽字体。布局居中且宽松，利用充足的留白以减少认知负荷。关键禁止事项包括：避免在终端圆点之外使用任何鲜艳的强调色，不要使用装饰性衬线字体，以及不要添加不必要的阴影或复杂渐变。整体语调是实用且直接的，专注于提升使用开源模型进行构建的便捷性。"
-    },
-    "zh-TW": {
-      "identity": {
-        "keywords": [
-          "開發者",
-          "AI",
-          "工具",
-          "開源",
-          "無障礙"
-        ],
-        "analogy": "一個對開發者友好的 CLI 控制面板，用於本地運行 AI 模型。",
-        "oneLiner": "使用開源模型進行建構的最簡易方式。"
-      },
-      "colors": {
-        "principle": "高對比度的單色調，僅以一抹色彩用於系統狀態指示。"
-      },
-      "typography": {
-        "rules": [
-          "大型標題使用緊湊的字間距",
-          "程式碼區塊使用清晰的等寬字體",
-          "內文維持寬鬆的行高以提升可讀性"
-        ],
-        "scaleUses": [
-          "主視覺標題",
-          "區塊標題",
-          "段落"
-        ]
-      },
-      "spacing": {
-        "rhythm": "寬鬆的垂直節奏，區塊之間留有大量內距。"
-      },
-      "surfaces": {
-        "shadows": [],
-        "borders": "用於輸入框與程式碼區塊的細微邊框。"
-      },
-      "layout": {
-        "skeleton": "居中的主視覺區塊搭配寬敞留白，其後接續雙欄功能區塊。"
-      },
-      "components": {
-        "button": "主要 CTA 為實心黑色圓角矩形；次要按鈕為帶邊框的白色設計。",
-        "card": "帶圓角的細微邊框，內含終端機介面模型與狀態指示燈。",
-        "chip": "無可見元素。",
-        "input": "帶有細微邊框與佔位文字的圓角搜尋欄。",
-        "hero": "居中插圖、大型展示標題，以及程式碼片段區塊。"
-      },
-      "interaction": {
-        "hover": "文字連結的細微透明度變化或底線效果。",
-        "click": "即時狀態變更。",
-        "transition": "基本互動使用平滑的淡入淡出或滑動效果。",
-        "keyboard": "標準的 focus ring 以符合無障礙需求。"
-      },
-      "voice": {
-        "tone": "直接、實用且對開發者具鼓勵性。",
-        "headlineStyle": "清晰、以效益為導向的陳述。",
-        "ctaStyle": "以行動為導向，明確指引下一步操作（例如終端機指令）。",
-        "avoid": [
-          "行銷術語",
-          "複雜的技術術語混淆",
-          "過於正式的企業語言",
-          "視覺雜亂"
-        ]
-      },
-      "donts": [
-        "勿使用鮮豔或霓虹色調的強調色——截圖顯示的是嚴格的單色調色盤。",
-        "勿使用裝飾性的襯線字體——標題與內文使用的是乾淨的 grotesque-sans 字體。",
-        "勿添加厚重的陰影效果——設計採用扁平風格，僅有最小的深度提示。",
-        "勿為主要操作使用圓形按鈕——截圖顯示的是圓角矩形按鈕。",
-        "勿擁擠版面配置——截圖展示了寬敞的留白與居中區塊。",
-        "勿隱藏程式碼片段——截圖突顯了終端機指令的展示。"
-      ],
-      "systemPrompt": "Ollama 的設計是一個極簡、以開發者為中心的介面，優先考慮清晰度與實用性。調色盤嚴格採用單色調（白色背景上的黑色墨水），僅在終端機狀態點上點綴微量的紅、黃、綠色。字體方面，標題與內文使用乾淨的 grotesque-sans，程式碼則採用標準的等寬字體。版面配置居中且寬敞，利用大量留白以降低認知負擔。關鍵注意事項包括：避免在終端機狀態點之外使用任何鮮豔的強調色，勿使用裝飾性襯線字體，以及避免添加不必要的陰影或複雜漸層。整體語調實用且直接，專注於提升使用開源模型建構時的易用性。"
-    },
-    "ja": {
-      "identity": {
-        "keywords": [
-          "開発者",
-          "AI",
-          "ツール",
-          "オープンソース",
-          "アクセシブル"
-        ],
-        "analogy": "AIモデルをローカルで実行するための、開発者に優しいCLIダッシュボード。",
-        "oneLiner": "オープンモデルで構築する最も簡単な方法。"
-      },
-      "colors": {
-        "principle": "システムステータスに単一のカラーを加えた、ハイコントラストのモノクロカラー。"
-      },
-      "typography": {
-        "rules": [
-          "大きな見出しには tightened letter-spacing を使用",
-          "コードブロックには明確な monospace フォントを使用",
-          "本文テキストは読みやすさを重視し、generous line height を維持"
-        ],
-        "scaleUses": [
-          "ヒーローヘッドライン",
-          "セクションタイトル",
-          "段落"
-        ]
-      },
-      "spacing": {
-        "rhythm": "セクション間に大きなpaddingを配置した、generousな垂直リズム。"
-      },
-      "surfaces": {
-        "shadows": [],
-        "borders": "入力フィールドやコードブロックに使用される、薄く控えめなborder。"
-      },
-      "layout": {
-        "skeleton": "generousな余白を備えた中央揃えのヒーロー、その後に2カラムの機能セクションが続く構成。"
-      },
-      "components": {
-        "button": "プライマリCTAには実黒のrounded-rectangle、セカンダリにはborder付きの白。",
-        "card": "rounded cornersを備えた控えめなborder、ステータスドット付きのターミナルモックアップを表示。",
-        "chip": "目立つものなし。",
-        "input": "控えめなborderとプレースホルダーテキストを備えたroundedな検索バー。",
-        "hero": "中央揃えのイラスト、大きなdisplay見出し、コードスニペットボックス。"
-      },
-      "interaction": {
-        "hover": "テキストリンクに対する控えめなopacity変化や下線。",
-        "click": "即座の状態変化。",
-        "transition": "基本的なインタラクションに対する、滑らかなフェードまたはスライド。",
-        "keyboard": "アクセシビリティのための標準的なfocus ring。"
-      },
-      "voice": {
-        "tone": "開発者に対して直接的で、助けになり、鼓舞するような口調。",
-        "headlineStyle": "明確で、利益を重視したステートメント。",
-        "ctaStyle": "明確な次のステップ（例：ターミナルコマンド）を示す、アクション重視の表現。",
-        "avoid": [
-          "マーケティング用語",
-          "複雑な技術的隠語",
-          "過度にフォーマルな企業言語",
-          "視覚的な雑然さ"
-        ]
-      },
-      "donts": [
-        "ビバントなアクセントカラーは使用しない — スクリーンショットは厳密なモノクロパレットを示しています。",
-        "装飾的な serif フォントは使用しない — displayおよび本文フォントはクリーンな grotesque-sans です。",
-        "重いドロップシャドウは追加しない — デザインはフラットで、最小限のdepth cuesのみです。",
-        "プライマリアクションに rounded-full ボタンは使用しない — スクリーンショットはrounded-rectangleボタンを示しています。",
-        "レイアウトを詰め込みすぎない — スクリーンショットはgenerousな余白と中央揃えのセクションを示しています。",
-        "コードスニペットを隠さない — スクリーンショットはターミナルコマンドを前面に表示しています。"
-      ],
-      "systemPrompt": "Ollamaのデザインは、明確さとユーティリティを優先する、ミニマルで開発者中心のインターフェースです。パレットは厳密にモノクロ（白背景に黒インク）で、ターミナルのステータスドットにのみ赤、黄、緑の小さなsplashが使用されます。タイポグラフィには、見出しと本文テキストにクリーンな grotesque-sans、コードには標準的な monospace が使用されます。レイアウトは中央揃えでゆったりとしており、generousな余白を活用して認知負荷を軽減しています。重要な禁止事項には、ターミナルドット以外のビバントなアクセントカラーの使用禁止、装飾的な serif フォントの使用禁止、不必要なshadowや複雑なgradientの追加禁止が含まれます。全体的なトーンは有用で直接的であり、オープンソースモデルの構築における使いやすさに焦点を当てています。"
-    },
-    "ko": {
-      "identity": {
-        "keywords": [
-          "개발자",
-          "AI",
-          "도구",
-          "오픈소스",
-          "접근성"
-        ],
-        "analogy": "로컬에서 AI 모델을 실행하기 위한 개발자 친화적 CLI 대시보드.",
-        "oneLiner": "오픈 모델로 빌드하는 가장 쉬운 방법."
-      },
-      "colors": {
-        "principle": "시스템 상태를 위한 단 하나의 색상 포인트를 가진 고대비 단색 팔레트입니다."
-      },
-      "typography": {
-        "rules": [
-          "큰 제목은 좁은 자간을 사용합니다.",
-          "코드 블록은 명확한 모노스페이스 폰트를 사용합니다.",
-          "본문 텍스트는 가독성을 위해 넉넉한 행간을 유지합니다."
-        ],
-        "scaleUses": [
-          "히어로 헤드라인",
-          "섹션 제목",
-          "단락"
-        ]
-      },
-      "spacing": {
-        "rhythm": "섹션 간 넉넉한 패딩을 통한 여유로운 수직 리듬."
-      },
-      "surfaces": {
-        "shadows": [],
-        "borders": "입력 필드와 코드 블록에 사용되는 미세하고 은은한 테두리."
-      },
-      "layout": {
-        "skeleton": "넉넉한 여백의 중앙 정렬 히어로, 그 뒤에 이어지는 두 열의 기능 섹션."
-      },
-      "components": {
-        "button": "주요 CTA는 검정색 둥근 사각형으로, 부요청은 테두리가 있는 흰색으로 디자인합니다.",
-        "card": "터미널 모형과 상태 점이 포함된, 둥근 모서리와 미세한 테두리의 카드.",
-        "chip": "보이지 않음.",
-        "input": "미세한 테두리와 플레이스홀더 텍스트가 있는 둥근 검색 바.",
-        "hero": "중앙 정렬 일러스트레이션, 큰 디스플레이 헤드라인, 그리고 코드 스니펫 상자."
-      },
-      "interaction": {
-        "hover": "텍스트 링크에 은은한 불투명도 변화 또는 밑줄 표시.",
-        "click": "즉각적인 상태 변경.",
-        "transition": "기본 상호작용을 위한 부드러운 페이드 또는 슬라이드 효과.",
-        "keyboard": "접근성을 위한 표준 focus 링."
-      },
-      "voice": {
-        "tone": "개발자를 위해 직접적이고, 유용하며, 격려하는 어조.",
-        "headlineStyle": "명확하고, 가치를 전달하는 문장.",
-        "ctaStyle": "명확한 다음 단계(예: 터미널 명령어)를 제시하는 행동 지향적 문구.",
-        "avoid": [
-          "마케팅 용어",
-          "복잡한 기술적 설명",
-          "지나치게 격식 있는 기업 언어",
-          "시각적 혼잡"
-        ]
-      },
-      "donts": [
-        "화려하거나 네온 악센트를 사용하지 마세요 — 스크린샷은 엄격한 단색 팔레트를 보여줍니다.",
-        "장식용 세리프 폰트를 사용하지 마세요 — 디스플레이 및 본문 폰트는 깔끔한 grotesque-sans입니다.",
-        "두꺼운 드롭 섀도우를 추가하지 마세요 — 디자인은 최소한의 깊이 표현으로 플랫합니다.",
-        "주요 액션에 완전히 둥근 버튼을 사용하지 마세요 — 스크린샷은 둥근 사각형 버튼을 보여줍니다.",
-        "레이아웃을 빽빽하게 채우지 마세요 — 스크린샷은 넉넉한 여백과 중앙 정렬 섹션을 보여줍니다.",
-        "코드 스니펫을 숨기지 마세요 — 스크린샷은 터미널 명령어를 주요하게 보여줍니다."
-      ],
-      "systemPrompt": "Ollama의 디자인은 명확성과 유용성을 우선시하는 미니멀리즘, 개발자 중심 인터페이스입니다. 팔레트는 엄격히 단색(흰색 배경 위의 흑색)이며, 터미널 상태 점에만 빨간색, 노란색, 초록색의 작은 포인트를 사용합니다. 타이포그래피는 헤드라인과 본문에 깔끔한 grotesque-sans를, 코드에는 표준 모노스페이스를 사용합니다. 레이아웃은 중앙 정렬이며 넓은 공간을 활용하여 여백을 넉넉히 사용함으로써 인지 부하를 줄입니다. 핵심 금지 사항은 다음과 같습니다: 터미널 점 이외의 화려한 악센트 색상 사용 금지, 장식용 세리프 폰트 사용 금지, 불필요한 섀도우나 복잡한 그라디언트 추가 금지. 전체적인 톤은 도움이 되고 직접적이며, 오픈소스 모델을 활용한 빌드의 용이성에 초점을 맞추고 있습니다."
+      "easing": "cubic-bezier(0.4, 0, 0.2, 1)"
     }
   },
   "desc": {
     "en": {
-      "palette": "A strictly monochrome palette of black ink on white, using red, yellow, and green dots only for terminal status indicators.",
-      "layout": "A centered, spacious layout that prioritizes whitespace and clear hierarchical sections for developer focus.",
-      "interaction": "Subtle hover states and immediate feedback on interactive elements, maintaining a low-friction experience.",
-      "motion": "Minimal and functional motion, likely used for basic transitions without distracting from the utility.",
-      "notes": "Worth including as a prime example of minimalist, utility-first design for developer tools where clarity and speed of use are paramount."
+      "palette": "Strict monochrome palette utilizing black (#000000) on white (#FFFFFF) with grays (#737373, #A3A3A3, #E5E5E5) for hierarchy and borders, completely devoid of chromatic accent colors.",
+      "layout": "Generous, single-column centered layout with wide margins and large vertical spacing, creating a calm and focused reading experience.",
+      "interaction": "Subtle, fast transitions (150ms) on interactive elements, maintaining a snappy and responsive feel without distracting animations.",
+      "motion": "Minimal and functional motion, focused entirely on UI state changes rather than decorative effects.",
+      "notes": "Worth including as a masterclass in developer tooling design, showing how strict minimalism and restraint can create a highly professional, trustworthy, and accessible brand identity."
     },
     "zh-CN": {
       "palette": "严格的单色调色板，黑色墨水配白色背景，仅使用红、黄、绿三色圆点作为终端状态指示器。",
@@ -567,6 +226,393 @@
       "ch7_intro": "모션은 최소한이며 엄격하게 기능적이어서, 행동을 확인하고 집중을 안내하는 데만 사용됩니다. 지속 시간은 반응성을 위해 조정됩니다: 미세 상호작용에는 빠르게, 핵심 유틸리티에서 주의를 산만하게 하지 않는 전환 페이드와 슬라이드에는 약간 더 길게.",
       "ch8_intro": "에디토리얼 목소리는 직접적이고, 도움이 되며, 격려하는 것으로, 개발자를 동료로 대우합니다. 마케팅 수사보다는 이점 지향적 진술과 명확하고 실행 가능한 지시를 선호합니다.",
       "ch8_outro": "의도적으로 피하는 것은 포함된 것만큼이나 중요합니다: 화려한 강조색 없음, 장식적 타이포그래피 없음, 시각적 혼란 없음, 그리고 숨겨진 명령 없음."
+    }
+  },
+  "spec_i18n": {
+    "en": {
+      "identity": {
+        "keywords": [
+          "open-source",
+          "local AI",
+          "developer tooling",
+          "privacy-first",
+          "accessible AI"
+        ],
+        "analogy": "A calm, developer-focused CLI tool that brings the power of open-source AI models to your local terminal with extreme simplicity.",
+        "oneLiner": "The easiest way to build with open models locally."
+      },
+      "colors": {
+        "principle": "High-contrast monochrome palette relying on white space and clean lines for hierarchy, with zero accent colors."
+      },
+      "typography": {
+        "rules": [
+          "Display and heading weights are kept at 400 for a calm, light aesthetic.",
+          "Body text uses standard 1.5 line height for maximum readability.",
+          "Monospace font is reserved strictly for terminal commands."
+        ],
+        "scaleUses": [
+          "Hero headline",
+          "Section title",
+          "Paragraph",
+          "UI labels",
+          "Metadata"
+        ]
+      },
+      "spacing": {
+        "rhythm": "Generous vertical spacing creates a calm, breathable layout, with 80px gaps between major sections."
+      },
+      "surfaces": {
+        "shadows": [],
+        "borders": "1px solid #E5E5E5 used for inputs, command blocks, and subtle dividers."
+      },
+      "layout": {
+        "skeleton": "Centered, single-column flow for content with generous top and bottom padding."
+      },
+      "components": {
+        "button": "Pill-shaped solid black primary buttons and minimal white secondary buttons with black borders.",
+        "card": "Content blocks with subtle borders and generous padding, focusing on text-heavy layouts.",
+        "chip": "Checkmark icons preceding list items, acting as visual bullet points.",
+        "input": "Rounded search bars with subtle gray backgrounds and icons.",
+        "hero": "Centered mascot illustration followed by a large headline and a code snippet block."
+      },
+      "motion": {
+        "patterns": [
+          "Subtle color and background transitions on interactive elements."
+        ]
+      },
+      "interaction": {
+        "hover": "Subtle color transitions on text links and button states.",
+        "click": "Standard pointer cursor on interactive elements.",
+        "transition": "0.15s cubic-bezier(0.4, 0, 0.2, 1) applied across color, background, and border properties.",
+        "keyboard": "Standard focus states for accessibility, though not explicitly visible in screenshots."
+      },
+      "voice": {
+        "tone": "Confident, minimalist, and technical.",
+        "headlineStyle": "Short, direct, and benefit-driven statements.",
+        "ctaStyle": "Action-oriented and imperative, e.g., 'Get started'.",
+        "avoid": [
+          "Marketing jargon",
+          "Excessive adjectives",
+          "Overly complex technical explanations in headlines"
+        ]
+      },
+      "donts": [
+        "Don't use multiple accent colors — screenshot shows a strict monochrome palette.",
+        "Don't use heavy font weights — screenshot shows weights primarily at 400 and 500.",
+        "Don't use drop shadows on cards — screenshot shows flat surfaces with subtle borders.",
+        "Don't use rounded-square buttons — screenshot shows fully pill-shaped buttons.",
+        "Don't use dense, multi-column layouts — screenshot shows a spacious single-column centered flow.",
+        "Don't use decorative serif fonts — screenshot shows exclusively sans-serif and monospace fonts."
+      ],
+      "systemPrompt": "Ollama is a minimalist, developer-focused landing page for an open-source local AI tool. The design DNA is characterized by a strict monochrome palette (#000000 on #FFFFFF) with #737373 for secondary text and #E5E5E5 for borders and subtle backgrounds. Typography uses a clean, geometric-sans display and a humanist-sans body, with monospace reserved for code snippets. The layout is spacious, centered, and single-column, prioritizing readability and technical clarity over visual flair. Critical donts include: never use accent colors or gradients, keep font weights light (400-500), avoid drop shadows, use pill-shaped buttons, maintain generous whitespace, and never use serif fonts. The tone is confident and direct, positioning Ollama as the 'easiest way' to build with open models."
+    },
+    "zh-CN": {
+      "identity": {
+        "keywords": [
+          "开源",
+          "本地 AI",
+          "开发者工具",
+          "隐私优先",
+          "无障碍 AI"
+        ],
+        "analogy": "一款专注于开发者的命令行工具，以极简的方式将开源 AI 模型的强大功能带到您的本地终端。",
+        "oneLiner": "本地构建开源模型最简易的方式。"
+      },
+      "colors": {
+        "principle": "高对比度单色调色板，依赖留白和清晰线条构建层次，零强调色。"
+      },
+      "typography": {
+        "rules": [
+          "标题与展示字体字重保持 400，营造平静、轻盈的美感。",
+          "正文文本使用标准 1.5 行高，以确保最佳可读性。",
+          "等宽字体严格保留用于终端命令。"
+        ],
+        "scaleUses": [
+          "主标题",
+          "章节标题",
+          "段落",
+          "UI 标签",
+          "元数据"
+        ]
+      },
+      "spacing": {
+        "rhythm": "充裕的垂直间距营造平静、透气的布局，主要区块间留有 80px 间距。"
+      },
+      "surfaces": {
+        "shadows": [],
+        "borders": "1px solid #E5E5E5，用于输入框、命令区块和细微分隔线。"
+      },
+      "layout": {
+        "skeleton": "居中、单列流式布局，内容区域上下留有充足内边距。"
+      },
+      "components": {
+        "button": "黑色实心胶囊形主按钮与带黑色边框的极简白色次按钮。",
+        "card": "带有细微边框和充裕内边距的内容区块，侧重文字密集型布局。",
+        "chip": "列表项前的对勾图标，充当视觉列表符号。",
+        "input": "圆角搜索栏，带有细微灰色背景和图标。",
+        "hero": "居中的吉祥物插图，后接大标题和一个代码片段区块。"
+      },
+      "motion": {
+        "patterns": [
+          "交互元素上的细微颜色与背景过渡。"
+        ]
+      },
+      "interaction": {
+        "hover": "文本链接和按钮状态上的细微颜色过渡。",
+        "click": "交互元素上使用标准指针光标。",
+        "transition": "应用于颜色、背景和边框属性的 0.15s cubic-bezier(0.4, 0, 0.2, 1) 过渡。",
+        "keyboard": "标准无障碍聚焦状态，虽在截图中未明确显示。"
+      },
+      "voice": {
+        "tone": "自信、极简、技术感。",
+        "headlineStyle": "简短、直接、以收益为导向的陈述。",
+        "ctaStyle": "行动导向的祈使句，例如 '立即开始'。",
+        "avoid": [
+          "营销术语",
+          "过度形容词",
+          "标题中过于复杂的技术解释"
+        ]
+      },
+      "donts": [
+        "勿使用多种强调色 — 截图显示的是严格的单色配色。",
+        "勿使用过重的字重 — 截图显示的字重主要为 400 和 500。",
+        "勿在卡片上使用投影 — 截图显示的是带细微边框的扁平面。",
+        "勿使用圆角方形按钮 — 截图显示的是完全胶囊形的按钮。",
+        "勿使用密集、多列布局 — 截图显示的是宽敞的单列居中流式布局。",
+        "勿使用装饰性衬线字体 — 截图显示的是仅有的无衬线和等宽字体。"
+      ],
+      "systemPrompt": "Ollama 是一款极简、面向开发者的开源本地 AI 工具着陆页。其设计基因以严格的单色配色（#000000 背景 #FFFFFF）为特征，使用 #737373 表示次要文本，#E5E5E5 表示边框和细微背景。字体采用干净的几何无衬线展示字体和人文无衬线正文字体，等宽字体保留用于代码片段。布局宽敞、居中、单列，优先考虑可读性和技术清晰度，而非视觉修饰。关键禁忌包括：永不使用强调色或渐变，保持字体字重轻盈（400-500），避免投影，使用胶囊形按钮，保持充裕留白，永不使用衬线字体。语调自信而直接，将 Ollama 定位为构建开源模型的'最简易方式'。"
+    },
+    "zh-TW": {
+      "identity": {
+        "keywords": [
+          "開源",
+          "本地 AI",
+          "開發者工具",
+          "隱私優先",
+          "無障礙 AI"
+        ],
+        "analogy": "一個專為開發者設計、冷靜的 CLI 工具，以極致的簡潔性，將開源 AI 模型的力量帶到您的本地終端機。",
+        "oneLiner": "在本地使用開源模型構建的最簡易方式。"
+      },
+      "colors": {
+        "principle": "高對比的單色調色板，依賴留白與簡潔線條建立層級，無任何強調色。"
+      },
+      "typography": {
+        "rules": [
+          "標題與標示字重維持在 400，營造冷靜、輕盈的美學。",
+          "內文使用標準 1.5 行高，確保最佳可讀性。",
+          "等寬字體嚴格保留給終端機命令使用。"
+        ],
+        "scaleUses": [
+          "主視覺標題",
+          "章節標題",
+          "段落",
+          "介面標籤",
+          "中繼資料"
+        ]
+      },
+      "spacing": {
+        "rhythm": "寬裕的垂直間距營造出寧靜、可呼吸的佈局，主要章節間距為 80px。"
+      },
+      "surfaces": {
+        "shadows": [],
+        "borders": "使用 1px solid #E5E5E5 於輸入欄位、命令區塊與細微分隔線。"
+      },
+      "layout": {
+        "skeleton": "置中的單欄內容流，上下皆有寬裕的 padding。"
+      },
+      "components": {
+        "button": "膠囊形的純黑主要按鈕，以及帶有黑色邊框的簡約白色次要按鈕。",
+        "card": "帶有細微邊框與寬裕 padding 的內容區塊，著重於文字密集的佈局。",
+        "chip": "列表項目前方的勾選圖示，作為視覺化的項目符號。",
+        "input": "圓角搜尋列，帶有細微灰色背景與圖示。",
+        "hero": "置中的吉祥物插圖，後接大型標題與程式碼區塊。"
+      },
+      "motion": {
+        "patterns": [
+          "互動元素上的細微顏色與背景轉場效果。"
+        ]
+      },
+      "interaction": {
+        "hover": "文字連結與按鈕狀態上的細微顏色轉場。",
+        "click": "互動元素上使用標準的指標游標。",
+        "transition": "套用 0.15s cubic-bezier(0.4, 0, 0.2, 1) 於顏色、背景與邊框屬性。",
+        "keyboard": "標準的焦點狀態以符合無障礙規範，雖然在截圖中並不明顯可見。"
+      },
+      "voice": {
+        "tone": "自信、極簡且技術性。",
+        "headlineStyle": "簡短、直接且以效益為導向的陳述。",
+        "ctaStyle": "行動導向且具命令語氣，例如：「開始使用」。",
+        "avoid": [
+          "行銷術語",
+          "過多的形容詞",
+          "標題中過於複雜的技術性解釋"
+        ]
+      },
+      "donts": [
+        "勿使用多種強調色 — 截圖顯示的是嚴格的單色調色板。",
+        "勿使用粗體字重 — 截圖顯示字重主要為 400 與 500。",
+        "勿在卡片上使用陰影 — 截圖顯示的是帶有細微邊框的平面表面。",
+        "勿使用圓角方形按鈕 — 截圖顯示的是完全的膠囊形按鈕。",
+        "勿使用密集的多欄佈局 — 截圖顯示的是寬敞的置中單欄流動佈局。",
+        "勿使用裝飾性襯線字體 — 截圖顯示僅使用無襯線與等寬字體。"
+      ],
+      "systemPrompt": "Ollama 是一個為開源本地 AI 工具設計、專注於開發者的極簡登陸頁面。其設計 DNA 以嚴格的單色調色板（#000000 on #FFFFFF）為特色，次要文字使用 #737373，邊框與細微背景使用 #E5E5E5。字型採用簡潔的幾何無襯線作為標題，人文無襯線作為內文，等寬字體則保留給程式碼區塊使用。佈局寬敞、置中且為單欄，優先考慮可讀性與技術清晰度，而非視覺浮華。關鍵的禁忌包括：絕對不要使用強調色或漸層，保持字體輕盈（400-500），避免陰影，使用膠囊形按鈕，維持寬裕的留白，絕不使用襯線字體。語調自信而直接，將 Ollama 定位為使用開源模型構建的「最簡易方式」。"
+    },
+    "ja": {
+      "identity": {
+        "keywords": [
+          "オープンソース",
+          "ローカル AI",
+          "開発者向けツール",
+          "プライバシー優先",
+          "アクセシブル AI"
+        ],
+        "analogy": "落ち着いた、開発者に焦点を当てたCLIツール。オープンソースAIモデルの力を、極限のシンプルさでローカルターミナルに届ける。",
+        "oneLiner": "オープンモデルをローカルで構築する最も簡単な方法。"
+      },
+      "colors": {
+        "principle": "ホワイトスペースとクリーンラインによる階層構築を重視した、ハイコントラストのモノクロームパレット。アクセントカラーは一切使用しない。"
+      },
+      "typography": {
+        "rules": [
+          "ディスプレイおよび見出しのウェイトは、落ち着いた軽快な美学のため400に固定。",
+          "本文テキストは最大限の可読性のために、標準の1.5行高を使用。",
+          "等幅フォントはターミナルコマンド専用とする。"
+        ],
+        "scaleUses": [
+          "ヒーローヘッドライン",
+          "セクションタイトル",
+          "段落",
+          "UIラベル",
+          "メタデータ"
+        ]
+      },
+      "spacing": {
+        "rhythm": "たっぷりとした垂直方向のスペーシングで、落ち着いた呼吸がちなレイアウトを実現。主要セクション間には80pxの間隔を設ける。"
+      },
+      "surfaces": {
+        "shadows": [],
+        "borders": "1px solid #E5E5E5 をインプット、コマンドブロック、微細な仕切りに使用。"
+      },
+      "layout": {
+        "skeleton": "コンテンツは中央揃えの単一カラムフローとし、上下にたっぷりとしたパディングを設ける。"
+      },
+      "components": {
+        "button": "ピル型のソリッドブラックプライマリボタンと、ブラックボーダーのミニマルなホワイトセカンダリボタン。",
+        "card": "微細なボーダーとたっぷりとしたパディングを持つコンテンツブロック。テキスト多めのレイアウトに焦点を当てる。",
+        "chip": "リストアイテムの前にチェックマークアイコンを配置し、ビジュアル・バレットとして機能させる。",
+        "input": "微細なグレー背景とアイコンを備えた、角丸の検索バー。",
+        "hero": "中央揃えのマスコットイラストに続き、大きなヘッドラインとコードスニペットブロックを配置。"
+      },
+      "motion": {
+        "patterns": [
+          "インタラクティブな要素上の、微細な色と背景のトランジション。"
+        ]
+      },
+      "interaction": {
+        "hover": "テキストリンクおよびボタンの状態における、微細な色のトランジション。",
+        "click": "インタラクティブ要素上の、標準のポインターカーソル。",
+        "transition": "0.15s cubic-bezier(0.4, 0, 0.2, 1) を色、背景、ボーダープロパティに適用。",
+        "keyboard": "アクセシビリティのための標準フォーカス状態。ただしスクリーンショットでは明示的に表示されない。"
+      },
+      "voice": {
+        "tone": "自信に満ち、ミニマルで、テクニカル。",
+        "headlineStyle": "簡潔で直接的、ベネフィットを強調した表現。",
+        "ctaStyle": "行動を促す命令形。例：「Get started」",
+        "avoid": [
+          "マーケティング用語",
+          "過度な形容詞",
+          "見出しにおける複雑すぎる技術的説明"
+        ]
+      },
+      "donts": [
+        "複数のアクセントカラーを使用しない — スクリーンショットでは厳格なモノクロームパレットを示している。",
+        "太いフォントウェイトを使用しない — スクリーンショットでは主に400および500のウェイトを使用している。",
+        "カードにドロップシャドウを使用しない — スクリーンショットでは微細なボーダーを持つフラットなサーフェスを示している。",
+        "角丸四角形のボタンを使用しない — スクリーンショットでは完全にピル型のボタンを示している。",
+        "密集した複数カラムのレイアウトを使用しない — スクリーンショットではゆったりとした単一カラムの中央揃えフローを示している。",
+        "装飾的なセリフフォントを使用しない — スクリーンショットではサンセリフフォントと等幅フォントのみを使用している。"
+      ],
+      "systemPrompt": "Ollamaは、オープンソースのローカルAIツールのための、ミニマルで開発者に焦点を当てたランディングページです。デザインDNAは、#000000 on #FFFFFFの厳格なモノクロームパレット、セカンダリテキスト用の#737373、ボーダーおよび微細な背景用の#E5E5E5で特徴づけられます。タイポグラフィはクリーンで幾何学的なサンセリフのディスプレイとヒューマニストサンセリフの本文を使用し、等幅フォントはコードスニペット専用とします。レイアウトはゆったりとしており、中央揃えの単一カラムで、ビジュアルな装飾よりも可読性と技術的な明瞭さを優先します。重要な禁止事項は以下の通りです：アクセントカラーやグラデーションは決して使用せず、フォントウェイトは軽め（400-500）に保ち、ドロップシャドウを避け、ピル型ボタンを使用し、たっぷりとしたホワイトスペースを維持し、セリフフォントは決して使用しない。トーンは自信に満ち直接的で、Ollamaをオープンモデルで構築する「最も簡単な方法」として位置づける。"
+    },
+    "ko": {
+      "identity": {
+        "keywords": [
+          "오픈소스",
+          "로컬 AI",
+          "개발자 도구",
+          "프라이버시 우선",
+          "접근 가능한 AI"
+        ],
+        "analogy": "極めてシンプルにオープンソースAIモデルの力をローカルターミナルに届ける、落ち着いた、開発者中心のCLIツールです。",
+        "oneLiner": "ローカルでオープンモデルを構築する最も簡単な方法です。"
+      },
+      "colors": {
+        "principle": "ハイコントラストのモノクロームパレットを採用し、ホワイトスペースとクリーンなラインで階層を構築し、アクセントカラーは一切使用しません。"
+      },
+      "typography": {
+        "rules": [
+          "ディスプレイと見出しのウェイトは400に設定し、落ち着いた、軽い美感を保ちます。",
+          "本文は最大限の可読性のために標準の1.5行高を使用します。",
+          "モノスペースフォントはターミナルコマンドにのみ使用します。"
+        ],
+        "scaleUses": [
+          "ヒーローヘッドライン",
+          "セクションタイトル",
+          "段落",
+          "UIラベル",
+          "メタデータ"
+        ]
+      },
+      "spacing": {
+        "rhythm": "ゆったりとした垂直方向の余白が落ち着いた、息のできるレイアウトを生み出し、主要セクション間には80pxのギャップを設けています。"
+      },
+      "surfaces": {
+        "shadows": [],
+        "borders": "1px solid #E5E5E5 を入力栏、コードブロック、微妙な区切り線に使用します。"
+      },
+      "layout": {
+        "skeleton": "コンテンツは中央揃えの単一カラムフローとし、上下にゆったりとした余白を設けます。"
+      },
+      "components": {
+        "button": "ピル形状のソリッドブラックプライマリボタンと、黒いボーダーを備えたミニマルなホワイトセカンダリボタンです。",
+        "card": "微妙なボーダーとゆったりとしたパディングを備えたコンテンツブロックで、テキスト中心のレイアウトに焦点を当てています。",
+        "chip": "リストアイテムの前にチェックマークアイコンを配置し、視覚的な箇条書きとして機能します。",
+        "input": "微妙なグレーの背景とアイコンを備えた丸角の検索バーです。",
+        "hero": "センタリングされたマスコットイラストに続き、大きな見出しとコードスニペットブロックが配置されます。"
+      },
+      "motion": {
+        "patterns": [
+          "インタラクティブ要素上の微妙な色と背景のトランジション。"
+        ]
+      },
+      "interaction": {
+        "hover": "テキストリンクとボタンの状態に対する微妙な色のトランジション。",
+        "click": "インタラクティブ要素上での標準的なポインターカーソル。",
+        "transition": "色、背景、ボーダープロパティに0.15s cubic-bezier(0.4, 0, 0.2, 1)を適用します。",
+        "keyboard": "アクセシビリティのための標準フォーカス状態ですが、スクリーンショットでは明確に表示されていません。"
+      },
+      "voice": {
+        "tone": "自信に満ち、ミニマルで、技術的です。",
+        "headlineStyle": "短く、直接的で、メリットを重視したフレーズ。",
+        "ctaStyle": "アクション指向で命令形。例：「始める」。",
+        "avoid": [
+          "マーケティング用語",
+          "過剰な形容詞",
+          "見出しにおける複雑すぎる技術的説明"
+        ]
+      },
+      "donts": [
+        "アクセントカラーを複数使用しないこと — スクリーンショットは厳格なモノクロームパレットを示しています。",
+        "太いフォントウェイトを使用しないこと — スクリーンショットでは主にウェイト400と500が使用されています。",
+        "カードにドロップシャドウを使用しないこと — スクリーンショットでは微妙なボーダーを持つフラットなサーフェスです。",
+        "角丸四角のボタンを使用しないこと — スクリーンショットでは完全なピル形状のボタンです。",
+        "密な、複数カラムのレイアウトを使用しないこと — スクリーンショットではゆったりとした、単一カラムの中央揃えフローです。",
+        "装飾的なセリフフォントを使用しないこと — スクリーンショットではサans-serifとモノスペースフォントのみが使用されています。"
+      ],
+      "systemPrompt": "Ollamaは、オープンソースのローカルAIツールのためのミニマルで開発者中心のランディングページです。デザインDNAは、モノクロームパレット(#000000 on #FFFFFF)に#737373をセカンダリテキストに、#E5E5E5をボーダーと微妙な背景に使用する厳格なモノクロームパレットが特徴です。タイポグラフィはクリーンなジオメトリック Sansのディスプレイとヒューマニスト Sansのボディを使用し、コードスニペットにはモノスペースを確保します。レイアウトはゆったりと、中央揃えで単一カラムとし、ビジュアルな華やかさよりも可読性と技術的明瞭さを優先します。重要な禁止事項は次のとおりです：アクセントカラーやグラデーションを決して使用しない、フォントウェイトを軽く(400-500)に保つ、ドロップシャドウを避ける、ピル形状のボタンを使用する、ゆったりとしたホワイトスペースを維持する、セリフフォントを決して使用しない。トーンは自信に満ち、直接的であり、Ollamaをオープンモデルで構築する「最も簡単な方法」として位置づけています。"
     }
   }
 }

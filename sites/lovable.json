@@ -17,48 +17,64 @@
   "_meta": {
     "vision_model": "mimo-v2.5",
     "vision_prompt_version": "0.3",
-    "vision_at": "2026-05-28T20:32:46+00:00",
-    "vision_tokens": 3387,
-    "vision_cost_usd": 0.0376,
+    "vision_at": "2026-05-30T16:56:58+00:00",
+    "vision_tokens": 17205,
+    "vision_cost_usd": 0.1912,
     "translation_model": "mimo-v2.5",
-    "translation_at": "2026-05-28T20:33:51+00:00",
-    "translation_tokens": 16496,
-    "translation_cost_usd": 0.055,
+    "translation_at": "2026-05-30T16:57:45+00:00",
+    "translation_tokens": 25653,
+    "translation_cost_usd": 0.0855,
     "narrative_model": "mimo-v2.5",
     "narrative_prompt_version": "0.3",
     "narrative_at": "2026-05-28T20:33:59+00:00",
     "narrative_tokens": 1994,
     "narrative_cost_usd": 0.0133,
     "narrative_status": "ok",
-    "total_cost_usd": 0.1059
+    "total_cost_usd": 0.29,
+    "vision_source": "playwright-extract:lovable",
+    "vision_grounded": true
   },
   "spec": {
     "colors": {
-      "bg": "#FFFFFF",
-      "bgSoft": null,
-      "bgQuiet": null,
-      "ink": "#111111",
-      "inkSoft": null,
-      "muted": "#888888",
+      "bg": "#F7F4ED",
+      "bgSoft": "#FCFBF8",
+      "bgQuiet": "#FDFCFC",
+      "ink": "#1C1C1C",
+      "inkSoft": "#5F5F5D",
+      "muted": "#ECEAE4",
       "mutedSoft": null,
-      "accent": "#FF4D4D",
-      "line": "rgba(0, 0, 0, 0.1)"
+      "accent": "#FE7B02",
+      "line": "rgba(236, 234, 228, 1)"
     },
     "typography": {
       "display": "geometric-sans",
       "body": "geometric-sans",
-      "mono": null,
+      "mono": "monospace",
       "scale": [
         {
           "token": "display",
-          "size": 56,
-          "lh": 1.1,
-          "weight": 600,
+          "size": 60,
+          "lh": 1.0,
+          "weight": 480,
           "ls": "-1.5px"
+        },
+        {
+          "token": "heading",
+          "size": 48,
+          "lh": 1.1,
+          "weight": 480,
+          "ls": "-1.2px"
         },
         {
           "token": "body",
           "size": 16,
+          "lh": 1.5,
+          "weight": 400,
+          "ls": "0px"
+        },
+        {
+          "token": "small",
+          "size": 14,
           "lh": 1.5,
           "weight": 400,
           "ls": "0px"
@@ -75,20 +91,22 @@
         32,
         48,
         64,
-        96
+        80,
+        96,
+        144
       ]
     },
     "surfaces": {
       "radius": {
-        "sm": 4,
-        "md": 8,
+        "sm": 8,
+        "md": 12,
         "lg": 16,
-        "pill": 999
+        "pill": 99999999
       }
     },
     "layout": {
-      "container": 1200,
-      "paragraph": 640,
+      "container": 1280,
+      "paragraph": 680,
       "columns": 12,
       "gutter": 24,
       "breakpoints": [
@@ -99,416 +117,19 @@
     "motion": {
       "durations": {
         "micro": 150,
-        "small": 300,
-        "medium": 600
+        "small": 200,
+        "medium": 400
       },
-      "easing": "cubic-bezier(0.4, 0.0, 0.2, 1)"
-    }
-  },
-  "spec_i18n": {
-    "en": {
-      "identity": {
-        "keywords": [
-          "AI-powered",
-          "creative",
-          "accessible",
-          "modern",
-          "inviting"
-        ],
-        "analogy": "A colorful, open invitation to create software without friction",
-        "oneLiner": "A sleek, gradient-forward AI platform that promises effortless app creation through conversation."
-      },
-      "colors": {
-        "principle": "Clean, high-contrast canvas anchored by a vibrant, multi-hued gradient."
-      },
-      "typography": {
-        "rules": [
-          "Headlines use tight tracking for a modern, impactful feel.",
-          "Body text prioritizes readability with generous line-height."
-        ],
-        "scaleUses": [
-          "Hero headline",
-          "General text and navigation"
-        ]
-      },
-      "spacing": {
-        "rhythm": "Consistent 4px base grid ensures alignment across all components."
-      },
-      "surfaces": {
-        "shadows": [
-          {
-            "token": "elevation-1",
-            "value": "0 4px 24px rgba(0, 0, 0, 0.08)"
-          }
-        ],
-        "borders": "Subtle, light gray borders used sparingly for input fields and cards."
-      },
-      "layout": {
-        "skeleton": "Centered single-column layout with a full-bleed gradient hero."
-      },
-      "components": {
-        "button": "Solid black pill button with white text for primary actions.",
-        "card": "Rounded rectangular container with a light background for input areas.",
-        "chip": null,
-        "input": "Large, rounded input field with placeholder text and integrated action icons.",
-        "hero": "Full-width section featuring a bold headline, subtitle, and prominent input field over a dynamic gradient."
-      },
-      "motion": {
-        "patterns": [
-          "Subtle fade-ins for content loading.",
-          "Smooth color transitions on hover states."
-        ]
-      },
-      "interaction": {
-        "hover": "Subtle color shifts or opacity changes on interactive elements.",
-        "click": "Immediate visual feedback via state change.",
-        "transition": "Smooth, fast transitions (150-300ms) for a responsive feel.",
-        "keyboard": "Standard focus rings for accessibility."
-      },
-      "voice": {
-        "tone": "Encouraging, straightforward, and modern.",
-        "headlineStyle": "Short, action-oriented phrases using strong verbs.",
-        "ctaStyle": "Direct and confident, e.g., 'Get started', 'Build'.",
-        "avoid": [
-          "Overly technical jargon.",
-          "Passive or hesitant language.",
-          "Dense paragraphs in primary call-to-action areas."
-        ]
-      },
-      "donts": [
-        "Don't use a dark background — the screenshot clearly shows a white navigation and header area.",
-        "Don't use serif typography — the design exclusively uses clean, geometric sans-serif fonts.",
-        "Don't clutter the interface — the layout is minimal with significant white space.",
-        "Don't use sharp corners — the input field and buttons feature generous rounded corners.",
-        "Don't use muted, earthy tones — the palette is anchored by vibrant, saturated gradients.",
-        "Don't use complex iconography — the design relies on simple text and a few basic icons."
-      ],
-      "systemPrompt": "Lovable is a modern AI-powered development tool with a clean, inviting interface. The design centers on a white canvas dramatically accented by a vibrant, multi-colored gradient (pink, orange, blue). The primary font category is geometric sans-serif, ensuring readability and a contemporary feel. The interface is minimal, featuring generous white space, rounded corners, and high-contrast elements like a solid black 'Get started' button. Key colors include a pure white background, dark ink for text, and a dynamic gradient. Critical design rules: maintain the clean, spacious layout; use the geometric sans-serif font consistently; and rely on vibrant gradients rather than dark backgrounds for visual interest. The tone is encouraging and action-oriented."
-    },
-    "zh-CN": {
-      "identity": {
-        "keywords": [
-          "AI 驱动",
-          "富有创意",
-          "易于访问",
-          "现代",
-          "亲切"
-        ],
-        "analogy": "一个多彩、开放的邀请，旨在无障碍地创造软件",
-        "oneLiner": "一个时尚、以渐变色为主导的 AI 平台，承诺通过对话轻松创建应用程序。"
-      },
-      "colors": {
-        "principle": "干净、高对比度的画布，以鲜艳的多彩渐变色为锚点。"
-      },
-      "typography": {
-        "rules": [
-          "标题使用紧凑的字间距，营造现代、有力的感觉。",
-          "正文文本优先考虑可读性，采用充足的行高。"
-        ],
-        "scaleUses": [
-          "首屏标题",
-          "通用文本和导航"
-        ]
-      },
-      "spacing": {
-        "rhythm": "一致的 4px 基础网格确保所有组件的对齐。"
-      },
-      "surfaces": {
-        "shadows": [
-          {
-            "token": "elevation-1",
-            "value": "0 4px 24px rgba(0, 0, 0, 0.08)"
-          }
-        ],
-        "borders": "细微的浅灰色边框，谨慎地用于输入框和卡片。"
-      },
-      "layout": {
-        "skeleton": "居中的单栏布局，带有全出血式渐变色首屏。"
-      },
-      "components": {
-        "button": "用于主要操作的实心黑色圆角按钮，配以白色文字。",
-        "card": "用于输入区域的圆角矩形容器，带有浅色背景。",
-        "chip": null,
-        "input": "带有占位符文本和集成操作图标的大号圆角输入框。",
-        "hero": "全宽区域，以动态渐变色为背景，包含醒目的标题、副标题和突出的输入框。"
-      },
-      "motion": {
-        "patterns": [
-          "内容加载时微妙的淡入效果。",
-          "悬停状态下的平滑颜色过渡。"
-        ]
-      },
-      "interaction": {
-        "hover": "交互元素上的微妙颜色变化或透明度改变。",
-        "click": "通过状态变化提供即时视觉反馈。",
-        "transition": "平滑、快速的过渡（150-300毫秒），营造响应式感觉。",
-        "keyboard": "标准的焦点环，以确保可访问性。"
-      },
-      "voice": {
-        "tone": "鼓励性、直接且现代。",
-        "headlineStyle": "简短、以行动为导向的短语，使用强有力的动词。",
-        "ctaStyle": "直接且自信，例如，“开始使用”、“构建”。",
-        "avoid": [
-          "过于技术化的术语。",
-          "被动或犹豫的语言。",
-          "主要行动号召区域中的大段文字。"
-        ]
-      },
-      "donts": [
-        "不要使用深色背景——截图清晰显示了白色的导航和页眉区域。",
-        "不要使用衬线字体——该设计完全使用简洁、几何无衬线字体。",
-        "不要使界面杂乱——布局极简，留白充足。",
-        "不要使用尖锐的边角——输入框和按钮采用大圆角设计。",
-        "不要使用柔和、大地色调——调色板以鲜艳、饱和的渐变色为基础。",
-        "不要使用复杂的图标——该设计依赖于简单的文本和少量基础图标。"
-      ],
-      "systemPrompt": "Lovable 是一个现代的 AI 驱动开发工具，拥有干净、亲切的界面。设计以白色画布为中心，并被鲜艳多彩的渐变色（粉色、橙色、蓝色）显著点缀。主要字体类别是几何无衬线体，确保可读性和现代感。界面极简，具有充足的留白、圆角和高对比度元素，例如实心黑色的“开始使用”按钮。关键颜色包括纯白背景、深墨色文本和动态渐变色。关键设计规则：保持干净、宽敞的布局；一致使用几何无衬线字体；依靠鲜艳的渐变色而非深色背景来创造视觉趣味。语调是鼓励性且以行动为导向的。"
-    },
-    "zh-TW": {
-      "identity": {
-        "keywords": [
-          "AI驅動",
-          "具創造力",
-          "易於使用",
-          "現代感",
-          "親和力"
-        ],
-        "analogy": "一場色彩繽紛、開放的邀請，旨在無摩擦地打造軟體。",
-        "oneLiner": "一個時尚、以漸層為主視覺的AI平台，承諾透過對話輕鬆打造應用程式。"
-      },
-      "colors": {
-        "principle": "潔淨、高對比的畫布，以鮮豔的多彩漸層作為視覺主軸。"
-      },
-      "typography": {
-        "rules": [
-          "標題使用緊湊的字間距，營造現代且具衝擊力的感覺。",
-          "內文字體優先考慮可讀性，採用充裕的行高。"
-        ],
-        "scaleUses": [
-          "首頁標題",
-          "一般文字與導覽"
-        ]
-      },
-      "spacing": {
-        "rhythm": "一致的4px基礎網格，確保所有元件對齊。"
-      },
-      "surfaces": {
-        "shadows": [
-          {
-            "token": "elevation-1",
-            "value": "0 4px 24px rgba(0, 0, 0, 0.08)"
-          }
-        ],
-        "borders": "細微、淺灰色的邊框，僅謹慎使用於輸入欄位與卡片。"
-      },
-      "layout": {
-        "skeleton": "置中單欄佈局，搭配全版面寬度的漸層首頁橫幅。"
-      },
-      "components": {
-        "button": "黑色實心膠囊形按鈕，搭配白色文字，用於主要操作。",
-        "card": "圓角矩形容器，淺色背景，用於輸入區域。",
-        "chip": null,
-        "input": "大型圓角輸入欄位，包含佔位文字與整合的操作圖示。",
-        "hero": "全版面寬度區塊，以動態漸層為背景，包含醒目的標題、副標題與顯眼的輸入欄位。"
-      },
-      "motion": {
-        "patterns": [
-          "內容載入時使用細微的淡入效果。",
-          "懸停狀態時使用流暢的色彩過渡。"
-        ]
-      },
-      "interaction": {
-        "hover": "互動元素上的細微色彩變化或透明度改變。",
-        "click": "透過狀態改變提供即時的視覺回饋。",
-        "transition": "流暢、快速的過渡（150-300毫秒），營造靈敏的感受。",
-        "keyboard": "標準的焦點環，以符合無障礙設計。"
-      },
-      "voice": {
-        "tone": "鼓勵性、直接且具現代感。",
-        "headlineStyle": "簡短、以行動為導向的片語，使用強而有力的動詞。",
-        "ctaStyle": "直接且自信，例如：「開始使用」、「立即打造」。",
-        "avoid": [
-          "過於技術性的術語。",
-          "被動或猶豫不決的語言。",
-          "主要號召行動區域中過於密集的段落。"
-        ]
-      },
-      "donts": [
-        "勿使用深色背景 — 截圖清楚顯示白色導覽列與頁首區域。",
-        "勿使用襯線字體 — 設計僅使用乾淨、幾何感的無襯線字體。",
-        "勿使介面雜亂 — 佈局極簡，留有大量空白空間。",
-        "勿使用尖銳的直角 — 輸入欄位與按鈕採用充裕的圓角設計。",
-        "勿使用柔和、大地色調 — 色彩方案以鮮豔、飽和的漸層為基礎。",
-        "勿使用複雜的圖標系統 — 設計依賴簡單文字與少數基本圖示。"
-      ],
-      "systemPrompt": "Lovable 是一個現代化的AI驅動開發工具，擁有潔淨且具親和力的介面。設計以白色畫布為核心，並以鮮豔的多彩漸層（粉紅、橙色、藍色）作為戲劇性的點綴。主要字體類別為幾何感無襯線字體，確保可讀性與當代感。介面極簡，採用充裕的留白、圓角設計，以及高對比元素（如黑色實心「開始使用」按鈕）。關鍵色彩包含純白背景、深色墨黑文字，以及動態漸層。關鍵設計原則：保持潔淨、寬敞的佈局；一致使用幾何感無襯線字體；並依賴鮮豔的漸層而非深色背景來營造視覺趣味。語調鼓勵且以行動為導向。"
-    },
-    "ja": {
-      "identity": {
-        "keywords": [
-          "AI搭載",
-          "クリエイティブ",
-          "アクセシブル",
-          "モダン",
-          "ウェルカム感"
-        ],
-        "analogy": "フリクションなしでソフトウェアを創造するための、カラフルで開かれた招待状",
-        "oneLiner": "会話を通じて簡単にアプリを作成することを約束する、洗練されたグラデーション重視のAIプラットフォーム。"
-      },
-      "colors": {
-        "principle": "クリーンでハイコントラストなキャンバスに、鮮やかなマルチカラー・グラデーションを基調とします。"
-      },
-      "typography": {
-        "rules": [
-          "見出しは、モダンでインパクトのある印象のために、tight trackingを採用します。",
-          "本文テキストは、generousな行間で可読性を優先します。"
-        ],
-        "scaleUses": [
-          "ヒーロー見出し",
-          "一般テキストとナビゲーション"
-        ]
-      },
-      "spacing": {
-        "rhythm": "一貫した4pxベースグリッドが、すべてのコンポーネント間のアラインメントを確保します。"
-      },
-      "surfaces": {
-        "shadows": [
-          {
-            "token": "elevation-1",
-            "value": "0 4px 24px rgba(0, 0, 0, 0.08)"
-          }
-        ],
-        "borders": "入力フィールドやカードに、控えめなライトグレーのボーダーを控えめに使用します。"
-      },
-      "layout": {
-        "skeleton": "フルブリードのグラデーション・ヒーローを備えた、中央揃えの単一カラム・レイアウト。"
-      },
-      "components": {
-        "button": "プライマリアクション用の、ホワイトテキストを持つソリッドブラックのピルボタン。",
-        "card": "入力エリア用の、ライト背景を持つ角丸の長方形コンテナ。",
-        "chip": null,
-        "input": "プレースホルダーテキストと統合アクションアイコンを持つ、大きな角丸入力フィールド。",
-        "hero": "ダイナミックなグラデーションの上に、大胆な見出し、サブタイトル、目立つ入力フィールドを配置したフル幅セクション。"
-      },
-      "motion": {
-        "patterns": [
-          "コンテンツ読み込み時の微細なフェードイン。",
-          "ホバーステートでの滑らかなカラー・トランジション。"
-        ]
-      },
-      "interaction": {
-        "hover": "インタラクティブ要素上の微細なカラー変化または不透明度の変更。",
-        "click": "ステート変化による即座のビジュアルフィードバック。",
-        "transition": "レスポンシブな印象のための、滑らかで高速なトランジション（150-300ms）。",
-        "keyboard": "アクセシビリティのための標準的なフォーカスリング。"
-      },
-      "voice": {
-        "tone": "励ますような、率直でモダンなトーン。",
-        "headlineStyle": "強い動詞を使用した、短くアクション指向のフレーズ。",
-        "ctaStyle": "「Get started」や「Build」のような、直接的で自信に満ちた表現。",
-        "avoid": [
-          "過度に技術的な専門用語。",
-          "受動的またはためらいがちな言葉遣い。",
-          "プライマリCTAエリアでの密集した段落。"
-        ]
-      },
-      "donts": [
-        "ダーク背景を使用しない — スクリーンショットはホワイトのナビゲーションとヘッダーエリアを明確に示しています。",
-        "セリフ体タイポグラフィを使用しない — デザインはクリーンで幾何学的なサンセリフフォントのみを使用しています。",
-        "インタフェースを散らかさない — レイアウトはミニマルで、显著なホワイトスペースがあります。",
-        "鋭い角を使用しない — 入力フィールドとボタンは、generousな角丸を備えています。",
-        "くすんだ、アースカラーのトーンを使用しない — パレットは鮮やかな、彩度の高いグラデーションを基調としています。",
-        "複雑なアイコングラフィを使用しない — デザインはシンプルなテキストと少数の基本アイコンに依存しています。"
-      ],
-      "systemPrompt": "Lovableは、クリーンでウェルカム感のあるインタフェースを持つ、モダンなAI搭載開発ツールです。デザインは、ピンク、オレンジ、ブルーの鮮やかなマルチカラー・グラデーションで劇的にアクセントを加えた、ホワイトのキャンバスを中心としています。プライマリフォントカテゴリは幾何学的なサンセリフで、可読性と現代的な印象を確保しています。インタフェースはミニマルで、豊富なホワイトスペース、角丸、ソリッドブラックの「Get started」ボタンといったハイコントラストな要素を特徴としています。主要カラーには、ピュアホワイトの背景、テキスト用のダークインク、ダイナミックなグラデーションが含まれます。重要なデザインルール：クリーンで広々としたレイアウトを維持する；幾何学的なサンセリフフォントを一貫して使用する；ビジュアルの興味を引くためにダーク背景ではなく鮮やかなグラデーションに依存する。トーンは励ますような、アクション指向のものです。"
-    },
-    "ko": {
-      "identity": {
-        "keywords": [
-          "AI 기반",
-          "창의적",
-          "접근성 높은",
-          "현대적인",
-          "매력적인"
-        ],
-        "analogy": "마찰 없이 소프트웨어를 만들 수 있도록 초대하는 다채롭고 열린 초대장",
-        "oneLiner": "대화를 통해 손쉽게 앱을 만들 수 있도록 약속하는 세련된 그라데이션 중심의 AI 플랫폼."
-      },
-      "colors": {
-        "principle": "밝고 선명한 대비의 캔버스를 기반으로 한 다채롭고 생생한 그라데이션."
-      },
-      "typography": {
-        "rules": [
-          "헤드라인은 현대적이고 임팩트 있는 느낌을 위해 타이트한 트래킹을 사용합니다.",
-          "본문 텍스트는 넉넉한 line-height로 가독성을 최우선으로 합니다."
-        ],
-        "scaleUses": [
-          "히어로 헤드라인",
-          "일반 텍스트 및 네비게이션"
-        ]
-      },
-      "spacing": {
-        "rhythm": "일관된 4px 기본 그리드가 모든 컴포넌트의 정렬을 보장합니다."
-      },
-      "surfaces": {
-        "shadows": [
-          {
-            "token": "elevation-1",
-            "value": "0 4px 24px rgba(0, 0, 0, 0.08)"
-          }
-        ],
-        "borders": "입력 필드와 카드에 절제된 연한 회색 테두리를 사용합니다."
-      },
-      "layout": {
-        "skeleton": "풀블리드 그라데이션 히어로 섹션을 포함한 중심 단일 열 레이아웃."
-      },
-      "components": {
-        "button": "주요 동작을 위한 흰색 텍스트의 단색 검정 필 버튼.",
-        "card": "입력 영역을 위한 밝은 배경의 둥근 직사각형 컨테이너.",
-        "chip": null,
-        "input": "플레이스홀더 텍스트와 통합 동작 아이콘이 있는 크고 둥근 입력 필드.",
-        "hero": "대담한 헤드라인, 부제목, 그리고 동적 그라데이션 위의 두드러진 입력 필드가 포함된 풀폭 섹션."
-      },
-      "motion": {
-        "patterns": [
-          "콘텐츠 로딩 시 미묘한 페이드인 효과.",
-          "hover 상태에서의 부드러운 색상 전환."
-        ]
-      },
-      "interaction": {
-        "hover": "인터랙티브 요소에서의 미묘한 색상 변화 또는 불투명도 변경.",
-        "click": "상태 변화를 통한 즉각적인 시각적 피드백.",
-        "transition": "반응적인 느낌을 위한 부드럽고 빠른 전환 (150-300ms).",
-        "keyboard": "접근성을 위한 표준 focus ring."
-      },
-      "voice": {
-        "tone": "격려하는, 직접적인, 그리고 현대적인 어조.",
-        "headlineStyle": "강한 동사를 사용하는 짧고 행동 지향적인 문구.",
-        "ctaStyle": "직관적이고 자신감 있는 문구. 예: 'Get started', 'Build'.",
-        "avoid": [
-          "지나치게 전문적인 용어.",
-          "수동적이거나 주저하는 언어.",
-          "주요 CTA 영역의 밀도 높은 단락."
-        ]
-      },
-      "donts": [
-        "어두운 배경을 사용하지 마세요 — 스크린샷에 흰색 네비게이션과 헤더 영역이 명확히 보입니다.",
-        "세리프 서체를 사용하지 마세요 — 디자인은 깨끗하고 기하학적인 산세리프 글꼴만 사용합니다.",
-        "인터페이스를 복잡하게 하지 마세요 — 레이아웃은 넉넉한 여백으로 미니멀합니다.",
-        "날카로운 모서리를 사용하지 마세요 — 입력 필드와 버튼은 넉넉한 둥근 모서리를 특징으로 합니다.",
-        "차분하고 자연스러운 톤을 사용하지 마세요 — 팔레트는 생생하고 채도 높은 그라데이션을 기반으로 합니다.",
-        "복잡한 아이콘을 사용하지 마세요 — 디자인은 간단한 텍스트와 몇 가지 기본 아이콘에 의존합니다."
-      ],
-      "systemPrompt": "Lovable는 깨끗하고 매력적인 인터페이스를 가진 현대적인 AI 기반 개발 도구입니다. 디자인은 밝은 배경과 분홍, 주황, 파랑의 다채롭고 생생한 그라데이션으로 강조된 흰색 캔버스를 중심으로 합니다. 주요 글꼴 카테고리는 기하학적 산세리프로, 가독성과 현대적인 느낌을 보장합니다. 인터페이스는 미니멀하며, 넉넉한 여백, 둥근 모서리, 그리고 'Get started' 버튼과 같은 고대비 요소가 특징입니다. 주요 색상은 순백 배경, 텍스트용 다크 잉크, 그리고 역동적인 그라데이션을 포함합니다. 핵심 디자인 규칙: 깨끗하고 넓은 레이아웃을 유지하고; 기하학적 산세리프 글꼴을 일관되게 사용하며; 시각적 재미를 위해 어두운 배경 대신 생생한 그라데이션에 의존합니다. 어조는 격려적이고 행동 지향적입니다."
+      "easing": "cubic-bezier(0.4, 0, 0.2, 1)"
     }
   },
   "desc": {
     "en": {
-      "palette": "A clean white canvas dramatically contrasted by a vibrant, multi-hued gradient of pink, orange, and blue.",
-      "layout": "A centered, single-column layout with a full-bleed hero section and generous white space.",
-      "interaction": "Subtle hover effects and smooth transitions create a responsive and engaging user experience.",
-      "motion": "Micro-interactions and transitions are kept fast and smooth to maintain a modern, snappy feel.",
-      "notes": "This site effectively balances a minimalist, professional UI with a bold, expressive gradient, making it a strong example of modern, AI-focused product design."
+      "palette": "A warm, off-white foundation is energized by a vibrant, multi-color gradient featuring deep blues, bright pinks, and warm oranges, balanced with dark neutral ink for readability.",
+      "layout": "The site uses a clean, centered single-column layout that prioritizes a prominent hero section and generous vertical spacing to focus user attention on the primary call-to-action.",
+      "interaction": "User interaction is centered around a large, inviting input field, supported by smooth, subtle transitions for UI elements to create a responsive and modern feel.",
+      "motion": "Motion is subtle and functional, primarily using quick opacity and transform transitions to provide immediate feedback during user interactions.",
+      "notes": "This site effectively combines a clean, professional interface with a bold, expressive gradient to create a sense of both power and approachability for its AI-driven builder tool."
     },
     "zh-CN": {
       "palette": "干净的白色画布，被粉色、橙色和蓝色构成的鲜艳多彩渐变色强烈对比所衬托。",
@@ -599,6 +220,393 @@
       "ch7_intro": "모션 철학은 절제와 속도를 선호하며, 콘텐츠 로딩에는 fade-in을, hover 시에는 부드러운 색상 전환을 사용합니다. 전환은 인터랙션 모델 전반에 걸쳐 반응적이고 빠릿한 느낌을 유지하기 위해 150~300ms 사이로 빠르게 유지됩니다.",
       "ch8_intro": "에디토리얼 목소리는 격려적이고 직설적이며 현대적이며, 강력한 동사를 사용한 짧고 행동 지향적인 제목을 사용합니다. 복사본은 지나치게 기술적인 전문 용어나 수동적인 언어를 피하고, 'Get started'와 같은 직접적인 행동 유도를 선호합니다.",
       "ch8_outro": "의도적으로 어두운 배경, 세리프 타이포그래피, 지저분한 인터페이스, 날카로운 모서리, 무채색 톤, 복잡한 아이콘ограф리를 피합니다."
+    }
+  },
+  "spec_i18n": {
+    "en": {
+      "identity": {
+        "keywords": [
+          "Builder",
+          "AI",
+          "Creation",
+          "No-Code",
+          "Empowering"
+        ],
+        "analogy": "A friendly, colorful portal that turns natural language into functional software.",
+        "oneLiner": "Create apps and websites by chatting with AI."
+      },
+      "colors": {
+        "principle": "Warm neutral foundation with a vibrant, expressive multi-color gradient."
+      },
+      "typography": {
+        "rules": [],
+        "scaleUses": [
+          "Primary hero text",
+          "Section headings",
+          "General paragraph text",
+          "Secondary text and labels"
+        ]
+      },
+      "spacing": {
+        "rhythm": "Generous whitespace with large vertical gaps between sections."
+      },
+      "surfaces": {
+        "shadows": [
+          "oklch(0.2 0 0 / 0.12) 0px 2px 2px -1px",
+          "oklch(0.2 0 0 / 0.12) 0px 4px 4px -2px",
+          "rgba(0, 0, 0, 0.1) 0px 20px 25px -5px"
+        ],
+        "borders": "1px solid rgb(236, 234, 228)"
+      },
+      "layout": {
+        "skeleton": "Centered single-column layout with a prominent hero section."
+      },
+      "components": {
+        "button": "Pill-shaped primary button with high contrast and small radius.",
+        "card": "Softly rounded cards with subtle borders and warm backgrounds.",
+        "chip": null,
+        "input": "Large, rounded input container acting as the primary interaction point.",
+        "hero": "Full-width gradient background with centered text and a floating input."
+      },
+      "motion": {
+        "patterns": [
+          "Smooth opacity and transform transitions for UI elements.",
+          "Gradient shifts on hover."
+        ]
+      },
+      "interaction": {
+        "hover": "Subtle color shifts and opacity changes.",
+        "click": "Immediate feedback with scale or opacity adjustments.",
+        "transition": "0.15s to 0.2s durations for most UI state changes.",
+        "keyboard": "Focus states likely follow standard accessibility patterns."
+      },
+      "voice": {
+        "tone": "Encouraging, clear, and empowering.",
+        "headlineStyle": "Short, punchy, and action-oriented.",
+        "ctaStyle": "Direct and focused on the benefit of using the tool.",
+        "avoid": [
+          "Jargon-heavy technical descriptions",
+          "Dense paragraphs of text",
+          "Passive or overly formal language"
+        ]
+      },
+      "donts": [
+        "Don't use a pure white background — the screenshot shows a warm, slightly off-white background.",
+        "Don't use sharp, rectangular corners — the screenshot shows rounded corners on cards and inputs.",
+        "Don't use a cold, monochromatic color scheme — the screenshot shows a vibrant, multi-colored gradient.",
+        "Don't use a dense, cluttered layout — the screenshot shows generous whitespace and clear hierarchy.",
+        "Don't use complex, ornate typography — the screenshot shows a clean, geometric sans-serif style.",
+        "Don't use harsh, dark borders — the screenshot shows subtle, light borders."
+      ],
+      "systemPrompt": "Lovable is an AI-powered tool for building apps and websites through conversational interfaces. Its visual identity is defined by a warm off-white background, dark neutral ink (#1C1C1C), and a vibrant, expressive multi-color gradient (blues, pinks, oranges). Typography utilizes a clean geometric sans-serif category. The design prioritizes simplicity, generous whitespace, and a friendly, approachable feel, suitable for a product that aims to make software creation accessible to everyone. Critical constraints include using rounded corners consistently, avoiding pure white backgrounds, and maintaining a high-contrast, clear visual hierarchy without unnecessary clutter."
+    },
+    "zh-CN": {
+      "identity": {
+        "keywords": [
+          "构建者",
+          "AI",
+          "创作",
+          "无代码",
+          "赋能"
+        ],
+        "analogy": "一个友好、多彩的门户，将自然语言转化为功能性软件。",
+        "oneLiner": "通过与 AI 对话来创建应用和网站。"
+      },
+      "colors": {
+        "principle": "温暖的中性基底，搭配充满活力、富于表现力的多色渐变。"
+      },
+      "typography": {
+        "rules": [],
+        "scaleUses": [
+          "主要标题文字",
+          "章节标题",
+          "通用段落文本",
+          "辅助文本和标签"
+        ]
+      },
+      "spacing": {
+        "rhythm": "充足的留白，章节间有较大的垂直间距。"
+      },
+      "surfaces": {
+        "shadows": [
+          "oklch(0.2 0 0 / 0.12) 0px 2px 2px -1px",
+          "oklch(0.2 0 0 / 0.12) 0px 4px 4px -2px",
+          "rgba(0, 0, 0, 0.1) 0px 20px 25px -5px"
+        ],
+        "borders": "1px solid rgb(236, 234, 228)"
+      },
+      "layout": {
+        "skeleton": "居中的单栏布局，包含一个突出的主视觉区域。"
+      },
+      "components": {
+        "button": "高对比度、小圆角的胶囊形主按钮。",
+        "card": "柔和圆角的卡片，带有细微边框和温暖的背景色。",
+        "chip": null,
+        "input": "大尺寸、圆角的输入框容器，作为主要交互点。",
+        "hero": "全宽渐变背景，配有居中文字和一个悬浮输入框。"
+      },
+      "motion": {
+        "patterns": [
+          "UI 元素平滑的透明度与变换过渡。",
+          "悬停时的渐变变化。"
+        ]
+      },
+      "interaction": {
+        "hover": "微妙的颜色偏移和透明度变化。",
+        "click": "通过缩放或透明度调整提供即时反馈。",
+        "transition": "大多数 UI 状态变化采用 0.15 秒至 0.2 秒的持续时间。",
+        "keyboard": "焦点状态可能遵循标准的无障碍访问模式。"
+      },
+      "voice": {
+        "tone": "鼓励、清晰、赋能。",
+        "headlineStyle": "简短、有力、面向行动。",
+        "ctaStyle": "直接并专注于使用工具的益处。",
+        "avoid": [
+          "充满术语的技术描述",
+          "密集的文字段落",
+          "被动或过于正式的语言"
+        ]
+      },
+      "donts": [
+        "避免使用纯白背景 — 截图显示的是温暖、略偏米白的背景。",
+        "避免使用尖锐的直角 — 截图显示卡片和输入框采用的是圆角。",
+        "避免使用冷峻、单色的配色方案 — 截图显示的是充满活力的多色渐变。",
+        "避免使用密集、杂乱的布局 — 截图显示的是充足的留白和清晰的层级。",
+        "避免使用复杂、装饰性的字体 — 截图显示的是简洁的几何无衬线风格。",
+        "避免使用刺眼、深色的边框 — 截图显示的是细微、浅色的边框。"
+      ],
+      "systemPrompt": "Lovable 是一款通过对话界面构建应用和网站的 AI 驱动工具。其视觉识别由温暖的米白色背景、深中性墨水色（#1C1C1C）以及充满活力、富于表现力的多色渐变（蓝色、粉色、橙色）定义。字体使用简洁的几何无衬线类别。设计优先考虑简洁性、充足的留白以及友好、平易近人的感觉，适合一个旨在让软件创作对每个人都触手可及的产品。关键约束包括：保持一致使用圆角、避免纯白背景，并在没有不必要杂乱的情况下维持高对比度、清晰的视觉层级。"
+    },
+    "zh-TW": {
+      "identity": {
+        "keywords": [
+          "建造者",
+          "AI",
+          "創造",
+          "無程式碼",
+          "賦能"
+        ],
+        "analogy": "一個友善、色彩豐富的入口，能將自然語言轉化為功能性軟體。",
+        "oneLiner": "透過與 AI 對話來建立應用程式與網站。"
+      },
+      "colors": {
+        "principle": "以溫暖中性色為基調，搭配活潑、富有表現力的多色漸層。"
+      },
+      "typography": {
+        "rules": [],
+        "scaleUses": [
+          "主要標題文字",
+          "章節標題",
+          "一般段落文字",
+          "次要文字與標籤"
+        ]
+      },
+      "spacing": {
+        "rhythm": "採用充裕的留白，並在章節間設置較大的垂直間距。"
+      },
+      "surfaces": {
+        "shadows": [
+          "oklch(0.2 0 0 / 0.12) 0px 2px 2px -1px",
+          "oklch(0.2 0 0 / 0.12) 0px 4px 4px -2px",
+          "rgba(0, 0, 0, 0.1) 0px 20px 25px -5px"
+        ],
+        "borders": "1px solid rgb(236, 234, 228)"
+      },
+      "layout": {
+        "skeleton": "以單欄居中佈局為主，並設有顯眼的首頁主視覺區塊。"
+      },
+      "components": {
+        "button": "高對比、小圓角的膠囊形主按鈕。",
+        "card": "邊框細緻、背景溫暖且帶有柔和圓角的卡片。",
+        "chip": null,
+        "input": "作為主要互動點的大型圓角輸入容器。",
+        "hero": "全寬漸層背景，搭配置中文字與浮動式輸入框。"
+      },
+      "motion": {
+        "patterns": [
+          "UI 元素採用流暢的透明度與變形過渡效果。",
+          "滑鼠懸停時觸發漸層變換。"
+        ]
+      },
+      "interaction": {
+        "hover": "細微的色彩偏移與透明度變化。",
+        "click": "透過縮放或透明度調整提供即時反饋。",
+        "transition": "多數 UI 狀態變換的過渡時長為 0.15 秒至 0.2 秒。",
+        "keyboard": "焦點狀態應符合標準無障礙設計模式。"
+      },
+      "voice": {
+        "tone": "鼓勵、清晰且具啟發性。",
+        "headlineStyle": "簡短有力、注重行動。",
+        "ctaStyle": "直接並聚焦於使用工具所帶來的好處。",
+        "avoid": [
+          "充滿術語的技術性描述",
+          "過於密集的文字段落",
+          "被動或過於正式的語氣"
+        ]
+      },
+      "donts": [
+        "勿使用純白色背景——截圖顯示的是溫暖、略帶米色的背景。",
+        "勿使用尖銳的方形邊角——截圖顯示卡片與輸入框皆採用圓角設計。",
+        "勿使用冷色調的單一配色方案——截圖顯示的是活潑的多色漸層。",
+        "勿使用過於密集、擁擠的佈局——截圖顯示的是充裕的留白與清晰的層次結構。",
+        "勿使用複雜、華麗的字體——截圖顯示的是簡潔的幾何無襯線字體風格。",
+        "勿使用深色、生硬的邊框——截圖顯示的是細緻的淺色邊框。"
+      ],
+      "systemPrompt": "Lovable 是一款透過對話介面來建構應用程式與網站的 AI 工具。其視覺識別由溫暖的米色背景、深色中性墨色 (#1C1C1C)，以及活潑、富有表現力的多色漸層（藍色、粉色、橙色）所定義。字體採用簡潔的幾何無襯線類別。設計上優先考量簡約、充裕的留白以及友善、平易近人的感受，適合致力於讓軟體創建觸及每一個人的產品。關鍵約束包括：一律使用圓角、避免純白色背景，並在不造成雜亂的前提下，維持高對比度與清晰的視覺層次。"
+    },
+    "ja": {
+      "identity": {
+        "keywords": [
+          "Builder",
+          "AI",
+          "Creation",
+          "No-Code",
+          "Empowering"
+        ],
+        "analogy": "自然言語を機能的なソフトウェアに変換する、フレンドリーでカラフルなポータル。",
+        "oneLiner": "AIとチャットしてアプリやウェブサイトを作成。"
+      },
+      "colors": {
+        "principle": "暖かみのあるニュートラルを基盤とし、鮮やかで表現力豊かなマルチカラーグラデーションを用いる。"
+      },
+      "typography": {
+        "rules": [],
+        "scaleUses": [
+          "プライマリヒーローテキスト",
+          "セクション見出し",
+          "一般段落テキスト",
+          "セカンダリテキストとラベル"
+        ]
+      },
+      "spacing": {
+        "rhythm": "セクション間に大きな縦の余白を設けた、ゆとりのあるスペース。"
+      },
+      "surfaces": {
+        "shadows": [
+          "oklch(0.2 0 0 / 0.12) 0px 2px 2px -1px",
+          "oklch(0.2 0 0 / 0.12) 0px 4px 4px -2px",
+          "rgba(0, 0, 0, 0.1) 0px 20px 25px -5px"
+        ],
+        "borders": "1px solid rgb(236, 234, 228)"
+      },
+      "layout": {
+        "skeleton": "中心に配置された単一カラムレイアウトと、目立つヒーローセクション。"
+      },
+      "components": {
+        "button": "高コントラストで小丸みの、ピル型プライマリボタン。",
+        "card": "柔らかい角丸、控えめなボーダー、暖色系の背景を持つカード。",
+        "chip": null,
+        "input": "プライマリなインタラクションポイントとなる、大きく丸みのある入力コンテナ。",
+        "hero": "フルワイドのグラデーション背景に、センタリングされたテキストと浮遊する入力フィールド。"
+      },
+      "motion": {
+        "patterns": [
+          "UI要素のスムーズなopacityとtransformトランジション。",
+          "hover時のグラデーションシフト。"
+        ]
+      },
+      "interaction": {
+        "hover": "微妙な色の変化とopacityの変動。",
+        "click": "scaleまたはopacityの調整による即時フィードバック。",
+        "transition": "ほとんどのUI状態変化に0.15sから0.2sのduration。",
+        "keyboard": "フォーカス状態は標準的なアクセシビリティパターンに準拠。"
+      },
+      "voice": {
+        "tone": "鼓舞するように、明確に、そして力強く。",
+        "headlineStyle": "短く、的確に、アクション指向で。",
+        "ctaStyle": "ツール使用のメリットに焦点を当てた、直接的で簡潔な表現。",
+        "avoid": [
+          "専門用語の多い技術的な記述",
+          "密集した段落テキスト",
+          "受動的または過度にフォーマルな言語"
+        ]
+      },
+      "donts": [
+        "純粋な白の背景を使用しない — スクリーンショットは温かみのある、ややオフホワイトの背景を示している。",
+        "鋭角で四角い角を使用しない — スクリーンショットはカードや入力フィールドに角丸を用いている。",
+        "冷たくモノクロマチックなカラースキームを使用しない — スクリーンショットは鮮やかなマルチカラーグラデーションを用いている。",
+        "密集し雑然としたレイアウトを使用しない — スクリーンショットはゆとりのあるスペースと明確な階層を示している。",
+        "複雑で装飾的なタイポグラフィを使用しない — スクリーンショットはクリーンで幾何学的なsans-serifスタイルを用いている。",
+        "不快なほど暗いボーダーを使用しない — スクリーンショットは控えめで明るいボーダーを用いている。"
+      ],
+      "systemPrompt": "Lovableは、対話式インターフェースを通じてアプリやウェブサイトを構築するためのAIを活用したツールです。その視覚的アイデンティティは、暖かみのあるオフホワイト背景、ダークニュートラルインク（#1C1C1C）、そして鮮やかで表現力豊かなマルチカラーグラデーション（ブルー、ピンク、オレンジ）によって定義されています。タイポグラフィにはクリーンな幾何学的なsans-serifカテゴリを採用しています。デザインはシンプルさ、ゆとりのあるスペース、フレンドリーで親しみやすい雰囲気を重視しており、ソフトウェアの作成をすべての人に開放することを目指す製品に適しています。重要な制約には、一貫して角丸を使用すること、純粋な白の背景を避けること、不要な雑踏なしに高コントラストで明確な視覚的階層を維持することが含まれます。"
+    },
+    "ko": {
+      "identity": {
+        "keywords": [
+          "빌더",
+          "AI",
+          "창작",
+          "노코드",
+          "강화"
+        ],
+        "analogy": "자연어를 기능적인 소프트웨어로 변환하는 친근하고 다채로운 포털.",
+        "oneLiner": "AI와 대화하여 앱과 웹사이트를 만드세요."
+      },
+      "colors": {
+        "principle": "따뜻한 중립적 기반에 활기차고 표현력이 넘치는 다채로운 gradient."
+      },
+      "typography": {
+        "rules": [],
+        "scaleUses": [
+          "주요 히어로 텍스트",
+          "섹션 제목",
+          "일반 본문 텍스트",
+          "보조 텍스트 및 레이블"
+        ]
+      },
+      "spacing": {
+        "rhythm": "섹션 간 넓은 세로 간격을 활용한 여유로운 여백."
+      },
+      "surfaces": {
+        "shadows": [
+          "oklch(0.2 0 0 / 0.12) 0px 2px 2px -1px",
+          "oklch(0.2 0 0 / 0.12) 0px 4px 4px -2px",
+          "rgba(0, 0, 0, 0.1) 0px 20px 25px -5px"
+        ],
+        "borders": "1px solid rgb(236, 234, 228)"
+      },
+      "layout": {
+        "skeleton": "눈에 띄는 히어로 섹션이 있는 중앙 정렬 단일 열 레이아웃."
+      },
+      "components": {
+        "button": "높은 대비와 작은 radius를 가진 알약 모양의 주요 버튼.",
+        "card": "미묘한 border와 따뜻한 배경을 가진 부드럽게 둥근 카드.",
+        "chip": null,
+        "input": "주요 상호작용 지점 역할을 하는 크고 둥근 입력 컨테이너.",
+        "hero": "중앙 정렬된 텍스트와 떠 있는 입력이 있는 전체 너비 gradient 배경."
+      },
+      "motion": {
+        "patterns": [
+          "UI 요소의 부드러운 opacity와 transform 전환.",
+          "hover 시 gradient 변화."
+        ]
+      },
+      "interaction": {
+        "hover": "미묘한 색상 변화와 opacity 변경.",
+        "click": "scale 또는 opacity 조정으로 즉각적인 피드백.",
+        "transition": "대부분의 UI 상태 변경에 0.15초에서 0.2초 지속 시간.",
+        "keyboard": "포커스 상태는 표준 접근성 패턴을 따를 가능성이 높습니다."
+      },
+      "voice": {
+        "tone": "격려하는, 명확한, 그리고 강화하는.",
+        "headlineStyle": "짧고, 강렬하며, 행동 지향적인.",
+        "ctaStyle": "도구 사용의 이점에 초점을 맞춘 직접적인.",
+        "avoid": [
+          "전문 용어가 많은 기술적 설명",
+          "밀도 높은 긴 문단",
+          "수동적이거나 지나치게 격식 있는 어조"
+        ]
+      },
+      "donts": [
+        "순백 배경을 사용하지 마세요 — 스크린샷은 따뜻하고 약간 off-white인 배경을 보여줍니다.",
+        "날카로운 직사각형 모서리를 사용하지 마세요 — 스크린샷은 카드와 입력의 둥근 모서리를 보여줍니다.",
+        "차갑고 단색의 색 구성표를 사용하지 마세요 — 스크린샷은 활기차고 다채로운 gradient를 보여줍니다.",
+        "밀도 높고 지저분한 레이아웃을 사용하지 마세요 — 스크린샷은 여유로운 여백과 명확한 계층 구조를 보여줍니다.",
+        "복잡하고 화려한 타이포그래피를 사용하지 마세요 — 스크린샷은 깔끔한 기하학적 sans-serif 스타일을 보여줍니다.",
+        "강하고 어두운 border를 사용하지 마세요 — 스크린샷은 미묘하고 밝은 border를 보여줍니다."
+      ],
+      "systemPrompt": "Lovable는 대화형 인터페이스를 통해 앱과 웹사이트를 구축하기 위한 AI 기반 도구입니다.它的 시각적 아이덴티티는 따뜻한 off-white 배경, 어두운 중립 잉크(#1C1C1C), 그리고 활기차고 표현력이 넘치는 다채로운 gradient(파란색, 분홍색, 주황색)로 정의됩니다. 타이포그래피는 깔끔한 기하학적 sans-serif 카테고리를 활용합니다. 이 디자인은 모든 사람이 소프트웨어 창작에 접근할 수 있도록 목표하는 제품에 적합한 단순함, 여유로운 여백, 그리고 친근하고 접근하기 쉬운 느낌을 우선시합니다. 핵심 제약 사항으로는 일관되게 둥근 모서리 사용, 순백 배경 회피, 그리고 불필요한 혼란 없이 높은 대비와 명확한 시각적 계층 구조 유지가 포함됩니다."
     }
   }
 }

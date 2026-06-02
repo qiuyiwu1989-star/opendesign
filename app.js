@@ -2,6 +2,63 @@ const STORAGE_KEY = "style-atlas-drafts";
 const OWNER_MODE = new URLSearchParams(location.search).has("owner");
 const curatedSites = Array.isArray(window.STYLE_ATLAS_SITES) ? window.STYLE_ATLAS_SITES : [];
 
+/* ========== 双发事件追踪：一次调用同时上报 GA4 + 百度统计 ========== */
+window.track = function (eventName, params = {}) {
+  if (typeof gtag === "function") {
+    try { gtag("event", eventName, params); } catch (_) {}
+  }
+  if (typeof _hmt !== "undefined") {
+    try {
+      const category = params.category || eventName.split("_")[0] || "event";
+      const label = params.label || params.slug || params.id || params.name || params.target_name || "";
+      const value = Number(params.value) || 0;
+      _hmt.push(["_trackEvent", category, eventName, String(label), value]);
+    } catch (_) {}
+  }
+};
+const track = window.track;
+// 外链点击（跳原站等）统一上报 —— 转化漏斗核心
+document.addEventListener("click", (e) => {
+  const a = e.target.closest('a[href^="http"]');
+  if (a && a.host && a.host !== location.host) {
+    track("outbound_click", {
+      category: "outbound",
+      target_url: a.href,
+      target_name: (a.getAttribute("aria-label") || a.textContent || "").trim().slice(0, 60),
+    });
+  }
+}, true);
+// 滚动深度 25/50/75/100 各一次
+(function () {
+  const seen = new Set();
+  let scheduled = false;
+  function check() {
+    const h = document.documentElement;
+    const pct = Math.round((h.scrollTop + window.innerHeight) / Math.max(h.scrollHeight, 1) * 100);
+    for (const th2 of [25, 50, 75, 100]) {
+      if (pct >= th2 && !seen.has(th2)) { seen.add(th2); track("scroll_depth", { category: "engagement", depth: th2, value: th2 }); }
+    }
+  }
+  window.addEventListener("scroll", () => {
+    if (scheduled) return; scheduled = true;
+    requestAnimationFrame(() => { check(); scheduled = false; });
+  }, { passive: true });
+})();
+// 内部高价值按钮：完整包下载 / Agent 复制 / 文档下载（按 id 委托，避免逐个改 handler）
+document.addEventListener("click", (e) => {
+  const id = e.target.closest("button, a")?.id;
+  const EVT = {
+    packDownloadZip: "pack_download", genDownloadSpec: "docs_download",
+    agentCopyPrompt: "agent_copy_prompt", agentCopyUrl: "agent_copy_url",
+    genCopyAgentUrl: "agent_copy_url", packCopyAgentUrl: "agent_copy_url",
+    agentOpenSpec: "agent_open_spec",
+  };
+  if (id && EVT[id]) {
+    const slug = (typeof activeSite !== "undefined" && activeSite) ? activeSite.id : "";
+    track(EVT[id], { category: "agent", slug });
+  }
+}, true);
+
 // i18n 短别名（i18n.js 在 app.js 之前加载，window.i18n 已就绪）
 const t = (key, params) => (window.i18n ? window.i18n.t(key, params) : key);
 
@@ -9,11 +66,18 @@ let sites = loadSites();
 let activeSite = sites[0];
 let activeTag = "All";
 let searchQuery = "";
-let sortMode = "curated"; // "curated"（curator 给的顺序）| "popular"（全站收藏 desc）
+let sortMode = "curated"; // "curated"（curator 给的顺序）| "popular"（全站收藏 desc）| "random"（随机探索）
+let randomOrder = new Map(); // site.id → 随机序号（随机探索时用）
 let sitesI18n = {};        // overlay：site_id → { lang → { palette, layout, interaction, motion, notes } }
 let packsIndex = {};       // overlay：site_id → { file, size, agentUrl, ... }
 let currentView = "canvas";
-let viewState = { x: -110, y: -70, scale: 1 };
+const HOME_VIEW = { x: -110, y: -70, scale: 1 };  // 画布默认原点
+let viewState = { ...HOME_VIEW };
+// 无限画布虚拟化：只渲染视口内（+ 余量）的节点，不一次性铺全部 DOM / 图片
+let canvasNodes = [];                 // [{ site, x, y }] 全量定位（不进 DOM）
+let canvasLayout = { nodeW: 540, nodeH: 420 };
+const renderedNodes = new Map();      // site.id → 当前在 DOM 里的 .site-node
+let windowRaf = 0;                    // rAF 节流句柄
 let dragging = false;
 let dragStart = { x: 0, y: 0 };
 let panStart = { x: 0, y: 0 };
@@ -124,6 +188,36 @@ function readSaveCounts() {
 
 function writeSaveCounts(map) {
   localStorage.setItem(SAVE_COUNTS_KEY, JSON.stringify(Object.fromEntries(map)));
+}
+
+/* ====== 我请求的收录（本地视图） ======
+ * 用户推荐一个还没收录的 URL → 写进 Supabase submissions 队列（我们后台审）
+ * + 本地存一份，让用户在「我的收藏」里立刻看得到自己提交了什么。 */
+const REQUESTS_KEY = "od-requests";
+
+function readRequests() {
+  try {
+    const arr = JSON.parse(localStorage.getItem(REQUESTS_KEY) || "[]");
+    return Array.isArray(arr) ? arr : [];
+  } catch {
+    return [];
+  }
+}
+
+function writeRequests(arr) {
+  localStorage.setItem(REQUESTS_KEY, JSON.stringify(arr.slice(0, 100)));
+}
+
+function addRequestLocal(rec) {
+  const list = readRequests();
+  // 同 host 已请求过就不重复加（更新时间）
+  const i = list.findIndex((r) => r.host === rec.host);
+  if (i >= 0) {
+    list[i] = { ...list[i], ...rec, at: rec.at };
+  } else {
+    list.unshift(rec);
+  }
+  writeRequests(list);
 }
 
 function getVisitorId() {
@@ -827,7 +921,27 @@ function filteredSites() {
       return diff !== 0 ? diff : order.get(a.id) - order.get(b.id);
     });
   }
+  if (sortMode === "random" && randomOrder.size) {
+    return [...list].sort((a, b) =>
+      (randomOrder.get(a.id) ?? 0) - (randomOrder.get(b.id) ?? 0));
+  }
   return list;
+}
+
+/** 随机探索：洗一副新顺序，切到 random 排序，重排画布并回到原点。 */
+function shuffleExplore() {
+  const ids = sites.map((s) => s.id);
+  for (let i = ids.length - 1; i > 0; i -= 1) {        // Fisher–Yates 洗牌
+    const j = Math.floor(Math.random() * (i + 1));
+    [ids[i], ids[j]] = [ids[j], ids[i]];
+  }
+  randomOrder = new Map(ids.map((id, i) => [id, i]));
+  sortMode = "random";
+  document.querySelectorAll(".sort-option").forEach((b) => b.classList.remove("active"));
+  track("shuffle", { category: "explore" });
+  viewState = { ...HOME_VIEW };
+  renderAll();
+  reflectHomeState();
 }
 
 function renderAll() {
@@ -837,6 +951,16 @@ function renderAll() {
   renderSpecExample();
   renderLibraryCount();
   renderSaved();
+}
+
+/**
+ * 筛选 / 搜索 / 排序改变了结果集时调用：先把画布拉回原点再重渲染。
+ * 否则（虚拟化后）若用户此前拖远了，过滤出的小结果集会落在视口外，画布看起来一片空白。
+ */
+function applyFilterChange() {
+  viewState = { ...HOME_VIEW };
+  renderAll();
+  reflectHomeState();
 }
 
 function renderLibraryCount() {
@@ -913,7 +1037,36 @@ function renderRelatedTags() {
     ).join("");
 }
 
-function renderCanvas() {
+/** 单个画布节点的 HTML（虚拟化时按需创建）。 */
+function siteNodeHTML(site, x, y) {
+  const tagText = site.tags.slice(0, 3).map((tg) => window.i18n.tag(tg)).join(" · ");
+  const saved = store.isSaved(site.id);
+  return `
+    <div class="site-node" data-node="${site.id}" style="transform: translate3d(${x}px, ${y}px, 0);">
+      <article class="site-card" data-id="${site.id}"${saved ? ' data-saved="true"' : ""}>
+        <div class="card-thumb">
+          <img ${imgAttrs(site)} alt="${t("img.alt.screenshot", { title: site.title })}" draggable="false" />
+          <a class="card-hit" href="${siteDetailHref(site.id)}" aria-label="${t("card.open.aria", { title: site.title })}"></a>
+          <a class="card-visit" href="${site.url}" target="_blank" rel="noreferrer" aria-label="${t("card.visit.aria", { title: site.title })}">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8" /></svg>
+          </a>
+        </div>
+        <div class="card-meta">
+          <span class="card-title">${site.title}</span>
+          <span class="card-meta-right">
+            <span class="card-tags">${tagText}</span>
+            ${saveCountChip(site.id)}
+            <button class="card-save" type="button" data-save="${site.id}" aria-label="${t(saved ? "drawer.save.done" : "drawer.save")}" aria-pressed="${saved}">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-4.5-9.3-9A5.4 5.4 0 0 1 12 6a5.4 5.4 0 0 1 9.3 6c-2.3 4.5-9.3 9-9.3 9Z" /></svg>
+            </button>
+          </span>
+        </div>
+      </article>
+    </div>`;
+}
+
+/** 计算全量节点定位（不进 DOM）。filter / resize 时调用。 */
+function layoutCanvas() {
   const visibleSites = filteredSites();
   const isMobile = window.innerWidth <= 760;
   const columns = Math.ceil(Math.sqrt(Math.max(visibleSites.length, 1)));
@@ -921,40 +1074,66 @@ function renderCanvas() {
   const spacingY = isMobile ? 286 : 420;
   const offsetX = -Math.floor(columns / 2) * spacingX;
   const offsetY = -Math.ceil(visibleSites.length / columns / 2) * spacingY;
+  canvasLayout = { nodeW: spacingX, nodeH: spacingY };
+  canvasNodes = visibleSites.map((site, index) => ({
+    site,
+    x: offsetX + (index % columns) * spacingX,
+    y: offsetY + Math.floor(index / columns) * spacingY,
+  }));
+}
 
-  canvasGrid.innerHTML = visibleSites
-    .map((site, index) => {
-      const col = index % columns;
-      const row = Math.floor(index / columns);
-      const x = offsetX + col * spacingX;
-      const y = offsetY + row * spacingY;
-      const tagText = site.tags.slice(0, 3).map((tg) => window.i18n.tag(tg)).join(" · ");
-      const saved = store.isSaved(site.id);
-      return `
-        <div class="site-node" style="transform: translate3d(${x}px, ${y}px, 0);">
-          <article class="site-card" data-id="${site.id}"${saved ? ' data-saved="true"' : ""}>
-            <div class="card-thumb">
-              <img ${imgAttrs(site)} alt="${t("img.alt.screenshot", { title: site.title })}" draggable="false" />
-              <a class="card-hit" href="${siteDetailHref(site.id)}" aria-label="${t("card.open.aria", { title: site.title })}"></a>
-              <a class="card-visit" href="${site.url}" target="_blank" rel="noreferrer" aria-label="${t("card.visit.aria", { title: site.title })}">
-                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8" /></svg>
-              </a>
-            </div>
-            <div class="card-meta">
-              <span class="card-title">${site.title}</span>
-              <span class="card-meta-right">
-                <span class="card-tags">${tagText}</span>
-                ${saveCountChip(site.id)}
-                <button class="card-save" type="button" data-save="${site.id}" aria-label="${t(saved ? "drawer.save.done" : "drawer.save")}" aria-pressed="${saved}">
-                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-4.5-9.3-9A5.4 5.4 0 0 1 12 6a5.4 5.4 0 0 1 9.3 6c-2.3 4.5-9.3 9-9.3 9Z" /></svg>
-                </button>
-              </span>
-            </div>
-          </article>
-        </div>
-      `;
-    })
-    .join("");
+/**
+ * 虚拟化窗口：只把视口内（+ 余量）的节点渲染进 DOM；离开视口的回收。
+ * 这样 1000 个站点也只挂几十个 DOM / 加载几十张图，而不是一次性全部。
+ */
+function updateCanvasWindow() {
+  windowRaf = 0;
+  const surfaceW = canvasSurface.clientWidth || window.innerWidth;
+  const surfaceH = canvasSurface.clientHeight || window.innerHeight;
+  const s = viewState.scale;
+  const originX = surfaceW / 2 + viewState.x;   // 网格 (0,0) 在 surface 内的屏幕坐标
+  const originY = surfaceH / 2 + viewState.y;
+  const margin = Math.max(canvasLayout.nodeW, canvasLayout.nodeH) * 1.2; // 预渲染余量（屏幕 px）
+  const nodeW = canvasLayout.nodeW * s;
+  const nodeH = canvasLayout.nodeH * s;
+
+  const wanted = new Set();
+  for (const n of canvasNodes) {
+    const sx = originX + n.x * s;
+    const sy = originY + n.y * s;
+    const visible =
+      sx < surfaceW + margin && sx + nodeW > -margin &&
+      sy < surfaceH + margin && sy + nodeH > -margin;
+    if (!visible) continue;
+    wanted.add(n.site.id);
+    if (!renderedNodes.has(n.site.id)) {
+      const tpl = document.createElement("template");
+      tpl.innerHTML = siteNodeHTML(n.site, n.x, n.y).trim();
+      const el = tpl.content.firstElementChild;
+      canvasGrid.appendChild(el);
+      renderedNodes.set(n.site.id, el);
+    }
+  }
+  // 回收离开视口的节点
+  for (const [id, el] of renderedNodes) {
+    if (!wanted.has(id)) {
+      el.remove();
+      renderedNodes.delete(id);
+    }
+  }
+}
+
+/** rAF 节流的窗口更新（拖拽 / 缩放时高频调用）。 */
+function scheduleWindowUpdate() {
+  if (windowRaf) return;
+  windowRaf = requestAnimationFrame(updateCanvasWindow);
+}
+
+function renderCanvas() {
+  layoutCanvas();
+  canvasGrid.innerHTML = "";
+  renderedNodes.clear();
+  updateCanvasWindow();
   applyTransform();
 }
 
@@ -1000,18 +1179,49 @@ function renderSaved() {
   const items = store.savedSites(sites);
   if (savedEyebrow) savedEyebrow.textContent = t("saved.eyebrow", { count: items.length });
   if (!savedList) return;
+  const hasRequests = readRequests().length > 0;
   if (items.length === 0) {
     savedList.innerHTML = "";
-    if (savedEmpty) savedEmpty.hidden = false;
+    // 有请求时不显示"空空如也"（页面其实不空）
+    if (savedEmpty) savedEmpty.hidden = hasRequests;
   } else {
     if (savedEmpty) savedEmpty.hidden = true;
     savedList.innerHTML = items.map((site, index) => libraryCardHTML(site, index)).join("");
   }
+  renderMyRequests();
   const badge = document.querySelector("#savedBadge");
   if (badge) {
-    badge.textContent = items.length;
-    badge.hidden = items.length === 0;
+    const total = items.length + readRequests().length;
+    badge.textContent = total;
+    badge.hidden = total === 0;
   }
+}
+
+/** 「我请求的收录」—— 用户推荐但还没上广场的，读本地 od-requests。 */
+function renderMyRequests() {
+  const wrap = document.querySelector("#myRequests");
+  const list = document.querySelector("#myRequestsList");
+  if (!wrap || !list) return;
+  const reqs = readRequests();
+  if (reqs.length === 0) {
+    wrap.hidden = true;
+    list.innerHTML = "";
+    return;
+  }
+  wrap.hidden = false;
+  list.innerHTML = reqs.map((r) => {
+    // r.note / r.host 源自外部页面（microlink 抓到的 title）—— 一律转义防存储型 XSS
+    const host = escapeHtml(r.host);
+    const note = r.note ? escapeHtml(r.note) : "";
+    const label = note ? `${note} · ${host}` : host;
+    const status = String(r.status || "pending").replace(/[^a-z]/g, "");
+    const statusKey = `requests.status.${status}`;
+    return `
+      <li class="request-row request-${status}">
+        <a class="request-host" href="${safeHref(r.url)}" target="_blank" rel="noreferrer">${label}</a>
+        <span class="request-status" data-i18n="${statusKey}">${t(statusKey)}</span>
+      </li>`;
+  }).join("");
 }
 
 function renderSpecExample() {
@@ -1028,6 +1238,7 @@ function applyTransform() {
 
 function openDetail(siteId) {
   activeSite = sites.find((site) => site.id === siteId) || sites[0];
+  track("card_view", { category: "card", slug: activeSite.id, name: activeSite.title });
   // 用户存过的「刷新版」截图（localStorage）优先，否则用 site.image
   const shotOverride = localStorage.getItem(`shot-override:${activeSite.id}`);
   const heroImg = shotOverride || activeSite.image;
@@ -1216,12 +1427,16 @@ function refreshDrawerActions() {
 function renderPackManifest() {
   const manifest = document.querySelector("#packManifest");
   if (!manifest || !activeSite) return;
+  const gen = document.querySelector("#packGenerate");
   const pack = packsIndex[activeSite.id];
   if (!pack || !pack.files || !pack.files.length) {
+    // 没有 ZIP 素材包 → 显示「生成设计系统」面板（客户端从 11 层 spec 实时组装）
     manifest.hidden = true;
+    if (gen) { gen.hidden = false; setupGenerate(activeSite); }
     return;
   }
   manifest.hidden = false;
+  if (gen) gen.hidden = true;
 
   // 头部数据
   document.querySelector("#packCount").textContent = pack.fileCount || pack.files.length;
@@ -1231,13 +1446,51 @@ function renderPackManifest() {
 
   // 下载 ZIP 按钮
   const dlZip = document.querySelector("#packDownloadZip");
-  dlZip.href = `./packs/${pack.zipFile}`;
+  dlZip.href = `/packs/${pack.zipFile}`;
   dlZip.setAttribute("download", `${activeSite.id}-design-pack.zip`);
 
   // 文件清单 —— 把 shot 类合并显示成"13 张滚动分段"
   const filesList = document.querySelector("#packFilesList");
   const grouped = groupPackFiles(pack.files);
   filesList.innerHTML = grouped.map((g) => packFileRowHTML(g, activeSite.id)).join("");
+}
+
+/** 「完整包」面板状态复位：已请求过的站显示「已加入队列」，否则显示「请求生成」按钮。 */
+function setupGenerate(site) {
+  const btn = document.querySelector("#genRequestButton");
+  const requested = document.querySelector("#genRequested");
+  const view = document.querySelector("#genViewDesign");
+  if (!btn || !requested) return;
+  if (view) view.href = `/packs/${site.id}/`;   // 文件夹 URL：nginx 以 DESIGN.md 为 index
+  btn.disabled = false;
+  const already = localStorage.getItem(`packreq:${site.id}`) === "1";
+  btn.hidden = already;
+  requested.hidden = !already;
+}
+
+/**
+ * 点「请求生成完整设计系统」：写进生成队列（kind='pack'），curator 用 mimo from-extract 管线产出完整包。
+ * 浏览器不直接调 mimo（钥匙/成本/防滥用）—— 这里只下单，真正生成在服务端/本地跑。
+ */
+async function requestPackGeneration(site) {
+  let host = site.url;
+  try { host = new URL(normalizeUrl(site.url)).hostname.replace(/^www\./, ""); } catch {}
+  // 本地立刻标记 + 切到「已请求」
+  localStorage.setItem(`packreq:${site.id}`, "1");
+  const btn = document.querySelector("#genRequestButton");
+  const requested = document.querySelector("#genRequested");
+  if (btn) btn.hidden = true;
+  if (requested) requested.hidden = false;
+  track("pack_request", { category: "pack", slug: site.id, name: site.title });
+  showToast(t("gen.req.toast"));
+  // 异步写云端队列（失败不阻塞）
+  if (supabaseClient) {
+    supabaseClient.from("submissions").insert({
+      url: site.url, host, note: site.title || host,
+      visitor_id: visitorId, kind: "pack", slug: site.id,
+    }).then(({ error }) => { if (error) console.warn("[pack-request] insert failed", error); },
+            (err) => console.warn("[pack-request] insert failed", err));
+  }
 }
 
 /** 把"03_desktop_section_*.png"合并成一行（13 张滚动分段），其他文件保持独立。*/
@@ -1274,7 +1527,7 @@ function packFileRowHTML(f, slug) {
   const sizeText = formatBytes(f.size);
   const displayName = f._displayName || f.name;
   // 单文件直接链接；group 链接到 folder（让用户去 nginx 目录列表看，或我们以后做画廊预览）
-  const href = f._isGroup ? `./packs/${slug}/` : `./packs/${slug}/${f.name}`;
+  const href = f._isGroup ? `/packs/${slug}/` : `/packs/${slug}/${f.name}`;
   const isImage = /\.png$|\.jpe?g$|\.webp$|\.svg$/i.test(f.name);
   const target = isImage || f._isGroup ? "_blank" : "_self";
   return `
@@ -1619,13 +1872,139 @@ function markdownFilename(site) {
 }
 
 function downloadTextFile(text, filename) {
-  const blob = new Blob([text], { type: "text/markdown;charset=utf-8" });
+  downloadBlob(new Blob([text], { type: "text/markdown;charset=utf-8" }), filename);
+}
+
+function downloadBlob(blob, filename) {
   const url = URL.createObjectURL(blob);
   const link = document.createElement("a");
   link.href = url;
   link.download = filename;
+  document.body.appendChild(link);
   link.click();
-  URL.revokeObjectURL(url);
+  link.remove();
+  setTimeout(() => URL.revokeObjectURL(url), 1000);
+}
+
+/* ===== 极简 ZIP (STORE 法 · 无压缩) 打包器 —— 零依赖，浏览器端生成设计系统 ZIP ===== */
+const CRC_TABLE = (() => {
+  const t = new Uint32Array(256);
+  for (let n = 0; n < 256; n += 1) {
+    let c = n;
+    for (let k = 0; k < 8; k += 1) c = (c & 1) ? (0xedb88320 ^ (c >>> 1)) : (c >>> 1);
+    t[n] = c >>> 0;
+  }
+  return t;
+})();
+function crc32(bytes) {
+  let c = 0xffffffff;
+  for (let i = 0; i < bytes.length; i += 1) c = CRC_TABLE[(c ^ bytes[i]) & 0xff] ^ (c >>> 8);
+  return (c ^ 0xffffffff) >>> 0;
+}
+/** entries: [{ name, data: Uint8Array }] → ZIP Blob（STORE，无压缩，兼容所有解压工具） */
+function zipStore(entries) {
+  const chunks = [];
+  const central = [];
+  let offset = 0;
+  const enc = new TextEncoder();
+  for (const e of entries) {
+    const nameBytes = enc.encode(e.name);
+    const data = e.data;
+    const crc = crc32(data);
+    const lh = new Uint8Array(30 + nameBytes.length);
+    const dv = new DataView(lh.buffer);
+    dv.setUint32(0, 0x04034b50, true);
+    dv.setUint16(4, 20, true);
+    dv.setUint16(6, 0x0800, true);     // UTF-8 文件名
+    dv.setUint16(8, 0, true);          // STORE
+    dv.setUint16(10, 0, true);
+    dv.setUint16(12, 0x21, true);      // 1980-01-01
+    dv.setUint32(14, crc, true);
+    dv.setUint32(18, data.length, true);
+    dv.setUint32(22, data.length, true);
+    dv.setUint16(26, nameBytes.length, true);
+    dv.setUint16(28, 0, true);
+    lh.set(nameBytes, 30);
+    chunks.push(lh, data);
+    const ch = new Uint8Array(46 + nameBytes.length);
+    const cv = new DataView(ch.buffer);
+    cv.setUint32(0, 0x02014b50, true);
+    cv.setUint16(4, 20, true);
+    cv.setUint16(6, 20, true);
+    cv.setUint16(8, 0x0800, true);
+    cv.setUint16(10, 0, true);
+    cv.setUint16(12, 0, true);
+    cv.setUint16(14, 0x21, true);
+    cv.setUint32(16, crc, true);
+    cv.setUint32(20, data.length, true);
+    cv.setUint32(24, data.length, true);
+    cv.setUint16(28, nameBytes.length, true);
+    cv.setUint32(42, offset, true);
+    ch.set(nameBytes, 46);
+    central.push(ch);
+    offset += lh.length + data.length;
+  }
+  const centralSize = central.reduce((a, c) => a + c.length, 0);
+  const eocd = new Uint8Array(22);
+  const ev = new DataView(eocd.buffer);
+  ev.setUint32(0, 0x06054b50, true);
+  ev.setUint16(8, entries.length, true);
+  ev.setUint16(10, entries.length, true);
+  ev.setUint32(12, centralSize, true);
+  ev.setUint32(16, offset, true);
+  return new Blob([...chunks, ...central, eocd], { type: "application/zip" });
+}
+
+async function fetchTextSafe(url) {
+  try {
+    const r = await fetch(url, { cache: "no-cache" });
+    if (!r.ok) return null;
+    return await r.text();
+  } catch {
+    return null;
+  }
+}
+
+function genReadme(site) {
+  return [
+    `${site.title} — Design System Pack`,
+    `Generated by OpenDesign · https://opendesign.cc`,
+    "",
+    `Source:    ${site.url}`,
+    `Agent URL: ${agentSpecUrl(site.id)}`,
+    "",
+    "Contents",
+    "  DESIGN.md               Google design.md–compatible format (YAML + 8 sections)",
+    "  DESIGN_SPEC.<lang>.md   OpenDesign 11-layer spec · up to 5 languages (en/zh-CN/zh-TW/ja/ko)",
+    "  spec.json               11-layer design tokens, machine-readable",
+    "",
+    "How to use with AI",
+    "  Paste a DESIGN_SPEC.*.md into Claude / Cursor / v0 / Lovable, or point your agent",
+    "  at the Agent URL above — it will read this site's full design system and reproduce",
+    "  the same visual language in your own pages.",
+    "",
+  ].join("\n");
+}
+
+/** 从该站已部署的同源文档 + 客户端 spec 组装一个设计系统 ZIP。 */
+async function buildDesignSystemZip(site) {
+  const enc = new TextEncoder();
+  const slug = site.id;
+  const entries = [{ name: "README.txt", data: enc.encode(genReadme(site)) }];
+  if (site.spec) entries.push({ name: "spec.json", data: enc.encode(JSON.stringify(site.spec, null, 2)) });
+
+  const designMd = await fetchTextSafe(`/packs/${slug}/DESIGN.md`);
+  if (designMd) entries.push({ name: "DESIGN.md", data: enc.encode(designMd) });
+
+  for (const lang of ["en", "zh-CN", "zh-TW", "ja", "ko"]) {
+    const md = await fetchTextSafe(`/packs/${slug}/DESIGN_SPEC.${lang}.md`);
+    if (md) entries.push({ name: `DESIGN_SPEC.${lang}.md`, data: enc.encode(md) });
+  }
+  // 兜底：该站没在 /packs 部署文档（无 narrative）时，至少放当前语言客户端生成的规范
+  if (!entries.some((e) => e.name.startsWith("DESIGN_SPEC"))) {
+    entries.push({ name: "DESIGN_SPEC.md", data: enc.encode(createMarkdown(site)) });
+  }
+  return zipStore(entries);
 }
 
 /* ====== Collect Modal Controller ====== */
@@ -1673,9 +2052,10 @@ function setPipeline(stepStates) {
 
 function setPreviewFromMeta(meta, screenshotUrl) {
   if (screenshotUrl) {
-    previewShot.innerHTML = `<img src="${screenshotUrl}" alt="${meta.title || "screenshot"}" />`;
+    // screenshotUrl / meta.title 来自第三方（microlink）—— 转义后再进 img 属性，防属性逃逸 XSS
+    previewShot.innerHTML = `<img src="${escapeHtml(screenshotUrl)}" alt="${escapeHtml(meta.title || "screenshot")}" />`;
   }
-  if (meta.title) previewTitle.textContent = meta.title;
+  if (meta.title) previewTitle.textContent = meta.title;       // textContent 本身安全
   if (meta.description) previewMeta.textContent = meta.description.slice(0, 140);
 }
 
@@ -1688,7 +2068,7 @@ function setPreviewPalette(palette) {
 }
 
 function setPreviewTags(tags) {
-  previewTags.innerHTML = tags.map((tag) => `<span>${tag}</span>`).join("");
+  previewTags.innerHTML = tags.map((tag) => `<span>${escapeHtml(String(tag))}</span>`).join("");
 }
 
 function showSpecHint(spec, source) {
@@ -1707,7 +2087,7 @@ function showSpecHint(spec, source) {
 async function startCollect() {
   if (collectState === "running") return;
   if (collectState === "done" && pendingCandidate) {
-    return commitCandidate(pendingCandidate);
+    return submitRequest(pendingCandidate);
   }
 
   const rawUrl = collectUrlInput.value.trim();
@@ -1741,10 +2121,14 @@ async function startCollect() {
       }
     });
   } catch (err) {
-    collectState = "error";
+    // 预览管线挂了（microlink 限流等）不影响请求收录：用原始 URL 兜底，仍可提交。
+    collectState = "done";
+    let host = rawUrl;
+    try { host = new URL(normalizeUrl(rawUrl)).hostname.replace(/^www\./, ""); } catch {}
+    pendingCandidate = { url: rawUrl, title: host, tags: [], spec: {} };
     autoCollectButton.disabled = false;
-    autoCollectButton.textContent = t("modal.button.retry");
-    previewMeta.textContent = `${err.message || err}`;
+    autoCollectButton.textContent = t("modal.button.commit");
+    previewMeta.textContent = t("modal.preview.failsafe");
     return;
   }
 
@@ -1766,16 +2150,42 @@ function currentStateFor(currentStep, key) {
   return "";
 }
 
-function commitCandidate(candidate) {
-  sites = [candidate, ...sites];
-  activeSite = candidate;
-  saveSites();
-  const markdown = createMarkdown(candidate);
-  renderAll();
+/**
+ * 用户「请求收录」一个网站。
+ * 模型：不再公开发布，而是写进 submissions 队列（我们后台 /admin 审 → 跑 ingest → 上广场）。
+ * 用户侧立即生效：进本地 od-requests，在「我的收藏 → 我请求的」里看得到。
+ */
+async function submitRequest(candidate) {
+  let url, host;
+  try {
+    url = normalizeUrl(candidate.url || collectUrlInput.value);
+    host = new URL(url).hostname.replace(/^www\./, "");
+  } catch {
+    showToast(t("toast.url.empty"));
+    return;
+  }
+
+  const note = (candidate.title && candidate.title !== host) ? candidate.title : "";
+  const at = new Date().toISOString();
+
+  // 1) 本地立刻可见
+  addRequestLocal({ host, url, note, status: "pending", at });
+
+  // 2) 异步写云端队列（失败不阻塞；本地已留痕）
+  if (supabaseClient) {
+    supabaseClient
+      .from("submissions")
+      .insert({ url, host, note: note || null, visitor_id: visitorId })
+      .then(({ error }) => {
+        if (error) console.warn("[submissions] insert failed", error);
+      }, (err) => console.warn("[submissions] insert failed", err));
+  }
+
   closeModal();
-  downloadTextFile(markdown, markdownFilename(candidate));
-  showToast(t("toast.collect.success"));
-  openDetail(candidate.id);
+  showToast(t("toast.request.success"));
+  // 跳到「我的收藏」让用户看到自己请求的
+  switchView("saved");
+  renderSaved();
 }
 
 function switchView(view, { fromHash = false } = {}) {
@@ -1793,6 +2203,8 @@ function switchView(view, { fromHash = false } = {}) {
   // 切到面板视图时，把页面滚到顶部（避免上一个视图的滚动位置错乱）
   if (view !== "canvas") window.scrollTo(0, 0);
   if (view === "saved") renderSaved();
+  // 进入画布时 surface 才有真实尺寸 —— 补一次虚拟化窗口渲染 + 复位提示
+  if (view === "canvas") { updateCanvasWindow(); reflectHomeState(); }
   if (!fromHash) setHash(viewToHash(view), { silent: true });
 }
 
@@ -1881,6 +2293,8 @@ canvasSurface.addEventListener("pointermove", (event) => {
     viewState.x = panStart.x + dx;
     viewState.y = panStart.y + dy;
     applyTransform();
+    scheduleWindowUpdate();
+    reflectHomeState();
   }
 });
 
@@ -1903,6 +2317,8 @@ canvasSurface.addEventListener(
       viewState.y -= event.deltaY;
     }
     applyTransform();
+    scheduleWindowUpdate();
+    reflectHomeState();
   },
   { passive: false }
 );
@@ -1960,6 +2376,7 @@ bindListClicks(document.querySelector("#savedList"));
 
 function handleSaveToggle(siteId) {
   const nowSaved = store.toggleSaved(siteId);
+  track(nowSaved ? "save_add" : "save_remove", { category: "save", slug: siteId });
   showToast(t(nowSaved ? "toast.save.added" : "toast.save.removed"));
   document.querySelectorAll(`[data-save="${siteId}"]`).forEach((btn) => {
     btn.setAttribute("aria-pressed", nowSaved);
@@ -1976,6 +2393,7 @@ function handleSaveToggle(siteId) {
 
 function handleLikeToggle(siteId) {
   const nowLiked = store.toggleLiked(siteId);
+  track(nowLiked ? "like_add" : "like_remove", { category: "like", slug: siteId });
   showToast(t(nowLiked ? "toast.like.added" : "toast.like.removed"));
   if (activeSite && activeSite.id === siteId) refreshDrawerActions();
 }
@@ -1985,7 +2403,7 @@ tagFilters.addEventListener("click", (event) => {
   if (!chip) return;
   const tag = chip.dataset.tag;
   activeTag = tag;
-  renderAll();
+  applyFilterChange();
   if (tag === "All") setHash(viewToHash(currentView), { silent: true });
   else setHash(`#/tags/${encodeURIComponent(tag)}`, { silent: true });
 });
@@ -1995,13 +2413,13 @@ document.querySelector("#relatedTags")?.addEventListener("click", (event) => {
   const chip = event.target.closest(".related-tag-chip");
   if (!chip) return;
   activeTag = chip.dataset.tag;
-  renderAll();
+  applyFilterChange();
   setHash(`#/tags/${encodeURIComponent(activeTag)}`, { silent: true });
 });
 
 searchInput.addEventListener("input", (event) => {
   searchQuery = event.target.value;
-  renderAll();
+  applyFilterChange();
 });
 
 /* 排序切换 —— 精选顺序 vs 热门（按全站累计收藏数 desc） */
@@ -2011,7 +2429,7 @@ document.querySelectorAll(".sort-option").forEach((btn) => {
     if (next === sortMode) return;
     sortMode = next;
     document.querySelectorAll(".sort-option").forEach((b) => b.classList.toggle("active", b.dataset.sort === sortMode));
-    renderAll();
+    applyFilterChange();
   });
 });
 
@@ -2133,6 +2551,26 @@ document.addEventListener("keydown", (e) => {
 document.querySelector("#copyMarkdownButton").addEventListener("click", copyMarkdown);
 document.querySelector("#downloadMarkdownButton").addEventListener("click", downloadMarkdown);
 document.querySelector("#copyJsonButton").addEventListener("click", copyJsonSnippet);
+
+/* 「完整包」面板（无 mimo 完整包的作品）按钮，引用 activeSite */
+document.querySelector("#genRequestButton")?.addEventListener("click", () => {
+  if (activeSite) requestPackGeneration(activeSite);
+});
+document.querySelector("#genDownloadSpec")?.addEventListener("click", async () => {
+  if (!activeSite) return;
+  try {
+    const blob = await buildDesignSystemZip(activeSite);
+    downloadBlob(blob, `${activeSite.id}-design-system.zip`);
+  } catch { showToast(t("gen.toast.fail")); }
+});
+document.querySelector("#genCopyAgentUrl")?.addEventListener("click", () => {
+  if (!activeSite) return;
+  const url = agentSpecUrl(activeSite.id);
+  navigator.clipboard.writeText(url).then(
+    () => showToast(t("agent.urlCopied")),
+    () => showToast(url)
+  );
+});
 document.querySelector("#drawerSaveButton").addEventListener("click", () => {
   if (activeSite) handleSaveToggle(activeSite.id);
 });
@@ -2287,13 +2725,49 @@ async function openAssetPreview(url, name) {
 }
 
 function escapeHtml(s) {
-  return s.replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+  return String(s == null ? "" : s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+}
+/** href 白名单：只放行 http(s)，其它（javascript: / data: 等）一律降级为 #，防点击型 XSS。 */
+function safeHref(u) {
+  return /^https?:\/\//i.test(u || "") ? escapeHtml(u) : "#";
 }
 document.querySelector("#importButton").addEventListener("click", openModal);
-document.querySelector("#resetViewButton").addEventListener("click", () => {
-  viewState = { x: -110, y: -70, scale: 1 };
+
+/** 当前视图是否偏离原点（决定是否提示「回到原点」）。 */
+function isAtHome() {
+  return Math.abs(viewState.x - HOME_VIEW.x) < 24 &&
+         Math.abs(viewState.y - HOME_VIEW.y) < 24 &&
+         Math.abs(viewState.scale - HOME_VIEW.scale) < 0.02;
+}
+
+/** 偏离原点时让「回到原点」按钮显形/高亮，回到原点后淡出。 */
+function reflectHomeState() {
+  const btn = document.querySelector("#canvasRecenter");
+  if (btn) btn.classList.toggle("is-active", !isAtHome());
+}
+
+/** 平滑飞回原点（带过渡，明确告诉用户「这是归位，不是出错」）。 */
+function recenterCanvas() {
+  canvasGrid.classList.add("recentering");
+  viewState = { ...HOME_VIEW };
   applyTransform();
-});
+  reflectHomeState();
+  // 过渡结束后补一次窗口渲染 + 去掉过渡类
+  const done = (ev) => {
+    // 只认 canvasGrid 自身的 transform 过渡；忽略子元素冒泡上来的 transitionend（否则会提前中断动画）
+    if (ev && (ev.target !== canvasGrid || ev.propertyName !== "transform")) return;
+    canvasGrid.classList.remove("recentering");
+    updateCanvasWindow();
+    canvasGrid.removeEventListener("transitionend", done);
+  };
+  canvasGrid.addEventListener("transitionend", done);
+  setTimeout(done, 560); // 兜底（transitionend 偶尔不触发）
+}
+
+document.querySelector("#resetViewButton").addEventListener("click", recenterCanvas);
+const canvasRecenterBtn = document.querySelector("#canvasRecenter");
+if (canvasRecenterBtn) canvasRecenterBtn.addEventListener("click", recenterCanvas);
+document.querySelector("#canvasShuffle")?.addEventListener("click", shuffleExplore);
 
 if (OWNER_MODE) {
   document.querySelector("#importButton").hidden = false;
@@ -2423,6 +2897,7 @@ if (langTrigger && langDropdown) {
   langDropdown.addEventListener("click", (e) => {
     const item = e.target.closest(".lang-item");
     if (!item) return;
+    track("lang_switch", { category: "i18n", label: item.dataset.lang, name: item.dataset.lang });
     window.i18n.set(item.dataset.lang);
     closeLangDropdown();
   });
@@ -2459,7 +2934,14 @@ window.addEventListener("keydown", (event) => {
   }
 });
 
-window.addEventListener("resize", renderCanvas);
+// resize 防抖：连续拖拽缩放窗口时只在停下后重建一次画布，且仅当画布视图可见
+let resizeTimer = 0;
+window.addEventListener("resize", () => {
+  clearTimeout(resizeTimer);
+  resizeTimer = setTimeout(() => {
+    if (currentView === "canvas") renderCanvas();
+  }, 160);
+});
 window.addEventListener("hashchange", applyHash);
 
 /* ====== 路径路由 ======
@@ -2515,7 +2997,7 @@ if (!applyPathRoute()) applyHash();
  *  只有 site.spec 缺失时才用外部 spec 填。*/
 async function mergeExternalSpecs() {
   try {
-    const res = await fetch("./sites-specs.json", { cache: "no-cache" });
+    const res = await fetch("/sites-specs.json", { cache: "no-cache" });
     if (!res.ok) return;
     const data = await res.json();
     let merged = 0;
@@ -2540,7 +3022,7 @@ async function mergeExternalSpecs() {
  */
 async function loadSitesI18n() {
   try {
-    const res = await fetch("./sites-i18n.json", { cache: "no-cache" });
+    const res = await fetch("/sites-i18n.json", { cache: "no-cache" });
     if (!res.ok) return;
     const data = await res.json();
     // 剥掉 _meta，剩下都是 site_id → { lang → fields }
@@ -2569,7 +3051,7 @@ function localizedField(site, field) {
  *  注：packsIndex 变量声明在文件顶部状态区，避免 TDZ。 */
 async function loadPacksIndex() {
   try {
-    const res = await fetch("./packs-index.json", { cache: "no-cache" });
+    const res = await fetch("/packs-index.json", { cache: "no-cache" });
     if (!res.ok) return;
     packsIndex = await res.json();
     console.info(`[packs] ${Object.keys(packsIndex).length} design packs available`);

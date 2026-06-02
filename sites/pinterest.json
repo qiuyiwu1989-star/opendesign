@@ -17,33 +17,35 @@
   "_meta": {
     "vision_model": "mimo-v2.5",
     "vision_prompt_version": "0.3",
-    "vision_at": "2026-05-28T21:41:59+00:00",
-    "vision_tokens": 3475,
-    "vision_cost_usd": 0.0386,
+    "vision_at": "2026-05-30T17:25:41+00:00",
+    "vision_tokens": 16468,
+    "vision_cost_usd": 0.183,
     "last_error": "Expecting ',' delimiter: line 68 column 37 (char 1703)",
     "translation_model": "mimo-v2.5",
-    "translation_at": "2026-05-29T01:57:13+00:00",
-    "translation_tokens": 15460,
-    "translation_cost_usd": 0.0516,
+    "translation_at": "2026-05-30T17:26:39+00:00",
+    "translation_tokens": 27052,
+    "translation_cost_usd": 0.0902,
     "narrative_model": "mimo-v2.5",
     "narrative_prompt_version": "0.3",
     "narrative_at": "2026-05-29T01:57:21+00:00",
     "narrative_tokens": 2014,
     "narrative_cost_usd": 0.0134,
     "narrative_status": "ok",
-    "total_cost_usd": 0.1036
+    "total_cost_usd": 0.2866,
+    "vision_source": "playwright-extract:pinterest",
+    "vision_grounded": true
   },
   "spec": {
     "colors": {
       "bg": "#FFFFFF",
-      "bgSoft": "#F5F5F5",
-      "bgQuiet": null,
-      "ink": "#111111",
-      "inkSoft": "#333333",
-      "muted": "#767676",
+      "bgSoft": "#F6F6F3",
+      "bgQuiet": "#E5E5E0",
+      "ink": "#211922",
+      "inkSoft": "#211922",
+      "muted": "#62625B",
       "mutedSoft": null,
       "accent": "#E60023",
-      "line": "rgba(0, 0, 0, 0.1)"
+      "line": "rgba(33, 25, 34, 0.1)"
     },
     "typography": {
       "display": "geometric-sans",
@@ -52,24 +54,31 @@
       "scale": [
         {
           "token": "display",
-          "size": 56,
+          "size": 48,
           "lh": 1.1,
-          "weight": 700,
-          "ls": "-1px"
+          "weight": 900,
+          "ls": "-0.5px"
         },
         {
           "token": "heading",
-          "size": 40,
-          "lh": 1.2,
+          "size": 38,
+          "lh": 1.1,
           "weight": 700,
           "ls": "-0.5px"
         },
         {
           "token": "body",
           "size": 16,
+          "lh": 1.2,
+          "weight": 400,
+          "ls": "0px"
+        },
+        {
+          "token": "caption",
+          "size": 12,
           "lh": 1.5,
           "weight": 400,
-          "ls": "0"
+          "ls": "0px"
         }
       ]
     },
@@ -78,7 +87,6 @@
       "scale": [
         4,
         8,
-        12,
         16,
         24,
         32,
@@ -91,7 +99,7 @@
       "radius": {
         "sm": 8,
         "md": 16,
-        "lg": 24,
+        "lg": 32,
         "pill": 999
       }
     },
@@ -99,7 +107,7 @@
       "container": 1280,
       "paragraph": 680,
       "columns": 12,
-      "gutter": 16,
+      "gutter": 24,
       "breakpoints": [
         768,
         1024
@@ -107,402 +115,20 @@
     },
     "motion": {
       "durations": {
-        "micro": 150,
-        "small": 300,
-        "medium": 500
+        "micro": 85,
+        "small": 220,
+        "medium": 400
       },
-      "easing": "cubic-bezier(0.4, 0, 0.2, 1)"
-    }
-  },
-  "spec_i18n": {
-    "en": {
-      "identity": {
-        "keywords": [
-          "discovery",
-          "inspiration",
-          "creativity",
-          "lifestyle",
-          "visual"
-        ],
-        "analogy": "a digital scrapbook and mood board for life planning",
-        "oneLiner": "A visual discovery platform where users find and save ideas for every part of their life."
-      },
-      "colors": {
-        "principle": "Clean, neutral canvas with high-chroma red accent for primary calls to action."
-      },
-      "typography": {
-        "rules": [
-          "Headlines use a bold, geometric sans-serif.",
-          "Body text is highly legible with generous line height.",
-          "UI text is small and clean."
-        ],
-        "scaleUses": [
-          "Hero headlines",
-          "Section headlines",
-          "Body copy"
-        ]
-      },
-      "spacing": {
-        "rhythm": "Generous whitespace defines the layout, creating an open and breathable feel."
-      },
-      "surfaces": {
-        "shadows": [],
-        "borders": "1px solid rgba(0, 0, 0, 0.1)"
-      },
-      "layout": {
-        "skeleton": "Asymmetric split layout for hero, centered content for feature sections."
-      },
-      "components": {
-        "button": "Pill-shaped buttons with high-contrast primary color (red) for sign-ups and secondary (outlined or filled neutral) for alternative actions.",
-        "card": "Image-heavy cards with soft, rounded corners.",
-        "chip": "Pill-shaped filter chips with subtle background colors.",
-        "input": "Rounded search input with a prominent search icon.",
-        "hero": "Large headline with two primary CTAs and a dynamic, overlapping collage of lifestyle images."
-      },
-      "motion": {
-        "patterns": [
-          "Smooth, quick transitions for UI interactions.",
-          "No heavy, complex animations visible."
-        ]
-      },
-      "interaction": {
-        "hover": "Subtle background color change or scale effect on interactive elements.",
-        "click": "Immediate visual feedback with color state changes.",
-        "transition": "Smooth transitions for dropdowns and modal openings.",
-        "keyboard": "Standard tab-based navigation support."
-      },
-      "voice": {
-        "tone": "Encouraging, positive, and empowering.",
-        "headlineStyle": "Bold, action-oriented, and aspirational.",
-        "ctaStyle": "Direct, clear, and focused on user benefits (e.g., 'Join for free').",
-        "avoid": [
-          "Overly technical jargon.",
-          "Negative or restrictive language.",
-          "Passive voice."
-        ]
-      },
-      "donts": [
-        "Don't use dark mode — screenshot shows a predominantly white and light gray interface.",
-        "Don't use serif fonts for headlines — screenshot shows bold, geometric sans-serif typography.",
-        "Don't use small, tightly packed layouts — screenshot emphasizes generous whitespace and open compositions.",
-        "Don't use muted, low-contrast colors for CTAs — screenshot uses a vibrant, high-chroma red (#E60023) for primary actions.",
-        "Don't use sharp, square corners for UI elements — screenshot consistently uses rounded corners and pill shapes.",
-        "Don't use complex, illustrative icons — screenshot uses simple, clean icons or none at all."
-      ],
-      "systemPrompt": "Pinterest is a visual discovery and lifestyle inspiration platform. The design DNA centers on a clean, airy aesthetic with a white (#FFFFFF) background, near-black (#111111) text, and a signature vibrant red (#E60023) accent for primary calls to action. Typography is exclusively bold, geometric sans-serif, with large display sizes for headlines to create impact. The layout prioritizes generous whitespace and features prominent, high-quality photography in asymmetric, overlapping arrangements. Key donts: avoid dark mode, serif typography, cramped layouts, muted CTAs, sharp corners, and overly complex iconography. The system focuses on an aspirational, empowering tone that encourages user creativity and exploration."
-    },
-    "zh-CN": {
-      "identity": {
-        "keywords": [
-          "探索",
-          "灵感",
-          "创意",
-          "生活方式",
-          "视觉"
-        ],
-        "analogy": "用于生活规划的数字剪贴簿与情绪板",
-        "oneLiner": "一个视觉探索平台，用户在此发现并保存生活各个方面的创意。"
-      },
-      "colors": {
-        "principle": "干净中性的画布，搭配高饱和度的红色用于主要操作号召。"
-      },
-      "typography": {
-        "rules": [
-          "标题使用粗体几何无衬线字体。",
-          "正文清晰易读，行高充裕。",
-          "界面文字小而干净。"
-        ],
-        "scaleUses": [
-          "首屏标题",
-          "版块标题",
-          "正文内容"
-        ]
-      },
-      "spacing": {
-        "rhythm": "充裕的留白定义了布局，营造开放通透的感觉。"
-      },
-      "surfaces": {
-        "shadows": [],
-        "borders": "1px solid rgba(0, 0, 0, 0.1)"
-      },
-      "layout": {
-        "skeleton": "首屏采用非对称分屏布局，功能版块采用居中内容布局。"
-      },
-      "components": {
-        "button": "胶囊形按钮，主操作（注册）使用高对比度主色（红色），备选操作使用次级样式（描边或填充中性色）。",
-        "card": "以图片为主的卡片，带有柔和的圆角。",
-        "chip": "胶囊形筛选标签，背景色微妙。",
-        "input": "圆角搜索输入框，配有醒目的搜索图标。",
-        "hero": "大标题搭配两个主要操作号召，以及动态叠加的生活方式图片拼贴。"
-      },
-      "motion": {
-        "patterns": [
-          "界面交互采用平滑快速的过渡。",
-          "无厚重复杂的动画可见。"
-        ]
-      },
-      "interaction": {
-        "hover": "交互元素在悬停时有细微的背景色变化或缩放效果。",
-        "click": "点击时提供即时的视觉反馈，伴随颜色状态变化。",
-        "transition": "下拉菜单与模态窗口打开时采用平滑过渡。",
-        "keyboard": "支持标准的 Tab 键导航。"
-      },
-      "voice": {
-        "tone": "鼓励性、积极且赋能的。",
-        "headlineStyle": "粗体、行动导向且令人向往。",
-        "ctaStyle": "直接、清晰，聚焦于用户利益（例如，“免费加入”）。",
-        "avoid": [
-          "过于技术性的行话。",
-          "消极或限制性的语言。",
-          "被动语态。"
-        ]
-      },
-      "donts": [
-        "勿使用深色模式——截图显示的是以白色和浅灰为主的界面。",
-        "勿为标题使用衬线字体——截图显示的是粗体几何无衬线字体。",
-        "勿使用小巧拥挤的布局——截图强调充裕的留白与开放的构图。",
-        "勿为操作号召使用灰暗、低对比度的颜色——截图中主要操作使用鲜艳、高饱和度的红色（#E60023）。",
-        "勿为界面元素使用尖锐的直角——截图始终使用圆角和胶囊形状。",
-        "勿使用复杂、插画风格的图标——截图使用简洁干净的图标或无图标。"
-      ],
-      "systemPrompt": "Pinterest 是一个视觉探索与生活方式灵感平台。其设计基因在于干净、通透的美学，背景为白色（#FFFFFF），文字为近黑色（#111111），并以标志性的活力红（#E60023）作为主要操作号召的强调色。字体专指粗体几何无衬线体，标题采用大号展示尺寸以制造视觉冲击。布局优先考虑充裕的留白，并以非对称、叠加的方式突出展示高质量摄影图片。关键禁忌：避免深色模式、衬线字体、拥挤布局、灰暗的操作号召、尖锐直角以及过于复杂的图标。该系统致力于营造一种令人向往、赋能的语调，鼓励用户进行创意与探索。"
-    },
-    "zh-TW": {
-      "identity": {
-        "keywords": [
-          "探索",
-          "靈感",
-          "創造力",
-          "生活方式",
-          "視覺"
-        ],
-        "analogy": "一個用於生活規劃的數位剪貼簿與靈感板",
-        "oneLiner": "一個視覺探索平台，讓用戶能找到並儲存生活各個層面的點子。"
-      },
-      "colors": {
-        "principle": "乾淨、中性的畫布，搭配高彩度的紅色作為主要號召性用語的強調色。"
-      },
-      "typography": {
-        "rules": [
-          "標題使用粗體、幾何感的無襯線字體。",
-          "內文具高度可讀性，行高寬裕。",
-          "UI 文字小巧而簡潔。"
-        ],
-        "scaleUses": [
-          "首頁橫幅標題",
-          "章節標題",
-          "內文"
-        ]
-      },
-      "spacing": {
-        "rhythm": "寬裕的留白定義了版面，創造出開放且具呼吸感的視覺體驗。"
-      },
-      "surfaces": {
-        "shadows": [],
-        "borders": "1px solid rgba(0, 0, 0, 0.1)"
-      },
-      "layout": {
-        "skeleton": "首頁橫幅採不對稱分割佈局，功能區塊則採用置中內容。"
-      },
-      "components": {
-        "button": "膠囊形按鈕，主要顏色（紅色）用於註冊，次要則用於替代操作（採用輪廓或填充的中性色）。",
-        "card": "以圖片為主的卡片，帶有柔和的圓角。",
-        "chip": "膠囊形篩選標籤，帶有微妙的背景色。",
-        "input": "圓角的搜尋輸入框，搭配顯眼的搜尋圖示。",
-        "hero": "大型標題，搭配兩個主要號召性用語，以及動態、重疊的生活風格圖片拼貼。"
-      },
-      "motion": {
-        "patterns": [
-          "針對 UI 互動提供流暢、快速的過渡效果。",
-          "無可見的繁重、複雜動畫。"
-        ]
-      },
-      "interaction": {
-        "hover": "互動元素在懸停時有微妙的背景色變化或縮放效果。",
-        "click": "點擊時透過顏色狀態變化提供即時視覺回饋。",
-        "transition": "下拉選單與彈出視窗的開啟採用流暢過渡效果。",
-        "keyboard": "標準的 Tab 鍵導覽支援。"
-      },
-      "voice": {
-        "tone": "具鼓勵性、正面且賦予力量。",
-        "headlineStyle": "粗體、以行動為導向且令人嚮往。",
-        "ctaStyle": "直接、清晰，並專注於用戶利益（例如：「免費加入」）。",
-        "avoid": [
-          "過於技術性的術語。",
-          "負面或限制性的語言。",
-          "被動語態。"
-        ]
-      },
-      "donts": [
-        "勿使用深色模式 — 截圖顯示為以白色與淺灰色為主的介面。",
-        "勿在標題中使用襯線字體 — 截圖顯示為粗體、幾何感的無襯線字體排版。",
-        "勿使用狹小、擁擠的佈局 — 截圖強調寬裕的留白與開放的構圖。",
-        "勿使用柔和、低對比的顏色作為號召性用語 — 截圖使用鮮明、高彩度的紅色（#E60023）作為主要操作的色彩。",
-        "勿使用尖銳、方正的 UI 元素角落 — 截圖一致使用圓角與膠囊形狀。",
-        "勿使用複雜、插圖式的圖示 — 截圖使用簡單、簡潔的圖示或不使用圖示。"
-      ],
-      "systemPrompt": "Pinterest 是一個視覺探索與生活風格靈感平台。其設計 DNA 以乾淨、通透的美學為核心，採用白色（#FFFFFF）背景、近乎黑色（#111111）的文字，以及標誌性的鮮紅色（#E60023）作為主要號召性用語的強調色。字體排版專注於粗體、幾何感的無襯線字體，標題採用大型展示尺寸以創造衝擊力。版面優先考量寬裕的留白，並在不對稱、重疊的排列中突出高品質的攝影圖片。關鍵禁忌：避免深色模式、襯線字體排版、擁擠的佈局、柔和的號召性用語、尖銳的角落以及過於複雜的圖標。系統專注於一種令人嚮往、賦予力量的語氣，鼓勵用戶的創造力與探索。"
-    },
-    "ja": {
-      "identity": {
-        "keywords": [
-          "ディスカバリー",
-          "インスピレーション",
-          "クリエイティビティ",
-          "ライフスタイル",
-          "ビジュアル"
-        ],
-        "analogy": "ライフプランニングのためのデジタルスクラップブックとムードボード",
-        "oneLiner": "ユーザーが生活のあらゆる分野のアイデアを見つけ、保存できるビジュアルディスカバリー・プラットフォーム。"
-      },
-      "colors": {
-        "principle": "クリーンでニュートラルなキャンバスに、プライマリーコール・トゥ・アクション用の高クロマレッドをアクセントとして配置。"
-      },
-      "typography": {
-        "rules": [
-          "見出しには、太字で幾何学的なサンセリフフォントを使用。",
-          "本文テキストは、十分な行間を確保し、非常に高い可読性を実現。",
-          "UIテキストは小さく、クリーンに設計。"
-        ],
-        "scaleUses": [
-          "ヒーロー見出し",
-          "セクション見出し",
-          "本文コピー"
-        ]
-      },
-      "spacing": {
-        "rhythm": "豊かなホワイトスペースがレイアウトを定義し、開放的で息が通る感覚を生み出しています。"
-      },
-      "surfaces": {
-        "shadows": [],
-        "borders": "1px solid rgba(0, 0, 0, 0.1)"
-      },
-      "layout": {
-        "skeleton": "ヒーローには非対称分割レイアウト、フィーチャーセクションにはセンタリングされたコンテンツを採用。"
-      },
-      "components": {
-        "button": "サインアップにはハイコントラストのプライマリーカラー（レッド）を使用したピル形状のボタン、代替アクションにはアウトラインまたは塗りつぶしのニュートラルなボタンを使用。",
-        "card": "柔らかな丸みを帯びた角を持つ、画像主体のカード。",
-        "chip": "控えめな背景色を持つピル形状のフィルターチップ。",
-        "input": "目立つ検索アイコンを持つ、角丸の検索入力フィールド。",
-        "hero": "2つのプライマリーCTAと、ライフスタイル画像の動的でオーバーラップするコラージュを備えた大きな見出し。"
-      },
-      "motion": {
-        "patterns": [
-          "UIインタラクションには滑らかで速いトランジションを使用。",
-          "重く複雑なアニメーションは表示しない。"
-        ]
-      },
-      "interaction": {
-        "hover": "インタラクティブ要素上の控えめな背景色の変化またはスケール効果。",
-        "click": "カラーステータスの変化による即座の視覚フィードバック。",
-        "transition": "ドロップダウンやモーダルのオープンには滑らかなトランジション。",
-        "keyboard": "標準的なタブベースのナビゲーションをサポート。"
-      },
-      "voice": {
-        "tone": "励ますような、前向きで、力を与えるようなトーン。",
-        "headlineStyle": "太字で、アクション导向、憧れを抱かせるスタイル。",
-        "ctaStyle": "ユーザーのメリットに焦点を当てた、直接的で明確なスタイル（例：「無料で参加する」）。",
-        "avoid": [
-          "過度に技術的な専門用語。",
-          "否定的または制限的な言葉。",
-          "受動態。"
-        ]
-      },
-      "donts": [
-        "ダークモードを使用しない — スクリーンショットは主に白と明るいグレーのインターフェースを示しています。",
-        "見出しにセリフフォントを使用しない — スクリーンショットは太字で幾何学的なサンセリフタイポグラフィを示しています。",
-        "小さく詰まったレイアウトを使用しない — スクリーンショットは豊かなホワイトスペースと開放的な構図を強調しています。",
-        "CTAにくすんだ低コントラストのカラーを使用しない — スクリーンショットはプライマリアクションにバイブラントで高クロマのレッド（#E60023）を使用しています。",
-        "UI要素に鋭い角の四角を使用しない — スクリーンショットは一貫して角丸とピル形状を使用しています。",
-        "複雑でイラストのようなアイコンを使用しない — スクリーンショットはシンプルでクリーンなアイコン、またはアイコンなしを使用しています。"
-      ],
-      "systemPrompt": "Pinterestはビジュアルディスカバリーとライフスタイルインスピレーションのプラットフォームです。デザインのDNAは、白（#FFFFFF）の背景、ほぼ黒（#111111）のテキスト、プライマリーCTA用のシグネチャー・バイブラントレッド（#E60023）をアクセントとした、クリーンでエアリーな美学を中心に構成されています。タイポグラフィは太字で幾何学的なサンセリフのみを使用し、見出しには大きなディスプレイサイズを採用してインパクトを生み出しています。レイアウトは豊かなホワイトスペースを優先し、非対称でオーバーラップする構図で高品質な写真を際立たせています。主な禁忌：ダークモード、セリフタイポグラフィ、狭いレイアウト、くすんだCTA、鋭い角、過度に複雑なアイコングラフィの回避。システムは、ユーザーのクリエイティビティと探求を促す、憧れを抱かせる力強いトーンに焦点を当てています。"
-    },
-    "ko": {
-      "identity": {
-        "keywords": [
-          "발견",
-          "영감",
-          "창의성",
-          "라이프스타일",
-          "시각적"
-        ],
-        "analogy": "라이프 플래닝을 위한 디지털 스케치북이자 무드보드",
-        "oneLiner": "사용자들이 삶의 모든 부분을 위한 아이디어를 찾고 저장하는 시각적 발견 플랫폼입니다."
-      },
-      "colors": {
-        "principle": "주요 호출-to-액션을 위한 고채도 빨간색 악센트가 포함된 깨끗하고 중립적인 캔버스입니다."
-      },
-      "typography": {
-        "rules": [
-          "헤드라인은 볼드한 기하학적 sans-serif를 사용합니다.",
-          "본문은 넉넉한 행간으로 높은 가독성을 갖춥니다.",
-          "UI 텍스트는 작고 깔끔합니다."
-        ],
-        "scaleUses": [
-          "히어로 헤드라인",
-          "섹션 헤드라인",
-          "본문"
-        ]
-      },
-      "spacing": {
-        "rhythm": "넉넉한 여백이 레이아웃을 정의하여 개방적이고 숨 쉬 듯한 느낌을 만듭니다."
-      },
-      "surfaces": {
-        "shadows": [],
-        "borders": "1px solid rgba(0, 0, 0, 0.1)"
-      },
-      "layout": {
-        "skeleton": "히어로를 위한 비대칭 분리형 레이아웃, 피처 섹션을 위한 중앙 정렬 콘텐츠입니다."
-      },
-      "components": {
-        "button": "가입용 고대비 주요 색상(빨간색)과 대체 액션용 보조 색상(테두리 있거나 채워진 중립색)을 사용하는 알약 모양 버튼입니다.",
-        "card": "부드러운 둥근 모서리를 가진 이미지 중심 카드입니다.",
-        "chip": "미묘한 배경색을 사용하는 알약 모양 필터 칩입니다.",
-        "input": "돋보기 아이콘이 돋보이는 둥근 모양의 검색 입력 필드입니다.",
-        "hero": "두 개의 주요 CTA와 라이프스타일 이미지로 구성된 역동적이고 겹쳐진 콜라주가 포함된 큰 헤드라인입니다."
-      },
-      "motion": {
-        "patterns": [
-          "UI 인터랙션을 위한 부드럽고 빠른 전환.",
-          "무거운 복잡한 애니메이션은 보이지 않음."
-        ]
-      },
-      "interaction": {
-        "hover": "인터랙티브 요소에 미묘한 배경색 변경 또는 스케일 효과.",
-        "click": "색상 상태 변경을 통한 즉각적인 시각적 피드백.",
-        "transition": "드롭다운 및 모달 열림 시 부드러운 전환.",
-        "keyboard": "표준 탭 기반 내비게이션 지원."
-      },
-      "voice": {
-        "tone": "격려하고 긍정적이며 힘을 실어주는 어조.",
-        "headlineStyle": "볼드하고 행동 지향적이며 열망을 불러일으키는 스타일.",
-        "ctaStyle": "직접적이고 명확하며 사용자 이익에 초점을 맞춘 스타일 (예: '무료로 참여하기').",
-        "avoid": [
-          "지나치게 전문적인 용어.",
-          "부정적이거나 제한적인 언어.",
-          "수동태."
-        ]
-      },
-      "donts": [
-        "다크 모드 사용 금지 — 스크린샷은 주로 흰색과 밝은 회색 인터페이스를 보여줍니다.",
-        "헤드라인에 세리프 폰트 사용 금지 — 스크린샷은 볼드한 기하학적 sans-serif 타이포그래피를 보여줍니다.",
-        "작고 빽빽한 레이아웃 사용 금지 — 스크린샷은 넉넉한 여백과 개방적인 구성을 강조합니다.",
-        "주요 CTA에 무채색, 저대비 색상 사용 금지 — 스크린샷은 주요 액션에 선명하고 고채도 빨간색(#E60023)을 사용합니다.",
-        "UI 요소에 날카롭고 정사각형 모서리 사용 금지 — 스크린샷은 일관되게 둥근 모서리와 알약 모양을 사용합니다.",
-        "복잡하고 일러스트레이션 스타일 아이콘 사용 금지 — 스크린샷은 단순하고 깔끔한 아이콘을 사용하거나 아이콘을 전혀 사용하지 않습니다."
-      ],
-      "systemPrompt": "Pinterest는 시각적 발견과 라이프스타일 영감 플랫폼입니다. 디자인 DNA는 흰색(#FFFFFF) 배경, 거의 검정(#111111) 텍스트, 그리고 주요 호출-to-액션을 위한 시그니처 선명한 빨간색(#E60023) 악센트를 중심으로 한 깨끗하고 통풍이 잘하는 미학을 중시합니다. 타이포그래피는 볼드한 기하학적 sans-serif만 사용하며, 헤드라인에는 임팩트를 주기 위해 큰 디스플레이 크기를 사용합니다. 레이아웃은 넉넉한 여백을 우선시하며, 비대칭적이고 겹쳐진 배열로 두드러지고 고품질 사진을 특징으로 합니다. 핵심 주의사항: 다크 모드, 세리프 타이포그래피, 비좁은 레이아웃, 무채색 CTA, 날카로운 모서리, 그리고 지나치게 복잡한 아이콘ography는 피합니다. 시스템은 사용자의 창의성과 탐험을 장려하는 열망적이고 힘을 실어주는 어조에 초점을 맞춥니다."
+      "easing": "ease-out"
     }
   },
   "desc": {
     "en": {
-      "palette": "A minimalist, high-contrast palette dominated by pure white and black, accented by a single, signature vibrant red for primary interactions.",
-      "layout": "The layout is open and breathable, featuring a split hero with an overlapping photo collage and centered, wide-margin content sections below.",
-      "interaction": "Interactions are clean and standard, with immediate visual feedback on buttons and inputs, prioritizing clarity and ease of use.",
-      "motion": "Motion is subtle and functional, with quick, smooth transitions for UI state changes, avoiding complex or distracting animations.",
-      "notes": "This site is a masterclass in using whitespace, bold typography, and a single strong accent color to create a premium, focused, and aspirational consumer product interface."
+      "palette": "A high-contrast, image-focused palette featuring a dominant white background, a signature vibrant red accent, and near-black text.",
+      "layout": "A spacious, asymmetrical hero layout featuring a large text block on the left and a dynamic, overlapping collage of rounded image cards on the right.",
+      "interaction": "Subtle, rapid micro-interactions using transform properties to provide immediate feedback on hover and click states.",
+      "motion": "Fast, low-latency transitions (0.085s) that prioritize snappy, responsive feedback over complex animations.",
+      "notes": "Worth including as a masterclass in high-volume photographic content presentation, using clean typography and a single, powerful accent color to guide the user's eye."
     },
     "zh-CN": {
       "palette": "极简高对比度调色板，以纯白与纯黑为主，点缀一抹标志性的活力红，用于主要交互。",
@@ -593,6 +219,413 @@
       "ch7_intro": "모션 철학은 기능적이고 미묘하며, UI 상호작용에 대한 명확한 피드백 제공에 중점을 둡니다. 전환은 부드럽고 빠르며, 상태 변경 및 요소 표시에 적용되지만 복잡하거나 산만한 안무를 도입하지 않습니다.",
       "ch8_intro": "에디토리얼 목소리는 격려적이고 긍정적이며, 힘을 실어주는 것으로, 헤드라인은 볼드하고 행동 지향적입니다. 직접적이고 이점 중심적인 행동 촉구를 사용하며, 수동태, 부정적 언어, 지나치게 전문적인 용어를 체계적으로 피합니다.",
       "ch8_outro": "이 시스템은 의도적으로 다크모드, 세리프 타이포그래피, 그리고 사용자가 큐레이션한 콘텐츠와 경쟁할 수 있는 모든 시각적 복잡성을 피합니다."
+    }
+  },
+  "spec_i18n": {
+    "en": {
+      "identity": {
+        "keywords": [
+          "Visual discovery",
+          "Creativity",
+          "Lifestyle",
+          "Inspiration",
+          "Community"
+        ],
+        "analogy": "A vibrant digital scrapbook for the modern age.",
+        "oneLiner": "A visual discovery engine for finding and saving creative ideas."
+      },
+      "colors": {
+        "principle": "A clean, image-focused palette where vibrant red acts as the sole high-chroma accent against neutral backgrounds."
+      },
+      "typography": {
+        "rules": [
+          "Use high-contrast black or near-black for all primary text.",
+          "Maintain tight letter-spacing on large display text.",
+          "Navigation items are medium weight and sentence case."
+        ],
+        "scaleUses": [
+          "Primary hero headlines",
+          "Section headings",
+          "Standard body text and navigation",
+          "Small labels and metadata"
+        ]
+      },
+      "spacing": {
+        "rhythm": "Generous vertical padding (100px) separates major page sections, creating a rhythmic, breathable flow."
+      },
+      "surfaces": {
+        "shadows": [
+          "0 3px 12px rgba(0, 0, 0, 0.2)",
+          "0 0 5px rgba(128, 128, 128, 1)"
+        ],
+        "borders": "Generally borderless, with soft borders appearing only on form inputs and occasionally as 1px lines."
+      },
+      "layout": {
+        "skeleton": "A two-column split for the hero (text left, floating image collage right) that collapses to a stacked vertical layout on mobile."
+      },
+      "components": {
+        "button": "Primary buttons are solid red (#E60023) with white text and fully rounded pill shapes. Secondary buttons are light gray (#E5E5E0) with black text, also pill-shaped.",
+        "card": "Image-heavy cards with large, consistent border-radius (16px) and soft drop shadows.",
+        "chip": "Small, rounded white chips (e.g., 'Preppy look') that float over images, featuring subtle shadows.",
+        "input": "Simple, unstyled-looking inputs with a light gray background (#F6F6F3) and slightly rounded corners (8px).",
+        "hero": "A massive, bold text block paired with a dynamic collage of overlapping photographic cards."
+      },
+      "motion": {
+        "patterns": [
+          "Rapid transform transitions (0.085s) for subtle hover effects.",
+          "Smooth sliding transitions for menus and drawers."
+        ]
+      },
+      "interaction": {
+        "hover": "Subtle scale transforms on interactive elements like image cards and buttons.",
+        "click": "Immediate visual feedback via transform properties.",
+        "transition": "All standard interactions are governed by a 0.085s ease-out transform transition.",
+        "keyboard": "Standard focus outlines are suppressed in favor of native browser behaviors."
+      },
+      "voice": {
+        "tone": "Inspiring, encouraging, and highly approachable.",
+        "headlineStyle": "Direct, action-oriented imperatives ('Create the life you love').",
+        "ctaStyle": "Simple, benefit-driven calls to action ('Join Pinterest for free').",
+        "avoid": [
+          "Avoid overly technical or corporate jargon.",
+          "Avoid small, dense paragraphs of text.",
+          "Avoid dark mode or overly aggressive color schemes.",
+          "Avoid complex, non-standard layout patterns."
+        ]
+      },
+      "donts": [
+        "don't use dark mode — screenshot shows a bright, predominantly white and light gray (#F6F6F3) interface.",
+        "don't use serif fonts — screenshot shows a clean, geometric sans-serif typeface across all elements.",
+        "don't use heavy borders — screenshot shows mostly borderless elements, relying on background color and shadows for separation.",
+        "don't use multiple accent colors — screenshot shows red (#E60023) as the single dominant high-chroma accent.",
+        "don't use complex data visualizations — screenshot shows a purely visual, photographic layout with minimal text.",
+        "don't use sharp, rectangular corners — screenshot shows large border-radius (16px to 32px) on all cards and buttons."
+      ],
+      "systemPrompt": "This is the design DNA for Pinterest, a visual discovery platform. The identity is built on a clean, image-first approach with a high-contrast palette of white (#FFFFFF), light gray (#F6F6F3), and near-black (#211922), punctuated by a single vibrant red accent (#E60023). Typography utilizes a geometric sans-serif category with heavy weights (up to 900) for bold headlines and standard weights for body text. The layout features a spacious, two-column hero that collapses on mobile, with image cards using large 16px border-radius. Critical donts: do not use dark mode (the interface is light), do not introduce serif fonts (keep it strictly sans-serif), and do not rely on multiple accent colors (red is the only high-chroma color used for emphasis)."
+    },
+    "zh-CN": {
+      "identity": {
+        "keywords": [
+          "视觉探索",
+          "创意",
+          "生活方式",
+          "灵感",
+          "社区"
+        ],
+        "analogy": "一本属于现代的、充满活力的数字剪贴簿。",
+        "oneLiner": "一个用于发现和保存创意灵感的视觉引擎。"
+      },
+      "colors": {
+        "principle": "简洁、以图像为核心的色彩方案，以中性背景为基调，仅使用鲜艳的红色作为唯一的高饱和度强调色。"
+      },
+      "typography": {
+        "rules": [
+          "所有主要文本使用高对比度的黑色或接近黑色。",
+          "大型展示文本保持紧凑的字距。",
+          "导航项使用中等字重和句首大写。"
+        ],
+        "scaleUses": [
+          "主视觉标题",
+          "章节标题",
+          "标准正文与导航",
+          "小标签与元数据"
+        ]
+      },
+      "spacing": {
+        "rhythm": "主要页面区块之间使用充裕的垂直内边距（100px）进行分隔，营造富有韵律感和呼吸感的浏览体验。"
+      },
+      "surfaces": {
+        "shadows": [
+          "0 3px 12px rgba(0, 0, 0, 0.2)",
+          "0 0 5px rgba(128, 128, 128, 1)"
+        ],
+        "borders": "通常无边框，仅在表单输入框上偶尔出现柔和的边框，或偶尔作为 1px 线条使用。"
+      },
+      "layout": {
+        "skeleton": "主视觉区域采用双栏布局（左侧文字，右侧浮动图片拼贴），在移动端则折叠为垂直堆叠布局。"
+      },
+      "components": {
+        "button": "主按钮为纯红色（#E60023）配白色文字，采用完全圆润的药丸形状。次按钮为浅灰色（#E5E5E0）配黑色文字，同样为药丸形状。",
+        "card": "以图片为主的卡片，具有大而一致的圆角（16px）和柔和的投影。",
+        "chip": "小巧的圆角白色标签（例如“学院风造型”），浮动于图片之上，带有细微投影。",
+        "input": "简洁、无样式的输入框，采用浅灰色背景（#F6F6F3）和略带圆角（8px）。",
+        "hero": "一个巨大、醒目的文字区块，搭配由重叠照片卡片组成的动态拼贴。"
+      },
+      "motion": {
+        "patterns": [
+          "用于微悬停效果的快速变换过渡（0.085s）。",
+          "用于菜单和抽屉的平滑滑动过渡。"
+        ]
+      },
+      "interaction": {
+        "hover": "在图片卡片和按钮等交互元素上应用细微的缩放变换。",
+        "click": "通过变换属性提供即时视觉反馈。",
+        "transition": "所有标准交互均受 0.085s ease-out 的变换过渡控制。",
+        "keyboard": "抑制标准焦点轮廓，以使用浏览器原生行为。"
+      },
+      "voice": {
+        "tone": "富有启发性、鼓励性且极具亲和力。",
+        "headlineStyle": "直接、以行动为导向的祈使句（“创造你热爱的生活”）。",
+        "ctaStyle": "简单、以利益为导向的行动号召（“免费加入 Pinterest”）。",
+        "avoid": [
+          "避免使用过于技术化或企业化的行话。",
+          "避免使用小而密集的文字段落。",
+          "避免使用暗色模式或过于强烈的配色方案。",
+          "避免使用复杂的、非标准的布局模式。"
+        ]
+      },
+      "donts": [
+        "不要使用暗色模式——截图显示界面明亮，以白色和浅灰色（#F6F6F3）为主。",
+        "不要使用衬线字体——截图显示所有元素均使用简洁的几何无衬线字体。",
+        "不要使用粗重的边框——截图显示元素大多无边框，依靠背景色和投影进行区分。",
+        "不要使用多种强调色——截图显示红色（#E60023）是唯一使用的高饱和度强调色。",
+        "不要使用复杂的数据可视化——截图显示纯粹的视觉化、摄影布局，文字极少。",
+        "不要使用尖锐的矩形角——截图显示所有卡片和按钮均使用大圆角（16px 至 32px）。"
+      ],
+      "systemPrompt": "这是 Pinterest 的设计 DNA，一个视觉发现平台。其身份构建于简洁、图像优先的方法之上，采用白色（#FFFFFF）、浅灰色（#F6F6F3）和接近黑色（#211922）的高对比度配色方案，并以单一的鲜艳红色（#E60023）作为点缀。字体类别使用几何无衬线体，标题采用重字重（最高 900），正文使用标准字重。布局以宽敞的双栏主视觉为特色，在移动端折叠，图片卡片使用大 16px 圆角。关键禁忌：不要使用暗色模式（界面为浅色），不要引入衬线字体（严格保持无衬线），不要使用多种强调色（红色是唯一用于强调的高饱和度颜色）。"
+    },
+    "zh-TW": {
+      "identity": {
+        "keywords": [
+          "視覺探索",
+          "創造力",
+          "生活方式",
+          "靈感",
+          "社群"
+        ],
+        "analogy": "一本充滿活力的現代數位剪貼簿。",
+        "oneLiner": "一個用於尋找與儲存創意點子的視覺探索引擎。"
+      },
+      "colors": {
+        "principle": "乾淨、以圖片為主的色盤，其中充滿活力的紅色是唯一的高彩度強調色，與中性背景形成對比。"
+      },
+      "typography": {
+        "rules": [
+          "所有主要文字使用高對比的黑色或接近黑色。",
+          "大型展示文字保持緊湊的字距。",
+          "導覽項目使用中等字重與句首大寫。"
+        ],
+        "scaleUses": [
+          "主要首頁標題",
+          "區塊標題",
+          "標準內文與導覽",
+          "小型標籤與中繼資料"
+        ]
+      },
+      "spacing": {
+        "rhythm": "主要頁面區塊之間使用寬裕的垂直內距（100px），創造出有節奏感、舒適的排版流動。"
+      },
+      "surfaces": {
+        "shadows": [
+          "0 3px 12px rgba(0, 0, 0, 0.2)",
+          "0 0 5px rgba(128, 128, 128, 1)"
+        ],
+        "borders": "普遍無邊框，僅在表單輸入欄位上偶爾出現柔和的邊框，或作為 1px 的線條。"
+      },
+      "layout": {
+        "skeleton": "首頁採用雙欄分割佈局（文字在左，浮動的圖片拼貼在右），在行動裝置上則轉換為垂直堆疊佈局。"
+      },
+      "components": {
+        "button": "主要按鈕為實心紅色（#E60023），白色文字，完全圓角的膠囊形狀。次要按鈕為淺灰色（#E5E5E0），黑色文字，同樣為膠囊形狀。",
+        "card": "以圖片為主的卡片，具有大而一致的圓角（16px）與柔和的陰影。",
+        "chip": "小型、圓角的白色標籤（例如「學院風」），浮於圖片之上，帶有細微陰影。",
+        "input": "簡潔、無樣式感的輸入框，淺灰色背景（#F6F6F3），略帶圓角（8px）。",
+        "hero": "一個巨大、粗體的文字區塊，搭配一個由重疊攝影卡片組成的動態拼貼。"
+      },
+      "motion": {
+        "patterns": [
+          "快速的變換過渡（0.085 秒），用於細微的 hover 效果。",
+          "選單與抽屜使用平滑的滑動過渡。"
+        ]
+      },
+      "interaction": {
+        "hover": "互動元素（如圖片卡片與按鈕）上的細微縮放變換。",
+        "click": "透過變換屬性提供即時的視覺回饋。",
+        "transition": "所有標準互動均由 0.085 秒的 ease-out 變換過渡控制。",
+        "keyboard": "標準的 focus 外框被抑制，改由原生瀏覽器行為處理。"
+      },
+      "voice": {
+        "tone": "鼓舞人心、充滿鼓勵且極具親和力。",
+        "headlineStyle": "直接、以行動為導向的祈使句（「創造你熱愛的生活」）。",
+        "ctaStyle": "簡單、強調效益的行動呼籲（「免費加入 Pinterest」）。",
+        "avoid": [
+          "避免使用過於技術性或企業化的術語。",
+          "避免使用小而密集的段落文字。",
+          "避免使用深色模式或過於強烈的配色方案。",
+          "避免使用複雜、非標準的佈局模式。"
+        ]
+      },
+      "donts": [
+        "不要使用深色模式——截圖顯示的是明亮、以白色和淺灰色（#F6F6F3）為主的介面。",
+        "不要使用襯線字體——截圖顯示所有元素都使用乾淨的幾何無襯線字體。",
+        "不要使用厚重的邊框——截圖顯示大多數元素無邊框，依靠背景色與陰影來區分。",
+        "不要使用多種強調色——截圖顯示紅色（#E60023）是唯一的主要高彩度強調色。",
+        "不要使用複雜的資料視覺化——截圖顯示純粹的視覺化、攝影佈局，文字極少。",
+        "不要使用尖銳的直角——截圖顯示所有卡片與按鈕都具有大圓角（16px 至 32px）。"
+      ],
+      "systemPrompt": "這是 Pinterest 的設計 DNA，一個視覺探索平台。其識別建立在乾淨、圖片優先的方法上，採用白色（#FFFFFF）、淺灰色（#F6F6F3）與近黑色（#211922）的高對比色盤，並以單一鮮紅色（#E60023）作為強調。字體使用幾何無襯線字體類別，標題使用粗體字重（最高至 900），內文則使用標準字重。佈局特色是寬敞的雙欄首頁，在行動裝置上會折疊；圖片卡片採用大圓角（16px）。關鍵注意事項：不要使用深色模式（介面為淺色），不要引入襯線字體（嚴格保持無襯線），不要依賴多種強調色（紅色是唯一用於強調的高彩度顏色）。"
+    },
+    "ja": {
+      "identity": {
+        "keywords": [
+          "ビジュアルディスカバリー",
+          "創造性",
+          "ライフスタイル",
+          "インスピレーション",
+          "コミュニティ"
+        ],
+        "analogy": "モダン時代の活気あるデジタルスクラップブック。",
+        "oneLiner": "クリエイティブなアイデアを見つけて保存するためのビジュアルディスカバリーエンジン。"
+      },
+      "colors": {
+        "principle": "中性色の背景に対して、鮮やかな赤が唯一の高彩度アクセントとして機能する、クリーンで画像中心のパレット。"
+      },
+      "typography": {
+        "rules": [
+          "すべてのプライマリテキストには、ハイコントラストの黒または準黒を使用する。",
+          "大きなディスプレイテキストでは、 tightened レタースペーシングを維持する。",
+          "ナビゲーションアイテムはミディアムウェイトで、センテンスケース（文頭大文字）とする。"
+        ],
+        "scaleUses": [
+          "プライマリヒーローヘッドライン",
+          "セクション見出し",
+          "標準ボディテキストおよびナビゲーション",
+          "小ラベルおよびメタデータ"
+        ]
+      },
+      "spacing": {
+        "rhythm": "豊かな縦方向のパディング（100px）が主要なページセクションを区切り、リズミカルで息の通ったフローを生み出す。"
+      },
+      "surfaces": {
+        "shadows": [
+          "0 3px 12px rgba(0, 0, 0, 0.2)",
+          "0 0 5px rgba(128, 128, 128, 1)"
+        ],
+        "borders": "基本的にボーダーレス。フォームインプットにのみソフトなボーダーが現れ、時折1pxのラインとして使用される。"
+      },
+      "layout": {
+        "skeleton": "ヒーロー部分は2カラム分割（テキスト左、浮遊するイメージコラージュ右）で、モバイルではスタックされた縦レイアウトに折りたたまれる。"
+      },
+      "components": {
+        "button": "プライマリボタンは、白テキストでfully rounded pill shapeの実色赤（#E60023）。セカンダリボタンは、黒テキストのライトグレー（#E5E5E0）で、同様にピルシェイプ。",
+        "card": "大きな一貫したborder-radius（16px）とソフトドロップシャドウを持つ、画像を重視したカード。",
+        "chip": "画像の上に浮かぶ、小さな丸みを帯びた白いチップ（例：'Preppy look'）。微妙なシャドウを含む。",
+        "input": "ライトグレーの背景（#F6F6F3）とわずかに角丸（8px）を持つ、シンプルで無装飾に見えるインプット。",
+        "hero": "巨大で太字のテキストブロックと、重なり合うフォトグラフィックカードのダイナミックなコラージュを組み合わせたもの。"
+      },
+      "motion": {
+        "patterns": [
+          "微妙なhover効果のための高速transform遷移（0.085s）。",
+          "メニューおよびドロワーのためのスムーズなスライディング遷移。"
+        ]
+      },
+      "interaction": {
+        "hover": "画像カードやボタンなどのインタラクティブ要素への微妙なscale変換。",
+        "click": "transformプロパティによる即座の視覚フィードバック。",
+        "transition": "すべての標準インタラクションは、0.085sのease-out transform遷移で制御される。",
+        "keyboard": "標準のfocus outlineは抑制され、ネイティブブラウザ動作が優先される。"
+      },
+      "voice": {
+        "tone": "インスピリング、励ますような、そして非常にアプローチブルな口調。",
+        "headlineStyle": "直接的でアクション指向の命令形（「Create the life you love」など）。",
+        "ctaStyle": "シンプルで利益を明示する呼びかけ（「Join Pinterest for free」など）。",
+        "avoid": [
+          "過度に技術的または企業的ジャargonを避ける。",
+          "小さく密集したテキストの段落を避ける。",
+          "ダークモードや過度にアグレッシブなカラースキームを避ける。",
+          "複雑で非標準のレイアウトパターンを避ける。"
+        ]
+      },
+      "donts": [
+        "ダークモードを使用しない — スクリーンショットは明るく、主にホワイトおよびライトグレー（#F6F6F3）のインターフェースを示している。",
+        "セリフフォントを使用しない — スクリーンショットは、すべての要素にクリーンで幾何学的なサンセリフ書体が使われている。",
+        "太いボーダーを使用しない — スクリーンショットは、主にボーダーレスの要素で、背景色とシャドウで区切りを表現している。",
+        "複数のアクセントカラーを使用しない — スクリーンショットは、赤（#E60023）が唯一の支配的な高彩度アクセントとして使われている。",
+        "複雑なデータビジュアライゼーションを使用しない — スクリーンショットは、最小限のテキストを持つ純粋にビジュアルでフォトグラフィックなレイアウトを示している。",
+        "鋭い四角い角を使用しない — スクリーンショットは、すべてのカードとボタンに大きなborder-radius（16pxから32px）が使用されている。"
+      ],
+      "systemPrompt": "これはPinterestのデザインDNAです。Pinterestはビジュアルディスカバリープラットフォームです。アイデンティティは、クリーンで画像ファーストのアプローチ、およびホワイト（#FFFFFF）、ライトグレー（#F6F6F3）、準黒（#211922）のハイコントラストパレット、そして単一の鮮やかな赤アクセント（#E60023）で構築されています。タイポグラフィは、太字ヘッドライン用に太いウェイト（最大900）、ボディテキスト用に標準ウェイトを持つ幾何学的サンセリフカテゴリを使用します。レイアウトは、モバイルで折りたたまれる、広々とした2カラムヒーローを特徴とし、イメージカードには大きな16pxのborder-radiusが使用されます。重要な禁止事項：ダークモードを使用しない（インターフェースはライト）、セリフフォントを導入しない（厳密にサンセリフを維持）、複数のアクセントカラーに依存しない（強調には赤のみが使用される高彩度カラー）。"
+    },
+    "ko": {
+      "identity": {
+        "keywords": [
+          "시각적 탐색",
+          "창의성",
+          "라이프스타일",
+          "영감",
+          "커뮤니티"
+        ],
+        "analogy": "현대를 위한 활기찬 디지털 스케치북.",
+        "oneLiner": "창의적인 아이디어를 발견하고 저장하기 위한 시각적 탐색 엔진."
+      },
+      "colors": {
+        "principle": "이미지 중심의 깔끔한 팔레트를 사용하며, 중성적인 배경 위에 활기찬 빨간색이 유일한 고채도 강조색으로 사용됩니다."
+      },
+      "typography": {
+        "rules": [
+          "모든 주요 텍스트에는 고대비 블랙 또는 블랙에 가까운 색상을 사용합니다.",
+          "큰 디스플레이 텍스트에는 좁은 자간을 유지합니다.",
+          "내비게이션 항목은 중간 굵기와 문장 대문자(문장 첫 글자만 대문자)를 사용합니다."
+        ],
+        "scaleUses": [
+          "주요 히어로 헤드라인",
+          "섹션 제목",
+          "일반 본문 텍스트 및 내비게이션",
+          "작은 라벨 및 메타데이터"
+        ]
+      },
+      "spacing": {
+        "rhythm": "주요 페이지 섹션 간에 넉넉한 수직 패딩(100px)을 두어 리듬감 있고 숨 쉬는 흐름을 만듭니다."
+      },
+      "surfaces": {
+        "shadows": [
+          "0 3px 12px rgba(0, 0, 0, 0.2)",
+          "0 0 5px rgba(128, 128, 128, 1)"
+        ],
+        "borders": "대체로 테두리가 없으며, 폼 입력란이나 가끔 1px 선으로만 부드러운 테두리가 나타납니다."
+      },
+      "layout": {
+        "skeleton": "히어로 섹션은 텍스트(왼쪽)와 떠 있는 이미지 콜라주(오른쪽)로 구성된 2열 분할 레이아웃을 사용하며, 모바일에서는 적층형 세로 레이아웃으로 전환됩니다."
+      },
+      "components": {
+        "button": "주요 버튼은 흰색 텍스트를 넣은 진한 빨간색(#E60023)으로 완전히 둥근 알약 형태입니다. 보조 버튼은 검정 텍스트가 포함된 연한 회색(#E5E5E0)이며, 마찬가지로 알약 형태입니다.",
+        "card": "크고 일관된 border-radius(16px)와 부드러운 드롭 섀도우를 가진 이미지 중심 카드입니다.",
+        "chip": "이미지 위에 떠 있는 작고 둥근 흰색 칩(예: 'Preppy look')으로, 미묘한 섀도우를 특징으로 합니다.",
+        "input": "연한 회색 배경(#F6F6F3)과 약간 둥근 모서리(8px)를 가진 간단하고 스타일이 거의 없는 입력란입니다.",
+        "hero": "강렬하고 큰 텍스트 블록과 겹쳐진 사진 카드의 역동적인 콜라주가 결합된 구조입니다."
+      },
+      "motion": {
+        "patterns": [
+          "미묘한 hover 효과를 위한 빠른 transform 전환(0.085s).",
+          "메뉴와 드로어를 위한 부드러운 슬라이딩 전환."
+        ]
+      },
+      "interaction": {
+        "hover": "이미지 카드와 버튼 같은 인터랙티브 요소에 미묘한 스케일 변환 효과.",
+        "click": "transform 속성을 통한 즉각적인 시각적 피드백.",
+        "transition": "모든 표준 인터랙션은 0.085s ease-out transform 전환으로 제어됩니다.",
+        "keyboard": "표준 focus 아웃라인은 브라우저 기본 동작을 대체하기 위해 억제됩니다."
+      },
+      "voice": {
+        "tone": "영감을 주고, 격려하며, 매우 친근한 어조.",
+        "headlineStyle": "직설적이고 행동을 유도하는 명령형 문장(예: 'Create the life you love').",
+        "ctaStyle": "간결하고 이점이 강조된 행동 유도 문구(예: 'Join Pinterest for free').",
+        "avoid": [
+          "지나치게 기술적이거나 기업적인 용어를 피합니다.",
+          "작고 빽빽한 문단을 피합니다.",
+          "다크 모드 또는 지나치게 강렬한 색상 구성을 피합니다.",
+          "복잡하고 비표준 레이아웃 패턴을 피합니다."
+        ]
+      },
+      "donts": [
+        "다크 모드를 사용하지 않습니다 — 스크린샷은 밝고 주로 흰색과 연한 회색(#F6F6F3)의 인터페이스를 보여줍니다.",
+        "세리프 서체를 사용하지 않습니다 — 스크린샷은 모든 요소에서 깔끔하고 기하학적인 고딕체를 보여줍니다.",
+        "두꺼운 테두리를 사용하지 않습니다 — 스크린샷은 대부분 테두리가 없는 요소로 배경색과 섀도우로 구분을 나타냅니다.",
+        "여러 강조색을 사용하지 않습니다 — 스크린샷은 단일로 지배적인 고채도 강조색인 빨간색(#E60023)을 보여줍니다.",
+        "복잡한 데이터 시각화를 사용하지 않습니다 — 스크린샷은 최소한의 텍스트로 시각적이고 사진적인 레이아웃만을 보여줍니다.",
+        "날카롭고 직사각형 모서리를 사용하지 않습니다 — 스크린샷은 모든 카드와 버튼에 큰 border-radius(16px에서 32px)를 보여줍니다."
+      ],
+      "systemPrompt": "이것은 시각적 탐색 플랫폼인 Pinterest의 디자인 DNA입니다. 정체성은 깔끔하고 이미지 우선의 접근 방식을 기반으로 하며, 흰색(#FFFFFF), 연한 회색(#F6F6F3), 블랙에 가까운 색(#211922)의 고대비 팔레트에 활기찬 빨간색 강조(#E60023)가 단 하나의 색으로 사용됩니다. 타이포그래피는 두꺼운 굵기(최대 900)로 강렬한 헤드라인을, 표준 굵기로 본문을 사용하는 기하학적 고딕체 범주를 활용합니다. 레이아웃은 모바일에서 전환되는 넓은 2열 히어로를 특징으로 하며, 이미지 카드는 16px의 큰 border-radius를 사용합니다. 중요한 주의 사항: 다크 모드를 사용하지 않습니다(인터페이스는 밝습니다), 세리프 서체를 도입하지 않습니다(반드시 고딕체로 유지), 여러 강조색에 의존하지 않습니다(강조를 위해 사용되는 유일한 고채도 색상은 빨간색입니다)."
     }
   }
 }

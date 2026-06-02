@@ -17,32 +17,34 @@
   "_meta": {
     "vision_model": "mimo-v2.5",
     "vision_prompt_version": "0.3",
-    "vision_at": "2026-05-28T20:41:25+00:00",
-    "vision_tokens": 3542,
-    "vision_cost_usd": 0.0394,
+    "vision_at": "2026-05-30T11:04:10+00:00",
+    "vision_tokens": 18545,
+    "vision_cost_usd": 0.2061,
     "translation_model": "mimo-v2.5",
-    "translation_at": "2026-05-28T20:42:27+00:00",
-    "translation_tokens": 16514,
-    "translation_cost_usd": 0.055,
+    "translation_at": "2026-05-30T11:05:07+00:00",
+    "translation_tokens": 28523,
+    "translation_cost_usd": 0.095,
     "narrative_model": "mimo-v2.5",
     "narrative_prompt_version": "0.3",
     "narrative_at": "2026-05-28T20:42:34+00:00",
     "narrative_tokens": 2022,
     "narrative_cost_usd": 0.0135,
     "narrative_status": "ok",
-    "total_cost_usd": 0.1079
+    "total_cost_usd": 0.3146,
+    "vision_source": "playwright-extract:composio",
+    "vision_grounded": true
   },
   "spec": {
     "colors": {
-      "bg": "#FFFFFF",
-      "bgSoft": "#F9FAFB",
+      "bg": "#0f0f0f",
+      "bgSoft": "#1a1a1a",
       "bgQuiet": null,
-      "ink": "#111827",
-      "inkSoft": "#4B5563",
-      "muted": "#9CA3AF",
+      "ink": "#ffffff",
+      "inkSoft": "#e2e2e2",
+      "muted": "#444444",
       "mutedSoft": null,
-      "accent": "#3B82F6",
-      "line": "rgba(229, 231, 235, 1)"
+      "accent": null,
+      "line": "rgba(44, 44, 44, 1)"
     },
     "typography": {
       "display": "geometric-sans",
@@ -51,21 +53,28 @@
       "scale": [
         {
           "token": "display",
-          "size": 56,
-          "lh": 1.1,
-          "weight": 400,
-          "ls": "-1px"
+          "size": 72,
+          "lh": 1.0,
+          "weight": 700,
+          "ls": "-2px"
         },
         {
-          "token": "heading",
-          "size": 36,
-          "lh": 1.2,
-          "weight": 400,
-          "ls": "-0.5px"
+          "token": "h1",
+          "size": 48,
+          "lh": 1.1,
+          "weight": 700,
+          "ls": "-1px"
         },
         {
           "token": "body",
           "size": 16,
+          "lh": 1.5,
+          "weight": 400,
+          "ls": "0px"
+        },
+        {
+          "token": "mono",
+          "size": 14,
           "lh": 1.5,
           "weight": 400,
           "ls": "0px"
@@ -77,6 +86,7 @@
       "scale": [
         4,
         8,
+        12,
         16,
         24,
         32,
@@ -94,7 +104,7 @@
       }
     },
     "layout": {
-      "container": 1200,
+      "container": 1280,
       "paragraph": 680,
       "columns": 12,
       "gutter": 24,
@@ -106,421 +116,19 @@
     "motion": {
       "durations": {
         "micro": 150,
-        "small": 300,
-        "medium": 500
+        "small": 200,
+        "medium": 300
       },
       "easing": "cubic-bezier(0.4, 0, 0.2, 1)"
     }
   },
-  "spec_i18n": {
-    "en": {
-      "identity": {
-        "keywords": [
-          "automation",
-          "AI agents",
-          "productivity",
-          "developer tools",
-          "integration"
-        ],
-        "analogy": "A sleek command center for your digital workflow.",
-        "oneLiner": "Connecting AI agents to thousands of apps to automate tasks and boost productivity."
-      },
-      "colors": {
-        "principle": "High-contrast, minimalist light theme with blue accents for interactive elements."
-      },
-      "typography": {
-        "rules": [
-          "All caps for navigation and CTAs",
-          "Light to medium weights for headings",
-          "Monospace for UI labels and interactive elements"
-        ],
-        "scaleUses": [
-          "Primary hero headline",
-          "Section headings",
-          "Body text and descriptions"
-        ]
-      },
-      "spacing": {
-        "rhythm": "Consistent vertical rhythm with generous whitespace between sections."
-      },
-      "surfaces": {
-        "shadows": [
-          "0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1)",
-          "0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)"
-        ],
-        "borders": "1px solid #E5E7EB"
-      },
-      "layout": {
-        "skeleton": "Centered content with a maximum-width container. Two-column layout for feature sections."
-      },
-      "components": {
-        "button": "Minimalist, monospace labels, pill-shaped with subtle borders or solid black fill.",
-        "card": "Clean white cards with subtle shadows and rounded corners.",
-        "chip": "Small, rounded tags with light backgrounds.",
-        "input": "Large, rounded text input field with subtle border and placeholder text.",
-        "hero": "Large, centered headline with a prominent AI integration visual and a chat-like input."
-      },
-      "motion": {
-        "patterns": [
-          "Subtle fade-in animations for content blocks",
-          "Smooth hover transitions on interactive elements"
-        ]
-      },
-      "interaction": {
-        "hover": "Subtle color change or opacity shift on buttons and links.",
-        "click": "Slight scale-down effect on buttons.",
-        "transition": "Smooth transitions for color and opacity changes.",
-        "keyboard": "Standard focus outlines for accessibility."
-      },
-      "voice": {
-        "tone": "Confident, direct, and action-oriented.",
-        "headlineStyle": "Punchy, benefit-driven statements that often use monospace for emphasis.",
-        "ctaStyle": "Clear, imperative commands like 'Get started for free'.",
-        "avoid": [
-          "Overly technical jargon",
-          "Passive voice",
-          "Excessive exclamation marks",
-          "Marketing fluff"
-        ]
-      },
-      "donts": [
-        "Don't use complex gradients — the screenshot shows a clean, flat light background.",
-        "Don't use decorative serifs — the typography is strictly geometric sans-serif.",
-        "Don't clutter the interface with multiple accent colors — the palette is dominated by black, white, and a single blue accent.",
-        "Don't use small, cramped spacing — the layout relies on generous whitespace for clarity.",
-        "Don't use heavy, dark shadows — the surfaces have subtle, light elevation.",
-        "Don't use a dark mode by default — the primary interface is clearly light-themed."
-      ],
-      "systemPrompt": "This is a SaaS landing page for an AI tool automation platform called Composio. The design is a clean, minimal light theme with a high-contrast black and white palette, using blue (#3B82F6) as the primary accent color for interactive elements and status indicators. The typography is a geometric sans-serif for display and body text, with monospace used for labels and UI elements. The layout is centered with generous whitespace, featuring a prominent hero section with a large headline and a chat-like input component. Key critical donts: avoid using dark mode or complex gradients, keep typography strictly geometric sans-serif, and maintain a single-accent color approach. The voice is direct and action-oriented, focusing on productivity gains and seamless integration."
-    },
-    "zh-CN": {
-      "identity": {
-        "keywords": [
-          "自动化",
-          "AI 代理",
-          "生产力",
-          "开发者工具",
-          "集成"
-        ],
-        "analogy": "您数字工作流的精控中心。",
-        "oneLiner": "将 AI 代理连接至数千款应用，以实现任务自动化并提升生产力。"
-      },
-      "colors": {
-        "principle": "高对比度、极简的亮色主题，交互元素采用蓝色点缀。"
-      },
-      "typography": {
-        "rules": [
-          "导航和 CTA 采用全大写",
-          "标题使用浅至中等字重",
-          "UI 标签和交互元素使用等宽字体"
-        ],
-        "scaleUses": [
-          "主视觉大标题",
-          "章节标题",
-          "正文与描述"
-        ]
-      },
-      "spacing": {
-        "rhythm": "一致的垂直韵律，章节间留白充裕。"
-      },
-      "surfaces": {
-        "shadows": [
-          "0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1)",
-          "0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)"
-        ],
-        "borders": "1px solid #E5E7EB"
-      },
-      "layout": {
-        "skeleton": "内容居中，设有最大宽度容器。功能区采用双栏布局。"
-      },
-      "components": {
-        "button": "极简风格，等宽字体标签，药丸形，带有细微边框或纯黑填充。",
-        "card": "干净的白色卡片，带有细微阴影和圆角。",
-        "chip": "小巧的圆角标签，背景色浅。",
-        "input": "宽大的圆角文本输入框，边框细微，带有占位符文本。",
-        "hero": "居中的大标题，配有醒目的 AI 集成视觉元素及类聊天输入框。"
-      },
-      "motion": {
-        "patterns": [
-          "内容块采用细微的淡入动画",
-          "交互元素上平滑的 hover 过渡"
-        ]
-      },
-      "interaction": {
-        "hover": "按钮和链接在 hover 时发生细微的颜色或透明度变化。",
-        "click": "按钮点击时有轻微的缩放效果。",
-        "transition": "颜色和透明度变化采用平滑过渡。",
-        "keyboard": "标准的 focus 轮廓以保障无障碍访问。"
-      },
-      "voice": {
-        "tone": "自信、直接且注重行动。",
-        "headlineStyle": "简洁有力、以利益为驱动的陈述，常使用等宽字体以示强调。",
-        "ctaStyle": "清晰、祈使句式的指令，例如‘免费开始’。",
-        "avoid": [
-          "过于技术性的术语",
-          "被动语态",
-          "过多的感叹号",
-          "营销套话"
-        ]
-      },
-      "donts": [
-        "避免使用复杂渐变——截图显示的是干净、扁平的亮色背景。",
-        "避免使用装饰性衬线字体——排版严格使用几何无衬线字体。",
-        "避免用多种点缀色使界面显得杂乱——调色板以黑、白及单一蓝色点缀为主。",
-        "避免使用小而紧凑的间距——布局依赖充裕的留白以保持清晰。",
-        "避免使用厚重、深色的阴影——表面采用细微、轻盈的层级效果。",
-        "避免默认使用深色模式——主界面明确为亮色主题。"
-      ],
-      "systemPrompt": "这是一个名为 Composio 的 AI 工具自动化平台的 SaaS 登陆页面。设计采用干净、极简的亮色主题，高对比度的黑白色调，并使用蓝色 (#3B82F6) 作为交互元素和状态指示器的主要点缀色。排版使用几何无衬线字体作为展示和正文字体，等宽字体用于标签和 UI 元素。布局居中，留白充裕，具有一个醒目的视觉区域，包含大标题和一个类聊天输入组件。关键禁忌：避免使用深色模式或复杂渐变，排版严格使用几何无衬线字体，并保持单一的点缀色方案。文案风格直接且注重行动，聚焦于生产力提升和无缝集成。"
-    },
-    "zh-TW": {
-      "identity": {
-        "keywords": [
-          "自動化",
-          "AI 代理",
-          "生產力",
-          "開發者工具",
-          "整合"
-        ],
-        "analogy": "您數位工作流程的流線型指揮中心。",
-        "oneLiner": "將 AI 代理連接到數千個應用程式，以自動化任務並提升生產力。"
-      },
-      "colors": {
-        "principle": "高對比、簡潔明亮的主題，並以藍色強調互動元素。"
-      },
-      "typography": {
-        "rules": [
-          "導覽和行動呼籲（CTA）使用全大寫字元",
-          "標題使用輕量到中等字重",
-          "介面標籤和互動元素使用等寬字體"
-        ],
-        "scaleUses": [
-          "首頁主標題",
-          "區塊標題",
-          "內文與描述"
-        ]
-      },
-      "spacing": {
-        "rhythm": "保持一致的垂直節奏，區塊之間留有充足的白空間。"
-      },
-      "surfaces": {
-        "shadows": [
-          "0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1)",
-          "0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)"
-        ],
-        "borders": "1px solid #E5E7EB"
-      },
-      "layout": {
-        "skeleton": "內容置中於一個最大寬度的容器內。功能區塊採用雙欄佈局。"
-      },
-      "components": {
-        "button": "極簡風格，採用等寬字體標籤，藥丸形狀，帶有細微邊框或實心黑色填充。",
-        "card": "乾淨的白色卡片，帶有細微陰影和圓角。",
-        "chip": "小型、圓角的標籤，具有淺色背景。",
-        "input": "大型、圓角的文字輸入欄位，帶有細微邊框和佔位文字。",
-        "hero": "大型、置中的標題，搭配顯眼的 AI 整合視覺效果和類似聊天的輸入框。"
-      },
-      "motion": {
-        "patterns": [
-          "內容區塊的細微淡入動畫",
-          "互動元素的流暢 hover 轉場效果"
-        ]
-      },
-      "interaction": {
-        "hover": "按鈕和連結在 hover 時產生細微的顏色變化或透明度改變。",
-        "click": "按鈕在點擊時產生輕微的縮小效果。",
-        "transition": "顏色和透明度變化時使用流暢的轉場。",
-        "keyboard": "使用標準的 focus 輪廓以符合無障礙需求。"
-      },
-      "voice": {
-        "tone": "自信、直接且以行動為導向。",
-        "headlineStyle": "簡潔有力、以效益為導向的聲明，常使用等寬字體來強調。",
-        "ctaStyle": "清晰、祈使句式的指令，例如「免費開始使用」。",
-        "avoid": [
-          "過於專業的術語",
-          "被動語態",
-          "過多的驚嘆號",
-          "行銷用語"
-        ]
-      },
-      "donts": [
-        "不要使用複雜的漸層——截圖顯示的是一個乾淨、平整的亮色背景。",
-        "不要使用裝飾性襯線字體——字體嚴格使用幾何無襯線體。",
-        "不要讓多個強調色使介面變得雜亂——色調以黑、白為主，並僅使用單一藍色強調。",
-        "不要使用狹小、擁擠的間距——佈局依賴充足的白空間來保持清晰度。",
-        "不要使用厚重、深色的陰影——表面僅使用輕微、淺色的浮動效果。",
-        "不要預設使用深色模式——主要介面明顯是亮色主題。"
-      ],
-      "systemPrompt": "這是一個名為 Composio 的 AI 工具自動化平台的 SaaS 登陸頁面。設計採用簡潔、極簡的亮色主題，具有高對比的黑白色調，並使用藍色（#3B82F6）作為互動元素和狀態指示器的主要強調色。字體在標題和內文使用幾何無襯線體，標籤和介面元素則使用等寬字體。佈局居中，留有充足的白空間，其特點是顯眼的英雄區塊，包含大型標題和類似聊天的輸入元件。關鍵且務必避免的事項：避免使用深色模式或複雜漸層，字體嚴格保持幾何無襯線體，並維持單一強調色的方法。語氣直接且以行動為導向，專注於生產力提升和無縫整合。"
-    },
-    "ja": {
-      "identity": {
-        "keywords": [
-          "自動化",
-          "AIエージェント",
-          "生産性",
-          "開発者ツール",
-          "統合"
-        ],
-        "analogy": "デジタルワークフローのための、スタイリッシュなコマンドセンター。",
-        "oneLiner": "AIエージェントを何千ものアプリに接続し、タスクを自動化し生産性を向上させる。"
-      },
-      "colors": {
-        "principle": "インタラクティブ要素に青のアクセントカラーを用いた、ハイコントラストのミニマルライトテーマ。"
-      },
-      "typography": {
-        "rules": [
-          "ナビゲーションやCTAは全角キャピタル（ALL CAPS）",
-          "見出しにはライト〜ミディアムウェイト",
-          "UIラベルやインタラクティブ要素にはモノスペース"
-        ],
-        "scaleUses": [
-          "メインヒーローヘッドライン",
-          "セクション見出し",
-          "本文テキストと説明文"
-        ]
-      },
-      "spacing": {
-        "rhythm": "セクション間にたっぷりとした余白を設けた、一貫した垂直リズム。"
-      },
-      "surfaces": {
-        "shadows": [
-          "0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1)",
-          "0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)"
-        ],
-        "borders": "1px solid #E5E7EB"
-      },
-      "layout": {
-        "skeleton": "最大幅を持つコンテナ内に、コンテンツを中央配置。機能セクションは2カラムレイアウト。"
-      },
-      "components": {
-        "button": "ミニマルなデザイン。モノスペースのラベル、滑らかな角丸のピル形状。ボーダーまたは塗りつぶしの黒色。",
-        "card": "繊細な影と角丸を持つ、クリーンな白いカード。",
-        "chip": "明るい背景色を持つ、小さく角丸のタグ。",
-        "input": "繊細なボーダーとプレースホルダーテキストを持つ、大きく角丸のテキスト入力フィールド。",
-        "hero": "中心に配置された大きなヘッドライン。目立つAI統合ビジュアルと、チャット形式の入力コンポーネント。"
-      },
-      "motion": {
-        "patterns": [
-          "コンテンツブロックへの繊細なフェードインアニメーション",
-          "インタラクティブ要素への滑らかなhover遷移"
-        ]
-      },
-      "interaction": {
-        "hover": "ボタンやリンク上での、控えめな色の変化や透明度の変化。",
-        "click": "ボタンへのわずかな縮小効果。",
-        "transition": "色や透明度の変化に対する、滑らかなトランジション。",
-        "keyboard": "アクセシビリティのための、標準的なフォーカスアウトライン。"
-      },
-      "voice": {
-        "tone": "自信に満ち、率直で、アクション指向。",
-        "headlineStyle": "強調のためにモノスペースを使用ことが多い、有益さを示すパワフルなコピー。",
-        "ctaStyle": "「無料で始めましょう」のような、明確で命令的なコマンド。",
-        "avoid": [
-          "過度な技術用語",
-          "受動態",
-          "過度な感嘆符",
-          "マーケティング的な誇大表現"
-        ]
-      },
-      "donts": [
-        "複雑なグラデーションは使用しない — スクリーンショットはクリーンでフラットなライト背景を示している。",
-        "装飾的なセリフ体は使用しない — タイポグラフィは厳密に幾何学サンセリフ。",
-        "複数のアクセントカラーでインタフェースを賑わせない — パレットは黒、白、単一の青のアクセントが主役。",
-        "小さく詰まったスペーシングは使用しない — レイアウトは明確さのためにたっぷりとした余白に依存する。",
-        "重く暗いシャドウは使用しない — サーフェスは繊細で明るい高さ感で構成。",
-        "デフォルトでダークモードを使用しない — メインインタフェースは明確にライトテーマ。"
-      ],
-      "systemPrompt": "これはComposioというAIツール自動化プラットフォームのSaaSランディングページ。デザインはクリーンでミニマルなライトテーマで、ハイコントラストの黒と白のパレットを採用。インタラクティブ要素とステータスインジケーターには青（#3B82F6）をプライマリアクセントカラーとして使用。タイポグラフィは表示用および本文用に幾何学サンセリフ、ラベルやUI要素にはモノスペースを使用。レイアウトは中央揃えでたっぷりとした余白を確保し、大きなヘッドラインとチャット形式の入力コンポーネントを持つ目立つヒーローセクションを特徴とする。重要な注意点：ダークモードや複雑なグラデーションの使用は避けること、タイポグラフィは厳密に幾何学サンセリフに保つこと、単一アクセントカラーのアプローチを維持すること。トーンは率直でアクション指向、生産性向上とシームレスな統合に焦点を当てる。"
-    },
-    "ko": {
-      "identity": {
-        "keywords": [
-          "자동화",
-          "AI 에이전트",
-          "생산성",
-          "개발자 도구",
-          "통합"
-        ],
-        "analogy": "디지털 워크플로우를 위한 세련된 명령 센터.",
-        "oneLiner": "AI 에이전트를 수천 개의 앱에 연결하여 작업을 자동화하고 생산성을 높입니다."
-      },
-      "colors": {
-        "principle": "인터랙티브 요소를 위한 블루 악센트를 적용한 고대비, 미니멀리스틱 라이트 테마입니다."
-      },
-      "typography": {
-        "rules": [
-          "네비게이션 및 CTA는 모두 대문자 사용",
-          "헤딩은 라이트부터 미디엄 웨이트 사용",
-          "UI 레이블 및 인터랙티브 요소는 모노스페이스 폰트 사용"
-        ],
-        "scaleUses": [
-          "메인 히어로 헤드라인",
-          "섹션 헤딩",
-          "본문 텍스트 및 설명"
-        ]
-      },
-      "spacing": {
-        "rhythm": "섹션 간 충분한 여백을 두어 일관된 수직 리듬을 유지합니다."
-      },
-      "surfaces": {
-        "shadows": [
-          "0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1)",
-          "0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)"
-        ],
-        "borders": "1px solid #E5E7EB"
-      },
-      "layout": {
-        "skeleton": "최대 너비 컨테이너를 가진 중앙 정렬 콘텐츠입니다. 기능 섹션은 이중 컬럼 레이아웃을 사용합니다."
-      },
-      "components": {
-        "button": "모노스페이스 레이블을 사용한 미니멀리스틱한, 또는 미세한 테두리나 솔리드 블랙 채우지를 적용한 캡슐 모양의 버튼입니다.",
-        "card": "미세한 그림자와 둥근 모서리를 가진 깔끔한 화이트 카드입니다.",
-        "chip": "밝은 배경을 가진 작고 둥근 태그입니다.",
-        "input": "미세한 테두리와 플레이스홀더 텍스트를 가진 크고 둥근 텍스트 입력 필드입니다.",
-        "hero": "대시보드 AI 통합 비주얼과 채팅형 입력 컴포넌트가 돋보이는 크고 중앙 정렬된 헤드라인입니다."
-      },
-      "motion": {
-        "patterns": [
-          "콘텐츠 블록의 섬세한 페이드인 애니메이션",
-          "인터랙티브 요소의 부드러운 hover 전환"
-        ]
-      },
-      "interaction": {
-        "hover": "버튼과 링크의 미세한 색상 변화 또는 불투명도 변화입니다.",
-        "click": "버튼의 약간의 축소 효과입니다.",
-        "transition": "색상 및 불투명도 변화를 위한 매끄러운 전환입니다.",
-        "keyboard": "접근성을 위한 표준 포커스 아웃라인입니다."
-      },
-      "voice": {
-        "tone": "자신감 있고 직접적이며 행동 지향적인 어조입니다.",
-        "headlineStyle": "강조를 위해 종종 모노스페이스를 사용하는, 강렬하고 가치 중심적인 문구입니다.",
-        "ctaStyle": "'무료로 시작하기'와 같이 명확하고 직관적인 명령형 문구입니다.",
-        "avoid": [
-          "지나치게 기술적인 전문 용어",
-          "수동태",
-          "지나친 느낌표 사용",
-          "과장된 마케팅 표현"
-        ]
-      },
-      "donts": [
-        "복잡한 그라데이션을 사용하지 마십시오 — 스크린샷은 깔끔하고 평평한 라이트 배경을 보여줍니다.",
-        "장식용 세리프를 사용하지 마십시오 — 타이포그래피는 기하학적 산세리프로 엄격하게 통일합니다.",
-        "인터페이스를 여러 악센트 컬러로 복잡하게 만들지 마십시오 — 팔레트는 흑백과 단일 블루 악센트로 주도됩니다.",
-        "좁고 빡빡한 간격을 사용하지 마십시오 — 레이아웃은 명료성을 위해 풍부한 여백에 의존합니다.",
-        "무겁고 어두운 그림자를 사용하지 마십시오 — 서피스는 미세하고 밝은 레벨을 유지합니다.",
-        "기본값으로 다크 모드를 사용하지 마십시오 — 주요 인터페이스는 명확한 라이트 테마입니다."
-      ],
-      "systemPrompt": "이것은 Composio라는 AI 도구 자동화 플랫폼의 SaaS 랜딩 페이지입니다. 디자인은 고대비 흑백 팔레트를 사용하는 깔끔하고 미니멀한 라이트 테마이며, 인터랙티브 요소 및 상태 표시를 위해 블루(#3B82F6)를 주요 악센트 컬러로 사용합니다. 타이포그래피는 디스플레이 및 본문 텍스트를 위해 기하학적 산세리프를 사용하며, 레이블 및 UI 요소에는 모노스페이스를 사용합니다. 레이아웃은 풍부한 여백을 두어 중앙 정렬되며, 대형 헤드라인과 채팅형 입력 컴포넌트가 돋보이는 주요 히어로 섹션을 특징으로 합니다. 핵심 주의 사항: 다크 모드나 복잡한 그라데이션 사용을 피하고, 타이포그래피를 기하학적 산세리프로 엄격하게 유지하며, 단일 악센트 컬러 접근 방식을 유지하십시오. 어조는 직접적이고 행동 지향적이며, 생산성 향상과 매끄러운 통합에 초점을 맞춥니다."
-    }
-  },
   "desc": {
     "en": {
-      "palette": "A stark, high-contrast light theme using black, white, and a single blue accent color.",
-      "layout": "A centered, single-column layout with generous whitespace and a clear hierarchical structure.",
-      "interaction": "Minimalist and subtle, with smooth hover transitions and clear affordances for interactive elements.",
-      "motion": "Reserved and functional, using subtle fade-ins and smooth transitions to guide the user.",
-      "notes": "The design exemplifies the 'developer tools' aesthetic: clean, efficient, and focused on the utility of the product."
+      "palette": "Dark, high-contrast monochrome palette with near-black backgrounds and crisp white typography for maximum readability.",
+      "layout": "Centered, spacious design with generous whitespace and a 12-column grid system for organized content presentation.",
+      "interaction": "Smooth, consistent transitions across all interactive elements with subtle hover effects and clear visual feedback.",
+      "motion": "Minimal, purposeful animations with consistent timing functions that enhance usability without distraction.",
+      "notes": "This site exemplifies a clean, developer-focused design that prioritizes readability and functionality while maintaining professional aesthetics through restrained use of color and typography."
     },
     "zh-CN": {
       "palette": "使用黑、白及单一蓝色点缀色的高对比度、极简亮色主题。",
@@ -611,6 +219,438 @@
       "ch7_intro": "모션은 절제적이고 기능적이며, 사용자의 집중을 안내하고 피드백을 제공하기 위해서만 적용됩니다. 미묘한 페이드인과 부드러운 전환은 콘텐츠를 드러내고 상호작용을 확인하기 위해 사용되며, 순수한 장식을 위한 적은 없습니다.",
       "ch8_intro": "에디토리얼 목소리는 제품 자체의 효율성을 반영하여 자신감 있고 직접적이며 행동 지향적입니다. 헤드라인은 간결하고 이점 중심적이며, 강조를 위해 종종 모노스페이스를 사용하는 반면, 행동 촉구는 명확하고 명령적인 형태입니다.",
       "ch8_outro": "이 시스템은 의도적으로 복잡성, 기본 다크 모드, 그리고 플랫폼의 핵심 유틸리티를 산만하게 할 수 있는 장식적 요소를 피합니다."
+    }
+  },
+  "spec_i18n": {
+    "en": {
+      "identity": {
+        "keywords": [
+          "agent",
+          "automation",
+          "tooling",
+          "platform",
+          "developer"
+        ],
+        "analogy": "A clean, developer-centric platform that feels like a modern SaaS tool for building AI agents.",
+        "oneLiner": "A developer platform for building and deploying AI agents with built-in tooling and integrations."
+      },
+      "colors": {
+        "principle": "High-contrast dark mode with near-black backgrounds and crisp white typography for maximum readability and focus."
+      },
+      "typography": {
+        "rules": [
+          "Use abcDiatype for display and body text",
+          "Use JetBrains Mono for code and technical content",
+          "Keep letter-spacing tight for headlines and normal for body text",
+          "Maintain consistent vertical rhythm with 1.5 line height for body text"
+        ],
+        "scaleUses": [
+          "Main hero headline",
+          "Section headings",
+          "Body text and descriptions",
+          "Code snippets and technical details"
+        ]
+      },
+      "spacing": {
+        "rhythm": "Consistent 4px base grid with modular spacing scale for vertical and horizontal rhythm"
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(0, 0, 0, 0.15) 4px 4px 0px 0px",
+          "rgba(0, 0, 0, 0.5) 0px 8px 32px 0px",
+          "rgba(0, 0, 0, 0.5) 0px 16px 48px 0px",
+          "rgba(0, 0, 0, 0.35) 0px 6px 20px 0px",
+          "rgba(0, 0, 0, 0.25) 0px 25px 50px -12px",
+          "rgba(0, 0, 0, 0.4) 0px 4px 20px 0px"
+        ],
+        "borders": "1px solid rgb(44, 44, 44) for subtle container boundaries"
+      },
+      "layout": {
+        "skeleton": "Centered content with generous whitespace, maximum content width of 1280px"
+      },
+      "components": {
+        "button": "Clean, minimal buttons with uppercase text, subtle borders, and smooth transitions. Primary buttons have white backgrounds with dark text, secondary buttons have transparent backgrounds with borders.",
+        "card": "Dark containers with subtle borders and rounded corners, featuring clean typography and minimal decoration.",
+        "chip": "Small, rounded tags with uppercase text, used for labels and categories.",
+        "input": "Dark input fields with subtle borders and clear typography, designed for technical content.",
+        "hero": "Full-width dark section with large, bold typography, gradient backgrounds, and centered call-to-action buttons."
+      },
+      "motion": {
+        "patterns": [
+          "Smooth color and background transitions on hover",
+          "Subtle transform effects on interactive elements",
+          "Consistent transition timing across all interactive components"
+        ]
+      },
+      "interaction": {
+        "hover": "Subtle color changes and smooth transitions on interactive elements",
+        "click": "Immediate feedback with minimal visual change to maintain focus",
+        "transition": "All interactive elements use consistent cubic-bezier(0.4, 0, 0.2, 1) timing function",
+        "keyboard": "Standard keyboard navigation with clear focus states"
+      },
+      "voice": {
+        "tone": "Professional, technical, and confident",
+        "headlineStyle": "Bold, direct statements about agent capabilities and platform benefits",
+        "ctaStyle": "Action-oriented with clear value propositions like 'Get Started for Free'",
+        "avoid": [
+          "Overly casual or playful language",
+          "Vague or ambiguous technical descriptions",
+          "Excessive exclamation marks or hype"
+        ]
+      },
+      "donts": [
+        "Don't use light backgrounds — screenshot shows dark mode with #0f0f0f backgrounds",
+        "Don't use decorative serif fonts — screenshot shows geometric sans-serif typography",
+        "Don't use bright, saturated accent colors — screenshot shows monochrome palette with subtle gradients",
+        "Don't use small, cramped spacing — screenshot shows generous whitespace and 4px base grid",
+        "Don't use rounded, playful UI elements — screenshot shows sharp, minimal design with subtle border-radius",
+        "Don't use complex, layered visual effects — screenshot shows clean, flat design with subtle shadows"
+      ],
+      "systemPrompt": "Composio is a developer platform for building and deploying AI agents, positioned as a clean, professional tooling solution. The design uses a dark mode palette with near-black backgrounds (#0f0f0f), crisp white text (#ffffff), and subtle gray accents (#444444). Typography features geometric sans-serif fonts (abcDiatype) for display and body text, with monospace (JetBrains Mono) for technical content. The layout follows a centered, spacious design with a 4px base grid. Key donts: avoid light backgrounds, skip decorative fonts, don't use bright accent colors, maintain generous spacing, avoid playful UI elements, and keep visual effects minimal."
+    },
+    "zh-CN": {
+      "identity": {
+        "keywords": [
+          "智能体",
+          "自动化",
+          "工具",
+          "平台",
+          "开发者"
+        ],
+        "analogy": "一个以开发者为中心的清洁平台，感觉像是用于构建 AI 智能体的现代 SaaS 工具。",
+        "oneLiner": "一个用于构建和部署 AI 智能体的开发者平台，内置工具和集成能力。"
+      },
+      "colors": {
+        "principle": "高对比度深色模式，采用近乎黑色的背景和清晰的白色排版，以实现最大的可读性和专注度。"
+      },
+      "typography": {
+        "rules": [
+          "使用 abcDiatype 用于展示和正文文本",
+          "使用 JetBrains Mono 用于代码和技术内容",
+          "保持标题的 letter-spacing 紧凑，正文使用 normal",
+          "通过 1.5 的正文行高维持一致的垂直韵律"
+        ],
+        "scaleUses": [
+          "主视觉标题",
+          "章节标题",
+          "正文和描述",
+          "代码片段和技术细节"
+        ]
+      },
+      "spacing": {
+        "rhythm": "采用一致的 4px 基础网格，配合模块化的间距比例，实现垂直和水平的韵律感"
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(0, 0, 0, 0.15) 4px 4px 0px 0px",
+          "rgba(0, 0, 0, 0.5) 0px 8px 32px 0px",
+          "rgba(0, 0, 0, 0.5) 0px 16px 48px 0px",
+          "rgba(0, 0, 0, 0.35) 0px 6px 20px 0px",
+          "rgba(0, 0, 0, 0.25) 0px 25px 50px -12px",
+          "rgba(0, 0, 0, 0.4) 0px 4px 20px 0px"
+        ],
+        "borders": "使用 1px solid rgb(44, 44, 44) 作为容器的细微边界"
+      },
+      "layout": {
+        "skeleton": "居中布局，留有充足空白，内容最大宽度为 1280px"
+      },
+      "components": {
+        "button": "简洁、极简的按钮，采用大写文本、细微边框和平滑过渡效果。主要按钮为白色背景配深色文本，次要按钮为透明背景配边框。",
+        "card": "深色容器，带有细微边框和圆角，采用简洁的排版和极简装饰。",
+        "chip": "小型、圆角的标签，使用大写文本，用于标签和分类。",
+        "input": "深色输入框，带有细微边框和清晰的排版，专为技术内容设计。",
+        "hero": "全宽深色区域，配有大号粗体排版、渐变背景和居中的行动号召按钮。"
+      },
+      "motion": {
+        "patterns": [
+          "hover 时平滑的颜色和背景过渡",
+          "交互元素上细微的变换效果",
+          "所有交互组件使用一致的过渡时间"
+        ]
+      },
+      "interaction": {
+        "hover": "交互元素上的细微颜色变化和平滑过渡",
+        "click": "提供即时反馈，同时保持视觉变化最小以维持专注度",
+        "transition": "所有交互元素使用一致的 cubic-bezier(0.4, 0, 0.2, 1) 时间函数",
+        "keyboard": "标准键盘导航，带有清晰的 focus 状态"
+      },
+      "voice": {
+        "tone": "专业、技术、自信",
+        "headlineStyle": "大胆、直接的陈述，关于智能体能力和平台优势",
+        "ctaStyle": "以行动为导向，提供清晰的价值主张，例如“免费开始”",
+        "avoid": [
+          "过于随意或俏皮的语言",
+          "模糊或歧义的技术描述",
+          "过多的感叹号或炒作"
+        ]
+      },
+      "donts": [
+        "不要使用浅色背景 —— 截图显示的是 #0f0f0f 背景的深色模式",
+        "不要使用装饰性衬线字体 —— 截图显示的是几何无衬线排版",
+        "不要使用明亮、饱和的强调色 —— 截图显示的是带有细微渐变的单色调色板",
+        "不要使用小而拥挤的间距 —— 截图显示的是充足的空白和 4px 基础网格",
+        "不要使用圆润、俏皮的 UI 元素 —— 截图显示的是锐利、极简的设计，带有细微的 border-radius",
+        "不要使用复杂、分层的视觉效果 —— 截图显示的是干净的扁平设计，带有细微阴影"
+      ],
+      "systemPrompt": "Composio 是一个用于构建和部署 AI 智能体的开发者平台，定位为一个清洁、专业的工具解决方案。设计采用深色模式调色板，近乎黑色的背景 (#0f0f0f)、清晰的白色文本 (#ffffff) 和细微的灰色强调色 (#444444)。排版采用几何无衬线字体 (abcDiatype) 用于展示和正文文本，单间距字体 (JetBrains Mono) 用于技术内容。布局遵循居中、宽敞的设计，采用 4px 基础网格。关键注意事项：避免浅色背景，跳过装饰性字体，不要使用明亮的强调色，保持充足的间距，避免俏皮的 UI 元素，并保持视觉效果极简。"
+    },
+    "zh-TW": {
+      "identity": {
+        "keywords": [
+          "代理人",
+          "自動化",
+          "工具",
+          "平台",
+          "開發者"
+        ],
+        "analogy": "一個以開發者為核心的簡潔平台，感覺就像用於建構 AI 代理人的現代 SaaS 工具。",
+        "oneLiner": "一個用於建構和部署 AI 代理人的開發者平台，內建工具和整合功能。"
+      },
+      "colors": {
+        "principle": "高對比度深色模式，採用近乎黑色的背景和清晰的白色字體，以實現最大的可讀性和專注度。"
+      },
+      "typography": {
+        "rules": [
+          "使用 abcDiatype 作為展示和內文字體",
+          "使用 JetBrains Mono 作為程式碼和技術內容字體",
+          "標題保持緊湊的字距，內文使用正常字距",
+          "內文維持 1.5 行高的一致垂直節奏"
+        ],
+        "scaleUses": [
+          "主要標題",
+          "章節標題",
+          "內文和描述",
+          "程式碼片段和技術細節"
+        ]
+      },
+      "spacing": {
+        "rhythm": "一致的 4px 基礎網格，搭配模組化間距比例，建立垂直和水平節奏"
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(0, 0, 0, 0.15) 4px 4px 0px 0px",
+          "rgba(0, 0, 0, 0.5) 0px 8px 32px 0px",
+          "rgba(0, 0, 0, 0.5) 0px 16px 48px 0px",
+          "rgba(0, 0, 0, 0.35) 0px 6px 20px 0px",
+          "rgba(0, 0, 0, 0.25) 0px 25px 50px -12px",
+          "rgba(0, 0, 0, 0.4) 0px 4px 20px 0px"
+        ],
+        "borders": "1px solid rgb(44, 44, 44) 用於微妙的容器邊框"
+      },
+      "layout": {
+        "skeleton": "內容置中，保留充足留白，最大內容寬度為 1280px"
+      },
+      "components": {
+        "button": "簡潔、極簡的按鈕，使用大寫文字、細微邊框和平滑過渡效果。主要按鈕為白色背景搭配深色文字，次要按鈕為透明背景搭配邊框。",
+        "card": "深色容器，帶有細微邊框和圓角，採用清晰字體和極簡裝飾。",
+        "chip": "小巧、圓角的標籤，使用大寫文字，用於標籤和分類。",
+        "input": "深色輸入欄位，帶有細微邊框和清晰字體，專為技術內容設計。",
+        "hero": "全寬深色區塊，搭配大而粗體的字體、漸層背景和置中的行動號召按鈕。"
+      },
+      "motion": {
+        "patterns": [
+          "滑鼠懸停時平滑的顏色和背景過渡",
+          "互動元素上細微的變形效果",
+          "所有互動元件保持一致的過渡時間"
+        ]
+      },
+      "interaction": {
+        "hover": "互動元素上細微的顏色變化和平滑過渡",
+        "click": "即時回饋，視覺變化最小以維持專注",
+        "transition": "所有互動元素使用一致的 cubic-bezier(0.4, 0, 0.2, 1) 時間函數",
+        "keyboard": "標準鍵盤導航，具有清晰的焦點狀態"
+      },
+      "voice": {
+        "tone": "專業、技術性且自信",
+        "headlineStyle": "大膽、直接的陳述，描述代理人的能力和平台優勢",
+        "ctaStyle": "以行動為導向，具有明確的價值主張，例如「免費開始使用」",
+        "avoid": [
+          "過於隨意或俏皮的語言",
+          "模糊或含糊的技術描述",
+          "過多的驚嘆號或誇飾用語"
+        ]
+      },
+      "donts": [
+        "不要使用淺色背景——螢幕截圖顯示的是以 #0f0f0f 為背景的深色模式",
+        "不要使用裝飾性襯線字體——螢幕截圖顯示的是幾何無襯線字體",
+        "不要使用明亮、飽和的強調色——螢幕截圖顯示的是單色調色盤搭配細微漸層",
+        "不要使用狹小、擁擠的間距——螢幕截圖顯示的是充足留白和 4px 基礎網格",
+        "不要使用圓潤、俏皮的 UI 元素——螢幕截圖顯示的是銳利、簡約的設計搭配細微的 border-radius",
+        "不要使用複雜、層疊的視覺效果——螢幕截圖顯示的是乾淨、平坦的設計搭配細微陰影"
+      ],
+      "systemPrompt": "Composio 是一個用於建構和部署 AI 代理人的開發者平台，定位為一個簡潔、專業的工具解決方案。設計採用深色模式調色盤，包含近乎黑色的背景（#0f0f0f）、清晰的白色文字（#ffffff）和細微的灰色強調色（#444444）。字體方面，展示和內文使用幾何無襯線字體（abcDiatype），技術內容則使用等寬字體（JetBrains Mono）。佈局採用置中、寬敞的設計，並遵循 4px 基礎網格。主要注意事項：避免淺色背景、避免裝飾性字體、不要使用明亮的強調色、保持充足間距、避免俏皮的 UI 元素，並保持視覺效果簡約。"
+    },
+    "ja": {
+      "identity": {
+        "keywords": [
+          "エージェント",
+          "オートメーション",
+          "ツール",
+          "プラットフォーム",
+          "開発者"
+        ],
+        "analogy": "AIエージェント構築用の、現代的なSaaSツールのような、クリーンで開発者中心のプラットフォーム。",
+        "oneLiner": "組み込みツールとインテグレーションを備えた、AIエージェント構築・デプロイのための開発者プラットフォーム。"
+      },
+      "colors": {
+        "principle": "最大限の可読性と集中力を実現する、近黒の背景と鮮明な白のタイポグラフィを持つ高コントラストのダークモード。"
+      },
+      "typography": {
+        "rules": [
+          "ディスプレイおよび本文テキストにはabcDiatypeを使用",
+          "コードおよび技術コンテンツにはJetBrains Monoを使用",
+          "見出しは文字間隔を詰め、本文は標準に保つ",
+          "本文は行高1.5で一貫した縦のリズムを維持する"
+        ],
+        "scaleUses": [
+          "メインヒーロー見出し",
+          "セクション見出し",
+          "本文テキストおよび説明",
+          "コードスニペットおよび技術詳細"
+        ]
+      },
+      "spacing": {
+        "rhythm": "縦横のリズムのため、モジュラースペーシングスケールを持つ一貫した4pxベースグリッド"
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(0, 0, 0, 0.15) 4px 4px 0px 0px",
+          "rgba(0, 0, 0, 0.5) 0px 8px 32px 0px",
+          "rgba(0, 0, 0, 0.5) 0px 16px 48px 0px",
+          "rgba(0, 0, 0, 0.35) 0px 6px 20px 0px",
+          "rgba(0, 0, 0, 0.25) 0px 25px 50px -12px",
+          "rgba(0, 0, 0, 0.4) 0px 4px 20px 0px"
+        ],
+        "borders": "微かなコンテナ境界線としての1px solid rgb(44, 44, 44)"
+      },
+      "layout": {
+        "skeleton": "最大コンテンツ幅1280px、十分な余白を持つ中央揃えコンテンツ"
+      },
+      "components": {
+        "button": "大文字テキスト、微かなボーダー、滑らかなトランジションを持つクリーンでミニマルなボタン。プライマリボタンは白背景にダークテキスト、セカンダリボタンは透過背景にボーダー。",
+        "card": "微かなボーダーと角丸を持つダークコンテナ。クリーンなタイポグラフィと最小限の装飾を特徴とする。",
+        "chip": "ラベルやカテゴリに使用される、大文字テキストを持つ小さな角丸タグ。",
+        "input": "技術コンテンツ向けにデザインされた、微かなボーダーと明瞭なタイポグラフィを持つダーク入力フィールド。",
+        "hero": "大型で太字のタイポグラフィ、グラデーション背景、中央揃えのCTAボタンを持つフルワイダークセクション。"
+      },
+      "motion": {
+        "patterns": [
+          "ホバー時の滑らかなカラーおよび背景トランジション",
+          "インタラクティブ要素の微かなトランスフォーム効果",
+          "すべてのインタラクティブコンポーネントで一貫したトランジションタイミング"
+        ]
+      },
+      "interaction": {
+        "hover": "インタラクティブ要素の微かなカラー変化と滑らかなトランジション",
+        "click": "フォーカスを維持するための最小限の視覚変化による即時フィードバック",
+        "transition": "すべてのインタラクティブ要素は一貫したcubic-bezier(0.4, 0, 0.2, 1)タイミング関数を使用",
+        "keyboard": "明確なフォーカス状態を持つ標準的なキーボードナビゲーション"
+      },
+      "voice": {
+        "tone": "プロフェッショナル、テクニカル、そして自信に満ちた",
+        "headlineStyle": "エージェントの機能とプラットフォームのメリットについての、太字で直接的なステートメント",
+        "ctaStyle": "「無料で始める」などの明確な価値提案を持つアクション指向の",
+        "avoid": [
+          "過度にカジュアルまたは遊び心のある言葉",
+          "曖昧な技術記述",
+          "過度な感嘆符や誇大広告"
+        ]
+      },
+      "donts": [
+        "明るい背景を使用しない — スクリーンショットは#0f0f0fの背景を持つダークモードを示している",
+        "装飾的なセリフフォントを使用しない — スクリーンショットは幾何学的サンセリフのタイポグラフィを示している",
+        "明るく彩度の高いアクセントカラーを使用しない — スクリーンショットはモノクロムパレットと微かなグラデーションを示している",
+        "小さく窮屈なスペーシングを使用しない — スクリーンショットは十分な余白と4pxベースグリッドを示している",
+        "丸みを帯びた遊び心のあるUI要素を使用しない — スクリーンショットは微かなボーダー-radiusを持つ鋭くミニマルなデザインを示している",
+        "複雑で重なったビジュアルエフェクトを使用しない — スクリーンショットは微かなシャドウを持つクリーンでフラットなデザインを示している"
+      ],
+      "systemPrompt": "Composioは、AIエージェントの構築とデプロイのための開発者プラットフォームであり、クリーンでプロフェッショナルなツールソリューションとしてポジショニングされています。デザインは、近黒の背景（#0f0f0f）、鮮明な白のテキスト（#ffffff）、微かなグレーのアクセント（#444444）を持つダークモードパレットを使用します。タイポグラフィは、ディスプレイおよび本文テキストに幾何学的サンセリフフォント（abcDiatype）、技術コンテンツにモノスペース（JetBrains Mono）を採用しています。レイアウトは、4pxベースグリッドを持つ中央揃えで広々としたデザインに従います。主な禁止事項：明るい背景を避け、装飾フォントをスキップし、明るいアクセントカラーを使用せず、十分なスペーシングを維持し、遊び心のあるUI要素を避け、ビジュアルエフェクトを最小限に抑えること。"
+    },
+    "ko": {
+      "identity": {
+        "keywords": [
+          "에이전트",
+          "자동화",
+          "도구",
+          "플랫폼",
+          "개발자"
+        ],
+        "analogy": "개발자 중심의 깔끔한 플랫폼으로, AI 에이전트 구축을 위한 현대적인 SaaS 도구처럼 느껴집니다.",
+        "oneLiner": "내장된 도구와 통합 기능을 갖춘 AI 에이전트 구축 및 배포를 위한 개발자 플랫폼입니다."
+      },
+      "colors": {
+        "principle": "최대 가독성과 몰입을 위해 거의 검은색 배경과 선명한 흰색 타이포그래피를 사용하는 고대비 다크 모드입니다."
+      },
+      "typography": {
+        "rules": [
+          "디스플레이 및 본문 텍스트에는 abcDiatype를 사용합니다",
+          "코드 및 기술 콘텐츠에는 JetBrains Mono를 사용합니다",
+          "헤드라인에는 자간을 좁게, 본문에는 일반 자간을 유지합니다",
+          "본문의 줄 높이를 1.5로 일정하게 유지하여 수직 리듬을 구현합니다"
+        ],
+        "scaleUses": [
+          "메인 히어로 헤드라인",
+          "섹션 제목",
+          "본문 및 설명",
+          "코드 스니펫 및 기술 상세"
+        ]
+      },
+      "spacing": {
+        "rhythm": "수직 및 수평 리듬을 위한 일관된 4px 기본 그리드와 모듈식 간격 스케일입니다."
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(0, 0, 0, 0.15) 4px 4px 0px 0px",
+          "rgba(0, 0, 0, 0.5) 0px 8px 32px 0px",
+          "rgba(0, 0, 0, 0.5) 0px 16px 48px 0px",
+          "rgba(0, 0, 0, 0.35) 0px 6px 20px 0px",
+          "rgba(0, 0, 0, 0.25) 0px 25px 50px -12px",
+          "rgba(0, 0, 0, 0.4) 0px 4px 20px 0px"
+        ],
+        "borders": "미세한 컨테이너 경계를 위해 1px solid rgb(44, 44, 44)를 사용합니다."
+      },
+      "layout": {
+        "skeleton": "여유로운 여백과 함께 중앙 정렬된 콘텐츠, 최대 콘텐츠 너비 1280px입니다."
+      },
+      "components": {
+        "button": "대문자 텍스트, 미세한 테두리, 부드러운 전환을 사용하는 깔끔하고 미니멀한 버튼입니다. 메인 버튼은 배경이 흰색이고 텍스트는 어둡고, 세컨더리 버튼은 배경이 투명하고 테두리가 있습니다.",
+        "card": "미세한 테두리와 둥근 모서리를 가진 어두운 컨테이너로, 깔끔한 타이포그래피와 최소한의 장식이 특징입니다.",
+        "chip": "라벨과 카테고리에 사용되는, 대문자 텍스트를 가진 작고 둥근 태그입니다.",
+        "input": "기술 콘텐츠를 위해 설계된, 미세한 테두리와 명확한 타이포그래피를 가진 어두운 입력 필드입니다.",
+        "hero": "넓은 공간, 큰 볼드 타이포그래피, 그라데이션 배경, 중앙 정렬된 CTA 버튼이 특징인 전폭 다크 섹션입니다."
+      },
+      "motion": {
+        "patterns": [
+          "hover 시 부드러운 색상 및 배경 전환",
+          "인터랙티브 요소에 대한 미세한 transform 효과",
+          "모든 인터랙티브 컴포넌트에 걸친 일관된 전환 타이밍"
+        ]
+      },
+      "interaction": {
+        "hover": "인터랙티브 요소에 대한 미세한 색상 변화와 부드러운 전환",
+        "click": "몰입을 유지하기 위해 최소한의 시각적 변화로 즉각적인 피드백",
+        "transition": "모든 인터랙티브 요소는 일관된 cubic-bezier(0.4, 0, 0.2, 1) 타이밍 함수를 사용합니다",
+        "keyboard": "명확한 focus 상태를 가진 표준 키보드 내비게이션"
+      },
+      "voice": {
+        "tone": "전문적이고 기술적이며 자신감 있는 어조",
+        "headlineStyle": "에이전트 기능과 플랫폼 이점에 대한 굵고 직접적인 진술",
+        "ctaStyle": "'무료로 시작하기'와 같이 명확한 가치 제안을 담은 행동 지향적 문구",
+        "avoid": [
+          "지나치게 캐주얼하거나 장난스러운 언어",
+          "모호하거나 불명확한 기술 설명",
+          "과도한 감탄사나 과장"
+        ]
+      },
+      "donts": [
+        "밝은 배경을 사용하지 않습니다 — 스크린샷은 #0f0f0f 배경의 다크 모드를 보여줍니다",
+        "장식용 세리프 서체를 사용하지 않습니다 — 스크린샷은 기하학적 산세리프 타이포그래피를 보여줍니다",
+        "밝고 채도 높은 포인트 색상을 사용하지 않습니다 — 스크린샷은 미세한 그라데이션이 포함된 단색 팔레트를 보여줍니다",
+        "좁고 빡빡한 간격을 사용하지 않습니다 — 스크린샷은 여유로운 여백과 4px 기본 그리드를 보여줍니다",
+        "둥글고 장난스러운 UI 요소를 사용하지 않습니다 — 스크린샷은 미세한 border-radius를 가진 날카롭고 미니멀한 디자인을 보여줍니다",
+        "복잡하고 레이어링된 시각 효과를 사용하지 않습니다 — 스크린샷은 미세한 그림자를 가진 깔끔하고 평면적인 디자인을 보여줍니다"
+      ],
+      "systemPrompt": "Composio는 AI 에이전트 구축 및 배포를 위한 개발자 플랫폼으로, 깔끔하고 전문적인 도구 솔루션으로 포지셔닝합니다. 디자인은 거의 검은색 배경(#0f0f0f), 선명한 흰색 텍스트(#ffffff), 미세한 회색 포인트(#444444)를 사용하는 다크 모드 팔레트를 사용합니다. 타이포그래피는 디스플레이 및 본문 텍스트에 기하학적 산세리프 서체(abcDiatype), 기술 콘텐츠에 모노스페이스(JetBrains Mono)를 특징으로 합니다. 레이아웃은 4px 기본 그리드를 따르는 중앙 정렬되고 여유로운 디자인입니다. 핵심 주의사항: 밝은 배경 사용 금지, 장식용 서체 사용 금지, 밝은 포인트 색상 사용 금지, 여유로운 간격 유지, 장난스러운 UI 요소 사용 금지, 시각 효과 최소화."
     }
   }
 }

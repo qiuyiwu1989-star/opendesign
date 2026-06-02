@@ -17,59 +17,68 @@
   "_meta": {
     "vision_model": "mimo-v2.5",
     "vision_prompt_version": "0.3",
-    "vision_at": "2026-05-28T21:09:57+00:00",
-    "vision_tokens": 3427,
-    "vision_cost_usd": 0.0381,
+    "vision_at": "2026-05-30T02:38:07+00:00",
+    "vision_tokens": 16640,
+    "vision_cost_usd": 0.1849,
     "last_error": "Expecting ',' delimiter: line 68 column 30 (char 1657)",
     "translation_model": "mimo-v2.5",
-    "translation_at": "2026-05-29T01:48:57+00:00",
-    "translation_tokens": 14800,
-    "translation_cost_usd": 0.0492,
+    "translation_at": "2026-05-30T02:39:12+00:00",
+    "translation_tokens": 27061,
+    "translation_cost_usd": 0.0901,
     "narrative_model": "mimo-v2.5",
     "narrative_prompt_version": "0.3",
     "narrative_at": "2026-05-29T01:49:04+00:00",
     "narrative_tokens": 1927,
     "narrative_cost_usd": 0.0128,
     "narrative_status": "ok",
-    "total_cost_usd": 0.1001
+    "total_cost_usd": 0.2878,
+    "vision_source": "playwright-extract:figma",
+    "vision_grounded": true
   },
   "spec": {
     "colors": {
       "bg": "#FFFFFF",
-      "bgSoft": "#F5F5F5",
+      "bgSoft": null,
       "bgQuiet": null,
       "ink": "#000000",
-      "inkSoft": "#333333",
-      "muted": "#8E8E8E",
+      "inkSoft": "#808080",
+      "muted": "#808080",
       "mutedSoft": null,
-      "accent": "#000000",
-      "line": "rgba(0, 0, 0, 0.1)"
+      "accent": "#5B5BF7",
+      "line": "rgba(255, 255, 255, 0.16)"
     },
     "typography": {
-      "display": "geometric-sans",
-      "body": "geometric-sans",
-      "mono": null,
+      "display": "humanist-sans",
+      "body": "humanist-sans",
+      "mono": "monospace",
       "scale": [
         {
           "token": "display",
           "size": 56,
-          "lh": 1.05,
-          "weight": 700,
-          "ls": "-1.5px"
+          "lh": 1.0,
+          "weight": 330,
+          "ls": "-0.24px"
         },
         {
-          "token": "h2",
-          "size": 40,
-          "lh": 1.15,
-          "weight": 700,
-          "ls": "-0.5px"
+          "token": "heading-lg",
+          "size": 24,
+          "lh": 1.35,
+          "weight": 400,
+          "ls": "-0.14px"
         },
         {
           "token": "body",
+          "size": 18,
+          "lh": 1.4,
+          "weight": 330,
+          "ls": "-0.12px"
+        },
+        {
+          "token": "body-sm",
           "size": 16,
-          "lh": 1.5,
-          "weight": 400,
-          "ls": "0px"
+          "lh": 1.45,
+          "weight": 330,
+          "ls": "-0.12px"
         }
       ]
     },
@@ -78,6 +87,7 @@
       "scale": [
         4,
         8,
+        12,
         16,
         24,
         32,
@@ -90,7 +100,7 @@
       "radius": {
         "sm": 4,
         "md": 8,
-        "lg": 12,
+        "lg": 16,
         "pill": 999
       }
     },
@@ -106,397 +116,20 @@
     },
     "motion": {
       "durations": {
-        "micro": 220,
-        "small": 400,
-        "medium": 800
+        "micro": 160,
+        "small": 250,
+        "medium": 400
       },
-      "easing": "cubic-bezier(0.25, 0.1, 0.25, 1)"
-    }
-  },
-  "spec_i18n": {
-    "en": {
-      "identity": {
-        "keywords": [
-          "Design",
-          "Collaboration",
-          "Prototyping",
-          "Web-based"
-        ],
-        "analogy": "The collaborative canvas where teams build digital products together",
-        "oneLiner": "A collaborative design platform that turns ideas into products"
-      },
-      "colors": {
-        "principle": "High-contrast monochrome with strategic black accent buttons for clear CTAs"
-      },
-      "typography": {
-        "rules": [
-          "Headlines use tight tracking and bold weight for impact",
-          "Body text maintains comfortable 1.5 line height for readability"
-        ],
-        "scaleUses": [
-          "Hero headlines",
-          "Section headings",
-          "Body text"
-        ]
-      },
-      "spacing": {
-        "rhythm": "Consistent 8-point baseline grid with generous vertical padding"
-      },
-      "surfaces": {
-        "shadows": [
-          "0 4px 24px rgba(0,0,0,0.08)"
-        ],
-        "borders": "1px solid rgba(0,0,0,0.1)"
-      },
-      "layout": {
-        "skeleton": "Full-width hero section with floating card overlay, followed by centered text and logo grid"
-      },
-      "components": {
-        "button": "Black filled button with white text for primary actions, outlined button for secondary",
-        "card": "White floating card with subtle shadow containing hero text input",
-        "chip": null,
-        "input": "Large text input field within a floating white card with placeholder text",
-        "hero": "Animated carousel of gray rectangles behind a floating white card with text input"
-      },
-      "motion": {
-        "patterns": [
-          "Carousel animation for hero section backgrounds",
-          "Typewriter effect for hero headline text"
-        ]
-      },
-      "interaction": {
-        "hover": "Subtle background color change on buttons",
-        "click": "Immediate response on primary buttons",
-        "transition": "Smooth transitions between carousel slides",
-        "keyboard": "Standard tab navigation through interactive elements"
-      },
-      "voice": {
-        "tone": "Professional yet approachable",
-        "headlineStyle": "Action-oriented, short phrases with incomplete text that gets completed dynamically",
-        "ctaStyle": "Direct and imperative ('Get started for free', 'Contact sales')",
-        "avoid": [
-          "Avoid overly casual or slang language",
-          "Avoid technical jargon in marketing copy"
-        ]
-      },
-      "donts": [
-        "Don't use colorful gradients — screenshot shows clean black and white with neutral grays",
-        "Don't use rounded pill shapes for all elements — screenshot shows mix of sharp and rounded corners",
-        "Don't use low-contrast text — screenshot maintains strong black on white contrast",
-        "Don't clutter the hero section — screenshot shows focused single CTA with minimal text",
-        "Don't use serif fonts — screenshot exclusively uses geometric sans-serif typography",
-        "Don't add unnecessary decorative elements — screenshot maintains clean, functional aesthetic"
-      ],
-      "systemPrompt": "Figma is a collaborative web-based design tool positioning itself as the platform where teams brainstorm, design, and build products together. Key visual characteristics include a predominantly black and white color scheme (#000000 ink on #FFFFFF background) with strategic use of gray for backgrounds and muted elements. Typography uses geometric sans-serif fonts with tight tracking for headlines and comfortable line heights for body text. The hero section features animated gray rectangles behind a floating white card with interactive text input. Critical design principles: maintain high contrast for readability, use generous whitespace, keep CTAs visually prominent with black filled buttons. Avoid colorful gradients, overly decorative elements, or low-contrast text. The interface emphasizes clarity and functionality over decoration, with a premium feel achieved through restraint and precision."
-    },
-    "zh-CN": {
-      "identity": {
-        "keywords": [
-          "设计",
-          "协作",
-          "原型制作",
-          "基于Web"
-        ],
-        "analogy": "团队在此协作画布上共同构建数字产品",
-        "oneLiner": "一个将创意转化为产品的协作设计平台"
-      },
-      "colors": {
-        "principle": "高对比度单色方案，辅以战略性黑色按钮，确保清晰的行动号召"
-      },
-      "typography": {
-        "rules": [
-          "标题使用紧凑字距与粗体以增强视觉冲击力",
-          "正文保持1.5倍行高，确保阅读舒适度"
-        ],
-        "scaleUses": [
-          "首屏标题",
-          "区块标题",
-          "正文文本"
-        ]
-      },
-      "spacing": {
-        "rhythm": "一致的8点基准网格，搭配充裕的垂直内边距"
-      },
-      "surfaces": {
-        "shadows": [
-          "0 4px 24px rgba(0,0,0,0.08)"
-        ],
-        "borders": "1px solid rgba(0,0,0,0.1)"
-      },
-      "layout": {
-        "skeleton": "全宽首屏区块，带有悬浮卡片叠加层，其后是居中的文本与Logo网格"
-      },
-      "components": {
-        "button": "主操作使用黑底白字填充按钮，次要操作使用轮廓按钮",
-        "card": "白色悬浮卡片，带有微妙阴影，承载首屏文本输入",
-        "chip": null,
-        "input": "位于白色悬浮卡片内的大型文本输入框，附带占位符文本",
-        "hero": "灰色矩形动画轮播，位于带有文本输入的白色悬浮卡片之后"
-      },
-      "motion": {
-        "patterns": [
-          "首屏区块背景的轮播动画",
-          "首屏标题文字的打字机效果"
-        ]
-      },
-      "interaction": {
-        "hover": "按钮的微妙背景色变化",
-        "click": "主按钮的即时响应",
-        "transition": "轮播幻灯片间的平滑过渡",
-        "keyboard": "交互元素的标准Tab键导航"
-      },
-      "voice": {
-        "tone": "专业且不失亲和",
-        "headlineStyle": "以行动为导向，采用不完整短语，动态补全",
-        "ctaStyle": "直接且具号召性（“免费开始使用”、“联系销售”）",
-        "avoid": [
-          "避免过于随意或俚语化的语言",
-          "避免营销文案中使用技术术语"
-        ]
-      },
-      "donts": [
-        "避免使用彩色渐变——截图显示为干净的黑白及中性灰色调",
-        "避免所有元素使用圆润药丸形状——截图显示为尖角与圆角混合",
-        "避免低对比度文本——截图保持了强烈的黑底白字对比",
-        "避免首屏区块杂乱——截图显示为聚焦的单一行动号召与最少文本",
-        "避免使用衬线字体——截图仅使用几何无衬线字体",
-        "避免添加不必要的装饰元素——截图保持了简洁、功能性的美学"
-      ],
-      "systemPrompt": "Figma是一款基于Web的协作设计工具，定位为团队进行头脑风暴、设计并共同构建产品的平台。关键视觉特征包括以黑白为主的配色方案（#000000墨色于#FFFFFF背景上），战略性运用灰色作为背景与低调元素。字体使用几何无衬线字体，标题采用紧凑字距，正文则保证舒适的行高。首屏区域以动画灰色矩形为背景，前景是带有交互式文本输入的白色悬浮卡片。核心设计原则：保持高对比度以确保可读性，运用充裕的留白，通过黑色填充按钮使行动号召在视觉上突出。避免彩色渐变、过度装饰元素或低对比度文本。界面强调清晰与功能性而非装饰，通过克制与精准营造出高端感。"
-    },
-    "zh-TW": {
-      "identity": {
-        "keywords": [
-          "設計",
-          "協作",
-          "原型製作",
-          "網路-based"
-        ],
-        "analogy": "團隊共同建構數位產品的協作畫布",
-        "oneLiner": "一個將創意轉化為產品的協作設計平台"
-      },
-      "colors": {
-        "principle": "高對比度的單色調，搭配策略性的黑色強調按鈕，以實現清晰的行動呼籲"
-      },
-      "typography": {
-        "rules": [
-          "標題使用緊湊字距與粗體字重以創造視覺衝擊",
-          "內文維持舒適的 1.5 行高以利閱讀"
-        ],
-        "scaleUses": [
-          "主視覺標題",
-          "區塊標題",
-          "內文"
-        ]
-      },
-      "spacing": {
-        "rhythm": "一致的 8 點基線網格，搭配寬裕的垂直內距"
-      },
-      "surfaces": {
-        "shadows": [
-          "0 4px 24px rgba(0,0,0,0.08)"
-        ],
-        "borders": "1px solid rgba(0,0,0,0.1)"
-      },
-      "layout": {
-        "skeleton": "全寬主視覺區塊帶有浮動卡片覆蓋層，其後為置中文字與標誌網格"
-      },
-      "components": {
-        "button": "黑色填充按鈕搭配白色文字用於主要操作，次要操作使用描邊按鈕",
-        "card": "帶有細微陰影的白色浮動卡片，包含主視覺文字輸入框",
-        "chip": null,
-        "input": "位於白色浮動卡片內的大型文字輸入欄位，帶有佔位文字",
-        "hero": "灰色矩形動態輪播背景，前景為帶有文字輸入框的浮動白色卡片"
-      },
-      "motion": {
-        "patterns": [
-          "主視覺區塊背景的輪播動畫",
-          "主視覺標題文字的打字機效果"
-        ]
-      },
-      "interaction": {
-        "hover": "按鈕的細微背景色變化",
-        "click": "主要按鈕的即時回應",
-        "transition": "輪播幻燈片之間的流暢轉換",
-        "keyboard": "透過互動元素進行標準的 Tab 鍵導覽"
-      },
-      "voice": {
-        "tone": "專業且親切",
-        "headlineStyle": "以行動為導向的簡短片語，未完成的文字會動態補全",
-        "ctaStyle": "直接且帶有命令語氣（例如「免費開始」、「聯繫業務」）",
-        "avoid": [
-          "避免過於隨意或使用網路俚語的語言",
-          "避免在行銷文案中使用技術術語"
-        ]
-      },
-      "donts": [
-        "不要使用彩色漸層 — 截圖顯示為乾淨的黑白與中性灰色調",
-        "不要將所有元素都做成圓潤的膠囊形狀 — 截圖顯示混合了銳角與圓角",
-        "不要使用低對比度文字 — 截圖保持強烈的白底黑字對比",
-        "不要讓主視覺區域過於雜亂 — 截圖顯示單一且專注的行動呼籲，文字精簡",
-        "不要使用襯線字體 — 截圖完全使用幾何無襯線字體",
-        "不要添加不必要的裝飾元素 — 截圖維持乾淨、功能性的美學"
-      ],
-      "systemPrompt": "Figma 是一個協作式網路設計工具，定位為團隊共同進行頭腦激盪、設計與建構產品的平台。主要視覺特徵包括以黑白為主的配色方案（#000000 墨色於 #FFFFFF 背景），並策略性地使用灰色作為背景與低調元素。字體使用幾何無襯線字體，標題採用緊湊字距，內文則保持舒適行高。主視覺區塊以動態灰色矩形為背景，前景是帶有互動文字輸入框的浮動白色卡片。關鍵設計原則：維持高對比度以利閱讀，使用寬裕的留白，以黑色填充按鈕使行動呼籲視覺突出。避免使用彩色漸層、過度裝飾的元素或低對比度文字。介面強調清晰度與功能性，透過節制與精準營造高端質感。"
-    },
-    "ja": {
-      "identity": {
-        "keywords": [
-          "デザイン",
-          "コラボレーション",
-          "プロトタイピング",
-          "Webベース"
-        ],
-        "analogy": "チームがデジタルプロダクトを共に構築する、コラボレーティブ・キャンバス",
-        "oneLiner": "アイデアをプロダクトに変換する、コラボレーティブなデザインプラットフォーム"
-      },
-      "colors": {
-        "principle": "明確なCTAために戦略的に黒のアクセントボタンを用いた、ハイコントラストのモノクローム"
-      },
-      "typography": {
-        "rules": [
-          "見出しはインパクトのためにタイトなトラッキングと太字ウェイトを使用",
-          "本文は読みやすさのために快適な1.5の行間を維持"
-        ],
-        "scaleUses": [
-          "ヒーロー見出し",
-          "セクション見出し",
-          "本文"
-        ]
-      },
-      "spacing": {
-        "rhythm": "ゆったりとした垂直パディングを持つ、一貫した8ポイントベースライングリッド"
-      },
-      "surfaces": {
-        "shadows": [
-          "0 4px 24px rgba(0,0,0,0.08)"
-        ],
-        "borders": "1px solid rgba(0,0,0,0.1)"
-      },
-      "layout": {
-        "skeleton": "フローティングカード・オーバーレイを備えた全幅ヒーローセクション、その後に中央揃えのテキストとロゴグリッド"
-      },
-      "components": {
-        "button": "プライマリアクションには白文字の黒塗りボタン、セカンダリにはアウトラインボタン",
-        "card": "ヒーローテキスト入力を含む、繊細なシャドウを持つ白のフローティングカード",
-        "chip": null,
-        "input": "ホルダーテキストを伴う、白のフローティングカード内の大きなテキスト入力フィールド",
-        "hero": "テキスト入力のあるフローティング白カードの背後にある、灰の矩形のアニメーションカルーセル"
-      },
-      "motion": {
-        "patterns": [
-          "ヒーローセクション背景のためのカルーセルアニメーション",
-          "ヒーロー見出しテキストのためのタイプライター効果"
-        ]
-      },
-      "interaction": {
-        "hover": "ボタンの微細な背景色の変化",
-        "click": "プライマリボタンの即時応答",
-        "transition": "カルーセルスライド間の滑らかな遷移",
-        "keyboard": "インタラクティブ要素を通じた標準的なTabキーによるナビゲーション"
-      },
-      "voice": {
-        "tone": "プロフェッショナルでありながらも親しみやすい",
-        "headlineStyle": "行動を促す短いフレーズ、動的に補完される未完成のテキスト",
-        "ctaStyle": "直接的で命令的な表現（例：「無料で始める」「営業に連絡」）",
-        "avoid": [
-          "過度にカジュアルな言葉遣いやスラングを避ける",
-          "マーケティングコピーにおける技術用語を避ける"
-        ]
-      },
-      "donts": [
-        "カラフルなグラデーションを使用しない — スクリーンショットはニュートラル・グレーを含むクリーンな白黒を示しています",
-        "すべての要素に丸みのあるピル形状を使用しない — スクリーンショットは鋭角と丸みを混在させています",
-        "低コントラストのテキストを使用しない — スクリーンショットは白地に黒の強いコントラストを維持しています",
-        "ヒーローセクションを雑然とさせない — スクリーンショットは最小限のテキストで集中した単一のCTAを示しています",
-        "セリフフォントを使用しない — スクリーンショットは幾何学的なサンセリフ・タイポグラフィのみを使用しています",
-        "不必要な装飾要素を追加しない — スクリーンショットはクリーンで機能的な美学を維持しています"
-      ],
-      "systemPrompt": "Figmaは、チームがブレインストーミング、デザイン、プロダクト構築を共に行うプラットフォームとしてポジショニングしている、コラボレーティブなWebベースのデザインツールです。主な視覚的特徴は、主要に白黒の配色（#FFFFFF背景に#000000のインク）と、背景や控えめな要素にグレーを戦略的に使用することです。タイポグラフィは幾何学的なサンセリフ・フォントを使用し、見出しにはタイトなトラッキングを、本文には快適な行間を用いています。ヒーローセクションは、インタラクティブなテキスト入力のあるフローティング白カードの背後に、アニメーションする灰の矩形を備えています。重要なデザイン原則：可読性のためにハイコントラストを維持し、ゆったりとしたホワイトスペースを使用し、CTAを黒塗りボタンで視覚的に際立たせる。カラフルなグラデーション、過度な装飾要素、低コントラストのテキストは避ける。インターフェースは装飾よりもクリアさと機能性を重視し、抑制と精緻さによってプレミアム感を達成します。"
-    },
-    "ko": {
-      "identity": {
-        "keywords": [
-          "디자인",
-          "협업",
-          "프로토타이핑",
-          "웹 기반"
-        ],
-        "analogy": "팀이 함께 디지털 제품을 구축하는 협업 캔버스",
-        "oneLiner": "아이디어를 제품으로 바꾸는 협업 디자인 플랫폼"
-      },
-      "colors": {
-        "principle": "명확한 CTA를 위한 전략적 블랙 액센트 버튼을 사용한 고대비 모노크롬"
-      },
-      "typography": {
-        "rules": [
-          "헤드라인은 임팩트를 위해 타이트한 트래킹과 볼드 웨이트를 사용",
-          "본문 텍스트는 가독성을 위해 편안한 1.5 라인 높이 유지"
-        ],
-        "scaleUses": [
-          "히어로 헤드라인",
-          "섹션 제목",
-          "본문 텍스트"
-        ]
-      },
-      "spacing": {
-        "rhythm": "풍부한 수직 패딩을 둔 일관된 8포인트 기준선 그리드"
-      },
-      "surfaces": {
-        "shadows": [
-          "0 4px 24px rgba(0,0,0,0.08)"
-        ],
-        "borders": "1px solid rgba(0,0,0,0.1)"
-      },
-      "layout": {
-        "skeleton": "떠 있는 카드 오버레이가 있는 전체 폭 히어로 섹션, 그 다음 중앙 정렬된 텍스트와 로고 그리드"
-      },
-      "components": {
-        "button": "주요 작업을 위한 흰색 텍스트가 포함된 블랙 채우기 버튼, 보조 작업을 위한 아웃라인 버튼",
-        "card": "히어로 텍스트 입력이 포함된 은은한 그림자가 있는 흰색 떠 있는 카드",
-        "chip": null,
-        "input": "플레이스홀더 텍스트가 있는 떠 있는 흰색 카드 내부의 대형 텍스트 입력 필드",
-        "hero": "텍스트 입력이 있는 떠 있는 흰색 카드 뒤에 위치하는 회색 사각형의 애니메이션 캐러셀"
-      },
-      "motion": {
-        "patterns": [
-          "히어로 섹션 배경을 위한 캠션 애니메이션",
-          "히어로 헤드라인 텍스트를 위한 타이프라이터 효과"
-        ]
-      },
-      "interaction": {
-        "hover": "버튼의 은은한 배경색 변화",
-        "click": "주요 버튼에 대한 즉각적인 반응",
-        "transition": "캐러셀 슬라이드 간의 부드러운 전환",
-        "keyboard": "인터랙티브 요소를 통한 표준 탭 탐색"
-      },
-      "voice": {
-        "tone": "전문적이면서도 접근 가능함",
-        "headlineStyle": "행동 지향적, 짧은 구문과 동적으로 완성되는 불완전한 텍스트",
-        "ctaStyle": "직접적이고 지시적인 ('무료로 시작하기', '영업팀에 문의')",
-        "avoid": [
-          "지나치게 캐주얼하거나 비속어 사용 금지",
-          "마케팅 카피에 기술적 전문 용어 사용 금지"
-        ]
-      },
-      "donts": [
-        "컬러풀한 그라데이션 사용 금지 — 스크린샷은 중성 그레이가 포함된 깨끗한 흑백을 보여줌",
-        "모든 요소에 둥근 필_shapes 사용 금지 — 스크린샷은 날카로운 모서리와 둥근 모서리의 혼합을 보여줌",
-        "저대비 텍스트 사용 금지 — 스크린샷은 흰색 위의 강한 검정 대비를 유지",
-        "히어로 섹션을 복잡하게 만들 금지 — 스크린샷은 최소한의 텍스트로 집중된 단일 CTA를 보여줌",
-        "세리프 폰트 사용 금지 — 스크린샷은 기하학적 고딕 계열 타이포그래피만 사용",
-        "불필요한 장식 요소 추가 금지 — 스크린샷은 깨끗하고 기능적인 미학을 유지"
-      ],
-      "systemPrompt": "Figma는 팀이 함께 브레인스토밍하고, 디자인하고, 제품을 구축하는 플랫폼으로 자리매김한 협업 웹 기반 디자인 도구입니다. 주요 시각적 특징으로는 주로 흑백 색상 체계(#FFFFFF 배경에 #000000 잉크)와 배경 및 무채색 요소에 대한 전략적 그레이 사용이 있습니다. 타이포그래피는 헤드라인에 타이트한 트래킹을 사용한 기하학적 고딕 계열 폰트와 본문에 편안한 라인 높이를 사용합니다. 히어로 섹션은 인터랙티브 텍스트 입력이 있는 떠 있는 흰색 카드 뒤에 애니메이션 회색 사각형을 특징으로 합니다. 핵심 디자인 원칙: 가독성을 위한 고대비 유지, 풍부한 여백 사용, 블랙 채우기 버튼으로 CTA를 시각적으로 돋보이게 유지. 컬러풀한 그라데이션, 과도한 장식 요소 또는 저대비 텍스트 사용을 피할 것. 인터페이스는 장식보다 명확성과 기능성을 강조하며, 절제와 정밀함을 통해 프리미엄 느낌을 달성합니다."
+      "easing": "cubic-bezier(0.8, 0, 0.2, 1)"
     }
   },
   "desc": {
     "en": {
-      "palette": "Clean monochrome palette with black (#000000) as primary accent on white (#FFFFFF) background, using neutral grays for secondary elements.",
-      "layout": "Full-width sections with generous spacing, centered content containers, and a prominent hero area with floating interactive card overlay.",
-      "interaction": "Direct and immediate button responses with smooth carousel transitions and typewriter text animations in the hero section.",
-      "motion": "Subtle carousel animations and typewriter effects that enhance the collaborative, dynamic nature of the platform without being distracting.",
-      "notes": "This site exemplifies premium SaaS design with its clean, confident aesthetic that communicates professionalism while remaining approachable and functional."
+      "palette": "A high-contrast, predominantly monochromatic palette of black and white, punctuated by a vibrant purple for primary actions and a bright green for promotional banners.",
+      "layout": "A clean, fluid 12-column grid layout with generous white space, clear content hierarchy, and a focus on showcasing diverse project examples.",
+      "interaction": "Subtle, smooth transitions for hover and active states, with a focus on clear visual feedback without being distracting.",
+      "motion": "Minimal and purposeful motion, primarily used for UI state transitions and interactive element feedback.",
+      "notes": "This site is a prime example of a modern, premium SaaS interface that balances professional clarity with creative expression, making it an excellent reference for clean, scalable design systems."
     },
     "zh-CN": {
       "palette": "简洁的单色方案，以黑色（#000000）作为主色调点缀于白色（#FFFFFF）背景之上，辅助元素使用中性灰。",
@@ -587,6 +220,423 @@
       "ch7_intro": "모션은 의도적이고 절제되어, 방해 없이 역동성을 전달하도록 설계되었습니다. 배경 캐러셀과 헤드라인 타이피스피너 효과는 플랫폼의 협업적이고 반복적인 특성을 시사합니다.",
       "ch8_intro": "에디토리얼 음성은 전문적이면서도 친근하며, 직접적이고 행동 지향적인 표현을 선호합니다. 언어는 비공식적인 은어와 불필요한 기술 용어를 피하고, 대신 명확하고 지시적인 행동 촉구에 초점을 맞춥니다.",
       "ch8_outro": "시스템은 의도적으로 화려한 그라디언트, 완전히 둥근 형태, 저대비 텍스트를 피하며, 대신 정밀함과 절제의 기능적 미학에 전념합니다."
+    }
+  },
+  "spec_i18n": {
+    "en": {
+      "identity": {
+        "keywords": [
+          "design",
+          "collaboration",
+          "tool",
+          "modern",
+          "creative",
+          "professional"
+        ],
+        "analogy": "The standard operating system for modern design and product teams.",
+        "oneLiner": "A collaborative interface design tool for teams to brainstorm, design, and build products together."
+      },
+      "colors": {
+        "principle": "High-contrast, clean white backgrounds with black text for maximum readability, accented by a vibrant purple for primary actions and a bright green for promotional banners."
+      },
+      "typography": {
+        "rules": [
+          "Headlines use tight tracking (negative letter-spacing) for a modern, compact look.",
+          "Body text maintains a light weight (330) for a clean, airy feel.",
+          "Monospace fonts are reserved for code snippets or technical displays."
+        ],
+        "scaleUses": [
+          "Main hero headings",
+          "Section headings",
+          "Primary body text",
+          "Secondary text and UI labels"
+        ]
+      },
+      "spacing": {
+        "rhythm": "8px base unit with a consistent spatial system based on multiples of 8 and 16 for padding and margins."
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(0, 0, 0, 0.08) 0px 1px 0px 0px",
+          "rgb(0, 0, 0) 0px 0px 0px 1px inset",
+          "rgb(255, 255, 255) 0px 0px 0px 1px inset"
+        ],
+        "borders": "Minimal use of borders, primarily subtle 1px dividers or inset shadows for defining containers and input fields."
+      },
+      "layout": {
+        "skeleton": "A standard 12-column fluid grid with responsive breakpoints, prioritizing generous white space and clear content hierarchy."
+      },
+      "components": {
+        "button": "High contrast primary buttons (black background, white text) with pill or slightly rounded corners. Secondary buttons use outlined styles.",
+        "card": "Cards are often used to showcase community projects, featuring large imagery and clean typography, sometimes with subtle shadows or borders.",
+        "chip": "Minimal use of chips; tags and labels are typically integrated into lists or navigation menus.",
+        "input": "Clean input fields defined by inset shadows or subtle borders, often accompanied by monospace fonts for technical inputs.",
+        "hero": "Dynamic hero sections featuring large, expressive typography, often interacting with or overlaying a gallery of diverse, colorful project screenshots."
+      },
+      "motion": {
+        "patterns": [
+          "Smooth transitions for hover states and interactive elements.",
+          "Subtle transforms and translations for UI state changes.",
+          "Background and opacity transitions for modals or overlays."
+        ]
+      },
+      "interaction": {
+        "hover": "Subtle background color changes or opacity adjustments, often with a transition duration of around 0.16s to 0.25s.",
+        "click": "Immediate visual feedback, often through background color shifts or subtle transforms.",
+        "transition": "Smooth transitions for layout changes, background colors, and interactive element states.",
+        "keyboard": "Standard keyboard navigation support with visible focus states for interactive elements."
+      },
+      "voice": {
+        "tone": "Professional, empowering, and clear, focusing on collaboration and creativity.",
+        "headlineStyle": "Bold, concise statements that highlight core functionalities and benefits.",
+        "ctaStyle": "Direct and action-oriented, using phrases like 'Get started' or 'Contact sales'.",
+        "avoid": [
+          "Jargon-heavy technical descriptions",
+          "Overly casual or slang-filled copy",
+          "Passive voice in calls to action"
+        ]
+      },
+      "donts": [
+        "Don't use a dark primary background — the screenshot shows predominantly white backgrounds.",
+        "Don't use serif fonts for headings — the screenshot shows humanist-sans-serif fonts.",
+        "Don't use overly complex, multi-colored gradients as primary backgrounds — the screenshot shows a clean white base.",
+        "Don't use heavy, drop shadows for elevation — the screenshot shows subtle, minimal box shadows or inset borders.",
+        "Don't use all-caps for body text — the screenshot shows uppercase text used sparingly for labels or small tags.",
+        "Don't use a high-contrast, bright primary color that isn't purple or green — the screenshot shows a specific purple for CTAs and green for promotional banners."
+      ],
+      "systemPrompt": "This is the homepage of Figma, a collaborative design tool. The design DNA is clean, professional, and highly refined, prioritizing clarity and whitespace. The primary color palette is monochromatic with black (#000000) text on a white (#FFFFFF) background, accented by a vibrant purple (#5B5BF7) for primary action buttons and a bright green (#24CB71) for promotional banners. Typography is strictly humanist-sans-serif (Figma Sans) with a light body weight (330) and tight letter-spacing for a modern feel. Key interactions are subtle, using smooth transitions. Critical don'ts: Do not use dark mode as the primary theme; do not use serif fonts; do not rely on heavy drop shadows for elevation. Focus on clean layouts, generous spacing, and high-contrast, accessible text."
+    },
+    "zh-CN": {
+      "identity": {
+        "keywords": [
+          "设计",
+          "协作",
+          "工具",
+          "现代",
+          "创意",
+          "专业"
+        ],
+        "analogy": "现代设计与产品团队的标准操作系统。",
+        "oneLiner": "一款为团队提供头脑风暴、设计和构建产品功能的协作界面设计工具。"
+      },
+      "colors": {
+        "principle": "采用高对比度设计，以洁净的白色背景搭配黑色文字，确保最佳可读性。主操作使用充满活力的紫色进行点缀，推广横幅则使用明亮的绿色。"
+      },
+      "typography": {
+        "rules": [
+          "标题采用紧凑的字间距（负值 letter-spacing），营造现代、紧凑的视觉感受。",
+          "正文保持较浅的字重（330），营造干净、通透的阅读感。",
+          "等宽字体专用于代码片段或技术性内容展示。"
+        ],
+        "scaleUses": [
+          "主视觉标题",
+          "章节标题",
+          "主要正文内容",
+          "次要文本与界面标签"
+        ]
+      },
+      "spacing": {
+        "rhythm": "以 8px 为基础单位，内边距与外边距遵循 8 和 16 的倍数，构建一致的空间系统。"
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(0, 0, 0, 0.08) 0px 1px 0px 0px",
+          "rgb(0, 0, 0) 0px 0px 0px 1px inset",
+          "rgb(255, 255, 255) 0px 0px 0px 1px inset"
+        ],
+        "borders": "边框使用极为克制，主要采用微妙的 1px 分割线或内嵌阴影来定义容器和输入框。"
+      },
+      "layout": {
+        "skeleton": "采用标准的 12 列流式网格，具备响应式断点。优先保证充足的留白和清晰的内容层级。"
+      },
+      "components": {
+        "button": "高对比度的主按钮（黑色背景，白色文字），采用胶囊形或微圆角设计。次要按钮使用线框样式。",
+        "card": "卡片常用于展示社区项目，具有大尺寸的视觉图像和简洁的排版，有时会搭配微妙的阴影或边框。",
+        "chip": "标签使用极为克制；标签和标记通常整合在列表或导航菜单中。",
+        "input": "洁净的输入框，通过内嵌阴影或微妙的边框进行定义，技术性输入常搭配等宽字体。",
+        "hero": "动态的主视觉区域，采用大尺寸、富有表现力的字体，通常与多样化的彩色项目截图画廊进行互动或叠加。"
+      },
+      "motion": {
+        "patterns": [
+          "hover 状态与交互元素采用平滑过渡。",
+          "界面状态变化时使用细微的变形与位移。",
+          "模态框或覆盖层采用背景与透明度过渡。"
+        ]
+      },
+      "interaction": {
+        "hover": "通过背景色或透明度的微妙变化实现反馈，过渡时长通常在 0.16s 至 0.25s 之间。",
+        "click": "提供即时的视觉反馈，通常通过背景色变化或细微的变形来实现。",
+        "transition": "布局变化、背景色切换以及交互元素状态转换均采用平滑过渡。",
+        "keyboard": "提供标准的键盘导航支持，并为交互元素显示清晰的 focus 状态。"
+      },
+      "voice": {
+        "tone": "专业、赋能且清晰，聚焦于协作与创造力。",
+        "headlineStyle": "使用粗体、简洁的陈述句，突出核心功能与优势。",
+        "ctaStyle": "直接且面向行动，使用诸如“开始使用”或“联系销售”等措辞。",
+        "avoid": [
+          "堆砌术语的技术性描述",
+          "过于随意或充满俚语的文案",
+          "使用被动语态的行动号召"
+        ]
+      },
+      "donts": [
+        "不要使用深色主背景——截图显示主要为白色背景。",
+        "不要为标题使用衬线字体——截图显示使用的是人文主义无衬线字体。",
+        "不要使用过于复杂、多彩的渐变色作为主背景——截图显示为干净的白色基底。",
+        "不要使用厚重的投影来体现层次感——截图显示使用的是微妙、极简的盒状阴影或内嵌边框。",
+        "不要在正文使用全大写——截图显示大写文本仅在标签或小标记中少量使用。",
+        "不要使用高对比度的、非紫色或绿色的亮色作为主色——截图显示主操作按钮使用特定的紫色，推广横幅使用绿色。"
+      ],
+      "systemPrompt": "这是 Figma 协作设计工具的首页。其设计基因干净、专业且高度精致，优先考虑清晰度与留白。主色板为单色调，白色（#FFFFFF）背景搭配黑色（#000000）文字，主操作按钮使用充满活力的紫色（#5B5BF7）点缀，推广横幅则使用明亮的绿色（#24CB71）。字体严格采用人文主义无衬线字体（Figma Sans），正文使用较浅字重（330）和紧凑字间距，营造现代感。关键交互细微，使用平滑过渡。务必避免的要点：不要将深色模式作为主主题；不要使用衬线字体；不要依赖厚重的投影来体现层次。专注于干净的布局、充足的间距以及高对比度、无障碍的文字。"
+    },
+    "zh-TW": {
+      "identity": {
+        "keywords": [
+          "設計",
+          "協作",
+          "工具",
+          "現代",
+          "創意",
+          "專業"
+        ],
+        "analogy": "現代設計與產品團隊的標準作業系統。",
+        "oneLiner": "一款團隊協作介面設計工具，讓團隊能共同構思、設計與建構產品。"
+      },
+      "colors": {
+        "principle": "高對比度、潔淨的白色背景搭配黑色文字，以達最佳可讀性，並以鮮明的紫色作為主要操作強調色，以及明亮的綠色用於促銷橫幅。"
+      },
+      "typography": {
+        "rules": [
+          "標題採用緊湊字距（負字母間距），呈現現代、簡潔的視覺感受。",
+          "內文字體保持輕字重（330），營造清爽、通透的閱讀體驗。",
+          "等寬字體僅限用於程式碼片段或技術性展示。"
+        ],
+        "scaleUses": [
+          "主視覺標題",
+          "章節標題",
+          "主要內文",
+          "次要文字與介面標籤"
+        ]
+      },
+      "spacing": {
+        "rhythm": "以 8px 為基礎單位，並以 8 和 16 的倍數建立一致的空間系統，用於 padding 與 margins。"
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(0, 0, 0, 0.08) 0px 1px 0px 0px",
+          "rgb(0, 0, 0) 0px 0px 0px 1px inset",
+          "rgb(255, 255, 255) 0px 0px 0px 1px inset"
+        ],
+        "borders": "極簡使用邊框，主要以細微的 1px 分隔線或內陰影來定義容器與輸入欄位。"
+      },
+      "layout": {
+        "skeleton": "標準的 12 欄流體格線系統，搭配響應式斷點，優先採用充裕的留白與清晰的內容層次結構。"
+      },
+      "components": {
+        "button": "高對比度的主按鈕（黑色背景、白色文字），採用膠囊形或微圓角設計。次要按鈕則使用外框樣式。",
+        "card": "卡片常用於展示社群專案，具有大型影像與簡潔排版，有時搭配細微陰影或邊框。",
+        "chip": "極少使用 chip 元素；標籤與標記通常整合於清單或導覽選單中。",
+        "input": "潔淨的輸入欄位，以內陰影或細微邊框定義，常搭配等寬字體用於技術性輸入。",
+        "hero": "動態的主視覺區域，採用大型、表現力強的排版，常與多樣化、色彩豐富的專案截圖圖庫互動或疊加。"
+      },
+      "motion": {
+        "patterns": [
+          "懸停狀態與互動元素採用流暢的過渡效果。",
+          "UI 狀態變換時使用細微的變形與位移效果。",
+          "彈窗或覆蓋層使用背景與透明度的過渡動畫。"
+        ]
+      },
+      "interaction": {
+        "hover": "細微的背景色變化或透明度調整，過渡時長通常約為 0.16 秒至 0.25 秒。",
+        "click": "立即的視覺回饋，通常透過背景色轉換或細微變形實現。",
+        "transition": "版面、背景色與互動元素狀態的流暢過渡效果。",
+        "keyboard": "標準鍵盤導覽支援，互動元素具有可見的聚焦狀態。"
+      },
+      "voice": {
+        "tone": "專業、賦能且清晰，聚焦於協作與創造力。",
+        "headlineStyle": "大膽、簡潔的陳述，突顯核心功能與效益。",
+        "ctaStyle": "直接且以行動為導向，使用如「開始使用」或「聯繫業務」等措辭。",
+        "avoid": [
+          "充滿術語的技術性描述",
+          "過度隨意或俚語過多的文案",
+          "行動呼籲中使用被動語態"
+        ]
+      },
+      "donts": [
+        "勿使用深色作為主要背景——截圖顯示以白色背景為主。",
+        "勿使用襯線字體作為標題——截圖顯示採用人文主義無襯線字體。",
+        "勿使用過於複雜、多色的漸層作為主要背景——截圖顯示以純淨的白色為基底。",
+        "勿使用厚重、下落的陰影來營造立體感——截圖顯示採用細微、簡約的方塊陰影或內邊框。",
+        "勿在內文中使用全大寫——截圖顯示大寫文字僅少量用於標籤或小型標記。",
+        "勿使用非紫色或綠色的高對比、明亮主色調——截圖顯示特定的紫色用於行動呼籲按鈕，綠色用於促銷橫幅。"
+      ],
+      "systemPrompt": "這是 Figma 協作設計工具的首頁。其設計 DNA 簡潔、專業且高度精緻，優先考量清晰度與留白。主要色彩單色系，以黑色（#000000）文字搭配白色（#FFFFFF）背景，並以鮮明的紫色（#5B5BF7）作為主要操作按鈕強調色，明亮的綠色（#24CB71）用於促銷橫幅。字體嚴格採用人文主義無襯線體（Figma Sans），內文使用輕字重（330）並搭配緊湊字母間距，營造現代感。關鍵互動細微，採用流暢過渡效果。重要禁則：勿使用深色模式作為主要主題；勿使用襯線字體；勿依賴厚重下落陰影營造立體感。專注於簡潔版面、充裕間距以及高對比、易於閱讀的文字。"
+    },
+    "ja": {
+      "identity": {
+        "keywords": [
+          "デザイン",
+          "コラボレーション",
+          "ツール",
+          "モダン",
+          "クリエイティブ",
+          "プロフェッショナル"
+        ],
+        "analogy": "モダンなデザイン・プロダクトチームのための標準オペレーティングシステム。",
+        "oneLiner": "チームがブレインストーミング、デザイン、プロダクト構築を共に行うためのコラボレーティブなインターフェースデザインツール。"
+      },
+      "colors": {
+        "principle": "最大限の可読性のため、白を基調としたクリーンな背景に黒テキストを採用し、プライマリアクションには鮮やかなアクセントカラーを、プロモーションバナーには明るいグリーンを配置。"
+      },
+      "typography": {
+        "rules": [
+          "見出しには近代的でコンパクトな印象を与えるため、トラッキング（文字間隔）を狭める。",
+          "本文テキストは軽量ウェイト（330）を維持し、クリーンで空気感のある印象を実現。",
+          "モノスペースフォントはコードスニペットや技術的な表示に限定。"
+        ],
+        "scaleUses": [
+          "メインヒーロー見出し",
+          "セクション見出し",
+          "プライマリ本文",
+          "セカンダリテキストおよびUIラベル"
+        ]
+      },
+      "spacing": {
+        "rhythm": "8pxを基本単位とし、パディングやマージンには8と16の倍数に基づく一貫した空間システムを採用。"
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(0, 0, 0, 0.08) 0px 1px 0px 0px",
+          "rgb(0, 0, 0) 0px 0px 0px 1px inset",
+          "rgb(255, 255, 255) 0px 0px 0px 1px inset"
+        ],
+        "borders": "ボーダーの使用は最小限に抑え、コンテナや入力フィールドの区切りには主に微細な1pxディバイダーまたはインセットシャドウを採用。"
+      },
+      "layout": {
+        "skeleton": "レスポンシブなブレークポイントを持つ標準的な12カラムフリードグリッド。余白を十分に確保し、明確なコンテンツ階層を優先。"
+      },
+      "components": {
+        "button": "高コントラストのプライマリボタン（黒背景、白テキスト）はピル型または角丸が少し効いた形状。セカンダリボタンにはアウトラインスタイルを使用。",
+        "card": "カードはコミュニティプロジェクトの紹介によく使用され、大きな画像とクリーンなタイポグラフィを特徴とし、微細なシャドウやボーダーが施されることもある。",
+        "chip": "チップの使用は最小限。タグやラベルは通常、リストやナビゲーションメニューに統合される。",
+        "input": "入力フィールドはインセットシャドウや微細なボーダーで定義され、技術的な入力にはモノスペースフォントが使われることが多い。",
+        "hero": "ダイナミックなヒーローセクションは、大きく表現力豊かなタイポグラフィを特徴とし、しばしば多様でカラフルなプロジェクトスクリーンショットのギャラリーと相互に作用したり、オーバーレイされたりする。"
+      },
+      "motion": {
+        "patterns": [
+          "ホバーステートやインタラクティブ要素にはスムーズなトランジション。",
+          "UIの状態変化には微細なトランスフォームやトランスレーション。",
+          "モーダルやオーバーレイには背景と不透明度のトランジション。"
+        ]
+      },
+      "interaction": {
+        "hover": "微細な背景色の変化や不透明度の調整が一般的で、トランジション持続時間はおよそ0.16秒から0.25秒。",
+        "click": "即座にフィードバックを提供し、しばしば背景色の変化や微細なトランスフォームで実現。",
+        "transition": "レイアウト変化、背景色、インタラクティブ要素の状態に対してスムーズなトランジション。",
+        "keyboard": "インタラクティブ要素にフォーカス状態を表示し、標準的なキーボードナビゲーションをサポート。"
+      },
+      "voice": {
+        "tone": "プロフェッショナルで、ユーザーをエンパワーメントし、明瞭なトーン。コラボレーションとクリエイティビティに焦点を当てる。",
+        "headlineStyle": "中核となる機能やメリットを強調する、大胆で簡潔なステートメント。",
+        "ctaStyle": "「Get started」や「Contact sales」などのフレーズを使用し、直接的でアクション重視。",
+        "avoid": [
+          "専門用語が過多な技術的な記述",
+          "過度にカジュアルまたはスラングを多用したコピー",
+          "CTAにおける受動態"
+        ]
+      },
+      "donts": [
+        "プライマリ背景にダークカラーを使用しない — スクリーンショットでは主に白の背景が示されている。",
+        "見出しにセリフフォントを使用しない — スクリーンショットではヒューマニストサンセリフフォントが示されている。",
+        "プライマリ背景に複雑で多色のグラデーションを使用しない — スクリーンショットではクリーンな白が基調。",
+        "エレベーションに重いドロップシャドウを使用しない — スクリーンショットでは微細で最小限のボックスシャドウまたはインセットボーダーが示されている。",
+        "本文テキストにすべて大文字を使用しない — スクリーンショットではラベルや小さなタグに限定して大文字テキストが使用されている。",
+        "CTAに紫や緑以外の、高コントラントで明るいプライマリカラーを使用しない — スクリーンショットではCTAに特定の紫が、プロモーションバナーにグリーンが示されている。"
+      ],
+      "systemPrompt": "これはコラボレーティブデザインツールFigmaのホームページです。デザインDNAはクリーンでプロフェッショナル、洗練されており、明瞭さと余白を優先します。プライマリカラーパレットはモノクロで、白（#FFFFFF）背景に黒（#000000）テキストを採用し、プライマリアクションボタンには鮮やかな紫（#5B5BF7）を、プロモーションバナーには明るいグリーン（#24CB71）をアクセントとして配置。タイポグラフィは厳格にヒューマニストサンセリフ（Figma Sans）を採用し、本文には軽量ウェイト（330）、近代的な印象のための狭い文字間隔を設定。主要なインタラクションは微細で、スムーズなトランジションを使用。重要な禁止事項：ダークモードをプライマリテーマとして使用しない；セリフフォントを使用しない；エレベーションに重いドロップシャドウに依存しない。クリーンなレイアウト、豊富な余白、高コントラストでアクセシブルなテキストに焦点を当てる。"
+    },
+    "ko": {
+      "identity": {
+        "keywords": [
+          "디자인",
+          "협업",
+          "도구",
+          "모던",
+          "크리에이티브",
+          "프로페셔널"
+        ],
+        "analogy": "현대적인 디자인 및 제품 팀을 위한 표준 운영 체제입니다.",
+        "oneLiner": "팀이 함께 브레인스토밍, 디자인, 제품 구축을 할 수 있는 협업 인터페이스 디자인 도구입니다."
+      },
+      "colors": {
+        "principle": "최대 가독성을 위해 고대비, 깨끗한 흰색 배경과 검은색 텍스트를 사용하며, 주요 작업에는 활기찬 보라색, 프로모션 배너에는 밝은 녹색을 강조색으로 적용합니다."
+      },
+      "typography": {
+        "rules": [
+          "헤드라인은 현대적이고 간결한 느낌을 위해 타이트한 트래킹(음수 자간)을 사용합니다.",
+          "본문 텍스트는 가볍고 산뜻한 느낌을 위해 가벼운 굵기(330)를 유지합니다.",
+          "모노스페이스 폰트는 코드 스니펫이나 기술적 표시에만 사용합니다."
+        ],
+        "scaleUses": [
+          "메인 히어로 헤딩",
+          "섹션 헤딩",
+          "주 본문 텍스트",
+          "보조 텍스트 및 UI 레이블"
+        ]
+      },
+      "spacing": {
+        "rhythm": "패딩과 마진을 위한 8와 16의 배수를 기반으로 한 일관된 공간 시스템으로, 8px 기본 단위를 사용합니다."
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(0, 0, 0, 0.08) 0px 1px 0px 0px",
+          "rgb(0, 0, 0) 0px 0px 0px 1px inset",
+          "rgb(255, 255, 255) 0px 0px 0px 1px inset"
+        ],
+        "borders": "테두리는 최소한으로 사용하며, 주로 컨테이너와 입력 필드를 정의하기 위해 미묘한 1px 구분선이나 인셋 그림자를 사용합니다."
+      },
+      "layout": {
+        "skeleton": "풍부한 여백과 명확한 콘텐츠 계층 구조를 우선시하는, 반응형 브레이크포인트가 있는 표준 12컬럼 유동 그리드입니다."
+      },
+      "components": {
+        "button": "고대비 주요 버튼(검은색 배경, 흰색 텍스트)은 필形状 또는 약간 둥근 모서리를 사용합니다. 보조 버튼은 아웃라인 스타일을 사용합니다.",
+        "card": "카드는 종종 커뮤니티 프로젝트를 소개할 때 사용되며, 큰 이미지와 깔끔한 타이포그래피를 특징으로 하며, 때로는 미묘한 그림자나 테두리가 적용됩니다.",
+        "chip": "칩의 사용은 최소화합니다. 태그와 레이블은 일반적으로 목록이나 내비게이션 메뉴에 통합됩니다.",
+        "input": "깔끔한 입력 필드는 인셋 그림자나 미묘한 테두리로 정의되며, 기술적 입력을 위해 종종 모노스페이스 폰트와 함께 제공됩니다.",
+        "hero": "다이나믹한 히어로 섹션은 크고 표현력 있는 타이포그래피를 특징으로 하며, 종종 다양한 컬러풀한 프로젝트 스크린샷 갤러리와 상호작용하거나 겹쳐서 배치됩니다."
+      },
+      "motion": {
+        "patterns": [
+          "호버 상태와 인터랙티브 요소를 위한 부드러운 전환.",
+          "UI 상태 변화를 위한 미묘한 변환과 이동.",
+          "모달 또는 오버레이를 위한 배경과 투명도 전환."
+        ]
+      },
+      "interaction": {
+        "hover": "약 0.16초에서 0.25초 사이의 전환 시간으로 미묘한 배경색 변화나 투명도 조절.",
+        "click": "즉각적인 시각적 피드백, 주로 배경색 변화나 미묘한 변환을 통해 제공.",
+        "transition": "레이아웃 변화, 배경색, 인터랙티브 요소 상태를 위한 부드러운 전환.",
+        "keyboard": "인터랙티브 요소에 대한 눈에 띄는 포커스 상태를 갖춘 표준 키보드 내비게이션 지원."
+      },
+      "voice": {
+        "tone": "협업과 창의성에 초점을 맞춘, 전문적이고 권한을 부여하며 명확한 어조.",
+        "headlineStyle": "핵심 기능과 이점을 강조하는 굵고 간결한 문장.",
+        "ctaStyle": "'시작하기'나 '영업팀 문의'와 같은 직접적이고 행동 지향적인 문구.",
+        "avoid": [
+          "전문 용어가 지나치게 많은 기술적 설명",
+          "지나치게 캐주얼하거나 은어가 가득한 카피",
+          "행동 유도(CTA)에서 수동태 사용"
+        ]
+      },
+      "donts": [
+        "어두운 주요 배경을 사용하지 마세요 — 스크린샷은 주로 흰색 배경을 보여줍니다.",
+        "헤드라인에 세리프 폰트를 사용하지 마세요 — 스크린샷은 휴머니스트-산세리프 폰트를 보여줍니다.",
+        "주요 배경으로 지나치게 복잡하고 다채로운 그라디언트를 사용하지 마세요 — 스크린샷은 깨끗한 흰색 베이스를 보여줍니다.",
+        "입체감을 위해 무거운 드롭 섀도우를 사용하지 마세요 — 스크린샷은 미묘하고 최소화된 박스 섀도우나 인셋 테두리를 보여줍니다.",
+        "본문 텍스트에 올캡스를 사용하지 마세요 — 스크린샷은 레이블이나 작은 태그에 대문자를 절제하여 사용하는 것을 보여줍니다.",
+        "보라색이나 녹색이 아닌 고대비 밝은 주요색을 사용하지 마세요 — 스크린샷은 CTA에 특정 보라색과 프로모션 배너에 녹색을 보여줍니다."
+      ],
+      "systemPrompt": "이것은 협업 디자인 도구 Figma의 홈페이지입니다. 디자인 DNA는 깨끗하고, 전문적이며, 매우 정제되어 있으며, 명확성과 여백을 우선시합니다. 주요 색상 팔레트는 검은색(#000000) 텍스트가 있는 흰색(#FFFFFF) 배경을 기반으로 한 단색 계열이며, 주요 작업 버튼에는 활기찬 보라색(#5B5BF7)을, 프로모션 배너에는 밝은 녹색(#24CB71)을 강조색으로 사용합니다. 타이포그래피는 엄격하게 휴머니스트-산세리프(Figma Sans)를 사용하며, 가벼운 본문 굵기(330)와 현대적인 느낌을 위한 타이트한 자간을 적용합니다. 주요 인터랙션은 미묘하며 부드러운 전환을 사용합니다. 중요한 금지 사항: 다크 모드를 주요 테마로 사용하지 마세요; 세리프 폰트를 사용하지 마세요; 입체감을 위해 무거운 드롭 섀도우에 의존하지 마세요. 깔끔한 레이아웃, 풍부한 간격, 고대비 접근성 높은 텍스트에 집중하세요."
     }
   }
 }

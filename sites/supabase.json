@@ -17,58 +17,67 @@
   "_meta": {
     "vision_model": "mimo-v2.5",
     "vision_prompt_version": "0.3",
-    "vision_at": "2026-05-28T20:53:13+00:00",
-    "vision_tokens": 3476,
-    "vision_cost_usd": 0.0386,
+    "vision_at": "2026-05-30T06:38:16+00:00",
+    "vision_tokens": 17980,
+    "vision_cost_usd": 0.1998,
     "translation_model": "mimo-v2.5",
-    "translation_at": "2026-05-28T20:54:13+00:00",
-    "translation_tokens": 15977,
-    "translation_cost_usd": 0.0532,
+    "translation_at": "2026-05-30T06:39:07+00:00",
+    "translation_tokens": 25797,
+    "translation_cost_usd": 0.0859,
     "narrative_model": "mimo-v2.5",
     "narrative_prompt_version": "0.3",
     "narrative_at": "2026-05-28T20:54:20+00:00",
     "narrative_tokens": 1949,
     "narrative_cost_usd": 0.013,
     "narrative_status": "ok",
-    "total_cost_usd": 0.1048
+    "total_cost_usd": 0.2987,
+    "vision_source": "playwright-extract:supabase",
+    "vision_grounded": true
   },
   "spec": {
     "colors": {
-      "bg": "#FFFFFF",
-      "bgSoft": null,
-      "bgQuiet": null,
-      "ink": "#1A1A1A",
-      "inkSoft": "#555555",
-      "muted": "#888888",
+      "bg": "#ffffff",
+      "bgSoft": "#fdfdfd",
+      "bgQuiet": "#fcfcfc",
+      "ink": "#171717",
+      "inkSoft": "#707070",
+      "muted": "#707070",
       "mutedSoft": null,
-      "accent": "#3ECF8E",
-      "line": "rgba(0, 0, 0, 0.1)"
+      "accent": "#00bb68",
+      "line": "rgba(223, 223, 223, 1)"
     },
     "typography": {
       "display": "geometric-sans",
-      "body": "humanist-sans",
-      "mono": null,
+      "body": "geometric-sans",
+      "mono": "monospace",
       "scale": [
         {
           "token": "display",
-          "size": 56,
-          "lh": 1.1,
+          "size": 64,
+          "lh": 1.05,
           "weight": 500,
           "ls": "-1.5px"
         },
         {
-          "token": "headline",
-          "size": 32,
+          "token": "h2",
+          "size": 36,
           "lh": 1.2,
           "weight": 500,
           "ls": "-0.5px"
         },
         {
           "token": "body",
-          "size": 18,
-          "lh": 1.6,
+          "size": 16,
+          "lh": 1.5,
           "weight": 400,
-          "ls": "0"
+          "ls": "0px"
+        },
+        {
+          "token": "small",
+          "size": 14,
+          "lh": 1.4,
+          "weight": 400,
+          "ls": "0px"
         }
       ]
     },
@@ -77,6 +86,7 @@
       "scale": [
         4,
         8,
+        12,
         16,
         24,
         32,
@@ -89,7 +99,7 @@
       "radius": {
         "sm": 4,
         "md": 8,
-        "lg": 12,
+        "lg": 16,
         "pill": 999
       }
     },
@@ -105,412 +115,20 @@
     },
     "motion": {
       "durations": {
-        "micro": 200,
-        "small": 300,
-        "medium": 500
+        "micro": 150,
+        "small": 200,
+        "medium": 400
       },
       "easing": "cubic-bezier(0.4, 0, 0.2, 1)"
     }
   },
-  "spec_i18n": {
-    "en": {
-      "identity": {
-        "keywords": [
-          "database",
-          "infrastructure",
-          "developer",
-          "open-source",
-          "cloud"
-        ],
-        "analogy": "A modern, clean dashboard for managing backend infrastructure.",
-        "oneLiner": "A developer-focused backend-as-a-service platform with a clean, utilitarian aesthetic."
-      },
-      "colors": {
-        "principle": "High-contrast, black-on-white with a single vibrant green accent for primary actions."
-      },
-      "typography": {
-        "rules": [
-          "Headlines are set in a geometric sans-serif with tight letter-spacing.",
-          "Body text uses a clean, readable humanist sans-serif.",
-          "Weight contrast is moderate, using 400 and 500 primarily."
-        ],
-        "scaleUses": [
-          "Main hero headline",
-          "Section headings",
-          "Paragraph text"
-        ]
-      },
-      "spacing": {
-        "rhythm": "Consistent 8px-based spacing system with generous whitespace for clarity."
-      },
-      "surfaces": {
-        "shadows": [
-          "0 1px 3px rgba(0,0,0,0.04)",
-          "0 4px 12px rgba(0,0,0,0.04)"
-        ],
-        "borders": "1px solid rgba(0, 0, 0, 0.1)"
-      },
-      "layout": {
-        "skeleton": "Centered single-column layout with a max-width container for main content."
-      },
-      "components": {
-        "button": "Solid green primary button with rounded corners, and a secondary outline/ghost button with rounded corners.",
-        "card": "White background with subtle border and rounded corners, minimal shadows.",
-        "chip": "Small rounded badges for navigation or labels.",
-        "input": "Not fully visible, but implied to be clean, rounded inputs.",
-        "hero": "Large centered headline with subtitle, followed by primary CTAs."
-      },
-      "motion": {
-        "patterns": [
-          "Subtle hover state transitions on buttons and navigation."
-        ]
-      },
-      "interaction": {
-        "hover": "Subtle color or background change on interactive elements.",
-        "click": "Immediate visual feedback, no complex animations.",
-        "transition": "Smooth transitions for color and background changes.",
-        "keyboard": "Standard focus rings for accessibility."
-      },
-      "voice": {
-        "tone": "Direct, technical, and empowering.",
-        "headlineStyle": "Action-oriented and concise.",
-        "ctaStyle": "Clear and value-driven (e.g., 'Start your project').",
-        "avoid": [
-          "Jargon that doesn't serve the developer",
-          "Overly playful or casual language",
-          "Marketing fluff"
-        ]
-      },
-      "donts": [
-        "Don't use multiple competing accent colors — screenshot shows a single dominant green accent.",
-        "Don't use decorative or script fonts — screenshot shows clean, geometric sans-serif typography.",
-        "Don't clutter the layout with dense, multi-column content blocks — screenshot shows generous whitespace and a focused, single-column flow.",
-        "Don't use heavy drop shadows or 3D effects — screenshot shows minimal, subtle shadows for depth.",
-        "Don't use dark mode or dark backgrounds — screenshot shows a light, white-dominant theme.",
-        "Don't use rounded, bubbly UI components — screenshot shows moderately rounded corners, not fully circular."
-      ],
-      "systemPrompt": "Supabase is a developer-focused backend-as-a-service platform with a clean, utilitarian, and highly professional aesthetic. The design uses a high-contrast palette of black ink (#1A1A1A) on a white background (#FFFFFF), with a single vibrant green accent (#3ECF8E) for primary CTAs. Typography is a blend of geometric-sans for headlines and humanist-sans for body text, emphasizing readability and modern structure. The layout is spacious, centered, and single-column, prioritizing clarity and developer trust. Critical design constraints: Do not use multiple competing accent colors; the palette is intentionally restrained. Do not use decorative or script fonts; maintain the clean, technical feel. Do not clutter the layout with dense multi-column blocks; prioritize generous whitespace and focused content flow."
-    },
-    "zh-CN": {
-      "identity": {
-        "keywords": [
-          "数据库",
-          "基础设施",
-          "开发者",
-          "开源",
-          "云"
-        ],
-        "analogy": "一个用于管理后端基础设施的现代、简洁的仪表板。",
-        "oneLiner": "一个以开发者为中心的后端即服务平台，具有简洁、实用的美学风格。"
-      },
-      "colors": {
-        "principle": "高对比度、黑白为主，使用单一的活力绿色作为主要操作的点缀色。"
-      },
-      "typography": {
-        "rules": [
-          "标题采用几何无衬线字体，字间距紧凑。",
-          "正文使用清晰易读的人文主义无衬线字体。",
-          "字重对比度适中，主要使用 400 和 500。"
-        ],
-        "scaleUses": [
-          "主视觉大标题",
-          "版块标题",
-          "段落文本"
-        ]
-      },
-      "spacing": {
-        "rhythm": "基于 8px 的一致间距系统，留白充足以保持清晰度。"
-      },
-      "surfaces": {
-        "shadows": [
-          "0 1px 3px rgba(0,0,0,0.04)",
-          "0 4px 12px rgba(0,0,0,0.04)"
-        ],
-        "borders": "1px solid rgba(0, 0, 0, 0.1)"
-      },
-      "layout": {
-        "skeleton": "居中单栏布局，主内容采用最大宽度容器。"
-      },
-      "components": {
-        "button": "纯绿色实心主按钮，圆角设计；以及一个圆角的次级轮廓/幽灵按钮。",
-        "card": "白色背景，带细微边框和圆角，阴影极简。",
-        "chip": "用于导航或标签的小型圆角徽章。",
-        "input": "未完全展示，但可推断为简洁、圆角的输入框。",
-        "hero": "大型居中标题带副标题，后接主要行动号召按钮。"
-      },
-      "motion": {
-        "patterns": [
-          "按钮和导航上的微妙 hover 状态过渡。"
-        ]
-      },
-      "interaction": {
-        "hover": "交互元素上的颜色或背景微妙变化。",
-        "click": "即时视觉反馈，无复杂动画。",
-        "transition": "颜色和背景变化的平滑过渡。",
-        "keyboard": "符合无障碍标准的焦点环。"
-      },
-      "voice": {
-        "tone": "直接、技术性、赋能型。",
-        "headlineStyle": "行动导向且简洁。",
-        "ctaStyle": "清晰并强调价值（例如：“开始你的项目”）。",
-        "avoid": [
-          "对开发者无用的行话",
-          "过于俏皮或随意的语言",
-          "营销套话"
-        ]
-      },
-      "donts": [
-        "不要使用多种相互竞争的点缀色——截图显示为单一的主导绿色点缀。",
-        "不要使用装饰性或手写体字体——截图显示为简洁的几何无衬线字体排印。",
-        "不要用密集的多栏内容块使布局显得杂乱——截图显示留白充足且聚焦的单栏流程。",
-        "不要使用厚重的投影或 3D 效果——截图显示为最小、微妙的阴影以体现层次。",
-        "不要使用深色模式或深色背景——截图显示为浅色、以白色为主导的主题。",
-        "不要使用圆润、气泡状的 UI 组件——截图显示为适度圆角，并非完全圆形。"
-      ],
-      "systemPrompt": "Supabase 是一个以开发者为中心的后端即服务平台，具有简洁、实用且高度专业的美学风格。设计采用黑色墨水 (#1A1A1A) 与白色背景 (#FFFFFF) 的高对比度配色，并使用单一的活力绿色 (#3ECF8E) 作为主要行动号召的点缀色。字体融合了几何无衬线体用于标题，人文主义无衬线体用于正文，强调可读性和现代结构。布局宽敞、居中且为单栏，优先考虑清晰度和开发者信任度。关键设计约束：不要使用多种相互竞争的点缀色；配色方案刻意克制。不要使用装饰性或手写体字体；保持简洁的技术感。不要用密集的多栏模块使布局显得杂乱；优先考虑充足的留白和聚焦的内容流程。"
-    },
-    "zh-TW": {
-      "identity": {
-        "keywords": [
-          "資料庫",
-          "基礎架構",
-          "開發者",
-          "開源",
-          "雲端"
-        ],
-        "analogy": "一個現代、簡潔的儀表板，用於管理後端基礎架構。",
-        "oneLiner": "一個專注開發者的後端即服務（backend-as-a-service）平台，具有乾淨、實用主義的美學。"
-      },
-      "colors": {
-        "principle": "高對比，白色背景搭配黑色文字，並以單一鮮活的綠色作為主要操作的強調色。"
-      },
-      "typography": {
-        "rules": [
-          "標題採用幾何無襯線字體，字距較緊。",
-          "內文使用乾淨、易讀的人文主義無襯線字體。",
-          "字重對比適中，主要使用 400 與 500。"
-        ],
-        "scaleUses": [
-          "主視覺標題",
-          "段落標題",
-          "內文段落"
-        ]
-      },
-      "spacing": {
-        "rhythm": "一致的 8px 基準間距系統，搭配充裕的留白以確保清晰度。"
-      },
-      "surfaces": {
-        "shadows": [
-          "0 1px 3px rgba(0,0,0,0.04)",
-          "0 4px 12px rgba(0,0,0,0.04)"
-        ],
-        "borders": "1px solid rgba(0, 0, 0, 0.1)"
-      },
-      "layout": {
-        "skeleton": "置中單欄佈局，主要內容設有最大寬度容器。"
-      },
-      "components": {
-        "button": "實心綠色主按鈕，採用圓角設計；次要按鈕為圓角樣式，使用描邊或透明底。",
-        "card": "白色背景，搭配細微邊框與圓角，陰影效果 minimal。",
-        "chip": "用於導覽或標籤的小型圓角徽章。",
-        "input": "未完全顯示，但暗示為乾淨、圓角的輸入框。",
-        "hero": "大型置中標題搭配副標題，下方接著主要行動呼籲按鈕。"
-      },
-      "motion": {
-        "patterns": [
-          "按鈕與導覽元件具備細微的 hover 狀態過渡效果。"
-        ]
-      },
-      "interaction": {
-        "hover": "互動元件在 hover 時有細微的顏色或背景變化。",
-        "click": "提供即時的視覺反饋，無複雜動畫。",
-        "transition": "顏色與背景變化時採用平滑過渡。",
-        "keyboard": "使用標準的 focus ring 以確保無障礙訪問。"
-      },
-      "voice": {
-        "tone": "直接、具技術感且賦權予開發者。",
-        "headlineStyle": "以行動為導向且簡潔有力。",
-        "ctaStyle": "清晰且強調價值（例如：「開始你的專案」）。",
-        "avoid": [
-          "對開發者無益的術語",
-          "過於俏皮或隨意的用語",
-          "行銷話術"
-        ]
-      },
-      "donts": [
-        "避免使用多個相互競爭的強調色——截圖顯示僅有一個主導的綠色強調色。",
-        "避免使用裝飾性或手寫體字體——截圖顯示乾淨、幾何無襯線字體排印。",
-        "避免在佈局中塞入密集的多欄內容區塊——截圖顯示充裕的留白與聚焦的單欄流動。",
-        "避免使用厚重的陰影或 3D 效果——截圖顯示用於營造層次感的細微陰影。",
-        "避免使用深色模式或深色背景——截圖顯示淺色、白色為主的主題。",
-        "避免使用過度圓潤、泡泡狀的 UI 元件——截圖顯示適度圓角，而非完全圓形。"
-      ],
-      "systemPrompt": "Supabase 是一個專注開發者的後端即服務平台，具有乾淨、實用主義且高度專業的美學。設計採用高對比色調，白色背景（#FFFFFF）搭配黑色文字（#1A1A1A），並以單一鮮活的綠色（#3ECF8E）作為主要行動呼籲的強調色。字體融合了幾何無襯線字體用於標題，與人文主義無襯線字體用於內文，強調可讀性與現代結構。佈局寬敞、置中且為單欄，優先考量清晰度與開發者的信任感。關鍵設計限制：請勿使用多個相互競爭的強調色；色調是刻意克制的。請勿使用裝飾性或手寫體字體；維持乾淨、技術感。請勿用密集的多欄區塊塞滿佈局；優先考量充裕的留白與聚焦的內容流動。"
-    },
-    "ja": {
-      "identity": {
-        "keywords": [
-          "データベース",
-          "インフラストラクチャ",
-          "開発者",
-          "オープンソース",
-          "クラウド"
-        ],
-        "analogy": "バックエンドインフラストラクチャを管理する、モダンでクリーンなダッシュボード。",
-        "oneLiner": "クリーンで実用的な美学を備えた、開発者向けのバックエンド-as-a-サービスプラットフォーム。"
-      },
-      "colors": {
-        "principle": "ハイコントラストで、黒を白地に配し、プライマリアクションには1色の鮮やかなグリーンアクセントを使用。"
-      },
-      "typography": {
-        "rules": [
-          "見出しは、文字間隔を詰めた幾何学的なsans-serifで設定。",
-          "本文は、クリーンで読みやすいhumanist sans-serifを使用。",
-          "ウェイトのコントラストは中程度で、主に400と500を使用。"
-        ],
-        "scaleUses": [
-          "メインヒーロー見出し",
-          "セクション見出し",
-          "段落テキスト"
-        ]
-      },
-      "spacing": {
-        "rhythm": "明確さのためのたっぷりとした余白を備えた、一貫した8pxベースのスペーシングシステム。"
-      },
-      "surfaces": {
-        "shadows": [
-          "0 1px 3px rgba(0,0,0,0.04)",
-          "0 4px 12px rgba(0,0,0,0.04)"
-        ],
-        "border": "1px solid rgba(0, 0, 0, 0.1)"
-      },
-      "layout": {
-        "skeleton": "メインコンテンツ用の最大幅コンテナを持つ、中央揃えの単一カラムレイアウト。"
-      },
-      "components": {
-        "button": "角丸の実塗りグリーンプライマリボタンと、角丸のアウトライン/ゴーストセカンダリボタン。",
-        "card": "白い背景に、微細なborderと角丸、最小限のshadowを備えたカード。",
-        "chip": "ナビゲーションやラベル用の小さな角丸バッジ。",
-        "input": "完全には表示されていませんが、クリーンで角丸の入力欄が想定されます。",
-        "hero": "大きな中央揃えの見出しとサブタイトル、それに続くプライマリCTA。"
-      },
-      "motion": {
-        "patterns": [
-          "ボタンやナビゲーション上の微細なhover状態のtransition。"
-        ]
-      },
-      "interaction": {
-        "hover": "インタラクティブ要素の微細な色や背景の変化。",
-        "click": "複雑なアニメーションなしの、即座の視覚的フィードバック。",
-        "transition": "色や背景の変化に対する滑らかなtransition。",
-        "keyboard": "アクセシビリティのための標準的なfocusリング。"
-      },
-      "voice": {
-        "tone": "直接的で、技術的、かつエンパワーリング。",
-        "headlineStyle": "アクション志向で簡潔。",
-        "ctaStyle": "明確で価値主導（例：「プロジェクトを始める」）。",
-        "avoid": [
-          "開発者にとって役に立たない専門用語",
-          "極度に遊び心のある、またはカジュアルな言葉",
-          "マーケティングの陳情"
-        ]
-      },
-      "donts": [
-        "複数の競合するアクセントカラーを使用しない — スクリーンショットでは、単一の支配的なグリーンアクセントが示されています。",
-        "装飾的またはスクリプトフォントを使用しない — スクリーンショットでは、クリーンで幾何学的なsans-serifのタイポグラフィが示されています。",
-        "密集した複数カラムのコンテンツブロックでレイアウトを雑然とさせない — スクリーンショットでは、たっぷりとした余白と焦点を絞った単一カラムの流れが示されています。",
-        "重いドロップシャドウや3D効果を使用しない — スクリーンショットでは、奥行きのための最小限の微細なshadowが示されています。",
-        "ダークモードや暗い背景を使用しない — スクリーンショットでは、明るく白を基調としたテーマが示されています。",
-        "角丸でふっくらしたUIコンポーネントを使用しない — スクリーンショットでは、完全な円形ではなく、適度な角丸が示されています。"
-      ],
-      "systemPrompt": "Supabaseは、クリーンで実用的、非常にプロフェッショナルな美学を備えた開発者向けのバックエンド-as-a-サービスプラットフォームです。デザインは、黒インク（#1A1A1A）を白背景（#FFFFFF）に配したハイコントラストパレットを使用し、プライマリCTAには単一の鮮やかなグリーンアクセント（#3ECF8E）を採用しています。タイポグラフィは、見出しにgeometric-sans、本文にhumanist-sansを組み合わせ、可読性とモダンな構造を重視しています。レイアウトはゆったりとし、中央揃えで単一カラム、明確さと開発者の信頼を優先しています。重要なデザイン制約：複数の競合するアクセントカラーを使用しない — パレットは意図的に抑制されています。装飾的またはスクリプトフォントを使用しない — クリーンで技術的な雰囲気を維持します。密集した複数カラムブロックでレイアウトを雑然とさせない — たっぷりとした余白と焦点を絞ったコンテンツの流れを優先します。"
-    },
-    "ko": {
-      "identity": {
-        "keywords": [
-          "데이터베이스",
-          "인프라",
-          "개발자",
-          "오픈소스",
-          "클라우드"
-        ],
-        "analogy": "백엔드 인프라를 관리하기 위한 현대적이고 깔끔한 대시보드.",
-        "oneLiner": "깔끔하고 실용적인 미학을 갖춘 개발자 중심 백엔드 서비스 플랫폼입니다."
-      },
-      "colors": {
-        "principle": "주요 작업을 위해 단일의 선명한 그린 악센트를 사용한 흰색 배경의 고대비 팔레트입니다."
-      },
-      "typography": {
-        "rules": [
-          "헤드라인은 좁은 자간의 기하학적 산세리프로 설정합니다.",
-          "본문 텍스트는 깔끔하고 읽기 쉬운 휴머니스틱 산세리프를 사용합니다.",
-          "주로 400 및 500 웨이트를 사용하여 중간 정도의 웨이트 대비를 둡니다."
-        ],
-        "scaleUses": [
-          "메인 히어로 헤드라인",
-          "섹션 제목",
-          "단락 텍스트"
-        ]
-      },
-      "spacing": {
-        "rhythm": "명확성을 위한 넉넉한 여백과 함께 일관된 8px 기반 간격 시스템을 사용합니다."
-      },
-      "surfaces": {
-        "shadows": [
-          "0 1px 3px rgba(0,0,0,0.04)",
-          "0 4px 12px rgba(0,0,0,0.04)"
-        ],
-        "borders": "1px solid rgba(0, 0, 0, 0.1)"
-      },
-      "layout": {
-        "skeleton": "메인 콘텐츠를 위한 최대 폭 컨테이너의 중앙 정렬 단일 열 레이아웃입니다."
-      },
-      "components": {
-        "button": "둥근 모서리의 단색 그린 기본 버튼과 둥근 모서리의 두 번째 윤곽선/고스트 버튼입니다.",
-        "card": "미세한 테두리와 둥근 모서리, 최소한의 그림자가 있는 흰색 배경입니다.",
-        "chip": "네비게이션이나 레이블용의 작은 둥근 배지입니다.",
-        "input": "완전히 보이지는 않지만, 깔끔하고 둥근 입력 필드로 구성됨을 암시합니다.",
-        "hero": "부제목이 있는 큰 중앙 정렬 헤드라인과 그 뒤에 주요 CTA가 옵니다."
-      },
-      "motion": {
-        "patterns": [
-          "버튼과 네비게이션의 섬세한 hover 상태 전환."
-        ]
-      },
-      "interaction": {
-        "hover": "인터랙티브 요소의 미세한 색상 또는 배경 변화.",
-        "click": "복잡한 애니메이션 없이 즉각적인 시각적 피드백.",
-        "transition": "색상과 배경 변화를 위한 부드러운 전환.",
-        "keyboard": "접근성을 위한 표준 focus 링."
-      },
-      "voice": {
-        "tone": "직설적이고 기술적이며 역량을 강화하는 어조입니다.",
-        "headlineStyle": "행동 지향적이고 간결합니다.",
-        "ctaStyle": "명확하고 가치 중심적입니다 (예: '프로젝트 시작하기').",
-        "avoid": [
-          "개발자에게 도움이 되지 않는 전문 용어",
-          "지나치게 장난스럽거나 캐주얼한 언어",
-          "마케팅성 과장 표현"
-        ]
-      },
-      "donts": [
-        "경쟁하는 여러 악센트 색상을 사용하지 마세요 — 스크린샷은 단일의 지배적인 그린 악센트를 보여줍니다.",
-        "장식용이나 스크립트 폰트를 사용하지 마세요 — 스크린샷은 깔끔하고 기하학적인 산세리프 타이포그래피를 보여줍니다.",
-        "밀도 높은 다중 열 콘텐츠 블록으로 레이아웃을 복잡하게 만들지 마세요 — 스크린샷은 넉넉한 여백과 집중된 단일 열 흐름을 보여줍니다.",
-        "무거운 드롭 그림자나 3D 효과를 사용하지 마세요 — 스크린샷은 깊이를 위한 최소한의 미세한 그림자를 보여줍니다.",
-        "다크 모드 또는 어두운 배경을 사용하지 마세요 — 스크린샷은 밝고 흰색이 지배적인 테마를 보여줍니다.",
-        "둥글고 통통한 UI 컴포넌트를 사용하지 마세요 — 스크린샷은 완전히 원형이 아닌 적당히 둥근 모서리를 보여줍니다."
-      ],
-      "systemPrompt": "Supabase는 깔끔하고 실용적이며 매우 전문적인 미학을 갖춘 개발자 중심 백엔드 서비스 플랫폼입니다. 이 디자인은 흰색 배경(#FFFFFF)에 검은색(#1A1A1A)을 사용한 고대비 팔레트를 사용하며, 주요 CTA를 위해 단일의 선명한 그린 악센트(#3ECF8E)를 적용합니다. 타이포그래피는 헤드라인용 기하학적 산세리프와 본문용 휴머니스틱 산세리프를 혼합하여 가독성과 현대적인 구조를 강조합니다. 레이아웃은 넉넉하고 중앙 정렬된 단일 열로 배치하여 명확성과 개발자 신뢰를 우선시합니다. 핵심 디자인 제약 사항: 경쟁하는 여러 악센트 색상을 사용하지 마세요. 팔레트는 의도적으로 절제되어 있습니다. 장식용이나 스크립트 폰트를 사용하지 마세요. 깔끔하고 기술적인 느낌을 유지하세요. 밀도 높은 다중 열 블록으로 레이아웃을 복잡하게 만들지 마세요. 넉넉한 여백과 집중된 콘텐츠 흐름을 우선시하세요."
-    }
-  },
   "desc": {
     "en": {
-      "palette": "A clean, high-contrast palette of black on white with a single vibrant green accent.",
-      "layout": "Centered, single-column layout with generous whitespace and a max-width container.",
-      "interaction": "Minimalist hover and transition effects focused on clarity and immediate feedback.",
-      "motion": "Subtle, purposeful transitions for state changes, avoiding unnecessary animation.",
-      "notes": "A prime example of a clean, developer-focused SaaS landing page that prioritizes clarity, trust, and technical credibility over decorative flair."
+      "palette": "A high-contrast, minimalist palette anchored in pure white (#ffffff) and deep ink (#171717), accented by a single vibrant green (#00bb68) for interactive elements.",
+      "layout": "A clean, centered, single-column layout that transitions into a wider container, emphasizing generous whitespace and clear content hierarchy.",
+      "interaction": "Standard, subtle hover transitions on interactive elements (0.15s-0.2s) using cubic-bezier easing for smooth, professional feedback.",
+      "motion": "Motion is kept to a minimum, focusing on subtle transitions and opacity changes to maintain a fast, functional feel.",
+      "notes": "This site is worth including as a prime example of a modern, developer-centric SaaS landing page that balances bold typography with clean, restrained aesthetics."
     },
     "zh-CN": {
       "palette": "简洁、高对比度的黑白配色，点缀单一的活力绿色作为点缀。",
@@ -601,6 +219,403 @@
       "ch7_intro": "모션은 기능적이고 절제되어 있으며, 오직 상호작용을 확인하기 위해서만 사용됩니다. 전환은 부드럽지만 짧게 유지하여, 핵심 기능에서 주의를 산만하게 할 수 있는 장식적 애니메이션을 피합니다.",
       "ch8_intro": "에디토리얼 톤은 직접적이고 기술적이며, 개발자의 언어로 말하는 권한 부여형입니다. 간결하고 행동 지향적인 문장과 마케팅적인 포장보다는 명확한 가치 제안을 선호합니다.",
       "ch8_outro": "이 시스템은 의도적으로 장식적인 폰트, 다수의 악센트 컬러, 복잡한 레이아웃을 피하며, 그 utilitarian하고 개발자 중심의 사명을 엄격히 준수합니다."
+    }
+  },
+  "spec_i18n": {
+    "en": {
+      "identity": {
+        "keywords": [
+          "open source",
+          "Postgres",
+          "developer platform",
+          "rapid development",
+          "scalability"
+        ],
+        "analogy": "A clean, developer-focused Swiss design that prioritizes clarity and functional aesthetics.",
+        "oneLiner": "A high-contrast, clean developer platform site using a bright green accent on a white canvas with geometric sans typography."
+      },
+      "colors": {
+        "principle": "Clean white canvas with high-contrast text and a single vibrant green accent for primary actions."
+      },
+      "typography": {
+        "rules": [
+          "Use Circular or similar geometric sans-serif for all text.",
+          "Headlines use a tight line-height (1.0-1.1) for impact.",
+          "Body text maintains a readable 1.5 line-height."
+        ],
+        "scaleUses": [
+          "Hero headlines",
+          "Section headings",
+          "Paragraph text",
+          "Navigation and UI elements"
+        ]
+      },
+      "spacing": {
+        "rhythm": "Consistent 8px grid for component spacing, with generous vertical padding (96px) between major sections."
+      },
+      "surfaces": {
+        "shadows": [
+          "0 1px 3px rgba(0, 0, 0, 0.1)"
+        ],
+        "borders": "1px solid #dfdfdf"
+      },
+      "layout": {
+        "skeleton": "Single-column centered layout for the hero, transitioning to a wider container for content sections."
+      },
+      "components": {
+        "button": "Rounded pill shapes with solid green fill for primary actions and transparent with borders for secondary.",
+        "card": "Clean white cards with subtle 1px borders and rounded corners.",
+        "chip": "Rounded pill tags or tabs with thin borders.",
+        "input": "Standard input fields with rounded corners and subtle borders.",
+        "hero": "Massive centered text with a strong headline hierarchy and clear CTA buttons."
+      },
+      "motion": {
+        "patterns": [
+          "Subtle color and background transitions on hover.",
+          "Smooth opacity changes for UI feedback."
+        ]
+      },
+      "interaction": {
+        "hover": "Subtle background color shifts or border highlights.",
+        "click": "Immediate visual feedback via state changes.",
+        "transition": "All interactive elements use a standard 0.15s or 0.2s cubic-bezier transition.",
+        "keyboard": "Standard focus outlines for accessibility."
+      },
+      "voice": {
+        "tone": "Direct, developer-friendly, and confident.",
+        "headlineStyle": "Short, punchy, and benefit-driven sentences.",
+        "ctaStyle": "Action-oriented and clear, such as 'Start your project'.",
+        "avoid": [
+          "Marketing fluff",
+          "Overly complex jargon",
+          "Vague promises"
+        ]
+      },
+      "donts": [
+        "Don't use serif fonts — screenshot shows a clean geometric sans-serif throughout.",
+        "Don't use dark backgrounds as the primary theme — screenshot shows a predominantly white (#ffffff) canvas.",
+        "Don't use multiple competing accent colors — screenshot relies on a single vibrant green (#00bb68) accent.",
+        "Don't use sharp, square corners — screenshot shows rounded corners (4px to 16px) on all components.",
+        "Don't use heavy drop shadows — screenshot shows minimal or no shadows, relying on subtle borders for depth.",
+        "Don't use dense, cramped layouts — screenshot shows generous white space and clear section separation."
+      ],
+      "systemPrompt": "Supabase.com is a developer-focused SaaS platform with a clean, modern, and high-contrast design. It uses a white background (#ffffff) with black text (#171717) and a vibrant green accent (#00bb68) for primary calls to action. The typography is a geometric sans-serif (Circular). The layout is centered and spacious, prioritizing readability and clear hierarchies. Critical donts: avoid dark themes, do not use multiple accent colors, avoid sharp corners, never use heavy shadows, skip complex gradients, and avoid cramped layouts. The design is built for developers who value clarity, speed, and functional aesthetics."
+    },
+    "zh-CN": {
+      "identity": {
+        "keywords": [
+          "开源",
+          "Postgres",
+          "开发者平台",
+          "快速开发",
+          "可扩展性"
+        ],
+        "analogy": "一种简洁、以开发者为中心的瑞士设计，优先考虑清晰度与功能性美学。",
+        "oneLiner": "一个高对比度、简洁的开发者平台网站，在白色画布上使用明亮的绿色强调色，搭配几何无衬线字体。"
+      },
+      "colors": {
+        "principle": "以纯净白色画布为基础，搭配高对比度文本和单一鲜艳的绿色作为主要操作的强调色。"
+      },
+      "typography": {
+        "rules": [
+          "所有文本使用 Circular 或类似的几何无衬线字体。",
+          "标题使用紧凑的行高（1.0-1.1）以增强视觉冲击力。",
+          "正文保持可读的 1.5 行高。"
+        ],
+        "scaleUses": [
+          "主视觉标题",
+          "章节标题",
+          "段落文本",
+          "导航与 UI 元素"
+        ]
+      },
+      "spacing": {
+        "rhythm": "组件间距采用一致的 8px 网格，主要章节之间留有充足的垂直内边距（96px）。"
+      },
+      "surfaces": {
+        "shadows": [
+          "0 1px 3px rgba(0, 0, 0, 0.1)"
+        ],
+        "borders": "1px solid #dfdfdf"
+      },
+      "layout": {
+        "skeleton": "主视觉采用单列居中布局，内容部分则过渡到更宽的容器。"
+      },
+      "components": {
+        "button": "采用圆润的药丸形状，主要操作使用绿色实心填充，次要操作使用透明背景加边框。",
+        "card": "简洁的白色卡片，带有微妙的 1px 边框和圆角。",
+        "chip": "圆润的药丸形标签或选项卡，带有细边框。",
+        "input": "标准的输入框，带有圆角和微妙边框。",
+        "hero": "居中的大段文字，具有强烈的标题层次和清晰的行动号召按钮。"
+      },
+      "motion": {
+        "patterns": [
+          "悬停时细微的颜色和背景过渡。",
+          "用于 UI 反馈的平滑透明度变化。"
+        ]
+      },
+      "interaction": {
+        "hover": "细微的背景颜色变化或边框高亮。",
+        "click": "通过状态变化提供即时视觉反馈。",
+        "transition": "所有交互元素使用标准的 0.15s 或 0.2s cubic-bezier 过渡效果。",
+        "keyboard": "为可访问性提供标准焦点轮廓。"
+      },
+      "voice": {
+        "tone": "直接、对开发者友好且自信。",
+        "headlineStyle": "简短、有力且以利益为驱动的句子。",
+        "ctaStyle": "行动导向且清晰，例如‘开始你的项目’。",
+        "avoid": [
+          "营销话术",
+          "过于复杂的术语",
+          "模糊的承诺"
+        ]
+      },
+      "donts": [
+        "不要使用衬线字体 — 截图显示全文采用简洁的几何无衬线字体。",
+        "不要将深色背景作为主要主题 — 截图显示以白色（#ffffff）画布为主。",
+        "不要使用多个相互竞争的强调色 — 截图仅依赖单一的鲜艳绿色（#00bb68）强调色。",
+        "不要使用尖锐的方角 — 截图显示所有组件均采用圆角（4px 到 16px）。",
+        "不要使用厚重的投影 — 截图显示最小化或无阴影，依靠微妙边框营造层次感。",
+        "不要使用密集、拥挤的布局 — 截图显示充足的空白和清晰的章节分隔。"
+      ],
+      "systemPrompt": "Supabase.com 是一个以开发者为中心的 SaaS 平台，拥有简洁、现代且高对比度的设计。它使用白色背景（#ffffff）搭配黑色文本（#171717），并以鲜艳的绿色（#00bb68）作为主要行动号召的强调色。字体采用几何无衬线字体（Circular）。布局居中且宽敞，优先考虑可读性和清晰的层次结构。关键禁忌：避免深色主题，不要使用多种强调色，避免尖锐圆角，绝不使用厚重的阴影，跳过复杂的渐变，避免拥挤的布局。该设计专为重视清晰度、速度和功能性美学的开发者打造。"
+    },
+    "zh-TW": {
+      "identity": {
+        "keywords": [
+          "開源",
+          "Postgres",
+          "開發者平台",
+          "快速開發",
+          "可擴展性"
+        ],
+        "analogy": "一款簡潔、以開發者為中心的瑞士設計，優先考量清晰度與功能性美學。",
+        "oneLiner": "一個高對比、簡潔的開發者平台網站，在白色畫布上使用明亮綠色作為強調色，搭配幾何無襯線字體。"
+      },
+      "colors": {
+        "principle": "簡潔的白色畫布，搭配高對比文字，並使用單一鮮明綠色作為主要操作的強調色。"
+      },
+      "typography": {
+        "rules": [
+          "所有文字使用 Circular 或類似的幾何無襯線字體。",
+          "標題使用緊湊的行高（1.0-1.1）以增強衝擊力。",
+          "內文維持可讀的 1.5 行高。"
+        ],
+        "scaleUses": [
+          "首頁大標題",
+          "章節標題",
+          "段落文字",
+          "導覽與介面元素"
+        ]
+      },
+      "spacing": {
+        "rhythm": "採用一致的 8px 格線進行元件間距控制，主要章節之間則有寬裕的垂直內距（96px）。"
+      },
+      "surfaces": {
+        "shadows": [
+          "0 1px 3px rgba(0, 0, 0, 0.1)"
+        ],
+        "borders": "1px solid #dfdfdf"
+      },
+      "layout": {
+        "skeleton": "首頁採用單欄居中佈局，內容章節則過渡至較寬的容器。"
+      },
+      "components": {
+        "button": "圓角膠囊形狀，主要操作使用實心綠色填充，次要操作則為透明並帶有邊框。",
+        "card": "簡潔的白色卡片，帶有細微的 1px 邊框與圓角。",
+        "chip": "圓角膠囊式的標籤或分頁，帶有細邊框。",
+        "input": "標準輸入欄位，帶有圓角與細微邊框。",
+        "hero": "巨大的居中文字，具有強烈的標題層次結構與清晰的 CTA 按鈕。"
+      },
+      "motion": {
+        "patterns": [
+          "懸停時產生細微的顏色與背景過渡效果。",
+          "使用平滑的透明度變化作為介面回饋。"
+        ]
+      },
+      "interaction": {
+        "hover": "細微的背景色偏移或邊框高亮。",
+        "click": "透過狀態變化提供即時視覺回饋。",
+        "transition": "所有互動元件使用標準的 0.15s 或 0.2s cubic-bezier 過渡效果。",
+        "keyboard": "標準的焦點外框以確保無障礙訪問。"
+      },
+      "voice": {
+        "tone": "直接、對開發者友善且自信。",
+        "headlineStyle": "簡短、有力且以效益為導向的句子。",
+        "ctaStyle": "以行動為導向且清晰明確，例如「開始您的專案」。",
+        "avoid": [
+          "行銷話術",
+          "過於複雜的專業術語",
+          "模糊的承諾"
+        ]
+      },
+      "donts": [
+        "不要使用襯線字體 — 截圖顯示全程使用簡潔的幾何無襯線字體。",
+        "不要將深色背景作為主要主題 — 截圖顯示以白色（#ffffff）畫布為主。",
+        "不要使用多種互相競爭的強調色 — 截圖僅依賴單一鮮明綠色（#00bb68）作為強調色。",
+        "不要使用尖銳的方形角 — 截圖顯示所有元件均採用圓角（4px 至 16px）。",
+        "不要使用厚重的陰影 — 截圖顯示極少或無陰影，依賴細微邊框來營造深度感。",
+        "不要使用擁擠密集的佈局 — 截圖顯示寬裕的留白與清晰的章節分隔。"
+      ],
+      "systemPrompt": "Supabase.com 是一個以開發者為中心的 SaaS 平台，具有簡潔、現代且高對比的設計。它使用白色背景（#ffffff）、黑色文字（#171717）以及鮮明綠色（#00bb68）作為主要號召性用語的強調色。字體採用幾何無襯線字體（Circular）。佈局居中且寬敞，優先考量可讀性與清晰的層次結構。關鍵禁止事項：避免深色主題、不要使用多種強調色、避免尖銳角、切勿使用厚重陰影、跳過複雜漸層，並避免擁擠的佈局。此設計專為重視清晰度、速度與功能性美學的開發者而打造。"
+    },
+    "ja": {
+      "identity": {
+        "keywords": [
+          "オープンソース",
+          "Postgres",
+          "開発者プラットフォーム",
+          "高速開発",
+          "スケーラビリティ"
+        ],
+        "analogy": "明瞭さと機能的美学を重視した、開発者に焦点を当てたクリーンなスイスデザイン。",
+        "oneLiner": "白いキャンバスに明るいアクセントグリーンと幾何学的なsans-serifタイポグラフィを使用した、ハイコントラストでクリーンな開発者向けプラットフォームサイト。"
+      },
+      "colors": {
+        "principle": "明るい白をキャンバスとし、ハイコントラストなテキストと、プライマリアクション用の単一の鮮やかなアクセントグリーンを採用。"
+      },
+      "typography": {
+        "rules": [
+          "テキストにはCircularまたは同様の幾何学的なsans-serifを使用。",
+          "見出しにはインパクトを出すため、 Tightな行高（1.0-1.1）を設定。",
+          "本文テキストは可読性を確保するため、1.5の行高を維持。"
+        ],
+        "scaleUses": [
+          "ヒーロー見出し",
+          "セクション見出し",
+          "段落テキスト",
+          "ナビゲーションおよびUI要素"
+        ]
+      },
+      "spacing": {
+        "rhythm": "コンポーネント間隔には一貫した8pxグリッドを、主要セクション間には十分な垂直パディング（96px）を採用。"
+      },
+      "surfaces": {
+        "shadows": [
+          "0 1px 3px rgba(0, 0, 0, 0.1)"
+        ],
+        "borders": "1px solid #dfdfdf"
+      },
+      "layout": {
+        "skeleton": "ヒーローには単一カラムのセンタードレイアウトを、コンテンツセクションにはより広いコンテナへと展開。"
+      },
+      "components": {
+        "button": "プライマリアクションには塗りつぶしのグリーン、セカンダリアクションにはボーダー付きの透過背景を使用した、角の丸いピル型。",
+        "card": "軽い1pxボーダーと角丸を持つクリーンな白いカード。",
+        "chip": "細いボーダーを持つ角丸のピル型タグまたはタブ。",
+        "input": "角丸と軽いボーダーを持つ標準的な入力フィールド。",
+        "hero": "強力な見出しの階層と明確なCTAボタンを持つ、巨大なセンタードテキスト。"
+      },
+      "motion": {
+        "patterns": [
+          "ホバー時の微細な色と背景の遷移。",
+          "UIフィードバックのための滑らかな透明度の変化。"
+        ]
+      },
+      "interaction": {
+        "hover": "微細な背景色の変化またはボーダーのハイライト。",
+        "click": "状態変化による即座のビジュアルフィードバック。",
+        "transition": "すべてのインタラクティブ要素には標準の0.15秒または0.2秒のcubic-bezier遷移を使用。",
+        "keyboard": "アクセシビリティのための標準的なフォーカスアウトライン。"
+      },
+      "voice": {
+        "tone": "直接的で、開発者フレンドリー、かつ自信に満ちたトーン。",
+        "headlineStyle": "短く、力強く、便益を直接伝える文章。",
+        "ctaStyle": "「プロジェクトを始める」のような、行動を促す明確な表現。",
+        "avoid": [
+          "マーケティング表現",
+          "過度に複雑な専門用語",
+          "曖昧な約束"
+        ]
+      },
+      "donts": [
+        "セリフフォントを使用しない — スクリーンショットではクリーンな幾何学的なsans-serifが全体に使用されている。",
+        "暗い背景を主要テーマとして使用しない — スクリーンショットでは主に白（#ffffff）のキャンバスが使用されている。",
+        "複数の競合するアクセントカラーを使用しない — スクリーンショットでは単一の鮮やかなアクセントグリーン（#00bb68）に依存している。",
+        "鋭い角を使用しない — スクリーンショットではすべてのコンポーネントに角丸（4pxから16px）が使用されている。",
+        "重いドロップシャドウを使用しない — スクリーンショットでは最小限またはシャドウなしで、深度を表現するために軽いボーダーに依存している。",
+        "密集したレイアウトを使用しない — スクリーンショットでは十分なホワイトスペースと明確なセクションの区切りが示されている。"
+      ],
+      "systemPrompt": "Supabase.comは、クリーンでモダン、ハイコントラストなデザインを持つ、開発者向けSaaSプラットフォーム。背景は白（#ffffff）で、テキストは黒（#171717）、プライマリアクション用には鮮やかなアクセントグリーン（#00bb68）を使用。タイポグラフィは幾何学的なsans-serif（Circular）。レイアウトはセンタードで広く、可読性と明確な階層を重視。重要な注意点：暗いテーマの回避、アクセントカラーの多用回避、角の鋭さの回避、重いシャドウの禁止、複雑なグラデーションの回避、密なレイアウトの回避。このデザインは、明瞭さ、速度、機能的美学を重視する開発者向けに構築されている。"
+    },
+    "ko": {
+      "identity": {
+        "keywords": [
+          "오픈 소스",
+          "Postgres",
+          "개발자 플랫폼",
+          "빠른 개발",
+          "확장성"
+        ],
+        "analogy": "명확성과 기능적 미학을 우선시하는 클린하고 개발자 중심적인 스위스 디자인.",
+        "oneLiner": "흰색 캔버스에 밝은 그린 악센트를 사용하고 기하학적 산세리프 타이포그래피를 적용한 고대비, 클린한 개발자 플랫폼 사이트."
+      },
+      "colors": {
+        "principle": "고대비 텍스트와 주요 액션을 위한 단일 밝은 그린 악센트가 적용된 클린한 흰색 캔버스."
+      },
+      "typography": {
+        "rules": [
+          "모든 텍스트에 Circular 또는 유사한 기하학적 산세리프 사용.",
+          "헤드라인은 임팩트를 위해 타이트한 행간(1.0-1.1) 사용.",
+          "본문은 가독성을 위한 1.5 행간 유지."
+        ],
+        "scaleUses": [
+          "히어로 헤드라인",
+          "섹션 제목",
+          "본문 텍스트",
+          "네비게이션 및 UI 요소"
+        ]
+      },
+      "spacing": {
+        "rhythm": "컴포넌트 간격을 위한 일관된 8px 그리드, 주요 섹션 사이에 넉넉한 수직 패딩(96px) 적용."
+      },
+      "surfaces": {
+        "shadows": [
+          "0 1px 3px rgba(0, 0, 0, 0.1)"
+        ],
+        "borders": "1px solid #dfdfdf"
+      },
+      "layout": {
+        "skeleton": "히어로를 위한 단일 컬럼 중앙 정렬 레이아웃에서 콘텐츠 섹션을 위한 더 넓은 컨테이너로 전환."
+      },
+      "components": {
+        "button": "주요 액션용 단색 그린 채움이 적용된 둥근 필形状, 보조 액션용 투명하고 테두리가 있는 둥근 필形状.",
+        "card": "미묘한 1px 테두리와 둥근 모서리가 있는 클린한 흰색 카드.",
+        "chip": "얇은 테두리가 있는 둥근 필形状 태그 또는 탭.",
+        "input": "둥근 모서리와 미묘한 테두리가 있는 표준 입력 필드.",
+        "hero": "강력한 헤드라인 계층과 명확한 CTA 버튼이 적용된 거대한 중앙 정렬 텍스트."
+      },
+      "motion": {
+        "patterns": [
+          "hover 시 미묘한 색상 및 배경 전환.",
+          "UI 피드백을 위한 부드러운 불투명도 변화."
+        ]
+      },
+      "interaction": {
+        "hover": "미묘한 배경 색상 변화 또는 테두리 강조.",
+        "click": "상태 변화를 통한 즉각적인 시각적 피드백.",
+        "transition": "모든 인터랙티브 요소는 표준 0.15s 또는 0.2s cubic-bezier 전환 사용.",
+        "keyboard": "접근성을 위한 표준 초점 윤곽선."
+      },
+      "voice": {
+        "tone": "직설적이고, 개발자 친화적이며, 자신감 있는 어조.",
+        "headlineStyle": "짧고 강렬하며 혜택을 강조하는 문장.",
+        "ctaStyle": "'Start your project'와 같이 행동을 유도하고 명확한 CTA.",
+        "avoid": [
+          "마케팅성 표현",
+          "지나치게 복잡한 전문 용어",
+          "모호한 약속"
+        ]
+      },
+      "donts": [
+        "산세리프 외 서체 사용 금지 — 스크린샷은 전체적으로 클린한 기하학적 산세리프 사용.",
+        "다크 배경을 주요 테마로 사용 금지 — 스크린샷은 주로 흰색(#ffffff) 캔버스 사용.",
+        "경쟁적인 여러 악센트 색상 사용 금지 — 스크린샷은 단일 밝은 그린(#00bb68) 악센트에 의존.",
+        "날카롭고 사각형 모서리 사용 금지 — 스크린샷은 모든 컴포넌트에 둥근 모서리(4px ~ 16px) 사용.",
+        "무거운 드롭 섀도우 사용 금지 — 스크린샷은 최소화하거나 없으며, 깊이감을 위해 미묘한 테두리에 의존.",
+        "밀집되고 비좁은 레이아웃 사용 금지 — 스크린샷은 넉넉한 여백과 명확한 섹션 구분 사용."
+      ],
+      "systemPrompt": "Supabase.com은 클린하고 모던하며 고대비 디자인을 가진 개발자 중심 SaaS 플랫폼입니다. 흰색 배경(#ffffff)에 검정 텍스트(#171717)와 주요 CTA를 위한 밝은 그린 악센트(#00bb68)를 사용합니다. 타이포그래피는 기하학적 산세리프(Circular)입니다. 레이아웃은 중앙 정렬되어 공간감이 있으며, 가독성과 명확한 계층을 우선시합니다. 중요 주의사항: 다크 테마 사용 금지, 여러 악센트 색상 사용 금지, 날카로운 모서리 사용 금지, 무거운 섀도우 사용 절대 금지, 복잡한 그라데이션 사용 금지, 비좁은 레이아웃 사용 금지. 이 디자인은 명확성, 속도, 기능적 미학을 중요시하는 개발자를 위해 구축되었습니다."
     }
   }
 }

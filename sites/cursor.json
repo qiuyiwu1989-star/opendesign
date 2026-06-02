@@ -17,51 +17,74 @@
   "_meta": {
     "vision_model": "mimo-v2.5",
     "vision_prompt_version": "0.3",
-    "vision_at": "2026-05-28T20:29:09+00:00",
-    "vision_tokens": 3290,
-    "vision_cost_usd": 0.0366,
+    "vision_at": "2026-05-30T09:51:10+00:00",
+    "vision_tokens": 18239,
+    "vision_cost_usd": 0.2027,
     "translation_model": "mimo-v2.5",
-    "translation_at": "2026-05-28T20:30:05+00:00",
-    "translation_tokens": 15352,
-    "translation_cost_usd": 0.0512,
+    "translation_at": "2026-05-30T09:51:58+00:00",
+    "translation_tokens": 25107,
+    "translation_cost_usd": 0.0837,
     "narrative_model": "mimo-v2.5",
     "narrative_prompt_version": "0.3",
     "narrative_at": "2026-05-28T20:30:13+00:00",
     "narrative_tokens": 1892,
     "narrative_cost_usd": 0.0126,
     "narrative_status": "ok",
-    "total_cost_usd": 0.1004
+    "total_cost_usd": 0.299,
+    "vision_source": "playwright-extract:cursor",
+    "vision_grounded": true
   },
   "spec": {
     "colors": {
-      "bg": "#FFFFFF",
+      "bg": "#F2F1ED",
       "bgSoft": null,
       "bgQuiet": null,
-      "ink": "#000000",
-      "inkSoft": "#666666",
-      "muted": "#999999",
+      "ink": "#26251E",
+      "inkSoft": null,
+      "muted": "#9E9D98",
       "mutedSoft": null,
       "accent": null,
-      "line": "rgba(0, 0, 0, 0.1)"
+      "line": "rgba(38, 37, 30, 0.15)"
     },
     "typography": {
-      "display": "geometric-sans",
+      "display": "humanist-sans",
       "body": "humanist-sans",
       "mono": "monospace",
       "scale": [
         {
           "token": "display",
-          "size": 48,
+          "size": 40,
           "lh": 1.1,
-          "weight": 600,
-          "ls": "-1.5px"
+          "weight": 400,
+          "ls": "-0.325px"
+        },
+        {
+          "token": "heading",
+          "size": 32,
+          "lh": 1.2,
+          "weight": 400,
+          "ls": "-0.11px"
         },
         {
           "token": "body",
           "size": 16,
           "lh": 1.5,
           "weight": 400,
-          "ls": "0"
+          "ls": "0.14px"
+        },
+        {
+          "token": "small",
+          "size": 14,
+          "lh": 1.4,
+          "weight": 400,
+          "ls": "0.048px"
+        },
+        {
+          "token": "micro",
+          "size": 12,
+          "lh": 1.3,
+          "weight": 400,
+          "ls": "0.08px"
         }
       ]
     },
@@ -99,412 +122,20 @@
     },
     "motion": {
       "durations": {
-        "micro": 220,
-        "small": 400,
-        "medium": 800
+        "micro": 150,
+        "small": 200,
+        "medium": 400
       },
       "easing": "cubic-bezier(0.4, 0, 0.2, 1)"
     }
   },
-  "spec_i18n": {
-    "en": {
-      "identity": {
-        "keywords": [
-          "developer",
-          "productivity",
-          "AI",
-          "coding",
-          "agent",
-          "editor"
-        ],
-        "analogy": "The intelligent layer on top of a code editor",
-        "oneLiner": "An AI-native code editor designed for building software with natural language and intelligent assistance."
-      },
-      "colors": {
-        "principle": "High-contrast, minimal black and white with no accent colors to keep focus on the product demonstration."
-      },
-      "typography": {
-        "rules": [
-          "Headlines use tight tracking and bold weight for impact",
-          "Body text uses standard weight for readability",
-          "Monospace for code and CLI elements"
-        ],
-        "scaleUses": [
-          "Primary hero headline",
-          "General body text and navigation"
-        ]
-      },
-      "spacing": {
-        "rhythm": "Consistent 8px grid based spacing with generous whitespace"
-      },
-      "surfaces": {
-        "shadows": [
-          "0 1px 3px rgba(0, 0, 0, 0.1)",
-          "0 4px 12px rgba(0, 0, 0, 0.15)"
-        ],
-        "borders": "1px solid #E5E5E5"
-      },
-      "layout": {
-        "skeleton": "Centered hero layout with full-width product showcase below"
-      },
-      "components": {
-        "button": "Minimal black background with white text for primary actions, outlined for secondary",
-        "card": "Subtle border with no background, clean container for product UI demonstration",
-        "chip": "Small rounded labels for status indicators",
-        "input": "Clean text input with minimal styling, used in the product demo",
-        "hero": "Large headline with two clear call-to-action buttons"
-      },
-      "motion": {
-        "patterns": [
-          "No visible motion in the screenshot, but suggests smooth transitions"
-        ]
-      },
-      "interaction": {
-        "hover": "Subtle state change on buttons and navigation links",
-        "click": "Standard button press feedback",
-        "transition": "Smooth transitions between states",
-        "keyboard": "Full keyboard navigation support expected for developer tool"
-      },
-      "voice": {
-        "tone": "Confident and professional, focused on productivity and capability",
-        "headlineStyle": "Direct and benefit-oriented, emphasizing extraordinary productivity",
-        "ctaStyle": "Clear action verbs: 'Download', 'Request a demo'",
-        "avoid": [
-          "Technical jargon in headlines",
-          "Overly casual language",
-          "Excessive exclamation points"
-        ]
-      },
-      "donts": [
-        "Don't use colorful accents — screenshot shows pure black and white palette",
-        "Don't use decorative fonts — screenshot shows clean geometric and humanist sans-serif",
-        "Don't create busy layouts — screenshot shows generous whitespace and clear hierarchy",
-        "Don't use heavy shadows — screenshot shows subtle, minimal elevation",
-        "Don't add unnecessary borders — screenshot uses only essential structural borders",
-        "Don't clutter with multiple CTAs — screenshot shows just two primary actions"
-      ],
-      "systemPrompt": "Cursor is positioned as an AI-powered coding agent that makes developers extraordinarily productive. The design is minimalist with a pure black and white color palette (#000000, #FFFFFF) that keeps focus entirely on the product demonstration. Typography uses geometric and humanist sans-serif categories with tight tracking for headlines to convey confidence and modernity. The layout centers around a clear hero section with large headline and two primary CTAs, followed by an extensive product showcase demonstrating the actual UI. Critical design constraints: avoid any colorful accents or decorative elements, maintain generous whitespace throughout, and never obscure the product UI with visual noise. The voice is professional and direct, emphasizing capability without technical jargon."
-    },
-    "zh-CN": {
-      "identity": {
-        "keywords": [
-          "开发者",
-          "生产力",
-          "AI",
-          "编程",
-          "代理",
-          "编辑器"
-        ],
-        "analogy": "代码编辑器之上的智能层",
-        "oneLiner": "一款为构建软件而设计的AI原生代码编辑器，支持自然语言与智能辅助。"
-      },
-      "colors": {
-        "principle": "高对比度、极简的黑白配色，无强调色，以保持对产品演示的专注。"
-      },
-      "typography": {
-        "rules": [
-          "标题使用紧凑的字间距和粗体以增强冲击力",
-          "正文使用常规字重以确保可读性",
-          "代码和命令行元素使用等宽字体"
-        ],
-        "scaleUses": [
-          "主英雄区域标题",
-          "通用正文和导航"
-        ]
-      },
-      "spacing": {
-        "rhythm": "基于一致的8px网格间距，留有充足的空白"
-      },
-      "surfaces": {
-        "shadows": [
-          "0 1px 3px rgba(0, 0, 0, 0.1)",
-          "0 4px 12px rgba(0, 0, 0, 0.15)"
-        ],
-        "borders": "1px solid #E5E5E5"
-      },
-      "layout": {
-        "skeleton": "居中英雄式布局，下方为全宽的产品展示区"
-      },
-      "components": {
-        "button": "主操作使用黑色背景白色文字，次级操作使用描边样式，风格极简",
-        "card": "带细微边框无背景，用于产品UI演示的干净容器",
-        "chip": "小型圆角标签，用于状态指示",
-        "input": "干净的文本输入框，样式极简，用于产品演示中",
-        "hero": "大标题搭配两个清晰的行动号召按钮"
-      },
-      "motion": {
-        "patterns": [
-          "截图中无可见动效，但暗示了流畅的过渡"
-        ]
-      },
-      "interaction": {
-        "hover": "按钮和导航链接有细微的状态变化",
-        "click": "标准的按钮按压反馈",
-        "transition": "状态间平滑过渡",
-        "keyboard": "作为开发者工具，应支持完整的键盘导航"
-      },
-      "voice": {
-        "tone": "自信且专业，专注于生产力和能力",
-        "headlineStyle": "直接且以效益为导向，强调卓越的生产力",
-        "ctaStyle": "清晰的行动动词：“下载”、“申请演示”",
-        "avoid": [
-          "标题中使用技术术语",
-          "过于随意的语言",
-          "过多的感叹号"
-        ]
-      },
-      "donts": [
-        "不要使用彩色强调色——截图显示的是纯黑白配色",
-        "不要使用装饰性字体——截图显示的是干净的几何无衬线和人文主义无衬线字体",
-        "不要创建杂乱的布局——截图显示的是充足的留白和清晰的层次",
-        "不要使用沉重的阴影——截图显示的是细微、极简的层次提升",
-        "不要添加不必要的边框——截图只使用了必要的结构性边框",
-        "不要用多个行动号召来干扰——截图只显示了两个主要操作"
-      ],
-      "systemPrompt": "Cursor 被定位为一款由AI驱动的编程代理，能让开发者产出惊人。设计采用极简主义，使用纯黑白配色（#000000、#FFFFFF），将焦点完全集中在产品演示上。字体使用几何无衬线和人文主义无衬线类别，标题采用紧凑字间距以传达自信和现代感。布局围绕一个清晰的英雄区域展开，包含大标题和两个主要行动号召，随后是展示实际UI的广泛产品演示。关键设计约束：避免任何彩色强调或装饰元素，全程保持充足的空白，绝不用视觉杂乱遮盖产品UI。文案风格专业直接，强调能力，不使用技术术语。"
-    },
-    "zh-TW": {
-      "identity": {
-        "keywords": [
-          "開發者",
-          "生產力",
-          "AI",
-          "程式碼",
-          "代理",
-          "編輯器"
-        ],
-        "analogy": "程式碼編輯器之上的智慧層",
-        "oneLiner": "一款 AI 原生的程式碼編輯器，專為使用自然語言與智慧輔助來建構軟體而設計。"
-      },
-      "colors": {
-        "principle": "高對比度、最小化的黑白配色，不含任何強調色，以保持對產品展示的專注。"
-      },
-      "typography": {
-        "rules": [
-          "標題使用緊湊的字距與粗體以增強衝擊力",
-          "內文使用標準字重以利閱讀",
-          "程式碼與 CLI 元素使用等寬字體"
-        ],
-        "scaleUses": [
-          "主視覺標題",
-          "一般內文與導覽"
-        ]
-      },
-      "spacing": {
-        "rhythm": "基於 8px 格線的統一間距，搭配寬裕的留白"
-      },
-      "surfaces": {
-        "shadows": [
-          "0 1px 3px rgba(0, 0, 0, 0.1)",
-          "0 4px 12px rgba(0, 0, 0, 0.15)"
-        ],
-        "borders": "1px solid #E5E5E5"
-      },
-      "layout": {
-        "skeleton": "置中的主視覺佈局，下方是全寬的產品展示區"
-      },
-      "components": {
-        "button": "主要操作使用極簡的黑色背景與白色文字，次要操作使用描邊按鈕",
-        "card": "無背景、帶有細微邊框的乾淨容器，用於產品 UI 展示",
-        "chip": "用於狀態指示器的小型圓角標籤",
-        "input": "樣式簡潔的文字輸入框，用於產品展示中",
-        "hero": "包含兩個清晰行動號召按鈕的大型標題"
-      },
-      "motion": {
-        "patterns": [
-          "截圖中無可見動態，但暗示了流暢的過渡效果"
-        ]
-      },
-      "interaction": {
-        "hover": "按鈕與導覽連結上的細微狀態變化",
-        "click": "標準的按鈕點擊反饋",
-        "transition": "狀態之間的流暢過渡",
-        "keyboard": "預期為開發者工具提供完整的鍵盤導覽支援"
-      },
-      "voice": {
-        "tone": "自信且專業，專注於生產力與能力",
-        "headlineStyle": "直接且以效益為導向，強調非凡的生產力",
-        "ctaStyle": "清晰的行動動詞：「下載」、「要求示範」",
-        "avoid": [
-          "標題中的技術術語",
-          "過度隨意的語言",
-          "過多的驚嘆號"
-        ]
-      },
-      "donts": [
-        "不要使用彩色強調色 — 截圖顯示的是純黑白配色",
-        "不要使用裝飾性字體 — 截圖顯示的是乾淨的幾何與人文無襯線字體",
-        "不要建立複雜的佈局 — 截圖顯示的是寬裕的留白與清晰的層級",
-        "不要使用厚重的陰影 — 截圖顯示的是細微、最小化的抬升感",
-        "不要添加不必要的邊框 — 戜圖僅使用必要的結構性邊框",
-        "不要用多個 CTA 搞混視覺 — 截圖僅顯示兩個主要操作"
-      ],
-      "systemPrompt": "Cursor 被定位為一個由 AI 驅動的程式碼代理，能讓開發者達到非凡的生產力。設計極簡，採用純黑白配色（#000000, #FFFFFF），將所有注意力完全集中在產品展示上。字型使用幾何與人文無襯線字體類別，標題採用緊湊的字距以傳達自信與現代感。佈局圍繞著一個清晰的主視覺區域，包含大型標題與兩個主要 CTA，後方是廣泛的產品展示以演示實際的 UI。關鍵設計限制：避免任何彩色強調色或裝飾元素，全程保持寬裕的留白，絕不讓視覺雜訊模糊產品 UI。語調專業且直接，強調能力而不使用技術術語。"
-    },
-    "ja": {
-      "identity": {
-        "keywords": [
-          "開発者",
-          "生産性",
-          "AI",
-          "コーディング",
-          "エージェント",
-          "エディタ"
-        ],
-        "analogy": "コードエディタの上に立つインテリジェント層",
-        "oneLiner": "自然言語とインテリジェントな支援でソフトウェア構築を目指す、AIネイティブなコードエディタ。"
-      },
-      "colors": {
-        "principle": "アクセントカラーを排したハイコントラストのミニマルなモノクロ。製品デモへの注力を維持する。"
-      },
-      "typography": {
-        "rules": [
-          "見出しはインパクトのために Tight tracking と Bold を使用",
-          "本文は可読性のために Standard weight を使用",
-          "コードやCLI要素には monospace を使用"
-        ],
-        "scaleUses": [
-          "プライマリヒーロー見出し",
-          "一般テキストとナビゲーション"
-        ]
-      },
-      "spacing": {
-        "rhythm": "8px グリッドベースの均一な间距とゆったりとした余白"
-      },
-      "surfaces": {
-        "shadows": [
-          "0 1px 3px rgba(0, 0, 0, 0.1)",
-          "0 4px 12px rgba(0, 0, 0, 0.15)"
-        ],
-        "borders": "1px solid #E5E5E5"
-      },
-      "layout": {
-        "skeleton": "中央配置のヒーローレイアウト。下にフルワイドの製品ショーケースを配置"
-      },
-      "components": {
-        "button": "プライマリアクションにはモノクロ背景に白文字。セカンダリにはアウトライン",
-        "card": "背景なしのサブトルなボーダー。製品UIデモのための清潔なコンテナ",
-        "chip": "ステータスインジケータ用の小さな角丸ラベル",
-        "input": "製品デモで使用される、最小限のスタイリングを施したクリーンなテキスト入力",
-        "hero": "明確な2つのCTAボタンを持つ大きな見出し"
-      },
-      "motion": {
-        "patterns": [
-          "スクリーンショットには可視モーションなし。しかし滑らかなトランジションを示唆"
-        ]
-      },
-      "interaction": {
-        "hover": "ボタンとナビゲーションリンクのサブトルな状態変化",
-        "click": "標準的なボタン押下フィードバック",
-        "transition": "状態間の滑らかなトランジション",
-        "keyboard": "開発者ツールとしての完全なキーボードナビゲーションサポートを想定"
-      },
-      "voice": {
-        "tone": "自信に満ち、プロフェッショナル。生産性と能力に焦点を当てる",
-        "headlineStyle": "直接的で利益志向。並外れた生産性を強調",
-        "ctaStyle": "明確なアクション動詞：「ダウンロード」「デモをリクエスト」",
-        "avoid": [
-          "見出しにおける専門用語",
-          "過度にカジュアルな言葉遣い",
-          "過度の感嘆符"
-        ]
-      },
-      "donts": [
-        "カラフルなアクセントは使用しない — スクリーンショットは純粋なモノクロパレット",
-        "飾り気のあるフォントは使用しない — スクリーンショットはクリーンなジオメトリックおよびヒューマニスト sans-serif",
-        "忙しないレイアウトは作成しない — スクリーンショットはゆったりとした余白と明確な階層",
-        "重いシャドウは使用しない — スクリーンショットはサブトルで最小限のエレベーション",
-        "不必要なボーダーは追加しない — スクリーンショットは必須の構造ボーダーのみ",
-        "複数のCTAで雑然としない — スクリーンショットは2つのプライマリアクションのみ"
-      ],
-      "systemPrompt": "Cursor は開発者を並外れた生産性に導く AI ベースのコーディングエージェントとしてポジショニング。デザインは純粋なモノクロパレット（#000000, #FFFFFF）を用いたミニマルなもので、注力は製品デモに完全に集中。タイポグラフィはジオメトリックおよびヒューマニスト sans-serif カテゴリを使用。見出しには Tight tracking を用い、自信と現代性を表現。レイアウトは明確なヒーローセクションを中心とし、大きな見出しと2つのプライマリCTAを配置。その後、実際のUIを示す広範な製品ショーケースが続く。重要なデザイン制約：カラフルなアクセントや装飾要素は一切回避。全体を通してゆったりとした余白を維持し、ビジュアルノイズで製品UIを決して覆い隠さない。声はプロフェッショナルで直接的。専門用語を用いず、能力を強調。"
-    },
-    "ko": {
-      "identity": {
-        "keywords": [
-          "개발자",
-          "생산성",
-          "AI",
-          "코딩",
-          "에이전트",
-          "에디터"
-        ],
-        "analogy": "코드 에디터 위에 얹어진 지능형 계층",
-        "oneLiner": "자연어와 지능형 도움을 통해 소프트웨어를 빌드하도록 설계된 AI 네이티브 코드 에디터입니다."
-      },
-      "colors": {
-        "principle": "제품 시연에 초점을 유지하기 위한 악센트 색상 없는 고대비, 미니멀 흑백입니다."
-      },
-      "typography": {
-        "rules": [
-          "제목은 임팩트를 위해 좁은 자간과 굵은 두께를 사용합니다",
-          "본문은 가독성을 위해 표준 두께를 사용합니다",
-          "코드 및 CLI 요소에는 모노스페이스를 사용합니다"
-        ],
-        "scaleUses": [
-          "주 히어로 제목",
-          "일반 본문 텍스트 및 내비게이션"
-        ]
-      },
-      "spacing": {
-        "rhythm": "넓은 여백을 포함한 일관된 8px 그리드 기반 간격입니다."
-      },
-      "surfaces": {
-        "shadows": [
-          "0 1px 3px rgba(0, 0, 0, 0.1)",
-          "0 4px 12px rgba(0, 0, 0, 0.15)"
-        ],
-        "borders": "1px solid #E5E5E5"
-      },
-      "layout": {
-        "skeleton": "하단에 전체 폭 제품 쇼케이스를 배치한 중앙 집중형 히어로 레이아웃입니다."
-      },
-      "components": {
-        "button": "주요 작업을 위해 흰색 텍스트가 있는 미니멀한 검은색 배경, 보조 작업을 위해 아웃라인 스타일입니다.",
-        "card": "배경 없는 미묘한 테두리, 제품 UI 시연을 위한 깔끔한 컨테이너입니다.",
-        "chip": "상태 표시용 둥근 작은 라벨입니다.",
-        "input": "제품 데모에 사용되는 미니멀한 스타일링의 깔끔한 텍스트 입력 필드입니다.",
-        "hero": "두 개의 명확한 CTA 버튼이 있는 큰 제목입니다."
-      },
-      "motion": {
-        "patterns": [
-          "스크린샷에서는 보이는 움직임이 없지만, 매끄러운 전환을 암시합니다."
-        ]
-      },
-      "interaction": {
-        "hover": "버튼과 내비게이션 링크의 미묘한 상태 변화입니다.",
-        "click": "표준 버튼 누름 피드백입니다.",
-        "transition": "상태 간의 매끄러운 전환입니다.",
-        "keyboard": "개발자 도구에 걸맞은 전체 키보드 내비게이션 지원이 예상됩니다."
-      },
-      "voice": {
-        "tone": "자신감 있고 전문적이며, 생산성과 역량에 초점을 맞춥니다.",
-        "headlineStyle": "직설적이고 혜택 지향적이며, 비범한 생산성을 강조합니다.",
-        "ctaStyle": "명확한 동사: '다운로드', '데모 요청'",
-        "avoid": [
-          "제목에서의 전문 용어",
-          "지나치게 캐주얼한 언어",
-          "과도한 느낌표 사용"
-        ]
-      },
-      "donts": [
-        "컬러 악센트를 사용하지 마세요 — 스크린샷은 순수한 흑백 팔레트를 보여줍니다",
-        "장식용 폰트를 사용하지 마세요 — 스크린샷은 깔끔한 기하학적 및 휴머니스트 산세리프를 보여줍니다",
-        "복잡한 레이아웃을 만들지 마세요 — 스크린샷은 넉넉한 여백과 명확한 계층을 보여줍니다",
-        "무거운 그림자를 사용하지 마세요 — 스크린샷은 미묘하고 최소한의 엘리베이션을 보여줍니다",
-        "불필요한 테두리를 추가하지 마세요 — 스크린샷은 필수적인 구조적 테두리만 사용합니다",
-        "여러 개의 CTA로 복잡하게 만들지 마세요 — 스크린샷은 두 개의 주요 작업만 보여줍니다"
-      ],
-      "systemPrompt": "커서는 개발자가 비범한 생산성을 발휘할 수 있도록 돕는 AI 기반 코딩 에이전트로 포지셔닝됩니다. 디자인은 제품 시연에 완전히 초점을 맞춘 순수 흑백(#000000, #FFFFFF) 팔레트의 미니멀한 스타일입니다. 타이포그래피는 자신감과 현대성을 전달하기 위해 제목에 좁은 자간을 사용하는 기하학적 및 휴머니스트 산세리프 범주를 사용합니다. 레이아웃은 큰 제목과 두 개의 주요 CTA가 있는 명확한 히어로 섹션을 중심으로 하며, 실제 UI를 시연하는 광범위한 제품 쇼케이스가 뒤따릅니다. 핵심 디자인 제약 조건: 악센트 색상이나 장식 요소를 피하고, 전체적으로 넉넉한 여백을 유지하며, 시각적 소음으로 제품 UI를 절대 가리지 않습니다. 톤은 전문적이고 직설적이며, 기술 용어 없이 역량을 강조합니다."
-    }
-  },
   "desc": {
     "en": {
-      "palette": "Minimalist black and white palette that puts all focus on the product demonstration",
-      "layout": "Clean centered hero layout with generous spacing and clear visual hierarchy",
-      "interaction": "Standard button and navigation interactions with clean, predictable states",
-      "motion": "Minimal visible motion, suggesting smooth but understated transitions",
-      "notes": "Excellent example of how developer tools can use extreme restraint to let the product speak for itself"
+      "palette": "A warm, grounded palette of off-whites and dark grays, avoiding high-chroma accents for a professional, tool-focused aesthetic.",
+      "layout": "A spacious, centered layout with clear section breaks and a focus on large, readable typography and high-fidelity product imagery.",
+      "interaction": "Subtle, standard web transitions on hover and click, focusing on clarity and immediate feedback without distracting animations.",
+      "motion": "Minimal and purposeful motion, primarily using smooth color and opacity transitions for interactive elements.",
+      "notes": "This site is a great example of a refined, product-focused SaaS landing page that uses a warm, sophisticated palette to differentiate itself in the developer tools space."
     },
     "zh-CN": {
       "palette": "极简的黑白配色，将所有焦点集中在产品演示上",
@@ -595,6 +226,408 @@
       "ch7_intro": "모션은 장식적 계층이 아닌 기능적 필요성으로 간주되며, 인터페이스 상태 간의 매끄럽고 절제된 전환을 선호합니다. 이 시스템은 개발자 도구에서 시각적 성능은 화려함이 아닌 기능이라고 가정합니다.",
       "ch8_intro": "에디토리얼 목소리는 자신감 있고 전문적이며, 기술 전문 용어에 의존하지 않고 기능성을 강조하는 직접적이고 혜택 지향적인 언어를 사용합니다.",
       "ch8_outro": "시스템은 시각적 소음이 제품 시연을 흐리게 하는 것을 방지하기 위해 의도적으로 장식적 요소, 다채로운 강조, 복잡한 레이아웃을 피합니다."
+    }
+  },
+  "spec_i18n": {
+    "en": {
+      "identity": {
+        "keywords": [
+          "developer",
+          "AI",
+          "coding agent",
+          "productivity",
+          "enterprise"
+        ],
+        "analogy": "A high-performance IDE meets a sophisticated AI research lab.",
+        "oneLiner": "The agent-native coding platform for ambitious software teams."
+      },
+      "colors": {
+        "principle": "Warm, grounded neutrals with a focus on readability and high contrast."
+      },
+      "typography": {
+        "rules": [
+          "Use the custom humanist-sans font for primary UI and headings.",
+          "Use the transitional-serif font for editorial quotes and specific display text.",
+          "Use the monospace font for code blocks and technical CLI outputs."
+        ],
+        "scaleUses": [
+          "Hero headline",
+          "Section headings",
+          "Main body text",
+          "UI elements and captions",
+          "Metadata and tags"
+        ]
+      },
+      "spacing": {
+        "rhythm": "8px baseline grid"
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 28px 70px rgba(0, 0, 0, 0.14)",
+          "0px 0px 0px 1px rgba(38, 37, 30, 0.15)"
+        ],
+        "borders": "1px solid rgba(38, 37, 30, 0.15)"
+      },
+      "layout": {
+        "skeleton": "Responsive grid with clear section breaks and centered content."
+      },
+      "components": {
+        "button": "Minimalist buttons with solid dark fills or simple outlines and pill-shaped corners.",
+        "card": "Subtle, elevated cards with soft shadows and 12px radius.",
+        "chip": "Small, monospaced tags with light backgrounds.",
+        "input": "Clean text inputs with bottom borders or subtle outlines.",
+        "hero": "Large typography with a high-fidelity product screenshot."
+      },
+      "motion": {
+        "patterns": [
+          "Smooth color and background-color transitions on hover."
+        ]
+      },
+      "interaction": {
+        "hover": "Subtle color shifts and opacity changes on interactive elements.",
+        "click": "Immediate visual feedback with minimal motion.",
+        "transition": "Standard 0.15s ease-in-out transitions for most properties.",
+        "keyboard": "Standard focus-visible outlines for accessibility."
+      },
+      "voice": {
+        "tone": "Authoritative yet approachable, focused on productivity and innovation.",
+        "headlineStyle": "Direct and confident, emphasizing the 'extraordinary' nature of the tool.",
+        "ctaStyle": "Clear action-oriented labels like 'Download' and 'Request a demo'.",
+        "avoid": [
+          "Avoid overly technical jargon in primary headlines.",
+          "Avoid aggressive or distracting animations.",
+          "Avoid using bright, high-chroma accent colors."
+        ]
+      },
+      "donts": [
+        "Don't use bright neon colors — the screenshot uses a muted, warm palette.",
+        "Don't use a dark mode as the default — the screenshot is predominantly light.",
+        "Don't use complex, decorative fonts — the screenshot uses clean, humanist-sans-serif fonts.",
+        "Don't use sharp, square corners everywhere — the screenshot uses 4-12px rounded corners.",
+        "Don't use harsh, solid black for all text — the screenshot uses a warm dark gray (#26251E).",
+        "Don't use heavy, drop-shadow-heavy cards — the screenshot uses subtle, soft shadows."
+      ],
+      "systemPrompt": "This design system is for Cursor, a high-performance AI coding agent. It features a clean, warm neutral palette (#F2F1ED background, #26251E ink) with a humanist-sans typography. The layout is spacious and centered, emphasizing clarity and developer productivity. Key colors are warm grays and off-whites. Avoid using high-chroma accents or aggressive dark modes. Critical don'ts: Do not use sharp square corners; the screenshot uses rounded corners. Do not use bright neon colors; the palette is warm and muted. Do not use heavy, complex typography; the screenshot uses clean, legible sans-serif fonts. The overall feel is professional, refined, and tool-oriented."
+    },
+    "zh-CN": {
+      "identity": {
+        "keywords": [
+          "开发者",
+          "AI",
+          "编程代理",
+          "生产力",
+          "企业"
+        ],
+        "analogy": "高性能IDE与尖端AI研究实验室的融合。",
+        "oneLiner": "专为雄心勃勃的软件团队打造的代理原生编程平台。"
+      },
+      "colors": {
+        "principle": "采用温暖、沉稳的中性色调，注重可读性与高对比度。"
+      },
+      "typography": {
+        "rules": [
+          "主要用户界面和标题使用定制的人文无衬线字体。",
+          "编辑引用和特定展示文本使用过渡衬线字体。",
+          "代码块和技术CLI输出使用等宽字体。"
+        ],
+        "scaleUses": [
+          "主视觉标题",
+          "章节标题",
+          "正文文本",
+          "界面元素与说明文字",
+          "元数据与标签"
+        ]
+      },
+      "spacing": {
+        "rhythm": "8px基线网格"
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 28px 70px rgba(0, 0, 0, 0.14)",
+          "0px 0px 0px 1px rgba(38, 37, 30, 0.15)"
+        ],
+        "borders": "1px solid rgba(38, 37, 30, 0.15)"
+      },
+      "layout": {
+        "skeleton": "响应式网格，具有清晰的章节分隔和居中的内容布局。"
+      },
+      "components": {
+        "button": "极简按钮，采用实心深色填充或简洁描边，并具有胶囊形圆角。",
+        "card": "微妙的凸起卡片，配有柔和阴影和12px圆角。",
+        "chip": "小型等宽字体标签，采用浅色背景。",
+        "input": "简洁的文本输入框，配有底部边框或微妙描边。",
+        "hero": "大尺寸排版，搭配高保真产品截图。"
+      },
+      "motion": {
+        "patterns": [
+          "悬停时平滑的颜色和背景色过渡。"
+        ]
+      },
+      "interaction": {
+        "hover": "交互元素在悬停时产生微妙的颜色变化和透明度改变。",
+        "click": "提供即时视觉反馈，动效最小化。",
+        "transition": "大多数属性使用标准的0.15秒ease-in-out过渡。",
+        "keyboard": "为无障碍访问提供标准的焦点可见轮廓。"
+      },
+      "voice": {
+        "tone": "权威而不失亲和，专注于生产力与创新。",
+        "headlineStyle": "直接而自信，强调工具的“非凡”特性。",
+        "ctaStyle": "清晰、导向行动的标签，如“下载”和“申请演示”。",
+        "avoid": [
+          "避免在主要标题中使用过于技术性的术语。",
+          "避免使用侵入性或令人分心的动画。",
+          "避免使用明亮、高饱和度的强调色。"
+        ]
+      },
+      "donts": [
+        "不要使用明亮的霓虹色——截图采用柔和、温暖的色调。",
+        "不要默认使用深色模式——截图以浅色为主。",
+        "不要使用复杂、装饰性的字体——截图使用简洁的人文无衬线字体。",
+        "不要到处使用尖锐的直角——截图使用4-12px的圆角。",
+        "不要对所有文本使用刺眼的纯黑色——截图使用温暖的深灰色（#26251E）。",
+        "不要使用沉重、阴影过重的卡片——截图使用微妙、柔和的阴影。"
+      ],
+      "systemPrompt": "此设计系统适用于Cursor，一个高性能的AI编程代理。它采用简洁、温暖的中性色调（#F2F1ED背景，#26251E文本），并搭配人文无衬线字体。布局宽敞且居中，强调清晰度与开发者生产力。关键色彩为温暖的灰色与灰白色。避免使用高饱和度的强调色或侵入性的深色模式。关键注意事项：不要使用尖锐的直角；截图采用圆角。不要使用明亮的霓虹色；色调温暖而柔和。不要使用沉重、复杂的字体；截图使用简洁易读的无衬线字体。整体感觉专业、精致且工具导向。"
+    },
+    "zh-TW": {
+      "identity": {
+        "keywords": [
+          "開發者",
+          "AI",
+          "編碼代理",
+          "生產力",
+          "企業"
+        ],
+        "analogy": "高性能 IDE 與精密 AI 研究實驗室的結合。",
+        "oneLiner": "為有雄心的軟體團隊打造的代理原生編碼平台。"
+      },
+      "colors": {
+        "principle": "溫暖、沉穩的中性色調，著重於可讀性與高對比度。"
+      },
+      "typography": {
+        "rules": [
+          "主要 UI 和標題使用自訂的人文無襯線字體。",
+          "社論引言和特定展示文字使用過渡襯線字體。",
+          "程式碼區塊和技術 CLI 輸出使用等寬字體。"
+        ],
+        "scaleUses": [
+          "主視覺標題",
+          "章節標題",
+          "內文",
+          "UI 元素與說明文字",
+          "中繼資料與標籤"
+        ]
+      },
+      "spacing": {
+        "rhythm": "8px 基線網格"
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 28px 70px rgba(0, 0, 0, 0.14)",
+          "0px 0px 0px 1px rgba(38, 37, 30, 0.15)"
+        ],
+        "borders": "1px solid rgba(38, 37, 30, 0.15)"
+      },
+      "layout": {
+        "skeleton": "具清晰區段分隔與置中內容的響應式網格。"
+      },
+      "components": {
+        "button": "極簡按鈕，採用實心深色填滿或簡約描邊，並帶有膠囊形圓角。",
+        "card": "細緻、帶有微隆起效果的卡片，具柔和陰影與 12px 圓角。",
+        "chip": "小型、等寬的標籤，採用淺色背景。",
+        "input": "簡潔的文字輸入框，帶有底部邊框或細微描邊。",
+        "hero": "搭配高保真產品截圖的大型排版。"
+      },
+      "motion": {
+        "patterns": [
+          "hover 時色彩與背景色的平滑過渡。"
+        ]
+      },
+      "interaction": {
+        "hover": "互動元素上的細微色彩偏移與透明度變化。",
+        "click": "即時視覺回饋，搭配最小化的動態效果。",
+        "transition": "大多數屬性使用標準的 0.15s ease-in-out 過渡效果。",
+        "keyboard": "為無障礙設計使用標準的 focus-visible 外框。"
+      },
+      "voice": {
+        "tone": "權威而平易近人，著重於生產力與創新。",
+        "headlineStyle": "直接且自信，強調工具的「非凡」特性。",
+        "ctaStyle": "清晰、以行動為導向的標籤，例如「下載」和「預約演示」。",
+        "avoid": [
+          "避免在主要標題中使用過於技術性的術語。",
+          "避免使用侵略性或令人分心的動畫。",
+          "避免使用明亮、高飽和度的強調色。"
+        ]
+      },
+      "donts": [
+        "不要使用明亮的霓虹色彩——截圖使用的是柔和、溫暖的調色盤。",
+        "不要將深色模式設為預設——截圖以淺色為主。",
+        "不要使用複雜、裝飾性的字體——截圖使用簡潔的人文無襯線字體。",
+        "不要在所有地方使用銳利的方形圓角——截圖使用 4-12px 的圓角。",
+        "不要對所有文字使用刺眼的純黑色——截圖使用溫暖的深灰色（#26251E）。",
+        "不要使用厚重、陰影明顯的卡片——截圖使用細緻、柔和的陰影。"
+      ],
+      "systemPrompt": "此設計系統用於 Cursor，一個高性能的 AI 編碼代理。其特色在於簡潔、溫暖的中性色調（#F2F1ED 背景、#26251E 墨色）搭配人文無襯線字體。佈局寬敞且置中，強調清晰度與開發者生產力。主要色彩為溫暖的灰色與灰白色。避免使用高飽和度的強調色或侵略性的深色模式。關鍵禁忌：不要使用銳利的方形圓角；截圖使用的是圓角。不要使用明亮的霓虹色彩；調色盤是溫暖且柔和的。不要使用厚重、複雜的排版；截圖使用的是簡潔、易讀的無襯線字體。整體感覺是專業、精緻且以工具為導向。"
+    },
+    "ja": {
+      "identity": {
+        "keywords": [
+          "開発者",
+          "AI",
+          "コーディングエージェント",
+          "生産性",
+          "エンタープライズ"
+        ],
+        "analogy": "高性能なIDEと、洗練されたAI研究ラボが出会ったような場。",
+        "oneLiner": "野心的なソフトウェアチームのための、エージェントネイティブなコーディングプラットフォーム。"
+      },
+      "colors": {
+        "principle": "読みやすさと高いコントラストに焦点を当てた、温かみのある落ち着いたニュートラルカラー。"
+      },
+      "typography": {
+        "rules": [
+          "メインのUIや見出しには、カスタムhumanist-sansフォントを使用します。",
+          "エディトリアルな引用や特定の表示テキストには、transitional-serifフォントを使用します。",
+          "コードブロックや技術的なCLI出力には、monospaceフォントを使用します。"
+        ],
+        "scaleUses": [
+          "ヒーローヘッドライン",
+          "セクション見出し",
+          "本文テキスト",
+          "UI要素とキャプション",
+          "メタデータとタグ"
+        ]
+      },
+      "spacing": {
+        "rhythm": "8pxのベースライングリッド"
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 28px 70px rgba(0, 0, 0, 0.14)",
+          "0px 0px 0px 1px rgba(38, 37, 30, 0.15)"
+        ],
+        "borders": "1px solid rgba(38, 37, 30, 0.15)"
+      },
+      "layout": {
+        "skeleton": "明確なセクション区切りと中央揃えのコンテンツを持つ、レスポンシブグリッド。"
+      },
+      "components": {
+        "button": "実体のあるダークフィルまたはシンプルなアウトラインを持ち、カプセル形の角を持つミニマリストなボタン。",
+        "card": "柔らかなシャドウと12pxの角丸を持つ、控えめで浮き上がったカード。",
+        "chip": "明るい背景色を持つ、小さくmonospacedなタグ。",
+        "input": "ボーダーボトムまたは控えめなアウトラインを持つ、クリーンなテキスト入力。",
+        "hero": "高精細な製品スクリーンショットと、大きなタイポグラフィ。"
+      },
+      "motion": {
+        "patterns": [
+          "hover時の滑らかなcolorおよびbackground-colorのトランジション。"
+        ]
+      },
+      "interaction": {
+        "hover": "インタラクティブ要素上の、微妙なカラーシフトとopacityの変化。",
+        "click": "最小限のモーションによる、即座の視覚フィードバック。",
+        "transition": "ほとんどのプロパティに、標準の0.15s ease-in-outトランジション。",
+        "keyboard": "アクセシビリティのための、標準のfocus-visibleアウトライン。"
+      },
+      "voice": {
+        "tone": "権威がありつつも親しみやすい、生産性とイノベーションに焦点を当てた口調。",
+        "headlineStyle": "直接的で自信に満ち、ツールの「非凡な」性質を強調するスタイル。",
+        "ctaStyle": "「ダウンロード」や「デモをリクエスト」のような、明確で行動を促すラベル。",
+        "avoid": [
+          "主要な見出しで、過度に技術的な専門用語を避けること。",
+          "攻撃的で注意を散漫させるアニメーションを避けること。",
+          "明るく高彩度のアクセントカラーの使用を避けること。"
+        ]
+      },
+      "donts": [
+        "明るいネオンカラーは使用しない — スクリーンショットは落ち着いた、温かみのあるパレットを使用しています。",
+        "ダークモードをデフォルトとして使用しない — スクリーンショットは主にライトモードです。",
+        "複雑で装飾的なフォントは使用しない — スクリーンショットはクリーンなhumanist-sans-serifフォントを使用しています。",
+        " everywhereに鋭い角を使用しない — スクリーンショットは4〜12pxの角丸を使用しています。",
+        "すべてのテキストに harshな純黒を使用しない — スクリーンショットは温かみのあるダークグレー（#26251E）を使用しています。",
+        "重く、ドロップシャドウの効いたカードは使用しない — スクリーンショットは控えめで柔らかいシャドウを使用しています。"
+      ],
+      "systemPrompt": "このデザインシステムは、Cursor — 高性能AIコーディングエージェント — 向けです。クリーンで温かみのあるニュートラルパレット（背景 #F2F1ED、インク #26251E）とhumanist-sansタイポグラフィを特徴としています。レイアウトはゆったりと中央揃えで、明瞭さと開発者の生産性を重視しています。主なカラーは温かみのあるグレーとオフホワイトです。高彩度のアクセントや攻撃的なダークモードの使用は避けてください。重要な禁忌：鋭い角を使用しない（スクリーンショットは角丸を使用）。明るいネオンカラーを使用しない（パレットは温かみがあり落ち着いたもの）。重く複雑なタイポグラフィを使用しない（スクリーンショットはクリーンで読みやすいsans-serifフォントを使用）。全体的な印象は、プロフェッショナルで洗練された、ツール重視のものとなります。"
+    },
+    "ko": {
+      "identity": {
+        "keywords": [
+          "개발자",
+          "AI",
+          "코딩 에이전트",
+          "생산성",
+          "기업용"
+        ],
+        "analogy": "고성능 IDE와 정교한 AI 연구 실험실이 만납니다.",
+        "oneLiner": "야심 찬 소프트웨어 팀을 위한 에이전트 네이티브 코딩 플랫폼."
+      },
+      "colors": {
+        "principle": "가독성과 높은 대비에 초점을 맞춘 따뜻하고 차분한 중성색."
+      },
+      "typography": {
+        "rules": [
+          "기본 UI와 제목에는 맞춤 humanist-sans 글꼴을 사용합니다.",
+          "인용문과 특정 전시 텍스트에는 transitional-serif 글꼴을 사용합니다.",
+          "코드 블록과 기술 CLI 출력에는 monospace 글꼴을 사용합니다."
+        ],
+        "scaleUses": [
+          "히어로 헤드라인",
+          "섹션 제목",
+          "본문 텍스트",
+          "UI 요소와 캡션",
+          "메타데이터와 태그"
+        ]
+      },
+      "spacing": {
+        "rhythm": "8px 베이스라인 그리드"
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 28px 70px rgba(0, 0, 0, 0.14)",
+          "0px 0px 0px 1px rgba(38, 37, 30, 0.15)"
+        ],
+        "borders": "1px solid rgba(38, 37, 30, 0.15)"
+      },
+      "layout": {
+        "skeleton": "명확한 섹션 구분과 중앙 정렬 콘텐츠가 있는 반응형 그리드."
+      },
+      "components": {
+        "button": "단단한 짙은색 채우기나 단순한 아웃라인, 그리고 필 모양 모서리를 가진 미니멀리스트 버튼.",
+        "card": "부드러운 그림자와 12px 반경을 가진 은은하게 떠 있는 카드.",
+        "chip": "밝은 배경을 가진 작은 monospace 태그.",
+        "input": "하단 테두리나 은은한 아웃라인이 있는 깔끔한 텍스트 입력 필드.",
+        "hero": "고충실도 제품 스크린샷과 함께하는 큰 타이포그래피."
+      },
+      "motion": {
+        "patterns": [
+          "hover 시 부드러운 색상 및 background-color 전환."
+        ]
+      },
+      "interaction": {
+        "hover": "인터랙티브 요소에서 은은한 색상 변화와 불투명도 변경.",
+        "click": "최소한의 모션으로 즉각적인 시각적 피드백.",
+        "transition": "대부분의 속성에 표준 0.15s ease-in-out 전환.",
+        "keyboard": "접근성을 위한 표준 focus-visible 아웃라인."
+      },
+      "voice": {
+        "tone": "권위 있으면서도 친근하며, 생산성과 혁신에 초점을 맞춥니다.",
+        "headlineStyle": "직접적이고 자신감 넘치며, 도구의 '비범한' 특성을 강조합니다.",
+        "ctaStyle": "'Download'나 'Request a demo'와 같은 명확한 행동 지향적 라벨.",
+        "avoid": [
+          "기본 헤드라인에서 지나치게 전문적인 용어를 사용하지 않습니다.",
+          "공격적이거나 산만한 애니메이션을 사용하지 않습니다.",
+          "밝고 채도가 높은 강조색을 사용하지 않습니다."
+        ]
+      },
+      "donts": [
+        "밝은 네온색을 사용하지 않습니다 — 스크린샷은 차분하고 따뜻한 팔레트를 사용합니다.",
+        "다크 모드를 기본으로 사용하지 않습니다 — 스크린샷은 주로 밝은색입니다.",
+        "복잡하고 장식적인 글꼴을 사용하지 않습니다 — 스크린샷은 깔끔한 humanist-sans-serif 글꼴을 사용합니다.",
+        "모든 곳에 날카롭고 사각형 모서리를 사용하지 않습니다 — 스크린샷은 4-12px 둥근 모서리를 사용합니다.",
+        "모든 텍스트에 빡빡하고 진한 검정색을 사용하지 않습니다 — 스크린샷은 따뜻한 짙은 회색(#26251E)을 사용합니다.",
+        "무겁고 그림자가 강한 카드를 사용하지 않습니다 — 스크린샷은 은은하고 부드러운 그림자를 사용합니다."
+      ],
+      "systemPrompt": "이 디자인 시스템은 고성능 AI 코딩 에이전트인 Cursor를 위한 것입니다. 깔끔하고 따뜻한 중성색 팔레트(#F2F1ED 배경, #26251E 잉크)와 humanist-sans 타이포그래피를 특징으로 합니다. 레이아웃은 여유롭고 중앙 정렬되어 있으며, 명확성과 개발자 생산성을 강조합니다. 주요 색상은 따뜻한 회색과 오프화이트입니다. 채도가 높은 강조색이나 공격적인 다크 모드 사용을 피합니다. 중요한 주의사항: 둥글지 않은 날카로운 사각형 모서리를 사용하지 마세요 — 스크린샷은 둥근 모서리를 사용합니다. 밝은 네온색을 사용하지 마세요 — 팔레트는 따뜻하고 차분합니다. 무겁고 복잡한 타이포그래피를 사용하지 마세요 — 스크린샷은 깔끔하고 읽기 쉬운 sans-serif 글꼴을 사용합니다. 전체적인 느낌은 전문적이고 세련되며 도구 지향적입니다."
     }
   }
 }

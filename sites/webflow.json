@@ -17,65 +17,60 @@
   "_meta": {
     "vision_model": "mimo-v2.5",
     "vision_prompt_version": "0.3",
-    "vision_at": "2026-05-28T21:12:23+00:00",
-    "vision_tokens": 3402,
-    "vision_cost_usd": 0.0378,
+    "vision_at": "2026-05-30T06:32:00+00:00",
+    "vision_tokens": 17297,
+    "vision_cost_usd": 0.1922,
     "translation_model": "mimo-v2.5",
-    "translation_at": "2026-05-28T21:13:16+00:00",
-    "translation_tokens": 15257,
-    "translation_cost_usd": 0.0509,
+    "translation_at": "2026-05-30T06:32:51+00:00",
+    "translation_tokens": 25032,
+    "translation_cost_usd": 0.0835,
     "narrative_model": "mimo-v2.5",
     "narrative_prompt_version": "0.3",
     "narrative_at": "2026-05-28T21:13:23+00:00",
     "narrative_tokens": 1860,
     "narrative_cost_usd": 0.0124,
     "narrative_status": "ok",
-    "total_cost_usd": 0.1011
+    "total_cost_usd": 0.2881,
+    "vision_source": "playwright-extract:webflow",
+    "vision_grounded": true
   },
   "spec": {
     "colors": {
       "bg": "#FFFFFF",
-      "bgSoft": "#F8F9FA",
-      "bgQuiet": "#F1F3F5",
-      "ink": "#1A1A1A",
-      "inkSoft": "#4A4A4A",
-      "muted": "#6B7280",
-      "mutedSoft": "#9CA3AF",
+      "bgSoft": "#F0F0F0",
+      "bgQuiet": null,
+      "ink": "#080808",
+      "inkSoft": "#5A5A5A",
+      "muted": "#D8D8D8",
+      "mutedSoft": null,
       "accent": "#146EF5",
-      "line": "rgba(0, 0, 0, 0.08)"
+      "line": "rgba(8,8,8,0.08)"
     },
     "typography": {
-      "display": "geometric-sans",
+      "display": "humanist-sans",
       "body": "humanist-sans",
       "mono": "monospace",
       "scale": [
         {
           "token": "display",
-          "size": 64,
-          "lh": 1.1,
-          "weight": 700,
-          "ls": "-1.5px"
+          "size": 56,
+          "lh": 1.0,
+          "weight": 500,
+          "ls": "-0.8px"
         },
         {
           "token": "h2",
-          "size": 24,
-          "lh": 1.3,
-          "weight": 600,
-          "ls": "-0.5px"
+          "size": 32,
+          "lh": 1.0,
+          "weight": 500,
+          "ls": "-0.16px"
         },
         {
           "token": "body",
           "size": 16,
-          "lh": 1.5,
+          "lh": 1.6,
           "weight": 400,
-          "ls": "0"
-        },
-        {
-          "token": "caption",
-          "size": 14,
-          "lh": 1.4,
-          "weight": 500,
-          "ls": "0"
+          "ls": "-0.16px"
         }
       ]
     },
@@ -84,7 +79,6 @@
       "scale": [
         4,
         8,
-        12,
         16,
         24,
         32,
@@ -97,12 +91,12 @@
       "radius": {
         "sm": 4,
         "md": 8,
-        "lg": 16,
+        "lg": 12,
         "pill": 999
       }
     },
     "layout": {
-      "container": 1200,
+      "container": 1280,
       "paragraph": 680,
       "columns": 12,
       "gutter": 24,
@@ -114,381 +108,19 @@
     "motion": {
       "durations": {
         "micro": 220,
-        "small": 400,
+        "small": 300,
         "medium": 800
       },
-      "easing": "cubic-bezier(0.25, 0.1, 0.25, 1)"
-    }
-  },
-  "spec_i18n": {
-    "en": {
-      "identity": {
-        "keywords": [
-          "professional",
-          "scalable",
-          "empowering",
-          "modern",
-          "structured"
-        ],
-        "analogy": "A high-end corporate tool that feels accessible and empowering.",
-        "oneLiner": "A clean, professional SaaS interface designed for building and scaling digital products."
-      },
-      "colors": {
-        "principle": "High-contrast ink on white for readability, with a single vibrant blue for primary actions."
-      },
-      "typography": {
-        "rules": [],
-        "scaleUses": [
-          "Main hero headline",
-          "Section headings in cards",
-          "General body text",
-          "Secondary text and labels"
-        ]
-      },
-      "spacing": {
-        "rhythm": "8px base grid"
-      },
-      "surfaces": {
-        "shadows": [],
-        "borders": "Subtle light gray lines for separation."
-      },
-      "layout": {
-        "skeleton": "12-column grid with generous whitespace."
-      },
-      "components": {
-        "button": "Solid primary blue with white text, pill-shaped for prominent CTAs, standard rectangular for secondary.",
-        "card": "White cards with light borders or soft shadows, containing an image and descriptive text.",
-        "chip": "Small, rounded badges for labels like 'NEW'.",
-        "input": "Standard text fields with clear borders (implied by forms below).",
-        "hero": "Centered headline and subtext with a three-column feature grid below."
-      },
-      "motion": {
-        "patterns": [
-          "Fade-ins, slide-ins, and smooth scrolling for carousel transitions."
-        ]
-      },
-      "interaction": {
-        "hover": "Subtle background color change or shadow lift on interactive elements.",
-        "click": "Immediate visual feedback, likely a brief scale or opacity change.",
-        "transition": "Smooth transitions between states for a polished feel.",
-        "keyboard": "Focus states are expected to be visible for accessibility."
-      },
-      "voice": {
-        "tone": "Professional, confident, and benefit-oriented.",
-        "headlineStyle": "Direct, action-oriented statements ('Make your website a growth engine').",
-        "ctaStyle": "Clear, encouraging calls to action ('Start for free', 'Get started').",
-        "avoid": [
-          "Slang",
-          "Overly casual language",
-          "Vague promises"
-        ]
-      },
-      "donts": [
-        "Don't use chaotic layouts — screenshot shows a highly structured, centered grid.",
-        "Don't use dark backgrounds — screenshot shows a predominantly white canvas.",
-        "Don't use multiple accent colors — screenshot uses only one dominant blue for CTAs.",
-        "Don't use decorative fonts — screenshot uses clean, geometric sans-serifs.",
-        "Don't use heavy drop shadows — screenshot uses subtle borders or very light shadows.",
-        "Don't overcrowd elements — screenshot uses ample white space between sections."
-      ],
-      "systemPrompt": "This is a clean, professional SaaS homepage design. The layout is structured around a 12-column grid with generous white space, using a white background (#FFFFFF) and dark ink text (#1A1A1A). The primary accent color is a vibrant blue (#146EF5) used for the main call-to-action button. Typography relies on geometric and humanist sans-serif categories for a modern, accessible feel. Critical don'ts: avoid dark mode, avoid decorative fonts, avoid multiple accent colors, avoid heavy shadows, avoid chaotic layouts, avoid low contrast. The design prioritizes clarity, scalability, and a refined, trustworthy aesthetic."
-    },
-    "zh-CN": {
-      "identity": {
-        "keywords": [
-          "专业",
-          "可扩展",
-          "赋能",
-          "现代",
-          "结构化"
-        ],
-        "analogy": "一款高端企业工具，感觉易于上手且能赋能用户。",
-        "oneLiner": "一个简洁、专业的SaaS界面，专为构建和扩展数字产品而设计。"
-      },
-      "colors": {
-        "principle": "白底搭配高对比度墨色文本以确保可读性，并使用一个活力十足的蓝色用于主要操作按钮。"
-      },
-      "typography": {
-        "rules": [],
-        "scaleUses": [
-          "主标题",
-          "卡片中的章节标题",
-          "正文文本",
-          "辅助文本与标签"
-        ]
-      },
-      "spacing": {
-        "rhythm": "基于8px的网格"
-      },
-      "surfaces": {
-        "shadows": [],
-        "borders": "使用微妙的浅灰色线条进行分隔。"
-      },
-      "layout": {
-        "skeleton": "12列网格，留白充足。"
-      },
-      "components": {
-        "button": "主要CTA按钮为实心蓝色、白色文字、胶囊形状；次要按钮为标准矩形。",
-        "card": "白色卡片，配以浅色边框或柔和阴影，内含图片和描述文本。",
-        "chip": "小型圆角徽章，用于标注如“新功能”等标签。",
-        "input": "标准文本输入框，带有清晰边框（如下方表单所示）。",
-        "hero": "居中的标题和副标题，下方是三列功能特性网格。"
-      },
-      "motion": {
-        "patterns": [
-          "用于内容展示的淡入、滑入效果，以及轮播图的平滑滚动。"
-        ]
-      },
-      "interaction": {
-        "hover": "交互元素在hover时呈现微妙的背景色变化或阴影浮起效果。",
-        "click": "提供即时视觉反馈，可能是短暂的缩放或透明度变化。",
-        "transition": "状态之间的过渡平滑，营造精致感。",
-        "keyboard": "预期的焦点状态应清晰可见，以确保无障碍访问。"
-      },
-      "voice": {
-        "tone": "专业、自信、以用户收益为导向。",
-        "headlineStyle": "直接、行动导向的陈述（如“让你的网站成为增长引擎”）。",
-        "ctaStyle": "清晰、鼓励性的行动号召（如“免费开始”、“立即体验”）。",
-        "avoid": [
-          "俚语",
-          "过于随意的语言",
-          "模糊的承诺"
-        ]
-      },
-      "donts": [
-        "不要使用杂乱布局——截图显示的是高度结构化、居中的网格。",
-        "不要使用深色背景——截图显示的是以白色为主的画布。",
-        "不要使用多种强调色——截图仅使用一种主导蓝色作为CTA颜色。",
-        "不要使用装饰性字体——截图使用的是简洁的几何无衬线字体。",
-        "不要使用厚重的投影——截图使用的是微妙的边框或非常轻的阴影。",
-        "不要使元素过于拥挤——截图在各部分之间使用了充足的留白。"
-      ],
-      "systemPrompt": "这是一款简洁、专业的SaaS主页设计。布局基于12列网格，留白充足，使用白色背景（#FFFFFF）和深色墨色文本（#1A1A1A）。主要强调色是活力十足的蓝色（#146EF5），用于主要CTA按钮。字体依赖几何无衬线和人文主义无衬线类别，以营造现代、易用的感觉。关键禁忌：避免深色模式、避免装饰性字体、避免多种强调色、避免厚重阴影、避免杂乱布局、避免低对比度。设计优先考虑清晰度、可扩展性以及精致、可信的美学。"
-    },
-    "zh-TW": {
-      "identity": {
-        "keywords": [
-          "專業",
-          "可擴展",
-          "賦予力量",
-          "現代感",
-          "結構化"
-        ],
-        "analogy": "一款感覺易於上手且能賦予使用者力量的高端企業工具。",
-        "oneLiner": "一款為建構與擴展數位產品而設計的乾淨、專業 SaaS 介面。"
-      },
-      "colors": {
-        "principle": "以白色為底、高對比的深色文字確保可讀性，單一鮮豔藍色用於主要操作。"
-      },
-      "typography": {
-        "rules": [],
-        "scaleUses": [
-          "主要頁首標題",
-          "卡片中的段落標題",
-          "一般內文",
-          "次要文字與標籤"
-        ]
-      },
-      "spacing": {
-        "rhythm": "8px 基礎格線"
-      },
-      "surfaces": {
-        "shadows": [],
-        "borders": "以細緻的淺灰色線條作為區隔。"
-      },
-      "layout": {
-        "skeleton": "12 欄格線，配以充裕留白。"
-      },
-      "components": {
-        "button": "實色主藍按鈕，白色文字，顯眼的 CTA 採用藥丸形狀，次要按鈕則為標準矩形。",
-        "card": "白色卡片，帶有細邊框或柔和陰影，內含圖片與描述文字。",
-        "chip": "小型、圓角的標籤，用於「新功能」等標示。",
-        "input": "標準文字輸入框，帶有清晰邊框（以下表單中暗示）。",
-        "hero": "置中的標題與副標題，下方為三欄式功能格線。"
-      },
-      "motion": {
-        "patterns": [
-          "淡入、滑入效果，以及用於輪播過渡的平順滾動。"
-        ]
-      },
-      "interaction": {
-        "hover": "互動元素在 hover 時有細微的背景色變化或陰影提升。",
-        "click": "即時的視覺回饋， likely 為短暫的縮放或透明度變化。",
-        "transition": "狀態之間平順過渡，以營造精緻質感。",
-        "keyboard": "為無障礙考量，預期會有可見的 focus 狀態。"
-      },
-      "voice": {
-        "tone": "專業、自信，且以效益為導向。",
-        "headlineStyle": "直接、以行動為導向的陳述（例如：「讓你的網站成為成長引擎」）。",
-        "ctaStyle": "清晰、具鼓勵性的行動呼籲（例如：「免費開始」、「立即上手」）。",
-        "avoid": [
-          "術語",
-          "過度隨意的語言",
-          "模糊的承諾"
-        ]
-      },
-      "donts": [
-        "避免混亂的版型——截圖顯示的是高度結構化、置中的格線佈局。",
-        "避免深色背景——截圖顯示的是以白色為主的畫布。",
-        "避免使用多種強調色——截圖僅使用單一主導藍色作為 CTA。",
-        "避免裝飾性字體——截圖使用的是乾淨、幾何風格的無襯線字體。",
-        "避免厚重的投影陰影——截圖使用的是細緻邊框或非常輕柔的陰影。",
-        "避免元素過度擁擠——截圖在各段落間使用了充足的留白。"
-      ],
-      "systemPrompt": "這是一個乾淨、專業的 SaaS 首頁設計。版型以 12 欄格線結構為主，配以充裕留白，使用白色背景（#FFFFFF）與深色文字（#1A1A1A）。主要強調色為鮮豔藍色（#146EF5），用於主要的行動呼籲按鈕。字體依賴幾何與人文主義無襯線字體類別，以營造現代、易讀的質感。關鍵禁忌：避免深色模式、避免裝飾性字體、避免多種強調色、避免厚重陰影、避免混亂版型、避免低對比。設計優先考量清晰度、可擴展性，以及精緻、值得信賴的美學。"
-    },
-    "ja": {
-      "identity": {
-        "keywords": [
-          "プロフェッショナル",
-          "スケーラブル",
-          "エンパワーメント",
-          "モダン",
-          "構造化"
-        ],
-        "analogy": "アクセスしやすく、力強い印象を与えるハイエンドな企業ツール。",
-        "oneLiner": "デジタルプロダクトの構築とスケーリングのためにデザインされた、クリーンでプロフェッショナルなSaaSインターフェース。"
-      },
-      "colors": {
-        "principle": "読みやすさを重視し、ホワイト背景にインク色のテキストをハイコントラストで配置。主要アクションには単一の鮮やかな青を使用。"
-      },
-      "typography": {
-        "rules": [],
-        "scaleUses": [
-          "メインヒーローヘッドライン",
-          "カード内のセクション見出し",
-          "本文テキスト",
-          "セカンダリテキストおよびラベル"
-        ]
-      },
-      "spacing": {
-        "rhythm": "8px ベースグリッド"
-      },
-      "surfaces": {
-        "shadows": [],
-        "borders": "区切り線には繊細なライトグレーのラインを使用。"
-      },
-      "layout": {
-        "skeleton": "余白をたっぷりと活用した12カラムグリッド。"
-      },
-      "components": {
-        "button": "主要CTAには白文字のソリッドブルー（ピル型）、セカンダリには標準の四角型。",
-        "card": "画像と説明文を含む、ライトボーダーまたはソフトシャドウ付きのホワイトカード。",
-        "chip": "「NEW」のようなラベル用の、小さく角丸のバッジ。",
-        "input": "以下のフォームから推測される、明確なボーダーを持つ標準テキストフィールド。",
-        "hero": "中央揃えのヘッドラインとサブテキスト、その下に3カラムの機能グリッド。"
-      },
-      "motion": {
-        "patterns": [
-          "カルーセルの遷移には、フェードイン、スライドイン、およびスムーズスクロールを採用。"
-        ]
-      },
-      "interaction": {
-        "hover": "インタラクティブ要素に対して、微妙な背景色の変化やシャドウの浮き上げ効果。",
-        "click": "即座の視覚的フィードバック。短時間のスケールまたは不透明度の変化が適切。",
-        "transition": "各状態間のスムーズな遷移で、洗練された印象を実現。",
-        "keyboard": "アクセシビリティを考慮し、フォーカス状態が明確に表示されることが期待されます。"
-      },
-      "voice": {
-        "tone": "プロフェッショナルで自信に満ち、利益を重視したトーン。",
-        "headlineStyle": "直接的でアクション导向のフレーズ（例：「あなたのウェブサイトを成長エンジンに」）。",
-        "ctaStyle": "明確で励みになるCTA（例：「無料で始める」「始めましょう」）。",
-        "avoid": [
-          "スラング",
-          "過度にカジュアルな言葉遣い",
-          "曖昧な約束"
-        ]
-      },
-      "donts": [
-        "カオスなレイアウトは不可 — スクリーンショットは Highly structured, centered grid を示しています。",
-        "ダーク背景は不可 — スクリーンショットは主にホワイトのキャンバスです。",
-        "複数のアクセントカラーは不可 — スクリーンショットはCTAに単一の主要なブルーのみを使用しています。",
-        "装飾的なフォントは不可 — スクリーンショットはクリーンで幾何学的なサンセリフを使用しています。",
-        "重いドロップシャドウは不可 — スクリーンショットは繊細なボーダーまたは非常に薄いシャドウを使用しています。",
-        "要素を詰め込みすぎない — スクリーンショットはセクション間に十分な余白を確保しています。"
-      ],
-      "systemPrompt": "これはクリーンでプロフェッショナルなSaaSホームページのデザインです。レイアウトは12カラムグリッドを基調とし、ホワイト背景（#FFFFFF）にダークインクテキスト（#1A1A1A）を使用。プライマリアクセントカラーは、メインのCTAボタンに使用される鮮やかなブルー（#146EF5）です。タイポグラフィは、モダンでアクセシブルな印象を与えるために、幾何学的およびヒューマニストサンセリフのカテゴリーに依存しています。重要な禁止事項：ダークモード、装飾的なフォント、複数のアクセントカラー、重いシャドウ、カオスなレイアウト、低コントラストは避けてください。このデザインは、明瞭さ、スケーラビリティ、洗練された信頼感のある美学を優先しています。"
-    },
-    "ko": {
-      "identity": {
-        "keywords": [
-          "전문적",
-          "확장 가능",
-          "역량 강화",
-          "현대적",
-          "구조화된"
-        ],
-        "analogy": "접근 가능하고 역량을 강화해 주는 느낌의 고급 기업 도구입니다.",
-        "oneLiner": "디지털 제품 구축 및 확장을 위해 설계된 깔끔하고 전문적인 SaaS 인터페이스입니다."
-      },
-      "colors": {
-        "principle": "가독성을 위해 흰색 위의 고대비 잉크 컬러, 주요 액션을 위한 단일 강렬한 블루를 사용합니다."
-      },
-      "typography": {
-        "rules": [],
-        "scaleUses": [
-          "메인 히어로 헤드라인",
-          "카드 내 섹션 제목",
-          "일반 본문 텍스트",
-          "보조 텍스트 및 레이블"
-        ]
-      },
-      "spacing": {
-        "rhythm": "8px 기본 그리드"
-      },
-      "surfaces": {
-        "shadows": [],
-        "borders": "구분을 위한 섬세한 연한 회색 선입니다."
-      },
-      "layout": {
-        "skeleton": "넉넉한 여백을 둔 12열 그리드입니다."
-      },
-      "components": {
-        "button": "주요 CTA를 위한 둥근 모양의 solid 블루 배경에 흰색 텍스트, 보조용은 표준 직사각형입니다.",
-        "card": "이미지와 설명 텍스트를 포함하는, 연한 테두리 또는 부드러운 그림자가 있는 흰색 카드입니다.",
-        "chip": "'NEW'와 같은 레이블을 위한 작고 둥근 배지입니다.",
-        "input": "(아래 양식에서 암시되는) 명확한 테두리가 있는 표준 텍스트 필드입니다.",
-        "hero": "중앙 정렬된 헤드라인과 부제목, 그 아래에 3열 특징 그리드가 있습니다."
-      },
-      "motion": {
-        "patterns": [
-          "캐러셀 전환을 위한 페이드인, 슬라이드인 및 부드러운 스크롤입니다."
-        ]
-      },
-      "interaction": {
-        "hover": "인터랙티브 요소에서 섬세한 배경색 변경 또는 그림자 상승 효과입니다.",
-        "click": "즉각적인 시각적 피드백, 아마도 짧은 scale 또는 opacity 변경일 것입니다.",
-        "transition": "세련된 느낌을 위한 상태 간 부드러운 전환입니다.",
-        "keyboard": "접근성을 위해 focus 상태가 눈에 띄게 나타날 것으로 예상됩니다."
-      },
-      "voice": {
-        "tone": "전문적이고 자신감 있으며, 혜택 지향적입니다.",
-        "headlineStyle": "직접적이고 행동을 유도하는 문구('웹사이트를 성장 엔진으로 만드세요')입니다.",
-        "ctaStyle": "명확하고 격려하는 행동 유도('무료로 시작하기', '시작하기')입니다.",
-        "avoid": [
-          "비속어",
-          "지나치게 캐주얼한 언어",
-          "모호한 약속"
-        ]
-      },
-      "donts": [
-        "혼란스러운 레이아웃을 사용하지 마세요 — 스크린샷은 매우 구조화되고 중앙 정렬된 그리드를 보여줍니다.",
-        "어두운 배경을 사용하지 마세요 — 스크린샷은 주로 흰색 캔버스를 보여줍니다.",
-        "여러 악센트 컬러를 사용하지 마세요 — 스크린샷은 CTA를 위해 단일 지배적인 블루만 사용합니다.",
-        "장식용 폰트를 사용하지 마세요 — 스크린샷은 깔끔하고 기하학적인 sans-serif를 사용합니다.",
-        "무거운 drop shadow를 사용하지 마세요 — 스크린샷은 섬세한 테두리 또는 매우 연한 그림자를 사용합니다.",
-        "요소를 과도하게 채우지 마세요 — 스크린샷은 섹션 간 넉넉한 여백을 사용합니다."
-      ],
-      "systemPrompt": "이것은 깔끔하고 전문적인 SaaS 홈페이지 디자인입니다. 레이아웃은 넉넉한 여백을 둔 12열 그리드를 중심으로 구조화되어 있으며, 흰색 배경(#FFFFFF)과 어두운 잉크 텍스트(#1A1A1A)를 사용합니다. 주요 악센트 컬러는 메인 call-to-action 버튼에 사용되는 강렬한 블루(#146EF5)입니다. 타이포그래피는 현대적이고 접근 가능한 느낌을 위해 기하학적 및 인본주의 sans-serif 카테고리에 의존합니다. 중요 금지 사항: 다크 모드 회피, 장식용 폰트 회피, 여러 악센트 컬러 회피, 무거운 그림자 회피, 혼란스러운 레이아웃 회피, 저대비 회피. 이 디자인은 명확성, 확장성, 그리고 세련되고 신뢰할 수 있는 미적 감각을 우선시합니다."
+      "easing": "cubic-bezier(0.455, 0.03, 0.515, 0.955)"
     }
   },
   "desc": {
     "en": {
-      "palette": "A minimalist palette centered on high-contrast white and black, with a single vibrant blue accent for primary actions.",
-      "layout": "A clean, centered 12-column grid with generous whitespace, typical of modern SaaS landing pages.",
-      "interaction": "Subtle hover states and smooth transitions create a polished, professional user experience.",
-      "motion": "Animations are likely minimal, focusing on smooth fades and slides for content reveals.",
-      "notes": "This design is a textbook example of a high-converting SaaS landing page, balancing professionalism with approachability."
+      "palette": "A professional, high-contrast monochrome palette (#080808 on #FFFFFF) anchored by a single vibrant blue (#146EF5) for key actions.",
+      "layout": "A spacious, centered layout utilizing a 12-column grid and generous whitespace to establish clear visual hierarchy.",
+      "interaction": "Smooth, subtle micro-interactions using cubic-bezier transitions for color and shadow to provide refined feedback.",
+      "motion": "Refined, low-magnitude motion focusing on smooth transitions rather than complex sequences.",
+      "notes": "A perfect example of a modern, clean SaaS aesthetic that balances professional restraint with confident, growth-oriented messaging."
     },
     "zh-CN": {
       "palette": "以高对比度的黑白为主，搭配一个活力十足的蓝色作为主要操作强调色，呈现极简主义风格。",
@@ -579,6 +211,413 @@
       "ch7_intro": "모션은 장식보다 기능적 피드백에 초점을 맞춰 외과적 정밀도로 적용됩니다. 부드러운 페이드, 슬라이드 및 트랜지션이 콘텐츠와 인터랙션을 통해 사용자를 안내하며, 세련되고 전문적인 느낌을 유지합니다.",
       "ch8_intro": "에디토리얼 목소리는 전문적이고, 자신감 있으며, 혜택 지향적입니다. 직접적이고 행동 지향적인 진술과 명확한 행동 촉구를 사용합니다. 비격식적 언어, 일상적 표현, 모호한 약속을 피하고, 대신 명확성과 목적을 가지고 말합니다.",
       "ch8_outro": "이 시스템은 깔끔하고 확장 가능한 전문성이라는 핵심 약속을 지키기 위해 다크 모드, 장식적 타이포그래피, 무거운 그림자, 혼란스러운 레이아웃을 의도적으로 제외합니다."
+    }
+  },
+  "spec_i18n": {
+    "en": {
+      "identity": {
+        "keywords": [
+          "web builder",
+          "design system",
+          "visual development",
+          "enterprise",
+          "AI search"
+        ],
+        "analogy": "A clean, professional cockpit for building the modern web",
+        "oneLiner": "Webflow empowers teams to build, manage, and optimize websites through a visual, code-generating platform."
+      },
+      "colors": {
+        "principle": "High-contrast monochrome base with a single, energetic blue accent for action"
+      },
+      "typography": {
+        "rules": [
+          "Use tight negative letter-spacing for large headlines",
+          "Maintain a strict typographic hierarchy with clear weight differences",
+          "Ensure generous line-height for body text readability"
+        ],
+        "scaleUses": [
+          "Primary hero headline",
+          "Section headings and card titles",
+          "Default body text and navigation"
+        ]
+      },
+      "spacing": {
+        "rhythm": "8px base grid with consistent padding multiples"
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(0,0,0,0.09) 0px 3px 7px 0px",
+          "rgba(0,0,0,0.26) 0px 24px 24px 0px",
+          "rgba(0,0,0,0.12) 0px 4px 9px 0px"
+        ],
+        "borders": "1px solid rgba(8,8,8,0.08) for subtle card divisions"
+      },
+      "layout": {
+        "skeleton": "Centered single-column hero transitioning to a multi-column card grid"
+      },
+      "components": {
+        "button": "High-contrast solid blue pill for primary actions, outlined for secondary",
+        "card": "Light grey background with subtle radius and soft shadow",
+        "chip": "Small rounded badges with specific colors for status or labels",
+        "input": "Clean bordered fields with standard padding and rounded corners",
+        "hero": "Large-scale headline over descriptive subtitle, centered above content cards"
+      },
+      "motion": {
+        "patterns": [
+          "Subtle color and background-color transitions on hover",
+          "Smooth transform shifts for interactive elements",
+          "Refined easing curves for micro-interactions"
+        ]
+      },
+      "interaction": {
+        "hover": "Subtle color transitions and light shadow adjustments",
+        "click": "Smooth transform feedback",
+        "transition": "0.3s cubic-bezier transition across color, background, and shadow properties",
+        "keyboard": "Focus states implied via standard component outlines"
+      },
+      "voice": {
+        "tone": "Confident, professional, and encouraging",
+        "headlineStyle": "Direct, action-oriented statements about growth and visibility",
+        "ctaStyle": "Clear, low-friction calls like 'Start for free' or 'Get started'",
+        "avoid": [
+          "Excessive jargon without context",
+          "Overly casual or playful language",
+          "Passive or hesitant phrasing"
+        ]
+      },
+      "donts": [
+        "Don't use vibrant secondary colors — screenshot shows a strict blue-and-monochrome palette.",
+        "Don't use decorative serifs — screenshot shows a clean, modern humanist sans-serif for all text.",
+        "Don't apply heavy, dark drop shadows — screenshot shows very subtle, soft elevation.",
+        "Don't clutter the interface with dense layouts — screenshot shows generous whitespace and clear hierarchy.",
+        "Don't use overly rounded pill shapes everywhere — screenshot limits them to primary action buttons.",
+        "Don't use all-caps for body text — screenshot reserves it for specific, small labels or badges."
+      ],
+      "systemPrompt": "Position Webflow as a professional, enterprise-grade SaaS platform for visual web development. Use a clean, high-contrast palette with #080808 ink, #FFFFFF bg, and #146EF5 accent. Typography is a modern humanist-sans with a tight display scale. Critical donts: avoid decorative serifs, never use secondary vibrant colors, and don't create cluttered layouts. Focus on structured grids and subtle elevation to maintain a refined, trustworthy, and productive aesthetic."
+    },
+    "zh-CN": {
+      "identity": {
+        "keywords": [
+          "网站构建器",
+          "设计系统",
+          "可视化开发",
+          "企业级",
+          "AI搜索"
+        ],
+        "analogy": "一个干净、专业的驾驶舱，用于构建现代网络",
+        "oneLiner": "Webflow 通过一个可视化、代码生成的平台，赋能团队构建、管理和优化网站。"
+      },
+      "colors": {
+        "principle": "高对比度的单色基底，搭配一个充满活力的蓝色作为行动色"
+      },
+      "typography": {
+        "rules": [
+          "对于大标题使用紧凑的负字距",
+          "通过明确的字重差异维持严格的排版层级",
+          "确保正文有足够的行高以保证可读性"
+        ],
+        "scaleUses": [
+          "主标题",
+          "章节标题和卡片标题",
+          "默认正文和导航文字"
+        ]
+      },
+      "spacing": {
+        "rhythm": "基于8px的网格系统，并使用一致的padding倍数"
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(0,0,0,0.09) 0px 3px 7px 0px",
+          "rgba(0,0,0,0.26) 0px 24px 24px 0px",
+          "rgba(0,0,0,0.12) 0px 4px 9px 0px"
+        ],
+        "borders": "使用1px solid rgba(8,8,8,0.08)进行微妙的卡片分割"
+      },
+      "layout": {
+        "skeleton": "以居中的单列主区域开始，过渡到多列卡片网格"
+      },
+      "components": {
+        "button": "主要操作使用高对比度的实心蓝色胶囊按钮，次要操作使用描边按钮",
+        "card": "浅灰色背景，带有微妙的圆角和柔和的阴影",
+        "chip": "带有特定颜色的小圆角徽章，用于状态或标签",
+        "input": "干净的带边框字段，使用标准padding和圆角",
+        "hero": "大尺度的标题位于描述性副标题之上，居中排列在内容卡片上方"
+      },
+      "motion": {
+        "patterns": [
+          "hover时微妙的颜色和背景颜色过渡",
+          "交互元素的平滑transform变化",
+          "为微交互优化的缓动曲线"
+        ]
+      },
+      "interaction": {
+        "hover": "微妙的颜色过渡和轻微的阴影调整",
+        "click": "平滑的transform反馈",
+        "transition": "在color、background和shadow属性上使用0.3s cubic-bezier过渡",
+        "keyboard": "焦点状态通过标准组件的轮廓来体现"
+      },
+      "voice": {
+        "tone": "自信、专业且鼓舞人心",
+        "headlineStyle": "直接、行动导向的陈述，关于增长和可见性",
+        "ctaStyle": "清晰、低摩擦的号召性用语，如“免费开始”或“立即开始”",
+        "avoid": [
+          "缺乏上下文的过度术语",
+          "过于随意或俏皮的语言",
+          "被动或犹豫的措辞"
+        ]
+      },
+      "donts": [
+        "不要使用鲜艳的辅助色 — 截图显示了严格的蓝色与单色调色板。",
+        "不要使用装饰性衬线字体 — 截图显示所有文字都使用了简洁、现代的humanist-sans。",
+        "不要应用浓重、深色的投影 — 截图显示了非常微妙、柔和的层级提升。",
+        "不要用密集的布局使界面拥挤 — 截图显示了充足的留白和清晰的层级。",
+        "不要到处使用过度圆润的胶囊形状 — 截图将其限制为主要操作按钮。",
+        "不要在正文中使用全大写 — 截图保留它用于特定的、小型的标签或徽章。"
+      ],
+      "systemPrompt": "将 Webflow 定位为一个专业的、企业级的 SaaS 平台，用于可视化网页开发。使用干净的、高对比度的调色板，包含 #080808 墨色、#FFFFFF 背景色和 #146EF5 强调色。字体是现代的 humanist-sans，并采用紧凑的展示比例。关键禁忌：避免装饰性衬线字体，绝不使用鲜艳的辅助色，不要创建杂乱的布局。专注于结构化的网格和微妙的层级提升，以维持精致、可信且高效的审美。"
+    },
+    "zh-TW": {
+      "identity": {
+        "keywords": [
+          "網站建構器",
+          "設計系統",
+          "視覺化開發",
+          "企業級",
+          "AI 搜尋"
+        ],
+        "analogy": "打造現代網路的簡潔專業駕駛艙",
+        "oneLiner": "Webflow 透過視覺化、可產生程式碼的平台，賦能團隊建構、管理及優化網站。"
+      },
+      "colors": {
+        "principle": "高對比單色基底，搭配單一、充滿活力的藍色作為行動強調色"
+      },
+      "typography": {
+        "rules": [
+          "大型標題使用緊湊的負字距",
+          "透過明確的字重差異，維持嚴格的字體層級",
+          "確保內文具備充裕的行高以提升可讀性"
+        ],
+        "scaleUses": [
+          "主要首頁大標題",
+          "章節標題與卡片標題",
+          "預設內文與導航文字"
+        ]
+      },
+      "spacing": {
+        "rhythm": "8px 基礎網格，搭配一致的 padding 倍數"
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(0,0,0,0.09) 0px 3px 7px 0px",
+          "rgba(0,0,0,0.26) 0px 24px 24px 0px",
+          "rgba(0,0,0,0.12) 0px 4px 9px 0px"
+        ],
+        "borders": "使用 1px solid rgba(8,8,8,0.08) 作為細微的卡片分隔線"
+      },
+      "layout": {
+        "skeleton": "居中的單欄首頁區塊，過渡至多欄卡片網格"
+      },
+      "components": {
+        "button": "主要行動使用高對比實心藍色膠囊按鈕，次要行動使用外框按鈕",
+        "card": "淺灰色背景，帶有細微圓角與柔和陰影",
+        "chip": "小型圓角標籤，以特定顏色區分狀態或標籤",
+        "input": "簡潔的邊框輸入欄位，具備標準內距與圓角",
+        "hero": "大規模標題搭配描述性副標題，置於內容卡片上方"
+      },
+      "motion": {
+        "patterns": [
+          "懸停時細微的顏色與背景色轉換",
+          "互動元素的流暢變形移動",
+          "微互動使用精緻的緩動曲線"
+        ]
+      },
+      "interaction": {
+        "hover": "細微的顏色轉換與輕微陰影調整",
+        "click": "流暢的變形回饋",
+        "transition": "0.3s cubic-bezier 轉換，套用於顏色、背景與陰影屬性",
+        "keyboard": "焦點狀態透過標準元件外框暗示"
+      },
+      "voice": {
+        "tone": "自信、專業且鼓舞人心",
+        "headlineStyle": "直接、以行動為導向的成長與能見度聲明",
+        "ctaStyle": "清晰、低摩擦的呼籲行動，例如「免費開始使用」或「立即上手」",
+        "avoid": [
+          "無脈絡的過度術語",
+          "過於隨意或俏皮的語言",
+          "被動或猶豫的措辭"
+        ]
+      },
+      "donts": [
+        "避免使用鮮豔的次要顏色——截圖顯示嚴格的藍色與單色調色盤。",
+        "避免使用裝飾性襯線體——截圖顯示所有文字使用簡潔、現代的人文無襯線體。",
+        "避免使用厚重、深色的陰影——截圖顯示非常細微、柔和的立體感。",
+        "避免使用擁擠的佈局使介面雜亂——截圖顯示充裕的留白與清晰的層級。",
+        "避免隨處使用過度圓潤的膠囊形狀——截圖將其限制於主要行動按鈕。",
+        "避免內文使用全大寫——截圖將其保留給特定的小型標籤或徽章。"
+      ],
+      "systemPrompt": "將 Webflow 定位為專業、企業級的 SaaS 平台，專注於視覺化網頁開發。使用簡潔、高對比的色調，包含 #080808 墨色、#FFFFFF 背景，以及 #146EF5 強調色。字體採用現代人文無襯線體，搭配緊湊的顯示比例。關鍵禁忌：避免裝飾性襯線體，切勿使用鮮豔的次要顏色，且不要創造擁擠的佈局。專注於結構化的網格與細微的立體感，以維持精緻、值得信賴且高效的美感。"
+    },
+    "ja": {
+      "identity": {
+        "keywords": [
+          "ウェブビルダー",
+          "デザインシステム",
+          "ビジュアル開発",
+          "エンタープライズ",
+          "AI検索"
+        ],
+        "analogy": "モダンなウェブ構築のための、クリーンでプロフェッショナルなコックピット",
+        "oneLiner": "Webflowは、ビジュアルでコード生成を行うプラットフォームを通じて、チームがウェブサイトを構築・管理・最適化できるように支援します。"
+      },
+      "colors": {
+        "principle": "行動を促す、単一でエネルギッシュなブルーアクセントを加えた、高コントラストのモノクロームベース"
+      },
+      "typography": {
+        "rules": [
+          "大きな見出しには、きつい負の文字間隔を使用する",
+          "明確なウェイト差を備えた厳格なタイポグラフィ階層を維持する",
+          "本文の可読性を確保するため、寛容な行間を設定する"
+        ],
+        "scaleUses": [
+          "プライマリヒーロー見出し",
+          "セクション見出しとカードタイトル",
+          "デフォルト本文とナビゲーション"
+        ]
+      },
+      "spacing": {
+        "rhythm": "8pxの基本グリッドと一貫したパディング倍数"
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(0,0,0,0.09) 0px 3px 7px 0px",
+          "rgba(0,0,0,0.26) 0px 24px 24px 0px",
+          "rgba(0,0,0,0.12) 0px 4px 9px 0px"
+        ],
+        "borders": "カードの微細な区切りとしての、1px solid rgba(8,8,8,0.08)"
+      },
+      "layout": {
+        "skeleton": "センタリングされた単一カラムヒーローから、マルチカラムカードグリッドへと移行"
+      },
+      "components": {
+        "button": "プライマリアクションには高コントラストのソリッドブルーピル、セカンダリにはアウトライン",
+        "card": "微細な角丸と柔らかいシャドウを持つ、ライトグレーの背景",
+        "chip": "ステータスやラベルに特定の色を使用した、小さな角丸バッジ",
+        "input": "標準のパディングと角丸を持つ、クリーンなボーダーフィールド",
+        "hero": "コンテンツカードの上に中央配置された、記述的なサブタイトルの上に配置された大規模な見出し"
+      },
+      "motion": {
+        "patterns": [
+          "hover時の微細なcolorとbackground-colorのトランジション",
+          "インタラクティブ要素のためのスムーズなtransformシフト",
+          "微細なインタラクションのための洗練されたイージングカーブ"
+        ]
+      },
+      "interaction": {
+        "hover": "微細なcolorトランジションとライトシャドウの調整",
+        "click": "スムーズなtransformフィードバック",
+        "transition": "color、background、shadowプロパティ全体で、0.3s cubic-bezierトランジション",
+        "keyboard": "標準のコンポーネントアウトラインで示唆されるfocus状態"
+      },
+      "voice": {
+        "tone": "自信に満ち、プロフェッショナルで、鼓励的",
+        "headlineStyle": "成長と可視性に関する、直接的でアクション指向のステートメント",
+        "ctaStyle": "「無料で始める」や「始めましょう」のような、明確で摩擦の低いCTA",
+        "avoid": [
+          "文脈なしの過度な専門用語",
+          "過度にカジュアルまたは遊び心のある言葉",
+          "受動的またはためらいがちな表現"
+        ]
+      },
+      "donts": [
+        "鮮やかなセカンダリカラーを使用しない — スクリーンショットは厳格なブルーとモノクロームのパレットを示しています。",
+        "装飾的なセリフを使用しない — スクリーンショットはすべてのテキストにクリーンでモダンなヒューマニストサンセリフを使用しています。",
+        "重く暗いドロップシャドウを適用しない — スクリーンショットは非常に微細で柔らかいエレベーションを示しています。",
+        "密集したレイアウトでインタフェースを雑然としない — スクリーンショットは寛容なホワイトスペースと明確な階層を示しています。",
+        "すべての場所に過度に丸みのあるピルシェイプを使用しない — スクリーンショットはそれをプライマリアクションボタンに限定しています。",
+        "本文にすべて大文字を使用しない — スクリーンショットは特定の、小さなラベルやバッジにのみそれを予約しています。"
+      ],
+      "systemPrompt": "Webflowを、ビジュアルウェブ開発のためのプロフェッショナルでエンタープライズグレードのSaaSプラットフォームとして位置付けてください。#080808インク、#FFFFFF背景、#146EF5アクセントを使用した、クリーンで高コントラストのパレットを使用してください。タイポグラフィは、きついディスプレイスケールを備えたモダンなヒューマニストサンセリフです。重要な禁止事項：装飾的なセリフを避け、鮮やかなセカンダリカラーを決して使用せず、雑然としたレイアウトを作成しないでください。洗練され、信頼性が高く、生産的な美学を維持するために、構造化されたグリッドと微細なエレベーションに焦点を当ててください。"
+    },
+    "ko": {
+      "identity": {
+        "keywords": [
+          "웹 빌더",
+          "디자인 시스템",
+          "비주얼 개발",
+          "엔터프라이즈",
+          "AI 검색"
+        ],
+        "analogy": "현대 웹을 구축하기 위한 깔끔하고 전문적인 조종석",
+        "oneLiner": "Webflow는 비주얼 코드 생성 플랫폼을 통해 팀이 웹사이트를 구축, 관리 및 최적화할 수 있도록 지원합니다."
+      },
+      "colors": {
+        "principle": "행동을 위한 단일 활기찬 블루 악센트를 사용하는 고대비 모노크롬 기반"
+      },
+      "typography": {
+        "rules": [
+          "큰 헤드라인에는 좁은 음수 자간 사용",
+          "명확한 굵기 차이로 엄격한 타이포그래피 계층 유지",
+          "본문 텍스트 가독성을 위한 넉넉한 행간 유지"
+        ],
+        "scaleUses": [
+          "주요 히어로 헤드라인",
+          "섹션 제목 및 카드 타이틀",
+          "기본 본문 텍스트 및 내비게이션"
+        ]
+      },
+      "spacing": {
+        "rhythm": "일관된 padding 배수를 사용하는 8px 기본 그리드"
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(0,0,0,0.09) 0px 3px 7px 0px",
+          "rgba(0,0,0,0.26) 0px 24px 24px 0px",
+          "rgba(0,0,0,0.12) 0px 4px 9px 0px"
+        ],
+        "borders": "미세한 카드 구분을 위한 1px solid rgba(8,8,8,0.08)"
+      },
+      "layout": {
+        "skeleton": "콘텐츠 카드 위에 배치된 중앙 단일 열 히어로에서 다중 열 카드 그리드로 전환"
+      },
+      "components": {
+        "button": "주요 작업을 위한 고대비 솔리드 블루 필, 보조 작업을 위한 아웃라인 스타일",
+        "card": "미세한 radius와 부드러운 그림자를 사용한 밝은 회색 배경",
+        "chip": "상태 또는 레이블을 위한 특정 색상의 작고 둥근 배지",
+        "input": "표준 padding과 둥근 모서리를 사용한 깔끔한 테두리 필드",
+        "hero": "콘텐츠 카드 위에 중앙 정렬된 설명적인 부제목 위의 대규모 헤드라인"
+      },
+      "motion": {
+        "patterns": [
+          "hover 시 미세한 색상 및 background-color 전환",
+          "인터랙티브 요소를 위한 부드러운 transform 이동",
+          "미세 상호작용을 위한 정제된 easing 곡선"
+        ]
+      },
+      "interaction": {
+        "hover": "미세한 색상 전환 및 가벼운 그림자 조정",
+        "click": "부드러운 transform 피드백",
+        "transition": "색상, 배경 및 그림자 속성에 걸쳐 0.3s cubic-bezier 전환",
+        "keyboard": "표준 컴포넌트 아웃라인을 통해 암시되는 focus 상태"
+      },
+      "voice": {
+        "tone": "자신감 있고 전문적이며 격려하는",
+        "headlineStyle": "성장과 가시성에 대한 직접적이고 행동 지향적인 진술",
+        "ctaStyle": "'무료로 시작하기' 또는 '시작하기'와 같이 명확하고 마찰이 적은 호출",
+        "avoid": [
+          "컨텍스트 없이 지나치게 많은 전문 용어 사용",
+          "지나치게 캐주얼하거나 장난스러운 언어",
+          "수동적이거나 망설이는 문구"
+        ]
+      },
+      "donts": [
+        "화려한 보조 색상을 사용하지 마세요 — 스크린샷은 엄격한 블루 및 모노크롬 팔레트를 보여줍니다.",
+        "장식용 세리프를 사용하지 마세요 — 스크린샷은 모든 텍스트에 깔끔하고 현대적인 humanist sans-serif를 사용합니다.",
+        "무겁고 어두운 드롭 그림자를 적용하지 마세요 — 스크린샷은 매우 미세하고 부드러운 엘리베이션을 보여줍니다.",
+        "밀집된 레이아웃으로 인터페이스를 어지럽히지 마세요 — 스크린샷은 넉넉한 여백과 명확한 계층을 보여줍니다.",
+        "모든 과도하게 둥근 필 모양을 사용하지 마세요 — 스크린샷은 이를 주요 작업 버튼으로 제한합니다.",
+        "본문 텍스트에 대문자를 사용하지 마세요 — 스크린샷은 특정 소형 레이블이나 배지에만 이를 사용합니다."
+      ],
+      "systemPrompt": "Webflow를 비주얼 웹 개발을 위한 전문적이고 엔터프라이즈급 SaaS 플랫폼으로 포지셔닝합니다. #080808 잉크, #FFFFFF 배경 및 #146EF5 악센트를 사용하는 깔끔한 고대비 팔레트를 사용하세요. 타이포그래피는 좁은 디스플레이 스케일을 사용하는 현대적인 humanist-sans입니다. 중요한 주의사항: 장식용 세리프를 피하고, 절대 화려한 보조 색상을 사용하지 않으며, 혼잡한 레이아웃을 만들지 마세요. 정제되고 신뢰할 수 있으며 생산적인 미학을 유지하기 위해 구조화된 그리드와 미세한 엘리베이션에 집중하세요."
     }
   }
 }

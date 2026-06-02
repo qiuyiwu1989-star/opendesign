@@ -17,65 +17,67 @@
   "_meta": {
     "vision_model": "mimo-v2.5",
     "vision_prompt_version": "0.3",
-    "vision_at": "2026-05-28T20:39:16+00:00",
-    "vision_tokens": 3593,
-    "vision_cost_usd": 0.0399,
+    "vision_at": "2026-05-30T10:59:57+00:00",
+    "vision_tokens": 16901,
+    "vision_cost_usd": 0.1878,
     "translation_model": "mimo-v2.5",
-    "translation_at": "2026-05-28T20:40:20+00:00",
-    "translation_tokens": 17219,
-    "translation_cost_usd": 0.0574,
+    "translation_at": "2026-05-30T11:00:51+00:00",
+    "translation_tokens": 27020,
+    "translation_cost_usd": 0.0901,
     "narrative_model": "mimo-v2.5",
     "narrative_prompt_version": "0.3",
     "narrative_at": "2026-05-28T20:40:28+00:00",
     "narrative_tokens": 2072,
     "narrative_cost_usd": 0.0138,
     "narrative_status": "ok",
-    "total_cost_usd": 0.1111
+    "total_cost_usd": 0.2917,
+    "vision_source": "playwright-extract:clickhouse",
+    "vision_grounded": true
   },
   "spec": {
     "colors": {
-      "bg": "#111111",
-      "bgSoft": "#1A1A1A",
-      "bgQuiet": "#000000",
-      "ink": "#FFFFFF",
-      "inkSoft": "#E0E0E0",
-      "muted": "#888888",
-      "mutedSoft": "#666666",
-      "accent": "#E8FF00",
-      "line": "rgba(255, 255, 255, 0.1)"
+      "bg": "#151515",
+      "bgSoft": "#1f1f1c",
+      "bgQuiet": "#131313",
+      "ink": "#ffffff",
+      "inkSoft": "#a0a0a0",
+      "muted": "#dfdfdf",
+      "mutedSoft": null,
+      "accent": "#faf569",
+      "line": "rgba(65, 65, 65, 0.8)"
     },
     "typography": {
-      "display": "geometric-sans",
+      "display": "humanist-sans",
       "body": "humanist-sans",
       "mono": "monospace",
       "scale": [
         {
           "token": "display",
-          "size": 64,
-          "lh": 1.05,
-          "weight": 700,
-          "ls": "-2px"
+          "size": 72,
+          "lh": 1.0,
+          "weight": 500,
+          "ls": "-1px"
         },
         {
-          "token": "display-small",
-          "size": 40,
-          "lh": 1.1,
-          "weight": 700,
-          "ls": "-1px"
+          "token": "headline",
+          "size": 36,
+          "lh": 1.3,
+          "weight": 500,
+          "ls": "normal"
         },
         {
           "token": "body",
           "size": 16,
           "lh": 1.5,
           "weight": 400,
-          "ls": "0"
+          "ls": "normal"
         },
         {
-          "token": "label",
+          "token": "small",
           "size": 14,
-          "lh": 1.4,
-          "weight": 600,
-          "ls": "0.5px"
+          "lh": 1.43,
+          "weight": 400,
+          "ls": "normal"
         }
       ]
     },
@@ -90,8 +92,7 @@
         32,
         48,
         64,
-        96,
-        128
+        96
       ]
     },
     "surfaces": {
@@ -99,443 +100,35 @@
         "sm": 4,
         "md": 8,
         "lg": 12,
-        "pill": 999
+        "pill": 9999
       }
     },
     "layout": {
-      "container": 1200,
-      "paragraph": 720,
+      "container": 1280,
+      "paragraph": 680,
       "columns": 12,
-      "gutter": 32,
+      "gutter": 24,
       "breakpoints": [
         768,
-        1024,
-        1280
+        1024
       ]
     },
     "motion": {
       "durations": {
         "micro": 150,
-        "small": 250,
-        "medium": 400
+        "small": 300,
+        "medium": 800
       },
       "easing": "cubic-bezier(0.4, 0, 0.2, 1)"
     }
   },
-  "spec_i18n": {
-    "en": {
-      "identity": {
-        "keywords": [
-          "database",
-          "AI",
-          "performance",
-          "scale",
-          "developer"
-        ],
-        "analogy": "A high-performance engine for modern data infrastructure.",
-        "oneLiner": "The leading database for AI, powering agentic systems with millisecond queries at petabyte scale."
-      },
-      "colors": {
-        "principle": "High-contrast dark theme with a single electric accent to highlight primary actions and key information."
-      },
-      "typography": {
-        "rules": [
-          "Use a clean, bold geometric sans for headlines to convey technical authority.",
-          "Body text should be highly readable humanist sans-serif for documentation.",
-          "All-caps micro text for labels and category headers.",
-          "Ensure tight letter spacing for large display type."
-        ],
-        "scaleUses": [
-          "Main hero headline",
-          "Section headlines",
-          "Paragraph text",
-          "Navigation and buttons"
-        ]
-      },
-      "spacing": {
-        "rhythm": "Generous vertical spacing between sections to create clear visual hierarchy and reduce cognitive load."
-      },
-      "surfaces": {
-        "shadows": [
-          "0 2px 8px rgba(0, 0, 0, 0.3)",
-          "0 8px 32px rgba(0, 0, 0, 0.4)"
-        ],
-        "borders": "Subtle 1px borders using rgba(255, 255, 255, 0.1) to separate elements."
-      },
-      "layout": {
-        "skeleton": "Centered single-column layout with full-width dark sections. Content is vertically stacked with large whitespace blocks between sections."
-      },
-      "components": {
-        "button": "Solid yellow (#E8FF00) for primary CTAs with black text. Outlined white borders for secondary actions.",
-        "card": "Dark background (#1A1A1A) with subtle border, used for announcements or feature blocks.",
-        "chip": "Small, rounded label chips for categorization.",
-        "input": "Clean, dark input fields with subtle borders.",
-        "hero": "Full-width dark hero with large centered typography and dual CTAs."
-      },
-      "motion": {
-        "patterns": [
-          "Fade in on scroll",
-          "Subtle hover state transitions on buttons and links."
-        ]
-      },
-      "interaction": {
-        "hover": "Subtle color shifts or brightness changes on interactive elements.",
-        "click": "Immediate visual feedback (scale or color change) on primary buttons.",
-        "transition": "Smooth 150-250ms transitions for all interactive state changes.",
-        "keyboard": "Clear focus outlines on interactive elements for accessibility."
-      },
-      "voice": {
-        "tone": "Authoritative, direct, and technically confident.",
-        "headlineStyle": "Short, powerful, and benefit-oriented statements.",
-        "ctaStyle": "Clear, action-oriented, and value-driven (e.g., 'Start free cloud trial').",
-        "avoid": [
-          "Vague marketing fluff",
-          "Overly complex jargon",
-          "Passive language"
-        ]
-      },
-      "donts": [
-        "Don't use light backgrounds — the screenshot shows a solid dark (#111111) theme.",
-        "Don't use muted or pastel accent colors — the screenshot uses a single high-chroma yellow (#E8FF00).",
-        "Don't use decorative or script fonts — the screenshot uses clean geometric/humanist sans-serifs.",
-        "Don't add excessive shadows or depth — surfaces are flat and defined by subtle borders.",
-        "Don't use center-aligned body text at length — the screenshot shows left-aligned body content.",
-        "Don't clutter the layout with too many elements — the screenshot prioritizes whitespace and clear hierarchy."
-      ],
-      "systemPrompt": "Design for a high-performance developer tool database. Use a dark theme (#111111 background) with a single high-chroma electric yellow (#E8FF00) accent for primary actions. Typography should be bold and geometric for headlines, clean humanist sans for body, with tight letter spacing on large type. Layout is centered and spacious with generous vertical rhythm. Key rules: maintain high contrast, use generous whitespace, avoid decorative elements, keep UI minimal and functional, and prioritize clarity over ornamentation. The voice is authoritative and direct."
-    },
-    "zh-CN": {
-      "identity": {
-        "keywords": [
-          "数据库",
-          "AI",
-          "性能",
-          "扩展性",
-          "开发者"
-        ],
-        "analogy": "现代数据基础设施的高性能引擎。",
-        "oneLiner": "领先的 AI 数据库，在 PB 级规模下实现毫秒级查询，赋能智能体系统。"
-      },
-      "colors": {
-        "principle": "高对比度深色主题，以单一电光色强调主要操作和关键信息。"
-      },
-      "typography": {
-        "rules": [
-          "标题使用简洁、粗体的几何无衬线字体，传达技术权威感。",
-          "正文采用高可读性的人文主义无衬线字体，适用于文档内容。",
-          "标签与分类标题使用全大写微缩文字。",
-          "大型展示字体需确保紧凑的字间距。"
-        ],
-        "scaleUses": [
-          "主视觉标题",
-          "区块标题",
-          "段落文本",
-          "导航与按钮"
-        ]
-      },
-      "spacing": {
-        "rhythm": "区块间采用充裕的垂直间距，建立清晰的视觉层次，降低认知负荷。"
-      },
-      "surfaces": {
-        "shadows": [
-          "0 2px 8px rgba(0, 0, 0, 0.3)",
-          "0 8px 32px rgba(0, 0, 0, 0.4)"
-        ],
-        "borders": "采用 rgba(255, 255, 255, 0.1) 的细微 1px 边框分隔元素。"
-      },
-      "layout": {
-        "skeleton": "居中单栏布局，深色区块贯穿全宽。内容垂直堆叠，区块间留有大量留白。"
-      },
-      "components": {
-        "button": "主要操作按钮采用实心黄色（#E8FF00）搭配黑色文字。次要操作使用白色描边边框。",
-        "card": "深色背景（#1A1A1A）配合细微边框，用于公告或功能模块。",
-        "chip": "用于分类的小型圆角标签芯片。",
-        "input": "简洁的深色输入框，带有细微边框。",
-        "hero": "全宽深色主视觉区域，包含大型居中文字和双操作按钮。"
-      },
-      "motion": {
-        "patterns": [
-          "滚动时淡入显示",
-          "按钮和链接的细微悬停状态过渡。"
-        ]
-      },
-      "interaction": {
-        "hover": "交互元素呈现细微的颜色偏移或亮度变化。",
-        "click": "主要按钮点击时提供即时视觉反馈（缩放或颜色变化）。",
-        "transition": "所有交互状态变化均采用 150-250ms 的平滑过渡。",
-        "keyboard": "交互元素需具备清晰的焦点轮廓以提升可访问性。"
-      },
-      "voice": {
-        "tone": "权威、直接且充满技术自信。",
-        "headlineStyle": "简短有力、以收益为导向的陈述。",
-        "ctaStyle": "清晰、以行动为导向、突出价值（例如“开始免费云试用”）。",
-        "avoid": [
-          "模糊的营销套话",
-          "过于复杂的术语",
-          "被动语态"
-        ]
-      },
-      "donts": [
-        "避免使用浅色背景——截图显示的是纯深色（#111111）主题。",
-        "避免使用柔和或粉彩强调色——截图使用的是单一高饱和度黄色（#E8FF00）。",
-        "避免使用装饰性或手写体字体——截图采用简洁的几何/人文主义无衬线字体。",
-        "避免添加过多阴影或层次——表面保持扁平化，仅通过细微边框定义。",
-        "避免长时间使用居中对齐的正文——截图显示正文内容为左对齐。",
-        "避免布局元素过于拥挤——截图优先考虑留白和清晰的视觉层次。"
-      ],
-      "systemPrompt": "为高性能开发者工具数据库进行设计。采用深色主题（#111111 背景），以单一高饱和度电光黄（#E8FF00）作为主要操作的强调色。标题使用粗体几何字体，正文采用简洁的人文主义无衬线字体，大型字体需保持紧凑字间距。布局居中且宽敞，具有充裕的垂直韵律。关键规则：保持高对比度，运用大量留白，避免装饰性元素，保持界面极简且功能化，优先考虑清晰度而非装饰。语气需权威直接。"
-    },
-    "zh-TW": {
-      "identity": {
-        "keywords": [
-          "database",
-          "AI",
-          "performance",
-          "scale",
-          "developer"
-        ],
-        "analogy": "現代資料基礎設施的高性能引擎。",
-        "oneLiner": "領先的 AI 資料庫，為代理式系統提供 PB 級規模毫秒查詢能力。"
-      },
-      "colors": {
-        "principle": "高對比深色主題搭配單一電光黃強調色，用以突顯主要操作與關鍵資訊。"
-      },
-      "typography": {
-        "rules": [
-          "使用簡潔粗體幾何無襯線字體作為標題，傳達技術權威感。",
-          "內文採用易讀性極高的人文主義無襯線字體，適用於文件說明。",
-          "標籤與分類標題使用全大寫微型文字。",
-          "大型展示字體需確保緊湊字距。"
-        ],
-        "scaleUses": [
-          "主英雄標題",
-          "區塊標題",
-          "段落文字",
-          "導覽與按鈕"
-        ]
-      },
-      "spacing": {
-        "rhythm": "區塊間採用充足垂直間距，建立清晰視覺層級並降低認知負擔。"
-      },
-      "surfaces": {
-        "shadows": [
-          "0 2px 8px rgba(0, 0, 0, 0.3)",
-          "0 8px 32px rgba(0, 0, 0, 0.4)"
-        ],
-        "borders": "使用 rgba(255, 255, 255, 0.1) 的細微 1px 邊框分隔元素。"
-      },
-      "layout": {
-        "skeleton": "置中單欄佈局搭配全寬深色區塊。內容垂直堆疊，區塊間留有大面積留白。"
-      },
-      "components": {
-        "button": "主要號召性用語按鈕採用實心黃色 (#E8FF00) 搭配黑色文字。次要操作使用白色邊框描邊樣式。",
-        "card": "深色背景 (#1A1A1A) 搭配細微邊框，用於公告或功能區塊。",
-        "chip": "圓角小型標籤，用於分類標示。",
-        "input": "簡潔深色輸入欄位，帶有細微邊框。",
-        "hero": "全寬深色英雄區塊，搭配大型置中文字與雙號召性用語。"
-      },
-      "motion": {
-        "patterns": [
-          "滾動時淡入顯示",
-          "按鈕與連結的細微懸停狀態轉換。"
-        ]
-      },
-      "interaction": {
-        "hover": "互動元素產生細微色彩或亮度變化。",
-        "click": "主要按鈕點擊時提供即時視覺回饋（縮放或色彩變換）。",
-        "transition": "所有互動狀態轉換採用流暢的 150-250ms 過渡效果。",
-        "keyboard": "互動元素具備清晰焦點外框，確保無障礙訪問。"
-      },
-      "voice": {
-        "tone": "權威、直接且充滿技術自信。",
-        "headlineStyle": "簡短有力、強調效益的表述。",
-        "ctaStyle": "清晰、行動導向且具價值主張（例如：免費雲端試用）。",
-        "avoid": [
-          "模糊的行銷用語",
-          "過於複雜的專業術語",
-          "被動語態"
-        ]
-      },
-      "donts": [
-        "避免使用淺色背景——截圖顯示採用純深色 (#111111) 主題。",
-        "避免使用柔和或粉彩色調強調色——截圖使用單一高飽和度黃色 (#E8FF00)。",
-        "避免使用裝飾性或手寫字體——截圖採用簡潔的幾何/人文主義無襯線字體。",
-        "避免添加過多陰影或深度效果——表面採用平面設計並以細微邊框界定。",
-        "避免長篇內文使用置中對齊——截圖顯示內文採用左對齊。",
-        "避免佈局充斥過多元素——截圖優先採用留白與清晰層級結構。"
-      ],
-      "systemPrompt": "設計高性能開發者工具資料庫。採用深色主題 (#111111 背景)，單一高飽和度電光黃 (#E8FF00) 作為主要操作強調色。標題字型需粗體幾何風格，內文使用簡潔人文主義無襯線字體，大型字體採用緊湊字距。佈局置中且寬鬆，具備充足垂直節奏。關鍵原則：維持高對比、善用留白、避免裝飾性元素、保持 UI 極簡功能性、清晰度優於裝飾性。語調需權威直接。"
-    },
-    "ja": {
-      "identity": {
-        "keywords": [
-          "database",
-          "AI",
-          "performance",
-          "scale",
-          "developer"
-        ],
-        "analogy": "モダンなデータインフラのための高性能エンジン。",
-        "oneLiner": "AIを牽引し、ペタバイト規模でミリセコンドクエリを提供する、最新のエージェントシステムを支えるリーディングデータベース。"
-      },
-      "colors": {
-        "principle": "プライマリアクションと主要情報を強調する、単一のエレクトリックアクセントを持つ高コントラストのダークテーマ。"
-      },
-      "typography": {
-        "rules": [
-          "技術的権威を伝えるために、見出しにはクリーンで大胆なジオメトリックsansを使用する。",
-          "ドキュメント用本文には、読みやすさを重視したヒューマニストsans-serifを使用する。",
-          "ラベルとカテゴリヘッダーには、すべて大文字のミクロテキストを使用する。",
-          "大きなディスプレイタイプには、タイトな文字間隔を確保する。"
-        ],
-        "scaleUses": [
-          "メインヒーローヘッドライン",
-          "セクション見出し",
-          "段落テキスト",
-          "ナビゲーションとボタン"
-        ]
-      },
-      "spacing": {
-        "rhythm": "明確なビジュアル階層を構築し、認知負荷を軽減するために、セクション間に十分な垂直間隔を設ける。"
-      },
-      "surfaces": {
-        "shadows": [
-          "0 2px 8px rgba(0, 0, 0, 0.3)",
-          "0 8px 32px rgba(0, 0, 0, 0.4)"
-        ],
-        "borders": "要素を区切るための、rgba(255, 255, 255, 0.1)を使用した繊細な1pxボーダー。"
-      },
-      "layout": {
-        "skeleton": "フルワイドのダークセクションを持つ、中央揃えの単一カラムレイアウト。コンテンツは垂直に積み上げられ、セクション間には大きなホワイトスペースブロックが設けられる。"
-      },
-      "components": {
-        "button": "プライマリCTAには黒テキスト付きの実色イエローエレクトリックイエロー（#E8FF00）。セカンダリアクションには白枠線付きのアウトライン。",
-        "card": "アナウンスメントや機能ブロックに使用する、繊細なボーダー付きのダーク背景（#1A1A1A）。",
-        "chip": "カテゴリ付けのための、小さく角丸のラベルチップ。",
-        "input": "繊細なボーダー付きのクリーンなダークインプットフィールド。",
-        "hero": "大きな中央揃えテキストとデュアルCTAを持つ、フルワイドダークヒーロー。"
-      },
-      "motion": {
-        "patterns": [
-          "スクロール時のフェードイン",
-          "ボタンとリンクの、繊細なホバーステートトランジション。"
-        ]
-      },
-      "interaction": {
-        "hover": "インタラクティブ要素における、繊細な色相や明度の変化。",
-        "click": "プライマリボタンにおける、即座のビジュアルフィードバック（スケールまたは色の変化）。",
-        "transition": "すべてのインタラクティブステート変更における、滑らかな150-250msのトランジション。",
-        "keyboard": "アクセシビリティのための、インタラクティブ要素における明確なフォーカスアウトライン。"
-      },
-      "voice": {
-        "tone": "権威があり、直接的で、技術的に自信に満ちている。",
-        "headlineStyle": "短く、力強く、ベネフィットを明示するステートメント。",
-        "ctaStyle": "明確で、アクションを促し、価値を駆動する（例：「無料クラウドトライアルを開始」）。",
-        "avoid": [
-          "曖昧なマーケティングコピー",
-          "過度に複雑な専門用語",
-          "受動的な言葉遣い"
-        ]
-      },
-      "donts": [
-        "明るい背景を使用しない — スクリーンショットは実色ダーク（#111111）テーマを示している。",
-        "くすんだパステル系のアクセントカラーを使用しない — スクリーンショットは単一の高彩度イエロー（#E8FF00）を使用している。",
-        "装飾的なスクリプトフォントを使用しない — スクリーンショットはクリーンなジオメトリック/ヒューマニストsans-serifを使用している。",
-        "過度なシャドウや奥行きを追加しない — サーフェスはフラットで、繊細なボーダーで定義されている。",
-        "長文の本文テキストを中央揃えにしない — スクリーンショットは左揃えの本文コンテンツを示している。",
-        "要素が多すぎてレイアウトを雑然とさせない — スクリーンショットはホワイトスペースと明確な階層を優先している。"
-      ],
-      "systemPrompt": "高性能開発者ツールデータベース用のデザイン。ダークテーマ（#111111背景）に、プライマリアクション用の単一の高彩度エレクトリックイエロー（#E8FF00）アクセントを使用。見出しには太字でジオメトリック、本文にはクリーンなヒューマニストsans、大きなタイプにはタイトな文字間隔のタイポグラフィ。レイアウトは中央揃えでゆったりし、十分な垂直リズムを確保。主なルール：高いコントラストを維持、十分なホワイトスペースを使用、装飾要素を避ける、UIは最小限で機能的、装飾よりも明確さを優先。トーンは権威があり直接的。"
-    },
-    "ko": {
-      "identity": {
-        "keywords": [
-          "데이터베이스",
-          "AI",
-          "성능",
-          "스케일",
-          "개발자"
-        ],
-        "analogy": "현대 데이터 인프라를 위한 고성능 엔진.",
-        "oneLiner": "AI를 위한 최고의 데이터베이스로, PB 규모에서 밀리초 단위 쿼리로 에이전틱 시스템을 지원합니다."
-      },
-      "colors": {
-        "principle": "단일의 전기 악센트로 주요 동작과 핵심 정보를 강조하는 고대비 다크 테마."
-      },
-      "typography": {
-        "rules": [
-          "기술적 권위를 전달하기 위해 헤드라인에는 깔끔하고 굵은 기하학적 sans를 사용합니다.",
-          "본문 텍스트는 문서를 위해 매우 읽기 쉬운 휴머니스트 sans-serif를 사용합니다.",
-          "라벨과 카테고리 헤더에는 모든 문자를 대문자로 표시하는 마이크로 텍스트를 사용합니다.",
-          "대형 표시 타입에는 좁은 자간을 적용합니다."
-        ],
-        "scaleUses": [
-          "메인 히어로 헤드라인",
-          "섹션 헤드라인",
-          "단락 텍스트",
-          "내비게이션 및 버튼"
-        ]
-      },
-      "spacing": {
-        "rhythm": "명확한 시각적 계층을 만들고 인지 부하를 줄이기 위해 섹션 사이에 넉넉한 수직 간격을 둡니다."
-      },
-      "surfaces": {
-        "shadows": [
-          "0 2px 8px rgba(0, 0, 0, 0.3)",
-          "0 8px 32px rgba(0, 0, 0, 0.4)"
-        ],
-        "borders": "요소를 구분하기 위해 rgba(255, 255, 255, 0.1)를 사용한 은은한 1px 테두리."
-      },
-      "layout": {
-        "skeleton": "전체 너비의 다크 섹션을 가진 중앙 정렬 단일 컬럼 레이아웃. 콘텐츠는 수직으로 쌓이며 섹션 사이에 큰 여백 블록이 있습니다."
-      },
-      "components": {
-        "button": "주요 CTA에는 검정 텍스트의 단색 노란색(#E8FF00). 보조 동작에는 흰색 테두리가 있는 윤곽선 스타일.",
-        "card": "공지사항이나 기능 블록에 사용되는 미세한 테두리가 있는 다크 배경(#1A1A1A).",
-        "chip": "분류를 위한 작고 둥근 라벨 칩.",
-        "input": "미세한 테두리가 있는 깔끔한 다크 입력 필드.",
-        "hero": "크고 중앙 정렬된 타이포그래피와 이중 CTA가 있는 전체 너비 다크 히어로."
-      },
-      "motion": {
-        "patterns": [
-          "스크롤 시 페이드 인",
-          "버튼과 링크의 은은한 hover 상태 전환."
-        ]
-      },
-      "interaction": {
-        "hover": "인터랙티브 요소에서 은은한 색상 변화 또는 밝기 변화.",
-        "click": "주요 버튼에 대한 즉각적인 시각적 피드백(스케일 또는 색상 변화).",
-        "transition": "모든 인터랙티브 상태 변화에 부드러운 150-250ms 전환.",
-        "keyboard": "접근성을 위한 인터랙티브 요소의 명확한 초점 윤곽선."
-      },
-      "voice": {
-        "tone": "권위적이고 직접적이며 기술적으로 자신감 있는.",
-        "headlineStyle": "짧고 강력하며 이점을 강조하는 진술.",
-        "ctaStyle": "명확하고 행동 지향적이며 가치를 전달하는 (예: '무료 클라우드 체험 시작').",
-        "avoid": [
-          "애매한 마케팅 표현",
-          "지나치게 복잡한 전문 용어",
-          "수동적 표현"
-        ]
-      },
-      "donts": [
-        "밝은 배경을 사용하지 마세요 — 스크린샷은 단색 다크(#111111) 테마를 보여줍니다.",
-        "저채도 또는 파스텔 톤의 악센트 색상을 사용하지 마세요 — 스크린샷은 단일의 고채도 노란색(#E8FF00)을 사용합니다.",
-        "장식적 또는 손글씨 폰트를 사용하지 마세요 — 스크린샷은 깔끔한 기하학적/휴머니스트 sans-serif를 사용합니다.",
-        "과도한 그림자나 깊이를 추가하지 마세요 — 표면은 평면적이며 은은한 테두리로 정의됩니다.",
-        "긴 본문 텍스트를 중앙 정렬하지 마세요 — 스크린샷은 좌측 정렬된 본문 콘텐츠를 보여줍니다.",
-        "레이아웃을 너무 많은 요소로 어지럽히지 마세요 — 스크린샷은 여백과 명확한 계층을 우선시합니다."
-      ],
-      "systemPrompt": "고성능 개발자 도구 데이터베이스를 위해 설계하세요. 다크 테마(#111111 배경)와 주요 동작을 위한 단일의 고채도 전기 노란색(#E8FF00) 악센트를 사용하세요. 타이포그래피는 헤드라인에는 굵고 기하학적이며, 본문에는 깔끔한 휴머니스트 sans를 사용하고, 대형 타입에는 좁은 자간을 적용하세요. 레이아웃은 중앙 정렬되어 있고 넓으며, 넉넉한 수직 리듬을 가집니다. 핵심 규칙: 높은 대비 유지, 넉넉한 여백 사용, 장식적 요소 회피, UI를 최소한이고 기능적으로 유지, 장식보다 명확함 우선. 어조는 권위적이고 직접적입니다."
-    }
-  },
   "desc": {
     "en": {
-      "palette": "Deep charcoal background with crisp white text and a single vibrant electric yellow accent for maximum contrast and focus.",
-      "layout": "Centered, single-column layout with generous vertical spacing between clear, distinct sections.",
-      "interaction": "Minimal and functional interactions focused on clarity and immediate visual feedback for developer-focused tasks.",
-      "motion": "Subtle and purposeful transitions that enhance usability without distracting from the technical content.",
-      "notes": "A prime example of a high-end developer tool interface using dark mode and bold typography to convey performance and reliability."
+      "palette": "A high-contrast dark mode palette using near-black backgrounds with vibrant yellow accents for key call-to-action elements.",
+      "layout": "A spacious, centered layout utilizing a 12-column grid with clear hierarchy and generous whitespace.",
+      "interaction": "Smooth, subtle transitions on interactive elements with a focus on functional feedback.",
+      "motion": "Minimal motion design focused on micro-interactions and smooth state changes.",
+      "notes": "A strong example of a premium developer tool interface that balances bold typography with a clean, dark aesthetic."
     },
     "zh-CN": {
       "palette": "深炭色背景搭配纯白文字，辅以单一鲜明的电光黄作为强调色，实现最大对比度和视觉焦点。",
@@ -626,6 +219,408 @@
       "ch7_intro": "모션은 기능적이고 절제되어 있으며, 주의를 산만하게 하지 않으면서 상호작용을 확인하도록 설계되었습니다. 전환은 부드럽고 빠르며, 스페이스 기반 페이드와 상호작용 요소에 즉각적인 피드백을 제공하는 미묘한 상태 변화로 제한됩니다.",
       "ch8_intro": "에디토리얼 톤은 권위 있고, 직접적이며, 기술적으로 자신감 있어 인터페이스의 명료성을 반영합니다. 카피는 이점 지향적이며 수동적 언어를 피하고, 짧고 강력한 제목과 명확하고 행동 지향적인 콜 투 액션을 사용합니다.",
       "ch8_outro": "시스템은 의도적으로 장식용 폰트, 밝은 배경, 흐린 악센트, 그리고 본문 텍스트의 중앙 정렬을 피하며, 엄격한 기능적 초점을 유지합니다."
+    }
+  },
+  "spec_i18n": {
+    "en": {
+      "identity": {
+        "keywords": [
+          "database",
+          "analytics",
+          "real-time",
+          "infrastructure"
+        ],
+        "analogy": "A command center dashboard built for high-performance data operations.",
+        "oneLiner": "A high-performance developer platform with a dark, high-contrast interface built for technical precision."
+      },
+      "colors": {
+        "principle": "High-contrast dark theme prioritizing readability and focusing attention on the vibrant yellow accent."
+      },
+      "typography": {
+        "rules": [
+          "Use bold weights for emphasis within the humanist-sans family",
+          "Maintain tight line-height for display typography",
+          "Ensure high contrast between text and background"
+        ],
+        "scaleUses": [
+          "Primary hero headlines",
+          "Section headings",
+          "General paragraph text",
+          "Navigation and UI labels"
+        ]
+      },
+      "spacing": {
+        "rhythm": "Consistent 4px base grid with larger multiples for section spacing"
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 1px 3px 0px rgba(0, 0, 0, 0.1)",
+          "0px 10px 15px -3px rgba(0, 0, 0, 0.1)",
+          "0px 20px 25px -5px rgba(0, 0, 0, 0.1)"
+        ],
+        "borders": "1px solid rgba(65, 65, 65, 0.8)"
+      },
+      "layout": {
+        "skeleton": "Full-width hero sections with centered content and a 12-column grid for structured layouts"
+      },
+      "components": {
+        "button": "Solid primary yellow buttons with black text and subtle radius; secondary buttons use transparent backgrounds with borders.",
+        "card": "Dark surface cards with subtle borders and rounded corners, often containing integration icons.",
+        "chip": "Not prominently featured.",
+        "input": "Not prominently featured in the screenshots.",
+        "hero": "Large-scale typography centered on a dark background with a clear hierarchy and dual call-to-action buttons."
+      },
+      "motion": {
+        "patterns": [
+          "Smooth color and background transitions on interactive elements",
+          "Subtle hover state changes"
+        ]
+      },
+      "interaction": {
+        "hover": "Color and background-color transitions on buttons and links.",
+        "click": "Immediate visual feedback with subtle opacity or transform changes.",
+        "transition": "All interactive states use a 0.15s cubic-bezier transition for smoothness.",
+        "keyboard": "Standard focus states implied by accessibility requirements."
+      },
+      "voice": {
+        "tone": "Confident, technical, and direct.",
+        "headlineStyle": "Bold, concise statements emphasizing performance and scale.",
+        "ctaStyle": "Action-oriented with clear value propositions like 'Start free cloud trial'.",
+        "avoid": [
+          "Vague marketing jargon",
+          "Overly casual language",
+          "Complex technical explanations without context"
+        ]
+      },
+      "donts": [
+        "Don't use rounded corners larger than 12px — screenshot shows subtle, functional radii",
+        "Don't use multiple accent colors — screenshot shows a single, dominant yellow accent",
+        "Don't use light mode or white backgrounds — screenshot shows a dark mode design",
+        "Don't use decorative serif fonts — screenshot shows humanist-sans for all display and body text",
+        "Don't use busy textures or patterns — screenshot shows clean, flat surfaces",
+        "Don't use low-contrast text — screenshot shows high-contrast white and yellow on dark backgrounds"
+      ],
+      "systemPrompt": "This is a premium developer tool interface for ClickHouse, a real-time database. The design uses a dark mode palette with a near-black background and a high-chroma yellow accent for primary actions. Typography is a clean, humanist-sans-serif with bold weights for display. Key hex colors are #151515 (bg), #faf569 (accent), and #ffffff (ink). Critical donts: never use light mode, never use multiple accent colors, and never use decorative serifs. The layout is spacious with a 12-column grid and centered hero content."
+    },
+    "zh-CN": {
+      "identity": {
+        "keywords": [
+          "数据库",
+          "数据分析",
+          "实时",
+          "基础设施"
+        ],
+        "analogy": "为高性能数据操作构建的指挥中心仪表盘。",
+        "oneLiner": "一款高性能的开发者平台，采用深色、高对比度界面，为技术精确性而构建。"
+      },
+      "colors": {
+        "principle": "高对比度深色主题，优先考虑可读性，并将注意力聚焦于充满活力的黄色强调色上。"
+      },
+      "typography": {
+        "rules": [
+          "在人文无衬线字体族中使用粗体进行强调",
+          "为展示型排版保持紧凑的行高",
+          "确保文本与背景之间的高对比度"
+        ],
+        "scaleUses": [
+          "主要的英雄区标题",
+          "章节标题",
+          "通用段落文本",
+          "导航和UI标签"
+        ]
+      },
+      "spacing": {
+        "rhythm": "基于4像素的统一网格，章节间距使用更大的倍数。"
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 1px 3px 0px rgba(0, 0, 0, 0.1)",
+          "0px 10px 15px -3px rgba(0, 0, 0, 0.1)",
+          "0px 20px 25px -5px rgba(0, 0, 0, 0.1)"
+        ],
+        "borders": "1px solid rgba(65, 65, 65, 0.8)"
+      },
+      "layout": {
+        "skeleton": "全宽英雄区章节，内容居中，并采用12列网格进行结构化布局"
+      },
+      "components": {
+        "button": "实心的黄色主按钮，带有黑色文字和微小圆角；次要按钮采用透明背景和边框。",
+        "card": "深色表面的卡片，带有微妙的边框和圆角，通常包含集成图标。",
+        "chip": "未显著展示。",
+        "input": "在截图中未显著展示。",
+        "hero": "以深色为背景的大规模居中排版，具有清晰的层级结构和双重行动号召按钮。"
+      },
+      "motion": {
+        "patterns": [
+          "交互元素上平滑的颜色和背景过渡",
+          "微妙的悬停状态变化"
+        ]
+      },
+      "interaction": {
+        "hover": "按钮和链接上的颜色和背景色过渡。",
+        "click": "通过微妙的透明度或变换变化提供即时视觉反馈。",
+        "transition": "所有交互状态使用0.15秒的cubic-bezier过渡，以实现平滑效果。",
+        "keyboard": "由可访问性需求隐含的标准焦点状态。"
+      },
+      "voice": {
+        "tone": "自信、技术性强且直接。",
+        "headlineStyle": "加粗、简洁的陈述，强调性能和规模。",
+        "ctaStyle": "行动导向，具有清晰的价值主张，例如“开始免费云试用”。",
+        "avoid": [
+          "模糊的营销术语",
+          "过于随意的语言",
+          "缺乏上下文的复杂技术解释"
+        ]
+      },
+      "donts": [
+        "不要使用大于12px的圆角——截图显示的是微妙、功能性的圆角",
+        "不要使用多种强调色——截图显示的是单一、主导的黄色强调色",
+        "不要使用浅色模式或白色背景——截图显示的是深色模式设计",
+        "不要使用装饰性衬线字体——截图显示所有展示和正文文本均使用人文无衬线字体",
+        "不要使用繁复的纹理或图案——截图显示的是干净、扁平的表面",
+        "不要使用低对比度文本——截图显示的是深色背景上的高对比度白色和黄色文本"
+      ],
+      "systemPrompt": "这是一个用于ClickHouse实时数据库的高端开发者工具界面。设计采用深色模式调色板，近乎黑色的背景和用于主要操作的高饱和度黄色强调色。字体是干净的人文无衬线字体，展示部分使用粗体。关键十六进制颜色值为#151515（背景）、#faf569（强调色）和#ffffff（墨色）。关键禁忌：绝不使用浅色模式，绝不使用多种强调色，绝不使用装饰性衬线字体。布局宽敞，采用12列网格，英雄区内容居中。"
+    },
+    "zh-TW": {
+      "identity": {
+        "keywords": [
+          "資料庫",
+          "分析",
+          "即時",
+          "基礎架構"
+        ],
+        "analogy": "一個為高效能資料運作打造的指揮中心儀表板。",
+        "oneLiner": "一個具備深色、高對比介面的高效能開發者平台，專為技術精準度而設計。"
+      },
+      "colors": {
+        "principle": "採用高對比深色主題，優先考量可讀性，並將注意力聚焦於鮮明的黃色強調色。"
+      },
+      "typography": {
+        "rules": [
+          "在 humanist-sans 字族中使用粗體字重以示強調",
+          "顯示用字型保持緊湊的行高",
+          "確保文字與背景之間具有高對比度"
+        ],
+        "scaleUses": [
+          "主要首頁標題",
+          "章節標題",
+          "一般段落文字",
+          "導航與介面標籤"
+        ]
+      },
+      "spacing": {
+        "rhythm": "採用一致的 4px 基礎網格，較大的區塊間距則使用其倍數"
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 1px 3px 0px rgba(0, 0, 0, 0.1)",
+          "0px 10px 15px -3px rgba(0, 0, 0, 0.1)",
+          "0px 20px 25px -5px rgba(0, 0, 0, 0.1)"
+        ],
+        "borders": "1px solid rgba(65, 65, 65, 0.8)"
+      },
+      "layout": {
+        "skeleton": "全寬首頁區塊採用置中內容，並搭配 12 欄網格以實現結構化版面"
+      },
+      "components": {
+        "button": "實心的主色黃色按鈕搭配黑色文字與微小圓角；次要按鈕則採用透明背景與邊框。",
+        "card": "深色表面的卡片帶有微小邊框與圓角，通常包含整合圖示。",
+        "chip": "在截圖中並未突出顯示。",
+        "input": "在截圖中並未突出顯示。",
+        "hero": "以大比例字型置於深色背景上，具有清晰的層級結構與雙重行動呼籲按鈕。"
+      },
+      "motion": {
+        "patterns": [
+          "互動元素上的平滑顏色與背景過渡效果",
+          "微小的懸停狀態變化"
+        ]
+      },
+      "interaction": {
+        "hover": "按鈕與連結上的顏色與背景色過渡效果。",
+        "click": "透過微小的透明度或變形變化提供即時視覺回饋。",
+        "transition": "所有互動狀態均使用 0.15s cubic-bezier 過渡以實現流暢效果。",
+        "keyboard": "隱含了符合無障礙需求的標準焦點狀態。"
+      },
+      "voice": {
+        "tone": "自信、技術性且直接。",
+        "headlineStyle": "以粗體、簡潔的陳述強調效能與規模。",
+        "ctaStyle": "以行動為導向，提出明確的價值主張，例如「開始免費雲端試用」。",
+        "avoid": [
+          "模糊的行銷術語",
+          "過於隨意的語言",
+          "缺乏脈絡的複雜技術解釋"
+        ]
+      },
+      "donts": [
+        "避免使用大於 12px 的圓角——截圖顯示為微小、功能性的圓角",
+        "避免使用多種強調色——截圖顯示為單一、主導的黃色強調色",
+        "避免使用淺色模式或白色背景——截圖顯示為深色模式設計",
+        "避免使用裝飾性襯線字體——截圖顯示所有顯示與內文字型均為 humanist-sans",
+        "避免使用繁複的紋理或圖樣——截圖顯示為乾淨、平面的表面",
+        "避免使用低對比文字——截圖顯示深色背景上的高對比白色與黃色文字"
+      ],
+      "systemPrompt": "這是一個為 ClickHouse（一個即時資料庫）設計的高階開發者工具介面。設計採用深色模式調色板，以近黑色背景搭配高彩度的黃色作為主要操作強調色。字型為簡潔的 humanist-sans-serif，顯示用文字使用粗體字重。關鍵十六進位色碼為 #151515（背景）、#faf569（強調色）與 #ffffff（墨色）。嚴格禁忌：絕不使用淺色模式、絕不使用多種強調色，且絕不使用裝飾性襯線字體。版面寬敞，採用 12 欄網格與置中的首頁內容。"
+    },
+    "ja": {
+      "identity": {
+        "keywords": [
+          "データベース",
+          "アナリティクス",
+          "リアルタイム",
+          "インフラストラクチャ"
+        ],
+        "analogy": "高性能データ操作のために構築されたコマンドセンターのダッシュボード。",
+        "oneLiner": "技術的な精度のために構築された、ダークでハイコントラストなインターフェースを持つ高性能開発者プラットフォーム。"
+      },
+      "colors": {
+        "principle": "可読性を優先し、鮮やかなイエローのアクセントに注意を集中させる、ハイコントラストのダークテーマ。"
+      },
+      "typography": {
+        "rules": [
+          "humanist-sansファミリー内で強調にはboldウェイトを使用する",
+          "ディスプレイ向けタイポグラフィにはタイトな行間を維持する",
+          "テキストと背景の間に高いコントラストを確保する"
+        ],
+        "scaleUses": [
+          "プライマリヒーローヘッドライン",
+          "セクション見出し",
+          "本文テキスト",
+          "ナビゲーションおよびUIラベル"
+        ]
+      },
+      "spacing": {
+        "rhythm": "セクション間隔にはより大きな倍数を使用する、一貫した4pxベースグリッド"
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 1px 3px 0px rgba(0, 0, 0, 0.1)",
+          "0px 10px 15px -3px rgba(0, 0, 0, 0.1)",
+          "0px 20px 25px -5px rgba(0, 0, 0, 0.1)"
+        ],
+        "borders": "1px solid rgba(65, 65, 65, 0.8)"
+      },
+      "layout": {
+        "skeleton": "中央揃えのコンテンツを持つフルワイドヒーローセクションと、構造化レイアウトのための12カラムグリッド"
+      },
+      "components": {
+        "button": "黒いテキストと微妙な角丸を持つ、ソリッドプライマリイエローボタン。セカンダリボタンはボーダー付きの透明背景を使用。",
+        "card": "微細なボーダーと角丸を持つダークサーフェスカード。統合アイコンを含むことが多い。",
+        "chip": "主要にフィーチャーされていません。",
+        "input": "スクリーンショットでは主要にフィーチャーされていません。",
+        "hero": "明確な階層とデュアルコール・トゥ・アクションボタンを持つ、ダーク背景にセンター配置のスケールの大きなタイポグラフィ。"
+      },
+      "motion": {
+        "patterns": [
+          "インタラクティブ要素上的な色と背景のスムーズな遷移",
+          "微細なhover状態の変化"
+        ]
+      },
+      "interaction": {
+        "hover": "ボタンとリンクでの色と背景色の遷移。",
+        "click": "微妙なopacityまたはtransform変化による即時視覚フィードバック。",
+        "transition": "すべてのインタラクティブ状態は、滑らかさのために0.15s cubic-bezier遷移を使用。",
+        "keyboard": "アクセシビリティ要件によって示唆される標準的なfocus状態。"
+      },
+      "voice": {
+        "tone": "自信に満ち、技術的で、率直。",
+        "headlineStyle": "パフォーマンスとスケールを強調する、大胆で簡潔なステートメント。",
+        "ctaStyle": "「無料クラウドトライアルを開始」のような明確な価値提案を持つ、行動志向。",
+        "avoid": [
+          "曖昧なマーケティング用語",
+          "過度にカジュアルな言葉",
+          "文脈のない複雑な技術的説明"
+        ]
+      },
+      "donts": [
+        "角丸を12px以上にしない — スクリーンショットでは微細で機能的な角丸が示されている",
+        "複数のアクセントカラーを使用しない — スクリーンショットでは単一の支配的なイエローアクセントが示されている",
+        "ライトモードや白い背景を使用しない — スクリーンショットではダークモードデザインが示されている",
+        "装飾的なセリフフォントを使用しない — スクリーンショットではすべてのディスプレイおよび本文テキストにhumanist-sansが使用されている",
+        "雑然としたテクスチャやパターンを使用しない — スクリーンショットではクリーンでフラットなサーフェスが示されている",
+        "低コントラストのテキストを使用しない — スクリーンショットではダーク背景上のハイコントラストな白とイエローが示されている"
+      ],
+      "systemPrompt": "これは、リアルタイムデータベースClickHouseのプレミアム開発者ツールインターフェースです。デザインはダークモードパレットを使用し、ほぼ黒の背景と、プライマリアクション用のハイクロマイエローアクセントが特徴です。タイポグラフィはクリーンなhumanist-sans-serifで、ディスプレイ用にはboldウェイトを使用しています。主要なカラーコードは、#151515（背景）、#faf569（アクセント）、#ffffff（インク）です。重要な注意点：ライトモードは決して使用せず、複数のアクセントカラーは使用せず、装飾的なセリフは使用しないこと。レイアウトは12カラムグリッドとセンタリングされたヒーローコンテンツで、ゆとりのある空間を確保しています。"
+    },
+    "ko": {
+      "identity": {
+        "keywords": [
+          "데이터베이스",
+          "분석",
+          "실시간",
+          "인프라"
+        ],
+        "analogy": "고성능 데이터 작업을 위해 구축된 커맨드 센터 대시보드.",
+        "oneLiner": "기술적 정밀성을 위해 구축된 어둡고 높은 대비의 인터페이스를 가진 고성능 개발자 플랫폼."
+      },
+      "colors": {
+        "principle": "가독성을 우선시하고 생동감 있는 노란색 강조에 주목을 집중시키는 고대비 다크 테마."
+      },
+      "typography": {
+        "rules": [
+          "humanist-sans 계열 내에서 강조를 위해 굵은 두께를 사용합니다",
+          "디스플레이 타이포그래피에는 타이트한 행간을 유지합니다",
+          "텍스트와 배경 사이에 높은 대비를 보장합니다"
+        ],
+        "scaleUses": [
+          "주요 히어로 헤드라인",
+          "섹션 제목",
+          "일반 본문 텍스트",
+          "네비게이션 및 UI 레이블"
+        ]
+      },
+      "spacing": {
+        "rhythm": "섹션 간 간격을 위해 더 큰 배수를 사용하는 일관된 4px 기본 그리드"
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 1px 3px 0px rgba(0, 0, 0, 0.1)",
+          "0px 10px 15px -3px rgba(0, 0, 0, 0.1)",
+          "0px 20px 25px -5px rgba(0, 0, 0, 0.1)"
+        ],
+        "borders": "1px solid rgba(65, 65, 65, 0.8)"
+      },
+      "layout": {
+        "skeleton": "중앙 정렬된 콘텐츠를 가진 전체 너비 히어로 섹션과 구조화된 레이아웃을 위한 12열 그리드"
+      },
+      "components": {
+        "button": "검정 텍스트와 미세한 곡률을 가진 단색 기본 노란색 버튼. 보조 버튼은 투명 배경과 테두리를 사용합니다.",
+        "card": "미세한 테두리와 둥근 모서리를 가진 어두운 표면 카드로, 종종 통합 아이콘을 포함합니다.",
+        "chip": "두드러지게 사용되지 않습니다.",
+        "input": "스크린샷에서 두드러지게 사용되지 않습니다.",
+        "hero": "명확한 계층 구조와 듀얼 CTA 버튼을 가진 어두운 배경 중앙의 대규모 타이포그래피."
+      },
+      "motion": {
+        "patterns": [
+          "인터랙티브 요소에서의 부드러운 색상 및 배경 전환",
+          "미세한 hover 상태 변경"
+        ]
+      },
+      "interaction": {
+        "hover": "버튼과 링크에서의 색상 및 background-color 전환.",
+        "click": "미세한 opacity 또는 transform 변경으로 즉각적인 시각적 피드백.",
+        "transition": "모든 인터랙티브 상태에서 부드러움을 위해 0.15s cubic-bezier 전환을 사용합니다.",
+        "keyboard": "접근성 요구 사항으로 암시된 표준 focus 상태."
+      },
+      "voice": {
+        "tone": "자신감 있고 기술적이며 직접적입니다.",
+        "headlineStyle": "성능과 규모를 강조하는 굵고 간결한 문장.",
+        "ctaStyle": "'무료 클라우드 체험 시작하기'와 같이 명확한 가치 제안을 제시하는 행동 지향적 표현.",
+        "avoid": [
+          "모호한 마케팅 용어",
+          "지나치게 캐주얼한 언어",
+          "맥락 없는 복잡한 기술적 설명"
+        ]
+      },
+      "donts": [
+        "12px보다 큰 둥근 모서리를 사용하지 마세요 — 스크린샷은 미세하고 기능적인 반경을 보여줍니다",
+        "여러 가지 강조색을 사용하지 마세요 — 스크린샷은 단일 지배적인 노란색 강조를 보여줍니다",
+        "라이트 모드나 흰색 배경을 사용하지 마세요 — 스크린샷은 다크 모드 디자인을 보여줍니다",
+        "장식용 세리프 서체를 사용하지 마세요 — 스크린샷은 모든 디스플레이 및 본문 텍스트에 humanist-sans를 사용합니다",
+        "바쁘거나 복잡한 텍스처나 패턴을 사용하지 마세요 — 스크린샷은 깔끔하고 플랫한 표면을 보여줍니다",
+        "저대비 텍스트를 사용하지 마세요 — 스크린샷은 어두운 배경에 높은 대비의 흰색과 노란색을 보여줍니다"
+      ],
+      "systemPrompt": "이것은 실시간 데이터베이스인 ClickHouse를 위한 프리미엄 개발자 도구 인터페이스입니다. 디자인은 거의 검은색 배경과 기본 작업을 위한 고채도 노란색 강조를 가진 다크 모드 팔레트를 사용합니다. 타이포그래피는 디스플레이용 굵은 두께를 가진 깔끔한 humanist-sans입니다. 주요 hex 색상은 #151515(배경), #faf569(강조), #ffffff(잉크)입니다. 중요 사항: 라이트 모드, 여러 강조색, 장식용 세리프를 절대 사용하지 마세요. 레이아웃은 12열 그리드와 중앙 정렬된 히어로 콘텐츠로 넓게 구성되어 있습니다."
     }
   }
 }

@@ -448,6 +448,141 @@ def step_vision(site: dict, *, dry_run: bool = False) -> dict:
     return site
 
 
+# ─────────────────────────────────────────────────────────────
+# from-extract：用 mimo 处理 *真实* Playwright 提取（多截图 + 真 computed styles）
+# 取代模板 synthesize.py 的 __待补__ 占位，让 ZIP 里的规范是 mimo 真生成、且 grounded 在事实上。
+# ─────────────────────────────────────────────────────────────
+
+def _fmt_tok(v) -> str:
+    if isinstance(v, (list, tuple)) and len(v) >= 2:
+        return f"{v[0]} ×{v[1]}"
+    if isinstance(v, (list, tuple)) and v:
+        return str(v[0])
+    return str(v)
+
+
+def summary_facts_block(summary: dict) -> str:
+    """把 summary.json 的真实 computed styles 压成一段 ground-truth 文本，注入 vision prompt。"""
+    lines = [
+        "GROUND-TRUTH FACTS extracted from the live page (real computed styles — "
+        "use these EXACT hex/px/font values, do NOT invent colors or sizes):",
+        f"- URL: {summary.get('url')}",
+        f"- visible elements analyzed: {summary.get('totalElementsVisible')}",
+    ]
+    fonts = summary.get("fonts") or []
+    fam = []
+    for f in fonts:
+        name = f.get("family") if isinstance(f, dict) else (f[0] if isinstance(f, (list, tuple)) and f else f)
+        if name and name not in fam:
+            fam.append(str(name))
+    if fam:
+        lines.append(f"- @font-face families declared: {'; '.join(fam[:10])}")
+    tokens = summary.get("tokens") or {}
+    for key, val in tokens.items():
+        sample = None
+        if isinstance(val, list) and val:
+            sample = ", ".join(_fmt_tok(v) for v in val[:6])
+        elif isinstance(val, dict) and val:
+            items = sorted(val.items(), key=lambda kv: -(kv[1] if isinstance(kv[1], (int, float)) else 0))[:6]
+            sample = ", ".join(f"{k} ×{v}" for k, v in items)
+        if sample:
+            lines.append(f"- {key}: {sample}")
+    cssv = summary.get("cssVariables") or {}
+    if cssv:
+        lines.append(f"- :root CSS variables defined: {len(cssv)}")
+    return "\n".join(lines)
+
+
+def pick_extract_images(extract_dir: Path) -> list[Path]:
+    """选 2-3 张最具代表性的真实截图喂 mimo（控制 input token）：桌面首屏 + 中段 + 移动首屏。"""
+    picks = []
+    hero = extract_dir / "02_desktop_hero.png"
+    if hero.exists():
+        picks.append(hero)
+    sections = sorted(extract_dir.glob("03_desktop_section_*.png"))
+    if sections:
+        picks.append(sections[len(sections) // 2])  # 取中段，避开纯 hero/footer
+    mob = extract_dir / "05_mobile_hero.png"
+    if mob.exists():
+        picks.append(mob)
+    if not picks:  # 兜底：任意整页图
+        picks = sorted(extract_dir.glob("0*_*full*.png"))[:1]
+    return picks[:3]
+
+
+def step_vision_from_extract(site: dict, extract_dir: Path, *, dry_run: bool = False) -> dict:
+    """Prompt #1（增强版）：真实多截图 + summary.json 事实 → grounded 11 层 spec + en desc"""
+    summary_path = extract_dir / "summary.json"
+    if not summary_path.exists():
+        raise FileNotFoundError(f"no summary.json in {extract_dir}")
+    summary = json.loads(summary_path.read_text(encoding="utf-8"))
+    facts = summary_facts_block(summary)
+    images = pick_extract_images(extract_dir)
+    if not images:
+        raise FileNotFoundError(f"no screenshots found in {extract_dir}")
+
+    if dry_run:
+        print(f"  [dry] from-extract vision for {site['id']}")
+        print(f"        images ({len(images)}): {', '.join(p.name for p in images)}")
+        print(f"        facts block ({len(facts)} chars):")
+        for ln in facts.splitlines():
+            print(f"          {ln}")
+        return site
+
+    print(f"  ▸ from-extract vision call (mimo) · {len(images)} real screenshots + computed-style facts")
+    content = []
+    for p in images:
+        b = p.read_bytes()
+        content.append({"type": "image", "source": {
+            "type": "base64", "media_type": "image/png",
+            "data": base64.b64encode(b).decode("ascii")}})
+    content.append({"type": "text", "text":
+        f"Site URL: {site['url']}\nTitle: {site['title']}\nTags: {', '.join(site.get('tags', []))}\n\n"
+        f"{facts}\n\n"
+        f"The images are real captures of this site (desktop hero, a mid section, mobile hero). "
+        f"Extract the 11-layer design DNA and return the exact JSON shape. "
+        f"Ground every color/font/size in the GROUND-TRUTH FACTS above."})
+
+    msgs = [{"role": "user", "content": content}]
+    parsed = None
+    tokens_used = 0
+    cost_used = 0.0
+    # mimo 输出偶尔漏 desc/spec —— 重试一次再判失败（成本可控的保险）
+    for attempt in range(2):
+        result = call_mimo(messages=msgs, system=vision_prompt_system(), max_tokens=6000)
+        tokens_used += result["input_tokens"] + result["output_tokens"]
+        cost_used += estimate_cost("vision", result)
+        try:
+            cand = parse_json_from_response(result["content_text"])
+        except Exception:
+            cand = {}
+        if "spec" in cand and "desc" in cand:
+            parsed = cand
+            break
+        if attempt == 0:
+            print(f"    ⚠ 输出缺 {[k for k in ('spec','desc') if k not in cand]}，重试一次…")
+    if not parsed:
+        raise ValueError(f"vision output missing spec/desc after retry: {list((cand or {}).keys())}")
+
+    neutral, relative = split_spec(parsed["spec"])
+    site["spec"] = neutral
+    site.setdefault("spec_i18n", {})["en"] = relative
+    site.setdefault("desc", {})["en"] = parsed["desc"]
+    if not site.get("tags") and isinstance(parsed.get("tags"), list):
+        site["tags"] = [t for t in parsed["tags"] if isinstance(t, str) and t.strip()][:5]
+
+    meta = site.setdefault("_meta", {})
+    meta["vision_model"] = os.environ.get("ANTHROPIC_MODEL", "mimo-v2.5")
+    meta["vision_prompt_version"] = VISION_PROMPT_VERSION
+    meta["vision_source"] = f"playwright-extract:{extract_dir.name}"
+    meta["vision_grounded"] = True
+    meta["vision_at"] = datetime.now(timezone.utc).isoformat(timespec="seconds")
+    meta["vision_tokens"] = tokens_used
+    meta["vision_cost_usd"] = round(cost_used, 4)
+    site["status"] = "vision_done"
+    return site
+
+
 def step_translate_spec(site: dict, *, dry_run: bool = False) -> dict:
     """
     Prompt #2: en (desc + spec_i18n) → 4 langs
@@ -553,8 +688,43 @@ def step_narrative(site: dict, *, dry_run: bool = False) -> dict:
     return site
 
 
+def normalize_surfaces(site: dict) -> None:
+    """修复 mimo 偶发的 shape 偏差，让输出过 schema：
+    - surfaces.shadows: {token,value} 对象 → 'token: value' 字符串
+    - 几个 schema 要 array 的字段（motion.patterns / motion.principles / donts …）若给成 string → 包成单元素 list
+    """
+    LIST_FIELDS = {
+        "motion": ["patterns", "principles"],
+        "interaction": ["patterns"],
+        "voice": ["doList", "dontList"],
+    }
+    blocks = [site.get("spec")] + list((site.get("spec_i18n") or {}).values())
+    for b in blocks:
+        if not isinstance(b, dict):
+            continue
+        # shadows 对象 → 字符串
+        if isinstance(b.get("surfaces"), dict):
+            sh = b["surfaces"].get("shadows")
+            if isinstance(sh, list):
+                b["surfaces"]["shadows"] = [
+                    (f'{x.get("token")}: {x.get("value")}'.strip(": ") if isinstance(x, dict) else x)
+                    for x in sh
+                ]
+        # string → [string] for known array fields
+        for layer, fields in LIST_FIELDS.items():
+            if isinstance(b.get(layer), dict):
+                for f in fields:
+                    v = b[layer].get(f)
+                    if isinstance(v, str) and v.strip():
+                        b[layer][f] = [v.strip()]
+        # 顶层 donts 若给成 string
+        if isinstance(b.get("donts"), str) and b["donts"].strip():
+            b["donts"] = [b["donts"].strip()]
+
+
 def finalize(site: dict) -> dict:
     """所有步骤都完成 → status=completed，汇总 total_cost。"""
+    normalize_surfaces(site)
     meta = site.setdefault("_meta", {})
     total = (meta.get("vision_cost_usd", 0.0)
              + meta.get("translation_cost_usd", 0.0)
@@ -728,9 +898,21 @@ def save_site(site: dict) -> None:
 # Main
 # ============================================================
 
-def run_pipeline(site: dict, *, only: str | None = None, dry_run: bool = False) -> dict:
-    if only in (None, "screenshot"):  site = step_screenshot(site); save_site(site)
-    if only in (None, "vision"):      site = step_vision(site, dry_run=dry_run); save_site(site)
+def run_pipeline(site: dict, *, only: str | None = None, dry_run: bool = False,
+                 extract_dir: Path | None = None) -> dict:
+    if only in (None, "screenshot") and not extract_dir:
+        site = step_screenshot(site); save_site(site)
+    if only in (None, "vision"):
+        if extract_dir:
+            # 用真实 Playwright 提取（多截图 + 真 computed styles）走 mimo
+            if not dry_run:
+                site["spec"] = None  # 强制重跑 vision（覆盖旧模板/旧 spec）
+                site.pop("spec_i18n", None)
+            site = step_vision_from_extract(site, extract_dir, dry_run=dry_run)
+        else:
+            site = step_vision(site, dry_run=dry_run)
+        if not dry_run:
+            save_site(site)
     if only in (None, "translate"):   site = step_translate_spec(site, dry_run=dry_run); save_site(site)
     if only in (None, "narrative"):   site = step_narrative(site, dry_run=dry_run); save_site(site)
     site = finalize(site); save_site(site)
@@ -746,6 +928,8 @@ def parse_args():
     g.add_argument("--retry-failed", action="store_true", help="re-run all sites whose status starts with 'failed:' or != completed")
     g.add_argument("--all-incomplete", action="store_true", help="re-run all sites where status != completed")
     ap.add_argument("--only", choices=["screenshot", "vision", "translate", "narrative"], help="only run this step")
+    ap.add_argument("--from-extract", metavar="DIR",
+                    help="用真实 Playwright 提取目录（含 summary.json + 截图）走 mimo 生成 grounded 规范；需配 --slug")
     ap.add_argument("--dry-run", action="store_true", help="show what would be called, don't hit API")
     ap.add_argument("--budget", type=float, default=999.0, help="stop when cumulative cost exceeds this (USD)")
     ap.add_argument("--limit", type=int, help="cap number of sites processed in this run")
@@ -841,6 +1025,16 @@ def run_auto_publish(processed_slugs: list[str]):
 def main():
     args = parse_args()
 
+    extract_dir = None
+    if args.from_extract:
+        if not args.slug:
+            print(f"{ANSI['r']}✗ --from-extract 需要同时指定 --slug <slug>{ANSI['x']}")
+            sys.exit(1)
+        extract_dir = Path(args.from_extract)
+        if not (extract_dir / "summary.json").exists():
+            print(f"{ANSI['r']}✗ {extract_dir} 里没有 summary.json（先跑 extract/extract.py）{ANSI['x']}")
+            sys.exit(1)
+
     # 1) 决定要处理哪些站
     if args.url:
         slug = slug_from_url(args.url)
@@ -891,7 +1085,7 @@ def main():
         print(f"\n{ANSI['b']}[{i}/{len(targets)}] {slug}{ANSI['x']} ({prev_status}) → {site['url']}")
 
         try:
-            site = run_pipeline(site, only=args.only, dry_run=args.dry_run)
+            site = run_pipeline(site, only=args.only, dry_run=args.dry_run, extract_dir=extract_dir)
         except Exception as e:
             site.setdefault("_meta", {})["last_error"] = str(e)[:500]
             site["status"] = f"failed:{type(e).__name__}"

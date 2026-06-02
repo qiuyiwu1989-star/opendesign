@@ -17,58 +17,60 @@
   "_meta": {
     "vision_model": "mimo-v2.5",
     "vision_prompt_version": "0.3",
-    "vision_at": "2026-05-28T20:16:57+00:00",
-    "vision_tokens": 3393,
-    "vision_cost_usd": 0.0377,
+    "vision_at": "2026-05-30T17:23:41+00:00",
+    "vision_tokens": 16042,
+    "vision_cost_usd": 0.1782,
     "translation_model": "mimo-v2.5",
-    "translation_at": "2026-05-28T20:17:56+00:00",
-    "translation_tokens": 15674,
-    "translation_cost_usd": 0.0523,
+    "translation_at": "2026-05-30T17:24:31+00:00",
+    "translation_tokens": 25413,
+    "translation_cost_usd": 0.0848,
     "narrative_model": "mimo-v2.5",
     "narrative_prompt_version": "0.3",
     "narrative_at": "2026-05-28T20:18:04+00:00",
     "narrative_tokens": 1923,
     "narrative_cost_usd": 0.0128,
     "narrative_status": "ok",
-    "total_cost_usd": 0.1028
+    "total_cost_usd": 0.2758,
+    "vision_source": "playwright-extract:opencode",
+    "vision_grounded": true
   },
   "spec": {
     "colors": {
-      "bg": "#ffffff",
-      "bgSoft": null,
-      "bgQuiet": "#f5f5f5",
-      "ink": "#1a1a1a",
-      "inkSoft": "#666666",
-      "muted": "#999999",
-      "mutedSoft": null,
+      "bg": "#fdfcfc",
+      "bgSoft": "#f8f7f7",
+      "bgQuiet": null,
+      "ink": "#201d1d",
+      "inkSoft": "#9a9898",
+      "muted": "#646262",
+      "mutedSoft": "#8d8b8b",
       "accent": null,
-      "line": "rgba(0, 0, 0, 0.1)"
+      "line": "rgba(100, 98, 98, 0.2)"
     },
     "typography": {
       "display": "monospace",
-      "body": "sans-serif",
+      "body": "monospace",
       "mono": "monospace",
       "scale": [
         {
           "token": "display",
-          "size": 32,
-          "lh": 1.2,
-          "weight": 500,
+          "size": 56,
+          "lh": 1.0,
+          "weight": 700,
           "ls": "-0.5px"
+        },
+        {
+          "token": "heading",
+          "size": 24,
+          "lh": 1.33,
+          "weight": 700,
+          "ls": "0"
         },
         {
           "token": "body",
           "size": 16,
-          "lh": 1.6,
-          "weight": 400,
-          "ls": "0px"
-        },
-        {
-          "token": "mono",
-          "size": 14,
           "lh": 1.5,
           "weight": 400,
-          "ls": "0px"
+          "ls": "0"
         }
       ]
     },
@@ -81,21 +83,21 @@
         16,
         24,
         32,
-        48,
-        64
+        64,
+        80
       ]
     },
     "surfaces": {
       "radius": {
-        "sm": 2,
-        "md": 4,
-        "lg": 8,
+        "sm": 4,
+        "md": 6,
+        "lg": 6,
         "pill": 999
       }
     },
     "layout": {
-      "container": 1200,
-      "paragraph": 640,
+      "container": 1280,
+      "paragraph": 800,
       "columns": 12,
       "gutter": 24,
       "breakpoints": [
@@ -106,391 +108,19 @@
     "motion": {
       "durations": {
         "micro": 150,
-        "small": 300,
-        "medium": 500
+        "small": 180,
+        "medium": 400
       },
       "easing": "cubic-bezier(0.4, 0, 0.2, 1)"
     }
   },
-  "spec_i18n": {
-    "en": {
-      "identity": {
-        "keywords": [
-          "open-source",
-          "AI coding agent",
-          "CLI-first",
-          "developer tool"
-        ],
-        "analogy": "A sleek, modern command-line interface wrapper for powerful AI models.",
-        "oneLiner": "The open source AI coding agent."
-      },
-      "colors": {
-        "principle": "High-contrast, functional, and focused on readability for technical content."
-      },
-      "typography": {
-        "rules": [
-          "Use monospace for headlines, code, and the brand name to emphasize technical precision.",
-          "Use a clean sans-serif for body text for readability.",
-          "Maintain high contrast between text and background."
-        ],
-        "scaleUses": [
-          "Main headline",
-          "Body text and instructions",
-          "Code snippets and terminal commands"
-        ]
-      },
-      "spacing": {
-        "rhythm": "Generous whitespace around content blocks for clarity and focus."
-      },
-      "surfaces": {
-        "shadows": [],
-        "borders": "1px solid #e0e0e0"
-      },
-      "layout": {
-        "skeleton": "Single-column centered layout with distinct sections for hero and product preview."
-      },
-      "components": {
-        "button": "Simple, borderless or lightly bordered, text-focused, like the 'Download' button.",
-        "card": "Minimal, with light borders and padding, used for the code snippet container.",
-        "chip": "Small, rounded pill for status indicators like 'New'.",
-        "input": "Simple text input for the terminal command line.",
-        "hero": "Text-focused with a prominent headline and a functional code snippet."
-      },
-      "motion": {
-        "patterns": [
-          "Subtle hover effects on interactive elements."
-        ]
-      },
-      "interaction": {
-        "hover": "Subtle color or opacity changes on links and buttons.",
-        "click": "Immediate response, no complex animations.",
-        "transition": "Smooth transitions for state changes.",
-        "keyboard": "Full keyboard navigation support, as implied by terminal commands."
-      },
-      "voice": {
-        "tone": "Direct, technical, and confident.",
-        "headlineStyle": "Short, declarative statements in monospace.",
-        "ctaStyle": "Simple, action-oriented text like 'Download now'.",
-        "avoid": [
-          "Marketing jargon",
-          "Overly decorative language",
-          "Complex sentence structures"
-        ]
-      },
-      "donts": [
-        "Don't use serif fonts — the screenshot shows a monospace/sans-serif system.",
-        "Don't use bright, saturated accent colors — the palette is strictly monochrome.",
-        "Don't use heavy drop shadows or gradients — the design is flat and minimal.",
-        "Don't use rounded cards or containers — corners are sharp or very slightly rounded.",
-        "Don't clutter the interface with unnecessary icons — it's text and code-focused.",
-        "Don't use center-aligned body text — key content is left-aligned."
-      ],
-      "systemPrompt": "This is a minimalist, developer-focused landing page for an open-source AI coding agent. The design DNA is defined by a strict monochrome palette (#ffffff background, #1a1a1a ink, #666666 muted) and a typographic system where monospace is used for display text and code, paired with a clean sans-serif for body copy. The layout is spacious and single-column, prioritizing clarity and immediate utility. Critical donts: 1) Never introduce a strong accent color; the design relies on high-contrast black and white. 2) Avoid decorative elements like complex illustrations or gradients; the aesthetic is purely functional. 3) Do not use serif typography; the voice is technical and modern, expressed through monospace and sans-serif. 4) Avoid cluttered layouts; generous whitespace is essential for focus."
-    },
-    "zh-CN": {
-      "identity": {
-        "keywords": [
-          "开源",
-          "AI 编程助手",
-          "CLI 优先",
-          "开发者工具"
-        ],
-        "analogy": "一个为强大 AI 模型打造的、流畅现代的命令行界面包装器。",
-        "oneLiner": "开源的 AI 编程助手。"
-      },
-      "colors": {
-        "principle": "高对比度、功能性强，专注于技术内容的可读性。"
-      },
-      "typography": {
-        "rules": [
-          "标题、代码和品牌名使用等宽字体，以强调技术的精确性。",
-          "正文使用清晰的无衬线字体，以保证可读性。",
-          "保持文本与背景之间的高对比度。"
-        ],
-        "scaleUses": [
-          "主标题",
-          "正文与说明文字",
-          "代码片段与终端命令"
-        ]
-      },
-      "spacing": {
-        "rhythm": "内容块周围保留充足的留白，确保清晰度和视觉焦点。"
-      },
-      "surfaces": {
-        "shadows": [],
-        "borders": "1px solid #e0e0e0"
-      },
-      "layout": {
-        "skeleton": "单栏居中布局，为 hero 区和产品预览区设置明确分区。"
-      },
-      "components": {
-        "button": "简洁，无边框或细边框，聚焦文本，例如“Download”按钮。",
-        "card": "极简风格，带浅色边框和内边距，用于代码片段容器。",
-        "chip": "小巧的圆角胶囊形状，用于“New”等状态指示器。",
-        "input": "用于终端命令行的简单文本输入框。",
-        "hero": "以文本为核心，包含醒目的标题和功能性的代码片段。"
-      },
-      "motion": {
-        "patterns": [
-          "交互元素上细微的 hover 效果。"
-        ]
-      },
-      "interaction": {
-        "hover": "链接和按钮上的细微颜色或透明度变化。",
-        "click": "即时响应，无复杂动画。",
-        "transition": "状态切换时平滑过渡。",
-        "keyboard": "支持完整的键盘导航，正如终端命令所暗示的。"
-      },
-      "voice": {
-        "tone": "直接、技术性强且充满自信。",
-        "headlineStyle": "使用等宽字体撰写的简短、陈述式标题。",
-        "ctaStyle": "简单、面向行动的文本，如“立即下载”。",
-        "avoid": [
-          "营销术语",
-          "过度装饰性的语言",
-          "复杂的句子结构"
-        ]
-      },
-      "donts": [
-        "不要使用衬线字体——截图显示的是等宽/无衬线字体系统。",
-        "不要使用明亮、高饱和度的强调色——调色板严格限定为单色调。",
-        "不要使用厚重的投影或渐变——设计是扁平且极简的。",
-        "不要使用圆角卡片或容器——转角要么是直角，要么只有极轻微的圆角。",
-        "不要用不必要的图标杂乱界面——它以文本和代码为核心。",
-        "不要将正文文本居中对齐——关键内容应左对齐。"
-      ],
-      "systemPrompt": "这是一个面向开发者的极简风格落地页，用于推广一款开源 AI 编程助手。其设计基因由严格的单色调色板（#ffffff 背景，#1a1a1a 墨色，#666666 柔灰色）和一套排版系统定义，其中等宽字体用于展示文本和代码，搭配简洁的无衬线字体用于正文。布局宽敞，采用单栏结构，优先考虑清晰度和即时实用性。关键禁忌：1) 切勿引入强烈的强调色；设计依赖于高对比度的黑白。2) 避免使用复杂插图或渐变等装饰性元素；美学纯粹是功能性的。3) 不要使用衬线字体；其技术感和现代感通过等宽和无衬线字体来表达。4) 避免拥挤的布局；充足的留白对于聚焦至关重要。"
-    },
-    "zh-TW": {
-      "identity": {
-        "keywords": [
-          "開源",
-          "AI 編程代理",
-          "CLI 優先",
-          "開發者工具"
-        ],
-        "analogy": "一個時尚、現代的命令列介面包裝，用於強大的 AI 模型。",
-        "oneLiner": "開源 AI 編程代理。"
-      },
-      "colors": {
-        "principle": "高對比、功能導向，專注於技術內容的可讀性。"
-      },
-      "typography": {
-        "rules": [
-          "使用 monospace 字體於標題、程式碼與品牌名稱，以強調技術精準。",
-          "使用簡潔的 sans-serif 字體於內文，確保可讀性。",
-          "維持文字與背景之間的高對比度。"
-        ],
-        "scaleUses": [
-          "主要標題",
-          "內文與指示說明",
-          "程式碼片段與終端機指令"
-        ]
-      },
-      "spacing": {
-        "rhythm": "內容區塊周圍保留充裕留白，以提升清晰度與專注力。"
-      },
-      "surfaces": {
-        "shadows": [],
-        "borders": "1px solid #e0e0e0"
-      },
-      "layout": {
-        "skeleton": "單欄居中佈局，設有獨立的首頁與產品預覽區塊。"
-      },
-      "components": {
-        "button": "簡約、無邊框或僅帶淺邊框、文字為主，例如「下載」按鈕。",
-        "card": "極簡設計，帶淺邊框與 padding，用於程式碼片段容器。",
-        "chip": "小型圓角藥丸狀，用於狀態指示器（如「New」）。",
-        "input": "簡潔的文字輸入框，用於終端機命令列。",
-        "hero": "以文字為主，搭配醒目標題與功能性的程式碼片段。"
-      },
-      "motion": {
-        "patterns": [
-          "互動元素上的細微 hover 效果。"
-        ]
-      },
-      "interaction": {
-        "hover": "連結與按鈕上的細微顏色或透明度變化。",
-        "click": "即時回應，無複雜動畫。",
-        "transition": "狀態轉換時採用流暢的過渡效果。",
-        "keyboard": "完整的鍵盤導航支援，符合終端機指令的操作邏輯。"
-      },
-      "voice": {
-        "tone": "直接、技術性、自信。",
-        "headlineStyle": "簡短、陳述性的 monospace 字體語句。",
-        "ctaStyle": "簡潔、行動導向的文字，例如「立即下載」。",
-        "avoid": [
-          "行銷術語",
-          "過度裝飾的語言",
-          "複雜的句子結構"
-        ]
-      },
-      "donts": [
-        "避免使用襯線字體——截圖顯示的是 monospace/sans-serif 系統。",
-        "避免使用鮮豔、飽和的強調色——調色盤嚴格採用單色。",
-        "避免使用厚重的陰影或漸層——設計風格為扁平且極簡。",
-        "避免使用圓角卡片或容器——邊角為銳角或僅帶微圓。",
-        "避免在介面上堆砌不必要的圖示——重點在於文字與程式碼。",
-        "避免將內文置中對齊——關鍵內容採左對齊。"
-      ],
-      "systemPrompt": "這是一個極簡、開發者導向的著陸頁，用於推廣一款開源 AI 編程代理。其設計基因由嚴格的單色調色盤（#ffffff 背景、#1a1a1a 墨色、#666666 柔和色）與字體系統定義，其中 monospace 用於展示文字與程式碼，搭配簡潔的 sans-serif 用於內文。佈局寬敞且採單欄設計，優先考量清晰度與即時實用性。關鍵注意事項：1) 切勿引入強烈的強調色；設計依賴高對比的黑白配色。2) 避免裝飾性元素，如複雜插圖或漸層；美學純粹以功能為導向。3) 不要使用襯線字體；語氣技術且現代，透過 monospace 與 sans-serif 來表達。4) 避免擁擠的佈局；充裕的留白對於保持專注至關重要。"
-    },
-    "ja": {
-      "identity": {
-        "keywords": [
-          "オープンソース",
-          "AI コーディング・エージェント",
-          "CLI ファースト",
-          "開発者ツール"
-        ],
-        "analogy": "強力な AI モデルのための、スタイリッシュでモダンなコマンドライン・インターフェース・ラッパー。",
-        "oneLiner": "オープンソースの AI コーディング・エージェント。"
-      },
-      "colors": {
-        "principle": "技術コンテンツの可読性に焦点を当てた、ハイコントラストで機能的。"
-      },
-      "typography": {
-        "rules": [
-          "見出し、コード、ブランド名には技術的な精密さを強調するため、モノスペースを使用します。",
-          "本文テキストには可読性のため、クリーンなサンセリフを使用します。",
-          "テキストと背景の間にはハイコントラクトを維持します。"
-        ],
-        "scaleUses": [
-          "メイン見出し",
-          "本文テキストおよびインストラクション",
-          "コードスニペットおよびターミナルコマンド"
-        ]
-      },
-      "spacing": {
-        "rhythm": "明確さと集中力のため、コンテンツブロックの周りにたっぷりとした余白を確保します。"
-      },
-      "surfaces": {
-        "shadows": [],
-        "borders": "1px solid #e0e0e0"
-      },
-      "layout": {
-        "skeleton": "ヒーローや製品プレビュー用の区画が明確な、単一カラムの中央揃えレイアウト。"
-      },
-      "components": {
-        "button": "シンプルで、ボーダーレスまたは軽いボーダー、テキスト主導。例：「ダウンロード」ボタン。",
-        "card": "ミニマルで、軽いボーダーとパディングを持ち、コードスニペット・コンテナに使用。",
-        "chip": "「新着」などのステータス表示用の、小さな丸薬型（ピル）。",
-        "input": "ターミナルコマンドライン用のシンプルなテキスト入力。",
-        "hero": "目立つ見出しと機能的なコードスニペットを持つ、テキスト主導。"
-      },
-      "motion": {
-        "patterns": [
-          "インタラクティブ要素の微かな hover エフェクト。"
-        ]
-      },
-      "interaction": {
-        "hover": "リンクやボタンの微かな色や不透明度の変化。",
-        "click": "即座のレスポンス。複雑なアニメーションはなし。",
-        "transition": "状態変化のためのスムーズなトランジション。",
-        "keyboard": "ターミナルコマンドが示唆するように、完全なキーボード・ナビゲーションをサポート。"
-      },
-      "voice": {
-        "tone": "直接的で、技術的、かつ自信に満ちている。",
-        "headlineStyle": "モノスペースによる短く断定的な文章。",
-        "ctaStyle": "「今すぐダウンロード」のようなシンプルでアクション指向のテキスト。",
-        "avoid": [
-          "マーケティング用語",
-          "過度に装飾的な言葉",
-          "複雑な文構造"
-        ]
-      },
-      "donts": [
-        "セリフフォントを使わない — スクリーンショットはモノスペース/サンセリフ体系を示しています。",
-        "明るく彩度の高いアクセントカラーを使わない — パレットは厳格にモノクロームです。",
-        "重いドロップシャドウやグラデーションを使わない — デザインはフラットでミニマルです。",
-        "角丸のカードやコンテナを使わない — 角はシャープか、非常にわずかに丸みを帯びています。",
-        "不要なアイコンでインターフェースを散らかさない — テキストとコードに焦点を当てています。",
-        "本文テキストを中央揃えにしない — 重要なコンテンツは左揃えです。"
-      ],
-      "systemPrompt": "これは、オープンソースの AI コーディング・エージェントのための、ミニマルで開発者向けのランディングページです。デザイン DNA は、厳格なモノクローム・パレット（#ffffff 背景、#1a1a1a インク、#666666 控えめ）と、表示テキストとコードにモノスペース、本文にはクリーンなサンセリフを組み合わせたタイポグラフィ・システムで定義されます。レイアウトは余白をたっぷりと確保した単一カラムで、明確さと即座の利便性を優先します。重要な禁止事項：1) 強いアクセントカラーを導入しないこと。デザインはハイコントラストの黒と白に依存しています。2) 複雑なイラストやグラデーションなどの装飾的要素を避けないこと。美学は純粋に機能的です。3) セリフタイポグラフィを使用しないこと。声は技術的でモダンであり、モノスペースとサンセリフを通じて表現されます。4) 散らかったレイアウトを避けること。集中力のためにはたっぷりとした余白が不可欠です。"
-    },
-    "ko": {
-      "identity": {
-        "keywords": [
-          "오픈소스",
-          "AI 코딩 에이전트",
-          "CLI 우선",
-          "개발자 도구"
-        ],
-        "analogy": "강력한 AI 모델을 위한 날렵하고 현대적인 명령줄 인터페이스 래퍼.",
-        "oneLiner": "오픈소스 AI 코딩 에이전트."
-      },
-      "colors": {
-        "principle": "기술 콘텐츠의 가독성을 위한 고대비, 기능적, 집중적 원칙."
-      },
-      "typography": {
-        "rules": [
-          "헤드라인, 코드, 브랜드명에는 기술적 정밀함을 강조하기 위해 모노스페이스를 사용합니다.",
-          "본문 텍스트에는 가독성을 위해 깔끔한 산세리프를 사용합니다.",
-          "텍스트와 배경 사이에 높은 대비를 유지합니다."
-        ],
-        "scaleUses": [
-          "주요 헤드라인",
-          "본문 텍스트 및 지침",
-          "코드 스니펫 및 터미널 명령어"
-        ]
-      },
-      "spacing": {
-        "rhythm": "명확성과 집중을 위해 콘텐츠 블록 주변에 풍부한 여백을 둡니다."
-      },
-      "surfaces": {
-        "shadows": [],
-        "borders": "1px solid #e0e0e0"
-      },
-      "layout": {
-        "skeleton": "히어로와 제품 프리뷰를 위한 명확한 섹션이 있는 단일 열 중앙 정렬 레이아웃."
-      },
-      "components": {
-        "button": "단순하고, 테두리가 없거나 테두리가 가벼우며, '다운로드' 버튼과 같이 텍스트 중심적입니다.",
-        "card": "코드 스니펫 컨테이너에 사용되며, 가벼운 테두리와 패딩으로 미니멀합니다.",
-        "chip": "'새로움'과 같은 상태 표시를 위한 작고 둥근 알약 형태입니다.",
-        "input": "터미널 명령어 라인용 단순한 텍스트 입력.",
-        "hero": "두드러진 헤드라인과 기능적인 코드 스니펫을 갖춘 텍스트 중심적 레이아웃."
-      },
-      "motion": {
-        "patterns": [
-          "인터랙티브 요소의 미세한 hover 효과."
-        ]
-      },
-      "interaction": {
-        "hover": "링크와 버튼의 미세한 색상 또는 불투명도 변화.",
-        "click": "즉각적인 응답, 복잡한 애니메이션 없음.",
-        "transition": "상태 변화를 위한 부드러운 전환.",
-        "keyboard": "터미널 명령어에서 암시되는 대로 전체 키보드 탐색 지원."
-      },
-      "voice": {
-        "tone": "직접적이고, 기술적이며, 자신감 있는 어조.",
-        "headlineStyle": "모노스페이스로 된 짧고 선언적인 문장.",
-        "ctaStyle": "'지금 다운로드'와 같이 단순하고 행동 지향적인 텍스트.",
-        "avoid": [
-          "마케팅 용어",
-          "지나치게 장식적인 언어",
-          "복잡한 문장 구조"
-        ]
-      },
-      "donts": [
-        "세리프 폰트를 사용하지 마세요 — 스크린샷은 모노스페이스/산세리프 시스템을 보여줍니다.",
-        "밝고 채도 높은 강조색을 사용하지 마세요 — 팔레트는 엄격히 단색입니다.",
-        "무거운 그림자나 그라디언트를 사용하지 마세요 — 디자인은 플랫하고 미니멀합니다.",
-        "둥근 카드나 컨테이너를 사용하지 마세요 — 모서리는 날카롭거나 아주 미세하게 둥글립니다.",
-        "불필요한 아이콘으로 인터페이스를 복잡하게 하지 마세요 — 텍스트와 코드 중심입니다.",
-        "본문 텍스트를 중앙 정렬하지 마세요 — 주요 콘텐츠는 왼쪽 정렬입니다."
-      ],
-      "systemPrompt": "이것은 오픈소스 AI 코딩 에이전트를 위한 미니멀리스트, 개발자 중심 랜딩 페이지입니다. 디자인 DNA는 엄격한 단색 팔레트(#ffffff 배경, #1a1a1a 잉크, #666666 무드)와 모노스페이스를 디스플레이 텍스트와 코드에 사용하고 본문에는 깔끔한 산세리프를 매칭하는 타이포그래피 시스템으로 정의됩니다. 레이아웃은 넓고 단일 열이며, 명확성과 즉각적인 유용성을 우선시합니다. 중요한 주의사항: 1) 절대 강한 강조색을 도입하지 마세요 — 디자인은 고대비의 흑백에 의존합니다. 2) 복잡한 일러스트레이션이나 그라디언트 같은 장식적 요소를 피하세요 — 미학은 순전히 기능적입니다. 3) 세리프 타이포그래피를 사용하지 마세요 — 어조는 기술적이고 현대적이며, 모노스페이스와 산세리프로 표현됩니다. 4) 지저분한 레이아웃을 피하세요 — 풍부한 여백은 집중에 필수적입니다."
-    }
-  },
   "desc": {
     "en": {
-      "palette": "A strict monochrome palette of white, black, and grays emphasizes technical precision and focus.",
-      "layout": "A spacious, single-column centered layout with generous whitespace separates distinct content sections.",
-      "interaction": "Minimalist hover states and immediate responses align with the functional, CLI-first philosophy.",
-      "motion": "Subtle, almost imperceptible transitions maintain a fast, unobtrusive feel.",
-      "notes": "Worth including as a prime example of a developer-focused, monochrome design system that uses typography (monospace) as its primary expressive element."
+      "palette": "A strict monochromatic palette centered on a near-white background and near-black ink, using various shades of gray for hierarchy.",
+      "layout": "A single-column, centered layout with generous vertical spacing that clearly delineates content sections.",
+      "interaction": "Interactivity is communicated through subtle opacity changes on hover, maintaining a clean and functional feel.",
+      "motion": "Motion is minimal and functional, consisting of quick opacity transitions for hover states.",
+      "notes": "The site is a strong example of a monochromatic, monospace-driven design system that effectively communicates a technical, developer-first product identity."
     },
     "zh-CN": {
       "palette": "一套由白色、黑色及灰色构成的严格单色调色板，强调技术的精确与专注。",
@@ -581,6 +211,383 @@
       "ch7_intro": "모션 철학은 즉각성과 미묘함이며, hover 효과와 상태 전환이 빠르고 눈에 띄지 않습니다. 목표는 산만한 애니메이션을 도입하지 않고 도구의 반응적이고 CLI 같은 느낌을 강화하는 것입니다.",
       "ch8_intro": "에디토리얼 어조는 직접적이고 기술적이며 자신감 있게, 짧은 선언문과 단순하고 행동 지향적인 콜 투 액션을 사용합니다. 시스템은 마케팅 용어와 복잡한 문장 구조를 피하고 직관적인 유용성을 선호합니다.",
       "ch8_outro": "디자인에 의해 시스템은 의도적으로 세리프 폰트, 밝은 강조 색상, 장식적 혼잡함을 피하여 날카롭고 집중된 개발자 미학을 유지합니다."
+    }
+  },
+  "spec_i18n": {
+    "en": {
+      "identity": {
+        "keywords": [
+          "open-source",
+          "AI agent",
+          "coding",
+          "terminal",
+          "privacy-first"
+        ],
+        "analogy": "A developer's Swiss Army knife for AI coding, presented as a clean, no-nonsense utility.",
+        "oneLiner": "An open-source AI coding agent that prioritizes privacy and terminal-native workflows."
+      },
+      "colors": {
+        "principle": "A monochromatic, high-contrast palette derived from text ink, using subtle grays for structure and hierarchy."
+      },
+      "typography": {
+        "rules": [
+          "Use monospace for all text elements to maintain a technical, developer-centric feel.",
+          "Maintain consistent line heights for readability, especially in code blocks."
+        ],
+        "scaleUses": [
+          "Main headline",
+          "Section headings",
+          "Body text and code snippets"
+        ]
+      },
+      "spacing": {
+        "rhythm": "A consistent rhythm built on a 4px base unit, with generous padding in content sections."
+      },
+      "surfaces": {
+        "shadows": [],
+        "borders": "A single, subtle 1px border in rgba(100, 98, 98, 0.2) is used to delineate sections and components."
+      },
+      "layout": {
+        "skeleton": "A single-column centered layout with generous vertical padding separating distinct content blocks."
+      },
+      "components": {
+        "button": "A dark, monochrome button with rounded corners for primary actions like 'Download'.",
+        "card": "Simple, bordered cards for install commands, using a tabbed interface.",
+        "chip": "A small, dark 'New' badge used for announcements.",
+        "input": "A terminal-style command block with a copy button.",
+        "hero": "A large, text-heavy hero with a prominent headline, subtitle, and a command block for quick installation."
+      },
+      "motion": {
+        "patterns": [
+          "Subtle opacity transitions on hover for interactive elements."
+        ]
+      },
+      "interaction": {
+        "hover": "Subtle opacity change to indicate interactivity.",
+        "click": "Standard pointer cursor with no visible scale or press effect.",
+        "transition": "A quick 0.15s or 0.18s opacity transition on hover states.",
+        "keyboard": "Standard focus outlines are likely used but not visible in the static screenshot."
+      },
+      "voice": {
+        "tone": "Direct, technical, and confident.",
+        "headlineStyle": "Bold, monospace statements that are clear and benefit-driven.",
+        "ctaStyle": "Simple, action-oriented labels like 'Download' and 'Learn more'.",
+        "avoid": [
+          "Marketing fluff or overly casual language.",
+          "Complex jargon without context.",
+          "Excessive use of exclamation points.",
+          "Vague promises; be specific about features."
+        ]
+      },
+      "donts": [
+        "Don't use a serif or humanist sans-serif font — screenshot shows a monospace font used exclusively for all text.",
+        "Don't introduce multiple vibrant accent colors — screenshot shows a strict monochromatic palette.",
+        "Don't use drop shadows or complex gradients on surfaces — screenshot shows flat surfaces with thin borders.",
+        "Don't use rounded pill-shaped buttons for primary actions — screenshot shows buttons with a slight 6px radius.",
+        "Don't use a two-column or multi-column layout for the main content — screenshot shows a single, centered column.",
+        "Don't use large, decorative icons or illustrations — screenshot relies on text and minimal UI elements."
+      ],
+      "systemPrompt": "This is the website for Opencode, an open-source AI coding agent. The design is minimalist and technical, targeting developers. It uses a strict monochromatic color palette with a very light off-white background (#fdfcfc) and near-black ink (#201d1d). The entire typographic system is monospace, reinforcing the developer-focused identity. The layout is a clean, single-column structure with generous whitespace. Critical design constraints: never use a serif or humanist sans-serif typeface, avoid introducing any saturated accent colors, and ensure all surfaces remain flat without shadows or gradients."
+    },
+    "zh-CN": {
+      "identity": {
+        "keywords": [
+          "开源",
+          "AI 智能体",
+          "编程",
+          "终端",
+          "隐私优先"
+        ],
+        "analogy": "面向 AI 编程的开发者的瑞士军刀，呈现为一种干净、实用的工具。",
+        "oneLiner": "一款开源的 AI 编程智能体，优先考虑隐私和终端原生工作流。"
+      },
+      "colors": {
+        "principle": "基于文本墨水的单色、高对比度调色板，使用微妙的灰色来构建结构和层次。"
+      },
+      "typography": {
+        "rules": [
+          "为所有文本元素使用等宽字体，以保持技术性的、面向开发者的风格。",
+          "保持一致的行高以提高可读性，尤其是在代码块中。"
+        ],
+        "scaleUses": [
+          "主标题",
+          "章节标题",
+          "正文和代码片段"
+        ]
+      },
+      "spacing": {
+        "rhythm": "基于 4px 基准单位构建的一致节奏，内容区域采用充足的内边距。"
+      },
+      "surfaces": {
+        "shadows": [],
+        "borders": "使用单条微妙的 1px 边框（rgba(100, 98, 98, 0.2)）来划分区域和组件。"
+      },
+      "layout": {
+        "skeleton": "居中的单列布局，内容块之间通过充足的垂直内边距分隔。"
+      },
+      "components": {
+        "button": "深色、单色的圆角按钮，用于诸如“下载”等主要操作。",
+        "card": "简单的、带边框的卡片，用于安装命令，采用标签页界面。",
+        "chip": "用于公告的小型深色“New”徽章。",
+        "input": "终端风格的命令块，带有复制按钮。",
+        "hero": "大型、以文本为主的 hero 区域，包含醒目的标题、副标题和一个用于快速安装的命令块。"
+      },
+      "motion": {
+        "patterns": [
+          "交互元素在 hover 时微妙的不透明度过渡。"
+        ]
+      },
+      "interaction": {
+        "hover": "微妙的不透明度变化以指示可交互性。",
+        "click": "标准的指针光标，无可见的缩放或按压效果。",
+        "transition": "在 hover 状态下快速的 0.15s 或 0.18s 不透明度过渡。",
+        "keyboard": "可能使用了标准焦点轮廓，但在静态截图中不可见。"
+      },
+      "voice": {
+        "tone": "直接、技术性和自信。",
+        "headlineStyle": "粗体、等宽字体的陈述，清晰且以收益为导向。",
+        "ctaStyle": "简洁、行动导向的标签，如“下载”和“了解更多”。",
+        "avoid": [
+          "营销套话或过于随意的语言。",
+          "缺乏上下文的复杂行话。",
+          "过度使用感叹号。",
+          "模糊的承诺；具体说明功能。"
+        ]
+      },
+      "donts": [
+        "不要使用衬线体或人文主义无衬线字体——截图显示所有文本均使用等宽字体。",
+        "不要引入多种鲜艳的强调色——截图显示严格的单色调色板。",
+        "不要在界面上使用投影或复杂渐变——截图显示扁平的界面，带有细边框。",
+        "不要为主要操作使用圆润的药丸形按钮——截图显示具有微小 6px 圆角的按钮。",
+        "不要为主要内容使用双栏或多栏布局——截图显示单列居中布局。",
+        "不要使用大型装饰性图标或插图——截图依赖文本和极简的 UI 元素。"
+      ],
+      "systemPrompt": "这是 Opencode 的网站，一款开源的 AI 编程智能体。设计风格极简且技术化，面向开发者。采用严格的单色调色板，背景为非常浅的米白色 (#fdfcfc)，文字为近黑色 (#201d1d)。整个排版系统使用等宽字体，强化了面向开发者的身份。布局是干净的单列结构，留有大量空白。关键设计约束：切勿使用衬线体或人文主义无衬线字体，避免引入任何饱和的强调色，并确保所有界面保持扁平，无阴影或渐变。"
+    },
+    "zh-TW": {
+      "identity": {
+        "keywords": [
+          "開源",
+          "AI 代理",
+          "程式碼編寫",
+          "終端機",
+          "隱私優先"
+        ],
+        "analogy": "開發者的 AI 編碼瑞士刀，以簡潔、務實的工具形象呈現。",
+        "oneLiner": "一個注重隱私與終端機原生工作流的開源 AI 編碼代理。"
+      },
+      "colors": {
+        "principle": "以文字墨色為基底的單色高對比色盤，運用微妙的灰色建立結構與層次。"
+      },
+      "typography": {
+        "rules": [
+          "所有文字元素皆使用等寬字體，以維持技術性與開發者導向的調性。",
+          "保持一致的行高以確保可讀性，特別是在程式碼區塊中。"
+        ],
+        "scaleUses": [
+          "主標題",
+          "章節標題",
+          "內文與程式碼片段"
+        ]
+      },
+      "spacing": {
+        "rhythm": "以 4px 為基礎單位建立一致的節奏，內容區塊採用充裕的內距。"
+      },
+      "surfaces": {
+        "shadows": [],
+        "borders": "使用一條細微的 1px 邊框，顏色為 rgba(100, 98, 98, 0.2)，用以區隔區塊與元件。"
+      },
+      "layout": {
+        "skeleton": "單欄置中佈局，各內容區塊之間以充裕的垂直間距分隔。"
+      },
+      "components": {
+        "button": "深色單色按鈕，帶有圓角，用於「下載」等主要操作。",
+        "card": "簡潔的帶框卡片，用於安裝指令，採用分頁介面。",
+        "chip": "小型深色「New」徽章，用於公告標示。",
+        "input": "終端機風格的指令區塊，附有複製按鈕。",
+        "hero": "大型文字導向的首屏區域，包含醒目的標題、副標題，以及用於快速安裝的指令區塊。"
+      },
+      "motion": {
+        "patterns": [
+          "互動元素在 hover 時具有微妙的透明度過渡效果。"
+        ]
+      },
+      "interaction": {
+        "hover": "以微妙的透明度變化指示互動性。",
+        "click": "標準的游標指示，無明顯的縮放或按下效果。",
+        "transition": "在 hover 狀態下，進行快速的 0.15 秒或 0.18 秒透明度過渡。",
+        "keyboard": "可能使用標準的 focus 外框，但在靜態截圖中不可見。"
+      },
+      "voice": {
+        "tone": "直接、技術性且充滿自信。",
+        "headlineStyle": "加粗的等寬字體陳述，清晰且強調效益。",
+        "ctaStyle": "簡潔、行動導向的標籤，如「下載」與「了解更多」。",
+        "avoid": [
+          "行銷話術或過於隨意的語言。",
+          "缺乏上下文的複雜術語。",
+          "過度使用驚嘆號。",
+          "含糊的承諾；需具體說明功能特性。"
+        ]
+      },
+      "donts": [
+        "不要使用襯線體或人文無襯線體字體 — 截圖顯示所有文字僅使用等寬字體。",
+        "不要引入多種鮮豔的強調色 — 截圖顯示嚴格的單色色盤。",
+        "不要在介面上使用陰影或複雜漸層 — 截圖顯示平面化設計與細邊框。",
+        "不要使用圓角膠囊狀按鈕作為主要操作 — 截圖顯示帶有輕微 6px 圓角的按鈕。",
+        "不要使用雙欄或多欄佈局作為主要內容區 — 截圖顯示單一置中欄位。",
+        "不要使用大型、裝飾性的圖標或插圖 — 截圖依賴文字與極簡的介面元素。"
+      ],
+      "systemPrompt": "這是 Opencode 的官方網站，一個開源的 AI 編碼代理。設計風格簡潔技術化，以開發者為目標受眾。採用嚴格的單色色盤，背景為非常淺的離白 (#fdfcfc)，文字為近乎黑色的墨色 (#201d1d)。整套字體系統均採用等寬字體，強化開發者導向的識別。佈局為簡潔的單欄結構，留有充裕的空白。關鍵設計限制：絕不使用襯線體或人文無襯線體字型，避免引入任何飽和的強調色，並確保所有介面保持平坦，無陰影或漸層。"
+    },
+    "ja": {
+      "identity": {
+        "keywords": [
+          "オープンソース",
+          "AIエージェント",
+          "コーディング",
+          "ターミナル",
+          "プライバシー優先"
+        ],
+        "analogy": "AIコーディングのための開発者のスイスアーミーナイフとして、シンプルで実直なユーティリティとして提示される。",
+        "oneLiner": "プライバシーとターミナルネイティブワークフローを優先するオープンソースAIコーディングエージェント。"
+      },
+      "colors": {
+        "principle": "テキストインク由来のモノクロでハイコントラストのカラーパレット。構造と階層には微妙なグレーを使用。"
+      },
+      "typography": {
+        "rules": [
+          "技術的で開発者中心の雰囲気を維持するため、すべてのテキスト要素にモノスペースフォントを使用する。",
+          "コードブロックなどで特に可読性を保つため、一貫した行間を維持する。"
+        ],
+        "scaleUses": [
+          "メイン見出し",
+          "セクション見出し",
+          "本文テキストとコードスニペット"
+        ]
+      },
+      "spacing": {
+        "rhythm": "4pxのベースユニットに基づく一定のリズム。コンテンツセクションには十分なパディングを設ける。"
+      },
+      "surfaces": {
+        "shadows": [],
+        "borders": "セクションとコンポーネントの区切りとして、rgba(100, 98, 98, 0.2)の微妙な1pxボーダーを単一で使用。"
+      },
+      "layout": {
+        "skeleton": "コンテンツブロックを分ける十分な垂直パディングを持つ、単一の中央揃えカラムレイアウト。"
+      },
+      "components": {
+        "button": "「ダウンロード」などの主要アクション向けの、角丸を持つダークなモノクロボタン。",
+        "card": "インストールコマンド用のシンプルでボーダー付きのカード。タブインターフェースを使用。",
+        "chip": "告知用の小さなダークな「New」バッジ。",
+        "input": "コピー付きボタンを持つターミナルスタイルのコマンドブロック。",
+        "hero": "大きな見出し、サブタイトル、クイックインストール用のコマンドブロックを持つ、テキスト多めの大型ヒーローセクション。"
+      },
+      "motion": {
+        "patterns": [
+          "インタラクティブな要素のホバー時の微妙な不透明度遷移。"
+        ]
+      },
+      "interaction": {
+        "hover": "インタラクティブ性を示すための微妙な不透明度変化。",
+        "click": "標準のポインターカーソル。スケールやプレス効果は表示されない。",
+        "transition": "ホバーステート時の迅速な0.15秒または0.18秒の不透明度遷移。",
+        "keyboard": "標準のフォーカスアウトラインが使用されていると考えられるが、静止スクリーンショットでは表示されない。"
+      },
+      "voice": {
+        "tone": "直接的で、技術的、そして自信に満ちている。",
+        "headlineStyle": "明確で利益を示す、太字のモノスペースステートメント。",
+        "ctaStyle": "「ダウンロード」や「詳しく見る」など、シンプルで行動を促すラベル。",
+        "avoid": [
+          "マーケティングフレーズや過度にカジュアルな言葉遣い。",
+          "文脈なしの複雑な専門用語。",
+          "感嘆符の過度な使用。",
+          "曖昧な約束。機能について具体的に記述すること。"
+        ]
+      },
+      "donts": [
+        "セリフフォントやヒューマン・サンセリフフォントを使用しない — スクリーンショットではすべてのテキストにモノスペースフォントが排他的に使用されている。",
+        "複数の鮮やかなアクセントカラーを導入しない — スクリーンショットでは厳格なモノクロパレットが使用されている。",
+        "サーフェスにドロップシャドウや複雑なグラデーションを使用しない — スクリーンショットでは薄いボーダーを持つフラットなサーフェスが示されている。",
+        "主要アクションに角丸のピル型ボタンを使用しない — スクリーンショットではわずか6pxの角丸を持つボタンが示されている。",
+        "メインコンテンツに2カラム或多カラムレイアウトを使用しない — スクリーンショットでは単一の中央揃えカラムが示されている。",
+        "装飾的な大きなアイコンやイラストを使用しない — スクリーンショットではテキストと最小限のUI要素に依存している。"
+      ],
+      "systemPrompt": "これはOpencodeのウェブサイトです。OpencodeはオープンソースのAIコーディングエージェントです。デザインはミニマルで技術的であり、開発者をターゲットとしています。非常に明るいオフホワイト背景（#fdfcfc）とほぼ黒のインク（#201d1d）を用いた厳格なモノクロカラーパレットを使用。タイポグラフィシステム全体がモノスペースであり、開発者中心のアイデンティティを強化。レイアウトは十分な余白を持つクリーンな単一カラム構造です。重要なデザイン制約：セリフフォントやヒューマン・サンセリフフォントは決して使用せず、任何の彩度の高いアクセントカラーを導入せず、すべてのサーフェスをシャドウやグラデーションのないフラットな状態に保つこと。"
+    },
+    "ko": {
+      "identity": {
+        "keywords": [
+          "오픈소스",
+          "AI 에이전트",
+          "코딩",
+          "터미널",
+          "프라이버시 우선"
+        ],
+        "analogy": "개발자를 위한 AI 코딩의 스위스 아미 나이프로, 깔끔하고 실속 있는 유틸리티로 제시됩니다.",
+        "oneLiner": "프라이버시와 터미널 중심 워크플로우를 우선시하는 오픈소스 AI 코딩 에이전트입니다."
+      },
+      "colors": {
+        "principle": "텍스트 잉크에서 유래한 모노크롬, 고대비 팔레트를 사용하며, 구조와 계층을 위해 섬세한 회색을 활용합니다."
+      },
+      "typography": {
+        "rules": [
+          "기술적이고 개발자 중심적인 느낌을 유지하기 위해 모든 텍스트 요소에 고정폭 글꼴을 사용합니다.",
+          "가독성을 위해 일관된 행 높이를 유지하며, 특히 코드 블록에서 그렇습니다."
+        ],
+        "scaleUses": [
+          "메인 헤드라인",
+          "섹션 제목",
+          "본문 텍스트 및 코드 스니펫"
+        ]
+      },
+      "spacing": {
+        "rhythm": "4px 기본 단위로 구축된 일관된 리듬을 사용하며, 콘텐츠 섹션에는 넉넉한 패딩을 적용합니다."
+      },
+      "surfaces": {
+        "shadows": [],
+        "borders": "섹션과 컴포넌트를 구분하기 위해 rgba(100, 98, 98, 0.2)의 단일 섬세한 1px border를 사용합니다."
+      },
+      "layout": {
+        "skeleton": "서로 다른 콘텐츠 블록을 구분하는 넉넉한 수직 패딩을 가진 단일 중앙 정렬 레이아웃입니다."
+      },
+      "components": {
+        "button": "'다운로드'와 같은 주요 액션을 위한 둥근 모서리의 어둡고 단색 버튼입니다.",
+        "card": "탭 인터페이스를 사용하는 설치 명령어용 단순한 테두리 카드입니다.",
+        "chip": "공지 사항을 위한 작은 어두운 'New' 뱃지입니다.",
+        "input": "복사 버튼이 포함된 터미널 스타일 명령 블록입니다.",
+        "hero": "빠른 설치를 위한 두드러진 제목, 부제목, 명령 블록이 있는 대형 텍스트 중심 히어로입니다."
+      },
+      "motion": {
+        "patterns": [
+          "인터랙티브 요소에 대한 hover 시 섬세한 불투명도 전환."
+        ]
+      },
+      "interaction": {
+        "hover": "인터랙티브함을 나타내기 위한 섬세한 불투명도 변화.",
+        "click": "눈에 띄는 스케일이나 프레스 효과가 없는 표준 포인터 커서.",
+        "transition": "hover 상태에서 빠른 0.15초 또는 0.18초 불투명도 전환.",
+        "keyboard": "스크린샷에서는 보이지 않지만 표준 focus 윤곽선이 사용될 가능성이 높습니다."
+      },
+      "voice": {
+        "tone": "직설적이고 기술적이며 자신감 있는 어조.",
+        "headlineStyle": "명확하고 가치 중심적인 굵은 고정폭 문장.",
+        "ctaStyle": "'다운로드' 및 '자세히 알아보기'와 같이 단순하고 행동 지향적인 레이블.",
+        "avoid": [
+          "마케팅성 과장이나 지나치게 캐주얼한 언어.",
+          "컨텍스트 없는 복잡한 전문 용어.",
+          "과도한 감탄사 사용.",
+          "모호한 약속; 기능에 대해 구체적으로 기술."
+        ]
+      },
+      "donts": [
+        "세리프 또는 휴머니스트 산세리프 글꼴을 사용하지 마십시오 — 스크린샷에서는 모든 텍스트에 고정폭 글꼴이 전용으로 사용됩니다.",
+        "여러 가지 밝은 강조 색상을 도입하지 마십시오 — 스크린샷에서는 엄격한 모노크롬 팔레트가 사용됩니다.",
+        "표면에 드롭 섀도우나 복잡한 그라데이션을 사용하지 마십시오 — 스크린샷에서는 얇은 테두리가 있는 평면 표면이 나타납니다.",
+        "주요 액션에 둥근 필形状 버튼을 사용하지 마십시오 — 스크린샷에서는 약간의 6px 반경을 가진 버튼이 나타납니다.",
+        "메인 콘텐츠에 이중 열 또는 다중 열 레이아웃을 사용하지 마십시오 — 스크린샷에서는 단일 중앙 정렬 열이 나타납니다.",
+        "장식용 대형 아이콘이나 일러스트를 사용하지 마십시오 — 스크린샷은 텍스트와 최소한의 UI 요소에 의존합니다."
+      ],
+      "systemPrompt": "이것은 오픈소스 AI 코딩 에이전트인 Opencode의 웹사이트입니다. 디자인은 미니멀리스틱하고 기술적이며, 개발자를 대상으로 합니다. 매우 밝은 오프화이트 배경(#fdfcfc)과 거의 검정에 가까운 잉크(#201d1d)를 사용하는 엄격한 모노크롬 색상 팔레트를 사용합니다. 전체 타이포그래피 시스템은 고정폭으로, 개발자 중심 정체성을 강화합니다. 레이아웃은 넉넉한 여백을 가진 깔끔한 단일 열 구조입니다. 핵심 디자인 제약 조건: 세리프 또는 휴머니스트 산세리프 타입페이스를 절대 사용하지 않으며, 어떤 채도 높은 강조 색상도 도입하지 않으며, 모든 표면은 그림자나 그라데이션 없이 평면을 유지하도록 합니다."
     }
   }
 }

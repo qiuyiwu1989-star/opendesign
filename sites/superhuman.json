@@ -17,32 +17,34 @@
   "_meta": {
     "vision_model": "mimo-v2.5",
     "vision_prompt_version": "0.3",
-    "vision_at": "2026-05-28T20:34:59+00:00",
-    "vision_tokens": 3519,
-    "vision_cost_usd": 0.0391,
+    "vision_at": "2026-05-30T06:36:07+00:00",
+    "vision_tokens": 16745,
+    "vision_cost_usd": 0.1861,
     "translation_model": "mimo-v2.5",
-    "translation_at": "2026-05-28T20:36:01+00:00",
-    "translation_tokens": 17272,
-    "translation_cost_usd": 0.0576,
+    "translation_at": "2026-05-30T06:36:55+00:00",
+    "translation_tokens": 26955,
+    "translation_cost_usd": 0.0899,
     "narrative_model": "mimo-v2.5",
     "narrative_prompt_version": "0.3",
     "narrative_at": "2026-05-28T20:36:11+00:00",
     "narrative_tokens": 2172,
     "narrative_cost_usd": 0.0145,
     "narrative_status": "ok",
-    "total_cost_usd": 0.1112
+    "total_cost_usd": 0.2905,
+    "vision_source": "playwright-extract:superhuman",
+    "vision_grounded": true
   },
   "spec": {
     "colors": {
-      "bg": "#1a1a2e",
-      "bgSoft": "#16162a",
-      "bgQuiet": "#0f0f1a",
-      "ink": "#ffffff",
-      "inkSoft": "#e0e0e0",
-      "muted": "#8888aa",
-      "mutedSoft": "#666688",
-      "accent": "#7b61ff",
-      "line": "rgba(255,255,255,0.1)"
+      "bg": "#f2f0eb",
+      "bgSoft": "#ffffff",
+      "bgQuiet": "#ebe9e2",
+      "ink": "#292827",
+      "inkSoft": "#ffffff",
+      "muted": "#734cb6",
+      "mutedSoft": "rgba(255,255,255,0.8)",
+      "accent": "#734cb6",
+      "line": "rgba(255,255,255,0.05)"
     },
     "typography": {
       "display": "geometric-sans",
@@ -52,21 +54,35 @@
         {
           "token": "display",
           "size": 64,
-          "lh": 1.1,
+          "lh": 1.0,
           "weight": 500,
           "ls": "-1.5px"
         },
         {
           "token": "headline",
-          "size": 32,
-          "lh": 1.2,
+          "size": 48,
+          "lh": 1.1,
           "weight": 500,
-          "ls": "-0.5px"
+          "ls": "-1px"
+        },
+        {
+          "token": "body-lg",
+          "size": 20,
+          "lh": 1.5,
+          "weight": 400,
+          "ls": "0px"
         },
         {
           "token": "body",
           "size": 16,
-          "lh": 1.6,
+          "lh": 1.5,
+          "weight": 400,
+          "ls": "0px"
+        },
+        {
+          "token": "caption",
+          "size": 14,
+          "lh": 1.4,
           "weight": 400,
           "ls": "0px"
         }
@@ -109,343 +125,16 @@
         "small": 400,
         "medium": 800
       },
-      "easing": "cubic-bezier(0.25, 0.1, 0.25, 1)"
-    }
-  },
-  "spec_i18n": {
-    "en": {
-      "identity": {
-        "keywords": [
-          "efficiency",
-          "professionalism",
-          "modern",
-          "premium"
-        ],
-        "analogy": "A high-end, streamlined productivity suite for the modern professional.",
-        "oneLiner": "A premium, AI-powered communication suite designed for speed and efficiency."
-      },
-      "colors": {
-        "principle": "Deep, dark backgrounds create focus and a premium feel, with white text for clarity and a subtle purple accent for interactive elements."
-      },
-      "typography": {
-        "rules": [],
-        "scaleUses": [
-          "Hero headline",
-          "Section sub-headline",
-          "Body text"
-        ]
-      },
-      "spacing": {
-        "rhythm": "A consistent 4px base grid with a harmonious scale for vertical rhythm and spacing."
-      },
-      "surfaces": {
-        "shadows": [],
-        "borders": "Subtle 1px borders using rgba(255,255,255,0.1) for definition without distraction."
-      },
-      "layout": {
-        "skeleton": "A centered, single-column layout for the hero, transitioning to a complex, layered composition with overlapping cards and imagery."
-      },
-      "components": {
-        "button": "A prominent, rounded-pill primary button with white text on a dark background and a right-arrow icon.",
-        "card": "Semi-transparent cards with subtle borders, showcasing UI elements and content snippets.",
-        "chip": "Small, rounded tags or labels for categorization (e.g., #launch-project-chat).",
-        "input": "Not clearly visible as a standalone component, but the AI chat interface suggests text input fields.",
-        "hero": "A full-width, dark-background section with a large geometric-sans headline, supporting sub-headline, and a single primary CTA."
-      },
-      "interaction": {
-        "hover": "Subtle brightness changes or opacity shifts on interactive elements like buttons and links.",
-        "click": "Immediate visual feedback, likely a slight scale or opacity change.",
-        "transition": "Smooth, quick transitions (220-400ms) for state changes.",
-        "keyboard": "Not visually evident from the static screenshot."
-      },
-      "voice": {
-        "tone": "Confident, efficient, and slightly aspirational.",
-        "headlineStyle": "Concise, action-oriented, and benefit-focused (e.g., 'Everything you want to do, done.').",
-        "ctaStyle": "Direct and imperative (e.g., 'Get Superhuman').",
-        "avoid": [
-          "Passive voice",
-          "Corporate jargon",
-          "Overly complex sentences"
-        ]
-      },
-      "donts": [
-        "Don't use a light or white background — the screenshot shows a deep, dark, almost-navy background.",
-        "Don't use a highly saturated or neon accent color — the screenshot shows a subtle, desaturated purple accent.",
-        "Don't use a serif font for headlines — the screenshot clearly uses a geometric sans-serif for all display text.",
-        "Don't use sharp, squared-off corners on buttons or cards — the screenshot shows a rounded, almost-pill shape for the primary CTA.",
-        "Don't clutter the layout with dense information — the screenshot shows a clean, spacious design with significant white space.",
-        "Don't use multiple competing accent colors — the screenshot uses a single purple accent sparingly against the dark palette."
-      ],
-      "systemPrompt": "This is the website for Superhuman, a premium AI-powered email and productivity suite. It positions itself as the fastest, most efficient tool for high-performing professionals. Key design elements include a deep, dark background (likely #1a1a2e), crisp white text (#ffffff), and a subtle purple accent (#7b61ff). Typography is exclusively a clean geometric sans-serif category. Critical design principles: 1) Maintain extreme focus and minimalism; avoid visual clutter. 2) Use the dark background as the primary canvas; never invert to a light theme. 3) Reserve the purple accent for key interactive elements only; do not use it decoratively. The design exudes premium quality, speed, and modern professionalism."
-    },
-    "zh-CN": {
-      "identity": {
-        "keywords": [
-          "高效",
-          "专业",
-          "现代",
-          "高端"
-        ],
-        "analogy": "面向现代专业人士的高端精简生产力套件。",
-        "oneLiner": "专为速度与效率设计的高端AI驱动通信套件。"
-      },
-      "colors": {
-        "principle": "深邃暗背景营造专注感与高端质感，白色文字保证清晰度，微妙紫色点缀专用于交互元素。"
-      },
-      "typography": {
-        "rules": [],
-        "scaleUses": [
-          "主标题",
-          "章节副标题",
-          "正文文本"
-        ]
-      },
-      "spacing": {
-        "rhythm": "基于4px网格的统一节奏系统，形成和谐的垂直韵律与间距比例。"
-      },
-      "surfaces": {
-        "shadows": [],
-        "borders": "使用rgba(255,255,255,0.1)的微妙1像素边框，实现清晰度而不分散注意力。"
-      },
-      "layout": {
-        "skeleton": "首屏采用居中单栏布局，逐渐过渡至包含重叠卡片与图像的复杂分层构图。"
-      },
-      "components": {
-        "button": "深色背景上的白色文字圆润主按钮，搭配右箭头图标。",
-        "card": "半透明卡片配以微妙边框，展示UI元素与内容片段。",
-        "chip": "用于分类的小型圆润标签（例如#launch-project-chat）。",
-        "input": "作为独立组件不清晰可见，但AI聊天界面暗示了文本输入字段的存在。",
-        "hero": "全宽深背景区域，包含大型几何无衬线标题、辅助副标题及单一核心操作按钮。"
-      },
-      "interaction": {
-        "hover": "按钮和链接等交互元素在悬停时呈现细微亮度变化或透明度偏移。",
-        "click": "提供即时视觉反馈，可能伴随轻微缩放或透明度变化。",
-        "transition": "状态切换采用流畅快速的过渡效果（220-400毫秒）。",
-        "keyboard": "从静态截图无法直观体现。"
-      },
-      "voice": {
-        "tone": "自信、高效且略带理想主义色彩。",
-        "headlineStyle": "简洁有力、行动导向且突出效益（例如：'随心所想，即刻实现。'）。",
-        "ctaStyle": "直接明确的行动号召（例如：'获得超凡体验'）。",
-        "avoid": [
-          "被动语态",
-          "企业套话",
-          "过度复杂的句式"
-        ]
-      },
-      "donts": [
-        "避免使用浅色或白色背景——截图显示为深邃暗调，近乎海军蓝。",
-        "避免使用高饱和或霓虹色点缀——截图呈现微妙的低饱和度紫色强调。",
-        "避免为标题使用衬线字体——截图明确使用几何无衬线字体作为所有显示文本。",
-        "避免在按钮或卡片上使用尖锐方形边角——截图显示主操作按钮采用圆润近似药丸形状。",
-        "避免布局信息过载——截图展现简洁宽敞的设计与充分留白。",
-        "避免使用多重竞争性强调色——截图在深色调色板上仅克制使用单一紫色点缀。"
-      ],
-      "systemPrompt": "这是Superhuman的官方网站，一款高端AI驱动的电子邮件与生产力套件。它定位为高性能专业人士最快的高效工具。关键设计元素包括：深邃暗背景（疑似#1a1a2e）、清晰白色文字（#ffffff）与微妙紫色强调色（#7b61ff）。字体排印完全采用简洁的几何无衬线字体类别。核心设计原则：1) 保持极致专注与极简，杜绝视觉杂乱。2) 以深色背景为主画布，绝不切换至浅色主题。3) 紫色强调色仅用于关键交互元素，不作装饰用途。设计需传递高端品质、速度感与现代专业气质。"
-    },
-    "zh-TW": {
-      "identity": {
-        "keywords": [
-          "效率",
-          "專業",
-          "現代",
-          "高級"
-        ],
-        "analogy": "為現代專業人士打造的高端、精簡的生產力套裝。",
-        "oneLiner": "為速度與效率而設計的高級、AI 驅動溝通套裝。"
-      },
-      "colors": {
-        "principle": "深邃的暗色背景創造專注感與高級感，搭配白色文字以提升清晰度，並以細微的紫色點綴用於互動元素。"
-      },
-      "typography": {
-        "rules": [],
-        "scaleUses": [
-          "主視覺標題",
-          "段落副標題",
-          "內文"
-        ]
-      },
-      "spacing": {
-        "rhythm": "以一致的 4px 基礎網格，搭配和諧的比例，建立垂直節奏與間距。"
-      },
-      "surfaces": {
-        "shadows": [],
-        "border": "使用 rgba(255,255,255,0.1) 的細微 1px 邊框，提供輪廓而不分散注意力。"
-      },
-      "layout": {
-        "skeleton": "主視覺採用置中的單欄佈局，隨後過渡到由重疊卡片與影像構成的複雜層次構圖。"
-      },
-      "components": {
-        "button": "醒目、圓潤膠囊狀的主要按鈕，採用深色背景配白色文字，並帶有右箭頭圖示。",
-        "card": "半透明卡片，帶有細微邊框，用於展示介面元素與內容片段。",
-        "chip": "小型圓角標籤或標籤，用於分類（例如 #launch-project-chat）。",
-        "input": "在獨立組件中不明顯，但 AI 聊天介面暗示了文字輸入欄位的存在。",
-        "hero": "全寬度、深色背景區塊，包含大型幾何無襯線標題、輔助副標題及單一主要行動呼籲（CTA）。"
-      },
-      "interaction": {
-        "hover": "在按鈕與連結等互動元素上，有細微的亮度變化或透明度轉移。",
-        "click": "立即的視覺回饋，可能是輕微的縮放或透明度變化。",
-        "transition": "流暢、快速的過渡效果（220-400ms），用於狀態變化。",
-        "keyboard": "從靜態截圖中無法明確判斷。"
-      },
-      "voice": {
-        "tone": "自信、高效，並帶有些許理想色彩。",
-        "headlineStyle": "簡潔、以行動為導向，並聚焦於效益（例如「心之所想，即刻實現」）。",
-        "ctaStyle": "直接且具號召力（例如「取得 Superhuman」）。",
-        "avoid": [
-          "被動語態",
-          "企業行話",
-          "過度複雜的句子"
-        ]
-      },
-      "donts": [
-        "不要使用淺色或白色背景 — 截圖顯示的是深邃的、近乎深藍的深色背景。",
-        "不要使用高飽和度或霓虹色的點綴色 — 截圖顯示的是細微、不飽和的紫色點綴。",
-        "不要在標題使用襯線字體 — 截圖清楚地使用幾何無襯線字體作為所有展示文字。",
-        "不要在按鈕或卡片上使用銳利、方正的邊角 — 截圖顯示主要 CTA 為圓潤、近乎膠囊的形狀。",
-        "不要讓佈局充斥著密集的資訊 — 截圖顯示的是乾淨、寬敞的設計，留有大量的留白。",
-        "不要使用多種互相競爭的點綴色 — 截圖在深色調中謹慎地使用單一的紫色點綴。"
-      ],
-      "systemPrompt": "這是 Superhuman 的網站，一個高級的 AI 驅動郵件與生產力套裝。它將自己定位為高績效專業人士最快速、最有效率的工具。關鍵設計元素包括：深邃的深色背景（可能是 #1a1a2e）、清晰的白色文字 (#ffffff) 與細微的紫色點綴 (#7b61ff)。字體純粹採用乾淨的幾何無襯線類別。關鍵設計原則：1）保持極致的專注與極簡；避免視覺雜亂。2）以深色背景為主要畫布；絕不反轉為淺色主題。3）將紫色點綴僅保留給關鍵互動元素；不要用於裝飾。此設計散發出高級感、速度與現代專業精神。"
-    },
-    "ja": {
-      "identity": {
-        "keywords": [
-          "効率",
-          "専門性",
-          "モダン",
-          "プレミアム"
-        ],
-        "analogy": "現代のプロフェッショナルのための、ハイエンドでスリム化された生産性スイート。",
-        "oneLiner": "速さと効率のために設計された、プレミアムでAI搭載のコミュニケーションスイート。"
-      },
-      "colors": {
-        "principle": "深い暗い背景が集中力とプレミアム感を生み出し、白テキストが明瞭さを、控えめな紫色のアクセントがインタラクティブな要素に彩りを加えます。"
-      },
-      "typography": {
-        "rules": [],
-        "scaleUses": [
-          "ヒーローヘッドライン",
-          "セクションサブヘッドライン",
-          "本文テキスト"
-        ]
-      },
-      "spacing": {
-        "rhythm": "一貫した4pxベースグリッドと、垂直リズムと間隔のための調和あるスケールを採用しています。"
-      },
-      "surfaces": {
-        "shadows": [],
-        "borders": "rgba(255,255,255,0.1)を使用した控えめな1pxボーダーで、分散せずに明瞭さを提供します。"
-      },
-      "layout": {
-        "skeleton": "ヒーローには中央揃えのシングルカラムレイアウトを採用し、オーバーラップするカードと画像を含む複雑な層構成へと移行します。"
-      },
-      "components": {
-        "button": "暗い背景に白テキストと右矢印アイコンを配置した、目立つ角丸ピル型プライマリボタン。",
-        "card": "控えめなボーダーを持つ半透明カードで、UI要素とコンテンツスニペットを展示します。",
-        "chip": "分類のための小さな角丸タグまたはラベル（例：#launch-project-chat）。",
-        "input": "単体コンポーネントとして明確には見えませんが、AIチャットインターフェースがテキスト入力フィールドを示唆しています。",
-        "hero": "暗い背景のフル幅セクションに、大きなジオメトリックサンセリフのヘッドライン、補足サブヘッドライン、単一のプライマリCTAを配置。"
-      },
-      "interaction": {
-        "hover": "ボタンやリンクなどのインタラクティブ要素における、控えめな明るさの変化や不透明度のシフト。",
-        "click": "即座の視覚的フィードバック。おそらく軽微なスケールや不透明度の変化。",
-        "transition": "状態変化のための、滑らかで短いトランジション（220-400ms）。",
-        "keyboard": "静止スクリーンショットからは視覚的に判別できません。"
-      },
-      "voice": {
-        "tone": "自信に満ち、効率的で、少し志向性のある。",
-        "headlineStyle": "簡潔で、行動を促し、メリットに焦点を当てたもの（例：「やりたいこと、すべて叶える。」）。",
-        "ctaStyle": "直接的で命令的なもの（例：「Get Superhuman」）。",
-        "avoid": [
-          "受動態",
-          "企業用語",
-          "過度に複雑な文"
-        ]
-      },
-      "donts": [
-        "明るい背景や白い背景を使用しない。スクリーンショットでは深い暗い、ほぼネイビーの背景が使用されています。",
-        "高彩度やネオン色のアクセントカラーを使用しない。スクリーンショットでは控えめで低彩度の紫色のアクセントが使用されています。",
-        "ヘッドラインにセリフフォントを使用しない。スクリーンショットではすべての表示テキストに明確にジオメトリックサンセリフが使用されています。",
-        "ボタンやカードに鋭く四角い角を使用しない。スクリーンショットではプライマリCTAに角丸、ほぼピル型が使用されています。",
-        "レイアウトに密集した情報で clutter しない。スクリーンショットでは広い余白を活かしたクリーンで広々としたデザインが示されています。",
-        "複数の競合するアクセントカラーを使用しない。スクリーンショットではダークパレットに対して単一の紫色のアクセントが控えめに使用されています。"
-      ],
-      "systemPrompt": "これは、プレミアムでAI搭載のメールおよび生産性スイート「Superhuman」のウェブサイトです。高性能プロフェッショナルのための最も速く、最も効率的なツールとして位置づけられています。主要なデザイン要素には、深い暗い背景（おそらく#1a1a2e）、鮮明な白テキスト（#ffffff）、控えめな紫色のアクセント（#7b61ff）が含まれます。タイポグラフィは、クリーンなジオメトリックサンセリフファミリーに限定されています。重要なデザイン原則：1) 極度の集中とミニマリズムを維持し、視覚的な clutter を避ける。2) 暗い背景をプライマリキャンバスとして使用し、明るいテーマに反転させない。3) 紫色のアクセントは主要なインタラクティブな要素のみに使用し、装飾的には使用しない。デザインは、プレミアム品質、速さ、モダンな専門性を体現しています。"
-    },
-    "ko": {
-      "identity": {
-        "keywords": [
-          "효율성",
-          "전문성",
-          "현대적",
-          "프리미엄"
-        ],
-        "analogy": "현대 전문가를 위한 고급이고 간소화된 생산성 제품군.",
-        "oneLiner": "속도와 효율성을 위해 설계된 프리미엄 AI 기반 커뮤니케이션 제품군."
-      },
-      "colors": {
-        "principle": "깊고 어두운 배경은 집중감과 프리미엄 느낌을 생성하고, 흰색 텍스트는 명확성을, 은은한 보라색 강조색은 인터랙티브 요소를 위한 것입니다."
-      },
-      "typography": {
-        "rules": [],
-        "scaleUses": [
-          "히어로 헤드라인",
-          "섹션 부제목",
-          "본문 텍스트"
-        ]
-      },
-      "spacing": {
-        "rhythm": "수직 리듬과 간격을 위한 조화로운 스케일을 갖춘 일관된 4px 기본 격자."
-      },
-      "surfaces": {
-        "shadows": [],
-        "borders": "방해 없이 형태를 정의하기 위한 subtle 1px borders, rgba(255,255,255,0.1) 사용."
-      },
-      "layout": {
-        "skeleton": "히어로 섹션은 중앙 정렬 단일 컬럼 레이아웃이며, 겹치는 카드와 이미지가 포함된 복합적이고 층을 이룬 구성으로 전환됩니다."
-      },
-      "components": {
-        "button": "어두운 배경에 흰색 텍스트와 오른쪽 화살표 아이콘이 포함된, 두드러진 둥근 모양의 주요 버튼.",
-        "card": "UI 요소와 콘텐츠 스니펫을 보여주는, 은은한 테두리가 있는 반투명 카드.",
-        "chip": "카테고리 분류를 위한 작은 둥근 태그 또는 라벨 (예: #launch-project-chat).",
-        "input": "독립된 컴포넌트로 명확하게 보이지 않지만, AI 채팅 인터페이스는 텍스트 입력 필드를 암시합니다.",
-        "hero": "큰 기하학적 sans-serif 헤드라인, 지원 부제목, 그리고 단 하나의 주요 CTA가 포함된, 전체 폭의 어두운 배경 섹션."
-      },
-      "interaction": {
-        "hover": "버튼 및 링크와 같은 인터랙티브 요소의 은은한 밝기 변화 또는 불투명도 변화.",
-        "click": "약간의 스케일 또는 불투명도 변화를 통한 즉각적인 시각적 피드백.",
-        "transition": "상태 변화를 위한 부드럽고 빠른 전환 (220-400ms).",
-        "keyboard": "정적 스크린샷에서 시각적으로 명확하지 않음."
-      },
-      "voice": {
-        "tone": "자신감 있고 효율적이며, 약간의 열망을 담은.",
-        "headlineStyle": "간결하고 행동 지향적이며 이점에 집중된 (예: '하고 싶은 모든 것, 완료.').",
-        "ctaStyle": "직접적이고 명령적인 (예: 'Get Superhuman').",
-        "avoid": [
-          "수동태",
-          "기업용 전문 용어",
-          "지나치게 복잡한 문장"
-        ]
-      },
-      "donts": [
-        "밝은 또는 흰색 배경을 사용하지 마세요 — 스크린샷은 깊고 어두운 거의 네이비색 배경을 보여줍니다.",
-        "높게 채워진 또는 네온 강조색을 사용하지 마세요 — 스크린샷은 은은하고 채도가 낮은 보라색 강조색을 보여줍니다.",
-        "헤드라인에 세리프 폰트를 사용하지 마세요 — 스크린샷은 명확하게 모든 표시 텍스트에 기하학적 sans-serif를 사용합니다.",
-        "버튼이나 카드에 날카롭고 모서리가 각진 형태를 사용하지 마세요 — 스크린샷은 주요 CTA에 둥근 거의 모양 형태를 보여줍니다.",
-        "레이아웃을 밀집된 정보로 복잡하게 만들지 마세요 — 스크린샷은 상당한 여백을 가진 깔끔하고 여유로운 디자인을 보여줍니다.",
-        "여러 경쟁 강조색을 사용하지 마세요 — 스크린샷은 어두운 팔레트 위에 단일 보라색 강조색을 절제하여 사용합니다."
-      ],
-      "systemPrompt": "이것은 Superhuman의 웹사이트로, 프리미엄 AI 기반 이메일 및 생산성 제품군입니다. 고성과 전문가를 위한 가장 빠르고 효율적인 도구로 자리매김합니다. 주요 디자인 요소에는 깊고 어두운 배경(아마도 #1a1a2e), 선명한 흰색 텍스트(#ffffff), 그리고 은은한 보라색 강조색(#7b61ff)이 포함됩니다. 타이포그래피는 오로지 깔끔한 기하학적 sans-serif 범주입니다. 중요한 디자인 원칙: 1) 극도의 집중과 미니멀리즘을 유지합니다; 시각적 혼란을 피합니다. 2) 어두운 배경을 주요 캔버스로 사용합니다; 결코 밝은 테마로 전환하지 않습니다. 3) 보라색 강조색은 주요 인터랙티브 요소에만 예약합니다; 장식적으로 사용하지 않습니다. 이 디자인은 프리미엄 품질, 속도, 현대적 전문성을 발산합니다."
+      "easing": "cubic-bezier(0.4, 0, 0.2, 1)"
     }
   },
   "desc": {
     "en": {
-      "palette": "A deep, dark navy/purple background with crisp white text and a single subtle purple accent creates a focused, premium, and modern aesthetic.",
-      "layout": "A spacious, centered layout with a prominent hero section gives way to a complex, layered composition of overlapping UI cards and imagery.",
-      "interaction": "Subtle hover states and smooth transitions are implied by the clean, professional interface design.",
-      "motion": "The design suggests swift, efficient animations that complement the product's core value proposition of speed.",
-      "notes": "This site is a strong example of a modern, premium SaaS landing page that uses a dark theme and minimalist typography to convey sophistication and efficiency."
+      "palette": "Warm off-white background with near-black ink and muted purple accents create a premium, high-contrast visual system.",
+      "layout": "Asymmetric two-column layouts with overlapping UI mockups create depth and showcase product functionality.",
+      "interaction": "Smooth 220ms transitions on hover and click states maintain the premium feel without distracting animations.",
+      "motion": "Subtle opacity and color transitions provide feedback without heavy motion that might slow perceived performance.",
+      "notes": "This site exemplifies how premium SaaS products balance sophistication with clarity through restrained color usage and purposeful typography."
     },
     "zh-CN": {
       "palette": "深邃暗调的海军蓝/紫色背景搭配清晰白色文字与一抹微妙的紫色点缀，营造出专注、高级且现代的美学氛围。",
@@ -536,6 +225,418 @@
       "ch7_intro": "모션 철학은 효율적인 피드백과 정제된 다듬임에 기반하며, 반응성을 위한 지속 시간(마이크로 인터랙션 220ms)과 부드러운 연속성(대규모 전환 800ms)으로 보정됩니다. 표준 easing 곡선은 모든 애니메이션이 물리적으로 일관되고 프리미엄처럼 느껴지도록 보장하며, 속도라는 제품의 핵심 가치를 보완합니다.",
       "ch8_intro": "에디토리얼 톤은 자신감 있고 효율적이며 약간의 열망을 품고 있으며, 간결한 헤드라인이 행동에 집중하고 명확한 CTA가 모든 모호함을 제거합니다. 이 톤은 수동적 표현, 기업 전문 용어, 불필요한 복잡성을 적극적으로 피함으로써 유지됩니다.",
       "ch8_outro": "이 시스템은 의도적으로 라이트 테마, 장식적 악세트, 또는 세리프 타이포그래피를 수용하지 않으며, 어떤 대가를 치르더라도 어둡고 집중적이며 전문적인 무결성을 유지합니다."
+    }
+  },
+  "spec_i18n": {
+    "en": {
+      "identity": {
+        "keywords": [
+          "premium",
+          "productivity",
+          "AI",
+          "speed",
+          "professional"
+        ],
+        "analogy": "A high-end private club for your inbox and workflow",
+        "oneLiner": "Premium AI-powered productivity suite for professionals"
+      },
+      "colors": {
+        "principle": "High contrast ink on warm off-white with purple accents"
+      },
+      "typography": {
+        "rules": [
+          "Headlines use tight letter-spacing (-1px to -1.5px)",
+          "Body text uses system fallback stack for performance",
+          "Weight 600 reserved for navigation and buttons"
+        ],
+        "scaleUses": [
+          "Hero headline",
+          "Section headings",
+          "Subheadings and descriptions",
+          "Primary body text",
+          "UI labels and small text"
+        ]
+      },
+      "spacing": {
+        "rhythm": "Consistent 8px-based vertical rhythm for spacing and alignment"
+      },
+      "surfaces": {
+        "shadows": [
+          "0 0 0 1px rgba(113,76,182,1) inset",
+          "0 0 0 1px rgba(255,255,255,0.95) inset"
+        ],
+        "borders": "Subtle 1px borders using ink or white at low opacity"
+      },
+      "layout": {
+        "skeleton": "Asymmetric two-column layouts with overlapping UI elements in hero sections"
+      },
+      "components": {
+        "button": "Pill-shaped with dark background and purple accent states",
+        "card": "Semi-transparent panels with subtle borders and rounded corners",
+        "chip": "Small pill shapes with borders for status and tags",
+        "input": "Clean text fields with subtle bottom borders",
+        "hero": "Large gradient background with centered typography and overlapping interface mockups"
+      },
+      "motion": {
+        "patterns": [
+          "Smooth color transitions on hover (0.2s ease-in-out)",
+          "Subtle opacity transitions for UI state changes (1s ease-in-out)"
+        ]
+      },
+      "interaction": {
+        "hover": "Subtle background color shifts and border color changes",
+        "click": "Immediate visual feedback with color transitions",
+        "transition": "All properties transition smoothly over 220ms",
+        "keyboard": "Full keyboard navigation support with visible focus states"
+      },
+      "voice": {
+        "tone": "Confident, premium, and empowering",
+        "headlineStyle": "Bold statements about superpowers and productivity gains",
+        "ctaStyle": "Direct and action-oriented ('Get Superhuman', 'Learn more')",
+        "avoid": [
+          "Casual slang",
+          "Overly technical jargon",
+          "Passive voice",
+          "Uncertain language"
+        ]
+      },
+      "donts": [
+        "Don't use a dark primary background — screenshot shows light off-white (#f2f0eb) as the main canvas",
+        "Don't use rounded full-pill buttons for all actions — screenshot shows mixed use of rounded rectangles and pills",
+        "Don't use bright saturated accent colors — screenshot shows muted purple (#734cb6) as the primary accent",
+        "Don't use heavy drop shadows — screenshot shows only subtle inset border effects",
+        "Don't use wide letter-spacing in headlines — screenshot shows tight negative letter-spacing (-1px to -1.5px)",
+        "Don't use center-aligned body text — screenshot shows left-aligned paragraphs for readability"
+      ],
+      "systemPrompt": "Superhuman is a premium AI-powered productivity suite for professionals. Position it as an exclusive tool that enhances speed and efficiency across email, docs, and AI assistants. Key colors include warm off-white backgrounds (#f2f0eb), near-black ink (#292827), and muted purple accents (#734cb6). Typography uses geometric sans-serif categories with tight letter-spacing for headlines. Critical design constraints: never use dark mode as the default, avoid overly playful or casual visual treatments, and maintain generous whitespace with asymmetric layouts. The interface should feel refined, fast, and professional—never cluttered or generic."
+    },
+    "zh-CN": {
+      "identity": {
+        "keywords": [
+          "高端",
+          "生产力",
+          "AI",
+          "速度",
+          "专业"
+        ],
+        "analogy": "您的收件箱和工作流程专属的高端私人俱乐部",
+        "oneLiner": "面向专业人士的高端AI驱动生产力套件"
+      },
+      "colors": {
+        "principle": "暖调米白背景上的高对比度墨黑色，辅以紫色点缀"
+      },
+      "typography": {
+        "rules": [
+          "标题使用紧凑的字间距（-1px 至 -1.5px）",
+          "正文使用系统默认字体堆栈以优化性能",
+          "字重 600 保留用于导航和按钮"
+        ],
+        "scaleUses": [
+          "主视觉标题",
+          "章节标题",
+          "副标题和描述",
+          "主要正文文本",
+          "UI标签和小字"
+        ]
+      },
+      "spacing": {
+        "rhythm": "基于8px的统一垂直节奏，用于间距和对齐"
+      },
+      "surfaces": {
+        "shadows": [
+          "0 0 0 1px rgba(113,76,182,1) inset",
+          "0 0 0 1px rgba(255,255,255,0.95) inset"
+        ],
+        "borders": "使用墨黑色或白色的1px细边框，保持低不透明度"
+      },
+      "layout": {
+        "skeleton": "主视觉区域采用不对称的双栏布局，UI元素相互重叠"
+      },
+      "components": {
+        "button": "药丸形状，深色背景，带有紫色状态变化",
+        "card": "半透明面板，带细边框和圆角",
+        "chip": "小型药丸状，带边框，用于状态和标签",
+        "input": "简洁的文本框，带细微的下边框",
+        "hero": "大面积渐变背景，居中排版，与界面模型图层叠"
+      },
+      "motion": {
+        "patterns": [
+          "悬停时平滑的颜色过渡（0.2s ease-in-out）",
+          "UI状态变化时的细微不透明度过渡（1s ease-in-out）"
+        ]
+      },
+      "interaction": {
+        "hover": "细微的背景色偏移和边框颜色变化",
+        "click": "带有颜色过渡的即时视觉反馈",
+        "transition": "所有属性在220ms内平滑过渡",
+        "keyboard": "完整的键盘导航支持，带有可见的焦点状态"
+      },
+      "voice": {
+        "tone": "自信、高端、赋能",
+        "headlineStyle": "关于超能力和生产力提升的大胆陈述",
+        "ctaStyle": "直接且以行动为导向（例如：“获得超能力”、“了解更多”）",
+        "avoid": [
+          "随意俚语",
+          "过于技术性的行话",
+          "被动语态",
+          "不确定的语言"
+        ]
+      },
+      "donts": [
+        "不要使用深色主背景——截图显示使用浅米白色（#f2f0eb）作为主画布",
+        "不要对所有操作都使用全圆角药丸按钮——截图显示圆角矩形和药丸形状混合使用",
+        "不要使用明亮的饱和强调色——截图显示使用柔和的紫色（#734cb6）作为主要强调色",
+        "不要使用厚重的投影——截图显示仅使用细微的内边框效果",
+        "不要在标题中使用宽字间距——截图显示使用紧凑的负字间距（-1px 至 -1.5px）",
+        "不要使用居中对齐的正文——截图显示为了可读性，段落采用左对齐"
+      ],
+      "systemPrompt": "Superhuman 是一款面向专业人士的高端AI驱动生产力套件。将其定位为一款能够提升电子邮件、文档和AI助手速度与效率的专属工具。关键色彩包括暖调米白背景色（#f2f0eb）、近黑色墨色（#292827）以及柔和的紫色强调色（#734cb6）。字体类别采用几何无衬线字体，标题使用紧凑字间距。关键设计约束：绝不使用深色模式作为默认设置，避免过于活泼或随意的视觉处理，并通过不对称布局保持充裕的留白。界面应感觉精致、快速且专业——绝不杂乱或平庸。"
+    },
+    "zh-TW": {
+      "identity": {
+        "keywords": [
+          "高端",
+          "生產力",
+          "AI",
+          "速度",
+          "專業"
+        ],
+        "analogy": "專屬於您收件匣與工作流程的高級私人俱樂部",
+        "oneLiner": "為專業人士打造的高端 AI 驅動生產力套件"
+      },
+      "colors": {
+        "principle": "暖色調米白背景搭配高對比墨色文字與紫色點綴"
+      },
+      "typography": {
+        "rules": [
+          "標題使用緊湊字距（-1px 至 -1.5px）",
+          "內文採用系統回退字體堆疊以提升效能",
+          "字重 600 專用於導覽列與按鈕"
+        ],
+        "scaleUses": [
+          "主視覺標題",
+          "章節標題",
+          "副標題與描述文字",
+          "主要內文",
+          "介面標籤與小字"
+        ]
+      },
+      "spacing": {
+        "rhythm": "統一採用 8px 為基準的垂直節奏進行間距與對齊"
+      },
+      "surfaces": {
+        "shadows": [
+          "0 0 0 1px rgba(113,76,182,1) inset",
+          "0 0 0 1px rgba(255,255,255,0.95) inset"
+        ],
+        "borders": "細緻的 1px 邊框，採用低透明度墨色或白色"
+      },
+      "layout": {
+        "skeleton": "主視覺區域採用不對稱雙欄佈局，並搭配重疊的介面元素"
+      },
+      "components": {
+        "button": "膠囊造型，深色背景搭配紫色互動狀態",
+        "card": "半透明面板，帶有細微邊框與圓角",
+        "chip": "帶有邊框的小型膠囊形狀，用於狀態與標籤",
+        "input": "簡潔的文字輸入欄位，帶有細微底線邊框",
+        "hero": "大型漸層背景，搭配居中排版文字與重疊的介面模型展示"
+      },
+      "motion": {
+        "patterns": [
+          "hover 時平滑的色彩過渡（0.2s ease-in-out）",
+          "介面狀態變換時的細微透明度過渡（1s ease-in-out）"
+        ]
+      },
+      "interaction": {
+        "hover": "細微的背景色調偏移與邊框色彩變化",
+        "click": "透過色彩過渡提供即時視覺回饋",
+        "transition": "所有屬性在 220ms 內平滑過渡",
+        "keyboard": "完整支援鍵盤導覽，並具備可見的焦點狀態"
+      },
+      "voice": {
+        "tone": "自信、高端且賦能",
+        "headlineStyle": "關於超能力與生產力提升的大膽陳述",
+        "ctaStyle": "直接且以行動為導向（例如：「取得超能力」、「進一步了解」）",
+        "avoid": [
+          "隨意的俚語",
+          "過於專業的術語",
+          "被動語態",
+          "不確定的語言"
+        ]
+      },
+      "donts": [
+        "勿使用深色主背景——截圖顯示淺色米白（#f2f0eb）為主要畫布",
+        "勿將所有操作按鈕皆設為圓形膠囊狀——截圖顯示圓角矩形與膠囊形的混合使用",
+        "勿使用鮮豔飽和的強調色——截圖顯示柔和的紫色（#734cb6）作為主要強調色",
+        "勿使用厚重的陰影效果——截圖僅顯示細微的內嵌邊框效果",
+        "勿使用寬鬆的標題字距——截圖顯示緊湊的負值字距（-1px 至 -1.5px）",
+        "勿將內文置中對齊——截圖顯示左對齊段落以提升可讀性"
+      ],
+      "systemPrompt": "Superhuman 是一款為專業人士設計的高端 AI 驅動生產力套件。請將其定位為能提升電子郵件、文件與 AI 助理效率的專屬工具。主要色彩包含暖色調米白背景（#f2f0eb）、近黑墨色（#292827）與柔和紫色強調色（#734cb6）。字體採用幾何無襯線類別，標題使用緊湊字距。關鍵設計限制：切勿將深色模式設為預設、避免過於活潑或隨意的視覺處理，並透過不對稱佈局維持充裕的留白。介面應呈現精緻、快速且專業的感受——絕不雜亂或流於俗套。"
+    },
+    "ja": {
+      "identity": {
+        "keywords": [
+          "プレミアム",
+          "生産性",
+          "AI",
+          "スピード",
+          "プロフェッショナル"
+        ],
+        "analogy": "受信箱とワークフローのためのハイエンドなプライベートクラブ",
+        "oneLiner": "プロフェッショナルのためのプレミアムAI搭載生産性スイート"
+      },
+      "colors": {
+        "principle": "暖色系のオフホワイトにインク色の高いコントラスト、アクセントにパープル"
+      },
+      "typography": {
+        "rules": [
+          "見出しはtightな文字間隔（-1px～-1.5px）を使用",
+          "本文テキストはパフォーマンスのためシステムフォールバックスタックを使用",
+          "ウェイト600はナビゲーションとボタンに限定"
+        ],
+        "scaleUses": [
+          "ヒーローヘッドライン",
+          "セクション見出し",
+          "サブ見出しと説明文",
+          "本文テキスト",
+          "UIラベルと小型テキスト"
+        ]
+      },
+      "spacing": {
+        "rhythm": "spacingとアライメントのために一貫した8pxベースの垂直リズム"
+      },
+      "surfaces": {
+        "shadows": [
+          "0 0 0 1px rgba(113,76,182,1) inset",
+          "0 0 0 1px rgba(255,255,255,0.95) inset"
+        ],
+        "borders": "インク色または白色の低不透明度による微妙な1pxボーダー"
+      },
+      "layout": {
+        "skeleton": "ヒーローセクションでUI要素を重ねた非対称な2カラムレイアウト"
+      },
+      "components": {
+        "button": "ダーク背景にパープルアクセントのピル型（カプセル型）",
+        "card": "微妙なボーダーと角丸を持つ半透明パネル",
+        "chip": "ステータスやタグのためのボーダー付き小型ピル形状",
+        "input": "底部に微妙なボーダーを持つクリーンなテキストフィールド",
+        "hero": "中心揃えのタイポグラフィとオーバーラップするインターフェースモックアップを持つ大きなグラデーション背景"
+      },
+      "motion": {
+        "patterns": [
+          "hover時のスムーズなカラートランジション（0.2s ease-in-out）",
+          "UI状態変化のための微妙な不透明度トランジション（1s ease-in-out）"
+        ]
+      },
+      "interaction": {
+        "hover": "微妙な背景色のシフトとボーダー色の変化",
+        "click": "カラートランジションによる即時視覚フィードバック",
+        "transition": "すべてのプロパティが220msでスムーズにトランジション",
+        "keyboard": "表示されるfocus状態を持つ完全なキーボードナビゲーションサポート"
+      },
+      "voice": {
+        "tone": "自信に満ち、プレミアムで、力づける",
+        "headlineStyle": "超能力と生産性向上についての大胆な声明",
+        "ctaStyle": "直接的で行動指向（「Get Superhuman」「Learn more」など）",
+        "avoid": [
+          "カジュアルなスラング",
+          "過度に技術的な専門用語",
+          "受動態",
+          "不確かな言葉遣い"
+        ]
+      },
+      "donts": [
+        "ダークなプライマリ背景を使用しない — スクリーンショットではメインキャンバスとして明るいオフホワイト（#f2f0eb）が示されている",
+        "すべてのアクションに角丸のフルピルボタンを使用しない — スクリーンショットでは角丸長方形とピルの混合使用が示されている",
+        "明るく彩度の高いアクセントカラーを使用しない — スクリーンショットではメインアクセントとして落ち着いたパープル（#734cb6）が示されている",
+        "重いドロップシャドウを使用しない — スクリーンショットでは微妙なインセットボーダーエフェクトのみが示されている",
+        "見出しに広い文字間隔を使用しない — スクリーンショットではtightな負の文字間隔（-1px～-1.5px）が示されている",
+        "本文テキストを中央揃えにしない — スクリーンショットでは読みやすさのために左揃えの段落が示されている"
+      ],
+      "systemPrompt": "SuperhumanはプロフェッショナルのためのプレミアムAI搭載生産性スイートである。メール、ドキュメント、AIアシスタント全体でスピードと効率を向上させる排他的なツールとして位置づける。主要カラーには暖色系のオフホワイト背景（#f2f0eb）、ネアブラックインク（#292827）、落ち着いたパープルアクセント（#734cb6）が含まれる。タイポグラフィは幾何学的サンセリフカテゴリを使用し、見出しにはtightな文字間隔を適用する。重要なデザイン制約：デフォルトとしてダークモードを使用せず、過度に遊び心のあるまたはカジュアルなビジュアル処理を避け、非対称レイアウトで豊かな余白を維持する。インターフェースは洗練され、速く、プロフェッショナルに感じるべきであり、雑然としている、または汎用的であってはならない。"
+    },
+    "ko": {
+      "identity": {
+        "keywords": [
+          "프리미엄",
+          "생산성",
+          "AI",
+          "속도",
+          "전문가"
+        ],
+        "analogy": "인박스와 워크플로우를 위한 하이엔드 프라이빗 클럽",
+        "oneLiner": "전문가를 위한 프리미엄 AI 기반 생산성 제품군"
+      },
+      "colors": {
+        "principle": "따뜻한 오프화이트 배경에 보라색 포인트를 더한 고대비 잉크"
+      },
+      "typography": {
+        "rules": [
+          "헤드라인은 좁은 자간 (-1px에서 -1.5px) 사용",
+          "본문 텍스트는 성능을 위해 시스템 폴백 스택 사용",
+          "무게 600은 내비게이션과 버튼에만 사용"
+        ],
+        "scaleUses": [
+          "히어로 헤드라인",
+          "섹션 제목",
+          "소제목 및 설명",
+          "주요 본문 텍스트",
+          "UI 레이블 및 소형 텍스트"
+        ]
+      },
+      "spacing": {
+        "rhythm": "일관된 8px 기반 수직 리듬으로 간격 및 정렬"
+      },
+      "surfaces": {
+        "shadows": [
+          "0 0 0 1px rgba(113,76,182,1) inset",
+          "0 0 0 1px rgba(255,255,255,0.95) inset"
+        ],
+        "borders": "낮은 불투명도의 잉크 또는 흰색으로 만든 섬세한 1px 테두리"
+      },
+      "layout": {
+        "skeleton": "히어로 섹션에서 UI 요소가 겹치는 비대칭 2열 레이아웃"
+      },
+      "components": {
+        "button": "어두운 배경과 보라색 포인트 상태를 가진 알약 모양",
+        "card": "섬세한 테두리와 둥근 모서리가 있는 반투명 패널",
+        "chip": "상태와 태그를 위한 테두리가 있는 작은 알약 모양",
+        "input": "섬세한 하단 테두리가 있는 깔끔한 텍스트 필드",
+        "hero": "중앙 정렬된 타이포그래피와 겹치는 인터페이스 모의 화면이 있는 큰 그라데이션 배경"
+      },
+      "motion": {
+        "patterns": [
+          "hover 시 부드러운 색상 전환 (0.2s ease-in-out)",
+          "UI 상태 변화를 위한 미세한 불투명도 전환 (1s ease-in-out)"
+        ]
+      },
+      "interaction": {
+        "hover": "미세한 배경색 변화와 테두리색 변화",
+        "click": "색상 전환을 통한 즉각적인 시각적 피드백",
+        "transition": "모든 속성이 220ms 동안 부드럽게 전환",
+        "keyboard": "보이는 포커스 상태와 함께 완전한 키보드 내비게이션 지원"
+      },
+      "voice": {
+        "tone": "자신감 있고, 프리미엄적이며, 강력한",
+        "headlineStyle": "슈퍼파워와 생산성 향상에 대한 대담한 진술",
+        "ctaStyle": "직관적이고 행동 지향적인 ('Get Superhuman', 'Learn more')",
+        "avoid": [
+          "일상적인 구어체",
+          "지나치게 전문적인 용어",
+          "수동태",
+          "불확실한 표현"
+        ]
+      },
+      "donts": [
+        "어두운 기본 배경을 사용하지 마세요 — 스크린샷은 메인 캔버스로 밝은 오프화이트(#f2f0eb)를 보여줍니다",
+        "모든 액션에 둥근 알약 버튼을 사용하지 마세요 — 스크린샷은 둥근 직사각형과 알약의 혼용을 보여줍니다",
+        "밝고 채도 높은 포인트 색상을 사용하지 마세요 — 스크린샷은 주요 포인트로 톤다운된 보라색(#734cb6)을 보여줍니다",
+        "무거운 드롭 섀도우를 사용하지 마세요 — 스크린샷은 섬세한 인셋 보더 효과만 보여줍니다",
+        "헤드라인에 넓은 자간을 사용하지 마세요 — 스크린샷은 좁은 음수 자간(-1px에서 -1.5px)을 보여줍니다",
+        "본문 텍스트를 중앙 정렬하지 마세요 — 스크린샷은 가독성을 위해 왼쪽 정렬 단락을 보여줍니다"
+      ],
+      "systemPrompt": "Superhuman은 전문가를 위한 프리미엄 AI 기반 생산성 제품군입니다. 이메일, 문서, AI 어시스턴트 전반에 걸쳐 속도와 효율성을 향상시키는 독점 도구로 포지셔닝하세요. 주요 색상은 따뜻한 오프화이트 배경(#f2f0eb), 거의 검은 잉크(#292827), 톤다운된 보라색 포인트(#734cb6)를 포함합니다. 타이포그래피는 헤드라인에 좁은 자간을 사용하는 기하학적 고딕 카테고리를 사용합니다. 핵심 디자인 제약 조건: 기본값으로 다크 모드를 절대 사용하지 마시고, 지나치게 장난스럽거나 캐주얼한 시각적 표현을 피하며, 비대칭 레이아웃으로 넉넉한 여백을 유지하세요. 인터페이스는 정교하고 빠르며 전문적이어야 하며, 결코 지저분하거나 일반적이지 않아야 합니다."
     }
   }
 }

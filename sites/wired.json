@@ -17,37 +17,39 @@
   "_meta": {
     "vision_model": "mimo-v2.5",
     "vision_prompt_version": "0.3",
-    "vision_at": "2026-05-28T21:53:24+00:00",
-    "vision_tokens": 3281,
-    "vision_cost_usd": 0.0365,
+    "vision_at": "2026-05-30T18:10:52+00:00",
+    "vision_tokens": 16275,
+    "vision_cost_usd": 0.1808,
     "translation_model": "mimo-v2.5",
-    "translation_at": "2026-05-28T21:54:08+00:00",
-    "translation_tokens": 14124,
-    "translation_cost_usd": 0.047,
+    "translation_at": "2026-05-30T18:11:41+00:00",
+    "translation_tokens": 23485,
+    "translation_cost_usd": 0.0782,
     "narrative_model": "mimo-v2.5",
     "narrative_prompt_version": "0.3",
     "narrative_at": "2026-05-28T21:54:14+00:00",
     "narrative_tokens": 1827,
     "narrative_cost_usd": 0.0122,
     "narrative_status": "ok",
-    "total_cost_usd": 0.0957
+    "total_cost_usd": 0.2712,
+    "vision_source": "playwright-extract:wired",
+    "vision_grounded": true
   },
   "spec": {
     "colors": {
       "bg": "#FFFFFF",
-      "bgSoft": null,
-      "bgQuiet": null,
+      "bgSoft": "#F3F3F3",
+      "bgQuiet": "#E5E5E5",
       "ink": "#000000",
-      "inkSoft": null,
-      "muted": "#666666",
-      "mutedSoft": null,
+      "inkSoft": "#333333",
+      "muted": "#757575",
+      "mutedSoft": "#999999",
       "accent": null,
       "line": "rgba(0, 0, 0, 0.1)"
     },
     "typography": {
-      "display": "transitional-serif",
+      "display": "didone-serif",
       "body": "humanist-sans",
-      "mono": null,
+      "mono": "monospace",
       "scale": [
         {
           "token": "display",
@@ -58,24 +60,24 @@
         },
         {
           "token": "h2",
-          "size": 28,
-          "lh": 1.2,
+          "size": 26,
+          "lh": 1.1,
           "weight": 700,
           "ls": "-0.5px"
         },
         {
           "token": "body",
-          "size": 16,
-          "lh": 1.6,
+          "size": 19,
+          "lh": 1.5,
           "weight": 400,
-          "ls": "0px"
+          "ls": "0.1px"
         },
         {
           "token": "caption",
           "size": 12,
-          "lh": 1.4,
-          "weight": 500,
-          "ls": "1px"
+          "lh": 1.3,
+          "weight": 400,
+          "ls": "1.1px"
         }
       ]
     },
@@ -84,6 +86,7 @@
       "scale": [
         4,
         8,
+        12,
         16,
         24,
         32,
@@ -101,7 +104,7 @@
       }
     },
     "layout": {
-      "container": 1200,
+      "container": 1280,
       "paragraph": 680,
       "columns": 12,
       "gutter": 24,
@@ -112,352 +115,20 @@
     },
     "motion": {
       "durations": {
-        "micro": 150,
-        "small": 300,
-        "medium": 600
+        "micro": 200,
+        "small": 200,
+        "medium": 800
       },
-      "easing": "cubic-bezier(0.25, 0.1, 0.25, 1)"
-    }
-  },
-  "spec_i18n": {
-    "en": {
-      "identity": {
-        "keywords": [
-          "news",
-          "technology",
-          "future",
-          "culture"
-        ],
-        "analogy": "A premium technology magazine's digital home",
-        "oneLiner": "Authoritative editorial design for tech and culture news"
-      },
-      "colors": {
-        "principle": "High-contrast editorial clarity with photographic vibrancy"
-      },
-      "typography": {
-        "rules": [],
-        "scaleUses": [
-          "Main article headlines",
-          "Secondary headlines and card titles",
-          "Article body text and descriptions",
-          "Author names, categories, and metadata"
-        ]
-      },
-      "spacing": {
-        "rhythm": "Consistent 4px grid with generous whitespace for readability"
-      },
-      "surfaces": {
-        "shadows": [],
-        "borders": "1px solid rgba(0, 0, 0, 0.1) for subtle separation"
-      },
-      "layout": {
-        "skeleton": "Two-column editorial grid with dominant article and sidebar list"
-      },
-      "components": {
-        "button": "Minimal text links with uppercase styling",
-        "card": "Horizontal list items with thumbnail, category, title, and author",
-        "chip": "Uppercase category labels like 'BOT INVASION'",
-        "input": "Search and newsletter forms",
-        "hero": "Full-width video or image with overlaid serif typography"
-      },
-      "interaction": {
-        "hover": "Subtle underline or color shift on links and headlines",
-        "click": "Immediate navigation to article pages",
-        "transition": "Smooth page transitions between articles",
-        "keyboard": "Standard tab navigation through articles and sections"
-      },
-      "voice": {
-        "tone": "Authoritative yet accessible technology journalism",
-        "headlineStyle": "Punchy, direct, and often provocative statements",
-        "ctaStyle": "Minimal 'Read More' or direct headline clicks",
-        "avoid": [
-          "Overly casual language",
-          "Excessive jargon without context",
-          "Clickbait without substance"
-        ]
-      },
-      "donts": [
-        "Don't use decorative borders or shadows — screenshot shows clean flat surfaces",
-        "Don't apply rounded corners to cards or buttons — screenshot shows sharp 0px radii",
-        "Don't use a bright accent color for CTAs — screenshot shows black text and minimal color accents",
-        "Don't set body text in a serif font — screenshot shows sans-serif body text for readability",
-        "Don't overcrowd the layout — screenshot maintains generous whitespace between sections",
-        "Don't use complex gradient backgrounds — screenshot shows flat white backgrounds with photographic elements"
-      ],
-      "systemPrompt": "Positioning: Premium technology and culture news publication with authoritative editorial voice. Key hex colors: #000000 for ink, #FFFFFF for background, #666666 for muted text. Font categories: transitional-serif for headlines, humanist-sans for body text. Critical donts: Don't use decorative borders or rounded corners, don't apply bright accent colors to CTAs, don't overcrowd the layout with competing visual elements. This design prioritizes typographic clarity and photographic impact over decorative elements."
-    },
-    "zh-CN": {
-      "identity": {
-        "keywords": [
-          "新闻",
-          "科技",
-          "未来",
-          "文化"
-        ],
-        "analogy": "高端科技杂志的数字之家",
-        "oneLiner": "权威的科技文化新闻编辑设计"
-      },
-      "colors": {
-        "principle": "高对比度编辑清晰度与摄影活力"
-      },
-      "typography": {
-        "rules": [],
-        "scaleUses": [
-          "主文章标题",
-          "副标题与卡片标题",
-          "文章正文与描述",
-          "作者姓名、分类与元数据"
-        ]
-      },
-      "spacing": {
-        "rhythm": "一致的4px网格与充足留白以确保可读性"
-      },
-      "surfaces": {
-        "shadows": [],
-        "borders": "1px solid rgba(0, 0, 0, 0.1) 用于微妙分隔"
-      },
-      "layout": {
-        "skeleton": "双栏编辑式网格，主导文章与侧边栏列表"
-      },
-      "components": {
-        "button": "大写样式的最小化文字链接",
-        "card": "包含缩略图、分类、标题和作者的水平列表项",
-        "chip": "大写分类标签，如 'BOT INVASION'",
-        "input": "搜索与新闻通讯表单",
-        "hero": "全宽视频或图片，叠加衬线字体排版"
-      },
-      "interaction": {
-        "hover": "链接与标题上的微妙下划线或颜色变化",
-        "click": "直接导航至文章页面",
-        "transition": "文章之间流畅的页面过渡",
-        "keyboard": "标准的Tab键导航，遍历文章与版块"
-      },
-      "voice": {
-        "tone": "权威且平易近人的科技新闻",
-        "headlineStyle": "有力、直接且常具煽动性的陈述",
-        "ctaStyle": "最小化的'阅读更多'或直接点击标题",
-        "avoid": [
-          "过度随意的语言",
-          "缺乏上下文的过度行话",
-          "无实质内容的标题党"
-        ]
-      },
-      "donts": [
-        "不要使用装饰性边框或阴影——截图显示干净的平面表面",
-        "不要为卡片或按钮应用圆角——截图显示尖锐的0px圆角半径",
-        "不要为CTA使用亮色强调色——截图显示黑色文字与最小化的色彩点缀",
-        "不要将正文设置为衬线字体——截图显示为提高可读性而使用无衬线正文",
-        "不要使布局过于拥挤——截图在版块间保持充足的留白",
-        "不要使用复杂的渐变背景——截图显示纯白背景搭配摄影元素"
-      ],
-      "systemPrompt": "定位：具有权威编辑声音的高端科技与文化新闻出版物。关键十六进制颜色：#000000用于墨色，#FFFFFF用于背景，#666666用于柔和文字。字体类别：过渡衬线体用于标题，人文主义无衬线体用于正文。关键禁忌：不要使用装饰性边框或圆角，不要为CTA应用亮色强调色，不要用相互竞争的视觉元素使布局过于拥挤。此设计优先考虑字体清晰度与摄影冲击力，而非装饰性元素。"
-    },
-    "zh-TW": {
-      "identity": {
-        "keywords": [
-          "新聞",
-          "科技",
-          "未來",
-          "文化"
-        ],
-        "analogy": "頂級科技雜誌的數位家園",
-        "oneLiner": "科技與文化新聞的權威編輯設計"
-      },
-      "colors": {
-        "principle": "具攝影活力的高對比度編輯清晰度"
-      },
-      "typography": {
-        "rules": [],
-        "scaleUses": [
-          "主文章標題",
-          "次要標題與卡片標題",
-          "文章內文與描述",
-          "作者名稱、分類與元數據"
-        ]
-      },
-      "spacing": {
-        "rhythm": "一致的 4px 網格，搭配充裕的留白以提升可讀性"
-      },
-      "surfaces": {
-        "shadows": [],
-        "borders": "使用 1px solid rgba(0, 0, 0, 0.1) 實現細微分隔"
-      },
-      "layout": {
-        "skeleton": "兩欄式編輯網格，包含主導文章與側邊欄列表"
-      },
-      "components": {
-        "button": "極簡文字連結，採用大寫樣式",
-        "card": "水平列表項目，包含縮圖、分類、標題與作者",
-        "chip": "大寫分類標籤，例如 'BOT INVASION'",
-        "input": "搜尋與訂閱表單",
-        "hero": "全寬影片或圖片，覆蓋有襯線字型"
-      },
-      "interaction": {
-        "hover": "連結與標題上細微的底線或色彩變化",
-        "click": "立即導航至文章頁面",
-        "transition": "文章間流暢的頁面過渡",
-        "keyboard": "透過標準 Tab 鍵在文章與區塊間導航"
-      },
-      "voice": {
-        "tone": "權威 yet 平易近人的科技新聞報導",
-        "headlineStyle": "強而有力、直接且常帶有挑釁性的陳述",
-        "ctaStyle": "極簡的「閱讀更多」或直接點擊標題",
-        "avoid": [
-          "過於隨意的語言",
-          "缺乏脈絡的過度術語",
-          "標題黨式但缺乏實質內容"
-        ]
-      },
-      "donts": [
-        "勿使用裝飾性邊框或陰影——截圖顯示為乾淨的平面表面",
-        "勿為卡片或按鈕套用圓角——截圖顯示為銳利的 0px 圓角半徑",
-        "勿使用鮮明的強調色作為行動呼籲——截圖顯示為黑色文字與極簡的色彩強調",
-        "勿將內文設定為襯線字型——截圖顯示為無襯線內文以提升可讀性",
-        "勿過度填滿版面——截圖在區塊間保持了充裕的留白",
-        "勿使用複雜的漸層背景——截圖顯示為帶有攝影元素的平面白色背景"
-      ],
-      "systemPrompt": "定位：具備權威編輯聲音的頂級科技與文化新聞出版物。關鍵色碼：#000000 用於墨色，#FFFFFF 用於背景，#666666 用於柔和文字。字型類別：標題使用 transitional-serif，內文使用 humanist-sans。關鍵禁忌：勿使用裝飾性邊框或圓角，勿為行動呼籲套用鮮明的強調色，勿用相互競爭的視覺元素過度填滿版面。此設計優先考慮字型清晰度與攝影衝擊力，而非裝飾性元素。"
-    },
-    "ja": {
-      "identity": {
-        "keywords": [
-          "ニュース",
-          "テクノロジー",
-          "未来",
-          "カルチャー"
-        ],
-        "analogy": "プレミアム・テクノロジー雑誌のデジタル拠点",
-        "oneLiner": "テクノロジーとカルチャー・ニュースのための、権威ある編集デザイン"
-      },
-      "colors": {
-        "principle": "写真の鮮やかさと高コントラストの編集的明瞭さ"
-      },
-      "typography": {
-        "rules": [],
-        "scaleUses": [
-          "メイン記事の見出し",
-          "セカンダリ見出しとカードタイトル",
-          "記事本文と説明文",
-          "著者名、カテゴリ、メタデータ"
-        ]
-      },
-      "spacing": {
-        "rhythm": "可読性のため、ゆったりとした余白を備えた一貫した4pxグリッド"
-      },
-      "surfaces": {
-        "shadows": [],
-        "borders": "繊細な区切りのために、1px solid rgba(0, 0, 0, 0.1)"
-      },
-      "layout": {
-        "skeleton": "主要記事とサイドバーリストを持つ2カラムの編集グリッド"
-      },
-      "components": {
-        "button": "大文字スタイルの最小限のテキストリンク",
-        "card": "サムネイル、カテゴリ、タイトル、著者を含む水平リスト項目",
-        "chip": "'BOT INVASION' のような大文字カテゴリラベル",
-        "input": "検索フォームとニュースレター登録フォーム",
-        "hero": "上に重ねられたセリフ書体のタイポグラフィを備えた、フルワイドの動画または画像"
-      },
-      "interaction": {
-        "hover": "リンクや見出しへの、繊細なアンダーラインまたは色の変化",
-        "click": "記事ページへの即時ナビゲーション",
-        "transition": "記事間の滑らかなページトランジション",
-        "keyboard": "記事やセクション間の標準的なタブ・ナビゲーション"
-      },
-      "voice": {
-        "tone": "権威がありながらも親しみやすいテクノロジー・ジャーナリズム",
-        "headlineStyle": "的確で、率直、そしてしばしば挑発的なステートメント",
-        "ctaStyle": "最小限の「続きを読む」または見出しへの直接的なクリック",
-        "avoid": [
-          "過度にカジュアルな言葉遣い",
-          "文脈のない過度な専門用語",
-          "実質のないクリックベイト"
-        ]
-      },
-      "donts": [
-        "装飾的なボーダーや影を使用しない — スクリーンショットはクリーンでフラットな表面を示しています",
-        "カードやボタンに角丸を使用しない — スクリーンショットは鋭い0pxの角を示しています",
-        "CTAに明るいアクセントカラーを使用しない — スクリーンショットは黒いテキストと最小限のカラーアクセントを示しています",
-        "本文にセリフ書体を使用しない — スクリーンショットは可読性のためにサンセリフの本文を使用しています",
-        "レイアウトを過密にしない — スクリーンショットはセクション間に十分な余白を維持しています",
-        "複雑なグラデーション背景を使用しない — スクリーンショットは写真要素を備えたフラットな白い背景を示しています"
-      ],
-      "systemPrompt": "ポジショニング：権威ある編集の声をもつ、高級テクノロジー＆カルチャー・ニュース・パブリケーション。主要16進数カラー：インク用 #000000、背景用 #FFFFFF、抑制されたテキスト用 #666666。フォントカテゴリ：見出し用トランジショナル・セリフ、本文用ヒューマニスト・サンセリフ。重要な禁止事項：装飾的なボーダーや角丸を使用しない、CTAに明るいアクセントカラーを適用しない、競合するビジュアル要素でレイアウトを過密にしない。このデザインは、装飾要素よりもタイポグラフィの明瞭さと写真のインパクトを優先しています。"
-    },
-    "ko": {
-      "identity": {
-        "keywords": [
-          "뉴스",
-          "기술",
-          "미래",
-          "문화"
-        ],
-        "analogy": "프리미엄 기술 매거진의 디지털 홈",
-        "oneLiner": "기술 및 문화 뉴스를 위한 권위 있는 에디토리얼 디자인"
-      },
-      "colors": {
-        "principle": "사진적 활력을 갖춘 고대비의 에디토리얼 명료함"
-      },
-      "typography": {
-        "rules": [],
-        "scaleUses": [
-          "주요 기사 헤드라인",
-          "보조 헤드라인 및 카드 제목",
-          "기사 본문 텍스트 및 설명",
-          "저자명, 카테고리 및 메타데이터"
-        ]
-      },
-      "spacing": {
-        "rhythm": "가독성을 위한 넉넉한 여백을 갖춘 일관된 4px 그리드"
-      },
-      "surfaces": {
-        "shadows": [],
-        "borders": "미세한 구분을 위한 1px solid rgba(0, 0, 0, 0.1)"
-      },
-      "layout": {
-        "skeleton": "주요 기사와 사이드바 목록이 있는 이중 열 에디토리얼 그리드"
-      },
-      "components": {
-        "button": "대문자 스타일링을 적용한 최소한의 텍스트 링크",
-        "card": "썸네일, 카테고리, 제목 및 저자가 포함된 수평 리스트 항목",
-        "chip": "'BOT INVASION'과 같은 대문자 카테고리 라벨",
-        "input": "검색 및 뉴스레터 폼",
-        "hero": "겹쳐진 세리프 타이포그래피가 있는 전폭 비디오 또는 이미지"
-      },
-      "interaction": {
-        "hover": "링크 및 헤드라인의 미세한 밑줄 또는 색상 변화",
-        "click": "기사 페이지로의 즉각적인 내비게이션",
-        "transition": "기사 간 원활한 페이지 전환",
-        "keyboard": "기사 및 섹션을 탭하여 탐색하는 표준 키보드 내비게이션"
-      },
-      "voice": {
-        "tone": "권위 있으면서도 접근 가능한 기술 저널리즘",
-        "headlineStyle": "강렬하고 직접적이며 때로는 도발적인 표현",
-        "ctaStyle": "최소한의 '더 읽기' 또는 직접적인 헤드라인 클릭",
-        "avoid": [
-          "지나치게 비격식적인 언어",
-          "맥락 없는 과도한 전문 용어",
-          "실질 없는 클릭베이트"
-        ]
-      },
-      "donts": [
-        "장식적인 테두리나 그림자를 사용하지 않습니다 — 스크린샷은 깔끔한 평면 표면을 보여줍니다.",
-        "카드나 버튼에 둥근 모서리를 적용하지 않습니다 — 스크린샷은 날카로운 0px 반경을 보여줍니다.",
-        "CTA에 밝은 액센트 컬러를 사용하지 않습니다 — 스크린샷은 검은색 텍스트와 최소한의 컬러 액센트를 보여줍니다.",
-        "본문 텍스트를 세리프 폰트로 설정하지 않습니다 — 스크린샷은 가독성을 위해 산세리프 본문 텍스트를 보여줍니다.",
-        "레이아웃을 과도하게 채우지 않습니다 — 스크린샷은 섹션 간 넉넉한 여백을 유지합니다.",
-        "복잡한 그래디언트 배경을 사용하지 않습니다 — 스크린샷은 사진적 요소가 있는 평면 흰색 배경을 보여줍니다."
-      ],
-      "systemPrompt": "포지셔닝: 권위 있는 에디토리얼 목소리를 가진 프리미엄 기술 및 문화 뉴스 매체. 주요 헥스 컬러: 잉크용 #000000, 배경용 #FFFFFF, 흐린 텍스트용 #666666. 폰트 카테고리: 헤드라인용 트랜지셔널 세리프, 본문 텍스트용 휴머니스트 산스. 중요 주의사항: 장식적인 테두리나 둥근 모서리를 사용하지 말 것, CTA에 밝은 액센트 컬러를 적용하지 말 것, 경쟁하는 시각 요소로 레이아웃을 과도하게 채우지 말 것. 이 디자인은 장식 요소보다 타이포그래피의 명료함과 사진적 임팩트를 우선시합니다."
+      "easing": "cubic-bezier(0, 0, 1, 1)"
     }
   },
   "desc": {
     "en": {
-      "palette": "Strict black and white with photographic color, creating high-contrast editorial authority.",
-      "layout": "Two-column editorial grid with dominant lead article and curated sidebar list of stories.",
-      "interaction": "Minimal interactive elements focusing on content consumption and navigation.",
-      "motion": "Subtle transitions emphasizing content hierarchy rather than flashy animations.",
-      "notes": "Iconic example of premium editorial design that balances typographic authority with modern digital clarity."
+      "palette": "Strictly monochromatic high-contrast palette using black, white, and varying grays for a premium editorial feel.",
+      "layout": "Clean, asymmetric multi-column grid with generous whitespace and strong vertical alignment for optimal readability.",
+      "interaction": "Minimal and understated interactions with smooth color transitions on hover states.",
+      "motion": "Subtle, functional motion focused on visibility changes rather than decorative animations.",
+      "notes": "A classic example of high-end editorial design that uses typography as the primary design element, perfect for establishing brand authority."
     },
     "zh-CN": {
       "palette": "严格使用黑白配色搭配摄影彩色，营造高对比度的编辑权威感。",
@@ -548,6 +219,398 @@
       "ch7_intro": "이 시스템에서의 모션은 미묘하고 목적이 있으며, 장식이 아닌 콘텐츠 위계를 강조하기 위해 설계되었습니다. 지속 시간은 마이크로 상호작용에는 즉각적으로, 페이지 전환에는 매끄럽게 느껴지도록 신중하게 조정됩니다.",
       "ch8_intro": "에디토리얼 목소리는 날카롭고 직접적이며, 종종 도발적입니다. 이는 저널리즘 자체의 권위적이면서도 접근 가능한 톤을 반영합니다. 행동을 촉구하는 요소는 최소화하여, 콘텐츠의 강점이 참여를 이끌게 합니다.",
       "ch8_outro": "시스템은 대화형 요소에서 장식적인 테두리, 둥근 모서리, 밝은 강조 색상을 의도적으로 배제하여 평면적이고 서체 중심의 순수성을 유지합니다."
+    }
+  },
+  "spec_i18n": {
+    "en": {
+      "identity": {
+        "keywords": [
+          "Technology",
+          "Culture",
+          "Science",
+          "Authority",
+          "Innovation"
+        ],
+        "analogy": "A premium technology and culture magazine with a bold, authoritative voice.",
+        "oneLiner": "A prestigious editorial platform combining bold typography with clean, grid-based layouts to present technology and culture."
+      },
+      "colors": {
+        "principle": "High-contrast monochromatic palette with strict black and white dominance, using grey tones for hierarchy."
+      },
+      "typography": {
+        "rules": [
+          "Display type uses tight line-height for impact",
+          "All-caps applied to metadata and labels",
+          "Bylines use wider letter-spacing"
+        ],
+        "scaleUses": [
+          "Main headlines and hero text",
+          "Secondary headlines and section titles",
+          "Main article body text",
+          "Metadata, bylines, and navigation labels"
+        ]
+      },
+      "spacing": {
+        "rhythm": "8px base grid with generous whitespace for readability"
+      },
+      "surfaces": {
+        "shadows": [],
+        "borders": "Strict 1px or 2px solid black borders used for section dividers and category tags"
+      },
+      "layout": {
+        "skeleton": "Asymmetric multi-column grid with strict vertical alignment and heavy use of white space"
+      },
+      "components": {
+        "button": "Minimal, often text-only or simple outlined with black text on white background",
+        "card": "Clean text blocks with bold serif headlines and sans-serif metadata, separated by thin horizontal lines",
+        "chip": "Uppercase monospace tags in black rectangles with white text",
+        "input": "Minimalist with thin bottom borders",
+        "hero": "Large-scale typography-focused layout with generous whitespace"
+      },
+      "motion": {
+        "patterns": [
+          "Color transitions on hover for links",
+          "Opacity fades for visibility toggling"
+        ]
+      },
+      "interaction": {
+        "hover": "Color transition on links and interactive elements",
+        "click": "Standard pointer cursor on all interactive elements",
+        "transition": "All properties transition smoothly with 0.2s duration",
+        "keyboard": "Standard focus management"
+      },
+      "voice": {
+        "tone": "Authoritative, intellectual, slightly provocative",
+        "headlineStyle": "Bold, concise statements using serif type for maximum impact",
+        "ctaStyle": "Understated and direct, often uppercase monospace",
+        "avoid": [
+          "Decorative elements that distract from content",
+          "Busy color palettes",
+          "Informal or casual typography",
+          "Excessive use of shadows or gradients"
+        ]
+      },
+      "donts": [
+        "Don't use rounded corners — screenshot shows sharp, zero-radius edges on all elements",
+        "Don't use multiple accent colors — screenshot shows strictly monochromatic black, white, and grey palette",
+        "Don't use decorative scripts or cursive fonts — screenshot shows strictly structured serif and sans-serif typography",
+        "Don't use drop shadows on elements — screenshot shows flat, clean design with minimal depth",
+        "Don't use center-aligned body text — screenshot shows left-aligned or justified body copy for readability",
+        "Don't use colorful buttons — screenshot shows simple text links and minimal UI elements"
+      ],
+      "systemPrompt": "A premium technology and culture editorial platform featuring bold, high-contrast typography and clean grid-based layouts. Key colors are pure black (#000000), white (#FFFFFF), and various grays (#757575, #999999) for hierarchy. Typography combines didone-serif for headlines and humanist-sans for body text. Critical donts: don't use rounded corners or shadows, don't introduce colorful accents, and don't use casual or decorative fonts. The design prioritizes content clarity and authoritative presentation through strict visual hierarchy and generous whitespace."
+    },
+    "zh-CN": {
+      "identity": {
+        "keywords": [
+          "科技",
+          "文化",
+          "科学",
+          "权威",
+          "创新"
+        ],
+        "analogy": "一本高端科技与文化杂志，拥有大胆而权威的声音。",
+        "oneLiner": "一个权威的编辑平台，将大胆的字体排印与简洁、基于网格的布局相结合，呈现科技与文化内容。"
+      },
+      "colors": {
+        "principle": "高对比度单色板，严格以黑白为主，使用灰色调建立层次。"
+      },
+      "typography": {
+        "rules": [
+          "标题字体使用紧凑的行高以增强冲击力",
+          "元数据和标签使用全大写",
+          "署名使用更宽的字间距"
+        ],
+        "scaleUses": [
+          "主标题和首屏文字",
+          "副标题和版块标题",
+          "文章正文",
+          "元数据、署名和导航标签"
+        ]
+      },
+      "spacing": {
+        "rhythm": "基于 8px 网格，配以充裕的留白以提高可读性"
+      },
+      "surfaces": {
+        "shadows": [],
+        "borders": "严格使用 1px 或 2px 的纯黑色实线边框，用于版块分隔符和分类标签"
+      },
+      "layout": {
+        "skeleton": "非对称多栏网格，具有严格的垂直对齐和对白色空间的大量运用"
+      },
+      "components": {
+        "button": "极简风格，通常为纯文本或简单描边，白底黑字",
+        "card": "整洁的文本块，配有粗体衬线标题和无衬线元数据，由细水平线分隔",
+        "chip": "等宽字体、全大写的标签，置于黑底白字的矩形框中",
+        "input": "极简风格，仅有细薄的下边框",
+        "hero": "以大字体排印为核心的布局，配以充裕的留白"
+      },
+      "motion": {
+        "patterns": [
+          "链接 hover 时的颜色过渡",
+          "可见性切换时的透明度渐变"
+        ]
+      },
+      "interaction": {
+        "hover": "链接和交互元素上的颜色过渡",
+        "click": "所有交互元素上使用标准指针光标",
+        "transition": "所有属性以 0.2s 时长平滑过渡",
+        "keyboard": "标准的焦点管理"
+      },
+      "voice": {
+        "tone": "权威、睿智、略带挑衅",
+        "headlineStyle": "大胆、简洁的陈述，使用衬线字体以达到最大冲击力",
+        "ctaStyle": "含蓄而直接，通常使用全大写等宽字体",
+        "avoid": [
+          "分散内容注意力的装饰性元素",
+          "繁杂的配色方案",
+          "非正式或随意的字体排印",
+          "过度使用阴影或渐变"
+        ]
+      },
+      "donts": [
+        "不要使用圆角——截图显示所有元素均为尖锐的零圆角边缘",
+        "不要使用多种强调色——截图显示严格的单色黑、白、灰色板",
+        "不要使用装饰性手写或花体字体——截图显示严格结构化的衬线和无衬线字体",
+        "不要在元素上使用投影——截图显示扁平、简洁的设计，景深极小",
+        "不要使用居中对齐的正文——截图显示为提高可读性而采用的左对齐或两端对齐的正文",
+        "不要使用彩色按钮——截图显示简单的文本链接和极简的 UI 元素"
+      ],
+      "systemPrompt": "一个高端科技与文化编辑平台，以大胆、高对比度的字体排印和简洁的基于网格的布局为特色。关键颜色为纯黑 (#000000)、纯白 (#FFFFFF) 和用于建立层次的各种灰色 (#757575, #999999)。字体排印结合了用于标题的 didone-serif 和用于正文的 humanist-sans。关键禁忌：不要使用圆角或阴影，不要引入彩色强调色，不要使用随意或装饰性字体。设计优先考虑内容的清晰度和权威性的呈现，通过严格的视觉层次和充裕的留白来实现。"
+    },
+    "zh-TW": {
+      "identity": {
+        "keywords": [
+          "科技",
+          "文化",
+          "科學",
+          "權威",
+          "創新"
+        ],
+        "analogy": "一本具備大膽、權威語氣的高端科技與文化雜誌。",
+        "oneLiner": "一個結合了大膽字體與簡潔網格版面的聲望型編輯平台，用以呈現科技與文化。"
+      },
+      "colors": {
+        "principle": "高對比度單色調色盤，以嚴格的黑白為主，使用灰色調來建立層次。"
+      },
+      "typography": {
+        "rules": [
+          "標題字體使用緊湊的行高以製造衝擊力",
+          "所有元數據與標籤皆採用全大寫",
+          "署名使用較寬的字母間距"
+        ],
+        "scaleUses": [
+          "主標題與首圖文字",
+          "副標題與區塊標題",
+          "主文章內文",
+          "元數據、署名與導覽標籤"
+        ]
+      },
+      "spacing": {
+        "rhythm": "以 8px 為基準的網格系統，搭配充足的留白以提升可讀性"
+      },
+      "surfaces": {
+        "shadows": [],
+        "borders": "嚴格使用 1px 或 2px 的實線黑色邊框，作為區塊分隔線與分類標籤"
+      },
+      "layout": {
+        "skeleton": "採用不對稱的多欄網格佈局，具有嚴格的垂直對齊並大量運用留白"
+      },
+      "components": {
+        "button": "極簡風格，通常為純文字或簡單描邊，白底黑字",
+        "card": "簡潔的文字區塊，搭配粗體襯線標題與無線體元數據，以細水平線分隔",
+        "chip": "全大寫的等寬字體標籤，黑底白字矩形",
+        "input": "極簡設計，僅有細底線邊框",
+        "hero": "大尺度、以字體為焦點的佈局，搭配充足的留白"
+      },
+      "motion": {
+        "patterns": [
+          "連結的 hover 顏色過渡效果",
+          "用於切換可見性的透明度淡入淡出"
+        ]
+      },
+      "interaction": {
+        "hover": "連結與互動元素的顏色過渡效果",
+        "click": "所有互動元素皆使用標準指標游標",
+        "transition": "所有屬性以 0.2s 時長平滑過渡",
+        "keyboard": "標準的焦點管理"
+      },
+      "voice": {
+        "tone": "權威、知性、略帶挑釁",
+        "headlineStyle": "使用襯線字體，以大膽、簡潔的陳述達到最大衝擊力",
+        "ctaStyle": "低調且直接，通常使用全大寫等寬字體",
+        "avoid": [
+          "分散內容注意力的裝飾性元素",
+          "繁雜的調色盤",
+          "非正式或隨意的字體排印",
+          "過度使用陰影或漸層"
+        ]
+      },
+      "donts": [
+        "請勿使用圓角——截圖顯示所有元素皆為銳利、零半徑的邊緣",
+        "請勿使用多種強調色——截圖顯示嚴格的單色黑白灰調色盤",
+        "請勿使用裝飾性或手寫字體——截圖顯示嚴格的結構化襯線與無線體排印",
+        "請勿在元素上使用陰影——截圖顯示扁平、簡潔的設計，深度感極小",
+        "請勿將內文置中對齊——截圖顯示內文採用左對齊或左右對齊以提升可讀性",
+        "請勿使用彩色按鈕——截圖顯示簡單的文字連結與極簡的介面元素"
+      ],
+      "systemPrompt": "一個高端的科技與文化編輯平台，特色是大膽、高對比度的字體排印與簡潔的網格版面。關鍵色彩為純黑 (#000000)、白色 (#FFFFFF) 與各種灰色 (#757575, #999999) 用以建立層次。字體組合了用於標題的 didone-serif 與用於內文的 humanist-sans。關鍵禁忌：請勿使用圓角或陰影，請勿引入彩色強調色，請勿使用隨意或裝飾性字體。設計優先考慮內容清晰度與權威的呈現，透過嚴格的視覺層級與充足的留白來達成。"
+    },
+    "ja": {
+      "identity": {
+        "keywords": [
+          "テクノロジー",
+          "文化",
+          "科学",
+          "権威",
+          "革新"
+        ],
+        "analogy": "大胆で権威ある声を持つ、プレミアムなテクノロジー・文化マガジン。",
+        "oneLiner": "大胆なタイポグラフィとクリーンなグリッドベースのレイアウトを組み合わせ、テクノロジーと文化を提示する権威あるエディトリアル・プラットフォーム。"
+      },
+      "colors": {
+        "principle": "黒と白を厳密に支配するハイコントラストのモノクロパレット。階層構築にグレートーンを使用。"
+      },
+      "typography": {
+        "rules": [
+          "ディスプレイ・タイプはインパクトのためにタイトな行間を使用",
+          "メタデータとラベルには全角英数字を適用",
+          "署名欄にはより広い文字间距を使用"
+        ],
+        "scaleUses": [
+          "メインヘッドラインとヒーローテキスト",
+          "セカンダリヘッドラインとセクションタイトル",
+          "メイン記事本文",
+          "メタデータ、署名欄、ナビゲーションラベル"
+        ]
+      },
+      "spacing": {
+        "rhythm": "可読性のための広い余白を備えた、8pxベースグリッド"
+      },
+      "surfaces": {
+        "shadows": [],
+        "borders": "セクション区切りとカテゴリタグに、厳密な1pxまたは2pxの実線黒ボーダーを使用"
+      },
+      "layout": {
+        "skeleton": "厳密な垂直方向のアライメントと余白を多用した、非対称マルチカラムグリッド"
+      },
+      "components": {
+        "button": "最小限で、しばしばテキストのみ、または白地に黒テキストのシンプルなアウトライン",
+        "card": "太いセリフ体の見出しとサンセリフ体のメタデータを備えたクリーンなテキストブロック。細い水平線で区切る",
+        "chip": "黒い長方形内に白テキストの、全角英数字モノスペースタグ",
+        "input": "細い下ボーダーを備えたミニマリスト",
+        "hero": "広い余白を備えた、大規模なタイポグラフィ中心のレイアウト"
+      },
+      "motion": {
+        "patterns": [
+          "リンクのホバー時カラー遷移",
+          "表示切替のための不透明度フェード"
+        ]
+      },
+      "interaction": {
+        "hover": "リンクとインタラクティブ要素のカラー遷移",
+        "click": "全インタラクティブ要素に標準ポインターカーソル",
+        "transition": "全プロパティが0.2秒の期間で滑らかに遷移",
+        "keyboard": "標準的なフォーカス管理"
+      },
+      "voice": {
+        "tone": "権威、知性、やや挑発的",
+        "headlineStyle": "最大限のインパクトのためにセリフ体を使用した、大胆で簡潔な記述",
+        "ctaStyle": "控えめで直接的、しばしば全角英数字モノスペース",
+        "avoid": [
+          "コンテンツから注意をそらす装飾要素",
+          "忙しないカラーパレット",
+          "非公式またはカジュアルなタイポグラフィ",
+          "影やグラデーションの過度な使用"
+        ]
+      },
+      "donts": [
+        "角丸を使用しない — スクリーンショットでは、全要素にシャープで0半径のエッジが示されている",
+        "複数のアクセントカラーを使用しない — スクリーンショットでは、厳密にモノクロの黒、白、グレーのパレットが示されている",
+        "装飾的なスクリプトや筆記体フォントを使用しない — スクリーンショットでは、厳密に構造化されたセリフ体とサンセリフ体のタイポグラフィが示されている",
+        "要素にドロップシャドウを使用しない — スクリーンショットでは、最小限の深度を持つフラットでクリーンなデザインが示されている",
+        "本文テキストを中央揃えにしない — スクリーンショットでは、可読性のために左揃えまたは両端揃えの本文が示されている",
+        "カラフルなボタンを使用しない — スクリーンショットでは、シンプルなテキストリンクと最小限のUI要素が示されている"
+      ],
+      "systemPrompt": "大胆でハイコントラストのタイポグラフィとクリーンなグリッドベースのレイアウトを特徴とする、プレミアムなテクノロジー・文化エディトリアル・プラットフォーム。主なカラーは純黒(#000000)、白(#FFFFFF)、および階層構築用の様々なグレー(#757575, #999999)。タイポグラフィは見出しにディドーン・セリフ体、本文にヒューマニスト・サンセリフ体を組み合わせる。重要な禁止事項: 角丸や影を使用しない、カラフルなアクセントを導入しない、カジュアルまたは装飾的なフォントを使用しない。デザインは、厳密なビジュアル階層と広い余白を通じて、コンテンツの明瞭性と権威ある提示を優先する。"
+    },
+    "ko": {
+      "identity": {
+        "keywords": [
+          "기술",
+          "문화",
+          "과학",
+          "권위",
+          "혁신"
+        ],
+        "analogy": "대담하고 권위 있는 목소리의 프리미엄 기술 및 문화 잡지.",
+        "oneLiner": "대담한 타이포그래피와 깔끔한 그리드 기반 레이아웃을 결합하여 기술과 문화를 선보이는 권위 있는 편집 플랫폼."
+      },
+      "colors": {
+        "principle": "엄격한 흑백 위주의 고대비 모노크롬 팔레트를 사용하며, 계층 구조를 위해 그레이 톤을 활용합니다."
+      },
+      "typography": {
+        "rules": [
+          "디스플레이 타입은 임팩트를 위해 타이트한 line-height를 사용합니다.",
+          "메타데이터와 레이블에는 전부 대문자를 적용합니다.",
+          "바이라인은 더 넓은 letter-spacing를 사용합니다."
+        ],
+        "scaleUses": [
+          "메인 헤드라인과 히어로 텍스트",
+          "보조 헤드라인과 섹션 제목",
+          "메인 기사 본문 텍스트",
+          "메타데이터, 바이라인 및 내비게이션 레이블"
+        ]
+      },
+      "spacing": {
+        "rhythm": "가독성을 위한 넉넉한 여백이 있는 8px 기본 그리드입니다."
+      },
+      "surfaces": {
+        "shadows": [],
+        "borders": "섹션 구분선 및 카테고리 태그에 1px 또는 2px의 엄격한 검정색 solid 테두리를 사용합니다."
+      },
+      "layout": {
+        "skeleton": "엄격한 수직 정렬과 넉넉한 여백의 다소 비대칭적인 다중 열 그리드입니다."
+      },
+      "components": {
+        "button": "최소한의, 자주 텍스트만 또는 간단한 아웃라인 스타일로 흰색 배경에 검정색 텍스트를 사용합니다.",
+        "card": "굵은 세리프 헤드라인과산세리프 메타데이터를 가진 깔끔한 텍스트 블록으로, 얇은 수평선으로 구분됩니다.",
+        "chip": "검정색 직사각형에 흰색 텍스트의 대문자 모노스페이스 태그입니다.",
+        "input": "얇은 하단 테두리가 있는 미니멀리스트 스타일입니다.",
+        "hero": "넉넉한 여백이 있는 대규모 타이포그래피 중심 레이아웃입니다."
+      },
+      "motion": {
+        "patterns": [
+          "링크에 hover 시 색상 전환",
+          "가시성 전환을 위한 opacity 페이드"
+        ]
+      },
+      "interaction": {
+        "hover": "링크 및 인터랙티브 요소에 색상 전환 효과",
+        "click": "모든 인터랙티브 요소에 표준 포인터 커서",
+        "transition": "모든 속성이 0.2s 지속 시간으로 부드럽게 전환됩니다.",
+        "keyboard": "표준 focus 관리"
+      },
+      "voice": {
+        "tone": "권위 있고, 지적이며, 약간 자극적인",
+        "headlineStyle": "최대 임팩트를 위해 세리프 타입을 사용한 대담하고 간결한 진술",
+        "ctaStyle": "절제되고 직접적이며, 자주 대문자 모노스페이스를 사용",
+        "avoid": [
+          "콘텐츠를 산만하게 하는 장식적 요소",
+          "복잡한 색상 팔레트",
+          "비공식적이거나 캐주얼한 타이포그래피",
+          "그림자나 그라데이션의 과도한 사용"
+        ]
+      },
+      "donts": [
+        "둥근 모서리를 사용하지 마세요 — 스크린샷의 모든 요소에서 날카롭고 0반경의 모서리를 보여줍니다.",
+        "여러 강조 색상을 사용하지 마세요 — 스크린샷에서 엄격한 모노크롬 검정, 흰색, 그레이 팔레트를 보여줍니다.",
+        "장식용 스크립트나 커서브 폰트를 사용하지 마세요 — 스크린샷에서 엄격하게 구조화된 세리프 및 산세리프 타이포그래피를 보여줍니다.",
+        "요소에 그림자를 사용하지 마세요 — 스크린샷에서 최소한의 깊이감을 가진 플랫하고 깔끔한 디자인을 보여줍니다.",
+        "본문 텍스트를 중앙 정렬하지 마세요 — 스크린샷에서 가독성을 위해 왼쪽 정렬 또는 양쪽 정렬된 본문 텍스트를 보여줍니다.",
+        "다채로운 버튼을 사용하지 마세요 — 스크린샷에서 간단한 텍스트 링크와 최소한의 UI 요소를 보여줍니다."
+      ],
+      "systemPrompt": "대담하고 고대비의 타이포그래피와 깔끔한 그리드 기반 레이아웃을 특징으로 하는 프리미엄 기술 및 문화 편집 플랫폼입니다. 주요 색상은 순수 검정(#000000), 흰색(#FFFFFF), 그리고 계층 구조를 위한 다양한 그레이(#757575, #999999)입니다. 타이포그래피는 헤드라인용 디도느 세리프와 본문용 휴머니스틱 산세리프를 결합합니다. 핵심 금지 사항: 둥근 모서리나 그림자를 사용하지 말 것, 다채로운 강조 색상을 도입하지 말 것, 캐주얼하거나 장식적인 폰트를 사용하지 말 것. 디자인은 엄격한 시각적 계층과 넉넉한 여백을 통해 콘텐츠의 명확성과 권위 있는 프레젠테이션을 우선시합니다."
     }
   }
 }

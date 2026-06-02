@@ -17,48 +17,57 @@
   "_meta": {
     "vision_model": "mimo-v2.5",
     "vision_prompt_version": "0.3",
-    "vision_at": "2026-05-29T02:55:14+00:00",
-    "vision_tokens": 1221,
-    "vision_cost_usd": 0.0136,
+    "vision_at": "2026-05-30T18:07:05+00:00",
+    "vision_tokens": 17338,
+    "vision_cost_usd": 0.1926,
     "translation_model": "mimo-v2.5",
-    "translation_at": "2026-05-29T02:55:57+00:00",
-    "translation_tokens": 28042,
-    "translation_cost_usd": 0.0934,
+    "translation_at": "2026-05-30T18:07:51+00:00",
+    "translation_tokens": 37661,
+    "translation_cost_usd": 0.1255,
     "narrative_model": "mimo-v2.5",
     "narrative_prompt_version": "0.3",
     "narrative_at": "2026-05-29T02:56:03+00:00",
     "narrative_tokens": 1681,
     "narrative_cost_usd": 0.0112,
     "narrative_status": "ok",
-    "total_cost_usd": 0.1182
+    "total_cost_usd": 0.3293,
+    "vision_source": "playwright-extract:voltagent",
+    "vision_grounded": true
   },
   "spec": {
     "colors": {
-      "bg": "#FFFFFF",
-      "bgSoft": null,
-      "bgQuiet": null,
-      "ink": "#000000",
-      "inkSoft": null,
-      "muted": "#666666",
-      "mutedSoft": null,
-      "accent": null,
-      "line": "rgba(0,0,0,0.1)"
+      "bg": "#0a0a0a",
+      "bgSoft": "#1a1a1a",
+      "bgQuiet": "#050507",
+      "ink": "#f2f2f2",
+      "inkSoft": "#f0f6fc",
+      "muted": "#b8b3b0",
+      "mutedSoft": "rgba(255,255,255,0.4)",
+      "accent": "#10b981",
+      "line": "rgb(38, 38, 38)"
     },
     "typography": {
-      "display": "grotesque-sans",
-      "body": "grotesque-sans",
+      "display": "humanist-sans",
+      "body": "humanist-sans",
       "mono": "monospace",
       "scale": [
         {
           "token": "display",
           "size": 56,
           "lh": 1.0,
-          "weight": 700,
+          "weight": 600,
           "ls": "-1px"
         },
         {
           "token": "body",
           "size": 16,
+          "lh": 1.65,
+          "weight": 400,
+          "ls": "0px"
+        },
+        {
+          "token": "mono",
+          "size": 14,
           "lh": 1.5,
           "weight": 400,
           "ls": "0px"
@@ -70,6 +79,7 @@
       "scale": [
         4,
         8,
+        12,
         16,
         24,
         32,
@@ -80,15 +90,15 @@
     },
     "surfaces": {
       "radius": {
-        "sm": 0,
-        "md": 0,
-        "lg": 0,
+        "sm": 4,
+        "md": 8,
+        "lg": 12,
         "pill": 999
       }
     },
     "layout": {
-      "container": 1200,
-      "paragraph": 640,
+      "container": 1280,
+      "paragraph": 680,
       "columns": 12,
       "gutter": 24,
       "breakpoints": [
@@ -98,392 +108,20 @@
     },
     "motion": {
       "durations": {
-        "micro": 0,
-        "small": 0,
-        "medium": 0
+        "micro": 150,
+        "small": 200,
+        "medium": 700
       },
-      "easing": "cubic-bezier(0,0,0,0)"
-    }
-  },
-  "spec_i18n": {
-    "en": {
-      "identity": {
-        "keywords": [
-          "technical",
-          "precise",
-          "restrained",
-          "monochrome",
-          "developer-focused"
-        ],
-        "analogy": "A clean, minimalist code editor interface",
-        "oneLiner": "A restrained, monochromatic developer tool interface with bold typography"
-      },
-      "colors": {
-        "principle": "Strict monochromatic palette with high contrast between black text and white background"
-      },
-      "typography": {
-        "rules": [
-          "Use bold weight for headlines",
-          "Maintain consistent sans-serif typography throughout",
-          "Use monospace for code-related content"
-        ],
-        "scaleUses": [
-          "main headline",
-          "paragraph text"
-        ]
-      },
-      "spacing": {
-        "rhythm": "consistent 4px base grid"
-      },
-      "surfaces": {
-        "shadows": [],
-        "borders": "none"
-      },
-      "layout": {
-        "skeleton": "clean centered layout with ample white space"
-      },
-      "components": {
-        "button": "minimal, text-based with no visible borders or backgrounds",
-        "card": "no visible card components",
-        "chip": "no chip components visible",
-        "input": "no input components visible",
-        "hero": "large bold headline with clean typography and ample white space"
-      },
-      "motion": {
-        "patterns": [
-          "no visible animations"
-        ]
-      },
-      "interaction": {
-        "hover": "no visible hover states",
-        "click": "no visible click states",
-        "transition": "no visible transitions",
-        "keyboard": "standard keyboard navigation"
-      },
-      "voice": {
-        "tone": "technical and precise",
-        "headlineStyle": "bold, concise, developer-focused language",
-        "ctaStyle": "minimal, text-based calls to action",
-        "avoid": [
-          "decorative elements",
-          "colorful accents",
-          "rounded corners"
-        ]
-      },
-      "donts": [
-        "don't use color accents — screenshot shows strictly monochromatic palette",
-        "don't add rounded corners — screenshot shows sharp rectangular edges",
-        "don't use drop shadows — screenshot shows completely flat surfaces",
-        "don't use decorative borders — screenshot shows minimal to no visible borders",
-        "don't add animations — screenshot shows completely static interface",
-        "don't use multiple font families — screenshot shows consistent typography"
-      ],
-      "systemPrompt": "This is a minimalist developer tool website with a strictly monochromatic color scheme. The palette uses only black (#000000) text on white (#FFFFFF) background with no accent colors. Typography is bold grotesque-sans for headlines and clean sans-serif for body text. The layout features generous white space with a centered container and clean alignment. Critical donts: never add color accents, never use rounded corners, never add drop shadows, never use decorative borders, never add animations, never use multiple font families. The design philosophy emphasizes restraint and technical precision, focusing on content hierarchy through typography and spacing rather than visual decoration."
-    },
-    "zh-CN": {
-      "identity": {
-        "keywords": [
-          "技术感",
-          "精确",
-          "克制",
-          "单色",
-          "面向开发者"
-        ],
-        "analogy": "一个简洁、极简的代码编辑器界面",
-        "oneLiner": "一个克制、单色的开发者工具界面，采用粗体排版"
-      },
-      "colors": {
-        "principle": "严格的单色调色板，黑色文字与白色背景形成高对比度"
-      },
-      "typography": {
-        "rules": [
-          "标题使用粗体字重",
-          "全文保持一致的无衬线字体",
-          "代码相关内容使用等宽字体"
-        ],
-        "scaleUses": [
-          "主标题",
-          "段落文本"
-        ]
-      },
-      "spacing": {
-        "rhythm": "基于4px的统一网格"
-      },
-      "surfaces": {
-        "shadows": [],
-        "borders": "无"
-      },
-      "layout": {
-        "skeleton": "简洁的居中布局，留白充足"
-      },
-      "components": {
-        "button": "极简、纯文字形式，无可见边框或背景",
-        "card": "无可见的卡片组件",
-        "chip": "无可见的标签组件",
-        "input": "无可见的输入框组件",
-        "hero": "使用简洁字体排版和充足留白的粗体大标题"
-      },
-      "motion": {
-        "patterns": [
-          "无可见动画"
-        ]
-      },
-      "interaction": {
-        "hover": "无可见的悬停状态",
-        "click": "无可见的点击状态",
-        "transition": "无可见的过渡效果",
-        "keyboard": "标准键盘导航"
-      },
-      "voice": {
-        "tone": "技术感且精确",
-        "headlineStyle": "粗体、简洁、面向开发者的语言",
-        "ctaStyle": "极简、纯文字的行动号召",
-        "avoid": [
-          "装饰性元素",
-          "彩色点缀",
-          "圆角"
-        ]
-      },
-      "donts": [
-        "不要使用彩色点缀 — 截图显示为严格的单色调色板",
-        "不要添加圆角 — 截图显示为锐利的直角边缘",
-        "不要使用投影 — 截图显示为完全扁平化的表面",
-        "不要使用装饰性边框 — 截图显示边框极简或无可见边框",
-        "不要添加动画 — 截图显示为完全静态的界面",
-        "不要使用多种字体族 — 截图显示为一致的字体排印"
-      ],
-      "systemPrompt": "这是一个极简主义的开发者工具网站，采用严格的单色调色板。调色板仅使用黑色（#000000）文字和白色（#FFFFFF）背景，无任何点缀色。字体排印采用粗体grotesque-sans用于标题，清晰的无衬线字体用于正文。布局采用居中容器，留白充足，对齐整洁。关键禁忌：绝不添加彩色点缀，绝不使用圆角，绝不添加投影，绝不使用装饰性边框，绝不添加动画，绝不使用多种字体族。设计理念强调克制与技术精确性，通过字体排印和间距而非视觉装饰来构建内容层次。"
-    },
-    "zh-TW": {
-      "identity": {
-        "keywords": [
-          "技術性",
-          "精準",
-          "內斂",
-          "單色調",
-          "以開發者為中心"
-        ],
-        "analogy": "一個乾淨、極簡的程式碼編輯器介面",
-        "oneLiner": "內斂的單色調開發者工具介面，搭配粗體字體排印"
-      },
-      "colors": {
-        "principle": "嚴格的單色調色盤，黑字與白底之間形成高對比"
-      },
-      "typography": {
-        "rules": [
-          "標題使用粗體字重",
-          "全文保持一致的無襯線字體",
-          "與程式碼相關的內容使用等寬字體"
-        ],
-        "scaleUses": [
-          "主要標題",
-          "段落文字"
-        ]
-      },
-      "spacing": {
-        "rhythm": "一致的 4px 基礎網格"
-      },
-      "surfaces": {
-        "shadows": [],
-        "borders": "無"
-      },
-      "layout": {
-        "skeleton": "乾淨的置中版面，留有充裕的留白"
-      },
-      "components": {
-        "button": "極簡、基於文字，無可見邊框或背景",
-        "card": "無可見的卡片元件",
-        "chip": "無可見的標籤元件",
-        "input": "無可見的輸入元件",
-        "hero": "大型粗體標題，搭配乾淨的字體排印與充裕的留白"
-      },
-      "motion": {
-        "patterns": [
-          "無可見的動畫"
-        ]
-      },
-      "interaction": {
-        "hover": "無可見的懸停狀態",
-        "click": "無可見的點擊狀態",
-        "transition": "無可見的過渡效果",
-        "keyboard": "標準鍵盤導覽"
-      },
-      "voice": {
-        "tone": "技術性且精準",
-        "headlineStyle": "粗體、簡潔、以開發者為中心的語言",
-        "ctaStyle": "極簡、基於文字的行動呼籲",
-        "avoid": [
-          "裝飾性元素",
-          "彩色強調色",
-          "圓角"
-        ]
-      },
-      "donts": [
-        "勿使用強調色——截圖顯示為嚴格的單色調色盤",
-        "勿添加圓角——截圖顯示為銳利的矩形邊緣",
-        "勿使用陰影效果——截圖顯示為完全扁平的表面",
-        "勿使用裝飾性邊框——截圖顯示為極簡或無可見邊框",
-        "勿添加動畫——截圖顯示為完全靜態的介面",
-        "勿使用多種字體系列——截圖顯示為一致的字體排印"
-      ],
-      "systemPrompt": "這是一個採用嚴格單色調色彩方案的極簡主義開發者工具網站。調色盤僅使用黑色 (#000000) 文字搭配白色 (#FFFFFF) 背景，無強調色。字體排印方面，標題使用粗體 grotesque-sans 字體，內文使用乾淨的無襯線字體。版面配置具有充裕的留白，採用置中容器與乾淨的對齊方式。關鍵禁忌：切勿添加強調色、切勿使用圓角、切勿添加陰影效果、切勿使用裝飾性邊框、切勿添加動畫、切勿使用多種字體系列。設計哲學強調內斂與技術精準，專注於透過字體排印與間距建立內容層次，而非視覺裝飾。"
-    },
-    "ja": {
-      "identity": {
-        "keywords": [
-          "技術的",
-          "正確",
-          "抑制された",
-          "モノクローム",
-          "開発者向け"
-        ],
-        "analogy": "清潔でミニマルなコードエディタ・インタフェース",
-        "oneLiner": "大胆なタイポグラフィを持つ、抑制されたモノクロームの開発者ツール・インタフェース"
-      },
-      "colors": {
-        "principle": "黒テキストと白背景の高いコントラストを持つ、厳密なモノクローム・パレット"
-      },
-      "typography": {
-        "rules": [
-          "見出しには太字ウェイトを使用",
-          "全体を通して一貫したサンセリフ・タイポグラフィを維持",
-          "コード関連コンテンツにはモノスペースを使用"
-        ],
-        "scaleUses": [
-          "メイン見出し",
-          "段落テキスト"
-        ]
-      },
-      "spacing": {
-        "rhythm": "一貫した4pxベースグリッド"
-      },
-      "surfaces": {
-        "shadows": [],
-        "borders": "なし"
-      },
-      "layout": {
-        "skeleton": "ゆとりあるホワイトスペースを持つ清潔な中央揃えレイアウト"
-      },
-      "components": {
-        "button": "目に見える境界線や背景を持たない、最小限のテキストベース",
-        "card": "目に見えるカードコンポーネントはなし",
-        "chip": "目に見えるチップコンポーネントはなし",
-        "input": "目に見えるインプットコンポーネントはなし",
-        "hero": "清潔なタイポグラフィとゆとりあるホワイトスペースを持つ、大きく太字の見出し"
-      },
-      "motion": {
-        "patterns": [
-          "目に見えるアニメーションはなし"
-        ]
-      },
-      "interaction": {
-        "hover": "目に見えるホバー状態はなし",
-        "click": "目に見えるクリック状態はなし",
-        "transition": "目に見えるトランジションはなし",
-        "keyboard": "標準的なキーボード・ナビゲーション"
-      },
-      "voice": {
-        "tone": "技術的で正確",
-        "headlineStyle": "太字で簡潔な、開発者向けの言語",
-        "ctaStyle": "最小限の、テキストベースの行動喚起",
-        "avoid": [
-          "装飾要素",
-          "カラフルなアクセント",
-          "角丸"
-        ]
-      },
-      "donts": [
-        "カラーアクセントを使用しない — スクリーンショットは厳密にモノクロームのパレットを示している",
-        "角丸を使用しない — スクリーンショットは鋭い矩形のエッジを示している",
-        "ドロップシャドウを使用しない — スクリーンショットは完全にフラットなサーフェスを示している",
-        "装飾的な境界線を使用しない — スクリーンショットは最小限から目に見える境界線はなし",
-        "アニメーションを追加しない — スクリーンショットは完全に静的なインタフェースを示している",
-        "複数のフォントファミリを使用しない — スクリーンショットは一貫したタイポグラフィを示している"
-      ],
-      "systemPrompt": "これはStrictly monochromatic color schemeを持つミニマルな開発者ツールのウェブサイトです。パレットはアクセントカラーなしの、黒（#000000）テキストと白（#FFFFFF）背景のみを使用します。タイポグラフィは見出しには太字のgrotesque-sans、本文テキストにはクリーンなサンセリフを使用します。レイアウトはゆとりあるホワイトスペース、中央揃えコンテナ、クリーンなアラインメントを特徴とします。重要な禁止事項：カラーアクセントを追加しない、角丸を使用しない、ドロップシャドウを追加しない、装飾的な境界線を使用しない、アニメーションを追加しない、複数のフォントファミリを使用しない。デザインの哲学は、ビジュアル装飾ではなく、タイポグラフィとスペーシングによるコンテンツ階層に焦点を当てた、抑制と技術的精度を重んじます。"
-    },
-    "ko": {
-      "identity": {
-        "keywords": [
-          "기술적",
-          "정확한",
-          "절제된",
-          "단색",
-          "개발자 중심"
-        ],
-        "analogy": "깔끔하고 미니멀한 코드 에디터 인터페이스",
-        "oneLiner": "대담한 타이포그래피를 사용한 절제된 단색 개발자 도구 인터페이스"
-      },
-      "colors": {
-        "principle": "검정 텍스트와 흰색 배경 사이의 고대비를 가진 엄격한 단색 팔레트"
-      },
-      "typography": {
-        "rules": [
-          "제목에는 볼드 두께 사용",
-          "전체적으로 일관된 산세리프 타이포그래피 유지",
-          "코드 관련 콘텐츠에는 모노스페이스 사용"
-        ],
-        "scaleUses": [
-          "메인 제목",
-          "단락 텍스트"
-        ]
-      },
-      "spacing": {
-        "rhythm": "일관된 4px 기본 그리드"
-      },
-      "surfaces": {
-        "shadows": [],
-        "borders": "없음"
-      },
-      "layout": {
-        "skeleton": "풍부한 여백을 가진 깔끔한 중앙 정렬 레이아웃"
-      },
-      "components": {
-        "button": "눈에 띄는 테두리나 배경이 없는 미니멀한 텍스트 기반 버튼",
-        "card": "눈에 띄는 카드 컴포넌트 없음",
-        "chip": "눈에 띄는 칩 컴포넌트 없음",
-        "input": "눈에 띄는 입력 컴포넌트 없음",
-        "hero": "깔끔한 타이포그래피와 풍부한 여백을 가진 크고 볼드한 제목"
-      },
-      "motion": {
-        "patterns": [
-          "눈에 띄는 애니메이션 없음"
-        ]
-      },
-      "interaction": {
-        "hover": "눈에 띄는 호버 상태 없음",
-        "click": "눈에 띄는 클릭 상태 없음",
-        "transition": "눈에 띄는 전환 효과 없음",
-        "keyboard": "표준 키보드 탐색"
-      },
-      "voice": {
-        "tone": "기술적이고 정확한",
-        "headlineStyle": "볼드하고 간결하며 개발자 중심의 언어",
-        "ctaStyle": "미니멀한 텍스트 기반 행동 유도",
-        "avoid": [
-          "장식적 요소",
-          "화려한 강조색",
-          "둥근 모서리"
-        ]
-      },
-      "donts": [
-        "강조색을 사용하지 마세요 — 스크린샷은 엄격한 단색 팔레트를 보여줍니다",
-        "둥근 모서리를 추가하지 마세요 — 스크린샷은 날카로운 직사각형 가장자리를 보여줍니다",
-        "그림자를 추가하지 마세요 — 스크린샷은 완전히 평평한 표면을 보여줍니다",
-        "장식적인 테두리를 사용하지 마세요 — 스크린샷은 최소한 또는 눈에 띄는 테두리가 없음을 보여줍니다",
-        "애니메이션을 추가하지 마세요 — 스크린샷은 완전히 정적인 인터페이스를 보여줍니다",
-        "여러 폰트 패밀리를 사용하지 마세요 — 스크린샷은 일관된 타이포그래피를 보여줍니다"
-      ],
-      "systemPrompt": "이것은 엄격한 단색 색상 체계를 가진 미니멀리즘 개발자 도구 웹사이트입니다. 팔레트는 강조색 없이 검정(#000000) 텍스트와 흰색(#FFFFFF) 배경만 사용합니다. 타이포그래피는 제목용 볼드 groteske-sans, 본문용 깔끔한 산세리프입니다. 레이아웃은 중앙 정렬된 컨테이너와 깔끔한 정렬로 풍부한 여백을 특징으로 합니다. 중요 금지 사항: 절대로 강조색을 추가하지 말고, 절대로 둥근 모서리를 사용하지 말며, 절대로 그림자를 추가하지 말고, 절대로 장식적인 테두리를 사용하지 말고, 절대로 애니메이션을 추가하지 말고, 절대로 여러 폰트 패밀리를 사용하지 마세요. 디자인 철학은 시각적 장식보다 타이포그래피와 간격을 통한 콘텐츠 계층에 중점을 두는 절제와 기술적 정확성을 강조합니다."
+      "easing": "cubic-bezier(0.4, 0, 0.2, 1)"
     }
   },
   "desc": {
     "en": {
-      "palette": "Strict monochromatic palette using only black and white with no accent colors.",
-      "layout": "Clean, centered layout with generous white space and minimal visual elements.",
-      "interaction": "No visible interactive states or animations, focusing on static presentation.",
-      "motion": "No motion or animations visible in the interface.",
-      "notes": "A masterclass in minimalist design restraint, showing how powerful typography and white space can create impact without decoration."
+      "palette": "A high-contrast dark theme using deep blacks, bright whites, and a single emerald accent.",
+      "layout": "A spacious, fixed-width container with a 12-column grid and generous section spacing.",
+      "interaction": "Subtle hover states and smooth, long-duration transitions.",
+      "motion": "Smooth transitions focusing on color and background changes over 0.2 to 0.7 seconds.",
+      "notes": "An excellent example of a modern, dark-themed developer tool interface with a professional, restrained aesthetic."
     },
     "zh-CN": {
       "palette": "仅使用黑白的严格单色调色板，无任何点缀色。",
@@ -574,6 +212,408 @@
       "ch7_intro": "인터페이스에서 모션은 의도적으로 배제됩니다. 정적 표현은 시스템의 기술적 정밀성을 강화하며, 상호작용 피드백보다 정보 안정성을 우선시합니다.",
       "ch8_intro": "편집 음색은 기술적이고 간결하며, 인터페이스의 정밀함을 반영합니다. 언어는 기능적이며, 개발자 중심 톤을 유지하기 위해 마케팅적인 수식어를 피합니다.",
       "ch8_outro": "시스템은 의도적으로 모든 장식 요소, 색상 강조, 둥근 모서리, 애니메이션을 생략합니다—의식적으로 남겨진 것에서 그 힘을 찾습니다."
+    }
+  },
+  "spec_i18n": {
+    "en": {
+      "identity": {
+        "keywords": [
+          "engineering",
+          "infrastructure",
+          "multi-agent",
+          "enterprise",
+          "platform"
+        ],
+        "analogy": "A professional workshop for building complex AI systems",
+        "oneLiner": "The end-to-end AI Agent Engineering Platform for building enterprise multi-agent systems."
+      },
+      "colors": {
+        "principle": "High-contrast dark theme with a single emerald accent for focus"
+      },
+      "typography": {
+        "rules": [
+          "Use Inter or similar humanist-sans for UI and body text",
+          "Use IBM Plex Mono or similar for code blocks",
+          "Large display text should be tight and bold"
+        ],
+        "scaleUses": [
+          "Main hero headline",
+          "General body text",
+          "Code snippets"
+        ]
+      },
+      "spacing": {
+        "rhythm": "Standard 4px grid with generous section spacing"
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(0, 0, 0, 0.7) 0px 20px 60px 0px",
+          "rgba(0, 217, 146, 0.3) 0px 0px 30px 0px",
+          "rgba(92, 88, 85, 0.3) 0px 0px 15px 0px"
+        ],
+        "borders": "1px solid rgb(38, 38, 38)"
+      },
+      "layout": {
+        "skeleton": "Fixed-width max container with generous side padding"
+      },
+      "components": {
+        "button": "Dark background, 1px border, white text, hover state changes",
+        "card": "Dark cards with subtle inner glow or border on hover",
+        "chip": "Small pills with dark background and subtle borders",
+        "input": "Dark input fields with subtle borders",
+        "hero": "Split layout with headline and a complex node-graph diagram"
+      },
+      "motion": {
+        "patterns": [
+          "Smooth color and background-color transitions",
+          "Subtle opacity fades"
+        ]
+      },
+      "interaction": {
+        "hover": "Color changes or border highlight",
+        "click": "Immediate visual feedback",
+        "transition": "Smooth transitions over 0.2s to 0.7s",
+        "keyboard": "Standard focus management"
+      },
+      "voice": {
+        "tone": "Professional, technical, and confident",
+        "headlineStyle": "Large, bold, and direct",
+        "ctaStyle": "Action-oriented, clear next steps",
+        "avoid": [
+          "Playful language",
+          "Excessive exclamation points",
+          "Vague promises"
+        ]
+      },
+      "donts": [
+        "Don't use bright, multi-colored gradients — screenshot shows a single dominant emerald accent on dark",
+        "Don't use rounded, bubbly components — screenshot shows sharp 8px radius and flat borders",
+        "Don't use wide, thin typography — screenshot shows tight, bold display fonts",
+        "Don't use light backgrounds — screenshot is exclusively dark mode",
+        "Don't use excessive drop shadows — screenshot uses subtle glows and thin borders for elevation",
+        "Don't use center-aligned body text — screenshot shows left-aligned content blocks"
+      ],
+      "systemPrompt": "Voltagent is a dark-themed developer tool for building enterprise AI agent systems. The design DNA centers on a high-contrast, professional dark palette with a deep black (#0a0a0a) background, bright white (#f2f2f2) ink, and a vibrant emerald (#10b981) accent. Typography relies on humanist-sans for clarity and monospace for code. Layout is spacious with a 12-column grid and generous section padding. Avoid playful or bubbly aesthetics; maintain sharp corners and thin, subtle borders. Do not use multi-color gradients or light-mode themes. Ensure code blocks use a clean monospace font like IBM Plex Mono. Transitions should be smooth and subtle, focusing on color and opacity changes."
+    },
+    "zh-CN": {
+      "identity": {
+        "keywords": [
+          "工程",
+          "基础设施",
+          "多智能体",
+          "企业级",
+          "平台"
+        ],
+        "analogy": "一个用于构建复杂AI系统的专业工坊",
+        "oneLiner": "用于构建企业级多智能体系统的端到端AI智能体工程平台。"
+      },
+      "colors": {
+        "principle": "高对比度暗色主题，辅以单一翡翠绿作为聚焦点缀色"
+      },
+      "typography": {
+        "rules": [
+          "为UI和正文使用Inter或类似的人文主义无衬线字体",
+          "为代码块使用IBM Plex Mono或类似的等宽字体",
+          "大号展示文本应紧凑且加粗"
+        ],
+        "scaleUses": [
+          "主标题",
+          "通用正文",
+          "代码片段"
+        ]
+      },
+      "spacing": {
+        "rhythm": "标准4px网格，配合宽松的段落间距"
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(0, 0, 0, 0.7) 0px 20px 60px 0px",
+          "rgba(0, 217, 146, 0.3) 0px 0px 30px 0px",
+          "rgba(92, 88, 85, 0.3) 0px 0px 15px 0px"
+        ],
+        "borders": "1px solid rgb(38, 38, 38)"
+      },
+      "layout": {
+        "skeleton": "固定宽度最大容器，配有宽松的侧边内边距"
+      },
+      "components": {
+        "button": "深色背景，1px边框，白色文字，悬停状态变化",
+        "card": "深色卡片，悬停时带有细微的内发光或边框",
+        "chip": "深色背景、带细微边框的小药丸状标签",
+        "input": "带细微边框的深色输入框",
+        "hero": "分栏布局，包含标题和一个复杂的节点图"
+      },
+      "motion": {
+        "patterns": [
+          "平滑的颜色和背景色过渡",
+          "细微的透明度渐变"
+        ]
+      },
+      "interaction": {
+        "hover": "颜色变化或边框高亮",
+        "click": "即时视觉反馈",
+        "transition": "0.2秒至0.7秒的平滑过渡",
+        "keyboard": "标准焦点管理"
+      },
+      "voice": {
+        "tone": "专业、技术、自信",
+        "headlineStyle": "大号、加粗、直接",
+        "ctaStyle": "以行动为导向，明确下一步",
+        "avoid": [
+          "俏皮的语言",
+          "过多的感叹号",
+          "模糊的承诺"
+        ]
+      },
+      "donts": [
+        "不要使用明亮、多彩的渐变 — 截图显示的是暗色背景上单一的翡翠绿主色调",
+        "不要使用圆润、气泡感的组件 — 截图显示的是锐利的8px圆角和平实的边框",
+        "不要使用宽而细的字体排印 — 截图显示的是紧凑、加粗的展示字体",
+        "不要使用浅色背景 — 截图完全是深色模式",
+        "不要使用过多的投影阴影 — 截图使用细微的发光和纤薄的边框来营造层次感",
+        "不要使用居中对齐的正文 — 截图显示的是左对齐的内容块"
+      ],
+      "systemPrompt": "Voltagent 是一款深色主题的开发者工具，用于构建企业级AI智能体系统。其设计DNA核心在于高对比度、专业的深色配色，使用深黑(#0a0a0a)背景、亮白(#f2f2f2)文字，以及活力翡翠绿(#10b981)作为点缀色。排印依赖人文主义无衬线字体以确保清晰度，等宽字体用于代码。布局采用12列网格，空间开阔，并有宽松的段落内边距。避免使用俏皮或圆润的美学风格；保持锐利的圆角和纤薄、细微的边框。不要使用多彩渐变或浅色主题。确保代码块使用像IBM Plex Mono这样简洁的等宽字体。过渡应平滑而细微，聚焦于颜色和透明度的变化。"
+    },
+    "zh-TW": {
+      "identity": {
+        "keywords": [
+          "工程",
+          "基礎架構",
+          "多代理",
+          "企業級",
+          "平台"
+        ],
+        "analogy": "一個用於建構複雜 AI 系統的專業工作室",
+        "oneLiner": "端到端的 AI 代理工程平台，專為建構企業級多代理系統而生。"
+      },
+      "colors": {
+        "principle": "採用高對比深色主題，並以單一翡翠綠強調色引導視覺焦點"
+      },
+      "typography": {
+        "rules": [
+          "使用者介面與內文採用 Inter 或類似的人文無襯線字體",
+          "程式碼區塊使用 IBM Plex Mono 或類似的等寬字體",
+          "大型展示標題應緊湊且粗體"
+        ],
+        "scaleUses": [
+          "主要視覺標題",
+          "一般內文",
+          "程式碼片段"
+        ]
+      },
+      "spacing": {
+        "rhythm": "標準 4px 網格，並搭配寬裕的區塊間距"
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(0, 0, 0, 0.7) 0px 20px 60px 0px",
+          "rgba(0, 217, 146, 0.3) 0px 0px 30px 0px",
+          "rgba(92, 88, 85, 0.3) 0px 0px 15px 0px"
+        ],
+        "borders": "1px solid rgb(38, 38, 38)"
+      },
+      "layout": {
+        "skeleton": "固定寬度的最大容器，搭配寬裕的側邊內距"
+      },
+      "components": {
+        "button": "深色背景、1px 邊框、白色文字，懸停狀態會變化",
+        "card": "深色卡片，懸停時帶有細微內光暈或邊框高亮",
+        "chip": "小型膠囊狀元件，深色背景搭配細微邊框",
+        "input": "深色輸入欄位，搭配細微邊框",
+        "hero": "分割佈局，包含標題與複雜的節點圖表"
+      },
+      "motion": {
+        "patterns": [
+          "平滑的顏色與背景色過渡",
+          "細微的透明度淡入淡出"
+        ]
+      },
+      "interaction": {
+        "hover": "顏色變換或邊框高亮",
+        "click": "立即的視覺回饋",
+        "transition": "0.2 至 0.7 秒的平滑過渡效果",
+        "keyboard": "標準的焦點管理"
+      },
+      "voice": {
+        "tone": "專業、技術性且自信",
+        "headlineStyle": "大型、粗體且直接",
+        "ctaStyle": "以行動為導向，提供明確的下一步指引",
+        "avoid": [
+          "嬉戲的語言",
+          "過多的驚嘆號",
+          "模糊的承諾"
+        ]
+      },
+      "donts": [
+        "避免使用明亮、多彩的漸層 — 截圖顯示為深色背景單一主導的翡翠綠強調色",
+        "避免使用圓潤、泡泡狀的元件 — 截圖顯示為銳利的 8px 圓角與平面邊框",
+        "避免使用寬版、細體的字型 — 截圖顯示為緊湊、粗體的展示字型",
+        "避免使用淺色背景 — 截圖專屬於深色模式",
+        "避免使用過重的陰影 — 截圖使用細微光暈與細邊框來營造層次",
+        "避免使用置中的內文排版 — 截圖顯示為靠左對齊的內容區塊"
+      ],
+      "systemPrompt": "Voltagent 是一款用於建構企業級 AI 代理系統的深色主題開發工具。其設計 DNA 圍繞著高對比、專業的深色調色盤，背景為深黑 (#0a0a0a)，文字為亮白 (#f2f2f2)，並點綴著鮮明的翡翠綠 (#10b981) 強調色。字型依賴人文無襯線字體以確保清晰度，程式碼則使用等寬字體。佈局寬敞，採用 12 欄網格與寬裕的區塊內距。避免嬉戲或泡泡狀的美學；保持銳利的圓角與纖細、細微的邊框。不使用多彩漸層或淺色模式主題。確保程式碼區塊使用如 IBM Plex Mono 等乾淨的等寬字體。過渡效果應平滑且細微，專注於顏色與透明度的變化。"
+    },
+    "ja": {
+      "identity": {
+        "keywords": [
+          "エンジニアリング",
+          "インフラストラクチャ",
+          "マルチエージェント",
+          "エンタープライズ",
+          "プラットフォーム"
+        ],
+        "analogy": "複雑なAIシステムを構築するためのプロフェッショナルワークショップ",
+        "oneLiner": "エンタープライズ向けマルチエージェントシステム構築のための、エンドツーエンドAIエージェントエンジニアリングプラットフォーム。"
+      },
+      "colors": {
+        "principle": "フォーカスのための単一エメラルドアクセントを用いた、高コントラストのダークテーマ"
+      },
+      "typography": {
+        "rules": [
+          "UIおよび本文テキストにはInterまたは類似のhumanist-sansを使用",
+          "コードブロックにはIBM Plex Monoまたは類似のフォントを使用",
+          "大きなディスプレイテキストは tighten して太字にする"
+        ],
+        "scaleUses": [
+          "メインヒーローヘッドライン",
+          "汎用本文テキスト",
+          "コードスニペット"
+        ]
+      },
+      "spacing": {
+        "rhythm": "標準4pxグリッドと広めのセクション間隔"
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(0, 0, 0, 0.7) 0px 20px 60px 0px",
+          "rgba(0, 217, 146, 0.3) 0px 0px 30px 0px",
+          "rgba(92, 88, 85, 0.3) 0px 0px 15px 0px"
+        ],
+        "borders": "1px solid rgb(38, 38, 38)"
+      },
+      "layout": {
+        "skeleton": "サイドに広めのパディングを持った、固定幅の最大コンテナ"
+      },
+      "components": {
+        "button": "ダーク背景、1pxボーダー、白文字、hover状態で変化",
+        "card": "hover時に微細な内側のグローまたはボーダーが現れるダークカード",
+        "chip": "ダーク背景と微細なボーダーを持つ小さなピル",
+        "input": "微細なボーダーを持つダークな入力フィールド",
+        "hero": "ヘッドラインと複雑なノードグラフ図を配置した分割レイアウト"
+      },
+      "motion": {
+        "patterns": [
+          "滑らかな色とbackground-colorのトランジション",
+          "微細な不透明度のフェード"
+        ]
+      },
+      "interaction": {
+        "hover": "色の変化またはボーダーのハイライト",
+        "click": "即座のビジュアルフィードバック",
+        "transition": "0.2秒から0.7秒の間の滑らかなトランジション",
+        "keyboard": "標準的なフォーカス管理"
+      },
+      "voice": {
+        "tone": "プロフェッショナルで、技術的かつ自信に満ちた",
+        "headlineStyle": "大きく、太字で、直接的な",
+        "ctaStyle": "アクション导向で、明確な次のステップを示す",
+        "avoid": [
+          "遊び心のある言葉",
+          "過度な感嘆符",
+          "曖昧な約束"
+        ]
+      },
+      "donts": [
+        "明るくカラフルなグラデーションを使用しない — スクリーンショットではダーク背景に単一の主たるエメラルドアクセントが示されている",
+        "丸みを帯びた、ふわふわしたコンポーネントを使用しない — スクリーンショットではシャープな8px角丸とフラットなボーダーが示されている",
+        "幅広で細いタイポグラフィを使用しない — スクリーンショットでは tighten された太字のディスプレイフォントが示されている",
+        "明るい背景を使用しない — スクリーンショットはダークモードのみで構成されている",
+        "過度なドロップシャドウを使用しない — スクリーンショットでは高さの表現に微細なグローと細いボーダーが使用されている",
+        "中央揃えの本文テキストを使用しない — スクリーンショットでは左揃えのコンテンツブロックが示されている"
+      ],
+      "systemPrompt": "VoltagentはエンタープライズAIエージェントシステム構築のための、ダークテーマの開発者ツールです。デザインDNAは、深い黒（#0a0a0a）の背景、明るい白（#f2f2f2）のインク、鮮やかなエメラルド（#10b981）のアクセントを用いた、高コントラストでプロフェッショナルなダークパレットを中心に構成されています。タイポグラフィは明瞭さのためのhumanist-sansとコード用の等幅フォントに依存します。レイアウトは12カラムグリッドと広めのセクションパディングを持つ、ゆとりのある空間を確保しています。遊び心やふわふわした美学は避け、シャープな角と細く微細なボーダーを維持します。カラフルなグラデーションやライトモードテーマは使用しません。コードブロックにはIBM Plex Monoのようなクリーンな等幅フォントを使用してください。トランジションは滑らかで微細にし、色と不透明度の変化に焦点を当てます。"
+    },
+    "ko": {
+      "identity": {
+        "keywords": [
+          "엔지니어링",
+          "인프라",
+          "멀티 에이전트",
+          "엔터프라이즈",
+          "플랫폼"
+        ],
+        "analogy": "복잡한 AI 시스템을 구축하는 전문 워크숍",
+        "oneLiner": "엔터프라이즈 멀티 에이전트 시스템 구축을 위한 엔드투엔드 AI 에이전트 엔지니어링 플랫폼."
+      },
+      "colors": {
+        "principle": "집중을 위한 단일 에메랄드 강조색의 고대비 다크 테마"
+      },
+      "typography": {
+        "rules": [
+          "UI 및 본문 텍스트에는 Inter 또는 유사한 humanist-sans를 사용",
+          "코드 블록에는 IBM Plex Mono 또는 유사한 폰트를 사용",
+          "큰 디스플레이 텍스트는 타이트하고 굵게 설정"
+        ],
+        "scaleUses": [
+          "메인 히어로 헤드라인",
+          "일반 본문 텍스트",
+          "코드 스니펫"
+        ]
+      },
+      "spacing": {
+        "rhythm": "표준 4px 그리드와 여유로운 섹션 간격"
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(0, 0, 0, 0.7) 0px 20px 60px 0px",
+          "rgba(0, 217, 146, 0.3) 0px 0px 30px 0px",
+          "rgba(92, 88, 85, 0.3) 0px 0px 15px 0px"
+        ],
+        "borders": "1px solid rgb(38, 38, 38)"
+      },
+      "layout": {
+        "skeleton": "여유로운 사이드 패딩을 가진 고정 너비 최대 컨테이너"
+      },
+      "components": {
+        "button": "다크 배경, 1px 테두리, 흰색 텍스트, hover 상태 변화",
+        "card": "미세한 내부 글로우 또는 hover 시 테두리가 있는 다크 카드",
+        "chip": "다크 배경과 미세한 테두리를 가진 작은 알약 모양",
+        "input": "미세한 테두리가 있는 다크 입력 필드",
+        "hero": "헤드라인과 복잡한 노드 그래프 다이어그램이 있는 분할 레이아웃"
+      },
+      "motion": {
+        "patterns": [
+          "부드러운 색상 및 background-color 전환",
+          "미세한 opacity 페이드"
+        ]
+      },
+      "interaction": {
+        "hover": "색상 변화 또는 테두리 강조",
+        "click": "즉각적인 시각적 피드백",
+        "transition": "0.2초에서 0.7초에 걸친 부드러운 전환",
+        "keyboard": "표준 focus 관리"
+      },
+      "voice": {
+        "tone": "전문적이고 기술적이며 자신감 있는 어조",
+        "headlineStyle": "크고, 굵고, 직접적인 스타일",
+        "ctaStyle": "행동 지향적이고 명확한 다음 단계",
+        "avoid": [
+          "장난스러운 언어",
+          "과도한 감탄사",
+          "모호한 약속"
+        ]
+      },
+      "donts": [
+        "밝고 다채로운 그라디언트를 사용하지 마세요 — 스크린샷은 다크 배경 위의 단일 지배적인 에메랄드 강조색을 보여줍니다",
+        "둥글고 통통한 컴포넌트를 사용하지 마세요 — 스크린샷은 날카로운 8px radius와 플랫 보더를 보여줍니다",
+        "넓고 가벼운 타이포그래피를 사용하지 마세요 — 스크린샷은 타이트하고 굵은 디스플레이 폰트를 보여줍니다",
+        "밝은 배경을 사용하지 마세요 — 스크린샷은 완전히 다크 모드입니다",
+        "과도한 드롭 섀도우를 사용하지 마세요 — 스크린샷은 높이를 위해 미세한 글로우와 얇은 테두리를 사용합니다",
+        "가운데 정렬된 본문 텍스트를 사용하지 마세요 — 스크린샷은 왼쪽 정렬된 콘텐츠 블록을 보여줍니다"
+      ],
+      "systemPrompt": "Voltagent는 엔터프라이즈 AI 에이전트 시스템 구축을 위한 다크 테마 개발자 도구입니다. 디자인 DNA는 깊은 검정(#0a0a0a) 배경, 밝은 흰색(#f2f2f2) 잉크, 그리고 선명한 에메랄드(#10b981) 강조색으로 구성된 고대비 전문 다크 팔레트를 중심으로 합니다. 타이포그래피는 명확성을 위해 humanist-sans를, 코드에는 모노스페이스를 사용합니다. 레이아웃은 12컬럼 그리드와 여유로운 섹션 패딩을 가진 넓은 공간으로 구성됩니다. 장난스럽거나 통통한 미학을 피하고, 날카로운 모서리와 얇고 미세한 테두리를 유지하세요. 다채로운 그라디언트나 라이트 모드 테마를 사용하지 마세요. IBM Plex Mono와 같은 깔끔한 모노스페이스 폰트를 코드 블록에 사용하세요. 전환은 부드럽고 미세하게 하여, 색상과 opacity 변화에 초점을 맞추세요."
     }
   }
 }

@@ -17,44 +17,74 @@
   "_meta": {
     "vision_model": "mimo-v2.5",
     "vision_prompt_version": "0.3",
-    "vision_at": "2026-05-28T21:50:01+00:00",
-    "vision_tokens": 3220,
-    "vision_cost_usd": 0.0358,
+    "vision_at": "2026-05-30T06:50:49+00:00",
+    "vision_tokens": 16662,
+    "vision_cost_usd": 0.1851,
     "translation_model": "mimo-v2.5",
-    "translation_at": "2026-05-28T21:50:48+00:00",
-    "translation_tokens": 14864,
-    "translation_cost_usd": 0.0495,
+    "translation_at": "2026-05-30T06:51:46+00:00",
+    "translation_tokens": 26120,
+    "translation_cost_usd": 0.087,
     "narrative_model": "mimo-v2.5",
     "narrative_prompt_version": "0.3",
     "narrative_at": "2026-05-28T21:50:55+00:00",
     "narrative_tokens": 1882,
     "narrative_cost_usd": 0.0125,
     "narrative_status": "ok",
-    "total_cost_usd": 0.0978
+    "total_cost_usd": 0.2846,
+    "vision_source": "playwright-extract:uber",
+    "vision_grounded": true
   },
   "spec": {
     "colors": {
-      "bg": "#FFFFFF",
-      "bgSoft": null,
-      "bgQuiet": null,
+      "bg": "#ffffff",
+      "bgSoft": "#f3f3f3",
+      "bgQuiet": "#efefef",
       "ink": "#000000",
-      "inkSoft": null,
-      "muted": "#757575",
-      "mutedSoft": null,
+      "inkSoft": "#333333",
+      "muted": "#5e5e5e",
+      "mutedSoft": "#afafaf",
       "accent": null,
-      "line": "rgba(0, 0, 0, 0.1)"
+      "line": "rgba(0,0,0,0.12)"
     },
     "typography": {
       "display": "geometric-sans",
-      "body": "geometric-sans",
+      "body": "humanist-sans",
       "mono": null,
       "scale": [
         {
           "token": "display",
-          "size": 48,
+          "size": 56,
+          "lh": 1.0,
+          "weight": 500,
+          "ls": "-1px"
+        },
+        {
+          "token": "h1",
+          "size": 44,
           "lh": 1.1,
-          "weight": 700,
+          "weight": 500,
           "ls": "-0.5px"
+        },
+        {
+          "token": "h2",
+          "size": 36,
+          "lh": 1.15,
+          "weight": 500,
+          "ls": "0px"
+        },
+        {
+          "token": "body",
+          "size": 16,
+          "lh": 1.5,
+          "weight": 400,
+          "ls": "0px"
+        },
+        {
+          "token": "caption",
+          "size": 14,
+          "lh": 1.4,
+          "weight": 400,
+          "ls": "0px"
         }
       ]
     },
@@ -80,7 +110,7 @@
       }
     },
     "layout": {
-      "container": 1200,
+      "container": 1280,
       "paragraph": 680,
       "columns": 12,
       "gutter": 24,
@@ -91,342 +121,20 @@
     },
     "motion": {
       "durations": {
-        "micro": 200,
-        "small": 300,
-        "medium": 500
+        "micro": 220,
+        "small": 400,
+        "medium": 800
       },
-      "easing": "cubic-bezier(0.25, 0.1, 0.25, 1)"
-    }
-  },
-  "spec_i18n": {
-    "en": {
-      "identity": {
-        "keywords": [
-          "transportation",
-          "mobility",
-          "global",
-          "utility",
-          "accessibility"
-        ],
-        "analogy": "A clean, reliable urban transport network",
-        "oneLiner": "A highly functional, utility-driven interface prioritizing clear booking actions and global brand consistency."
-      },
-      "colors": {
-        "principle": "Strict monochrome utility with high contrast for readability and action."
-      },
-      "typography": {
-        "rules": [],
-        "scaleUses": [
-          "Main hero headline"
-        ]
-      },
-      "spacing": {
-        "rhythm": "Generous vertical spacing between sections to maintain a clean, uncluttered feel."
-      },
-      "surfaces": {
-        "shadows": [],
-        "borders": "Subtle 1px borders for input fields and container separation."
-      },
-      "layout": {
-        "skeleton": "Asymmetric two-column hero layout transitioning to a grid of cards."
-      },
-      "components": {
-        "button": "Black, pill-shaped primary action buttons with white text; secondary buttons use subtle outlines.",
-        "card": "Horizontal layout cards with subtle borders and padding.",
-        "chip": "Outlined pill-shaped elements for selection states.",
-        "input": "Rectangular fields with subtle bottom borders or full borders.",
-        "hero": "Split layout with large typography on the left and a prominent action area on the right."
-      },
-      "interaction": {
-        "hover": "Subtle background changes or underline effects on interactive text links.",
-        "click": "Immediate visual feedback with minimal transition delay.",
-        "transition": "Smooth state changes for form inputs and button interactions.",
-        "keyboard": "Focus states likely follow standard accessibility outlines."
-      },
-      "voice": {
-        "tone": "Direct, helpful, and straightforward",
-        "headlineStyle": "Short, action-oriented, and benefit-driven phrases.",
-        "ctaStyle": "Clear, imperative verbs.",
-        "avoid": [
-          "Unnecessary jargon",
-          "Overly complex sentences",
-          "Abstract marketing fluff"
-        ]
-      },
-      "donts": [
-        "Don't use bright accent colors — screenshot shows a strictly monochrome palette with no dominant high-chroma hue.",
-        "Don't use serif typography — screenshot shows purely geometric sans-serif fonts throughout.",
-        "Don't use heavy drop shadows — screenshot shows flat, borderless, or subtly bordered surfaces.",
-        "Don't clutter the layout with multiple competing actions — screenshot shows a singular focus on the booking form.",
-        "Don't use playful or rounded corner styles excessively — screenshot shows reserved, slightly rounded corners.",
-        "Don't rely on icon-heavy navigation — screenshot shows text-dominant, clear navigation links."
-      ],
-      "systemPrompt": "The Uber homepage is a highly functional, utility-driven interface designed for immediate action. It uses a strict monochrome palette (black #000000, white #FFFFFF, and neutral grays) to prioritize readability and trust. The typography is entirely geometric sans-serif, ensuring clarity across global contexts. Layout is structured with a clear hierarchy, featuring a prominent booking form in the hero section. Critical design constraints: avoid any high-chroma accent colors, avoid serif fonts, avoid heavy drop shadows, keep the layout uncluttered, and maintain direct, action-oriented copy."
-    },
-    "zh-CN": {
-      "identity": {
-        "keywords": [
-          "交通运输",
-          "出行",
-          "全球化",
-          "功能实用",
-          "可及性"
-        ],
-        "analogy": "一个简洁、可靠的城市交通网络",
-        "oneLiner": "一个高度功能化、以实用为驱动的界面，优先考虑清晰的预订操作与全球品牌一致性。"
-      },
-      "colors": {
-        "principle": "严格单色的功能性配色，采用高对比度以保证可读性与操作性。"
-      },
-      "typography": {
-        "rules": [],
-        "scaleUses": [
-          "主首屏标题"
-        ]
-      },
-      "spacing": {
-        "rhythm": "各板块间采用充裕的垂直间距，以保持干净、无杂乱的感觉。"
-      },
-      "surfaces": {
-        "shadows": [],
-        "borders": "采用细微的1px边框，用于输入框与容器分隔。"
-      },
-      "layout": {
-        "skeleton": "不对称双栏首屏布局，过渡至卡片网格。"
-      },
-      "components": {
-        "button": "黑色、药丸形状的主操作按钮，配白色文字；次级按钮采用细微描边样式。",
-        "card": "水平布局的卡片，带有细微边框与内边距。",
-        "chip": "用于选择状态的描边药丸形状元素。",
-        "input": "带有细微底部边框或完整边框的矩形输入框。",
-        "hero": "分栏布局，左侧为大字号排版，右侧为突出操作区域。"
-      },
-      "interaction": {
-        "hover": "交互式文本链接的背景细微变化或下划线效果。",
-        "click": "最小的过渡延迟，提供即时视觉反馈。",
-        "transition": "表单输入与按钮交互的平滑状态变化。",
-        "keyboard": "焦点状态可能遵循标准可访问性轮廓。"
-      },
-      "voice": {
-        "tone": "直接、有益、直截了当",
-        "headlineStyle": "简短、以行动为导向、以利益为驱动的短语。",
-        "ctaStyle": "清晰、祈使句式的动词。",
-        "avoid": [
-          "不必要的术语",
-          "过于复杂的句子",
-          "抽象的营销辞令"
-        ]
-      },
-      "donts": [
-        "不要使用亮色系强调色——截图显示为严格单色色板，无主导性高饱和度色调。",
-        "不要使用衬线字体——截图显示全部为几何无衬线字体。",
-        "不要使用厚重的投影——截图显示为扁平、无边框或细微边框的表面。",
-        "不要让布局充斥多个竞争性操作——截图显示聚焦于单一预订表单。",
-        "不要过度使用俏皮或大圆角风格——截图显示为克制、略带圆角的处理。",
-        "不要依赖图标密集的导航——截图显示为以文字为主、清晰的导航链接。"
-      ],
-      "systemPrompt": "Uber 主页是一个高度功能化、以实用为驱动的界面，旨在实现即时操作。它采用严格的单色色板（黑色 #000000、白色 #FFFFFF 及中性灰），优先保证可读性与信任感。字体全部采用几何无衬线体，确保全球语境下的清晰度。布局结构清晰，层次分明，首屏区域突出预订表单。关键设计约束：避免任何高饱和度的强调色，避免使用衬线字体，避免厚重投影，保持布局简洁无杂乱，并维持直接、以行动为导向的文案。"
-    },
-    "zh-TW": {
-      "identity": {
-        "keywords": [
-          "交通運輸",
-          "移動出行",
-          "全球性",
-          "實用功能",
-          "可及性"
-        ],
-        "analogy": "一個整潔可靠的城市交通網絡",
-        "oneLiner": "一個高度實用、功能導向的介面，優先考慮清晰的預訂操作與全球品牌一致性。"
-      },
-      "colors": {
-        "principle": "嚴格的單色系實用風格，以高對比度確保可讀性與操作性。"
-      },
-      "typography": {
-        "rules": [],
-        "scaleUses": [
-          "主標題標語"
-        ]
-      },
-      "spacing": {
-        "rhythm": "區塊間採用寬裕的垂直間距，以維持整潔、無雜亂的視覺感受。"
-      },
-      "surfaces": {
-        "shadows": [],
-        "borders": "運用細微的 1px 邊框區隔輸入欄位與容器。"
-      },
-      "layout": {
-        "skeleton": "不對稱雙欄主視覺佈局，過渡至卡片網格。"
-      },
-      "components": {
-        "button": "黑色、藥丸造型的主操作按鈕，配白色文字；次按鈕使用細微邊框輪廓。",
-        "card": "水平佈局卡片，帶有細微邊框與內邊距。",
-        "chip": "藥丸造型的邊框元素，用於表示選擇狀態。",
-        "input": "矩形輸入欄位，採用細微的底部邊框或完整邊框。",
-        "hero": "分割式佈局，左側為大型字體標題，右側為突出的操作區域。"
-      },
-      "interaction": {
-        "hover": "互動文字連結上的細微背景變化或底線效果。",
-        "click": "帶有最小轉場延遲的即時視覺反饋。",
-        "transition": "表單輸入與按鈕互動的平滑狀態變換。",
-        "keyboard": "焦點狀態可能遵循標準的無障礙設計輪廓。"
-      },
-      "voice": {
-        "tone": "直接、有幫助且簡潔明瞭",
-        "headlineStyle": "簡短、以行動為導向且強調效益的語句。",
-        "ctaStyle": "清晰、祈使句式的動詞。",
-        "avoid": [
-          "不必要的專業術語",
-          "過於複雜的句子",
-          "抽象的行銷用語"
-        ]
-      },
-      "donts": [
-        "勿使用明亮的強調色 — 螢幕截圖顯示嚴格的單色調色板，無任何高彩度主色。",
-        "勿使用襯線字體 — 螢幕截圖顯示通篇使用純幾何無襯線字體。",
-        "勿使用厚重的陰影效果 — 螢幕截圖顯示平面化、無邊框或僅帶細微邊框的表面。",
-        "勿讓佈局充斥多個互相競爭的操作按鈕 — 螢幕截圖顯示其焦點完全集中於預訂表單。",
-        "勿過度使用活潑或圓角造型 — 螢幕截圖顯示採用保守、略帶圓角的設計。",
-        "勿依賴圖標為主的導航方式 — 螢幕截圖顯示以文字為主、清晰明確的導航連結。"
-      ],
-      "systemPrompt": "Uber 主頁是一個高度實用、功能導向的介面，專為立即行動而設計。它採用嚴格的單色調色板（黑色 #000000、白色 #FFFFFF 及中性灰色）來優先考慮可讀性與信任感。字體完全使用幾何無襯線字體，確保在全球語境下的清晰度。佈局結構清晰，具有明確的層級，並在主視覺區域放置了顯眼的預訂表單。關鍵設計限制：避免任何高彩度的強調色，避免使用襯線字體，避免厚重的陰影，保持佈局整潔，並維持直接、以行動為導向的文案風格。"
-    },
-    "ja": {
-      "identity": {
-        "keywords": [
-          "交通",
-          "モビリティ",
-          "グローバル",
-          "実用性",
-          "アクセシビリティ"
-        ],
-        "analogy": "クリーンで信頼性の高い都市交通ネットワーク",
-        "oneLiner": "明確な予約アクションとグローバルブランドの一貫性を優先した、高機能で実用性を重視したインターフェースです。"
-      },
-      "colors": {
-        "principle": "読みやすさとアクションのためのハイコントラストを重視した、厳格なモノクロの実用パレットです。"
-      },
-      "typography": {
-        "rules": [],
-        "scaleUses": [
-          "メインヒーローヘッドライン"
-        ]
-      },
-      "spacing": {
-        "rhythm": "クリーンで無駄のない印象を保つため、セクション間に十分な垂直スペーシングを設けます。"
-      },
-      "surfaces": {
-        "shadows": [],
-        "borders": "入力フィールドとコンテナの区切りに、繊細な1pxボーダーを適用します。"
-      },
-      "layout": {
-        "skeleton": "非対称2カラムヒーローレイアウトからカードグリッドへと展開します。"
-      },
-      "components": {
-        "button": "黒色のピル型メインアクションボタン（白文字）。セカンダリボタンは繊細なアウトラインを使用します。",
-        "card": "繊細なボーダーとパディングを持つ水平レイアウトのカードです。",
-        "chip": "選択状態のためのアウトライン付きピル型要素です。",
-        "input": "底辺に繊細なボーダーがある、またはフルボーダーの矩形フィールドです。",
-        "hero": "左側に大きなタイポグラフィ、右側に目立つアクションエリアを持つ分割レイアウトです。"
-      },
-      "interaction": {
-        "hover": "インタラクティブなテキストリンクに対する、繊細な背景変化やアンダーライン効果です。",
-        "click": "最小限のトランジション遅延で、即座に視覚的フィードバックを提供します。",
-        "transition": "フォーム入力やボタンインタラクションに対する、スムーズな状態変化です。",
-        "keyboard": "フォーカス状態は、標準的なアクセシビリティアウトラインに従う可能性が高いです。"
-      },
-      "voice": {
-        "tone": "直接的、親切、率直",
-        "headlineStyle": "短く、アクション指向で、メリットを重視したフレーズ。",
-        "ctaStyle": "明確で命令的な動詞。",
-        "avoid": [
-          "不必要な専門用語",
-          "過度に複雑な文",
-          "抽象的なマーケティング表現"
-        ]
-      },
-      "donts": [
-        "明るいアクセントカラーを使用しないこと — スクリーンショットは、支配的な高クロマ色を持たない厳格なモノクロパレットを示しています。",
-        "セリフ体タイポグラフィを使用しないこと — スクリーンショットは全体的に純粋なジオメトリックサンセリフフォントを示しています。",
-        "重いドロップシャドウを使用しないこと — スクリーンショットは、フラットでボーダーレス、または繊細なボーダーを持つサーフェスを示しています。",
-        "レイアウトを複数の競合するアクションで雑然とさせないこと — スクリーンショットは予約フォームに単一の焦点を当てています。",
-        "遊び心のある、または過度に丸みのあるコーナースタイルを使用しないこと — スクリーンショットは控えめで、わずかに丸みのあるコーナーを示しています。",
-        "アイコン多めのナビゲーションに依存しないこと — スクリーンショットは、テキスト優先で明確なナビゲーションリンクを示しています。"
-      ],
-      "systemPrompt": "Uberのホームページは、即座のアクションのために設計された、高機能で実用性を重視したインターフェースです。読みやすさと信頼性を優先するため、厳格なモノクロパレット（黒#000000、白#FFFFFF、ニュートラルグレー）を使用しています。タイポグラフィは完全にジオメトリックサンセリフで、グローバルな文脈においても明確さを確保しています。レイアウトは明確な階層構造で構成され、ヒーローセクションに目立つ予約フォームを備えています。重要な設計上の制約：高クロマのアクセントカラーは一切使用しない、セリフ体フォントは使用しない、重いドロップシャドウは使用しない、レイアウトを雑然とさせない、直接的でアクション指向のコピーを維持すること。"
-    },
-    "ko": {
-      "identity": {
-        "keywords": [
-          "교통",
-          "이동성",
-          "글로벌",
-          "기능성",
-          "접근성"
-        ],
-        "analogy": "깔끔하고 믿을 수 있는 도시 교통 네트워크",
-        "oneLiner": "명확한 예약 동작과 글로벌 브랜드 일관성을 우선시하는, 기능성 중심의 고기능 인터페이스입니다."
-      },
-      "colors": {
-        "principle": "가독성과 행동을 위한 고대비의 엄격한 단색 기능 팔레트입니다."
-      },
-      "typography": {
-        "rules": [],
-        "scaleUses": [
-          "메인 히어로 헤드라인"
-        ]
-      },
-      "spacing": {
-        "rhythm": "섹션 간 넉넉한 수직 간격을 두어 깔끔하고 정돈된 느낌을 유지합니다."
-      },
-      "surfaces": {
-        "shadows": [],
-        "borders": "입력 필드와 컨테이너 분리를 위한 섬세한 1px 테두리입니다."
-      },
-      "layout": {
-        "skeleton": "비대칭 2단 히어로 레이아웃이 카드 그리드로 전환됩니다."
-      },
-      "components": {
-        "button": "흰색 텍스트를 사용한 검정색 알약 모양의 주요 동작 버튼; 보조 버튼은 섬세한 윤곽선을 사용합니다.",
-        "card": "섬세한 테두리와 패딩을 가진 수평 레이아웃 카드입니다.",
-        "chip": "선택 상태를 위한 윤곽선 알약 모양 요소입니다.",
-        "input": "섬세한 하단 테두리 또는 전체 테두리를 사용하는 직사각형 필드입니다.",
-        "hero": "왼쪽의 큰 타이포그래피와 오른쪽의 두드러진 동작 영역을 가진 분할 레이아웃입니다."
-      },
-      "interaction": {
-        "hover": "상호작용 가능한 텍스트 링크에 대한 섬세한 배경 변화 또는 밑줄 효과입니다.",
-        "click": "최소한의 전환 지연으로 즉각적인 시각적 피드백을 제공합니다.",
-        "transition": "포스트 입력과 버튼 상호작용을 위한 부드러운 상태 변화입니다.",
-        "keyboard": "포커스 상태는 일반적으로 표준 접근성 윤곽선을 따릅니다."
-      },
-      "voice": {
-        "tone": "직설적이고 도움이 되며 간결합니다.",
-        "headlineStyle": "짧고, 행동 지향적이며, 이점이 강조된 문구입니다.",
-        "ctaStyle": "명확하고 명령형 동사를 사용합니다.",
-        "avoid": [
-          "불필요한 전문 용어",
-          "지나치게 복잡한 문장",
-          "추상적인 마케팅 문구"
-        ]
-      },
-      "donts": [
-        "밝은 강조 색상을 사용하지 마세요 — 스크린샷은 지배적인 고채도 색상 없이 엄격한 단색 팔레트를 보여줍니다.",
-        "세리프 타이포그래피를 사용하지 마세요 — 스크린샷은 전체적으로 순수한 기하학적 산세리프 폰트를 보여줍니다.",
-        "무거운 드롭 섀도우를 사용하지 마세요 — 스크린샷은 플랫하거나, 테두리가 없거나, 테두리가 섬세한 표면을 보여줍니다.",
-        "여러 경쟁 동작으로 레이아웃을 복잡하게 하지 마세요 — 스크린샷은 예약 폼에 대한 단일한 집중을 보여줍니다.",
-        "가볍거나 둥근 모서리 스타일을 과도하게 사용하지 마세요 — 스크린샷은 절제되고 약간 둥근 모서리를 보여줍니다.",
-        "아이콘 중심의 탐색에 의존하지 마세요 — 스크린샷은 텍스트 중심의 명확한 탐색 링크를 보여줍니다."
-      ],
-      "systemPrompt": "Uber 홈페이지는 즉각적인 동작을 위해 설계된, 기능성 중심의 고기능 인터페이스입니다. 가독성과 신뢰성을 위해 검정(#000000), 흰색(#FFFFFF), 중성 그레이로 구성된 엄격한 단색 팔레트를 사용합니다. 타이포그래피는 글로벌 환경 전반에 걸쳐 명확성을 보장하기 위해 순전히 기하학적 산세리프입니다. 레이아웃은 명확한 계층 구조로 구성되어 있으며, 히어로 섹션에 두드러진 예약 폼이 특징입니다. 핵심 디자인 제약 조건: 높은 채도의 강조 색상 사용 금지, 세리프 폰트 사용 금지, 무거운 드롭 섀도우 사용 금지, 레이아웃을 정돈되게 유지, 직설적이고 행동 지향적인 카피 유지."
+      "easing": "cubic-bezier(0.22, 1, 0.36, 1)"
     }
   },
   "desc": {
     "en": {
-      "palette": "Strict monochrome palette utilizing high-contrast black and white with neutral grays for a utility-focused aesthetic.",
-      "layout": "Clean, asymmetric two-column hero layout transitioning into a structured grid of feature cards.",
-      "interaction": "Minimalist interactions focused on clear, immediate feedback for form inputs and primary booking actions.",
-      "motion": "Subtle, efficient transitions designed to support the utility of the interface without drawing attention to itself.",
-      "notes": "A prime example of a global, high-traffic utility interface where clarity, trust, and speed of action are the absolute priorities."
+      "palette": "A strict high-contrast monochrome palette dominated by black, white, and functional grays, creating a clean and professional aesthetic.",
+      "layout": "A spacious, two-column hero layout with a clear functional form on the left and supporting imagery on the right, transitioning to a clean grid for service exploration.",
+      "interaction": "Smooth, subtle transitions on interactive elements like buttons and links, providing clear feedback without being distracting.",
+      "motion": "Minimal and functional motion, focusing on smooth fades and background transitions to maintain a professional feel.",
+      "notes": "Worth including as a prime example of a high-utility consumer platform that achieves premium feel through strict restraint, bold typography, and a monochrome palette."
     },
     "zh-CN": {
       "palette": "采用高对比度黑白与中性灰的严格单色色板，营造功能至上的美学。",
@@ -517,6 +225,418 @@
       "ch7_intro": "모션은 표현보다 효율성을 위해 설계된 미묘한 지원 역할입니다. 전환은 부드럽고 일관된 이징 곡선을 사용해 상태를 원활하게 연결하며, 인터페이스가 성능 과시 없이 반응적 느낌을 유지하도록 합니다.",
       "ch8_intro": "에디토리얼 음성은 직접적이고 유용하며 불필요한 전문 용어가 배제되어 있습니다. 모든 헤드라인과 행동 유도 문구는 명확한 결과를 향해 사용자를 추진하도록 설계된 짧고 명령적인 구절입니다.",
       "ch8_outro": "이 시스템은 유틸리티와 신뢰라는 핵심 약속을 유지하기 위해 고채도 악센트, 세리프 타이포그래피, 장식적 과잉을 의도적으로 피합니다."
+    }
+  },
+  "spec_i18n": {
+    "en": {
+      "identity": {
+        "keywords": [
+          "mobility",
+          "transportation",
+          "service",
+          "global",
+          "logistics"
+        ],
+        "analogy": "A sleek, efficient airport terminal — clean, functional, and easy to navigate.",
+        "oneLiner": "A high-utility consumer transportation platform that balances premium minimalism with bold typographic clarity."
+      },
+      "colors": {
+        "principle": "High-contrast monochrome foundation with functional grays for depth and hierarchy."
+      },
+      "typography": {
+        "rules": [
+          "Headlines use a geometric sans-serif with tight letter-spacing for a bold, modern feel.",
+          "Body text uses a humanist sans-serif for maximum readability across devices.",
+          "Maintain a clear weight hierarchy: 500 for headlines, 400 for body text.",
+          "Avoid decorative or script fonts to preserve the platform's functional identity."
+        ],
+        "scaleUses": [
+          "Hero headline 'Go anywhere with Uber'",
+          "Section headlines 'Explore what you can do with Uber'",
+          "Subsection headlines 'The Uber you know, reimagined for business'",
+          "General paragraph text and UI labels",
+          "Secondary text and supporting details"
+        ]
+      },
+      "spacing": {
+        "rhythm": "Consistent 4px base unit ensures visual harmony and predictable component sizing."
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(0,0,0,0.16) 0px 2px 8px 0px"
+        ],
+        "borders": "Subtle 1px solid lines in light gray (#efefef) for input fields and dividers."
+      },
+      "layout": {
+        "skeleton": "A two-column hero layout with a prominent form on the left and illustrative imagery on the right."
+      },
+      "components": {
+        "button": "Pill-shaped and rectangular buttons with solid black or white backgrounds and high-contrast text.",
+        "card": "Clean white cards with subtle borders or shadows, used for service exploration.",
+        "chip": "Minimal use of chips, primarily for location indicators with a pill shape.",
+        "input": "Clean text fields with rounded corners, subtle borders, and placeholder text.",
+        "hero": "Full-width hero section with a large headline, functional form, and supporting illustration."
+      },
+      "motion": {
+        "patterns": [
+          "Smooth background transitions for interactive elements.",
+          "Subtle scaling and color shifts on hover states.",
+          "Clean fade-ins for modal and overlay content."
+        ]
+      },
+      "interaction": {
+        "hover": "Subtle background-color shifts or opacity changes to indicate interactivity.",
+        "click": "Immediate visual feedback with background-color transitions.",
+        "transition": "All interactive elements use smooth 0.2s transitions for a polished feel.",
+        "keyboard": "Standard focus states with clear outlines for accessibility."
+      },
+      "voice": {
+        "tone": "Confident, helpful, and straightforward, emphasizing ease and global reach.",
+        "headlineStyle": "Bold, action-oriented statements that clearly communicate the platform's value.",
+        "ctaStyle": "Direct and imperative, using clear verbs like 'Get started', 'See prices', or 'Sign up'.",
+        "avoid": [
+          "Avoid overly technical jargon or complex metaphors.",
+          "Avoid aggressive or overly casual language.",
+          "Avoid excessive use of exclamation points or superlatives."
+        ]
+      },
+      "donts": [
+        "Don't use multiple accent colors — screenshot shows a strict black, white, and gray palette.",
+        "Don't use decorative or script fonts — screenshot shows clean, geometric and humanist sans-serifs.",
+        "Don't use heavy drop shadows — screenshot shows subtle, soft shadows for depth.",
+        "Don't use complex gradients — screenshot shows solid color fills and simple background images.",
+        "Don't use cramped layouts — screenshot shows generous whitespace and clear section separation.",
+        "Don't use playful or rounded UI elements — screenshot shows functional, slightly rounded but professional components."
+      ],
+      "systemPrompt": "This is Uber's consumer-facing web platform, positioned as a high-utility, global transportation service. The design DNA is built on a high-contrast monochrome palette (#000000, #ffffff, #f3f3f3) with clean, functional grays. Typography relies on a geometric sans-serif for bold headlines (weight 500) and a humanist sans-serif for readable body text (weight 400). Critical donts: never use multiple accent colors (the palette is strictly monochrome), avoid decorative fonts (the system uses clean, professional sans-serifs), and never use heavy shadows or complex gradients (the design favors subtle depth and solid fills). The layout is a clean, two-column hero with a prominent functional form, emphasizing utility and ease of use."
+    },
+    "zh-CN": {
+      "identity": {
+        "keywords": [
+          "出行",
+          "交通",
+          "服务",
+          "全球化",
+          "物流"
+        ],
+        "analogy": "一个简洁高效的机场航站楼——干净、功能性强、易于导航。",
+        "oneLiner": "一个高实用性的消费者出行平台，在高端极简主义与大胆的排版清晰度之间取得平衡。"
+      },
+      "colors": {
+        "principle": "以高对比度的黑白单色为基础，辅以功能性的灰色以构建层次感和视觉深度。"
+      },
+      "typography": {
+        "rules": [
+          "标题使用几何无衬线字体，字间距紧密，营造大胆、现代的视觉感受。",
+          "正文使用人文主义无衬线字体，确保在各种设备上都具有最佳可读性。",
+          "保持清晰的字重层级：标题使用 500，正文使用 400。",
+          "避免使用装饰性或手写体字体，以保持平台的功能性定位。"
+        ],
+        "scaleUses": [
+          "主标题 '与 Uber 同行，畅达各地'",
+          "板块标题 '探索您可用 Uber 做的一切'",
+          "子标题 '您所熟知的 Uber，为商业重新构想'",
+          "通用段落文本和 UI 标签",
+          "次要文本和辅助信息"
+        ]
+      },
+      "spacing": {
+        "rhythm": "一致的 4px 基础单位，确保视觉和谐与组件尺寸的可预测性。"
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(0,0,0,0.16) 0px 2px 8px 0px"
+        ],
+        "border": "输入框和分隔线使用浅灰色 (#efefef) 的 1px 细实线边框，保持细微感。"
+      },
+      "layout": {
+        "skeleton": "采用双栏主布局，左侧为突出的表单，右侧为说明性图像。"
+      },
+      "components": {
+        "button": "胶囊形和矩形按钮，采用纯黑或纯白背景，搭配高对比度文本。",
+        "card": "简洁的白色卡片，带有细微边框或阴影，用于服务探索。",
+        "chip": "最小化使用标签，主要用于位置指示，采用胶囊形状。",
+        "input": "简洁的文本输入框，圆角、细微边框和占位符文本。",
+        "hero": "全宽主区域，包含大标题、功能性表单和辅助插图。"
+      },
+      "motion": {
+        "patterns": [
+          "交互元素使用平滑的背景过渡效果。",
+          "悬停状态下的细微缩放和色彩变化。",
+          "模态窗口和覆盖层内容采用干净的淡入效果。"
+        ]
+      },
+      "interaction": {
+        "hover": "通过细微的背景色变化或透明度改变来指示可交互性。",
+        "click": "通过背景色过渡提供即时的视觉反馈。",
+        "transition": "所有交互元素使用平滑的 0.2 秒过渡，营造精致感。",
+        "keyboard": "采用标准的焦点状态，并配以清晰的轮廓以保证可访问性。"
+      },
+      "voice": {
+        "tone": "自信、乐于助人且直截了当，强调便捷性和全球覆盖。",
+        "headlineStyle": "大胆、以行动为导向的陈述，清晰传达平台价值。",
+        "ctaStyle": "直接且具指令性，使用明确的动词，如'立即开始'、'查看价格'或'注册'。",
+        "avoid": [
+          "避免使用过于技术性的术语或复杂的比喻。",
+          "避免使用攻击性或过于随意的语言。",
+          "避免过度使用感叹号或最高级形容词。"
+        ]
+      },
+      "donts": [
+        "不要使用多种强调色——截图显示采用严格的黑、白、灰色板。",
+        "不要使用装饰性或手写体字体——截图显示使用干净的几何和人文主义无衬线字体。",
+        "不要使用厚重的投影——截图显示使用细微、柔和的阴影来体现深度。",
+        "不要使用复杂的渐变——截图显示使用纯色填充和简洁的背景图像。",
+        "不要使用拥挤的布局——截图显示拥有充足的留白和清晰的板块分隔。",
+        "不要使用俏皮或过于圆润的 UI 元素——截图显示使用功能性、略带圆润但专业的组件。"
+      ],
+      "systemPrompt": "这是 Uber 面向消费者的网络平台，定位为一个高实用性、全球化的出行服务。其设计基因基于高对比度的单色板（#000000, #ffffff, #f3f3f3），并辅以干净、功能性的灰色。排版上，几何无衬线字体用于大胆的标题（字重 500），人文主义无衬线字体用于易读的正文（字重 400）。关键禁忌：绝不使用多种强调色（色板严格为单色系），避免装饰性字体（系统使用干净、专业的无衬线字体），绝不使用厚重的阴影或复杂的渐变（设计偏好细微的深度和纯色填充）。布局为简洁的双栏主区域，突出功能性表单，强调实用性和易用性。"
+    },
+    "zh-TW": {
+      "identity": {
+        "keywords": [
+          "行動性",
+          "交通運輸",
+          "服務",
+          "全球化",
+          "物流"
+        ],
+        "analogy": "一個流暢、高效的機場航廈——簡潔、實用，且易於導覽。",
+        "oneLiner": "一個高實用性的消費者交通運輸平台，在頂級的極簡主義與大膽的排版清晰度之間取得平衡。"
+      },
+      "colors": {
+        "principle": "以高對比單色調為基礎，搭配功能性灰色，以創造深度與層次。"
+      },
+      "typography": {
+        "rules": [
+          "標題使用幾何無襯線字體，並採用緊湊的字距，營造大膽、現代的感受。",
+          "內文使用人文無襯線字體，以在不同裝置上達到最佳可讀性。",
+          "維持清晰的字重層次：標題為 500，內文為 400。",
+          "避免使用裝飾性或手寫體字體，以維持平台的功能性形象。"
+        ],
+        "scaleUses": [
+          "主標題「隨處暢行」",
+          "章節標題「探索 Uber 的更多可能」",
+          "次章節標題「熟悉的 Uber，為商務重新打造」",
+          "一般段落文字與 UI 標籤",
+          "次要文字與補充說明"
+        ]
+      },
+      "spacing": {
+        "rhythm": "一致的 4px 基礎單位，確保視覺和諧與組件尺寸的可預測性。"
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(0,0,0,0.16) 0px 2px 8px 0px"
+        ],
+        "borders": "輸入欄位與分隔線使用淺灰色（#efefef）的細緻 1px 實線。"
+      },
+      "layout": {
+        "skeleton": "雙欄式主視覺佈局，左側為醒目的表單，右側為輔助性的圖片。"
+      },
+      "components": {
+        "button": "膠囊形與矩形按鈕，採用實心黑色或白色背景，並搭配高對比文字。",
+        "card": "簡潔的白色卡片，帶有細緻邊框或陰影，用於服務探索。",
+        "chip": "最小限度使用，主要為膠囊形的位置指示器。",
+        "input": "簡潔的文字輸入欄位，帶有圓角、細緻邊框與佔位文字。",
+        "hero": "全寬主視覺區塊，包含大型標題、功能性表單與輔助插圖。"
+      },
+      "motion": {
+        "patterns": [
+          "互動元素的平滑背景過渡效果。",
+          "hover 狀態下細微的縮放與色彩變化。",
+          "模態視窗與覆蓋內容的簡潔淡入效果。"
+        ]
+      },
+      "interaction": {
+        "hover": "透過細微的背景色或透明度變化，提示可互動性。",
+        "click": "透過背景色過渡效果，提供即時的視覺回饋。",
+        "transition": "所有互動元素皆使用 0.2 秒的平滑過渡，營造精緻的感受。",
+        "keyboard": "標準的 focus 狀態，並以清晰的外框確保無障礙訪問。"
+      },
+      "voice": {
+        "tone": "自信、樂於助人且直截了當，強調易用性與全球覆蓋力。",
+        "headlineStyle": "大膽、以行動為導向的陳述，清晰傳達平台的價值。",
+        "ctaStyle": "直接且帶有指令性，使用清晰的動詞，例如「立即開始」、「查看價格」或「註冊」。",
+        "avoid": [
+          "避免使用過於技術性的術語或複雜的比喻。",
+          "避免使用具侵略性或過於隨意的語言。",
+          "避免濫用驚嘆號或最高級形容詞。"
+        ]
+      },
+      "donts": [
+        "勿使用多種強調色——截圖顯示其採用嚴格的黑、白、灰色調。",
+        "勿使用裝飾性或手寫體字體——截圖顯示其使用簡潔的幾何與人文無襯線字體。",
+        "勿使用厚重的陰影——截圖顯示其使用細緻、柔和的陰影來創造深度。",
+        "勿使用複雜的漸層——截圖顯示其使用實色填滿與簡單的背景圖片。",
+        "勿使用擁擠的佈局——截圖顯示其使用寬裕的留白與清晰的段落分隔。",
+        "勿使用俏皮或過於圓潤的 UI 元素——截圖顯示其使用功能性、微圓但專業的組件。"
+      ],
+      "systemPrompt": "這是 Uber 面向消費者的網路平台，定位為高實用性的全球交通運輸服務。其設計 DNA 建立在高對比的單色調色盤（#000000、#ffffff、#f3f3f3）上，並搭配簡潔、功能性的灰色。字體方面，標題使用幾何無襯線字體（字重 500），內文使用人文無襯線字體（字重 400）以確保可讀性。關鍵禁忌：絕對不要使用多種強調色（色調盤嚴格採用單色調），避免使用裝飾性字體（系統使用簡潔、專業的無襯線字體），且絕對不要使用厚重的陰影或複雜的漸層（設計偏好細微的深度與實色填滿）。佈局為簡潔的雙欄式主視覺，配有顯著的功能性表單，強調實用性與易用性。"
+    },
+    "ja": {
+      "identity": {
+        "keywords": [
+          "モビリティ",
+          "交通",
+          "サービス",
+          "グローバル",
+          "ロジスティクス"
+        ],
+        "analogy": "洗練され効率的な空港ターミナル — クリーンで機能的、かつ容易にナビゲーションできる空間。",
+        "oneLiner": "プレミアムなミニマリズムと大胆なタイポグラフィック・クラリティのバランスを保つ、高機能な消費者向け交通プラットフォーム。"
+      },
+      "colors": {
+        "principle": "深度と階層を表現するための機能的なグレーを用いた、ハイコントラストのモノクローム基盤。"
+      },
+      "typography": {
+        "rules": [
+          "見出しには幾何学的なサンセリフを使用し、 tighteningされた文字間隔で大胆でモダンな印象を創出。",
+          "本文テキストにはヒューマニスト・サンセリフを使用し、あらゆるデバイスで最大限の可読性を実現。",
+          "明確なウェイト階層を維持：見出しは500、本文は400。",
+          "装飾的あるいはスクリプト系のフォントは使用せず、プラットフォームの機能的なアイデンティティを保持。"
+        ],
+        "scaleUses": [
+          "ヒーロー見出し「どこへでもGo」",
+          "セクション見出し「Uberでできることを探そう」",
+          "サブセクション見出し「知っているUberを、ビジネスのために再構築」",
+          "一般的な段落テキストとUIラベル",
+          "補助テキストと詳細情報"
+        ]
+      },
+      "spacing": {
+        "rhythm": "一貫した4pxの基本単位により、ビジュアルの調和とコンポーネントの予測可能なサイズ指定を実現。"
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(0,0,0,0.16) 0px 2px 8px 0px"
+        ],
+        "border": "入力フィールドや区切り線には、薄いグレー（#efefef）の精妙な1px実線を使用。"
+      },
+      "layout": {
+        "skeleton": "左側に主要なフォーム、右側に説明的なイメージを配置した2カラムのヒーローレイアウト。"
+      },
+      "components": {
+        "button": "黒または白の単色背景にハイコントラストテキストを用いた、ピル型および長方形のボタン。",
+        "card": "サービスの探索に使用され、精妙なボーダーまたはシャドウを持つクリーンな白いカード。",
+        "chip": "ピル型で主に場所インジケーターとして、最小限に使用。",
+        "input": "角丸、精妙なボーダー、およびプレースホルダーテキストを持つクリーンなテキストフィールド。",
+        "hero": "大きな見出し、機能的なフォーム、および補足のイラストを含む、フルワイドのヒーローセクション。"
+      },
+      "motion": {
+        "patterns": [
+          "インタラクティブ要素のスムーズな背景遷移。",
+          "hover状態における精妙なスケーリングとカラー変化。",
+          "モーダルおよびオーバーレイコンテンツのクリーンなフェードイン。"
+        ]
+      },
+      "interaction": {
+        "hover": "インタラクティブ性を示すための、精妙な背景色の変化や不透明度の変更。",
+        "click": "背景色の遷移による即時的なビジュアルフィードバック。",
+        "transition": "すべてのインタラクティブ要素に、洗練された印象のためのスムーズな0.2秒の遷移を使用。",
+        "keyboard": "アクセシビリティのための明確なアウトラインを持つ標準的なfocus状態。"
+      },
+      "voice": {
+        "tone": "自信に満ち、親切で率直。利便性とグローバルな到達範囲を強調。",
+        "headlineStyle": "プラットフォームの価値を明確に伝える、大胆で行動を促すステートメント。",
+        "ctaStyle": "「Get started」「See prices」「Sign up」のような明確な動詞を用いた、直接的で命令形のスタイル。",
+        "avoid": [
+          "過度に技術的な専門用語や複雑な比喩表現を避ける。",
+          "攻撃的あるいは無礼な言語を避ける。",
+          "感嘆符や最上級の表現の多用を避ける。"
+        ]
+      },
+      "donts": [
+        "アクセントカラーを複数使用しない — スクリーンショットは厳格な黒、白、グレーのパレットを示している。",
+        "装飾的またはスクリプト系フォントを使用しない — スクリーンショットはクリーンで幾何学的、およびヒューマニスト・サンセリフを示している。",
+        "重いドロップシャドウを使用しない — スクリーンショットは深度を表現する精妙で柔らかいシャドウを示している。",
+        "複雑なグラデーションを使用しない — スクリーンショットは単色の塗りつぶしとシンプルな背景画像を示している。",
+        "狭苦しいレイアウトを使用しない — スクリーンショットは適切な余白と明確なセクション区切りを示している。",
+        "遊び心のあるあるいは過度に丸みのあるUI要素を使用しない — スクリーンショットは機能的で、わずかに丸みを持ちながらもプロフェッショナルなコンポーネントを示している。"
+      ],
+      "systemPrompt": "これはUberの消費者向けウェブプラットフォームであり、高機能なグローバル交通サービスとして位置づけられている。デザインDNAは、ハイコントラストのモノクロームパレット（#000000、#ffffff、#f3f3f3）とクリーンで機能的なグレーに基づいている。タイポグラフィは、太字の見出し（ウェイト500）に幾何学的なサンセリフ、可読性の高い本文テキスト（ウェイト400）にヒューマニスト・サンセリフを採用。重要な禁止事項：アクセントカラーを複数使用することは絶対に不可（パレットは厳格にモノクローム）、装飾的フォントは避ける（システムはクリーンでプロフェッショナルなサンセリフを使用）、重いシャドウや複雑なグラデーションは使用しない（デザインは精妙な深度と単色の塗りつぶしを好む）。レイアウトは、機能性と利便性を強調した、主要な機能的なフォームを持つクリーンな2カラムのヒーロー構成。"
+    },
+    "ko": {
+      "identity": {
+        "keywords": [
+          "이동성",
+          "교통",
+          "서비스",
+          "글로벌",
+          "물류"
+        ],
+        "analogy": "세련되고 효율적인 공항 터미널 — 깨끗하고 기능적이며 탐색이 용이합니다.",
+        "oneLiner": "프리미엄 미니멀리즘과 대담한 타이포그래피 명확성을 균형 있게 결합한 고기능 소비자 교통 플랫폼."
+      },
+      "colors": {
+        "principle": "높은 대비의 모노크롬 기반에 기능적인 그레이를 사용하여 깊이감과 계층 구조를 만듭니다."
+      },
+      "typography": {
+        "rules": [
+          "헤드라인은 빡빡한 자간의 기하학적 sans-serif를 사용하여 대담하고 현대적인 느낌을 줍니다.",
+          "본문 텍스트는 모든 기기에서 최대의 가독성을 위해 humanist sans-serif를 사용합니다.",
+          "명확한 두께 계층을 유지합니다: 헤드라인 500, 본문 텍스트 400.",
+          "플랫폼의 기능적 정체성을 유지하기 위해 장식적 또는 필기체 글꼴은 사용하지 않습니다."
+        ],
+        "scaleUses": [
+          "히어로 헤드라인 '어디든 이동하세요'",
+          "섹션 헤드라인 'Uber로 할 수 있는 일을 둘러보세요'",
+          "하위 섹션 헤드라인 '비즈니스를 위해 재구성된, 익숙한 Uber'",
+          "일반 단락 텍스트 및 UI 레이블",
+          "보조 텍스트 및 지원 세부 사항"
+        ]
+      },
+      "spacing": {
+        "rhythm": "일관된 4px 기본 단위는 시각적 조화와 예측 가능한 컴포넌트 크기를 보장합니다."
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(0,0,0,0.16) 0px 2px 8px 0px"
+        ],
+        "borders": "입력 필드와 구분선을 위한 미세한 1px solid 라인(밝은 회색 #efefef)을 사용합니다."
+      },
+      "layout": {
+        "skeleton": "왼쪽에 눈에 띄는 폼, 오른쪽에 일러스트레이션이 있는 2단 히어로 레이아웃."
+      },
+      "components": {
+        "button": "검정 또는 흰색 배경의 높은 대비 텍스트를 가진 약병 형태와 직사각형 버튼.",
+        "card": "서비스 탐색에 사용되는 미세한 테두리 또는 그림자가 있는 깨끗한 흰색 카드.",
+        "chip": "약병 형태의 위치 표시 주로 사용되는 최소한의 칩.",
+        "input": "둥근 모서리, 미세한 테두리, 플레이스홀더 텍스트가 있는 깨끗한 텍스트 필드.",
+        "hero": "대형 헤드라인, 기능적 폼, 지원 일러스트레이션이 있는 전체 폭 히어로 섹션."
+      },
+      "motion": {
+        "patterns": [
+          "인터랙티브 요소의 부드러운 배경 전환.",
+          "hover 상태에서의 미세한 스케일링 및 색상 변화.",
+          "모달 및 오버레이 콘텐츠의 깨끗한 페이드인."
+        ]
+      },
+      "interaction": {
+        "hover": "인터랙티브함을 나타내기 위한 미세한 배경색 변화 또는 불투명도 변경.",
+        "click": "배경색 전환을 통한 즉각적인 시각적 피드백.",
+        "transition": "모든 인터랙티브 요소는 매끄러운 0.2s 전환을 사용하여 세련된 느낌을 줍니다.",
+        "keyboard": "접근성을 위한 명확한 윤곽선이 있는 표준 focus 상태."
+      },
+      "voice": {
+        "tone": "자신감 있고, 도움이 되며, 간결하며, 편의성과 글로벌 영향력을 강조합니다.",
+        "headlineStyle": "플랫폼의 가치를 명확하게 전달하는 대담하고 행동 지향적인 문구.",
+        "ctaStyle": "'시작하기', '요금 보기', '가입하기'와 같은 명확한 동사를 사용하여 직접적이고 명령적인 표현.",
+        "avoid": [
+          "지나치게 기술적인 전문 용어나 복잡한 비유는 피합니다.",
+          "공격적이거나 지나치게 캐주얼한 언어는 피합니다.",
+          "불필요한 느낌표나 극단적인 표현의 과도한 사용은 피합니다."
+        ]
+      },
+      "donts": [
+        "여러 강조 색상을 사용하지 않습니다 — 스크린샷은 검정, 흰색, 회색의 엄격한 팔레트를 보여줍니다.",
+        "장식적 또는 필기체 글꼴을 사용하지 않습니다 — 스크린샷은 깨끗한 기하학적 및 humanist sans-serif를 보여줍니다.",
+        "무거운 드롭 쉐도우를 사용하지 않습니다 — 스크린샷은 깊이감을 위해 미세하고 부드러운 그림자를 보여줍니다.",
+        "복잡한 그라데이션을 사용하지 않습니다 — 스크린샷은 단색 채우기와 간단한 배경 이미지를 보여줍니다.",
+        "비좁은 레이아웃을 사용하지 않습니다 — 스크린샷은 넉넉한 여백과 명확한 섹션 구분을 보여줍니다.",
+        "장난스럽거나 둥근 UI 요소를 사용하지 않습니다 — 스크린샷은 기능적이며 약간 둥글지만 전문적인 컴포넌트를 보여줍니다."
+      ],
+      "systemPrompt": "이것은 고기능 글로벌 교통 서비스로 포지셔닝된 Uber의 소비자향 웹 플랫폼입니다. 디자인 DNA는 높은 대비의 모노크롬 팔레트(#000000, #ffffff, #f3f3f3)와 깨끗하고 기능적인 그레이를 기반으로 구축되었습니다. 타이포그래피는 대담한 헤드라인(두께 500)을 위한 기하학적 sans-serif와 읽기 쉬운 본문 텍스트(두께 400)를 위한 humanist sans-serif에 의존합니다. 핵심 금지 사항: 절대로 여러 강조 색상을 사용하지 않습니다(팔레트는 엄격히 모노크롬), 장식적 글꼴을 피합니다(시스템은 깨끗하고 전문적인 sans-serif를 사용), 그리고 절대로 무거운 그림자나 복잡한 그라데이션을 사용하지 않습니다(디자인은 미세한 깊이감과 단색 채우기를 선호). 레이아웃은 높은 기능성을 강조하는 눈에 띄는 기능적 폼이 있는 깨끗한 2단 힠어로입니다."
     }
   }
 }

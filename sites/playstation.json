@@ -17,51 +17,53 @@
   "_meta": {
     "vision_model": "mimo-v2.5",
     "vision_prompt_version": "0.3",
-    "vision_at": "2026-05-28T21:42:33+00:00",
-    "vision_tokens": 3277,
-    "vision_cost_usd": 0.0364,
+    "vision_at": "2026-05-30T17:29:45+00:00",
+    "vision_tokens": 16648,
+    "vision_cost_usd": 0.185,
     "last_error": "Invalid control character at: line 75 column 14 (char 1876)",
     "translation_model": "mimo-v2.5",
-    "translation_at": "2026-05-29T01:58:27+00:00",
-    "translation_tokens": 8659,
-    "translation_cost_usd": 0.0289,
+    "translation_at": "2026-05-30T17:30:48+00:00",
+    "translation_tokens": 20981,
+    "translation_cost_usd": 0.07,
     "narrative_model": "mimo-v2.5",
     "narrative_prompt_version": "0.3",
     "narrative_at": "2026-05-29T01:58:34+00:00",
     "narrative_tokens": 1727,
     "narrative_cost_usd": 0.0115,
     "narrative_status": "ok",
-    "total_cost_usd": 0.0768
+    "total_cost_usd": 0.2665,
+    "vision_source": "playwright-extract:playstation",
+    "vision_grounded": true
   },
   "spec": {
     "colors": {
       "bg": "#000000",
-      "bgSoft": null,
+      "bgSoft": "#1F1F1F",
       "bgQuiet": "#FFFFFF",
       "ink": "#FFFFFF",
-      "inkSoft": null,
-      "muted": "#666666",
-      "mutedSoft": null,
-      "accent": "#E55C00",
-      "line": "rgba(0, 0, 0, 0.1)"
+      "inkSoft": "#1F1F1F",
+      "muted": "#6B6B6B",
+      "mutedSoft": "#CCCCCC",
+      "accent": "#0070C0",
+      "line": "rgba(0, 104, 189, 0.2)"
     },
     "typography": {
-      "display": "geometric-sans",
+      "display": "grotesque-sans",
       "body": "humanist-sans",
-      "mono": null,
+      "mono": "monospace",
       "scale": [
         {
           "token": "display",
-          "size": 48,
+          "size": 56,
           "lh": 1.1,
-          "weight": 700,
-          "ls": "-1px"
+          "weight": 500,
+          "ls": "-1.5px"
         },
         {
           "token": "heading",
           "size": 32,
           "lh": 1.2,
-          "weight": 400,
+          "weight": 500,
           "ls": "-0.5px"
         },
         {
@@ -69,7 +71,7 @@
           "size": 16,
           "lh": 1.5,
           "weight": 400,
-          "ls": "0px"
+          "ls": "0"
         }
       ]
     },
@@ -90,12 +92,12 @@
       "radius": {
         "sm": 4,
         "md": 8,
-        "lg": 12,
+        "lg": 16,
         "pill": 999
       }
     },
     "layout": {
-      "container": 1440,
+      "container": 1280,
       "paragraph": 680,
       "columns": 12,
       "gutter": 24,
@@ -110,398 +112,16 @@
         "small": 400,
         "medium": 800
       },
-      "easing": "cubic-bezier(0.4, 0.0, 0.2, 1)"
-    }
-  },
-  "spec_i18n": {
-    "en": {
-      "identity": {
-        "keywords": [
-          "gaming",
-          "entertainment",
-          "console",
-          "hardware",
-          "digital"
-        ],
-        "analogy": "A vibrant, high-energy digital entertainment storefront",
-        "oneLiner": "A bold, immersive consumer gaming platform hub."
-      },
-      "colors": {
-        "principle": "High contrast with vibrant, saturated accents on dark or clean white backgrounds."
-      },
-      "typography": {
-        "rules": [
-          "Use bold weights for primary headings.",
-          "Keep line length moderate for readability."
-        ],
-        "scaleUses": [
-          "Hero headlines",
-          "Section headlines",
-          "Body text"
-        ]
-      },
-      "spacing": {
-        "rhythm": "Generous vertical spacing creates breathing room between sections."
-      },
-      "surfaces": {
-        "shadows": [
-          "0 4px 12px rgba(0,0,0,0.1)"
-        ],
-        "borders": "Subtle or no borders; relies on color contrast for separation."
-      },
-      "layout": {
-        "skeleton": "Full-width hero sections with centered or left-aligned content."
-      },
-      "components": {
-        "button": "Solid, rounded pill-shaped buttons with high contrast.",
-        "card": "Product thumbnails or promotional blocks.",
-        "chip": null,
-        "input": null,
-        "hero": "Full-width, vibrant gradient with floating 3D shapes."
-      },
-      "motion": {
-        "patterns": [
-          "Subtle hover effects on interactive elements."
-        ]
-      },
-      "interaction": {
-        "hover": "Subtle color shift or scale increase.",
-        "click": "Immediate visual feedback.",
-        "transition": "Smooth state changes.",
-        "keyboard": "Standard focus outlines."
-      },
-      "voice": {
-        "tone": "Enthusiastic, inviting, and direct.",
-        "headlineStyle": "Bold, action-oriented statements.",
-        "ctaStyle": "Imperative verbs (Shop, Discover, Find out more).",
-        "avoid": [
-          "Overly technical jargon",
-          "Passive language",
-          "Cluttered text"
-        ]
-      },
-      "donts": [
-        "Don't use muted pastel palettes — screenshot shows vibrant blues, oranges, and greens.",
-        "Don't use thin, delicate typography — screenshot shows bold, geometric sans-serif headlines.",
-        "Don't use complex grid layouts with many columns — screenshot uses large, clear sections.",
-        "Don't use realistic photography as the primary hero element — screenshot uses stylized 3D graphics.",
-        "Don't use subtle, barely-visible interactive states — screenshot uses high-contrast buttons.",
-        "Don't use small, cramped spacing — screenshot uses generous whitespace."
-      ],
-      "systemPrompt": "This is a bold, high-energy consumer gaming platform (PlayStation). The palette is anchored by deep blacks (#000000) and clean whites (#FFFFFF), with a vibrant, high-chroma orange accent (#E55C00). Typography relies on geometric sans-serif for display and humanist sans-serif for body. The layout is a full-width, immersive experience with large hero sections. Critical donts: avoid muted pastels, avoid thin delicate typography, avoid cluttered grids, avoid realistic photography as the main hero element, avoid subtle interactive states, and avoid cramped spacing."
-    },
-    "zh-CN": {
-      "identity": {
-        "keywords": [
-          "游戏",
-          "娱乐",
-          "主机",
-          "硬件",
-          "数字"
-        ],
-        "analogy": "一个充满活力、高能量的数字娱乐商店",
-        "oneLiner": "一个大胆、沉浸式的消费级游戏平台中心。"
-      },
-      "colors": {
-        "principle": "在深色或纯净白色背景上，采用高对比度搭配鲜艳、饱和的点缀色。"
-      },
-      "typography": {
-        "rules": [
-          "主要标题使用粗体字重。",
-          "保持适中的行宽以利于阅读。"
-        ],
-        "scaleUses": [
-          "首屏大标题",
-          "板块标题",
-          "正文"
-        ]
-      },
-      "spacing": {
-        "rhythm": "充裕的垂直间距在各板块间创造了呼吸空间。"
-      },
-      "surfaces": {
-        "shadows": [
-          "0 4px 12px rgba(0,0,0,0.1)"
-        ],
-        "borders": "边框极简或无边框；依赖颜色对比实现视觉分隔。"
-      },
-      "layout": {
-        "skeleton": "全宽首屏区域，内容居中或左对齐。"
-      },
-      "components": {
-        "button": "纯色、圆角的胶囊形按钮，高对比度。",
-        "card": "产品缩略图或宣传区块。",
-        "chip": null,
-        "input": null,
-        "hero": "全宽、色彩鲜艳的渐变背景，配以浮动的3D形状。"
-      },
-      "motion": {
-        "patterns": [
-          "交互元素上细腻的hover效果。"
-        ]
-      },
-      "interaction": {
-        "hover": "细微的颜色变化或尺寸放大。",
-        "click": "即时的视觉反馈。",
-        "transition": "流畅的状态切换。",
-        "keyboard": "标准的focus轮廓。"
-      },
-      "voice": {
-        "tone": "热情、友好且直接。",
-        "headlineStyle": "大胆、行动导向的陈述。",
-        "ctaStyle": "祈使句动词（购买、探索、了解更多）。",
-        "avoid": [
-          "过于技术化的术语",
-          "被动语态",
-          "杂乱的文字"
-        ]
-      },
-      "donts": [
-        "避免使用柔和的粉彩色调——截图显示的是鲜艳的蓝色、橙色和绿色。",
-        "避免使用纤细、精致的字体——截图显示的是粗体、几何无衬线标题字体。",
-        "避免使用多列的复杂网格布局——截图使用的是大而清晰的板块。",
-        "避免使用写实摄影作为主要的首屏元素——截图使用的是风格化的3D图形。",
-        "避免使用细微、几乎不可见的交互状态——截图使用的是高对比度按钮。",
-        "避免使用狭小、拥挤的间距——截图使用的是充裕的留白。"
-      ],
-      "systemPrompt": "这是一个大胆、高能量的消费级游戏平台（PlayStation）。配色以深黑色（#000000）和纯净白色（#FFFFFF）为基础，搭配一个鲜艳、高饱和度的橙色点缀色（#E55C00）。字体在展示层使用几何无衬线体，在正文层使用人文主义无衬线体。布局是全宽、沉浸式的体验，包含大型首屏区域。关键禁忌：避免柔和粉彩、避免纤细精致的字体、避免杂乱的网格、避免将写实摄影作为主要首屏元素、避免细微的交互状态，以及避免拥挤的间距。"
-    },
-    "zh-TW": {
-      "identity": {
-        "keywords": [
-          "遊戲",
-          "娛樂",
-          "主機",
-          "硬體",
-          "數位"
-        ],
-        "analogy": "一個充滿活力、高能量的數位娛樂店面",
-        "oneLiner": "一個大膽、沉浸式的消費遊戲平台樞紐。"
-      },
-      "colors": {
-        "principle": "在深色或乾淨的白色背景上，使用高對比並搭配鮮活、飽和的強調色。"
-      },
-      "typography": {
-        "rules": [
-          "主要標題使用粗體字重。",
-          "保持適中的行長以利閱讀。"
-        ],
-        "scaleUses": [
-          "主視覺標題",
-          "區塊標題",
-          "內文"
-        ]
-      },
-      "spacing": {
-        "rhythm": "寬裕的垂直間距為區塊間創造呼吸空間。"
-      },
-      "surfaces": {
-        "shadows": [
-          "0 4px 12px rgba(0,0,0,0.1)"
-        ],
-        "borders": "邊框微妙或無邊框；依賴色彩對比來區隔。"
-      },
-      "layout": {
-        "skeleton": "全寬主視覺區塊，內容置中或靠左對齊。"
-      },
-      "components": {
-        "button": "實心、圓角藥丸形按鈕，具高對比度。",
-        "card": "產品縮圖或宣傳區塊。",
-        "chip": null,
-        "input": null,
-        "hero": "全寬、鮮活的漸層背景，搭配浮動的 3D 造型。"
-      },
-      "motion": {
-        "patterns": [
-          "互動元素帶有細微的 hover 效果。"
-        ]
-      },
-      "interaction": {
-        "hover": "微妙的色彩變化或縮放增大。",
-        "click": "立即的視覺回饋。",
-        "transition": "平滑的狀態變化。",
-        "keyboard": "標準的 focus 外框。"
-      },
-      "voice": {
-        "tone": "熱情、有吸引力且直接。",
-        "headlineStyle": "大膽、行動導向的陳述。",
-        "ctaStyle": "祈使動詞（購買、探索、了解更多）。",
-        "avoid": [
-          "過度專業的術語",
-          "被動語態",
-          "雜亂的文字"
-        ]
-      },
-      "donts": [
-        "不要使用柔和的粉彩色調——截圖顯示鮮活的藍色、橘色與綠色。",
-        "不要使用纖細、精緻的字體——截圖顯示粗體、幾何風格的無襯線標題。",
-        "不要使用複雜的多欄網格佈局——截圖使用大而清晰的區塊。",
-        "不要使用寫實攝影作為主要的主視覺元素——截圖使用風格化的 3D 圖形。",
-        "不要使用細微、幾乎看不見的互動狀態——截圖使用高對比度按鈕。",
-        "不要使用狹窄、擁擠的間距——截圖使用寬裕的留白。"
-      ],
-      "systemPrompt": "這是一個大膽、高能量的消費遊戲平台（PlayStation）。色彩基調以深黑色（#000000）和乾淨的白色（#FFFFFF）為主，搭配鮮活、高彩度的橘色強調色（#E55C00）。字體採用幾何無襯線體作為標題，人文無襯線體作為內文。佈局是全寬、沉浸式的體驗，具有大型主視覺區塊。關鍵禁忌：避免使用柔和粉彩、避免使用纖細精緻的字體、避免使用擁擠的網格、避免使用寫實攝影作為主要主視覺、避免使用細微的互動狀態，以及避免使用狹窄的間距。"
-    },
-    "ja": {
-      "identity": {
-        "keywords": [
-          "ゲーミング",
-          "エンターテインメント",
-          "コンソール",
-          "ハードウェア",
-          "デジタル"
-        ],
-        "analogy": "鮮やかでハイエナジーなデジタルエンターテインメントストアフロント",
-        "oneLiner": "大胆で没入感のある消費者向けゲーミングプラットフォームのハブ。"
-      },
-      "colors": {
-        "principle": "ダークまたはクリーンな白の背景に、鮮やかで彩度の高いアクセントを加えたハイコントラスト。"
-      },
-      "typography": {
-        "rules": [
-          "主見出しには太字ウェイトを使用。",
-          "可読性のために行長を適切に保つ。"
-        ],
-        "scaleUses": [
-          "ヒーローヘッドライン",
-          "セクション見出し",
-          "本文テキスト"
-        ]
-      },
-      "spacing": {
-        "rhythm": "セクション間に呼吸の余地を生む、寛裕な垂直間隔。"
-      },
-      "surfaces": {
-        "shadows": [
-          "0 4px 12px rgba(0,0,0,0.1)"
-        ],
-        "borders": "目立たない、またはボーダーなし。区切りにはカラーコントラストに依存。"
-      },
-      "layout": {
-        "skeleton": "中央揃えまたは左揃えのコンテンツを備えた、フル幅のヒーローセクション。"
-      },
-      "components": {
-        "button": "ハイコントラストの、ソリッドで角丸のピル型ボタン。",
-        "card": "製品サムネイルまたはプロモーションブロック。",
-        "chip": null,
-        "input": null,
-        "hero": "鮮やかなグラデーションを背景に、浮遊する3Dシェイプを配置したフル幅デザイン。"
-      },
-      "motion": {
-        "patterns": [
-          "インタラクティブ要素の微細なhoverエフェクト。"
-        ]
-      },
-      "interaction": {
-        "hover": "微細な色の変化またはスケールの拡大。",
-        "click": "即座のビジュアルフィードバック。",
-        "transition": "スムーズな状態遷移。",
-        "keyboard": "標準的なfocusアウトライン。"
-      },
-      "voice": {
-        "tone": "熱狂的で、かつて、率直なトーン。",
-        "headlineStyle": "大胆で、アクションを促すステートメント。",
-        "ctaStyle": "命令形の動詞（購入する、発見する、詳しく見る）。",
-        "avoid": [
-          "過度に技術的な専門用語",
-          "受動的な言葉遣い",
-          "雑然としたテキスト"
-        ]
-      },
-      "donts": [
-        "くすんだパステルカラーパレットは使用しない — スクリーンショットは鮮やかなブルー、オレンジ、グリーンを示している。",
-        "細く繊細なタイポグラフィは使用しない — スクリーンショットは太字の幾何学的sans-serif見出しなことを示している。",
-        "多数のカラムを用いた複雑なグリッドレイアウトは使用しない — スクリーンショットは大きく明確なセクションを使用している。",
-        "リアルな写真を主なヒーロー要素として使用しない — スクリーンショットはスタイライズされた3Dグラフィックを使用している。",
-        "微細で barely-visible なインタラクティブ状態は使用しない — スクリーンショットはハイコントラストのボタンを使用している。",
-        "小さく穷屈な間隔は使用しない — スクリーンショットは寛裕な余白を使用している。"
-      ],
-      "systemPrompt": "これは大胆でハイエナジーな消費者向けゲーミングプラットフォーム（PlayStation）。パレットは深い黒（#000000）とクリーンな白（#FFFFFF）を基調とし、鮮やかで高クロマのオレンジアクセント（#E55C00）を採用。タイポグラフィは表示用にgeometric sans-serif、本文用にhumanist sans-serifを採用。レイアウトは没入感のあるフル幅体験で、大きなヒーローセクションを特徴とする。重要な禁止事項：くすんだパステルカラー、細く繊細なタイポグラフィ、雑然としたグリッド、リアルな写真を主なヒーロー要素として使用すること、微細なインタラクティブ状態、窮屈な間隔の使用は避けること。"
-    },
-    "ko": {
-      "identity": {
-        "keywords": [
-          "게이밍",
-          "엔터테인먼트",
-          "콘솔",
-          "하드웨어",
-          "디지털"
-        ],
-        "analogy": "활기차고 에너지가 넘치는 디지털 엔터테인먼트 매장",
-        "oneLiner": "대담하고 몰입감 있는 소비자 게이밍 플랫폼 허브입니다."
-      },
-      "colors": {
-        "principle": "어둡거나 깨끗한 흰색 배경 위에 생생하고 채도 높은 악센트를 사용한 고대비 팔레트입니다."
-      },
-      "typography": {
-        "rules": [
-          "주요 제목에는 굵은 두께를 사용합니다.",
-          "가독성을 위해 줄 길이는 적절히 유지합니다."
-        ],
-        "scaleUses": [
-          "히어로 헤드라인",
-          "섹션 헤드라인",
-          "본문 텍스트"
-        ]
-      },
-      "spacing": {
-        "rhythm": "넉넉한 수직 간격으로 섹션 사이에 여유 공간을 만듭니다."
-      },
-      "surfaces": {
-        "shadows": [
-          "0 4px 12px rgba(0,0,0,0.1)"
-        ],
-        "borders": "미세하거나 테두리 없음; 구분을 위해 색상 대비에 의존합니다."
-      },
-      "layout": {
-        "skeleton": "중앙 정렬 또는 좌측 정렬 콘텐츠가 있는 전체 폭의 히어로 섹션입니다."
-      },
-      "components": {
-        "button": "고대비의 단색, 둥근 알약 형태 버튼입니다.",
-        "card": "제품 썸네일 또는 프로모션 블록입니다.",
-        "chip": null,
-        "input": null,
-        "hero": "부유하는 3D 형태가 있는 전체 폭의 생생한 gradient입니다."
-      },
-      "motion": {
-        "patterns": [
-          "인터랙티브 요소에 대한 섬세한 hover 효과입니다."
-        ]
-      },
-      "interaction": {
-        "hover": "미세한 색상 변화 또는 scale 증가입니다.",
-        "click": "즉각적인 시각적 피드백입니다.",
-        "transition": "부드러운 상태 변화입니다.",
-        "keyboard": "표준 focus 윤곽선입니다."
-      },
-      "voice": {
-        "tone": "열정적이고, 매력적이며, 직접적입니다.",
-        "headlineStyle": "대담하고, 행동을 유도하는 문구입니다.",
-        "ctaStyle": "명령형 동사(쇼핑하기, 발견하기, 더 알아보기)를 사용합니다.",
-        "avoid": [
-          "지나치게 기술적인 전문 용어",
-          "수동적인 어조",
-          "지저분한 텍스트"
-        ]
-      },
-      "donts": [
-        "뮤트된 파스텔 팔레트를 사용하지 마세요 — 스크린샷은 생생한 블루, 오렌지, 그린을 보여줍니다.",
-        "얇고 섬세한 타이포그래피를 사용하지 마세요 — 스크린샷은 굵고 기하학적인 sans-serif 헤드라인을 보여줍니다.",
-        "많은 칼럼을 가진 복잡한 그리드 레이아웃을 사용하지 마세요 — 스크린샷은 크고 명확한 섹션을 사용합니다.",
-        "현실적인 사진을 주요 히어로 요소로 사용하지 마세요 — 스크린샷은 스타일화된 3D 그래픽을 사용합니다.",
-        "미세하고 거의 보이지 않는 인터랙션 상태를 사용하지 마세요 — 스크린샷은 고대비 버튼을 사용합니다.",
-        "작고 비좁은 간격을 사용하지 마세요 — 스크린샷은 넉넉한 여백을 사용합니다."
-      ],
-      "systemPrompt": "이것은 대담하고 에너지가 넘치는 소비자 게이밍 플랫폼(PlayStation)입니다. 팔레트는 깊은 블랙(#000000)과 깨끗한 화이트(#FFFFFF)를 기반으로 하며, 생생하고 고채도의 오렌지 악센트(#E55C00)가 더해집니다. 타이포그래피는 전시용으로 기하학적 sans-serif를, 본문용으로는 humanist sans-serif를 사용합니다. 레이아웃은 넓은 히어로 섹션이 있는 전체 폭의 몰입형 경험입니다. 핵심 지침: 뮤트된 파스텔을 피하고, 얇고 섬세한 타이포그래피를 피하고, 복잡한 그리드를 피하고, 현실적인 사진을 주요 히어로 요소로 사용하는 것을 피하고, 미세한 인터랙션 상태를 피하고, 비좁은 간격을 피하십시오."
+      "easing": "cubic-bezier(0.25, 0.1, 0.25, 1.0)"
     }
   },
   "desc": {
     "en": {
-      "palette": "High-contrast blacks and whites punctuated by a vibrant orange accent and colorful 3D promotional graphics.",
-      "layout": "Full-width, sectioned layout designed for immersive, large-scale visual content.",
-      "interaction": "Clean, high-contrast buttons with straightforward hover states.",
-      "motion": "Implied subtle animations in the floating 3D elements of the hero section.",
-      "notes": "A prime example of high-energy consumer branding with a strong emphasis on vibrant visual graphics."
+      "palette": "A high-contrast, dark-mode-first palette anchored in deep blacks and bright whites, punctuated by a signature PlayStation blue accent and vibrant, photographic game artwork.",
+      "layout": "The layout transitions from immersive, full-bleed cinematic heroes to structured, horizontally scrolling card carousels and clean content blocks within a standard 12-column container.",
+      "interaction": "Interactions are refined and subtle, characterized by consistent 0.2-second ease-in-out transitions for hover states, selections, and menu expansions across all elements.",
+      "motion": "Motion is primarily functional and smooth, using cubic-bezier easing for card hovers, carousel slides, and transition effects that enhance the premium feel without being distracting.",
+      "notes": "This site is worth including as a prime example of a premium consumer product portal that successfully balances high-impact cinematic visuals with a clean, functional, and responsive UI framework."
     },
     "zh-CN": {
       "palette": "高对比度的黑白基调，辅以鲜明的橙色点缀和多彩的3D宣传图形。",
@@ -592,6 +212,418 @@
       "ch7_intro": "모션 철학은 상호작용성을 강화하는 매끄럽고 즉각적인 피드백에 중점을 둡니다. hover 시 규모 변화와 같은 미세한 애니메이션은 주요 작업을 방해하지 않으면서 반응적인 세련미를 더합니다.",
       "ch8_intro": "에디토리얼 톤은 열정적이고, 초대하며, 직접적입니다. 대담하고 행동 지향적인 진술을 사용합니다. 이 시스템은 지나치게 전문적인 용어, 수동적인 언어, 그리고 텍스트 혼잡함을 적극적으로 피합니다.",
       "8_outro": "이 시스템은 무채색 파스텔, 얇고 섬세한 타이포그래피, 또는 비좁고 복잡한 그리드 레이아웃을 의도적으로 사용하지 않습니다."
+    }
+  },
+  "spec_i18n": {
+    "en": {
+      "identity": {
+        "keywords": [
+          "gaming",
+          "entertainment",
+          "premium",
+          "dynamic",
+          "immersive"
+        ],
+        "analogy": "A sleek cinema lobby transitioning into an interactive arcade",
+        "oneLiner": "Sony's premium gaming ecosystem portal balancing bold cinematic visuals with clean, functional navigation."
+      },
+      "colors": {
+        "principle": "High-contrast foundation using deep blacks and bright whites to let vibrant game artwork and the signature blue accent pop."
+      },
+      "typography": {
+        "rules": [
+          "Use system font stack 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'WenQuanYi Micro Hei', Arial, sans-serif for the Chinese-localized interface.",
+          "Keep navigation text at 16px with 400 weight for readability.",
+          "Ensure strong contrast between text and image backgrounds using overlays."
+        ],
+        "scaleUses": [
+          "Large hero headlines and promotional banners",
+          "Section headers and sub-heroes",
+          "Primary paragraph text and navigation links"
+        ]
+      },
+      "spacing": {
+        "rhythm": "Consistent 4px base grid used for micro-spacing, scaling up to generous 64px and 96px gutters in hero sections to create breathing room."
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 4px 8px rgba(0, 0, 0, 0.16)",
+          "0px 4px 8px rgba(0, 0, 0, 0.8)"
+        ],
+        "borders": "Minimal visible borders; relies on subtle 2px highlights for active states or 1px dividers that blend into the dark theme."
+      },
+      "layout": {
+        "skeleton": "Full-bleed immersive hero sections followed by horizontally scrolling card carousels and structured content blocks."
+      },
+      "components": {
+        "button": "Pill-shaped primary actions with #0070C0 blue and white text; secondary buttons use #1F1F1F backgrounds.",
+        "card": "Image-heavy cards with 16px border-radius, subtle shadows, and 2px highlight on selection.",
+        "chip": "Used for tag-like categorization with minimal padding.",
+        "input": "Search interface with a clean, unadorned magnifying glass icon.",
+        "hero": "Full-width cinematic images or videos with dark overlays and large white typography."
+      },
+      "motion": {
+        "patterns": [
+          "Smooth 0.2s ease-in-out transitions for all interactive elements (buttons, cards, menu items).",
+          "Height and box-shadow transitions for expanding/collapsing menus and carousels.",
+          "Transform-based hover effects for depth perception on clickable items."
+        ]
+      },
+      "interaction": {
+        "hover": "Subtle color shifts or slight scaling on cards; button backgrounds darken on hover.",
+        "click": "Immediate visual feedback via 0.2s transform or shadow change.",
+        "transition": "All elements use 'all 0.2s ease-in-out' for a cohesive, responsive feel.",
+        "keyboard": "Focusable elements likely use the same 0.2s transition for visual focus indicators."
+      },
+      "voice": {
+        "tone": "Enthusiastic, inviting, and premium, focusing on the excitement of play.",
+        "headlineStyle": "Bold, concise, and action-oriented, often overlaying dynamic imagery.",
+        "ctaStyle": "Direct and encouraging, using clear pill-shaped buttons to drive engagement.",
+        "avoid": [
+          "Cluttered text",
+          "Dry corporate language",
+          "Low-contrast text overlays",
+          "Excessive decorative elements",
+          "Vague calls to action"
+        ]
+      },
+      "donts": [
+        "Don't use excessive borders — screenshot shows relies on shadows and background contrast.",
+        "Don't use sharp corners for primary cards — screenshot shows consistent 16px and 8px border-radius.",
+        "Don't use muted or earthy color palettes — screenshot shows high-contrast blacks, whites, and vibrant blues.",
+        "Don't use decorative serif fonts — screenshot shows clean, functional sans-serif typography for UI.",
+        "Don't use low-resolution imagery — screenshot shows high-fidelity, cinematic game artwork.",
+        "Don't use complex multi-column layouts in the hero — screenshot shows a single, dominant visual focus."
+      ],
+      "systemPrompt": "This is the Sony PlayStation Chinese-localized homepage, a premium consumer gaming portal. The design DNA is built on a high-contrast foundation of deep black (#000000) and pure white (#FFFFFF), allowing vibrant game artwork to dominate. The primary brand accent is a signature blue (#0070C0). Typography uses a clean humanist-sans system font stack (PingFang SC, Arial) for UI and bold grotesque-sans for hero headlines. Layout features full-bleed cinematic heroes followed by horizontally scrolling carousels of game cards with 16px rounded corners. Key elements include pill-shaped blue CTA buttons and subtle 0.2s ease-in-out transitions. Critical donts: Never use decorative serifs, avoid excessive borders, do not use low-contrast text overlays on busy backgrounds, avoid earthy palettes, never clutter the hero with multiple focal points, and always maintain the 4px base spacing grid."
+    },
+    "zh-CN": {
+      "identity": {
+        "keywords": [
+          "游戏",
+          "娱乐",
+          "高端",
+          "动态",
+          "沉浸"
+        ],
+        "analogy": "一个从光洁的影院大厅过渡到互动游戏厅的空间",
+        "oneLiner": "索尼高端游戏生态门户，平衡大胆的电影视觉与简洁、功能化的导航。"
+      },
+      "colors": {
+        "principle": "采用深黑与亮白构建高对比基础，让鲜艳的游戏艺术图和标志性蓝色点缀脱颖而出。"
+      },
+      "typography": {
+        "rules": [
+          "针对中文本地化界面，使用系统字体栈 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'WenQuanYi Micro Hei', Arial, sans-serif。",
+          "导航文字保持16px大小，400字重以确保可读性。",
+          "通过叠加层确保文字与图片背景之间具有强烈对比。"
+        ],
+        "scaleUses": [
+          "大号主视觉标题和推广横幅",
+          "区块标题和次级主视觉",
+          "主要段落文本和导航链接"
+        ]
+      },
+      "spacing": {
+        "rhythm": "采用一致的4px基础网格进行微间距控制，在主视觉区域放大至64px和96px的间距以营造呼吸感。"
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 4px 8px rgba(0, 0, 0, 0.16)",
+          "0px 4px 8px rgba(0, 0, 0, 0.8)"
+        ],
+        "borders": "极简的可见边框；主要依靠细微的2px高亮表示激活状态，或使用1px分割线融入深色主题。"
+      },
+      "layout": {
+        "skeleton": "全出血沉浸式主视觉区块，随后是水平滚动的卡片轮播和结构化内容区块。"
+      },
+      "components": {
+        "button": "胶囊形主操作按钮，使用#0070C0蓝色和白色文字；次级按钮使用#1F1F1F背景。",
+        "card": "图片主导的卡片，16px圆角，细微阴影，选中时有2px高亮。",
+        "chip": "用于标签式分类，内边距极小。",
+        "input": "搜索界面，配以简洁、无装饰的放大镜图标。",
+        "hero": "全宽电影感图片或视频，配有深色叠加层和大号白色字体排版。"
+      },
+      "motion": {
+        "patterns": [
+          "所有交互元素（按钮、卡片、菜单项）使用平滑的0.2s ease-in-out过渡。",
+          "菜单和轮播的展开/收起使用高度和box-shadow过渡。",
+          "基于transform的悬停效果用于可点击项目的深度感知。"
+        ]
+      },
+      "interaction": {
+        "hover": "卡片有细微颜色变化或轻微缩放；按钮背景在悬停时变暗。",
+        "click": "通过0.2s transform或阴影变化提供即时视觉反馈。",
+        "transition": "所有元素使用 'all 0.2s ease-in-out' 以实现统一、响应式的感觉。",
+        "keyboard": "可聚焦元素可能使用相同的0.2s过渡作为视觉焦点指示器。"
+      },
+      "voice": {
+        "tone": "热情、有吸引力、高端，聚焦于游戏的兴奋感。",
+        "headlineStyle": "粗体、简洁、行动导向，常覆盖在动态图像上。",
+        "ctaStyle": "直接且鼓励性，使用清晰的胶囊形按钮驱动参与度。",
+        "avoid": [
+          "文字堆砌",
+          "枯燥的企业语言",
+          "低对比度的文字叠加",
+          "过度的装饰元素",
+          "模糊的行动号召"
+        ]
+      },
+      "donts": [
+        "不要使用过多边框——截图显示依靠阴影和背景对比。",
+        "不要为主卡片使用尖锐的圆角——截图显示使用一致的16px和8px圆角。",
+        "不要使用柔和或土质色调——截图显示使用高对比度的黑、白和鲜艳的蓝色。",
+        "不要使用装饰性衬线字体——截图显示使用简洁、功能化的无衬线字体用于UI。",
+        "不要使用低分辨率图像——截图显示使用高保真、电影感的游戏艺术图。",
+        "不要在主视觉中使用复杂的多栏布局——截图显示使用单一、主导的视觉焦点。"
+      ],
+      "systemPrompt": "这是索尼PlayStation中文本地化主页，一个高端消费级游戏门户。其设计基因建立在深黑 (#000000) 和纯白 (#FFFFFF) 的高对比基础上，让鲜艳的游戏艺术图占据主导。主要品牌点缀色为标志性蓝色 (#0070C0)。排版上，UI使用简洁的人文无衬线系统字体栈 (PingFang SC, Arial)，主视觉标题使用粗体怪诞无衬线字体。布局特点为全出血电影感主视觉，随后是水平滚动的、带有16px圆角的游戏卡片轮播。关键元素包括胶囊形蓝色CTA按钮和细微的0.2s ease-in-out过渡。关键禁忌：绝不使用装饰性衬线体，避免过多边框，不要在繁忙背景上使用低对比度文字叠加，避免土质色调，绝不让主视觉焦点过多，并始终保持4px基础间距网格。"
+    },
+    "zh-TW": {
+      "identity": {
+        "keywords": [
+          "遊戲",
+          "娛樂",
+          "高端",
+          "動態",
+          "沉浸式"
+        ],
+        "analogy": "從流暢的影院大廳過渡到互動式遊戲機台的空間",
+        "oneLiner": "Sony 高端遊戲生態系入口，平衡了大膽的電影感視覺與清晰、功能性的導覽。"
+      },
+      "colors": {
+        "principle": "以深黑與亮白為基礎的高對比構成，讓鮮豔的遊戲美術與標誌性的藍色點綴色脫穎而出。"
+      },
+      "typography": {
+        "rules": [
+          "中文介面使用系統字體堆疊：'PingFang SC'、'Hiragino Sans GB'、'Microsoft YaHei'、'WenQuanYi Micro Hei'、Arial、sans-serif。",
+          "導覽文字維持 16px、400 字重以確保可讀性。",
+          "透過覆疊層確保文字與圖片背景之間有強烈對比。"
+        ],
+        "scaleUses": [
+          "大型主視覺標題與促銷橫幅",
+          "章節標題與次級主視覺",
+          "主要段落文字與導覽連結"
+        ]
+      },
+      "spacing": {
+        "rhythm": "採用一致的 4px 基礎網格進行微距間距設計，並在主視覺區域放大至寬裕的 64px 與 96px 欄距，以創造呼吸空間。"
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 4px 8px rgba(0, 0, 0, 0.16)",
+          "0px 4px 8px rgba(0, 0, 0, 0.8)"
+        ],
+        "border": "極簡的可見邊框；依賴細微的 2px 高光表示啟用狀態，或融入深色主題的 1px 分隔線。"
+      },
+      "layout": {
+        "skeleton": "全幅沉浸式主視覺區域，後接水平滾動的卡片輪播與結構化內容區塊。"
+      },
+      "components": {
+        "button": "膠囊狀的主要行動按鈕，採用 #0070C0 藍色與白色文字；次要按鈕使用 #1F1F1F 背景。",
+        "card": "圖片為主的卡片，具 16px 圓角、細微陰影與選取時的 2px 高光。",
+        "chip": "用於標籤式分類，採用最小內距。",
+        "input": "搜尋介面，配備簡潔、無裝飾的放大鏡圖示。",
+        "hero": "全幅電影感圖片或影片，帶有深色覆疊層與大型白色字體。"
+      },
+      "motion": {
+        "patterns": [
+          "所有互動元素（按鈕、卡片、選單項目）採用流暢的 0.2s ease-in-out 過渡動畫。",
+          "用於展開/收合選單與輪播的高度與 box-shadow 過渡。",
+          "基於變換的 hover 效果，為可點擊項目創造深度感知。"
+        ]
+      },
+      "interaction": {
+        "hover": "卡片有細微的顏色轉換或輕微縮放；按鈕背景在 hover 時變暗。",
+        "click": "透過 0.2s 變換或陰影變化提供即時視覺回饋。",
+        "transition": "所有元素使用 'all 0.2s ease-in-out'，以營造一致且具回應性的感受。",
+        "keyboard": "可聚焦元素可能使用相同的 0.2s 過渡動畫作為視覺焦點指示器。"
+      },
+      "voice": {
+        "tone": "充滿熱情、具邀請感且高端，聚焦於遊戲的興奮感。",
+        "headlineStyle": "大膽、簡潔且以行動為導向，常覆疊於動態影像上。",
+        "ctaStyle": "直接且具鼓勵性，使用清晰的膠囊狀按鈕以推動參與。",
+        "avoid": [
+          "雜亂的文字",
+          "乾澀的企業語言",
+          "低對比度的文字覆疊",
+          "過多的裝飾元素",
+          "模糊的行動呼籲"
+        ]
+      },
+      "donts": [
+        "不要使用過多邊框 — 截圖顯示其依賴陰影與背景對比。",
+        "不要為主要卡片使用銳角 — 截圖顯示一致的 16px 與 8px 圓角。",
+        "不要使用柔和或大地色調色盤 — 截圖顯示高對比的黑、白與鮮豔藍色。",
+        "不要使用裝飾性襯線字體 — 截圖顯示介面使用清晰、功能性的無襯線字體。",
+        "不要使用低解析度圖片 — 截圖顯示高品質、電影感的遊戲美術。",
+        "不要在主視覺區域使用複雜的多欄佈局 — 截圖顯示單一、主導的視覺焦點。"
+      ],
+      "systemPrompt": "這是 Sony PlayStation 中文本地化首頁，一個高端消費者遊戲入口。設計 DNA 建立在深黑 (#000000) 與純白 (#FFFFFF) 的高對比基礎上，讓鮮豔的遊戲美術成為主體。主要品牌強調色為標誌性的藍色 (#0070C0)。字體採用簡潔的 humanist-sans 系統字體堆疊 (PingFang SC, Arial) 作為介面字體，並以粗體 grotesque-sans 作為主視覺標題。佈局採用全幅電影感主視覺，後接具 16px 圓角的遊戲卡片水平滾動輪播。關鍵元素包括膠囊狀藍色 CTA 按鈕與細微的 0.2s ease-in-out 過渡動畫。重要禁忌：絕不使用裝飾性襯線字體、避免過多邊框、不要在繁忙背景上使用低對比文字覆疊、避免大地色調、絕不在主視覺區域塞入多個焦點，並始終維持 4px 基礎間距網格。"
+    },
+    "ja": {
+      "identity": {
+        "keywords": [
+          "ゲーミング",
+          "エンターテインメント",
+          "プレミアム",
+          "ダイナミック",
+          "没入型"
+        ],
+        "analogy": "スマートな映画馆ロビーがインタラクティブアーケードへと移り変わる空間",
+        "oneLiner": "boldなシネマティックビジュアルとクリーンで機能的なナビゲーションのバランスを取る、ソニーのプレミアムゲーミングエコシステムポータル。"
+      },
+      "colors": {
+        "principle": "深いブラックと明るいホワイトを基調とした高コントラスト基盤により、鮮やかなゲームアートワークと特徴的なブルーアクセントを際立たせる。"
+      },
+      "typography": {
+        "rules": [
+          "中国語ローカライズされたインターフェースには、システムフォントスタック 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'WenQuanYi Micro Hei', Arial, sans-serif を使用する。",
+          "ナビゲーションテキストは可読性のため、16px、ウェイト400を維持する。",
+          "オーバーレイを使用して、テキストと画像背景の間に強いコントラストを確保する。"
+        ],
+        "scaleUses": [
+          "大きなヒーローヘッドラインとプロモーションバナー",
+          "セクションヘッダーとサブヒーロー",
+          "本文テキストとナビゲーションリンク"
+        ]
+      },
+      "spacing": {
+        "rhythm": "一貫した4pxベースグリッドをマイクロスペーシングに使用し、ヒーローセクションではゆったりとした64pxおよび96pxのガターにスケーリングして、余裕のある間隔を生み出す。"
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 4px 8px rgba(0, 0, 0, 0.16)",
+          "0px 4px 8px rgba(0, 0, 0, 0.8)"
+        ],
+        "borders": "目立つボーダーは最小限に留め、アクティブステートには微細な2pxハイライト、またはダークテーマに溶け込む1px区切り線に依存する。"
+      },
+      "layout": {
+        "skeleton": "フルブリードの没入型ヒーローセクションに続き、水平スクロールするカードカルーセルと構造化されたコンテンツブロックを配置する。"
+      },
+      "components": {
+        "button": "プライマリアクションは#0070C0ブルーと白テキストのピルシェイプ（丸型）ボタン。セカンダリーボタンは#1F1F1Fの背景を使用。",
+        "card": "16pxボーダーラディアス、微細なシャドウ、選択時に2pxハイライトを備えた、画像重視のカード。",
+        "chip": "最小限のパディングでタグのような分類に使用。",
+        "input": "クリーンで飾り気のない拡大鏡アイコンを備えた検索インターフェース。",
+        "hero": "ダークオーバーレイと大きなホワイトタイポグラフィを備えた、フルワイドのシネマティックな画像または動画。"
+      },
+      "motion": {
+        "patterns": [
+          "全インタラクティブ要素（ボタン、カード、メニュー項目）のスムーズな0.2s ease-in-outトランジション。",
+          "メニューおよびカルーセルの展開/折りたたみ時の高さとbox-shadowトランジション。",
+          "クリック可能な項目の奥行き感を出すトランスフォームベースのホバーエフェクト。"
+        ]
+      },
+      "interaction": {
+        "hover": "カード上で微細な色の変化やわずかなスケーリング。ボタン背景はホバー時に暗くなる。",
+        "click": "0.2sのトランスフォームまたはシャドウ変化による即座のビジュアルフィードバック。",
+        "transition": "全要素が一貫した、応答性のある感触のために'all 0.2s ease-in-out'を使用。",
+        "keyboard": "フォーカス可能な要素は、ビジュアルフォーカスインジケーターとして同じ0.2sトランジションを使用する可能性が高い。"
+      },
+      "voice": {
+        "tone": "熱狂的、歓迎的、かつプレミアムで、プレイの興奮に焦点を当てる。",
+        "headlineStyle": "大胆、簡潔、行動を促すスタイルで、ダイナミックな画像上にオーバーレイされることが多い。",
+        "ctaStyle": "直接的で励ますような調子で、明確なピルシェイプボタンを使用してエンゲージメントを促進。",
+        "avoid": [
+          "雑然としたテキスト",
+          "堅苦しい企業用語",
+          "低コントラストのテキストオーバーレイ",
+          "過度な装飾要素",
+          "曖昧な行動喚起"
+        ]
+      },
+      "donts": [
+        "過度なボーダーを使用しない — スクリーンショットはシャドウと背景のコントラストに依存していることを示している。",
+        "プライマリーカードにシャープな角を使用しない — スクリーンショットは一貫した16pxおよび8pxのボーダーラディアスを示している。",
+        "くすんだ色やアースカラーのパレットを使用しない — スクリーンショットは高コントラストのブラック、ホワイト、鮮やかなブルーを示している。",
+        "装飾的なセリフフォントを使用しない — スクリーンショットはUI用のクリーンで機能的なサンセリフタイポグラフィを示している。",
+        "低解像度のイメージを使用しない — スクリーンショットは高精細なシネマティックなゲームアートワークを示している。",
+        "ヒーローで複数の焦点を持つ複雑な複数カラムレイアウトを使用しない — スクリーンショットは単一の主要なビジュアルフォーカスを示している。"
+      ],
+      "systemPrompt": "これはソニープレイステーションの中国語ローカライズホームページであり、プレミアムコンシューマゲーミングポータルです。デザインDNAは深いブラック（#000000）と純白（#FFFFFF）の高コントラスト基盤に構築されており、鮮やかなゲームアートワークが支配的となるようにしています。プライマリーブランドアクセントは特徴的なブルー（#0070C0）です。タイポグラフィは、UI用にクリーンなヒューマニストサンセリフシステムフォントスタック（PingFang SC, Arial）、ヒーローヘッドラインには大胆なグロテスクサンセリフを使用しています。レイアウトはフルブリードのシネマティックヒーローに続き、16px丸角のゲームカードを水平スクロールするカルーセルを特徴とします。重要な要素には、ピルシェイプのブルーCTAボタンと微細な0.2s ease-in-outトランジションが含まれます。重要な禁止事項：装飾的なセリフフォントは絶対に使用せず、過度なボーダーを避け、複雑な背景上の低コントラストテキストオーバーレイは使用せず、アースカラーのパレットは避け、ヒーローを複数の焦点で雑然とせず、常に4pxベースのスペーシンググリッドを維持すること。"
+    },
+    "ko": {
+      "identity": {
+        "keywords": [
+          "게이밍",
+          "엔터테인먼트",
+          "프리미엄",
+          "다이나믹",
+          "몰입형"
+        ],
+        "analogy": "인터랙티브 아케이드로 변환되는 세련된 시네마 로비",
+        "oneLiner": "대담한 시네마틱 비주얼과 깔끔하고 기능적인 네비게이션의 균형을 맞춘 Sony의 프리미엄 게이밍 생태계 포털."
+      },
+      "colors": {
+        "principle": "깊은 블랙과 밝은 화이트를 사용한 고대비 기반으로, 선명한 게임 아트워크와 시그니처 블루 액센트가 돋보이도록 합니다."
+      },
+      "typography": {
+        "rules": [
+          "중국어 현지화된 인터페이스에는 시스템 폰트 스택 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'WenQuanYi Micro Hei', Arial, sans-serif를 사용합니다.",
+          "가독성을 위해 네비게이션 텍스트는 16px, 400 weight로 유지합니다.",
+          "오버레이를 사용하여 텍스트와 이미지 배경 간의 높은 대비를 보장합니다."
+        ],
+        "scaleUses": [
+          "대형 히어로 헤드라인 및 프로모션 배너",
+          "섹션 헤더 및 서브 히어로",
+          "주요 본문 텍스트 및 네비게이션 링크"
+        ]
+      },
+      "spacing": {
+        "rhythm": "마이크로 간격에 일관된 4px 기본 그리드를 사용하며, 숨 쉴 공간을 만들기 위해 히어로 섹션에서는 넉넉한 64px 및 96px 여백으로 확장합니다."
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 4px 8px rgba(0, 0, 0, 0.16)",
+          "0px 4px 8px rgba(0, 0, 0, 0.8)"
+        ],
+        "borders": "최소한의 보더; 활성 상태를 위한 미묘한 2px 하이라이트 또는 다크 테마에 자연스럽게 어우러지는 1px 구분선에 의존합니다."
+      },
+      "layout": {
+        "skeleton": "풀블리드 몰입형 히어로 섹션 뒤에 수평 스크롤링되는 카드 캐러셀과 구조화된 콘텐츠 블록이 이어집니다."
+      },
+      "components": {
+        "button": "#0070C0 블루와 화이트 텍스트를 사용한 필形状의 주요 액션; 보조 버튼은 #1F1F1F 배경을 사용합니다.",
+        "card": "16px border-radius, 미묘한 그림자, 선택 시 2px 하이라이트가 적용된 이미지 중심 카드.",
+        "chip": "최소한의 padding으로 태그와 같은 분류에 사용됩니다.",
+        "input": "깔끔하고 장식이 없는 돋보기 아이콘이 포함된 검색 인터페이스.",
+        "hero": "다크 오버레이와 큰 화이트 타이포그래피가 적용된 풀宽度 시네마틱 이미지 또는 비디오."
+      },
+      "motion": {
+        "patterns": [
+          "모든 인터랙티브 요소(버튼, 카드, 메뉴 항목)에 부드러운 0.2s ease-in-out 전환.",
+          "메뉴 및 캐러셀의 확장/축소를 위한 높이 및 box-shadow 전환.",
+          "클릭 가능한 항목의 깊이감을 위한 Transform 기반 hover 효과."
+        ]
+      },
+      "interaction": {
+        "hover": "카드에서 미묘한 색상 변화 또는 약간의 스케일링; 버튼 배경은 hover 시 어두워집니다.",
+        "click": "0.2s transform 또는 그림자 변경을 통한 즉각적인 시각적 피드백.",
+        "transition": "모든 요소는 통합적이고 반응적인 느낌을 위해 'all 0.2s ease-in-out'을 사용합니다.",
+        "keyboard": "포커스 가능한 요소는 시각적 포커스 표시기를 위해 동일한 0.2s 전환을 사용할 가능성이 높습니다."
+      },
+      "voice": {
+        "tone": "플레이의 흥분에 초점을 맞춘 열정적이고 초대하며 프리미엄한 어조.",
+        "headlineStyle": "대담하고 간결하며 행동 중심적, 종종 다이나믹한 이미지를 오버레이.",
+        "ctaStyle": "명확한 필-shaped 버튼을 사용하여 참여를 유도하는 직접적이고 격려적인 스타일.",
+        "avoid": [
+          "지저분한 텍스트",
+          "건조한 기업어",
+          "저대비 텍스트 오버레이",
+          "과도한 장식 요소",
+          "모호한 행동 유도"
+        ]
+      },
+      "donts": [
+        "과도한 보더를 사용하지 마세요 — 스크린샷은 그림자와 배경 대비에 의존함을 보여줍니다.",
+        "주요 카드에 날카로운 모서리를 사용하지 마세요 — 스크린샷은 일관된 16px 및 8px border-radius를 보여줍니다.",
+        "음침하거나 톤 다운된 색상 팔레트를 사용하지 마세요 — 스크린샷은 고대비 블랙, 화이트, 선명한 블루를 보여줍니다.",
+        "장식용 세리프 폰트를 사용하지 마세요 — 스크린샷은 UI를 위한 깔끔하고 기능적인 산세리프 타이포그래피를 보여줍니다.",
+        "저해상도 이미지를 사용하지 마세요 — 스크린샷은 고품질 시네마틱 게임 아트워크를 보여줍니다.",
+        "히어로에 복잡한 다중 칼럼 레이아웃을 사용하지 마세요 — 스크린샷은 단일하고 지배적인 비주얼 초점을 보여줍니다."
+      ],
+      "systemPrompt": "이것은 Sony PlayStation 중국어 현지화된 홈페이지로, 프리미엄 소비자 게이밍 포털입니다. 디자인 DNA는 깊은 블랙(#000000)과 순수 화이트(#FFFFFF)의 고대비 기반으로 구축되어 선명한 게임 아트워크가 지배적이도록 합니다. 주요 브랜드 액센트는 시그니처 블루(#0070C0)입니다. 타이포그래피는 UI를 위해 깔끔한 humanist-sans 시스템 폰트 스택(PingFang SC, Arial)을 사용하고 히어로 헤드라인에는 굵은 grotesque-sans를 사용합니다. 레이아웃은 16px 둥근 모서리가 적용된 게임 카드의 수평 스크롤링 캐러셀이 이어지는 풀블리드 시네마틱 히어로를 특징으로 합니다. 핵심 요소에는 필-shaped 블루 CTA 버튼과 0.2s ease-in-out 미묘한 전환이 포함됩니다. 중요하지 않은 사항: 절대 장식용 세리프를 사용하지 마세요, 과도한 보더를 피하세요, 바쁜 배경에 저대비 텍스트 오버레이를 사용하지 마세요, 톤 다운된 팔레트를 피하세요, 히어로에 여러 초점을 넣어 복잡하게 만들지 마세요, 항상 4px 기본 간격 그리드를 유지하세요."
     }
   }
 }

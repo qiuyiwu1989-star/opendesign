@@ -17,38 +17,69 @@
   "_meta": {
     "vision_model": "mimo-v2.5",
     "vision_prompt_version": "0.3",
-    "vision_at": "2026-05-28T21:08:28+00:00",
-    "vision_tokens": 3524,
-    "vision_cost_usd": 0.0392,
+    "vision_at": "2026-05-30T16:30:24+00:00",
+    "vision_tokens": 16407,
+    "vision_cost_usd": 0.1823,
     "translation_model": "mimo-v2.5",
-    "translation_at": "2026-05-28T21:09:03+00:00",
-    "translation_tokens": 11830,
-    "translation_cost_usd": 0.0395,
+    "translation_at": "2026-05-30T16:31:18+00:00",
+    "translation_tokens": 21861,
+    "translation_cost_usd": 0.0729,
     "narrative_model": "mimo-v2.5",
     "narrative_prompt_version": "0.3",
     "narrative_at": "2026-05-28T21:09:10+00:00",
     "narrative_tokens": 1656,
     "narrative_cost_usd": 0.011,
     "narrative_status": "ok",
-    "total_cost_usd": 0.0897
+    "total_cost_usd": 0.2662,
+    "vision_source": "playwright-extract:clay",
+    "vision_grounded": true
   },
   "spec": {
     "colors": {
       "bg": "#FFFFFF",
-      "bgSoft": null,
-      "bgQuiet": null,
-      "ink": "#666666",
-      "inkSoft": null,
-      "muted": "#B3B3B3",
-      "mutedSoft": null,
-      "accent": "#2E5C8A",
-      "line": "rgba(0, 0, 0, 0)"
+      "bgSoft": "#EFEDEE",
+      "bgQuiet": "#F3F4F6",
+      "ink": "#06070A",
+      "inkSoft": "#666C7A",
+      "muted": "#B2B8C2",
+      "mutedSoft": "#A4B0C2",
+      "accent": null,
+      "line": "rgba(6,7,10,1.0)"
     },
     "typography": {
-      "display": null,
-      "body": "monospaced",
+      "display": "geometric-sans",
+      "body": "geometric-sans",
       "mono": null,
-      "scale": []
+      "scale": [
+        {
+          "token": "display",
+          "size": 72,
+          "lh": 1.1,
+          "weight": 740,
+          "ls": "-2.96px"
+        },
+        {
+          "token": "heading",
+          "size": 32,
+          "lh": 1.2,
+          "weight": 740,
+          "ls": "-0.6px"
+        },
+        {
+          "token": "body",
+          "size": 18,
+          "lh": 1.24,
+          "weight": 500,
+          "ls": "-0.3px"
+        },
+        {
+          "token": "caption",
+          "size": 15,
+          "lh": 1.3,
+          "weight": 500,
+          "ls": "-0.28px"
+        }
+      ]
     },
     "spacing": {
       "base": 4,
@@ -65,10 +96,10 @@
     },
     "surfaces": {
       "radius": {
-        "sm": 0,
-        "md": 0,
-        "lg": 0,
-        "pill": 0
+        "sm": 4,
+        "md": 8,
+        "lg": 12,
+        "pill": 999
       }
     },
     "layout": {
@@ -83,332 +114,20 @@
     },
     "motion": {
       "durations": {
-        "micro": 220,
-        "small": 400,
-        "medium": 800
+        "micro": 150,
+        "small": 650,
+        "medium": 900
       },
-      "easing": "cubic-bezier(0.25, 0.1, 0.25, 1.0)"
-    }
-  },
-  "spec_i18n": {
-    "en": {
-      "identity": {
-        "keywords": [
-          "minimal",
-          "neutral",
-          "centered",
-          "logo-centric",
-          "clean"
-        ],
-        "analogy": "A blank canvas or a quiet loading state",
-        "oneLiner": "A stark, centered logo presentation on a pure white canvas, emphasizing brand recognition over content."
-      },
-      "colors": {
-        "principle": "High-contrast minimalism relying on negative space"
-      },
-      "typography": {
-        "rules": [],
-        "scaleUses": []
-      },
-      "spacing": {
-        "rhythm": "Centered, symmetric vertical stacking"
-      },
-      "surfaces": {
-        "shadows": [],
-        "borders": "none"
-      },
-      "layout": {
-        "skeleton": "Absolute centering of a single logo element"
-      },
-      "components": {
-        "button": null,
-        "card": null,
-        "chip": null,
-        "input": null,
-        "hero": "Single centered logo mark"
-      },
-      "interaction": {
-        "hover": null,
-        "click": null,
-        "transition": null,
-        "keyboard": null
-      },
-      "voice": {
-        "tone": "silent",
-        "headlineStyle": "none",
-        "ctaStyle": "none",
-        "avoid": [
-          "noise",
-          "clutter",
-          "explanation"
-        ]
-      },
-      "donts": [
-        "don't add navigation — screenshot shows a single centered logo",
-        "don't use a dark background — screenshot shows pure white #FFFFFF",
-        "don't include body text — screenshot shows only the brand mark and name",
-        "don't use multiple columns — screenshot shows a centered single-column layout",
-        "don't add drop shadows — screenshot shows flat graphics without shadows",
-        "don't use complex grids — screenshot shows simple vertical centering"
-      ],
-      "systemPrompt": "This site features a minimalist, centered logo presentation on a pure white (#FFFFFF) background. The primary text color is a neutral gray (#666666) used in a monospaced font for the brand name, with a distinct blue accent (#2E5C8A) in the icon mark. The layout is completely centered with heavy use of negative space. Critical donts: never add navigation or secondary UI elements, do not use a dark background, and avoid adding any explanatory body text."
-    },
-    "zh-CN": {
-      "identity": {
-        "keywords": [
-          "极简",
-          "中性",
-          "居中",
-          "以标识为中心",
-          "纯净"
-        ],
-        "analogy": "空白画布或静默加载状态",
-        "oneLiner": "纯净白色画布上居中呈现的醒目品牌标识，以品牌识别优先于内容传达。"
-      },
-      "colors": {
-        "principle": "基于负空间的高对比极简主义"
-      },
-      "typography": {
-        "rules": [],
-        "scaleUses": []
-      },
-      "spacing": {
-        "rhythm": "居中对称的垂直排列"
-      },
-      "surfaces": {
-        "shadows": [],
-        "borders": "none"
-      },
-      "layout": {
-        "skeleton": "单个标志元素的绝对居中定位"
-      },
-      "components": {
-        "button": null,
-        "card": null,
-        "chip": null,
-        "input": null,
-        "hero": "居中呈现的单个品牌标识"
-      },
-      "interaction": {
-        "hover": null,
-        "click": null,
-        "transition": null,
-        "keyboard": null
-      },
-      "voice": {
-        "tone": "静默",
-        "headlineStyle": "none",
-        "ctaStyle": "none",
-        "avoid": [
-          "视觉噪音",
-          "冗余元素",
-          "文字解说"
-        ]
-      },
-      "donts": [
-        "勿添加导航——截图显示为单个居中标识",
-        "勿使用深色背景——截图显示为纯白色 #FFFFFF",
-        "勿包含正文——截图仅显示品牌标识与名称",
-        "勿使用多栏布局——截图显示为居中单栏结构",
-        "勿添加投影——截图显示为无阴影的扁平化图形",
-        "勿使用复杂网格——截图显示为简单的垂直居中"
-      ],
-      "systemPrompt": "该网站采用纯白（#FFFFFF）背景上的居中极简品牌标识呈现。主文本使用等宽字体显示品牌名称，采用中性灰色（#666666），图标标识则运用鲜明蓝色（#2E5C8A）。布局完全居中且大量运用负空间。关键禁忌：绝不添加导航或次级界面元素，不使用深色背景，避免添加任何说明性正文。"
-    },
-    "zh-TW": {
-      "identity": {
-        "keywords": [
-          "極簡",
-          "中性",
-          "居中",
-          "標誌為核心",
-          "簡潔"
-        ],
-        "analogy": "一塊空白畫布或靜謹的載入狀態",
-        "oneLiner": "純白畫布上的極簡居中標誌展示，強調品牌識別勝於內容。"
-      },
-      "colors": {
-        "principle": "依賴負空間的高對比極簡主義"
-      },
-      "typography": {
-        "rules": [],
-        "scaleUses": []
-      },
-      "spacing": {
-        "rhythm": "居中對稱的垂直堆疊"
-      },
-      "surfaces": {
-        "shadows": [],
-        "borders": "無"
-      },
-      "layout": {
-        "skeleton": "單一標誌元素的絕對居中"
-      },
-      "components": {
-        "button": null,
-        "card": null,
-        "chip": null,
-        "input": null,
-        "hero": "單一居中的標誌圖示"
-      },
-      "interaction": {
-        "hover": null,
-        "click": null,
-        "transition": null,
-        "keyboard": null
-      },
-      "voice": {
-        "tone": "靜默",
-        "headlineStyle": "無",
-        "ctaStyle": "無",
-        "avoid": [
-          "雜訊",
-          "繁雜",
-          "說明文字"
-        ]
-      },
-      "donts": [
-        "勿新增導覽列——截圖顯示為單一居中標誌",
-        "勿使用深色背景——截圖顯示純白 #FFFFFF",
-        "勿加入內文——截圖僅顯示品牌標誌與名稱",
-        "勿使用多欄佈局——截圖顯示居中單欄佈局",
-        "勿新增陰影效果——截圖顯示無陰影的平面圖形",
-        "勿使用複雜格線系統——截圖顯示簡單的垂直居中"
-      ],
-      "systemPrompt": "此網站以純白（#FFFFFF）背景呈現極簡居中標誌展示。主要文字顏色為中性灰（#666666），品牌名稱採用等寬字體，標誌圖示則使用鮮明的藍色（#2E5C8A）點綴。佈局完全居中，大量運用負空間。嚴格禁止：切勿新增導覽列或次要介面元素，勿使用深色背景，並避免加入任何說明性內文。"
-    },
-    "ja": {
-      "identity": {
-        "keywords": [
-          "ミニマル",
-          "ニュートラル",
-          "センタリング",
-          "ロゴ中心",
-          "クリーン"
-        ],
-        "analogy": "空白のキャンバス、または静かなロード状態",
-        "oneLiner": "純白のキャンバス上に真っ直ぐに配置されたロゴプレゼンテーション。コンテンツではなくブランド認識を重視しています。"
-      },
-      "colors": {
-        "principle": "ネガティブスペースに依存した高コントラストミニマリズム"
-      },
-      "typography": {
-        "rules": [],
-        "scaleUses": []
-      },
-      "spacing": {
-        "rhythm": "均等で対称的な垂直スタック"
-      },
-      "surfaces": {
-        "shadows": [],
-        "borders": "なし"
-      },
-      "layout": {
-        "skeleton": "単一のロゴ要素の絶対的なセンタリング"
-      },
-      "components": {
-        "button": null,
-        "card": null,
-        "chip": null,
-        "input": null,
-        "hero": "単一のセンタリングされたロゴマーク"
-      },
-      "interaction": {
-        "hover": null,
-        "click": null,
-        "transition": null,
-        "keyboard": null
-      },
-      "voice": {
-        "tone": "サイレント",
-        "headlineStyle": "なし",
-        "ctaStyle": "なし",
-        "avoid": [
-          "ノイズ",
-          "雑踏",
-          "説明"
-        ]
-      },
-      "donts": [
-        "ナビゲーションを追加しない — スクリーンショットは単一のセンタリングされたロゴを示しています",
-        "ダーク背景を使用しない — スクリーンショットは純白#FFFFFFを示しています",
-        "本文テキストを含めない — スクリーンショットはブランドマークと名前のみを示しています",
-        "複数カラムを使用しない — スクリーンショットはセンタリングされた単一カラムレイアウトを示しています",
-        "ドロップシャドウを追加しない — スクリーンショットはシャドウのないフラットなグラフィックを示しています",
-        "複雑なグリッドを使用しない — スクリーンショットはシンプルな垂直センタリングを示しています"
-      ],
-      "systemPrompt": "このサイトは、純白（#FFFFFF）背景上にミニマルでセンタリングされたロゴプレゼンテーションを特徴とします。プライマリテキストカラーはニュートラルグレー（#666666）で、ブランド名には等幅フォントが使用され、アイコンマークには明確な青アクセント（#2E5C8A）が使用されています。レイアウトは完全にセンタリングされており、ネガティブスペースを多用しています。重要な禁止事項：ナビゲーションやセカンダリUI要素を追加しない、ダーク背景を使用しない、説明的な本文テキストを追加しない。"
-    },
-    "ko": {
-      "identity": {
-        "keywords": [
-          "미니멀",
-          "중립적",
-          "중앙 정렬",
-          "로고 중심",
-          "깔끔한"
-        ],
-        "analogy": "빈 캔버스 또는 조용한 로딩 상태",
-        "oneLiner": "컨텐츠보다 브랜드 인지도를 강조하는, 순백의 캔버스 위에 완벽하게 중앙에 배치된 로고 프레젠테이션입니다."
-      },
-      "colors": {
-        "principle": "여백에 의존하는 고대비 미니멀리즘"
-      },
-      "typography": {
-        "rules": [],
-        "scaleUses": []
-      },
-      "spacing": {
-        "rhythm": "중앙 정렬, 대칭적 수직 스택"
-      },
-      "surfaces": {
-        "shadows": [],
-        "borders": "없음"
-      },
-      "layout": {
-        "skeleton": "단일 로고 요소의 절대적 중앙 정렬"
-      },
-      "components": {
-        "button": null,
-        "card": null,
-        "chip": null,
-        "input": null,
-        "hero": "중앙에 배치된 단일 로고 마크"
-      },
-      "interaction": {
-        "hover": null,
-        "click": null,
-        "transition": null,
-        "keyboard": null
-      },
-      "voice": {
-        "tone": "정적",
-        "headlineStyle": "없음",
-        "ctaStyle": "없음",
-        "avoid": [
-          "소음",
-          "혼란",
-          "설명"
-        ]
-      },
-      "donts": [
-        "네비게이션을 추가하지 마세요 — 스크린샷은 중앙에 배치된 단일 로고를 보여줍니다.",
-        "어두운 배경을 사용하지 마세요 — 스크린샷은 순백 #FFFFFF를 보여줍니다.",
-        "본문 텍스트를 포함하지 마세요 — 스크린샷은 브랜드 마크와 이름만을 보여줍니다.",
-        "복수의 컬럼을 사용하지 마세요 — 스크린샷은 중앙 정렬된 단일 컬럼 레이아웃을 보여줍니다.",
-        "드롭 쉐도우를 추가하지 마세요 — 스크린샷은 그림자 없는 플랫 그래픽을 보여줍니다.",
-        "복잡한 그리드를 사용하지 마세요 — 스크린샷은 단순한 수직 중앙 정렬을 보여줍니다."
-      ],
-      "systemPrompt": "이 사이트는 순백(#FFFFFF) 배경 위에 중앙에 배치된 미니멀한 로고 프레젠테이션을 특징으로 합니다. 주요 텍스트 색상은 브랜드 이름에 사용된 모노스피드 폰트의 중립적인 회색(#666666)이며, 아이콘 마크에는 뚜렷한 블루 액센트(#2E5C8A)가 사용됩니다. 레이아웃은 완전히 중앙 정렬되어 있으며 여백을 적극적으로 활용합니다. 중요한 주의사항: 절대로 네비게이션이나 보조 UI 요소를 추가하지 마세요, 어두운 배경을 사용하지 마세요, 그리고 설명적인 본문 텍스트를 추가하는 것을 피하세요."
+      "easing": "cubic-bezier(0.16, 1, 0.3, 1)"
     }
   },
   "desc": {
     "en": {
-      "palette": "A strictly neutral palette of white and gray, punctuated only by a single deep blue accent in the logo mark.",
-      "layout": "A perfectly centered, symmetrical layout that focuses entirely on the brand mark in the middle of a vast white space.",
-      "interaction": "No interactive elements are visible; the page is a static brand presentation.",
-      "motion": "No motion is visible; the screenshot depicts a static state.",
-      "notes": "The extreme minimalism makes this an excellent reference for stark, centered logo placement and the effective use of negative space."
+      "palette": "A strictly monochromatic and restrained palette consisting of pure white, deep ink black, and various tones of muted warm grey.",
+      "layout": "The layout is characterized by generous whitespace, a split asymmetric hero section, and a grid of large, borderless, image-centric portfolio cards.",
+      "interaction": "Interactions are subtle and sophisticated, featuring smooth 0.15s color transitions on navigation and smooth scroll-triggered animations.",
+      "motion": "Motion is refined, utilizing a custom cubic-bezier(0.16, 1, 0.3, 1) easing curve for smooth opacity fades and gentle transform animations.",
+      "notes": "This site is a perfect example of restrained, premium agency design where the typography and high-quality portfolio imagery are the primary focus."
     },
     "zh-CN": {
       "palette": "以白色与灰色为主的严格中性色调，仅在品牌标识中点缀一抹深蓝色。",
@@ -499,6 +218,403 @@
       "ch7_intro": "모션 철학은 의도적인 정적 상태이지만, 잠재적인未来的 마이크로 상호작용을 위한 지정된 지속 시간은 존재합니다. 지정된 easing 커브는 어떤 움직임도 부드럽고 고려된 것이며, 정적 구성을 방해하지 않을 것임을 시사합니다.",
       "ch8_intro": "편집 목소리는 완전히 침묵하며, 헤드라인, 행동 촉구, 설명 텍스트를 피합니다. 이 시스템은 브랜드 마크의 존재를 통해서만 순수하게 소통합니다.",
       "ch8_outro": "그것은 의도적으로 탐색, 콘텐츠, 보조 UI를 포기하고 정체성의 진술로만 존재합니다."
+    }
+  },
+  "spec_i18n": {
+    "en": {
+      "identity": {
+        "keywords": [
+          "branding",
+          "UX",
+          "agency",
+          "global",
+          "design",
+          "creative"
+        ],
+        "analogy": "A premium design agency showcasing high-end portfolio work.",
+        "oneLiner": "A global branding and UX design agency portfolio."
+      },
+      "colors": {
+        "principle": "Monochromatic ink-on-white with subtle warm-grey background gradients and muted grey UI elements."
+      },
+      "typography": {
+        "rules": [],
+        "scaleUses": [
+          "Hero headline",
+          "Case study titles",
+          "Primary body text",
+          "UI labels and small text"
+        ]
+      },
+      "spacing": {
+        "rhythm": "Standard 4px base grid with generous whitespace in hero sections and consistent padding in content containers."
+      },
+      "surfaces": {
+        "shadows": [
+          "0 4px 24px rgba(6,7,10,0.08)"
+        ],
+        "borders": "Minimal 1px solid lines, mostly borderless cards, with a prominent pill-shaped Contact button."
+      },
+      "layout": {
+        "skeleton": "Asymmetric split layout in the hero (text left, 3D graphic right) and a grid of large image-based case study cards below."
+      },
+      "components": {
+        "button": "Black pill-shaped primary CTA, uppercase text, subtle hover transitions.",
+        "card": "Large, borderless image-heavy case study cards with tight text captions underneath.",
+        "chip": "None visible.",
+        "input": "None visible.",
+        "hero": "Full-width split layout with large typography on the left and an abstract 3D composition on the right."
+      },
+      "motion": {
+        "patterns": [
+          "Smooth opacity fades on page load",
+          "Gentle transforms on scroll",
+          "Hover color transitions on navigation links"
+        ]
+      },
+      "interaction": {
+        "hover": "Subtle color transition on nav links (0.15s).",
+        "click": "Immediate response with cursor pointer on interactive elements.",
+        "transition": "Smooth page transitions and scroll-triggered animations using a custom cubic-bezier curve.",
+        "keyboard": "Standard tab navigation with visible focus states."
+      },
+      "voice": {
+        "tone": "Confident, professional, and concise.",
+        "headlineStyle": "Large, bold, lowercase or sentence-case geometric sans-serif headlines.",
+        "ctaStyle": "Short, direct, uppercase text inside a pill-shaped container.",
+        "avoid": [
+          "Overly enthusiastic or salesy language",
+          "Complex sentences",
+          "Bright neon or clashing color accents",
+          "Decorative serifs",
+          "Heavy drop shadows"
+        ]
+      },
+      "donts": [
+        "Don't use decorative serif fonts — screenshot shows clean geometric sans-serif typography for all text.",
+        "Don't use bright, high-chroma accent colors — screenshot shows a monochromatic palette with black, white, and grey.",
+        "Don't add heavy borders or drop shadows to cards — screenshot shows borderless, image-focused case study cards.",
+        "Don't use perfectly square corners — screenshot shows a pill-shaped (999px radius) Contact button.",
+        "Don't use justified text — screenshot shows left-aligned typography with tight letter-spacing.",
+        "Don't use a crowded layout — screenshot shows generous whitespace and large padding around elements."
+      ],
+      "systemPrompt": "Design a premium global branding and UX design agency website. Use a monochromatic palette centered on pure white (#FFFFFF) and deep ink (#06070A), with subtle warm-grey backgrounds (#EFEDEE) and muted grey UI elements (#666C7A). Typography must be a clean geometric sans-serif in two weights: a heavy 740 weight for large display headlines and a medium 500 weight for body text, both with tight negative letter-spacing. The layout should feature generous whitespace, asymmetric split hero sections, and large, borderless image-heavy case study cards. Key interaction elements like the primary CTA should use a black pill-shaped button. Critical constraints: avoid all decorative serif fonts, never use high-chroma accent colors, and maintain a restrained, sophisticated aesthetic with smooth cubic-bezier transitions."
+    },
+    "zh-CN": {
+      "identity": {
+        "keywords": [
+          "品牌",
+          "用户体验",
+          "设计机构",
+          "全球化",
+          "设计",
+          "创意"
+        ],
+        "analogy": "一家展示高端作品集的优质设计机构。",
+        "oneLiner": "一家全球化品牌与用户体验设计机构作品集。"
+      },
+      "colors": {
+        "principle": "基于黑白单色墨水风格，搭配微妙的暖灰色背景渐变和低饱和度的灰色界面元素。"
+      },
+      "typography": {
+        "rules": [],
+        "scaleUses": [
+          "主标题",
+          "案例研究标题",
+          "主要正文",
+          "界面标签与小字"
+        ]
+      },
+      "spacing": {
+        "rhythm": "采用标准4像素基础网格，在英雄区域留有充足空白，内容容器则使用统一内边距。"
+      },
+      "surfaces": {
+        "shadows": [
+          "0 4px 24px rgba(6,7,10,0.08)"
+        ],
+        "borders": "采用极简的1像素实线边框，多数卡片无边框，仅设有醒目的药丸形联系按钮。"
+      },
+      "layout": {
+        "skeleton": "英雄区域采用非对称分栏布局（文字居左，3D图形居右），下方则排列大量基于图片的案例研究卡片网格。"
+      },
+      "components": {
+        "button": "黑色药丸形主行动号召按钮，大写文本，带有微妙的hover过渡效果。",
+        "card": "大型、无边框、以图片为主的案例研究卡片，下方配有简洁的文字说明。",
+        "chip": "无可见组件。",
+        "input": "无可见组件。",
+        "hero": "全宽分栏布局，左侧为大字号排版，右侧为抽象的3D构图。"
+      },
+      "motion": {
+        "patterns": [
+          "页面加载时平滑的透明度淡入效果",
+          "滚动时的柔和变换动画",
+          "导航链接的hover颜色过渡"
+        ]
+      },
+      "interaction": {
+        "hover": "导航链接带有微妙的颜色过渡（0.15秒）。",
+        "click": "交互元素提供即时响应，鼠标光标变为指针。",
+        "transition": "使用自定义cubic-bezier曲线实现平滑的页面过渡和滚动触发动画。",
+        "keyboard": "标准标签页导航，带有可见的焦点状态。"
+      },
+      "voice": {
+        "tone": "自信、专业且简洁。",
+        "headlineStyle": "采用大字号、粗体、小写或句首大写的几何无衬线字体作为标题。",
+        "ctaStyle": "简短、直接的大写文本置于药丸形容器内。",
+        "avoid": [
+          "过于热情或推销式的语言",
+          "复杂句式",
+          "明亮霓虹色或冲突的色彩强调",
+          "装饰性衬线字体",
+          "厚重的投影效果"
+        ]
+      },
+      "donts": [
+        "请勿使用装饰性衬线字体——截图显示所有文本均采用简洁的几何无衬线字体。",
+        "请勿使用高饱和度的亮色强调色——截图显示采用黑、白、灰色调的单色系配色方案。",
+        "请勿为卡片添加粗重边框或投影——截图显示为无边框、以图片为重点的案例研究卡片。",
+        "请勿使用完全方正的边角——截图显示为药丸形（999像素圆角）的联系按钮。",
+        "请勿使用两端对齐文本——截图显示为左对齐排版，字间距紧凑。",
+        "请勿使用拥挤的布局——截图显示元素周围留有充足空白和较大内边距。"
+      ],
+      "systemPrompt": "设计一个高端的全球化品牌与用户体验设计机构网站。使用以纯白(#FFFFFF)和深墨(#06070A)为核心的单色系配色，搭配微妙的暖灰色背景(#EFEDEE)和低饱和度的灰色界面元素(#666C7A)。字体必须使用简洁的几何无衬线字体，包含两种字重：粗体740用于大号展示标题，中等500用于正文文本，两者均需设置紧凑的负字间距。布局应体现充足留白、非对称分栏英雄区域以及大型无边框、以图片为主的案例研究卡片。关键交互元素（如主行动号召按钮）应采用黑色药丸形按钮。关键约束：避免所有装饰性衬线字体，绝不使用高饱和度强调色，并通过平滑的cubic-bezier过渡保持克制、精致的美学风格。"
+    },
+    "zh-TW": {
+      "identity": {
+        "keywords": [
+          "品牌識別",
+          "UX",
+          "設計機構",
+          "全球",
+          "設計",
+          "創意"
+        ],
+        "analogy": "一個展示高端作品集的高級設計機構。",
+        "oneLiner": "一個全球品牌識別與UX設計機構作品集。"
+      },
+      "colors": {
+        "principle": "單色墨印於白色，搭配微妙的暖灰色背景漸層與柔和的灰色UI元素。"
+      },
+      "typography": {
+        "rules": [],
+        "scaleUses": [
+          "主標題",
+          "案例研究標題",
+          "主要內文",
+          "UI標籤與小型文字"
+        ]
+      },
+      "spacing": {
+        "rhythm": "標準4px基礎網格，主視覺區域保留充足留白，內容容器使用一致的padding。"
+      },
+      "surfaces": {
+        "shadows": [
+          "0 4px 24px rgba(6,7,10,0.08)"
+        ],
+        "borders": "極簡的1px實線，多為無邊框卡片，搭配醒目的藥丸形「聯絡我們」按鈕。"
+      },
+      "layout": {
+        "skeleton": "主視覺採用不對稱分割佈局（文字左側，3D圖形右側），下方為大型圖片式案例研究卡片網格。"
+      },
+      "components": {
+        "button": "黑色藥丸形主要號召行動按鈕，大寫文字，帶有微妙的hover過渡效果。",
+        "card": "大型、無邊框、圖片為主的案例研究卡片，下方有緊湊的文字說明。",
+        "chip": "未出現。",
+        "input": "未出現。",
+        "hero": "全寬分割佈局，左側為大型字體排印，右側為抽象3D構圖。"
+      },
+      "motion": {
+        "patterns": [
+          "頁面載入時的平滑透明度淡化",
+          "滾動時的輕柔變形效果",
+          "導覽連結的hover顏色過渡"
+        ]
+      },
+      "interaction": {
+        "hover": "導覽連結的微妙顏色過渡（0.15秒）。",
+        "click": "互動元素立即回應並顯示游標手指標示。",
+        "transition": "使用自訂cubic-bezier曲線實現平滑的頁面轉場與滾動觸發動畫。",
+        "keyboard": "標準Tab鍵導覽，帶有可見的focus狀態。"
+      },
+      "voice": {
+        "tone": "自信、專業、簡潔。",
+        "headlineStyle": "大型、粗體、小寫或首字母大寫的幾何無襯線字體標題。",
+        "ctaStyle": "簡短、直接、大寫文字置於藥丸形容器內。",
+        "avoid": [
+          "過度熱情或推銷式的語言",
+          "複雜的句子結構",
+          "明亮的霓虹色或衝突的色彩強調",
+          "裝飾性襯線字體",
+          "厚重的陰影效果"
+        ]
+      },
+      "donts": [
+        "不要使用裝飾性襯線字體——截圖顯示所有文字均採用乾淨的幾何無襯線字體。",
+        "不要使用明亮、高彩度的強調色——截圖顯示以黑、白、灰為主的單色調色盤。",
+        "不要為卡片添加厚重的邊框或陰影——截圖顯示無邊框、以圖片為主的案例研究卡片。",
+        "不要使用完美的直角——截圖顯示藥丸形（999px圓角）的「聯絡我們」按鈕。",
+        "不要使用左右對齊的文字排版——截圖顯示左對齊的字體排印，字間距緊湊。",
+        "不要使用擁擠的佈局——截圖顯示元素周圍有充足的留白和大型padding。"
+      ],
+      "systemPrompt": "設計一個高級的全球品牌識別與UX設計機構網站。使用以純白（#FFFFFF）和深墨色（#06070A）為核心的單色調色盤，搭配微妙的暖灰色背景（#EFEDEE）和柔和的灰色UI元素（#666C7A）。字體必須使用乾淨的幾何無襯線字體，包含兩種字重：粗體740用於大型展示標題，中等500用於內文，兩者均帶有緊負的字間距。佈局應保留充足留白，採用不對稱分割的主視覺區塊，以及大型、無邊框、圖片為主的案例研究卡片。主要的互動元素如號召行動按鈕應使用黑色藥丸形按鈕。關鍵限制：避免所有裝飾性襯線字體，永不使用高彩度的強調色，並保持克制、精緻的美學風格，搭配平滑的cubic-bezier過渡效果。"
+    },
+    "ja": {
+      "identity": {
+        "keywords": [
+          "ブランディング",
+          "UX",
+          "エージェンシー",
+          "グローバル",
+          "デザイン",
+          "クリエイティブ"
+        ],
+        "analogy": "ハイエンドなポートフォリオワークを紹介するプレミアムデザインエージェンシー。",
+        "oneLiner": "グローバルなブランディングおよびUXデザインエージェンシーのポートフォリオ。"
+      },
+      "colors": {
+        "principle": "モノクロのインク・オン・ホワイトを基調とし、細やかなウォームグレーの背景グラデーションと落ち着いたグレーのUI要素を組み合わせる。"
+      },
+      "typography": {
+        "rules": [],
+        "scaleUses": [
+          "ヒーローヘッドライン",
+          "ケーススタディタイトル",
+          "本文テキスト",
+          "UIラベルおよび小テキスト"
+        ]
+      },
+      "spacing": {
+        "rhythm": "標準の4pxベースグリッドを採用し、ヒーローセクションには十分な余白を設け、コンテンツコンテナには一貫したpaddingを確保する。"
+      },
+      "surfaces": {
+        "shadows": [
+          "0 4px 24px rgba(6,7,10,0.08)"
+        ],
+        "borders": "最小限の1px solidライン、主にボーダーレスのカードを採用し、目立つピル形のContactボタンを配置。"
+      },
+      "layout": {
+        "skeleton": "ヒーローでは非対称な分割レイアウト（テキストを左、3Dグラフィックを右）を採用し、その下に大きな画像ベースのケーススタディカードをグリッドで配置。"
+      },
+      "components": {
+        "button": "ブラックのピル形プライマリCTA、大文字テキスト、細やかなhoverトランジション。",
+        "card": "大きな、ボーダーレスで画像重視のケーススタディカード、テキストキャプションを下部に密接配置。",
+        "chip": "視覚的に確認不可。",
+        "input": "視覚的に確認不可。",
+        "hero": "全面幅の分割レイアウト。左側に大きなタイポグラフィ、右側に抽象的な3Dコンポジションを配置。"
+      },
+      "motion": {
+        "patterns": [
+          "ページ読み込み時の滑らかなopacityフェード",
+          "scrollに伴う穏やかなtransform",
+          "ナビゲーションリンクのhoverカラートランジション"
+        ]
+      },
+      "interaction": {
+        "hover": "ナビゲーションリンクの細やかなカラートランジション（0.15s）。",
+        "click": "インタラクティブ要素にcursor pointerを即座に適用。",
+        "transition": "カスタムcubic-bezier曲線を用いた滑らかなページトランジションおよびscrollトリガーのアニメーション。",
+        "keyboard": "標準的なタブナビゲーションに明確なfocus状態を設定。"
+      },
+      "voice": {
+        "tone": "自信に満ち、プロフェッショナルで簡潔。",
+        "headlineStyle": "大型、太字、小文字または文頭大文字の幾何学的サンセリフヘッドライン。",
+        "ctaStyle": "短く、直接的、ピル形コンテナ内の大文字テキスト。",
+        "avoid": [
+          "過度に熱狂的またはセールスライクな言葉",
+          "複雑な文構造",
+          "明るいネオン色または衝突するカラーアクセント",
+          "装飾的なセリフ体",
+          "濃いドロップシャドウ"
+        ]
+      },
+      "donts": [
+        "装飾的なセリフ体フォントを使用しない — スクリーンショットではすべてのテキストにクリーンな幾何学的サンセリフタイポグラフィを使用。",
+        "明るい高彩度のアクセントカラーを使用しない — スクリーンショットでは黒、白、グレーのモノクロパレットを使用。",
+        "カードに太いボーダーやドロップシャドウを追加しない — スクリーンショットではボーダーレスで画像重視のケーススタディカードを使用。",
+        "完全に角の四角い形状を使用しない — スクリーンショットではピル形（999px radius）のContactボタンを使用。",
+        "均等割付テキストを使用しない — スクリーンショットでは字間を詰めた左揃えのタイポグラフィを使用。",
+        "雑然としたレイアウトを使用しない — スクリーンショットでは十分な余白と要素周囲の大きなpaddingを使用。"
+      ],
+      "systemPrompt": "グローバルなブランディングおよびUXデザインエージェンシーのプレミアムウェブサイトをデザイン。純白（#FFFFFF）と深いインク色（#06070A）を中心にモノクロパレットを採用し、細やかなウォームグレーの背景（#EFEDEE）と落ち着いたグレーのUI要素（#666C7A）を組み合わせる。タイポグラフィはクリーンな幾何学的サンセリフを2つのウェイトで使用：大きなディスプレイヘッドラインには太い740ウェイト、本文には中程度の500ウェイトを採用し、両方とも字間を密接に詰める。レイアウトは十分な余白、非対称な分割ヒーローセクション、そして大きなボーダーレスで画像重視のケーススタディカードを特徴とする。主要なインタラクション要素（例：プライマリCTA）はブラックのピル形ボタンを使用。重要な制約：すべての装飾的なセリフ体フォントを避け、高彩度のアクセントカラーは決して使用せず、滑らかなcubic-bezierトランジションを用いた抑制的で洗練された美学を維持する。"
+    },
+    "ko": {
+      "identity": {
+        "keywords": [
+          "브랜딩",
+          "UX",
+          "에이전시",
+          "글로벌",
+          "디자인",
+          "크리에이티브"
+        ],
+        "analogy": "고급 포트폴리오 작업을 선보이는 프리미엄 디자인 에이전시.",
+        "oneLiner": "글로벌 브랜딩 및 UX 디자인 에이전시 포트폴리오."
+      },
+      "colors": {
+        "principle": "흑백 단색 계열에 미묘한 따뜻한 그레이 배경 그라데이션과 은은한 그레이 UI 요소를 사용합니다."
+      },
+      "typography": {
+        "rules": [],
+        "scaleUses": [
+          "헤드라인",
+          "케이스 스터디 제목",
+          "본문 텍스트",
+          "UI 레이블 및 소용량 텍스트"
+        ]
+      },
+      "spacing": {
+        "rhythm": "표준 4px 기본 그리드를 사용하며, 히어로 영역에는 넉넉한 여백을, 콘텐츠 컨테이너에는 일관된 패딩을 적용합니다."
+      },
+      "surfaces": {
+        "shadows": [
+          "0 4px 24px rgba(6,7,10,0.08)"
+        ],
+        "borders": "최소한의 1px 실선, 대부분 보더리스 카드, 그리고 눈에 띄는 필 형태의 연락처 버튼."
+      },
+      "layout": {
+        "skeleton": "히어로 영역의 비대칭 분할 레이아웃(왼쪽 텍스트, 오른쪽 3D 그래픽)과 그 아래의 대형 이미지 기반 케이스 스터디 카드 그리드."
+      },
+      "components": {
+        "button": "검은색 필 형태의 주요 CTA, 대문자 텍스트, 미묘한 hover 전환 효과.",
+        "card": "대형, 보더리스, 이미지 중심의 케이스 스터디 카드로, 하단에 간결한 텍스트 캡션이 있습니다.",
+        "chip": "보이는 것 없음.",
+        "input": "보이는 것 없음.",
+        "hero": "전체 너비 분할 레이아웃, 왼쪽에 대형 타이포그래피, 오른쪽에 추상적인 3D 조합."
+      },
+      "motion": {
+        "patterns": [
+          "페이지 로드 시 부드러운 투명도 페이드 인",
+          "스크롤 시 은은한 transform 효과",
+          "네비게이션 링크 hover 색상 전환"
+        ]
+      },
+      "interaction": {
+        "hover": "네비게이션 링크에 미묘한 색상 전환 (0.15s).",
+        "click": "인터랙티브 요소에 즉각적인 반응 및 커서 포인터.",
+        "transition": "사용자 지정 cubic-bezier 곡선을 사용한 부드러운 페이지 전환 및 스크롤 트리거 애니메이션.",
+        "keyboard": "표준 탭 내비게이션 및 눈에 띄는 포커스 상태."
+      },
+      "voice": {
+        "tone": "자신감 있고, 전문적이며, 간결한 어조.",
+        "headlineStyle": "대형, 볼드체, 소문자 또는 문장형 대소문자를 사용하는 기하학적 sans-serif 헤드라인.",
+        "ctaStyle": "짧고 직접적인 대문자 텍스트를 필 형태의 컨테이너 안에 배치.",
+        "avoid": [
+          "지나치게 열정적이거나 판매적인 언어",
+          "복잡한 문장",
+          "밝은 네온색이나 충돌하는 색상 강조",
+          "장식용 세리프",
+          "무거운 드롭 섀도우"
+        ]
+      },
+      "donts": [
+        "장식용 세리프 폰트를 사용하지 마세요 — 스크린샷은 모든 텍스트에 깔끔한 기하학적 sans-serif 타이포그래피를 보여줍니다.",
+        "밝고 채도 높은 강조색을 사용하지 마세요 — 스크린샷은 검정, 흰색, 그레이로 구성된 단색 팔레트를 보여줍니다.",
+        "카드에 무거운 보더나 드롭 섀도우를 추가하지 마세요 — 스크린샷은 보더리스, 이미지 중심의 케이스 스터디 카드를 보여줍니다.",
+        "완벽하게 네모난 모서리를 사용하지 마세요 — 스크린샷은 필 형태(999px 반경)의 연락처 버튼을 보여줍니다.",
+        "텍스트 양쪽 정렬을 사용하지 마세요 — 스크린샷은 타이트한 자간의 왼쪽 정렬 타이포그래피를 보여줍니다.",
+        "혼잡한 레이아웃을 사용하지 마세요 — 스크린샷은 요소 주위의 넉넉한 여백과 큰 패딩을 보여줍니다."
+      ],
+      "systemPrompt": "프리미엄 글로벌 브랜딩 및 UX 디자인 에이전시 웹사이트를 설계하세요. 순수한 흰색(#FFFFFF)과 깊은 잉크(#06070A)를 중심으로 한 단색 팔레트를 사용하고, 미묘한 따뜻한 그레이 배경(#EFEDEE)과 은은한 그레이 UI 요소(#666C7A)를 적용하세요. 타이포그래피는 두 가지 두께의 깔끔한 기하학적 sans-serif여야 합니다: 대형 디스플레이 헤드라인용 무거운 740 두께와 본문용 중간 500 두께, 모두 타이트한 음수 자간을 사용합니다. 레이아웃은 넉넉한 여백, 비대칭 분할 히어로 영역, 그리고 대형 보더리스 이미지 중심 케이스 스터디 카드를 특징으로 해야 합니다. 주요 인터랙션 요소인 CTA는 검은색 필 형태 버튼을 사용합니다. 필수 제약 조건: 모든 장식용 세리프 폰트를 피하고, 절대로 채도 높은 강조색을 사용하지 않으며, 부드러운 cubic-bezier 전환을 사용하여 절제되고 정교한 미학을 유지합니다."
     }
   }
 }

@@ -17,44 +17,67 @@
   "_meta": {
     "vision_model": "mimo-v2.5",
     "vision_prompt_version": "0.3",
-    "vision_at": "2026-05-28T21:30:13+00:00",
-    "vision_tokens": 3176,
-    "vision_cost_usd": 0.0353,
+    "vision_at": "2026-05-30T09:54:03+00:00",
+    "vision_tokens": 18434,
+    "vision_cost_usd": 0.2048,
     "translation_model": "mimo-v2.5",
-    "translation_at": "2026-05-28T21:31:09+00:00",
-    "translation_tokens": 14861,
-    "translation_cost_usd": 0.0496,
+    "translation_at": "2026-05-30T09:55:03+00:00",
+    "translation_tokens": 26808,
+    "translation_cost_usd": 0.0894,
     "narrative_model": "mimo-v2.5",
     "narrative_prompt_version": "0.3",
     "narrative_at": "2026-05-28T21:31:17+00:00",
     "narrative_tokens": 1846,
     "narrative_cost_usd": 0.0123,
     "narrative_status": "ok",
-    "total_cost_usd": 0.0972
+    "total_cost_usd": 0.3065,
+    "vision_source": "playwright-extract:nike",
+    "vision_grounded": true
   },
   "spec": {
     "colors": {
       "bg": "#FFFFFF",
-      "bgSoft": null,
+      "bgSoft": "#F5F5F5",
       "bgQuiet": null,
       "ink": "#111111",
-      "inkSoft": null,
-      "muted": "#707072",
+      "inkSoft": "#707072",
+      "muted": "#E5E5E5",
       "mutedSoft": null,
       "accent": null,
-      "line": "rgba(0, 0, 0, 0.1)"
+      "line": "rgba(17,17,17,0.15)"
     },
     "typography": {
-      "display": "bold-extended-sans",
-      "body": "neutral-sans",
+      "display": "grotesque-sans",
+      "body": "humanist-sans",
       "mono": null,
       "scale": [
         {
           "token": "display",
           "size": 56,
-          "lh": 0.95,
-          "weight": 800,
-          "ls": "-1px"
+          "lh": 1.0,
+          "weight": 500,
+          "ls": "-1.5px"
+        },
+        {
+          "token": "headline",
+          "size": 32,
+          "lh": 1.2,
+          "weight": 500,
+          "ls": "-0.5px"
+        },
+        {
+          "token": "body",
+          "size": 16,
+          "lh": 1.75,
+          "weight": 400,
+          "ls": "0px"
+        },
+        {
+          "token": "caption",
+          "size": 12,
+          "lh": 1.5,
+          "weight": 500,
+          "ls": "0px"
         }
       ]
     },
@@ -73,14 +96,14 @@
     },
     "surfaces": {
       "radius": {
-        "sm": 0,
-        "md": 0,
-        "lg": 0,
+        "sm": 4,
+        "md": 8,
+        "lg": 30,
         "pill": 999
       }
     },
     "layout": {
-      "container": 1440,
+      "container": 1920,
       "paragraph": 680,
       "columns": 12,
       "gutter": 24,
@@ -91,387 +114,20 @@
     },
     "motion": {
       "durations": {
-        "micro": 200,
+        "micro": 220,
         "small": 300,
-        "medium": 500
+        "medium": 800
       },
-      "easing": "cubic-bezier(0.4, 0, 0.2, 1)"
-    }
-  },
-  "spec_i18n": {
-    "en": {
-      "identity": {
-        "keywords": [
-          "Athletic",
-          "Dynamic",
-          "Performance",
-          "Global",
-          "Iconic"
-        ],
-        "analogy": "A high-performance athletic arena.",
-        "oneLiner": "Global athletic brand leading with dynamic product showcases and bold typography."
-      },
-      "colors": {
-        "principle": "High contrast and clean, relying on photography and bold typography for impact."
-      },
-      "typography": {
-        "rules": [
-          "Use tight tracking and uppercase for primary headlines.",
-          "Body text should be highly legible and neutral."
-        ],
-        "scaleUses": [
-          "Hero Headlines"
-        ]
-      },
-      "spacing": {
-        "rhythm": "Generous spacing to emphasize large photography."
-      },
-      "surfaces": {
-        "shadows": [],
-        "borders": "No borders, relies on full-bleed imagery and whitespace."
-      },
-      "layout": {
-        "skeleton": "Full-bleed photography and large content blocks."
-      },
-      "components": {
-        "button": "Solid black or white rounded pill with bold sans-serif label.",
-        "card": "Full-bleed image with overlaid text and a solid background color.",
-        "chip": "Minimal use, focus is on large interactive areas.",
-        "input": "Rounded pill with subtle grey background and placeholder text.",
-        "hero": "Full-width dynamic imagery with bold, centered typography overlay."
-      },
-      "motion": {
-        "patterns": [
-          "Smooth fade-ins for content blocks.",
-          "Subtle transitions for interactive elements."
-        ]
-      },
-      "interaction": {
-        "hover": "Subtle color shifts or opacity changes.",
-        "click": "Immediate visual feedback or navigation.",
-        "transition": "Smooth transitions between states.",
-        "keyboard": "Standard focus outlines for accessibility."
-      },
-      "voice": {
-        "tone": "Confident, motivational, and direct.",
-        "headlineStyle": "Short, impactful, and often imperative.",
-        "ctaStyle": "Action-oriented and clear.",
-        "avoid": [
-          "Overly complex sentences.",
-          "Passive voice.",
-          "Generic corporate jargon."
-        ]
-      },
-      "donts": [
-        "Don't use decorative typography — screenshot shows bold, functional sans-serif.",
-        "Don't apply rounded corners to main cards — screenshot shows sharp edges.",
-        "Don't use muted or pastel color palettes — screenshot shows high contrast black, white, and red.",
-        "Don't clutter the layout with too many elements — screenshot shows clear, focused sections.",
-        "Don't use complex shadows — screenshot shows flat, clean surfaces.",
-        "Don't use low-contrast text — screenshot shows highly legible typography."
-      ],
-      "systemPrompt": "A global athletic brand website characterized by bold, dynamic photography and clean, functional design. The primary palette relies on high-contrast black (#111111) and white (#FFFFFF), with occasional vibrant red accents in product imagery. Typography is defined by extended, bold sans-serif for impactful headlines and a neutral sans-serif for body text. Layouts are spacious and grid-based, often utilizing full-bleed imagery to create a sense of scale and performance. Critical design constraints include avoiding decorative fonts, complex shadows, or rounded corners on primary content blocks. The overall feel is confident, direct, and highly functional."
-    },
-    "zh-CN": {
-      "identity": {
-        "keywords": [
-          "运动",
-          "动态",
-          "性能",
-          "全球",
-          "标志性"
-        ],
-        "analogy": "一个高性能的运动场馆。",
-        "oneLiner": "以动态产品展示和大胆排版引领全球的运动品牌。"
-      },
-      "colors": {
-        "principle": "高对比度与简洁，依靠摄影和大胆排版来产生视觉冲击力。"
-      },
-      "typography": {
-        "rules": [
-          "主标题使用紧凑字距和全大写。",
-          "正文应高度易读且中性。"
-        ],
-        "scaleUses": [
-          "首屏大标题"
-        ]
-      },
-      "spacing": {
-        "rhythm": "采用宽松间距以强调大幅摄影图像。"
-      },
-      "surfaces": {
-        "shadows": [],
-        "borders": "无边框，依靠全出血图像和留白。"
-      },
-      "layout": {
-        "skeleton": "全出血摄影与大型内容块。"
-      },
-      "components": {
-        "button": "实心黑色或白色圆角胶囊按钮，配以粗体无衬线标签。",
-        "card": "全出血图像，叠加文字并配以纯色背景。",
-        "chip": "极少使用，重点在于大型交互区域。",
-        "input": "圆角胶囊，配以浅灰色背景和占位文本。",
-        "hero": "全宽动态图像，配以居中的粗体排版叠加。"
-      },
-      "motion": {
-        "patterns": [
-          "内容块采用平滑的淡入效果。",
-          "交互元素采用微妙的过渡效果。"
-        ]
-      },
-      "interaction": {
-        "hover": "细微的颜色变化或透明度改变。",
-        "click": "即时的视觉反馈或导航跳转。",
-        "transition": "状态之间平滑过渡。",
-        "keyboard": "遵循标准的焦点轮廓以保障无障碍访问。"
-      },
-      "voice": {
-        "tone": "自信、激励、直接。",
-        "headlineStyle": "简短、有冲击力，常为祈使句。",
-        "ctaStyle": "以行动为导向，表述清晰。",
-        "avoid": [
-          "过于复杂的句子。",
-          "被动语态。",
-          "泛泛的企业套话。"
-        ]
-      },
-      "donts": [
-        "不要使用装饰性字体——截图显示为粗体、功能性的无衬线字体。",
-        "不要给主卡片添加圆角——截图显示为直角边缘。",
-        "不要使用柔和或柔和的色板——截图显示为高对比度的黑、白、红。",
-        "不要在布局中堆砌过多元素——截图显示为清晰、聚焦的区块。",
-        "不要使用复杂的阴影——截图显示为扁平、干净的界面。",
-        "不要使用低对比度文本——截图显示为高度易读的排版。"
-      ],
-      "systemPrompt": "一个全球运动品牌网站，其特点是拥有大胆、动态的摄影以及简洁、功能性的设计。主色板依赖于高对比度的黑色（#111111）和白色（#FFFFFF），并在产品图像中偶尔使用鲜艳的红色作为点缀。排版上，采用加宽的粗体无衬线字体打造具有冲击力的标题，正文则使用中性的无衬线字体。布局宽敞且基于网格，常利用全出血图像来营造规模感与性能感。关键的设计约束包括避免使用装饰性字体、复杂阴影或为主要内容块添加圆角。整体感觉自信、直接且高度功能化。"
-    },
-    "zh-TW": {
-      "identity": {
-        "keywords": [
-          "運動",
-          "動態",
-          "性能",
-          "全球",
-          "標誌性"
-        ],
-        "analogy": "一座高性能的運動競技場。",
-        "oneLiner": "全球運動品牌，以動態產品展示與大膽排版為先導。"
-      },
-      "colors": {
-        "principle": "高對比且簡潔，依賴攝影與大膽排版來創造影響力。"
-      },
-      "typography": {
-        "rules": [
-          "主要標題使用緊湊字距與全大寫。",
-          "內文字體應具高度易讀性且保持中性。"
-        ],
-        "scaleUses": [
-          "主視覺標題"
-        ]
-      },
-      "spacing": {
-        "rhythm": "寬裕的間距，以強調大幅攝影圖像。"
-      },
-      "surfaces": {
-        "shadows": [],
-        "borders": "無邊框，依賴全出血影像與留白。"
-      },
-      "layout": {
-        "skeleton": "全出血攝影圖像與大型內容區塊。"
-      },
-      "components": {
-        "button": "實心黑色或白色圓角膠囊形狀，搭配粗體無襯線標籤。",
-        "card": "全出血圖片，疊加文字與實色背景色。",
-        "chip": "極簡使用，焦點在於大型互動區域。",
-        "input": "圓角膠囊形狀，搭配細微灰色背景與佔位文字。",
-        "hero": "全寬動態影像，搭配大膽、居中的排版覆蓋層。"
-      },
-      "motion": {
-        "patterns": [
-          "內容區塊使用流暢的淡入效果。",
-          "互動元素使用細微的過渡效果。"
-        ]
-      },
-      "interaction": {
-        "hover": "細微的色彩變化或透明度改變。",
-        "click": "即時的視覺回饋或導覽。",
-        "transition": "狀態之間的流暢過渡。",
-        "keyboard": "標準的焦點輪廓以利無障礙使用。"
-      },
-      "voice": {
-        "tone": "自信、激勵人心且直接。",
-        "headlineStyle": "簡短、有力，且常帶有指令性。",
-        "ctaStyle": "以行動為導向且清晰明確。",
-        "avoid": [
-          "過於複雜的句子。",
-          "被動語態。",
-          "泛泛的企業術語。"
-        ]
-      },
-      "donts": [
-        "不要使用裝飾性字體——截圖顯示的是粗體、功能性的無襯線字體。",
-        "不要為主要卡片應用圓角——截圖顯示的是銳利的邊緣。",
-        "不要使用柔和或粉彩色調的調色盤——截圖顯示的是高對比的黑、白、紅。",
-        "不要讓佈局充斥過多元素——截圖顯示的是清晰、聚焦的區塊。",
-        "不要使用複雜的陰影——截圖顯示的是扁平、乾淨的表面。",
-        "不要使用低對比度的文字——截圖顯示的是高度易讀的排版。"
-      ],
-      "systemPrompt": "一個全球運動品牌網站，其特色為大膽、動態的攝影與簡潔、功能性的設計。主要調色盤依賴高對比度的黑色 (#111111) 與白色 (#FFFFFF)，並在產品圖像中偶爾使用鮮明的紅色作為點綴。排版以寬闊、粗體的無襯線字體打造具衝擊力的標題，並以中性的無襯線字體作為內文。佈局寬敞且基於網格，常利用全出血影像來營造規模感與性能感。關鍵的設計限制包括避免使用裝飾性字體、複雜的陰影，或為主要內容區塊添加圓角。整體的感覺是自信、直接且高度功能化的。"
-    },
-    "ja": {
-      "identity": {
-        "keywords": [
-          "アスレティック",
-          "ダイナミック",
-          "パフォーマンス",
-          "グローバル",
-          "アイコニック"
-        ],
-        "analogy": "高性能なアスレティックアリーナ。",
-        "oneLiner": "ダイナミックな製品ショーケースと大胆なタイポグラフィで先導する、グローバルなアスレティックブランド。"
-      },
-      "colors": {
-        "principle": "高コントラストでクリーン。写真と大胆なタイポグラフィにインパクトを依存。"
-      },
-      "typography": {
-        "rules": [
-          "プライマリヘッドラインには、 tight tracking と大文字を使用。",
-          "本文は極めて legible で中立的であるべき。"
-        ],
-        "scaleUses": [
-          "ヒーローヘッドライン"
-        ]
-      },
-      "spacing": {
-        "rhythm": "大きな写真を強調するための、ゆったりとした spacing。"
-      },
-      "surfaces": {
-        "shadows": [],
-        "borders": "ボーダーなし。フルブリードの画像とホワイトスペースに依存。"
-      },
-      "layout": {
-        "skeleton": "フルブリードの写真と大きなコンテンツブロック。"
-      },
-      "components": {
-        "button": "大胆な sans-serif ラベルを備えた、ソリッドな黒またはホワイトの角丸ピル。",
-        "card": "オーバーレイテキストとソリッドな背景色を備えた、フルブリード画像。",
-        "chip": "最小限の使用。焦点は大きなインタラクティブエリア。",
-        "input": "微妙なグレーの背景とプレースホルダーテキストを備えた、角丸ピル。",
-        "hero": "大胆で中央揃えのタイポグラフィオーバーレイを備えた、フルワイドのダイナミックな画像。"
-      },
-      "motion": {
-        "patterns": [
-          "コンテンツブロックのスムーズなフェードイン。",
-          "インタラクティブ要素の微妙なトランジション。"
-        ]
-      },
-      "interaction": {
-        "hover": "微妙な色の変化や不透明度の変更。",
-        "click": "即座のビジュアルフィードバックまたはナビゲーション。",
-        "transition": "状態間のスムーズなトランジション。",
-        "keyboard": "アクセシビリティのための標準的な focus アウトライン。"
-      },
-      "voice": {
-        "tone": "自信に満ち、モチベーショナルで、直接的。",
-        "headlineStyle": "短く、インパクトがあり、しばしば命令形。",
-        "ctaStyle": "アクション指向で明確。",
-        "avoid": [
-          "過度に複雑な文章。",
-          "受動態。",
-          "一般的なコーポレート用語。"
-        ]
-      },
-      "donts": [
-        "装飾的なタイポグラフィを使用しない — スクリーンショットはboldで機能的なsans-serifを示しています。",
-        "メインカードに角丸を適用しない — スクリーンショットはシャープなエッジを示しています。",
-        "くすんだパステルカラーパレットを使用しない — スクリーンショットは高コントラストのblack、white、redを示しています。",
-        "要素を詰め込みすぎたレイアウトにしない — スクリーンショットは明確で焦点を絞ったセクションを示しています。",
-        "複雑なシャドウを使用しない — スクリーンショットはフラットでクリーンなサーフェスを示しています。",
-        "低コントラストのテキストを使用しない — スクリーンショットは非常に legible なタイポグラフィを示しています。"
-      ],
-      "systemPrompt": "大胆でダイナミックな写真とクリーンで機能的なデザインが特徴の、グローバルなアスレティックブランドのウェブサイト。プライマリパレットは、高コントラストなblack (#111111) とwhite (#FFFFFF) に依存し、製品画像に鮮やかなredのアクセントが時折加わります。タイポグラフィは、インパクトのあるヘッドライン用のextendしたboldなsans-serifと、本文用の中立的なsans-serifで定義されます。レイアウトはゆったりとしてグリッドベースであり、しばしばフルブリードの画像を使用してスケール感とパフォーマンスを生み出します。重要なデザイン制約には、装飾的なフォント、複雑なシャドウ、またはプライマリコンテンツブロックへの角丸の使用を避けることが含まれます。全体的な印象は、自信に満ち、直接的で、非常に機能的です。"
-    },
-    "ko": {
-      "identity": {
-        "keywords": [
-          "운동선수",
-          "역동적",
-          "성능",
-          "글로벌",
-          "상징적"
-        ],
-        "analogy": "고성능 운동 경기장.",
-        "oneLiner": "역동적인 제품 쇼케이스와 대담한 타이포그래피를 이끄는 글로벌 운동 브랜드."
-      },
-      "colors": {
-        "principle": "고대비와 깔끔함을 기본으로 하며, 임팩트는 사진과 대담한 타이포그래피에 의존합니다."
-      },
-      "typography": {
-        "rules": [
-          "메인 헤드라인에는 좁은 트래킹과 대문자를 사용합니다.",
-          "본문 텍스트는 높은 가독성과 중립적 스타일이어야 합니다."
-        ],
-        "scaleUses": [
-          "히어로 헤드라인"
-        ]
-      },
-      "spacing": {
-        "rhythm": "대형 사진을 강조하기 위한 넉넉한 간격."
-      },
-      "surfaces": {
-        "shadows": [],
-        "borders": "테두리 없음, 풀블리드 이미지와 여백에 의존."
-      },
-      "layout": {
-        "skeleton": "풀블리드 사진과 대형 콘텐츠 블록."
-      },
-      "components": {
-        "button": "대담한 산세리프 라벨이 적용된 검정 또는 흰색 둥근 필 모양 버튼.",
-        "card": "덧쓰기된 텍스트와 단색 배경이 있는 풀블리드 이미지 카드.",
-        "chip": "최소한으로 사용, 포인트는 대형 인터랙티브 영역에 있음.",
-        "input": "미세한 회색 배경과 플레이스홀더 텍스트가 있는 둥근 필 모양 입력 필드.",
-        "hero": "대담하고 중앙 정렬된 타이포그래피가 오버레이된 전체 폭 동적 이미지."
-      },
-      "motion": {
-        "patterns": [
-          "콘텐츠 블록의 부드러운 페이드인.",
-          "인터랙티브 요소의 미세한 트랜지션."
-        ]
-      },
-      "interaction": {
-        "hover": "미세한 색상 변화 또는 불투명도 변경.",
-        "click": "즉각적인 시각적 피드백 또는 내비게이션.",
-        "transition": "상태 간 부드러운 전환.",
-        "keyboard": "접근성을 위한 표준 포커스 윤곽선."
-      },
-      "voice": {
-        "tone": "자신감 있고, 동기 부여적이며, 직접적.",
-        "headlineStyle": "짧고 임팩트 있으며, 흔히 지시적.",
-        "ctaStyle": "행동 지향적이고 명확.",
-        "avoid": [
-          "지나치게 복잡한 문장.",
-          "수동태.",
-          "일반적인 기업용 어구."
-        ]
-      },
-      "donts": [
-        "장식적 타이포그래피 사용 금지 — 스크린샷은 대담하고 기능적인 산세리프를 보여줍니다.",
-        "메인 카드에 둥근 모서리 적용 금지 — 스크린샷은 날카로운 모서리를 보여줍니다.",
-        "차분하거나 파스텔 팔레트 사용 금지 — 스크린샷은 고대비 흑백 및 빨간색을 보여줍니다.",
-        "너무 많은 요소로 레이아웃을 복잡하게 만들 금지 — 스크린샷은 명확하고 집중된 섹션을 보여줍니다.",
-        "복잡한 그림자 사용 금지 — 스크린샷은 플랫하고 깔끔한 표면을 보여줍니다.",
-        "저대비 텍스트 사용 금지 — 스크린샷은 높은 가독성을 지닌 타이포그래피를 보여줍니다."
-      ],
-      "systemPrompt": "대담하고 역동적인 사진과 깔끔하고 기능적인 디자인이 특징인 글로벌 운동 브랜드 웹사이트입니다. 주요 팔레트는 고대비 흑색(#111111)과 백색(#FFFFFF)에 의존하며, 제품 이미지에서 간헐적으로 선명한 빨간색 강조가 사용됩니다. 타이포그래피는 임팩트 있는 헤드라인용 확장 대담 산세리프와 본문용 중립 산세리프로 정의됩니다. 레이아웃은 여유롭고 그리드 기반이며, 종종 풀블리드 이미지를 활용하여 규모감과 성능 느낌을 만듭니다. 핵심 디자인 제약은 장식적 폰트, 복잡한 그림자 또는 메인 콘텐츠 블록의 둥근 모서리 사용을 피하는 것입니다. 전체적인 느낌은 자신감 있고, 직접적이며, 매우 기능적입니다."
+      "easing": "cubic-bezier(0.25, 0.1, 0.25, 1.0)"
     }
   },
   "desc": {
     "en": {
-      "palette": "A high-contrast palette dominated by black and white, allowing vibrant product photography to dictate the color story.",
-      "layout": "Full-bleed imagery and spacious, grid-based sections create a powerful, editorial feel.",
-      "interaction": "Focuses on clear, immediate visual feedback through subtle color shifts and smooth transitions.",
-      "motion": "Utilizes smooth, functional transitions to guide the user experience without distraction.",
-      "notes": "Worth including as a prime example of balancing bold branding with high-functionality e-commerce design."
+      "palette": "High-contrast monochrome palette using pure white, near-black (#111111), and utility gray (#707072) to let photographic imagery provide all chromatic energy.",
+      "layout": "Full-width hero sections with generous centered content flow, minimal chrome, and generous whitespace that puts product photography center stage.",
+      "interaction": "Subtle opacity transitions on hover states with 0.3s duration, smooth background-color changes on interactive elements, and transform animations for scroll reveals.",
+      "motion": "Restrained motion system with micro (220ms) feedback transitions, small (300ms) state changes, and medium (800ms) scroll-triggered reveals.",
+      "notes": "This site exemplifies how a global brand achieves premium positioning through radical restraint—letting world-class photography and bold type do all the emotional work."
     },
     "zh-CN": {
       "palette": "以黑白为主、对比度极高的调色板，让鲜艳的产品摄影来主导色彩叙事。",
@@ -562,6 +218,428 @@
       "ch7_intro": "모션은 장식이 아닌 기능적 안내로 활용됩니다. 전환은 부드럽고 미묘하며, 핵심 콘텐츠에서 주의를 산만하게 하지 않으면서 주의를 집중하고 상호작용을 확인하도록 설계되었습니다.",
       "ch8_intro": "에디토리얼 톤은 자신감 있고, 동기를 부여하며, 직접적입니다. 이는 시각 시스템의 대담함을 반영합니다. 커뮤니케이션은 짧고, 임팩트 있으며, 행동 지향적입니다. 수동태와 일반적인 기업 표현을 피합니다.",
       "ch8_outro": "이 시스템은 의도적으로 장식적인 타이포그래피, 복잡한 그림자, 지저분한 레이아웃을 피하며, 깨끗하고 성능 지향적인 미학에 전적으로 헌신합니다."
+    }
+  },
+  "spec_i18n": {
+    "en": {
+      "identity": {
+        "keywords": [
+          "athletic",
+          "premium",
+          "minimal",
+          "bold",
+          "performance"
+        ],
+        "analogy": "A premium athletic showroom with cinematic product showcases",
+        "oneLiner": "A bold, photographic e-commerce experience that lets high-impact imagery and clean typography drive product storytelling."
+      },
+      "colors": {
+        "principle": "High-contrast monochrome palette with photography providing all chromatic energy"
+      },
+      "typography": {
+        "rules": [
+          "Headlines use weight 500 (medium) rather than heavy weights",
+          "Body text uses weight 400 (regular) for readability",
+          "All typography uses tight negative letter-spacing for display sizes",
+          "Chinese text uses Noto Sans SC with same weight hierarchy as Latin text"
+        ],
+        "scaleUses": [
+          "Hero headlines and product names",
+          "Section titles and category headings",
+          "Standard body text and descriptions",
+          "Labels, metadata, and secondary information"
+        ]
+      },
+      "spacing": {
+        "rhythm": "8px base grid with generous whitespace around hero sections"
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(17,17,17,0.06) 0px 4px 8px 0px",
+          "rgba(17,17,17,0.03) 0px 0px 24px 4px"
+        ],
+        "borders": "1px solid rgba(17,17,17,0.15) with 0px 0px 2px pattern for dividers"
+      },
+      "layout": {
+        "skeleton": "Full-width hero images with centered text overlays, single-column content flow with wide margins"
+      },
+      "components": {
+        "button": "Pill-shaped (border-radius: 30px) with solid black background and white text, medium weight",
+        "card": "No visible cards in this view - content is presented through full-width image sections",
+        "chip": "None visible",
+        "input": "Rounded search field with placeholder text, subtle border",
+        "hero": "Full-bleed photographic hero with centered typography overlay and single CTA button"
+      },
+      "motion": {
+        "patterns": [
+          "Opacity transitions on hover states (0.3s)",
+          "Background-color transitions on interactive elements (0.5s)",
+          "Transform animations for scroll reveals (0.8s)"
+        ]
+      },
+      "interaction": {
+        "hover": "Subtle opacity reduction and color transition on navigation links",
+        "click": "No visible active states beyond standard browser defaults",
+        "transition": "All properties transition smoothly at 0.3s default duration",
+        "keyboard": "Standard focus management with visible focus indicators on interactive elements"
+      },
+      "voice": {
+        "tone": "Confident, aspirational, direct",
+        "headlineStyle": "Bold, declarative statements with minimal supporting text",
+        "ctaStyle": "Action-oriented verbs in compact pill buttons ('即刻探索' / 'Shop Now')",
+        "avoid": [
+          "Excessive punctuation",
+          "Overly casual language",
+          "Dense paragraphs"
+        ]
+      },
+      "donts": [
+        "Don't use decorative backgrounds — screenshot shows clean white backgrounds (#FFFFFF) that let photography dominate",
+        "Don't use rounded card containers — screenshot shows full-bleed images without visible card boundaries",
+        "Don't use heavy font weights — screenshot shows weight 500 (medium) maximum for headlines, never bold/black weights",
+        "Don't add accent colors to UI elements — screenshot shows buttons and links in pure black (#111111) without color highlights",
+        "Don't use complex multi-column layouts — screenshot shows single-column centered content with generous whitespace",
+        "Don't add drop shadows to text — screenshot shows text rendered directly over photography without shadows or overlays",
+        "Don't use small, cramped navigation — screenshot shows generous padding (36px 0px 12px 0px) in header areas",
+        "Don't mix multiple typefaces — screenshot shows consistent Noto Sans SC family throughout with Helvetica Neue fallback"
+      ],
+      "systemPrompt": "Nike.com is a premium athletic e-commerce platform that uses bold typography and cinematic photography to showcase products. The design language is clean and minimal with a monochrome palette: primary background white (#FFFFFF), secondary gray (#F5F5F5), ink black (#111111), and muted gray (#707072). Typography uses grotesque-sans for display (weight 500, negative letter-spacing) and humanist-sans (Noto Sans SC) for body text at weight 400. UI elements like buttons use pill shapes (border-radius: 30px) in solid black. Layout is full-width with generous whitespace and single-column content flow. Key donts: Never use decorative backgrounds that compete with photography, never exceed medium weight (500) for type, never add accent colors to navigation or buttons, never use heavy drop shadows on text overlays, never create cramped multi-column layouts, never mix typeface families."
+    },
+    "zh-CN": {
+      "identity": {
+        "keywords": [
+          "运动",
+          "高端",
+          "极简",
+          "大胆",
+          "性能"
+        ],
+        "analogy": "一个高端的运动展厅，配有电影级的产品展示",
+        "oneLiner": "一个大胆、以摄影为主的电商体验，让极具冲击力的图像和简洁的排版来驱动产品叙事。"
+      },
+      "colors": {
+        "principle": "高对比度的单色调色板，由摄影提供所有色彩能量"
+      },
+      "typography": {
+        "rules": [
+          "标题使用中等字重（500），而非粗体",
+          "正文使用常规字重（400）以保证可读性",
+          "所有展示尺寸的文字都使用紧凑的负字距",
+          "中文文本使用思源黑体（Noto Sans SC），与拉丁文本保持相同的字重层级"
+        ],
+        "scaleUses": [
+          "主标题和产品名称",
+          "章节标题和分类标题",
+          "标准正文和描述",
+          "标签、元数据和次要信息"
+        ]
+      },
+      "spacing": {
+        "rhythm": "基于8px的网格，主视觉区域周围留有充足空白"
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(17,17,17,0.06) 0px 4px 8px 0px",
+          "rgba(17,17,17,0.03) 0px 0px 24px 4px"
+        ],
+        "borders": "1px实线边框 rgba(17,17,17,0.15)，分隔线使用 0px 0px 2px 模式"
+      },
+      "layout": {
+        "skeleton": "全宽主视觉图像搭配居中的文字叠加，单列内容流并配有宽阔的页边距"
+      },
+      "components": {
+        "button": "药丸形（border-radius: 30px），纯黑背景配白色文字，中等字重",
+        "card": "此视图中没有可见的卡片——内容通过全宽图像部分呈现",
+        "chip": "无可见元素",
+        "input": "圆角搜索框，带有占位符文本和细微边框",
+        "hero": "全出血摄影主视觉，居中排版叠加和单个行动号召按钮"
+      },
+      "motion": {
+        "patterns": [
+          "悬停状态下的透明度过渡（0.3秒）",
+          "交互元素的背景颜色过渡（0.5秒）",
+          "滚动显示的变换动画（0.8秒）"
+        ]
+      },
+      "interaction": {
+        "hover": "导航链接上有细微的透明度降低和颜色过渡",
+        "click": "除了标准的浏览器默认样式外，无其他可见的激活状态",
+        "transition": "所有属性都以默认的0.3秒平滑过渡",
+        "keyboard": "标准的焦点管理，交互元素上显示可见的焦点指示器"
+      },
+      "voice": {
+        "tone": "自信、富有抱负、直接",
+        "headlineStyle": "大胆、陈述性的语句，辅以最少量的支持文本",
+        "ctaStyle": "紧凑药丸按钮中的行动导向动词（'即刻探索' / '立即购买'）",
+        "avoid": [
+          "过多的标点符号",
+          "过于随意的语言",
+          "密集的段落"
+        ]
+      },
+      "donts": [
+        "不要使用装饰性背景——截图显示了干净的白色背景（#FFFFFF），让摄影占据主导",
+        "不要使用圆角卡片容器——截图显示了无可见卡片边界的全出血图像",
+        "不要使用粗重的字体——截图显示标题最大使用中等字重（500），绝不使用粗体/黑体字重",
+        "不要在UI元素上添加强调色——截图显示按钮和链接为纯黑色（#111111），没有颜色高亮",
+        "不要使用复杂的多列布局——截图显示单列居中内容，并留有充足空白",
+        "不要在文字上添加投影——截图显示文字直接渲染在摄影背景上，无阴影或叠加层",
+        "不要使用狭小、拥挤的导航——截图显示标题区域有充足的内边距（36px 0px 12px 0px）",
+        "不要混合多种字体——截图显示始终使用一致的思源黑体（Noto Sans SC）字族，并回退到Helvetica Neue"
+      ],
+      "systemPrompt": "Nike.com是一个高端的运动电商平台，使用大胆的排版和电影级摄影来展示产品。设计语言简洁而极简，采用单色调色板：主背景白色（#FFFFFF），次要灰色（#F5F5F5），墨黑（#111111）和柔和灰（#707072）。排版在展示部分使用无衬线怪诞体（字重500，负字距），正文使用人文无衬线体（思源黑体）字重400。UI元素如按钮采用药丸形状（border-radius: 30px），纯黑色。布局为全宽，留有充足空白和单列内容流。关键禁忌：绝不使用与摄影竞争的装饰性背景，字体绝不超过中等字重（500），绝不为导航或按钮添加强调色，绝不为文字叠加层使用粗重投影，绝不创建拥挤的多列布局，绝不混合字体字族。"
+    },
+    "zh-TW": {
+      "identity": {
+        "keywords": [
+          "運動",
+          "高端",
+          "極簡",
+          "大膽",
+          "高性能"
+        ],
+        "analogy": "一個高端運動產品展示廳，搭配電影級的產品展示",
+        "oneLiner": "一個大膽、以攝影為核心的電商體驗，讓高衝擊力的視覺與簡潔的排版驅動產品敘事。"
+      },
+      "colors": {
+        "principle": "高對比單色調色板，由攝影提供所有色彩能量"
+      },
+      "typography": {
+        "rules": [
+          "標題使用字重 500 (medium)，而非粗體字重",
+          "內文字使用字重 400 (regular) 以確保可讀性",
+          "所有用於展示尺寸的排版都使用緊湊的負字母間距",
+          "中文文字使用 Noto Sans SC，其字重層級與拉丁文字一致"
+        ],
+        "scaleUses": [
+          "首頁大標題與產品名稱",
+          "區塊標題與類別標題",
+          "標準內文與描述",
+          "標籤、中繼資料與次要資訊"
+        ]
+      },
+      "spacing": {
+        "rhythm": "以 8px 為基礎網格，首頁區塊周圍留有充足空白"
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(17,17,17,0.06) 0px 4px 8px 0px",
+          "rgba(17,17,17,0.03) 0px 0px 24px 4px"
+        ],
+        "borders": "1px solid rgba(17,17,17,0.15)，分隔線使用 0px 0px 2px 樣式"
+      },
+      "layout": {
+        "skeleton": "全寬首頁圖片，搭配置中的文字覆蓋層；單欄內容流，帶有寬邊距"
+      },
+      "components": {
+        "button": "膠囊形狀 (border-radius: 30px)，純黑背景搭配白色文字，中等字重",
+        "card": "此視圖中無可見的卡片元件 — 內容透過全寬圖片區塊呈現",
+        "chip": "無可見元件",
+        "input": "圓角搜尋欄位，帶有佔位文字與細微邊框",
+        "hero": "全版出血的攝影首頁大圖，搭配置中的排版覆蓋層與單一 CTA 按鈕"
+      },
+      "motion": {
+        "patterns": [
+          "hover 狀態下的透明度過渡 (0.3s)",
+          "互動元素的背景色過渡 (0.5s)",
+          "捲動顯示的變換動畫 (0.8s)"
+        ]
+      },
+      "interaction": {
+        "hover": "導覽連結有細微的透明度降低與色彩過渡",
+        "click": "除瀏覽器預設外，無可見的互動狀態",
+        "transition": "所有屬性以 0.3s 預設時長平滑過渡",
+        "keyboard": "標準焦點管理，互動元素上有可見的焦點指示器"
+      },
+      "voice": {
+        "tone": "自信、啟發性、直接",
+        "headlineStyle": "大膽、宣言式的標語，搭配最少的輔助文字",
+        "ctaStyle": "以行動動詞為主，置於緊湊的膠囊按鈕中（'即刻探索' / 'Shop Now'）",
+        "avoid": [
+          "過多的標點符號",
+          "過於隨意的語言",
+          "密集的段落"
+        ]
+      },
+      "donts": [
+        "勿使用裝飾性背景 — 截圖顯示乾淨的白色背景 (#FFFFFF)，讓攝影主導視覺",
+        "勿使用圓角卡片容器 — 截圖顯示全版出血圖片，無可見的卡片邊界",
+        "勿使用粗體字重 — 截圖顯示標題最大字重為 500 (medium)，從不使用粗體/黑體",
+        "勿為 UI 元素添加強調色 — 截圖顯示按鈕與連結為純黑 (#111111)，無色彩高亮",
+        "勿使用複雜的多欄佈局 — 截圖顯示單欄置中內容，留有充足空白",
+        "勿為文字添加陰影 — 截圖顯示文字直接渲染在攝影上，無陰影或覆蓋層",
+        "勿使用狹窄的導覽列 — 截圖顯示頂部區域有充足內距 (36px 0px 12px 0px)",
+        "勿混用多種字體家族 — 截圖顯示全程使用一致的 Noto Sans SC 字體家族，並以 Helvetica Neue 作為後備"
+      ],
+      "systemPrompt": "Nike.com 是一個高端運動電商平台，使用大膽排版與電影級攝影來展示產品。設計語言簡潔極簡，採用單色調色板：主要背景白色 (#FFFFFF)、次要灰色 (#F5F5F5)、墨黑 (#111111) 與柔和灰色 (#707072)。排版使用 grotesque-sans 作為展示字體 (字重 500, 負字母間距)，內文使用 humanist-sans (Noto Sans SC) 字重 400。UI 元素如按鈕採用膠囊形狀 (border-radius: 30px)，純黑設計。佈局為全寬，留有充足空白與單欄內容流。關鍵禁忌：永不使用與攝影競爭的裝飾性背景，排版字重永不超過中等 (500)，永不為導覽或按鈕添加強調色，永不為文字覆蓋層添加厚重陰影，永不建立狹窄的多欄佈局，永不混用字體家族。"
+    },
+    "ja": {
+      "identity": {
+        "keywords": [
+          "アスリート向け",
+          "プレミアム",
+          "ミニマル",
+          "大胆",
+          "パフォーマンス"
+        ],
+        "analogy": "シネマティックな製品ショーケースを備えたプレミアムアスリートショールーム",
+        "oneLiner": "インパクトの強い映像とクリーンなタイポグラフィが製品ストーリーテリングを牽引する、大胆で写真主体のeコマース体験。"
+      },
+      "colors": {
+        "principle": "写真がすべてのクロマティックエネルギーを提供する、ハイコントラストのモノクロムパレット"
+      },
+      "typography": {
+        "rules": [
+          "見出しには重み500（ミディアム）を使用し、ヘビーウェイトは使用しない",
+          "本文テキストは可読性のために重み400（レギュラー）を使用",
+          "すべてのタイポグラフィはディスプレイサイズでタイトな負の文字間隔を使用",
+          "中文テキストにはNoto Sans SCを使用し、ラテンテキストと同じウェイト階層を適用"
+        ],
+        "scaleUses": [
+          "ヒーロー見出しと製品名",
+          "セクションタイトルとカテゴリ見出し",
+          "標準的な本文テキストと説明文",
+          "ラベル、メタデータ、および補助情報"
+        ]
+      },
+      "spacing": {
+        "rhythm": "8pxのベースグリッドと、ヒーローセクション周囲のゆったりとした余白"
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(17,17,17,0.06) 0px 4px 8px 0px",
+          "rgba(17,17,17,0.03) 0px 0px 24px 4px"
+        ],
+        "borders": "1px solid rgba(17,17,17,0.15)、分割線には0px 0px 2pxパターン"
+      },
+      "layout": {
+        "skeleton": "中央揃えのテキストオーバーレイをもつフルワイドヒーロー画像、広いマージンをもつ単一カラムコンテンツフロー"
+      },
+      "components": {
+        "button": "ピル型（border-radius: 30px）、ソリッドブラック背景と白文字、ミディアムウェイト",
+        "card": "このビューでは目立つカードは使用しない - コンテンツはフルワイド画像セクションで提示",
+        "chip": "目立つものなし",
+        "input": "プレースホルダーテキストをもつ角丸検索フィールド、繊細なボーダー",
+        "hero": "中央揃えのタイポグラフィオーバーレイと単一のCTAボタンをもつ、フルブリード写真ヒーロー"
+      },
+      "motion": {
+        "patterns": [
+          "ホバーステートの不透明度遷移（0.3秒）",
+          "インタラクティブ要素の背景色遷移（0.5秒）",
+          "スクロールリビールのトランスフォームアニメーション（0.8秒）"
+        ]
+      },
+      "interaction": {
+        "hover": "ナビゲーションリンクの繊細な不透明度削減と色の遷移",
+        "click": "標準ブラウザデフォルト以外のアクティブステートは表示されない",
+        "transition": "すべてのプロパティはデフォルト0.3秒の期間でスムーズに遷移",
+        "keyboard": "インタラクティブ要素に視覚的なフォーカスインジケーターをもつ標準フォーカス管理"
+      },
+      "voice": {
+        "tone": "自信に満ち、志を高く、率直",
+        "headlineStyle": "最小限の補助テキストをもつ、大胆で宣言的なステートメント",
+        "ctaStyle": "コンパクトなピルボタン内のアクション指向の動詞（「即刻探索」/「Shop Now」）",
+        "avoid": [
+          "過度な句読点",
+          "やたらカジュアルな言葉遣い",
+          "密度の高い段落"
+        ]
+      },
+      "donts": [
+        "装飾的なバックグラウンドを使用しない — スクリーンショットでは写真を支配させるクリーンな白背景（#FFFFFF）が示されている",
+        "角丸のカードコンテナを使用しない — スクリーンショットでは目に見えるカード境界のないフルブリード画像が示されている",
+        "ヘビーフォントウェイトを使用しない — スクリーンショットでは見出しに最大でもウェイト500（ミディアム）が示されており、ボールド/ブラックウェイトは使用しない",
+        "UI要素にアクセントカラーを追加しない — スクリーンショットではボタンやリンクがカラーのハイライトなしの純黒（#111111）が示されている",
+        "複雑なマルチカラムレイアウトを使用しない — スクリーンショットではゆったりとした余白をもつ単一カラム中央揃えコンテンツが示されている",
+        "テキストにドロップシャドウを追加しない — スクリーンショットではシャドウやオーバーレイなしで写真上に直接テキストが描画されている",
+        "小さく窮屈なナビゲーションを使用しない — スクリーンショットではヘッダーエリアにゆったりとしたパディング（36px 0px 12px 0px）が示されている",
+        "複数のタイプフェイスを混ぜない — スクリーンショットでは一貫してNoto Sans SCファミリ全体が使用され、フォールバックとしてHelvetica Neueが示されている"
+      ],
+      "systemPrompt": "Nike.comは大胆なタイポグラフィとシネマティックな写真を使用して製品を紹介する、プレミアムアスリート向けeコマースプラットフォームです。デザイン言語はクリーンでミニマルなモノクロムパレットを採用しています：プライマリ背景は白（#FFFFFF）、セカンダリはグレー（#F5F5F5）、インクブラック（#111111）、およびミュートグレー（#707072）。タイポグラフィはディスプレイ用にゴロテスクサン（ウェイト500、負の文字間隔）を、本文テキスト用にヒューマニストサン（Noto Sans SC）をウェイト400で使用しています。ボタンなどのUI要素はソリッドブラックのピル型（border-radius: 30px）です。レイアウトはフルワイドでゆったりとした余白と単一カラムコンテンツフローです。主要な禁止事項：写真と競う装飾的なバックグラウンドは決して使用せず、見出しにミディアムウェイト（500）を超えるウェイトは決して使用せず、ナビゲーションやボタンにアクセントカラーは決して追加せず、テキストオーバーレイにヘビードロップシャドウは決して使用せず、窮屈なマルチカラムレイアウトは決して作成せず、タイプフェイスファミリは決して混ぜない。"
+    },
+    "ko": {
+      "identity": {
+        "keywords": [
+          "운동적",
+          "프리미엄",
+          "미니멀",
+          "대담한",
+          "성능"
+        ],
+        "analogy": "시네마틱한 제품 쇼케이스를 갖춘 프리미엄 운동용 쇼룸",
+        "oneLiner": "강렬한 이미지와 깔끔한 타이포그래피가 제품 스토리텔링을 이끄는, 대담하고 사진 중심의 전자상거래 경험."
+      },
+      "colors": {
+        "principle": "고대비 모노크롬 팔레트에 사진이 모든 크로마틱 에너지를 제공"
+      },
+      "typography": {
+        "rules": [
+          "헤드라인은 무거운 굵기 대신 500(미디엄) 굵기를 사용합니다",
+          "본문 텍스트는 가독성을 위해 400(레귤러) 굵기를 사용합니다",
+          "모든 타이포그래피는 디스플레이 크기에서 타이트한 음수 자간을 사용합니다",
+          "중국어 텍스트는 라틴 텍스트와 동일한 굵기 계층으로 Noto Sans SC를 사용합니다"
+        ],
+        "scaleUses": [
+          "히어로 헤드라인 및 제품명",
+          "섹션 제목 및 카테고리 헤딩",
+          "일반 본문 텍스트 및 설명",
+          "라벨, 메타데이터 및 보조 정보"
+        ]
+      },
+      "spacing": {
+        "rhythm": "히어로 섹션 주위에 넉넉한 여백을 둔 8px 기본 그리드"
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(17,17,17,0.06) 0px 4px 8px 0px",
+          "rgba(17,17,17,0.03) 0px 0px 24px 4px"
+        ],
+        "borders": "구분선을 위한 1px solid rgba(17,17,17,0.15) 및 0px 0px 2px 패턴"
+      },
+      "layout": {
+        "skeleton": "중앙 정렬된 텍스트 오버레이가 있는 풀폭 히어로 이미지, 넓은 여백을 둔 단일 열 콘텐츠 흐름"
+      },
+      "components": {
+        "button": "알약 모양 (border-radius: 30px)의 검정 배경에 흰색 텍스트, 미디엄 굵기",
+        "card": "이 뷰에는 보이는 카드가 없습니다. 콘텐츠는 풀폭 이미지 섹션을 통해 제공됩니다",
+        "chip": "보이는 것이 없습니다",
+        "input": "플레이스홀더 텍스트가 있는 둥근 검색 필드, 은은한 테두리",
+        "hero": "중앙 정렬된 타이포그래피 오버레이와 단일 CTA 버튼이 있는 풀블리드 사진 히어로"
+      },
+      "motion": {
+        "patterns": [
+          "호버 상태에서 불투명도 전환 (0.3s)",
+          "인터랙티브 요소에서 배경색 전환 (0.5s)",
+          "스크롤 리빌을 위한 변환 애니메이션 (0.8s)"
+        ]
+      },
+      "interaction": {
+        "hover": "내비게이션 링크에서 은은한 불투명도 감소 및 색상 전환",
+        "click": "표준 브라우저 기본값 이상의 보이는 액티브 상태 없음",
+        "transition": "모든 속성이 기본 지속 시간 0.3s로 부드럽게 전환됩니다",
+        "keyboard": "인터랙티브 요소에 보이는 포커스 표시기가 있는 표준 포커스 관리"
+      },
+      "voice": {
+        "tone": "자신감 있고, 열망을 불러일으키며, 직접적",
+        "headlineStyle": "최소한의 지지 텍스트를 곁들인 굵고 선언적인 문장",
+        "ctaStyle": "알약 버튼에 담긴 행동 지향 동사 ('즉시 탐색' / 'Shop Now')",
+        "avoid": [
+          "과도한 구두점",
+          "지나치게 캐주얼한 언어",
+          "밀집된 문단"
+        ]
+      },
+      "donts": [
+        "장식용 배경을 사용하지 마세요 — 스크린샷은 사진이 지배할 수 있도록 깨끗한 흰색 배경(#FFFFFF)을 보여줍니다",
+        "둥근 카드 컨테이너를 사용하지 마세요 — 스크린샷은 보이는 카드 경계 없이 풀블리드 이미지를 보여줍니다",
+        "무거운 폰트 굵기를 사용하지 마세요 — 스크린샷은 헤드라인에 최대 500(미디엄) 굵기를 보여주며, 절대 볼드/블랙 굵기를 사용하지 않습니다",
+        "UI 요소에 강조색을 추가하지 마세요 — 스크린샷은 색상 강조 없이 순수 검정(#111111)으로 된 버튼과 링크를 보여줍니다",
+        "복잡한 다단 레이아웃을 사용하지 마세요 — 스크린샷은 넉넉한 여백을 둔 단일 열 중앙 정렬 콘텐츠를 보여줍니다",
+        "텍스트에 드롭 섀도우를 추가하지 마세요 — 스크린샷은 그림자나 오버레이 없이 사진 위에 직접 렌더링된 텍스트를 보여줍니다",
+        "작고 비좁은 내비게이션을 사용하지 마세요 — 스크린샷은 헤더 영역에 넉넉한 패딩(36px 0px 12px 0px)을 보여줍니다",
+        "여러 타입페이스를 혼합하지 마세요 — 스크린샷은 Helvetica Neue 대체 글꼴과 함께 전체적으로 일관된 Noto Sans SC 패밀리를 보여줍니다"
+      ],
+      "systemPrompt": "Nike.com은 굵은 타이포그래피와 시네마틱 사진을 사용하여 제품을 선보이는 프리미엄 운동용 전자상거래 플랫폼입니다. 디자인 언어는 모노크롬 팔레트로 깔끔하고 미니멀하며, 주요 배경은 흰색(#FFFFFF), 보조는 회색(#F5F5F5), 잉크 블랙(#111111), 뮤트 그레이(#707072)입니다. 타이포그래피는 디스플레이에 grotesque-sans(굵기 500, 음수 자간), 본문 텍스트에 humanist-sans(Noto Sans SC, 굵기 400)를 사용합니다. 버튼과 같은 UI 요소는 순수 검정의 알약 모양(border-radius: 30px)을 사용합니다. 레이아웃은 넉넉한 여백과 단일 열 콘텐츠 흐름으로 풀폭입니다. 주요 주의사항: 사진과 경쟁하는 장식용 배경을 절대 사용하지 마세요, 타이포그래피에 미디엄 굵기(500)를 절대 초과하지 마세요, 내비게이션이나 버튼에 강조색을 절대 추가하지 마세요, 텍스트 오버레이에 무거운 드롭 섀도우를 절대 사용하지 마세요, 비좁은 다단 레이아웃을 절대 만들지 마세요, 타입페이스 패밀리를 절대 혼합하지 마세요."
     }
   }
 }

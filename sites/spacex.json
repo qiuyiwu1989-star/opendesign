@@ -17,13 +17,13 @@
   "_meta": {
     "vision_model": "mimo-v2.5",
     "vision_prompt_version": "0.3",
-    "vision_at": "2026-05-28T21:43:28+00:00",
-    "vision_tokens": 3149,
-    "vision_cost_usd": 0.035,
+    "vision_at": "2026-05-30T09:57:52+00:00",
+    "vision_tokens": 16173,
+    "vision_cost_usd": 0.1797,
     "translation_model": "mimo-v2.5",
-    "translation_at": "2026-05-28T21:44:23+00:00",
-    "translation_tokens": 13422,
-    "translation_cost_usd": 0.0447,
+    "translation_at": "2026-05-30T09:58:34+00:00",
+    "translation_tokens": 22149,
+    "translation_cost_usd": 0.0738,
     "narrative_model": "mimo-v2.5",
     "narrative_prompt_version": "0.3",
     "narrative_at": "2026-05-28T21:44:30+00:00",
@@ -31,31 +31,40 @@
     "narrative_cost_usd": 0.0116,
     "narrative_status": "ok",
     "last_error": "The read operation timed out",
-    "total_cost_usd": 0.0913
+    "total_cost_usd": 0.2651,
+    "vision_source": "playwright-extract:spacex",
+    "vision_grounded": true
   },
   "spec": {
     "colors": {
       "bg": "#000000",
       "bgSoft": null,
       "bgQuiet": null,
-      "ink": "#FFFFFF",
-      "inkSoft": null,
-      "muted": null,
+      "ink": "#F0F0FA",
+      "inkSoft": "#F0F0FAE6",
+      "muted": "#808080",
       "mutedSoft": null,
       "accent": null,
-      "line": "rgba(255,255,255,0.1)"
+      "line": "rgba(240, 240, 250, 0.35)"
     },
     "typography": {
       "display": "geometric-sans",
       "body": "geometric-sans",
-      "mono": null,
+      "mono": "monospace",
       "scale": [
         {
           "token": "display",
-          "size": 64,
-          "lh": 0.95,
-          "weight": 500,
+          "size": 48,
+          "lh": 1.0,
+          "weight": 700,
           "ls": "-1px"
+        },
+        {
+          "token": "body",
+          "size": 16,
+          "lh": 1.5,
+          "weight": 400,
+          "ls": "0px"
         }
       ]
     },
@@ -74,9 +83,9 @@
     },
     "surfaces": {
       "radius": {
-        "sm": 0,
-        "md": 0,
-        "lg": 0,
+        "sm": 4,
+        "md": 8,
+        "lg": 12,
         "pill": 999
       }
     },
@@ -96,383 +105,16 @@
         "small": 400,
         "medium": 800
       },
-      "easing": "cubic-bezier(0.25, 0.1, 0.25, 1)"
-    }
-  },
-  "spec_i18n": {
-    "en": {
-      "identity": {
-        "keywords": [
-          "aerospace",
-          "futuristic",
-          "minimalist",
-          "bold",
-          "technical"
-        ],
-        "analogy": "like a cinematic mission control interface, stark and focused",
-        "oneLiner": "A bold, dark-mode aerospace interface dominated by massive typography and immersive imagery."
-      },
-      "colors": {
-        "principle": "stark, high-contrast monochrome"
-      },
-      "typography": {
-        "rules": [
-          "Headlines are uppercase, tracked, and tightly set",
-          "Body text is minimal or absent in this view"
-        ],
-        "scaleUses": [
-          "main headline"
-        ]
-      },
-      "spacing": {
-        "rhythm": "asymmetric, content-driven"
-      },
-      "surfaces": {
-        "shadows": [],
-        "borders": "none visible on primary surfaces"
-      },
-      "layout": {
-        "skeleton": "hero-driven, edge-to-edge imagery with left-aligned text overlay"
-      },
-      "components": {
-        "button": "ghost button with thin white border, uppercase text, and arrow icon",
-        "card": "none visible",
-        "chip": "none visible",
-        "input": "none visible",
-        "hero": "full-screen cinematic background with large bold headline and ghost CTA"
-      },
-      "motion": {
-        "patterns": [
-          "hero image or video likely fades in",
-          "text reveals on load"
-        ]
-      },
-      "interaction": {
-        "hover": "button border may thicken or text changes to indicate interactivity",
-        "click": "directs to content playback or detail page",
-        "transition": "smooth fade or slide for content transitions",
-        "keyboard": "standard tab navigation implied"
-      },
-      "voice": {
-        "tone": "authoritative, confident, visionary",
-        "headlineStyle": "all-caps, declarative, minimal words",
-        "ctaStyle": "imperative verb with directional arrow",
-        "avoid": [
-          "playful language",
-          "excessive detail",
-          "busy layouts"
-        ]
-      },
-      "donts": [
-        "Don't use multiple competing colors — screenshot shows strict monochrome palette",
-        "Don't use decorative or serif typography — screenshot shows bold geometric sans-serif",
-        "Don't clutter the layout with many elements — screenshot shows minimal UI with a single hero focus",
-        "Don't use rounded, friendly shapes — screenshot shows sharp, crisp edges on the button",
-        "Don't use light backgrounds — screenshot shows deep black (#000000) as the primary surface",
-        "Don't use center-aligned text for headlines — screenshot shows left-aligned text with strong anchor"
-      ],
-      "systemPrompt": "This is a minimalist, dark-mode aerospace website focused on immersive cinematic hero sections. The design uses a strict monochrome palette with a deep black background (#000000) and stark white text (#FFFFFF) for maximum contrast. Typography is a bold, geometric sans-serif used in all-caps with tight leading for headlines. Layouts are edge-to-edge with generous negative space. Critical don'ts: avoid adding color accents, avoid decorative fonts, and avoid cluttered multi-element layouts. The system is built for dramatic visual impact and clear, authoritative communication."
-    },
-    "zh-CN": {
-      "identity": {
-        "keywords": [
-          "航空航天",
-          "未来感",
-          "极简主义",
-          "大胆",
-          "技术感"
-        ],
-        "analogy": "如同一个冷峻而专注的电影式任务控制界面",
-        "oneLiner": "一个大胆的深色模式航空航天界面，由巨型排版与沉浸式影像主导。"
-      },
-      "colors": {
-        "principle": "鲜明、高对比度的单色方案"
-      },
-      "typography": {
-        "rules": [
-          "标题采用大写、增加字距并紧密设置",
-          "正文字体在此视图中极少或不使用"
-        ],
-        "scaleUses": [
-          "主标题"
-        ]
-      },
-      "spacing": {
-        "rhythm": "非对称，由内容驱动"
-      },
-      "surfaces": {
-        "shadows": [],
-        "borders": "主要界面上无可见边框"
-      },
-      "layout": {
-        "skeleton": "首屏驱动，边缘到边缘的影像叠加左对齐文本"
-      },
-      "components": {
-        "button": "幽灵按钮，带纤细白边框、大写文本与箭头图标",
-        "card": "无可见元素",
-        "chip": "无可见元素",
-        "input": "无可见元素",
-        "hero": "全屏电影感背景，搭配大型加粗标题与幽灵行动号召按钮"
-      },
-      "motion": {
-        "patterns": [
-          "首屏影像或视频可能采用淡入效果",
-          "文本在页面加载时揭示"
-        ]
-      },
-      "interaction": {
-        "hover": "按钮边框可能加粗或文本变化以指示可交互性",
-        "click": "导向内容播放或详情页面",
-        "transition": "内容过渡采用平滑淡入或滑动",
-        "keyboard": "隐含标准 Tab 键导航"
-      },
-      "voice": {
-        "tone": "权威、自信、富有远见",
-        "headlineStyle": "全大写、陈述性、用词极简",
-        "ctaStyle": "祈使动词搭配方向性箭头",
-        "avoid": [
-          "俏皮语言",
-          "过多细节",
-          "杂乱布局"
-        ]
-      },
-      "donts": [
-        "避免使用多种竞争性色彩——截图显示严格的单色调色板",
-        "避免使用装饰性或衬线字体——截图显示加粗的几何无衬线字体",
-        "避免在布局中堆积过多元素——截图显示极简界面，仅聚焦于单个首屏",
-        "避免使用圆角、友好的形状——截图显示按钮具有锐利、清晰的边缘",
-        "避免使用浅色背景——截图显示深黑（#000000）作为主背景",
-        "避免标题文本居中对齐——截图显示具有强烈锚点的左对齐文本"
-      ],
-      "systemPrompt": "这是一个极简的深色模式航空航天网站，专注于沉浸式的电影感首屏部分。设计采用严格的单色调色板，以深黑背景（#000000）与纯白文本（#FFFFFF）形成最大对比度。排版采用加粗的几何无衬线字体，标题为全大写并设置紧凑行距。布局采用边缘到边缘设计，留有大量负空间。关键禁忌：避免添加色彩点缀、避免使用装饰性字体、避免杂乱的多元素布局。此系统旨在营造强烈的视觉冲击力与清晰、权威的沟通效果。"
-    },
-    "zh-TW": {
-      "identity": {
-        "keywords": [
-          "航太",
-          "未來感",
-          "極簡",
-          "大膽",
-          "科技"
-        ],
-        "analogy": "宛如電影感的任務控制介面，簡潔而專注",
-        "oneLiner": "一個大膽的深色模式航太介面，以巨大的字體與沉浸式影像為主導。"
-      },
-      "colors": {
-        "principle": "強烈、高對比度的單色調"
-      },
-      "typography": {
-        "rules": [
-          "標題使用全大寫、調整字距且緊密排列",
-          "在此視圖中，內文極簡或省略"
-        ],
-        "scaleUses": [
-          "主標題"
-        ]
-      },
-      "spacing": {
-        "rhythm": "不對稱、內容驅動"
-      },
-      "surfaces": {
-        "shadows": [],
-        "borders": "主要表面上無可見邊框"
-      },
-      "layout": {
-        "skeleton": "英雄區塊主導，邊到邊的影像搭配左側對齊的文字覆蓋層"
-      },
-      "components": {
-        "button": "帶有細白邊框、全大寫文字與箭頭圖示的幽靈按鈕",
-        "card": "無可見元件",
-        "chip": "無可見元件",
-        "input": "無可見元件",
-        "hero": "全螢幕電影感背景，搭配大型粗體標題與幽靈行動呼籲"
-      },
-      "motion": {
-        "patterns": [
-          "英雄區塊的圖片或影片可能淡入",
-          "文字在載入時揭幕顯示"
-        ]
-      },
-      "interaction": {
-        "hover": "按鈕邊框可能加粗或文字改變，以指示可互動性",
-        "click": "導向內容播放或詳情頁面",
-        "transition": "內容轉換時使用平滑的淡入或滑動效果",
-        "keyboard": "隱含標準 Tab 鍵盤導覽"
-      },
-      "voice": {
-        "tone": "權威、自信、具遠見",
-        "headlineStyle": "全大寫、宣言式、字詞精簡",
-        "ctaStyle": "使用帶有方向箭頭的祈使動詞",
-        "avoid": [
-          "俏皮的語言",
-          "過多的細節",
-          "擁擠的佈局"
-        ]
-      },
-      "donts": [
-        "請勿使用多種相互競爭的顏色——畫面截圖顯示嚴格的單色調色盤。",
-        "請勿使用裝飾性或襯線字體——畫面截圖顯示大膽的幾何無襯線字體。",
-        "請勿在佈局中堆砌過多元素——畫面截圖顯示以單一英雄區塊為焦點的簡約介面。",
-        "請勿使用圓潤、友善的形狀——畫面截圖顯示按鈕具有銳利、清晰的邊緣。",
-        "請勿使用淺色背景——畫面截圖顯示以深黑色 (#000000) 作為主要表面。",
-        "請勿將標題文字置中對齊——畫面截圖顯示左側對齊的文字，具有強烈的錨點。"
-      ],
-      "systemPrompt": "這是一個極簡、深色模式的航太網站，專注於沉浸式的電影感英雄區塊。設計採用嚴格的單色調色盤，深黑色背景 (#000000) 與純白文字 (#FFFFFF) 提供最大對比度。字體是大膽的幾何無襯線體，標題使用全大寫且行距緊湊。佈局為邊到邊，並留有充足的負空間。關鍵禁忌：避免添加顏色強調，避免裝飾性字體，並避免擁擠的多元素佈局。此系統專為戲劇性的視覺衝擊與清晰、權威的傳達而設計。"
-    },
-    "ja": {
-      "identity": {
-        "keywords": [
-          "航空宇宙",
-          "未来的",
-          "ミニマリスト",
-          "大胆",
-          "テクニカル"
-        ],
-        "analogy": "映画的なミッションコントロールインターフェースのように、厳しく集中した印象",
-        "oneLiner": "巨大なタイポグラフィと没入感のあるイメージが支配的な、大胆なダークモード航空宇宙インターフェース。"
-      },
-      "colors": {
-        "principle": "厳しくハイコントラストなモノクローム"
-      },
-      "typography": {
-        "rules": [
-          "見出しは大文字、レタリングされ、密に設定",
-          "このビューでは本文テキストは最小限または存在しない"
-        ],
-        "scaleUses": [
-          "メイン見出し"
-        ]
-      },
-      "spacing": {
-        "rhythm": "非対称、コンテンツ駆動"
-      },
-      "surfaces": {
-        "shadows": [],
-        "borders": "プライマリサーフェスには目に見えるボーダーなし"
-      },
-      "layout": {
-        "skeleton": "ヒーロー中心、左揃えのテキストオーバーレイ付きのエッジ・トゥ・エッジイメージ"
-      },
-      "components": {
-        "button": "細い白いボーダー、大文字テキスト、矢印アイコンを持つゴーストボタン",
-        "card": "目に見えるものなし",
-        "chip": "目に見えるものなし",
-        "input": "目に見えるものなし",
-        "hero": "大胆な見出しとゴーストCTAを持つ、フルスクリーンの映画的な背景"
-      },
-      "motion": {
-        "patterns": [
-          "ヒーローイメージまたはビデオはフェードインする可能性",
-          "テキストは読み込み時に表示される"
-        ]
-      },
-      "interaction": {
-        "hover": "ボタンのボーダーが太くなったり、テキストが変化してインタラクティブ性を示す",
-        "click": "コンテンツ再生または詳細ページへ遷移",
-        "transition": "コンテンツ遷移には滑らかなフェードまたはスライド",
-        "keyboard": "標準的なタブナビゲーションが前提"
-      },
-      "voice": {
-        "tone": "権威があり、自信に満ち、先見の明がある",
-        "headlineStyle": "すべて大文字、宣言的、最小限の言葉",
-        "ctaStyle": "方向矢印付きの命令的な動詞",
-        "avoid": [
-          "遊び心のある言葉",
-          "詳細の過多",
-          "雑然としたレイアウト"
-        ]
-      },
-      "donts": [
-        "複数の競合するカラーを使用しない — スクリーンショットは厳格なモノクロームパレットを示しています",
-        "装飾的またはセリフ体のタイポグラフィを使用しない — スクリーンショットは太い幾何学的サンセリフを示しています",
-        "多くの要素でレイアウトを雑踏させない — スクリーンショットは単一のヒーロー焦点のミニマルなUIを示しています",
-        "丸みのあるフレンドリーな形状を使用しない — スクリーンショットはボタンに鋭くクリスプなエッジを示しています",
-        "明るい背景を使用しない — スクリーンショットは深い黒（#000000）をプライマリサーフェスとして示しています",
-        "見出しに中央揃えのテキストを使用しない — スクリーンショットは強力なアンカーを持つ左揃えテキストを示しています"
-      ],
-      "systemPrompt": "これは、没入感のある映画的なヒーローセクションに焦点を当てた、ミニマルでダークモードの航空宇宙ウェブサイトです。デザインは、深い黒の背景（#000000）と鋭い白のテキスト（#FFFFFF）による厳格なモノクロームパレットを使用し、最大限のコントラストを実現しています。タイポグラフィは、太く幾何学的なサンセリフで、見出しには密な行間ですべて大文字を使用します。レイアウトはエッジ・トゥ・エッジで、豊富なネガティブスペースを備えています。重要な注意点：カラーアクセントの追加、装飾的なフォント、雑然とした複数要素のレイアウトは避けてください。このシステムは、ドラマチックな視覚的インパクトと明確で権威あるコミュニケーションのために構築されています。"
-    },
-    "ko": {
-      "identity": {
-        "keywords": [
-          "항공우주",
-          "미래지향적",
-          "미니멀리즘",
-          "대담함",
-          "기술적"
-        ],
-        "analogy": "시네마틱 미션 컨트롤 인터페이스와 같으며, 선명하고 집중적입니다",
-        "oneLiner": "거대한 타이포그래피와 몰입감 있는 이미지가 지배하는 대담한 다크모드 항공우주 인터페이스입니다."
-      },
-      "colors": {
-        "principle": "선명하고 고대비 모노크롬"
-      },
-      "typography": {
-        "rules": [
-          "헤드라인은 대문자, 트래킹 조정, 타이트한 설정",
-          "본문 텍스트는 이 뷰에서 최소화되거나 부재합니다"
-        ],
-        "scaleUses": [
-          "메인 헤드라인"
-        ]
-      },
-      "spacing": {
-        "rhythm": "비대칭적, 콘텐츠 중심"
-      },
-      "surfaces": {
-        "shadows": [],
-        "borders": "주요 표면에는 보이는 테두리 없음"
-      },
-      "layout": {
-        "skeleton": "히어로 중심, 왼쪽 정렬 텍스트 오버레이가 포함된 엣지투엣지 이미지"
-      },
-      "components": {
-        "button": "얇은 화이트 테두리, 대문자 텍스트, 화살표 아이콘이 있는 고스트 버튼",
-        "card": "보이는 카드 없음",
-        "chip": "보이는 칩 없음",
-        "input": "보이는 입력 필드 없음",
-        "hero": "대담한 대형 헤드라인과 고스트 CTA가 있는 전체 화면 시네마틱 배경"
-      },
-      "motion": {
-        "patterns": [
-          "히어로 이미지 또는 비디오가 페이드인될 가능성이 높음",
-          "텍스트가 로드 시 드러남"
-        ]
-      },
-      "interaction": {
-        "hover": "버튼 테두리가 두꺼워지거나 텍스트가 변경되어 인터랙티브함을 나타냄",
-        "click": "콘텐츠 재생 또는 상세 페이지로 이동",
-        "transition": "콘텐츠 전환 시 부드러운 페이드 또는 슬라이드",
-        "keyboard": "표준 탭 탐색이 암시됨"
-      },
-      "voice": {
-        "tone": "권위 있고, 자신감 있으며, 비전을 제시하는",
-        "headlineStyle": "전체 대문자, 선언적, 최소한의 단어",
-        "ctaStyle": "방향 화살표가 포함된 명령형 동사",
-        "avoid": [
-          "장난스러운 언어",
-          "지나친 세부 사항",
-          "복잡한 레이아웃"
-        ]
-      },
-      "donts": [
-        "여러 경쟁 색상을 사용하지 마세요 — 스크린샷은 엄격한 모노크롬 팔레트를 보여줍니다",
-        "장식적이거나 세리프 타이포그래피를 사용하지 마세요 — 스크린샷은 대담한 기하학적 산세리프를 보여줍니다",
-        "여러 요소로 레이아웃을 복잡하게 만들지 마세요 — 스크린샷은 단일 히어로 중심의 미니멀 UI를 보여줍니다",
-        "둥글고 친근한 형태를 사용하지 마세요 — 스크린샷은 버튼의 날카롭고 명료한 모서리를 보여줍니다",
-        "밝은 배경을 사용하지 마세요 — 스크린샷은 주요 표면으로 깊은 블랙(#000000)을 보여줍니다",
-        "헤드라인에 중앙 정렬 텍스트를 사용하지 마세요 — 스크린샷은 강력한 앵커가 있는 왼쪽 정렬 텍스트를 보여줍니다"
-      ],
-      "systemPrompt": "이 사이트는 몰입감 있는 시네마틱 히어로 섹션에 중점을 둔 미니멀리즘 다크모드 항공우주 웹사이트입니다. 디자인은 깊은 블랙 배경(#000000)과 극도의 대비를 위한 선명한 화이트 텍스트(#FFFFFF)를 사용한 엄격한 모노크롬 팔레트를 사용합니다. 타이포그래피는 헤드라인용 타이트한 행간의 전체 대문자로 사용되는 대담한 기하학적 산세리프입니다. 레이아웃은 넉넉한 여백을 두고 엣지투엣지로 구성됩니다. 중요한 주의사항: 색상 강조 추가, 장식 폰트 사용, 복잡한 다중 요소 레이아웃 사용을 피하세요. 이 시스템은 드라마틱한 시각적 임팩트와 명확하고 권위 있는 커뮤니케이션을 위해 구축되었습니다."
+      "easing": "cubic-bezier(0.19, 1, 0.22, 1)"
     }
   },
   "desc": {
     "en": {
-      "palette": "Strict monochrome with a deep black background and pure white typography.",
-      "layout": "A minimal, hero-driven layout with full-screen imagery and left-aligned text.",
-      "interaction": "Interaction is focused on a single clear call-to-action with a ghost button style.",
-      "motion": "Motion is likely cinematic, with smooth fades and reveals to match the dramatic tone.",
-      "notes": "This site exemplifies how minimal elements and bold typography can create a powerful, focused brand experience."
+      "palette": "A stark monochrome palette dominated by absolute black (#000000) and near-white (#F0F0FA), designed to provide maximum contrast for photographic content.",
+      "layout": "A full-bleed, cinematic layout that prioritizes high-resolution imagery with generous whitespace and minimal UI overlay.",
+      "interaction": "Interactions are characterized by subtle, elegant transitions and hover states that emphasize the interface's premium nature.",
+      "motion": "Motion is handled through smooth, high-quality cubic-bezier transitions for background and color changes, with linear slides for menu transitions.",
+      "notes": "This site is a prime example of a cinematic, high-contrast interface where the typography and layout are designed to disappear, making the imagery the primary focus."
     },
     "zh-CN": {
       "palette": "严格的单色方案，采用深黑背景与纯白排版。",
@@ -563,6 +205,383 @@
       "ch7_intro": "모션은 시네마틱한 절제를 가지고 사용되며, 발사 시퀀스의 신중한 정밀함을 반영합니다. 요소들은 매끄럽게 사라지고 드러나며, 인터페이스가 장식적이라기보다 반응적으로 느껴지도록 합니다.",
       "ch8_intro": "에디토리얼 어조는 권위적이고 비전 지향적이며, 최소한의 단어로 선언적, 전면 대문자 헤드라인을 사용합니다. 모든 문구는 꾸밈없이 주목을 끌고 목적을 전달하도록 설계되었습니다.",
       "ch8_outro": "이 시스템은 의도적으로 장난스러운 언어, 장식적 세부 사항, 그리고 바쁘고 다중 요소 구성을 배제합니다."
+    }
+  },
+  "spec_i18n": {
+    "en": {
+      "identity": {
+        "keywords": [
+          "aerospace",
+          "engineering",
+          "future",
+          "exploration",
+          "bold"
+        ],
+        "analogy": "A high-end aerospace manufacturer's digital mission control center.",
+        "oneLiner": "A cinematic, high-contrast interface for an aerospace company."
+      },
+      "colors": {
+        "principle": "Photographic immersion with high-contrast white typography."
+      },
+      "typography": {
+        "rules": [
+          "Text is predominantly uppercase",
+          "Navigation links use a wide letter-spacing",
+          "Headlines use a heavy bold weight"
+        ],
+        "scaleUses": [
+          "Main headlines and navigation",
+          "Paragraph text and general UI"
+        ]
+      },
+      "spacing": {
+        "rhythm": "Based on a 4px grid with generous whitespace for cinematic presentation."
+      },
+      "surfaces": {
+        "shadows": [],
+        "borders": "1px solid rgba(240, 240, 250, 0.35)"
+      },
+      "layout": {
+        "skeleton": "Full-bleed hero images with minimal UI overlay."
+      },
+      "components": {
+        "button": "Transparent with white border and uppercase text, using subtle background transitions.",
+        "card": "Image-heavy list items with minimal text and directional arrows.",
+        "chip": "None",
+        "input": "None",
+        "hero": "Full-viewport cinematic photograph with bottom-aligned bold text."
+      },
+      "motion": {
+        "patterns": [
+          "Subtle background-color and color transitions on hover",
+          "Linear slide-in animations for mobile menu"
+        ]
+      },
+      "interaction": {
+        "hover": "Subtle background-color and color transitions with a 0.5s duration.",
+        "click": "Immediate feedback",
+        "transition": "All transitions use cubic-bezier(0.19, 1, 0.22, 1) easing.",
+        "keyboard": "Standard tab navigation"
+      },
+      "voice": {
+        "tone": "Authoritative and visionary",
+        "headlineStyle": "Bold, uppercase, and concise",
+        "ctaStyle": "Direct and action-oriented (e.g., WATCH, JOIN A MISSION)",
+        "avoid": [
+          "Playful or whimsical language",
+          "Excessive body text",
+          "Bright or saturated accent colors"
+        ]
+      },
+      "donts": [
+        "Don't use rounded or soft UI elements — screenshot shows sharp, rectangular buttons.",
+        "Don't use a light background — screenshot shows a primarily black and dark photographic background.",
+        "Don't use sans-serif fonts with low weight — screenshot shows heavy, geometric sans-serif for all major text.",
+        "Don't use colorful accents — screenshot shows a monochrome palette of black, white, and gray.",
+        "Don't use complex navigation menus — screenshot shows a flat, uppercase list with chevrons.",
+        "Don't use multi-column text layouts — screenshot shows single-column, left-aligned text blocks."
+      ],
+      "systemPrompt": "SpaceX's website is a cinematic, premium interface for an aerospace company, utilizing a dark mode aesthetic with high-contrast white typography (#F0F0FA) over black (#000000). The design uses a geometric sans-serif font category (D-DIN) in bold weights, with extensive uppercase styling. Key elements include full-viewport photographic heroes and minimal, transparent UI components with 1px borders. Critical don'ts: avoid using bright accent colors, use sharp rectangular button shapes instead of rounded ones, and maintain the heavy typographic weight seen in the headlines. The interface relies on subtle transitions and a monochrome palette to emphasize the engineering-first, premium brand identity."
+    },
+    "zh-CN": {
+      "identity": {
+        "keywords": [
+          "航空航天",
+          "工程",
+          "未来",
+          "探索",
+          "大胆"
+        ],
+        "analogy": "高端航空航天制造商的数字任务控制中心。",
+        "oneLiner": "为一家航空航天公司打造的电影化、高对比度界面。"
+      },
+      "colors": {
+        "principle": "基于摄影感的沉浸式体验，搭配高对比度的白色排版。"
+      },
+      "typography": {
+        "rules": [
+          "文本以大写形式为主",
+          "导航链接使用宽字距",
+          "标题使用厚重的粗体字重"
+        ],
+        "scaleUses": [
+          "主标题和导航",
+          "段落文本和通用界面"
+        ]
+      },
+      "spacing": {
+        "rhythm": "基于4px网格，采用充裕留白以营造电影化的展示效果。"
+      },
+      "surfaces": {
+        "shadows": [],
+        "borders": "1px solid rgba(240, 240, 250, 0.35)"
+      },
+      "layout": {
+        "skeleton": "全出血主视觉图像搭配极简的界面叠加层。"
+      },
+      "components": {
+        "button": "透明背景，搭配白色边框和大写文字，使用微妙的背景过渡效果。",
+        "card": "图像为主的列表项，文字极少，配有方向指示箭头。",
+        "chip": "无",
+        "input": "无",
+        "hero": "全视口电影化摄影图像，底部对齐的加粗文字。"
+      },
+      "motion": {
+        "patterns": [
+          "悬停时微妙的背景色与颜色过渡",
+          "移动端菜单的线性滑入动画"
+        ]
+      },
+      "interaction": {
+        "hover": "微妙的背景色与颜色过渡，持续时间0.5秒。",
+        "click": "即时反馈",
+        "transition": "所有过渡效果使用 cubic-bezier(0.19, 1, 0.22, 1) 缓动。",
+        "keyboard": "标准标签页导航"
+      },
+      "voice": {
+        "tone": "权威且富有远见",
+        "headlineStyle": "加粗、大写、简洁",
+        "ctaStyle": "直接且面向行动（例如：观看、加入任务）",
+        "avoid": [
+          "俏皮或异想天开的语言",
+          "过多的正文文本",
+          "明亮或饱和的强调色"
+        ]
+      },
+      "donts": [
+        "不要使用圆角或柔和的UI元素——截图显示的是锐利的矩形按钮。",
+        "不要使用浅色背景——截图显示的是以黑色和深色摄影背景为主的设计。",
+        "不要使用低字重的无衬线字体——截图显示所有主要文本均使用厚重、几何感的无衬线字体。",
+        "不要使用彩色强调色——截图显示的是黑、白、灰的单色调色板。",
+        "不要使用复杂的导航菜单——截图显示的是扁平化的大写列表，带有V形箭头。",
+        "不要使用多栏文本布局——截图显示的是单栏、左对齐的文本块。"
+      ],
+      "systemPrompt": "SpaceX的网站是一个为航空航天公司打造的电影化、高端界面，采用深色模式美学，在黑色（#000000）背景上使用高对比度的白色排版（#F0F0FA）。设计采用几何无衬线字体类别（D-DIN），使用粗体字重，并广泛采用大写样式。关键元素包括全视口摄影主视觉，以及带有1px边框的极简、透明界面组件。关键禁忌：避免使用明亮的强调色，使用锐利的矩形按钮形状代替圆角，并保持标题中看到的那种厚重的排版字重。界面依赖微妙的过渡效果和单色调色板，以强调工程优先、高端的品牌身份。"
+    },
+    "zh-TW": {
+      "identity": {
+        "keywords": [
+          "航空航天",
+          "工程",
+          "未來",
+          "探索",
+          "大膽"
+        ],
+        "analogy": "高端航空航天製造商的數位任務控制中心。",
+        "oneLiner": "為航空航天公司打造的電影感、高對比介面。"
+      },
+      "colors": {
+        "principle": "照片式沉浸感與高對比白色排版。"
+      },
+      "typography": {
+        "rules": [
+          "文字以大寫為主",
+          "導覽連結使用寬鬆的字距",
+          "標題使用粗體字重"
+        ],
+        "scaleUses": [
+          "主標題與導覽",
+          "段落文字與一般介面"
+        ]
+      },
+      "spacing": {
+        "rhythm": "基於 4px 格線系統，並留有充裕的留白以實現電影式呈現。"
+      },
+      "surfaces": {
+        "shadows": [],
+        "borders": "1px solid rgba(240, 240, 250, 0.35)"
+      },
+      "layout": {
+        "skeleton": "全出血首圖搭配最精簡的介面覆蓋。"
+      },
+      "components": {
+        "button": "透明底、白邊框與大寫文字，並帶有細微的背景過渡效果。",
+        "card": "以圖片為主的列表項目，文字精簡並帶有方向箭頭。",
+        "chip": "無",
+        "input": "無",
+        "hero": "全視窗電影級攝影圖，底部對齊的粗體文字。"
+      },
+      "motion": {
+        "patterns": [
+          "hover 時細微的背景色與顏色過渡",
+          "行動選單使用線性滑入動畫"
+        ]
+      },
+      "interaction": {
+        "hover": "細微的背景色與顏色過渡，持續時間 0.5 秒。",
+        "click": "立即回饋",
+        "transition": "所有過渡效果使用 cubic-bezier(0.19, 1, 0.22, 1) 緩動函數。",
+        "keyboard": "標準 tab 導覽"
+      },
+      "voice": {
+        "tone": "具權威感與前瞻性",
+        "headlineStyle": "粗體、大寫且簡潔",
+        "ctaStyle": "直接且以行動為導向（例如：觀看、加入任務）",
+        "avoid": [
+          "俏皮或天馬行空的語言",
+          "過多的內文",
+          "明亮或高飽和的強調色"
+        ]
+      },
+      "donts": [
+        "不要使用圓角或柔軟的介面元素 — 範例顯示銳利的矩形按鈕。",
+        "不要使用淺色背景 — 範例顯示以黑色與深色攝影為主的背景。",
+        "不要使用低字重的無襯線字體 — 節例顯示所有主要文字均採用粗體、幾何無襯線字體。",
+        "不要使用彩色強調 — 節例顯示黑、白、灰的單色調色板。",
+        "不要使用複雜的導覽選單 — 節例顯示扁平的大寫列表搭配 chevron 箭頭。",
+        "不要使用多欄文字版面 — 節例顯示單欄、左對齊的文字區塊。"
+      ],
+      "systemPrompt": "SpaceX 的網站是一個電影感、頂級的航空航天公司介面，採用深色模式美學，搭配高對比白色排版（#F0F0FA）置於黑色（#000000）之上。設計使用幾何無襯線字體類別（D-DIN）的粗體字重，並廣泛採用大寫樣式。關鍵元素包括全視窗攝影首圖，以及精簡、透明的介面元件，帶有 1px 邊框。重要禁忌：避免使用明亮的強調色，使用銳利的矩形按鈕形狀而非圓角，並保持標題中可見的粗重排版字重。介面依賴細微的過渡效果與單色調色板，以強調工程優先、頂級的品牌識別。"
+    },
+    "ja": {
+      "identity": {
+        "keywords": [
+          "航空宇宙",
+          "工学",
+          "未来",
+          "探求",
+          "大胆"
+        ],
+        "analogy": "ハイエンド航空宇宙メーカーのデジタルミッションコントロールセンター。",
+        "oneLiner": "航空宇宙会社のための、シネマティックでハイコントラストなインターフェース。"
+      },
+      "colors": {
+        "principle": "ハイコントラストな白文字タイポグラフィによる、写真への没入感。"
+      },
+      "typography": {
+        "rules": [
+          "テキストは主に大文字",
+          "ナビゲーションリンクは広めの文字間隔を使用",
+          "見出しは太めの-boldウェイトを使用"
+        ],
+        "scaleUses": [
+          "メイン見出しとナビゲーション",
+          "段落テキストと一般UI"
+        ]
+      },
+      "spacing": {
+        "rhythm": "シネマティックなプレゼンテーションのための広めの余白を持つ、4pxグリッドベース。"
+      },
+      "surfaces": {
+        "shadows": [],
+        "borders": "1px solid rgba(240, 240, 250, 0.35)"
+      },
+      "layout": {
+        "skeleton": "最小限のUIオーバーレイを持つ、フルブリードヒーロー画像。"
+      },
+      "components": {
+        "button": "白いボーダーと大文字テキストを持つ透明ボタン。微妙な背景遷移を使用。",
+        "card": "最小限のテキストと方向矢印を持つ、画像中心のリストアイテム。",
+        "chip": "なし",
+        "input": "なし",
+        "hero": "底部揃えの太字テキストを持つ、フルビューポートのシネマティックな写真。"
+      },
+      "motion": {
+        "patterns": [
+          "hover時の微妙な背景色とカラー遷移",
+          "モバイルメニューのリニアスライドインアニメーション"
+        ]
+      },
+      "interaction": {
+        "hover": "0.5秒の_duration_を持つ、微妙な背景色とカラー遷移。",
+        "click": "即座のフィードバック",
+        "transition": "全ての遷移はcubic-bezier(0.19, 1, 0.22, 1)イージングを使用。",
+        "keyboard": "標準タブナビゲーション"
+      },
+      "voice": {
+        "tone": "権威とビジョンを持った",
+        "headlineStyle": "太字、大文字、簡潔",
+        "ctaStyle": "直接的でアクション指向（例：WATCH、JOIN A MISSION）",
+        "avoid": [
+          "遊び心のある軽い言葉",
+          "過度な本文テキスト",
+          "明るいまたは鮮やかなアクセントカラー"
+        ]
+      },
+      "donts": [
+        "角丸やソフトなUI要素を使わない — スクリーンショットでは角が锋利で四角形のボタンが示されている。",
+        "明るい背景を使わない — スクリーンショットでは主に黒と暗い写真の背景が示されている。",
+        "ウェイトの低いサンセリフフォントを使わない — スクリーンショットでは主要テキスト全てに太めの幾何学サンセリフが示されている。",
+        "カラフルなアクセントを使わない — スクリーンショットでは黒、白、グレーのモノクロームパレットが示されている。",
+        "複雑なナビゲーションメニューを使わない — スクリーンショットではフラットな大文字リストと Chevron が示されている。",
+        "複数カラムのテキストレイアウトを使わない — スクリーンショットでは単一カラム、左揃えのテキストブロックが示されている。"
+      ],
+      "systemPrompt": "SpaceXのウェブサイトは、航空宇宙会社のためのシネマティックでプレミアムなインターフェースで、黒（#000000）の上にハイコントラストの白文字（#F0F0FA）を配置したダークモードの美学を活用しています。デザインは太ウェイトの幾何学サンセリフフォントカテゴリ（D-DIN）と広範な大文字スタイルを使用しています。主要要素にはフルビューポートの写真ヒーローと、1pxボーダーを持つ最小限の透明なUIコンポーネントが含まれます。重要な禁止事項：明るいアクセントカラーの使用を避け、角丸ではなく鋭利な四角形のボタン形状を使用し、見出しで見られる重みのあるタイポグラフィウェイトを維持すること。インターフェースは、エンジニアリング優先のプレミアムブランドアイデンティティを強調するために、微妙な遷移とモノクロームパレットに依存しています。"
+    },
+    "ko": {
+      "identity": {
+        "keywords": [
+          "항공우주",
+          "공학",
+          "미래",
+          "탐험",
+          "대담"
+        ],
+        "analogy": "프리미엄 항공우주 제조사의 디지털 미션 컨트롤 센터.",
+        "oneLiner": "항공우주 기업을 위한 시네마틱, 고대비 인터페이스."
+      },
+      "colors": {
+        "principle": "고대비 화이트 타이포그래피를 통한 포토그래픽 몰입감."
+      },
+      "typography": {
+        "rules": [
+          "텍스트는 주로 대문자 사용",
+          "네비게이션 링크는 넓은 자간 사용",
+          "헤드라인은 두꺼운 볼드 웨이트 사용"
+        ],
+        "scaleUses": [
+          "메인 헤드라인 및 네비게이션",
+          "본문 텍스트 및 일반 UI"
+        ]
+      },
+      "spacing": {
+        "rhythm": "4px 그리드를 기반으로 한 시네마틱 프레젠테이션을 위한 넉넉한 여백."
+      },
+      "surfaces": {
+        "shadows": [],
+        "borders": "1px solid rgba(240, 240, 250, 0.35)"
+      },
+      "layout": {
+        "skeleton": "최소한의 UI 오버레이가 적용된 풀블리드 히어로 이미지."
+      },
+      "components": {
+        "button": "화이트 테두리와 대문자 텍스트가 있는 투명 배경, 미묘한 배경 전환 효과.",
+        "card": "최소한의 텍스트와 방향 화살표가 있는 이미지 중심 리스트 아이템.",
+        "chip": "없음",
+        "input": "없음",
+        "hero": "하단 정렬된 볼드 텍스트가 있는 풀뷰포트 시네마틱 사진."
+      },
+      "motion": {
+        "patterns": [
+          "hover 시 미묘한 배경색 및 색상 전환",
+          "모바일 메뉴용 리니어 슬라이드인 애니메이션"
+        ]
+      },
+      "interaction": {
+        "hover": "0.5초 동안 지속되는 미묘한 배경색 및 색상 전환.",
+        "click": "즉각적인 피드백",
+        "transition": "모든 전환은 cubic-bezier(0.19, 1, 0.22, 1) 이징 사용.",
+        "keyboard": "표준 탭 네비게이션"
+      },
+      "voice": {
+        "tone": "권위 있고 비전을 제시하는",
+        "headlineStyle": "볼드, 대문자, 간결한",
+        "ctaStyle": "직설적이고 행동 지향적인 (예: 시청하기, 미션 참여하기)",
+        "avoid": [
+          "장난스럽거나 공상적인 언어",
+          "과도한 본문 텍스트",
+          "밝거나 채도 높은 포인트 컬러"
+        ]
+      },
+      "donts": [
+        "둥글거나 부드러운 UI 요소 사용 금지 — 스크린샷은 날카로운 사각형 버튼을 보여줍니다.",
+        "밝은 배경 사용 금지 — 스크린샷은 주로 검정색과 어두운 포토그래픽 배경을 보여줍니다.",
+        "저 웨이트 산세리프 폰트 사용 금지 — 스크린샷은 모든 주요 텍스트에 두꺼운 기하학적 산세리프를 보여줍니다.",
+        "다채로운 포인트 컬러 사용 금지 — 스크린샷은 검정, 흰색, 회색의 단색 팔레트를 보여줍니다.",
+        "복잡한 네비게이션 메뉴 사용 금지 — 스크린샷은 화살표가 있는 플랫, 대문자 리스트를 보여줍니다.",
+        "다단 텍스트 레이아웃 사용 금지 — 스크린샷은 단일 열, 왼쪽 정렬 텍스트 블록을 보여줍니다."
+      ],
+      "systemPrompt": "SpaceX의 웹사이트는 항공우주 기업을 위한 시네마틱하고 프리미엄 인터페이스로, 검정(#000000) 위의 고대비 화이트 타이포그래피(#F0F0FA)를 사용한 다크 모드 미학을 활용합니다. 이 디자인은 볼드 웨이트의 기하학적 산세리프 폰트 카테고리(D-DIN)를 사용하며, 광범위한 대문자 스타일링을 적용합니다. 핵심 요소로는 풀뷰포트 포토그래픽 히어로와 1px 테두리가 있는 미니멀하고 투명한 UI 컴포넌트가 있습니다. 중요한 주의사항: 밝은 포인트 컬러 사용을 피하고, 둥근 모양 대신 날카로운 사각형 버튼 모양을 사용하며, 헤드라인에서 볼 수 있는 두꺼운 타이포그래피 웨이트를 유지하십시오. 이 인터페이스는 엔지니어링 중심의 프리미엄 브랜드 아이덴티티를 강조하기 위해 미묘한 전환과 단색 팔레트에 의존합니다."
     }
   }
 }

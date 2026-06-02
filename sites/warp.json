@@ -17,58 +17,74 @@
   "_meta": {
     "vision_model": "mimo-v2.5",
     "vision_prompt_version": "0.3",
-    "vision_at": "2026-05-28T20:37:12+00:00",
-    "vision_tokens": 3480,
-    "vision_cost_usd": 0.0387,
+    "vision_at": "2026-05-30T06:40:57+00:00",
+    "vision_tokens": 17765,
+    "vision_cost_usd": 0.1974,
     "translation_model": "mimo-v2.5",
-    "translation_at": "2026-05-28T20:38:13+00:00",
-    "translation_tokens": 15950,
-    "translation_cost_usd": 0.0532,
+    "translation_at": "2026-05-30T06:42:00+00:00",
+    "translation_tokens": 26760,
+    "translation_cost_usd": 0.0892,
     "narrative_model": "mimo-v2.5",
     "narrative_prompt_version": "0.3",
     "narrative_at": "2026-05-28T20:38:20+00:00",
     "narrative_tokens": 1972,
     "narrative_cost_usd": 0.0131,
     "narrative_status": "ok",
-    "total_cost_usd": 0.105
+    "total_cost_usd": 0.2997,
+    "vision_source": "playwright-extract:warp",
+    "vision_grounded": true
   },
   "spec": {
     "colors": {
-      "bg": "#000000",
-      "bgSoft": "#1a1a1a",
+      "bg": "#121212",
+      "bgSoft": "#1E1E1E",
       "bgQuiet": null,
-      "ink": "#ffffff",
-      "inkSoft": "#a0a0a0",
-      "muted": "#6b6b6b",
+      "ink": "#FFFFFF",
+      "inkSoft": "#C7AEFF",
+      "muted": "#888888",
       "mutedSoft": null,
-      "accent": null,
+      "accent": "#C7AEFF",
       "line": "rgba(255, 255, 255, 0.1)"
     },
     "typography": {
-      "display": "geometric-sans",
-      "body": "geometric-sans",
-      "mono": null,
+      "display": "humanist-sans",
+      "body": "humanist-sans",
+      "mono": "monospaced",
       "scale": [
         {
           "token": "display",
-          "size": 56,
-          "lh": 1.1,
-          "weight": 500,
-          "ls": "-1.5px"
+          "size": 72,
+          "lh": 1.0,
+          "weight": 400,
+          "ls": "-1.8px"
         },
         {
-          "token": "heading",
-          "size": 32,
-          "lh": 1.2,
-          "weight": 500,
-          "ls": "-0.5px"
+          "token": "h2",
+          "size": 48,
+          "lh": 1.1,
+          "weight": 400,
+          "ls": "-1.12px"
         },
         {
           "token": "body",
-          "size": 16,
-          "lh": 1.5,
+          "size": 18,
+          "lh": 1.6,
           "weight": 400,
-          "ls": "0"
+          "ls": "0px"
+        },
+        {
+          "token": "caption",
+          "size": 14,
+          "lh": 1.4,
+          "weight": 400,
+          "ls": "0.25px"
+        },
+        {
+          "token": "overline",
+          "size": 12,
+          "lh": 1.3,
+          "weight": 500,
+          "ls": "2.8px"
         }
       ]
     },
@@ -79,19 +95,20 @@
         8,
         12,
         16,
+        20,
         24,
         32,
+        40,
         48,
         64,
-        96,
-        128
+        96
       ]
     },
     "surfaces": {
       "radius": {
-        "sm": 4,
-        "md": 8,
-        "lg": 12,
+        "sm": 3,
+        "md": 4,
+        "lg": 16,
         "pill": 999
       }
     },
@@ -107,397 +124,20 @@
     },
     "motion": {
       "durations": {
-        "micro": 200,
-        "small": 300,
+        "micro": 150,
+        "small": 200,
         "medium": 500
       },
       "easing": "cubic-bezier(0.4, 0, 0.2, 1)"
     }
   },
-  "spec_i18n": {
-    "en": {
-      "identity": {
-        "keywords": [
-          "modern",
-          "agentic",
-          "developer",
-          "professional",
-          "advanced"
-        ],
-        "analogy": "A sleek, dark control panel for the future of software development.",
-        "oneLiner": "A modern, dark-themed developer tool website positioning itself as an advanced agentic development environment."
-      },
-      "colors": {
-        "principle": "High-contrast dark mode for focus, with monochromatic scales and subtle borders."
-      },
-      "typography": {
-        "rules": [
-          "Use tight letter spacing for large display text.",
-          "Maintain clear typographic hierarchy with weight and size contrast.",
-          "Use a geometric sans-serif for a modern, technical feel."
-        ],
-        "scaleUses": [
-          "Main headline",
-          "Section headings",
-          "Paragraph text"
-        ]
-      },
-      "spacing": {
-        "rhythm": "Consistent 4px base grid for predictable vertical and horizontal spacing."
-      },
-      "surfaces": {
-        "shadows": [],
-        "borders": "Subtle, low-contrast borders (rgba(255,255,255,0.1)) define card and component edges."
-      },
-      "layout": {
-        "skeleton": "Centered content with a max-width container, two-column card grid in the hero section."
-      },
-      "components": {
-        "button": "Filled buttons with subtle borders (like Download) and outlined/ghost buttons (like Learn More) with rounded corners.",
-        "card": "Dark, semi-transparent cards with subtle borders containing content and call-to-action buttons.",
-        "chip": "Small, rounded badges (e.g., 'Livestream', 'Case Study') with subtle backgrounds.",
-        "input": null,
-        "hero": "A prominent, centered headline with a supporting subheadline, followed by a two-column grid of feature cards."
-      },
-      "motion": {
-        "patterns": [
-          "Subtle hover state transitions on buttons and links."
-        ]
-      },
-      "interaction": {
-        "hover": "Buttons and interactive elements have subtle background or opacity changes on hover.",
-        "click": "No visible pressed state in the screenshot.",
-        "transition": "Smooth, short transitions for interactive state changes.",
-        "keyboard": null
-      },
-      "voice": {
-        "tone": "Professional, confident, and forward-looking, targeting technical developers.",
-        "headlineStyle": "Direct, declarative statements about the product's value (e.g., 'Warp is the agentic development environment').",
-        "ctaStyle": "Clear, action-oriented (e.g., 'Learn More', 'Download', 'Sign Up').",
-        "avoid": [
-          "Casual language",
-          "Excessive exclamation points",
-          "Vague marketing fluff"
-        ]
-      },
-      "donts": [
-        "Don't use a light or white background — screenshot shows a pure black (#000000) dark mode theme.",
-        "Don't use serif or humanist fonts — screenshot uses a clean, geometric sans-serif for all text.",
-        "Don't use vibrant, saturated accent colors — screenshot relies on a monochromatic palette with high-contrast white text.",
-        "Don't use rounded, bubbly UI elements — screenshot shows sharp, subtle radii on cards and buttons.",
-        "Don't clutter the layout with dense information — screenshot uses generous whitespace and a clear visual hierarchy.",
-        "Don't use drop shadows for depth — screenshot relies on borders and subtle background contrast instead."
-      ],
-      "systemPrompt": "Warp is a developer tools website for a modern terminal and AI agent platform, using a high-contrast dark mode (#000000 bg) with white (#ffffff) ink. The typography is a clean geometric sans-serif, with a large, bold headline as the focal point. The layout is spacious and centered, featuring a two-column card grid to showcase core products. Key colors are black, white, and muted grays. Critical donts: avoid light themes, avoid serif typography, avoid vibrant accent colors. The design prioritizes clarity, focus, and a premium, technical feel for a developer audience."
-    },
-    "zh-CN": {
-      "identity": {
-        "keywords": [
-          "现代",
-          "智能体",
-          "开发者",
-          "专业",
-          "先进"
-        ],
-        "analogy": "一个为未来软件开发而设计的、流畅的深色控制面板。",
-        "oneLiner": "一个现代、深色主题的开发者工具网站，定位为先进的智能体开发环境。"
-      },
-      "colors": {
-        "principle": "高对比度的暗色模式以保持专注，采用单色阶和细微边框。"
-      },
-      "typography": {
-        "rules": [
-          "为大号展示文本使用紧凑的字间距。",
-          "通过字重和尺寸的对比，建立清晰的字体层次。",
-          "使用几何无衬线字体，营造现代、技术感。"
-        ],
-        "scaleUses": [
-          "主标题",
-          "章节标题",
-          "段落文本"
-        ]
-      },
-      "spacing": {
-        "rhythm": "基于 4px 的统一网格，确保可预测的垂直和水平间距。"
-      },
-      "surfaces": {
-        "shadows": [],
-        "borders": "细微、低对比度的边框（rgba(255,255,255,0.1)）定义了卡片和组件的边缘。"
-      },
-      "layout": {
-        "skeleton": "内容居中，使用最大宽度容器，首屏区域采用双列卡片网格。"
-      },
-      "components": {
-        "button": "填充式按钮带有细微边框（如 Download），以及轮廓/幽灵式按钮（如 Learn More），采用圆角设计。",
-        "card": "深色、半透明的卡片，带有细微边框，包含内容和行动号召按钮。",
-        "chip": "小型圆角徽章（例如 'Livestream'、'Case Study'），带有细微背景色。",
-        "input": null,
-        "hero": "一个醒目的、居中的标题，配有副标题，下方是双列网格的功能卡片。"
-      },
-      "motion": {
-        "patterns": [
-          "按钮和链接上细微的 hover 状态过渡。"
-        ]
-      },
-      "interaction": {
-        "hover": "按钮和交互元素在 hover 时有细微的背景或透明度变化。",
-        "click": "截图中未显示可见的按压状态。",
-        "transition": "交互状态变化时采用平滑、短促的过渡。",
-        "keyboard": null
-      },
-      "voice": {
-        "tone": "专业、自信且富有远见，面向技术开发者。",
-        "headlineStyle": "直接、陈述性的语句来阐明产品价值（例如 'Warp 是智能体开发环境'）。",
-        "ctaStyle": "清晰、行动导向（例如 '了解更多'、'下载'、'注册'）。",
-        "avoid": [
-          "随意用语",
-          "过多的感叹号",
-          "模糊的营销套话"
-        ]
-      },
-      "donts": [
-        "不要使用浅色或白色背景——截图显示的是纯黑（#000000）的暗色模式主题。",
-        "不要使用衬线或人文主义字体——截图中所有文本都使用了简洁的几何无衬线字体。",
-        "不要使用鲜艳、饱和的强调色——截图依赖单色板和高对比度的白色文本。",
-        "不要使用圆润、气泡状的UI元素——截图中的卡片和按钮显示的是锐利、细微的圆角。",
-        "不要在布局中堆砌密集信息——截图使用了充裕的留白和清晰的视觉层次。",
-        "不要使用投影来营造深度——截图依赖边框和细微的背景对比。"
-      ],
-      "systemPrompt": "Warp 是一个现代终端和 AI 智能体平台的开发者工具网站，采用高对比度暗色模式（#000000 背景）和白色（#ffffff）文字。字体是简洁的几何无衬线体，一个大而粗的标题作为视觉焦点。布局宽敞居中，使用双列卡片网格来展示核心产品。关键颜色是黑、白和柔和的灰色。关键禁忌：避免浅色主题、避免衬线字体、避免鲜艳的强调色。设计优先考虑清晰度、专注度，以及为开发者受众带来的高级、技术感。"
-    },
-    "zh-TW": {
-      "identity": {
-        "keywords": [
-          "現代",
-          "代理式",
-          "開發者",
-          "專業",
-          "進階"
-        ],
-        "analogy": "一個流線、黑暗的控制面板，為軟體開發的未來而生。",
-        "oneLiner": "一個以現代深色主題為基礎的開發者工具網站，定位為一個進階的代理式開發環境。"
-      },
-      "colors": {
-        "principle": "高對比深色模式以利專注，使用單色階級與細微的邊框。"
-      },
-      "typography": {
-        "rules": [
-          "為大型展示文字使用緊湊的字間距。",
-          "透過字重與大小對比來建立清晰的排版層次。",
-          "使用幾何無襯線字體以營造現代、技術感。"
-        ],
-        "scaleUses": [
-          "主標題",
-          "章節標題",
-          "段落文字"
-        ]
-      },
-      "spacing": {
-        "rhythm": "一致的 4px 基礎網格，以實現可預測的垂直與水平間距。"
-      },
-      "surfaces": {
-        "shadows": [],
-        "borders": "細微、低對比的邊框 (rgba(255,255,255,0.1)) 用於定義卡片與元件的邊緣。"
-      },
-      "layout": {
-        "skeleton": "置中內容，具有最大寬度容器，首頁區域採用雙欄卡片網格。"
-      },
-      "components": {
-        "button": "填充式按鈕帶有細微邊框（如 Download）與外框/幽靈按鈕（如 Learn More），採用圓角設計。",
-        "card": "深色、半透明的卡片，帶有細微邊框，內含內容與行動呼籲按鈕。",
-        "chip": "小型、圓角的徽章（例如「直播」、「案例研究」），帶有細微背景色。",
-        "input": null,
-        "hero": "一個顯眼、置中的標題與副標題，下方是雙欄的功能特色卡片網格。"
-      },
-      "motion": {
-        "patterns": [
-          "按鈕與連結上細微的 hover 狀態過渡效果。"
-        ]
-      },
-      "interaction": {
-        "hover": "按鈕與互動元素在 hover 時有細微的背景或透明度變化。",
-        "click": "在截圖中無可見的點擊狀態。",
-        "transition": "互動狀態變化時採用流暢、短暫的過渡效果。",
-        "keyboard": null
-      },
-      "voice": {
-        "tone": "專業、自信且著眼未來，面向技術開發者。",
-        "headlineStyle": "直接、陳述性的語句，闡述產品價值（例如：「Warp 是代理式開發環境」）。",
-        "ctaStyle": "清晰、以行動為導向（例如：「深入瞭解」、「下載」、「註冊」）。",
-        "avoid": [
-          "隨意的語言",
-          "過多的驚嘆號",
-          "模糊的行銷術語"
-        ]
-      },
-      "donts": [
-        "不要使用淺色或白色背景——截圖顯示的是純黑 (#000000) 的深色模式主題。",
-        "不要使用襯線或人文主義字體——截圖對所有文字使用了簡潔的幾何無襯線字體。",
-        "不要使用鮮豔、飽和的強調色——截圖依賴單色調色盤與高對比的白色文字。",
-        "不要使用圓潤、膨脹的 UI 元素——截圖顯示卡片與按鈕具有銳利、細微的圓角。",
-        "不要在佈局中堆砌密集資訊——截圖使用寬裕的留白與清晰的視覺層次。",
-        "不要使用陰影來營造深度——截圖改以邊框與細微的背景對比來實現。"
-      ],
-      "systemPrompt": "Warp 是一個開發者工具網站，服務於現代終端機與 AI 代理平台，採用高對比深色模式（#000000 背景）與白色 (#ffffff) 文字。字體是簡潔的幾何無襯線體，以大型、粗體的標題作為視覺焦點。佈局寬敞且置中，採用雙欄卡片網格來展示核心產品。關鍵色彩為黑、白與柔和的灰色。重要禁忌：避免淺色主題、避免使用襯線字體、避免鮮豔的強調色。設計優先考慮清晰度、專注力，並為開發者受眾營造高端、技術感的氛圍。"
-    },
-    "ja": {
-      "identity": {
-        "keywords": [
-          "モダン",
-          "エージェント型",
-          "開発者向け",
-          "プロフェッショナル",
-          "先進的"
-        ],
-        "analogy": "ソフトウェア開発の未来に向けた、洗練されたダークコントロールパネル。",
-        "oneLiner": "先進的なエージェント型開発環境として位置づけられた、ダークテーマのモダンな開発者ツールウェブサイト。"
-      },
-      "colors": {
-        "principle": "集中力を高めるハイコントラストダークモード。単色スケールと微妙なボーダーを採用。"
-      },
-      "typography": {
-        "rules": [
-          "大きな表示用テキストには Tight letter spacing を使用する。",
-          "ウェイトとサイズのコントラストによる明確なタイポグラフィ階層を維持する。",
-          "モダンで技術的な印象を与える幾何学サンセリフを使用する。"
-        ],
-        "scaleUses": [
-          "メイン見出し",
-          "セクション見出し",
-          "本文テキスト"
-        ]
-      },
-      "spacing": {
-        "rhythm": "予測可能な垂直・水平方向の間隔のため、一貫した4pxベースグリッド。"
-      },
-      "surfaces": {
-        "shadows": [],
-        "borders": "カードやコンポーネントの縁を定義する、微妙で低コントラストのボーダー（rgba(255,255,255,0.1)）。"
-      },
-      "layout": {
-        "skeleton": "最大幅コンテナを持つ中央揃えコンテンツ。ヒーローセクションには2カラムカードグリッド。"
-      },
-      "components": {
-        "button": "（Downloadのような）微妙なボーダー付き塗りつぶしボタンと、（Learn Moreのような）角丸のアウトライン/ゴーストボタン。",
-        "card": "コンテンツとCTAボタンを内包する、微妙なボーダーを持つダークで半透明のカード。",
-        "chip": "（例：「Livestream」「Case Study」）微妙な背景を持つ、小さく角丸のバッジ。",
-        "input": null,
-        "hero": "注目度の高い中央揃えの見出しと補足サブ見出し、そして機能カードの2カラムグリッド。"
-      },
-      "motion": {
-        "patterns": [
-          "ボタンやリンクの微妙なhover状態遷移。"
-        ]
-      },
-      "interaction": {
-        "hover": "ボタンやインタラクティブ要素は、hover時に背景色や不透明度が微妙に変化する。",
-        "click": "スクリーンショットには、押下状態の可见な表示なし。",
-        "transition": "インタラクティブ状態変化のための、滑らかで短い遷移。",
-        "keyboard": null
-      },
-      "voice": {
-        "tone": "技術者をターゲットとした、プロフェッショナルで自信に満ち、将来志向のトーン。",
-        "headlineStyle": "製品の価値に関する直接的で断定的な宣言（例：「Warp is the agentic development environment」）。",
-        "ctaStyle": "明確で行動を促す表現（例：「Learn More」「Download」「Sign Up」）。",
-        "avoid": [
-          "カジュアルな言葉遣い",
-          "過度な感嘆符",
-          "曖昧なマーケティング文句"
-        ]
-      },
-      "donts": [
-        "明るい背景や白い背景を使用しない — スクリーンショットは純黒（#000000）のダークモードテーマを示している。",
-        "セリフやヒューマニスト系フォントを使用しない — スクリーンショットはすべてのテキストにクリーンな幾何学サンセリフを使用している。",
-        "鮮やかで彩度の高いアクセントカラーを使用しない — スクリーンショットはハイコントラストの白テキストを伴う単色パレットに依存している。",
-        "丸みのある、わんぱくなUI要素を使用しない — スクリーンショットはカードやボタンに鋭く、微妙な角丸を示している。",
-        "情報過密なレイアウトにしない — スクリーンショットは豊かな余白と明確なビジュアル階層を用いている。",
-        "ドロップシャドウで奥行きを作り出さない — 代わりにボーダーと微妙な背景のコントラストに依存している。"
-      ],
-      "systemPrompt": "Warpは、ハイコントラストダークモード（背景#000000）と白のインク（#ffffff）を使用した、モダンなターミナルおよびAIエージェントプラットフォーム向けの開発者ツールウェブサイトです。タイポグラフィはクリーンな幾何学サンセリフで、大きく太字の見出しを焦点としています。レイアウトは余裕があり中央揃えで、主要プロダクトを紹介するために2カラムカードグリッドを採用しています。主要カラーは黒、白、および落ち着いたグレーです。重要な注意点：明るいテーマ、セリフ系タイポグラフィ、鮮やかなアクセントカラーは避けること。デザインは、開発者向けオーディエンスにとって、明確さ、集中力、およびプレミアムで技術的な感覚を優先しています。"
-    },
-    "ko": {
-      "identity": {
-        "keywords": [
-          "현대적인",
-          "에이전틱한",
-          "개발자",
-          "전문적인",
-          " tiên진"
-        ],
-        "analogy": "소프트웨어 개발의 미래를 위한 날렵하고 어두운 제어 패널입니다.",
-        "oneLiner": "선진적인 에이전틱 개발 환경으로 자리매김하는, 현대적인 다크 테마 개발자 도구 웹사이트입니다."
-      },
-      "colors": {
-        "principle": "집중을 위한 고대비 다크 모드, 단색 스케일과 미세한 테두리를 사용합니다."
-      },
-      "typography": {
-        "rules": [
-          "큰 디스플레이 텍스트에는 타이트한 자간을 사용합니다.",
-          "굵기와 크기 대비로 명확한 타이포그래피 계층을 유지합니다.",
-          "현대적이고 기술적인 느낌을 위해 기하학적 sans-serif를 사용합니다."
-        ],
-        "scaleUses": [
-          "메인 헤드라인",
-          "섹션 제목",
-          "본문 텍스트"
-        ]
-      },
-      "spacing": {
-        "rhythm": "예측 가능한 수직 및 수평 간격을 위한 일관된 4px 기본 그리드입니다."
-      },
-      "surfaces": {
-        "shadows": [],
-        "borders": "미세하고 대비가 낮은 테두리(rgba(255,255,255,0.1))가 카드와 컴포넌트의 가장자리를 정의합니다."
-      },
-      "layout": {
-        "skeleton": "최대 폭 컨테이너를 갖춘 중앙 정렬 콘텐츠, 히어로 섹션의 2열 카드 그리드입니다."
-      },
-      "components": {
-        "button": "미세한 테두리가 있는 채워진 버튼(예: Download)과 둥근 모서리의 윤곽/고스트 버튼(예: Learn More)입니다.",
-        "card": "콘텐츠와 행동 유도 버튼을 담고 있는, 미세한 테두리의 어둡고 반투명한 카드입니다.",
-        "chip": "미세한 배경을 가진 작은 둥근 뱃지(예: 'Livestream', 'Case Study')입니다.",
-        "input": null,
-        "hero": "지지하는 서브 헤드라인이_followed by two-column grid of feature cards."
-      },
-      "motion": {
-        "patterns": [
-          "버튼과 링크의 미세한 hover 상태 전환입니다."
-        ]
-      },
-      "interaction": {
-        "hover": "버튼과 인터랙티브 요소는 hover 시 미세한 배경 또는 불투명도 변화가 있습니다.",
-        "click": "스크린샷에 눌린 상태는 보이지 않습니다.",
-        "transition": "인터랙티브 상태 변화를 위한 부드럽고 짧은 전환입니다.",
-        "keyboard": null
-      },
-      "voice": {
-        "tone": "기술 지향 개발자를 대상으로 하는, 전문적이고 자신감 넘치며 미래 지향적인 어조입니다.",
-        "headlineStyle": "제품의 가치에 대한 직접적이고 단정적인 진술(예: 'Warp is the agentic development environment').",
-        "ctaStyle": "명확하고 행동 지향적(예: 'Learn More', 'Download', 'Sign Up').",
-        "avoid": [
-          "캐주얼한 언어",
-          "지나친 느낌표",
-          "불명확한 마케팅 문구"
-        ]
-      },
-      "donts": [
-        "밝거나 흰색 배경을 사용하지 마세요 — 스크린샷은 순수 검정(#000000) 다크 모드 테마를 보여줍니다.",
-        "세리프 또는 휴머니스틱 폰트를 사용하지 마세요 — 스크린샷은 모든 텍스트에 깔끔하고 기하학적인 sans-serif를 사용합니다.",
-        "선명하고 채도 높은 강조색을 사용하지 마세요 — 스크린샷은 고대비 흰색 텍스트와 함께 단색 팔레트에 의존합니다.",
-        "둥글고 통통한 UI 요소를 사용하지 마세요 — 스크린샷은 카드와 버튼에 날렵하고 미세한 모서리 반경을 보여줍니다.",
-        "레이아웃을 조밀한 정보로 가득 채우지 마세요 — 스크린샷은 넉넉한 여백과 명확한 시각적 계층을 사용합니다.",
-        "깊이감을 위해 드롭 섀도우를 사용하지 마세요 — 스크린샷은 대신 테두리와 미세한 배경 대비에 의존합니다."
-      ],
-      "systemPrompt": "Warp는 현대적인 터미널과 AI 에이전트 플랫폼을 위한 개발자 도구 웹사이트로, 흰색(#ffffff) 텍스트와 함께 고대비 다크 모드(#000000 배경)를 사용합니다. 타이포그래피는 깔끔한 기하학적 sans-serif이며, 초점은 크고 굵은 헤드라인에 있습니다. 레이아웃은 넓고 중앙 정렬되어 있으며, 핵심 제품을 선보이기 위한 2열 카드 그리드를 특징으로 합니다. 주요 색상은 검정, 흰색, 그리고 은은한 회색입니다. 중요 금지 사항: 밝은 테마, 세리프 타이포그래피, 선명한 강조색을 피하세요. 이 디자인은 개발자 대상을 위한 명확성, 집중, 그리고 프리미엄하고 기술적인 느낌을 우선시합니다."
-    }
-  },
   "desc": {
     "en": {
-      "palette": "A strict, high-contrast dark mode palette using pure black, white, and a minimal range of grays for hierarchy.",
-      "layout": "A centered, max-width container layout with generous vertical rhythm and a two-column grid for feature presentation.",
-      "interaction": "Minimal and functional, relying on subtle hover transitions on buttons and links within a static presentation.",
-      "motion": "Implied minimal motion, likely limited to hover states and page transitions, emphasizing stability and performance.",
-      "notes": "A prime example of modern SaaS developer tool branding, using a dark, focused aesthetic to convey professionalism and technical sophistication."
+      "palette": "A monochromatic dark theme using deep blacks and grays, accented with a signature high-chroma purple for interactive states and highlights.",
+      "layout": "A structured, container-based layout with generous vertical spacing between sections, prioritizing a strong typographic hierarchy.",
+      "interaction": "Subtle, performant transitions on hover and focus states, primarily focusing on color and background shifts.",
+      "motion": "Minimal but purposeful motion using a standard ease-out curve for state changes and UI feedback.",
+      "notes": "This site is a prime example of a modern, high-end developer tool that uses a dark mode to reduce eye strain while maintaining a premium, sophisticated brand identity."
     },
     "zh-CN": {
       "palette": "一套严格、高对比度的暗色模式调色板，使用纯黑、纯白以及一系列极简的灰色来构建层次。",
@@ -588,6 +228,418 @@
       "ch7_intro": "모션 철학은 최소한의 기능적 개입입니다. 상호작용은 hover 상태에서의 부드럽고 짧은 전환을 통해 확인되며, 정교한 애니메이션보다 안정성과 성능을 우선시합니다.",
       "ch8_intro": "에디토리얼 어조는 기술 개발자 대상을 위한 제품 가치에 대한 직접적인 진술을 사용하며, 전문적이며 미래지향적입니다. 행동 유도(CTA)는 명확하고 행동 지향적이며, 일상적이거나 모호한 언어를 피합니다.",
       "ch8_outro": "이 시스템은 의도적으로 라이트 테마, 화려한 악센트, 그리고 통통한 UI 요소를 포기하며, 집중된 다크 모드 미학에 전적으로 헌신합니다."
+    }
+  },
+  "spec_i18n": {
+    "en": {
+      "identity": {
+        "keywords": [
+          "Terminal",
+          "Agent",
+          "Developer",
+          "Productivity",
+          "Infrastructure"
+        ],
+        "analogy": "A modern, AI-native command line interface that bridges the gap between a traditional terminal and a collaborative development environment.",
+        "oneLiner": "A developer-first terminal and agent platform designed for high-velocity software teams."
+      },
+      "colors": {
+        "principle": "High-contrast dark mode with a signature purple accent to highlight active states and key data."
+      },
+      "typography": {
+        "rules": [
+          "Use tight negative letter spacing for large display headlines",
+          "Maintain generous line height (1.4-1.6) for dense body text",
+          "Use monospaced fonts strictly for code snippets and commands"
+        ],
+        "scaleUses": [
+          "Primary hero headlines",
+          "Section headers",
+          "Primary body text",
+          "Secondary descriptions and metadata",
+          "Category labels and small-caps navigation"
+        ]
+      },
+      "spacing": {
+        "rhythm": "Consistent 4px grid system with generous padding in large container layouts."
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 8px 30px rgba(0, 0, 0, 0.4)",
+          "0px 1px 3px rgba(0, 0, 0, 0.1)"
+        ],
+        "borders": "Minimal, using thin 1px lines or inset box shadows to define edges."
+      },
+      "layout": {
+        "skeleton": "Full-width dark hero sections followed by structured content grids."
+      },
+      "components": {
+        "button": "High-contrast solid white buttons for primary actions, subtle border-only buttons for secondary actions, and rounded pill shapes.",
+        "card": "Dark-themed cards with subtle inset borders, often featuring interactive code or data visualizations.",
+        "chip": "Small, rounded tags for status indicators (Active, Failed, Archived) within the agent interface.",
+        "input": "Dark input fields with subtle borders, often accompanied by inline code or command actions.",
+        "hero": "Large, left-aligned typographic hero sections with a prominent code block or terminal screenshot below."
+      },
+      "motion": {
+        "patterns": [
+          "Smooth fade-ins for UI state changes",
+          "Subtle scale and transform on hover for interactive elements",
+          "Sequential fade-in for lists and data rows"
+        ]
+      },
+      "interaction": {
+        "hover": "Subtle background shifts or color transitions for buttons and navigation links.",
+        "click": "Immediate state change with minimal animation delay.",
+        "transition": "Standardized 150ms-200ms transitions for color, background, and transform properties.",
+        "keyboard": "Visible focus rings on interactive elements, particularly input fields and buttons."
+      },
+      "voice": {
+        "tone": "Technical, authoritative, and developer-focused.",
+        "headlineStyle": "Direct, benefit-oriented statements (e.g., 'Ship better software').",
+        "ctaStyle": "Action-oriented (e.g., 'Download', 'Contact Sales', 'Send Link').",
+        "avoid": [
+          "Marketing jargon",
+          "Overly casual language",
+          "Vague promises without technical context"
+        ]
+      },
+      "donts": [
+        "Don't use bright, saturated background colors — screenshot shows deep, desaturated grays and blacks.",
+        "Don't use decorative serif fonts for body text — screenshot shows clean humanist sans-serif for readability.",
+        "Don't use heavy, solid block borders — screenshot shows subtle 1px lines or inset shadows for elevation.",
+        "Don't use a wide, multi-column layout for primary headlines — screenshot shows tight, left-aligned typographic blocks.",
+        "Don't use soft, pastel accent colors — screenshot shows high-chroma purple and stark white for emphasis.",
+        "Don't use rounded, bubbly UI elements — screenshot shows sharp corners or very subtle border radii."
+      ],
+      "systemPrompt": "This site is a developer tools platform with a premium, dark-themed aesthetic. The design DNA is built on a deep black (#121212) and dark gray (#1E1E1E) palette, punctuated by a high-chroma purple accent (#C7AEFF). Typography relies on a clean humanist-sans for body text and a monospaced font for technical commands. The layout uses large, left-aligned headlines with tight letter-spacing to create impact. Critical donts: avoid bright background colors, use humanist-sans instead of decorative serifs, and maintain subtle elevation via shadows instead of heavy borders."
+    },
+    "zh-CN": {
+      "identity": {
+        "keywords": [
+          "终端",
+          "智能体",
+          "开发者",
+          "生产力",
+          "基础设施"
+        ],
+        "analogy": "一个现代、AI 原生的命令行界面，弥合了传统终端与协作开发环境之间的鸿沟。",
+        "oneLiner": "为高速软件团队设计的开发者优先终端与智能体平台。"
+      },
+      "colors": {
+        "principle": "高对比度深色模式，搭配标志性的紫色强调色，用于突出活动状态和关键数据。"
+      },
+      "typography": {
+        "rules": [
+          "为大尺寸展示标题使用紧凑的负字间距",
+          "为密集的正文保持充足的行高（1.4-1.6）",
+          "严格将等宽字体用于代码片段和命令"
+        ],
+        "scaleUses": [
+          "主英雄区标题",
+          "章节标题",
+          "主要正文",
+          "次要描述和元数据",
+          "分类标签和小型大写导航"
+        ]
+      },
+      "spacing": {
+        "rhythm": "一致的 4px 网格系统，在大型容器布局中采用充足的内边距。"
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 8px 30px rgba(0, 0, 0, 0.4)",
+          "0px 1px 3px rgba(0, 0, 0, 0.1)"
+        ],
+        "borders": "极简主义，使用纤细的 1px 线条或内嵌阴影来定义边缘。"
+      },
+      "layout": {
+        "skeleton": "全宽深色英雄区，后接结构化的内容网格。"
+      },
+      "components": {
+        "button": "用于主要操作的高对比度纯白色按钮，用于次要操作的微妙仅边框按钮，以及圆润的胶囊形状。",
+        "card": "深色主题卡片，带有微妙的内嵌边框，通常展示交互式代码或数据可视化。",
+        "chip": "用于智能体界面内状态指示器（活跃、失败、已归档）的小型圆角标签。",
+        "input": "带有微妙边框的深色输入框，通常伴有内联代码或命令操作。",
+        "hero": "大型左对齐的排版英雄区，下方通常配有突出的代码块或终端截图。"
+      },
+      "motion": {
+        "patterns": [
+          "UI 状态变化时的平滑淡入",
+          "交互元素在 hover 时的微妙缩放和变换",
+          "列表和数据行的序列式淡入"
+        ]
+      },
+      "interaction": {
+        "hover": "按钮和导航链接的微妙背景偏移或颜色过渡。",
+        "click": "状态立即改变，动画延迟最小化。",
+        "transition": "颜色、背景和变换属性的标准 150ms-200ms 过渡。",
+        "keyboard": "交互元素，尤其是输入框和按钮上的可见 focus 环。"
+      },
+      "voice": {
+        "tone": "技术性的、权威的，且面向开发者。",
+        "headlineStyle": "直接、以收益为导向的陈述（例如，'发布更好的软件'）。",
+        "ctaStyle": "行动导向型（例如，'下载'、'联系销售'、'发送链接'）。",
+        "avoid": [
+          "营销术语",
+          "过于随意的语言",
+          "缺乏技术背景的模糊承诺"
+        ]
+      },
+      "donts": [
+        "不要使用明亮、饱和的背景颜色——截图显示为深沉、低饱和度的灰色和黑色。",
+        "不要为正文使用装饰性衬线字体——截图显示为清晰易读的人文主义无衬线体。",
+        "不要使用厚重、实心的块状边框——截图显示为用于营造立体感的微妙 1px 线条或内嵌阴影。",
+        "不要为主要标题使用宽泛的多栏布局——截图显示为紧凑、左对齐的排版块。",
+        "不要使用柔和的粉彩强调色——截图显示为高色度的紫色和醒目的白色用于强调。",
+        "不要使用圆润、鼓胀的 UI 元素——截图显示为尖锐的圆角或非常微妙的边框半径。"
+      ],
+      "systemPrompt": "这个网站是一个具有高级深色主题美学的开发者工具平台。设计基因建立在深黑色（#121212）和深灰色（#1E1E1E）的调色板上，并以高色度的紫色强调色（#C7AEFF）点缀。字体方面，正文使用清晰的人文主义无衬线体，技术命令则使用等宽字体。布局采用大号、左对齐的标题，并带有紧凑的字间距以营造视觉冲击力。关键注意事项：避免使用明亮的背景色，使用人文主义无衬线体而非装饰性衬线体，并通过阴影而非厚重的边框来维持微妙的立体感。"
+    },
+    "zh-TW": {
+      "identity": {
+        "keywords": [
+          "終端機",
+          "代理",
+          "開發者",
+          "生產力",
+          "基礎架構"
+        ],
+        "analogy": "一個現代、AI 原生的命令列介面，彌合傳統終端機與協作開發環境之間的鴻溝。",
+        "oneLiner": "一個以開發者為本的終端機與代理平台，專為高速軟體團隊設計。"
+      },
+      "colors": {
+        "principle": "高對比深色模式，以標誌性的紫色強調色來突顯作用狀態與關鍵數據。"
+      },
+      "typography": {
+        "rules": [
+          "大型展示標題使用緊湊的負字母間距",
+          "密集正文保持寬裕行高（1.4-1.6）",
+          "嚴格使用等寬字體顯示程式碼片段與指令"
+        ],
+        "scaleUses": [
+          "主要英雄標題",
+          "章節標題",
+          "主要正文",
+          "次要說明與元數據",
+          "類別標籤與小型大寫字母導覽"
+        ]
+      },
+      "spacing": {
+        "rhythm": "一致的 4px 格線系統，大型容器佈局使用寬裕內距。"
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 8px 30px rgba(0, 0, 0, 0.4)",
+          "0px 1px 3px rgba(0, 0, 0, 0.1)"
+        ],
+        "borders": "極簡，使用細 1px 線條或內嵌陰影來定義邊緣。"
+      },
+      "layout": {
+        "skeleton": "全寬深色英雄區塊後接結構化內容格線。"
+      },
+      "components": {
+        "button": "主要操作使用高對比實心白色按鈕，次要操作使用細微僅邊框按鈕，採用圓角膠囊造型。",
+        "card": "深色主題卡片，帶有細微內嵌邊框，常包含互動式程式碼或數據視覺化。",
+        "chip": "用於代理介面中狀態指示器的小型圓角標籤（作用中、失敗、已封存）。",
+        "input": "深色輸入欄位，帶有細微邊框，常搭配行內程式碼或指令操作。",
+        "hero": "大型、左對齊的排版英雄區塊，下方帶有顯眼的程式碼區塊或終端機截圖。"
+      },
+      "motion": {
+        "patterns": [
+          "UI 狀態變更使用平滑淡入效果",
+          "互動元素在 hover 時進行細微縮放與變換",
+          "列表與數據列依序淡入"
+        ]
+      },
+      "interaction": {
+        "hover": "按鈕與導覽連結進行細微背景位移或顏色過渡。",
+        "click": "狀態立即變更，動畫延遲最小化。",
+        "transition": "顏色、背景與變換屬性使用標準化 150ms-200ms 過渡效果。",
+        "keyboard": "互動元素（尤其是輸入欄位與按鈕）顯示可見的聚焦環。"
+      },
+      "voice": {
+        "tone": "技術性、權威性，且以開發者為導向。",
+        "headlineStyle": "直接、以效益為導向的陳述（例如：「交付更好的軟體」）。",
+        "ctaStyle": "以行動為導向（例如：「下載」、「聯絡銷售團隊」、「傳送連結」）。",
+        "avoid": [
+          "行銷術語",
+          "過於隨意的語言",
+          "缺乏技術脈絡的模糊承諾"
+        ]
+      },
+      "donts": [
+        "勿使用明亮、飽和的背景顏色——截圖顯示深沉、去飽和的灰色與黑色。",
+        "勿使用裝飾性襯線字體作為正文——截圖顯示清晰的人文無襯線字體以利閱讀。",
+        "勿使用厚重、實心區塊邊框——截圖顯示細微 1px 線條或內嵌陰影來營造層次。",
+        "勿為主要標題使用寬闊、多欄佈局——截圖顯示緊湊、左對齊的排版區塊。",
+        "勿使用柔和、粉彩的強調色——截圖顯示高彩度的紫色與純白用於強調。",
+        "勿使用圓潤、泡泡狀的 UI 元素——截圖顯示銳利的邊角或極細微的邊框圓角。"
+      ],
+      "systemPrompt": "此網站是一個具備高端深色主題美學的開發者工具平台。設計基因建立在深黑 (#121212) 與深灰 (#1E1E1E) 色盤之上，並以高彩度紫色強調色 (#C7AEFF) 作為點綴。字體方面，正文使用清晰的人文無襯線字體，技術指令則使用等寬字體。佈局採用大型、左對齊標題，搭配緊湊字母間距以營造衝擊力。關鍵禁忌：避免使用明亮背景顏色，使用人文無襯線字體而非裝飾性襯線字體，並透過陰影而非厚重邊框來維持細微層次感。"
+    },
+    "ja": {
+      "identity": {
+        "keywords": [
+          "Terminal",
+          "Agent",
+          "Developer",
+          "Productivity",
+          "Infrastructure"
+        ],
+        "analogy": "従来のターミナルとコラボレーティブな開発環境の橋渡しをする、現代的でAIネイティブなコマンドラインインターフェース。",
+        "oneLiner": "高速ソフトウェアチームのために設計された、開発者優先のターミナルおよびエージェントプラットフォーム。"
+      },
+      "colors": {
+        "principle": "シグネチャーカラーの紫アクセントでアクティブ状態と主要なデータを強調する、高コントラストのダークモード。"
+      },
+      "typography": {
+        "rules": [
+          "大きなディスプレイ見出しにはtightなネガティブレタースペーシングを使用",
+          "密度の高い本文テキストには十分な行高（1.4-1.6）を維持",
+          "コードスニペットやコマンドには等幅フォントを厳密に使用"
+        ],
+        "scaleUses": [
+          "プライマリヒーロー見出し",
+          "セクションヘッダー",
+          "プライマリ本文テキスト",
+          "セカンダリ説明文およびメタデータ",
+          "カテゴリラベルおよびスモールキャップナビゲーション"
+        ]
+      },
+      "spacing": {
+        "rhythm": "大きなコンテナレイアウトには十分なpaddingを備えた、一貫した4pxグリッドシステム。"
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 8px 30px rgba(0, 0, 0, 0.4)",
+          "0px 1px 3px rgba(0, 0, 0, 0.1)"
+        ],
+        "borders": "最小限に抑え、薄い1pxの線やインセットのbox-shadowでエッジを定義。"
+      },
+      "layout": {
+        "skeleton": "全幅のダークヒーローセクションに、構造化されたコンテンツグリッドが続く。"
+      },
+      "components": {
+        "button": "プライマリアクションにはハイコントラストのソリッドホワイトボタン、セカンダリアクションにはボーダーのみの微妙なボタン、およびピル型の角丸形状を使用。",
+        "card": "ダークテーマのカードに微妙なインセットボーダーを採用し、しばしばインタラクティブなコードやデータビジュアライゼーションを含む。",
+        "chip": "エージェントインターフェース内のステータスインジケーター（Active, Failed, Archived）用の小さな角丸タグ。",
+        "input": "ダークな入力フィールドに微妙なボーダーを付け、しばしばインラインのコードやコマンドアクションを伴う。",
+        "hero": "大きな、左揃えのタイポグラフィックヒーローセクションで、その下に目立つコードブロックやターミナルのスクリーンショットを配置。"
+      },
+      "motion": {
+        "patterns": [
+          "UI状態変化のためのスムーズなフェードイン",
+          "インタラクティブ要素のhover時の微妙なスケールとトランスフォーム",
+          "リストやデータ行の順序付きフェードイン"
+        ]
+      },
+      "interaction": {
+        "hover": "ボタンやナビゲーションリンクのための、微妙な背景シフトやカラートランジション。",
+        "click": "最小限のアニメーション遅延で、即座に状態を変化。",
+        "transition": "色、背景、トランスフォームプロパティの標準的な150ms-200msのトランジション。",
+        "keyboard": "特にインプットフィールドやボタンの、インタラクティブ要素上の視覚的なfocusリング。"
+      },
+      "voice": {
+        "tone": "技術的で、権威があり、開発者に焦点を当てたトーン。",
+        "headlineStyle": "直接的で、利益を志向した声明（例：「より良いソフトウェアをリリースする」）。",
+        "ctaStyle": "行動志向（例：「ダウンロード」「営業に連絡」「リンクを送信」）。",
+        "avoid": [
+          "マーケティング用語",
+          "過度にカジュアルな言葉",
+          "技術的な文脈のない曖昧な約束"
+        ]
+      },
+      "donts": [
+        "明るく彩度の高い背景色を使用しない — スクリーンショットは深い、彩度の低いグレーとブラックを示している。",
+        "本文テキストに装飾的なセリフフォントを使用しない — スクリーンショットは可読性のためにクリーンなヒューマニストサンスを使用している。",
+        "重く、ソリッドなブロックボーダーを使用しない — スクリーンショットは浮き出し効果のために微妙な1pxの線やインセットシャドウを使用している。",
+        "プライマリ見出しに広い、マルチカラムレイアウトを使用しない — スクリーンショットはtightで、左揃えのタイポグラフィブロックを示している。",
+        "柔らかく、パステルのアクセントカラーを使用しない — スクリーンショットは強調のために高彩度の紫と鋭いホワイトを使用している。",
+        "角丸で、泡のようなUI要素を使用しない — スクリーンショットはシャープな角または非常に微妙なボーダー半径を示している。"
+      ],
+      "systemPrompt": "このサイトは、プレミアムでダークテーマの美学を持つ開発者ツールプラットフォームです。デザインのDNAは、深いブラック（#121212）とダークグレー（#1E1E1E）のパレットに、高彩度の紫アクセント（#C7AEFF）を配して構築されています。タイポグラフィは、本文テキストにクリーンなヒューマニストサンス、技術的なコマンドには等幅フォントに依存しています。レイアウトは、インパクトを生み出すためにtightなレタースペーシングを備えた、大きな左揃えの見出しを使用します。重要な禁止事項：明るい背景色の使用は避け、装飾的なセリフの代わりにヒューマニストサンスを使用し、重いボーダーの代わりにシャドウによる微妙な浮き出しを維持します。"
+    },
+    "ko": {
+      "identity": {
+        "keywords": [
+          "터미널",
+          "에이전트",
+          "개발자",
+          "생산성",
+          "인프라"
+        ],
+        "analogy": "전통적인 터미널과 협업 개발 환경의 간격을 메우는 현대적이고 AI 네이티브한 명령줄 인터페이스입니다.",
+        "oneLiner": "고속 소프트웨어 팀을 위해 설계된, 개발자 중심의 터미널 및 에이전트 플랫폼입니다."
+      },
+      "colors": {
+        "principle": "높은 대비의 다크 모드와 시그니처 퍼플 강조색을 사용하여 활성 상태와 주요 데이터를 돋보이게 합니다."
+      },
+      "typography": {
+        "rules": [
+          "대형 디스플레이 헤드라인에는 타이트한 네거티브 letterSpacing를 사용합니다",
+          "빈번한 본문 텍스트에는 넉넉한 lineHeight (1.4-1.6)를 유지합니다",
+          "코드 조각과 명령어에는 모노스페이스 폰트를 엄격하게 사용합니다"
+        ],
+        "scaleUses": [
+          "주요 히어로 헤드라인",
+          "섹션 헤더",
+          "주요 본문 텍스트",
+          "보조 설명 및 메타데이터",
+          "카테고리 레이블 및 소형 대문자 내비게이션"
+        ]
+      },
+      "spacing": {
+        "rhythm": "일관된 4px 그리드 시스템과 넉넉한 padding을 사용한 대형 컨테이너 레이아웃입니다."
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 8px 30px rgba(0, 0, 0, 0.4)",
+          "0px 1px 3px rgba(0, 0, 0, 0.1)"
+        ],
+        "borders": "최소화하여 얇은 1px 라인 또는 삽입된 box shadow를 사용하여 경계를 정의합니다."
+      },
+      "layout": {
+        "skeleton": "전체 폭의 다크 히어로 섹션 뒤에 구조화된 콘텐츠 그리드가 이어집니다."
+      },
+      "components": {
+        "button": "주요 작업을 위한 고대비 솔리드 화이트 버튼, 보조 작업을 위한 미묘한 테두리만 있는 버튼, 그리고 둥근 알약 형태를 사용합니다.",
+        "card": "미묘한 삽입 테두리를 가진 다크 테마 카드로, 종종 인터랙티브한 코드 또는 데이터 시각화를 특징으로 합니다.",
+        "chip": "에이전트 인터페이스 내 상태 표시기 (Active, Failed, Archived)를 위한 작고 둥근 태그입니다.",
+        "input": "미묘한 테두리를 가진 다크 입력 필드로, 종종 인라인 코드 또는 명령 작업과 함께 제공됩니다.",
+        "hero": "하단에 눈에 띄는 코드 블록 또는 터미널 스크린샷이 있는, 크고 왼쪽 정렬된 타이포그래피 히어로 섹션입니다."
+      },
+      "motion": {
+        "patterns": [
+          "UI 상태 변경을 위한 부드러운 페이드인",
+          "인터랙티브 요소의 hover 시 미묘한 scale 및 transform",
+          "목록 및 데이터 행의 순차적 페이드인"
+        ]
+      },
+      "interaction": {
+        "hover": "버튼과 내비게이션 링크를 위한 미묘한 배경 이동 또는 색상 전환입니다.",
+        "click": "최소한의 애니메이션 지연으로 즉각적인 상태 변경을 합니다.",
+        "transition": "색상, 배경 및 transform 속성을 위한 표준화된 150ms-200ms 전환입니다.",
+        "keyboard": "특히 입력 필드와 버튼과 같은 인터랙티브 요소의 눈에 띄는 focus ring입니다."
+      },
+      "voice": {
+        "tone": "기술적이고 권위적이며, 개발자에 초점을 맞춥니다.",
+        "headlineStyle": "직접적이고, 이점 중심적인 문구 (예: '더 나은 소프트웨어를 배포하세요').",
+        "ctaStyle": "행동 지향적 (예: '다운로드', '영업팀 문의', '링크 보내기').",
+        "avoid": [
+          "마케팅 용어",
+          "지나치게 캐주얼한 언어",
+          "기술적 맥락 없이 모호한 약속"
+        ]
+      },
+      "donts": [
+        "화려하고 채도 높은 배경 색상을 사용하지 마세요 — 스크린샷은 딥하고 채도 낮은 회색과 검은색을 보여줍니다.",
+        "본문 텍스트용 장식용 세리프 폰트를 사용하지 마세요 — 스크린샷은 가독성을 위해 깔끔한 휴머니스트 산세리프를 보여줍니다.",
+        "무겁고 솔리드한 블록 테두리를 사용하지 마세요 — 스크린샷은 높이감을 위해 미묘한 1px 라인 또는 삽입 그림자를 보여줍니다.",
+        "주요 헤드라인용 넓고 다중 컬럼 레이아웃을 사용하지 마세요 — 스크린샷은 타이트하고 왼쪽 정렬된 타이포그래피 블록을 보여줍니다.",
+        "부드럽고 파스텔 강조 색상을 사용하지 마세요 — 스크린샷은 강조를 위해 고채도 퍼플과 선명한 화이트를 보여줍니다.",
+        "둥글고 통통한 UI 요소를 사용하지 마세요 — 스크린샷은 날카로운 모서리 또는 매우 미묘한 borderRadius를 보여줍니다."
+      ],
+      "systemPrompt": "이 사이트는 프리미엄 다크 테마 미학을 가진 개발자 도구 플랫폼입니다. 디자인 DNA는 딥 블랙 (#121212)과 다크 그레이 (#1E1E1E) 팔레트를 기반으로 하며, 고채도 퍼플 강조색 (#C7AEFF)으로 마무리됩니다. 타이포그래피는 본문용 깔끔한 휴머니스트 산세리프와 기술 명령어용 모노스페이스 폰트에 의존합니다. 레이아웃은 임팩트를 위해 타이트한 letterSpacing와 함께 크고 왼쪽 정렬된 헤드라인을 사용합니다. 핵심 금지 사항: 화려한 배경 색상을 피하고, 장식용 세리프 대신 휴머니스트 산세리프를 사용하며, 무거운 테두리 대신 그림자를 통해 미묘한 높이감을 유지합니다."
     }
   }
 }

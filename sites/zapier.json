@@ -17,44 +17,81 @@
   "_meta": {
     "vision_model": "mimo-v2.5",
     "vision_prompt_version": "0.3",
-    "vision_at": "2026-05-28T21:04:47+00:00",
-    "vision_tokens": 3252,
-    "vision_cost_usd": 0.0361,
+    "vision_at": "2026-05-30T18:16:45+00:00",
+    "vision_tokens": 18349,
+    "vision_cost_usd": 0.2039,
     "translation_model": "mimo-v2.5",
-    "translation_at": "2026-05-28T21:05:42+00:00",
-    "translation_tokens": 15074,
-    "translation_cost_usd": 0.0503,
+    "translation_at": "2026-05-30T18:17:37+00:00",
+    "translation_tokens": 25414,
+    "translation_cost_usd": 0.0848,
     "narrative_model": "mimo-v2.5",
     "narrative_prompt_version": "0.3",
     "narrative_at": "2026-05-28T21:05:48+00:00",
     "narrative_tokens": 1857,
     "narrative_cost_usd": 0.0124,
     "narrative_status": "ok",
-    "total_cost_usd": 0.0988
+    "total_cost_usd": 0.3011,
+    "vision_source": "playwright-extract:zapier",
+    "vision_grounded": true
   },
   "spec": {
     "colors": {
-      "bg": "#FFFFFF",
-      "bgSoft": "#F8F7F4",
-      "bgQuiet": null,
-      "ink": "#1A1A1A",
-      "inkSoft": "#666666",
-      "muted": "#999999",
-      "mutedSoft": null,
-      "accent": "#E85D04",
-      "line": "rgba(0,0,0,0.1)"
+      "bg": "#FFFDFB",
+      "bgSoft": "#F8F4F0",
+      "bgQuiet": "#ECEAE3",
+      "ink": "#201515",
+      "inkSoft": "#36342E",
+      "muted": "#605D52",
+      "mutedSoft": "#C5C0B1",
+      "accent": "#FF4F00",
+      "line": "rgba(32,21,21,0.1)"
     },
     "typography": {
-      "display": "grotesque-sans",
-      "body": "grotesque-sans",
-      "mono": null,
+      "display": "geometric-sans",
+      "body": "humanist-sans",
+      "mono": "monospace",
       "scale": [
         {
           "token": "display",
-          "size": 52,
-          "lh": 1.1,
+          "size": 56,
+          "lh": 1.0,
           "weight": 600,
-          "ls": "-1.5px"
+          "ls": "-1px"
+        },
+        {
+          "token": "heading-lg",
+          "size": 48,
+          "lh": 1.0,
+          "weight": 500,
+          "ls": "-0.5px"
+        },
+        {
+          "token": "stat",
+          "size": 32,
+          "lh": 1.0,
+          "weight": 500,
+          "ls": "-0.32px"
+        },
+        {
+          "token": "body-lg",
+          "size": 20,
+          "lh": 1.2,
+          "weight": 400,
+          "ls": "-0.2px"
+        },
+        {
+          "token": "body",
+          "size": 16,
+          "lh": 1.5,
+          "weight": 400,
+          "ls": "normal"
+        },
+        {
+          "token": "caption",
+          "size": 14,
+          "lh": 1.1,
+          "weight": 500,
+          "ls": "0.48px"
         }
       ]
     },
@@ -80,7 +117,7 @@
       }
     },
     "layout": {
-      "container": 1200,
+      "container": 1280,
       "paragraph": 680,
       "columns": 12,
       "gutter": 24,
@@ -91,402 +128,20 @@
     },
     "motion": {
       "durations": {
-        "micro": 150,
-        "small": 300,
-        "medium": 500
+        "micro": 220,
+        "small": 400,
+        "medium": 800
       },
-      "easing": "cubic-bezier(0.4, 0, 0.2, 1)"
-    }
-  },
-  "spec_i18n": {
-    "en": {
-      "identity": {
-        "keywords": [
-          "automation",
-          "integration",
-          "governance",
-          "AI"
-        ],
-        "analogy": "An enterprise dashboard for AI automation control",
-        "oneLiner": "A clean, professional SaaS interface for managing AI automation with clear hierarchy and trust signals"
-      },
-      "colors": {
-        "principle": "High contrast with warm accent for CTAs, professional and trustworthy"
-      },
-      "typography": {
-        "rules": [
-          "Headlines use tight letter-spacing and semi-bold weight",
-          "Body text uses regular weight with comfortable line-height",
-          "Small labels use uppercase tracking for hierarchy"
-        ],
-        "scaleUses": [
-          "Main headline"
-        ]
-      },
-      "spacing": {
-        "rhythm": "Consistent vertical rhythm with generous whitespace"
-      },
-      "surfaces": {
-        "shadows": [
-          "0 1px 3px rgba(0,0,0,0.08)"
-        ],
-        "borders": "1px solid rgba(0,0,0,0.1)"
-      },
-      "layout": {
-        "skeleton": "Centered single-column layout with full-width hero and constrained content"
-      },
-      "components": {
-        "button": "Solid primary button with pill shape, secondary button with outline",
-        "card": "Light background card with subtle border for feature sections",
-        "chip": "Small tab-like chips with selected state",
-        "input": null,
-        "hero": "Centered headline with subtext and dual CTAs, trust metrics below"
-      },
-      "motion": {
-        "patterns": [
-          "Subtle hover transitions on interactive elements",
-          "Smooth page transitions"
-        ]
-      },
-      "interaction": {
-        "hover": "Color shift on buttons, subtle underline on links",
-        "click": "Immediate response with subtle scale feedback",
-        "transition": "Smooth color and opacity transitions",
-        "keyboard": "Standard focus outlines for accessibility"
-      },
-      "voice": {
-        "tone": "Professional yet approachable, confident without being aggressive",
-        "headlineStyle": "Short, declarative statements with period endings",
-        "ctaStyle": "Action-oriented with clear value proposition",
-        "avoid": [
-          "Overly technical jargon",
-          "Aggressive sales language",
-          "Excessive exclamation marks",
-          "Unclear value propositions"
-        ]
-      },
-      "donts": [
-        "Don't use multiple accent colors — screenshot shows single orange accent",
-        "Don't add heavy shadows — screenshot shows minimal shadow usage",
-        "Don't use decorative fonts — screenshot shows clean sans-serif throughout",
-        "Don't create cluttered layouts — screenshot maintains generous whitespace",
-        "Don't use bright gradients — screenshot uses flat solid colors",
-        "Don't hide navigation — screenshot shows clear persistent header"
-      ],
-      "systemPrompt": "Zapier's design is a clean, professional SaaS interface for AI automation governance. The palette centers on white (#FFFFFF) and warm off-white (#F8F7F4) backgrounds with black (#1A1A1A) text and a single orange accent (#E85D04) for primary CTAs. Typography uses clean grotesque-sans for both display and body, with tight letter-spacing on headlines. Critical don'ts: avoid multiple accent colors (single orange only), no heavy shadows (minimal elevation), no decorative fonts (strictly professional sans-serif). The layout is centered single-column with generous whitespace, clear hierarchy through size and color, and trust signals via metrics and company logos. The voice is professional yet approachable, with short declarative headlines ending in periods."
-    },
-    "zh-CN": {
-      "identity": {
-        "keywords": [
-          "自动化",
-          "集成",
-          "治理",
-          "AI"
-        ],
-        "analogy": "一个AI自动化控制的企业仪表盘",
-        "oneLiner": "一个简洁、专业的SaaS界面，用于管理AI自动化，具备清晰的层次结构和信任信号"
-      },
-      "colors": {
-        "principle": "高对比度搭配用于行动号召按钮的暖色调强调色，专业且值得信赖"
-      },
-      "typography": {
-        "rules": [
-          "标题使用紧凑的字母间距和半粗体字重",
-          "正文使用常规字重，行高舒适",
-          "小标签使用大写字母间距以区分层次"
-        ],
-        "scaleUses": [
-          "主标题"
-        ]
-      },
-      "spacing": {
-        "rhythm": "一致的垂直韵律与充足的留白"
-      },
-      "surfaces": {
-        "shadows": [
-          "0 1px 3px rgba(0,0,0,0.08)"
-        ],
-        "borders": "1px solid rgba(0,0,0,0.1)"
-      },
-      "layout": {
-        "skeleton": "居中单栏布局，包含全宽主视觉区与约束宽度的内容区"
-      },
-      "components": {
-        "button": "实心胶囊形主按钮，次按钮为描边样式",
-        "card": "用于功能区块的浅色背景卡片，带有细微边框",
-        "chip": "小型标签式芯片，具备选中状态",
-        "input": null,
-        "hero": "居中标题配副文本与双重行动号召按钮，下方展示信任指标"
-      },
-      "motion": {
-        "patterns": [
-          "交互元素上的微妙悬停过渡",
-          "平滑的页面切换过渡"
-        ]
-      },
-      "interaction": {
-        "hover": "按钮颜色变化，链接出现微妙下划线",
-        "click": "立即响应，带有细微的缩放反馈",
-        "transition": "平滑的颜色与不透明度过渡",
-        "keyboard": "标准的焦点轮廓以确保可访问性"
-      },
-      "voice": {
-        "tone": "专业而不失亲和力，自信但不具侵略性",
-        "headlineStyle": "简短的陈述性语句，以句号结尾",
-        "ctaStyle": "行动导向，清晰传达价值主张",
-        "avoid": [
-          "过于专业的技术术语",
-          "侵略性的销售语言",
-          "过多的感叹号",
-          "不明确的价值主张"
-        ]
-      },
-      "donts": [
-        "不要使用多种强调色——截图显示仅使用单一橙色强调色",
-        "不要添加厚重阴影——截图显示极简的阴影使用",
-        "不要使用装饰性字体——截图显示通篇使用简洁的无衬线字体",
-        "不要创建杂乱的布局——截图保持充足的留白",
-        "不要使用明亮的渐变——截图使用扁平的纯色",
-        "不要隐藏导航——截图显示清晰持久的页头导航"
-      ],
-      "systemPrompt": "Zapier的设计是一个简洁、专业的AI自动化治理SaaS界面。配色以白色（#FFFFFF）和暖米白色（#F8F7F4）背景为中心，搭配黑色（#1A1A1A）文本和用于主要行动号召按钮的单一橙色强调色（#E85D04）。字体在标题和正文中均使用简洁的无衬线字体，标题字母间距紧凑。关键注意事项：避免使用多种强调色（仅限单一橙色），避免厚重阴影（保持极小的立体感），避免使用装饰性字体（严格使用专业无衬线字体）。布局为居中单栏，留白充足，通过大小和颜色建立清晰的层次结构，并通过指标和公司标志展示信任信号。语气专业而不失亲和力，标题简短、陈述性强，并以句号结尾。"
-    },
-    "zh-TW": {
-      "identity": {
-        "keywords": [
-          "自動化",
-          "整合",
-          "治理",
-          "AI"
-        ],
-        "analogy": "一個用於 AI 自動化控制的企業級儀表板",
-        "oneLiner": "一個簡潔、專業的 SaaS 介面，用於管理 AI 自動化，具備清晰層級與信任指標"
-      },
-      "colors": {
-        "principle": "高對比度搭配溫暖的行動呼籲強調色，專業且值得信賴"
-      },
-      "typography": {
-        "rules": [
-          "標題採用緊湊字距與半粗體字重",
-          "內文使用常規字重，行高舒適",
-          "小型標籤使用大寫與字距調整以建立層級"
-        ],
-        "scaleUses": [
-          "主標題"
-        ]
-      },
-      "spacing": {
-        "rhythm": "一致的垂直節奏，搭配充足留白"
-      },
-      "surfaces": {
-        "shadows": [
-          "0 1px 3px rgba(0,0,0,0.08)"
-        ],
-        "borders": "1px solid rgba(0,0,0,0.1)"
-      },
-      "layout": {
-        "skeleton": "置中單欄佈局，主視覺橫跨全寬，內文區域則有寬度限制"
-      },
-      "components": {
-        "button": "實心圓角主按鈕，次要按鈕採用外框樣式",
-        "card": "淺色背景卡片，帶有細微邊框，用於功能區塊",
-        "chip": "小型標籤式元件，具備選中狀態",
-        "input": null,
-        "hero": "置中標題搭配副標題與雙重行動呼籲，下方呈現信任指標"
-      },
-      "motion": {
-        "patterns": [
-          "互動元素具備細微的懸停過渡效果",
-          "流暢的頁面過渡"
-        ]
-      },
-      "interaction": {
-        "hover": "按鈕色彩變化，連結添加細微底線",
-        "click": "立即回應，帶有細微縮放回饋",
-        "transition": "流暢的色彩與透明度過渡",
-        "keyboard": "標準焦點外框，符合無障礙規範"
-      },
-      "voice": {
-        "tone": "專業且平易近人，自信而不具侵略性",
-        "headlineStyle": "簡短陳述句，句尾使用句號",
-        "ctaStyle": "以行動為導向，並附帶明確價值主張",
-        "avoid": [
-          "過於技術性的術語",
-          "侵略性的銷售語言",
-          "過多驚嘆號",
-          "不明確的價值主張"
-        ]
-      },
-      "donts": [
-        "勿使用多色強調——截圖顯示僅使用單一橙色強調",
-        "勿使用厚重陰影——截圖顯示僅使用最少量陰影",
-        "勿使用裝飾性字體——截圖顯示全面採用簡潔的無襯線字體",
-        "勿建立雜亂的佈局——截圖維持充足留白",
-        "勿使用明亮漸層——截圖採用平面實色",
-        "勿隱藏導覽列——截圖顯示清晰且持續存在的頂部導覽"
-      ],
-      "systemPrompt": "Zapier 的設計是一個簡潔、專業的 SaaS 介面，用於 AI 自動化治理。色調以白色（#FFFFFF）與溫暖的米白色（#F8F7F4）背景為核心，搭配黑色（#1A1A1A）文字與單一橙色強調（#E85D04）用於主要行動呼籲。字體採用簡潔的 grotesque-sans 用於標題與內文，標題字距緊湊。重要禁忌：避免使用多色強調（僅限單一橙色），避免厚重陰影（維持最低程度的陰影），避免裝飾性字體（嚴格採用專業無襯線體）。佈局為置中單欄，留有充足留白，透過大小與色彩建立清晰層級，並透過指標與企業標誌傳達信任感。語調專業且平易近人，標題採用簡短陳述句並以句號結尾。"
-    },
-    "ja": {
-      "identity": {
-        "keywords": [
-          "オートメーション",
-          "インテグレーション",
-          "ガバナンス",
-          "AI"
-        ],
-        "analogy": "AIオートメーション制御のためのエンタープライズダッシュボード",
-        "oneLiner": "明確な階層と信頼シグナルを持つ、AIオートメーション管理のためのクリーンでプロフェッショナルなSaaSインターフェース"
-      },
-      "colors": {
-        "principle": "CTA用のウォームなアクセントを備えた高コントラスト、プロフェッショナルで信頼に足る印象"
-      },
-      "typography": {
-        "rules": [
-          "見出しは狭めの字間とセミボールドウェイトを使用",
-          "本文テキストはレギュラーウェイトで快適な行間",
-          "小さなラベルは階層を明確にするため的大文字とトラッキング"
-        ],
-        "scaleUses": [
-          "メイン見出し"
-        ]
-      },
-      "spacing": {
-        "rhythm": "広い余白を伴う一貫した垂直リズム"
-      },
-      "surfaces": {
-        "shadows": [
-          "0 1px 3px rgba(0,0,0,0.08)"
-        ],
-        "borders": "1px solid rgba(0,0,0,0.1)"
-      },
-      "layout": {
-        "skeleton": "フルワイドヒーローと制限されたコンテンツを持つ、中央揃えの単一カラムレイアウト"
-      },
-      "components": {
-        "button": "ピル形状のソリッドなプライマリボタン、アウラインスタイルのセカンダリボタン",
-        "card": "フェーチャーセクション用の微細なボーダーを持つ明るい背景カード",
-        "chip": "選択状態を持つ小さなタブライクなチップ",
-        "input": null,
-        "hero": "サブテキストとデュアルCTAを持つ中央揃えの見出し、その下にトラストメトリクス"
-      },
-      "motion": {
-        "patterns": [
-          "インタラクティブ要素への微細なhoverトランジション",
-          "スムーズなページトランジション"
-        ]
-      },
-      "interaction": {
-        "hover": "ボタンのカラーシフト、リンクの微細なアンダーライン",
-        "click": "微細なスケールフィードバックによる即時応答",
-        "transition": "カラーやオパシティのスムーズなトランジション",
-        "keyboard": "アクセシビリティのための標準的なフォーカスアウトライン"
-      },
-      "voice": {
-        "tone": "プロフェッショナルでありながら親しみやすく、攻撃的にならない自信のある印象",
-        "headlineStyle": "ピリオドで終わる短く断定的なステートメント",
-        "ctaStyle": "明確な価値提案を伴うアクション指向",
-        "avoid": [
-          "過度な専門用語",
-          "攻撃的なセールスコピー",
-          "過度の感嘆符",
-          "不明確な価値提案"
-        ]
-      },
-      "donts": [
-        "複数のアクセントカラーを使用しない — スクリーンショットでは単一のオレンジアクセントのみ",
-        "重い影を追加しない — スクリーンショットでは最小限の影使用",
-        "装飾的なフォントを使用しない — スクリーンショットでは全体を通してクリーンなsans-serif",
-        "雑然としたレイアウトを作成しない — スクリーンショットでは広い余白を維持",
-        "明るいグラデーションを使用しない — スクリーンショットではフラットなソリッドカラー",
-        "ナビゲーションを隠さない — スクリーンショットでは明確な永続的ヘッダーを表示"
-      ],
-      "systemPrompt": "Zapierのデザインは、AIオートメーションガバナンスのためのクリーンでプロフェッショナルなSaaSインターフェースです。パレットは白（#FFFFFF）とウォームなオフホワイト（#F8F7F4）の背景、黒（#1A1A1A）のテキスト、プライマリCTA用の単一のオレンジアクセント（#E85D04）を中心に構成されています。タイポグラフィはディスプレイと本文の両方でクリーンな grotesque-sans を使用し、見出しには狭めの字間。重要な禁止事項：複数のアクセントカラー（単一のオレンジのみ）、重い影（最小限のlevation）、装飾的なフォント（厳格なプロフェッショナルなsans-serif）は避けること。レイアウトは中央揃えの単一カラムで広い余白、サイズとカラーによる明確な階層、メトリクスと企業ロゴによる信頼シグナルを備えています。声はプロフェッショナルでありながら親しみやすく、ピリオドで終わる短い断定的な見出しが特徴です。"
-    },
-    "ko": {
-      "identity": {
-        "keywords": [
-          "자동화",
-          "통합",
-          "거버넌스",
-          "AI"
-        ],
-        "analogy": "AI 자동화 제어를 위한 기업용 대시보드",
-        "oneLiner": "명확한 계층과 신뢰 신호를 갖춘 AI 자동화 관리를 위한 깔끔하고 전문적인 SaaS 인터페이스"
-      },
-      "colors": {
-        "principle": "CTA를 위한 따뜻한 강조색을 사용한 고대비, 전문적이고 신뢰할 수 있는"
-      },
-      "typography": {
-        "rules": [
-          "헤드라인은 좁은 자간과 세미볼드 두께 사용",
-          "본문 텍스트는 편안한 행간을 가진 일반 두께 사용",
-          "작은 레이블은 계층 구조를 위해 대문자 트래킹 사용"
-        ],
-        "scaleUses": [
-          "메인 헤드라인"
-        ]
-      },
-      "spacing": {
-        "rhythm": "넉넉한 여백을 가진 일관된 수직 리듬"
-      },
-      "surfaces": {
-        "shadows": [
-          "0 1px 3px rgba(0,0,0,0.08)"
-        ],
-        "borders": "1px solid rgba(0,0,0,0.1)"
-      },
-      "layout": {
-        "skeleton": "전체 너비 히어로와 제한된 콘텐츠를 가진 중앙 정렬 단일 열 레이아웃"
-      },
-      "components": {
-        "button": "-pill 형태의 단색 기본 버튼, 외곽선이 있는 보조 버튼",
-        "card": "기능 섹션을 위한 미세한 테두리가 있는 밝은 배경 카드",
-        "chip": "선택된 상태를 가진 작은 탭 형태의 칩",
-        "input": null,
-        "hero": "부제목과 이중 CTA가 있는 중앙 정렬 헤드라인, 아래쪽에 신뢰 지표"
-      },
-      "motion": {
-        "patterns": [
-          "인터랙티브 요소의 섬세한 hover 전환",
-          "부드러운 페이지 전환"
-        ]
-      },
-      "interaction": {
-        "hover": "버튼의 색상 변화, 링크의 미세한 밑줄",
-        "click": "미세한 스케일 피드백이 있는 즉각적인 반응",
-        "transition": "부드러운 색상 및 불투명도 전환",
-        "keyboard": "접근성을 위한 표준 포커스 윤곽선"
-      },
-      "voice": {
-        "tone": "전문적이면서도 친근한, 공격적이지 않은 자신감 있는",
-        "headlineStyle": "마침표로 끝나는 짧고 선언적인 문장",
-        "ctaStyle": "명확한 가치 제안을 가진 행동 지향적인",
-        "avoid": [
-          "지나치게 전문적인 용어",
-          "공격적인 영업 언어",
-          "과도한 느낌표",
-          "불분명한 가치 제안"
-        ]
-      },
-      "donts": [
-        "여러 강조색을 사용하지 마세요 — 스크린샷은 단일 주황색 강조색을 보여줍니다",
-        "무거운 그림자를 추가하지 마세요 — 스크린샷은 최소한의 그림자 사용을 보여줍니다",
-        "장식용 글꼴을 사용하지 마세요 — 스크린샷은 전체적으로 깔끔한 sans-serif를 보여줍니다",
-        "지저분한 레이아웃을 만들지 마세요 — 스크린샷은 넉넉한 여백을 유지합니다",
-        "밝은 그래디언트를 사용하지 마세요 — 스크린샷은 플랫 단색을 사용합니다",
-        "내비게이션을 숨기지 마세요 — 스크린샷은 명확한 지속적 헤더를 보여줍니다"
-      ],
-      "systemPrompt": "Zapier의 디자인은 AI 자동화 거버넌스를 위한 깔끔하고 전문적인 SaaS 인터페이스입니다. 팔레트는 흰색(#FFFFFF)과 따뜻한 밝은 회색(#F8F7F4) 배경을 중심으로 하며, 검정색(#1A1A1A) 텍스트와 기본 CTA를 위한 단일 주황색 강조색(#E85D04)을 사용합니다. 타이포그래피는 표시 및 본문 모두에 깔끔한 grotesque-sans를 사용하며, 헤드라인에 좁은 자간을 적용합니다. 핵심 금지 사항: 여러 강조색 사용 금지(단일 주황색만 사용), 무거운 그림자 사용 금지(최소한의 엘리베이션), 장식용 글꼴 사용 금지(엄격히 전문적인 sans-serif 사용). 레이아웃은 넉넉한 여백을 가진 중앙 정렬 단일 열이며, 크기와 색상을 통한 명확한 계층과 지표 및 기업 로고를 통한 신뢰 신호를 갖추고 있습니다. 톤은 전문적이면서도 친근하며, 마침표로 끝나는 짧고 선언적인 헤드라인을 사용합니다."
+      "easing": "cubic-bezier(0.22, 1, 0.36, 1)"
     }
   },
   "desc": {
     "en": {
-      "palette": "Minimal professional palette with white, off-white, black, and single orange accent for CTAs.",
-      "layout": "Centered single-column layout with clear visual hierarchy and generous whitespace between sections.",
-      "interaction": "Subtle hover effects on interactive elements with clear primary and secondary button states.",
-      "motion": "Minimal but smooth transitions for micro-interactions and page elements.",
-      "notes": "Excellent example of professional SaaS design with clear trust signals and conversion-focused layout."
+      "palette": "A warm, paper-like neutral palette grounded in deep inks and driven by a single, energetic orange accent.",
+      "layout": "A spacious, centered single-column hero layout that transitions into a structured, grid-based content area with generous whitespace.",
+      "interaction": "Clean and standard SaaS interactions with subtle border and color transitions, utilizing pill-shaped buttons and rounded input fields.",
+      "motion": "Smooth, accelerating entrance animations and subtle opacity fades that add polish without distracting from the content.",
+      "notes": "A masterclass in clean, enterprise SaaS design that balances approachable warmth with authoritative professionalism through strong typography and intentional whitespace."
     },
     "zh-CN": {
       "palette": "极简专业配色，以白色、米白色、黑色为主，搭配单一橙色作为行动号召按钮的强调色。",
@@ -577,6 +232,418 @@
       "ch7_intro": "모션은 의도적인 절제로 적용되어, 장식이 아닌 피드백 제공과 초점 안내를 위해 사용됩니다. hover 상태와 같은 인터actions과 전환은 부드럽고 즉각적이며, 시스템의 반응성과 제어력을 강화합니다.",
       "ch8_intro": "에디토리얼 톤은 전문적이면서도 친근하여, 명확한 가치 제안을 짧고 단언적인 문장으로 전달합니다. 전문 용어와 공격적인 판매 언어를 피하고, 대신 명확성에 기반한 자신감을 선택합니다.",
       "ch8_outro": "시스템은 깨끗하고 신뢰할 수 있는 전문성이라는 핵심 약속을 유지하기 위해, 장식적 글꼴, 무거운 그림자, 복잡한 레이아웃을 의도적으로 피합니다."
+    }
+  },
+  "spec_i18n": {
+    "en": {
+      "identity": {
+        "keywords": [
+          "automation",
+          "AI governance",
+          "integration",
+          "enterprise",
+          "workflow"
+        ],
+        "analogy": "A neutral command center for connecting AI to business tools",
+        "oneLiner": "An enterprise-grade SaaS platform that unifies AI governance and workflow automation"
+      },
+      "colors": {
+        "principle": "Warm, paper-like neutrals paired with a high-chroma, energetic orange"
+      },
+      "typography": {
+        "rules": [
+          "Use geometric-sans for impactful headlines with tight letter-spacing",
+          "Use humanist-sans for readable body text at standard sizes",
+          "Uppercase transform with letter-spacing for small metadata labels"
+        ],
+        "scaleUses": [
+          "Main hero headline",
+          "Section headlines",
+          "Large metric numbers",
+          "Hero subheadline",
+          "General body text and labels",
+          "Small uppercase labels and metadata"
+        ]
+      },
+      "spacing": {
+        "rhythm": "Generous whitespace defines the layout, with a base 4px unit scaling up to large structural blocks"
+      },
+      "surfaces": {
+        "shadows": [
+          "0 1px 3px rgba(0,0,0,0.08)",
+          "0 4px 12px rgba(0,0,0,0.05)"
+        ],
+        "borders": "Subtle 1px solid borders using muted neutral tones"
+      },
+      "layout": {
+        "skeleton": "Centered single-column hero layout transitioning to grid-based feature sections"
+      },
+      "components": {
+        "button": "Pill-shaped solid filled with the accent color, or outlined with a neutral border and text",
+        "card": "Subtly rounded corners with light borders, used for templates and feature previews",
+        "chip": "Used for tab-like navigation with rounded corners and alternating fill states",
+        "input": "Rounded rectangular fields with subtle borders and clear labels",
+        "hero": "Large, centered typography stack with prominent dual CTAs"
+      },
+      "motion": {
+        "patterns": [
+          "Smooth opacity fades on state changes",
+          "Accelerating entrance animations for content blocks"
+        ]
+      },
+      "interaction": {
+        "hover": "Cursor changes to pointer; button and link colors subtly shift or brighten",
+        "click": "Instant visual feedback with minimal micro-interaction delay",
+        "transition": "0.25s ease-in-out for border-color changes, 0.2s for text color",
+        "keyboard": "Standard sequential focus navigation with clear, subtle focus indicators"
+      },
+      "voice": {
+        "tone": "Empowering, authoritative, and highly professional",
+        "headlineStyle": "Concise, high-impact statements emphasizing user control",
+        "ctaStyle": "Direct and action-oriented (e.g., 'Start free with email')",
+        "avoid": [
+          "Hype-driven buzzwords without substance",
+          "Passive or overly formal language",
+          "Ambiguous or confusing technical jargon"
+        ]
+      },
+      "donts": [
+        "Don't use vibrant gradients — the screenshot shows a clean, mostly flat layout with warm neutrals",
+        "Don't use heavy drop shadows — the screenshot shows subtle, soft elevation or flat borders",
+        "Don't use wide letter-spacing on headlines — the screenshot shows tightly tracked display text",
+        "Don't center-align body paragraphs — the screenshot shows left-aligned readable copy",
+        "Don't use cold blue accents — the screenshot shows a warm, energetic orange as the primary action color",
+        "Don't use highly decorative typography — the screenshot shows legible, geometric and humanist sans-serifs"
+      ],
+      "systemPrompt": "Zapier is a professional SaaS platform focused on AI governance and workflow automation. The core palette uses warm, paper-like off-whites (#FFFDFB, #F8F4F0) and deep inks (#201515, #36342E) paired with a singular, high-chroma orange (#FF4F00) for primary actions. Typography relies on clean geometric-sans for display and humanist-sans for body text. The layout is spacious and centered, transitioning from large hero sections to organized content grids. Avoid using decorative fonts, heavy shadows, or cold color temperatures. Prioritize clear hierarchy, generous whitespace, and subtle borders to maintain the platform's clean, trustworthy, and enterprise-grade aesthetic."
+    },
+    "zh-CN": {
+      "identity": {
+        "keywords": [
+          "自动化",
+          "AI 治理",
+          "集成",
+          "企业级",
+          "工作流"
+        ],
+        "analogy": "一个连接 AI 与商业工具的中立指挥中心",
+        "oneLiner": "一个统一 AI 治理与工作流自动化的企业级 SaaS 平台"
+      },
+      "colors": {
+        "principle": "温暖、纸质的中性色搭配高饱和度、充满活力的橙色"
+      },
+      "typography": {
+        "rules": [
+          "使用几何无衬线字体，以紧凑的字距呈现有力的标题",
+          "使用人文无衬线字体，以标准尺寸呈现可读性强的正文",
+          "对小型元数据标签应用大写转换并增加字距"
+        ],
+        "scaleUses": [
+          "主视觉标题",
+          "章节标题",
+          "大型数据指标",
+          "主视觉副标题",
+          "通用正文与标签",
+          "小型大写标签与元数据"
+        ]
+      },
+      "spacing": {
+        "rhythm": "宽敞的留白定义了布局，以 4px 为基本单位，向上扩展到大型结构区块"
+      },
+      "surfaces": {
+        "shadows": [
+          "0 1px 3px rgba(0,0,0,0.08)",
+          "0 4px 12px rgba(0,0,0,0.05)"
+        ],
+        "borders": "采用柔和中性色调的微妙 1px 实线边框"
+      },
+      "layout": {
+        "skeleton": "居中的单列主视觉布局，过渡到基于网格的功能区块"
+      },
+      "components": {
+        "button": "胶囊形实心填充（使用强调色），或带中性边框和文字的描边样式",
+        "card": "带微妙圆角和浅色边框，用于模板和功能预览",
+        "chip": "用于标签页式导航，带圆角和交替填充状态",
+        "input": "圆角矩形输入框，带微妙边框和清晰标签",
+        "hero": "大型、居中的字体组合，包含醒目的双重行动号召"
+      },
+      "motion": {
+        "patterns": [
+          "状态变化时平滑的透明度淡入淡出",
+          "内容区块加速的入场动画"
+        ]
+      },
+      "interaction": {
+        "hover": "光标变为指针；按钮和链接颜色微妙偏移或变亮",
+        "click": "即时的视觉反馈，微交互延迟极小",
+        "transition": "边框颜色变化 0.25s ease-in-out，文字颜色变化 0.2s",
+        "keyboard": "标准顺序焦点导航，带有清晰、微妙的焦点指示器"
+      },
+      "voice": {
+        "tone": "赋能的、权威的、高度专业的",
+        "headlineStyle": "简洁、有力的陈述，强调用户控制权",
+        "ctaStyle": "直接且面向行动（例如，'通过邮箱免费开始'）",
+        "avoid": [
+          "无实质内容的流行词汇",
+          "被动或过于正式的语言",
+          "模糊或令人困惑的技术术语"
+        ]
+      },
+      "donts": [
+        "不要使用鲜艳渐变——截图显示的是一个干净、主要为扁平化的布局，采用温暖中性色",
+        "不要使用厚重的投影——截图显示的是微妙、柔和的浮起效果或扁平边框",
+        "不要在标题上使用宽字距——截图显示的是紧凑排列的展示文本",
+        "不要将正文段落居中对齐——截图显示的是左对齐的可读性文案",
+        "不要使用冷色调蓝色强调色——截图显示的是温暖、充满活力的橙色作为主要操作色",
+        "不要使用高度装饰性的字体——截图显示的是清晰易读的几何和人文无衬线字体"
+      ],
+      "systemPrompt": "Zapier 是一个专注于 AI 治理和工作流自动化的专业 SaaS 平台。核心色板使用温暖、纸质的灰白色（#FFFDFB, #F8F4F0）和深墨色（#201515, #36342E），搭配单一的高饱和度橙色（#FF4F00）用于主要操作。字体方面，展示文本使用干净的几何无衬线字体，正文使用人文无衬线字体。布局宽敞且居中，从大型主视觉区域过渡到有序的内容网格。避免使用装饰性字体、厚重投影或冷色调。优先考虑清晰的层级关系、宽敞的留白和微妙的边框，以保持平台干净、可信赖且具备企业级美感。"
+    },
+    "zh-TW": {
+      "identity": {
+        "keywords": [
+          "自動化",
+          "AI 治理",
+          "整合",
+          "企業級",
+          "工作流程"
+        ],
+        "analogy": "一個中立的指揮中心，用於連接 AI 與商業工具",
+        "oneLiner": "一個統合 AI 治理與工作流程自動化的企業級 SaaS 平台"
+      },
+      "colors": {
+        "principle": "溫暖、如紙質般的中性色調，搭配高飽和度、充滿活力的橙色"
+      },
+      "typography": {
+        "rules": [
+          "使用幾何無襯線字體，打造具衝擊力的標題，並採用緊湊的字距調整",
+          "使用人文無襯線字體，呈現標準尺寸下易讀的內文",
+          "針對小型元資料標籤，使用大寫字母轉換並調整字距"
+        ],
+        "scaleUses": [
+          "主要英雄標題",
+          "區塊標題",
+          "大型數據指標",
+          "英雄副標題",
+          "一般內文與標籤",
+          "小型大寫標籤與元資料"
+        ]
+      },
+      "spacing": {
+        "rhythm": "寬裕的空白定義了整體佈局，以 4px 為基礎單位，向上延伸至大型結構區塊"
+      },
+      "surfaces": {
+        "shadows": [
+          "0 1px 3px rgba(0,0,0,0.08)",
+          "0 4px 12px rgba(0,0,0,0.05)"
+        ],
+        "borders": "使用柔和中性色調的 1px 實線邊框"
+      },
+      "layout": {
+        "skeleton": "以置中單欄英雄佈局為開端，過渡至基於網格的功能區塊"
+      },
+      "components": {
+        "button": "膠囊形狀，實心填充強調色，或使用中性邊框與文字描繪的輪廓按鈕",
+        "card": "帶有輕微圓角與淺色邊框，用於範本與功能預覽",
+        "chip": "用於類似分頁的導航，帶有圓角與交替填充狀態",
+        "input": "圓角矩形欄位，帶有輕微邊框與清晰標籤",
+        "hero": "大型、置中的文字堆疊，搭配醒目的雙重行動呼籲"
+      },
+      "motion": {
+        "patterns": [
+          "狀態切換時的平滑透明度淡入淡出",
+          "內容區塊的加速入場動畫"
+        ]
+      },
+      "interaction": {
+        "hover": "游標變為指標；按鈕與連結色彩發生細微變化或變亮",
+        "click": "即時的視覺反饋，微互動延遲極小",
+        "transition": "邊框顏色變化為 0.25s ease-in-out，文字顏色變化為 0.2s",
+        "keyboard": "標準的序列焦點導航，帶有清晰、微妙的焦點指示器"
+      },
+      "voice": {
+        "tone": "賦權的、權威的、高度專業的",
+        "headlineStyle": "簡潔、高衝擊力的陳述，強調用戶掌控權",
+        "ctaStyle": "直接且以行動為導向（例如：「免費開始，使用電子郵件」）",
+        "avoid": [
+          "缺乏實質內容的流行術語",
+          "被動或過於正式的語言",
+          "模糊或令人困惑的技術術語"
+        ]
+      },
+      "donts": [
+        "避免使用鮮豔的漸層——截圖顯示的是一個乾淨、主要為平面的佈局，帶有溫暖的中性色調",
+        "避免使用厚重的陰影——截圖顯示的是微妙、柔和的立體感或平面邊框",
+        "避免在標題上使用寬鬆的字距——截圖顯示的是緊密排列的展示文字",
+        "避免將內文段落置中對齊——截圖顯示的是左對齊、易讀的文案",
+        "避免使用冷調的藍色作為強調色——截圖顯示的是溫暖、充滿活力的橙色作為主要行動色彩",
+        "避免使用高度裝飾性的字體——截圖顯示的是易讀的幾何與人文無襯線字體"
+      ],
+      "systemPrompt": "Zapier 是一個專業的 SaaS 平台，專注於 AI 治理與工作流程自動化。核心色板使用溫暖、如紙質般的米白色（#FFFDFB、#F8F4F0）與深墨色（#201515、#36342E），並搭配單一、高飽和度的橙色（#FF4F00）作為主要行動色彩。字體方面，使用簡潔的幾何無襯線字體作為展示，人文無襯線字體作為內文。佈局寬敞且置中，從大型英雄區塊過渡到有組織的內容網格。避免使用裝飾性字體、厚重的陰影或冷色調。優先考量清晰的層級結構、寬裕的空白與微妙的邊框，以維持平台乾淨、可信且企業級的美學。"
+    },
+    "ja": {
+      "identity": {
+        "keywords": [
+          "自動化",
+          "AIガバナンス",
+          "統合",
+          "エンタープライズ",
+          "ワークフロー"
+        ],
+        "analogy": "AIをビジネスツールに接続するための中立的なコマンドセンター",
+        "oneLiner": "AIガバナンスとワークフロー自動化を統合するエンタープライズグレードのSaaSプラットフォーム"
+      },
+      "colors": {
+        "principle": "温かみのあるペーパーのようなニュートラルカラーに、彩度の高くエネルギッシュなオレンジを組み合わせる"
+      },
+      "typography": {
+        "rules": [
+          "インパクトのある見出しにはtightな文字间距のgeometric-sansを使用する",
+          "標準サイズの本文テキストには読みやすいhumanist-sansを使用する",
+          "小さなメタデータラベルには大文字変換と文字间距を使用する"
+        ],
+        "scaleUses": [
+          "メインヒーローヘッドライン",
+          "セクション見出し",
+          "大きな指標数値",
+          "ヒーローサブヘッドライン",
+          "一般的な本文テキストとラベル",
+          "小さな大文字ラベルとメタデータ"
+        ]
+      },
+      "spacing": {
+        "rhythm": "広めのホワイトスペースがレイアウトを定義し、4pxを基本単位として大きな構造ブロックまでスケールする"
+      },
+      "surfaces": {
+        "shadows": [
+          "0 1px 3px rgba(0,0,0,0.08)",
+          "0 4px 12px rgba(0,0,0,0.05)"
+        ],
+        "borders": "落ち着いたニュートラルトーンの1px solidボーダーを繊細に使用"
+      },
+      "layout": {
+        "skeleton": "中央揃えのシングルカラムヒーローレイアウトから、グリッドベースの機能セクションへと移行する"
+      },
+      "components": {
+        "button": "アクセントカラーで塗りつぶしたピル型、またはニュートラルなボーダーとテキストで縁取りのあるタイプ",
+        "card": "軽いボーダーを持つ微妙に丸みのある角。テンプレートや機能プレビューに使用",
+        "chip": "タブのようなナビゲーションに使用。丸みのある角と交互に変化する塗りつぶし状態",
+        "input": "微妙なボーダーと明確なラベルを持つ角丸の長方形フィールド",
+        "hero": "目立つデュアルCTAを持つ、大きく中央揃えのタイポグラフィスタック"
+      },
+      "motion": {
+        "patterns": [
+          "状態変化時の滑らかなopacityフェード",
+          "コンテンツブロックの加速する入場アニメーション"
+        ]
+      },
+      "interaction": {
+        "hover": "カーソルがポインタに変わる。ボタンとリンクの色が微細にシフトまたは明るくなる",
+        "click": "最小限のマイクロインタラクション遅延による即座の視覚フィードバック",
+        "transition": "ボーダーカラーの変更には0.25s ease-in-out、テキストカラーには0.2s",
+        "keyboard": "明確で微細なフォーカスインジケーターによる標準的な順次フォーカスナビゲーション"
+      },
+      "voice": {
+        "tone": "エンパワリングで、権威があり、非常にプロフェッショナル",
+        "headlineStyle": "ユーザーのコントロールを強調する簡潔でインパクトのあるステートメント",
+        "ctaStyle": "直接的でアクション指向（例：「メールで無料を始める」）",
+        "avoid": [
+          "中身のない誇張されたバズワード",
+          "受動的または過度にフォーマルな言語",
+          "曖昧で混乱を招く技術用語"
+        ]
+      },
+      "donts": [
+        "鮮やかなグラデーションを使用しない — スクリーンショットは温かみのあるニュートラルカラー为主的なクリーンでほぼフラットなレイアウトを示している",
+        "重いドロップシャドウを使用しない — スクリーンショットは微妙で柔らかい標高感またはフラットなボーダーを示している",
+        "見出しに広い文字间距を使用しない — スクリーンショットはtightに設定されたディスプレイテキストを示している",
+        "本文段落を中央揃えにしない — スクリーンショットは左揃えの読みやすいコピーを示している",
+        "冷たいブルーアクセントを使用しない — スクリーンショットはプライマリアクションカラーとして温かみのあるエネルギッシュなオレンジを示している",
+        "装飾的なタイポグラフィを使用しない — スクリーンショットは読みやすいgeometric-sansとhumanist-sansを示している"
+      ],
+      "systemPrompt": "ZapierはAIガバナンスとワークフロー自動化に特化したプロフェッショナルなSaaSプラットフォームです。コアパレットには温かみのあるペーパーのようなオフホワイト（#FFFDFB, #F8F4F0）と深いインクカラー（#201515, #36342E）を、プライマリアクションには単一の彩度の高いオレンジ（#FF4F00）を使用します。タイポグラフィはディスプレイにクリーンなgeometric-sans、本文にhumanist-sansを採用します。レイアウトはゆとりがあり中央揃えで、大きなヒーローセクションから組織化されたコンテンツグリッドへと移行します。装飾的なフォント、重いシャドウ、冷たい色温度の使用は避けます。明確な階層構造、広めのホワイトスペース、微妙なボーダーを優先し、プラットフォームのクリーンで信頼性が高く、エンタープライズグレードの美感を維持します。"
+    },
+    "ko": {
+      "identity": {
+        "keywords": [
+          "자동화",
+          "AI 거버넌스",
+          "통합",
+          "기업용",
+          "워크플로우"
+        ],
+        "analogy": "AI와 비즈니스 도구를 연결하는 중립적인 명령 센터",
+        "oneLiner": "AI 거버넌스와 워크플로우 자동화를 통합하는 기업급 SaaS 플랫폼"
+      },
+      "colors": {
+        "principle": "따뜻한, 종이 질감의 중성색과 고채도, 활기찬 주황색의 조합"
+      },
+      "typography": {
+        "rules": [
+          "강렬한 헤드라인에는 좁은 자간의 기하학적 sans를 사용합니다",
+          "표준 크기의 가독성 높은 본문에는 인본주의 sans를 사용합니다",
+          "작은 메타데이터 레이블에는 대문자 변환과 자간을 적용합니다"
+        ],
+        "scaleUses": [
+          "메인 히어로 헤드라인",
+          "섹션 헤드라인",
+          "대형 지표 숫자",
+          "히어로 서브헤드라인",
+          "일반 본문 텍스트 및 레이블",
+          "작은 대문자 레이블 및 메타데이터"
+        ]
+      },
+      "spacing": {
+        "rhythm": "풍부한 여백이 레이아웃을 정의하며, 기본 4px 단위가 대형 구조 블록까지 확장됩니다"
+      },
+      "surfaces": {
+        "shadows": [
+          "0 1px 3px rgba(0,0,0,0.08)",
+          "0 4px 12px rgba(0,0,0,0.05)"
+        ],
+        "borders": "부드러운 중성 톤의 1px 실선 테두리 사용"
+      },
+      "layout": {
+        "skeleton": "중앙 정렬 싱글 컬럼 히어로 레이아웃에서 그리드 기반 기능 섹션으로 전환"
+      },
+      "components": {
+        "button": "강조색으로 채워진 알약 모양, 또는 중성 테두리와 텍스트가 있는 아웃라인 스타일",
+        "card": "템플릿 및 기능 미리보기에 사용되는, 가벼운 테두리가 있는 미세하게 둥근 모서리",
+        "chip": "라운드 모서리와 교대로 채워지는 상태가 있는 탭 유형 내비게이션에 사용",
+        "input": "미세한 테두리와 명확한 레이블이 있는 둥근 직형 필드",
+        "hero": "두드러진 이중 CTA가 있는 크고 중앙 정렬된 타이포그래피 스택"
+      },
+      "motion": {
+        "patterns": [
+          "상태 변경 시 부드러운 불투명도 페이드",
+          "콘텐츠 블록의 가속 입장 애니메이션"
+        ]
+      },
+      "interaction": {
+        "hover": "커서가 포인터로 변경; 버튼과 링크 색상이 미세하게 변화하거나 밝아집니다",
+        "click": "최소한의 마이크로 인터랙션 지연으로 즉각적인 시각적 피드백",
+        "transition": "테두리 색상 변경에는 0.25s ease-in-out, 텍스트 색상에는 0.2s 적용",
+        "keyboard": "명확하고 미세한 포커스 표시기가 있는 표준 순차 포커스 탐색"
+      },
+      "voice": {
+        "tone": "권한을 부여하고, 권위적이며, 매우 전문적인",
+        "headlineStyle": "사용자 통제를 강조하는 간결하고 강렬한 문구",
+        "ctaStyle": "직설적이고 행동 지향적인 (예: '이메일로 무료 시작하기')",
+        "avoid": [
+          "실질 없는 과장된 유행어",
+          "수동적이거나 지나치게 격식 있는 언어",
+          "모호하거나 혼란스러운 기술 용어"
+        ]
+      },
+      "donts": [
+        "화려한 그라데이션을 사용하지 않습니다 — 스크린샷은 따뜻한 중성색으로 깔끔하고 거의 평면적인 레이아웃을 보여줍니다",
+        "무거운 드롭 섀도우를 사용하지 않습니다 — 스크린샷은 미세하고 부드러운 높이감이나 평면 테두리를 보여줍니다",
+        "헤드라인에 넓은 자간을 사용하지 않습니다 — 스크린샷은 좁게 자간이 맞춰진 디스플레이 텍스트를 보여줍니다",
+        "본문 단락을 중앙 정렬하지 않습니다 — 스크린샷은 왼쪽 정렬된 가독성 높은 문구를 보여줍니다",
+        "차가운 블루 강조색을 사용하지 않습니다 — 스크린샷은 따뜻하고 활기찬 주황색을 주요 액션 컬러로 보여줍니다",
+        "장식적인 타이포그래피를 사용하지 않습니다 — 스크린샷은 가독성 높은 기하학적 및 인본주의 sans-serif를 보여줍니다"
+      ],
+      "systemPrompt": "Zapier는 AI 거버넌스와 워크플로우 자동화에 중점을 둔 전문 SaaS 플랫폼입니다. 코어 팔레트는 따뜻한, 종이 질감의 오프화이트(#FFFDFB, #F8F4F0)와 깊은 잉크(#201515, #36342E)를 사용하며, 주요 액션에는 단일의 고채도 주황색(#FF4F00)을 적용합니다. 타이포그래피는 디스플레이용 깔끔한 기하학적 sans와 본문용 인본주의 sans에 의존합니다. 레이아웃은 여유로우며 중앙 정렬되어 있으며, 대형 히어로 섹션에서 체계화된 콘텐츠 그리드로 전환됩니다. 장식 폰트, 무거운 섀도우 또는 차가운 색온도 사용을 피합니다. 명확한 계층 구조, 풍부한 여백 및 미세한 테두리를 우선시하여 플랫폼의 깔끔하고 신뢰할 수 있는 기업급 미학을 유지합니다."
     }
   }
 }

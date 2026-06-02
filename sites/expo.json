@@ -17,42 +17,58 @@
   "_meta": {
     "vision_model": "mimo-v2.5",
     "vision_prompt_version": "0.3",
-    "vision_at": "2026-05-28T20:31:08+00:00",
-    "vision_tokens": 3614,
-    "vision_cost_usd": 0.0402,
+    "vision_at": "2026-05-30T11:42:12+00:00",
+    "vision_tokens": 17742,
+    "vision_cost_usd": 0.1971,
     "translation_model": "mimo-v2.5",
-    "translation_at": "2026-05-28T20:31:50+00:00",
-    "translation_tokens": 12708,
-    "translation_cost_usd": 0.0424,
+    "translation_at": "2026-05-30T11:42:56+00:00",
+    "translation_tokens": 21805,
+    "translation_cost_usd": 0.0727,
     "narrative_model": "mimo-v2.5",
     "narrative_prompt_version": "0.3",
     "narrative_at": "2026-05-28T20:31:56+00:00",
     "narrative_tokens": 1690,
     "narrative_cost_usd": 0.0113,
     "narrative_status": "ok",
-    "total_cost_usd": 0.0939
+    "total_cost_usd": 0.2811,
+    "vision_source": "playwright-extract:expo",
+    "vision_grounded": true
   },
   "spec": {
     "colors": {
       "bg": "#FFFFFF",
-      "bgSoft": null,
-      "bgQuiet": null,
-      "ink": "#333333",
-      "inkSoft": null,
-      "muted": "#999999",
-      "mutedSoft": null,
-      "accent": null,
-      "line": "rgba(0, 0, 0, 0.1)"
+      "bgSoft": "#F9F9FB",
+      "bgQuiet": "#F9F9FB",
+      "ink": "#1C2024",
+      "inkSoft": "#60646C",
+      "muted": "#80838D",
+      "mutedSoft": "#E0E1E6",
+      "accent": "#0090FF",
+      "line": "rgba(28,32,36,0.1)"
     },
     "typography": {
-      "display": "geometric-sans",
-      "body": "geometric-sans",
-      "mono": null,
+      "display": "humanist-sans",
+      "body": "humanist-sans",
+      "mono": "monospace",
       "scale": [
         {
           "token": "display",
-          "size": 32,
-          "lh": 1.2,
+          "size": 64,
+          "lh": 1.0,
+          "weight": 900,
+          "ls": "-1.6px"
+        },
+        {
+          "token": "heading",
+          "size": 16,
+          "lh": 1.25,
+          "weight": 600,
+          "ls": "-0.25px"
+        },
+        {
+          "token": "body",
+          "size": 16,
+          "lh": 1.4,
           "weight": 400,
           "ls": "0px"
         }
@@ -63,24 +79,27 @@
       "scale": [
         4,
         8,
+        12,
         16,
         24,
         32,
+        40,
         48,
         64,
-        96
+        96,
+        144
       ]
     },
     "surfaces": {
       "radius": {
-        "sm": 0,
-        "md": 0,
-        "lg": 0,
-        "pill": 999
+        "sm": 8,
+        "md": 8,
+        "lg": 32,
+        "pill": 9999
       }
     },
     "layout": {
-      "container": 1920,
+      "container": 1280,
       "paragraph": 680,
       "columns": 12,
       "gutter": 24,
@@ -91,337 +110,20 @@
     },
     "motion": {
       "durations": {
-        "micro": 220,
-        "small": 400,
-        "medium": 800
+        "micro": 150,
+        "small": 150,
+        "medium": 300
       },
-      "easing": "cubic-bezier(0.4, 0.0, 0.2, 1)"
-    }
-  },
-  "spec_i18n": {
-    "en": {
-      "identity": {
-        "keywords": [
-          "Minimalist",
-          "Technical",
-          "Abstract",
-          "Developer Platform"
-        ],
-        "analogy": "A clean, abstract loading state representing a developer tool platform.",
-        "oneLiner": "A stark, minimalist loading screen featuring a metallic donut logo and simple wordmark."
-      },
-      "colors": {
-        "principle": "High-contrast monochrome with a single metallic gradient element."
-      },
-      "typography": {
-        "rules": [],
-        "scaleUses": [
-          "Brand name"
-        ]
-      },
-      "spacing": {
-        "rhythm": "Symmetrical centering with generous whitespace."
-      },
-      "surfaces": {
-        "shadows": [],
-        "borders": "None visible"
-      },
-      "layout": {
-        "skeleton": "Centered vertical stack on a full-screen white canvas."
-      },
-      "components": {
-        "button": "None visible",
-        "card": "None visible",
-        "chip": "None visible",
-        "input": "None visible",
-        "hero": "Centered logo and wordmark stack."
-      },
-      "interaction": {
-        "hover": "None visible",
-        "click": "None visible",
-        "transition": "None visible",
-        "keyboard": "None visible"
-      },
-      "voice": {
-        "tone": "Neutral",
-        "headlineStyle": "Minimalist",
-        "ctaStyle": "None",
-        "avoid": [
-          "Complex layouts",
-          "Vibrant colors",
-          "Decorative elements"
-        ]
-      },
-      "donts": [
-        "don't use vibrant colors — screenshot shows a strictly monochrome palette with a metallic gradient",
-        "don't add decorative borders or shadows — screenshot shows completely flat surfaces",
-        "don't use complex multi-column layouts — screenshot shows a single centered column",
-        "don't use dense text or multiple paragraphs — screenshot shows only a wordmark",
-        "don't use playful or rounded UI elements — screenshot shows sharp, geometric forms",
-        "don't use high-chroma accents — screenshot uses only a single muted blue icon"
-      ],
-      "systemPrompt": "This is a minimalist loading or splash screen for a developer tool platform. The layout is a centered vertical stack on a pure white background (#FFFFFF). The primary ink color is dark gray (#333333) used for the wordmark, with a metallic gradient donut icon above it. Typography is a clean, geometric sans-serif category. Critical design rules include avoiding vibrant colors, avoiding complex layouts or decorative elements, and maintaining extreme whitespace. The design is strictly monochrome with high contrast."
-    },
-    "zh-CN": {
-      "identity": {
-        "keywords": [
-          "极简主义",
-          "技术感",
-          "抽象",
-          "开发者平台"
-        ],
-        "analogy": "一个干净、抽象的加载状态，代表一个开发者工具平台。",
-        "oneLiner": "一个鲜明、极简的加载屏幕，采用金属甜甜圈Logo和简洁的文字标识。"
-      },
-      "colors": {
-        "principle": "高对比度单色方案，配以单一金属渐变元素。"
-      },
-      "typography": {
-        "rules": [],
-        "scaleUses": [
-          "品牌名称"
-        ]
-      },
-      "spacing": {
-        "rhythm": "对称居中，留白充裕。"
-      },
-      "surfaces": {
-        "shadows": [],
-        "borders": "无可见边框"
-      },
-      "layout": {
-        "skeleton": "全屏白色画布上的居中纵向堆叠。"
-      },
-      "components": {
-        "button": "无可见按钮",
-        "card": "无可见卡片",
-        "chip": "无可见标签",
-        "input": "无可见输入框",
-        "hero": "居中的Logo与文字标识堆叠。"
-      },
-      "interaction": {
-        "hover": "无可见hover效果",
-        "click": "无可见点击效果",
-        "transition": "无可见过渡效果",
-        "keyboard": "无可见键盘交互"
-      },
-      "voice": {
-        "tone": "中性",
-        "headlineStyle": "极简主义",
-        "ctaStyle": "无",
-        "avoid": [
-          "复杂布局",
-          "鲜艳色彩",
-          "装饰性元素"
-        ]
-      },
-      "donts": [
-        "不要使用鲜艳色彩——截图显示的是严格的单色方案配金属渐变",
-        "不要添加装饰性边框或阴影——截图显示的是完全扁平的表面",
-        "不要使用复杂的多列布局——截图显示的是单个居中列",
-        "不要使用密集文本或多段落——截图仅显示文字标识",
-        "不要使用俏皮或圆润的UI元素——截图显示的是锐利的几何形态",
-        "不要使用高饱和度强调色——截图仅使用一个柔和的蓝色图标"
-      ],
-      "systemPrompt": "这是一个面向开发者工具平台的极简加载或启动屏幕。布局是在纯白色背景（#FFFFFF）上的居中纵向堆叠。主要墨色是深灰（#333333），用于文字标识，其上方是一个金属渐变甜甜圈图标。字体采用干净的几何无衬线类别。关键设计规则包括：避免鲜艳色彩、避免复杂布局或装饰性元素，并保持极致的留白。设计严格遵循单色高对比度方案。"
-    },
-    "zh-TW": {
-      "identity": {
-        "keywords": [
-          "極簡主義",
-          "技術性",
-          "抽象",
-          "開發者平台"
-        ],
-        "analogy": "一個乾淨、抽象的載入狀態，代表一個開發者工具平台。",
-        "oneLiner": "一個強烈、極簡的載入畫面，以一個金屬甜甜圈標誌與簡潔的文字標誌為特色。"
-      },
-      "colors": {
-        "principle": "高對比的單色調，搭配一個金屬漸層元素。"
-      },
-      "typography": {
-        "rules": [],
-        "scaleUses": [
-          "品牌名稱"
-        ]
-      },
-      "spacing": {
-        "rhythm": "對稱置中，搭配寬裕的留白。"
-      },
-      "surfaces": {
-        "shadows": [],
-        "borders": "無可見"
-      },
-      "layout": {
-        "skeleton": "在全螢幕白色畫布上，置中的垂直堆疊。"
-      },
-      "components": {
-        "button": "無可見",
-        "card": "無可見",
-        "chip": "無可見",
-        "input": "無可見",
-        "hero": "置中的標誌與文字標誌堆疊。"
-      },
-      "interaction": {
-        "hover": "無可見",
-        "click": "無可見",
-        "transition": "無可見",
-        "keyboard": "無可見"
-      },
-      "voice": {
-        "tone": "中性",
-        "headlineStyle": "極簡主義",
-        "ctaStyle": "無",
-        "avoid": [
-          "複雜佈局",
-          "鮮豔色彩",
-          "裝飾性元素"
-        ]
-      },
-      "donts": [
-        "不要使用鮮豔色彩 — 截圖顯示嚴格的單色調色盤搭配金屬漸層",
-        "不要添加裝飾性邊框或陰影 — 截圖顯示完全平坦的表面",
-        "不要使用複雜的多欄佈局 — 截圖顯示單一置中欄位",
-        "不要使用密集的文字或多段落 — 截圖僅顯示文字標誌",
-        "不要使用俏皮或圓潤的 UI 元素 — 截圖顯示銳利、幾何的形狀",
-        "不要使用高飽和度的強調色 — 截圖僅使用一個柔和的藍色圖示"
-      ],
-      "systemPrompt": "這是一個用於開發者工具平台的極簡載入或啟動畫面。佈局是在純白背景（#FFFFFF）上的置中垂直堆疊。主要墨色是深灰色（#333333），用於文字標誌，其上方是一個金屬漸層的甜甜圈圖示。字體類別是乾淨、幾何的無襯線體。關鍵設計規則包括避免使用鮮豔色彩、避免複雜佈局或裝飾元素，並維持極端的留白。設計嚴格採用單色調，並具有高對比度。"
-    },
-    "ja": {
-      "identity": {
-        "keywords": [
-          "ミニマリスト",
-          "技術的",
-          "抽象的",
-          "開発者プラットフォーム"
-        ],
-        "analogy": "開発者ツールプラットフォームを表す、クリーンで抽象的な読み込み状態。",
-        "oneLiner": "メタリックなドーナツロゴとシンプルなワードマークを備えた、厳格でミニマリストな読み込み画面。"
-      },
-      "colors": {
-        "principle": "単一のメタリックグラデーション要素を用いたハイコントラストのモノクローム。"
-      },
-      "typography": {
-        "rules": [],
-        "scaleUses": [
-          "ブランド名"
-        ]
-      },
-      "spacing": {
-        "rhythm": "十分な余白を持つ対称的な中央揃え。"
-      },
-      "surfaces": {
-        "shadows": [],
-        "borders": "表示されません"
-      },
-      "layout": {
-        "skeleton": "全画面の白いキャンバス上の中央揃えの縦積みスタック。"
-      },
-      "components": {
-        "button": "表示されません",
-        "card": "表示されません",
-        "chip": "表示されません",
-        "input": "表示されません",
-        "hero": "中央揃えのロゴとワードマークのスタック。"
-      },
-      "interaction": {
-        "hover": "表示されません",
-        "click": "表示されません",
-        "transition": "表示されません",
-        "keyboard": "表示されません"
-      },
-      "voice": {
-        "tone": "ニュートラル",
-        "headlineStyle": "ミニマリスト",
-        "ctaStyle": "なし",
-        "avoid": [
-          "複雑なレイアウト",
-          "鮮やかな色彩",
-          "装飾的な要素"
-        ]
-      },
-      "donts": [
-        "鮮やかな色彩を使用しない — スクリーンショットは、メタリックグラデーションを含む厳格なモノクロームパレットを示しています",
-        "装飾的なボーダーや影を追加しない — スクリーンショットは完全にフラットなサーフェスを示しています",
-        "複雑なマルチカラムレイアウトを使用しない — スクリーンショットは単一の中央揃えのカラムを示しています",
-        "密集したテキストや複数の段落を使用しない — スクリーンショットはワードマークのみを示しています",
-        "遊び心のある丸みのあるUI要素を使用しない — スクリーンショットは鋭角で幾何学的なフォームを示しています",
-        "高彩度のアクセントを使用しない — スクリーンショットは単一の落ち着いた青色アイコンのみを使用しています"
-      ],
-      "systemPrompt": "これは開発者ツールプラットフォーム用のミニマリストな読み込み画面またはスプラッシュ画面です。レイアウトは、純白の背景（#FFFFFF）上の中央揃えの縦積みスタックです。プライマリインクカラーはワードマークに使用される濃いグレー（#333333）で、その上にメタリックグラデーションのドーナツアイコンがあります。タイポグラフィはクリーンで幾何学的なサンセリフカテゴリです。重要なデザインルールには、鮮やかな色彩の回避、複雑なレイアウトや装飾的な要素の回避、および極端な余白の維持が含まれます。デザインは厳格にモノクロームでハイコントラストです。"
-    },
-    "ko": {
-      "identity": {
-        "keywords": [
-          "미니멀리스트",
-          "기술적",
-          "추상적",
-          "개발자 플랫폼"
-        ],
-        "analogy": "개발자 도구 플랫폼을 대표하는 깔끔하고 추상적인 로딩 상태입니다.",
-        "oneLiner": "메탈릭 도넛 로고와 심플한 워드마크를 특징으로 하는 날것 그 자체의 미니멀리스트 로딩 화면입니다."
-      },
-      "colors": {
-        "principle": "단일 메탈릭 그라디언트 요소를 사용한 고대비 단색 팔레트입니다."
-      },
-      "typography": {
-        "rules": [],
-        "scaleUses": [
-          "브랜드명"
-        ]
-      },
-      "spacing": {
-        "rhythm": "넉넉한 여백을 두어 대칭적으로 중앙 정렬합니다."
-      },
-      "surfaces": {
-        "shadows": [],
-        "borders": "보이지 않음"
-      },
-      "layout": {
-        "skeleton": "전체 화면 흰색 캔버스 중앙에 수직으로 쌓인 형태입니다."
-      },
-      "components": {
-        "button": "보이지 않음",
-        "card": "보이지 않음",
-        "chip": "보이지 않음",
-        "input": "보이지 않음",
-        "hero": "중앙 정렬된 로고와 워드마크 스택입니다."
-      },
-      "interaction": {
-        "hover": "보이지 않음",
-        "click": "보이지 않음",
-        "transition": "보이지 않음",
-        "keyboard": "보이지 않음"
-      },
-      "voice": {
-        "tone": "중립적",
-        "headlineStyle": "미니멀리스트",
-        "ctaStyle": "없음",
-        "avoid": [
-          "복잡한 레이아웃",
-          "화려한 색상",
-          "장식적 요소"
-        ]
-      },
-      "donts": [
-        "화려한 색상을 사용하지 마세요 — 스크린샷은 메탈릭 그라디언트를 포함한 엄격한 단색 팔레트를 보여줍니다",
-        "장식적인 테두리나 그림자를 추가하지 마세요 — 스크린샷은 완전히 평면적인 표면을 보여줍니다",
-        "복잡한 다단계 레이아웃을 사용하지 마세요 — 스크린샷은 중앙 정렬된 단일 열을 보여줍니다",
-        "빽빽한 텍스트나 여러 단락을 사용하지 마세요 — 스크린샷은 워드마크만 보여줍니다",
-        "장난기 있거나 둥근 UI 요소를 사용하지 마세요 — 스크린샷은 날카롭고 기하학적인 형태를 보여줍니다",
-        "고채도 악센트를 사용하지 마세요 — 스크린샷은 단일한 차분한 파란색 아이콘만 사용합니다"
-      ],
-      "systemPrompt": "이것은 개발자 도구 플랫폼을 위한 미니멀리스트 로딩 또는 스플래시 화면입니다. 레이아웃은 순백 배경(#FFFFFF) 위에 중앙 정렬된 수직 스택입니다. 주요 잉크 색상은 워드마크에 사용되는 짙은 회색(#333333)이며, 그 위에는 메탈릭 그라디언트 도넛 아이콘이 있습니다. 타이포그래피는 깔끔하고 기하학적인 고딕체(sans-serif) 계열입니다. 핵심 디자인 규칙은 화려한 색상 사용 피하기, 복잡한 레이아웃이나 장식적 요소 사용 피하기, 그리고 극단적인 여백 유지입니다. 디자인은 고대비의 엄격한 단색입니다."
+      "easing": "cubic-bezier(0.4, 0, 0.2, 1)"
     }
   },
   "desc": {
     "en": {
-      "palette": "A stark, high-contrast monochrome palette featuring pure white, dark gray ink, and a metallic gradient element.",
-      "layout": "A completely centered, single-column layout on a full-screen white canvas with generous vertical whitespace.",
-      "interaction": "No interactive elements are visible in this static, logo-focused splash screen.",
-      "motion": "No motion patterns are visible in the static screenshot.",
-      "notes": "This minimalist splash screen is worth including as an example of a stark, developer-focused aesthetic that prioritizes abstract form and whitespace over information density."
+      "palette": "The palette is dominated by high-contrast black and white, with a single functional blue accent for interactive elements.",
+      "layout": "The layout is centered, single-column for the hero, transitioning into organized grids for feature sections with generous whitespace.",
+      "interaction": "Interactions are subtle and professional, featuring fast, smooth transitions on hover and click for buttons and links.",
+      "motion": "Motion is minimal and functional, focusing on quick 150ms transitions to provide immediate feedback without distraction.",
+      "notes": "This site is a prime example of a clean, developer-focused SaaS interface that prioritizes clarity and utility over decoration."
     },
     "zh-CN": {
       "palette": "一套鲜明、高对比度的单色方案，包含纯白、深灰墨色与一个金属渐变元素。",
@@ -512,6 +214,403 @@
       "ch7_intro": "모션 철학은 조용하고 예상된 진행입니다. 기간은 섬세하고 간섭 없는 전환을 위해 보정되며, 중립적이고 기술적인 리듬을 유지하기 위해 표준 이징 곡선을 사용합니다.",
       "ch8_intro": "편집 음성은 중립적이며 미니멀하여, 인터페이스의 극도로 단순한 형태가 장식 없이 스스로 소통할 수 있게 합니다. 이 시스템은 의도적으로 복잡한 레이아웃, 강렬한 색상, 그리고 어떤 장식적 요소도 피합니다.",
       "ch8_outro": "이 시스템은 본질적으로 장식적 요소, 밀도 높은 정보, 또는 장난스러운 UI 컴포넌트를 수용하지 않습니다."
+    }
+  },
+  "spec_i18n": {
+    "en": {
+      "identity": {
+        "keywords": [
+          "developer",
+          "framework",
+          "mobile",
+          "cloud",
+          "infrastructure"
+        ],
+        "analogy": "The construction crew's trusted toolkit for building modern mobile applications.",
+        "oneLiner": "A full-stack React Native framework with cloud services for app development."
+      },
+      "colors": {
+        "principle": "High-contrast black and white with a subtle blue accent for active states."
+      },
+      "typography": {
+        "rules": [
+          "Use Inter for all display and body text.",
+          "Use JetBrains Mono for code snippets and technical labels.",
+          "Keep line heights tight (1.0-1.4) for a dense, modern feel."
+        ],
+        "scaleUses": [
+          "Hero headlines",
+          "Subheadings",
+          "Body text"
+        ]
+      },
+      "spacing": {
+        "rhythm": "Consistent 4px base with generous whitespace in hero sections."
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 5px 10px 0px rgba(0, 0, 0, 0.05)",
+          "0px 15px 25px 0px rgba(0, 0, 0, 0.12)"
+        ],
+        "borders": "1px solid #E0E1E6"
+      },
+      "layout": {
+        "skeleton": "Single-column centered layout for hero, transitioning to multi-column grids for features."
+      },
+      "components": {
+        "button": "Pill-shaped primary with black fill, pill-shaped secondary with outline.",
+        "card": "White background with subtle borders and soft rounded corners.",
+        "chip": "Subtle background fill with thin borders.",
+        "input": "Rounded rectangles with clear focus states.",
+        "hero": "Large centered text with a gradient or subtle background pattern."
+      },
+      "motion": {
+        "patterns": [
+          "Smooth transitions for color and background changes.",
+          "Subtle opacity and transform animations on hover."
+        ]
+      },
+      "interaction": {
+        "hover": "Subtle background color or text color change.",
+        "click": "Scale or opacity feedback.",
+        "transition": "Fast (150ms) transitions for interactive elements.",
+        "keyboard": "Standard focus outlines."
+      },
+      "voice": {
+        "tone": "Professional, clear, and developer-focused.",
+        "headlineStyle": "Large, bold, and declarative.",
+        "ctaStyle": "Direct and action-oriented.",
+        "avoid": [
+          "jargon",
+          "hype",
+          "fluff"
+        ]
+      },
+      "donts": [
+        "Don't use a dark background for the primary layout — screenshot shows a clean white theme.",
+        "Don't use decorative serifs for headlines — screenshot shows a clean humanist sans.",
+        "Don't use a wide variety of bright colors — screenshot relies on black, white, and a single blue accent.",
+        "Don't use sharp, square corners on buttons — screenshot shows rounded or pill-shaped buttons.",
+        "Don't overcrowd the hero section — screenshot maintains significant vertical whitespace.",
+        "Don't use a complex or busy background pattern — screenshot uses a very subtle dot grid or light gradient."
+      ],
+      "systemPrompt": "Expo is a full-stack React Native framework for mobile developers, featuring a clean, professional interface. The design is anchored by a high-contrast black and white palette (#1C2024 on #FFFFFF) with a subtle blue accent (#0090FF). It uses Inter for body and display text and a monospace font for code. Critical design rules: maintain generous whitespace, use pill-shaped buttons, and avoid complex decorative elements. The voice is direct and developer-focused, with clear, bold headlines. This DNA represents a premium, tool-focused SaaS aesthetic."
+    },
+    "zh-CN": {
+      "identity": {
+        "keywords": [
+          "开发者",
+          "框架",
+          "移动端",
+          "云端",
+          "基础设施"
+        ],
+        "analogy": "构建现代移动应用时，开发团队所信赖的工具集。",
+        "oneLiner": "一个用于应用开发的、带有云服务的全栈 React Native 框架。"
+      },
+      "colors": {
+        "principle": "高对比度的黑白配色，并辅以细微的蓝色作为激活状态的点缀。"
+      },
+      "typography": {
+        "rules": [
+          "所有标题和正文均使用 Inter 字体。",
+          "代码片段和技术标签使用 JetBrains Mono 字体。",
+          "保持紧凑的行高（1.0-1.4），营造密集、现代的视觉感受。"
+        ],
+        "scaleUses": [
+          "主标题",
+          "副标题",
+          "正文文本"
+        ]
+      },
+      "spacing": {
+        "rhythm": "以 4px 为基础单位保持一致的节奏，主视觉区域则采用宽松的留白。"
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 5px 10px 0px rgba(0, 0, 0, 0.05)",
+          "0px 15px 25px 0px rgba(0, 0, 0, 0.12)"
+        ],
+        "borders": "1px solid #E0E1E6"
+      },
+      "layout": {
+        "skeleton": "主视觉区域采用单列居中布局，功能区则过渡到多列网格。"
+      },
+      "components": {
+        "button": "主要按钮为黑色填充的胶囊形，次要按钮为轮廓式胶囊形。",
+        "card": "白色背景，带有细微的边框和柔和的圆角。",
+        "chip": "带有细微填充背景和细边框。",
+        "input": "带有清晰聚焦状态的圆角矩形。",
+        "hero": "大段居中文字，辅以渐变或细微的背景图案。"
+      },
+      "motion": {
+        "patterns": [
+          "颜色和背景变化采用平滑过渡。",
+          "在 hover 状态下，进行细微的透明度和变换动画。"
+        ]
+      },
+      "interaction": {
+        "hover": "细微的背景色或文字颜色变化。",
+        "click": "缩放或透明度反馈。",
+        "transition": "交互元素采用快速（150ms）过渡。",
+        "keyboard": "标准的焦点轮廓。"
+      },
+      "voice": {
+        "tone": "专业、清晰，且面向开发者。",
+        "headlineStyle": "大号、加粗、具有宣言性。",
+        "ctaStyle": "直接且以行动为导向。",
+        "avoid": [
+          "术语",
+          "夸大",
+          "冗余"
+        ]
+      },
+      "donts": [
+        "不要为布局主体使用深色背景——截图显示的是干净的白色主题。",
+        "不要为标题使用装饰性衬线体——截图显示的是简洁的人文主义无衬线体。",
+        "不要使用种类繁多的亮色——截图仅依赖黑白及单一的蓝色点缀。",
+        "不要为按钮使用尖锐的方形角——截图显示的是圆角或胶囊形按钮。",
+        "不要让主视觉区域过于拥挤——截图保留了显著的垂直留白。",
+        "不要使用复杂或杂乱的背景图案——截图使用的是非常细微的点阵网格或浅色渐变。"
+      ],
+      "systemPrompt": "Expo 是一个面向移动开发者的全栈 React Native 框架，拥有简洁、专业的界面。其设计以高对比度的黑白调色板（#FFFFFF 上的 #1C2024）为基底，并辅以细微的蓝色点缀（#0090FF）。它使用 Inter 作为正文和标题字体，并使用等宽字体显示代码。关键的设计规则：保持宽松的留白，使用胶囊形按钮，并避免复杂的装饰元素。其语调直接且面向开发者，拥有清晰、加粗的标题。这种设计DNA代表了注重工具性、高端的 SaaS 审美。"
+    },
+    "zh-TW": {
+      "identity": {
+        "keywords": [
+          "開發者",
+          "框架",
+          "行動裝置",
+          "雲端",
+          "基礎設施"
+        ],
+        "analogy": "建構現代行動應用程式時，值得信賴的工程團隊工具箱。",
+        "oneLiner": "一套整合雲端服務的全端 React Native 框架，專為應用程式開發而生。"
+      },
+      "colors": {
+        "principle": "採用高對比的黑白色調，搭配細微的藍色作為互動狀態的強調色。"
+      },
+      "typography": {
+        "rules": [
+          "所有標題與內文均使用 Inter 字型。",
+          "程式碼片段與技術標籤使用 JetBrains Mono。",
+          "保持緊湊的行高（1.0-1.4），營造密集、現代的視覺感受。"
+        ],
+        "scaleUses": [
+          "主標題",
+          "副標題",
+          "內文"
+        ]
+      },
+      "spacing": {
+        "rhythm": "以 4px 為基礎單位，在主視覺區塊保持寬裕的留白。"
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 5px 10px 0px rgba(0, 0, 0, 0.05)",
+          "0px 15px 25px 0px rgba(0, 0, 0, 0.12)"
+        ],
+        "border": "1px solid #E0E1E6"
+      },
+      "layout": {
+        "skeleton": "主視覺區塊採用單欄置中佈局，功能區塊則轉為多欄格狀佈局。"
+      },
+      "components": {
+        "button": "主要按鈕為黑色填滿的藥丸形狀，次要按鈕為藥丸形狀的外框樣式。",
+        "card": "白色背景，搭配細微邊框與柔和的圓角。",
+        "chip": "細微的背景填色與細邊框。",
+        "input": "圓角矩形，並有明確的聚焦狀態。",
+        "hero": "大號置中文字，搭配漸層或細微的背景圖樣。"
+      },
+      "motion": {
+        "patterns": [
+          "顏色與背景變化時，使用流暢的過渡效果。",
+          "滑鼠懸停時，套用細微的透明度與變換動畫。"
+        ]
+      },
+      "interaction": {
+        "hover": "細微的背景或文字顏色變化。",
+        "click": "縮放或透明度的回饋效果。",
+        "transition": "互動元素採用快速（150ms）過渡效果。",
+        "keyboard": "標準的聚焦外框。"
+      },
+      "voice": {
+        "tone": "專業、清晰，並以開發者為核心。",
+        "headlineStyle": "大號、粗體，且具宣言性。",
+        "ctaStyle": "直接，並強調行動導向。",
+        "avoid": [
+          "術語",
+          "誇飾",
+          "贅言"
+        ]
+      },
+      "donts": [
+        "不要在主要佈局使用深色背景——截圖顯示的是乾淨的白色主題。",
+        "不要在標題使用裝飾性襯線體——截圖顯示的是乾淨的人文無襯線體。",
+        "不要使用多種鮮豔色彩——截圖依賴黑、白及單一藍色強調色。",
+        "不要在按鈕上使用銳利、方形的角——截圖顯示的是圓角或藥丸形按鈕。",
+        "不要讓主視覺區塊過於擁擠——截圖保持了顯著的垂直留白。",
+        "不要使用複雜或繁瑣的背景圖樣——截圖使用了非常細微的點狀格線或淺色漸層。"
+      ],
+      "systemPrompt": "Expo 是一套專為行動裝置開發者設計的全端 React Native 框架，提供簡潔、專業的介面。其設計以高對比的黑白色調（#1C2024 與 #FFFFFF）為基調，並搭配細微的藍色強調色（#0090FF）。內文與標題使用 Inter 字型，程式碼則使用等寬字體。關鍵設計原則：保持寬裕的留白、使用藥丸形按鈕，並避免複雜的裝飾元素。語氣直接且以開發者為核心，搭配清晰、粗體的標題。這套設計 DNA 呈現了一種高品質、工具導向的 SaaS 美學。"
+    },
+    "ja": {
+      "identity": {
+        "keywords": [
+          "開発者",
+          "フレームワーク",
+          "モバイル",
+          "クラウド",
+          "インフラストラクチャ"
+        ],
+        "analogy": "モバイルアプリケーション構築のための、建設現場の信頼できるツールキット。",
+        "oneLiner": "アプリケーション開発のためのクラウドサービスを備えたフルスタックReact Nativeフレームワーク。"
+      },
+      "colors": {
+        "principle": "高コントラストの白と黒を基調とし、アクティブ状態に控えめなアクセントブルーを加える。"
+      },
+      "typography": {
+        "rules": [
+          "すべての表示テキストと本文テキストにInterを使用する。",
+          "コードスニペットと技術ラベルにはJetBrains Monoを使用する。",
+          "密度の高い現代的な印象を与えるため、行間は Tight（1.0～1.4）を維持する。"
+        ],
+        "scaleUses": [
+          "ヒーローヘッドライン",
+          "サブヘディング",
+          "本文テキスト"
+        ]
+      },
+      "spacing": {
+        "rhythm": "4pxの基本グリッドで統一し、ヒーローセクションには適度な余白を設ける。"
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 5px 10px 0px rgba(0, 0, 0, 0.05)",
+          "0px 15px 25px 0px rgba(0, 0, 0, 0.12)"
+        ],
+        "borders": "1px solid #E0E1E6"
+      },
+      "layout": {
+        "skeleton": "ヒーローは中央揃えのシングルカラムレイアウトとし、機能紹介からマルチカラムグリッドへと移行する。"
+      },
+      "components": {
+        "button": "プライマリは黒の塗りつぶし、セカンダリはアウトラインのピル型ボタン。",
+        "card": "控えめなボーダーとソフトな角丸を持つ白背景カード。",
+        "chip": "薄い塗りつぶし背景と細いボーダーのチップ。",
+        "input": "明確なフォーカス状態を持つ角丸長方形の入力欄。",
+        "hero": "グラデーションまたは控えめな背景パターンを用いた、大きく中央揃えのテキスト。"
+      },
+      "motion": {
+        "patterns": [
+          "色や背景の変化に滑らかな遷移を適用する。",
+          "hover時に控えめなopacityやtransformアニメーションを使用する。"
+        ]
+      },
+      "interaction": {
+        "hover": "背景色または文字色を控えめに変化させる。",
+        "click": "スケールまたはopacityフィードバックを付与する。",
+        "transition": "インタラクティブ要素には高速（150ms）な遷移を設定する。",
+        "keyboard": "標準的なfocus outlineを維持する。"
+      },
+      "voice": {
+        "tone": "プロフェッショナルで明確、開発者目線のトーン。",
+        "headlineStyle": "大きく、太字で、宣言的なスタイル。",
+        "ctaStyle": "直接的でアクションを促すスタイル。",
+        "avoid": [
+          "専門用語",
+          "過大な表現",
+          "余計な装飾"
+        ]
+      },
+      "donts": [
+        "プライマリレイアウトにダーク背景を使用しない — スクリーンショットはクリーンな白を基調とする。",
+        "ヘッドラインに装飾的なセリフ体を使用しない — スクリーンショットはクリーンなhumanist-sansを採用している。",
+        "多様で明るい色を乱用しない — スクリーンショットは白、黒、アクセントブルーのみで構成されている。",
+        "ボタンに鋭角な角を持たせない — スクリーンショットは角丸またはピル型のボタンを示している。",
+        "ヒーローセクションを雑踏させない — スクリーンショットは十分な縦方向の余白を確保している。",
+        "複雑で派手な背景パターンを使用しない — スクリーンショットは非常に控えめなドットグリッドや薄いグラデーションを用いている。"
+      ],
+      "systemPrompt": "Expoは、モバイル開発者向けのフルスタックReact Nativeフレームワークであり、クリーンでプロフェッショナルなインターフェースを特徴とする。デザインは、高コントラストの白と黒のカラーパレット（#1C2024 on #FFFFFF）と、控えめなアクセントブルー（#0090FF）を基盤とする。本文および表示テキストにはInter、コードにはモノスペースフォントを使用する。主要なデザインルール：十分な余白を確保し、ピル型ボタンを採用し、複雑な装飾要素を避ける。トーンは直接的で開発者目線のものとし、明確で太字のヘッドラインを用いる。このDNAは、プレミアムでツールに焦点を当てたSaaSの美学を表している。"
+    },
+    "ko": {
+      "identity": {
+        "keywords": [
+          "개발자",
+          "프레임워크",
+          "모바일",
+          "클라우드",
+          "인프라"
+        ],
+        "analogy": "현대적인 모바일 애플리케이션 구축을 위한 건설 팀의 신뢰할 수 있는 도구 모음입니다.",
+        "oneLiner": "클라우드 서비스를 갖춘 풀스택 React Native 프레임워크입니다."
+      },
+      "colors": {
+        "principle": "활성 상태를 위한 미묘한 블루 악센트가 있는 고대비 흑백입니다."
+      },
+      "typography": {
+        "rules": [
+          "모든 디스플레이 및 본문 텍스트에 Inter를 사용합니다.",
+          "코드 스니펫 및 기술 레이블에는 JetBrains Mono를 사용합니다.",
+          "단단하고 현대적인 느낌을 위해 라인 높이를 타이트하게(1.0-1.4) 유지합니다."
+        ],
+        "scaleUses": [
+          "히어로 헤드라인",
+          "부제목",
+          "본문 텍스트"
+        ]
+      },
+      "spacing": {
+        "rhythm": "히어로 섹션에 넉넉한 여백을 두어 일관된 4px 기본 간격을 사용합니다."
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 5px 10px 0px rgba(0, 0, 0, 0.05)",
+          "0px 15px 25px 0px rgba(0, 0, 0, 0.12)"
+        ],
+        "borders": "1px solid #E0E1E6"
+      },
+      "layout": {
+        "skeleton": "히어로를 위한 단일 컬럼 중앙 정렬 레이아웃에서 기능을 위한 다중 컬럼 그리드로 전환됩니다."
+      },
+      "components": {
+        "button": "검정색으로 채워진 둥근 형태의 기본 버튼과 윤곽선이 있는 둥근 형태의 보조 버튼입니다.",
+        "card": "미묘한 테두리와 부드러운 둥근 모서리가 있는 흰색 배경입니다.",
+        "chip": "얇은 테두리와 함께 미묘한 배경 채움입니다.",
+        "input": "명확한 focus 상태가 있는 둥근 직사각형입니다.",
+        "hero": "그라데이션이나 미묘한 배경 패턴을 사용하는 크고 중앙 정렬된 텍스트입니다."
+      },
+      "motion": {
+        "patterns": [
+          "색상 및 배경 변경에 대한 부드러운 전환입니다.",
+          "hover 시 미묘한 불투명도 및 변환 애니메이션입니다."
+        ]
+      },
+      "interaction": {
+        "hover": "미묘한 배경색 또는 텍스트색 변경입니다.",
+        "click": "크기 또는 불투명도 피드백입니다.",
+        "transition": "인터랙티브 요소를 위한 빠른(150ms) 전환입니다.",
+        "keyboard": "표준 focus 윤곽선입니다."
+      },
+      "voice": {
+        "tone": "전문적이고 명료하며 개발자 중심적입니다.",
+        "headlineStyle": "크고, 굵으며, 단호한 어조입니다.",
+        "ctaStyle": "직접적이며 행동을 유도하는 어조입니다.",
+        "avoid": [
+          "전문 용어",
+          "과장",
+          "허세"
+        ]
+      },
+      "donts": [
+        "메인 레이아웃에 어두운 배경을 사용하지 마세요 — 스크린샷은 깔끔한 화이트 테마를 보여줍니다.",
+        "헤드라인에 장식용 세리프를 사용하지 마세요 — 스크린샷은 깔끔한 휴머니스트 산세리프를 보여줍니다.",
+        "다양한 밝은 색상을 사용하지 마세요 — 스크린샷은 흑백과 단일 블루 악센트에 의존합니다.",
+        "버튼에 날카롭고 네모난 모서리를 사용하지 마세요 — 스크린샷은 둥근 또는 둥근 형태의 버튼을 보여줍니다.",
+        "히어로 섹션을 과도하게 채우지 마세요 — 스크린샷은 충분한 수직 여백을 유지합니다.",
+        "복잡하거나 지나치게 바쁜 배경 패턴을 사용하지 마세요 — 스크린샷은 매우 미묘한 도트 그리드 또는 연한 그라데이션을 사용합니다."
+      ],
+      "systemPrompt": "Expo는 모바일 개발자를 위한 풀스택 React Native 프레임워크로, 깔끔하고 전문적인 인터페이스를 특징으로 합니다. 이 디자인은 고대비 흑백 팔레트(#1C2024 on #FFFFFF)와 미묘한 블루 악센트(#0090FF)에 기반합니다. 본문 및 디스플레이 텍스트에는 Inter를, 코드에는 모노스페이스 폰트를 사용합니다. 핵심 디자인 규칙: 넉넉한 여백 유지, 둥근 형태 버튼 사용, 복잡한 장식 요소 피하기. 어조는 직접적이며 개발자 중심적이고, 헤드라인은 명료하고 굵습니다. 이 DNA는 프리미엄, 도구 중심의 SaaS 미학을 대표합니다."
     }
   }
 }

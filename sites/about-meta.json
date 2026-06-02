@@ -17,44 +17,67 @@
   "_meta": {
     "vision_model": "mimo-v2.5",
     "vision_prompt_version": "0.3",
-    "vision_at": "2026-05-28T21:28:20+00:00",
-    "vision_tokens": 3196,
-    "vision_cost_usd": 0.0355,
+    "vision_at": "2026-05-31T03:10:32+00:00",
+    "vision_tokens": 16828,
+    "vision_cost_usd": 0.187,
     "translation_model": "mimo-v2.5",
-    "translation_at": "2026-05-28T21:29:11+00:00",
-    "translation_tokens": 14659,
-    "translation_cost_usd": 0.0489,
+    "translation_at": "2026-05-31T03:11:18+00:00",
+    "translation_tokens": 23927,
+    "translation_cost_usd": 0.0798,
     "narrative_model": "mimo-v2.5",
     "narrative_prompt_version": "0.3",
     "narrative_at": "2026-05-28T21:29:20+00:00",
     "narrative_tokens": 1804,
     "narrative_cost_usd": 0.012,
     "narrative_status": "ok",
-    "total_cost_usd": 0.0964
+    "total_cost_usd": 0.2788,
+    "vision_source": "playwright-extract:about-meta",
+    "vision_grounded": true
   },
   "spec": {
     "colors": {
-      "bg": "#E0F4FF",
-      "bgSoft": null,
+      "bg": "#FFFFFF",
+      "bgSoft": "#F8F9FB",
       "bgQuiet": null,
-      "ink": "#000000",
-      "inkSoft": null,
-      "muted": "#6C6C6C",
+      "ink": "#1C1E21",
+      "inkSoft": "#1C2B33",
+      "muted": "#385898",
       "mutedSoft": null,
       "accent": "#0064E0",
-      "line": "rgba(0,0,0,0.1)"
+      "line": "rgba(28,30,33,1.0)"
     },
     "typography": {
       "display": "geometric-sans",
-      "body": "geometric-sans",
+      "body": "humanist-sans",
       "mono": null,
       "scale": [
         {
           "token": "display",
-          "size": 56,
-          "lh": 1.1,
+          "size": 48,
+          "lh": 1.2,
           "weight": 500,
-          "ls": "-0.02em"
+          "ls": "-0.14px"
+        },
+        {
+          "token": "headline",
+          "size": 36,
+          "lh": 1.2,
+          "weight": 500,
+          "ls": "-0.48px"
+        },
+        {
+          "token": "body",
+          "size": 18,
+          "lh": 1.44,
+          "weight": 400,
+          "ls": "0.08px"
+        },
+        {
+          "token": "small",
+          "size": 14,
+          "lh": 1.43,
+          "weight": 400,
+          "ls": "0.08px"
         }
       ]
     },
@@ -63,20 +86,23 @@
       "scale": [
         4,
         8,
+        12,
         16,
         24,
         32,
         48,
         64,
-        96
+        72,
+        96,
+        160
       ]
     },
     "surfaces": {
       "radius": {
         "sm": 4,
-        "md": 8,
-        "lg": 16,
-        "pill": 999
+        "md": 24,
+        "lg": 32,
+        "pill": 100
       }
     },
     "layout": {
@@ -91,372 +117,20 @@
     },
     "motion": {
       "durations": {
-        "micro": 220,
-        "small": 400,
+        "micro": 200,
+        "small": 333,
         "medium": 800
       },
-      "easing": "cubic-bezier(0.25, 0.1, 0.25, 1)"
-    }
-  },
-  "spec_i18n": {
-    "en": {
-      "identity": {
-        "keywords": [
-          "connection",
-          "future",
-          "human",
-          "scale",
-          "corporate"
-        ],
-        "analogy": "a modern, expansive tech conglomerate",
-        "oneLiner": "A futuristic, high-scale corporate presence focused on human connection."
-      },
-      "colors": {
-        "principle": "Soft, expansive pastel gradients with high-contrast dark typography and a single vibrant blue accent."
-      },
-      "typography": {
-        "rules": [],
-        "scaleUses": [
-          "Main headline"
-        ]
-      },
-      "spacing": {
-        "rhythm": "generous whitespace to emphasize scale and openness"
-      },
-      "surfaces": {
-        "shadows": [],
-        "borders": "none visible"
-      },
-      "layout": {
-        "skeleton": "full-screen, immersive hero with central content and floating elements"
-      },
-      "components": {
-        "button": "pill-shaped, solid blue background, white text",
-        "card": "rounded corners, likely clean with subtle borders or shadows",
-        "chip": null,
-        "input": null,
-        "hero": "immersive, full-viewport gradient background with a central text block and floating elements at the edges"
-      },
-      "motion": {
-        "patterns": [
-          "subtle background animations",
-          "floating UI elements"
-        ]
-      },
-      "interaction": {
-        "hover": "subtle scale or color shift on interactive elements",
-        "click": "immediate visual feedback",
-        "transition": "smooth color and position changes",
-        "keyboard": "standard focus indicators"
-      },
-      "voice": {
-        "tone": "visionary, corporate, optimistic",
-        "headlineStyle": "bold, direct statements about the future",
-        "ctaStyle": "simple, action-oriented, pill-shaped",
-        "avoid": [
-          "aggressive sales language",
-          "cluttered layouts",
-          "dense text blocks"
-        ]
-      },
-      "donts": [
-        "don't use sharp, rectangular buttons — screenshot shows pill-shaped buttons",
-        "don't use harsh, solid backgrounds — screenshot shows soft, expansive pastel gradients",
-        "don't use decorative, serif typography — screenshot shows clean, geometric sans-serif fonts",
-        "don't use dark backgrounds as primary — screenshot shows light, airy pastel backgrounds",
-        "don't clutter the interface with many elements — screenshot shows generous whitespace",
-        "don't use multiple competing accent colors — screenshot shows a single dominant blue accent"
-      ],
-      "systemPrompt": "Design a futuristic, expansive corporate website for a major technology conglomerate focused on human connection. Use soft, expansive pastel gradients (like #E0F4FF) for backgrounds, with high-contrast dark typography (#000000) and a single vibrant blue accent (#0064E0). Typography should be clean, geometric sans-serif, with bold display fonts for visionary headlines. Layouts must be highly spacious, with generous whitespace and pill-shaped UI elements. Critical constraints: never use harsh, solid backgrounds; avoid sharp, rectangular buttons; never use dense text blocks or cluttered interfaces. The overall tone should be visionary, optimistic, and grand in scale."
-    },
-    "zh-CN": {
-      "identity": {
-        "keywords": [
-          "连接",
-          "未来",
-          "人性",
-          "规模",
-          "企业"
-        ],
-        "analogy": "一家现代、视野开阔的科技集团",
-        "oneLiner": "一个聚焦于人性化连接的未来感、大规模企业形象。"
-      },
-      "colors": {
-        "principle": "柔和、开阔的马卡龙渐变，搭配高对比度的深色字体和单一的亮蓝色强调色。"
-      },
-      "typography": {
-        "rules": [],
-        "scaleUses": [
-          "主标题"
-        ]
-      },
-      "spacing": {
-        "rhythm": "充裕的留白以强调规模与开放感"
-      },
-      "surfaces": {
-        "shadows": [],
-        "borders": "无可见边框"
-      },
-      "layout": {
-        "skeleton": "全屏沉浸式首屏，内容居中，两侧浮动元素"
-      },
-      "components": {
-        "button": "胶囊形状，纯蓝色背景，白色文字",
-        "card": "圆角，风格简洁，带细微边框或阴影",
-        "chip": null,
-        "input": null,
-        "hero": "沉浸式全视口渐变背景，中央文本块，两侧浮动元素"
-      },
-      "motion": {
-        "patterns": [
-          "细腻的背景动画",
-          "浮动UI元素"
-        ]
-      },
-      "interaction": {
-        "hover": "交互元素在 hover 时有细微的缩放或颜色变化",
-        "click": "即时视觉反馈",
-        "transition": "流畅的颜色与位置变化",
-        "keyboard": "标准的 focus 指示器"
-      },
-      "voice": {
-        "tone": "富有远见、企业感、乐观向上",
-        "headlineStyle": "粗体、直接的关于未来的陈述",
-        "ctaStyle": "简洁、行动导向、胶囊形状",
-        "avoid": [
-          "激进的销售语言",
-          "杂乱的布局",
-          "密集的文本块"
-        ]
-      },
-      "donts": [
-        "不要使用尖锐的矩形按钮——截图显示为胶囊形状按钮",
-        "不要使用生硬的纯色背景——截图显示为柔和、开阔的马卡龙渐变",
-        "不要使用装饰性、衬线字体——截图显示为简洁、几何感的无衬线字体",
-        "不要以深色背景为主——截图显示为明亮、通透的浅色背景",
-        "不要用过多元素使界面拥挤——截图显示留白充裕",
-        "不要使用多个相互竞争的强调色——截图显示为单一主导的蓝色强调色"
-      ],
-      "systemPrompt": "为一个聚焦于人性化连接的大型科技集团设计一个未来感、视野开阔的企业网站。使用柔和、开阔的马卡龙渐变（如 #E0F4FF）作为背景，搭配高对比度的深色字体（#000000）和单一的亮蓝色强调色（#0064E0）。字体应为简洁、几何感的无衬线字体，用于展示富有远见的标题时使用粗体。布局必须非常开阔，留白充裕，并使用胶囊形状的UI元素。关键约束：绝不要使用生硬的纯色背景；避免使用尖锐的矩形按钮；绝不要使用密集的文本块或杂乱的界面。整体语调应富有远见、乐观且气势恢宏。"
-    },
-    "zh-TW": {
-      "identity": {
-        "keywords": [
-          "連結",
-          "未來",
-          "人性化",
-          "規模",
-          "企業"
-        ],
-        "analogy": "一個現代、具擴張性的科技集團",
-        "oneLiner": "聚焦於人性化連結的未來感、大規模企業形象。"
-      },
-      "colors": {
-        "principle": "採用柔和、寬廣的粉彩漸層，搭配高對比的深色排版，並以單一鮮明的藍色作為強調色。"
-      },
-      "typography": {
-        "rules": [],
-        "scaleUses": [
-          "主要標題"
-        ]
-      },
-      "spacing": {
-        "rhythm": "以寬裕的留白強調規模感與開放性"
-      },
-      "surfaces": {
-        "shadows": [],
-        "borders": "無可見邊框"
-      },
-      "layout": {
-        "skeleton": "全螢幕沉浸式首頁，內容置中並搭配浮動元素"
-      },
-      "components": {
-        "button": "膠囊造型、實心藍色背景、白色文字",
-        "card": "圓角設計，可能帶有細微邊框或陰影，風格簡潔",
-        "chip": null,
-        "input": null,
-        "hero": "全視窗沉浸式漸層背景，中央為文字區塊，兩側搭配浮動元素"
-      },
-      "motion": {
-        "patterns": [
-          "細微背景動畫",
-          "浮動的 UI 元素"
-        ]
-      },
-      "interaction": {
-        "hover": "互動元素在 hover 時有細微的縮放或顏色變化",
-        "click": "立即的視覺回饋",
-        "transition": "流暢的顏色與位置變化",
-        "keyboard": "標準的 focus 指示器"
-      },
-      "voice": {
-        "tone": "具遠見、企業感、樂觀",
-        "headlineStyle": "大膽、直接的未來主義陳述",
-        "ctaStyle": "簡潔、以行動為導向、膠囊造型",
-        "avoid": [
-          "具侵略性的銷售語言",
-          "雜亂的佈局",
-          "密集的文字區塊"
-        ]
-      },
-      "donts": [
-        "避免使用尖銳的方形按鈕 — 截圖顯示的是膠囊造型按鈕",
-        "避免使用生硬的實色背景 — 截圖顯示的是柔和、寬廣的粉彩漸層",
-        "避免使用裝飾性的襯線字體 — 截圖顯示的是簡潔的幾何無襯線字體",
-        "避免使用深色背景作為主要背景 — 截圖顯示的是明亮、輕盈的粉彩背景",
-        "避免在介面上堆疊過多元素 — 截圖顯示的是寬裕的留白",
-        "避免使用多個競爭的強調色 — 截圖顯示的是單一主導的藍色強調色"
-      ],
-      "systemPrompt": "Design a futuristic, expansive corporate website for a major technology conglomerate focused on human connection. Use soft, expansive pastel gradients (like #E0F4FF) for backgrounds, with high-contrast dark typography (#000000) and a single vibrant blue accent (#0064E0). Typography should be clean, geometric sans-serif, with bold display fonts for visionary headlines. Layouts must be highly spacious, with generous whitespace and pill-shaped UI elements. Critical constraints: never use harsh, solid backgrounds; avoid sharp, rectangular buttons; never use dense text blocks or cluttered interfaces. The overall tone should be visionary, optimistic, and grand in scale."
-    },
-    "ja": {
-      "identity": {
-        "keywords": [
-          "つながり",
-          "未来",
-          "ヒューマン",
-          "スケール",
-          "コーポレート"
-        ],
-        "analogy": "モダンで広大なテクノロジー・コングロマリット",
-        "oneLiner": "ヒューマン・コネクションに焦点を当てた、未来的で大規模なコーポレート・プレゼンス。"
-      },
-      "colors": {
-        "principle": "柔らかく広がりのあるパステルグラデーション、高コントラストの暗いタイポグラフィ、単一の鮮やかなブルーアクセント。"
-      },
-      "typography": {
-        "rules": [],
-        "scaleUses": [
-          "メイン見出し"
-        ]
-      },
-      "spacing": {
-        "rhythm": "スケールと開放感を強調する豊かな余白"
-      },
-      "surfaces": {
-        "shadows": [],
-        "borders": "none visible"
-      },
-      "layout": {
-        "skeleton": "中央コンテンツとフローティング要素を備えた、フルスクリーンで没入感のあるヒーロー"
-      },
-      "components": {
-        "button": "ピル型、ソリッドなブルーバックグラウンド、ホワイトテキスト",
-        "card": "角丸、繊細なボーダーやシャドウを伴うクリーンなデザイン",
-        "chip": null,
-        "input": null,
-        "hero": "フルビューポートの没入感あるグラデーション背景に、中央テキストブロックとエッジのフローティング要素"
-      },
-      "motion": {
-        "patterns": [
-          "繊細な背景アニメーション",
-          "フローティングUI要素"
-        ]
-      },
-      "interaction": {
-        "hover": "インタラクティブ要素の繊細なスケールや色のシフト",
-        "click": "即座のビジュアルフィードバック",
-        "transition": "色と位置のスムーズな変化",
-        "keyboard": "標準的なfocusインジケーター"
-      },
-      "voice": {
-        "tone": "ビジョナリー、コーポレート、楽観的",
-        "headlineStyle": "未来についての大胆で率直な声明",
-        "ctaStyle": "シンプル、行動志向、ピル型",
-        "avoid": [
-          "アグレッシブなセールス言語",
-          "散らかったレイアウト",
-          "密度の高いテキストブロック"
-        ]
-      },
-      "donts": [
-        "鋭角な長方形のボタンを使用しない — スクリーンショットはピル型ボタンを示しています",
-        "ハードでソリッドなバックグラウンドを使用しない — スクリーンショットは柔らかく広がりのあるパステルグラデーションを示しています",
-        "装飾的なセリフ体タイポグラフィを使用しない — スクリーンショットはクリーンで幾何学的なサンセリフフォントを示しています",
-        "暗いバックグラウンドをプライマリに使用しない — スクリーンショットは明るく、空気感のあるパステル背景を示しています",
-        "多くの要素でインタフェースを雑然としない — スクリーンショットは豊かな余白を示しています",
-        "複数の競合するアクセントカラーを使用しない — スクリーンショットは単一の支配的なブルーアクセントを示しています"
-      ],
-      "systemPrompt": "ヒューマン・コネクションに焦点を当てた、大手テクノロジー・コングロマリットのための、未来的で広大なコーポレート・ウェブサイトをデザインしてください。バックグラウンドには柔らかく広がりのあるパステルグラデーション（#E0F4FFなど）を使用し、高コントラストの暗いタイポグラフィ（#000000）と単一の鮮やかなブルーアクセント（#0064E0）を採用します。タイポグラフィはクリーンで幾何学的なサンセリフを基調とし、ビジョナリーな見出しには大胆なディスプレイフォントを。レイアウトは非常にスパーシュousで、豊かな余白とピル型UI要素を備えること。重要な制約：ハードでソリッドなバックグラウンドは決して使用せず；鋭角な長方形のボタンは避け；密度の高いテキストブロックや雑然としたインタフェースは決して使用しないこと。全体的なトーンはビジョナリーで、楽観的かつ壮大なスケール感を持つものであること。"
-    },
-    "ko": {
-      "identity": {
-        "keywords": [
-          "연결",
-          "미래",
-          "인간",
-          "규모",
-          "기업"
-        ],
-        "analogy": "현대적이고 넓은 기술 대기업",
-        "oneLiner": "인간적 연결에 초점을 맞춘 미래지향적이고 대규모의 기업 프레즌스입니다."
-      },
-      "colors": {
-        "principle": "부드럽고 넓은 파스텔 그라데이션, 고대비 어두운 타이포그래피, 단일의 선명한 블루 액센트를 사용합니다."
-      },
-      "typography": {
-        "rules": [],
-        "scaleUses": [
-          "메인 헤드라인"
-        ]
-      },
-      "spacing": {
-        "rhythm": "규모와 개방감을 강조하는 넉넉한 여백"
-      },
-      "surfaces": {
-        "shadows": [],
-        "borders": "눈에 보이는 테두리 없음"
-      },
-      "layout": {
-        "skeleton": "중앙 콘텐츠와 부유하는 요소들이 있는 전체 화면 몰입형 히어로"
-      },
-      "components": {
-        "button": "알약 모양, 단색 파란색 배경, 흰색 텍스트",
-        "card": "둥근 모서리, 은은한 테두리나 그림자가 있는 깔끔한 디자인",
-        "chip": null,
-        "input": null,
-        "hero": "중앙 텍스트 블록과 가장자리의 부유하는 요소들이 있는 몰입형, 전체 뷰포트 그라데이션 배경"
-      },
-      "motion": {
-        "patterns": [
-          "은은한 배경 애니메이션",
-          "부유하는 UI 요소"
-        ]
-      },
-      "interaction": {
-        "hover": "인터랙티브 요소에 대한 은은한 스케일 또는 색상 변화",
-        "click": "즉각적인 시각적 피드백",
-        "transition": "부드러운 색상 및 위치 변화",
-        "keyboard": "표준 focus 표시기"
-      },
-      "voice": {
-        "tone": "선구적, 기업적, 낙관적",
-        "headlineStyle": "미래에 대한 대담하고 직접적인 진술",
-        "ctaStyle": "단순하고 행동 지향적인, 알약 모양",
-        "avoid": [
-          "공격적인 판매 언어",
-          "복잡한 레이아웃",
-          "밀집된 텍스트 블록"
-        ]
-      },
-      "donts": [
-        "날카롭고 직사각형 버튼을 사용하지 마세요 — 스크린샷은 알약 모양 버튼을 보여줍니다",
-        "거칠고 단색 배경을 사용하지 마세요 — 스크린샷은 부드럽고 넓은 파스텔 그라데이션을 보여줍니다",
-        "장식적이고 세리프 타이포그래피를 사용하지 마세요 — 스크린샷은 깔끔한 기하학적 sans-serif 폰트를 보여줍니다",
-        "어두운 배경을 주요 배경으로 사용하지 마세요 — 스크린샷은 밝고 통통한 파스텔 배경을 보여줍니다",
-        "많은 요소로 인터페이스를 복잡하게 하지 마세요 — 스크린샷은 넉넉한 여백을 보여줍니다",
-        "경쟁하는 여러 액센트 색상을 사용하지 마세요 — 스크린샷은 단일의 지배적인 블루 액센트를 보여줍니다"
-      ],
-      "systemPrompt": "인간적 연결에 초점을 맞춘 주요 기술 대기업을 위한 미래지향적이고 넓은 기업 웹사이트를 설계하세요. 배경에 부드럽고 넓은 파스텔 그라데이션(예: #E0F4FF)을 사용하고, 고대비 어두운 타이포그래피(#000000)와 단일의 선명한 블루 액센트(#0064E0)를 사용하세요. 타이포그래피는 깔끔한 기하학적 sans-serif여야 하며, 선구적인 헤드라인에는 굵은 디스플레이 폰트를 사용하세요. 레이아웃은 매우 넉넉해야 하며, 여백이 넉넉하고 알약 모양의 UI 요소를 사용하세요. 핵심 제약 조건: 절대 거칠고 단색 배경을 사용하지 마세요; 날카롭고 직사각형 버튼을 피하세요; 밀집된 텍스트 블록이나 복잡한 인터페이스를 사용하지 마세요. 전반적인 어조는 선구적이고, 낙관적이며, 규모가 커야 합니다."
+      "easing": "cubic-bezier(0.53, 0, 0.28, 1)"
     }
   },
   "desc": {
     "en": {
-      "palette": "A soft, expansive pastel gradient background dominated by light blue with subtle hints of pink and green, contrasted by dark text and a single vibrant blue accent.",
-      "layout": "Full-viewport, immersive hero layout with central content and generous whitespace, featuring floating elements at the edges.",
-      "interaction": "Clean, focused interactions on a minimal set of elements, with standard hover and click feedback.",
-      "motion": "Subtle background animations and smooth transitions for a modern, fluid feel.",
-      "notes": "Worth including as a prime example of modern, high-scale corporate branding using expansive gradients and generous whitespace to convey a future-oriented vision."
+      "palette": "A clean corporate palette dominated by white and light gray, punctuated by a vibrant brand blue accent and colorful lifestyle photography.",
+      "layout": "The layout features a full-width immersive hero section with floating images followed by a structured 3-column card grid for news and features.",
+      "interaction": "Interactive elements like buttons and links feature smooth background and opacity transitions, typically around 0.2 to 0.3 seconds.",
+      "motion": "The design utilizes subtle easing curves (cubic-bezier(0.53, 0, 0.28, 1)) for micro-interactions on buttons and links.",
+      "notes": "The site is worth including for its sophisticated blend of corporate branding and expressive, human-centric photography with bold, clear typography."
     },
     "zh-CN": {
       "palette": "柔和、开阔的马卡龙渐变背景，以浅蓝为主，点缀淡粉与浅绿，搭配深色文字和单一的亮蓝色强调色。",
@@ -547,6 +221,378 @@
       "ch7_intro": "모션은 대기적이고 목적 지향적이며, 주로 시스템의 깊이감과 유동성을 강화합니다. 배경은 미묘하게 변화하고 UI 요소는 장식적이지 않고 환경에 본질적으로 느껴지도록 매끄럽고 자연스러운 전환으로 움직입니다.",
       "ch8_intro": "에디토리얼 음성은 비전적이고 직설적이며, 기업적인 명확함으로 미래에 대한 대담하고 낙관적인 진술을 만듭니다. 혼잡함과 밀도 높은 논쟁을 피하고, 대신 넉넉한 레이아웃과 명확한 행동 유도를 사용하여 자신감 있게 소통합니다.",
       "ch8_outro": "이 시스템은 시각적 밀도, 공격적인 설득, 장식적 복잡성을 의도적으로 포기하고 넉넉한 명확성을 대신 선택합니다."
+    }
+  },
+  "spec_i18n": {
+    "en": {
+      "identity": {
+        "keywords": [
+          "connectivity",
+          "future",
+          "human",
+          "innovation",
+          "social"
+        ],
+        "analogy": "A polished glass and steel campus where photography and technology meet.",
+        "oneLiner": "A premium corporate identity showcasing human connection through immersive photography."
+      },
+      "colors": {
+        "principle": "High-contrast brand blue against neutral corporate grays and vibrant lifestyle photography."
+      },
+      "typography": {
+        "rules": [
+          "Use Optimistic Display for primary headlines.",
+          "Use Optimistic Text for body copy and UI elements."
+        ],
+        "scaleUses": [
+          "Hero headlines",
+          "Section headers",
+          "Paragraphs and descriptions",
+          "Captions and metadata"
+        ]
+      },
+      "spacing": {
+        "rhythm": "Generous whitespace separating hero sections and card grids."
+      },
+      "surfaces": {
+        "shadows": [],
+        "borders": "1px solid rgb(28, 30, 33) on UI elements, with frequent use of white space for separation."
+      },
+      "layout": {
+        "skeleton": "Full-width hero with floating imagery followed by a 3-column card grid."
+      },
+      "components": {
+        "button": "Pill-shaped primary buttons with white text on brand blue, medium weight.",
+        "card": "Image-heavy cards with rounded corners (24px/32px) and text descriptions below.",
+        "chip": "Not prominently visible in this view.",
+        "input": "Not prominently visible in this view.",
+        "hero": "Full-width immersive section with large typography and overlapping photographic cards."
+      },
+      "motion": {
+        "patterns": [
+          "Subtle opacity and background color transitions on interactive elements."
+        ]
+      },
+      "interaction": {
+        "hover": "Background color changes on buttons and links with 0.2s ease-out transition.",
+        "click": "Subtle opacity reduction (0.3s) on clickable areas.",
+        "transition": "Transform and visibility transitions for modal or menu overlays.",
+        "keyboard": "Standard focusable elements with cursor pointer."
+      },
+      "voice": {
+        "tone": "Optimistic, visionary, and human-centric.",
+        "headlineStyle": "Large, bold, and concise statements about the future of connection.",
+        "ctaStyle": "Simple, direct commands like 'Our mission' or 'Read more'.",
+        "avoid": [
+          "Avoid overly technical jargon.",
+          "Avoid aggressive sales language."
+        ]
+      },
+      "donts": [
+        "don't use sharp, square corners — screenshot shows generous 24px and 32px radii on images and cards.",
+        "don't use a dark mode aesthetic — screenshot shows predominantly white backgrounds with vibrant photographic accents.",
+        "don't use a rigid, grid-heavy layout — screenshot shows overlapping, floating image cards in the hero section.",
+        "don't use thin, elegant serifs — screenshot shows robust, medium-weight geometric sans-serif headlines.",
+        "don't use muted, low-contrast text — screenshot shows deep charcoal text for maximum readability.",
+        "don't use small, cramped buttons — screenshot shows large, pill-shaped primary action buttons."
+      ],
+      "systemPrompt": "This site is a premium corporate portfolio showcasing Meta's technology and vision through high-quality photography and bold typography. The primary accent is brand blue (#0064E0) against a clean white and light gray (#F8F9FB) background. The typography uses a custom geometric sans-serif (Optimistic Display) for headlines and a humanist sans-serif (Optimistic Text) for body copy. Critical donts include: avoid sharp corners as cards use 24px-32px radii; avoid dark mode as the site is predominantly light; avoid rigid grids as the hero features overlapping floating images. The design prioritizes human connection and optimistic futurism."
+    },
+    "zh-CN": {
+      "identity": {
+        "keywords": [
+          "连接",
+          "未来",
+          "人文",
+          "创新",
+          "社交"
+        ],
+        "analogy": "一个光洁的玻璃与钢铁校园，摄影与技术在此交汇。",
+        "oneLiner": "一个高端的企业形象，通过沉浸式摄影展现人与人的连接。"
+      },
+      "colors": {
+        "principle": "高对比度的品牌蓝，搭配中性的企业灰与生动的生活方式摄影。"
+      },
+      "typography": {
+        "rules": [
+          "主标题使用 Optimistic Display 字体。",
+          "正文及界面元素使用 Optimistic Text 字体。"
+        ],
+        "scaleUses": [
+          "主视觉标题",
+          "章节标题",
+          "段落与描述",
+          "说明文字与元数据"
+        ]
+      },
+      "spacing": {
+        "rhythm": "主视觉区域与卡片网格之间，采用充裕的留白进行分隔。"
+      },
+      "surfaces": {
+        "shadows": [],
+        "borders": "界面元素采用 1px solid rgb(28, 30, 33) 边框，并频繁使用留白进行分隔。"
+      },
+      "layout": {
+        "skeleton": "全宽主视觉区域，搭配悬浮图片，后接三列卡片网格。"
+      },
+      "components": {
+        "button": "圆润的主按钮，白色文字搭配品牌蓝，使用中等字重。",
+        "card": "以图片为主的卡片，圆角（24px/32px），文字描述位于下方。",
+        "chip": "在此视图中不突出显示。",
+        "input": "在此视图中不突出显示。",
+        "hero": "全宽沉浸式区域，搭配大字号排版与重叠的摄影卡片。"
+      },
+      "motion": {
+        "patterns": [
+          "交互元素采用细微的不透明度与背景色过渡。"
+        ]
+      },
+      "interaction": {
+        "hover": "按钮与链接的背景色变化，采用 0.2s ease-out 过渡。",
+        "click": "可点击区域采用细微的不透明度降低（0.3s）。",
+        "transition": "模态框或菜单叠加层采用变换与可见性过渡。",
+        "keyboard": "标准的可聚焦元素，使用 cursor pointer。"
+      },
+      "voice": {
+        "tone": "乐观、富有远见、以人为本。",
+        "headlineStyle": "关于连接未来的大型、加粗、简洁陈述。",
+        "ctaStyle": "简单直接的指令，如“我们的使命”或“了解更多”。",
+        "avoid": [
+          "避免使用过于技术性的术语。",
+          "避免使用攻击性的销售语言。"
+        ]
+      },
+      "donts": [
+        "避免使用尖锐的方角——截图显示图片和卡片采用充裕的 24px 和 32px 圆角。",
+        "避免使用深色模式美学——截图显示以白色背景为主，搭配生动的摄影点缀。",
+        "避免使用僵化、依赖网格的布局——截图显示主视觉区域采用重叠、悬浮的图片卡片。",
+        "避免使用纤细、优雅的衬线字体——截图显示主标题采用稳健、中等字重的几何无衬线字体。",
+        "避免使用柔和、低对比度的文字——截图显示采用深炭灰色文字以获得最佳可读性。",
+        "避免使用小而局促的按钮——截图显示采用大型、圆润的主操作按钮。"
+      ],
+      "systemPrompt": "本站是一个高端的企业作品集，通过高质量摄影和大胆排版展现 Meta 的技术与愿景。主要强调色是品牌蓝（#0064E0），搭配干净的白色和浅灰色（#F8F9FB）背景。字体排版使用定制的几何无衬线字体（Optimistic Display）作为标题，以及人文无衬线字体（Optimistic Text）作为正文。关键禁忌包括：避免使用尖角，因为卡片使用 24px-32px 圆角；避免深色模式，因为网站以浅色为主；避免僵化的网格布局，因为主视觉区采用重叠的悬浮图片。设计优先考虑人与人的连接和乐观的未来主义。"
+    },
+    "zh-TW": {
+      "identity": {
+        "keywords": [
+          "連結",
+          "未來",
+          "人性",
+          "創新",
+          "社會"
+        ],
+        "analogy": "一座打磨光潔的玻璃與鋼構園區，讓攝影與科技在此交會。",
+        "oneLiner": "一個優質的企業識別系統，透過沉浸式攝影展現人與人的連結。"
+      },
+      "colors": {
+        "principle": "以高對比的品牌藍為主調，搭配中性的企業灰與充滿活力的生活攝影。"
+      },
+      "typography": {
+        "rules": [
+          "使用 Optimistic Display 作為主要標題字體。",
+          "使用 Optimistic Text 作為內文與介面元素字體。"
+        ],
+        "scaleUses": [
+          "首頁巨幅標題",
+          "章節標題",
+          "段落與描述",
+          "說明文字與中繼資料"
+        ]
+      },
+      "spacing": {
+        "rhythm": "以充裕的留白，分隔首頁巨幅區域與卡片網格。"
+      },
+      "surfaces": {
+        "shadows": [],
+        "borders": "介面元素採用 1px solid rgb(28, 30, 33) 邊框，並頻繁使用留白作為區隔。"
+      },
+      "layout": {
+        "skeleton": "採用全幅首頁巨幅區塊搭配浮動影像，其後為三欄卡片網格。"
+      },
+      "components": {
+        "button": "藥丸形主要按鈕，採用白色文字搭配品牌藍底色，字重適中。",
+        "card": "影像導向的卡片，具有圓角（24px/32px），文字描述置於下方。",
+        "chip": "在此視圖中未明顯呈現。",
+        "input": "在此視圖中未明顯呈現。",
+        "hero": "全幅沉浸式區塊，搭配大型排版與重疊的攝影卡片。"
+      },
+      "motion": {
+        "patterns": [
+          "互動元素上有細微的透明度與背景色轉場效果。"
+        ]
+      },
+      "interaction": {
+        "hover": "按鈕與連結的背景色變換，採用 0.2s ease-out 轉場。",
+        "click": "可點擊區域有細微的透明度降低（0.3s）。",
+        "transition": "彈出視窗或選單疊加層的變換與可見性轉場。",
+        "keyboard": "標準的可聚焦元素，游標顯示為 pointer。"
+      },
+      "voice": {
+        "tone": "樂觀、具遠見、且以人為本。",
+        "headlineStyle": "大型、粗體且簡潔的陳述，描述連結的未來。",
+        "ctaStyle": "簡單直接的指令，例如「我們的使命」或「閱讀更多」。",
+        "avoid": [
+          "避免過於技術性的術語。",
+          "避免侵略性的銷售語言。"
+        ]
+      },
+      "donts": [
+        "不要使用尖銳的方形邊角 — 截圖顯示影像與卡片採用了寬鬆的 24px 和 32px 圓角。",
+        "不要使用深色模式美學 — 截圖顯示以白色背景為主，並搭配鮮明的攝影元素。",
+        "不要使用剛性、過度依賴網格的佈局 — 截圖顯示首頁巨幅區域有重疊、浮動的影像卡片。",
+        "不要使用纖細、優雅的襯線字體 — 截圖顯示採用厚實、中等字重的幾何無襯線字體作為標題。",
+        "不要使用柔和、低對比度的文字 — 截圖顯示採用深炭灰色文字以達到最佳可讀性。",
+        "不要使用狹小、擁擠的按鈕 — 截圖顯示採用大型的藥丸形主要操作按鈕。"
+      ],
+      "systemPrompt": "此網站是一個優質的企業作品集，透過高品質攝影和大膽的排版來展示 Meta 的科技與願景。主要強調色是品牌藍（#0064E0），背景為乾淨的白色與淺灰色（#F8F9FB）。排版使用自訂的幾何無襯線字體（Optimistic Display）作為標題，以及人文無襯線字體（Optimistic Text）作為內文。關鍵的禁忌包括：避免尖銳邊角，因卡片使用 24px-32px 圓角；避免深色模式，因網站主要為淺色調；避免剛性網格，因首頁巨幅區域採用重疊的浮動影像。設計優先考量人與人的連結以及樂觀的未來主義。"
+    },
+    "ja": {
+      "identity": {
+        "keywords": [
+          "接続性",
+          "未来",
+          "人間性",
+          "イノベーション",
+          "社会性"
+        ],
+        "analogy": "写真とテクノロジーが出会う、磨かれたガラスとスチールのキャンパス。",
+        "oneLiner": "没入型の写真を通じて、人間のつながりを紹介するプレミアムなコーポレートアイデンティティ。"
+      },
+      "colors": {
+        "principle": "中立的なコーポレートグレーと鮮やかなライフスタイル写真に対し、ハイコントラストのブランドブルーを採用。"
+      },
+      "typography": {
+        "rules": [
+          " primaries な見出しには Optimistic Display を使用する。",
+          "本文コピーおよびUI要素には Optimistic Text を使用する。"
+        ],
+        "scaleUses": [
+          "ヒーロー見出し",
+          "セクション見出し",
+          "段落および説明文",
+          "キャプションおよびメタデータ"
+        ]
+      },
+      "spacing": {
+        "rhythm": "ヒーローセクションとカードグリッドを分かつ、贅沢な余白。"
+      },
+      "surfaces": {
+        "shadows": [],
+        "borders": "UI要素には1px solid rgb(28, 30, 33)のボーダーを適用し、区切りとしてホワイトスペースを多用する。"
+      },
+      "layout": {
+        "skeleton": "フルワイドのヒーローセクションにフローティングイメージを配置し、その下に3カラムのカードグリッドを展開。"
+      },
+      "components": {
+        "button": "ブランドブルー地に白文字の、ミドルウェイトなピルシェイプ（錠剤型）プライマリボタン。",
+        "card": "角丸（24px/32px）で画像を大きく扱い、下にテキスト説明を配置したカード。",
+        "chip": "このビューでは顕著には表示されない。",
+        "input": "このビューでは顕著には表示されない。",
+        "hero": "大きなタイポグラフィと重なる写真カードを配した、フルワイドの没入型セクション。"
+      },
+      "motion": {
+        "patterns": [
+          "インタラクティブ要素に対する、微妙な不透明度および背景色のトランジション。"
+        ]
+      },
+      "interaction": {
+        "hover": "ボタンおよびリンクに対し、背景色を0.2sのease-outトランジションで変化させる。",
+        "click": "クリック可能な領域に対し、微妙に不透明度を下げる（0.3s）。",
+        "transition": "モーメントルまたはメニューオーバーレイに対する、Transformおよび可視性のトランジション。",
+        "keyboard": "カーソルをポインタにし、標準的なフォーカス可能な要素を実現する。"
+      },
+      "voice": {
+        "tone": "楽観的、未来志向、そして人間中心的。",
+        "headlineStyle": "接続の未来についての、大きく、太く、簡潔な主張。",
+        "ctaStyle": "「Our mission」や「Read more」のように、シンプルで直接的な命令形。",
+        "avoid": [
+          "過度に技術的な専門用語を避ける。",
+          "攻撃的な販売用語を避ける。"
+        ]
+      },
+      "donts": [
+        "シャープで四角い角を使用しない — スクリーンショットでは画像やカードに24pxおよび32pxの大きな角丸が使用されている。",
+        "ダークモードの美学を使用しない — スクリーンショットでは白を基調とし、鮮やかな写真アクセントが施されている。",
+        "硬直した、グリッド過多のレイアウトを使用しない — スクリーンショットではヒーローセクションに重なるフローティング画像カードが使用されている。",
+        "細く、エレガントなセリフを使用しない — スクリーンショットでは、頑丈でミドルウェイトのジオメトリックサンセリフの見出しが使用されている。",
+        "くすんだ、低コントラストのテキストを使用しない — スクリーンショットでは最大限の可読性のために、深いチャコール色のテキストが使用されている。",
+        "小さく、窮屈なボタンを使用しない — スクリーンショットでは大きく、ピルシェイプのプライマリアクションボタンが使用されている。"
+      ],
+      "systemPrompt": "このサイトは、Metaのテクノロジーとビジョンを、高品質の写真と大胆なタイポグラフィを通じて紹介するプレミアムなコーポレートポートフォリオです。プライマリアクセントは、クリーンな白およびライトグレー（#F8F9FB）の背景に対するブランドブルー（#0064E0）です。タイポグラフィには、見出しにカスタムジオメトリックサンセリフ（Optimistic Display）、本文にヒューマニストサンセリフ（Optimistic Text）が使用されています。重要な注意点として、カードは24px〜32pxの角丸を使用するためシャープな角を避け、サイトは主にライトであるためダークモードを避け、ヒーローは重なるフローティング画像を特徴とするため硬直したグリッドを避けてください。デザインは人間のつながりと楽観的な未来志向を優先しています。"
+    },
+    "ko": {
+      "identity": {
+        "keywords": [
+          "연결성",
+          "미래",
+          "인간",
+          "혁신",
+          "사회적"
+        ],
+        "analogy": "사진과 기술이 만나는, 유리와 강철로 마감된 세련된 캠퍼스.",
+        "oneLiner": "몰입형 사진을 통해 인간 연결을 보여주는 프리미엄 기업 아이덴티티."
+      },
+      "colors": {
+        "principle": "중립적인 기업용 그레이와 활기찬 라이프스타일 사진 위에 대비가 강한 브랜드 블루."
+      },
+      "typography": {
+        "rules": [
+          "주요 헤드라인에는 Optimistic Display를 사용합니다.",
+          "본문 및 UI 요소에는 Optimistic Text를 사용합니다."
+        ],
+        "scaleUses": [
+          "히어로 헤드라인",
+          "섹션 헤더",
+          "단락 및 설명",
+          "캡션 및 메타데이터"
+        ]
+      },
+      "spacing": {
+        "rhythm": "히어로 섹션과 카드 그리드를 분리하는 넉넉한 여백."
+      },
+      "surfaces": {
+        "shadows": [],
+        "borders": "UI 요소에는 1px solid rgb(28, 30, 33) 테두리를 사용하며, 분리를 위해 여백을 자주 활용합니다."
+      },
+      "layout": {
+        "skeleton": "전체 너비 히어로와 떠 있는 이미지, 그 다음 3열 카드 그리드."
+      },
+      "components": {
+        "button": "브랜드 블루 배경에 흰색 텍스트를 넣은 알약 형태의 주요 버튼으로, 중간 두께입니다.",
+        "card": "둥근 모서리(24px/32px)를 가진 이미지 중심 카드로, 하단에 텍스트 설명이 있습니다.",
+        "chip": "이 뷰에서는 두드러지게 보이지 않습니다.",
+        "input": "이 뷰에서는 두드러지게 보이지 않습니다.",
+        "hero": "큰 타이포그래피와 겹쳐진 사진 카드가 있는 전체 너비의 몰입형 섹션."
+      },
+      "motion": {
+        "patterns": [
+          "인터랙티브 요소에 미세한 불투명도 및 배경색 전환 효과."
+        ]
+      },
+      "interaction": {
+        "hover": "버튼과 링크의 배경색이 0.2s ease-out 트랜지션으로 변경됩니다.",
+        "click": "클릭 가능한 영역에 미세한 불투명도 감소(0.3s).",
+        "transition": "모달이나 메뉴 오버레이를 위한 Transform 및 가시성 전환.",
+        "keyboard": "커서 포인터를 가진 표준 포커스 가능 요소."
+      },
+      "voice": {
+        "tone": "낙관적이고, 비전을 제시하며, 인간 중심적입니다.",
+        "headlineStyle": "미래의 연결에 대한 크고, 굵고, 간결한 진술.",
+        "ctaStyle": "'Our mission'이나 'Read more'와 같이 단순하고 직접적인 명령.",
+        "avoid": [
+          "지나치게 기술적인 전문 용어를 피합니다.",
+          "공격적인 영업 언어를 피합니다."
+        ]
+      },
+      "donts": [
+        "날카로운 직사각형 모서리를 사용하지 않습니다 — 스크린샷에서 이미지와 카드에 넉넉한 24px 및 32px 반경이 사용된 것을 보여줍니다.",
+        "다크 모드 미학을 사용하지 않습니다 — 스크린샷에서 주로 흰색 배경과 활기찬 사진 액센트를 보여줍니다.",
+        "단단하고 그리드 중심의 레이아웃을 사용하지 않습니다 — 스크린샷에서 히어로 섹션에 겹쳐진 떠 있는 이미지 카드를 보여줍니다.",
+        "얇고 우아한 세리프를 사용하지 않습니다 — 스크린샷에서 견고하고 중간 두께의 기하학적 산세리프 헤드라인을 보여줍니다.",
+        "희미하고 대비가 낮은 텍스트를 사용하지 않습니다 — 스크린샷에서 최대 가독성을 위해 짙은 차콜색 텍스트를 보여줍니다.",
+        "작고 비좁은 버튼을 사용하지 않습니다 — 스크린샷에서 크고 알약 형태의 주요 행동 버튼을 보여줍니다."
+      ],
+      "systemPrompt": "이 사이트는 고품질 사진과 대담한 타이포그래피를 통해 Meta의 기술과 비전을 보여주는 프리미엄 기업 포트폴리오입니다. 주요 액센트는 깨끗한 흰색과 밝은 회색(#F8F9FB) 배경 위에 브랜드 블루(#0064E0)입니다. 타이포그래피는 헤드라인에 맞춤 기하학적 산세리프(Optimistic Display), 본문에 휴머니스틱 산세리프(Optimistic Text)를 사용합니다. 주요 제약 사항으로는: 카드에 24px-32px 반경을 사용하므로 날카로운 모서리 피하기; 사이트가 주로 밝은 톤이므로 다크 모드 피하기; 히어로에 겹쳐진 떠 있는 이미지가 있으므로 단단한 그리드 피하기 등이 있습니다. 이 디자인은 인간 연결과 낙관적인 미래주의를 우선시합니다."
     }
   }
 }

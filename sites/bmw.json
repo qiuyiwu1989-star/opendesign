@@ -17,44 +17,74 @@
   "_meta": {
     "vision_model": "mimo-v2.5",
     "vision_prompt_version": "0.3",
-    "vision_at": "2026-05-28T21:55:11+00:00",
-    "vision_tokens": 3744,
-    "vision_cost_usd": 0.0416,
+    "vision_at": "2026-05-30T10:47:02+00:00",
+    "vision_tokens": 16712,
+    "vision_cost_usd": 0.1857,
     "translation_model": "mimo-v2.5",
-    "translation_at": "2026-05-28T21:55:51+00:00",
-    "translation_tokens": 14208,
-    "translation_cost_usd": 0.0475,
+    "translation_at": "2026-05-30T10:48:09+00:00",
+    "translation_tokens": 26983,
+    "translation_cost_usd": 0.0901,
     "narrative_model": "mimo-v2.5",
     "narrative_prompt_version": "0.3",
     "narrative_at": "2026-05-28T21:55:58+00:00",
     "narrative_tokens": 1781,
     "narrative_cost_usd": 0.0119,
     "narrative_status": "ok",
-    "total_cost_usd": 0.101
+    "total_cost_usd": 0.2877,
+    "vision_source": "playwright-extract:bmw",
+    "vision_grounded": true
   },
   "spec": {
     "colors": {
-      "bg": "#FFFFFF",
+      "bg": "#ffffff",
       "bgSoft": null,
       "bgQuiet": null,
-      "ink": "#333333",
+      "ink": "#414141",
       "inkSoft": null,
-      "muted": "#999999",
+      "muted": "#727171",
       "mutedSoft": null,
-      "accent": "#2B5797",
-      "line": "rgba(0, 0, 0, 0.1)"
+      "accent": "#1C69D4",
+      "line": "rgba(65, 65, 65, 0.2)"
     },
     "typography": {
-      "display": "transitional-serif",
-      "body": "transitional-serif",
+      "display": "grotesque-sans",
+      "body": "grotesque-sans",
       "mono": null,
       "scale": [
         {
           "token": "display",
-          "size": 48,
-          "lh": 1.1,
-          "weight": 700,
+          "size": 56,
+          "lh": 1.05,
+          "weight": 300,
           "ls": "-0.5px"
+        },
+        {
+          "token": "headline",
+          "size": 35,
+          "lh": 1.2,
+          "weight": 300,
+          "ls": "-0.25px"
+        },
+        {
+          "token": "body",
+          "size": 18,
+          "lh": 1.5,
+          "weight": 300,
+          "ls": "0px"
+        },
+        {
+          "token": "small",
+          "size": 15,
+          "lh": 1.6,
+          "weight": 300,
+          "ls": "0px"
+        },
+        {
+          "token": "caption",
+          "size": 12,
+          "lh": 1.35,
+          "weight": 300,
+          "ls": "0px"
         }
       ]
     },
@@ -63,6 +93,7 @@
       "scale": [
         4,
         8,
+        12,
         16,
         24,
         32,
@@ -74,13 +105,13 @@
     "surfaces": {
       "radius": {
         "sm": 0,
-        "md": 0,
-        "lg": 0,
+        "md": 2,
+        "lg": 5,
         "pill": 999
       }
     },
     "layout": {
-      "container": 1280,
+      "container": 1440,
       "paragraph": 680,
       "columns": 12,
       "gutter": 24,
@@ -91,387 +122,20 @@
     },
     "motion": {
       "durations": {
-        "micro": 220,
-        "small": 400,
-        "medium": 800
+        "micro": 100,
+        "small": 200,
+        "medium": 500
       },
-      "easing": "cubic-bezier(0.4, 0.0, 0.2, 1)"
-    }
-  },
-  "spec_i18n": {
-    "en": {
-      "identity": {
-        "keywords": [
-          "Precision",
-          "Minimalism",
-          "Elegance",
-          "Purity"
-        ],
-        "analogy": "A clean, high-end automotive badge or loading state",
-        "oneLiner": "A minimalist, starkly clean interface centered around a singular geometric motif and refined typography."
-      },
-      "colors": {
-        "principle": "High-contrast minimalism utilizing a primary white canvas with subtle metallic gradients and a single blue accent."
-      },
-      "typography": {
-        "rules": [
-          "Use a transitional serif for the primary brand mark.",
-          "Ensure generous negative space around typography."
-        ],
-        "scaleUses": [
-          "Brand mark / headline"
-        ]
-      },
-      "spacing": {
-        "rhythm": "Symmetrical centering with vast negative space"
-      },
-      "surfaces": {
-        "shadows": [
-          "0 0 0 transparent"
-        ],
-        "borders": "None"
-      },
-      "layout": {
-        "skeleton": "Single centered column layout with absolute centering"
-      },
-      "components": {
-        "button": "None visible",
-        "card": "None visible",
-        "chip": "None visible",
-        "input": "None visible",
-        "hero": "Centered circular gradient ring acting as the primary focal point"
-      },
-      "motion": {
-        "patterns": [
-          "Subtle metallic gradients implying smooth, continuous rotation"
-        ]
-      },
-      "interaction": {
-        "hover": "None visible",
-        "click": "None visible",
-        "transition": "None visible",
-        "keyboard": "None visible"
-      },
-      "voice": {
-        "tone": "Silent, Precise, Refined",
-        "headlineStyle": "Minimalist serif with tight tracking",
-        "ctaStyle": "None visible",
-        "avoid": [
-          "Loud colors",
-          "Clutter",
-          "Skeuomorphism"
-        ]
-      },
-      "donts": [
-        "Don't use drop shadows — screenshot shows a completely flat, shadowless canvas.",
-        "Don't use vibrant, saturated backgrounds — screenshot shows a pure white background.",
-        "Don't use complex grid layouts — screenshot shows a strictly single-centered column.",
-        "Don't use playful, rounded typography — screenshot shows a refined transitional serif.",
-        "Don't add busy patterns or textures — screenshot shows a completely smooth, minimalist aesthetic.",
-        "Don't use multiple competing focal points — screenshot shows a single centered circular element."
-      ],
-      "systemPrompt": "A highly minimalist, premium design system centered around a singular, precise circular motif. The palette is starkly restricted to a pure white background (#FFFFFF) with a refined transitional-serif typeface for the primary brand mark and a subtle blue accent (#2B5797) for the secondary logo. The layout is perfectly symmetrical and centered, utilizing vast negative space to emphasize the central element. Critical design constraints: Do not introduce complex shadows or gradients outside the primary metallic ring; do not use a busy multi-column layout; do not use rounded, casual sans-serif typography for the primary brand mark. The overall aesthetic is one of extreme restraint, precision, and premium refinement."
-    },
-    "zh-CN": {
-      "identity": {
-        "keywords": [
-          "精准",
-          "极简主义",
-          "优雅",
-          "纯粹"
-        ],
-        "analogy": "一个干净、高端的汽车徽标或加载状态",
-        "oneLiner": "一个以单一几何图形和精致字体为中心的极简主义、极致洁净的界面。"
-      },
-      "colors": {
-        "principle": "利用纯白画布，搭配微妙的金属渐变和单一蓝色点缀色的高对比度极简主义。"
-      },
-      "typography": {
-        "rules": [
-          "为主要品牌标识使用过渡衬线字体。",
-          "确保字体周围有足够的留白。"
-        ],
-        "scaleUses": [
-          "品牌标识 / 标题"
-        ]
-      },
-      "spacing": {
-        "rhythm": "对称居中，配合大量留白"
-      },
-      "surfaces": {
-        "shadows": [
-          "0 0 0 transparent"
-        ],
-        "borders": "无"
-      },
-      "layout": {
-        "skeleton": "单栏居中布局，绝对居中"
-      },
-      "components": {
-        "button": "无可见元素",
-        "card": "无可见元素",
-        "chip": "无可见元素",
-        "input": "无可见元素",
-        "hero": "作为主要焦点的居中圆形渐变环"
-      },
-      "motion": {
-        "patterns": [
-          "暗示平滑、持续旋转的微妙金属渐变"
-        ]
-      },
-      "interaction": {
-        "hover": "无可见元素",
-        "click": "无可见元素",
-        "transition": "无可见元素",
-        "keyboard": "无可见元素"
-      },
-      "voice": {
-        "tone": "静谧、精准、考究",
-        "headlineStyle": "极简衬线字体，字间距紧凑",
-        "ctaStyle": "无可见元素",
-        "avoid": [
-          "鲜艳的色彩",
-          "杂乱",
-          "拟物化"
-        ]
-      },
-      "donts": [
-        "不要使用投影——截图显示的是一个完全平面、无阴影的画布。",
-        "不要使用鲜艳、饱和的背景——截图显示的是纯白背景。",
-        "不要使用复杂的网格布局——截图显示的是严格单栏居中的布局。",
-        "不要使用活泼、圆润的字体——截图显示的是精致的过渡衬线字体。",
-        "不要添加繁复的图案或纹理——截图显示的是完全平滑、极简的美学。",
-        "不要使用多个相互竞争的焦点——截图显示的是一个居中的单一圆形元素。"
-      ],
-      "systemPrompt": "一个高度极简、高端的设计系统，围绕一个单一、精准的圆形母题构建。调色板严格限定在纯白背景（#FFFFFF）上，主要品牌标识使用精致的过渡衬线字体，次要标识使用微妙的蓝色点缀色（#2B5797）。布局完全对称且居中，利用大量留白来强调中心元素。关键设计约束：不要在主金属环之外引入复杂的阴影或渐变；不要使用繁杂的多栏布局；不要为主要品牌标识使用圆润、随意的无衬线字体。整体美学体现了极致的克制、精准和高端的考究感。"
-    },
-    "zh-TW": {
-      "identity": {
-        "keywords": [
-          "精準",
-          "極簡",
-          "優雅",
-          "純粹"
-        ],
-        "analogy": "如高端汽車徽章或載入狀態般純淨",
-        "oneLiner": "極簡、純淨的介面，圍繞單一幾何圖樣與精煉字體呈現。"
-      },
-      "colors": {
-        "principle": "高對比極簡主義，以白色為主畫布，搭配細緻金屬漸層與單一藍色強調。"
-      },
-      "typography": {
-        "rules": [
-          "主品牌標誌使用過渡襯線體。",
-          "字體周圍需保留充足負空間。"
-        ],
-        "scaleUses": [
-          "品牌標誌 / 標題"
-        ]
-      },
-      "spacing": {
-        "rhythm": "對稱置中，搭配大量負空間"
-      },
-      "surfaces": {
-        "shadows": [
-          "0 0 0 transparent"
-        ],
-        "borders": "無"
-      },
-      "layout": {
-        "skeleton": "單一置中欄位佈局，採用絕對置中"
-      },
-      "components": {
-        "button": "無可見",
-        "card": "無可見",
-        "chip": "無可見",
-        "input": "無可見",
-        "hero": "置中的圓形漸層環，作為主要視覺焦點"
-      },
-      "motion": {
-        "patterns": [
-          "細緻金屬漸層，暗示平滑且連續的旋轉"
-        ]
-      },
-      "interaction": {
-        "hover": "無可見",
-        "click": "無可見",
-        "transition": "無可見",
-        "keyboard": "無可見"
-      },
-      "voice": {
-        "tone": "靜謐、精準、精煉",
-        "headlineStyle": "極簡襯線體，字距緊密",
-        "ctaStyle": "無可見",
-        "avoid": [
-          "鮮豔色彩",
-          "雜亂",
-          "擬物化設計"
-        ]
-      },
-      "donts": [
-        "勿使用陰影投影——截圖顯示完全平面、無陰影的畫布。",
-        "勿使用鮮豔飽和的背景——截圖顯示純白背景。",
-        "勿使用複雜網格佈局——截圖顯示嚴格的單欄置中。",
-        "勿使用活潑圓潤的字體——截圖顯示精煉的過渡襯線體。",
-        "勿添加繁複的圖樣或紋理——截圖顯示完全平滑的極簡美學。",
-        "勿使用多重競爭的視覺焦點——截圖顯示單一置中的圓形元素。"
-      ],
-      "systemPrompt": "高度極簡、高級的設計系統，圍繞單一精準的圓形圖樣。色盤嚴格限制於純白背景（#FFFFFF），搭配精煉的過渡襯線體作為主品牌標誌，並以細緻的藍色強調（#2B5797）用於次要標誌。佈局完美對稱並置中，運用大量負空間以突出中心元素。關鍵設計限制：勿在主金屬環外引入複雜陰影或漸層；勿使用繁複的多欄佈局；勿為主品牌標誌使用圓潤、休閒的無襯線字體。整體美學追求極度克制、精準與高級精煉感。"
-    },
-    "ja": {
-      "identity": {
-        "keywords": [
-          "精度",
-          "ミニマリズム",
-          "エレガンス",
-          "純粋性"
-        ],
-        "analogy": "清潔で高級な自動車のバッジまたはローディングステート",
-        "oneLiner": "単一の幾何学的モチーフと洗練されたタイポグラフィを中心に据えた、ミニマルで極めてクリーンなインターフェース。"
-      },
-      "colors": {
-        "principle": "一次のホワイトキャンバスをベースに、微妙なメタリックグラデーションと単一のブルーアクセントを用いたハイコントラストなミニマリズム。"
-      },
-      "typography": {
-        "rules": [
-          "プライマリブランドマークにはトランジショナルセリフを使用する。",
-          "タイポグラフィの周囲に十分なネガティブスペースを確保する。"
-        ],
-        "scaleUses": [
-          "ブランドマーク / ヘッドライン"
-        ]
-      },
-      "spacing": {
-        "rhythm": "広大なネガティブスペースを用いた対称的なセンタリング"
-      },
-      "surfaces": {
-        "shadows": [
-          "0 0 0 transparent"
-        ],
-        "borders": "なし"
-      },
-      "layout": {
-        "skeleton": "絶対的なセンタリングを用いた、単一のセンタリングされたカラムレイアウト"
-      },
-      "components": {
-        "button": "見られない",
-        "card": "見られない",
-        "chip": "見られない",
-        "input": "見られない",
-        "hero": "主要な焦点として機能する、センタリングされた円形グラデーションリング"
-      },
-      "motion": {
-        "patterns": [
-          "滑らかで連続的な回転を暗示する、微妙なメタリックグラデーション"
-        ]
-      },
-      "interaction": {
-        "hover": "見られない",
-        "click": "見られない",
-        "transition": "見られない",
-        "keyboard": "見られない"
-      },
-      "voice": {
-        "tone": "静寂、精密、洗練",
-        "headlineStyle": "狭いトレッキングのミニマルなセリフ",
-        "ctaStyle": "見られない",
-        "avoid": [
-          "派手な色",
-          "雑踏",
-          "スキューモーフィズム"
-        ]
-      },
-      "donts": [
-        "ドロップシャドウを使用しない — スクリーンショットは完全にフラットで影のないキャンバスを示しています。",
-        "鮮やかで彩度の高い背景を使用しない — スクリーンショットは純白の背景を示しています。",
-        "複雑なグリッドレイアウトを使用しない — スクリーンショットは厳密に単一のセンタリングされたカラムを示しています。",
-        "遊び心のある角丸のタイポグラフィを使用しない — スクリーンショットは洗練されたトランジショナルセリフを示しています。",
-        "忙しないパターンやテクスチャを追加しない — スクリーンショットは完全に滑らかなミニマルな美学を示しています。",
-        "複数の競合する焦点を使用しない — スクリーンショットは単一のセンタリングされた円形要素を示しています。"
-      ],
-      "systemPrompt": "単一で正確な円形モチーフを中心に据えた、極めてミニマルで高級なデザインシステム。パレットは、一次ブランドマーク用の洗練されたトランジショナルセリフ書体と、セカンダリロゴ用の微妙なブルーアクセント（#2B5797）を用いた、純白の背景（#FFFFFF）に厳密に制限されています。レイアウトは完全に対称的でセンタリングされており、中央要素を強調するために広大なネガティブスペースを活用しています。重要なデザイン制約：一次メタリックリング以外の複雑なシャドウやグラデーションを導入しないこと；複雑なマルチカラムレイアウトを使用しないこと；一次ブランドマークに角丸のカジュアルなサンセリフ書体を使用しないこと。全体的な美学は、極度の抑制、精度、高級な洗練に基づいています。"
-    },
-    "ko": {
-      "identity": {
-        "keywords": [
-          "정밀",
-          "미니멀리즘",
-          "우아함",
-          "순수성"
-        ],
-        "analogy": "깔끔한 하이엔드 자동차 배지 또는 로딩 상태",
-        "oneLiner": "단일 기하학적 모티프와 정제된 타이포그래피를 중심으로 하는 미니멀하고 극도로 깔끔한 인터페이스입니다."
-      },
-      "colors": {
-        "principle": "순백 캔버스에 은은한 금속성 그라디언트와 단일 블루 악센트를 활용하는 고대비 미니멀리즘."
-      },
-      "typography": {
-        "rules": [
-          "primary 브랜드 마크에는 전이형 세리프를 사용합니다.",
-          "타이포그래피 주변에 넉넉한 여백을 확보합니다."
-        ],
-        "scaleUses": [
-          "브랜드 마크 / 헤드라인"
-        ]
-      },
-      "spacing": {
-        "rhythm": "광활한 여백을 활용하는 대칭적 중앙 정렬"
-      },
-      "surfaces": {
-        "shadows": [
-          "0 0 0 transparent"
-        ],
-        "borders": "없음"
-      },
-      "layout": {
-        "skeleton": "절대 중앙 정렬을 적용한 단일 중앙 컬럼 레이아웃"
-      },
-      "components": {
-        "button": "보이지 않음",
-        "card": "보이지 않음",
-        "chip": "보이지 않음",
-        "input": "보이지 않음",
-        "hero": "primary 초점 역할을 하는 중앙 원형 그라디언트 링"
-      },
-      "motion": {
-        "patterns": [
-          "부드럽고 지속적인 회전을 암시하는 은은한 금속성 그라디언트"
-        ]
-      },
-      "interaction": {
-        "hover": "보이지 않음",
-        "click": "보이지 않음",
-        "transition": "보이지 않음",
-        "keyboard": "보이지 않음"
-      },
-      "voice": {
-        "tone": "고요함, 정밀함, 정제됨",
-        "headlineStyle": "좁은 트래킹의 미니멀 세리프",
-        "ctaStyle": "보이지 않음",
-        "avoid": [
-          "화려한 색상",
-          "복잡함",
-          "스카이유모피즘"
-        ]
-      },
-      "donts": [
-        "드롭 섀도우를 사용하지 마세요 — 스크린샷은 완전히 평면적이고 그림자가 없는 캔버스를 보여줍니다.",
-        "화려하고 채도 높은 배경을 사용하지 마세요 — 스크린샷은 순백 배경을 보여줍니다.",
-        "복잡한 그리드 레이아웃을 사용하지 마세요 — 스크린샷은 엄격히 중앙 정렬된 단일 컬럼을 보여줍니다.",
-        "장난스럽고 둥근 타이포그래피를 사용하지 마세요 — 스크린샷은 정제된 전이형 세리프를 보여줍니다.",
-        "바쁘게 배치된 패턴이나 질감을 추가하지 마세요 — 스크린샷은 완전히 매끄럽고 미니멀한 미학을 보여줍니다.",
-        "여러 개의 경쟁하는 초점을 사용하지 마세요 — 스크린샷은 단일 중앙 원형 요소를 보여줍니다."
-      ],
-      "systemPrompt": "단일하고 정밀한 원형 모티프를 중심으로 하는 고도로 미니멀한 프리미엄 디자인 시스템입니다. 팔레트는 순백 배경(#FFFFFF)과 primary 브랜드 마크를 위한 정제된 전이형 세리프 서체, 세컨더리 로고를 위한 은은한 블루 악센트(#2B5797)로 극도로 제한적입니다. 레이아웃은 완벽히 대칭적이고 중앙 정렬되어 있으며, 중앙 요소를 강조하기 위해 광활한 여백을 활용합니다. 핵심 디자인 제약 사항: primary 금속성 링 외에 복잡한 섀도우나 그라디언트를 도입하지 마세요; 바쁘게 배치된 다중 컬럼 레이아웃을 사용하지 마세요; primary 브랜드 마크에 둥글고 캐주얼한 산세리프 타이포그래피를 사용하지 마세요. 전체적인 미학은 극도의 절제, 정밀함, 프리미엄 정제를 추구합니다."
+      "easing": "cubic-bezier(0.455, 0.03, 0.515, 0.955)"
     }
   },
   "desc": {
     "en": {
-      "palette": "A stark, high-contrast minimalist palette relying on pure white, a subtle metallic gradient ring, and a single blue accent.",
-      "layout": "A strictly centered, single-column layout utilizing vast negative space to focus entirely on the central geometric motif.",
-      "interaction": "No interactive elements are visible, emphasizing a static, premium, and focused viewing experience.",
-      "motion": "Implied smooth, continuous rotation through the use of a segmented metallic gradient on the central ring.",
-      "notes": "Worth including as a prime example of extreme minimalist restraint and premium, precision-focused design."
+      "palette": "Minimalist automotive palette: pure white backgrounds, charcoal (#414141) ink, and BMW's signature blue (#1C69D4) as the sole chromatic accent.",
+      "layout": "Full-bleed photographic heroes with left-aligned text overlays transitioning to generous white content sections with ample horizontal padding.",
+      "interaction": "Subtle 0.1s hover transitions on interactive elements with clean state changes and no heavy transform effects.",
+      "motion": "Understated motion design with quick micro-interactions (100-200ms) and smooth 500ms content reveals using custom cubic-bezier easing.",
+      "notes": "Worth including as a benchmark for premium automotive brand digital presence—demonstrates how dramatic photography and restrained typography create luxury without excess."
     },
     "zh-CN": {
       "palette": "一个纯粹、高对比度的极简主义调色板，主要依赖纯白、微妙的金属渐变环和单一的蓝色点缀色。",
@@ -562,6 +226,428 @@
       "ch7_intro": "모션은 실행되기보다는 함의됩니다. 매끄럽고 연속적인 회전을 암시하는 분절된 금속성 그래디언트를 통해 제안됩니다. 이 철학은 절제된 역동성이며, 잠재 에너지가 지나친 애니메이션보다 선호됩니다.",
       "ch8_intro": "에디토리얼 목소리는 시각적 규율을 반영하여 조용하고 정밀하며 정제됩니다. 커뮤니케이션은 최소한이며, 헤드라인은 타이트한 트래킹의 미니멀리스트 세리프로 설정되어, 디자인의 명료함이 메시지를 전달할 수 있도록 합니다.",
       "ch8_outro": "이 시스템은 의도적으로 모든 소음 회피합니다: 눈에 띄는 색상, 혼잡함, 스Ḵュー어모피즘, 그리고 정제된 순수성이라는 핵심 원칙을 손상시킬 수 있는 모든 요소를 배제합니다."
+    }
+  },
+  "spec_i18n": {
+    "en": {
+      "identity": {
+        "keywords": [
+          "Premium",
+          "Automotive",
+          "Performance",
+          "Elegant",
+          "Restrained"
+        ],
+        "analogy": "A luxury automotive showroom showcasing high-performance vehicles through dramatic photography.",
+        "oneLiner": "A premium automotive website with dark atmospheric heroes, clean typography, and bold blue accents."
+      },
+      "colors": {
+        "principle": "Minimalist palette anchored by deep charcoal and crisp white, punctuated by a singular BMW blue accent for actions."
+      },
+      "typography": {
+        "rules": [
+          "Headlines use light weight (300) for an elegant, premium feel.",
+          "Button text uses medium weight (500) for clear call-to-action emphasis.",
+          "Tight negative letter-spacing on large display type for visual density.",
+          "Body text maintains generous line-height (1.5-1.6) for comfortable reading."
+        ],
+        "scaleUses": [
+          "Hero headlines and promotional announcements",
+          "Section headers and secondary titles",
+          "Descriptive text and paragraphs",
+          "Navigation links, buttons, and utility text",
+          "Disclaimers and fine print"
+        ]
+      },
+      "spacing": {
+        "rhythm": "8px grid system with generous horizontal padding (96px on desktop hero sections) for breathing room."
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(0, 0, 0, 0.25) 0px 4px 4px 0px",
+          "rgba(0, 0, 0, 0.2) 0px 0px 18px 0px"
+        ],
+        "borders": "Thin 1px borders in muted charcoal (#414141) for subtle separation, no heavy outlines."
+      },
+      "layout": {
+        "skeleton": "Full-bleed hero imagery with left-aligned text overlays, transitioning to centered white content sections below."
+      },
+      "components": {
+        "button": "Solid blue (#1C69D4) filled buttons with white text and sharp corners; ghost/outline variants for secondary actions.",
+        "card": "Image-heavy editorial cards with minimal chrome, focusing on high-quality automotive photography.",
+        "chip": "Simple text-based navigation chips with underline indicators, no pill-shaped containers.",
+        "input": "Clean minimal inputs with thin bottom borders, consistent with the restrained design language.",
+        "hero": "Full-viewport photographic backgrounds with gradient overlays ensuring text legibility on dark imagery."
+      },
+      "motion": {
+        "patterns": [
+          "Quick 0.1s color transitions on interactive elements for responsive feedback.",
+          "Smooth 0.5s opacity fade-ins for content reveals.",
+          "Subtle width and position transitions for expandable navigation elements."
+        ]
+      },
+      "interaction": {
+        "hover": "Immediate color change on text links and buttons, subtle opacity shifts on imagery.",
+        "click": "Clean state transitions without heavy scale or transform effects.",
+        "transition": "Consistent use of cubic-bezier easing for all interactive state changes.",
+        "keyboard": "Standard focus management with visible focus indicators on interactive elements."
+      },
+      "voice": {
+        "tone": "Confident, premium, and informative without being pushy.",
+        "headlineStyle": "All-caps display type with periods for declarative statements (e.g., 'LEASE THE 2026 BMW X5 xDRIVE40i.')",
+        "ctaStyle": "Direct action verbs ('Learn more', 'Offer details', 'See all offers') in sentence case on blue buttons.",
+        "avoid": [
+          "Excessive exclamation marks",
+          "Casual slang",
+          "Overly technical jargon",
+          "Cluttered text layouts"
+        ]
+      },
+      "donts": [
+        "don't use rounded corners on primary buttons — screenshot shows sharp 0-2px radius instead",
+        "don't add decorative gradients or patterns — screenshot shows flat photographic heroes with subtle dark overlays",
+        "don't use bold/heavy typography weights — screenshot shows predominantly light (300) weight headlines",
+        "don't introduce multiple accent colors — screenshot shows only BMW blue (#1C69D4) as the sole chromatic accent",
+        "don't create busy multi-column hero layouts — screenshot shows single full-bleed images with left-aligned text",
+        "don't use drop shadows on content cards — screenshot shows flat, clean surfaces without layered elevation"
+      ],
+      "systemPrompt": "BMW.com is a premium automotive brand website featuring dramatic full-viewport photography paired with restrained, elegant typography. The design uses a light grotesque-sans typeface (bmwTypeNextWeb) at predominantly light weight (300) for headlines, creating a luxurious feel. The color palette is minimal: white (#FFFFFF) backgrounds, charcoal ink (#414141), and a single BMW blue accent (#1C69D4) for calls-to-action. Key hex colors include the blue accent, white backgrounds, and charcoal (#262626) for dark overlays. Hero sections use full-bleed automotive photography with gradient overlays for text legibility. Critical donts: never use rounded button corners (keep sharp/square), never add multiple accent colors (blue is the only chromatic element), and never use heavy font weights for headlines (always light/300). The layout transitions from dramatic dark photographic heroes to clean white content sections. Navigation is minimal with clean horizontal links and dropdown chevrons."
+    },
+    "zh-CN": {
+      "identity": {
+        "keywords": [
+          "高端",
+          "汽车",
+          "性能",
+          "优雅",
+          "克制"
+        ],
+        "analogy": "一个高端汽车展厅，通过戏剧性的摄影展示高性能车辆。",
+        "oneLiner": "一个高端汽车网站，拥有深色氛围主视觉、简洁排版和醒目的蓝色点缀。"
+      },
+      "colors": {
+        "principle": "极简配色，以深炭灰和纯白为主，并用单一的宝马蓝作为操作点缀色。"
+      },
+      "typography": {
+        "rules": [
+          "标题使用轻字重（300），营造优雅、高端的感觉。",
+          "按钮文字使用中等字重（500），以清晰强调操作引导。",
+          "大尺寸展示文字采用紧凑的负字距，增强视觉密度。",
+          "正文保持充裕的行高（1.5-1.6），确保阅读舒适。"
+        ],
+        "scaleUses": [
+          "主视觉标题和促销公告",
+          "章节标题和次级标题",
+          "描述性文字和段落",
+          "导航链接、按钮和功能文字",
+          "免责声明和细则"
+        ]
+      },
+      "spacing": {
+        "rhythm": "8px 网格系统，配合充裕的水平内边距（桌面端主视觉区域为96px），确保呼吸感。"
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(0, 0, 0, 0.25) 0px 4px 4px 0px",
+          "rgba(0, 0, 0, 0.2) 0px 0px 18px 0px"
+        ],
+        "borders": "使用柔和的炭灰色（#414141）细边框（1px），用于微妙分隔，避免厚重轮廓。"
+      },
+      "layout": {
+        "skeleton": "全出血主视觉图像搭配左对齐文字覆盖层，下方过渡到居中的白色内容区块。"
+      },
+      "components": {
+        "button": "实心蓝色（#1C69D4）填充按钮，白色文字，直角；次要操作使用幽灵/描边变体。",
+        "card": "以图像为主的编辑式卡片，装饰极少，聚焦高质量汽车摄影。",
+        "chip": "简洁的文字导航标签，带下划线指示器，不使用胶囊形容器。",
+        "input": "干净极简的输入框，带细底边框，符合克制的设计语言。",
+        "hero": "全视口摄影背景，搭配渐变叠加层，确保深色图像上的文字可读性。"
+      },
+      "motion": {
+        "patterns": [
+          "交互元素进行快速的 0.1s 颜色过渡，提供即时反馈。",
+          "内容揭示使用平滑的 0.5s 透明度淡入。",
+          "可展开导航元素使用细微的宽度和位置过渡。"
+        ]
+      },
+      "interaction": {
+        "hover": "文字链接和按钮颜色立即变化，图像上的透明度发生微妙偏移。",
+        "click": "状态切换干净，无厚重缩放或变形效果。",
+        "transition": "所有交互状态变化一致使用 cubic-bezier 缓动。",
+        "keyboard": "标准的焦点管理，交互元素上具有可见的焦点指示器。"
+      },
+      "voice": {
+        "tone": "自信、高端且信息丰富，不强加于人。",
+        "headlineStyle": "全大写展示字体，声明式语句后使用句号（例如：'租赁 2026款 BMW X5 xDRIVE40i。'）。",
+        "ctaStyle": "蓝色按钮上的直接动词（'了解更多'、'优惠详情'、'查看所有优惠'），采用句首大写。",
+        "avoid": [
+          "过多感叹号",
+          "随意俚语",
+          "过于技术化的行话",
+          "杂乱的文字布局"
+        ]
+      },
+      "donts": [
+        "不要在主要按钮上使用圆角——截图显示为0-2px的直角",
+        "不要添加装饰性渐变或图案——截图显示为带有深色叠加的平面摄影主视觉",
+        "不要使用粗体/重字重排版——截图显示标题主要使用轻字重（300）",
+        "不要引入多种点缀色——截图显示仅使用宝马蓝（#1C69D4）作为唯一的彩色点缀",
+        "不要创建杂乱的多列主视觉布局——截图显示为单一全出血图像搭配左对齐文字",
+        "不要在内容卡片上使用投影——截图显示为平面、干净的表面，无分层立体效果"
+      ],
+      "systemPrompt": "BMW.com 是一个高端汽车品牌网站，以戏剧性的全视口摄影为特色，搭配克制、优雅的排版。设计采用轻量的 grotesque-sans 字体（bmwTypeNextWeb），标题主要使用轻字重（300），营造奢华感。配色极简：白色（#FFFFFF）背景、炭灰色（#414141），以及单一的宝马蓝点缀色（#1C69D4）用于操作引导。关键十六进制颜色包括蓝色点缀、白色背景和深色覆盖用的炭灰色（#262626）。主视觉区域使用全出血汽车摄影，搭配渐变叠加层以确保文字可读性。关键禁忌：永远不要使用圆角按钮（保持直角/方形），永远不要添加多种点缀色（蓝色是唯一的彩色元素），永远不要在标题中使用重字重（始终使用轻/300）。布局从戏剧性的深色摄影主视觉过渡到干净的白色内容区块。导航极简，采用简洁的水平链接和下拉箭头。"
+    },
+    "zh-TW": {
+      "identity": {
+        "keywords": [
+          "頂級",
+          "汽車",
+          "性能",
+          "優雅",
+          "內斂"
+        ],
+        "analogy": "一個展示高性能車輛的豪華汽車展示廳，透過戲劇性的攝影呈現。",
+        "oneLiner": "一個頂級汽車網站，具有深色氛圍的首頁、簡潔的排版與醒目的藍色強調色。"
+      },
+      "colors": {
+        "principle": "以深炭灰色和純白色為基調的極簡調色板，並以單一 BMW 藍色強調色點綴行動呼叫。"
+      },
+      "typography": {
+        "rules": [
+          "標題使用輕字重（300）以營造優雅、頂級的質感。",
+          "按鈕文字使用中字重（500）以明確強調行動呼叫。",
+          "大型展示文字使用緊湊的負字距以創造視覺密度。",
+          "內文保持寬裕的行高（1.5-1.6）以利舒適閱讀。"
+        ],
+        "scaleUses": [
+          "首頁標題與促銷公告",
+          "章節標題與次級標題",
+          "描述性文字與段落",
+          "導覽連結、按鈕與輔助文字",
+          "免責聲明與附註"
+        ]
+      },
+      "spacing": {
+        "rhythm": "8px 格線系統，搭配寬裕的水平內邊距（桌面版首頁區塊為 96px）以創造呼吸空間。"
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(0, 0, 0, 0.25) 0px 4px 4px 0px",
+          "rgba(0, 0, 0, 0.2) 0px 0px 18px 0px"
+        ],
+        "borders": "使用柔和的炭灰色（#414141）細 1px 邊框進行輕微分隔，避免粗重的外框。"
+      },
+      "layout": {
+        "skeleton": "全幅出血的首頁圖片搭配左對齊的文字覆蓋層，下方轉換為置中的白色內容區塊。"
+      },
+      "components": {
+        "button": "實心藍色（#1C69D4）填充按鈕，搭配白色文字與直角；次要行動則使用幽靈/外框變體。",
+        "card": "以圖片為主的編輯型卡片，介面極簡，聚焦於高品質的汽車攝影。",
+        "chip": "簡潔的文字導覽片，使用底線指示器，無膠囊形外框。",
+        "input": "簡潔的輸入欄位，搭配細緻的底部邊框，與內斂的設計語言保持一致。",
+        "hero": "全視野的攝影背景，搭配漸層覆蓋層以確保深色圖片上的文字可讀性。"
+      },
+      "motion": {
+        "patterns": [
+          "互動元素上快速的 0.1 秒色彩轉換以提供即時回饋。",
+          "內容顯示時平滑的 0.5 秒透明度淡入效果。",
+          "可展開導覽元素的細微寬度與位置轉換。"
+        ]
+      },
+      "interaction": {
+        "hover": "文字連結與按鈕立即變色，圖片則有細微的透明度變化。",
+        "click": "乾淨的狀態轉換，無厚重的縮放或變形效果。",
+        "transition": "所有互動狀態轉換一致使用 cubic-bezier 緩動效果。",
+        "keyboard": "標準焦點管理，互動元素上有可見的焦點指示器。"
+      },
+      "voice": {
+        "tone": "自信、頂級、資訊豐富但不強勢。",
+        "headlineStyle": "全大寫展示型文字，並以句點作為陳述句結尾（例如：'租賃 2026 BMW X5 xDRIVE40i。'）。",
+        "ctaStyle": "直接的行動動詞（'了解更多'、'查看詳情'、'查看所有優惠'），以句首字母大寫呈現於藍色按鈕上。",
+        "avoid": [
+          "過多的驚嘆號",
+          "隨意的俚語",
+          "過度專業的術語",
+          "雜亂的文字版面"
+        ]
+      },
+      "donts": [
+        "不要在主要按鈕上使用圓角 — 螢幕截圖顯示的是銳利的 0-2px 圓角",
+        "不要添加裝飾性的漸層或圖案 — 螢幕截圖顯示的是扁平的攝影首頁圖與細微的深色覆蓋層",
+        "不要使用粗/重字重的排版 — 螢幕截圖顯示標題主要採用輕字重（300）",
+        "不要引入多種強調色 — 螢幕截圖顯示僅有 BMW 藍色（#1C69D4）作為唯一的彩色強調元素",
+        "不要建立複雜的多欄式首頁版面 — 螢幕截圖顯示的是單張全出血圖片搭配左對齊文字",
+        "不要在內容卡片上使用陰影 — 螢幕截圖顯示的是扁平、乾淨的表面，無層疊的高度感"
+      ],
+      "systemPrompt": "BMW.com 是一個頂級汽車品牌網站，以戲劇性的全視野攝影搭配內斂、優雅的排版為特色。設計採用輕字重 grotesque-sans 字體（bmwTypeNextWeb），標題主要使用輕字重（300）以營造奢華感。調色板極簡：白色（#FFFFFF）背景、炭灰色墨水（#414141），以及單一 BMW 藍色強調色（#1C69D4）用於行動呼叫。關鍵色碼包括藍色強調色、白色背景與深色覆蓋層的炭灰色（#262626）。首頁區塊使用全出血汽車攝影搭配漸層覆蓋層以確保文字可讀性。關鍵禁忌：絕不使用圓角按鈕（保持銳利/方形），絕不添加多種強調色（藍色是唯一的彩色元素），絕不使用粗重字重的標題（始終使用輕/300）。版面從戲劇性的深色攝影首頁轉換為乾淨的白色內容區塊。導覽極簡，使用乾淨的水平連結與下拉式箭頭。"
+    },
+    "ja": {
+      "identity": {
+        "keywords": [
+          "プレミアム",
+          "オートモーティブ",
+          "パフォーマンス",
+          "エレガント",
+          "抑制された"
+        ],
+        "analogy": "ドラマチックな写真を通じて高性能車両を展示するラグジュアリーオートモーティブショールーム。",
+        "oneLiner": "ダークな雰囲気のヒーロー、洗練されたタイポグラフィ、大胆なブルーアクセントを持つプレミアムオートモーティブウェブサイト。"
+      },
+      "colors": {
+        "principle": "深いチャコールと鮮やかな白を基調とし、アクション用に単一のBMWブルーアクセントで画龍点睛するミニマルパレット。"
+      },
+      "typography": {
+        "rules": [
+          "見出しには軽量級（300）を使用し、エレガントでプレミアムな印象を演出する。",
+          "ボタンテキストには中量級（500）を使用し、明確なCTAの強調を図る。",
+          "大きなディスプレイタイプには、視覚的な密度を高めるために tightened negative letter-spacing を使用する。",
+          "本文には快適な読書体験を提供するため、十分な行の高さ（1.5-1.6）を保つ。"
+        ],
+        "scaleUses": [
+          "ヒーロー見出しとプロモーション告知",
+          "セクション見出しとサブタイトル",
+          "記述テキストと段落",
+          "ナビゲーションリンク、ボタン、ユーティリティテキスト",
+          "免責事項と細則"
+        ]
+      },
+      "spacing": {
+        "rhythm": "8pxグリッドシステムと、余裕のある水平パディング（デスクトップヒーローセクションでは96px）を採用し、呼吸の余地を確保。"
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(0, 0, 0, 0.25) 0px 4px 4px 0px",
+          "rgba(0, 0, 0, 0.2) 0px 0px 18px 0px"
+        ],
+        "borders": "控えめなチャコール色（#414141）の細い1pxボーダーを、重いアウトラインなしの微細な区切りとして使用。"
+      },
+      "layout": {
+        "skeleton": "左揃えのテキストオーバーレイを持つフルブリードヒーロー画像から、下部の中央揃えのホワイトコンテンツセクションへと遷移。"
+      },
+      "components": {
+        "button": "鋭い角を持つ、白テキストのソリッドブルー（#1C69D4）塗りつぶしボタン。セカンダリアクションにはゴースト/アウトラインバリアントを使用。",
+        "card": "最小限の装飾で画像重視のエディトリアルカード。高品質なオートモーティブ写真に焦点を当てる。",
+        "chip": "薬丸型コンテナを使わず、アンダーラインインジケーターを持つシンプルなテキストベースナビゲーションチップ。",
+        "input": "控えめなデザイン言語に合わせた、薄いボトムボーダーを持つクリーンでミニマルな入力フィールド。",
+        "hero": "ダークな画像上でもテキストの可読性を確保するグラデーションオーバーレイを持つ、フルビューポートの写真背景。"
+      },
+      "motion": {
+        "patterns": [
+          "インタラクティブ要素上の高速な0.1秒のカラー遷移による、応答性のあるフィードバック。",
+          "コンテンツ表示のための滑らかな0.5秒の不透明度フェードイン。",
+          "展開可能なナビゲーション要素の、微細な幅と位置の遷移。"
+        ]
+      },
+      "interaction": {
+        "hover": "テキストリンクとボタン上の即座のカラー変化、画像上の微細な不透明度シフト。",
+        "click": "重いスケールやトランスフォーム効果なしの、クリーンなステート遷移。",
+        "transition": "すべてのインタラクティブステート変更に、cubicベジェイージングを一貫して使用。",
+        "keyboard": "インタラクティブ要素上の標準的なフォーカス管理と、明確なフォーカスインジケーター。"
+      },
+      "voice": {
+        "tone": "自信に満ち、プレミアムで、押しつけがましくない情報を提供するトーン。",
+        "headlineStyle": "宣言的なステートメント（例：「LEASE THE 2026 BMW X5 xDRIVE40i.」）のための、ピリオド付き大文字ディスプレイタイプ。",
+        "ctaStyle": "ブルーボタン上の文頭大文字の、直接的なアクション動詞（「Learn more」「Offer details」「See all offers」）。",
+        "avoid": [
+          "過度の感嘆符",
+          "カジュアルなスラング",
+          "過度に技術的な専門用語",
+          "ごちゃ混ぜのテキストレイアウト"
+        ]
+      },
+      "donts": [
+        "プライマリボタンに角丸を使用しない — スクリーンショットでは鋭い0-2pxの角を示している",
+        "装飾的なグラデーションやパターンを追加しない — スクリーンショットでは微細なダークオーバーレイを持つフラットな写真ヒーローを示している",
+        "太字/重いタイポグラフィのウェイトを使用しない — スクリーンショットでは主に軽量級（300）の見出しを示している",
+        "複数のアクセントカラーを導入しない — スクリーンショットでは唯一のクロマティックアクセントとしてBMWブルー（#1C69D4）のみを示している",
+        "多忙なマルチカラムヒーローレイアウトを作成しない — スクリーンショットでは左揃えテキストを持つ単一のフルブリード画像を示している",
+        "コンテンツカードにドロップシャドウを使用しない — スクリーンショットではレイヤードなlevationのないフラットでクリーンな表面を示している"
+      ],
+      "systemPrompt": "BMW.comは、ドラマチックなフルビューポート写真と、控えめでエレガントなタイポグラフィを組み合わせたプレミアムオートモーティブブランドウェブサイトです。デザインでは、軽量級のグロテスクサンス（bmwTypeNextWeb）を主に軽量級（300）の見出しに使用し、ラグジュアリーな印象を生み出しています。パレットはミニマルで、ホワイト（#FFFFFF）の背景、チャコールインク（#414141）、CTA用の単一のBMWブルーアクセント（#1C69D4）を採用しています。主要なHEXカラーには、ブルーアクセント、ホワイト背景、ダークオーバーレイ用のチャコール（#262626）が含まれます。ヒーローセクションでは、テキストの可読性のためにグラデーションオーバーレイを用いたフルブリードオートモーティブ写真を使用。重要な注意点：ボタンの角丸は絶対に使わない（鋭い/四角のままに）、複数のアクセントカラーは絶対に使わない（ブルーが唯一のクロマティック要素）、見出しに太いフォントウェイトは絶対に使わない（常に軽量/300）。レイアウトは、ドラマチックなダーク写真ヒーローからクリーンなホワイトコンテンツセクションへと遷移します。ナビゲーションは、クリーンな水平リンクとドロップダウンシェブロンを持つミニマルなものです。"
+    },
+    "ko": {
+      "identity": {
+        "keywords": [
+          "프리미엄",
+          "자동차",
+          "성능",
+          "우아함",
+          "절제"
+        ],
+        "analogy": "드라마틱한 사진을 통해 고성능 차량을 선보이는 럭셔리 자동차 쇼룸.",
+        "oneLiner": "어두운 분위기의 히어로 섹션, 깔끔한 타이포그래피, 대담한 블루 액센트가 돋보이는 프리미엄 자동차 웹사이트."
+      },
+      "colors": {
+        "principle": "깊은 차콜과 선명한 화이트를 기반으로 한 미니멀리스트 팔레트에, 단일 BMW 블루 액센트를 액션에 사용."
+      },
+      "typography": {
+        "rules": [
+          "헤드라인은 우아하고 프리미엄한 느낌을 위해 라이트 웨이트(300)를 사용합니다.",
+          "버튼 텍스트는 명확한 행동 유도를 위해 미디엄 웨이트(500)를 사용합니다.",
+          "대형 디스플레이 타입에는 시각적 밀도를 위해 좌음 부정 간격을 적용합니다.",
+          "본문 텍스트는 편안한 읽기를 위해 넉넉한 행간(1.5-1.6)을 유지합니다."
+        ],
+        "scaleUses": [
+          "히어로 헤드라인 및 프로모션 공지",
+          "섹션 헤더 및 2차 제목",
+          "설명 텍스트 및 단락",
+          "내비게이션 링크, 버튼 및 유틸리티 텍스트",
+          "면책 조항 및 참고 사항"
+        ]
+      },
+      "spacing": {
+        "rhythm": "8px 그리드 시스템과 넉넉한 좌우 패딩(데스크톱 히어로 섹션 96px)으로 여유를 확보합니다."
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(0, 0, 0, 0.25) 0px 4px 4px 0px",
+          "rgba(0, 0, 0, 0.2) 0px 0px 18px 0px"
+        ],
+        "borders": "미묘한 구분을 위해 음소거된 차콜(#414141)의 얇은 1px 테두리를 사용하며, 무거운 외곽선은 사용하지 않습니다."
+      },
+      "layout": {
+        "skeleton": "좌측 정렬된 텍스트 오버레이가 있는 풀블리드 히어로 이미지로 시작하여, 아래쪽의 중앙 정렬된 화이트 콘텐츠 섹션으로 전환됩니다."
+      },
+      "components": {
+        "button": "흰색 텍스트와 모서리가 날카로운 단색 블루(#1C69D4) 채우기 버튼; 2차 액션에는 고스트/아웃라인 변형을 사용합니다.",
+        "card": "미니멀한 장식을 배제하고 고품질 자동차 사진에 집중하는 이미지 중심의 에디토리얼 카드.",
+        "chip": "알약 모양 컨테이너 없이, 밑줄 표시기만 있는 간단한 텍스트 기반 내비게이션 칩.",
+        "input": "절제된 디자인 언어와 일관된, 얇은 하단 테두리가 있는 깔끔한 미니멀 입력 필드.",
+        "hero": "전체 뷰포트 사진 배경에 그라데이션 오버레이를 적용하여 어두운 이미지 위에서도 텍스트 가독성을 확보합니다."
+      },
+      "motion": {
+        "patterns": [
+          "인터랙티브 요소에 즉각적인 피드백을 위한 빠른 0.1초 색상 전환.",
+          "콘텐츠 노출을 위한 부드러운 0.5초 불투명도 페이드인.",
+          "확장 가능한 내비게이션 요소를 위한 미묘한 너비 및 위치 전환."
+        ]
+      },
+      "interaction": {
+        "hover": "텍스트 링크와 버튼에는 즉각적인 색상 변경, 이미지에는 미묘한 불투명도 변화.",
+        "click": "무거운 스케일이나 변환 효과 없이 깔끔한 상태 전환.",
+        "transition": "모든 인터랙티브 상태 변경에 cubic-bezier 이징을 일관되게 사용.",
+        "keyboard": "인터랙티브 요소에 눈에 보이는 포커스 표시기가 있는 표준 포커스 관리."
+      },
+      "voice": {
+        "tone": "자신감 있고 프리미엄하며, 강압적이지 않은 정보 제공.",
+        "headlineStyle": "선언적 문장에는 마침표를 포함하는 전면 대문자 디스플레이 타입 (예: 'LEASE THE 2026 BMW X5 xDRIVE40i.')",
+        "ctaStyle": "블루 버튼 위에 문장 대소문자로 직접적인 동사 ('자세히 알아보기', '할인 상세보기', '전체 혜택 보기') 사용.",
+        "avoid": [
+          "과도한 느낌표",
+          "일상적인 비속어",
+          "지나치게 기술적인 전문 용어",
+          "지저분한 텍스트 레이아웃"
+        ]
+      },
+      "donts": [
+        "1차 버튼에 둥근 모서리를 사용하지 않습니다 — 스크린샷은 날카로운 0-2px 반경을 보여줍니다.",
+        "장식용 그라데이션이나 패턴을 추가하지 않습니다 — 스크린샷은 미묘한 어두운 오버레이가 있는 플랫 사진 히어로를 보여줍니다.",
+        "볼드/무거운 타이포그래피 웨이트를 사용하지 않습니다 — 스크린샷은 주로 라이트(300) 웨이트 헤드라인을 보여줍니다.",
+        "여러 액센트 색상을 도입하지 않습니다 — 스크린샷은 BMW 블루(#1C69D4)를 유일한 크로마틱 액센트로만 보여줍니다.",
+        "복잡한 멀티칼럼 히어로 레이아웃을 만들지 않습니다 — 스크린샷은 좌측 정렬 텍스트가 있는 단일 풀블리드 이미지를 보여줍니다.",
+        "콘텐츠 카드에 드롭 섀도우를 사용하지 않습니다 — 스크린샷은 레이어링된 엘리베이션 없이 플랫하고 깔끔한 표면을 보여줍니다."
+      ],
+      "systemPrompt": "BMW.com은 절제되고 우아한 타이포그래피와 함께 드라마틱한 전체 뷰포트 사진을 특징으로 하는 프리미엄 자동차 브랜드 웹사이트입니다. 디자인은 라이트 고로테크-산스 타입페이스(bmwTypeNextWeb)를 헤드라인에 주로 라이트 웨이트(300)로 사용하여 럭셔리한 느낌을 만듭니다. 팔레트는 미니멀합니다: 화이트(#FFFFFF) 배경, 차콜 잉크(#414141), 그리고 행동 유도 요소를 위한 단일 BMW 블루 액센트(#1C69D4). 주요 헥스 색상은 블루 액센트, 화이트 배경, 그리고 어두운 오버레이용 차콜(#262626)을 포함합니다. 히어로 섹션은 텍스트 가독성을 위한 그라데이션 오버레이가 있는 풀블리드 자동차 사진을 사용합니다. 핵심 주의사항: 절대 둥근 버튼 모서리를 사용하지 않음(날카로운/사각형 유지), 절대 여러 액센트 색상을 추가하지 않음(블루가 유일한 크로마틱 요소), 그리고 절대 헤드라인에 무거운 폰트 웨이트를 사용하지 않음(항상 라이트/300). 레이아웃은 드라마틱한 어두운 사진 히어로에서 깔끔한 화이트 콘텐츠 섹션으로 전환됩니다. 내비게이션은 깔끔한 수평 링크와 드롭다운 시보로 미니멀합니다."
     }
   }
 }

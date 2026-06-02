@@ -17,32 +17,34 @@
   "_meta": {
     "vision_model": "mimo-v2.5",
     "vision_prompt_version": "0.3",
-    "vision_at": "2026-05-28T20:48:10+00:00",
-    "vision_tokens": 3338,
-    "vision_cost_usd": 0.0371,
+    "vision_at": "2026-05-30T17:32:01+00:00",
+    "vision_tokens": 16895,
+    "vision_cost_usd": 0.1877,
     "translation_model": "mimo-v2.5",
-    "translation_at": "2026-05-28T20:49:02+00:00",
-    "translation_tokens": 15363,
-    "translation_cost_usd": 0.0513,
+    "translation_at": "2026-05-30T17:32:52+00:00",
+    "translation_tokens": 25181,
+    "translation_cost_usd": 0.084,
     "narrative_model": "mimo-v2.5",
     "narrative_prompt_version": "0.3",
     "narrative_at": "2026-05-28T20:49:09+00:00",
     "narrative_tokens": 1884,
     "narrative_cost_usd": 0.0126,
     "narrative_status": "ok",
-    "total_cost_usd": 0.101
+    "total_cost_usd": 0.2843,
+    "vision_source": "playwright-extract:posthog",
+    "vision_grounded": true
   },
   "spec": {
     "colors": {
-      "bg": "#f8f7f5",
-      "bgSoft": "#ffffff",
-      "bgQuiet": "#f0ede8",
-      "ink": "#1d1b20",
-      "inkSoft": "#3730a3",
-      "muted": "#6b6562",
-      "mutedSoft": "#a39e98",
-      "accent": "#f54e00",
-      "line": "rgba(0,0,0,0.08)"
+      "bg": "#E1D7C2",
+      "bgSoft": "#EEF0E9",
+      "bgQuiet": "#E5E7E0",
+      "ink": "#111827",
+      "inkSoft": "#4D4F46",
+      "muted": "#374151",
+      "mutedSoft": "#65675E",
+      "accent": "#F44E00",
+      "line": "rgba(77, 79, 70, 0.2)"
     },
     "typography": {
       "display": "humanist-sans",
@@ -51,24 +53,17 @@
       "scale": [
         {
           "token": "display",
-          "size": 40,
+          "size": 48,
           "lh": 1.1,
           "weight": 700,
-          "ls": "-0.5px"
-        },
-        {
-          "token": "heading",
-          "size": 28,
-          "lh": 1.2,
-          "weight": 600,
-          "ls": "-0.25px"
+          "ls": "-0.6px"
         },
         {
           "token": "body",
-          "size": 16,
-          "lh": 1.6,
+          "size": 15,
+          "lh": 1.7,
           "weight": 400,
-          "ls": "0px"
+          "ls": "0"
         }
       ]
     },
@@ -88,9 +83,9 @@
     "surfaces": {
       "radius": {
         "sm": 4,
-        "md": 8,
-        "lg": 12,
-        "pill": 999
+        "md": 6,
+        "lg": 8,
+        "pill": 9999
       }
     },
     "layout": {
@@ -112,380 +107,13 @@
       "easing": "cubic-bezier(0.4, 0, 0.2, 1)"
     }
   },
-  "spec_i18n": {
-    "en": {
-      "identity": {
-        "keywords": [
-          "playful",
-          "developer-focused",
-          "comprehensive",
-          "transparent",
-          "humorous"
-        ],
-        "analogy": "A quirky, capable co-pilot for product teams.",
-        "oneLiner": "A playful yet powerful SaaS platform for product analytics and development."
-      },
-      "colors": {
-        "principle": "Warm, paper-like neutrals with a bold orange accent."
-      },
-      "typography": {
-        "rules": [],
-        "scaleUses": [
-          "Main hero headline",
-          "Section headings",
-          "Paragraph text"
-        ]
-      },
-      "spacing": {
-        "rhythm": "8px base grid with generous whitespace."
-      },
-      "surfaces": {
-        "shadows": [
-          "0 1px 3px rgba(0,0,0,0.1)"
-        ],
-        "borders": "1px solid rgba(0,0,0,0.1)"
-      },
-      "layout": {
-        "skeleton": "Centered, full-width hero with distinct, bordered content sections."
-      },
-      "components": {
-        "button": "Solid primary orange button with rounded corners; outlined secondary buttons.",
-        "card": "Bordered white cards with subtle shadows and rounded corners.",
-        "chip": "Small, outlined, rounded tags for categories.",
-        "input": "Rounded search bar with a magnifying glass icon.",
-        "hero": "Two-column layout with text and a playful illustration."
-      },
-      "motion": {
-        "patterns": [
-          "Subtle hover states on buttons and links."
-        ]
-      },
-      "interaction": {
-        "hover": "Background color darkens slightly; cursor changes to pointer.",
-        "click": "Subtle scale-down or background color change.",
-        "transition": "Smooth color and background transitions.",
-        "keyboard": "Focus rings for accessibility."
-      },
-      "voice": {
-        "tone": "Conversational, slightly irreverent, helpful.",
-        "headlineStyle": "Direct, bold, and action-oriented.",
-        "ctaStyle": "Encouraging and clear.",
-        "avoid": [
-          "Corporate jargon",
-          "Overly formal language",
-          "Vague promises"
-        ]
-      },
-      "donts": [
-        "Don't use a stark white background — screenshot shows a warm, off-white/paper color (#f8f7f5).",
-        "Don't use cold, sterile blues for primary accents — screenshot shows a bold orange (#f54e00).",
-        "Don't use overly geometric or sharp typography — screenshot uses a friendly, humanist sans-serif.",
-        "Don't use heavy, complex box shadows — screenshot shows minimal, subtle shadows.",
-        "Don't use a strictly formal, corporate tone — screenshot uses playful illustrations and conversational text.",
-        "Don't use sharp, 90-degree corners on cards or buttons — screenshot shows consistently rounded corners."
-      ],
-      "systemPrompt": "PostHog's design is a playful yet professional developer tool SaaS. It uses warm, off-white backgrounds (#f8f7f5) with a bold orange accent (#f54e00) and dark ink (#1d1b20). Typography is a friendly humanist sans-serif. The layout is clean with generous spacing and bordered sections. Critical donts: avoid stark white backgrounds, avoid cold blue accents, avoid geometric/sterile typography, avoid heavy shadows, avoid corporate jargon, avoid sharp corners. The design balances humor with functionality, targeting product developers and engineers."
-    },
-    "zh-CN": {
-      "identity": {
-        "keywords": [
-          "趣味性",
-          "面向开发者",
-          "全面",
-          "透明",
-          "幽默"
-        ],
-        "analogy": "为产品团队打造的古怪但能干的副驾驶。",
-        "oneLiner": "一个既有趣又强大的SaaS平台，用于产品分析和开发。"
-      },
-      "colors": {
-        "principle": "温暖、纸质的中性色调，搭配大胆的橙色点缀。"
-      },
-      "typography": {
-        "rules": [],
-        "scaleUses": [
-          "主标题",
-          "板块标题",
-          "段落文本"
-        ]
-      },
-      "spacing": {
-        "rhythm": "基于8像素网格，留白充足。"
-      },
-      "surfaces": {
-        "shadows": [
-          "0 1px 3px rgba(0,0,0,0.1)"
-        ],
-        "borders": "1px solid rgba(0,0,0,0.1)"
-      },
-      "layout": {
-        "skeleton": "居中的全宽Hero区域，内容板块清晰并带有边框。"
-      },
-      "components": {
-        "button": "实心的主橙色圆角按钮；带轮廓的次要按钮。",
-        "card": "带边框的白色卡片，带有微妙阴影和圆角。",
-        "chip": "小型、带轮廓的圆角标签，用于分类。",
-        "input": "带放大镜图标的圆角搜索栏。",
-        "hero": "两栏布局，包含文本和一幅趣味插图。"
-      },
-      "motion": {
-        "patterns": [
-          "按钮和链接上的微妙悬停状态。"
-        ]
-      },
-      "interaction": {
-        "hover": "背景颜色略微变暗；光标变为指针。",
-        "click": "轻微的缩放或背景颜色变化。",
-        "transition": "平滑的颜色和背景过渡。",
-        "keyboard": "为无障碍访问提供聚焦环。"
-      },
-      "voice": {
-        "tone": "对话式、略带不羁、有帮助。",
-        "headlineStyle": "直接、粗体、行动导向。",
-        "ctaStyle": "鼓舞人心且清晰。",
-        "avoid": [
-          "企业行话",
-          "过于正式的语言",
-          "模糊的承诺"
-        ]
-      },
-      "donts": [
-        "不要使用刺眼的纯白色背景——截图显示为温暖的、米白/纸张色（#f8f7f5）。",
-        "不要使用冰冷、呆板的蓝色作为主色调点缀——截图显示为大胆的橙色（#f54e00）。",
-        "不要使用过于几何化或棱角分明的字体——截图使用的是友好的人文主义无衬线字体。",
-        "不要使用厚重、复杂的盒子阴影——截图显示为最小化、微妙的阴影。",
-        "不要使用严格正式、企业的语调——截图使用的是趣味插图和对话式文本。",
-        "不要使用卡片或按钮上尖锐的90度角——截图显示为始终如一的圆角。"
-      ],
-      "systemPrompt": "PostHog的设计是一个既有趣又专业的开发者工具SaaS。它使用温暖的米白色背景（#f8f7f5），搭配大胆的橙色点缀（#f54e00）和深色墨色（#1d1b20）。字体是友好的人文主义无衬线体。布局干净，留白充足，内容板块带有边框。关键禁忌：避免刺眼的白色背景，避免冰冷的蓝色点缀，避免几何化/呆板的字体，避免厚重的阴影，避免企业行话，避免尖锐的棱角。该设计在趣味性和功能性之间取得平衡，面向产品开发者和工程师。"
-    },
-    "zh-TW": {
-      "identity": {
-        "keywords": [
-          "俏皮",
-          "以開發者為核心",
-          "全面性",
-          "透明",
-          "帶有幽默感"
-        ],
-        "analogy": "產品團隊的古怪、能幹的副駕駛。",
-        "oneLiner": "一個俏皮但強大的 SaaS 平台，用於產品分析和開發。"
-      },
-      "colors": {
-        "principle": "溫暖、類似紙張的中性色調，搭配大膽的橙色點綴。"
-      },
-      "typography": {
-        "rules": [],
-        "scaleUses": [
-          "主要首頁標題",
-          "章節標題",
-          "段落文字"
-        ]
-      },
-      "spacing": {
-        "rhythm": "以 8px 為基準的網格系統，搭配寬裕的留白。"
-      },
-      "surfaces": {
-        "shadows": [
-          "0 1px 3px rgba(0,0,0,0.1)"
-        ],
-        "borders": "1px solid rgba(0,0,0,0.1)"
-      },
-      "layout": {
-        "skeleton": "居中、全寬的首頁區域，搭配清晰、帶邊框的內容區塊。"
-      },
-      "components": {
-        "button": "實心的主色調橙色按鈕，帶有圓角；次要按鈕為外框樣式。",
-        "card": "白色卡片，帶有細膩陰影和圓角，並設有邊框。",
-        "chip": "小型、外框式、圓角的標籤，用於分類。",
-        "input": "圓角搜尋欄位，配有放大鏡圖示。",
-        "hero": "雙欄版面配置，包含文字和一幅俏皮的插圖。"
-      },
-      "motion": {
-        "patterns": [
-          "按鈕和連結帶有細膩的懸停狀態。"
-        ]
-      },
-      "interaction": {
-        "hover": "背景顏色略微加深；游標變為指針形狀。",
-        "click": "輕微縮小或背景顏色變化。",
-        "transition": "平滑的顏色和背景過渡效果。",
-        "keyboard": "為無障礙功能設置焦點環。"
-      },
-      "voice": {
-        "tone": "對話式、略帶不羈、樂於助人。",
-        "headlineStyle": "直接、大膽、以行動為導向。",
-        "ctaStyle": "具鼓勵性且清晰明確。",
-        "avoid": [
-          "企業行話",
-          "過於正式的語言",
-          "模糊的承諾"
-        ]
-      },
-      "donts": [
-        "避免使用刺眼的純白色背景——截圖顯示的是溫暖的米白色/紙張色（#f8f7f5）。",
-        "避免使用冰冷、無菌的藍色作為主色調點綴——截圖顯示的是大膽的橙色（#f54e00）。",
-        "避免使用過於幾何化或生硬的字體排印——截圖使用的是友善的人文無襯線字體。",
-        "避免使用厚重、複雜的盒狀陰影——截圖顯示的是簡約、細膩的陰影。",
-        "避免使用嚴格、正式的企業語氣——截圖使用俏皮的插圖和對話式文字。",
-        "避免在卡片或按鈕上使用尖銳的 90 度角——截圖顯示的是始終如一的圓角。"
-      ],
-      "systemPrompt": "PostHog 的設計是一個俏皮但專業的開發者工具 SaaS。它使用溫暖的米白色背景（#f8f7f5），搭配大膽的橙色點綴（#f54e00）和深墨色文字（#1d1b20）。字體是友善的人文無襯線字體。版面配置簡潔，提供寬裕的間距和帶邊框的區塊。關鍵注意事項：避免純白色背景、避免冰冷的藍色點綴、避免幾何化/無菌的字體排印、避免厚重的陰影、避免企業行話、避免尖銳的角落。設計在幽默與功能性之間取得了平衡，目標受眾是產品開發者和工程師。"
-    },
-    "ja": {
-      "identity": {
-        "keywords": [
-          "遊び心",
-          "開発者重視",
-          "包括的",
-          "透明性",
-          "ユーモア"
-        ],
-        "analogy": "製品チームの風変わりで優秀なコパイロット。",
-        "oneLiner": "製品分析と開発のための、遊び心ありながらも強力なSaaSプラットフォーム。"
-      },
-      "colors": {
-        "principle": "温かみのある紙のようなニュートラルカラーに、大胆なオレンジのアクセント。"
-      },
-      "typography": {
-        "rules": [],
-        "scaleUses": [
-          "メインヒーローヘッドライン",
-          "セクション見出し",
-          "本文テキスト"
-        ]
-      },
-      "spacing": {
-        "rhythm": "8pxの基本グリッドとゆったりとした余白。"
-      },
-      "surfaces": {
-        "shadows": [
-          "0 1px 3px rgba(0,0,0,0.1)"
-        ],
-        "borders": "1px solid rgba(0,0,0,0.1)"
-      },
-      "layout": {
-        "skeleton": "中央揃えの全幅ヒーローと、明確なボーダー付きコンテンツセクション。"
-      },
-      "components": {
-        "button": "角丸のソリッドプライマリーオレンジボタン、アウトラインのセカンダリーボタン。",
-        "card": "繊細なシャドウと角丸を持つ、ボーダー付きホワイトカード。",
-        "chip": "カテゴリ用の、小さなアウトライン・角丸タグ。",
-        "input": "虫眼鏡アイコン付きの角丸検索バー。",
-        "hero": "テキストと遊び心のあるイラストを配置した2カラムレイアウト。"
-      },
-      "motion": {
-        "patterns": [
-          "ボタンやリンクの繊細なhover状態。"
-        ]
-      },
-      "interaction": {
-        "hover": "背景色が少し暗くなり、カーソルがポインタに変化。",
-        "click": "繊細な縮小や背景色の変化。",
-        "transition": "滑らかなカラーと背景の遷移。",
-        "keyboard": "アクセシビリティのためのフォーカスリング。"
-      },
-      "voice": {
-        "tone": "会話的、少し気取らない、役に立つ。",
-        "headlineStyle": "直接的で大胆、アクション重視。",
-        "ctaStyle": "励ますような明確な表現。",
-        "avoid": [
-          "企業用語",
-          "過度にフォーマルな言葉",
-          "曖昧な約束"
-        ]
-      },
-      "donts": [
-        "白一色の背景を使用しない — スクリーンショットは温かみのあるオフホワイト/ペーパーカラー（#f8f7f5）を示しています。",
-        "クールで無機質なブルーをプライマリアクセントに使用しない — スクリーンショットは大胆なオレンジ（#f54e00）を示しています。",
-        "過度に幾何学的で鋭いタイポグラフィを使用しない — スクリーンショットはフレンドリーなヒューマニストサンセリフを使用しています。",
-        "重厚で複雑なボックスシャドウを使用しない — スクリーンショットは最小限で繊細なシャドウを示しています。",
-        "厳格でフォーマルな企業トーンを使用しない — スクリーンショットは遊び心のあるイラストと会話的なテキストを使用しています。",
-        "カードやボタンに鋭い90度の角を使用しない — スクリーンショットは一貫して角丸を示しています。"
-      ],
-      "systemPrompt": "PostHogのデザインは、遊び心がありながらもプロフェッショナルな開発者向けツールSaaSです。温かみのあるオフホワイト背景（#f8f7f5）に大胆なオレンジアクセント（#f54e00）とダークインク（#1d1b20）を使用しています。タイポグラフィはフレンドリーなヒューマニストサンセリフです。レイアウトは清潔で、ゆったりとした間隔とボーダー付きセクションを備えています。重要な禁止事項：白一色の背景、クールなブルーのアクセント、幾何学的/無機質なタイポグラフィ、重厚なシャドウ、企業用語、鋭い角を避けること。デザインはユーモアと機能性をバランスさせ、プロダクト開発者やエンジニアをターゲットにしています。"
-    },
-    "ko": {
-      "identity": {
-        "keywords": [
-          "장난기 있는",
-          "개발자 중심의",
-          "포괄적인",
-          "투명한",
-          "유머러스한"
-        ],
-        "analogy": "제품 팀을 위한 독특하고 유능한 부조종사.",
-        "oneLiner": "제품 분석 및 개발을 위한 장난스럽지만 강력한 SaaS 플랫폼."
-      },
-      "colors": {
-        "principle": "따뜻한 종이 질감의 중성색과 강렬한 오렌지 악센트."
-      },
-      "typography": {
-        "rules": [],
-        "scaleUses": [
-          "메인 히어로 헤드라인",
-          "섹션 제목",
-          "본문 텍스트"
-        ]
-      },
-      "spacing": {
-        "rhythm": "여유로운 여백이 있는 8px 기본 그리드."
-      },
-      "surfaces": {
-        "shadows": [
-          "0 1px 3px rgba(0,0,0,0.1)"
-        ],
-        "borders": "1px solid rgba(0,0,0,0.1)"
-      },
-      "layout": {
-        "skeleton": "명확하고 테두리가 있는 콘텐츠 섹션이 있는 중앙 정렬 풀幅 히어로."
-      },
-      "components": {
-        "button": "둥근 모서리의 단색 primary 오렌지 버튼; 테두리가 있는 secondary 버튼.",
-        "card": "미묘한 그림자와 둥근 모서리가 있는 테두리가 있는 흰색 카드.",
-        "chip": "카테고리를 위한 작은, 테두리가 있는 둥근 태그.",
-        "input": "돋보기 아이콘이 있는 둥근 검색바.",
-        "hero": "텍스트와 장난스러운 일러스트레이션이 있는 2컬럼 레이아웃."
-      },
-      "motion": {
-        "patterns": [
-          "버튼과 링크의 미묘한 hover 상태."
-        ]
-      },
-      "interaction": {
-        "hover": "배경 색상이 약간 어두워지며, 커서가 포인터로 변경됩니다.",
-        "click": "미세한 축소 또는 배경 색상 변경.",
-        "transition": "색상과 배경의 매끄러운 전환.",
-        "keyboard": "접근성을 위한 포커스 링."
-      },
-      "voice": {
-        "tone": "대화체, 약간 거침없는, 도움이 되는.",
-        "headlineStyle": "직접적이고 굵으며, 행동을 유도하는.",
-        "ctaStyle": "격려하고 명확한.",
-        "avoid": [
-          "기업 전문 용어",
-          "지나치게 격식 있는 언어",
-          "모호한 약속"
-        ]
-      },
-      "donts": [
-        "순백색 배경을 사용하지 마세요 — 스크린샷은 따뜻한 off-white/종이 색상(#f8f7f5)을 보여줍니다.",
-        "primary 악센트로 차갑고 무미건조한 파란색을 사용하지 마세요 — 스크린샷은 강렬한 오렌지(#f54e00)를 보여줍니다.",
-        "지나치게 기하학적이거나 날카로운 타이포그래피를 사용하지 마세요 — 스크린샷은 친근한 humanist sans-serif를 사용합니다.",
-        "무겁고 복잡한 box shadows를 사용하지 마세요 — 스크린샷은 미니멀하고 미묘한 그림자를 보여줍니다.",
-        "엄격하게 격식 있는 기업 톤을 사용하지 마세요 — 스크린샷은 장난스러운 일러스트레이션과 대화체 텍스트를 사용합니다.",
-        "카드나 버튼에 날카로운 90도 모서리를 사용하지 마세요 — 스크린샷은 일관되게 둥근 모서리를 보여줍니다."
-      ],
-      "systemPrompt": "PostHog의 디자인은 장난스럽지만 전문적인 개발자 도구 SaaS입니다. 따뜻한 off-white 배경(#f8f7f5)과 강렬한 오렌지 악센트(#f54e00), 그리고 어두운 잉크(#1d1b20)를 사용합니다. 타이포그래피는 친근한 humanist sans-serif입니다. 레이아웃은 여유로운 간격과 테두리가 있는 섹션으로 깔끔합니다. 중요한 donts: 순백색 배경 피하기, 차가운 파란색 악센트 피하기, 기하학적/무미건조한 타이포그래피 피하기, 무거운 그림자 피하기, 기업 전문 용어 피하기, 날카로운 모서리 피하기. 디자인은 유머와 기능성의 균형을 맞추며, 제품 개발자와 엔지니어를 대상으로 합니다."
-    }
-  },
   "desc": {
     "en": {
-      "palette": "A warm, paper-like neutral palette with a bold, energetic orange accent.",
-      "layout": "A clean, centered layout with generous spacing and distinct, bordered content sections.",
-      "interaction": "Standard, subtle hover and click states with smooth color transitions.",
-      "motion": "Minimal, functional motion with basic transitions.",
-      "notes": "This site effectively balances a professional SaaS tool's utility with a playful, approachable brand identity, making complex technical products feel less intimidating."
+      "palette": "Warm, muted earthy tones with a vibrant orange accent, creating a playful yet professional feel.",
+      "layout": "A structured, multi-column grid that playfully mimics a complex application interface.",
+      "interaction": "Smooth, subtle transitions on hover and click, focusing on color and background changes.",
+      "motion": "Quick, responsive animations that provide immediate feedback without being distracting.",
+      "notes": "This site is worth including as a prime example of a playful, developer-focused SaaS brand that successfully balances professional utility with a fun, irreverent personality."
     },
     "zh-CN": {
       "palette": "温暖、纸质的中性色调，搭配大胆、活力的橙色作为点缀。",
@@ -576,6 +204,398 @@
       "ch7_intro": "모션은 기능적이고 절제되며, 장식보다 명확성을 우선시하는 철학을 따릅니다. 미세한 hover 상태나 부드러운 전환과 같은 인터랙션 패턴은 초점이 되지 않으면서도 필요한 피드백과 완성도를 제공합니다.",
       "ch8_intro": "에디토리얼 음성은 대화적이고 약간 불손하며, 직접적인 헤드라인과 격려하는 CTA를 사용해 사용자와 유용하고 인간적인 대화를 유지합니다. 기업 용어와 모호한 약속을 의도적으로 피하고 투명하고 구체적인 소통을 선택합니다.",
       "ch8_outro": "이 시스템은 뚜렷한 미니멀리즘과 공식적인 무미건조함을 의도적으로 피하며, 대신 장난기 있는 일러스트레이션과 구조화된 유용성의 균형을 선택합니다."
+    }
+  },
+  "spec_i18n": {
+    "en": {
+      "identity": {
+        "keywords": [
+          "developer",
+          "playful",
+          "open-source",
+          "data",
+          "product OS"
+        ],
+        "analogy": "A developer-friendly, slightly irreverent toolkit that feels like a friendly co-pilot.",
+        "oneLiner": "The new way to build products."
+      },
+      "colors": {
+        "principle": "Warm, muted earthy backgrounds with high-contrast dark ink and vibrant orange accents."
+      },
+      "typography": {
+        "rules": [
+          "Display headlines are set in bold humanist-sans.",
+          "Body text uses a clean humanist-sans for readability.",
+          "Code blocks utilize a standard monospace stack."
+        ],
+        "scaleUses": [
+          "hero headlines",
+          "primary body text"
+        ]
+      },
+      "spacing": {
+        "rhythm": "Consistent 4px base grid with standard spacing scale."
+      },
+      "surfaces": {
+        "shadows": [
+          "0 25px 50px -12px rgba(0, 0, 0, 0.25)",
+          "0 10px 38px -10px rgba(14, 18, 22, 0.35)"
+        ],
+        "borders": "1px solid #4D4F46"
+      },
+      "layout": {
+        "skeleton": "A playful, multi-column layout that mimics a complex application interface with sidebars and main content areas."
+      },
+      "components": {
+        "button": "Rounded, high-contrast primary buttons with bold text; secondary buttons with subtle borders.",
+        "card": "Subtle background cards with minimal shadows or borders, integrated into the playful UI theme.",
+        "chip": "Small, rounded pill-shaped elements for tags or categories.",
+        "input": "Clean, bordered input fields with standard padding.",
+        "hero": "A large, multi-column hero section featuring playful illustrations and bold typography."
+      },
+      "motion": {
+        "patterns": [
+          "Smooth color and background transitions on hover.",
+          "Subtle fade-ins for UI state changes."
+        ]
+      },
+      "interaction": {
+        "hover": "Color shifts and subtle background changes on interactive elements.",
+        "click": "Subtle scale or color press feedback.",
+        "transition": "Standard 0.15s ease-in-out for color and background properties.",
+        "keyboard": "Standard focus outlines and tab navigation."
+      },
+      "voice": {
+        "tone": "Playful, direct, and developer-focused, with a touch of irreverence.",
+        "headlineStyle": "Bold, clear, and benefit-oriented.",
+        "ctaStyle": "Action-oriented and prominent, often using primary orange or dark backgrounds.",
+        "avoid": [
+          "Corporate jargon",
+          "Overly formal language",
+          "Vague promises"
+        ]
+      },
+      "donts": [
+        "don't use a stark white background — screenshot shows a warm, textured beige background instead",
+        "don't use a cold, corporate blue accent — screenshot shows a vibrant orange accent instead",
+        "don't use overly complex or chaotic layouts — screenshot shows a structured, albeit playful, grid-based layout instead",
+        "don't use sharp, square corners everywhere — screenshot shows a mix of subtle rounding and pill shapes instead",
+        "don't use dark mode as the default — screenshot shows a light mode with warm tones instead",
+        "don't use generic stock photography — screenshot shows custom, playful illustrations instead"
+      ],
+      "systemPrompt": "PostHog is a developer-focused product OS positioned as a playful yet powerful co-pilot for building products. The design DNA is built on a warm, earthy palette (#E1D7C2 background, #111827 ink, #F44E00 orange accent) paired with a clean humanist-sans typography (IBM Plex Sans Variable) and a monospace for code. Critical design rules include: 1) Never use a stark white background; embrace the textured beige. 2) Avoid cold, corporate blue accents; use the signature vibrant orange. 3) Prioritize custom, playful illustrations over generic photography. The overall feel is irreverent, direct, and deeply developer-friendly."
+    },
+    "zh-CN": {
+      "identity": {
+        "keywords": [
+          "开发者",
+          "趣味",
+          "开源",
+          "数据",
+          "产品操作系统"
+        ],
+        "analogy": "一个对开发者友好、略带俏皮的工具集，感觉像一位友善的副驾驶。",
+        "oneLiner": "构建产品的新方式。"
+      },
+      "colors": {
+        "principle": "采用温暖、柔和的大地色系背景，搭配高对比度的深色墨迹和充满活力的橙色点缀。"
+      },
+      "typography": {
+        "rules": [
+          "展示标题使用粗体 humanist-sans 字体。",
+          "正文使用清晰的 humanist-sans 字体以确保可读性。",
+          "代码块使用标准的等宽字体组合。"
+        ],
+        "scaleUses": [
+          "核心标题",
+          "主正文"
+        ]
+      },
+      "spacing": {
+        "rhythm": "基于一致的4px网格，采用标准间距比例。"
+      },
+      "surfaces": {
+        "shadows": [
+          "0 25px 50px -12px rgba(0, 0, 0, 0.25)",
+          "0 10px 38px -10px rgba(14, 18, 22, 0.35)"
+        ],
+        "borders": "1px solid #4D4F46"
+      },
+      "layout": {
+        "skeleton": "一个活泼的多栏布局，模拟包含侧边栏和主内容区域的复杂应用界面。"
+      },
+      "components": {
+        "button": "圆角、高对比度的主按钮搭配粗体文字；次级按钮带有细微边框。",
+        "card": "具有细微背景的卡片，阴影或边框极简，与趣味化的UI主题融为一体。",
+        "chip": "用于标签或分类的小型、圆角的药丸状元素。",
+        "input": "干净的、带边框的输入框，采用标准内边距。",
+        "hero": "一个大型的多栏核心区域，包含趣味插图和粗体排版。"
+      },
+      "motion": {
+        "patterns": [
+          "在hover状态下平滑的颜色和背景过渡。",
+          "UI状态变化时的细微淡入效果。"
+        ]
+      },
+      "interaction": {
+        "hover": "交互元素的颜色变化和细微的背景改变。",
+        "click": "细微的缩放或颜色按压反馈。",
+        "transition": "用于颜色和背景属性的标准 0.15s ease-in-out 过渡。",
+        "keyboard": "标准的聚焦轮廓和tab键导航。"
+      },
+      "voice": {
+        "tone": "趣味、直接、以开发者为中心，并带有一丝不羁。",
+        "headlineStyle": "粗体、清晰、以收益为导向。",
+        "ctaStyle": "行动导向且突出，通常使用主橙色或深色背景。",
+        "avoid": [
+          "企业套话",
+          "过于正式的语言",
+          "模糊的承诺"
+        ]
+      },
+      "donts": [
+        "不要使用纯白背景 —— 截图中显示的是温暖、有纹理的米色背景",
+        "不要使用冰冷、企业的蓝色点缀 —— 截图中显示的是充满活力的橙色点缀",
+        "不要使用过于复杂或混乱的布局 —— 截图中显示的是有结构、但充满趣味的基于网格的布局",
+        "不要到处使用尖锐的方形圆角 —— 截图中显示的是细微圆角和药丸形状的混合使用",
+        "不要使用深色模式作为默认 —— 截图中显示的是带有暖色调的浅色模式",
+        "不要使用通用的素材摄影 —— 截图中显示的是自定义的、趣味化的插图"
+      ],
+      "systemPrompt": "PostHog 是一个以开发者为中心的产品操作系统，定位为构建产品时既有趣又强大的副驾驶。其设计DNA建立在温暖的大地色系调色板（#E1D7C2背景，#111827墨迹，#F44E00橙色点缀）之上，搭配清晰的 humanist-sans 字体（IBM Plex Sans Variable）和用于代码的等宽字体。关键设计规则包括：1）绝不使用纯白背景；拥抱有纹理的米色。2）避免使用冰冷、企业的蓝色点缀；使用标志性的活力橙色。3）优先使用自定义、趣味化的插图而非通用摄影。整体感觉是不羁、直接且对开发者极其友好。"
+    },
+    "zh-TW": {
+      "identity": {
+        "keywords": [
+          "開發者",
+          "趣味性",
+          "開源",
+          "資料",
+          "產品作業系統"
+        ],
+        "analogy": "一套對開發者友善、略帶不羈風格的工具組，感覺就像一位親切的副駕駛。",
+        "oneLiner": "打造產品的全新方式。"
+      },
+      "colors": {
+        "principle": "溫暖、柔和的泥土色背景，搭配高對比深色墨水與鮮明的橘色強調色。"
+      },
+      "typography": {
+        "rules": [
+          "顯示標題採用粗體人文無襯線體。",
+          "內文使用清晰的人文無襯線體以確保可讀性。",
+          "程式碼區塊採用標準的等寬字體組。"
+        ],
+        "scaleUses": [
+          "主視覺標題",
+          "主要內文"
+        ]
+      },
+      "spacing": {
+        "rhythm": "一致的 4px 基礎網格，搭配標準的間距比例。"
+      },
+      "surfaces": {
+        "shadows": [
+          "0 25px 50px -12px rgba(0, 0, 0, 0.25)",
+          "0 10px 38px -10px rgba(14, 18, 22, 0.35)"
+        ],
+        "borders": "1px solid #4D4F46"
+      },
+      "layout": {
+        "skeleton": "一個活潑的多欄佈局，模仿具有側邊欄與主要內容區域的複雜應用程式介面。"
+      },
+      "components": {
+        "button": "圓角、高對比的主按鈕，文字為粗體；次按鈕則帶有細微邊框。",
+        "card": "具有細微陰影或邊框的柔和背景卡片，融入趣味性的使用者介面主題中。",
+        "chip": "小型、圓角的膠囊狀元素，用於標籤或分類。",
+        "input": "簡潔、有邊框的輸入欄位，帶有標準內距。",
+        "hero": "一個大型的多欄主視覺區塊，包含趣味插圖與粗體字體。"
+      },
+      "motion": {
+        "patterns": [
+          "懸停時平滑的顏色與背景過渡效果。",
+          "使用者介面狀態變化的細微淡入效果。"
+        ]
+      },
+      "interaction": {
+        "hover": "互動元素上的顏色轉換與細微背景變化。",
+        "click": "細微的縮放或顏色按下回饋。",
+        "transition": "顏色與背景屬性採用標準的 0.15s ease-in-out 過渡。",
+        "keyboard": "標準的焦點外框與 Tab 鍵導覽。"
+      },
+      "voice": {
+        "tone": "趣味、直接且以開發者為中心，帶有一絲不羈。",
+        "headlineStyle": "粗體、清晰，並強調效益。",
+        "ctaStyle": "以行動為導向且顯眼，常使用主色橘色或深色背景。",
+        "avoid": [
+          "企業行話",
+          "過於正式的語言",
+          "模糊的承諾"
+        ]
+      },
+      "donts": [
+        "不要使用刺眼的白色背景——截圖顯示的是溫暖、有質感的米色背景。",
+        "不要使用冰冷的企業藍色作為強調色——截圖顯示的是鮮明的橘色強調色。",
+        "不要使用過於複雜或混亂的佈局——截圖顯示的是一個結構分明（儘管活潑）的網格佈局。",
+        "不要在所有地方都使用尖銳的直角——截圖顯示的是細微圓角與膠囊形狀的混合使用。",
+        "不要將深色模式作為預設——截圖顯示的是帶有暖色調的淺色模式。",
+        "不要使用一般的圖庫攝影——截圖顯示的是自訂的趣味插圖。"
+      ],
+      "systemPrompt": "PostHog 是一個以開發者為中心的產品作業系統，定位為打造產品時既有趣又強大的副駕駛。其設計 DNA 建立在溫暖的泥土色調色板（#E1D7C2 背景、#111827 墨水、#F44E00 橘色強調色）之上，搭配簡潔的人文無襯線體（IBM Plex Sans Variable）以及用於程式碼的等寬字體。關鍵設計規則包括：1) 永遠不要使用刺眼的白色背景；採用有質感的米色。2) 避免使用冰冷的企業藍色強調色；使用標誌性的鮮明橘色。3) 優先使用自訂的趣味插圖，而非一般的攝影圖片。整體感覺是不羈、直接且對開發者極度友善。"
+    },
+    "ja": {
+      "identity": {
+        "keywords": [
+          "開発者",
+          "遊び心",
+          "オープンソース",
+          "データ",
+          "プロダクト OS"
+        ],
+        "analogy": "親しみやすく、少し型破りな開発者向けツールキット。まるで優しい副操縦士のような感覚。",
+        "oneLiner": "プロダクトを構築する、新しい方法。"
+      },
+      "colors": {
+        "principle": "温かみのある落ち着いた大地色の背景に、高コントラストの濃いインクと鮮やかなオレンジのアクセントを配する。"
+      },
+      "typography": {
+        "rules": [
+          "見出し表示は、太字の humanist-sans を使用。",
+          "本文テキストは、可読性を確保するためクリーンな humanist-sans を使用。",
+          "コードブロックは、標準的な monospace スタックを使用。"
+        ],
+        "scaleUses": [
+          "ヒーロー見出し",
+          "主要な本文テキスト"
+        ]
+      },
+      "spacing": {
+        "rhythm": "一貫した 4px ベースグリッドと標準的なスペーシングスケール。"
+      },
+      "surfaces": {
+        "shadows": [
+          "0 25px 50px -12px rgba(0, 0, 0, 0.25)",
+          "0 10px 38px -10px rgba(14, 18, 22, 0.35)"
+        ],
+        "borders": "1px solid #4D4F46"
+      },
+      "layout": {
+        "skeleton": "サイドバーとメインコンテンツエリアを持つ、複雑なアプリケーションインターフェースを模倣した、遊び心のあるマルチカラムレイアウト。"
+      },
+      "components": {
+        "button": "角丸の高コントラストプライマリボタン（太字テキスト）と、微妙な境界線を用いたセカンダリボタン。",
+        "card": "最小限の影または境界線を持つ、控えめな背景カード。遊び心のある UI テーマに統合。",
+        "chip": "タグやカテゴリ用の、小さな角丸のピル形状要素。",
+        "input": "標準的なパディングを用いた、クリーンで境界線のある入力フィールド。",
+        "hero": "遊び心のあるイラストと太字タイポグラフィを特徴とする、大きなマルチカラムヒーローセクション。"
+      },
+      "motion": {
+        "patterns": [
+          "hover 時の滑らかな色と背景のトランジション。",
+          "UI 状態変化時の控えめなフェードイン。"
+        ]
+      },
+      "interaction": {
+        "hover": "インタラクティブ要素における色の変化と控えめな背景変化。",
+        "click": "控えめなスケールまたは色の押下フィードバック。",
+        "transition": "色と背景プロパティに対する、標準的な 0.15s ease-in-out。",
+        "keyboard": "標準的な focus アウトラインとタブナビゲーション。"
+      },
+      "voice": {
+        "tone": "遊び心があり、率直で、開発者中心。少し型破りなトーン。",
+        "headlineStyle": "太字で明瞭、かつベネフィット重視。",
+        "ctaStyle": "アクション重視で目立つ。プライマリオレンジや濃い背景を多用。",
+        "avoid": [
+          "企業専門用語",
+          "過度にフォーマルな言語",
+          "曖昧な約束"
+        ]
+      },
+      "donts": [
+        "スクリーンショットで示されているのは、白く硬い背景ではなく、温かみのあるテクスチャー付きベージュ背景。",
+        "スクリーンショットで示されているのは、冷たい企業的なブルーアクセントではなく、鮮やかなオレンジアクセント。",
+        "スクリーンショットで示されているのは、過度に複雑またはカオスなレイアウトではなく、構造化された遊び心のあるグリッドベースのレイアウト。",
+        "スクリーンショットで示されているのは、到るところにシャープで四角い角ではなく、控えめな丸みとピル形状の混在。",
+        "スクリーンショットで示されているのは、ダークモードのデフォルトではなく、温かみのあるトーンのライトモード。",
+        "スクリーンショットで示されているのは、一般的なストックフォトではなく、カスタムで遊び心のあるイラスト。"
+      ],
+      "systemPrompt": "PostHog は、プロダクトを構築するための遊び心がありながらもパワフルな副操縦士として位置づけられた、開発者中心のプロダクト OS です。デザイン DNA は、温かみのある大地色のパレット（#E1D7C2 背景、#111827 インク、#F44E00 オレンジアクセント）に、クリーンな humanist-sans タイポグラフィ（IBM Plex Sans Variable）とコード用の monospace を組み合わせています。重要なデザインルールには以下の点が含まれます：1) 決して白く硬い背景を使用しない。テクスチャー付きベージュを受け入れる。2) 冷たい企業的なブルーアクセントを避け、特徴的な鮮やかなオレンジを使用する。3) 汎用的なフォトグラフィよりも、カスタムで遊び心のあるイラストを優先する。全体的な印象は、型破りで率直、そして深く開発者に寄り添うものです。"
+    },
+    "ko": {
+      "identity": {
+        "keywords": [
+          "개발자",
+          "장난기 있는",
+          "오픈소스",
+          "데이터",
+          "제품 OS"
+        ],
+        "analogy": "개발자에게 친숙하고, 약간 거만한 느낌의 도구 킷으로, 마치 친근한 조수와 같은 느낌을 줍니다.",
+        "oneLiner": "제품을 구축하는 새로운 방법."
+      },
+      "colors": {
+        "principle": "따뜻하고 채도가 낮은 흙빛 배경에 고대비의 어두운 잉크와 생동감 있는 주황색 강조색을 사용합니다."
+      },
+      "typography": {
+        "rules": [
+          "강조 헤드라인은 볼드체 humanist-sans로 설정합니다.",
+          "본문은 가독성을 위해 깔끔한 humanist-sans를 사용합니다.",
+          "코드 블록은 표준 monospace 스택을 활용합니다."
+        ],
+        "scaleUses": [
+          "메인 헤드라인",
+          "주 본문"
+        ]
+      },
+      "spacing": {
+        "rhythm": "표준 간격 스케일과 함께 일관된 4px 기본 격자를 사용합니다."
+      },
+      "surfaces": {
+        "shadows": [
+          "0 25px 50px -12px rgba(0, 0, 0, 0.25)",
+          "0 10px 38px -10px rgba(14, 18, 22, 0.35)"
+        ],
+        "borders": "1px solid #4D4F46"
+      },
+      "layout": {
+        "skeleton": "사이드바와 메인 영역을 포함한 복잡한 애플리케이션 인터페이스를 모방하는, 장난기 있는 다중 열 레이아웃입니다."
+      },
+      "components": {
+        "button": "볼드 텍스트의 둥근 고대비 주요 버튼; 미세한 테두리의 보조 버튼.",
+        "card": "미세한 그림자 또는 테두리의 배경 카드로, 장난기 있는 UI 테마에 통합됩니다.",
+        "chip": "태그 또는 카테고리를 위한 작고 둥근 알약 모양 요소.",
+        "input": "표준 padding의 깔끔하고 테두리가 있는 입력 필드.",
+        "hero": "장난기 있는 일러스트레이션과 볼드한 타이포그래피를 특징으로 하는, 큰 다중 열 히어로 섹션."
+      },
+      "motion": {
+        "patterns": [
+          "hover 시 부드러운 색상 및 배경 전환.",
+          "UI 상태 변화를 위한 미세한 fade-in."
+        ]
+      },
+      "interaction": {
+        "hover": "인터랙티브 요소에서의 색상 변화와 미세한 배경 변화.",
+        "click": "미세한 크기 또는 색상 프레스 피드백.",
+        "transition": "색상 및 배속 속성을 위한 표준 0.15s ease-in-out.",
+        "keyboard": "표준 focus 윤곽선 및 탭 탐색."
+      },
+      "voice": {
+        "tone": "장난기 있고, 직접적이며, 개발자 중심적이고, 약간의 거만함이 섞여 있습니다.",
+        "headlineStyle": "볼드하고 명확하며, 이점에 초점을 맞춥니다.",
+        "ctaStyle": "행동 지향적이고 두드러지며, 종종 주황색 또는 어두운 배경을 사용합니다.",
+        "avoid": [
+          "기업 용어",
+          "지나치게 격식을 차린 언어",
+          "모호한 약속"
+        ]
+      },
+      "donts": [
+        "선명한 흰색 배경을 사용하지 마세요 — 스크린샷은 대신 따뜻하고 질감이 있는 베이지색 배경을 보여줍니다.",
+        "차갑고 기업적인 파란색 강조색을 사용하지 마세요 — 스크린샷은 대신 생동감 있는 주황색 강조색을 보여줍니다.",
+        "지나치게 복잡하거나 혼란스러운 레이아웃을 사용하지 마세요 — 스크린샷은 대신 구조화되었으나 장난기 있는 격자 기반 레이아웃을 보여줍니다.",
+        "모든 곳에 날카롭고 사각진 모서리를 사용하지 마세요 — 스크린샷은 대신 미세한 둥글기와 알약 모양의 혼합을 보여줍니다.",
+        "다크 모드를 기본값으로 사용하지 마세요 — 스크린샷은 대신 따뜻한 톤의 라이트 모드를 보여줍니다.",
+        "일반적인 스톡크 사진을 사용하지 마세요 — 스크린샷은 대신 맞춤형이고 장난기 있는 일러스트레이션을 보여줍니다."
+      ],
+      "systemPrompt": "PostHog는 제품을 구축하는 재미있고 강력한 조수로 자리매김한, 개발자 중심 제품 OS입니다. 디자인 DNA는 따뜻한 흙빛 팔레트(#E1D7C2 배경, #111827 잉크, #F44E00 주황색 강조)와 깔끔한 humanist-sans 타이포그래피(IBM Plex Sans Variable) 및 코드용 monospace에 기반합니다. 핵심 디자인 규칙은 다음과 같습니다: 1) 절대로 선명한 흰색 배경을 사용하지 마세요. 질감이 있는 베이지를 받아들이세요. 2) 차갑고 기업적인 파란색 강조색을 피하세요. 시그니처 생동감 있는 주황색을 사용하세요. 3) 일반적인 사진보다 맞춤형이고 장난기 있는 일러스트레이션을 우선시하세요. 전반적인 느낌은 거만하고 직접적이며, 개발자에게 매우 친숙합니다."
     }
   }
 }

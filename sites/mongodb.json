@@ -17,65 +17,67 @@
   "_meta": {
     "vision_model": "mimo-v2.5",
     "vision_prompt_version": "0.3",
-    "vision_at": "2026-05-28T20:45:35+00:00",
-    "vision_tokens": 3511,
-    "vision_cost_usd": 0.039,
+    "vision_at": "2026-05-30T17:16:09+00:00",
+    "vision_tokens": 16731,
+    "vision_cost_usd": 0.1859,
     "translation_model": "mimo-v2.5",
-    "translation_at": "2026-05-28T20:46:34+00:00",
-    "translation_tokens": 16250,
-    "translation_cost_usd": 0.0541,
+    "translation_at": "2026-05-30T17:17:08+00:00",
+    "translation_tokens": 27412,
+    "translation_cost_usd": 0.0913,
     "narrative_model": "mimo-v2.5",
     "narrative_prompt_version": "0.3",
     "narrative_at": "2026-05-28T20:46:40+00:00",
     "narrative_tokens": 1975,
     "narrative_cost_usd": 0.0132,
     "narrative_status": "ok",
-    "total_cost_usd": 0.1063
+    "total_cost_usd": 0.2904,
+    "vision_source": "playwright-extract:mongodb",
+    "vision_grounded": true
   },
   "spec": {
     "colors": {
-      "bg": "#ffffff",
-      "bgSoft": null,
-      "bgQuiet": null,
-      "ink": "#112e51",
-      "inkSoft": null,
-      "muted": "#68768a",
-      "mutedSoft": null,
+      "bg": "#001e2b",
+      "bgSoft": "#21313c",
+      "bgQuiet": "#f5f7fa",
+      "ink": "#ffffff",
+      "inkSoft": "#000000",
+      "muted": "#b8c4c2",
+      "mutedSoft": "#001e2b",
       "accent": "#00ed64",
-      "line": "rgba(17, 46, 81, 0.12)"
+      "line": "rgba(255,255,255,0.15)"
     },
     "typography": {
       "display": "geometric-sans",
       "body": "humanist-sans",
-      "mono": null,
+      "mono": "monospaced",
       "scale": [
         {
           "token": "display",
-          "size": 56,
+          "size": 72,
           "lh": 1.05,
-          "weight": 700,
-          "ls": "-1.5px"
+          "weight": 500,
+          "ls": "-1px"
         },
         {
-          "token": "heading",
+          "token": "h2",
           "size": 40,
-          "lh": 1.1,
-          "weight": 600,
+          "lh": 1.15,
+          "weight": 500,
           "ls": "-0.5px"
         },
         {
-          "token": "subhead",
-          "size": 24,
-          "lh": 1.3,
-          "weight": 500,
-          "ls": "0px"
-        },
-        {
           "token": "body",
-          "size": 16,
+          "size": 18,
           "lh": 1.6,
           "weight": 400,
           "ls": "0px"
+        },
+        {
+          "token": "caption",
+          "size": 12,
+          "lh": 1.4,
+          "weight": 500,
+          "ls": "2px"
         }
       ]
     },
@@ -96,12 +98,12 @@
       "radius": {
         "sm": 4,
         "md": 8,
-        "lg": 12,
+        "lg": 16,
         "pill": 999
       }
     },
     "layout": {
-      "container": 1200,
+      "container": 1280,
       "paragraph": 680,
       "columns": 12,
       "gutter": 24,
@@ -112,422 +114,20 @@
     },
     "motion": {
       "durations": {
-        "micro": 200,
-        "small": 350,
-        "medium": 600
+        "micro": 220,
+        "small": 400,
+        "medium": 800
       },
-      "easing": "cubic-bezier(0.25, 0.1, 0.25, 1)"
-    }
-  },
-  "spec_i18n": {
-    "en": {
-      "identity": {
-        "keywords": [
-          "database",
-          "developer",
-          "modern",
-          "reliable",
-          "data"
-        ],
-        "analogy": "A reliable, modern enterprise tool with a clean, professional interface.",
-        "oneLiner": "A clean, developer-focused SaaS platform for data management."
-      },
-      "colors": {
-        "principle": "A high-contrast, clean palette using deep navy for text and a vibrant green accent for highlights against a white background."
-      },
-      "typography": {
-        "rules": [
-          "Headlines use tight letter-spacing for a modern, impactful feel.",
-          "Body text maintains a comfortable reading rhythm with generous line height.",
-          "Font weights create a clear hierarchy from bold headlines to regular body text."
-        ],
-        "scaleUses": [
-          "Main headlines",
-          "Section headers",
-          "Card titles and subheadings",
-          "Paragraph text and descriptions"
-        ]
-      },
-      "spacing": {
-        "rhythm": "A consistent 4px base grid with an 8px rhythm for comfortable vertical spacing."
-      },
-      "surfaces": {
-        "shadows": [
-          "0 1px 3px rgba(0,0,0,0.08)",
-          "0 4px 12px rgba(0,0,0,0.06)"
-        ],
-        "borders": "Minimal, using subtle borders for separation rather than heavy dividers."
-      },
-      "layout": {
-        "skeleton": "A standard 12-column grid with a centered container for content."
-      },
-      "components": {
-        "button": "Clean, rectangular buttons with clear labels, using the green accent for primary actions.",
-        "card": "Simple cards with subtle borders or shadows, focusing on content clarity.",
-        "chip": "Pill-shaped tags for categorization with muted backgrounds.",
-        "input": "Clean input fields with clear borders and labels.",
-        "hero": "A large, spacious hero section with a prominent headline and call-to-action."
-      },
-      "motion": {
-        "patterns": [
-          "Smooth fade-ins for content loading",
-          "Subtle hover state transitions on interactive elements"
-        ]
-      },
-      "interaction": {
-        "hover": "Subtle color changes or lifts on interactive elements.",
-        "click": "Clear feedback with immediate state changes.",
-        "transition": "All state changes are animated with smooth, consistent easing.",
-        "keyboard": "Full keyboard navigation support with visible focus states."
-      },
-      "voice": {
-        "tone": "Professional, confident, and technical.",
-        "headlineStyle": "Direct and benefit-focused, using clear, concise language.",
-        "ctaStyle": "Action-oriented and specific, guiding users to the next step.",
-        "avoid": [
-          "Jargon without context",
-          "Overly casual or playful language",
-          "Vague or ambiguous promises"
-        ]
-      },
-      "donts": [
-        "Don't use a dark mode — the screenshot shows a clean, light theme with a white background.",
-        "Don't use vibrant multi-color gradients — the design uses a single, consistent green accent.",
-        "Don't use decorative serif fonts — the typography is clean and sans-serif throughout.",
-        "Don't use heavy drop shadows — shadows are minimal and subtle, used for depth not decoration.",
-        "Don't clutter the interface — the layout is spacious with generous white space between elements.",
-        "Don't use complex illustrations — the visual focus is on clear typography and functional UI components."
-      ],
-      "systemPrompt": "This is a clean, professional SaaS platform for developers, positioning itself as a modern database solution. The key colors are a deep navy ink (#112e51) and a vibrant green accent (#00ed64) against a white background (#ffffff). Typography uses geometric and humanist sans-serif categories for a modern, readable feel. Critical don'ts: avoid dark mode, avoid multi-color gradients, avoid decorative serif fonts, avoid heavy shadows, avoid cluttered layouts, avoid complex illustrations. The design prioritizes clarity, trust, and developer-focused functionality through restraint and clean visual hierarchy."
-    },
-    "zh-CN": {
-      "identity": {
-        "keywords": [
-          "数据库",
-          "开发者",
-          "现代",
-          "可靠",
-          "数据"
-        ],
-        "analogy": "一个可靠、现代的企業工具，拥有洁净、专业的界面。",
-        "oneLiner": "一个面向开发者的洁净SaaS平台，用于数据管理。"
-      },
-      "colors": {
-        "principle": "采用深海军蓝文本与活力绿色强调色，搭配白色背景，形成高对比度、洁净的调色板。"
-      },
-      "typography": {
-        "rules": [
-          "标题使用紧凑的字间距，营造现代、有力的感觉。",
-          "正文通过舒适的行高保持良好的阅读节奏。",
-          "字体粗细从粗体标题到常规正文，建立清晰的层次。"
-        ],
-        "scaleUses": [
-          "主标题",
-          "章节标题",
-          "卡片标题与副标题",
-          "段落文本与描述"
-        ]
-      },
-      "spacing": {
-        "rhythm": "采用一致的4px基础网格与8px节奏，确保舒适的垂直间距。"
-      },
-      "surfaces": {
-        "shadows": [
-          "0 1px 3px rgba(0,0,0,0.08)",
-          "0 4px 12px rgba(0,0,0,0.06)"
-        ],
-        "borders": "最小化使用，采用细微边框进行分隔，而非厚重的分割线。"
-      },
-      "layout": {
-        "skeleton": "一个标准的12列网格，内容采用居中容器。"
-      },
-      "components": {
-        "button": "洁净的矩形按钮，标签清晰，主要操作使用绿色强调色。",
-        "card": "简洁的卡片，带有细微边框或阴影，聚焦于内容清晰度。",
-        "chip": "药丸形标签，用于分类，背景色柔和。",
-        "input": "洁净的输入框，边框与标签清晰。",
-        "hero": "一个宽敞的主视觉区域，包含醒目的标题和行动号召。"
-      },
-      "motion": {
-        "patterns": [
-          "内容加载时平滑淡入",
-          "交互元素上细微的hover状态过渡"
-        ]
-      },
-      "interaction": {
-        "hover": "交互元素上细微的颜色变化或轻微上浮。",
-        "click": "通过即时状态变更提供清晰反馈。",
-        "transition": "所有状态变更都通过平滑、一致的缓动进行动画处理。",
-        "keyboard": "全面支持键盘导航，并提供可见的焦点状态。"
-      },
-      "voice": {
-        "tone": "专业、自信、技术性。",
-        "headlineStyle": "直接、以利益为中心，使用清晰、简洁的语言。",
-        "ctaStyle": "以行动为导向、具体，引导用户进行下一步操作。",
-        "avoid": [
-          "缺乏上下文的行话",
-          "过于随意或戏谑的语言",
-          "模糊或模棱两可的承诺"
-        ]
-      },
-      "donts": [
-        "不要使用深色模式 — 截图显示的是洁净的浅色主题，背景为白色。",
-        "不要使用多彩渐变 — 设计使用单一、一致的绿色强调色。",
-        "不要使用装饰性衬线字体 — 整体排版洁净，使用无衬线字体。",
-        "不要使用厚重的投影 — 阴影应最小化且细微，用于营造深度而非装饰。",
-        "不要让界面显得拥挤 — 布局应宽敞，元素间留有充足留白。",
-        "不要使用复杂的插图 — 视觉焦点应放在清晰的排版和功能性UI组件上。"
-      ],
-      "systemPrompt": "这是一个面向开发者的洁净、专业SaaS平台，定位为现代数据库解决方案。关键色彩是深海军蓝墨水色（#112e51）和白色背景（#ffffff）上的活力绿色强调色（#00ed64）。排版使用几何无衬线和人文主义无衬线字体类别，营造现代、易读的感觉。关键禁忌：避免深色模式、避免多彩渐变、避免装饰性衬线字体、避免厚重阴影、避免拥挤布局、避免复杂插图。设计通过克制与清晰的视觉层次，优先考虑清晰度、信任感和面向开发者的功能性。"
-    },
-    "zh-TW": {
-      "identity": {
-        "keywords": [
-          "資料庫",
-          "開發者",
-          "現代化",
-          "可靠",
-          "資料"
-        ],
-        "analogy": "一款可靠、現代的企業工具，擁有乾淨、專業的介面。",
-        "oneLiner": "一款以開發者為中心、用於資料管理的簡潔 SaaS 平台。"
-      },
-      "colors": {
-        "principle": "高對比、乾淨的調色盤，以深海軍藍作為文字，搭配鮮豔綠色作為強調色，襯托於白色背景上。"
-      },
-      "typography": {
-        "rules": [
-          "標題採用緊湊的字間距，營造現代、具衝擊力的感受。",
-          "內文保持舒適的閱讀節奏，搭配慷慨的行高。",
-          "字重建立從粗體標題到一般內文的清晰層次。"
-        ],
-        "scaleUses": [
-          "主標題",
-          "章節標題",
-          "卡片標題與副標題",
-          "段落文字與描述"
-        ]
-      },
-      "spacing": {
-        "rhythm": "以一致的 4px 基礎網格與 8px 節奏，創造舒適的垂直間距。"
-      },
-      "surfaces": {
-        "shadows": [
-          "0 1px 3px rgba(0,0,0,0.08)",
-          "0 4px 12px rgba(0,0,0,0.06)"
-        ],
-        "borders": "極簡，使用細微邊框進行區隔，而非厚重的分隔線。"
-      },
-      "layout": {
-        "skeleton": "標準 12 欄網格，搭配用於內容的置中容器。"
-      },
-      "components": {
-        "button": "簡潔的矩形按鈕，標籤清晰，主要操作使用綠色強調色。",
-        "card": "簡單的卡片，帶有細微邊框或陰影，著重於內容清晰度。",
-        "chip": "藥丸狀的分類標籤，採用柔和背景色。",
-        "input": "簡潔的輸入欄位，邊框與標籤清晰。",
-        "hero": "寬敞的大型主視覺區域，包含醒目的標題與行動呼籲。"
-      },
-      "motion": {
-        "patterns": [
-          "內容載入時的流暢淡入效果",
-          "互動元素上細膩的懸停狀態過渡"
-        ]
-      },
-      "interaction": {
-        "hover": "互動元素在懸停時進行細微的顏色變化或微浮起效果。",
-        "click": "提供明確反饋，伴隨即時的狀態變換。",
-        "transition": "所有狀態變換皆以流暢、一致的緩動曲線進行動畫。",
-        "keyboard": "完整支援鍵盤導覽，並具備可見的焦點狀態。"
-      },
-      "voice": {
-        "tone": "專業、自信且具技術感。",
-        "headlineStyle": "直接且以效益為導向，使用清晰、簡潔的語言。",
-        "ctaStyle": "以行動為導向且具體，引導使用者進行下一步。",
-        "avoid": [
-          "缺乏脈絡的術語",
-          "過於隨意或俏皮的語言",
-          "模糊或歧義的承諾"
-        ]
-      },
-      "donts": [
-        "勿使用深色模式 — 截圖顯示的是白色背景的乾淨淺色主題。",
-        "勿使用鮮豔的多彩漸層 — 設計使用單一、一致的綠色強調色。",
-        "勿使用裝飾性襯線字體 — 字體排印全程採用乾淨的無襯線體。",
-        "勿使用厚重的陰影 — 陰影極簡且細膩，用於創造深度而非裝飾。",
-        "勿讓介面雜亂 — 佈局寬敞，元素間留有慷慨的空間。",
-        "勿使用複雜的插圖 — 視覺重點在於清晰的字體排印與功能性 UI 元件。"
-      ],
-      "systemPrompt": "這是一款以開發者為中心的簡潔、專業 SaaS 平台，定位為現代化資料庫解決方案。關鍵色彩包括深海軍藍墨水色 (#112e51) 與鮮豔綠色強調色 (#00ed64)，襯托於白色背景 (#ffffff) 上。字體排印使用幾何與人文主義無襯線體類別，呈現現代、易讀的感受。重要禁忌：避免深色模式、避免多彩漸層、避免裝飾性襯線字體、避免厚重陰影、避免雜亂佈局、避免複雜插圖。設計透過克制與清晰的視覺層次，優先考量清晰度、信任感以及以開發者為中心的功能性。"
-    },
-    "ja": {
-      "identity": {
-        "keywords": [
-          "データベース",
-          "開発者",
-          "モダン",
-          "信頼性",
-          "データ"
-        ],
-        "analogy": "クリーンでプロフェッショナルなインターフェースを持つ、信頼性の高いモダンなエンタープライズツール。",
-        "oneLiner": "データ管理のための、クリーンで開発者重視のSaaSプラットフォーム。"
-      },
-      "colors": {
-        "principle": "テキストに深い海军色を用い、白を背景にしたハイコントラートでクリーンなパレット。ハイライトには鮮やかなグリーンのアクセントを使用。"
-      },
-      "typography": {
-        "rules": [
-          "見出しは文字間隔を狭め、モダンでインパクトのある印象を与えます。",
-          "本文は、十分な行高を用いて快適なリズムを維持します。",
-          "フォントのウェイトは、太字の見出しから通常の本文まで明確な階層を生み出します。"
-        ],
-        "scaleUses": [
-          "メイン見出し",
-          "セクションヘッダー",
-          "カードタイトルとサブヘッダー",
-          "段落テキストと説明文"
-        ]
-      },
-      "spacing": {
-        "rhythm": "快適な垂直方向の間隔のため、一貫した4pxのベースグリッドと8pxのリズム。"
-      },
-      "surfaces": {
-        "shadows": [
-          "0 1px 3px rgba(0,0,0,0.08)",
-          "0 4px 12px rgba(0,0,0,0.06)"
-        ],
-        "borders": "重い区切り線ではなく、繊細なボーダーを用いて最小限の分離を実現。"
-      },
-      "layout": {
-        "skeleton": "コンテンツ用の中央揃えコンテナを持つ、標準的な12カラムグリッド。"
-      },
-      "components": {
-        "button": "明確なラベルを持つクリーンな長方形ボタン。プライマリアクションにはグリーンのアクセントを使用。",
-        "card": "コンテンツの明瞭さに重点を置いた、繊細なボーダーやシャドウを持つシンプルなカード。",
-        "chip": "分類用のピル形タグ。落ち着いた背景色を使用。",
-        "input": "明確なボーダーとラベルを持つクリーンな入力フィールド。",
-        "hero": "目立つ見出しとコール・トゥ・アクションを持つ、広々とした大きなヒーローセクション。"
-      },
-      "motion": {
-        "patterns": [
-          "コンテンツ読み込み時の滑らかなフェードイン",
-          "インタラクティブ要素の微妙なホバーステートトランジション"
-        ]
-      },
-      "interaction": {
-        "hover": "インタラクティブ要素の微妙な色変化やリフト。",
-        "click": "即座のステート変化による明確なフィードバック。",
-        "transition": "すべてのステート変化は、滑らかで一貫したイージングでアニメーション化。",
-        "keyboard": "可視化されたフォーカスステートを持つ、フルキーボードナビゲーションサポート。"
-      },
-      "voice": {
-        "tone": "プロフェッショナルで、自信に満ち、テクニカル。",
-        "headlineStyle": "明確で簡潔な言葉を用いた、直接的でベネフィット重視。",
-        "ctaStyle": "次のステップを導く、アクション指向で具体的。",
-        "avoid": [
-          "文脈のない専門用語",
-          "過度にカジュアルまたは遊び心のある言葉",
-          "曖昧または不確かな約束"
-        ]
-      },
-      "donts": [
-        "ダークモードを使用しない — スクリーンショットは白を背景にしたクリーンなライトテーマを示しています。",
-        "鮮やかな多色グラデーションを使用しない — デザインは単一で一貫したグリーンのアクセントを使用しています。",
-        "装飾的なセリフフォントを使用しない — タイポグラフィは全体的にクリーンでサンセリフです。",
-        "重いドロップシャドウを使用しない — シャドウは最小限で繊細、装飾ではなく奥行きを生むために使用。",
-        "インターフェースを雑然としない — レイアウトはゆったりとしており、要素間に十分なホワイトスペースがあります。",
-        "複雑なイラストを使用しない — ビジュアルの焦点は明確なタイポグラフィと機能的なUIコンポーネントにあります。"
-      ],
-      "systemPrompt": "これは開発者向けの、クリーンでプロフェッショナルなSaaSプラットフォームであり、モダンなデータベースソリューションとして位置づけられています。主要カラーは深い海军色のインク（#112e51）と、白背景（#ffffff）に鮮やかなグリーンのアクセント（#00ed64）。タイポグラフィはモダンで読みやすい印象のため、幾何学的およびヒューマニストサンセリフカテゴリを使用。重要な禁止事項：ダークモード、多色グラデーション、装飾的なセリフフォント、重いシャドウ、雑然としたレイアウト、複雑なイラストを避けること。デザインは、抑制とクリーンなビジュアル階層を通じて、明瞭さ、信頼性、開発者重視の機能性を優先しています。"
-    },
-    "ko": {
-      "identity": {
-        "keywords": [
-          "데이터베이스",
-          "개발자",
-          "현대적",
-          "신뢰할 수 있는",
-          "데이터"
-        ],
-        "analogy": "깔끔하고 전문적인 인터페이스를 갖춘, 신뢰할 수 있는 현대적 엔터프라이즈 도구.",
-        "oneLiner": "데이터 관리를 위한 깔끔하고 개발자 중심의 SaaS 플랫폼."
-      },
-      "colors": {
-        "principle": "흰색 배경 위에 텍스트를 위해 진한 네이비를, 하이라이트를 위해 밝은 그린 악센트를 사용하는 높은 대비의 깔끔한 팔레트."
-      },
-      "typography": {
-        "rules": [
-          "제목은 현대적이고 임팩트 있는 느낌을 위해 좁은 자간을 사용합니다.",
-          "본문은 풍부한 줄 간격을 통해 편안한 읽기 리듬을 유지합니다.",
-          "폰트 두께는 굵은 제목에서 일반 본문까지 명확한 계층을 만듭니다."
-        ],
-        "scaleUses": [
-          "메인 제목",
-          "섹션 헤더",
-          "카드 제목 및 소제목",
-          "단락 텍스트 및 설명"
-        ]
-      },
-      "spacing": {
-        "rhythm": "편안한 수직 간격을 위한 8px 리듬을 가진, 일관된 4px 기본 그리드."
-      },
-      "surfaces": {
-        "shadows": [
-          "0 1px 3px rgba(0,0,0,0.08)",
-          "0 4px 12px rgba(0,0,0,0.06)"
-        ],
-        "borders": "무거운 구분선 대신 미묘한 테두리를 사용하는 최소한의 스타일."
-      },
-      "layout": {
-        "skeleton": "콘텐츠를 위한 중앙 정렬 컨테이너가 있는 표준 12열 그리드."
-      },
-      "components": {
-        "button": "명확한 라벨을 가진 깔끔한 직사각형 버튼, 주요 작업에는 그린 악센트를 사용.",
-        "card": "콘텐츠 명확성에 중점을 둔, 미묘한 테두리 또는 그림자를 가진 단순한 카드.",
-        "chip": "분류를 위한 정제된 배경의 알약 모양 태그.",
-        "input": "명확한 테두리와 라벨을 가진 깔끔한 입력 필드.",
-        "hero": "눈에 띄는 제목과 CTA를 가진 넓고 웅장한 히어로 섹션."
-      },
-      "motion": {
-        "patterns": [
-          "콘텐츠 로딩을 위한 부드러운 페이드인",
-          "인터랙티브 요소의 미묘한 hover 상태 전환"
-        ]
-      },
-      "interaction": {
-        "hover": "인터랙티브 요소에 미묘한 색상 변화 또는 떠오름 효과.",
-        "click": "즉각적인 상태 변화로 명확한 피드백 제공.",
-        "transition": "모든 상태 변화는 부드럽고 일관된 easing으로 애니메이션 처리.",
-        "keyboard": "명확한 포커스 상태와 함께 완벽한 키보드 내비게이션 지원."
-      },
-      "voice": {
-        "tone": "전문적이고 자신감 있으며 기술적인 어조.",
-        "headlineStyle": "명확하고 간결한 언어를 사용하는, 직접적이고 혜택 중심적인 스타일.",
-        "ctaStyle": "사용자를 다음 단계로 안내하는, 행동 지향적이고 구체적인 스타일.",
-        "avoid": [
-          "맥락 없는 전문 용어",
-          "지나치게 캐주얼하거나 장난스러운 언어",
-          "모호하거나 불분명한 약속"
-        ]
-      },
-      "donts": [
-        "다크 모드를 사용하지 않습니다 — 스크린샷은 흰색 배경의 깔끔한 라이트 테마를 보여줍니다.",
-        "화려한 다색 그라데이션을 사용하지 않습니다 — 디자인은 단일하고 일관된 그린 악센트를 사용합니다.",
-        "장식용 세리프 폰트를 사용하지 않습니다 — 타이포그래피는 전체적으로 깔끔한 산세리프입니다.",
-        "무거운 드롭 섀도우를 사용하지 않습니다 — 그림자는 장식이 아닌 깊이감을 위해 최소한이고 미묘하게 사용됩니다.",
-        "인터페이스를 복잡하게 만들지 않습니다 — 레이아웃은 요소 간의 풍부한 여백으로 넓게 구성됩니다.",
-        "복잡한 일러스트를 사용하지 않습니다 — 시각적 초점은 명확한 타이포그래피와 기능적인 UI 컴포넌트에 맞춰집니다."
-      ],
-      "systemPrompt": "이것은 개발자를 위한 깔끔하고 전문적인 SaaS 플랫폼으로, 현대적인 데이터베이스 솔루션으로 포지셔닝합니다. 주요 색상은 진한 네이비 잉크(#112e51)와 흰색 배경(#ffffff) 위의 밝은 그린 악센트(#00ed64)입니다. 타이포그래피는 현대적이고 읽기 쉬운 느낌을 위해 기하학적 및 휴머니스트 산세리프 카테고리를 사용합니다. 핵심 금지 사항: 다크 모드 회피, 다색 그라데이션 회피, 장식용 세리프 폰트 회피, 무거운 그림자 회피, 복잡한 레이아웃 회피, 복잡한 일러스트 회피. 디자인은 절제와 깔끔한 시각적 계층을 통해 명확성, 신뢰, 개발자 중심 기능성을 우선시합니다."
+      "easing": "cubic-bezier(0.25, 0.46, 0.45, 0.94)"
     }
   },
   "desc": {
     "en": {
-      "palette": "A high-contrast, clean palette with deep navy text, a single vibrant green accent, and ample white space for a professional developer-focused aesthetic.",
-      "layout": "A spacious, centered 12-column grid layout with generous white space and clear visual hierarchy.",
-      "interaction": "Smooth, subtle transitions on interactive elements with clear feedback and full keyboard navigation support.",
-      "motion": "Minimal, purposeful animations for state changes and content loading, using consistent easing curves.",
-      "notes": "This site exemplifies clean, functional design for technical audiences, using restraint and clarity to build trust and professionalism."
+      "palette": "A high-contrast dark mode palette dominated by deep teal-blue, neutral grays, and a single vibrant neon green accent.",
+      "layout": "A standard 12-column responsive grid with generous vertical spacing and full-width dark hero sections.",
+      "interaction": "Subtle, fast transitions on hover states and a clear distinction between primary green and secondary dark buttons.",
+      "motion": "Minimal, functional motion focused on smooth opacity and background color transitions.",
+      "notes": "Worth including as a prime example of modern developer tool aesthetics: clean, authoritative, and highly readable with a disciplined accent color."
     },
     "zh-CN": {
       "palette": "一个高对比度、洁净的调色板，采用深海军蓝文本，搭配一个活力绿色强调色，并留有充足的留白，营造专业、面向开发者的美学。",
@@ -618,6 +218,423 @@
       "ch7_intro": "모션은 의도적이고 미니멀하며, 상태 변경과 콘텐츠 전환을 명확히 하기 위해 예약됩니다. 모든 애니메이션은 방해 없이 명확한 피드백을 제공하기 위해 부드럽고 일관된 이징을 사용합니다.",
       "ch8_intro": "에디토리얼 보이스는 제품 자체의 정밀함과 일치하는 전문적이고, 자신감 넘치며, 기술적입니다. 언어는 직접적이고, 이익 중심적이며, 맥락 없는 전문 용어가 없습니다.",
       "ch8_outro": "의도적인 설계를 통해 이 시스템은 다크 모드, 장식용 일러스트레이션 또는 다색 그라디언트를 사용하지 않으며, 명료함과 기능적 절제에 대한 초점을 유지합니다."
+    }
+  },
+  "spec_i18n": {
+    "en": {
+      "identity": {
+        "keywords": [
+          "database",
+          "developer platform",
+          "data infrastructure",
+          "AI-ready",
+          "cloud-native"
+        ],
+        "analogy": "A precision-engineered Swiss watch for data: clean, reliable, and built for serious work.",
+        "oneLiner": "A clean, developer-centric data platform UI balancing dark technical authority with approachable green accents."
+      },
+      "colors": {
+        "principle": "High contrast dark-mode dominance with a single high-chroma neon green accent for primary actions."
+      },
+      "typography": {
+        "rules": [
+          "Headlines use geometric-sans at weight 500 for a technical yet approachable feel.",
+          "Body text uses humanist-sans at weight 400 for maximum readability.",
+          "Monospaced fonts are reserved strictly for code snippets and technical indicators.",
+          "Strict uppercase tracking is applied to small labels to maintain hierarchy."
+        ],
+        "scaleUses": [
+          "Main hero headline",
+          "Section headings",
+          "Primary reading text",
+          "Labels and uppercase tags"
+        ]
+      },
+      "spacing": {
+        "rhythm": "Consistent 8px baseline grid with generous 96px+ vertical padding for major sections."
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 3px 9px 0px rgba(0,0,0,0.15)",
+          "0px 7px 13px 0px rgba(0,0,0,0.13)",
+          "0px 26px 44px 0px rgba(0,30,43,0.12)"
+        ],
+        "borders": "Subtle 1px borders using rgba(255,255,255,0.15) on dark or rgba(0,0,0,0.1) on light."
+      },
+      "layout": {
+        "skeleton": "Full-width sections alternating between deep dark and light neutral backgrounds."
+      },
+      "components": {
+        "button": "Primary: pill-shaped (#00ed64) with dark text; Secondary: dark pill with white border.",
+        "card": "Light background cards with generous padding (24px) and subtle rounded corners (16px).",
+        "chip": "Experience selector uses a pill-shaped segmented control with a green active state.",
+        "input": "Search and assistant inputs feature pill-shaped dark containers with subtle borders.",
+        "hero": "Large central headline split between white and green text over a dark gradient background."
+      },
+      "motion": {
+        "patterns": [
+          "Subtle opacity transitions on hover states.",
+          "Smooth background-color changes for interactive elements.",
+          "Horizontal slide transitions for carousel navigation."
+        ]
+      },
+      "interaction": {
+        "hover": "Subtle color shifts or opacity changes on buttons and links.",
+        "click": "Immediate visual feedback via background color transitions.",
+        "transition": "Consistent 0.2s to 0.3s ease-out transitions across all interactive elements.",
+        "keyboard": "Standard tab-based focus navigation through the primary navigation and interactive elements."
+      },
+      "voice": {
+        "tone": "Authoritative, technical, and direct.",
+        "headlineStyle": "Short, punchy declarative sentences with a focus on scale and potential.",
+        "ctaStyle": "Clear and action-oriented (e.g., 'Get Started', 'Documentation').",
+        "avoid": [
+          "Overly flowery or emotional marketing language.",
+          "Ambiguous jargon without context.",
+          "Excessive exclamation points or hype."
+        ]
+      },
+      "donts": [
+        "Don't use vibrant multi-color gradients — screenshot shows a restrained palette of dark blues, whites, and a single green accent.",
+        "Don't use decorative serif fonts for headlines — screenshot shows a geometric-sans for all display text.",
+        "Don't use sharp square corners on primary buttons — screenshot shows fully rounded pill shapes.",
+        "Don't hide primary actions in dark backgrounds — screenshot uses a high-chroma green for main CTAs.",
+        "Don't use heavy drop shadows for depth — screenshot relies on subtle shadows and flat surfaces.",
+        "Don't crowd the layout with elements — screenshot shows generous whitespace and a clear visual hierarchy."
+      ],
+      "systemPrompt": "This is a developer-focused SaaS platform for data infrastructure. The design utilizes a deep dark blue (#001e2b) background paired with a vibrant neon green (#00ed64) accent for primary calls to action. Typography is strictly geometric and humanist sans-serif, maintaining a technical but readable aesthetic. Critical design constraints include avoiding multi-color gradients, utilizing pill-shaped buttons instead of sharp rectangles, and maintaining generous whitespace to emphasize a clean, professional hierarchy. The UI balances dark-mode technical authority with approachable, high-contrast green highlights."
+    },
+    "zh-CN": {
+      "identity": {
+        "keywords": [
+          "数据库",
+          "开发者平台",
+          "数据基础设施",
+          "AI-ready",
+          "云原生"
+        ],
+        "analogy": "为数据打造的精密瑞士腕表：简洁、可靠，专为严肃工作而生。",
+        "oneLiner": "一个以开发者为中心的简洁数据平台UI，平衡深色技术权威感与亲切的绿色点缀。"
+      },
+      "colors": {
+        "principle": "以高对比度深色模式为主导，辅以单一高饱和度霓虹绿作为主要操作的高亮色。"
+      },
+      "typography": {
+        "rules": [
+          "标题使用几何无衬线字体，字重500，营造技术感又不失亲和力。",
+          "正文使用人文无衬线字体，字重400，确保最佳可读性。",
+          "等宽字体严格保留给代码片段和技术指示符。",
+          "小标签采用严格的大写字母间距，以维持视觉层次。"
+        ],
+        "scaleUses": [
+          "主视觉区大标题",
+          "章节标题",
+          "主要阅读文本",
+          "标签和大写标签"
+        ]
+      },
+      "spacing": {
+        "rhythm": "基于一致的8px基线网格，主要章节采用96px以上的充裕垂直内边距。"
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 3px 9px 0px rgba(0,0,0,0.15)",
+          "0px 7px 13px 0px rgba(0,0,0,0.13)",
+          "0px 26px 44px 0px rgba(0,30,43,0.12)"
+        ],
+        "borders": "采用微妙的1px边框：深色背景上为rgba(255,255,255,0.15)，浅色背景上为rgba(0,0,0,0.1)。"
+      },
+      "layout": {
+        "skeleton": "全宽章节，在深色与浅色中性背景间交替。"
+      },
+      "components": {
+        "button": "主按钮：药丸形（#00ed64）配深色文字；次按钮：深色药丸形配白色边框。",
+        "card": "浅色背景卡片，采用充裕内边距（24px）和微妙的圆角（16px）。",
+        "chip": "体验选择器采用药丸形分段控件，激活状态为绿色。",
+        "input": "搜索和助手输入框采用药丸形深色容器，配有微妙的边框。",
+        "hero": "位于深色渐变背景上的大型中央标题，文字分为白色与绿色两部分。"
+      },
+      "motion": {
+        "patterns": [
+          "悬停状态下的微妙透明度过渡。",
+          "交互元素平滑的背景色变化。",
+          "轮播导航的水平滑动过渡。"
+        ]
+      },
+      "interaction": {
+        "hover": "按钮和链接在悬停时发生微妙的颜色或透明度变化。",
+        "click": "通过背景色过渡提供即时视觉反馈。",
+        "transition": "所有交互元素采用一致的0.2s至0.3s缓出过渡。",
+        "keyboard": "通过主导航和交互元素采用标准的Tab键聚焦导航。"
+      },
+      "voice": {
+        "tone": "权威、技术化、直接。",
+        "headlineStyle": "简短、有力的陈述句，聚焦规模和潜力。",
+        "ctaStyle": "清晰且以行动为导向（例如：“开始使用”、“文档”）。",
+        "avoid": [
+          "过于华丽或情绪化的营销语言。",
+          "缺乏上下文的模糊术语。",
+          "过多的感叹号或炒作。"
+        ]
+      },
+      "donts": [
+        "不要使用鲜艳的多色渐变——截图显示了深蓝、白色和单一绿色点缀的克制调色板。",
+        "不要使用装饰性衬线字体作为标题——截图显示所有展示文本均采用几何无衬线字体。",
+        "不要在主按钮上使用尖锐的方形圆角——截图显示的是完全圆润的药丸形状。",
+        "不要在深色背景中隐藏主要操作——截图使用高饱和度绿色作为主要CTA。",
+        "不要使用浓重的投影来营造深度感——截图依赖微妙的阴影和扁平表面。",
+        "不要用元素挤满布局——截图显示了充裕的留白和清晰的视觉层次。"
+      ],
+      "systemPrompt": "这是一个面向开发者的数据基础设施SaaS平台。设计采用深邃的深蓝色（#001e2b）背景，搭配活力十足的霓虹绿（#00ed64）作为主要号召性用语的高亮色。字体严格使用几何和人文无衬线体，保持技术感与可读性的美学。关键设计约束包括避免多色渐变、使用药丸形按钮而非尖锐矩形，以及通过充裕的留白来强调简洁、专业的层次感。该UI平衡了深色模式的技术权威感与亲切、高对比度的绿色高亮。"
+    },
+    "zh-TW": {
+      "identity": {
+        "keywords": [
+          "資料庫",
+          "開發者平台",
+          "資料基礎架構",
+          "AI-ready",
+          "cloud-native"
+        ],
+        "analogy": "為資料打造的精密瑞士腕錶：簡潔、可靠，專為嚴肅工作而生。",
+        "oneLiner": "一個簡潔、以開發者為中心的資料平台 UI，平衡深色技術權威感與親切的綠色點綴。"
+      },
+      "colors": {
+        "principle": "高對比深色模式為主導，搭配單一高飽和霓虹綠作為主要操作的點綴色。"
+      },
+      "typography": {
+        "rules": [
+          "標題使用幾何無襯線字體，字重 500，呈現技術感又不失親和力。",
+          "內文使用人文無襯線字體，字重 400，以確保最佳可讀性。",
+          "等寬字體嚴格保留給程式碼片段與技術指標使用。",
+          "小標籤採用嚴格的大寫字母與字間距，以維持視覺層次。"
+        ],
+        "scaleUses": [
+          "主視覺大標題",
+          "章節標題",
+          "主要閱讀文字",
+          "標籤與大寫標示"
+        ]
+      },
+      "spacing": {
+        "rhythm": "一致的 8px 基線網格，主要區塊則採用寬裕的 96px 以上垂直內距。"
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 3px 9px 0px rgba(0,0,0,0.15)",
+          "0px 7px 13px 0px rgba(0,0,0,0.13)",
+          "0px 26px 44px 0px rgba(0,30,43,0.12)"
+        ],
+        "borders": "在深色背景上使用 rgba(255,255,255,0.15) 或淺色背景上使用 rgba(0,0,0,0.1) 的細緻 1px 邊框。"
+      },
+      "layout": {
+        "skeleton": "全寬區塊，深色與淺色中性背景交替出現。"
+      },
+      "components": {
+        "button": "主要：膠囊形狀（#00ed64）配深色文字；次要：深色膠囊形狀配白色邊框。",
+        "card": "淺色背景卡片，搭配寬裕內距（24px）與細微圓角（16px）。",
+        "chip": "體驗選擇器採用膠囊形狀的分段控制項，啟用狀態為綠色。",
+        "input": "搜尋與助理輸入框採用膠囊形狀的深色容器，帶有細微邊框。",
+        "hero": "大型中央標題，文字在深色漸層背景上以白色與綠色分開呈現。"
+      },
+      "motion": {
+        "patterns": [
+          "懸停狀態下的細微透明度過渡。",
+          "互動元素平滑的背景色彩變化。",
+          "輪播導覽的水平滑動過渡。"
+        ]
+      },
+      "interaction": {
+        "hover": "按鈕與連結上的細微色彩或透明度變化。",
+        "click": "透過背景色彩過渡提供即時視覺回饋。",
+        "transition": "所有互動元素均採用一致的 0.2s 至 0.3s ease-out 過渡效果。",
+        "keyboard": "透過標準 Tab 鍵導覽主要導覽與互動元素。"
+      },
+      "voice": {
+        "tone": "權威、技術導向且直接。",
+        "headlineStyle": "簡短、有力、陳述式的句子，聚焦於規模與潛力。",
+        "ctaStyle": "清晰且以行動為導向（例如：「開始使用」、「技術文件」）。",
+        "avoid": [
+          "過度華麗或情緒化的行銷用語。",
+          "缺乏脈絡的模糊行話。",
+          "過多的驚嘆號或誇張用語。"
+        ]
+      },
+      "donts": [
+        "勿使用鮮豔的多色漸層——截圖顯示的是以深藍、白色與單一綠色點綴構成的克制色盤。",
+        "勿使用裝飾性襯線字體作為標題——截圖顯示所有展示文字均採用幾何無襯線字體。",
+        "勿在主要按鈕上使用尖銳的方形圓角——截圖顯示的是完全圓潤的膠囊形狀。",
+        "勿將主要操作隱藏在深色背景中——截圖以高飽和綠色作為主要號召性用語。",
+        "勿使用厚重的陰影來營造深度感——截圖依靠細微陰影與平面表面。",
+        "勿在版面上過度擁擠元素——截圖顯示寬裕的留白與清晰的視覺層次。"
+      ],
+      "systemPrompt": "這是一個以開發者為中心的 SaaS 平台，用於資料基礎架構。設計採用深色藍色（#001e2b）背景，搭配鮮豔的霓虹綠（#00ed64）作為主要號召性用語的點綴色。字體嚴格使用幾何與人文無襯線字體，維持技術感又兼顧可讀性的美學。關鍵設計限制包括：避免使用多色漸層、以膠囊形狀按鈕取代尖銳矩形，以及維持寬裕的留白以強調簡潔、專業的層次感。UI 平衡了深色模式的技術權威感與親切、高對比的綠色亮點。"
+    },
+    "ja": {
+      "identity": {
+        "keywords": [
+          "データベース",
+          "開発者プラットフォーム",
+          "データインフラ",
+          "AI対応",
+          "クラウドネイティブ"
+        ],
+        "analogy": "データのための精密に設計されたスイス時計：クリーンで信頼性が高く、本格的な仕事のために作られています。",
+        "oneLiner": "ダークの技術的な権威と親しみやすいグリーンのアクセントをバランスよく取り入れた、クリーンで開発者中心のデータプラットフォームUI。"
+      },
+      "colors": {
+        "principle": "ハイコントラストのダークモードを支配的にし、プライマリアクションには単一のハイクロマのネオングリーンアクセントを用いる。"
+      },
+      "typography": {
+        "rules": [
+          "見出しには幾何学サンセリフをウェイト500で使用し、技術的でありながらも親しみやすい印象を実現する。",
+          "本文にはヒューマニストサンセリフをウェイト400で使用し、最大限の可読性を確保する。",
+          "モノスペースフォントはコードスニペットや技術的な指標にのみ厳密に使用する。",
+          "小さなラベルには厳格な大文字トラッキングを適用し、階層を維持する。"
+        ],
+        "scaleUses": [
+          "メインヒーローヘッドライン",
+          "セクション見出し",
+          "プライマリリーディングテキスト",
+          "ラベルと大文字タグ"
+        ]
+      },
+      "spacing": {
+        "rhythm": "一貫した8pxのベースライングリッドと、主要セクションには十分な96px以上の垂直パディングを採用。"
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 3px 9px 0px rgba(0,0,0,0.15)",
+          "0px 7px 13px 0px rgba(0,0,0,0.13)",
+          "0px 26px 44px 0px rgba(0,30,43,0.12)"
+        ],
+        "borders": "ダークでは rgba(255,255,255,0.15)、ライトでは rgba(0,0,0,0.1) を使用した、微妙な1pxのボーダー。"
+      },
+      "layout": {
+        "skeleton": "全幅セクションが、深いダーク背景とライトなニュートラル背景を交互に使用する。"
+      },
+      "components": {
+        "button": "プライマリ：ダークテキストのピル形状（#00ed64）。セカンダリ：ホワイトボーダー付きダークピル。",
+        "card": "十分なパディング（24px）と微妙な丸み（16px）を持つ、ライト背景カード。",
+        "chip": "体験セレクターには、グリーンのアクティブ状態を持つピル形状のセグメンテッドコントロールを採用。",
+        "input": "検索およびアシスタント入力には、微妙なボーダー付きのダークなピル形状コンテナを採用。",
+        "hero": "ダークグラデーション背景の上に、ホワイトとグリーンのテキストに分割された大きな中央ヘッドライン。"
+      },
+      "motion": {
+        "patterns": [
+          "ホバー状態での微妙な不透明度の遷移。",
+          "インタラクティブ要素の滑らかな背景色の変化。",
+          "カルーセルナビゲーションの水平スライド遷移。"
+        ]
+      },
+      "interaction": {
+        "hover": "ボタンやリンクでの微妙な色の変化や不透明度の変更。",
+        "click": "背景色の遷移による即座の視覚的フィードバック。",
+        "transition": "すべてのインタラクティブ要素に一貫した 0.2s から 0.3s の ease-out トランジション。",
+        "keyboard": "プライマリナビゲーションとインタラクティブ要素を通じた、標準的なタブベースのフォーカスナビゲーション。"
+      },
+      "voice": {
+        "tone": "権威があり、技術的で、直接的。",
+        "headlineStyle": "スケールと可能性に焦点を当てた、短くパンチの効いた宣言的な文。",
+        "ctaStyle": "明確で行動指向（例：「Get Started」、「Documentation」）。",
+        "avoid": [
+          "過度に華やかまたは感情的なマーケティング言語。",
+          "文脈のない曖昧な専門用語。",
+          "過度の感嘆符や誇大広告。"
+        ]
+      },
+      "donts": [
+        "鮮やかな多色グラデーションを使用しない — スクリーンショットはダークブルー、ホワイト、単一のグリーンアクセントという抑制されたパレットを示している。",
+        "見出しに装飾的なセリフフォントを使用しない — スクリーンショットはすべての表示テキストに幾何学サンセリフを示している。",
+        "プライマリボタンに鋭い四角い角を使用しない — スクリーンショットは完全に丸みのあるピル形状を示している。",
+        "プライマリアクションをダーク背景に隠さない — スクリーンショットはメインCTAにハイクロマのグリーンを使用している。",
+        "深度のために重いドロップシャドウを使用しない — スクリーンショットは微妙なシャドウとフラットなサーフェスに依存している。",
+        "要素でレイアウトを詰め込みすぎない — スクリーンショットは十分なホワイトスペースと明確な視覚的階層を示している。"
+      ],
+      "systemPrompt": "これはデータインフラに特化した開発者向けSaaSプラットフォームです。デザインは、深いダークブルー（#001e2b）の背景と、プライマリCTA用の鮮やかなネオングリーン（#00ed64）のアクセントを組み合わせています。タイポグラフィは幾何学およびヒューマニストサンセリフに厳密に限定し、技術的でありながら読みやすい美学を維持しています。重要なデザイン制約には、多色グラデーションの回避、鋭い長方形の代わりにピル形状ボタンの使用、クリーンでプロフェッショナルな階層を強調するための十分なホワイトスペースの維持が含まれます。UIは、ダークモードの技術的権威と親しみやすいハイコントラストのグリーンハイライトをバランスよく融合させています。"
+    },
+    "ko": {
+      "identity": {
+        "keywords": [
+          "데이터베이스",
+          "개발자 플랫폼",
+          "데이터 인프라",
+          "AI 준비 완료",
+          "클라우드 네이티브"
+        ],
+        "analogy": "데이터를 위한 정밀 공학의 스위스 시계: 깔끔하고, 신뢰할 수 있으며, 진지한 작업을 위해 만들어졌습니다.",
+        "oneLiner": "어둡고 기술적인 권위와 접근 가능한 그린 악센트의 균형을 맞춘, 개발자 중심의 깔끔한 데이터 플랫폼 UI."
+      },
+      "colors": {
+        "principle": "단일 고채도 네온 그린 악센트를 주요 작업에 사용하는 고대비 다크 모드 중심의 디자인."
+      },
+      "typography": {
+        "rules": [
+          "헤드라인은 기술적이면서도 접근 가능한 느낌을 위해 weight 500의 지오메트릭-산세리프를 사용합니다.",
+          "본문은 최대 가독성을 위해 weight 400의 휴머니스트-산세리프를 사용합니다.",
+          "모노스페이스 폰트는 코드 스니펫 및 기술 표시에만 엄격히 예약됩니다.",
+          "작은 레이블에는 계층을 유지하기 위해 대문자 간격을 적용합니다."
+        ],
+        "scaleUses": [
+          "메인 히어로 헤드라인",
+          "섹션 제목",
+          "기본 본문 텍스트",
+          "레이블 및 대문자 태그"
+        ]
+      },
+      "spacing": {
+        "rhythm": "일관된 8px 기반 그리드와 주요 섹션에는 넉넉한 96px 이상의 수직 패딩."
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 3px 9px 0px rgba(0,0,0,0.15)",
+          "0px 7px 13px 0px rgba(0,0,0,0.13)",
+          "0px 26px 44px 0px rgba(0,30,43,0.12)"
+        ],
+        "borders": "어두운 배경 시 rgba(255,255,255,0.15) 또는 밝은 배경 시 rgba(0,0,0,0.1)의 섬세한 1px 테두리."
+      },
+      "layout": {
+        "skeleton": "깊은 어두운 배경과 밝은 중립 배경이 교차하는 전체 폭 섹션."
+      },
+      "components": {
+        "button": "메인: 어두운 텍스트의 필 형태(#00ed64); 보조: 흰색 테두리가 있는 어두운 필 형태.",
+        "card": "넉넉한 패딩(24px)과 섬세한 둥근 모서리(16px)가 있는 밝은 배경 카드.",
+        "chip": "경험 선택기는 그린 활성 상태의 필 형태 세그먼트 컨트롤을 사용합니다.",
+        "input": "검색 및 어시스턴트 입력은 섬세한 테두리가 있는 필 형태 어두운 컨테이너입니다.",
+        "hero": "어두운 그래디언트 배경 위에 흰색과 그린 텍스트로 나뉜 중앙의 큰 헤드라인."
+      },
+      "motion": {
+        "patterns": [
+          "hover 상태에서 섬세한 불투명도 전환.",
+          "인터랙티브 요소의 부드러운 배경색 변경.",
+          "캐러셀 네비게이션을 위한 수평 슬라이드 전환."
+        ]
+      },
+      "interaction": {
+        "hover": "버튼과 링크에서 섬세한 색상 변화 또는 불투명도 변경.",
+        "click": "배경색 전환을 통한 즉각적인 시각적 피드백.",
+        "transition": "모든 인터랙티브 요소에서 일관된 0.2s~0.3s ease-out 전환.",
+        "keyboard": "기본 네비게이션 및 인터랙티브 요소를 통한 표준 tab 기반 포커스 탐색."
+      },
+      "voice": {
+        "tone": "권위 있고, 기술적이며, 직접적입니다.",
+        "headlineStyle": "규모와 가능성에 초점을 맞춘 짧고 강렬한 진술문.",
+        "ctaStyle": "명확하고 행동 지향적 (예: '시작하기', '문서').",
+        "avoid": [
+          "지나치게 화려하거나 감정적인 마케팅 언어.",
+          "맥락 없는 모호한 전문 용어.",
+          "과도한 감탄사나 과장."
+        ]
+      },
+      "donts": [
+        "다채로운 다색 그래디언트를 사용하지 마세요 — 스크린샷은 어두운 파란색, 흰색, 단일 그린 악센트의 절제된 팔레트를 보여줍니다.",
+        "장식용 세리프 폰트를 헤드라인에 사용하지 마세요 — 스크린샷은 모든 표시 텍스트에 지오메트릭-산세리프를 사용합니다.",
+        "메인 버튼에 날카로운 사각형 코너를 사용하지 마세요 — 스크린샷은 완전히 둥근 필 형태를 보여줍니다.",
+        "메인 작업을 어두운 배경에 숨기지 마세요 — 스크린샷은 메인 CTA에 고채도 그린을 사용합니다.",
+        "깊이감을 위해 무거운 드롭 섀도우를 사용하지 마세요 — 스크린샷은 섬세한 섀도우와 평평한 표면에 의존합니다.",
+        "레이드에 요소를 빽빽이 배치하지 마세요 — 스크린샷은 넉넉한 여백과 명확한 시각적 계층을 보여줍니다."
+      ],
+      "systemPrompt": "이것은 데이터 인프라를 위한 개발자 중심 SaaS 플랫폼입니다. 디자인은 깊은 어두운 블루(#001e2b) 배경과 주요 호출을 위한 생생한 네온 그린(#00ed64) 악센트를 쌍으로 사용합니다. 타이포그래피는 지오메트릭 및 휴머니스트 산세리프로 엄격히 통일하여 기술적이면서도 가독성 있는 미학을 유지합니다. 주요 설계 제약 사항으로는 다색 그래디언트 사용 회피, 날카로운 직사각형 대신 필 형태 버튼 사용, 깔끔하고 전문적인 계층을 강조하기 위한 넉넉한 여백 유지가 포함됩니다. UI는 접근 가능하고 고대비의 그린 하이라이트와 어두운 모드의 기술적 권위의 균형을 맞춥니다."
     }
   }
 }

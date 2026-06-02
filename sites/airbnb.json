@@ -3,7 +3,7 @@
   "schema_version": "0.3",
   "url": "https://www.airbnb.com",
   "title": "Airbnb",
-  "image": "https://image.thum.io/get/width/1440/https://www.airbnb.com",
+  "image": "https://image.thum.io/get/width/1440/noanimate/?_cb=1780375137/https://www.airbnb.com",
   "tags": [
     "Consumer",
     "Marketplace",
@@ -17,36 +17,38 @@
   "_meta": {
     "vision_model": "mimo-v2.5",
     "vision_prompt_version": "0.3",
-    "vision_at": "2026-05-28T21:26:20+00:00",
-    "vision_tokens": 3287,
-    "vision_cost_usd": 0.0365,
+    "vision_at": "2026-05-30T10:16:50+00:00",
+    "vision_tokens": 17087,
+    "vision_cost_usd": 0.1899,
     "translation_model": "mimo-v2.5",
-    "translation_at": "2026-05-28T21:27:13+00:00",
-    "translation_tokens": 15279,
-    "translation_cost_usd": 0.051,
+    "translation_at": "2026-05-30T10:17:35+00:00",
+    "translation_tokens": 24543,
+    "translation_cost_usd": 0.0819,
     "narrative_model": "mimo-v2.5",
     "narrative_prompt_version": "0.3",
     "narrative_at": "2026-05-28T21:27:21+00:00",
     "narrative_tokens": 1878,
     "narrative_cost_usd": 0.0125,
     "narrative_status": "ok",
-    "total_cost_usd": 0.1
+    "total_cost_usd": 0.2843,
+    "vision_source": "playwright-extract:airbnb",
+    "vision_grounded": true
   },
   "spec": {
     "colors": {
       "bg": "#FFFFFF",
-      "bgSoft": "#F7F7F7",
-      "bgQuiet": null,
+      "bgSoft": "#F2F2F2",
+      "bgQuiet": "#DDDDDD",
       "ink": "#222222",
-      "inkSoft": "#717171",
-      "muted": "#B0B0B0",
+      "inkSoft": "#6A6A6A",
+      "muted": "#C1C1C1",
       "mutedSoft": null,
       "accent": "#FF385C",
-      "line": "rgba(0,0,0,0.08)"
+      "line": "rgba(34, 34, 34, 0.02)"
     },
     "typography": {
-      "display": "grotesque-sans",
-      "body": "grotesque-sans",
+      "display": "humanist-sans",
+      "body": "humanist-sans",
       "mono": null,
       "scale": [
         {
@@ -54,12 +56,26 @@
           "size": 28,
           "lh": 1.2,
           "weight": 700,
-          "ls": "-0.5px"
+          "ls": "0px"
+        },
+        {
+          "token": "heading",
+          "size": 16,
+          "lh": 1.2,
+          "weight": 700,
+          "ls": "0px"
         },
         {
           "token": "body",
           "size": 14,
-          "lh": 1.5,
+          "lh": 1.43,
+          "weight": 400,
+          "ls": "0px"
+        },
+        {
+          "token": "caption",
+          "size": 12,
+          "lh": 1.33,
           "weight": 400,
           "ls": "0px"
         }
@@ -75,19 +91,20 @@
         24,
         32,
         48,
-        64
+        64,
+        96
       ]
     },
     "surfaces": {
       "radius": {
         "sm": 4,
-        "md": 12,
-        "lg": 16,
+        "md": 8,
+        "lg": 12,
         "pill": 999
       }
     },
     "layout": {
-      "container": 1280,
+      "container": 1120,
       "paragraph": 680,
       "columns": 12,
       "gutter": 24,
@@ -98,382 +115,20 @@
     },
     "motion": {
       "durations": {
-        "micro": 150,
+        "micro": 100,
         "small": 250,
-        "medium": 500
+        "medium": 400
       },
-      "easing": "cubic-bezier(0.25, 0.1, 0.25, 1)"
-    }
-  },
-  "spec_i18n": {
-    "en": {
-      "identity": {
-        "keywords": [
-          "Travel",
-          "Accommodation",
-          "Marketplace",
-          "Peer-to-peer"
-        ],
-        "analogy": "A welcoming, trust-focused digital marketplace for unique stays.",
-        "oneLiner": "A global marketplace platform connecting travelers with unique local accommodations."
-      },
-      "colors": {
-        "principle": "High-contrast neutrals with a single, vibrant action color."
-      },
-      "typography": {
-        "rules": [],
-        "scaleUses": [
-          "Section headings",
-          "Listing details and descriptions"
-        ]
-      },
-      "spacing": {
-        "rhythm": "Standard 4px grid system"
-      },
-      "surfaces": {
-        "shadows": [
-          "0px 6px 20px rgba(0,0,0,0.1)"
-        ],
-        "borders": "1px solid rgba(0,0,0,0.08)"
-      },
-      "layout": {
-        "skeleton": "A standard grid layout with a prominent search bar at the top, followed by horizontal scrollable carousels of image-rich cards."
-      },
-      "components": {
-        "button": "Pill-shaped search button with icon; clean text links.",
-        "card": "Image-forward cards with rounded corners, subtle shadow on hover, and concise text metadata.",
-        "chip": "Guest favorite badge; text pills for location/category.",
-        "input": "Shadow-elevated search bar with segmented input fields.",
-        "hero": "A unified, floating search component acting as the primary interface anchor."
-      },
-      "motion": {
-        "patterns": [
-          "Smooth horizontal scrolling for carousels",
-          "Subtle fade-in for lazy-loaded images"
-        ]
-      },
-      "interaction": {
-        "hover": "Subtle elevation increase on cards; color change on interactive text.",
-        "click": "Immediate visual feedback; heart icon toggle.",
-        "transition": "150ms ease for color and shadow changes.",
-        "keyboard": "Standard tab navigation with visible focus states."
-      },
-      "voice": {
-        "tone": "Inviting, trustworthy, and direct.",
-        "headlineStyle": "Clear, descriptive nouns (e.g., 'Popular homes in Miami').",
-        "ctaStyle": "Action-oriented but friendly.",
-        "avoid": [
-          "Overly technical jargon",
-          "Aggressive sales language",
-          "Complex sentence structures"
-        ]
-      },
-      "donts": [
-        "Don't use heavy drop shadows — screenshot shows very subtle, soft elevation shadows.",
-        "Don't use multiple competing accent colors — screenshot relies on a single pink accent.",
-        "Don't use centered, decorative typography — screenshot uses left-aligned, functional headings.",
-        "Don't use complex grid overlays — screenshot shows a clean, simple 1-2 column content flow.",
-        "Don't use dark mode by default — screenshot displays a bright, white-background interface.",
-        "Don't use serif fonts — screenshot shows a clean, modern sans-serif typeface."
-      ],
-      "systemPrompt": "Airbnb is a global consumer marketplace for travel accommodations. The visual identity is built on a clean, white canvas with a vibrant pink (#FF385C) accent used sparingly for key actions and branding. The typography is a clean, neutral grotesque sans-serif that prioritizes legibility. Critical design rules: avoid heavy visual noise, keep shadows minimal and soft, and never use multiple competing accent colors. The layout is card-based and image-forward, focusing on high-quality photography to drive user engagement."
-    },
-    "zh-CN": {
-      "identity": {
-        "keywords": [
-          "旅行",
-          "住宿",
-          "市场",
-          "点对点"
-        ],
-        "analogy": "一个以信任为核心、令人感到宾至如归的独特住宿数字市场。",
-        "oneLiner": "一个连接旅行者与独特本地住宿的全球化市场平台。"
-      },
-      "colors": {
-        "principle": "高对比度的中性色，搭配单一、活泼的操作色。"
-      },
-      "typography": {
-        "rules": [],
-        "scaleUses": [
-          "章节标题",
-          "房源详情与描述"
-        ]
-      },
-      "spacing": {
-        "rhythm": "标准的 4px 网格系统"
-      },
-      "surfaces": {
-        "shadows": [
-          "0px 6px 20px rgba(0,0,0,0.1)"
-        ],
-        "borders": "1px solid rgba(0,0,0,0.08)"
-      },
-      "layout": {
-        "skeleton": "标准网格布局，顶部设有醒目的搜索栏，下方是包含丰富图片的卡片水平滚动轮播。"
-      },
-      "components": {
-        "button": "带图标的药丸形搜索按钮；简洁的文字链接。",
-        "card": "以图片为核心的圆角卡片，悬停时带有细微阴影，并包含简洁的文字元数据。",
-        "chip": "房客推荐徽章；表示地点/类别的文字胶囊。",
-        "input": "带有分段输入区域的阴影抬升式搜索栏。",
-        "hero": "一个统一的、浮动式的搜索组件，作为主要的界面锚点。"
-      },
-      "motion": {
-        "patterns": [
-          "轮播的平滑水平滚动",
-          "延迟加载图片的细微淡入效果"
-        ]
-      },
-      "interaction": {
-        "hover": "卡片细微抬升；交互文字的颜色变化。",
-        "click": "即时视觉反馈；心形图标切换。",
-        "transition": "颜色和阴影变化使用 150ms ease 过渡。",
-        "keyboard": "标准 Tab 导航，带有可见的焦点状态。"
-      },
-      "voice": {
-        "tone": "亲切、可信赖且直接。",
-        "headlineStyle": "清晰、描述性的名词（例如‘迈阿密的热门住宅’）。",
-        "ctaStyle": "以行动为导向但友好。",
-        "avoid": [
-          "过于技术化的术语",
-          "侵略性的销售语言",
-          "复杂的句子结构"
-        ]
-      },
-      "donts": [
-        "不要使用厚重的投影——截图显示的是非常细微、柔和的抬升阴影。",
-        "不要使用多种相互竞争的强调色——截图依赖单一的粉色强调。",
-        "不要使用居中的装饰性排版——截图使用左对齐的功能性标题。",
-        "不要使用复杂的网格覆盖——截图显示的是简洁、简单的一至两栏内容流。",
-        "不要默认使用深色模式——截图显示的是明亮的白色背景界面。",
-        "不要使用衬线字体——截图显示的是简洁、现代的无衬线字体。"
-      ],
-      "systemPrompt": "Airbnb 是一个全球性的旅行住宿消费市场。其视觉识别建立在简洁的白色画布之上，关键操作和品牌标识仅谨慎地使用活泼的粉色（#FF385C）作为强调。排版采用简洁、中性的 grotesque sans-serif 字体，优先保证易读性。关键设计规则：避免过多的视觉噪音，保持阴影最小化且柔和，切勿使用多种相互竞争的强调色。布局基于卡片并以图片为核心，聚焦于通过高质量摄影来驱动用户参与。"
-    },
-    "zh-TW": {
-      "identity": {
-        "keywords": [
-          "旅行",
-          "住宿",
-          "市集",
-          "點對點"
-        ],
-        "analogy": "一個歡迎光臨、以信任為焦點的獨特住宿數位市集。",
-        "oneLiner": "一個連接旅行者與獨特在地住宿的全球市集平台。"
-      },
-      "colors": {
-        "principle": "高對比的中性色調，搭配單一、充滿活力的行動色彩。"
-      },
-      "typography": {
-        "rules": [],
-        "scaleUses": [
-          "章節標題",
-          "列表詳情與描述"
-        ]
-      },
-      "spacing": {
-        "rhythm": "標準的 4px 網格系統"
-      },
-      "surfaces": {
-        "shadows": [
-          "0px 6px 20px rgba(0,0,0,0.1)"
-        ],
-        "borders": "1px solid rgba(0,0,0,0.08)"
-      },
-      "layout": {
-        "skeleton": "一個標準的網格佈局，頂部是顯眼的搜尋列，後方是水平可滾動的圖片豐富的卡片輪播。"
-      },
-      "components": {
-        "button": "藥丸形狀的搜尋按鈕，帶有圖示；乾淨的文字連結。",
-        "card": "以圖片為主的卡片，帶有圓角、懸停時有細微陰影，以及簡潔的文字後設資料。",
-        "chip": "賓客最愛徽章；用於位置/分類的文字藥丸。",
-        "input": "帶有陰影提升的搜尋列，包含分割的輸入欄位。",
-        "hero": "一個統一的、浮動的搜尋元件，作為主要的介面錨點。"
-      },
-      "motion": {
-        "patterns": [
-          "輪播的平滑水平滾動",
-          "延遲載入圖片的細微淡入"
-        ]
-      },
-      "interaction": {
-        "hover": "卡片的細微高度增加；互動文字的顏色變化。",
-        "click": "即時的視覺回饋；心形圖示切換。",
-        "transition": "150ms ease，用於顏色和陰影變化。",
-        "keyboard": "標準的 Tab 鍵導航，帶有可見的焦點狀態。"
-      },
-      "voice": {
-        "tone": "具吸引力、值得信賴且直接。",
-        "headlineStyle": "清晰、具描述性的名詞（例如：「邁阿密的熱門住宅」）。",
-        "ctaStyle": "以行動為導向但友善。",
-        "avoid": [
-          "過於專業的術語",
-          "強勢的銷售語言",
-          "複雜的句子結構"
-        ]
-      },
-      "donts": [
-        "不要使用厚重的陰影——截圖顯示的是非常細微、柔和的提升陰影。",
-        "不要使用多種相互競爭的強調色——截圖僅依賴單一粉色強調色。",
-        "不要使用置中的裝飾性字體——截圖使用的是左對齊、功能性的標題。",
-        "不要使用複雜的網格覆蓋——截圖顯示的是乾淨、簡潔的 1-2 欄內容流動。",
-        "不要預設使用深色模式——截圖顯示的是明亮的白色背景介面。",
-        "不要使用襯線字體——截圖顯示的是乾淨、現代的無襯線字體。"
-      ],
-      "systemPrompt": "Airbnb 是一個全球性的旅行住宿消費市集。其視覺識別建立在乾淨的白色畫布上，並謹慎地使用充滿活力的粉色（#FF385C）作為關鍵操作和品牌的強調色。字型使用乾淨、中性的 grotesque-sans-serif，優先考慮可讀性。關鍵設計規則：避免過重的視覺噪音，保持陰影最小化且柔和，並且永不使用多種相互競爭的強調色。佈局以卡片為主且圖片優先，專注於高品質攝影以驅動使用者參與。"
-    },
-    "ja": {
-      "identity": {
-        "keywords": [
-          "旅行",
-          "宿泊",
-          "マーケットプレイス",
-          "P2P"
-        ],
-        "analogy": "ユニークな滞在先を扱う、歓迎と信頼に焦点を当てたデジタルマーケットプレイス。",
-        "oneLiner": "旅行者とユニークな地域の宿泊先をつなぐグローバルマーケットプレイスプラットフォーム。"
-      },
-      "colors": {
-        "principle": "高コントラストの中性色に、単一の鮮やかなアクションカラーを配置。"
-      },
-      "typography": {
-        "rules": [],
-        "scaleUses": [
-          "セクション見出し",
-          "リスティングの詳細と説明"
-        ]
-      },
-      "spacing": {
-        "rhythm": "標準4pxグリッドシステム"
-      },
-      "surfaces": {
-        "shadows": [
-          "0px 6px 20px rgba(0,0,0,0.1)"
-        ],
-        "borders": "1px solid rgba(0,0,0,0.08)"
-      },
-      "layout": {
-        "skeleton": "上部に目立つ検索バーを備えた標準グリッドレイアウト。その下に、画像多めのカードを水平にスクロールできるカルーセルを配置。"
-      },
-      "components": {
-        "button": "アイコン付きピル形状の検索ボタン。クリーンなテキストリンク。",
-        "card": "角丸で画像を前面に出したカード。ホバー時に控えめなシャドウ、簡潔なテキストメタデータ。",
-        "chip": "ゲストお気に入りバッジ。ロケーション/カテゴリ用のテキストピル。",
-        "input": "セグメント化された入力フィールドを持つ、シャドウで浮かせた検索バー。",
-        "hero": "主要なインターフェースのアンカーとなる、統合されたフローティング検索コンポーネント。"
-      },
-      "motion": {
-        "patterns": [
-          "カルーセル用のスムーズな水平スクロール",
-          "遅延読み込み画像用の控えめなフェードイン"
-        ]
-      },
-      "interaction": {
-        "hover": "カードの控えめな高まり。インタラクティブなテキストの色変化。",
-        "click": "即座のビジュアルフィードバック。ハートアイコンの切り替え。",
-        "transition": "色とシャドウの変更に150ms ease。",
-        "keyboard": "標準的なタブナビゲーションと、明確なフォーカス状態。"
-      },
-      "voice": {
-        "tone": "歓迎的で、信頼感があり、率直。",
-        "headlineStyle": "明確で記述的な名詞（例：「マイアミの人気のホーム」）。",
-        "ctaStyle": "アクション指向でありながら、フレンドリー。",
-        "avoid": [
-          "専門用語の過度な使用",
-          "攻撃的な販売言語",
-          "複雑な文章構造"
-        ]
-      },
-      "donts": [
-        "重いドロップシャドウを使用しない — スクリーンショットでは非常に控えめでソフトな浮遊シャドウが使われている。",
-        "競合するアクセントカラーを複数使用しない — スクリーンショットでは単一のピンクのアクセントに依存している。",
-        "センタリングされた装飾的なタイポグラフィを使用しない — スクリーンショットでは左揃えの機能的な見出しが使われている。",
-        "複雑なグリッドオーバーレイを使用しない — スクリーンショットではクリーンでシンプルな1〜2カラムのコンテンツフローが示されている。",
-        "デフォルトでダークモードを使用しない — スクリーンショットでは明るく、白背景のインターフェースが表示されている。",
-        "セリフフォントを使用しない — スクリーンショットではクリーンでモダンなサンセリフ書体が使われている。"
-      ],
-      "systemPrompt": "Airbnbは旅行宿泊を扱うグローバルな消費者向けマーケットプレイス。ビジュアルアイデンティティは、クリーンな白のキャンバスに、主要なアクションとブランディングに控えめに使用される鮮やかなピンク（#FF385C）のアクセントを基盤として構築されている。タイポグラフィは可読性を優先した、クリーンでニュートラルなグロテスクサンセリフ。重要なデザインルール：視覚的なノイズを避け、シャドウは最小限かつソフトに保ち、競合するアクセントカラーを複数使用しないこと。レイアウトはカードベースで画像重視。高品質なフォトグラフィーがユーザーのエンゲージメントを推進する設計。"
-    },
-    "ko": {
-      "identity": {
-        "keywords": [
-          "여행",
-          "숙박",
-          "마켓플레이스",
-          "P2P"
-        ],
-        "analogy": "독특한 숙소를 위한 환영받는, 신뢰 중심의 디지털 마켓플레이스입니다.",
-        "oneLiner": "여행객을 독특한 현지 숙소와 연결하는 글로벌 마켓플레이스 플랫폼입니다."
-      },
-      "colors": {
-        "principle": "단일하고 선명한 액션 컬러를 사용한 고대비 중성색 조합입니다."
-      },
-      "typography": {
-        "rules": [],
-        "scaleUses": [
-          "섹션 제목",
-          "목록 상세 정보 및 설명"
-        ]
-      },
-      "spacing": {
-        "rhythm": "표준 4px 그리드 시스템입니다."
-      },
-      "surfaces": {
-        "shadows": [
-          "0px 6px 20px rgba(0,0,0,0.1)"
-        ],
-        "border": "1px solid rgba(0,0,0,0.08)"
-      },
-      "layout": {
-        "skeleton": "상단에 두드러진 검색 바를 배치하고, 그 아래에 이미지가 풍부한 카드로 구성된 가로 스크롤 캐러셀을 배치한 표준 그리드 레이아웃입니다."
-      },
-      "components": {
-        "button": "아이콘이 포함된 타원형 검색 버튼과 깔끔한 텍스트 링크입니다.",
-        "card": "둥근 모서리, hover 시 섬세한 그림자, 간결한 텍스트 메타데이터가 포함된 이미지 중심 카드입니다.",
-        "chip": "게스트 즐겨찾기 뱃지와 위치/카테고리용 텍스트 필입니다.",
-        "input": "그림자로 상승된 검색 바와 세그먼트 입력 필드입니다.",
-        "hero": "주요 인터페이스 앵커 역할을 하는 통합된 플로팅 검색 컴포넌트입니다."
-      },
-      "motion": {
-        "patterns": [
-          "캐러셀을 위한 부드러운 가로 스크롤링",
-          "지연 로드 이미지를 위한 섬세한 페이드 인"
-        ]
-      },
-      "interaction": {
-        "hover": "카드에 섬세한 상승 효과; 인터랙티브 텍스트에 색상 변화.",
-        "click": "즉각적인 시각적 피드백; 하트 아이콘 토글.",
-        "transition": "색상 및 그림자 변화를 위한 150ms ease 전환.",
-        "keyboard": "보이는 포커스 상태를 갖는 표준 탭 내비게이션."
-      },
-      "voice": {
-        "tone": "환영받는, 신뢰할 수 있는, 그리고 직접적인 어조입니다.",
-        "headlineStyle": "명확하고 설명적인 명사 (예: '인기 숙소 마이애미').",
-        "ctaStyle": "친근하면서도 행동을 유도하는 스타일.",
-        "avoid": [
-          "지나치게 기술적인 전문 용어",
-          "공격적인 판매 언어",
-          "복잡한 문장 구조"
-        ]
-      },
-      "donts": [
-        "두꺼운 그림자를 사용하지 마세요 — 스크린샷은 매우 섬세하고 부드러운 상승 그림자를 보여줍니다.",
-        "경쟁하는 다중 액션 컬러를 사용하지 마세요 — 스크린샷은 단일한 핑크 액션 컬러에 의존합니다.",
-        "중앙 정렬된 장식적 타이포그래피를 사용하지 마세요 — 스크린샷은 좌측 정렬된 기능적 제목을 사용합니다.",
-        "복잡한 그리드 오버레이를 사용하지 마세요 — 스크린샷은 깔끔하고 간단한 1-2칼럼 콘텐츠 흐름을 보여줍니다.",
-        "기본적으로 다크 모드를 사용하지 마세요 — 스크린샷은 밝은 흰색 배경 인터페이스를 표시합니다.",
-        "세리프 폰트를 사용하지 마세요 — 스크린샷은 깔끔하고 현대적인 고딕체 타이포그래피를 보여줍니다."
-      ],
-      "systemPrompt": "Airbnb는 여행 숙박을 위한 글로벌 소비자 마켓플레이스입니다. 시각적 아이덴티티는 깔끔한 흰색 캔버스 위에 선명한 핑크(#FF385C) 포인트 컬러를 핵심 액션과 브랜딩에 절제 있게 사용하여 구축되었습니다. 타이포그래피는 가독성을 우선시하는 깔끔하고 중성적인 고딕체입니다. 핵심 디자인 규칙: 지나치게 시각적 노이즈를 사용하지 않고, 그림자를 최소화하며 부드럽게 유지하며, 절대로 경쟁하는 다중 액션 컬러를 사용하지 않습니다. 레이아웃은 카드 기반으로 이미지 중심이며, 사용자 참여를 이끄는 고품질 사진에 집중합니다."
+      "easing": "cubic-bezier(0.2, 0, 0, 1)"
     }
   },
   "desc": {
     "en": {
-      "palette": "A clean white canvas with light gray surfaces and a single, vibrant pink accent for primary actions.",
-      "layout": "A centered, responsive grid with horizontal scrolling carousels for browsing listings.",
-      "interaction": "Subtle hover elevations and smooth transitions that emphasize content over interface.",
-      "motion": "Minimal and functional, focusing on smooth scrolling and subtle fades for content loading.",
-      "notes": "A masterclass in scalable, image-forward marketplace design that balances high-density information with a clean, inviting aesthetic."
+      "palette": "A high-contrast, mostly monochromatic palette of whites and grays, punctuated by a single, vibrant pink accent.",
+      "layout": "A responsive, container-based layout featuring a prominent, centered search widget and horizontal scrolling card carousels.",
+      "interaction": "Clean and predictable interactions with subtle elevation changes on hover and a strong visual hierarchy for calls to action.",
+      "motion": "Smooth, quick transitions focused on micro-interactions like button hovers and card swipes.",
+      "notes": "A classic example of a modern, consumer-focused SaaS interface that balances high-quality imagery with a clean, trust-building design system."
     },
     "zh-CN": {
       "palette": "简洁的白色画布，搭配浅灰色表面和单一、活泼的粉色作为主要操作强调色。",
@@ -563,6 +218,388 @@
       "ch7_intro": "모션은 엄격히 기능적이어서 장식이 아닌 콘텐츠 전환의 원활함을 위해 사용됩니다. 물리적 연속성을 만들어내는 철학을 가지며, 캐러셀을 위한 수평 스크롤과 지연 로딩 이미지를 위한 미세한 페이드 등은 인터페이스의 물질적 논리를 강화합니다.",
       "ch8_intro": "에디토리얼 목소리는 친근하고 신뢰할 수 있으며 직접적입니다. 제목에는 명확한 서술적 명사를 선호하며, 행동을 유도하되 우호적인 CTA를 사용하여 글로벌 관객에게 명확하게 전달합니다.",
       "ch8_outro": "시스템은 의도적으로 무거운 그림자, 여러 강조 컬러, 장식적 타이포그래피, 복잡한 그리드 오버레이를 피하며, 명확성과 신뢰에 대한 절제된 초점을 유지합니다."
+    }
+  },
+  "spec_i18n": {
+    "en": {
+      "identity": {
+        "keywords": [
+          "travel",
+          "accommodation",
+          "marketplace",
+          "community"
+        ],
+        "analogy": "A global community marketplace for unique stays and experiences.",
+        "oneLiner": "A clean, trust-forward travel marketplace UI with a photographic focus."
+      },
+      "colors": {
+        "principle": "High-contrast neutral base with a single vibrant brand accent."
+      },
+      "typography": {
+        "rules": [],
+        "scaleUses": [
+          "Section headers",
+          "Card titles and labels",
+          "Primary text and navigation",
+          "Metadata and descriptions"
+        ]
+      },
+      "spacing": {
+        "rhythm": "8px vertical rhythm with generous padding."
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(0, 0, 0, 0.04) 0px 2px 6px 0px",
+          "rgba(0, 0, 0, 0.1) 0px 4px 8px 0px",
+          "rgba(0, 0, 0, 0.1) 0px 8px 24px 0px"
+        ],
+        "borders": "1px solid rgba(0, 0, 0, 0.08)"
+      },
+      "layout": {
+        "skeleton": "Full-width header with a central search bar and a multi-column card grid."
+      },
+      "components": {
+        "button": "Pill-shaped with solid black background and white text, or a vibrant pink circular search icon.",
+        "card": "Image-heavy cards with rounded corners, heart icons, and minimal text below.",
+        "chip": "Pill-shaped tags with black borders and white backgrounds.",
+        "input": "Large pill-shaped search bar with soft shadows and a prominent pink action button.",
+        "hero": "Minimalist navigation bar with a prominent, multi-field search widget."
+      },
+      "motion": {
+        "patterns": [
+          "Transform and box-shadow transitions on hover.",
+          "Smooth slide transitions for carousels."
+        ]
+      },
+      "interaction": {
+        "hover": "Subtle elevation change via box-shadow or opacity.",
+        "click": "Scale transform on primary buttons and cards.",
+        "transition": "All properties over 250ms.",
+        "keyboard": "Standard tab focus with visible outlines."
+      },
+      "voice": {
+        "tone": "Friendly, inviting, and professional.",
+        "headlineStyle": "Direct, clear, and conversational.",
+        "ctaStyle": "Action-oriented and concise (e.g., 'Start your search').",
+        "avoid": [
+          "Technical jargon",
+          "Overly formal language",
+          "Aggressive sales tactics"
+        ]
+      },
+      "donts": [
+        "Don't use a dark background — screenshot shows a predominantly white and light gray layout.",
+        "Don't use a serif font — screenshot shows a clean, modern sans-serif typeface throughout.",
+        "Don't use a complex, multi-colored palette — screenshot shows a mostly monochromatic palette with a single pink accent.",
+        "Don't use sharp, square corners on cards — screenshot shows generously rounded corners on images and buttons.",
+        "Don't use heavy, solid borders — screenshot shows very light, subtle borders or box shadows.",
+        "Don't use large, dense blocks of text — screenshot shows ample white space and short, scannable text elements."
+      ],
+      "systemPrompt": "This is a refined, clean travel marketplace UI with a focus on photography. The palette is dominated by white (#FFFFFF) and light grays (#F2F2F2, #DDDDDD) with a single high-chroma pink accent (#FF385C). The typography is a friendly humanist-sans-serif (Airbnb Cereal). Critical donts: don't use dark backgrounds, don't use serif fonts, and don't clutter the interface with heavy borders or dense text blocks. The layout uses generous spacing and rounded corners to create a welcoming, premium feel."
+    },
+    "zh-CN": {
+      "identity": {
+        "keywords": [
+          "旅行",
+          "住宿",
+          "市场",
+          "社区"
+        ],
+        "analogy": "一个面向独特住宿与体验的全球社区市场。",
+        "oneLiner": "一个干净、可信的旅行市场界面，以摄影为核心。"
+      },
+      "colors": {
+        "principle": "以高对比度的中性色为基底，搭配单一鲜明的品牌强调色。"
+      },
+      "typography": {
+        "rules": [],
+        "scaleUses": [
+          "章节标题",
+          "卡片标题与标签",
+          "正文与导航",
+          "元数据与描述"
+        ]
+      },
+      "spacing": {
+        "rhythm": "采用 8px 竖直节奏，配合充裕的内边距。"
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(0, 0, 0, 0.04) 0px 2px 6px 0px",
+          "rgba(0, 0, 0, 0.1) 0px 4px 8px 0px",
+          "rgba(0, 0, 0, 0.1) 0px 8px 24px 0px"
+        ],
+        "borders": "1px solid rgba(0, 0, 0, 0.08)"
+      },
+      "layout": {
+        "skeleton": "全宽顶部栏，中央包含搜索栏，下方是多列卡片网格。"
+      },
+      "components": {
+        "button": "采用胶囊造型，黑色实心背景配白色文字，或为鲜明的粉色圆形搜索图标。",
+        "card": "图片为主的卡片，带有圆角、心形图标，下方配以极简文字。",
+        "chip": "胶囊造型的标签，带有黑色边框与白色背景。",
+        "input": "大型胶囊造型搜索栏，带有柔和阴影和醒目的粉色操作按钮。",
+        "hero": "极简导航栏，搭配一个突出、多字段的搜索组件。"
+      },
+      "motion": {
+        "patterns": [
+          "hover 状态下的 transform 与 box-shadow 过渡。",
+          "轮播图平滑的 slide 过渡。"
+        ]
+      },
+      "interaction": {
+        "hover": "通过 box-shadow 或 opacity 实现微妙的层级变化。",
+        "click": "对主要按钮和卡片应用 scale transform。",
+        "transition": "所有属性在 250ms 内完成过渡。",
+        "keyboard": "标准 tab 聚焦，带有清晰的轮廓线。"
+      },
+      "voice": {
+        "tone": "友好、热情、专业。",
+        "headlineStyle": "直接、清晰、对话式。",
+        "ctaStyle": "以行动为导向，简洁明了（例如，“开始搜索”）。",
+        "avoid": [
+          "技术术语",
+          "过于正式的语言",
+          "激进的销售策略"
+        ]
+      },
+      "donts": [
+        "不要使用深色背景 — 截图显示布局以白色和浅灰色为主。",
+        "不要使用衬线字体 — 截图显示整体采用干净、现代的无衬线字体。",
+        "不要使用复杂、多色的调色板 — 截图显示以单色调为主，仅有一个粉色强调色。",
+        "不要在卡片上使用尖锐、方形的圆角 — 截图显示图片和按钮采用大圆角设计。",
+        "不要使用厚重、实心的边框 — 截图显示使用非常浅、细微的边框或 box-shadow。",
+        "不要使用大段密集文本 — 截图显示留有充足空白，文本元素简短且易于浏览。"
+      ],
+      "systemPrompt": "这是一个精致、干净的旅行市场界面，以摄影为核心。调色板以白色（#FFFFFF）和浅灰色（#F2F2F2，#DDDDDD）为主，搭配一个高饱和度的粉色强调色（#FF385C）。字体采用友好的 humanist-sans-serif（Airbnb Cereal）。关键禁忌：不要使用深色背景，不要使用衬线字体，不要用厚重边框或密集文本块使界面显得杂乱。布局采用充裕的间距和圆角，以营造亲切、高端的感觉。"
+    },
+    "zh-TW": {
+      "identity": {
+        "keywords": [
+          "旅行",
+          "住宿",
+          "市集",
+          "社群"
+        ],
+        "analogy": "一個連結全球、提供獨特住宿與體驗的社群市集。",
+        "oneLiner": "簡潔、強調信賴感的旅行市集介面，以攝影為核心。"
+      },
+      "colors": {
+        "principle": "以高對比中性色為基底，搭配單一鮮明的品牌強調色。"
+      },
+      "typography": {
+        "rules": [],
+        "scaleUses": [
+          "區塊標題",
+          "卡片標題與標籤",
+          "主要文字與導覽",
+          "輔助資訊與描述"
+        ]
+      },
+      "spacing": {
+        "rhythm": "8px 垂直節奏，搭配充裕的內距。"
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(0, 0, 0, 0.04) 0px 2px 6px 0px",
+          "rgba(0, 0, 0, 0.1) 0px 4px 8px 0px",
+          "rgba(0, 0, 0, 0.1) 0px 8px 24px 0px"
+        ],
+        "borders": "1px solid rgba(0, 0, 0, 0.08)"
+      },
+      "layout": {
+        "skeleton": "全寬頂部導覽列，中央配置搜尋欄，下方採用多欄卡片網格。"
+      },
+      "components": {
+        "button": "藥丸形狀，採用實心黑底白字，或鮮明的圓形粉色搜尋圖示。",
+        "card": "以圖片為主的圓角卡片，帶有愛心圖示，下方僅保留極簡文字。",
+        "chip": "帶有黑色邊框與白色背景的藥丸形標籤。",
+        "input": "大型藥丸形搜尋欄，帶有柔和陰影與顯眼的粉色操作按鈕。",
+        "hero": "簡約的導覽列，搭配顯眼的多欄位搜尋小工具。"
+      },
+      "motion": {
+        "patterns": [
+          "hover 狀態下的變形與 box-shadow 過渡效果。",
+          "輪播時的流暢滑動過渡。"
+        ]
+      },
+      "interaction": {
+        "hover": "透過 box-shadow 或 opacity 進行微妙的抬升變化。",
+        "click": "主要按鈕與卡片的縮放變形。",
+        "transition": "所有屬性過渡時間為 250ms。",
+        "keyboard": "標準 tab 焦點，並帶有可見的外框。"
+      },
+      "voice": {
+        "tone": "友善、引人入勝且專業。",
+        "headlineStyle": "直接、清晰且口語化。",
+        "ctaStyle": "以行動為導向且簡潔（例如：開始搜尋）。",
+        "avoid": [
+          "技術術語",
+          "過於正式的語言",
+          "強勢的銷售手法"
+        ]
+      },
+      "donts": [
+        "避免使用深色背景——截圖顯示佈局以白色和淺灰色為主。",
+        "避免使用襯線字體——截圖顯示整體採用乾淨、現代的無襯線字體。",
+        "避免使用複雜、多彩的色盤——截圖顯示色盤以單色為主，僅搭配單一粉色強調。",
+        "避免在卡片上使用銳利的方形圓角——截圖顯示圖片與按鈕皆採用寬鬆的圓角。",
+        "避免使用厚重、實心的邊框——截圖顯示僅使用非常輕薄、細微的邊框或 box-shadow。",
+        "避免使用大段、密集的文字區塊——截圖顯示留有充裕的留白，以及簡短、易於掃讀的文字元素。"
+      ],
+      "systemPrompt": "這是一個精緻、簡潔的旅行市集介面，以攝影為核心。色盤以白色 (#FFFFFF) 與淺灰色 (#F2F2F2, #DDDDDD) 為主，並搭配單一高彩度的粉色強調 (#FF385C)。字體採用親切的人文無襯線體（Airbnb Cereal）。關鍵注意事項：避免使用深色背景、避免使用襯線字體，以及避免讓厚重邊框或密集文字區塊使介面顯得雜亂。佈局使用充裕的間距與圓角，營造出親切、優質的感覺。"
+    },
+    "ja": {
+      "identity": {
+        "keywords": [
+          "旅行",
+          "宿泊",
+          "マーケットプレイス",
+          "コミュニティ"
+        ],
+        "analogy": "ユニークな滞在と体験をつなぐグローバルなコミュニティ・マーケットプレイス。",
+        "oneLiner": "写真に焦点を当てた、信頼感を重視した洗練された旅行マーケットプレイスのUI。"
+      },
+      "colors": {
+        "principle": "中立色のベースに高コントラストを実現し、鮮やかなブランドアクセントを単一配置。"
+      },
+      "typography": {
+        "rules": [],
+        "scaleUses": [
+          "セクション見出し",
+          "カードタイトルとラベル",
+          "本文とナビゲーション",
+          "メタデータと説明文"
+        ]
+      },
+      "spacing": {
+        "rhythm": "8pxの縦リズムと十分なパディング。"
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(0, 0, 0, 0.04) 0px 2px 6px 0px",
+          "rgba(0, 0, 0, 0.1) 0px 4px 8px 0px",
+          "rgba(0, 0, 0, 0.1) 0px 8px 24px 0px"
+        ],
+        "borders": "1px solid rgba(0, 0, 0, 0.08)"
+      },
+      "layout": {
+        "skeleton": "中央に検索バーを配置したフルワイドのヘッダーと、複数カラムのカードグリッド。"
+      },
+      "components": {
+        "button": "黒地に白文字のピル型、または鮮やかなピンクの円形検索アイコン。",
+        "card": "画像を主体とし、角丸を大きく、ハートアイコン、下に最小限のテキストを配置したカード。",
+        "chip": "黒いボーダーと白い背景を持つピル型タグ。",
+        "input": "柔らかなシャドウと目立つピンクのアクションボタンを備えた大型のピル型検索バー。",
+        "hero": "複数フィールドの検searchウィジェットを配置した、ミニマルなナビゲーションバー。"
+      },
+      "motion": {
+        "patterns": [
+          "hover時のtransformとbox-shadowの遷移。",
+          "カルーセルのスムーズなスライド遷移。"
+        ]
+      },
+      "interaction": {
+        "hover": "box-shadowまたはopacityによる微細な高さの変化。",
+        "click": "主要なボタンとカードにscale transform。",
+        "transition": "すべてのプロパティを250msで。",
+        "keyboard": "標準のtabフォーカスと明確なアウトライン。"
+      },
+      "voice": {
+        "tone": "フレンドリーで親しみやすく、かつプロフェッショナル。",
+        "headlineStyle": "直接的で明確な、会話調のスタイル。",
+        "ctaStyle": "行動を促す簡潔な表現（例：「検索を始める」）。",
+        "avoid": [
+          "専門用語",
+          "過度に-formalな表現",
+          "攻撃的な販売戦術"
+        ]
+      },
+      "donts": [
+        "暗い背景を使用しない — スクリーンショットでは、主に白と薄いグレーのレイアウトが示されている。",
+        "セリフフォントを使用しない — スクリーンショットでは、洗練されたモダンなサンセリフ書体が全体に使用されている。",
+        "複雑で多色のパレットを使用しない — スクリーンショットでは、単一のピンクアクセントを持つほぼモノクロのパレットが使用されている。",
+        "カードに鋭く四角い角を使用しない — スクリーンショットでは、画像とボタンに大きく角丸が施されている。",
+        "太く実線のボーダーを使用しない — スクリーンショットでは、非常に薄く微妙なボーダーまたはボックスシャドウが使用されている。",
+        "大きく詰まったテキストブロックを使用しない — スクリーンショットでは、十分なホワイトスペースと短くスキャンしやすいテキスト要素が使用されている。"
+      ],
+      "systemPrompt": "これは写真に焦点を当てた、洗練されたクリーンな旅行マーケットプレイスのUI。パレットは白（#FFFFFF）と薄いグレー（#F2F2F2、#DDDDDD）が中心で、単一の高彩度ピンクアクセント（#FF385C）。タイポグラフィは親しみやすいhumanist-sans-serif（Airbnb Cereal）。重要な禁止事項：暗い背景を使用せず、セリフフォントを使用せず、太いボーダーまたは詰まったテキストブロックでインターフェースを雑然とさせない。レイアウトは十分なスペーシングと角丸を用い、歓迎感のあるプレミアム感を演出する。"
+    },
+    "ko": {
+      "identity": {
+        "keywords": [
+          "여행",
+          "숙박",
+          "마켓플레이스",
+          "커뮤니티"
+        ],
+        "analogy": "독특한 숙소와 경험을 위한 글로벌 커뮤니티 마켓플레이스입니다.",
+        "oneLiner": "사진에 중점을 둔, 깔끔하고 신뢰감 있는 여행 마켓플레이스 UI입니다."
+      },
+      "colors": {
+        "principle": "단일의 생동감 있는 브랜드 강조색을 사용한 고대비 중성 베이스입니다."
+      },
+      "typography": {
+        "rules": [],
+        "scaleUses": [
+          "섹션 헤더",
+          "카드 제목과 레이블",
+          "본문 텍스트와 네비게이션",
+          "메타데이터와 설명"
+        ]
+      },
+      "spacing": {
+        "rhythm": "여유로운 padding을 사용한 8px 수직 리듬입니다."
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(0, 0, 0, 0.04) 0px 2px 6px 0px",
+          "rgba(0, 0, 0, 0.1) 0px 4px 8px 0px",
+          "rgba(0, 0, 0, 0.1) 0px 8px 24px 0px"
+        ],
+        "borders": "1px solid rgba(0, 0, 0, 0.08)"
+      },
+      "layout": {
+        "skeleton": "중앙 검색 바와 다중 컬럼 카드 그리드를 갖춘 풀폭 헤더입니다."
+      },
+      "components": {
+        "button": "검정색 배경에 흰색 텍스트를 사용한 알약 모양 버튼, 또는 생동감 있는 핑크색 원형 검색 아이콘입니다.",
+        "card": "이미지가 강조된 둥근 모서리 카드에 하트 아이콘과 최소한의 텍스트가 아래에 배치됩니다.",
+        "chip": "검정색 테두리와 흰색 배경을 사용한 알약 모양 태그입니다.",
+        "input": "부드러운 그림자와 두드러진 핑크색 액션 버튼을 가진 대형 알약 모양 검색 바입니다.",
+        "hero": "주목도 높고 다중 필드 검색 위젯을 갖춘 미니멀리스트 네비게이션 바입니다."
+      },
+      "motion": {
+        "patterns": [
+          "hover 시 transform과 box-shadow 트랜지션.",
+          "캐러셀의 부드러운 slide 트랜지션."
+        ]
+      },
+      "interaction": {
+        "hover": "box-shadow 또는 opacity를 통한 미묘한 높이 변화입니다.",
+        "click": "주요 버튼과 카드의 scale transform입니다.",
+        "transition": "모든 속성에 대해 250ms 동안 적용됩니다.",
+        "keyboard": "표준 tab 포커스와 눈에 보이는 윤곽선입니다."
+      },
+      "voice": {
+        "tone": "친근하고 초대하며 전문적인 어조입니다.",
+        "headlineStyle": "직설적이고 명확하며 대화적인 스타일입니다.",
+        "ctaStyle": "행동을 유도하고 간결한 스타일입니다 (예: '검색 시작하기').",
+        "avoid": [
+          "전문 용어",
+          "지나치게 격식 있는 언어",
+          "공격적인 판매 기법"
+        ]
+      },
+      "donts": [
+        "어두운 배경을 사용하지 마세요 — 스크린샷은 주로 흰색과 밝은 회색의 레이아웃을 보여줍니다.",
+        "세리프 폰트를 사용하지 마세요 — 스크린샷은 전체적으로 깔끔하고 현대적인 산세리프 타이프페이스를 보여줍니다.",
+        "복잡하고 다색 팔레트를 사용하지 마세요 — 스크린샷은 단일의 핑크 강조색을 사용한 거의 단색 팔레트를 보여줍니다.",
+        "카드에 날카롭고 네모난 모서리를 사용하지 마세요 — 스크린샷은 이미지와 버튼에 충분히 둥근 모서리를 보여줍니다.",
+        "무겁고 단단한 테두리를 사용하지 마세요 — 스크린샷은 매우 가볍고 미묘한 테두리 또는 box-shadow를 보여줍니다.",
+        "크고 밀도 높은 텍스트 블록을 사용하지 마세요 — 스크린샷은 충분한 여백과 짧고 읽기 쉬운 텍스트 요소를 보여줍니다."
+      ],
+      "systemPrompt": "사진에 중점을 둔 세련되고 깔끔한 여행 마켓플레이스 UI입니다. 팔레트는 흰색(#FFFFFF)과 밝은 회색(#F2F2F2, #DDDDDD)을 주로 사용하며, 단일의 고채도 핑크 강조색(#FF385C)을 사용합니다. 타이포그래피는 친근한 humanist-sans-serif(Airbnb Cereal)입니다. 중요한 금지 사항: 어두운 배경 사용 금지, 세리프 폰트 사용 금지, 무거운 테두리나 밀도 높은 텍스트 블록으로 인터페이스를 복잡하게 만들지 마세요. 레이아웃은 여유로운 spacing과 둥근 모서리를 사용하여 따뜻하고 프리미엄한 느낌을 만듭니다."
     }
   }
 }

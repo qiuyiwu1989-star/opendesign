@@ -16,44 +16,67 @@
   "_meta": {
     "vision_prompt_version": "0.3",
     "vision_model": "mimo-v2.5",
-    "vision_at": "2026-05-28T19:59:40+00:00",
-    "vision_tokens": 3156,
-    "vision_cost_usd": 0.0351,
+    "vision_at": "2026-05-30T02:27:46+00:00",
+    "vision_tokens": 17671,
+    "vision_cost_usd": 0.1963,
     "translation_model": "mimo-v2.5",
-    "translation_at": "2026-05-28T20:00:33+00:00",
-    "translation_tokens": 13725,
-    "translation_cost_usd": 0.0458,
+    "translation_at": "2026-05-30T02:28:48+00:00",
+    "translation_tokens": 25543,
+    "translation_cost_usd": 0.0852,
     "narrative_model": "mimo-v2.5",
     "narrative_prompt_version": "0.3",
     "narrative_at": "2026-05-28T20:00:40+00:00",
     "narrative_tokens": 1279,
     "narrative_cost_usd": 0.0085,
     "narrative_status": "ok",
-    "total_cost_usd": 0.0894
+    "total_cost_usd": 0.29,
+    "vision_source": "playwright-extract:raycast",
+    "vision_grounded": true
   },
   "spec": {
     "colors": {
-      "bg": "#000000",
-      "bgSoft": null,
-      "bgQuiet": null,
+      "bg": "#0D0D0D",
+      "bgSoft": "#111214",
+      "bgQuiet": "#1B1C1E",
       "ink": "#FFFFFF",
-      "inkSoft": null,
-      "muted": "#888888",
-      "mutedSoft": null,
+      "inkSoft": "#E6E6E6",
+      "muted": "#9C9C9D",
+      "mutedSoft": "#6A6B6C",
       "accent": null,
       "line": "rgba(255, 255, 255, 0.1)"
     },
     "typography": {
       "display": "humanist-sans",
       "body": "humanist-sans",
-      "mono": "monospace",
+      "mono": "geometric-mono",
       "scale": [
         {
           "token": "display",
-          "size": 64,
-          "lh": 1.05,
+          "size": 56,
+          "lh": 1.0,
           "weight": 500,
-          "ls": "-2px"
+          "ls": "-1px"
+        },
+        {
+          "token": "h2",
+          "size": 32,
+          "lh": 1.15,
+          "weight": 500,
+          "ls": "-0.5px"
+        },
+        {
+          "token": "body",
+          "size": 16,
+          "lh": 1.4,
+          "weight": 400,
+          "ls": "0px"
+        },
+        {
+          "token": "caption",
+          "size": 13,
+          "lh": 1.4,
+          "weight": 500,
+          "ls": "0.1px"
         }
       ]
     },
@@ -62,6 +85,7 @@
       "scale": [
         4,
         8,
+        12,
         16,
         24,
         32,
@@ -72,7 +96,7 @@
     },
     "surfaces": {
       "radius": {
-        "sm": 4,
+        "sm": 6,
         "md": 8,
         "lg": 12,
         "pill": 999
@@ -90,20 +114,20 @@
     },
     "motion": {
       "durations": {
-        "micro": 220,
-        "small": 400,
+        "micro": 200,
+        "small": 300,
         "medium": 800
       },
-      "easing": "cubic-bezier(0.25, 0.1, 0.25, 1)"
+      "easing": "cubic-bezier(0.23, 1, 0.32, 1)"
     }
   },
   "desc": {
     "en": {
-      "palette": "A strict, high-contrast monochromatic palette using absolute black and white for maximum clarity.",
-      "layout": "A centered, single-column layout with generous whitespace that focuses attention on the core message.",
-      "interaction": "Clean, pill-shaped buttons and minimal interactive elements prioritize function over form.",
-      "motion": "Implied subtle, smooth transitions consistent with a refined, high-performance tool.",
-      "notes": "This site is a masterclass in minimalist, developer-focused design that uses extreme contrast and restraint to convey power and reliability."
+      "palette": "An ultra-dark, high-contrast palette dominated by near-black (#0D0D0D) and white, with subtle grays for hierarchy and a single, dramatic red accent in the hero.",
+      "layout": "A centered hero layout with a full-width atmospheric background, transitioning into structured, grid-based content sections with generous spacing.",
+      "interaction": "Refined transitions using a custom cubic-bezier curve, with subtle opacity and shadow changes on hover to indicate interactivity.",
+      "motion": "Smooth, deliberate micro-interactions and opacity fades that reinforce the tool's focus on speed and precision.",
+      "notes": "A masterclass in restrained dark-mode design for a technical product, proving that deep blacks and minimal color can create a premium, high-performance feel."
     },
     "zh-CN": {
       "palette": "采用纯黑与纯白，构建严谨、高对比度的单色配色方案，以确保最大的清晰度。",
@@ -132,328 +156,6 @@
       "interaction": "기능을 겉모습보다 우선시하는 깔끔한 알약 모양 버튼과 최소한의 인터랙티브 요소를 사용합니다.",
       "motion": "정교하고 고성능 도구에 걸맞은 미세하고 매끄러운 전환 효과가 내포되어 있습니다.",
       "notes": "이 사이트는 극단적인 대비와 절제를 통해 강력함과 신뢰성을 전달하는 미니멀리스트, 개발자 중심 디자인의 모범 사례입니다."
-    }
-  },
-  "spec_i18n": {
-    "en": {
-      "identity": {
-        "keywords": [
-          "Productivity",
-          "Developer",
-          "Launcher",
-          "Extensible",
-          "Fast"
-        ],
-        "analogy": "A high-performance sports car for the operating system.",
-        "oneLiner": "A powerful, extensible productivity launcher for developers and power users."
-      },
-      "colors": {
-        "principle": "High-contrast, monochromatic dark mode with absolute black background."
-      },
-      "typography": {
-        "rules": [],
-        "scaleUses": [
-          "Main hero headline"
-        ]
-      },
-      "spacing": {
-        "rhythm": "Generous vertical spacing to emphasize the minimalist aesthetic."
-      },
-      "surfaces": {
-        "shadows": [],
-        "borders": "Subtle, low-opacity borders for separation without visual weight."
-      },
-      "layout": {
-        "skeleton": "Centered single-column hero layout with strict vertical alignment."
-      },
-      "components": {
-        "button": "Pill-shaped with light background for primary actions, dark for secondary.",
-        "card": "Minimal, borderless, relying on spacing for separation.",
-        "chip": "Inline pill-shaped badges for version information.",
-        "input": "Clean, borderless inputs focused on functionality.",
-        "hero": "Large, centered text block with high-contrast typography and clear call-to-action."
-      },
-      "interaction": {
-        "hover": "Subtle opacity or color shift on interactive elements.",
-        "click": "Immediate visual feedback.",
-        "transition": "Smooth, quick transitions for state changes.",
-        "keyboard": "Full keyboard navigation support implied by developer tool positioning."
-      },
-      "voice": {
-        "tone": "Confident, professional, and direct.",
-        "headlineStyle": "Short, punchy, and benefit-driven statements.",
-        "ctaStyle": "Clear, actionable commands with minimal fluff.",
-        "avoid": [
-          "Jargon",
-          "Overly casual language",
-          "Excessive punctuation"
-        ]
-      },
-      "donts": [
-        "Don't use bright, saturated colors — screenshot shows a strictly monochromatic palette.",
-        "Don't add gradients or textures — screenshot shows flat, solid backgrounds only.",
-        "Don't use decorative serif fonts — screenshot uses clean, modern sans-serif typography.",
-        "Don't clutter the interface — screenshot shows generous whitespace and minimal elements.",
-        "Don't use rounded rectangles with large radius — screenshot shows subtle, small-radius corners.",
-        "Don't use drop shadows for depth — screenshot relies on high contrast for hierarchy."
-      ],
-      "systemPrompt": "This site is a high-performance productivity tool for developers, positioned as a fast and reliable launcher. Key hex colors are #000000 (background) and #FFFFFF (text), with #888888 for muted elements. Typography uses clean, humanist sans-serif categories for both display and body text. Critical donts include avoiding bright colors, gradients, decorative serifs, clutter, large border radii, and drop shadows. The design prioritizes absolute clarity and a premium, refined feel through monochromatic minimalism."
-    },
-    "zh-CN": {
-      "identity": {
-        "keywords": [
-          "生产力",
-          "开发者",
-          "启动器",
-          "可扩展",
-          "快速"
-        ],
-        "analogy": "操作系统中的高性能跑车。",
-        "oneLiner": "一款强大、可扩展的生产力启动器，面向开发者和高级用户。"
-      },
-      "colors": {
-        "principle": "高对比度、单色深色模式，采用纯黑背景。"
-      },
-      "typography": {
-        "rules": [],
-        "scaleUses": [
-          "主标题"
-        ]
-      },
-      "spacing": {
-        "rhythm": "充裕的垂直间距，以强调极简美学。"
-      },
-      "surfaces": {
-        "shadows": [],
-        "borders": "采用低透明度的细微边框进行分隔，避免视觉负担。"
-      },
-      "layout": {
-        "skeleton": "居中的单栏核心布局，严格保持垂直对齐。"
-      },
-      "components": {
-        "button": "药丸形设计，主操作采用浅色背景，次要操作采用深色背景。",
-        "card": "极简、无边框，依赖间距进行分隔。",
-        "chip": "内联的药丸形徽章，用于展示版本信息。",
-        "input": "简洁、无边框的输入框，聚焦于功能性。",
-        "hero": "大尺寸、居中的文本块，采用高对比度排版和明确的行动号召。"
-      },
-      "interaction": {
-        "hover": "交互元素在悬停时产生细微的透明度或颜色变化。",
-        "click": "提供即时的视觉反馈。",
-        "transition": "状态切换时采用平滑、快速的过渡效果。",
-        "keyboard": "工具定位暗示了完整的键盘导航支持。"
-      },
-      "voice": {
-        "tone": "自信、专业且直接。",
-        "headlineStyle": "简短、有力、以效益为导向的陈述。",
-        "ctaStyle": "清晰、可执行的指令，避免冗余。",
-        "avoid": [
-          "术语",
-          "过于随意的语言",
-          "过度使用标点"
-        ]
-      },
-      "donts": [
-        "避免使用明亮、饱和的颜色——截图显示的是严格的单色方案。",
-        "避免添加渐变或纹理——截图显示的是扁平、纯色的背景。",
-        "避免使用装饰性衬线字体——截图使用的是简洁、现代的无衬线字体。",
-        "避免界面杂乱——截图显示的是充裕的留白和最少的元素。",
-        "避免使用大圆角的圆角矩形——截图显示的是细微、小圆角的边角。",
-        "避免使用投影来营造深度——截图依靠高对比度来建立层次。"
-      ],
-      "systemPrompt": "该站点是一款面向开发者的高性能生产力工具，定位为快速可靠的启动器。关键色值为 #000000（背景）和 #FFFFFF（文本），#888888 用于柔和元素。排版采用简洁的人文主义无衬线字体类别，适用于展示和正文。关键禁忌包括避免使用明亮颜色、渐变、装饰性衬线字体、杂乱界面、大圆角和投影。设计通过单色极简主义，优先考虑绝对的清晰度和精致、高端的质感。"
-    },
-    "zh-TW": {
-      "identity": {
-        "keywords": [
-          "生產力",
-          "開發者",
-          "啟動器",
-          "可擴展",
-          "快速"
-        ],
-        "analogy": "作業系統中的高性能跑車。",
-        "oneLiner": "為開發者與進階使用者打造的強大、可擴展生產力啟動器。"
-      },
-      "colors": {
-        "principle": "高對比、單色暗黑模式，採用純黑背景。"
-      },
-      "typography": {
-        "rules": [],
-        "scaleUses": [
-          "主要英雄標題"
-        ]
-      },
-      "spacing": {
-        "rhythm": "寬裕的垂直間距，強調極簡美學。"
-      },
-      "surfaces": {
-        "shadows": [],
-        "borders": "細微、低透明度的邊框，用於分隔而不增加視覺重量。"
-      },
-      "layout": {
-        "skeleton": "置中單欄英雄佈局，嚴格垂直對齊。"
-      },
-      "components": {
-        "button": "膠囊形狀，主要操作使用淺色背景，次要操作使用深色。",
-        "card": "極簡無邊框，依賴間距進行分隔。",
-        "chip": "內聯膠囊形標籤，用於版本資訊。",
-        "input": "簡潔無邊框輸入框，專注於功能性。",
-        "hero": "大型置中文字區塊，採用高對比排版與明確行動呼籲。"
-      },
-      "interaction": {
-        "hover": "互動元素上的細微透明度或色彩變化。",
-        "click": "立即的視覺回饋。",
-        "transition": "流暢快速的狀態過渡效果。",
-        "keyboard": "完整鍵盤導航支援，隱含於開發者工具定位中。"
-      },
-      "voice": {
-        "tone": "自信、專業、直接。",
-        "headlineStyle": "簡短有力、以效益為導向的陳述。",
-        "ctaStyle": "清晰可操作的指令，避免冗詞贅字。",
-        "avoid": [
-          "行話術語",
-          "過於隨意的語言",
-          "過多標點符號"
-        ]
-      },
-      "donts": [
-        "勿使用明亮飽和色彩 — 螢幕截圖顯示嚴格的單色調色盤。",
-        "勿添加漸層或紋理 — 螢幕截圖僅顯示平面純色背景。",
-        "勿使用裝飾性襯線字體 — 螢幕截圖採用簡潔現代的無襯線字體。",
-        "勿使介面擁擠 — 螢幕截圖顯示寬裕留白與極簡元素。",
-        "勿使用大圓角矩形 — 螢幕截圖顯示細微、小圓角邊緣。",
-        "勿使用投影營造深度感 — 螢幕截圖依賴高對比建立層次。"
-      ],
-      "systemPrompt": "此網站是面向開發者的高性能生產力工具，定位為快速可靠的啟動器。主要色碼為 #000000（背景）與 #FFFFFF（文字），#888888 用於次要元素。字型採用簡潔的人文主義無襯線類別，涵蓋展示與內文字體。關鍵禁忌包括避免明亮色彩、漸層、裝飾性襯線、介面擁擠、大圓角及投影。設計透過單色極簡主義優先實現絕對清晰與精緻高質感。"
-    },
-    "ja": {
-      "identity": {
-        "keywords": [
-          "生産性",
-          "開発者",
-          "ランチャー",
-          "拡張可能な",
-          "高速"
-        ],
-        "analogy": "オペレーティングシステムのための高性能スポーツカー。",
-        "oneLiner": "開発者やパワーユーザーのための、強力で拡張可能な生産性ランチャー。"
-      },
-      "colors": {
-        "principle": "絶対的な黒の背景を持つ、ハイコントラストのモノクロームダークモード。"
-      },
-      "typography": {
-        "rules": [],
-        "scaleUses": [
-          "メインヒーローヘッドライン"
-        ]
-      },
-      "spacing": {
-        "rhythm": "ミニマルな美学を強調するための、豊かな垂直方向のスペーシング。"
-      },
-      "surfaces": {
-        "shadows": [],
-        "borders": "視覚的な重さなしに区切りをつける、微細で低不透明度のボーダー。"
-      },
-      "layout": {
-        "skeleton": "厳格な垂直アラインメントを持つ、中央配置の単一カラムヒーローレイアウト。"
-      },
-      "components": {
-        "button": "プライマリアクションには明るい背景のピル形状、セカンダリアクションにはダークのピル形状。",
-        "card": "最小限の、ボーダーレス。区切りにはスペーシングに依存。",
-        "chip": "バージョン情報用のインラインピル形状バッジ。",
-        "input": "機能性に焦点を当てた、清潔でボーダーレスなインプット。",
-        "hero": "ハイコントラストなタイポグラフィと明確なCTAを持つ、大きく中心に配置されたテキストブロック。"
-      },
-      "interaction": {
-        "hover": "インタラクティブ要素に対する、繊細な不透明度や色の変化。",
-        "click": "即座の視覚フィードバック。",
-        "transition": "状態変化のための、滑らかで迅速なトランジション。",
-        "keyboard": "開発ツールとしてのポジショニングから、完全なキーボードナビゲーションサポートを示唆。"
-      },
-      "voice": {
-        "tone": "自信に満ち、プロフェッショナルで、率直。",
-        "headlineStyle": "短く、力強く、ベネフィットを駆動するステートメント。",
-        "ctaStyle": "余分な装飾のない、明確で実行可能なコマンド。",
-        "avoid": [
-          "専門用語",
-          "過度にカジュアルな言葉遣い",
-          "不必要な句読点"
-        ]
-      },
-      "donts": [
-        "明るく彩度の高い色を使わない — スクリーンショットは厳格なモノクロームパレットを示しています。",
-        "グラデーションやテクスチャを追加しない — スクリーンショットはフラットで塗りつぶした背景のみを示しています。",
-        "装飾的なセリフフォントを使わない — スクリーンショットはクリーンでモダンなサンセリフタイポグラフィを使用しています。",
-        "インターフェースを雑然とさせない — スクリーンショットは豊かな余白と最小限の要素を示しています。",
-        "大きな角丸の角丸四角形を使わない — スクリーンショットは微細で小さな角丸の角を示しています。",
-        "ドロップシャドウで奥行きを作らない — スクリーンショットは階層性にハイコントラストを頼っています。"
-      ],
-      "systemPrompt": "このサイトは、高速で信頼性の高いランチャーとしてポジショニングされた、開発者のための高性能生産性ツールです。主要なHEXカラーは背景 #000000 とテキスト #FFFFFF、控えめな要素には #888888 を使用。タイポグラフィは、ディスプレイと本文の両方でクリーンなヒューマニストサンセリフカテゴリを使用。重要な禁止事項には、明るい色、グラデーション、装飾的なセリフ、雑然とした要素、大きなボーダー半径、ドロップシャドウの回避が含まれます。デザインは、モノクロームのミニマリズムを通じて、絶対的な明瞭さとプレミアムで洗練された感覚を優先しています。"
-    },
-    "ko": {
-      "identity": {
-        "keywords": [
-          "생산성",
-          "개발자",
-          "런처",
-          "확장 가능",
-          "빠름"
-        ],
-        "analogy": "운영 체제를 위한 고성능 스포츠카.",
-        "oneLiner": "개발자와 파워 유저를 위한 강력하고 확장 가능한 생산성 런처입니다."
-      },
-      "colors": {
-        "principle": "절대적인 검정 배경을 사용한 고대비 단색 다크 모드."
-      },
-      "typography": {
-        "rules": [],
-        "scaleUses": [
-          "메인 히어로 헤드라인"
-        ]
-      },
-      "spacing": {
-        "rhythm": "미니멀한 미학을 강조하기 위한 여유로운 수직 간격."
-      },
-      "surfaces": {
-        "shadows": [],
-        "borders": "시각적 무게 없이 분리를 위한 미세하고 낮은 불투명도의 테두리."
-      },
-      "layout": {
-        "skeleton": "엄격한 수직 정렬을 갖춘 중앙 정렬 단일 열 히어로 레이아웃."
-      },
-      "components": {
-        "button": "주요 작업에는 밝은 배경을, 보조 작업에는 어두운 배경을 사용하는 알약 모양 버튼.",
-        "card": "최소한의 디자인으로 테두리 없이, 간격에 의존하여 분리.",
-        "chip": "버전 정보를 위한 인라인 알약 모양 배지.",
-        "input": "기능에 중점을 둔 깔끔하고 테두리 없는 입력 필드.",
-        "hero": "고대비 타이포그래피와 명확한 행동 유도를 갖춘 크고 중앙 정렬된 텍스트 블록."
-      },
-      "interaction": {
-        "hover": "인터랙티브 요소에 대한 미세한 불투명도 또는 색상 변화.",
-        "click": "즉각적인 시각적 피드백.",
-        "transition": "상태 변경을 위한 매끄럽고 빠른 전환.",
-        "keyboard": "개발자 도구 배치로 암시되는 완전한 키보드 탐색 지원."
-      },
-      "voice": {
-        "tone": "자신감 있고 전문적이며 직접적인 어조.",
-        "headlineStyle": "짧고 강렬하며 이점 중심적인 문장.",
-        "ctaStyle": "최소한의 불필요한 내용으로 명확하고 실행 가능한 명령.",
-        "avoid": [
-          "전문 용어",
-          "지나치게 캐주얼한 언어",
-          "과도한 구두점"
-        ]
-      },
-      "donts": [
-        "밝고 채도 높은 색상을 사용하지 마십시오 — 스크린샷은 엄격한 단색 팔레트를 보여줍니다.",
-        "그라디언트 또는 질감을 추가하지 마십시오 — 스크린샷은 평평하고 단색 배경만을 보여줍니다.",
-        "장식용 세리프 서체를 사용하지 마십시오 — 스크린샷은 깔끔하고 현대적인 산세리프 타이포그래피를 사용합니다.",
-        "인터페이스를 어지럽히지 마십시오 — 스크린샷은 여유로운 여백과 최소한의 요소를 보여줍니다.",
-        "큰 반지름의 둥근 사각형을 사용하지 마십시오 — 스크린샷은 미세하고 작은 반지름의 모서리를 보여줍니다.",
-        "깊이감을 위해 드롭 섀도우를 사용하지 마십시오 — 스크린샷은 계층 구조를 위해 높은 대비에 의존합니다."
-      ],
-      "systemPrompt": "이 사이트는 빠르고 신뢰할 수 있는 런처로 포지셔닝된 개발자를 위한 고성능 생산성 도구입니다. 핵심 색상 코드는 배경 #000000과 텍스트 #FFFFFF이며, #888888은 저조도 요소에 사용됩니다. 타이포그래피는 디스플레이 및 본문 텍스트 모두에 깔끔한 휴머니스트 산세리프 계열을 사용합니다. 중요한 주의 사항으로는 밝은 색상, 그라디언트, 장식용 세리프, 인터페이스 혼잡, 큰 테두리 반지름, 드롭 섀도우 사용을 피해야 합니다. 디자인은 단색 미니멀리즘을 통해 절대적인 명확성과 프리미엄하고 정교한 느낌을 우선시합니다."
     }
   },
   "narrative": {
@@ -516,6 +218,424 @@
       "ch7_intro": "모션 철학은 효율성과 반응성을 암시하는 부드럽고 빠른 전환을 선호합니다. 지속 시간은 마이크로 인터랙션, 작은 상태 변화, 중간 규모의 표시를 위해 조정되었으며, 모두 정교한 cubic-bezier 곡선을 사용합니다.",
       "ch8_intro": "에디토리얼 어조는 자신감 있고 전문적이며 직접적입니다. 짧고 혜택 중심적인 헤드라인과 명확하고 실행 가능한 명령을 사용합니다. 전문 용어, 지나치게 캐주얼한 언어, 그리고 메시지를 희석시킬 수 있는 장식적인 표현을 피합니다.",
       "ch8_outro": "시스템은 밝은 색상, 그라데이션, 장식적인 세리프, 복잡함, 큰 border radius, 그리고 drop shadow를 의도적으로 거부합니다."
+    }
+  },
+  "spec_i18n": {
+    "en": {
+      "identity": {
+        "keywords": [
+          "productivity",
+          "launcher",
+          "speed",
+          "AI",
+          "developer tools"
+        ],
+        "analogy": "A high-performance command center for your operating system.",
+        "oneLiner": "A powerful, AI-native command palette and productivity launcher."
+      },
+      "colors": {
+        "principle": "Extreme high-contrast dark mode with deep blacks, crisp white text, and a singular, aggressive red accent in the hero."
+      },
+      "typography": {
+        "rules": [
+          "Use GeistMono for technical specifications and version numbers.",
+          "Maintain tight letter spacing (-1px) for large display text.",
+          "Body text uses regular weight (400) for readability on dark backgrounds."
+        ],
+        "scaleUses": [
+          "Hero headline",
+          "Section headlines",
+          "General copy",
+          "Small labels and metadata"
+        ]
+      },
+      "spacing": {
+        "rhythm": "Consistent 4px grid, prioritizing generous white space to balance the dense dark UI."
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(0, 0, 0, 0.4) 0px 1.5px 0.5px 2.5px",
+          "rgb(27, 28, 30) 0px 0px 0px 1px",
+          "rgb(7, 8, 10) 0px 0px 0px 1px inset",
+          "rgba(255, 255, 255, 0.2) 0px 1px 1px 1px inset",
+          "rgba(215, 201, 175, 0.05) 0px 0px 20px 5px"
+        ],
+        "borders": "Subtle 1px solid borders with rgba(255, 255, 255, 0.1) or dark grays."
+      },
+      "layout": {
+        "skeleton": "Centered hero with a full-width atmospheric background, followed by structured content blocks."
+      },
+      "components": {
+        "button": "Primary buttons are white with black text and high border-radius (pill), secondary buttons are outlined or ghost.",
+        "card": "Dark, subtly bordered containers with inset shadows, often housing extensions or feature previews.",
+        "chip": "Small, pill-shaped tags with dark backgrounds and subtle borders, used for feature labels.",
+        "input": "Not visible in screenshot, but inferred as dark, recessed fields with inset shadows.",
+        "hero": "Full-viewport hero with a striking diagonal light beam effect and centered, large typography."
+      },
+      "motion": {
+        "patterns": [
+          "Smooth transitions for hover states (opacity, box-shadow, transform).",
+          "Subtle opacity fades for content appearance."
+        ]
+      },
+      "interaction": {
+        "hover": "Buttons and interactive elements change opacity or box-shadow with a 0.2s transition.",
+        "click": "Subtle transform or scale effect.",
+        "transition": "All transitions use a custom cubic-bezier easing for a refined feel.",
+        "keyboard": "Implied accessibility for a launcher tool, but not visually evident."
+      },
+      "voice": {
+        "tone": "Confident, concise, and slightly technical.",
+        "headlineStyle": "Short, punchy, and benefit-driven (e.g., 'Your shortcut to everything.').",
+        "ctaStyle": "Direct and action-oriented (e.g., 'Download for Mac', 'Try the new Raycast').",
+        "avoid": [
+          "Avoid overly casual or playful language.",
+          "Avoid cluttered or noisy layouts.",
+          "Avoid bright, saturated colors outside the hero."
+        ]
+      },
+      "donts": [
+        "Don't use a light theme — screenshot shows a deep, near-black (#0D0D0D) background.",
+        "Don't use rounded, bubbly UI — screenshot shows more squared-off, refined border-radius (6-12px).",
+        "Don't use multiple bright accent colors — screenshot shows a singular red accent only in the hero graphic.",
+        "Don't use playful, handwritten, or script fonts — screenshot uses clean humanist-sans and geometric-mono.",
+        "Don't use heavy drop shadows — screenshot relies on subtle inset shadows and thin borders for depth.",
+        "Don't center-align all body text — screenshot shows left-aligned feature text blocks."
+      ],
+      "systemPrompt": "Raycast is a premium developer and productivity tool positioned as a fast, AI-native command launcher. Its visual identity is built on an ultra-dark, high-contrast palette centered on near-black (#0D0D0D) and pure white, with subtle gray tones for hierarchy. The typography uses clean humanist-sans (Inter) for UI and geometric-mono for technical details. Critical design rules: maintain extreme restraint in color usage, avoiding multiple accents; use subtle inset shadows and thin borders instead of heavy elevation; ensure generous white space to balance the dense dark surfaces. The overall feel is refined, powerful, and focused on performance."
+    },
+    "zh-CN": {
+      "identity": {
+        "keywords": [
+          "效率",
+          "启动器",
+          "速度",
+          "AI",
+          "开发者工具"
+        ],
+        "analogy": "为你的操作系统打造的高性能指挥中心。",
+        "oneLiner": "一款强大的、原生支持AI的命令面板与效率启动器。"
+      },
+      "colors": {
+        "principle": "极致高对比度的深色模式，采用深邃的黑色背景、清晰的白色文字，并在核心视觉区使用一抹醒目的红色作为强调色。"
+      },
+      "typography": {
+        "rules": [
+          "使用GeistMono显示技术规格和版本号。",
+          "大型展示文字采用紧凑的字间距（-1px）。",
+          "正文使用常规字重（400），以确保在深色背景上的可读性。",
+          "字体类别保持英文：humanist-sans, geometric-mono等。"
+        ],
+        "scaleUses": [
+          "主视觉区标题",
+          "章节标题",
+          "通用文案",
+          "小标签与元信息"
+        ]
+      },
+      "spacing": {
+        "rhythm": "采用一致的4px网格系统，并优先使用充足的留白来平衡密集的深色界面。"
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(0, 0, 0, 0.4) 0px 1.5px 0.5px 2.5px",
+          "rgb(27, 28, 30) 0px 0px 0px 1px",
+          "rgb(7, 8, 10) 0px 0px 0px 1px inset",
+          "rgba(255, 255, 255, 0.2) 0px 1px 1px 1px inset",
+          "rgba(215, 201, 175, 0.05) 0px 0px 20px 5px"
+        ],
+        "borders": "使用微妙的1px实线边框，颜色为rgba(255, 255, 255, 0.1)或深灰色。"
+      },
+      "layout": {
+        "skeleton": "采用居中的核心视觉区搭配全宽氛围背景，其下是结构化的内容区块。"
+      },
+      "components": {
+        "button": "主按钮为白色底、黑色字，且圆角较大（胶囊形）；次级按钮为描边或幽灵样式。",
+        "card": "深色、带有微妙边框的容器，通常使用内阴影，用于承载扩展或功能预览。",
+        "chip": "小型、胶囊形的标签，采用深色背景和微妙边框，用于功能标记。",
+        "input": "在截图中不可见，但可推断为深色、内凹的输入框，并带有内阴影。",
+        "hero": "全屏视口的核心视觉区，具有引人注目的对角线光束效果和居中的大号排版。"
+      },
+      "motion": {
+        "patterns": [
+          "hover状态使用平滑的过渡动画（opacity, box-shadow, transform）。",
+          "内容出现时使用微妙的淡入（opacity fade）效果。"
+        ]
+      },
+      "interaction": {
+        "hover": "按钮和交互元素的opacity或box-shadow会发生变化，过渡时间为0.2秒。",
+        "click": "施加微妙的transform或scale效果。",
+        "transition": "所有过渡均使用自定义的cubic-bezier缓动函数，以营造精致的体验。",
+        "keyboard": "作为启动器工具，其可访问性是隐含的，但视觉上并不明显。"
+      },
+      "voice": {
+        "tone": "自信、简洁、略带技术感。",
+        "headlineStyle": "简短、有力、以利益为导向（例如，'通往一切的捷径。'）。",
+        "ctaStyle": "直接且以行动为导向（例如，'为Mac下载'，'试用新版Raycast'）。",
+        "avoid": [
+          "避免过于随意或俏皮的语言。",
+          "避免拥挤或嘈杂的布局。",
+          "避免在核心视觉区之外使用明亮、饱和的颜色。"
+        ]
+      },
+      "donts": [
+        "不要使用浅色主题——截图显示的是深邃的、近乎纯黑（#0D0D0D）的背景。",
+        "不要使用圆润、气泡状的UI——截图显示的是更方正、精致的圆角（6-12px）。",
+        "不要使用多种明亮的强调色——截图仅在核心视觉图形中使用单一的红色强调色。",
+        "不要使用俏皮的、手写或花哨的字体——截图使用的是简洁的humanist-sans和geometric-mono字体。",
+        "不要使用厚重的投影——截图依靠微妙的内阴影和细边框来营造层次感。",
+        "不要将所有正文都居中对齐——截图显示的是左对齐的功能文本块。"
+      ],
+      "systemPrompt": "Raycast是一款面向开发者和生产力场景的高级工具，定位为快速、原生支持AI的命令启动器。其视觉识别建立在一个以近乎纯黑（#0D0D0D）和纯白为中心的超深、高对比度色板上，并使用微妙的灰色调来区分层级。排版上，UI使用简洁的humanist-sans字体（Inter），技术细节则使用geometric-mono字体。关键设计准则：在色彩使用上保持极度克制，避免多种强调色；使用微妙的内阴影和细边框代替厚重的立体效果；确保充足的留白以平衡密集的深色界面。整体感觉应精致、有力，并专注于性能。"
+    },
+    "zh-TW": {
+      "identity": {
+        "keywords": [
+          "生產力",
+          "啟動器",
+          "速度",
+          "AI",
+          "開發者工具"
+        ],
+        "analogy": "您作業系統的高效能指揮中心。",
+        "oneLiner": "一款強大、AI 原生的指令面板與生產力啟動器。"
+      },
+      "colors": {
+        "principle": "採用極致高對比深色模式，以深邃黑色為基底、清晰白色文字為主，並在首頁橫幅中加入一個強烈、引人注目的紅色強調色。"
+      },
+      "typography": {
+        "rules": [
+          "使用 GeistMono 顯示技術規格與版本號碼。",
+          "大型展示文字採用緊湊字間距（-1px）。",
+          "內文使用常规字重（400），以確保在深色背景上的可讀性。"
+        ],
+        "scaleUses": [
+          "首頁標題",
+          "章節標題",
+          "一般內文",
+          "小型標籤與後設資料"
+        ]
+      },
+      "spacing": {
+        "rhythm": "採用一致的 4px 格線，優先保留充裕的留白，以平衡濃密的深色使用者介面。"
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(0, 0, 0, 0.4) 0px 1.5px 0.5px 2.5px",
+          "rgb(27, 28, 30) 0px 0px 0px 1px",
+          "rgb(7, 8, 10) 0px 0px 0px 1px inset",
+          "rgba(255, 255, 255, 0.2) 0px 1px 1px 1px inset",
+          "rgba(215, 201, 175, 0.05) 0px 0px 20px 5px"
+        ],
+        "borders": "採用細微的 1px 實心邊框，顏色為 rgba(255, 255, 255, 0.1) 或深灰色。"
+      },
+      "layout": {
+        "skeleton": "以全寬度氛圍背景搭配置中首頁橫幅，其後接續結構化的內容區塊。"
+      },
+      "components": {
+        "button": "主要按鈕為白底黑字並具高圓角（膠囊狀），次要按鈕則採用外框或幽靈樣式。",
+        "card": "深色、帶有細微邊框的容器，通常帶有內陰影，用於承載擴充功能或功能預覽。",
+        "chip": "小型膠囊狀標籤，採用深色背景與細微邊框，用於功能標籤。",
+        "input": "截圖中未顯示，但推斷為帶有內陰影的深色凹陷欄位。",
+        "hero": "全視域首頁橫幅，具有醒目的對角線光束效果與置中的大型文字。"
+      },
+      "motion": {
+        "patterns": [
+          "滑鼠懸停狀態採用流暢過渡效果（opacity、box-shadow、transform）。",
+          "內容出現時採用細微的 opacity 淡入效果。"
+        ]
+      },
+      "interaction": {
+        "hover": "按鈕與互動元素在 0.2s 過渡中改變 opacity 或 box-shadow。",
+        "click": "細微的 transform 或縮放效果。",
+        "transition": "所有過渡效果皆使用自訂 cubic-bezier 緩動函數，以營造精緻手感。",
+        "keyboard": "作為啟動器工具，隱含鍵盤輔助功能，但視覺上不明顯。"
+      },
+      "voice": {
+        "tone": "自信、簡潔且略帶技術感。",
+        "headlineStyle": "簡短有力、強調效益（例如：「您通往一切的捷徑。」）。",
+        "ctaStyle": "直接且以行動為導向（例如：「下載 Mac 版」、「試用新版 Raycast」）。",
+        "avoid": [
+          "避免過於隨意或俏皮的語言。",
+          "避免雜亂或喧鬧的版面佈局。",
+          "避免在首頁橫幅之外使用明亮、飽和的色彩。"
+        ]
+      },
+      "donts": [
+        "不要使用淺色主題——截圖顯示其背景為深邃的近黑色（#0D0D0D）。",
+        "不要使用圓潤、泡泡狀的使用者介面——截圖顯示其圓角更為方正、精緻（6-12px）。",
+        "不要使用多種明亮的強調色——截圖僅在首頁橫幅圖形中使用單一紅色強調色。",
+        "不要使用俏皮、手寫或花體字型——截圖使用簡潔的人文無襯線體與幾何等寬體。",
+        "不要使用厚重的陰影——截圖依賴細微的內陰影與細邊框來創造層次感。",
+        "不要將所有內文置中對齊——截圖顯示功能文字區塊採用左對齊。"
+      ],
+      "systemPrompt": "Raycast 是一款高端開發者與生產力工具，定位為快速、AI 原生的指令啟動器。其視覺識別建立在一個超深色、高對比的配色方案上，以近黑色（#0D0D0D）和純白色為核心，並使用細微的灰色調來建立層次。字體方面，使用者介面採用簡潔的人文無襯線體（Inter），技術細節則使用幾何等寬體。關鍵設計規則：極度克制色彩使用，避免多重強調色；使用細微內陰影與細邊框而非厚重的立體陰影；確保充裕的留白以平衡濃密的深色表面。整體感覺是精緻、強大，且專注於效能。"
+    },
+    "ja": {
+      "identity": {
+        "keywords": [
+          "生産性",
+          "ランチャー",
+          "速度",
+          "AI",
+          "開発者ツール"
+        ],
+        "analogy": "オペレーティングシステムのための高性能コマンドセンター。",
+        "oneLiner": "強力で、AIネイティブなコマンドパレットおよび生産性ランチャー。"
+      },
+      "colors": {
+        "principle": "深い黒、鮮明な白文字、およびヒーロー部分の単一でアグレッシブな赤アクセントによる、極端にハイコントラストなダークモード。"
+      },
+      "typography": {
+        "rules": [
+          "技術仕様やバージョン番号にはGeistMonoを使用してください。",
+          "大きなディスプレイテキストには、 tight な字間隔 (-1px) を維持してください。",
+          "本文テキストはダーク背景での可読性のため、レギュラーウェイト (400) を使用します。"
+        ],
+        "scaleUses": [
+          "ヒーローヘッドライン",
+          "セクション見出し",
+          "一般テキスト",
+          "小さいラベルとメタデータ"
+        ]
+      },
+      "spacing": {
+        "rhythm": "一貫した4pxグリッドを採用し、密度の高いダークUIのバランスを取るために、広めの余白を優先します。"
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(0, 0, 0, 0.4) 0px 1.5px 0.5px 2.5px",
+          "rgb(27, 28, 30) 0px 0px 0px 1px",
+          "rgb(7, 8, 10) 0px 0px 0px 1px inset",
+          "rgba(255, 255, 255, 0.2) 0px 1px 1px 1px inset",
+          "rgba(215, 201, 175, 0.05) 0px 0px 20px 5px"
+        ],
+        "borders": "rgba(255, 255, 255, 0.1) またはダークグレーの、細かな1px solid ボーダー。"
+      },
+      "layout": {
+        "skeleton": "フル幅の雰囲気的な背景を持つ中央配置のヒーロー、その後に構造化されたコンテンツブロックが続きます。"
+      },
+      "components": {
+        "button": "プライマリボタンは白地に黒文字で、高ボーダーラディウス（ピル形状）。セカンダリボタンはアウラインまたはゴースト。",
+        "card": "ダークで、細かなボーダーとインセットシャドウを持つコンテナ。拡張機能や機能プレビューを収容することが多いです。",
+        "chip": "ダーク背景と細かなボーダーを持つ、小さいピル形状のタグ。機能ラベルとして使用されます。",
+        "input": "スクリーンショットでは見切れていませんが、インセットシャドウを持つダークで凹みのあるフィールドと推測されます。",
+        "hero": "印象的な対角線光線エフェクトと中央配置の大きなタイポグラフィを持つ、フルビューポートのヒーロー。"
+      },
+      "motion": {
+        "patterns": [
+          "ホバーステートのための滑らかなトランジション（opacity、box-shadow、transform）。",
+          "コンテンツ表示のための微細なopacityフェード。"
+        ]
+      },
+      "interaction": {
+        "hover": "ボタンとインタラクティブな要素は、0.2秒のトランジションでopacityまたはbox-shadowを変更します。",
+        "click": "微細なtransformまたはscale効果。",
+        "transition": "すべてのトランジションには、洗練された感覚を出すためのカスタムcubic-bezierイージングを使用します。",
+        "keyboard": "ランチャーツールとしてのアクセシビリティが示唆されますが、視覚的には顕著ではありません。"
+      },
+      "voice": {
+        "tone": "自信があり、簡潔で、少しテクニカル。",
+        "headlineStyle": "短く、インパクトがあり、ベネフィット重視（例：「すべてへのショートカット。」）。",
+        "ctaStyle": "直接的でアクション重視（例：「Mac用にダウンロード」「新しいRaycastを試す」）。",
+        "avoid": [
+          "過度にカジュアルまたは遊び心のある言葉は避けてください。",
+          "雑然とした、騒々しいレイアウトは避けてください。",
+          "ヒーロー部分以外の、明るく彩度の高い色は避けてください。"
+        ]
+      },
+      "donts": [
+        "ライトテーマを使用しないでください — スクリーンショットは、深い、ほぼ黒い (#0D0D0D) 背景を示しています。",
+        "丸みを帯びた、泡泡のようなUIを使用しないでください — スクリーンショットは、より角張り、洗練されたボーダーラディウス (6-12px) を示しています。",
+        "複数の明るいアクセントカラーを使用しないでください — スクリーンショットは、ヒーローグラフィック内の単一の赤アクセントのみを示しています。",
+        "遊び心のある、手書きまたはスクリプトフォントを使用しないでください — スクリーンショットはクリーンな humanist-sans と geometric-mono を使用しています。",
+        "重いドロップシャドウを使用しないでください — スクリーンショットは、奥行きのために、微細なインセットシャドウと細いボーダーに依存しています。",
+        "本文テキストをすべて中央揃えにしないでください — スクリーンショットは、左揃えの機能テキストブロックを示しています。"
+      ],
+      "systemPrompt": "Raycastは、高速でAIネイティブなコマンドランチャーとして位置づけられるプレミアムな開発者および生産性ツールです。そのビジュアルアイデンティティは、ほぼ黒い (#0D0D0D) と純白を中核とする、超ダークでハイコントラストなパレットと、階層付けのための微細なグレートーンの使用に基づいています。タイポグラフィは、UIにはクリーンな humanist-sans (Inter)、技術詳細には geometric-mono を使用します。重要なデザインルール：色の使用は極端に抑制し、複数のアクセントを避けること。重い陰影の代わりに、微細なインセットシャドウと細いボーダーを使用すること。密度の高いダークサーフェスのバランスを取ために、広めの余白を確保すること。全体的な印象は、洗練され、強力で、パフォーマンスに焦点を当てています。"
+    },
+    "ko": {
+      "identity": {
+        "keywords": [
+          "생산성",
+          "런처",
+          "속도",
+          "AI",
+          "개발자 도구"
+        ],
+        "analogy": "운영 체제를 위한 고성능 지휘 센터.",
+        "oneLiner": "강력하고 AI 네이티브한 명령 팔레트이자 생산성 런처."
+      },
+      "colors": {
+        "principle": "깊은 검은색, 선명한 흰색 텍스트, 그리고 히어로 영역에서 하나의 강렬한 빨간색 악센트를 사용하는 극단적이고 대비가 높은 다크 모드."
+      },
+      "typography": {
+        "rules": [
+          "기술 사양 및 버전 번호에는 GeistMono를 사용합니다.",
+          "대형 디스플레이 텍스트에는 타이트한 자간(-1px)을 유지합니다.",
+          "본문 텍스트는 어두운 배경에서의 가독성을 위해 정상 굵기(400)를 사용합니다."
+        ],
+        "scaleUses": [
+          "히어로 헤드라인",
+          "섹션 헤드라인",
+          "일반 본문",
+          "작은 레이블 및 메타데이터"
+        ]
+      },
+      "spacing": {
+        "rhythm": "일관된 4px 그리드를 사용하며, 빽빽한 다크 UI의 균형을 맞추기 위해 넉넉한 여백을 우선시합니다."
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(0, 0, 0, 0.4) 0px 1.5px 0.5px 2.5px",
+          "rgb(27, 28, 30) 0px 0px 0px 1px",
+          "rgb(7, 8, 10) 0px 0px 0px 1px inset",
+          "rgba(255, 255, 255, 0.2) 0px 1px 1px 1px inset",
+          "rgba(215, 201, 175, 0.05) 0px 0px 20px 5px"
+        ],
+        "borders": "rgba(255, 255, 255, 0.1) 또는 어두운 회색으로 된 섬세한 1px 실선 테두리."
+      },
+      "layout": {
+        "skeleton": "전체 너비의 분위기 있는 배경을 가진 중앙 정렬된 히어로 영역 다음에 구조화된 콘텐츠 블록이 배치됩니다."
+      },
+      "components": {
+        "button": "주요 버튼은 흰색 배경에 검은색 텍스트를 사용하며 높은 border-radius(알약 형태)를, 보조 버튼은 아웃라인 또는 고스트 스타일입니다.",
+        "card": "내부 그림자가 있는, 미세한 테두리가 있는 어두운 컨테이너로, 주로 확장 기능이나 기능 미리보기를 담는 데 사용됩니다.",
+        "chip": "어두운 배경과 섬세한 테두리가 있는 작은 알약 모양의 태그로, 기능 레이블에 사용됩니다.",
+        "input": "스크린샷에는 보이지 않지만, 내부 그림자가 있는 어두운 형광 램프 모양의 입력 필드로 추정됩니다.",
+        "hero": "눈에 띄는 대각선 빛줄기 효과와 중앙 정렬된 큰 타이포그래피가 특징인 전체 뷰포트 히어로 영역입니다."
+      },
+      "motion": {
+        "patterns": [
+          "hover 상태를 위한 부드러운 전환(opacity, box-shadow, transform).",
+          "콘텐츠 등장 시의 미세한 페이드 인 효과."
+        ]
+      },
+      "interaction": {
+        "hover": "버튼과 인터랙티브 요소는 0.2초 전환을 통해 opacity 또는 box-shadow가 변경됩니다.",
+        "click": "미세한 transform 또는 scale 효과.",
+        "transition": "모든 전환은 세련된 느낌을 위해 커스텀 cubic-bezier easing을 사용합니다.",
+        "keyboard": "런처 도구로서의 접근성을 암시하지만, 시각적으로는 뚜렷하지 않습니다."
+      },
+      "voice": {
+        "tone": "자신감 있고 간결하며 약간 기술적인.",
+        "headlineStyle": "짧고 강렬하며 이점에 초점을 맞춘 스타일 (예: '모든 것에 대한 당신의 단축키.').",
+        "ctaStyle": "직설적이고 행동을 유도하는 스타일 (예: 'Mac용 다운로드', '새로운 Raycast를 체험해보세요').",
+        "avoid": [
+          "지나치게 캐주얼하거나 장난스러운 언어는 피합니다.",
+          "복잡하거나 소음이 많은 레이아웃은 피합니다.",
+          "히어로 영역을 제외한 곳에 밝고 채도 높은 색상은 피합니다."
+        ]
+      },
+      "donts": [
+        "라이트 테마를 사용하지 마세요. 스크린샷은 깊고 거의 검은색(#0D0D0D) 배경을 보여줍니다.",
+        "둥글고 통통한 UI를 사용하지 마세요. 스크린샷은 더 각지고 세련된 border-radius(6-12px)를 보여줍니다.",
+        "여러 밝은 악센트 색상을 사용하지 마세요. 스크린샷은 히어로 그래픽에 하나의 빨간색 악센트만 보여줍니다.",
+        "장난스럽거나 손글씨, 또는 서체 폰트를 사용하지 마세요. 스크린샷은 깔끔한 humanist-sans와 geometric-mono를 사용합니다.",
+        "무거운 그림자를 사용하지 마세요. 스크린샷은 깊이감을 위해 섬세한 내부 그림자와 얇은 테두리에 의존합니다.",
+        "모든 본문 텍스트를 중앙 정렬하지 마세요. 스크린샷은 왼쪽 정렬된 기능 텍스트 블록을 보여줍니다."
+      ],
+      "systemPrompt": "Raycast는 빠르고 AI 네이티브한 명령 런처로 자리매김한 프리미엄 개발자 및 생산성 도구입니다. its 비주얼 아이덴티티는 거의 검은색(#0D0D0D)과 순백을 중심으로 한 초다크, 고대비 팔레트 위에 구축되었으며, 계층을 위해 미세한 회색 톤을 사용합니다. 타이포그래피는 UI에 깔끔한 humanist-sans(Inter)를, 기술적 세부 사양에 geometric-mono를 사용합니다. 핵심 디자인 규칙: 여러 악센트를 피하고 색상 사용에 극도의 절제를 유지; 무거운 입체감 대신 섬세한 내부 그림자와 얇은 테두리를 사용; 빽빽한 다크 표면의 균형을 맞추기 위해 넉넉한 여백을 확보. 전반적인 느낌은 세련되고, 강력하며, 성능에 집중되어 있습니다."
     }
   }
 }

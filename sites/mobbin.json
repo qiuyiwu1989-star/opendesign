@@ -16,32 +16,34 @@
   "_meta": {
     "vision_prompt_version": "0.3",
     "vision_model": "mimo-v2.5",
-    "vision_at": "2026-05-28T19:57:40+00:00",
-    "vision_tokens": 3405,
-    "vision_cost_usd": 0.0378,
+    "vision_at": "2026-05-31T03:13:52+00:00",
+    "vision_tokens": 17260,
+    "vision_cost_usd": 0.1918,
     "translation_model": "mimo-v2.5",
-    "translation_at": "2026-05-28T19:58:41+00:00",
-    "translation_tokens": 15967,
-    "translation_cost_usd": 0.0532,
+    "translation_at": "2026-05-31T03:14:43+00:00",
+    "translation_tokens": 26159,
+    "translation_cost_usd": 0.0872,
     "narrative_model": "mimo-v2.5",
     "narrative_prompt_version": "0.3",
     "narrative_at": "2026-05-28T19:58:48+00:00",
     "narrative_tokens": 1443,
     "narrative_cost_usd": 0.0096,
     "narrative_status": "ok",
-    "total_cost_usd": 0.1006
+    "total_cost_usd": 0.2886,
+    "vision_source": "playwright-extract:mobbin",
+    "vision_grounded": true
   },
   "spec": {
     "colors": {
       "bg": "#FFFFFF",
       "bgSoft": "#F5F5F5",
       "bgQuiet": null,
-      "ink": "#000000",
-      "inkSoft": "#666666",
-      "muted": "#999999",
+      "ink": "#141414",
+      "inkSoft": "#707070",
+      "muted": "#ADADAD",
       "mutedSoft": null,
       "accent": null,
-      "line": "rgba(0,0,0,0.1)"
+      "line": "rgba(64, 64, 64, 0.08)"
     },
     "typography": {
       "display": "grotesque-sans",
@@ -50,31 +52,31 @@
       "scale": [
         {
           "token": "display",
-          "size": 56,
-          "lh": 1.1,
-          "weight": 700,
-          "ls": "-1.5px"
+          "size": 80,
+          "lh": 1.0,
+          "weight": 652,
+          "ls": "-1px"
         },
         {
-          "token": "h1",
-          "size": 40,
-          "lh": 1.2,
-          "weight": 700,
-          "ls": "-0.5px"
+          "token": "heading",
+          "size": 56,
+          "lh": 1.0,
+          "weight": 652,
+          "ls": "-0.6px"
+        },
+        {
+          "token": "subheading",
+          "size": 32,
+          "lh": 1.125,
+          "weight": 456,
+          "ls": "0px"
         },
         {
           "token": "body",
-          "size": 18,
-          "lh": 1.6,
-          "weight": 400,
-          "ls": "0px"
-        },
-        {
-          "token": "body-sm",
-          "size": 14,
+          "size": 16,
           "lh": 1.5,
           "weight": 400,
-          "ls": "0px"
+          "ls": "0.2px"
         }
       ]
     },
@@ -83,26 +85,24 @@
       "scale": [
         4,
         8,
-        12,
         16,
         24,
         32,
         48,
         64,
-        80,
         96
       ]
     },
     "surfaces": {
       "radius": {
         "sm": 4,
-        "md": 8,
-        "lg": 12,
-        "pill": 999
+        "md": 16,
+        "lg": 24,
+        "pill": 9999
       }
     },
     "layout": {
-      "container": 1200,
+      "container": 1280,
       "paragraph": 680,
       "columns": 12,
       "gutter": 24,
@@ -114,19 +114,19 @@
     "motion": {
       "durations": {
         "micro": 150,
-        "small": 250,
+        "small": 200,
         "medium": 400
       },
-      "easing": "cubic-bezier(0.4, 0.0, 0.2, 1)"
+      "easing": "cubic-bezier(0.4, 0, 0.2, 1)"
     }
   },
   "desc": {
     "en": {
-      "palette": "Strictly monochromatic with black text on white backgrounds, using grays for secondary information.",
-      "layout": "Centered hero section with generous whitespace, transitioning to a structured grid for browsing.",
-      "interaction": "Minimal but precise interactions with subtle hover states and clear visual feedback.",
-      "motion": "Very subtle, almost imperceptible transitions that prioritize performance and clarity.",
-      "notes": "Exemplary restraint in design where typography and spacing create a professional, trustworthy reference tool."
+      "palette": "Strictly monochromatic, relying on high-contrast black and white with neutral grays.",
+      "layout": "Centered, spacious hero section that transitions into a dense, grid-based content library.",
+      "interaction": "Minimal and smooth, with subtle 150ms-200ms transitions on hover and click states.",
+      "motion": "Reserved and functional, used primarily for subtle UI feedback rather than flashy effects.",
+      "notes": "An excellent example of a 'content-first' UI where the design framework intentionally recedes to highlight the diverse screenshots it displays."
     },
     "zh-CN": {
       "palette": "严格的单色方案，黑色文字搭配白色背景，次要信息使用灰色。",
@@ -155,413 +155,6 @@
       "interaction": "미세하고 정확한 상호작용을 구현하며, 절제된 hover 상태와 명확한 시각적 피드백을 제공합니다.",
       "motion": "성능과 명확성을 우선시하는 매우 미세하고 거의 감지되지 않는 전환 효과를 사용합니다.",
       "notes": "타이포그래피와 간격을 통해 전문적이고 신뢰할 수 있는 레퍼런스 도구로 자리매김하는 모범적인 절제미가 돋보이는 디자인입니다."
-    }
-  },
-  "spec_i18n": {
-    "en": {
-      "identity": {
-        "keywords": [
-          "design inspiration",
-          "UI reference",
-          "component library",
-          "mobile apps",
-          "web apps"
-        ],
-        "analogy": "A well-organized visual encyclopedia for digital design.",
-        "oneLiner": "A comprehensive design reference platform for discovering real-world UI patterns."
-      },
-      "colors": {
-        "principle": "Extreme restraint with high-contrast typography and neutral backgrounds."
-      },
-      "typography": {
-        "rules": [
-          "Tight letter-spacing for headlines",
-          "Generous line-height for body text",
-          "High contrast for readability"
-        ],
-        "scaleUses": [
-          "Main headline",
-          "Section headings",
-          "Subheadings and descriptions",
-          "Captions and labels"
-        ]
-      },
-      "spacing": {
-        "rhythm": "Consistent 8px grid with generous vertical spacing for breathing room."
-      },
-      "surfaces": {
-        "shadows": [
-          "0px 1px 2px rgba(0,0,0,0.05)",
-          "0px 4px 12px rgba(0,0,0,0.08)"
-        ],
-        "borders": "1px solid rgba(0,0,0,0.1) for inputs and cards."
-      },
-      "layout": {
-        "skeleton": "Centered content with generous white space and clear visual hierarchy."
-      },
-      "components": {
-        "button": "Pill-shaped primary with black fill, secondary with border.",
-        "card": "Subtle shadow with rounded corners for content containers.",
-        "chip": "Tag-like elements for filtering.",
-        "input": "Rounded search bar with placeholder text and icons.",
-        "hero": "Centered layout with large typography, logo, and dual CTAs."
-      },
-      "motion": {
-        "patterns": [
-          "Subtle hover effects on interactive elements",
-          "Smooth transitions between states"
-        ]
-      },
-      "interaction": {
-        "hover": "Subtle opacity changes or color shifts on buttons and links.",
-        "click": "Immediate visual feedback with slight scale reduction.",
-        "transition": "Smooth transitions for state changes and navigation.",
-        "keyboard": "Logical tab order with visible focus states."
-      },
-      "voice": {
-        "tone": "Professional, clear, and authoritative yet approachable.",
-        "headlineStyle": "Bold, concise statements that communicate value proposition directly.",
-        "ctaStyle": "Action-oriented with clear verbs ('Join', 'See our plans').",
-        "avoid": [
-          "Jargon",
-          "Overly technical language",
-          "Marketing fluff",
-          "Passive voice"
-        ]
-      },
-      "donts": [
-        "Don't use vibrant accent colors — screenshot shows a monochromatic palette with black and gray only.",
-        "Don't use serif fonts — screenshot shows a clean grotesque-sans typeface throughout.",
-        "Don't add excessive shadows or 3D effects — screenshot shows minimal, subtle depth cues.",
-        "Don't center every text block — screenshot uses left-aligned text for lists and categories.",
-        "Don't use rounded containers with heavy borders — screenshot uses minimal border styling.",
-        "Don't overcrowd the interface — screenshot demonstrates generous white space and breathing room."
-      ],
-      "systemPrompt": "This is a clean, reference-focused design system for a UI library platform. Positioning: A comprehensive design reference tool for professionals. Key hex colors: #000000 (ink), #FFFFFF (bg), #F5F5F5 (bgSoft), #666666 (inkSoft). Font categories: grotesque-sans for all text. Critical donts: Don't use vibrant accent colors (monochromatic only), don't use serif fonts (clean sans-serif only), don't add excessive shadows (minimal depth). The design prioritizes clarity and readability with extreme restraint, using typography hierarchy and spacing as primary design tools."
-    },
-    "zh-CN": {
-      "identity": {
-        "keywords": [
-          "设计灵感",
-          "UI 参考",
-          "组件库",
-          "移动应用",
-          "Web 应用"
-        ],
-        "analogy": "一部为数字设计精心编排的视觉百科全书。",
-        "oneLiner": "一个全面的设计参考平台，用于发现真实的 UI 设计模式。"
-      },
-      "colors": {
-        "principle": "极致克制，采用高对比度排版与中性背景。"
-      },
-      "typography": {
-        "rules": [
-          "标题采用紧凑字间距",
-          "正文采用宽松行高",
-          "高对比度以确保可读性"
-        ],
-        "scaleUses": [
-          "主标题",
-          "章节标题",
-          "小标题与描述",
-          "注释与标签"
-        ]
-      },
-      "spacing": {
-        "rhythm": "统一的 8px 网格，垂直方向留有充足空间以保证呼吸感。"
-      },
-      "surfaces": {
-        "shadows": [
-          "0px 1px 2px rgba(0,0,0,0.05)",
-          "0px 4px 12px rgba(0,0,0,0.08)"
-        ],
-        "borders": "输入框与卡片使用 1px solid rgba(0,0,0,0.1) 边框。"
-      },
-      "layout": {
-        "skeleton": "内容居中，留有充足白空间，具有清晰的视觉层次。"
-      },
-      "components": {
-        "button": "主按钮为黑色填充的药丸形状，次级按钮带边框。",
-        "card": "内容容器采用圆角与微妙阴影。",
-        "chip": "用于筛选的标签式元素。",
-        "input": "圆角搜索栏，带占位符文本与图标。",
-        "hero": "居中布局，包含大号排版、logo 与双行动号召。"
-      },
-      "motion": {
-        "patterns": [
-          "交互元素上微妙的 hover 效果",
-          "状态间平滑的过渡"
-        ]
-      },
-      "interaction": {
-        "hover": "按钮与链接上的微妙透明度变化或颜色偏移。",
-        "click": "通过轻微的缩放减少提供即时视觉反馈。",
-        "transition": "状态变更与导航使用平滑过渡。",
-        "keyboard": "逻辑的 tab 顺序，具有可见的 focus 状态。"
-      },
-      "voice": {
-        "tone": "专业、清晰、权威且平易近人。",
-        "headlineStyle": "粗体、简洁的陈述，直接传达价值主张。",
-        "ctaStyle": "以行动为导向，使用明确的动词（如 '加入'、'查看我们的方案'）。",
-        "avoid": [
-          "行话",
-          "过于技术性的语言",
-          "营销套话",
-          "被动语态"
-        ]
-      },
-      "donts": [
-        "不要使用鲜艳的强调色 — 截图显示仅使用黑色和灰色的单色调色板。",
-        "不要使用衬线字体 — 截图显示全部使用简洁的无衬线字体。",
-        "不要添加过多的阴影或 3D 效果 — 截图显示极简、微妙的深度提示。",
-        "不要将每个文本块居中 — 截图在列表和分类中使用左对齐文本。",
-        "不要使用带有粗重边框的圆角容器 — 截图使用极简的边框样式。",
-        "不要使界面过于拥挤 — 截图展示了充足的白空间与呼吸感。"
-      ],
-      "systemPrompt": "这是一个干净、专注于参考的 UI 库平台设计系统。定位：面向专业人士的全面设计参考工具。关键十六进制颜色：#000000 (墨色)、#FFFFFF (背景)、#F5F5F5 (柔和背景)、#666666 (柔和墨色)。字体类别：全部使用 grotesque-sans。关键禁忌：不要使用鲜艳的强调色（仅限单色），不要使用衬线字体（仅限简洁的无衬线字体），不要添加过多阴影（仅限微妙深度）。设计通过极致的克制优先考虑清晰度与可读性，主要使用排版层次与间距作为设计工具。"
-    },
-    "zh-TW": {
-      "identity": {
-        "keywords": [
-          "設計靈感",
-          "UI 參考",
-          "元件庫",
-          "行動應用程式",
-          "網頁應用程式"
-        ],
-        "analogy": "一座組織完善的數位設計視覺百科。",
-        "oneLiner": "發現真實世界 UI 模式的綜合設計參考平台。"
-      },
-      "colors": {
-        "principle": "極度節制，採用高對比字型與中性背景。"
-      },
-      "typography": {
-        "rules": [
-          "標題採緊湊字距",
-          "內文採寬裕行高",
-          "高對比以利閱讀"
-        ],
-        "scaleUses": [
-          "主標題",
-          "章節標題",
-          "副標題與描述",
-          "說明文字與標籤"
-        ]
-      },
-      "spacing": {
-        "rhythm": "一致的 8px 格線，搭配寬裕垂直間距營造呼吸感。"
-      },
-      "surfaces": {
-        "shadows": [
-          "0px 1px 2px rgba(0,0,0,0.05)",
-          "0px 4px 12px rgba(0,0,0,0.08)"
-        ],
-        "borders": "輸入框與卡片採用 1px solid rgba(0,0,0,0,0.1) 邊框。"
-      },
-      "layout": {
-        "skeleton": "置中內容搭配充裕留白與清晰視覺層次。"
-      },
-      "components": {
-        "button": "主要按鈕採黑色填充藥丸造型，次要按鈕採邊框樣式。",
-        "card": "內容容器採用圓角與細微陰影。",
-        "chip": "用於篩選的標籤式元件。",
-        "input": "圓角搜尋列，含佔位文字與圖示。",
-        "hero": "置中佈局搭配大型字型、標誌與雙重行動呼籲。"
-      },
-      "motion": {
-        "patterns": [
-          "互動元件的細微 hover 效果",
-          "狀態間的流暢轉換"
-        ]
-      },
-      "interaction": {
-        "hover": "按鈕與連結採細微透明度或色彩變化。",
-        "click": "立即視覺回饋，搭配輕微縮放。",
-        "transition": "狀態切換與導覽採流暢轉場。",
-        "keyboard": "邏輯化 Tab 順序，搭配可見的 focus 狀態。"
-      },
-      "voice": {
-        "tone": "專業、清晰、具權威感但平易近人。",
-        "headlineStyle": "簡潔有力的粗體宣言，直接傳達價值主張。",
-        "ctaStyle": "行動導向，使用明確動詞（「加入」、「查看方案」）。",
-        "avoid": [
-          "術語",
-          "過度技術性語言",
-          "行銷空話",
-          "被動語態"
-        ]
-      },
-      "donts": [
-        "勿使用鮮豔強調色——截圖僅顯示黑白灰單色調色盤。",
-        "勿使用襯線字型——截圖全程採用簡潔 grotesque-sans 字型。",
-        "勿添加過多陰影或 3D 效果——截圖展現極簡、細微的深度提示。",
-        "勿將所有文字塊置中——截圖在列表與分類使用左對齊文字。",
-        "勿使用粗邊框圓角容器——截圖採用極簡邊框樣式。",
-        "勿讓介面過於擁擠——截圖展現充裕留白與呼吸空間。"
-      ],
-      "systemPrompt": "這是一個簡潔、聚焦於參考的 UI 函式庫平台設計系統。定位：為專業人士提供的綜合設計參考工具。關鍵十六進制色碼：#000000（墨色）、#FFFFFF（背景）、#F5F5F5（淺背景）、#666666（淺墨色）。字型類別：所有文字採用 grotesque-sans。關鍵禁忌：勿使用鮮豔強調色（僅限單色調）、勿使用襯線字型（僅限簡潔無襯線）、勿添加過多陰影（極簡深度）。設計以極度節制優先考量清晰度與可讀性，運用字型層級與留白作為主要設計工具。"
-    },
-    "ja": {
-      "identity": {
-        "keywords": [
-          "デザインインスピレーション",
-          "UIリファレンス",
-          "コンポーネントライブラリ",
-          "モバイルアプリ",
-          "ウェブアプリ"
-        ],
-        "analogy": "デジタルデザインのための、整然と組織化されたビジュアル百科事典。",
-        "oneLiner": "実際のUIパターンを発見するための、包括的なデザインリファレンスプラットフォーム。"
-      },
-      "colors": {
-        "principle": "高コントラストのタイポグラフィとニュートラルな背景による、極度の抑制。"
-      },
-      "typography": {
-        "rules": [
-          "見出しにはタイトな字間",
-          "本文には十分な行間",
-          "可読性のための高コントラスト"
-        ],
-        "scaleUses": [
-          "メイン見出し",
-          "セクション見出し",
-          "小見出しと説明文",
-          "キャプションとラベル"
-        ]
-      },
-      "spacing": {
-        "rhythm": "息継ぎのための広めの縦方向の余白を持つ、一定の8pxグリッド。"
-      },
-      "surfaces": {
-        "shadows": [
-          "0px 1px 2px rgba(0,0,0,0.05)",
-          "0px 4px 12px rgba(0,0,0,0.08)"
-        ],
-        "borders": "インプットとカードには、1px solid rgba(0,0,0,0.1)。"
-      },
-      "layout": {
-        "skeleton": "広めのホワイトスペースと明確なビジュアル階層を持つ、中央揃えのコンテンツ。"
-      },
-      "components": {
-        "button": "プライマリは黒塗りのピルシェイプ、セカンダリはボーダー付き。",
-        "card": "コンテンツコンテナには角丸と微細なシャドウ。",
-        "chip": "フィルタリング用のタグのような要素。",
-        "input": "プレースホルダーテキストとアイコンを備えた、角丸の検索バー。",
-        "hero": "大きなタイポグラフィ、ロゴ、二つのCTAを持つ、中央レイアウト。"
-      },
-      "motion": {
-        "patterns": [
-          "インタラクティブ要素の微細なhoverエフェクト",
-          "状態間のスムーズな遷移"
-        ]
-      },
-      "interaction": {
-        "hover": "ボタンやリンクの微細な透明度の変化または色のシフト。",
-        "click": "軽いスケール縮小による即座のビジュアルフィードバック。",
-        "transition": "状態変化やナビゲーションのためのスムーズな遷移。",
-        "keyboard": "可視化されたフォーカス状態を持つ、論理的なタブ順序。"
-      },
-      "voice": {
-        "tone": "プロフェッショナルで明確、権威がありながらも親しみやすい。",
-        "headlineStyle": "価値提案を直接伝える、大胆で簡潔な表現。",
-        "ctaStyle": "明確な動詞（「参加する」「プランを見る」など）を使用した、行動を促す表現。",
-        "avoid": [
-          "専門用語",
-          "過度に技術的な言語",
-          "マーケティング的な誇張",
-          "受動態"
-        ]
-      },
-      "donts": [
-        "鮮やかなアクセントカラーを使用しない — スクリーンショットは黒とグレーのみのモノクロームパレットを示しています。",
-        "セリフフォントを使用しない — スクリーンショットは全体を通してクリーンな grotesque-sans タイプフェイスを使用しています。",
-        "過度なシャドウや3Dエフェクトを追加しない — スクリーンショットは最小限の、微細な奥行きの手がかりを示しています。",
-        "すべてのテキストブロックを中央揃えにしない — スクリーンショットはリストやカテゴリに左揃えテキストを使用しています。",
-        "太いボーダー付きの角丸コンテナを使用しない — スクリーンショットは最小限のボーダースタイリングを使用しています。",
-        "インターフェースを雑然としない — スクリーンショットは広めのホワイトスペースと息継ぎの余地を示しています。"
-      ],
-      "systemPrompt": "これは、UIライブラリプラットフォームのための、クリーンでリファレンス中心のデザインシステムです。ポジショニング：プロフェッショナルのための包括的なデザインリファレンスツール。主要なHEXカラー：#000000（インク）、#FFFFFF（背景）、#F5F5F5（背景ソフト）、#666666（インクソフト）。フォントカテゴリ：すべてのテキストに grotesque-sans。重要な禁止事項：鮮やかなアクセントカラーを使用しない（モノクロームのみ）、セリフフォントを使用しない（クリーンなサンセリフのみ）、過度なシャドウを追加しない（最小限の奥行き）。デザインは極度の抑制で明瞭さと可読性を優先し、主要なデザインツールとしてタイポグラフィの階層と余白を使用します。"
-    },
-    "ko": {
-      "identity": {
-        "keywords": [
-          "디자인 영감",
-          "UI 레퍼런스",
-          "컴포넌트 라이브러리",
-          "모바일 앱",
-          "웹 앱"
-        ],
-        "analogy": "디지털 디자인을 위한 체계적으로 정리된 시각적 백과사전과 같습니다.",
-        "oneLiner": "실제 UI 패턴을 발견할 수 있는 종합적인 디자인 레퍼런스 플랫폼입니다."
-      },
-      "colors": {
-        "principle": "고대비 타이포그래피와 중립적인 배경을 통한 극도의 절제."
-      },
-      "typography": {
-        "rules": [
-          "헤드라인을 위한 좁은 자간",
-          "본문 텍스트를 위한 넉넉한 행간",
-          "가독성을 위한 높은 대비"
-        ],
-        "scaleUses": [
-          "메인 헤드라인",
-          "섹션 제목",
-          "소제목 및 설명",
-          "캡션 및 라벨"
-        ]
-      },
-      "spacing": {
-        "rhythm": "일관된 8px 그리드와 호흡이 느껴지는 넉넉한 수직 간격."
-      },
-      "surfaces": {
-        "shadows": [
-          "0px 1px 2px rgba(0,0,0,0.05)",
-          "0px 4px 12px rgba(0,0,0,0.08)"
-        ],
-        "borders": "입력 필드와 카드를 위한 1px solid rgba(0,0,0,0.1) 테두리."
-      },
-      "layout": {
-        "skeleton": "풍부한 여백과 명확한 시각적 계층 구조를 갖춘 중앙 정렬 콘텐츠."
-      },
-      "components": {
-        "button": "검은색으로 채워진 둥근 모서리의 주요 버튼과 테두리만 있는 보조 버튼.",
-        "card": "콘텐츠 컨테이너를 위한 둥근 모서리와 미세한 그림자.",
-        "chip": "필터링을 위한 태그 형태의 요소.",
-        "input": "플레이스홀더 텍스트와 아이콘이 포함된 둥근 모서리의 검색 바.",
-        "hero": "대형 타이포그래피, 로고, 그리고 이중 CTA를 갖춘 중앙 정렬 레이아웃."
-      },
-      "motion": {
-        "patterns": [
-          "인터랙티브 요소에 대한 절제된 hover 효과",
-          "상태 간의 부드러운 전환"
-        ]
-      },
-      "interaction": {
-        "hover": "버튼과 링크의 미세한 불투명도 변화 또는 색상 변화.",
-        "click": "약간의 축소와 함께 즉각적인 시각적 피드백.",
-        "transition": "상태 변화와 네비게이션을 위한 부드러운 전환.",
-        "keyboard": "명확한 포커스 상태를 갖춘 논리적인 탭 순서."
-      },
-      "voice": {
-        "tone": "전문적이고 명확하며 권위 있으면서도 친근한 어조.",
-        "headlineStyle": "가치 제안을 직접적으로 전달하는 굵고 간결한 진술.",
-        "ctaStyle": "명확한 동사('참여하기', '플랜 보기')를 사용한 행동 중심의 문구.",
-        "avoid": [
-          "전문 용어",
-          "지나치게 기술적인 언어",
-          "과장된 마케팅 표현",
-          "수동태"
-        ]
-      },
-      "donts": [
-        "선명한 강조색을 사용하지 마세요 — 스크린샷은 검은색과 회색만 사용하는 단색 팔레트를 보여줍니다.",
-        "세리프 서체를 사용하지 마세요 — 스크린샷은 전체적으로 깔끔한 grotesque-sans 서체를 사용합니다.",
-        "과도한 그림자나 3D 효과를 추가하지 마세요 — 스크린샷은 절제되고 미세한 깊이 표현을 보여줍니다.",
-        "모든 텍스트 블록을 중앙 정렬하지 마세요 — 스크린샷은 목록과 카테고리에 왼쪽 정렬 텍스트를 사용합니다.",
-        "두꺼운 테두리가 있는 둥근 컨테이너를 사용하지 마세요 — 스크린샷은 최소한의 테두리 스타일을 사용합니다.",
-        "인터페이스를 과도하게 채우지 마세요 — 스크린샷은 풍부한 여백과 호흡이 느껴지는 공간 활용을 보여줍니다."
-      ],
-      "systemPrompt": "UI 라이브러리 플랫폼을 위한 깔끔하고 레퍼런스 중심의 디자인 시스템입니다. 포지셔닝: 전문가를 위한 종합적인 디자인 레퍼런스 도구. 주요 헥스 컬러: #000000 (ink), #FFFFFF (bg), #F5F5F5 (bgSoft), #666666 (inkSoft). 폰트 카테고리: 모든 텍스트에 grotesque-sans 사용. 중요 주의사항: 선명한 강조색 사용 금지(단색만), 세리프 서체 사용 금지(깔끔한 sans-serif만), 과도한 그림자 추가 금지(최소한의 깊이). 디자인은 타이포그래피 계층과 간격을 주요 디자인 도구로 활용하여 극도의 절제 속에서 명확성과 가독성을 우선시합니다."
     }
   },
   "narrative": {
@@ -624,6 +217,413 @@
       "ch7_intro": "모션 철학은 거의 눈에 띄지 않는 성능의 영역입니다. hover 상태에는 미세한 불투명도 변화나 색상 전환을, 클릭 피드백에는 즉각적이고 약간의 축소를 사용합니다. 상태 간 전환과 내비게이션은 부드럽지만 짧으며, 화려함보다 실용성을 우선시합니다.",
       "ch8_intro": "에디토리얼 어조는 전문적이고 명료하며 권위적입니다. 굵고 간결한 제목과 행동 지향적인 콜 투 액션을 통해 가치를 직접 전달합니다. 의도적으로 전문 용어, 지나치게 기술적인 언어, 모든 형태의 마케팅적 미사여구를 피합니다.",
       "ch8_outro": "시스템은 의도적으로 화려한 강조색, 세리프 폰트, 과도한 그림자, 중앙 정렬된 텍스트 블록을 배제하고, 단색적이고 절제된 기반에 전적으로 헌신합니다."
+    }
+  },
+  "spec_i18n": {
+    "en": {
+      "identity": {
+        "keywords": [
+          "Design Inspiration",
+          "Mobile UI",
+          "Reference",
+          "Curation",
+          "Library"
+        ],
+        "analogy": "A premium, organized gallery for design professionals.",
+        "oneLiner": "A clean, content-focused platform for discovering real-world mobile and web design inspiration."
+      },
+      "colors": {
+        "principle": "Monochromatic and minimal, using high-contrast black and white with subtle grays to let the colorful content screenshots stand out."
+      },
+      "typography": {
+        "rules": [
+          "Headlines use tight line-height (1.0) and negative letter-spacing",
+          "Body text uses a relaxed line-height (1.5) for readability",
+          "Weights are primarily 400 for body and 600-650 for emphasis"
+        ],
+        "scaleUses": [
+          "Large hero headlines",
+          "Section headlines",
+          "Card titles and secondary headings",
+          "Body text and navigation"
+        ]
+      },
+      "spacing": {
+        "rhythm": "Consistent 4px base with 16px and 24px standard gutters."
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 1px 2px 0px rgba(0, 0, 0, 0.04)",
+          "0px 8px 40px 0px rgba(0, 0, 0, 0.04)"
+        ],
+        "borders": "1px solid rgba(64, 64, 64, 0.08)"
+      },
+      "layout": {
+        "skeleton": "Centered, single-column hero leading into a wide, multi-column grid for content."
+      },
+      "components": {
+        "button": "Pill-shaped primary buttons (black) and secondary buttons (white with border).",
+        "card": "Large, rounded cards (24px radius) designed to showcase screenshots.",
+        "chip": "Pill-shaped toggles or tags with subtle backgrounds.",
+        "input": "Minimal, borderless or subtly bordered inputs.",
+        "hero": "Centered headline with rotating app icons above and trusted logos below."
+      },
+      "motion": {
+        "patterns": [
+          "Smooth color and background transitions on hover",
+          "Subtle fading for interactive elements"
+        ]
+      },
+      "interaction": {
+        "hover": "Subtle color or opacity transitions",
+        "click": "Immediate visual feedback via state changes",
+        "transition": "150ms-200ms duration with ease-in-out timing",
+        "keyboard": "Standard focus outlines and tab navigation"
+      },
+      "voice": {
+        "tone": "Professional, confident, and direct.",
+        "headlineStyle": "Bold, short, and punchy statements of value.",
+        "ctaStyle": "Action-oriented and benefit-driven (e.g., 'Join for free').",
+        "avoid": [
+          "Playful or overly casual language",
+          "Excessive exclamation points",
+          "Technical jargon in hero copy",
+          "Cluttered or busy layouts"
+        ]
+      },
+      "donts": [
+        "Don't use vibrant accent colors for the UI frame — screenshot shows a strict monochromatic palette.",
+        "Don't use serif fonts for headlines — screenshot shows a clean, modern grotesque-sans.",
+        "Don't use heavily shadowed cards — screenshot shows minimal, soft shadows.",
+        "Don't use square corners on primary buttons — screenshot shows pill-shaped (9999px) buttons.",
+        "Don't use small, cramped hero text — screenshot shows very large (80px) bold headlines.",
+        "Don't clutter the interface with too many competing visual elements — screenshot shows a spacious, centered layout."
+      ],
+      "systemPrompt": "Mobbin is a premium design reference tool for mobile and web UI. The design DNA is clean, monochromatic, and content-focused, using a strict black (#141414) and white (#FFFFFF) palette with subtle grays (#707070, #ADADAD) to let screenshots take center stage. Typography uses a clean grotesque-sans category with very bold, tight headlines and generous body text. Critical donts include: never use vibrant UI colors, never use serif fonts for headlines, and never crowd the layout with excessive elements. The layout follows a centered hero-to-grid pattern with generous white space and consistent 4px-based spacing."
+    },
+    "zh-CN": {
+      "identity": {
+        "keywords": [
+          "设计灵感",
+          "移动端UI",
+          "参考资料",
+          "精选合集",
+          "资源库"
+        ],
+        "analogy": "一个专为设计专业人士打造的、高品质且组织有序的画廊。",
+        "oneLiner": "一个简洁、以内容为核心的平台，用于发现真实世界中的移动端与网页设计灵感。"
+      },
+      "colors": {
+        "principle": "采用单色极简风格，以高对比度的黑白色搭配微妙的灰色，让多彩的内容截图得以凸显。"
+      },
+      "typography": {
+        "rules": [
+          "标题使用紧凑的行高（1.0）和负的字间距",
+          "正文使用宽松的行高（1.5）以保证可读性",
+          "字重主要采用400用于正文，600-650用于强调"
+        ],
+        "scaleUses": [
+          "大型主标题",
+          "章节标题",
+          "卡片标题与次要标题",
+          "正文与导航"
+        ]
+      },
+      "spacing": {
+        "rhythm": "基于一致的4px基准，采用16px和24px的标准间距。"
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 1px 2px 0px rgba(0, 0, 0, 0.04)",
+          "0px 8px 40px 0px rgba(0, 0, 0, 0.04)"
+        ],
+        "borders": "1px solid rgba(64, 64, 64, 0.08)"
+      },
+      "layout": {
+        "skeleton": "采用居中的单列主视觉区，引导至用于展示内容的宽幅多列网格。"
+      },
+      "components": {
+        "button": "胶囊形主按钮（黑色）和次级按钮（带边框的白色）。",
+        "card": "大尺寸、圆角（24px半径）的卡片，专为展示截图而设计。",
+        "chip": "带有微妙背景色的胶囊形开关或标签。",
+        "input": "极简风格、无边框或边框微妙的输入框。",
+        "hero": "居中标题，上方是循环展示的应用图标，下方是信任合作方标志。"
+      },
+      "motion": {
+        "patterns": [
+          "hover时平滑的颜色与背景过渡",
+          "交互元素的细微淡入淡出效果"
+        ]
+      },
+      "interaction": {
+        "hover": "微妙的颜色或透明度过渡",
+        "click": "通过状态变化提供即时视觉反馈",
+        "transition": "持续150ms-200ms，采用ease-in-out缓动",
+        "keyboard": "标准的focus轮廓与Tab键导航"
+      },
+      "voice": {
+        "tone": "专业、自信、直接。",
+        "headlineStyle": "加粗、简短、有力的价值陈述。",
+        "ctaStyle": "以行动为导向、以利益为驱动（例如：“免费加入”）。",
+        "avoid": [
+          "俏皮或过于随意的语言",
+          "过多的感叹号",
+          "主文案中使用技术术语",
+          "杂乱或拥挤的布局"
+        ]
+      },
+      "donts": [
+        "不要为UI框架使用鲜艳的强调色——截图显示的是严格的单色调色板。",
+        "不要为标题使用衬线字体——截图显示的是干净的现代无衬线字体。",
+        "不要使用阴影过重的卡片——截图显示的是极简、柔和的阴影。",
+        "不要为按钮使用直角——截图显示的是胶囊形（9999px）按钮。",
+        "不要使用小而拥挤的主标题文案——截图显示的是非常大（80px）的加粗标题。",
+        "不要用太多相互竞争的视觉元素使界面显得杂乱——截图显示的是宽敞、居中的布局。"
+      ],
+      "systemPrompt": "Mobbin 是一个专为移动端与网页UI打造的高品质设计参考工具。其设计DNA是干净、单色且以内容为核心，采用严格的黑色（#141414）与白色（#FFFFFF）调色板，搭配微妙的灰色（#707070, #ADADAD），让截图成为视觉焦点。字体类别采用干净的无衬线字体，标题极为加粗、紧凑，正文则留有充足空间。关键禁忌包括：绝不使用鲜艳的UI颜色、绝不为标题使用衬线字体、绝不让过多的元素挤占布局。布局遵循从居中主视觉到网格的模式，留白充足，间距基于一致的4px基准。"
+    },
+    "zh-TW": {
+      "identity": {
+        "keywords": [
+          "設計靈感",
+          "行動裝置介面",
+          "參考資源",
+          "策展內容",
+          "設計庫"
+        ],
+        "analogy": "一個為設計專業人士打造的高品質、有組織的展示畫廊。",
+        "oneLiner": "一個簡潔、內容導向的平台，用於探索真實的行動與網頁設計靈感。"
+      },
+      "colors": {
+        "principle": "採用單色調與極簡風格，以高對比的黑白搭配微妙的灰色，讓豐富的內容截圖成為視覺焦點。"
+      },
+      "typography": {
+        "rules": [
+          "標題使用緊湊行高 (1.0) 與負字距",
+          "內文使用舒適行高 (1.5) 以提升可讀性",
+          "字重主要採用 400 作為內文，600-650 用於強調"
+        ],
+        "scaleUses": [
+          "大型主視覺標題",
+          "章節標題",
+          "卡片標題與次級標題",
+          "內文與導航文字"
+        ]
+      },
+      "spacing": {
+        "rhythm": "以 4px 為基準單位，搭配 16px 與 24px 的標準間距。"
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 1px 2px 0px rgba(0, 0, 0, 0.04)",
+          "0px 8px 40px 0px rgba(0, 0, 0, 0.04)"
+        ],
+        "borders": "1px solid rgba(64, 64, 64, 0.08)"
+      },
+      "layout": {
+        "skeleton": "採用居中單欄式主視覺，引導至寬幅的多欄式內容網格。"
+      },
+      "components": {
+        "button": "主要按鈕為藥丸形狀 (黑色)，次要按鈕為藥丸形狀 (白色帶邊框)。",
+        "card": "大型圓角卡片 (24px 圓角)，專為展示截圖而設計。",
+        "chip": "藥丸形狀的開關或標籤，帶有微妙背景色。",
+        "input": "極簡風格，無邊框或帶有細微邊框的輸入欄位。",
+        "hero": "居中標題，上方有旋轉的應用程式圖示，下方有值得信賴的品牌標誌。"
+      },
+      "motion": {
+        "patterns": [
+          "hover 時平滑的顏色與背景過渡效果",
+          "互動元素採用微妙的淡入淡出效果"
+        ]
+      },
+      "interaction": {
+        "hover": "微妙的顏色或透明度過渡效果",
+        "click": "透過狀態變化提供即時的視覺回饋",
+        "transition": "150ms-200ms 持續時間，採用 ease-in-out 時間函數",
+        "keyboard": "標準的 focus 輪廓與 tab 導航"
+      },
+      "voice": {
+        "tone": "專業、自信且直接。",
+        "headlineStyle": "簡潔有力、短促且具衝擊力的價值陳述。",
+        "ctaStyle": "以行動為導向、以效益為核心 (例如：「免費加入」)。",
+        "avoid": [
+          "過於活潑或隨意的語言風格",
+          "過多的驚嘆號",
+          "主視覺文案使用技術術語",
+          "擁擠或雜亂的版面佈局"
+        ]
+      },
+      "donts": [
+        "不要在介面框架中使用鮮豔的強調色——截圖顯示的是嚴格的單色調色板。",
+        "不要在標題中使用襯線字體——截圖顯示的是簡潔現代的 grotesque-sans 字體類別。",
+        "不要使用陰影過重的卡片——截圖顯示的是輕薄、柔和的陰影。",
+        "不要在主要按鈕上使用方形邊角——截圖顯示的是藥丸形狀 (9999px) 的按鈕。",
+        "不要使用小而擁擠的主視覺文字——截圖顯示的是非常大 (80px) 的粗體標題。",
+        "不要讓過多互相競爭的視覺元素使介面顯得雜亂——截圖顯示的是寬敞、居中的佈局。"
+      ],
+      "systemPrompt": "Mobbin 是一個為行動與網頁介面設計打造的高品質設計參考工具。其設計 DNA 是簡潔、單色調且內容導向的，採用嚴格的黑色 (#141414) 與白色 (#FFFFFF) 調色板，搭配微妙的灰色 (#707070, #ADADAD)，讓截圖成為焦點。字體使用簡潔的 grotesque-sans 類別，搭配非常粗體、緊湊的標題與充裕的內文空間。嚴格禁止的事項包括：絕對不要使用鮮豔的介面顏色，絕對不要在標題中使用襯線字體，絕對不要用過多元素擠滿版面。版面遵循從居中主視覺到網格的模式，留有充裕的空白，並使用一致的 4px 基準間距。"
+    },
+    "ja": {
+      "identity": {
+        "keywords": [
+          "デザインインスピレーション",
+          "モバイルUI",
+          "リファレンス",
+          "キュレーション",
+          "ライブラリ"
+        ],
+        "analogy": "デザインプロフェッショナルのための、高品質で整理されたギャラリー。",
+        "oneLiner": "リアルなモバイルおよびWebデザインのインスピレーションを発見する、クリーンでコンテンツに焦点を当てたプラットフォーム。"
+      },
+      "colors": {
+        "principle": "モノクロでミニマル。カラフルなコンテンツのスクリーンショットを目立たせるため、ハイコントラストの黒と白、および繊細なグレーを使用。"
+      },
+      "typography": {
+        "rules": [
+          "見出しはタイトな行間（1.0）と負の字間を使用",
+          "本文は可読性のためリラックスした行間（1.5）を使用",
+          "ウェイトは本文は主に400、強調には600-650"
+        ],
+        "scaleUses": [
+          "大きなヒーロー見出し",
+          "セクション見出し",
+          "カードタイトルおよびセカンダリ見出し",
+          "本文およびナビゲーション"
+        ]
+      },
+      "spacing": {
+        "rhythm": "一貫した4pxをベースとし、16pxおよび24pxの標準グター。"
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 1px 2px 0px rgba(0, 0, 0, 0.04)",
+          "0px 8px 40px 0px rgba(0, 0, 0, 0.04)"
+        ],
+        "borders": "1px solid rgba(64, 64, 64, 0.08)"
+      },
+      "layout": {
+        "skeleton": "中央揃えのシングルカラムヒーローから、コンテンツ用の広いマルチカラムグリッドへ。"
+      },
+      "components": {
+        "button": "ピル形状のプライマリボタン（黒）とセカンダリボタン（白、ボーダー付き）。",
+        "card": "スクリーンショットを見せるためにデザインされた、大きく角丸（24px radius）のカード。",
+        "chip": "繊細な背景を持つ、ピル形状のトグルまたはタグ。",
+        "input": "ミニマル、ボーダーレスまたは繊細なボーダーのインプット。",
+        "hero": "上部に回転するアプリアイコン、下部に信頼できるロゴがある、中央揃えの見出し。"
+      },
+      "motion": {
+        "patterns": [
+          "hover時のスムーズな色と背景の遷移",
+          "インタラクティブ要素の繊細なフェードイン"
+        ]
+      },
+      "interaction": {
+        "hover": "繊細な色または不透明度の遷移",
+        "click": "状態変化による即座のビジュアルフィードバック",
+        "transition": "150ms-200msの期間、ease-in-outタイミング",
+        "keyboard": "標準のfocusアウトラインおよびtabナビゲーション"
+      },
+      "voice": {
+        "tone": "プロフェッショナル、自信に満ち、直接的。",
+        "headlineStyle": "太字で短く、価値を強調する表現。",
+        "ctaStyle": "行動を促し、メリットを重視（例：「無料で参加する」）。",
+        "avoid": [
+          "遊び心のある、または過度にカジュアルな言葉遣い",
+          "過度な感嘆符",
+          "ヒーローコピーにおける技術的な専門用語",
+          "雑然とした、または忙しないレイアウト"
+        ]
+      },
+      "donts": [
+        "UIフレームに鮮やなアクセントカラーを使用しない — スクリーンショットは厳格なモノクロパレットを示しています。",
+        "見出しにセリフフォントを使用しない — スクリーンショットはクリーンでモダンな grotesque-sans を示しています。",
+        "強調された影を持つカードを使用しない — スクリーンショットはミニマルで柔らかい影を示しています。",
+        "プライマリボタンに角丸を使用しない — スクリーンショットはピル形状（9999px）のボタンを示しています。",
+        "ヒーローテキストに小さく窮屈なデザインを使用しない — スクリーンショットは非常に大きく（80px）、太字の見出しを示しています。",
+        "競合する視覚要素でインタフェースを雑然とさせない — スクリーンショットは広々とした、中央揃えのレイアウトを示しています。"
+      ],
+      "systemPrompt": "Mobbinは、モバイルおよびWeb UIのための高品質なデザインリファレンスツールです。デザインDNAはクリーンでモノクロ、コンテンツに焦点を当てており、厳格な黒（#141414）と白（#FFFFFF）のパレットに繊細なグレー（#707070、#ADADAD）を使用し、スクリーンショットを主役にします。タイポグラフィはクリーンな grotesque-sans カテゴリを使用し、非常に太字でタイトな見出しと広めの本文を採用。重要な禁止事項には、鮮やかなUIカラーの使用禁止、見出しへのセリフフォント使用禁止、過度な要素によるレイアウトの雑踏禁止が含まれます。レイアウトは、広い余白と一貫した4pxベースの間隔を備えた、中央揃えヒーローからグリッドへのパターンに従います。"
+    },
+    "ko": {
+      "identity": {
+        "keywords": [
+          "디자인 영감",
+          "모바일 UI",
+          "참고 자료",
+          "큐레이션",
+          "라이브러리"
+        ],
+        "analogy": "디자인 전문가를 위한 프리미엄, 정돈된 갤러리.",
+        "oneLiner": "실제 모바일 및 웹 디자인 영감을 발견할 수 있는 깔끔하고 콘텐츠 중심의 플랫폼."
+      },
+      "colors": {
+        "principle": "모노크로미틱하고 미니멀하며, 강렬한 대비의 흑백과 미묘한 회색을 사용하여 다채로운 콘텐츠 스크린샷이 돋보이도록 합니다."
+      },
+      "typography": {
+        "rules": [
+          "제목은 좁은 행간(1.0)과 음수 자간을 사용합니다",
+          "본문은 가독성을 위해 여유로운 행간(1.5)을 사용합니다",
+          "본문은 주로 400, 강조는 600-650 무게를 사용합니다"
+        ],
+        "scaleUses": [
+          "대형 히어로 제목",
+          "섹션 제목",
+          "카드 제목 및 부제목",
+          "본문 및 내비게이션"
+        ]
+      },
+      "spacing": {
+        "rhythm": "일관된 4px 기본 간격과 16px, 24px 표준 골격입니다."
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 1px 2px 0px rgba(0, 0, 0, 0.04)",
+          "0px 8px 40px 0px rgba(0, 0, 0, 0.04)"
+        ],
+        "borders": "1px solid rgba(64, 64, 64, 0.08)"
+      },
+      "layout": {
+        "skeleton": "중앙 정렬된 단일 컬럼 히어로에서 콘텐츠를 위한 넓은 다중 컬럼 격자로 이어지는 구조입니다."
+      },
+      "components": {
+        "button": "알약형 주요 버튼(검정)과 보조 버튼(흰색 테두리).",
+        "card": "스크린샷을 전시하도록 설계된 크고 둥근 모서리의 카드(24px 반경).",
+        "chip": "미묘한 배경을 가진 알약형 토글 또는 태그.",
+        "input": "미니멀하고 테두리가 없거나 미묘하게 테두리가 있는 입력 필드.",
+        "hero": "중앙 정렬된 제목과 그 위로 회전하는 앱 아이콘, 아래로 신뢰할 수 있는 로고."
+      },
+      "motion": {
+        "patterns": [
+          "hover 시 부드러운 색상 및 배경 전환",
+          "인터랙티브 요소를 위한 미묘한 페이드 인/아웃"
+        ]
+      },
+      "interaction": {
+        "hover": "미묘한 색상 또는 투명도 전환",
+        "click": "상태 변화를 통한 즉각적인 시각적 피드백",
+        "transition": "150ms-200ms 시간 및 ease-in_out 타이밍",
+        "keyboard": "표준 포커스 윤곽선 및 탭 탐색"
+      },
+      "voice": {
+        "tone": "전문적이고 자신감 있으며 직접적인 어조.",
+        "headlineStyle": "대담하고 간결하며 핵심적인 가치 전달.",
+        "ctaStyle": "행동 지향적이고 혜택을 강조하는 표현(예: '무료로 가입하기').",
+        "avoid": [
+          "장난스럽거나 지나치게 캐주얼한 언어",
+          "과도한 감탄사",
+          "히어로 텍스트의 전문 용어",
+          "복잡하고 바쁜 레이아웃"
+        ]
+      },
+      "donts": [
+        "UI 프레임에 밝은 강조 색상을 사용하지 마세요 — 스크린샷은 엄격한 모노크로미틱 팔레트를 보여줍니다.",
+        "제목에 세리프 글꼴을 사용하지 마세요 — 스크린샷은 깔끔하고 현대적인 고스트릭-산스를 보여줍니다.",
+        "그림자가 강한 카드를 사용하지 마세요 — 스크린샷은 미니멀하고 부드러운 그림자를 보여줍니다.",
+        "주요 버튼에 사각 모서리를 사용하지 마세요 — 스크린샷은 알약형(9999px) 버튼을 보여줍니다.",
+        "작고 비좁은 히어로 텍스트를 사용하지 마세요 — 스크린샷은 매우 크고(80px) 볼드한 제목을 보여줍니다.",
+        "지나치게 많은 시각적 요소로 인터페이스를 복잡하게 하지 마세요 — 스크린샷은 여유롭고 중앙 정렬된 레이아웃을 보여줍니다."
+      ],
+      "systemPrompt": "Mobbin은 모바일 및 웹 UI를 위한 프리미엄 디자인 참고 도구입니다. 디자인 DNA는 깔끔하고 모노크로미틱하며 콘텐츠 중심이며, 엄격한 검정(#141414)과 흰색(#FFFFFF) 팔레트와 미묘한 회색(#707070, #ADADAD)을 사용하여 스크린샷이 중심이 되도록 합니다. 타이포그래피는 깔끔한 고스트릭-산스 계열을 사용하며, 매우 볼드하고 좁은 제목과 여유로운 본문 텍스트를 사용합니다. 중요한 주의 사항은 다음과 같습니다: UI에 밝은 색상을 절대 사용하지 마세요, 제목에 세리프 글꼴을 절대 사용하지 마세요, 레이아웃을 과도한 요소로 복잡하게 하지 마세요. 레이아웃은 충분한 여백과 일관된 4px 기반 간격을 가진 중앙 히어로에서 격자로의 팔로우합니다."
     }
   }
 }

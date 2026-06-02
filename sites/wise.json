@@ -17,65 +17,67 @@
   "_meta": {
     "vision_model": "mimo-v2.5",
     "vision_prompt_version": "0.3",
-    "vision_at": "2026-05-28T21:23:36+00:00",
-    "vision_tokens": 3484,
-    "vision_cost_usd": 0.0387,
+    "vision_at": "2026-05-30T06:43:57+00:00",
+    "vision_tokens": 16358,
+    "vision_cost_usd": 0.1818,
     "translation_model": "mimo-v2.5",
-    "translation_at": "2026-05-28T21:24:33+00:00",
-    "translation_tokens": 16579,
-    "translation_cost_usd": 0.0554,
+    "translation_at": "2026-05-30T06:44:45+00:00",
+    "translation_tokens": 26055,
+    "translation_cost_usd": 0.087,
     "narrative_model": "mimo-v2.5",
     "narrative_prompt_version": "0.3",
     "narrative_at": "2026-05-28T21:24:40+00:00",
     "narrative_tokens": 2024,
     "narrative_cost_usd": 0.0135,
     "narrative_status": "ok",
-    "total_cost_usd": 0.1076
+    "total_cost_usd": 0.2823,
+    "vision_source": "playwright-extract:wise",
+    "vision_grounded": true
   },
   "spec": {
     "colors": {
-      "bg": "#9FE870",
+      "bg": "#9fe870",
       "bgSoft": null,
       "bgQuiet": null,
       "ink": "#163300",
-      "inkSoft": null,
+      "inkSoft": "#454745",
       "muted": null,
       "mutedSoft": null,
       "accent": null,
-      "line": "rgba(22, 51, 0, 0.1)"
+      "line": "rgba(22,51,0,0.12)"
     },
     "typography": {
-      "display": "geometric-sans",
+      "display": "grotesque-sans",
       "body": "humanist-sans",
       "mono": null,
       "scale": [
         {
           "token": "display",
-          "size": 56,
+          "size": 80,
+          "lh": 0.9,
+          "weight": 900,
+          "ls": "-1px"
+        },
+        {
+          "token": "h2",
+          "size": 45,
           "lh": 1.0,
           "weight": 900,
           "ls": "-1px"
         },
         {
-          "token": "display-md",
-          "size": 32,
-          "lh": 1.2,
-          "weight": 900,
-          "ls": "-0.5px"
-        },
-        {
           "token": "body-lg",
           "size": 18,
-          "lh": 1.5,
+          "lh": 1.44,
           "weight": 400,
-          "ls": "0px"
+          "ls": "-0.1px"
         },
         {
-          "token": "body",
+          "token": "body-sm",
           "size": 16,
           "lh": 1.5,
           "weight": 400,
-          "ls": "0px"
+          "ls": "-0.1px"
         }
       ]
     },
@@ -94,15 +96,15 @@
     },
     "surfaces": {
       "radius": {
-        "sm": 8,
-        "md": 12,
-        "lg": 20,
+        "sm": 4,
+        "md": 8,
+        "lg": 12,
         "pill": 999
       }
     },
     "layout": {
-      "container": 1200,
-      "paragraph": 600,
+      "container": 1280,
+      "paragraph": 680,
       "columns": 12,
       "gutter": 24,
       "breakpoints": [
@@ -112,412 +114,20 @@
     },
     "motion": {
       "durations": {
-        "micro": 220,
-        "small": 400,
+        "micro": 150,
+        "small": 350,
         "medium": 800
       },
-      "easing": "cubic-bezier(0.4, 0, 0.2, 1)"
-    }
-  },
-  "spec_i18n": {
-    "en": {
-      "identity": {
-        "keywords": [
-          "trust",
-          "speed",
-          "simplicity",
-          "global"
-        ],
-        "analogy": "A modern, efficient international post office.",
-        "oneLiner": "A bold, direct fintech platform focused on clear, fast international money transfers."
-      },
-      "colors": {
-        "principle": "High contrast between a vibrant green background and deep dark text for maximum legibility and energy."
-      },
-      "typography": {
-        "rules": [
-          "Headlines are bold, uppercase, and set in a geometric sans-serif with tight tracking.",
-          "Body text is a highly legible humanist sans-serif.",
-          "Numerical values in the calculator use a distinct, heavy geometric weight."
-        ],
-        "scaleUses": [
-          "Hero headlines",
-          "Section headlines",
-          "Hero subtext",
-          "Body text"
-        ]
-      },
-      "spacing": {
-        "rhythm": "Generous vertical rhythm with clear separation between headline, subtext, and action."
-      },
-      "surfaces": {
-        "shadows": [
-          "0 4px 24px rgba(0,0,0,0.08)"
-        ],
-        "borders": "1px solid rgba(22, 51, 0, 0.1)"
-      },
-      "layout": {
-        "skeleton": "Single centered column layout with a dominant calculator component."
-      },
-      "components": {
-        "button": "Pill-shaped with solid dark background and light text.",
-        "card": "White card with rounded corners and subtle shadow for the calculator.",
-        "chip": "Pill-shaped label with light background.",
-        "input": "Bordered dropdown selectors within the card.",
-        "hero": "Massive uppercase headline, supporting text, and primary CTA."
-      },
-      "motion": {
-        "patterns": [
-          "Subtle hover effects on interactive elements.",
-          "Clean transitions between states."
-        ]
-      },
-      "interaction": {
-        "hover": "Subtle background color shift or opacity change on buttons and links.",
-        "click": "Visual feedback on press states.",
-        "transition": "Smooth transitions for hover and focus states.",
-        "keyboard": "Standard tab navigation through interactive elements."
-      },
-      "voice": {
-        "tone": "Direct, confident, and reassuring.",
-        "headlineStyle": "Action-oriented, bold, and uppercase.",
-        "ctaStyle": "Simple, high-contrast buttons with clear action verbs.",
-        "avoid": [
-          "Jargon",
-          "Uncertainty",
-          "Overly complex language"
-        ]
-      },
-      "donts": [
-        "Don't use a muted or low-contrast palette — the screenshot shows a vibrant, high-contrast green and dark scheme.",
-        "Don't use decorative or serif fonts — the screenshot shows only clean, geometric sans-serif typefaces.",
-        "Don't create a cluttered layout — the screenshot shows a focused, single-column design with ample whitespace.",
-        "Don't use square or sharp corners — the screenshot shows rounded pill shapes and soft container radii.",
-        "Don't use subtle or small typography — the screenshot shows massive, bold, uppercase headlines.",
-        "Don't invent colors — the palette is strictly a vibrant green (#9FE870) and a deep dark green-black (#163300)."
-      ],
-      "systemPrompt": "Wise is a fintech platform for fast, transparent international money transfers. Its design is bold, direct, and clean, using a high-contrast palette of vibrant lime green (#9FE870) and deep dark green-black (#163300). Typography is dominated by massive, uppercase geometric sans-serif headlines and clean humanist sans-serif body text. The layout is focused and single-column. Critical donts: avoid low-contrast palettes, serif fonts, cluttered layouts, sharp corners, and small, timid typography. The design must feel trustworthy, efficient, and globally accessible."
-    },
-    "zh-CN": {
-      "identity": {
-        "keywords": [
-          "信赖",
-          "速度",
-          "简洁",
-          "全球化"
-        ],
-        "analogy": "一个现代、高效的国际邮局。",
-        "oneLiner": "一个大胆、直接的金融科技平台，专注于清晰、快速的国际汇款。"
-      },
-      "colors": {
-        "principle": "鲜亮绿色背景与深色文本间的高对比度，以实现最大可读性与活力。"
-      },
-      "typography": {
-        "rules": [
-          "标题采用粗体、全大写几何无衬线字体，字间距紧凑。",
-          "正文使用高可读性的人文主义无衬线字体。",
-          "计算器中的数值采用独特的粗重几何字体。"
-        ],
-        "scaleUses": [
-          "主标题",
-          "章节标题",
-          "主副文本",
-          "正文"
-        ]
-      },
-      "spacing": {
-        "rhythm": "充裕的垂直节奏，清晰分隔标题、副文本与操作区。"
-      },
-      "surfaces": {
-        "shadows": [
-          "0 4px 24px rgba(0,0,0,0.08)"
-        ],
-        "borders": "1px solid rgba(22, 51, 0, 0.1)"
-      },
-      "layout": {
-        "skeleton": "单栏居中布局，以计算器组件为主导。"
-      },
-      "components": {
-        "button": "药丸形状，深色实心背景配浅色文本。",
-        "card": "计算器使用的圆角白色卡片，带微妙阴影。",
-        "chip": "浅色背景的药丸形状标签。",
-        "input": "卡片内的带边框下拉选择器。",
-        "hero": "巨大的全大写标题、辅助文本与主要号召性用语。"
-      },
-      "motion": {
-        "patterns": [
-          "交互元素的细微悬停效果。",
-          "状态间简洁的过渡。"
-        ]
-      },
-      "interaction": {
-        "hover": "按钮与链接的背景色或透明度发生微妙变化。",
-        "click": "按下状态的视觉反馈。",
-        "transition": "悬停与聚焦状态的平滑过渡。",
-        "keyboard": "通过交互元素的标准Tab键导航。"
-      },
-      "voice": {
-        "tone": "直接、自信且令人安心。",
-        "headlineStyle": "行动导向、粗体、全大写。",
-        "ctaStyle": "简洁的高对比度按钮，配以清晰的行动动词。",
-        "avoid": [
-          "术语",
-          "不确定性",
-          "过于复杂的语言"
-        ]
-      },
-      "donts": [
-        "不要使用柔和或低对比度的调色板——截图显示的是鲜活、高对比度的绿色与深色方案。",
-        "不要使用装饰性或衬线字体——截图显示仅使用干净、几何感的无衬线字体。",
-        "不要创建杂乱的布局——截图显示的是聚焦的单栏设计，留有充足留白。",
-        "不要使用方形或尖锐的圆角——截图显示的是圆润的药丸形状与柔和的容器圆角。",
-        "不要使用微妙或小型的排版——截图显示的是巨大、粗体、全大写的标题。",
-        "不要发明颜色——调色板严格限定为鲜亮的绿色(#9FE870)和深邃的暗绿黑(#163300)。"
-      ],
-      "systemPrompt": "Wise是一个专注于快速、透明国际汇款的金融科技平台。其设计大胆、直接且简洁，采用高对比度的鲜亮青柠绿(#9FE870)与深邃暗绿黑(#163300)调色板。排版以巨大的、全大写几何无衬线标题和干净的人文主义无衬线正文为主。布局聚焦且为单栏。关键禁忌：避免低对比度调色板、衬线字体、杂乱布局、尖锐圆角以及小型、怯懦的排版。设计必须传递出值得信赖、高效且全球可及的感觉。"
-    },
-    "zh-TW": {
-      "identity": {
-        "keywords": [
-          "信任",
-          "速度",
-          "簡潔",
-          "全球化"
-        ],
-        "analogy": "一座現代、高效的國際郵局。",
-        "oneLiner": "大膽、直接的金融科技平台，專注於清晰、快速的國際匯款。"
-      },
-      "colors": {
-        "principle": "鮮活綠色背景與深沉暗色文字之間的高對比，確保最佳可讀性與活力感。"
-      },
-      "typography": {
-        "rules": [
-          "標題採用粗體、全大寫的幾何無襯線字體，字距緊湊。",
-          "內文使用高度易讀的人文主義無襯線字體。",
-          "計算器中的數值採用獨特的粗體幾何字重。"
-        ],
-        "scaleUses": [
-          "主標題",
-          "章節標題",
-          "副標題",
-          "內文"
-        ]
-      },
-      "spacing": {
-        "rhythm": "寬裕的垂直節奏，確保標題、副標題與操作區間之間有清晰分隔。"
-      },
-      "surfaces": {
-        "shadows": [
-          "0 4px 24px rgba(0,0,0,0.08)"
-        ],
-        "borders": "1px solid rgba(22, 51, 0, 0.1)"
-      },
-      "layout": {
-        "skeleton": "單一置中欄位佈局，以計算器元件為主導。"
-      },
-      "components": {
-        "button": "膠囊形狀，搭配深色實心背景與淺色文字。",
-        "card": "圓角白卡，帶有細微陰影，作為計算器容器。",
-        "chip": "膠囊形標籤，背景色較淺。",
-        "input": "卡片內帶有邊框的下拉式選擇器。",
-        "hero": "巨大的全大寫標題、輔助文字與主要行動呼籲按鈕。"
-      },
-      "motion": {
-        "patterns": [
-          "互動元件上的簡約懸停效果。",
-          "狀態之間的簡潔過渡。"
-        ]
-      },
-      "interaction": {
-        "hover": "按鈕與連結在懸停時有細微的背景色或透明度變化。",
-        "click": "按下狀態時提供視覺回饋。",
-        "transition": "懸停與焦點狀態之間的流暢過渡。",
-        "keyboard": "標準 Tab 鍵導覽，穿梭於互動元件之間。"
-      },
-      "voice": {
-        "tone": "直接、自信且令人安心。",
-        "headlineStyle": "以行動為導向、粗體且全大寫。",
-        "ctaStyle": "簡潔、高對比的按鈕，搭配明確的動詞。",
-        "avoid": [
-          "術語",
-          "不確定性",
-          "過於複雜的語言"
-        ]
-      },
-      "donts": [
-        "請勿使用柔和或低對比的調色板——截圖顯示的是鮮活、高對比的綠與暗色方案。",
-        "請勿使用裝飾性或襯線字體——截圖僅顯示簡潔的幾何無襯線字體。",
-        "請勿設計雜亂的佈局——截圖顯示的是專注、單欄的設計，留有充足空白。",
-        "請勿使用方形或尖銳的角落——截圖顯示的是圓潤的膠囊形狀與柔和的容器圓角。",
-        "請勿使用細微或小號的字體——截圖顯示的是巨大、粗體、全大寫的標題。",
-        "請勿自行發明顏色——調色板嚴格限定為鮮活綠色 (#9FE870) 與深沉暗綠黑 (#163300)。"
-      ],
-      "systemPrompt": "Wise 是一個提供快速、透明國際匯款服務的金融科技平台。其設計大膽、直接且簡潔，採用高對比的鮮活萊姆綠 (#9FE870) 與深沉暗綠黑 (#163300) 調色板。排版以巨大、全大寫的幾何無襯線標題為主，內文則使用簡潔的人文主義無襯線字體。佈局專注且採用單欄設計。關鍵禁忌：避免低對比調色板、襯線字體、雜亂佈局、尖銳角落以及細小、保守的字體。設計必須傳達信任、高效且具全球親和力的感覺。"
-    },
-    "ja": {
-      "identity": {
-        "keywords": [
-          "信頼",
-          "スピード",
-          "シンプル",
-          "グローバル"
-        ],
-        "analogy": "モダンで効率的な国際郵便局。",
-        "oneLiner": "明瞭で高速な国際送金に焦点を当てた、大胆で直接的なフィンテックプラットフォーム。"
-      },
-      "colors": {
-        "principle": "鮮やかなグリーン背景と深いダークテキストの高いコントラストが、最大限の可読性とエネルギーを実現します。"
-      },
-      "typography": {
-        "rules": [
-          "見出しは太字、大文字で、 tighten されたトラッキングの幾何学サンセリフで設定します。",
-          "本文は、非常に読みやすいヒューマニストサンセリフです。",
-          "計算機の数値には、特徴的で重みのある幾何学的ウェイトを使用します。"
-        ],
-        "scaleUses": [
-          "ヒーロー見出し",
-          "セクション見出し",
-          "ヒーローサブテキスト",
-          "本文"
-        ]
-      },
-      "spacing": {
-        "rhythm": "見出し、サブテキスト、アクションの間に明確な区切りを設けた、ゆとりのある垂直リズム。"
-      },
-      "surfaces": {
-        "shadows": [
-          "0 4px 24px rgba(0,0,0,0.08)"
-        ],
-        "borders": "1px solid rgba(22, 51, 0, 0.1)"
-      },
-      "layout": {
-        "skeleton": "計算機コンポーネントが支配的な、中央揃えの単一カラムレイアウト。"
-      },
-      "components": {
-        "button": "実色のダーク背景に明るいテキストを配した、ピル形状。",
-        "card": "計算機用の、角丸と控えめなシャドウを持つ白いカード。",
-        "chip": "明るい背景のピル形状ラベル。",
-        "input": "カード内の、ボーダー付きドロップダウンセレクタ。",
-        "hero": "巨大な大文字の見出し、補足テキスト、および主要CTA。"
-      },
-      "motion": {
-        "patterns": [
-          "インタラクティブ要素の控えめなホバーエフェクト。",
-          "状態間のクリーンなトランジション。"
-        ]
-      },
-      "interaction": {
-        "hover": "ボタンやリンクの、控えめな背景色のシフトまたは不透明度の変化。",
-        "click": "押下状態のビジュアルフィードバック。",
-        "transition": "ホバーおよびフォーカス状態のスムーズなトランジション。",
-        "keyboard": "インタラクティブ要素を標準のタブナビゲーションで操作。"
-      },
-      "voice": {
-        "tone": "直接的で、自信に満ち、安心感を与える。",
-        "headlineStyle": "アクション指向で、太字、大文字。",
-        "ctaStyle": "明確なアクション動詞を用いた、シンプルでコントラストの高いボタン。",
-        "avoid": [
-          "専門用語",
-          "曖昧さ",
-          "過度に複雑な表現"
-        ]
-      },
-      "donts": [
-        "鈍い、またはコントラストの低いパレットを使用しないこと。スクリーンショットは鮮やかでコントラストの高いグリーンとダークの配色を示しています。",
-        "飾り気のある、またはセリフフォントを使用しないこと。スクリーンショットはクリーンな幾何学サンセリフのみを示しています。",
-        "雑然としたレイアウトを作成しないこと。スクリーンショットは焦点を絞り、十分な余白を備えた単一カラムデザインを示しています。",
-        "四角い、または鋭い角を使用しないこと。スクリーンショットは丸みのあるピル形状と柔らかいコンテナの角丸を示しています。",
-        "控えめで小さなタイポグラフィを使用しないこと。スクリーンショットは巨大で太字、大文字の見出しを示しています。",
-        "色を勝手に作成しないこと。パレットは厳密に鮮やかなグリーン（#9FE870）と深いダークグリーンブラック（#163300）です。"
-      ],
-      "systemPrompt": "Wiseは、高速で透明性の高い国際送金を実現するフィンテックプラットフォームです。そのデザインは大胆で直接的、かつクリーンであり、鮮やかなライムグリーン（#9FE870）と深いダークグリーンブラック（#163300）という高コントラストのパレットを採用しています。タイポグラフィは、巨大な大文字の幾何学サンセリフ見出しとクリーンなヒューマニストサンセリフ本文が主導します。レイアウトは焦点を絞り、単一カラムです。重要な禁止事項：低コントラストのパレット、セリフフォント、雑然としたレイアウト、鋭い角、および小さく控えめなタイポグラフィは避けてください。デザインは信頼性、効率性、グローバルなアクセシビリティを感じさせる必要があります。"
-    },
-    "ko": {
-      "identity": {
-        "keywords": [
-          "신뢰",
-          "속도",
-          "단순성",
-          "글로벌"
-        ],
-        "analogy": "현대적이고 효율적인 국제 우체국.",
-        "oneLiner": "명확하고 빠른 국제 송금에 초점을 맞춘 대담하고 직접적인 핀테크 플랫폼."
-      },
-      "colors": {
-        "principle": "최대 가독성과 에너지를 위해 생생한 녹색 배경과 깊은 다크 텍스트 사이의 고대비."
-      },
-      "typography": {
-        "rules": [
-          "헤드라인은 대담하고 대문자이며, 좁은 자간의 기하학적 sans-serif로 설정됩니다.",
-          "본문 텍스트는 높은 가독성을 갖춘 humanist sans-serif입니다.",
-          "계산기의 수치 값은 뚜렷하고 굵은 기하학적 웨이트를 사용합니다."
-        ],
-        "scaleUses": [
-          "히어로 헤드라인",
-          "섹션 헤드라인",
-          "히어로 서브텍스트",
-          "본문 텍스트"
-        ]
-      },
-      "spacing": {
-        "rhythm": "헤드라인, 서브텍스트 및 액션 사이에 명확한 구분을 두는 넉넉한 수직 리듬."
-      },
-      "surfaces": {
-        "shadows": [
-          "0 4px 24px rgba(0,0,0,0.08)"
-        ],
-        "borders": "1px solid rgba(22, 51, 0, 0.1)"
-      },
-      "layout": {
-        "skeleton": "지배적인 계산기 컴포넌트를 갖춘 단일 중앙 정렬 열 레이아웃."
-      },
-      "components": {
-        "button": "단단한 다크 배경과 밝은 텍스트를 갖춘 알약 형태.",
-        "card": "계산기를 위한 둥근 모서리와 미묘한 그림자의 화이트 카드.",
-        "chip": "밝은 배경의 알약 형태 라벨.",
-        "input": "카드 내부의 테두리가 있는 드롭다운 선택기.",
-        "hero": "대문자 대형 헤드라인, 서포팅 텍스트 및 주요 CTA."
-      },
-      "motion": {
-        "patterns": [
-          "인터랙티브 요소에 대한 미묘한 hover 효과.",
-          "상태 간의 깔끔한 전환."
-        ]
-      },
-      "interaction": {
-        "hover": "버튼과 링크의 미묘한 배경색 변화 또는 불투명도 변경.",
-        "click": "클릭 상태 시각적 피드백.",
-        "transition": "hover 및 focus 상태에 대한 매끄러운 전환.",
-        "keyboard": "인터랙티브 요소를 통한 표준 탭 내비게이션."
-      },
-      "voice": {
-        "tone": "직접적이고 자신감 있으며 안심시키는 어조.",
-        "headlineStyle": "행동 지향적이고 대담하며 대문자.",
-        "ctaStyle": "명확한 동사를 사용한 단순하고 고대비의 버튼.",
-        "avoid": [
-          "전문 용어",
-          "불확실성",
-          "지나치게 복잡한 언어"
-        ]
-      },
-      "donts": [
-        "저대비 팔레트를 사용하지 마세요 — 스크린샷은 생생하고 고대비의 녹색 및 다크 스키마를 보여줍니다.",
-        "장식적이거나 세리프 폰트를 사용하지 마세요 — 스크린샷은 깔끔하고 기하학적인 sans-serif 타입페이스만 보여줍니다.",
-        "복잡한 레이아웃을 만들지 마세요 — 스크린샷은 넓은 여백을 갖춘 집중된 단일 열 디자인을 보여줍니다.",
-        "사각이거나 날카로운 모서리를 사용하지 마세요 — 스크린샷은 둥근 알약 형태와 부드러운 컨테이너 반경을 보여줍니다.",
-        "미약하거나 작은 타이포그래피를 사용하지 마세요 — 스크린샷은 대형, 대담, 대문자 헤드라인을 보여줍니다.",
-        "색상을 만들어내지 마세요 — 팔레트는 엄격히 생생한 녹색(#9FE870)과 깊은 다크 그린-블랙(#163300)입니다."
-      ],
-      "systemPrompt": "Wise는 빠르고 투명한 국제 송금을 위한 핀테크 플랫폼입니다. 디자인은 대담하고 직접적이며 깔끔하며, 생생한 라임 그린(#9FE870)과 깊은 다크 그린-블랙(#163300)의 고대비 팔레트를 사용합니다. 타이포그래피는 대형, 대문자 기하학적 sans-serif 헤드라인과 깔끔한 humanist sans-serif 본문 텍스트로 지배됩니다. 레이아웃은 집중적이고 단일 열입니다. 중요한 금지 사항: 저대비 팔레트, 세리프 폰트, 복잡한 레이아웃, 날카로운 모서리, 작고 소심한 타이포그래피를 피해야 합니다. 디자인은 신뢰할 수 있고 효율적이며 글로벌하게 접근 가능해야 합니다."
+      "easing": "cubic-bezier(0.8, 0.05, 0.2, 0.95)"
     }
   },
   "desc": {
     "en": {
-      "palette": "A high-energy, two-tone palette of vibrant lime green and deep dark green-black creates immediate contrast and a bold, modern financial brand identity.",
-      "layout": "A focused, single-column layout centers the user's attention on the core value proposition and the functional money transfer calculator.",
-      "interaction": "Interaction is straightforward and functional, with clear, high-contrast buttons and intuitive dropdowns for selecting currencies and destinations.",
-      "motion": "Motion is likely subtle and functional, emphasizing smooth transitions for UI state changes without distracting from the core task.",
-      "notes": "This site is a prime example of bold, confident fintech design that uses strong typography and a vibrant color to build trust and convey speed."
+      "palette": "A high-energy, high-contrast palette centered around a vibrant, lime-like green and a deep, dark ink.",
+      "layout": "A clean, centered, and spacious layout that prioritizes readability and clear calls to action.",
+      "interaction": "Smooth, subtle transitions on interactive elements that reinforce a sense of modern speed.",
+      "motion": "Adequate but not distracting motion, focusing on smooth state changes for buttons and inputs.",
+      "notes": "Wise's design is a masterclass in using bold color and typography to make a complex financial service feel simple, fast, and accessible."
     },
     "zh-CN": {
       "palette": "由鲜亮的青柠绿与深邃的暗绿黑构成的高能量双色调，营造出即时对比感与大胆、现代的金融品牌形象。",
@@ -607,6 +217,413 @@
       "ch7_intro": "모션 철학은 엄격히 기능적이고 지지적이며, UI 상태 간의 부드럽고 깔끔한 전환을 강조합니다. 미세한 hover 효과는 송금 시작이라는 주요 작업에서 주의를 산만하게 하지 않으면서 즉각적인 피드백을 제공합니다.",
       "ch8_intro": "에디토리얼 보이스는 **직접적**이고, **확신에 차 있으며**, **안심시키는** 것으로, 행동을 유도하는 제목과 명확하고 단순한 동사를 사용합니다. 신뢰를 구축하고 글로벌 청중의 이해를 촉진하기 위해 의도적으로 전문 용어, 불확실성, 그리고 지나치게 복잡한 언어를 피합니다.",
       "ch8_outro": "시스템은 대담하고 명확하며 신뢰할 수 있는 특성을 보존하기 위해 의도적으로 무채색 팔레트, 장식용 폰트, 복잡한 레이아웃, 날카로운 모서리, 그리고 수줍은 타이포그래피를 배제합니다."
+    }
+  },
+  "spec_i18n": {
+    "en": {
+      "identity": {
+        "keywords": [
+          "transfer",
+          "global",
+          "fast",
+          "clear",
+          "modern"
+        ],
+        "analogy": "Global money movement rebranded as a simple, reliable app experience.",
+        "oneLiner": "A fintech platform for fast, transparent, and secure international money transfers."
+      },
+      "colors": {
+        "principle": "A high-chroma, energetic green paired with a deep, dark ink for maximum contrast and a trustworthy financial feel."
+      },
+      "typography": {
+        "rules": [
+          "Use heavy weights (900) for display text to convey confidence and speed.",
+          "Maintain tight tracking on large text to keep the block feeling cohesive.",
+          "Use humanist sans for body text to ensure readability and a friendly tone.",
+          "Ensure high contrast between the dark ink and bright green backgrounds."
+        ],
+        "scaleUses": [
+          "Hero headlines and section titles",
+          "Secondary section headlines",
+          "Main body copy and paragraphs",
+          "Secondary text and small labels"
+        ]
+      },
+      "spacing": {
+        "rhythm": "A 4px base unit creates a consistent, clean layout with generous padding."
+      },
+      "surfaces": {
+        "shadows": [
+          "0 0 0 1px rgba(22,51,0,0.12)"
+        ],
+        "borders": "Thin 1px borders using the primary ink color at low opacity."
+      },
+      "layout": {
+        "skeleton": "A standard centered container with a 12-column grid."
+      },
+      "components": {
+        "button": "Pill-shaped buttons with solid dark ink backgrounds and bright green text.",
+        "card": "Cards with a subtle 1px border and generous padding.",
+        "chip": "Small, pill-shaped badges or tags for categories.",
+        "input": "Clean, rounded input fields with clear labels.",
+        "hero": "A full-width, centered hero with large display typography."
+      },
+      "motion": {
+        "patterns": [
+          "Smooth color and background transitions on hover.",
+          "Subtle opacity changes for interactive elements."
+        ]
+      },
+      "interaction": {
+        "hover": "Slight background color shift or opacity change.",
+        "click": "Immediate visual feedback with color change.",
+        "transition": "All interactive properties should transition smoothly using the primary easing.",
+        "keyboard": "Standard focus rings should be visible for accessibility."
+      },
+      "voice": {
+        "tone": "Direct, clear, and trustworthy.",
+        "headlineStyle": "Bold, punchy, and action-oriented.",
+        "ctaStyle": "Simple and urgent, focusing on speed and security.",
+        "avoid": [
+          "Jargon",
+          "Clutter",
+          "Formal financial terminology",
+          "Small, light text"
+        ]
+      },
+      "donts": [
+        "Don't use thin, light typography — the screenshot shows heavy, bold weights for impact.",
+        "Don't use multiple primary accent colors — the screenshot shows a monochromatic green/dark ink palette.",
+        "Don't use sharp, square corners on main components — the screenshot shows rounded and pill-shaped elements.",
+        "Don't use low-contrast text — the screenshot shows a very high contrast between ink and background.",
+        "Don't use generic, serif fonts — the screenshot shows modern, clean sans-serif families.",
+        "Don't use busy, complex background patterns — the screenshot shows solid, vibrant colors."
+      ],
+      "systemPrompt": "Design for a fast, transparent, and modern international money transfer service. Use a bold, high-chroma green (#9fe870) for backgrounds and a deep dark ink (#163300) for text and buttons to create a high-contrast, trustworthy feel. Typography should be a heavy grotesque-sans for headlines and a friendly humanist-sans for body copy. Avoid clutter, complex gradients, and low-contrast text. Ensure all components, like buttons and inputs, have rounded or pill-shaped corners. The overall tone should be direct, clear, and focused on speed and security."
+    },
+    "zh-CN": {
+      "identity": {
+        "keywords": [
+          "转账",
+          "全球",
+          "快速",
+          "清晰",
+          "现代"
+        ],
+        "analogy": "全球资金流动，重塑为简洁可靠的应用体验。",
+        "oneLiner": "一个用于快速、透明、安全国际转账的金融科技平台。"
+      },
+      "colors": {
+        "principle": "高饱和度、充满活力的绿色搭配深邃的墨色，实现最大对比度，营造值得信赖的金融感。"
+      },
+      "typography": {
+        "rules": [
+          "展示文本使用粗体字重（900），传达自信与速度。",
+          "大文本保持紧凑字距，使文本块感觉紧凑。",
+          "正文使用人文主义无衬线字体，确保可读性和友好语气。",
+          "确保深墨色与亮绿色背景之间具有高对比度。"
+        ],
+        "scaleUses": [
+          "主标题和板块标题",
+          "次级板块标题",
+          "正文和段落",
+          "次级文本和小标签"
+        ]
+      },
+      "spacing": {
+        "rhythm": "基于4px的单位创建一致、整洁的布局，留有充足的内边距。"
+      },
+      "surfaces": {
+        "shadows": [
+          "0 0 0 1px rgba(22,51,0,0.12)"
+        ],
+        "border": "使用低不透明度的主色墨色绘制1px细边框。"
+      },
+      "layout": {
+        "skeleton": "采用标准的居中容器，配合12列网格。"
+      },
+      "components": {
+        "button": "药丸形按钮，使用深墨色实色背景和亮绿色文本。",
+        "card": "带1px细微边框和充足内边距的卡片。",
+        "chip": "小型的药丸形徽章或标签，用于分类。",
+        "input": "简洁、圆角的输入框，标签清晰。",
+        "hero": "全宽居中的首屏区域，使用大型展示性排版。"
+      },
+      "motion": {
+        "patterns": [
+          "hover时平滑的颜色和背景过渡。",
+          "交互元素的微妙不透明度变化。"
+        ]
+      },
+      "interaction": {
+        "hover": "轻微的背景颜色变化或不透明度改变。",
+        "click": "通过颜色变化提供即时视觉反馈。",
+        "transition": "所有交互属性应使用主缓动函数平滑过渡。",
+        "keyboard": "应显示标准的焦点环以保证无障碍性。"
+      },
+      "voice": {
+        "tone": "直接、清晰、值得信赖。",
+        "headlineStyle": "大胆、有力、以行动为导向。",
+        "ctaStyle": "简洁而紧迫，聚焦速度与安全。",
+        "avoid": [
+          "行话",
+          "杂乱",
+          "正式的金融术语",
+          "小而浅色的文本"
+        ]
+      },
+      "donts": [
+        "不要使用纤细、浅色的字体——截图显示为粗壮、加粗的字重以增强冲击力。",
+        "不要使用多种主强调色——截图显示为单色系的绿色/深墨色调色板。",
+        "不要在主要组件上使用尖锐、方形的圆角——截图显示为圆角和药丸形元素。",
+        "不要使用低对比度的文本——截图显示墨色与背景之间具有非常高的对比度。",
+        "不要使用通用的衬线字体——截图显示为现代、简洁的无衬线字体族。",
+        "不要使用繁复、复杂的背景图案——截图显示为纯色、充满活力的颜色。"
+      ],
+      "systemPrompt": "为快速、透明、现代的国际转账服务进行设计。使用大胆、高饱和度的绿色（#9fe870）作为背景，深邃的墨色（#163300）作为文本和按钮颜色，以创造高对比度、值得信赖的感觉。排版上，标题使用粗体grotesque-sans，正文使用友好的humanist-sans。避免杂乱、复杂的渐变和低对比度文本。确保所有组件（如按钮和输入框）具有圆角或药丸形角。整体语气应直接、清晰，并聚焦于速度与安全。"
+    },
+    "zh-TW": {
+      "identity": {
+        "keywords": [
+          "轉帳",
+          "全球",
+          "快速",
+          "清晰",
+          "現代"
+        ],
+        "analogy": "全球資金流動，重塑為簡單、可靠的應用程式體驗。",
+        "oneLiner": "一個用於快速、透明且安全國際轉帳的金融科技平台。"
+      },
+      "colors": {
+        "principle": "高彩度、充滿活力的綠色，搭配深邃的墨黑色，以營造最大對比度與值得信賴的金融感。"
+      },
+      "typography": {
+        "rules": [
+          "使用粗體（900）作為展示文字，傳達自信與速度感。",
+          "在大型文字上保持緊湊字距，使區塊感覺緊密連貫。",
+          "使用 humanist-sans 作為內文字體，確保可讀性與友善的語氣。",
+          "確保深色墨黑與明亮綠色背景之間的高對比度。"
+        ],
+        "scaleUses": [
+          "主標題與區塊標題",
+          "次要區塊標題",
+          "主要內文與段落",
+          "次要文字與小型標籤"
+        ]
+      },
+      "spacing": {
+        "rhythm": "以 4px 為基礎單位，創造一致、整潔的版面配置，並預留充裕的內邊距。"
+      },
+      "surfaces": {
+        "shadows": [
+          "0 0 0 1px rgba(22,51,0,0.12)"
+        ],
+        "borders": "使用主要墨黑色調、低不透明度的 1px 細邊框。"
+      },
+      "layout": {
+        "skeleton": "標準置中容器，採用 12 欄格線系統。"
+      },
+      "components": {
+        "button": "藥丸形按鈕，採用實心深色墨黑背景與明亮綠色文字。",
+        "card": "帶有細微 1px 邊框與充裕內邊距的卡片。",
+        "chip": "小型、藥丸形的徽章或標籤，用於分類。",
+        "input": "簡潔、圓角的輸入欄位，配有清晰標籤。",
+        "hero": "全寬、置中的主視覺區域，搭配大型展示字體。"
+      },
+      "motion": {
+        "patterns": [
+          "在 hover 時進行平滑的顏色與背景過渡。",
+          "互動元素有細微的不透明度變化。"
+        ]
+      },
+      "interaction": {
+        "hover": "輕微的背景顏色轉移或不透明度變化。",
+        "click": "立即的視覺回饋，伴隨顏色變化。",
+        "transition": "所有互動屬性應使用主要緩動效果進行平滑過渡。",
+        "keyboard": "標準 focus ring 應保持可見，以利無障礙使用。"
+      },
+      "voice": {
+        "tone": "直接、清晰且值得信賴。",
+        "headlineStyle": "大膽、有力且具行動導向。",
+        "ctaStyle": "簡潔且帶有急迫感，專注於速度與安全性。",
+        "avoid": [
+          "行話術語",
+          "雜亂視覺",
+          "正式金融術語",
+          "過小、過淺的文字"
+        ]
+      },
+      "donts": [
+        "避免使用纖細、淺色的字體排印——截圖顯示使用粗體、厚重的字重以營造衝擊力。",
+        "避免使用多種主要強調色——截圖顯示單色系的綠色/墨黑色調色盤。",
+        "避免在主要元件上使用銳利、方形的圓角——截圖顯示圓形與藥丸形元素。",
+        "避免使用低對比文字——截圖顯示墨黑與背景之間的高對比度。",
+        "避免使用通用、襯線字體——截圖顯示現代、簡潔的無襯線字體族。",
+        "避免使用繁雜、複雜的背景圖樣——截圖顯示純色、鮮明的色彩。"
+      ],
+      "systemPrompt": "為快速、透明且現代的國際轉帳服務進行設計。使用大膽、高彩度的綠色（#9fe870）作為背景，搭配深邃的墨黑色（#163300）用於文字與按鈕，以營造高對比、值得信賴的感受。字體應使用粗體 grotesque-sans 作為標題，並使用友善的 humanist-sans 作為內文。避免雜亂、複雜的漸層與低對比文字。確保所有元件（如按鈕與輸入欄位）具有圓角或藥丸形邊角。整體語氣應直接、清晰，並專注於速度與安全性。"
+    },
+    "ja": {
+      "identity": {
+        "keywords": [
+          "送金",
+          "グローバル",
+          "高速",
+          "明確",
+          "モダン"
+        ],
+        "analogy": "グローバルな送金を、シンプルで信頼できるアプリ体験として再構築する。",
+        "oneLiner": "高速・透明・安全な国際送金のためのフィンテックプラットフォーム。"
+      },
+      "colors": {
+        "principle": "高彩度でエネルギッシュなグリーンを、深みのあるダークインクと組み合わせ、最大限のコントラストと信頼感のある金融的雰囲気を実現する。"
+      },
+      "typography": {
+        "rules": [
+          "見出しテキストには太めのウエイト（900）を使用し、信頼感とスピード感を伝える。",
+          "大きなテキストではトラッキングを締め、まとまりのある印象を維持する。",
+          "本文テキストにはヒューマニストサンスを採用し、可読性と親しみやすいトーンを確保する。",
+          "ダークインクと明るいグリーンの背景の間に、高いコントラストを確保する。"
+        ],
+        "scaleUses": [
+          "ヒーローヘッドラインとセクションタイトル",
+          "サブセクションの見出し",
+          "メイン本文と段落",
+          "サブテキストと小さなラベル"
+        ]
+      },
+      "spacing": {
+        "rhythm": "4pxの基本単位により、十分なパディングを備えた一貫したクリーンなレイアウトを作成する。"
+      },
+      "surfaces": {
+        "shadows": [
+          "0 0 0 1px rgba(22,51,0,0.12)"
+        ],
+        "borders": "プライマリインクカラーを低不透明度で使用した、薄い1pxのボーダー。"
+      },
+      "layout": {
+        "skeleton": "12カラムグリッドを持つ標準的なセンタリングコンテナ。"
+      },
+      "components": {
+        "button": "ダークインクの塗りつぶし背景と明るいグリーンのテキストを持つ、ピル形のボタン。",
+        "card": "繊細な1pxボーダーと十分なパディングを持つカード。",
+        "chip": "カテゴリ用の小さな、ピル形のバッジまたはタグ。",
+        "input": "明確なラベルを持つ、クリーンな丸型入力フィールド。",
+        "hero": "大きな見出しタイポグラフィを持つ、全幅でセンタリングされたヒーローセクション。"
+      },
+      "motion": {
+        "patterns": [
+          "hover時のスムーズなカラーおよび背景のトランジション。",
+          "インタラクティブ要素の繊細な不透明度の変化。"
+        ]
+      },
+      "interaction": {
+        "hover": "軽微な背景色の変化または不透明度の変化。",
+        "click": "色の変化による即時視覚フィードバック。",
+        "transition": "すべてのインタラクティブプロパティは、プライマリイージングを使用して滑らかにトランジションする。",
+        "keyboard": "アクセシビリティのために、標準的なフォーカスリングを表示する。"
+      },
+      "voice": {
+        "tone": "率直、明瞭、信頼できる。",
+        "headlineStyle": "大胆、インパクト重視、アクション指向。",
+        "ctaStyle": "シンプルで切迫感があり、スピードとセキュリティに焦点を当てる。",
+        "avoid": [
+          "専門用語",
+          "雑然とした要素",
+          "硬い金融用語",
+          "小さく薄いテキスト"
+        ]
+      },
+      "donts": [
+        "薄く軽いタイポグラフィを使用しない — スクリーンショットではインパクトのために太く重いウエイトが使用されている。",
+        "複数のプライマリアクセントカラーを使用しない — スクリーンショットではモノクロ（グリーン/ダークインク）のパレットが使用されている。",
+        "メインコンポーネントに角の尖った四角を使用しない — スクリーンショットでは丸みやピル形の要素が使用されている。",
+        "低コントラストのテキストを使用しない — スクリーンショットではインクと背景の間の非常に高いコントラストが示されている。",
+        "一般的なセリフフォントを使用しない — スクリーンショットではモダンでクリーンなサンセリフ系が使用されている。",
+        "雑然とした複雑な背景パターンを使用しない — スクリーンショットでは鮮やかな単色が使用されている。"
+      ],
+      "systemPrompt": "高速・透明・モダンな国際送金サービスのデザイン。背景には大胆な高彩度グリーン（#9fe870）を、テキストとボタンには深みのあるダークインク（#163300）を使用し、高コントラストで信頼感のある印象を実現する。タイポグラフィには、見出しには太い grotesque-sans、本文には親しみやすいヒューマニストサンスを採用する。雑然とした要素、複雑なグラデーション、低コントラストのテキストは避ける。ボタンや入力フィールドなど、すべてのコンポーネントに丸みやピル形の角を持たせる。全体的なトーンは率直、明瞭、スピードとセキュリティに焦点を当てる。"
+    },
+    "ko": {
+      "identity": {
+        "keywords": [
+          "이체",
+          "글로벌",
+          "빠름",
+          "명확",
+          "모던"
+        ],
+        "analogy": "글로벌 송금을 간단하고 신뢰할 수 있는 앱 경험으로 재정의 브랜딩.",
+        "oneLiner": "빠르고 투명하며 안전한 국제 송금을 위한 핀테크 플랫폼입니다."
+      },
+      "colors": {
+        "principle": "최대 대비와 신뢰할 수 있는 금융 느낌을 위해 고채도의 활기찬 그린과 깊은 다크 잉크를 조화시킵니다."
+      },
+      "typography": {
+        "rules": [
+          "디스플레이 텍스트에는 무거운 웨이트(900)를 사용하여 자신감과 속도감을 전달합니다.",
+          "큰 텍스트의 트래킹을 타이트하게 유지하여 블록의 일관성을 유지합니다.",
+          "본문 텍스트에는 humanist-sans를 사용하여 가독성과 친근한 어조를 보장합니다.",
+          "다크 잉크와 밝은 그린 배경 사이에 높은 대비를 유지합니다."
+        ],
+        "scaleUses": [
+          "히어로 헤드라인 및 섹션 제목",
+          "보조 섹션 헤드라인",
+          "본문 및 단락",
+          "보조 텍스트 및 작은 레이블"
+        ]
+      },
+      "spacing": {
+        "rhythm": "4px 기본 단위로 넉넉한 padding을 사용하여 일관되고 깔끔한 레이아웃을 만듭니다."
+      },
+      "surfaces": {
+        "shadows": [
+          "0 0 0 1px rgba(22,51,0,0.12)"
+        ],
+        "borders": "낮은 불투명도의 프라이머리 잉크 색상을 사용한 얇은 1px 테두리입니다."
+      },
+      "layout": {
+        "skeleton": "12칼럼 그리드를 사용한 표준 중앙 정렬 컨테이너입니다."
+      },
+      "components": {
+        "button": "단색 다크 잉크 배경과 밝은 그린 텍스트를 사용한 알약 모양 버튼입니다.",
+        "card": "미세한 1px 테두리와 넉넉한 padding을 가진 카드입니다.",
+        "chip": "카테고리를 위한 작은 알약 모양 배지 또는 태그입니다.",
+        "input": "명확한 레이블을 가진 깔끔하고 둥근 입력 필드입니다.",
+        "hero": "큰 디플레이 타이포그래피를 사용한 전체 너비 중앙 정렬 히어로 섹션입니다."
+      },
+      "motion": {
+        "patterns": [
+          "hover 시 부드러운 색상 및 배경 전환.",
+          "인터랙티브 요소의 미세한 불투명도 변화."
+        ]
+      },
+      "interaction": {
+        "hover": "약간의 배경색 변화 또는 불투명도 변화.",
+        "click": "색상 변화를 통한 즉각적인 시각적 피드백.",
+        "transition": "모든 인터랙티브 속성은 프라이머리 easing을 사용하여 부드럽게 전환되어야 합니다.",
+        "keyboard": "접근성을 위해 표준 focus 링이 보여야 합니다."
+      },
+      "voice": {
+        "tone": "직설적이고 명확하며 신뢰할 수 있습니다.",
+        "headlineStyle": "대담하고 강렬하며 행동 지향적입니다.",
+        "ctaStyle": "간결하고 시급하며, 속도와 보안에 초점을 맞춥니다.",
+        "avoid": [
+          "전문 용어",
+          "혼잡함",
+          "공식적인 금융 용어",
+          "작고 가벼운 텍스트"
+        ]
+      },
+      "donts": [
+        "얇고 가벼운 타이포그래피를 사용하지 마세요 — 스크린샷에는 효과를 위해 무겁고 굵은 웨이트가 사용되었습니다.",
+        "여러 프라이머리 악센트 색상을 사용하지 마세요 — 스크린샷에는 단일 색조의 그린/다크 잉크 팔레트가 사용되었습니다.",
+        "주요 구성요소에 날카로운 모서리를 사용하지 마세요 — 스크린샷에는 둥글고 알약 모양의 요소가 사용되었습니다.",
+        "저대비 텍스트를 사용하지 마세요 — 스크린샷에는 잉크와 배경 사이에 매우 높은 대비가 사용되었습니다.",
+        "일반적인 세리프 서체를 사용하지 마세요 — 스크린샷에는 모던하고 깔끔한 sans-serif 서체 계열이 사용되었습니다.",
+        "복잡하고 바쁜 배경 패턴을 사용하지 마세요 — 스크린샷에는 단색의 생생한 색상이 사용되었습니다."
+      ],
+      "systemPrompt": "빠르고 투명하며 모던한 국제 송금 서비스를 위한 디자인입니다. 배경에는 굵고 고채도의 그린(#9fe870), 텍스트와 버튼에는 깊은 다크 잉크(#163300)를 사용하여 고대비의 신뢰할 수 있는 느낌을 만듭니다. 타이포그래피는 헤드라인에는 굵은 grotesque-sans, 본문에는 친근한 humanist-sans를 사용합니다. 혼잡함, 복잡한 gradient, 저대비 텍스트는 피합니다. 버튼과 입력 필드와 같은 모든 구성요소는 둥글거나 알약 모양의 모서리를 갖도록 합니다. 전체적인 어조는 직설적이고 명확하며 속도와 보안에 초점을 맞추어야 합니다."
     }
   }
 }

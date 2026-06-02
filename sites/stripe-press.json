@@ -16,32 +16,34 @@
   "_meta": {
     "vision_prompt_version": "0.3",
     "vision_model": "mimo-v2.5",
-    "vision_at": "2026-05-28T20:01:34+00:00",
-    "vision_tokens": 3371,
-    "vision_cost_usd": 0.0375,
+    "vision_at": "2026-05-29T09:02:02+00:00",
+    "vision_tokens": 15866,
+    "vision_cost_usd": 0.1763,
     "translation_model": "mimo-v2.5",
-    "translation_at": "2026-05-28T20:02:37+00:00",
-    "translation_tokens": 15958,
-    "translation_cost_usd": 0.0531,
+    "translation_at": "2026-05-29T09:02:56+00:00",
+    "translation_tokens": 25153,
+    "translation_cost_usd": 0.0838,
     "narrative_model": "mimo-v2.5",
     "narrative_prompt_version": "0.3",
     "narrative_at": "2026-05-28T20:02:45+00:00",
     "narrative_tokens": 1440,
     "narrative_cost_usd": 0.0096,
     "narrative_status": "ok",
-    "total_cost_usd": 0.1002
+    "total_cost_usd": 0.2697,
+    "vision_source": "playwright-extract:press-stripe-com",
+    "vision_grounded": true
   },
   "spec": {
     "colors": {
-      "bg": "#1a1614",
+      "bg": "#201819",
       "bgSoft": null,
       "bgQuiet": null,
-      "ink": "#f5f5f5",
-      "inkSoft": null,
-      "muted": "#8a837c",
+      "ink": "#FFFFFF",
+      "inkSoft": "#D0D1D4",
+      "muted": "#504F4F",
       "mutedSoft": null,
       "accent": null,
-      "line": "rgba(138, 131, 124, 0.2)"
+      "line": "rgba(255,255,255,0.1)"
     },
     "typography": {
       "display": "transitional-serif",
@@ -50,17 +52,24 @@
       "scale": [
         {
           "token": "display",
-          "size": 48,
-          "lh": 1.1,
-          "weight": 400,
-          "ls": "-0.5px"
+          "size": 56,
+          "lh": 1.05,
+          "weight": 600,
+          "ls": "0.32px"
+        },
+        {
+          "token": "heading",
+          "size": 25,
+          "lh": 1.2,
+          "weight": 600,
+          "ls": "0.32px"
         },
         {
           "token": "body",
           "size": 16,
-          "lh": 1.6,
+          "lh": 1.5,
           "weight": 400,
-          "ls": "0"
+          "ls": "0.32px"
         }
       ]
     },
@@ -79,15 +88,15 @@
     },
     "surfaces": {
       "radius": {
-        "sm": 0,
-        "md": 0,
+        "sm": 2,
+        "md": 3,
         "lg": 0,
-        "pill": 0
+        "pill": 999
       }
     },
     "layout": {
-      "container": 1400,
-      "paragraph": 600,
+      "container": 1280,
+      "paragraph": 680,
       "columns": 12,
       "gutter": 24,
       "breakpoints": [
@@ -97,20 +106,20 @@
     },
     "motion": {
       "durations": {
-        "micro": 200,
-        "small": 400,
-        "medium": 800
+        "micro": 150,
+        "small": 200,
+        "medium": 500
       },
-      "easing": "cubic-bezier(0.25, 0.1, 0.25, 1)"
+      "easing": "cubic-bezier(0.25, 0.1, 0.25, 1.0)"
     }
   },
   "desc": {
     "en": {
-      "palette": "A deeply restrained near-monochrome palette of dark brown-black and warm off-white, creating a sophisticated and focused reading environment.",
-      "layout": "An ultra-minimal, vertically-oriented layout that prioritizes extreme negative space and content readability over dense information architecture.",
-      "interaction": "Interactions are expected to be subtle and unhurried, likely involving gentle fades and opacity changes that maintain the site's calm demeanor.",
-      "motion": "Motion would be slow and deliberate, using smooth easing curves to reinforce the thoughtful, premium feel.",
-      "notes": "This site is a masterclass in editorial minimalism, demonstrating how extreme restraint and typographic focus can create a powerful, premium user experience."
+      "palette": "Deep warm black background with white and muted gray text, allowing colorful 3D book spines to serve as the primary visual accents.",
+      "layout": "Full-viewport vertical scroll with a stacked layout of centered 3D book objects.",
+      "interaction": "Subtle hover states and smooth 150ms transitions on interactive elements.",
+      "motion": "Scroll-linked reveals and smooth opacity/transform animations for page transitions.",
+      "notes": "An excellent example of a premium editorial site that uses 3D objects as primary UI elements within a dark, refined aesthetic."
     },
     "zh-CN": {
       "palette": "一种深度克制的近单色调色板，由深棕黑色和温暖的米白色构成，营造出精致且专注的阅读环境。",
@@ -139,388 +148,6 @@
       "interaction": "상호작용은 미세하고 느긋하게 이루어지며, 사이트의 차분한 분위기를 유지하는 부드러운 페이드와 불투명도 변화를 수반할 것으로 예상됩니다.",
       "motion": "모션은 느리고 신중하며, 매끄러운 이징 곡선을 사용하여 사려 깊고 프리미엄 느낌을 강조합니다.",
       "notes": "이 사이트는 에디토리얼 미니멀리즘의 극치를 보여주며, 극도의 절제와 타이포그래피에 대한 집중이 강력하고 프리미엄 사용자 경험을 어떻게 창조할 수 있는지를 증명합니다."
-    }
-  },
-  "spec_i18n": {
-    "en": {
-      "identity": {
-        "keywords": [
-          "minimalist",
-          "editorial",
-          "intellectual",
-          "premium",
-          "focused"
-        ],
-        "analogy": "A high-end book publisher's digital reading room.",
-        "oneLiner": "A deeply minimal, content-first editorial site that uses extreme negative space and careful typography to create a premium reading experience."
-      },
-      "colors": {
-        "principle": "Extreme restraint with near-black and off-white to focus attention purely on content."
-      },
-      "typography": {
-        "rules": [
-          "Use a classic transitional serif for both display and body to convey intellectual rigor.",
-          "Keep line lengths short for optimal readability.",
-          "Use weight 400 for a calm, unhurried tone."
-        ],
-        "scaleUses": [
-          "Main headlines and titles",
-          "Main reading copy"
-        ]
-      },
-      "spacing": {
-        "rhythm": "Generous and deliberate, creating a strong sense of calm and focus through extensive padding."
-      },
-      "surfaces": {
-        "shadows": [],
-        "borders": "Minimal to none, relying on spacing and color for separation."
-      },
-      "layout": {
-        "skeleton": "A sparse, vertical column layout with the logo and menu anchored to the left edge."
-      },
-      "components": {
-        "button": "Minimal, text-based links or subtle hover states.",
-        "card": "Not visible, but would be minimal and content-focused.",
-        "chip": "Not visible.",
-        "input": "Not visible, but would be minimal line-based.",
-        "hero": "Extremely minimal, relying on logo and tagline in a vast empty space."
-      },
-      "motion": {
-        "patterns": [
-          "Subtle fades and slow, deliberate transitions to maintain a calm atmosphere."
-        ]
-      },
-      "interaction": {
-        "hover": "Subtle color shifts or opacity changes.",
-        "click": "Immediate, subtle feedback.",
-        "transition": "Smooth and unhurried.",
-        "keyboard": "Fully accessible with clear focus states."
-      },
-      "voice": {
-        "tone": "Intellectual, calm, authoritative, and refined.",
-        "headlineStyle": "Classic, elegant, and understated.",
-        "ctaStyle": "Gentle and non-intrusive.",
-        "avoid": [
-          "Loud or salesy language",
-          "Cluttered UI",
-          "Bright, saturated colors",
-          "Playful or casual tone",
-          "Complex navigation"
-        ]
-      },
-      "donts": [
-        "Don't use bright or saturated colors — the screenshot shows a near-monochrome palette.",
-        "Don't add decorative borders or shadows — the screenshot shows a completely flat surface.",
-        "Don't use playful or casual typography — the screenshot uses a refined transitional serif.",
-        "Don't crowd the interface with multiple elements — the screenshot shows a vast amount of negative space.",
-        "Don't use sans-serif fonts for body copy — the screenshot clearly uses serif typography.",
-        "Don't use a complex navigation structure — the screenshot shows a single, minimal hamburger menu icon."
-      ],
-      "systemPrompt": "Stripe Press is a premium digital publishing platform for Stripe, embodying intellectual rigor and calm focus. Its design DNA is defined by extreme minimalism, a near-black (#1a1614) background with off-white (#f5f5f5) typography, and the exclusive use of a transitional serif font for both headlines and body copy. The layout is sparse, using vast negative space to draw attention to content. Key colors are #1a1614 for background, #f5f5f5 for ink, and #8a837c for muted accents. Critical constraints: avoid any bright or saturated colors, never add decorative UI elements like shadows or borders, and maintain a strictly calm, intellectual tone without casual language."
-    },
-    "zh-CN": {
-      "identity": {
-        "keywords": [
-          "极简主义",
-          "编辑",
-          "知性",
-          "高级",
-          "专注"
-        ],
-        "analogy": "一家高端图书出版社的数字阅览室。",
-        "oneLiner": "一个深度极简、内容为先的编辑网站，通过极端留白和精心排版，营造高级阅读体验。"
-      },
-      "colors": {
-        "principle": "使用近黑色和米白色进行极致克制，将注意力纯粹聚焦于内容。"
-      },
-      "typography": {
-        "rules": [
-          "使用经典的过渡衬线字体用于标题和正文，以传达知性严谨。",
-          "保持较短的行宽以获得最佳可读性。",
-          "使用字重400以营造沉静、从容的语调。"
-        ],
-        "scaleUses": [
-          "主要标题",
-          "主要阅读文本"
-        ]
-      },
-      "spacing": {
-        "rhythm": "宽松且有分量，通过大量内边距营造强烈的沉静感和专注感。"
-      },
-      "surfaces": {
-        "shadows": [],
-        "borders": "尽量不使用边框，依赖间距和颜色进行分隔。"
-      },
-      "layout": {
-        "skeleton": "一个稀疏的垂直列式布局，Logo 和菜单固定在左边缘。"
-      },
-      "components": {
-        "button": "极简的文本链接或微妙的 hover 状态。",
-        "card": "不可见，但会是极简且内容聚焦的。",
-        "chip": "不可见。",
-        "input": "不可见，但会是极简的线条样式。",
-        "hero": "极其简约，依赖 Logo 和标语置于广阔空白中。"
-      },
-      "motion": {
-        "patterns": [
-          "使用微妙的淡入淡出和缓慢、审慎的过渡，以维持沉静氛围。"
-        ]
-      },
-      "interaction": {
-        "hover": "微妙的颜色变化或不透明度改变。",
-        "click": "即时、微妙的反馈。",
-        "transition": "平滑且从容。",
-        "keyboard": "完全可访问，具有清晰的 focus 状态。"
-      },
-      "voice": {
-        "tone": "知性、沉静、权威且精致。",
-        "headlineStyle": "经典、优雅且低调。",
-        "ctaStyle": "温和且不突兀。",
-        "avoid": [
-          "喧闹或推销式的语言",
-          "杂乱的界面",
-          "明亮、饱和的颜色",
-          "俏皮或随意的语气",
-          "复杂的导航"
-        ]
-      },
-      "donts": [
-        "不要使用明亮或饱和的颜色——截图显示的是近单色调色板。",
-        "不要添加装饰性边框或阴影——截图显示的是完全平坦的表面。",
-        "不要使用俏皮或随意的字体——截图使用的是精致的过渡衬线字体。",
-        "不要用多个元素挤占界面——截图显示了大量留白。",
-        "不要在正文使用无衬线字体——截图明确使用了衬线字体。",
-        "不要使用复杂的导航结构——截图显示的是一个单一、极简的汉堡菜单图标。"
-      ],
-      "systemPrompt": "Stripe Press 是 Stripe 的高级数字出版平台，体现了知性严谨与沉静专注。其设计基因由极致极简主义定义，采用近黑色（#1a1614）背景搭配米白色（#f5f5f5）排版，并且标题和正文均专一地使用过渡衬线字体。布局稀疏，利用大量留白引导注意力至内容。关键颜色为背景 #1a1614、墨色 #f5f5f5 以及用于弱化强调的 #8a837c。关键约束：避免使用任何明亮或饱和的颜色，永不添加阴影或边框等装饰性界面元素，并保持严格沉静、知性的语调，避免随意语言。"
-    },
-    "zh-TW": {
-      "identity": {
-        "keywords": [
-          "極簡",
-          "編輯式",
-          "知性",
-          "優質",
-          "專注"
-        ],
-        "analogy": "一家高端書籍出版社的數位閱讀室。",
-        "oneLiner": "一個極度簡約、內容為先的編輯式網站，運用極致負空間與謹慎排版，創造優質閱讀體驗。"
-      },
-      "colors": {
-        "principle": "以近黑與米白展現極度克制，將注意力純粹聚焦於內容。"
-      },
-      "typography": {
-        "rules": [
-          "使用經典的過渡襯線字體作為標題與內文，傳遞知性嚴謹感。",
-          "保持較短的行長以獲得最佳可讀性。",
-          "使用字重 400，營造冷靜、從容的語氣。"
-        ],
-        "scaleUses": [
-          "主要標題",
-          "主要閱讀內文"
-        ]
-      },
-      "spacing": {
-        "rhythm": "寬裕而深思熟慮，透過大量的 padding 營造出強烈的冷靜與專注感。"
-      },
-      "surfaces": {
-        "shadows": [],
-        "borders": "極少或無，依靠間距與色彩來區隔。"
-      },
-      "layout": {
-        "skeleton": "稀疏的垂直欄位佈局，logo 與選單固定於左側邊緣。"
-      },
-      "components": {
-        "button": "極簡的文字鏈接或微妙的 hover 狀態。",
-        "card": "未顯示，但會是極簡且以內容為中心的。",
-        "chip": "未顯示。",
-        "input": "未顯示，但會是極簡的線條式設計。",
-        "hero": "極度簡約，依賴 logo 與標語置於廣闊的空白區域。"
-      },
-      "motion": {
-        "patterns": [
-          "微妙的淡入淡出與緩慢、深思熟慮的過渡，以維持冷靜氛圍。"
-        ]
-      },
-      "interaction": {
-        "hover": "微妙的色彩偏移或透明度變化。",
-        "click": "立即、微妙的反饋。",
-        "transition": "平滑而從容。",
-        "keyboard": "完全可及，具備清晰的 focus 狀態。"
-      },
-      "voice": {
-        "tone": "知性、冷靜、具權威感且精緻。",
-        "headlineStyle": "經典、優雅且含蓄。",
-        "ctaStyle": "溫和且不具侵入性。",
-        "avoid": [
-          "響亮或推銷式的語言",
-          "雜亂的 UI",
-          "明亮、飽和的色彩",
-          "俏皮或隨意的語氣",
-          "複雜的導航"
-        ]
-      },
-      "donts": [
-        "不要使用明亮或飽和的色彩——截圖顯示的是近單色調色盤。",
-        "不要添加裝飾性的邊框或陰影——截圖顯示的是完全扁平的表面。",
-        "不要使用俏皮或隨意的字體——截圖使用的是精緻的過渡襯線字體。",
-        "不要讓介面充滿多個元素——截圖顯示了廣大的負空間。",
-        "不要使用無襯線字體作為內文——截圖清楚使用了襯線排版。",
-        "不要使用複雜的導航結構——截圖顯示的是單一、極簡的漢堡選單圖示。"
-      ],
-      "systemPrompt": "Stripe Press 是 Stripe 旗下一個優質的數位出版平台，體現了知性嚴謹與冷靜專注。其設計 DNA 以極簡主義定義，採用近黑 (#1a1614) 背景搭配米白 (#f5f5f5) 排版，並專屬使用過渡襯線字體作為標題與內文。佈局稀疏，利用廣大負空間引導注意力至內容。關鍵色彩為 #1a1614 作為背景，#f5f5f5 作為文字，#8a837c 作為柔和強調色。關鍵約束：避免任何明亮或飽和的色彩，永不添加如陰影或邊框等裝飾性 UI 元素，並維持嚴格冷靜、知性的語氣，不使用隨意語言。"
-    },
-    "ja": {
-      "identity": {
-        "keywords": [
-          "ミニマリスト",
-          "エディトリアル",
-          "知的",
-          "プレミアム",
-          "集中"
-        ],
-        "analogy": "ハイエンド書籍出版社のデジタル・リーディングルーム。",
-        "oneLiner": "極度のネガティブスペースと丁寧なタイポグラフィを用いた、深くミニマルでコンテンツファーストのエディトリアル・サイト。プレミアムなリーディング体験を創出します。"
-      },
-      "colors": {
-        "principle": "近黒とオフホワイトによる極度の抑制で、純粋にコンテンツに注意を集中させます。"
-      },
-      "typography": {
-        "rules": [
-          "知的厳密さを伝えるため、見出しと本文の両方にはクラシックなトランジショナル・セリフを使用します。",
-          "最適な読みやすさのため、行長は短く保ちます。",
-          "穏やかで落ち着いたトーンのため、ウェイト400を使用します。"
-        ],
-        "scaleUses": [
-          "メイン見出しとタイトル",
-          "メインのリーディングコピー"
-        ]
-      },
-      "spacing": {
-        "rhythm": "豊かで意図的なパディングを通じて、強く穏やかで集中した感覚を創出します。"
-      },
-      "surfaces": {
-        "shadows": [],
-        "borders": "最小限あるいはなし。区切りにはスペーシングとカラーを依拠します。"
-      },
-      "layout": {
-        "skeleton": "ロゴとメニューを左端に固定した、スパースな縦カラムレイアウト。"
-      },
-      "components": {
-        "button": "ミニマルなテキストベースのリンク、または繊細なhover状態。",
-        "card": "視覚化されていませんが、ミニマルでコンテンツに焦点を当てたものになります。",
-        "chip": "視覚化されていません。",
-        "input": "視覚化されていませんが、ミニマルなラインベースのものになります。",
-        "hero": "極めてミニマル。巨大な空きスペースにロゴとタグラインを配置。"
-      },
-      "motion": {
-        "patterns": [
-          "穏やかな雰囲気を維持するための、繊細なフェードと遅く意図的なトランジション。"
-        ]
-      },
-      "interaction": {
-        "hover": "繊細なカラーの変化や不透明度の変化。",
-        "click": "即座の、繊細なフィードバック。",
-        "transition": "滑らかで落ち着いたもの。",
-        "keyboard": "明確なfocus状態を持つ完全なアクセシビリティ。"
-      },
-      "voice": {
-        "tone": "知的、穏やか、威厳があり、洗練されている。",
-        "headlineStyle": "クラシック、エレガント、控えめ。",
-        "ctaStyle": "優しく、侵食的でない。",
-        "avoid": [
-          "大声で売り込み調の言葉",
-          "ごちゃごちゃしたUI",
-          "明るく彩度の高いカラー",
-          "遊び心のある、あるいはカジュアルなトーン",
-          "複雑なナビゲーション"
-        ]
-      },
-      "donts": [
-        "明るく彩度の高いカラーを使用しない — スクリーンショットは近単色パレットを示しています。",
-        "装飾的なボーダーやシャドウを追加しない — スクリーンショットは完全にフラットな表面を示しています。",
-        "遊び心のある、あるいはカジュアルなタイポグラフィを使用しない — スクリーンショットは洗練されたトランジショナル・セリフを使用しています。",
-        "複数の要素でインタフェースを混雑させない — スクリーンショットは膨大な量のネガティブスペースを示しています。",
-        "本文にサンセリフフォントを使用しない — スクリーンショットは明確にセリフタイポグラフィを使用しています。",
-        "複雑なナビゲーション構造を使用しない — スクリーンショットは単一のミニマルなハンバーガーメニューアイコンを示しています。"
-      ],
-      "systemPrompt": "Stripe Pressは、知的厳密さと穏やかな集中を体現する、Stripeのプレミアムなデジタル出版プラットフォームです。そのデザインDNAは、極度のミニマリズム、近黒（#1a1614）の背景にオフホワイト（#f5f5f5）のタイポグラフィ、見出しと本文の両方にトランジショナル・セリフフォントを排他的に使用することによって定義されます。レイアウトはスパースで、コンテンツに注意を引くために巨大なネガティブスペースを使用します。主要カラーは背景#1a1614、インク#f5f5f5、控えめなアクセント#8a837cです。重要な制約：明るく彩度の高いカラーを避けること、シャドウやボーダーなどの装飾的なUI要素を決して追加しないこと、カジュアルな言葉を使わずに厳密に穏やかで知的なトーンを維持することです。"
-    },
-    "ko": {
-      "identity": {
-        "keywords": [
-          "미니멀리스트",
-          "에디토리얼",
-          "지적",
-          "프리미엄",
-          "집중적인"
-        ],
-        "analogy": "고급 서적 출판사의 디지털 독서실.",
-        "oneLiner": "극도의 여백과 세심한 타이포그래피를 사용하여 프리미엄 독서 경험을 만드는, 깊이 미니멀하고 콘텐츠 중심의 에디토리얼 사이트입니다."
-      },
-      "colors": {
-        "principle": "주의를 순전히 콘텐츠에 집중하기 위해, 거의 검정에 가까운 색과 오프화이트로 극도로 절제합니다."
-      },
-      "typography": {
-        "rules": [
-          "지적 엄밀함을 전달하기 위해 디스플레이는 물론 본문에도 클래식한 전환체 세리프를 사용합니다.",
-          "최적의 가독성을 위해 행 길이를 짧게 유지합니다.",
-          "차분하고 느긋한 톤을 위해 웨이트 400을 사용합니다."
-        ],
-        "scaleUses": [
-          "메인 헤드라인 및 타이틀",
-          "메인 본문 텍스트"
-        ]
-      },
-      "spacing": {
-        "rhythm": "관대하고 신중하며, 넉넉한 패딩을 통해 강한 차분함과 집중감을 만듭니다."
-      },
-      "surfaces": {
-        "shadows": [],
-        "borders": "최소화하거나 없으며, 구분을 위해 여백과 색상에 의존합니다."
-      },
-      "layout": {
-        "skeleton": "로고와 메뉴가 왼쪽 가장자리에 고정된, 드문 수직 컬럼 레이아웃입니다."
-      },
-      "components": {
-        "button": "미니멀한 텍스트 기반 링크 또는 미세한 hover 상태.",
-        "card": "보이지 않지만, 미니멀하고 콘텐츠 중심적일 것입니다.",
-        "chip": "보이지 않습니다.",
-        "input": "보이지 않지만, 미니멀한 라인 기반일 것입니다.",
-        "hero": "광활한 공간에 로고와 태그라인만을 의존하는 극도로 미니멀합니다."
-      },
-      "motion": {
-        "patterns": [
-          "차분한 분위기를 유지하기 위한 미세한 페이드와 느리고 신중한 전환."
-        ]
-      },
-      "interaction": {
-        "hover": "미세한 색상 변화 또는 불투명도 변경.",
-        "click": "즉각적이고 미세한 피드백.",
-        "transition": "매끄럽고 느긋합니다.",
-        "keyboard": "명확한 focus 상태로 완전히 접근 가능합니다."
-      },
-      "voice": {
-        "tone": "지적이고, 차분하며, 권위적이고, 세련된.",
-        "headlineStyle": "클래식하고, 우아하며, 절제된.",
-        "ctaStyle": "부드럽고 방해가 되지 않는.",
-        "avoid": [
-          "시끄럽거나 영업적인 언어",
-          "지저분한 UI",
-          "밝고 채도 높은 색상",
-          "장난스럽거나 캐주얼한 톤",
-          "복잡한 내비게이션"
-        ]
-      },
-      "donts": [
-        "밝거나 채도 높은 색상을 사용하지 마세요 — 스크린샷은 거의 단일 색조 팔레트를 보여줍니다.",
-        "장식적인 테두리나 그림자를 추가하지 마세요 — 스크린샷은 완전히 평평한 표면을 보여줍니다.",
-        "장난스럽거나 캐주얼한 타이포그래피를 사용하지 마세요 — 스크린샷은 세련된 전환체 세리프를 사용합니다.",
-        "여러 요소로 인터페이스를 붐비게 하지 마세요 — 스크린샷은 광활한 여백을 보여줍니다.",
-        "본문 텍스트에 산세리프 폰트를 사용하지 마세요 — 스크린샷은 명백히 세리프 타이포그래피를 사용합니다.",
-        "복잡한 내비게이션 구조를 사용하지 마세요 — 스크린샷은 단일하고 미니멀한 햄버거 메뉴 아이콘을 보여줍니다."
-      ],
-      "systemPrompt": "Stripe Press는 Stripe를 위한 프리미엄 디지털 출판 플랫폼으로, 지적 엄밀함과 차분한 집중을 구현합니다. 그 디자인 DNA는 극도의 미니멀리즘, 거의 검정에 가까운(#1a1614) 배경과 오프화이트(#f5f5f5) 타이포그래피, 그리고 헤드라인과 본문 텍스트 모두에 전환체 세리프 폰트를 독점적으로 사용하는 것으로 정의됩니다. 레이아웃은 콘텐츠에 주목하기 위해 광활한 여백을 사용하여 드뭅니다. 핵심 색상은 배경용 #1a1614, 잉크용 #f5f5f5, 뮤트된 악센트용 #8a837c입니다. 핵심 제약 사항: 밝거나 채도 높은 색상은 절대 사용하지 마시고, 그림자나 테두리와 같은 장식적 UI 요소를 절대 추가하지 마시며, 캐주얼한 언어 없이 엄격히 차분하고 지적인 톤을 유지하세요."
     }
   },
   "pack": {
@@ -590,6 +217,398 @@
       "ch7_intro": "모션 철학은 절제와 인내입니다. 전환은 부드럽고 서두르지 않으며, 느리고 의도적인 타이밍을 사용하여 사이트 전반에 흐르는 고요한 사색의 분위기를 유지합니다.",
       "ch8_intro": "에디토리얼 어조는 지적이고 정제되며 권위 있습니다. 어떤 종류의 영업적이나 캐주얼한 언어의 힌트도 피하고, 모든 헤드라인에서는 클래식하고 우아한 어조를, 행동 촉구에서는 부드럽고 간섭하지 않는 접근 방식을 선택합니다.",
       "ch8_outro": "이 시스템은 의도적으로 복잡한 탐색, 밝은 색상, 장난스러운 타이포그래피를 피하며, 집중적이고 콘텐츠 우선의 미니멀리즘에 전적으로 헌신합니다."
+    }
+  },
+  "spec_i18n": {
+    "en": {
+      "identity": {
+        "keywords": [
+          "Intellectual",
+          "Curated",
+          "Publishing",
+          "Craft",
+          "Progress"
+        ],
+        "analogy": "A modern digital library for ideas of progress.",
+        "oneLiner": "A premium publishing imprint presenting books as curated artifacts."
+      },
+      "colors": {
+        "principle": "Dark, warm background creating a premium gallery atmosphere where colorful book objects are the focal point."
+      },
+      "typography": {
+        "rules": [
+          "Use Ivar Headline and Ivar Text (transitional serif) for all editorial content.",
+          "Maintain consistent light letter-spacing (0.32px) across all text elements.",
+          "Book spines use a mix of serif and monospaced typography."
+        ],
+        "scaleUses": [
+          "Book titles and primary headings",
+          "Section headers and navigation",
+          "Primary readable text"
+        ]
+      },
+      "spacing": {
+        "rhythm": "Vertical rhythm driven by content blocks and book spine spacing."
+      },
+      "surfaces": {
+        "shadows": [
+          "0 4px 24px rgba(0,0,0,0.4) for book spines"
+        ],
+        "borders": "Minimal; primarily 1px solid white with low opacity for dividers."
+      },
+      "layout": {
+        "skeleton": "Full-viewport vertical scroll focused on stacked 3D book objects."
+      },
+      "components": {
+        "button": "Minimal text-based or simple pill-shaped buttons.",
+        "card": "3D rendered book objects acting as interactive cards.",
+        "chip": "None visible.",
+        "input": "None visible.",
+        "hero": "Stacked 3D book spines on a dark background."
+      },
+      "motion": {
+        "patterns": [
+          "Smooth scroll-linked transitions for book spine reveals.",
+          "Opacity and transform animations for page load and navigation."
+        ]
+      },
+      "interaction": {
+        "hover": "Subtle opacity changes or slight movement on interactive elements.",
+        "click": "Standard pointer cursor indicating interactivity.",
+        "transition": "All properties transition over 150ms for micro-interactions, or opacity over 200ms.",
+        "keyboard": "Standard tab navigation supported."
+      },
+      "voice": {
+        "tone": "Intellectual, refined, and serious.",
+        "headlineStyle": "Formal, uppercase or title-case serif text.",
+        "ctaStyle": "Understated and minimal.",
+        "avoid": [
+          "Playful language",
+          "Loud colors",
+          "Heavy decorative elements"
+        ]
+      },
+      "donts": [
+        "Don't use sans-serif fonts for headlines — screenshot shows serif fonts.",
+        "Don't use bright, neon backgrounds — screenshot shows dark, muted backgrounds.",
+        "Don't use complex grid layouts — screenshot shows a stacked vertical layout.",
+        "Don't use rounded corners on primary containers — screenshot shows sharp corners.",
+        "Don't use multiple competing accent colors — screenshot shows colors confined to book objects.",
+        "Don't use heavy drop shadows — screenshot shows subtle, realistic lighting on 3D objects."
+      ],
+      "systemPrompt": "Stripe Press is a premium digital publishing imprint with a dark, intellectual aesthetic. The primary background is a deep warm black (#201819) with white (#FFFFFF) and muted gray (#D0D1D4) text. Typography is entirely transitional serif, specifically the Ivar family, maintaining a formal and editorial tone. Key interactions involve smooth 150ms transitions and scroll-linked animations. Critical donts: never use sans-serif for headlines, never use bright neon backgrounds, never use complex grid layouts, never use rounded corners on containers, never use multiple competing accent colors, and never use heavy drop shadows. The layout is a vertical stack of 3D book objects centered in a full-viewport container."
+    },
+    "zh-CN": {
+      "identity": {
+        "keywords": [
+          "智识",
+          "精选",
+          "出版",
+          "工艺",
+          "进步"
+        ],
+        "analogy": "一个为进步理念打造的现代数字图书馆。",
+        "oneLiner": "一个高端出版品牌，将书籍呈现为精心策划的器物。"
+      },
+      "colors": {
+        "principle": "深邃、温暖的背景营造出高端画廊氛围，使多彩的书籍对象成为视觉焦点。"
+      },
+      "typography": {
+        "rules": [
+          "所有编辑内容均使用 Ivar Headline 和 Ivar Text（过渡衬线体）。",
+          "所有文本元素保持一致的轻字间距（0.32px）。",
+          "书脊使用衬线体与等宽字体的混合排版。"
+        ],
+        "scaleUses": [
+          "书名与一级标题",
+          "章节标题与导航",
+          "主要可读文本"
+        ]
+      },
+      "spacing": {
+        "rhythm": "垂直节奏由内容块和书脊间距驱动。"
+      },
+      "surfaces": {
+        "shadows": [
+          "0 4px 24px rgba(0,0,0,0.4) 用于书脊"
+        ],
+        "borders": "极简；主要使用1px实线白色低透明度作为分隔线。"
+      },
+      "layout": {
+        "skeleton": "全视口垂直滚动，聚焦于堆叠的3D书籍对象。"
+      },
+      "components": {
+        "button": "极简的文本按钮或简单的胶囊形按钮。",
+        "card": "作为交互式卡片的3D渲染书籍对象。",
+        "chip": "无可见元素。",
+        "input": "无可见元素。",
+        "hero": "深色背景上的堆叠3D书脊。"
+      },
+      "motion": {
+        "patterns": [
+          "书脊揭示的平滑滚动联动过渡。",
+          "页面加载与导航时的透明度与变换动画。"
+        ]
+      },
+      "interaction": {
+        "hover": "交互元素上的微妙透明度变化或轻微移动。",
+        "click": "标准指针光标指示可交互性。",
+        "transition": "所有属性在微交互中进行150ms过渡，或透明度在200ms内过渡。",
+        "keyboard": "支持标准Tab导航。"
+      },
+      "voice": {
+        "tone": "智识、精致、严肃。",
+        "headlineStyle": "正式的全大写或首字母大写衬线文本。",
+        "ctaStyle": "低调且极简。",
+        "avoid": [
+          "俏皮语言",
+          "鲜艳色彩",
+          "繁重的装饰元素"
+        ]
+      },
+      "donts": [
+        "不要为标题使用无衬线字体——截图显示使用的是衬线字体。",
+        "不要使用明亮、霓虹色背景——截图显示的是深色、柔和背景。",
+        "不要使用复杂的网格布局——截图显示的是垂直堆叠布局。",
+        "不要在主要容器上使用圆角——截图显示的是直角。",
+        "不要使用多种竞争的强调色——截图显示颜色仅限于书籍对象。",
+        "不要使用厚重的投影——截图显示3D对象上微妙、逼真的光照。"
+      ],
+      "systemPrompt": "Stripe Press 是一个具有深邃智识美学的高端数字出版品牌。主背景为深暖黑色（#201819），文本为白色（#FFFFFF）和柔和灰色（#D0D1D4）。排版完全采用过渡衬线体，特别是 Ivar 字族，保持正式且具有编辑感的基调。关键交互涉及150ms的平滑过渡和滚动联动动画。关键禁忌：绝不为标题使用无衬线字体，绝不使用明亮霓虹背景，绝不使用复杂网格布局，绝不在容器上使用圆角，绝不使用多种竞争的强调色，绝不使用厚重的投影。布局是一个在全视口容器中垂直堆叠的3D书籍对象。"
+    },
+    "zh-TW": {
+      "identity": {
+        "keywords": [
+          "知性",
+          "策展",
+          "出版",
+          "工藝",
+          "進步"
+        ],
+        "analogy": "一個為進步思想而設的現代數位圖書館。",
+        "oneLiner": "一個將書籍呈現為策展作品的優質出版品牌。"
+      },
+      "colors": {
+        "principle": "深沉溫暖的背景營造出優質畫廊氛圍，讓多彩的書籍物件成為焦點。"
+      },
+      "typography": {
+        "rules": [
+          "所有編輯內容使用 Ivar Headline 與 Ivar Text（過渡襯線體）。",
+          "所有文字元素保持一致的輕字間距（0.32px）。",
+          "書脊使用襯線體與等寬字體的混合排版。"
+        ],
+        "scaleUses": [
+          "書籍標題與主要標題",
+          "段落標題與導航",
+          "主要可讀文字"
+        ]
+      },
+      "spacing": {
+        "rhythm": "由內容區塊與書脊間距驅動的垂直節奏。"
+      },
+      "surfaces": {
+        "shadows": [
+          "0 4px 24px rgba(0,0,0,0.4) 用於書脊"
+        ],
+        "borders": "極簡；主要使用 1px 實線白色與低不透明度作為分隔線。"
+      },
+      "layout": {
+        "skeleton": "全視窗垂直捲動，聚焦於堆疊的 3D 書籍物件。"
+      },
+      "components": {
+        "button": "極簡的文字型或簡單膠囊形按鈕。",
+        "card": "3D 渲染的書籍物件作為互動卡片。",
+        "chip": "無可見元素。",
+        "input": "無可見元素。",
+        "hero": "深色背景上的堆疊 3D 書脊。"
+      },
+      "motion": {
+        "patterns": [
+          "書脊顯現時的流暢捲動連結過渡。",
+          "頁面載入與導航時的透明度與變形動畫。"
+        ]
+      },
+      "interaction": {
+        "hover": "互動元素上的細微透明度變化或輕微移動。",
+        "click": "標準指標游標指示互動性。",
+        "transition": "所有屬性以 150ms 過渡用於微互動，或透明度以 200ms 過渡。",
+        "keyboard": "支援標準 Tab 鍵導航。"
+      },
+      "voice": {
+        "tone": "知性、精緻且嚴肅。",
+        "headlineStyle": "正式的大寫或首字母大寫襯線文字。",
+        "ctaStyle": "低調且極簡。",
+        "avoid": [
+          "俏皮語言",
+          "鮮豔色彩",
+          "厚重裝飾元素"
+        ]
+      },
+      "donts": [
+        "不要使用無襯線字體作為標題——截圖顯示使用襯線字體。",
+        "不要使用明亮、霓虹背景——截圖顯示深沉、柔和背景。",
+        "不要使用複雜格線佈局——截圖顯示堆疊垂直佈局。",
+        "不要在主要容器上使用圓角——截圖顯示銳利邊角。",
+        "不要使用多種競爭的強調色——截圖顯示顏色僅限於書籍物件。",
+        "不要使用厚重的陰影——截圖顯示 3D 物件上的細微、真實光效。"
+      ],
+      "systemPrompt": "Stripe Press 是一個具有深沉知性美學的優質數位出版品牌。主要背景是深溫暖黑（#201819），搭配白色（#FFFFFF）與柔和灰色（#D0D1D4）文字。字體完全使用過渡襯線體，特別是 Ivar 字族，保持正式與編輯語調。關鍵互動涉及流暢的 150ms 過渡與捲動連結動畫。重要禁忌：永遠不要使用無襯線字體作為標題，永遠不要使用明亮霓虹背景，永遠不要使用複雜格線佈局，永遠不要在容器上使用圓角，永遠不要使用多種競爭的強調色，永遠不要使用厚重陰影。佈局是在全視窗容器中垂直堆疊的 3D 書籍物件。"
+    },
+    "ja": {
+      "identity": {
+        "keywords": [
+          "知的",
+          "キュレーション",
+          "出版",
+          "工芸",
+          "進歩"
+        ],
+        "analogy": "進歩のアイデアのための現代的なデジタル図書館。",
+        "oneLiner": "書籍をキュレーションされた芸術作品として提示する、プレミアム出版レーベル。"
+      },
+      "colors": {
+        "principle": "暗く暖かい背景が、色鮮やかな書籍オブジェクトを主役とするプレミアムギャラリーの雰囲気を生み出します。"
+      },
+      "typography": {
+        "rules": [
+          "すべてのエディトリアルコンテンツに、Ivar Headline と Ivar Text（トランジショナル・セリフ）を使用します。",
+          "すべてのテキスト要素で、一貫した軽い文字間隔（0.32px）を維持します。",
+          "書籍の背表紙には、セリフ体と等幅書体を混在させます。"
+        ],
+        "scaleUses": [
+          "書籍タイトルと主見出し",
+          "セクション見出しとナビゲーション",
+          "主要な読みやすいテキスト"
+        ]
+      },
+      "spacing": {
+        "rhythm": "コンテンツブロックと書籍の背表紙の間隔による垂直リズム。"
+      },
+      "surfaces": {
+        "shadows": [
+          "書籍の背表紙用：0 4px 24px rgba(0,0,0,0.4)"
+        ],
+        "borderst": "最小限。主に1px solid whiteで不透明度を低くした線を区切りとして使用。"
+      },
+      "layout": {
+        "skeleton": "積み重ねられた3D書籍オブジェクトに焦点を当てた、フルビューポートの垂直スクロール。"
+      },
+      "components": {
+        "button": "ミニマルなテキストベースまたはシンプルなピル型ボタン。",
+        "card": "インタラクティブなカードとして機能する、3Dレンダリングされた書籍オブジェクト。",
+        "chip": "なし。",
+        "input": "なし。",
+        "hero": "暗い背景の上に積み重ねられた、3D書籍の背表紙。"
+      },
+      "motion": {
+        "patterns": [
+          "書籍の背表紙の表示のための、滑らかなスクロール連動トランジション。",
+          "ページ読み込みとナビゲーションのための、不透明度とトランスフォームのアニメーション。"
+        ]
+      },
+      "interaction": {
+        "hover": "インタラクティブな要素上での、微細な不透明度の変化またはわずかな移動。",
+        "click": "インタラクティブ性を示す、標準のポインターカーソル。",
+        "transition": "すべてのプロパティは、マイクロインタラクションに対して150ms、または不透明度に対して200msでトランジションします。",
+        "keyboard": "標準的なタブナビゲーションをサポート。"
+      },
+      "voice": {
+        "tone": "知的で洗練された、真面目なトーン。",
+        "headlineStyle": "フォーマルな、大文字またはタイトルケースのセリフ体テキスト。",
+        "ctaStyle": "控えめでミニマル。",
+        "avoid": [
+          "遊び心のある言葉遣い",
+          "派手な色",
+          "重厚な装飾要素"
+        ]
+      },
+      "donts": [
+        "見出しにサンセリフフォントを使用しない — スクリーンショットではセリフフォントが使用されている。",
+        "明るいネオン色の背景を使用しない — スクリーンショットでは暗く落ち着いた背景が使用されている。",
+        "複雑なグリッドレイアウトを使用しない — スクリーンショットでは積み重ねられた垂直レイアウトが使用されている。",
+        "プライマリコンテナに角丸を使用しない — スクリーンショットではシャープな角が使用されている。",
+        "複数の競合するアクセントカラーを使用しない — スクリーンショットでは色が書籍オブジェクトに限定されている。",
+        "重いドロップシャドウを使用しない — スクリーンショットでは、3Dオブジェクトにリアルな微妙なライティングが使用されている。"
+      ],
+      "systemPrompt": "Stripe Press は、暗く知的な美学を持つプレミアムデジタル出版レーベルです。プライマリ背景は深い暖かい黒（#201819）で、テキストは白（#FFFFFF）と落ち着いたグレー（#D0D1D4）です。タイポグラフィはすべてトランジショナル・セリフ、具体的にはIvarファミリーで、フォーマルでエディトリアルなトーンを維持します。主要なインタラクションには、滑らかな150msトランジションとスクロール連動アニメーションが含まれます。重要な禁止事項：見出しに決してサンセリフを使用しない、明るいネオン色の背景を決して使用しない、複雑なグリッドレイアウトを決して使用しない、コンテナに決して角丸を使用しない、複数の競合するアクセントカラーを決して使用しない、重いドロップシャドウを決して使用しない。レイアウトは、フルビューポートコンテナの中央に配置された、3D書籍オブジェクトの垂直スタックです。"
+    },
+    "ko": {
+      "identity": {
+        "keywords": [
+          "지적",
+          "큐레이션",
+          "출판",
+          "공예",
+          "진보"
+        ],
+        "analogy": "진보의 아이디어를 위한 현대적 디지털 도서관.",
+        "oneLiner": "도서를 큐레이션된 아티팩트로 선보이는 프리미엄 출판 인임프린트."
+      },
+      "colors": {
+        "principle": "다크하고 따뜻한 배경으로 프리미엄 갤러리 분위기를 조성하며, 컬러풀한 도서 오브젝트가 시선을 집중시킵니다."
+      },
+      "typography": {
+        "rules": [
+          "모든 편집 콘텐츠에 Ivar Headline 및 Ivar Text (트랜지셔널 세리프)를 사용합니다.",
+          "모든 텍스트 요소에서 일관된 가벼운 자간(0.32px)을 유지합니다.",
+          "도서 표지에는 세리프와 모노스페이스 타이포그래피를 혼합하여 사용합니다."
+        ],
+        "scaleUses": [
+          "도서 제목 및 주요 제목",
+          "섹션 헤더 및 내비게이션",
+          "주요 가독 텍스트"
+        ]
+      },
+      "spacing": {
+        "rhythm": "콘텐츠 블록과 도서 표지 간격에 의해 구동되는 수직 리듬."
+      },
+      "surfaces": {
+        "shadows": [
+          "도서 표지용 0 4px 24px rgba(0,0,0,0.4)"
+        ],
+        "borders": "최소화; 주로 불투명도가 낮은 1px solid white를 구분선으로 사용."
+      },
+      "layout": {
+        "skeleton": "스택형 3D 도서 오브젝트에 집중된 풀 뷰포트 수직 스크롤."
+      },
+      "components": {
+        "button": "미니멀한 텍스트 기반 또는 간단한 알약 형태 버튼.",
+        "card": "인터랙티브 카드 역할을 하는 3D 렌더링 도서 오브젝트.",
+        "chip": "보이지 않음.",
+        "input": "보이지 않음.",
+        "hero": "다크 배경 위에 쌓인 3D 도서 표지."
+      },
+      "motion": {
+        "patterns": [
+          "도서 표지 드러냄을 위한 부드러운 스크롤 연동 전환.",
+          "페이지 로드 및 내비게이션을 위한 불투명도 및 변환 애니메이션."
+        ]
+      },
+      "interaction": {
+        "hover": "인터랙티브 요소에 대한 미묘한 불투명도 변화 또는 약간의 움직임.",
+        "click": "인터랙티브함을 나타내는 표준 포인터 커서.",
+        "transition": "마이크로 인터랙션을 위해 모든 속성이 150ms 동안 전환되거나, 불투명도는 200ms 동안 전환.",
+        "keyboard": "표준 탭 내비게이션 지원."
+      },
+      "voice": {
+        "tone": "지적이고, 세련되며, 진지함.",
+        "headlineStyle": "격식 있는, 대문자 또는 타이틀 케이스 세리프 텍스트.",
+        "ctaStyle": "절제되고 미니멀함.",
+        "avoid": [
+          "장난스러운 언어",
+          "화려한 색상",
+          "무거운 장식 요소"
+        ]
+      },
+      "donts": [
+        "제목에 세리프 외 글꼴을 사용하지 마세요 — 스크린샷에서 세리프 글꼴을 보여줍니다.",
+        "밝고 네온빛 배경을 사용하지 마세요 — 스크린샷에서 다크하고 은은한 배경을 보여줍니다.",
+        "복잡한 격자 레이아웃을 사용하지 마세요 — 스크린샷에서 스택형 수직 레이아웃을 보여줍니다.",
+        "주요 컨테이너에 둥근 모서리를 사용하지 마세요 — 스크린샷에서 날카로운 모서리를 보여줍니다.",
+        "경쟁하는 여러 악센트 색상을 사용하지 마세요 — 스크린샷에서 색상이 도서 오브젝트로 제한되는 것을 보여줍니다.",
+        "무거운 드롭 그림자를 사용하지 마세요 — 스크린샷에서 3D 오브젝트에 대한 미묘하고 사실적인 조명을 보여줍니다."
+      ],
+      "systemPrompt": "Stripe Press는 다크하고 지적인 미학을 가진 프리미엄 디지털 출판 인임프린트입니다. 주 배경은 깊은 따뜻한 블랙(#201819)이며, 텍스트는 화이트(#FFFFFF)와 은은한 그레이(#D0D1D4)를 사용합니다. 타이포그래피는 완전히 트랜지셔널 세리프, 특히 Ivar 계열을 사용하여 격식 있고 편집적인 톤을 유지합니다. 주요 인터랙션은 부드러운 150ms 전환과 스크롤 연동 애니메이션을 포함합니다. 중요한 금지 사항: 제목에 절대 세리프 외 글꼴을 사용하지 마세요, 밝은 네온빛 배경을 절대 사용하지 마세요, 복잡한 격자 레이아웃을 절대 사용하지 마세요, 컨테이너에 둥근 모서리를 절대 사용하지 마세요, 경쟁하는 여러 악센트 색상을 절대 사용하지 마세요, 무거운 드롭 그림자를 절대 사용하지 마세요. 레이아웃은 풀 뷰포트 컨테이너 중앙에 정렬된 3D 도서 오브젝트의 수직 스택입니다."
     }
   }
 }

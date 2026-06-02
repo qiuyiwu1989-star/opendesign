@@ -15,44 +15,67 @@
   "_meta": {
     "vision_model": "mimo-v2.5",
     "vision_prompt_version": "0.3",
-    "vision_at": "2026-05-28T19:25:48+00:00",
-    "vision_tokens": 3469,
-    "vision_cost_usd": 0.0385,
+    "vision_at": "2026-05-31T03:12:21+00:00",
+    "vision_tokens": 17979,
+    "vision_cost_usd": 0.1998,
     "translation_model": "mimo-v2.5",
-    "translation_at": "2026-05-28T19:26:39+00:00",
-    "translation_tokens": 12733,
-    "translation_cost_usd": 0.0425,
+    "translation_at": "2026-05-31T03:13:12+00:00",
+    "translation_tokens": 23002,
+    "translation_cost_usd": 0.0767,
     "narrative_model": "mimo-v2.5",
     "narrative_prompt_version": "0.3",
     "narrative_at": "2026-05-28T19:26:47+00:00",
     "narrative_tokens": 1718,
     "narrative_cost_usd": 0.0115,
     "narrative_status": "ok",
-    "total_cost_usd": 0.0925
+    "total_cost_usd": 0.288,
+    "vision_source": "playwright-extract:jupi",
+    "vision_grounded": true
   },
   "spec": {
     "colors": {
-      "bg": "#FFFFFF",
+      "bg": "#F5F4EE",
       "bgSoft": null,
-      "bgQuiet": null,
-      "ink": "#4A4A4A",
-      "inkSoft": null,
-      "muted": "#C8C8C8",
-      "mutedSoft": null,
-      "accent": "#1F5182",
-      "line": "rgba(0, 0, 0, 0)"
+      "bgQuiet": "#F5F4EE",
+      "ink": "#000000",
+      "inkSoft": "rgba(0,0,0,0.57)",
+      "muted": "#3B3B3B",
+      "mutedSoft": "rgba(0,0,0,0.44)",
+      "accent": null,
+      "line": "rgba(0,0,0,0.09)"
     },
     "typography": {
-      "display": "slab-serif",
-      "body": "slab-serif",
-      "mono": null,
+      "display": "geometric-sans",
+      "body": "humanist-sans",
+      "mono": "monospace",
       "scale": [
         {
           "token": "display",
-          "size": 32,
-          "lh": 1.2,
+          "size": 36,
+          "lh": 1.1,
+          "weight": 400,
+          "ls": "-0.9px"
+        },
+        {
+          "token": "headline",
+          "size": 36,
+          "lh": 1.1,
+          "weight": 500,
+          "ls": "-0.9px"
+        },
+        {
+          "token": "body",
+          "size": 16,
+          "lh": 1.5,
           "weight": 400,
           "ls": "0px"
+        },
+        {
+          "token": "caption",
+          "size": 11,
+          "lh": 1.5,
+          "weight": 400,
+          "ls": "1.4px"
         }
       ]
     },
@@ -71,10 +94,10 @@
     },
     "surfaces": {
       "radius": {
-        "sm": 0,
-        "md": 0,
-        "lg": 0,
-        "pill": 0
+        "sm": 4,
+        "md": 8,
+        "lg": 16,
+        "pill": 99999999
       }
     },
     "layout": {
@@ -89,342 +112,20 @@
     },
     "motion": {
       "durations": {
-        "micro": 220,
-        "small": 400,
-        "medium": 800
+        "micro": 150,
+        "small": 200,
+        "medium": 400
       },
-      "easing": "cubic-bezier(0.25, 0.1, 0.25, 1)"
-    }
-  },
-  "spec_i18n": {
-    "en": {
-      "identity": {
-        "keywords": [
-          "minimal",
-          "clean",
-          "minimalist",
-          "geometric",
-          "abstract"
-        ],
-        "analogy": "A blank canvas with a single geometric accent",
-        "oneLiner": "A highly minimal, blank canvas design with a subtle geometric graphic and a simple logotype."
-      },
-      "colors": {
-        "principle": "White background with a single high-chroma blue accent and neutral grays."
-      },
-      "typography": {
-        "rules": [],
-        "scaleUses": [
-          "Logo text"
-        ]
-      },
-      "spacing": {
-        "rhythm": "Generous white space"
-      },
-      "surfaces": {
-        "shadows": [],
-        "borders": "None visible"
-      },
-      "layout": {
-        "skeleton": "Centered layout with no visible structure"
-      },
-      "components": {
-        "button": "None visible",
-        "card": "None visible",
-        "chip": "None visible",
-        "input": "None visible",
-        "hero": "Full-page centered graphic and logo"
-      },
-      "interaction": {
-        "hover": "None visible",
-        "click": "None visible",
-        "transition": "None visible",
-        "keyboard": "None visible"
-      },
-      "voice": {
-        "tone": "Quiet, abstract",
-        "headlineStyle": "Simple, lower-case logotype",
-        "ctaStyle": "None visible",
-        "avoid": [
-          "Complexity",
-          "Visual clutter",
-          "Excessive text"
-        ]
-      },
-      "donts": [
-        "Don't use a busy background — screenshot shows a solid white background.",
-        "Don't add unnecessary text — screenshot shows only a logo and a graphic.",
-        "Don't use multiple accent colors — screenshot shows only a single blue accent.",
-        "Don't use rounded containers or cards — screenshot shows a completely flat, borderless layout.",
-        "Don't use complex typography hierarchy — screenshot shows a simple, single-weight logotype.",
-        "Don't add drop shadows or depth — screenshot shows a completely flat design."
-      ],
-      "systemPrompt": "This is a hyper-minimalist, abstract landing page consisting of a white background, a simple geometric ring graphic, and a logotype. The palette is strictly white (#FFFFFF) with neutral grays (#C8C8C8, #4A4A4A) and a single, muted blue accent (#1F5182). The typography uses a simple slab-serif category for the logotype. Critical donts: avoid adding any visible navigation, headers, or footers; never use multiple accent colors or complex gradients; avoid adding any text besides the logo; do not use borders, shadows, or container backgrounds; keep the layout strictly centered with massive white space."
-    },
-    "zh-CN": {
-      "identity": {
-        "keywords": [
-          "极简",
-          "干净",
-          "简约",
-          "几何",
-          "抽象"
-        ],
-        "analogy": "一块仅有单一几何点缀的空白画布",
-        "oneLiner": "一个高度极简的空白画布式设计，包含微妙的几何图形和简洁的标识。"
-      },
-      "colors": {
-        "principle": "白色背景，搭配单一的高饱和度蓝色点缀色和中性灰色。"
-      },
-      "typography": {
-        "rules": [],
-        "scaleUses": [
-          "标识文字"
-        ]
-      },
-      "spacing": {
-        "rhythm": "充裕的留白"
-      },
-      "surfaces": {
-        "shadows": [],
-        "borders": "无可见边框"
-      },
-      "layout": {
-        "skeleton": "无可见结构的居中布局"
-      },
-      "components": {
-        "button": "无可见按钮",
-        "card": "无可见卡片",
-        "chip": "无可见标签",
-        "input": "无可见输入框",
-        "hero": "全页居中的图形和标识"
-      },
-      "interaction": {
-        "hover": "无可见悬停效果",
-        "click": "无可见点击效果",
-        "transition": "无可见过渡效果",
-        "keyboard": "无可见键盘交互"
-      },
-      "voice": {
-        "tone": "静谧、抽象",
-        "headlineStyle": "简洁的、全小写标识",
-        "ctaStyle": "无可见行动号召",
-        "avoid": [
-          "复杂性",
-          "视觉杂乱",
-          "过多文字"
-        ]
-      },
-      "donts": [
-        "不要使用杂乱的背景——截图显示为纯白背景。",
-        "不要添加不必要的文字——截图仅显示一个标识和一个图形。",
-        "不要使用多种点缀色——截图仅显示单一的蓝色点缀。",
-        "不要使用圆角容器或卡片——截图显示为完全扁平、无边框的布局。",
-        "不要使用复杂的字体层级——截图显示为简单的、单一字重的标识。",
-        "不要添加投影或深度效果——截图显示为完全扁平的设计。"
-      ],
-      "systemPrompt": "这是一个超极简的抽象落地页，由白色背景、一个简单的几何环形图形和一个标识构成。调色板严格限定为白色（#FFFFFF），搭配中性灰（#C8C8C8, #4A4A4A）和单一的柔和蓝色点缀色（#1F5182）。标识字体使用简单的粗衬线类别。关键禁忌：避免添加任何可见的导航、页头或页脚；绝不使用多种点缀色或复杂的渐变；避免添加除标识外的任何文字；不使用边框、投影或容器背景；保持布局严格居中，并留有大量空白。"
-    },
-    "zh-TW": {
-      "identity": {
-        "keywords": [
-          "極簡",
-          "純淨",
-          "極簡主義",
-          "幾何",
-          "抽象"
-        ],
-        "analogy": "帶有單一幾何點綴的空白畫布",
-        "oneLiner": "高度極簡的空白畫布設計，搭配細膩幾何圖形與簡約標誌字型。"
-      },
-      "colors": {
-        "principle": "白色背景搭配單一高彩度藍色點綴與中性灰色調。"
-      },
-      "typography": {
-        "rules": [],
-        "scaleUses": [
-          "標誌文字"
-        ]
-      },
-      "spacing": {
-        "rhythm": "充裕的留白空間"
-      },
-      "surfaces": {
-        "shadows": [],
-        "borders": "無可見邊框"
-      },
-      "layout": {
-        "skeleton": "無可見結構的置中佈局"
-      },
-      "components": {
-        "button": "無可見按鈕",
-        "card": "無可見卡片",
-        "chip": "無可見標籤",
-        "input": "無可見輸入欄位",
-        "hero": "全頁置中圖形與標誌"
-      },
-      "interaction": {
-        "hover": "無可見 hover 效果",
-        "click": "無可見點擊效果",
-        "transition": "無可見過渡效果",
-        "keyboard": "無可見鍵盤互動"
-      },
-      "voice": {
-        "tone": "靜謐、抽象",
-        "headlineStyle": "簡約的小寫標誌字型",
-        "ctaStyle": "無可見行動呼籲",
-        "avoid": [
-          "複雜性",
-          "視覺雜亂",
-          "過多文字"
-        ]
-      },
-      "donts": [
-        "避免使用繁複背景——截圖顯示純白背景。",
-        "避免添加不必要文字——截圖僅顯示標誌與圖形。",
-        "避免使用多種點綴色——截圖僅顯示單一藍色點綴。",
-        "避免使用圓角容器或卡片——截圖顯示完全平坦、無邊框的佈局。",
-        "避免使用複雜字型層級——截圖顯示單一字重的簡約標誌字型。",
-        "避免添加陰影或景深——截圖顯示完全平面的設計。"
-      ],
-      "systemPrompt": "這是一個超級極簡的抽象登陸頁面，由白色背景、簡約幾何環形圖形與標誌字型組成。色彩方案嚴格採用白色 (#FFFFFF) 搭配中性灰色 (#C8C8C8, #4A4A4A) 與單一低飽和度藍色點綴 (#1F5182)。標誌字型使用簡約的 slab-serif 字型類別。關鍵禁忌：避免添加任何可見的導覽列、頁首或頁尾；絕不使用多種點綴色或複雜漸層；避免添加標誌以外的任何文字；不使用邊框、陰影或容器背景；保持嚴格的置中佈局與大量留白。"
-    },
-    "ja": {
-      "identity": {
-        "keywords": [
-          "ミニマル",
-          "クリーン",
-          "ミニマリスト",
-          "幾何学的",
-          "抽象的"
-        ],
-        "analogy": "単一の幾何学的アクセントを持つ、白紙のキャンバス",
-        "oneLiner": "繊細な幾何学的グラフィックとシンプルなロゴタイプを配した、極めてミニマルな白紙のキャンバスデザイン。"
-      },
-      "colors": {
-        "principle": "白背景に、高彩度の青アクセント1色とニュートラルなグレーを採用。"
-      },
-      "typography": {
-        "rules": [],
-        "scaleUses": [
-          "ロゴテキスト"
-        ]
-      },
-      "spacing": {
-        "rhythm": "ゆとりのあるホワイトスペース"
-      },
-      "surfaces": {
-        "shadows": [],
-        "borders": "見られない"
-      },
-      "layout": {
-        "skeleton": "構造が見られない中央揃えレイアウト"
-      },
-      "components": {
-        "button": "見られない",
-        "card": "見られない",
-        "chip": "見られない",
-        "input": "見られない",
-        "hero": "ページ全体を覆う中央揃えのグラフィックとロゴ"
-      },
-      "interaction": {
-        "hover": "見られない",
-        "click": "見られない",
-        "transition": "見られない",
-        "keyboard": "見られない"
-      },
-      "voice": {
-        "tone": "静謐で、抽象的",
-        "headlineStyle": "シンプルな、小文字のロゴタイプ",
-        "ctaStyle": "見られない",
-        "avoid": [
-          "複雑さ",
-          "視覚的な雑踏",
-          "過度なテキスト"
-        ]
-      },
-      "donts": [
-        "背景を複雑にしない — スクリーンショットでは白一色の背景が使われています。",
-        "不要なテキストを追加しない — スクリーンショットではロゴとグラフィックのみです。",
-        "複数のアクセントカラーを使用しない — スクリーンショットでは青のアクセントが1色だけです。",
-        "角丸のコンテナやカードを使用しない — スクリーンショットでは完全にフラットで、ボーダーのないレイアウトです。",
-        "複雑なタイポグラフィの階層を使用しない — スクリーンショットではシンプルで、ウェイトの単一なロゴタイプです。",
-        "ドロップシャドウや奥行きを追加しない — スクリーンショットでは完全にフラットなデザインです。"
-      ],
-      "systemPrompt": "This is a hyper-minimalist, abstract landing page consisting of a white background, a simple geometric ring graphic, and a logotype. The palette is strictly white (#FFFFFF) with neutral grays (#C8C8C8, #4A4A4A) and a single, muted blue accent (#1F5182). The typography uses a simple slab-serif category for the logotype. Critical donts: avoid adding any visible navigation, headers, or footers; never use multiple accent colors or complex gradients; avoid adding any text besides the logo; do not use borders, shadows, or container backgrounds; keep the layout strictly centered with massive white space."
-    },
-    "ko": {
-      "identity": {
-        "keywords": [
-          "미니멀",
-          "깔끔",
-          "미니멀리스트",
-          "기하학적",
-          "추상적"
-        ],
-        "analogy": "단일 기하학적 악센트가 있는 백지 캔버스",
-        "oneLiner": "미세한 기하학적 그래픽과 단순한 로고타입을 배치한 고도로 미니멀한 백지 캔버스 디자인입니다."
-      },
-      "colors": {
-        "principle": "화이트 배경에 단일 고채도 블루 악센트와 중립적인 그레이 톤을 사용합니다."
-      },
-      "typography": {
-        "rules": [],
-        "scaleUses": [
-          "로고 텍스트"
-        ]
-      },
-      "spacing": {
-        "rhythm": "넉넉한 화이트 스페이스"
-      },
-      "surfaces": {
-        "shadows": [],
-        "borders": "보이지 않음"
-      },
-      "layout": {
-        "skeleton": "보이는 구조가 없는 중앙 정렬 레이아웃"
-      },
-      "components": {
-        "button": "보이지 않음",
-        "card": "보이지 않음",
-        "chip": "보이지 않음",
-        "input": "보이지 않음",
-        "hero": "전체 페이지 중앙 정렬 그래픽 및 로고"
-      },
-      "interaction": {
-        "hover": "보이지 않음",
-        "click": "보이지 않음",
-        "transition": "보이지 않음",
-        "keyboard": "보이지 않음"
-      },
-      "voice": {
-        "tone": "고요하고 추상적",
-        "headlineStyle": "단순하고 소문자 로고타입",
-        "ctaStyle": "보이지 않음",
-        "avoid": [
-          "복잡성",
-          "시각적 혼잡",
-          "과도한 텍스트"
-        ]
-      },
-      "donts": [
-        "바쁜 배경을 사용하지 마세요 — 스크린샷은 단색 화이트 배경을 보여줍니다.",
-        "불필요한 텍스트를 추가하지 마세요 — 스크린샷은 로고와 그래픽만을 보여줍니다.",
-        "여러 악센트 컬러를 사용하지 마세요 — 스크린샷은 단일 블루 악센트만을 보여줍니다.",
-        "둥근 컨테이너나 카드를 사용하지 마세요 — 스크린샷은 완전히 플랫하고 테두리 없는 레이아웃을 보여줍니다.",
-        "복잡한 타이포그래피 계층을 사용하지 마세요 — 스크린샷은 단순하고 단일 웨이트의 로고타입을 보여줍니다.",
-        "드롭 섀도우나 깊이감을 추가하지 마세요 — 스크린샷은 완전히 플랫한 디자인을 보여줍니다."
-      ],
-      "systemPrompt": "이 페이지는 화이트 배경, 단순한 기하학적 링 그래픽, 그리고 로고타입으로 구성된 하이퍼-미니멀리스트 추상 랜딩 페이지입니다. 팔레트는 화이트(#FFFFFF)에 중립적인 그레이(#C8C8C8, #4A4A4A)와 단일 뮤트 블루 악센트(#1F5182)로 엄격히 제한됩니다. 타이포그래피는 로고타입을 위해 단순한 슬래브 세리프 계열을 사용합니다. 중요한 금지 사항: 보이는 내비게이션, 헤더, 푸터를 추가하지 마세요; 여러 악센트 컬러나 복잡한 그라디언트를 절대 사용하지 마세요; 로고 외에 모든 텍스트 추가를 피하세요; 테두리, 섀도우, 컨테이너 배경을 사용하지 마세요; 레이아웃을 막대한 화이트 스페이스와 함께 엄격히 중앙 정렬로 유지하세요."
+      "easing": "cubic-bezier(0.4, 0, 0.2, 1)"
     }
   },
   "desc": {
     "en": {
-      "palette": "A stark white background with neutral grays and a single muted blue accent color.",
-      "layout": "A completely blank, centered layout featuring only a geometric graphic and a logotype.",
-      "interaction": "No interactive elements or hover states are visible in this minimal design.",
-      "motion": "No animations or transitions are visible in this static, minimalist composition.",
-      "notes": "This site is worth including as a prime example of extreme minimalism and the power of negative space in modern web design."
+      "palette": "A strictly monochromatic and warm neutral palette, using a light off-white background with black and various shades of grey for text and borders.",
+      "layout": "A centered, single-column layout for the hero section, transitioning into a focused, card-based component layout with generous whitespace.",
+      "interaction": "Subtle and smooth transitions on hover and focus states, providing clear feedback without visual distraction.",
+      "motion": "Minimal and purposeful motion, using quick, smooth transitions to enhance usability and focus.",
+      "notes": "This site exemplifies how a restrained, high-contrast design can create a professional and focused user experience, making it a strong reference for clean SaaS interfaces."
     },
     "zh-CN": {
       "palette": "纯白背景，搭配中性灰和单一的柔和蓝色作为点缀色。",
@@ -515,6 +216,408 @@
       "ch7_intro": "움직임은 눈에 보이는 구성에서 부재하며, 정적 순수성의 철학을 반영합니다. 모든 시스템 수준의 전환은 단일의 절제된 cubic-bezier 이징 커브에 의해 제어됩니다.",
       "ch8_intro": "에디토리얼 음성은 거의 완벽한 텍스트의 부재를 통해 전달되는 조용하고 추상적입니다. 복잡성, 시각적 혼잡, 과도한 설명을 피하고 순수한 시각적 진술을 지향합니다.",
       "ch8_outro": "빈 캔버스의 무결성을 보존하기 위해 인터랙티브 컴포넌트, 네비게이션, 그리고 내러티브 콘텐츠는 의도적으로 생략합니다."
+    }
+  },
+  "spec_i18n": {
+    "en": {
+      "identity": {
+        "keywords": [
+          "decision intelligence",
+          "leadership",
+          "efficiency",
+          "intentionality"
+        ],
+        "analogy": "A calm, focused command center for high-stakes strategic decisions.",
+        "oneLiner": "A refined, light-themed decision system for tech leaders navigating AI-driven speed."
+      },
+      "colors": {
+        "principle": "High-contrast ink on a muted, warm off-white creates a calm, focused environment for serious decision-making."
+      },
+      "typography": {
+        "rules": [
+          "Use geometric sans for large display and headline text",
+          "Use humanist sans for body and UI text",
+          "Use monospace for code snippets and technical content"
+        ],
+        "scaleUses": [
+          "Hero primary headline",
+          "Hero secondary headline",
+          "Primary body text",
+          "Uppercase supporting text"
+        ]
+      },
+      "spacing": {
+        "rhythm": "8px vertical rhythm enforced by padding and gap multiples of 8."
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 1px 8px -2px rgba(0,0,0,0.06)",
+          "0px 4px 7px 0px rgba(0,0,0,0.05)",
+          "0px 1px 2px 0px rgba(0,0,0,0.07)"
+        ],
+        "borders": "1px solid rgba(0,0,0,0.09)"
+      },
+      "layout": {
+        "skeleton": "Centered single-column hero layout with a primary text area nested in a light card."
+      },
+      "components": {
+        "button": "Pill-shaped with strong contrast; black fill or light fill with subtle shadow.",
+        "card": "Light off-white container with subtle inner shadow and soft border.",
+        "chip": "Small, rounded-rectangles for quick selection options.",
+        "input": "Large text area with soft shadow and rounded corners.",
+        "hero": "Centered text-driven section with a large, bold statement and supporting subhead."
+      },
+      "motion": {
+        "patterns": [
+          "Subtle opacity transitions on hover",
+          "Smooth color and background-color transitions on interactive elements"
+        ]
+      },
+      "interaction": {
+        "hover": "Subtle background or color shift on interactive elements.",
+        "click": "Immediate visual feedback via color or opacity change.",
+        "transition": "All interactive properties transition smoothly over 150-200ms.",
+        "keyboard": "Standard focus rings for accessibility."
+      },
+      "voice": {
+        "tone": "Confident, direct, and professional.",
+        "headlineStyle": "Concise, punchy statements that frame a problem or insight.",
+        "ctaStyle": "Action-oriented and clear, using verbs like 'Talk' or 'Try'.",
+        "avoid": [
+          "Excessive jargon or overly technical language in headlines",
+          "Playful or informal language that undermines the serious nature of decisions",
+          "Vague or passive phrasing"
+        ]
+      },
+      "donts": [
+        "Don't use vibrant, saturated accent colors — screenshot shows a strictly monochromatic palette with warm off-white background.",
+        "Don't use heavy drop shadows — screenshot shows very subtle, soft shadows for depth.",
+        "Don't use sharp, 90-degree corners — screenshot shows consistently rounded corners, even on buttons.",
+        "Don't use thin, light fonts for headlines — screenshot shows clear weight contrast between display and body text.",
+        "Don't use wide, blocky layouts — screenshot shows a centered, airy layout with generous whitespace.",
+        "Don't use complex, multi-colored gradients — screenshot shows subtle, almost monochromatic background variations."
+      ],
+      "systemPrompt": "This is a refined SaaS landing page for a decision-making tool, positioning itself as an essential system for tech leaders. The visual identity is clean and calm, built on a warm off-white background (#F5F4EE) with high-contrast black ink (#000000) for text. The typography uses geometric and humanist sans-serif categories for clarity and approachability. Critical design rules include: 1) maintain a strictly monochromatic palette without colorful accents, 2) use soft, subtle shadows and rounded corners to create a sense of lightness and focus, and 3) keep layouts centered and airy to emphasize the primary message. The overall feel is one of restrained, professional authority."
+    },
+    "zh-CN": {
+      "identity": {
+        "keywords": [
+          "决策智能",
+          "领导力",
+          "效率",
+          "目标明确"
+        ],
+        "analogy": "一个冷静、专注的指挥中心，用于处理高风险的战略决策。",
+        "oneLiner": "为驾驭 AI 驱动速度的科技领导者打造的精致、浅色主题决策系统。"
+      },
+      "colors": {
+        "principle": "在柔和、温暖的灰白色背景上使用高对比度的墨色，为严肃的决策环境营造冷静、专注的氛围。"
+      },
+      "typography": {
+        "rules": [
+          "使用几何无衬线字体用于大号展示文本和标题",
+          "使用人文无衬线字体用于正文和界面文本",
+          "使用等宽字体用于代码片段和技术内容"
+        ],
+        "scaleUses": [
+          "主视觉主标题",
+          "主视觉副标题",
+          "主正文文本",
+          "大写辅助文本"
+        ]
+      },
+      "spacing": {
+        "rhythm": "通过 8 倍数的 padding 和 gap 强制执行 8px 的垂直节奏。"
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 1px 8px -2px rgba(0,0,0,0.06)",
+          "0px 4px 7px 0px rgba(0,0,0,0.05)",
+          "0px 1px 2px 0px rgba(0,0,0,0.07)"
+        ],
+        "borders": "1px solid rgba(0,0,0,0.09)"
+      },
+      "layout": {
+        "skeleton": "居中的单栏主视觉布局，主文本区域嵌套在浅色卡片中。"
+      },
+      "components": {
+        "button": "药丸形状，对比度高；黑色填充或浅色填充，带有细微阴影。",
+        "card": "浅灰白色容器，带有细微内阴影和柔和边框。",
+        "chip": "小型圆角矩形，用于快速选择选项。",
+        "input": "大号文本区域，带有柔和阴影和圆角。",
+        "hero": "以居中文本为主的部分，包含一个大号、加粗的声明和辅助副标题。"
+      },
+      "motion": {
+        "patterns": [
+          "悬停时细微的透明度过渡",
+          "交互元素上平滑的颜色和背景色过渡"
+        ]
+      },
+      "interaction": {
+        "hover": "交互元素上细微的背景或颜色变化。",
+        "click": "通过颜色或透明度变化提供即时视觉反馈。",
+        "transition": "所有交互属性在 150-200ms 内平滑过渡。",
+        "keyboard": "标准焦点环以确保可访问性。"
+      },
+      "voice": {
+        "tone": "自信、直接且专业。",
+        "headlineStyle": "简洁、有力的陈述，用于框定问题或洞察。",
+        "ctaStyle": "以行动为导向且清晰，使用‘交谈’或‘尝试’等动词。",
+        "avoid": [
+          "标题中使用过多行话或过于技术性的语言",
+          "使用俏皮或非正式的语言，这会削弱决策的严肃性",
+          "使用模糊或被动的措辞"
+        ]
+      },
+      "donts": [
+        "不要使用鲜艳、饱和的强调色——截图显示严格的单色调色板，背景为暖灰白色。",
+        "不要使用厚重的投影——截图显示非常细微、柔和的阴影以营造深度。",
+        "不要使用尖锐的 90 度角——截图显示一致的圆角，甚至在按钮上也是如此。",
+        "不要对标题使用纤细、轻质的字体——截图显示展示文本和正文文本之间有明显的字重对比。",
+        "不要使用宽大、块状的布局——截图显示居中、通风的布局，带有充裕的留白。",
+        "不要使用复杂、多彩的渐变——截图显示细微、近乎单色的背景变化。"
+      ],
+      "systemPrompt": "这是一个为决策工具设计的精致 SaaS 落地页，将自身定位为科技领导者必不可少的系统。视觉识别干净而冷静，建立在温暖的灰白色背景（#F5F4EE）和用于文本的高对比度墨色（#000000）之上。字体使用几何和人文无衬线字体类别，以确保清晰度和亲和力。关键设计规则包括：1）保持严格的单色调色板，不使用彩色强调色，2）使用柔和、细微的阴影和圆角，营造轻盈感和专注感，3）保持布局居中且通风，以强调主要信息。整体感觉是克制而专业的权威感。"
+    },
+    "zh-TW": {
+      "identity": {
+        "keywords": [
+          "決策智慧",
+          "領導力",
+          "效率",
+          "目標明確"
+        ],
+        "analogy": "一個為高風險策略決策準備的冷靜、專注的指揮中心。",
+        "oneLiner": "一個為在 AI 驅動速度中航行的科技領袖設計的精緻、淺色系決策系統。"
+      },
+      "colors": {
+        "principle": "在柔和的暖調灰白色上使用高對比墨色，為嚴肅的決策創造一個冷靜、專注的環境。"
+      },
+      "typography": {
+        "rules": [
+          "大型展示標題與標題文字使用幾何無襯線字體",
+          "內文與介面文字使用人文無襯線字體",
+          "程式碼片段與技術內容使用等寬字體"
+        ],
+        "scaleUses": [
+          "主視覺主標題",
+          "主視覺副標題",
+          "主要內文文字",
+          "大寫輔助文字"
+        ]
+      },
+      "spacing": {
+        "rhythm": "透過 8 的倍數的 padding 和 gap 強制執行 8px 垂直節奏。"
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 1px 8px -2px rgba(0,0,0,0.06)",
+          "0px 4px 7px 0px rgba(0,0,0,0.05)",
+          "0px 1px 2px 0px rgba(0,0,0,0.07)"
+        ],
+        "borders": "1px solid rgba(0,0,0,0.09)"
+      },
+      "layout": {
+        "skeleton": "以中央單欄主視覺佈局為主，主要文字區域嵌套在一個淺色卡片中。"
+      },
+      "components": {
+        "button": "膠囊形狀並具有高對比；實心黑色填充或帶有輕微陰影的淺色填充。",
+        "card": "淺灰白色容器，帶有輕微的內陰影和柔和邊框。",
+        "chip": "小型圓角矩形，用於快速選擇選項。",
+        "input": "大型文字輸入區，帶有柔和陰影和圓角。",
+        "hero": "以中央文字為主的區塊，包含一個大型粗體聲明和輔助標題。"
+      },
+      "motion": {
+        "patterns": [
+          "互動元素在 hover 時輕微的 opacity 轉場",
+          "互動元素的顏色與 background-color 平滑轉場"
+        ]
+      },
+      "interaction": {
+        "hover": "互動元素在 hover 時輕微的背景或顏色變化。",
+        "click": "透過顏色或 opacity 變化提供即時視覺回饋。",
+        "transition": "所有互動屬性在 150-200ms 內平滑過渡。",
+        "keyboard": "標準的焦點環，以確保無障礙訪問。"
+      },
+      "voice": {
+        "tone": "自信、直接且專業。",
+        "headlineStyle": "簡潔有力的陳述，用以框定問題或洞見。",
+        "ctaStyle": "以行動為導向且清晰，使用如「對談」或「試用」等動詞。",
+        "avoid": [
+          "標題中過多術語或過於技術性的語言",
+          "削弱決策嚴肅性的俏皮或非正式語言",
+          "模糊或被動的措辭"
+        ]
+      },
+      "donts": [
+        "不要使用鮮豔、飽和的強調色 —— 畫面截圖顯示為嚴格的單色調色板搭配暖調灰白色背景。",
+        "不要使用厚重的投影 —— 畫面截圖顯示非常輕微、柔和的陰影來營造深度。",
+        "不要使用銳利的 90 度角 —— 畫面截圖顯示一致的圓角，即使是按鈕也是如此。",
+        "不要使用細薄、輕巧的字體作為標題 —— 畫面截圖顯示展示文字與內文文字之間明顯的粗細對比。",
+        "不要使用寬闊、方塊狀的佈局 —— 留面截圖顯示一個居中、寬敞的佈局，留有大量的空白。",
+        "不要使用複雜、多彩的漸層 —— 畫面截圖顯示輕微、幾乎是單色的背景變化。"
+      ],
+      "systemPrompt": "這是一個為決策工具設計的精緻 SaaS 落地頁，將自身定位為科技領袖的必要系統。視覺識別乾淨且冷靜，建立在暖調灰白色背景（#F5F4EE）上，並使用高對比的墨色（#000000）作為文字。字體使用幾何與人文無襯線字體類別以確保清晰度與親和力。關鍵設計規則包括：1) 維持嚴格的單色調色板，不使用彩色強調色，2) 使用輕柔、細微的陰影和圓角來營造輕盈與專注感，以及 3) 保持佈局居中且寬敞以強調主要訊息。整體感覺是克制、專業的權威感。"
+    },
+    "ja": {
+      "identity": {
+        "keywords": [
+          "意思決定インテリジェンス",
+          "リーダーシップ",
+          "効率性",
+          "意図性"
+        ],
+        "analogy": "高リスクの戦略的意思決定のための、冷静で集中力の高い司令塔。",
+        "oneLiner": "AIが駆動するスピードを navigation するテクノロジーのリーダーのための、洗練されたライトテーマの意思決定システム。"
+      },
+      "colors": {
+        "principle": "落ち着いた温かみのあるオフホワイトの背景に、高コントラストのインクを配置することで、シリアスな意思決定に適した冷静で集中力の高い環境を生み出します。"
+      },
+      "typography": {
+        "rules": [
+          "大きなディスプレイテキストと見出しにはジオメトリックsansを使用",
+          "本文とUIテキストにはヒューマニストsansを使用",
+          "コードスニペットと技術コンテンツにはモノスペースを使用"
+        ],
+        "scaleUses": [
+          "ヒーロー主見出し",
+          "ヒーロー副見出し",
+          "主本文テキスト",
+          "大文字の補助テキスト"
+        ]
+      },
+      "spacing": {
+        "rhythm": "paddingとgapを8の倍数に設定し、8pxの垂直リズムを維持します。"
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 1px 8px -2px rgba(0,0,0,0.06)",
+          "0px 4px 7px 0px rgba(0,0,0,0.05)",
+          "0px 1px 2px 0px rgba(0,0,0,0.07)"
+        ],
+        "borders": "1px solid rgba(0,0,0,0.09)"
+      },
+      "layout": {
+        "skeleton": "ライトカード内に主要テキストエリアを配置した、中央揃えのシングルカラムヒーローレイアウト。"
+      },
+      "components": {
+        "button": "強調されたコントラストを持つピル型。黒の塗りつぶし、または微妙なシャドウを持つライトの塗りつぶし。",
+        "card": "内側に微細なシャドウとソフトボーダーを持つ、ライトオフホワイトのコンテナ。",
+        "chip": "クイック選択オプションのための、小さな角丸矩形。",
+        "input": "ソフトシャドウと角丸を持つ大きなテキストエリア。",
+        "hero": "大きな太字のステートメントと補足サブヘッドを持つ、中央揃えのテキスト主体セクション。"
+      },
+      "motion": {
+        "patterns": [
+          "hover時の微細なopacity変化",
+          "インタラクティブ要素でのスムーズなcolorとbackground-colorの変化"
+        ]
+      },
+      "interaction": {
+        "hover": "インタラクティブ要素の背景や色の微細な変化。",
+        "click": "色やopacityの変化による即座の視覚的フィードバック。",
+        "transition": "すべてのインタラクティブプロパティを150-200msでスムーズに変化。",
+        "keyboard": "アクセシビリティのための標準的なフォーカスリング。"
+      },
+      "voice": {
+        "tone": "自信に満ち、率直で、専門的。",
+        "headlineStyle": "問題や洞察を明確にする、簡潔で力強いステートメント。",
+        "ctaStyle": "「会話する」「試す」のような動詞を用いた、行動を促す明確な表現。",
+        "avoid": [
+          "見出しにおける過度な専門用語や技術的な言葉の使用",
+          "意思決定のシリアスさを損なうような遊び心のあるまたはカジュアルな言葉の使用",
+          "曖昧な、または受動的な表現"
+        ]
+      },
+      "donts": [
+        "鮮やかで彩度の高いアクセントカラーを使用しない — スクリーンショットでは、温かみのあるオフホワイト背景の厳密にモノクロのカラーパレットが示されています。",
+        "重いドロップシャドウを使用しない — スクリーンショットでは、奥行きを出すための非常に微細でソフトなシャドウが示されています。",
+        "シャープな90度の角を使用しない — スクリーンショットでは、ボタンでさえも一貫して角丸が示されています。",
+        "見出しに細く軽いフォントを使用しない — スクリーンショットでは、ディスプレイテキストと本文の間にはっきりとしたウェイトのコントラストが示されています。",
+        "幅広で塊のようなレイアウトを使用しない — スクリーンショットでは、中央揃えでゆったりとした余白のあるレイアウトが示されています。",
+        "複雑で多色のグラデーションを使用しない — スクリーンショットでは、ほぼモノクロの微細な背景の変化が示されています。"
+      ],
+      "systemPrompt": "これは、意思決定ツールのための洗練されたSaaSランディングページであり、テクノロジーのリーダーにとって不可欠なシステムとしてポジショニングされています。ビジュアルアイデンティティはクリーンで落ち着いており、温かみのあるオフホワイト背景（#F5F4EE）と、テキスト用の高コントラストのブラックインク（#000000）を基盤としています。タイポグラフィは明瞭さと親しみやすさのためにジオメトリックおよびヒューマニストサンセリフカテゴリを使用しています。重要なデザインルールには以下が含まれます：1）カラフルなアクセントなしの厳密にモノクロのカラーパレットを維持する、2）軽やかさと集中感を生み出すためにソフトで微細なシャドウと角丸を使用する、3）主メッセージを強調するためにレイアウトを中央揃えでゆったりと保つ。全体的な印象は、抑制された、プロフェッショナルな権威です。"
+    },
+    "ko": {
+      "identity": {
+        "keywords": [
+          " 의사결정 인텔리전스",
+          " 리더십",
+          " 효율성",
+          " 의도성"
+        ],
+        "analogy": " high-stakes 전략적 의사결정을 위한 차분하고 집중된 지휘 센터.",
+        "oneLiner": " AI 주도 속도를 탐색하는 기술 리더를 위한 정교하고 밝은 테마의 의사결정 시스템."
+      },
+      "colors": {
+        "principle": " muted하고 따뜻한 off-white 배경 위의 고대비 잉크는 심각한 의사결정을 위한 차분하고 집중된 환경을 조성합니다."
+      },
+      "typography": {
+        "rules": [
+          " large display 및 headline 텍스트에는 기하학적 sans를 사용합니다",
+          " 본문 및 UI 텍스트에는 인본주의적 sans를 사용합니다",
+          " code 스니펫 및 기술 콘텐츠에는 모노스페이스를 사용합니다"
+        ],
+        "scaleUses": [
+          " Hero 주요 headline",
+          " Hero 부headline",
+          " 주요 본문 텍스트",
+          " 대문자 보조 텍스트"
+        ]
+      },
+      "spacing": {
+        "rhythm": " padding 및 gap 배수인 8px 수직 리듬이 적용됩니다."
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 1px 8px -2px rgba(0,0,0,0.06)",
+          "0px 4px 7px 0px rgba(0,0,0,0.05)",
+          "0px 1px 2px 0px rgba(0,0,0,0.07)"
+        ],
+        "borders": "1px solid rgba(0,0,0,0.09)"
+      },
+      "layout": {
+        "skeleton": " 밝은 카드 안에 주요 텍스트 영역이 중첩된 중앙 정렬 단일-column hero 레이아웃입니다."
+      },
+      "components": {
+        "button": " 강한 대비의 pill 모양입니다. 검정 채우거나 미세한 그림자가 있는 밝은 채우기입니다.",
+        "card": " 미세한 내부 그림자와 부드러운 테두리가 있는 밝은 off-white 컨테이너입니다.",
+        "chip": " 빠른 선택 옵션을 위한 작은 둥근 사각형입니다.",
+        "input": " 부드러운 그림자와 둥근 모서리가 있는 큰 텍스트 영역입니다.",
+        "hero": " 크고 굵은 진술과 보조 부제가 있는 중앙 정렬 텍스트 중심 섹션입니다."
+      },
+      "motion": {
+        "patterns": [
+          " hover 시 미세한 opacity 전환",
+          " 대화형 요소에서 부드러운 색상 및 background-color 전환"
+        ]
+      },
+      "interaction": {
+        "hover": " 대화형 요소에 미세한 배경 또는 색상 변화.",
+        "click": " 색상 또는 opacity 변화를 통한 즉각적인 시각적 피드백.",
+        "transition": " 모든 대화형 속성이 150-200ms 동안 부드럽게 전환됩니다.",
+        "keyboard": " 접근성을 위한 표준 focus ring."
+      },
+      "voice": {
+        "tone": " 자신감 있고直接적이며 전문적입니다.",
+        "headlineStyle": " 문제나 통찰을 제시하는 간결하고 강렬한 진술.",
+        "ctaStyle": " 'Talk' 또는 'Try' 같은 동사를 사용하는 행동 지향적이고 명확한 표현.",
+        "avoid": [
+          " headline에서 과도한 전문 용어 또는 지나치게 기술적인 언어 사용",
+          " 의사결정의 심각성을 훼손하는 장난기 있거나 비공식적인 언어 사용",
+          " 모호하거나 수동적인 표현"
+        ]
+      },
+      "donts": [
+        " 선명하고 포화된 강조색을 사용하지 마세요 — 스크린샷은 따뜻한 off-white 배경의 철저히 단색 팔레트를 보여줍니다.",
+        " 무거운 drop shadow를 사용하지 마세요 — 스크린샷은 깊이감을 위한 매우 미세하고 부드러운 그림자를 보여줍니다.",
+        " 날카로운 90도 모서리를 사용하지 마세요 — 스크린샷은 버튼에서도 일관되게 둥근 모서리를 보여줍니다.",
+        " headline에 얇고 가벼운 폰트를 사용하지 마세요 — 스크린샷은 display와 본문 텍스트 간의 명확한 무게 대비를 보여줍니다.",
+        " 넓고 벌크한 레이아웃을 사용하지 마세요 — 스크린샷은 넉넉한 여백이 있는 중앙 정렬되고 통기성 있는 레이아웃을 보여줍니다.",
+        " 복잡하고 다채로운 gradient를 사용하지 마세요 — 스크린샷은 거의 단색에 가까운 미세한 배경 변화를 보여줍니다."
+      ],
+      "systemPrompt": "これは、技術リーダーにとって不可欠なシステムとして位置付けられた、意思決定ツールの洗練されたSaaSランディングページです。ビジュアルアイデンティティは清潔で落ち着いており、テキストには温かみのあるoff-white背景（#F5F4EE）と高コントラストの黒いインク（#000000）をベースに構築されています。タイポグラフィは明確さと親しみやすさのために、幾何学的なsansとヒューマニストsansのカテゴリを使用しています。重要なデザインルールには、1) 色鮮やかなアクセントカラーなしの厳格なモノクロームパレットの維持、2) 軽さと焦点感を生み出すためのソフトで微細なシャドウと角丸の使用、3) 主要メッセージを強調するための中央配置で息の通いたレイアウトの保持が含まれます。全体的な印象は、抑制的で專業的な権威です。"
     }
   }
 }
