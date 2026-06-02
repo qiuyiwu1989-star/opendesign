@@ -696,7 +696,7 @@ def normalize_surfaces(site: dict) -> None:
     LIST_FIELDS = {
         "motion": ["patterns", "principles"],
         "interaction": ["patterns"],
-        "voice": ["doList", "dontList"],
+        "voice": ["doList", "dontList", "do", "avoid", "prefer"],  # schema 要 array；mimo 偶尔给 string
     }
     blocks = [site.get("spec")] + list((site.get("spec_i18n") or {}).values())
     for b in blocks:
