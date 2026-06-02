@@ -254,6 +254,21 @@ HTML_TEMPLATE = """<!doctype html>
   .langs a.active {{ color: #b4451c; }}
   footer {{ margin-top: 80px; padding-top: 32px; border-top: 1px solid #e7e5e4; color: #737373; font-size: 12px; }}
   footer a {{ color: #0a0a0a; }}
+  .actions {{ margin: 28px 0 8px; }}
+  .swatches {{ display: flex; flex-wrap: wrap; gap: 16px; margin: 16px 0 8px; }}
+  .sw {{ display: flex; flex-direction: column; gap: 6px; }}
+  .sw .chip {{ width: 64px; height: 64px; border-radius: 8px; border: 1px solid #e7e5e4; }}
+  .sw code {{ color: #1f1f1f; font-size: 11px; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }}
+  .sw em {{ color: #737373; font-style: normal; letter-spacing: 0.06em; text-transform: uppercase; font-size: 10px; }}
+  .typescale {{ list-style: none; padding: 0; margin: 16px 0; }}
+  .typescale li {{ display: flex; align-items: baseline; justify-content: space-between; gap: 20px; padding: 12px 0; border-bottom: 1px solid #f0efed; }}
+  .typescale .sample {{ line-height: 1.1; color: #0a0a0a; overflow: hidden; white-space: nowrap; }}
+  .typescale code {{ color: #737373; font-size: 12px; white-space: nowrap; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }}
+  .typemeta {{ font-size: 13px; color: #737373; margin: 8px 0 0; }}
+  .agent {{ background: #faf8f3; border: 1px solid #efe9dd; border-radius: 10px; padding: 20px 24px; margin: 48px 0; }}
+  .agent h3 {{ margin: 0 0 6px; font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: #b4451c; font-weight: 600; }}
+  .agent p {{ margin: 0 0 12px; font-size: 14px; color: #1f1f1f; }}
+  .agent a {{ color: #0a0a0a; font-size: 14px; margin-right: 18px; white-space: nowrap; }}
 </style>
 <script type="application/ld+json">
 {json_ld}
@@ -270,13 +285,18 @@ HTML_TEMPLATE = """<!doctype html>
 
 <img class="screenshot" src="{screenshot_url}" alt="{title} {screenshot_alt}" loading="lazy" />
 
+<div class="actions">
+  {download_block}<a class="cta ghost" href="{spa_url}">{open_in_app}</a>
+</div>
+
 <div class="meta">
   <p>{visit_label}: <a href="{site_url}" target="_blank" rel="noreferrer">{site_url}</a></p>
   {pack_html}
 </div>
 
-<a class="cta" href="{spa_url}">{open_in_app}</a>
-{pack_cta}
+{palette_block}
+
+{type_block}
 
 <h2>{insights_h2}</h2>
 <div class="insight">
@@ -285,6 +305,8 @@ HTML_TEMPLATE = """<!doctype html>
   <section><h3>{label_interaction}</h3><p>{desc_interaction}</p></section>
   <section><h3>{label_motion}</h3><p>{desc_motion}</p></section>
 </div>
+
+{agent_block}
 
 <p class="langs">
   {lang_links}
@@ -300,11 +322,11 @@ HTML_TEMPLATE = """<!doctype html>
 """
 
 LABELS = {
-    "en":    { "eyebrow": "CURATED · OPEN · FREE", "visit": "Visit", "open_in_app": "Open in OpenDesign", "open_pack": "Download design pack", "insights_h2": "Design DNA", "label_color": "Visual language", "label_layout": "Layout structure", "label_interaction": "Interaction shape", "label_motion": "Motion rules", "notes_label": "Why we curated this", "screenshot_alt": "screenshot" },
-    "zh-CN": { "eyebrow": "精选 · 开放 · 免费", "visit": "原站", "open_in_app": "在 OpenDesign 中打开", "open_pack": "下载素材包", "insights_h2": "设计 DNA", "label_color": "视觉语言", "label_layout": "布局结构", "label_interaction": "交互形态", "label_motion": "动效规则", "notes_label": "为什么收录", "screenshot_alt": "网站截图" },
-    "zh-TW": { "eyebrow": "精選 · 開放 · 免費", "visit": "原站", "open_in_app": "在 OpenDesign 中開啟", "open_pack": "下載素材包", "insights_h2": "設計 DNA", "label_color": "視覺語言", "label_layout": "版面結構", "label_interaction": "互動形態", "label_motion": "動效規則", "notes_label": "為什麼收錄", "screenshot_alt": "網站截圖" },
-    "ja":    { "eyebrow": "厳選・オープン・無料", "visit": "オリジナル", "open_in_app": "OpenDesign で開く", "open_pack": "デザインパックをダウンロード", "insights_h2": "デザイン DNA", "label_color": "視覚言語", "label_layout": "レイアウト構造", "label_interaction": "インタラクション形態", "label_motion": "モーション規則", "notes_label": "なぜ収録", "screenshot_alt": "のスクリーンショット" },
-    "ko":    { "eyebrow": "큐레이션 · 오픈 · 무료", "visit": "원본 사이트", "open_in_app": "OpenDesign 에서 열기", "open_pack": "디자인 팩 다운로드", "insights_h2": "디자인 DNA", "label_color": "시각 언어", "label_layout": "레이아웃 구조", "label_interaction": "인터랙션 형태", "label_motion": "모션 규칙", "notes_label": "왜 수록", "screenshot_alt": "스크린샷" }
+    "en":    { "eyebrow": "CURATED · OPEN · FREE", "visit": "Visit", "open_in_app": "Open in OpenDesign", "open_pack": "Download design pack", "insights_h2": "Design DNA", "label_color": "Visual language", "label_layout": "Layout structure", "label_interaction": "Interaction shape", "label_motion": "Motion rules", "notes_label": "Why we curated this", "screenshot_alt": "screenshot", "download_pack": "Download design system", "browse_pack": "Browse pack contents", "palette_h2": "Color palette", "type_h2": "Type scale", "agent_h3": "Bring this taste to your agent", "agent_desc": "Hand your AI agent a machine-readable spec of this design — tokens, type, motion, the whole DNA.", "agent_skill": "OpenDesign skill", "agent_pack": "This pack for agents" },
+    "zh-CN": { "eyebrow": "精选 · 开放 · 免费", "visit": "原站", "open_in_app": "在 OpenDesign 中打开", "open_pack": "下载素材包", "insights_h2": "设计 DNA", "label_color": "视觉语言", "label_layout": "布局结构", "label_interaction": "交互形态", "label_motion": "动效规则", "notes_label": "为什么收录", "screenshot_alt": "网站截图", "download_pack": "下载设计系统包", "browse_pack": "浏览包内文件", "palette_h2": "色板", "type_h2": "字阶", "agent_h3": "把这份品味接进你的 Agent", "agent_desc": "把这套设计的机器可读规格——色彩、字体、动效，整套 DNA——直接交给你的 AI Agent。", "agent_skill": "OpenDesign 技能", "agent_pack": "本站 Agent 包" },
+    "zh-TW": { "eyebrow": "精選 · 開放 · 免費", "visit": "原站", "open_in_app": "在 OpenDesign 中開啟", "open_pack": "下載素材包", "insights_h2": "設計 DNA", "label_color": "視覺語言", "label_layout": "版面結構", "label_interaction": "互動形態", "label_motion": "動效規則", "notes_label": "為什麼收錄", "screenshot_alt": "網站截圖", "download_pack": "下載設計系統包", "browse_pack": "瀏覽包內檔案", "palette_h2": "色板", "type_h2": "字階", "agent_h3": "把這份品味接進你的 Agent", "agent_desc": "把這套設計的機器可讀規格——色彩、字體、動效，整套 DNA——直接交給你的 AI Agent。", "agent_skill": "OpenDesign 技能", "agent_pack": "本站 Agent 包" },
+    "ja":    { "eyebrow": "厳選・オープン・無料", "visit": "オリジナル", "open_in_app": "OpenDesign で開く", "open_pack": "デザインパックをダウンロード", "insights_h2": "デザイン DNA", "label_color": "視覚言語", "label_layout": "レイアウト構造", "label_interaction": "インタラクション形態", "label_motion": "モーション規則", "notes_label": "なぜ収録", "screenshot_alt": "のスクリーンショット", "download_pack": "デザインシステムをダウンロード", "browse_pack": "パックの中身を見る", "palette_h2": "カラーパレット", "type_h2": "タイプスケール", "agent_h3": "このセンスを AI エージェントへ", "agent_desc": "この設計の機械可読な仕様——カラー・タイポ・モーションまで——をそのまま AI エージェントに渡せます。", "agent_skill": "OpenDesign スキル", "agent_pack": "このパック（エージェント用）" },
+    "ko":    { "eyebrow": "큐레이션 · 오픈 · 무료", "visit": "원본 사이트", "open_in_app": "OpenDesign 에서 열기", "open_pack": "디자인 팩 다운로드", "insights_h2": "디자인 DNA", "label_color": "시각 언어", "label_layout": "레이아웃 구조", "label_interaction": "인터랙션 형태", "label_motion": "모션 규칙", "notes_label": "왜 수록", "screenshot_alt": "스크린샷", "download_pack": "디자인 시스템 다운로드", "browse_pack": "팩 내용 보기", "palette_h2": "컬러 팔레트", "type_h2": "타입 스케일", "agent_h3": "이 감각을 당신의 에이전트에", "agent_desc": "이 디자인의 기계 판독 가능한 사양——색상·타이포·모션까지——을 그대로 AI 에이전트에 전달하세요.", "agent_skill": "OpenDesign 스킬", "agent_pack": "이 팩 (에이전트용)" }
 }
 
 
@@ -325,12 +347,74 @@ def render_site_html(site: dict, lang: str) -> str:
         f'<link rel="alternate" hreflang="{l}" href="{BASE_URL}/{l}/sites/{slug}" />' for l in LANGS
     ) + f'\n<link rel="alternate" hreflang="x-default" href="{BASE_URL}/en/sites/{slug}" />'
 
+    # ---- 下载包：以 packs-index（PACKS）为准。site.pack 多数没填，
+    #      之前 SEO 页只看 site.pack → 有包也不显示下载，这是「太简陋」的根因之一。
+    pack = PACKS.get(slug) if isinstance(PACKS, dict) else None
+    download_block = ""
     pack_html = ""
-    pack_cta = ""
-    if site.get("pack", {}).get("available"):
+    agent_pack_link = ""
+    if isinstance(pack, dict) and pack.get("zipFile"):
+        zip_url = f"/packs/{slug}/{pack['zipFile']}"
+        folder = pack.get("folderUrl") or f"/packs/{slug}/"
+        size_mb = (pack.get("zipSize", 0) or 0) / 1024 / 1024
+        download_block = f'<a class="cta" href="{zip_url}">↓ {L["download_pack"]} ({size_mb:.0f} MB)</a>'
+        pack_html = f'<p>📦 <a href="{folder}">{L["browse_pack"]} →</a></p>'
+        agent_pack_link = f' · <a href="{pack.get("agentUrl") or folder}">{L["agent_pack"]} ↗</a>'
+    elif site.get("pack", {}).get("available"):  # 兜底旧字段
         size_mb = site["pack"].get("zip_size", 0) / 1024 / 1024
-        pack_html = f'<p>📦 {L["open_pack"]} <a href="{site["pack"]["zip_url"]}">{site["pack"]["zip_url"]} ({size_mb:.1f} MB)</a></p>'
-        pack_cta = f'<a class="cta ghost" href="{site["pack"]["folder_url"]}">📦 {L["open_pack"]}</a>'
+        download_block = f'<a class="cta" href="{site["pack"]["zip_url"]}">↓ {L["download_pack"]} ({size_mb:.0f} MB)</a>'
+        pack_html = f'<p>📦 <a href="{site["pack"]["folder_url"]}">{L["browse_pack"]} →</a></p>'
+
+    # ---- 色板：把 spec.colors 渲染成可见色块（设计画廊就该直接给颜色看）----
+    spec = site.get("spec") or {}
+    colors = spec.get("colors") or {}
+    SW_LABELS = {"bg": "BG", "bgSoft": "BG soft", "bgQuiet": "BG quiet", "ink": "Ink",
+                 "inkSoft": "Ink soft", "accent": "Accent", "muted": "Muted",
+                 "mutedSoft": "Muted soft", "line": "Line"}
+    swatch_items, seen_colors = [], set()
+    for key in ["accent", "ink", "inkSoft", "bg", "bgSoft", "bgQuiet", "muted", "line"]:
+        v = colors.get(key)
+        if not v or not isinstance(v, str):
+            continue
+        if v.lower() in seen_colors:
+            continue
+        seen_colors.add(v.lower())
+        swatch_items.append(
+            f'<div class="sw"><span class="chip" style="background:{v}"></span>'
+            f'<code>{v}</code><em>{SW_LABELS.get(key, key)}</em></div>'
+        )
+    palette_block = ""
+    if swatch_items:
+        palette_block = (f'<h2>{L["palette_h2"]}</h2>\n<div class="swatches">\n'
+                         + "\n".join(swatch_items) + "\n</div>")
+
+    # ---- 字阶：把 spec.typography.scale 按真实字号渲染出来 ----
+    typ = spec.get("typography") or {}
+    type_rows = []
+    for item in (typ.get("scale") or []):
+        if not isinstance(item, dict) or not item.get("size"):
+            continue
+        token = item.get("token") or "Aa"
+        size = int(item["size"])
+        weight = item.get("weight", 400) or 400
+        render_size = min(size, 44)  # 防止 display 撑爆 760px 栏宽
+        type_rows.append(
+            f'<li><span class="sample" style="font-size:{render_size}px;font-weight:{weight}">{token}</span>'
+            f'<code>{size}px · {weight}</code></li>'
+        )
+    type_block = ""
+    if type_rows:
+        fams = list(dict.fromkeys(f for f in [typ.get("display"), typ.get("body"), typ.get("mono")] if f))
+        meta_line = f'<p class="typemeta">{" · ".join(fams)}</p>' if fams else ""
+        type_block = (f'<h2>{L["type_h2"]}</h2>\n{meta_line}\n<ul class="typescale">\n'
+                      + "\n".join(type_rows) + "\n</ul>")
+
+    # ---- 给你的 Agent：每页都有把这份品味喂给 AI 的入口 ----
+    agent_block = (
+        f'<div class="agent">\n  <h3>{L["agent_h3"]}</h3>\n'
+        f'  <p>{L["agent_desc"]}</p>\n'
+        f'  <a href="/skill.md">{L["agent_skill"]} ↗</a>{agent_pack_link}\n</div>'
+    )
 
     lang_links = " · ".join(
         f'<a class="{"active" if l == lang else ""}" href="{BASE_URL}/{l}/sites/{slug}">{l}</a>'
@@ -371,7 +455,10 @@ def render_site_html(site: dict, lang: str) -> str:
         pack_html=pack_html,
         spa_url=f"{BASE_URL}/#/sites/{slug}",
         open_in_app=L["open_in_app"],
-        pack_cta=pack_cta,
+        download_block=download_block,
+        palette_block=palette_block,
+        type_block=type_block,
+        agent_block=agent_block,
         insights_h2=L["insights_h2"],
         label_color=L["label_color"],
         label_layout=L["label_layout"],
