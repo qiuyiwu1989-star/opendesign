@@ -39,6 +39,16 @@ if [[ -z "${SKIP_MIMO:-}" ]]; then
     python3 extract/extract.py "$URL" --out "$EXDIR"
   fi
 
+  # 渲染质量门：headless 没渲染出来（空白 / 反爬墙 / 离线页）→ totalElementsVisible 极低。
+  # 绝不把废截图打包发布 ——「看着对、下载却是错的」的根因就在这。真站几百~几千，废页个位~几十。
+  VIS=$(python3 -c "import json;print(json.load(open('${EXDIR}/summary.json')).get('totalElementsVisible',0))" 2>/dev/null || echo 0)
+  if [[ "${VIS:-0}" -lt 50 ]]; then
+    echo "  ✗ ${SLUG} 没渲染出来（仅 ${VIS} 个可见元素，疑似空白/反爬/离线）。删 extract + 跳过，绝不发布废包。"
+    rm -rf "${EXDIR}"
+    git checkout "sites/${SLUG}.json" 2>/dev/null || true
+    exit 4
+  fi
+
   echo "▸ [2/6] mimo 处理真实提取 → grounded sites/${SLUG}.json"
   python3 scripts/ingest.py --from-extract "$EXDIR" --slug "$SLUG"
   # mimo 没成功完成（漏字段等）→ 还原该站，干净退出，绝不留 spec=None 的坏状态
