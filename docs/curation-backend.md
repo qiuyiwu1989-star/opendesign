@@ -132,6 +132,42 @@ mimo 分析（11 层 spec + 5 语言 desc/narrative）
 
 ---
 
+## 自动发现 → 一键收录（爬虫 + 任务队列）
+
+上面是「用户推荐 → 你审」的被动流。另有一条**主动**流：爬虫定期全网找有设计感的站，进「发现队列」，你点一下就走完整包管线。
+
+```
+①发现(全自动)              ②审阅(你)             ③收录(你点)          ④上线(一键)
+─────────────             ──────────           ──────────          ──────────
+服务器每天09:30 cron        后台「发现队列」        点「收录」           本地 bash scripts/drain.sh
+discover.py 爬 HN(多源)  →  缩略图+热度,收录/忽略 → collect 任务入队  →  跑完队列(升级/收录/刷新)→ 上线
+(benign:只读+写队列,不花钱)                                            (人在环,scp部署,仓库canonical)
+```
+
+**为什么发现能全自动、收录不能**：发现只读 HN API + 写队列，benign → 服务器 cron 放行。收录会跑 mimo（花钱）+ 部署 → 留「你跑一行 drain」的人工触发点（全自动 prod cron 会被安全护栏拦，也该拦）。
+
+### 一次性配置
+1. 应用 `0005_jobs.sql`（任务队列）+ `0006_discoveries.sql`（发现队列）—— SQL Editor 粘贴 Run。
+2. 本地建 `~/.opendesign-runner.env`（`chmod 600`，**不进 git**）：
+   ```bash
+   SB_URL=https://<proj>.supabase.co
+   SB_ANON_KEY=sb_publishable_xxx          # 公开 key，安全
+   RUNNER_TOKEN=<app_config.runner_token>  # scoped，drain 领活用
+   ANTHROPIC_API_KEY=tp-xxx                # 跑 升级/收录(mimo) 才需要
+   ANTHROPIC_BASE_URL=https://token-plan-cn.xiaomimimo.com/anthropic
+   ANTHROPIC_MODEL=mimo-v2.5
+   ```
+3. 服务器发现 cron（已装）：`30 9 * * * /home/ubuntu/opendesign/scripts/cron-discover.sh`，日志 `~/discover.log`。
+   手动触发发现：本地 `python3 scripts/discover.py`（`--dry-run` 只看不写）。
+
+### 日常
+1. 瞄一眼 `/admin.html` →「发现队列 · 待收录」(缩略图 + 来源 + HN 热度)。
+2. 看上的点 **「收录」**(写一条 `collect` 任务) / 不行点 **「忽略」**。站点管理里也能点 **「升级」**(Tier-1→Tier-2) / **「刷新主图」**。
+3. 本地一行 **`bash scripts/drain.sh`** → 把队列里点过的任务全跑完上线（升级/收录跑 Playwright+mimo→Tier-2；刷新只换主图）。
+   - 没配 mimo key 时：刷新照常；升级/收录优雅失败（等你填 key）。
+
+---
+
 ## 安全 & 已知限制（MVP 取舍）
 
 - **口令明文比对、无限速** → 可经公开 RPC 暴力破解。靠**强口令**缓解。真正限速需服务端状态，后续可加。
@@ -146,8 +182,15 @@ mimo 分析（11 层 spec + 5 语言 desc/narrative）
 | 文件 | 作用 |
 |------|------|
 | `supabase/migrations/0003_submissions.sql` | submissions 表 + app_config + admin RPC |
-| `admin.html` / `admin.js` | 口令门 triage 看板（读 RPC、标状态、复制命令） |
+| `supabase/migrations/0004_pack_requests.sql` | 完整包请求(kind=pack) |
+| `supabase/migrations/0005_jobs.sql` | 任务队列 jobs + runner_token + 入队/领活 RPC |
+| `supabase/migrations/0006_discoveries.sql` | 发现队列 discoveries + 爬虫写入/审阅 RPC |
+| `admin.html` / `admin.js` | 口令门后台（总览 / 站点管理 / 任务队列 / 发现队列 / 收录请求） |
+| `scripts/discover.py` | 全网发现爬虫（HN 多源 + 去重）→ 发现队列 |
+| `scripts/job_runner.py` | 领任务队列的活并执行（upgrade / collect / refresh） |
+| `scripts/drain.sh` | 一键 drain：本地把队列跑完上线（人在环、不碰 prod cron） |
+| `scripts/cron-discover.sh` / `cron-jobrunner.sh` | 服务器 cron 包装（发现已装；任务用 drain 代替自动 cron） |
+| `scripts/upgrade-pack.sh` | 任意站升 Tier-2 grounded 完整包（Playwright + mimo） |
 | `app.js · submitRequest()` | 用户"请求收录" → 写 submissions + 本地 |
-| `app.js · renderMyRequests()` | 「我的收藏 → 我请求的」展示 |
 | `scripts/ingest.py --auto-publish` | 本地发布一条龙 |
 | `supabase-config.js` | 公开 anon key（前端 + 后台共用） |
