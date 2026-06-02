@@ -16,6 +16,7 @@
 """
 import glob
 import io
+import json
 import os
 import sys
 import zipfile
@@ -29,11 +30,21 @@ import argparse
 ap = argparse.ArgumentParser()
 ap.add_argument("--packs", default="/var/www/opendesign.cc/packs", help="完整包 ZIP 所在目录（含 <slug>/<slug>-design-pack.zip）")
 ap.add_argument("--out", default="/var/www/opendesign.cc/thumbs", help="缩略图输出目录")
+ap.add_argument("--qc", default=os.path.join(os.path.dirname(__file__), "..", "thumbs", "_qc.json"),
+                help="qc-thumbs.py 的选帧决策 _qc.json；存在则按 {slug:{frame}} 用选中的帧")
 ap.add_argument("--force", action="store_true")
 a = ap.parse_args()
 PACKS_DIR, THUMBS, FORCE = a.packs, a.out, a.force
 os.makedirs(THUMBS, exist_ok=True)
 W, H, Q = 768, 480, 80   # 768×480 (16:10) · q80 · 顶部锚定裁切
+
+# QC 选帧决策（AI 选的最佳帧）；没有就默认用桌面首屏
+QC = {}
+try:
+    if os.path.exists(a.qc):
+        QC = json.load(open(a.qc, encoding="utf-8"))
+except Exception:
+    QC = {}
 
 ok = skip = fail = 0
 for zp in sorted(glob.glob(os.path.join(PACKS_DIR, "*", "*-design-pack.zip"))):
@@ -43,11 +54,14 @@ for zp in sorted(glob.glob(os.path.join(PACKS_DIR, "*", "*-design-pack.zip"))):
         skip += 1
         continue
     try:
+        want = (QC.get(slug) or {}).get("frame", "02_desktop_hero.png")  # AI 选中的帧，没有就首屏
         with zipfile.ZipFile(zp) as z:
-            name = next((n for n in z.namelist() if n.endswith("02_desktop_hero.png")), None)
+            names = z.namelist()
+            name = next((n for n in names if n.endswith(want)), None) \
+                or next((n for n in names if n.endswith("02_desktop_hero.png")), None)
             if not name:
                 fail += 1
-                print(f"  ✗ {slug}: zip 里没 02_desktop_hero.png")
+                print(f"  ✗ {slug}: zip 里没 {want} 也没首屏")
                 continue
             img = Image.open(io.BytesIO(z.read(name))).convert("RGB")
         img = ImageOps.fit(img, (W, H), method=Image.LANCZOS, centering=(0.5, 0.0))
