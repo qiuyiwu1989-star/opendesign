@@ -217,6 +217,8 @@
 
       "filter.aria": "筛选",
       "filter.search.placeholder": "搜索 · 风格 / 标签 / URL",
+      "search.empty": "没找到匹配的设计 —— 换个风格或标签词试试，或用顶部「＋ 收录」推荐一个。",
+      "footer.agent": "给你的 Agent ↗",
       "filter.related": "也常和这些一起出现",
       "filter.related": "也常和這些一起出現",
       "chip.all": "全部",
@@ -899,6 +901,8 @@
 
       "filter.aria": "Filter",
       "filter.search.placeholder": "Search · vibe / tag / URL",
+      "search.empty": "No matching designs — try another vibe or tag, or suggest one via ＋ Collect up top.",
+      "footer.agent": "For your agent ↗",
       "filter.related": "Often appears with",
       "chip.all": "All",
 

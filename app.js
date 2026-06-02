@@ -1139,6 +1139,11 @@ function renderCanvas() {
 
 function renderLibrary() {
   const visibleSites = filteredSites();
+  if (!visibleSites.length) {
+    // 搜索/筛选无结果 —— 别留白让用户懵；给方向 + 指向顶部「＋ 收录」
+    libraryList.innerHTML = `<div class="library-empty" style="grid-column:1/-1;text-align:center;color:var(--ink-soft);padding:64px 16px;font-size:15px;line-height:1.6;">${t("search.empty")}</div>`;
+    return;
+  }
   libraryList.innerHTML = visibleSites.map((site, index) => libraryCardHTML(site, index)).join("");
 }
 
@@ -2785,9 +2790,11 @@ const canvasRecenterBtn = document.querySelector("#canvasRecenter");
 if (canvasRecenterBtn) canvasRecenterBtn.addEventListener("click", recenterCanvas);
 document.querySelector("#canvasShuffle")?.addEventListener("click", shuffleExplore);
 
+// 「＋ 收录」对所有人可见 —— 它是用户「请求收录」的入口（openModal → submitRequest）。
+// 之前只在 owner 模式显示，导致普通用户根本无法请求收录（功能建了却没入口）。
+document.querySelector("#importButton").hidden = false;
 if (OWNER_MODE) {
-  document.querySelector("#importButton").hidden = false;
-  document.querySelector("#copyJsonButton").hidden = false;
+  document.querySelector("#copyJsonButton").hidden = false;  // JSON 导出仍仅 owner
   document.body.dataset.ownerMode = "true";
 }
 
