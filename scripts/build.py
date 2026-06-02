@@ -208,7 +208,7 @@ def build_legacy_i18n_json(sites: list[dict]) -> dict:
 
 # 百度统计（国内）+ GA4（境外）—— SEO 落地页也要埋点（搜索流量直接落这里）
 # 注：G-W2RPW945DH 与首页 index.html 保持一致，换成你的 GA4 Measurement ID
-ANALYTICS_SNIPPET = """<script>var _hmt=_hmt||[];(function(){var hm=document.createElement("script");hm.src="https://hm.baidu.com/hm.js?e83757828db0e57520651bc1be79715c";var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(hm,s);})();</script>
+ANALYTICS_SNIPPET = """<script>var _hmt=_hmt||[];(function(){var hm=document.createElement("script");hm.src="https://hm.baidu.com/hm.js?14e82bc6d32ac2aa248d927998279013";var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(hm,s);})();</script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-W2RPW945DH"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-W2RPW945DH',{anonymize_ip:true});</script>"""
 
