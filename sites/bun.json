@@ -1,0 +1,624 @@
+{
+  "id": "bun",
+  "schema_version": "0.3",
+  "url": "https://bun.sh",
+  "title": "Bun",
+  "image": "",
+  "tags": [
+    "devtools",
+    "runtime"
+  ],
+  "status": "completed",
+  "added_at": "2026-06-02",
+  "added_by": "expand-200",
+  "_meta": {
+    "vision_model": "mimo-v2.5",
+    "vision_prompt_version": "0.3",
+    "vision_source": "playwright-extract:bun",
+    "vision_grounded": true,
+    "vision_at": "2026-06-02T12:23:49+00:00",
+    "vision_tokens": 1657,
+    "vision_cost_usd": 0.0184,
+    "translation_model": "mimo-v2.5",
+    "translation_at": "2026-06-02T12:24:49+00:00",
+    "translation_tokens": 26574,
+    "translation_cost_usd": 0.0885,
+    "narrative_model": "mimo-v2.5",
+    "narrative_prompt_version": "0.3",
+    "narrative_at": "2026-06-02T12:00:09+00:00",
+    "narrative_tokens": 2084,
+    "narrative_cost_usd": 0.0139,
+    "narrative_status": "ok",
+    "last_error": "Expecting ':' delimiter: line 3 column 9 (char 193)",
+    "total_cost_usd": 0.1208
+  },
+  "spec": {
+    "colors": {
+      "bg": "#0D0E11",
+      "bgSoft": "#282A36",
+      "bgQuiet": null,
+      "ink": "#FFFFFF",
+      "inkSoft": "#E5E7EB",
+      "muted": "#9CA3AF",
+      "mutedSoft": "#D1D5DB",
+      "accent": "#F472B6",
+      "line": "rgba(255,255,255,0.16)"
+    },
+    "typography": {
+      "display": "grotesque-sans",
+      "body": "system-sans",
+      "mono": "monospace",
+      "scale": [
+        {
+          "token": "display",
+          "size": 56,
+          "lh": 1.0,
+          "weight": 700,
+          "ls": "-1px"
+        },
+        {
+          "token": "body",
+          "size": 16,
+          "lh": 1.5,
+          "weight": 400,
+          "ls": "0px"
+        },
+        {
+          "token": "caption",
+          "size": 14,
+          "lh": 1.4,
+          "weight": 500,
+          "ls": "0px"
+        },
+        {
+          "token": "mono",
+          "size": 16,
+          "lh": 1.5,
+          "weight": 400,
+          "ls": "0px"
+        }
+      ]
+    },
+    "spacing": {
+      "base": 4,
+      "scale": [
+        4,
+        8,
+        12,
+        16,
+        24,
+        32,
+        48,
+        64,
+        96
+      ]
+    },
+    "surfaces": {
+      "radius": {
+        "sm": 4,
+        "md": 8,
+        "lg": 12,
+        "pill": 999
+      }
+    },
+    "layout": {
+      "container": 1280,
+      "paragraph": 680,
+      "columns": 12,
+      "gutter": 24,
+      "breakpoints": [
+        768,
+        1024
+      ]
+    },
+    "motion": {
+      "durations": {
+        "micro": 150,
+        "small": 200,
+        "medium": 400
+      },
+      "easing": "cubic-bezier(0.4, 0, 0.2, 1)"
+    }
+  },
+  "desc": {
+    "en": {
+      "palette": "A deep, dark-themed palette with a single vibrant pink accent for high contrast and focus.",
+      "layout": "A clean, responsive 12-column grid layout with generous spacing and clear visual hierarchy.",
+      "interaction": "Interactive elements provide immediate, subtle feedback through color and opacity transitions.",
+      "motion": "Minimal and purposeful motion, focusing on smooth transitions for a premium feel.",
+      "notes": "This site is an excellent example of a modern developer tool's UI, balancing technical clarity with a bold, high-end aesthetic."
+    },
+    "zh-CN": {
+      "palette": "深色主题，以深炭灰色为背景，搭配白色文字，以及鲜明的粉色作为强调色。",
+      "layout": "内容居中，桌面端采用双栏主视觉布局，留白充足，采用12列网格系统。",
+      "interaction": "平滑的hover过渡，带有透明度变化、点击反馈，并支持键盘操作。",
+      "motion": "微交互采用150ms的微妙过渡，颜色与透明度变化平滑。",
+      "notes": "现代开发者工具品牌设计的优秀范例，设计聚焦于性能，并具备清晰的技术传达。"
+    },
+    "zh-TW": {
+      "palette": "深色主題，採用深炭灰色背景、白色文字，以及鮮明的粉紅色作為強調色。",
+      "layout": "內容置中，桌面版採用雙欄式首頁版面，寬裕的留白與 12 欄格線系統。",
+      "interaction": "平滑的懸停過渡效果，搭配透明度變化、點擊回饋及鍵盤無障礙支援。",
+      "motion": "微交互採用細緻的 150 毫秒過渡，顏色與透明度平滑變化。",
+      "notes": "展現現代開發者工具品牌設計的卓越範例，注重效能並具備清晰的技術溝通。"
+    },
+    "ja": {
+      "palette": "ダークテーマ。深炭色の背景、白いテキスト、強調用の鮮やかなピンクアクセント。",
+      "layout": "デスクトップでは2カラムのヒーローレイアウトでコンテンツを中央揃え。余裕のある余白と12カラムグリッドシステム。",
+      "interaction": "透明度変化を伴う滑らかなホバー遷移、クリックフィードバック、キーボードアクセシビリティ。",
+      "motion": "マイクロインタラクション用の控えめな150ms遷移。滑らかなカラーと透明度の変化。",
+      "notes": "パフォーマンスを重視したモダンな開発者ツールブランドの優れた例。明確な技術コミュニケーション。"
+    },
+    "ko": {
+      "palette": "다크 테마. 짙은 차콜 배경에 흰색 텍스트, 강조를 위한 생기 있는 핑크 악센트.",
+      "layout": "데스크톱에서 두 개의 열로 구성된 히어로 레이아웃을 중심으로 콘텐츠를 배치하고, 넉넉한 여백과 12열 그리드 시스템을 사용.",
+      "interaction": "hover 시 부드러운 opacity 변화, 클릭 피드백, 키보드 접근성을 고려한 전환 효과.",
+      "motion": "마이크로 인터랙션을 위한 150ms의 미세한 전환, 부드러운 색상 및 opacity 변화.",
+      "notes": "성능 중심 디자인과 명확한 기술적 커뮤니케이션을 갖춘 현대적 개발자 도구 브랜딩의 훌륭한 사례."
+    }
+  },
+  "narrative": {
+    "en": {
+      "ch1_intro": "The Bun identity operates like a high-performance sports car: every component is streamlined for velocity, with no extraneous ornamentation to create drag. The design language is built on a foundation of speed, rendering its developer-facing tooling with the same precision engineering found in its runtime. This is a system where visual minimalism serves technical clarity.",
+      "ch2_intro": "The color system is built for sustained focus on dark interfaces, using a deep charcoal (#0D0E11) as its primary ground to minimize eye strain during long coding sessions. A single vibrant pink (#F472B6) functions as a strategic accent, reserved for highlighting key performance metrics and primary actions, creating a clear visual hierarchy without chromatic noise.",
+      "ch2_outro": "The principle is disciplined restraint: one accent color does all the persuasive work, ensuring it never competes with the content it's meant to emphasize.",
+      "ch3_intro": "The typographic voice is utilitarian and immediate, employing the native system-ui stack for interface text to ensure native rendering performance and consistency across platforms. Technical content and code samples use a monospace counterpart, creating a clear typographic distinction between prose and executable commands.",
+      "ch4_intro": "The spatial rhythm is governed by an 8px baseline grid, creating a predictable vertical cadence that structures content from component padding to section gutters.",
+      "ch5_intro": "Surface depth is achieved through shadow and border, not color variation. A primary deep shadow provides lift for elevated cards, while a secondary, subtly tinted pink shadow creates thematic linkage for interactive elements.",
+      "ch6_intro": "The layout skeleton centers content within generous whitespace, prioritizing readability and focus. On desktop, the hero section adopts a two-column structure to present narrative alongside empirical benchmark data, establishing a pattern of claim and proof.",
+      "ch7_intro": "Motion is treated as functional feedback, not decoration. Transitions are swift (150ms) and purposeful, communicating state changes through color shifts, opacity adjustments, and subtle transforms that confirm interaction without delay.",
+      "ch8_intro": "The editorial voice is confident and technical, using bold, large typography to headline performance metrics and direct, action-oriented calls to action that provide immediate installation commands.",
+      "ch8_outro": "The system deliberately avoids corporate jargon, passive constructions, and explanations that lack practical context for its developer audience."
+    },
+    "zh-CN": {
+      "ch1_intro": "Bun 的身份认同如同一辆高性能跑车：每个组件都为速度而精简，没有多余的装饰造成阻力。其设计语言建立在速度的基础之上，以与运行时相同的精密工程呈现面向开发者的工具。这是一个视觉极简服务于技术清晰度的系统。",
+      "ch2_intro": "色彩系统专为长时间专注于深色界面而构建，使用深炭灰（#0D0E11）作为主背景，以减少长时间编码会话中的视觉疲劳。单一的亮粉色（#F472B6）作为战略性点缀，用于突出关键性能指标和主要操作，在没有色彩噪点的情况下建立清晰的视觉层次。",
+      "ch2_outro": "其原则是克制的自律：单一强调色承担所有说服工作，确保它永远不会与它所要强调的内容竞争。",
+      "ch3_intro": "排版风格务实而直接，为界面文本采用原生的 system-ui 字体栈，以确保跨平台的原生渲染性能和一致性。技术内容和代码示例使用等宽字体作为对应，在散文与可执行命令之间建立清晰的排版区分。",
+      "ch4_intro": "空间节奏由 8px 基线网格掌控，从组件内边距到区域间距，形成可预测的垂直韵律来结构化内容。",
+      "ch5_intro": "表面层次感通过阴影和边框，而非色彩变化来实现。主深阴影为提升的卡片提供悬浮感，而次级、带有微妙粉色色调的阴影则为交互元素创建主题关联。",
+      "ch6_intro": "布局骨架将内容置于充裕的留白中心，优先考虑可读性和专注度。在桌面端，首屏区域采用双栏结构，将叙述性内容与实证基准数据并置，建立起主张与证明的模式。",
+      "ch7_intro": "动效被视为功能性反馈，而非装饰。过渡快速（150ms）且目的明确，通过色彩变化、透明度调整和微妙的变形来传达状态变化，在不延迟的情况下确认交互。",
+      "ch8_intro": "编辑风格自信而技术性强，使用粗体、大号字体来突出性能指标，并以直接、行动导向的行动号召提供即时的安装命令。",
+      "ch8_outro": "该系统刻意避免企业术语、被动语态以及对开发者受众缺乏实际情境的解释。"
+    },
+    "zh-TW": {
+      "ch1_intro": "Bun 的身份運作如同高性能跑車：每個組件都為速度而精簡，沒有任何多餘裝飾會產生阻力。設計語言建立在速度基礎上，以與其執行引擎相同的精準工程來呈現其面向開發者的工具。這是一個視覺極簡主義服務於技術清晰度的系統。",
+      "ch2_intro": "色彩系統專為長時間專注於深色介面而建，使用深炭灰（#0D0E11）作為主要底色，以減輕長時間編碼時的眼睛疲勞。單一亮粉色（#F472B6）作為戰略性強調色，保留用於突顯關鍵性能指標與主要操作，在沒有色彩噪音的情況下建立清晰的視覺層次。",
+      "ch2_outro": "原則是自律的克制：一個強調色承擔所有說服性工作，確保它永不與本應被強調的內容競爭。",
+      "ch3_intro": "字體聲音是實用且直接的，採用原生系統使用者介面字型堆疊作為介面文字，以確保跨平台的原生渲染效能與一致性。技術內容與程式碼範例使用等寬字型對應，在散文與可執行命令之間建立清晰的字體區隔。",
+      "ch4_intro": "空間節奏由 8px 基線網格掌控，從元件內邊距到區塊間距，創造可預期的垂直韻律來結構化內容。",
+      "ch5_intro": "表面深度透過陰影與邊框而非色彩變化達成。主要深陰影為抬升式卡片提供浮起效果，而次要、略帶色調的粉色陰影則為互動元素創造主題連結。",
+      "ch6_intro": "版面骨架將內容置中於充裕的留白中，優先考量可讀性與專注度。在桌面版，主視覺區域採用雙欄結構，在敘事旁呈現實證基準測試數據，建立主張與證明的模式。",
+      "ch7_intro": "動態被視為功能性回饋而非裝飾。過渡迅速（150ms）且有目的，透過色彩轉換、透明度調整與細微變換傳達狀態變化，在不延遲的情況下確認互動。",
+      "ch8_intro": "編輯語調自信且技術性，使用粗體大型字體標題突顯性能指標，以及直接、行動導向的號召用語提供立即安裝指令。",
+      "ch8_outro": "系統刻意避免企業術語、被動語態，以及缺乏實際情境的解釋，以服務其開發者受眾。"
+    },
+    "ja": {
+      "ch1_intro": "Bunのアイデンティティは、高性能スポーツカーのように機能します：すべてのコンポーネントは速度のために/streamlinedで、抵抗を生む余分な装飾はありません。デザイン言語は速度の基盤の上に構築され、ランタイムに見られるのと同じ精密工学を、開発者向けツールに反映します。これは、ビジュアル・ミニマリズムが技術的明瞭さに奉仕するシステムです。",
+      "ch2_intro": "カラーシステムは、ダークインターフェースへの持続的な集中を支えるために構築されています。深いチャコール（#0D0E11）をプライマリ背景として使用し、長時間のコーディングセッション中の眼精疲労を最小限に抑えます。鮮やかなピンク（#F472B6）を戦略的なアクセントとして機能させ、主要なパフォーマンス指標とプライマリアクションの強調に限定することで、色のノイズなしに明確なビジュアル階層を創出します。",
+      "ch2_outro": "原則は、節制された抑制です：1つのアクセントカラーがすべての説得力のある仕事を担い、強調すべきコンテンツと競合しないことを保証します。",
+      "ch3_intro": "タイポグラフィの声は実用的で即座に伝わるもので、インターフェーステキストにネイティブなsystem-uiスタックを採用し、プラットフォーム間でネイティブなレンダリング性能と一貫性を確保します。技術コンテンツとコードサンプルにはモナスペースの対応字体を使用し、文章と実行可能なコマンドの間に明確なタイポグラフィの区別を生み出します。",
+      "ch4_intro": "空間のリズムは8pxベースライングリッドによって支配され、コンポーネントのパディングからセクションのガターまで、コンテンツを構造化する予測可能な垂直節奏を生み出します。",
+      "ch5_intro": "サーフェスの奥行きは、色の変化ではなく、シャドウとボーダーによって実現されます。プライマリの深いシャドウが浮き上がるカードに高さを提供し、セカンダリの微かに tinted されたピンクのシャドウが、インタラクティブ要素にテーマ的な連鎖を生み出します。",
+      "ch6_intro": "レイアウトの骨格は、広々とした余白の中でコンテンツを中央に配置し、可読性と集中を優先します。デスクトップでは、ヒーローセクションが2カラム構成を採用し、ナラティブを経験的なベンチマークデータ alongside して提示し、主張と証拠のパターンを確立します。",
+      "ch7_intro": "モーションは装飾ではなく、機能的なフィードバックとして扱われます。トランジションは迅速（150ms）かつ目的をもち、色の変化、不透明度の調整、微妙なトランスフォームを通じて状態変化を伝え、遅延なしにインタラクションを確認します。",
+      "ch8_intro": "エディトリアルの声は自信に満ち、技術的です。太字の大きなタイポグラフィでパフォーマンス指標をヘッドラインにし、直接的でアクション志向のCTAを提供し、即座にインストールコマンドを示します。",
+      "8_outro": "このシステムは、意図的に企業用語、受動構文、そして開発者向けオーディエンスにとって実用的な文脈を欠いた説明を回避しています。"
+    },
+    "ko": {
+      "ch1_intro": "Bun 아이덴티티는 고성능 스포츠카처럼 작동합니다: 모든 구성 요소가 속도를 위해 간결하게 만들어져 있으며, 저항을 유발하는 불필요한 장식은 없습니다. 디자인 언어는 속도를 기반으로 구축되어, 런타임에서 발견되는 것과 같은 정밀 공학 기술로 개발자 대상 도구를 구현합니다. 시각적 미니멀리즘이 기술적 명확성을 지원하는 시스템입니다.",
+      "ch2_intro": "컬러 시스템은 다크 인터페이스에서의 지속적인 집중을 위해 구축되었으며, 긴 코딩 세션 중 눈의 피로를 최소화하기 위해 딥 차콜(#0D0E11)을 기본 배경으로 사용합니다. 단 하나의 생동감 있는 핑크(#F472B6)가 전략적 악센트로 작용하며, 핵심 성능 지표와 주요 작업을 강조하는 데 사용되어 색소 잡음 없이 명확한 시각적 계층 구조를 만듭니다.",
+      "ch2_outro": "원칙은 절제된 절제입니다: 하나의 악센트 색상이 모든 설득력을 발휘하여, 강조해야 할 콘텐츠와 절대 경쟁하지 않도록 보장합니다.",
+      "ch3_intro": "타이포그래피 보이스는 실용적이고 즉각적이며, 인터페이스 텍스트에 네이티브 system-ui 스택을 사용하여 네이티브 렌더링 성능과 플랫폼 전반에 걸친 일관성을 보장합니다. 기술 콘텐츠와 코드 샘플은 모노스페이스를 대응하여, 산문과 실행 가능한 명령 간의 명확한 타이포그래피적 구분을 만듭니다.",
+      "ch4_intro": "공간 리듬은 8px 기준선 그리드에 의해 지배되며, 컴포넌트 패딩에서 섹션 간격에 이르기까지 콘텐츠를 구조화하는 예측 가능한 수직 박자를 만듭니다.",
+      "ch5_intro": "표면 깊이는 그림자와 테두리를 통해 구현되며, 색상 변형이 아닙니다. 기본 깊은 그림자는 높은 위치의 카드에 부양감을 제공하는 반면, 보조적이고 미세하게 색조가 덧입혀진 핑크 그림자는 인터랙티브 요소에 테마적 연결을 만듭니다.",
+      "ch6_intro": "레이아웃 스켈레톤은 넉넉한 여백 내에서 콘텐츠를 중앙에 배치하여, 가독성과 집중을 우선시합니다. 데스크톱에서는 히어로 섹션이 내러티브와 실증적 벤치마크 데이터를 나란히 제시하는 이중 열 구조를 채택하여, 주장과 증거의 패턴을 확립합니다.",
+      "ch7_intro": "모션은 장식이 아닌 기능적 피드백으로 취급됩니다. 전환은 빠르고(150ms) 의도적이며, 색상 변화, 불투명도 조정, 그리고 지연 없이 상호작용을 확인하는 미세한 변환을 통해 상태 변화를 전달합니다.",
+      "ch8_intro": "에디토리얼 보이스는 자신감 있고 기술적이며, 성능 지표를 굵고 큰 타이포그래피로 헤드라인화하고, 즉시 설치 명령을 제공하는 직접적이고 행동 지향적인 콜 투 액션을 사용합니다.",
+      "ch8_outro": "시스템은 의도적으로 기업 용어, 수동적 구문, 그리고 개발자 대상 실용적인 맥락이 부족한 설명을 피합니다."
+    }
+  },
+  "spec_i18n": {
+    "en": {
+      "identity": {
+        "keywords": [
+          "Performance",
+          "Developer-first",
+          "All-in-one",
+          "Fast",
+          "Runtime"
+        ],
+        "analogy": "A high-performance sports car for JavaScript developers",
+        "oneLiner": "A fast, all-in-one JavaScript runtime and toolkit."
+      },
+      "colors": {
+        "principle": "High contrast on dark surfaces with a single bold pink accent."
+      },
+      "typography": {
+        "rules": [
+          "Use system-ui for body text for performance and native feel.",
+          "Use JetBrains Mono or similar for code blocks to ensure legibility.",
+          "Keep line-heights tight for display text to maintain a dense, modern feel."
+        ],
+        "scaleUses": [
+          "Hero headlines and large section headers.",
+          "Main body text and descriptions.",
+          "Secondary labels and navigation links.",
+          "Code snippets, terminal commands, and technical data."
+        ]
+      },
+      "spacing": {
+        "rhythm": "A strict 4px-based grid system ensuring consistent vertical and horizontal rhythm."
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(0, 0, 0, 0.25) 0px 25px 50px -12px",
+          "rgba(131, 24, 67, 0.1) 0px 10px 15px -3px"
+        ],
+        "borders": "Subtle white borders (0.16 opacity) to define dark card edges."
+      },
+      "layout": {
+        "skeleton": "A standard 12-column responsive grid with a centered max-width container."
+      },
+      "components": {
+        "button": "High-contrast pill-shaped buttons with bold background colors.",
+        "card": "Dark surfaces with subtle borders and soft rounded corners.",
+        "chip": "Small pill-shaped tags for categories and filters.",
+        "input": "Dark input fields with subtle borders and monospace text for commands.",
+        "hero": "A full-width dark section featuring a massive bold headline and a primary call-to-action."
+      },
+      "motion": {
+        "patterns": [
+          "Smooth color and background transitions on hover.",
+          "Subtle opacity changes for interactive feedback."
+        ]
+      },
+      "interaction": {
+        "hover": "Subtle background color shifts and text color changes.",
+        "click": "Immediate visual response with minimal delay.",
+        "transition": "All interactive elements should have a 150ms transition.",
+        "keyboard": "Clear focus states for navigation."
+      },
+      "voice": {
+        "tone": "Confident, technical, and direct.",
+        "headlineStyle": "Bold, impactful, and often using a single word highlight in pink.",
+        "ctaStyle": "Clear, action-oriented, and visually prominent.",
+        "avoid": [
+          "Avoid verbose or flowery language.",
+          "Avoid unnecessary decorative elements.",
+          "Avoid overly complex layouts that distract from the core technical value."
+        ]
+      },
+      "donts": [
+        "Don't use light backgrounds — the screenshot shows a deep dark theme (#0D0E11) as the primary surface.",
+        "Don't use serif fonts for headings — the screenshot uses a bold grotesque-sans for display text.",
+        "Don't use more than one accent color — the screenshot shows a single dominant pink (#F472B6) for emphasis.",
+        "Don't use large border radii on everything — the screenshot uses small (4-8px) or full pill (999px) radii.",
+        "Don't use complex shadows — the screenshot uses subtle, dark shadows primarily for depth.",
+        "Don't use thin, elegant typography — the screenshot shows bold, weighty headings and clear body text."
+      ],
+      "systemPrompt": "Bun is a high-performance JavaScript runtime and toolkit, positioned as a modern, all-in-one solution for developers. The design uses a deep dark background (#0D0E11) with high-contrast white text (#FFFFFF) and a single, vibrant pink accent (#F472B6). Typography is a bold grotesque-sans for headings and a clean system-sans for body text. Critical constraints: don't use light themes, don't use serif fonts for headlines, don't overcomplicate the UI with multiple accent colors or excessive decorative elements, and don't use overly large border radii on non-pill components."
+    },
+    "zh-CN": {
+      "identity": {
+        "keywords": [
+          "性能",
+          "开发者优先",
+          "一体化",
+          "极速",
+          "运行时"
+        ],
+        "analogy": "为 JavaScript 开发者打造的高性能跑车",
+        "oneLiner": "一个极速的一体化 JavaScript 运行时与工具集。"
+      },
+      "colors": {
+        "principle": "在深色表面上使用高对比度，并搭配一个醒目的粉色强调色。"
+      },
+      "typography": {
+        "rules": [
+          "为兼顾性能与原生质感，正文使用 system-ui 字体。",
+          "为代码块使用 JetBrains Mono 或类似等宽字体，以确保可读性。",
+          "为保持紧凑、现代的视觉感受，标题文本行高应保持紧凑。"
+        ],
+        "scaleUses": [
+          "主标题和大型区块标题。",
+          "主要正文文本与描述。",
+          "次级标签和导航链接。",
+          "代码片段、终端命令和技术数据。"
+        ]
+      },
+      "spacing": {
+        "rhythm": "采用基于 4px 的严格网格系统，确保垂直与水平节奏的一致性。"
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(0, 0, 0, 0.25) 0px 25px 50px -12px",
+          "rgba(131, 24, 67, 0.1) 0px 10px 15px -3px"
+        ],
+        "borders": "使用极细的白色边框（0.16 透明度）来界定深色卡片边缘。"
+      },
+      "layout": {
+        "skeleton": "采用标准的 12 列响应式网格，配合居中的最大宽度容器。"
+      },
+      "components": {
+        "button": "高对比度的胶囊形按钮，搭配醒目的背景色。",
+        "card": "深色表面，带有极细边框和柔和的圆角。",
+        "chip": "用于分类和筛选的小型胶囊形标签。",
+        "input": "深色输入框，带有极细边框和用于命令的等宽字体文本。",
+        "hero": "全宽深色区块，包含一个巨大的粗体标题和一个主要行动号召按钮。"
+      },
+      "motion": {
+        "patterns": [
+          "在 hover 状态下平滑的颜色与背景过渡。",
+          "用于交互反馈的细微透明度变化。"
+        ]
+      },
+      "interaction": {
+        "hover": "细微的背景颜色偏移与文字颜色变化。",
+        "click": "以最小延迟做出即时视觉响应。",
+        "transition": "所有交互元素应有 150ms 的过渡效果。",
+        "keyboard": "为导航提供清晰的 focus 状态。"
+      },
+      "voice": {
+        "tone": "自信、专业、直接。",
+        "headlineStyle": "粗体、有冲击力，常使用单个粉色单词作为高亮。",
+        "ctaStyle": "清晰、以行动为导向、视觉上突出。",
+        "avoid": [
+          "避免冗长或浮夸的措辞。",
+          "避免不必要的装饰性元素。",
+          "避免使用分散核心技术价值的过度复杂布局。"
+        ]
+      },
+      "donts": [
+        "不要使用浅色背景——截图显示深色主题 (#0D0E11) 作为主要表面。",
+        "不要为标题使用衬线字体——截图使用粗体的 grotesque-sans 作为标题字体。",
+        "不要使用超过一种强调色——截图使用单一的主导粉色 (#F472B6) 进行强调。",
+        "不要对所有元素都使用大圆角——截图使用较小 (4-8px) 或完全的胶囊形 (999px) 圆角。",
+        "不要使用复杂阴影——截图主要使用细微的深色阴影来营造深度感。",
+        "不要使用纤细、优雅的字体——截图显示粗重、有分量的标题和清晰的正文文本。"
+      ],
+      "systemPrompt": "Bun 是一个高性能的 JavaScript 运行时与工具集，定位为面向开发者的现代一体化解决方案。设计采用深色背景 (#0D0E11)，搭配高对比度的白色文本 (#FFFFFF) 和单一的亮粉色强调色 (#F472B6)。标题使用粗体的 grotesque-sans 字体，正文使用简洁的 system-sans 字体。关键约束：不要使用浅色主题，不要为标题使用衬线字体，不要通过多种强调色或过多装饰性元素来使 UI 过于复杂，也不要在非胶囊形组件上使用过大的圆角。"
+    },
+    "zh-TW": {
+      "identity": {
+        "keywords": [
+          "效能",
+          "開發者優先",
+          "整合式",
+          "快速",
+          "執行環境"
+        ],
+        "analogy": "專為 JavaScript 開發者打造的高性能跑車",
+        "oneLiner": "快速、整合式的 JavaScript 執行環境與工具套件。"
+      },
+      "colors": {
+        "principle": "在深色表面上採用高對比度，並以單一醒目的粉紅色作為強調色。"
+      },
+      "typography": {
+        "rules": [
+          "使用系統介面字體作為內文字體，以確保效能與原生體驗。",
+          "程式碼區塊使用 JetBrains Mono 或類似字體，以確保可讀性。",
+          "標題文字採用緊湊的行高，以維持密集、現代的感覺。"
+        ],
+        "scaleUses": [
+          "主視覺標題與大型章節標題。",
+          "主要內文與描述文字。",
+          "次要標籤與導覽連結。",
+          "程式碼片段、終端機指令與技術資料。"
+        ]
+      },
+      "spacing": {
+        "rhythm": "嚴格的 4px 基礎網格系統，確保垂直與水平節奏一致。"
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(0, 0, 0, 0.25) 0px 25px 50px -12px",
+          "rgba(131, 24, 67, 0.1) 0px 10px 15px -3px"
+        ],
+        "borders": "使用細微的白色邊框（0.16 透明度）來定義深色卡片邊緣。"
+      },
+      "layout": {
+        "skeleton": "標準的 12 欄響應式網格，搭配置中的最大寬度容器。"
+      },
+      "components": {
+        "button": "高對比度的藥丸形按鈕，搭配粗體背景色。",
+        "card": "深色表面，帶有細微邊框與柔和的圓角。",
+        "chip": "小型藥丸形標籤，用於分類與篩選。",
+        "input": "深色輸入欄位，帶有細微邊框，指令文字使用等寬字體。",
+        "hero": "全寬深色區塊，包含醒目的粗體標題與主要行動號召。"
+      },
+      "motion": {
+        "patterns": [
+          "懸停時平滑的顏色與背景過渡效果。",
+          "細微的透明度變化，作為互動回饋。"
+        ]
+      },
+      "interaction": {
+        "hover": "細微的背景色與文字色變化。",
+        "click": "即時的視覺回應，延遲最小化。",
+        "transition": "所有互動元素應有 150ms 的過渡效果。",
+        "keyboard": "清晰的焦點狀態，用於導覽。"
+      },
+      "voice": {
+        "tone": "自信、技術性且直接。",
+        "headlineStyle": "粗體、具衝擊力，常以單一粉紅色強調詞彙。",
+        "ctaStyle": "清晰、導向行動，且視覺上突出。",
+        "avoid": [
+          "避免冗長或華麗的語言。",
+          "避免不必要的裝飾元素。",
+          "避免過於複雜的佈局，以免分散對核心技術價值的關注。"
+        ]
+      },
+      "donts": [
+        "不要使用淺色背景——截圖顯示深色主題（#0D0E11）作為主要表面。",
+        "不要為標題使用襯線字體——截圖使用粗體 grotesque-sans 作為標題字體。",
+        "不要使用超過一種強調色——截圖顯示單一主導的粉紅色（#F472B6）用於強調。",
+        "不要在所有元素上使用大圓角——截圖使用小（4-8px）或全藥丸（999px）圓角。",
+        "不要使用複雜陰影——截圖使用細微、深色的陰影主要用於營造深度。",
+        "不要使用細長、優雅的字型——截圖顯示粗體、有份量的標題與清晰的內文字。"
+      ],
+      "systemPrompt": "Bun 是一個高效能的 JavaScript 執行環境與工具套件，定位為現代化、整合式的開發者解決方案。設計採用深色背景（#0D0E11）搭配高對比度白色文字（#FFFFFF）與單一、鮮豔的粉紅色強調色（#F472B6）。字型使用粗體 grotesque-sans 作為標題，以及乾淨的系統無襯線字體作為內文。關鍵限制：不要使用淺色主題、不要為標題使用襯線字體、不要使用多種強調色或過多裝飾元素使 UI 複雜化，也不要在非藥丸形元件上使用過大的圓角。"
+    },
+    "ja": {
+      "identity": {
+        "keywords": [
+          "パフォーマンス",
+          "開発者優先",
+          "オールインワン",
+          "高速",
+          "ランタイム"
+        ],
+        "analogy": "JavaScript開発者向けの高性能スポーツカー",
+        "oneLiner": "高速、オールインワンのJavaScriptランタイムおよびツールキット。"
+      },
+      "colors": {
+        "principle": "ダークサーフェス上でのハイコントラスト、単一の大胆なピンクアクセント。"
+      },
+      "typography": {
+        "rules": [
+          "本文テキストにはパフォーマンスとネイティブ感のためsystem-uiを使用。",
+          "コードブロックには可読性を確保するためJetBrains Monoまたは同等のフォントを使用。",
+          "ディスプレイテキストの行間は緊密に保ち、密度の高いモダンな感覚を維持。"
+        ],
+        "scaleUses": [
+          "ヒーローヘッドラインおよび大きなセクション見出し。",
+          "本文テキストおよび説明文。",
+          "セカンダリラベルおよびナビゲーションリンク。",
+          "コードスニペット、ターミナルコマンド、および技術データ。"
+        ]
+      },
+      "spacing": {
+        "rhythm": "厳格な4pxベースのグリッドシステムにより、一貫した垂直および水平リズムを確保。"
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(0, 0, 0, 0.25) 0px 25px 50px -12px",
+          "rgba(131, 24, 67, 0.1) 0px 10px 15px -3px"
+        ],
+        "borders": "ダークカードのエッジを定義するための、控えめな白色ボーダー（透明度0.16）。"
+      },
+      "layout": {
+        "skeleton": "中央に最大幅コンテナを持つ、標準的な12カラムレスポンシブグリッド。"
+      },
+      "components": {
+        "button": "太字の背景色を持つ、ハイコントラストのピル型ボタン。",
+        "card": "控えめなボーダーとソフトな角丸を持つダークサーフェス。",
+        "chip": "カテゴリとフィルター用の小さなピル型タグ。",
+        "input": "コマンド用の等幅テキストと控えめなボーダーを持つ、ダーク入力フィールド。",
+        "hero": "巨大な太字見出しとプライマリCTAを備えた、フル幅ダークセクション。"
+      },
+      "motion": {
+        "patterns": [
+          "hover時の滑らかなカラーおよび背景トランジション。",
+          "インタラクティブフィードバックのための控えめな不透明度変化。"
+        ]
+      },
+      "interaction": {
+        "hover": "控えめな背景色のシフトとテキストカラーの変化。",
+        "click": "最小限の遅延による即座のビジュアルレスポンス。",
+        "transition": "すべてのインタラクティブ要素は150msのトランジションを実装すべき。",
+        "keyboard": "明確なナビゲーション用のフォーカス状態。"
+      },
+      "voice": {
+        "tone": "自信に満ち、技術的で直接的。",
+        "headlineStyle": "太字、インパクトがあり、しばしばピンクの単語ハイライトを使用。",
+        "ctaStyle": "明確、行動志向で、視覚的に目立つ。",
+        "avoid": [
+          "冗長または華美な言語は避ける。",
+          "不必要な装飾要素は避ける。",
+          "コアの技術的価値から注意をそらす過度に複雑なレイアウトは避ける。"
+        ]
+      },
+      "donts": [
+        "ライト背景を使用しない — スクリーンショットでは、プライマリサーフェスとして深いダークテーマ（#0D0E11）が示されている。",
+        "見出しにセリフフォントを使用しない — スクリーンショットでは、ディスプレイテキストに太字のgrotesque-sansが使用されている。",
+        "アクセントカラーを2つ以上使用しない — スクリーンショットでは、強調のための単一の支配的なピンク（#F472B6）が示されている。",
+        "すべてに大きなボーダー-radiusを使用しない — スクリーンショットでは、小さな（4-8px）または完全なピル型（999px）のradiusが使用されている。",
+        "複雑なシャドウを使用しない — スクリーンショットでは、主にディプスのための控えめでダークなシャドウが使用されている。",
+        "繊細でエレガントなタイポグラフィを使用しない — スクリーンショットでは、太字で重みのある見出しと明確な本文テキストが示されている。"
+      ],
+      "systemPrompt": "Bunは、開発者向けのモダンなオールインワンソリューションとしてポジショニングされた、高性能JavaScriptランタイムおよびツールキットです。デザインでは、深いダーク背景（#0D0E11）にハイコントラストの白色テキスト（#FFFFFF）と単一の鮮やかなピンクアクセント（#F472B6）が使用されています。タイポグラフィでは、見出しに太字のgrotesque-sans、本文テキストにクリーンなsystem-sansが使用されています。重要な制約として、ライトテーマを使用せず、見出しにセリフフォントを使用せず、複数のアクセントカラーまたは過度な装飾要素でUIを複雑にせず、ピル型コンポーネント以外で過度に大きなボーダー-radiusを使用しないこと。"
+    },
+    "ko": {
+      "identity": {
+        "keywords": [
+          "성능",
+          "개발자 중심",
+          "올인원",
+          "빠른",
+          "런타임"
+        ],
+        "analogy": "JavaScript 개발자를 위한 고성능 스포츠카",
+        "oneLiner": "빠르고 올인원인 JavaScript 런타임 및 툴킷입니다."
+      },
+      "colors": {
+        "principle": "어두운 배경 위에 단일한 강렬한 핑크 포인트 컬러로 높은 대비를 적용합니다."
+      },
+      "typography": {
+        "rules": [
+          "본문 텍스트에는 성능과 네이티브 느낌을 위해 system-ui를 사용합니다.",
+          "코드 블록에는 가독성을 위해 JetBrains Mono 또는 유사한 폰트를 사용합니다.",
+          "헤드라인 텍스트는 촘촘한 행간을 유지하여 밀도 높고 현대적인 느낌을 연출합니다."
+        ],
+        "scaleUses": [
+          "메인 헤드라인 및 대형 섹션 제목.",
+          "본문 텍스트 및 설명.",
+          "보조 라벨 및 내비게이션 링크.",
+          "코드 스니펫, 터미널 명령어 및 기술 데이터."
+        ]
+      },
+      "spacing": {
+        "rhythm": "엄격한 4px 기반 그리드 시스템으로 수직 및 수평 리듬을 일관되게 유지합니다."
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(0, 0, 0, 0.25) 0px 25px 50px -12px",
+          "rgba(131, 24, 67, 0.1) 0px 10px 15px -3px"
+        ],
+        "borders": "어두운 카드 테두리를 정의하기 위한 미세한 흰색 테두리(불투명도 0.16)를 적용합니다."
+      },
+      "layout": {
+        "skeleton": "중앙 정렬된 최대 너비 컨테이너를 갖춘 표준 12열 반응형 그리드입니다."
+      },
+      "components": {
+        "button": "강렬한 배경색을 적용한 높은 대비의 알약 형태 버튼입니다.",
+        "card": "미세한 테두리와 부드러운 둥근 모서리를 가진 어두운 표면입니다.",
+        "chip": "카테고리 및 필터용 소형 알약 형태 태그입니다.",
+        "input": "미세한 테두리와 명령어용 모노스페이스 텍스트를 가진 어두운 입력 필드입니다.",
+        "hero": "대담한 대형 헤드라인과 주요 행동 유도 버튼을 강조하는 전체 폭의 어두운 섹션입니다."
+      },
+      "motion": {
+        "patterns": [
+          "hover 시 부드러운 색상 및 배경 전환.",
+          "상호작용 피드백을 위한 미세한 불투명도 변화."
+        ]
+      },
+      "interaction": {
+        "hover": "미세한 배경색 변화 및 텍스트 색상 변경.",
+        "click": "최소 지연으로 즉각적인 시각적 반응.",
+        "transition": "모든 인터랙티브 요소에 150ms 전환 효과를 적용합니다.",
+        "keyboard": "명확한 내비게이션 포커스 상태."
+      },
+      "voice": {
+        "tone": "자신감 있고 기술적이며 직접적인 어조입니다.",
+        "headlineStyle": "대담하고 임팩트가 있으며, 종종 핑크색으로 단일 단어를 강조합니다.",
+        "ctaStyle": "명확하고 행동 지향적이며 시각적으로 두드러집니다.",
+        "avoid": [
+          "장황하거나 과장된 표현을 피합니다.",
+          "불필요한 장식 요소를 사용하지 않습니다.",
+          "핵심 기술 가치를 산만하게 하는 지나치게 복잡한 레이아웃을 피합니다."
+        ]
+      },
+      "donts": [
+        "밝은 배경을 사용하지 않습니다. 스크린샷은 메인 표면으로 깊은 다크 테마(#0D0E11)를 보여줍니다.",
+        "헤드라인에 세리프 폰트를 사용하지 않습니다. 스크린샷은 표시용 텍스트에 굵은 grotesque-sans를 사용합니다.",
+        "두 개 이상의 강조 색상을 사용하지 않습니다. 스크린샷은 강조를 위해 단일 지배적인 핑크(#F472B6)를 보여줍니다.",
+        "모든 과도한 큰 border-radius를 사용하지 않습니다. 스크린샷은 작은(4-8px) 또는 완전한 알약(999px) 모서리 반경을 사용합니다.",
+        "복잡한 그림자를 사용하지 않습니다. 스크린샷은 주로 깊이감을 위해 미세하고 어두운 그림자를 사용합니다.",
+        "가늘고 우아한 타이포그래피를 사용하지 않습니다. 스크린샷은 굵고 묵직한 헤드라인과 명확한 본문 텍스트를 보여줍니다."
+      ],
+      "systemPrompt": "Bun은 개발자를 위한 현대적이고 올인원 솔루션으로 포지셔닝된 고성능 JavaScript 런타임 및 툴킷입니다. 디자인은 깊은 어두운 배경(#0D0E11)에 높은 대비의 흰색 텍스트(#FFFFFF)와 단일의 활기찬 핑크 포인트(#F472B6)를 사용합니다. 타이포그래피는 헤드라인에 굵은 grotesque-sans, 본문에 깔끔한 system-sans를 사용합니다. 핵심 제약 조건: 밝은 테마를 사용하지 않으며, 헤드라인에 세리프 폰트를 사용하지 않으며, 복수의 강조 색상이나 과도한 장식 요소로 UI를 복잡하게 만들지 않으며, 비알약 컴포넌트에 지나치게 큰 border-radius를 사용하지 않습니다."
+    }
+  }
+}

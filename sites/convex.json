@@ -1,0 +1,598 @@
+{
+  "id": "convex",
+  "schema_version": "0.3",
+  "url": "https://convex.dev",
+  "title": "Convex",
+  "image": "",
+  "tags": [
+    "devtools",
+    "backend"
+  ],
+  "status": "completed",
+  "added_at": "2026-06-02",
+  "added_by": "expand-200",
+  "_meta": {
+    "vision_model": "mimo-v2.5",
+    "vision_prompt_version": "0.3",
+    "vision_source": "playwright-extract:convex",
+    "vision_grounded": true,
+    "vision_at": "2026-06-02T12:40:54+00:00",
+    "vision_tokens": 17123,
+    "vision_cost_usd": 0.1903,
+    "translation_model": "mimo-v2.5",
+    "translation_at": "2026-06-02T12:42:05+00:00",
+    "translation_tokens": 17111,
+    "translation_cost_usd": 0.057,
+    "narrative_model": "mimo-v2.5",
+    "narrative_prompt_version": "0.3",
+    "narrative_at": "2026-06-02T12:42:13+00:00",
+    "narrative_tokens": 2044,
+    "narrative_cost_usd": 0.0136,
+    "narrative_status": "ok",
+    "total_cost_usd": 0.2609
+  },
+  "spec": {
+    "colors": {
+      "bg": "#F6F0E1",
+      "bgSoft": "#292929",
+      "bgQuiet": null,
+      "ink": "#141414",
+      "inkSoft": "#FFFFFF",
+      "muted": "#A9A9AC",
+      "mutedSoft": null,
+      "accent": null,
+      "line": "rgba(20, 20, 20, 1)"
+    },
+    "typography": {
+      "display": "geometric-sans",
+      "body": "geometric-sans",
+      "mono": "monospace",
+      "scale": [
+        {
+          "token": "display",
+          "size": 40,
+          "lh": 1.0,
+          "weight": 700,
+          "ls": "-2px"
+        },
+        {
+          "token": "body",
+          "size": 16,
+          "lh": 1.5,
+          "weight": 400,
+          "ls": "0px"
+        }
+      ]
+    },
+    "spacing": {
+      "base": 4,
+      "scale": [
+        4,
+        8,
+        16,
+        24,
+        32,
+        48,
+        64,
+        96
+      ]
+    },
+    "surfaces": {
+      "radius": {
+        "sm": 4,
+        "md": 8,
+        "lg": 12,
+        "pill": 999
+      }
+    },
+    "layout": {
+      "container": 1280,
+      "paragraph": 680,
+      "columns": 12,
+      "gutter": 24,
+      "breakpoints": [
+        768,
+        1024
+      ]
+    },
+    "motion": {
+      "durations": {
+        "micro": 150,
+        "small": 250,
+        "medium": 400
+      },
+      "easing": "cubic-bezier(0.4, 0, 0.2, 1)"
+    }
+  },
+  "spec_i18n": {
+    "en": {
+      "identity": {
+        "keywords": [
+          "developer",
+          "backend",
+          "infrastructure",
+          "typescript",
+          "realtime"
+        ],
+        "analogy": "The industrial-grade engine block for modern web applications",
+        "oneLiner": "Convex provides an integrated backend-as-a-service that lets developers build with confidence."
+      },
+      "colors": {
+        "principle": "High-contrast split between warm cream editorial areas and dark, focused development environments."
+      },
+      "typography": {
+        "rules": [
+          "Headings are tightly tracked and bold",
+          "Body text remains highly legible with generous leading",
+          "Monospace font is used exclusively for code snippets and terminal commands"
+        ],
+        "scaleUses": [
+          "Main hero headings",
+          "Standard body copy"
+        ]
+      },
+      "spacing": {
+        "rhythm": "4px base grid with generous padding in section breaks"
+      },
+      "surfaces": {
+        "shadows": [
+          "0px -16px 72px -8px rgba(0, 0, 0, 0.25)",
+          "0px 10px 15px -3px rgba(0, 0, 0, 0.1)"
+        ],
+        "borders": "1px solid #141414"
+      },
+      "layout": {
+        "skeleton": "Split-screen hero with text on the left and interactive code editor on the right"
+      },
+      "components": {
+        "button": "Solid dark filled buttons with pill border-radius and white text",
+        "card": "Dark themed cards with 12px border-radius and subtle shadows",
+        "chip": "Colorful rounded tags for categories like 'Work' or 'Other'",
+        "input": "Dark terminal-style input fields with monospace font",
+        "hero": "Asymmetrical split layout with large typography on one side and a live demo on the other"
+      },
+      "motion": {
+        "patterns": [
+          "Smooth 150ms color and transform transitions on hover",
+          "Subtle background gradient animations"
+        ]
+      },
+      "interaction": {
+        "hover": "Subtle background and text color shifts with smooth easing",
+        "click": "Immediate response with slight scale feedback",
+        "transition": "All properties transition smoothly over 150ms",
+        "keyboard": "Standard focus states visible for accessibility"
+      },
+      "voice": {
+        "tone": "Professional, confident, and developer-focused",
+        "headlineStyle": "Large, bold, and tightly tracked geometric sans-serif",
+        "ctaStyle": "Direct and action-oriented with pill-shaped buttons",
+        "avoid": [
+          "Frivolous or overly playful language",
+          "Cluttered layouts",
+          "Bright, neon-heavy color schemes"
+        ]
+      },
+      "donts": [
+        "Don't use standard rounded corners on primary buttons — screenshot shows pill-shaped (999px) borders",
+        "Don't use a bright blue or green accent — screenshot shows a strictly monochromatic palette with colorful accents only in code syntax",
+        "Don't use serif fonts for headings — screenshot shows bold, tightly tracked geometric sans-serif",
+        "Don't use thin, light borders — screenshot shows 1px solid dark borders against a light background",
+        "Don't use a purely dark background for the whole page — screenshot shows a split between a light cream main content area and dark component areas",
+        "Don't use standard sans-serif fonts like Helvetica — screenshot shows a distinct, slightly wider geometric sans-serif category"
+      ],
+      "systemPrompt": "Convex is a developer-focused backend-as-service tool characterized by a sophisticated split-layout design. The primary background is a warm cream (#F6F0E1), contrasted with deep dark (#292929) surfaces for code editors and UI components. Typography utilizes a bold, geometric sans-serif for display headings and a clean sans-serif for body text, with monospace reserved strictly for code. Critical design rules include avoiding standard rounded corners (use pill-radius for buttons), avoiding bright neon accents in favor of a restrained monochromatic palette, and ensuring all interactive elements have smooth 150ms transitions. The layout emphasizes high-contrast editorial sections alongside dark, focused tool interfaces."
+    },
+    "zh-CN": {
+      "identity": {
+        "keywords": [
+          "开发者",
+          "后端",
+          "基础设施",
+          "typescript",
+          "实时"
+        ],
+        "analogy": "现代Web应用的工业级引擎模块",
+        "oneLiner": "Convex提供一体化后端即服务，让开发者自信构建应用。"
+      },
+      "colors": {
+        "principle": "温暖奶油色编辑区域与深色专注开发环境之间的高对比分割。"
+      },
+      "typography": {
+        "rules": [
+          "标题采用紧凑字距与粗体",
+          "正文保持高可读性与充足行高",
+          "等宽字体专用于代码片段与终端命令"
+        ],
+        "scaleUses": [
+          "主标题区域",
+          "标准正文"
+        ]
+      },
+      "spacing": {
+        "rhythm": "基于4px网格，段落间隔采用充足内边距"
+      },
+      "surfaces": {
+        "shadows": [
+          "0px -16px 72px -8px rgba(0, 0, 0, 0.25)",
+          "0px 10px 15px -3px rgba(0, 0, 0, 0.1)"
+        ],
+        "borders": "1px solid #141414"
+      },
+      "layout": {
+        "skeleton": "分屏英雄区：左侧文本区与右侧交互式代码编辑器"
+      },
+      "components": {
+        "button": "深色填充按钮，采用胶囊形圆角与白色文字",
+        "card": "深色主题卡片，12px圆角与微妙阴影",
+        "chip": "彩色圆角标签，用于'工作'或'其他'等分类",
+        "input": "深色终端风格输入框，使用等宽字体",
+        "hero": "非对称分屏布局，一侧大字体标题与另一侧实时演示"
+      },
+      "motion": {
+        "patterns": [
+          "悬停时实现150ms平滑颜色与变换过渡",
+          "微妙的背景渐变动画"
+        ]
+      },
+      "interaction": {
+        "hover": "背景与文字颜色的微妙变化，平滑缓动",
+        "click": "即时响应并附带轻微缩放反馈",
+        "transition": "所有属性在150ms内平滑过渡",
+        "keyboard": "标准聚焦状态可见，确保无障碍访问"
+      },
+      "voice": {
+        "tone": "专业、自信、开发者导向",
+        "headlineStyle": "大号粗体紧凑字距几何无衬线字体",
+        "ctaStyle": "直接行动导向的胶囊形按钮",
+        "avoid": [
+          "轻浮或过度 playful 的语言",
+          "杂乱的布局",
+          "明亮霓虹色为主的配色方案"
+        ]
+      },
+      "donts": [
+        "主按钮不要使用标准圆角——截图显示为胶囊形(999px)边框",
+        "不要使用亮蓝色或绿色强调色——截图显示为严格单色调色板，仅代码语法处有彩色点缀",
+        "标题不要使用衬线字体——截图显示为粗体紧凑字距几何无衬线字体",
+        "不要使用纤细浅色边框——截图显示为浅色背景上的1px深色实线边框",
+        "整个页面不要使用纯深色背景——截图显示为浅奶油色主内容区与深色组件区域的分割",
+        "不要使用Helvetica等标准无衬线字体——截图显示为独特的、稍宽的几何无衬线字体类别"
+      ],
+      "systemPrompt": "Convex是一款面向开发者的后端即服务工具，采用精致的分割布局设计。主背景为温暖奶油色(#F6F0E1)，与代码编辑器和界面组件的深色(#292929)表面形成对比。字体方面，展示标题使用粗体几何无衬线字体，正文使用简洁无衬线字体，等宽字体严格保留用于代码。关键设计规则包括：避免使用标准圆角（按钮采用胶囊形圆角），避免使用明亮霓虹强调色而采用克制的单色调色板，并确保所有交互元素都有150ms平滑过渡。布局强调高对比度编辑区与深色专注工具界面的并置。"
+    },
+    "zh-TW": {
+      "identity": {
+        "keywords": [
+          "開發者",
+          "後端",
+          "基礎設施",
+          "typescript",
+          "即時"
+        ],
+        "analogy": "現代網路應用的工業級引擎模組",
+        "oneLiner": "Convex 提供整合式後端即服務，讓開發者能自信地進行建構。"
+      },
+      "colors": {
+        "principle": "溫暖奶油色編輯區域與深色、專注的開發環境之間的高對比分離。"
+      },
+      "typography": {
+        "rules": [
+          "標題採用緊密字距與粗體字重",
+          "內文保持高度可讀性，搭配寬鬆的行高",
+          "等寬字體僅用於程式碼片段與終端機指令"
+        ],
+        "scaleUses": [
+          "主要英雄版標題",
+          "標準內文副本"
+        ]
+      },
+      "spacing": {
+        "rhythm": "4px 基礎網格，區段分隔處採用寬鬆的內距"
+      },
+      "surfaces": {
+        "shadows": [
+          "0px -16px 72px -8px rgba(0, 0, 0, 0.25)",
+          "0px 10px 15px -3px rgba(0, 0, 0, 0.1)"
+        ],
+        "borders": "1px solid #141414"
+      },
+      "layout": {
+        "skeleton": "分割螢幕英雄版，左側為文字，右側為互動式程式碼編輯器"
+      },
+      "components": {
+        "button": "實心深色填充按鈕，採用膠囊形圓角與白色文字",
+        "card": "深色主題卡片，12px 圓角搭配細微陰影",
+        "chip": "用於「工作」或「其他」等類別的彩色圓角標籤",
+        "input": "深色終端機風格輸入欄位，使用等寬字體",
+        "hero": "不對稱分割版面，一側為大型字體，另一側為即時展示"
+      },
+      "motion": {
+        "patterns": [
+          "hover 時平滑的 150 毫秒色彩與變形過渡",
+          "細微的背景漸層動畫"
+        ]
+      },
+      "interaction": {
+        "hover": "細微的背景與文字色彩變化，搭配平滑緩動",
+        "click": "即時回應，帶有輕微的縮放回饋",
+        "transition": "所有屬性在 150 毫秒內平滑過渡",
+        "keyboard": "標準的焦點狀態清晰可見，以利無障礙使用"
+      },
+      "voice": {
+        "tone": "專業、自信且以開發者為中心",
+        "headlineStyle": "大型、粗體且字距緊密的幾何無襯線字體",
+        "ctaStyle": "直接且具行動導向，採用膠囊形按鈕",
+        "avoid": [
+          "輕浮或過於 playful 的語言",
+          "雜亂的版面配置",
+          "明亮、霓虹感過重的配色方案"
+        ]
+      },
+      "donts": [
+        "不要在主要按鈕上使用標準圓角 — 截圖顯示為膠囊形 (999px) 邊框",
+        "不要使用明亮的藍色或綠色強調色 — 截圖顯示為嚴格的單色調色板，僅在程式碼語法中使用彩色強調",
+        "不要使用襯線字體作為標題 — 截圖顯示為粗體、字距緊密的幾何無襯線字體",
+        "不要使用細薄、淺色的邊框 — 截圖顯示在淺色背景上使用 1px 實線深色邊框",
+        "不要使用純深色背景作為整個頁面背景 — 截圖顯示在淺奶油色主要內容區域與深色元件區域之間進行分割",
+        "不要使用像 Helvetica 這樣的標準無襯線字體 — 截圖顯示為獨特、稍寬的幾何無襯線字體類別"
+      ],
+      "systemPrompt": "Convex 是一款以開發者為中心的後端即服務工具，其特色在於精緻的分離式版面設計。主要背景為溫暖的奶油色 (#F6F0E1)，與程式碼編輯器和 UI 元件的深色 (#292929) 表面形成對比。字體方面，展示標題採用粗體幾何無襯線字體，內文使用簡潔的無襯線字體，而等寬字體則嚴格保留給程式碼使用。關鍵設計規則包括避免使用標準圓角（按鈕採用膠囊形圓角）、避免使用明亮的霓虹強調色而採用克制的單色調色板，並確保所有互動元素都有平滑的 150 毫秒過渡效果。版面配置強調高對比的編輯區域與深色、專注的工具介面並存。"
+    },
+    "ja": {
+      "identity": {
+        "keywords": [
+          "開発者",
+          "バックエンド",
+          "インフラ",
+          "typescript",
+          "リアルタイム"
+        ],
+        "analogy": "モダンなウェブアプリケーションのための、エンタープライズグレードのエンジンブロック",
+        "oneLiner": "Convexは、開発者が安心して開発を進められる統合バックエンド・ア・サービスを提供します。"
+      },
+      "colors": {
+        "principle": "温かみのあるクリーム色のエディトリアルエリアと、集中力のあるダークな開発環境との間の、高コントラストなスプリットデザイン。"
+      },
+      "typography": {
+        "rules": [
+          "見出しはきつくトラッキングされ、太字",
+          "本文は十分な行間で高い可読性を維持",
+          "モノスペースフォントはコードスニペットとターミナルコマンドにのみ使用"
+        ],
+        "scaleUses": [
+          "メインヒーロー見出し",
+          "標準本文"
+        ]
+      },
+      "spacing": {
+        "rhythm": "4pxベースグリッドと、セクション区切りに十分なパディング"
+      },
+      "surfaces": {
+        "shadows": [
+          "0px -16px 72px -8px rgba(0, 0, 0, 0.25)",
+          "0px 10px 15px -3px rgba(0, 0, 0, 0.1)"
+        ],
+        "borders": "1px solid #141414"
+      },
+      "layout": {
+        "skeleton": "テキストを左、インタラクティブなコードエディタを右に配置したスクリーン分割ヒーロー"
+      },
+      "components": {
+        "button": "白色テキストを持つ、塗りつぶしのダークなピルボーダーラジウスボタン",
+        "card": "12pxボーダーラジウスと微妙なシャドウを持つダークテーマカード",
+        "chip": "「Work」や「Other」などのカテゴリ用の、カラフルな角丸タグ",
+        "input": "モノスペースフォントを使用した、ダークターミナルスタイルの入力フィールド",
+        "hero": "一方に大きなタイポグラフィ、もう一方にライブデモを配置した非対称スプリットレイアウト"
+      },
+      "motion": {
+        "patterns": [
+          "ホバー時の滑らかな150msのカラーおよびトランスフォームトランジション",
+          "背景グラデーションの微妙なアニメーション"
+        ]
+      },
+      "interaction": {
+        "hover": "滑らかなイージングを用いた、背景とテキストカラーの微妙な変化",
+        "click": "わずかなスケールフィードバックを伴う即座のレスポンス",
+        "transition": "すべてのプロパティが150msで滑らかにトランジション",
+        "keyboard": "アクセシビリティのための標準的なフォーカスステート"
+      },
+      "voice": {
+        "tone": "プロフェッショナルで、自信に満ち、開発者中心",
+        "headlineStyle": "大きく、太字で、きつくトラッキングされたジオメトリック・サンセリフ",
+        "ctaStyle": "ピル型ボタンを用いた、直接的で行動を促す",
+        "avoid": [
+          "軽薄または遊び心すぎる言葉",
+          "散らかったレイアウト",
+          "明るく、ネオン色を多用したカラースキーム"
+        ]
+      },
+      "donts": [
+        "プライマリボタンに標準的な角丸を使用しない — スクリーンショットはピル型（999px）ボーダーを示しています",
+        "明るいブルーまたはグリーンのアクセントを使用しない — スクリーンショットはコードシンタックスのみにカラフルなアクセントを持つ、厳格なモノクロマティックパレットを示しています",
+        "見出しにセリフフォントを使用しない — スクリーンショットは太字で、きつくトラッキングされたジオメトリック・サンセリフを示しています",
+        "細く、薄いボーダーを使用しない — スクリーンショットは明るい背景に対する1px実線のダークボーダーを示しています",
+        "ページ全体に純粋なダーク背景を使用しない — スクリーンショットは明るいクリーム色のメインコンテンツエリアとダークコンポーネントエリアとの分割を示しています",
+        "Helveticaなどの標準的なサンセリフフォントを使用しない — スクリーンショットは特徴的で、わずかに幅広いジオメトリック・サンセリフカテゴリを示しています"
+      ],
+      "systemPrompt": "Convexは、洗練されたスプリットレイアウトデザインが特徴の、開発者向けバックエンド・ア・サービスツールです。プライマリ背景は温かみのあるクリーム色（#F6F0E1）で、コードエディタやUIコンポーネント用の濃いダーク（#292929）サーフェスと対比されています。タイポグラフィは、ディスプレイ見出しに太字のジオメトリック・サンセリフ、本文にクリーンなサンセリフを使用し、モノスペースはコードに厳密に限定しています。重要なデザインルールには、標準的な角丸の回避（ボタンにはピルラジウスを使用）、明るいネオンアクセントの回避（抑制されたモノクロマティックパレットの採用）、およびすべてのインタラクティブ要素に150msの滑らかなトランジションを適用することが含まれます。レイアウトは、集中力のあるダークなツールインターフェースと並べて、高コントラストなエディトリアルセクションを強調しています。"
+    },
+    "ko": {
+      "identity": {
+        "keywords": [
+          "개발자",
+          "백엔드",
+          "인프라스트럭처",
+          "타입스크립트",
+          "실시간"
+        ],
+        "analogy": "현대 웹 애플리케이션을 위한 산업 등급 엔진 블록",
+        "oneLiner": "Convex는 개발자들이 자신감 있게 구축할 수 있게 해주는 통합 백엔드-서비스를 제공합니다."
+      },
+      "colors": {
+        "principle": "따뜻한 크림 에디토리얼 영역과 어두운 집중 개발 환경 간의 고대비 분할."
+      },
+      "typography": {
+        "rules": [
+          "제목은 타이트하게 트래킹되고 볼드체입니다",
+          "본문 텍스트는 넉넉한 행간으로 높은 가독성을 유지합니다",
+          "모노스페이스 폰트는 코드 스니펫과 터미널 명령에만 전용으로 사용됩니다"
+        ],
+        "scaleUses": [
+          "메인 히어로 제목",
+          "표준 본문 복사"
+        ]
+      },
+      "spacing": {
+        "rhythm": "4px 기본 그리드와 섹션 구간에 넉넉한 패딩"
+      },
+      "surfaces": {
+        "shadows": [
+          "0px -16px 72px -8px rgba(0, 0, 0, 0.25)",
+          "0px 10px 15px -3px rgba(0, 0, 0, 0.1)"
+        ],
+        "borders": "1px solid #141414"
+      },
+      "layout": {
+        "skeleton": "왼쪽에 텍스트, 오른쪽에 인터랙티브 코드 편집기가 있는 분할 스크린 히어로"
+      },
+      "components": {
+        "button": "알약 모서리 반경과 흰색 텍스트가 적용된 단색 다크 채우기 버튼",
+        "card": "12px 모서리 반경과 미묘한 그림자가 있는 다크 테마 카드",
+        "chip": "'Work' 또는 'Other'와 같은 카테고리를 위한 다채로운 둥근 태그",
+        "input": "모노스페이스 폰트를 사용한 다크 터미널 스타일 입력 필드",
+        "hero": "한쪽에 대형 타이포그래피, 다른 쪽에 라이브 데모가 있는 비대칭 분할 레이아웃"
+      },
+      "motion": {
+        "patterns": [
+          "hover 시 부드러운 150ms 색상 및 변환 트랜지션",
+          "미묘한 배경 그라디언트 애니메이션"
+        ]
+      },
+      "interaction": {
+        "hover": "부드러운 이징으로 미묘한 배경 및 텍스트 색상 변화",
+        "click": "약간의 스케일 피드백으로 즉각적인 응답",
+        "transition": "모든 속성이 150ms 동안 부드럽게 트랜지션됩니다",
+        "keyboard": "접근성을 위한 표준 focus 상태가 표시됩니다"
+      },
+      "voice": {
+        "tone": "전문적이고 자신감 있는 개발자 중심 어조",
+        "headlineStyle": "크고 볼드하며 타이트하게 트래킹된 기하학적 산세리프",
+        "ctaStyle": "알약 모양 버튼을 사용한 직접적이고 행동 지향적인 스타일",
+        "avoid": [
+          "경솔하거나 지나치게 장난스러운 언어",
+          "어지러운 레이아웃",
+          "밝고 네온이 강한 색상 체계"
+        ]
+      },
+      "donts": [
+        "기본 버튼에 표준 둥근 모서리를 사용하지 마세요 — 스크린샷은 알약 모양(999px) 테두리를 보여줍니다",
+        "밝은 파란색이나 녹색 강조색을 사용하지 마세요 — 스크린샷은 코드 구문에만 다채로운 강조색을 사용하는 엄격한 단색 팔레트를 보여줍니다",
+        "제목에 세리프 폰트를 사용하지 마세요 — 스크린샷은 볼드체의 타이트하게 트래킹된 기하학적 산세리프를 보여줍니다",
+        "얇고 밝은 테두리를 사용하지 마세요 — 스크린샷은 밝은 배경에 대비되는 1px 실선 다크 테두리를 보여줍니다",
+        "전체 페이지에 순수 다크 배경을 사용하지 마세요 — 스크린샷은 라이트 크림 메인 콘텐츠 영역과 다크 컴포넌트 영역 간의 분할을 보여줍니다",
+        "Helvetica와 같은 표준 산세리프 폰트를 사용하지 마세요 — 스크린샷은 약간 더 넓은 고유한 기하학적 산세리프 카테고리를 보여줍니다"
+      ],
+      "systemPrompt": "Convex는 고급스러운 분할 레이아웃 디자인이 특징인 개발자 중심의 백엔드-서비스 도구입니다. 주요 배경은 따뜻한 크림(#F6F0E1)이며, 코드 편집기 및 UI 컴포넌트를 위해 어두운(#292929) 표면으로 대비됩니다. 타이포그래피는 전시 제목에 볼드한 기하학적 산세리프를, 본문 텍스트에 깔끔한 산세리프를 사용하며, 모노스페이스는 코드에만 엄격하게 예약됩니다. 핵심 디자인 규칙으로는 표준 둥근 모서리 사용 금지(버튼에는 알약 반경 사용), 절제된 단색 팔레트를 위해 밝은 네온 강조색 사용 금지, 모든 인터랙티브 요소에 부드러운 150ms 트랜지션 적용이 포함됩니다. 레이아웃은 고대비 에디토리얼 섹션과 어두운 집중 도구 인터페이스를 강조합니다."
+    }
+  },
+  "desc": {
+    "en": {
+      "palette": "A sophisticated split palette combining a warm, light cream main surface with deep, dark gray component areas for a high-contrast developer aesthetic.",
+      "layout": "Asymmetrical split-screen hero layout with a large editorial text block on the left and a dark-themed interactive code editor on the right.",
+      "interaction": "Smooth 150ms transitions on hover states for buttons and navigation links, with subtle color shifts using cubic-bezier easing.",
+      "motion": "Minimal but precise motion with fast micro-interactions for UI feedback and subtle gradient animations in the background.",
+      "notes": "A prime example of modern developer tools design, blending editorial warmth with the focused, dark-themed utility of professional code interfaces."
+    },
+    "zh-CN": {
+      "palette": "精致的分割色盘，结合温暖浅奶油色主界面与深灰色组件区域，营造高对比度的开发者美学。",
+      "layout": "非对称分屏英雄区布局，左侧为大块编辑文本区，右侧为深色主题的交互式代码编辑器。",
+      "interaction": "按钮与导航链接在悬停状态下实现150ms平滑过渡，采用cubic-bezier缓动实现微妙色彩变化。",
+      "motion": "极简而精确的动效，以快速微交互实现界面反馈，背景辅以微妙的渐变动画。",
+      "notes": "现代开发者工具设计的典范，将编辑器的温度感与专业代码界面专注、深色主题的实用性完美融合。"
+    },
+    "zh-TW": {
+      "palette": "精緻的分離色調，結合溫暖的淺奶油色主表面與深灰色元件區域，營造高對比的開發者美學。",
+      "layout": "不對稱分割螢幕英雄版面，左側為大型編輯文字區塊，右側為深色主題互動式程式碼編輯器。",
+      "interaction": "按鈕與導覽連結在 hover 狀態下有 150 毫秒的平滑過渡，使用 cubic-bezier 緩動實現細微色彩變化。",
+      "motion": "極簡但精準的動態效果，包含快速的微互動回饋與背景中細微的漸層動畫。",
+      "notes": "這是現代開發者工具設計的優質範例，融合了編輯器的溫暖感與專業程式碼介面的專注、深色主題實用性。"
+    },
+    "ja": {
+      "palette": "温かみのある明るいクリーム色のメインサーフェスと、濃いダークグレーのコンポーネントエリアを組み合わせた、洗練されたスプリットパレット。高コントラストの開発者向けエスセティックを実現しています。",
+      "layout": "左側に大きなエディトリアルテキストブロック、右側にダークテーマのインタラクティブコードエディタを配置した、非対称のスクリーン分割ヒーローレイアウトです。",
+      "interaction": "ボタンやナビゲーションリンクのホバーステートに、cubic-bezierイージングを用いた微妙な色変化とともに、150msのスムーズなトランジションを適用します。",
+      "motion": "UIフィードバックのための高速なマイクロインタラクション、背景の微妙なグラデーションアニメーションを含む、最小限ながら正確なモーション設計です。",
+      "notes": "モダンな開発者ツールデザインの好例であり、エディトリアルの温かさと、プロフェッナルなコードインターフェースの集中力のあるダークテーマユーティリティを融合させています。"
+    },
+    "ko": {
+      "palette": "따뜻한 라이트 크림 메인 표면과 어두운 다크 그레이 컴포넌트 영역을 결합한 고급스러운 분할 팔레트로, 개발자 미학을 위한 고대비를 제공합니다.",
+      "layout": "왼쪽에 대형 에디토리얼 텍스트 블록, 오른쪽에 다크 테마의 인터랙티브 코드 편집기를 배치한 비대칭 분할 스크린 히어로 레이아웃입니다.",
+      "interaction": "버튼과 내비게이션 링크의 hover 상태에서 cubic-bezier 이징을 사용한 미묘한 색상 변화와 함께 부드러운 150ms 트랜지션이 적용됩니다.",
+      "motion": "UI 피드백을 위한 빠른 마이크로 인터랙션과 배경의 미묘한 그라디언트 애니메이션으로, 최소적이면서도 정밀한 모션을 구현합니다.",
+      "notes": "에디토리얼적 따뜻함과 전문적인 코드 인터페이스의 집중적이고 다크 테마의 기능성을 결합한, 현대적인 개발자 도구 디자인의 대표적인 예시입니다."
+    }
+  },
+  "narrative": {
+    "en": {
+      "ch1_intro": "The design system for Convex is built on a central analogy: it is the industrial-grade engine block for modern web applications. This identity manifests as a stark, confident split between warm, legible editorial surfaces and the dark, focused environments where code is written and understood.",
+      "ch2_intro": "The palette is a deliberate study in functional contrast, pairing a warm cream (#F6F0E1) for content areas with deep, dark grays (#292929) for component surfaces. This split creates a natural separation between reading and building contexts.",
+      "ch2_outro": "The system avoids bright neon accents, reserving chromatic expression for code syntax highlighting within the otherwise monochromatic developer interface.",
+      "ch3_intro": "Typographic voice is defined by a bold, geometric sans-serif category for headings, set tight and tracked for impact. Body text maintains high legibility with generous leading, while monospace typography is reserved exclusively for its native context: code and terminal commands.",
+      "ch4_intro": "A consistent 4px base grid underpins all spatial relationships, providing a predictable and scalable rhythm.",
+      "ch5_intro": "Depth is communicated through carefully layered shadows and a single, consistent border weight (1px solid #141414). These elements create clear visual hierarchy without ornamental decoration.",
+      "ch6_intro": "The foundational layout is an asymmetrical split-screen hero, establishing the core editorial/interactive dichotomy. Text content occupies one side while a dark-themed, live code interface anchors the other.",
+      "ch7_intro": "Motion philosophy prioritizes utility and clarity over decoration. All interactive transitions are swift (150ms) and use smooth easing, providing immediate feedback without interrupting workflow.",
+      "ch8_intro": "The editorial voice is professional, confident, and direct, addressing developers with clarity and purpose. Language is action-oriented, matching the precision of the tools themselves.",
+      "ch8_outro": "The system deliberately excludes frivolous or overly playful language, cluttered layouts, and bright, neon-heavy color schemes in favor of its restrained, high-utility aesthetic."
+    },
+    "zh-CN": {
+      "ch1_intro": "Convex 的设计系统基于一个核心类比：它是现代 Web 应用程序的工业级引擎。这种身份体现为一种鲜明、自信的割裂——温暖、易读的编辑式界面与黑暗、专注的代码编写环境之间的明确分界。",
+      "ch2_intro": "色彩方案是对功能对比的刻意研究，内容区域采用温暖的奶油色 (#F6F0E1)，组件表面则使用深沉的深灰色 (#292929)。这种划分在阅读与构建场景之间创造了自然的隔离。",
+      "ch2_outro": "该系统避免使用明亮的霓虹色调，将色彩表现力保留给开发者界面中代码语法的高亮显示，而界面整体则保持单色。",
+      "ch3_intro": "字体风格由适用于标题的粗体几何无衬线字体定义，通过紧凑的字距和间距来增强冲击力。正文通过充裕的行距保持高可读性，而等宽字体则专用于其原生场景：代码与终端命令。",
+      "ch4_intro": "一个统一的 4px 基础网格构成了所有空间关系的基础，提供了可预测且可扩展的节奏。",
+      "ch5_intro": "深度通过精心分层的阴影和统一且一致的边框宽度（1px solid #141414）来传达。这些元素创造了清晰的视觉层次，而无需装饰性修饰。",
+      "ch6_intro": "基础布局采用非对称的分屏 Hero 设计，确立了核心的编辑/交互二元性。文本内容占据一侧，而深色主题的实时代码界面则锚定在另一侧。",
+      "ch7_intro": "动效哲学优先考虑实用性和清晰度，而非装饰。所有交互过渡都快速（150ms）且使用平滑的缓动，提供即时反馈而不中断工作流程。",
+      "ch8_intro": "编辑风格专业、自信且直接，以清晰和目的性与开发者对话。语言以行动为导向，与工具本身的精准性相匹配。",
+      "ch8_outro": "该系统刻意摒弃了轻浮或过于俏皮的语言、杂乱的布局以及明亮、霓虹感强烈的配色方案，转而支持其克制、高实用性的美学。"
+    },
+    "zh-TW": {
+      "ch1_intro": "Convex 的設計系統建立在一個核心類比之上：它是現代網頁應用程式的工業級引擎本體。這種識別體現為一種鮮明而自信的區隔：溫暖、易讀的編輯介面與黑暗、專注的程式碼撰寫與理解環境之間的對比。",
+      "ch2_outro": "系統避免使用明亮的霓虹色調，將色彩表現保留給程式碼語法高亮，其餘則維持單色調的開發者介面。",
+      "ch2_intro": "色盤是對功能性對比的刻意研究，將溫暖的奶油色 (#F6F0E1) 用於內容區域，搭配深邃的暗灰色 (#292929) 作為元件表面。這種區隔在閱讀與建構情境之間創造了自然的分界。",
+      "ch3_intro": "排版的語調由大膽、幾何的無襯線類別定義，用於標題，採用緊湊的字距與字間距以營造衝擊力。內文保持高可讀性，採用寬裕的行距；而等寬字體則專門保留給其原生情境：程式碼與終端機指令。",
+      "ch4_intro": "一致的 4px 基礎網格支撐著所有空間關係，提供可預測且可擴展的節奏。",
+      "ch5_intro": "深度透過精心分層的陰影與一致的單一邊框粗細 (1px solid #141414) 來傳達。這些元素創造了清晰的視覺層級，而無需裝飾性的綴飾。",
+      "ch6_intro": "基礎佈局採用不對稱的分割畫面首頁，確立了核心的編輯/互動二元性。文字內容佔據一側，而黑暗主題的即時程式碼介面則錨定另一側。",
+      "ch7_intro": "動效哲學優先考量實用性與清晰度，而非裝飾性。所有互動過渡都快速 (150ms) 且使用平滑的緩動，提供即時反饋而不中斷工作流程。",
+      "ch8_intro": "編輯語調專業、自信且直接，以清晰與目的性對開發者發聲。語言以行動為導向，與工具本身的精確性相匹配。",
+      "ch8_outro": "系統刻意排除輕浮或過度 playful 的語言、雜亂的佈局，以及明亮、重度依賴霓虹色的配色方案，轉而採用其克制、高度實用的美學。"
+    },
+    "ja": {
+      "ch1_intro": "Convexのデザインシステムは、中心的なアナロジーに基づいて構築されています。それは、モダンなWebアプリケーションのための産業グレードのエンジンブロックです。このアイデンティティは、暖かく読みやすいエディトリアル面と、コードが書きられ理解される暗く集中した環境の間の、大胆で確信に満ちた分離として具現化されます。",
+      "ch2_intro": "パレットは、機能的なコントラストを意図的な研究であり、コンテンツエリアには暖かいクリーム色（#F6F0E1）、コンポーネント面には深いダークグレー（#292929）を組み合わせています。この分離は、閲覧と構築のコンテキスト間に自然な区別を生み出します。",
+      "ch2_outro": "このシステムは、明るいネオンのアクセントを避け、モノクロームの開発者インターフェース内で、コードシンタックスハイライトにのみ色彩表現を割り当てています。",
+      "ch3_intro": "タイポグラフィの声は、見出しに太い幾何学的sans-serifカテゴリで定義され、インパクトのためにtightに設定されtrackedされています。本文テキストは、豊富な行間で高い可読性を維持し、モノスペースタイポグラフィは、そのネイティブコンテキスト、つまりコードとターミナルコマンドにのみ割り当てられます。",
+      "ch4_intro": "一貫した4pxの基本グリッドがすべての空間関係を支え、予測可能でスケーラブルなリズムを提供します。",
+      "ch5_intro": "奥行きは、慎重にレイヤー化されたシャドウと、一貫した単一のボーダーの太さ（1px solid #141414）で伝達されます。これらの要素は、装飾的な装飾なしに明確なビジュアル階層を生み出します。",
+      "ch6_intro": "基盤となるレイアウトは非対称の分割画面ヒーローであり、エディトリアル/インタラクティブという核心的な二分法を確立します。テキストコンテンツは一方を占め、ダークテーマのライブコードインターフェースが他方を固定します。",
+      "ch7_intro": "モーションの哲学は、装飾よりも实用性と明瞭さを優先します。すべてのインタラクティブな遷移は迅速（150ms）で、滑らかなイージングを使用し、ワークフローを中断することなく即時フィードバックを提供します。",
+      "ch8_intro": "エディトリアルの声は、専門的で、確信に満ち、直接的です。開発者に明確さと目的を持って語りかけます。言語はアクション指向であり、ツール自体の精密さに合致します。",
+      "ch8_outro": "このシステムは、軽薄または過度に遊び心のある言語、雑然としたレイアウト、明るくネオンが強いカラースキームを意図的に排除し、その抑制された高ユーティリティの美学に優先を置いています。"
+    },
+    "ko": {
+      "ch1_intro": "Convex의 디자인 시스템은 하나의 핵심 비유 위에 구축되었습니다. 바로 현대 웹 애플리케이션을 위한 산업 등급의 엔진 블록이라는 비유입니다. 이 정체성은 따뜻하고 읽기 편한 편집 영역과 코드가 작성되고 이해되는 어둡고 집중적인 환경 사이의 명확하고 자신감 있는 분할로 드러납니다.",
+      "ch2_intro": "팔레트는 기능적 대비에 대한 의도적인 연구이며, 콘텐츠 영역을 위한 따뜻한 크림(#F6F0E1)과 컴포넌트 표면을 위한 짙은 어두운 그레이(#292929)를 조합합니다. 이 분할은 읽기와 구축 컨텍스트 사이에 자연스러운 분리를 만들어냅니다.",
+      "ch2_outro": "이 시스템은 밝은 네온 액센트를 피하고, 단색 개발자 인터페이스 내부의 코드 구문 강조에만 색채 표현을 남겨둡니다.",
+      "ch3_intro": "타이포그래피 보이스는 제목을 위한 굵고 기하학적인 고딕류 계열로 정의되며, 영향력을 위해 자간을 좁게 하고 트래킹합니다. 본문 텍스트는 넉넉한 행간으로 높은 가독성을 유지하고, 모노스페이스 타이포그래피는 본래의 맥락인 코드와 터미널 명령어에만 전적으로 사용됩니다.",
+      "ch4_intro": "일관된 4px 기본 그리드가 모든 공간 관계의 기반이 되어, 예측 가능하고 확장 가능한 리듬을 제공합니다.",
+      "ch5_intro": "깊이는 신중하게 겹쳐진 그림자와 단일하고 일관된 테두리 굵기(1px solid #141414)로 전달됩니다. 이러한 요소들은 장식적 장식 없이 명확한 시각적 계층 구조를 만듭니다.",
+      "ch6_intro": "기본 레이아웃은 비대칭 분할 화면 영웅 영역으로, 핵심적인 편집/인터랙티브 이원성을 확립합니다. 텍스트 콘텐츠는 한쪽을 차지하고, 어둡게 테마화된 실시간 코드 인터페이스가 다른 한쪽을 고정시킵니다.",
+      "ch7_intro": "모션 철학은 장식보다 기능과 명확성을 우선시합니다. 모든 인터랙티브 트랜지션은 빠르며(150ms) 부드러운 이징을 사용하여, 워크플로우를 방해하지 않으면서 즉각적인 피드백을 제공합니다.",
+      "ch8_intro": "편집 보이스는 전문적이고 자신감 있으며 직접적이어서, 개발자에게 명확함과 목적을 가지고 다릅니다. 언어는 도구 자체의 정밀함에 맞춰 행동 지향적입니다.",
+      "ch8_outro": "이 시스템은 가벼우거나 지나치게 장난스러운 언어, 복잡한 레이아웃, 밝고 네온이 강한 색상 체계를 의도적으로 배제하고, 절제된 높은 기능적 미학을 선호합니다."
+    }
+  }
+}

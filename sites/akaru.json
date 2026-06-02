@@ -1,0 +1,611 @@
+{
+  "id": "akaru",
+  "schema_version": "0.3",
+  "url": "https://akaru.fr",
+  "title": "Akaru",
+  "image": "",
+  "tags": [
+    "agency",
+    "webgl"
+  ],
+  "status": "completed",
+  "added_at": "2026-06-02",
+  "added_by": "expand-200",
+  "_meta": {
+    "vision_model": "mimo-v2.5",
+    "vision_prompt_version": "0.3",
+    "vision_source": "playwright-extract:akaru",
+    "vision_grounded": true,
+    "vision_at": "2026-06-02T10:00:37+00:00",
+    "vision_tokens": 16582,
+    "vision_cost_usd": 0.1842,
+    "translation_model": "mimo-v2.5",
+    "translation_at": "2026-06-02T10:01:51+00:00",
+    "translation_tokens": 16565,
+    "translation_cost_usd": 0.0552,
+    "narrative_model": "mimo-v2.5",
+    "narrative_prompt_version": "0.3",
+    "narrative_at": "2026-06-02T10:02:00+00:00",
+    "narrative_tokens": 2033,
+    "narrative_cost_usd": 0.0136,
+    "narrative_status": "ok",
+    "total_cost_usd": 0.253
+  },
+  "spec": {
+    "colors": {
+      "bg": "#F1EFEB",
+      "bgSoft": null,
+      "bgQuiet": "#BFCCD8",
+      "ink": "#0E0E0E",
+      "inkSoft": null,
+      "muted": "#B692A1",
+      "mutedSoft": null,
+      "accent": "#E49366",
+      "line": "rgba(14, 14, 14, 1)"
+    },
+    "typography": {
+      "display": "geometric-sans",
+      "body": "humanist-sans",
+      "mono": null,
+      "scale": [
+        {
+          "token": "display",
+          "size": 96,
+          "lh": 0.85,
+          "weight": 700,
+          "ls": "-1px"
+        },
+        {
+          "token": "heading",
+          "size": 32,
+          "lh": 1.2,
+          "weight": 400,
+          "ls": "0"
+        },
+        {
+          "token": "body",
+          "size": 16,
+          "lh": 1.5,
+          "weight": 400,
+          "ls": "-0.5px"
+        }
+      ]
+    },
+    "spacing": {
+      "base": 4,
+      "scale": [
+        4,
+        8,
+        16,
+        24,
+        32,
+        48,
+        64,
+        96,
+        130
+      ]
+    },
+    "surfaces": {
+      "radius": {
+        "sm": 4,
+        "md": 8,
+        "lg": 30,
+        "pill": 999
+      }
+    },
+    "layout": {
+      "container": 1440,
+      "paragraph": 680,
+      "columns": 12,
+      "gutter": 24,
+      "breakpoints": [
+        768,
+        1024
+      ]
+    },
+    "motion": {
+      "durations": {
+        "micro": 300,
+        "small": 400,
+        "medium": 800
+      },
+      "easing": "cubic-bezier(0.165, 0.84, 0.44, 1)"
+    }
+  },
+  "spec_i18n": {
+    "en": {
+      "identity": {
+        "keywords": [
+          "bold",
+          "geometric",
+          "editorial",
+          "precision"
+        ],
+        "analogy": "A high-end architectural firm's monograph.",
+        "oneLiner": "A bold, minimalist design agency portfolio featuring a custom grotesque typeface and expansive whitespace."
+      },
+      "colors": {
+        "principle": "High contrast typography over muted architectural tones."
+      },
+      "typography": {
+        "rules": [
+          "Use 'Alliance Platt' (serif) for stylized accents if needed, though primarily sans is used.",
+          "Use 'Alliance Neue' (humanist sans) for body and smaller UI text.",
+          "Maintain tight letter-spacing on large display text."
+        ],
+        "scaleUses": [
+          "Hero logo and primary headings",
+          "Section titles",
+          "General text"
+        ]
+      },
+      "spacing": {
+        "rhythm": "Asymmetrical with generous whitespace."
+      },
+      "surfaces": {
+        "shadows": [
+          "inset 0 0 0 1px #0E0E0E",
+          "inset 0 0 0 1px rgba(255, 255, 255, 0.2)"
+        ],
+        "borders": "1px solid #0E0E0E"
+      },
+      "layout": {
+        "skeleton": "Asymmetric split-screen layout with large left-aligned typography."
+      },
+      "components": {
+        "button": "Pill-shaped menu button with solid dark background and white text.",
+        "card": "Edge-to-edge image blocks without visible borders.",
+        "chip": null,
+        "input": null,
+        "hero": "Massive custom display typography filling the left half of the viewport."
+      },
+      "motion": {
+        "patterns": [
+          "Smooth color and opacity transitions on hover.",
+          "Cubic-bezier easing for natural feel."
+        ]
+      },
+      "interaction": {
+        "hover": "Smooth color transition over 0.3s.",
+        "click": "Subtle opacity or color shift.",
+        "transition": "All transitions follow a 0.3s to 0.5s cubic-bezier curve.",
+        "keyboard": "Standard focus states with potential outline visibility."
+      },
+      "voice": {
+        "tone": "Professional, confident, and meticulous.",
+        "headlineStyle": "Minimalist, large-scale, and visually dominant.",
+        "ctaStyle": "Pill-shaped buttons with high contrast.",
+        "avoid": [
+          "Overly decorative elements",
+          "Vibrant neon colors",
+          "Dense text blocks",
+          "Generic sans-serif fonts"
+        ]
+      },
+      "donts": [
+        "Don't use thin font weights — screenshot shows heavy, bold typography for display.",
+        "Don't clutter the layout with small elements — screenshot shows expansive, clean whitespace.",
+        "Don't use standard system fonts — screenshot features a highly customized geometric display font.",
+        "Don't use bright, saturated backgrounds — screenshot shows a muted, off-white (#F1EFEB) base.",
+        "Don't use square buttons — screenshot shows pill-shaped (999px) buttons and elements.",
+        "Don't center all content — screenshot shows a strong left-aligned, asymmetrical layout."
+      ],
+      "systemPrompt": "This is a high-end design agency website characterized by a minimalist, bold aesthetic. The layout is asymmetrical, using a massive custom geometric display typeface ('Alliance Platt') for the hero and 'Alliance Neue' for body text. The color palette is dominated by a warm off-white background (#F1EFEB) and deep charcoal ink (#0E0E0E), accented with muted architectural tones like dusty rose (#B692A1), pale blue (#BFCCD8), and a single pop of terracotta (#E49366). Critical donts: never use thin typography; always maintain generous whitespace; never use standard UI button shapes—use pill-shaped ones instead. The design is premium, editorial, and architectural in feel."
+    },
+    "zh-CN": {
+      "identity": {
+        "keywords": [
+          "大胆",
+          "几何",
+          "编辑",
+          "精准"
+        ],
+        "analogy": "如同高端建筑事务所的作品集。",
+        "oneLiner": "大胆简约的设计机构作品集，采用定制无衬线字体与充裕留白。"
+      },
+      "colors": {
+        "principle": "沉稳的建筑色调衬托高对比度排版。"
+      },
+      "typography": {
+        "rules": [
+          "如需风格化点缀，可使用 'Alliance Platt'（衬线体），但主要使用无衬线字体。",
+          "正文与小型界面文字使用 'Alliance Neue'（人文无衬线体）。",
+          "大号展示文字保持紧凑的字间距。"
+        ],
+        "scaleUses": [
+          "主标识与一级标题",
+          "章节标题",
+          "通用文本"
+        ]
+      },
+      "spacing": {
+        "rhythm": "非对称布局，配合充裕留白。"
+      },
+      "surfaces": {
+        "shadows": [
+          "inset 0 0 0 1px #0E0E0E",
+          "inset 0 0 0 1px rgba(255, 255, 255, 0.2)"
+        ],
+        "borders": "1px solid #0E0E0E"
+      },
+      "layout": {
+        "skeleton": "非对称分屏布局，左侧对齐大字排版。"
+      },
+      "components": {
+        "button": "药丸形菜单按钮，深色背景配白色文字。",
+        "card": "无边框的图片区块，边缘对齐。",
+        "chip": null,
+        "input": null,
+        "hero": "占据视口左半部分的大幅定制展示字体。"
+      },
+      "motion": {
+        "patterns": [
+          "悬浮时平滑的颜色与透明度过渡。",
+          "cubic-bezier 缓动带来自然体验。"
+        ]
+      },
+      "interaction": {
+        "hover": "0.3秒内平滑的颜色过渡。",
+        "click": "细微的透明度或颜色变化。",
+        "transition": "所有过渡遵循0.3至0.5秒的 cubic-bezier 曲线。",
+        "keyboard": "标准的焦点状态，可显示轮廓。"
+      },
+      "voice": {
+        "tone": "专业、自信、严谨。",
+        "headlineStyle": "极简、大尺寸、视觉主导。",
+        "ctaStyle": "高对比度的药丸形按钮。",
+        "avoid": [
+          "过度装饰性元素",
+          "鲜艳霓虹色",
+          "密集文本块",
+          "通用无衬线字体"
+        ]
+      },
+      "donts": [
+        "勿使用纤细字体——截图显示为厚重粗体展示文字。",
+        "勿用小元素杂乱布局——截图显示为宽敞干净的留白。",
+        "勿用标准系统字体——截图呈现高度定制的几何展示字体。",
+        "勿用明亮饱和的背景色——截图使用沉稳的米白色（#F1EFEB）基底。",
+        "勿用方形按钮——截图显示药丸形（999px）按钮与元素。",
+        "勿将所有内容居中——截图显示强烈的左对齐非对称布局。"
+      ],
+      "systemPrompt": "这是一个高端设计机构网站，以极简大胆的美学为特征。布局采用非对称设计，主视觉使用大号定制几何展示字体（'Alliance Platt'），正文使用 'Alliance Neue'。色调以暖米白色背景（#F1EFEB）和深炭灰色墨水（#0E0E0E）为主，辅以灰粉（#B692A1）、淡蓝（#BFCCD8）等沉稳建筑色调，并点缀一抹赤陶色（#E49366）。关键禁忌：切勿使用纤细字体；务必保持充裕留白；勿用标准界面按钮形状——改用药丸形。设计需体现高端、编辑感与建筑质感。"
+    },
+    "zh-TW": {
+      "identity": {
+        "keywords": [
+          "大膽",
+          "幾何",
+          "編輯風格",
+          "精準"
+        ],
+        "analogy": "一本高端建築事務所的專題論文集。",
+        "oneLiner": "一個大膽、極簡的設計機構作品集，採用客製 grotesque 字型與寬闊留白。"
+      },
+      "colors": {
+        "principle": "以高對比字體搭配柔和的建築感色調。"
+      },
+      "typography": {
+        "rules": [
+          "可視需要使用 'Alliance Platt'（serif）作為風格化強調，但主要仍以無襯線體為主。",
+          "使用 'Alliance Neue'（humanist-sans）作為內文與較小的 UI 文字。",
+          "大尺度展示文字需保持緊湊的字距。"
+        ],
+        "scaleUses": [
+          "主視覺標誌與主要標題",
+          "章節標題",
+          "一般文字"
+        ]
+      },
+      "spacing": {
+        "rhythm": "不對稱佈局，搭配充裕留白。"
+      },
+      "surfaces": {
+        "shadows": [
+          "inset 0 0 0 1px #0E0E0E",
+          "inset 0 0 0 1px rgba(255, 255, 255, 0.2)"
+        ],
+        "borders": "1px solid #0E0E0E"
+      },
+      "layout": {
+        "skeleton": "不對稱分割畫面佈局，左側配置大尺度字體。"
+      },
+      "components": {
+        "button": "藥丸形選單按鈕，深色實底搭配白色文字。",
+        "card": "邊到邊的圖片區塊，無可見邊框。",
+        "chip": null,
+        "input": null,
+        "hero": "大尺度客製展示字體，佔據畫面左半部。"
+      },
+      "motion": {
+        "patterns": [
+          "在 hover 狀態下，流暢的顏色與透明度轉場。",
+          "使用 cubic-bezier 緩動曲線以獲得自然手感。"
+        ]
+      },
+      "interaction": {
+        "hover": "0.3s 的流暢顏色轉場。",
+        "click": "細微的透明度或顏色變化。",
+        "transition": "所有轉場均遵循 0.3s 至 0.5s 的 cubic-bezier 曲線。",
+        "keyboard": "標準的 focus 狀態，可視需要顯示外框。"
+      },
+      "voice": {
+        "tone": "專業、自信且一絲不苟。",
+        "headlineStyle": "極簡、大尺度且視覺主導。",
+        "ctaStyle": "藥丸形按鈕，高對比配色。",
+        "avoid": [
+          "過度裝飾的元素",
+          "鮮豔的霓虹色彩",
+          "密集的文字區塊",
+          "通用的無襯線字體"
+        ]
+      },
+      "donts": [
+        "不要使用細體字重——截圖顯示的是厚重、粗體的展示字體。",
+        "不要用小元素使佈局雜亂——截圖顯示的是寬闊、乾淨的留白空間。",
+        "不要使用標準系統字型——截圖採用高度客製化的幾何展示字體。",
+        "不要使用明亮、飽和的背景色——截圖顯示的是柔和的米白色 (#F1EFEB) 底色。",
+        "不要使用方形按鈕——截圖顯示的是藥丸形 (999px) 按鈕與元件。",
+        "不要將所有內容置中——截圖顯示的是強烈的左對齊、不對稱佈局。"
+      ],
+      "systemPrompt": "這是一個高端設計機構網站，以極簡、大膽的美學為特徵。佈局採不對稱設計，主視覺使用大尺度客製幾何展示字體 ('Alliance Platt')，內文則使用 'Alliance Neue'。色盤以溫暖的米白色背景 (#F1EFEB) 和深炭黑墨色 (#0E0E0E) 為主，並以柔和的建築色調如灰玫瑰 (#B692A1)、淺藍 (#BFCCD8) 以及單一亮點赤陶色 (#E49366) 作為點綴。關鍵禁忌：切勿使用細體字；務必保持充裕留白；切勿使用標準 UI 按鈕形狀——應改用藥丸形。整體設計具備高端、編輯風格與建築感。"
+    },
+    "ja": {
+      "identity": {
+        "keywords": [
+          "太字",
+          "幾何学的",
+          "エディトリアル",
+          "精緻"
+        ],
+        "analogy": "ハイエンド建築事務所のモノグラフ。",
+        "oneLiner": "カスタムグロテスクフォントと広大なホワイトスペースを用いた、大胆でミニマリストなデザインエージェンシーポートフォリオ。"
+      },
+      "colors": {
+        "principle": "控えめな建築トーンの背景に、高コントラストのタイポグラフィを配置。"
+      },
+      "typography": {
+        "rules": [
+          "必要に応じて、ステッカー的なアクセントに「Alliance Platt」（セリフ体）を使用可能。ただし、基本はサンセリフ体を使用。",
+          "本文および较小なUIテキストには「Alliance Neue」（ヒューマニストサンセリフ）を使用。",
+          "大きな表示テキストには、 tightening のletter-spacingを維持。"
+        ],
+        "scaleUses": [
+          "ヒーローロゴおよび主要見出し",
+          "セクションタイトル",
+          "一般テキスト"
+        ]
+      },
+      "spacing": {
+        "rhythm": "広めのホワイトスペースを用いた非対称リズム。"
+      },
+      "surfaces": {
+        "shadows": [
+          "inset 0 0 0 1px #0E0E0E",
+          "inset 0 0 0 1px rgba(255, 255, 255, 0.2)"
+        ],
+        "borders": "1px solid #0E0E0E"
+      },
+      "layout": {
+        "skeleton": "左揃えの大きなタイポグラフィを用いた非対称スクリーン分割レイアウト。"
+      },
+      "components": {
+        "button": "不透明な暗色背景と白色テキストを用いた、ピル形状のメニューボタン。",
+        "card": "目に見えるボーダーのない、エッジ・トゥ・エッジの画像ブロック。",
+        "chip": null,
+        "input": null,
+        "hero": "ビューポートの左半分を埋める、巨大なカスタム表示タイポグラフィ。"
+      },
+      "motion": {
+        "patterns": [
+          "hover時の滑らかな色と不透明度の遷移。",
+          "自然な印象のためのcubic-bezierイージング。"
+        ]
+      },
+      "interaction": {
+        "hover": "0.3秒の滑らかな色の遷移。",
+        "click": "繊細な不透明度または色の変化。",
+        "transition": "すべての遷移は0.3秒から0.5秒のcubic-bezierカーブに従う。",
+        "keyboard": "標準のフォーカス状態。アウトラインの表示の可能性あり。"
+      },
+      "voice": {
+        "tone": "プロフェッショナル、自信に満ち、几帳面。",
+        "headlineStyle": "ミニマリスト、大規模、視覚的に支配的。",
+        "ctaStyle": "高コントラストのピル形状ボタン。",
+        "avoid": [
+          "過度に装飾的な要素",
+          "鮮やかなネオンカラー",
+          "密集したテキストブロック",
+          "一般的なサンセリフフォント"
+        ]
+      },
+      "donts": [
+        "細いフォントウェイトを使用しない — スクリーンショットでは太字で大胆なタイポグラフィが表示されている。",
+        "レイアウトを小さな要素で雑然とさせない — スクリーンショットでは広大でクリーンなホワイトスペースが示されている。",
+        "標準のシステムフォントを使用しない — スクリーンショットには高度にカスタマイズされた幾何学的表示フォントが使用されている。",
+        "明るく彩度の高い背景色を使用しない — スクリーンショットでは控えめなオフホワイト（#F1EFEB）のベースが示されている。",
+        "角丸のない四角いボタンを使用しない — スクリーンショットではピル形状（999px）のボタンと要素が示されている。",
+        "すべてのコンテンツを中央揃えにしない — スクリーンショットでは強い左揃えの非対称レイアウトが示されている。"
+      ],
+      "systemPrompt": "ミニマリストで大胆な美学が特徴のハイエンドデザインエージェンシーのウェブサイト。レイアウトは非対称で、ヒーローには巨大なカスタム幾何学的表示フォント（「Alliance Platt」）、本文には「Alliance Neue」を使用。カラーパレットは温かみのあるオフホワイト背景（#F1EFEB）とディープチャコールのインク（#0E0E0E）を基調とし、ダスティローズ（#B692A1）、ペールブルー（#BFCCD8）、テラコッタ（#E49366）の控えめな建築トーンでアクセントを加える。重要な禁止事項：細いタイポグラフィは決して使用しない；常に広めのホワイトスペースを維持する；標準的なUIボタン形状は決して使用せず、代わりにピル形状を使用する。デザインはプレミアム、エディトリアル、建築的。"
+    },
+    "ko": {
+      "identity": {
+        "keywords": [
+          "대담한",
+          "기하학적인",
+          "에디토리얼",
+          "정밀한"
+        ],
+        "analogy": "하이엔드 건축 회사의 모노그래프.",
+        "oneLiner": "맞춤 grotesque 서체와 넓은 여백을 활용한 대담하고 미니멀한 디자인 에이전시 포트폴리오입니다."
+      },
+      "colors": {
+        "principle": "차분한 건축적 톤 위에 높은 대비의 타이포그래피를 배치합니다."
+      },
+      "typography": {
+        "rules": [
+          "주로 sans-serif를 사용하지만, 필요 시 강조용으로 'Alliance Platt' (세리프)를 사용합니다.",
+          "본문 및 소규모 UI 텍스트에는 'Alliance Neue' (휴머니스트 산세리프)를 사용합니다.",
+          "대형 디스플레이 텍스트에는 타이트한 자간을 유지합니다."
+        ],
+        "scaleUses": [
+          "히어로 로고 및 주요 제목",
+          "섹션 제목",
+          "일반 텍스트"
+        ]
+      },
+      "spacing": {
+        "rhythm": "넉넉한 여백을 활용한 비대칭 리듬입니다."
+      },
+      "surfaces": {
+        "shadows": [
+          "inset 0 0 0 1px #0E0E0E",
+          "inset 0 0 0 1px rgba(255, 255, 255, 0.2)"
+        ],
+        "border": "1px solid #0E0E0E"
+      },
+      "layout": {
+        "skeleton": "좌측 정렬의 대형 타이포그래피를 배치한 비대칭 분할 화면 레이아웃입니다."
+      },
+      "components": {
+        "button": "단색 다크 배경에 흰색 텍스트가 들어간 Pill 모양 메뉴 버튼입니다.",
+        "card": "보이는 테두리 없이 엣지 투 엣지로 배치된 이미지 블록입니다.",
+        "chip": null,
+        "input": null,
+        "hero": "뷰포트 좌측 절반을 채우는 거대한 맞춤 디스플레이 타이포그래피입니다."
+      },
+      "motion": {
+        "patterns": [
+          "hover 시 부드러운 색상 및 불투명도 트랜지션.",
+          "자연스러운 느낌을 위한 cubic-bezier easing."
+        ]
+      },
+      "interaction": {
+        "hover": "0.3초 동안 부드러운 색상 전환.",
+        "click": "미세한 불투명도 또는 색상 변화.",
+        "transition": "모든 트랜지션은 0.3초에서 0.5초의 cubic-bezier 커브를 따릅니다.",
+        "keyboard": "기본 focus 상태에 윤곽선 표시 가능성을 포함합니다."
+      },
+      "voice": {
+        "tone": "전문적이고 자신감 있으며 꼼꼼한 어조입니다.",
+        "headlineStyle": "미니멀하고 대규모이며 시각적으로 지배적인 스타일입니다.",
+        "ctaStyle": "높은 대비를 가진 Pill 모양 버튼입니다.",
+        "avoid": [
+          "지나치게 장식적인 요소",
+          "화려한 네온 컬러",
+          "빽빽한 텍스트 블록",
+          "일반적인 산세리프 폰트"
+        ]
+      },
+      "donts": [
+        "얇은 폰트 웨이트를 사용하지 마세요 — 스크린샷은 디스플레이용으로 굵고 대담한 타이포그래피를 보여줍니다.",
+        "레이아웃을 작은 요소로 복잡하게 만들지 마세요 — 스크린샷은 넓고 깨끗한 여백을 보여줍니다.",
+        "일반 시스템 폰트를 사용하지 마세요 — 스크린샷은 Highly customized된 기하학적 디스플레이 폰트를 사용합니다.",
+        "밝고 채도 높은 배경을 사용하지 마세요 — 스크린샷은 차분한 오프화이트 (#F1EFEB) 베이스를 보여줍니다.",
+        "사각형 버튼을 사용하지 마세요 — 스크린샷은 Pill 모양 (999px) 버튼과 요소를 보여줍니다.",
+        "모든 콘텐츠를 중앙 정렬하지 마세요 — 스크린샷은 강한 좌측 정렬 비대칭 레이아웃을 보여줍니다."
+      ],
+      "systemPrompt": "이것은 미니멀하고 대담한 미학이 특징인 하이엔드 디자인 에이전시 웹사이트입니다. 레이아웃은 비대칭적이며, 히어로에는 거대한 맞춤 기하학적 디스플레이 타이포그래피 ('Alliance Platt')를, 본문에는 'Alliance Neue'를 사용합니다. 팔레트는 따뜻한 오프화이트 배경 (#F1EFEB)과 딥 차콜 잉크 (#0E0E0E)를 주로 사용하며, 더스티 로즈 (#B692A1), 페일 블루 (#BFCCD8), 테라코타 (#E49366) 등 차분한 건축적 톤으로 포인트를 줍니다. 중요 유의사항: 얇은 타이포그래피를 절대 사용하지 마세요; 항상 넉넉한 여백을 유지하세요; 일반 UI 버튼 모양을 사용하지 마세요 — 대신 Pill 모양을 사용하세요. 디자인은 프리미엄, 에디토리얼, 건축적인 느낌을 지닙니다."
+    }
+  },
+  "desc": {
+    "en": {
+      "palette": "A muted, sophisticated palette of off-white, deep charcoal, dusty rose, and pale blue with a single terracotta accent.",
+      "layout": "An asymmetrical split-screen layout featuring massive typography on the left and large photographic blocks on the right.",
+      "interaction": "Smooth, 0.3s cubic-bezier transitions for color and opacity changes, creating a fluid and refined feel.",
+      "motion": "Subtle and precise micro-interactions, avoiding flashy animations in favor of elegant easing.",
+      "notes": "A masterclass in typography-led design, using custom typefaces and generous whitespace to convey high-end craftsmanship."
+    },
+    "zh-CN": {
+      "palette": "采用米白、深炭灰、灰粉与淡蓝的沉稳高级色调，点缀一抹赤陶色。",
+      "layout": "非对称分屏布局，左侧为大字排版，右侧配以大幅图片区块。",
+      "interaction": "颜色与透明度变化采用平滑的0.3秒 cubic-bezier 过渡，营造流畅精致的体验。",
+      "motion": "细腻精准的微交互，摒弃浮夸动画，追求优雅缓动效果。",
+      "notes": "一场字体主导设计的典范，通过定制字体与充裕留白，传达高端工艺质感。"
+    },
+    "zh-TW": {
+      "palette": "柔和、精緻的色盤：米白、深炭灰、灰玫瑰與淺藍，並以赤陶色作為單一亮點。",
+      "layout": "不對稱的分割畫面佈局，左側搭配大尺度字體，右側則配置大幅攝影圖塊。",
+      "interaction": "流暢的 0.3s cubic-bezier 轉場，用於顏色與透明度變化，營造流暢而精緻的感受。",
+      "motion": "細膩且精準的微交互，避免炫目動畫，偏好優雅的緩動曲線。",
+      "notes": "一場字體主導設計的示範，運用了客製字型與充裕留白，傳達高端工藝質感。"
+    },
+    "ja": {
+      "palette": "オフホワイト、ディープチャコール、ダスティローズ、ペールブルーを用いた、控えめで洗練されたパレット。テラコッタをアクセントに1色使用。",
+      "layout": "左側に巨大なタイポグラフィ、右側に大きな写真ブロックを配置した、非対称なスクリーン分割レイアウト。",
+      "interaction": "色と不透明度の変化に対して0.3秒のcubic-bezierトランジションを使用し、滑らかで洗練された印象を実現。",
+      "motion": "派手なアニメーションを避け、エレガントなイージングを重視した、繊細で正確なマイクロインタラクション。",
+      "notes": "カスタムフォントと広めのホワイトスペースを活用し、ハイエンドな職人技を伝える、タイポグラフィ主導型デザインの見本。"
+    },
+    "ko": {
+      "palette": "오프화이트, 딥 차콜, 더스티 로즈, 페일 블루로 이루어진 차분하고 세련된 팔레트에 테라코타 악센트를 하나 더했습니다.",
+      "layout": "좌측에는 거대한 타이포그래피, 우측에는 큰 사진 블록을 배치한 비대칭 분할 화면 레이아웃입니다.",
+      "interaction": "부드러운 0.3초 cubic-bezier 트랜지션으로 색상과 불투명도 변화를 구현하여 유려하고 세련된 느낌을 줍니다.",
+      "motion": "화려한 애니메이션 대신 우아한 easing을 사용하여 미세하고 정교한 상호작용을 구현합니다.",
+      "notes": "맞춤 서체와 넉넉한 여백을 활용하여 고급스러운 장인 정신을 전달하는 타이포그래피 중심 디자인의 모범 사례입니다."
+    }
+  },
+  "narrative": {
+    "en": {
+      "ch1_intro": "The Akaru design system is conceived as a high-end architectural monograph: a precise, deliberate composition where every element is placed with structural intention. Its identity is defined by bold geometric forms and meticulous editorial restraint, creating a framework that feels both monumental and refined.",
+      "ch2_intro": "Color is treated as an architectural finish—a muted palette of off-white, deep charcoal, and subtle tonal accents that serve as a backdrop for typographic presence. High-contrast typography is the primary agent of visual interest, with the color system providing depth and quiet sophistication.",
+      "ch2_outro": "The guiding principle is that color should recede, allowing the structural weight of type and layout to command the space.",
+      "ch3_intro": "The typographic voice is built on a clear hierarchy: the custom geometric 'Alliance Platt' commands display moments with authority, while the humanist 'Alliance Neue' provides legible, warm support for body text. The system mandates tight letter-spacing for large display text, emphasizing the compact, sculptural quality of the letterforms.",
+      "ch4_intro": "Spacing follows an asymmetrical rhythm, employing generous whitespace as a structural material rather than empty void.",
+      "ch5_intro": "Surfaces are defined by precision rather than decoration, using single-pixel inset shadows and borders to create subtle depth. The approach avoids heavy drop shadows, relying instead on crisp, architectural linework to delineate space.",
+      "ch6_intro": "The foundational layout is an asymmetrical split-screen, where massive left-aligned typography occupies one half of the viewport. This creates a strong visual axis, pairing typographic weight with large photographic blocks in a dynamic, unbalanced composition.",
+      "ch7_intro": "Motion is governed by precision and naturalism, using cubic-bezier easing to create smooth, physically plausible transitions. The philosophy is one of subtle refinement—micro-interactions like color shifts and opacity changes occur with deliberate, unhurried timing.",
+      "ch8_intro": "The editorial voice is professional and confident, mirroring the meticulous craft of the visual design. Headlines are minimalist and large-scale, while interactions use high-contrast, pill-shaped elements that reject generic UI conventions.",
+      "ch8_outro": "This system deliberately excludes thin typography, cluttered layouts, standard fonts, vibrant neon colors, square buttons, and centered content."
+    },
+    "zh-CN": {
+      "ch1_intro": "Akaru 设计体系被构思为一本高端建筑专著：一个精确、刻意的构图，每个元素都基于结构意图而放置。其身份由大胆的几何形态和细致的编辑克制定义，营造出既宏大又精炼的框架。",
+      "ch2_intro": "色彩被视为建筑饰面——一个由米白、深炭灰和微妙色调点缀组成的柔和调色板，作为字体呈现的背景。高对比度排版是视觉趣味的主要载体，色彩体系则提供深度与静谧的精致感。",
+      "ch2_outro": "核心原则是色彩应退居次席，让字体与版式的结构分量主导空间。",
+      "ch3_intro": "字体声音建立在清晰的层级之上：定制几何字体 'Alliance Platt' 以权威感主导展示时刻，而人文主义字体 'Alliance Neue' 则为正文提供易读、温暖的支撑。体系要求大尺寸展示文本采用紧凑的字间距，强调字母形态的紧凑与雕塑质感。",
+      "ch4_intro": "间距遵循非对称节奏，将充裕的留白视作结构性材料，而非空白。",
+      "ch5_intro": "表面由精确而非装饰来定义，使用单像素内阴影与边框创造微妙深度。这种方法避免使用厚重的投影，转而依赖清晰、建筑般的线条来界定空间。",
+      "ch6_intro": "基础版式是非对称分屏布局，其中巨大的左对齐字体占据视口一半。这创造出强烈的视觉轴线，将字体分量与大幅摄影区块搭配，形成动态且失衡的构图。",
+      "ch7_intro": "动态效果由精确性与自然感主导，使用 cubic-bezier 缓动创建平滑、物理上可信的过渡。理念在于微妙的精炼——诸如色彩转变与透明度变化等微交互，以从容不迫的节奏发生。",
+      "ch8_intro": "编辑声音专业而自信，呼应视觉设计的精工细作。标题简约且大尺度，交互则采用高对比度、药丸形元素，摒弃通用 UI 惯例。",
+      "ch8_outro": "该体系刻意排除纤细字体、杂乱版式、标准字体、鲜艳霓虹色、方形按钮及居中内容。"
+    },
+    "zh-TW": {
+      "ch1_intro": "Akaru 設計系統被構想為一本高端建築專著：一個精確、深思熟慮的構圖，其中每個元素都以結構意圖安置。其識別性由大膽的幾何形式和嚴謹的編輯克制所定義，創造出一個既宏大又精煉的框架。",
+      "ch2_intro": "色彩被視為一種建築飾面——由灰白、深炭灰和微妙色調強調色組成的柔和調色板，作為排版呈現的背景。高對比度排版是視覺趣味的主要驅動力，而色彩系統則提供深度與靜謐的精緻感。",
+      "ch2_outro": "指導原則是色彩應退後，讓排版與版面的結構份量來主導空間。",
+      "ch3_intro": "排版聲音建立在清晰的層級上：自訂幾何字體「Alliance Platt」以權威性主導展示時刻，而人文主義字體「Alliance Neue」則為正文提供易讀、溫暖的支援。系統要求大型展示文字採用緊密字距，強調字形的緊湊、雕塑感品質。",
+      "ch4_intro": "間距遵循不對稱節奏，運用寬裕的留白作為結構材料，而非空洞的虛空。",
+      "ch5_intro": "表面由精準而非裝飾來定義，使用單像素內嵌陰影和邊框來創造微妙的深度。此方法避免使用厚重的投影，轉而依靠清晰、建築感的線條來劃分空間。",
+      "ch6_intro": "基礎佈局是非對稱分屏，其中巨大的左對齊排版佔據視埠的一半。這創造了強烈的視覺軸線，將排版重量與大型攝影區塊配對在動態、不平衡的構圖中。",
+      "ch7_intro": "動態效果由精準與自然主義所主導，使用 cubic-bezier 緩動來創造流暢、符合物理邏輯的過渡。其哲學是微妙的精緻——色彩變化和透明度變化等微互動以刻意、不匆忙的節奏發生。",
+      "ch8_intro": "編輯聲音專業且自信，反映了視覺設計的精緻工藝。標題採用極簡且大尺度，而互動則使用高對比、膠囊形狀的元素，拒絕通用的 UI 慣例。",
+      "ch8_outro": "此系統刻意排除了細體排版、雜亂佈局、標準字體、鮮豔霓虹色、方形按鈕和置中內容。"
+    },
+    "ja": {
+      "ch1_intro": "Akaruデザインシステムは、高端な建築のモノグラフとして構想されています。すべての要素が構造的な意図を持って配置された、正確で意図的な構図です。そのアイデンティティは、大胆な幾何学的形状と綿密なエディトリアルの抑制によって定義され、記念碑的でありながら洗練された印象を与えるフレームワークを生み出しています。",
+      "ch2_intro": "カラーは建築仕上げとして扱われます。オフホワイト、濃いチャコール、そして微妙なトーンアクセントの抑制されたパレットが、タイポグラフィの存在感を支える背景として機能します。高コントラストのタイポグラフィが視覚的な興味の主要な担い手となり、カラーシステムが深みと静かな洗練を提供します。",
+      "ch2_outro": "指針となる原則は、カラーが後退し、タイポとレイアウトの構造的な重みが空間を支配できるようにすることです。",
+      "ch3_intro": "タイポグラフィの声は、明確な階層構造の上に構築されています。カスタム幾何学フォント「Alliance Platt」がディスプレイモーメントを権威を持って支配し、ヒューマニストの「Alliance Neue」が本文テキストに対して読みやすく温かみのあるサポートを提供します。このシステムでは、大きなディスプレイテキストに対して tight な字間を定め、文字形の密度と彫刻的な質感を強調します。",
+      "ch4_intro": "スペーシングは非対称のリズムに従い、空白を空虚な余白ではなく、構造的な素材として活用します。",
+      "ch5_intro": "表面は装飾ではなく精度によって定義されます。ピクセル単位のインセットシャドウとボーダーを用いて、微妙な奥行きを作り出します。このアプローチでは重いドロップシャドウを避け、代わりに明瞭な建築的なラインワークによって空間を区切ります。",
+      "ch6_intro": "基礎レイアウトは非対称の分割画面であり、大規模な左寄せタイポグラフィがビューポートの半分を占めます。これにより強力な視覚軸が生まれ、タイポグラフィの重みと大きなフォトブロックがダイナミックで均衡の取れない構図で結びつけられます。",
+      "ch7_intro": "モーションは精度と自然さに従い、cubic-bezier缓和を使用して滑らかで物理的に妥当なトランジションを実現します。その哲学は、微細な洗練にあります。カラーシフトや不透明度の変化などのマイクロインタラクションは、慎重で急がれることがないタイミングで発生します。",
+      "ch8_intro": "エディトリアルの声は専門的で自信に満ちており、ビジュアルデザインの綿密な技芸を反映しています。見出しはミニマルで大規模であり、インタラクションは汎用的なUI規約を拒否する高コントラストのピル形状要素を使用します。",
+      "ch8_outro": "このシステムは意図的に、細いタイポグラフィ、雑然としたレイアウト、標準フォント、鮮やかなネオンカラー、四角いボタン、および中央揃えコンテンツを排除しています。"
+    },
+    "ko": {
+      "ch1_intro": "아카루 디자인 시스템은 고급 건축 단행본으로 구상되었습니다: 모든 요소가 구조적 의도에 따라 배치된 정확하고 신중한 구성입니다. 이 시스템의 정체성은 대담한 기하학적 형태와 세밀한 에디토리얼 절제로 정의되어, 거대하면서도 세련된 프레임워크를 만들어냅니다.",
+      "ch2_intro": "색상은 건축적 마감재로 다루어집니다: 오프화이트, 깊은 차콜, 그리고 미묘한 톤 악센트로 이루어진 절제된 팔레트가 타이포그래피의 존재감을 위한 배경 역할을 합니다. 고대비 타이포그래피가 시각적 관심의 주요 매개체이며, 색상 시스템은 깊이와 조용한 세련미를 제공합니다.",
+      "ch2_outro": "지배적인 원칙은 색상이 물러나서, 타이포그래피와 레이아웃의 구조적 무게가 공간을 주도하도록 하는 것입니다.",
+      "ch3_intro": "타이포그래피의 목소리는 명확한 위계에 기반합니다: 맞춤 기하학적 서체 'Alliance Platt'는 디스플레이 순간에 권위 있게 지배하며, 휴머니스트 서체 'Alliance Neue'는 본문 텍스트에 읽기 쉽고 따뜻한 지원을 제공합니다. 이 시스템은 큰 디스플레이 텍스트에 타이트한 자간을 의무화하여, 활자 형태의 컴팩트하고 조각적인 질감을 강조합니다.",
+      "ch4_intro": "간격은 비대칭 리듬을 따르며, 충분한 여백을 빈 공간이 아닌 구조적 재료로 활용합니다.",
+      "ch5_intro": "표면은 장식이 아닌 정밀함으로 정의됩니다: 단일 픽셀의 인셋 쉐도우와 테두리를 사용하여 미묘한 깊이를 만듭니다. 이 접근 방식은 무거운 드롭 쉐도우를 피하고, 대신 날카로운 건축적 라인 작업으로 공간을 구분합니다.",
+      "ch6_intro": "기본 레이아웃은 비대칭 분할 화면으로, 거대한 좌측 정렬 타이포그래피가 뷰포트의 절반을 차지합니다. 이는 강한 시각 축을 만들어, 타이포그래피의 무게를 큰 사진 블록과 결합하여 역동적이고 불균형적인 구성을 이룹니다.",
+      "ch7_intro": "모션은 정밀함과 자연스러움으로 제어됩니다: cubic-bezier 이징을 사용하여 매끄럽고 물리적으로 타당한 전환을 만듭니다. 철학은 미묘한 세련미입니다: 색상 변화나 불투명도 변경과 같은 상호작용이 신중하고 여유로운 타이밍으로 발생합니다.",
+      "ch8_intro": "에디토리얼 목소리는 전문적이고 자신감 넘치며, 시각적 디자인의 세밀한 장인정신을 반영합니다. 헤드라인은 미니멀하고 대규모이며, 상호작용은 일반적인 UI 관습을 거부하는 고대비 알약 모양 요소를 사용합니다.",
+      "ch8_outro": "이 시스템은 얇은 타이포그래피, 지저분한 레이아웃, 표준 폰트, 화려한 네온 컬러, 사각형 버튼, 그리고 중앙 정렬된 콘텐츠를 의도적으로 제외합니다."
+    }
+  }
+}

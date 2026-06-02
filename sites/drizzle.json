@@ -1,0 +1,628 @@
+{
+  "id": "drizzle",
+  "schema_version": "0.3",
+  "url": "https://orm.drizzle.team",
+  "title": "Drizzle ORM",
+  "image": "",
+  "tags": [
+    "devtools",
+    "orm"
+  ],
+  "status": "completed",
+  "added_at": "2026-06-02",
+  "added_by": "expand-200",
+  "_meta": {
+    "vision_model": "mimo-v2.5",
+    "vision_prompt_version": "0.3",
+    "vision_source": "playwright-extract:drizzle",
+    "vision_grounded": true,
+    "vision_at": "2026-06-02T13:05:34+00:00",
+    "vision_tokens": 16779,
+    "vision_cost_usd": 0.1864,
+    "translation_model": "mimo-v2.5",
+    "translation_at": "2026-06-02T13:06:33+00:00",
+    "translation_tokens": 15738,
+    "translation_cost_usd": 0.0526,
+    "narrative_model": "mimo-v2.5",
+    "narrative_prompt_version": "0.3",
+    "narrative_at": "2026-06-02T13:06:43+00:00",
+    "narrative_tokens": 1939,
+    "narrative_cost_usd": 0.0129,
+    "narrative_status": "ok",
+    "total_cost_usd": 0.2519
+  },
+  "spec": {
+    "colors": {
+      "bg": "#FFFFFF",
+      "bgSoft": "#FAFAFA",
+      "bgQuiet": "#F1F2F3",
+      "ink": "#222222",
+      "inkSoft": "#444444",
+      "muted": "#71687B",
+      "mutedSoft": null,
+      "accent": null,
+      "line": "rgba(33, 39, 46, 0.12)"
+    },
+    "typography": {
+      "display": "sans-serif",
+      "body": "sans-serif",
+      "mono": "monospace",
+      "scale": [
+        {
+          "token": "display",
+          "size": 48,
+          "lh": 1.1,
+          "weight": 700,
+          "ls": "-0.5px"
+        },
+        {
+          "token": "h2",
+          "size": 32,
+          "lh": 1.2,
+          "weight": 600,
+          "ls": "0"
+        },
+        {
+          "token": "body",
+          "size": 16,
+          "lh": 1.5,
+          "weight": 400,
+          "ls": "0"
+        },
+        {
+          "token": "small",
+          "size": 12,
+          "lh": 1.5,
+          "weight": 400,
+          "ls": "0"
+        }
+      ]
+    },
+    "spacing": {
+      "base": 4,
+      "scale": [
+        4,
+        8,
+        12,
+        16,
+        20,
+        24,
+        32,
+        40,
+        64
+      ]
+    },
+    "surfaces": {
+      "radius": {
+        "sm": 2,
+        "md": 8,
+        "lg": 20,
+        "pill": 999
+      }
+    },
+    "layout": {
+      "container": 1200,
+      "paragraph": 680,
+      "columns": 12,
+      "gutter": 24,
+      "breakpoints": [
+        768,
+        1024
+      ]
+    },
+    "motion": {
+      "durations": {
+        "micro": 200,
+        "small": 300,
+        "medium": 800
+      },
+      "easing": "ease-in-out"
+    }
+  },
+  "spec_i18n": {
+    "en": {
+      "identity": {
+        "keywords": [
+          "ORM",
+          "TypeScript",
+          "JavaScript",
+          "Database",
+          "Developer"
+        ],
+        "analogy": "Like a clean, fast toolkit for developers to manage data efficiently.",
+        "oneLiner": "A modern, fast ORM for TypeScript and JavaScript."
+      },
+      "colors": {
+        "principle": "High contrast on a clean white background with subtle gray structural elements."
+      },
+      "typography": {
+        "rules": [
+          "System sans-serif stack is the primary typeface.",
+          "Monospace font is used for code snippets and technical labels.",
+          "Handwritten font is used selectively for playful annotations."
+        ],
+        "scaleUses": [
+          "Hero headlines",
+          "Section headlines",
+          "General text",
+          "Captions and metadata"
+        ]
+      },
+      "spacing": {
+        "rhythm": "Consistent 4px base grid with generous padding in sections."
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(0, 0, 0, 0.08) 0px 0px 0px 1px",
+          "rgba(0, 0, 0, 0.075) 0px 2px 4px 0px",
+          "rgb(255, 255, 255) 0px 0px 1px 1px inset"
+        ],
+        "borders": "1px solid rgb(229, 231, 235)"
+      },
+      "layout": {
+        "skeleton": "Centered content container with responsive stacking."
+      },
+      "components": {
+        "button": "Ghost or outlined styles with rounded corners.",
+        "card": "White surface with subtle border and soft shadow.",
+        "chip": "Small rounded badge with background color.",
+        "input": "Clean outlined input with rounded corners.",
+        "hero": "Large left-aligned text with accompanying playful illustration."
+      },
+      "motion": {
+        "patterns": [
+          "Smooth color transitions on hover",
+          "Opacity fade-ins"
+        ]
+      },
+      "interaction": {
+        "hover": "Subtle background color change or color transition.",
+        "click": "No dramatic change, standard pointer cursor.",
+        "transition": "All properties transition smoothly over 0.2s.",
+        "keyboard": "Standard focus outlines."
+      },
+      "voice": {
+        "tone": "Technical but accessible, slightly playful.",
+        "headlineStyle": "Direct, action-oriented, and concise.",
+        "ctaStyle": "Simple text links or outlined buttons.",
+        "avoid": [
+          "Overly corporate language",
+          "Dense walls of text without visual breaks",
+          "Aggressive or loud colors"
+        ]
+      },
+      "donts": [
+        "don't use dark mode — screenshot shows a bright white background",
+        "don't use gradient backgrounds — screenshot shows flat solid colors",
+        "don't use rounded pill buttons everywhere — screenshot shows standard rectangular or slightly rounded buttons",
+        "don't use drop shadows on all elements — screenshot shows mostly flat surfaces with subtle borders",
+        "don't use a single high-chroma accent color — screenshot shows a mostly monochrome palette",
+        "don't use decorative serifs — screenshot shows clean sans-serif typography"
+      ],
+      "systemPrompt": "This is a developer tools SaaS site for an ORM, featuring a clean, minimalist design with a white background. Key colors include deep charcoal text (#222222) and light gray borders (#E5E7EB). Typography uses a standard sans-serif stack for body text and a monospace stack for code. The design relies on generous white space and subtle borders rather than heavy shadows. Critical donts: don't use dark mode, don't add gradient backgrounds, and don't use decorative fonts. The layout is centered and responsive, with a focus on clear hierarchy and readability."
+    },
+    "zh-CN": {
+      "identity": {
+        "keywords": [
+          "ORM",
+          "TypeScript",
+          "JavaScript",
+          "数据库",
+          "开发者"
+        ],
+        "analogy": "如同为开发者提供的高效、快捷的数据管理工具箱。",
+        "oneLiner": "专为 TypeScript 和 JavaScript 打造的现代高性能 ORM。"
+      },
+      "colors": {
+        "principle": "在干净的白色背景上运用高对比度，并搭配微妙的灰色结构元素。"
+      },
+      "typography": {
+        "rules": [
+          "采用系统无衬线字体栈作为主要字体。",
+          "使用等宽字体用于代码片段和技术标签。",
+          "手写体仅选择性地用于趣味性注释。"
+        ],
+        "scaleUses": [
+          "主视觉标题",
+          "版块标题",
+          "正文文本",
+          "说明文字与元数据"
+        ]
+      },
+      "spacing": {
+        "rhythm": "基于统一的 4px 网格系统，版块间采用充裕的内边距。"
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(0, 0, 0, 0.08) 0px 0px 0px 1px",
+          "rgba(0, 0, 0, 0.075) 0px 2px 4px 0px",
+          "rgb(255, 255, 255) 0px 0px 1px 1px inset"
+        ],
+        "borders": "1px solid rgb(229, 231, 235)"
+      },
+      "layout": {
+        "skeleton": "居中内容容器，支持响应式堆叠布局。"
+      },
+      "components": {
+        "button": "采用幽灵按钮或描边样式，配有圆角边框。",
+        "card": "白色表面，带有微妙的边框和柔和阴影。",
+        "chip": "小型圆角徽章，配有背景色。",
+        "input": "干净的描边输入框，配有圆角边框。",
+        "hero": "左侧对齐的大段文字，配有趣味性插图。"
+      },
+      "motion": {
+        "patterns": [
+          "悬停时的平滑颜色过渡",
+          "透明度淡入效果"
+        ]
+      },
+      "interaction": {
+        "hover": "微妙的背景颜色变化或颜色过渡。",
+        "click": "无剧烈变化，保持标准指针光标。",
+        "transition": "所有属性在 0.2 秒内平滑过渡。",
+        "keyboard": "标准的焦点轮廓。"
+      },
+      "voice": {
+        "tone": "技术性强但易于理解，略带趣味性。",
+        "headlineStyle": "直接、以行动为导向且简洁。",
+        "ctaStyle": "简单的文本链接或描边按钮。",
+        "avoid": [
+          "过于企业化的语言",
+          "缺乏视觉分隔的密集文本块",
+          "激进或刺眼的颜色"
+        ]
+      },
+      "donts": [
+        "避免使用深色模式——截图显示为明亮的白色背景",
+        "避免使用渐变背景——截图显示为纯色填充",
+        "避免在所有位置使用圆角胶囊按钮——截图显示为标准矩形或略微圆角的按钮",
+        "避免在所有元素上使用投影——截图显示多为带微妙边框的扁平表面",
+        "避免使用单一高饱和度强调色——截图显示为主要是单色配色方案",
+        "避免使用装饰性衬线字体——截图显示为干净的无衬线字体排版"
+      ],
+      "systemPrompt": "这是一个面向开发者的 ORM 工具 SaaS 网站，采用干净、极简的设计风格，以白色背景为主。主要颜色包括深炭灰色文本 (#222222) 和浅灰色边框 (#E5E7EB)。排版上，正文使用标准无衬线字体栈，代码使用等宽字体栈。设计依赖充足的留白和微妙的边框，而非厚重的阴影。关键禁忌：避免使用深色模式，避免添加渐变背景，避免使用装饰性字体。布局居中且响应式，重点关注清晰的层次结构和可读性。"
+    },
+    "zh-TW": {
+      "identity": {
+        "keywords": [
+          "ORM",
+          "TypeScript",
+          "JavaScript",
+          "資料庫",
+          "開發者"
+        ],
+        "analogy": "如同為開發者打造的乾淨、快速工具包，用於高效管理資料。",
+        "oneLiner": "適用於 TypeScript 和 JavaScript 的現代、快速 ORM。"
+      },
+      "colors": {
+        "principle": "乾淨白色背景上的高對比度，搭配微妙的灰色結構元素。"
+      },
+      "typography": {
+        "rules": [
+          "系統無襯線字型堆疊為主要字型。",
+          "等寬字型用於程式碼片段和技術標籤。",
+          "手寫字體選擇性地用於俏皮的註釋。"
+        ],
+        "scaleUses": [
+          "主視覺標題",
+          "章節標題",
+          "一般內文",
+          "說明文字與中繼資料"
+        ]
+      },
+      "spacing": {
+        "rhythm": "基於一致的 4px 基礎網格，各章節具備充足內距。"
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(0, 0, 0, 0.08) 0px 0px 0px 1px",
+          "rgba(0, 0, 0, 0.075) 0px 2px 4px 0px",
+          "rgb(255, 255, 255) 0px 0px 1px 1px inset"
+        ],
+        "borders": "1px solid rgb(229, 231, 235)"
+      },
+      "layout": {
+        "skeleton": "置中的內容容器，採用響應式堆疊。"
+      },
+      "components": {
+        "button": "透明或外框樣式，帶有圓角。",
+        "card": "白色表面，搭配微妙邊框與柔和陰影。",
+        "chip": "小型圓角徽章，帶有背景色。",
+        "input": "乾淨的外框輸入框，帶有圓角。",
+        "hero": "大型左對齊文字，搭配俏皮的插圖。"
+      },
+      "motion": {
+        "patterns": [
+          "懸停時的平滑顏色轉場",
+          "透明度淡入"
+        ]
+      },
+      "interaction": {
+        "hover": "微妙的背景顏色變化或顏色轉場。",
+        "click": "無戲劇性變化，標準的指標游標。",
+        "transition": "所有屬性在 0.2 秒內平滑過渡。",
+        "keyboard": "標準的 focus 輪廓。"
+      },
+      "voice": {
+        "tone": "技術性但平易近人，略帶俏皮。",
+        "headlineStyle": "直接、行動導向且簡潔。",
+        "ctaStyle": "純文字連結或外框按鈕。",
+        "avoid": [
+          "過度企業化的語言",
+          "缺乏視覺區隔的密集文字段落",
+          "過於強烈或鮮豔的顏色"
+        ]
+      },
+      "donts": [
+        "不要使用深色模式 — 截圖顯示明亮的白色背景",
+        "不要使用漸層背景 — 截圖顯示平坦的純色",
+        "不要在所有地方都使用圓角藥丸型按鈕 — 截圖顯示標準的矩形或略微圓角按鈕",
+        "不要在所有元素上都使用陰影 — 截圖顯示大多為平坦表面與微妙邊框",
+        "不要使用單一高彩度的強調色 — 截圖顯示以單色調為主的色板",
+        "不要使用裝飾性襯線體 — 截圖顯示乾淨的無襯線字型"
+      ],
+      "systemPrompt": "這是一個 ORM 的開發者工具 SaaS 網站，採用乾淨、極簡的設計，背景為白色。關鍵色彩包括深炭灰色文字（#222222）和淺灰色邊框（#E5E7EB）。字型方面，內文使用標準無襯線字型堆疊，程式碼使用等寬字型堆疊。設計依賴充足的留白與微妙的邊框，而非厚重的陰影。關鍵禁忌：不要使用深色模式、不要添加漸層背景、不要使用裝飾性字體。佈局置中且響應式，專注於清晰的層次結構與可讀性。"
+    },
+    "ja": {
+      "identity": {
+        "keywords": [
+          "ORM",
+          "TypeScript",
+          "JavaScript",
+          "データベース",
+          "開発者"
+        ],
+        "analogy": "開発者がデータを効率的に管理するための、クリーンで高速なツールキットのようなものです。",
+        "oneLiner": "TypeScriptとJavaScriptのための、モダンで高速なORM。"
+      },
+      "colors": {
+        "principle": "クリーンな白い背景に、高コントラストで、淡いグレーの構造要素を用います。"
+      },
+      "typography": {
+        "rules": [
+          "システムsans-serifスタックがメインのフォントです。",
+          "モノスペースフォントは、コードスニペットや技術ラベルに使用します。",
+          "手書きフォントは、遊び心のある注釈に選択的に使用します。"
+        ],
+        "scaleUses": [
+          "ヒーローヘッドライン",
+          "セクションヘッドライン",
+          "本文テキスト",
+          "キャプションとメタデータ"
+        ]
+      },
+      "spacing": {
+        "rhythm": "一貫した4pxベースグリッドと、セクションに豊かなpadding。"
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(0, 0, 0, 0.08) 0px 0px 0px 1px",
+          "rgba(0, 0, 0, 0.075) 0px 2px 4px 0px",
+          "rgb(255, 255, 255) 0px 0px 1px 1px inset"
+        ],
+        "borders": "1px solid rgb(229, 231, 235)"
+      },
+      "layout": {
+        "skeleton": "レスポンシブなスタックに対応した、中央揃えのコンテンツコンテナ。"
+      },
+      "components": {
+        "button": "角丸のゴーストまたはアウトラインスタイル。",
+        "card": "淡いボーダーと柔らかいシャドウを持つ白いサーフェス。",
+        "chip": "背景色を备えた小さな角丸バッジ。",
+        "input": "角丸のクリーンなアウトラインインプット。",
+        "hero": "遊び心のあるイラストを伴う、左揃えの大きなテキスト。"
+      },
+      "motion": {
+        "patterns": [
+          "hover時の滑らかなカラー遷移",
+          "不透明度のフェードイン"
+        ]
+      },
+      "interaction": {
+        "hover": "微細な背景色の変化またはカラー遷移。",
+        "click": "目立った変化はなく、標準のポインターカーソル。",
+        "transition": "全プロパティが0.2sで滑らかに遷移します。",
+        "keyboard": "標準のfocusアウトライン。"
+      },
+      "voice": {
+        "tone": "技術的でありながら親しみやすく、少し遊び心のある口調。",
+        "headlineStyle": "直接的で、行動を促し、簡潔。",
+        "ctaStyle": "シンプルなテキストリンクまたはアウトラインボタン。",
+        "avoid": [
+          "過度に企業的な言葉遣い",
+          "ビジュアルな区切りのない、密度の高いテキストの壁",
+          "攻撃的または派手な色"
+        ]
+      },
+      "donts": [
+        "ダークモードは使用しない — スクリーンショットは明るい白い背景を示しています",
+        "グラデーション背景は使用しない — スクリーンショットはフラットな単色を示しています",
+        "すべての要素に角丸のピルボタンは使用しない — スクリーンショットは標準の長方形またはわずかに角丸のボタンを示しています",
+        "すべての要素にドロップシャドウは使用しない — スクリーンショットは主にフラットなサーフェスと淡いボーダーを示しています",
+        "単一の高彩度アクセントカラーは使用しない — スクリーンショットは主にモノクロームのパレットを示しています",
+        "装飾的なセリフは使用しない — スクリーンショットはクリーンなsans-serifタイポグラフィを示しています"
+      ],
+      "systemPrompt": "これはORMのための開発者ツールSaaSサイトで、白い背景を持つクリーンでミニマルなデザインを特徴としています。主要なカラーには、ダークチャコールテキスト（#222222）とライトグレーボーダー（#E5E7EB）が含まれます。タイポグラフィには、本文に標準のsans-serifスタック、コードにモノスペーススタックを使用しています。デザインは、重いシャドウではなく、豊かな余白と淡いボーダーに依存しています。重要な注意点：ダークモードは使用せず、グラデーション背景を追加せず、装飾的なフォントは使用しないでください。レイアウトは中央揃えでレスポンシブ이며、明確な階層構造と読みやすさに焦点を当てています。"
+    },
+    "ko": {
+      "identity": {
+        "keywords": [
+          "ORM",
+          "TypeScript",
+          "JavaScript",
+          "Database",
+          "Developer"
+        ],
+        "analogy": "개발자가 데이터를 효율적으로 관리할 수 있도록 하는 깔끔하고 빠른 도구 모음과 같습니다.",
+        "oneLiner": "TypeScript와 JavaScript를 위한 현대적이고 빠른 ORM입니다."
+      },
+      "colors": {
+        "principle": "깔끔한 흰색 배경에 미묘한 회색 구조 요소를 사용한 높은 대비입니다."
+      },
+      "typography": {
+        "rules": [
+          "시스템 sans-serif 스택이 기본 서체입니다.",
+          "모노스페이스 폰트는 코드 조각과 기술 라벨에 사용됩니다.",
+          "수기 폰트는 선택적으로 재미있는 주석에 사용됩니다."
+        ],
+        "scaleUses": [
+          "히어로 헤드라인",
+          "섹션 헤드라인",
+          "일반 텍스트",
+          "캡션 및 메타데이터"
+        ]
+      },
+      "spacing": {
+        "rhythm": "일관된 4px 기본 그리드와 섹션별 넉넉한 padding입니다."
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(0, 0, 0, 0.08) 0px 0px 0px 1px",
+          "rgba(0, 0, 0, 0.075) 0px 2px 4px 0px",
+          "rgb(255, 255, 255) 0px 0px 1px 1px inset"
+        ],
+        "borders": "1px solid rgb(229, 231, 235)"
+      },
+      "layout": {
+        "skeleton": "반응형 스택을 적용한 중앙 정렬 콘텐츠 컨테이너입니다."
+      },
+      "components": {
+        "button": "둥근 모서리의 고스트 또는 아웃라인 스타일입니다.",
+        "card": "미묘한 border와 부드러운 그림자가 있는 흰색 표면입니다.",
+        "chip": "배경색을 사용하는 작은 둥근 배지입니다.",
+        "input": "둥근 모서리의 깔끔한 아웃라인 입력 필드입니다.",
+        "hero": "재미 있는 일러스트레이션이 동반되는 왼쪽 정렬의 큰 텍스트입니다."
+      },
+      "motion": {
+        "patterns": [
+          "hover 시 부드러운 색상 전환",
+          "불투명도 페이드 인"
+        ]
+      },
+      "interaction": {
+        "hover": "미묘한 배경색 변경 또는 색상 전환입니다.",
+        "click": "극적인 변화는 없으며, 표준 포인터 커서입니다.",
+        "transition": "모든 속성이 0.2초 동안 부드럽게 전환됩니다.",
+        "keyboard": "표준 focus 윤곽선입니다."
+      },
+      "voice": {
+        "tone": "기술적이지만 접근 가능하며, 약간 재미있는 어조입니다.",
+        "headlineStyle": "직관적이고, 행동을 유도하며, 간결합니다.",
+        "ctaStyle": "단순한 텍스트 링크 또는 아웃라인 버튼입니다.",
+        "avoid": [
+          "지나치게 기업적인 언어",
+          "시각적 중단 없이 밀도 높은 텍스트 벽",
+          "공격적이거나 강렬한 색상"
+        ]
+      },
+      "donts": [
+        "다크 모드를 사용하지 않습니다 — 스크린샷은 밝은 흰색 배경을 보여줍니다",
+        "그라데이션 배경을 사용하지 않습니다 — 스크린샷은 평면적인 단색을 보여줍니다",
+        "모든 곳에 둥근 필 버튼을 사용하지 않습니다 — 스크린샷은 표준 직사각형 또는 약간 둥근 버튼을 보여줍니다",
+        "모든 요소에 그림자를 사용하지 않습니다 — 스크린샷은 미묘한 border가 있는 대부분 평면적인 표면을 보여줍니다",
+        "단일 고채도 강조색을 사용하지 않습니다 — 스크린샷은 대부분 단색 팔레트를 보여줍니다",
+        "장식용 세리프를 사용하지 않습니다 — 스크린샷은 깔끔한 sans-serif 타이포그래피를 보여줍니다"
+      ],
+      "systemPrompt": "이것은 ORM용 개발자 도구 SaaS 사이트로, 흰색 배경의 깔끔하고 미니멀한 디자인이 특징입니다. 주요 색상에는 짙은 차콜 텍스트(#222222)와 연한 회색 border(#E5E7EB)가 포함됩니다. 타이포그래피는 본문에 표준 sans-serif 스택을, 코드에 모노스페이스 스택을 사용합니다. 디자인은 무거운 그림자 대신 넉넉한 여백과 미묘한 border에 의존합니다. 핵심 주의사항: 다크 모드를 사용하지 않고, 그라데이션 배경을 추가하지 않으며, 장식용 폰트를 사용하지 않습니다. 레이아웃은 중앙 정렬 및 반응형이며, 명확한 계층과 가독성에 중점을 둡니다."
+    }
+  },
+  "desc": {
+    "en": {
+      "palette": "A minimalist monochrome palette dominated by white and charcoal, with subtle grays for structure.",
+      "layout": "A standard centered layout with a clear vertical rhythm and generous whitespace.",
+      "interaction": "Subtle transitions and hover states that enhance usability without being distracting.",
+      "motion": "Fast, subtle micro-interactions that support the tool's performance-oriented identity.",
+      "notes": "A great example of a clean, functional developer-focused design that prioritizes readability and speed."
+    },
+    "zh-CN": {
+      "palette": "以白色和炭灰色为主导的极简单色配色方案，辅以微妙的灰色构建结构层次。",
+      "layout": "采用标准的居中布局，具有清晰的垂直节奏和充足的留白空间。",
+      "interaction": "通过细微的过渡效果和悬停状态增强可用性，同时避免分散注意力。",
+      "motion": "快速而微妙的微交互设计，契合工具性能优先的定位。",
+      "notes": "一个极佳的范例，展现了面向开发者的干净、功能性设计，在可读性和运行速度之间取得了优先平衡。"
+    },
+    "zh-TW": {
+      "palette": "極簡的單色調色板，以白色和炭灰色為主，輔以微妙的灰色用於結構。",
+      "layout": "標準的置中佈局，具備清晰的垂直節奏和充足的留白。",
+      "interaction": "微妙的轉場與懸停狀態，在提升可用性之餘不顯突兀。",
+      "motion": "快速、細微的微互動，支撐工具以效能為導向的品牌形象。",
+      "notes": "一個乾淨、功能導向的開發者設計範例，將可讀性與速度置於首位。"
+    },
+    "ja": {
+      "palette": "白とダークグレーを基調としたミニマルなモノクロームパレット。構造を示すために淡いグレーを用いています。",
+      "layout": "明確な垂直のリズムと豊かな余白を備えた、標準的な中央揃えのレイアウト。",
+      "interaction": "使い勝手を損なうことなく、使いやすさを向上させる微細な遷移とhover状態。",
+      "motion": "ツールのパフォーマンス重視のアイデンティティを支える、高速で微細なマイクロインタラクション。",
+      "notes": "読みやすさと速度を優先した、クリーンで機能的な開発者向けデザインの優れた例です。"
+    },
+    "ko": {
+      "palette": "흰색과 차콜을 주도로 한 미니멀리스트 단색 팔레트로, 구조를 잡는 데 미묘한 회색을 사용합니다.",
+      "layout": "명확한 수직 리듬과 넉넉한 여백을 갖춘 표준 중앙 정렬 레이아웃입니다.",
+      "interaction": "주목을 끌지 않으면서 사용성을 향상시키는 미묘한 전환과 hover 상태입니다.",
+      "motion": "도구의 성능 중심 정체성을 뒷받침하는 빠르고 미세한 상호작용입니다.",
+      "notes": "가독성과 속도를 우선시하는 깔끔하고 기능적인 개발자 중심 디자인의 훌륭한 예시입니다."
+    }
+  },
+  "narrative": {
+    "en": {
+      "ch1_intro": "Drizzle ORM presents itself as a clean, fast toolkit for developers—a system where every visual decision supports the core task of managing data efficiently. The design's identity is built on clarity and performance, rejecting decoration in favor of a functional aesthetic that mirrors the tool's purpose.",
+      "ch2_intro": "The color system is a study in high contrast, built on a clean white background with charcoal text and subtle gray structural elements. It establishes a monochrome foundation where color is used sparingly and for function, not decoration.",
+      "ch2_outro": "The principle is restraint; the palette exists to provide clarity and structure, not to draw attention to itself.",
+      "ch3_intro": "Typography establishes a clear hierarchy through a pragmatic stack: a system sans-serif for primary text, a monospace font for code, and a handwritten font for select playful annotations. This combination supports a voice that is technical yet accessible, directly communicating with a developer audience.",
+      "ch4_intro": "Spacing follows a consistent 4px base grid, creating a reliable vertical rhythm across all components and sections.",
+      "ch5_intro": "Surfaces are defined by subtle, layered depth: a single-pixel border grounds elements, while minimal shadows provide a gentle lift. The effect is one of clean, flat planes with just enough definition to establish hierarchy without visual weight.",
+      "ch6_intro": "The layout skeleton centers content within a responsive container, stacking vertically on smaller viewports. This creates a focused reading column with generous whitespace, ensuring information is presented in a clear, digestible manner.",
+      "ch7_intro": "Motion philosophy prioritizes utility and subtlety. All transitions are smooth and fast, using simple color fades and opacity changes to confirm interaction without distracting from the developer's workflow.",
+      "ch8_intro": "The editorial voice is technical but accessible, using direct, action-oriented headlines and simple text links for calls to action. It avoids corporate jargon and aggressive language, maintaining a tone that is helpful and slightly playful.",
+      "ch8_outro": "The system deliberately forgoes dark mode, gradient backgrounds, and decorative serifs, committing fully to a bright, high-contrast, and functionally typographic aesthetic."
+    },
+    "zh-CN": {
+      "ch1_intro": "Drizzle ORM 将自身呈现为一个专为开发者打造的简洁、高效工具集——在这个系统中，每一处视觉决策都服务于高效管理数据的核心任务。设计的内核建立在清晰与性能之上，摒弃装饰，追求一种呼应工具本身目的的实用美学。",
+      "ch2_intro": "色彩系统是对高对比度的研究，建立在纯净的白色背景上，搭配炭灰色文本和微妙的灰色结构元素。它确立了单色基底，其中色彩的使用克制而富有功能性，而非用于装饰。",
+      "ch2_outro": "原则在于克制；这套调色板的存在是为了提供清晰度和结构，而非吸引对自身的注意。",
+      "ch3_intro": "字体排印通过务实的组合确立了清晰的层级：系统无衬线字体用于主要文本，等宽字体用于代码，手写字体则用于部分活泼的注释。这种组合支撑了一种技术性强但易于理解的语调，直接与开发者受众沟通。",
+      "ch4_intro": "间距遵循一致的 4px 基础网格，在所有组件和板块间建立起可靠的垂直节奏。",
+      "ch5_intro": "表面通过微妙、分层的深度来定义：一像素的边框为元素提供基底，而极简的阴影则带来轻微的提升感。效果是整洁的平面，在不过度增加视觉重量的前提下，仅通过足够的界定来建立层级关系。",
+      "ch6_intro": "布局骨架将内容置于响应式容器中央，在较小视口时垂直堆叠。这创造了一个聚焦的阅读列，配合充足的留白，确保信息以清晰、易于理解的方式呈现。",
+      "ch7_intro": "动效理念优先考虑实用性和微妙性。所有过渡都平滑而迅速，通过简单的颜色淡入淡出和透明度变化来确认交互，同时不干扰开发者的工作流程。",
+      "ch8_intro": "编辑语调技术性强但平易近人，使用直接、行动导向的标题和简单的文本链接作为行动号召。它避免了企业行话和激进的措辞，保持了一种乐于助人且略带俏皮的语调。",
+      "ch8_outro": "该系统有意摒弃了深色模式、渐变背景和装饰性衬线字体，全心投入一种明亮、高对比度且基于功能的排印美学。"
+    },
+    "zh-TW": {
+      "ch1_intro": "Drizzle ORM 以一套簡潔、高效的工具套件自居，其設計理念在於讓每一個視覺決策都服務於高效管理數據的核心任務。其設計的特質建立在清晰度與效能之上，摒棄裝飾，擁抱功能性的美學，以呼應工具本身的實用本質。",
+      "ch2_intro": "色彩系統是高對比度的體現，以純淨的白色背景為基底，搭配炭灰色文字與微妙的灰色結構元素。它建立了一個單色調的基礎，色彩僅以功能性而非裝飾性目的被謹慎運用。",
+      "ch2_outro": "其原則是克制；色彩的存在是為了提供清晰度與結構性，而非為了吸引目光。",
+      "ch3_intro": "字體排印透過務實的組合建立了清晰的層級：主要文字採用系統無襯線字體，程式碼使用等寬字體，並為選定的活潑註釋搭配手寫字體。這種組合支援了一種既技術性又平易近人的語氣，直接與開發者受眾溝通。",
+      "ch4_intro": "間距遵循一致的 4px 基礎網格，在所有元件與區塊間創造出可靠的垂直節奏。",
+      "ch5_intro": "介面的表面由細微、分層的深度來定義：單像素邊框為元素提供基底，而極簡的陰影則帶來輕微的提升感。其效果是簡潔的平面，帶有足夠的定義以建立層級，卻不增加視覺重量。",
+      "ch6_intro": "版面骨架將內容置於回應式容器中央，在較小的螢幕上垂直堆疊。這創造了一個專注的閱讀欄位，並搭配充裕的留白，確保資訊以清晰、易於消化的方式呈現。",
+      "ch7_intro": "動態哲學優先考量實用與細膩。所有過渡效果都流暢且快速，運用簡單的色彩漸隱與透明度變化來確認互動，同時不干擾開發者的工作流程。",
+      "ch8_intro": "編輯語氣技術性但易於理解，使用直接、以行動為導向的標題，以及簡單的文字連結作為行動呼籲。它避免使用企業術語與強勢語言，保持一種 helpful 且略帶趣味的 tone。",
+      "ch8_outro": "此系統刻意捨棄了暗色模式、漸層背景與裝飾性襯線字體，完全投入明亮、高對比度且功能性的字體排印美學。"
+    },
+    "ja": {
+      "ch1_intro": "Drizzle ORMは、開発者向けのクリーンで高速なツールキットとして提示されています。それは、視覚的な意思決定がすべてデータ管理という主要タスクを効率的にサポートするシステムです。このデザインのアイデンティティは、明瞭性とパフォーマンスの上に構築されており、装飾を排し、ツールの目的を反映する機能的美学を重んじます。",
+      "ch2_intro": "カラーシステムは、清潔な白背景に charcoal のテキストと微妙なグレーの構造要素を基調とした、高コントラストの研究です。色彩は機能のために控えめにしか使われない、モノクロームの基盤を確立しています。",
+      "ch2_outro": "原則は節度です。パレットは、注目を集めるためではなく、明瞭性と構造を提供するために存在します。",
+      "ch3_intro": "タイポグラフィは、実用的なフォントスタックを通じて明確な階層を確立します。主要テキストにはシステムsans-serif、コードにはmonospace、選択的な遊び心のある注釈にはhandwrittenフォントを用います。この組み合わせは、技術的でありながらも親しみやすい声を支え、開発者 audience に直接伝えます。",
+      "ch4_intro": "スペーシングは、一貫した4pxベースグリッドに従い、すべてのコンポーネントとセクションにわたる信頼性の高い縦のリズムを生み出します。",
+      "ch5_intro": "サーフェスは、微妙でレイヤードな深度によって定義されます。1ピクセルのボーダーが要素を接地させ、最小限のシャドウが軽い浮きを提供します。その効果は、視覚的な重みなしに階層を確立するのに十分な定義を備えた、クリーンでフラットな平面です。",
+      "ch6_intro": "レイアウトの骨格は、レスポンシブコンテナ内にコンテンツを中央に配置し、小さなビューポートでは垂直に積み重ねます。これにより、十分な余白を備えた集中した読み取りカラムが生まれ、情報を明確で理解しやすい形で提示します。",
+      "ch7_intro": "モーションの哲学は、実用性と微妙さを優先します。すべてのトランジションは滑らかで高速で、開発者のワークフローを邪魔することなく、インタラクションを確認するためにシンプルな色のフェードや不透明度の変化を使用します。",
+      "ch8_intro": "エディトリアルボイスは技術的でありながら親しみやすく、直接的でアクション指向の見出しと、シンプルなテキストリンクをCTAとして使用します。企業用語や攻撃的な言葉を避け、有用で少し遊び心のあるトーンを維持します。",
+      "ch8_outro": "システムは、ダークモード、グラデーション背景、装飾的なセリフを意図的に避け、明るく高コントラストで機能的タイポグラフィの美学に完全にコミットしています。"
+    },
+    "ko": {
+      "ch1_intro": "Drizzle ORM은 개발자들을 위한 깨끗하고 빠른 도구 키트로 자리매김합니다—데이터를 효율적으로 관리하는 핵심 작업을 지원하는 모든 시각적 결정이 갖춰진 시스템입니다. 이 디자인의 정체성은 명확성과 성능 위에 구축되어 있으며, 도구의 목적을 반영하는 기능적 미학을 위해 장식은 배제합니다.",
+      "ch2_intro": "색상 시스템은 고대비를 탐구한 결과로, 깨끗한 흰색 배경을 기반으로 숯색 텍스트와 은은한 회색 구조 요소로 구성됩니다. 색상이 기능을 위해 절제적으로 사용되는 단색 기반을 확립하며, 장식을 위한 것이 아닙니다.",
+      "ch2_outro": "원칙은 절제입니다. 팔레트는 명확성과 구조를 제공하기 위해 존재하며, 자체에 주목을 끌기 위한 것이 아닙니다.",
+      "ch3_intro": "타이포그래피는 실용적인 스택을 통해 명확한 계층을 확립합니다: 기본 텍스트에는 시스템 sans-serif, 코드에는 monospace, 특정 장난스러운 주석에는 손글씨 글꼴을 사용합니다. 이 조합은 기술적이면서도 접근 가능한 목소리를 지원하며, 개발자 청중과 직접적으로 소통합니다.",
+      "ch4_intro": "간격은 일관된 4px 기본 격자를 따르며, 모든 구성 요소와 섹션에 걸쳐 안정적인 수직 리듬을 만듭니다.",
+      "ch5_intro": "표면은 은은한 층위감으로 정의됩니다: 1픽셀 테두리가 요소를 고정하고, 최소한의 그림자가 부드러운 높이감을 제공합니다. 결과적으로 계층을 설정할 만큼의 명확성만 갖춘 깨끗하고 평면적인 표면이 형성되며, 시각적 무게감은 없습니다.",
+      "ch6_intro": "레이아웃 스켈레톤은 반응형 컨테이너 내에 콘텐츠를 중앙에 배치하며, 작은 뷰포트에서는 수직으로 쌓입니다. 이를 통해 넉넉한 여백을 갖춘 집중된 읽기 컬럼을 만들어 정보가 명확하고 소화하기 쉬운 방식으로 제시됩니다.",
+      "ch7_intro": "모션 철학은 유용성과 미묘함을 우선시합니다. 모든 전환은 부드럽고 빠르게 이루어지며, 단순한 색상 페이드와 불투명도 변화를 사용하여 개발자의 워크플로우를 방해하지 않으면서 상호작용을 확인합니다.",
+      "ch8_intro": "에디토리얼 톤은 기술적이면서도 접근 가능하며, 직접적이고 행동 지향적인 헤드라인과 호출을 위한 단순한 텍스트 링크를 사용합니다. 기업 용어와 공격적인 언어는 피하고, 도움이 되면서도 약간 장난스러운 어조를 유지합니다.",
+      "ch8_outro": "이 시스템은 의도적으로 다크 모드, 그라데이션 배경, 그리고 장식용 세리프를 포기하며, 밝고 고대비이며 기능적인 타이포그래피 미학에 전적으로 헌신합니다."
+    }
+  }
+}

@@ -1,0 +1,608 @@
+{
+  "id": "dezeen",
+  "schema_version": "0.3",
+  "url": "https://www.dezeen.com",
+  "title": "Dezeen",
+  "image": "",
+  "tags": [
+    "editorial",
+    "architecture"
+  ],
+  "status": "completed",
+  "added_at": "2026-06-02",
+  "added_by": "expand-200",
+  "_meta": {
+    "last_error": "<urlopen error The write operation timed out>",
+    "vision_model": "mimo-v2.5",
+    "vision_prompt_version": "0.3",
+    "vision_source": "playwright-extract:dezeen",
+    "vision_grounded": true,
+    "vision_at": "2026-06-02T13:26:13+00:00",
+    "vision_tokens": 16163,
+    "vision_cost_usd": 0.1796,
+    "translation_model": "mimo-v2.5",
+    "translation_at": "2026-06-02T13:27:09+00:00",
+    "translation_tokens": 14736,
+    "translation_cost_usd": 0.0491,
+    "narrative_model": "mimo-v2.5",
+    "narrative_prompt_version": "0.3",
+    "narrative_at": "2026-06-02T13:27:16+00:00",
+    "narrative_tokens": 1822,
+    "narrative_cost_usd": 0.0121,
+    "narrative_status": "ok",
+    "total_cost_usd": 0.2408
+  },
+  "spec": {
+    "colors": {
+      "bg": "#ffffff",
+      "bgSoft": "#f0f0f0",
+      "bgQuiet": null,
+      "ink": "#000000",
+      "inkSoft": null,
+      "muted": "#757575",
+      "mutedSoft": null,
+      "accent": "#556e9b",
+      "line": "rgba(85, 110, 155, 1)"
+    },
+    "typography": {
+      "display": "humanist-sans",
+      "body": "transitional-serif",
+      "mono": null,
+      "scale": [
+        {
+          "token": "display",
+          "size": 56,
+          "lh": 1.0,
+          "weight": 700,
+          "ls": "-1px"
+        },
+        {
+          "token": "h1",
+          "size": 40,
+          "lh": 1.1,
+          "weight": 700,
+          "ls": "0"
+        },
+        {
+          "token": "body",
+          "size": 18,
+          "lh": 1.3,
+          "weight": 400,
+          "ls": "0"
+        },
+        {
+          "token": "small",
+          "size": 14,
+          "lh": 1.5,
+          "weight": 700,
+          "ls": "0"
+        }
+      ]
+    },
+    "spacing": {
+      "base": 4,
+      "scale": [
+        4,
+        8,
+        16,
+        24,
+        32,
+        48,
+        64,
+        96
+      ]
+    },
+    "surfaces": {
+      "radius": {
+        "sm": 0,
+        "md": 0,
+        "lg": 0,
+        "pill": 999
+      }
+    },
+    "layout": {
+      "container": 1280,
+      "paragraph": 680,
+      "columns": 12,
+      "gutter": 24,
+      "breakpoints": [
+        768,
+        1024
+      ]
+    },
+    "motion": {
+      "durations": {
+        "micro": 200,
+        "small": 400,
+        "medium": 800
+      },
+      "easing": "ease-in-out"
+    }
+  },
+  "spec_i18n": {
+    "en": {
+      "identity": {
+        "keywords": [
+          "Architecture",
+          "Design",
+          "Magazine",
+          "Curated",
+          "Photographic"
+        ],
+        "analogy": "A premium design magazine brought to the web, prioritizing large editorial photography and clean typography.",
+        "oneLiner": "A clean, image-led editorial platform for architecture and design with a signature blue accent."
+      },
+      "colors": {
+        "principle": "High-contrast black and white base with a signature slate-blue accent."
+      },
+      "typography": {
+        "rules": [
+          "Use sans-serif for headlines and navigation.",
+          "Use serif for article body text.",
+          "Weight 700 is heavily used for emphasis and navigation.",
+          "Maintain tight letter-spacing for large display text."
+        ],
+        "scaleUses": [
+          "Headlines",
+          "Section headers",
+          "Article text",
+          "Captions and metadata"
+        ]
+      },
+      "spacing": {
+        "rhythm": "Generous whitespace separates editorial blocks."
+      },
+      "surfaces": {
+        "shadows": [],
+        "borders": "Sharp 3px borders for section dividers."
+      },
+      "layout": {
+        "skeleton": "Strict grid with a dominant left column for articles and a right column for secondary content."
+      },
+      "components": {
+        "button": "Minimal, text-based or solid blocks with sharp corners.",
+        "card": "Image-heavy blocks with overlaid text and sharp borders.",
+        "chip": "Simple text labels with bold weights.",
+        "input": "Clean rectangular fields with thin borders.",
+        "hero": "Large photographic imagery with overlaid text."
+      },
+      "motion": {
+        "patterns": [
+          "Smooth transitions for background and color changes."
+        ]
+      },
+      "interaction": {
+        "hover": "Background color shifts on interactive elements.",
+        "click": "Instant response.",
+        "transition": "Color and background transitions at 0.2s.",
+        "keyboard": "Standard browser focus outlines."
+      },
+      "voice": {
+        "tone": "Authoritative, sophisticated, and clean.",
+        "headlineStyle": "Short, descriptive, and impactful.",
+        "ctaStyle": "Understated and direct.",
+        "avoid": [
+          "Slang",
+          "Overly casual language",
+          "Decorative fonts"
+        ]
+      },
+      "donts": [
+        "Don't use rounded corners on cards — screenshot shows sharp 0px borders.",
+        "Don't use a colorful accent palette — screenshot is dominated by black, white, and a single muted blue (#556e9b).",
+        "Don't use sans-serif for long-form text — screenshot uses a serif font for article body.",
+        "Don't add drop shadows to containers — screenshot shows flat surfaces.",
+        "Don't use complex layouts — screenshot uses a strict, clean grid.",
+        "Don't use playful typography — screenshot relies on high-contrast, serious weights."
+      ],
+      "systemPrompt": "Dezeen is a premium architecture and design editorial platform. Its design DNA is built on a high-contrast black and white palette with a signature muted blue (#556e9b) accent. Typography uses a humanist sans-serif for headlines and a transitional serif for body text, maintaining a sophisticated and authoritative voice. Critical rules: use sharp 0px borders, avoid rounded corners, and maintain a strict editorial grid. Never use playful or decorative elements; the aesthetic is clean, curated, and photographic."
+    },
+    "zh-CN": {
+      "identity": {
+        "keywords": [
+          "建筑",
+          "设计",
+          "杂志",
+          "策展",
+          "摄影"
+        ],
+        "analogy": "一本高端设计杂志的网络版，优先考虑大幅编辑摄影和干净的排版。",
+        "oneLiner": "一个干净的、以图像为主导的建筑与设计编辑平台，带有标志性的蓝色点缀。"
+      },
+      "colors": {
+        "principle": "以高对比度的黑白为基础，配以标志性的灰蓝色点缀。"
+      },
+      "typography": {
+        "rules": [
+          "标题和导航使用无衬线字体。",
+          "文章正文使用衬线字体。",
+          "字重 700 重度用于强调和导航。",
+          "大型展示文字保持紧凑的字间距。"
+        ],
+        "scaleUses": [
+          "标题",
+          "区域标题",
+          "文章文本",
+          "说明文字和元数据"
+        ]
+      },
+      "spacing": {
+        "rhythm": "充足的留白分隔编辑区块。"
+      },
+      "surfaces": {
+        "shadows": [],
+        "borders": "清晰的 3px 边框作为区域分隔线。"
+      },
+      "layout": {
+        "skeleton": "严格的网格，左侧主栏用于文章，右侧次栏用于辅助内容。"
+      },
+      "components": {
+        "button": "极简，基于文本或实心色块，带有尖锐的边角。",
+        "card": "以图片为主的区块，叠加文字并带有清晰的边框。",
+        "chip": "简单的文本标签，使用粗体字重。",
+        "input": "干净的矩形输入框，带有细边框。",
+        "hero": "大型摄影图像，叠加文字。"
+      },
+      "motion": {
+        "patterns": [
+          "背景和颜色变化的平滑过渡。"
+        ]
+      },
+      "interaction": {
+        "hover": "交互元素的背景颜色变化。",
+        "click": "即时响应。",
+        "transition": "颜色和背景过渡时长为 0.2s。",
+        "keyboard": "标准浏览器焦点轮廓。"
+      },
+      "voice": {
+        "tone": "权威、精致且干净。",
+        "headlineStyle": "简短、描述性强且有冲击力。",
+        "ctaStyle": "低调且直接。",
+        "avoid": [
+          "俚语",
+          "过于随意的语言",
+          "装饰性字体"
+        ]
+      },
+      "donts": [
+        "不要在卡片上使用圆角——截图显示是清晰的 0px 边框。",
+        "不要使用多彩的点缀色板——截图由黑、白和单一的灰蓝色 (#556e9b) 主导。",
+        "不要为长篇文本使用无衬线字体——截图在文章正文中使用了衬线字体。",
+        "不要给容器添加投影——截图显示是平面效果。",
+        "不要使用复杂的布局——截图使用了严格、干净的网格。",
+        "不要使用活泼的排版——截图依赖于高对比度、严肃的字重。"
+      ],
+      "systemPrompt": "Dezeen 是一个高端的建筑与设计编辑平台。其设计 DNA 建立在高对比度的黑白调色板和标志性的灰蓝色 (#556e9b) 点缀之上。排版使用人文主义无衬线字体作为标题，过渡衬线字体作为正文，保持精致而权威的语调。关键规则：使用清晰的 0px 边框，避免圆角，并保持严格的编辑网格。永远不要使用活泼或装饰性的元素；其美学是干净、策展和摄影驱动的。"
+    },
+    "zh-TW": {
+      "identity": {
+        "keywords": [
+          "建築",
+          "設計",
+          "雜誌",
+          "精選",
+          "攝影"
+        ],
+        "analogy": "一本高級設計雜誌被帶到網路上，優先考慮大型編輯攝影與乾淨的排版。",
+        "oneLiner": "一個以影像為主導的乾淨編輯平台，專注於建築與設計，並帶有標誌性的藍色強調。"
+      },
+      "colors": {
+        "principle": "高對比的黑白基底，搭配標誌性的灰藍色強調。"
+      },
+      "typography": {
+        "rules": [
+          "標題與導覽使用無襯線字體。",
+          "文章內文使用襯線字體。",
+          "字重 700 大量用於強調與導覽。",
+          "大型展示文字維持緊湊的字距。"
+        ],
+        "scaleUses": [
+          "標題",
+          "段落標題",
+          "文章文字",
+          "圖說與中繼資料"
+        ]
+      },
+      "spacing": {
+        "rhythm": "寬裕的留白分隔編輯區塊。"
+      },
+      "surfaces": {
+        "shadows": [],
+        "borders": "段落分隔線使用銳利的 3px 邊框。"
+      },
+      "layout": {
+        "skeleton": "嚴格的網格，主要文章欄位在左側，次要內容欄位在右側。"
+      },
+      "components": {
+        "button": "極簡的、基於文字或實心的區塊，帶有銳利的角落。",
+        "card": "以圖片為主的區塊，帶有疊加的文字與銳利的邊框。",
+        "chip": "簡單的文字標籤，使用粗體字重。",
+        "input": "乾淨的矩形欄位，帶有細邊框。",
+        "hero": "大型攝影影像，帶有疊加的文字。"
+      },
+      "motion": {
+        "patterns": [
+          "背景與色彩變化的平滑過渡。"
+        ]
+      },
+      "interaction": {
+        "hover": "互動元素的背景色彩變化。",
+        "click": "即時回應。",
+        "transition": "色彩與背景過渡時間為 0.2s。",
+        "keyboard": "標準的瀏覽器聚焦外框。"
+      },
+      "voice": {
+        "tone": "權威、精緻且乾淨。",
+        "headlineStyle": "簡短、具描述性且有衝擊力。",
+        "ctaStyle": "低調且直接。",
+        "avoid": [
+          "俚語",
+          "過於隨意的語言",
+          "裝飾性字體"
+        ]
+      },
+      "donts": [
+        "不要在卡片上使用圓角——截圖顯示為銳利的 0px 邊框。",
+        "不要使用彩色的強調色調——截圖以黑色、白色與單一的霧面藍色（#556e9b）為主。",
+        "不要使用無襯線字體作為長文——截圖在文章內文使用襯線字體。",
+        "不要在容器上加入陰影——截圖顯示為平坦的表面。",
+        "不要使用複雜的佈局——截圖使用嚴格、乾淨的網格。",
+        "不要使用活潑的排版——截圖依賴高對比、嚴肅的字重。"
+      ],
+      "systemPrompt": "Dezeen 是一個高級的建築與設計編輯平台。其設計 DNA 建立在高對比的黑白配色方案上，並帶有標誌性的霧面藍色（#556e9b）強調。排版使用人文主義無襯線字體作為標題，以及過渡襯線字體作為內文，維持精緻且具權威性的語調。關鍵規則：使用銳利的 0px 邊框，避免圓角，並維持嚴格的編輯網格。絕不使用活潑或裝飾性的元素；美學是乾淨、精選且攝影導向的。"
+    },
+    "ja": {
+      "identity": {
+        "keywords": [
+          "建築",
+          "デザイン",
+          "マガジン",
+          "キュレーション",
+          "フォトグラフィック"
+        ],
+        "analogy": "ウェブに移植されたプレミアム・デザインマガジン。大きなエディトリアル写真とクリーンなタイポグラフィを優先しています。",
+        "oneLiner": "建築とデザインのための、特徴的な Blue アクセントを持つクリーンな画像主導のエディトリアル・プラットフォーム。"
+      },
+      "colors": {
+        "principle": "ハイコントラストの Black と White をベースに、特徴的な Slate-Blue のアクセントを用います。"
+      },
+      "typography": {
+        "rules": [
+          "見出しとナビゲーションには Sans-serif を使用。",
+          "記事本文には Serif を使用。",
+          "強調やナビゲーションに Weight 700 を多用。",
+          "大きな表示テキストには、 tightened letter-spacing を維持。"
+        ],
+        "scaleUses": [
+          "見出し",
+          "セクションヘッダー",
+          "記事テキスト",
+          "キャプションとメタデータ"
+        ]
+      },
+      "spacing": {
+        "rhythm": "エディトリアルブロック間を、十分な余白で区切ります。"
+      },
+      "surfaces": {
+        "shadows": [],
+        "borders": "セクション区切りには、鋭い 3px のボーダーを使用。"
+      },
+      "layout": {
+        "skeleton": "記事用の主要な左カラムと、二次コンテンツ用の右カラムを持つ厳格なグリッド。"
+      },
+      "components": {
+        "button": "ミニマルで、テキストベースまたはソリッドブロック、角はシャープに。",
+        "card": "画像を多用したブロック。オーバーレイテキストと鋭いボーダーが特徴。",
+        "chip": "シンプルなテキストラベル。太めのウェイトを使用。",
+        "input": "細いボーダーを持つクリーンな長方形フィールド。",
+        "hero": "オーバーレイテキストを持つ、大きなフォトグラフィックイメージ。"
+      },
+      "motion": {
+        "patterns": [
+          "背景やカラー変化のための滑らかなトランジション。"
+        ]
+      },
+      "interaction": {
+        "hover": "インタラクティブ要素の背景色が変化。",
+        "click": "即座に応答。",
+        "transition": "カラーや背景のトランジションは 0.2s。",
+        "keyboard": "標準のブラウザフォーカスアウトライン。"
+      },
+      "voice": {
+        "tone": "権威があり、洗練され、クリーン。",
+        "headlineStyle": "短く、記述的で、インパクトがある。",
+        "ctaStyle": "控えめで直接的。",
+        "avoid": [
+          "スラング",
+          "過度にカジュアルな言葉",
+          "装飾的なフォント"
+        ]
+      },
+      "donts": [
+        "カードに角丸を使用しない — スクリーンショットは 0px のシャープなボーダーを示しています。",
+        "カラフルなアクセントパレットを使用しない — スクリーンショットは Black、White、そして単一の無彩色 Blue (#556e9b) で構成されています。",
+        "長文テキストに Sans-serif を使用しない — スクリーンショットでは記事本文に Serif フォントを使用しています。",
+        "コンテナにドロップシャドウを追加しない — スクリーンショットはフラットな表面を示しています。",
+        "複雑なレイアウトを使用しない — スクリーンショットは厳格でクリーンなグリッドを使用しています。",
+        "遊び心のあるタイポグラフィを使用しない — スクリーンショットはハイコントラストで真剣なウェイトに依存しています。"
+      ],
+      "systemPrompt": "Dezeen は、プレミアム建築・デザイン・エディトリアル・プラットフォームです。そのデザイン DNA は、ハイコントラストの Black と White をベースに、特徴的な無彩色 Blue (#556e9b) アクセントを用いたパレットに構築されています。タイポグラフィでは、見出しに Humanist Sans-serif、本文に Transitional Serif を使用し、洗練され権威ある声を維持しています。重要なルール：シャープな 0px ボーダーを使用し、角丸を避け、厳格なエディトリアルグリッドを維持すること。遊び心や装飾的な要素は一切使用せず、エストレティックはクリーンでキュレーションされたフォトグラフィックなものである必要があります。"
+    },
+    "ko": {
+      "identity": {
+        "keywords": [
+          "건축",
+          "디자인",
+          "매거진",
+          "큐레이션",
+          "포토그래픽"
+        ],
+        "analogy": "웹으로 온 프리미엄 디자인 매거진으로, 대형 에디토리얼 사진과 깔끔한 타이포그래피를 우선시합니다.",
+        "oneLiner": "시그니처 블루 액센트가 있는 건축 및 디자인을 위한 깔끔한 이미지 기반 에디토리얼 플랫폼입니다."
+      },
+      "colors": {
+        "principle": "고대비 흑백 기반에 시그니처 슬레이트 블루 액센트를 적용합니다."
+      },
+      "typography": {
+        "rules": [
+          "헤드라인과 내비게이션에는 산세리프를 사용합니다.",
+          "기사 본문에는 세리프를 사용합니다.",
+          "강조와 내비게이션에 무게 700을 적극 사용합니다.",
+          "대형 디스플레이 텍스트에는 타이트한 자간을 유지합니다."
+        ],
+        "scaleUses": [
+          "헤드라인",
+          "섹션 헤더",
+          "기사 텍스트",
+          "캡션 및 메타데이터"
+        ]
+      },
+      "spacing": {
+        "rhythm": "넉넉한 여백이 에디토리얼 블록을 분리합니다."
+      },
+      "surfaces": {
+        "shadows": [],
+        "borders": "섹션 구분선에 날카로운 3px 테두리."
+      },
+      "layout": {
+        "skeleton": "기사를 위한 좁은 좌측 칼럼과 보조 콘텐츠를 위한 우측 칼럼으로 구성된 엄격한 그리드."
+      },
+      "components": {
+        "button": "텍스트 기반 또는 날카로운 모서리의 솔리드 블록으로, 미니멀합니다.",
+        "card": "오버레이 텍스트와 날카로운 테두리가 있는 이미지 중심 블록입니다.",
+        "chip": "굵은 무게의 간단한 텍스트 라벨.",
+        "input": "얇은 테두리의 깔끔한 직사각형 필드.",
+        "hero": "오버레이 텍스트가 있는 대형 포토그래픽 이미지."
+      },
+      "motion": {
+        "patterns": [
+          "배경 및 색상 변경에 대한 매끄러운 전환."
+        ]
+      },
+      "interaction": {
+        "hover": "인터랙티브 요소의 배경색 전환.",
+        "click": "즉각적인 응답.",
+        "transition": "0.2초의 색상 및 배경 전환.",
+        "keyboard": "표준 브라우저 포커스 아웃라인."
+      },
+      "voice": {
+        "tone": "권위적이고, 세련되며, 깔끔합니다.",
+        "headlineStyle": "짧고, 묘사적이며, 임팩트가 있습니다.",
+        "ctaStyle": "절제되고 직접적입니다.",
+        "avoid": [
+          "속어",
+          "지나치게 캐주얼한 언어",
+          "장식 폰트"
+        ]
+      },
+      "donts": [
+        "카드에 둥근 모서리를 사용하지 마세요 — 스크린샷은 날카로운 0px 테두리를 보여줍니다.",
+        "화려한 액센트 팔레트를 사용하지 마세요 — 스크린샷은 블랙, 화이트, 단일 무드 블루(#556e9b)로 지배됩니다.",
+        "긴 텍스트에 산세리프를 사용하지 마세요 — 스크린샷은 기사 본문에 세리프 폰트를 사용합니다.",
+        "컨테이너에 드롭 섀도우를 추가하지 마세요 — 스크린샷은 플랫 표면을 보여줍니다.",
+        "복잡한 레이아웃을 사용하지 마세요 — 스크린샷은 엄격하고 깔끔한 그리드를 사용합니다.",
+        "장난스러운 타이포그래피를 사용하지 마세요 — 스크린샷은 고대비, 진지한 무게에 의존합니다."
+      ],
+      "systemPrompt": "Dezeen은 프리미엄 건축 및 디자인 에디토리얼 플랫폼입니다. 그 디자인 DNA는 고대비 흑백 팔레트와 시그니처 무드 블루(#556e9b) 액센트를 기반으로 구축되었습니다. 타이포그래피는 헤드라인에 휴머니스트 산세리프를, 본문에 트랜지셔널 세리프를 사용하여 세련되고 권위적인 보이스를 유지합니다. 중요한 규칙: 날카로운 0px 테두리를 사용하고, 둥근 모서리를 피하며, 엄격한 에디토리얼 그리드를 유지합니다. 절대 장난스럽거나 장식적인 요소를 사용하지 마세요; 미학은 깔끔하고, 큐레이션되며, 포토그래픽입니다."
+    }
+  },
+  "desc": {
+    "en": {
+      "palette": "A clean, editorial palette dominated by black (#000000) and white (#ffffff), anchored by a signature muted blue (#556e9b) accent.",
+      "layout": "A strict, column-based editorial grid with generous whitespace and sharp section dividers.",
+      "interaction": "Subtle, smooth transitions for background and color states, maintaining a calm and refined feel.",
+      "motion": "Minimal motion, focusing on clean transitions rather than expressive animations.",
+      "notes": "This site is a perfect example of a premium editorial design that prioritizes content and photography through a highly structured and refined visual system."
+    },
+    "zh-CN": {
+      "palette": "一套干净、编辑风格的调色板，以黑色 (#000000) 和白色 (#ffffff) 为主导，并由标志性的灰蓝色 (#556e9b) 作为点缀。",
+      "layout": "一个严格、基于栏的编辑网格，拥有充足的留白和清晰的区域分隔线。",
+      "interaction": "背景和颜色状态的转换采用微妙、平滑的过渡，保持冷静、精致的感受。",
+      "motion": "极简的动效，专注于干净的过渡，而非表现力丰富的动画。",
+      "notes": "这个网站是高端编辑设计的完美范例，通过高度结构化和精致的视觉系统来突出内容和摄影。"
+    },
+    "zh-TW": {
+      "palette": "一個乾淨的編輯色調，以黑色（#000000）與白色（#ffffff）為主，並以標誌性的霧面藍色（#556e9b）作為強調。",
+      "layout": "嚴格的、基於欄位的編輯網格，搭配寬裕的留白與銳利的段落分隔線。",
+      "interaction": "背景與色彩狀態的細膩、平滑過渡，維持一種沉靜與精緻的感覺。",
+      "motion": "極簡的動態效果，專注於乾淨的過渡而非表現性的動畫。",
+      "notes": "這個網站是高級編輯設計的完美範例，透過高度結構化與精緻的視覺系統，將重點置於內容與攝影作品。"
+    },
+    "ja": {
+      "palette": "Black (#000000) と White (#ffffff) を基調とした、洗練されたエディトリアル・パレット。特徴的な無彩色の Blue (#556e9b) がアクセントとして機能します。",
+      "layout": "厳格なカラムベースのエディトリアル・グリッド。十分な余白と鋭いセクション区切りが特徴です。",
+      "interaction": "背景やカラーステートの変化に、繊細で滑らかなトランジションを適用。落ち着きと洗練を維持します。",
+      "motion": "表現的なアニメーションよりも、クリーンなトランジションに焦点を当てた最小限のモーション。",
+      "notes": "このサイトは、高度に構造化された洗練されたビジュアルシステムを通じて、コンテンツとフォトグラフィを優先するプレミアム・エディトリアル・デザインの完璧な例です。"
+    },
+    "ko": {
+      "palette": "블랙(#000000)과 화이트(#ffffff)를 중심으로 한 깔끔한 에디토리얼 팔레트에, 시그니처 무드 블루(#556e9b) 액센트가 안정감을 줍니다.",
+      "layout": "넉넉한 여백과 날카로운 섹션 구분선이 있는, 엄격한 칼럼 기반의 에디토리얼 그리드입니다.",
+      "interaction": "배경 및 색상 상태에 대한 미세하고 매끄러운 전환으로, 차분하고 세련된 느낌을 유지합니다.",
+      "motion": "표현적인 애니메이션보다 깔끔한 전환에 중점을 둔 미니멀한 모션입니다.",
+      "notes": "이 사이트는 체계적이고 세련된 시각 시스템을 통해 콘텐츠와 사진을 우선시하는 프리미엄 에디토리얼 디자인의 완벽한 예시입니다."
+    }
+  },
+  "narrative": {
+    "en": {
+      "ch1_intro": "The design system translates the physical gravitas of a premium architecture magazine into a digital format. It operates like a well-constructed building, where a rigorous grid and high-contrast materials provide a clear, authoritative foundation for showcasing content.",
+      "ch2_intro": "The palette is a disciplined study in contrast, built on a foundation of black and white. A single, signature muted blue provides a calculated accent, preventing starkness while maintaining editorial seriousness.",
+      "ch2_outro": "The color principle is one of restraint and maximum impact through a minimal, high-contrast scheme.",
+      "ch3_intro": "Typography separates function through a clear hierarchy: a humanist sans-serif for navigational clarity and headlines, and a transitional serif for the authoritative weight of article body text. This pairing reinforces the system's editorial rigor.",
+      "ch4_intro": "Rhythm is established through generous whitespace, which isolates editorial blocks and gives each piece of content room to command attention.",
+      "ch5_intro": "Surfaces are flat and sharp, defined by crisp 3px borders rather than shadows or gradients. This approach emphasizes content hierarchy and structural clarity over simulated depth.",
+      "ch6_intro": "The layout skeleton is a strict, column-based editorial grid. It prioritizes a dominant left column for primary articles, using a clear visual hierarchy to guide the reader's focus through the content.",
+      "ch7_intro": "Motion is functional and understated, limited to smooth, swift transitions for background and color state changes. The philosophy is one of calm continuity, avoiding expressive animation that might distract from the content.",
+      "ch8_intro": "The editorial voice is authoritative, sophisticated, and clean, mirroring the system's visual precision. Headlines are short, descriptive, and impactful, while calls-to-action remain understated and direct.",
+      "ch8_outro": "This system deliberately rejects decorative fonts, playful elements, and rounded corners to preserve its serious, curated architectural aesthetic."
+    },
+    "zh-CN": {
+      "ch1_intro": "设计系统将高端建筑杂志的实体厚重感转译为数字形式。其运作方式如同精心构筑的建筑，严谨的网格与高对比度材料为内容展示提供了清晰、权威的基础。",
+      "ch2_intro": "色彩方案是对对比度的严谨研究，以黑白为基础。单一、标志性的柔和蓝色作为精心设计的点缀，既避免了过度生硬，又保持了编辑的严肃性。",
+      "ch2_outro": "色彩原则是通过极简、高对比度的方案实现克制与最大冲击力。",
+      "ch3_intro": "排版通过清晰的层级区分功能：人文无衬线字体用于导航清晰度和标题，过渡衬线字体则赋予文章正文权威的份量感。这种组合强化了系统的编辑严谨性。",
+      "ch4_intro": "节奏通过充足的留白建立，它隔离编辑区块，为每块内容提供吸引注意力的空间。",
+      "ch5_intro": "界面平整而锐利，由清晰的3px边框而非阴影或渐变定义。这种方法强调内容层级和结构清晰度，而非模拟深度。",
+      "ch6_intro": "布局骨架是严格的、基于栏目的编辑网格。它优先考虑用于主文章的主导左栏，通过清晰的视觉层级引导读者聚焦内容。",
+      "ch7_intro": "动效功能化且低调，仅限于背景和色彩状态变化的平滑、快速过渡。其哲学是平静的连续性，避免可能分散内容注意力的表现性动画。",
+      "ch8_intro": "编辑语调权威、精炼而清晰，与系统的视觉精确性相呼应。标题简短、具描述性且富有冲击力，而行动号召则保持克制与直接。",
+      "ch8_outro": "该系统刻意摒弃装饰性字体、俏皮元素与圆角，以保持其严肃、精心策划的建筑美学。"
+    },
+    "zh-TW": {
+      "ch1_intro": "設計系統將頂級建築雜誌的實體質感轉化為數位格式。它運作起來如同精心建造的建築，嚴謹的網格與高對比材質為內容展示提供了清晰、權威的基礎。",
+      "ch2_intro": "色彩配置是一場建立在黑白基礎上的、克制的對比研究。單一標誌性的柔和藍色作為精心計算的點綴，避免了生硬感，同時維持了編輯的嚴肅性。",
+      "ch2_outro": "色彩原則在於克制，透過極簡的高對比方案實現最大衝擊力。",
+      "ch3_intro": "字體透過清晰的層級劃分功能：人文無襯線字體用於導航清晰度與標題，過渡襯線字體則賦予文章正文權威的份量。這種搭配強化了系統的編輯嚴謹度。",
+      "ch4_intro": "節奏透過充足的留白建立，留白隔開了編輯區塊，為每個內容賦予足夠的空間來吸引注意力。",
+      "ch5_intro": "表面平整而銳利，由清晰的 3px 邊框定義，而非陰影或漸層。此方法強調內容層級與結構清晰度，而非模擬的深度感。",
+      "ch6_intro": "佈局骨架是一個嚴格的、基於欄位的編輯網格。它優先考慮用於主要文章的主導左欄，運用清晰的視覺層級引導讀者的注意力穿越內容。",
+      "ch7_intro": "動態效果功能化且低調，僅限於背景與色彩狀態變化的流暢、迅速過渡。其理念是平靜的連續性，避免可能分散內容注意力的表現性動畫。",
+      "ch8_intro": "編輯語調權威、精緻且簡潔，映照出系統的視覺精確度。標題簡短、具描述性且有力，而行動呼籲則保持低調且直接。",
+      "8_outro": "此系統刻意拒絕裝飾性字體、俏皮元素與圓角，以保持其嚴肅、精選的建築美學。"
+    },
+    "ja": {
+      "ch1_intro": "このデザインシステムは、プレミアムな建築雑誌が持つ物理的な重厚感を、デジタル形式に翻訳します。厳密なグリッドとハイコントラストな素材が、明確で権威ある基盤を提供し、コンテンツを展示する、well-constructedな建築のように機能します。",
+      "ch2_intro": "パレットは、黒と白を基盤とした、対比の厳格な研究です。単一の特徴的なミュートブルーが、計算されたアクセントとして機能し、嚴しさを保ちながら、編集的な真剣さを維持します。",
+      "ch2_outro": "色彩原則は、ミニマルでハイコントラストなスキームを通じた、抑制と最大のインパクトにあります。",
+      "ch3_intro": "タイポグラフィは、明確な階層によって機能を分離します。ナビゲーションの明瞭性と見出しにはヒューマニストサンセリフを、記事本文の権威ある重みにはトランジショナルセリフを用います。このペアリングは、システムの編集的な厳格さを強化します。",
+      "ch4_intro": "リズムは、豊かなホワイトスペースを通じて確立されます。これは編集ブロックを分離し、各コンテンツに注意を惹きつけるための空間を提供します。",
+      "ch5_intro": "サーフェスはフラットでシャープです。影やグラデーションではなく、鮮やかな3pxのボーダーで定義されます。このアプローチは、シミュレーションされた深度よりも、コンテンツの階層と構造の明瞭さを重視します。",
+      "ch6_intro": "レイアウトの骨格は、厳格なカラムベースの編集グリッドです。主要記事には支配的な左カラムを優先し、明確なビジュアル階層を使用して、読者の注意をコンテンツ全体に導きます。",
+      "ch7_intro": "モーションは機能的で控えめです。背景や色の状態変化のための、滑らかで迅速なトランジションに限定されます。哲学は穏やかな連続性にあり、コンテンツから注意をそらすような表現的なアニメーションは避けます。",
+      "ch8_intro": "編集ボイスは、システムの視覚的な正確さを反映し、権威があり、洗練され、クリーンです。見出しは短く、記述的で、インパクトがあり、CTAは控えめで直接的です。",
+      "ch8_outro": "このシステムは、装飾的なフォント、遊び心のある要素、角丸を意図的に排除し、その真剣で精査された建築的美学を保っています。"
+    },
+    "ko": {
+      "ch1_intro": "이 디자인 시스템은 프리미엄 건축 잡지의 물리적 무게감을 디지털 형식으로 번역합니다. 엄격한 그리드와 고대비 소재가 명확하고 권위 있는 콘텐츠 전시 기반을 제공하는 잘 지어진 건물처럼 작동합니다.",
+      "ch2_intro": "팔레트는 흑백을 기반으로 구축된 절제된 대비 연구입니다. 단일 시그니처 뮤트 블루가 계산된 액센트로 작용하여, 편집적 진지함을 유지하면서도 딱딱함을 방지합니다.",
+      "ch2_outro": "색상 원칙은 최소주의적 고대비 스키마를 통한 절제와 최대 효과입니다.",
+      "ch3_intro": "타이포그래피는 명확한 계층을 통해 기능을 분리합니다: 네비게이션 명확성과 헤드라인을 위한 humanist-sans-serif와, 기사 본문 텍스트의 권위 있는 무게감을 담당하는 transitional serif입니다. 이 조합은 시스템의 편집적 엄격함을 강화합니다.",
+      "ch4_intro": "리듬은 넉넉한 여백을 통해 확립되며, 이는 편집 블록을 격리하고 각 콘텐츠 조각에 주목을 끌 수 있는 공간을 부여합니다.",
+      "ch5_intro": "표면은 매끄럽고 날카로우며, 그림자나 그라데이션이 아닌 선명한 3px 테두리로 정의됩니다. 이 접근 방식은 모의 깊이보다 콘텐츠 계층과 구조적 명확성을 강조합니다.",
+      "ch6_intro": "레이아웃 스켈레톤은 엄격한 열 기반 편집 그리드입니다. 주요 기사를 위해 지배적인 좌측 열을 우선시하며, 명확한 시각적 계층을 사용하여 독자의 초점을 콘텐츠를 통해 안내합니다.",
+      "ch7_intro": "모션은 기능적이고 절제되어 있으며, 배경 및 색상 상태 변경을 위한 부드럽고 빠른 전환으로 제한됩니다. 철학은 콘텐츠에서 주의를 산만하게 할 수 있는 표현적 애니메이션을 피하는 차분한 연속성입니다.",
+      "ch8_intro": "편집적 어조는 시스템의 시각적 정밀함을 반영하여 권위 있고 세련되며 깔끔합니다. 헤드라인은 짧고 설명적이며 임팩트가 있으며, 호출-to-action은 절제되고 직접적입니다.",
+      "ch8_outro": "이 시스템은 장식적 글꼴, 장난스러운 요소, 둥근 모서리를 의도적으로 거부하여 진지하고 큐레이션된 건축적 미학을 보존합니다."
+    }
+  }
+}

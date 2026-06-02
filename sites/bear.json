@@ -1,0 +1,622 @@
+{
+  "id": "bear",
+  "schema_version": "0.3",
+  "url": "https://bear.app",
+  "title": "Bear",
+  "image": "",
+  "tags": [
+    "product",
+    "notes"
+  ],
+  "status": "completed",
+  "added_at": "2026-06-02",
+  "added_by": "expand-200",
+  "_meta": {
+    "vision_model": "mimo-v2.5",
+    "vision_prompt_version": "0.3",
+    "vision_source": "playwright-extract:bear",
+    "vision_grounded": true,
+    "vision_at": "2026-06-02T11:55:36+00:00",
+    "vision_tokens": 15926,
+    "vision_cost_usd": 0.177,
+    "translation_model": "mimo-v2.5",
+    "translation_at": "2026-06-02T11:56:43+00:00",
+    "translation_tokens": 17107,
+    "translation_cost_usd": 0.057,
+    "narrative_model": "mimo-v2.5",
+    "narrative_prompt_version": "0.3",
+    "narrative_at": "2026-06-02T11:56:52+00:00",
+    "narrative_tokens": 2062,
+    "narrative_cost_usd": 0.0137,
+    "narrative_status": "ok",
+    "total_cost_usd": 0.2477
+  },
+  "spec": {
+    "colors": {
+      "bg": "#FFFFFF",
+      "bgSoft": null,
+      "bgQuiet": null,
+      "ink": "#444444",
+      "inkSoft": null,
+      "muted": "#888888",
+      "mutedSoft": null,
+      "accent": "#DD4C4F",
+      "line": "rgba(68,68,68,1)"
+    },
+    "typography": {
+      "display": "humanist-sans",
+      "body": "humanist-sans",
+      "mono": "monospace",
+      "scale": [
+        {
+          "token": "display",
+          "size": 56,
+          "lh": 1.0,
+          "weight": 700,
+          "ls": "-1px"
+        },
+        {
+          "token": "heading",
+          "size": 40,
+          "lh": 1.1,
+          "weight": 700,
+          "ls": "0"
+        },
+        {
+          "token": "body",
+          "size": 16,
+          "lh": 1.7,
+          "weight": 400,
+          "ls": "0"
+        },
+        {
+          "token": "caption",
+          "size": 14,
+          "lh": 1.6,
+          "weight": 400,
+          "ls": "0"
+        }
+      ]
+    },
+    "spacing": {
+      "base": 4,
+      "scale": [
+        4,
+        8,
+        16,
+        24,
+        32,
+        48,
+        64,
+        96
+      ]
+    },
+    "surfaces": {
+      "radius": {
+        "sm": 4,
+        "md": 8,
+        "lg": 16,
+        "pill": 999
+      }
+    },
+    "layout": {
+      "container": 1280,
+      "paragraph": 680,
+      "columns": 12,
+      "gutter": 24,
+      "breakpoints": [
+        768,
+        1024
+      ]
+    },
+    "motion": {
+      "durations": {
+        "micro": 200,
+        "small": 400,
+        "medium": 800
+      },
+      "easing": "cubic-bezier(0.25, 0.1, 0.25, 1)"
+    }
+  },
+  "spec_i18n": {
+    "en": {
+      "identity": {
+        "keywords": [
+          "minimal",
+          "markdown",
+          "focused",
+          "apple-native"
+        ],
+        "analogy": "A clean, modern notebook designed for the Apple ecosystem",
+        "oneLiner": "A focused markdown notes app with a refined, text-first interface."
+      },
+      "colors": {
+        "principle": "Clean white canvas with high-contrast text and a single warm red accent for the brand."
+      },
+      "typography": {
+        "rules": [
+          "Headlines use a clean, humanist sans-serif with tight tracking",
+          "Body text uses the same family with generous line height for readability",
+          "Monospace is reserved strictly for code snippets and technical references"
+        ],
+        "scaleUses": [
+          "Hero headline",
+          "Section headings",
+          "Main text",
+          "Navigation and UI labels"
+        ]
+      },
+      "spacing": {
+        "rhythm": "Generous 64px vertical rhythm between major sections"
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 13px 34px 0px rgba(0, 0, 0, 0.12)",
+          "0px -5px 15px 1px rgba(0, 0, 0, 0.2)"
+        ],
+        "borders": "1px solid #444444"
+      },
+      "layout": {
+        "skeleton": "Single column centered layout with alternating content and app screenshot sections"
+      },
+      "components": {
+        "button": "Simple pill or rounded rect with thin border and transparent background",
+        "card": "Clean white cards with subtle drop shadows, sometimes floating over colored backgrounds",
+        "chip": "Simple rounded tags used for app categories",
+        "input": "Minimal text inputs with subtle bottom borders",
+        "hero": "Centered text with device selector and large app screenshot floating below"
+      },
+      "motion": {
+        "patterns": [
+          "Smooth fade-ins for content sections",
+          "Subtle floating effect on app screenshots"
+        ]
+      },
+      "interaction": {
+        "hover": "Subtle opacity or color change on navigation and buttons",
+        "click": "Immediate feedback with minimal visual state change",
+        "transition": "All 0.2s ease-in-out",
+        "keyboard": "Standard focus outlines for accessibility"
+      },
+      "voice": {
+        "tone": "Friendly, confident, and understated",
+        "headlineStyle": "Short, punchy, and benefit-focused",
+        "ctaStyle": "Direct and action-oriented, often linked to the App Store",
+        "avoid": [
+          "Overly technical jargon",
+          "Dense paragraphs in hero sections",
+          "Loud, aggressive calls to action",
+          "Cluttered visual hierarchy"
+        ]
+      },
+      "donts": [
+        "Don't use dark mode as the primary surface — screenshot shows a clean white background",
+        "Don't use heavy drop shadows — screenshot shows very subtle, large-radius shadows",
+        "Don't use dense, multi-column layouts — screenshot shows a centered, single-column text flow",
+        "Don't use aggressive gradient backgrounds — screenshot shows solid colors or simple organic shapes",
+        "Don't use thick, heavy borders — screenshot shows very thin, subtle borders or none at all",
+        "Don't use complex animations — screenshot shows a static, calm interface"
+      ],
+      "systemPrompt": "Bear is a focused, markdown notes app designed for the Apple ecosystem. The design DNA is characterized by extreme restraint, a clean white canvas, and a single warm red accent (#DD4C4F). The typography uses a refined humanist sans-serif (bearsans/bearsansheadline) for both display and body, with a bold, tight-tracked hero headline. The layout is strictly single-column and centered, with generous vertical rhythm (64px) and wide margins. Critical donts: never use dark mode as the primary surface, avoid heavy drop shadows, never use aggressive gradients, never clutter the interface with dense multi-column layouts, and keep all borders thin and subtle. The interaction model is minimal, relying on hover states and subtle transitions rather than complex motion. The voice is friendly and understated, focusing on the app's core benefit of clean, markdown-based writing."
+    },
+    "zh-CN": {
+      "identity": {
+        "keywords": [
+          "极简",
+          "markdown",
+          "专注",
+          "Apple 原生"
+        ],
+        "analogy": "为 Apple 生态打造的简洁现代笔记本",
+        "oneLiner": "一款界面精致、文本优先的专注型 markdown 笔记应用。"
+      },
+      "colors": {
+        "principle": "以洁净白色画布为底，搭配高对比度文字，并以单一暖红色作为品牌点缀。"
+      },
+      "typography": {
+        "rules": [
+          "标题采用字距紧凑的简洁人文主义无衬线字体",
+          "正文使用同族字体，并设置充裕行高以提升可读性",
+          "等宽字体严格限定用于代码片段与技术参考"
+        ],
+        "scaleUses": [
+          "主标题",
+          "章节标题",
+          "正文",
+          "导航与界面标签"
+        ]
+      },
+      "spacing": {
+        "rhythm": "主要区块间采用充裕的 64px 垂直节奏"
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 13px 34px 0px rgba(0, 0, 0, 0.12)",
+          "0px -5px 15px 1px rgba(0, 0, 0, 0.2)"
+        ],
+        "borders": "1px solid #444444"
+      },
+      "layout": {
+        "skeleton": "居中单栏布局，内容与应用截图区块交替呈现"
+      },
+      "components": {
+        "button": "简约胶囊形或圆角矩形，搭配细边框与透明背景",
+        "card": "洁净白色卡片，带有细微投影，有时悬浮于彩色背景之上",
+        "chip": "用于应用分类的简约圆角标签",
+        "input": "带底部细边框的极简文本输入框",
+        "hero": "居中文字配合设备选择器，下方悬浮大幅应用截图"
+      },
+      "motion": {
+        "patterns": [
+          "内容区块平滑淡入",
+          "应用截图呈现细微浮动效果"
+        ]
+      },
+      "interaction": {
+        "hover": "导航与按钮采用细微的透明度或色彩变化",
+        "click": "即时反馈，视觉状态变化极小",
+        "transition": "所有过渡均为 0.2s ease-in-out",
+        "keyboard": "遵循标准的焦点轮廓以保障可访问性"
+      },
+      "voice": {
+        "tone": "友好、自信且克制",
+        "headlineStyle": "简短有力，聚焦核心收益",
+        "ctaStyle": "直接且行动导向，通常关联 App Store",
+        "avoid": [
+          "过度技术化的行话",
+          "主标题区域的密集段落",
+          "喧嚣、激进的行动号召",
+          "杂乱的视觉层次"
+        ]
+      },
+      "donts": [
+        "切勿将深色模式作为主要界面——截图显示为洁净白色背景",
+        "切勿使用厚重投影——截图显示为非常细微、大半径的阴影",
+        "切勿采用密集的多栏布局——截图显示为居中的单栏文本流",
+        "切勿使用激进的渐变背景——截图显示为纯色或简洁有机形状",
+        "切勿使用粗重边框——截图显示为极细、几乎不可见的边框",
+        "切勿使用复杂动画——截图显示为静态、宁静的界面"
+      ],
+      "systemPrompt": "Bear 是一款专为 Apple 生态设计的专注型 markdown 笔记应用。其设计 DNA 以极致克制为特征：洁净的白色画布，以及单一暖红色（#DD4C4F）点缀。字体采用精致的人文主义无衬线字体（bearsans/bearsansheadline），同时用于标题与正文，主标题采用粗体、字距紧凑处理。布局严格采用居中单栏，拥有充裕的垂直节奏（64px）和宽边距。关键禁忌：切勿将深色模式作为主要界面，避免厚重投影，永不使用激进渐变，切勿以密集多栏布局使界面杂乱，所有边框保持纤薄、克制。交互模式极简，依赖 hover 状态与细微过渡，而非复杂动效。文案风格友好且克制，聚焦于应用核心的简洁 markdown 写作体验。"
+    },
+    "zh-TW": {
+      "identity": {
+        "keywords": [
+          "極簡",
+          "Markdown",
+          "專注",
+          "Apple 原生"
+        ],
+        "analogy": "為 Apple 生態系設計的簡潔現代筆記本",
+        "oneLiner": "一款專注、以文字為先的精緻 Markdown 筆記應用程式。"
+      },
+      "colors": {
+        "principle": "以純白畫布為基底，搭配高對比度文字，並使用單一暖紅色作為品牌強調色。"
+      },
+      "typography": {
+        "rules": [
+          "標題使用簡潔的人文無襯線字體，字距緊湊",
+          "內文使用同族字體，行高寬鬆以利閱讀",
+          "等寬字體僅用於程式碼片段與技術參考"
+        ],
+        "scaleUses": [
+          "主視覺標題",
+          "區塊標題",
+          "主要內文",
+          "導覽與介面標籤"
+        ]
+      },
+      "spacing": {
+        "rhythm": "主要區塊之間採用寬鬆的 64px 垂直節奏"
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 13px 34px 0px rgba(0, 0, 0, 0.12)",
+          "0px -5px 15px 1px rgba(0, 0, 0, 0.2)"
+        ],
+        "borders": "1px solid #444444"
+      },
+      "layout": {
+        "skeleton": "置中單欄佈局，內容區塊與應用程式截圖區段交替排列"
+      },
+      "components": {
+        "button": "簡潔的膠囊形或圓角矩形，帶有細邊框與透明背景",
+        "card": "簡潔的白色卡片，帶有輕微陰影，有時浮於彩色背景之上",
+        "chip": "簡潔的圓角標籤，用於應用程式分類",
+        "input": "極簡的文字輸入框，帶有輕微底部邊框",
+        "hero": "置中文字搭配裝置選擇器，大型應用程式截圖浮於下方"
+      },
+      "motion": {
+        "patterns": [
+          "內容區塊採用柔和的淡入效果",
+          "應用程式截圖帶有輕微浮動效果"
+        ]
+      },
+      "interaction": {
+        "hover": "導覽與按鈕採用輕微透明度或顏色變化",
+        "click": "立即回饋，視覺狀態變化最小",
+        "transition": "所有過渡效果皆為 0.2s ease-in-out",
+        "keyboard": "標準的焦點外框，確保無障礙使用"
+      },
+      "voice": {
+        "tone": "友善、自信且低調",
+        "headlineStyle": "簡短、有力且聚焦於效益",
+        "ctaStyle": "直接且具行動導向，通常連結至 App Store",
+        "avoid": [
+          "過於技術性的術語",
+          "主視覺區塊中的冗長段落",
+          "大聲且具侵略性的行動呼籲",
+          "雜亂的視覺層級"
+        ]
+      },
+      "donts": [
+        "勿將深色模式作為主要介面——截圖顯示簡潔的白色背景",
+        "勿使用厚重的陰影——截圖顯示非常輕微、大圓角的陰影",
+        "勿使用密集的多欄佈局——截圖顯示置中的單欄文字流",
+        "勿使用具侵略性的漸層背景——截圖顯示純色或簡單的有機形狀",
+        "勿使用粗厚的邊框——截圖顯示非常纖細、輕微的邊框或無邊框",
+        "勿使用複雜的動畫——截圖顯示靜態、冷靜的介面"
+      ],
+      "systemPrompt": "Bear 是一款專為 Apple 生態系設計的 Markdown 筆記應用程式。其設計 DNA 特點為極度克制、純白畫布與單一暖紅色強調 (#DD4C4F)。字體使用精緻的人文無襯線字體 (bearsans/bearsansheadline) 作為標題與內文，搭配粗體、字距緊湊的主視覺標題。佈局嚴格採用置中單欄，垂直節奏寬鬆 (64px) 且留白充裕。關鍵禁忌：切勿將深色模式作為主要介面，避免厚重陰影，切勿使用具侵略性的漸層，切勿以密集多欄佈局使介面雜亂，並保持所有邊框纖細輕微。互動模式極簡，依賴 hover 狀態與輕微過渡效果，而非複雜動畫。語氣友善且低調，聚焦於應用程式基於 Markdown 的簡潔寫作核心效益。"
+    },
+    "ja": {
+      "identity": {
+        "keywords": [
+          "ミニマル",
+          "マークダウン",
+          "集中",
+          "Appleネイティブ"
+        ],
+        "analogy": "Appleエコシステム向けにデザインされた、クリーンでモダンなノート",
+        "oneLiner": "洗練されたテキスト優先のインターフェースを持つ、集中力の高いマークダウンノートアプリ。"
+      },
+      "colors": {
+        "principle": "ハイコントラストなテキストと単一のウォームレッドアクセントを配した、クリーンな白のキャンバス。"
+      },
+      "typography": {
+        "rules": [
+          "見出しには、適度なトラッキングを持ったクリーンなヒューマン・サンセリフを使用",
+          "本文テキストには同じフォントファミリーを使用し、読みやすさのために広めの行間を設定",
+          "等幅フォントはコードスニペットや技術リファレンス専用とする"
+        ],
+        "scaleUses": [
+          "ヒーローヘッドライン",
+          "セクション見出し",
+          "本文",
+          "ナビゲーションおよびUIラベル"
+        ]
+      },
+      "spacing": {
+        "rhythm": "主要セクション間に広めの64pxの垂直リズム"
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 13px 34px 0px rgba(0, 0, 0, 0.12)",
+          "0px -5px 15px 1px rgba(0, 0, 0, 0.2)"
+        ],
+        "borders": "1px solid #444444"
+      },
+      "layout": {
+        "skeleton": "コンテンツセクションとアプリスクリーンショットセクションを交互に配置した、中央揃えの単一カラムレイアウト"
+      },
+      "components": {
+        "button": "薄いボーダーと透明な背景を持つシンプルなピル形状または角丸長方形",
+        "card": "繊細なドロップシャドウを持つクリーンな白いカード。カラーバックグラウンドの上に浮遊することもあります。",
+        "chip": "アプリカテゴリ用のシンプルな角丸タグ",
+        "input": "繊細なボトムボーダーを持つミニマルなテキスト入力",
+        "hero": "デバイスセレクターと、その下に浮遊する大きなアプリスクリーンショットを持つ中央揃えのテキスト"
+      },
+      "motion": {
+        "patterns": [
+          "コンテンツセクションの滑らかなフェードイン",
+          "アプリスクリーンショットの繊細な浮遊効果"
+        ]
+      },
+      "interaction": {
+        "hover": "ナビゲーションやボタンに対する繊細な透明度または色の変化",
+        "click": "最小限の視覚状態変化による即時フィードバック",
+        "transition": "すべて0.2s ease-in-out",
+        "keyboard": "アクセシビリティのための標準的なフォーカスアウトライン"
+      },
+      "voice": {
+        "tone": "フレンドリーで自信があり、控えめな表現",
+        "headlineStyle": "短く、力強く、ベネフィットを重視した表現",
+        "ctaStyle": "直接的で行動を促す表現。App Storeへのリンクが多用される。",
+        "avoid": [
+          "過度に技術的な専門用語",
+          "ヒーローセクションの密な段落",
+          "大音量で攻撃的なCTA",
+          "ごちゃごちゃした視覚的階層"
+        ]
+      },
+      "donts": [
+        "ダークモードをプライマリサーフェスとして使用しない — スクリーンショットはクリーンな白い背景を示しています",
+        "重いドロップシャドウを使用しない — スクリーンショットは非常に繊細で大きなradiusのシャドウを示しています",
+        "密な複数カラムレイアウトを使用しない — スクリーンショットは中央揃えの単一カラムテキストフローを示しています",
+        "攻撃的なグラデーション背景を使用しない — スクリーンショットは単色やシンプルなオーガニックシェイプを示しています",
+        "太く重いボーダーを使用しない — スクリーンショットは非常に薄く繊細なボーダー、またはボーダーなしを示しています",
+        "複雑なアニメーションを使用しない — スクリーンショットは静的で落ち着いたインターフェースを示しています"
+      ],
+      "systemPrompt": "Bearは、Appleエコシステム向けにデザインされた集中力の高いマークダウンノートアプリです。デザインDNAは、極度の抑制、クリーンな白のキャンバス、単一のウォームレッドアクセント (#DD4C4F) で特徴づけられます。タイポグラフィは、表示用と本文用の両方に洗練されたヒューマン・サンセリフ (bearsans/bearsansheadline) を使用し、boldで適度なトラッキングのヒーローヘッドラインを採用しています。レイアウトは厳密に単一カラムで中央揃え、広めの垂直リズム (64px) とワイドマージンを確保しています。重要な禁止事項: ダークモードをプライマリサーフェスとして使用しない、重いドロップシャドウを避ける、攻撃的なグラデーションを使用しない、密な複数カラムレイアウトでインターフェースを雑踏させない、すべてのボーダーを薄く繊細に保つ。インタラクションモデルはミニマルで、複雑なモーションではなくhover状態と繊細なトランジションに依存します。声のトーンはフレンドリーで控えめ、クリーンでマークダウンベースの執筆というアプリの中核的ベネフィットに焦点を当てています。"
+    },
+    "ko": {
+      "identity": {
+        "keywords": [
+          "미니멀",
+          "마크다운",
+          "집중형",
+          "애플 네이티브"
+        ],
+        "analogy": "애플 생태계를 위해 설계된 깔끔하고 현대적인 노트북",
+        "oneLiner": "정제된 텍스트 중심 인터페이스를 갖춘 집중형 마크다운 노트 앱입니다."
+      },
+      "colors": {
+        "principle": "고대비 텍스트와 단일 웜 레드 강조색이 있는 깔끔한 흰색 캔버스입니다."
+      },
+      "typography": {
+        "rules": [
+          "헤드라인은 견고한 트래킹의 깔끔한 humanist-sans를 사용합니다",
+          "본문은 동일한 패밀리를 사용하되, 가독성을 위해 넉넉한 행간을 둡니다",
+          "모노스페이스는 코드 스니펫 및 기술 참조용으로 엄격히 사용합니다"
+        ],
+        "scaleUses": [
+          "히어로 헤드라인",
+          "섹션 헤딩",
+          "본문",
+          "내비게이션 및 UI 라벨"
+        ]
+      },
+      "spacing": {
+        "rhythm": "주요 섹션 간 넉넉한 64px 수직 리듬"
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 13px 34px 0px rgba(0, 0, 0, 0.12)",
+          "0px -5px 15px 1px rgba(0, 0, 0, 0.2)"
+        ],
+        "borders": "1px solid #444444"
+      },
+      "layout": {
+        "skeleton": "콘텐츠와 앱 스크린샷 섹션이 교차하는 중앙 정렬 단일 열 레이아웃"
+      },
+      "components": {
+        "button": "얇은 테두리와 투명 배경을 가진 간결한 필 또는 라운드 사각형",
+        "card": "미세한 드롭 섀도우가 있는 깔끔한 흰색 카드, 때로는 유색 배경 위에 부유",
+        "chip": "앱 카테고리에 사용되는 간결한 라운드 태그",
+        "input": "미세한 하단 테두리가 있는 미니멀 텍스트 입력 필드",
+        "hero": "디바이스 선택기와 그 아래 부유하는 대형 앱 스크린샷이 있는 중앙 정렬 텍스트"
+      },
+      "motion": {
+        "patterns": [
+          "콘텐츠 섹션을 위한 부드러운 페이드인",
+          "앱 스크린샷에 적용되는 은은한 부유 효과"
+        ]
+      },
+      "interaction": {
+        "hover": "내비게이션 및 버튼에서 은은한 투명도 또는 색상 변경",
+        "click": "최소한의 시각적 상태 변화로 즉각적인 피드백 제공",
+        "transition": "모두 0.2s ease-in-out",
+        "keyboard": "접근성을 위한 표준 focus 윤곽선"
+      },
+      "voice": {
+        "tone": "친근하고 자신감 있으며 절제된",
+        "headlineStyle": "간결하고 임팩트 있으며 이점 중심의",
+        "ctaStyle": "직접적이고 행동 지향적이며, 때로는 App Store와 연결",
+        "avoid": [
+          "지나치게 기술적인 전문 용어",
+          "히어로 섹션의 밀도 높은 단락",
+          "크고 공격적인 행동 유도 문구",
+          "시각적 계층 구조의 혼란"
+        ]
+      },
+      "donts": [
+        "다크 모드를 주요 서피스로 사용하지 마세요 — 스크린샷은 깔끔한 흰색 배경을 보여줍니다",
+        "무거운 드롭 섀도우를 사용하지 마세요 — 스크린샷은 매우 은은하고 큰 반지름의 섀도우를 보여줍니다",
+        "밀도 높은 다중 열 레이아웃을 사용하지 마세요 — 스크린샷은 중앙 정렬된 단일 열 텍스트 흐름을 보여줍니다",
+        "공격적인 그라데이션 배경을 사용하지 마세요 — 스크린샷은 단색 또는 간단한 유기적 형태를 보여줍니다",
+        "두껍고 무거운 테두리를 사용하지 마세요 — 스크린샷은 매우 얇고 은은한 테두리나 아예 없음을 보여줍니다",
+        "복잡한 애니메이션을 사용하지 마세요 — 스크린샷은 정적이고 차분한 인터페이스를 보여줍니다"
+      ],
+      "systemPrompt": "Bear는 애플 생태계를 위해 설계된 집중형 마크다운 노트 앱입니다. 디자인 DNA는 극도의 절제, 깔끔한 흰색 캔버스, 그리고 단일 웜 레드 강조색(#DD4C4F)으로 특징지어집니다. 타이포그래피는 디스플레이와 본문 모두에 정제된 humanist-sans(bearsans/bearsansheadline)를 사용하며, 굵고 견고한 트래킹의 히어로 헤드라인을 적용합니다. 레이아웃은 엄격히 단일 열이고 중앙 정렬이며, 넉넉한 수직 리듬(64px)과 넓은 여백을 둡니다. 중요한 주의사항: 다크 모드를 주요 서피스로 절대 사용하지 마세요, 무거운 드롭 섀도우는 피하세요, 공격적인 그라데이션을 절대 사용하지 마세요, 밀도 높은 다중 열 레이아웃으로 인터페이스를 복잡하게 만들지 마세요, 모든 테두리는 얇고 은은하게 유지하세요. 상호작용 모델은 미니멀하며, 복잡한 모션보다는 hover 상태와 은은한 트랜지션에 의존합니다. 어조는 친근하고 절제되어 있으며, 깔끔한 마크다운 기반 글쓰기라는 앱의 핵심 이점에 초점을 맞춥니다."
+    }
+  },
+  "desc": {
+    "en": {
+      "palette": "A minimalist palette of pure white (#FFFFFF) and dark gray (#444444) text, punctuated by a single warm red (#DD4C4F) brand accent.",
+      "layout": "A centered, single-column layout with generous 64px vertical spacing between major sections, prioritizing readability and focus.",
+      "interaction": "Minimal hover states and smooth, understated transitions that maintain the interface's calm and focused feel.",
+      "motion": "Subtle fade-ins and floating effects on app screenshots, with all transitions governed by a smooth 0.2s ease-in-out timing.",
+      "notes": "An excellent reference for restrained, text-first product design that prioritizes focus and clarity over visual noise."
+    },
+    "zh-CN": {
+      "palette": "纯白（#FFFFFF）与深灰（#444444）文字构成极简色板，辅以单一暖红色（#DD4C4F）作为品牌点缀。",
+      "layout": "居中单栏布局，主要区块间留有充裕的 64px 垂直间距，优先保障阅读体验与视觉聚焦。",
+      "interaction": "克制的 hover 状态与平缓、克制的过渡效果，维持界面宁静、专注的氛围。",
+      "motion": "应用截图采用细腻的淡入与浮动效果，所有过渡均遵循 0.2s ease-in-out 的平滑时序。",
+      "notes": "这是克制、文本优先产品设计的绝佳范例，强调专注与清晰，而非视觉喧嚣。"
+    },
+    "zh-TW": {
+      "palette": "純白 (#FFFFFF) 與深灰 (#444444) 文字組成的極簡色調，並以單一暖紅 (#DD4C4F) 作為品牌強調色。",
+      "layout": "以 64px 垂直間距分隔主要區塊的置中單欄佈局，優先考量可讀性與專注度。",
+      "interaction": "細微的 hover 狀態與流暢、低調的過渡效果，維持介面冷靜且專注的氛圍。",
+      "motion": "應用程式截圖採用柔和的淡入與浮動效果，所有過渡效果皆以 0.2s ease-in-out 控制。",
+      "notes": "是克制、以文字為先的產品設計之絕佳參考，優先考量專注度與清晰度，而非視覺嘈雜感。"
+    },
+    "ja": {
+      "palette": "純粋な白 (#FFFFFF) とダークグレー (#444444) テキスト组成的なミニマルなカラーパレットに、単一のウォームレッド (#DD4C4F) によるブランドアクセントを配しています。",
+      "layout": "主要セクション間に広めの64pxの垂直間隔を持つ、中央揃えの単一カラムレイアウトです。読みやすさと集中力を優先しています。",
+      "interaction": "最小限のhover状態と、インターフェースの落ち着いた集中感を維持する滑らかで控えめなトランジションです。",
+      "motion": "アプリスクリーンショット上の繊細なフェードインと浮遊効果。すべてのトランジションは滑らかな0.2sのease-in-outタイミングで制御されます。",
+      "notes": "視覚的なノイズよりも集中力と明瞭さを優先した、抑制されたテキスト優先の製品デザインの優れたリファレンスです。"
+    },
+    "ko": {
+      "palette": "순백(#FFFFFF)과 짙은 회색(#444444) 텍스트로 구성된 미니멀 팔레트에, 단일 웜 레드(#DD4C4F) 브랜드 강조색을 사용했습니다.",
+      "layout": "주요 섹션 간 64px의 넉넉한 수직 간격을 둔, 가독성과 집중에 초점을 맞춘 중앙 정렬 단일 열 레이아웃입니다.",
+      "interaction": "미니멀한 hover 상태와 인터페이스의 차분하고 집중된 느낌을 유지하는 부드럽고 절제된 트랜지션을 적용했습니다.",
+      "motion": "앱 스크린샷에 은은한 페이드인과 부유 효과를 적용하며, 모든 트랜지션은 0.2s ease-in-out의 부드러운 타이밍으로 제어됩니다.",
+      "notes": "시각적 노이즈보다 집중과 명확성을 우선시하는, 절제된 텍스트 중심 제품 디자인의 훌륭한 참고 사례입니다."
+    }
+  },
+  "narrative": {
+    "en": {
+      "ch1_intro": "Bear’s design system is constructed like a modern notebook built for the Apple ecosystem: a tool whose refinement lies in what it deliberately leaves out. Its DNA is one of extreme restraint, focusing on a clean white canvas, high-contrast text, and a single, warm red accent that signals the brand without shouting. This is a system for focused, markdown-first work.",
+      "ch2_intro": "The palette is a study in minimalist contrast, built on a pure white canvas and dark gray text. A single warm red accent provides the only chromatic punctuation, used sparingly for brand moments.",
+      "ch2_outro": "The governing principle is clarity through high contrast and deliberate, singular use of color.",
+      "ch3_intro": "Typographically, Bear employs a refined humanist sans-serif for both headlines and body, creating a unified, clean voice. Monospace is reserved strictly for code, reinforcing the app’s dual nature as a writer’s and developer’s tool.",
+      "ch4_intro": "The vertical rhythm is established by a generous 64px baseline between major sections, creating a calm, measured pace for reading and scrolling.",
+      "ch5_intro": "Surfaces are defined by their relationship to the background canvas, using soft, large-radius shadows to create subtle depth. Borders are kept thin and understated, often just 1px solid, to maintain the interface's quiet precision.",
+      "ch6_intro": "The layout skeleton is a single, centered column that alternates between blocks of text and floating application screenshots. This structure prioritizes linear reading and focuses attention squarely on the product’s interface and benefits.",
+      "ch7_intro": "Motion is used to gently introduce content, not to decorate the interface. Smooth fade-ins for sections and a subtle floating effect on screenshots maintain the product's calm, focused demeanor.",
+      "ch8_intro": "Bear’s editorial voice is friendly, confident, and understated, using short, benefit-focused headlines and direct calls to action. The tone supports the system’s visual restraint, avoiding clutter and aggressive persuasion.",
+      "ch8_outro": "The system deliberately avoids complex animations, dense layouts, heavy borders, and aggressive gradients to protect its core identity of focused simplicity."
+    },
+    "zh-CN": {
+      "ch1_intro": "Bear 的设计系统，如同为 Apple 生态打造的现代笔记本：其精妙之处在于有意为之的留白。其 DNA 是一种极致的克制，专注于纯净的白色画布、高对比度文字，以及一抹温暖的红色作为品牌标识，内敛而不张扬。这是一个为专注、以 Markdown 为核心的工作而设计的系统。",
+      "ch2_intro": "色彩搭配是极简对比的范例，构建于纯白画布与深灰文字之上。一抹温暖的红色是唯一的色彩点缀，仅用于关键的品牌时刻，用之有度。",
+      "ch2_outro": "其指导原则是通过高对比度与克制、单一的色彩运用来实现清晰。",
+      "ch3_intro": "在字体排印上，Bear 对标题和正文均采用精致的人文主义无衬线字体，营造出统一、干净的视觉语言。等宽字体严格保留给代码使用，强化了该应用作为写作与开发者工具的双重属性。",
+      "ch4_intro": "垂直韵律由各主要章节间宽裕的 64px 基线确立，为阅读和滚动创造了沉稳、有序的节奏。",
+      "ch5_intro": "界面表面通过其与背景画布的关系来定义，采用柔和、大圆角的阴影营造微妙的深度感。边框保持纤细与低调，通常仅为 1px 实线，以维持界面静谧的精确感。",
+      "ch6_intro": "布局骨架为单列居中结构，交替呈现文本块与悬浮的应用截图。这种结构优先考虑线性阅读，将注意力完全聚焦于产品的界面与价值。",
+      "ch7_intro": "动效用于温和地引入内容，而非装饰界面。章节的平滑淡入与截图的微妙浮动效果，共同维系了产品沉静、专注的气质。",
+      "ch8_intro": "Bear 的编辑语调友好、自信且克制，采用简短、聚焦于功能益处的标题和直接的行动号召。其语调与系统的视觉克制相辅相成，避免杂乱与强行说服。",
+      "ch8_outro": "该系统刻意避免复杂动画、密集布局、厚重边框与激进渐变，以守护其专注简约的核心特质。"
+    },
+    "zh-TW": {
+      "ch1_intro": "Bear 的設計系統，如同為 Apple 生態系打造的現代筆記本：其精緻之處，在於刻意省略了什麼。其 DNA 是極度的克制，專注於純淨的白色畫布、高對比文字，以及一抹溫暖的紅色點綴，不張揚地標示品牌。這是一個為專注、以 Markdown 為核心的工作而生的系統。",
+      "ch2_intro": "色彩系統是一場極簡對比的實踐，建立在純白畫布與深灰色文字之上。一抹溫暖的紅色是唯一的色彩標點，節制地用於品牌時刻。",
+      "ch2_outro": "指導原則是透過高對比與刻意、單一的色彩運用來達成清晰度。",
+      "ch3_intro": "在排版上，Bear 為標題與內文採用了精緻的人文主義無襯線字體，營造統一、清爽的語調。等寬字體則嚴格保留給程式碼，強化了應用程式作為寫作者與開發者工具的雙重本質。",
+      "ch4_intro": "垂直節奏由主要區塊間寬裕的 64px 基線建立，為閱讀與捲動創造出從容、有度的步調。",
+      "ch5_intro": "介面區塊的定義來自於其與背景畫布的關係，運用柔和、大圓角的陰影來營造細微的層次。邊框保持細薄且低調，通常僅為 1px solid，以維持介面靜謐的精確感。",
+      "ch6_intro": "版面骨架是單一的置中欄位，在文字區塊與懸浮的應用程式截圖之間交替。此結構優先考慮線性閱讀，並將注意力完全聚焦於產品的介面與效益。",
+      "ch7_intro": "動作用於溫和地引入內容，而非裝飾介面。區段的流暢淡入效果與截圖上細微的懸浮效果，維持了產品從容、專注的特質。",
+      "ch8_intro": "Bear 的編輯語調友善、自信且內斂，使用簡短、聚焦效益的標題與直接的行動呼籲。此語調支持系統的視覺克制，避免雜亂與激進的說服。",
+      "ch8_outro": "系統刻意避開複雜動畫、密集版面、厚重邊框與強烈漸層，以保護其專注簡潔的核心識別。"
+    },
+    "ja": {
+      "ch1_intro": "Bearのデザインシステムは、Appleエコシステム向けに構築された現代的なノートのように構成されています。その洗練は、意図的に省略したものの中に宿っています。極度の抑制を基調とし、清潔な白いキャンバス、高コントラストのテキスト、そしてブランドを声高に告げることなく象徴する単一の温かみのある赤色アクセントに焦点を当てています。これは、集中してMarkdownを第一に考えるワークのためのシステムです。",
+      "ch2_intro": "パレットは、純白のキャンバスとダークグレーテキストを基盤としたミニマルなコントラストの探求です。単一の温かみのある赤色アクセントが唯一の色の区切りとして用いられ、ブランドの場面で控えめに使用されます。",
+      "ch2_outro": "支配的な原則は、高コントラストと意図的で単一の色の使用による明瞭さです。",
+      "ch3_intro": "タイポグラフィにおいて、Bearは見出しと本文の両方に洗練されたヒューマニスト・サンセリフを使用し、統一された清潔な声を生み出しています。モノスペースはコード専用に限定され、ライターおよび開発者のためのツールとしてのアプリの二重の性質を強調しています。",
+      "ch4_intro": "縦のリズムは、主要セクション間の64pxのゆったりとしたベースラインによって確立され、読書とスクロールに穏やかで計画的なペースを提供します。",
+      "ch5_intro": "サーフェスは背景キャンバスとの関係によって定義され、柔らかく大きな角の影を使用して微妙な深みを生み出しています。ボーダーは細く控えめに保たれ、1px solidなどが使われ、インターフェースの静かな精密さを維持します。",
+      "ch6_intro": "レイアウトの骨格は、テキストブロックと浮遊するアプリケーションスクリーンショットが交互に配置された単一の中央揃えのカラムです。この構造はリニアな読み方を優先し、製品のインターフェースと利点に注意を直接集中させます。",
+      "ch7_intro": "モーションは、コンテンツを優しく導入するために使用され、インターフェースを装飾するためではありません。セクションの滑らかなフェードインとスクリーンショットの微妙な浮遊効果は、製品の穏やかで集中した様子を維持します。",
+      "ch8_intro": "Bearのエディトリアルボイスは、フレンドリーで自信があり、控えめです。短く利点に焦点を当てた見出しと直接的な行動喚起を使用しています。このトーンはシステムの視覚的な抑制を支え、雑然とした表示や強引な説得を避けます。",
+      "ch8_outro": "システムは、集中したシンプルさという中核のアイデンティティを守るために、複雑なアニメーション、密集したレイアウト、太いボーダー、および強引なグラデーションを意図的に避けます。"
+    },
+    "ko": {
+      "ch1_intro": "베어의 디자인 시스템은 Apple 생태계를 위해 구축된 현대적인 노트북처럼 구성되어 있습니다. 그 정교함은 의도적으로 남겨둔 것들에 있습니다. 그 DNA는 극도의 절제에 있으며, 깨끗한 흰색 캔버스, 고대비 텍스트, 그리고 브랜드를 소리치지 않고 알리는 단 하나의 따뜻한 빨간색 강조에 집중합니다. 이 시스템은 집중적이고 마크다운을 우선시하는 작업을 위한 것입니다.",
+      "ch2_intro": "팔레트는 순백 캔버스와 다크 그레이 텍스트 위에 구축된 미니멀한 대비의 연구입니다. 단 하나의 따뜻한 빨간색 강조만이 유일한 색채적 포인트 역할을 하며, 브랜드 순간에만 절제되게 사용됩니다.",
+      "ch2_outro": "지배적인 원칙은 고대비와 의도적이고 단일한 색상 사용을 통한 명확성입니다.",
+      "ch3_intro": "서체 측면에서 베어는 헤드라인과 본문 모두에 정교한 휴머니스트 산세리프를 적용하여 통일되고 깨끗한 음성을 만듭니다. 고정폭 글꼴은 코드에만 엄격히 사용되며, 작가이자 개발자의 도구로서의 앱의 이중적 성격을 강화합니다.",
+      "ch4_intro": "세로 리듬은 주요 섹션 간의 넉넉한 64px baseline으로 확립되며, 읽기와 스크롤링에 차분하고 조화로운 속도를 부여합니다.",
+      "ch5_intro": "표면은 배경 캔버스와의 관계를 통해 정의되며, 부드럽고 큰 radius의 그림자를 사용하여 미묘한 깊이감을 만듭니다. 테두리는 인터페이스의 조용한 정밀함을 유지하기 위해 얇고 절제되게, 종종 1px solid로 유지됩니다.",
+      "ch6_intro": "레이아웃 골격은 단일 중앙 정렬된 컬럼으로, 텍스트 블록과 부유하는 앱 스크린샷이 교대로 배치됩니다. 이 구조는 선형 읽기를 우선시하고 제품의 인터페이스와 이점에 완전히 주의를 집중시킵니다.",
+      "ch7_intro": "모션은 인터페이스를 장식하기 위해가 아니라 콘텐츠를 부드럽게 소개하기 위해 사용됩니다. 섹션의 부드러운 fade-in과 스크린샷의 미묘한 부유 효과는 제품의 차분하고 집중된 태도를 유지합니다.",
+      "ch8_intro": "베어의 에디토리얼 음성은 친근하고 자신감 있으며 절제되어 있으며, 짧고 이점 중심적인 헤드라인과 직접적인 행동 유도를 사용합니다. 톤은 시스템의 시각적 절제를 지원하며, 혼란과 공격적 설득을 피합니다.",
+      "ch8_outro": "시스템은 집중된 단순성이라는 핵심 정체성을 보호하기 위해 복잡한 애니메이션, 밀집된 레이아웃, 두꺼운 테두리, 공격적인 그래디언트를 의도적으로 피합니다."
+    }
+  }
+}

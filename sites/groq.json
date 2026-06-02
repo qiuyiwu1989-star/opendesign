@@ -1,0 +1,595 @@
+{
+  "id": "groq",
+  "schema_version": "0.3",
+  "url": "https://groq.com",
+  "title": "Groq",
+  "image": "",
+  "tags": [
+    "ai",
+    "hardware"
+  ],
+  "status": "completed",
+  "added_at": "2026-06-02",
+  "added_by": "expand-200",
+  "_meta": {
+    "vision_model": "mimo-v2.5",
+    "vision_prompt_version": "0.3",
+    "vision_source": "playwright-extract:groq",
+    "vision_grounded": true,
+    "vision_at": "2026-06-02T14:08:50+00:00",
+    "vision_tokens": 16418,
+    "vision_cost_usd": 0.1824,
+    "translation_model": "mimo-v2.5",
+    "translation_at": "2026-06-02T14:10:07+00:00",
+    "translation_tokens": 17188,
+    "translation_cost_usd": 0.0574,
+    "narrative_model": "mimo-v2.5",
+    "narrative_prompt_version": "0.3",
+    "narrative_at": "2026-06-02T14:10:16+00:00",
+    "narrative_tokens": 2058,
+    "narrative_cost_usd": 0.0137,
+    "narrative_status": "ok",
+    "total_cost_usd": 0.2535
+  },
+  "spec": {
+    "colors": {
+      "bg": "#E8E8DE",
+      "bgSoft": "#F3F3EE",
+      "bgQuiet": "#E8E8DE",
+      "ink": "#2D2F33",
+      "inkSoft": "#69695D",
+      "muted": "#9C9C90",
+      "mutedSoft": null,
+      "accent": "#F43E01",
+      "line": "rgba(45, 47, 51, 1)"
+    },
+    "typography": {
+      "display": "geometric-sans",
+      "body": "geometric-sans",
+      "mono": "monospace",
+      "scale": [
+        {
+          "token": "display",
+          "size": 46,
+          "lh": 1.1,
+          "weight": 500,
+          "ls": "-1px"
+        },
+        {
+          "token": "body",
+          "size": 15,
+          "lh": 1.4,
+          "weight": 400,
+          "ls": "0"
+        },
+        {
+          "token": "caption",
+          "size": 12,
+          "lh": 1.2,
+          "weight": 400,
+          "ls": "1.2px"
+        }
+      ]
+    },
+    "spacing": {
+      "base": 4,
+      "scale": [
+        4,
+        8,
+        16,
+        24,
+        32,
+        48,
+        64,
+        96
+      ]
+    },
+    "surfaces": {
+      "radius": {
+        "sm": 4,
+        "md": 8,
+        "lg": 12,
+        "pill": 999
+      }
+    },
+    "layout": {
+      "container": 1280,
+      "paragraph": 680,
+      "columns": 12,
+      "gutter": 24,
+      "breakpoints": [
+        768,
+        1024
+      ]
+    },
+    "motion": {
+      "durations": {
+        "micro": 150,
+        "small": 250,
+        "medium": 800
+      },
+      "easing": "cubic-bezier(0.68, -0.55, 0.27, 1.55)"
+    }
+  },
+  "spec_i18n": {
+    "en": {
+      "identity": {
+        "keywords": [
+          "speed",
+          "reliability",
+          "performance",
+          "inference"
+        ],
+        "analogy": "A high-performance engine room for AI, combining industrial precision with accessible developer tooling.",
+        "oneLiner": "Fast, reliable, low-cost AI inference infrastructure."
+      },
+      "colors": {
+        "principle": "Warm, muted neutrals provide a calm canvas for high-contrast orange accents and dark, legible typography."
+      },
+      "typography": {
+        "rules": [
+          "Headlines use a weight of 500 for subtle emphasis.",
+          "Uppercase text uses 12px with 1.2px tracking for technical labels.",
+          "Body copy uses 15px for optimal readability."
+        ],
+        "scaleUses": [
+          "Hero headings and primary value propositions",
+          "Primary body text and descriptions",
+          "Uppercase labels, kicker text, and navigation links"
+        ]
+      },
+      "spacing": {
+        "rhythm": "Standard 4px base with generous 32-48px horizontal padding and vertical gaps."
+      },
+      "surfaces": {
+        "shadows": [],
+        "borders": "1px solid rgb(45, 47, 51) used for subtle card and input outlines."
+      },
+      "layout": {
+        "skeleton": "Standard centered container with full-width hero blocks and side-by-side feature cards."
+      },
+      "components": {
+        "button": "High-contrast orange (#F43E01) with white text, pill-shaped (border-radius: 999px) for primary actions.",
+        "card": "Light background (#F3F3EE) with 12px border-radius and no visible drop shadow.",
+        "chip": "Inline uppercase labels with monospace styling for category tags.",
+        "input": "Standard text input with minimal styling, likely using muted borders.",
+        "hero": "Split-screen layout on desktop with large typography on the left and video on the right."
+      },
+      "motion": {
+        "patterns": [
+          "Color and transform transitions on interactive elements.",
+          "Background-size animations for hover states.",
+          "Visibility and opacity for modal or overlay transitions."
+        ]
+      },
+      "interaction": {
+        "hover": "Subtle background-size or color transition on 150ms ease-in-out.",
+        "click": "Immediate visual feedback via transform or color shift.",
+        "transition": "Consistent use of 150ms ease-in-out for color and transform properties.",
+        "keyboard": "Standard focus rings implied by accessibility patterns."
+      },
+      "voice": {
+        "tone": "Confident, technical, and performance-oriented.",
+        "headlineStyle": "Direct and punchy, focusing on speed and reliability.",
+        "ctaStyle": "Action-oriented verbs like 'Get Started' and 'Start Building'.",
+        "avoid": [
+          "Vague marketing jargon",
+          "Overly playful or casual language",
+          "Complex architectural diagrams in headers"
+        ]
+      },
+      "donts": [
+        "Don't use pure black (#000000) for backgrounds — screenshot shows a warm, muted beige (#E8E8DE) instead.",
+        "Don't use bright reds for accents — screenshot shows a specific vibrant orange (#F43E01) instead.",
+        "Don't use wide, multi-column text layouts — screenshot shows a constrained ~680px paragraph width instead.",
+        "Don't use heavy drop shadows on cards — screenshot shows flat surfaces with minimal or no shadow instead.",
+        "Don't use lowercase for technical labels — screenshot shows uppercase with wide letter-spacing instead.",
+        "Don't use aggressive, dark mode aesthetics — screenshot shows a light, warm-toned interface instead."
+      ],
+      "systemPrompt": "Groq is a high-performance AI inference platform targeting developers and enterprises. The design system relies on a warm, muted neutral palette (#E8E8DE, #F3F3EE) with a high-contrast vibrant orange (#F43E01) accent. Typography uses geometric-sans (Space Grotesk) for headings and body, and monospace (IBM Plex Mono) for technical labels. Critical design constraints: avoid pure black backgrounds (use the warm beige instead), avoid heavy drop shadows on UI elements, and never use lowercase for technical kicker text or labels. The layout is clean and spacious, prioritizing legibility and performance over decorative complexity."
+    },
+    "zh-CN": {
+      "identity": {
+        "keywords": [
+          "速度",
+          "可靠性",
+          "性能",
+          "推理"
+        ],
+        "analogy": "一个面向 AI 的高性能引擎室，融合了工业级精确性与易用的开发者工具。",
+        "oneLiner": "快速、可靠、低成本的 AI 推理基础设施。"
+      },
+      "colors": {
+        "principle": "温暖柔和的中性色为高对比度的橙色点缀和深色、易读的排版提供了平静的画布。"
+      },
+      "typography": {
+        "rules": [
+          "标题使用 500 字重以实现微妙强调。",
+          "大写文本使用 12px 字号和 1.2px 字间距，用于技术标签。",
+          "正文使用 15px 字号以获得最佳可读性。"
+        ],
+        "scaleUses": [
+          "主标题和主要价值主张",
+          "主要正文文本和描述",
+          "大写标签、导语文本和导航链接"
+        ]
+      },
+      "spacing": {
+        "rhythm": "基于标准的 4px 基准，搭配宽裕的 32-48px 水平内边距和垂直间距。"
+      },
+      "surfaces": {
+        "shadows": [],
+        "borders": "使用 1px solid rgb(45, 47, 51) 作为卡片和输入框的微妙轮廓。"
+      },
+      "layout": {
+        "skeleton": "标准的居中容器，包含全宽的主视觉区和并排排列的功能卡片。"
+      },
+      "components": {
+        "button": "高对比度橙色（#F43E01）配白色文字，采用药丸形状（border-radius: 999px）用于主要操作。",
+        "card": "浅色背景（#F3F3EE），12px 圆角，无明显投影。",
+        "chip": "内联大写标签，使用等宽字体样式作为分类标签。",
+        "input": "标准文本输入框，采用极简样式，可能使用柔和的边框。",
+        "hero": "桌面端采用分屏布局，左侧为大号排版，右侧为视频。"
+      },
+      "motion": {
+        "patterns": [
+          "交互元素上的颜色和变换过渡。",
+          "悬停状态的背景尺寸动画。",
+          "模态框或覆盖层的可见性和透明度过渡。"
+        ]
+      },
+      "interaction": {
+        "hover": "150ms ease-in-out 的微妙背景尺寸或颜色过渡。",
+        "click": "通过变换或颜色偏移提供即时视觉反馈。",
+        "transition": "对颜色和变换属性一致使用 150ms ease-in-out。",
+        "keyboard": "遵循可访问性模式的标准焦点环。"
+      },
+      "voice": {
+        "tone": "自信、技术导向且注重性能。",
+        "headlineStyle": "直接有力，聚焦于速度和可靠性。",
+        "ctaStyle": "以行动为导向的动词，如“立即开始”和“开始构建”。",
+        "avoid": [
+          "模糊的营销术语",
+          "过于活泼或随意的语言",
+          "标题中复杂的架构图"
+        ]
+      },
+      "donts": [
+        "不要使用纯黑色（#000000）作为背景——截图显示为温暖柔和的米色（#E8E8DE）。",
+        "不要使用亮红色作为点缀——截图显示为特定的鲜明橙色（#F43E01）。",
+        "不要使用宽幅、多栏文本布局——截图显示为受限的约 680px 段落宽度。",
+        "不要在卡片上使用厚重的投影——截图显示为扁平表面，投影极少或没有。",
+        "不要对技术标签使用小写——截图显示为大写并带有宽字间距。",
+        "不要使用激进的暗色模式美学——截图显示为明亮、暖色调的界面。"
+      ],
+      "systemPrompt": "Groq 是一个面向开发者和企业的高性能 AI 推理平台。设计系统依赖于温暖柔和的中性色板（#E8E8DE, #F3F3EE）和高对比度的鲜明橙色（#F43E01）点缀。排版使用几何无衬线体（Space Grotesk）作为标题和正文，使用等宽字体（IBM Plex Mono）作为技术标签。关键设计约束：避免纯黑色背景（使用温暖的米色替代），避免在 UI 元素上使用厚重的投影，并且绝不使用小写作为技术导语文本或标签。布局整洁宽敞，优先考虑可读性和性能，而非装饰性的复杂性。"
+    },
+    "zh-TW": {
+      "identity": {
+        "keywords": [
+          "速度",
+          "可靠性",
+          "效能",
+          "推論"
+        ],
+        "analogy": "AI 的高效能引擎室，結合工業精準度與親和的開發者工具。",
+        "oneLiner": "快速、可靠、低成本的 AI 推論基礎設施。"
+      },
+      "colors": {
+        "principle": "溫暖、柔和的中性色調，為高對比度的橙色強調色與深色、易讀的排版提供平穩的基調。"
+      },
+      "typography": {
+        "rules": [
+          "標題使用 500 字重以實現細微的強調效果。",
+          "大寫文字使用 12px 及 1.2px 字間距，適用於技術標籤。",
+          "內文使用 15px 以達最佳可讀性。"
+        ],
+        "scaleUses": [
+          "首屏標題與主要價值主張",
+          "主要內文與描述",
+          "大寫標籤、引導文字與導覽連結"
+        ]
+      },
+      "spacing": {
+        "rhythm": "標準 4px 基礎，搭配寬裕的 32-48px 水平內距與垂直間距。"
+      },
+      "surfaces": {
+        "shadows": [],
+        "borders": "使用 1px solid rgb(45, 47, 51) 作為卡片與輸入框的細微外框。"
+      },
+      "layout": {
+        "skeleton": "標準的居中容器，搭配全寬首屏區塊與並排的功能卡片。"
+      },
+      "components": {
+        "button": "高對比度的橙色 (#F43E01) 搭配白色文字，藥丸形狀 (border-radius: 999px)，用於主要操作。",
+        "card": "淺色背景 (#F3F3EE)，12px border-radius，無可見的陰影效果。",
+        "chip": "行內大寫標籤，使用等寬字體樣式作為分類標籤。",
+        "input": "標準文字輸入框，採用極簡樣式，可能使用柔和的邊框。",
+        "hero": "桌面版採用分割版面，左側為大字體排版，右側為影片。"
+      },
+      "motion": {
+        "patterns": [
+          "互動元素的顏色與 transform 過渡效果。",
+          "hover 狀態的背景大小動畫。",
+          "模態視窗或覆蓋層的可見性與透明度過渡。"
+        ]
+      },
+      "interaction": {
+        "hover": "細微的背景大小或顏色過渡，150ms ease-in-out。",
+        "click": "透過 transform 或色彩變換提供即時視覺回饋。",
+        "transition": "一致使用 150ms ease-in-out 進行顏色與 transform 屬性的過渡。",
+        "keyboard": "依循無障礙模式，隱含標準的 focus rings。"
+      },
+      "voice": {
+        "tone": "自信、技術導向、專注效能。",
+        "headlineStyle": "直接且有力，聚焦於速度與可靠性。",
+        "ctaStyle": "以行動為導向的動詞，例如「開始使用」與「開始建構」。",
+        "avoid": [
+          "模糊的行銷術語",
+          "過於俏皮或隨意的語言",
+          "標題中使用複雜的架構圖"
+        ]
+      },
+      "donts": [
+        "避免使用純黑色 (#000000) 作為背景 — 螢幕截圖顯示的是溫暖、柔和的米色 (#E8E8DE)。",
+        "避免使用鮮紅色作為強調色 — 螢幕截圖顯示的是特定的活力橙色 (#F43E01)。",
+        "避免使用寬版、多欄位的文字版面 — 螢幕截圖顯示的是受限的約 680px 段落寬度。",
+        "避免在卡片上使用厚重的陰影 — 螢幕截圖顯示的是平整的表面，陰影極少或無。",
+        "避免在技術標籤上使用小寫字母 — 螢幕截圖顯示的是帶有寬鬆字間距的大寫字母。",
+        "避免使用具侵略性的深色模式美學 — 螢幕截圖顯示的是淺色、暖色調的介面。"
+      ],
+      "systemPrompt": "Groq 是一個專為開發者與企業打造的高效能 AI 推論平台。其設計系統依賴溫暖、柔和的中性色調 (#E8E8DE, #F3F3EE)，並搭配高對比度的活力橙色 (#F43E01) 強調色。排版使用幾何無襯線體 (Space Grotesk) 作為標題與內文，以及等寬字體 (IBM Plex Mono) 作為技術標籤。關鍵設計約束：避免使用純黑背景（改用溫暖的米色）、避免在 UI 元素上使用厚重陰影，且永遠不要在技術引導文字或標籤上使用小寫字母。版面簡潔且寬敞，優先考量可讀性與效能，而非裝飾性的複雜度。"
+    },
+    "ja": {
+      "identity": {
+        "keywords": [
+          "速度",
+          "信頼性",
+          "パフォーマンス",
+          "推論"
+        ],
+        "analogy": "AI向けのハイパフォーマンスエンジンルーム。工業的な精密さと、親しみやすい開発者向けツールを組み合わせています。",
+        "oneLiner": "高速、信頼性、低コストのAI推論インフラストラクチャ。"
+      },
+      "colors": {
+        "principle": "温かみのある落ち着いたニュートラルが、高コントラストのオレンジアクセントと、暗く読みやすいタイポグラフィの落ち着いたキャンバスを提供します。"
+      },
+      "typography": {
+        "rules": [
+          "見出しにはウェイト500を使用し、控えめな強調を実現します。",
+          "大文字テキストには、技術ラベル用に12px、1.2pxのトラッキングを使用します。",
+          "本文には最適な読みやすさのために15pxを使用します。"
+        ],
+        "scaleUses": [
+          "ヒーロー見出しおよび主要バリュープロポジション",
+          "本文テキストおよび説明文",
+          "大文字ラベル、キッカーテキスト、ナビゲーションリンク"
+        ]
+      },
+      "spacing": {
+        "rhythm": "標準の4pxベースに加え、32〜48pxの余裕のある水平パディングと垂直ギャップを設定しています。"
+      },
+      "surfaces": {
+        "shadows": [],
+        "borders": "カードや入力フィールドの控えめなアウトラインに、1px solid rgb(45, 47, 51)を使用しています。"
+      },
+      "layout": {
+        "skeleton": "標準のセンタリングコンテナを採用。フルワイドのヒーローブロックと、サイドバイサイドの機能カードを配置します。"
+      },
+      "components": {
+        "button": "高コントラストのオレンジ（#F43E01）に白テキストを組み合わせた、ピル型（border-radius: 999px）のプライマリアクション用ボタン。",
+        "card": "ライト背景（#F3F3EE）に12pxのボーダーラディウスを設定し、目立つドロップシャドウは不使用。",
+        "chip": "カテゴリタグ用の、モノスペーススタイルを用いたインライン大文字ラベル。",
+        "input": "控えめなボーダーを使用した、最小限のスタイル付けが施された標準テキスト入力。",
+        "hero": "デスクトップ向けの分割画面レイアウト。左侧に大きなタイポグラフィ、右侧にビデオを配置。"
+      },
+      "motion": {
+        "patterns": [
+          "インタラクティブ要素のカラーおよびトランスフォームトランジション。",
+          "hover状態の背景サイズアニメーション。",
+          "モーダルやオーバーレイトランジションの可視性および不透明度変化。"
+        ]
+      },
+      "interaction": {
+        "hover": "150msのease-in-outで、控えめな背景サイズまたはカラーのトランジションを適用。",
+        "click": "トランスフォームやカラー変化による、即座の視覚フィードバックを提供。",
+        "transition": "カラーおよびトランスフォームプロパティに、150msのease-in-outを一貫して使用。",
+        "keyboard": "アクセシビリティパターンにより、標準的なフォーカスリングが想定されます。"
+      },
+      "voice": {
+        "tone": "自信に満ち、技術的であり、パフォーマンス重視。",
+        "headlineStyle": "直接的でインパクトがあり、速度と信頼性に焦点を当てる。",
+        "ctaStyle": "'Get Started' や 'Start Building' のような、アクション指向の動詞を採用。",
+        "avoid": [
+          "曖昧なマーケティング用語",
+          "過度に遊び心のある、あるいはカジュアルな表現",
+          "見出しに複雑なアーキテクチャ図を使用すること"
+        ]
+      },
+      "donts": [
+        "背景に純粋な黒（#000000）を使用しない — スクリーンショットでは、温かみのある落ち着いたベージュ（#E8E8DE）が使用されています。",
+        "アクセントに明るい赤を使用しない — スクリーンショットでは、特定の鮮やかなオレンジ（#F43E01）が使用されています。",
+        "広範なマルチカラムテキストレイアウトを使用しない — スクリーンショットでは、約680pxに制限された段落幅が使用されています。",
+        "カードに重いドロップシャドウを使用しない — スクリーンショットでは、最小限またはシャドウのないフラットなサーフェスが使用されています。",
+        "技術ラベルに小文字を使用しない — スクリーンショットでは、広めの字間を持った大文字が使用されています。",
+        "アグレッシブなダークモードの美学を使用しない — スクリーンショットでは、明るく温かみのあるインターフェースが使用されています。"
+      ],
+      "systemPrompt": "Groqは、開発者と企業を対象とした高性能AI推論プラットフォームです。デザインシステムは、温かみのある落ち着いたニュートラルパレット（#E8E8DE、#F3F3EE）と、高コントラストの鮮やかなオレンジ（#F43E01）アクセントに依拠しています。タイポグラフィには、見出しと本文にジオメトリックサンセリフ（Space Grotesk）、技術ラベルにモノスペース（IBM Plex Mono）を使用しています。重要なデザイン制約：純粋な黒の背景を避ける（代わりに温かみのあるベージュを使用）、UI要素に重いドロップシャドウを避ける、技術キッカーテキストやラベルに決して小文字を使用しない。レイアウトはクリーンかつゆとりがあり、装飾的な複雑さよりも、読みやすさとパフォーマンスを優先しています。"
+    },
+    "ko": {
+      "identity": {
+        "keywords": [
+          "속도",
+          "신뢰성",
+          "성능",
+          "추론"
+        ],
+        "analogy": "산업적 정밀함과 접근 가능한 개발자 도구를 결합한 AI용 고성능 엔진룸.",
+        "oneLiner": "빠르고 저렴한 AI 추론 인프라."
+      },
+      "colors": {
+        "principle": "따뜻하고 부드러운 중립색은 고대비 오렌지 강조색과 어두운 가독성 높은 타이포그래피를 위한 차분한 캔버스를 제공합니다."
+      },
+      "typography": {
+        "rules": [
+          "헤드라인은 미묘한 강조를 위해 두께 500을 사용합니다.",
+          "대문자 텍스트는 기술적 레이블을 위해 12px 크기와 12px의 자간을 사용합니다.",
+          "본문 텍스트는 최적의 가독성을 위해 15px를 사용합니다."
+        ],
+        "scaleUses": [
+          "히어로 헤드라인과 주요 가치 제안",
+          "주요 본문 텍스트 및 설명",
+          "대문자 레이블, 킥커 텍스트 및 네비게이션 링크"
+        ]
+      },
+      "spacing": {
+        "rhythm": "기본 4px를 기준으로 하며, 넉넉한 32-48px의 수평 패딩과 수직 간격을 사용합니다."
+      },
+      "surfaces": {
+        "shadows": [],
+        "borders": "미묘한 카드 및 입력 테두리를 위해 1px solid rgb(45, 47, 51)를 사용합니다."
+      },
+      "layout": {
+        "skeleton": "전체 폭의 히어로 블록과 나란히 배치된 기능 카드를 포함하는 표준 중앙 정렬 컨테이너입니다."
+      },
+      "components": {
+        "button": "주요 작업을 위해 고대비 오렌지(#F43E01)에 흰색 텍스트를 사용하며, 둥근 형태(border-radius: 999px)입니다.",
+        "card": "가벼운 배경(#F3F3EE)에 12px의 border-radius를 적용하며, 눈에 띄는 드롭 섀도우는 없습니다.",
+        "chip": "카테고리 태그를 위한 인라인 대문자 레이블과 고정폭 서체 스타일입니다.",
+        "input": "부드러운 테두리를 사용하는 최소 스타일링의 표준 텍스트 입력입니다.",
+        "hero": "데스크톱에서는 좌우 분할 레이아웃을 사용하며, 왼쪽에는 큰 타이포그래피, 오른쪽에는 비디오를 배치합니다."
+      },
+      "motion": {
+        "patterns": [
+          "인터랙티브 요소에서의 색상 및 transform 전환.",
+          "hover 상태를 위한 background-size 애니메이션.",
+          "모달 또는 오버레이 전환을 위한 가시성 및 불투명도 조절."
+        ]
+      },
+      "interaction": {
+        "hover": "150ms ease-in-out으로 미묘한 background-size 또는 색상 전환.",
+        "click": "transform 또는 색상 변화를 통한 즉각적인 시각적 피드백.",
+        "transition": "색상 및 transform 속성에 일관된 150ms ease-in-out 사용.",
+        "keyboard": "접근성 패턴에서 유추할 수 있는 표준 focus ring."
+      },
+      "voice": {
+        "tone": "자신감 있고 기술적이며 성능 지향적입니다.",
+        "headlineStyle": "직설적이고 임팩트 있게 작성하며, 속도와 신뢰성에 초점을 맞춥니다.",
+        "ctaStyle": "'시작하기' 또는 '구축 시작하기'와 같은 행동 지향적 동사.",
+        "avoid": [
+          "모호한 마케팅 용어",
+          "지나치게 장난스럽거나 캐주얼한 언어",
+          "헤더 내의 복잡한 아키텍처 다이어그램"
+        ]
+      },
+      "donts": [
+        "배경에 순수 블랙(#000000)을 사용하지 않습니다 — 스크린샷에서는 대신 따뜻한 부드러운 베이지(#E8E8DE)를 보여줍니다.",
+        "강조색에 밝은 빨간색을 사용하지 않습니다 — 스크린샷에서는 대신 특별한 생동감 있는 오렌지(#F43E01)를 보여줍니다.",
+        "넓은 다중 열 텍스트 레이아웃을 사용하지 않습니다 — 스크린샷에서는 대신 약 680px로 제한된 단락 폭을 보여줍니다.",
+        "카드에 무거운 드롭 섀도우를 사용하지 않습니다 — 스크린샷에서는 대신 최소한 또는 섀도우 없는 평면적 표면을 보여줍니다.",
+        "기술적 레이블에 소문자를 사용하지 않습니다 — 스크린샷에서는 대신 넓은 자간의 대문자를 보여줍니다.",
+        "공격적인 다크 모드 미학을 사용하지 않습니다 — 스크린샷에서는 대신 밝고 따뜻한 톤의 인터페이스를 보여줍니다."
+      ],
+      "systemPrompt": "Groq는 개발자와 기업을 대상으로 하는 고성능 AI 추론 플랫폼입니다. 디자인 시스템은 따뜻하고 부드러운 중립 팔레트(#E8E8DE, #F3F3EE)를 기반으로 하며, 고대비의 생동감 있는 오렌지(#F43E01)를 강조색으로 사용합니다. 타이포그래피는 헤드라인과 본문에 기하학적 산세리프(Space Grotesk)를, 기술적 레이블에는 고정폭 서체(IBM Plex Mono)를 사용합니다. 핵심 디자인 제약 조건: 순수한 블랙 배경 사용 지양(대신 따뜻한 베이지 사용), UI 요소에 무거운 드롭 섀도우 사용 지양, 기술적 킥커 텍스트나 레이블에 소문자 사용 절대 지양. 레이아웃은 깔끔하고 여유롭게 구성하며, 장식적 복잡성보다는 가독성과 성능을 우선시합니다."
+    }
+  },
+  "desc": {
+    "en": {
+      "palette": "A warm, muted neutral background (#E8E8DE) paired with a vibrant, high-energy orange accent (#F43E01) and dark charcoal text.",
+      "layout": "Generous horizontal padding and constrained paragraph widths ensure high readability on a centered, wide-column grid.",
+      "interaction": "Interactive elements use subtle 150ms transitions for color and background-size changes on hover.",
+      "motion": "Minimal motion is used, focusing on quick micro-interactions for buttons and navigation elements.",
+      "notes": "The site is worth including because it demonstrates a high-end, performance-focused B2B brand identity that balances industrial precision with accessible developer aesthetics."
+    },
+    "zh-CN": {
+      "palette": "温暖柔和的中性背景（#E8E8DE）搭配鲜明、高饱和度的橙色点缀（#F43E01）与深灰色文字。",
+      "layout": "通过宽裕的水平内边距和受限的段落宽度，在居中、宽栏网格上确保高可读性。",
+      "interaction": "交互元素在悬停时使用 150ms 的微妙过渡效果，实现颜色和背景尺寸的变化。",
+      "motion": "采用极简动态效果，聚焦于按钮和导航元素的快速微交互。",
+      "notes": "该网站值得关注，因为它展示了一个高端、注重性能的 B2B 品牌形象，在工业级精确性与易用的开发者美学之间取得了平衡。"
+    },
+    "zh-TW": {
+      "palette": "溫暖、柔和的中性背景 (#E8E8DE)，搭配充滿活力、高飽和度的橙色強調色 (#F43E01)，以及深炭灰色文字。",
+      "layout": "寬裕的水平內距與受限的段落寬度，確保在以居中、寬欄位網格中維持高度可讀性。",
+      "interaction": "互動元素在 hover 時，使用細微的 150ms 過渡效果，變更顏色與背景大小。",
+      "motion": "採用最小化的動態效果，聚焦於按鈕與導覽元素的快速微互動。",
+      "notes": "該網站值得參考，因其展現了高性能、專注效能的 B2B 品牌識別，平衡了工業級精準度與親和的開發者美學。"
+    },
+    "ja": {
+      "palette": "温かみのある落ち着いたニュートラル背景（#E8E8DE）に、鮮やかな高エネルギーのオレンジアクセント（#F43E01）、そしてダークチャコールのテキストを組み合わせています。",
+      "layout": "中心に配置されたワイドカラムグリッドにおいて、余裕のある水平パディングと制限された段落幅を採用し、高い読みやすさを実現しています。",
+      "interaction": "インタラクティブ要素には、hover時のカラーおよび背景サイズ変更に対して、控えめな150msのトランジションを適用しています。",
+      "motion": "モーションは最小限に抑え、ボタンやナビゲーション要素向けの、素早いマイクロインタラクションに焦点を当てています。",
+      "notes": "このサイトは、工業的な精密さと親しみやすい開発者向け美学のバランスを取った、ハイエンドでパフォーマンス重視のB2Bブランドアイデンティティを示しており、採用する価値があります。"
+    },
+    "ko": {
+      "palette": "따뜻하고 부드러운 중립적 배경(#E8E8DE)에 생동감 넘치고 에너지가 느껴지는 오렌지 강조색(#F43E01)과 어두운 차콜 텍스트를 매칭합니다.",
+      "layout": "넉넉한 수평 패딩과 제한된 단락 폭은 중앙 정렬된 넓은 열 그리드에서 높은 가독성을 보장합니다.",
+      "interaction": "인터랙티브 요소는 hover 시 색상 및 배경 크기 변화에 150ms의 미묘한 전환을 사용합니다.",
+      "motion": "최소한의 모션을 사용하며, 버튼과 네비게이션 요소를 위한 빠른 마이크로 인터랙션에 초점을 맞춥니다.",
+      "notes": "해당 사이트는 산업적 정밀함과 접근 가능한 개발자 미학의 균형을 이루는 고급 성능 중심 B2B 브랜드 아이덴티티를 보여주므로 포함할 가치가 있습니다."
+    }
+  },
+  "narrative": {
+    "en": {
+      "ch1_intro": "Groq's design system is engineered like a high-performance engine room, where every component serves a purpose without decorative excess. The identity merges industrial precision with accessible developer tooling, treating speed and reliability as its core structural materials.",
+      "ch2_intro": "The color system establishes a calm, muted neutral canvas that allows the high-contrast orange accent to command attention where needed. Dark charcoal typography ensures legibility against the warm background without resorting to absolute black.",
+      "ch2_outro": "The palette principle is restraint: neutrals provide stability, while the single vibrant accent creates clear hierarchy.",
+      "ch3_intro": "Typography uses Space Grotesk as its geometric-sans foundation, delivering clean readability for technical content. Headlines carry a weight of 500 for subtle emphasis, while IBM Plex Mono appears in uppercase labels for precise, monospaced categorization.",
+      "ch4_intro": "Spacing follows a standard 4px base rhythm, with generous 32-48px horizontal padding establishing clear content boundaries.",
+      "ch5_intro": "Surfaces are defined by subtle 1px borders rather than drop shadows, creating depth through fine linework. Cards use a light background with 12px border-radius, maintaining flat, clean planes.",
+      "ch6_intro": "The layout skeleton centers content in a standard container with full-width hero blocks anchoring primary messaging. Feature cards sit side-by-side, creating balanced visual weight without complex multi-column text flows.",
+      "ch7_intro": "Motion philosophy prioritizes function over flourish, using minimal transitions to confirm interactions. Micro-interactions at 150ms ease-in-out handle color shifts and background-size animations for hover states.",
+      "ch8_intro": "Voice is confident and technical, with headlines that are direct and punchy. The tone avoids vague marketing jargon and playful language, focusing instead on clear, action-oriented statements.",
+      "ch8_outro": "The system deliberately avoids aggressive dark mode aesthetics, heavy drop shadows, and complex decorative elements."
+    },
+    "zh-CN": {
+      "ch1_intro": "Groq 的设计系统如同高性能引擎室般精密打造，每个组件都服务于明确功能，摒弃无谓装饰。该系统融合工业级精准与开发者友好的工具理念，将速度与可靠性视为核心构建要素。",
+      "ch2_intro": "色彩体系以沉稳内敛的中性色调为基底，通过高对比度橙色强调色在需要时引导视觉焦点。深炭灰色字体确保在暖色背景下的清晰可读性，避免使用绝对纯黑。",
+      "ch2_outro": "色彩原则在于克制：中性色提供稳定感，而单一鲜明的强调色构建清晰的视觉层级。",
+      "ch3_intro": "字体体系以 Space Grotesk 几何无衬线体为基础，为技术内容提供清晰易读的排版。标题采用 500 字重实现微妙强调，IBM Plex Mono 则以全大写标签形式呈现，实现精准的等宽字体分类标识。",
+      "ch4_intro": "间距系统遵循 4px 基准网格，配合 32-48px 的水平内边距，建立清晰的内容边界。",
+      "ch5_intro": "界面层次通过细微的 1px 边框而非投影来定义，以精细线条营造纵深感。卡片采用浅色背景与 12px 圆角半径，保持扁平干净的视觉平面。",
+      "ch6_intro": "布局骨架采用标准容器居中内容，全幅首屏区块承载核心信息。功能卡片并排排布，形成均衡的视觉权重，避免复杂的多栏文本流。",
+      "ch7_intro": "动效哲学优先考虑功能而非修饰，采用极简过渡效果确认交互反馈。150ms 的微交互通过 ease-in-out 缓动函数处理色彩变换与 hover 状态下的背景缩放动画。",
+      "ch8_intro": "文案风格自信且技术化，标题直接有力。语调避免模糊的营销术语和戏谑表达，专注于清晰、可执行的陈述。",
+      "ch8_outro": "该系统有意规避激进的暗黑模式美学、厚重投影和复杂装饰元素。"
+    },
+    "zh-TW": {
+      "ch1_intro": "Groq 的設計系統如同高效能機房般精構而成，每個元件皆有其功能目的，無多餘裝飾。其識別系統融合了工業精度與易用的開發工具，將速度與可靠性視為核心結構材料。",
+      "ch2_outro": "色調原則在於克制：中性色提供穩定基調，而單一鮮豔強調色則建立清晰的視覺層次。",
+      "ch2_intro": "色彩系統建立了一個沉穩、柔和的中性基調，讓高對比的橘色強調色能在需要之處成為焦點。深 charcoal 色文字確保在溫潤背景上的可讀性，而非使用純黑。",
+      "ch3_intro": "字型以幾何無襯線的 Space Grotesk 為基礎，為技術內容提供清晰可讀性。標題使用 500 字重以 subtly 強調，而 IBM Plex Mono 則以大寫標籤形式出現，用於精準、等寬的分類標示。",
+      "ch4_intro": "間距遵循標準的 4px 基礎節奏，並以寬裕的 32-48px 水平 padding 建立清晰的內容邊界。",
+      "ch5_intro": "介面以細微的 1px 邊框而非陰影來定義，透過精細線條營造深度感。卡片使用淺色背景與 12px border-radius，保持平面、乾淨的視覺效果。",
+      "ch6_intro": "版面骨架將內容置於標準容器中央，全寬的首頁區塊則作為主要訊息的錨點。功能卡片並排陳列，創造平衡的視覺重量，無需複雜的多欄文字流動。",
+      "ch7_intro": "動態哲學優先功能而後裝飾，使用最小的過渡效果來確認互動。150ms ease-in-out 的微互動處理色彩轉換與 hover 狀態的 background-size 動畫。",
+      "ch8_intro": "語調自信且具技術性，標題直接而有力。口氣避免模糊的行銷術語與俏皮語言，轉而聚焦於清晰、導向行動的陳述。",
+      "ch8_outro": "此系統刻意避開侵略性的深色模式美學、厚重的陰影以及複雜的裝飾元素。"
+    },
+    "ja": {
+      "ch1_intro": "Groqのデザインシステムは、高性能エンジンルームのように構築されています。すべてのコンポーネントが装飾的な過剰さなく目的を果たすように設計されています。このアイデンティティは、工業的な精密さとアクセシブルな開発者ツールを融合させ、速度と信頼性をその核心的な構造材料として扱います。",
+      "ch2_intro": "カラーシステムは、落ち着いた、控えめなニュートラルなキャンバスを確立し、高コントラストのオレンジアクセントが必要な場所で注目を集めます。ダークチャコールのタイポグラフィは、絶対的な黒に頼ることなく、温かい背景に対して明確な可読性を確保します。",
+      "ch2_outro": "パレットの原則は抑制です。ニュートラルカラーが安定感を提供し、単一の鮮やかなアクセントが明確な階層構造を作り出します。",
+      "ch3_intro": "タイポグラフィは、幾何学的サンセリフであるSpace Groteskを基盤とし、技術コンテンツに対してクリーンな可読性を提供します。見出しには500のウェイトで微妙な強調を加え、見出しラベルにはIBM Plex Monoの大文字表記を使用し、正確でモノスペースの分類を実現しています。",
+      "ch4_intro": "余白は標準的な4pxの基本リズムに従い、32-48pxの広めの水平パディングが明確なコンテンツの境界を確立します。",
+      "ch5_intro": "サーフェスはドロップシャドウではなく、微妙な1pxボーダーで定義され、細かいラインワークを通じて奥行きを生み出します。カードは明るい背景と12pxのボーダー radiusを使用し、フラットでクリーンな平面を維持します。",
+      "ch6_intro": "レイアウトの骨格は、標準的なコンテナ内にコンテンツを中央に配置し、全幅のヒーローブロックが主要メッセージをアンカーします。機能カードは並列に配置され、複雑なマルチカラムテキストフローなしにバランスの取れた視覚的重みを生み出します。",
+      "ch7_intro": "モーション哲学は、派手さよりも機能を優先し、最小限のトランジションを使用してインタラクションを確認します。150msのease-in-outによるマイクロインタラクションが、ホバーステートの色の変化とbackground-sizeアニメーションを処理します。",
+      "ch8_intro": "ボイスは自信に満ちた技術的なもので、見出しは直接的で力強いです。トーンは曖昧なマーケティング用語や遊び心のある言葉を避け、代わりに明確で行動を促す声明に焦点を当てます。",
+      "ch8_outro": "このシステムは、アグレッシブなダークモードの美学、重いドロップシャドウ、複雑な装飾要素を意図的に避けています。"
+    },
+    "ko": {
+      "ch1_intro": "Groq의 디자인 시스템은 모든 요소가 과장된 장식 없이 목적에 부합하도록, 고성능 엔진룸처럼 설계되었습니다. 브랜드 아이덴티티는 산업적 정밀함과 접근성 있는 개발자 도구를 결합하여, 속도와 안정성을 핵심 구조적 재료로 대우합니다.",
+      "ch2_intro": "컬러 시스템은 고대비 주황색 강조 색상이 필요할 때 주목을 끌 수 있도록, 차분하고 절제된 중립 캔버스를 구축합니다. 어두운 차콜 타이포그래피는 절대적인 검정색에 의존하지 않고도 따뜻한 배경 위에서 가독성을 보장합니다.",
+      "ch2_outro": "팔레트의 원칙은 절제입니다: 중립색은 안정성을 제공하고, 단일한 생생한 강조 색상은 명확한 계층 구조를 만듭니다.",
+      "ch3_intro": "타이포그래피는 기하학적산스(grotesque-sans)를 기반으로 Space Grotesk를 사용하여 기술 콘텐츠에 깔끔한 가독성을 제공합니다. 제목은 미묘한 강조를 위해 500의 웨이트를 사용하며, IBM Plex Mono는 정확하고 고정폭의 분류를 위해 대문자 레이블로 사용됩니다.",
+      "ch4_intro": "간격은 표준 4px 기본 리듬을 따르며, 32-48px의 넉넉한 수평 패딩이 명확한 콘텐츠 경계를 설정합니다.",
+      "ch5_intro": "표면은 드롭 섀도우 대신 미묘한 1px 테두리로 정의되며, 섬세한 선 작업을 통해 깊이감을 만듭니다. 카드는 12px의 border-radius를 가진 밝은 배경을 사용하여, 평면적이고 깔끔한 면을 유지합니다.",
+      "ch6_intro": "레이아웃 스켈레톤은 표준 컨테이너에 콘텐츠를 중앙 정렬하고, 전체 너비의 영웅 블록이 주요 메시지를 고정합니다. 기능 카드는 나란히 배치되어, 복잡한 다중 컬럼 텍스트 흐름 없이 균형 잡힌 시각적 무게감을 만듭니다.",
+      "ch7_intro": "모션 철학은 기교보다 기능을 우선시하여, 상호작용을 확인하기 위해 최소한의 트랜지션을 사용합니다. 150ms의 ease-in-out 마이크로 인터랙션은 hover 상태에서의 색상 변화 및 background-size 애니메이션을 처리합니다.",
+      "ch8_intro": "보이스는 자신감 있고 기술적이며, 제목은 직접적이고 임팩트 있습니다. 어조는 모호한 마케팅 용어와 장난스러운 언어를 피하고, 대신 명확하고 실행 지향적인 진술에 집중합니다.",
+      "ch8_outro": "이 시스템은 의도적으로 공격적인 다크 모드 미학, 과도한 드롭 섀도우, 그리고 복잡한 장식적 요소를 피합니다."
+    }
+  }
+}

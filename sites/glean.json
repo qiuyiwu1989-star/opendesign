@@ -1,0 +1,622 @@
+{
+  "id": "glean",
+  "schema_version": "0.3",
+  "url": "https://www.glean.com",
+  "title": "Glean",
+  "image": "",
+  "tags": [
+    "ai",
+    "search"
+  ],
+  "status": "completed",
+  "added_at": "2026-06-02",
+  "added_by": "expand-200",
+  "_meta": {
+    "vision_model": "mimo-v2.5",
+    "vision_prompt_version": "0.3",
+    "vision_source": "playwright-extract:glean",
+    "vision_grounded": true,
+    "vision_at": "2026-06-02T13:56:29+00:00",
+    "vision_tokens": 16703,
+    "vision_cost_usd": 0.1856,
+    "translation_model": "mimo-v2.5",
+    "translation_at": "2026-06-02T13:57:33+00:00",
+    "translation_tokens": 16588,
+    "translation_cost_usd": 0.0553,
+    "narrative_model": "mimo-v2.5",
+    "narrative_prompt_version": "0.3",
+    "narrative_at": "2026-06-02T13:57:41+00:00",
+    "narrative_tokens": 2014,
+    "narrative_cost_usd": 0.0134,
+    "narrative_status": "ok",
+    "total_cost_usd": 0.2543
+  },
+  "spec": {
+    "colors": {
+      "bg": "#FFFFFF",
+      "bgSoft": "#FDFEFE",
+      "bgQuiet": "#D2D4FB",
+      "ink": "#333333",
+      "inkSoft": null,
+      "muted": "#D2D4FB",
+      "mutedSoft": "rgba(210,212,251,0.38)",
+      "accent": "#343CED",
+      "line": "rgba(52,60,237,0.2)"
+    },
+    "typography": {
+      "display": "geometric-sans",
+      "body": "humanist-sans",
+      "mono": "monospace",
+      "scale": [
+        {
+          "token": "display",
+          "size": 48,
+          "lh": 1.0,
+          "weight": 400,
+          "ls": "-0.16px"
+        },
+        {
+          "token": "h1",
+          "size": 48,
+          "lh": 1.0,
+          "weight": 700,
+          "ls": "-2.16px"
+        },
+        {
+          "token": "body",
+          "size": 18,
+          "lh": 1.4,
+          "weight": 400,
+          "ls": "normal"
+        },
+        {
+          "token": "body",
+          "size": 16,
+          "lh": 1.3,
+          "weight": 400,
+          "ls": "normal"
+        }
+      ]
+    },
+    "spacing": {
+      "base": 4,
+      "scale": [
+        4,
+        8,
+        16,
+        24,
+        32,
+        48,
+        64,
+        96
+      ]
+    },
+    "surfaces": {
+      "radius": {
+        "sm": 6,
+        "md": 8,
+        "lg": 20,
+        "pill": 64
+      }
+    },
+    "layout": {
+      "container": 1280,
+      "paragraph": 680,
+      "columns": 12,
+      "gutter": 24,
+      "breakpoints": [
+        768,
+        1024
+      ]
+    },
+    "motion": {
+      "durations": {
+        "micro": 220,
+        "small": 300,
+        "medium": 400
+      },
+      "easing": "cubic-bezier(0.25, 0.1, 0.25, 1.0)"
+    }
+  },
+  "spec_i18n": {
+    "en": {
+      "identity": {
+        "keywords": [
+          "enterprise",
+          "AI",
+          "search",
+          "productivity",
+          "connectors"
+        ],
+        "analogy": "A polished, high-trust enterprise AI platform that feels professional yet modern.",
+        "oneLiner": "Enterprise AI search and assistant platform."
+      },
+      "colors": {
+        "principle": "Clean white base with high-chroma electric blue accents and soft pastel gradients."
+      },
+      "typography": {
+        "rules": [
+          "Use neutral sans-serif for all primary text.",
+          "Use slim geometric sans for occasional display emphasis.",
+          "Use monospace only for technical labels."
+        ],
+        "scaleUses": [
+          "Main hero headline.",
+          "Section headlines.",
+          "Subheadings and intro text.",
+          "Standard body text."
+        ]
+      },
+      "spacing": {
+        "rhythm": "4px base grid."
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(52, 60, 237, 0.2) 0px 0px 17px 0px",
+          "rgba(0, 0, 0, 0.03) 0px 8px 10px 0px"
+        ],
+        "borders": "1px solid #333333"
+      },
+      "layout": {
+        "skeleton": "12-column grid."
+      },
+      "components": {
+        "button": "Primary uses filled blue with pill border-radius; secondary uses outline or text.",
+        "card": "White cards with subtle borders and rounded corners.",
+        "chip": "Small badges with rounded corners and subtle background colors.",
+        "input": "Clean white inputs with subtle borders.",
+        "hero": "Split layout with large typography on the left and 3D/illustrative elements on the right."
+      },
+      "motion": {
+        "patterns": [
+          "Opacity fade for UI state changes.",
+          "Ease-in-out transitions for interactive elements."
+        ]
+      },
+      "interaction": {
+        "hover": "Subtle scale or color shift on buttons.",
+        "click": "Immediate feedback via transition.",
+        "transition": "0.25s ease-in-out for most interactive properties.",
+        "keyboard": "Standard focus outlines."
+      },
+      "voice": {
+        "tone": "Professional, helpful, and confident.",
+        "headlineStyle": "Short, punchy, and descriptive.",
+        "ctaStyle": "Direct and action-oriented (e.g., 'Get a demo').",
+        "avoid": [
+          "Slang",
+          "Jargon",
+          "Aggressive sales language"
+        ]
+      },
+      "donts": [
+        "don't use pure black for text — screenshot shows #333333 instead",
+        "don't use sharp corners — screenshot shows border-radius of 20px instead",
+        "don't use static flat backgrounds — screenshot shows soft pastel gradients instead",
+        "don't use small tight typography — screenshot shows large 48px display sizes instead",
+        "don't use neon or highly saturated secondary colors — screenshot shows muted #D2D4FB instead",
+        "don't use ornate or serif fonts — screenshot shows clean geometric/humanist sans-serif instead"
+      ],
+      "systemPrompt": "Glean is an enterprise AI search and assistant platform with a polished, high-trust design. The visual system relies on a clean white base (#FFFFFF) contrasted with a high-chroma electric blue accent (#343CED) and soft pastel gradients. Typography utilizes clean, professional sans-serif categories (geometric and humanist) with large display sizes up to 48px to convey authority and clarity. The layout is structured, spacious, and uses a 12-column grid with 20px border-radius on major components. Critical constraints: Do not use pure black (#000000) for text, use #333333 instead. Do not use sharp corners, maintain the rounded, friendly aesthetic. Do not use heavy or decorative serif fonts."
+    },
+    "zh-CN": {
+      "identity": {
+        "keywords": [
+          "企业级",
+          "AI",
+          "搜索",
+          "生产力",
+          "连接器"
+        ],
+        "analogy": "一个精致、高可信度的企业AI平台，既专业又现代。",
+        "oneLiner": "企业级AI搜索与助理平台。"
+      },
+      "colors": {
+        "principle": "以洁净白色为基底，搭配高饱和度的电光蓝强调色与柔和的粉彩渐变。"
+      },
+      "typography": {
+        "rules": [
+          "所有主要文本使用中性无衬线字体。",
+          "偶尔用于显示强调的部分使用纤细的几何无衬线字体。",
+          "仅技术标签使用等宽字体。"
+        ],
+        "scaleUses": [
+          "主视觉区标题。",
+          "区段标题。",
+          "副标题与引言文本。",
+          "标准正文。"
+        ]
+      },
+      "spacing": {
+        "rhythm": "4px 基础网格。"
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(52, 60, 237, 0.2) 0px 0px 17px 0px",
+          "rgba(0, 0, 0, 0.03) 0px 8px 10px 0px"
+        ],
+        "borders": "1px solid #333333"
+      },
+      "layout": {
+        "skeleton": "12栏网格。"
+      },
+      "components": {
+        "button": "主按钮使用填充蓝色与药丸形圆角；次要按钮使用描边或文本样式。",
+        "card": "白色卡片，带有细微边框与圆角。",
+        "chip": "小型徽章，带圆角与柔和的背景色。",
+        "input": "洁净的白色输入框，带细微边框。",
+        "hero": "分栏布局，左侧为大字号排版，右侧为3D/插画元素。"
+      },
+      "motion": {
+        "patterns": [
+          "UI状态变化使用不透明度渐隐。",
+          "交互元素使用 ease-in-out 过渡。"
+        ]
+      },
+      "interaction": {
+        "hover": "按钮在悬停时进行细微的缩放或色彩变化。",
+        "click": "通过过渡提供即时反馈。",
+        "transition": "多数交互属性使用 0.25s ease-in-out 过渡。",
+        "keyboard": "标准的焦点轮廓。"
+      },
+      "voice": {
+        "tone": "专业、乐于助人且自信。",
+        "headlineStyle": "简短、有力、描述性强。",
+        "ctaStyle": "直接且以行动为导向（例如，'获取演示'）。",
+        "avoid": [
+          "俚语",
+          "行业术语",
+          "侵略性销售语言"
+        ]
+      },
+      "donts": [
+        "不要使用纯黑色文本——截图显示使用 #333333",
+        "不要使用尖锐的圆角——截图显示使用 20px 的 border-radius",
+        "不要使用静态的扁平背景——截图显示使用柔和的粉彩渐变",
+        "不要使用紧凑的小字号排版——截图显示使用大号的 48px 显示尺寸",
+        "不要使用霓虹或高饱和度的次要颜色——截图显示使用柔和的 #D2D4FB",
+        "不要使用花哨或衬线字体——截图显示使用简洁的几何/人文无衬线字体"
+      ],
+      "systemPrompt": "Glean 是一个具有精致、高可信度设计的企业级AI搜索与助理平台。其视觉系统以洁净的白色（#FFFFFF）为基底，搭配高饱和度的电光蓝（#343CED）强调色与柔和的粉彩渐变。排版采用简洁、专业的无衬线字体类别（几何与人文），最大显示尺寸达48px，以传达权威与清晰度。布局结构化、空间充裕，采用12栏网格，主要组件使用20px圆角。关键约束：不要使用纯黑色（#000000）作为文本颜色，应使用#333333。不要使用尖锐的圆角，保持圆润友好的美学。不要使用厚重或装饰性的衬线字体。"
+    },
+    "zh-TW": {
+      "identity": {
+        "keywords": [
+          "企業",
+          "AI",
+          "搜尋",
+          "生產力",
+          "連接器"
+        ],
+        "analogy": "一個精緻、高信賴度的企業 AI 平台，感覺專業又具現代感。",
+        "oneLiner": "企業 AI 搜尋與助理平台。"
+      },
+      "colors": {
+        "principle": "以純淨白色為基底，搭配高彩度電光藍強調色與柔和淡彩漸層。"
+      },
+      "typography": {
+        "rules": [
+          "主要文字一律使用中性無襯線字體。",
+          "偶爾的展示強調文字使用纖細的幾何無襯線字體。",
+          "僅技術標籤使用等寬字體。"
+        ],
+        "scaleUses": [
+          "主首頁標題。",
+          "區塊標題。",
+          "子標題與介紹文字。",
+          "標準內文字。"
+        ]
+      },
+      "spacing": {
+        "rhythm": "以 4px 為基礎格線。"
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(52, 60, 237, 0.2) 0px 0px 17px 0px",
+          "rgba(0, 0, 0, 0.03) 0px 8px 10px 0px"
+        ],
+        "borders": "1px solid #333333"
+      },
+      "layout": {
+        "skeleton": "12 欄格線系統。"
+      },
+      "components": {
+        "button": "主要按鈕採用填充電光藍與膠囊狀圓角；次要按鈕使用外框或文字樣式。",
+        "card": "白色卡片，帶有細微邊框與圓角。",
+        "chip": "小型徽章，帶有圓角與柔和背景色。",
+        "input": "純白輸入欄位，帶有細微邊框。",
+        "hero": "分割式佈局，左側為大字型文字，右側為 3D/插畫元素。"
+      },
+      "motion": {
+        "patterns": [
+          "UI 狀態變換時使用透明度淡入淡出。",
+          "互動元件採用 ease-in-out 過渡效果。"
+        ]
+      },
+      "interaction": {
+        "hover": "按鈕上的微妙縮放或色彩偏移。",
+        "click": "透過過渡效果提供即時反饋。",
+        "transition": "大多數互動屬性採用 0.25s ease-in-out。",
+        "keyboard": "標準的焦點外框。"
+      },
+      "voice": {
+        "tone": "專業、有幫助且充滿自信。",
+        "headlineStyle": "簡短、有力且具描述性。",
+        "ctaStyle": "直接且以行動為導向（例如：「取得演示」）。",
+        "avoid": [
+          "俚語",
+          "術語",
+          "侵略性的銷售用語"
+        ]
+      },
+      "donts": [
+        "文字請勿使用純黑色——截圖中顯示的是 #333333",
+        "請勿使用銳角——截圖中顯示的是 20px 的邊框圓角",
+        "請勿使用靜態單色背景——截圖中顯示的是柔和的淡彩漸層",
+        "請勿使用小而緊湊的字型——截圖中顯示的是大型 48px 展示尺寸",
+        "請勿使用霓虹或高飽和度的次要顏色——截圖中顯示的是柔和的 #D2D4FB",
+        "請勿使用華麗或襯線字體——截圖中顯示的是簡潔的幾何/人文無襯線字體"
+      ],
+      "systemPrompt": "Glean 是一個企業 AI 搜尋與助理平台，擁有精緻、高信賴度的設計。視覺系統依賴純淨白色基底（#FFFFFF），對比高彩度電光藍強調色（#343CED）與柔和淡彩漸層。字型使用簡潔、專業的無襯線分類（幾何與人文），並採用最大至 48px 的大型展示尺寸，以傳達權威感與清晰度。版面結構清晰、寬敞，使用 12 欄格線系統，主要元件採用 20px 邊框圓角。關鍵限制：請勿使用純黑色（#000000）作為文字顏色，請改用 #333333。請勿使用銳角，保持圓潤、友善的美學。請勿使用厚重或裝飾性的襯線字體。"
+    },
+    "ja": {
+      "identity": {
+        "keywords": [
+          "エンタープライズ",
+          "AI",
+          "検索",
+          "生産性",
+          "コネクタ"
+        ],
+        "analogy": "洗練され、信頼感の高いエンタープライズAIプラットフォーム。プロフェッショナルでありながらモダンな印象。",
+        "oneLiner": "エンタープライズAI検索およびアシスタントプラットフォーム。"
+      },
+      "colors": {
+        "principle": "クリーンな白をベースに、高彩度のエレクトリックブルーアクセントと柔らかなパステルグラデーションを採用。"
+      },
+      "typography": {
+        "rules": [
+          "すべてのプライマリテキストに中立的なサンセリフを使用する。",
+          "表示強調には細身のジオメトリックサンセリフを時折使用する。",
+          "技術ラベルにはのみモノスペースを使用する。"
+        ],
+        "scaleUses": [
+          "メインヒーローヘッドライン。",
+          "セクションヘッドライン。",
+          "サブヘッドラインおよびイントロテキスト。",
+          "標準本文テキスト。"
+        ]
+      },
+      "spacing": {
+        "rhythm": "4pxベースグリッド。"
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(52, 60, 237, 0.2) 0px 0px 17px 0px",
+          "rgba(0, 0, 0, 0.03) 0px 8px 10px 0px"
+        ],
+        "borders": "1px solid #333333"
+      },
+      "layout": {
+        "skeleton": "12カラムグリッド。"
+      },
+      "components": {
+        "button": "プライマリはフィルドブルーでピルボーダー-radiusを適用。セカンダリはアウトラインまたはテキストを使用。",
+        "card": "微妙なボーダーと角丸を持つ白いカード。",
+        "chip": "角丸と控えめな背景色を持つ小さなバッジ。",
+        "input": "クリーンな白背景入力フィールドに控えめなボーダー。",
+        "hero": "左側に大きなタイポグラフィ、右側に3D/イラスト要素を配置した分割レイアウト。"
+      },
+      "motion": {
+        "patterns": [
+          "UI状態変化にはオペシティフェードを。",
+          "インタラクティブ要素にはease-in-outトランジションを。"
+        ]
+      },
+      "interaction": {
+        "hover": "ボタンに精微なスケールまたはカラーシフト。",
+        "click": "トランジションによる即時フィードバック。",
+        "transition": "ほとんどのインタラクティブプロパティに0.25s ease-in-out。",
+        "keyboard": "標準のフォーカスアウトライン。"
+      },
+      "voice": {
+        "tone": "プロフェッショナル、有能、自信。",
+        "headlineStyle": "短く、インパクトがあり、記述的。",
+        "ctaStyle": "直接的でアクション指向（例：「デモを取得」）。",
+        "avoid": [
+          "スラング",
+          "専門用語",
+          "アグレッシブなセールス言語"
+        ]
+      },
+      "donts": [
+        "テキストに純粋な黒を使用しない — スクリーンショットでは#333333を使用",
+        "角をシャープにしない — スクリーンショットではborder-radiusを20pxに設定",
+        "静的でフラットな背景を使用しない — スクリーンショットでは柔らかなパステルグラデーションを使用",
+        "小さく詰まったタイポグラフィを使用しない — スクリーンショットでは大きな48px表示サイズを使用",
+        "ネオン色や非常に彩度の高いセカンダリカラーを使用しない — スクリーンショットでは落ち着いた#D2D4FBを使用",
+        "装飾的またはセリフフォントを使用しない — スクリーンショットではクリーンなジオメトリック/ヒューマニストサンセリフを使用"
+      ],
+      "systemPrompt": "Gleanは、洗練され信頼感の高いデザインを持つエンタープライズAI検索およびアシスタントプラットフォームです。ビジュアルシステムは、クリーンな白（#FFFFFF）をベースに、高彩度のエレクトリックブルーアクセント（#343CED）と柔らかなパステルグラデーションでコントラストを生み出します。タイポグラフィは、クリーンでプロフェッショナルなサンセリフカテゴリ（ジオメトリックおよびヒューマニスト）を活用し、48pxまでの大きな表示サイズで権威と明瞭さを伝えます。レイアウトは構造化され広々としており、12カラムグリッドと主要コンポーネントに20pxのborder-radiusを採用しています。重要な制約：テキストに純粋な黒（#000000）を使用せず、代わりに#333333を使用します。角をシャープにせず、丸みのある親しみやすい美学を維持します。重厚または装飾的なセリフフォントを使用しません。"
+    },
+    "ko": {
+      "identity": {
+        "keywords": [
+          "기업",
+          "AI",
+          "검색",
+          "생산성",
+          "커넥터"
+        ],
+        "analogy": "전문적이면서도 현대적인 느낌을 주는, 세련되고 높은 신뢰도의 기업용 AI 플랫폼.",
+        "oneLiner": "기업용 AI 검색 및 어시스턴트 플랫폼."
+      },
+      "colors": {
+        "principle": "깔끔한 흰색 베이스에 고채도의 일렉트릭 블루 포인트와 부드러운 파스텔 그라디언트."
+      },
+      "typography": {
+        "rules": [
+          "모든 주요 텍스트에 중립적인 sans-serif를 사용합니다.",
+          "가끔 디스플레이 강조용으로 슬림한 기하학적 sans-serif를 사용합니다.",
+          "기술 레이블에만 모노스페이스를 사용합니다."
+        ],
+        "scaleUses": [
+          "메인 히어로 헤드라인.",
+          "섹션 헤드라인.",
+          "소제목 및 소개 텍스트.",
+          "일반 본문 텍스트."
+        ]
+      },
+      "spacing": {
+        "rhythm": "4px 기본 그리드."
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(52, 60, 237, 0.2) 0px 0px 17px 0px",
+          "rgba(0, 0, 0, 0.03) 0px 8px 10px 0px"
+        ],
+        "borders": "1px solid #333333"
+      },
+      "layout": {
+        "skeleton": "12칼럼 그리드."
+      },
+      "components": {
+        "button": "주요 버튼은 둥근 pill 형태의 테두리 반경을 가진 채워진 블루를, 보조 버튼은 아웃라인 또는 텍스트 스타일을 사용합니다.",
+        "card": "미세한 테두리와 둥근 모서리를 가진 흰색 카드.",
+        "chip": "작은 둥근 모서리의 배지와 부드러운 배경색.",
+        "input": "미세한 테두리가 있는 깔끔한 흰색 입력 필드.",
+        "hero": "왼쪽에 큰 타이포그래피, 오른쪽에 3D/일러스트레이션 요소가 있는 분리형 레이아웃."
+      },
+      "motion": {
+        "patterns": [
+          "UI 상태 변화를 위한 opacity 페이드.",
+          "인터랙티브 요소를 위한 ease-in-out 전환."
+        ]
+      },
+      "interaction": {
+        "hover": "버튼에 미세한 스케일 또는 색상 변화.",
+        "click": "전환을 통한 즉각적인 피드백.",
+        "transition": "대부분의 인터랙티브 속성에 0.25s ease-in-out.",
+        "keyboard": "표준 focus 아웃라인."
+      },
+      "voice": {
+        "tone": "전문적이고, 도움이 되며, 자신감 있는 어조.",
+        "headlineStyle": "짧고 간결하며 묘사적인 스타일.",
+        "ctaStyle": "직접적이고 행동 중심적인 스타일 (예: '데모 받기').",
+        "avoid": [
+          "비속어",
+          "전문 용어",
+          "공격적인 판매 언어"
+        ]
+      },
+      "donts": [
+        "텍스트에 순수 블랙(#000000)을 사용하지 마세요 — 스크린샷에는 #333333이 사용되었습니다",
+        "날카로운 모서리를 사용하지 마세요 — 스크린샷에는 20px의 border-radius가 사용되었습니다",
+        "단조로운 평면 배경을 사용하지 마세요 — 스크린샷에는 부드러운 파스텔 그라디언트가 사용되었습니다",
+        "작고 빡빡한 타이포그래피를 사용하지 마세요 — 스크린샷에는 48px의 큰 디스플레이 크기가 사용되었습니다",
+        "네온 또는 과도하게 채도 높은 보조 색상을 사용하지 마세요 — 스크린샷에는 절제된 #D2D4FB가 사용되었습니다",
+        "화려하거나 세리프 서체를 사용하지 마세요 — 스크린샷에는 깔끔한 기하학적/휴머니스트 sans-serif가 사용되었습니다"
+      ],
+      "systemPrompt": "Glean은 세련되고 높은 신뢰도의 디자인을 갖춘 기업용 AI 검색 및 어시스턴트 플랫폼입니다. 비주얼 시스템은 깔끔한 흰색 베이스(#FFFFFF)를 고채도의 일렉트릭 블루 포인트(#343CED) 및 부드러운 파스텔 그라디언트와 대비시킵니다. 타이포그래피는 깔끔하고 전문적인 sans-serif 카테고리(기하학적 및 휴머니스트)를 사용하며, 최대 48px의 큰 디스플레이 크기로 권위와 명확성을 전달합니다. 레이아웃은 구조적이고 넓으며, 12칼럼 그리드를 사용하고 주요 컴포넌트에 20px border-radius를 적용합니다. 핵심 제약 사항: 텍스트에 순수 블랙(#000000)을 사용하지 말고 #333333을 사용하세요. 날카로운 모서리를 사용하지 말고 둥글고 친근한 미학을 유지하세요. 무겁거나 장식적인 세리프 서체를 사용하지 마세요."
+    }
+  },
+  "desc": {
+    "en": {
+      "palette": "The palette is anchored by a crisp white background and a vibrant electric blue (#343CED) primary accent, complemented by soft pastel blue (#D2D4FB) gradients and dark gray (#333333) text.",
+      "layout": "The layout follows a spacious 12-column grid with a split hero section, clear content hierarchy, and generous padding.",
+      "interaction": "Interactions are polished with subtle transitions (0.25s ease-in-out) and clear visual feedback on buttons and interactive elements.",
+      "motion": "Motion is restrained and professional, using opacity fades and smooth easing for state changes and component entry.",
+      "notes": "The site exemplifies a modern, premium SaaS aesthetic, balancing technical authority with an approachable, friendly UI through rounded corners and soft gradients."
+    },
+    "zh-CN": {
+      "palette": "调色盘以干净的白色背景为基底，搭配鲜明的电光蓝（#343CED）作为主强调色，辅以柔和的粉彩蓝（#D2D4FB）渐变和深灰色（#333333）文本。",
+      "layout": "布局采用宽裕的12栏网格，包含分栏式主视觉区、清晰的内容层级和充足的内边距。",
+      "interaction": "交互设计精细打磨，包含细腻的过渡效果（0.25s ease-in-out）以及按钮与交互元素上清晰的视觉反馈。",
+      "motion": "动效克制而专业，采用不透明度渐变和平滑缓动来处理状态变化与组件入场。",
+      "notes": "该网站展现了现代、高端的SaaS美学，通过圆角与柔和渐变，在技术权威感与平易友好的UI界面间取得平衡。"
+    },
+    "zh-TW": {
+      "palette": "調色盤以純白背景為基底，搭配鮮明的電光藍（#343CED）作為主要強調色，輔以柔和的淡藍漸層（#D2D4FB）與深灰色文字（#333333）。",
+      "layout": "版面採用寬敞的 12 欄格線系統，包含分割式首頁區塊、清晰的內容層級，以及充裕的內邊距。",
+      "interaction": "互動體驗講究細膩，採用微妙的過渡效果（0.25s ease-in-out），並在按鈕與互動元件上提供明確的視覺反饋。",
+      "motion": "動態效果克制而專業，運用透明度淡入淡出與流暢的緩動函式，處理狀態變換與元件進入動畫。",
+      "notes": "本網站展現了現代、高端的 SaaS 美學，透過圓角與柔和漸層，在技術專業感與親切友善的 UI 之間取得平衡。"
+    },
+    "ja": {
+      "palette": "パレットはクリーンな白背景と鮮やかなエレクトリックブルー（#343CED）をアクセントに据え、柔らかなパステルブルー（#D2D4FB）のグラデーションとダークグレー（#333333）のテキストで補完します。",
+      "layout": "レイアウトは広々とした12カラムグリッドに従い、ヒーローセクションを分割し、明確なコンテンツ階層と十分なパディングを提供します。",
+      "interaction": "インタラクションは、精微なトランジション（0.25s ease-in-out）と、ボタンやインタラクティブ要素への明確な視覚フィードバックにより洗練されています。",
+      "motion": "モーションは控えめかつプロフェッショナルで、オペシティのフェードとスムーズなイージングを、状態変化やコンポーネントのエントリに使用します。",
+      "notes": "このサイトは、モダンでプレミアムなSaaSの美学を体現し、角丸や柔らかなグラデーションを通じて、技術的権威と親しみやすいUIのバランスを取っています。"
+    },
+    "ko": {
+      "palette": "팔레트는 깔끔한 흰색 배경과 밝은 일렉트릭 블루(#343CED)를 주요 포인트로 하며, 부드러운 파스텔 블루(#D2D4FB) 그라디언트와 다크 그레이(#333333) 텍스트로 보완됩니다.",
+      "layout": "레이아웃은 12칼럼 그리드를 기반으로 하며, 분리된 히어로 섹션, 명확한 콘텐츠 계층 구조, 넉넉한 padding을 갖추고 있습니다.",
+      "interaction": "인터랙션은 미세한 전환(0.25s ease-in-out)과 버튼 및 인터랙티브 요소의 명확한 시각적 피드백으로 세련되게 구성됩니다.",
+      "motion": "모션은 절제되고 전문적이며, 상태 변경 및 컴포넌트 진입 시 opacity 페이드와 부드러운 ease-in-out을 사용합니다.",
+      "notes": "이 사이트는 모던하고 프리미엄한 SaaS 미학을 보여주며, 둥근 모서리와 부드러운 그라디언트를 통해 기술적 권위와 접근 가능하고 친근한 UI의 균형을 맞추고 있습니다."
+    }
+  },
+  "narrative": {
+    "en": {
+      "ch1_intro": "Glean's design system is built on the principle of a polished, high-trust enterprise platform. It functions as a professional yet modern interface for complex AI search, translating technical capability into clear, approachable form.",
+      "ch2_intro": "The palette is anchored by a clean white base and a high-chroma electric blue accent, with color used sparingly for emphasis and clarity. Soft pastel gradients provide depth without competing with the primary information hierarchy.",
+      "ch2_outro": "The system's color principle is one of restraint, using a vibrant accent against a neutral field to guide focus without visual noise.",
+      "ch3_intro": "Typography employs a neutral sans-serif for primary text to ensure readability, with a slim geometric sans reserved for occasional display emphasis. This pairing establishes a voice that is authoritative yet contemporary.",
+      "ch4_intro": "A strict 4px base grid underpins all spatial relationships, creating a consistent and predictable vertical rhythm.",
+      "ch5_intro": "Surface definition relies on subtle blue-tinted shadows and fine 1px borders to create gentle depth layers. The system avoids heavy borders, using elevation and soft edges to lift components from the background.",
+      "ch6_intro": "The layout skeleton is a structured 12-column grid, providing a flexible foundation for both content-dense and spacious compositions. The hero section is conceived as a split layout, balancing large typographic statements with illustrative elements.",
+      "ch7_intro": "Motion philosophy prioritizes professional polish over flash, using restrained opacity fades and smooth easing curves for state changes. Transitions are consistent at 0.25 seconds, providing feedback that is immediate yet unhurried.",
+      "ch8_intro": "The editorial voice is professional, helpful, and confident, matching the platform's technical authority. Language is direct and action-oriented, avoiding jargon and aggressive sales rhetoric.",
+      "ch8_outro": "The system deliberately avoids ornate typography, sharp corners, and saturated secondary colors in favor of a friendly, rounded, and gradient-softened aesthetic."
+    },
+    "zh-CN": {
+      "ch1_intro": "Glean的设计系统建立于打造一个精致、高可信度企业平台的原则之上。它作为一个专业而现代的界面，服务于复杂的AI搜索，将技术能力转化为清晰、易接近的形式。",
+      "ch2_intro": "色彩基调以干净的白色底色和高饱和度的电光蓝点缀色为核心，色彩运用克制，仅用于强调和提升清晰度。柔和的淡色渐变提供层次感，但不与主要信息层级竞争。",
+      "ch2_outro": "该系统的色彩原则是克制，以活力的点缀色搭配中性底色，在避免视觉干扰的同时引导焦点。",
+      "ch3_intro": "字体方面，主文本采用中性的无衬线字体以确保可读性，而纤细的几何无衬线字体则保留用于偶尔的展示性强调。这种组合确立了一种权威而现代的语调。",
+      "ch4_intro": "严格的4px基础网格支撑着所有空间关系，创造出一致且可预测的垂直节奏。",
+      "ch5_intro": "表面定义依赖于微妙的蓝色调阴影和精细的1px边框，以创造柔和的层次感。系统避免使用粗重边框，而是利用高度和柔和边缘将组件从背景中提升出来。",
+      "ch6_intro": "布局骨架是一个结构化的12栏网格，为内容密集和留白丰富的构图提供了灵活的基础。首屏部分被设计为分割式布局，平衡了大型排版陈述与插图元素。",
+      "ch7_intro": "动效理念优先考虑专业的精致感而非炫技，使用克制的透明度渐变和平滑的缓动曲线来处理状态变化。过渡时间统一为0.25秒，提供即时但不仓促的反馈。",
+      "ch8_intro": "编辑语调专业、乐于助人且充满自信，与平台的技术权威性相匹配。语言直接且以行动为导向，避免使用行话和激进的销售说辞。",
+      "ch8_outro": "该系统刻意避免华丽的字体、尖锐的角落和饱和的次要色彩，转而追求友好、圆润且经过渐变柔化的美学风格。"
+    },
+    "zh-TW": {
+      "ch1_intro": "Glean 的設計系統建立在精緻、高信賴企業平台的原則之上。它作為複雜 AI 搜尋的專業現代介面，將技術能力轉化為清晰、易於理解的形式。",
+      "ch2_intro": "色彩基調以純淨的白色為基底，搭配高飽和度的電藍作為強調色，色彩運用克制，僅用於強調與提升清晰度。柔和的漸層粉彩色調增添深度，但不會干擾主要資訊層級。",
+      "ch2_outro": "系統的色彩原則是克制，以活潑的強調色搭配中性背景，引導視覺焦点，避免視覺雜訊。",
+      "ch3_intro": "字體採用中性無襯線體作為主要文字，確保可讀性；幾何無襯線體則保留用於偶爾的展示強調。這種搭配塑造出權威又具當代感的語氣。",
+      "ch4_intro": "嚴謹的 4px 基礎網格構建所有空間關係，創造一致且可預期的垂直節奏。",
+      "ch5_intro": "表面定義依賴細微的藍色調陰影與精細的 1px 邊框，創造柔和的深度層次。系統避免厚重邊框，運用高度與柔邊緣將元件從背景中襯托出來。",
+      "ch6_intro": "版面骨架採用結構化的 12 欄網格，為內容密集與寬鬆的構圖提供靈活基礎。主視覺區塊設計為分割版面，平衡大型字體陳述與插圖元素。",
+      "ch7_intro": "動態設計哲學優先考慮專業精緻度，而非炫技。運用克制的透明度漸隱與平滑的緩動曲線實現狀態轉換。過渡時間統一為 0.25 秒，提供即時但從容的回饋。",
+      "ch8_intro": "文字語氣專業、樂於助人且充滿自信，與平台的技術權威性相符。語言直接且以行動為導向，避免行話與激進的銷售辭令。",
+      "ch8_outro": "系統刻意避免繁複字體、尖銳邊角與飽和的次要色彩，取而代之的是友善、圓潤且漸層柔化的美學。"
+    },
+    "ja": {
+      "ch1_intro": "Gleanのデザインシステムは、洗練された、信頼性の高いエンタープライズプラットフォームという原則の上に構築されています。複雑なAI検索に対する、プロフェッショナルでありながらモダンなインターフェースとして機能し、技術的な能力を明確で親しみやすい形に変換します。",
+      "ch2_intro": "カラーパレットは、クリーンなホワイトベースと高彩度のエレクトリックブルーアクセントを基調とし、色は強調と明瞭さのために慎重に使用されています。柔らかなパステルグラデーションは、主要な情報階層と競合することなく、奥行きを提供します。",
+      "ch2_outro": "システムのカラー原則は抑制にあり、中立的なフィールドに対して鮮やかなアクセントを使用することで、視覚的なノイズなしに焦点を導きます。",
+      "ch3_intro": "タイポグラフィは、可読性を確保するために主要テキストにニュートラルなsans-serifを採用し、時折のディスプレイ強調にはスリムなgeometrical sansを保留しています。この組み合わせは、権威がありながら現代的な声を確立します。",
+      "ch4_intro": "厳密な4pxベースグリッドがすべての空間関係を基盤とし、一貫性のある予測可能な縦のリズムを生み出します。",
+      "ch5_intro": "サーフェスの定義は、微妙なブルーチャドウと細い1pxボーダーに依存し、穏やかな深みのレイヤーを創造します。システムは太いボーダーを避け、levationと柔らかなエッジを使用してコンポーネントを背景から浮き立たせます。",
+      "ch6_intro": "レイアウトのスケルトンは、構造化された12カラムグリッドであり、コンテンツが密集した構成と広々とした構成の両方に柔軟な基盤を提供します。ヒーローセクションは分割レイアウトとして構想され、大きなタイポグラフィの声明とイラスト要素をバランスさせます。",
+      "ch7_intro": "モーションの哲学は、目玉よりもプロフェッショナルな磨きを優先し、状態変化のために抑制されたopacityフェードと滑らかなイージングカーブを使用します。遷移は0.25秒で一貫しており、即応性がありながら急がないフィードバックを提供します。",
+      "ch8_intro": "エディトリアルな声は、プラットフォームの技術的権威に見合うように、プロフェッショナルで親切かつ自信に満ちています。言語は直接的で行動指向であり、専門用語や攻撃的な営業レトリックを避けます。",
+      "ch8_outro": "システムは、華やかなタイポグラフィ、鋭い角、彩度の高いセカンダリカラーを意図的に避け、親しみやすく丸みのある、グラデーションで柔らかくした美学を採用しています。"
+    },
+    "ko": {
+      "ch1_intro": "Glean의 디자인 시스템은 세련되고 높은 신뢰를 주는 기업 플랫폼의 원칙 위에 구축되었습니다. 복잡한 AI 검색을 위한 전문적이면서도 현대적인 인터페이스로 작동하며, 기술적 역량을 명확하고 접근하기 쉬운 형태로 번역합니다.",
+      "ch2_intro": "팔레트는 깨끗한 화이트 베이스와 고채도의 일렉트릭 블루 악센트로 중심을 잡으며, 색상은 강조와 명확성을 위해 절제적으로 사용됩니다. 부드러운 파스텔 그라디언트는 기본 정보 계층과 경쟁하지 않으면서 깊이감을 제공합니다.",
+      "ch2_outro": "시스템의 색상 원칙은 절제에 있으며, 밝은 악센트를 중립적인 배경 위에 사용하여 시각적 잡음 없이 초점을 유도합니다.",
+      "ch3_intro": "타이포그래피는 가독성을 위해 본문에 중립적인 산세리프를 사용하며, 가끔의 전시용 강조에는 가느다란 기하학적 산세리프를 배정합니다. 이 조합은 권위적이면서도 현대적인 목소리를 확립합니다.",
+      "ch4_intro": "엄격한 4px 기본 그리드가 모든 공간 관계의 토대를 이루어 일관되고 예측 가능한 수직 리듬을 만듭니다.",
+      "ch5_intro": "표면 정의는 은은한 블루 틴트의 그림자와 얇은 1px 테두리를 사용하여 부드러운 깊이층을 만듭니다. 시스템은 무거운 테두리를 피하고, 높이감과 부드러운 가장자리를 사용하여 구성 요소를 배경에서 띄웁니다.",
+      "ch6_intro": "레이아웃 골격은 12컬럼 그리드 구조로, 콘텐츠가빽빽한 구성과 여유로운 구성 모두를 위한 유연한 기반을 제공합니다. 히어로 섹션은 분할 레이아웃으로 구상되어, 대형 타이포그래피 진술과 일러스트레이션 요소의 균형을 맞춥니다.",
+      "ch7_intro": "모션 철학은 화려함보다는 전문적인 세련됨을 우선시하며, 상태 변화를 위해 절제된 페이드 인/아웃과 부드러운 이징 곡선을 사용합니다. 전환은 0.25초로 일관되어, 즉각적이면서도 서두르지 않는 피드백을 제공합니다.",
+      "ch8_intro": "에디토리얼 목소리는 전문적이고, 도움이 되며, 자신감 넘치며, 플랫폼의 기술적 권위와 일치합니다. 언어는 직접적이며 행동 지향적이며, 전문 용어와 공격적인 세일즈 레토릭을 피합니다.",
+      "ch8_outro": "시스템은 화려한 타이포그래피, 날카로운 모서리, 채도 높은 보조 색상을 의도적으로 피하고, 친근하고 둥글며, 그라디언트로 부드럽게 처리된 미학을 지향합니다."
+    }
+  }
+}

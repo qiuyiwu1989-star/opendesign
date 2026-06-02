@@ -1,0 +1,628 @@
+{
+  "id": "astro",
+  "schema_version": "0.3",
+  "url": "https://astro.build",
+  "title": "Astro",
+  "image": "",
+  "tags": [
+    "devtools",
+    "framework"
+  ],
+  "status": "completed",
+  "added_at": "2026-06-02",
+  "added_by": "expand-200",
+  "_meta": {
+    "vision_model": "mimo-v2.5",
+    "vision_prompt_version": "0.3",
+    "vision_source": "playwright-extract:astro",
+    "vision_grounded": true,
+    "vision_at": "2026-06-02T10:25:18+00:00",
+    "vision_tokens": 18351,
+    "vision_cost_usd": 0.2039,
+    "translation_model": "mimo-v2.5",
+    "translation_at": "2026-06-02T10:26:34+00:00",
+    "translation_tokens": 17138,
+    "translation_cost_usd": 0.0571,
+    "narrative_model": "mimo-v2.5",
+    "narrative_prompt_version": "0.3",
+    "narrative_at": "2026-06-02T10:26:40+00:00",
+    "narrative_tokens": 2076,
+    "narrative_cost_usd": 0.0138,
+    "narrative_status": "ok",
+    "total_cost_usd": 0.2748
+  },
+  "spec": {
+    "colors": {
+      "bg": "#0D0F14",
+      "bgSoft": "#12151C",
+      "bgQuiet": null,
+      "ink": "#F2F6FA",
+      "inkSoft": "#BFC1C9",
+      "muted": "#858B98",
+      "mutedSoft": null,
+      "accent": "#54B9FF",
+      "line": "rgba(133, 139, 152, 0.2)"
+    },
+    "typography": {
+      "display": "grotesque-sans",
+      "body": "grotesque-sans",
+      "mono": "monospace",
+      "scale": [
+        {
+          "token": "display",
+          "size": 64,
+          "lh": 1.0,
+          "weight": 700,
+          "ls": "-1px"
+        },
+        {
+          "token": "h2",
+          "size": 30,
+          "lh": 1.2,
+          "weight": 600,
+          "ls": "0px"
+        },
+        {
+          "token": "body",
+          "size": 16,
+          "lh": 1.5,
+          "weight": 400,
+          "ls": "0px"
+        },
+        {
+          "token": "caption",
+          "size": 13.6,
+          "lh": 1.65,
+          "weight": 400,
+          "ls": "0px"
+        }
+      ]
+    },
+    "spacing": {
+      "base": 4,
+      "scale": [
+        4,
+        8,
+        12,
+        16,
+        24,
+        32,
+        48,
+        64,
+        96
+      ]
+    },
+    "surfaces": {
+      "radius": {
+        "sm": 4,
+        "md": 8,
+        "lg": 16,
+        "pill": 9999
+      }
+    },
+    "layout": {
+      "container": 1280,
+      "paragraph": 680,
+      "columns": 12,
+      "gutter": 24,
+      "breakpoints": [
+        768,
+        1024
+      ]
+    },
+    "motion": {
+      "durations": {
+        "micro": 150,
+        "small": 300,
+        "medium": 500
+      },
+      "easing": "cubic-bezier(0.4, 0, 0.2, 1)"
+    }
+  },
+  "spec_i18n": {
+    "en": {
+      "identity": {
+        "keywords": [
+          "developer-focused",
+          "content-driven",
+          "fast",
+          "modern",
+          "modern-framework"
+        ],
+        "analogy": "A high-performance sports car for building websites.",
+        "oneLiner": "The web framework for content-driven websites."
+      },
+      "colors": {
+        "principle": "Deep, dark backgrounds create a premium, high-contrast canvas for vibrant gradients and crisp white typography."
+      },
+      "typography": {
+        "rules": [
+          "Use clean, geometric grotesque-sans for headlines and body text to maintain a technical, modern feel.",
+          "Deploy monospace fonts strictly for code snippets and CLI commands.",
+          "Maintain tight letter spacing on large display text for impact."
+        ],
+        "scaleUses": [
+          "Hero headline",
+          "Section headlines",
+          "Paragraphs",
+          "Small text and captions"
+        ]
+      },
+      "spacing": {
+        "rhythm": "Based on a 4px grid, with generous padding (16px, 24px, 32px) defining section boundaries and component spacing."
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(24, 24, 27, 0.3) 0px 1px 2px 0px",
+          "rgba(0, 0, 0, 0.1) 0px 1px 3px 0px"
+        ],
+        "borders": "1px solid rgba(133, 139, 152, 0.2)"
+      },
+      "layout": {
+        "skeleton": "Centered, single-column hero with stacked content, transitioning into a multi-column grid for theme showcases."
+      },
+      "components": {
+        "button": "Pill-shaped with solid backgrounds (white or purple) and high contrast text.",
+        "card": "Dark background with subtle borders and rounded corners, used to showcase themes.",
+        "chip": "Pill-shaped category filters with subtle borders.",
+        "input": "Dark background code block with monospace font and a copy icon.",
+        "hero": "Full-width section with a striking linear gradient background and centered typography."
+      },
+      "motion": {
+        "patterns": [
+          "Smooth color and background-color transitions for interactive elements.",
+          "Subtle opacity and box-shadow transitions for hover states.",
+          "Transform transitions for interactive feedback."
+        ]
+      },
+      "interaction": {
+        "hover": "Smooth color and background-color transitions with a standard easing curve.",
+        "click": "Standard pointer cursor with no immediate, jarring visual shifts.",
+        "transition": "150ms to 500ms transitions for color, background-color, border-color, fill, stroke, opacity, box-shadow, and transform.",
+        "keyboard": "Focusable elements receive a custom focus ring or outline."
+      },
+      "voice": {
+        "tone": "Confident, developer-centric, and straightforward.",
+        "headlineStyle": "Bold, direct, and value-oriented statements.",
+        "ctaStyle": "Clear, action-oriented phrases like 'Get Started'.",
+        "avoid": [
+          "Flowery or overly marketing-heavy language",
+          "Passive voice",
+          "Technical jargon without context"
+        ]
+      },
+      "donts": [
+        "Don't use bright, saturated backgrounds — screenshot shows deep, dark gradients.",
+        "Don't use decorative or serif fonts — screenshot shows clean, geometric sans-serifs.",
+        "Don't use sharp, rectangular buttons — screenshot shows pill-shaped buttons with full rounding.",
+        "Don't use thin, light text weights for headlines — screenshot shows bold (700) and semi-bold (600) weights.",
+        "Don't use a busy or cluttered layout — screenshot shows generous white space and a clear hierarchy.",
+        "Don't use a wide range of colors — screenshot shows a limited palette of dark blues, purples, and whites."
+      ],
+      "systemPrompt": "Astro is a modern web framework designed for content-driven websites. The design is premium and developer-focused, utilizing a dark mode palette with a deep navy (#0D0F14) base, vibrant purple gradients, and crisp white (#F2F6FA) text. Typography is clean and modern, relying on humanist/grotesque sans-serif categories for a technical feel. Critical design rules include: 1. Always use dark, high-contrast backgrounds. 2. Use pill-shaped (border-radius: 9999px) buttons for primary actions. 3. Never use decorative serif fonts for headlines or body text."
+    },
+    "zh-CN": {
+      "identity": {
+        "keywords": [
+          "开发者导向",
+          "内容驱动",
+          "快速",
+          "现代",
+          "现代框架"
+        ],
+        "analogy": "一辆用于构建网站的高性能跑车。",
+        "oneLiner": "为内容驱动型网站打造的 Web 框架。"
+      },
+      "colors": {
+        "principle": "深邃的暗色背景营造出高级、高对比度的画布，以衬托鲜亮的渐变和清晰的白色排版。"
+      },
+      "typography": {
+        "rules": [
+          "标题和正文使用干净、几何感的 grotesque-sans 字体，以保持技术感和现代感。",
+          "代码片段和 CLI 命令严格使用等宽字体。",
+          "大号展示文本保持紧凑的字间距，以增强冲击力。"
+        ],
+        "scaleUses": [
+          "主标题",
+          "章节标题",
+          "段落",
+          "小字和说明文字"
+        ]
+      },
+      "spacing": {
+        "rhythm": "基于 4px 网格，使用充足的 padding（16px, 24px, 32px）来定义章节边界和组件间距。"
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(24, 24, 27, 0.3) 0px 1px 2px 0px",
+          "rgba(0, 0, 0, 0.1) 0px 1px 3px 0px"
+        ],
+        "borders": "1px solid rgba(133, 139, 152, 0.2)"
+      },
+      "layout": {
+        "skeleton": "居中的单栏主视觉区域，内容垂直堆叠，随后过渡到用于主题展示的多栏网格。"
+      },
+      "components": {
+        "button": "药丸形状，使用实色背景（白色或紫色），搭配高对比度文字。",
+        "card": "深色背景，带有微妙边框和圆角，用于展示主题。",
+        "chip": "药丸形的类别过滤器，带有微妙边框。",
+        "input": "深色背景的代码块，使用等宽字体，并配有复制图标。",
+        "hero": "全宽区域，采用醒目的线性渐变背景，文字居中。"
+      },
+      "motion": {
+        "patterns": [
+          "交互元素使用平滑的颜色和背景色过渡。",
+          "悬停状态使用微妙的透明度和 box-shadow 过渡。",
+          "交互反馈使用 transform 过渡。"
+        ]
+      },
+      "interaction": {
+        "hover": "平滑的颜色和背景色过渡，采用标准缓动曲线。",
+        "click": "标准指针光标，无突兀的视觉跳变。",
+        "transition": "150ms 到 500ms 的过渡，应用于颜色、背景色、边框颜色、fill、stroke、透明度、box-shadow 和 transform。",
+        "keyboard": "可聚焦元素获得自定义的聚焦环或轮廓线。"
+      },
+      "voice": {
+        "tone": "自信、以开发者为中心、直接明了。",
+        "headlineStyle": "粗体、直接、以价值为导向的陈述。",
+        "ctaStyle": "清晰、以行动为导向的短语，例如“立即开始”。",
+        "avoid": [
+          "浮夸或过度营销化的语言",
+          "被动语态",
+          "缺乏上下文的技术术语"
+        ]
+      },
+      "donts": [
+        "不要使用明亮、饱和的背景——截图显示的是深邃的暗色渐变。",
+        "不要使用装饰性或衬线字体——截图显示的是干净的几何无衬线字体。",
+        "不要使用尖锐的矩形按钮——截图显示的是全圆角药丸形按钮。",
+        "不要在标题中使用纤细、浅色的字重——截图显示的是粗体（700）和半粗体（600）字重。",
+        "不要使用拥挤或杂乱的布局——截图显示的是充足的留白和清晰的层次结构。",
+        "不要使用范围广泛的色彩——截图显示的是有限的调色板，包含深蓝、紫色和白色。"
+      ],
+      "systemPrompt": "Astro 是一个为内容驱动型网站设计的现代 Web 框架。其设计高端且面向开发者，采用深色模式调色板，以深海军蓝（#0D0F14）为基底，搭配鲜亮的紫色渐变和清晰的白色（#F2F6FA）文字。排版干净现代，依赖 humanist/grotesque sans-serif 字体类别以营造技术感。关键设计规则包括：1. 始终使用深色、高对比度的背景。2. 主要操作按钮使用药丸形状（border-radius: 9999px）。3. 标题和正文绝不使用装饰性衬线字体。"
+    },
+    "zh-TW": {
+      "identity": {
+        "keywords": [
+          "以開發者為核心",
+          "內容驅動",
+          "快速",
+          "現代",
+          "現代化框架"
+        ],
+        "analogy": "如同打造網站的高性能跑車。",
+        "oneLiner": "內容驅動網站的網路框架。"
+      },
+      "colors": {
+        "principle": "深邃的深色背景，為鮮明的漸層與清晰的白色字體，創造出高級且高對比度的畫布。"
+      },
+      "typography": {
+        "rules": [
+          "標題與內文使用簡潔、幾何感的人文/怪誕無襯線字體，以維持技術感與現代感。",
+          "程式碼片段與 CLI 指令嚴格使用等寬字體。",
+          "大型展示文字保持緊湊的字距，以增強視覺衝擊力。"
+        ],
+        "scaleUses": [
+          "首頁標題",
+          "區塊標題",
+          "段落",
+          "小型文字與圖說"
+        ]
+      },
+      "spacing": {
+        "rhythm": "基於 4px 格線系統，採用寬裕的留白（16px、24px、32px）來界定區塊邊界與元件間距。"
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(24, 24, 27, 0.3) 0px 1px 2px 0px",
+          "rgba(0, 0, 0, 0.1) 0px 1px 3px 0px"
+        ],
+        "borders": "1px solid rgba(133, 139, 152, 0.2)"
+      },
+      "layout": {
+        "skeleton": "置中的單欄首頁區域，採用堆疊式內容，隨後過渡為多欄網格以展示主題。"
+      },
+      "components": {
+        "button": "膠囊形狀，採用實心背景（白色或紫色）並搭配高對比度文字。",
+        "card": "深色背景，帶有細微邊框與圓角，用於展示主題。",
+        "chip": "膠囊形狀的分類篩選器，帶有細微邊框。",
+        "input": "深色背景的程式碼區塊，使用等寬字體並配有複製圖示。",
+        "hero": "全寬區塊，擁有引人注目的線性漸層背景與置中的字體排印。"
+      },
+      "motion": {
+        "patterns": [
+          "互動元素的色彩與背景色過渡效果平滑。",
+          "懸停狀態的透明度與外框陰影過渡效果細微。",
+          "互動回饋的變形過渡效果。"
+        ]
+      },
+      "interaction": {
+        "hover": "色彩與背景色過渡效果平滑，採用標準緩動曲線。",
+        "click": "標準指標游標，無突兀的視覺跳動。",
+        "transition": "色彩、背景色、邊框顏色、填滿、描邊、透明度、外框陰影與變形的過渡時間為 150 毫秒至 500 毫秒。",
+        "keyboard": "可聚焦的元素會獲得自訂的聚焦環或輪廓。"
+      },
+      "voice": {
+        "tone": "自信、以開發者為中心、直截了當。",
+        "headlineStyle": "粗體、直接、以價值為導向的陳述。",
+        "ctaStyle": "清晰、以行動為導向的短語，例如「立即開始」。",
+        "avoid": [
+          "過於華麗或行銷味過重的語言",
+          "被動語態",
+          "缺乏脈絡的技術術語"
+        ]
+      },
+      "donts": [
+        "勿使用明亮、飽和的背景——截圖顯示的是深邃的深色漸層。",
+        "勿使用裝飾性或襯線字體——截圖顯示的是簡潔、幾何感的無襯線字體。",
+        "勿使用尖銳的矩形按鈕——截圖顯示的是完全圓角的膠囊形狀按鈕。",
+        "勿使用纖細、淺色的標題字重——截圖顯示的是粗體（700）與半粗體（600）字重。",
+        "勿使用擁擠或雜亂的佈局——截圖顯示的是寬裕的留白與清晰的層次結構。",
+        "勿使用過多色彩——截圖顯示的是受限的深藍、紫色與白色調色板。"
+      ],
+      "systemPrompt": "Astro 是一款專為內容驅動網站設計的現代網路框架。其設計風格高級且以開發者為核心，採用深色模式調色板，基底為深邃的海軍藍（#0D0F14），搭配鮮明的紫色漸層與純白（#F2F6FA）文字。字體排印簡潔現代，依賴人文/怪誕無襯線字體分類以營造技術感。關鍵設計規則包括：1. 始終使用深色、高對比度的背景。2. 主要操作按鈕使用膠囊形狀（border-radius: 9999px）。3. 標題或內文切勿使用裝飾性襯線字體。"
+    },
+    "ja": {
+      "identity": {
+        "keywords": [
+          "開発者向け",
+          "コンテンツドリブン",
+          "高速",
+          "モダン",
+          "モダンフレームワーク"
+        ],
+        "analogy": "ウェビルド用の高性能スポーツカー。",
+        "oneLiner": "コンテンツドリブンなウェブサイトのためのウェブフレームワーク。"
+      },
+      "colors": {
+        "principle": "深く暗い背景が、鮮やかなグラデーションやクリスピーな白タイポグラフィのための、プレミアムでハイコントラストなキャンバスを生み出します。"
+      },
+      "typography": {
+        "rules": [
+          "ヘッドラインと本文には、テクニカルでモダンな印象を維持するため、クリーンな幾何学的グロテスクサンスを使用します。",
+          "コードスニペットやCLIコマンドには、モノスペースフォントを厳密に使用します。",
+          "インパクトを出すため、大型ディスプレイテキストの字間はきつめに設定します。"
+        ],
+        "scaleUses": [
+          "ヒーローヘッドライン",
+          "セクションヘッドライン",
+          "段落",
+          "小さなテキストとキャプション"
+        ]
+      },
+      "spacing": {
+        "rhythm": "4pxグリッドに基づき、セクションの境界やコンポーネント間の余白を定義するための十分なパディング（16px、24px、32px）を採用します。"
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(24, 24, 27, 0.3) 0px 1px 2px 0px",
+          "rgba(0, 0, 0, 0.1) 0px 1px 3px 0px"
+        ],
+        "borders": "1px solid rgba(133, 139, 152, 0.2)"
+      },
+      "layout": {
+        "skeleton": "中央揃えのシングルカラムヒーローには積み上げられたコンテンツを配置し、テーマのショーケースにはマルチカラムグリッドへと移行します。"
+      },
+      "components": {
+        "button": "白色や紫色などの塗りつぶし背景と、ハイコントラストなテキストを持つ、ピル形。",
+        "card": "テーマをショーケースするために使用される、角丸で複雑なボーダーを持つダーク背景。",
+        "chip": "複雑なボーダーを持つ、ピル形のカテゴリフィルター。",
+        "input": "モノスペースフォントとコピーアイコンを備えた、ダーク背景のコードブロック。",
+        "hero": "印象的なリニアグラデーション背景と中央揃えのタイポグラフィを持つ、フル幅セクション。"
+      },
+      "motion": {
+        "patterns": [
+          "インタラクティブな要素に対する滑らかなカラーおよびbackground-colorトランジション。",
+          "ホバーステートに対する、控えめな不透明度およびbox-shadowトランジション。",
+          "インタラクティブなフィードバックのためのトランスフォームトランジション。"
+        ]
+      },
+      "interaction": {
+        "hover": "標準的なイージングカーブによる、滑らかなカラーおよびbackground-colorトランジション。",
+        "click": "直ちに激しい視覚的変化を伴わない、標準的なポインターカーソル。",
+        "transition": "color、background-color、border-color、fill、stroke、opacity、box-shadow、およびtransformに対する、150msから500msのトランジション。",
+        "keyboard": "フォーカス可能な要素には、カスタムフォーカスリングまたはアウトラインを適用します。"
+      },
+      "voice": {
+        "tone": "自信があり、開発者中心で、率直。",
+        "headlineStyle": "太字で、直接的、価値を重視した声明。",
+        "ctaStyle": "'Get Started' のように明確で行動を促すフレーズ。",
+        "avoid": [
+          "過度に華やかまたはマーケティング色の強い言葉",
+          "受動態",
+          "文脈のない技術用語"
+        ]
+      },
+      "donts": [
+        "明るく彩度の高い背景は使用しない — スクリーンショットでは深く暗いグラデーションが示されています。",
+        "装飾的またはセリフ体フォントは使用しない — スクリーンショットではクリーンで幾何学的なサンセリフが示されています。",
+        "鋭角で長方形のボタンは使用しない — スクリーンショットでは完全に角丸のピル形ボタンが示されています。",
+        "ヘッドラインに細く軽いウェイトのテキストは使用しない — スクリーンショットでは太字（700）とセミボールド（600）のウェイトが示されています。",
+        "雑然としたレイアウトは使用しない — スクリーンショットでは十分なホワイトスペースと明確な階層構造が示されています。",
+        "多彩なカラーパレットは使用しない — スクリーンショットではダークブルー、パープル、ホワイトの限定されたパレットが示されています。"
+      ],
+      "systemPrompt": "Astroはコンテンツドリブンなウェブサイトのために設計された、モダンなウェブフレームワークです。デザインはプレミアムで開発者中心であり、ダークモードパレットを採用しています。ベースは深いネイビー（#0D0F14）、鮮やかな紫のグラデーション、クリスピーな白（#F2F6FA）テキストです。タイポグラフィはクリーンでモダンで、テクニカルな印象のためにヒューマニスト/グロテスクサンセリフカテゴリに依存しています。重要なデザインルールには以下の点が含まれます：1. 常に暗くハイコントラストな背景を使用する。2. 主要なアクションにはピル形（border-radius: 9999px）のボタンを使用する。3. ヘッドラインや本文に装飾的なセリフ体フォントを決して使用しない。"
+    },
+    "ko": {
+      "identity": {
+        "keywords": [
+          "開発者中心",
+          "コンテンツドリブン",
+          "高速",
+          "モダン",
+          "モダンフレームワーク"
+        ],
+        "analogy": "ウェブサイト構築のための高性能スポーツカーのような存在です。",
+        "oneLiner": "コンテンツドリブンなウェブサイトのためのWebフレームワーク。"
+      },
+      "colors": {
+        "principle": "深く暗い背景が、鮮やかなグラデーションとクリスピーな白のタイポグラフィのためのプレミアムでハイコントラストなキャンバスを創造します。"
+      },
+      "typography": {
+        "rules": [
+          "見出しと本文には、技術的でモダンな感覚を維持するため、クリーンで幾何学的な grotesque-sans を使用します。",
+          "コードスニペットやCLIコマンドには、厳格に monospace フォントを採用します。",
+          "インパクトを与えるため、大きな表示テキストでは字間をきつく保ちます。"
+        ],
+        "scaleUses": [
+          "ヒーロー見出し",
+          "セクション見出し",
+          "段落",
+          "小テキストとキャプション"
+        ]
+      },
+      "spacing": {
+        "rhythm": "4pxグリッドに基づき、セクション境界やコンポーネント間隔を定義するため、十分なパディング（16px、24px、32px）を設けています。"
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(24, 24, 27, 0.3) 0px 1px 2px 0px",
+          "rgba(0, 0, 0, 0.1) 0px 1px 3px 0px"
+        ],
+        "borders": "1px solid rgba(133, 139, 152, 0.2)"
+      },
+      "layout": {
+        "skeleton": "中央揃えの単一カラムヒーロー（コンテンツは縦積み）から、テーマの見せ場向けの複数カラムグリッドに変化します。"
+      },
+      "components": {
+        "button": "白または紫の実線背景と高いコントラストのテキストを持つ、ピル型（完全な丸み）のボタンです。",
+        "card": "微妙なボーダーと角丸を持つダーク背景で、テーマの見せ場に使用します。",
+        "chip": "微妙なボーダーを持つ、ピル型のカテゴリフィルターです。",
+        "input": "monospaceフォントとコピーアイコンを備えた、ダーク背景のコードブロックです。",
+        "hero": "印象的なリニアグラデーション背景と中央揃えのタイポグラフィを持つ、フルワイドセクションです。"
+      },
+      "motion": {
+        "patterns": [
+          "インタラクティブ要素のための滑らかな色と背景色のトランジション。",
+          "ホバー状態のための繊細な不透明度とボックスシャドウのトランジション。",
+          "インタラクティブなフィードバックのためのトランスフォームトランジション。"
+        ]
+      },
+      "interaction": {
+        "hover": "標準的なイージングカーブによる、滑らかな色と背景色のトランジション。",
+        "click": "即座に激しい視覚的変動がなく、標準のポインターカーソル。",
+        "transition": "色、背景色、ボーダー色、fill、stroke、不透明度、ボックスシャドウ、トランスフォームに対する、150msから500msのトランジション。",
+        "keyboard": "フォーカス可能な要素には、カスタムフォーカスリングまたはアウトラインが適用されます。"
+      },
+      "voice": {
+        "tone": "自信に満ち、開発者寄りで率直です。",
+        "headlineStyle": "大胆で直接的、価値を伝える宣言。",
+        "ctaStyle": "'Get Started' のような、明確で行動を促すフレーズ。",
+        "avoid": [
+          "大げさでマーケティング色の強い言葉",
+          "受動態",
+          "文脈のない技術用語"
+        ]
+      },
+      "donts": [
+        "明るく彩度の高い背景は使用しません — スクリーンショットでは深く暗いグラデーションが使われています。",
+        "装飾的またはセリフフォントは使用しません — スクリーンショットではクリーンで幾何学的なサンセリフが使われています。",
+        "角張った矩形ボタンは使用しません — スクリーンショットでは完全に丸みを持つピル型ボタンが使われています。",
+        "見出しに薄く軽いテキストウェイトは使用しません — スクリーンショットでは太字（700）とセミボールド（600）のウェイトが使われています。",
+        "雑然とした或いは散らかったレイアウトは使用しません — スクリーンショットでは十分なホワイトスペースと明確な階層が示されています。",
+        "幅広い色の範囲は使用しません — スクリーンショットではダークブルー、紫、白の限定的なパレットが使われています。"
+      ],
+      "systemPrompt": "Astroは、コンテンツドリブンなウェブサイトのために設計されたモダンなWebフレームワークです。デザインはプレミアムで開発者中心であり、ダークネイビー（#0D0F14）をベースとしたダークモードパレット、鮮やかな紫のグラデーション、そしてクリスピーな白（#F2F6FA）のテキストを活用しています。タイポグラフィはクリーンでモダンで、技術的な感覚を出すためhumanist/grotesque sans-serifカテゴリに依存しています。重要なデザインルールは以下の通りです：1. 常にダークでハイコントラストな背景を使用する。2. プライマリアクションにはピル型（border-radius: 9999px）のボタンを使用する。3. 見出しや本文に装飾的なセリフフォントを決して使用しない。"
+    }
+  },
+  "desc": {
+    "en": {
+      "palette": "A premium dark-mode palette featuring a deep navy base, vibrant purple and blue gradients, and crisp white text for high contrast.",
+      "layout": "A centered, single-column layout for the hero section that transitions into a multi-column grid for content showcases.",
+      "interaction": "Smooth, standard transitions (150ms-500ms) are applied consistently to color, background, and opacity changes.",
+      "motion": "Motion is subtle and functional, focusing on smooth transitions for interactive states and hover effects.",
+      "notes": "Worth including as a prime example of a modern, high-end developer tool landing page with a strong, cohesive visual identity."
+    },
+    "zh-CN": {
+      "palette": "一套高级深色模式调色板，以深海军蓝为基底，搭配鲜亮的紫色和蓝色渐变，并使用清晰的白色文字以确保高对比度。",
+      "layout": "主视觉区域采用居中的单栏布局，随后过渡到用于内容展示的多栏网格布局。",
+      "interaction": "颜色、背景和透明度的变化均采用平滑、标准的过渡效果（150ms-500ms）。",
+      "motion": "动效微妙且注重功能性，聚焦于交互状态和悬停效果的流畅过渡。",
+      "notes": "这是一个现代、高端的开发者工具着陆页范例，具有强烈且统一的视觉识别度，值得参考。"
+    },
+    "zh-TW": {
+      "palette": "一款高級深色模式調色板，以深邃的海軍藍為基底，搭配鮮明的紫藍漸層，以及高對比度的純白文字。",
+      "layout": "首頁區域採用置中的單欄式佈局，隨後過渡為多欄網格以展示內容。",
+      "interaction": "色彩、背景與透明度的變化，皆套用平滑且標準的過渡效果（150毫秒至500毫秒）。",
+      "motion": "動態效果細微且具功能性，專注於互動狀態與懸停效果的平滑過渡。",
+      "notes": "作為一款具備強大、連貫視覺識別的現代高端開發者工具登陸頁，此為絕佳範例。"
+    },
+    "ja": {
+      "palette": "深めのネイビーをベースに、鮮やかな紫と青のグラデーション、高コントラストを実現するクリスピーな白テキストを組み合わせた、プレミアムなダークモードパレットです。",
+      "layout": "ヒーローセクションは中央揃えのシングルカラムレイアウトとし、コンテンツのショーケース部分ではマルチカラムグリッドへと移行します。",
+      "interaction": "色、背景、不透明度の変化に対して、滑らかで標準的なトランジション（150ms〜500ms）を一貫して適用します。",
+      "motion": "モーションは機能的で控えめに。インタラクティブな状態やホバーエフェクトにおける滑らかなトランジションに焦点を当てます。",
+      "notes": "強力で統一感のあるビジュアルアイデンティティを備えた、モダンでハイエンドな開発者向けツールのランディングページの、好ましい例として採用する価値があります。"
+    },
+    "ko": {
+      "palette": "深いネイビーをベースに、鮮やかな紫と青のグラデーション、そして高いコントラストを実現するクリスピーな白のテキストを特徴とするプレミアムなダークモードパレットです。",
+      "layout": "ヒーローセクションは中央揃えの単一カラムレイアウトで、コンテンツの見せ場では複数カラムのグリッドに変化します。",
+      "interaction": "色、背景、不透明度の変化に対して、滑らかで標準的なトランジション（150ms〜500ms）が一貫して適用されます。",
+      "motion": "モーションは繊細で機能的です。インタラクティブな状態やホバーエフェクトのための、滑らかなトランジションに焦点を当てます。",
+      "notes": "強い、統一感のあるビジュアルアイデンティティを持つ、モダンでハイエンドな開発者向けツールランディングページの優れた例として、 Included as a prime example of a modern, high-end developer tool landing page with a strong, cohesive visual identity. Worth including as a prime example of a modern, high-end developer tool landing page with a strong, cohesive visual identity. Worth including as a prime example of a modern, high-end developer tool landing page with a strong, cohesive visual identity."
+    }
+  },
+  "narrative": {
+    "en": {
+      "ch1_intro": "Astro’s design system is built for precision and performance, much like a high-performance sports car engineered for the track. Every component is stripped of excess, prioritizing speed and directness. The system’s identity is rooted in being developer-focused and content-driven, a framework that gets out of the way.",
+      "ch2_intro": "The color system is anchored by a deep, dark background, creating a premium, high-contrast canvas. This foundation allows vibrant gradients and crisp white typography to stand out with clarity and focus.",
+      "ch2_outro": "The principle is restraint: a limited palette of dark blues, purples, and whites maintains visual cohesion and avoids chromatic clutter.",
+      "ch3_intro": "Typography employs clean, geometric grotesque-sans for headlines and body, establishing a technical, modern voice. Monospace fonts are reserved strictly for code, creating a clear visual hierarchy between prose and command.",
+      "ch4_intro": "Spacing is governed by a strict 4px grid, creating a consistent and predictable rhythm throughout the interface.",
+      "h5_intro": "Surfaces are defined by subtle depth, using soft shadows and a fine, translucent border to create separation without stark lines. This approach maintains the dark-mode premium feel while ensuring components are distinctly legible.",
+      "ch6_intro": "The layout skeleton begins with a centered, single-column hero for maximum impact. This structure then transitions into a multi-column grid to showcase themes and content modules efficiently.",
+      "ch7_intro": "Motion is functional and understated, applied consistently to interactive states. Transitions are smooth and measured, focusing on color, opacity, and transform changes to provide feedback without distraction.",
+      "ch8_intro": "The editorial voice is confident, direct, and developer-centric. It avoids flowery language and passive constructions, opting instead for bold, value-oriented statements.",
+      "ch8_outro": "The system deliberately excludes decorative elements, saturated backgrounds, and cluttered layouts in favor of clarity and performance."
+    },
+    "zh-CN": {
+      "ch1_intro": "Astro 的设计系统专为精准与性能而构建，如同为赛道而生的高性能跑车。每个组件都剔除了冗余，优先考虑速度与直接性。该系统的本质植根于以开发者为中心、以内容驱动的理念，一个不喧宾夺主的框架。",
+      "ch2_intro": "色彩体系以深沉的深色背景为基石，营造出高级、高对比度的画布。这一基础使得鲜艳的渐变色与清晰的白色排版能够清晰、专注地突显出来。",
+      "ch2_outro": "其原则在于克制：有限的深蓝色、紫色与白色调色板维持了视觉统一性，避免了色彩杂乱。",
+      "ch3_intro": "排版采用简洁的几何 grotesque-sans 字体用于标题与正文，建立起技术性、现代化的语调。等宽字体严格保留用于代码，在文本与命令之间形成清晰的视觉层次。",
+      "ch4_intro": "间距由严格的 4px 网格系统控制，在整个界面中创造出一致且可预测的节奏。",
+      "h5_intro": "表面通过微妙的深度定义，使用柔和阴影与精细的半透明边框来创建分隔，而无需生硬的线条。这种方法在保持深色模式高级感的同时，确保了组件清晰易读。",
+      "ch6_intro": "布局骨架以居中、单列的 hero 区域开始，以达到最大冲击力。随后过渡到多列网格，高效展示主题与内容模块。",
+      "ch7_intro": "动效是功能性且克制的，一致地应用于交互状态。过渡平滑而克制，专注于颜色、透明度与 transform 变化，以提供反馈而不造成干扰。",
+      "ch8_intro": "编辑语调自信、直接且以开发者为中心。它避免华丽辞藻与被动句式，转而采用大胆、基于价值的陈述。",
+      "ch8_outro": "该系统刻意排除了装饰性元素、饱和背景与杂乱布局，以追求清晰度与性能。"
+    },
+    "zh-TW": {
+      "ch1_intro": "Astro 的設計系統建構於精準與效能之上，如同專為賽道打造的高性能跑車。每個組件皆精簡無冗，優先考慮速度與直接性。系統的識別性植根於以開發者為核心、內容驅動的本質，是一個不妨礙工作流程的框架。",
+      "ch2_intro": "色彩系統以深沉的暗色背景為基礎，營造出高質感、高對比的視覺畫布。此基礎讓鮮活的漸層與純淨的白色字型能夠清晰、聚焦地脫穎而出。",
+      "ch2_outro": "原則在於克制：受限的深藍、紫色與白色調色盤，維持視覺一致性並避免色彩雜訊。",
+      "ch3_intro": "字型運用簡潔幾何的 grotesque-sans 作為標題與內文，建立技術感與現代感的語調。等寬字型則嚴格保留給程式碼使用，清晰區分文字與指令的視覺層級。",
+      "ch4_intro": "間距受嚴格的 4px 格線 govern，在整個介面中建立一致且可預測的節奏。",
+      "h5_intro": "表面以細膩的層次定義，運用柔和陰影與纖細半透明邊框創造區隔，避免生硬線條。此手法在維持暗色模式高質感的同時，確保組件清晰可辨。",
+      "ch6_intro": "版面骨架從中央置中的單欄首頁區塊開始，以達到最大影響力。此結構再轉換為多欄格線，有效展示主題與內容模組。",
+      "ch7_intro": "動態效果著重功能性與低調，一致應用於互動狀態。過渡效果平滑且克制，聚焦於顏色、透明度與變換的變化，在不造成干擾的前提下提供回饋。",
+      "ch8_intro": "編輯語調自信、直接且以開發者為中心。避免華麗詞藻與被動語構，選擇大膽、價值導向的陳述。",
+      "ch8_outro": "系統刻意排除裝飾元素、飽和背景與雜亂版面，以追求清晰度與效能。"
+    },
+    "ja": {
+      "ch1_intro": "Astroのデザインシステムは、レース用に設計された高性能スポーツカーのように、精度と性能のために構築されています。すべてのコンポーネントは余分なものを削ぎ落とし、速度と直接性を優先しています。システムのアイデンティティは、開発者中心でありコンテンツ駆動であることに根ざしており、邪魔をしないフレームワークです。",
+      "ch2_intro": "カラーシステムは、深く暗い背景を基盤とし、プレミアムで高コントラストのキャンバスを創り出します。この基盤により、鮮やかなグラデーションと鮮明な白のタイポグラフィが、明確さと焦点を持って際立ちます。",
+      "ch2_outro": "原則は克制です。暗い青、紫、白の限定されたパレットは、視覚的な統一性を維持し、色彩的な雑然とした印象を避けます。",
+      "ch3_intro": "タイポグラフィには、見出しと本文にクリーンで幾何学的な grotesque-sans を使用し、技術的で現代的な声を確立しています。モノスペースフォントはコード専用に厳密に予約されており、文章とコマンド間に明確な視覚的階層を生み出します。",
+      "ch4_intro": "スペーシングは厳格な4pxグリッドで管理され、インターフェイス全体に一貫した予測可能なリズムを創り出します。",
+      "h5_intro": "サーフェスは、繊細な深みで定義され、ソフトなシャドウと細く半透明のボーダーを使用して、強い線なしに分離を創り出します。このアプローチは、ダークモードのプレミアム感を維持しつつ、コンポーネントが明確に読みやすいことを保証します。",
+      "ch6_intro": "レイアウトの骨格は、最大のインパクトのために中央揃えの単一カラムヒーローから始まります。この構造は、その後、テーマやコンテンツモジュールを効率的に見せるために、マルチカラムグリッドに移行します。",
+      "ch7_intro": "モーションは機能的かつ控えめであり、インタラクティブ状態に一貫して適用されます。トランジションは滑らかで慎重で、フィードバックを提供するために色、不透明度、transformの変更に焦点を当て、注意をそらすことはありません。",
+      "ch8_intro": "エディトリアルの声は、自信に満ち、直接的で、開発者中心です。飾り気のある言葉や受動態を避け、代わりに大胆で価値指向の表明を選びます。",
+      "ch8_outro": "システムは、明確さと性能を優先し、装飾要素、彩度の高い背景、雑然としたレイアウトを意図的に除外しています。"
+    },
+    "ko": {
+      "ch1_intro": "Astro의 디자인 시스템은 정밀성과 성능을 위해 설계되었으며, 트랙을 위해 엔지니어링된 고성능 스포츠카와 같습니다. 모든 구성 요소는 불필요한 것을 제거하고 속도와 직접성을 우선시합니다. 이 시스템의 정체성은 개발자 중심적이고 콘텐츠 기반적이며, 방해하지 않는 프레임워크에 뿌리를 두고 있습니다.",
+      "ch2_intro": "색상 시스템은 깊고 어두운 배경을 기반으로 하여 고급스럽고 고대비의 캔버스를 만듭니다. 이 기반은 선명한 그래디언트와 깔끔한 타이포그래피가 명확성과 초점을 가지고 돋보이도록 합니다.",
+      "ch2_outro": "원칙은 절제입니다: 짙은 파란색, 보라색, 흰색의 제한된 팔레트는 시각적 응집력을 유지하고 색소 남용을 피합니다.",
+      "ch3_intro": "타이포그래피는 헤드라인과 본문에 깔끔하고 기하학적인 grotesque-sans를 사용하여 기술적이고 현대적인 어조를 확립합니다. 모노스페이스 폰트는 코드 전용으로 엄격히 사용하여 산문과 명령어 간의 명확한 시각적 위계를 만듭니다.",
+      "ch4_intro": "간격은 엄격한 4px 그리드로 관리되어 인터페이스 전체에 일관되고 예측 가능한 리듬을 만듭니다.",
+      "h5_intro": "표면은 미묘한 깊이로 정의되며, 부드러운 그림자와 얇고 반투명한 테두리를 사용하여 날카로운 선 없이 분리감을 만듭니다. 이 접근 방식은 고급스러운 다크 모드 느낌을 유지하면서 구성 요소가 명확하게 읽히도록 합니다.",
+      "ch6_intro": "레이아웃 스켈레톤은 최대의 임팩트를 위해 중앙에 정렬된 단일 열 히어로로 시작합니다. 이 구조는 그런 다음 테마와 콘텐츠 모듈을 효율적으로 보여주기 위해 다중 열 그리드로 전환됩니다.",
+      "ch7_intro": "모션은 기능적이고 절제되어 상호작용 상태에 일관되게 적용됩니다. 전환은 부드럽고 계산적이며, 방해 없이 피드백을 제공하기 위해 색상, 불투명도, 변환 변화에 초점을 맞춥니다.",
+      "ch8_intro": "편집 어조는 자신감 있고 직접적이며 개발자 중심적입니다. 수사적인 언어와 수동태 구문을 피하고 대신 대담하고 가치 지향적인 진술을 선택합니다.",
+      "ch8_outro": "이 시스템은 명확성과 성능을 위해 장식 요소, 과도한 포화 배경, 복잡한 레이아웃을 의도적으로 제외합니다."
+    }
+  }
+}
