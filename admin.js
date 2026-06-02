@@ -176,20 +176,17 @@ function siteCard(s) {
   const folder = `https://opendesign.cc/packs/${esc(s.id)}/`;
   const detail = `https://opendesign.cc/en/sites/${esc(s.id)}`;
   const sl = esc(s.id), su = esc(s.url || "");
-  const refreshBtn = `<button class="ghost mini" data-job="refresh" data-slug="${sl}" data-url="${su}">刷新主图</button>`;
   let meta, actions;
   if (t2) {
     const zip = `${folder}${esc(p.zipFile || s.id + "-design-pack.zip")}`;
     const mb = ((p.zipSize || 0) / 1048576).toFixed(1);
     meta = `${p.fileCount || (p.files || []).length} 文件 · ${mb} MB`;
     actions = `<a class="mini" href="${zip}" download>↓ 下载完整 ZIP</a>
-      ${refreshBtn}
       <a class="ghost mini" href="${folder}" target="_blank" rel="noreferrer">folder</a>
       <a class="ghost mini" href="${detail}" target="_blank" rel="noreferrer">详情页</a>`;
   } else {
     meta = `Tier-1 · 文档版，待升级`;
     actions = `<button class="mini" data-job="upgrade" data-slug="${sl}" data-url="${su}">⬆ 升级为完整包</button>
-      ${refreshBtn}
       <a class="ghost mini" href="${folder}" target="_blank" rel="noreferrer">DESIGN.md</a>
       <a class="ghost mini" href="${detail}" target="_blank" rel="noreferrer">详情页</a>`;
   }
