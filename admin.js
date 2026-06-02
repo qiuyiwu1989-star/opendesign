@@ -219,15 +219,22 @@ async function renderSiteMgr() {
 
 /* ---- 任务队列（升级 / 刷新主图，服务器 cron 跑） ---- */
 const JOB_STATUS = { pending: "排队中", running: "跑中…", done: "完成", failed: "失败" };
+const JOB_KIND = { upgrade: "⬆ 升级", collect: "✓ 收录", refresh: "🖼 刷新主图" };
 async function renderJobs() {
   const jobs = await rpcJobs();
-  const wrap = $("#jobsList");
-  if (jobs == null) { wrap.innerHTML = `<p class="jobs-empty">任务队列需先应用 <code>0005_jobs.sql</code> + 配好服务器 runner。</p>`; return; }
+  const wrap = $("#jobsList"), sum = $("#jobsSummary");
+  if (jobs == null) { sum.innerHTML = ""; wrap.innerHTML = `<p class="jobs-empty">任务队列需先应用 <code>0005_jobs.sql</code> + 配好服务器 runner。</p>`; return; }
+  // 状态计数条（一眼看全貌，不再是盲盒）
+  const c = { pending: 0, running: 0, done: 0, failed: 0 };
+  jobs.forEach((j) => { const s = String(j.status || "").replace(/[^a-z]/g, ""); if (s in c) c[s]++; });
+  sum.innerHTML = [["running", "跑中"], ["pending", "排队"], ["done", "完成"], ["failed", "失败"]]
+    .map(([k, label]) => `<span class="jc ${k}">${label} <b>${c[k]}</b></span>`).join("")
+    + `<span class="jc">共 <b>${jobs.length}</b></span>`;
   if (!jobs.length) { wrap.innerHTML = `<p class="jobs-empty">暂无任务。点上方站点的「升级 / 刷新主图」即可入队。</p>`; return; }
   wrap.innerHTML = jobs.slice(0, 30).map((j) => {
     const st = String(j.status || "pending").replace(/[^a-z]/g, "");
     return `<div class="job-row">
-      <span class="job-kind">${j.kind === "upgrade" ? "⬆ 升级" : "🖼 刷新主图"}</span>
+      <span class="job-kind">${JOB_KIND[j.kind] || j.kind}</span>
       <span class="job-slug">${esc(j.slug)}</span>
       <span class="badge job-${st}">${JOB_STATUS[st] || st}</span>
       <span class="job-time">${esc(fmtDate(j.created_at))}</span>
@@ -282,6 +289,28 @@ async function renderDiscoveries() {
   grid.innerHTML = list.map(dscCard).join("");
 }
 
+/* ---- 实时刷新：完整包数 / 任务队列 / 发现队列 每 6 秒自动更新（页签可见时）---- */
+let liveTimer = null;
+function fmtNow() {
+  const d = new Date();
+  return `${String(d.getHours()).padStart(2, "0")}:${String(d.getMinutes()).padStart(2, "0")}:${String(d.getSeconds()).padStart(2, "0")}`;
+}
+async function liveRefresh() {
+  packsCache = {};   // 清缓存 → 拿最新 packs-index（完整包数实时涨）
+  const pending = allRows.filter((r) => (r.status || "pending") === "pending").length;
+  await renderOverview(pending);
+  await renderJobs();
+  await renderDiscoveries();
+  const el = $("#liveStamp");
+  if (el) el.innerHTML = `实时 · 上次更新 <b>${fmtNow()}</b>`;
+}
+function startLive() {
+  if (liveTimer) return;
+  liveTimer = setInterval(() => {
+    if (document.visibilityState === "visible" && !panel.hidden) liveRefresh();
+  }, 6000);
+}
+
 async function load() {
   try {
     allRows = await rpcList(getPass());
@@ -293,6 +322,8 @@ async function load() {
     renderDiscoveries();
     renderSiteMgr();
     renderJobs();
+    startLive();
+    const ls = $("#liveStamp"); if (ls) ls.innerHTML = `实时 · 上次更新 <b>${fmtNow()}</b>`;
   } catch (err) {
     // 口令错或网络问题
     sessionStorage.removeItem(PASS_KEY);

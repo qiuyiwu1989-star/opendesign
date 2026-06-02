@@ -52,6 +52,19 @@
     .sm-thumb.dsc .src-tag { position: absolute; top: 6px; left: 6px; background: rgba(17,17,17,.78); color: #fff; font-size: 10px; padding: 1px 7px; border-radius: 4px; letter-spacing: .02em; }
     .sm-thumb.dsc .score-tag { position: absolute; top: 6px; right: 6px; background: rgba(255,255,255,.92); color: var(--ink); font-size: 10px; font-weight: 600; padding: 1px 6px; border-radius: 4px; }
     .sm-host { font-size: 12px; color: var(--muted); word-break: break-all; }
+    /* 实时刷新指示 */
+    .live-row { display: flex; align-items: center; gap: 7px; margin-top: 8px; }
+    .live-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--ok); animation: livepulse 1.6s ease-in-out infinite; }
+    @keyframes livepulse { 0%, 100% { opacity: .3; transform: scale(.85); } 50% { opacity: 1; transform: scale(1); } }
+    .live-stamp { font-size: 12px; color: var(--muted); font-variant-numeric: tabular-nums; }
+    .live-stamp b { color: var(--ink); font-weight: 600; }
+    /* 任务计数条 */
+    .jobs-summary { display: flex; gap: 8px; margin: 0 0 12px; flex-wrap: wrap; }
+    .jc { font-size: 12.5px; padding: 4px 12px; border-radius: 999px; border: 1px solid var(--line); background: #fff; color: var(--muted); }
+    .jc b { font-variant-numeric: tabular-nums; font-size: 13.5px; }
+    .jc.pending b { color: var(--warn); } .jc.running b { color: #1a5fb4; }
+    .jc.done b { color: var(--ok); } .jc.failed b { color: var(--no); }
+    .jc.running { border-color: #c3d9f5; background: #eef4fd; }
     /* 任务队列 */
     .jobs-hint { font-size: 12px; color: var(--muted); font-weight: normal; }
     .jobs-list { display: flex; flex-direction: column; gap: 5px; }
@@ -144,6 +157,7 @@
         <div class="stat warn"><span class="stat-num" id="statQueue">–</span><span class="stat-label">待处理请求</span></div>
       </div>
       <div class="progress" aria-label="完整包升级进度"><div class="progress-fill" id="progressFill"></div></div>
+      <div class="live-row"><span class="live-dot"></span><span class="live-stamp" id="liveStamp">实时 · 等待数据…</span></div>
     </section>
 
     <h2 class="section-title">发现队列 · 待收录 <span class="jobs-hint">（爬虫定期全网发现的好站，点「收录」入队 → 本地 drain 跑完整包上线）</span></h2>
@@ -173,6 +187,7 @@
     <div class="sm-grid" id="smGrid"></div>
 
     <h2 class="section-title">任务队列 <span class="jobs-hint">（点「升级 / 刷新主图」入队 → 本地 bash scripts/drain.sh 跑完上线）</span></h2>
+    <div class="jobs-summary" id="jobsSummary"></div>
     <div class="jobs-list" id="jobsList"><p class="jobs-empty" id="jobsEmpty">暂无任务。</p></div>
 
     <h2 class="section-title">收录请求队列</h2>
