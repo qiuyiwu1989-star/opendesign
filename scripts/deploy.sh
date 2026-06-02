@@ -47,6 +47,8 @@ FILES=(
   packs-index.json
   manifest.json
   sw.js
+  catalog.json
+  skill.md
 )
 
 echo "▸ Packing files"

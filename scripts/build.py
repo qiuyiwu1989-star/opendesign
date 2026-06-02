@@ -1030,6 +1030,31 @@ def main():
         (ROOT / "llms.txt").write_text(llms, encoding="utf-8")
         print(f"  ✓ llms.txt ({len(sites)} sites · 暴露 /packs/ agent 协议)")
 
+    # 5c) catalog.json（给 agent skill 的干净目录：slug/标题/标签/一句话/资源 URL）
+    if not args.legacy_only:
+        cat = []
+        for s in sites:
+            sp = s.get("spec") or {}
+            slug = s["id"]
+            cat.append({
+                "slug": slug, "title": s.get("title"), "url": s.get("url"),
+                "tags": s.get("tags", []),
+                "summary": (sp.get("identity", {}) or {}).get("essence")
+                or (s.get("desc", {}) or {}).get("en", {}).get("notes") or "",
+                "has_pack": slug in PACKS,
+                "spec_md": f"{BASE_URL}/packs/{slug}/DESIGN_SPEC.en.md",
+                "spec_json": f"{BASE_URL}/packs/{slug}/spec.json",
+            })
+        (ROOT / "catalog.json").write_text(
+            json.dumps({"count": len(cat), "designs": cat}, ensure_ascii=False, indent=2), encoding="utf-8")
+        print(f"  ✓ catalog.json（agent skill 目录 · {len(cat)} 站）")
+
+    # 5d) skill.md（agent 安装清单：复制 URL 给 agent，它读完就会按品味匹配 + 取真 tokens）
+    skill_src = ROOT / "skill" / "SKILL.md"
+    if skill_src.exists():
+        (ROOT / "skill.md").write_text(skill_src.read_text(encoding="utf-8"), encoding="utf-8")
+        print("  ✓ skill.md（= skill/SKILL.md，根路径直供 agent）")
+
     print(f"\nDone. dist/ → {sum(1 for _ in DIST_DIR.rglob('*') if _.is_file())} files")
 
 
