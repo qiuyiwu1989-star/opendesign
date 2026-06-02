@@ -2271,9 +2271,10 @@ function applyHash() {
 }
 
 canvasSurface.addEventListener("pointerdown", (event) => {
-  // 只在真正的控件（收藏按钮 / 打开原站链接）上让出事件；
-  // 卡片主图（card-hit / img）也允许开始拖拽 —— 解决手机上按在主图滑不动。
-  if (event.target.closest(".card-save, .card-visit, a, input")) return;
+  // 只在真正的控件（收藏按钮 / 打开原站外链 / 输入框）上让出事件让原生行为生效；
+  // 卡片主链接 a.card-hit 本身也是 <a>，绝不能用裸 "a" 跳过——否则手机上按在卡片上滑不动。
+  // 在卡片上开始拖拽 → 平移画布；没移动的轻点 → click 处理里 openDetail（dragMoved 守卫）。
+  if (event.target.closest(".card-save, .card-visit, input")) return;
   dragging = true;
   dragMoved = false;
   dragStart = { x: event.clientX, y: event.clientY };
