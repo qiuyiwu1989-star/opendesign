@@ -25,6 +25,14 @@ hand-picked for taste.
 You are not meant to *copy* these sites. You use them as **grounded references**
 so the thing you build inherits real, coherent taste instead of generic AI slop.
 
+## Core principle: never design from memory
+
+When a user names a brand or a vibe, **do not recall its colors, fonts, or layout
+from training data** — you will hallucinate plausible-but-wrong values and the
+result will look like slop. Fetch the **grounded** system from OpenDesign: real
+tokens extracted from the live site and verified against its computed styles.
+"Don't guess — fetch the real system" is the entire point of this skill.
+
 ## When to use this
 
 Trigger whenever the task is visual/frontend and quality matters:
@@ -62,6 +70,10 @@ reference** that nails the intent, optionally 1–2 secondaries for specific par
 Don't trust this table blindly — it's a starting point. Always `search_designs`
 for the actual current matches, then read tags + the one-line summary to choose.
 
+**Vague brief?** Don't silently guess one direction. Surface **3 differentiated
+real references** from the library — e.g. one safe, one bold, one unexpected —
+each with a one-line "why", and let the user pick. Then proceed with their choice.
+
 ### 3. Fetch the grounded design system
 Pull the chosen reference's real tokens (see below). You now have its exact
 palette, type scale with sizes/weights, spacing rhythm, radii, shadows, motion
@@ -76,6 +88,16 @@ rules, and its **anti-patterns / "donts"** and a ready `systemPrompt`.
   layer; don't add bouncy spring animations to a site that uses crisp fades.
 - Obey the reference's **`donts`** — they encode what would break the taste.
 - Adapt, don't transplant: keep the user's content/brand, borrow the *system*.
+
+The reference's spec already encodes the right **density, motion, and variance** —
+inherit them from real tokens; you don't need to guess or invent "dials".
+
+**Concrete slop to never ship** (unless the chosen reference genuinely does it):
+- the default stack: Inter + `#3b82f6` blue + `rounded-2xl` on everything + soft shadows on every card
+- purple/indigo gradient heroes; emoji used as UI icons; glassmorphism by default
+- centered single-column when the reference is asymmetric / grid-driven
+- bouncy spring animations on a reference whose motion is crisp and minimal
+- approximating the brand's colors/sizes "from memory" instead of the spec's exact values
 
 State which reference(s) you grounded in, so the user can trust the lineage.
 
