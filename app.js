@@ -2279,7 +2279,8 @@ canvasSurface.addEventListener("pointerdown", (event) => {
   dragMoved = false;
   dragStart = { x: event.clientX, y: event.clientY };
   panStart = { x: viewState.x, y: viewState.y };
-  canvasSurface.setPointerCapture(event.pointerId);
+  // 关键：不在 pointerdown 就 setPointerCapture —— 它会"吞掉"卡片上的 click，
+  // 导致点卡片既不开抽屉也不跳转。等真正拖动(过阈值)再 capture，见 pointermove。
 });
 
 canvasSurface.addEventListener("pointermove", (event) => {
@@ -2289,6 +2290,8 @@ canvasSurface.addEventListener("pointermove", (event) => {
   if (!dragMoved && Math.hypot(dx, dy) > DRAG_THRESHOLD) {
     dragMoved = true;
     canvasSurface.classList.add("is-dragging");
+    // 真拖动了才捕获指针(此时不再需要 click)；轻点从不 capture → 卡片 click 正常触发
+    try { canvasSurface.setPointerCapture(event.pointerId); } catch (_) {}
   }
   if (dragMoved) {
     viewState.x = panStart.x + dx;
