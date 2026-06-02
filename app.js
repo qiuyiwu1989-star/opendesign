@@ -2517,6 +2517,18 @@ syncCodeCopyBtn.addEventListener("click", () => {
   );
 });
 
+// 「给你的 Agent」卡片：复制 skill.md 链接
+const agentCopyBtn = document.querySelector("#agentCopyBtn");
+if (agentCopyBtn) {
+  agentCopyBtn.addEventListener("click", () => {
+    const url = agentCopyBtn.dataset.copy || "https://opendesign.cc/skill.md";
+    navigator.clipboard.writeText(url).then(
+      () => showToast(t("toast.agent.copied")),
+      () => showToast(url)
+    );
+  });
+}
+
 syncBindForm.addEventListener("submit", async (e) => {
   e.preventDefault();
   const code = syncBindInput.value.trim().toLowerCase();

@@ -1434,6 +1434,62 @@ input:focus-visible {
   margin-bottom: 24px;
 }
 
+/* 「给你的 Agent」卡片 —— 复制 skill.md 链接 */
+.about-agent .agent-url {
+  display: flex;
+  align-items: stretch;
+  max-width: 560px;
+  margin: 22px 0 16px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  overflow: hidden;
+  background: var(--bg-soft);
+}
+.agent-url-text {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  padding: 13px 16px;
+  font-family: var(--font-mono);
+  font-size: 14px;
+  color: #111;
+  white-space: nowrap;
+  overflow-x: auto;
+}
+.agent-copy {
+  flex-shrink: 0;
+  border: none;
+  cursor: pointer;
+  background: #0a0a0a;
+  color: #fff;
+  padding: 0 22px;
+  font: inherit;
+  font-size: 13.5px;
+  letter-spacing: 0.02em;
+  transition: opacity 0.15s;
+}
+.agent-copy:hover { opacity: 0.85; }
+.agent-alt {
+  color: var(--ink-soft);
+  font-size: 14.5px;
+  line-height: 1.6;
+  margin: 0 0 14px;
+  max-width: 620px;
+}
+.agent-links { display: flex; gap: 18px; flex-wrap: wrap; }
+.agent-links a {
+  color: #b4451c;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  text-decoration: none;
+}
+.agent-links a:hover { text-decoration: underline; }
+@media (max-width: 560px) {
+  .about-agent .agent-url { flex-direction: column; }
+  .agent-copy { padding: 12px; }
+}
+
 /* 作者区下方的投稿小注（合并自原独立投稿区，去冗余）*/
 .about-submit-note {
   margin: 30px 0 10px;
