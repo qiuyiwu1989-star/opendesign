@@ -45,6 +45,8 @@ FILES=(
   robots.txt
   llms.txt
   packs-index.json
+  manifest.json
+  sw.js
 )
 
 echo "▸ Packing files"
@@ -70,6 +72,12 @@ if [[ -d "${ROOT_DIR}/dist/packs" ]]; then
   MANIFEST+=("dist/packs")
 fi
 
+# PWA 图标目录
+if [[ -d "${ROOT_DIR}/icons" ]]; then
+  echo "  • icons (PWA app icons)"
+  MANIFEST+=("icons")
+fi
+
 # ===== LOCAL_DEPLOY：脚本就跑在 web 服务器上（job runner 用）→ 直接 cp 到 DEPLOY_PATH，不 scp =====
 if [[ -n "${LOCAL_DEPLOY:-}" ]]; then
   echo "▸ LOCAL_DEPLOY：本机 cp → ${DEPLOY_PATH}"
@@ -81,6 +89,8 @@ if [[ -n "${LOCAL_DEPLOY:-}" ]]; then
       done
     elif [[ "$f" == "dist/packs" ]]; then
       sudo mkdir -p "${DEPLOY_PATH}/packs" && sudo cp -r "${ROOT_DIR}/dist/packs/"* "${DEPLOY_PATH}/packs/"
+    elif [[ "$f" == "icons" ]]; then
+      sudo mkdir -p "${DEPLOY_PATH}/icons" && sudo cp -r "${ROOT_DIR}/icons/"* "${DEPLOY_PATH}/icons/"
     else
       sudo cp "${ROOT_DIR}/${f}" "${DEPLOY_PATH}/${f}"
     fi

@@ -35,7 +35,9 @@
     <meta name="twitter:description" content="把值得反复回看的网页设计沉淀成可被 AI 学习复用的 Markdown 设计系统规范。" />
     <meta name="twitter:image" content="https://opendesign.cc/og-cover.png" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="apple-touch-icon" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/icons/icon-180.png" />
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="apple-mobile-web-app-title" content="OpenDesign" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&display=swap" />
@@ -646,5 +648,32 @@
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
     <script src="/supabase-config.js"></script>
     <script src="/app.js"></script>
+
+    <!-- PWA：安装提示 + Service Worker（可安装、离线、二次秒开）-->
+    <style>
+      .pwa-install { position: fixed; right: 18px; bottom: 18px; z-index: 60; font: 13px/1 -apple-system, BlinkMacSystemFont, system-ui, sans-serif; padding: 10px 16px; border-radius: 999px; background: #0a0a0a; color: #fff; border: none; cursor: pointer; box-shadow: 0 4px 16px rgba(0,0,0,.18); letter-spacing: .02em; }
+      .pwa-install:hover { opacity: .88; }
+      @media (max-width: 640px) { .pwa-install { right: 12px; bottom: 12px; } }
+    </style>
+    <button id="pwaInstall" class="pwa-install" hidden>↓ 安装应用</button>
+    <script>
+      if ("serviceWorker" in navigator) {
+        window.addEventListener("load", function () {
+          navigator.serviceWorker.register("/sw.js").catch(function (e) { console.warn("SW 注册失败", e); });
+        });
+      }
+      (function () {
+        var deferred = null, btn = document.getElementById("pwaInstall");
+        function trackPwa(n, p) { try { if (window.track) window.track(n, p || {}); else if (window._hmt) window._hmt.push(["_trackEvent", "pwa", n]); } catch (_) {} }
+        window.addEventListener("beforeinstallprompt", function (e) { e.preventDefault(); deferred = e; if (btn) btn.hidden = false; });
+        if (btn) btn.addEventListener("click", async function () {
+          if (!deferred) return;
+          btn.hidden = true; deferred.prompt();
+          try { var r = await deferred.userChoice; trackPwa("pwa_install", { outcome: r && r.outcome }); } catch (_) {}
+          deferred = null;
+        });
+        window.addEventListener("appinstalled", function () { if (btn) btn.hidden = true; trackPwa("pwa_installed", {}); });
+      })();
+    </script>
   </body>
 </html>

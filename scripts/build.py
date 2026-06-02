@@ -222,6 +222,9 @@ HTML_TEMPLATE = """<!doctype html>
 <link rel="canonical" href="{canonical}" />
 {alternates}
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="apple-touch-icon" href="/icons/icon-180.png" />
+<link rel="manifest" href="/manifest.json" />
+<meta name="theme-color" content="#ffffff" />
 <meta property="og:type" content="article" />
 <meta property="og:title" content="{title} · OpenDesign" />
 <meta property="og:description" content="{meta_desc}" />
