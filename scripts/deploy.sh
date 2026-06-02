@@ -85,6 +85,10 @@ if [[ -n "${LOCAL_DEPLOY:-}" ]]; then
       sudo cp "${ROOT_DIR}/${f}" "${DEPLOY_PATH}/${f}"
     fi
   done
+  if [[ -f "${ROOT_DIR}/scripts/gen-thumbs.py" ]]; then
+    python3 "${ROOT_DIR}/scripts/gen-thumbs.py" --packs "${DEPLOY_PATH}/packs" --out /tmp/od-thumbs || true
+    sudo mkdir -p "${DEPLOY_PATH}/thumbs" && sudo cp /tmp/od-thumbs/*.webp "${DEPLOY_PATH}/thumbs/" 2>/dev/null || true
+  fi
   sudo chown -R www-data:www-data "${DEPLOY_PATH}"
   echo "✓ LOCAL_DEPLOY done"
   exit 0
@@ -113,6 +117,13 @@ ssh "${SSH_OPTS[@]}" "${DEPLOY_USER}@${DEPLOY_HOST}" "
     # 用 cp -r（不删目标），所以已有的完整 Playwright pack（截图 / ZIP）不被覆盖
     sudo mkdir -p '${DEPLOY_PATH}/packs' &&
     sudo cp -r '${DEPLOY_PATH}/dist/packs/'* '${DEPLOY_PATH}/packs/'
+  fi &&
+  if [[ -f /home/ubuntu/opendesign/scripts/gen-thumbs.py ]]; then
+    # 从每个完整包 ZIP 抽真桌面首屏截图缩成 webp → /thumbs/<slug>.webp（卡片图源，甩开 thum.io 截垃圾页）
+    # 以 ubuntu 跑（有 Pillow）读公开 ZIP、写 /tmp，再 sudo cp 进 /thumbs（幂等，缺啥补啥）
+    python3 /home/ubuntu/opendesign/scripts/gen-thumbs.py --packs '${DEPLOY_PATH}/packs' --out /tmp/od-thumbs || true;
+    sudo mkdir -p '${DEPLOY_PATH}/thumbs';
+    sudo cp /tmp/od-thumbs/*.webp '${DEPLOY_PATH}/thumbs/' 2>/dev/null || true;
   fi &&
   sudo chown -R www-data:www-data '${DEPLOY_PATH}' &&
   sudo find '${DEPLOY_PATH}' -name '._*' -delete &&

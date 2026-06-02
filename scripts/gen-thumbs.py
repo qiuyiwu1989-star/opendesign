@@ -25,16 +25,18 @@ try:
 except Exception:
     print("✗ 需要 Pillow（pip3 install pillow）"); sys.exit(0)  # exit 0：不拖垮 deploy
 
-args = [a for a in sys.argv[1:]]
-FORCE = "--force" in args
-roots = [a for a in args if not a.startswith("--")]
-WEBROOT = roots[0] if roots else "/var/www/opendesign.cc"
-THUMBS = os.path.join(WEBROOT, "thumbs")
+import argparse
+ap = argparse.ArgumentParser()
+ap.add_argument("--packs", default="/var/www/opendesign.cc/packs", help="完整包 ZIP 所在目录（含 <slug>/<slug>-design-pack.zip）")
+ap.add_argument("--out", default="/var/www/opendesign.cc/thumbs", help="缩略图输出目录")
+ap.add_argument("--force", action="store_true")
+a = ap.parse_args()
+PACKS_DIR, THUMBS, FORCE = a.packs, a.out, a.force
 os.makedirs(THUMBS, exist_ok=True)
 W, H, Q = 768, 480, 80   # 768×480 (16:10) · q80 · 顶部锚定裁切
 
 ok = skip = fail = 0
-for zp in sorted(glob.glob(os.path.join(WEBROOT, "packs", "*", "*-design-pack.zip"))):
+for zp in sorted(glob.glob(os.path.join(PACKS_DIR, "*", "*-design-pack.zip"))):
     slug = os.path.basename(os.path.dirname(zp))
     out = os.path.join(THUMBS, f"{slug}.webp")
     if os.path.exists(out) and not FORCE:
