@@ -232,39 +232,83 @@ HTML_TEMPLATE = """<!doctype html>
 <meta property="og:url" content="{canonical}" />
 <meta name="twitter:card" content="summary_large_image" />
 <style>
-  body {{ font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif; max-width: 760px; margin: 80px auto; padding: 32px; color: #0a0a0a; line-height: 1.6; }}
+  body {{ font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif; max-width: 860px; margin: 72px auto; padding: 32px; color: #0a0a0a; line-height: 1.6; }}
   h1 {{ font-family: "Instrument Serif", Georgia, serif; font-size: 64px; font-weight: 400; letter-spacing: -1px; line-height: 1.05; margin: 0 0 8px; }}
   .eyebrow {{ color: #737373; font-size: 13px; letter-spacing: 0.16em; text-transform: uppercase; margin: 0 0 24px; }}
-  .lead {{ color: #1f1f1f; font-size: 19px; margin: 24px 0; }}
+  .lead {{ color: #1f1f1f; font-size: 20px; margin: 24px 0; line-height: 1.5; }}
   .tags {{ margin: 16px 0 32px; }}
   .tags span {{ display: inline-block; padding: 4px 10px; background: #f5f5f4; border-radius: 999px; color: #1f1f1f; font-size: 12px; margin-right: 6px; }}
-  .meta {{ font-size: 13px; color: #737373; margin: 32px 0; }}
+  .meta {{ font-size: 13px; color: #737373; margin: 28px 0; }}
   .meta a {{ color: #0a0a0a; }}
-  .screenshot {{ width: 100%; border: 1px solid #e7e5e4; border-radius: 8px; margin: 32px 0; }}
-  h2 {{ font-family: "Instrument Serif", Georgia, serif; font-style: italic; font-size: 32px; font-weight: 400; margin: 56px 0 12px; }}
+  .meta p {{ margin: 4px 0; }}
+  .screenshot {{ width: 100%; border: 1px solid #e7e5e4; border-radius: 10px; margin: 32px 0; display: block; }}
+  h2 {{ font-family: "Instrument Serif", Georgia, serif; font-style: italic; font-size: 34px; font-weight: 400; margin: 64px 0 4px; }}
   html[lang^="zh"] h2, html[lang^="ja"] h2, html[lang^="ko"] h2 {{ font-style: normal; font-family: "Source Han Serif SC", "Songti SC", Georgia, serif; }}
+  .kicker {{ color: #a8a29e; font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; margin: 56px 0 0; }}
+  .kicker + h2 {{ margin-top: 4px; }}
+  .narrative {{ font-size: 16px; color: #292524; margin: 12px 0; }}
+  .principle {{ font-size: 15px; color: #57534e; font-style: italic; margin: 6px 0 16px; }}
+  html[lang^="zh"] .principle, html[lang^="ja"] .principle, html[lang^="ko"] .principle {{ font-style: normal; }}
   .insight {{ display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; margin: 24px 0; }}
   .insight section {{ background: #fafafa; padding: 16px 20px; border-radius: 6px; }}
   .insight h3 {{ margin: 0 0 8px; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: #737373; font-weight: 600; }}
   .insight p {{ margin: 0; font-size: 14px; }}
   .cta {{ display: inline-block; background: #0a0a0a; color: #fff; padding: 14px 22px; border-radius: 999px; text-decoration: none; font-size: 14px; margin: 16px 12px 16px 0; }}
   .cta.ghost {{ background: transparent; color: #0a0a0a; border: 1px solid #0a0a0a; }}
-  .langs {{ font-size: 12px; color: #737373; margin: 64px 0 16px; padding-top: 32px; border-top: 1px solid #e7e5e4; }}
+  .langs {{ font-size: 12px; color: #737373; margin: 72px 0 16px; padding-top: 32px; border-top: 1px solid #e7e5e4; }}
   .langs a {{ color: #0a0a0a; margin-right: 12px; }}
   .langs a.active {{ color: #b4451c; }}
-  footer {{ margin-top: 80px; padding-top: 32px; border-top: 1px solid #e7e5e4; color: #737373; font-size: 12px; }}
+  footer {{ margin-top: 64px; padding-top: 32px; border-top: 1px solid #e7e5e4; color: #737373; font-size: 12px; }}
   footer a {{ color: #0a0a0a; }}
   .actions {{ margin: 28px 0 8px; }}
+  /* identity */
+  .keywords {{ margin: 8px 0 14px; }}
+  .keywords span {{ display: inline-block; padding: 5px 12px; border: 1px solid #e7e5e4; border-radius: 999px; font-size: 12px; letter-spacing: 0.04em; text-transform: uppercase; color: #44403c; margin: 0 6px 6px 0; }}
+  /* color swatches */
   .swatches {{ display: flex; flex-wrap: wrap; gap: 16px; margin: 16px 0 8px; }}
   .sw {{ display: flex; flex-direction: column; gap: 6px; }}
   .sw .chip {{ width: 64px; height: 64px; border-radius: 8px; border: 1px solid #e7e5e4; }}
   .sw code {{ color: #1f1f1f; font-size: 11px; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }}
   .sw em {{ color: #737373; font-style: normal; letter-spacing: 0.06em; text-transform: uppercase; font-size: 10px; }}
+  /* type scale */
   .typescale {{ list-style: none; padding: 0; margin: 16px 0; }}
   .typescale li {{ display: flex; align-items: baseline; justify-content: space-between; gap: 20px; padding: 12px 0; border-bottom: 1px solid #f0efed; }}
   .typescale .sample {{ line-height: 1.1; color: #0a0a0a; overflow: hidden; white-space: nowrap; }}
   .typescale code {{ color: #737373; font-size: 12px; white-space: nowrap; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }}
   .typemeta {{ font-size: 13px; color: #737373; margin: 8px 0 0; }}
+  /* stat tiles (layout / motion) */
+  .stats {{ display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; margin: 16px 0; }}
+  .stats div {{ background: #fafafa; border-radius: 8px; padding: 14px 16px; }}
+  .stats b {{ display: block; font-size: 22px; font-weight: 600; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }}
+  .stats span {{ font-size: 11px; color: #737373; letter-spacing: 0.08em; text-transform: uppercase; }}
+  /* spacing bars */
+  .spacing {{ margin: 16px 0; }}
+  .spacing div {{ display: flex; align-items: center; gap: 12px; margin: 6px 0; }}
+  .spacing i {{ height: 14px; background: #d6d3d1; border-radius: 3px; display: block; }}
+  .spacing code {{ font-size: 12px; color: #737373; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }}
+  /* surfaces / radius */
+  .radii {{ display: flex; flex-wrap: wrap; gap: 16px; margin: 16px 0; }}
+  .radii div {{ text-align: center; }}
+  .radii i {{ width: 72px; height: 72px; background: #f0efed; border: 1px solid #e0ddd8; display: block; }}
+  .radii span {{ font-size: 11px; color: #737373; display: block; margin-top: 6px; }}
+  /* components */
+  .components {{ list-style: none; padding: 0; margin: 16px 0; }}
+  .components li {{ padding: 12px 0; border-bottom: 1px solid #f0efed; font-size: 15px; }}
+  .components b {{ display: inline-block; min-width: 96px; color: #0a0a0a; text-transform: capitalize; }}
+  .components span {{ color: #44403c; }}
+  /* don'ts */
+  .donts {{ list-style: none; padding: 0; margin: 16px 0; }}
+  .donts li {{ position: relative; padding: 10px 0 10px 28px; border-bottom: 1px solid #f0efed; font-size: 15px; color: #292524; }}
+  .donts li::before {{ content: "✕"; position: absolute; left: 0; top: 10px; color: #b4451c; font-weight: 700; }}
+  /* screenshot gallery */
+  .gallery {{ display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 14px; margin: 16px 0; }}
+  .gallery figure {{ margin: 0; }}
+  .gallery a {{ display: block; }}
+  .gallery img {{ width: 100%; border: 1px solid #e7e5e4; border-radius: 8px; display: block; background: #f5f5f4; }}
+  .gallery figcaption {{ font-size: 11px; color: #a8a29e; margin-top: 6px; }}
+  /* system prompt */
+  .sysprompt {{ background: #faf8f3; border: 1px solid #efe9dd; border-radius: 10px; padding: 18px 20px; margin: 16px 0; font-size: 14px; color: #292524; white-space: pre-wrap; line-height: 1.55; }}
+  /* agent */
   .agent {{ background: #faf8f3; border: 1px solid #efe9dd; border-radius: 10px; padding: 20px 24px; margin: 48px 0; }}
   .agent h3 {{ margin: 0 0 6px; font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: #b4451c; font-weight: 600; }}
   .agent p {{ margin: 0 0 12px; font-size: 14px; color: #1f1f1f; }}
@@ -276,47 +320,7 @@ HTML_TEMPLATE = """<!doctype html>
 {analytics}
 </head>
 <body>
-
-<p class="eyebrow">{eyebrow}</p>
-<h1>{title}</h1>
-<p class="lead">{tagline}</p>
-
-<div class="tags">{tags_html}</div>
-
-<img class="screenshot" src="{screenshot_url}" alt="{title} {screenshot_alt}" loading="lazy" />
-
-<div class="actions">
-  {download_block}<a class="cta ghost" href="{spa_url}">{open_in_app}</a>
-</div>
-
-<div class="meta">
-  <p>{visit_label}: <a href="{site_url}" target="_blank" rel="noreferrer">{site_url}</a></p>
-  {pack_html}
-</div>
-
-{palette_block}
-
-{type_block}
-
-<h2>{insights_h2}</h2>
-<div class="insight">
-  <section><h3>{label_color}</h3><p>{desc_palette}</p></section>
-  <section><h3>{label_layout}</h3><p>{desc_layout}</p></section>
-  <section><h3>{label_interaction}</h3><p>{desc_interaction}</p></section>
-  <section><h3>{label_motion}</h3><p>{desc_motion}</p></section>
-</div>
-
-{agent_block}
-
-<p class="langs">
-  {lang_links}
-</p>
-
-<footer>
-  <p>OpenDesign · curated web aesthetics for AI-readable design DNA · <a href="{home_url}">opendesign.cc</a></p>
-  <p>{notes_label}: {notes_text}</p>
-</footer>
-
+{body}
 </body>
 </html>
 """
@@ -330,26 +334,73 @@ LABELS = {
 }
 
 
+# 富详情页用到的少量额外 label（其余复用 MD_CHAPTER_HEADINGS / MD_LABELS）
+SEO_EXTRA = {
+    "en":    {"components_h": "Components", "voice_h": "Voice & Don'ts", "gallery_h": "Inside the pack — real screenshots", "voice_tone": "Tone", "voice_headline": "Headlines", "voice_cta": "CTAs", "voice_avoid": "Avoid", "sys_h": "System prompt", "data_note": "Captured from the live site · real computed styles"},
+    "zh-CN": {"components_h": "组件", "voice_h": "文案语气与禁用清单", "gallery_h": "包内真实截图", "voice_tone": "语气", "voice_headline": "标题风格", "voice_cta": "按钮文案", "voice_avoid": "避免", "sys_h": "System Prompt", "data_note": "抓自真实页面 · 真 computed styles"},
+    "zh-TW": {"components_h": "組件", "voice_h": "文案語氣與禁用清單", "gallery_h": "包內真實截圖", "voice_tone": "語氣", "voice_headline": "標題風格", "voice_cta": "按鈕文案", "voice_avoid": "避免", "sys_h": "System Prompt", "data_note": "擷取自真實頁面 · 真 computed styles"},
+    "ja":    {"components_h": "コンポーネント", "voice_h": "文体と禁止事項", "gallery_h": "パック内の実スクリーンショット", "voice_tone": "トーン", "voice_headline": "見出し", "voice_cta": "CTA", "voice_avoid": "避ける", "sys_h": "System Prompt", "data_note": "実ページから取得 · 実 computed styles"},
+    "ko":    {"components_h": "컴포넌트", "voice_h": "보이스와 금지 목록", "gallery_h": "팩 안의 실제 스크린샷", "voice_tone": "톤", "voice_headline": "헤드라인", "voice_cta": "CTA", "voice_avoid": "피하기", "sys_h": "System Prompt", "data_note": "실제 페이지에서 캡처 · 실 computed styles"},
+}
+
+
 def render_site_html(site: dict, lang: str) -> str:
+    """把整套设计系统（结构化 spec + 多语言叙事 + 真截图）渲染成杂志风富详情页。
+    所有区块都按数据存在与否条件渲染：没 spec 的 stub 会优雅退化成一个干净的简页。"""
+    from html import escape as esc
     L = LABELS[lang]
+    X = SEO_EXTRA.get(lang, SEO_EXTRA["en"])
+    H = MD_CHAPTER_HEADINGS.get(lang, MD_CHAPTER_HEADINGS["en"])
     slug = site["id"]
     title = site["title"]
     desc_block = site.get("desc", {}).get(lang) or site.get("desc", {}).get("en") or {}
+    spec = site.get("spec") or {}
+    si = site.get("spec_i18n", {}).get(lang) or site.get("spec_i18n", {}).get("en") or {}
     palette = desc_block.get("palette", "")
-    layout = desc_block.get("layout", "")
-    interaction = desc_block.get("interaction", "")
-    motion = desc_block.get("motion", "")
     notes_text = desc_block.get("notes", "")
-    tags_html = " ".join(f'<span>{t}</span>' for t in site.get("tags", []))
+    pack = PACKS.get(slug) if isinstance(PACKS, dict) else None
 
     canonical = f"{BASE_URL}/{lang}/sites/{slug}"
     alternates = "\n".join(
         f'<link rel="alternate" hreflang="{l}" href="{BASE_URL}/{l}/sites/{slug}" />' for l in LANGS
     ) + f'\n<link rel="alternate" hreflang="x-default" href="{BASE_URL}/en/sites/{slug}" />'
+    lang_links = " · ".join(
+        f'<a class="{"active" if l == lang else ""}" href="{BASE_URL}/{l}/sites/{slug}">{l}</a>'
+        for l in LANGS
+    )
 
-    # ---- 下载包：以 packs-index（PACKS）为准。site.pack 多数没填，
-    #      之前 SEO 页只看 site.pack → 有包也不显示下载，这是「太简陋」的根因之一。
-    pack = PACKS.get(slug) if isinstance(PACKS, dict) else None
+    # ---------- 小工具 ----------
+    def section(kicker, h2, inner):
+        if not inner:
+            return ""
+        return f'<p class="kicker">{esc(kicker)}</p>\n<h2>{esc(h2)}</h2>\n{inner}'
+
+    def narr(text):
+        return f'<p class="narrative">{esc(text)}</p>' if (text and isinstance(text, str)) else ""
+
+    def principle(text):
+        return f'<p class="principle">{esc(text)}</p>' if (text and isinstance(text, str)) else ""
+
+    def joinlist(items):
+        items = [i for i in (items or []) if isinstance(i, str) and i.strip()]
+        return ('<p class="narrative">' + " · ".join(esc(i) for i in items) + "</p>") if items else ""
+
+    identity = si.get("identity") if isinstance(si.get("identity"), dict) else {}
+    lead = (identity.get("oneLiner") if identity else "") or notes_text or palette or f"Design system spec — {title}"
+
+    # ---------- body 区块 ----------
+    B = []
+    B.append(f'<p class="eyebrow">{esc(L["eyebrow"])}</p>')
+    B.append(f'<h1>{esc(title)}</h1>')
+    B.append(f'<p class="lead">{esc(lead)}</p>')
+    if site.get("tags"):
+        B.append('<div class="tags">' + "".join(f'<span>{esc(t)}</span>' for t in site["tags"]) + '</div>')
+
+    hero = card_image(site, 1200, 750)
+    if hero:
+        B.append(f'<img class="screenshot" src="{hero}" alt="{esc(title)} {esc(L["screenshot_alt"])}" loading="lazy" />')
+
+    # 下载 + 在 app 打开
     download_block = ""
     pack_html = ""
     agent_pack_link = ""
@@ -357,122 +408,184 @@ def render_site_html(site: dict, lang: str) -> str:
         zip_url = f"/packs/{slug}/{pack['zipFile']}"
         folder = pack.get("folderUrl") or f"/packs/{slug}/"
         size_mb = (pack.get("zipSize", 0) or 0) / 1024 / 1024
-        download_block = f'<a class="cta" href="{zip_url}">↓ {L["download_pack"]} ({size_mb:.0f} MB)</a>'
-        pack_html = f'<p>📦 <a href="{folder}">{L["browse_pack"]} →</a></p>'
-        agent_pack_link = f' · <a href="{pack.get("agentUrl") or folder}">{L["agent_pack"]} ↗</a>'
-    elif site.get("pack", {}).get("available"):  # 兜底旧字段
+        download_block = f'<a class="cta" href="{zip_url}">↓ {esc(L["download_pack"])} ({size_mb:.0f} MB)</a>'
+        pack_html = f'<p>📦 <a href="{folder}">{esc(L["browse_pack"])} →</a></p>'
+        agent_pack_link = f' · <a href="{pack.get("agentUrl") or folder}">{esc(L["agent_pack"])} ↗</a>'
+    elif site.get("pack", {}).get("available"):
         size_mb = site["pack"].get("zip_size", 0) / 1024 / 1024
-        download_block = f'<a class="cta" href="{site["pack"]["zip_url"]}">↓ {L["download_pack"]} ({size_mb:.0f} MB)</a>'
-        pack_html = f'<p>📦 <a href="{site["pack"]["folder_url"]}">{L["browse_pack"]} →</a></p>'
+        download_block = f'<a class="cta" href="{site["pack"]["zip_url"]}">↓ {esc(L["download_pack"])} ({size_mb:.0f} MB)</a>'
+        pack_html = f'<p>📦 <a href="{site["pack"]["folder_url"]}">{esc(L["browse_pack"])} →</a></p>'
+    B.append(f'<div class="actions">{download_block}<a class="cta ghost" href="{BASE_URL}/#/sites/{slug}">{esc(L["open_in_app"])}</a></div>')
+    B.append(f'<div class="meta"><p>{esc(L["visit"])}: <a href="{esc(site["url"])}" target="_blank" rel="noreferrer">{esc(site["url"])}</a></p>{pack_html}</div>')
 
-    # ---- 色板：把 spec.colors 渲染成可见色块（设计画廊就该直接给颜色看）----
-    spec = site.get("spec") or {}
+    # 01 设计气质 DNA
+    if identity:
+        inner = ""
+        kws = [k for k in (identity.get("keywords") or []) if isinstance(k, str)]
+        if kws:
+            inner += '<div class="keywords">' + "".join(f'<span>{esc(k)}</span>' for k in kws) + '</div>'
+        inner += narr(identity.get("analogy"))
+        B.append(section("01", H[0], inner))
+
+    # 02 色彩
     colors = spec.get("colors") or {}
     SW_LABELS = {"bg": "BG", "bgSoft": "BG soft", "bgQuiet": "BG quiet", "ink": "Ink",
                  "inkSoft": "Ink soft", "accent": "Accent", "muted": "Muted",
                  "mutedSoft": "Muted soft", "line": "Line"}
-    swatch_items, seen_colors = [], set()
+    sw, seen = [], set()
     for key in ["accent", "ink", "inkSoft", "bg", "bgSoft", "bgQuiet", "muted", "line"]:
         v = colors.get(key)
-        if not v or not isinstance(v, str):
+        if not v or not isinstance(v, str) or v.lower() in seen:
             continue
-        if v.lower() in seen_colors:
-            continue
-        seen_colors.add(v.lower())
-        swatch_items.append(
-            f'<div class="sw"><span class="chip" style="background:{v}"></span>'
-            f'<code>{v}</code><em>{SW_LABELS.get(key, key)}</em></div>'
-        )
-    palette_block = ""
-    if swatch_items:
-        palette_block = (f'<h2>{L["palette_h2"]}</h2>\n<div class="swatches">\n'
-                         + "\n".join(swatch_items) + "\n</div>")
+        seen.add(v.lower())
+        sw.append(f'<div class="sw"><span class="chip" style="background:{esc(v)}"></span><code>{esc(v)}</code><em>{SW_LABELS.get(key, key)}</em></div>')
+    if sw:
+        cprin = principle((si.get("colors") or {}).get("principle") if isinstance(si.get("colors"), dict) else "")
+        B.append(section("02", H[1], '<div class="swatches">' + "".join(sw) + "</div>" + cprin))
 
-    # ---- 字阶：把 spec.typography.scale 按真实字号渲染出来 ----
+    # 03 字体
     typ = spec.get("typography") or {}
-    type_rows = []
+    trows = []
     for item in (typ.get("scale") or []):
         if not isinstance(item, dict) or not item.get("size"):
             continue
         token = item.get("token") or "Aa"
         size = int(item["size"])
         weight = item.get("weight", 400) or 400
-        render_size = min(size, 44)  # 防止 display 撑爆 760px 栏宽
-        type_rows.append(
-            f'<li><span class="sample" style="font-size:{render_size}px;font-weight:{weight}">{token}</span>'
-            f'<code>{size}px · {weight}</code></li>'
-        )
-    type_block = ""
-    if type_rows:
+        trows.append(f'<li><span class="sample" style="font-size:{min(size,44)}px;font-weight:{weight}">{esc(token)}</span><code>{size}px · {weight}</code></li>')
+    if trows:
         fams = list(dict.fromkeys(f for f in [typ.get("display"), typ.get("body"), typ.get("mono")] if f))
-        meta_line = f'<p class="typemeta">{" · ".join(fams)}</p>' if fams else ""
-        type_block = (f'<h2>{L["type_h2"]}</h2>\n{meta_line}\n<ul class="typescale">\n'
-                      + "\n".join(type_rows) + "\n</ul>")
+        meta_line = f'<p class="typemeta">{esc(" · ".join(fams))}</p>' if fams else ""
+        rules = joinlist((si.get("typography") or {}).get("rules") if isinstance(si.get("typography"), dict) else None)
+        B.append(section("03", H[2], meta_line + '<ul class="typescale">' + "".join(trows) + "</ul>" + rules))
 
-    # ---- 给你的 Agent：每页都有把这份品味喂给 AI 的入口 ----
-    agent_block = (
-        f'<div class="agent">\n  <h3>{L["agent_h3"]}</h3>\n'
-        f'  <p>{L["agent_desc"]}</p>\n'
-        f'  <a href="/skill.md">{L["agent_skill"]} ↗</a>{agent_pack_link}\n</div>'
+    # 04 间距
+    spacing = spec.get("spacing") or {}
+    sc = [v for v in (spacing.get("scale") or []) if isinstance(v, (int, float))]
+    if sc:
+        bars = "".join(f'<div><i style="width:{min(int(v)*3,340)}px"></i><code>{int(v)}px</code></div>' for v in sc)
+        rhythm = narr((si.get("spacing") or {}).get("rhythm") if isinstance(si.get("spacing"), dict) else "")
+        B.append(section("04", H[3], f'<div class="spacing">{bars}</div>' + rhythm))
+
+    # 05 表面（圆角 / 阴影 / 边线）
+    surf = spec.get("surfaces") or {}
+    radius = surf.get("radius") if isinstance(surf.get("radius"), dict) else {}
+    rad = [(k, v) for k, v in radius.items() if isinstance(v, (int, float))]
+    if rad:
+        boxes = "".join(f'<div><i style="border-radius:{min(int(v),40)}px"></i><span>{esc(k)} · {int(v)}px</span></div>' for k, v in rad)
+        sinfo = si.get("surfaces") if isinstance(si.get("surfaces"), dict) else {}
+        extra = narr(sinfo.get("borders")) + joinlist(sinfo.get("shadows"))
+        B.append(section("05", H[4], f'<div class="radii">{boxes}</div>' + extra))
+
+    # 06 布局
+    lay = spec.get("layout") or {}
+    stat = []
+    if lay.get("container"): stat.append((f'{int(lay["container"])}', "container"))
+    if lay.get("columns"): stat.append((f'{int(lay["columns"])}', "columns"))
+    if lay.get("gutter"): stat.append((f'{int(lay["gutter"])}px', "gutter"))
+    if lay.get("breakpoints"): stat.append((" / ".join(str(int(b)) for b in lay["breakpoints"]), "breakpoints"))
+    if stat:
+        tiles = "".join(f'<div><b>{esc(v)}</b><span>{esc(k)}</span></div>' for v, k in stat)
+        skel = narr((si.get("layout") or {}).get("skeleton") if isinstance(si.get("layout"), dict) else "")
+        B.append(section("06", H[5], f'<div class="stats">{tiles}</div>' + skel))
+
+    # 07 动效与交互
+    mot = spec.get("motion") or {}
+    dur = mot.get("durations") if isinstance(mot.get("durations"), dict) else {}
+    mtiles = [(f'{int(v)}ms', k) for k, v in dur.items() if isinstance(v, (int, float))]
+    if mtiles or mot.get("easing"):
+        tiles = "".join(f'<div><b>{esc(v)}</b><span>{esc(k)}</span></div>' for v, k in mtiles)
+        if mot.get("easing"):
+            tiles += f'<div><b style="font-size:13px">{esc(str(mot["easing"]))}</b><span>easing</span></div>'
+        pats = joinlist((si.get("motion") or {}).get("patterns") if isinstance(si.get("motion"), dict) else None)
+        inter = si.get("interaction") if isinstance(si.get("interaction"), dict) else {}
+        ipieces = [inter.get("hover"), inter.get("click")]
+        idesc = narr(" · ".join(p for p in ipieces if isinstance(p, str) and p.strip())) if any(ipieces) else ""
+        B.append(section("07", H[6], f'<div class="stats">{tiles}</div>' + pats + idesc))
+
+    # 08 组件
+    comp = si.get("components") if isinstance(si.get("components"), dict) else {}
+    crows = [(k, v) for k, v in comp.items() if isinstance(v, str) and v.strip()]
+    if crows:
+        items = "".join(f'<li><b>{esc(k)}</b> <span>{esc(v)}</span></li>' for k, v in crows)
+        B.append(section("08", X["components_h"], f'<ul class="components">{items}</ul>'))
+
+    # 09 文案语气 + 禁用清单
+    voice = si.get("voice") if isinstance(si.get("voice"), dict) else {}
+    donts = [d for d in (si.get("donts") or []) if isinstance(d, str) and d.strip()]
+    if voice or donts:
+        inner = ""
+        vmap = [(X["voice_tone"], voice.get("tone")), (X["voice_headline"], voice.get("headlineStyle")), (X["voice_cta"], voice.get("ctaStyle"))]
+        vitems = "".join(f'<li><b>{esc(lab)}</b> <span>{esc(val)}</span></li>' for lab, val in vmap if isinstance(val, str) and val.strip())
+        avoid = [a for a in (voice.get("avoid") or []) if isinstance(a, str)]
+        if vitems:
+            inner += f'<ul class="components">{vitems}</ul>'
+        all_donts = donts + [f'{X["voice_avoid"]}: {a}' for a in avoid]
+        if all_donts:
+            inner += '<ul class="donts">' + "".join(f'<li>{esc(d)}</li>' for d in all_donts) + "</ul>"
+        B.append(section("09", X["voice_h"], inner))
+
+    # 10 包内真实截图画廊（文件需在服务器；批量部署会把解压文件推上去）
+    if isinstance(pack, dict) and pack.get("files"):
+        shots = [f for f in pack["files"]
+                 if isinstance(f, dict) and f.get("category") == "shot"
+                 and isinstance(f.get("name"), str) and f["name"].endswith(".png")
+                 and "_full" not in f["name"]]  # 跳过超大整页截图，页面更快
+        if shots:
+            figs = "".join(
+                f'<figure><a href="/packs/{slug}/{esc(f["name"])}" target="_blank" rel="noreferrer">'
+                f'<img src="/packs/{slug}/{esc(f["name"])}" alt="{esc(title)} — {esc(f.get("desc") or f["name"])}" loading="lazy" /></a>'
+                f'<figcaption>{esc(f.get("desc") or f["name"])}</figcaption></figure>'
+                for f in shots
+            )
+            note = f'<p class="typemeta">{esc(X["data_note"])}</p>'
+            B.append(section("10", X["gallery_h"], f'<div class="gallery">{figs}</div>' + note))
+
+    # 11 System Prompt（可直接粘给 AI 工具）
+    sysp = si.get("systemPrompt")
+    if isinstance(sysp, str) and sysp.strip():
+        B.append(section("11", X["sys_h"], f'<div class="sysprompt">{esc(sysp.strip())}</div>'))
+
+    # 给你的 Agent
+    B.append(
+        f'<div class="agent"><h3>{esc(L["agent_h3"])}</h3>'
+        f'<p>{esc(L["agent_desc"])}</p>'
+        f'<a href="/skill.md">{esc(L["agent_skill"])} ↗</a>{agent_pack_link}</div>'
     )
 
-    lang_links = " · ".join(
-        f'<a class="{"active" if l == lang else ""}" href="{BASE_URL}/{l}/sites/{slug}">{l}</a>'
-        for l in LANGS
+    B.append(f'<p class="langs">{lang_links}</p>')
+    B.append(
+        '<footer>'
+        f'<p>OpenDesign · curated web aesthetics for AI-readable design DNA · <a href="{BASE_URL}/">opendesign.cc</a></p>'
+        f'<p>{esc(L["notes_label"])}: {esc(notes_text or palette or "—")}</p>'
+        '</footer>'
     )
 
-    # Open-graph + JSON-LD
-    og_image = card_image(site, 1200, 750) or f"{BASE_URL}/og-cover.png"
+    body = "\n\n".join(s for s in B if s)
+
+    og_image = hero or f"{BASE_URL}/og-cover.png"
     json_ld = json.dumps({
         "@context": "https://schema.org",
         "@type": "Article",
         "headline": f"{title} · OpenDesign",
-        "description": notes_text or palette,
+        "description": (lead or notes_text or palette)[:300],
         "image": og_image,
         "url": canonical,
         "inLanguage": lang,
         "publisher": {"@type": "Organization", "name": "OpenDesign", "url": BASE_URL}
     }, ensure_ascii=False)
 
-    tagline = notes_text or palette or f"Design DNA spec for {title}"
-
     return HTML_TEMPLATE.format(
         html_lang=LANG_HTML[lang],
-        title=title,
-        brand_tagline=L["insights_h2"],
-        meta_desc=tagline[:160],
+        title=esc(title),
+        brand_tagline=esc(L["insights_h2"]),
+        meta_desc=esc(lead[:160]),
         canonical=canonical,
         alternates=alternates,
         og_image=og_image,
         json_ld=json_ld,
-        eyebrow=L["eyebrow"],
-        tagline=tagline,
-        tags_html=tags_html,
-        screenshot_url=card_image(site, 1200, 750),
-        screenshot_alt=L["screenshot_alt"],
-        visit_label=L["visit"],
-        site_url=site["url"],
-        pack_html=pack_html,
-        spa_url=f"{BASE_URL}/#/sites/{slug}",
-        open_in_app=L["open_in_app"],
-        download_block=download_block,
-        palette_block=palette_block,
-        type_block=type_block,
-        agent_block=agent_block,
-        insights_h2=L["insights_h2"],
-        label_color=L["label_color"],
-        label_layout=L["label_layout"],
-        label_interaction=L["label_interaction"],
-        label_motion=L["label_motion"],
-        desc_palette=palette or "—",
-        desc_layout=layout or "—",
-        desc_interaction=interaction or "—",
-        desc_motion=motion or "—",
-        lang_links=lang_links,
-        home_url=BASE_URL + "/",
-        notes_label=L["notes_label"],
-        notes_text=notes_text or palette,
         analytics=ANALYTICS_SNIPPET,
+        body=body,
     )
 
 
