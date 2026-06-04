@@ -8,6 +8,588 @@
     "type",
     "foundry"
   ],
-  "status": "pending",
-  "added_at": "2026-06-02"
+  "status": "completed",
+  "added_at": "2026-06-02",
+  "spec": {
+    "colors": {
+      "bg": "#000000",
+      "bgSoft": null,
+      "bgQuiet": "#EAEAE9",
+      "ink": "#FFFFFF",
+      "inkSoft": "#808080",
+      "muted": "#CCCCCC",
+      "mutedSoft": null,
+      "accent": "#FFFF00",
+      "line": "rgba(255,255,255,1.0)"
+    },
+    "typography": {
+      "display": "didone-serif",
+      "body": "transitional-serif",
+      "mono": null,
+      "scale": [
+        {
+          "token": "display",
+          "size": 100,
+          "lh": 0.95,
+          "weight": 400,
+          "ls": "-2px"
+        },
+        {
+          "token": "heading",
+          "size": 56,
+          "lh": 1.0,
+          "weight": 400,
+          "ls": "-1px"
+        },
+        {
+          "token": "body",
+          "size": 14,
+          "lh": 1.4,
+          "weight": 400,
+          "ls": "0"
+        }
+      ]
+    },
+    "spacing": {
+      "base": 7,
+      "scale": [
+        7,
+        14,
+        28,
+        56
+      ]
+    },
+    "surfaces": {
+      "radius": {
+        "sm": 0,
+        "md": 0,
+        "lg": 24,
+        "pill": 999
+      }
+    },
+    "layout": {
+      "container": 1280,
+      "paragraph": 680,
+      "columns": 12,
+      "gutter": 28,
+      "breakpoints": [
+        768,
+        1024
+      ]
+    },
+    "motion": {
+      "durations": {
+        "micro": 220,
+        "small": 400,
+        "medium": 600
+      },
+      "easing": "cubic-bezier(0.52, 0.07, 0.2, 0.99)"
+    }
+  },
+  "spec_i18n": {
+    "en": {
+      "identity": {
+        "keywords": [
+          "foundry",
+          "type",
+          "gallery",
+          "editorial",
+          "precision"
+        ],
+        "analogy": "A curated black-box gallery where type specimens are presented as monolithic artifacts.",
+        "oneLiner": "A minimalist, high-contrast type foundry gallery that lets specimen typography speak for itself."
+      },
+      "colors": {
+        "principle": "Absolute stark contrast to elevate the inherent character and craftsmanship of the typefaces being presented."
+      },
+      "typography": {
+        "rules": [
+          "Maintain high contrast by strictly using white text on black backgrounds for all specimens.",
+          "Utilize extreme tracking (negative letter-spacing) on large-scale display typography to tighten visual density.",
+          "Reserve bold weights strictly for specific specimen showcases, keeping the UI strictly at a 400 weight."
+        ],
+        "scaleUses": [
+          "hero specimen names and large scale showcases",
+          "secondary specimen headlines and large grid labels",
+          "navigation links, small UI text, and specimen details"
+        ]
+      },
+      "spacing": {
+        "rhythm": "Strict 7-point base unit applied to all padding, gaps, and margins, creating a highly constrained spatial grid."
+      },
+      "surfaces": {
+        "shadows": [],
+        "borders": "Flat, clean edges or dashed outlines (used in the hero graphic), with occasional 1px or 2px solid strokes for interactive grid states."
+      },
+      "layout": {
+        "skeleton": "A strict two-column asymmetric grid on desktop that completely collapses into a single continuous vertical stack on mobile."
+      },
+      "components": {
+        "button": "Minimal text-only links or custom pointer cursors (left/right arrows) that hide traditional UI in favor of direct interaction.",
+        "card": "Full-bleed black blocks acting as specimen containers, framed by a white background grid with distinct 24px corner radii.",
+        "chip": "A high-contrast rectangular badge featuring a vibrant yellow background (#FFFF00) and black text for statuses like 'Updated'.",
+        "input": "Not visible in the provided screenshot.",
+        "hero": "A massive, dominating black container featuring an oversized serif specimen graphic and custom dashed outlines."
+      },
+      "motion": {
+        "patterns": [
+          "Smooth cubic-bezier easing applied to all structural transforms and container slides.",
+          "Strict 0.45s to 0.6s transition durations for primary carousel and grid state changes.",
+          "Instantaneous cursor updates to custom SVG arrows when hovering over interactive specimen zones."
+        ]
+      },
+      "interaction": {
+        "hover": "Custom SVG cursors (left and right arrows) replace the default pointer to indicate interactive carousel or grid navigation.",
+        "click": "Directs to specimen detail pages or advances the image carousel, maintaining a seamless state change.",
+        "transition": "A 0.45s or 0.6s transform transition with a specific custom cubic-bezier easing curve.",
+        "keyboard": "Standard tab navigation likely applies, though custom cursors suggest a heavy reliance on mouse/trackpad."
+      },
+      "voice": {
+        "tone": "Expert, minimalist, and supremely confident.",
+        "headlineStyle": "Unapologetically large, highly tracked-out specimen names that function more as visual anchors than mere headings.",
+        "ctaStyle": "Subtle, non-intrusive text links that deliberately avoid standard button aesthetics to keep the focus on the type.",
+        "avoid": [
+          "Avoid using standard HTML buttons or brightly colored UI elements that would distract from the specimens.",
+          "Avoid multi-column text blocks; keep text strictly to single lines or very short, high-impact bursts.",
+          "Avoid introducing any decorative elements or illustrations that are not actual type specimens."
+        ]
+      },
+      "donts": [
+        "Don't introduce secondary colors — screenshot shows a strictly achromatic black and white palette, save for a single functional yellow badge.",
+        "Don't use bold or heavy UI weights — screenshot shows all navigation and UI elements rendered in a consistent 400 weight.",
+        "Don't apply drop shadows or 3D effects — screenshot shows completely flat, graphic surfaces with no depth cues.",
+        "Don't use rounded corners on cards — screenshot shows the black specimen containers fitting perfectly square within a 24px radius outer frame.",
+        "Don't create dense text paragraphs — screenshot shows the UI relies almost entirely on massive display typography and sparse navigation links.",
+        "Don't use default browser cursors on interactive zones — screenshot clearly demonstrates custom arrow cursor images for left/right navigation."
+      ],
+      "systemPrompt": "205TF is a premium digital type foundry website that utilizes a stark, minimalist black-and-white aesthetic to let its font specimens speak for themselves. The UI relies on a strict 7-point spacing grid and a 12-column layout, ensuring a highly structured yet dramatic presentation. Key colors are limited to pure black (#000000) and white (#FFFFFF), with a solitary high-contrast yellow (#FFFF00) used sparingly for status badges like 'Updated'. The typography categories are predominantly transitional-serif and didone-serif, though the UI navigation is set in a mono-like geometric sans. Critical constraints include: never introduce secondary or decorative colors, maintain a strict 400 font weight across all standard UI elements, and avoid traditional button components in favor of custom SVG cursors and text links to preserve the gallery-like purity of the layout."
+    },
+    "zh-CN": {
+      "identity": {
+        "keywords": [
+          "字体铸造厂",
+          "字体",
+          "画廊",
+          "编辑设计",
+          "精准度"
+        ],
+        "analogy": "一个精心策划的黑盒画廊，字体标本以整体艺术品形式呈现。",
+        "oneLiner": "极简高对比度字体铸造厂画廊，让字体标本自我言说。"
+      },
+      "colors": {
+        "principle": "通过绝对的强烈对比，凸显所呈现字体的固有特质与工艺水准。"
+      },
+      "typography": {
+        "rules": [
+          "所有标本严格采用黑底白字，保持高对比度。",
+          "大尺寸展示字体使用极端字间距（负字距值）以压缩视觉密度。",
+          "仅在特定标本展示时使用粗体字重，界面统一保持400字重。"
+        ],
+        "scaleUses": [
+          "主标本名称与大尺寸展示",
+          "次级标本标题与大型网格标签",
+          "导航链接、小型界面文本及标本细节"
+        ]
+      },
+      "spacing": {
+        "rhythm": "所有内边距、间距与外边距均采用严格的7像素基准单位，构建高度规整的空间网格。"
+      },
+      "surfaces": {
+        "shadows": [],
+        "borders": "采用平直整洁的边缘或虚线轮廓（用于主视觉图），交互网格状态偶尔使用1px或2px实线描边。"
+      },
+      "layout": {
+        "skeleton": "桌面端采用严格的双栏非对称网格，移动端完全折叠为单列垂直堆叠。"
+      },
+      "components": {
+        "button": "最小化纯文本链接或定制指针光标（左右箭头），通过隐藏传统界面元素实现直接交互。",
+        "card": "满版黑色区块作为字体标本容器，以白色背景网格为框架，具有独特的24px圆角。",
+        "chip": "高对比度矩形徽章，采用亮黄色背景（#FFFF00）配黑色文字，用于'已更新'等状态标识。",
+        "input": "当前截图未显示。",
+        "hero": "占据主导地位的大型黑色容器，包含超大衬线字体标本图形与定制虚线轮廓。"
+      },
+      "motion": {
+        "patterns": [
+          "所有结构变换与容器滑动均采用平滑的 cubic-bezier 缓动。",
+          "主轮播与网格状态切换严格采用0.45秒至0.6秒的过渡时长。",
+          "悬停在交互标本区域时立即更新为定制SVG箭头光标。"
+        ]
+      },
+      "interaction": {
+        "hover": "定制SVG光标（左右箭头）替代默认指针，指示轮播或网格导航交互。",
+        "click": "导向标本详情页或推进图片轮播，保持无缝状态切换。",
+        "transition": "采用特定定制 cubic-bezier 缓动曲线的0.45秒或0.6秒变换过渡。",
+        "keyboard": "标准标签页导航可能适用，但定制光标显示强烈依赖鼠标/触控板操作。"
+      },
+      "voice": {
+        "tone": "专业、极简且充满自信。",
+        "headlineStyle": "字体标本名称采用毫不妥协的大字号与宽松字距，更侧重视觉锚点功能而非单纯标题。",
+        "ctaStyle": "细腻无侵入的文本链接，刻意规避标准按钮美学以保持焦点集中于字体本身。",
+        "avoid": [
+          "避免使用标准HTML按钮或色彩鲜艳的界面元素，以免分散对标本的注意力。",
+          "避免多栏文本段落；文字严格控制为单行或极简高冲击力短句。",
+          "避免引入任何非实际字体标本的装饰元素或插图。"
+        ]
+      },
+      "donts": [
+        "切勿引入次要色彩——截图显示为严格的无彩色黑白体系，仅保留一个功能性黄色徽章。",
+        "切勿使用粗体或厚重界面字重——截图显示所有导航与界面元素均采用统一的400字重。",
+        "切勿添加投影或立体效果——截图显示为完全平面化的图形表面，无深度提示。",
+        "切勿对卡片使用圆角——截图显示黑色标本容器在24px圆角外框内呈现完美直角。",
+        "切勿创建密集文本段落——截图显示界面几乎完全依赖大型展示字体与稀疏导航链接。",
+        "切勿在交互区域使用默认浏览器光标——截图清晰展示左右导航使用的定制箭头光标图像。"
+      ],
+      "systemPrompt": "205TF 是一个高端数字字体铸造厂网站，采用极简黑白美学让字体标本自我呈现。界面依托严格的7像素间距网格与12栏布局，确保高度结构化且富有戏剧性的展示效果。主色限制为纯黑（#000000）与纯白（#FFFFFF），仅保留一个高对比度黄色（#FFFF00）用于'已更新'等状态徽章。字体类别以过渡衬线体与现代衬线体为主，界面导航则采用类等宽几何无衬线体。关键约束包括：永不引入次要或装饰性色彩，所有标准界面元素严格保持400字重，避免传统按钮组件，改用定制SVG光标与文本链接以保持画廊般的纯净布局。"
+    },
+    "zh-TW": {
+      "identity": {
+        "keywords": [
+          "字體鑄造所",
+          "字體",
+          "藝廊",
+          "編輯",
+          "精準"
+        ],
+        "analogy": "一個精心策劃的黑盒子藝廊，字體樣本以單件藝術品的形式呈現。",
+        "oneLiner": "一座極簡、高對比的字體鑄造所藝廊，讓字體樣本自行訴說。"
+      },
+      "colors": {
+        "principle": "透過絕對的強烈對比，彰顯所呈現字體的內在特質與工藝。"
+      },
+      "typography": {
+        "rules": [
+          "所有字體樣本嚴格使用黑底白字，以維持高對比度。",
+          "大尺度展示字體使用極端字距調整（負值字母間距）以緊縮視覺密度。",
+          "粗體字重嚴格保留給特定字體樣本展示，UI 介面則統一維持 400 字重。"
+        ],
+        "scaleUses": [
+          "主視覺字體名稱與大尺度展示",
+          "次要字體標題與大型格線標籤",
+          "導覽連結、小型 UI 文字與字體細節"
+        ]
+      },
+      "spacing": {
+        "rhythm": "所有內邊距、間距與外邊距皆嚴格採用 7 點基準單位，建立高度受限的空間格線。"
+      },
+      "surfaces": {
+        "shadows": [],
+        "borders": "平坦、乾淨的邊緣或虛線輪廓（用於主視覺圖），互動式格線狀態偶爾使用 1px 或 2px 實線筆畫。"
+      },
+      "layout": {
+        "skeleton": "桌面版採用嚴格的雙欄不對稱格線，行動版則完全折疊為單一連續垂直堆疊。"
+      },
+      "components": {
+        "button": "極簡的文字連結或定制游標（左右箭頭），隱藏傳統 UI 以利直接互動。",
+        "card": "全出血黑色區塊作為字體樣本容器，由白色背景格線框住，具有鮮明的 24px 圓角。",
+        "chip": "高對比的矩形標籤，採用鮮亮的黃色背景 (#FFFF00) 與黑色文字，用於「已更新」等狀態。",
+        "input": "在提供的截圖中不可見。",
+        "hero": "一個巨大、主導性的黑色容器，內含超大尺寸襯線字體樣本圖形與定制虛線輪廓。"
+      },
+      "motion": {
+        "patterns": [
+          "所有結構性變形與容器滑動皆套用流暢的 cubic-bezier 緩動。",
+          "主要輪播與格線狀態變換採用嚴格的 0.45 秒至 0.6 秒過渡時長。",
+          "游標懸停於互動式字體展示區域時，即時更新為定制的 SVG 箭頭游標。"
+        ]
+      },
+      "interaction": {
+        "hover": "定制的 SVG 游標（左右箭頭）取代預設指標，以指示互動式輪播或格線導覽。",
+        "click": "導向字體樣本詳情頁面或推進圖片輪播，保持無縫的狀態轉換。",
+        "transition": "採用特定的定制 cubic-bezier 緩動曲線，持續 0.45 秒或 0.6 秒的變形過渡。",
+        "keyboard": "可能適用標準 Tab 鍵導覽，但定制游標暗示其重度依賴滑鼠/觸控板。"
+      },
+      "voice": {
+        "tone": "專業、極簡、充滿自信。",
+        "headlineStyle": "毫不掩飾的巨大、寬鬆字距調整的字體樣本名稱，其功能更接近視覺錨點而非單純標題。",
+        "ctaStyle": "低調、不突兀的文字連結，刻意避開標準按鈕美學，以將焦點保留在字體上。",
+        "avoid": [
+          "避免使用標準 HTML 按鈕或鮮豔色彩的 UI 元素，以免分散對字體樣本的注意力。",
+          "避免多欄文字區塊；文字嚴格維持單行或極短、高衝擊力的段落。",
+          "避免引入任何非實際字體樣本的裝飾元素或插圖。"
+        ]
+      },
+      "donts": [
+        "不要引入輔助色——截圖顯示嚴格的黑白無彩色調色盤，僅有一個功能性黃色標籤。",
+        "不要使用粗體或厚重的 UI 字重——截圖顯示所有導覽與 UI 元素皆以一致的 400 字重呈現。",
+        "不要套用陰影或 3D 效果——截圖顯示完全平坦、圖形化的表面，無深度提示。",
+        "不要在卡片上使用圓角——截圖顯示黑色字體樣本容器完美貼合 24px 圓角的外框。",
+        "不要建立密集的文字段落——截圖顯示 UI 幾乎完全依賴巨大的展示字體與稀疏的導覽連結。",
+        "不要在互動區域使用預設瀏覽器游標——截圖清楚展示了用於左右導覽的定制箭頭游標圖像。"
+      ],
+      "systemPrompt": "205TF 是一個高階數位字體鑄造所網站，採用鮮明、極簡的黑白色調美學，讓其字體樣本自行訴說。UI 依賴嚴格的 7 點間距格線與 12 欄佈局，確保高度結構化且具戲劇性的呈現。關鍵色彩限於純黑 (#000000) 與純白 (#FFFFFF)，並以單一高對比黃色 (#FFFF00) 作為狀態標籤（如「已更新」）的點綴。字體類別主要為過渡襯線體與 Didone 襯線體，而 UI 導覽則採用幾何風格的等寬無襯線體。關鍵約束包括：永不引入輔助或裝飾色彩、所有標準 UI 元素維持嚴格的 400 字重、避免傳統按鈕組件，改用定制 SVG 游標與文字連結，以保持佈局如藝廊般的純粹性。"
+    },
+    "ja": {
+      "identity": {
+        "keywords": [
+          "書体鋳造所",
+          "タイポグラフィ",
+          "ギャラリー",
+          "エディトリアル",
+          "精緻さ"
+        ],
+        "analogy": "タイポグラフィ見本が単一の記念碑的な資材として提示される、厳選されたブラックボックス・ギャラリー。",
+        "oneLiner": "見本のタイポグラフィが自身で語る、ミニマリストでハイコントラストの書体鋳造所ギャラリー。"
+      },
+      "colors": {
+        "principle": "提示されるフォントの固有の性格と技術を高揚させるための、絶対的な明瞭なコントラスト。"
+      },
+      "typography": {
+        "rules": [
+          "すべての見本で黒背景に白のテキストを使用し、高いコントラストを維持する。",
+          "大規模なディスプレイ・タイポグラフィに極端なトラッキング（ネガティブな文字間隔）を活用し、視覚的な密度を引き締める。",
+          "ボルド�ウェイトは特定の見本ショーケースに厳密に限定し、UIは厳格に400ウェイトで維持する。"
+        ],
+        "scaleUses": [
+          "ヒーロー見本名と大規模なショーケース",
+          "セカンダリ見本見出しおよび大きなグリッドラベル",
+          "ナビゲーションリンク、小さなUIテキスト、および見本詳細"
+        ]
+      },
+      "spacing": {
+        "rhythm": "厳格な7ポイントの基本ユニットをすべてのパディング、ギャップ、マージンに適用し、非常に制約された空間グリッドを形成する。"
+      },
+      "surfaces": {
+        "shadows": [],
+        "borders": "フラットでクリーンなエッジ、またはダッシュ線のアウトライン（ヒーローグラフィックで使用）。インタラクティブなグリッド状態には時折1pxまたは2pxのソリッドストロークを使用。"
+      },
+      "layout": {
+        "skeleton": "デスクトップでは厳格な2カラム非対称グリッドを使用し、モバイルでは完全に単一の連続した縦スタックに崩れる。"
+      },
+      "components": {
+        "button": "テキストのみのミニマルなリンク、またはカスタムポインタカーソル（左/右矢印）。従来のUIを隠し、直接的なインタラクションを優先。",
+        "card": "フルブリードの黒いブロックが見本コンテナとして機能し、明確な24pxの角丸を持つ白い背景グリッドで額装される。",
+        "chip": "「Updated」などのステータス用に、鮮やかなイエローの背景（#FFFF00）と黒いテキストを備えた、ハイコントラストな長方形バッジ。",
+        "input": "提供されたスクリーンショットには見当たらない。",
+        "hero": "過大なセリフ見本グラフィックとカスタムダッシュアウトラインを備えた、巨大で支配的な黒いコンテナ。"
+      },
+      "motion": {
+        "patterns": [
+          "すべての構造トランスフォームとコンテナスライドに、滑らかなcubic-bezierイージングを適用。",
+          "プライマリ・カルーセルとグリッド状態変更に、厳格な0.45秒から0.6秒のトランジション期間。",
+          "インタラクティブな見本ゾーンにホバーした際の、カスタムSVG矢印への即座なカーソル更新。"
+        ]
+      },
+      "interaction": {
+        "hover": "カスタムSVGカーソル（左矢印と右矢印）がデフォルトのポインタを置き換え、インタラクティブなカルーセルまたはグリッドナビゲーションを示す。",
+        "click": "見本の詳細ページにダイレクトするか、画像カルーセルを進行させ、シームレスな状態変更を維持。",
+        "transition": "特定のカスタムcubic-bezierイージングカーブを使用した、0.45秒または0.6秒のトランスフォーム・トランジション。",
+        "keyboard": "カスタムカーソルがマウス/トラックパッドへの強い依存を示唆するが、標準的なTabナビゲーションもおそらく適用される。"
+      },
+      "voice": {
+        "tone": "専門的、ミニマリスト、そして極めて自信に満ちている。",
+        "headlineStyle": "見出しだけではない視覚的なアンカーとして機能する、容赦のないほど大きく、広くトラッキングされた見本名。",
+        "ctaStyle": "フォントに焦点を保つために、標準的なボタンの美学を意図的に回避する、目立たない非侵入型テキストリンク。",
+        "avoid": [
+          "見本から注意をそらすような、標準的なHTMLボタンや明るく着色されたUI要素の使用を避ける。",
+          "複数カラムのテキストブロックを避ける。テキストは厳密に単一行、または非常に短くインパクトのあるフレーズに留める。",
+          "実際のタイポグラフィ見本ではない装飾要素やイラストレーションを導入することを避ける。"
+        ]
+      },
+      "donts": [
+        "セカンダリカラーを導入しない — スクリーンショットは単一の機能的なイエローバッジを除き、厳格な無彩色の黒と白のパレットを示している。",
+        "ボルド�またはヘビーなUIウェイトを使用しない — スクリーンショットはすべてのナビゲーションおよびUI要素が一貫した400ウェイトでレンダリングされていることを示している。",
+        "ドロップシャドウまたは3D効果を適用しない — スクリーンショットは完全没有り目の平坦でグラフィック的なサーフェスを示している。",
+        "カードに角丸を使用しない — スクリーンショットは黒い見本コンテナが24pxの角丸の外枠に完璧に四角く収まっていることを示している。",
+        "密集したテキスト段落を作成しない — スクリーンショットはUIが巨大なディスプレイ・タイポグラフィと疎らなナビゲーションリンクにほぼ完全に依存していることを示している。",
+        "インタラクティブゾーンでデフォルトのブラウザカーソルを使用しない — スクリーンショットは左/右ナビゲーション用のカスタム矢印カーソル画像を明確に実証している。"
+      ],
+      "systemPrompt": "205TFは、そのフォント見本が自身で語れるように、スタックでミニマリストなブラック＆ホワイトの美学を利用するプレミアム・デジタル書体鋳造所のウェブサイトです。UIは厳格な7ポイントのスペースグリッドと12カラムレイアウトに依存し、非常に構造化されたがらも劇的なプレゼンテーションを保証します。主要なカラーは純黒（#000000）と白（#FFFFFF）に限定され、単一のハイコントラストイエロー（#FFFF00）が「Updated」などのステータス・バッジに控えめに使用されます。タイポグラフィのカテゴリは主にトランジショナル・セリフとディドーン・セリフですが、UIナビゲーションはモノスペース風のジオメトリック・サンセリフで設定されています。重要な制約には、以下が含まれる：セカンダリカラーまたは装飾カラーを決して導入せず、すべての標準UI要素で厳格な400フォントウェイトを維持し、ギャラリーのようなレイアウトの純度を保つためにカスタムSVGカーソルとテキストリンクを優先して従来のボタンコンテナを回避する。"
+    },
+    "ko": {
+      "identity": {
+        "keywords": [
+          "파운드리",
+          "타입",
+          "갤러리",
+          "에디토리얼",
+          "정밀도"
+        ],
+        "analogy": "타입 스페시멘이 거대한 유물처럼 전시된 큐레이션된 블랙박스 갤러리.",
+        "oneLiner": "스페시멘 타이포그래피가 스스로 말하게 하는 미니멀한 고대비 타입 파운드리 갤러리."
+      },
+      "colors": {
+        "principle": "표시되는 서체의 고유한 성격과 장인정신을 높이기 위한 절대적이고 날카로운 대비."
+      },
+      "typography": {
+        "rules": [
+          "모든 스페시멘에 검은 배경 위의 흰색 텍스트를 엄격히 사용하여 높은 대비를 유지합니다.",
+          "대형 전시 타이포그래피에 극단적인 트래킹(음의 자간)을 사용하여 시각적 밀도를 높입니다.",
+          "볼드 웨이트는 특정 스페시멘 쇼케이스에만 엄격히 예약하고, UI는 400 웨이트로 엄격히 유지합니다."
+        ],
+        "scaleUses": [
+          "히어로 스페시멘 이름 및 대형 쇼케이스",
+          "보조 스페시멘 헤드라인 및 대형 그리드 레이블",
+          "네비게이션 링크, 소형 UI 텍스트 및 스페시멘 상세 정보"
+        ]
+      },
+      "spacing": {
+        "rhythm": "모든 패딩, 간격 및 마진에 적용되는 엄격한 7-point 기본 단위로, 매우 제약된 공간 그리드를 만듭니다."
+      },
+      "surfaces": {
+        "shadows": [],
+        "borders": "평탄하고 깔끔한 모서리 또는 점선 윤곽선(히어로 그래픽에 사용), 그리고 상호작용 그리드 상태를 위해 간헐적으로 1px 또는 2px 실선 스트로크."
+      },
+      "layout": {
+        "skeleton": "데스크톱에서 엄격한 두 열 비대칭 그리드를 사용하며, 모바일에서는 단일 연속 수직 스택으로 완전히 접힙니다."
+      },
+      "components": {
+        "button": "전통적인 UI를 숨기고 직접적인 상호작용을 위해 맞춤 포인터 커서(좌우 화살표)를 사용하는 미니멀한 텍스트 전용 링크.",
+        "card": "화이트 배경 그리드와 뚜렷한 24px 모서리 둥글기로 프레임된 풀블랙 블록이 스페시멘 컨테이너 역할.",
+        "chip": "'업데이트됨'과 같은 상태를 위한 활기찬 옐로우 배경(#FFFF00)과 검정 텍스트를 특징으로 하는 고대비 직사각형 배지.",
+        "input": "제공된 스크린샷에 보이지 않음.",
+        "hero": "오버사이즈 세리프 스페시멘 그래픽과 맞춤 점선 윤곽선을 특징으로 하는 거대하고 지배적인 검은 컨테이너."
+      },
+      "motion": {
+        "patterns": [
+          "모든 구조적 변환 및 컨테이너 슬라이드에 매끄러운 cubic-bezier 이징 적용.",
+          "메인 캐러셀 및 그리드 상태 변경을 위한 엄격한 0.45초에서 0.6초 트랜지션 지속 시간.",
+          "상호작용 스페시멘 영역 위에 마우스를 올리면 맞춤 SVG 화살표로 즉각적인 커서 업데이트."
+        ]
+      },
+      "interaction": {
+        "hover": "기본 포인터를 대체하여 상호작용 캐러셀 또는 그리드 내비게이션을 나타내는 맞춤 SVG 커서(좌우 화살표).",
+        "click": "스페시멘 상세 페이지로 안내하거나 이미지 캐러셀을 진행하며, 매끄러운 상태 변경을 유지.",
+        "transition": "특정 맞춤 cubic-bezier 이징 커브가 적용된 0.45초 또는 0.6초 변환 트랜지션.",
+        "keyboard": "맞춤 커서가 마우스/트랙패드에 크게 의존함을 시사하지만, 표준 탭 내비게이션이 적용될 것으로 보임."
+      },
+      "voice": {
+        "tone": "전문적이고, 미니멀하며, 지극히 자신감 있는.",
+        "headlineStyle": "단순한 헤딩보다 시각적 앵커 역할을 하는, 변명의 여지 없이 크고 트래킹이 넓은 스페시멘 이름.",
+        "ctaStyle": "타이포그래피에 초점을 맞추기 위해 표준 버튼 미학을 의도적으로 피하는, 미묘하고 방해가 되지 않는 텍스트 링크.",
+        "avoid": [
+          "스페시멘에서 주의를 산만하게 하는 표준 HTML 버튼이나 밝은 색상의 UI 요소를 사용하지 않기.",
+          "다중 열 텍스트 블록을 피하고, 텍스트를 엄격히 단일 라인 또는 매우 짧고 강렬한 단편으로 유지하기.",
+          "실제 타입 스페시멘이 아닌 장식 요소나 일러스트레이션을 도입하지 않기."
+        ]
+      },
+      "donts": [
+        "보조 색상을 도입하지 마세요 — 스크린샷은 하나의 기능적 옐로우 배지를 제외하면 엄격한 비색상 검정 및 흰색 팔레트를 보여줍니다.",
+        "볼드 또는 무거운 UI 웨이트를 사용하지 마세요 — 스크린샷은 모든 내비게이션 및 UI 요소가 일관된 400 웨이트로 렌더링됨을 보여줍니다.",
+        "드롭 섀도우 또는 3D 효과를 적용하지 마세요 — 스크린샷은 깊이 단서가 없는 완전히 평탄한 그래픽 표면을 보여줍니다.",
+        "카드에 둥근 모서리를 사용하지 마세요 — 스크린샷은 검은 스페시멘 컨테이너가 24px 둥글기의 바깥 프레임 내에 완벽하게 정사각형으로 맞는 것을 보여줍니다.",
+        "밀집된 텍스트 단락을 만들지 마세요 — 스크린샷은 UI가 거의 전적으로 거대한 전시 타이포그래피와 드문 내비게이션 링크에 의존함을 보여줍니다.",
+        "상호작용 영역에서 기본 브라우저 커서를 사용하지 마세요 — 스크린샷은 좌우 내비게이션을 위한 명확히 맞춤 화살표 커서 이미지를 보여줍니다."
+      ],
+      "systemPrompt": "205TF는 프리미엄 디지털 타입 파운드리 웹사이트로, 폰트 스페시멘이 스스로 말하게 하기 위해 날카로운 미니멀한 흑백 미학을 활용합니다. UI는 엄격한 7-point 간격 그리드와 12열 레이아웃에 의존하여 구조적이면서도 극적인 프레젠테이션을 보장합니다. 주요 색상은 순수 검정(#000000)과 흰색(#FFFFFF)으로 제한되며, '업데이트됨'과 같은 상태 배지에 절제되게 사용되는 단 하나의 고대비 옐로우(#FFFF00)가 있습니다. 타이포그래피 카테고리는 주로 트랜지셔널 세리프와 디도네 세리프이지만, UI 내비게이션은 모노와 유사한 기하학적 산세리프로 설정됩니다. 핵심 제약 조건은 다음과 같습니다: 보조 또는 장식 색상을 절대 도입하지 않으며, 모든 표준 UI 요소에서 엄격한 400 폰트 웨이트를 유지하며, 갤러리와 같은 레이아웃의 순수성을 보존하기 위해 전통적인 버튼 컴포넌트 대신 맞춤 SVG 커서와 텍스트 링크를 사용합니다."
+    }
+  },
+  "desc": {
+    "en": {
+      "palette": "A strict, high-contrast monochromatic palette consisting only of absolute black and white, punctuated by a single functional neon-yellow accent used exclusively for status badges.",
+      "layout": "A clean, grid-based structure that uses a 24px corner radius on the main container to frame dramatic, full-bleed black specimen blocks against a light background.",
+      "interaction": "Mouse interaction is heavily customized with bespoke SVG cursors (left and right arrows) that replace the default pointer when hovering over interactive specimen zones.",
+      "motion": "Smooth, deliberate transitions are driven by a specific cubic-bezier(0.52, 0.07, 0.2, 0.99) easing curve, typically lasting between 0.45s and 0.6s.",
+      "notes": "Worth including as a prime example of a 'restraint-first' design system where extreme minimalism and custom interaction patterns are used to elevate a specialized product (type specimens)."
+    },
+    "zh-CN": {
+      "palette": "仅由纯黑与纯白构成的严谨高对比度单色系，点缀以单一的功能性霓虹黄作为状态徽章专用色。",
+      "layout": "基于网格的简洁结构，主容器采用24px圆角边框，以满版黑色字体标本块在浅色背景上构建戏剧性对比。",
+      "interaction": "鼠标交互经过深度定制，采用定制SVG光标（左右箭头），当悬停在字体标本交互区域时替代默认指针。",
+      "motion": "流畅而审慎的过渡动画由特定的 cubic-bezier(0.52, 0.07, 0.2, 0.99) 缓动曲线驱动，通常持续0.45秒至0.6秒。",
+      "notes": "可作为'克制优先'设计体系的典范收录，通过极致极简主义与定制交互模式提升专业产品（字体标本）的呈现效果。"
+    },
+    "zh-TW": {
+      "palette": "僅使用純黑與純白的嚴格高對比單色調色盤，並以單一功能性霓虹黃作為強調色，僅用於狀態標籤。",
+      "layout": "乾淨的格線式結構，主要容器採用 24px 圓角，以淺色背景框出戲劇性的全出血黑色字體展示區塊。",
+      "interaction": "滑鼠互動經過高度定制，採用特製的 SVG 游標（左右箭頭），在游標懸停於互動式字體展示區域時取代預設指標。",
+      "motion": "流暢、刻意的過渡動畫由特定的 cubic-bezier(0.52, 0.07, 0.2, 0.99) 緩動曲線驅動，持續時間通常介於 0.45 秒至 0.6 秒之間。",
+      "notes": "作為「克制優先」設計系統的典範案例，值得收錄，其透過極簡主義與定制互動模式，提升了專業產品（字體樣本）的層次。"
+    },
+    "ja": {
+      "palette": "絶対的な黒と白のみで構成される厳格でハイコントラストのモノクロム・パレット。ステータス・バッジにのみ使用される、単一の機能的ネオンイエローのアクセントで構成。",
+      "layout": "メイン・コンテナに24pxの角丸を使用し、軽い背景に対して劇的な、フルブリードの黒い見本ブロックを額装する、クリーンでグリッドベースの構造。",
+      "interaction": "マウス操作は、インタラクティブな見本ゾーンにホバーした際にデフォルトのポインタを置き換える、カスタムSVGカーソル（左矢印と右矢印）で大幅にカスタマイズされている。",
+      "motion": "滑らかで意図的なトランジションは、特定のcubic-bezier(0.52, 0.07, 0.2, 0.99)イージングカーブで駆動され、通常0.45秒から0.6秒の間で実行される。",
+      "notes": "極端なミニマリズムとカスタムインタラクションパターンを使用して専門的な製品（タイポグラフィ見本）を高揚させる「抑制優先」デザインシステムの主要な例として、含まれる価値がある。"
+    },
+    "ko": {
+      "palette": "절대적인 검정과 흰색만으로 구성된 엄격한 고대비 단색 팔레트를 사용하며, 상태 배지에만 전용으로 사용되는 기능적 네온 옐로우 강조색이 하나만 포함됩니다.",
+      "layout": "메인 컨테이너에 24px 모서리 둥글기를 적용한 깔끔한 그리드 기반 구조로, 밝은 배경 위에 극적인 풀블랙 검정 스페시멘 블록을 프레임에 담습니다.",
+      "interaction": "마우스 상호작용은 상호작용 스페시멘 영역 위에 마우스를 올리면 기본 포인터를 대체하는 맞춤 SVG 커서(좌우 화살표)로 크게 커스터마이징됩니다.",
+      "motion": "매끄럽고 의도적인 트랜지션은 특정 cubic-bezier(0.52, 0.07, 0.2, 0.99) 이징 커브로 구동되며, 일반적으로 0.45초에서 0.6초 사이 지속됩니다.",
+      "notes": "극도의 미니멀리즘과 맞춤 상호작용 패턴을 사용하여 전문 제품(타입 스페시멘)을 격상시키는 '절제 우선' 디자인 시스템의 대표적인 예로 포함할 가치가 있습니다."
+    }
+  },
+  "_meta": {
+    "vision_model": "mimo-v2.5",
+    "vision_prompt_version": "0.3",
+    "vision_source": "playwright-extract:205tf",
+    "vision_grounded": true,
+    "vision_at": "2026-06-03T12:20:39+00:00",
+    "vision_tokens": 16904,
+    "vision_cost_usd": 0.1878,
+    "translation_model": "mimo-v2.5",
+    "translation_at": "2026-06-03T12:22:10+00:00",
+    "translation_tokens": 20901,
+    "translation_cost_usd": 0.0697,
+    "narrative_model": "mimo-v2.5",
+    "narrative_prompt_version": "0.3",
+    "narrative_at": "2026-06-03T12:22:20+00:00",
+    "narrative_tokens": 2448,
+    "narrative_cost_usd": 0.0163,
+    "narrative_status": "ok",
+    "total_cost_usd": 0.2738
+  },
+  "narrative": {
+    "en": {
+      "ch1_intro": "205TF is a curated black-box gallery, a space designed to present type specimens as monolithic artifacts. The entire system is built on a foundation of absolute stark contrast, where the inherent character and craftsmanship of the typefaces is the sole protagonist, framed by a minimalist architecture of precision and editorial clarity.",
+      "ch2_intro": "The color system is an exercise in radical reduction, employing a strict monochromatic palette of pure black and white. This duotone foundation is interrupted only by a single, functional neon-yellow accent reserved for status badges, ensuring all visual attention remains on the specimen itself.",
+      "ch2_outro": "The governing principle is absolute stark contrast, using color not as decoration but as a tool to elevate form.",
+      "ch3_intro": "Typography is both subject and narrator. The specimens themselves are predominantly transitional-serif and didone-serif, presented in high-contrast specimens, while the UI navigation adopts a strict mono-like geometric sans. A consistent 400 weight across all interface text maintains a neutral, editorial voice that defers to the display type.",
+      "ch4_intro": "Spatial rhythm is governed by a strict 7-point base unit, creating a highly constrained grid that structures all padding, gaps, and margins with mathematical rigor.",
+      "ch5_intro": "Surfaces are rendered with flat, clean edges, rejecting any depth cues from shadows or 3D effects. The primary interaction is graphic, using dashed outlines and occasional 1px or 2px solid strokes to define state, all within a framing container with a distinctive 24px corner radius.",
+      "ch6_intro": "The layout skeleton is a strict two-column asymmetric grid on desktop, designed for dramatic juxtaposition. This structure completely collapses into a single, continuous vertical stack on mobile, prioritizing a focused, linear reading of the specimens.",
+      "ch7_intro": "Motion philosophy is one of deliberate, smooth transformation. All structural slides and state changes are governed by a specific cubic-bezier easing curve, with durations between 0.45s and 0.6s creating a sense of controlled, purposeful transition rather than playful animation.",
+      "ch8_intro": "The editorial voice is expert, minimalist, and supremely confident. It is communicated through unapologetically large, highly tracked-out specimen names and subtle text links, with a complete avoidance of standard button aesthetics to maintain focus.",
+      "ch8_outro": "The system deliberately refuses secondary colors, bold UI weights, decorative elements, and dense text blocks, upholding a discipline where restraint is the primary design tool."
+    },
+    "zh-CN": {
+      "ch1_intro": "205TF是一个精心策划的黑匣子画廊，旨在将字体样本呈现为整体性的艺术作品。整个系统建立在绝对鲜明对比的基础上，字体的固有特质与工艺是唯一的焦点，由精确而具有编辑清晰度的极简主义架构所框定。",
+      "ch2_intro": "色彩系统是极简主义理念的实践，采用纯黑与纯白的严格单色调。这一双色基调仅被一个功能性的霓虹黄色点缀所打破，该颜色专用于状态标识，确保所有视觉注意力都集中在样本本身。",
+      "ch2_outro": "核心原则是绝对鲜明对比，色彩并非用于装饰，而是作为提升形态的工具。",
+      "ch3_intro": "字体既是主题也是叙述者。样本主要采用过渡型衬线体与现代衬线体，以高对比度呈现；而用户界面导航则采用严格的等宽几何无衬线体。所有界面文本统一使用400字重，保持中性、编辑性的语调，从而凸显展示字体。",
+      "ch4_intro": "空间节奏由严格的7点基准单位控制，构建出高度约束的网格，以数学严谨性规范所有内边距、间距与外边距。",
+      "ch5_intro": "界面表面采用平实、干净的边缘渲染，摒弃任何来自阴影或3D效果的深度提示。主要交互是图形化的，通过虚线轮廓以及偶尔的1px或2px实线笔触来定义状态，所有这些都位于一个具有独特24px圆角半径的边框容器内。",
+      "ch6_intro": "桌面端的布局骨架是严格的两列非对称网格，旨在实现戏剧性的并置效果。而在移动端，这一结构完全转变为单一的、连续的垂直堆叠，优先保障对样本专注、线性的阅读体验。",
+      "ch7_intro": "动态设计理念是刻意、平滑的变换。所有结构滑动与状态变化都遵循特定的cubic-bezier缓动曲线，持续时间在0.45秒至0.6秒之间，营造出一种受控、有目的的过渡感，而非趣味性的动画效果。",
+      "ch8_intro": "编辑语调专业、极简且充满自信。它通过毫无歉意的大字号、精心调整字距的样本名称以及微妙的文本链接来传达，完全避免了标准的按钮美学，以保持视觉焦点。",
+      "ch8_outro": "该系统刻意避免使用次要颜色、加粗的用户界面字重、装饰元素以及密集的文本块，坚守以克制作为首要设计工具的原则。"
+    },
+    "zh-TW": {
+      "ch1_intro": "205TF 是一個精選的黑盒畫廊，專門呈現字型樣本為紀念碑式的文物。整個系統建立在絕對鮮明對比的基礎上，字型的內在特質與工藝成為唯一的主角，由精準且具編輯清晰度的極簡架構所框架。",
+      "ch2_intro": "色彩系統是一場徹底的減法練習，採用純黑與純白的嚴格單色調色盤。此雙色基底僅被單一、功能性的霓虹黃點綴打斷，該點綴保留給狀態標記，確保所有視覺注意力 remain 在樣本本身。",
+      "ch2_outro": "指導原則是絕對鮮明對比，色彩並非用作裝飾，而是作為提升形式的工具。",
+      "ch3_intro": "字型既是主題也是敘事者。樣本本身以過渡型襯線與迪多尼襯線為主，以高對比樣本呈現，而介面導航則採用嚴格的單色幾何無襯線體。所有介面文字維持一致的 400 字重，以中立、編輯性的語調，讓位給展示字型。",
+      "ch4_intro": "空間節奏由嚴格的 7 點基礎單位所主導，創造出高度受限的格線，以數學嚴謹度建構所有內邊距、間距與外邊距。",
+      "ch5_intro": "表面以平坦、簡潔的邊緣呈現，摒棄任何來自陰影或 3D 效果的深度暗示。主要互動為圖形性質，使用虛線輪廓與偶爾的 1px 或 2px 實線筆觸來定義狀態，所有內容均置於具有獨特 24px 圓角半徑的框架容器內。",
+      "ch6_intro": "版面骨架在桌面上為嚴格的雙欄不對稱格線，旨在營造戲劇性的並置效果。在行動裝置上，此結構完全崩解為單一、連續的垂直堆疊，優先確保專注且線性的樣本閱讀體驗。",
+      "ch7_intro": "動態理念是深思熟慮、平滑的變形。所有結構性滑動與狀態切換均由特定的 cubic-bezier 緩動曲線所主導，持續時間介於 0.45 秒至 0.6 秒之間，營造出受控、有意的過渡感，而非 playful 的動畫效果。",
+      "ch8_intro": "編輯語調是專業、極簡且極度自信的。這透過毫不妥協的大字型、高度加寬的樣本名稱與細微的文字連結來傳達，完全避開標準按鈕美學以維持焦點。",
+      "ch8_outro": "系統刻意拒絕次要色彩、粗體介面字重、裝飾性元素與密集文字區塊，堅持一項紀律：克制是首要的設計工具。"
+    },
+    "ja": {
+      "ch1_intro": "205TFは、タイプ見本を単一の造形物として提示するために設計された、厳選されたブラックボックスギャラリーです。絶対的な鮮烈なコントラストの基盤の上に構築されたこのシステムでは、タイプフォント自体の性格と技量が唯一の主役となり、精密さとエディトリアルな明瞭さを備えたミニマリズムの建築がそれをフレーミングします。",
+      "ch2_intro": "カラーシステムは、純粋な黒と白からなる厳格なモノクロパレットを採用した、徹底した簡約への試みです。この二色の基盤は、ステータスバッジにのみ Reserved される単一の機能的なネオンイエローのアクセントでさえ中断され、視覚的な注意が全て見本自体に集中するように確保されています。",
+      "ch2_outro": "支配的な原則は絶対的な鮮烈なコントラストであり、色彩を装飾ではなく、フォームを高揚させるための道具として使用します。",
+      "ch3_intro": "タイポグラフィは被題であり、語り手でもあります。見本自体は主にトランジショナル・セリフとディドン・セリフであり、ハイコントラストの見本として提示される一方、UIナビゲーションは厳格なモノスペース風のジオメトリック・サンセリフを採用しています。インターフェーステキスト全体にわたる一貫した400ウェイトは、ディスプレイタイプに敬意を払う、中立的でエディトリアルな声を維持しています。",
+      "ch4_intro": "空間的なリズムは厳格な7ポイントのベースユニットによって支配され、全てのpadding、gap、marginを数学的な厳密さで構造化する、非常に制約の強いグリッドを生み出します。",
+      "ch5_intro": "サーフェスは、影や3D効果による奥行きの手がかりを排斥し、フラットでクリーンなエッジで描画されます。主要なインタラクションはグラフィックであり、点線のアウトラインや偶発的な1pxまたは2pxの实线を使用してステートを定義します。全てのフレーミングコンテナは、特徴的な24pxの角丸-radiusで構成されます。",
+      "ch6_intro": "レイアウトの骨格は、デスクトップ上での戲劇的な並置を意図した、厳格な2カラム非対称グリッドです。この構造はモバイル上では単一の連続した垂直スタックに完全に崩壊し、見本の焦点を絞った線形的な読解を優先します。",
+      "ch7_intro": "モーション哲学は、意図的で滑らかな変換の哲学です。全ての構造的なスライドとステート変化は、特定のcubic-bezierイージングカーブによって支配され、0.45秒から0.6秒の持続時間が、遊び心のあるアニメーションではなく、制御された目的のある遷移の感覚を生み出します。",
+      "ch8_intro": "エディトリアルな声は、専門的でミニマリスティック、そして極めて自信に満ちています。それは、隠すことを前提としない大きく、 letterSpacing を広く取られた見本名と、精妙なテキストリンクを通じて伝達され、焦点を維持するために標準的なボタンの美学を完全に回避しています。",
+      "ch8_outro": "システムは、セカンダリカラー、太字のUIウェイト、装飾的な要素、そして密集したテキストブロックを意図的に拒否し、抑制が第一のデザインツールであるという規律を堅持しています。"
+    },
+    "ko": {
+      "ch1_intro": "205TF는 타입faces을 거대한 아티팩트로 선보이도록 설계된 큐레이티드 블랙박스 갤러리입니다. 전체 시스템은 절대적인 대비를 토대로 구축되어 있으며, 타입faces의 본질적인 성격과 장인 정신이 유일한 주인공으로, 정밀함과 편집적 명확성의 미니멀 건축 안에서 조명됩니다.",
+      "ch2_intro": "색상 시스템은 급진적인 축소의 연습으로, 순수한 흑백의 엄격한 단색 팔레트를 사용합니다. 이 두 톤의 기반은 상태 배지에만 배정된 단 하나의 기능적인 네온 옐로우 강조색으로만 INTERRUPTION되며, 모든 시각적 관심이 샘플 자체에 머물도록 보장합니다.",
+      "ch2_outro": "지배적인 원칙은 절대적인 대비이며, 색상을 장식이 아닌 형태를 고양시키는 도구로 사용합니다.",
+      "ch3_intro": "타이포그래피는 주제이자 내레이터입니다. 샘플 자체는 주로 트랜지셔널 세리프와 디도네 세리프이며, 고대비 샘플로 제시되는 반면, UI 탐색은 엄격한 모노타입 유사의 기하학적 산세리프를 채택합니다. 모든 인터페이스 텍스트에 걸쳐 일관된 400 웨이트는, 전시 타입faces에 자리를 양보하는 중립적이고 편집적인 어조를 유지합니다.",
+      "ch4_intro": "공간 리듬은 엄격한 7포인트 기본 단위에 의해 지배되며, 모든 padding, gap, margin을 수학적 엄밀함으로 구조화하는 Highly constrained 격자를 만듭니다.",
+      "ch5_intro": "표면은 그림자나 3D 효과의 어떤 깊이 단서도 거부하며, 납작하고 깨끗한 가장자리로 렌더링됩니다. 주요 상호작용은 그래픽적이며, 파선 윤곽선과 간헐적인 1px 또는 2px 실선을 사용하여 상태를 정의하며, 이 모든 것은 독특한 24px 모서리 반경을 가진 프레이밍 컨테이너 안에서 이루어집니다.",
+      "ch6_intro": "레이아웃 골격은 데스크톱에서 극적인 대조를 위해 설계된 엄격한 두 열 비대칭 격자입니다. 이 구조는 모바일에서 단일하고 연속적인 수직 스택으로 완전히 붕괴되어, 샘플의 집중적이고 선형적인 읽기를 우선시합니다.",
+      "ch7_intro": "모션 철학은 의도적이고 부드러운 변환입니다. 모든 구조적 슬라이드와 상태 변화는 특정 cubic-bezier easing curve에 의해 지배되며, 0.45초에서 0.6초 사이의 지속 시간은 장난스러운 애니메이션이 아닌 통제되고 의도적인 전환의 느낌을 만듭니다.",
+      "ch8_intro": "편집적 어조는 전문적이고 미니멀하며 지극히 자신감 넘칩니다. 이것은 변명의 여지 없이 크고, highly tracked-out된 샘플 이름과 미묘한 텍스트 링크를 통해 전달되며, 표준 버튼 미학을 완전히 피하여 집중을 유지합니다.",
+      "ch8_outro": "시스템은 의도적으로 보조 색상, 두꺼운 UI 웨이트, 장식 요소, 밀집된 텍스트 블록을 거부하며, 절제가 주요 디자인 도구인 규율을 지킵니다."
+    }
+  }
 }

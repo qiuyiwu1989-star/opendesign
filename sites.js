@@ -9,6 +9,645 @@ function shot(url, w = 1440) {
 
 window.STYLE_ATLAS_SITES = [
   {
+    "id": "205tf",
+    "title": "205TF",
+    "url": "https://www.205.tf",
+    "image": "/thumbs/205tf.webp",
+    "tags": [
+      "type",
+      "foundry"
+    ],
+    "palette": "A strict, high-contrast monochromatic palette consisting only of absolute black and white, punctuated by a single functional neon-yellow accent used exclusively for status badges.",
+    "layout": "A clean, grid-based structure that uses a 24px corner radius on the main container to frame dramatic, full-bleed black specimen blocks against a light background.",
+    "interaction": "Mouse interaction is heavily customized with bespoke SVG cursors (left and right arrows) that replace the default pointer when hovering over interactive specimen zones.",
+    "motion": "Smooth, deliberate transitions are driven by a specific cubic-bezier(0.52, 0.07, 0.2, 0.99) easing curve, typically lasting between 0.45s and 0.6s.",
+    "notes": "Worth including as a prime example of a 'restraint-first' design system where extreme minimalism and custom interaction patterns are used to elevate a specialized product (type specimens).",
+    "spec": {
+      "colors": {
+        "bg": "#000000",
+        "bgSoft": null,
+        "bgQuiet": "#EAEAE9",
+        "ink": "#FFFFFF",
+        "inkSoft": "#808080",
+        "muted": "#CCCCCC",
+        "mutedSoft": null,
+        "accent": "#FFFF00",
+        "line": "rgba(255,255,255,1.0)",
+        "principle": "Absolute stark contrast to elevate the inherent character and craftsmanship of the typefaces being presented."
+      },
+      "typography": {
+        "display": "didone-serif",
+        "body": "transitional-serif",
+        "mono": null,
+        "scale": [
+          {
+            "token": "display",
+            "size": 100,
+            "lh": 0.95,
+            "weight": 400,
+            "ls": "-2px",
+            "use": "hero specimen names and large scale showcases"
+          },
+          {
+            "token": "heading",
+            "size": 56,
+            "lh": 1.0,
+            "weight": 400,
+            "ls": "-1px",
+            "use": "secondary specimen headlines and large grid labels"
+          },
+          {
+            "token": "body",
+            "size": 14,
+            "lh": 1.4,
+            "weight": 400,
+            "ls": "0",
+            "use": "navigation links, small UI text, and specimen details"
+          }
+        ],
+        "rules": [
+          "Maintain high contrast by strictly using white text on black backgrounds for all specimens.",
+          "Utilize extreme tracking (negative letter-spacing) on large-scale display typography to tighten visual density.",
+          "Reserve bold weights strictly for specific specimen showcases, keeping the UI strictly at a 400 weight."
+        ]
+      },
+      "spacing": {
+        "base": 7,
+        "scale": [
+          7,
+          14,
+          28,
+          56
+        ],
+        "rhythm": "Strict 7-point base unit applied to all padding, gaps, and margins, creating a highly constrained spatial grid."
+      },
+      "surfaces": {
+        "radius": {
+          "sm": 0,
+          "md": 0,
+          "lg": 24,
+          "pill": 999
+        },
+        "shadows": [],
+        "borders": "Flat, clean edges or dashed outlines (used in the hero graphic), with occasional 1px or 2px solid strokes for interactive grid states."
+      },
+      "layout": {
+        "container": 1280,
+        "paragraph": 680,
+        "columns": 12,
+        "gutter": 28,
+        "breakpoints": [
+          768,
+          1024
+        ],
+        "skeleton": "A strict two-column asymmetric grid on desktop that completely collapses into a single continuous vertical stack on mobile."
+      },
+      "motion": {
+        "durations": {
+          "micro": 220,
+          "small": 400,
+          "medium": 600
+        },
+        "easing": "cubic-bezier(0.52, 0.07, 0.2, 0.99)",
+        "patterns": [
+          "Smooth cubic-bezier easing applied to all structural transforms and container slides.",
+          "Strict 0.45s to 0.6s transition durations for primary carousel and grid state changes.",
+          "Instantaneous cursor updates to custom SVG arrows when hovering over interactive specimen zones."
+        ]
+      },
+      "identity": {
+        "keywords": [
+          "foundry",
+          "type",
+          "gallery",
+          "editorial",
+          "precision"
+        ],
+        "analogy": "A curated black-box gallery where type specimens are presented as monolithic artifacts.",
+        "oneLiner": "A minimalist, high-contrast type foundry gallery that lets specimen typography speak for itself."
+      },
+      "components": {
+        "button": "Minimal text-only links or custom pointer cursors (left/right arrows) that hide traditional UI in favor of direct interaction.",
+        "card": "Full-bleed black blocks acting as specimen containers, framed by a white background grid with distinct 24px corner radii.",
+        "chip": "A high-contrast rectangular badge featuring a vibrant yellow background (#FFFF00) and black text for statuses like 'Updated'.",
+        "input": "Not visible in the provided screenshot.",
+        "hero": "A massive, dominating black container featuring an oversized serif specimen graphic and custom dashed outlines."
+      },
+      "interaction": {
+        "hover": "Custom SVG cursors (left and right arrows) replace the default pointer to indicate interactive carousel or grid navigation.",
+        "click": "Directs to specimen detail pages or advances the image carousel, maintaining a seamless state change.",
+        "transition": "A 0.45s or 0.6s transform transition with a specific custom cubic-bezier easing curve.",
+        "keyboard": "Standard tab navigation likely applies, though custom cursors suggest a heavy reliance on mouse/trackpad."
+      },
+      "voice": {
+        "tone": "Expert, minimalist, and supremely confident.",
+        "headlineStyle": "Unapologetically large, highly tracked-out specimen names that function more as visual anchors than mere headings.",
+        "ctaStyle": "Subtle, non-intrusive text links that deliberately avoid standard button aesthetics to keep the focus on the type.",
+        "avoid": [
+          "Avoid using standard HTML buttons or brightly colored UI elements that would distract from the specimens.",
+          "Avoid multi-column text blocks; keep text strictly to single lines or very short, high-impact bursts.",
+          "Avoid introducing any decorative elements or illustrations that are not actual type specimens."
+        ]
+      },
+      "donts": [
+        "Don't introduce secondary colors — screenshot shows a strictly achromatic black and white palette, save for a single functional yellow badge.",
+        "Don't use bold or heavy UI weights — screenshot shows all navigation and UI elements rendered in a consistent 400 weight.",
+        "Don't apply drop shadows or 3D effects — screenshot shows completely flat, graphic surfaces with no depth cues.",
+        "Don't use rounded corners on cards — screenshot shows the black specimen containers fitting perfectly square within a 24px radius outer frame.",
+        "Don't create dense text paragraphs — screenshot shows the UI relies almost entirely on massive display typography and sparse navigation links.",
+        "Don't use default browser cursors on interactive zones — screenshot clearly demonstrates custom arrow cursor images for left/right navigation."
+      ],
+      "systemPrompt": "205TF is a premium digital type foundry website that utilizes a stark, minimalist black-and-white aesthetic to let its font specimens speak for themselves. The UI relies on a strict 7-point spacing grid and a 12-column layout, ensuring a highly structured yet dramatic presentation. Key colors are limited to pure black (#000000) and white (#FFFFFF), with a solitary high-contrast yellow (#FFFF00) used sparingly for status badges like 'Updated'. The typography categories are predominantly transitional-serif and didone-serif, though the UI navigation is set in a mono-like geometric sans. Critical constraints include: never introduce secondary or decorative colors, maintain a strict 400 font weight across all standard UI elements, and avoid traditional button components in favor of custom SVG cursors and text links to preserve the gallery-like purity of the layout."
+    }
+  },
+  {
+    "id": "a-cold-wall",
+    "title": "A-COLD-WALL*",
+    "url": "https://www.a-cold-wall.com",
+    "image": "/thumbs/a-cold-wall.webp",
+    "tags": [
+      "fashion",
+      "streetwear"
+    ],
+    "palette": "Strict monochrome palette of deep black backgrounds and white typography with no accent colors.",
+    "layout": "Full-bleed, editorial layout with minimal UI chrome and strong left-alignment.",
+    "interaction": "Minimal interaction patterns with smooth, quick transitions (0.2s) on all clickable elements.",
+    "motion": "Subtle opacity fades and background transitions, avoiding flashy or playful animation.",
+    "notes": "Worth including as a prime example of a brutalist, premium fashion e-commerce aesthetic with extreme restraint.",
+    "spec": {
+      "colors": {
+        "bg": "#000000",
+        "bgSoft": null,
+        "bgQuiet": null,
+        "ink": "#FFFFFF",
+        "inkSoft": null,
+        "muted": "#2B2B2B",
+        "mutedSoft": null,
+        "accent": null,
+        "line": "rgba(0,0,0,1)",
+        "principle": "High contrast monochrome with image-driven accents"
+      },
+      "typography": {
+        "display": "grotesque-sans",
+        "body": "grotesque-sans",
+        "mono": null,
+        "scale": [
+          {
+            "token": "display",
+            "size": 56,
+            "lh": 1.0,
+            "weight": 500,
+            "ls": "-1px",
+            "use": "Hero headlines"
+          },
+          {
+            "token": "display-sm",
+            "size": 26,
+            "lh": 1.0,
+            "weight": 500,
+            "ls": "0px",
+            "use": "Section headers"
+          },
+          {
+            "token": "body",
+            "size": 12,
+            "lh": 1.16,
+            "weight": 500,
+            "ls": "0px",
+            "use": "Navigation and UI text"
+          },
+          {
+            "token": "body-lg",
+            "size": 16,
+            "lh": 1.5,
+            "weight": 500,
+            "ls": "0px",
+            "use": "Body paragraphs"
+          }
+        ],
+        "rules": [
+          "Use NeueHaasDisplay for all text elements",
+          "Default weight is 500 for most elements",
+          "Uppercase transformation is heavily used for navigation and CTAs",
+          "Tight line-height (1.16) for small UI text"
+        ]
+      },
+      "spacing": {
+        "base": 4,
+        "scale": [
+          4,
+          8,
+          12,
+          16,
+          24,
+          32,
+          48,
+          64,
+          96
+        ],
+        "rhythm": "Consistent with tight spacing reflecting industrial brutalist aesthetic"
+      },
+      "surfaces": {
+        "radius": {
+          "sm": 0,
+          "md": 0,
+          "lg": 0,
+          "pill": 999
+        },
+        "shadows": [
+          "rgba(0, 0, 0, 0.3) 0px 0px 24px 0px"
+        ],
+        "borders": "0px solid transparent — minimal use of visible borders"
+      },
+      "layout": {
+        "container": 1440,
+        "paragraph": 680,
+        "columns": 12,
+        "gutter": 24,
+        "breakpoints": [
+          768,
+          1024
+        ],
+        "skeleton": "Full-bleed hero imagery with minimal UI overlay"
+      },
+      "motion": {
+        "durations": {
+          "micro": 200,
+          "small": 400,
+          "medium": 600
+        },
+        "easing": "cubic-bezier(0.25, 0.1, 0.25, 1)",
+        "patterns": [
+          "Smooth transitions on all interactive elements (0.2s ease-in-out)",
+          "Opacity fade-ins for content loading (1s)",
+          "Subtle background color shifts (0.6s)"
+        ]
+      },
+      "identity": {
+        "keywords": [
+          "Industrial",
+          "Brutalist",
+          "Streetwear",
+          "Minimal",
+          "Premium"
+        ],
+        "analogy": "Concrete architecture meets high fashion",
+        "oneLiner": "Industrial-brutalist luxury fashion e-commerce"
+      },
+      "components": {
+        "button": "Simple uppercase text buttons with no background or border, hover state only",
+        "card": "Product cards with full-bleed imagery and minimal text overlay",
+        "chip": "N/A — chips are not a primary component in this design",
+        "input": "Minimal text inputs with bottom-border only style",
+        "hero": "Full-viewport cinematic photography with large, left-aligned typography"
+      },
+      "interaction": {
+        "hover": "Subtle color inversion or opacity change",
+        "click": "Immediate visual feedback via state change",
+        "transition": "All interactive elements have smooth, quick transitions",
+        "keyboard": "Standard focus outlines on interactive elements"
+      },
+      "voice": {
+        "tone": "Minimal, direct, and authoritative",
+        "headlineStyle": "Short, punchy, uppercase phrases",
+        "ctaStyle": "Simple, command-like text (e.g., 'Shop now', 'Close')",
+        "avoid": [
+          "Avoid decorative elements",
+          "Avoid complex UI patterns",
+          "Avoid excessive text descriptions",
+          "Avoid vibrant or playful color palettes",
+          "Avoid ornate typography",
+          "Avoid rounded corners on primary containers"
+        ]
+      },
+      "donts": [
+        "Don't use rounded corners on cards or buttons — screenshot shows sharp, angular edges",
+        "Don't use a multi-color palette — screenshot shows strict monochrome black and white",
+        "Don't use light or airy backgrounds — screenshot shows dominant black background",
+        "Don't use decorative or script fonts — screenshot shows strict grotesque-sans typography",
+        "Don't center-align all text — screenshot shows strong left-alignment for navigation and headlines",
+        "Don't use busy borders or dividers — screenshot shows clean, borderless separation between elements"
+      ],
+      "systemPrompt": "A-COLD-WALL* is a premium streetwear fashion brand with a brutalist industrial aesthetic. The site uses a strict monochrome palette dominated by deep black (#000000) and crisp white (#FFFFFF) typography. The design is characterized by bold, uppercase grotesque-sans typography (NeueHaasDisplay) at a medium weight (500), creating a stark, architectural feel. Key colors include #000000 for backgrounds and #FFFFFF for primary text, with #2B2B2B used for muted UI elements. The layout is minimalist, featuring full-bleed photography with minimal UI chrome. Critical design rules: never use rounded corners on primary UI elements (except pills), never introduce color into the core palette, and always maintain strict left-alignment for navigation and headers. The overall experience is refined, editorial, and intensely focused on visual storytelling through high-contrast photography."
+    }
+  },
+  {
+    "id": "aave",
+    "title": "Aave",
+    "url": "https://aave.com",
+    "image": "/thumbs/aave.webp",
+    "tags": [
+      "web3",
+      "defi"
+    ],
+    "palette": "A minimalist palette of stark black ink on white/soft-gray backgrounds, highlighted by a single vibrant lavender accent color.",
+    "layout": "A spacious, single-column centered layout that emphasizes large typographic headlines and clear calls-to-action.",
+    "interaction": "Subtle, fast transitions on buttons and links provide feedback without distracting from the content.",
+    "motion": "Motion is restrained, using short 150-200ms durations for basic hover and state changes.",
+    "notes": "This site is a masterclass in applying 'mobile-first' fintech aesthetics to a decentralized web protocol, making complex DeFi concepts feel simple and trustworthy.",
+    "spec": {
+      "colors": {
+        "bg": "#FFFFFF",
+        "bgSoft": "#F3F3F8",
+        "bgQuiet": null,
+        "ink": "#212121",
+        "inkSoft": "#636161",
+        "muted": "#E0DFFF",
+        "mutedSoft": null,
+        "accent": "#9787FF",
+        "line": "rgba(0,0,0,0.05)",
+        "principle": "High-contrast black ink on soft, off-white surfaces with a single vibrant lavender accent for primary actions."
+      },
+      "typography": {
+        "display": "geometric-sans",
+        "body": "geometric-sans",
+        "mono": "mono",
+        "scale": [
+          {
+            "token": "display",
+            "size": 72,
+            "lh": 1.1,
+            "weight": 500,
+            "ls": "-3.6px",
+            "use": "Hero headlines"
+          },
+          {
+            "token": "headline",
+            "size": 40,
+            "lh": 1.2,
+            "weight": 500,
+            "ls": "-0.5px",
+            "use": "Section headlines"
+          },
+          {
+            "token": "body",
+            "size": 16,
+            "lh": 1.5,
+            "weight": 400,
+            "ls": "-0.1px",
+            "use": "Primary body text"
+          },
+          {
+            "token": "caption",
+            "size": 14,
+            "lh": 1.2,
+            "weight": 500,
+            "ls": "0.1px",
+            "use": "Labels and captions"
+          }
+        ],
+        "rules": [
+          "Use tight letter spacing (-3.6px) for large display text.",
+          "Primary body text should use a weight of 400.",
+          "Headlines use a weight of 500."
+        ]
+      },
+      "spacing": {
+        "base": 4,
+        "scale": [
+          4,
+          8,
+          12,
+          16,
+          24,
+          32,
+          48,
+          64,
+          96
+        ],
+        "rhythm": "8px base grid, vertically stacked with generous padding between sections."
+      },
+      "surfaces": {
+        "radius": {
+          "sm": 8,
+          "md": 12,
+          "lg": 20,
+          "pill": 9999
+        },
+        "shadows": [
+          "0 6px 20px rgba(0, 0, 0, 0.05)",
+          "0 0 0 1px rgba(0, 0, 0, 0.06)"
+        ],
+        "borders": "Very subtle 1px borders using rgba(0, 0, 0, 0.06)."
+      },
+      "layout": {
+        "container": 1280,
+        "paragraph": 680,
+        "columns": 12,
+        "gutter": 24,
+        "breakpoints": [
+          768,
+          1024
+        ],
+        "skeleton": "Centered single-column hero, transitioning to a 2-column grid for feature cards below the fold."
+      },
+      "motion": {
+        "durations": {
+          "micro": 150,
+          "small": 200,
+          "medium": 400
+        },
+        "easing": "cubic-bezier(0.25, 0.1, 0.25, 1)",
+        "patterns": [
+          "Subtle color and opacity transitions on interactive elements (0.15s).",
+          "Transform transitions for scaling or movement (0.2s ease-out)."
+        ]
+      },
+      "identity": {
+        "keywords": [
+          "decentralized finance",
+          "savings",
+          "earn",
+          "mobile app",
+          "protocol"
+        ],
+        "analogy": "A clean, modern fintech bank branch adapted for DeFi, focusing on accessibility and trust.",
+        "oneLiner": "A decentralized savings platform that makes earning yield as simple as using a mobile banking app."
+      },
+      "components": {
+        "button": "High-contrast primary buttons (lavender bg, white text) and subtle secondary buttons (light lavender bg, purple text). Fully rounded (pill shape).",
+        "card": "Soft, slightly rounded cards (radius 12-20px) on a very subtle background with minimal borders.",
+        "chip": "Not prominently featured, but tag-like elements use the muted lavender background.",
+        "input": "Not visible in the provided screenshots.",
+        "hero": "A centered, text-heavy hero with a massive 72px display font, a descriptive subtitle, and two side-by-side CTAs."
+      },
+      "interaction": {
+        "hover": "Subtle background color or opacity shift on buttons and links.",
+        "click": "Immediate feedback, likely a slight scale or opacity reduction.",
+        "transition": "Fast, 150ms transitions for most state changes.",
+        "keyboard": "Standard browser focus outlines, no custom visual styles evident in the static shots."
+      },
+      "voice": {
+        "tone": "Confident, clear, and slightly technical but highly accessible.",
+        "headlineStyle": "Short, punchy, benefit-oriented statements ('Savings for Everyone', 'The best build').",
+        "ctaStyle": "Action-oriented and platform-specific ('Download on iOS', 'Use Aave').",
+        "avoid": [
+          "Avoid overly dense financial jargon without context.",
+          "Avoid cluttering the interface with unnecessary icons or borders.",
+          "Avoid aggressive or neon color palettes."
+        ]
+      },
+      "donts": [
+        "Don't use serif fonts — screenshot shows a geometric sans-serif for all text.",
+        "Don't use dark mode as the default — screenshot shows a predominantly white and light-gray interface.",
+        "Don't use sharp, square corners on primary elements — screenshot shows heavily rounded pills and soft radii.",
+        "Don't use high-contrast, saturated red or green for accents — screenshot uses a muted lavender as the primary accent.",
+        "Don't center-align all text — screenshot uses left-alignment for body copy and feature descriptions.",
+        "Don't use drop shadows for depth — screenshot uses very subtle, low-opacity borders or flat color differences for separation."
+      ],
+      "systemPrompt": "Aave is a decentralized finance (DeFi) protocol landing page designed to look like a premium, accessible fintech mobile app. The design DNA is built on a foundation of geometric sans-serif typography, a high-contrast black-on-white color palette, and a single vibrant lavender (#9787FF) accent for primary actions. The layout is clean, spacious, and centered around a massive hero headline. Critical constraints: always use a fully rounded 'pill' shape for primary buttons, keep the interface strictly light-themed with soft off-white backgrounds, and maintain extreme typographic hierarchy with tight letter spacing on large display text. Never introduce cluttered borders, dark backgrounds, or non-geometric font styles."
+    }
+  },
+  {
+    "id": "ably",
+    "title": "Ably",
+    "url": "https://ably.com",
+    "image": "/thumbs/ably.webp",
+    "tags": [
+      "dev",
+      "realtime"
+    ],
+    "palette": "A high-contrast dark mode palette dominated by deep blues and blacks, with crisp white and soft gray text, and a single, vibrant orange accent for primary actions.",
+    "layout": "A structured, centered 12-column grid with generous spacing and clear sectioning, optimized for both desktop and mobile experiences.",
+    "interaction": "Smooth, consistent transitions and hover states provide immediate feedback, enhancing the professional and reliable feel of the interface.",
+    "motion": "Subtle, purposeful animations using a standard easing curve to guide user attention without being distracting.",
+    "notes": "This site is a prime example of a modern, developer-focused SaaS design that effectively uses a dark theme, bold typography, and a limited, high-impact color palette to convey reliability and performance.",
+    "spec": {
+      "colors": {
+        "bg": "#03020D",
+        "bgSoft": "#141924",
+        "bgQuiet": "#3F4555",
+        "ink": "#FFFFFF",
+        "inkSoft": "#C6CED9",
+        "muted": "#C6CED9",
+        "mutedSoft": "#C6CED9",
+        "accent": "#FF5416",
+        "line": "rgba(226,232,240,1.0)",
+        "principle": "High-contrast dark mode with a vibrant, energetic orange accent for high-priority actions."
+      },
+      "typography": {
+        "display": "geometric-sans",
+        "body": "humanist-sans",
+        "mono": "monospace",
+        "scale": [
+          {
+            "token": "display",
+            "size": 56,
+            "lh": 1.0,
+            "weight": 500,
+            "ls": "-0.6px",
+            "use": "Large hero headings and bold statistics."
+          },
+          {
+            "token": "body",
+            "size": 17,
+            "lh": 1.6,
+            "weight": 500,
+            "ls": "0px",
+            "use": "General body text and UI elements."
+          }
+        ],
+        "rules": [
+          "Use a clear typographic hierarchy with large, bold display text for key messages.",
+          "Ensure sufficient contrast between white/gray text and the dark background."
+        ]
+      },
+      "spacing": {
+        "base": 4,
+        "scale": [
+          4,
+          8,
+          12,
+          16,
+          24,
+          32,
+          48,
+          64
+        ],
+        "rhythm": "A consistent 4px base unit provides structure and predictable spacing throughout the layout."
+      },
+      "surfaces": {
+        "radius": {
+          "sm": 4,
+          "md": 8,
+          "lg": 12,
+          "pill": 999
+        },
+        "shadows": [
+          "0px 4px 4px 0px rgba(0,0,0,0.25)"
+        ],
+        "borders": "1px solid rgba(226,232,240,1.0) for subtle separation and 1px solid rgba(255,255,255,0.25) for interactive elements."
+      },
+      "layout": {
+        "container": 1280,
+        "paragraph": 680,
+        "columns": 12,
+        "gutter": 24,
+        "breakpoints": [
+          768,
+          1024
+        ],
+        "skeleton": "A structured 12-column grid system with a centered container, featuring distinct sections for hero content, stats, and use-case cards."
+      },
+      "motion": {
+        "durations": {
+          "micro": 150,
+          "small": 250,
+          "medium": 500
+        },
+        "easing": "cubic-bezier(0.4, 0, 0.2, 1)",
+        "patterns": [
+          "Smooth transitions for interactive states like hover, color changes, and layout shifts."
+        ]
+      },
+      "identity": {
+        "keywords": [
+          "realtime",
+          "infrastructure",
+          "developer",
+          "reliability",
+          "connectivity"
+        ],
+        "analogy": "A high-performance engine room for modern, multi-device digital experiences.",
+        "oneLiner": "A developer-focused infrastructure platform for building resilient, real-time applications."
+      },
+      "components": {
+        "button": "Bold, solid-colored primary buttons (often orange gradient) and outlined secondary buttons, both with large padding and rounded corners.",
+        "card": "Dark-themed cards with rounded corners, used to showcase use cases with imagery and concise descriptions.",
+        "chip": "Small, rounded tags or badges used for status or categorization within the UI.",
+        "input": "Dark-themed input fields with clear borders and specific states for interactive elements.",
+        "hero": "A large, left-aligned hero section with a compelling headline, descriptive text, and prominent call-to-action buttons."
+      },
+      "interaction": {
+        "hover": "Visual feedback through color changes, opacity adjustments, or subtle padding shifts.",
+        "click": "Immediate response with standard interactive feedback, often transitioning the element to its active state.",
+        "transition": "Consistent use of cubic-bezier(0.4, 0, 0.2, 1) for smooth, natural-feeling animations.",
+        "keyboard": "Standard keyboard navigation support, likely including focus outlines for accessibility."
+      },
+      "voice": {
+        "tone": "Confident, authoritative, and developer-focused, emphasizing reliability and performance.",
+        "headlineStyle": "Direct, benefit-oriented, and concise, often using strong verbs and impactful numbers.",
+        "ctaStyle": "Actionable and clear, using verbs like 'Start' and 'Jump to' to guide the user.",
+        "avoid": [
+          "Avoid overly casual or jargon-heavy language that obscures the technical value proposition.",
+          "Avoid using light or pastel color palettes that clash with the dark, high-contrast theme.",
+          "Avoid cluttered layouts; maintain generous whitespace to highlight key information.",
+          "Avoid complex or unpredictable animations; keep motion subtle and purposeful.",
+          "Avoid using multiple competing accent colors; stick to the primary orange for focus."
+        ]
+      },
+      "donts": [
+        "Don't use a light theme — screenshot shows a dark background (#03020D) with white text.",
+        "Don't use a primary blue accent — screenshot shows a vibrant orange (#FF5416) for key actions.",
+        "Don't use rounded corners smaller than 4px — screenshot shows a consistent use of 8px-12px for cards.",
+        "Don't use complex sans-serif fonts — screenshot shows clean geometric and humanist sans-serifs.",
+        "Don't use small, cramped spacing — screenshot shows a generous 24px gutter and large padding.",
+        "Don't use decorative serif fonts — screenshot shows modern, functional sans-serif typography."
+      ],
+      "systemPrompt": "This is a developer-focused SaaS website for a real-time infrastructure platform. The design DNA is built on a deep, dark color scheme (#03020D background) with high-contrast white (#FFFFFF) and soft gray (#C6CED9) text, anchored by a vibrant orange (#FF5416) accent. Typography is primarily clean, modern sans-serif (humanist and geometric categories), with a clear hierarchy from large, bold headlines to readable body text. Critical design constraints: never use a light theme, never use blue as the primary accent, and avoid cramped layouts. The overall feel is professional, reliable, and highly functional, designed to appeal to technical decision-makers."
+    }
+  },
+  {
     "id": "about-meta",
     "title": "About Meta",
     "url": "https://about.meta.com",

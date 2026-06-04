@@ -8,6 +8,615 @@
     "web3",
     "defi"
   ],
-  "status": "pending",
-  "added_at": "2026-06-02"
+  "status": "completed",
+  "added_at": "2026-06-02",
+  "spec": {
+    "colors": {
+      "bg": "#FFFFFF",
+      "bgSoft": "#F3F3F8",
+      "bgQuiet": null,
+      "ink": "#212121",
+      "inkSoft": "#636161",
+      "muted": "#E0DFFF",
+      "mutedSoft": null,
+      "accent": "#9787FF",
+      "line": "rgba(0,0,0,0.05)"
+    },
+    "typography": {
+      "display": "geometric-sans",
+      "body": "geometric-sans",
+      "mono": "mono",
+      "scale": [
+        {
+          "token": "display",
+          "size": 72,
+          "lh": 1.1,
+          "weight": 500,
+          "ls": "-3.6px"
+        },
+        {
+          "token": "headline",
+          "size": 40,
+          "lh": 1.2,
+          "weight": 500,
+          "ls": "-0.5px"
+        },
+        {
+          "token": "body",
+          "size": 16,
+          "lh": 1.5,
+          "weight": 400,
+          "ls": "-0.1px"
+        },
+        {
+          "token": "caption",
+          "size": 14,
+          "lh": 1.2,
+          "weight": 500,
+          "ls": "0.1px"
+        }
+      ]
+    },
+    "spacing": {
+      "base": 4,
+      "scale": [
+        4,
+        8,
+        12,
+        16,
+        24,
+        32,
+        48,
+        64,
+        96
+      ]
+    },
+    "surfaces": {
+      "radius": {
+        "sm": 8,
+        "md": 12,
+        "lg": 20,
+        "pill": 9999
+      }
+    },
+    "layout": {
+      "container": 1280,
+      "paragraph": 680,
+      "columns": 12,
+      "gutter": 24,
+      "breakpoints": [
+        768,
+        1024
+      ]
+    },
+    "motion": {
+      "durations": {
+        "micro": 150,
+        "small": 200,
+        "medium": 400
+      },
+      "easing": "cubic-bezier(0.25, 0.1, 0.25, 1)"
+    }
+  },
+  "spec_i18n": {
+    "en": {
+      "identity": {
+        "keywords": [
+          "decentralized finance",
+          "savings",
+          "earn",
+          "mobile app",
+          "protocol"
+        ],
+        "analogy": "A clean, modern fintech bank branch adapted for DeFi, focusing on accessibility and trust.",
+        "oneLiner": "A decentralized savings platform that makes earning yield as simple as using a mobile banking app."
+      },
+      "colors": {
+        "principle": "High-contrast black ink on soft, off-white surfaces with a single vibrant lavender accent for primary actions."
+      },
+      "typography": {
+        "rules": [
+          "Use tight letter spacing (-3.6px) for large display text.",
+          "Primary body text should use a weight of 400.",
+          "Headlines use a weight of 500."
+        ],
+        "scaleUses": [
+          "Hero headlines",
+          "Section headlines",
+          "Primary body text",
+          "Labels and captions"
+        ]
+      },
+      "spacing": {
+        "rhythm": "8px base grid, vertically stacked with generous padding between sections."
+      },
+      "surfaces": {
+        "shadows": [
+          "0 6px 20px rgba(0, 0, 0, 0.05)",
+          "0 0 0 1px rgba(0, 0, 0, 0.06)"
+        ],
+        "borders": "Very subtle 1px borders using rgba(0, 0, 0, 0.06)."
+      },
+      "layout": {
+        "skeleton": "Centered single-column hero, transitioning to a 2-column grid for feature cards below the fold."
+      },
+      "components": {
+        "button": "High-contrast primary buttons (lavender bg, white text) and subtle secondary buttons (light lavender bg, purple text). Fully rounded (pill shape).",
+        "card": "Soft, slightly rounded cards (radius 12-20px) on a very subtle background with minimal borders.",
+        "chip": "Not prominently featured, but tag-like elements use the muted lavender background.",
+        "input": "Not visible in the provided screenshots.",
+        "hero": "A centered, text-heavy hero with a massive 72px display font, a descriptive subtitle, and two side-by-side CTAs."
+      },
+      "motion": {
+        "patterns": [
+          "Subtle color and opacity transitions on interactive elements (0.15s).",
+          "Transform transitions for scaling or movement (0.2s ease-out)."
+        ]
+      },
+      "interaction": {
+        "hover": "Subtle background color or opacity shift on buttons and links.",
+        "click": "Immediate feedback, likely a slight scale or opacity reduction.",
+        "transition": "Fast, 150ms transitions for most state changes.",
+        "keyboard": "Standard browser focus outlines, no custom visual styles evident in the static shots."
+      },
+      "voice": {
+        "tone": "Confident, clear, and slightly technical but highly accessible.",
+        "headlineStyle": "Short, punchy, benefit-oriented statements ('Savings for Everyone', 'The best build').",
+        "ctaStyle": "Action-oriented and platform-specific ('Download on iOS', 'Use Aave').",
+        "avoid": [
+          "Avoid overly dense financial jargon without context.",
+          "Avoid cluttering the interface with unnecessary icons or borders.",
+          "Avoid aggressive or neon color palettes."
+        ]
+      },
+      "donts": [
+        "Don't use serif fonts — screenshot shows a geometric sans-serif for all text.",
+        "Don't use dark mode as the default — screenshot shows a predominantly white and light-gray interface.",
+        "Don't use sharp, square corners on primary elements — screenshot shows heavily rounded pills and soft radii.",
+        "Don't use high-contrast, saturated red or green for accents — screenshot uses a muted lavender as the primary accent.",
+        "Don't center-align all text — screenshot uses left-alignment for body copy and feature descriptions.",
+        "Don't use drop shadows for depth — screenshot uses very subtle, low-opacity borders or flat color differences for separation."
+      ],
+      "systemPrompt": "Aave is a decentralized finance (DeFi) protocol landing page designed to look like a premium, accessible fintech mobile app. The design DNA is built on a foundation of geometric sans-serif typography, a high-contrast black-on-white color palette, and a single vibrant lavender (#9787FF) accent for primary actions. The layout is clean, spacious, and centered around a massive hero headline. Critical constraints: always use a fully rounded 'pill' shape for primary buttons, keep the interface strictly light-themed with soft off-white backgrounds, and maintain extreme typographic hierarchy with tight letter spacing on large display text. Never introduce cluttered borders, dark backgrounds, or non-geometric font styles."
+    },
+    "zh-CN": {
+      "identity": {
+        "keywords": [
+          "去中心化金融",
+          "储蓄",
+          "赚取收益",
+          "移动应用",
+          "协议"
+        ],
+        "analogy": "一个适配DeFi的、简洁现代的金融科技银行分支，专注于可访问性和信任感。",
+        "oneLiner": "一个去中心化储蓄平台，让赚取收益像使用手机银行应用一样简单。"
+      },
+      "colors": {
+        "principle": "在柔和、偏白的表面上使用高对比度的黑色，并以单一的鲜艳薰衣草色作为主要操作的点缀。"
+      },
+      "typography": {
+        "rules": [
+          "大型展示文本使用紧凑的字间距（-3.6px）。",
+          "主要正文文本应使用400字重。",
+          "标题使用500字重。"
+        ],
+        "scaleUses": [
+          "主视觉标题",
+          "章节标题",
+          "主要正文文本",
+          "标签和说明文字"
+        ]
+      },
+      "spacing": {
+        "rhythm": "8px基础网格，垂直堆叠，章节间留有充足的内边距。"
+      },
+      "surfaces": {
+        "shadows": [
+          "0 6px 20px rgba(0, 0, 0, 0.05)",
+          "0 0 0 1px rgba(0, 0, 0, 0.06)"
+        ],
+        "borders": "使用rgba(0, 0, 0, 0.06)的极细微1px边框。"
+      },
+      "layout": {
+        "skeleton": "居中单列主视觉区，首屏下方过渡到双列网格的功能卡片。"
+      },
+      "components": {
+        "button": "高对比度的主按钮（薰衣草色背景，白色文字）和细微的次按钮（浅薰衣草色背景，紫色文字）。完全圆角（药丸形状）。",
+        "card": "柔和、略带圆角的卡片（圆角12-20px），置于极细微的背景上，边框最小化。",
+        "chip": "未突出展示，但标签类元素使用柔和的薰衣草色背景。",
+        "input": "在提供的截图中不可见。",
+        "hero": "一个居中、以文字为主的主视觉区，使用巨大的72px展示字体，配有描述性副标题和两个并排的行动号召按钮。"
+      },
+      "motion": {
+        "patterns": [
+          "交互元素上的细微颜色和不透明度过渡（0.15秒）。",
+          "用于缩放或移动的变换过渡（0.2秒，缓出）。"
+        ]
+      },
+      "interaction": {
+        "hover": "按钮和链接上的细微背景色或不透明度变化。",
+        "click": "即时反馈，可能是轻微的缩放或不透明度降低。",
+        "transition": "大多数状态变化使用快速的150毫秒过渡。",
+        "keyboard": "标准浏览器焦点轮廓，在静态截图中未见自定义视觉样式。"
+      },
+      "voice": {
+        "tone": "自信、清晰，略带技术感但高度易懂。",
+        "headlineStyle": "简短、有力、以益处为导向的陈述（例如“人人皆可储蓄”、“最佳构建”）。",
+        "ctaStyle": "以行动为导向且针对平台（例如“在iOS上下载”、“使用Aave”）。",
+        "avoid": [
+          "避免在无上下文时使用过于密集的金融术语。",
+          "避免在界面上堆砌不必要的图标或边框。",
+          "避免使用激进或霓虹灯般的调色板。"
+        ]
+      },
+      "donts": [
+        "不要使用衬线字体——截图显示所有文本使用几何无衬线字体。",
+        "不要将深色模式设为默认——截图显示界面以白色和浅灰色为主。",
+        "不要在主要元素上使用尖锐的方形圆角——截图显示大量圆角药丸形状和柔和圆角。",
+        "不要使用高对比度、饱和的红色或绿色作为点缀——截图使用柔和的薰衣草色作为主要点缀。",
+        "不要将所有文本居中对齐——截图对正文和功能描述使用左对齐。",
+        "不要使用投影营造深度感——截图使用极细微、低不透明度的边框或纯色差异来分隔区域。"
+      ],
+      "systemPrompt": "Aave 是一个去中心化金融（DeFi）协议落地页，旨在呈现为一款高端、易用的金融科技移动应用。其设计DNA基于几何无衬线字体、高对比度的黑白色板，以及用于主要操作的单一鲜艳薰衣草色（#9787FF）点缀。布局简洁、宽敞，以巨大的主视觉标题为核心。关键约束：主要按钮始终使用完全圆角的“药丸”形状，界面严格采用浅色主题和柔和的偏白背景，并通过紧凑的大型展示字间距保持极致的排版层次。绝不引入杂乱的边框、深色背景或非几何字体风格。"
+    },
+    "zh-TW": {
+      "identity": {
+        "keywords": [
+          "去中心化金融",
+          "儲蓄",
+          "收益",
+          "行動應用程式",
+          "協議"
+        ],
+        "analogy": "一間為 DeFi 改造的、現代簡潔的金融科技銀行分行，著重於無障礙性與信任感。",
+        "oneLiner": "一個去中心化的儲蓄平台，讓賺取收益如同使用行動銀行應用程式般簡單。"
+      },
+      "colors": {
+        "principle": "在柔軟的米白色表面上使用高對比的純黑墨色，並以單一活躍的薰衣草色作為主要操作的強調色。"
+      },
+      "typography": {
+        "rules": [
+          "大型展示文字使用緊湊的字距（-3.6px）。",
+          "主要內文字重使用 400。",
+          "標題字重使用 500。"
+        ],
+        "scaleUses": [
+          "主視覺標題",
+          "區塊標題",
+          "主要內文",
+          "標籤與圖說"
+        ]
+      },
+      "spacing": {
+        "rhythm": "以 8px 為基準網格，垂直堆疊，區塊之間留有充足的內距。"
+      },
+      "surfaces": {
+        "shadows": [
+          "0 6px 20px rgba(0, 0, 0, 0.05)",
+          "0 0 0 1px rgba(0, 0, 0, 0.06)"
+        ],
+        "borders": "使用 rgba(0, 0, 0, 0.06) 的極細 1px 邊框。"
+      },
+      "layout": {
+        "skeleton": "置中的單欄主視覺區，下方的功能卡片轉為雙欄網格。"
+      },
+      "components": {
+        "button": "高對比的主要按鈕（薰衣草色背景、白色文字）與細微的次要按鈕（淺薰衣草背景、紫色文字）。採用全圓角（膠囊形）。",
+        "card": "柔和、略帶圓角的卡片（圓角半徑 12-20px），置於極簡背景上，並使用最少的邊框。",
+        "chip": "未明顯展示，但標籤類元素使用柔和的薰衣草色背景。",
+        "input": "在提供的截圖中不可見。",
+        "hero": "置中的文字型主視覺區，包含巨大的 72px 展示字型、描述性副標題，以及並排的兩個行動呼籲按鈕。"
+      },
+      "motion": {
+        "patterns": [
+          "互動元素採用細微的色彩與透明度過渡效果（0.15 秒）。",
+          "縮放或移動的變形過渡效果（0.2 秒 ease-out）。"
+        ]
+      },
+      "interaction": {
+        "hover": "按鈕與連結的背景色或透明度發生細微變化。",
+        "click": "立即回饋，可能是輕微的縮放或透明度降低。",
+        "transition": "大多數狀態變化採用快速的 150 毫秒過渡效果。",
+        "keyboard": "採用標準瀏覽器的焦點外框，靜態截圖中未見自訂視覺樣式。"
+      },
+      "voice": {
+        "tone": "自信、清晰，略帶技術性但高度易懂。",
+        "headlineStyle": "簡短、有力、以效益為導向的語句（例如「人人適用的儲蓄」、「最佳的建構方案」）。",
+        "ctaStyle": "以行動為導向，並具體指明平台（例如「在 iOS 上下載」、「使用 Aave」）。",
+        "avoid": [
+          "避免使用未附上下文、過於密集的金融術語。",
+          "避免用不必要的圖示或邊框使介面雜亂。",
+          "避免使用強烈或霓虹色調的色盤。"
+        ]
+      },
+      "donts": [
+        "不要使用襯線字體——截圖顯示所有文字均使用幾何無襯線字體。",
+        "不要將深色模式作為預設主題——截圖顯示介面以白色和淺灰色為主。",
+        "不要在主要元素上使用銳利的直角——截圖顯示廣泛使用圓角膠囊與柔和圓弧。",
+        "不要使用高對比、飽和的紅色或綠色作為強調色——截圖使用柔和的薰衣草色作為主要強調色。",
+        "不要將所有文字置中對齊——截圖顯示內文與功能描述採用左對齊。",
+        "不要使用陰影來創造深度——截圖使用極細微、低透明度的邊框或純色差異來區隔元素。"
+      ],
+      "systemPrompt": "Aave 是一個去中心化金融（DeFi）協議的登陸頁面，其設計旨在呈現為一款優質、無障礙的金融科技行動應用程式。其設計 DNA 建立在幾何無襯線字型、高對比的黑白色調色盤，以及單一活躍的薰衣草色（#9787FF）作為主要操作強調色之上。版面簡潔、寬鬆，並圍繞著一個巨大的主視覺標題。關鍵約束：主要按鈕始終使用全圓角的「膠囊」造型，介面嚴格保持淺色主題與柔和的米白色背景，並透過大號展示文字的緊湊字距來維持極端的排版層次。切勿引入雜亂的邊框、深色背景或非幾何字型樣式。"
+    },
+    "ja": {
+      "identity": {
+        "keywords": [
+          "分散型ファイナンス",
+          "貯蓄",
+          "収益",
+          "モバイルアプリ",
+          "プロトコル"
+        ],
+        "analogy": "アクセシビリティと信頼に焦点を当てた、洗練されたモダン・フィンテックの銀行支店を分散型に適応させたもの。",
+        "oneLiner": "銀行アプリの利用と同じくらい簡単に、収益を生み出せる分散型貯蓄プラットフォーム。"
+      },
+      "colors": {
+        "principle": "柔らかなオフホワイト系のサーフェスに、高コントラストのインク・ブラックを配し、プライマリ・アクションには単一の鮮やかなラベンダー色を使用。"
+      },
+      "typography": {
+        "rules": [
+          "大きなディスプレイ・テキストには、タイトな文字間隔（-3.6px）を使用。",
+          "プライマリ本文はウェイト400。",
+          "見出しはウェイト500を使用。"
+        ],
+        "scaleUses": [
+          "ヒーロー見出し",
+          "セクション見出し",
+          "プライマリ本文",
+          "ラベル・キャプション"
+        ]
+      },
+      "spacing": {
+        "rhythm": "8pxの基本グリッド。セクション間には十分なパディングを設けた、垂直方向のスタック。"
+      },
+      "surfaces": {
+        "shadows": [
+          "0 6px 20px rgba(0, 0, 0, 0.05)",
+          "0 0 0 1px rgba(0, 0, 0, 0.06)"
+        ],
+        "borders": "rgba(0, 0, 0, 0.06)による、非常に微細な1pxボーダー。"
+      },
+      "layout": {
+        "skeleton": "中央揃えの単一カラム・ヒーロー。スクロール以下のフィーチャーカードは2カラムグリッドに移行。"
+      },
+      "components": {
+        "button": "ハイコントラストのプライマリボタン（ラベンダー背景、白テキスト）と、サブティルなセカンダリボタン（ライトラベンダー背景、パープルテキスト）。完全に丸みを帯びたピル形状。",
+        "card": "非常に微細な背景と最小限のボーダーを備えた、柔らかくわずかに丸みを帯びたカード（角丸12-20px）。",
+        "chip": "主要な装飾要素ではないが、タグ類の要素には控えめなラベンダー背景を使用。",
+        "input": "提供されたスクリーンショットには表示されていません。",
+        "hero": "72pxの巨大なディスプレイ・フォント、説明的なサブタイトル、並列に配置された2つのCTAを備えた、テキスト中心の中央揃えヒーローセクション。"
+      },
+      "motion": {
+        "patterns": [
+          "インタラクティブ要素への微細なカラー・不透明度のトランジション（0.15s）。",
+          "スケールや動きのためのTransformトランジション（0.2s ease-out）。"
+        ]
+      },
+      "interaction": {
+        "hover": "ボタンやリンクに、微細な背景色や不透明度のシフト。",
+        "click": "即座のフィードバック。おそらく微小なスケールや不透明度の縮小。",
+        "transition": "ほとんどの状態変化には、高速な150msトランジション。",
+        "keyboard": "標準のブラウザ・フォーカスアウトライン。静止画像ではカスタムビジュアルスタイルは確認できず。"
+      },
+      "voice": {
+        "tone": "自信に満ち、明瞭で、わずかに技術的だが、非常にアクセシブル。",
+        "headlineStyle": "短く、鋭く、メリットを強調する陳述（「誰でもできる貯蓄」「最高の構築」など）。",
+        "ctaStyle": "アクション指向でプラットフォーム固有の表現（「iOS版をダウンロード」「Aaveを使用」など）。",
+        "avoid": [
+          "文脈なしの過度に専門的な金融用語は避ける。",
+          "不要なアイコンやボーダーでインターフェースを雑然とさせるのは避ける。",
+          "アグレッシブな配色やネオンカラーのパレットは避ける。"
+        ]
+      },
+      "donts": [
+        "セリフフォントは使用しない。スクリーンショットでは、全テキストに幾何学的なサンセリフ体が使用されている。",
+        "ダークモードをデフォルトとしない。スクリーンショットでは、主にホワイトとライトグレーのインターフェースが示されている。",
+        "プライマリ要素にシャープな角を使用しない。スクリーンショットでは、大きく丸みを帯びたピル形状と柔らかな角丸が使用されている。",
+        "アクセントにハイコントラストな鮮やかな赤や緑を使用しない。スクリーンショットでは、控えめなラベンダーがプライマリアクセントとして使用されている。",
+        "全テキストを中央揃えにしない。スクリーンショットでは、本文やフィーチャーの説明に左揃えが使用されている。",
+        "奥行きを出すためにドロップシャドウを使用しない。スクリーンショットでは、分離のために非常に微細で不透明度の低いボーダーまたはフラットなカラー差が使用されている。"
+      ],
+      "systemPrompt": "Aaveは、プレミアムでアクセシビリティの高いフィンテック・モバイルアプリのように見える分散型ファイナンス（DeFi）プロトコルのランディングページです。デザインDNAは、幾何学的なサンセリフ・タイポグラフィ、高コントラストのブラック・オン・ホワイト・カラーパレット、およびプライマリ・アクション用の単一の鮮やかなラベンダー（#9787FF）アクセントを基盤として構築されています。レイアウトはクリーンで余白を活かしており、巨大なヒーロー見出しを中心に配置されています。重要な制約事項：プライマリボタンには常に完全に丸みを帯びた「ピル」形状を使用し、インターフェースは柔らかなオフホワイト背景を用いた明るいテーマに厳密に限定し、大きなディスプレイ・テキストにはタイトな文字間隔を用いた極めて明確なタイポグラフィ階層を維持すること。雑然としたボーダー、暗い背景、幾何学的でないフォントスタイルは決して使用しないこと。"
+    },
+    "ko": {
+      "identity": {
+        "keywords": [
+          "탈중앙화 금융",
+          "저축",
+          "수익",
+          "모바일 앱",
+          "프로토콜"
+        ],
+        "analogy": "접근성과 신뢰에 중점을 둔, DeFi를 위해 조정된 깔끔하고 현대적인 핀테크 은행 지점.",
+        "oneLiner": "모바일 뱅킹 앱을 사용하듯 수익률을 얻는 것을 간단하게 만드는 탈중앙화된 저축 플랫폼."
+      },
+      "colors": {
+        "principle": "부드러운 오프화이트 표면 위의 대비가 높은 블랙 잉크와, 주요 조치를 위한 단일의 강조된 라벤더 악센트."
+      },
+      "typography": {
+        "rules": [
+          "대형 디스플레이 텍스트에는 타이트한 자간 (-3.6px)을 사용합니다.",
+          "기본 본문 텍스트는 두께 400을 사용해야 합니다.",
+          "헤드라인은 두께 500을 사용합니다."
+        ],
+        "scaleUses": [
+          "히어로 헤드라인",
+          "섹션 헤드라인",
+          "기본 본문 텍스트",
+          "라벨 및 캡션"
+        ]
+      },
+      "spacing": {
+        "rhythm": "8px 기본 그리드, 섹션 사이에 넉넉한 padding으로 수직으로 쌓임."
+      },
+      "surfaces": {
+        "shadows": [
+          "0 6px 20px rgba(0, 0, 0, 0.05)",
+          "0 0 0 1px rgba(0, 0, 0, 0.06)"
+        ],
+        "borders": "rgba(0, 0, 0, 0.06)를 사용하는 매우 미묘한 1px 테두리."
+      },
+      "layout": {
+        "skeleton": "중앙 정렬 싱글 컬럼 히어로, 접힌 부분 아래의 기능 카드용 2컬럼 그리드로 전환."
+      },
+      "components": {
+        "button": "대비가 높은 주요 버튼 (라벤더 배경, 화이트 텍스트)과 미묘한 보조 버튼 (연한 라벤더 배경, 보라색 텍스트). 완전히 둥근 모양 (pill 형태).",
+        "card": "매우 미묘한 배경 위에 부드럽고 약간 둥근 카드 (반지름 12-20px), 최소한의 테두리.",
+        "chip": "두드러지게 특징 지어지지 않지만, 태그 유형 요소는 저조도 라벤더 배경을 사용합니다.",
+        "input": "제공된 스크린샷에는 보이지 않습니다.",
+        "hero": "거대한 72px 디스플레이 글꼴, 설명적인 부제목, 그리고 나란히 놓인 두 개의 CTA가 있는, 중앙 정렬되고 텍스트가 많은 히어로."
+      },
+      "motion": {
+        "patterns": [
+          "인터랙티브 요소의 미묘한 색상 및 불투명도 전환 (0.15s).",
+          "스케일링이나 이동을 위한 transform 전환 (0.2s ease-out)."
+        ]
+      },
+      "interaction": {
+        "hover": "버튼과 링크의 미묘한 배경색 또는 불투명도 변화.",
+        "click": "즉각적인 피드백, 아마도 약간의 스케일 또는 불투명도 감소.",
+        "transition": "대부분의 상태 변경에 대한 빠른 150ms 전환.",
+        "keyboard": "표준 브라우저 focus 윤곽선, 정적 쇼트에는 커스텀 비주얼 스타일이 명확하지 않음."
+      },
+      "voice": {
+        "tone": "자신감 있고 명확하며 약간 기술적이지만 접근성이 높음.",
+        "headlineStyle": "간결하고 강렬하며 이점 중심의 진술 ('모든 사람을 위한 저축', '최고의 빌드').",
+        "ctaStyle": "행동 지향적이고 플랫폼에 맞는 ('iOS에서 다운로드', 'Aave 사용').",
+        "avoid": [
+          "컨텍스트 없이 지나치게 밀집된 금융 전문 용어를 피합니다.",
+          "불필요한 아이콘이나 테두리로 인터페이스를 복잡하게 하지 않습니다.",
+          "공격적 또는 네온 색상 팔레트를 피합니다."
+        ]
+      },
+      "donts": [
+        "세리프 글꼴을 사용하지 마세요 — 스크린샷에는 모든 텍스트에 기하학적 산세리프가 사용됩니다.",
+        "다크 모드를 기본으로 사용하지 마세요 — 스크린샷에는 주로 화이트와 라이트 그레이 인터페이스가 보입니다.",
+        "주요 요소에 날카롭고 사각진 모서리를 사용하지 마세요 — 스크린샷에는 크게 둥근 pill 모양과 부드러운 반지름이 보입니다.",
+        "악센트용 고대비, 채도 높은 빨강 또는 초록을 사용하지 마세요 — 스크린샷에는 저조도 라벤더가 주요 악센트로 사용됩니다.",
+        "모든 텍스트를 중앙 정렬하지 마세요 — 스크린샷에는 본문 및 기능 설명에 왼쪽 정렬이 사용됩니다.",
+        "깊이감을 위해 drop shadow를 사용하지 마세요 — 스크린샷에는 분리를 위해 매우 미묘하고 불투명도가 낮은 테두리 또는 평탄한 색상 차이가 사용됩니다."
+      ],
+      "systemPrompt": "Aave는 프리미엄이며 접근성 있는 핀테크 모바일 앱처럼 보이도록 설계된 탈중앙화 금융 (DeFi) 프로토콜 랜딩 페이지입니다. 디자인 DNA는 기하학적 산세리프 타이포그래피, 대비가 높은 블랙 온 화이트 색상 팔레트, 그리고 주요 조치를 위한 단일의 강조된 라벤더 (#9787FF) 악센트를 기반으로 구축되었습니다. 레이아웃은 깔끔하고 넉넉하며 거대한 히어로 헤드라인을 중심으로 합니다. 핵심 제약 사항: 주요 버튼에는 항상 완전히 둥근 'pill' 형태를 사용하고, 인터페이스는 부드러운 오프화이트 배경으로 엄격히 라이트 테마를 유지하며, 대형 디스플레이 텍스트에 타이트한 자간으로 극단적인 타이포그래피 위계를 유지합니다. 절대로 복잡한 테두리, 어두운 배경, 또는 기하학적이지 않은 글꼴 스타일을 도입하지 마세요."
+    }
+  },
+  "desc": {
+    "en": {
+      "palette": "A minimalist palette of stark black ink on white/soft-gray backgrounds, highlighted by a single vibrant lavender accent color.",
+      "layout": "A spacious, single-column centered layout that emphasizes large typographic headlines and clear calls-to-action.",
+      "interaction": "Subtle, fast transitions on buttons and links provide feedback without distracting from the content.",
+      "motion": "Motion is restrained, using short 150-200ms durations for basic hover and state changes.",
+      "notes": "This site is a masterclass in applying 'mobile-first' fintech aesthetics to a decentralized web protocol, making complex DeFi concepts feel simple and trustworthy."
+    },
+    "zh-CN": {
+      "palette": "极简的色板，以纯黑墨水色调搭配白色/柔和灰色背景，并以单一鲜艳的薰衣草色作为点缀。",
+      "layout": "宽敞、单列居中布局，强调大型排版标题和清晰的行动号召。",
+      "interaction": "按钮和链接上的细微、快速过渡提供反馈，同时不分散对内容的注意力。",
+      "motion": "动效克制，基础悬停和状态变化使用150-200毫秒的短时长。",
+      "notes": "这个网站是将“移动优先”的金融科技美学应用于去中心化网络协议的典范，让复杂的DeFi概念显得简单且值得信赖。"
+    },
+    "zh-TW": {
+      "palette": "極簡色盤：在白色或柔灰色背景上使用純黑墨色，並以單一活躍的薰衣草色作為點綴。",
+      "layout": "寬鬆的單欄置中版面，強調大型排版標題與清晰的行動呼籲按鈕。",
+      "interaction": "按鈕與連結採用細微、快速的過渡效果，提供回饋感而不干擾內容。",
+      "motion": "動效保持克制，基本的 hover 與狀態變化採用 150-200 毫秒的短促時長。",
+      "notes": "此網站是將「行動優先」的金融科技美學，成功應用於去中心化網路協議的典範，讓複雜的 DeFi 概念感覺簡單且值得信賴。"
+    },
+    "ja": {
+      "palette": "白/グレー系の背景に、鮮やかなラベンダー色をアクセントに用いた、黒と白のミネラリスト・パレット。",
+      "layout": "余白を活かした、中央揃えの単一カラム・レイアウト。大きなタイポグラフィの見出しと明確なCTAを強調しています。",
+      "interaction": "ボタンやリンクには、コンテンツから目を離さないよう、微細かつ高速なトランジションを実装。",
+      "motion": "動きは控えめに。基本的なhoverや状態変化には、150〜200msの短いデュレーションを使用。",
+      "notes": "本サイトは、「モバイル・ファースト」のフィンテック・アエステティクスを分散型Webプロトコルに適用する、模範的な事例です。複雑なDeFiの概念を、シンプルで信頼できるものとして実現しています。"
+    },
+    "ko": {
+      "palette": " stark한 블랙 잉크와 화이트/소프트 그레이 배경의 미니멀리스트 팔레트, 단일의 강조된 라벤더 악센트 컬러로 하이라이트.",
+      "layout": "대형 타이포그래피 헤드라인과 명확한 콜 투 액션을 강조하는, 넉넉한 싱글 컬럼 중앙 정렬 레이아웃.",
+      "interaction": "버튼과 링크에 대한 미묘하고 빠른 전환은 콘텐츠에서 주의를 산만하게 하지 않으면서 피드백을 제공합니다.",
+      "motion": "모션은 절제되어 있으며, 기본적인 hover 및 상태 변경을 위해 짧은 150-200ms 지속 시간을 사용합니다.",
+      "notes": "이 사이트는 '모바일 퍼스트' 핀테크 미학을 탈중앙화된 웹 프로토콜에 적용하는 마스터 클래스로, 복잡한 DeFi 개념을 간단하고 신뢰할 수 있게 만듭니다."
+    }
+  },
+  "_meta": {
+    "vision_model": "mimo-v2.5",
+    "vision_prompt_version": "0.3",
+    "vision_source": "playwright-extract:aave",
+    "vision_grounded": true,
+    "vision_at": "2026-06-03T12:30:32+00:00",
+    "vision_tokens": 16537,
+    "vision_cost_usd": 0.1837,
+    "translation_model": "mimo-v2.5",
+    "translation_at": "2026-06-03T12:31:56+00:00",
+    "translation_tokens": 18006,
+    "translation_cost_usd": 0.0601,
+    "narrative_model": "mimo-v2.5",
+    "narrative_prompt_version": "0.3",
+    "narrative_at": "2026-06-03T12:32:04+00:00",
+    "narrative_tokens": 2140,
+    "narrative_cost_usd": 0.0143,
+    "narrative_status": "ok",
+    "total_cost_usd": 0.2581
+  },
+  "narrative": {
+    "en": {
+      "ch1_intro": "The design system operates like a clean, modern fintech bank branch translated for decentralized finance, prioritizing clarity and trust over novelty. Its identity is built on a stark, high-contrast palette and generous spacing, using a single vibrant lavender accent to guide primary actions without visual noise.",
+      "ch2_intro": "The color system is defined by high-contrast black ink on soft, off-white surfaces. A single vibrant lavender accent provides the sole chromatic emphasis, reserved exclusively for primary actions and interactive states.",
+      "ch2_outro": "The principle is strict restraint, using color as a functional highlight against a neutral, readable canvas rather than for decorative effect.",
+      "ch3_intro": "Typography employs a geometric sans-serif voice, using tight letter spacing for large display text to create a compact, authoritative feel. The hierarchy is extreme, with distinct weights separating hero headlines from primary body copy.",
+      "ch4_intro": "Spacing follows an 8px base grid, creating a predictable rhythm for vertical stacking.",
+      "ch5_intro": "Surfaces achieve depth through minimal means, relying on very subtle, low-opacity borders and flat color differences rather than prominent drop shadows. The approach is nearly flat, using soft background tones to define cards and containers.",
+      "ch6_intro": "The layout skeleton centers a text-heavy hero block, then transitions to a 2-column grid for feature content below the fold. The structure emphasizes large headlines and clear calls-to-action within a spacious, single-column framework.",
+      "ch7_intro": "Motion philosophy is one of restraint and immediacy, using fast 150-200ms durations for functional feedback only. Subtle color, opacity, and transform transitions confirm interactions without drawing focus from the core content.",
+      "ch8_intro": "The editorial voice is confident, clear, and slightly technical, using short, benefit-oriented headlines and action-specific calls-to-action.",
+      "ch8_outro": "The system deliberately avoids dense financial jargon, aggressive color, and interface clutter to maintain its accessible, trustworthy fintech aesthetic."
+    },
+    "zh-CN": {
+      "ch1_intro": "设计系统如同一个为去中心化金融打造的现代银行网点，摒弃花哨，专注于清晰与信赖。其视觉身份建立于高对比度配色与充裕留白，仅用一抹明艳的薰衣草紫作为核心操作引导，在视觉静默中建立秩序。",
+      "ch2_intro": "色彩系统以柔白表面上的高对比度墨黑为主调，单一明艳的薰衣草紫成为唯一的色彩强调，专属于核心操作与交互状态。",
+      "ch2_outro": "原则在于严格克制：色彩是功能性的高光，在中性易读的画布上起强调作用，而非装饰效果。",
+      "ch3_intro": "字体采用几何无衬线体，通过紧凑字距打造大号展示文字，营造紧凑而权威的视觉感受。层级对比强烈，以显著的字重差异区分主标题与正文内容。",
+      "ch4_intro": "间距基于8px基础网格，为纵向堆叠建立可预测的节奏感。",
+      "ch5_intro": "界面深度通过极简手段实现，依赖极微妙的低透明度边框与扁平色彩差异，而非显著的阴影效果。整体接近扁平化风格，运用柔和的背景色调来界定卡片与容器区域。",
+      "ch6_intro": "布局骨架以文本密集的主视觉区为中心，向下过渡至两栏网格展示功能内容。结构强调在宽敞的单栏框架中，通过大标题和清晰的行动号召建立层次。",
+      "ch7_intro": "动效哲学强调克制与即时性，仅采用150-200毫秒的快速时长实现功能反馈。通过细微的颜色、透明度与形变过渡确认交互，而不分散对核心内容的注意力。",
+      "ch8_intro": "内容文风自信、清晰且略带技术感，采用简短、以用户价值为导向的标题及具体场景的行动指引。",
+      "ch8_outro": "该系统刻意规避密集的金融术语、激进的色彩与界面冗余，以维持其平易近人且值得信赖的金融科技美学。"
+    },
+    "zh-TW": {
+      "ch1_intro": "這套設計系統運作起來就像一家簡潔、現代的金融科技銀行分行，轉化為去中心化金融的語彙，優先考慮清晰度與信任感，而非新奇性。其識別建立在極簡、高對比的色調與寬裕的間距之上，使用單一活潑的薰衣草紫作為強調色，引導主要操作，同時避免視覺噪音。",
+      "ch2_intro": "色彩系統以柔軟米白色表面上的高對比黑色墨水來定義。單一活潑的薰衣草紫色調提供唯一的色彩強調，專門保留給主要操作與互動狀態。",
+      "ch2_outro": "原則是嚴格的克制，將色彩作為中性、易讀畫布上的功能性高亮，而非裝飾效果。",
+      "ch3_intro": "字體排印採用幾何無襯線的語調，對大型展示文字使用緊湊的字母間距，營造緊湊且具權威感的氛圍。層級結構極為鮮明，以不同的字重區分主標題與主要內文字體。",
+      "ch4_intro": "間距遵循 8px 的基礎網格，為垂直堆疊創造可預測的節奏。",
+      "ch5_intro": "介面層透過極簡的方式實現深度，依賴非常細微、低不透明度的邊框與平面色彩差異，而非顯著的陰影效果。方法近乎平面化，使用柔和的背景色調來定義卡片與容器。",
+      "ch6_intro": "版面骨架以文字量豐富的首頁區塊為中心，然後在折疊下方轉為兩欄網格，用於功能內容。結構強調大標題與清晰的行動呼籲，置於寬敞的單欄框架內。",
+      "ch7_intro": "動效哲學是克制與即時，僅使用快速的 150-200ms 持續時間，提供功能性回饋。細微的顏色、不透明度與 transform 轉場效果確認互動，同時不轉移核心內容的焦點。",
+      "ch8_intro": "編輯語調自信、清晰且略帶技術感，使用簡短、導向利益的標題與針對特定行動的呼籲。",
+      "ch8_outro": "系統刻意避免密集的金融術語、強烈的色彩與介面雜亂，以維持其平易近人、值得信賴的金融科技美學。"
+    },
+    "ja": {
+      "ch1_intro": "このデザインシステムは、分散型金融に適合させた、クリーンでモダンなフィンテック支店のように機能します。新奇性よりも明確さと信頼を優先しています。そのアイデンティティは、大胆な高コントラストのカラーパレットと豊かなスペーシングに基づき、視覚的なノイズなしにプライマリアクションを導くための単一の鮮やかなラベンダーアクセントカラーを使用しています。",
+      "ch2_intro": "カラーシステムは、柔らかなオフホワイトのサーフェスに対するハイコントラストのブラックインクで定義されています。単一の鮮やかなラベンダーアクセントカラーが唯一のクロマチックな強調となり、プライマリアクションとインタラクティブな状態にのみ専用に予約されています。",
+      "ch2_outro": "原則は厳格な抑制であり、装飾効果のためではなく、ニュートラルで読みやすいキャンバスに対する機能的なハイライトとしてカラーを使用します。",
+      "ch3_intro": "タイポグラフィは幾何学的サンセリフの声を採用し、大型ディスプレイテキストにはタイトな文字間隔を使用して、コンパクトで権威のある印象を作り出します。ヒエラルキーは極端で、不同的なウェイトでヒーローヘッドラインとプライマリ本文を分離しています。",
+      "ch4_intro": "スペーシングは8pxのベースグリッドに従い、垂直スタッキングに予測可能なリズムを生み出します。",
+      "ch5_intro": "サーフェスは最小限の手段で奥行きを実現し、目立つドロップシャドウではなく、非常に微細で低不透明度のボーダーとフラットな色の違いに依存しています。アプローチはほぼフラットで、カードやコンテナを定義するのにソフトな背景トーンを使用しています。",
+      "ch6_intro": "レイアウトのスケルトンは、テキストを多用したヒーローブロックを中央に配置し、フォールド下のフィーチャーコンテンツには2カラムグリッドへと移行します。この構造は、広々とした単カラムのフレームワーク内で、大きなヘッドラインと明確なCTAを強調しています。",
+      "ch7_intro": "モーションの哲学は抑制と即応性にあり、機能的なフィードバックのみに高速な150-200msのデュレーションを使用します。微細なカラー、不透明度、トランスフォームの遷移が、コアコンテンツから注意を逸らすことなくインタラクションを確認します。",
+      "ch8_intro": "エディトリアルな声は、自信に満ち、明確で、やや技術的です。短く、メリットを重視したヘッドラインとアクション特化のCTAを使用しています。",
+      "ch8_outro": "このシステムは、アクセシブルで信頼できるフィンテックの美学を維持するため、密集した金融用語、攻撃的なカラー、インタフェースの雑然とした様子を意図的に避けています。"
+    },
+    "ko": {
+      "ch1_intro": "디자인 시스템은 탈중앙화 금융에 맞게 번역된 깔끔하고 현대적인 핀테크 은행 지점처럼 운영됩니다. 새로움보다 명확성과 신뢰를 우선시합니다. 그 정체성은 강렬한 고대비 팔레트와 넉넉한 간격 위에 구축되어 있으며, 시각적 잡음 없이 주요 작업을 안내하기 위해 단일의 생생한 라벤더 악센트를 사용합니다.",
+      "ch2_intro": "색상 시스템은 부드러운 오프화이트 표면 위의 고대비 검정 잉크로 정의됩니다. 단일의 생생한 라벤더 악센트가 유일한 색조 강조점을 제공하며, 주요 작업 및 인터랙티브 상태에만 독점적으로 사용됩니다.",
+      "ch2_outro": "원칙은 엄격한 절제이며, 색상을 장식적 효과가 아닌 중립적이고 읽기 쉬운 캔버스 위의 기능적 하이라이트로 사용합니다.",
+      "ch3_intro": "타이포그래피는 기하학적 산세리프 음색을 사용하며, 큰 디스플레이 텍스트에는 타이트한 자간을 적용하여 견고하고 권위 있는 느낌을 만듭니다. 계층은 극단적이며, 서로 다른 굵도가 히어로 제목과 본문 텍스트를 명확히 구분합니다.",
+      "ch4_intro": "간격은 8px 기본 그리드를 따르며, 수직 스택의 예측 가능한 리듬을 만듭니다.",
+      "ch5_intro": "표면은 최소한의 수단을 통해 깊이를 Achieve합니다. 두드러진 드롭 섀도우 대신 매우 미묘하고 불투명도가 낮은 테두리와 평면적인 색상 차이에 의존합니다. 접근 방식은 거의 평면적이며, 부드러운 배경 톤으로 카드와 컨테이너를 정의합니다.",
+      "ch6_intro": "레이아웃 스켈레톤은 텍스트 중심의 히어로 블록을 중앙에 배치한 다음, 스크롤 아래의 기능 콘텐츠를 위해 2열 그리드로 전환합니다. 이 구조는 넓은 단일 열 프레임워크 내에서 큰 제목과 명확한 행동 유도를 강조합니다.",
+      "ch7_intro": "모션 철학은 절제와 즉각성입니다. 기능적 피드백을 위해 빠른 150-200ms 기간만 사용합니다. 미묘한 색상, 불투명도 및 transform 전환이 핵심 콘텐츠에서 집중을 빼앗지 않으면서 인터랙션을 확인합니다.",
+      "ch8_intro": "에디토리얼 음성은 자신감 있고 명확하며 약간 기술적입니다. 짧고 혜택 지향적인 제목과 작업별 행동 유도를 사용합니다.",
+      "ch8_outro": "시스템은 접근 가능하고 신뢰할 수 있는 핀테크 미학을 유지하기 위해 밀도 높은 금융 전문 용어, 공격적인 색상 및 인터페이스 혼란을 의도적으로 피합니다."
+    }
+  }
 }
