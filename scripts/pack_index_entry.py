@@ -6,6 +6,7 @@
 用法：
   python3 scripts/pack_index_entry.py <slug> <extract_dir> <zip_path> [iso_timestamp]
 """
+import fcntl
 import json
 import sys
 from datetime import datetime, timezone
@@ -73,9 +74,14 @@ def main():
         "files": files,
     }
 
-    idx = json.loads(INDEX.read_text(encoding="utf-8")) if INDEX.exists() else {}
-    idx[slug] = entry
-    INDEX.write_text(json.dumps(idx, ensure_ascii=False, indent=2), encoding="utf-8")
+    # 文件锁：并发多个 upgrade-pack 时保证 packs-index.json 写入不互相覆盖
+    lock_path = INDEX.with_suffix(".lock")
+    with open(lock_path, "w") as lf:
+        fcntl.flock(lf, fcntl.LOCK_EX)   # 独占锁，其他进程等待
+        idx = json.loads(INDEX.read_text(encoding="utf-8")) if INDEX.exists() else {}
+        idx[slug] = entry
+        INDEX.write_text(json.dumps(idx, ensure_ascii=False, indent=2), encoding="utf-8")
+        fcntl.flock(lf, fcntl.LOCK_UN)
     print(f"✓ packs-index.json[{slug}] · {len(files)} files · {entry['zipSize']/1024/1024:.1f} MB")
 
 

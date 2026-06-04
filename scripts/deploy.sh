@@ -12,7 +12,7 @@ DEPLOY_URL="${DEPLOY_URL:-https://opendesign.cc}"
 SSH_OPTS=(-o StrictHostKeyChecking=accept-new -o PreferredAuthentications=publickey,keyboard-interactive,password)
 
 ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
-ARCHIVE="/tmp/opendesign-deploy.tar.gz"
+ARCHIVE="/tmp/opendesign-deploy-$$.tar.gz"   # $$ = PID，并发多站同时部署安全
 
 # Step 1: build dist/（可跳过加速调试）
 if [[ -z "${SKIP_BUILD:-}" ]]; then
