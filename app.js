@@ -1285,6 +1285,13 @@ function openDetail(siteId) {
   if (location.pathname !== detailPath) {
     history.pushState({ site: activeSite.id }, "", detailPath);
   }
+
+  // 「完整详情页」按钮 + banner：两个入口都指向富 SEO 详情页（色板/字阶/截图画廊/System Prompt）
+  const fullPageUrl = detailPath;
+  const detailBtn = document.querySelector("#drawerDetailPage");
+  if (detailBtn) detailBtn.href = fullPageUrl;
+  const banner = document.querySelector("#fullpageBanner");
+  if (banner) banner.href = fullPageUrl;
 }
 
 /** 详情页 URL（供卡片 <a href> 用，爬虫可跟随）*/
