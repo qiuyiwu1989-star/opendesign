@@ -46,24 +46,51 @@ try:
 except Exception:
     QC = {}
 
+# 收集所有 pack slug：有 ZIP 的 + 只有松散文件的（不少站只解压了散图、没留 ZIP →
+# 旧版只遍历 ZIP 会漏掉它们，导致 /thumbs/<slug>.webp 404 → 卡片回退到 thum.io 黑图）
+slugs = set()
+for zp in glob.glob(os.path.join(PACKS_DIR, "*", "*-design-pack.zip")):
+    slugs.add(os.path.basename(os.path.dirname(zp)))
+for d in glob.glob(os.path.join(PACKS_DIR, "*")):
+    if os.path.isdir(d):
+        slugs.add(os.path.basename(d))
+
+def load_frame(slug, want):
+    """优先从 ZIP 抽选中帧；ZIP 没有就用目录里的松散 PNG。返回 RGB Image 或 None。"""
+    pack_dir = os.path.join(PACKS_DIR, slug)
+    zp = os.path.join(pack_dir, f"{slug}-design-pack.zip")
+    cands = [want, "02_desktop_hero.png", "01_desktop_full.png"]
+    # 1) ZIP
+    if os.path.exists(zp):
+        try:
+            with zipfile.ZipFile(zp) as z:
+                names = z.namelist()
+                for c in cands:
+                    name = next((n for n in names if n.endswith(c)), None)
+                    if name:
+                        return Image.open(io.BytesIO(z.read(name))).convert("RGB")
+        except Exception:
+            pass
+    # 2) 松散 PNG
+    for c in cands:
+        lp = os.path.join(pack_dir, c)
+        if os.path.exists(lp):
+            return Image.open(lp).convert("RGB")
+    return None
+
 ok = skip = fail = 0
-for zp in sorted(glob.glob(os.path.join(PACKS_DIR, "*", "*-design-pack.zip"))):
-    slug = os.path.basename(os.path.dirname(zp))
+for slug in sorted(slugs):
     out = os.path.join(THUMBS, f"{slug}.webp")
     if os.path.exists(out) and not FORCE:
         skip += 1
         continue
     try:
         want = (QC.get(slug) or {}).get("frame", "02_desktop_hero.png")  # AI 选中的帧，没有就首屏
-        with zipfile.ZipFile(zp) as z:
-            names = z.namelist()
-            name = next((n for n in names if n.endswith(want)), None) \
-                or next((n for n in names if n.endswith("02_desktop_hero.png")), None)
-            if not name:
-                fail += 1
-                print(f"  ✗ {slug}: zip 里没 {want} 也没首屏")
-                continue
-            img = Image.open(io.BytesIO(z.read(name))).convert("RGB")
+        img = load_frame(slug, want)
+        if img is None:
+            fail += 1
+            print(f"  ✗ {slug}: 无 ZIP 帧也无松散 PNG")
+            continue
         img = ImageOps.fit(img, (W, H), method=Image.LANCZOS, centering=(0.5, 0.0))
         img.save(out, "WEBP", quality=Q, method=6)
         ok += 1
