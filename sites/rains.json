@@ -8,6 +8,639 @@
     "fashion",
     "ecommerce"
   ],
-  "status": "pending",
-  "added_at": "2026-06-02"
+  "status": "completed",
+  "added_at": "2026-06-02",
+  "spec": {
+    "colors": {
+      "bg": "#E3E3E3",
+      "bgSoft": "#FFFFFF",
+      "bgQuiet": "#F5F5F5",
+      "ink": "#10100F",
+      "inkSoft": "#2D2D2D",
+      "muted": "#B3B3B2",
+      "mutedSoft": "#EFEFEF",
+      "accent": null,
+      "line": "rgba(239, 239, 239, 1)"
+    },
+    "typography": {
+      "display": "geometric-sans",
+      "body": "geometric-sans",
+      "mono": null,
+      "scale": [
+        {
+          "token": "display",
+          "size": 48,
+          "lh": 1.0,
+          "weight": 700,
+          "ls": "-1px"
+        },
+        {
+          "token": "display-sm",
+          "size": 40,
+          "lh": 1.0,
+          "weight": 700,
+          "ls": "0px"
+        },
+        {
+          "token": "body",
+          "size": 14,
+          "lh": 1.2,
+          "weight": 400,
+          "ls": "0.4px"
+        },
+        {
+          "token": "caption",
+          "size": 12,
+          "lh": 1.2,
+          "weight": 400,
+          "ls": "0.3px"
+        }
+      ]
+    },
+    "spacing": {
+      "base": 4,
+      "scale": [
+        4,
+        8,
+        12,
+        16,
+        20,
+        24,
+        32,
+        48
+      ]
+    },
+    "surfaces": {
+      "radius": {
+        "sm": 4,
+        "md": 8,
+        "lg": 12,
+        "pill": 9999
+      }
+    },
+    "layout": {
+      "container": 1280,
+      "paragraph": 680,
+      "columns": 12,
+      "gutter": 24,
+      "breakpoints": [
+        768,
+        1024
+      ]
+    },
+    "motion": {
+      "durations": {
+        "micro": 180,
+        "small": 300,
+        "medium": 500
+      },
+      "easing": "cubic-bezier(0.4, 0, 0.6, 1)"
+    }
+  },
+  "spec_i18n": {
+    "en": {
+      "identity": {
+        "keywords": [
+          "Premium Rainwear",
+          "Scandinavian Minimalism",
+          "Outdoor Fashion",
+          "Editorial Commerce"
+        ],
+        "analogy": "A sleek Scandinavian fashion house where clean typography and cinematic photography meet functional rain gear.",
+        "oneLiner": "Premium rainwear brand combining minimalist Nordic design with bold editorial photography."
+      },
+      "colors": {
+        "principle": "Photography-driven palette with neutral backgrounds, deep charcoal typography, and muted grays creating a clean, elevated canvas for product imagery."
+      },
+      "typography": {
+        "rules": [
+          "All navigation and labels use uppercase transformation with tracked spacing",
+          "Headlines use heavy weight geometric sans-serif with tight line-height",
+          "Body text uses regular weight with generous letter-spacing for readability",
+          "Text rarely exceeds 16px, maintaining an editorial grid aesthetic"
+        ],
+        "scaleUses": [
+          "Hero headlines and campaign text",
+          "Section titles",
+          "Primary body text and navigation",
+          "Secondary text and metadata"
+        ]
+      },
+      "spacing": {
+        "rhythm": "8px base unit with 4px increments for tight UI elements and generous whitespace for editorial photography breathing room"
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 0px 0px 1px rgba(0,0,0,1) inset for input borders",
+          "1px 2px 8px 0px rgba(0,0,0,0.35) for floating elements"
+        ],
+        "borders": "1px solid rgb(239, 239, 239) for dividers and input states, 1px solid rgb(45, 45, 45) for active elements"
+      },
+      "layout": {
+        "skeleton": "Full-width photography heroes with overlaid typography, transitioning to grid-based product sections below"
+      },
+      "components": {
+        "button": "Pill-shaped buttons (border-radius: 9999px) with solid black fill and white text, or transparent with black border for secondary actions",
+        "card": "Photography-focused cards with minimal chrome, using overlaid large typography for titles and transparent buttons",
+        "chip": "Checkbox-style chips with square borders (border-radius: 8px) and uppercase labels in the cookie consent modal",
+        "input": "Clean rectangular inputs with inset box-shadow borders, generous padding, and uppercase labels",
+        "hero": "Full-bleed cinematic photography with large overlapping typography in white or accent colors, bottom-aligned navigation buttons"
+      },
+      "motion": {
+        "patterns": [
+          "Smooth opacity transitions for modal overlays (0.3s)",
+          "Stroke-dashoffset animations for loading states",
+          "All interactive elements use 0.2s transition on hover states",
+          "Image transitions use 0.5-1s duration for cinematic feel"
+        ]
+      },
+      "interaction": {
+        "hover": "Subtle opacity reduction or color shift on interactive elements, maintained within 0.2s transition",
+        "click": "Immediate visual feedback through background color change or border accent",
+        "transition": "All transitions use 0.2s default timing with cubic-bezier easing for smooth interactions",
+        "keyboard": "Standard tab navigation with visible focus states using inset box-shadow borders"
+      },
+      "voice": {
+        "tone": "Confident, minimal, editorial with Scandinavian restraint",
+        "headlineStyle": "Short, punchy, lowercase or sentence-case phrases that evoke mood rather than describe products directly",
+        "ctaStyle": "Action-oriented phrases like 'Explore the campaign' and 'Shop the collection' in clean pill-shaped buttons",
+        "avoid": [
+          "Excessive exclamation marks",
+          "Salesy promotional language",
+          "Long descriptive paragraphs",
+          "Bright neon colors",
+          "Decorative typography"
+        ]
+      },
+      "donts": [
+        "Don't use decorative script fonts — screenshot shows clean geometric sans-serif throughout",
+        "Don't add drop shadows to hero images — screenshot shows flat photography with overlaid text",
+        "Don't use bright accent colors — screenshot shows neutral palette with occasional red/orange from photography only",
+        "Don't make navigation items colorful — screenshot shows all navigation in uniform black uppercase text",
+        "Don't use rounded card corners generously — screenshot shows sharp edges or minimal rounding on cards",
+        "Don't center-align all content — screenshot shows left-aligned typography over photography with right-aligned search/cart",
+        "Don't use gradient backgrounds — screenshot shows solid neutral colors and photography fills"
+      ],
+      "systemPrompt": "Rains.com is a premium Scandinavian rainwear brand combining minimalist Nordic design with bold editorial photography. The site uses a neutral palette (background #E3E3E3, primary ink #10100F, soft ink #2D2D2D, muted #B3B3B2) with photography providing all color. Typography is entirely geometric sans-serif (Europa Grotesk family) with uppercase navigation labels, tight headline spacing at 48px/1.0, and body text at 14px with 0.4px letter-spacing. Key UI patterns include pill-shaped buttons (border-radius 9999px), full-bleed photography heroes with overlaid large text, and clean input fields with inset borders. Three critical donts: never use decorative script fonts, never add gradients or texture overlays to photography, and never use bright neon or saturated accent colors in UI elements."
+    },
+    "zh-CN": {
+      "identity": {
+        "keywords": [
+          "高端雨具",
+          "斯堪的纳维亚极简主义",
+          "户外时尚",
+          "编辑式电商"
+        ],
+        "analogy": "一个时尚的斯堪的纳维亚时装屋，简洁字体与电影感摄影相遇功能性雨具。",
+        "oneLiner": "融合北欧极简设计与大胆编辑摄影的高端雨具品牌。"
+      },
+      "colors": {
+        "principle": "以摄影为主导的色调，采用中性背景、深炭灰色字体及柔和灰色，为产品图像打造干净、高级的画布。"
+      },
+      "typography": {
+        "rules": [
+          "所有导航与标签采用大写转换并调整字间距",
+          "标题使用几何无衬线粗体字，行高紧凑",
+          "正文使用常规字重，字间距宽松以保证可读性",
+          "文本极少超过 16px，维持编辑网格美学"
+        ],
+        "scaleUses": [
+          "主视觉标题与活动文案",
+          "版块标题",
+          "主要正文与导航",
+          "次要文本与元数据"
+        ]
+      },
+      "spacing": {
+        "rhythm": "以 8px 为基础单位，4px 为增量用于紧凑的 UI 元素，编辑式摄影留白则采用充足的空间。"
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 0px 0px 1px rgba(0,0,0,1) inset 用于输入框边框",
+          "1px 2px 8px 0px rgba(0,0,0,0.35) 用于浮动元素"
+        ],
+        "borders": "1px solid rgb(239, 239, 239) 用于分隔线和输入状态，1px solid rgb(45, 45, 45) 用于激活状态"
+      },
+      "layout": {
+        "skeleton": "全宽摄影主视觉搭配叠加排版，下方过渡至基于网格的产品版块"
+      },
+      "components": {
+        "button": "胶囊形按钮（border-radius: 9999px），纯黑填充配白色文字，或透明背景配黑色边框用于次要操作",
+        "card": "以摄影为核心的卡片，界面装饰极少，使用叠加的大号字体作为标题和透明按钮",
+        "chip": "复选框式标签，方形边框（border-radius: 8px）及大写标签，用于 Cookie 同意模态框",
+        "input": "干净的矩形输入框，采用内嵌 box-shadow 边框，充足的内边距，以及大写标签",
+        "hero": "全出血电影感摄影，搭配白色或强调色的大号叠加字体，底部对齐的导航按钮"
+      },
+      "motion": {
+        "patterns": [
+          "模态覆盖层的平滑不透明度过渡（0.3s）",
+          "加载状态的 Stroke-dashoffset 动画",
+          "所有交互元素在 hover 状态使用 0.2s 过渡",
+          "图片过渡时长 0.5-1 秒以营造电影感"
+        ]
+      },
+      "interaction": {
+        "hover": "交互元素具有微妙的不透明度降低或颜色偏移，保持在 0.2s 过渡内",
+        "click": "通过背景色变化或边框强调提供即时视觉反馈",
+        "transition": "所有过渡使用 0.2s 默认时间，并采用 cubic-bezier 缓动以获得流畅交互",
+        "keyboard": "标准 Tab 导航，具有使用内嵌 box-shadow 边框的清晰可见 focus 状态"
+      },
+      "voice": {
+        "tone": "自信、极简、具有编辑感与斯堪的纳维亚式的克制",
+        "headlineStyle": "简短有力、小写或句首字母大写的短语，旨在唤起情绪而非直接描述产品",
+        "ctaStyle": "以行动为导向的短语，如「探索活动」和「选购系列」，置于干净的胶囊形按钮中",
+        "avoid": [
+          "过多的感叹号",
+          "促销性销售语言",
+          "冗长的描述性段落",
+          "明亮的霓虹色",
+          "装饰性字体"
+        ]
+      },
+      "donts": [
+        "不要使用装饰性手写字体 —— 截图显示全程使用简洁的几何无衬线字体",
+        "不要为主视觉图片添加投影 —— 截图显示为平面摄影搭配叠加文字",
+        "不要使用明亮的强调色 —— 截图显示为中性色调，仅摄影中偶尔出现红/橙色",
+        "不要使导航项色彩丰富 —— 截图显示所有导航均为统一的大写黑色文字",
+        "不要大量使用圆角卡片 —— 截图显示卡片为直角或极小圆角",
+        "不要将所有内容居中对齐 —— 截图显示为摄影上左对齐排版，搜索/购物车右对齐",
+        "不要使用渐变背景 —— 截图显示为纯色中性背景与摄影填充"
+      ],
+      "systemPrompt": "Rains.com 是一个高端斯堪的纳维亚雨具品牌，融合北欧极简设计与大胆的编辑式摄影。网站使用中性色调（背景 #E3E3E3，主色 #10100F，柔色 #2D2D2D，柔灰 #B3B3B2），摄影提供所有色彩。字体完全使用几何无衬线字体（Europa Grotesk 系列），导航标签大写，标题间距紧凑（48px/1.0），正文为 14px 且字间距 0.4px。关键 UI 模式包括胶囊形按钮（border-radius 9999px）、全出血摄影主视觉搭配叠加大字，以及带内嵌边框的简洁输入框。三个关键禁忌：绝不使用装饰性手写字体，绝不为摄影添加渐变或纹理叠加，绝不为 UI 元素使用明亮的霓虹色或饱和的强调色。"
+    },
+    "zh-TW": {
+      "identity": {
+        "keywords": [
+          "頂級雨具",
+          "斯堪地那維亞極簡主義",
+          "戶外時尚",
+          "編輯式電商"
+        ],
+        "analogy": "一家流線型的斯堪地那維亞時尚品牌，結合簡潔字體與電影感攝影，以及功能性雨具裝備。",
+        "oneLiner": "結合北歐極簡設計與大膽編輯攝影的頂級雨具品牌。"
+      },
+      "colors": {
+        "principle": "以攝影為導向的色盤，搭配中性背景、深炭灰色調文字，以及柔和灰色系，為產品影像創造簡潔、精緻的基底。"
+      },
+      "typography": {
+        "rules": [
+          "所有導覽與標籤採用大寫轉換並增加字間距",
+          "標題使用粗體幾何無襯線字體，行距緊湊",
+          "內文採用常規字重，字間距寬鬆以提升可讀性",
+          "文字鮮少超過 16px，維持編輯式網格美感"
+        ],
+        "scaleUses": [
+          "主視覺標題與活動文案",
+          "區塊標題",
+          "主要內文與導覽文字",
+          "次要文字與中繼資料"
+        ]
+      },
+      "spacing": {
+        "rhythm": "以 8px 為基準單位，搭配 4px 增量，用於緊湊的 UI 元素與充裕留白，為編輯式攝影提供呼吸空間"
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 0px 0px 1px rgba(0,0,0,1) inset 用於輸入框邊框",
+          "1px 2px 8px 0px rgba(0,0,0,0.35) 用於浮動元素"
+        ],
+        "borders": "1px solid rgb(239, 239, 239) 用於分隔線與輸入框狀態，1px solid rgb(45, 45, 45) 用於作用中元素"
+      },
+      "layout": {
+        "skeleton": "全版寬幅攝影主視覺搭配覆蓋式字型，下方過渡至網格式產品區塊"
+      },
+      "components": {
+        "button": "藥丸形按鈕 (border-radius: 9999px)，主要為實心黑色填充白色文字，或透明背景黑色邊框用於次要操作",
+        "card": "以攝影為主的卡片，介面極簡，標題採用覆蓋式大字型，搭配透明按鈕",
+        "chip": "核取方塊式標籤 (border-radius: 8px)，搭配大寫標籤文字，用於 Cookie 同意視窗",
+        "input": "簡潔矩形輸入框，使用內嵌 box-shadow 邊框，內距充裕，標籤採用大寫",
+        "hero": "全版出血電影感攝影，搭配大尺寸覆蓋式白色或強調色字型，底部對齊導覽按鈕"
+      },
+      "motion": {
+        "patterns": [
+          "Modal 視窗覆蓋採用平滑 opacity 過渡 (0.3s)",
+          "載入狀態使用 stroke-dashoffset 動畫",
+          "所有互動元素在 hover 狀態下使用 0.2s 過渡",
+          "圖像切換使用 0.5-1 秒時長以營造電影感"
+        ]
+      },
+      "interaction": {
+        "hover": "互動元素在 hover 時輕微降低 opacity 或變色，過渡時間維持在 0.2s",
+        "click": "透過背景顏色變化或邊框強調提供即時視覺回饋",
+        "transition": "所有過渡效果預設使用 0.2s 時長與 cubic-bezier 緩動，確保流暢互動",
+        "keyboard": "標準 tab 鍵導覽，使用內嵌 box-shadow 邊框提供清晰的 focus 狀態"
+      },
+      "voice": {
+        "tone": "自信、極簡、帶有斯堪地那維亞克制感的編輯式語調",
+        "headlineStyle": "簡短有力、小寫或首字母大寫的詞句，喚起氛圍而非直接描述產品",
+        "ctaStyle": "行動導向的語句，如「探索本季系列」與「選購收藏」，搭配簡潔的藥丸形按鈕",
+        "avoid": [
+          "過多驚嘆號",
+          "推銷式促銷語言",
+          "冗長的描述性段落",
+          "鮮豔的霓虹色彩",
+          "裝飾性字體"
+        ]
+      },
+      "donts": [
+        "勿使用裝飾性手寫體字型——截圖顯示全程採用簡潔幾何無襯線字型",
+        "勿在主視覺圖片上添加陰影——截圖顯示平面攝影搭配覆蓋式文字",
+        "勿使用鮮豔的強調色——截圖顯示中性色盤，僅偶爾使用攝影中的紅/橘色",
+        "勿將導覽項目多彩化——截圖顯示所有導覽項目採用統一的黑色大寫文字",
+        "勿過度使用圓角卡片——截圖顯示卡片採用銳角或極小圓角",
+        "勿將所有內容置中對齊——截圖顯示攝影上方採用左對齊版面，搜尋/購物車則右對齊",
+        "勿使用漸層背景——截圖顯示實心中性色與攝影填滿"
+      ],
+      "systemPrompt": "Rains.com 是一家頂級的斯堪地那維亞雨具品牌，結合北歐極簡設計與大膽的編輯攝影。網站採用中性色盤（背景 #E3E3E3，主要墨色 #10100F，柔和墨色 #2D2D2D，啞光色 #B3B3B2），所有色彩來自攝影。字型完全採用幾何無襯線字體（Europa Grotesk 字族），導覽標籤大寫，標題緊湊排版為 48px/1.0，內文為 14px 搭配 0.4px 字間距。關鍵 UI 模式包括藥丸形按鈕（border-radius 9999px）、全版出血攝影主視覺搭配覆蓋式大字型，以及簡潔的輸入框搭配內嵌邊框。三大禁忌：絕不使用裝飾性手寫體字型，絕不在攝影上添加漸層或質感覆蓋，絕不在 UI 元素中使用鮮豔霓虹或飽和強調色。"
+    },
+    "ja": {
+      "identity": {
+        "keywords": [
+          "プレミアムレインウェア",
+          "スカンディナヴィア・ミニマリズム",
+          "アウトドアファッション",
+          "エディトリアル・コマース"
+        ],
+        "analogy": "クリーンなタイポグラフィとシネマティックな写真が機能的なレインウェアと出会う、洗練されたスカンディナヴィアのファッションハウス。",
+        "oneLiner": "ミニマルな北欧デザインと大胆なエディトリアル写真を組み合わせた、プレミアムレインウェアブランド。"
+      },
+      "colors": {
+        "principle": "写真を駆動するパレット。中立的な背景、深いcharcoalのタイポグラフィ、控えめなグレーが、製品画像のためのクリーンで Elevated なキャンバスを生み出します。"
+      },
+      "typography": {
+        "rules": [
+          "すべてのナビゲーションとラベルは、トラッキング付きの大文字変換を使用",
+          "見出しは Tight なline-heightの重めのウェイトのジオメトリックsans-serifを使用",
+          "本文テキストは読みやすさのために、generousなletter-spacingを持つ通常ウェイトを使用",
+          "テキストは16pxを超えることが少なく、エディトリアルグリッドの美学を維持"
+        ],
+        "scaleUses": [
+          "ヒーローヘッドラインとキャンペーンテキスト",
+          "セクションタイトル",
+          "プライマリ本文テキストとナビゲーション",
+          "セカンダリテキストとメタデータ"
+        ]
+      },
+      "spacing": {
+        "rhythm": "8pxを基本単位とし、4pxの増分でタイトなUI要素に対応し、エディトリアル写真のためのゆったりとしたホワイトスペースを確保"
+      },
+      "surfaces": {
+        "shadows": [
+          "入力ボーダー用: 0px 0px 0px 1px rgba(0,0,0,1) inset",
+          "フローティング要素用: 1px 2px 8px 0px rgba(0,0,0,0.35)"
+        ],
+        "borders": "区切り線と入力状態には1px solid rgb(239, 239, 239)、アクティブ要素には1px solid rgb(45, 45, 45)"
+      },
+      "layout": {
+        "skeleton": "オーバーレイされたタイポグラフィを持つフルワイドの写真ヒーローから、下部のグリッドベースの製品セクションへと移行"
+      },
+      "components": {
+        "button": "ピル-shaped ボタン（border-radius: 9999px）。ソリッドブラック塗りと白テキスト、またはセカンダリアクション用の透明背景にブラックボーダー",
+        "card": "写真にフォーカスした最小限のクロームのカード。タイトルにはオーバーレイされた大きなタイポグラフィを、ボタンには透明ボタンを使用",
+        "chip": "クッキーコンセントモーダル内のチェックボックススタイルのチップ。角丸ボーダー（border-radius: 8px）と大文字ラベル",
+        "input": "インセットボックスシャドウボーダー、generousなパディング、大文字ラベルを持つクリーンな長方形入力",
+        "hero": "白またはアクセントカラーの大きくオーバーレイされたタイポグラフィを持ち、下揃えのナビゲーションボタンを持つフルブリードシネマティック写真"
+      },
+      "motion": {
+        "patterns": [
+          "モーダルオーバーレイ用のスムーズなopacityトランジション（0.3秒）",
+          "ローディング状態のStroke-dashoffsetアニメーション",
+          "すべてのインタラクティブ要素は、hover状態に0.2秒のトランジションを使用",
+          "シネマティックな印象のため、画像トランジションに0.5〜1秒の持続時間を使用"
+        ]
+      },
+      "interaction": {
+        "hover": "インタラクティブ要素への微妙なopacityの低減または色の変化。0.2秒のトランジションで維持",
+        "click": "背景色の変化やボーダーアクセントによる即座の視覚フィードバック",
+        "transition": "すべてのトランジションは、スムーズなインタラクションのためにcubic-bezierイージングを使用した0.2秒のデフォルトタイミング",
+        "keyboard": "インセットボックスシャドウボーダーを使用した可視フォーカス状態を持つ標準的なタブナビゲーション"
+      },
+      "voice": {
+        "tone": "スカンディナヴィア的な抑制のある、自信に満ちたミニマルなエディトリアル",
+        "headlineStyle": "製品を直接説明するのではなく、ムードを喚起する短く、パンチのある、小文字または文頭大文字のフレーズ",
+        "ctaStyle": "「キャンペーンを探す」や「コレクションを購入する」のような、クリーンなピル-shaped ボタン内のアクション重視のフレーズ",
+        "avoid": [
+          "過度の感嘆符",
+          "セールスっぽいプロモーション言語",
+          "長い記述的段落",
+          "明るいネオンカラー",
+          "装飾的なタイポグラフィ"
+        ]
+      },
+      "donts": [
+        "装飾的なスクリプトフォントを使用しない — スクリーンショットでは一貫してクリーンなジオメトリックsans-serifが使用されている",
+        "ヒーロー画像にドロップシャドウを追加しない — スクリーンショットではオーバーレイテキストを持つフラットな写真が使用されている",
+        "明るいアクセントカラーを使用しない — スクリーンショットでは写真からのみ時折赤/橙が見られる中立パレットが使用されている",
+        "ナビゲーションアイテムをカラフルにしない — スクリーンショットではすべてのナビゲーションが統一された黒の大文字テキストである",
+        "カードの角丸を広く使用しない — スクリーンショットではシャープなエッジまたは最小限の角丸が使用されている",
+        "すべてのコンテンツを中央揃えにしない — スクリーンショットでは写真を背景に左揃えのタイポグラフィと、右揃えの検索/カートが使用されている",
+        "グラデーション背景を使用しない — スクリーンショットではソリッドの中立色と写真のフィルが使用されている"
+      ],
+      "systemPrompt": "Rains.comは、ミニマルな北欧デザインと大胆なエディトリアル写真を組み合わせたプレミアムスカンディナヴィアのレインウェアブランドです。サイトは中立パレット（背景 #E3E3E3、プライマリインク #10100F、ソフトインク #2D2D2D、ミュート #B3B3B2）を使用し、写真がすべてのカラーを提供します。タイポグラフィはジオメトリックsans-serif（Europa Groteskファミリー）のみで、大文字のナビゲーションラベル、48px/1.0のタイトな見出しスペース、0.4pxのletter-spacingを持つ14pxの本文テキストを用います。主要なUIパターンには、ピル-shaped ボタン（border-radius 9999px）、オーバーレイされた大きなテキストを持つフルブリード写真ヒーロー、インセットボーダーを持つクリーンな入力フィールドが含まれます。3つの重要な禁止事項：装飾的なスクリプトフォントを決して使用せず、グラデーションやテクスチャオーバーレイを写真に決して追加せず、UI要素に明るいネオンや彩度の高いアクセントカラーを決して使用しないこと。"
+    },
+    "ko": {
+      "identity": {
+        "keywords": [
+          "프리미엄 레인웨어",
+          "북유럽 미니멀리즘",
+          "아웃도어 패션",
+          "에디토리얼 커머스"
+        ],
+        "analogy": "깔끔한 타이포그래피와 시네마틱 이미지가 기능적인 레인웨어와 만나는 세련된 북유럽 패션 하우스.",
+        "oneLiner": "미니멀한 북유럽 디자인과 대담한 에디토리얼 이미지를 결합한 프리미엄 레인웨어 브랜드."
+      },
+      "colors": {
+        "principle": "이미지 중심의 팔레트. 중성적 배경, 깊은 차콜 텍스트, 절제된 그레이가 제품 이미지를 위한 깔끔하고 고급스러운 캔버스를 만듭니다."
+      },
+      "typography": {
+        "rules": [
+          "모든 네비게이션과 레이블은 대문자 변환과 트래킹된 간격 사용",
+          "헤드라인은 타이트한 행간의 고중량 기하학적 고딕체 사용",
+          "본문은 가독성을 위한 넉넉한 자간의 보통 무게 사용",
+          "텍스트는 16px를 거의 초과하지 않아 에디토리얼 그리드 미학 유지"
+        ],
+        "scaleUses": [
+          "히어로 헤드라인과 캠페인 텍스트",
+          "섹션 타이틀",
+          "주 본문 텍스트와 네비게이션",
+          "보조 텍스트와 메타데이터"
+        ]
+      },
+      "spacing": {
+        "rhythm": "8px 기본 단위, 4px 증가로 타이트한 UI 요소와 에디토리얼 이미지를 위한 넉넉한 여백 제공"
+      },
+      "surfaces": {
+        "shadows": [
+          "입력 필드 테두리를 위한 inset 0px 0px 0px 1px rgba(0,0,0,1)",
+          "플로팅 요소를 위한 1px 2px 8px 0px rgba(0,0,0,0.35)"
+        ],
+        "borders": "구분선 및 입력 상태를 위한 1px solid rgb(239, 239, 239), 활성 요소를 위한 1px solid rgb(45, 45, 45)"
+      },
+      "layout": {
+        "skeleton": "전체 폭 이미지 히어로에 오버레이된 타이포그래피, 하단의 그리드 기반 제품 섹션으로 전환"
+      },
+      "components": {
+        "button": "알약 형태 버튼 (border-radius: 9999px). 솔리드 블랙 채우기와 화이트 텍스트 또는 보조 액션을 위한 투명 배경과 블랙 보더",
+        "card": "최소한의 장식으로 이미지에 집중한 카드. 타이틀을 위한 오버레이된 대형 타이포그래피와 투명 버튼 사용",
+        "chip": "쿠키 동의 모달의 체크박스 스타일 칩. 사각형 테두리 (border-radius: 8px)와 대문자 레이블",
+        "input": "inset box-shadow 테두리, 넉넉한 패딩, 대문자 레이블을 사용한 깔끔한 직사각형 입력 필드",
+        "hero": "화이트 또는 포인트 컬러의 대형 오버레이 타이포그래피가 있는 풀블리드 시네마틱 이미지. 하단 정렬 네비게이션 버튼"
+      },
+      "motion": {
+        "patterns": [
+          "모달 오버레이를 위한 매끄러운 불투명도 전환 (0.3초)",
+          "로딩 상태를 위한 Stroke-dashoffset 애니메이션",
+          "모든 인터랙티브 요소는 hover 상태에서 0.2초 전환 사용",
+          "시네마틱 느낌을 위한 0.5~1초 이미지 전환"
+        ]
+      },
+      "interaction": {
+        "hover": "인터랙티브 요소에 부드러운 불투명도 감소 또는 색상 변화. 0.2초 전환 내에서 유지",
+        "click": "배경 색상 변화 또는 보더 포인트를 통한 즉각적인 시각적 피드백",
+        "transition": "모든 전환은 매끄러운 인터랙션을 위해 0.2초 기본 타이밍과 cubic-bezier easing 사용",
+        "keyboard": "inset box-shadow 테두리를 사용한 표시된 focus 상태의 표준 탭 네비게이션"
+      },
+      "voice": {
+        "tone": "자신감 있고 미니멀하며, 북유럽식 절제가 느껴지는 에디토리얼",
+        "headlineStyle": "제품을 직접 설명하기보다 분위기를 불러일으키는 짧고 임팩트 있는 소문자 또는 문장형 구절",
+        "ctaStyle": "'캠페인 둘러보기', '컬렉션 쇼핑하기'와 같은 깔끔한 알약 형태 버튼의 행동 지향적 구절",
+        "avoid": [
+          "과도한 느낌표 사용",
+          "과장된 프로모션 문구",
+          "긴 설명적 문단",
+          "화려한 네온 컬러",
+          "장식적 타이포그래피"
+        ]
+      },
+      "donts": [
+        "장식적 스크립트 폰트 사용 금지 — 스크린샷은 전체적으로 깔끔한 기하학적 고딕체를 보여줌",
+        "히어로 이미지에 드롭 섀도우 추가 금지 — 스크린샷은 오버레이 텍스트가 있는 플랫 이미지를 보여줌",
+        "화려한 포인트 컬러 사용 금지 — 스크린샷은 이미지에서만 간헐적으로 등장하는 레드/오ANGE의 중성적 팔레트를 보여줌",
+        "네비게이션 항목을 다채롭게 만들기 금지 — 스크린샷은 모든 네비게이션이 통일된 블랙 대문자 텍스트임을 보여줌",
+        "카드 모서리를 과도하게 둥글게 만들기 금지 — 스크린샷은 날카로운 모서리 또는 최소한의 둥근 카드를 보여줌",
+        "모든 콘텐츠를 중앙 정렬하기 금지 — 스크린샷은 좌측 정렬 타이포그래피 위에 오버레이된 이미지와 우측 정렬 검색/카트를 보여줌",
+        "그라데이션 배경 사용 금지 — 스크린샷은 솔리드 중성색과 이미지 채우기를 보여줌"
+      ],
+      "systemPrompt": "Rains.com은 미니멀한 북유럽 디자인과 대담한 에디토리얼 이미지를 결합한 프리미엄 북유럽 레인웨어 브랜드입니다. 사이트는 중성적 팔레트(배경 #E3E3E3, 메인 잉크 #10100F, 소프트 잉크 #2D2D2D, 뮤트 #B3B3B2)를 사용하며 모든 색감은 이미지가 담당합니다. 타이포그래피는 완전히 기하학적 고딕체(Europa Grotesk 계열)이며, 대문자 네비게이션 레이블, 48px/1.0의 타이트한 헤드라인 간격, 0.4px 자간의 14px 본문 텍스트를 사용합니다. 핵심 UI 패턴은 알약 형태 버튼(border-radius 9999px), 오버레이된 대형 텍스트의 풀블리드 이미지 히어로, inset 테두리의 깔끔한 입력 필드입니다. 세 가지 중요 지침: 장식적 스크립트 폰트를 절대 사용하지 않기, 이미지에 그라데이션 또는 텍스처 오버레이를 절대 추가하지 않기, UI 요소에 화려한 네온 또는 과포화된 포인트 컬러를 절대 사용하지 않기."
+    }
+  },
+  "desc": {
+    "en": {
+      "palette": "Neutral Scandinavian palette with charcoal typography, white and light gray backgrounds, and photography providing all chromatic interest.",
+      "layout": "Full-bleed photography heroes transitioning to clean grid sections, with generous whitespace and left-aligned editorial typography.",
+      "interaction": "Subtle hover transitions on interactive elements, smooth modal overlays, and clean focus states using inset borders.",
+      "motion": "Cinematic timing with 0.5-1s image transitions and 0.2s micro-interactions, using cubic-bezier easing throughout.",
+      "notes": "Excellent example of fashion ecommerce where the photography does all the emotional heavy lifting while UI remains deliberately restrained and minimal."
+    },
+    "zh-CN": {
+      "palette": "中性斯堪的纳维亚色调，搭配炭灰色字体、白色与浅灰色背景，摄影提供所有色彩视觉焦点。",
+      "layout": "全出血摄影主视觉过渡至整洁的网格版块，辅以充足的留白与左对齐的编辑式排版。",
+      "interaction": "交互元素具有微妙的 hover 过渡效果，平滑的模态覆盖层，以及使用内嵌边框的清晰 focus 状态。",
+      "motion": "电影感时间节奏，图片过渡时长 0.5-1 秒，微交互 0.2 秒，全程采用 cubic-bezier 缓动。",
+      "notes": "时尚电商的绝佳范例：摄影承担全部情感表达重任，而 UI 则刻意保持克制与极简。"
+    },
+    "zh-TW": {
+      "palette": "中性北歐色系搭配炭灰色調文字，白色與淺灰背景，攝影提供所有色彩變化。",
+      "layout": "全版出血攝影主視覺過渡至簡潔網格區塊，留白充裕，採用左對齊的編輯式版面排版。",
+      "interaction": "互動元素使用細膩的 hover 過渡效果，流暢的 modal 視窗覆蓋，以及使用內嵌邊框的清晰 focus 狀態。",
+      "motion": "電影感節奏，圖像切換時長 0.5-1 秒，微互動為 0.2 秒，全程使用 cubic-bezier 緩動。",
+      "notes": "時尚電商的絕佳範例：攝影承擔所有情感渲染，介面則刻意保持克制與極簡。"
+    },
+    "ja": {
+      "palette": "中立的な北欧パレット。 charcoalのタイポグラフィ、白やライトグレーの背景、そして写真がすべての色彩的な趣味を提供します。",
+      "layout": "フルブリードの写真ヒーローからクリーンなグリッドセクションへと移行し、ゆったりとしたホワイトスペースと左揃えのエディトリアルなタイポグラフィを用います。",
+      "interaction": "インタラクティブ要素には微妙なhoverトランジションを、モーダルオーバーレイにはスムーズなアニメーションを、クリーンなフォーカス状態にはインセットボーダーを使用します。",
+      "motion": "0.5〜1秒の画像トランジションと0.2秒のマイクロインタラクションを持つシネマティックなタイミングを、一貫してcubic-bezierイージングで使用します。",
+      "notes": "写真がすべての感情的な重荷を負い、UIは意図的に抑制的でミニマルに保たれる、ファッションeコマースの優れた例です。"
+    },
+    "ko": {
+      "palette": "북유럽 미니멀리즘 기반의 중성적 팔레트. 차콜 텍스트, 화이트 및 라이트 그레이 배경, 모든 색감은 이미지가 담당합니다.",
+      "layout": "풀블리드 이미지 히어로에서 깔끔한 그리드 섹션으로 전환. 충분한 여백과 좌측 정렬된 에디토리얼 타이포그래피.",
+      "interaction": "인터랙티브 요소에 부드러운 hover 전환, 매끄러운 모달 오버레이, inset 보더를 사용한 깔끔한 focus 상태.",
+      "motion": "0.5~1초 이미지 전환과 0.2초 미세 인터랙션을 통한 시네마틱 타이밍. 전체적으로 cubic-bezier easing 사용.",
+      "notes": "패션 이커머스의 훌륭한 사례. 이미지가 감정적 요소를 모두 담당하며, UI는 의도적으로 절제되고 미니멀함."
+    }
+  },
+  "_meta": {
+    "vision_model": "mimo-v2.5",
+    "vision_prompt_version": "0.3",
+    "vision_source": "playwright-extract:rains",
+    "vision_grounded": true,
+    "vision_at": "2026-06-04T18:15:31+00:00",
+    "vision_tokens": 16707,
+    "vision_cost_usd": 0.1856,
+    "translation_model": "mimo-v2.5",
+    "translation_at": "2026-06-04T18:17:19+00:00",
+    "translation_tokens": 20281,
+    "translation_cost_usd": 0.0677,
+    "narrative_model": "mimo-v2.5",
+    "narrative_prompt_version": "0.3",
+    "narrative_at": "2026-06-04T18:17:30+00:00",
+    "narrative_tokens": 2346,
+    "narrative_cost_usd": 0.0156,
+    "narrative_status": "ok",
+    "total_cost_usd": 0.2689
+  },
+  "narrative": {
+    "en": {
+      "ch1_intro": "Rains operates with the precision of a Scandinavian fashion house, where every interface element serves as a quiet frame for the photography. The design system treats its product imagery as the primary protagonist, using a neutral canvas of charcoals, grays, and whites to construct an environment of deliberate restraint. This is editorial commerce architecture, built to let the garment speak.",
+      "ch2_intro": "The color system is defined by its absence, functioning as a gallery wall for the photographic narrative. Backgrounds and typography remain achromatic, with the palette's only chromatic warmth arriving through the imagery itself.",
+      "ch2_outro": "The governing principle is that the interface provides the stage, while the photography delivers all emotional resonance.",
+      "ch3_intro": "Typography adheres to a strict geometric sans-serif family, creating a unified structural voice across the site. Navigation employs uppercase transformation with tracked spacing for institutional clarity, while headlines and body text maintain a tight, editorial rhythm that prioritizes readability within an editorial grid.",
+      "ch4_intro": "Spacing follows an 8px base rhythm, establishing a consistent grid that alternates between generous whitespace for editorial photography and tighter increments for functional UI elements.",
+      "ch5_intro": "Surface treatments rely on precise, functional borders and minimal shadows to define depth. Input fields use inset borders for a recessed, focused state, while floating elements receive a single, subtle shadow for necessary lift without visual clutter.",
+      "ch6_intro": "The structural skeleton is built on a dramatic shift in scale. It opens with full-width, cinematic photography heroes that overlay large-scale typography, then resolves into organized, grid-based product sections below the fold.",
+      "ch7_intro": "Motion philosophy borrows from cinematic editing, with longer durations for photographic transitions that establish mood and atmosphere. Micro-interactions are brisk and functional, using consistent 0.2s timing to confirm user input without lingering.",
+      "ch8_intro": "The editorial voice is confident, minimal, and imbued with Scandinavian restraint, using short, punchy phrases that evoke mood rather than describe product features. Call-to-action language remains clean and action-oriented, matching the utility of its pill-shaped button components.",
+      "ch8_outro": "The system deliberately omits decorative script, gradient overlays, and saturated accent colors, committing fully to a philosophy where restraint is the primary design principle."
+    },
+    "zh-CN": {
+      "ch1_intro": "Rains 的运作如同北欧时装屋般精准，每一个界面元素都为摄影提供了安静的画框。该设计系统将产品图像视为主角，运用炭灰、灰色和白色构成的中性画布，构建出一种克制而审慎的环境。这是一种编辑式电商架构，旨在让服装自身发声。",
+      "ch2_intro": "色彩体系以其“无色”为定义，充当摄影叙事的画廊墙面。背景与排版保持无彩色调，调色板中唯一的色彩温度仅通过图像本身呈现。",
+      "ch2_outro": "核心原则在于：界面搭建舞台，摄影传递所有情感共鸣。",
+      "ch3_intro": "字体采用严谨的几何无衬线字体家族，在全站形成统一的结构化语调。导航采用大写字母转换与字距调整，以实现机构化的清晰度；标题与正文则保持紧凑、编辑化的节奏，在编辑网格内优先保障可读性。",
+      "ch4_intro": "间距遵循 8px 基准节奏，建立一致的网格系统，在宽松的编辑式摄影留白与功能性 UI 元素的紧凑增量间交替呈现。",
+      "ch5_intro": "表面处理依赖精确、功能化的边框与极简阴影来界定层次。输入框使用内嵌边框营造凹陷的聚焦状态，浮动元素则采用单层微妙阴影，在避免视觉杂乱的同时提供必要的提升感。",
+      "ch6_intro": "结构骨架建立在戏剧性的尺度变化之上。页面以全宽、电影感的摄影主视觉开篇，叠加大比例字体，随后在折叠区域转化为有序的网格化产品分区。",
+      "ch7_intro": "动态理念借鉴电影剪辑手法，为摄影转场赋予较长时长以奠定情绪与氛围。微交互则敏捷而功能化，采用统一的 0.2s 时序确认用户输入，不作冗余停留。",
+      "ch8_intro": "编辑语调自信、克制，浸透北欧式的节制感，运用简短有力的短语唤起情绪而非描述产品功能。行动号召语言保持简洁导向性，与其胶囊形按钮组件的实用性相匹配。",
+      "ch8_outro": "该体系刻意省略装饰性字体、渐变叠加与饱和强调色，全然践行以克制为核心的设计哲学。"
+    },
+    "zh-TW": {
+      "ch1_intro": "Rains 以斯堪地那維亞時裝屋的精準度運作，每個介面元素都為攝影作品提供安靜的框架。設計系統將產品影像視為核心主角，以炭灰、灰與白構成的中性畫布，營造出刻意克制的環境。這是編輯式電商架構，旨在讓服裝自行訴說。",
+      "ch2_intro": "色彩系統以其缺席為定義，作為攝影敘事的展覽牆。背景與排版保持無彩色調，色盤中唯一的色彩暖度來自影像本身。",
+      "ch2_outro": "指導原則是：介面提供舞台，攝影傳遞所有情感共鳴。",
+      "ch3_intro": "排版遵循嚴謹的幾何無襯線字體家族，在網站中創造統一的結構語調。導航採用大寫轉換與字間距調整，呈現機構式的清晰度；標題與內文則維持緊湊的編輯節奏，在編輯網格中優先考量可讀性。",
+      "ch4_intro": "間距遵循 8px 基礎節奏，建立一致的網格系統，在編輯攝影的寬鬆留白與功能性 UI 元素的緊湊增量之間交替。",
+      "ch5_intro": "表面處理依賴精確的功能性邊框與極簡陰影來定義深度。輸入欄位使用內嵌邊框營造凹陷、聚焦的狀態，浮動元件則獲得單一細微陰影，提供必要的抬起效果而不造成視覺雜亂。",
+      "ch6_intro": "結構骨架建立在戲劇性的尺度轉變上。它以全幅、電影感的攝影主視覺開場，覆蓋大尺寸排版，隨後在捲動後分解為有組織的網格式產品區塊。",
+      "ch7_intro": "動態哲學借鏡電影剪輯手法，攝影過場採用較長持續時間以建立情緒與氛圍。微交互則迅速且功能明確，使用一致的 0.2s 時間確認用戶輸入，不做停留。",
+      "ch8_intro": "編輯語調自信、簡約，蘊含斯堪地那維亞式的克制，使用簡短有力的詞句喚起情緒而非描述產品功能。號召用語保持簡潔、行動導向，與其膠囊形按鈕元件的實用性相匹配。",
+      "ch8_outro": "系統刻意省略裝飾性草書、漸層覆蓋與飽和強調色，完全承諾於以克制為首要設計原則的理念。"
+    },
+    "ja": {
+      "ch1_intro": "Rainsはスカンディナヴィアのファッションハウスのような精密さで機能し、すべてのインターフェース要素が写真の静かな額となるように構成されています。デザインシステムは製品画像を主要な主役として扱い、炭灰色、グレー、白色という無彩色のキャンバスを用いて、意図的な抑制の環境を構築します。これは服が語ることを許すために構築された、エディトリアル・コマースの建築です。",
+      "ch2_intro": "カラーシステムはその不在によって定義され、写真による物語のギャラリーウォールとして機能します。背景とタイポグラフィは無彩色のまま維持され、カラーパレットの唯一の彩色的な温かみは画像自体からもたらされます。",
+      "ch2_outro": "支配的な原則は、インターフェースが舞台を提供し、写真がすべての感情的な共鳴を届けるということです。",
+      "ch3_intro": "タイポグラフィは厳格な幾何学的なサンセリフフォントファミリーに準拠し、サイト全体で統一された構造的な声を生み出します。ナビゲーションは、制度的な明瞭さのために大文字変換とトラッキングされた間隔を採用し、見出しと本文は、エディトリアルグリッド内で可読性を優先した、緊密なエディトリアルのリズムを維持します。",
+      "ch4_intro": "間隔は8pxの基本リズムに従い、エディトリアル写真のためのゆったりとした余白と、機能的なUI要素のためのより詰まった刻みとを交互に用いた一貫したグリッドを確立します。",
+      "ch5_intro": "サーフェス処理は、奥行きを定義するために正確で機能的なボーダーと最小限のシャドウに依存します。入力フィールドは、沈んだ、集中した状態のためにインセットボーダーを使用し、フローティング要素は、視覚的な雑然としたなしに必要な浮遊感を与える単一の、微細なシャドウを受け取ります。",
+      "ch6_intro": "構造のスケルトンは、劇的なスケールの変化の上に構築されています。大規模なタイポグラフィをオーバーレイしたフルワイドのシネマティックな写真ヒーローで始まり、フォールド以下では、組織化されたグリッドベースの製品セクションに分解されます。",
+      "ch7_intro": "モーション哲学はシネマティックな編集から借用し、ムードと雰囲気を確立するための写真トランジションにはより長い持続時間を用います。マイクロインタラクションは迅速かつ機能的で、ユーザー入力を滞留させることなく確認するために、一貫した0.2秒のタイミングを使用します。",
+      "ch8_intro": "エディトリアルの声は自信があり、ミニマルで、スカンディナヴィアの抑制に満ちており、製品機能を記述するよりもムードを喚起する短く力強いフレーズを使用します。CTA（行動喚起）の言葉は、ピル-shapedボタンコンポーネントの実用性に合わせ、クリーンで行動指向のままであります。",
+      "ch8_outro": "システムは意図的に装飾的なスクリプト、グラデーションオーバーレイ、および鮮やかなアクセントカラーを省き、抑制が主要なデザイン原則となる哲学に完全に献身しています。"
+    },
+    "ko": {
+      "ch1_intro": "Rains는 스칸디나비아 패션 하우스의 정밀함으로 운영됩니다. 모든 인터페이스 요소는 사진을 위한 조용한 액자 역할을 합니다. 디자인 시스템은 제품 이미지를 주인공으로 대우하며, 차콜, 회색, 흰색의 중립적 캔버스를 사용하여 의도된 절제의 환경을 구축합니다. 이것은 편집 커머스 아키텍처로, 의류가 그 목소리를 낼 수 있도록 설계되었습니다.",
+      "ch2_intro": "컬러 시스템은 부재를 통해 정의되며, 사진 서사를 위한 갤러리 벽으로 기능합니다. 배경과 타이포그래피는 무채색으로 유지되며, 팔레트의 유일한 색채적 따뜻함은 이미지 자체를 통해 도입됩니다.",
+      "ch2_outro": "지배적인 원칙은 인터페이스가 무대를 제공하고, 사진이 모든 정서적 공명을 전달한다는 것입니다.",
+      "ch3_intro": "타이포그래피는 엄격한 기하학적 sans-serif 계열을 준수하여 사이트 전체에 통합된 구조적 음성을 만듭니다. 내비게이션은 제도적 명확성을 위해 대문자 변환과 넉넉한 자간을 사용하며, 헤드라인과 본문 텍스트는 편집 그리드 내에서 가독성을 우선시하는 타이트하고 편집적인 리듬을 유지합니다.",
+      "ch4_intro": "간격은 8px 기본 리듬을 따르며, 편집 사진을 위한 넉넉한 여백과 기능적 UI 요소를 위한 더 타이트한 단계가 교차하는 일관된 그리드를 확립합니다.",
+      "ch5_intro": "표면 처리는 정밀하고 기능적인 테두리와 최소한의 그림자를 통해 깊이를 정의합니다. 입력 필드는 몰입되고 집중된 상태를 위해 삽입형 테두리를 사용하며, 부유 요소는 시각적 혼잡 없이 필요한 리프트를 위해 단 하나의 은은한 그림자를 받습니다.",
+      "ch6_intro": "구조적 골격은 스케일의 극적인 변화 위에 구축됩니다. 대규모 타이포그래피를 오버레이하는 풀와이드 시네마틱 사진 히어로로 시작하여, 폴드 아래에서 정돈된 그리드 기반 제품 섹션으로 해소됩니다.",
+      "ch7_intro": "모션 철학은 시네마틱 편집에서 차용하며, 분위기와 무드를 구축하기 위한 더 긴 지속 시간의 사진 전환을 사용합니다. 마이크로 인터랙션은 빠르고 기능적이며, 일관된 0.2s 타이밍을 사용하여 사용자 입력을 지체 없이 확인합니다.",
+      "ch8_intro": "편집적 음성은 자신감 있고 최소주의적이며 스칸디나비아식 절제가 깃들어 있으며, 제품 기능을 설명하기보다 분위기를 불러일으키는 짧고 강렬한 문구를 사용합니다. 행동 유도 문구는 깨끗하고 행동 지향적으로 유지되며, 알약 형태 버튼 구성 요소의 유용성과 일치합니다.",
+      "ch8_outro": "이 시스템은 장식용 스크립트, 그라데이션 오버레이, 채도 높은 강조색을 의도적으로 생략하며, 절제를 주요 디자인 원칙으로 삼는 철학에 완전히 헌신합니다."
+    }
+  }
 }

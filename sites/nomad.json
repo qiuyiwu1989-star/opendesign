@@ -8,6 +8,626 @@
     "hardware",
     "accessories"
   ],
-  "status": "pending",
-  "added_at": "2026-06-02"
+  "status": "completed",
+  "added_at": "2026-06-02",
+  "spec": {
+    "colors": {
+      "bg": "#FFFFFF",
+      "bgSoft": "#F3F3F3",
+      "bgQuiet": null,
+      "ink": "#000000",
+      "inkSoft": "#555555",
+      "muted": "#4B4B4B",
+      "mutedSoft": "#7F7F7F",
+      "accent": null,
+      "line": "rgba(0, 0, 0, 1.0)"
+    },
+    "typography": {
+      "display": "grotesque-sans",
+      "body": "grotesque-sans",
+      "mono": "inconsolata",
+      "scale": [
+        {
+          "token": "display",
+          "size": 56,
+          "lh": 1.0,
+          "weight": 700,
+          "ls": "-1.32px"
+        },
+        {
+          "token": "heading",
+          "size": 24,
+          "lh": 1.25,
+          "weight": 700,
+          "ls": "-0.32px"
+        },
+        {
+          "token": "body",
+          "size": 16,
+          "lh": 1.5,
+          "weight": 400,
+          "ls": "0px"
+        },
+        {
+          "token": "caption",
+          "size": 14,
+          "lh": 1.5,
+          "weight": 400,
+          "ls": "0px"
+        },
+        {
+          "token": "overline",
+          "size": 12,
+          "lh": 1.4,
+          "weight": 700,
+          "ls": "1px"
+        }
+      ]
+    },
+    "spacing": {
+      "base": 4,
+      "scale": [
+        4,
+        8,
+        16,
+        24,
+        32,
+        48,
+        64,
+        96
+      ]
+    },
+    "surfaces": {
+      "radius": {
+        "sm": 3,
+        "md": 8,
+        "lg": 20,
+        "pill": 999
+      }
+    },
+    "layout": {
+      "container": 1280,
+      "paragraph": 680,
+      "columns": 12,
+      "gutter": 24,
+      "breakpoints": [
+        768,
+        1024
+      ]
+    },
+    "motion": {
+      "durations": {
+        "micro": 150,
+        "small": 250,
+        "medium": 400
+      },
+      "easing": "cubic-bezier(0.25, 0.1, 0.25, 1)"
+    }
+  },
+  "spec_i18n": {
+    "en": {
+      "identity": {
+        "keywords": [
+          "premium",
+          "minimalist",
+          "hardware",
+          "lifestyle",
+          "premium tech accessories"
+        ],
+        "analogy": "Apple-style product retail with a rugged, travel-focused twist.",
+        "oneLiner": "A premium e-commerce experience for high-end tech accessories, grounded in utility and refined aesthetics."
+      },
+      "colors": {
+        "principle": "High-contrast monochrome base with photographic heroes and no primary brand accent color."
+      },
+      "typography": {
+        "rules": [],
+        "scaleUses": [
+          "Hero headlines",
+          "Section headers",
+          "Main text and descriptions",
+          "Supporting text and UI labels",
+          "Taglines and small caps"
+        ]
+      },
+      "spacing": {
+        "rhythm": "Linear spacing scale based on 4px increments, used generously for large layouts."
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 6px 6px -3px rgba(0, 0, 0, 0.06)",
+          "0px 0px 0px 1px rgba(0, 0, 0, 0.06)",
+          "0px 0px 0px 1px inset rgba(0, 0, 0, 0.1)"
+        ],
+        "borders": "1px solid rgba(0, 0, 0, 1.0)"
+      },
+      "layout": {
+        "skeleton": "Full-width image hero followed by a centered quote section and a grid of product cards."
+      },
+      "components": {
+        "button": "Rounded pill-shaped or soft-curve buttons with high-contrast solid fills or simple text links.",
+        "card": "Rounded-corner product cards with subtle inset or drop shadows, often featuring grid or image backgrounds.",
+        "chip": "None visible in the primary viewport.",
+        "input": "Standard form fields with soft rounded corners and inset shadows.",
+        "hero": "Full-bleed photographic image with a dark gradient overlay and massive, tightly tracked sans-serif typography."
+      },
+      "motion": {
+        "patterns": [
+          "Fade-in/out for overlays and modals (opacity 0.2s)",
+          "Smooth hover transitions for interactive elements (0.15s)"
+        ]
+      },
+      "interaction": {
+        "hover": "Subtle opacity or color shift on buttons and links.",
+        "click": "Immediate visual feedback via standard button states.",
+        "transition": "0.15s ease for most interactive UI components.",
+        "keyboard": "Standard native focus outlines visible on interactive elements."
+      },
+      "voice": {
+        "tone": "Confident, premium, and utility-focused.",
+        "headlineStyle": "Minimalist, large, tightly tracked sans-serif statements.",
+        "ctaStyle": "Direct, clear, and action-oriented.",
+        "avoid": [
+          "Avoid overly casual or playful language.",
+          "Avoid complex gradients or decorative flourishes.",
+          "Avoid low-contrast text.",
+          "Avoid cluttered UI or excessive UI chrome.",
+          "Avoid using a dominant vibrant accent color.",
+          "Avoid decorative serifs in primary headlines."
+        ]
+      },
+      "donts": [
+        "Don't use a vibrant primary accent color — screenshot shows a strictly monochrome palette without a dominant hue.",
+        "Don't use decorative serif fonts for main headlines — screenshot shows tight, bold grotesque-sans for display text.",
+        "Don't apply soft, circular border-radii to main UI elements — screenshot shows a mix of sharp corners and pill-shaped buttons.",
+        "Don't use heavy, colorful drop shadows — screenshot shows very subtle, almost invisible drop shadows or inset outlines.",
+        "Don't center all body copy — screenshot shows center-aligned hero text but standard left-aligned body copy elsewhere.",
+        "Don't use thin, light weights for primary text — screenshot shows mostly regular (400) and bold (700) weights."
+      ],
+      "systemPrompt": "This is a premium e-commerce design system for high-end tech accessories. The visual language is grounded in a strict monochrome palette, using black, white, and mid-tone grays to let product photography dominate. Typography relies heavily on tightly tracked, bold grotesque-sans for impactful hero headlines. The layout is clean, spacious, and modern, featuring full-bleed imagery and subtle, refined UI components. Critical constraints include avoiding any dominant, vibrant accent colors, avoiding decorative serifs for headlines, and maintaining generous whitespace. The overall tone is confident and utility-focused, prioritizing product photography and clear, direct calls to action."
+    },
+    "zh-CN": {
+      "identity": {
+        "keywords": [
+          "高端",
+          "极简主义",
+          "硬件",
+          "生活方式",
+          "高端科技配件"
+        ],
+        "analogy": "类似Apple风格的产品零售，但带有坚韧、旅行导向的特质。",
+        "oneLiner": "一款为高端科技配件打造的、基于实用性与精致美学的高端电商体验。"
+      },
+      "colors": {
+        "principle": "以高对比度的单色为基础，突出产品摄影，不使用主品牌强调色。"
+      },
+      "typography": {
+        "rules": [],
+        "scaleUses": [
+          "主视觉标题",
+          "版块标题",
+          "正文与描述",
+          "辅助文本与UI标签",
+          "标语与小型大写字母"
+        ]
+      },
+      "spacing": {
+        "rhythm": "基于4px增量的线性间距比例，在大版面设计中慷慨使用。"
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 6px 6px -3px rgba(0, 0, 0, 0.06)",
+          "0px 0px 0px 1px rgba(0, 0, 0, 0.06)",
+          "0px 0px 0px 1px inset rgba(0, 0, 0, 0.1)"
+        ],
+        "borders": "1px solid rgba(0, 0, 0, 1.0)"
+      },
+      "layout": {
+        "skeleton": "全宽主视觉图像，后接一个居中的引言区段和一个产品卡片网格。"
+      },
+      "components": {
+        "button": "圆角药丸形或柔和曲线按钮，采用高对比度实心填充或简洁文字链接。",
+        "card": "圆角产品卡片，带有细微的内阴影或投影，常使用网格或图像作为背景。",
+        "chip": "主视口内无可见实例。",
+        "input": "标准表单字段，采用柔和的圆角和内阴影。",
+        "hero": "全出血摄影图像，带有深色渐变叠加层，以及大号、字间距紧密的无衬线字体排版。"
+      },
+      "motion": {
+        "patterns": [
+          "叠层与模态框的淡入/淡出（透明度 0.2s）",
+          "交互元素的平滑hover过渡（0.15s）"
+        ]
+      },
+      "interaction": {
+        "hover": "按钮与链接上的细微透明度或颜色变化。",
+        "click": "通过标准按钮状态提供即时视觉反馈。",
+        "transition": "大多数交互式UI组件采用0.15s ease过渡。",
+        "keyboard": "交互元素上显示标准的原生focus轮廓。"
+      },
+      "voice": {
+        "tone": "自信、高端、以实用性为核心。",
+        "headlineStyle": "极简、大号、字间距紧密的无衬线体声明。",
+        "ctaStyle": "直接、清晰、目标明确。",
+        "avoid": [
+          "避免使用过于随意或俏皮的语言。",
+          "避免使用复杂的渐变或装饰性花纹。",
+          "避免使用低对比度文本。",
+          "避免杂乱的UI或过度的UI装饰。",
+          "避免使用主导性的鲜艳强调色。",
+          "避免在主标题中使用装饰性衬线字体。"
+        ]
+      },
+      "donts": [
+        "不要使用鲜艳的主强调色——截图显示的是严格的单色调色板，无主导色相。",
+        "不要使用装饰性衬线字体作为主标题——截图显示展示文本采用紧凑、粗体的无衬线字体。",
+        "不要为主UI元素应用柔和的圆形圆角——截图显示是直角与药丸形按钮的混合。",
+        "不要使用厚重、彩色的投影——截图显示投影非常细微，几乎不可见，或为内嵌轮廓。",
+        "不要将所有正文都居中——截图显示主视觉文本居中，但其他位置的正文采用标准左对齐。",
+        "不要为主文本使用细、轻的字重——截图显示主要使用常规（400）和粗体（700）字重。"
+      ],
+      "systemPrompt": "这是一套为高端科技配件设计的高端电商设计系统。其视觉语言基于严格的单色调色板，使用黑、白与中灰色调让产品摄影主导画面。排版大量采用字间距紧密、粗体的无衬线字体，以打造有冲击力的主视觉标题。布局干净、宽敞、现代，采用全出血图像和精致、细腻的UI组件。关键约束包括避免使用任何主导性的鲜艳强调色、避免在标题中使用装饰性衬线字体，以及保持充裕的留白。整体基调自信且以实用性为核心，优先考虑产品摄影与清晰、直接的行动号召。"
+    },
+    "zh-TW": {
+      "identity": {
+        "keywords": [
+          "高端",
+          "極簡主義",
+          "硬體",
+          "生活方式",
+          "高端科技配件"
+        ],
+        "analogy": "Apple 風格的產品零售，帶有堅固耐用、強調旅行實用的特色。",
+        "oneLiner": "為高端科技配件打造的尊榮電子商務體驗，根植於實用性與精緻美學。"
+      },
+      "colors": {
+        "principle": "高對比度的單色基底，搭配攝影主角，無主要品牌強調色。"
+      },
+      "typography": {
+        "rules": [],
+        "scaleUses": [
+          "主視覺標題",
+          "章節標頭",
+          "主要文字與描述",
+          "輔助文字與介面標籤",
+          "標語與小型大寫字母"
+        ]
+      },
+      "spacing": {
+        "rhythm": "基於 4px 遞增的線性間距比例尺，在大型佈局中大量運用。"
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 6px 6px -3px rgba(0, 0, 0, 0.06)",
+          "0px 0px 0px 1px rgba(0, 0, 0, 0.06)",
+          "0px 0px 0px 1px inset rgba(0, 0, 0, 0.1)"
+        ],
+        "borders": "1px solid rgba(0, 0, 0, 1.0)"
+      },
+      "layout": {
+        "skeleton": "全寬圖片主視覺，接著是置中的引言區塊與產品卡片網格。"
+      },
+      "components": {
+        "button": "圓形膠囊狀或柔和曲線按鈕，採用高對比實心填充或簡潔的文字連結。",
+        "card": "圓角產品卡片，帶有細微的內嵌或投影陰影，常以網格或圖片為背景。",
+        "chip": "在主要可見區域中未出現。",
+        "input": "標準表單欄位，具有柔和圓角與內嵌陰影。",
+        "hero": "全出血的攝影圖片，帶有深色漸層疊加與巨大、字距緊湊的無襯線字體排版。"
+      },
+      "motion": {
+        "patterns": [
+          "覆蓋層與彈出視窗的淡入/淡出 (opacity 0.2s)",
+          "互動元素的流暢 hover 過渡 (0.15s)"
+        ]
+      },
+      "interaction": {
+        "hover": "按鈕與連結上的細微透明度或顏色變化。",
+        "click": "透過標準按鈕狀態提供即時視覺回饋。",
+        "transition": "大多數互動介面元件採用 0.15s ease 過渡。",
+        "keyboard": "標準原生 focus 輪廓在互動元素上可見。"
+      },
+      "voice": {
+        "tone": "自信、高端且注重實用性。",
+        "headlineStyle": "極簡、大型、字距緊湊的無襯線字體聲明。",
+        "ctaStyle": "直接、清晰且以行動為導向。",
+        "avoid": [
+          "避免過於隨意或俏皮的語言。",
+          "避免複雜的漸層或裝飾性花紋。",
+          "避免低對比度文字。",
+          "避免雜亂的介面或過多的介面裝飾。",
+          "避免使用主導性的鮮豔強調色。",
+          "避免在主要標題中使用裝飾性襯線字體。"
+        ]
+      },
+      "donts": [
+        "不要使用鮮豔的主強調色——截圖顯示為嚴格的單色色系，無主導色調。",
+        "不要使用裝飾性襯線字體作為主標題——截圖顯示為緊湊、粗體的 grotesque-sans 字體。",
+        "不要對主要介面元件套用柔和、圓形的圓角——截圖顯示為尖角與膠囊狀按鈕的混合。",
+        "不要使用厚重、多彩的投影陰影——截圖顯示為非常細微、幾乎不可見的投影陰影或內嵌輪廓。",
+        "不要將所有內文置中——截圖顯示主視覺文字為置中，但其他地方的內文為標準左對齊。",
+        "不要對主要文字使用細、輕的字重——截圖顯示主要為 regular (400) 與 bold (700) 字重。"
+      ],
+      "systemPrompt": "這是一套為高端科技配件設計的尊榮電子商務設計系統。視覺語言根植於嚴格的單色色系，運用黑、白與中灰讓產品攝影主導畫面。排版極度依賴字距緊湊、粗體的 grotesque-sans 字體，以打造具衝擊力的主視覺標題。佈局乾淨、寬敞且現代，採用全出血影像與細緻、精煉的介面元件。關鍵限制包括：避免任何主導性的鮮豔強調色、避免使用裝飾性襯線字體作為標題，以及維持大量的留白。整體語調自信且注重實用性，優先考慮產品攝影與清晰、直接的行動呼籲。"
+    },
+    "ja": {
+      "identity": {
+        "keywords": [
+          "プレミアム",
+          "ミニマリスト",
+          "ハードウェア",
+          "ライフスタイル",
+          "プレミアムテックアクセサリー"
+        ],
+        "analogy": "Appleスタイルの製品販売に、頑丈で旅行志向の工夫を加えたもの。",
+        "oneLiner": "実用性と洗練された美学に根ざした、ハイエンドテックアクセサリーのためのプレミアムeコマース体験。"
+      },
+      "colors": {
+        "principle": "高コントラストのモノクロームベースに、写真を主役とし、主要なブランドアクセントカラーは使用しません。"
+      },
+      "typography": {
+        "rules": [],
+        "scaleUses": [
+          "ヒーローヘッドライン",
+          "セクション見出し",
+          "本文と説明文",
+          "補助テキストとUIラベル",
+          "タグラインとスモールキャップ"
+        ]
+      },
+      "spacing": {
+        "rhythm": "4px刻みのリニアなスペーシングスケールを採用し、大規模レイアウトには適度に余裕を持って使用します。"
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 6px 6px -3px rgba(0, 0, 0, 0.06)",
+          "0px 0px 0px 1px rgba(0, 0, 0, 0.06)",
+          "0px 0px 0px 1px inset rgba(0, 0, 0, 0.1)"
+        ],
+        "borders": "1px solid rgba(0, 0, 0, 1.0)"
+      },
+      "layout": {
+        "skeleton": "フルワイドの画像ヒーロー、中央揃えの引用セクション、製品カードグリッドの順で構成。"
+      },
+      "components": {
+        "button": "角丸ピル型またはソフトカーブのボタン。高コントラストの塗りつぶし、またはシンプルなテキストリンクを採用。",
+        "card": "角丸の製品カード。控えめなインセットシャドウまたはドロップシャドウを適用し、グリッドまたは画像背景を配置することが多い。",
+        "chip": "プライマリビューポートには確認できません。",
+        "input": "ソフトな角丸とインセットシャドウを持つ標準フォームフィールド。",
+        "hero": "フルブリードの写真画像に、ダークグラデーションオーバーレイと、大きな、字間を詰めたサンセリフ typography を配置。"
+      },
+      "motion": {
+        "patterns": [
+          "オーバーレイやモーダルのフェードイン/アウト（不透明度 0.2s）",
+          "インタラクティブ要素のスムーズなホバートランジション（0.15s）"
+        ]
+      },
+      "interaction": {
+        "hover": "ボタンやリンクに、控えめな不透明度や色の変化を適用。",
+        "click": "標準的なボタンステートによる即座の視覚フィードバック。",
+        "transition": "ほとんどのインタラクティブUIコンポーネントに0.15s ease。",
+        "keyboard": "インタラクティブ要素に、標準のネイティブフォーカスアウトラインを表示。"
+      },
+      "voice": {
+        "tone": "自信に満ち、プレミアムで、実用性に焦点を当てたもの。",
+        "headlineStyle": "ミニマリストで、大きな、字間を詰めたサンセリフの定言。",
+        "ctaStyle": "直接的で明確、行動を促すもの。",
+        "avoid": [
+          "過度にカジュアルで遊び心のある言葉を避ける。",
+          "複雑なグラデーションや装飾的な flourish を避ける。",
+          "低コントラストのテキストを避ける。",
+          "煩雑なUIや過度なUI装飾を避ける。",
+          "支配的な明るいアクセントカラーの使用を避ける。",
+          "主要な見出しに装飾的なセリフ字体を使用しない。"
+        ]
+      },
+      "donts": [
+        "明るいプライマリアクセントカラーを使用しない — スクリーンショットは、支配的な色相のない厳格なモノクロームパレットを示しています。",
+        "主要な見出しに装飾的なセリフ字体を使用しない — スクリーンショットは、表示テキストに太く字間の詰まったグロテスクサンセリフを示しています。",
+        "主要なUI要素に柔らかい円形のボーダーラジウスを適用しない — スクリーンショットは、角張った角とピル型ボタンの組み合わせを示しています。",
+        "重厚でカラフルなドロップシャドウを使用しない — スクリーンショットは、非常に控えめでほぼ見えないドロップシャドウまたはインセットアウトラインを示しています。",
+        "すべての本文を中央揃えにしない — スクリーンショットは、ヒーローテキストは中央揃えですが、それ以外の本文は標準の左揃えであることを示しています。",
+        "主要テキストに細く軽いウェイトを使用しない — スクリーンショットは、主に通常（400）と太字（700）のウェイトを示しています。"
+      ],
+      "systemPrompt": "これはハイエンドテックアクセサリーのためのプレミアムeコマースデザインシステムです。視覚言語は厳格なモノクロームパレットに基づいており、黒、白、中間トーンのグレーを使用して製品写真を支配的にします。タイポグラフィは、インパクトのあるヒーローヘッドラインに、太く字間を詰めたグロテスクサンセリフに大きく依存しています。レイアウトは清潔で、ゆとりがあり、モダンで、フルブリードの画像と控えめで洗練されたUIコンポーネントを特徴とします。主要な制約には、支配的な明るいアクセントカラーの回避、見出しに装飾的なセリフ字体の回避、そして適度な余白の維持が含まれます。全体的なトーンは自信に満ち、実用性に焦点を当てており、製品写真と明確で直接的な行動喚起を優先しています。"
+    },
+    "ko": {
+      "identity": {
+        "keywords": [
+          "프리미엄",
+          "미니멀",
+          "하드웨어",
+          "라이프스타일",
+          "프리미엄 기술 액세서리"
+        ],
+        "analogy": "내구성과 여행 중심의 변형이 가미된 Apple 스타일 제품 리테일.",
+        "oneLiner": "기능성과 정제된 미학에 기반한 고급 기술 액세서리를 위한 프리미엄 전자상거래 경험."
+      },
+      "colors": {
+        "principle": "사진 히어로와 함께하는 고대비 단색 베이스, 주요 브랜드 강조 색상은 없음."
+      },
+      "typography": {
+        "rules": [],
+        "scaleUses": [
+          "히어로 헤드라인",
+          "섹션 헤더",
+          "본문 및 설명",
+          "보조 텍스트 및 UI 라벨",
+          "슬로건 및 소형 대문자"
+        ]
+      },
+      "spacing": {
+        "rhythm": "4px 단위의 선형 간격 스케일, 넓은 레이아웃에 넉넉하게 사용."
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 6px 6px -3px rgba(0, 0, 0, 0.06)",
+          "0px 0px 0px 1px rgba(0, 0, 0, 0.06)",
+          "0px 0px 0px 1px inset rgba(0, 0, 0, 0.1)"
+        ],
+        "borders": "1px solid rgba(0, 0, 0, 1.0)"
+      },
+      "layout": {
+        "skeleton": "풀宽度 사진 히어로로 시작하여 중심 정렬된 인용구 섹션과 제품 카드 격자로 구성."
+      },
+      "components": {
+        "button": "고대비 단색 채우기 또는 간단한 텍스트 링크가 포함된 둥근 알약형 또는 소프트 커브 버튼.",
+        "card": "미세한 내부 또는 드롭 섀도우가 있는 둥근 모서리 제품 카드. 종종 격자 또는 이미지 배경을 특징으로 함.",
+        "chip": "주요 뷰포트에 보이지 않음.",
+        "input": "소프트 둥근 모서리와 내부 섀도우가 있는 표준 양식 필드.",
+        "hero": "다크 그라디언트 오버레이와 거대하고 좁게 트래킹된 세리프 없는 타이포그래피가 포함된 풀블리드 사진 이미지."
+      },
+      "motion": {
+        "patterns": [
+          "오버레이 및 모달용 페이드 인/아웃 (불투명도 0.2s)",
+          "상호작용 요소를 위한 매끄러운 hover 전환 (0.15s)"
+        ]
+      },
+      "interaction": {
+        "hover": "버튼과 링크에 대한 미세한 불투명도 또는 색상 변화.",
+        "click": "표준 버튼 상태를 통한 즉각적인 시각적 피드백.",
+        "transition": "대부분의 상호작용 UI 컴포넌트에 0.15s ease.",
+        "keyboard": "상호작용 요소에 표시되는 표준 네이티브 포커스 윤곽선."
+      },
+      "voice": {
+        "tone": "자신감 있고, 프리미엄하며, 기능 중심.",
+        "headlineStyle": "미니멀하고 큰, 좁게 트래킹된 세리프 없는 진술.",
+        "ctaStyle": "직접적이고 명확하며 행동 지향적.",
+        "avoid": [
+          "지나치게 캐주얼하거나 장난스러운 언어 사용을 피하십시오.",
+          "복잡한 그라디언트 또는 장식적 요소 사용을 피하십시오.",
+          "저대비 텍스트 사용을 피하십시오.",
+          "복잡한 UI 또는 과도한 UI 크롬 사용을 피하십시오.",
+          "지배적인 밝은 강조 색상 사용을 피하십시오.",
+          "주요 헤드라인에 장식적 세리프 사용을 피하십시오."
+        ]
+      },
+      "donts": [
+        "밝은 주요 강조 색상을 사용하지 마십시오 — 스크린샷은 지배적인 색조 없이 엄격한 단색 팔레트를 보여줍니다.",
+        "주요 헤드라인에 장식적 세리프 폰트를 사용하지 마십시오 — 스크린샷은 디스플레이 텍스트에 좁고 볼드한 grotesque-sans를 보여줍니다.",
+        "주요 UI 요소에 부드러운 원형 border-radius를 적용하지 마십시오 — 스크린샷은 날카로운 모서리와 알약형 버튼의 혼합을 보여줍니다.",
+        "무겁고 화려한 드롭 섀도우를 사용하지 마십시오 — 스크린샷은 매우 미세하고 거의 보이지 않는 드롭 섀도우 또는 내부 윤곽선을 보여줍니다.",
+        "모든 본문 텍스트를 중앙 정렬하지 마십시오 — 스크린샷은 히어로 텍스트는 중앙 정렬하지만 다른 곳은 표준 좌측 정렬 본문을 보여줍니다.",
+        "주요 텍스트에 가볍고 얇은 웨이트를 사용하지 마십시오 — 스크린샷은 주로 정규(400)와 볼드(700) 웨이트를 보여줍니다."
+      ],
+      "systemPrompt": "이것은 고급 기술 액세서리를 위한 프리미엄 전자상거래 디자인 시스템입니다. 시각적 언어는 검정, 흰색, 중간 톤의 회색을 사용하여 제품 사진이 지배하도록 하는 엄격한 단색 팔레트를 기반으로 합니다. 타이포그래피는 임팩트 있는 히어로 헤드라인을 위해 좁게 트래킹된 볼드 grotesque-sans에 크게 의존합니다. 레이아웃은 깨끗하고 넓으며 현대적이며, 풀블리드 이미지와 미세하고 정제된 UI 컴포넌트를 특징으로 합니다. 주요 제약 사항에는 밝고 지배적인 강조 색상 회피, 헤드라인에 장식적 세리프 회피, 넉넉한 여백 유지가 포함됩니다. 전반적인 톤은 자신감 있고 기능 중심적이며, 제품 사진과 명확하고 직접적인 행동 촉구를 우선시합니다."
+    }
+  },
+  "desc": {
+    "en": {
+      "palette": "A strict monochrome palette of black, white, and mid-tone grays, designed to let photographic product imagery take center stage.",
+      "layout": "Full-width, image-heavy layout with a clean 12-column grid, generous whitespace, and a mix of centered editorial sections and standard e-commerce grids.",
+      "interaction": "Standard, high-contrast UI interactions with subtle hover states and smooth, unobtrusive transitions for a polished, premium feel.",
+      "motion": "Minimal and functional motion, relying primarily on smooth, quick transitions and fades to maintain a clean, uncluttered experience.",
+      "notes": "Worth including as a strong example of a high-end, photographic e-commerce design that uses restraint and monochrome typography to elevate physical products."
+    },
+    "zh-CN": {
+      "palette": "采用黑、白与中灰色调的严格单色调色板，旨在让产品摄影图像成为视觉焦点。",
+      "layout": "全宽、以图像为主导的布局，采用简洁的12列网格系统，配合充裕的留白，融合居中编辑区域与标准电商网格。",
+      "interaction": "标准、高对比度的UI交互，配合细微的hover状态与平滑、不干扰的过渡效果，营造精致、高端的感受。",
+      "motion": "极简且功能性的动效，主要依赖平滑、快速的过渡与淡入淡出，以保持干净、整洁的体验。",
+      "notes": "值得作为高端摄影电商设计的优秀范例，它通过克制的排版与单色字体设计来提升实体产品的质感。"
+    },
+    "zh-TW": {
+      "palette": "嚴格的黑、白與中灰單色色系，讓產品攝影圖片成為視覺焦點。",
+      "layout": "全寬、重圖片的佈局，採用乾淨的 12 欄網格，大量留白，並結合置中的編輯區塊與標準電子商務網格。",
+      "interaction": "標準的高對比度介面互動，帶有細微的 hover 狀態和流暢、不突兀的過渡效果，營造精緻、高級的質感。",
+      "motion": "極簡且功能性的動態效果，主要依賴流暢、快速的過渡與淡入淡出，以維持乾淨、不雜亂的體驗。",
+      "notes": "作為一個強力範例，展示了如何透過克制與單色排版手法，將高端、以攝影為主體的電子商務設計提升至更高層次。"
+    },
+    "ja": {
+      "palette": "黒、白、中間トーンのグレーからなる厳格なモノクロームパレット。写真の製品イメージが主役となるよう設計されています。",
+      "layout": "フルワイドで画像を多用したレイアウト。清潔な12カラムグリッド、適度な余白、中央揃えのエディトリアルセクションと標準的なeコマースグリッドの組み合わせを特徴とします。",
+      "interaction": "洗練されたプレミアム感を実現するため、標準的でコントラストの高いUIインタラクション、控えめなホバーステート、滑らかで目立たないトランジションを採用しています。",
+      "motion": "最小限で機能的なモーション。主に滑らかで迅速なトランジションとフェードを使用し、清潔で煩雑さのない体験を維持します。",
+      "notes": "モノクロームのタイポグラフィと抑制されたデザインで、物理的な製品を高めるハイエンド・写真中心のeコマースデザインの強力な例として、組み込む価値があります。"
+    },
+    "ko": {
+      "palette": "검정, 흰색, 중간 톤의 회색으로 구성된 엄격한 단색 팔레트. 사진 제품 이미지가 중심이 되도록 설계되었습니다.",
+      "layout": "깨끗한 12열 격자와 넉넉한 여백을 사용한 풀宽度, 이미지 중심 레이아웃. 중심 정렬된 에디토리얼 섹션과 표준 전자상거래 격자의 혼합입니다.",
+      "interaction": "미세한 hover 상태와 매끄럽고 눈에 거슬리지 않는 전환을 포함한 표준, 고대비 UI 상호작용으로 세련되고 프리미엄 느낌을 줍니다.",
+      "motion": "주로 매끄럽고 빠른 전환 및 페이드에 의존하는 최소 기능적 모션으로 깔끔하고 정돈된 경험을 유지합니다.",
+      "notes": "제한과 단색 타이포그래피를 사용하여 실물 제품을 격상시키는 하이엔드 사진 전자상거래 디자인의 강력한 예시로 포함할 가치가 있습니다."
+    }
+  },
+  "_meta": {
+    "vision_model": "mimo-v2.5",
+    "vision_prompt_version": "0.3",
+    "vision_source": "playwright-extract:nomad",
+    "vision_grounded": true,
+    "vision_at": "2026-06-04T17:16:58+00:00",
+    "vision_tokens": 17433,
+    "vision_cost_usd": 0.1937,
+    "translation_model": "mimo-v2.5",
+    "translation_at": "2026-06-04T17:18:32+00:00",
+    "translation_tokens": 17697,
+    "translation_cost_usd": 0.0591,
+    "narrative_model": "mimo-v2.5",
+    "narrative_prompt_version": "0.3",
+    "narrative_at": "2026-06-04T17:18:43+00:00",
+    "narrative_tokens": 2124,
+    "narrative_cost_usd": 0.0142,
+    "narrative_status": "ok",
+    "total_cost_usd": 0.267
+  },
+  "narrative": {
+    "en": {
+      "ch1_intro": "The design system for Nomad is built like a gallery for its hardware: a rigorous, architectural framework that exists to showcase the product photography. It employs an **Apple-style retail** approach—a disciplined, monochrome environment where the physical accessory becomes the singular point of contrast and focus.",
+      "ch2_intro": "A strict monochrome palette of black, white, and mid-tone grays forms the system's foundation. This high-contrast base ensures product imagery commands attention, functioning as the sole, dynamic color element on any given page.",
+      "ch2_outro": "The principle is one of deliberate restraint, where color is ceded entirely to the product.",
+      "ch3_intro": "The typographic voice is one of bold, confident statement, primarily channeled through tightly tracked, grotesque-sans display types. This choice creates a utilitarian yet premium tone for headlines, while functional readability governs body text.",
+      "ch4_intro": "Spacing follows a linear scale based on 4px increments, applied generously to create generous, breathable layouts that separate content blocks with architectural clarity.",
+      "ch5_intro": "Surface treatments rely on depth through minimal, precise means: subtle drop shadows, fine inset outlines, and crisp 1px borders define interactive elements without visual clutter.",
+      "ch6_intro": "The layout skeleton is anchored by a full-width photographic hero, transitioning into a centered, editorial quote section. Below, a structured grid organizes product cards, balancing immersive storytelling with functional e-commerce browsing.",
+      "ch7_intro": "Motion philosophy is utilitarian and unobtrusive, designed to confirm interaction without drawing attention to itself. Patterns are limited to quick fades for overlays and smooth, subtle transitions on interactive elements, prioritizing function over flourish.",
+      "ch8_intro": "The editorial voice is confident and utility-focused, matching the directness of the physical products it describes. Language is minimal and action-oriented, avoiding casual playfulness in favor of clear, premium communication.",
+      "ch8_outro": "The system deliberately omits a dominant accent color and decorative serif typography, rejecting common e-commerce conventions to maintain its architectural purity."
+    },
+    "zh-CN": {
+      "ch1_intro": "Nomad 的设计系统如同为其硬件打造的画廊：一个严谨的建筑框架，旨在展示产品摄影。它采用了**苹果风格零售**理念——一个克制的单色环境，使实体配件成为唯一的对比与焦点。",
+      "ch2_intro": "黑白与中性灰构成的严格单色调色板奠定了系统基础。这种高对比度基底确保产品图像成为视觉核心，在任何页面上都作为唯一动态色彩元素发挥作用。",
+      "ch2_outro": "其原则在于刻意克制，将色彩完全让渡给产品。",
+      "ch3_intro": "字体风格呈现大胆自信的宣言感，主要通过紧凑字距的怪诞无衬线展示字体呈现。这种选择为标题营造出兼具实用与高级感的基调，同时确保正文保持功能可读性。",
+      "ch4_intro": "间距遵循基于4像素增量的线性比例，采用慷慨的留白构建呼吸感充足的布局，以建筑般的清晰度分隔内容区块。",
+      "ch5_intro": "表面处理通过极简精准的方式塑造层次感：微妙的投影、精细的内嵌轮廓线和清晰的1像素边框定义交互元素，避免视觉杂乱。",
+      "ch6_intro": "布局骨架以全宽摄影主视觉为锚点，过渡到居中的编辑风格引言区域。下方采用结构化网格组织产品卡片，平衡沉浸式叙事与功能性电商浏览。",
+      "ch7_intro": "动态设计哲学务实且不突兀，旨在确认交互而不吸引注意力。模式限于覆盖层的快速淡入淡出及交互元素平滑微妙的过渡效果，优先考虑功能而非装饰。",
+      "ch8_intro": "编辑风格自信且聚焦实用，与所描述实体产品的直接性相匹配。语言精炼且行动导向，避免随意玩乐感，追求清晰的高级沟通。",
+      "ch8_outro": "系统刻意省略主导强调色与装饰性衬线字体，摒弃常见电商惯例以保持其建筑纯粹性。"
+    },
+    "zh-TW": {
+      "ch1_intro": "Nomad 的設計系統如同展示其硬體的畫廊：一個嚴謹的建築框架，專為呈現產品攝影而生。它採用 **Apple 風格零售** 手法——一個簡潔的單色環境，使實體配件成為唯一的對比焦點。",
+      "ch2_outro": "原則在於刻意的克制，將色彩完全留給產品。",
+      "ch2_intro": "系統的基礎建立在嚴格的黑、白與中性灰單色調上。這種高對比基底確保產品影像成為視覺重心，在任何頁面上都扮演唯一的動態色彩元素。",
+      "ch3_intro": "排版的語調大膽而自信，主要透過緊湊字距的 grotesque-sans 展示字體呈現。此選擇為標題賦予實用且高端的質感，同時以功能性可讀性主導內文排版。",
+      "ch4_intro": "間距遵循基於 4px 增量的線性比例，以寬裕的方式應用，創造舒適、有呼吸感的版面配置，讓內容區塊之間具有建築般的清晰區隔。",
+      "ch5_intro": "表面處理透過極簡而精準的方式營造深度：細微的陰影、精細的內嵌邊框以及清晰的 1px 邊線定義互動元素，不造成視覺雜訊。",
+      "s6_intro": "版面骨架以全寬攝影主視覺為核心，過渡至居中的編輯引言區塊。下方以結構化網格組織產品卡片，平衡沈浸式敘事與功能性電商瀏覽體驗。",
+      "ch7_intro": "動態設計的哲學是實用且不突兀的，旨在確認互動而不吸引注意力。模式限於疊加層的快速淡入淡出，以及互動元素上流暢、細微的過渡效果，優先考量功能而非裝飾。",
+      "ch8_intro": "編輯語調自信且聚焦實用性，與其描述的實體產品的直接特性相符。語言簡約並以行動為導向，避免隨意的趣味性，以清晰、高端的溝通為主。",
+      "ch8_outro": "系統刻意省略主導性的強調色與裝飾性襯線字體，摒棄常見的電商慣例，以維持其建築般的純粹性。"
+    },
+    "ja": {
+      "ch1_intro": "Nomadのデザインシステムは、ハードウェアを展示するギャラリーとして構築されています。製品写真を引き立てるための厳格で建築的なフレームワークです。**Apple-style retail**のアプローチを採用し、物理的なアクセサリーが唯一のコントラストと焦点となる、規律あるモノクローム環境を実現しています。",
+      "ch2_intro": "システムの基盤は、黒、白、中間トーンのグレーによる厳格なモノクロームパレットです。このハイコントラストの基盤により、製品画像が注目を集め、任意のページ上で唯一のダイナミックなカラーエレメントとして機能します。",
+      "ch2_outro": "原則は意図的な抑制にあり、色は完全に製品に委ねられます。",
+      "ch3_intro": "タイポグラフィの声は、大胆で自信に満ちたステートメントです。主に、トラッキングの紧密なグロテスク sansのディスプレイ書体で表現されます。この選択により、見出しに実用的でありながらプレミアムなトーンが生まれ、本文テキストには機能的な可読性が支配します。",
+      "ch4_intro": "スペース設定は4px増分に基づく線形スケールに従い、余裕のある、息がつくレイアウトを生み出すために惜しみなく適用されます。コンテンツブロック間には建築的な明瞭さで区切りをつけます。",
+      "ch5_intro": "表面処理は、最小限の、正確な手段による深みに依存します。微細なドロップシャドウ、繊細なインセットアウトライン、鮮明な1pxボーダーが、視覚的な雑然さなしにインタラクティブ要素を定義します。",
+      "ch6_intro": "レイアウトの骨格は、フルワイドのフォトグラフィックヒーローに固定され、その後、センタリングされたエディトリアルな引用セクションに移行します。その下には、構造化されたグリッドがプロダクトカードを組織し、没入感のあるストーリーテリングと機能的なeコマースブラウジングのバランスを取ります。",
+      "ch7_intro": "モーション哲学は実用的で目立たないものであり、インタラクションを確認するために設計され、自身に注意を向けさせません。パターンは、オーバーレイのためのクイックフェードと、インタラクティブ要素の滑らかで微細なトランジションに限定され、華美さよりも機能を優先します。",
+      "ch8_intro": "エディトリアルな声は自信に満ち、ユーティリティに焦点を当て、説明する物理的な製ストレートフォワードさと一致します。言語は最小限で行動指向であり、カジュアルな遊び心を避け、明確でプレミアムなコミュニケーションを優先します。",
+      "ch8_outro": "システムは、支配的なアクセントカラーと装飾的なセリフ書体を意図的に省略し、一般的なeコマースの慣行を排斥することで、建築的な純粋さを維持します。"
+    },
+    "ko": {
+      "ch1_intro": "노마드의 디자인 시스템은 하드웨어를 위한 갤러리처럼 구축되었습니다: 제품 사진을 돋보이게 하기 위해 존재하는 엄격한 건축적 프레임워크입니다. **Apple 스타일 리테일** 접근 방식을 채택하며, 물리적 액세서리가 유일한 대비와 초점의 지점이 되는 절제된 단색 환경을 구현합니다.",
+      "ch2_intro": "흑백 및 중간톤 그레이의 엄격한 단색 팔레트가 시스템의 토대를 형성합니다. 이 고대비 기반은 제품 이미지가 주목을 끌게 보장하며, 모든 페이지에서 유일한 역동적 색상 요소로 기능합니다.",
+      "ch2_outro": "이 원칙은 의도적 절제이며, 색상은 완전히 제품에 양보됩니다.",
+      "ch3_intro": "타이포그래피는 대담하고 자신감 있는 표현으로, 주로 좁은 간격의 그로테스크산스 디스플레이 타입을 통해 전달됩니다. 이 선택은 헤드라인에 실용적이면서도 프리미엄적인 톤을 창출하며, 본문 텍스트는 기능적 가독성을 따릅니다.",
+      "ch4_intro": "간격은 4px 증분을 기반으로 한 선형 스케일을 따르며, 각 블록을 건축적으로 명확히 분리하는 여유롭고 통기성 있는 레이아웃을 만들기 위해 넉넉하게 적용됩니다.",
+      "ch5_intro": "표면 처리는 최소한의 정밀한 방법을 통한 깊이에 의존합니다: 은은한 그림자, 미세한 내부 윤곽선, 선명한 1px 테두리가 시각적 혼잡 없이 인터랙티브 요소를 정의합니다.",
+      "ch6_intro": "레이아웃 스켈레톤은 전체 폭의 사진 히어로로 앵커링된 후, 중앙 정렬된 에디토리얼 인용구 섹션으로 전환됩니다. 아래쪽에는 구조화된 그리드가 제품 카드를 정리하여 몰입형 스토리텔링과 기능적인 전자상거래 브라우징의 균형을 맞춥니다.",
+      "ch7_intro": "모션 철학은 실용적이고 눈에 띄지 않도록 설계되어, 상호작용을 확인하되 스스로에 주목을 끌지 않습니다. 패턴은 오버레이를 위한 빠른 페이드와 인터랙티브 요소의 부드럽고 은은한 전환으로 제한되어, 기능을 장식보다 우선시합니다.",
+      "ch8_intro": "에디토리얼 목소리는 자신감 있고 기능적이며, 묘사하는 물리적 제품의 직접성과 일치합니다. 언어는 최소한적이며 행동 지향적이고, 명확하고 프리미엄적인 커뮤니케이션을 위해 캐주얼한 장난기보다는 간결함을 선택합니다.",
+      "ch8_outro": "시스템은 의도적으로 주요 강조색과 장식적 세리프 타이포그래피를 배제하여, 건축적 순수성을 유지하기 위해 일반적인 전자상거래 관례를 거부합니다."
+    }
+  }
 }

@@ -8,8 +8,616 @@
     "crypto",
     "nft"
   ],
-  "status": "pending",
+  "status": "completed",
   "added_at": "2026-06-02",
   "added_by": "expand-200",
-  "_meta": {}
+  "_meta": {
+    "vision_model": "mimo-v2.5",
+    "vision_prompt_version": "0.3",
+    "vision_source": "playwright-extract:zora",
+    "vision_grounded": true,
+    "vision_at": "2026-06-04T20:09:55+00:00",
+    "vision_tokens": 17237,
+    "vision_cost_usd": 0.1915,
+    "translation_model": "mimo-v2.5",
+    "translation_at": "2026-06-04T20:11:06+00:00",
+    "translation_tokens": 17037,
+    "translation_cost_usd": 0.0569,
+    "narrative_model": "mimo-v2.5",
+    "narrative_prompt_version": "0.3",
+    "narrative_at": "2026-06-04T20:11:17+00:00",
+    "narrative_tokens": 2086,
+    "narrative_cost_usd": 0.0139,
+    "narrative_status": "ok",
+    "total_cost_usd": 0.2623
+  },
+  "spec": {
+    "colors": {
+      "bg": "#FFFFFF",
+      "bgSoft": "#F5F5F5",
+      "bgQuiet": null,
+      "ink": "#121212",
+      "inkSoft": "#4D4D4D",
+      "muted": "#878787",
+      "mutedSoft": null,
+      "accent": "#00DF00",
+      "line": "rgba(77,77,77,1.0)"
+    },
+    "typography": {
+      "display": "grotesque-sans",
+      "body": "grotesque-sans",
+      "mono": "monospace",
+      "scale": [
+        {
+          "token": "display",
+          "size": 34,
+          "lh": 1.18,
+          "weight": 500,
+          "ls": "-0.84px"
+        },
+        {
+          "token": "h2",
+          "size": 21,
+          "lh": 1.33,
+          "weight": 500,
+          "ls": "-0.84px"
+        },
+        {
+          "token": "body",
+          "size": 15,
+          "lh": 1.33,
+          "weight": 410,
+          "ls": "-0.225px"
+        },
+        {
+          "token": "small",
+          "size": 13,
+          "lh": 1.23,
+          "weight": 410,
+          "ls": "-0.195px"
+        }
+      ]
+    },
+    "spacing": {
+      "base": 4,
+      "scale": [
+        4,
+        8,
+        12,
+        16,
+        24,
+        32,
+        48,
+        64,
+        96
+      ]
+    },
+    "surfaces": {
+      "radius": {
+        "sm": 4,
+        "md": 8,
+        "lg": 12,
+        "pill": 9999
+      }
+    },
+    "layout": {
+      "container": 1280,
+      "paragraph": 680,
+      "columns": 12,
+      "gutter": 24,
+      "breakpoints": [
+        768,
+        1024
+      ]
+    },
+    "motion": {
+      "durations": {
+        "micro": 120,
+        "small": 400,
+        "medium": 800
+      },
+      "easing": "cubic-bezier(0.65, 0, 0.35, 1)"
+    }
+  },
+  "spec_i18n": {
+    "en": {
+      "identity": {
+        "keywords": [
+          "creators",
+          "trends",
+          "traders",
+          "NFTs",
+          "social"
+        ],
+        "analogy": "Instagram for digital art and web3 collectors",
+        "oneLiner": "A minimalist social platform for sharing and collecting digital art and NFTs."
+      },
+      "colors": {
+        "principle": "Monochrome UI with high-contrast text and neon accent for action states."
+      },
+      "typography": {
+        "rules": [
+          "Use Monument Grotesk for all interface text.",
+          "Maintain tight tracking for display and body sizes.",
+          "Use 410 weight for body, 500 for emphasis."
+        ],
+        "scaleUses": [
+          "Headlines",
+          "Section Titles",
+          "Body Text",
+          "Metadata"
+        ]
+      },
+      "spacing": {
+        "rhythm": "Consistent 4px grid-based spacing."
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(0, 0, 0, 0.05) 0px 5px 10px 0px",
+          "rgba(0, 0, 0, 0.07) 0px 15px 25px 0px"
+        ],
+        "borders": "1px solid #4D4D4D"
+      },
+      "layout": {
+        "skeleton": "3-column desktop layout: thin sidebar, central feed, right rail. Single-column mobile feed."
+      },
+      "components": {
+        "button": "Pill-shaped for primary actions (Sign up), rounded for secondary (Follow).",
+        "card": "Content cards with large media areas and metadata below.",
+        "chip": "N/A",
+        "input": "Search bar with rounded corners and grey placeholder.",
+        "hero": "Full-width media feed (images, videos)."
+      },
+      "motion": {
+        "patterns": [
+          "Fade and scale on hover/interaction.",
+          "Smooth color and background transitions."
+        ]
+      },
+      "interaction": {
+        "hover": "Opacity or color shift on interactive elements.",
+        "click": "Subtle scale or shadow change.",
+        "transition": "Fast 120ms cubic-bezier transitions for responsiveness.",
+        "keyboard": "Standard focus ring behavior."
+      },
+      "voice": {
+        "tone": "Neutral, platform-oriented, and creator-focused.",
+        "headlineStyle": "Direct and functional (e.g., 'Suggested follows').",
+        "ctaStyle": "Simple verbs (Login, Sign up, Follow, Buy).",
+        "avoid": [
+          "Excessive decorative text",
+          "Cluttered UI",
+          "Heavy branding elements"
+        ]
+      },
+      "donts": [
+        "don't use warm color palettes — screenshot shows a strict monochrome UI with green accents",
+        "don't use decorative serif fonts — screenshot shows only sans-serif typography (Monument Grotesk)",
+        "don't use complex shadows — screenshot shows minimal, flat elevation",
+        "don't use rounded-square buttons for primary CTAs — screenshot shows pill-shaped 'Sign up' buttons",
+        "don't use dark mode for the default state — screenshot shows a white background theme",
+        "don't use multi-column text layouts — screenshot shows a single central feed column for content"
+      ],
+      "systemPrompt": "Zora is a minimalist, creator-focused social platform for digital art and NFTs. The design DNA features a clean, white (#FFFFFF) background with dark ink (#121212) and neutral grey (#878787) for text, accented by a vibrant neon green (#00DF00). Typography is exclusively Grotesque Sans (Monument Grotesk), using a 410 weight for body text and 500 for emphasis, with tight negative letter-spacing. The layout follows a 3-column desktop structure with a central feed and 1280px max-width container. Critical constraints: never use decorative serifs, avoid warm color palettes, and maintain the 4px grid spacing. Interactions are fast (120ms) with cubic-bezier easing."
+    },
+    "zh-CN": {
+      "identity": {
+        "keywords": [
+          "创作者",
+          "趋势",
+          "交易者",
+          "NFT",
+          "社交"
+        ],
+        "analogy": "数字艺术与Web3收藏者的Instagram",
+        "oneLiner": "一个极简主义的社交平台，用于分享与收藏数字艺术和NFT。"
+      },
+      "colors": {
+        "principle": "单色UI界面，搭配高对比度文本及用于操作状态的霓虹绿强调色。"
+      },
+      "typography": {
+        "rules": [
+          "所有界面文本使用 Monument Grotesk 字体。",
+          "标题与正文均保持紧凑的字间距。",
+          "正文使用410字重，强调文本使用500字重。"
+        ],
+        "scaleUses": [
+          "标题",
+          "章节标题",
+          "正文文本",
+          "元数据"
+        ]
+      },
+      "spacing": {
+        "rhythm": "基于4px网格的统一间距系统。"
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(0, 0, 0, 0.05) 0px 5px 10px 0px",
+          "rgba(0, 0, 0, 0.07) 0px 15px 25px 0px"
+        ],
+        "borders": "1px solid #4D4D4D"
+      },
+      "layout": {
+        "skeleton": "三栏桌面端布局：轻量侧边栏、中央信息流、右侧导轨。移动端为单栏信息流。"
+      },
+      "components": {
+        "button": "主操作按钮为胶囊形（如注册），次要按钮为圆角形（如关注）。",
+        "card": "内容卡片拥有大面积媒体区域，元数据置于下方。",
+        "chip": "不适用",
+        "input": "搜索栏采用圆角设计与灰色占位符文本。",
+        "hero": "全宽度媒体流（图片、视频）。"
+      },
+      "motion": {
+        "patterns": [
+          "悬停/交互时淡入淡出与缩放。",
+          "平滑的颜色与背景过渡。"
+        ]
+      },
+      "interaction": {
+        "hover": "交互元素呈现透明度或色彩偏移。",
+        "click": "细腻的缩放或阴影变化。",
+        "transition": "快速120ms cubic-bezier过渡以实现响应性。",
+        "keyboard": "标准焦点环行为。"
+      },
+      "voice": {
+        "tone": "中性、平台导向且聚焦创作者。",
+        "headlineStyle": "直接且功能化（例如'建议关注'）。",
+        "ctaStyle": "简洁动词（登录、注册、关注、购买）。",
+        "avoid": [
+          "过度装饰性文本",
+          "杂乱的UI",
+          "厚重的品牌元素"
+        ]
+      },
+      "donts": [
+        "请勿使用暖色调色板——截图显示为严格的单色UI搭配绿色强调色",
+        "请勿使用装饰性衬线字体——截图显示仅使用无衬线字体（Monument Grotesk）",
+        "请勿使用复杂阴影——截图显示为极简的扁平化层级",
+        "请勿为使用主CTA按钮采用圆角方形——截图显示为胶囊形的'注册'按钮",
+        "请勿将深色模式设为默认状态——截图显示为白色背景主题",
+        "请勿使用多栏文本布局——截图显示内容居中于单栏信息流"
+      ],
+      "systemPrompt": "Zora 是一个极简主义的、以创作者为中心的数字艺术与NFT社交平台。设计DNA包含干净的白色（#FFFFFF）背景，搭配深墨色（#121212）与中性灰（#878787）文本，并以鲜明的霓虹绿（#00DF00）作为强调。字体仅限怪诞无衬线体（Monument Grotesk），正文使用410字重，强调文本使用500字重，并采用紧凑的负字间距。布局遵循三栏桌面端结构，中央信息流与最大宽度为1280px的容器。关键约束：绝不使用装饰性衬线体，避免暖色调色板，并保持4px网格间距。交互快速（120ms）并采用cubic-bezier缓动。"
+    },
+    "zh-TW": {
+      "identity": {
+        "keywords": [
+          "創作者",
+          "趨勢",
+          "交易者",
+          "NFTs",
+          "社群"
+        ],
+        "analogy": "數位藝術與 web3 收藏家的 Instagram",
+        "oneLiner": "一個用於分享與收藏數位藝術及 NFTs 的極簡主義社群平台。"
+      },
+      "colors": {
+        "principle": "單色調 UI，搭配高對比文字與霓虹綠作為操作狀態的點綴色。"
+      },
+      "typography": {
+        "rules": [
+          "所有介面文字使用 Monument Grotesk。",
+          "標題與內文保持緊湊的字距調整。",
+          "內文使用 410 字重，強調部分使用 500 字重。"
+        ],
+        "scaleUses": [
+          "標題",
+          "區塊標題",
+          "內文",
+          "後設資料"
+        ]
+      },
+      "spacing": {
+        "rhythm": "基於 4px 網格的一致間距。"
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(0, 0, 0, 0.05) 0px 5px 10px 0px",
+          "rgba(0, 0, 0, 0.07) 0px 15px 25px 0px"
+        ],
+        "borders": "1px solid #4D4D4D"
+      },
+      "layout": {
+        "skeleton": "三欄式桌面佈局：細窄側邊欄、中央資訊流、右側導覽列。手機版為單欄式資訊流。"
+      },
+      "components": {
+        "button": "主要操作按鈕為膠囊形狀（例如：註冊），次要操作按鈕為圓角方形（例如：追蹤）。",
+        "card": "內容卡片包含大型媒體區塊，下方為後設資料。",
+        "chip": "不適用",
+        "input": "圓角搜尋列，帶有灰色佔位符文字。",
+        "hero": "全寬媒體資訊流（圖片、影片）。"
+      },
+      "motion": {
+        "patterns": [
+          "在 hover/互動時淡入縮放。",
+          "流暢的顏色與背景轉場效果。"
+        ]
+      },
+      "interaction": {
+        "hover": "互動元素的透明度或顏色變化。",
+        "click": "細微的縮放或陰影變化。",
+        "transition": "快速 120ms cubic-bezier 轉場以實現靈敏回饋。",
+        "keyboard": "標準的 focus ring 行為。"
+      },
+      "voice": {
+        "tone": "中性、平台導向，並以創作者為中心。",
+        "headlineStyle": "直接且功能性（例如：「建議追蹤」）。",
+        "ctaStyle": "簡潔的動詞（登入、註冊、追蹤、購買）。",
+        "avoid": [
+          "過多裝飾性文字",
+          "雜亂的 UI",
+          "厚重的品牌元素"
+        ]
+      },
+      "donts": [
+        "不要使用暖色調色板 — 螢幕截圖顯示為嚴格的單色調 UI，搭配綠色點綴",
+        "不要使用裝飾性襯線字體 — 螢幕截圖顯示僅使用無襯線字體（Monument Grotesk）",
+        "不要使用複雜陰影 — 螢幕截圖顯示為極簡、平面化的視覺層次",
+        "不要將圓角方形按鈕用於主要 CTA — 螢幕截圖顯示為膠囊形狀的「註冊」按鈕",
+        "不要將深色模式作為預設狀態 — 螢幕截圖顯示為白色背景主題",
+        "不要使用多欄式文字佈局 — 螢幕截圖顯示為單一中央內容資訊流欄位"
+      ],
+      "systemPrompt": "Zora 是一個極簡主義、以創作者為中心的數位藝術與 NFTs 社群平台。其設計 DNA 特徵為乾淨的白色（#FFFFFF）背景，搭配深墨色（#121212）與中性灰（#878787）作為文字色，並以鮮明的霓虹綠（#00DF00）點綴。字體專用 Grotesque Sans（Monument Grotesk），內文使用 410 字重，強調部分使用 500 字重，並採用緊湊的負字距調整。佈局遵循三欄式桌面結構，中央資訊流與最大寬度 1280px 的容器。關鍵限制：絕不使用裝飾性襯線字體、避免暖色調色板，並維持 4px 網格間距。互動快速（120ms），並使用 cubic-bezier 緩動效果。"
+    },
+    "ja": {
+      "identity": {
+        "keywords": [
+          "クリエイター",
+          "トレンド",
+          "トレーダー",
+          "NFTs",
+          "ソーシャル"
+        ],
+        "analogy": "デジタルアートとweb3コレクターのためのInstagram",
+        "oneLiner": "デジタルアートとNFTsを共有・収集するためのミニマルなソーシャルプラットフォーム。"
+      },
+      "colors": {
+        "principle": "高コントラストテキストとアクション状態のネオンアクセントを持つモノクロームUI。"
+      },
+      "typography": {
+        "rules": [
+          "すべてのインターフェーステキストにMonument Groteskを使用。",
+          "ディスプレイおよび本文のサイズでタイトなトレッキングを維持。",
+          "本文には410ウェイト、強調には500ウェイトを使用。"
+        ],
+        "scaleUses": [
+          "見出し",
+          "セクションタイトル",
+          "本文テキスト",
+          "メタデータ"
+        ]
+      },
+      "spacing": {
+        "rhythm": "4pxグリッドベースの均一なスペーシング。"
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(0, 0, 0, 0.05) 0px 5px 10px 0px",
+          "rgba(0, 0, 0, 0.07) 0px 15px 25px 0px"
+        ],
+        "borders": "1px solid #4D4D4D"
+      },
+      "layout": {
+        "skeleton": "3カラムデスクトップレイアウト：薄いサイドバー、中央フィード、右レール。モバイルは単一カラムフィード。"
+      },
+      "components": {
+        "button": "プライマリアクション（サインアップ）にはピル形状、セカンダリー（フォロー）には角丸。",
+        "card": "大きなメディアエリアと下部にメタデータを備えたコンテンツカード。",
+        "chip": "N/A",
+        "input": "角丸とグレーのプレースホルダーを備えた検索バー。",
+        "hero": "フルワイドメディアフィード（画像、動画）。"
+      },
+      "motion": {
+        "patterns": [
+          "hover/インタラクション時のフェードとスケール。",
+          "滑らかなカラーおよび背景トランジション。"
+        ]
+      },
+      "interaction": {
+        "hover": "インタラクティブ要素の不透明度またはカラー変化。",
+        "click": "微細なスケールまたはシャドウの変化。",
+        "transition": "応答性のための速い120ms cubic-bezierトランジション。",
+        "keyboard": "標準的なフォーカスリング動作。"
+      },
+      "voice": {
+        "tone": "ニュートラル、プラットフォーム指向、クリエイター中心。",
+        "headlineStyle": "直接的で機能的（例：「おすすめのフォロー」）。",
+        "ctaStyle": "シンプルな動詞（ログイン、サインアップ、フォロー、購入）。",
+        "avoid": [
+          "過度の装飾的テキスト",
+          "雑然としたUI",
+          "重厚なブランディング要素"
+        ]
+      },
+      "donts": [
+        "カラフルなパレットを使用しない — スクリーンショットはグリーンアクセントの厳格なモノクロームUIを示している",
+        "装飾的なセリフフォントを使用しない — スクリーンショットはサンセリフ（Monument Grotesk）のみを使用している",
+        "複雑なシャドウを使用しない — スクリーンショットは最小限でフラットなエレベーションを示している",
+        "プライマリCTAに角丸四角形ボタンを使用しない — スクリーンショットはピル形状の「サインアップ」ボタンを示している",
+        "デフォルト状態にダークモードを使用しない — スクリーンショットは白い背景テーマを示している",
+        "複数カラムのテキストレイアウトを使用しない — スクリーンショットはコンテンツ用の単一中央フィードカラムを示している"
+      ],
+      "systemPrompt": "Zoraは、デジタルアートとNFTsのためのミニマルでクリエイター中心のソーシャルプラットフォームです。デザインDNAには、クリーンな白（#FFFFFF）背景、濃いインク（#121212）とニュートラルグレー（#878787）のテキスト、以及して鮮やかなネオングリーン（#00DF00）のアクセントが特徴です。タイポグラフィはグロテスクサンセリフ（Monument Grotesk）のみを使用し、本文には410ウェイト、強調には500ウェイト、タイトなネガティブ文字間隔を採用。レイアウトは中央フィードと1280px最大幅コンテナを備えた3カラムデスクトップ構造に従います。重要な制約：装飾的なセリフは絶対に使用せず、カラフルなパレットを避け、4pxグリッドスペーシングを維持。インタラクションはcubic-bezierイージングを使用した高速（120ms）。"
+    },
+    "ko": {
+      "identity": {
+        "keywords": [
+          "크리에이터",
+          "트렌드",
+          "트레이더",
+          "NFTs",
+          "소셜"
+        ],
+        "analogy": "디지털 아트와 web3 컬렉터를 위한 인스타그램",
+        "oneLiner": "디지털 아트와 NFTs를 공유하고 수집하는 미니멀리스트 소셜 플랫폼입니다."
+      },
+      "colors": {
+        "principle": "고대비 텍스트와 액션 상태를 위한 네온 악센트가 있는 단색 UI입니다."
+      },
+      "typography": {
+        "rules": [
+          "모든 인터페이스 텍스트에 Monument Grotesk를 사용합니다.",
+          "디스플레이 및 본문 크기에 대해 타이트한 트래킹을 유지합니다.",
+          "본문에는 410, 강조에는 500 웨이트를 사용합니다."
+        ],
+        "scaleUses": [
+          "헤드라인",
+          "섹션 제목",
+          "본문 텍스트",
+          "메타데이터"
+        ]
+      },
+      "spacing": {
+        "rhythm": "일관된 4px 그리드 기반 spacing입니다."
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(0, 0, 0, 0.05) 0px 5px 10px 0px",
+          "rgba(0, 0, 0, 0.07) 0px 15px 25px 0px"
+        ],
+        "borders": "1px solid #4D4D4D"
+      },
+      "layout": {
+        "skeleton": "3열 데스크톱 레이아웃: 얇은 사이드바, 중앙 피드, 오른쪽 레일. 모바일은 단일 열 피드입니다."
+      },
+      "components": {
+        "button": "메인 액션(Sign up)용 필 모양, 세컨더리(Follow)용 둥근 모양입니다.",
+        "card": "큰 미디어 영역과 아래쪽 메타데이터를 가진 콘텐츠 카드입니다.",
+        "chip": "해당 없음",
+        "input": "둥근 모서리와 회색 플레이스홀더가 있는 검색 바입니다.",
+        "hero": "전체 폭 미디어 피드(이미지, 비디오)입니다."
+      },
+      "motion": {
+        "patterns": [
+          "hover/상호작용 시 페이드 및 스케일.",
+          "매끄러운 색상 및 배경 전환."
+        ]
+      },
+      "interaction": {
+        "hover": "상호작용 요소에 투명도 또는 색상 변화.",
+        "click": "미세한 스케일 또는 그림자 변화.",
+        "transition": "반응성을 위한 빠른 120ms cubic-bezier 전환.",
+        "keyboard": "표준 focus ring 동작."
+      },
+      "voice": {
+        "tone": "중립적이며, 플랫폼 지향적이고, 크리에이터 중심적입니다.",
+        "headlineStyle": "직설적이고 기능적인 (예: 'Suggested follows').",
+        "ctaStyle": "단순한 동사 (Login, Sign up, Follow, Buy).",
+        "avoid": [
+          "과도한 장식적 텍스트",
+          "지저분한 UI",
+          "무거운 브랜딩 요소"
+        ]
+      },
+      "donts": [
+        "따뜻한 색상 팔레트를 사용하지 않습니다 — 스크린샷은 그린 악센트가 있는 엄격한 단색 UI를 보여줍니다.",
+        "장식용 세리프 글꼴을 사용하지 않습니다 — 스크린샷은 sans-serif 타이포그래피(Monument Grotesk)만 보여줍니다.",
+        "복잡한 그림자를 사용하지 않습니다 — 스크린샷은 최소한의 플랫 엘리베이션을 보여줍니다.",
+        "메인 CTA용 둥근 사각형 버튼을 사용하지 않습니다 — 스크린샷은 필 모양 'Sign up' 버튼을 보여줍니다.",
+        "기본 상태로 다크 모드를 사용하지 않습니다 — 스크린샷은 흰색 배경 테마를 보여줍니다.",
+        "멀티 컬럼 텍스트 레이아웃을 사용하지 않습니다 — 스크린샷은 콘텐츠를 위한 단일 중앙 피드 열을 보여줍니다."
+      ],
+      "systemPrompt": "Zora는 디지털 아트와 NFTs를 위한 미니멀리스트, 크리에이터 중심 소셜 플랫폼입니다. 디자인 DNA는 깨끗한 흰색(#FFFFFF) 배경에 다크 잉크(#121212)와 중성 회색(#878787) 텍스트를 사용하며, 활기찬 네온 그린(#00DF00)으로 악센트를 줍니다. 타이포그래피는 Grotesque Sans(Monument Grotesk)를 독점 사용하며, 본문 텍스트에는 410, 강조에는 500 웨이트를 사용하고, 타이트한 음수 자간을 적용합니다. 레이아웃은 중앙 피드와 1280px 최대 너비 컨테이너를 갖춘 3열 데스크톱 구조를 따릅니다. 핵심 제약 조건: 장식용 세리프를 절대 사용하지 않고, 따뜻한 색상 팔레트를 피하며, 4px 그리드 spacing를 유지합니다. 상호작용은 빠르며(120ms) cubic-bezier easing를 사용합니다."
+    }
+  },
+  "desc": {
+    "en": {
+      "palette": "A high-contrast monochrome palette using pure white and deep black, neutralized by greys and punctuated by a single neon green accent.",
+      "layout": "A structured 3-column desktop layout with a central content feed, thin icon-based sidebar, and right-hand discovery rail.",
+      "interaction": "Fast, subtle transitions on hover and click states, using a specific cubic-bezier curve for a responsive feel.",
+      "motion": "Minimal, utility-focused motion with durations optimized for micro-interactions (120ms) and layout changes.",
+      "notes": "This site exemplifies the 'less is more' philosophy, using extreme restraint in UI elements to ensure the creator's visual content remains the absolute focus."
+    },
+    "zh-CN": {
+      "palette": "采用纯白与深黑的高对比度单色方案，以中性灰进行调和，并点缀单一霓虹绿作为强调色。",
+      "layout": "结构化的三栏桌面端布局，包含中央内容流、轻量级图标侧边栏及右侧发现导轨。",
+      "interaction": "在悬停与点击状态下提供快速、细腻的过渡效果，使用特定 cubic-bezier 曲线实现响应式触感。",
+      "motion": "以功能为核心的极简动态，时长针对微交互（120ms）与布局变化进行优化。",
+      "notes": "此网站体现了'少即是多'的设计哲学，通过对UI元素的极致克制，确保创作者的视觉内容始终成为绝对焦点。"
+    },
+    "zh-TW": {
+      "palette": "高對比單色調色板，使用純白與深黑，並以灰色中和，搭配單一霓虹綠作為點綴色。",
+      "layout": "結構化的三欄式桌面佈局，包含中央內容資訊流、細窄的圖示式側邊欄，以及右側的探索導覽列。",
+      "interaction": "在 hover 和點擊狀態下提供快速、細微的轉場效果，使用特定的 cubic-bezier 曲線以營造靈敏的回饋感。",
+      "motion": "極簡、功能導向的動態效果，時長針對微互動（120ms）與佈局變換進行優化。",
+      "notes": "此網站體現了「少即是多」的理念，在 UI 元素上極度克制，以確保創作者的視覺內容成為絕對焦點。"
+    },
+    "ja": {
+      "palette": "純白と濃密な黒を使用した高コントラストのモノクロームパレット。グレーで中和し、唯一的なネオングリーンのアクセントで飾りをつけます。",
+      "layout": "中央コンテンツフィード、薄いアイコンベースのサイドバー、右側のディスカバリーレールを備えた、構造化された3カラムデスクトップレイアウト。",
+      "interaction": "hoverおよびクリック状態において速く、微細なトランジション。特定のcubic-bezierカーブを使用し、応答性の高い感覚を実現します。",
+      "motion": "最小限で、実用性に焦点を当てたモーション。マイクロインタラクション（120ms）とレイアウト変更に最適化された持続時間。",
+      "notes": "このサイトは「less is more」哲学を体現しており、UI要素に極度の抑制を用いることで、クリエイターの視覚コンテンツが絶対的な焦点となることを保証しています。"
+    },
+    "ko": {
+      "palette": "순백과 깊은 검정을 사용하는 고대비 단색 팔레트로, 그레이로 중화되고 네온 그린 악센트로 포인트를 줍니다.",
+      "layout": "중앙 콘텐츠 피드, 얇은 아이콘 기반 사이드바, 그리고 오른쪽 디스커버리 레일을 갖춘 구조화된 3열 데스크톱 레이아웃입니다.",
+      "interaction": "hover 및 클릭 상태에서 빠르고 섬세한 전환을 사용하며, 반응감을 위해 특정 cubic-bezier 커브를 적용합니다.",
+      "motion": "최소한의, 실용적인 모션을 사용하며, durations는 마이크로 상호작용(120ms)과 레이아웃 변경에 최적화되어 있습니다.",
+      "notes": "이 사이트는 'less is more' 철학을 잘 보여주며, UI 요소를 극도로 절제하여 크리에이터의 시각적 콘텐츠가 절대적 초점이 되도록 합니다."
+    }
+  },
+  "narrative": {
+    "en": {
+      "ch1_intro": "Zora's design system operates like a gallery with invisible architecture—a clean, white container engineered to make the digital art it houses the sole focal point. Its identity is built on a strict monochrome UI with a single neon accent, creating a minimalist social platform for creators and collectors that recalls the curated feed of a social app applied to the world of NFTs.",
+      "ch2_intro": "The palette is a study in high-contrast restraint: a pure white background meets deep ink and neutral greys for text, creating a neutral canvas. Action is signaled only by a vibrant neon green, a deliberate and singular accent for interactive states.",
+      "ch2_outro": "This chromatic discipline ensures the UI recedes, allowing the colorful media of creators to command all visual attention.",
+      "ch3_intro": "All interface text is rendered in Monument Grotesk, a Grotesque Sans whose clean, neutral geometry provides a consistent voice. Its tight tracking and limited weight usage—410 for body, 500 for emphasis—create a focused typographic hierarchy that feels direct and functional.",
+      "ch4_intro": "A consistent 4px grid underpins all spatial relationships, establishing a predictable and rhythmic layout for every element on the page.",
+      "ch5_intro": "Depth is communicated through minimal, flat elevation using soft, neutral shadows on a white ground. Borders are defined by a single, consistent 1px rule in dark grey, maintaining the interface's crisp, graphic quality.",
+      "ch6_intro": "The desktop skeleton is a structured 3-column layout: a thin, icon-based sidebar, a central content feed, and a right-hand discovery rail. This grid collapses to a single, focused column on mobile, preserving the primacy of the content stream.",
+      "ch7_intro": "Motion is minimal and utility-focused, optimized for micro-interactions with a fast 120ms duration. The philosophy is to use fade, scale, and smooth color transitions as responsive feedback, not as decoration.",
+      "ch8_intro": "The editorial voice is neutral and platform-oriented, using direct, functional headlines and simple verb-based CTAs. It avoids clutter and decorative text to keep communication as clear as the interface itself.",
+      "ch8_outro": "By design, it deliberately avoids warm palettes, decorative serifs, and complex UI ornamentation."
+    },
+    "zh-CN": {
+      "ch1_intro": "Zora 的设计系统如同一个拥有隐形架构的画廊——一个纯净、洁白的容器，旨在使其承载的数字艺术成为唯一的焦点。其标识建立在严格的单色界面和单一霓虹点缀之上，为创作者和收藏家打造了一个极简主义的社交平台，仿佛将社交应用的精选信息流应用于 NFT 领域。",
+      "ch2_intro": "色彩方案是对高对比度克制的探索：纯白背景与深墨色及中性灰色文字相遇，营造出中性画布。行动仅通过鲜活的霓虹绿来标示，这是一种刻意且独特的交互状态点缀。",
+      "ch2_outro": "这种色彩纪律确保界面退居其次，让创作者的多彩媒体掌控全部视觉注意力。",
+      "ch3_intro": "所有界面文字均使用 Monument Grotesk 渲染，这是一款 Grotesque Sans 字体，其中性、干净的几何形态提供了统一的语调。其紧凑的字间距与有限的字重使用——正文为 410，强调为 500——构建了一个专注、直接且功能性的排版层级。",
+      "ch4_intro": "一致的 4px 栅格奠定了所有空间关系的基础，为页面上的每个元素建立了可预测、有韵律感的布局。",
+      "ch5_intro": "深度通过最小化、扁平化的高程来传达，使用在白色背景上的柔和、中性阴影。边框由深灰色中一致的 1px 线条定义，保持了界面清晰、图形化的质感。",
+      "ch6_intro": "桌面端骨架是一个结构化的三栏布局：一个纤细、基于图标的侧边栏、一个中央内容信息流和一个右侧的发现栏。该栅格在移动端坍缩为单一、专注的列，以保持内容流的优先地位。",
+      "ch7_intro": "动效极简且聚焦于实用，针对 120ms 的快速微交互进行优化。其理念是使用淡入淡出、缩放和平滑的颜色过渡作为响应式反馈，而非装饰。",
+      "ch8_intro": "编辑语调保持中立、平台化，使用直接、功能性的标题和简单的基于动词的行动号召。它避免杂乱和装饰性文字，以保持沟通如同界面本身一样清晰。",
+      "ch8_outro": "通过设计，它刻意避免了暖色调、装饰性衬线字体以及复杂的界面装饰。"
+    },
+    "zh-TW": {
+      "ch1_intro": "Zora 的設計系統運作起來就像一座無形建築的藝廊——一個純淨的白色容器，旨在讓其中的數位藝術成為唯一的焦點。它的身份建立在嚴格的單色使用者介面與單一霓虹強調色之上，為創作者與收藏家打造了一個極簡主義的社交平台，令人想起將社交應用的策展動態應用於 NFT 世界。",
+      "ch2_intro": "調色板是高對比節制的體現：純白背景與深墨色、中性灰色的文字相結合，創造出一個中性的畫布。動作僅透過鮮豔的霓虹綠來標示，這是一個刻意且單一的互動狀態強調色。",
+      "ch2_outro": "這種色彩紀律確保了使用者介面退居其次，讓創作者豐富多彩的媒體能夠掌控所有的視覺注意力。",
+      "ch3_intro": "所有介面文字均以 Monument Grotesk 呈現，這是一款幾何形狀乾淨、中性的 Grotesque Sans 字體，提供了一致的語調。其緊湊的字距調整與有限的字重使用——410 用於內文、500 用於強調——創造了一個專注且直接的功能性字體層級結構。",
+      "ch4_intro": "一致的 4px 網格是所有空間關係的基礎，為頁面上的每個元素建立可預期且富有節奏感的版面配置。",
+      "ch5_intro": "深度透過最少、平面的海拔高度來傳達，使用白色背景上的柔和中性陰影。邊界由深灰色的單一、一致 1px 規則定義，保持了介面清晰、圖形化的特質。",
+      "ch6_intro": "桌面端骨架是一個結構化的三欄式版面：一個細長的、基於圖示的側邊欄、一個中央內容動態，以及一個右側的發現導軌。在行動裝置上，此網格會縮減為單一、專注的欄位，以維護內容流的優先地位。",
+      "ch7_intro": "動態效果極簡且專注於實用性，針對微交互優化，採用快速的 120ms 持續時間。其理念是利用淡入淡出、縮放和平滑的色彩轉換作為回應式回饋，而非裝飾。",
+      "ch8_intro": "編輯語調是中性且平台導向的，使用直接、功能性的標題和簡單的動詞型號召性用語。它避免了雜亂和裝飾性文字，以保持與介面本身一樣清晰的溝通。",
+      "ch8_outro": "設計上，它刻意避免了暖色調色板、裝飾性襯線字體以及複雜的使用者介面裝飾。"
+    },
+    "ja": {
+      "ch1_intro": "Zoraのデザインシステムは、見えない建築を持つギャラリーのように機能します。デジタルアートを唯一の焦点に引き立てるよう設計された、クリーンで白いコンテナです。そのアイデンティティは、シングルのネオンアクセントを備えた厳格なモノクロームUIの上に構築され、クリエイターやコレクターのためのミニマリストなソーシャルプラットフォームを実現。ソーシャルアプリのキュレーションされたフィードを、NFTの世界に適用したような印象を提示します。",
+      "ch2_intro": "カラーパレットは、ハイコントラストの抑制を探究するものです。純白の背景は、テキスト用の深いインク色とニュートラルグレーと出会い、ニュートラルなキャンバスを生み出します。インタラクティブな状態を示すアクションは、鮮やかなネオングリーンのみ。意図的で単一のアクセントです。",
+      "ch2_outro": "この色彩規律により、UIは後退し、クリエイターの多彩なメディアがすべての視覚的注意を支配できるようになります。",
+      "ch3_intro": "すべてのインターフェーステキストは、Monument Groteskでレンダリングされます。このクリーンでニュートラルな幾何学を持つグロテスクサンズは、一貫した声を提供します。 tightened trackingと制限されたウェイト使用（本文410、強調500）により、直接的で機能的な印象を与える、焦点を絞ったタイポグラフィ階層が形成されます。",
+      "ch4_intro": "一貫した4pxグリッドがすべての空間関係を支え、ページ上のすべての要素に対して予測可能でリズミカルなレイアウトを確立します。",
+      "ch5_intro": "奥行きは、白い地の上に柔らかくニュートラルなシャドウを使用した、最小限でフラットな標高によって表現されます。ボーダーは、ダークグレーの単一で一貫した1pxルールで定義され、インターフェースの鮮明でグラフィックな品質を維持します。",
+      "ch6_intro": "デスクトップのスケルトンは、構造化された3カラムレイアウトです。細いアイコンベースのサイドバー、中央のコンテンツフィード、右手のディスカバリーレールから成ります。このグリッドは、モバイルで単一の焦点を絞ったカラムに畳まれ、コンテンツストリームのプライマシーを保持します。",
+      "ch7_intro": "モーションは最小限でユーティリティに焦点を当て、速い120msのデュレーションでマイクロインタラクションに最適化されています。フェード、スケール、滑らかなカラートランジションは、装飾ではなく応答フィードバックとして使用するという哲学です。",
+      "ch8_intro": "エディトリアルボイスはニュートラルでプラットフォーム志向です。直接的で機能的な見出しと、シンプルで動詞ベースのCTAを用います。コミュニケーションをインターフェースと同じくらい明確に保つため、雑然とした装飾的なテキストを避けます。",
+      "ch8_outro": "設計上、暖かいパレット、装飾的なセリフ、複雑なUIオーナメントを意図的に避けています。"
+    },
+    "ko": {
+      "ch1_intro": "Zora의 디자인 시스템은 보이지 않는 건축이 적용된 갤러리처럼 작동합니다. 디지털 아트를 집중시킬 수 있도록 설계된 깨끗하고 흰 컨테이너입니다. 엄격한 모노크롬 UI와 단일 네온 악센트를 기반으로 한 아이덴티티는, NFT 세계에 적용된 소셜 앱의 큐레이션된 피드를 연상시키는 크리에이터와 컬렉터를 위한 미니멀리스트 소셜 플랫폼을 만듭니다.",
+      "ch2_intro": "팔레트는 고대비의 절제에 대한 연구입니다. 순백 배경에 깊은 잉크와 중성 회색 텍스트가 만나 중성적인 캔버스를 만듭니다. 인터랙티브 상태를 위한 의도적이고 단일한 악센트인, 활기찬 네온 그린으로만 행동이 표시됩니다.",
+      "ch2_outro": "이러한 색채의 규율은 UI가 뒤로 물러나도록 보장하여, 크리에이터의 다채로운 미디어가 모든 시각적 관심을 차지할 수 있게 합니다.",
+      "ch3_intro": "모든 인터페이스 텍스트는 Monument Grotesk로 렌더링됩니다. 이 Grotesque Sans 서체의 깨끗하고 중성적인 기하학은 일관된 어조를 제공합니다. 타이트한 트래킹과 제한된 웨이트 사용(본문 410, 강조 500)은 직접적이고 기능적인 느낌의 집중된 타이포그래피 계층을 만듭니다.",
+      "ch4_intro": "일관된 4px 그리드는 모든 공간 관계를 뒷받침하며, 페이지의 모든 요소에 대해 예측 가능하고 리드미컬한 레이아웃을 확립합니다.",
+      "ch5_intro": "깊이는 흰색 바탕에 부드럽고 중성적인 그림자를 사용한 최소한의 평면적인 높이로 전달됩니다. 경계선은 1px의 일관된 다크 그레이 라인으로 정의되어 인터페이스의 선명하고 그래픽적인 품질을 유지합니다.",
+      "ch6_intro": "데스크톱 스켈레톤은 구조화된 3열 레이아웃입니다. 얇고 아이콘 기반의 사이드바, 중앙 콘텐츠 피드, 그리고 오른쪽 탐색 레일로 구성됩니다. 이 그리드는 모바일에서 단일 집중 열로 축소되어, 콘텐츠 스트림의 우선성을 보존합니다.",
+      "ch7_intro": "모션은 최소한이며 기능에 집중되어, 120ms의 빠른 지속 시간으로 마이크로 인터랙션에 최적화되어 있습니다. 철학은 장식이 아닌 반응 피드백으로 fade, scale, 그리고 부드러운 색상 전환을 사용하는 것입니다.",
+      "ch8_intro": "에디토리얼 어조는 중성적이며 플랫폼 지향적입니다. 직접적이고 기능적인 헤드라인과 간단한 동사 기반 CTA를 사용합니다. 인터페이스만큼 명확한 커뮤니케이션을 위해 잡다함과 장식적인 텍스트를 피합니다.",
+      "b_outro": "설계상 의도적으로 따뜻한 팔레트, 장식적인 세리프, 그리고 복잡한 UI 장식을 피합니다."
+    }
+  }
 }

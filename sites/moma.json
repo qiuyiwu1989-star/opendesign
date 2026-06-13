@@ -8,8 +8,595 @@
     "museum",
     "culture"
   ],
-  "status": "pending",
+  "status": "completed",
   "added_at": "2026-06-02",
   "added_by": "expand-200",
-  "_meta": {}
+  "_meta": {
+    "vision_model": "mimo-v2.5",
+    "vision_prompt_version": "0.3",
+    "vision_source": "playwright-extract:moma",
+    "vision_grounded": true,
+    "vision_at": "2026-06-04T16:55:35+00:00",
+    "vision_tokens": 16374,
+    "vision_cost_usd": 0.1819,
+    "translation_model": "mimo-v2.5",
+    "translation_at": "2026-06-04T16:56:58+00:00",
+    "translation_tokens": 17195,
+    "translation_cost_usd": 0.0573,
+    "narrative_model": "mimo-v2.5",
+    "narrative_prompt_version": "0.3",
+    "narrative_at": "2026-06-04T16:57:07+00:00",
+    "narrative_tokens": 2059,
+    "narrative_cost_usd": 0.0137,
+    "narrative_status": "ok",
+    "total_cost_usd": 0.2529
+  },
+  "spec": {
+    "colors": {
+      "bg": "#FFFFFF",
+      "bgSoft": "#EEEEEE",
+      "bgQuiet": null,
+      "ink": "#000000",
+      "inkSoft": "#767676",
+      "muted": "#767676",
+      "mutedSoft": null,
+      "accent": "#00B7F2",
+      "line": "rgba(0,0,0,1)"
+    },
+    "typography": {
+      "display": "grotesque-sans",
+      "body": "grotesque-sans",
+      "mono": null,
+      "scale": [
+        {
+          "token": "display",
+          "size": 56,
+          "lh": 1.0,
+          "weight": 900,
+          "ls": "-1.2px"
+        },
+        {
+          "token": "heading",
+          "size": 40,
+          "lh": 1.0,
+          "weight": 900,
+          "ls": "-0.8px"
+        },
+        {
+          "token": "subhead",
+          "size": 30,
+          "lh": 1.2,
+          "weight": 900,
+          "ls": "-0.6px"
+        },
+        {
+          "token": "body",
+          "size": 18,
+          "lh": 1.33,
+          "weight": 400,
+          "ls": "-0.36px"
+        }
+      ]
+    },
+    "spacing": {
+      "base": 4,
+      "scale": [
+        4,
+        8,
+        16,
+        24,
+        32,
+        48,
+        64,
+        96
+      ]
+    },
+    "surfaces": {
+      "radius": {
+        "sm": 0,
+        "md": 0,
+        "lg": 0,
+        "pill": 0
+      }
+    },
+    "layout": {
+      "container": 1280,
+      "paragraph": 680,
+      "columns": 12,
+      "gutter": 24,
+      "breakpoints": [
+        768,
+        1024
+      ]
+    },
+    "motion": {
+      "durations": {
+        "micro": 220,
+        "small": 300,
+        "medium": 800
+      },
+      "easing": "cubic-bezier(0.25, 0.1, 0.25, 1.0)"
+    }
+  },
+  "spec_i18n": {
+    "en": {
+      "identity": {
+        "keywords": [
+          "modern art",
+          "museum",
+          "institution",
+          "curatorial"
+        ],
+        "analogy": "A clean, authoritative institutional voice for the world's premier modern art museum.",
+        "oneLiner": "A minimal, photography-led editorial design that lets art breathe."
+      },
+      "colors": {
+        "principle": "High-contrast black and white creates a neutral, gallery-like canvas for colorful photography."
+      },
+      "typography": {
+        "rules": [
+          "Use MoMA Sans (grotesque-sans) for all primary text.",
+          "Use tight negative letter-spacing on large display text to emphasize institutional authority.",
+          "Maintain high contrast between heavy weight headings and regular body text."
+        ],
+        "scaleUses": [
+          "Primary welcome heading",
+          "Section titles",
+          "Card headings",
+          "Standard body copy"
+        ]
+      },
+      "spacing": {
+        "rhythm": "A structured 4px base grid ensures consistent alignment for a multi-column layout."
+      },
+      "surfaces": {
+        "shadows": [],
+        "borders": "Minimal borders; used only as thick horizontal rules for section dividers."
+      },
+      "layout": {
+        "skeleton": "A 12-column grid layout anchored by large, full-width hero photography and strict left-aligned text blocks."
+      },
+      "components": {
+        "button": "Sharp-edged, high-contrast rectangular buttons; primary CTAs are black with white text.",
+        "card": "Minimal cards relying on strong photography and bold, unadorned typography.",
+        "chip": "Not prominently featured; relies on standard hyperlinks.",
+        "input": "Clean, minimalist inputs with bottom borders.",
+        "hero": "Full-bleed, edge-to-edge photographic hero section with overlapping text content."
+      },
+      "motion": {
+        "patterns": [
+          "Subtle opacity transitions for hover states; simple linear reveals for image loading."
+        ]
+      },
+      "interaction": {
+        "hover": "Text links and interactive elements change color or opacity on hover.",
+        "click": "Standard interactive states; buttons press down slightly via transform.",
+        "transition": "Smooth, short transitions for color and opacity changes.",
+        "keyboard": "Standard tab navigation with visible focus indicators."
+      },
+      "voice": {
+        "tone": "Authoritative, welcoming, and culturally significant.",
+        "headlineStyle": "Short, punchy, and direct (e.g., 'Welcome', 'Your day at MoMA').",
+        "ctaStyle": "Action-oriented and helpful (e.g., 'Plan your visit', 'Tickets').",
+        "avoid": [
+          "Avoid playful emojis",
+          "Avoid overly casual slang",
+          "Avoid drop shadows or rounded corners",
+          "Avoid decorative fonts"
+        ]
+      },
+      "donts": [
+        "don't use rounded corners — screenshot shows sharp, 0px radius rectangles.",
+        "don't use drop shadows — screenshot shows flat, borderless elements.",
+        "don't use a dark background for primary content — screenshot shows a dominant white canvas.",
+        "don't use decorative serif fonts — screenshot shows a strictly grotesque-sans typographic system.",
+        "don't use complex gradients — screenshot shows solid colors and flat photographic backgrounds.",
+        "don't use heavy borders around cards — screenshot shows clean spacing without outlines."
+      ],
+      "systemPrompt": "MoMA.org is the digital home of the Museum of Modern Art, utilizing a minimal, authoritative, and photography-led editorial design. The palette is strictly high-contrast, utilizing a primary white background (#FFFFFF) and deep black text (#000000), with a single bright cyan-blue accent (#00B7F2) for ticketing. Typography is set in a custom grotesque-sans font family, featuring heavy weight, large display headlines with tight negative letter-spacing (-1.2px for display). The layout is a clean, unadorned 12-column grid with sharp edges, zero border-radius, and an absence of drop shadows, creating a gallery-like atmosphere. Key critical donts: Do not use rounded corners on any elements. Do not use decorative or serif fonts for headings. Do not use drop shadows or complex gradients. Ensure all large typography uses negative letter-spacing for an institutional feel."
+    },
+    "zh-CN": {
+      "identity": {
+        "keywords": [
+          "现代艺术",
+          "博物馆",
+          "机构",
+          "策展"
+        ],
+        "analogy": "为世界顶级现代艺术博物馆打造的简洁、权威的机构声音。",
+        "oneLiner": "一种以摄影为主导的极简编辑设计，让艺术自由呼吸。"
+      },
+      "colors": {
+        "principle": "高对比度的黑白配色，为彩色摄影营造出类似画廊的中性画布。"
+      },
+      "typography": {
+        "rules": [
+          "所有主要文本使用 MoMA Sans (grotesque-sans)。",
+          "在大号展示文本上使用紧凑的负字间距，以强调机构权威性。",
+          "保持粗重标题与常规正文之间的高对比度。"
+        ],
+        "scaleUses": [
+          "主欢迎标题",
+          "板块标题",
+          "卡片标题",
+          "标准正文"
+        ]
+      },
+      "spacing": {
+        "rhythm": "基于4px的基础网格，确保多列布局的一致性对齐。"
+      },
+      "surfaces": {
+        "shadows": [],
+        "borders": "极少使用边框；仅用作板块分隔的粗水平线。"
+      },
+      "layout": {
+        "skeleton": "以大幅、全宽的主视觉摄影和严格左对齐的文本块为锚点的12列网格布局。"
+      },
+      "components": {
+        "button": "棱角分明、高对比度的矩形按钮；主要行动号召按钮为黑底白字。",
+        "card": "极简卡片，依赖强烈的摄影图片和醒目、不加装饰的排版。",
+        "chip": "未显著使用；依赖标准超链接。",
+        "input": "简洁、极简的输入框，带有底部边框。",
+        "hero": "全出血、边缘到边缘的摄影主视觉区域，叠加文本内容。"
+      },
+      "motion": {
+        "patterns": [
+          "悬停状态的微妙透明度过渡；图片加载的简单线性揭示效果。"
+        ]
+      },
+      "interaction": {
+        "hover": "文本链接和交互元素在悬停时改变颜色或透明度。",
+        "click": "标准交互状态；按钮通过 transform 轻微下压。",
+        "transition": "颜色和透明度变化的平滑、短促过渡。",
+        "keyboard": "标准 Tab 键导航，带有可见的焦点指示器。"
+      },
+      "voice": {
+        "tone": "权威、亲切且具有文化重要性。",
+        "headlineStyle": "简短、有力、直接（例如，“欢迎”、“您在 MoMA 的一天”）。",
+        "ctaStyle": "以行动为导向且有帮助（例如，“计划您的参观”、“门票”）。",
+        "avoid": [
+          "避免使用俏皮的表情符号",
+          "避免使用过于随意的俚语",
+          "避免使用投影或圆角",
+          "避免使用装饰性字体"
+        ]
+      },
+      "donts": [
+        "不要使用圆角 — 截图显示的是棱角分明的0px圆角矩形。",
+        "不要使用投影 — 截图显示的是扁平、无边框的元素。",
+        "不要为主要内容使用深色背景 — 截图显示的是以白色为主导的画布。",
+        "不要使用装饰性衬线字体 — 截图显示的是严格的 grotesque-sans 排版系统。",
+        "不要使用复杂的渐变 — 截图显示的是纯色和平坦的摄影背景。",
+        "不要在卡片周围使用粗边框 — 截图显示的是干净的间距，没有轮廓线。"
+      ],
+      "systemPrompt": "MoMA.org 是现代艺术博物馆的数字主页，采用极简、权威、以摄影为主导的编辑设计。调色板严格遵循高对比度，使用纯白背景（#FFFFFF）和深黑文本（#000000），并以单一明亮的青蓝色（#00B7F2）作为售票功能的点缀。排版使用定制的 grotesque-sans 字体系列，特点是粗重的字重、大号展示标题，并带有紧凑的负字间距（展示文本为 -1.2px）。布局是一个整洁、不加修饰的12列网格，具有棱角分明的边缘、零圆角边框半径且无投影，营造出类似画廊的氛围。关键禁忌：不要在任何元素上使用圆角。不要为标题使用装饰性或衬线字体。不要使用投影或复杂渐变。确保所有大号排版使用负字间距以营造机构感。"
+    },
+    "zh-TW": {
+      "identity": {
+        "keywords": [
+          "現代藝術",
+          "博物館",
+          "機構",
+          "策展"
+        ],
+        "analogy": "為全球頂尖現代藝術博物館打造的乾淨、具權威感的機構聲音。",
+        "oneLiner": "一個以攝影為主導的極簡編輯設計，讓藝術得以呼吸。"
+      },
+      "colors": {
+        "principle": "高對比的黑白配色為色彩繽紛的攝影創造了一個中性、畫廊般的畫布。"
+      },
+      "typography": {
+        "rules": [
+          "所有主要文字使用 MoMA Sans（grotesque-sans）字體。",
+          "在大型標題文字上使用緊密的負字距，以強調機構權威感。",
+          "在粗體標題和標準內文之間保持高對比。"
+        ],
+        "scaleUses": [
+          "主要歡迎標題",
+          "章節標題",
+          "卡片標題",
+          "標準內文"
+        ]
+      },
+      "spacing": {
+        "rhythm": "一個結構化的 4px 基礎網格，確保多欄佈局的對齊一致性。"
+      },
+      "surfaces": {
+        "shadows": [],
+        "borders": "極簡邊框；僅用作章節分隔的粗水平線。"
+      },
+      "layout": {
+        "skeleton": "一個 12 欄網格佈局，以大幅、全寬的主視覺攝影和嚴格左對齊的文字區塊為主體。"
+      },
+      "components": {
+        "button": "銳角、高對比的矩形按鈕；主要 CTA 為黑底白字。",
+        "card": "極簡卡片，依賴強烈的攝影圖片和粗體、無裝飾的排版。",
+        "chip": "非主要功能；依賴標準超連結。",
+        "input": "乾淨、極簡的輸入框，帶有底部邊框。",
+        "hero": "全出血、邊對邊的攝影主視覺區塊，文字內容與之重疊。"
+      },
+      "motion": {
+        "patterns": [
+          "hover 狀態時微妙的透明度過渡；圖片載入時使用簡單的線性顯示效果。"
+        ]
+      },
+      "interaction": {
+        "hover": "文字連結和互動元素在 hover 時變色或改變透明度。",
+        "click": "標準互動狀態；按鈕透過 transform 輕微下壓。",
+        "transition": "顏色和透明度變化時使用流暢、短暫的過渡效果。",
+        "keyboard": "標準 tab 導航，帶有可見的焦點指示器。"
+      },
+      "voice": {
+        "tone": "權威、 welcoming 且具文化重要性。",
+        "headlineStyle": "簡短、有力且直接（例如：「歡迎」、「您在 MoMA 的一天」）。",
+        "ctaStyle": "以行動為導向且實用（例如：「規劃您的參觀」、「購票」）。",
+        "avoid": [
+          "避免俏皮的表情符號",
+          "避免過於隨意的俚語",
+          "避免使用陰影或圓角",
+          "避免裝飾性字體"
+        ]
+      },
+      "donts": [
+        "不要使用圓角 — 畫面截圖顯示的是銳角、0px 圓角的矩形。",
+        "不要使用陰影 — 畫面截圖顯示的是扁平、無邊框的元素。",
+        "不要為主要內容使用深色背景 — 畫面截圖顯示的是主導的白色畫布。",
+        "不要使用裝飾性襯線字體作為標題 — 畫面截圖顯示的是嚴格的 grotesque-sans 字體系統。",
+        "不要使用複雜的漸層 — 畫面截圖顯示的是實色和扁平的攝影背景。",
+        "不要為卡片使用粗邊框 — 畵面截圖顯示的是乾淨的間距，無輪廓。"
+      ],
+      "systemPrompt": "MoMA.org 是現代藝術博物館的數位主頁，採用極簡、權威且以攝影為主導的編輯設計。配色方案嚴格遵循高對比，主要使用白色背景 (#FFFFFF) 和深黑色文字 (#000000)，並以單一亮青藍色 (#00B7F2) 作為售票功能的點綴。字體設定為自訂的 grotesque-sans 字體家族，採用粗體、大型標題並搭配緊密的負字距（標題為 -1.2px）。佈局是一個乾淨、無裝飾的 12 欄網格，具有銳利邊角、零圓角且無陰影，營造出畫廊般的氛圍。關鍵禁忌：不要為任何元素使用圓角。不要為標題使用裝飾性或襯線字體。不要使用陰影或複雜漸層。確保所有大型排版使用負字距以營造機構感。"
+    },
+    "ja": {
+      "identity": {
+        "keywords": [
+          "現代アート",
+          "美術館",
+          "インスティテューション",
+          "キュレーション"
+        ],
+        "analogy": "世界をリードする現代美術館の、クリーンで権威あるインスティテューショナルな声。",
+        "oneLiner": "アートが息づけることを許す、ミニマルで写真を主役にしたエディトリアルデザイン。"
+      },
+      "colors": {
+        "principle": "ハイコントラストの白黒が、カラフルなフォトグラフィーのための、ギャラリーのような中立的なキャンバスを生み出します。"
+      },
+      "typography": {
+        "rules": [
+          "すべてのプライマリテキストにMoMA Sans（grotesque-sans）を使用します。",
+          "大きなディスプレイテキストには、tight negative letter-spacingを適用し、インスティテューショナルな権威を強調します。",
+          "重みの強い見出しと通常の本文テキストの間に高いコントラストを保ちます。"
+        ],
+        "scaleUses": [
+          "プライマリウェルカム見出し",
+          "セクションタイトル",
+          "カード見出し",
+          "標準本文コピー"
+        ]
+      },
+      "spacing": {
+        "rhythm": "構造化された4pxベースグリッドにより、マルチカラムレイアウトの整合性を確保します。"
+      },
+      "surfaces": {
+        "shadows": [],
+        "borders": "最小限のボーダー。セクション区切りの太い水平線としてのみ使用します。"
+      },
+      "layout": {
+        "skeleton": "大きなフル幅ヒーローフォトグラフィーと厳格に左揃えのテキストブロックで固定された12カラムグリッドレイアウトです。"
+      },
+      "components": {
+        "button": "鋭角でハイコントラストな長方形ボタン。プライマリCTAは白文字の黒色ボタンです。",
+        "card": "強力なフォトグラフィーと大胆な飾り気のないタイポグラフィに依存するミニマルカード。",
+        "chip": "目立っては使用されず、標準的なハイパーリンクに依存します。",
+        "input": "ボトムボーダーを持つクリーンでミニマルなインプット。",
+        "hero": "オーバーラップするテキストコンテンツを含む、エッジからエッジまで延びるフルブリードのフォトグラフィックヒーローセクション。"
+      },
+      "motion": {
+        "patterns": [
+          "hover状態のための微細なopacity遷移。画像ローディングのためのシンプルなリニア表示。"
+        ]
+      },
+      "interaction": {
+        "hover": "テキストリンクやインタラクティブ要素は、hover時に色やopacityが変化します。",
+        "click": "標準的なインタラクティブ状態。ボタンはtransformにより少し下に押し込まれます。",
+        "transition": "色やopacityの変化のための、滑らかで短い遷移。",
+        "keyboard": "視覚的なフォーカスインジケーターを備えた標準的なタブナビゲーション。"
+      },
+      "voice": {
+        "tone": "権威があり、歓迎的で、文化的に重要。",
+        "headlineStyle": "短く、力強く、直接的。（例：「ようこそ」「MoMAでの一日を」）",
+        "ctaStyle": "アクション重視で親切。（例：「ご来館を計画する」「チケット購入」）",
+        "avoid": [
+          "遊び心のある絵文字を避ける",
+          "過度にカジュアルなスラングを避ける",
+          "ドロップシャドウや角丸を避ける",
+          "飾り字体を避ける"
+        ]
+      },
+      "donts": [
+        "角丸を使用しない — スクリーンショットでは、0px半径の鋭角な長方形が示されています。",
+        "ドロップシャドウを使用しない — スクリーンショットでは、フラットでボーダーレスな要素が示されています。",
+        "プライマリコンテンツに暗い背景を使用しない — スクリーンショットでは、支配的な白いキャンバスが示されています。",
+        "飾り気のあるセリフフォントを使用しない — スクリーンショットでは、厳密なgrotesque-sansタイポグラフィシステムが示されています。",
+        "複雑なグラデーションを使用しない — スクリーンショットでは、実色フラットな写真背景が示されています。",
+        "カードの周りに太いボーダーを使用しない — スクリーンショットでは、アウトラインのないクリーンな間隔が示されています。"
+      ],
+      "systemPrompt": "MoMA.orgは、ニューヨーク近代美術館のデジタルホームであり、ミニマルで権威ある、写真を主役にしたエディトリアルデザインを採用しています。パレットは厳密にハイコントラストで、プライマリ背景はホワイト（#FFFFFF）、テキストはディープブラック（#000000）、チケット販売用の単一の明るいシアンブルーアクセント（#00B7F2）を使用。タイポグラフィは、tight negative letter-spacing（-1.2px for display）を備えた太字の大きなディスプレイ見出しを特徴とする、カスタムgrotesque-sansフォントファミリーで設定。レイアウトは、角丸0px、ドロップシャドウのない、クリーンで飾り気のない12カラムグリッドであり、ギャラリーのような雰囲気を醸成。重要な禁止事項：あらゆる要素に角丸を使用しないこと。見出しに飾り字体やセリフフォントを使用しないこと。ドロップシャドウや複雑なグラデーションを使用しないこと。すべての大きなタイポグラフィにnegative letter-spacingを適用し、インスティテューショナルな雰囲気を確保すること。"
+    },
+    "ko": {
+      "identity": {
+        "keywords": [
+          "현대 미술",
+          "박물관",
+          "기관",
+          "큐레이션"
+        ],
+        "analogy": "세계 최고의 현대 미술관을 위한 깔끔하고 권위 있는 기관의 목소리입니다.",
+        "oneLiner": "예술이 숨 쉬게 하는 미니멀한 사진 중심 에디토리얼 디자인입니다."
+      },
+      "colors": {
+        "principle": "흑백의 강한 대비가 컬러풀한 사진을 위한 중립적이고 갤러리 같은 캔버스를 만듭니다."
+      },
+      "typography": {
+        "rules": [
+          "모든 주요 텍스트에 MoMA Sans (grotesque-sans)를 사용합니다.",
+          "기관의 권위를 강조하기 위해 대형 디스플레이 텍스트에는 타이트한 네거티브 자간을 적용합니다.",
+          "강한 굵기의 제목과 일반 본문 텍스트 사이에 높은 대비를 유지합니다."
+        ],
+        "scaleUses": [
+          "주요 웰컴 헤딩",
+          "섹션 제목",
+          "카드 헤딩",
+          "일반 본문 텍스트"
+        ]
+      },
+      "spacing": {
+        "rhythm": "구조화된 4px 기본 그리드가 다중 열 레이아웃의 일관된 정렬을 보장합니다."
+      },
+      "surfaces": {
+        "shadows": [],
+        "borders": "최소한의 테두리 사용; 섹션 구분선으로만 두꺼운 수평선을 사용합니다."
+      },
+      "layout": {
+        "skeleton": "대규모 풀폭 히어로 사진과 엄격하게 좌측 정렬된 텍스트 블록을 기반으로 하는 12열 그리드 레이아웃입니다."
+      },
+      "components": {
+        "button": "날카로운 모서리의 고대비 직사각형 버튼; 주요 CTA는 검은색 배경에 흰색 텍스트입니다.",
+        "card": "강렬한 사진과 굵고 꾸밈없는 타이포그래피에 의존하는 미니멀 카드입니다.",
+        "chip": "두드러지게 사용되지 않으며, 표준 하이퍼링크에 의존합니다.",
+        "input": "하단 테두리가 있는 깔끔하고 미니멀한 입력 필드입니다.",
+        "hero": "텍스트 콘텐츠가 오버랩되는 풀블리드, 엣지투엣지 포토그래픽 히어로 섹션입니다."
+      },
+      "motion": {
+        "patterns": [
+          "hover 상태를 위한 미세한 불투명도 전환; 이미지 로딩을 위한 간단한 리니어 리빌."
+        ]
+      },
+      "interaction": {
+        "hover": "텍스트 링크와 인터랙티브 요소가 hover 시 색상이나 불투명도가 변경됩니다.",
+        "click": "표준 인터랙션 상태; 버튼이 transform을 통해 약간 눌리는 효과가 있습니다.",
+        "transition": "색상과 불투명도 변경을 위한 부드럽고 짧은 전환입니다.",
+        "keyboard": "포커스 표시기가 명확한 표준 탭 내비게이션입니다."
+      },
+      "voice": {
+        "tone": "권위 있고, 환영하며, 문화적으로 의미 있는 어조입니다.",
+        "headlineStyle": "짧고 간결하며 직접적인 문장 (예: '환영합니다', 'MoMA에서의 하루').",
+        "ctaStyle": "행동을 유도하고 도움을 주는 문장 (예: '방문 계획하기', ' 입장권 구매').",
+        "avoid": [
+          "장난스러운 이모지 사용 지양",
+          "지나치게 비격식적인 은어 사용 지양",
+          "드롭 섀도우 또는 둥근 모서리 사용 지양",
+          "장식용 폰트 사용 지양"
+        ]
+      },
+      "donts": [
+        "둥근 모서리를 사용하지 않습니다 — 스크린샷은 날카롭고 0px 반지름의 직사각형을 보여줍니다.",
+        "드롭 섀도우를 사용하지 않습니다 — 스크린샷은 플랫하고 테두리 없는 요소를 보여줍니다.",
+        "주요 콘텐츠에 어두운 배경을 사용하지 않습니다 — 스크린샷은 지배적인 흰색 캔버스를 보여줍니다.",
+        "장식용 세리프 폰트를 사용하지 않습니다 — 스크린샷은 철저한 grotesque-sans 타이포그래피 시스템을 보여줍니다.",
+        "복잡한 그라데이션을 사용하지 않습니다 — 스크린샷은 단색과 플랫한 포토그래픽 배경을 보여줍니다.",
+        "카드 주변에 두꺼운 테두리를 사용하지 않습니다 — 스크린샷은 윤곽선 없는 깔끔한 간격을 보여줍니다."
+      ],
+      "systemPrompt": "MoMA.org는 미술관의 디지털 홈으로, 미니멀하고 권위 있으며 사진 중심의 에디토리얼 디자인을 활용합니다. 팔레트는 엄격히 강한 대비를 사용하며, 주요 배경색은 흰색(#FFFFFF)이고 깊은 검정 텍스트(#000002)는 티켓팅을 위한 단일 밝은 시안-블루 악센트(#00B7F2)를 사용합니다. 타이포그래피는 타이트한 네거티브 자간(-1.2px for display)을 특징으로 하는 굵은 굵기의 대형 디스플레이 헤딩을 가진 커스텀 grotesque-sans 폰트 패밀리로 설정됩니다. 레이아웃은 날카로운 모서리, 0px 보더 반지름, 드롭 섀도우 부재의 깔끔하고 꾸밈없는 12열 그리드로 갤러리 같은 분위기를 조성합니다. 핵심 주의 사항: 어떤 요소에도 둥근 모서리를 사용하지 마십시오. 제목에 장식용 또는 세리프 폰트를 사용하지 마십시오. 드롭 섀도우나 복잡한 그라데이션을 사용하지 마십시오. 모든 큰 타이포그래피에는 기관의 느낌을 위해 네거티브 자간을 사용하십시오."
+    }
+  },
+  "desc": {
+    "en": {
+      "palette": "A stark, high-contrast black and white palette with a single bright cyan accent, designed to act as a neutral canvas for colorful art photography.",
+      "layout": "A clean, strictly left-aligned 12-column grid that relies on large, full-bleed photography and generous whitespace to guide the eye.",
+      "interaction": "Minimal and functional, relying on subtle opacity changes on hover and clear, actionable button states without visual clutter.",
+      "motion": "Restrained and purposeful, utilizing short, smooth transitions for interactive states and image reveals.",
+      "notes": "An excellent reference for institutional and editorial design, showing how a minimal, sharp-edged UI can effectively foreground complex visual content."
+    },
+    "zh-CN": {
+      "palette": "一种高对比度的黑白调色板，搭配单一明亮的青蓝色点缀，旨在作为彩色艺术摄影的中性画布。",
+      "layout": "一个整洁、严格左对齐的12列网格，依靠大幅、全出血的摄影图片和充足的留白来引导视线。",
+      "interaction": "极简且功能性强，依赖于悬停时微妙的透明度变化以及清晰、可操作的按钮状态，没有视觉杂乱。",
+      "motion": "克制且有目的性，为交互状态和图片揭示使用简短、流畅的过渡效果。",
+      "notes": "作为机构与编辑设计的优秀参考，展示了极简、棱角分明的UI如何能有效凸显复杂的视觉内容。"
+    },
+    "zh-TW": {
+      "palette": "一個極簡、高對比的黑白配色方案，搭配單一亮青色作為點綴，旨在成為色彩繽紛的藝術攝影的中性畫布。",
+      "layout": "一個乾淨、嚴格左對齊的 12 欄網格，依賴大幅、全出血的攝影圖片和充足的留白來引導視覺動線。",
+      "interaction": "極簡且功能導向，透過 hover 時微妙的透明度變化和清晰、可操作的按鈕狀態來實現，避免視覺雜亂。",
+      "motion": "克制且有目的性，使用短暫、流暢的過渡效果來處理互動狀態和圖片顯示。",
+      "notes": "機構與編輯設計的絕佳參考範例，展示了一個極簡、銳利的 UI 如何有效地襯托複雜的視覺內容。"
+    },
+    "ja": {
+      "palette": "鮮明なハイコントラストの白黒に、単一の明るいシアンアクセントを加えたパレット。カラフルなアートフォトグラフィーのための中立的なキャンバスとして機能するように設計されています。",
+      "layout": "厳密に左揃えの12カラムグリッドを採用。大きなフルブリード写真と豊かな余白を駆使し、視線を導くクリーンなレイアウトです。",
+      "interaction": "最小限かつ機能的。hover時の微細なopacity変化や、視覚的な雑音のない明確なアクションボタンの状態に依存します。",
+      "motion": "抑制的かつ目的を明確に。インタラクティブな状態や画像の表示において、短く滑らかな遷移を活用します。",
+      "notes": "インスティテューショナルおよびエディトリアルデザインの優れた参考事例。ミニマルで鋭角なUIが、いかに複雑なビジュアルコンテンツを効果的に前面に出すかを示しています。"
+    },
+    "ko": {
+      "palette": "흑백의 강한 대비를 바탕으로 한 쨍한 시안 악센트가 더해진 미니멀 팔레트입니다. 컬러풀한 예술 사진을 중립적인 캔버스 위에 올려놓는 역할을 합니다.",
+      "layout": "대규모 풀블리드 사진과 여백을 활용해 시선을 유도하는 깔끔하고 철저하게 좌측 정렬된 12열 그리드입니다.",
+      "interaction": "hover 상태에서 미세한 불투명도 변화와 시각적 잡음 없는 명확한 액션 버튼 상태에 의존하는 기능적인 미니멀리즘입니다.",
+      "motion": "인터랙션 상태와 이미지 표시를 위해 짧고 부드러운 전환을 사용하는 절제되고 목적 지향적인 모션입니다.",
+      "notes": "미니멀하고 날카로운 엣지의 UI가 어떻게 복잡한 시각 콘텐츠를 효과적으로 전면에 내세울 수 있는지를 보여주는 기관 및 에디토리얼 디자인의 훌륭한 레퍼런스입니다."
+    }
+  },
+  "narrative": {
+    "en": {
+      "ch1_intro": "The design system for MoMA.org operates like a gallery wall: a neutral, authoritative structure whose primary purpose is to frame the artwork. Its minimal, photography-led editorial design establishes a clean, institutional canvas, allowing the museum's collection to be the primary visual voice.",
+      "ch2_intro": "The palette is a deliberate exercise in restraint, using high-contrast black and white to create a neutral stage. A single, bright cyan accent provides functional clarity for ticketing and calls to action without competing with the art.",
+      "ch2_outro": "The principle is simple: the interface must recede so the content can advance.",
+      "ch3_intro": "The typographic voice is set entirely in **MoMA Sans**, a custom grotesque-sans that carries the weight of institutional authority. Tight negative letter-spacing on large display text and a stark contrast between heavy headings and regular body copy create a clear, curatorial hierarchy.",
+      "ch4_intro": "A structured 4px base grid establishes a consistent rhythm, ensuring alignment across multi-column layouts and generous whitespace.",
+      "ch5_intro": "Surfaces are flat and borderless, creating a depthless, gallery-like plane. Visual separation is achieved not through shadows or borders, but through generous spacing and thick, horizontal rules that act as architectural dividers.",
+      "ch6_intro": "The layout skeleton is a strict 12-column grid, anchored by large, full-bleed hero photography that sets the editorial tone. All text blocks are strictly left-aligned, creating a strong, predictable reading path that defers to the visual imagery.",
+      "ch7_intro": "Motion is restrained and functional, treating animation as a utilitarian feedback mechanism rather than a decorative element. Short, smooth opacity transitions for hovers and simple linear reveals for images ensure the interface feels responsive without becoming performative.",
+      "ch8_intro": "The editorial voice is authoritative, welcoming, and culturally significant, mirroring the institution it represents. Headlines are short, punchy, and direct, while calls to action are helpful and action-oriented.",
+      "ch8_outro": "The system deliberately omits rounded corners, drop shadows, decorative fonts, and complex gradients to maintain its sharp-edged, institutional character."
+    },
+    "zh-CN": {
+      "ch1_intro": "MoMA.org 的设计系统如同展厅墙面：一种中性且权威的结构，其首要用途是为艺术品构建画框。它以摄影为主导的极简编辑设计，营造出一个干净、机构化的画布，让博物馆藏品成为主要的视觉语言。",
+      "ch2_intro": "色彩的运用是一次刻意的克制，以高对比度的黑与白构建中性舞台。一抹明亮的青色点缀，为票务与行动号召提供功能性清晰度，且不会与艺术品争夺视觉焦点。",
+      "ch2_outro": "原则很简单：界面必须退后，以便内容得以凸显。",
+      "ch3_intro": "排版体系完全采用 **MoMA Sans**，这是一种定制的 grotesque-sans 字体，承载着机构权威的重量。大型展示文本采用紧凑的负字距，厚重标题与常规正文之间形成鲜明对比，构建出清晰的策展层级。",
+      "ch4_intro": "严格的 4px 基础网格确立了一致的节奏，确保多栏布局与充足留白之间的对齐。",
+      "ch5_intro": "界面表面平坦且无边框，营造出无纵深感的展厅式平面。视觉分隔并非通过阴影或边框实现，而是借助充裕的间距与粗重的水平分割线——如同建筑隔断。",
+      "ch6_intro": "布局骨架是严谨的 12 栏网格，以大幅全出血主视觉摄影为锚点，奠定编辑基调。所有文本块严格左对齐，形成强烈而可预测的阅读路径，让位于视觉图像。",
+      "ch7_intro": "动效克制且注重功能，将动画视为实用性的反馈机制，而非装饰元素。悬停时的短促平滑透明度过渡，以及图片的简单线性显现，确保界面响应灵敏而不显浮夸。",
+      "ch8_intro": "编辑语调兼具权威性、亲和力与文化重要性，与其所代表的机构相呼应。标题简短有力、直截了当，而行动号召则乐于助人、以行动为导向。",
+      "ch8_outro": "系统刻意省略了圆角、阴影、装饰性字体与复杂渐变，以保持其棱角分明、机构化的特质。"
+    },
+    "zh-TW": {
+      "ch1_intro": "MoMA.org 的設計系統就像一面展覽牆：一個中立、具權威性的結構，其主要目的是襯托藝術品。其極簡、以攝影為主的編輯設計，建立了一個乾淨、機構感的畫布，讓博物館的館藏成為主要的視覺語言。",
+      "ch2_intro": "配色是一次克制的演練，運用高對比的黑白來創造一個中性的舞台。單一、明亮的青綠色強調色，為票務和行動呼籲提供功能上的清晰度，而不與藝術品競爭。",
+      "ch2_outro": "原則很簡單：介面必須退居幕後，好讓內容得以向前推進。",
+      "ch3_intro": "字體語調完全採用 **MoMA Sans**，一款自訂的 grotesque-sans，承載著機構的權威份量。大型展示文字採用緊湊的負字距，加上粗重標題與常規內文之間的強烈對比，建立了清晰的策展階層。",
+      "ch4_intro": "結構化的 4px 基礎網格建立了穩定的節奏，確保多欄版面和寬敞留白的對齊一致。",
+      "ch5_intro": "介面表面平坦且無邊框，創造出一個無深度的、類似畫廊的平面。視覺分隔並非透過陰影或邊框達成，而是透過寬裕的間距與厚重的水平線，扮演建築式分隔符的角色。",
+      "ch6_intro": "版面骨架是嚴格的 12 欄網格，以大幅、全出血的主視覺攝影為基準，奠定編輯基調。所有文字區塊皆嚴格左對齊，建立出強烈、可預期的閱讀動線，並對視覺影像保持從屬。",
+      "ch7_intro": "動態效果是克制且功能性的，將動畫視為實用的回饋機制，而非裝飾元素。懸停時短暫平滑的透明度過渡，以及圖片簡單的線性揭示，確保介面感覺靈活，但不會流於炫技。",
+      "ch8_intro": "編輯語調是權威、 welcoming 且具文化意義的，反映了其所代表的機構。標題簡短、有力、直接，而行動呼籲則是 helpful 且導向行動的。",
+      "ch8_outro": "此系統刻意省略了圓角、陰影、裝飾性字體和複雜漸層，以維持其稜角分明、具機構感的特質。"
+    },
+    "ja": {
+      "ch1_intro": "MoMA.orgのデザインシステムは、ギャラリーウォールのように機能します。芸術作品を額装するための中立的で権威ある構造です。最小限で写真主導のエディトリアルデザインは、清潔な制度的なキャンバスを確立し、美術館のコレクションが主要な視覚的声として機能できるようにしています。",
+      "ch2_intro": "カラーパレットは意図的な抑制の実践であり、高コントラストの黒と白を使用して中立的な舞台を作り出します。1つの明るいシアンのアクセントは、美術作品と競合することなく、チケット販売やアクションコールに機能的な明瞭性を提供します。",
+      "ch2_outro": "原則はシンプルです。インターフェースは後退し、コンテンツが前面に出る必要があります。",
+      "ch3_intro": "タイポグラフィの声は完全に**MoMA Sans**で統一されています。これは制度的な権威の重みを担うカスタムのゴーシックサンスです。大きなディスプレイテキストへのtightなネガティブレタースペーシング、および太い見出しと通常の本文コントラストの鮮やかな対比が、明確なキュレーション階層を生み出します。",
+      "ch4_intro": "構造化された4pxベースグリッドは一貫したリズムを確立し、複数カラムレイアウトと豊富なホワイトスペース全体にわたり整合性を確保します。",
+      "ch5_intro": "表面はフラットでボーダーレスであり、奥行きのない、ギャラリーのような平面を作り出します。視覚的な分離は、シャドウやボーダーではなく、豊富なスペースと、建築的な区切りとして機能する太い水平ルールによって達成されます。",
+      "ch6_intro": "レイアウトの骨格は厳格な12カラムグリッドであり、エディトリアルな基調を設定する大きなフルブリードのヒーローフォトグラフィーによって固定されています。すべてのテキストブロックは厳密に左揃えにされ、視覚的なイメージに従う強い、予測可能な読書パスを作り出します。",
+      "ch7_intro": "モーションは抑制的で機能的であり、アニメーションを装飾的要素ではなく、実用的なフィードバックメカニズムとして扱います。hover時の短く滑らかな透明度の遷移と、画像のシンプルなリニアフェードインにより、インターフェースは演出的にならず、かつ応答性を感じさせます。",
+      "ch8_intro": "エディトリアルな声は、代表する制度を反映し、権威があり、歓迎的で文化的に重要です。見出しは短く、衝撃的で直接的であり、アクションコールは有益で行動指向です。",
+      "ch8_outro": "このシステムは、鋭い刃の制度的特質を維持するために、角丸、ドロップシャドウ、装飾フォント、複雑なグラデーションを意図的に省略しています。"
+    },
+    "ko": {
+      "ch1_intro": "MoMA.org를 위한 디자인 시스템은 갤러리 벽처럼 작동합니다: 예술 작품을 프레이밍하는 것이 주된 목적인 중립적이고 권위 있는 구조입니다. 그 미니멀하고 사진 중심의 에디토리얼 디자인은 깨끗한 제도적 캔버스를 확립하여, 박물관의 소장품이 주요 시각적 목소리가 될 수 있게 합니다.",
+      "ch2_intro": "팔레트는 절제에 대한 의도적인 실천으로, 고대비 흑백을 사용하여 무대를 중립적으로 만듭니다. 단 하나의 밝은 시안 액센트는 예술과 경쟁하지 않으면서 티켓팅 및 행동 유도를 위한 기능적 명확성을 제공합니다.",
+      "ch2_outro": "원칙은 간단합니다: 인터페이스는 후퇴해야 콘텐츠가 전진할 수 있습니다.",
+      "ch3_intro": "타이포그래피 목소리는 제도적 권위를 지닌 맞춤형 grotesque-sans인 **MoMA Sans**로만 설정됩니다. 큰 디스플레이 텍스트의 타이트한 네거티브 레터 스페이싱과 무거운 제목과 일반 본문 사이의 뚜렷한 대비는 명확한 큐레이션 계층을 만듭니다.",
+      "ch4_intro": "구조화된 4px 기본 그리드는 일관된 리듬을 확립하여, 다중 열 레이아웃과 넉넉한 여백 전반에 걸쳐 정렬을 보장합니다.",
+      "ch5_intro": "표면은 평면적이고 테두리가 없어, 깊이가 없는 갤러리와 같은 평면을 만듭니다. 시각적 분리는 그림자나 테두리가 아닌, 넉넉한 간격과 건축적 구분선 역할을 하는 두꺼운 수평 규칙을 통해 이루어집니다.",
+      "ch6_intro": "레이아웃 골격은 엄격한 12열 그리드로, 에디토리얼 톤을 설정하는 대형 풀블리드 히어로 사진에 의해 고정됩니다. 모든 텍스트 블록은 엄격하게 왼쪽 정렬되어, 시각적 이미지에 순응하는 강하고 예측 가능한 읽기 경로를 만듭니다.",
+      "ch7_intro": "모션은 절제되고 기능적이며, 애니메이션을 장식적 요소가 아닌 유틸리티 피드백 메커니즘으로 다룹니다. 호버를 위한 짧고 부드러운 불투명도 전환과 이미지를 위한 단순한 리니어 리빌은 인터페이스가 반응적 느낌을 주면서 과장되지 않도록 보장합니다.",
+      "ch8_intro": "에디토리얼 목소리는 권위 있고, 환영하며, 문화적으로 중요한 것으로서, 대표하는 기관을 반영합니다. 헤드라인은 짧고 강렬하며 직접적이며, 행동 유도는 도움이 되고 행동 지향적입니다.",
+      "ch8_outro": "시스템은 날카로운 모서리와 제도적 특성을 유지하기 위해 의도적으로 둥근 모서리, 드롭 섀도우, 장식용 폰트 및 복잡한 그라디언트를 생략합니다."
+    }
+  }
 }

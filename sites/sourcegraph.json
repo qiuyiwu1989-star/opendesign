@@ -8,6 +8,594 @@
     "dev",
     "code"
   ],
-  "status": "pending",
-  "added_at": "2026-06-03"
+  "status": "completed",
+  "added_at": "2026-06-03",
+  "spec": {
+    "colors": {
+      "bg": "#020202",
+      "bgSoft": "#111111",
+      "bgQuiet": "#F7F7F7",
+      "ink": "#EDEDED",
+      "inkSoft": "#606060",
+      "muted": "#A9A9A9",
+      "mutedSoft": null,
+      "accent": "#ED2D2D",
+      "line": "rgba(237,237,237,1.0)"
+    },
+    "typography": {
+      "display": "geometric-sans",
+      "body": "geometric-sans",
+      "mono": "monospace",
+      "scale": [
+        {
+          "token": "display",
+          "size": 72,
+          "lh": 1.0,
+          "weight": 600,
+          "ls": "-2px"
+        },
+        {
+          "token": "h2",
+          "size": 48,
+          "lh": 1.1,
+          "weight": 600,
+          "ls": "-1px"
+        },
+        {
+          "token": "body",
+          "size": 16,
+          "lh": 1.5,
+          "weight": 400,
+          "ls": "0.256px"
+        },
+        {
+          "token": "mono",
+          "size": 15,
+          "lh": 1.5,
+          "weight": 400,
+          "ls": "0.256px"
+        }
+      ]
+    },
+    "spacing": {
+      "base": 4,
+      "scale": [
+        4,
+        8,
+        16,
+        24,
+        32,
+        48,
+        64,
+        96
+      ]
+    },
+    "surfaces": {
+      "radius": {
+        "sm": 4,
+        "md": 8,
+        "lg": 12,
+        "pill": 999
+      }
+    },
+    "layout": {
+      "container": 1280,
+      "paragraph": 680,
+      "columns": 12,
+      "gutter": 24,
+      "breakpoints": [
+        768,
+        1024
+      ]
+    },
+    "motion": {
+      "durations": {
+        "micro": 220,
+        "small": 400,
+        "medium": 800
+      },
+      "easing": "cubic-bezier(0.16, 1, 0.3, 1)"
+    }
+  },
+  "spec_i18n": {
+    "en": {
+      "identity": {
+        "keywords": [
+          "developer",
+          "code intelligence",
+          "codebase",
+          "enterprise"
+        ],
+        "analogy": "An industrial control panel for large-scale software engineering.",
+        "oneLiner": "An enterprise-grade code intelligence platform for managing and evolving massive codebases."
+      },
+      "colors": {
+        "principle": "High-contrast dark mode with a single, aggressive red accent for primary actions."
+      },
+      "typography": {
+        "rules": [],
+        "scaleUses": [
+          "Hero headlines",
+          "Section headers",
+          "General text",
+          "Code and UI labels"
+        ]
+      },
+      "spacing": {
+        "rhythm": "4px base unit with generous vertical padding (48px, 64px, 96px) for content separation."
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(0, 0, 0, 0.08) 0px 4px 24px 0px",
+          "rgba(0, 0, 0, 0.25) 0px 8px 30px 0px",
+          "rgba(0, 0, 0, 0.5) 0px 4px 16px 0px"
+        ],
+        "borders": "1px solid rgba(237,237,237,1.0)"
+      },
+      "layout": {
+        "skeleton": "Centered single-column hero transitioning into wide multi-column feature sections."
+      },
+      "components": {
+        "button": "Solid red pill-shaped primary button; outlined or ghost secondary buttons.",
+        "card": "Dark-surfaced panels with subtle borders and 8-12px border-radius.",
+        "chip": "Pill-shaped category tags with subtle borders and high contrast text.",
+        "input": "Dark-surfaced input fields with visible focus states and 8px border-radius.",
+        "hero": "Large typography with subtle radial/gradient background patterns and a single primary CTA."
+      },
+      "motion": {
+        "patterns": [
+          "Fade-in for section reveals",
+          "Smooth hover state transitions on buttons and links"
+        ]
+      },
+      "interaction": {
+        "hover": "Subtle opacity change or background color shift.",
+        "click": "Immediate feedback via cursor pointer and transition.",
+        "transition": "all 0.2s ease-out.",
+        "keyboard": "Standard focus ring for accessibility."
+      },
+      "voice": {
+        "tone": "Authoritative, technical, and direct.",
+        "headlineStyle": "Short, action-oriented, and punchy.",
+        "ctaStyle": "Direct and practical, often involving a demo or trial.",
+        "avoid": [
+          "Frivolous or overly casual language",
+          "Excessive use of superlatives",
+          "Unclear or vague value propositions"
+        ]
+      },
+      "donts": [
+        "don't use pastel or low-chroma accents — screenshot shows a high-saturation red accent",
+        "don't use decorative or script display fonts — screenshot shows a geometric sans-serif for all headers",
+        "don't use thin or light font weights for body text — screenshot shows standard weights for legibility",
+        "don't use busy or photographic backgrounds — screenshot shows subtle, dark gradients and grid patterns",
+        "don't use excessive drop shadows — screenshot shows restrained, functional shadows for elevation",
+        "don't use large, rounded corner radii for primary containers — screenshot shows mostly 8px or pill shapes"
+      ],
+      "systemPrompt": "Sourcegraph is a premium SaaS platform for enterprise developers. The design uses a dark mode (#020202) with white/gray text (#EDEDED, #A9A9A9) and a signature high-chroma red accent (#ED2D2D). Typography is dominated by geometric sans-serif for display and body, with monospace elements for technical labels. Key constraints: avoid pastel colors, keep typography clean and geometric, use generous vertical spacing (48-96px) to prevent clutter, and ensure CTAs are high-contrast and easily identifiable. The overall vibe is industrial, high-tech, and focused."
+    },
+    "zh-CN": {
+      "identity": {
+        "keywords": [
+          "开发者",
+          "代码智能",
+          "代码库",
+          "企业级"
+        ],
+        "analogy": "大规模软件工程的工业控制面板。",
+        "oneLiner": "一个企业级代码智能平台，用于管理和演进海量代码库。"
+      },
+      "colors": {
+        "principle": "采用单一强烈的红色强调色进行主要操作的高对比度深色模式。"
+      },
+      "typography": {
+        "rules": [],
+        "scaleUses": [
+          "主视觉标题",
+          "版块标题",
+          "正文文本",
+          "代码与界面标签"
+        ]
+      },
+      "spacing": {
+        "rhythm": "以4px为基础单位，采用宽裕的垂直内边距（48px、64px、96px）进行内容分隔。"
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(0, 0, 0, 0.08) 0px 4px 24px 0px",
+          "rgba(0, 0, 0, 0.25) 0px 8px 30px 0px",
+          "rgba(0, 0, 0, 0.5) 0px 4px 16px 0px"
+        ],
+        "borders": "1px solid rgba(237,237,237,1.0)"
+      },
+      "layout": {
+        "skeleton": "居中的单栏主视觉区，过渡至宽幅多栏功能展示区。"
+      },
+      "components": {
+        "button": "实心红色药丸状主按钮；描边或幽灵样式次级按钮。",
+        "card": "深色背景面板，带有微妙边框和8-12px圆角。",
+        "chip": "药丸状分类标签，带有微妙边框和高对比度文本。",
+        "input": "深色背景输入框，具有清晰的focus状态和8px圆角。",
+        "hero": "采用大号字体，搭配微妙的径向/渐变背景图案和单一主行动号召按钮。"
+      },
+      "motion": {
+        "patterns": [
+          "版块淡入显现",
+          "按钮与链接平滑的hover状态过渡"
+        ]
+      },
+      "interaction": {
+        "hover": "微妙的透明度变化或背景色偏移。",
+        "click": "通过光标指针和过渡效果提供即时反馈。",
+        "transition": "all 0.2s ease-out。",
+        "keyboard": "标准focus环以确保可访问性。"
+      },
+      "voice": {
+        "tone": "权威、技术性强且直接。",
+        "headlineStyle": "简短、以行动为导向且有力。",
+        "ctaStyle": "直接务实，通常涉及演示或试用。",
+        "avoid": [
+          "轻浮或过于随意的语言",
+          "过度使用最高级形容词",
+          "不清晰或模糊的价值主张"
+        ]
+      },
+      "donts": [
+        "不要使用柔和或低饱和度的强调色——截图显示为高饱和度红色强调色",
+        "不要使用装饰性或手写展示字体——截图显示所有标题均为几何无衬线字体",
+        "不要为正文使用纤细或轻量的字重——截图显示为保证可读性的标准字重",
+        "不要使用复杂或摄影背景——截图显示为微妙的深色渐变与网格图案",
+        "不要使用过多的投影效果——截图显示为用于提升层次感的克制功能性阴影",
+        "不要为主要容器使用大号圆角——截图显示大多为8px圆角或药丸形状"
+      ],
+      "systemPrompt": "Sourcegraph是一个面向企业开发者的高端SaaS平台。设计采用深色模式（#020202），搭配白色/灰色文本（#EDEDED，#A9A9A9）以及标志性的高饱和度红色强调色（#ED2D2D）。字体以用于展示和正文的几何无衬线字体为主，技术标签则使用等宽字体。关键约束：避免柔和色彩，保持字体简洁几何化，采用宽裕的垂直间距（48-96px）以防止杂乱，并确保行动号召按钮具有高对比度和易识别性。整体氛围是工业级、高科技且专注的。"
+    },
+    "zh-TW": {
+      "identity": {
+        "keywords": [
+          "開發者",
+          "程式碼智慧",
+          "程式碼庫",
+          "企業級"
+        ],
+        "analogy": "大型軟體工程的工業控制面板。",
+        "oneLiner": "用於管理與演進龐大程式碼庫的企業級程式碼智慧平台。"
+      },
+      "colors": {
+        "principle": "高對比深色模式，搭配單一強烈的紅色作為主要操作的強調色。"
+      },
+      "typography": {
+        "rules": [],
+        "scaleUses": [
+          "首頁標題",
+          "章節標頭",
+          "一般內文",
+          "程式碼與介面標籤"
+        ]
+      },
+      "spacing": {
+        "rhythm": "以 4px 為基準單位，搭配寬裕的垂直內邊距（48px、64px、96px）來分隔內容區塊。"
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(0, 0, 0, 0.08) 0px 4px 24px 0px",
+          "rgba(0, 0, 0, 0.25) 0px 8px 30px 0px",
+          "rgba(0, 0, 0, 0.5) 0px 4px 16px 0px"
+        ],
+        "borders": "1px solid rgba(237,237,237,1.0)"
+      },
+      "layout": {
+        "skeleton": "置中單欄首頁版面，過渡至寬幅多欄功能展示區。"
+      },
+      "components": {
+        "button": "實心紅色膠囊形主要按鈕；外框或幽靈樣式的次要按鈕。",
+        "card": "深色面板，帶有細微邊框與 8-12px 的圓角半徑。",
+        "chip": "膠囊形分類標籤，帶有細微邊框與高對比文字。",
+        "input": "深色輸入欄位，具有明顯的聚焦狀態與 8px 圓角半徑。",
+        "hero": "大型字體搭配細微的徑向/漸層背景圖案，以及單一主要行動呼籲按鈕。"
+      },
+      "motion": {
+        "patterns": [
+          "章節顯示時的淡入效果",
+          "按鈕與連結懸停狀態的平滑過渡"
+        ]
+      },
+      "interaction": {
+        "hover": "細微的透明度變化或背景色轉換。",
+        "click": "透過游標指標與過渡效果提供即時反饋。",
+        "transition": "all 0.2s ease-out。",
+        "keyboard": "標準的無障礙聚焦環。"
+      },
+      "voice": {
+        "tone": "權威、專業且直接。",
+        "headlineStyle": "簡短、具行動力且有力。",
+        "ctaStyle": "直接且實用，通常涉及演示或試用。",
+        "avoid": [
+          "輕浮或過度隨意的用語",
+          "濫用最高級形容詞",
+          "模糊不清的價值主張"
+        ]
+      },
+      "donts": [
+        "勿使用柔和或低飽和度的強調色——截圖顯示為高飽和度紅色強調色",
+        "勿使用裝飾性或手寫展示字體——截圖顯示所有標題皆使用幾何無襯線字體",
+        "勿使用細體或輕盈字重作為內文字體——截圖顯示為標準字重以確保可讀性",
+        "勿使用繁雜或實景照片背景——截圖顯示為細微的深色漸層與網格圖案",
+        "勿使用過度的陰影效果——截圖顯示為克制、功能性的陰影以表現層次感",
+        "勿在主要容器上使用過大的圓角半徑——截圖顯示主要為 8px 或膠囊形狀"
+      ],
+      "systemPrompt": "Sourcegraph 是一個為企業開發者設計的高階 SaaS 平台。設計採用深色模式（#020202），搭配白色/灰色文字（#EDEDED、#A9A9A9）與標誌性的高飽和度紅色強調色（#ED2D2D）。字型以幾何無襯線字體為主，用於展示與內文，技術標籤則使用等寬字體。關鍵限制：避免使用柔和色彩，保持字型簡潔幾何感，採用寬裕的垂直間距（48-96px）以避免雜亂，並確保行動呼籲按鈕具有高對比度且易於識別。整體風格偏向工業感、高科技與專注。"
+    },
+    "ja": {
+      "identity": {
+        "keywords": [
+          "開発者",
+          "コードインテリジェンス",
+          "コードベース",
+          "エンタープライズ"
+        ],
+        "analogy": "大規模ソフトウェアエンジニアリングのための産業用制御パネルのようなものです。",
+        "oneLiner": "大規模コードベースの管理と進化のための、エンタープライズグレードのコードインテリジェンスプラットフォームです。"
+      },
+      "colors": {
+        "principle": "プライマリアクションには単一のアグレッシブなレッドアクセントを用いた、ハイコントラストのダークモードです。"
+      },
+      "typography": {
+        "rules": [],
+        "scaleUses": [
+          "ヒーローヘッドライン",
+          "セクション見出し",
+          "本文テキスト",
+          "コードおよびUIラベル"
+        ]
+      },
+      "spacing": {
+        "rhythm": "コンテンツの区切りとして、4pxの基本単位と、縦方向にゆったりとしたパディング（48px、64px、96px）を採用しています。"
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(0, 0, 0, 0.08) 0px 4px 24px 0px",
+          "rgba(0, 0, 0, 0.25) 0px 8px 30px 0px",
+          "rgba(0, 0, 0, 0.5) 0px 4px 16px 0px"
+        ],
+        "borders": "1px solid rgba(237,237,237,1.0)"
+      },
+      "layout": {
+        "skeleton": "中央揃えのシングルカラムヒーローから、ワイドなマルチカラムの機能セクションへと移行するレイアウトです。"
+      },
+      "components": {
+        "button": "ソリッドレッドのピル型プライマリボタン。アウトラインまたはゴーストのセカンダリボタン。",
+        "card": "ダークサーフェスのパネルで、微細なボーダーと8-12pxのボーダーラジウス。",
+        "chip": "微細なボーダーとハイコントラストテキストを持つ、ピル型のカテゴリタグ。",
+        "input": "ダークサーフェスのインプットフィールドで、明確なフォーカスステートと8pxのボーダーラジウス。",
+        "hero": "微細な放射状／グラデーション背景パターンと、単一のプライマリCTAを持つ、大きなタイポグラフィ。"
+      },
+      "motion": {
+        "patterns": [
+          "セクション表示のフェードイン",
+          "ボタンやリンクのスムーズなホバーステートトランジション"
+        ]
+      },
+      "interaction": {
+        "hover": "微細な不透明度の変化または背景色のシフト。",
+        "click": "カーソルポインタとトランジションによる即時フィードバック。",
+        "transition": "all 0.2s ease-out。",
+        "keyboard": "アクセシビリティのための標準的なフォーカスリング。"
+      },
+      "voice": {
+        "tone": "権威あり、テクニカルで、率直。",
+        "headlineStyle": "短く、アクション指向で、簡潔。",
+        "ctaStyle": "直接的で実用的。デモやトライアルを伴うことが多い。",
+        "avoid": [
+          "軽薄すぎる、または過度にカジュアルな言葉遣い",
+          "極端な修辞の過剰な使用",
+          "不明瞭または曖昧な価値提案"
+        ]
+      },
+      "donts": [
+        "パステルや低彩度のアクセントを使用しない — スクリーンショットには高彩度のレッドアクセントが示されています",
+        "装飾的またはスクリプト系のディスプレイフォントを使用しない — スクリーンショットには全ての見出しに幾何学的サンセリフが使用されています",
+        "本文テキストに細い、または軽いフォントウェイトを使用しない — スクリーンショットには可読性のために標準ウェイトが使用されています",
+        "賑やかまたは写真の背景を使用しない — スクリーンショットには微細な暗いグラデーションやグリッドパターンが示されています",
+        "過度なドロップシャドウを使用しない — スクリーンショットには、高さを表現するための抑制された機能的なシャドウが使用されています",
+        "プライマリコンテナに大きく丸みのあるコーナーラジウスを使用しない — スクリーンショットには主に8pxまたはピル型が示されています"
+      ],
+      "systemPrompt": "Sourcegraphは、エンタープライズ開発者のためのプレミアムSaaSプラットフォームです。デザインはダークモード（#020202）を採用し、白/グレーのテキスト（#EDEDED、#A9A9A9）と、特徴的な高彩度レッドアクセント（#ED2D2D）を使用しています。タイポグラフィは、ディスプレイおよび本文に幾何学的サンセリフが中心で、技術ラベルにはモノスペース要素が使われています。主な制約：パステルカラーは避ける、タイポグラフィはクリーンで幾何学的に保つ、雑然とした印象を防ぐために縦方向にゆったりとしたスペーシング（48-96px）を確保する、CTAはハイコントラストで容易に識別可能であること。全体の雰囲気はインダストリアルで、ハイテクで、集中した印象です。"
+    },
+    "ko": {
+      "identity": {
+        "keywords": [
+          "개발자",
+          "코드 인텔리전스",
+          "코드베이스",
+          "엔터프라이즈"
+        ],
+        "analogy": "대규모 소프트웨어 엔지니어링을 위한 산업 제어 패널.",
+        "oneLiner": "대규모 코드베이스를 관리하고 발전시키기 위한 엔터프라이즈급 코드 인텔리전스 플랫폼."
+      },
+      "colors": {
+        "principle": "주요 작업을 위해 단일의 강렬한 레드 액센트를 사용한 고대비 다크 모드."
+      },
+      "typography": {
+        "rules": [],
+        "scaleUses": [
+          "히어로 헤드라인",
+          "섹션 헤더",
+          "일반 텍스트",
+          "코드 및 UI 라벨"
+        ]
+      },
+      "spacing": {
+        "rhythm": "4px 기본 단위를 사용하고, 콘텐츠 분리를 위해 넉넉한 수직 패딩(48px, 64px, 96px)을 적용한다."
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(0, 0, 0, 0.08) 0px 4px 24px 0px",
+          "rgba(0, 0, 0, 0.25) 0px 8px 30px 0px",
+          "rgba(0, 0, 0, 0.5) 0px 4px 16px 0px"
+        ],
+        "borders": "1px solid rgba(237,237,237,1.0)"
+      },
+      "layout": {
+        "skeleton": "중앙 정렬된 단일 칼럼 힌어로에서 넓은 다칼럼 기능 섹션으로 전환되는 구조."
+      },
+      "components": {
+        "button": "단색 레드 필 모양의 주요 버튼; 아웃라인 또는 고스트 스타일의 보조 버튼.",
+        "card": "미세한 테두리와 8-12px border-radius를 가진 다크 서페이스 패널.",
+        "chip": "미세한 테두리와 고대비 텍스트를 가진 필 모양의 카테고리 태그.",
+        "input": "선명한 focus 상태와 8px border-radius를 가진 다크 서페이스 입력 필드.",
+        "hero": "미세한 radial/gradient 배경 패턴과 단일 주요 CTA를 사용한 큰 타이포그래피."
+      },
+      "motion": {
+        "patterns": [
+          "섹션 전환 시 페이드 인",
+          "버튼과 링크의 부드러운 호버 상태 트랜지션"
+        ]
+      },
+      "interaction": {
+        "hover": "미세한 불투명도 변화 또는 배경색 전환.",
+        "click": "커서 포인터와 트랜지션을 통한 즉각적인 피드백.",
+        "transition": "all 0.2s ease-out.",
+        "keyboard": "접근성을 위한 표준 focus ring."
+      },
+      "voice": {
+        "tone": "권위 있고 기술적이며 직설적인 어조.",
+        "headlineStyle": "짧고 행동 지향적이며 강렬한 스타일.",
+        "ctaStyle": "직접적이고 실용적인 스타일, 데모나 체험을 포함하는 경우가 많음.",
+        "avoid": [
+          "가볍거나 지나치게 캐주얼한 언어",
+          "과장된 표현의 과도한 사용",
+          "불분명하거나 모호한 가치 제안"
+        ]
+      },
+      "donts": [
+        "파스텔톤이나 저채도 액센트를 사용하지 않는다 — 스크린샷은 고채도 레드 액센트를 보여준다",
+        "장식적이거나 스크립트 계열 표시 폰트를 사용하지 않는다 — 스크린샷은 모든 헤더에 기하학적 고딕체를 사용한다",
+        "본문 텍스트에 얇거나 가벼운 폰트 웨이트를 사용하지 않는다 — 스크린샷은 가독성을 위해 표준 웨이트를 사용한다",
+        "복잡하거나 사진 배경을 사용하지 않는다 — 스크린샷은 미세한 다크 그래디언트와 그리드 패턴을 보여준다",
+        "과도한 드롭 섀도우를 사용하지 않는다 — 스크린샷은 높이감을 위한 절제된 기능적 섀도우를 사용한다",
+        "주요 컨테이너에 크고 둥근 코너 반경을 사용하지 않는다 — 스크린샷은 주로 8px 또는 필 모양을 보여준다"
+      ],
+      "systemPrompt": "Sourcegraph는 엔터프라이즈 개발자를 위한 프리미엄 SaaS 플랫폼이다. 다크 모드(#020202)를 사용하고 화이트/그레이 텍스트(#EDEDED, #A9A9A9) 및 시그니처 고채도 레드 액센트(#ED2D2D)를 적용한다. 타이포그래피는 표시 및 본문 모두에서 기하학적 고딕체가 지배적이며, 기술 라벨에는 모노스페이스 요소를 사용한다. 핵심 제약 조건: 파스텔 색상 사용 금지, 타이포그래피를 깔끔하고 기하학적으로 유지, 혼란을 방지하기 위해 넉넉한 수직 간격(48-96px) 사용, CTA는 고대비이고 쉽게 식별 가능하도록 한다. 전체적인 분위기는 산업적, 하이테크, 그리고 집중적이다."
+    }
+  },
+  "desc": {
+    "en": {
+      "palette": "A high-contrast dark palette anchored by deep blacks and crisp whites, punctuated by a single high-chroma red accent.",
+      "layout": "A clean, centered single-column layout for heroes that expands into wide, multi-column sections for detailed feature exploration.",
+      "interaction": "Smooth, subtle transitions for hover states and element reveals, maintaining a professional and responsive feel.",
+      "motion": "Minimal but effective motion used to guide the eye and provide feedback on user interactions.",
+      "notes": "A quintessential example of a modern, high-end developer tool interface that balances technical complexity with clean, authoritative design."
+    },
+    "zh-CN": {
+      "palette": "高对比度深色配色方案，以深黑色和纯白色为基调，点缀单一高饱和度红色强调色。",
+      "layout": "简洁居中的单栏布局用于主视觉区域，可扩展为宽幅多栏布局以进行详细功能展示。",
+      "interaction": "平滑、微妙的hover状态与元素显现过渡效果，保持专业且响应迅速的体验。",
+      "motion": "简洁而有效的动效，用于引导视觉焦点并为用户交互提供反馈。",
+      "notes": "这是一个现代高端开发者工具界面的典范案例，在技术复杂性与简洁权威的设计之间取得了平衡。"
+    },
+    "zh-TW": {
+      "palette": "以深邃黑色與純淨白色為基底的高對比深色調色板，點綴單一高飽和度紅色作為強調色。",
+      "layout": "首頁採用乾淨的置中單欄版面，延伸至寬幅多欄區域以進行詳細功能探索。",
+      "interaction": "為懸停狀態與元素顯示提供平滑、細微的過渡效果，維持專業且靈敏的質感。",
+      "motion": "運用極簡但有效的動態效果來引導視覺動線，並為使用者互動提供反饋。",
+      "notes": "這是現代高端開發者工具介面的典型範例，完美平衡技術複雜度與簡潔權威的設計風格。"
+    },
+    "ja": {
+      "palette": "深みのある黒と鮮やかな白を基調とした、コントラストの高い暗色パレットに、単一の高彩度レッドアクセントを配したものです。",
+      "layout": "ヒーローセクションにはクリーンで中央揃えのシングルカラム、詳細な機能説明にはワイドでマルチカラムに展開する、清潔なレイアウトです。",
+      "interaction": "ホバーステートや要素の表示に、滑らかで微細なトランジションを用い、プロフェッショナルで応答性の高い印象を維持します。",
+      "motion": "視線を誘導し、ユーザーインタラクションにフィードバックを提供するために、最小限だが効果的なモーションを採用しています。",
+      "notes": "技術的な複雑さとクリーンで権威あるデザインのバランスを実現した、モダンでハイエンドな開発者ツールインターフェースの典型的な例です。"
+    },
+    "ko": {
+      "palette": "깊은 블랙과 선명한 화이트를 기반으로 한 고대비 다크 팔레트에, 단 하나의 고채도 레드 액센트로 포인트를 준다.",
+      "layout": "히어로 섹션에는 깔끔하고 중앙 정렬된 단일 칼럼 레이아웃을 사용하고, 상세 기능 탐색을 위한 섹션으로는 넓은 다칼럼 구조로 확장한다.",
+      "interaction": "호버 상태와 요소 전환 시 부드럽고 섬세한 트랜지션을 적용하여 전문적이고 반응적인 느낌을 유지한다.",
+      "motion": "최소한이지만 효과적인 모션을 사용하여 시선을 유도하고 사용자 인터랙션에 대한 피드백을 제공한다.",
+      "notes": "기술적 복잡성과 깔끔하고 권위 있는 디자인의 균형을 이룬 현대적이고 고급 개발자 도구 인터페이스의 대표적인 예시이다."
+    }
+  },
+  "_meta": {
+    "vision_model": "mimo-v2.5",
+    "vision_prompt_version": "0.3",
+    "vision_source": "playwright-extract:sourcegraph",
+    "vision_grounded": true,
+    "vision_at": "2026-06-04T18:52:32+00:00",
+    "vision_tokens": 17151,
+    "vision_cost_usd": 0.1906,
+    "translation_model": "mimo-v2.5",
+    "translation_at": "2026-06-04T18:53:47+00:00",
+    "translation_tokens": 16585,
+    "translation_cost_usd": 0.0554,
+    "narrative_model": "mimo-v2.5",
+    "narrative_prompt_version": "0.3",
+    "narrative_at": "2026-06-04T18:53:56+00:00",
+    "narrative_tokens": 2026,
+    "narrative_cost_usd": 0.0135,
+    "narrative_status": "ok",
+    "total_cost_usd": 0.2595
+  },
+  "narrative": {
+    "en": {
+      "ch1_intro": "The Sourcegraph system operates as an industrial control panel for large-scale software engineering, where every interface element is a precise instrument. Its identity is defined by developer-centric utility: code intelligence, codebase management, and enterprise-grade control.",
+      "ch2_intro": "The palette is a high-contrast dark mode, a deep field of #020202 that recedes to let content and action dominate. A single, aggressive red accent is the system's sole chromatic voice, reserved for primary actions to cut through the darkness with unambiguous intent.",
+      "ch2_outro": "The principle is functional contrast: color is not decoration, but a direct signal for priority.",
+      "ch3_intro": "Typography is set in a geometric sans-serif, its clean lines and consistent stroke weights forming a voice that is authoritative and technical. The scale supports clear hierarchy, from hero headlines down through general text and monospace elements for technical labels.",
+      "ch4_intro": "Rhythm is established by a strict 4px base unit, with generous vertical padding—48px, 64px, 96px—creating deliberate separation between content blocks.",
+      "ch5_intro": "Depth is communicated through restrained shadow and border work on dark surfaces. Subtle borders and a limited shadow palette—functional, not decorative—define elevation without visual clutter.",
+      "ch6_intro": "The layout skeleton begins as a centered, single-column stage for hero messaging. It then expands into wide, multi-column sections for detailed feature exploration, guiding the user from proposition to proof.",
+      "ch7_intro": "Motion is minimal and purposeful, used for functional feedback rather than flourish. Section reveals use a simple fade-in, while interactive elements employ smooth, immediate transitions to confirm user input.",
+      "ch8_intro": "The editorial voice is authoritative, technical, and direct. Headlines are short and action-oriented, CTAs are practical and specific, and the language avoids any hint of frivolity or vague superlatives.",
+      "ch8_outro": "The system deliberately avoids pastel accents, decorative fonts, thin type weights, photographic backgrounds, and excessive shadow or radius treatments."
+    },
+    "zh-CN": {
+      "ch1_intro": "Sourcegraph 系统如同一套工业控制面板，专为大规模软件工程而设，界面中的每个元素都是精确的仪器。其身份由开发者至上的实用主义定义：代码智能、代码库管理以及企业级控制。",
+      "ch2_intro": "调色板采用高对比度深色模式，以 #020202 的深邃底色退居幕后，让内容和操作成为焦点。一抹极具张力的红色强调色是系统唯一的色彩语言，保留给主要操作，在黑暗中划出毫不含糊的意图。",
+      "ch2_outro": "其原则是功能性对比：颜色并非装饰，而是优先级的直接信号。",
+      "ch3_intro": "字体采用几何无衬线体，其利落的线条与一致的笔画粗细，塑造出权威且技术感十足的视觉语调。字体比例支持清晰的层级划分，从核心标题到正文文本，再到用于技术标签的等宽元素。",
+      "ch4_intro": "版式节奏基于严格的 4px 基准单位建立，配合充裕的垂直内边距——48px、64px、96px——在内容块之间创造出刻意的分隔。",
+      "ch5_intro": "深度通过深色表面上克制的阴影与边框处理来传达。微妙的边框和有限的阴影色板——实用而非装饰——定义了视觉层次，避免杂乱。",
+      "ch6_intro": "布局骨架始于一个居中的单栏舞台，用于展示核心信息。随后扩展为宽阔的多栏区域，用于详细功能探索，引导用户从价值主张走向事实证明。",
+      "ch7_intro": "动效极简且有目的，用于提供功能性反馈而非修饰。段落揭示采用简单的渐显效果，而交互元素则使用平滑、即时的过渡来确认用户操作。",
+      "ch8_intro": "编辑语调权威、技术且直接。标题简短、行动导向，CTA 务实具体，语言避免任何轻浮暗示或模糊的最高级修饰。",
+      "ch8_outro": "该系统刻意避免使用柔和的强调色、装饰性字体、细体字重、摄影背景，以及过度的阴影或圆角处理。"
+    },
+    "zh-TW": {
+      "ch1_intro": "Sourcegraph 系統運作如同大規模軟體工程的工業控制面板，每個介面元件都是精準的儀器。其身份由開發者導向的實用性所定義：程式碼智慧、程式碼庫管理，以及企業級控制。",
+      "ch2_intro": "色盤採用高對比深色模式，以一片深邃的 #020202 為基底，退居幕後以讓內容與操作成為主導。一道單一、強烈的紅色強調色是系統唯一的色彩聲音，保留給主要操作，以明確無誤的意圖劃破黑暗。",
+      "ch2_outro": "原則是功能性對比：色彩並非裝飾，而是優先級的直接訊號。",
+      "ch3_intro": "字體設定採用幾何無襯線字體，其簡潔的線條與一致的筆畫粗細，塑造出一種權威且技術性的聲音。字級尺度支援清晰的層級結構，從英雄標題一路向下延伸至一般文字與技術標籤的等寬字體元素。",
+      "ch4_intro": "節奏由嚴格的 4px 基礎單位建立，搭配寬裕的垂直內距——48px、64px、96px——在內容區塊之間創造刻意的分隔。",
+      "ch5_intro": "深度透過深色表面上克制的陰影與邊框處理來傳達。細微的邊框與有限的陰影色盤——功能性而非裝飾性——定義了視覺層級，而不造成雜亂。",
+      "ch6_intro": "佈局骨架始於一個居中的單欄舞台，用於英雄訊息。隨後擴展為寬幅的多欄區段，以探索詳細功能，引導使用者從主張走向證據。",
+      "ch7_intro": "動態效果極簡且有目的性，用於功能性回饋而非華麗修飾。區段揭示採用簡單的淡入效果，而互動元素則使用流暢、即時的過渡來確認使用者輸入。",
+      "ch8_intro": "編輯語氣是權威、技術性且直接的。標題簡短且著重行動，號召性用語務實且具體，語言避免任何輕浮或模糊的最高級形容詞。",
+      "ch8_outro": "系統刻意避開柔和色調的強調色、裝飾性字體、細字重、攝影背景，以及過度的陰影或圓角處理。"
+    },
+    "ja": {
+      "ch1_intro": "Sourcegraphシステムは、大規模ソフトウェアエンジニアリングのための産業制御盤として機能し、すべてのインターフェース要素が精密な計器です。そのアイデンティティは、開発者中心の実用性によって定義されます。コードインテリジェンス、コードベース管理、そしてエンタープライズグレードの制御です。",
+      "ch2_intro": "パレットは高コントラストのダークモードであり、コンテンツとアクションを支配できるよう、#020202の深いフィールドが後退します。単一の、アグレッシブな赤のアクセントが、システムの唯一のクロマティックボイスとなり、明確な意図を持って闇を切り裂くプライマリアクションにのみ使用されます。",
+      "ch2_outro": "原則は機能的コントラストです。色は装飾ではなく、優先度に対する直接的なシグナルです。",
+      "ch3_intro": "タイポグラフィは幾何学的なsans-serifで設定され、その清潔な線と一貫したストロークウェイトが、権威があり技術的なボイスを形成します。ヒーローヘッドラインから、一般テキスト、そして技術ラベルのためのモノスペース要素まで、明確な階層をサポートするスケールです。",
+      "ch4_intro": "リズムは厳密な4pxの基本単位で確立され、余裕のある垂直パディング（48px、64px、96px）により、コンテンツブロック間に意図的な分離を生み出します。",
+      "ch5_intro": "深みは、ダークサーフェスでの控えめなシャドウとボーダーワークによって伝えられます。控えめなボーダーと限定的なシャドウパレット（機能的で装飾的ではないもの）が、視覚的な杂音なしに浮き出りを定義します。",
+      "ch6_intro": "レイアウトの骨格は、ヒーローメッセージのためのセンタリングされた単一カラムステージとして始まります。その後、詳細な機能探索のための広いマルチカラムセクションに展開し、ユーザーを主張から証明へと導きます。",
+      "ch7_intro": "モーションは最小限かつ目的をもち、華やかさよりも機能的フィードバックに使用されます。セクションの表示にはシンプルなフェードインを使用し、インタラクティブな要素はユーザー入力を確認するためにスムーズで即座のトランジションを採用します。",
+      "ch8_intro": "エディトリアルボイスは、権威があり、技術的で、直接的です。ヘッドラインは短くアクション志向、CTAは実用的で具体的であり、言葉選びは軽薄さや曖昧な最高級の示唆を避けます。",
+      "ch8_outro": "システムは、パステルアクセント、装飾的なフォント、細いタイプウェイト、写真背景、および過度なシャドウやラジウス処理を意図的に回避しています。"
+    },
+    "ko": {
+      "ch1_intro": "Sourcegraph 시스템은 대규모 소프트웨어 엔지니어링을 위한 산업 제어 패널로 작동하며, 모든 인터페이스 요소는 정밀한 도구입니다.Its identity is defined by developer-centric utility: code intelligence, codebase management, and enterprise-grade control.",
+      "ch2_intro": "팔레트는 고대비 다크 모드로, #020202의 깊은 배경이 내용과 액션이 주도하도록 물러섭니다. 단 하나의 강렬한 빨간색 악센트는 시스템의 유일한 색채 음성으로, 주요 액션에만预留되어 의도를 명확하게 전달합니다.",
+      "ch2_outro": "원칙은 기능적 대비입니다: 색상은 장식이 아니라 우선순위를 나타내는 직접적인 신호입니다.",
+      "ch3_intro": "타이포그래피는 기하학적 sans-serif로 설정되어, 깔끔한 라인과 일관된 스트로크 두께가 권위적이고 기술적인 음성을 형성합니다. 스케일은 히어로 헤드라인부터 일반 텍스트와 기술 레이블을 위한 monospace 요소에 이르기까지 명확한 계층 구조를 지원합니다.",
+      "ch4_intro": "리듬은 4px 기본 단위의 엄격한 기반으로 확립되며, 넉넉한 수직 패딩—48px, 64px, 96px—이 콘텐츠 블록 사이에 의도적인 분리를 만듭니다.",
+      "ch5_intro": "깊이는 다크 표면 위의 절제된 그림자와 테두리 작업을 통해 전달됩니다. 미세한 테두리와 제한된 팔레트의 그림자—기능적이지 장식적이 아닌—가 시각적 혼란 없이 높이를 정의합니다.",
+      "ch6_intro": "레이아웃 스켈레톤은 히어로 메시징을 위한 중앙 정렬 단일 열 무대로 시작됩니다. 그런 다음 상세한 기능 탐색을 위해 넓은 다중 열 섹션으로 확장되어, 사용자를 제안에서 증거로 안내합니다.",
+      "ch7_intro": "모션은 최소한이면서 의도적이며, 과시보다는 기능적 피드백에 사용됩니다. 섹션 표시는 간단한 fade-in을 사용하고, 인터랙티브 요소는 사용자 입력을 확인하기 위해 부드럽고 즉각적인 전환을 적용합니다.",
+      "ch8_intro": "에디토리얼 음성은 권위적, 기술적, 그리고 직접적입니다. 헤드라인은 짧고 액션 지향적이며, CTA는 실용적이고 구체적이며, 언어는 가벼움이나 모호한 극찬의 뉘앙스를 피합니다.",
+      "ch8_outro": "시스템은 파스텔 악센트, 장식 폰트, 얇은 타입 웨이트, 사진 배경, 그리고 과도한 그림자 또는 반지름 처리를 의도적으로 피합니다."
+    }
+  }
 }

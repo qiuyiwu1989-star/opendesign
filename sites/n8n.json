@@ -8,6 +8,649 @@
     "dev",
     "automation"
   ],
-  "status": "pending",
-  "added_at": "2026-06-03"
+  "status": "completed",
+  "added_at": "2026-06-03",
+  "spec": {
+    "colors": {
+      "bg": "#0e0918",
+      "bgSoft": "#1a1624",
+      "bgQuiet": "#151020",
+      "ink": "#d1cece",
+      "inkSoft": "#9d9797",
+      "muted": "#6f6f6f",
+      "mutedSoft": "#4b4b4b",
+      "accent": "#ee4f27",
+      "line": "rgba(111,111,111,0.3)"
+    },
+    "typography": {
+      "display": "geometric-sans",
+      "body": "geometric-sans",
+      "mono": "monospace",
+      "scale": [
+        {
+          "token": "display",
+          "size": 56,
+          "lh": 1.1,
+          "weight": 600,
+          "ls": "-1px"
+        },
+        {
+          "token": "h2",
+          "size": 40,
+          "lh": 1.2,
+          "weight": 600,
+          "ls": "-0.5px"
+        },
+        {
+          "token": "body-lg",
+          "size": 20,
+          "lh": 1.5,
+          "weight": 400,
+          "ls": "0"
+        },
+        {
+          "token": "body",
+          "size": 16,
+          "lh": 1.5,
+          "weight": 400,
+          "ls": "0"
+        },
+        {
+          "token": "caption",
+          "size": 12,
+          "lh": 1.2,
+          "weight": 600,
+          "ls": "1px"
+        }
+      ]
+    },
+    "spacing": {
+      "base": 4,
+      "scale": [
+        4,
+        8,
+        12,
+        16,
+        20,
+        24,
+        32,
+        40,
+        48,
+        64,
+        96
+      ]
+    },
+    "surfaces": {
+      "radius": {
+        "sm": 4,
+        "md": 8,
+        "lg": 16,
+        "pill": 999
+      }
+    },
+    "layout": {
+      "container": 1280,
+      "paragraph": 680,
+      "columns": 12,
+      "gutter": 24,
+      "breakpoints": [
+        768,
+        1024
+      ]
+    },
+    "motion": {
+      "durations": {
+        "micro": 150,
+        "small": 200,
+        "medium": 300
+      },
+      "easing": "cubic-bezier(0.25, 0.46, 0.45, 0.94)"
+    }
+  },
+  "spec_i18n": {
+    "en": {
+      "identity": {
+        "keywords": [
+          "workflow",
+          "automation",
+          "visual",
+          "AI agents",
+          "developer"
+        ],
+        "analogy": "An IDE for connecting APIs and AI, styled like a high-end developer tool.",
+        "oneLiner": "A dark-themed developer tool landing page using high-contrast orange accents and clean sans-serif typography to present AI workflows."
+      },
+      "colors": {
+        "principle": "High-contrast dark UI with vibrant orange focal points and strictly restrained secondary colors."
+      },
+      "typography": {
+        "rules": [
+          "All typography uses a geometric sans-serif family (Geomanist).",
+          "Headlines use tight tracking (-1px) and semi-bold weights.",
+          "Body text remains at 400 weight for readability."
+        ],
+        "scaleUses": [
+          "Hero headlines",
+          "Section headers",
+          "Subheadings and descriptions",
+          "Standard body text",
+          "Labels and navigation"
+        ]
+      },
+      "spacing": {
+        "rhythm": "Standard 4px base grid with generous padding (48px) for major sections."
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 1px 0px 0px inset rgba(255,142,93,0.3)",
+          "0px 0px 0px 1px inset rgba(255,255,255,0.1)",
+          "1px 2px 8px 0px rgba(0,0,0,0.35)"
+        ],
+        "borders": "1px solid rgba(111,111,111,0.3)"
+      },
+      "layout": {
+        "skeleton": "Standard max-width container with centered content, left-aligned text in the hero."
+      },
+      "components": {
+        "button": "Solid orange (#ee4f27) for primary actions, dark outlined for secondary, pill-radius.",
+        "card": "Dark background with subtle border and box-shadow for depth.",
+        "chip": "Not explicitly prominent, but checkmark indicators use a clean, minimal style.",
+        "input": "Dark backgrounds with subtle borders.",
+        "hero": "Large centered headline, two CTA buttons, and a prominent 3D graphic."
+      },
+      "motion": {
+        "patterns": [
+          "Smooth color and background-color transitions on hover (0.2s).",
+          "Transform and opacity transitions for interactive state changes (0.3s).",
+          "Subtle easing for all UI element state changes."
+        ]
+      },
+      "interaction": {
+        "hover": "Smooth color and background transitions, subtle scale or translate on buttons.",
+        "click": "Visual feedback via background color change or opacity.",
+        "transition": "All interactive elements use a 0.2s to 0.3s cubic-bezier easing.",
+        "keyboard": "Standard focusable elements (buttons, links) follow system defaults."
+      },
+      "voice": {
+        "tone": "Direct, professional, and developer-focused.",
+        "headlineStyle": "Concise, action-oriented statements (e.g., 'Move fast. Break nothing.').",
+        "ctaStyle": "Clear and direct calls to action ('Get started for free', 'Talk to sales').",
+        "avoid": [
+          "Overly casual or playful language.",
+          "Excessive jargon not related to workflow automation.",
+          "Cluttered or chaotic layouts.",
+          "Bright, multi-colored palettes.",
+          "Heavy, decorative serif fonts."
+        ]
+      },
+      "donts": [
+        "Don't use playful or rounded fonts — screenshot shows a clean geometric sans-serif.",
+        "Don't use a light background — screenshot shows a deep dark navy (#0e0918) background.",
+        "Don't use multiple high-chroma colors — screenshot uses orange as the sole dominant accent.",
+        "Don't use complex or busy background patterns — screenshot uses clean dark gradients and subtle radial glows.",
+        "Don't use wide, airy letter-spacing in headlines — screenshot shows tight, compact tracking.",
+        "Don't use heavy drop shadows — screenshot uses subtle inset glows and thin borders for depth."
+      ],
+      "systemPrompt": "This site is a developer-focused SaaS landing page for workflow automation. It uses a dark mode theme with a deep navy background (#0e0918) and a single dominant high-chroma orange accent (#ee4f27) for primary calls to action. The typography consists of clean, geometric sans-serif fonts (Geomanist) with semi-bold weights for headlines and standard weights for body text. Critical design constraints include: never use light or white backgrounds, never use multiple competing accent colors, and always maintain a clean, professional layout with subtle depth cues like inset glows rather than heavy shadows. The tone is direct and professional, targeting technical teams."
+    },
+    "zh-CN": {
+      "identity": {
+        "keywords": [
+          "工作流",
+          "自动化",
+          "可视化",
+          "AI 代理",
+          "开发者"
+        ],
+        "analogy": "一个连接 API 和 AI 的 IDE，风格类似高端开发者工具。",
+        "oneLiner": "一个深色主题的开发者工具着陆页，使用高对比度的橙色强调色和简洁的无衬线字体来呈现 AI 工作流。"
+      },
+      "colors": {
+        "principle": "高对比度的深色 UI，搭配鲜亮的橙色焦点，并严格限制次要颜色的使用。"
+      },
+      "typography": {
+        "rules": [
+          "所有排版使用几何无衬线字体系列（Geomanist）。",
+          "标题使用紧凑的字间距（-1px）和半粗字重。",
+          "正文保持 400 字重以确保可读性。"
+        ],
+        "scaleUses": [
+          "首屏大标题",
+          "章节标题",
+          "小标题和描述文字",
+          "标准正文",
+          "标签和导航"
+        ]
+      },
+      "spacing": {
+        "rhythm": "标准的 4px 基础网格，主要区块采用宽松的 padding（48px）。"
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 1px 0px 0px inset rgba(255,142,93,0.3)",
+          "0px 0px 0px 1px inset rgba(255,255,255,0.1)",
+          "1px 2px 8px 0px rgba(0,0,0,0.35)"
+        ],
+        "borders": "1px solid rgba(111,111,111,0.3)"
+      },
+      "layout": {
+        "skeleton": "标准最大宽度容器，内容居中，首屏文本左对齐。"
+      },
+      "components": {
+        "button": "主操作按钮为实心橙色（#ee4f27），次要按钮为深色描边，采用药丸形圆角。",
+        "card": "深色背景，带有细微的边框和 box-shadow 以营造层次感。",
+        "chip": "并非明确突出，但勾选指示器采用简洁、最小化的样式。",
+        "input": "深色背景，带有细微边框。",
+        "hero": "居中显示的大标题，两个 CTA 按钮，以及一个突出的 3D 图形。"
+      },
+      "motion": {
+        "patterns": [
+          "hover 状态下颜色和背景色平滑过渡（0.2s）。",
+          "交互状态变化时进行 transform 和 opacity 过渡（0.3s）。",
+          "所有 UI 元素的状态变化使用细腻的缓动效果。"
+        ]
+      },
+      "interaction": {
+        "hover": "颜色和背景平滑过渡，按钮带有细微的缩放或位移效果。",
+        "click": "通过背景色变化或透明度变化提供视觉反馈。",
+        "transition": "所有交互元素使用 0.2s 到 0.3s 的 cubic-bezier 缓动。",
+        "keyboard": "标准可聚焦元素（按钮、链接）遵循系统默认设置。"
+      },
+      "voice": {
+        "tone": "直接、专业，并聚焦于开发者。",
+        "headlineStyle": "简洁、面向行动的陈述（例如，'快速行动。零破坏。'）。",
+        "ctaStyle": "清晰直接的行动号召（'免费开始'，'联系销售'）。",
+        "avoid": [
+          "过于随意或俏皮的语言。",
+          "与工作流自动化无关的过多行话。",
+          "杂乱或混乱的布局。",
+          "明亮、多彩的配色方案。",
+          "厚重、装饰性的衬线字体。"
+        ]
+      },
+      "donts": [
+        "不要使用俏皮或圆润的字体——截图显示的是简洁的几何无衬线字体。",
+        "不要使用浅色背景——截图显示的是深色海军蓝（#0e0918）背景。",
+        "不要使用多种高饱和度颜色——截图使用橙色作为唯一的主导强调色。",
+        "不要使用复杂或繁忙的背景图案——截图使用干净的深色渐变和细微的径向光晕。",
+        "不要在标题中使用宽阔、松散的字母间距——截图显示的是紧凑、压缩的字间距。",
+        "不要使用厚重的投影——截图使用细微的内发光和细边框来营造层次感。"
+      ],
+      "systemPrompt": "这是一个面向开发者的工作流自动化 SaaS 着陆页。它使用深色模式主题，背景为深海军蓝（#0e0918），主要行动号召使用单一主导的高饱和度橙色强调色（#ee4f27）。排版采用简洁的几何无衬线字体（Geomanist），标题使用半粗字重，正文使用标准字重。关键设计约束包括：永远不要使用浅色或白色背景，永远不要使用多种相互竞争的强调色，并始终保持简洁、专业的布局，使用细微的深度提示（如内发光）而非厚重的阴影。语气直接且专业，面向技术团队。"
+    },
+    "zh-TW": {
+      "identity": {
+        "keywords": [
+          "工作流程",
+          "自動化",
+          "視覺化",
+          "AI 代理",
+          "開發者"
+        ],
+        "analogy": "如同用於連接 API 與 AI 的 IDE，風格彷彿高端開發者工具。",
+        "oneLiner": "一個採用深色主題的開發者工具登陸頁，使用高對比橙色強調色與簡潔的無襯線字體，來呈現 AI 工作流程。"
+      },
+      "colors": {
+        "principle": "高對比深色 UI，搭配鮮明的橙色焦點，並嚴格限制輔助色彩。"
+      },
+      "typography": {
+        "rules": [
+          "所有字體均使用幾何無襯線字族 (Geomanist)。",
+          "標題採用緊湊的字距 (-1px) 與半粗體字重。",
+          "內文字重維持 400 以確保可讀性。"
+        ],
+        "scaleUses": [
+          "主標題",
+          "區塊標題",
+          "副標題與描述",
+          "標準內文",
+          "標籤與導航"
+        ]
+      },
+      "spacing": {
+        "rhythm": "標準 4px 基礎網格，主要區塊搭配寬裕的內距 (48px)。"
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 1px 0px 0px inset rgba(255,142,93,0.3)",
+          "0px 0px 0px 1px inset rgba(255,255,255,0.1)",
+          "1px 2px 8px 0px rgba(0,0,0,0.35)"
+        ],
+        "borders": "1px solid rgba(111,111,111,0.3)"
+      },
+      "layout": {
+        "skeleton": "標準最大寬度容器，內容置中，主標題文字左對齊。"
+      },
+      "components": {
+        "button": "主要操作按鈕採用實心橙色 (#ee4f27)，次要按鈕採用深色描邊，圓角膠囊造型。",
+        "card": "深色背景，搭配微妙的邊框與 box-shadow 以增加深度感。",
+        "chip": "未特別突出，但勾選指示器採用簡潔、極簡的風格。",
+        "input": "深色背景，搭配細微邊框。",
+        "hero": "大型置中標題，兩個 CTA 按鈕，以及一個顯眼的 3D 圖形。"
+      },
+      "motion": {
+        "patterns": [
+          "hover 時，顏色與背景色進行流暢過渡 (0.2s)。",
+          "互動狀態變化時，採用 transform 與 opacity 的過渡動畫 (0.3s)。",
+          "所有 UI 元素的狀態變化均使用細微的緩動效果。"
+        ]
+      },
+      "interaction": {
+        "hover": "流暢的顏色與背景過渡，按鈕可搭配細微的縮放或位移。",
+        "click": "透過背景色變化或透明度提供視覺回饋。",
+        "transition": "所有互動元素使用 0.2s 至 0.3s 的 cubic-bezier 緩動過渡。",
+        "keyboard": "標準可聚焦元素（按鈕、連結）遵循系統預設行為。"
+      },
+      "voice": {
+        "tone": "直接、專業，並聚焦於開發者。",
+        "headlineStyle": "簡潔、以行動為導向的陳述（例如：「快速前進，無所破壞。」）。",
+        "ctaStyle": "清晰直接的行動呼籲（「免費開始使用」、「聯繫銷售團隊」）。",
+        "avoid": [
+          "過度休閒或俏皮的語言。",
+          "與工作流程自動化無關的過多術語。",
+          "雜亂或混亂的佈局。",
+          "明亮、多彩的調色板。",
+          "厚重、裝飾性的襯線字體。"
+        ]
+      },
+      "donts": [
+        "不要使用俏皮或圓潤的字體——截圖顯示的是簡潔的幾何無襯線字體。",
+        "不要使用淺色背景——截圖顯示的是深海軍藍 (#0e0918) 背景。",
+        "不要使用多種高飽和度顏色——截圖僅使用橙色作為唯一的主導強調色。",
+        "不要使用複雜或雜亂的背景圖案——截圖使用簡潔的深色漸層與微妙的放射狀光暈。",
+        "不要在標題中使用寬鬆、空靈的字距——截圖顯示的是緊湊、緊密的字距。",
+        "不要使用厚重的投影——截圖使用細微的內陰影與細邊框來營造深度感。"
+      ],
+      "systemPrompt": "此網站是一個專注於開發者的 SaaS 登陸頁，用於工作流程自動化。它採用深色模式主題，背景為深海軍藍 (#0e0918)，並使用單一主導的高飽和度橙色強調色 (#ee4f27) 作為主要行動呼籲。字體採用簡潔的幾何無襯線字體 (Geomanist)，標題為半粗體字重，內文為標準字重。關鍵設計限制包括：絕不使用淺色或白色背景、絕不使用多種相互競爭的強調色，並始終保持簡潔、專業的佈局，使用如內陰影等細微深度提示，而非厚重的投影。語氣直接且專業，目標受眾為技術團隊。"
+    },
+    "ja": {
+      "identity": {
+        "keywords": [
+          "ワークフロー",
+          "自動化",
+          "ビジュアル",
+          "AIエージェント",
+          "開発者"
+        ],
+        "analogy": "APIとAIを接続するためのIDE。ハイエンドな開発者ツールのようにスタイル化されています。",
+        "oneLiner": "ハイコントラストのオレンジアクセントとクリーンなsans-serifタイポグラフィを用いた、AIワークフローを提示するダークテーマの開発者ツールランディングページ。"
+      },
+      "colors": {
+        "principle": "鮮やかなオレンジを焦点としたハイコントラストダークUIと、厳しく抑制されたセカンダリカラー。"
+      },
+      "typography": {
+        "rules": [
+          "すべてのタイポグラフィには、幾何学的sans-serifファミリ（Geomanist）を使用。",
+          "見出しにはタイトなカーニング（-1px）とセミボールドウェイトを採用。",
+          "本文は可読性のために400ウェイトを維持。"
+        ],
+        "scaleUses": [
+          "ヒーローヘッドライン",
+          "セクション見出し",
+          "小見出しと説明",
+          "標準本文テキスト",
+          "ラベルとナビゲーション"
+        ]
+      },
+      "spacing": {
+        "rhythm": "標準4pxベースグリッドと、主要セクション用の広めのpadding（48px）。"
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 1px 0px 0px inset rgba(255,142,93,0.3)",
+          "0px 0px 0px 1px inset rgba(255,255,255,0.1)",
+          "1px 2px 8px 0px rgba(0,0,0,0.35)"
+        ],
+        "borders": "1px solid rgba(111,111,111,0.3)"
+      },
+      "layout": {
+        "skeleton": "コンテンツを中央揃えにした標準の最大幅コンテナ。ヒーローではテキストを左揃え。"
+      },
+      "components": {
+        "button": "プライマリアクションには塗りつぶしオレンジ（#ee4f27）、セカンダリにはダークなアウトライン、ピルボーダーラディウス。",
+        "card": "奥行きを出すために、微妙なボーダーとボックスシャドウを持つダーク背景。",
+        "chip": "明確に目立つものではないが、チェックマークインジケーターはクリーンでミニマルなスタイルを使用。",
+        "input": "微妙なボーダーを持つダーク背景。",
+        "hero": "大きな中央揃えの見出し、2つのCTAボタン、そして目立つ3Dグラフィック。"
+      },
+      "motion": {
+        "patterns": [
+          "hover時のスムーズなcolorおよびbackground-colorトランジション（0.2秒）。",
+          "インタラクティブ状態変化のためのtransformおよびopacityトランジション（0.3秒）。",
+          "すべてのUI要素の状態変化にかかる微妙なイージング。"
+        ]
+      },
+      "interaction": {
+        "hover": "スムーズなcolorおよびbackgroundトランジション、ボタンに対する微妙なscaleまたはtranslate。",
+        "click": "background color変化または不透明度による視覚的フィードバック。",
+        "transition": "すべてのインタラクティブ要素は0.2秒から0.3秒のcubic-bezierイージングを使用。",
+        "keyboard": "標準のフォーカス可能な要素（ボタン、リンク）はシステムのデフォルトに従う。"
+      },
+      "voice": {
+        "tone": "率直で、プロフェッショナル、開発者向け。",
+        "headlineStyle": "簡潔で、行動を促すフレーズ（例：「素早く動け。何も壊すな。」）。",
+        "ctaStyle": "明確で直接的な行動喚起（「無料で始める」「営業に相談」）。",
+        "avoid": [
+          "過度にカジュアルまたは遊び心のある言葉遣い。",
+          "ワークフロー自動化に関連しない過度な専門用語。",
+          "ごちゃごちゃした、または混沌としたレイアウト。",
+          "明るく、多色のカラーパレット。",
+          "重厚で装飾的なセリフフォント。"
+        ]
+      },
+      "donts": [
+        "遊び心のある、または丸みのあるフォントを使用しない — スクリーンショットはクリーンな幾何学的sans-serifを示している。",
+        "明るい背景を使用しない — スクリーンショットは深いダークネイビー（#0e0918）の背景を示している。",
+        "複数の高彩度カラーを使用しない — スクリーンショットはオレンジを唯一の支配的なアクセントとして使用している。",
+        "複雑で忙しない背景パターンを使用しない — スクリーンショットはクリーンなダークグラデーションと微妙なレディアルグローを使用している。",
+        "見出しに広く余裕のある文字間隔を使用しない — スクリーンショットはタイトでコンパクトなカーニングを示している。",
+        "重いドロップシャドウを使用しない — スクリーンショットは奥行きのための微妙なインセットグローと細いボーダーを使用している。"
+      ],
+      "systemPrompt": "このサイトは、ワークフロー自動化に焦点を当てた開発者向けSaaSランディングページです。ダークモードテーマを採用し、深いネイビー背景（#e0918）と、プライマリアクションのための唯一の支配的な高彩度オレンジアクセント（#ee4f27）を使用しています。タイポグラフィはクリーンな幾何学的sans-serifフォント（Geomanist）で、見出しにはセミボールドウェイト、本文には標準ウェイトを使用しています。重要なデザイン制約には、明るいまたは白い背景の使用禁止、複数の競合するアクセントカラーの使用禁止、そして重いシャドウではなくインセットグローなどの奥行きの手がかりを用いたクリーンでプロフェッショナルなレイアウトの維持が含まれます。トーンは率直でプロフェッショナルであり、技術チームをターゲットにしています。"
+    },
+    "ko": {
+      "identity": {
+        "keywords": [
+          "워크플로",
+          "자동화",
+          "비주얼",
+          "AI 에이전트",
+          "개발자"
+        ],
+        "analogy": "API와 AI를 연결하기 위한 IDE처럼 스타일링된 고급 개발자 도구.",
+        "oneLiner": "고대비 오렌지 액센트와 깔끔한 산세리프 타이포그래피를 사용하여 AI 워크플로를 선보이는 다크 테마 개발자 도구 랜딩 페이지."
+      },
+      "colors": {
+        "principle": "화려한 오렌지 초점과 엄격하게 절제된 보조 색상을 갖춘 고대비 다크 UI."
+      },
+      "typography": {
+        "rules": [
+          "모든 타이포그래피는 기하학적 산세리프 패밀리(Geomanist)를 사용합니다.",
+          "헤드라인은 좁은 자간(-1px)과 세미볼드 웨이트를 사용합니다.",
+          "본문 텍스트는 가독성을 위해 400 웨이트를 유지합니다."
+        ],
+        "scaleUses": [
+          "히어로 헤드라인",
+          "섹션 헤더",
+          "소제목 및 설명",
+          "표준 본문 텍스트",
+          "라벨 및 네비게이션"
+        ]
+      },
+      "spacing": {
+        "rhythm": "주요 섹션을 위한 넉넉한 패딩(48px)을 갖춘 표준 4px 기본 그리드."
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 1px 0px 0px inset rgba(255,142,93,0.3)",
+          "0px 0px 0px 1px inset rgba(255,255,255,0.1)",
+          "1px 2px 8px 0px rgba(0,0,0,0.35)"
+        ],
+        "borders": "1px solid rgba(111,111,111,0.3)"
+      },
+      "layout": {
+        "skeleton": "히어로에 왼쪽 정렬 텍스트와 중앙 정렬 콘텐츠를 갖춘 표준 최대 너비 컨테이너."
+      },
+      "components": {
+        "button": "주요 액션을 위한 단색 오렌지(#ee4f27), 보조 액션을 위한 다크 아웃라인, 필 라디우스.",
+        "card": "깊이감을 위한 미묘한 테두리와 box-shadow를 갖춘 다크 배경.",
+        "chip": "뚜렷하게 두드러지지 않지만, 체크 표시기에는 깔끔하고 미니멀한 스타일을 사용합니다.",
+        "input": "미묘한 테두리를 갖춘 다크 배경.",
+        "hero": "중앙 정렬된 대형 헤드라인, 두 개의 CTA 버튼, 그리고 두드러진 3D 그래픽."
+      },
+      "motion": {
+        "patterns": [
+          "hover 시 부드러운 색상 및 배경색 트랜지션(0.2s).",
+          "인터랙티브 상태 변화를 위한 transform 및 불투명도 트랜지션(0.3s).",
+          "모든 UI 요소 상태 변화를 위한 미묘한 이징."
+        ]
+      },
+      "interaction": {
+        "hover": "부드러운 색상 및 배경 전환, 버튼의 미묘한 스케일 또는 translate.",
+        "click": "배경색 변화 또는 불투명도를 통한 시각적 피드백.",
+        "transition": "모든 인터랙티브 요소는 0.2s에서 0.3s의 cubic-bezier 이징을 사용합니다.",
+        "keyboard": "표준 포커스 가능 요소(버튼, 링크)는 시스템 기본값을 따릅니다."
+      },
+      "voice": {
+        "tone": "직설적이고 전문적이며 개발자 중심적.",
+        "headlineStyle": "간결하고 실행 지향적인 문구(예: '빠르게 움직입니다. 아무것도 깨뜨리지 마세요.').",
+        "ctaStyle": "명확하고 직접적인 행동 유도('무료로 시작하기', '영업팀에 문의하기').",
+        "avoid": [
+          "지나치게 캐주얼하거나 장난스러운 언어.",
+          "워크플로 자동화와 관련되지 않은 과도한 전문 용어.",
+          "지저분하거나 혼란스러운 레이아웃.",
+          "밝고 다채로운 팔레트.",
+          "무거운 장식용 세리프 폰트."
+        ]
+      },
+      "donts": [
+        "장난스럽거나 둥근 폰트를 사용하지 마세요 — 스크린샷은 깔끔한 기하학적 산세리프를 보여줍니다.",
+        "밝은 배경을 사용하지 마세요 — 스크린샷은 깊은 다크 네이비(#0e0918) 배경을 보여줍니다.",
+        "여러 고채도 색상을 사용하지 마세요 — 스크린샷은 오렌지만을 유일한 지배적 액센트로 사용합니다.",
+        "복잡하거나 소란스러운 배경 패턴을 사용하지 마세요 — 스크린샷은 깔끔한 다크 그라디언트와 미묘한 방사형 글로우를 사용합니다.",
+        "헤드라인에 넓고 여유로운 자간을 사용하지 마세요 — 스크린샷은 좁고 타이트한 자간을 보여줍니다.",
+        "무거운 그림자를 사용하지 마세요 — 스크린샷은 깊이감을 위해 미묘한 inset 글로우와 얇은 테두리를 사용합니다."
+      ],
+      "systemPrompt": "이 사이트는 워크플로 자동화를 위한 개발자 중심 SaaS 랜딩 페이지입니다. 깊은 네이비 배경(#0e0918)과 주요 행동 유도를 위한 단일 지배적 고채도 오렌지 액센트(#ee4f27)를 사용한 다크 모드 테마를 사용합니다. 타이포그래피는 헤드라인용 세미볼드 웨이트와 본문용 표준 웨이트를 갖춘 깔끔한 기하학적 산세리프 폰트(Geomanist)로 구성됩니다. 주요 디자인 제약 사항은 다음과 같습니다: 밝은 흰색 배경을 절대 사용하지 마세요, 여러 경쟁 액센트 색상을 절대 사용하지 마세요, 항상 미묘한 depth 단서(예: 무거운 그림자가 아닌 inset 글로우)를 갖춘 깔끔하고 전문적인 레이아웃을 유지하세요. 톤은 기술 팀을 대상으로 직설적이고 전문적입니다."
+    }
+  },
+  "desc": {
+    "en": {
+      "palette": "A high-contrast dark theme centered on deep navy backgrounds and a single vibrant orange accent for primary interactions.",
+      "layout": "A standard responsive container layout with generous vertical spacing and a clear visual hierarchy for developer-centric content.",
+      "interaction": "Smooth, subtle transitions on interactive elements, primarily focusing on color and opacity changes.",
+      "motion": "Refined and functional transitions using consistent easing curves to support a professional, non-distracting feel.",
+      "notes": "This site is an excellent example of a modern, premium developer tool aesthetic, balancing high-impact visuals with a clean, functional interface."
+    },
+    "zh-CN": {
+      "palette": "一个高对比度的深色主题，以深海军蓝背景为核心，辅以单一鲜亮的橙色作为主要交互的强调色。",
+      "layout": "标准的响应式容器布局，拥有宽松的垂直间距和清晰的视觉层级，适合面向开发者的内容。",
+      "interaction": "交互元素采用平滑、细腻的过渡效果，主要聚焦于颜色和透明度的变化。",
+      "motion": "精炼且实用的过渡动画，使用一致的缓动曲线，以支持专业、不分散注意力的感受。",
+      "notes": "该网站是现代、高端开发者工具美学的绝佳范例，在高冲击力的视觉效果与简洁、功能性的界面之间取得了平衡。"
+    },
+    "zh-TW": {
+      "palette": "以深海軍藍為背景，搭配單一活力橙色作為主要互動色彩的高對比深色主題。",
+      "layout": "標準響應式容器佈局，垂直間距寬裕，並為開發者為主的內容建立清晰的視覺層級。",
+      "interaction": "互動元素採用流暢、微妙的過渡效果，主要聚焦於顏色與透明度的變化。",
+      "motion": "使用一致的緩動曲線，打造精緻且實用的過渡動畫，營造專業且不分散注意力的感受。",
+      "notes": "此網站是現代、頂級開發者工具美學的絕佳範例，完美平衡了高衝擊力的視覺效果與簡潔、功能性的介面。"
+    },
+    "ja": {
+      "palette": "深みのあるネイビー背景と、プライマリインタラクションのための鮮やかなオレンジ色アクセントを軸とした、ハイコントラストのダークテーマ。",
+      "layout": "開発者向けコンテンツを明確なビジュアル階級で表示する、十分な垂直間隔を持つ標準的なレスポンシブコンテナレイアウト。",
+      "interaction": "インタラクティブ要素にかかわる滑らかで繊細なトランジション。主にカラーと不透明度の変化に焦点を当てる。",
+      "motion": "プロフェッショナルで気を散らさない印象を支えるための、一貫したイージングカーブを使用した洗練されたかつ機能的なトランジション。",
+      "notes": "このサイトは、インパクトのあるビジュアルとクリーンで機能的なインターフェースのバランスをとった、モダンで高級感のある開発者ツールの美学の優れた例です。"
+    },
+    "ko": {
+      "palette": "깊은 네이비 배경과 주요 인터랙션을 위한 단일 화려한 오렌지 액센트를 중심으로 한 고대비 다크 테마.",
+      "layout": "개발자 중심 콘텐츠를 위한 명확한 시각적 계층과 넉넉한 수직 간격을 갖춘 표준 반응형 컨테이너 레이아웃.",
+      "interaction": "주로 색상과 불투명도 변화에 초점을 맞춘 인터랙티브 요소의 부드럽고 섬세한 트랜지션.",
+      "motion": "전문적이고 방해가 되지 않는 느낌을 지원하기 위해 일관된 이징 커브를 사용한 정교하고 기능적인 트랜지션.",
+      "notes": "이 사이트는 고화질 비주얼과 깔끔한 기능적 인터페이스의 균형을 이루는 현대적이고 프리미엄한 개발자 도구 미학의 훌륭한 예시입니다."
+    }
+  },
+  "_meta": {
+    "vision_model": "mimo-v2.5",
+    "vision_prompt_version": "0.3",
+    "vision_source": "playwright-extract:n8n",
+    "vision_grounded": true,
+    "vision_at": "2026-06-04T17:11:56+00:00",
+    "vision_tokens": 18620,
+    "vision_cost_usd": 0.2069,
+    "translation_model": "mimo-v2.5",
+    "translation_at": "2026-06-04T17:13:23+00:00",
+    "translation_tokens": 17866,
+    "translation_cost_usd": 0.0596,
+    "narrative_model": "mimo-v2.5",
+    "narrative_prompt_version": "0.3",
+    "narrative_at": "2026-06-04T17:13:34+00:00",
+    "narrative_tokens": 2161,
+    "narrative_cost_usd": 0.0144,
+    "narrative_status": "ok",
+    "total_cost_usd": 0.2809
+  },
+  "narrative": {
+    "en": {
+      "ch1_intro": "n8n presents itself as a workshop for the modern developer, a place where the complex machinery of APIs and AI agents is made visible and malleable. The visual system, much like a well-designed IDE, prioritizes clarity and function over decoration, framing automation as a precise, architectural discipline.",
+      "ch2_intro": "The palette is a study in high-contrast restraint, built upon a deep navy canvas. A single, vibrant orange acts as the primary signal, guiding focus to interactive elements and key calls to action.",
+      "ch2_outro": "The principle is absolute: a single high-chroma accent on a dark field creates a hierarchy of attention that is immediate and unambiguous.",
+      "ch3_intro": "The typographic voice is set by Geomanist, a geometric sans-serif that speaks the language of clean interfaces and technical documentation. Headlines are set with tight tracking and semi-bold weight for impact, while body text uses a regular weight for sustained readability.",
+      "ch4_intro": "A strict 4px base grid establishes a modular rhythm, with generous 48px padding defining major content sections.",
+      "ch5_intro": "Depth is articulated not through heavy drop shadows, but through a combination of subtle inset glows and thin, semi-transparent borders. This approach gives components a sense of being lit from within, sitting cleanly on the dark ground.",
+      "ch6_intro": "The layout skeleton is a standard centered container, providing a consistent max-width for content. Within this, a strong left alignment in the hero section grounds the narrative, establishing a clear reading gravity.",
+      "ch7_intro": "Motion is purely functional, designed to confirm interaction rather than to entertain. Transitions are smooth and consistent, using subtle easing to make state changes feel responsive and intentional.",
+      "ch8_intro": "The editorial voice is direct, professional, and assumes a technically literate audience. Headlines are concise and action-oriented, while calls to action are clear and devoid of ambiguity.",
+      "ch8_outro": "The system deliberately rejects playful typography, light backgrounds, and multi-colored palettes to maintain its focused, tool-like integrity."
+    },
+    "zh-CN": {
+      "ch1_intro": "n8n 将自身定位为面向现代开发者的工坊，一个让 API 与 AI 智能体的复杂机制变得可见、可塑的空间。其视觉系统如同精心设计的 IDE，优先考虑清晰度与功能性而非装饰，将自动化定位为一门精确的架构学科。",
+      "ch2_intro": "配色方案是对高对比度克制感的探索，以深海军蓝为基底。单一、充满活力的橙色作为核心信号，引导用户关注交互元素与关键操作点。",
+      "ch2_outro": "其原则是绝对的：在深色背景上使用单一高饱和度强调色，创造出即时且明确的视觉层次。",
+      "ch3_intro": "排版风格由 Geomanist 奠定，这款几何无衬线字体传达着简洁界面与技术文档的语言。标题采用紧凑字间距与半粗体以增强冲击力，而正文则使用常规字重以确保持续的可读性。",
+      "ch4_intro": "严格的 4px 基础网格建立了模块化韵律，宽裕的 48px 内边距定义了主要内容区域。",
+      "ch5_intro": "层次感并非通过厚重投影来表现，而是通过微妙的内发光与纤细、半透明边框的组合来实现。这种方法使组件呈现出由内而外发光的感觉，干净地融入深色背景。",
+      "ch6_intro": "布局骨架采用标准的居中容器，为内容提供一致的最大宽度。在此框架内，英雄区域强有力的左对齐锚定了叙事，建立起清晰的阅读重心。",
+      "ch7_intro": "动效纯粹出于功能性，旨在确认交互而非娱乐。过渡平滑一致，运用微妙的缓动函数使状态变化感觉灵敏且有目的。",
+      "ch8_intro": "编辑语调直接、专业，并预设受众具备技术理解力。标题简洁且面向行动，而行动号召则清晰无歧义。",
+      "ch8_outro": "该系统刻意摒弃了俏皮的字体、浅色背景与多彩配色，以维持其聚焦、工具般的本质。"
+    },
+    "zh-TW": {
+      "ch1_intro": "n8n 以現代開發者的工作坊自居，一個讓 API 與 AI 代理等複雜機械變得可見且可塑的地方。其視覺系統如同設計精良的 IDE，將清晰度與功能性置於裝飾之上，將自動化定位為一門精準的建築學科。",
+      "ch2_intro": "色彩系統是一場高對比度的克制實驗，以深海軍藍為基底。單一的活力橙色作為主要訊號，引導視線聚焦於互動元素與關鍵行動呼籲。",
+      "ch2_outro": "原則是絕對的：在深色場域上運用單一高飽和度強調色，能創造出即時且明確的注意力層級。",
+      "ch3_intro": "排版語調由 Geomanist 定調，這款幾何無襯線字體訴說著簡潔介面與技術文件的語言。標題採用緊湊字距與半粗體字重以增強衝擊力，內文則使用常規字重確保長時間閱讀的舒適性。",
+      "ch4_intro": "嚴謹的 4px 基礎網格建立了模組化節奏，寬裕的 48px padding 定義了主要內容區塊。",
+      "ch5_intro": "深度表現並非依賴厚重的陰影，而是透過微妙的內發光與纖細的半透明邊框組合來實現。這種手法賦予元件一種由內而外發光的質感，使其在深色基底上顯得清晰俐落。",
+      "ch6_intro": "佈局骨架採用標準的置中容器，提供內容一致的最大寬度。其中，首屏區域強烈的左對齊設計奠定了敘事的基調，建立了明確的閱讀引力。",
+      "ch7_intro": "動效純粹功能導向，旨在確認互動而非娛樂。過渡效果流暢一致，運用細微的緩動曲線使狀態變化顯得靈敏且有目的性。",
+      "ch8_intro": "編輯語調直接、專業，預設受眾具備技術素養。標題簡潔並著重行動，行動呼籲則清晰且毫無歧義。",
+      "ch8_outro": "此系統刻意摒棄活潑的排版、淺色背景與多彩配色，以維持其專注、工具般的本質。"
+    },
+    "ja": {
+      "ch1_intro": "n8nは、現代の開発者のためのワークショップとして自らを提示します。APIとAIエージェントの複雑な機構が目に見え、扱いやすいものとなる場です。視覚システムは、適切にデザインされたIDEのように、装飾よりも明確さと機能を優先し、自動化を精密で建築的な訓練として提示しています。",
+      "ch2_outro": "その原則は絶対です：暗いフィールド上的1つの高彩度アクセントが、即座で明確な注意の階層を生み出します。",
+      "ch2_intro": "パレットは、深いネイビーのキャンバスの上に築かれた、高コントラストの抑制の研究です。1つの鮮やかなオレンジがプライマリシグナルとして機能し、インタラクティブな要素と主要なアクションへの呼びかけへと焦点を導きます。",
+      "ch3_intro": "タイポグラフィの声は、Geomanist——清潔なインターフェースと技術文書の言語を語る幾何学サンセリフ——によって設定されます。見出しはインパクトのため、tight trackingとsemi-bold weightで設定され、本文は持続的な可読性のためにregular weightが使用されます。",
+      "ch4_intro": "厳格な4pxベースグリッドがモジュラーリズムを確立し、豊かな48pxパディングが主要なコンテンツセクションを定義します。",
+      "ch5_intro": "奥行きは、重いドロップシャドウではなく、微細なインセットグローと薄い半透明ボーダーの組み合わせによって表現されます。このアプローチにより、コンポーネントは内部から照らされているような感覚を持ち、暗い地面上に清潔に配置されます。",
+      "ch6_intro": "レイアウトの骨格は標準的なセンタリングされたコンテナであり、コンテンツに一貫した最大幅を提供します。その内部で、ヒーローセクションの強力な左揃えがナレーションを groundingし、明確な読み取りの重力を確立します。",
+      "ch7_intro": "モーションは純粋に機能的であり、娯楽のためではなく、インタラクションを確認するために設計されています。トランジションは滑らかで一貫しており、微細なイージングを使用して、状態の変化が応答性が高く、意図的なものに感じられるようにします。",
+      "ch8_intro": "編集声は直接的で専門的であり、技術的に識字性のある読者を前提としています。見出しは簡潔でアクション志向であり、アクションへの呼びかけは明確で曖昧さがありません。",
+      "ch8_outro": "このシステムは、焦点を絞ったツールとしての完全性を維持するため、遊び心のあるタイポグラフィ、明るい背景、多色パレットを意図的に拒否しています。"
+    },
+    "ko": {
+      "ch1_intro": "n8n은 현대 개발자를 위한 워크숍으로 자리매김합니다. 복잡한 API와 AI 에이전트의 구조를 가시적이고 조작 가능한 형태로 만드는 곳입니다. 시각 시스템은 잘 설계된 IDE처럼 기능과 명확성을 장식보다 우선시하며, 자동화를 정밀하고 건축적인 규율로 제시합니다.",
+      "ch2_intro": "팔레트는 깊은 네이비 배경 위에 고대비의 절제된 연구입니다. 단 하나의 선명한 오렌지색이 주요 시그널로 작용하여 상호작용 요소와 핵심 행동 유도 버튼으로 시선을 안내합니다.",
+      "ch2_outro": "원칙은 절대적입니다. 어두운 배경 위의 단일 고채도 강조색은 즉각적이고 명확한 주의 계층을 만듭니다.",
+      "ch3_intro": "타이포그래피의 목소리는 기하학적 산세리프 서체인 Geomanist로 설정됩니다. 이 서체는 깔끔한 인터페이스와 기술 문서의 언어를 구사합니다. 제목은 임팩트를 위해 타이트한 자간과 세미볼드를 사용하며, 본문은 지속적인 가독성을 위해 레귤러 무게를 사용합니다.",
+      "ch4_intro": "엄격한 4px 기본 그리드가 모듈 리듬을 수립하고, 넉넉한 48px 패딩이 주요 콘텐츠 섹션을 구분합니다.",
+      "ch5_intro": "깊이감은 무거운 드롭 섀adow가 아닌, 미세한 인셋 글로우와 얇은 반투명 테두리의 조합으로 표현됩니다. 이 접근 방식은 구성 요소가 내부에서 빛나는 듯한 느낌을 주어 어두운 배경 위에 깔끔하게 자리하도록 합니다.",
+      "ch6_intro": "레이아웃 골격은 표준 중앙 정렬 컨테이너로, 콘텐츠에 일관된 최대 너비를 제공합니다. 이 안에서 히어로 섹션의 강한 좌측 정렬은 내러티브를 안정시키고 명확한 읽기 중력을 확립합니다.",
+      "ch7_intro": "모션은 순수하게 기능적입니다. 오락이 아닌 상호작용 확인을 위해 설계됩니다. 트랜지션은 미세한 easing을 사용하여 부드럽고 일관되게 진행되며, 상태 변화가 반응적이고 의도적으로 느껴지도록 합니다.",
+      "ch8_intro": "에디토리얼 톤은 직접적이고 전문적이며, 기술적 지식을 갖춘 독자를 전제로 합니다. 제목은 간결하고 행동 지향적이며, 행동 유도 버튼은 명확하고 모호함이 없습니다.",
+      "ch8_outro": "시스템은 집중적이고 도구 같은 무결성을 유지하기 위해 장난기 넘치는 타이포그래피, 밝은 배경, 다채로운 팔레트를 의도적으로 거부합니다."
+    }
+  }
 }

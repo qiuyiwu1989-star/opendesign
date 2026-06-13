@@ -8,6 +8,583 @@
     "dev",
     "infra"
   ],
-  "status": "pending",
-  "added_at": "2026-06-02"
+  "status": "completed",
+  "added_at": "2026-06-02",
+  "spec": {
+    "colors": {
+      "bg": "#141414",
+      "bgSoft": "#1E1E1E",
+      "bgQuiet": null,
+      "ink": "#F8FAFC",
+      "inkSoft": "#CACBF9",
+      "muted": "#92A4C3",
+      "mutedSoft": null,
+      "accent": "#7F86F1",
+      "line": "rgba(36, 51, 73, 1)"
+    },
+    "typography": {
+      "display": "geometric-sans",
+      "body": "geometric-sans",
+      "mono": "monospace",
+      "scale": [
+        {
+          "token": "display",
+          "size": 68,
+          "lh": 1.1,
+          "weight": 300,
+          "ls": "-2px"
+        },
+        {
+          "token": "h1",
+          "size": 48,
+          "lh": 1.15,
+          "weight": 300,
+          "ls": "-1px"
+        },
+        {
+          "token": "body",
+          "size": 16,
+          "lh": 1.5,
+          "weight": 400,
+          "ls": "0.2px"
+        }
+      ]
+    },
+    "spacing": {
+      "base": 4,
+      "scale": [
+        4,
+        8,
+        12,
+        16,
+        24,
+        32,
+        48,
+        64,
+        96
+      ]
+    },
+    "surfaces": {
+      "radius": {
+        "sm": 4,
+        "md": 8,
+        "lg": 12,
+        "pill": 9999
+      }
+    },
+    "layout": {
+      "container": 1280,
+      "paragraph": 680,
+      "columns": 12,
+      "gutter": 24,
+      "breakpoints": [
+        768,
+        1024
+      ]
+    },
+    "motion": {
+      "durations": {
+        "micro": 150,
+        "small": 300,
+        "medium": 800
+      },
+      "easing": "cubic-bezier(0.4, 0, 0.2, 1)"
+    }
+  },
+  "spec_i18n": {
+    "en": {
+      "identity": {
+        "keywords": [
+          "Temporal",
+          "AI",
+          "Workflows",
+          "Developer Platform"
+        ],
+        "analogy": "The operating system for AI agents and complex distributed systems",
+        "oneLiner": "An open-source platform for building and running reliable distributed applications and AI agents."
+      },
+      "colors": {
+        "principle": "Dark mode first with high-contrast white text and vibrant purple/blue accents"
+      },
+      "typography": {
+        "rules": [],
+        "scaleUses": [
+          "Hero headline",
+          "Section headline",
+          "Body text"
+        ]
+      },
+      "spacing": {
+        "rhythm": "Generous vertical padding (96px) between major sections"
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(0, 0, 0, 0.25) 0px 25px 50px -12px",
+          "rgb(0, 0, 0) 8px 8px 0px 0px"
+        ],
+        "borders": "1px solid rgb(36, 51, 73)"
+      },
+      "layout": {
+        "skeleton": "Full-width dark hero with split layout, text left, code block right; card grid below"
+      },
+      "components": {
+        "button": "Primary buttons are purple gradient (#7F86F1 to #B664FF), pill-shaped with white text; secondary buttons are outline/ghost with white text",
+        "card": "Dark semi-transparent cards with subtle 1px borders and no visible background color differentiation",
+        "chip": "Language tabs (PYTHON, GO, etc.) as simple text tabs with underline indicator",
+        "input": "Search icon in header, minimal styling",
+        "hero": "Large split-screen hero with headline, body text, CTA buttons on left, and a dark code editor window on right"
+      },
+      "motion": {
+        "patterns": [
+          "Smooth color and background-color transitions on hover",
+          "Opacity fade-ins for page load animations",
+          "Transform shifts for interactive elements"
+        ]
+      },
+      "interaction": {
+        "hover": "Text color transitions to brighter white or accent color, buttons increase brightness",
+        "click": "Subtle opacity or scale reduction",
+        "transition": "150ms ease-out for standard UI elements, 300ms for complex transitions",
+        "keyboard": "Standard focus outlines for navigation"
+      },
+      "voice": {
+        "tone": "Authoritative, technical, and confident",
+        "headlineStyle": "Short, punchy, and declarative with light font weight",
+        "ctaStyle": "Direct and action-oriented (e.g., 'Get Started for Free', 'Run Locally')",
+        "avoid": [
+          "Jargon without context",
+          "Playful or whimsical language",
+          "Overly complex sentence structures"
+        ]
+      },
+      "donts": [
+        "don't use a white background — screenshot shows a very dark, near-black (#141414) background",
+        "don't use heavy font weights for headlines — screenshot shows light (300) weight for large display text",
+        "don't use standard web fonts like Inter — screenshot uses Aeonik (geometric-sans) for UI and Noto Sans Mono for code",
+        "don't use sharp corners everywhere — screenshot shows pill-shaped buttons (9999px radius) and rounded cards (12px)",
+        "don't use a single flat accent color — screenshot shows gradients in buttons (purple to blue) and background elements",
+        "don't use small, cramped spacing — screenshot shows generous 96px vertical padding between major sections"
+      ],
+      "systemPrompt": "Temporal.io is a dark-mode developer platform for building reliable distributed systems and AI agents. The design relies on a near-black background (#141414) with crisp white text (#F8FAFC) and vibrant purple/blue accents (#7F86F1, #B664FF) often applied as gradients. Typography is dominated by a geometric-sans category (Aeonik) used in light weights (300) for large, impactful headlines with tight tracking, paired with a dedicated monospace font for code examples. Critical donts: Do not use light backgrounds or dark text. Do not use heavy font weights for headlines. Do not use a single flat color for primary buttons—gradients are preferred. Do not use small font sizes for key headlines. Do not use sharp corners on primary action elements like buttons. Do not use cluttered layouts; maintain generous whitespace and padding."
+    },
+    "zh-CN": {
+      "identity": {
+        "keywords": [
+          "Temporal",
+          "AI",
+          "Workflows",
+          "开发者平台"
+        ],
+        "analogy": "AI 智能体与复杂分布式系统的操作系统",
+        "oneLiner": "一个用于构建和运行可靠分布式应用及 AI 智能体的开源平台。"
+      },
+      "colors": {
+        "principle": "深色模式优先，搭配高对比度白色文字和鲜明的紫/蓝色点缀"
+      },
+      "typography": {
+        "rules": [],
+        "scaleUses": [
+          "首屏大标题",
+          "区块标题",
+          "正文"
+        ]
+      },
+      "spacing": {
+        "rhythm": "主要区块间采用充足的垂直内边距（96px）"
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(0, 0, 0, 0.25) 0px 25px 50px -12px",
+          "rgb(0, 0, 0) 8px 8px 0px 0px"
+        ],
+        "borders": "1px solid rgb(36, 51, 73)"
+      },
+      "layout": {
+        "skeleton": "全宽深色首屏，采用分屏布局，文字居左，代码块居右；下方为卡片网格。"
+      },
+      "components": {
+        "button": "主按钮采用紫蓝渐变（#7F86F1 至 #B664FF），胶囊形状，白色文字；次级按钮为轮廓/幽灵样式，白色文字",
+        "card": "深色半透明卡片，带有细微的1px边框，无明显的背景色区分",
+        "chip": "语言标签页（PYTHON、GO 等）作为带下划线指示器的纯文本标签",
+        "input": "页眉中的搜索图标，样式极简",
+        "hero": "大型分屏首屏，左侧为主标题、正文和CTA按钮，右侧为深色代码编辑器窗口"
+      },
+      "motion": {
+        "patterns": [
+          "悬停时平滑的颜色和背景色过渡",
+          "页面加载动画的不透明度淡入",
+          "交互元素的变换位移"
+        ]
+      },
+      "interaction": {
+        "hover": "文字颜色过渡为更亮的白色或强调色，按钮增加亮度",
+        "click": "微妙的不透明度或缩放减小",
+        "transition": "标准UI元素为150毫秒缓出，复杂过渡为300毫秒",
+        "keyboard": "导航采用标准的聚焦轮廓"
+      },
+      "voice": {
+        "tone": "权威、技术性、自信",
+        "headlineStyle": "简短、有力、陈述性，使用细字体字重",
+        "ctaStyle": "直接且面向行动（例如“免费开始使用”、“本地运行”）",
+        "avoid": [
+          "无上下文的行话",
+          "俏皮或异想天开的语言",
+          "过于复杂的句子结构"
+        ]
+      },
+      "donts": [
+        "不要使用白色背景——截图显示的是非常深、近乎纯黑（#141414）的背景",
+        "不要对标题使用粗重字体——截图显示大型展示文本使用细（300）字重",
+        "不要使用 Inter 等标准网页字体——截图对 UI 使用 Aeonik（几何无衬线体），对代码使用 Noto Sans Mono",
+        "不要到处使用尖锐的直角——截图显示胶囊形状的按钮（9999px 圆角）和圆角卡片（12px）",
+        "不要使用单一的平面强调色——截图显示按钮（紫到蓝渐变）和背景元素中的渐变色",
+        "不要使用小而拥挤的间距——截图显示主要区块间有充足的96px垂直内边距"
+      ],
+      "systemPrompt": "Temporal.io 是一个深色模式开发者平台，用于构建可靠的分布式系统和 AI 智能体。设计依赖于近乎纯黑的背景（#141414）、清晰的白色文字（#F8FAFC）和鲜明的紫/蓝色点缀（#7F86F1、#B664FF），后者通常以渐变形式应用。排版以几何无衬线体类别（Aeonik）为主，在大型、有冲击力的标题中使用细字重（300）并设置紧凑字距，代码示例则搭配专用的等宽字体。关键禁忌：不要使用浅色背景或深色文字。不要对标题使用粗重字重。不要对主按钮使用单一平面色——优先使用渐变。不要对关键标题使用过小的字号。不要在按钮等主要交互元素上使用尖锐的直角。不要使用杂乱的布局；保持充足的留白和内边距。"
+    },
+    "zh-TW": {
+      "identity": {
+        "keywords": [
+          "Temporal",
+          "AI",
+          "Workflows",
+          "Developer Platform"
+        ],
+        "analogy": "AI 代理與複雜分散式系統的作業系統",
+        "oneLiner": "一個用於建構與執行可靠分散式應用程式及 AI 代理的開源平台。"
+      },
+      "colors": {
+        "principle": "以深色模式為首選，搭配高對比度白色文字與鮮明的紫／藍強調色"
+      },
+      "typography": {
+        "rules": [],
+        "scaleUses": [
+          "主視覺標題",
+          "章節標題",
+          "內文"
+        ]
+      },
+      "spacing": {
+        "rhythm": "主要區塊之間採用寬裕的垂直邊距（96px）"
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(0, 0, 0, 0.25) 0px 25px 50px -12px",
+          "rgb(0, 0, 0) 8px 8px 0px 0px"
+        ],
+        "borders": "1px solid rgb(36, 51, 73)"
+      },
+      "layout": {
+        "skeleton": "全寬深色主視覺，採用分屏佈局，文字置左，程式碼區塊置右；下方為卡片網格"
+      },
+      "components": {
+        "button": "主要按鈕為紫色漸層（#7F86F1 至 #B664FF），膠囊形狀搭配白色文字；次要按鈕為外框／幽靈樣式，搭配白色文字",
+        "card": "深色半透明卡片，帶有細微的 1px 邊框，無明顯的背景色差異",
+        "chip": "語言標籤（PYTHON、GO 等）為簡潔的文字標籤，帶有底線指示器",
+        "input": "頁首的搜尋圖示，採用極簡樣式",
+        "hero": "大型分屏主視覺，左側包含標題、內文與行動呼籲按鈕，右側為深色程式碼編輯器視窗"
+      },
+      "motion": {
+        "patterns": [
+          "懸停時流暢的顏色與背景色過渡",
+          "頁面載入動畫的透明度淡入",
+          "互動元素的變換位移"
+        ]
+      },
+      "interaction": {
+        "hover": "文字顏色過渡至更亮的白色或強調色，按鈕增加亮度",
+        "click": "細微的透明度或縮放減少",
+        "transition": "標準介面元素使用 150 毫秒 ease-out，複雜過渡使用 300 毫秒",
+        "keyboard": "導覽功能採用標準的焦點外框"
+      },
+      "voice": {
+        "tone": "權威、技術性且自信",
+        "headlineStyle": "簡短、有力、具宣言性，搭配輕字重",
+        "ctaStyle": "直接且以行動為導向（例如：'免費開始使用'、'在本機執行'）",
+        "avoid": [
+          "無上下文的專業術語",
+          "俏皮或異想天開的語言",
+          "過於複雜的句子結構"
+        ]
+      },
+      "donts": [
+        "請勿使用白色背景——截圖顯示的是非常深、接近黑色（#141414）的背景",
+        "請勿使用粗體字重作為標題——截圖顯示大型展示文字使用輕字重（300）",
+        "請勿使用 Inter 等標準網路字型——截圖使用 Aeonik（geometric-sans）作為介面字型，並使用 Noto Sans Mono 作為程式碼字型",
+        "請勿在所有地方使用銳利的圓角——截圖顯示膠囊形狀按鈕（9999px 圓角）與圓角卡片（12px）",
+        "請勿使用單一的平面強調色——截圖顯示按鈕（紫色至藍色）與背景元素中使用了漸層",
+        "請勿使用擁擠狹窄的間距——截圖顯示主要區塊之間採用寬裕的 96px 垂直邊距"
+      ],
+      "systemPrompt": "Temporal.io 是一個用於建構可靠分散式系統與 AI 代理的深色模式開發者平台。其設計依賴接近黑色的背景（#141414），搭配清晰的白色文字（#F8FAFC）與鮮明的紫／藍強調色（#7F86F1, #B664FF），後者常用於漸層。排版以幾何無襯線類別（Aeonik）為主導，用於具有緊湊字距的大型、具衝擊力的輕字重（300）標題，並搭配專用的等寬字型用於程式碼範例。關鍵的禁止事項：請勿使用淺色背景或深色文字。請勿使用粗體字重作為標題。請勿使用單一平面顏色作為主要按鈕——建議使用漸層。請勿使用小型字型作為關鍵標題。請勿在按鈕等主要行動元素上使用銳利的圓角。請勿使用雜亂的版面配置；請保持寬裕的留白與邊距。"
+    },
+    "ja": {
+      "identity": {
+        "keywords": [
+          "Temporal",
+          "AI",
+          "Workflows",
+          "Developer Platform"
+        ],
+        "analogy": "AIエージェントと複雑な分散システムのためのオペレーティングシステム",
+        "oneLiner": "信頼性の高い分散アプリケーションとAIエージェントを構築、実行するためのオープンソースプラットフォーム。"
+      },
+      "colors": {
+        "principle": "ダークモードを基調とし、高コントラストの白色テキストと鮮やかな紫/青のアクセントを採用"
+      },
+      "typography": {
+        "rules": [],
+        "scaleUses": [
+          "ヒーローヘッドライン",
+          "セクション見出し",
+          "本文テキスト"
+        ]
+      },
+      "spacing": {
+        "rhythm": "主要セクション間にゆったりとした垂直方向のパディング（96px）"
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(0, 0, 0, 0.25) 0px 25px 50px -12px",
+          "rgb(0, 0, 0) 8px 8px 0px 0px"
+        ],
+        "borders": "1px solid rgb(36, 51, 73)"
+      },
+      "layout": {
+        "skeleton": "分割レイアウトのフル幅ダークヒーロー。左側にテキスト、右側にコードブロック。その下にカードグリッドを配置"
+      },
+      "components": {
+        "button": "プライマリボタンは紫グラデーション（#7F86F1〜#B664FF）のピル型で白文字。セカンダリボタンはアウトライン/ゴーストスタイルで白文字",
+        "card": "ダークで半透明のカード。控えめな1pxボーダーを設定し、背景色の違いは明示しない",
+        "chip": "言語タブ（PYTHON、GOなど）は、下線インジケーターを持つシンプルなテキストタブとして実装",
+        "input": "ヘッダー内の検索アイコン。ミニマルなスタイリング",
+        "hero": "大型分割ヒーロー。左側にヘッドライン、本文テキスト、CTAボタン、右側にダークなコードエディターウィンドウを配置"
+      },
+      "motion": {
+        "patterns": [
+          "hover時の滑らかなcolorおよびbackground-colorトランジション",
+          "ページ読み込みアニメーションの不透明度フェードイン",
+          "インタラクティブ要素のTransformシフト"
+        ]
+      },
+      "interaction": {
+        "hover": "テキスト色がより明るい白色またはアクセント色にトランジション。ボタンの明度が上昇",
+        "click": "控えめな不透明度またはスケールの縮小",
+        "transition": "標準UI要素には150ms ease-out、複雑なトランジションには300ms",
+        "keyboard": "ナビゲーションに対する標準的なfocusアウトライン"
+      },
+      "voice": {
+        "tone": "権威があり、技術的で、自信に満ちている",
+        "headlineStyle": "簡潔で力強く、宣言的。軽めのフォントウェイト",
+        "ctaStyle": "直接的で行動を促す（例：「無料で始める」「ローカルで実行」）",
+        "avoid": [
+          "文脈なしの専門用語",
+          "遊び心や風変わりな言葉",
+          "過度に複雑な文章構造"
+        ]
+      },
+      "donts": [
+        "ホワイトバックグラウンドを使用しない — スクリーンショットは非常に暗い、ネアブラック（#141414）の背景を示している",
+        "ヘッドラインに太いフォントウェイトを使用しない — スクリーンショットでは大きな表示テキストにライト（300）ウェイトが使用されている",
+        "Interなどの一般的なウェブフォントを使用しない — スクリーンショットではUIにAeonik（geometric-sans）、コードにNoto Sans Monoが使用されている",
+        "すべてに角丸のない鋭いコーナーを使用しない — スクリーンショットではピル型ボタン（9999px radius）と角丸カード（12px）が見られる",
+        "単一のフラットなアクセントカラーを使用しない — スクリーンショットではボタン（紫から青）や背景要素にグラデーションが使用されている",
+        "狭く窮屈なスペーシングを使用しない — スクリーンショットでは主要セクション間にゆったりとした96pxの垂直パディングが示されている"
+      ],
+      "systemPrompt": "Temporal.ioは、信頼性の高い分散システムとAIエージェントを構築するためのダークモード開発者プラットフォームです。デザインはネアブラックの背景（#141414）とクリスプな白色テキスト（#F8FAFC）、そしてグラデーションとして頻繁に使用される鮮やかな紫/青のアクセント（#7F86F1、#B664FF）を基調としています。タイポグラフィは、ジオメトリックsansカテゴリ（Aeonik）が主で、大きなインパクトのあるヘッドラインにはライトウェイト（300）とタイトなトラッキングが使用され、コードサンプルには専用のモノスペースフォントが対応します。重要な制約事項：明るい背景や暗いテキストは使用しないこと。ヘッドラインに太いフォントウェイトは使用しないこと。プライマリボタンに単一のフラットカラーは使用しないこと（グラデーションが推奨）。主要なヘッドラインに小さなフォントサイズは使用しないこと。ボタンなどのプライマリアクション要素に鋭いコーナーは使用しないこと。雑然としたレイアウトは避け、ゆったりとしたホワイトスペースとパディングを維持すること。"
+    },
+    "ko": {
+      "identity": {
+        "keywords": [
+          "Temporal",
+          "AI",
+          "Workflows",
+          "Developer Platform"
+        ],
+        "analogy": "AI 에이전트와 복잡한 분산 시스템을 위한 운영 체제",
+        "oneLiner": "안정적인 분산 애플리케이션과 AI 에이전트를 구축 및 실행하기 위한 오픈소스 플랫폼."
+      },
+      "colors": {
+        "principle": "고대비 흰색 텍스트와 생동감 있는 보라색/푸른색 강조를 위한 다크 모드 우선"
+      },
+      "typography": {
+        "rules": [],
+        "scaleUses": [
+          "히어로 헤드라인",
+          "섹션 헤드라인",
+          "본문 텍스트"
+        ]
+      },
+      "spacing": {
+        "rhythm": "주요 섹션 간 풍부한 수직 패딩(96px)"
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(0, 0, 0, 0.25) 0px 25px 50px -12px",
+          "rgb(0, 0, 0) 8px 8px 0px 0px"
+        ],
+        "borders": "1px solid rgb(36, 51, 73)"
+      },
+      "layout": {
+        "skeleton": "텍스트는 왼쪽, 코드 블록은 오른쪽에 배치한 분할 레이아웃의 전체 폭 다크 히어로; 아래쪽에 카드 그리드"
+      },
+      "components": {
+        "button": "메인 버튼은 보라색 그라디언트(#7F86F1에서 #B664FF), 알약 형태에 흰색 텍스트; 보조 버튼은 아웃라인/고스트 스타일에 흰색 텍스트",
+        "card": "미묘한 1px 테두리와 눈에 띄는 배경색 차이가 없는 어두운 반투명 카드",
+        "chip": "언더라인 표시기가 있는 단순한 텍스트 탭 스타일의 언어 탭(PYTHON, GO 등)",
+        "input": "헤더에 배치된 최소 스타일의 검색 아이콘",
+        "hero": "왼쪽에 헤드라인, 본문 텍스트, CTA 버튼, 오른쪽에 어두운 코드 편집기 창이 있는 대형 분할 화면 히어로"
+      },
+      "motion": {
+        "patterns": [
+          "hover 시 부드러운 색상 및 배경색 전환",
+          "페이지 로드 애니메이션을 위한 불투명도 페이드 인",
+          "인터랙티브 요소를 위한 transform 이동"
+        ]
+      },
+      "interaction": {
+        "hover": "텍스트 색상이 더 밝은 흰색 또는 강조 색상으로 전환, 버튼은 밝기 증가",
+        "click": "미묘한 불투명도 또는 축소 축소",
+        "transition": "일반 UI 요소는 150ms ease-out, 복잡한 전환은 300ms",
+        "keyboard": "네비게이션을 위한 표준 focus 윤곽선"
+      },
+      "voice": {
+        "tone": "권위 있고, 기술적이며, 자신감 있는",
+        "headlineStyle": "가벼운 폰트 웨이트로 짧고 강렬하며 선언적인",
+        "ctaStyle": "직접적이고 행동 지향적인(예: '무료로 시작하기', '로컬에서 실행')",
+        "avoid": [
+          "맥락 없는 전문 용어",
+          "장난스럽거나 허황된 언어",
+          "지나치게 복잡한 문장 구조"
+        ]
+      },
+      "donts": [
+        "흰색 배경을 사용하지 마세요 — 스크린샷은 매우 어두운 near-black (#141414) 배경을 보여줍니다",
+        "헤드라인에 두꺼운 폰트 웨이트를 사용하지 마세요 — 스크린샷은 큰 디스플레이 텍스트에 가벼운(300) 웨이트를 보여줍니다",
+        "Inter와 같은 표준 웹 폰트를 사용하지 마세요 — 스크린샷은 UI에 Aeonik(geometric-sans), 코드에 Noto Sans Mono를 사용합니다",
+        "모든 곳에 날카로운 모서리를 사용하지 마세요 — 스크린샷은 알약 형태 버튼(9999px radius)과 둥근 카드(12px)를 보여줍니다",
+        "단일 플랫 강조 색상을 사용하지 마세요 — 스크린샷은 버튼(보라색에서 푸른색)과 배경 요소에 그라디언트를 보여줍니다",
+        "좁고 비좁은 간격을 사용하지 마세요 — 스크린샷은 주요 섹션 간 풍부한 96px 수직 패딩을 보여줍니다"
+      ],
+      "systemPrompt": "Temporal.io는 안정적인 분산 시스템과 AI 에이전트를 구축하기 위한 다크 모드 개발자 플랫폼입니다. 이 디자인은 선명한 흰색 텍스트(#F8FAFC)와 보라색(#7F86F1, #B664FF)을 사용하는 near-black(#141414) 배경에 의존하며, 종종 그라디언트로 적용됩니다. 타이포그래피는 큰 인상적인 헤드라인에 얇은 웨이트(300)와 타이트한 트래킹으로 사용되는 geometric-sans 카테고리(Aeonik)가 지배적이며, 코드 예제용 전용 모노스페이스 폰트와 결합됩니다. 중요 금지 사항: 밝은 배경이나 어두운 텍스트를 사용하지 마세요. 헤드라인에 두꺼운 폰트 웨이트를 사용하지 마세요. 메인 버튼에 단일 플랫 색상을 사용하지 마세요—그라디언트가 선호됩니다. 주요 헤드라인에 작은 폰트 크기를 사용하지 마세요. 버튼과 같은 주요 행동 요소에 날카로운 모서리를 사용하지 마세요. 혼잡한 레이아웃을 사용하지 마세요; 풍부한 여백과 패딩을 유지하세요."
+    }
+  },
+  "desc": {
+    "en": {
+      "palette": "A high-contrast dark mode palette anchored in near-black (#141414) with crisp white text and vibrant purple-to-blue gradients for accents.",
+      "layout": "A structured, full-width layout with generous vertical spacing (96px) and a split-screen hero section that balances copy with a prominent code editor window.",
+      "interaction": "Smooth transitions (150-300ms) for hover states and UI elements, emphasizing subtle color shifts and opacity changes over dramatic movements.",
+      "motion": "Subtle fade-in animations for page load and smooth color/background-color transitions for interactive elements, maintaining a polished, professional feel.",
+      "notes": "This site is a prime example of a modern, dark-mode-first developer tool UI, effectively using typography and code-first visuals to build credibility with a technical audience."
+    },
+    "zh-CN": {
+      "palette": "以近乎纯黑（#141414）为基调的高对比度深色模式配色方案，搭配清晰的白色文字，并使用鲜明的紫蓝渐变色作为点缀。",
+      "layout": "结构化的全宽布局，各主要区块间留有充足的垂直间距（96px），并采用分屏式首屏设计，平衡了文案与突出的代码编辑器窗口。",
+      "interaction": "悬停状态和UI元素采用平滑过渡（150-300毫秒），强调细微的色彩变化和不透明度调整，而非大幅度的移动。",
+      "motion": "页面加载时使用微妙的淡入动画，交互元素则采用平滑的颜色/背景色过渡，以保持精致、专业的质感。",
+      "notes": "该网站是现代、深色模式优先的开发者工具UI的典范，有效运用排版和以代码为核心的视觉设计，在技术受众中建立了可信度。"
+    },
+    "zh-TW": {
+      "palette": "高對比度的深色模式調色盤，以接近黑色（#141414）為基底，搭配清晰的白色文字，以及鮮明的紫藍漸層作為強調色。",
+      "layout": "結構化、全寬版面配置，擁有寬裕的垂直間距（96px），並採用分屏主視覺區塊，平衡文案與醒目的程式碼編輯器視窗。",
+      "interaction": "流暢的過渡效果（150-300毫秒），用於懸停狀態與介面元素，強調細微的色彩變化與透明度改變，而非劇烈的動態效果。",
+      "motion": "頁面載入時採用細微的淡入動畫，互動元素則使用平滑的顏色／背景色過渡，保持精緻、專業的整體感覺。",
+      "notes": "此網站是現代、以深色模式為首選的開發者工具介面之典范，有效運用排版與程式碼優先的視覺設計，與技術受眾建立信任感。"
+    },
+    "ja": {
+      "palette": "ネアブラック（#141414）を基調とした高コントラストのダークモードパレット。クリスプな白色テキストと、アクセントとして鮮やかな紫から青へのグラデーションを採用。",
+      "layout": "構造化されたフル幅レイアウト。ゆったりとした垂直方向の余白（96px）を確保し、スクリーンを分割したヒーローセクションでは、コピーと顕著なコードエディターウィンドウをバランスよく配置。",
+      "interaction": "hover状態やUI要素に対して、滑らかなトランジション（150〜300ms）を実装。派手な動きよりも、繊細な色相の変化や不透明度の変更を重視。",
+      "motion": "ページ読み込み時の控えめなフェードインアニメーションと、インタラクティブ要素に対する滑らかなcolor/background-colorトランジションを実現。洗練され、プロフェッショナルな印象を維持。",
+      "notes": "このサイトは、モダンでダークモードを第一に考えた開発者向けツールUIの好例。タイポグラフィとコードを視覚的に前面に出すことで、技術層に信頼性を効果的に訴求している。"
+    },
+    "ko": {
+      "palette": "near-black (#141414)를 기반으로 한 고대비 다크 모드 팔레트로, 선명한 흰색 텍스트와 강조를 위한 보라색에서 푸른색으로의 생동감 있는 그라디언트를 사용합니다.",
+      "layout": "풍부한 수직 간격(96px)을 가진 구조화된 전체 폭 레이아웃으로, 복사본과 눈에 띄는 코드 편집기 창을 균형 있게 배치한 분할 화면 히어로 섹션이 특징입니다.",
+      "interaction": "hover 상태와 UI 요소를 위해 부드러운 전환(150-300ms)을 적용하며, 과감한 움직임보다는 미묘한 색상 변화와 불투명도 변화를 강조합니다.",
+      "motion": "페이지 로드 시 미묘한 페이드 인 애니메이션과 인터랙티브 요소를 위한 부드러운 색상/배경색 전환을 사용하여, 세련되고 전문적인 느낌을 유지합니다.",
+      "notes": "이 사이트는 현대적이고 다크 모드 우선의 개발자 도구 UI의 대표적인 예로, 타이포그래피와 코드 우선 비주얼을 효과적으로 활용하여 기술 대상 오디언스의 신뢰를 구축합니다."
+    }
+  },
+  "_meta": {
+    "vision_model": "mimo-v2.5",
+    "vision_prompt_version": "0.3",
+    "vision_source": "playwright-extract:temporal",
+    "vision_grounded": true,
+    "vision_at": "2026-06-04T19:19:31+00:00",
+    "vision_tokens": 17124,
+    "vision_cost_usd": 0.1903,
+    "translation_model": "mimo-v2.5",
+    "translation_at": "2026-06-04T19:20:53+00:00",
+    "translation_tokens": 19233,
+    "translation_cost_usd": 0.0641,
+    "narrative_model": "mimo-v2.5",
+    "narrative_prompt_version": "0.3",
+    "narrative_at": "2026-06-04T19:21:07+00:00",
+    "narrative_tokens": 2289,
+    "narrative_cost_usd": 0.0153,
+    "narrative_status": "ok",
+    "total_cost_usd": 0.2697
+  },
+  "narrative": {
+    "en": {
+      "ch1_intro": "If Temporal is the operating system for AI agents and complex distributed systems, then its design system is the underlying kernel—silent, precise, and built for absolute reliability under load. This is infrastructure made visible, where every visual choice reinforces the platform's core promise of deterministic control in a chaotic landscape.",
+      "ch2_intro": "The palette is a deliberate exercise in high-contrast legibility, anchored by a near-black ground that recedes completely to let the white interface text and vibrant purple-to-blue gradients command the foreground. Accents are not decorative highlights but functional signposts, guiding the eye through complex documentation with the clarity of a well-lit terminal.",
+      "ch2_outro": "The principle is simple: the interface should feel like a reliable, dark-mode IDE—immersive, high-contrast, and optimized for prolonged focus on code and concepts.",
+      "ch3_intro": "Typographic voice is split between the geometric-sans Aeonik for the UI, which carries the platform's confident tone in light, airy weights for headlines, and the dedicated monospace Noto Sans Mono, which gives code examples their own authoritative, legible space. The scale is tight and functional, building from hero headlines down to clear body text for documentation.",
+      "ch4_intro": "The vertical rhythm is architectural, with 96px of generous padding between major sections creating clear, unhurried breaks that allow complex information to be absorbed in discrete blocks.",
+      "ch5_intro": "Surfaces are treated as minimal, depth-less planes, defined more by subtle borders and selective shadows than by filled backgrounds. The dark semi-transparent cards and crisp 1px borders create just enough separation to establish hierarchy without adding visual noise.",
+      "ch6_intro": "The foundational skeleton is a full-width, split-screen hero: the left column holds declarative copy and action, while the right presents a dark code editor window, immediately establishing the platform's code-first ethos. Below, a structured card grid extends this logic, organizing features and documentation into scannable, bordered modules.",
+      "ch7_intro": "Motion is restrained and purposeful, applied as a polish layer rather than a narrative device. Smooth transitions and subtle fades confirm user actions and guide focus without ever disrupting the professional, tool-like demeanor of the interface.",
+      "ch8_intro": "The editorial voice is authoritative and technical, confident enough to state capabilities directly ('Get Started for Free', 'Run Locally') without embellishment or whimsical language. It avoids jargon for its own sake, favoring clarity and directness that respects the developer's time and expertise.",
+      "ch8_outro": "It deliberately avoids playful or whimsical tone, light backgrounds, and heavy font weights—rejecting visual noise in favor of a singular, focused aesthetic of controlled precision."
+    },
+    "zh-CN": {
+      "ch1_intro": "如果说 Temporal 是 AI 智能体与复杂分布式系统的操作系统，那么其设计系统便是底层的内核——静默、精准，专为在负载下保持绝对可靠而构建。这是让基础设施可见的设计，每一个视觉选择都强化了平台在混沌环境中实现确定性控制的核心承诺。",
+      "ch2_intro": "配色方案是对高对比度可读性的精心实践，以近乎纯黑的底色为锚点，使其完全退居背景，让白色界面文字与醒目的紫蓝渐变色彩主导前景。强调色并非装饰性点缀，而是功能性的路标，如同照明良好的终端一般，引导视线在复杂的文档中清晰穿行。",
+      "ch2_outro": "原则很简单：界面应让人感觉如同一个可靠、深色模式的 IDE——沉浸式、高对比度，并为长时间专注于代码与概念而优化。",
+      "ch3_intro": "排版声音分为两部分：用于 UI 的几何无衬线字体 Aeonik 以轻盈、通透的字重承载平台自信的语气，用于标题；而专用的等宽字体 Noto Sans Mono 则为代码示例提供了其专属的、权威且易读的空间。字阶紧凑而实用，从醒目的主标题一路延伸至文档中清晰的正文。",
+      "ch4_intro": "垂直韵律具有建筑感，主要章节之间留有 96px 的充裕内边距，形成清晰、从容的间隔，让复杂信息能以独立区块的形式被吸收理解。",
+      "ch5_intro": "表面被处理为极简、无深度的平面，其定义更多依赖于微妙的边框和选择性的阴影，而非填充背景。深色半透明卡片与清晰的 1px 边框创造了恰到好处的分隔，以建立视觉层级，同时避免引入视觉噪音。",
+      "ch6_intro": "基础骨架是一个全宽的分屏首屏：左栏放置声明性文案与操作，右栏则展示一个深色的代码编辑器窗口，立即确立了平台代码优先的理念。下方，一个结构化的卡片网格延伸了这一逻辑，将功能与文档组织成易于浏览、带有边框的模块。",
+      "ch7_intro": "动效克制而有目的性，作为润色层而非叙事工具应用。平滑的过渡与微妙的淡入淡出确认用户操作并引导焦点，始终不破坏界面专业、工具般的气质。",
+      "ch8_intro": "编辑语气权威且技术化，足够自信以直接陈述功能（例如「免费开始使用」、「本地运行」），无需修饰或使用随意的语言。它避免为术语而使用术语，偏爱清晰与直接，以尊重开发者的时间与专业知识。",
+      "ch8_outro": "它刻意避免俏皮或异想天开的语调、浅色背景以及过粗的字重——拒绝视觉噪音，转而追求一种控制精准、专注统一的美学。"
+    },
+    "zh-TW": {
+      "ch1_intro": "如果 Temporal 是 AI 代理與複雜分散式系統的作業系統，那麼其設計系統便是底層的核心——靜默、精準，並為絕對負載下的可靠性而構建。這是具象化的基礎設施，每一個視覺選擇都在強化平台的核心承諾：在混沌環境中實現確定性控制。",
+      "ch2_intro": "色彩配置是對高對比可讀性的刻意演練，以近乎黑色的背景為基礎，完全後退以讓白色介面文字與鮮明的紫藍漸層主導前景。強調色並非裝飾性點綴，而是功能性路標，以如良好照明終端機般的清晰度，引導視線穿越複雜的文件內容。",
+      "ch2_outro": "原則很簡單：介面應帶來如可靠深色模式 IDE 般的感受——沉浸式、高對比，並針對長時間聚焦於程式碼與概念進行優化。",
+      "ch3_intro": "排版語調分為兩部分：幾何無襯線字體 Aeonik 用於 UI，以輕盈空靈的字重承載平台自信的語調；專用等寬字體 Noto Sans Mono 則為程式碼範例提供權威且易讀的獨立空間。比例嚴謹而實用，從主標題一路構建至清晰的文件內文。",
+      "ch4_intro": "垂直節奏具有建築感，主要段落間寬裕的 96px 間距創造出清晰、從容的停頓，讓複雜資訊能以獨立區塊被消化吸收。",
+      "ch5_intro": "表面被視為極簡、無深度的平面，透過微妙邊框與選擇性陰影而非填充背景來定義。深色半透明卡片與清晰的 1px 邊框創造出恰到好處的分隔，建立層級結構而不增加視覺雜訊。",
+      "ch6_intro": "基礎骨架是全幅分割畫面首圖：左欄放置聲明性文案與操作，右側展示深色程式碼編輯器視窗，立即確立平台程式碼優先的理念。下方則以結構化卡片網格延伸此邏輯，將功能與文件組織為可掃描、帶邊框的模組。",
+      "ch7_intro": "動態效果克制而有目的，作為潤飾層而非敘事手段。流暢的過渡與微妙的淡入淡出確認使用者操作並引導焦點，從不打斷介面專業、工具般的特質。",
+      "ch8_intro": "編輯語調權威且具技術性，自信到能直接陳述能力（「免費開始」、「本地運行」），無需修飾或浮誇語言。它避免為了術語而使用術語，偏好清晰與直接，尊重開發者的時間與專業。",
+      "ch8_outro": "它刻意迴避俏皮或異想天開的語調、淺色背景與厚重字重——拒絕視覺雜訊，以聚焦於控制精準度的單一美學。"
+    },
+    "ja": {
+      "ch1_intro": "Temporal が AI エージェントや複雑な分散システムのオペレーティング・システムであるなら、そのデザイン・システムは、負荷下でも絶対的な信頼性を実現するために構築された、静かで精確なカーネルに他なりません。これは可視化されたインフラであり、あらゆる視覚的選択が、混沌とした環境における決定論的制御というプラットフォームの中核的な約束を強調する場です。",
+      "ch2_intro": "パレットは、ハイコントラストな可読性を意図的に追求したものです。ほぼ黒に近い地が完全に後退し、白いインターフェース・テキストと鮮やかな紫から青へのグラデーションが前景を支配します。アクセントは装飾的なハイライトではなく、明るく照らされたターミナルのような明瞭さで、複雑なドキュメントを通じて視線を誘導する機能的な道標です。",
+      "ch2_outro": "原則はシンプルです。インターフェースは、信頼できるダークモードの IDE のように感じられるべきです。没入感があり、ハイコントラストで、コードやコンセプトへの長時間の集中が最適化されている必要があります。",
+      "ch3_intro": "タイポグラフィの声は、UI には幾何学的サンセリフ体の Aeonik、コード例には専用のモノスペース Noto Sans Mono に分かれています。前者は、見出し用の軽くエアリーなウェイトでプラットフォームの自信に満ちたトーンを伝え、後者はコード例に独自の権威と可読性のある空間を提供します。スケールは緊密かつ機能的で、ヒーロー見出しからドキュメント用の明確な本文まで構成されています。",
+      "ch4_intro": "縦のリズムは建築的です。主要セクション間に 96px の寛大なパディングが設けられ、複雑な情報を個々のまとめて吸収できるよう、明確で落ち着いた区切りを生み出しています。",
+      "ch5_intro": "サーフェスは、最小限の、奥行きのない平面として扱われます。塗りつぶされた背景よりも、微妙なボーダーと選択的なシャドウによって定義されます。暗く半透明のカードと鮮やかな 1px ボーダーが、視覚的なノイズを加えることなく階層を確立するのに十分な分離感を生み出します。",
+      "ch6_intro": "基礎となるスケルトンは、フルワイドの分割画面ヒーローです。左カラムには宣言的なコピーとアクション、右にはダークなコードエディターウィンドウが配置され、プラットフォームのコードファーストの理念を即座に確立します。その下には、構造化されたカードグリッドがこのロジックを継承し、機能やドキュメントをスキャンしやすい、ボーダーで囲まれたモジュールに整理します。",
+      "ch7_intro": "モーションは抑制され、目的を有しています。ナラティブな装置ではなく、仕上げのレイヤーとして適用されます。スムーズなトランジションと微妙なフェードが、ユーザーのアクションを確認し、インターフェースのプロフェッショナルでツールのような様子を決して乱すことなく、フォーカスを誘導します。",
+      "ch8_intro": "エディトリアル・ボイスは権威的かつ技術的です。「無料で始める」「ローカルで実行」のように、飾りや気まぐれな言葉を使わずに、機能を直接的に述べるのに十分な自信があります。ジャargonを無意味に避け、開発者の時間と専門知識を尊重する明瞭さと直接性を重視します。",
+      "ch8_outro": "它は意図的に遊び心のあるトーン、明るい背景、太いフォントのウェイトを避け、視覚的なノイズを排除し、制御された精確さという一つの、集中した美的感覚を志向しています。"
+    },
+    "ko": {
+      "ch1_intro": "Temporal이 AI 에이전트와 복잡한 분산 시스템을 위한 운영 체제라면, 그 디자인 시스템은 그 기반에 자리한 커널과 같습니다—침묵 속에 정확하고, 부하 상황에서 절대적 신뢰성을 위해 구축되었습니다. 이는 시각적으로 구현된 인프라로, 모든 시각적 선택이 혼란스러운 환경에서의 결정론적 제어라는 플랫폼의 핵심 약속을 강화합니다.",
+      "ch2_intro": "팔레트는 고대비 가독성을 위해 의도적으로 설계되었으며, 거의 검은 배경 위에 흰색 인터페이스 텍스트와 선명한 보라색에서 파란색으로의 그라디언트가 전면에 위치하도록 공간을 완전히 비워둡니다. 강조색은 장식적인 하이라이트가 아니라 기능적인 표지판으로, 밝게 비춰진 터미널의 명확함으로 복잡한 문서를 안내합니다.",
+      "ch2_outro": "원칙은 간단합니다: 인터페이스는 신뢰할 수 있는 다크 모드 IDE처럼 느껴져야 합니다—몰입감 있고, 고대비이며, 코드와 개념에 대한 장시간 집중에 최적화되어야 합니다.",
+      "ch3_intro": "서체의 목소리는 두 부분으로 나뉩니다: 기하학적 산세리프체인 Aeonik은 UI를 위해 사용되며, 헤드라인용으로 가볍고 공기감 있는 굵기로 플랫폼의 자신감 넘치는 어조를 전달합니다. 또한, 코드 예제에 독자적이고 권위 있는 가독성을 부여하는 고정폭 서체 Noto Sans Mono가 사용됩니다. 스케일은 타이트하고 기능적이며, 히어로 헤드라인에서 문서용 본문 텍스트까지 명확하게 구성됩니다.",
+      "ch4_intro": "수직 리듬은 건축적입니다. 주요 섹션 사이에 96px의 넉넉한 패딩을 두어, 복잡한 정보가 개별 블록으로 이해될 수 있도록 명확하고 여유로운 간격을 만듭니다.",
+      "ch5_intro": "표면은 최소화되고 깊이 없는 평면으로 처리되며, 채워진 배경보다 미세한 테두리와 선별적인 그림자로 정의됩니다. 어두운 반투명 카드와 선명한 1px 테두리는 계층 구조를 확립하기에 충분한 분리를 제공하면서도 시각적 잡음을 추가하지 않습니다.",
+      "ch6_intro": "기본 골격은 전체 너비의 분할 화면 히어로입니다: 왼쪽 열에는 선언적 텍스트와 동작이 위치하고, 오른쪽에는 어두운 코드 편집기 창이 배치되어 플랫폼의 코드 우선 철학을 즉시 확립합니다. 아래쪽에는 구조화된 카드 그리드가 이 논리를 확장하여 기능과 문서를 스캔 가능한 테두리 모듈로 정리합니다.",
+      "ch7_intro": "모션은 절제되고 목적을 가지며, 서사적 장치가 아닌 마감 레이어로 적용됩니다. 부드러운 전환과 미세한 페이드 아웃은 사용자 동작을 확인하고 인터페이스의 전문적이고 도구와 같은 태도를 방해하지 않으면서 집중을 안내합니다.",
+      "ch8_intro": "편집적 어조는 권위 있고 기술적이며, 장식이나 기발한 언어 없이 능력을 직접적으로 명시할 만큼 자신감 있습니다.('무료로 시작하기', '로컬에서 실행하기' 등) 자칫 과도할 수 있는 전문 용어를 피하고, 개발자의 시간과 전문성을 존중하는 명확함과 직접성을 우선시합니다.",
+      "ch8_outro": "의도적으로 장난스럽거나 기발한 어조, 밝은 배경, 그리고 두꺼운 서체 굵기를 피합니다—시각적 잡음을 거부하고 통제된 정밀함이라는 단일하고 집중된 미학을 추구합니다."
+    }
+  }
 }

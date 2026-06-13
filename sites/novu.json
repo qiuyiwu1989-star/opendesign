@@ -8,6 +8,577 @@
     "dev",
     "notifications"
   ],
-  "status": "pending",
-  "added_at": "2026-06-03"
+  "status": "completed",
+  "added_at": "2026-06-03",
+  "spec": {
+    "colors": {
+      "bg": "#111018",
+      "bgSoft": "#1e2438",
+      "bgQuiet": null,
+      "ink": "#ffffff",
+      "inkSoft": "#999999",
+      "muted": "#cccccc",
+      "mutedSoft": null,
+      "accent": "#00d5ff",
+      "line": "rgba(255,255,255,0.1)"
+    },
+    "typography": {
+      "display": "geometric-sans",
+      "body": "geometric-sans",
+      "mono": "monospace",
+      "scale": [
+        {
+          "token": "display",
+          "size": 64,
+          "lh": 1.05,
+          "weight": 500,
+          "ls": "-1px"
+        },
+        {
+          "token": "body",
+          "size": 16,
+          "lh": 1.5,
+          "weight": 400,
+          "ls": "0px"
+        }
+      ]
+    },
+    "spacing": {
+      "base": 4,
+      "scale": [
+        4,
+        8,
+        12,
+        16,
+        20,
+        24,
+        32,
+        48,
+        64,
+        96
+      ]
+    },
+    "surfaces": {
+      "radius": {
+        "sm": 4,
+        "md": 8,
+        "lg": 12,
+        "pill": 9999
+      }
+    },
+    "layout": {
+      "container": 1280,
+      "paragraph": 680,
+      "columns": 12,
+      "gutter": 24,
+      "breakpoints": [
+        768,
+        1024
+      ]
+    },
+    "motion": {
+      "durations": {
+        "micro": 200,
+        "small": 300,
+        "medium": 800
+      },
+      "easing": "cubic-bezier(0.4, 0, 0.2, 1)"
+    }
+  },
+  "spec_i18n": {
+    "en": {
+      "identity": {
+        "keywords": [
+          "developer-first",
+          "infrastructure",
+          "notifications",
+          "modern",
+          "open-source"
+        ],
+        "analogy": "A developer-first command center for notifications, merging a sophisticated dark aesthetic with a clean, technical interface.",
+        "oneLiner": "A dark-mode, developer-focused notification infrastructure platform combining clean typography with a sophisticated, deep space-inspired color palette."
+      },
+      "colors": {
+        "principle": "High-contrast dark mode foundation with cyan accents, relying on deep blues and grays for depth and layering."
+      },
+      "typography": {
+        "rules": [],
+        "scaleUses": [
+          "Main hero heading",
+          "General body text"
+        ]
+      },
+      "spacing": {
+        "rhythm": "4px base grid with consistent vertical spacing."
+      },
+      "surfaces": {
+        "shadows": [
+          "0 0 100px rgba(0, 213, 255, 0.15)"
+        ],
+        "borders": "1px solid rgba(255,255,255,0.1)"
+      },
+      "layout": {
+        "skeleton": "Centered hero section followed by multi-column feature grids and complex overlapping UI demos."
+      },
+      "components": {
+        "button": "Pill-shaped solid primary buttons (white with black text) and outlined secondary buttons.",
+        "card": "Dark-themed cards with subtle borders and soft radial gradients for depth.",
+        "chip": "Small pill badges with solid backgrounds for counts (e.g., yellow/orange '18').",
+        "input": "Dark-themed inputs with subtle borders.",
+        "hero": "Massive centered typography with overlapping floating interface components."
+      },
+      "motion": {
+        "patterns": [
+          "Smooth background transitions",
+          "Hover color shifts",
+          "Transform scaling on interactive elements"
+        ]
+      },
+      "interaction": {
+        "hover": "Subtle color shifts or background changes on navigation and buttons.",
+        "click": "Scale transform on interactive elements.",
+        "transition": "0.3s cubic-bezier(0.4, 0, 0.2, 1) for color and background transitions.",
+        "keyboard": "Standard focus states likely following WCAG contrast requirements."
+      },
+      "voice": {
+        "tone": "Technical, confident, and developer-oriented.",
+        "headlineStyle": "Direct and bold, often incorporating code-like syntax (e.g., '<Inbox />').",
+        "ctaStyle": "Clear, uppercase action-oriented text (e.g., 'START FOR FREE').",
+        "avoid": [
+          "fluff",
+          "marketing jargon",
+          "decorative metaphors",
+          "overly complex sentences"
+        ]
+      },
+      "donts": [
+        "don't use light backgrounds — screenshot shows a deep dark mode foundation (#111018).",
+        "don't use decorative serif fonts — screenshot shows clean, geometric sans-serif typography.",
+        "don't avoid code syntax in headlines — screenshot shows '<Inbox />' used prominently in the hero.",
+        "don't use muted, low-contrast colors — screenshot shows high-contrast white text on dark backgrounds with bright cyan accents.",
+        "don't use complex, multi-colored gradients everywhere — screenshot shows subtle, dark radial gradients for depth.",
+        "don't use sharp, boxy corners — screenshot shows widespread use of pill-shaped (9999px) and 12px rounded corners."
+      ],
+      "systemPrompt": "Novu is a dark-mode, developer-first notification infrastructure platform. It features a deep dark background (#111018) with high-contrast white text (#ffffff) and bright cyan accents (#00d5ff). The typography is a clean geometric sans-serif category with large, bold headings and a technical tone, often incorporating code-like syntax. The design emphasizes complex UI demos, pill-shaped buttons, and subtle radial gradients. Critical donts: never use light backgrounds, never use decorative serifs, and never avoid code-centric headlines. Maintain a high-contrast, technical aesthetic suitable for a developer audience."
+    },
+    "zh-CN": {
+      "identity": {
+        "keywords": [
+          "开发者优先",
+          "基础设施",
+          "通知",
+          "现代",
+          "开源"
+        ],
+        "analogy": "一个开发者优先的通知指挥中心，将精致的暗色美学与简洁、技术感的界面融为一体。",
+        "oneLiner": "一个深色模式、面向开发者的通知基础设施平台，结合了简洁的排版与精致的、灵感来自深空的配色方案。"
+      },
+      "colors": {
+        "principle": "以青色为点缀的高对比度深色模式基础，依赖深蓝和灰色构建深度与层次感。"
+      },
+      "typography": {
+        "rules": [],
+        "scaleUses": [
+          "主英雄标题",
+          "常规正文文本"
+        ]
+      },
+      "spacing": {
+        "rhythm": "基于4px的网格，保持垂直间距一致。"
+      },
+      "surfaces": {
+        "shadows": [
+          "0 0 100px rgba(0, 213, 255, 0.15)"
+        ],
+        "borders": "1px solid rgba(255,255,255,0.1)"
+      },
+      "layout": {
+        "skeleton": "居中的英雄区段，后接多列功能网格和复杂的重叠UI演示。"
+      },
+      "components": {
+        "button": "胶囊形实心主按钮（白底黑字）和描边次按钮。",
+        "card": "深色主题卡片，带有细微边框和柔和的径向渐变以增加深度。",
+        "chip": "小型胶囊形徽章，使用实色背景显示计数（例如，黄色/橙色的'18'）。",
+        "input": "深色主题输入框，带有细微边框。",
+        "hero": "超大居中文字排版，搭配重叠的浮动界面组件。"
+      },
+      "motion": {
+        "patterns": [
+          "平滑的背景过渡",
+          "悬停颜色变化",
+          "交互元素的变换缩放"
+        ]
+      },
+      "interaction": {
+        "hover": "导航和按钮上的细微颜色变化或背景改变。",
+        "click": "交互元素上的缩放变换。",
+        "transition": "颜色和背景过渡使用0.3s cubic-bezier(0.4, 0, 0.2, 1)。",
+        "keyboard": "标准焦点状态，可能遵循WCAG对比度要求。"
+      },
+      "voice": {
+        "tone": "技术性、自信、面向开发者。",
+        "headlineStyle": "直接且有力，常融入类代码语法（例如：'<Inbox />'）。",
+        "ctaStyle": "清晰、大写、行动导向的文本（例如：'START FOR FREE'）。",
+        "avoid": [
+          "填充词",
+          "营销术语",
+          "装饰性隐喻",
+          "过于复杂的句子"
+        ]
+      },
+      "donts": [
+        "不要使用浅色背景——截图显示的是深色模式基础（#111018）。",
+        "不要使用装饰性衬线字体——截图显示的是简洁的几何无衬线字体。",
+        "不要在标题中避免使用代码语法——截图显示'<Inbox />'在英雄区被显著使用。",
+        "不要使用暗淡、低对比度的颜色——截图显示在深色背景上使用高对比度的白色文字和明亮的青色点缀。",
+        "不要到处使用复杂的、多彩的渐变——截图显示使用了微妙的深色径向渐变来营造深度。",
+        "不要使用尖锐、方正的圆角——截图显示广泛使用了胶囊形（9999px）和12px圆角。"
+      ],
+      "systemPrompt": "Novu 是一个深色模式、开发者优先的通知基础设施平台。它以深色背景（#111018）为基础，搭配高对比度的白色文字（#ffffff）和明亮的青色点缀（#00d5ff）。字体属于简洁的几何无衬线类别，具有大而粗的标题和技术性语气，常融入类代码语法。设计强调复杂的UI演示、胶囊形按钮和微妙的径向渐变。关键禁忌：绝不使用浅色背景，绝不使用装饰性衬线字体，绝不避免以代码为中心的标题。保持一种高对比度、技术感的美学，适合开发者受众。"
+    },
+    "zh-TW": {
+      "identity": {
+        "keywords": [
+          "開發者優先",
+          "基礎設施",
+          "通知系統",
+          "現代化",
+          "開源"
+        ],
+        "analogy": "一個以開發者為中心的通知指令中心，融合精緻的深色美學與簡潔的技術介面。",
+        "oneLiner": "一個深色模式、面向開發者的通知基礎設施平台，結合簡潔排版與精緻的深空靈感配色。"
+      },
+      "colors": {
+        "principle": "以深藍與灰色構成高對比深色模式基礎，搭配青色強調色，創造層次與深度。"
+      },
+      "typography": {
+        "rules": [],
+        "scaleUses": [
+          "主英雄標題",
+          "一般內文"
+        ]
+      },
+      "spacing": {
+        "rhythm": "以 4px 為基準網格，維持一致的垂直間距。"
+      },
+      "surfaces": {
+        "shadows": [
+          "0 0 100px rgba(0, 213, 255, 0.15)"
+        ],
+        "borders": "1px solid rgba(255,255,255,0.1)"
+      },
+      "layout": {
+        "skeleton": "中央英雄區域，接續多欄功能格網與複雜的重疊 UI 示範。"
+      },
+      "components": {
+        "button": "膠囊形實心主按鈕（白底黑字）與描邊次按鈕。",
+        "card": "深色主題卡片，帶有細微邊框與柔和的徑向漸層以增加深度。",
+        "chip": "小型膠囊標籤，使用實心背景顯示計數（例如黃色/橘色的「18」）。",
+        "input": "深色主題輸入框，帶有細微邊框。",
+        "hero": "中央大字體標題，搭配重疊的浮動介面元件。"
+      },
+      "motion": {
+        "patterns": [
+          "流暢的背景轉場",
+          "hover 色彩變換",
+          "互動元件的縮放變形"
+        ]
+      },
+      "interaction": {
+        "hover": "導覽與按鈕上的細微色彩或背景變化。",
+        "click": "互動元件的縮放變形。",
+        "transition": "0.3s cubic-bezier(0.4, 0, 0.2, 1)，用於色彩與背景轉場。",
+        "keyboard": "標準 focus 狀態， likely 遵循 WCAG 對比度要求。"
+      },
+      "voice": {
+        "tone": "技術性、自信、面向開發者。",
+        "headlineStyle": "直接且大膽，常融入程式碼語法（例如「<Inbox />」）。",
+        "ctaStyle": "清晰、大寫、行動導向的文字（例如「免費開始」）。",
+        "avoid": [
+          "冗詞贅字",
+          "行銷術語",
+          "裝飾性比喻",
+          "過於複雜的句子"
+        ]
+      },
+      "donts": [
+        "不要使用淺色背景——截圖顯示深色模式基礎 (#111018)。",
+        "不要使用裝飾性襯線字體——截圖顯示簡潔的幾何無襯線排版。",
+        "不要在標題中避免使用程式碼語法——截圖顯示英雄區域顯著使用「<Inbox />」。",
+        "不要使用低飽和度、低對比的顏色——截圖顯示深色背景上的高對比白色文字與亮青強調色。",
+        "不要到處使用複雜的多彩漸層——截圖顯示使用細微的深色徑向漸層增加深度。",
+        "不要使用尖銳的直角——截圖顯示廣泛使用膠囊形 (9999px) 與 12px 圓角。"
+      ],
+      "systemPrompt": "Novu 是一個深色模式、以開發者為中心的通知基礎設施平台。它採用深色背景 (#111018)，搭配高對比白色文字 (#ffffff) 與亮青強調色 (#00d5ff)。字體使用簡潔的幾何無襯線類別，標題大而粗體，語調技術性，常融入程式碼語法。設計強調複雜的 UI 示範、膠囊形按鈕與細微的徑向漸層。關鍵禁忌：絕不使用淺色背景、絕不使用裝飾性襯線字體、絕不迴避以程式碼為核心的標題。保持高對比、技術性的美學，適合開發者受眾。"
+    },
+    "ja": {
+      "identity": {
+        "keywords": [
+          "開発者ファースト",
+          "インフラストラクチャ",
+          "通知",
+          "モダン",
+          "オープンソース"
+        ],
+        "analogy": "通知のための開発者ファーストコマンドセンター。洗練されたダークな美学とクリーンで技術的なインターフェースを融合。",
+        "oneLiner": "クリーンなタイポグラフィと、洗練された深宇宙をインスパイアしたカラーパレットを組み合わせた、ダークモードで開発者向けの通知インフラストラクチャプラットフォーム。"
+      },
+      "colors": {
+        "principle": "シアンのアクセントを持つ高コントラストダークモード基盤。深みと階層感を生み出すために、ディープブルーとグレーに依存。"
+      },
+      "typography": {
+        "rules": [],
+        "scaleUses": [
+          "メインヒーローヘッドライン",
+          "汎用本文テキスト"
+        ]
+      },
+      "spacing": {
+        "rhythm": "4pxベースグリッドと一貫した垂直方向のスペーシング。"
+      },
+      "surfaces": {
+        "shadows": [
+          "0 0 100px rgba(0, 213, 255, 0.15)"
+        ],
+        "borders": "1px solid rgba(255,255,255,0.1)"
+      },
+      "layout": {
+        "skeleton": "センタリングされたヒーローセクション、その後にマルチカラムの機能グリッドと複雑なオーバーラップUIデモ。"
+      },
+      "components": {
+        "button": "ピル型のソリッドプライマリボタン（ホワイト背景にブラックテキスト）とアウトラインセカンダリボタン。",
+        "card": "ダークテーマのカード。微妙なボーダーと、深みを出すためのソフトな放射グラデーション。",
+        "chip": "カウント表示用のソリッド背景を持つ小さなピルバッジ（例：黄色/オレンジの「18」）。",
+        "input": "ダークテーマの入力フィールド。微妙なボーダー付き。",
+        "hero": "巨大なセンタリングタイポグラフィと、オーバーラップするフローティングインターフェースコンポーネント。"
+      },
+      "motion": {
+        "patterns": [
+          "滑らかな背景トランジション",
+          "ホバー時のカラー変化",
+          "インタラクティブ要素のトランスフォームスケーリング"
+        ]
+      },
+      "interaction": {
+        "hover": "ナビゲーションとボタンにおける、微妙なカラー変化または背景の変更。",
+        "click": "インタラクティブ要素のスケールトランスフォーム。",
+        "transition": "カラーおよび背景トランジションに0.3s cubic-bezier(0.4, 0, 0.2, 1)を使用。",
+        "keyboard": "WCAGコントラスト要件に準拠する標準的なフォーカス状態。"
+      },
+      "voice": {
+        "tone": "技術的で、自信に満ち、開発者指向。",
+        "headlineStyle": "直接的で大胆。コードに近い構文を織り交えることが多い（例：'<Inbox />'）。",
+        "ctaStyle": "明確で、大文字のアクション指向テキスト（例：'START FOR FREE'）。",
+        "avoid": [
+          "曖昧な表現",
+          "マーケティング用語",
+          "装飾的なメタファー",
+          "不必要に複雑な文章"
+        ]
+      },
+      "donts": [
+        "ライト背景を使用しない — スクリーンショットはディープなダークモード基盤 (#111018) を示している。",
+        "装飾的なセリフフォントを使用しない — スクリーンショットはクリーンで幾何学的なサンセリフタイポグラフィを示している。",
+        "ヘッドラインでコード構文を避けるな — スクリーンショットではヒーローで '<Inbox />' が顕著に使用されている。",
+        "くすんだ、低コントラストのカラーを使用しない — スクリーンショットはダーク背景に高コントラストのホワイトテキストと明るいシアンアクセントを示している。",
+        "どこでも複雑で多色のグラデーションを使用しない — スクリーンショットは深みを出すための微細でダークな放射グラデーションを示している。",
+        "シャープでボクシーな角を使用しない — スクリーンショットでは广泛的にピル型 (9999px) および12pxの角丸が使用されている。"
+      ],
+      "systemPrompt": "Novuは、ダークモードで開発者ファーストの通知インフラストラクチャプラットフォームです。ディープダークな背景 (#111018) に高コントラストのホワイトテキスト (#ffffff) と明るいシアンアクセント (#00d5ff) を特徴とします。タイポグラフィはクリーンな幾何学的なサンセリフカテゴリで、大きく太字の見出しと技術的なトーンを持ち、コードに近い構文を織り交えることが多いです。デザインは、複雑なUIデモ、ピル型ボタン、微細な放射グラデーションを重視します。重要な禁止事項：ライト背景は決して使用せず、装飾的なセリフは決して使用せず、コード中心の見出しは決して避けません。開発者オーディエンスに適した、高コントラストで技術的な美学を維持すること。"
+    },
+    "ko": {
+      "identity": {
+        "keywords": [
+          "개발자 중심",
+          "인프라",
+          "알림",
+          "모던",
+          "오픈소스"
+        ],
+        "analogy": "세련된 다크 미학과 깔끔한 기술 인터페이스를 결합한, 알림을 위한 개발자 중심 명령 센터입니다.",
+        "oneLiner": "깔끔한 타이포그래피와 세련된 심층 우주에서 영감을 받은 컬러 팔레트를 결합한, 개발자 중심 다크 모드 알림 인프라 플랫폼입니다."
+      },
+      "colors": {
+        "principle": "깊은 블루와 그레이를 활용하여 깊이감과 레이어링을 형성하는, 고대비 다크 모드 베이스와 시안 포인트입니다."
+      },
+      "typography": {
+        "rules": [],
+        "scaleUses": [
+          "메인 히어로 제목",
+          "일반 본문 텍스트"
+        ]
+      },
+      "spacing": {
+        "rhythm": "4px 기반 그리드와 일관된 수직 간격입니다."
+      },
+      "surfaces": {
+        "shadows": [
+          "0 0 100px rgba(0, 213, 255, 0.15)"
+        ],
+        "borders": "1px solid rgba(255,255,255,0.1)"
+      },
+      "layout": {
+        "skeleton": "중앙 정렬된 히어로 섹션 다음에 다중 컬럼 기능 그리드와 복잡한 겹치는 UI 데모가 옵니다."
+      },
+      "components": {
+        "button": "알약 형태의 솔리드 기본 버튼(화이트 배경에 블랙 텍스트)과 아웃라인된 보조 버튼입니다.",
+        "card": "미세한 테두리와 부드러운 방사형 그라디언트로 깊이감을 준 다크 테마 카드입니다.",
+        "chip": "카운트용(예: 노란색/주황색 '18') 솔리드 배경의 작은 알약 형태 배지입니다.",
+        "input": "미세한 테두리가 있는 다크 테마 인풋 필드입니다.",
+        "hero": "겹치는 플로팅 인터페이스 컴포넌트가 있는 거대한 중앙 정렬 타이포그래피입니다."
+      },
+      "motion": {
+        "patterns": [
+          "부드러운 배경 전환",
+          "Hover 시 색상 변화",
+          "인터랙티브 요소의 Transform 스케일링"
+        ]
+      },
+      "interaction": {
+        "hover": "네비게이션과 버튼에 미세한 색상 변화 또는 배경 변경.",
+        "click": "인터랙티브 요소의 Scale transform.",
+        "transition": "색상 및 배경 전환을 위한 0.3s cubic-bezier(0.4, 0, 0.2, 1).",
+        "keyboard": "WCAG 대비 요구 사항을 따르는 표준 focus 상태입니다."
+      },
+      "voice": {
+        "tone": "기술적이고 자신감 있으며 개발자 지향적입니다.",
+        "headlineStyle": "간결하고 굵으며, 종종 코드 구문(예: '<Inbox />')을 포함합니다.",
+        "ctaStyle": "명확하고 대문자화된 행동 지향적 텍스트(예: 'START FOR FREE').",
+        "avoid": [
+          "장황한 표현",
+          "마케팅 용어",
+          "장식적 은유",
+          "지나치게 복잡한 문장"
+        ]
+      },
+      "donts": [
+        "라이트 배경을 사용하지 마세요 — 스크린샷은 딥 다크 모드 베이스(#111018)를 보여줍니다.",
+        "장식적 세리프 폰트를 사용하지 마세요 — 스크린샷은 깔끔한 기하학적 산세리프 타이포그래피를 보여줍니다.",
+        "제목에서 코드 구문을 피하지 마세요 — 스크린샷은 히어로에서 '<Inbox />'를 두드러지게 사용하는 것을 보여줍니다.",
+        "흐릿하고 저대비 색상을 사용하지 마세요 — 스크린샷은 다크 배경 위의 고대비 화이트 텍스트와 밝은 시안 포인트를 보여줍니다.",
+        "복잡하고 다채로운 그라디언트를 곳곳에 사용하지 마세요 — 스크린샷은 깊이감을 위한 미세하고 어두운 방사형 그라디언트를 보여줍니다.",
+        "날카롭고 각진 코너를 사용하지 마세요 — 스크린샷은 광범위하게 사용된 알약 형태(9999px)와 12px 둥근 코너를 보여줍니다."
+      ],
+      "systemPrompt": "Novu는 다크 모드, 개발자 중심 알림 인프라 플랫폼입니다. 딥 다크 배경(#111018)에 고대비 화이트 텍스트(#ffffff)와 밝은 시안 포인트(#00d5ff)를 특징으로 합니다. 타이포그래피는 깔끔한 기하학적 산세리프 계열로, 크고 굵은 제목과 기술적 톤을 가지며 종종 코드 구문을 포함합니다. 디자인은 복잡한 UI 데모, 알약 형태 버튼, 미세한 방사형 그라디언트를 강조합니다. 핵심 금지 사항: 절대 라이트 배경을 사용하지 마세요, 절대 장식적 세리프를 사용하지 마세요, 절대 코드 중심 제목을 피하지 마세요. 개발자 대상에 적합한 고대비, 기술적 미학을 유지하세요."
+    }
+  },
+  "desc": {
+    "en": {
+      "palette": "A sophisticated dark-mode palette centered on deep charcoal (#111018) and dark blues (#1e2438), contrasted with crisp white (#ffffff) and a vibrant cyan accent (#00d5ff).",
+      "layout": "Centered, hero-heavy layout that uses massive typography and overlapping floating UI components to demonstrate product capabilities.",
+      "interaction": "Smooth, 300ms transitions with subtle hover states and scaling effects, typical of modern technical SaaS interfaces.",
+      "motion": "Subtle background animations and smooth cubic-bezier transitions for UI element states.",
+      "notes": "Worth including as a prime example of modern developer-focused dark-mode SaaS design, blending high technicality with a sophisticated visual identity."
+    },
+    "zh-CN": {
+      "palette": "一套精致的深色模式配色方案，以深炭灰（#111018）和暗蓝（#1e2438）为核心，搭配纯净的白色（#ffffff）和醒目的青色点缀（#00d5ff）。",
+      "layout": "采用居中、英雄区主导的布局，运用超大字体和重叠的浮动UI组件来展示产品能力。",
+      "interaction": "流畅的300毫秒过渡效果，带有细微的悬停状态和缩放效果，符合现代技术型SaaS界面的典型特征。",
+      "motion": "微妙的背景动画和基于cubic-bezier的平滑UI元素状态转换。",
+      "notes": "作为现代开发者导向的深色模式SaaS设计典范，值得收录，它融合了高技术性与精致的视觉识别。"
+    },
+    "zh-TW": {
+      "palette": "以深炭灰 (#111018) 與深藍 (#1e2438) 為核心的精緻深色模式配色，搭配純白 (#ffffff) 與亮青 (#00d5ff) 強調色。",
+      "layout": "以中央英雄區域為主體，使用大字體與重疊的浮動 UI 元件，展示產品功能。",
+      "interaction": "流暢的 300ms 轉場，搭配細微的 hover 狀態與縮放效果，符合現代技術型 SaaS 介面風格。",
+      "motion": "細微的背景動畫與流暢的 cubic-bezier 轉場，用於 UI 元素狀態切換。",
+      "notes": "作為現代開發者導向的深色模式 SaaS 設計範例，融合高技術性與精緻視覺識別。"
+    },
+    "ja": {
+      "palette": "ディープシャーコーブル (#111018) とダークブルー (#1e2438) を中心に、クリスプなホワイト (#ffffff) と鮮やかなシアンのアクセント (#00d5ff) で対比を生み出す、洗練されたダークモードのカラーパレット。",
+      "layout": "巨大なタイポグラフィとオーバーラップするフローティングUIコンポーネントを駆使し、製品の機能をデモする、センタリングされたヒーロー重視のレイアウト。",
+      "interaction": "現代的な技術系SaaSインターフェースに典型的な、滑らかで300msのトランジション、微妙なホバー状態とスケーリングエフェクト。",
+      "motion": "背景の微細なアニメーションと、UI要素の状態を遷移させる滑らかなcubic-bezierトランジション。",
+      "notes": "高度な技術性と洗練されたビジュアルアイデンティティを融合させた、モダンで開発者向けダークモードSaaSデザインの好例として記録する価値がある。"
+    },
+    "ko": {
+      "palette": "세련된 다크 모드 팔레트로, 딥 차콜(#111018)과 다크 블루(#1e2438)를 중심으로 선명한 화이트(#ffffff)와 밝은 시안(#00d5ff) 포인트 컬러로 대비를 줍니다.",
+      "layout": "거대한 타이포그래피와 겹치는 플로팅 UI 컴포넌트를 사용하여 제품 기능을 시연하는, 히어로 섹션이 강조된 중앙 정렬 레이아웃입니다.",
+      "interaction": "모던한 기술 SaaS 인터페이스에 일반적인, 섬세한 hover 상태와 스케일링 효과가 포함된 300ms의 부드러운 전환 효과입니다.",
+      "motion": "배경의 미세한 애니메이션과 UI 요소 상태 전환을 위한 부드러운 cubic-bezier 전환입니다.",
+      "notes": "기술적 전문성과 세련된 시각적 아이덴티티를 결합한, 현대 개발자 중심 다크 모드 SaaS 디자인의 대표적인 예시로 포함할 가치가 있습니다."
+    }
+  },
+  "_meta": {
+    "vision_model": "mimo-v2.5",
+    "vision_prompt_version": "0.3",
+    "vision_source": "playwright-extract:novu",
+    "vision_grounded": true,
+    "vision_at": "2026-06-04T17:24:35+00:00",
+    "vision_tokens": 16939,
+    "vision_cost_usd": 0.1882,
+    "translation_model": "mimo-v2.5",
+    "translation_at": "2026-06-04T17:25:56+00:00",
+    "translation_tokens": 17607,
+    "translation_cost_usd": 0.0587,
+    "narrative_model": "mimo-v2.5",
+    "narrative_prompt_version": "0.3",
+    "narrative_at": "2026-06-04T17:26:07+00:00",
+    "narrative_tokens": 2100,
+    "narrative_cost_usd": 0.014,
+    "narrative_status": "ok",
+    "total_cost_usd": 0.2609
+  },
+  "narrative": {
+    "en": {
+      "ch1_intro": "Novu operates as a command center for notification infrastructure, built on the premise that developer tools deserve a design language as precise as their code. The system pairs a deep, low-luminance foundation with high-contrast accents, treating the interface less like a brochure and more like a cockpit instrument panel. Every surface, shadow, and type choice serves clarity under extended use.",
+      "ch2_intro": "The palette is engineered for low ambient fatigue: a near-black charcoal ground layered with dark blue-gray surfaces, set against pure white type and a single, vibrant cyan accent. This restricted triad (dark, light, accent) keeps cognitive load minimal while making interactive elements unmistakable against the deep field.",
+      "ch2_outro": "Color here is functional infrastructure, not decoration—each hue earns its place by clarifying hierarchy or signaling interactivity.",
+      "ch3_intro": "Typography follows a clean, geometric sans-serif category that reads as both technical and modern. Headlines frequently borrow code-like syntax, treating angle brackets and component names as first-class typographic elements rather than stylistic flourishes.",
+      "ch4_intro": "Spacing follows a strict 4px base grid, creating consistent vertical rhythm across all components and sections.",
+      "ch5_intro": "Surfaces are differentiated through subtle radial gradients and low-opacity white borders rather than heavy shadow stacks. A single, wide cyan glow shadow appears sparingly, reserved for elements that need to float above the primary layer without disrupting the dark-field cohesion.",
+      "ch6_intro": "The layout anchors on a centered hero section where massive typography overlaps floating UI component demos, giving visitors an immediate, in-context preview of the product. Below, multi-column feature grids organize capabilities into scannable clusters, maintaining the dark surface continuity throughout.",
+      "ch7_intro": "Motion is restrained and purposeful: smooth 300ms cubic-bezier transitions govern color shifts and background changes, while interactive elements scale subtly on hover or click. The philosophy treats animation as feedback—confirming state changes without drawing attention to itself.",
+      "ch8_intro": "The editorial voice is direct, technical, and confident, mirroring the audience it serves. Headlines adopt code-centric phrasing like `<Inbox />`, while calls to action are uppercase and unambiguous, avoiding any language that might read as marketing abstraction.",
+      "ch8_outro": "The system deliberately excludes light-mode variants, decorative serifs, multi-colored gradients, and any language that distances the product from its developer audience."
+    },
+    "zh-CN": {
+      "ch1_intro": "Novu 作为通知基础设施的指挥中心运作，其设计前提是开发者工具理应拥有与其代码同等精准的设计语言。该系统将深邃低亮度的基础层与高对比度的强调色相结合，将界面视为座舱仪表而非宣传册。每一个表面、阴影与字体选择都服务于长时间使用的清晰度。",
+      "ch2_intro": "该色彩方案专为降低环境视觉疲劳而设计：近黑色炭灰基底叠加深蓝灰色界面层，搭配纯白色文字与单一的鲜亮青色强调色。这种限制性三色组（深色、浅色、强调色）在保持认知负荷最小化的同时，使交互元素在深色基底上清晰可辨。",
+      "ch2_outro": "此处的色彩是功能性基础设施而非装饰——每种色相通过明确层级关系或标示交互性来确立其存在价值。",
+      "ch3_intro": "字体采用简洁的几何无衬线类别，兼具技术感与现代性。标题常借鉴代码式语法，将尖括号与组件名称视为核心排版元素，而非风格化修饰。",
+      "ch4_intro": "间距遵循严格的 4px 基准网格，在所有组件与区块间建立统一的垂直韵律。",
+      "ch5_intro": "界面层通过微妙径向渐变与低透明度白色边框进行区分，而非厚重阴影堆叠。单个宽阔的青色辉光阴影仅有限使用，专用于需要浮于主层级之上又不破坏深色基底整体感的元素。",
+      "ch6_intro": "布局以居中主视觉区为核心，超大字号排版与浮动的 UI 组件演示交叠，为访问者提供产品使用场景的即时预览。下方多列功能网格将能力模块组织为可快速浏览的集群，全程保持深色界面的连续性。",
+      "ch7_intro": "动态效果克制而富有目的性：300ms cubic-bezier 过渡平滑控制色彩与背景变化，交互元素在悬停或点击时产生微妙缩放。其设计哲学将动画视为状态反馈——确认变化而不分散注意力。",
+      "ch8_intro": "编辑语气直接、专业且自信，契合目标开发者群体。标题采用以代码为中心的表述如 `<Inbox />`，行动号召采用全大写且明确的措辞，避免任何可能被视为营销抽象的表达。",
+      "ch8_outro": "该系统刻意排除浅色模式变体、装饰性衬线体、多彩渐变，以及任何可能使产品与其开发者受众产生距离感的语言表达。"
+    },
+    "zh-TW": {
+      "ch1_intro": "Novu 作為通知基礎架構的指揮中心運作，其設計理念是開發者工具應擁有與其程式碼同等精準的設計語言。系統將深沉、低亮度的基底與高對比的強調色相結合，將介面視為儀錶板而非宣傳手冊。每一個表面、陰影與字體選擇，皆為長時間使用下的清晰度服務。",
+      "ch2_intro": "色彩配置為降低環境疲勞而設計：近黑色的炭灰底色疊加深藍灰表面，對比純白文字與單一鮮明的青色強調。這種受限的三色組合（深色、淺色、強調色）維持了最低認知負荷，同時讓互動元素在深色背景上清晰可辨。",
+      "ch2_outro": "此處的色彩是功能性基礎設施，而非裝飾——每個色調皆因其能釐清層級或指示互動性而獲得一席之地。",
+      "ch3_intro": "字體採用簡潔的幾何無襯線類別，呈現兼具技術感與現代感的視覺。標題經常借用類似程式碼的語法，將角括號與元件名稱視為正規的排版元素，而非風格性點綴。",
+      "ch4_intro": "間距嚴格遵循 4px 基礎格線，為所有元件與區塊建立一致的垂直節奏。",
+      "ch5_intro": "表面透過細微的徑向漸層與低透明度白邊進行區分，而非厚重的陰影堆疊。單一寬幅的青色發光陰影謹慎使用，保留給需要浮現於主圖層之上、同時不破壞深色場域一致性的元素。",
+      "ch6_intro": "版面以置中的主視覺區域為核心，巨大的字體與浮動 UI 元件示範相互疊加，為訪客提供產品情境化的即時預覽。下方採用多欄功能網格，將能力組織成易於掃讀的群組，全程維持深色表面的連續性。",
+      "ch7_intro": "動態效果克制而有目的：平滑的 300ms cubic-bezier 轉換控制色彩與背景變化，互動元素在 hover 或點擊時進行細微縮放。其哲學將動畫視為回饋——確認狀態變換而不吸引自身注意力。",
+      "ch8_intro": "編輯語氣直接、技術性且自信，反映其服務的受眾。標題採用以程式碼為中心的措辭如 `<Inbox />`，而行動呼籲則採用大寫且明確的表述，避免任何可能被解讀為行銷抽象的語言。",
+      "ch8_outro": "系統刻意排除了淺色模式變體、裝飾性襯線、多彩漸層，以及任何將產品與開發者受眾疏離的語言。"
+    },
+    "ja": {
+      "ch1_intro": "Novuは通知基盤のためのコマンドセンターとして機能し、開発者ツールにはコードと同等に精緻なデザイン言語がふさわしいという前提で構築されています。システムは、深く低照度の基盤と高コントラストのアクセントを組み合わせ、インターフェースをパンフレットではなく、コックピットのインストゥルメントパネルのように扱います。すべての面、影、タイポグラフィの選択は、長時間使用下的な明瞭さに貢献します。",
+      "ch2_intro": "パレットは、低環境疲労のために設計されています：ほぼ黒いチャコールの地に暗い青灰色の面を重ね、純白の文字と単一の鮮やかなシアンのアクセントを対比させます。この限定された3色（暗、明、アクセント）は、認知負荷を最小限に保ちながら、深いフィールドに対してインタラクティブ要素を明確に区別します。",
+      "ch2_outro": "ここでの色は、装飾ではなく機能的な基盤です。それぞれの色相は、階層を明確にしたり、インタラクティブ性を示すことで、その地位を勝ち得ています。",
+      "ch3_intro": "タイポグラフィは、技術的かつモダンに読みられる、クリーンで幾何学的なサンセリフカテゴリに従います。見出しはコードのような構文を頻繁に借用し、角括弧やコンポーネント名を、スタイル的な装飾ではなく、第一級のタイポグラフィ要素として扱います。",
+      "ch4_intro": "間隔は厳格な4pxのベースグリッドに従い、すべてのコンポーネントとセクションにわたって一貫した垂直リズムを作り出します。",
+      "ch5_intro": "面の区別は、重いシャドウスタックではなく、微細なラジアルグラデーションと低不透明度の白いボーダーによって行われます。単一の広いシアンのグロー影は控えめに使用され、ダークフィールドの一体感を乱すことなくプライマリ層の上に浮かび上がる必要がある要素に限られます。",
+      "ch6_intro": "レイアウトは、巨大なタイポグラフィが浮遊するUIコンポーネントのデモと重なる、中央に位置するヒーローセクションに固定されます。これにより、訪問者は製品のコンテキスト付きの即時プレビューを得ます。下方では、複数列の機能グリッドが機能をスキャン可能なクラスターに組織し、全体を通してダークサーフェスの連続性を維持します。",
+      "ch7_intro": "モーションは控えめで目的が明確です：滑らかな300msのcubic-bezier遷移が色の変化と背景の切り替えを制御し、インタラクティブ要素はホバーやクリック時に微かにスケールします。この哲学は、アニメーションをフィードバックとして扱います。自身に注目を引き寄せることなく、状態の変化を確認します。",
+      "ch8_intro": "エディトリアルボイスは、対象とするオーディエンスを反映し、直接的で技術的、そして自信に満ちています。見出しは`<Inbox />`のようなコード中心の表現を採用し、アクションを呼び出すテキストは大文字で明確であり、マーケティングの抽象的表現として読める可能性のある言葉は避けます。",
+      "ch8_outro": "システムは、ライトモードのバリアント、装飾的なセリフ、多色グラデーション、および製品と開発者オーディエンスを遠ざける可能性のある言葉を意図的に排除しています。"
+    },
+    "ko": {
+      "ch1_intro": "Novu는 알림 인프라의 지휘 센터로 작동하며, 개발자 도구에는 코드만큼 정밀한 디자인 언어가 필요하다는 전제 위에 구축되었습니다. 이 시스템은 깊고 낮은 명도의 베이스를 높은 대비의 포인트와 결합하여, 인터페이스를 브로슈어가 아니라 조종석 계기판처럼 취급합니다. 모든 표면, 그림자, 서체 선택은 장시간 사용 시 명확성을 위해 존재합니다.",
+      "ch2_intro": "팔레트는 주변 피로를 낮추기 위해 설계되었습니다: 거의 검은 숯색 바탕에 어두운 청회색 표면을 층을 쌓고, 순백 타이포그래피와 단일의 선명한 시안 포인트로 대비를 이룹니다. 이 제한된 삼색 조합(어둠, 밝음, 포인트)은 인지 부하를 최소화하면서 상호작용 요소를 깊은 배경에서 분명하게 만듭니다.",
+      "ch2_outro": "여기서 색상은 장식이 아닌 기능적 인프라입니다—각 색조는 위계를 명확히 하거나 상호작용을 신호화함으로써 그 자리를 증명합니다.",
+      "ch3_intro": "타이포그래피는 기술적이면서도 현대적으로 읽히는 깔끔한 기하학적 sans-serif 카테고리를 따릅니다. 헤드라인은 코드와 같은 구문을 자주 차용하여, 꺾쇠괄호와 컴포넌트 이름을 스타일적 장식이 아닌, 주요 타이포그래피 요소로 취급합니다.",
+      "ch4_intro": "간격은 엄격한 4px 기본 그리드를 따르며, 모든 컴포넌트와 섹션에 걸쳐 일관된 수직 리듬을 만듭니다.",
+      "ch5_intro": "표면은 무거운 그림자 더미가 아닌, 미세한 방사형 그라디언트와 낮은 불투명도의 흰색 테두리를 통해 구별됩니다. 단일의 넓은 시안 발광 그림자는 드물게 사용되며, 어두운 배경의 응집력을 방해하지 않으면서 주요 레이어 위에 떠 있어야 하는 요소를 위해 예약됩니다.",
+      "ch6_intro": "레이아웃은 거대한 타이포그래피가 떠 있는 UI 컴포넌트 데모와 겹치는 중앙 히어로 섹션에 앵커를 둡니다. 이를 통해 방문자에게 제품의 즉각적이고 상황에 맞는 미리보기를 제공합니다. 아래쪽에서는 다중 열 기능 그리드가 기능을 스캔하기 쉬운 클러스터로 구성하며, 전체적으로 어두운 표면 연속성을 유지합니다.",
+      "ch7_intro": "모션은 절제되고 목적이 명확합니다: 부드러운 300ms cubic-bezier 전환이 색상 변화와 배경 변경을 제어하고, 상호작용 요소는 hover 또는 클릭 시 미세하게 스케일됩니다. 이 철학은 애니메이션을 피드백으로 취급합니다—자기自身에 주목을 끌지 않으면서 상태 변경을 확인합니다.",
+      "ch8_intro": "에디토리얼 목소리는 직접적이고, 기술적이며, 자신감 있는 것으로, 서비스하는 대상을 반영합니다. 헤드라인은 `<Inbox />`와 같이 코드 중심의 구문을 채택하고, 행동 유도(CTA)는 대문자로 명확하며, 마케팅적 추상으로 읽힐 수 있는 언어를 피합니다.",
+      "ch8_outro": "이 시스템은 라이트 모드 변형, 장식용 세리프, 다색 그라디언트, 그리고 제품을 개발자 대상으로부터 멀어지게 하는 모든 언어를 의도적으로 제외합니다."
+    }
+  }
 }

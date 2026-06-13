@@ -8,6 +8,647 @@
     "portfolio",
     "blog"
   ],
-  "status": "pending",
-  "added_at": "2026-06-02"
+  "status": "completed",
+  "added_at": "2026-06-02",
+  "spec": {
+    "colors": {
+      "bg": "#FFFFFF",
+      "bgSoft": "#B1DFF6",
+      "bgQuiet": "#F0F4F6",
+      "ink": "#0A0C10",
+      "inkSoft": "#294E60",
+      "muted": "#5A6072",
+      "mutedSoft": "#C1D1DB",
+      "accent": "#E60067",
+      "line": "rgba(10, 12, 16, 0.1)"
+    },
+    "typography": {
+      "display": "geometric-sans",
+      "body": "geometric-sans",
+      "mono": "monospace",
+      "scale": [
+        {
+          "token": "display",
+          "size": 36,
+          "lh": 1.1,
+          "weight": 700,
+          "ls": "-1px"
+        },
+        {
+          "token": "heading",
+          "size": 24,
+          "lh": 1.3,
+          "weight": 600,
+          "ls": "normal"
+        },
+        {
+          "token": "subtitle",
+          "size": 19,
+          "lh": 1.5,
+          "weight": 400,
+          "ls": "normal"
+        },
+        {
+          "token": "body",
+          "size": 16,
+          "lh": 1.5,
+          "weight": 400,
+          "ls": "normal"
+        },
+        {
+          "token": "caption",
+          "size": 14,
+          "lh": 1.5,
+          "weight": 400,
+          "ls": "normal"
+        }
+      ]
+    },
+    "spacing": {
+      "base": 4,
+      "scale": [
+        4,
+        8,
+        12,
+        16,
+        24,
+        32,
+        48,
+        64,
+        96
+      ]
+    },
+    "surfaces": {
+      "radius": {
+        "sm": 4,
+        "md": 8,
+        "lg": 12,
+        "pill": 999
+      }
+    },
+    "layout": {
+      "container": 1200,
+      "paragraph": 680,
+      "columns": 12,
+      "gutter": 24,
+      "breakpoints": [
+        768,
+        1024
+      ]
+    },
+    "motion": {
+      "durations": {
+        "micro": 125,
+        "small": 300,
+        "medium": 500
+      },
+      "easing": "cubic-bezier(0.06, 0.63, 0.43, 1)"
+    }
+  },
+  "spec_i18n": {
+    "en": {
+      "identity": {
+        "keywords": [
+          "educational",
+          "playful",
+          "accessible",
+          "technical",
+          "friendly"
+        ],
+        "analogy": "A friendly, illustrated textbook that explains complex web technologies with colorful, interactive metaphors.",
+        "oneLiner": "An educational web developer blog that uses bright, playful illustrations and clear typography to make complex coding concepts accessible."
+      },
+      "colors": {
+        "principle": "A bright, airy aesthetic dominated by a signature sky-blue (#B1DFF6) and a vibrant magenta accent (#E60067), grounded by deep navy text (#0A0C10) for maximum readability."
+      },
+      "typography": {
+        "rules": [
+          "Use uppercase and wide letter-spacing for category labels.",
+          "Reserve monospace font exclusively for code snippets and technical terms.",
+          "Maintain generous line-height (1.5) for long-form readability.",
+          "Use bold weights sparingly to highlight key terms without overwhelming the layout."
+        ],
+        "scaleUses": [
+          "Article headings and major titles.",
+          "Subheadings and section titles.",
+          "Article subtitles and introductory text.",
+          "Main body text and paragraphs.",
+          "Secondary text, tags, and captions."
+        ]
+      },
+      "spacing": {
+        "rhythm": "A 4px base grid ensures consistent rhythm, with generous 24px gaps between structural elements and 48-96px spacing for major section breaks."
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 2px 4px rgba(0, 0, 0, 0.02)",
+          "0px 4px 12px rgba(0, 0, 0, 0.03)",
+          "0px 8px 24px rgba(0, 0, 0, 0.05)"
+        ],
+        "borders": "Subtle, thin borders in neutral grays (e.g., rgba(10, 12, 16, 0.1)) are used for cards and inputs, while category tags use slightly more defined strokes."
+      },
+      "layout": {
+        "skeleton": "A two-column layout with a narrow sidebar (300px) for 'Popular Content' and 'Categories' alongside a wide main content column."
+      },
+      "components": {
+        "button": "Simple text-based buttons or subtle pill-shaped tags with light background fills and rounded corners.",
+        "card": "Clean, edge-to-edge content cards with clear typographic hierarchy and subtle background colors for emphasis.",
+        "chip": "Small, pill-shaped tags with uppercase text, used for categorization (e.g., CSS, React).",
+        "input": "Clean, rounded input fields with subtle borders and clear focus states.",
+        "hero": "A full-width illustrated hero section featuring 3D-style graphics and a light blue gradient background."
+      },
+      "motion": {
+        "patterns": [
+          "Smooth opacity transitions for UI state changes.",
+          "Subtle transform animations for interactive elements.",
+          "Staggered entry animations for content sections."
+        ]
+      },
+      "interaction": {
+        "hover": "Subtle scaling or color shifts on interactive elements to provide immediate visual feedback.",
+        "click": "Smooth transition to a new state or page with minimal delay.",
+        "transition": "Consistent 0.3s duration for most interactive transitions.",
+        "keyboard": "Full keyboard navigability with clear, visible focus outlines (often using custom outline colors)."
+      },
+      "voice": {
+        "tone": "Friendly, approachable, and encouraging, like a helpful mentor.",
+        "headlineStyle": "Clear, direct, and benefit-oriented, often using 'An Interactive Guide to...' or 'A Friendly Introduction to...'",
+        "ctaStyle": "Subtle, text-based calls to action that blend naturally into the content flow.",
+        "avoid": [
+          "Dense, impenetrable jargon.",
+          "Impersonal, corporate-speak.",
+          "Overly dramatic or sensationalist language.",
+          "Dull, textbook-like prose."
+        ]
+      },
+      "donts": [
+        "Don't use a dark background for the main content area — the screenshot shows a bright, light-background aesthetic.",
+        "Don't use a purely monochrome or grayscale palette — the design relies on vibrant sky blue and magenta accents.",
+        "Don't use traditional serif fonts for body text — the screenshot exclusively uses clean, geometric sans-serif and monospace.",
+        "Don't use harsh, black borders for UI components — borders are subtle and light, often transparent or gray.",
+        "Don't overcrowd the layout with tight margins — the design uses generous whitespace and clear section breaks.",
+        "Don't use sharp, 90-degree corners for buttons or cards — the screenshot shows consistent use of rounded corners (4-12px)."
+      ],
+      "systemPrompt": "This site is a friendly, educational web developer portfolio and blog. The aesthetic is bright and airy, using a signature sky-blue (#B1DFF6) for hero sections and a vibrant magenta accent (#E60067) for highlights. Typography is clean and geometric, with a focus on readability and clear hierarchy. The layout is spacious, using generous whitespace and subtle borders to define sections. Critical don'ts include avoiding dark mode as the primary theme, using serif fonts for body copy, or creating a cramped, low-contrast layout. The overall feel is welcoming and encouraging, making complex technical topics feel accessible."
+    },
+    "zh-CN": {
+      "identity": {
+        "keywords": [
+          "教育性",
+          "趣味性",
+          "易用性",
+          "技术性",
+          "友好性"
+        ],
+        "analogy": "一本友好、插图丰富的教科书，用多彩的交互式隐喻来解释复杂的网络技术。",
+        "oneLiner": "一个教育类 Web 开发者博客，运用明亮活泼的插图和清晰的排版，使复杂的编程概念易于理解。"
+      },
+      "colors": {
+        "principle": "采用明亮通透的美学风格，以标志性的天蓝色 (#B1DFF6) 和充满活力的洋红色点缀 (#E60067) 为主导，深海军蓝文本 (#0A0C10) 确保最佳可读性。"
+      },
+      "typography": {
+        "rules": [
+          "对类别标签使用大写字母和宽松的字间距。",
+          "仅对代码片段和技术术语使用等宽字体。",
+          "为长文本内容保持充裕的行高 (1.5)。",
+          "谨慎使用粗体以突出关键术语，避免破坏布局平衡。"
+        ],
+        "scaleUses": [
+          "文章标题和主标题。",
+          "子标题和章节标题。",
+          "文章副标题和引言文本。",
+          "正文和段落。",
+          "辅助文本、标签和图注。"
+        ]
+      },
+      "spacing": {
+        "rhythm": "基于 4px 的基础网格确保一致的韵律，结构元素间采用 24px 的充裕间距，主要版块分隔则使用 48-96px 的间距。"
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 2px 4px rgba(0, 0, 0, 0.02)",
+          "0px 4px 12px rgba(0, 0, 0, 0.03)",
+          "0px 8px 24px rgba(0, 0, 0, 0.05)"
+        ],
+        "borders": "使用细微的中性灰色（例如 rgba(10, 12, 16, 0.1)）细边框作为卡片和输入框的边界，而类别标签则采用略微更清晰的描边。"
+      },
+      "layout": {
+        "skeleton": "采用双栏布局，一个窄侧边栏 (300px) 用于‘热门内容’和‘分类’，与宽大的主内容栏并列。"
+      },
+      "components": {
+        "button": "简洁的文本按钮或带有浅色背景填充和圆角的细微胶囊形标签。",
+        "card": "简洁的、通栏内容卡片，具有清晰的排版层级和用于强调的细微背景色。",
+        "chip": "小型胶囊形标签，文本大写，用于分类（例如 CSS, React）。",
+        "input": "简洁的圆角输入框，带有细微边框和清晰的聚焦状态。",
+        "hero": "一个全宽度的插图英雄区域，包含 3D 风格图形和浅蓝色渐变背景。"
+      },
+      "motion": {
+        "patterns": [
+          "为 UI 状态变化使用平滑的透明度过渡。",
+          "为交互元素使用细微的变换动画。",
+          "为内容版块使用交错入场动画。"
+        ]
+      },
+      "interaction": {
+        "hover": "交互元素带有细微的缩放或颜色偏移，提供即时视觉反馈。",
+        "click": "平滑过渡到新状态或页面，延迟最小。",
+        "transition": "大多数交互过渡使用统一的 0.3 秒时长。",
+        "keyboard": "完全支持键盘导航，具有清晰可见的焦点轮廓（通常使用自定义轮廓颜色）。"
+      },
+      "voice": {
+        "tone": "友好、平易近人且鼓舞人心，如同一位乐于助人的导师。",
+        "headlineStyle": "清晰、直接且以利益为导向，常使用‘……交互式指南’或‘……友好入门’等句式。",
+        "ctaStyle": "融入内容流的、微妙的文本式行动号召。",
+        "avoid": [
+          "晦涩难懂的术语堆砌。",
+          "非个人的、企业化的套话。",
+          "过于戏剧化或耸人听闻的措辞。",
+          "枯燥、教科书式的行文。"
+        ]
+      },
+      "donts": [
+        "不要为主内容区域使用深色背景——截图显示的是明亮、浅色背景的美学。",
+        "不要使用纯粹的单色或灰度调色板——设计依赖于充满活力的天蓝色和洋红色点缀。",
+        "不要为正文使用传统的衬线字体——截图中只使用了简洁的几何无衬线体和等宽字体。",
+        "不要为 UI 组件使用生硬的黑色边框——边框是细微且浅色的，通常是透明或灰色的。",
+        "不要用紧凑的边距使布局显得拥挤——设计使用了充裕的留白和清晰的版块分隔。",
+        "不要为按钮或卡片使用尖锐的 90 度直角——截图显示一致地使用了圆角 (4-12px)。"
+      ],
+      "systemPrompt": "该网站是一个友好、教育性的 Web 开发者作品集和博客。美学风格明亮通透，英雄区域使用标志性的天蓝色 (#B1DFF6)，并用充满活力的洋红色点缀 (#E60067) 进行高亮。排版简洁几何化，注重可读性和清晰的层级。布局宽敞，使用充裕的留白和细微的边框来划分版块。关键禁忌包括：避免将深色模式作为主要主题、为正文使用衬线字体，或创建拥挤、低对比度的布局。整体感觉是欢迎和鼓舞人心的，使复杂的技术主题变得易于理解。"
+    },
+    "zh-TW": {
+      "identity": {
+        "keywords": [
+          "教育性",
+          "趣味性",
+          "易親近",
+          "技術性",
+          "友善感"
+        ],
+        "analogy": "一本友善的圖解教科書，運用豐富色彩與互動隱喻來解釋複雜的網路技術。",
+        "oneLiner": "一個教育性的 Web 開發者部落格，運用明亮、趣味的插圖與清晰的排版，讓複雜的程式碼概念變得易於理解。"
+      },
+      "colors": {
+        "principle": "明亮通透的美學風格，以標誌性的天空藍（#B1DFF6）和鮮豔的洋紅色強調色（#E60067）為主，深海軍藍文字（#0A0C10）確保最佳可讀性。"
+      },
+      "typography": {
+        "rules": [
+          "類別標籤使用大寫字母與較寬的字元間距。",
+          "等寬字體僅限用於程式碼片段與技術術語。",
+          "維持 1.5 的寬鬆行高，確保長文閱讀舒適度。",
+          "粗體字體謹慎使用，用於強調關鍵詞而不影響整體佈局。"
+        ],
+        "scaleUses": [
+          "文章標題與主要大標題",
+          "副標題與段落標題",
+          "文章副標題與導言文字",
+          "內文與段落文字",
+          "次要文字、標籤與圖說"
+        ]
+      },
+      "spacing": {
+        "rhythm": "以 4px 基礎格線確保節奏一致性，結構元素之間採用 24px 間距，主要分段則為 48-96px。"
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 2px 4px rgba(0, 0, 0, 0.02)",
+          "0px 4px 12px rgba(0, 0, 0, 0.03)",
+          "0px 8px 24px rgba(0, 0, 0, 0.05)"
+        ],
+        "borders": "卡片與輸入欄位使用細微的中性灰色細邊框（如 rgba(10, 12, 16, 0.1)），類別標籤則採用稍微明顯的描邊。"
+      },
+      "layout": {
+        "skeleton": "雙欄佈局，窄側邊欄（300px）用於「熱門內容」與「分類」，旁邊為寬廣的主內容欄。"
+      },
+      "components": {
+        "button": "簡潔的文字按鈕或細微的膠囊狀標籤，帶有淺色背景填充與圓角。",
+        "card": "邊緣對齊的簡潔內容卡片，具清晰的排版層次與細微的背景色彩強調。",
+        "chip": "小型膠囊狀標籤，使用大寫文字，用於分類（如 CSS、React）。",
+        "input": "簡潔的圓角輸入欄位，配有細微邊框與清晰的焦點狀態。",
+        "hero": "全寬的插圖主視覺區塊，包含 3D 風格圖形與淺藍色漸層背景。"
+      },
+      "motion": {
+        "patterns": [
+          "UI 狀態變換採用流暢的透明度過渡",
+          "互動元素使用細微的變換動畫",
+          "內容區塊採用錯落進入動畫"
+        ]
+      },
+      "interaction": {
+        "hover": "互動元素在懸停時有細微的縮放或色彩變化，提供即時視覺回饋。",
+        "click": "點擊後流暢過渡至新狀態或頁面，延遲最小化。",
+        "transition": "大多數互動過渡採用一致的 0.3 秒時長。",
+        "keyboard": "完整的鍵盤可操作性，配有清晰可見的焦點輪廓（常使用自訂輪廓顏色）。"
+      },
+      "voice": {
+        "tone": "友善、親切且鼓勵人心，如同 helpful 的導師。",
+        "headlineStyle": "清晰、直接且以效益為導向，常用「互動式指南：...」或「友善入門：...」句型。",
+        "ctaStyle": "細微的文字行動呼籲，自然融入內容流中。",
+        "avoid": [
+          "艱澀難懂的行話術語",
+          "缺乏人情味的企業用語",
+          "過度戲劇化或聳動的語言",
+          "枯燥乏味的教科書式文風"
+        ]
+      },
+      "donts": [
+        "勿使用深色背景作為主內容區域 —— 截圖顯示明亮、淺色背景的美學風格。",
+        "勿使用單一黑白或灰階配色方案 —— 設計依賴鮮豔的天空藍與洋紅色強調。",
+        "勿使用傳統襯線字體作為內文字體 —— 截圖僅使用簡潔的幾何無襯線與等寬字體。",
+        "勿使用生硬的黑色邊框作為 UI 元件邊框 —— 邊框細微且淺色，常為透明或灰色。",
+        "勿讓佈局因邊距過窄而顯得擁擠 —— 設計採用充足留白與清晰的分段處理。",
+        "勿使用尖銳的 90 度直角作為按鈕或卡片圓角 —— 截圖顯示一致採用圓角（4-12px）。"
+      ],
+      "systemPrompt": "這是一個友善的教育性 Web 開發者作品集與部落格。美學風格明亮通透，主視覺區塊採用標誌性天空藍（#B1DFF6），強調色使用鮮豔的洋紅色（#E60067）。排版簡潔幾何化，注重可讀性與清晰層次。佈局寬敞，運用充足留白與細微邊框來界定分區。關鍵禁忌包括：避免以深色模式作為主要主題、避免使用襯線字體作為內文、避免創造擁擠且低對比度的佈局。整體感覺親切鼓勵，讓複雜技術主題變得平易近人。"
+    },
+    "ja": {
+      "identity": {
+        "keywords": [
+          "教育的",
+          "親しみやすい",
+          "アクセシブル",
+          "技術的",
+          "フレンドリー"
+        ],
+        "analogy": "複雑なWeb技術を色鮮やかなインタラクティブな比喩で説明する、フレンドリーなイラスト入り教科書。",
+        "oneLiner": "明るく遊び心のあるイラストレーションと明瞭なタイポグラフィを用い、複雑なコーディング概念を身近なものにする教育系Web開発者ブログ。"
+      },
+      "colors": {
+        "principle": "明るく空気感のある美学で、シグネチャーのスカイブルー（#B1DFF6）と鮮やかなマゼンタアクセント（#E60067）を核とし、最大限の可読性のために深いネイビーのテキスト（#0A0C10）で安定させています。"
+      },
+      "typography": {
+        "rules": [
+          "カテゴリーラベルには大文字と広い文字間隔を使用します。",
+          "モノスペースフォントは、コードスニペットと技術用語に限定して使用します。",
+          "長文の可読性のために、豊かなline-height（1.5）を維持します。",
+          "太字のウェイトは控えめに使い、レイアウトを圧迫せずに重要な用語を強調します。"
+        ],
+        "scaleUses": [
+          "記事見出しと主要タイトル。",
+          "小見出しとセクションタイトル。",
+          "記事サブタイトルと導入テキスト。",
+          "本文テキストと段落。",
+          "セカンダリーテキスト、タグ、キャプション。"
+        ]
+      },
+      "spacing": {
+        "rhythm": "4pxのベースグリッドが一貫したリズムを確保し、構造要素間には24pxのゆったりとした間隔を、主要なセクション区切りには48〜96pxの余白を設けています。"
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 2px 4px rgba(0, 0, 0, 0.02)",
+          "0px 4px 12px rgba(0, 0, 0, 0.03)",
+          "0px 8px 24px rgba(0, 0, 0, 0.05)"
+        ],
+        "borders": "カードや入力フィールドにはニュートラルなグレー（例：rgba(10, 12, 16, 0.1)）の細く控えめなボーダーが使用され、カテゴリータグは少し強調された線を使用します。"
+      },
+      "layout": {
+        "skeleton": "「人気のコンテンツ」と「カテゴリ」のための狭いサイドバー（300px）と、広いメインコンテンツカラムを持つ2カラムレイアウト。"
+      },
+      "components": {
+        "button": "シンプルなテキストベースのボタン、または軽い背景色と角丸を備えた、控えめなピル型タグ。",
+        "card": "明確なタイポグラフィの階層構造と、強調のための控えめな背景色を持つ、クリーンな端から端までのコンテンツカード。",
+        "chip": "分類（例：CSS、React）に使用される、大文字テキストの小型ピル型タグ。",
+        "input": "控えめなボーダーと明確なフォーカス状態を備えた、クリーンで角丸の入力フィールド。",
+        "hero": "3Dスタイルのグラフィックとライトブルーのグラデーション背景を特徴とする、フルワイドのイラスト入りヒーローセクション。"
+      },
+      "motion": {
+        "patterns": [
+          "UI状態変化のための滑らかなopacityトランジション。",
+          "インタラクティブ要素のための控えめなtransformアニメーション。",
+          "コンテンツセクションのための段階的な登場アニメーション。"
+        ]
+      },
+      "interaction": {
+        "hover": "インタラクティブ要素に即座の視覚的フィードバックを与える、控えめなスケーリングや色の変化。",
+        "click": "最小限の遅延で、新しい状態やページへの滑らかなトランジション。",
+        "transition": "ほとんどのインタラクティブなトランジションに一貫した0.3秒の期間。",
+        "keyboard": "明確で視認性の高いフォーカスアウトライン（ often using custom outline colors）による、完全なキーボードナビゲーション。"
+      },
+      "voice": {
+        "tone": "フレンドリーで親しみやすく、励ますような、 helpful mentorのようです。",
+        "headlineStyle": "明瞭で直接的、かつメリット重視で、「…のインタラクティブガイド」や「…のフレンドリーな紹介」のような表現がよく使われます。",
+        "ctaStyle": "コンテンツフローに自然と溶け込む、控えめなテキストベースのアクション。",
+        "avoid": [
+          "密度が高く、理解しにくい専門用語。",
+          "個人の感覚を欠いた、企業的な話し方。",
+          "過度にドラマチックまたはセンセーショナルな言葉。",
+          "退屈な、教科書のような文章。"
+        ]
+      },
+      "donts": [
+        "メインコンテンツエリアにダーク背景を使用しない — スクリーンショットは明るく、明るい背景の美学を示しています。",
+        "完全にモノクロームまたはグレースケールのパレットを使用しない — デザインは鮮やかなスカイブルーとマゼンタアクセントに依存しています。",
+        "本文に伝統的なセリフフォントを使用しない — スクリーンショットはクリーンなジオメトリックなサンセリフとモノスペースのみを使用しています。",
+        "UIコンポーネントに強調の黒いボーダーを使用しない — ボーダーは控えめで軽く、 often transparent or gray。",
+        "tight marginsでレイアウトを過密にしない — デザインは豊かな余白と明確なセクション区切りを使用しています。",
+        "ボタンやカードにシャープな90度の角を使用しない — スクリーンショットは一貫して角丸（4-12px）を使用しています。"
+      ],
+      "systemPrompt": "このサイトはフレンドリーな教育系Web開発者ポートフォリオおよびブログです。美学は明るく空気感があり、ヒーローセクションにシグネチャーのスカイブルー（#B1DFF6）、ハイライトに鮮やかなマゼンタアクセント（E60067）を使用しています。タイポグラフィはクリーンでジオメトリックで、可読性と明確な階層構造に焦点を当てています。レイアウトはゆったりとしており、豊かな余白と控えめなボーダーでセクションを定義しています。主要な禁止事項には、プライマリーテーマとしてダークモードを使用しないこと、本文にセリフフォントを使用しないこと、窮屈でコントラストの低いレイアウトを作成しないことが含まれます。全体的な印象は歓迎的で励ますようなもので、複雑な技術的なトピックを身近に感じさせます。"
+    },
+    "ko": {
+      "identity": {
+        "keywords": [
+          "교육적",
+          "장난기 있는",
+          "접근 가능한",
+          "기술적인",
+          "친근한"
+        ],
+        "analogy": "친근한 일러스트 교과서로, 다채롭고 인터랙티브한 비유를 사용하여 복잡한 웹 기술을 설명합니다.",
+        "oneLiner": "밝고 장난기 있는 일러스트와 명확한 타이포그래피를 사용하여 복잡한 코딩 개념을 쉽게 이해할 수 있게 만드는 교육용 웹 개발자 블로그입니다."
+      },
+      "colors": {
+        "principle": "시그니처 스카이 블루(#B1DFF6)와 강렬한 마젠타 악센트(#E60067)가 주도하는 밝고 통통한 미학으로, 최대 가독성을 위해 깊은 네이비 텍스트(#0A0C10)로 안정감을 줍니다."
+      },
+      "typography": {
+        "rules": [
+          "카테고리 레이블에는 대문자와 넓은 자간을 사용합니다.",
+          "모노스페이스 폰트는 코드 스니펫과 기술 용어에만 독점적으로 사용합니다.",
+          "긴 글의 가독성을 위해 넉넉한 행간(1.5)을 유지합니다.",
+          "레이아웃을 압도하지 않으면서 핵심 용어를 강조하기 위해 볼드체를 절제하여 사용합니다."
+        ],
+        "scaleUses": [
+          "기사 제목 및 주요 타이틀.",
+          "부제목 및 섹션 제목.",
+          "기사 부제목 및 도입부 텍스트.",
+          "본문 텍스트 및 단락.",
+          "보조 텍스트, 태그 및 캡션."
+        ]
+      },
+      "spacing": {
+        "rhythm": "4px 기본 그리드가 일관된 리듬을 보장하며, 구조 요소 사이에는 넉넉한 24px 간격, 주요 섹션 구분에는 48-96px 간격을 둡니다."
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 2px 4px rgba(0, 0, 0, 0.02)",
+          "0px 4px 12px rgba(0, 0, 0, 0.03)",
+          "0px 8px 24px rgba(0, 0, 0, 0.05)"
+        ],
+        "borders": "카드와 입력 필드에는 중성 그레이의 미세하고 얇은 테스트(예: rgba(10, 12, 16, 0.1))가 사용되며, 카테고리 태그는 약간 더 뚜렷한 테두리를 사용합니다."
+      },
+      "layout": {
+        "skeleton": "'인기 콘텐츠'와 '카테고리'를 위한 좁은 사이드바(300px)와 넓은 본문 칼럼을 가진 2단 레이아웃입니다."
+      },
+      "components": {
+        "button": "간단한 텍스트 기반 버튼 또는 밝은 배경 채우기와 둥근 모서리를 가진 미세한 알약 모양 태그.",
+        "card": "명확한 타이포그래피 계층과 강조를 위한 미세한 배경색을 가진 깔끔한 가장자리까지 확장된 콘텐츠 카드.",
+        "chip": "대문자 텍스트를 가진 작은 알약 모양 태그로, 분류(예: CSS, React)에 사용됩니다.",
+        "input": "미세한 테두리와 명확한 포커스 상태를 가진 깔끔한 둥근 입력 필드.",
+        "hero": "3D 스타일 그래픽과 밝은 블루 그라데이션 배경을 특징으로 하는 전폭 히어로 섹션."
+      },
+      "motion": {
+        "patterns": [
+          "UI 상태 변화를 위한 부드러운 opacity 트랜지션.",
+          "인터랙티브 요소를 위한 미세한 transform 애니메이션.",
+          "콘텐츠 섹션을 위한 단계별 진입 애니메이션."
+        ]
+      },
+      "interaction": {
+        "hover": "즉각적인 시각적 피드백을 위해 인터랙티브 요소에 미세한 스케일링 또는 색상 변화.",
+        "click": "최소한의 지연으로 새로운 상태 또는 페이지로 부드럽게 전환.",
+        "transition": "대부분의 인터랙티브 트랜지션에 일관된 0.3초 기간.",
+        "keyboard": "명확하고 눈에 띄는 포커스 윤곽(주로 커스텀 아웃라인 색상 사용)을 갖춘 완전한 키보드 탐색 가능성."
+      },
+      "voice": {
+        "tone": "도움이 되는 멘토처럼 친근하고 접근 가능하며 격려하는 어조.",
+        "headlineStyle": "명확하고 직접적이며 이점을 강조하는 스타일로, 종종 'An Interactive Guide to...' 또는 'A Friendly Introduction to...'와 같은 형식을 사용합니다.",
+        "ctaStyle": "콘텐츠 흐름에 자연스럽게 녹아드는 미세한 텍스트 기반 행동 유도.",
+        "avoid": [
+          "밀도 높고 이해하기 어려운 전문 용어.",
+          "비인간적이고 기업적인 말투.",
+          "지나치게 극적이거나 자극적인 언어.",
+          "지루하고 교과서 같은 문체."
+        ]
+      },
+      "donts": [
+        "본문 영역에 어두운 배경을 사용하지 마세요 — 스크린샷은 밝고 밝은 배경 미학을 보여줍니다.",
+        "순수 단색 또는 그레이스케일 팔레트를 사용하지 마세요 — 디자인은 밝은 스카이 블루와 마젠타 악센트에 의존합니다.",
+        "본문 텍스트에 전통적인 세리프 폰트를 사용하지 마세요 — 스크린샷은 깔끔한 기하학적 산세리프와 모노스페이스만 독점적으로 사용합니다.",
+        "UI 컴포넌트에 날카롭고 검은색 테두리를 사용하지 마세요 — 테두리는 미세하고 밝으며, 종종 투명하거나 회색입니다.",
+        "좁은 여백으로 레이아웃을 혼잡하게 채우지 마세요 — 디자인은 넉넉한 여백과 명확한 섹션 구분을 사용합니다.",
+        "버튼이나 카드에 날카로운 90도 모서리를 사용하지 마세요 — 스크린샷은 일관된 둥근 모서리(4-12px) 사용을 보여줍니다."
+      ],
+      "systemPrompt": "이 사이트는 친근한 교육용 웹 개발자 포트폴리오 및 블로그입니다. 미학은 밝고 통통하며, 히어로 섹션에는 시그니처 스카이 블루(#B1DFF6)를, 강조에는 강렬한 마젠타 악센트(#E60067)를 사용합니다. 타이포그래피는 깔끔하고 기하학적이며, 가독성과 명확한 계층에 초점을 맞춥니다. 레이아웃은 넓은 여백을 사용하며, 미세한 테두리로 섹션을 구분합니다. 주요 지침으로는 다크 모드를 주요 테마로 사용하지 않기, 본문에 세리프 폰트를 사용하지 않기, 좁고 대비가 낮은 레이아웃을 만들지 않기 등이 있습니다. 전체적인 느낌은 환영하고 격려적이며, 복잡한 기술 주제를 쉽게 접근할 수 있게 만듭니다."
+    }
+  },
+  "desc": {
+    "en": {
+      "palette": "The palette is bright and airy, centered around a signature sky-blue (#B1DFF6) and a vibrant magenta accent (#E60067), grounded by deep navy text (#0A0C10) on a clean white background.",
+      "layout": "The layout is a spacious two-column design with a narrow sidebar for navigation and a wide main content area, featuring generous whitespace and clear section breaks.",
+      "interaction": "Interactions are smooth and subtle, utilizing consistent 0.3s transitions and custom focus states to ensure accessibility and a premium feel.",
+      "motion": "Motion is used sparingly and purposefully, with smooth opacity and transform animations enhancing the user experience without being distracting.",
+      "notes": "This site is worth including as a prime example of how to make technical educational content feel warm, accessible, and engaging through thoughtful design and illustration."
+    },
+    "zh-CN": {
+      "palette": "调色板明亮通透，以标志性的天蓝色 (#B1DFF6) 和充满活力的洋红色点缀 (#E60067) 为核心，深海军蓝文本 (#0A0C10) 与纯净白色背景形成稳定对比。",
+      "layout": "布局采用宽敞的双栏设计，配有用于导航的窄侧边栏和宽大的主内容区，注重留白空间和清晰的版块分隔。",
+      "interaction": "交互效果流畅而细腻，采用统一的 0.3 秒过渡和自定义聚焦状态，确保可访问性与高级质感。",
+      "motion": "动效的运用克制而精准，通过平滑的透明度与变换动画提升用户体验，同时避免干扰。",
+      "notes": "该网站堪称典范，展示了如何通过深思熟虑的设计和插图，使技术教育内容变得温暖、易用且引人入胜。"
+    },
+    "zh-TW": {
+      "palette": "色彩方案明亮且通透，以標誌性的天空藍（#B1DFF6）和鮮豔的洋紅色強調色（#E60067）為核心，深海軍藍文字（#0A0C10）搭配純淨的白色背景，確保可讀性。",
+      "layout": "佈局採用寬敞的雙欄設計，配有窄側邊導航欄和寬廣的主內容區域，留白充足，分區明確。",
+      "interaction": "互動效果流暢而細緻，採用一致的 0.3 秒過渡效果與自訂焦點狀態，確保無障礙體驗與高級質感。",
+      "motion": "動效運用克制且有意義，透過流暢的透明度與變換動畫提升使用者體驗，避免造成干擾。",
+      "notes": "這個網站是展示如何透過周全的設計與插圖，讓技術教育內容變得溫暖、易親近且引人入勝的絕佳範例。"
+    },
+    "ja": {
+      "palette": "パレットは明るく、空気感があり、シグネチャーのスカイブルー（#B1DFF6）と鮮やかなマゼンタアクセント（#E60067）を核とし、クリーンなホワイト背景に深いネイビーのテキスト（#0A0C10）で安定感を出しています。",
+      "layout": "レイアウトは、ナビゲーション用の狭いサイドバーと広いメインコンテンツエリアを持つ、ゆったりとした2カラムデザインです。豊かな余白と明確なセクション区切りが特徴です。",
+      "interaction": "インタラクションは滑らかで控えめで、一貫した0.3秒のトランジションとカスタムフォーカス状態を活用し、アクセシビリティと高級感を確保しています。",
+      "motion": "モーションは最小限かつ意図的に使用され、滑らかなopacityとtransformのアニメーションが、ユーザー体験を損なうことなく向上させます。",
+      "notes": "このサイトは、思慮深いデザインとイラストレーションを通じて、技術的な教育コンテンツを温かく、親しみやすく、魅力的に見せる方法の、優れた例として含める価値があります。"
+    },
+    "ko": {
+      "palette": "팔레트는 밝고 통통하며, 시그니처 스카이 블루(#B1DFF6)와 강렬한 마젠타 악센트(#E60067)를 중심으로, 깨끗한 흰색 배경 위에 깊은 네이비 텍스트(#0A0C10)로 안정감을 줍니다.",
+      "layout": "레이아웃은 넓은 여백의 2단 구조로, 좁은 사이드바에 탐색 메뉴를, 넓은 본문 영역을 두어 명확한 섹션 구분과 여유로운 공간감을 특징으로 합니다.",
+      "interaction": "인터랙션은 부드럽고 섬세하며, 일관된 0.3초 트랜지션과 커스텀 포커스 상태를 활용하여 접근성과 프리미엄 느낌을 보장합니다.",
+      "motion": "모션은 절제하고 목적에 맞게 사용되며, 부드러운 opacity와 transform 애니메이션이 사용자를 방해하지 않으면서 경험을 향상시킵니다.",
+      "notes": "이 사이트는 사려 깊은 디자인과 일러스트레이션을 통해 기술 교육 콘텐츠를 따뜻하고 접근 가능하며 매력적으로 만드는 방법의 대표적인 예시로 포함할 가치가 있습니다."
+    }
+  },
+  "_meta": {
+    "vision_model": "mimo-v2.5",
+    "vision_prompt_version": "0.3",
+    "vision_source": "playwright-extract:josh-comeau",
+    "vision_grounded": true,
+    "vision_at": "2026-06-04T16:02:49+00:00",
+    "vision_tokens": 16810,
+    "vision_cost_usd": 0.1868,
+    "translation_model": "mimo-v2.5",
+    "translation_at": "2026-06-04T16:04:26+00:00",
+    "translation_tokens": 20181,
+    "translation_cost_usd": 0.0673,
+    "narrative_model": "mimo-v2.5",
+    "narrative_prompt_version": "0.3",
+    "narrative_at": "2026-06-04T16:04:37+00:00",
+    "narrative_tokens": 2399,
+    "narrative_cost_usd": 0.016,
+    "narrative_status": "ok",
+    "total_cost_usd": 0.2701
+  },
+  "narrative": {
+    "en": {
+      "ch1_intro": "Josh Comeau's design system operates like a friendly, illustrated textbook, one that uses color and interactive metaphor to demystify complex web technologies. The identity is built on a foundation of approachability, using a bright, airy aesthetic to create a space where technical learning feels both welcoming and clear.",
+      "ch2_intro": "The color system is built on a foundation of clarity and distinction. A signature sky-blue provides a constant, airy background, while a vibrant magenta accent is reserved for precise, energetic highlights that guide the eye without shouting.",
+      "ch2_outro": "The underlying principle is one of purposeful contrast: a deep navy text color ensures maximum readability against the bright, light-filled canvas.",
+      "ch3_intro": "Typography here serves a dual voice: a clean, geometric sans-serif handles all prose with generous line-height for comfort, while a reserved monospace font appears only for code, creating a clear visual boundary between concept and execution.",
+      "ch4_intro": "A 4px base grid underpins the entire system, creating a predictable rhythm that scales from intimate 24px gaps to expansive 96px section breaks.",
+      "ch5_intro": "Depth is communicated through barely-there means. Shadows are applied in three soft, progressive layers, creating a gentle lift from the page, while borders are kept thin and transparent, serving as subtle delineators rather than heavy containers.",
+      "ch6_intro": "The layout is a straightforward two-column skeleton: a generous main content column dominates, flanked by a narrower sidebar for persistent navigation and discovery. This structure prioritizes reading flow while keeping supplementary content within easy reach.",
+      "ch7_intro": "Motion is treated as a subtle conductor, not a performer. All transitions adhere to a consistent 0.3-second duration, using smooth opacity and transform animations to provide feedback and guide attention without interrupting the learning process.",
+      "ch8_intro": "The editorial voice is that of a helpful mentor—direct, encouraging, and free of impersonal jargon. Calls to action are woven into the content as subtle, text-based suggestions rather than loud demands.",
+      "ch8_outro": "What the system deliberately avoids is as defining as what it includes: it rejects dark backgrounds, serif body fonts, harsh borders, and cramped spacing in favor of its signature lightness and clarity."
+    },
+    "zh-CN": {
+      "ch1_intro": "Josh Comeau 的设计系统如同一本友好且图文并茂的教科书，它运用色彩与交互隐喻来解构复杂的网络技术。该系统以亲和力为基石，采用明亮通透的美学风格，营造出一个技术学习既亲切又清晰的空间。",
+      "ch2_intro": "色彩系统建立在清晰与区分的基础上。标志性的天蓝色提供了稳定而轻盈的背景，而充满活力的品红色则专用于精准、活跃的高光点缀，以不张扬的方式引导视觉焦点。",
+      "ch2_outro": "其核心原则是有目的性的对比：深海军蓝的文字颜色确保在明亮、充满光感的画布上获得最佳可读性。",
+      "ch3_intro": "这里的排版承载着双重角色：干净的几何无衬线字体负责所有正文内容，以宽裕的行高确保阅读舒适；而内敛的等宽字体仅用于代码展示，在概念与执行之间建立起清晰的视觉边界。",
+      "ch4_intro": "一个 4px 的基础网格支撑着整个系统，构建出可预测的节奏感，其尺度可灵活伸缩——从亲密的 24px 间距到开阔的 96px 段落分隔。",
+      "ch5_intro": "层次感通过极其微妙的手段传达。阴影被分为三个柔和、递进的层次，为页面创造轻柔的悬浮感；而边框则保持纤细与透明，作为细腻的分隔线而非厚重的容器。",
+      "ch6_intro": "布局采用简洁的双栏骨架：宽裕的主内容栏占据主导，较窄的侧边栏提供持久的导航与探索功能。这种结构优先考虑阅读流，同时确保辅助内容触手可及。",
+      "ch7_intro": "动效被视为一位细腻的指挥者，而非表演者。所有过渡都遵循一致的 0.3 秒时长，通过平滑的透明度和 transform 动画提供反馈并引导注意力，而不中断学习过程。",
+      "ch8_intro": "编辑口吻犹如一位乐于助人的导师——直接、鼓励，且摒弃非人格化的行业术语。行动号召被作为细腻的文字建议融入内容，而非以喧哗的方式提出要求。",
+      "ch8_outro": "系统刻意规避的元素与其所包含的同样具有定义性：它摒弃深色背景、衬线正文字体、刺眼的边框以及局促的间距，转而推崇其标志性的轻盈与明晰。"
+    },
+    "zh-TW": {
+      "ch1_intro": "Josh Comeau 的設計系統就像一本親切的插畫教科書，運用色彩與互動隱喻來解構複雜的網路技術。其識別設計建立在「易於親近」的基礎上，透過明亮、開闊的美學創造一個讓技術學習既溫暖又清晰的空間。",
+      "ch2_intro": "色彩系統建立在清晰與區隔的基礎上。標誌性的天空藍提供穩定、通透的背景，而鮮活的洋紅色調則專注於精準、充滿活力的視覺重點，在不喧賓奪主的前提下引導視線。",
+      "ch2_outro": "底層原則是「有目的的對比」：深海軍藍的文字顏色確保在明亮、充滿光感的畫布上獲得最佳可讀性。",
+      "ch3_intro": "這裡的字體扮演雙重角色：乾淨的幾何無襯線字體以寬鬆的行高處理所有文內描述，營造舒適感；而保留的等寬字體則僅用於程式碼，明確區隔概念與實作的視覺邊界。",
+      "ch4_intro": "4px 基礎網格支撐著整個系統，建立可預期的節奏，從親密的 24px 間距延伸至開闊的 96px 段落分隔。",
+      "ch5_intro": "深度透過極其細微的方式傳達。陰影以三層柔和、漸進的方式應用，創造從頁面輕柔浮起的效果；而邊框保持纖細透明，作為細緻的分隔線而非沉重的容器。",
+      "ch6_intro": "版面採用直覺的雙欄骨架：寬敞的主內容欄為主體，側邊輔以較窄的側邊欄，用於常駐導覽與內容探索。此結構優先考量閱讀流暢度，同時讓輔助內容便於取得。",
+      "ch7_intro": "動效被視為細膩的指揮者，而非表演者。所有過渡效果皆遵循一致的 0.3 秒持續時間，運用流暢的 opacity 與 transform 動畫提供反饋並引導注意力，同時不打斷學習過程。",
+      "ch8_intro": "編輯語調如同一位樂於助人的導師——直接、鼓勵，且摒棄非個人化的術語。行動召喚以細膩、基於文字的建議形式融入內容，而非響亮的要求。",
+      "ch8_outro": "系統刻意避免的事物與其包含的內容同樣定義其本質：它摒棄深色背景、襯線內文字體、生硬邊框與擁擠間距，轉而追求其標誌性的明亮與清晰。"
+    },
+    "ja": {
+      "ch1_intro": "Josh Comeauのデザインシステムは、親しみやすい図解付きの教科書のように機能します。色とインタラクティブな比喩を用いて、複雑なウェブ技術を分かりやすくします。このアイデンティティは親しみやすさを基盤とし、明るく広々とした美学で、技術的な学習が歓迎され、明確であるような空間を創り出しています。",
+      "ch2_intro": "カラーシステムは、明瞭さと区別可能性の基盤の上に構築されています。特徴的なスカイブルーはconstantで広々とした背景を提供し、鮮やかなマジェンタのアクセントは、目に訴えかけることなく目を導く、正確でエネルギッシュなハイライトとしてのみ使用されます。",
+      "ch2_outro": " underlying principle is one of purposeful contrast: a deep navy text color ensures maximum readability against the bright, light-filled canvas.",
+      "ch3_intro": "タイポグラフィはここでは二重の役割を果たします。クリーンで幾何学的なサンセリフフォントは、快適な行間で本文を扱い、控えめなモノスペースフォントはコードのみに現れ、概念と実行の間に明確な視覚的境界を作ります。",
+      "ch4_intro": "4pxのベースグリッドがシステム全体を支え、親密な24pxの間隔から広大な96pxのセクション区切りまでスケールする、予測可能なリズムを生み出します。",
+      "ch5_intro": "奥行きはごく控えめな方法で表現されます。影は3つの柔らかく段階的なレイヤーで適用され、ページから優しく浮かび上がる効果を生み出します。ボーダーは細く透明に保たれ、重いコンテナではなく、精妙な区切りとして機能します。",
+      "ch6_intro": "レイアウトはシンプルな2カラムの骨格です。豊かなメインコンテンツカラムが中心となり、横に常時ナビゲーションと発見のためのより狭いサイドバーが配置されます。この構造は、補足コンテンツを手軽にアクセスできるようにしながら、読む流れを優先しています。",
+      "ch7_intro": "モーションは演奏者ではなく、精妙な指揮者として扱われます。すべてのトランジションは一貫した0.3秒の持続時間を遵守し、滑らかなopacityとtransformアニメーションを使用して、学習プロセスを中断することなくフィードバックを提供し、注意を導きます。",
+      "ch8_intro": "エディトリアルの声は、親切なメンターのものです—率直で、励ましになり、個人的でない専門用語がありません。アクションへの呼びかけは、派手な要求ではなく、精妙なテキストベースの提案としてコンテンツに織り込まれています。",
+      "ch8_outro": "システムが意図的に避けることは、含まれるものと同じくらい特徴的です。暗い背景、セリフ系本文フォント、荒いボーダー、窮屈な間隔を拒否し、代わりに特徴的な軽さと明瞭さを重視しています。"
+    },
+    "ko": {
+      "ch1_intro": "조시 코모의 디자인 시스템은 친절한 일러스트 교과서처럼 작동하며, 색상과 인터랙티브 비유를 활용해 복잡한 웹 기술을 설명합니다. 친근함을 바탕으로 한 정체성은 밝고 개방적인 미학을 사용하여 기술 학습이 환영받고 명확하게 느껴지는 공간을 만듭니다.",
+      "ch2_intro": "색상 시스템은 명확성과 구분의 원칙 위에 구축되었습니다. 시그니처 스카이블루는 일정하고 개방적인 배경을 제공하며, 생동감 마젠타 악센트는 눈을 부드럽게 이끄는 정확하고 에너지 넘치는 강조에만 사용됩니다.",
+      "ch2_outro": "근본 원칙은 의도적인 대비입니다. 깊은 네이비 텍스트 색상은 밝고 빛이 가득한 캔버스 위에서 최대 가독성을 보장합니다.",
+      "ch3_intro": "타이포그래피는 이중 역할을 수행합니다. 깔끔하고 기하학적인 고딕 서체는 넉넉한 행 간격으로 모든 본문 텍스트를 편안하게 처리하는 반면, 절제된 모노스페이스 폰트는 코드에만 등장하여 개념과 실행 사이에 명확한 시각적 경계를 만듭니다.",
+      "ch4_intro": "4px 기본 그리드가 전체 시스템의 토대가 되어, 섬세한 24px 간격부터 넓은 96px 섹션 구분까지 확장 가능한 예측 가능한 리듬을 만듭니다.",
+      "ch5_intro": "깊이는 미세한 수단으로 전달됩니다. 그림자는 세 가지 부드럽고 점진적인 레이어로 적용되어 페이지에서 은은하게 떠오르는 효과를 만들고, 테두리는 가볍고 투명하게 유지되어 무거운 컨테이너보다는 미묘한 구분선 역할을 합니다.",
+      "ch6_intro": "레이아웃은 명확한 이칼럼 골격입니다. 넉넉한 메인 콘텐츠 칼럼이 주를 이루며, 좁은 사이드바가 지속적인 탐색과 발견을 위해 옆에 배치됩니다. 이 구조는 읽기 흐름을 우선시하면서 보조 콘텐츠를 손쉽게 접근할 수 있게 합니다.",
+      "ch7_intro": "모션은 수행자가 아닌 은은한 지휘자로 다루어집니다. 모든 전환은 0.3초 일관된 지속 시간을 따르며, 매끄러운 불투명도와 변환 애니메이션을 사용하여 학습 과정을 방해하지 않으면서 피드백을 제공하고 주의를 이끕니다.",
+      "ch8_intro": "에디토리얼 음성은 도움이 되는 멘토의 목소리입니다—직접적이고, 격려적이며, 딱딱한 전문 용어가 없습니다. 호출-to-행동은 큰 요구가 아닌 미묘한 텍스트 기반 제안으로 콘텐츠에 자연스럽게 녹아듭니다.",
+      "ch8_outro": "시스템이 의도적으로 피하는 것은 포함하는 것만큼이나 정의적입니다. 어두운 배경, 세리프 본문 폰트, 날카로운 테두리, 비좁은 간격을 거부하고 시그니처 라이트함과 명확성을 선택합니다."
+    }
+  }
 }

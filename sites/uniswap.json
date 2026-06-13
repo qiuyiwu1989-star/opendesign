@@ -8,8 +8,638 @@
     "crypto",
     "defi"
   ],
-  "status": "pending",
+  "status": "completed",
   "added_at": "2026-06-02",
   "added_by": "expand-200",
-  "_meta": {}
+  "_meta": {
+    "vision_model": "mimo-v2.5",
+    "vision_prompt_version": "0.3",
+    "vision_source": "playwright-extract:uniswap",
+    "vision_grounded": true,
+    "vision_at": "2026-06-04T19:40:40+00:00",
+    "vision_tokens": 17140,
+    "vision_cost_usd": 0.1904,
+    "translation_model": "mimo-v2.5",
+    "translation_at": "2026-06-04T19:42:04+00:00",
+    "translation_tokens": 20137,
+    "translation_cost_usd": 0.067,
+    "narrative_model": "mimo-v2.5",
+    "narrative_prompt_version": "0.3",
+    "narrative_at": "2026-06-04T19:42:13+00:00",
+    "narrative_tokens": 2459,
+    "narrative_cost_usd": 0.0164,
+    "narrative_status": "ok",
+    "total_cost_usd": 0.2738
+  },
+  "spec": {
+    "colors": {
+      "bg": "#FFFFFF",
+      "bgSoft": "#F9F9F9",
+      "bgQuiet": "rgba(19, 19, 19, 0.08)",
+      "ink": "#131313",
+      "inkSoft": "rgba(19, 19, 19, 0.63)",
+      "muted": "#222222",
+      "mutedSoft": "rgba(19, 19, 19, 0.04)",
+      "accent": "#FF37C7",
+      "line": "rgba(19, 19, 19, 0.12)"
+    },
+    "typography": {
+      "display": "Humanist Sans-Serif",
+      "body": "Humanist Sans-Serif",
+      "mono": "Humanist Sans-Serif",
+      "scale": [
+        {
+          "token": "display",
+          "size": 52,
+          "lh": 1.0,
+          "weight": 500,
+          "ls": "-1px"
+        },
+        {
+          "token": "headline",
+          "size": 36,
+          "lh": 1.1,
+          "weight": 500,
+          "ls": "-0.5px"
+        },
+        {
+          "token": "body",
+          "size": 16,
+          "lh": 1.3,
+          "weight": 485,
+          "ls": "0px"
+        },
+        {
+          "token": "label",
+          "size": 14,
+          "lh": 1.48,
+          "weight": 485,
+          "ls": "0px"
+        },
+        {
+          "token": "small",
+          "size": 18,
+          "lh": 1.6,
+          "weight": 485,
+          "ls": "0px"
+        }
+      ]
+    },
+    "spacing": {
+      "base": 4,
+      "scale": [
+        4,
+        8,
+        12,
+        16,
+        20,
+        24,
+        32,
+        48,
+        64
+      ]
+    },
+    "surfaces": {
+      "radius": {
+        "sm": 12,
+        "md": 20,
+        "lg": 32,
+        "pill": 999999
+      }
+    },
+    "layout": {
+      "container": 1280,
+      "paragraph": 680,
+      "columns": 12,
+      "gutter": 24,
+      "breakpoints": [
+        768,
+        1024
+      ]
+    },
+    "motion": {
+      "durations": {
+        "micro": 100,
+        "small": 125,
+        "medium": 400
+      },
+      "easing": "cubic-bezier(0.34, 1.56, 0.64, 1)"
+    }
+  },
+  "spec_i18n": {
+    "en": {
+      "identity": {
+        "keywords": [
+          "Decentralized",
+          "Accessible",
+          "Playful",
+          "Transparent",
+          "Financial"
+        ],
+        "analogy": "A clean, friendly fintech interface that feels like a modern banking app but with a crypto-native aesthetic.",
+        "oneLiner": "A playful and accessible decentralized exchange platform with a clean, high-contrast design."
+      },
+      "colors": {
+        "principle": "A light, clean foundation with a vibrant magenta accent and high-contrast text."
+      },
+      "typography": {
+        "rules": [
+          "Use the system font stack (Basel, -apple-system, system-ui, sans-serif) for all text.",
+          "Set display headline size to 52px with a weight of 500.",
+          "Set body text size to 16px with a weight of 485.",
+          "Use a negative letter spacing of -1px for large display text."
+        ],
+        "scaleUses": [
+          "Hero headline 'Swap anytime, anywhere.'",
+          "Section headlines like 'Provide liquidity, earn fees.'",
+          "General body text and descriptions.",
+          "Form labels like 'Sell' and 'Buy'.",
+          "Subtitles and supporting text."
+        ]
+      },
+      "spacing": {
+        "rhythm": "A 4px base grid is used throughout, with common gaps of 8px, 16px, and 24px."
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(19, 19, 19, 0.04) 0px 6px 12px -3px",
+          "rgba(19, 19, 19, 0.03) 0px 2px 5px -2px"
+        ],
+        "borders": "1px solid rgba(19, 19, 19, 0.12)"
+      },
+      "layout": {
+        "skeleton": "A single-column centered layout on desktop, expanding to a full-width mobile layout."
+      },
+      "components": {
+        "button": "Pill-shaped buttons with a 32px border radius, filled with the magenta accent color.",
+        "card": "Cards with a 20px border radius, 12px padding, and subtle shadows or light gray backgrounds.",
+        "chip": "Small, pill-shaped badges with light backgrounds and text colors matching their category.",
+        "input": "Large, rounded input fields with a 12px border radius and a light gray background.",
+        "hero": "A prominent, centered hero section featuring a large 52px headline and the main swap widget."
+      },
+      "motion": {
+        "patterns": [
+          "Micro-interactions use a 0.1s ease-in-out transition.",
+          "Transformations and opacity changes use a 0.08s ease-in-out transition.",
+          "Interactive elements use a 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) spring animation."
+        ]
+      },
+      "interaction": {
+        "hover": "Subtle color shifts or background opacity changes on interactive elements.",
+        "click": "A slight scale or transform effect on buttons and clickable cards.",
+        "transition": "All properties transition over 0.4s with a cubic-bezier(0.34, 1.56, 0.64, 1) spring curve.",
+        "keyboard": "Standard keyboard navigation with visible focus rings on interactive elements."
+      },
+      "voice": {
+        "tone": "Friendly, accessible, and direct, making complex DeFi concepts approachable.",
+        "headlineStyle": "Large, bold, and clear, often using a single powerful sentence.",
+        "ctaStyle": "Action-oriented and prominent, using the magenta accent color to draw attention.",
+        "avoid": [
+          "Jargon-heavy language",
+          "Aggressive marketing tones",
+          "Dense blocks of text"
+        ]
+      },
+      "donts": [
+        "Don't use sharp, small border radii — the screenshot shows 12px to 32px radii on cards and buttons.",
+        "Don't use dark backgrounds as the primary canvas — the screenshot shows a predominantly white (#FFFFFF) and light gray (#F9F9F9) palette.",
+        "Don't use high-contrast dark mode for the entire interface — the screenshot shows a light theme with high-contrast text.",
+        "Don't use thin, light typography for headlines — the screenshot shows a 500 weight for 52px headlines.",
+        "Don't use a wide range of primary colors — the screenshot shows a single dominant magenta (#FF37C7) accent.",
+        "Don't use rigid, grid-heavy layouts with heavy borders — the screenshot shows soft shadows and rounded corners for separation."
+      ],
+      "systemPrompt": "This is Uniswap, a decentralized finance platform. The design is clean and accessible, using a light theme with a white (#FFFFFF) and light gray (#F9F9F9) background. The primary accent is a vibrant magenta (#FF37C7). The typography uses a humanist sans-serif (Basel) with a display headline weight of 500 and size of 52px. Critical donts: 1) Do not use dark backgrounds for the main UI. 2) Do not use sharp corners; use generous border radii (12px to 32px). 3) Do not use thin fonts for headlines; keep them at a 500 weight. The overall feel is friendly and playful, not corporate or heavy."
+    },
+    "zh-CN": {
+      "identity": {
+        "keywords": [
+          "去中心化",
+          "易于访问",
+          "趣味性",
+          "透明",
+          "金融"
+        ],
+        "analogy": "一个干净、友好的金融科技界面，感觉像现代银行应用，但具有加密原生美学。",
+        "oneLiner": "一个充满趣味且易于访问的去中心化交易平台，拥有干净、高对比度的设计。"
+      },
+      "colors": {
+        "principle": "以明亮、干净的基底色为主，搭配鲜艳的洋红色点缀和高对比度文本。"
+      },
+      "typography": {
+        "rules": [
+          "所有文本使用系统字体栈（Basel, -apple-system, system-ui, sans-serif）。",
+          "展示标题大小设为52px，字重为500。",
+          "正文文本大小设为16px，字重为485。",
+          "大型展示文本使用-1px的负字间距。"
+        ],
+        "scaleUses": [
+          "主标题“随时随地，轻松交换。”",
+          "章节标题，例如“提供流动性，赚取手续费。”",
+          "通用正文和描述文本。",
+          "表单标签，例如“卖出”和“买入”。",
+          "副标题和辅助文本。"
+        ]
+      },
+      "spacing": {
+        "rhythm": "整体采用4px基础网格，常用间距为8px、16px和24px。"
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(19, 19, 19, 0.04) 0px 6px 12px -3px",
+          "rgba(19, 19, 19, 0.03) 0px 2px 5px -2px"
+        ],
+        "borders": "1px solid rgba(19, 19, 19, 0.12)"
+      },
+      "layout": {
+        "skeleton": "桌面端为单列居中布局，移动端扩展为全宽布局。"
+      },
+      "components": {
+        "button": "药丸形按钮，圆角32px，填充洋红色点缀色。",
+        "card": "卡片圆角20px，内边距12px，带有柔和阴影或浅灰色背景。",
+        "chip": "小型药丸形徽章，背景颜色浅，文本颜色与其类别匹配。",
+        "input": "大型圆角输入框，圆角12px，浅灰色背景。",
+        "hero": "一个突出的居中主视觉区域，包含52px大标题和主要的交换组件。"
+      },
+      "motion": {
+        "patterns": [
+          "微交互使用0.1秒缓入缓出过渡。",
+          "变换和透明度变化使用0.08秒缓入缓出过渡。",
+          "交互元素使用0.4秒 cubic-bezier(0.34, 1.56, 0.64, 1) 弹簧动画。"
+        ]
+      },
+      "interaction": {
+        "hover": "交互元素在悬停时进行微妙的颜色偏移或背景透明度变化。",
+        "click": "按钮和可点击卡片在点击时产生轻微的缩放或变换效果。",
+        "transition": "所有属性在0.4秒内以 cubic-bezier(0.34, 1.56, 0.64, 1) 弹簧曲线完成过渡。",
+        "keyboard": "标准键盘导航，交互元素具有可见的聚焦环。"
+      },
+      "voice": {
+        "tone": "友好、易用、直接，让复杂的DeFi概念变得易于理解。",
+        "headlineStyle": "大、加粗、清晰，通常使用一句有力的语句。",
+        "ctaStyle": "以行动为导向且突出，使用洋红色点缀色吸引注意力。",
+        "avoid": [
+          "充斥行话的语言",
+          "攻击性的营销语调",
+          "密集的文本块"
+        ]
+      },
+      "donts": [
+        "不要使用尖锐的小圆角——截图显示卡片和按钮的圆角在12px到32px之间。",
+        "不要使用深色背景作为主要画布——截图显示以白色（#FFFFFF）和浅灰色（#F9F9F9）为主的色板。",
+        "不要在整个界面使用高对比度的深色模式——截图显示的是带有高对比度文本的明亮主题。",
+        "不要为标题使用纤细、浅色的字体——截图显示52px标题使用500字重。",
+        "不要使用多种主色——截图显示仅使用一种主要的洋红色（#FF37C7）作为点缀色。",
+        "不要使用僵硬、过度依赖网格且带有粗边框的布局——截图显示使用柔和阴影和圆角进行视觉分隔。"
+      ],
+      "systemPrompt": "这是Uniswap，一个去中心化金融平台。设计干净易用，采用明亮主题，背景为白色（#FFFFFF）和浅灰色（#F9F9F9）。主要点缀色为鲜艳的洋红色（#FF37C7）。字体使用人文主义无衬线字体（Basel），展示标题字重为500，大小为52px。关键禁忌：1）不要为主要UI使用深色背景。2）不要使用尖锐的圆角；使用大方的圆角（12px到32px）。3）不要为标题使用细字体；保持500字重。整体感觉是友好和有趣的，而非企业化或沉重。"
+    },
+    "zh-TW": {
+      "identity": {
+        "keywords": [
+          "去中心化",
+          "無障礙",
+          "活潑",
+          "透明",
+          "金融"
+        ],
+        "analogy": "簡潔、友善的金融科技介面，如同現代銀行應用程式，但帶有加密貨幣原生美學。",
+        "oneLiner": "一款活潑且無障礙的去中心化交易平台，採用簡潔的高對比度設計。"
+      },
+      "colors": {
+        "principle": "以簡潔淺色為基礎，搭配鮮明洋紅色強調與高對比度文字。"
+      },
+      "typography": {
+        "rules": [
+          "所有文字使用系統字體堆疊 (Basel, -apple-system, system-ui, sans-serif)。",
+          "標題展示文字大小設為 52px，字重 500。",
+          "內文大小設為 16px，字重 485。",
+          "大型展示文字使用 -1px 負字間距。"
+        ],
+        "scaleUses": [
+          "主標題「隨時隨地交換。」",
+          "區塊標題如「提供流動性，賺取手續費。」",
+          "一般內文與描述文字。",
+          "表單標籤如「賣出」與「買入」。",
+          "副標題與輔助文字。"
+        ]
+      },
+      "spacing": {
+        "rhythm": "全版使用 4px 基礎網格，常見間距為 8px、16px 與 24px。"
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(19, 19, 19, 0.04) 0px 6px 12px -3px",
+          "rgba(19, 19, 19, 0.03) 0px 2px 5px -2px"
+        ],
+        "borders": "1px solid rgba(19, 19, 19, 0.12)"
+      },
+      "layout": {
+        "skeleton": "桌面版採用單欄置中佈局，行動版擴展為全寬佈局。"
+      },
+      "components": {
+        "button": "圓角藥丸形按鈕，邊框半徑 32px，填充洋紅色強調色。",
+        "card": "卡片邊框半徑 20px，內邊距 12px，搭配細微陰影或淺灰色背景。",
+        "chip": "小型藥丸形標籤，淺色背景，文字顏色與其類別相符。",
+        "input": "大型圓角輸入欄位，邊框半徑 12px，淺灰色背景。",
+        "hero": "顯眼的置中首頁區域，包含大型 52px 標題與主要交換元件。"
+      },
+      "motion": {
+        "patterns": [
+          "微互動使用 0.1s ease-in-out 過渡效果。",
+          "變換與透明度變化使用 0.08s ease-in-out 過渡效果。",
+          "互動元素使用 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) 彈簧動畫。"
+        ]
+      },
+      "interaction": {
+        "hover": "互動元素上的細微色彩或背景透明度變化。",
+        "click": "按鈕與可點擊卡片上的輕微縮放或變換效果。",
+        "transition": "所有屬性以 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) 彈簧曲線過渡。",
+        "keyboard": "標準鍵盤導覽，互動元素具有可見的聚焦環。"
+      },
+      "voice": {
+        "tone": "友善、無障礙且直接，讓複雜的 DeFi 概念變得平易近人。",
+        "headlineStyle": "大型、粗體且清晰，常使用單句有力語句。",
+        "ctaStyle": "行動導向且顯眼，使用洋紅色強調色吸引注意力。",
+        "avoid": [
+          "專業術語堆砌",
+          "侵略性行銷語調",
+          "密集文字區塊"
+        ]
+      },
+      "donts": [
+        "不要使用尖銳的小邊框半徑——截圖顯示卡片與按鈕使用 12px 至 32px 半徑。",
+        "不要使用深色背景作為主要畫布——截圖顯示以白色 (#FFFFFF) 與淺灰色 (#F9F9F9) 為主的色盤。",
+        "不要使用高對比深色模式作為整體介面——截圖顯示淺色主題搭配高對比度文字。",
+        "不要使用細體淺色字型作為標題——截圖顯示 52px 標題使用 500 字重。",
+        "不要使用廣泛的主色調——截圖顯示單一主導的洋紅色 (#FF37C7) 強調色。",
+        "不要使用剛性、重網格且粗邊框的佈局——截圖顯示使用柔和陰影與圓角進行區隔。"
+      ],
+      "systemPrompt": "這是 Uniswap，一個去中心化金融平台。設計簡潔且無障礙，採用淺色主題，背景為白色 (#FFFFFF) 與淺灰色 (#F9F9F9)。主要強調色為鮮明的洋紅色 (#FF37C7)。字型使用人文主義無襯線體 (Basel)，展示標題字重 500，大小 52px。關鍵禁止事項：1) 主介面不要使用深色背景。2) 不要使用尖銳角落；使用充裕的邊框半徑 (12px 至 32px)。3) 標題不要使用細體字型；保持 500 字重。整體感受為友善活潑，而非企業化或沉重。"
+    },
+    "ja": {
+      "identity": {
+        "keywords": [
+          "分散型",
+          "アクセシブル",
+          "遊び心",
+          "透明性",
+          "金融"
+        ],
+        "analogy": "現代的な銀行アプリのような親しみやすさを持ちつつ、クリプトネイティブな美学を感じさせる、クリーンでフレンドリーなfintechインターフェースです。",
+        "oneLiner": "クリーンで高いコントラストのデザインを持つ、遊び心のあるアクセシブルな分散型取引プラットフォーム。"
+      },
+      "colors": {
+        "principle": "鮮やかなマゼンタのアクセントと高いコントラストのテキストを配置した、明るくクリーンな基盤色。"
+      },
+      "typography": {
+        "rules": [
+          "すべてのテキストにシステムフォントスタック（Basel, -apple-system, system-ui, sans-serif）を使用します。",
+          "ディスプレイ見出しのサイズを52px、ウェイトを500に設定します。",
+          "本文テキストのサイズを16px、ウェイトを485に設定します。",
+          "大きなディスプレイテキストには、-1pxのネガティブレタースペーシングを使用します。"
+        ],
+        "scaleUses": [
+          "ヒーローヘッドライン「いつでも、どこでもSwap。」",
+          "「流動性を提供し、手数料を獲得。」などのセクション見出し。",
+          "一般的な本文テキストと説明文。",
+          "「販売」「購入」などのフォームラベル。",
+          "サブタイトルと補足テキスト。"
+        ]
+      },
+      "spacing": {
+        "rhythm": "全体を通して4pxのベースグリッドを使用し、8px、16px、24pxの一般的なギャップを採用しています。"
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(19, 19, 19, 0.04) 0px 6px 12px -3px",
+          "rgba(19, 19, 19, 0.03) 0px 2px 5px -2px"
+        ],
+        "borders": "1px solid rgba(19, 19, 19, 0.12)"
+      },
+      "layout": {
+        "skeleton": "デスクトップでは中央揃えのシングルカラムレイアウト、モバイルではフル幅のレイアウトに拡張します。"
+      },
+      "components": {
+        "button": "32pxのボーダーラディウスを持ち、マゼンタのアクセントカラーで塗りつぶされた、ピル型のボタンです。",
+        "card": "20pxのボーダーラディウス、12pxのパディングを持ち、微細なシャドウまたは薄いグレーの背景を持つカードです。",
+        "chip": "カテゴリに合わせたテキスト色を持つ、明るい背景の小型ピル型バッジです。",
+        "input": "12pxのボーダーラディウスと薄いグレーの背景を持つ、大型で角の丸い入力フィールドです。",
+        "hero": "大きな52pxの見出しとメインのスワップウィジェットをフィーチャーした、目立つ中央揃えのヒーローセクションです。"
+      },
+      "motion": {
+        "patterns": [
+          "micro-interactionには0.1秒のease-in-out遷移を使用します。",
+          "トランスフォームや不透明度の変化には0.08秒のease-in-out遷移を使用します。",
+          "インタラクティブ要素には0.4秒のcubic-bezier(0.34, 1.56, 0.64, 1)スプリングアニメーションを使用します。"
+        ]
+      },
+      "interaction": {
+        "hover": "インタラクティブ要素に対する、微細な色の変化や背景の不透明度の変化。",
+        "click": "ボタンやクリック可能なカードに対する、わずかなスケールやトランスフォーム効果。",
+        "transition": "すべてのプロパティが0.4秒のcubic-bezier(0.34, 1.56, 0.64, 1)スプリングカーブで遷移します。",
+        "keyboard": "インタラクティブ要素に明確なフォーカスリングを表示する、標準的なキーボードナビゲーション。"
+      },
+      "voice": {
+        "tone": "フレンドリーでアクセシブルかつ直接的。複雑なDeFiの概念を親しみやすく伝えます。",
+        "headlineStyle": "大きく、太く、明確。しばしば1つの力強いセンテンスで構成されます。",
+        "ctaStyle": "行動を促し、目立つ。注意を引くためにマゼンタのアクセントカラーを使用します。",
+        "avoid": [
+          "専門用語の乱用",
+          "アグレッシブなマーケティングトーン",
+          "詰め込まれたテキストブロック"
+        ]
+      },
+      "donts": [
+        "角の鋭い小さなボーダーラディウスは使用しないでください。スクリーンショットでは、カードやボタンに12pxから32pxのradiusが使用されています。",
+        "主なキャンバスに暗い背景を使用しないでください。スクリーンショットでは、主に白（#FFFFFF）と薄いグレー（#F9F9F9）のパレットが使用されています。",
+        "インターフェース全体にハイコントラストのダークモードを使用しないでください。スクリーンショットでは、高いコントラストのテキストを持つライトテーマが使用されています。",
+        "見出しに細く軽いタイポグラフィを使用しないでください。スクリーンショットでは、52pxの見出しに500ウェイトが使用されています。",
+        "幅広い範囲のプライマリカラーを使用しないでください。スクリーンショットでは、単一の支配的なマゼンタ（#FF37C7）のアクセントが使用されています。",
+        "重厚なボーダーを持つ、硬直したグリッド重視のレイアウトを使用しないでください。スクリーンショットでは、分離にソフトなシャドウと角丸が使用されています。"
+      ],
+      "systemPrompt": "これはUniswap、分散型金融（DeFi）プラットフォームです。デザインはクリーンでアクセシブルで、白（#FFFFFF）と薄いグレー（#F9F9F9）の背景を持つライトテーマを採用しています。プライマリアクセントは鮮やかなマゼンタ（#FF37C7）です。タイポグラフィにはヒューマニストサンセリフ（Basel）が使用され、ディスプレイ見出しのウェイトは500、サイズは52pxです。重要な禁止事項：1）メインUIに暗い背景を使用しない。2）角を鋭くしない；12pxから32pxの十分なボーダーラディウスを使用する。3）見出しに細いフォントを使用しない；ウェイトは500を維持する。全体的な印象はフレンドリーで遊び心があり、コーポレート的または重苦しいものではありません。"
+    },
+    "ko": {
+      "identity": {
+        "keywords": [
+          "탈중앙화",
+          "접근성",
+          "재미있는",
+          "투명한",
+          "금융"
+        ],
+        "analogy": "현대적인 뱅킹 앱처럼 느껴지지만 크립토 네이티브 미학을 갖춘 깔끔하고 친근한 핀테크 인터페이스입니다.",
+        "oneLiner": "깔끔하고 높은 대비의 디자인을 가진 재미있고 접근 가능한 탈중앙화 거래소 플랫폼입니다."
+      },
+      "colors": {
+        "principle": "밝고 깔끔한 배경에 선명한 마젠타 강조색과 높은 대비의 텍스트를 적용합니다."
+      },
+      "typography": {
+        "rules": [
+          "모든 텍스트에 시스템 폰트 스택(Basel, -apple-system, system-ui, sans-serif)을 사용합니다.",
+          "디스플레이 헤드라인 크기를 52px, 두께를 500으로 설정합니다.",
+          "본문 텍스트 크기를 16px, 두께를 485로 설정합니다.",
+          "큰 디스플레이 텍스트에는 -1px의 음수 자간을 사용합니다."
+        ],
+        "scaleUses": [
+          "영웅 헤드라인 '언제 어디서나 스왑하세요.'",
+          "'유동성을 제공하고 수수료를 벌세요.'와 같은 섹션 헤드라인.",
+          "일반 본문 텍스트 및 설명.",
+          "'판매' 및 '구매'와 같은 양식 레이블.",
+          "부제목 및 지원 텍스트."
+        ]
+      },
+      "spacing": {
+        "rhythm": "전체적으로 4px 기본 그리드를 사용하며, 일반적인 간격은 8px, 16px, 24px입니다."
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(19, 19, 19, 0.04) 0px 6px 12px -3px",
+          "rgba(19, 19, 19, 0.03) 0px 2px 5px -2px"
+        ],
+        "borders": "1px solid rgba(19, 19, 19, 0.12)"
+      },
+      "layout": {
+        "skeleton": "데스크톱에서는 단일 열 중앙 정렬 레이아웃을, 모바일에서는 전체 너비 레이아웃으로 확장됩니다."
+      },
+      "components": {
+        "button": "모서리가 32px인 약 모양 버튼이며, 마젠타 강조색으로 채워집니다.",
+        "card": "모서리가 20px, 안쪽 여백이 12px이며, 미묘한 그림자나 밝은 회색 배경을 사용하는 카드입니다.",
+        "chip": "밝은 배경과 해당 카테고리와 일치하는 텍스트 색상을 사용하는 작은 약 모양 뱃지입니다.",
+        "input": "모서리가 12px, 배경이 밝은 회색인 크고 둥근 입력 필드입니다.",
+        "hero": "52px의 큰 헤드라인과 주요 스_swap 위젯을 특징으로 하는 눈에 띄는 중앙 정렬 영웅 섹션입니다."
+      },
+      "motion": {
+        "patterns": [
+          "마이크로 인터랙션에는 0.1초 ease-in-out 전환을 사용합니다.",
+          "변환 및 불투명도 변경에는 0.08초 ease-in-out 전환을 사용합니다.",
+          "인터랙티브 요소에는 0.4초 cubic-bezier(0.34, 1.56, 0.64, 1) 스프링 애니메이션을 사용합니다."
+        ]
+      },
+      "interaction": {
+        "hover": "인터랙티브 요소에 미묘한 색상 변화 또는 배경 불투명도 변화를 적용합니다.",
+        "click": "버튼 및 클릭 가능한 카드에 약간의 스케일 또는 변환 효과를 적용합니다.",
+        "transition": "모든 속성은 0.4초 동안 cubic-bezier(0.34, 1.56, 0.64, 1) 스프링 곡선으로 전환됩니다.",
+        "keyboard": "인터랙티브 요소에 눈에 보이는 포커스 링이 있는 표준 키보드 탐색입니다."
+      },
+      "voice": {
+        "tone": "복잡한 DeFi 개념을 접근하기 쉽게 만들어주는 친근하고 접근 가능하며 직접적인 어조입니다.",
+        "headlineStyle": "크고 굵으며 명확한, 종종 하나의 강력한 문장으로 구성되는 스타일입니다.",
+        "ctaStyle": "주의를 끌기 위해 마젠타 강조색을 사용하는 행동 지향적이고 눈에 띄는 스타일입니다.",
+        "avoid": [
+          "전문 용어가 많은 언어",
+          "공격적인 마케팅 톤",
+          "밀도 높은 텍스트 블록"
+        ]
+      },
+      "donts": [
+        "날카롭고 작은 모서리 반경을 사용하지 마세요 — 스크린샷에는 카드와 버튼에 12px에서 32px의 모서리 반경이 보입니다.",
+        "메인 캔버스로 어두운 배경을 사용하지 마세요 — 스크린샷에는 주로 흰색(#FFFFFF)과 밝은 회색(#F9F9F9) 팔레트가 보입니다.",
+        "전체 인터페이스에 높은 대비의 다크 모드를 사용하지 마세요 — 스크린샷에는 높은 대비 텍스트를 사용하는 라이트 테마가 보입니다.",
+        "헤드라인에 얇고 가벼운 타이포그래피를 사용하지 마세요 — 스크린샷에는 52px 헤드라인에 두께 500이 적용되어 있습니다.",
+        "광범위한 주요 색상을 사용하지 마세요 — 스크린샷에는 단일 주요 마젠타(#FF37C7) 강조색이 보입니다.",
+        "무거운 테두리가 있는 경직된 그리드 중심 레이아웃을 사용하지 마세요 — 스크린샷에는 분리를 위해 부드러운 그림자와 둥근 모서리가 보입니다."
+      ],
+      "systemPrompt": "이것은 탈중앙화 금융 플랫폼 Uniswap입니다. 디자인은 깔끔하고 접근 가능하며, 흰색(#FFFFFF)과 밝은 회색(#F9F9F9) 배경을 사용하는 라이트 테마를 사용합니다. 주요 강조색은 선명한 마젠타(#FF37C7)입니다. 타이포그래피는 디스플레이 헤드라인 두께 500, 크기 52px의 humanist sans-serif(Basel)를 사용합니다. 핵심 금지 사항: 1) 메인 UI에 어두운 배경을 사용하지 마세요. 2) 날카로운 모서리를 사용하지 마세요; 넉넉한 모서리 반경(12px에서 32px)을 사용하세요. 3) 헤드라인에 얇은 폰트를 사용하지 마세요; 두께 500을 유지하세요. 전체적인 느낌은 기업적이거나 무겁지 않고 친근하며 재미있습니다."
+    }
+  },
+  "desc": {
+    "en": {
+      "palette": "A clean, light palette dominated by white and light gray, with a vibrant magenta (#FF37C7) accent providing high contrast and a playful feel.",
+      "layout": "A single-column, centered layout on desktop that focuses on the main swap widget, transitioning to a full-width layout on mobile.",
+      "interaction": "Smooth, spring-based animations for hover and click states create a responsive and playful feel, with micro-interactions on all clickable elements.",
+      "motion": "Motion is subtle but effective, using a 0.4s spring curve for larger transitions and 0.08s ease-in-out for quick feedback.",
+      "notes": "Worth including as a prime example of a clean, accessible, and playful fintech UI that successfully balances complex functionality with a friendly, approachable aesthetic."
+    },
+    "zh-CN": {
+      "palette": "以白色和浅灰色为主的干净、明亮色板，搭配鲜明的洋红色（#FF37C7）作为点缀，形成高对比度并营造出活泼感。",
+      "layout": "桌面端采用单列居中布局，聚焦于主要的交换组件；移动端则切换为全宽布局。",
+      "interaction": "基于弹簧的流畅动画应用于悬停和点击状态，营造出响应迅速且有趣的体验，所有可点击元素均包含微交互。",
+      "motion": "动效细腻而有效，较大的转场使用0.4秒弹簧曲线，快速反馈则使用0.08秒缓入缓出。",
+      "notes": "这是一个值得参考的优秀范例，展示了如何将复杂功能与友好、易于接近的美学完美平衡，打造出干净、易用且充满趣味的金融科技界面。"
+    },
+    "zh-TW": {
+      "palette": "以白色與淺灰色為主的簡潔淺色調色盤，搭配鮮明的洋紅色 (#FF37C7) 強調色，營造高對比度與活潑感。",
+      "layout": "桌面版採用單欄置中佈局，聚焦於主要交換元件；行動版則轉換為全寬佈局。",
+      "interaction": "流暢的彈簧動畫應用於懸停與點擊狀態，打造具回應性且活潑的感受，所有可點擊元素皆包含微互動。",
+      "motion": "動態效果細膩而有效，較大過渡動畫使用 0.4 秒彈簧曲線，快速回饋則使用 0.08 秒 ease-in-out。",
+      "notes": "值得收錄為簡潔、無障礙且活潑的金融科技 UI 範例，成功平衡複雜功能與親切、平易近人的美學。"
+    },
+    "ja": {
+      "palette": "白と薄いグレーを基調とした、クリーンで軽快なカラーパレット。鮮やかなマゼンタ（#FF37C7）をアクセントに使い、高いコントラストと遊び心のある印象を演出します。",
+      "layout": "デスクトップではメインのスワップウィジェットに焦点を当てた、中央揃えのシングルカラムレイアウト。モバイルではフル幅のレイアウトに変化します。",
+      "interaction": "hoverやクリック状態に対する、スムーズでスプリングベースのアニメーションが、応答性と遊び心を感じさせます。すべてのクリック可能な要素にmicro-interactionが適用されます。",
+      "motion": "動きは控えめですが効果的です。大きな変化には0.4秒のスプリングカーブを、素早いフィードバックには0.08秒のease-in-outを使用します。",
+      "notes": "複雑な機能性と親しみやすくアプローチしやすいデザインのバランスに成功した、クリーンでアクセシブルなfintech UIの優れた例として掲載する価値があります。"
+    },
+    "ko": {
+      "palette": "흰색과 밝은 회색을 기본으로 한 깔끔한 팔레트입니다. 선명한 마젠타(#FF37C7) 강조색이 높은 대비와 재미있는 느낌을 더해줍니다.",
+      "layout": "데스크톱에서는 주요 스왑 위젯에 집중하는 단일 열 중앙 정렬 레이아웃을 사용하며, 모바일에서는 전체 너비 레이아웃으로 전환됩니다.",
+      "interaction": "호버 및 클릭 상태를 위한 매끄럽고 스프링 기반의 애니메이션이 반응적이고 재미있는 느낌을 만들어내며, 모든 클릭 가능 요소에 마이크로 인터랙션이 적용됩니다.",
+      "motion": "모션은 미묘하지만 효과적입니다. 큰 전환에는 0.4초 스프링 곡선을, 빠른 피드백에는 0.08초 ease-in-out을 사용합니다.",
+      "notes": "복잡한 기능성과 친근하고 접근하기 쉬운 미학을 성공적으로 조화시킨 깔끔하고 접근 가능하며 재미있는 핀테크 UI의 대표적인 예로 참고할 가치가 있습니다."
+    }
+  },
+  "narrative": {
+    "en": {
+      "ch1_intro": "The Uniswap design system operates like a modern banking lobby with the walls removed—clean, bright, and fundamentally transparent. Its DNA is a deliberate tension between the playfulness of a fintech startup and the serious financial utility of a decentralized exchange, creating an interface that feels both welcoming and trustworthy.",
+      "ch2_intro": "The palette is a study in restraint, built on a foundation of white and light gray with a single, vibrant magenta (#FF37C7) accent serving as a high-contrast focal point for primary actions. This deliberate limitation ensures the interface remains uncluttered and that the accent color carries significant communicative weight.",
+      "ch2_outro": "The principle is a clean, high-contrast foundation where color is used sparingly for emphasis and action, not decoration.",
+      "ch3_intro": "The typographic voice is set by a system font stack (Basel, -apple-system, system-ui, sans-serif), establishing a neutral, platform-agnostic baseline. Display headlines are set at a substantial 52px with a weight of 500, providing a clear visual hierarchy without resorting to heavy bolding.",
+      "ch4_intro": "A consistent 4px base grid establishes a predictable spatial rhythm, with common multiples (8px, 16px, 24px) creating clear visual intervals.",
+      "ch5_intro": "Depth is conveyed through subtle, layered shadows on a predominantly flat canvas, defining cards and interactive elements against the light background. Borders are minimal and lightly tinted, used only for necessary structural division rather than visual separation.",
+      "ch6_intro": "The structural skeleton is a single, centered column on desktop that focuses attention on the core swap functionality. This focused column expands to a full-width, fluid layout on mobile, prioritizing content and accessibility in constrained viewports.",
+      "ch7_intro": "Motion philosophy treats animation as functional feedback, not decoration. Quick 0.08s transitions confirm immediate interactions, while a 0.4s spring curve governs more substantial state changes, providing a responsive and slightly playful feel.",
+      "ch8_intro": "The editorial voice is direct and accessible, translating complex DeFi concepts into plain language. Headlines are large and singular, while calls-to-action are prominent and action-oriented, consistently leveraging the magenta accent for visual priority.",
+      "ch8_outro": "The system deliberately avoids jargon-heavy language, aggressive marketing tones, and dense blocks of text, prioritizing clarity and approachability above all."
+    },
+    "zh-CN": {
+      "ch1_intro": "Uniswap 的设计系统犹如一座拆除了墙壁的现代银行大厅——整洁、明亮且从根本上通透。其核心基因在金融科技初创企业的活力与去中心化交易所严肃的金融效用之间取得刻意平衡，营造出既具亲和力又值得信赖的界面。",
+      "ch2_intro": "这套色彩方案是对克制性的诠释，以白色与浅灰色为基底，采用单一鲜艳的品红色（#FF37C7）作为高对比度焦点，服务于主要操作。这种刻意限制确保界面保持清爽，同时让强调色承载重要的传达功能。",
+      "ch2_outro": "其原则在于建立洁净的高对比度基底，色彩仅用于必要强调与交互引导，而非装饰。",
+      "ch3_intro": "排版基调由系统字体栈（Basel, -apple-system, system-ui, sans-serif）奠定，确立了中立且平台无关的基线。标题字号设为宽裕的 52px，字重 500，形成清晰的视觉层级而无需依赖粗重加粗。",
+      "ch4_intro": "一致的 4px 基础网格构建出可预测的空间韵律，常用倍数（8px、16px、24px）形成清晰的视觉间隔。",
+      "ch5_intro": "在以扁平为主的画布上，通过细微层叠的阴影传递纵深感，使卡片与交互元素在浅色背景中清晰界定。边框极简且呈淡色，仅用于必要的结构分隔而非视觉区隔。",
+      "ch6_intro": "结构骨架在桌面端呈现为居中单栏布局，将注意力聚焦于核心兑换功能。这一聚焦式栏目在移动端扩展为全宽流式布局，在有限视口中优先保障内容呈现与可访问性。",
+      "ch7_intro": "动效哲学将动画视为功能性反馈而非装饰。0.08 秒的快速过渡确认即时交互，0.4 秒的弹性曲线则主导更显著的状态变化，提供响应迅速且略带灵动感的体验。",
+      "ch8_intro": "编辑语言直接且平易近人，将复杂的 DeFi 概念转化为通俗表述。标题醒目而精炼，行动号召则突出且以行动为导向，始终利用品红色强调建立视觉优先级。",
+      "ch8_outro": "该系统刻意避免专业术语堆砌、激进的营销语调与密集文字段落，始终将清晰度与亲和力置于首位。"
+    },
+    "zh-TW": {
+      "ch1_intro": "Uniswap 的設計系統運作方式如同一座拆除了牆面的現代銀行大廳——簡潔、明亮，且本質上極為透明。其核心在於金融科技新創公司的趣味性與去中心化交易所嚴肅金融實用性之間刻意營造的張力，創造出一個既令人感到親切又值得信賴的介面。",
+      "ch2_intro": "調色盤是克制的體現，以白色與淺灰色為基調，搭配一個鮮豔的洋紅色（#FF37C7）作為主要操作的高對比度焦點。這種刻意的限制確保了介面保持簡潔，並讓強調色承載重要的溝通分量。",
+      "ch2_outro": "原則是建立一個乾淨、高對比度的基礎，顏色僅用於強調與操作，而非裝飾。",
+      "ch3_intro": "字型風格由系統字型堆疊（Basel, -apple-system, system-ui, sans-serif）奠定，確立一個中性、跨平台的基準。展示標題以 52px 的尺寸與 500 的字重呈現，提供清晰的視覺層級，而無需依賴過度加粗。",
+      "ch4_intro": "一致的 4px 基礎網格建立了可預測的空間節奏，常見的倍數（8px、16px、24px）創造了清晰的視覺間隔。",
+      "ch5_intro": "深度透過在主要為平面的畫布上，施加微妙、有層次的陰影來傳達，在淺色背景上定義出卡片與互動元素。邊框極簡且帶有輕微色調，僅用於必要的結構性劃分，而非視覺上的分隔。",
+      "ch6_intro": "結構骨架在桌面上是一個置中的單一欄位，將注意力聚焦於核心的兌換功能。這個集中的欄位在行動裝置上會擴展為全寬、流動的佈局，在受限的螢幕中優先考慮內容與無障礙性。",
+      "ch7_intro": "動態設計哲學將動畫視為功能性的回饋，而非裝飾。快速的 0.08s 轉場效果確認了即時互動，而 0.4s 的彈簧曲線則用於更顯著的狀態變更，提供靈敏且略帶趣味的感受。",
+      "ch8_intro": "敘事風格直接且易於理解，將複雜的 DeFi 概念轉化為平實的語言。標題大而獨特，而號召行動則顯著且以操作為導向，始終利用洋紅色強調色來確立視覺優先順序。",
+      "ch8_outro": "此系統刻意避免使用術語密集的語言、激進的行銷語調以及大段文字，將清晰度與親和力置於最高優先。"
+    },
+    "ja": {
+      "ch1_intro": "Uniswapのデザインシステムは、壁を取り外した現代的な銀行のロビーのように機能します。清潔で明るく、根本的に透明です。そのDNAは、フィンテックスタートアップの遊び心と、分散型取引所としての真面目な金融的实用性の間に意図的な緊張があり、歓迎感と信頼感の両方を感じさせるインターフェースを生み出しています。",
+      "ch2_intro": "カラーパレットは抑制の研究であり、白と明るいグレーの基盤に、単一の鮮やかなマゼンタ（#FF37C7）アクセントが主要なアクションのためのハイコントラストな焦点として配置されています。この意図的な制限により、インターフェースは散らからず、アクセントカラーが有意義なコミュニケーション的重みを持つことが保証されます。",
+      "ch2_outro": "原則は、装飾ではなく、強調とアクションのために色が控えめに使用される、クリーンでハイコントラストな基盤です。",
+      "ch3_intro": "タイポグラフィの声は、システムフォントスタック（Basel, -apple-system, system-ui, sans-serif）で設定され、ニュートラルでプラットフォームに依存しないベースラインを確立します。見出しは、500のウェイトで52pxの大きなサイズで設定され、太字に頼ることなく明確な視覚的階層を提供します。",
+      "ch4_intro": "一貫した4pxのベースグリッドが予測可能な空間リズムを確立し、よく使われる倍数（8px、16px、24px）が明確な視覚的間隔を生み出します。",
+      "ch5_intro": "奥行きは、主にフラットなキャンバス上に微細で重ねられたシャドウによって伝えられ、明るい背景に対してカードやインタラクティブな要素を定義します。ボーダーは最小限で軽く色付けられ、視覚的な分断ではなく、必要な構造的区切りのためにのみ使用されます。",
+      "ch6_intro": "構造的な骨格は、デスクトップではコアのスワップ機能に集中させるための、中央に配置された単一のカラムです。この集中されたカラムは、モバイルではフル幅の流動的なレイアウトに展開し、制約されたビューポートにおいてコンテンツとアクセシビリティを優先します。",
+      "ch7_intro": "モーションの哲学は、アニメーションを装飾ではなく、機能的なフィードバックとして扱います。速い0.08秒のトランジションが即座のインタラクションを確認し、0.4秒のスプリングカーブがより大きな状態変化を支配し、応答性と軽い遊び心を提供します。",
+      "ch8_intro": "編集上の声は直接的でアクセスしやすく、複雑なDeFiの概念を平易な言葉に翻訳します。見出しは大きく一意的であり、コール・トゥ・アクションは目立ちやすくアクション指向で、一貫してマゼンタアクセントを視覚的な優先度のために活用しています。",
+      "ch8_outro": "このシステムは、専門用語を多用した言葉、攻撃的なマーケティングトーン、そして密集したテキストブロックを意図的に避け、何よりも明確さと親しみやすさを優先します。"
+    },
+    "ko": {
+      "ch1_intro": "유니스왑 디자인 시스템은 벽을 철거한 현대적인 은행 로비처럼 작동합니다—깔끔하고 밝으며, 근본적으로 투명합니다.它的 DNA는 핀테크 스타트업의 장난기와 탈중앙화 거래소의 진지한 금융 기능 사이의 의도적인 긴장으로, 환영받고 신뢰할 수 있는 느낌을 주는 인터페이스를 만듭니다.",
+      "ch2_intro": "팔레트는 절제의 연구이며, 흰색과 밝은 회색의 기반 위에 단 하나의 선명한 마젠타(#FF37C7) 강조색이 기본 작업을 위한 고대비 초점으로 사용됩니다. 이러한 의도적인 제한은 인터페이스가 지저분하지 않게 유지되도록 하며, 강조색이 의미 있는 의사소통 무게를 지니도록 보장합니다.",
+      "ch2_outro": "원칙은 색상이 강조와 작업을 위해 절제적으로 사용되고, 장식이 아닌 깨끗하고 고대비적인 기반입니다.",
+      "ch3_intro": "타이포그래피는 시스템 글꼴 스택(Basel, -apple-system, system-ui, sans-serif)에 의해 설정되어, 중립적이고 플랫폼에 구애받지 않는 기준선을 확립합니다. 디스플레이 제목은 52px의 상당한 크기와 500의 굵기로 설정되어, 굵은 볼드 처리에 의존하지 않고 명확한 시각적 계층을 제공합니다.",
+      "ch4_intro": "일관된 4px 기본 그리드는 예측 가능한 공간 리듬을 확립하며, 일반적인 배수(8px, 16px, 24px)가 명확한 시각적 간격을 만듭니다.",
+      "ch5_intro": "깊이는 주로 플랫 캔버스에 미묘한 층은 그림자를 통해 전달되어, 밝은 배경 Against 카드와 인터랙티브 요소를 정의합니다. 테두리는 최소화되어 있으며 은은한 색조가 적용되어, 시각적 분리보다는 필요한 구조적 구분을 위해서만 사용됩니다.",
+      "ch6_intro": "구조적 뼈대는 데스크톱에서 기본 스왑 기능에 주목을 집중시키는 단일 중앙 정렬 열입니다. 이 집중된 열은 모바일에서 전체 너비의 유체 레이아웃으로 확장되어, 제한된 뷰포트에서 콘텐츠와 접근성을 우선시합니다.",
+      "ch7_intro": "모션 철학은 애니메이션을 장식이 아닌 기능적 피드백으로 다룹니다. 빠른 0.08초 전환은 즉각적인 상호작용을 확인하며, 0.4초 스프링 곡선은 더 크 상태 변화를 제어하여 반응적이고 약간 장난기 있는 느낌을 제공합니다.",
+      "ch8_intro": "에디토리얼 보이스는 직접적이고 접근 가능하여, 복잡한 DeFi 개념을 평이한 언어로 번역합니다. 제목은 크고 단일적이며, 호출-to-행동은 두드러지고 행동 지향적이며, 시각적 우선순위를 위해 마젠타 강조색을 일관되게 활용합니다.",
+      "ch8_outro": "시스템은 의도적으로 전문 용어가 가득한 언어, 공격적인 마케팅 톤, 그리고 밀도 높은 텍스트 블록을 피하고, 무엇보다 명확성과 접근성을 우선시합니다."
+    }
+  }
 }

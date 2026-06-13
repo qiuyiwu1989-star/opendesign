@@ -8,6 +8,578 @@
     "dev",
     "infra"
   ],
-  "status": "pending",
-  "added_at": "2026-06-03"
+  "status": "completed",
+  "added_at": "2026-06-03",
+  "spec": {
+    "colors": {
+      "bg": "#ffffff",
+      "bgSoft": "#f5f5ff",
+      "bgQuiet": null,
+      "ink": "#1f1b21",
+      "inkSoft": "#2e293a",
+      "muted": "#6b6573",
+      "mutedSoft": null,
+      "accent": "#5a31c5",
+      "line": "rgba(224, 223, 226, 1.0)"
+    },
+    "typography": {
+      "display": "geometric-sans",
+      "body": "humanist-sans",
+      "mono": "monospace",
+      "scale": [
+        {
+          "token": "display",
+          "size": 56,
+          "lh": 1.0,
+          "weight": 600,
+          "ls": "-2.4px"
+        }
+      ]
+    },
+    "spacing": {
+      "base": 4,
+      "scale": [
+        4,
+        8,
+        16,
+        24,
+        32,
+        48,
+        64,
+        96
+      ]
+    },
+    "surfaces": {
+      "radius": {
+        "sm": 4,
+        "md": 8,
+        "lg": 12,
+        "pill": 999
+      }
+    },
+    "layout": {
+      "container": 1280,
+      "paragraph": 680,
+      "columns": 12,
+      "gutter": 24,
+      "breakpoints": [
+        768,
+        1024
+      ]
+    },
+    "motion": {
+      "durations": {
+        "micro": 150,
+        "small": 400,
+        "medium": 800
+      },
+      "easing": "cubic-bezier(0.4, 0, 0.2, 1)"
+    }
+  },
+  "spec_i18n": {
+    "en": {
+      "identity": {
+        "keywords": [
+          "infrastructure",
+          "cloud",
+          "engineering",
+          "automation",
+          "reliability"
+        ],
+        "analogy": "A high-performance engine for cloud infrastructure, combining power with approachability.",
+        "oneLiner": "Infrastructure as code for cloud engineers."
+      },
+      "colors": {
+        "principle": "Clean white space with deep purple accents to establish a premium, professional feel."
+      },
+      "typography": {
+        "rules": [
+          "Use tight letter-spacing (-1.8px to -2.4px) for large display headings.",
+          "Use Inter for body text and UI elements.",
+          "Use Monaspace Neon for code snippets."
+        ],
+        "scaleUses": [
+          "hero headlines"
+        ]
+      },
+      "spacing": {
+        "rhythm": "Consistent 4px base unit for all spacing."
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 10px 15px -3px rgba(0, 0, 0, 0.1)",
+          "0px 4px 6px -4px rgba(0, 0, 0, 0.1)"
+        ],
+        "borders": "1px solid #e0dfe2"
+      },
+      "layout": {
+        "skeleton": "Standard 12-column grid."
+      },
+      "components": {
+        "button": "Solid purple for primary actions, outlined for secondary.",
+        "card": "White background with 1px border and 8px radius.",
+        "chip": "Pill-shaped with thin border.",
+        "input": "Clean, single-pixel border.",
+        "hero": "Split layout with large typography on the left and interactive visualization on the right."
+      },
+      "motion": {
+        "patterns": [
+          "Smooth hover transitions on buttons and links.",
+          "Subtle color changes on interactive elements."
+        ]
+      },
+      "interaction": {
+        "hover": "Color change or subtle shadow increase.",
+        "click": "Active state with slightly darker shade.",
+        "transition": "All transitions use 0.15s cubic-bezier(0.4, 0, 0.2, 1).",
+        "keyboard": "Focusable elements are clearly defined."
+      },
+      "voice": {
+        "tone": "Professional, authoritative, yet modern and accessible.",
+        "headlineStyle": "Concise, punchy, and benefit-oriented.",
+        "ctaStyle": "Direct and action-oriented.",
+        "avoid": [
+          "Avoid overly casual slang or emojis.",
+          "Avoid complex jargon that obscures the value proposition.",
+          "Avoid visual clutter or excessive animations."
+        ]
+      },
+      "donts": [
+        "Don't use a dark background for the main page — the screenshot shows a predominantly white (#ffffff) background.",
+        "Don't use sans-serif fonts for code — the screenshot uses Monaspace Neon, a monospace font.",
+        "Don't use rounded pill shapes for primary buttons — the screenshot shows buttons with an 8px border radius.",
+        "Don't use multiple high-chroma accent colors — the screenshot shows a single dominant purple (#5a31c5) accent.",
+        "Don't use wide letter-spacing for display typography — the screenshot uses tight tracking (-2.4px).",
+        "Don't use heavy drop shadows on all surfaces — the screenshot uses subtle box-shadows only on certain cards."
+      ],
+      "systemPrompt": "This is a developer-focused SaaS platform for infrastructure as code. The design is clean and professional, using a white background with a deep purple (#5a31c5) as the primary accent color. Typography uses Inter (humanist-sans) for body text and Monaspace Neon (monospace) for code. Critical donts: don't use a dark main background, don't use sans-serif for code blocks, and don't use wide letter-spacing for display type. The layout is spacious and structured, emphasizing clarity and trust."
+    },
+    "zh-CN": {
+      "identity": {
+        "keywords": [
+          "基础设施",
+          "云计算",
+          "工程",
+          "自动化",
+          "可靠性"
+        ],
+        "analogy": "一个为云基础设施打造的高性能引擎，将强大动力与亲和力相结合。",
+        "oneLiner": "面向云工程师的基础设施即代码。"
+      },
+      "colors": {
+        "principle": "干净的白色空间搭配深紫色强调色，营造出高端、专业的感觉。"
+      },
+      "typography": {
+        "rules": [
+          "大型展示标题使用紧凑的字间距（-1.8px 到 -2.4px）。",
+          "正文文本和UI元素使用 Inter 字体。",
+          "代码片段使用 Monaspace Neon 字体。"
+        ],
+        "scaleUses": [
+          "主视觉标题"
+        ]
+      },
+      "spacing": {
+        "rhythm": "所有间距均基于统一的4px基础单位。"
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 10px 15px -3px rgba(0, 0, 0, 0.1)",
+          "0px 4px 6px -4px rgba(0, 0, 0, 0.1)"
+        ],
+        "borders": "1px solid #e0dfe2"
+      },
+      "layout": {
+        "skeleton": "标准12列网格。"
+      },
+      "components": {
+        "button": "主操作按钮为纯紫色，次级操作按钮为轮廓样式。",
+        "card": "白色背景，1px边框和8px圆角。",
+        "chip": "胶囊形状，带细边框。",
+        "input": "简洁的单像素边框。",
+        "hero": "分屏布局，左侧为大字号排版，右侧为交互式可视化。"
+      },
+      "motion": {
+        "patterns": [
+          "按钮和链接上的平滑悬停过渡效果。",
+          "交互元素上细腻的颜色变化。"
+        ]
+      },
+      "interaction": {
+        "hover": "颜色变化或阴影轻微加深。",
+        "click": "按下状态使用稍深的色调。",
+        "transition": "所有过渡均使用 0.15s cubic-bezier(0.4, 0, 0.2, 1)。",
+        "keyboard": "可聚焦元素具有明确定义。"
+      },
+      "voice": {
+        "tone": "专业、权威，同时现代且易懂。",
+        "headlineStyle": "简洁、有力、以效益为导向。",
+        "ctaStyle": "直接且以行动为导向。",
+        "avoid": [
+          "避免使用过于随意的俚语或表情符号。",
+          "避免使用模糊价值主张的复杂术语。",
+          "避免视觉杂乱或过度动画。"
+        ]
+      },
+      "donts": [
+        "不要使用深色作为主页面背景——截图显示背景主要为白色（#ffffff）。",
+        "不要为代码使用无衬线字体——截图使用 Monaspace Neon 等宽字体。",
+        "不要为主要按钮使用圆润的胶囊形状——截图显示按钮为8px边框圆角。",
+        "不要使用多种高饱和度的强调色——截图显示只有一种主导的紫色（#5a31c5）强调色。",
+        "不要为展示性排版使用宽松的字间距——截图使用紧凑的字间距（-2.4px）。",
+        "不要在所有表面使用浓重的投影——截图仅在特定卡片上使用了细微的box-shadow。"
+      ],
+      "systemPrompt": "这是一个面向开发者的SaaS平台，专注于基础设施即代码。设计干净专业，使用白色背景，并以深紫色（#5a31c5）作为主要强调色。字体方面，正文使用 Inter（humanist-sans），代码使用 Monaspace Neon（monospace）。关键禁忌：不要使用深色主背景，不要为代码块使用无衬线字体，不要为展示性排版使用宽松的字间距。布局宽敞且结构化，强调清晰度和可信度。"
+    },
+    "zh-TW": {
+      "identity": {
+        "keywords": [
+          "基礎設施",
+          "雲端",
+          "工程",
+          "自動化",
+          "可靠性"
+        ],
+        "analogy": "為雲端基礎設施打造的高效能引擎，結合強大功能與親和力。",
+        "oneLiner": "專為雲端工程師設計的基礎設施即程式碼。"
+      },
+      "colors": {
+        "principle": "以乾淨的留白空間搭配深紫色強調色，營造高端、專業的質感。"
+      },
+      "typography": {
+        "rules": [
+          "大型展示標題使用緊湊的字距（-1.8px 至 -2.4px）。",
+          "內文與 UI 元素使用 Inter 字型。",
+          "程式碼片段使用 Monaspace Neon 字型。"
+        ],
+        "scaleUses": [
+          "首頁主標題"
+        ]
+      },
+      "spacing": {
+        "rhythm": "所有間距皆以 4px 為基礎單位，保持一致性。"
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 10px 15px -3px rgba(0, 0, 0, 0.1)",
+          "0px 4px 6px -4px rgba(0, 0, 0, 0.1)"
+        ],
+        "borders": "1px solid #e0dfe2"
+      },
+      "layout": {
+        "skeleton": "標準的 12 欄網格。"
+      },
+      "components": {
+        "button": "主要操作使用實心紫色，次要操作使用外框樣式。",
+        "card": "白色背景，搭配 1px 邊框與 8px 圓角。",
+        "chip": "藥丸形狀，帶有細邊框。",
+        "input": "乾淨的單像素邊框。",
+        "hero": "分割佈局，左側為大型字型，右側為互動式視覺化。"
+      },
+      "motion": {
+        "patterns": [
+          "按鈕與連結的平滑懸停過渡效果。",
+          "互動元素的細微顏色變化。"
+        ]
+      },
+      "interaction": {
+        "hover": "顏色變化或細微陰影增強。",
+        "click": "點擊狀態呈現略微加深的色調。",
+        "transition": "所有過渡效果皆使用 0.15s cubic-bezier(0.4, 0, 0.2, 1)。",
+        "keyboard": "可聚焦的元素有明確的定義。"
+      },
+      "voice": {
+        "tone": "專業、具權威感，同時保持現代與易於理解。",
+        "headlineStyle": "簡潔、有力且聚焦於價值主張。",
+        "ctaStyle": "直接且具行動導向。",
+        "avoid": [
+          "避免過度隨意的網路用語或表情符號。",
+          "避免使用模糊價值主張的複雜術語。",
+          "避免視覺雜亂或過多的動畫效果。"
+        ]
+      },
+      "donts": [
+        "不要使用深色作為主頁背景——截圖顯示主要為白色（#ffffff）背景。",
+        "不要使用無襯線字體顯示程式碼——截圖使用的是 Monaspace Neon 等寬字型。",
+        "不要為主要按鈕使用圓潤的藥丸形狀——截圖顯示按鈕使用 8px 邊框圓角。",
+        "不要使用多種高飽和度的強調色——截圖顯示僅使用單一主導的紫色（#5a31c5）作為強調色。",
+        "不要為展示型字型使用寬鬆的字距——截圖使用緊湊的字距（-2.4px）。",
+        "不要為所有表面使用沉重的投影——截圖僅在部分卡片上使用細微的框線陰影。"
+      ],
+      "systemPrompt": "這是一個以開發者為中心的 SaaS 平台，提供基礎設施即程式碼服務。設計乾淨專業，使用白色背景搭配深紫色（#5a31c5）作為主要強調色。字型方面，內文使用 Inter（人文主義無襯線），程式碼使用 Monaspace Neon（等寬字型）。關鍵注意事項：不要使用深色主背景，不要在程式碼區塊中使用無襯線字型，以及不要為展示型字型使用寬鬆字距。佈局寬敞且結構清晰，強調明確性與信任感。"
+    },
+    "ja": {
+      "identity": {
+        "keywords": [
+          "インフラストラクチャ",
+          "クラウド",
+          "エンジニアリング",
+          "オートメーション",
+          "信頼性"
+        ],
+        "analogy": "クラウドインフラストラクチャのための高性能エンジン。パワフルでありながら、親しみやすい。",
+        "oneLiner": "クラウドエンジニアのための Infrastructure as Code。"
+      },
+      "colors": {
+        "principle": "深い紫のアクセントを配したクリーンなホワイトスペースが、高級感と専門性を確立する。"
+      },
+      "typography": {
+        "rules": [
+          "大きなディスプレイ見出しには、 tight な文字間隔（-1.8pxから-2.4px）を使用する。",
+          "本文テキストとUI要素には Inter を使用する。",
+          "コードスニペットには Monaspace Neon を使用する。"
+        ],
+        "scaleUses": [
+          "ヒーローヘッドライン"
+        ]
+      },
+      "spacing": {
+        "rhythm": "すべてのスペーシングに、一貫した4pxをベースユニットとする。"
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 10px 15px -3px rgba(0, 0, 0, 0.1)",
+          "0px 4px 6px -4px rgba(0, 0, 0, 0.1)"
+        ],
+        "borders": "1px solid #e0dfe2"
+      },
+      "layout": {
+        "skeleton": "標準的な12カラムグリッド。"
+      },
+      "components": {
+        "button": "プライマリアクションにはソリッドな紫、セカンダリにはアウトライン。",
+        "card": "白い背景に1pxボーダーと8pxボーダー半径。",
+        "chip": "薄いボーダーを持つピル形状。",
+        "input": "クリーンな、単一ピクセルのボーダー。",
+        "hero": "左側に大きなタイポグラフィ、右側にインタラクティブな可視化を持つ分割レイアウト。"
+      },
+      "motion": {
+        "patterns": [
+          "ボタンやリンクのなめらかな hover トランジション。",
+          "インタラクティブ要素の繊細な色の変化。"
+        ]
+      },
+      "interaction": {
+        "hover": "色の変化、または繊細なシャドウの増加。",
+        "click": "少し暗い shades でアクティブステートを表現。",
+        "transition": "すべてのトランジションは 0.15s cubic-bezier(0.4, 0, 0.2, 1) を使用。",
+        "keyboard": "フォーカス可能な要素は明確に定義されている。"
+      },
+      "voice": {
+        "tone": "専門的で権威がありながら、現代的でアクセスしやすい。",
+        "headlineStyle": "簡潔で力強く、利益を志向したもの。",
+        "ctaStyle": "直接的でアクション志向。",
+        "avoid": [
+          "過度にカジュアルなスラングや絵文字は避ける。",
+          "価値提案を曖昧にする複雑な専門用語は避ける。",
+          "視覚的な雑然さや過度なアニメーションは避ける。"
+        ]
+      },
+      "donts": [
+        "メインページにダークな背景を使用しない — スクリーンショットでは主に白（#ffffff）の背景が使われている。",
+        "コードにサンセリフフォントを使用しない — スクリーンショットでは Monaspace Neon（モノスペース）が使用されている。",
+        "プライマリボタンに丸みのあるピル形状を使用しない — スクリーンショットでは8pxのボーダー半径を持つボタンが使われている。",
+        "複数の高彩度アクセントカラーを使用しない — スクリーンショットでは単一の主なアクセントカラーとして紫（#5a31c5）が使われている。",
+        "ディスプレイタイポグラフィに幅広い文字間隔を使用しない — スクリーンショットでは tight なトラッキング（-2.4px）が使われている。",
+        "すべてのサーフェスに重いドロップシャドウを使用しない — スクリーンショットでは特定のカードにのみ、繊細なボックスシャドウが使われている。"
+      ],
+      "systemPrompt": "これは Infrastructure as Code を提供する、開発者向けのSaaSプラットフォーム。デザインはクリーンで専門的。白い背景に、プライマリアクセントカラーとして深い紫（#5a31c5）が使われている。タイポグラフィは本文に Inter（ヒューマニストサンセリフ）、コードに Monaspace Neon（モノスペース）を使用。重要な注意点：ダークなメイン背景を使用しない、コードブロックにサンセリフを使用しない、ディスプレイタイプに幅広い文字間隔を使用しない。レイアウトはゆとりがあり、構造化されており、明瞭さと信頼性を強調している。"
+    },
+    "ko": {
+      "identity": {
+        "keywords": [
+          "인프라",
+          "클라우드",
+          "엔지니어링",
+          "자동화",
+          "신뢰성"
+        ],
+        "analogy": "클라우드 인프라를 위한 고성능 엔진으로, 강력함과 친근함을 결합합니다.",
+        "oneLiner": "클라우드 엔지니어를 위한 코드 기반 인프라."
+      },
+      "colors": {
+        "principle": "고급스럽고 전문적인 느낌을 주기 위해 깊은 보라색 포인트와 깨끗한 여백을 활용합니다."
+      },
+      "typography": {
+        "rules": [
+          "대형 디스플레이 제목에는 타이트한 자간(-1.8px ~ -2.4px)을 사용합니다.",
+          "본문 텍스트 및 UI 요소에는 Inter를 사용합니다.",
+          "코드 스니펫에는 Monaspace Neon을 사용합니다."
+        ],
+        "scaleUses": [
+          "히어로 헤드라인"
+        ]
+      },
+      "spacing": {
+        "rhythm": "모든 간격에 일관된 4px 기본 단위를 사용합니다."
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 10px 15px -3px rgba(0, 0, 0, 0.1)",
+          "0px 4px 6px -4px rgba(0, 0, 0, 0.1)"
+        ],
+        "borders": "1px solid #e0dfe2"
+      },
+      "layout": {
+        "skeleton": "표준 12열 그리드."
+      },
+      "components": {
+        "button": "주요 동작에는 보라색 실버, 보조 동작에는 아웃라인 스타일을 사용합니다.",
+        "card": "흰색 배경에 1px 테두리와 8px 반경을 적용합니다.",
+        "chip": "얇은 테두리가 있는 타원형.",
+        "input": "깔끔한 1px 테두리.",
+        "hero": "왼쪽에 큰 타이포그래피, 오른쪽에 인터랙티브 시각화가 있는 분할 레이아웃입니다."
+      },
+      "motion": {
+        "patterns": [
+          "버튼과 링크에 부드러운 hover 전환.",
+          "인터랙티브 요소의 미세한 색상 변화."
+        ]
+      },
+      "interaction": {
+        "hover": "색상 변화 또는 미세한 그림자 강화.",
+        "click": "약간 더 어두운 색조의 활성 상태.",
+        "transition": "모든 전환에 0.15s cubic-bezier(0.4, 0, 0.2, 1)를 사용합니다.",
+        "keyboard": "포커스 가능한 요소들이 명확히 정의되어 있습니다."
+      },
+      "voice": {
+        "tone": "전문적이고 권위 있지만, 동시에 현대적이고 접근하기 쉬운 어조.",
+        "headlineStyle": "간결하고 임팩트 있으며, 가치 중심적.",
+        "ctaStyle": "직설적이고 행동을 유도하는 스타일.",
+        "avoid": [
+          "지나치게 캐주얼한 비어나 이모티콘을 사용하지 않습니다.",
+          "가치 제안을 흐리게 하는 복잡한 전문 용어를 사용하지 않습니다.",
+          "시각적 혼란이나 과도한 애니메이션을 사용하지 않습니다."
+        ]
+      },
+      "donts": [
+        "메인 페이지에 어두운 배경을 사용하지 않습니다 — 스크린샷에서는 주로 흰색(#ffffff) 배경을 보여줍니다.",
+        "코드에 sans-serif 서체를 사용하지 않습니다 — 스크린샷에서는 모노스페이스 서체인 Monaspace Neon을 사용합니다.",
+        "주요 버튼에 둥근 타원형 모양을 사용하지 않습니다 — 스크린샷에서는 8px 테두리 반경을 가진 버튼을 보여줍니다.",
+        "여러 개의 높은 채도 포인트 컬러를 사용하지 않습니다 — 스크린샷에서는 단일 주요 보라색(#5a31c5) 포인트를 보여줍니다.",
+        "디스플레이 타이포그래피에 넓은 자간을 사용하지 않습니다 — 스크린샷에서는 타이트한 트래킹(-2.4px)을 사용합니다.",
+        "모든 표면에 무거운 드롭 그림자를 사용하지 않습니다 — 스크린샷에서는 특정 카드에만 미세한 박스 그림자를 사용합니다."
+      ],
+      "systemPrompt": "이것은 코드 기반 인프라를 위한 개발자 중심 SaaS 플랫폼입니다. 디자인은 깨끗하고 전문적이며, 흰색 배경에 주요 포인트 컬러로 깊은 보라색(#5a31c5)을 사용합니다. 타이포그래피는 본문에 Inter(humanist-sans), 코드에 Monaspace Neon(monospace)을 사용합니다. 중요하지 않은 사항: 메인 배경을 어둡게 하지 않으며, 코드 블록에 sans-serif를 사용하지 않고, 디스플레이 타이포에 넓은 자간을 사용하지 않습니다. 레이아웃은 넉넉하고 구조화되어 명확성과 신뢰를 강조합니다."
+    }
+  },
+  "desc": {
+    "en": {
+      "palette": "A clean, professional palette centered on a crisp white background, dark charcoal text, and a deep, saturated purple accent color.",
+      "layout": "A spacious, centered layout using a standard 12-column grid, with a split-screen hero section.",
+      "interaction": "Subtle, performant hover transitions using a standard cubic-bezier curve for all interactive elements.",
+      "motion": "Minimal and functional motion, focusing on fast micro-interactions for UI feedback.",
+      "notes": "A strong example of a modern, developer-focused SaaS site that balances professional authority with approachability."
+    },
+    "zh-CN": {
+      "palette": "一个干净、专业的配色方案，以纯净的白色背景、深炭灰色文字和一种深邃、饱和的紫色作为强调色。",
+      "layout": "一个宽敞、居中的布局，采用标准的12列网格，包含一个分屏式主视觉区域。",
+      "interaction": "所有交互元素均使用标准的cubic-bezier曲线，实现细腻、高性能的悬停过渡效果。",
+      "motion": "极简且功能性的动效，专注于为UI反馈提供快速的微交互。",
+      "notes": "这是一个现代、面向开发者的SaaS网站的优秀范例，它在专业权威感与亲和力之间取得了平衡。"
+    },
+    "zh-TW": {
+      "palette": "一套乾淨、專業的配色方案，以純白背景、深炭灰文字和飽和的深紫色強調色為核心。",
+      "layout": "寬敞的置中佈局，採用標準的 12 欄網格，並設有分割畫面的首頁主視覺區域。",
+      "interaction": "所有互動元素皆使用標準 cubic-bezier 曲線，實現細膩且有效能的懸停過渡效果。",
+      "motion": "極簡且功能性強的動效，專注於快速的微互動以提供 UI 回饋。",
+      "notes": "一個現代化、以開發者為中心的 SaaS 網站範例，平衡了專業權威感與親和力。"
+    },
+    "ja": {
+      "palette": "クリーンで専門的なパレット。鮮明な白を背景に、ダークチャコールのテキストと、深い饱和度の高いアクセントカラーとしての紫が中心。",
+      "layout": "標準的な12カラムグリッドを使用し、画面を分割したヒーローセクションを持つ、ゆとりのあるセンタリングレイアウト。",
+      "interaction": "すべてのインタラクティブ要素に対して、標準的な cubic-bezier カーブを使用した、繊細でパフォーマンスの高い hover トランジション。",
+      "motion": "最小限で機能的なモーション。UIフィードバックのための高速なマイクロインタラクションに焦点を当てる。",
+      "notes": "専門的な権威と親しみやすさのバランスを取った、現代的で開発者向けのSaaSサイトの好例。"
+    },
+    "ko": {
+      "palette": "깔끔하고 전문적인 팔레트로, 선명한 흰색 배경, 짙은 차콜색 텍스트, 그리고 깊고 채도 높은 보라색 포인트 컬러를 중심으로 구성되었습니다.",
+      "layout": "여백이 넉넉하고 중앙에 정렬된 레이아웃으로, 표준 12열 그리드와 화면을 양쪽으로 나눈 히어로 섹션을 사용합니다.",
+      "interaction": "모든 인터랙티브 요소에 표준 cubic-bezier 커브를 사용한 미세하고 성능을 고려한 hover 전환입니다.",
+      "motion": "UI 피드백을 위한 빠른 마이크로 인터랙션에 집중한 미니멀하고 기능적인 모션입니다.",
+      "notes": "전문적인 권위와 친근함의 균형을 이룬, 현대적이고 개발자 중심적인 SaaS 사이트의 훌륭한 예시입니다."
+    }
+  },
+  "_meta": {
+    "vision_model": "mimo-v2.5",
+    "vision_prompt_version": "0.3",
+    "vision_source": "playwright-extract:pulumi",
+    "vision_grounded": true,
+    "vision_at": "2026-06-04T18:07:57+00:00",
+    "vision_tokens": 16602,
+    "vision_cost_usd": 0.1845,
+    "translation_model": "mimo-v2.5",
+    "translation_at": "2026-06-04T18:09:06+00:00",
+    "translation_tokens": 15744,
+    "translation_cost_usd": 0.0525,
+    "narrative_model": "mimo-v2.5",
+    "narrative_prompt_version": "0.3",
+    "narrative_at": "2026-06-04T18:09:16+00:00",
+    "narrative_tokens": 1956,
+    "narrative_cost_usd": 0.013,
+    "narrative_status": "ok",
+    "total_cost_usd": 0.25
+  },
+  "narrative": {
+    "en": {
+      "ch1_intro": "Pulumi's visual identity functions like a high-performance engine: its power lies in the disciplined coordination of simple parts. Every component, from the single purple accent to the tight-tracked display type, serves a clear engineering purpose rather than decorative impulse.",
+      "ch2_intro": "The palette is built on a foundation of clean white space, using a deep purple as a concentrated accent rather than a dominant wash. Dark charcoal text on white ensures maximum readability for dense technical documentation.",
+      "ch2_outro": "Color is employed as a tool for hierarchy and focus, not as a primary carrier of expression.",
+      "ch3_intro": "Typographic choices reflect a clear separation of concerns: Inter provides a neutral, highly legible humanist sans for all body and interface text. Monaspace Neon is reserved exclusively for code, making technical content visually distinct and functional.",
+      "ch4_intro": "A consistent 4px base unit underpins all spatial decisions, creating a predictable and calm visual rhythm throughout the interface.",
+      "ch5_intro": "Depth is suggested sparingly through subtle, cool-toned shadows on elevated surfaces like cards, while a single-pixel border provides definitive structural separation. The system avoids heavy drop shadows, maintaining a flat, efficient aesthetic.",
+      "ch6_intro": "The foundational layout employs a standard 12-column grid to impose order on complex information. A split-screen hero section exemplifies this structure, pairing authoritative typography with interactive visualization in balanced halves.",
+      "ch7_intro": "Motion is treated as functional feedback, not decoration. Transitions are fast (0.15s) and consistent, using a standard easing curve to provide subtle confirmation of user actions without interrupting workflow.",
+      "ch8_intro": "The editorial voice is professional and direct, using concise, benefit-oriented headlines to communicate value with authority. Technical clarity is prioritized over casual tone, avoiding jargon that might obscure the core proposition.",
+      "ch8_outro": "The system deliberately rejects dark mode, wide-tracked display type, and decorative animation to preserve its focus on clarity and utility."
+    },
+    "zh-CN": {
+      "ch1_intro": "Pulumi 的视觉体系如同高性能引擎：其力量源于对简洁部件的精密协调。从单一的紫色点缀到紧凑的展示字体，每个组件都服务于明确的工程目的，而非装饰性冲动。",
+      "ch2_intro": "色彩体系构建于纯净的留白基础之上，深紫色作为浓缩的点缀色而非主导色调出现。白色背景上的深炭灰色文字确保了密集技术文档的最大可读性。",
+      "ch2_outro": "色彩被用作建立层次与聚焦的工具，而非表达的主要载体。",
+      "ch3_intro": "字体选择体现了清晰的关注点分离原则：Inter 作为中性、高度易读的人文主义无衬线字体，用于所有正文与界面文本。Monaspace Neon 则专用于代码，使技术内容在视觉上既独特又实用。",
+      "ch4_intro": "统一的 4px 基础单位奠定了所有空间决策的基础，为整个界面营造出可预测且平静的视觉节奏。",
+      "ch5_intro": "深度通过悬浮表面（如卡片）上细微、冷色调的阴影进行克制地暗示，而单像素边框则提供明确的结构分隔。系统避免使用厚重的投影，保持着扁平、高效的美学。",
+      "ch6_intro": "基础布局采用标准 12 栏网格，为复杂信息赋予秩序。分屏式主视觉区展示了这种结构：权威性排版与交互式可视化在均衡的两半中相辅相成。",
+      "ch7_intro": "动效被视为功能性反馈，而非装饰。过渡快速（0.15s）且一致，使用标准缓动曲线为用户提供细微的操作确认，同时不打断工作流程。",
+      "ch8_intro": "编辑语气专业而直接，使用简洁、面向价值的标题，以权威方式传达优势。技术清晰度优先于随意语气，避免可能模糊核心主张的术语。",
+      "ch8_outro": "该体系刻意摒弃深色模式、宽松间距的展示字体及装饰性动画，以保持对清晰度与实用性的专注。"
+    },
+    "zh-TW": {
+      "ch1_intro": "Pulumi 的視覺識別系統運作如高性能引擎：其力量源於簡單零件之間有紀律的協調。從單一紫色點綴到緊湊字間距的展示字型，每個元件都服務於明確的工程目的，而非裝飾性衝動。",
+      "ch2_intro": "色彩系統建立在純淨白空間的基礎上，採用深紫色作為集中點綴而非主導暈染。白色背景上的深炭灰色文字，確保密集技術文件具有最大可讀性。",
+      "ch2_outro": "色彩被運用為建立層級與聚焦的工具，而非主要的表達載體。",
+      "ch3_intro": "字型選擇反映了明確的關注點分離：Inter 提供中性、高可讀性的人文主義無襯線字型，適用於所有正文與介面文字。Monaspace Neon 則專門保留用於程式碼，使技術內容在視覺上獨特且實用。",
+      "ch4_intro": "一致的 4px 基礎單位支撐所有空間決策，在介面中創造出可預期且平靜的視覺節奏。",
+      "ch5_intro": "透過提升表面（如卡片）上的細微冷色調陰影來謹慎暗示深度，而單像素邊框則提供明確的結構分隔。系統避免使用厚重陰影，保持平面、高效的視覺美學。",
+      "ch6_intro": "基礎佈局採用標準 12 欄格線，在複雜資訊中建立秩序。分割式英雄區塊展現此結構，將權威性字型與互動式視覺化資訊平衡地配置於兩半。",
+      "ch7_intro": "動態效果被視為功能性回饋而非裝飾。過渡快速（0.15 秒）且一致，使用標準緩動曲線提供細微的操作確認，而不中斷工作流程。",
+      "ch8_intro": "編輯語調專業而直接，使用簡潔、以效益為導向的標題，以權威方式傳達價值。技術清晰度優先於隨意語氣，避免可能模糊核心主張的術語。",
+      "ch8_outro": "系統刻意拒絕採用深色模式、寬字距展示字型與裝飾性動畫，以維持對清晰度與實用性的專注。"
+    },
+    "ja": {
+      "ch1_intro": "Pulumiのビジュアル・アイデンティティは、高性能エンジンのように機能します。その力は、単純な部品の統制された協調にあります。单一の紫のアクセントから tightened display typeまで、すべてのコンポーネントは、装飾的な衝動ではなく、明確なエンジニアリング目的を果たします。",
+      "ch2_intro": "パレットは、クリーンなホワイトスペースを基盤とし、支配的な色 wash ではなく、集中したアクセントとして深い紫を使用しています。白地に濃いチャコールのテキストは、密集した技術ドキュメントの最大限の可読性を確保します。",
+      "ch2_outro": "色は、階層と焦点のためのツールとして使われ、表現の主要な担い手ではありません。",
+      "ch3_intro": "タイポグラフィの選択は、明確な関心の分離を反映しています。Interは、すべての本文およびインターフェース・テキストに中立的で非常に読みやすい humanist-sans を提供します。Monaspace Neonはコード専用にreservedされ、技術コンテンツを視覚的に区別し、機能的にします。",
+      "ch4_intro": "一貫した4pxの基本単位が、すべての空間的決定の基盤となり、インターフェース全体に予測可能で落ち着いたビジュアル・リズムを生み出します。",
+      "ch5_intro": "奥行きは、カードなどの elevated surfaces に微妙でクールトーンの影として控えめに示され、一方で、1ピクセルのボーダーは明確な構造的分離を提供します。このシステムは、重いドロップシャドウを避け、フラットで効率的な美学を維持します。",
+      "ch6_intro": "基本的なレイアウトは、複雑な情報を秩序立てるために、標準的な12カラム・グリッドを採用しています。スクリーン分割のヒーロー・セクションはこの構造を例示し、権威あるタイポグラフィとインタラクティブな可視化を均衡の取れた半分でペアリングします。",
+      "ch7_intro": "モーションは、装飾ではなく機能的なフィードバックとして扱われます。遷移は高速（0.15s）で一貫しており、標準的な緩和カーブを使用して、ワークフローを中断せずにユーザー操作の微妙な確認を提供します。",
+      "ch8_intro": "エディトリアル・ボイスは専門的で直接的です。簡潔でメリット指向の見出しを用いて、権威を持って価値を伝えます。カジュアルな口調よりも技術的な明確さが優先され、核心提案を曖伏せる可能性のある専門用語は避けます。",
+      "ch8_outro": "このシステムは、明確さと实用性への焦点を維持するために、意図的にダークモード、widely tracked display type、および装飾的なアニメーションを拒否しています。"
+    },
+    "ko": {
+      "ch1_intro": "Pulumi의 시각적 정체성은 고성능 엔진처럼 작동합니다: 그 힘은 단순한 부분들의 규율 있는 조율에 있습니다. 단일 퍼플 악센트부터 좁은 자간의 디스플레이 타이포그래피까지, 모든 구성 요소는 장식적 충동보다는 명확한 엔지니어링 목적을 수행합니다.",
+      "ch2_intro": "팔레트는 깨끗한 여백을 기반으로 구축되며, 지배적인 색감이 아닌 집중된 악센트로서 깊은 퍼플을 사용합니다. 화이트 배경의 짙은 차콜 텍스트는 밀도 높은 기술 문서에 최대 가독성을 보장합니다.",
+      "ch2_outro": "색상은 표현의 주요 운반체가 아닌, 계층과 초점을 위한 도구로 활용됩니다.",
+      "ch3_intro": "타이포그래피 선택은 관심사의 명확한 분리를 반영합니다: Inter는 모든 본문 및 인터페이스 텍스트에 neutral하고 highly legible한 humanist sans를 제공합니다. Monaspace Neon은 코드 전용으로 예약되어 기술 콘텐츠를 시각적으로 구별 가능하고 functional하게 만듭니다.",
+      "ch4_intro": "일관된 4px 기본 단위가 모든 공간 결정의 토대가 되어, 인터페이스 전체에 예측 가능하고 차분한 시각적 리듬을 만듭니다.",
+      "ch5_intro": "깊이는 카드와 같은 부가된 표면에 미묘하고 cool-toned한 그림자를 통해 절제 있게 제안되며, 단일 픽셀 테두리는 명확한 구조적 분리를 제공합니다. 이 시스템은 무거운 drop shadow를 피하고, 평면적이고 효율적인 미학을 유지합니다.",
+      "ch6_intro": "기본 레이아웃은 복잡한 정보에 질서를 부여하기 위해 표준 12단위 그리드를 사용합니다. 분할 화면 히어로 섹션은 이 구조를 예시하며, 권위 있는 타이포그래피와 균형 잡힌 절반으로 시각화된 인터랙티브 요소를 결합합니다.",
+      "ch7_intro": "모션은 장식이 아닌 기능적 피드백으로 취급됩니다. 전환은 빠르고(0.15s) 일관되며, 표준 easing curve를 사용하여 워크플로우를 방해하지 않으면서 사용자 행동에 미묘한 확인을 제공합니다.",
+      "ch8_intro": "에디토리얼 톤은 professional하고 direct하며, 간결하고 가치 지향적인 헤드라인으로 권위 있게 가치를 전달합니다. 기술적 명확성이 캐주얼한 톤보다 우선시되며, 핵심 제안을 흐리게 할 수 있는 전문 용어를 피합니다.",
+      "ch8_outro": "이 시스템은 명확성과 유용성에 대한 초점을 보존하기 위해 다크 모드, 넓은 자간의 디스플레이 타이포그래피, 그리고 장식적 애니메이션을 의도적으로 거부합니다."
+    }
+  }
 }

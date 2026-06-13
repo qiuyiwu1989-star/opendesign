@@ -8,6 +8,615 @@
     "fintech",
     "payments"
   ],
-  "status": "pending",
-  "added_at": "2026-06-03"
+  "status": "completed",
+  "added_at": "2026-06-03",
+  "spec": {
+    "colors": {
+      "bg": "#EFECE7",
+      "bgSoft": "#FAF9F7",
+      "bgQuiet": null,
+      "ink": "#1C1B18",
+      "inkSoft": "#545048",
+      "muted": "#D4D1CD",
+      "mutedSoft": null,
+      "accent": "#F1F252",
+      "line": "rgba(212, 209, 205, 1)"
+    },
+    "typography": {
+      "display": "geometric-sans",
+      "body": "humanist-sans",
+      "mono": "monospace",
+      "scale": [
+        {
+          "token": "display",
+          "size": 56,
+          "lh": 1.0,
+          "weight": 700,
+          "ls": "-1px"
+        },
+        {
+          "token": "h2",
+          "size": 36,
+          "lh": 1.2,
+          "weight": 600,
+          "ls": "0px"
+        },
+        {
+          "token": "body",
+          "size": 18,
+          "lh": 1.5,
+          "weight": 400,
+          "ls": "0px"
+        },
+        {
+          "token": "small",
+          "size": 14,
+          "lh": 1.5,
+          "weight": 400,
+          "ls": "0px"
+        }
+      ]
+    },
+    "spacing": {
+      "base": 4,
+      "scale": [
+        4,
+        8,
+        12,
+        16,
+        24,
+        32,
+        48,
+        64,
+        96
+      ]
+    },
+    "surfaces": {
+      "radius": {
+        "sm": 4,
+        "md": 12,
+        "lg": 24,
+        "pill": 32
+      }
+    },
+    "layout": {
+      "container": 1280,
+      "paragraph": 680,
+      "columns": 12,
+      "gutter": 24,
+      "breakpoints": [
+        768,
+        1024
+      ]
+    },
+    "motion": {
+      "durations": {
+        "micro": 100,
+        "small": 200,
+        "medium": 400
+      },
+      "easing": "cubic-bezier(0.25, 0.1, 0.25, 1)"
+    }
+  },
+  "spec_i18n": {
+    "en": {
+      "identity": {
+        "keywords": [
+          "fintech",
+          "payments",
+          "ACH",
+          "automated billing",
+          "recurring payments"
+        ],
+        "analogy": "A professional, trust-focused fintech platform designed to streamline B2B payment collection.",
+        "oneLiner": "A professional fintech platform designed to streamline B2B payment collection."
+      },
+      "colors": {
+        "principle": "A restrained palette of warm off-whites and dark charcoals, punctuated by a single high-chroma electric yellow accent."
+      },
+      "typography": {
+        "rules": [
+          "Headlines use a bold, geometric sans-serif for a strong, modern presence.",
+          "Body text uses a highly legible humanist sans-serif for comfortable reading.",
+          "Monospaced fonts are reserved for specific technical or data-related contexts."
+        ],
+        "scaleUses": [
+          "Hero section primary headline",
+          "Section headings",
+          "Primary paragraph text",
+          "Captions and secondary labels"
+        ]
+      },
+      "spacing": {
+        "rhythm": "Consistent 4px base grid with generous vertical rhythm (48px/64px) between major page sections."
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 0px 0px 1px inset (button borders)",
+          "0px 0px 1px 0px rgba(0, 0, 0, 0.1) (subtle depth on cards)"
+        ],
+        "borders": "1px solid #D4D1CD"
+      },
+      "layout": {
+        "skeleton": "Two-column grid on desktop with alternating content blocks (text left/media right, media left/text right) to create visual interest."
+      },
+      "components": {
+        "button": "Pill-shaped buttons with thick, solid dark borders; filled yellow for primary actions and transparent for secondary.",
+        "card": "Clean cards with soft drop shadows and large border-radius (24px/32px), used for testimonials and partner logos.",
+        "chip": "Not prominently featured.",
+        "input": "Not prominently featured, but expected to be clean with rounded borders.",
+        "hero": "Large, bold typography paired with a high-quality contextual photograph and prominent video play overlay."
+      },
+      "motion": {
+        "patterns": [
+          "Quick 0.1s/0.2s transitions for background, color, and box-shadow on interactive elements.",
+          "Smooth 0.2s underline color transitions for text links."
+        ]
+      },
+      "interaction": {
+        "hover": "Background color fills or border color shifts on buttons.",
+        "click": "Immediate state change via background or border updates.",
+        "transition": "Fast 0.1s to 0.2s linear transitions for responsive feel.",
+        "keyboard": "Standard focus ring logic expected, following accessibility best practices."
+      },
+      "voice": {
+        "tone": "Professional, direct, and benefit-oriented.",
+        "headlineStyle": "Bold, uppercase, and punchy to grab immediate attention.",
+        "ctaStyle": "Clear and action-focused, e.g., 'Sign up' and 'Contact sales'.",
+        "avoid": [
+          "Overly complex jargon",
+          "Passive voice in headlines",
+          "Unclear value propositions"
+        ]
+      },
+      "donts": [
+        "Don't use a dark theme — screenshot shows a light, warm off-white primary background (#EFECE7).",
+        "Don't use thin, delicate typography — screenshot shows a bold, heavy geometric sans-serif for display text.",
+        "Don't use subtle, muted accents — screenshot shows a single, highly saturated electric yellow accent (#F1F252).",
+        "Don't use sharp, square corners — screenshot shows large, pill-shaped radii (24px/32px) on buttons and cards.",
+        "Don't use complex gradients — screenshot shows flat color fills and simple photographic backgrounds.",
+        "Don't use delicate, thin borders — screenshot shows prominent, 1px solid dark borders on interactive elements."
+      ],
+      "systemPrompt": "GoCardless is a premium B2B fintech platform for automated payments. The design DNA features a warm off-white background (#EFECE7) with deep charcoal ink (#1C1B18), punctuated by a high-chroma electric yellow accent (#F1F252). Typography relies heavily on a bold, geometric sans-serif (Haffer) for display, paired with a highly legible humanist sans-serif for body copy. Key critical constraints: 1) Never use a dark mode or purely black backgrounds for content sections. 2) Always use a heavy font-weight (700) for major headlines to maintain the brand's bold presence. 3) Strictly avoid using more than one high-chroma color; the electric yellow must be used sparingly for primary CTAs only."
+    },
+    "zh-CN": {
+      "identity": {
+        "keywords": [
+          "金融科技",
+          "支付",
+          "ACH",
+          "自动化账单",
+          "定期付款"
+        ],
+        "analogy": "一个专业、以建立信任为核心的金融科技平台，旨在简化B2B收款流程。",
+        "oneLiner": "一个旨在简化B2B收款流程的专业金融科技平台。"
+      },
+      "colors": {
+        "principle": "克制的调色板，采用温暖的米白色与深炭灰色，以单一的高饱和度电光黄作为点睛之笔。"
+      },
+      "typography": {
+        "rules": [
+          "标题使用粗体、几何感无衬线字体，营造强烈、现代的视觉存在感。",
+          "正文使用高可读性的人文主义无衬线字体，确保阅读舒适。",
+          "等宽字体仅用于特定的技术或数据相关场景。"
+        ],
+        "scaleUses": [
+          "首屏主标题",
+          "章节标题",
+          "主要段落文本",
+          "说明文字与次要标签"
+        ]
+      },
+      "spacing": {
+        "rhythm": "基于4px的统一网格系统，主要页面板块间采用充裕的垂直韵律（48px/64px）。"
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 0px 0px 1px inset（按钮边框）",
+          "0px 0px 1px 0px rgba(0, 0, 0, 0.1)（卡片微妙深度感）"
+        ],
+        "borders": "1px solid #D4D1CD"
+      },
+      "layout": {
+        "skeleton": "桌面端采用双列网格，交替排列内容块（左文右媒/左媒右文），以创造视觉趣味。"
+      },
+      "components": {
+        "button": "药丸形按钮，配有粗实的深色边框；主要操作使用黄色填充，次要操作使用透明背景。",
+        "card": "简洁的卡片，配有柔和的投影和大圆角（24px/32px），用于客户证言和合作伙伴标识。",
+        "chip": "未显著呈现。",
+        "input": "未显著呈现，但预期为简洁圆角边框设计。",
+        "hero": "大尺寸、粗体排版，搭配高质量的情境摄影图片和突出的视频播放覆盖层。"
+      },
+      "motion": {
+        "patterns": [
+          "交互元素的背景、颜色和投影快速过渡动画，时长0.1秒/0.2秒。",
+          "文本链接的下划线颜色平滑过渡动画，时长0.2秒。"
+        ]
+      },
+      "interaction": {
+        "hover": "按钮背景色填充或边框颜色变化。",
+        "click": "通过背景或边框更新实现即时状态切换。",
+        "transition": "快速的0.1秒至0.2秒线性过渡动画，营造响应式体验。",
+        "keyboard": "遵循无障碍最佳实践，预期使用标准的焦点环逻辑。"
+      },
+      "voice": {
+        "tone": "专业、直接、以利益为导向。",
+        "headlineStyle": "粗体、大写、有冲击力，以立即吸引注意力。",
+        "ctaStyle": "清晰且聚焦于行动，例如“注册”和“联系销售”。",
+        "avoid": [
+          "过于复杂的术语",
+          "标题中使用被动语态",
+          "不明确的价值主张"
+        ]
+      },
+      "donts": [
+        "不要使用深色主题——截图显示为浅色、温暖的米白色主背景（#EFECE7）。",
+        "不要使用纤细、精致的字体——截图显示展示性文本使用粗重、几何感强的无衬线字体。",
+        "不要使用微妙、低饱和度的强调色——截图显示单一、高饱和度的电光黄强调色（#F1F252）。",
+        "不要使用尖锐的直角——截图显示按钮和卡片采用大尺寸的药丸形圆角（24px/32px）。",
+        "不要使用复杂的渐变——截图显示为纯色填充和简单的摄影背景。",
+        "不要使用纤细、精巧的边框——截图显示交互元素使用显著的1px实线深色边框。"
+      ],
+      "systemPrompt": "GoCardless是一个高端的B2B金融科技自动化支付平台。其设计DNA以温暖的米白色背景（#EFECE7）搭配深炭灰色墨色（#1C1B18）为特征，辅以高饱和度的电光黄强调色（#F1F252）。排版大量依赖粗体、几何感强的无衬线字体（Haffer）作为展示字体，并搭配高可读性的人文主义无衬线字体用于正文。关键约束条件：1) 切勿使用深色模式或纯黑色背景用于内容区域。2) 所有主要标题必须使用粗字体（700）以保持品牌的大胆形象。3) 严格避免使用超过一种高饱和度颜色；电光黄仅应用于主要行动号召按钮，且需谨慎使用。"
+    },
+    "zh-TW": {
+      "identity": {
+        "keywords": [
+          "金融科技",
+          "支付",
+          "ACH",
+          "自動化帳單",
+          "定期付款"
+        ],
+        "analogy": "一個專注於建立信任、旨在簡化 B2B 收款流程的專業金融科技平台。",
+        "oneLiner": "一個旨在簡化 B2B 收款流程的專業金融科技平台。"
+      },
+      "colors": {
+        "principle": "以溫暖的灰白色與深炭灰色為基底的內斂配色，並以單一高飽和度的電光黃作為點綴。"
+      },
+      "typography": {
+        "rules": [
+          "標題使用粗體、幾何風格的無襯線字體，以展現強烈、現代的氣場。",
+          "內文使用易讀性極高的人文無襯線字體，確保舒適的閱讀體驗。",
+          "等寬字體僅保留用於特定技術或數據相關的內容。"
+        ],
+        "scaleUses": [
+          "主視覺區塊的主標題",
+          "區塊標題",
+          "主要段落文字",
+          "圖說與次要標籤"
+        ]
+      },
+      "spacing": {
+        "rhythm": "採用一致的 4px 基礎網格，並在主要頁面區塊之間維持寬裕的垂直節奏（48px/64px）。"
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 0px 0px 1px inset（按鈕邊框）",
+          "0px 0px 1px 0px rgba(0, 0, 0, 0.1)（卡片的細微深度感）"
+        ],
+        "borders": "1px solid #D4D1CD"
+      },
+      "layout": {
+        "skeleton": "桌面版採用雙欄網格，內容區塊交替排列（文字在左/媒體在右，媒體在左/文字在右），以創造視覺趣味。"
+      },
+      "components": {
+        "button": "膠囊形按鈕，搭配厚實的深色實心邊框；主要操作使用填充黃色，次要操作則使用透明設計。",
+        "card": "簡潔的卡片，帶有柔和的陰影與較大的圓角（24px/32px），用於呈現客戶見證與合作夥伴標誌。",
+        "chip": "未顯著使用。",
+        "input": "未顯著使用，但預期會採用簡潔的圓角邊框設計。",
+        "hero": "大膽醒目的字體排印，搭配高品質的情境照片與顯眼的影片播放覆蓋層。"
+      },
+      "motion": {
+        "patterns": [
+          "互動元素的背景、色彩與 box-shadow 採用快速的 0.1 秒/0.2 秒過渡動畫。",
+          "文字連結的底線顏色採用流暢的 0.2 秒過渡動畫。"
+        ]
+      },
+      "interaction": {
+        "hover": "按鈕的背景顏色填充或邊框顏色變化。",
+        "click": "透過背景或邊框的更新，立即切換狀態。",
+        "transition": "採用快速的 0.1 秒至 0.2 秒線性過渡動畫，以營造靈敏的回應感。",
+        "keyboard": "預期採用標準的焦點環邏輯，遵循無障礙最佳實踐。"
+      },
+      "voice": {
+        "tone": "專業、直接且著重於效益。",
+        "headlineStyle": "粗體、全大寫且具衝擊力，以立即吸引目光。",
+        "ctaStyle": "清晰且聚焦於行動，例如「立即註冊」與「聯絡銷售團隊」。",
+        "avoid": [
+          "過於複雜的術語",
+          "標題使用被動語態",
+          "不明確的價值主張"
+        ]
+      },
+      "donts": [
+        "不要使用深色主題 — 截圖顯示為淺色、溫暖的灰白色主背景（#EFECE7）。",
+        "不要使用細緻、纖細的字體排印 — 截圖顯示為粗體、厚重的幾何無襯線字體用於展示文字。",
+        "不要使用低調、柔和的點綴色 — 截圖顯示為單一、高飽和度的電光黃點綴色（#F1F252）。",
+        "不要使用尖銳、方形的圓角 — 截圖顯示為較大的膠囊形圓角（24px/32px）用於按鈕與卡片。",
+        "不要使用複雜的漸層 — 截圖顯示為單色填充與簡單的攝影背景。",
+        "不要使用纖細、精緻的邊框 — 截圖顯示為明顯的 1px 實心深色邊框用於互動元素。"
+      ],
+      "systemPrompt": "GoCardless 是一個專業的 B2B 金融科技自動化支付平台。其設計 DNA 以溫暖的灰白色背景（#EFECE7）搭配深炭灰色墨色（#1C1B18）為基底，並以高飽和度的電光黃點綴色（#F1F252）作為亮點。字體排印主要依賴粗體、幾何風格的無襯線字體（Haffer）作為展示文字，並搭配易讀性極高的人文無襯線字體用於內文。關鍵限制：1) 絕不使用深色模式或純黑背景作為內容區塊。2) 主要標題務必使用粗體字重（700），以維持品牌的大膽氣場。3) 嚴格避免使用超過一種高飽和度色彩；電光黃必須謹慎使用，僅限於主要號召性用語（CTA）。"
+    },
+    "ja": {
+      "identity": {
+        "keywords": [
+          "フィンテック",
+          "決済",
+          "ACH",
+          "自動請求",
+          "定期支払い"
+        ],
+        "analogy": "B2Bの決済回収を効率化するよう設計された、信頼性を重視したプロフェッショナルなフィンテックプラットフォーム。",
+        "oneLiner": "B2Bの決済回収を効率化するよう設計されたプロフェッショナルなフィンテックプラットフォーム。"
+      },
+      "colors": {
+        "principle": "温みのあるオフホワイトと暗いチャコールの抑制されたパレットに、単一の高彩度イエローアクセントを配する。"
+      },
+      "typography": {
+        "rules": [
+          "見出しには太字の幾何学的sans-serifを用い、力強くモダンな存在感を演出。",
+          "本文には高可読性のhumanist sans-serifを用い、快適な読書体験を実現。",
+          "等幅フォントは、特定の技術的またはデータ関連のコンテキストに限定して使用。"
+        ],
+        "scaleUses": [
+          "ヒーローセクションのプライマリ見出し",
+          "セクション見出し",
+          "プライマリ段落テキスト",
+          "キャプションおよびセカンダリラベル"
+        ]
+      },
+      "spacing": {
+        "rhythm": "4pxベースグリッドを一貫して使用し、主要なページセクション間には十分な垂直リズム（48px/64px）を設ける。"
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 0px 0px 1px inset（ボタンボーダー）",
+          "0px 0px 1px 0px rgba(0, 0, 0, 0.1)（カードの控えめな奥行き）"
+        ],
+        "borders": "1px solid #D4D1CD"
+      },
+      "layout": {
+        "skeleton": "デスクトップ向けの2カラムグリッド。テキスト左/メディア右、メディア左/テキスト右と交互に配置し、視覚的な興味を喚起する。"
+      },
+      "components": {
+        "button": "太く実線のダークボーダーを持つピル型ボタン。プライマリアクションには塗りつぶしイエロー、セカンダリには透明を使用。",
+        "card": "ソフトなドロップシャドウと大きなボーダー-radius（24px/32px）を持つクリーンなカード。証言やパートナーロゴに使用。",
+        "chip": "主要な機能としては採用されない。",
+        "input": "主要な機能としては採用されないが、丸みのあるボーダーのクリーンなデザインが想定される。",
+        "hero": "大胆なタイポグラフィに高品質なコンテキスト写真と目立つビデオ再生オーバーレイを組み合わせる。"
+      },
+      "motion": {
+        "patterns": [
+          "インタラクティブ要素の背景、カラー、ボックスシャドウに対する高速な0.1秒/0.2秒トランジション。",
+          "テキストリンクに対する滑らかな0.2秒のアンダーラインカラートランジション。"
+        ]
+      },
+      "interaction": {
+        "hover": "ボタンの背景カラー塗りつぶしやボーダーカラーの変化。",
+        "click": "背景やボーダーの更新による即時のステート変更。",
+        "transition": "レスポンシブ感のための高速な0.1秒から0.2秒のリニアトランジション。",
+        "keyboard": "アクセシビリティのベストプラクティスに従い、標準的なフォーカスリングロジックが想定される。"
+      },
+      "voice": {
+        "tone": "プロフェッショナルで、直接的、かつベネフィット指向。",
+        "headlineStyle": "即座に注意を引くための太字、大文字、パンチのあるスタイル。",
+        "ctaStyle": "明確でアクション指向。例：「サインアップ」「営業へのお問い合わせ」。",
+        "avoid": [
+          "過度に複雑な専門用語",
+          "見出しにおける受動態",
+          "不明確な価値提案"
+        ]
+      },
+      "donts": [
+        "ダークテーマを使用しない — スクリーンショットでは、明るく温みのあるオフホワイトがプライマリ背景（#EFECE7）として使われている。",
+        "細く繊細なタイポグラフィを使用しない — スクリーンショットでは、太字のヘビーな幾何学的sans-serifがディスプレイテキストとして使われている。",
+        "控えめでマイルドなアクセントを使用しない — スクリーンショットでは、単一の高彩度イエローアクセント（#F1F252）が使われている。",
+        "シャープで四角いコーナーを使用しない — スクリーンショットでは、ボタンやカードに大きなピル型のradius（24px/32px）が使われている。",
+        "複雑なグラデーションを使用しない — スクリーンショットでは、フラットなカラーフィルとシンプルな写真背景が使われている。",
+        "繊細で細いボーダーを使用しない — スクリーンショットでは、インタラクティブ要素に目立つ1pxの実線ダークボーダーが使われている。"
+      ],
+      "systemPrompt": "GoCardlessは、自動決済を提供するプレミアムB2Bフィンテックプラットフォームである。デザインDNAは、温みのあるオフホワイト背景（#EFECE7）に深いチャコールインク（#1C1B18）、そして高彩度のイエローアクセント（#F1F252）を特徴とする。タイポグラフィは、ディスプレイ用に太字の幾何学的sans-serif（Haffer）を重用し、本文には高可読性のhumanist sans-serifを組み合わせる。重要な制約：1）コンテンツセクションにダークモードや純粋な黒背景を決して使用しない。2）ブランドの大胆な存在感を維持するため、主要な見出しには常にヘビーフォントウェイト（700）を使用する。3）高彩度カラーを1つ以上使用することは厳禁。イエローアクセントはプライマリアクションのみに限定し、慎重に使用する。"
+    },
+    "ko": {
+      "identity": {
+        "keywords": [
+          "핀테크",
+          "결제",
+          "ACH",
+          "자동 청구",
+          "반복 결제"
+        ],
+        "analogy": "B2B 결제 수집을 간소화하도록 설계된 전문적이고 신뢰 중심의 핀테크 플랫폼입니다.",
+        "oneLiner": "B2B 결제 수집을 간소화하도록 설계된 전문적인 핀테크 플랫폼입니다."
+      },
+      "colors": {
+        "principle": "따뜻한 오프화이트와 짙은 차콜의 절제된 팔레트에 고채도의 일렉트릭 옐로우 강조색 하나를 점으로 배치합니다."
+      },
+      "typography": {
+        "rules": [
+          "헤드라인은 강하고 현대적인 존재감을 위해 볼드한 기하학적 sans-serif를 사용합니다.",
+          "본문 텍스트는 편안한 독서를 위해 가독성이 높은 humanist sans-serif를 사용합니다.",
+          "모노스페이스 폰트는 특정 기술적 또는 데이터 관련 맥락에만 사용합니다."
+        ],
+        "scaleUses": [
+          "히어로 섹션 메인 헤드라인",
+          "섹션 제목",
+          "기본 단락 텍스트",
+          "캡션 및 보조 레이블"
+        ]
+      },
+      "spacing": {
+        "rhythm": "일관된 4px 기본 격자와 페이지 주요 섹션 간의 여유로운 수직 리듬(48px/64px)입니다."
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 0px 0px 1px inset (버튼 테두리)",
+          "0px 0px 1px 0px rgba(0, 0, 0, 0.1) (카드에 대한 은은한 깊이)"
+        ],
+        "borders": "1px solid #D4D1CD"
+      },
+      "layout": {
+        "skeleton": "데스크톱에서 텍스트 좌/미디어 우, 미디어 좌/텍스트 우와 같은 교차 콘텐츠 블록을 사용하여 시각적 관심을 유발하는 2열 격자입니다."
+      },
+      "components": {
+        "button": "두껍고 단단한 짙은 테두리를 가진 알약 모양 버튼; 주요 작업에는 채워진 옐로우를, 보조 작업에는 투명하게 사용합니다.",
+        "card": "증언과 파트너 로고에 사용되는, 부드러운 드롭 섀도우와 큰 border-radius(24px/32px)를 가진 깔끔한 카드입니다.",
+        "chip": "두드러지게 사용되지 않습니다.",
+        "input": "두드러지게 사용되지 않지만, 둥근 테두리를 가진 깔끔한 형태가 예상됩니다.",
+        "hero": "대형 볼드 타이포그래피와 고품질 맥락적 사진, 그리고 두드러진 비디오 재생 오버레이가 결합된 형태입니다."
+      },
+      "motion": {
+        "patterns": [
+          "인터랙티브 요소의 배경, 색상, box-shadow에 대한 빠른 0.1초/0.2초 전환.",
+          "텍스트 링크에 대한 부드러운 0.2초 밑줄 색상 전환."
+        ]
+      },
+      "interaction": {
+        "hover": "버튼의 배경색 채우기 또는 테두리색 변화.",
+        "click": "배경 또는 테두리 업데이트를 통한 즉각적인 상태 변화.",
+        "transition": "반응형 느낌을 위한 빠른 0.1초~0.2초 선형 전환.",
+        "keyboard": "접근성 모범 사례를 따르는 표준 focus ring 로직이 예상됩니다."
+      },
+      "voice": {
+        "tone": "전문적이고 직접적이며, 이점에 초점을 맞춥니다.",
+        "headlineStyle": "즉각적인 관심을 끌기 위해 볼드하고 대문자이며 강렬합니다.",
+        "ctaStyle": "예: '가입하기', '영업팀 문의'와 같이 명확하고 행동에 초점을 맞춥니다.",
+        "avoid": [
+          "지나치게 복잡한 전문 용어",
+          "헤드라인에 수동태 사용",
+          "불명확한 가치 제안"
+        ]
+      },
+      "donts": [
+        "다크 테마를 사용하지 마세요 — 스크린샷은 밝고 따뜻한 오프화이트 주요 배경(#EFECE7)을 보여줍니다.",
+        "가늘고 섬세한 타이포그래피를 사용하지 마세요 — 스크린샷은 디스플레이 텍스트에 볼드하고 묵직한 기하학적 sans-serif를 보여줍니다.",
+        "은은하고 채도 낮은 강조색을 사용하지 마세요 — 스크린샷은 하나의 고채도 일렉트릭 옐로우 강조색(#F1F252)을 보여줍니다.",
+        "날카롭고 각진 모서리를 사용하지 마세요 — 스크린샷은 버튼과 카드에 큰 알약 모양 반경(24px/32px)을 보여줍니다.",
+        "복잡한 그래디언트를 사용하지 마세요 — 스크린샷은 단색 채우기와 간단한 사진 배경을 보여줍니다.",
+        "섬세하고 가느다란 테두리를 사용하지 마세요 — 스크린샷은 인터랙티브 요소에 두드러진 1px solid 짙은 테두리를 보여줍니다."
+      ],
+      "systemPrompt": "GoCardless는 자동 결제를 위한 프리미엄 B2B 핀테크 플랫폼입니다. 디자인 DNA는 따뜻한 오프화이트 배경(#EFECE7)과 짙은 차콜 잉크(#1C1B18), 그리고 고채도의 일렉트릭 옐로우 강조색(#F1F252)을 특징으로 합니다. 타이포그래피는 주로 볼드한 기하학적 sans-serif(Haffer)를 디스플레이에 사용하고, 본문은 가독성이 높은 humanist sans-serif를 사용합니다. 핵심 제약 조건: 1) 콘텐츠 섹션에 다크 모드 또는 순수 검정 배경을 절대 사용하지 마세요. 2) 브랜드의 대담한 존재감을 유지하기 위해 주요 헤드라인에는 항상 무거운 폰트 웨이트(700)를 사용하세요. 3) 고채도 색상을 하나 이상 사용하는 것을 철저히 피하세요. 일렉트릭 옐로우는 주요 CTA에만 절제 있게 사용해야 합니다."
+    }
+  },
+  "desc": {
+    "en": {
+      "palette": "A restrained palette of warm off-white and deep charcoal, anchored by a single high-chroma electric yellow accent.",
+      "layout": "A spacious, two-column alternating grid with generous vertical padding and a fixed container width.",
+      "interaction": "Fast, linear transitions (0.1s-0.2s) on background, color, and border properties for immediate feedback.",
+      "motion": "Minimal, functional motion focused purely on rapid state changes rather than complex animations.",
+      "notes": "This site is an excellent reference for balancing premium B2B professionalism with bold, modern design choices and a highly distinctive accent color."
+    },
+    "zh-CN": {
+      "palette": "克制的调色板，采用温暖的米白色与深炭灰色，以单一的高饱和度电光黄作为点睛之笔。",
+      "layout": "宽敞的双列交替网格布局，拥有充裕的垂直内边距和固定的容器宽度。",
+      "interaction": "快速、线性的过渡动画（0.1秒-0.2秒），应用于背景、颜色和边框属性，以提供即时反馈。",
+      "motion": "极简的功能性动效，纯粹聚焦于快速状态切换，而非复杂的动画效果。",
+      "notes": "该网站是平衡高端B2B专业性、大胆现代设计选择以及极具辨识度的强调色的绝佳参考。"
+    },
+    "zh-TW": {
+      "palette": "以溫暖的灰白色調與深炭灰色為基底的內斂配色，並以單一高飽和度的電光黃作為點綴。",
+      "layout": "寬敞的雙欄交替網格佈局，搭配充足的垂直內距與固定的容器寬度。",
+      "interaction": "針對背景、色彩與邊框屬性，採用快速、線性的過渡動畫（0.1 秒 - 0.2 秒），以提供即時反饋。",
+      "motion": "極簡且注重功能性的動態效果，專注於快速的狀態切換，而非複雜的動畫。",
+      "notes": "此網站是平衡專業 B2B 風格與大膽現代設計選擇，以及運用極具特色的點綴色的絕佳參考。"
+    },
+    "ja": {
+      "palette": "温みのあるオフホワイトと深いチャコールを抑制し、単一の高彩度イエローアクセントで引き締める。",
+      "layout": "ゆったりとした2カラムの交互グリッド。十分な垂直方向の余白と固定コンテナ幅を採用。",
+      "interaction": "背景・カラー・ボーダープロパティに対して迅速なフィードバックを得るための、高速リニアトランジション（0.1秒〜0.2秒）。",
+      "motion": "複雑なアニメーションではなく、高速なステート変更に焦点を当てた最小限の、機能的なモーション。",
+      "notes": "このサイトは、プレミアムB2Bのプロフェッショナリズムと大胆なモダンデザイン、そして非常に特徴的なアクセントカラーのバランスを取る絶好のリファレンスです。"
+    },
+    "ko": {
+      "palette": "따뜻한 오프화이트와 짙은 차콜의 절제된 팔레트에, 고채도의 일렉트릭 옐로우 강조색 하나로 포인트를 줍니다.",
+      "layout": "여유로운 수직 패딩과 고정된 컨테이너 너비를 가진, 넓은 2열 교차 격자 레이아웃입니다.",
+      "interaction": "배경, 색상, 테두리 속성에 대한 빠른 선형 전환(0.1초~0.2초)으로 즉각적인 피드백을 제공합니다.",
+      "motion": "복잡한 애니메이션이 아닌 빠른 상태 변화에만 집중하는 미니멀하고 기능적인 모션입니다.",
+      "notes": "이 사이트는 프리미엄 B2B 전문성과 대담하고 현대적인 디자인 선택, 그리고 매우 독특한 강조색의 균형을 맞추는 뛰어난 참고 자료입니다."
+    }
+  },
+  "_meta": {
+    "vision_model": "mimo-v2.5",
+    "vision_prompt_version": "0.3",
+    "vision_source": "playwright-extract:gocardless",
+    "vision_grounded": true,
+    "vision_at": "2026-06-04T15:30:06+00:00",
+    "vision_tokens": 16475,
+    "vision_cost_usd": 0.1831,
+    "translation_model": "mimo-v2.5",
+    "translation_at": "2026-06-04T15:31:29+00:00",
+    "translation_tokens": 19093,
+    "translation_cost_usd": 0.0638,
+    "narrative_model": "mimo-v2.5",
+    "narrative_prompt_version": "0.3",
+    "narrative_at": "2026-06-04T15:31:43+00:00",
+    "narrative_tokens": 2267,
+    "narrative_cost_usd": 0.0151,
+    "narrative_status": "ok",
+    "total_cost_usd": 0.262
+  },
+  "narrative": {
+    "en": {
+      "ch1_intro": "GoCardless operates as the engineering backbone for automated B2B payment collection, a system built on clarity and reliability rather than ornament. Its design language mirrors this function: a restrained, warm palette and bold typographic forms establish immediate trust, while a single electric yellow accent serves as a precise signal for action within a professional context.",
+      "ch2_intro": "The color system is built on a foundation of warm off-white and deep charcoal, creating a high-contrast but low-strain reading environment. A solitary electric yellow accent is deployed with strict discipline, reserved exclusively for primary calls to action to command attention without visual noise.",
+      "ch2_outro": "The governing principle is severe restraint; every color choice must justify its presence by directly supporting the platform's core transactional clarity.",
+      "ch3_intro": "Typographic voice is divided between authority and readability: a bold, geometric sans-serif (Haffer) for display text asserts presence, while a humanist sans-serif for body copy ensures comfortable comprehension of detailed financial information. This hierarchy is maintained through a strict scale that moves from hero headlines down to captions and labels.",
+      "ch4_intro": "Spacing follows a consistent 4px base grid, establishing a predictable rhythm across all components. Generous vertical margins of 48px and 64px between major sections create breathing room and reinforce the system's orderly, unhurried pace.",
+      "ch5_intro": "Surface treatment is defined by subtle, precise depth. Cards receive a soft 1px shadow for gentle lift, while interactive elements like buttons use a solid inset border to define a clear, tactile boundary.",
+      "ch6_intro": "The layout skeleton employs a two-column grid on desktop, alternating the position of text and media blocks to create a dynamic but balanced reading path. This alternating pattern provides visual interest while maintaining a fixed container width that ensures content remains focused and legible.",
+      "ch7_intro": "Motion is purely functional, designed to provide immediate feedback on user interaction rather than to decorate. Transitions on backgrounds, colors, and borders are kept to a rapid 0.1s or 0.2s duration, creating a responsive, decisive feel that aligns with the platform's professional efficiency.",
+      "ch8_intro": "The editorial voice is direct, benefit-oriented, and professionally confident. Headlines are bold and action-focused, avoiding passive constructions and jargon to communicate value with the same clarity the platform brings to payment processing.",
+      "ch8_outro": "The system deliberately avoids dark themes, complex gradients, delicate typography, and multiple accent colors, maintaining a singular focus on bold, trustworthy professionalism."
+    },
+    "zh-CN": {
+      "ch1_intro": "GoCardless 作为自动化 B2B 支付收款的工程支柱运营，这一系统建立在清晰度与可靠性之上，而非装饰。其设计语言反映了这一功能：克制而温暖的色调与醒目的排版形式立即建立信任，而单一的电光黄强调色则在专业环境中充当精确的行动信号。",
+      "ch2_intro": "色彩体系建立在温暖的灰白与深炭色基础上，创造出高对比度但低视觉压力的阅读环境。单一的电光黄强调色被严格纪律地部署，仅保留用于主要行动号召，以吸引注意力而不产生视觉干扰。",
+      "ch2_outro": "核心原则是极致的克制；每个色彩选择都必须通过直接支持平台核心交易清晰度来证明其存在价值。",
+      "ch3_intro": "排版声音分为权威与可读性两部分：用于展示文本的粗体几何无衬线字体（Haffer）确立存在感，而用于正文的人文主义无衬线字体确保对详细财务信息的舒适理解。这种层次结构通过严格的尺度维持，从主标题向下延伸至说明文字和标签。",
+      "ch4_intro": "间距遵循一致的 4px 基础网格，在所有组件间建立可预测的节奏。主要章节间 48px 和 64px 的充裕垂直边距创造了呼吸空间，并强化了系统有序、从容的节奏。",
+      "ch5_intro": "表面处理通过微妙而精确的深度来定义。卡片采用柔和的 1px 阴影以实现轻微提升，而按钮等交互元素则使用实心内边框来定义清晰、有触感的边界。",
+      "ch6_intro": "布局骨架在桌面端采用双栏网格，交替放置文本和媒体块的位置，创造出动态但平衡的阅读路径。这种交替模式在保持固定容器宽度的同时提供视觉趣味，确保内容保持专注且易读。",
+      "ch7_intro": "动效纯粹是功能性的，旨在为用户交互提供即时反馈而非装饰。背景、颜色和边框的过渡保持在快速的 0.1s 或 0.2s 持续时间，营造出响应迅速、果断的感觉，与平台的专业效率保持一致。",
+      "ch8_intro": "编辑声音直接、以利益为导向且充满专业自信。标题醒目且聚焦行动，避免被动结构和行话，以与平台在支付处理中相同的清晰度传达价值。",
+      "ch8_outro": "该系统刻意避免深色主题、复杂渐变、纤细字体和多种强调色，保持对醒目、值得信赖的专业性的单一关注。"
+    },
+    "zh-TW": {
+      "ch1_intro": "GoCardless 作為自動化 B2B 收款的技術核心運作，其系統建立在清晰與可靠性之上，而非裝飾性。設計語言反映了這項功能：內斂而溫暖的色調，加上醒目的字型形式，立即建立信任感；而單一的電光黃色調，則在專業環境中精準地作為行動提示的信號。",
+      "ch2_intro": "色彩系統以溫潤的灰白色與深炭灰色為基底，建構出高對比度、低視覺負擔的閱讀環境。單一的電光黃色調被嚴格規範使用，僅保留給主要的行動呼籲，在無視覺干擾的前提下吸引注意力。",
+      "ch2_outro": "主導原則是嚴謹的克制；每一種色彩的選擇，都必須透過直接支援平台的核心交易清晰度來證明其存在價值。",
+      "ch3_intro": "字型語氣分為權威與可讀性兩方面：用於標題的粗體幾何無襯線字體（Haffer）展現存在感，而用於內文的人文主義無襯線字體，則確保對詳細財務資訊的舒適理解。此階層結構透過從主標題到說明文字的嚴格字級比例來維持。",
+      "ch4_intro": "間距遵循一致的 4px 基礎格線，在所有組件間建立可預期的節奏。主要區塊間 48px 與 64px 的垂直邊距，創造出呼吸空間，並強化系統有序、不急促的步調。",
+      "ch5_intro": "表面處理定義於細微而精準的深度感。卡片使用柔和的 1px 陰影以輕微抬升，而按鈕等互動元素則採用實心內嵌邊框，定義清晰的觸覺邊界。",
+      "ch6_intro": "版面架構在桌面端採用雙欄格線，透過文字與媒體區塊位置的交替，創造出動態但平衡的閱讀路徑。這種交替模式提供視覺趣味，同時保持固定的容器寬度，確保內容集中且易讀。",
+      "ch7_intro": "動態效果純粹功能性，旨在為使用者互動提供即時回饋，而非裝飾。背景、色彩與邊框的過渡動畫保持在快速的 0.1 秒或 0.2 秒時長，營造出靈敏、果斷的感受，與平台的專業效率一致。",
+      "ch8_intro": "編輯語氣直接、以效益為導向，並充滿專業自信。標題粗體且聚焦於行動，避免被動句型與術語，以平台在支付處理上相同的清晰度來傳達價值。",
+      "ch8_outro": "此系統刻意避免暗色主題、複雜漸層、細緻字型以及多種強調色，維持對醒目、可信賴專業形象的單一專注。"
+    },
+    "ja": {
+      "ch1_intro": "GoCardlessは、自動化されたB2B決済収集のエンジニアリング基盤として機能しており、装飾よりも明確性と信頼性に基づいて構築されたシステムです。そのデザイン言語はこの機能を反映しています：抑制された暖色パレットと太字のタイポグラフィが即座に信頼を確立し、電気的なイエローのアクセントが専門的な文脈において正確なアクションシグナルとして機能します。",
+      "ch2_intro": "カラーシステムは、暖かいオフホワイトと深いチャコールを基盤とし、高コントラストでありながら負荷の低い読書環境を生み出しています。単一の電気的なイエローのアクセントは厳格な規律をもって配置され、主要なアクションコールに限定して、視覚的なノイズなしに注意を惹きつけます。",
+      "ch2_outro": "支配的な原則は厳格な抑制です。すべての色の選択は、プラットフォームの核となるトランザクションの明確性を直接的に支持することで、その存在を正当化しなければなりません。",
+      "ch3_intro": "タイポグラフィの声は、権威と読みやすさの間に分かれています。太字の幾何学サンセリフ（Haffer）はディスプレイテキストとして存在感を主張し、ヒューマニストサンセリフは本文コピーとして詳細な金融情報の快適な理解を確保します。この階層構造は、ヒーローヘッドラインからキャプションやラベルまで、厳格なスケールを通じて維持されます。",
+      "ch4_intro": "間隔は一貫した4pxのベースグリッドに従い、すべてのコンポーネントにわたって予測可能なリズムを確立します。主要セクション間の48pxおよび64pxの豊かな垂直マージンが呼吸の余地を生み出し、システムの秩序正しく、急ぎすぎないペースを強化します。",
+      "ch5_intro": "表面処理は、微妙で正確な深度によって定義されます。カードには軽やかな浮き上がりのために柔らかい1pxのシャドウが与えられ、ボタンなどのインタラクティブ要素は明確で触覚的な境界を定義するために実体のあるインセットボーダーを使用します。",
+      "ch6_intro": "レイアウトの骨格は、デスクトップ上で2カラムグリッドを採用し、テキストとメディアブロックの位置を交互に配置することで、ダイナミックでありながらバランスの取れた読書パスを創出します。この交互パターンは視覚的な興味を提供しつつ、コンテンツに焦点を絞り、判読性を確保する固定幅のコンテナを維持します。",
+      "ch7_intro": "モーションは純粋に機能的であり、装飾ではなくユーザーインタラクションに対する即座のフィードバックを提供するために設計されています。背景、色、ボーダーのトランジションは0.1sまたは0.2sの迅速な期間に保たれ、プラットフォームの専門的な効率性に合致する、応答性が高く、決断力のある感覚を生み出します。",
+      "ch8_intro": "エディトリアルな声は直接的で、利点を指向し、専門的に自信に満ちています。見出しは太字でアクションに焦点を当て、受動的な構成や専門用語を避け、決済処理にプラットフォームがもたらすのと同じ明確さで価値を伝えます。",
+      "ch8_outro": "このシステムは、暗いテーマ、複雑なグラデーション、繊細なタイポグラフィ、複数のアクセントカラーを意図的に避け、太字で信頼できる専門性への単一の焦点を維持しています。"
+    },
+    "ko": {
+      "ch1_intro": "GoCardless는 명확성과 신뢰성을 기반으로 구축된 시스템을 통해, 자동화된 B2B 결제 수집을 위한 엔지니어링 중추 역할을 수행합니다. 장식이 아닌 본질에 집중한 설계입니다. 이 기능을 반영하듯, 그 디자인 언어는 절제된 따뜻한 팔레트와 강렬한 타이포그래피 형태로 즉각적인 신뢰를 구축하며, 전문적인 맥락 내에서 정확한 행동 신호로 전기적인 옐로우 악센트를 단일로 사용합니다.",
+      "ch2_intro": "컬러 시스템은 따뜻한 오프화이트와 깊은 차콜을 기반으로 구축되어, 높은 대비이면서도 눈에 부담 없는 독서 환경을 조성합니다. 단일의 전기적인 옐로우 악센트는 엄격한 규율을 가지고 배치되며, 시각적 잡음 없이 주요 행동 유도 요소(Calls to Action)에만 엄격히 전용되어 주목을 끕니다.",
+      "ch2_outro": "지배적인 원칙은 극도의 절제입니다. 모든 색상 선택은 플랫폼의 핵심적인 거래 명확성을 직접적으로 지원함으로써 그 존재 이유를 증명해야 합니다.",
+      "ch3_intro": "타이포그래피의 목소리는 권위와 가독성으로 나뉩니다: 표시 텍스트용으로 사용되는 굵고 기하학적인 산세리프(Haffer)는 존재감을 드러내며, 본문용으로 사용되는 휴머니스틱 산세리프는 상세한 재무 정보의 편안한 이해를 보장합니다. 이 계층 구조는 영웅 헤드라인에서 캡션과 레이블까지 이동하는 엄격한 규모를 통해 유지됩니다.",
+      "ch4_intro": "간격은 일관된 4px 기본 격자를 따르며, 모든 구성 요소 전반에 걸쳐 예측 가능한 리듬을 확립합니다. 주요 섹션 사이의 넉넉한 수직 여백인 48px와 64px은 호흡 공간을 만들고 시스템의 질서 정연하고 여유로운 속도를 강화합니다.",
+      "ch5_intro": "표면 처리는 미묘하고 정확한 깊이감으로 정의됩니다. 카드는 부드러운 1px 그림자를 받아 살짝 떠오르는 느낌을 주고, 버튼과 같은 인터랙티브 요소는 명확하고 촉각적인 경계를 정의하기 위해 단단한 삽입 테두리를 사용합니다.",
+      "ch6_intro": "레이아웃 스켈레톤은 데스크톱에서 2열 격자를 사용하며, 텍스트와 미디어 블록의 위치를 교대로 배치하여 역동적이면서도 균형 잡힌 경로를 만듭니다. 이 교대 패턴은 시각적 관심을 유발하면서도, 콘텐츠에 집중하고 가독성을 유지하도록 고정된 컨테이너 너비를 보장합니다.",
+      "ch7_intro": "모션은 순수하게 기능적이며, 장식이 아닌 사용자 상호작용에 대한 즉각적인 피드백을 제공하도록 설계되었습니다. 배경, 색상, 테두리의 전이는 빠른 0.1초 또는 0.2초로 유지되어, 플랫폼의 전문적인 효율성에 부합하는 반응적이고 결단력 있는 느낌을 줍니다.",
+      "ch8_intro": "에디토리얼 목소리는 직접적이고, 이익 지향적이며, 전문적으로 자신감이 넘칩니다. 헤드라인은 굵고 행동에 초점을 맞추어, 수동적인 구문과 전문 용어를 피하고 결제 처리에 가져다주는 것과 동일한 명확성으로 가치를 전달합니다.",
+      "ch8_outro": "이 시스템은 의도적으로 다크 테마, 복잡한 그라디언트, 섬세한 타이포그래피, 다중 악센트 색상을 피하며, 굵고 신뢰할 수 있는 전문성에 대한 단일한 초점을 유지합니다."
+    }
+  }
 }

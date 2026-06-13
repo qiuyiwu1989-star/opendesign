@@ -8,6 +8,633 @@
     "ai",
     "voice"
   ],
-  "status": "pending",
-  "added_at": "2026-06-03"
+  "status": "completed",
+  "added_at": "2026-06-03",
+  "spec": {
+    "colors": {
+      "bg": "#FFFAEA",
+      "bgSoft": "#FAFAFA",
+      "bgQuiet": "#F3F4F6",
+      "ink": "#1F1F23",
+      "inkSoft": "#4B5563",
+      "muted": "#9CA3AF",
+      "mutedSoft": "#D1D5DB",
+      "accent": "#FA5E53",
+      "line": "rgba(0,0,0,0.1)"
+    },
+    "typography": {
+      "display": "geometric-sans",
+      "body": "humanist-sans",
+      "mono": "monospaced",
+      "scale": [
+        {
+          "token": "display",
+          "size": 56,
+          "lh": 1.0,
+          "weight": 500,
+          "ls": "-1.6px"
+        },
+        {
+          "token": "h2",
+          "size": 40,
+          "lh": 1.1,
+          "weight": 500,
+          "ls": "-0.56px"
+        },
+        {
+          "token": "h3",
+          "size": 24,
+          "lh": 1.2,
+          "weight": 500,
+          "ls": "0px"
+        },
+        {
+          "token": "body",
+          "size": 16,
+          "lh": 1.5,
+          "weight": 400,
+          "ls": "0px"
+        },
+        {
+          "token": "caption",
+          "size": 14,
+          "lh": 1.4,
+          "weight": 400,
+          "ls": "0.2px"
+        }
+      ]
+    },
+    "spacing": {
+      "base": 4,
+      "scale": [
+        4,
+        8,
+        16,
+        24,
+        32,
+        40,
+        48,
+        64,
+        72,
+        96
+      ]
+    },
+    "surfaces": {
+      "radius": {
+        "sm": 6,
+        "md": 8,
+        "lg": 12,
+        "pill": 999
+      }
+    },
+    "layout": {
+      "container": 1280,
+      "paragraph": 680,
+      "columns": 12,
+      "gutter": 24,
+      "breakpoints": [
+        768,
+        1024
+      ]
+    },
+    "motion": {
+      "durations": {
+        "micro": 150,
+        "small": 220,
+        "medium": 400
+      },
+      "easing": "cubic-bezier(0.4, 0, 0.2, 1)"
+    }
+  },
+  "spec_i18n": {
+    "en": {
+      "identity": {
+        "keywords": [
+          "enterprise",
+          "voice AI",
+          "platform",
+          "developer",
+          "scalable"
+        ],
+        "analogy": "An enterprise-grade developer platform that feels as approachable as a consumer app, blending high-end editorial photography with clean, technical documentation.",
+        "oneLiner": "A developer-first platform for building and deploying enterprise voice AI agents at scale."
+      },
+      "colors": {
+        "principle": "A warm, creamy base palette anchored by high-contrast dark ink and a single high-chroma red accent for primary actions."
+      },
+      "typography": {
+        "rules": [
+          "Tight letter-spacing (negative) for large display text to create a modern, punchy feel.",
+          "Uppercase and tracked-out styles for category labels and 'eyebrow' text.",
+          "Consistent use of a primary geometric sans-serif for headlines to establish a bold, technical identity."
+        ],
+        "scaleUses": [
+          "Hero headlines",
+          "Section headers",
+          "Card titles and feature headers",
+          "Standard body text",
+          "Metadata and helper text"
+        ]
+      },
+      "spacing": {
+        "rhythm": "Generous, even spacing with a strong preference for 24px and 40px gaps to maintain clarity in dense feature grids."
+      },
+      "surfaces": {
+        "shadows": [
+          "rgb(204, 204, 204) 0px 0px 2px 2px",
+          "0px 4px 6px -1px rgba(0, 0, 0, 0.1)"
+        ],
+        "borders": "Minimal 1px solid borders used for subtle containment and card definitions."
+      },
+      "layout": {
+        "skeleton": "A standard 12-column grid system with generous outer padding that collapses into a single-column mobile stack."
+      },
+      "components": {
+        "button": "Primary uses a dark pill shape with white text; secondary is a transparent ghost button with a subtle border.",
+        "card": "Clean, mostly borderless sections separated by generous whitespace and subtle horizontal dividers.",
+        "chip": "Functional dropdowns and status pills with subtle grey borders and 6px to 8px border radii.",
+        "input": "Standard text inputs with 8px border radius, subtle borders, and internal padding.",
+        "hero": "Full-width cinematic photography with a dark gradient overlay to ensure high legibility for the white display text."
+      },
+      "motion": {
+        "patterns": [
+          "Smooth color and background transitions on interactive elements.",
+          "Opacity and visibility fades for dropdown and overlay reveals.",
+          "Subtle transform movements for state changes."
+        ]
+      },
+      "interaction": {
+        "hover": "Subtle color transitions and background shifts on buttons and links.",
+        "click": "Immediate visual feedback with slight transform or opacity changes.",
+        "transition": "Global 0.15s cubic-bezier transitions for a highly responsive and polished feel.",
+        "keyboard": "Standard focus rings using subtle 2px box-shadows for accessibility."
+      },
+      "voice": {
+        "tone": "Confident, technical, and enterprise-focused.",
+        "headlineStyle": "Short, punchy, and human-centric (e.g., 'Speak human to every customer').",
+        "ctaStyle": "Direct and action-oriented (e.g., 'Get Started', 'Initiate Call').",
+        "avoid": [
+          "Overly playful or casual language",
+          "Jargon without clear context",
+          "Visually cluttered layouts"
+        ]
+      },
+      "donts": [
+        "Don't use a pure white (#FFFFFF) background — the screenshot uses a warm, creamy off-white (#FFFAEA) instead.",
+        "Don't use decorative serif fonts — the screenshot relies entirely on clean, geometric, and humanist sans-serif categories.",
+        "Don't use bright neon or multi-colored gradients — the palette is strictly restrained to cream, black, and a single red accent.",
+        "Don't use heavy drop shadows — the screenshot uses very subtle, almost invisible box-shadows for depth.",
+        "Don't clutter the layout with borders — the screenshot uses generous whitespace and horizontal lines for separation.",
+        "Don't use large, multi-line blockquotes — the screenshot uses highly compressed, large display type for maximum impact."
+      ],
+      "systemPrompt": "Vapi is an enterprise voice AI platform designed for developers. It features a sophisticated yet highly legible aesthetic built on a warm cream background (#FFFAEA), stark black typography (#1F1F23), and a singular red accent (#FA5E53) for primary calls to action. The typography system is strictly sans-serif, utilizing bold, geometric display fonts with tight letter-spacing for headlines and clean humanist sans-serif for body text. The layout is spacious, using a 12-column grid with generous padding. Critical design constraints include avoiding pure white backgrounds, avoiding decorative serifs, avoiding heavy visual clutter, and maintaining a restrained, professional color palette that prioritizes readability and enterprise trust."
+    },
+    "zh-CN": {
+      "identity": {
+        "keywords": [
+          "企业级",
+          "语音AI",
+          "平台",
+          "开发者",
+          "可扩展"
+        ],
+        "analogy": "一个企业级开发者平台，拥有如消费级应用般的亲和力，融合了高端编辑摄影与清晰的技术文档。",
+        "oneLiner": "一个以开发者为核心的平台，用于大规模构建与部署企业级语音AI智能体。"
+      },
+      "colors": {
+        "principle": "以温暖的米白色为基底，搭配高对比度的深色墨迹与单一高饱和度红色作为主要操作的强调色。"
+      },
+      "typography": {
+        "rules": [
+          "大型展示文本采用紧凑字间距（负值），营造现代、有力的视觉感受。",
+          "分类标签与“眉题”文本使用大写加宽字间距样式。",
+          "标题统一使用主几何无衬线字体，建立粗犷、技术感的品牌形象。"
+        ],
+        "scaleUses": [
+          "主标题",
+          "章节标题",
+          "卡片标题与功能标题",
+          "标准正文",
+          "元数据与辅助文本"
+        ]
+      },
+      "spacing": {
+        "rhythm": "采用充裕且均匀的间距，优先使用24px和40px的间隔，以在密集功能网格中保持清晰度。"
+      },
+      "surfaces": {
+        "shadows": [
+          "rgb(204, 204, 204) 0px 0px 2px 2px",
+          "0px 4px 6px -1px rgba(0, 0, 0, 0.1)"
+        ],
+        "borders": "采用极简的1px实线边框，用于微妙的容器划分与卡片定义。"
+      },
+      "layout": {
+        "skeleton": "标准的12列网格系统，外边距充裕，在移动端折叠为单列堆叠布局。"
+      },
+      "components": {
+        "button": "主要按钮使用深色胶囊形状配白色文字；次要按钮为带细微边框的透明幽灵按钮。",
+        "card": "简洁、大多无边框的区域，通过充裕留白与细微的水平分隔线进行划分。",
+        "chip": "功能性下拉菜单与状态标签，带有细微灰色边框与6px至8px的圆角。",
+        "input": "标准文本输入框，8px圆角，带细微边框与内部内边距。",
+        "hero": "全宽电影感摄影，叠加深色渐变以确保白色展示文本的高度可读性。"
+      },
+      "motion": {
+        "patterns": [
+          "交互元素采用平滑的颜色与背景过渡。",
+          "下拉菜单与浮层通过透明度与可见性淡入显示。",
+          "状态变化时伴随细微的transform位移动画。"
+        ]
+      },
+      "interaction": {
+        "hover": "按钮与链接上的细微颜色过渡与背景变化。",
+        "click": "立即的视觉反馈，伴随轻微的transform或透明度变化。",
+        "transition": "全局采用0.15秒cubic-bezier过渡，营造高度响应与精致的体验。",
+        "keyboard": "采用标准的focus环，使用细微的2px box-shadow以保证可访问性。"
+      },
+      "voice": {
+        "tone": "自信、技术导向、聚焦企业级应用。",
+        "headlineStyle": "简短、有力、以人为本（例如，“用人类语言与每位客户对话”）。",
+        "ctaStyle": "直接且以行动为导向（例如，“开始使用”、“发起通话”）。",
+        "avoid": [
+          "过于俏皮或随意的语言",
+          "缺乏明确上下文的行业术语",
+          "视觉杂乱的布局"
+        ]
+      },
+      "donts": [
+        "请勿使用纯白（#FFFFFF）背景——截图采用的是温暖的米白色（#FFFAEA）。",
+        "请勿使用装饰性衬线字体——截图完全依赖于简洁的几何与人文无衬线字体类别。",
+        "请勿使用亮色霓虹或多色渐变——配色严格限定为米白、黑色与单一红色强调色。",
+        "请勿使用厚重的投影——截图使用非常细微、几乎不可见的box-shadow来营造层次感。",
+        "请勿用边框使布局杂乱——截图通过充裕的留白与水平线进行分隔。",
+        "请勿使用大段多行引言——截图使用高度压缩的大号展示字体以实现最大视觉冲击力。"
+      ],
+      "systemPrompt": "Vapi是一个专为开发者设计的企业级语音AI平台。其美学精致且高度可读，建立在温暖的米白色背景（#FFFAEA）、醒目的黑色排版（#1F1F23）以及用于主要行动号召的单一红色强调色（#FA5E53）之上。排版系统严格采用无衬线字体，标题使用粗犷、几何的展示字体并搭配紧凑字间距，正文则使用简洁的人文无衬线字体。布局宽敞，采用12列网格并配以充裕的内边距。关键设计约束包括：避免纯白背景、避免装饰性衬线、避免视觉杂乱，并维持克制、专业的配色以优先保证可读性与企业信任感。"
+    },
+    "zh-TW": {
+      "identity": {
+        "keywords": [
+          "企業",
+          "語音 AI",
+          "平台",
+          "開發者",
+          "可擴展"
+        ],
+        "analogy": "一個感覺如同消費級應用般易於接近的企業級開發者平台，融合了高端編輯攝影與簡潔的技術文件。",
+        "oneLiner": "一個開發者優先的平台，用於大規模建構與部署企業語音 AI 代理。"
+      },
+      "colors": {
+        "principle": "一個溫潤的奶油色基礎色盤，搭配高對比度的深色墨色，並以單一高彩度紅色作為主要動作的強調色。"
+      },
+      "typography": {
+        "rules": [
+          "大型展示文字採用緊湊的字間距（負值），營造現代且有力的感覺。",
+          "類別標籤與「眉標」文字使用大寫及字間距加寬的樣式。",
+          "標題一致使用主要的幾何無襯線字體，以建立大膽、技術性的識別形象。"
+        ],
+        "scaleUses": [
+          "首頁標題",
+          "段落標題",
+          "卡片標題與功能標題",
+          "標準內文",
+          "中繼資料與輔助文字"
+        ]
+      },
+      "spacing": {
+        "rhythm": "寬敞、均勻的間距，特別偏好使用 24px 和 40px 的間隔，以在密集的功能網格中維持清晰度。"
+      },
+      "surfaces": {
+        "shadows": [
+          "rgb(204, 204, 204) 0px 0px 2px 2px",
+          "0px 4px 6px -1px rgba(0, 0, 0, 0.1)"
+        ],
+        "borders": "使用極簡的 1px 實線邊框，用於細微的容器界定與卡片定義。"
+      },
+      "layout": {
+        "skeleton": "標準 12 欄網格系統，具有充裕的外邊距，在移動端堆疊為單欄佈局。"
+      },
+      "components": {
+        "button": "主要按鈕使用深色藥丸形狀搭配白色文字；次要按鈕是透明的幽靈按鈕，帶有細微邊框。",
+        "card": "簡潔、大多無邊框的區塊，以充裕的留白與細微的水平分隔線分隔。",
+        "chip": "功能性的下拉選單與狀態標籤，帶有細微灰色邊框和 6px 至 8px 的邊框圓角。",
+        "input": "標準文字輸入欄位，具 8px 邊框圓角、細微邊框與內部內邊距。",
+        "hero": "全寬電影感攝影，搭配深色漸層覆蓋，以確保白色展示文字具有高度可讀性。"
+      },
+      "motion": {
+        "patterns": [
+          "互動元素上的平滑色彩與背景轉換。",
+          "下拉選單與覆蓋層顯示時的 opacity 與可見性漸隱。",
+          "狀態變換時的細微 transform 移動。"
+        ]
+      },
+      "interaction": {
+        "hover": "按鈕與連結上的細微色彩轉換與背景變化。",
+        "click": "透過輕微的 transform 或 opacity 變化提供即時視覺回饋。",
+        "transition": "全域 0.15s cubic-bezier 轉場，帶來高度靈敏且精緻的感受。",
+        "keyboard": "使用細微的 2px box-shadow 的標準 focus ring，以符合無障礙需求。"
+      },
+      "voice": {
+        "tone": "自信、技術導向且聚焦於企業。",
+        "headlineStyle": "簡短、有力且以人為本（例如：「以人類語言對話每一位客戶」）。",
+        "ctaStyle": "直接且以行動為導向（例如：「開始使用」、「發起通話」）。",
+        "avoid": [
+          "過於俏皮或隨意的語言",
+          "缺乏清晰脈絡的專業術語",
+          "視覺上雜亂的佈局"
+        ]
+      },
+      "donts": [
+        "請勿使用純白（#FFFFFF）背景——截圖中使用的是溫潤的奶油色米白（#FFFAEA）。",
+        "請勿使用裝飾性襯線字體——截圖完全依賴簡潔的幾何與人文無襯線字體類別。",
+        "請勿使用明亮的霓虹或多色漸層——色盤嚴格限定為奶油色、黑色與單一紅色強調色。",
+        "請勿使用厚重的陰影——截圖使用非常細微、幾乎不可見的 box-shadow 來營造深度。",
+        "請勿用邊框 clutter 佈局——截圖使用充裕的留白與水平線進行分隔。",
+        "請勿使用大型、多行的區塊引用——截圖使用高度壓縮的大型展示字體以達到最大衝擊力。"
+      ],
+      "systemPrompt": "Vapi 是一個為開發者設計的企業語音 AI 平台。其特色在於以溫潤奶油色背景（#FFFAEA）、鮮明的黑色字型（#1F1F23）與單一紅色強調色（#FA5E53）構建出精緻且高度易讀的美學。字型系統嚴格使用無襯線字體，標題採用粗體、幾何風格的展示字體並搭配緊湊字間距，內文則使用簡潔的人文無襯線字體。佈局寬敞，採用 12 欄網格並搭配充裕的內邊距。關鍵設計限制包括：避免純白背景、避免裝飾性襯線字體、避免視覺雜亂，並維持一個受限的專業色盤，以優先考慮可讀性與企業信任感。"
+    },
+    "ja": {
+      "identity": {
+        "keywords": [
+          "エンタープライズ",
+          "音声AI",
+          "プラットフォーム",
+          "開発者",
+          "スケーラブル"
+        ],
+        "analogy": "コンシューマアプリのように親しみやすいエンタープライズグレードの開発者向けプラットフォームであり、ハイエディタリアルな写真とクリーンな技術ドキュメントを融合させています。",
+        "oneLiner": "大規模なエンタープライズ音声AIエージェントを構築・デプロイするための、開発者ファーストのプラットフォームです。"
+      },
+      "colors": {
+        "principle": "温かみのあるクリーミーなベースパレットを、高コントラストのダークインクとプライマリアクション用の単一の高彩度レッドアクセントで構成しています。"
+      },
+      "typography": {
+        "rules": [
+          "大きな表示用テキストには tighten（負の）文字間隔を用い、モダンでインパクトのある印象を創出します。",
+          "カテゴリラベルや「アイブロー」テキストには大文字とトラッキングされたスタイルを用います。",
+          "見出しには一貫してプライマリなジオメトリックサンセリフを使用し、大胆でテクニカルなアイデンティティを確立します。"
+        ],
+        "scaleUses": [
+          "ヒーローヘッドライン",
+          "セクションヘッダー",
+          "カードタイトルと機能ヘッダー",
+          "標準本文テキスト",
+          "メタデータとヘルパーテキスト"
+        ]
+      },
+      "spacing": {
+        "rhythm": "余裕のある均一なスペーシングで、特に24pxと40pxの間隔を優先し、密度の高い機能グリッドでも明瞭さを維持します。"
+      },
+      "surfaces": {
+        "shadows": [
+          "rgb(204, 204, 204) 0px 0px 2px 2px",
+          "0px 4px 6px -1px rgba(0, 0, 0, 0.1)"
+        ],
+        "borders": "控えめな囲みとカード定義のために、最小限の1px実線ボーダーを使用します。"
+      },
+      "layout": {
+        "skeleton": "余裕のある外側パディングを持つ標準的な12カラムグリッドシステムで、モバイルでは単一カラムのスタックに折りたたまれます。"
+      },
+      "components": {
+        "button": "プライマリは白テキストを載せたダークなピル形状、セカンダリは控えめなボーダー付きの透明なゴーストボタンです。",
+        "card": "余裕のある空白と控えめな水平区切り線で区切られた、クリーンでほぼボーダーレスなセクションです。",
+        "chip": "控えめなグレーのボーダーと6pxから8pxのボーダー半径を持つ、機能的なドロップダウンとステータスピルです。",
+        "input": "8pxのボーダー半径、控えめなボーダー、内部パディングを持つ標準テキスト入力です。",
+        "hero": "ダークなグラデーションオーバーレイを重ねたフルワイドのシネマティックな写真で、白い表示テキストの高い可読性を確保しています。"
+      },
+      "motion": {
+        "patterns": [
+          "インタラクティブ要素の滑らかな色と背景の変化。",
+          "ドロップダウンやオーバーレイの表示時のフェードイン/フェードアウト。",
+          "状態変化時の控えめなトランスフォーム移動。"
+        ]
+      },
+      "interaction": {
+        "hover": "ボタンやリンクの控えめな色の変化と背景のシフト。",
+        "click": "軽微なトランスフォームやアルファ値の変化による即座の視覚フィードバック。",
+        "transition": "非常に応答性が高く洗練された印象のためのグローバル0.15秒のcubic-bezierトランジション。",
+        "keyboard": "アクセシビリティのための、控えめな2pxボックスシャドウを使用する標準フォーカスリング。"
+      },
+      "voice": {
+        "tone": "自信に満ち、テクニカルで、エンタープライズに焦点を当てたトーンです。",
+        "headlineStyle": "短く、インパクトがあり、人間中心的なスタイル（例：「すべての顧客に人間の言葉で語りかける」）。",
+        "ctaStyle": "直接的でアクション指向のスタイル（例：「始める」「通話を開始」）。",
+        "avoid": [
+          "過度にplaybackまたはカジュアルな言葉遣い",
+          "明確なコンテキストのない専門用語",
+          "視覚的に雑然としたレイアウト"
+        ]
+      },
+      "donts": [
+        "純白（#FFFFFF）の背景を使用しないこと — スクリーンショットでは温かみのあるクリーミーなオフホワイト（#FFFAEA）が使用されています。",
+        "装飾的なセリフフォントを使用しないこと — スクリーンショットは完全にクリーンなジオメトリックおよびヒューマニストサンセリフ系に依存しています。",
+        "明るいネオン或多色グラデーションを使用しないこと — パレットはクリーム色、黒、単一のレッドアクセントに厳密に限定されています。",
+        "重いドロップシャドウを使用しないこと — スクリーンショットは奥行きのために非常に控えめで几乎見えないボックスシャドウを使用しています。",
+        "ボーダーでレイアウトを雑然とさせないこと — スクリーンショットは分離のために余裕のある空白と水平線を使用しています。",
+        "大きな複数行のブロッククォートを使用しないこと — スクリーンショットは最大のインパクトのために高度に圧縮された大きな表示タイプを使用しています。"
+      ],
+      "systemPrompt": "Vapiは、開発者向けに設計されたエンタープライズ音声AIプラットフォームです。温かみのあるクリーム色の背景（#FFFAEA）、鮮明なブラックタイポグラフィ（#1F1F23）、プライマリアクション用の単一のレッドアクセント（#FA5E53）に基づいた、洗練されながらも非常に可読性の高い美学が特徴です。タイポグラフィシステムは厳密にサンセリフであり、見出しにはtightな文字間隔の太字ジオメトリック表示フォント、本文にはクリーンなヒューマニストサンセリフを使用しています。レイアウトはゆとりがあり、12カラムグリッドと余裕のあるパディングを採用しています。重要なデザイン制約として、純白の背景の使用回避、装飾的セリフの回避、視覚的な雑踏の回避、および可読性とエンタープライズ信頼性を優先した控えめでプロフェッショナルなカラーパレットの維持が挙げられます。"
+    },
+    "ko": {
+      "identity": {
+        "keywords": [
+          "엔터프라이즈",
+          "음성 AI",
+          "플랫폼",
+          "개발자",
+          "확장 가능"
+        ],
+        "analogy": "소비자 앱처럼 접근 가능하게 느껴지면서도 하이엔드 에디토리얼 사진과 깔끔한 기술 문서를 결합한 엔터프라이즈급 개발자 플랫폼입니다.",
+        "oneLiner": "대규모로 엔터프라이즈 음성 AI 에이전트를 구축 및 배포하기 위한 개발자 중심 플랫폼입니다."
+      },
+      "colors": {
+        "principle": "고대비 다크 인크와 단일 고채도 레드 강조색을 기본으로 한 따뜻하고 크리미한 베이스 팔레트입니다."
+      },
+      "typography": {
+        "rules": [
+          "대형 디스플레이 텍스트의 좁은 자간(네거티브)으로 현대적이고 강렬한 느낌을 연출합니다.",
+          "카테고리 레이블과 '에이브로우' 텍스트의 대문자 및 넓은 자간 스타일을 적용합니다.",
+          "헤드라인에 일관된 기본 기하학적 산세리프를 사용하여 강렬하고 기술적인 아이덴티티를 확립합니다."
+        ],
+        "scaleUses": [
+          "히어로 헤드라인",
+          "섹션 헤더",
+          "카드 제목 및 기능 헤더",
+          "일반 본문 텍스트",
+          "메타데이터 및 도움말 텍스트"
+        ]
+      },
+      "spacing": {
+        "rhythm": "밀도 높은 기능 그리드의 명확성을 유지하기 위해 24px 및 40px 간격을 우선적으로 사용하는 넉넉하고 균일한 간격입니다."
+      },
+      "surfaces": {
+        "shadows": [
+          "rgb(204, 204, 204) 0px 0px 2px 2px",
+          "0px 4px 6px -1px rgba(0, 0, 0, 0.1)"
+        ],
+        "borders": "미세한 영역 구분과 카드 정의를 위해 사용되는 최소한의 1px 실선 테두리입니다."
+      },
+      "layout": {
+        "skeleton": "넉넉한 외부 패딩을 사용하는 표준 12열 그리드 시스템이며, 모바일에서는 단일 열 스택으로 축소됩니다."
+      },
+      "components": {
+        "button": "주요 버튼은 화이트 텍스트가 포함된 다크 필 모양이며, 보조 버튼은 미세한 테두리가 있는 투명 고스트 버튼입니다.",
+        "card": "넉넉한 여백과 미세한 수평 구분선으로 분리된 깔끔하고 거의 테두리 없는 섹션입니다.",
+        "chip": "미세한 회색 테두리와 6px~8px 테두리 반경을 가진 기능적 드롭다운 및 상태 필입니다.",
+        "input": "8px 테두리 반경, 미세한 테두리 및 내부 패딩을 갖는 표준 텍스트 입력란입니다.",
+        "hero": "화이트 디스플레이 텍스트의 높은 가독성을 보장하기 위해 다크 그라디언트 오버레이가 적용된 전체 폭 시네마틱 사진입니다."
+      },
+      "motion": {
+        "patterns": [
+          "인터랙티브 요소의 부드러운 색상 및 배경 전환.",
+          "드롭다운 및 오버레이 표시를 위한 불투명도 및 가시성 페이드.",
+          "상태 변화를 위한 미세한 변환 이동."
+        ]
+      },
+      "interaction": {
+        "hover": "버튼 및 링크의 미세한 색상 전환 및 배경 변화.",
+        "click": "약간의 변환 또는 불투명도 변화로 즉각적인 시각적 피드백을 제공합니다.",
+        "transition": "매우 반응적이고 정교한 느낌을 주기 위한 전역 0.15s cubic-bezier 전환.",
+        "keyboard": "접근성을 위해 미세한 2px box-shadow를 사용하는 표준 포커스 링입니다."
+      },
+      "voice": {
+        "tone": "자신감 있고 기술적이며 엔터프라이즈에 초점을 맞춘 어조입니다.",
+        "headlineStyle": "짧고 강렬하며 인간 중심적입니다(예: '모든 고객과 인간적으로 대화하세요').",
+        "ctaStyle": "직설적이고 행동 지향적입니다(예: '시작하기', '통화 시작').",
+        "avoid": [
+          "지나치게 장난스럽거나 캐주얼한 언어",
+          "명확한 맥락 없는 전문 용어",
+          "시각적으로 복잡한 레이아웃"
+        ]
+      },
+      "donts": [
+        "순백(#FFFFFF) 배경을 사용하지 마세요 — 스크린샷에서는 따뜻하고 크리미한 오프화이트(#FFFAEA)를 사용합니다.",
+        "장식용 세리프 폰트를 사용하지 마세요 — 스크린샷은 깔끔하고 기하학적이며 휴머니스트 산세리프 카테고리에만 의존합니다.",
+        "밝은 네온 또는 다색 그라디언트를 사용하지 마세요 — 팔레트는 크림, 블랙, 단일 레드 강조색으로 엄격히 제한됩니다.",
+        "무거운 드롭 섀도우를 사용하지 마세요 — 스크린샷은 깊이감을 위해 거의 보이지 않을 정도로 미세한 box-shadow를 사용합니다.",
+        "테두리로 레이아웃을 어지럽히지 마세요 — 스크린샷은 분리를 위해 넉넉한 여백과 수평선을 사용합니다.",
+        "크고 여러 줄짜리 블록 인용문을 사용하지 마세요 — 스크린샷은 최대한의 임팩트를 위해 압축된 큰 디스플레이 타입을 사용합니다."
+      ],
+      "systemPrompt": "Vapi는 개발자를 위해 설계된 엔터프라이즈 음성 AI 플랫폼입니다. 따뜻한 크림 배경(#FFFAEA), 강렬한 블랙 타이포그래피(#1F1F23), 주요 행동을 위한 단일 레드 강조색(#FA5E53)으로 구축된 정교하면서도 높은 가독성을 갖춘 미학을 특징으로 합니다. 타이포그래피 시스템은 헤드라인을 위한 좁은 자간의 굵고 기하학적인 디스플레이 폰트와 본문을 위한 깔끔한 휴머니스트 산세리프를 사용하는 엄격한 산세리프입니다. 레이아웃은 넉넉한 패딩을 사용하는 12열 그리드로 넓습니다. 주요 디자인 제약 사항에는 순백 배경 사용 회피, 장식용 세리프 사용 회피, 시각적 혼잡 사용 회피, 가독성과 엔터프라이즈 신뢰를 우선시하는 엄격하고 전문적인 팔레트 유지가 포함됩니다."
+    }
+  },
+  "desc": {
+    "en": {
+      "palette": "A warm, creamy off-white base palette anchored by high-contrast black ink and a single, high-chroma red accent for primary interactions.",
+      "layout": "A spacious, 12-column grid-based layout that uses generous padding and horizontal dividers to organize dense enterprise information clearly.",
+      "interaction": "Highly polished micro-interactions with smooth 0.15s cubic-bezier transitions on hover and click states.",
+      "motion": "Subtle and professional motion patterns focusing on smooth opacity fades and background color transitions.",
+      "notes": "This site is an excellent example of balancing high-end editorial photography with a clean, developer-centric SaaS aesthetic."
+    },
+    "zh-CN": {
+      "palette": "以温暖的米白色为基底，搭配高对比度的纯黑墨色与单一高饱和度红色作为主要交互的强调色。",
+      "layout": "宽敞的12列网格布局，通过充裕的内边距与水平分割线，清晰组织密集的企业信息。",
+      "interaction": "高度打磨的微交互，在hover与点击状态下采用0.15秒平滑cubic-bezier过渡效果。",
+      "motion": "克制且专业的动态效果，聚焦于平滑的透明度渐变与背景色过渡。",
+      "notes": "此网站是平衡高端编辑摄影与简洁、开发者主导的SaaS美学的优秀范例。"
+    },
+    "zh-TW": {
+      "palette": "溫潤的奶油色米白基礎色盤，搭配高對比度的黑色墨色，並以單一高彩度紅色作為主要互動的強調色。",
+      "layout": "寬敞的 12 欄網格佈局，運用充裕的內邊距與水平分隔線，清晰地組織密集的企業資訊。",
+      "interaction": "高度精緻的微互動，在 hover 與 click 狀態下使用流暢的 0.15s cubic-bezier 轉場效果。",
+      "motion": "微妙且專業的動態模式，聚焦於平滑的 opacity 漸變與背景色彩轉換。",
+      "notes": "此網站是平衡高端編輯攝影與簡潔、開發者導向 SaaS 美學的優秀範例。"
+    },
+    "ja": {
+      "palette": "温かみのあるクリーミーなオフホワイトをベースに、高コントラストの黒インクと、プライマリインタラクション用の単一の高彩度レッドアクセントで構成されるパレットです。",
+      "layout": "12カラムグリッドを基盤としたゆとりのあるレイアウトで、余裕のあるパディングと水平区切り線を用いて、密度の高いエンタープライズ情報を明確に整理しています。",
+      "interaction": "ホバーおよびクリック状態において滑らかな0.15秒のcubic-bezierトランジションを用いた、非常に洗練されたマイクロインタラクションです。",
+      "motion": "滑らかなフェードイン/フェードアウトと背景色の変化に焦点を当てた、控えめかつプロフェッショナルなモーションパターンです。",
+      "notes": "このサイトは、ハイエディタリアルな写真とクリーンで開発者中心のSaaS美学のバランスの取れた優れた例です。"
+    },
+    "ko": {
+      "palette": "고대비 블랙 인크와 단일 고채도 레드 강조색을 기본으로 한 따뜻하고 크리미한 오프화이트 베이스 팔레트입니다. 주요 상호작용에 사용됩니다.",
+      "layout": "넓은 12열 그리드 기반 레이아웃으로, 넉넉한 패딩과 수평 구분선을 사용하여 밀도 높은 엔터프라이즈 정보를 명확하게 구성합니다.",
+      "interaction": "호버 및 클릭 상태에서 부드러운 0.15s cubic-bezier 전환을 사용하는 정교한 마이크로 상호작용입니다.",
+      "motion": "부드러운 불투명도 페이드와 배경색 전환에 초점을 맞춘 미세하고 전문적인 모션 패턴입니다.",
+      "notes": "이 사이트는 하이엔드 에디토리얼 사진과 깔끔한 개발자 중심 SaaS 미학의 균형을 맞추는 훌륭한 예시입니다."
+    }
+  },
+  "_meta": {
+    "vision_model": "mimo-v2.5",
+    "vision_prompt_version": "0.3",
+    "vision_source": "playwright-extract:vapi",
+    "vision_grounded": true,
+    "vision_at": "2026-06-04T19:47:45+00:00",
+    "vision_tokens": 17290,
+    "vision_cost_usd": 0.1921,
+    "translation_model": "mimo-v2.5",
+    "translation_at": "2026-06-04T19:49:13+00:00",
+    "translation_tokens": 19454,
+    "translation_cost_usd": 0.0648,
+    "narrative_model": "mimo-v2.5",
+    "narrative_prompt_version": "0.3",
+    "narrative_at": "2026-06-04T19:49:23+00:00",
+    "narrative_tokens": 2290,
+    "narrative_cost_usd": 0.0153,
+    "narrative_status": "ok",
+    "total_cost_usd": 0.2722
+  },
+  "narrative": {
+    "en": {
+      "ch1_intro": "Vapi's design language operates on the principle of a developer-first platform that feels as approachable as a consumer app. It balances high-end editorial photography with clean, technical documentation, creating a system that is both enterprise-grade and intuitively navigable. This duality defines the identity: a sophisticated tool for building voice AI that is itself built on a foundation of clarity and trust.",
+      "ch2_intro": "The color system is built on a warm, creamy base palette anchored by high-contrast dark ink and a single high-chroma red accent for primary actions. This restrained trio—cream, black, and a singular red—creates a professional canvas that prioritizes legibility and enterprise trust.",
+      "ch2_outro": "The palette's restraint is deliberate, avoiding decorative flourishes to keep the focus on functional clarity and strong visual hierarchy.",
+      "ch3_intro": "The typographic voice is defined by a primary geometric sans-serif for headlines, establishing a bold, technical identity. Paired with a clean humanist sans-serif for body text, the system uses tight letter-spacing for display sizes and tracked uppercase for category labels to create a modern, punchy feel.",
+      "ch4_intro": "Spacing follows a generous, even rhythm built on a strong preference for 24px and 40px gaps, maintaining clarity in dense feature grids.",
+      "ch5_intro": "Depth is conveyed through minimal, almost invisible box-shadows and subtle 1px solid borders used for containment and card definition. Surfaces are kept clean, relying on generous whitespace and horizontal dividers rather than heavy visual clutter.",
+      "ch6_intro": "The layout skeleton is a standard 12-column grid system with generous outer padding, providing a robust structure for dense content. This grid collapses gracefully into a single-column mobile stack, ensuring the system is scalable and responsive.",
+      "ch7_intro": "Motion is treated as functional feedback, with smooth 0.15s cubic-bezier transitions applied globally for a highly responsive and polished feel. Patterns are subtle and professional—fades for overlays, background shifts on interaction, and slight transforms for state changes.",
+      "ch8_intro": "The editorial voice is confident, technical, and enterprise-focused, matching the platform's purpose. Headlines are short, punchy, and human-centric, while CTAs are direct and action-oriented, maintaining a tone that is professional without being sterile.",
+      "ch8_outro": "The system deliberately avoids playful language, uncontextualized jargon, and visual clutter, enforcing a disciplined, trustworthy aesthetic."
+    },
+    "zh-CN": {
+      "ch1_intro": "Vapi 的设计语言基于一个核心理念：打造一个开发者优先的平台，同时具备消费级应用般的亲和力。它在高端编辑摄影与简洁的技术文档之间取得平衡，构建了一个既具企业级品质又易于直观导航的系统。这种双重特性定义了其身份：一个构建语音 AI 的精致工具，其自身便建立在清晰与信任的基础之上。",
+      "ch2_intro": "色彩体系建立在温暖、奶油色的基底色板上，以高对比度的深墨色为主，并辅以单一的高饱和度红色作为主要操作的强调色。这一克制的三色组合——奶油色、黑色与单一的红色——创造了一个专业画布，优先确保可读性与企业级信任感。",
+      "ch2_outro": "色板的克制是刻意的，旨在避免装饰性修饰，从而将焦点保持在功能清晰度与强烈的视觉层次上。",
+      "ch3_intro": "排版风格以一款几何无衬线字体作为标题首选，确立了大胆、技术化的基调。搭配一款简洁的人文主义无衬线字体用于正文，该系统在展示尺寸上采用紧凑的字距，并在分类标签中使用字距调整的大写字母，以营造现代、有力的视觉感受。",
+      "ch4_intro": "间距遵循宽松、均匀的节奏，强烈倾向于使用 24px 和 40px 的间隔，在密集的功能网格中保持清晰度。",
+      "ch5_intro": "深度感通过极其简约、几乎不可见的 box-shadow 和用于界定范围与卡片定义的细微 1px 实线边框来传达。界面表面保持洁净，依赖充足的留白和水平分隔线，而非厚重的视觉堆砌。",
+      "ch6_intro": "布局骨架是标准的 12 栏网格系统，具有充足的外边距，为密集内容提供了稳固的结构。该网格在移动端会优雅地坍缩为单栏堆叠，确保系统具有可扩展性与响应式能力。",
+      "ch7_intro": "动效被视为功能性反馈，通过全局应用平滑的 0.15s cubic-bezier 过渡，营造出高度响应与精致的体验。模式低调而专业——覆盖层使用淡入淡出、交互时的背景转换，以及状态变化时的轻微形变。",
+      "ch8_intro": "编辑风格自信、技术化且聚焦企业，与平台的目标相契合。标题简短、有力、以人为本，而行动号召则直接、以行动为导向，保持着一种专业而不失温度的语调。",
+      "ch8_outro": "该系统刻意避免了 playful 的语言、脱离语境的行话以及视觉上的杂乱，旨在营造一种严谨、值得信赖的美学风格。"
+    },
+    "zh-TW": {
+      "ch1_intro": "Vapi 的設計語言遵循開發者優先平台的原則，同時保持如同消費應用般的親和力。它在高端社論風格攝影與簡潔的技術文件之間取得平衡，打造了一套既具企業級水準又直覺易導覽的系統。這種二元性定義了其識別：一個建構語音 AI 的精密工具，其本身也建立在清晰與信任的基礎之上。",
+      "ch2_intro": "色彩系統建立在溫潤的奶油色基礎色盤上，輔以高對比的深墨黑與一個高飽和度的紅色作為主要操作的強調色。這組節制的三色組合——奶油色、黑色與單一紅色——創造了一個專業的畫布，優先考慮易讀性與企業信任感。",
+      "ch2_outro": "色盤的節制是刻意的，避免裝飾性綴飾，以將焦點保持在功能清晰度與強大的視覺層級上。",
+      "ch3_intro": "字體語調以一款主要的幾何無襯線字體作為標題，確立了大膽、技術感的識別。搭配一款簡潔的人文主義無襯線字體用於內文，系統在展示尺寸使用緊湊的字距，並為類別標籤使用帶有字距調整的大寫字母，營造現代、有力的感受。",
+      "ch4_intro": "間距遵循一個寬裕、均勻的節奏，強烈偏好 24px 與 40px 的間隙，在密集的功能網格中維持清晰度。",
+      "ch5_intro": "深度透過極簡、幾乎不可見的 box-shadows 與細微的 1px 實線邊框來傳達，用於容器界定與卡片定義。介面保持乾淨，依賴寬裕的留白與水平分隔線，而非沉重的視覺雜亂。",
+      "ch6_intro": "版面骨架是一個標準的 12 欄網格系統，帶有寬裕的外邊距，為密集內容提供穩固的結構。此網格優雅地塌縮為單欄的行動裝置堆疊，確保系統可擴展且具響應性。",
+      "ch7_intro": "動態效果被視為功能性反饋，全球應用平滑的 0.15s cubic-bezier 轉場，帶來高度回應與精緻的感覺。模式細微且專業——覆蓋層的淡入淡出、互動時的背景轉換，以及狀態變換時的輕微 transform。",
+      "ch8_intro": "社論語調自信、技術導向且以企業為焦點，符合平台的目的。標題簡短、有力且以人為本，而 CTA 則直接且著重行動，維持一種專業但不冰冷的語氣。",
+      "ch8_outro": "系統刻意避免俏皮的語言、缺乏脈絡的行話與視覺雜亂，強制執行一種自律、值得信賴的美學。"
+    },
+    "ja": {
+      "ch1_intro": "Vapiのデザイン言語は、コンシューマアプリのように親しみやすい体験を提供する、開発者優先のプラットフォームという原則に基づいています。高級エディトリアル写真とクリーンで技術的なドキュメントのバランスを取り、エンタープライズグレードでありながら直感的に操作可能なシステムを構築しています。この二重性がアイデンティティを定義します。すなわち、明瞭さと信頼の基盤の上に構築された、音声AIを構築するための洗練されたツールです。",
+      "ch2_intro": "カラーシステムは、温暖でクリーミーなベースパレットに、高コントラストのダークインクと、プライマリアクション用の単一の高彩度アクセントカラーを組み合わせて構築されています。この抑制の効いた3色構成（クリーム、ブラック、単一の赤）は、可読性とエンタープライズの信頼を優先するプロフェッショナルなキャンバスを生み出します。",
+      "ch2_outro": "パレットの抑制は意図的であり、装飾的な装飾を避け、機能的な明瞭さと強いビジュアルヒエラルキーに焦点を当てています。",
+      "ch3_intro": "タイポグラフィの声は、見出し用のプライマリジオメトリックサンセリフで定義され、太く技術的なアイデンティティを確立します。本文用のクリーンなヒューマニストサンセリフとペアリングし、システムはディスプレイサイズに tighten した字間と、カテゴリラベルにトラック付き大文字を使用し、現代的で力強い印象を生み出します。",
+      "ch4_intro": "余白は、24pxと40pxの間隔を強く優先した、豊かで均一なリズムに従い、密集したフィーチャーグリッドでも明瞭さを維持します。",
+      "ch5_intro": "深みは、最小限の、ほとんど見えないボックスシャドウと、コンテナやカード定義に使用される微細な1px Solidボーダーで表現されます。サーフェスはクリーンに保たれ、重い視覚的な雑然とした情報ではなく、豊かなホワイトスペースと水平線に依存しています。",
+      "ch6_intro": "レイアウトスケルトンは、豊かな外側のパディングを持つ標準的な12カラムグリッドシステムであり、密集したコンテンツに対して堅牢な構造を提供します。このグリッドはシングルカラムのモバイルスタックに優雅に崩れ、システムがスケーラブルでレスポンシブであることを保証します。",
+      "ch7_intro": "モーションは機能的なフィードバックとして扱われ、非常に Responsiveness で洗練された印象を与えるため、滑らかな0.15sのcubic-bezierトランジションがグローバルに適用されます。パターンは微細でプロフェッショナルです。オーバーレイにはフェード、インタラクション時の背景シフト、状態変化時の微細なトランスフォームを使用します。",
+      "ch8_intro": "エディトリアルな声は、プラットフォームの目的に合わせ、自信に満ち、技術的で、エンタープライズ焦点を当てています。見出しは短く、力強く、人間中心的です。一方、CTAは直接的でアクション志向であり、無機質にならずプロフェッショナルなトーンを維持します。",
+      "ch8_outro": "システムは、遊び心のある言語、文脈のない専門用語、視覚的な雑然とした情報を意図的に避け、規律正しく信頼できる美学を強制しています。"
+    },
+    "ko": {
+      "ch1_intro": "Vapi의 디자인 언어는 개발자 중심 플랫폼의 원칙 위에 구축되었습니다. 마치 소비자 앱처럼 접근 가능하게 느껴지도록 설계되었으며, 하이엔드 에디토리얼 사진과 깔끔한 기술 문서의 균형을 맞춰 엔터프라이즈급이면서도 직관적으로 탐색할 수 있는 시스템을 창조합니다. 이 이중성이 아이덴티터를 정의합니다: 명확성과 신뢰의 토대 위에 구축된, 음성 AI를 구축하기 위한 정교한 도구가 바로 그것입니다.",
+      "ch2_intro": "컬러 시스템은 고대비 다크 잉크와 주요 액션을 위한 단일 고채도 레드 액센트로 기반을 잡은 따뜻하고 크리미한 베이스 팔레트 위에 구축됩니다. 이 절제된 세 가지 조합—크림, 블랙, 그리고 단일 레드—는 가독성과 엔터프라이즈 신뢰를 우선시하는 전문적인 캔버스를 만듭니다.",
+      "ch2_outro": "팔레트의 절제는 의도적입니다. 장식적 요소를 피하고 기능적 명확성과 강한 시각적 계층 구조에 초점을 맞추기 위함입니다.",
+      "ch3_intro": "타이포그래피 음성은 헤드라인을 위한 기본 기하학적 산세리프로 정의되어 대담하고 기술적인 아이덴티터를 확립합니다. 본문 텍스트를 위한 깔끔한 휴머니스트 산세리프와 페어링하여, 디스플레이 크기에는 타이트한 자간을, 카테고리 레이블에는 추적된 대문자를 사용하여 현대적이고 강렬한 느낌을 연출합니다.",
+      "ch4_intro": "간격은 24px와 40px 간격에 대한 강한 선호를 기반으로 한 넉넉하고 균일한 리듬을 따릅니다. 밀도 높은 기능 그리드에서도 명확성을 유지합니다.",
+      "ch5_intro": "깊이는 최소한의, 거의 보이지 않는 박스 섀도우와 containment 및 카드 정의를 위해 사용되는 미묘한 1px solid 테두리를 통해 전달됩니다. 표면은 깔끔하게 유지되며, 무거운 시각적 혼잡함보다는 넉넉한 여백과 수평 구분선에 의존합니다.",
+      "ch6_intro": "레이아웃 스켈레톤은 넉넉한 외부 패딩을 갖춘 표준 12열 그리드 시스템으로, 밀도 높은 콘텐츠를 위한 견고한 구조를 제공합니다. 이 그리드는 모바일 스택으로 우아하게 단일 열로 축소되어 시스템이 확장 가능하고 반응적임을 보장합니다.",
+      "ch7_intro": "모션은 기능적 피드백으로 취급되며, 매우 반응적이고 세련된 느낌을 위해 전역적으로 매끄러운 0.15s cubic-bezier 전환이 적용됩니다. 패턴은 미묘하고 전문적입니다—오버레이용 페이드, 상호작용 시 배경 변화, 그리고 상태 변경을 위한 약간의 변환.",
+      "ch8_intro": "에디토리얼 음성은 플랫폼의 목적에 맞게 자신감 있고 기술적이며 엔터프라이즈 중심적입니다. 헤드라인은 짧고 강렬하며 인간 중심적이며, CTA는 직접적이고 행동 지향적입니다. 전문적이면서도 딱딱하지 않은 톤을 유지합니다.",
+      "ch8_outro": "시스템은 의도적으로 장난스러운 언어, 맥락 없는 전문 용어, 그리고 시각적 혼잡함을 피하며, 절제되고 신뢰할 수 있는 미학을 강화합니다."
+    }
+  }
 }

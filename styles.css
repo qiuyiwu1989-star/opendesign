@@ -1171,6 +1171,55 @@ input:focus-visible {
   grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
+/* ===== 骨架屏动画 ===== */
+@keyframes skeleton-pulse {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.45; }
+}
+.skeleton-thumb {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  background: #ebebea;
+  border-radius: 4px;
+  animation: skeleton-pulse 1.6s ease-in-out infinite;
+}
+.skeleton-line {
+  height: 11px;
+  background: #ebebea;
+  border-radius: 3px;
+  animation: skeleton-pulse 1.6s ease-in-out infinite;
+}
+.library-card--skeleton {
+  pointer-events: none;
+}
+.library-card--skeleton .library-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+/* sentinel：不可见占位，用于 IntersectionObserver 触发下一批加载 */
+.lib-sentinel {
+  grid-column: 1 / -1;
+  height: 1px;
+  visibility: hidden;
+}
+/* 无限画布循环分隔线 */
+.lib-loop-divider {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 0 24px;
+  pointer-events: none;
+}
+.lib-loop-divider span {
+  font-size: 11px;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--ink-soft, #bbb);
+  font-weight: 500;
+}
+
 .library-card {
   position: relative;
   display: flex;
@@ -1802,6 +1851,260 @@ input:focus-visible {
 }
 
 /* ─────── 设计素材包 manifest 区 ─────── */
+/* ══════════════════════════════════════════════════════
+   截图画廊（tier-2 详情抽屉）
+   ══════════════════════════════════════════════════════ */
+.pack-gallery {
+  border-top: 1px solid var(--ink);
+  padding: 20px 0 0;
+  margin: 0;
+}
+.gallery-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 32px 14px;
+}
+.gallery-tabs {
+  display: flex;
+  gap: 4px;
+  background: rgba(10,10,10,.06);
+  padding: 3px;
+  border-radius: 8px;
+}
+.gallery-tab {
+  padding: 5px 14px;
+  border: none;
+  border-radius: 6px;
+  background: none;
+  font: 12px/1 var(--font-ui, inherit);
+  font-weight: 600;
+  color: var(--muted, #666);
+  cursor: pointer;
+  transition: background .12s, color .12s;
+}
+.gallery-tab.active {
+  background: #fff;
+  color: var(--ink, #111);
+  box-shadow: 0 1px 3px rgba(0,0,0,.12);
+}
+.gallery-count {
+  font-size: 12px;
+  color: var(--muted, #999);
+  letter-spacing: .02em;
+}
+.gallery-strip {
+  display: flex;
+  align-items: stretch;
+  height: 260px;          /* ← 固定高度：裁掉超长全页图 */
+  gap: 10px;
+  padding: 0 32px 0;
+  margin-bottom: 24px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+.gallery-strip::-webkit-scrollbar { display: none; }
+.gallery-img-wrap {
+  flex: 0 0 auto;
+  height: 100%;            /* 撑满固定高度 */
+  scroll-snap-align: start;
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid var(--line, #e8e6e2);
+  cursor: zoom-in;
+  transition: transform .18s, box-shadow .18s;
+  background: var(--bg-soft, #f7f6f4);
+}
+.gallery-img-wrap:hover {
+  transform: scale(1.015);
+  box-shadow: 0 6px 20px rgba(0,0,0,.13);
+  z-index: 1;
+}
+/* 桌面截图：16:9 宽高比，高度由 strip 决定 → 宽 ≈ 462px */
+.gallery-img-wrap.full-shot,
+.gallery-img-wrap.hero-shot,
+.gallery-img-wrap.section-shot {
+  aspect-ratio: 16 / 9;
+}
+/* 移动端截图：9:19.5 竖屏比，高度由 strip 决定 → 宽 ≈ 120px */
+.gallery-img-wrap.mobile-shot {
+  aspect-ratio: 9 / 19.5;
+}
+.gallery-img-wrap img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;  /* 超长图从顶部裁，保留首屏内容 */
+}
+.gallery-img-label {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  padding: 6px 10px;
+  background: linear-gradient(to top, rgba(0,0,0,.55), transparent);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  opacity: 0;
+  transition: opacity .15s;
+}
+.gallery-img-wrap:hover .gallery-img-label { opacity: 1; }
+
+/* ── Lightbox ────────────────────────────── */
+.gallery-lightbox {
+  position: fixed; inset: 0; z-index: 900;
+  background: rgba(0,0,0,.88);
+  display: flex; align-items: center; justify-content: center;
+  padding: 20px;
+  cursor: zoom-out;
+  animation: lb-in .15s ease;
+}
+@keyframes lb-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+.gallery-lightbox img {
+  max-width: 100%; max-height: 100%;
+  object-fit: contain;
+  border-radius: 8px;
+  box-shadow: 0 24px 80px rgba(0,0,0,.6);
+  user-select: none;
+  pointer-events: none;
+}
+.gallery-lightbox-close {
+  position: absolute; top: 16px; right: 16px;
+  width: 40px; height: 40px;
+  border: none; background: rgba(255,255,255,.15);
+  border-radius: 50%; color: #fff;
+  font-size: 20px; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  backdrop-filter: blur(6px);
+}
+.gallery-lightbox-prev,
+.gallery-lightbox-next {
+  position: absolute; top: 50%; transform: translateY(-50%);
+  width: 44px; height: 44px;
+  border: none; background: rgba(255,255,255,.15);
+  border-radius: 50%; color: #fff;
+  font-size: 20px; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  backdrop-filter: blur(6px);
+  transition: background .15s;
+}
+.gallery-lightbox-prev:hover,
+.gallery-lightbox-next:hover { background: rgba(255,255,255,.3); }
+.gallery-lightbox-prev { left: 16px; }
+.gallery-lightbox-next { right: 16px; }
+.gallery-lightbox-caption {
+  position: absolute; bottom: 16px;
+  left: 50%; transform: translateX(-50%);
+  color: rgba(255,255,255,.7); font-size: 12px;
+  background: rgba(0,0,0,.4);
+  padding: 4px 12px; border-radius: 999px;
+  pointer-events: none;
+}
+
+@media (max-width: 600px) {
+  .gallery-header { padding: 0 16px 12px; }
+  .gallery-strip  { padding: 0 16px 0; margin-bottom: 20px; height: 200px; }
+}
+
+/* ── 设计文档内联预览 ─────────────────────── */
+.pack-docs {
+  border-top: 1px solid var(--ink);
+  padding: 20px 32px 0;
+  margin: 0;
+}
+.pack-docs-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+.pack-docs-link {
+  font-size: 12px;
+  color: var(--accent, #666);
+  text-decoration: none;
+  letter-spacing: .04em;
+  opacity: .7;
+  transition: opacity .12s;
+}
+.pack-docs-link:hover { opacity: 1; text-decoration: underline; }
+.pack-docs-body {
+  font-size: 13.5px;
+  line-height: 1.75;
+  color: var(--ink, #111);
+  max-height: 340px;
+  overflow: hidden;
+  position: relative;
+  /* fade-out at bottom */
+}
+.pack-docs-body::after {
+  content: "";
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 80px;
+  background: linear-gradient(to bottom, transparent, var(--bg, #fafaf8));
+  pointer-events: none;
+}
+.pack-docs-body.expanded { max-height: none; }
+.pack-docs-body.expanded::after { display: none; }
+.pack-docs-expand {
+  display: block;
+  width: 100%;
+  margin: 8px 0 24px;
+  padding: 10px;
+  border: 1px solid var(--line, #e0ddd8);
+  border-radius: 8px;
+  background: none;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--muted, #888);
+  cursor: pointer;
+  text-align: center;
+  letter-spacing: .05em;
+  transition: border-color .12s, color .12s;
+}
+.pack-docs-expand:hover { border-color: var(--ink); color: var(--ink); }
+/* Markdown 渲染样式 */
+.pack-docs-body h1 { font-size: 18px; font-weight: 700; margin: 0 0 12px; line-height: 1.3; }
+.pack-docs-body h2 { font-size: 14px; font-weight: 700; margin: 20px 0 8px; text-transform: uppercase; letter-spacing: .06em; opacity: .55; }
+.pack-docs-body h3 { font-size: 13.5px; font-weight: 600; margin: 14px 0 6px; }
+.pack-docs-body p  { margin: 0 0 10px; }
+.pack-docs-body ul,
+.pack-docs-body ol { margin: 0 0 10px; padding-left: 20px; }
+.pack-docs-body li { margin-bottom: 4px; }
+.pack-docs-body code {
+  font-family: var(--font-mono, monospace);
+  font-size: 12px;
+  background: rgba(0,0,0,.06);
+  padding: 1px 5px;
+  border-radius: 4px;
+}
+.pack-docs-body pre {
+  background: rgba(0,0,0,.05);
+  border-radius: 8px;
+  padding: 12px 14px;
+  overflow-x: auto;
+  margin: 0 0 12px;
+  font-size: 12px;
+  line-height: 1.6;
+}
+.pack-docs-body pre code { background: none; padding: 0; }
+.pack-docs-body hr { border: none; border-top: 1px solid var(--line, #e0ddd8); margin: 16px 0; }
+.pack-docs-body strong { font-weight: 700; }
+.pack-docs-body em { font-style: italic; }
+@media (max-width: 600px) {
+  .pack-docs { padding: 20px 16px 0; }
+}
+
 .pack-manifest,
 .pack-generate {
   margin: 16px 0 32px;

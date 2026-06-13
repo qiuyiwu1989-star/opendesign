@@ -8,6 +8,583 @@
     "lighting",
     "design"
   ],
-  "status": "pending",
-  "added_at": "2026-06-02"
+  "status": "completed",
+  "added_at": "2026-06-02",
+  "spec": {
+    "colors": {
+      "bg": "#000000",
+      "bgSoft": "#FAFAFA",
+      "bgQuiet": null,
+      "ink": "#FFFFFF",
+      "inkSoft": null,
+      "muted": "#666666",
+      "mutedSoft": null,
+      "accent": null,
+      "line": "rgba(0,0,0,0.15)"
+    },
+    "typography": {
+      "display": "humanist-sans",
+      "body": "humanist-sans",
+      "mono": null,
+      "scale": [
+        {
+          "token": "display",
+          "size": 64,
+          "lh": 1.0,
+          "weight": 800,
+          "ls": "-1px"
+        },
+        {
+          "token": "heading",
+          "size": 40,
+          "lh": 1.2,
+          "weight": 600,
+          "ls": "0px"
+        },
+        {
+          "token": "body",
+          "size": 16,
+          "lh": 1.5,
+          "weight": 400,
+          "ls": "0.2px"
+        }
+      ]
+    },
+    "spacing": {
+      "base": 4,
+      "scale": [
+        4,
+        8,
+        16,
+        24,
+        32,
+        40,
+        48,
+        64,
+        96
+      ]
+    },
+    "surfaces": {
+      "radius": {
+        "sm": 2,
+        "md": 4,
+        "lg": 40,
+        "pill": 999
+      }
+    },
+    "layout": {
+      "container": 1280,
+      "paragraph": 680,
+      "columns": 12,
+      "gutter": 24,
+      "breakpoints": [
+        768,
+        1024
+      ]
+    },
+    "motion": {
+      "durations": {
+        "micro": 200,
+        "small": 300,
+        "medium": 600
+      },
+      "easing": "cubic-bezier(0.455, 0.03, 0.515, 0.955)"
+    }
+  },
+  "spec_i18n": {
+    "en": {
+      "identity": {
+        "keywords": [
+          "Lighting",
+          "Design",
+          "Italian",
+          "Architecture",
+          "Luminaires"
+        ],
+        "analogy": "A gallery catalog for high-end lighting design.",
+        "oneLiner": "Premium Italian lighting brand with a minimalist, editorial aesthetic."
+      },
+      "colors": {
+        "principle": "High contrast photography dominates; text colors invert depending on light/dark contexts."
+      },
+      "typography": {
+        "rules": [],
+        "scaleUses": [
+          "Hero headlines",
+          "Section headings",
+          "General text"
+        ]
+      },
+      "spacing": {
+        "rhythm": "Generous whitespace and tight letter spacing on headings."
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(0, 0, 0, 0.15) 0px 4px 16px 0px"
+        ],
+        "borders": "1px solid #000000 or #FFFFFF depending on context."
+      },
+      "layout": {
+        "skeleton": "Full-bleed hero image with overlaid text; grid-based product cards."
+      },
+      "components": {
+        "button": "Ghost button with 1px solid border and all-caps text.",
+        "card": "Image-heavy cards with no visible border or shadow.",
+        "chip": null,
+        "input": null,
+        "hero": "Full-screen photographic background with left-aligned white text."
+      },
+      "motion": {
+        "patterns": [
+          "Smooth fade-in transitions",
+          "Scale transformations on hover"
+        ]
+      },
+      "interaction": {
+        "hover": "Subtle opacity or background-color shift.",
+        "click": "Standard pointer cursor.",
+        "transition": "0.2s to 0.3s cubic-bezier transitions on interactive elements.",
+        "keyboard": "Standard tab navigation."
+      },
+      "voice": {
+        "tone": "Sophisticated, architectural, and restrained.",
+        "headlineStyle": "Bold, all-caps or title-case, minimal punctuation.",
+        "ctaStyle": "All-caps, ghost button style.",
+        "avoid": [
+          "Loud colors",
+          "Playful fonts",
+          "Excessive UI chrome",
+          "Heavy shadows"
+        ]
+      },
+      "donts": [
+        "don't use bright, saturated colors — screenshot shows a palette dominated by black, white, and muted grays.",
+        "don't use rounded corners on primary elements — screenshot shows sharp edges or very subtle radius.",
+        "don't add heavy drop shadows to cards — screenshot shows flat, image-driven layouts.",
+        "don't use decorative or script fonts — screenshot shows a clean, humanist sans-serif for all text.",
+        "don't clutter the hero section with multiple CTAs — screenshot shows a single, clear 'DISCOVER MORE' button.",
+        "don't use busy backgrounds behind text — screenshot ensures legibility through dark overlays or solid backgrounds."
+      ],
+      "systemPrompt": "This is a premium Italian lighting brand e-commerce site with a minimalist, editorial aesthetic. The design prioritizes high-quality photography with a high-contrast palette of black (#000000), white (#FFFFFF), and muted gray (#666666). Typography is a clean humanist sans-serif used in both regular and uppercase weights for headings. Critical design constraints: never use bright or saturated accent colors, maintain generous whitespace, and avoid heavy UI elements like thick borders or complex shadows. The layout is strictly grid-based with a focus on large, full-bleed imagery to showcase products in context."
+    },
+    "zh-CN": {
+      "identity": {
+        "keywords": [
+          "照明",
+          "设计",
+          "意大利",
+          "建筑",
+          "灯具"
+        ],
+        "analogy": "一本高端照明设计的画廊图录。",
+        "oneLiner": "具有极简主义编辑美学的意大利高端照明品牌。"
+      },
+      "colors": {
+        "principle": "高对比度摄影主导画面；文字颜色根据明暗语境反转。"
+      },
+      "typography": {
+        "rules": [],
+        "scaleUses": [
+          "英雄区标题",
+          "章节标题",
+          "正文"
+        ]
+      },
+      "spacing": {
+        "rhythm": "充裕的留白与标题紧密的字距。"
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(0, 0, 0, 0.15) 0px 4px 16px 0px"
+        ],
+        "borders": "1px实线边框，颜色根据语境为#000000或#FFFFFF。"
+      },
+      "layout": {
+        "skeleton": "全出血英雄图配叠加文字；基于网格的产品卡片布局。"
+      },
+      "components": {
+        "button": "幽灵按钮，1px实线边框，全大写文字。",
+        "card": "图像为主的卡片，无可见边框或阴影。",
+        "chip": null,
+        "input": null,
+        "hero": "全屏摄影背景配左对齐的白色文字。"
+      },
+      "motion": {
+        "patterns": [
+          "平滑的淡入过渡",
+          "hover时的缩放变换"
+        ]
+      },
+      "interaction": {
+        "hover": "微妙的透明度或背景色偏移。",
+        "click": "标准指针光标。",
+        "transition": "交互元素采用0.2s至0.3s的cubic-bezier过渡。",
+        "keyboard": "标准tab键导航。"
+      },
+      "voice": {
+        "tone": "精致、建筑感、克制。",
+        "headlineStyle": "粗体、全大写或标题式大小写，标点极简。",
+        "ctaStyle": "全大写，幽灵按钮样式。",
+        "avoid": [
+          "鲜艳色彩",
+          "装饰性字体",
+          "过度UI装饰",
+          "厚重阴影"
+        ]
+      },
+      "donts": [
+        "不要使用明亮、饱和的色彩——截图显示的调色板以黑、白、柔和灰为主。",
+        "不要在主要元素上使用圆角——截图显示边缘锐利或仅有极细微的圆角。",
+        "不要给卡片添加厚重的投影——截图显示的是扁平化、以图像驱动的布局。",
+        "不要使用装饰性或手写体字体——截图显示所有文字均采用干净的人文主义无衬线字体。",
+        "不要在英雄区堆叠多个CTA——截图仅显示一个清晰的‘了解更多’按钮。",
+        "不要在文字后方使用杂乱的背景——截图通过深色叠加层或纯色背景确保可读性。"
+      ],
+      "systemPrompt": "这是一个具有极简主义编辑美学的意大利高端照明品牌电商网站。设计优先采用高质量摄影，配色为黑(#000000)、白(#FFFFFF)和柔和灰(#666666)的高对比度调色板。字体采用干净的人文主义无衬线字体，用于标题时包含常规与全大写两种字重。关键设计约束：绝不使用明亮或饱和的强调色，保持充裕留白，避免使用粗边框或复杂阴影等厚重的UI元素。布局严格基于网格，重点在于大型全出血图像，以在语境中展示产品。"
+    },
+    "zh-TW": {
+      "identity": {
+        "keywords": [
+          "燈具",
+          "設計",
+          "義大利",
+          "建築",
+          "燈飾"
+        ],
+        "analogy": "高階照明設計的畫廊目錄。",
+        "oneLiner": "高級義大利燈具品牌，具備極簡、編輯式美學。"
+      },
+      "colors": {
+        "principle": "高對比攝影為主導；文字顏色視明暗情境而反轉。"
+      },
+      "typography": {
+        "rules": [],
+        "scaleUses": [
+          "英雄區標題",
+          "區段標題",
+          "一般文字"
+        ]
+      },
+      "spacing": {
+        "rhythm": "充裕留白與緊湊的標題字距。"
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(0, 0, 0, 0.15) 0px 4px 16px 0px"
+        ],
+        "borders": "視情境使用 1px solid #000000 或 #FFFFFF。"
+      },
+      "layout": {
+        "skeleton": "全幅英雄圖片搭配疊加文字；基於網格的產品卡片。"
+      },
+      "components": {
+        "button": "幽靈按鈕，1px solid 邊框與全大寫文字。",
+        "card": "影像為主的卡片，無可見邊框或陰影。",
+        "chip": null,
+        "input": null,
+        "hero": "全螢幕攝影背景，搭配左對齊白色文字。"
+      },
+      "motion": {
+        "patterns": [
+          "平滑淡入過渡",
+          "hover 時縮放變換"
+        ]
+      },
+      "interaction": {
+        "hover": "細微的 opacity 或背景色變化。",
+        "click": "標準指標游標。",
+        "transition": "互動元素使用 0.2s 至 0.3s cubic-bezier 過渡。",
+        "keyboard": "標準 tab 鍵導覽。"
+      },
+      "voice": {
+        "tone": "精緻、建築感且內斂。",
+        "headlineStyle": "粗體、全大寫或標題式大寫，極簡標點。",
+        "ctaStyle": "全大寫，幽靈按鈕風格。",
+        "avoid": [
+          "鮮豔色彩",
+          "活潑字體",
+          "過多 UI 裝飾",
+          "厚重陰影"
+        ]
+      },
+      "donts": [
+        "勿使用明亮、飽和的色彩——截圖顯示調色盤以黑、白、柔和灰為主。",
+        "勿在主要元素上使用圓角——截圖顯示銳利邊緣或極微小圓角。",
+        "勿為卡片添加厚重陰影——截圖顯示平面、影像驅動的佈局。",
+        "勿使用裝飾性或手寫字體——截圖顯示所有文字使用簡潔的人文無襯線體。",
+        "勿在英雄區段堆砌多個行動呼籲——截圖顯示單一、清晰的「探索更多」按鈕。",
+        "勿在文字後使用複雜背景——截圖透過深色疊層或純色背景確保可讀性。"
+      ],
+      "systemPrompt": "這是一個高級義大利燈具品牌電子商務網站，具備極簡、編輯式美學。設計優先採用高品質攝影，搭配黑 (#000000)、白 (#FFFFFF) 與柔和灰 (#666666) 的高對比調色盤。字體為簡潔的人文無襯線體，標題使用常規與全大寫字重。關鍵設計限制：絕不使用明亮或飽和的強調色，保持充裕留白，避免厚重 UI 元素如粗邊框或複雜陰影。佈局嚴格基於網格，聚焦於大尺寸全幅影像，在情境中展示產品。"
+    },
+    "ja": {
+      "identity": {
+        "keywords": [
+          "照明",
+          "デザイン",
+          "イタリア",
+          "建築",
+          "ルミナires"
+        ],
+        "analogy": "高級照明デザインのギャラリーカタログ。",
+        "oneLiner": "ミニマルでエディトリアルな美学を持つ、プレミアム・イタリアン・照明ブランド。"
+      },
+      "colors": {
+        "principle": "ハイコントラストの写真が支配的。テキスト色は明暗のコンテキストに応じて反転します。"
+      },
+      "typography": {
+        "rules": [],
+        "scaleUses": [
+          "ヒーローヘッドライン",
+          "セクション見出し",
+          "一般テキスト"
+        ]
+      },
+      "spacing": {
+        "rhythm": "見出しには寛裕なホワイトスペースと tight な文字間隔。"
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(0, 0, 0, 0.15) 0px 4px 16px 0px"
+        ],
+        "borders": "コンテキストに応じて、1px solid #000000 または #FFFFFF。"
+      },
+      "layout": {
+        "skeleton": "テキストをオーバーレイしたフルブリードヒーロー画像。グリッドベースの製品カード。"
+      },
+      "components": {
+        "button": "1px solid のボーダーを持つゴーストボタン。テキストはすべて大文字。",
+        "card": "目立つボーダーやシャドウのない、画像重視のカード。",
+        "chip": null,
+        "input": null,
+        "hero": "左寄せの白いテキストを持つ、フルスクリーンの写真背景。"
+      },
+      "motion": {
+        "patterns": [
+          "滑らかなフェードイントランジション",
+          "ホバー時のスケール変換"
+        ]
+      },
+      "interaction": {
+        "hover": "微妙な透明度または背景色のシフト。",
+        "click": "標準のポインターカーソル。",
+        "transition": "インタラクティブ要素に対する、0.2s から 0.3s の cubic-bezier トランジション。",
+        "keyboard": "標準のタブナビゲーション。"
+      },
+      "voice": {
+        "tone": "洗練された、建築的で抑制の効いたトーン。",
+        "headlineStyle": "太字、すべて大文字またはタイトルケース。句読点は最小限。",
+        "ctaStyle": "すべて大文字のゴーストボタンスタイル。",
+        "avoid": [
+          "派手なカラー",
+          "遊び心のあるフォント",
+          "過剰な UI クローム",
+          "重いシャドウ"
+        ]
+      },
+      "donts": [
+        "明るく彩度の高いカラーは使用しない — スクリーンショットには黒、白、マットなグレーが主導するパレットが示されています。",
+        "主要要素に角丸を使用しない — スクリーンショットにはシャープなエッジまたは非常に控えめな角が示されています。",
+        "カードに重いドロップシャドウを追加しない — スクリーンショットにはフラットで画像主導のレイアウトが示されています。",
+        "装飾的またはスクリプトフォントを使用しない — スクリーンショットにはすべてのテキストにクリーンな humanist sans-serif が使用されています。",
+        "ヒーローセクションを複数の CTA で雑踏させない — スクリーンショットには単一の明確な「DISCOVER MORE」ボタンが示されています。",
+        "テキストの背後に雑踏した背景を使用しない — スクリーンショットには暗いオーバーレイまたは単色の背景で可読性が確保されています。"
+      ],
+      "systemPrompt": "これはミニマルでエディトリアルな美学を持つ、プレミアム・イタリアン・照明ブランドのEコマースサイトです。デザインは、黒（#000000）、白（#FFFFFF）、マットなグレー（#666666）からなるハイコントラストのパレットで高品質な写真を優先します。タイポグラフィはクリーンな humanist sans-serif で、見出しには通常と大文字のウェイトの両方が使用されます。重要なデザイン制約：明るく彩度の高いアクセントカラーは決して使用せず、寛裕なホワイトスペースを維持し、太いボーダーや複雑なシャドウといった重い UI 要素は避けてください。レイアウトは厳密にグリッドベースで、コンテキスト内で製品を展示するための大型フルブリードイメージに焦点を当てています。"
+    },
+    "ko": {
+      "identity": {
+        "keywords": [
+          "조명",
+          "디자인",
+          "이탈리안",
+          "건축",
+          "조명기구"
+        ],
+        "analogy": "하이엔드 조명 디자인을 위한 갤러리 카탈로그.",
+        "oneLiner": "미니멀하고 에디토리얼한 미학을 가진 프리미엄 이탈리안 조명 브랜드."
+      },
+      "colors": {
+        "principle": "고대비 사진이 지배적이며, 텍스트 색상은 라이트/다크 컨텍스트에 따라 반전됩니다."
+      },
+      "typography": {
+        "rules": [],
+        "scaleUses": [
+          "히어로 헤드라인",
+          "섹션 제목",
+          "일반 텍스트"
+        ]
+      },
+      "spacing": {
+        "rhythm": "여유로운 여백과 제목에 대한 타이트한 자간을 사용합니다."
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(0, 0, 0, 0.15) 0px 4px 16px 0px"
+        ],
+        "borders": "컨텍스트에 따라 1px solid #000000 또는 #FFFFFF."
+      },
+      "layout": {
+        "skeleton": "오버레이 텍스트가 있는 풀블리드 히어로 이미지; 그리드 기반 제품 카드."
+      },
+      "components": {
+        "button": "1px solid border와 전부 대문자 텍스트를 가진 고스트 버튼.",
+        "card": "보이는 border나 shadow가 없는 이미지 중심 카드.",
+        "chip": null,
+        "input": null,
+        "hero": "왼쪽 정렬된 흰색 텍스트가 있는 전면 사진 배경."
+      },
+      "motion": {
+        "patterns": [
+          "부드러운 페이드인 전환",
+          "hover 시 스케일 변환"
+        ]
+      },
+      "interaction": {
+        "hover": "미묘한 opacity 또는 배경색 변화.",
+        "click": "기본 포인터 커서.",
+        "transition": "인터랙티브 요소에 대한 0.2s에서 0.3s cubic-bezier 전환.",
+        "keyboard": "기본 탭 내비게이션."
+      },
+      "voice": {
+        "tone": "세련되고, 건축적이며, 절제된.",
+        "headlineStyle": "볼드, 전부 대문자 또는 타이틀 케이스, 최소한의 구두점.",
+        "ctaStyle": "전부 대문자, 고스트 버튼 스타일.",
+        "avoid": [
+          "밝은 색상",
+          "장난스러운 폰트",
+          "과도한 UI 크롬",
+          "무거운 그림자"
+        ]
+      },
+      "donts": [
+        "밝고 채도 높은 색상을 사용하지 마세요 — 스크린샷은 검정, 흰색, 무채색 회색이 지배적인 팔레트를 보여줍니다.",
+        "기본 요소에 둥근 모서리를 사용하지 마세요 — 스크린샷은 날카로운 모서리 또는 매우 미묘한 radius를 보여줍니다.",
+        "카드에 무거운 drop shadow를 추가하지 마세요 — 스크린샷은 플랫하고 이미지 기반 레이아웃을 보여줍니다.",
+        "장식용 또는 스크립트 폰트를 사용하지 마세요 — 스크린샷은 모든 텍스트에 깔끔한 humanist sans-serif를 사용합니다.",
+        "히어로 섹션에 여러 CTA를 복잡하게 배치하지 마세요 — 스크린샷은 단일하고 명확한 'DISCOVER MORE' 버튼을 보여줍니다.",
+        "텍스트 뒤에 지저분한 배경을 사용하지 마세요 — 스크린샷은 다크 오버레이나 단색 배경을 통해 가독성을 보장합니다."
+      ],
+      "systemPrompt": "이 사이트는 미니멀하고 에디토리얼한 미학을 가진 프리미엄 이탈리안 조명 브랜드 전자상거래 사이트입니다. 디자인은 검정(#000000), 흰색(#FFFFFF), 무채색 회색(#666666)의 고대비 팔레트와 고품질 사진을 우선시합니다. 타이포그래피는 헤드라인용으로 일반 및 대문자 두께에서 사용되는 깔끔한 humanist sans-serif입니다. 핵심 디자인 제약 조건: 밝거나 채도 높은 강조 색상을 절대 사용하지 마세요, 여유로운 여백을 유지하세요, 두꺼운 border나 복잡한 그림자 같은 무거운 UI 요소를 피하세요. 레이아웃은 엄격하게 그리드 기반이며, 제품을 컨텍스트에서 선보이기 위한 대형 풀블리드 이미지에 중점을 둡니다."
+    }
+  },
+  "desc": {
+    "en": {
+      "palette": "A strictly monochromatic palette of black, white, and gray, allowing the product photography to provide all the color.",
+      "layout": "A full-bleed hero section transitions into a structured grid for product exploration, maintaining a gallery-like feel.",
+      "interaction": "Interactions are subtle and refined, using smooth opacity and background color transitions on hover.",
+      "motion": "Motion is understated, with smooth cubic-bezier easing for transitions and reveals.",
+      "notes": "This site is a prime example of premium product presentation, using restraint and high-quality imagery to convey luxury."
+    },
+    "zh-CN": {
+      "palette": "严格的单色调色板，仅包含黑、白、灰，让产品摄影本身成为唯一的色彩来源。",
+      "layout": "从全出血的英雄区域平滑过渡到结构化的产品探索网格，保持画廊般的观感。",
+      "interaction": "交互效果细腻而精致，通过hover时平滑的透明度与背景色过渡实现。",
+      "motion": "动效克制，采用平滑的cubic-bezier缓动函数处理过渡与显隐。",
+      "notes": "该网站是高端产品展示的典范，通过克制与高质量的影像传达奢华感。"
+    },
+    "zh-TW": {
+      "palette": "單色調色盤，僅限黑、白、灰，讓產品攝影提供所有色彩。",
+      "layout": "全幅英雄區段過渡至結構化網格，用於產品探索，保持類似畫廊的感受。",
+      "interaction": "互動效果精緻含蓄，使用平滑的 opacity 與背景色 hover 變化。",
+      "motion": "動態效果內斂，使用平滑 cubic-bezier 緩動函數進行過渡與揭示。",
+      "notes": "此網站是高級產品呈現的典範，運用克制與高品質影像傳達奢華感。"
+    },
+    "ja": {
+      "palette": "黒、白、グレーからなる厳密なモノクロのパレット。製品写真がすべてのカラーを担います。",
+      "layout": "フルブリードのヒーローセクションから、製品探索のための構造化されたグリッドへと移行。ギャラリーのような雰囲気を維持します。",
+      "interaction": "相互作用は微妙かつ洗練されており、ホバー時に滑らかな透明度と背景色のトランジションを使用します。",
+      "motion": "動きは控えめで、トランジションや表示にはスムーズな cubic-bezier イージングを採用します。",
+      "notes": "このサイトは、抑制と高品質なイメージを用いて高級感を伝える、プレミアム製品プレゼンテーションの好例です。"
+    },
+    "ko": {
+      "palette": "검정, 흰색, 회색으로 구성된 엄격한 단색 팔레트를 사용하여, 제품 사진이 모든 색상을 제공하도록 합니다.",
+      "layout": "풀블리드 히어로 섹션에서 제품 탐색을 위한 구조화된 그리드로 자연스럽게 전환되며, 갤러리 같은 느낌을 유지합니다.",
+      "interaction": "상호작용은 미묘하고 정교하며, hover 시 부드러운 opacity와 배경색 전환을 사용합니다.",
+      "motion": "모션은 절제되며, 전환과 reveal 시 부드러운 cubic-bezier 이징을 사용합니다.",
+      "notes": "이 사이트는 고급 제품 프레젠테이션의 대표적인 예로, 절제와 고품질 이미지를 활용하여 럭셔리를 전달합니다."
+    }
+  },
+  "_meta": {
+    "vision_model": "mimo-v2.5",
+    "vision_prompt_version": "0.3",
+    "vision_source": "playwright-extract:flos",
+    "vision_grounded": true,
+    "vision_at": "2026-06-04T15:13:32+00:00",
+    "vision_tokens": 18284,
+    "vision_cost_usd": 0.2032,
+    "translation_model": "mimo-v2.5",
+    "translation_at": "2026-06-04T15:14:31+00:00",
+    "translation_tokens": 14589,
+    "translation_cost_usd": 0.0486,
+    "narrative_model": "mimo-v2.5",
+    "narrative_prompt_version": "0.3",
+    "narrative_at": "2026-06-04T15:14:40+00:00",
+    "narrative_tokens": 1833,
+    "narrative_cost_usd": 0.0122,
+    "narrative_status": "ok",
+    "total_cost_usd": 0.264
+  },
+  "narrative": {
+    "en": {
+      "ch1_intro": "The design system for Flos operates as a gallery catalog for high-end lighting design, where every element serves the product. Its identity is rooted in Italian architectural precision and the quiet authority of luminaires presented as art objects.",
+      "ch2_intro": "The palette is strictly monochromatic, built on a foundation of black, white, and muted gray. This restraint ensures the photography provides all the chromatic expression, with text inverting between light and dark contexts to maintain contrast.",
+      "ch2_outro": "The governing principle is that color is the exclusive domain of the product, never the interface.",
+      "ch3_intro": "Typography employs a clean humanist sans-serif, its voice architectural and restrained. It shifts between regular weight for body text and bold, all-caps or title-case for headings, using tight letter spacing to create a crisp, editorial rhythm.",
+      "ch4_intro": "Rhythm is established through generous whitespace and a structured grid.",
+      "ch5_intro": "Surfaces are defined by minimal, functional elements: a subtle shadow provides depth only when necessary, and a single-pixel border in black or white outlines context without adding visual weight.",
+      "ch6_intro": "The layout skeleton begins with a full-bleed photographic hero, overlaid with left-aligned text. This dramatic introduction gives way to a rigorous grid of product cards, maintaining a clean, gallery-like sequence.",
+      "ch7_intro": "Motion philosophy favors understatement and purpose. Transitions are smooth, using cubic-bezier easing to guide focus during fade-ins and scale transformations, never to distract from the product.",
+      "ch8_intro": "The editorial voice is sophisticated and architectural, with headlines styled in bold, minimal punctuation. It communicates with restraint, letting the visual composition carry the narrative.",
+      "ch8_outro": "The system deliberately excludes bright colors, playful typography, and heavy UI chrome to maintain its focused, gallery-like integrity."
+    },
+    "zh-CN": {
+      "ch1_intro": "Flos 的设计系统如同高端照明设计的画廊目录，每个元素都服务于产品。其身份植根于意大利建筑般的精确性，以及灯具作为艺术品呈现时的沉静权威。",
+      "ch2_intro": "调色板严格限于单色调，以黑、白及柔和灰为基础。这种克制确保摄影承担所有色彩表达，文字则在明暗语境间切换以保持对比度。",
+      "ch2_outro": "核心原则在于：色彩是产品的专属领域，绝非界面的装饰。",
+      "ch3_intro": "字体选用简洁的人文主义无衬线体，其气质建筑感十足且克制。正文使用常规字重，标题则采用粗体、全大写或首字母大写，配合紧凑字距营造清晰的编辑韵律。",
+      "ch4_intro": "通过充裕的留白与结构化网格建立视觉节奏。",
+      "ch5_intro": "界面由极简的功能性元素定义：微妙阴影仅在必要时提供纵深感，单像素黑或白边框勾勒语境而不增加视觉重量。",
+      "ch6_intro": "布局骨架始于全出血摄影主视觉，叠加左对齐文字。这一戏剧性开场过渡至严谨的产品卡片网格，保持洁净如画廊般的序列感。",
+      "ch7_intro": "动效哲学崇尚含蓄与目的性。过渡流畅，使用 cubic-bezier 缓动引导焦点完成淡入与缩放变换，绝不分散对产品的关注。",
+      "ch8_intro": "编辑语气精致且具建筑感，标题采用粗体与极简标点。沟通方式克制，让视觉构图承载叙事。",
+      "ch8_outro": "该系统刻意规避鲜艳色彩、俏皮字体与厚重的 UI 装饰，以维持其专注的画廊式完整性。"
+    },
+    "zh-TW": {
+      "ch1_intro": "Flos 的設計系統如同高端照明設計的藝廊型錄，每個元素都服務於產品本身。其識別根源於義大利建築的精準性，以及燈具作為藝術品所展現的沉靜權威感。",
+      "ch2_intro": "色盤嚴格採用單色調，建立在黑色、白色與柔和灰色的基礎上。這種克制確保了攝影作品提供所有色彩表現，而文字在淺色與深色情境間切換，以維持對比度。",
+      "ch2_outro": "指導原則是：色彩僅屬於產品本身，絕非介面。",
+      "ch3_intro": "字體採用簡潔的人文主義無襯線字體，其語調具建築感且克制。它在內文使用常規字重，標題則切換為粗體、全大寫或首字母大寫，並透過緊湊的字距創造出清晰、編輯般的節奏。",
+      "ch4_intro": "透過充裕的留白與結構化網格建立節奏感。",
+      "ch5_intro": "介面由極簡的功能性元素定義：微妙的陰影僅在必要時提供深度，單像素邊框以黑色或白色勾勒情境，不增加視覺重量。",
+      "ch6_intro": "版面骨架始於全出血的攝影主視覺，覆蓋上左對齊的文字。這種戲劇性的開場過渡到嚴謹的產品卡片網格，維持如藝廊般純淨的序列感。",
+      "ch7_intro": "動態設計哲學傾向低調與目的性。過渡平滑，使用 cubic-bezier 緩動函數在淡入與縮放變換中引導視覺焦點，絕不分散對產品的注意力。",
+      "ch8_intro": "編輯語調精緻而具建築感，標題以粗體、極簡的標點風格呈現。它以克制的方式溝通，讓視覺構圖承擔敘事主體。",
+      "8_outro": "該系統刻意排除鮮豔色彩、活潑字體與繁複的 UI 裝飾，以維持其聚焦、如藝廊般的純粹性。"
+    },
+    "ja": {
+      "ch1_intro": "Flosのデザインシステムは、高端照明デザインのギャラリーカタログとして機能します。全ての要素が製品に奉仕し、そのアイデンティティはイタリア建築の精密さと、芸術作品として提示される照明器具の静かな威厳に根ざしています。",
+      "ch2_intro": "カラーパレットは厳格にモノクロームで、黒、白、控えめなグレーを基盤として構成されています。この抑制は、写真に全ての色彩表現を委ね、明暗のコンテキスト間でテキストが反転し、コントラストを維持することを保証します。",
+      "ch2_outro": "支配的な原則は、色彩が製品の独占領域であり、決してインターフェースのものではないという点です。",
+      "ch3_intro": "タイポグラフィは、クリーンなヒューマニストサンセリフを採用し、その声質は建築的で抑制的です。本文にはRegularウェイトを、見出しにはBold、全大文字、あるいはタイトルケースを使用し、 tightenedな字間で、鮮明でエディトリアルなリズムを生み出します。",
+      "ch4_intro": "リズムは、豊かな余白と構造化されたグリッドを通じて確立されます。",
+      "ch5_intro": "サーフェスは、最小限で機能的な要素で定義されます。微細なシャドウは必要な場合にのみ奥行きを提供し、黒または白の1ピクセルボーダーは、視覚的な重みを加えることなくコンテキストを枠付けます。",
+      "ch6_intro": "レイアウトの骨格は、フルブリードの写真ヒーローから始まり、左寄せのテキストがオーバーレイされます。この劇的な導入部は、厳格な製品カードのグリッドに引き継がれ、クリーンでギャラリーのようなシーケンスを維持します。",
+      "ch7_intro": "モーションの哲学は、控えめさと目的を重んじます。遷移は滑らかで、cubic-bezierイージングを使用してフェードインやスケール変形時のフォーカスを誘導し、製品から注意をそらすことはありません。",
+      "ch8_intro": "エディトリアルな声は、洗練されており建築的で、見出しはBoldで最小限の句読点でスタイルされます。抑制をもってコミュニケーションし、ビジュアル構成に物語を委ねます。",
+      "ch8_outro": "このシステムは、明るい色、遊び心のあるタイポグラフィ、重いUIクロムを意図的に排除し、その集中されたギャラリーのような完全性を維持しています。"
+    },
+    "ko": {
+      "ch1_intro": "플로스의 디자인 시스템은 하이엔드 조명 디자인을 위한 갤러리 카탈로그로 운영됩니다. 모든 요소는 제품을 위해 존재하며, 그 정체성은 이탈리아 건축의 정밀함과 조명 기구를 예술 작품으로 제시하는 조용한 권위에 뿌리를 두고 있습니다.",
+      "ch2_intro": "팔레트는 검정, 흰색, 무채색 회색을 기반으로 엄격하게 단색으로 구성됩니다. 이러한 절제는 사진이 모든 색채 표현을 담당하도록 보장하며, 텍스트는 대비를 유지하기 위해 밝고 어두운 배경에 따라 반전됩니다.",
+      "ch2_outro": "지배적인 원칙은 색상이 제품의 전유 영역이며 결코 인터페이스의 영역이 아니라는 것입니다.",
+      "ch3_intro": "타이포그래피는 깔끔한 휴머니스트 산세리프를 사용하며, 그 음색은 건축적이고 절제되어 있습니다. 본문에는 일반 굵기를 사용하고, 제목에는 볼드체, 전부 대문자 또는 타이틀 대문자를 사용하여 좁은 자간으로 선명하고 편집적인 리듬을 만듭니다.",
+      "ch4_intro": "리듬은 넉넉한 여백과 격자 형식을 통해 확립됩니다.",
+      "ch5_intro": "표면은 최소 기능적인 요소로 정의됩니다. 미세한 그림자는 필요할 때만 깊이감을 제공하고, 검정 또는 흰색의 1픽셀 테두리는 시각적 무게를 추가하지 않고 맥락을 윤곽화합니다.",
+      "ch6_intro": "레이아웃 골격은 완전히 채워진 사진 히어로로 시작하며, 왼쪽 정렬된 텍스트가 겹쳐집니다. 이 극적인 소개는 엄격한 제품 카드 격자로 이어지며, 깔끔하고 갤러리 같은 순서를 유지합니다.",
+      "ch7_intro": "모션 철학은 절제와 목적을 선호합니다. 전환은 부드러우며, 페이드인과 스케일 변환 시 초점을 유도하기 위해 cubic-bezier 이징을 사용하며, 제품에서 주의를 산만하게 하지 않습니다.",
+      "ch8_intro": "편집 음성은 세련되고 건축적이며, 제목은 볼드체, 최소한의 구두점으로 스타일링됩니다. 절제된 소통으로 시각적 구성이 서사를 이끌도록 합니다.",
+      "ch8_outro": "이 시스템은 밝은 색상, 장난스러운 타이포그래피, 무거운 UI 크롬을 의도적으로 제외하여 집중적이고 갤러리 같은 온전함을 유지합니다."
+    }
+  }
 }

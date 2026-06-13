@@ -8,6 +8,623 @@
     "productivity",
     "notes"
   ],
-  "status": "pending",
-  "added_at": "2026-06-03"
+  "status": "completed",
+  "added_at": "2026-06-03",
+  "spec": {
+    "colors": {
+      "bg": "#FFFFFF",
+      "bgSoft": "#FFF2D2",
+      "bgQuiet": "#FFBCC3",
+      "ink": "#000000",
+      "inkSoft": "#666666",
+      "muted": "#808080",
+      "mutedSoft": null,
+      "accent": null,
+      "line": "rgba(0,0,0,0.1)"
+    },
+    "typography": {
+      "display": "humanist-sans",
+      "body": "humanist-sans",
+      "mono": "monospace",
+      "scale": [
+        {
+          "token": "display",
+          "size": 76,
+          "lh": 1.0,
+          "weight": 300,
+          "ls": "-2.4px"
+        },
+        {
+          "token": "display-emphasis",
+          "size": 76,
+          "lh": 1.0,
+          "weight": 400,
+          "ls": "-2.4px"
+        },
+        {
+          "token": "h2",
+          "size": 24,
+          "lh": 1.0,
+          "weight": 500,
+          "ls": "-0.12px"
+        },
+        {
+          "token": "body",
+          "size": 18,
+          "lh": 1.44,
+          "weight": 400,
+          "ls": "-0.28px"
+        },
+        {
+          "token": "small",
+          "size": 14,
+          "lh": 1.43,
+          "weight": 400,
+          "ls": "-0.12px"
+        }
+      ]
+    },
+    "spacing": {
+      "base": 4,
+      "scale": [
+        4,
+        8,
+        16,
+        24,
+        32,
+        48,
+        64,
+        80,
+        96,
+        120
+      ]
+    },
+    "surfaces": {
+      "radius": {
+        "sm": 6,
+        "md": 16,
+        "lg": 16,
+        "pill": 100
+      }
+    },
+    "layout": {
+      "container": 1280,
+      "paragraph": 680,
+      "columns": 12,
+      "gutter": 24,
+      "breakpoints": [
+        768,
+        1024
+      ]
+    },
+    "motion": {
+      "durations": {
+        "micro": 150,
+        "small": 500,
+        "medium": 1000
+      },
+      "easing": "cubic-bezier(0.4, 0, 0.2, 1)"
+    }
+  },
+  "spec_i18n": {
+    "en": {
+      "identity": {
+        "keywords": [
+          "privacy",
+          "local-first",
+          "collaboration",
+          "sovereignty",
+          "encryption"
+        ],
+        "analogy": "a digital Swiss vault for your notes and workflows",
+        "oneLiner": "A private, offline-first workspace for digital collaboration."
+      },
+      "colors": {
+        "principle": "High-contrast black and white foundation with a single warm gradient and a distinct serif highlight for emphasis."
+      },
+      "typography": {
+        "rules": [
+          "Use the italicized serif for stylistic emphasis within the hero section only.",
+          "Maintain a strict black and white primary text hierarchy.",
+          "Use generous negative tracking for large display typography."
+        ],
+        "scaleUses": [
+          "Primary hero statement",
+          "Highlighted serif emphasis within the hero",
+          "Section headings and feature titles",
+          "Main paragraph and descriptive text",
+          "Secondary information and navigation"
+        ]
+      },
+      "spacing": {
+        "rhythm": "80px vertical rhythm between major sections"
+      },
+      "surfaces": {
+        "shadows": [],
+        "borders": "Thin black outlines (1px) defining grid cells and a hero container with rounded corners"
+      },
+      "layout": {
+        "skeleton": "Large hero section followed by a three-column grid of features, separated by a subtle grid system."
+      },
+      "components": {
+        "button": "Pill-shaped buttons with solid black backgrounds and white text, or transparent backgrounds with black text.",
+        "card": "Text-heavy feature cards separated by a 1px black grid layout.",
+        "chip": "Floating pill navigation at the bottom center with a semi-transparent background and blurred effect.",
+        "input": "Standard text fields with minimal styling.",
+        "hero": "A large bordered container with massive typography on the left and a black-and-white line art illustration on the right."
+      },
+      "motion": {
+        "patterns": [
+          "Smooth opacity transitions for overlays and element fades.",
+          "Standard cubic-bezier easing for background color and border changes.",
+          "Longer duration (1s) for specific decorative or hero elements."
+        ]
+      },
+      "interaction": {
+        "hover": "Subtle color or opacity transitions.",
+        "click": "Standard cursor pointer interaction for buttons and links.",
+        "transition": "All properties transition with a standard 0.15s or 0.5s cubic-bezier curve.",
+        "keyboard": "Standard focusable elements with default browser outlines."
+      },
+      "voice": {
+        "tone": "Direct, reassuring, and focused on user control and privacy.",
+        "headlineStyle": "Large, impactful statements with occasional serif italics for warmth.",
+        "ctaStyle": "Clear, action-oriented text inside high-contrast pill buttons.",
+        "avoid": [
+          "technical jargon",
+          "aggressive sales language",
+          "complex corporate speak",
+          "bright neon colors"
+        ]
+      },
+      "donts": [
+        "don't use multiple bright accent colors — the screenshot shows a predominantly black, white, and muted gradient palette",
+        "don't use heavy drop shadows or glows — the screenshot shows flat, outlined elements with no shadows",
+        "don't use a dense, cramped layout — the screenshot shows generous whitespace and a clear grid structure",
+        "don't use thick, rounded containers — the screenshot shows thin (1px) black borders for most sections",
+        "don't use an all-serif typography system — the screenshot shows a sans-serif foundation with serif used only for emphasis",
+        "don't use a dark mode as the primary theme — the screenshot shows a white background with black text"
+      ],
+      "systemPrompt": "This is a clean, privacy-focused productivity app landing page. Use a black and white foundation with a warm, subtle gradient in the hero background. The primary typography is a humanist sans-serif (inter), used with generous negative tracking for headlines, and a serif font for italicized emphasis. The layout is structured and grid-based, using thin black borders to define sections. Maintain high contrast and ample whitespace. Do not use drop shadows, avoid dense layouts, and never use multiple high-chroma accent colors. Focus the design on clarity, sovereignty, and a refined, non-aggressive aesthetic."
+    },
+    "zh-CN": {
+      "identity": {
+        "keywords": [
+          "隐私",
+          "本地优先",
+          "协作",
+          "主权",
+          "加密"
+        ],
+        "analogy": "一个用于存放你笔记与工作流程的数字瑞士金库",
+        "oneLiner": "一个注重隐私、离线优先的数字协作空间。"
+      },
+      "colors": {
+        "principle": "以高对比度的黑白为基础，搭配一条温暖渐变色带，并以独特的衬线字体高光用于强调。"
+      },
+      "typography": {
+        "rules": [
+          "仅在主视觉区域内使用斜体衬线字体进行风格化强调。",
+          "维持严格的黑白主文本层级。",
+          "为大号展示型文字使用充裕的负字距。"
+        ],
+        "scaleUses": [
+          "主视觉区域标语",
+          "主视觉区域内的衬线强调",
+          "章节标题与功能标题",
+          "正文与描述性文字",
+          "次要信息与导航"
+        ]
+      },
+      "spacing": {
+        "rhythm": "主要章节间保持 80px 的垂直韵律"
+      },
+      "surfaces": {
+        "shadows": [],
+        "borders": "采用细黑线（1px）界定网格单元以及带圆角的主视觉容器边框"
+      },
+      "layout": {
+        "skeleton": "大型主视觉区域之后，是按细微网格系统分隔的三列功能网格布局。"
+      },
+      "components": {
+        "button": "药丸形按钮，采用黑色实底配白色文字，或透明背景配黑色文字。",
+        "card": "文字为主的功能卡片，通过 1px 黑色网格布局分隔。",
+        "chip": "底部居中的浮动药丸形导航，半透明背景并带有模糊效果。",
+        "input": "标准文本输入框，样式极简。",
+        "hero": "一个带边框的大型容器，左侧为超大号文字，右侧为黑白线描插图。"
+      },
+      "motion": {
+        "patterns": [
+          "用于覆盖层和元素淡入淡出的平滑透明度过渡。",
+          "用于背景色和边框变化的标准 cubic-bezier 缓动。",
+          "特定装饰性或主视觉元素使用较长持续时间（1秒）。"
+        ]
+      },
+      "interaction": {
+        "hover": "微妙的颜色或透明度过渡。",
+        "click": "按钮和链接采用标准的 cursor pointer 交互。",
+        "transition": "所有属性过渡均使用标准的 0.15 秒或 0.5 秒 cubic-bezier 曲线。",
+        "keyboard": "标准可聚焦元素，使用浏览器默认轮廓。"
+      },
+      "voice": {
+        "tone": "直接、令人安心，并聚焦于用户控制与隐私。",
+        "headlineStyle": "大型、有冲击力的陈述，偶尔使用斜体衬线增添温度。",
+        "ctaStyle": "清晰、行动导向的文字置于高对比度药丸形按钮内。",
+        "avoid": [
+          "技术术语",
+          "激进的推销语言",
+          "复杂的企业套话",
+          "明亮的霓虹色彩"
+        ]
+      },
+      "donts": [
+        "勿使用多种明亮的强调色——截图显示的是以黑白及柔和渐变为主的调色板",
+        "勿使用厚重的阴影或发光效果——截图显示的是平面、描边且无阴影的元素",
+        "勿使用密集、拥挤的布局——截图显示的是充裕的留白和清晰的网格结构",
+        "勿使用厚重、圆角的容器——截图显示大部分章节使用细（1px）黑边框",
+        "勿使用全衬线字体系统——截图显示的是以无衬线为基础，仅在强调处使用衬线",
+        "勿将深色模式作为主要主题——截图显示的是白底黑字"
+      ],
+      "systemPrompt": "这是一个简洁、注重隐私的生产力应用着陆页。使用黑白为基础，主视觉背景采用温暖、微妙的渐变。主字体是人文无衬线体（Inter），用于标语时带有充裕的负字距，斜体衬线字体用于强调。布局结构化且基于网格，使用细黑线界定各区域。保持高对比度和充裕留白。不要使用阴影，避免密集布局，切勿使用多种高饱和度的强调色。设计应聚焦于清晰度、自主权以及精致、非侵入式的美感。"
+    },
+    "zh-TW": {
+      "identity": {
+        "keywords": [
+          "隱私",
+          "本機優先",
+          "協作",
+          "自主權",
+          "加密"
+        ],
+        "analogy": "您的筆記與工作流程的數位瑞士金庫",
+        "oneLiner": "一個私密、離線優先的數位協作工作空間。"
+      },
+      "colors": {
+        "principle": "高對比的黑白基調，搭配單一暖色調漸層與獨特的襯線字體強調色以突顯重點。"
+      },
+      "typography": {
+        "rules": [
+          "僅在主視覺區域內使用斜體襯線字體進行風格強調。",
+          "維持嚴格的黑白主要文字層級。",
+          "為大型展示字體使用寬裕的負字間距。"
+        ],
+        "scaleUses": [
+          "主要主視覺標語",
+          "主視覺區域內的襯線強調",
+          "段落標題與功能標題",
+          "主要段落與描述性文字",
+          "次要資訊與導覽"
+        ]
+      },
+      "spacing": {
+        "rhythm": "主要區段之間的垂直節奏為 80px"
+      },
+      "surfaces": {
+        "shadows": [],
+        "borders": "細黑色輪廓（1px）定義格線儲存格與一個帶有圓角的主視覺容器"
+      },
+      "layout": {
+        "skeleton": "大型主視覺區域後接三欄式功能格線，透過細微的格線系統分隔。"
+      },
+      "components": {
+        "button": "膠囊形按鈕，實心黑色背景搭配白色文字，或透明背景搭配黑色文字。",
+        "card": "文字為主的功能卡片，透過 1px 黑色格線佈局分隔。",
+        "chip": "底部中央的浮動膠囊導覽，半透明背景搭配模糊效果。",
+        "input": "標準文字輸入框，極簡風格。",
+        "hero": "一個大型有邊框的容器，左側為大型字體，右側為黑白線條插圖。"
+      },
+      "motion": {
+        "patterns": [
+          "覆蓋層與元素淡入淡出的流暢 opacity 過渡效果。",
+          "背景顏色與邊框變化使用標準的 cubic-bezier 緩動。",
+          "特定裝飾性或主視覺元素使用較長時間（1 秒）的過渡。"
+        ]
+      },
+      "interaction": {
+        "hover": "細微的顏色或 opacity 過渡效果。",
+        "click": "按鈕與連結使用標準的游標指標互動。",
+        "transition": "所有屬性以標準的 0.15 秒或 0.5 秒 cubic-bezier 曲線過渡。",
+        "keyboard": "標準的可聚焦元素，保留瀏覽器預設的外框。"
+      },
+      "voice": {
+        "tone": "直接、令人安心，並著重於使用者控制與隱私。",
+        "headlineStyle": "大型、具衝擊力的標語，偶爾使用斜體襯線字體增添溫度。",
+        "ctaStyle": "清晰、行動導向的文字置於高對比的膠囊按鈕內。",
+        "avoid": [
+          "技術術語",
+          "侵略性的銷售用語",
+          "複雜的企業語言",
+          "明亮的霓虹色彩"
+        ]
+      },
+      "donts": [
+        "不要使用多種明亮的強調色——截圖顯示的是以黑色、白色與柔和漸層為主的調色盤",
+        "不要使用厚重的陰影或發光效果——截圖顯示的是平坦、有邊框的元素，無陰影",
+        "不要使用擁擠密集的佈局——截圖顯示的是寬裕的留白與清晰的格線結構",
+        "不要使用粗厚、圓角的容器——截圖顯示大部分區段使用細（1px）黑色邊框",
+        "不要使用全襯線字體系統——截圖顯示的是以無襯線字體為基礎，僅用襯線字體進行強調",
+        "不要使用深色模式作為主要主題——截圖顯示的是白色背景搭配黑色文字"
+      ],
+      "systemPrompt": "這是一個乾淨、以隱私為重的生產力應用程式登陸頁面。使用黑白基調，並在主視覺背景中搭配溫暖、細微的漸層。主要字型是人文無襯線體（inter），標題使用寬裕的負字間距，並使用襯線字體進行斜體強調。佈局結構化且基於格線，使用細黑色邊框定義區段。維持高對比與寬裕的留白。不要使用陰影，避免密集的佈局，並永遠不要使用多種高彩度強調色。設計重點應放在清晰度、自主權以及精緻、非侵略性的美學上。"
+    },
+    "ja": {
+      "identity": {
+        "keywords": [
+          "プライバシー",
+          "ローカルファースト",
+          "コラボレーション",
+          "主権",
+          "暗号化"
+        ],
+        "analogy": "ノートやワークフローのためのデジタルスイス銀行の金庫",
+        "oneLiner": "デジタルコラボレーションのためのプライベートでオフラインファーストなワークスペース。"
+      },
+      "colors": {
+        "principle": "ハイコントラストな白黒を基盤とし、単一の暖色グラデーションと、強調のための明確なセリフ書体のアクセントを用います。"
+      },
+      "typography": {
+        "rules": [
+          "ヒーローセクション内でのみ、スタイル上の強調としてイタリック体のセリフ書体を使用します。",
+          "プライマリテキストの階層は厳密に白黒を維持します。",
+          "大型のディスプレイタイポグラフィには、広めのネガティブトッキングを使用します。"
+        ],
+        "scaleUses": [
+          "プライマリヒーローステートメント",
+          "ヒーロー内での強調セリフ",
+          "セクション見出しと機能タイトル",
+          "本文と説明テキスト",
+          "セカンダリ情報とナビゲーション"
+        ]
+      },
+      "spacing": {
+        "rhythm": "主要セクション間の80pxの垂直リズム"
+      },
+      "surfaces": {
+        "shadows": [],
+        "borders": "グリッドセルと丸みを帯びた角のヒーローコンテナを定義する、細い黒のアウトライン（1px）"
+      },
+      "layout": {
+        "skeleton": "大きなヒーローセクションの後に、控えめなグリッドシステムで区切られた3カラムの機能グリッドが続きます。"
+      },
+      "components": {
+        "button": "白文字の塗りつぶし黒背景、または黒文字の透明背景を持つ、ピル型ボタン。",
+        "card": "1px黒のグリッドレイアウトで区切られた、テキスト多めの機能カード。",
+        "chip": "半透明背景とぼかし効果を持つ、下部中央にフローティングするピル型ナビゲーション。",
+        "input": "最小限のスタイリングを施した標準テキストフィールド。",
+        "hero": "左側に巨大なタイポグラフィ、右側に白黒の線画イラストを配置した、大きな枠付きコンテナ。"
+      },
+      "motion": {
+        "patterns": [
+          "オーバーレイとフェードイン/アウトのための、滑らかなopacityトランジション。",
+          "背景色やボーダーの変更のための、標準的なcubic-bezierイージング。",
+          "特定の装飾的またはヒーロー要素のための、より長い持続時間（1秒）。"
+        ]
+      },
+      "interaction": {
+        "hover": "控えめな色やopacityのトランジション。",
+        "click": "ボタンとリンクのための、標準的なカーソルポインタインタラクション。",
+        "transition": "すべてのプロパティは、標準的な0.15秒または0.5秒のcubic-bezierカーブでトランジションします。",
+        "keyboard": "デフォルトのブラウザアウトラインを持つ、標準的なフォーカス可能な要素。"
+      },
+      "voice": {
+        "tone": "直接的で安心感を与え、ユーザーのコントロールとプライバシーに焦点を当てています。",
+        "headlineStyle": "温かみを加えるために、時折セリフ書体のイタリック体を用いた、大きくインパクトのあるステートメント。",
+        "ctaStyle": "ハイコントラストなピル型ボタン内の、明確で行動を促すテキスト。",
+        "avoid": [
+          "技術用語",
+          "アグレッシブなセールス言語",
+          "複雑な企業用語",
+          "明るいネオンカラー"
+        ]
+      },
+      "donts": [
+        "複数の明るいアクセントカラーを使用しない — スクリーンショットでは主に黒、白、および控えめなグラデーションのパレットが示されています",
+        "重いドロップシャドウやグローを使用しない — スクリーンショットではシャドウのない、フラットでアウトライン付きの要素が示されています",
+        "密で詰まったレイアウトを使用しない — スクリーンショットではたっぷりとした余白と明確なグリッド構造が示されています",
+        "太くて角が丸いコンテナを使用しない — スクリーンショットでは、ほとんどのセクションに細い（1px）黒のボーダーが使われています",
+        "すべてセリフ書体のタイポグラフィシステムを使用しない — スクリーンショットでは、強調にのみセリフ書体が使われるサンセリフの基盤が示されています",
+        "ダークモードをプライマリテーマとして使用しない — スクリーンショットでは白背景に黒テキストが示されています"
+      ],
+      "systemPrompt": "これは、クリーンでプライバシーに焦点を当てた生産性アプリのランディングページです。ヒーロー背景に白黒を基盤とした暖かく控えめなグラデーションを使用します。プライマリタイポグラフィはヒューマニストサンセリフ（inter）で、見出しには広めのネガティブトッキングを、強調にはセリフ書体をイタリック体で使用します。レイアウトは構造化されたグリッドベースで、セクションを定義するために細い黒のボーダーを使用します。ハイコントラストと広い余白を維持します。ドロップシャドウは使用せず、密なレイアウトは避け、複数の高彩度アクセントカラーは決して使用しません。デザインは明瞭さ、主権、そして洗練された非攻撃的な美的デザインに焦点を当てます。"
+    },
+    "ko": {
+      "identity": {
+        "keywords": [
+          "개인정보 보호",
+          "로컬 우선",
+          "협업",
+          "자율성",
+          "암호화"
+        ],
+        "analogy": "노트와 워크플로우를 위한 디지털 스위스 금고",
+        "oneLiner": "디지털 협업을 위한 프라이빗하고 오프라인 우선의 작업 공간입니다."
+      },
+      "colors": {
+        "principle": "고대비 흑백 기반에 단일한 따뜻한 그라데이션과 강조를 위한 뚜렷한 세리프 하이라이트를 사용합니다."
+      },
+      "typography": {
+        "rules": [
+          "히어로 섹션 내에서만 스타일 강조용 이탤릭 세리프를 사용합니다.",
+          "주요 텍스트 계층을 엄격한 흑백으로 유지합니다.",
+          "큰 디스플레이 타이포그래피에는 넉넉한 네거티브 트래킹을 사용합니다."
+        ],
+        "scaleUses": [
+          "주요 히어로 스테이트먼트",
+          "히어로 내 강조용 세리프",
+          "섹션 제목 및 기능 타이틀",
+          "주요 단락 및 설명 텍스트",
+          "보조 정보 및 내비게이션"
+        ]
+      },
+      "spacing": {
+        "rhythm": "주요 섹션 간 80px 세로 리듬"
+      },
+      "surfaces": {
+        "shadows": [],
+        "borders": "그리드 셀과 모서리가 둥근 히어로 컨테이너를 정의하는 얇은 검은색 외곽선 (1px)"
+      },
+      "layout": {
+        "skeleton": "대형 히어로 섹션 다음에 세 가지 기능 그리드가 오고, 미세한 그리드 시스템으로 분리됩니다."
+      },
+      "components": {
+        "button": "검은색 배경에 흰색 텍스트 또는 투명 배경에 검은색 텍스트가 들어간 알약 모양 버튼.",
+        "card": "1px 검은색 그리드 레이아웃으로 분리된 텍스트 중심 기능 카드.",
+        "chip": "반투명 배경과 흐림 효과가 적용된 하단 중앙 플로팅 알약 내비게이션.",
+        "input": "최소한의 스타일링이 적용된 표준 텍스트 필드.",
+        "hero": "좌측에 대형 타이포그래피와 우측에 흑백 라인 아트 일러스트레이션이 있는 큰 테두리 컨테이너."
+      },
+      "motion": {
+        "patterns": [
+          "오버레이와 요소 페이드인을 위한 부드러운 불투명도 전환.",
+          "배경색과 테두리 변경을 위한 표준 cubic-bezier 이징.",
+          "특정 장식 또는 히어로 요소를 위한 더 긴 지속 시간 (1초)."
+        ]
+      },
+      "interaction": {
+        "hover": "미세한 색상 또는 불투명도 전환.",
+        "click": "버튼과 링크를 위한 표준 커서 포인터 상호작용.",
+        "transition": "모든 속성이 표준 0.15초 또는 0.5초 cubic-bezier 곡선으로 전환됩니다.",
+        "keyboard": "기본 브라우저 아웃라인이 적용된 표준 포커스 가능한 요소."
+      },
+      "voice": {
+        "tone": "직접적이고 안심감을 주며, 사용자 통제와 개인정보 보호에 초점을 맞춥니다.",
+        "headlineStyle": "따뜻함을 위해 가끔 세리프 이탤릭을 사용하는 크고 임팩트 있는 스테이트먼트.",
+        "ctaStyle": "고대비 알약 버튼 안에 명확하고 행동 지향적인 텍스트.",
+        "avoid": [
+          "기술 용어",
+          "공격적인 판매 언어",
+          "복잡한 기업식 표현",
+          "밝은 네온색"
+        ]
+      },
+      "donts": [
+        "여러 밝은 액센트 색상을 사용하지 마세요 — 스크린샷은 주로 검은색, 흰색, 그리고 차분한 그라데이션 팔레트를 보여줍니다.",
+        "무거운 그림자나 빛나는 효과를 사용하지 마세요 — 스크린샷은 그림자가 없는 플랫하고 외곽선이 있는 요소를 보여줍니다.",
+        "밀집하고 비좁은 레이아웃을 사용하지 마세요 — 스크린샷은 넉넉한 여백과 명확한 그리드 구조를 보여줍니다.",
+        "두껍고 둥근 컨테이너를 사용하지 마세요 — 스크린샷은 대부분 섹션에 얇은 (1px) 검은색 테두리를 보여줍니다.",
+        "전체 세리프 타이포그래피 시스템을 사용하지 마세요 — 스크린샷은 세리프를 강조에만 사용하는 세리프-세계관 기반을 보여줍니다.",
+        "다크 모드를 기본 테마로 사용하지 마세요 — 스크린샷은 흰색 배경에 검은색 텍스트를 보여줍니다."
+      ],
+      "systemPrompt": "이것은 깔끔하고 개인정보 보호 중심의 생산성 앱 랜딩 페이지입니다. 히어로 배경에 따뜻하고 미세한 그라데이션이 포함된 흑백 기반을 사용하세요. 주요 타이포그래피는 휴머니스트 세리프-세계관 (inter)으로, 제목에는 넉넉한 네거티브 트래킹을 사용하고, 강조용에는 세리프 글꼴을 사용합니다. 레이아웃은 구조화되고 그리드 기반이며, 섹션을 정의하기 위해 얇은 검은색 테두리를 사용합니다. 고대비와 넉넉한 여백을 유지하세요. 그림자를 사용하지 말고, 밀집된 레이아웃을 피하며, 여러 고채도 액센트 색상을 절대 사용하지 마세요. 디자인은 명확성, 자율성, 그리고 세련되고 공격적이지 않은 미적 강조에 초점을 맞추세요."
+    }
+  },
+  "desc": {
+    "en": {
+      "palette": "A clean black and white foundation with a single soft yellow-to-pink gradient and a vibrant coral serif highlight.",
+      "layout": "A structured, bordered grid layout with generous whitespace and a large, framed hero section.",
+      "interaction": "Minimalist and functional, relying on standard hover states and smooth, subtle transitions.",
+      "motion": "Restrained and professional, using standard cubic-bezier easing for basic element interactions.",
+      "notes": "This design is an excellent example of a premium, trustworthy aesthetic for a SaaS product, using typography and layout rather than color for impact."
+    },
+    "zh-CN": {
+      "palette": "以干净的黑白为基础，搭配一条柔和的黄粉渐变色带，并以珊瑚红的衬线字体作为点睛高光。",
+      "layout": "采用结构化的网格边框布局，留白充裕，并设有带框架的大型主视觉区域。",
+      "interaction": "极简且注重功能，依赖标准的悬停状态以及平滑、微妙的过渡效果。",
+      "motion": "克制且专业，基础元素交互使用标准的 cubic-bezier 缓动曲线。",
+      "notes": "此设计是 SaaS 产品追求高端、可信美感的绝佳范例，其冲击力主要通过版式和布局而非色彩来体现。"
+    },
+    "zh-TW": {
+      "palette": "乾淨的黑白基調，搭配單一柔和的黃色到粉色漸層與鮮明的珊瑚紅襯線字體強調色。",
+      "layout": "結構化、帶有邊框的格線佈局，搭配寬裕的留白與大型、有框架的主視覺區域。",
+      "interaction": "極簡且功能化，依賴標準的懸停狀態與流暢、細微的過渡效果。",
+      "motion": "克制且專業，使用標準的 cubic-bezier 緩動曲線處理基本的元素互動。",
+      "notes": "此設計是 SaaS 產品高質感、可信賴美學的絕佳範例，運用排版與佈局而非色彩來創造衝擊力。"
+    },
+    "ja": {
+      "palette": "クリーンな白黒を基盤とし、単一のやわらかな黄色からピンクへのグラデーションと鮮やかなコーラル色のセリフ書体によるアクセントを用います。",
+      "layout": "余白をたっぷりと確保した、枠付きグリッドレイアウト。大きな枠付きヒーローセクションを備えた構造化されたデザインです。",
+      "interaction": "ミニマルかつ機能的で、標準的なhover状態と滑らかで控えめなトランジションに依存します。",
+      "motion": "抑制が効いたプロフェッショナルな動きで、基本的な要素の相互作用に標準的なcubic-bezierイージングを使用します。",
+      "notes": "このデザインは、SaaSプロダクトにおける高級感と信頼性を備えた美的デザインの優れた例です。インパクトのために色ではなく、タイポグラフィとレイアウトを活用しています。"
+    },
+    "ko": {
+      "palette": " 깔끔한 흑백 기반에 부드러운 노란색-핑크 그라데이션과 생동감 있는 산호색 세리프 하이라이트를 단일로 사용합니다.",
+      "layout": "구조화된 테두리 그리드 레이아웃으로, 넉넉한 여백과 큰 프레임 히어로 섹션을 포함합니다.",
+      "interaction": "미니멀하고 기능적이며, 표준 hover 상태와 부드럽고 미세한 전환에 의존합니다.",
+      "motion": "절제되고 전문적이며, 기본 요소 상호작용에 표준 cubic-bezier 이징을 사용합니다.",
+      "notes": "이 디자인은 색상이 아닌 타이포그래피와 레이아웃으로 임팩트를 주어, SaaS 제품을 위한 프리미엄이고 신뢰할 수 있는 미적 예시를 잘 보여줍니다."
+    }
+  },
+  "_meta": {
+    "vision_model": "mimo-v2.5",
+    "vision_prompt_version": "0.3",
+    "vision_source": "playwright-extract:anytype",
+    "vision_grounded": true,
+    "vision_at": "2026-06-04T13:39:04+00:00",
+    "vision_tokens": 17461,
+    "vision_cost_usd": 0.194,
+    "translation_model": "mimo-v2.5",
+    "translation_at": "2026-06-04T13:40:17+00:00",
+    "translation_tokens": 17235,
+    "translation_cost_usd": 0.0574,
+    "narrative_model": "mimo-v2.5",
+    "narrative_prompt_version": "0.3",
+    "narrative_at": "2026-06-04T13:40:26+00:00",
+    "narrative_tokens": 2055,
+    "narrative_cost_usd": 0.0137,
+    "narrative_status": "ok",
+    "total_cost_usd": 0.2651
+  },
+  "narrative": {
+    "en": {
+      "ch1_intro": "The Anytype design system is engineered like a digital Swiss vault for your notes and workflows. Its identity is built on a foundation of privacy, local-first principles, and user sovereignty, expressed through a visual language of clarity and control. Every component reinforces the core promise of a secure, self-contained workspace.",
+      "ch2_intro": "The color system establishes a high-contrast black and white foundation for maximum clarity and legibility. A single warm gradient provides subtle depth in the hero section, while a distinct serif highlight introduces a note of human warmth for strategic emphasis.",
+      "ch2_outro": "The guiding principle is restraint: one gradient, one accent, and a strict monochromatic hierarchy ensure the interface remains focused and trustworthy.",
+      "ch3_intro": "Typography is the primary voice of the system, employing a humanist sans-serif for all functional text to maintain a clean, accessible hierarchy. The only exception is a reserved italicized serif, used exclusively for stylistic emphasis within the hero statement, creating a deliberate point of contrast.",
+      "ch4_intro": "A consistent 80px vertical rhythm governs the space between major sections, establishing a clear, measured cadence for content consumption.",
+      "ch5_intro": "Surfaces are defined by thin, 1px black outlines that carve out the grid and hero container. This approach forgoes shadows and glows in favor of architectural clarity, using borders and generous whitespace to create structure and depth.",
+      "ch6_intro": "The layout skeleton begins with a large, framed hero section that anchors the page. This is followed by a structured, three-column grid for feature cards, separated by a subtle but clear system of outlined cells.",
+      "ch7_intro": "Motion is restrained and professional, used to confirm state changes rather than decorate. Smooth opacity transitions and standard cubic-bezier easing provide functional feedback for overlays, hover states, and color transitions without drawing attention to itself.",
+      "ch8_intro": "The editorial voice is direct, reassuring, and focused on user control, using large, impactful statements to convey confidence. Clarity is paramount, avoiding technical jargon, aggressive sales language, and complex corporate speak.",
+      "ch8_outro": "The system deliberately avoids multiple high-chroma accent colors, heavy drop shadows, and dense layouts, committing fully to a palette and spatial rhythm built on restraint and clarity."
+    },
+    "zh-CN": {
+      "ch1_intro": "Anytype 设计系统如同一座专为您的笔记与工作流程打造的数字瑞士保险库。其设计建立在隐私、本地优先原则和用户自主权的基础之上，并通过清晰与可控的视觉语言加以表达。每一个组件都在强化其核心承诺：构建一个安全、自成一体的工作空间。",
+      "ch2_intro": "色彩系统以高对比度的黑白基调为基础，确保最大程度的清晰度与可读性。单一的暖色渐变在首屏区域营造出微妙的纵深感，而独特的衬线强调字体则为战略性内容增添了一丝人文温度。",
+      "ch2_outro": "指导原则是克制：一个渐变、一个强调色，以及严格的单色层级体系，共同确保界面保持专注与可信。",
+      "ch3_intro": "字体排印是系统的主要声音，所有功能文本均采用人文无衬线字体，以保持清晰、易读的层级结构。唯一的例外是为预留的斜体衬线字体，它专用于首屏陈述中的风格化强调，形成一种有意的对比。",
+      "ch4_intro": "80像素的统一垂直韵律规范了主要章节之间的间距，为内容浏览建立了清晰、有度的节奏。",
+      "ch5_intro": "界面表面通过1像素的细黑线轮廓进行定义，勾勒出网格和首屏容器。这种方法摒弃了阴影和光晕，转而追求建筑般的清晰感，利用边框和充足的留白来构建结构与深度。",
+      "ch6_intro": "布局骨架始于一个带框架的大型首屏区域，作为页面的锚点。其后是结构化的三列网格，用于展示功能卡片，卡片之间通过微妙但清晰的轮廓化单元格系统进行分隔。",
+      "ch7_intro": "动效克制而专业，用于确认状态变化而非装饰。平滑的透明度过渡和标准的 cubic-bezier 缓动为浮层、悬停状态和色彩转换提供功能性反馈，且不会喧宾夺主。",
+      "ch8_intro": "文案语气直接、令人安心，并聚焦于用户掌控，使用大型、有力的陈述来传递信心。清晰度至关重要，需避免技术术语、激进的销售语言和复杂的企业话术。",
+      "ch8_outro": "系统刻意避免了多种高饱和度强调色、厚重的投影和密集的布局，完全致力于构建一个基于克制与清晰的色彩和空间韵律。"
+    },
+    "zh-TW": {
+      "ch1_intro": "Anytype 的設計系統就像一座為你的筆記與工作流程打造的數位瑞士金庫。其身分建立在隱私、本地優先原則與使用者主權的基石之上，透過清晰且可控的視覺語言來表達。每一個組件都強化了安全、自給自足工作空間的核心承諾。",
+      "ch2_intro": "色彩系統建立了高對比度的黑白基礎，以實現最大的清晰度與易讀性。單一的溫暖漸層在主視覺區域提供細微的深度，而獨特的襯線體強調色則引入了一絲人文溫暖，用於戰略性的重點突出。",
+      "ch2_outro": "指導原則是克制：一個漸層、一個強調色，以及嚴格的單色階層，確保介面保持專注且值得信賴。",
+      "ch3_intro": "字體排印是系統的主要聲音，所有功能性文字採用人文主義無襯線體，以維持清晰、易於存取的層次結構。唯一的例外是保留的斜體襯線體，專門用於主視覺標語中的風格強調，刻意創造出對比點。",
+      "ch4_intro": "一致的 80px 垂直節奏規範了主要區塊之間的間距，為內容消費建立了清晰、有條理的節奏。",
+      "ch5_intro": "介面由細薄的 1px 黑色輪廓線定義，勾勒出格線與主視覺容器。這種方法捨棄陰影與光暈，追求建築般的清晰感，運用邊框與充裕的留白來創造結構與深度。",
+      "ch6_intro": "版面骨架始於一個大型、帶邊框的主視覺區塊作為頁面的錨點。隨後是結構化的三欄格線佈局，用於功能卡片，透過細微但清晰的輪廓單元格系統進行分隔。",
+      "ch7_intro": "動態效果克制而專業，用於確認狀態變化而非裝飾。流暢的透明度過渡與標準的 cubic-bezier 緩動為覆蓋層、hover 狀態與色彩轉換提供功能性的回饋，且不喧賓奪主。",
+      "ch8_intro": "編輯語氣直接、令人安心，並聚焦於使用者控制，運用大型、具衝擊力的語句來傳達信心。清晰至關重要，避免技術術語、強勢的銷售語言與複雜的企業用語。",
+      "ch8_outro": "系統刻意避免多種高飽和度強調色、厚重的陰影與密集的版面佈局，完全致力於一個建立在克制與清晰之上的色盤與空間節奏。"
+    },
+    "ja": {
+      "ch1_intro": "Anytypeのデザインシステムは、ノートやワークフローを守るデジタル・スイス・金庫のように構築されています。そのアイデンティティは、プライバシー、ローカルファーストの原則、そしてユーザー主権という基盤の上に築かれ、明瞭さと制御という視覚言語で表現されています。あらゆるコンポーネントは、安全で自律的なワークスペースという核心的な約束を強調しています。",
+      "ch2_intro": "カラーシステムは、最大限の明瞭さと可読性のために、ハイコントラストな白黒の基盤を確立しています。単一のウォームグレデーションがヒーローセクションに微かな深みを加え、一方、特徴的なセリフのアクセントは、戦略的な強調のために人間的な温かみを一筆加えます。",
+      "ch2_outro": "ガイドラインとなる原則は「抑制」です。1つのグラデーション、1つのアクセント、そして厳格なモノクロの階層構造を守ることで、インターフェースは焦点を絞り、信頼性を保ち続けます。",
+      "ch3_intro": "タイポグラフィはシステムの主要な音声であり、すべてのファンクショナルテキストにヒューマニスト・サンセリフを採用し、明確でアクセシブルな階層を維持しています。唯一の例外は、ヒーローのステートメント内でスタイル的な強調にのみ使われる、控えめなイタリック体のセリフです。これは意図的なコントラストのポイントを生み出します。",
+      "ch4_intro": "一貫した80pxの垂直リズムが、主要セクション間の空間を管理し、コンテンツを消費するための明確で計画的なリズムを確立します。",
+      "ch5_intro": "サーフェスは、グリッドとヒーローコンテナを切り出す細い1pxの黒いアウトラインで定義されています。このアプローチは、影や発光を避け、建築的な明瞭さを優先します。ボーダーと適度なホワイトスペースを使用して、構造と奥行きを生み出しています。",
+      "ch6_intro": "レイアウトの骨格は、ページを固定する大きな額縁付きのヒーローセクションから始まります。次に、フィーチャーカード用の構造化された3カラムグリッドが続き、細部は控えめですが明確なアウトラインセルのシステムで区切られています。",
+      "ch7_intro": "モーションは抑制的でプロフェッショナルであり、装飾ではなく状態の変化を確認するために使用されます。滑らかな不透明度の遷移と標準的なcubic-bezierイージングは、オーバーレイ、ホバー状態、カラートランジションに対して、目を引かずに機能的なフィードバックを提供します。",
+      "ch8_intro": "エディトリアルボイスは直接的で、安心感を与え、ユーザーの制御に焦点を当てています。信頼を伝えるために、大きく影響力のあるステートメントを用いています。明確さが最優先であり、技術用語、攻撃的な営業言語、複雑な企業用語は避けられます。",
+      "ch8_outro": "このシステムは、複数の高クロマアクセントカラー、太いドロップシャドウ、そして密集したレイアウトを意図的に避け、抑制と明瞭さの上に築かれたパレットと空間リズムに全面的にこだわっています。"
+    },
+    "ko": {
+      "ch1_intro": "Anytype 디자인 시스템은 귀하의 메모와 워크플로우를 위한 디지털 스위스 금고처럼 설계되었습니다. 이 시스템의 정체성은 프라이버시, 로컬 우선 원칙, 사용자 주권이라는 토대 위에 구축되었으며, 명확성과 제어라는 시각 언어로 표현됩니다. 모든 구성 요소는 안전하고 독립적인 작업 공간이라는 핵심 약속을 강화합니다.",
+      "ch2_intro": "컬러 시스템은 최대한의 명확성과 가독성을 위해 고대비의 흑백 기반을 확립합니다. 단일한 따뜻한 그라데이션은 히어로 섹션에 섬세한 깊이감을 더하고, 독특한 세리프 강조는 전략적인 강조를 위해 인적 따뜻함의 느낌을 도입합니다.",
+      "ch2_outro": "가이드 원칙은 절제입니다. 단 하나의 그라데이션, 단 하나의 강조색, 그리고 엄격한 단색 계층을 통해 인터페이스가 집중적이고 신뢰할 수 있게 유지되도록 합니다.",
+      "ch3_intro": "타이포그래피는 시스템의 주요 목소리로, 기능적인 모든 텍스트에 휴머니스트 산세리프를 적용하여 깔끔하고 접근 가능한 계층 구조를 유지합니다. 유일한 예외는 히어로 문구 내에서 스타일리시한 강조를 위해 독점적으로 사용되는 예약된 이탤릭 세리프로, 의도적인 대비 지점을 만듭니다.",
+      "ch4_intro": "일관된 80px 수직 리듬이 주요 섹션 간의 간격을 조절하여, 콘텐츠 소비를 위한 명확하고 규칙적인 리듬을 확립합니다.",
+      "ch5_intro": "표면은 그리드와 히어로 컨테이너를 명확히 구획하는 가느다란 1px 검은 윤곽선으로 정의됩니다. 이 접근 방식은 그림자나 발광 대신 건축적 명확성을 추구하며, 테두리와 넉넉한 여백을 사용하여 구조와 깊이감을 만듭니다.",
+      "ch6_intro": "레이아웃 스켈레톤은 페이지를 고정하는 크고 프레임화된 히어로 섹션으로 시작합니다. 이어지는 기능 카드용 구조화된 3열 그리드는 미세하지만 명확한 윤곽 셀 시스템으로 분리됩니다.",
+      "ch7_intro": "모션은 절제되고 전문적이며, 장식보다는 상태 변화를 확인하기 위해 사용됩니다. 부드러운 불투명도 전환과 표준 cubic-bezier 이징은 오버레이, hover 상태, 색상 전환에 대한 기능적 피드백을 제공하면서 자체적으로 주목을 끌지 않습니다.",
+      "ch8_intro": "에디토리얼 톤은 직접적이고 안심시키며 사용자 제어에 초점을 맞추고, 자신감을 전달하기 위해 크고 인상적인 문구를 사용합니다. 명확성이 가장 중요하며, 기술 전문 용어, 공격적인 판매 언어, 복잡한 기업용 표현을 피합니다.",
+      "ch8_outro": "시스템은 의도적으로 다수의 고채도 강조색, 무거운 그림자, 빽빽한 레이아웃을 피하며, 절제와 명확성에 기반한 팔레트와 공간 리듬에 전적으로 헌신합니다."
+    }
+  }
 }

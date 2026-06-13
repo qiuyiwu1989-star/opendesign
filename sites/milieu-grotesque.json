@@ -8,6 +8,587 @@
     "type",
     "foundry"
   ],
-  "status": "pending",
-  "added_at": "2026-06-02"
+  "status": "completed",
+  "added_at": "2026-06-02",
+  "spec": {
+    "colors": {
+      "bg": "#FFFFFF",
+      "bgSoft": "#F4F4F4",
+      "bgQuiet": null,
+      "ink": "#1E242C",
+      "inkSoft": "#576579",
+      "muted": "#313945",
+      "mutedSoft": null,
+      "accent": "#1A73E8",
+      "line": "rgba(30,36,44,1.0)"
+    },
+    "typography": {
+      "display": "grotesque-sans",
+      "body": "humanist-sans",
+      "mono": null,
+      "scale": [
+        {
+          "token": "display",
+          "size": 56,
+          "lh": 1.0,
+          "weight": 500,
+          "ls": "-1px"
+        },
+        {
+          "token": "heading",
+          "size": 26,
+          "lh": 1.2,
+          "weight": 400,
+          "ls": "normal"
+        },
+        {
+          "token": "body",
+          "size": 13,
+          "lh": 1.2,
+          "weight": 400,
+          "ls": "normal"
+        }
+      ]
+    },
+    "spacing": {
+      "base": 4,
+      "scale": [
+        4,
+        8,
+        16,
+        24,
+        32,
+        48,
+        64,
+        96
+      ]
+    },
+    "surfaces": {
+      "radius": {
+        "sm": 4,
+        "md": 8,
+        "lg": 12,
+        "pill": 999
+      }
+    },
+    "layout": {
+      "container": 1280,
+      "paragraph": 680,
+      "columns": 12,
+      "gutter": 24,
+      "breakpoints": [
+        768,
+        1024
+      ]
+    },
+    "motion": {
+      "durations": {
+        "micro": 220,
+        "small": 400,
+        "medium": 800
+      },
+      "easing": "cubic-bezier(0.25, 0.1, 0.25, 1)"
+    }
+  },
+  "spec_i18n": {
+    "en": {
+      "identity": {
+        "keywords": [
+          "Typography",
+          "Foundry",
+          "Design",
+          "Fonts",
+          "Curation"
+        ],
+        "analogy": "A high-end gallery for type designers.",
+        "oneLiner": "A curated platform for premium typefaces and design foundries."
+      },
+      "colors": {
+        "principle": "High contrast dark text on clean light surfaces, with a strong blue accent for interactive elements."
+      },
+      "typography": {
+        "rules": [],
+        "scaleUses": [
+          "Primary brand heading",
+          "Section headings",
+          "Default body text"
+        ]
+      },
+      "spacing": {
+        "rhythm": "Consistent use of multiples of 4px for padding and margins."
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(0, 0, 0, 0.06) 0px 1px 6px 0px",
+          "rgba(0, 0, 0, 0.16) 0px 2px 32px 0px"
+        ],
+        "borders": "Solid 1px borders using the primary ink color."
+      },
+      "layout": {
+        "skeleton": "Full-width hero sections transitioning into structured grid layouts for content cards."
+      },
+      "components": {
+        "button": "Solid accent color buttons with pill-shaped radius and white text.",
+        "card": "Image-heavy cards with minimal chrome, often featuring full-bleed photography.",
+        "chip": "Small, rounded tags used for filtering or categorization.",
+        "input": "Search bar with a prominent lens icon and 'AI Search' call-to-action.",
+        "hero": "Large, dramatic photographic backgrounds with overlaid text and high-contrast typography."
+      },
+      "motion": {
+        "patterns": [
+          "Smooth transitions on all interactive elements",
+          "0.5s duration for broader layout shifts"
+        ]
+      },
+      "interaction": {
+        "hover": "Subtle color shifts or opacity changes on interactive elements.",
+        "click": "Immediate feedback with no significant scale transform.",
+        "transition": "Smooth 0.5s transitions applied broadly across the UI.",
+        "keyboard": "Standard focus states for navigation."
+      },
+      "voice": {
+        "tone": "Professional, authoritative, and creatively sophisticated.",
+        "headlineStyle": "Bold, clean, and often oversized to showcase the typefaces.",
+        "ctaStyle": "Direct and action-oriented, using strong color contrast.",
+        "avoid": [
+          "Playful or whimsical language",
+          "Overly complex jargon",
+          "Cluttered layouts",
+          "Unnecessary decorative elements"
+        ]
+      },
+      "donts": [
+        "don't use rounded, friendly icons — screenshot shows sharp, geometric UI elements",
+        "don't apply drop shadows everywhere — screenshot shows mostly flat, clean surfaces",
+        "don't use a multi-color rainbow palette — screenshot shows a disciplined blue-and-dark-neutral scheme",
+        "don't use script or decorative fonts for UI — screenshot shows strictly functional sans-serifs",
+        "don't use low-contrast gray text — screenshot shows high-contrast dark ink for readability",
+        "don't use cluttered backgrounds behind text — screenshot shows clean white or solid dark sections"
+      ],
+      "systemPrompt": "A sophisticated type foundry marketplace with a clean, editorial aesthetic. Key colors are ink #1E242C on white #FFFFFF with a blue accent #1A73E8. Typography utilizes grotesque and humanist sans-serif categories. Critical donts: avoid whimsical icons, minimize drop shadows, avoid multi-color palettes, strictly use functional sans-serifs, ensure high-contrast text, and maintain clean backgrounds for legibility."
+    },
+    "zh-CN": {
+      "identity": {
+        "keywords": [
+          "字体排印",
+          "字体铸造厂",
+          "设计",
+          "字体",
+          "策展"
+        ],
+        "analogy": "一个面向字体设计师的高端画廊。",
+        "oneLiner": "一个精选优质字体与设计铸造厂的策展平台。"
+      },
+      "colors": {
+        "principle": "在洁净的浅色背景上使用高对比度的深色文本，并以鲜明的蓝色作为交互元素的强调色。"
+      },
+      "typography": {
+        "rules": [],
+        "scaleUses": [
+          "主品牌标题",
+          "章节标题",
+          "默认正文文本"
+        ]
+      },
+      "spacing": {
+        "rhythm": "统一使用 4px 的倍数作为 padding 和 margin 的基准。"
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(0, 0, 0, 0.06) 0px 1px 6px 0px",
+          "rgba(0, 0, 0, 0.16) 0px 2px 32px 0px"
+        ],
+        "borders": "使用主墨色绘制 1px 的实线边框。"
+      },
+      "layout": {
+        "skeleton": "全宽首图区块，过渡到用于内容卡片的结构化网格布局。"
+      },
+      "components": {
+        "button": "采用实心强调色、药丸形圆角和白色文本的按钮。",
+        "card": "以图像为主、界面元素极简的卡片，常采用全出血式摄影构图。",
+        "chip": "用于筛选或分类的小型圆角标签。",
+        "input": "带有醒目放大镜图标和“AI 搜索”行动号召的搜索栏。",
+        "hero": "大型、富有戏剧性的摄影背景，覆盖文本并使用高对比度排印。"
+      },
+      "motion": {
+        "patterns": [
+          "所有交互元素均采用平滑过渡",
+          "广泛的布局变化使用 0.5s 时长"
+        ]
+      },
+      "interaction": {
+        "hover": "交互元素上的细微颜色或透明度变化。",
+        "click": "提供即时反馈，无明显的缩放变换。",
+        "transition": "在整个 UI 中广泛使用平滑的 0.5s 过渡效果。",
+        "keyboard": "标准的导航焦点状态。"
+      },
+      "voice": {
+        "tone": "专业、权威且富有创意的精致感。",
+        "headlineStyle": "粗体、简洁且常采用超大尺寸以展示字体效果。",
+        "ctaStyle": "直接且以行动为导向，利用强烈的颜色对比。",
+        "avoid": [
+          "俏皮或异想天开的语言",
+          "过于复杂的行话",
+          "杂乱的布局",
+          "不必要的装饰性元素"
+        ]
+      },
+      "donts": [
+        "不要使用圆润、友好的图标——截图显示的是尖锐、几何化的 UI 元素",
+        "不要在各处应用投影——截图显示的是大部分扁平、洁净的表面",
+        "不要使用多彩的彩虹色板——截图显示的是严谨的蓝色与深中性色方案",
+        "不要在 UI 中使用手写体或装饰性字体——截图显示的是严格功能性的无衬线字体",
+        "不要使用低对比度的灰色文本——截图显示的是高对比度的深墨色文本以确保可读性",
+        "不要在文本后使用杂乱的背景——截图显示的是洁净的白色或纯深色区块"
+      ],
+      "systemPrompt": "一个具有洁净编辑美学的精致字体铸造厂市场。关键颜色为墨色 #1E242C 在白色 #FFFFFF 上，并以蓝色 #1A73E8 作为强调色。字体排印采用无衬线字体中的怪诞体和人文主义体类别。关键禁忌：避免异想天开的图标，尽量减少投影，避免多彩色板，严格使用功能性无衬线字体，确保高对比度文本，并保持背景洁净以确保可读性。"
+    },
+    "zh-TW": {
+      "identity": {
+        "keywords": [
+          "排版",
+          "字型鑄造廠",
+          "設計",
+          "字體",
+          "策展"
+        ],
+        "analogy": "一座為字型設計師打造的高端藝廊。",
+        "oneLiner": "一個策劃優質字型與設計字型鑄造廠的平台。"
+      },
+      "colors": {
+        "principle": "在乾淨的淺色背景上使用高對比度深色文字，並以強烈的藍色作為互動元素的強調色。"
+      },
+      "typography": {
+        "rules": [],
+        "scaleUses": [
+          "主要品牌標題",
+          "章節標題",
+          "預設內文"
+        ]
+      },
+      "spacing": {
+        "rhythm": "統一使用 4px 的倍數作為 padding 與 margin 的節奏。"
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(0, 0, 0, 0.06) 0px 1px 6px 0px",
+          "rgba(0, 0, 0, 0.16) 0px 2px 32px 0px"
+        ],
+        "borders": "使用主要墨色的 1px 實線邊框。"
+      },
+      "layout": {
+        "skeleton": "全寬主視覺區塊過渡至結構化的網格版面，用於內容卡片。"
+      },
+      "components": {
+        "button": "採用強調色的實色按鈕，具有藥丸形圓角與白色文字。",
+        "card": "以圖片為主的卡片，介面極簡，常採用全出血攝影圖像。",
+        "chip": "小型圓角標籤，用於篩選或分類。",
+        "input": "搜尋列，具有醒目的放大鏡圖示與「AI Search」行動呼籲。",
+        "hero": "大尺寸、具戲劇張力的攝影背景，疊加文字與高對比度排版。"
+      },
+      "motion": {
+        "patterns": [
+          "所有互動元素皆採用流暢過渡",
+          "較大範圍的版面變動使用 0.5 秒時長"
+        ]
+      },
+      "interaction": {
+        "hover": "互動元素會有細膩的顏色或透明度變化。",
+        "click": "提供即時反饋，無明顯縮放變形。",
+        "transition": "廣泛應用於整個 UI 的 0.5 秒流暢過渡。",
+        "keyboard": "標準的導覽 focus 狀態。"
+      },
+      "voice": {
+        "tone": "專業、權威，且富有創意深度。",
+        "headlineStyle": "粗體、乾淨，且常採用超大尺寸以展示字型特色。",
+        "ctaStyle": "直接且以行動為導向，運用強烈的顏色對比。",
+        "avoid": [
+          "嬉鬧或異想天開的語言",
+          "過於複雜的術語",
+          "雜亂的版面",
+          "不必要的裝飾元素"
+        ]
+      },
+      "donts": [
+        "勿使用圓潤、友善的圖示——截圖顯示的是銳利、幾何感的 UI 元素",
+        "勿濫用陰影效果——截圖顯示的是主要為平坦、乾淨的表面",
+        "勿使用多色彩虹調色盤——截圖顯示的是有節制的藍色與深色中性色方案",
+        "勿在 UI 中使用書法或裝飾性字體——截圖顯示的是嚴格的功能性無襯線字體",
+        "勿使用低對比度的灰色文字——截圖顯示的是高對比度的深墨色以確保可讀性",
+        "勿在文字後方使用雜亂的背景——截圖顯示的是乾淨的白色或實色深色區塊"
+      ],
+      "systemPrompt": "一個具有乾淨、編輯美感的精緻字型鑄造廠市集。關鍵色彩為墨色 #1E242C 搭配白色 #FFFFFF，並以藍色 #1A73E8 作為強調。排版採用 grotesque-sans 與 humanist-sans 字體類別。關鍵禁忌：避免使用異想天開的圖示、減少陰影使用、避免多色調色盤、嚴格使用功能性無襯線字體、確保文字高對比度，並維持乾淨背景以利閱讀。"
+    },
+    "ja": {
+      "identity": {
+        "keywords": [
+          "Typography",
+          "Foundry",
+          "Design",
+          "Fonts",
+          "Curation"
+        ],
+        "analogy": "タイポグラフィデザイナーのためのハイエンドギャラリー。",
+        "oneLiner": "プレミアム書体とデザインファウンダリーのキュレーションプラットフォーム。"
+      },
+      "colors": {
+        "principle": "クリーンな明るいサーフェス上の高コントラストダークテキスト。インタラクティブ要素には強いブルーアクセントを配置。"
+      },
+      "typography": {
+        "rules": [],
+        "scaleUses": [
+          "プライマリブランド見出し",
+          "セクション見出し",
+          "デフォルト本文テキスト"
+        ]
+      },
+      "spacing": {
+        "rhythm": "paddingとmarginには4pxの倍数を一貫して使用。"
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(0, 0, 0, 0.06) 0px 1px 6px 0px",
+          "rgba(0, 0, 0, 0.16) 0px 2px 32px 0px"
+        ],
+        "borders": "プライマリインクカラーを使用した1pxの实线ボーダー。"
+      },
+      "layout": {
+        "skeleton": "全幅のヒーローセクションから、コンテンツカードの構造化されたグリッドレイアウトへと移行。"
+      },
+      "components": {
+        "button": "ピル型のradiusを持つアクセントカラーの実線ボタン、テキストは白。",
+        "card": "ミニマルな装飾の、画像を多用したカード。フルブリードの写真が頻繁に使用される。",
+        "chip": "フィルタリングやカテゴリ分類に使用される、小さく丸みのあるタグ。",
+        "input": "目立つレンズアイコンと「AI Search」のCTAを持つ検索バー。",
+        "hero": "ドラマチックな写真背景に、オーバーレイのテキストと高コントラストのタイポグラフィを配置した大型ヒーロー。"
+      },
+      "motion": {
+        "patterns": [
+          "全インタラクティブ要素に対するスムーズなトランジション",
+          "広範なレイアウト変化には0.5秒のデュレーション"
+        ]
+      },
+      "interaction": {
+        "hover": "インタラクティブ要素上での微細なカラー変化または不透明度の変化。",
+        "click": "顕著なscale変換なしの即時フィードバック。",
+        "transition": "UI全体に適用されるスムーズな0.5秒トランジション。",
+        "keyboard": "ナビゲーションに対する標準的なfocus状態。"
+      },
+      "voice": {
+        "tone": "プロフェッショナルで、権威があり、クリエイティブに洗練されている。",
+        "headlineStyle": "書体を見せるために、太字、クリーン、しばしばオーバーサイズ。",
+        "ctaStyle": "直接的で行動を促すもの。強いカラーコントラストを使用。",
+        "avoid": [
+          "遊び心のある或いは奇抜な言葉遣い",
+          "不必要に複雑な専門用語",
+          "ごちゃごちゃしたレイアウト",
+          "不要な装飾要素"
+        ]
+      },
+      "donts": [
+        "rounded、フレンドリーなアイコンを使用しない — スクリーンショットでは鋭く幾何学的なUI要素が示されている",
+        "すべての箇所にドロップシャドウを適用しない — スクリーンショットでは主にフラットでクリーンなサーフェスが示されている",
+        "マルチカラーパレットを使用しない — スクリーンショットでは規律あるブルーとダークニュートラルのスキームが示されている",
+        "UIにscript或いは装飾フォントを使用しない — スクリーンショットでは厳密に機能的なsans-serifが使用されている",
+        "低コントラストのグレーテキストを使用しない — スクリーンショットでは可読性のために高コントラストのダークインクが示されている",
+        "テキストの背後にごちゃごちゃした背景を使用しない — スクリーンショットではクリーンな白またはソリッドダークセクションが示されている"
+      ],
+      "systemPrompt": "クリーンでエディトリアルな美学を持つ洗練されたタイポグラフィファウンダリーマーケットプレイス。主なカラーは、白#FFFFFF上のインク#1E242C、ブルーアクセント#1A73E8。タイポグラフィにはgrotesqueおよびhumanist sans-serifカテゴリを使用。重要な禁止事項：奇抜なアイコンを避ける、ドロップシャドウを最小限に、マルチカラーパレットを回避、厳密に機能的なsans-serifを使用、高コントラストテキストを確保、可読性のためにクリーンな背景を維持する。"
+    },
+    "ko": {
+      "identity": {
+        "keywords": [
+          "타이포그래피",
+          "파운드리",
+          "디자인",
+          "폰트",
+          " 큐레이션"
+        ],
+        "analogy": "타입 디자이너를 위한 하이엔드 갤러리.",
+        "oneLiner": "프리미엄 타입페이스와 디자인 파운드리를 위한 큐레이션 플랫폼."
+      },
+      "colors": {
+        "principle": "깔끔한 밝은 배경 위의 고대비 어두운 텍스트와, 인터랙티브 요소를 위한 강한 블루 악센트."
+      },
+      "typography": {
+        "rules": [],
+        "scaleUses": [
+          "메인 브랜드 제목",
+          "섹션 제목",
+          "기본 본문 텍스트"
+        ]
+      },
+      "spacing": {
+        "rhythm": "패딩과 마진에 4px의 배수를 일관되게 사용합니다."
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(0, 0, 0, 0.06) 0px 1px 6px 0px",
+          "rgba(0, 0, 0, 0.16) 0px 2px 32px 0px"
+        ],
+        "borders": "기본 잉크 색상을 사용한 1px 실선 테두리."
+      },
+      "layout": {
+        "skeleton": "전체 너비의 히어로 섹션에서 콘텐츠 카드를 위한 구조화된 그리드 레이아웃으로 전환됩니다."
+      },
+      "components": {
+        "button": "알약 형태의 반경과 흰색 텍스트를 가진 실선 악센트 색상 버튼.",
+        "card": "최소한의 장식으로 이미지가 강조된 카드로, 종종 전체 블리드 사진을 특징으로 합니다.",
+        "chip": "필터링이나 분류에 사용되는 작고 둥근 태그.",
+        "input": "돋보기 아이콘과 'AI Search' CTA가 강조된 검색 바.",
+        "hero": "오버레이 텍스트와 고대비 타이포그래피가 있는 대형, 인상적인 사진 배경."
+      },
+      "motion": {
+        "patterns": [
+          "모든 인터랙티브 요소에 부드러운 트랜지션",
+          "넓은 레이아웃 전환에 0.5초 지속 시간"
+        ]
+      },
+      "interaction": {
+        "hover": "인터랙티브 요소에 섬세한 색상 변화 또는 불투명도 변경.",
+        "click": "크기 변환 없이 즉각적인 피드백.",
+        "transition": "UI 전반에 걸쳐 부드러운 0.5초 트랜지션 적용.",
+        "keyboard": "내비게이션을 위한 표준 focus 상태."
+      },
+      "voice": {
+        "tone": "전문적이고 권위 있으며, 창의적으로 세련된.",
+        "headlineStyle": "대담하고 클린하며, 종종 타입페이스를 과시하기 위해 과도하게 큼직함.",
+        "ctaStyle": "직접적이고 행동 지향적이며, 강한 색상 대비 사용.",
+        "avoid": [
+          "장난스럽거나 공상적인 언어",
+          "지나치게 복잡한 전문 용어",
+          "지저분한 레이아웃",
+          "불필요한 장식적 요소"
+        ]
+      },
+      "donts": [
+        "둥글고 친근한 아이콘을 사용하지 마세요 — 스크린샷은 날카롭고 기하학적인 UI 요소를 보여줍니다",
+        "그림자를 모든 곳에 적용하지 마세요 — 스크린샷은 대부분 플랫하고 클린한 표면을 보여줍니다",
+        "다색 무지개 팔레트를 사용하지 마세요 — 스크린샷은 규율 잡힌 블루와 다크 중성색 체계를 보여줍니다",
+        "UI에 스크립트나 장식적 폰트를 사용하지 마세요 — 스크린샷은 엄격히 기능적인 산세리프를 보여줍니다",
+        "저대비 회색 텍스트를 사용하지 마세요 — 스크린샷은 가독성을 위한 고대비 잉크를 보여줍니다",
+        "텍스트 뒤에 지저분한 배경을 사용하지 마세요 — 스크린샷은 클린한 흰색 또는 단색 다크 섹션을 보여줍니다"
+      ],
+      "systemPrompt": "클린하고 편집적 미학을 가진 정교한 타입 파운드리 마켓플레이스. 주요 색상은 흰색 #FFFFFF 위의 잉크 #1E242C와 블루 악센트 #1A73E8. 타이포그래피는 grotesque와 humanist sans-serif 카테고리를 활용합니다. 핵심 금지 사항: 장난스러운 아이콘 피하기, 그림자 최소화, 다색 팔레트 피하기, 엄격히 기능적인 산세리프 사용, 고대비 텍스트 확보, 가독성을 위한 클린한 배경 유지."
+    }
+  },
+  "desc": {
+    "en": {
+      "palette": "A disciplined and professional palette centered on deep ink neutrals, crisp white, and a focused blue accent for high contrast and clarity.",
+      "layout": "The layout is clean and grid-based, utilizing full-width photographic heroes that transition into structured, breathable content sections.",
+      "interaction": "Interactions are smooth and understated, with broad 0.5s transitions and subtle hover states on a highly clickable interface.",
+      "motion": "Motion is used sparingly and purposefully, primarily to smooth out transitions and guide the user's focus through the editorial content.",
+      "notes": "This site is worth including as a masterclass in professional typography-driven design, balancing bold creative expression with functional e-commerce."
+    },
+    "zh-CN": {
+      "palette": "一个严谨且专业的色彩体系，以深墨色中性色、洁净的白色为核心，并辅以专注的蓝色作为高对比度和清晰度的强调色。",
+      "layout": "布局简洁且基于网格系统，采用全宽摄影首图，并过渡到结构化、留白充足的内容区块。",
+      "interaction": "交互效果平滑而克制，包含广泛的 0.5s 过渡动画，并在高可点击的界面上应用细微的 hover 状态。",
+      "motion": "动画效果使用得稀少且有目的性，主要用于平滑过渡并引导用户视线穿过编辑内容。",
+      "notes": "该网站是专业字体驱动设计的典范，在创意表达与功能性电商之间取得了平衡，值得作为大师课纳入参考。"
+    },
+    "zh-TW": {
+      "palette": "以深墨中性色、純淨白色為核心，並以聚焦的藍色作為強調，營造高對比、清晰且專業的調色盤。",
+      "layout": "版面採用乾淨的網格系統，運用全寬攝影主視覺，過渡至結構分明、留白充足的內容區塊。",
+      "interaction": "互動設計流暢而內斂，採用廣泛的 0.5 秒過渡動畫，並在高度可點擊的介面上設有細膩的 hover 狀態。",
+      "motion": "動態效果使用得精準而有目的，主要用於平滑過渡，並引導使用者關注編輯內容。",
+      "notes": "此網站堪稱專業排版驅動設計的典範，在大膽的創意表達與實用的電商功能之間取得平衡。"
+    },
+    "ja": {
+      "palette": "深いインクの中立色、鮮やかな白、焦点を当てたブルーアクセントを中心とした、規律とプロフェッショナリズムを感じるパレット。高いコントラストと明瞭さを実現しています。",
+      "layout": "クリーンでグリッドベースのレイアウト。全幅の写真ヒーローセクションから、構造化された、息の通ったコンテンツセクションへと滑らかに移行します。",
+      "interaction": "スムーズで控えめなインタラクション。広範な0.5秒のトランジションと、高いクリック性を持つインタフェース上の微細なhover状態が特徴です。",
+      "motion": "モーションは控えめかつ意図的に使用。主にトランジションのスムーズ化と、エディトリアルコンテンツを通じたユーザーの焦点誘導に役立てられます。",
+      "notes": "このサイトは、プロフェッショナルなタイポグラフィ駆動型デザインの教科書的マスターピースとして組み込む価値があります。大胆なクリエイティブ表現と機能的なeコマースのバランスが取れています。"
+    },
+    "ko": {
+      "palette": "규율 있고 전문적인 팔레트로, 깊은 잉크 중성색, 선명한 흰색, 그리고 높은 대비와 명확성을 위한 집중적인 블루 악센트를 중심으로 구성되어 있습니다.",
+      "layout": "레이아웃은 클린하고 그리드 기반으로, 전체 너비의 사진 히어로가 구조화되고 숨 쉴 듯한 콘텐츠 섹션으로 자연스럽게 전환됩니다.",
+      "interaction": "인터랙션은 매끄럽고 절제되어 있으며, 0.5초의 넓은 트랜지션과 높은 클릭성을 가진 인터페이스의 섬세한 hover 상태를 특징으로 합니다.",
+      "motion": "모션은 절제되며 의도적으로 사용되며, 주로 트랜지션을 매끄럽게 하고 편집 콘텐츠를 통해 사용자의 초점을 유도하는 데 사용됩니다.",
+      "notes": "이 사이트는 전문적인 타이포그래피 중심 디자인의 걸작으로 포함할 가치가 있으며, 대담한 창의적 표현과 기능적인 전자상거래의 균형을 이룹니다."
+    }
+  },
+  "_meta": {
+    "vision_model": "mimo-v2.5",
+    "vision_prompt_version": "0.3",
+    "vision_source": "playwright-extract:milieu-grotesque",
+    "vision_grounded": true,
+    "vision_at": "2026-06-04T16:48:40+00:00",
+    "vision_tokens": 16423,
+    "vision_cost_usd": 0.1825,
+    "translation_model": "mimo-v2.5",
+    "translation_at": "2026-06-04T16:49:45+00:00",
+    "translation_tokens": 16444,
+    "translation_cost_usd": 0.0547,
+    "narrative_model": "mimo-v2.5",
+    "narrative_prompt_version": "0.3",
+    "narrative_at": "2026-06-04T16:49:53+00:00",
+    "narrative_tokens": 1978,
+    "narrative_cost_usd": 0.0132,
+    "narrative_status": "ok",
+    "total_cost_usd": 0.2504
+  },
+  "narrative": {
+    "en": {
+      "ch1_intro": "The Milieu Grotesque design system operates with the focused curation of a high-end gallery for type designers. Every component, from the broad layout to the subtle shadow, is selected to frame the typography and the foundry's work, not to compete with it. The result is an interface that feels both authoritative and cleanly functional.",
+      "ch2_intro": "The palette is deliberately restrained, built on deep ink neutrals and crisp white for maximum contrast and legibility. A single, focused blue accent marks all interactive elements, creating a clear and consistent visual pathway through the content.",
+      "ch2_outro": "The principle is disciplined simplicity: a high-contrast foundation that allows the featured typefaces and foundry work to command attention.",
+      "ch3_intro": "The typographic voice is built from **grotesque and humanist sans-serif** categories, selected for their professional clarity and modern aesthetic. The scale is used primarily for bold, clean, and often oversized headlines that showcase the fonts, set against a default body for sustained reading.",
+      "ch4_intro": "Spacing follows a strict musical rhythm, built on consistent multiples of 4px to create a predictable and breathable structure across all components and layouts.",
+      "ch5_intro": "Depth is handled with extreme restraint, using two specific shadow levels primarily for subtle elevation on key elements like cards. Borders are thin, solid, and consistently rendered in the primary ink color, defining edges without visual noise.",
+      "ch6_intro": "The structural skeleton begins with full-width, dramatic photographic heroes that establish scale and mood. This transitions into structured grid layouts for content cards, maintaining generous whitespace to let the imagery and typography breathe.",
+      "ch7_intro": "Motion philosophy favors smooth, understated transitions that guide focus rather than distract. Broad 0.5s durations are applied to major layout shifts, while interactive elements receive immediate, subtle feedback through color or opacity changes on hover.",
+      "ch8_intro": "The editorial voice is professional, authoritative, and creatively sophisticated, with headlines that are bold and clean. Direct, action-oriented CTAs use strong color contrast, while the overall tone avoids playful whimsy and unnecessary jargon.",
+      "ch8_outro": "The system deliberately avoids decorative clutter, whimsical icons, and multi-color palettes to maintain its focused, gallery-like presentation."
+    },
+    "zh-CN": {
+      "ch1_intro": "Milieu Grotesque 设计系统如同一家高端字体设计师画廊，进行着专注的策展工作。从整体布局到微妙的阴影，每个组件都经过精心选择，旨在衬托字体与铸造厂的作品，而非与之竞争。最终呈现出一个既具权威性又保持清晰功能性的界面。",
+      "ch2_intro": "色彩搭配刻意保持克制，基于深沉的墨色中性色与纯净白色，以实现最大对比度与可读性。单一、专注的蓝色点缀色用于所有交互元素，为内容流创造出清晰且一致的视觉路径。",
+      "ch2_outro": "其核心原则是克制的简约：高对比度的基础让所展示的字体与铸造厂作品成为视觉焦点。",
+      "ch3_intro": "字体风格体系建立在 **无衬线体与人文主义无衬线体** 类别之上，因其专业的清晰度与现代美感而被选用。字体比例主要用于大胆、简洁且常为超大尺寸的标题以展示字体特性，并搭配默认的正文字体以适应长篇阅读。",
+      "ch4_intro": "间距遵循严格的节奏韵律，基于 4px 的一致倍数构建，在所有组件与布局中创造出可预测且呼吸感良好的结构。",
+      "ch5_intro": "深度处理极为克制，主要使用两个特定的阴影层级为卡片等关键元素提供微妙的浮起效果。边框采用纤细、实线的形式，始终使用主墨色绘制，在无视觉干扰的情况下定义边缘。",
+      "ch6_intro": "结构骨架始于全宽、戏剧性的摄影主视觉，以建立尺度感与情绪氛围。随后过渡到结构化的网格布局用于内容卡片，保持充足的留白让图像与字体得以呼吸。",
+      "ch7_intro": "动效理念倾向于流畅、克制的过渡，旨在引导而非分散注意力。主要的布局切换采用宽泛的 0.5 秒时长，而交互元素则通过 hover 时颜色或透明度的即时、细微变化提供反馈。",
+      "ch8_intro": "编辑语调专业、权威且富有创意精致感，标题大胆而简洁。直接、行动导向的 CTA 使用强烈的色彩对比，整体语调避免轻浮随意与不必要的术语。",
+      "ch8_outro": "该系统刻意避免装饰性杂乱、趣味性图标及多色板，以维持其专注、画廊式的呈现效果。"
+    },
+    "zh-TW": {
+      "ch1_intro": "Milieu Grotesque 設計系統以高端字體畫廊的專注策展方式運作。從寬廣的佈局到細微的陰影，每個元件都經過精心挑選，用來襯托字體排印與鑄字工坊的作品，而非與其競爭。最終介面既具權威感，又保持簡潔功能。",
+      "ch2_intro": "色彩調色盤經過刻意克制，以深墨中性色與純淨白色為基底，實現最大對比度與可讀性。單一而專注的藍色強調色標示所有互動元素，在內容中建立清晰一致的視覺路徑。",
+      "ch2_outro": "核心原則是嚴謹的簡約：以高對比基礎，讓精選字體與鑄字作品成為焦點。",
+      "ch3_intro": "字體語音建立在**怪誕體與人文主義無襯線體**類別上，因其專業清晰度與現代美學而被選用。字級主要用於粗體、簡潔且常為放大的標題字型展示，內文則採用預設字型以利長時間閱讀。",
+      "ch4_intro": "間距遵循嚴格的音樂節奏，以4px的一致倍數建立，在所有元件與佈局中創造可預期且具呼吸感的結構。",
+      "ch5_intro": "深度處理極度克制，主要使用兩個特定陰影層級，為卡片等關鍵元素提供微妙的立体感。邊框纖細、實線，統一採用主墨色繪製，在不產生視覺雜訊的情況下定義邊界。",
+      "ch6_intro": "結構骨架始於全寬、具戲劇性的攝影主視覺，建立規模與氛圍。隨後過渡至結構化的網格佈局用於內容卡片，保留充足留白讓影像與字體排印得以呼吸。",
+      "ch7_intro": "動態設計偏好平滑、含蓄的過渡，引導專注而非分散注意力。主要佈局轉換採用廣泛的0.5秒時長，互動元素則透過hover時的顏色或透明度變化，提供即時而微妙的回饋。",
+      "ch8_intro": "編輯語音專業、權威且具創意深度，標題粗體簡潔。直接、行動導向的CTA運用強烈色彩對比，整體語調避免俏皮 whimsy 與多餘術語。",
+      "ch8_outro": "系統刻意避免裝飾性雜亂、 whimsical 圖示與多彩色盤，以維持其專注的、畫廊式的呈現風格。"
+    },
+    "ja": {
+      "ch1_intro": "Milieu Grotesqueデザインシステムは、書体デザイナー向けのハイエンドなギャラリーのような、集中したキュレーションで运作します。広いレイアウトから微かなシャドウまで、あらゆるコンポーネントはタイポグラフィやファウンドリーの作品を引き立てるために選ばれており、競合するために選ばれたものではありません。その結果、権威がありながらもクリーンに機能するインターフェースが生まれます。",
+      "ch2_intro": "パレットは意図的に抑制され、最大のコントラストと可読性のために、濃いインクのニュートラルカラーと鮮やかな白を基盤に構築されています。単一で焦点を絞った青のアクセントがすべてのインタラクティブ要素をマークし、コンテンツを通る明確で一貫した視覚的経路を生み出します。",
+      "ch2_outro": "この原則は律儀なシンプルさです：ハイコントラストの基盤を確立し、フィーチャーされた書体やファウンドリーの作品が注目を集める余地を残します。",
+      "ch3_intro": "タイポグラフィの声は、**グロテスク系およびヒューマニスト・サンセリフ**のカテゴリから構成され、そのプロフェッショナルな明瞭さとモダンな美学のために選ばれています。スケールは主に、フォントを披露する太字でクリーン、そしてしばしば過大な見出しに使用され、持続的な読書のための本文をデフォルトとして設定します。",
+      "ch4_intro": "スペーシングは厳格なリズムに従い、4pxの一定の倍数を基盤に、すべてのコンポーネントとレイアウトにわたって予測可能で息がのびる構造を構築します。",
+      "ch5_intro": "ディープネスは極度の抑制をもって扱われ、主にカードなどの主要な要素に微かな高みを与えるために、2つの特定のシャドウレベルが使用されます。ボーダーは細く、堅く、一貫してプライマリインクカラーで描画され、視覚的なノイズなしに輪郭を定義します。",
+      "ch6_intro": "構造的な骨格は、スケールと雰囲気を確立するドラマチックなフルワイド写真のヒーローから始まります。これは、コンテンツカードのための構造化されたグリッドレイアウトに移行し、画像とタイポグラフィが息をのめるよう、余裕のあるホワイトスペースを維持します。",
+      "ch7_intro": "モーションの哲学は、注意を逸らすのではなく、フォーカスを誘導する滑らかで控えめなトランジションを優先します。主要なレイアウトのシフトには幅広い0.5秒の持続時間が適用され、インタラクティブな要素はhover時の色や不透明度の変化を通じて、即座で微かなフィードバックを受けます。",
+      "ch8_intro": "エディトリアルな声は、プロフェッショナルで権威があり、創造的に洗練されており、見出しは太字でクリーンです。直接的で行動を促すCTAは強い色のコントラストを用い、全体的なトーンは遊び心のある気まぐれや不必要な専門用語を避けます。",
+      "ch8_outro": "システムは意図的に、装飾的な雑然しさ、気まぐれなアイコン、および複数のカラーパレットを避け、集中した、ギャラリーのようなプレゼンテーションを維持します。"
+    },
+    "ko": {
+      "ch1_intro": "밀리유 그로테스크 디자인 시스템은 타이포그래피 디자이너를 위한 하이엔드 갤러리의 집중된 큐레이션으로 운영됩니다. 광범위한 레이아웃부터 미세한 그림자까지 모든 구성 요소는 타이포그래피와 폰트 파운드리의 작업을 조명하기 위해 선택되었으며, 이와 경쟁하기 위해서가 아닙니다. 그 결과, 권위 있고 기능적으로 정돈된 인터페이스가 탄생했습니다.",
+      "ch2_intro": "팔레트는 의도적으로 절제되어 있으며, 최대 대비와 가독성을 위해 깊은 잉크 톤의 뉴트럴과 선명한 화이트를 기반으로 구축됩니다. 단일하고 집중된 블루 악센트는 모든 인터랙티브 요소를 표시하여 콘텐츠를 명확하고 일관된 시각적 경로로 안내합니다.",
+      "ch2_outro": "원칙은 규율 있는 단순함입니다: 특징적인 서체와 폰트 파운드리 작업에 주목도를 부여하는 고대비 기반을 지향합니다.",
+      "ch3_intro": "타이포그래피적 목소리는 전문적인 명료성과 현대적 미학을 위해 선택된 **그로테스크와 휴머니스트 산세리프** 카테고리에서 구축됩니다. 스케일은 주로 폰트를 선보이는 굵고 크며 종종 과장된 헤드라인에 사용되며, 지속적인 독서를 위한 기본 본문과 대조됩니다.",
+      "ch4_intro": "간격은 엄격한 음악적 리듬을 따르며, 모든 구성 요소와 레이아웃에 걸쳐 예측 가능하고 호흡이 있는 구조를 만들기 위해 4px의 일관된 배수를 기반으로 합니다.",
+      "ch5_intro": "깊이는 극도로 절제하여 다루며, 주로 카드와 같은 핵심 요소에 미세한 높이감을 주기 위해 두 가지 특정 그림자 수준을 사용합니다. 테두리는 얇고 단색이며, 시각적 노이즈 없이 가장자리를 명확히 하기 위해 주요 잉크 색상으로 일관되게 적용됩니다.",
+      "ch6_intro": "구조적 뼈대는 스케일과 분위기를 확립하는 전폭적이고 극적인 포토그래픽 히어로로 시작됩니다. 이후 콘텐츠 카드를 위한 구조화된 그리드 레이아웃으로 전환되며, 이미지와 타이포그래피가 숨 쉴 수 있도록 넉넉한 여백을 유지합니다.",
+      "ch7_intro": "모션 철학은 주의를 산만하게 하지 않고 초점을 안내하는 매끄럽고 절제된 전환을 선호합니다. 주요 레이아웃 전환에는 광범위한 0.5초 지속 시간이 적용되며, 인터랙티브 요소는 hover 시 색상이나 불투명도 변경을 통해 즉각적이고 미세한 피드백을 제공합니다.",
+      "ch8_intro": "에디토리얼 목소리는 전문적이고 권위적이며 창의적으로 세련되었으며, 헤드라인은 굵고 깔끔합니다. 직접적이고 행동 지향적인 CTA는 강한 색상 대비를 사용하며, 전체적인 톤은 장난스러운 감성과 불필요한 전문 용어를 피합니다.",
+      "ch8_outro": "이 시스템은 집중된 갤러리와 같은 프레젠테이션을 유지하기 위해 장식적 잡동사니, 유쾌한 아이콘, 다채로운 팔레트를 의도적으로 피합니다."
+    }
+  }
 }

@@ -8,6 +8,619 @@
     "dev",
     "tool"
   ],
-  "status": "pending",
-  "added_at": "2026-06-03"
+  "status": "completed",
+  "added_at": "2026-06-03",
+  "spec": {
+    "colors": {
+      "bg": "#0f1014",
+      "bgSoft": "#151619",
+      "bgQuiet": "#1c1f25",
+      "ink": "#ffffff",
+      "inkSoft": "rgba(255,255,255,0.8)",
+      "muted": "#a1a5b0",
+      "mutedSoft": "rgba(255,255,255,0.7)",
+      "accent": "#00a8db",
+      "line": "rgba(255,255,255,0.12)"
+    },
+    "typography": {
+      "display": "humanist-sans",
+      "body": "humanist-sans",
+      "mono": "monospace",
+      "scale": [
+        {
+          "token": "display",
+          "size": 94,
+          "lh": 1.0,
+          "weight": 700,
+          "ls": "-3px"
+        },
+        {
+          "token": "heading",
+          "size": 40,
+          "lh": 1.2,
+          "weight": 700,
+          "ls": "-1px"
+        },
+        {
+          "token": "body",
+          "size": 16,
+          "lh": 1.5,
+          "weight": 400,
+          "ls": "0px"
+        },
+        {
+          "token": "small",
+          "size": 13,
+          "lh": 1.5,
+          "weight": 500,
+          "ls": "0px"
+        }
+      ]
+    },
+    "spacing": {
+      "base": 4,
+      "scale": [
+        4,
+        8,
+        16,
+        24,
+        32,
+        48,
+        64,
+        96
+      ]
+    },
+    "surfaces": {
+      "radius": {
+        "sm": 4,
+        "md": 8,
+        "lg": 16,
+        "pill": 999
+      }
+    },
+    "layout": {
+      "container": 1280,
+      "paragraph": 680,
+      "columns": 12,
+      "gutter": 24,
+      "breakpoints": [
+        768,
+        1024
+      ]
+    },
+    "motion": {
+      "durations": {
+        "micro": 100,
+        "small": 1200,
+        "medium": 800
+      },
+      "easing": "cubic-bezier(0.4, 0, 0.2, 1)"
+    }
+  },
+  "spec_i18n": {
+    "en": {
+      "identity": {
+        "keywords": [
+          "Developer",
+          "Browser",
+          "Cloud IDE",
+          "Speed",
+          "AI"
+        ],
+        "analogy": "A high-performance engine for browser-based development.",
+        "oneLiner": "StackBlitz is a browser-based cloud IDE that brings lightning-fast, secure development environments to modern web teams."
+      },
+      "colors": {
+        "principle": "High-contrast dark UI emphasizing speed and focus, with a single vibrant blue accent."
+      },
+      "typography": {
+        "rules": [
+          "Use Manrope for large display typography and Inter for body/UI text.",
+          "Maintain tight letter-spacing for headings to create a dense, high-impact feel.",
+          "Use Roboto Mono for any technical or code-related snippets."
+        ],
+        "scaleUses": [
+          "Primary Hero Heading",
+          "Section Headings",
+          "Primary Body Text",
+          "UI Elements & Navigation"
+        ]
+      },
+      "spacing": {
+        "rhythm": "Generous spacing between major sections, with tight internal padding for UI components."
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(0, 0, 0, 0.32) 0px 4px 8px 0px",
+          "rgba(255, 255, 255, 0.1) 0px 0px 0px 1px",
+          "rgba(0, 0, 0, 0.3) 0px 0px 0px 1px inset"
+        ],
+        "borders": "1px solid rgba(255, 255, 255, 0.12)"
+      },
+      "layout": {
+        "skeleton": "A standard high-end marketing site layout with full-width dark hero sections, centered content columns, and side-by-side comparison grids."
+      },
+      "components": {
+        "button": "Solid blue primary buttons with white text and a pill or large-radius shape; subtle hover states.",
+        "card": "Dark surfaces with subtle borders, often used for data or feature comparisons.",
+        "chip": "Used for status indicators or small tags within data tables.",
+        "input": "Minimal dark inputs with subtle inset shadows and thin borders.",
+        "hero": "Large-scale typography-heavy hero with a bold background gradient and faint, wireframe-like UI illustrations."
+      },
+      "motion": {
+        "patterns": [
+          "Smooth fade and slide transitions for content reveals.",
+          "Elastic/flex transitions for UI state changes."
+        ]
+      },
+      "interaction": {
+        "hover": "Subtle color shifts or opacity changes on interactive elements.",
+        "click": "Immediate feedback via state changes.",
+        "transition": "Fast, 100ms transitions for color and opacity changes.",
+        "keyboard": "Standard focus outlines and logical tab order for accessibility."
+      },
+      "voice": {
+        "tone": "Confident, technical, and direct.",
+        "headlineStyle": "Bold, benefit-driven, and often uses large-scale typography to emphasize key words.",
+        "ctaStyle": "Simple, action-oriented labels like 'Try Bolt.new'.",
+        "avoid": [
+          "Vague marketing jargon",
+          "Overly complex technical explanations without clear benefit",
+          "Passive language"
+        ]
+      },
+      "donts": [
+        "Don't use a white background — screenshot shows a dark, near-black primary background.",
+        "Don't use serif fonts — screenshot shows clean, modern sans-serif typography.",
+        "Don't use multiple competing accent colors — screenshot shows a single dominant blue accent.",
+        "Don't use large border-radius for primary buttons — screenshot shows rectangular or slightly rounded buttons.",
+        "Don't use thin, light-colored outlines for focus states — screenshot uses high-contrast white or blue borders.",
+        "Don't use overly complex gradients — screenshot uses subtle, dark-to-darker gradients or solid dark surfaces."
+      ],
+      "systemPrompt": "This is StackBlitz, a high-performance browser-based cloud IDE for developers. The design is a premium dark-mode aesthetic, positioning the product as fast, modern, and professional. Key colors are a very dark gray/black background (#0f1014, #151619), crisp white text (#ffffff, rgba(255,255,255,0.8)), and a vibrant, high-chroma blue accent (#00a8db). Typography uses humanist-sans categories (Inter, Manrope) with a very large, tight-tracked display scale. Critical donts: Never use a light theme; avoid thin, decorative fonts; and never use more than one vibrant accent color. The overall feel is calm, focused, and built for productivity."
+    },
+    "zh-CN": {
+      "identity": {
+        "keywords": [
+          "开发者",
+          "浏览器",
+          "云端 IDE",
+          "速度",
+          "AI"
+        ],
+        "analogy": "专为浏览器端开发打造的高性能引擎。",
+        "oneLiner": "StackBlitz 是一款基于浏览器的云端 IDE，为现代网络团队带来闪电般快速、安全的开发环境。"
+      },
+      "colors": {
+        "principle": "高对比度的深色 UI，强调速度与专注，点缀以单一的活力蓝色。"
+      },
+      "typography": {
+        "rules": [
+          "大型展示型字体使用 Manrope，正文/UI 文本使用 Inter。",
+          "标题保持紧凑的字间距，以营造密集、高冲击力的感觉。",
+          "任何技术性或与代码相关的片段使用 Roboto Mono。"
+        ],
+        "scaleUses": [
+          "主标题",
+          "版块标题",
+          "主正文",
+          "UI 元素与导航"
+        ]
+      },
+      "spacing": {
+        "rhythm": "主要版块之间保持充裕的间距，UI 组件内部则使用紧凑的内边距。"
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(0, 0, 0, 0.32) 0px 4px 8px 0px",
+          "rgba(255, 255, 255, 0.1) 0px 0px 0px 1px",
+          "rgba(0, 0, 0, 0.3) 0px 0px 0px 1px inset"
+        ],
+        "borders": "1px solid rgba(255, 255, 255, 0.12)"
+      },
+      "layout": {
+        "skeleton": "标准的高端营销网站布局，包含全宽深色主视觉区、居中内容列和并排比较网格。"
+      },
+      "components": {
+        "button": "实心蓝色主按钮，搭配白色文字，采用药丸形或大圆角形状；具备细微的悬停状态。",
+        "card": "带有细微边框的深色表面，常用于数据或功能比较。",
+        "chip": "用于数据表格中的状态指示器或小标签。",
+        "input": "极简的深色输入框，带有细微的内嵌阴影和细边框。",
+        "hero": "以大规模字体为主的主视觉区域，拥有醒目的背景渐变和淡淡的、线框风格的 UI 插图。"
+      },
+      "motion": {
+        "patterns": [
+          "用于内容展示的平滑淡入与滑动过渡。",
+          "用于 UI 状态变化的弹性/伸缩过渡。"
+        ]
+      },
+      "interaction": {
+        "hover": "交互元素上的细微颜色或透明度变化。",
+        "click": "通过状态变化提供即时反馈。",
+        "transition": "颜色与透明度变化时使用快速的 100ms 过渡。",
+        "keyboard": "遵循标准的焦点轮廓和逻辑化的标签顺序，确保无障碍访问。"
+      },
+      "voice": {
+        "tone": "自信、技术性、直接。",
+        "headlineStyle": "加粗、以用户收益为导向，并经常使用大号字体来强调关键词。",
+        "ctaStyle": "简洁、行动导向的标签，例如“Try Bolt.new”。",
+        "avoid": [
+          "模糊的营销术语",
+          "过于复杂且未明确收益的技术解释",
+          "被动语态"
+        ]
+      },
+      "donts": [
+        "不要使用白色背景——截图显示的是深色、近乎黑色的主背景。",
+        "不要使用衬线字体——截图显示的是简洁、现代的无衬线字体。",
+        "不要使用多个相互竞争的强调色——截图显示的是单一的主导蓝色点缀。",
+        "不要为圆角主按钮使用过大的 border-radius——截图显示的是矩形或略带圆角的按钮。",
+        "不要为焦点状态使用细的、浅色的轮廓——截图使用的是高对比度的白色或蓝色边框。",
+        "不要使用过于复杂的渐变——截图使用的是微妙的、由深到更深的渐变或纯色深色表面。"
+      ],
+      "systemPrompt": "这是 StackBlitz，一款面向开发者的高性能、基于浏览器的云端 IDE。设计采用高端深色模式美学，将产品定位为快速、现代且专业。关键颜色是非常深的灰黑色背景 (#0f1014, #151619)、清晰的白色文字 (#ffffff, rgba(255,255,255,0.8)) 以及一个活力十足、高饱和度的蓝色点缀 (#00a8db)。字体使用人文主义无衬线类别 (Inter, Manrope)，展示比例非常大且字间距紧凑。关键禁忌：绝不要使用亮色主题；避免使用纤细的装饰性字体；且绝不要使用超过一种活力强调色。整体感觉沉静、专注，专为提升生产力而构建。"
+    },
+    "zh-TW": {
+      "identity": {
+        "keywords": [
+          "開發者",
+          "瀏覽器",
+          "雲端IDE",
+          "速度",
+          "AI"
+        ],
+        "analogy": "一個用於瀏覽器基礎開發的高性能引擎。",
+        "oneLiner": "StackBlitz 是一個基於瀏覽器的雲端IDE，為現代網路團隊帶來閃電般快速、安全的開發環境。"
+      },
+      "colors": {
+        "principle": "高對比暗色UI，強調速度與專注，並以單一鮮明的藍色作為強調。"
+      },
+      "typography": {
+        "rules": [
+          "使用 Manrope 作為大型展示字體，Inter 作為內文/介面字體。",
+          "為標題保持緊湊的字間距，以營造密集、高衝擊力的感受。",
+          "任何技術或程式碼相關的片段使用 Roboto Mono。"
+        ],
+        "scaleUses": [
+          "主要主視覺標題",
+          "章節標題",
+          "主要內文字體",
+          "UI元素與導覽"
+        ]
+      },
+      "spacing": {
+        "rhythm": "主要區塊間有寬裕的間距，UI元件內部則使用緊湊的填充。"
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(0, 0, 0, 0.32) 0px 4px 8px 0px",
+          "rgba(255, 255, 255, 0.1) 0px 0px 0px 1px",
+          "rgba(0, 0, 0, 0.3) 0px 0px 0px 1px inset"
+        ],
+        "borders": "1px solid rgba(255, 255, 255, 0.12)"
+      },
+      "layout": {
+        "skeleton": "標準的高端行銷網站佈局，包含全寬暗色主視覺區塊、中央內容欄位，以及並排的比較網格。"
+      },
+      "components": {
+        "button": "實心藍色主要按鈕，白色文字，採用藥丸形或大圓角設計；具有細微的懸停狀態。",
+        "card": "帶有細微邊框的暗色介面，常用於數據或功能比較。",
+        "chip": "用於資料表格中的狀態指示器或小型標籤。",
+        "input": "極簡的暗色輸入框，帶有細微的內嵌陰影和細邊框。",
+        "hero": "大規模、字體導向的主視覺區塊，具有粗體背景漸層和淡雅、線框風格的UI插圖。"
+      },
+      "motion": {
+        "patterns": [
+          "平滑的淡入淡出與滑動過渡，用於內容呈現。",
+          "彈性/伸縮過渡，用於UI狀態變化。"
+        ]
+      },
+      "interaction": {
+        "hover": "互動元素上的細微色彩或透明度變化。",
+        "click": "透過狀態變化提供即時回饋。",
+        "transition": "快速、100毫秒的色彩與透明度變化過渡。",
+        "keyboard": "標準的焦點外框與邏輯化的標籤順序，以確保無障礙性。"
+      },
+      "voice": {
+        "tone": "自信、技術性且直接。",
+        "headlineStyle": "粗體、以效益為導向，並經常使用大規模字體來強調關鍵字。",
+        "ctaStyle": "簡單、以行動為導向的標籤，例如「試用 Bolt.new」。",
+        "avoid": [
+          "模糊的行銷術語",
+          "未清楚說明效益、過於複雜的技術解釋",
+          "被動語氣"
+        ]
+      },
+      "donts": [
+        "勿使用白色背景 — 截圖顯示為深色、近乎黑色的主要背景。",
+        "勿使用襯線字體 — 截圖顯示為乾淨、現代的無襯線字體排版。",
+        "勿使用多個互相競爭的強調色 — 截圖顯示為單一主導的藍色強調。",
+        "勿為主要按鈕使用大圓角 — 截圖顯示為矩形或略微圓角的按鈕。",
+        "勿使用細、淺色的外框作為焦點狀態 — 截圖使用高對比的白色或藍色邊框。",
+        "勿使用過於複雜的漸層 — 截圖使用微妙的、從暗到更暗的漸層或純色暗色介面。"
+      ],
+      "systemPrompt": "這是 StackBlitz，一個為開發者打造的高性能、基於瀏覽器的雲端IDE。其設計為高端暗色模式美學，將產品定位為快速、現代且專業。主要顏色為非常深的灰色/黑色背景 (#0f1014, #151619)、清晰的白色文字 (#ffffff, rgba(255,255,255,0.8))，以及一個鮮明、高飽和度的藍色強調 (#00a8db)。字體使用人文無襯線類別 (Inter, Manrope)，並採用非常大、字間距緊湊的展示級比例。關鍵禁止事項：切勿使用淺色主題；避免使用纖細、裝飾性的字體；且切勿使用多個鮮明的強調色。整體感受是冷靜、專注，並為生產力而設計。"
+    },
+    "ja": {
+      "identity": {
+        "keywords": [
+          "開発者",
+          "ブラウザ",
+          "クラウド IDE",
+          "スピード",
+          "AI"
+        ],
+        "analogy": "ブラウザベース開発のための高性能エンジン。",
+        "oneLiner": "StackBlitzは、モダンなウェブチームに超高速で安全な開発環境をもたらす、ブラウザベースのクラウドIDEです。"
+      },
+      "colors": {
+        "principle": "スピードと集中力を強調し、鮮やかなブルーアクセントカラー1色でアクセントを加えた、ハイコントラストダークUI。"
+      },
+      "typography": {
+        "rules": [
+          "大きなディスプレイタイポグラフィにはManropeを、本文/UIテキストにはInterを使用します。",
+          "見出しには Tight な文字間隔を維持し、密度が高くインパクトのある印象を実現します。",
+          "技術的またはコード関連のスニペットにはRoboto Monoを使用します。"
+        ],
+        "scaleUses": [
+          "プライマリヒーローヘディング",
+          "セクション見出し",
+          "プライマリ本文テキスト",
+          "UI要素＆ナビゲーション"
+        ]
+      },
+      "spacing": {
+        "rhythm": "主要セクション間はゆったりとしたスペーシングを、UIコンポーネント内部は Tight なパディングを採用しています。"
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(0, 0, 0, 0.32) 0px 4px 8px 0px",
+          "rgba(255, 255, 255, 0.1) 0px 0px 0px 1px",
+          "rgba(0, 0, 0, 0.3) 0px 0px 0px 1px inset"
+        ],
+        "borders": "1px solid rgba(255, 255, 255, 0.12)"
+      },
+      "layout": {
+        "skeleton": "フルワイドダークヒーローセクション、中央揃えコンテンツカラム、並列比較グリッドを持つ、標準的なハイエンドマーケティングサイトレイアウト。"
+      },
+      "components": {
+        "button": "白いテキストを持つ、ソリッドブルーのプライマリボタン。ピル型または大きな角丸形状。微妙なhover状態。",
+        "card": "データや機能比較によく使用される、微妙なボーダーを持つダークサーフェス。",
+        "chip": "データテーブル内のステータスインジケーターや小さなタグとして使用。",
+        "input": "微妙なインセットシャドウと細いボーダーを持つ、ミニマルなダークインプット。",
+        "hero": "大胆な背景グラデーションと淡いワイヤーフレーム風UIイラストを持つ、大規模なタイポグラフィ中心のヒーロー。"
+      },
+      "motion": {
+        "patterns": [
+          "コンテンツ表示時の滑らかなフェード＆スライドトランジション。",
+          "UI状態変化時の弾性（elastic）/フレックストランジション。"
+        ]
+      },
+      "interaction": {
+        "hover": "インタラクティブ要素上の微妙な色のシフトや透明度の変化。",
+        "click": "状態変化による即座のフィードバック。",
+        "transition": "色や透明度の変化には100msの高速トランジション。",
+        "keyboard": "アクセシビリティのための標準的なフォーカスアウトラインと論理的なタブ順序。"
+      },
+      "voice": {
+        "tone": "自信に満ち、テクニカルで率直。",
+        "headlineStyle": "大胆で、便益を重視し、キーワード強調のために大規模なタイポグラフィを多用。",
+        "ctaStyle": "'Try Bolt.new'のような、シンプルでアクション指向のラベル。",
+        "avoid": [
+          "曖昧なマーケティング用語",
+          "明確な便益のない過度に複雑な技術的説明",
+          "受動的な言葉遣い"
+        ]
+      },
+      "donts": [
+        "ホワイト背景を使用しない — スクリーンショットはダーク、ネアブラックのプライマリ背景を示しています。",
+        "セリフフォントを使用しない — スクリーンショットはクリーンでモダンなサンセリフタイポグラフィを示しています。",
+        "複数の競合するアクセントカラーを使用しない — スクリーンショットは単一の支配的なブルーアクセントを示しています。",
+        "プライマリボタンに大きな角丸を使用しない — スクリーンショットは長方形またはわずかに丸みのあるボタンを示しています。",
+        "フォーカス状態に薄い、明る色のアウトラインを使用しない — スクリーンショットはハイコントラストのホワイトまたはブルーのボーダーを使用しています。",
+        "過度に複雑なグラデーションを使用しない — スクリーンショットはダークからダークへの微妙なグラデーションまたはソリッドダークサーフェスを使用しています。"
+      ],
+      "systemPrompt": "これはStackBlitz、開発者のための高性能ブラウザベースクラウドIDEです。デザインはプレミアムなダークモードの美学を採用し、製品を高速、モダン、プロフェッショナルとして位置付けています。主要カラーは非常にダークなグレー/ブラック背景（#0f1014、#151619）、クリスピーなホワイトテキスト（#ffffff、rgba(255,255,255,0.8)）、鮮やかなハイクロマブルーアクセント（#00a8db）です。タイポグラフィはhumanist-sansカテゴリー（Inter、Manrope）を採用し、非常に大きく Tight な文字間隔のディスプレイスケールを特徴としています。重要な禁止事項：ライトテーマは決して使用せず、細くて装飾的なフォントは避け、鮮やかなアクセントカラーは1色以上使用しないこと。全体的な印象は落ち着いており、集中力があり、生産性のために構築されています。"
+    },
+    "ko": {
+      "identity": {
+        "keywords": [
+          "개발자",
+          "브라우저",
+          "클라우드 IDE",
+          "속도",
+          "AI"
+        ],
+        "analogy": "브라우저 기반 개발을 위한 고성능 엔진입니다.",
+        "oneLiner": "StackBlitz는 브라우저 기반 클라우드 IDE로, 최신 웹 팀에 번개처럼 빠르고 안전한 개발 환경을 제공합니다."
+      },
+      "colors": {
+        "principle": "단일의 선명한 블루 악센트를 사용하여 속도와 집중력을 강조하는 고대비 다크 UI입니다."
+      },
+      "typography": {
+        "rules": [
+          "대형 디스플레이 타이포그래피에는 Manrope를, 본문/UI 텍스트에는 Inter를 사용합니다.",
+          "제목에 타이트한 자간을 유지하여 밀도 높고 강렬한 느낌을 만듭니다.",
+          "기술적이거나 코드 관련 스니펫에는 Roboto Mono를 사용합니다."
+        ],
+        "scaleUses": [
+          "주요 히어로 제목",
+          "섹션 제목",
+          "주요 본문 텍스트",
+          "UI 요소 및 내비게이션"
+        ]
+      },
+      "spacing": {
+        "rhythm": "주요 섹션 간에는 넉넉한 간격을, UI 컴포넌트 내부에는 타이트한 패딩을 사용합니다."
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(0, 0, 0, 0.32) 0px 4px 8px 0px",
+          "rgba(255, 255, 255, 0.1) 0px 0px 0px 1px",
+          "rgba(0, 0, 0, 0.3) 0px 0px 0px 1px inset"
+        ],
+        "borders": "1px solid rgba(255, 255, 255, 0.12)"
+      },
+      "layout": {
+        "skeleton": "전체 폭의 다크 히어로 섹션, 중앙 정렬된 콘텐츠 칼럼, 그리고 나란히 배치된 비교 그리드를 사용하는 표준 고급 마케팅 사이트 레이아웃입니다."
+      },
+      "components": {
+        "button": "흰색 텍스트와 알약 모양 또는 큰 반경을 가진 단색 블루 주요 버튼; 미세한 hover 상태.",
+        "card": "미세한 테두리가 있는 다크 표면, 주로 데이터나 기능 비교에 사용됩니다.",
+        "chip": "데이터 테이블 내 상태 표시기 또는 작은 태그에 사용됩니다.",
+        "input": "미세한 인셋 그림자와 얇은 테두리가 있는 미니멀한 다크 입력 필드입니다.",
+        "hero": "대담한 배경 그라디언트와 은은한 와이어프레임 형태의 UI 일러스트레이션이 있는 대규모 타이포그래피 중심의 히어로 섹션입니다."
+      },
+      "motion": {
+        "patterns": [
+          "콘텐츠 표시를 위한 부드러운 페이드 및 슬라이드 트랜지션.",
+          "UI 상태 변경을 위한 탄성/플렉스 트랜지션."
+        ]
+      },
+      "interaction": {
+        "hover": "인터랙티브 요소에서 미세한 색상 변화 또는 불투명도 변경.",
+        "click": "상태 변경을 통한 즉각적인 피드백.",
+        "transition": "색상 및 불투명도 변경을 위한 빠른 100ms 트랜지션.",
+        "keyboard": "접근성을 위한 표준 포커스 윤곽선과 논리적인 탭 순서."
+      },
+      "voice": {
+        "tone": "자신감 있고 기술적이며 직접적입니다.",
+        "headlineStyle": "대담하고 이점 중심적이며, 종종 주요 키워드를 강조하기 위해 대규모 타이포그래피를 사용합니다.",
+        "ctaStyle": "'Try Bolt.new'와 같이 간단하고 행동 지향적인 레이블입니다.",
+        "avoid": [
+          "모호한 마케팅 용어",
+          "명확한 이점 없는 지나치게 복잡한 기술 설명",
+          "수동적인 표현"
+        ]
+      },
+      "donts": [
+        "흰색 배경을 사용하지 마세요 — 스크린샷은 다크하고 근접 블랙의 주요 배경을 보여줍니다.",
+        "세리프 서체를 사용하지 마세요 — 스크린샷은 깔끔하고 현대적인 산세리프 타이포그래피를 보여줍니다.",
+        "여러 경쟁 악센트 색상을 사용하지 마세요 — 스크린샷은 단일의 지배적인 블루 악센트를 보여줍니다.",
+        "주요 버튼에 큰 border-radius를 사용하지 마세요 — 스크린샷은 직사각형 또는 약간 둥근 버튼을 보여줍니다.",
+        "포커스 상태에 얇고 밝은색 윤곽선을 사용하지 마세요 — 스크린샷은 고대비 흰색 또는 블루 테두리를 사용합니다.",
+        "지나치게 복잡한 그라디언트를 사용하지 마세요 — 스크린샷은 은은하고 어두운 톤의 그라디언트 또는 단색 다크 표면을 사용합니다."
+      ],
+      "systemPrompt": "StackBlitz는 개발자를 위한 고성능 브라우저 기반 클라우드 IDE입니다. 이 디자인은 프리미엄 다크 모드 미학을 구현하여 제품을 빠르고 현대적이며 전문적인 것으로 포지셔닝합니다. 주요 색상은 매우 어두운 회색/블랙 배경(#0f1014, #151619), 선명한 흰색 텍스트(#ffffff, rgba(255,255,255,0.8)), 그리고 선명한 고채도 블루 악센트(#00a8db)입니다. 타이포그래피는 humanist-sans 계열(Inter, Manrope)을 사용하며 매우 크고 타이트한 자간의 디스플레이 스케일을 적용합니다. 핵심 주의 사항: 라이트 테마를 절대 사용하지 마세요; 얇고 장식적인 서체를 피하세요; 단일 선명한 악센트 색상 이상을 사용하지 마세요. 전체적인 느낌은 차분하고 집중적이며 생산성을 위해 구축되었습니다."
+    }
+  },
+  "desc": {
+    "en": {
+      "palette": "A deep, high-contrast dark mode palette dominated by near-black surfaces, white text, and a single vibrant blue accent.",
+      "layout": "A clean, centered-column layout with generous vertical spacing and clear visual hierarchy driven by massive typography.",
+      "interaction": "Fast, subtle transitions for UI state changes, with clear focus indicators for keyboard navigation.",
+      "motion": "Primarily uses quick micro-interactions and longer, smooth fades for content reveals.",
+      "notes": "This site is a great example of a premium developer tool aesthetic, balancing high-impact typography with a focused, distraction-free dark environment."
+    },
+    "zh-CN": {
+      "palette": "一种深邃、高对比度的深色模式调色板，以近乎黑色的表面、白色文字和单一的活力蓝色点缀为主。",
+      "layout": "简洁的居中列布局，垂直间距充裕，通过巨大的字体建立清晰的视觉层次。",
+      "interaction": "UI状态变化时使用快速、细微的过渡效果，并为键盘导航提供清晰的焦点指示器。",
+      "motion": "主要使用快速的微交互以及用于内容展示的更长、更平滑的淡入淡出效果。",
+      "notes": "该网站是高端开发者工具美学的绝佳范例，将高影响力字体与专注、无干扰的深色环境完美平衡。"
+    },
+    "zh-TW": {
+      "palette": "一個深邃、高對比的暗色模式調色盤，以近黑色介面、白色文字為主，並點綴一個鮮明的藍色作為強調色。",
+      "layout": "乾淨的中央欄位佈局，具有寬裕的垂直間距，並透過巨大的字體建立清晰的視覺層次。",
+      "interaction": "用於UI狀態變化的快速、細微過渡效果，並為鍵盤導覽提供明確的焦點指示器。",
+      "motion": "主要使用快速的微互動以及較長、平滑的淡入淡出效果來呈現內容。",
+      "notes": "此網站是高端開發者工具美學的絕佳範例，在強烈的排版效果與專注、無干擾的暗色環境之間取得了平衡。"
+    },
+    "ja": {
+      "palette": "ネアブラックに近いサーフェス、白いテキスト、鮮やかなブルーアクセントカラー1色で構成された、深みのあるハイコントラストなダークモードパレット。",
+      "layout": "中央揃えのカラムレイアウトで、垂直方向にゆったりとしたスペーシングを確保し、巨大なタイポグラフィによる明確な視覚的階層を実現しています。",
+      "interaction": "UI状態の変化には迅速かつ微妙なトランジションを、キーボードナビゲーションには明確なフォーカスインジケーターを採用しています。",
+      "motion": "主に高速なマイクロインタラクションと、コンテンツ表示時のより長く滑らかなフェードを使用しています。",
+      "notes": "このサイトは、インパクトの強いタイポグラフィと、集中力を損なわないダーク環境のバランスが絶妙な、プレミアムな開発者ツールの美学の優れた例です。"
+    },
+    "ko": {
+      "palette": "근접 블랙 표면, 흰색 텍스트, 단일의 선명한 블루 악센트가 지배하는 깊고 고대비 다크 모드 팔레트입니다.",
+      "layout": "넉넉한 수직 간격과 거대한 타이포그래피를 통한 명확한 시각적 위계가 특징인 깔끔하고 중앙 정렬된 칼럼 레이아웃입니다.",
+      "interaction": "UI 상태 변경을 위한 빠르고 미세한 트랜지션과 키보드 내비게이션을 위한 명확한 포커스 인디케이터를 사용합니다.",
+      "motion": "주로 빠른 마이크로 인터랙션과 콘텐츠 표시를 위한 길고 부드러운 페이드 인을 사용합니다.",
+      "notes": "이 사이트는 고급 개발자 도구 미학의 훌륭한 예시로, 강렬한 타이포그래피와 집중적이고 방해 없는 다크 환경의 균형을 잘 보여줍니다."
+    }
+  },
+  "_meta": {
+    "vision_model": "mimo-v2.5",
+    "vision_prompt_version": "0.3",
+    "vision_source": "playwright-extract:stackblitz",
+    "vision_grounded": true,
+    "vision_at": "2026-06-04T18:57:19+00:00",
+    "vision_tokens": 17094,
+    "vision_cost_usd": 0.1899,
+    "translation_model": "mimo-v2.5",
+    "translation_at": "2026-06-04T18:58:45+00:00",
+    "translation_tokens": 17486,
+    "translation_cost_usd": 0.0584,
+    "narrative_model": "mimo-v2.5",
+    "narrative_prompt_version": "0.3",
+    "narrative_at": "2026-06-04T18:58:55+00:00",
+    "narrative_tokens": 2108,
+    "narrative_cost_usd": 0.0141,
+    "narrative_status": "ok",
+    "total_cost_usd": 0.2624
+  },
+  "narrative": {
+    "en": {
+      "ch1_intro": "StackBlitz's design system is built on the analogy of a high-performance engine: every component is engineered for speed, focus, and reliability in the browser. The identity is rooted in its core keywords—Developer, Browser, Cloud IDE, Speed, AI—forming a precise, no-nonsense aesthetic for professional tooling.",
+      "ch2_intro": "The color system is a deep, high-contrast dark mode designed for extended focus, built on near-black surfaces. A single, vibrant blue accent provides the sole point of interactive emphasis against white text.",
+      "ch2_outro": "The principle is strict: one high-chroma accent against a dark void to direct attention without visual noise.",
+      "ch3_intro": "The typographic voice is split between humanist-sans warmth and technical precision. Manrope provides dense, high-impact display headings, while Inter handles the clarity of body and UI text.",
+      "ch4_intro": "The spacing rhythm creates a clear hierarchy: generous, breathing room separates major sections, while UI components maintain tight internal padding for density.",
+      "ch5_intro": "Depth is conveyed through layered shadows and translucent borders on dark surfaces. This creates a subtle, physical hierarchy where elements appear to float or recede.",
+      "ch6_intro": "The layout skeleton follows a standard high-end marketing site structure, anchored by full-width dark hero sections. Content is presented in centered columns, with side-by-side grids used for comparisons and feature breakdowns.",
+      "ch7_intro": "Motion philosophy prioritizes functional feedback over ornament. Transitions are fast and purposeful, using smooth fades for content reveals and elastic snaps for immediate UI state changes.",
+      "ch8_intro": "The editorial voice is confident, technical, and direct, mirroring the product's focus on developer productivity. It uses bold, benefit-driven headlines and simple, action-oriented calls to action.",
+      "ch8_outro": "The system deliberately avoids passive language, vague marketing jargon, and any visual element that breaks the calm, focused dark environment."
+    },
+    "zh-CN": {
+      "ch1_intro": "StackBlitz的设计系统建立在高性能引擎的类比之上：每个组件都专为浏览器中的速度、专注和可靠性而打造。其视觉识别根植于核心关键词——开发者、浏览器、云端IDE、速度、AI——为专业工具打造精确、务实的美学风格。",
+      "ch2_intro": "色彩系统采用深邃、高对比度的深色模式，专为长时间专注工作而设计，以近黑色界面为基础。唯一鲜活的蓝色强调色在白色文字中成为交互的焦点。",
+      "ch2_outro": "原则明确：以单一高饱和度强调色对抗深色虚空，引导注意力而不造成视觉干扰。",
+      "ch3_intro": "字体风格融合人文无衬线体的温度与技术精确度。Manrope提供密集、高冲击力的标题展示，Inter则确保正文与界面文字的清晰度。",
+      "ch4_intro": "间距节奏建立清晰层次：主要部分间采用宽松的呼吸空间，而界面组件保持紧凑的内部边距以维持密度。",
+      "ch5_intro": "深度通过深色界面上的层叠阴影与半透明边框来传达。这创造出微妙的物理层次感，使元素呈现漂浮或退隐的视觉效果。",
+      "ch6_intro": "布局骨架遵循高端营销网站的通用结构，以全宽深色主视觉区域为锚点。内容以居中列呈现，并采用并排网格进行对比与功能分解。",
+      "ch7_intro": "动效哲学优先考虑功能性反馈而非装饰。过渡快速而有针对性，使用平滑淡入实现内容呈现，弹性卡扣效果用于即时界面状态变化。",
+      "ch8_intro": "编辑语气自信、专业且直接，呼应产品对开发者生产力的专注。采用有力的价值驱动型标题和简洁的行动导向型号召用语。",
+      "ch8_outro": "系统刻意避免被动语态、模糊的营销术语，以及任何破坏平静、专注深色环境的视觉元素。"
+    },
+    "zh-TW": {
+      "ch1_intro": "StackBlitz 的設計系統建立在高效能引擎的類比之上：每個元件都經過精心設計，以確保瀏覽器中的速度、專注與可靠性。其識別系統植根於核心關鍵字——Developer、Browser、Cloud IDE、Speed、AI——形成一種精確、務實的專業工具美學。",
+      "ch2_intro": "色彩系統採用深度高對比的深色模式，專為長時間專注而設計，以近乎黑色的表面為基底。單一、鮮明的藍色作為唯一的互動強調點，與白色文字形成對比。",
+      "ch2_outro": "原則是嚴格的：在深邃的虛空中使用一個高飽和度的強調色，以引導視覺焦點，避免視覺干擾。",
+      "ch3_intro": "字體聲音分為人文無襯線體的溫暖感與技術精準度。Manrope 提供密集、高衝擊力的標題，而 Inter 則處理內文與使用者介面文字的清晰度。",
+      "ch4_intro": "間距節奏創造了清晰的層級：寬裕的留白區隔主要區塊，而使用者介面元件則保持緊湊的內部邊距以確保密度。",
+      "ch5_intro": "深度透過深色表面上的層次陰影與半透明邊框來傳達。這創造了一種細微的實體層級感，使元素看似漂浮或後退。",
+      "ch6_intro": "佈局骨架遵循標準的高端行銷網站結構，以全寬度的深色首圖區塊為基調。內容以居中欄位呈現，並使用並列網格進行比較與功能分解。",
+      "ch7_intro": "動態哲學優先考慮功能性回饋而非裝飾。過渡效果快速且目的明確，使用平滑的淡入淡出呈現內容，並以彈性快速切換處理即時的使用者介面狀態變化。",
+      "ch8_intro": "編輯語氣自信、技術化且直接，反映產品對開發者效率的專注。使用大膽、強調效益的標題，以及簡單、行動導向的呼籲行動。",
+      "ch8_outro": "系統刻意避免被動語氣、模糊的行銷術語，以及任何破壞冷靜、專注深色環境的視覺元素。"
+    },
+    "ja": {
+      "ch1_intro": "StackBlitzのデザインシステムは、高性能エンジンのアナロジーに基づいて構築されています。すべてのコンポーネントは、ブラウザ内での速度、集中力、信頼性を念頭に開発されています。アイデンティティは、その核となるキーワード—Developer、Browser、Cloud IDE、Speed、AI—に根ざしており、プロフェッショナルなツールのための正確で飾り気のない美学を形成しています。",
+      "ch2_intro": "カラーシステムは、長時間の集中作業のために設計された、深い高コントラストのダークモードです。ほぼ黒に近いサーフェスを基盤とし、白いテキストに対して唯一の交互的強調ポイントとして、鮮やかな青のアクセントが一点配置されています。",
+      "ch2_outro": "原則は厳格です。視覚的なノイズなしに注意を誘導するために、暗い空間に彩度の高いアクセントを一つだけ配置します。",
+      "ch3_intro": "タイポグラフィの声は、ヒューマニスト・サンスの温かみと技術的な精度の間で割り当てられます。Manropeが密度の高い、インパクトの強い見出しを提供し、Interが本文とUIテキストの明瞭さを担います。",
+      "ch4_intro": "スペーシングのリズムは明確な階層を生み出します。主要セクションの間にはゆとりのある余白が設けられ、UIコンポーネントは密度を保つために内部パディングを厳密に保っています。",
+      "ch5_intro": "深度は、暗いサーフェス上のレイヤードシャドウと半透明のボーダーによって表現されます。これにより、要素が浮遊したり後退したりする、微妙で物理的な階層が生み出されます。",
+      "ch6_intro": "レイアウトのスケルトンは、フルワイドのダークヒーローセクションを基盤とする、標準的なハイエンドマーケティングサイトの構造に従います。コンテンツは中央揃えのカラムで提示され、比較や機能分解にはサイドバイサイドのグリッドが使用されます。",
+      "ch7_intro": "モーションの理念は、装飾よりも機能的なフィードバックを優先します。遷移は速く目的に即しており、コンテンツの表示にはスムーズなフェードを、即座のUI状態変更には弾力的なスナップを使用します。",
+      "ch8_intro": "エディトリアルボイスは、開発者生産性に焦点を当てる製品と同様に、自信に満ち、技術的で率直です。メリットを強調した太字の見出しと、シンプルで行動を促すCTAを使用しています。",
+      "ch8_outro": "システムは、受動的な言葉、曖昧なマーケティング用語、および穏やかで集中力のあるダーク環境を破壊する視覚要素を意図的に回避しています。"
+    },
+    "ko": {
+      "ch1_intro": "StackBlitz의 디자인 시스템은 고성능 엔진의 비유를 기반으로 구축되었습니다. 모든 컴포넌트는 브라우저 내에서의 속도, 집중, 안정성을 위해 설계되었습니다. 아이덴티티는 핵심 키워드—Developer, Browser, Cloud IDE, Speed, AI—에 뿌리를 두고, 전문적인 도구를 위한 정확하고 담백한 미학을 형성합니다.",
+      "ch2_intro": "컬러 시스템은 극심한 집중을 위해 설계된, 거의 검정색 표면을 기반으로 한 깊고 고대비 다크 모드입니다. 단 하나의 생동감 넘치는 블루 강조점이 흰색 텍스트와 대비되어 인터랙티브한 초점을 제공합니다.",
+      "ch2_outro": "원칙은 엄격합니다. 시각적 노이즈 없이 시선을 유도하기 위해, 어두운 배경 위에 단일 고채도 강조점을 배치합니다.",
+      "ch3_intro": "타이포그래피는 휴머니스트 산세리프의 따뜻함과 기술적 정밀함 사이에서 나뉩니다. Manrope는 밀도 높고 임팩트 강한 전시 제목을 제공하며, Inter는 본문 및 UI 텍스트의 명료함을 담당합니다.",
+      "ch4_intro": "간격 리듬은 명확한 계층을 만듭니다. 넉넉하고 여유로운 공간이 주요 섹션을 분리하는 반면, UI 컴포넌트는 밀도를 위해 내부 패딩을 타이트하게 유지합니다.",
+      "ch5_intro": "깊이는 어두운 표면 위의 계층화된 그림자와 반투명 테두리를 통해 전달됩니다. 이를 통해 요소들이 떠 있거나 물러나 보이는 미묘한 물리적 계층이 만들어집니다.",
+      "ch6_intro": "레이아웃 스켈레톤은 풀 너비의 다크 히어로 섹션이 기반이 되는, 표준 하이엔드 마케팅 사이트 구조를 따릅니다. 콘텐츠는 중앙 정렬된 칼럼으로 제시되며, 비교 및 기능 분석에는 나란히 배치된 그리드가 사용됩니다.",
+      "ch7_intro": "모션 철학은 장식보다 기능적 피드백을 우선시합니다. 전환은 빠르고 목적이 명확하며, 콘텐츠 표시를 위해 부드러운 페이드를, 즉각적인 UI 상태 변화를 위해 탄성 스냅을 사용합니다.",
+      "ch8_intro": "에디토리얼 목소리는 개발자 생산성에 초점을 맞춘 제품의 특성을 반영하여 자신감 있고 기술적이며 직설적입니다. 대담하고 이점 중심적인 제목과 간결하고 행동 지향적인 콜 투 액션을 사용합니다.",
+      "ch8_outro": "이 시스템은 수동적인 언어, 모호한 마케팅 용어, 그리고 차분하고 집중된 다크 환경을 깨는 모든 시각적 요소를 의도적으로 피합니다."
+    }
+  }
 }

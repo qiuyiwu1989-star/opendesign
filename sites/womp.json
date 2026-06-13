@@ -8,6 +8,600 @@
     "design",
     "3d"
   ],
-  "status": "pending",
-  "added_at": "2026-06-03"
+  "status": "completed",
+  "added_at": "2026-06-03",
+  "spec": {
+    "colors": {
+      "bg": "#FCFCFC",
+      "bgSoft": "#F2F2F2",
+      "bgQuiet": null,
+      "ink": "#202020",
+      "inkSoft": null,
+      "muted": "#8D8D8D",
+      "mutedSoft": null,
+      "accent": null,
+      "line": "rgba(238,238,238,1)"
+    },
+    "typography": {
+      "display": "humanist-sans",
+      "body": "humanist-sans",
+      "mono": "monospace",
+      "scale": [
+        {
+          "token": "display",
+          "size": 60,
+          "lh": 1.0,
+          "weight": 400,
+          "ls": "-1.5px"
+        },
+        {
+          "token": "h1",
+          "size": 48,
+          "lh": 1.0,
+          "weight": 400,
+          "ls": "-1px"
+        },
+        {
+          "token": "body",
+          "size": 16,
+          "lh": 1.5,
+          "weight": 400,
+          "ls": "-0.1px"
+        },
+        {
+          "token": "caption",
+          "size": 12,
+          "lh": 1.33,
+          "weight": 500,
+          "ls": "0.03px"
+        }
+      ]
+    },
+    "spacing": {
+      "base": 4,
+      "scale": [
+        4,
+        8,
+        12,
+        16,
+        24,
+        32,
+        48,
+        64,
+        80
+      ]
+    },
+    "surfaces": {
+      "radius": {
+        "sm": 4.5,
+        "md": 7.5,
+        "lg": 14,
+        "pill": 9999
+      }
+    },
+    "layout": {
+      "container": 1280,
+      "paragraph": 680,
+      "columns": 12,
+      "gutter": 24,
+      "breakpoints": [
+        768,
+        1024
+      ]
+    },
+    "motion": {
+      "durations": {
+        "micro": 150,
+        "small": 150,
+        "medium": 150
+      },
+      "easing": "ease-in-out"
+    }
+  },
+  "spec_i18n": {
+    "en": {
+      "identity": {
+        "keywords": [
+          "3D creation",
+          "browser-based",
+          "physical product design",
+          "speed"
+        ],
+        "analogy": "A modern, browser-based 3D design studio that bridges the gap between digital modeling and physical manufacturing.",
+        "oneLiner": "A clean, accessible platform for turning ideas into physical objects through powerful browser-based 3D tools."
+      },
+      "colors": {
+        "principle": "High-contrast monochrome palette with soft gray surfaces, ensuring the 3D product imagery remains the focal point."
+      },
+      "typography": {
+        "rules": [
+          "Use tight letter-spacing for large display text",
+          "Maintain consistent regular weight (400) for primary text",
+          "Use monospace for technical labels like 'OR LAUNCH A QUICK APP'"
+        ],
+        "scaleUses": [
+          "Hero headlines",
+          "Section headlines",
+          "Default text",
+          "Micro labels and UI elements"
+        ]
+      },
+      "spacing": {
+        "rhythm": "Consistent 8px base rhythm for padding and gaps, with larger 80px vertical padding for section isolation."
+      },
+      "surfaces": {
+        "shadows": [
+          "inset 0 0 0 1px color(srgb 0.85098 0.85098 0.85098)"
+        ],
+        "borders": "1px solid borders primarily using #EEEEEE or rgba(32,32,32,1) for high contrast elements."
+      },
+      "layout": {
+        "skeleton": "Centered single-column hero with generous vertical whitespace, transitioning to a 2-column grid for feature cards."
+      },
+      "components": {
+        "button": "Two primary styles: filled black with white text and rounded pill shape, and ghost/outlined with dark text and rounded pill shape.",
+        "card": "Feature cards with large, rounded corners (14px), subtle background color (#F2F2F2), and clean typography below.",
+        "chip": "Small, monospace uppercase chips with light gray borders used as section dividers.",
+        "input": "A large, centered prompt box with a light gray background, rounded corners, and a black call-to-action button inside.",
+        "hero": "A minimal, text-heavy hero section centered on a clean white background, featuring a large interactive prompt box."
+      },
+      "motion": {
+        "patterns": [
+          "Consistent 150ms ease-in-out transitions for all interactive states (background, box-shadow, transform, scale)."
+        ]
+      },
+      "interaction": {
+        "hover": "Background and box-shadow changes for buttons and interactive elements.",
+        "click": "Scale or transform micro-interactions.",
+        "transition": "All interactive elements share a standardized 150ms ease-in-out transition.",
+        "keyboard": "Standard focus management implied by interactive states."
+      },
+      "voice": {
+        "tone": "Direct, confident, and encouraging.",
+        "headlineStyle": "Concise, benefit-driven statements with tight letter-spacing.",
+        "ctaStyle": "Action-oriented with arrow icons, using either high-contrast black fills or subtle ghost outlines.",
+        "avoid": [
+          "Overly technical jargon",
+          "Dense paragraphs",
+          "Cluttered layouts"
+        ]
+      },
+      "donts": [
+        "Don't use decorative gradients or complex backgrounds — screenshot shows a clean, near-white solid background.",
+        "Don't use all-caps for headlines — screenshot shows sentence or title case for primary display text.",
+        "Don't use rounded square or sharp corners — screenshot shows a mix of tight pills and generous 14px radii.",
+        "Don't use high-chroma accent colors — screenshot shows a strictly monochrome palette with no dominant bright colors.",
+        "Don't use heavy drop shadows — screenshot shows only subtle 1px inset borders for elevation.",
+        "Don't clutter the layout with multiple columns — screenshot shows a very focused, single-column centered hero."
+      ],
+      "systemPrompt": "A clean, monochrome SaaS design for a 3D creation tool, using a near-white background (#FCFCFC), dark ink (#202020), and soft grays (#F2F2F2, #8D8D8D). Typography relies on a humanist-sans font at regular weights (400) for both display and body, with monospace used for micro-labels. Critical donts: avoid high-chroma accent colors (none exist), avoid decorative gradients (use solid colors), avoid cluttered layouts (use generous whitespace), avoid heavy shadows (use subtle inset borders), avoid all-caps headlines, and avoid complex animations (use fast 150ms transitions). The site emphasizes clarity and speed, making the 3D imagery the primary focal point."
+    },
+    "zh-CN": {
+      "identity": {
+        "keywords": [
+          "3D 创作",
+          "基于浏览器",
+          "实体产品设计",
+          "速度"
+        ],
+        "analogy": "一个现代的、基于浏览器的 3D 设计工作室，弥合了数字建模与实体制造之间的鸿沟。",
+        "oneLiner": "一个简洁易用的平台，通过强大的浏览器端 3D 工具，将创意转化为实体物品。"
+      },
+      "colors": {
+        "principle": "高对比度单色方案搭配柔和灰色界面，确保 3D 产品图像成为视觉焦点。"
+      },
+      "typography": {
+        "rules": [
+          "大尺寸展示文本使用紧凑的字间距",
+          "正文保持一致的常规字重（400）",
+          "技术标签（如“OR LAUNCH A QUICK APP”）使用等宽字体"
+        ],
+        "scaleUses": [
+          "英雄区标题",
+          "章节标题",
+          "默认文本",
+          "微标签与 UI 元素"
+        ]
+      },
+      "spacing": {
+        "rhythm": "采用一致的 8px 基础节奏用于内边距与间距，章节隔离使用更大的 80px 垂直内边距。"
+      },
+      "surfaces": {
+        "shadows": [
+          "inset 0 0 0 1px color(srgb 0.85098 0.85098 0.85098)"
+        ],
+        "borders": "1px 实线边框，主要使用 #EEEEEE 或 rgba(32,32,32,1) 以实现高对比度元素。"
+      },
+      "layout": {
+        "skeleton": "居中单栏英雄区，配以充裕的垂直留白，过渡至用于功能卡片的双栏网格。"
+      },
+      "components": {
+        "button": "两种主要样式：黑色填充、白色文字的圆角药丸形状；以及深色文字、带描边的幽灵/轮廓样式圆角药丸形状。",
+        "card": "功能卡片，采用大圆角（14px）、微妙的背景色（#F2F2F2），下方配有简洁的排版。",
+        "chip": "小型、等宽字体、大写的芯片标签，带有浅灰色边框，用作章节分隔符。",
+        "input": "一个大型、居中的提示框，浅灰色背景、圆角，内部包含一个黑色的行动号召按钮。",
+        "hero": "一个极简、文字为主的英雄区，置于纯净白色背景上，包含一个大型交互式提示框。"
+      },
+      "motion": {
+        "patterns": [
+          "所有交互状态（背景、box-shadow、transform、scale）均采用一致的150毫秒 ease-in-out 过渡。"
+        ]
+      },
+      "interaction": {
+        "hover": "按钮和交互元素的背景与 box-shadow 变化。",
+        "click": "缩放或变换的微交互。",
+        "transition": "所有交互元素共享标准化的150毫秒 ease-in-out 过渡。",
+        "keyboard": "交互状态隐含了标准的焦点管理。"
+      },
+      "voice": {
+        "tone": "直接、自信且鼓舞人心。",
+        "headlineStyle": "简洁、以利益为驱动的陈述，采用紧凑字间距。",
+        "ctaStyle": "行动导向，配有箭头图标，使用高对比度黑色填充或微妙的幽灵轮廓。",
+        "avoid": [
+          "过于技术化的行话",
+          "密集的段落",
+          "杂乱的布局"
+        ]
+      },
+      "donts": [
+        "避免使用装饰性渐变或复杂背景 —— 截图显示的是干净的近白色纯色背景。",
+        "标题避免使用全大写 —— 截图显示主要展示文本使用句子式或标题式大小写。",
+        "避免使用圆角方形或尖锐直角 —— 截图显示是紧凑药丸形与宽大14px圆角的混合。",
+        "避免使用高饱和度的强调色 —— 截图显示是严格的单色方案，无主导的亮色。",
+        "避免使用厚重的投影 —— 截图仅显示微妙的1px内边框来营造层级。",
+        "避免使用多栏杂乱布局 —— 截图显示的是非常聚焦、单栏居中的英雄区。"
+      ],
+      "systemPrompt": "一个简洁的单色 SaaS 设计，用于 3D 创作工具，采用近白色背景（#FCFCFC）、深墨色（#202020）和柔和灰色（#F2F2F2、#8D8D8D）。排版采用人文无衬线字体，常规字重（400）同时用于标题和正文，微标签使用等宽字体。关键禁忌：避免高饱和度强调色（不存在），避免装饰性渐变（使用纯色），避免杂乱布局（使用充裕留白），避免厚重阴影（使用微妙内边框），避免全大写标题，避免复杂动画（使用快速150毫秒过渡）。该网站强调清晰与速度，使 3D 图像成为主要焦点。"
+    },
+    "zh-TW": {
+      "identity": {
+        "keywords": [
+          "3D 創作",
+          "基於瀏覽器",
+          "實體產品設計",
+          "速度"
+        ],
+        "analogy": "一個現代、基於瀏覽器的 3D 設計工作室，銜接了數位建模與實體製造之間的差距。",
+        "oneLiner": "一個乾淨、易於使用的平台，透過強大的瀏覽器端 3D 工具，將想法轉化為實體物件。"
+      },
+      "colors": {
+        "principle": "高對比的單色調色盤搭配柔和灰色表面，確保 3D 產品影像成為視覺焦點。"
+      },
+      "typography": {
+        "rules": [
+          "大型展示文字使用緊湊的字距",
+          "主要文字維持一致的常规字重（400）",
+          "技術標籤（如「或快速啟動應用程式」）使用等寬字體"
+        ],
+        "scaleUses": [
+          "首頁標題",
+          "區塊標題",
+          "預設文字",
+          "微小標籤與 UI 元素"
+        ]
+      },
+      "spacing": {
+        "rhythm": "內距與間隙採用一致的 8px 基準節奏，區塊間則使用較大的 80px 垂直內距。"
+      },
+      "surfaces": {
+        "shadows": [
+          "inset 0 0 0 1px color(srgb 0.85098 0.85098 0.85098)"
+        ],
+        "borders": "主要使用 1px 實心邊框，顏色為 #EEEEEE 或 rgba(32,32,32,1)，以創造高對比效果。"
+      },
+      "layout": {
+        "skeleton": "首頁採用置中單欄佈局，帶有寬裕的垂直留白，隨後過渡至用於功能卡片的雙欄網格。"
+      },
+      "components": {
+        "button": "兩種主要樣式：填充黑色的白色文字圓角藥丸形按鈕，以及深色文字的幽靈/外框圓角藥丸形按鈕。",
+        "card": "功能卡片具有大圓角（14px）、柔和的背景色（#F2F2F2），下方配有乾淨的排版文字。",
+        "chip": "小型、等寬字體的大寫文字標籤，帶有淺灰色邊框，用作區塊分隔符。",
+        "input": "一個大型、置中的提示框，採用淺灰色背景、圓角，內部有一個黑色的行動呼籲按鈕。",
+        "hero": "一個極簡、以文字為主的首頁區域，置於乾淨的白色背景上，並包含一個大型互動式提示框。"
+      },
+      "motion": {
+        "patterns": [
+          "所有互動狀態（背景、box-shadow、transform、scale）均採用一致的 150ms ease-in-out 轉場。"
+        ]
+      },
+      "interaction": {
+        "hover": "按鈕與互動元素的背景和 box-shadow 變化。",
+        "click": "縮放或變形的微互動。",
+        "transition": "所有互動元素共享標準的 150ms ease-in-out 轉場。",
+        "keyboard": "標準的焦點管理由互動狀態暗示。"
+      },
+      "voice": {
+        "tone": "直接、自信且具鼓勵性。",
+        "headlineStyle": "簡潔、以效益為導向的陳述，字距緊湊。",
+        "ctaStyle": "以行動為導向，搭配箭頭圖示，使用高對比的黑色填充或柔和的幽靈外框。",
+        "avoid": [
+          "過度專業的術語",
+          "冗長的段落",
+          "擁擠的佈局"
+        ]
+      },
+      "donts": [
+        "不要使用裝飾性漸層或複雜背景——截圖顯示的是乾淨的近乎白色純色背景。",
+        "不要將標題全部大寫——截圖顯示主要展示文字使用句子式或標題式大小寫。",
+        "不要使用圓角方形或銳角——截圖顯示了緊湊藥丸形與寬裕的 14px 圓角混合使用。",
+        "不要使用高飽和度的強調色——截圖顯示的是嚴格的單色調色盤，沒有任何主導的鮮豔色彩。",
+        "不要使用厚重的外陰影——截圖顯示僅使用細微的 1px 內嵌邊框來營造層次。",
+        "不要在佈局中堆砌多欄——截圖顯示了一個非常聚焦、置中的單欄首頁區域。"
+      ],
+      "systemPrompt": "一套乾淨的單色調 SaaS 設計，用於 3D 創作工具，採用近乎白色的背景（#FCFCFC）、深色墨黑（#202020）與柔和灰色（#F2F2F2、#8D8D8D）。排版依賴 humanist-sans 字體，展示與內文均使用常规字重（400），微小標籤則使用等寬字體。關鍵禁忌：避免使用高飽和度強調色（此設計中不存在）、避免裝飾性漸層（使用純色）、避免擁擠的佈局（使用寬裕的留白）、避免厚重的陰影（使用細微的內嵌邊框）、避免全大寫標題，以及避免複雜的動畫（使用快速的 150ms 轉場）。此網站強調清晰度與速度，使 3D 影像成為主要的視覺焦點。"
+    },
+    "ja": {
+      "identity": {
+        "keywords": [
+          "3D制作",
+          "ブラウザベース",
+          "物理製品デザイン",
+          "スピード"
+        ],
+        "analogy": "デジタルモデリングと物理製造の橋渡しをする、モダンでブラウザベースの3Dデザインスタジオ。",
+        "oneLiner": "強力なブラウザベースの3Dツールを通じて、アイデアを物理的なオブジェクトに変える、クリーンでアクセシブルなプラットフォーム。"
+      },
+      "colors": {
+        "principle": "柔らかなグレーの表面を持つ高コントラストのモノクローム・パレットを採用し、3D製品画像が焦点となることを確保します。"
+      },
+      "typography": {
+        "rules": [
+          "大きなディスプレイテキストには tightened な字間（letter-spacing）を使用する",
+          "主要テキストには一貫したRegularウェイト（400）を維持する",
+          "'OR LAUNCH A QUICK APP' などの技術ラベルには monospace を使用する"
+        ],
+        "scaleUses": [
+          "ヒーロー見出し",
+          "セクション見出し",
+          "デフォルトテキスト",
+          "マイクロラベルとUI要素"
+        ]
+      },
+      "spacing": {
+        "rhythm": "パディングとギャップには一貫した8pxのベースリズムを、セクションの分離にはより大きな80pxの縦方向パディングを採用します。"
+      },
+      "surfaces": {
+        "shadows": [
+          "inset 0 0 0 1px color(srgb 0.85098 0.85098 0.85098)"
+        ],
+        "borders": "1px solid のボーダーを主に #EEEEEE または rgba(32,32,32,1) で使用し、高コントラストの要素を実現します。"
+      },
+      "layout": {
+        "skeleton": "豊かな縦方向のホワイトスペースを持つ中央揃えシングルカラムのヒーローから、フィーチャーカード用の2カラムグリッドに移行します。"
+      },
+      "components": {
+        "button": "主に2つのスタイル：白テキストの塗りつぶし黒、角丸のピル型。および、ダークテキストのゴースト/アウトライン型、角丸のピル型。",
+        "card": "大きな角丸（14px）、微細な背景色（#F2F2F2）、そしてその下にクリーンなタイポグラフィを持つフィーチャーカード。",
+        "chip": "明るいグレーのボーダーを持つ、小さな monospace 大文字のチップ。セクションの区切りとして使用。",
+        "input": "明るいグレーの背景、角丸、中に黒のCTAボタンを備えた、大きく中央揃えのプロンプトボックス。",
+        "hero": "クリーンな白背景にテキストを多用したミニマルなヒーローセクション。大きなインタラクティブなプロンプトボックスを特徴とする。"
+      },
+      "motion": {
+        "patterns": [
+          "すべてのインタラクティブな状態（背景、box-shadow、transform、scale）に一貫した150msのease-in-outトランジションを適用。"
+        ]
+      },
+      "interaction": {
+        "hover": "ボタンやインタラクティブ要素の背景とbox-shadowの変化。",
+        "click": "scale または transform のマイクロインタラクション。",
+        "transition": "すべてのインタラクティブ要素は、標準化された150msのease-in-outトランジションを共有します。",
+        "keyboard": "インタラクティブな状態によって暗示される標準的なフォーカス管理。"
+      },
+      "voice": {
+        "tone": "直接的、自信に満ち、かつ鼓舞するようなトーン。",
+        "headlineStyle": " tightened な字間を持つ、簡潔でメリット主導のステートメント。",
+        "ctaStyle": "矢印アイコンを使用したアクション指向。高コントラストの黒塗りか、微細なゴーストアウトラインのいずれか。",
+        "avoid": [
+          "過度な技術用語",
+          "密な段落",
+          "散らかったレイアウト"
+        ]
+      },
+      "donts": [
+        "装飾的なグラデーションや複雑な背景は使用しない — スクリーンショットはクリーンで、近白色の単色背景を示しています。",
+        "見出しに全大文字は使用しない — スクリーンショットは、主要なディスプレイテキストにセンテンス・ケースまたはタイトル・ケースを示しています。",
+        "角丸の四角や鋭い角は使用しない — スクリーンショットは、tight なピル型と、大きな14pxの角丸を混在させています。",
+        "高彩度のアクセントカラーは使用しない — スクリーンショットは、支配的な明るいカラーのない、厳格なモノクロームパレットを示しています。",
+        "重いドロップシャドウは使用しない — スクリーンショットは、高さを出すために微細な1pxのインセットボーダーのみを使用しています。",
+        "レイアウトに複数のカラムで散らかさない — スクリーンショットは、非常に集中した、中央揃えのシングルカラムヒーローを示しています。"
+      ],
+      "systemPrompt": "3D制作ツール用のクリーンでモノクロームのSaaSデザイン。近白色の背景（#FCFCFC）、濃いインク（#202020）、柔らかなグレー（#F2F2F2、#8D8D8D）を使用。タイポグラフィは、ディスプレイと本文の両方に Regular ウェイト（400）の humanist-sans フォントを採用し、マイクロラベルには monospace を使用。重要な禁止事項：高彩度のアクセントカラーは使用しない（存在しない）、装飾的なグラデーションは使用しない（単色を使用）、散らかったレイアウトは使用しない（豊かなホワイトスペースを使用）、重いシャドウは使用しない（微細なインセットボーダーを使用）、見出しに全大文字は使用しない、複雑なアニメーションは使用しない（高速な150msトランジションを使用）。このサイトは、明瞭さとスピードを強調し、3D画像を主な焦点とします。"
+    },
+    "ko": {
+      "identity": {
+        "keywords": [
+          "3D 생성",
+          "브라우저 기반",
+          "실물 제품 디자인",
+          "속도"
+        ],
+        "analogy": "디지털 모델링과 실물 제조 간의 격차를 해소하는 현대적인 브라우저 기반 3D 디자인 스튜디오입니다.",
+        "oneLiner": "강력한 브라우저 기반 3D 도구를 통해 아이디어를 실물로 변환하는 깔끔하고 접근 가능한 플랫폼입니다."
+      },
+      "colors": {
+        "principle": "소프트 그레이 서피스를 포함한 고대비 모노크롬 팔레트로, 3D 제품 이미지가 초점이 되도록 보장합니다."
+      },
+      "typography": {
+        "rules": [
+          "대형 디스플레이 텍스트에는 타이트한 자간 사용",
+          "기본 텍스트에는 일관된 정규체 (400) 유지",
+          "기술 라벨('OR LAUNCH A QUICK APP' 등)에는 모노스페이스 사용"
+        ],
+        "scaleUses": [
+          "히어로 헤드라인",
+          "섹션 헤드라인",
+          "기본 텍스트",
+          "마이크로 라벨 및 UI 요소"
+        ]
+      },
+      "spacing": {
+        "rhythm": "패딩과 간격을 위한 일관된 8px 기본 리듬과, 섹션 구분을 위한 더 넓은 80px 수직 패딩을 사용합니다."
+      },
+      "surfaces": {
+        "shadows": [
+          "inset 0 0 0 1px color(srgb 0.85098 0.85098 0.85098)"
+        ],
+        "borders": "1px solid 보더로 주로 #EEEEEE 또는 고대비 요소를 위해 rgba(32,32,32,1)를 사용합니다."
+      },
+      "layout": {
+        "skeleton": "여유로운 수직 여백을 둔 중앙 정렬 단일 열 히어로에서, 피처 카드를 위한 2열 그리드로 전환됩니다."
+      },
+      "components": {
+        "button": "흰색 텍스트가 있는 채워진 검정색과 둥근 필 모양, 어두운 텍스트와 둥근 필 모양의 고스트/아웃라인 두 가지 주요 스타일이 있습니다.",
+        "card": "큰 둥근 모서리 (14px), 미묘한 배경색 (#F2F2F2), 그리고 아래쪽의 깔끔한 타이포그래피를 특징으로 하는 피처 카드입니다.",
+        "chip": "섹션 구분자로 사용되는 둥근 모서리가 있는 회색 테두리의 작은 모노스페이스 대문자 칩입니다.",
+        "input": "내부에 검정색 행동 유도 버튼이 있는, 밝은 회색 배경과 둥근 모서리를 가진 크고 중앙 정렬된 프롬프트 상자입니다.",
+        "hero": "클린한 화이트 배경을 중심으로 텍스트가 많은 미니멀한 히어로 섹션으로, 큰 인터랙티브 프롬프트 상자가 특징입니다."
+      },
+      "motion": {
+        "patterns": [
+          "모든 인터랙티브 상태 (배경, box-shadow, transform, scale)에 대한 일관된 150ms ease-in-out 트랜지션."
+        ]
+      },
+      "interaction": {
+        "hover": "버튼 및 인터랙티브 요소의 배경 및 box-shadow 변화.",
+        "click": "스케일 또는 변환 마이크로 인터랙션.",
+        "transition": "모든 인터랙티브 요소는 표준화된 150ms ease-in-out 트랜지션을 공유합니다.",
+        "keyboard": "인터랙티브 상태로 암시되는 표준 포커스 관리."
+      },
+      "voice": {
+        "tone": "직설적이고 자신감 있으며 격려하는 어조.",
+        "headlineStyle": "타이트한 자간을 사용한 간결하고 혜택 중심적인 문장.",
+        "ctaStyle": "화살표 아이콘을 사용하며 행동 지향적인 스타일로, 고대비 검정색 채우기 또는 미묘한 고스트 아웃라인을 사용합니다.",
+        "avoid": [
+          "지나치게 전문적인 전문 용어",
+          "빈약한 문단",
+          "지저분한 레이아웃"
+        ]
+      },
+      "donts": [
+        "장식용 그래디언트나 복잡한 배경을 사용하지 마세요 — 스크린샷은 깔끔하고 근접 화이트의 단색 배경을 보여줍니다.",
+        "헤드라인에 전부 대문자를 사용하지 마세요 — 스크린샷은 기본 디스플레이 텍스트에 문장이나 제목 대소문자를 사용합니다.",
+        "둥근 사각형이나 날카로운 모서리를 사용하지 마세요 — 스크린샷은 타이트한 필과 넉넉한 14px 둥근 모서리의 혼합을 보여줍니다.",
+        "고채도 강조 색상을 사용하지 마세요 — 스크린샷은 지배적인 밝은 색상이 없는 엄격한 모노크롬 팔레트를 보여줍니다.",
+        "무거운 드롭 섀도우를 사용하지 마세요 — 스크린샷은 높이감을 위해 미묘한 1px 인셋 보더만 사용합니다.",
+        "여러 열로 레이아웃을 지저분하게 만들지 마세요 — 스크린샷은 매우 집중된, 중앙 정렬된 단일 열 히어로를 보여줍니다."
+      ],
+      "systemPrompt": "근접 화이트 배경 (#FCFCFC), 잉크 블랙 (#202020), 소프트 그레이 (#F2F2F2, #8D8D8D)를 사용하는 3D 생성 도구를 위한 깔끔한 모노크롬 SaaS 디자인입니다. 타이포그래피는 디스플레이와 본문 모두에 정규체 (400)의 휴머니스트 산세리프 폰트에 의존하며, 마이크로 라벨에는 모노스페이스를 사용합니다. 중요 절제 사항: 고채도 강조 색상 사용 불가 (존재하지 않음), 장식용 그래디언트 사용 불가 (단색 사용), 지저분한 레이아웃 사용 불가 (여유로운 여백 사용), 무거운 섀도우 사용 불가 (미묘한 인셋 보더 사용), 전대문자 헤드라인 사용 불가, 복잡한 애니메이션 사용 불가 (빠른 150ms 트랜지션 사용). 이 사이트는 명확성과 속도를 강조하며, 3D 이미지를 주요 초점으로 만듭니다."
+    }
+  },
+  "desc": {
+    "en": {
+      "palette": "A strict, high-contrast monochrome palette using near-white backgrounds, dark ink, and soft gray surfaces to maintain a clean, professional aesthetic.",
+      "layout": "A spacious, centered single-column layout for the hero, transitioning into a simple 2-column grid for content, characterized by generous vertical padding.",
+      "interaction": "Standardized 150ms ease-in-out transitions across all interactive elements, focusing on subtle background, shadow, and transform changes.",
+      "motion": "Minimal and fast motion, utilizing a consistent 150ms micro-interaction duration to maintain a sense of speed and efficiency.",
+      "notes": "This site is worth including as a prime example of restrained, modern SaaS design where typography and white space do the heavy lifting, allowing complex product imagery to shine."
+    },
+    "zh-CN": {
+      "palette": "严格、高对比度的单色方案，采用近白色背景、深墨色和柔和灰色界面，以维持简洁、专业的美学。",
+      "layout": "宽敞、居中的单栏英雄区布局，过渡至简洁的双栏内容网格，特征在于充裕的垂直内边距。",
+      "interaction": "所有交互元素均采用标准化的150毫秒 ease-in-out 过渡，聚焦于背景、阴影和变换的微妙变化。",
+      "motion": "极简且快速的动效，使用一致的150毫秒微交互时长，以保持速度感与效率感。",
+      "notes": "该网站堪称克制、现代 SaaS 设计的典范，其排版与留白承担了主要表现力，使复杂的产品图像得以突出。"
+    },
+    "zh-TW": {
+      "palette": "一套嚴謹、高對比的單色調色盤，採用近乎白色的背景、深色墨黑及柔和的灰色表面，以維持乾淨、專業的視覺美感。",
+      "layout": "首頁採用寬敞、置中的單欄佈局，隨後過渡至簡單的雙欄內容網格，並以寬裕的垂直內距作為主要特徵。",
+      "interaction": "所有互動元素均採用標準的 150ms ease-in-out 轉場，著重於背景、陰影與變形的細微變化。",
+      "motion": "極簡且快速的動態效果，使用一致的 150ms 微互動時長，以維持速度感與效率。",
+      "notes": "此網站是克制、現代的 SaaS 設計典範，其中排版與留白扮演了關鍵角色，使複雜的產品影像得以突出。"
+    },
+    "ja": {
+      "palette": "近白色の背景、濃いインク、柔らかなグレーの表面を用いた、厳格で高コントラストのモノクローム・パレットで、クリーンでプロフェッショナルな美学を維持します。",
+      "layout": "ヒーロー部分にはゆったりとした中央揃えのシングルカラム・レイアウトを採用し、コンテンツ部分ではシンプルな2カラムグリッドに移行します。特徴は、豊かな縦方向のパディングです。",
+      "interaction": "すべてのインタラクティブ要素に標準化された150msのease-in-outトランジションを適用し、背景、シャドウ、変形の微細な変化に焦点を当てます。",
+      "motion": "最小限かつ高速なモーションを実現し、一貫した150msのマイクロインタラクション時間を用いることで、スピード感と効率性を維持します。",
+      "notes": "このサイトは、タイポグラフィとホワイトスペースが主役を務める、抑制の効いたモダンなSaaSデザインの優れた例として、紹介する価値があります。これにより、複雑な製品画像が光ります。"
+    },
+    "ko": {
+      "palette": "근접 화이트 배경, 잉크 블랙, 소프트 그레이 서피스를 사용한 엄격하고 고대비 모노크롬 팔레트로 깔끔하고 전문적인 미학을 유지합니다.",
+      "layout": "히어로 섹션은 여유로운 수직 패딩을 특징으로 하는 중앙 정렬 단일 열 레이아웃으로, 콘텐츠 영역에서는 간단한 2열 그리드로 전환됩니다.",
+      "interaction": "배경, 그림자, 변환 변화에 초점을 맞춘 모든 인터랙티브 요소 전반의 표준화된 150ms ease-in-out 트랜지션입니다.",
+      "motion": "일관된 150ms 마이크로 인터랙션 지속 시간을 활용한 최소화되고 빠른 모션으로, 속도와 효율감을 유지합니다.",
+      "notes": "이 사이트는 타이포그래피와 여백이 주도하는 절제된 현대 SaaS 디자인의 대표적인 예시로, 복잡한 제품 이미지가 빛날 수 있도록 하는 데 가치가 있습니다."
+    }
+  },
+  "_meta": {
+    "vision_model": "mimo-v2.5",
+    "vision_prompt_version": "0.3",
+    "vision_source": "playwright-extract:womp",
+    "vision_grounded": true,
+    "vision_at": "2026-06-04T20:01:24+00:00",
+    "vision_tokens": 16713,
+    "vision_cost_usd": 0.1857,
+    "translation_model": "mimo-v2.5",
+    "translation_at": "2026-06-04T20:02:49+00:00",
+    "translation_tokens": 18274,
+    "translation_cost_usd": 0.0609,
+    "narrative_model": "mimo-v2.5",
+    "narrative_prompt_version": "0.3",
+    "narrative_at": "2026-06-04T20:03:00+00:00",
+    "narrative_tokens": 2200,
+    "narrative_cost_usd": 0.0147,
+    "narrative_status": "ok",
+    "total_cost_usd": 0.2613
+  },
+  "narrative": {
+    "en": {
+      "ch1_intro": "Womp operates as a modern, browser-based 3D design studio, a digital workshop bridging the conceptual gap between modeling on screen and manufacturing in the physical world. Its design system is built to support this function with clarity and precision, letting the complexity of the work be the focus rather than the interface itself.",
+      "ch2_intro": "The palette is a disciplined monochrome spectrum, engineered for high contrast and neutrality. A near-white ground, deep ink text, and soft gray surfaces create a stage where the 3D product imagery is the only actor.",
+      "ch2_outro": "The system's principle is restraint: the interface provides a clean, professional backdrop that never competes with the work being created within it.",
+      "ch3_intro": "Typography employs a humanist-sans category set at a regular weight, used for both commanding display and readable body text. This consistent voice, paired with a functional monospace for technical labels, communicates directness and accessibility.",
+      "ch4_intro": "A consistent 8px base rhythm governs all padding and gaps, creating a predictable and harmonious spatial structure.",
+      "ch5_intro": "Surface depth is suggested not by shadow, but by precise, subtle boundaries. A palette of 1px solid borders and inset box-shadows in soft grays defines elevation with quiet clarity.",
+      "ch6_intro": "The foundational layout skeleton begins with a generous, centered single-column hero, establishing a singular focus. This then opens into a structured 2-column grid for feature presentation, maintaining order without clutter.",
+      "ch7_intro": "Motion philosophy is one of minimal, efficient communication. All interactive state changes are standardized to a quick 150ms ease-in-out transition, reinforcing the system's emphasis on speed and direct response.",
+      "ch8_intro": "The editorial voice is direct, confident, and encouraging, mirroring the tool's promise of accessible power. Headlines are concise and benefit-driven, with CTAs that use clear action language.",
+      "ch8_outro": "The system deliberately forgoes decorative gradients, high-chroma accents, and complex animations, choosing instead a path of maximum clarity and performance."
+    },
+    "zh-CN": {
+      "ch1_intro": "Womp 是一个现代化的、基于浏览器的 3D 设计工作室，一个弥合屏幕上建模与物理世界制造之间概念鸿沟的数字工坊。其设计系统以清晰和精确为宗旨构建，旨在支持这一功能，让工作的复杂性成为焦点，而非界面本身。",
+      "ch2_intro": "调色板是一套严谨的单色谱系，专为高对比度和中性而设计。近乎白色的基底、深邃的墨色文字和柔和的灰色表面，共同构建了一个舞台，让 3D 产品图像成为唯一的主角。",
+      "ch2_outro": "该系统的主旨是克制：界面提供一个干净、专业的背景，绝不与内部创作的作品竞争。",
+      "ch3_intro": "字体采用人文无衬线类别，设置为常规字重，同时用于醒目的标题和易读的正文。这种一致的字体风格，搭配用于技术标签的功能性等宽字体，传达出直接与易用性。",
+      "ch4_intro": "一个统一的 8px 基础节奏规范了所有的内边距和间距，创造出可预测且和谐的空间结构。",
+      "ch5_intro": "表面的层次感并非通过阴影，而是通过精确、微妙的边界来暗示。1px 实线边框和柔和的灰色内阴影共同以一种安静的清晰度定义了层次。",
+      "ch6_intro": "基础布局骨架始于一个宽裕、居中的单栏首屏区域，确立了单一焦点。随后展开为结构化的双栏网格用于功能展示，在保持秩序的同时避免杂乱。",
+      "ch7_intro": "动效理念是极简而高效的沟通。所有交互状态变化都标准化为快速的 150ms ease-in-out 过渡，强化了系统对速度和直接响应的重视。",
+      "ch8_intro": "编辑风格直接、自信且鼓舞人心，呼应了该工具承诺提供的易用且强大的功能。标题简洁，以效益为导向，行动号召则使用清晰的行动语言。",
+      "ch8_outro": "该系统刻意摒弃了装饰性渐变、高饱和度强调色和复杂动画，转而选择了一条追求极致清晰度和性能的道路。"
+    },
+    "zh-TW": {
+      "ch1_intro": "Womp 是一個現代化的瀏覽器端 3D 設計工作室，一個數位工坊，橋接了螢幕上建模與實體世界製造之間的概念鴻溝。其設計系統建構旨在以清晰與精準支持此功能，讓工作的複雜性成為焦點，而非介面本身。",
+      "ch2_intro": "色盤是一套嚴謹的單色光譜，為高對比與中性而設計。近乎白色的背景、深墨文字與柔和灰色表面，共同搭建了一個舞台，讓 3D 產品影像成為唯一的主角。",
+      "ch2_outro": "此系統的原則是克制：介面提供一個乾淨、專業的背景，絕不與其中正在創造的作品相互競爭。",
+      "ch3_intro": "字體採用 humanist-sans 類別，設定為 regular 字重，用於引人注目的展示文字與易讀的內文。這一致的語調，搭配用於技術標籤的功能性 monospace 字體，傳達了直接性與親和力。",
+      "ch4_intro": "一致的 8px 基準節奏主導了所有的 padding 與間距，創造出可預期且和諧的空間結構。",
+      "ch5_intro": "表面的層次感並非透過陰影，而是透過精確、微妙的邊界來暗示。一套由 1px 實線邊框與柔和灰色 inset box-shadow 組成的色盤，以靜謐的清晰度定義了層次。",
+      "ch6_intro": "基礎版面骨架始於一個寬裕、置中的單欄主視覺，確立了單一的焦點。隨後展開為結構化的雙欄網格，用於功能展示，在不雜亂的前提下維持秩序。",
+      "ch7_intro": "動效哲學是極簡且有效的溝通。所有互動狀態的變化都標準化為快速的 150ms ease-in-out 過渡，強化了系統對速度與直接回應的重視。",
+      "ch8_intro": "編輯語調直接、自信且鼓舞人心，映照了工具對於親民強大功能的承諾。標題簡潔並聚焦於效益，行動呼籲則使用清晰的行動語言。",
+      "ch8_outro": "此系統刻意捨棄了裝飾性漸層、高彩度強調色與複雜動畫，轉而選擇了一條追求最大清晰度與效能的道路。"
+    },
+    "ja": {
+      "ch1_intro": "Wompは、モダンでブラウザベースの3Dデザインスタジオとして機能し、画面上のモデリングと物理世界での製造の間にある概念的な橋渡しを担うデジタル工房です。そのデザインシステムは、この機能を明確さと精密さをもって支えるように構築されており、作業の複雑さがそのインタフェース自体ではなく焦点となるように設計されています。",
+      "ch2_intro": "カラーパレットは、高コントラストと中立性を実現するために設計された、厳密なモノクロームスペクトルです。近い白の背景、深いインクのテキスト、そして柔らかいグレーのサーフェスが、3Dプロダクトイメージが唯一の主役となる舞台を創り出します。",
+      "ch2_outro": "システムの原則は自制です。インタフェースは、その内部で作成される作品と競争することのない、クリーンでプロフェッショナルな背景を提供します。",
+      "ch3_intro": "タイポグラフィは、ヒューマニスト・サンセリフカテゴリを使用し、 regularウェイトで、注目を集めるディスプレイと読みやすい本文の両方に使われます。この一貫した声は、技術ラベル用の機能的なモノスペースと組み合わされ、直接的でアクセシブルな印象を伝えます。",
+      "ch4_intro": "一貫した8pxのベースリズムが、すべてのpaddingとgapを支配し、予測可能で調和のとれた空間構造を生み出します。",
+      "ch5_intro": "サーフェスの奥行きは、シャドウではなく、正確で微細な境界線によって示されます。1pxのsolidボーダーと、ソフトグレーのinset box-shadowのパレットが、静かな明瞭さをもって高さを定義します。",
+      "ch6_intro": "レイアウトの基本骨格は、豊かで中央揃えの単一カラムヒーローから始まり、一点への集中を確立します。その後、フィーチャーを提示するための構造化された2カラムグリッドに展開し、雑然とすることなく秩序を維持します。",
+      "ch7_intro": "モーション哲学は、最小限で効率的なコミュニケーションです。すべてのインタラクティブな状態変化は、迅速な150msのease-in-outトランジションに標準化され、システムのスピードと直接的な応答への重点を強調します。",
+      "ch8_intro": "エディトリアルな声は、直接的で自信に満ち、かつ鼓舞するものであり、アクセシブルなパワーというツールの約束を反映しています。見出しは簡潔でベネフィット重視で、CTAには明確なアクション言語が使われます。",
+      "ch8_outro": "システムは、装飾的なグラデーション、高彩度アクセント、複雑なアニメーションを意図的に避け、代わりに最大限の明瞭さとパフォーマンスを重視した道を選んでいます。"
+    },
+    "ko": {
+      "ch1_intro": "Womp는 현대적이고 브라우저 기반의 3D 디자인 스튜디오로, 화면에서의 모델링과 실제 세계에서의 제조 사이의 개념적 격차를 잇는 디지털 워크숍입니다. 이 디자인 시스템은 이 기능을 명확하고 정밀하게 지원하도록 구축되어, 작업의 복잡성 자체에 집중할 수 있도록 인터페이스가 중심이 되지 않도록 합니다.",
+      "ch2_intro": "팔레트는 고대비와 중립성을 위해 설계된 엄격한 단색 스펙트럼입니다. 거의 흰색 배경, 짙은 잉크 텍스트, 부드러운 회색 표면은 3D 제품 이미지가 유일한 주연이 되는 무대를 만듭니다.",
+      "ch2_outro": "시스템의 원칙은 절제입니다: 인터페이스는 내부에서 만들어지는 작업과 결코 경쟁하지 않는 깔끔하고 전문적인 배경을 제공합니다.",
+      "ch3_intro": "타이포그래피는 humanist-sans 카테고리를 사용하며, 견고한 표제와 읽기 쉬운 본문 텍스트 모두에 적용되는 일반 굵기로 설정됩니다. 기술 라벨을 위한 기능적인 monospace와 결합된 이 일관된 어조는 직접성과 접근성을 전달합니다.",
+      "ch4_intro": "일관된 8px 기본 리듬이 모든 padding과 간격을 지배하여, 예측 가능하고 조화로운 공간 구조를 만듭니다.",
+      "ch5_intro": "표면의 깊이는 그림자가 아닌, 정확하고 미세한 경계로 암시됩니다. 1px 실선 테두리와 부드러운 회색으로 된 inset box-shadow 팔레트는 고요한 명확성으로 높이를 정의합니다.",
+      "ch6_intro": "기본 레이아웃 스켈레톤은 풍부하고 중앙 정렬된 단일 열 히어로로 시작하여 단일한 초점을 설정합니다. 이는 기능 표현을 위한 구조화된 2열 그리드로 열리며, 지저분함 없이 질서를 유지합니다.",
+      "ch7_intro": "모션 철학은 최소한의 효율적인 커뮤니케이션입니다. 모든 인터랙티브 상태 변경은 빠르고 부드러운 150ms ease-in-out 전환으로 표준화되어, 시스템의 속도와 직접적인 반응에 대한 강조를 뒷받침합니다.",
+      "ch8_intro": "에디토리얼 어조는 직접적이고 자신감 있으며 격려적이어서, 접근 가능한 강력함이라는 도구의 약속을 반영합니다. 헤드라인은 간결하고 이점 중심이며, CTA는 명확한 행동 언어를 사용합니다.",
+      "ch8_outro": "시스템은 의도적으로 장식적인 gradient, 고채도 악센트, 복잡한 애니메이션을 포기하고, 대신 최대한의 명확성과 성능을 위한 길을 선택합니다."
+    }
+  }
 }

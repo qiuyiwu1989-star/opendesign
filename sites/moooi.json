@@ -8,6 +8,631 @@
     "furniture",
     "design"
   ],
-  "status": "pending",
-  "added_at": "2026-06-02"
+  "status": "completed",
+  "added_at": "2026-06-02",
+  "spec": {
+    "colors": {
+      "bg": "#FFFFFF",
+      "bgSoft": "#F3F3F3",
+      "bgQuiet": "#F6F6F6",
+      "ink": "#1F1F1F",
+      "inkSoft": "#333333",
+      "muted": "#929292",
+      "mutedSoft": null,
+      "accent": null,
+      "line": "rgba(146, 146, 146, 0.4)"
+    },
+    "typography": {
+      "display": "transitional-serif",
+      "body": "humanist-sans",
+      "mono": null,
+      "scale": [
+        {
+          "token": "display",
+          "size": 72,
+          "lh": 1.2,
+          "weight": 400,
+          "ls": "-1.44px"
+        },
+        {
+          "token": "headline",
+          "size": 24,
+          "lh": 1.2,
+          "weight": 400,
+          "ls": "-0.48px"
+        },
+        {
+          "token": "body",
+          "size": 16,
+          "lh": 1.2,
+          "weight": 400,
+          "ls": "-0.32px"
+        },
+        {
+          "token": "small",
+          "size": 12.8,
+          "lh": 1.5,
+          "weight": 400,
+          "ls": "-0.32px"
+        },
+        {
+          "token": "nav",
+          "size": 16,
+          "lh": 1.2,
+          "weight": 400,
+          "ls": "0px"
+        }
+      ]
+    },
+    "spacing": {
+      "base": 4,
+      "scale": [
+        4,
+        8,
+        12,
+        16,
+        24,
+        48,
+        80,
+        100
+      ]
+    },
+    "surfaces": {
+      "radius": {
+        "sm": 2,
+        "md": 5,
+        "lg": 10,
+        "pill": 40
+      }
+    },
+    "layout": {
+      "container": 1440,
+      "paragraph": 700,
+      "columns": 12,
+      "gutter": 24,
+      "breakpoints": [
+        768,
+        1024
+      ]
+    },
+    "motion": {
+      "durations": {
+        "micro": 220,
+        "small": 500,
+        "medium": 1300
+      },
+      "easing": "cubic-bezier(0.19, 1, 0.22, 1)"
+    }
+  },
+  "spec_i18n": {
+    "en": {
+      "identity": {
+        "keywords": [
+          "furniture",
+          "design",
+          "editorial",
+          "gallery",
+          "product"
+        ],
+        "analogy": "A high-end design gallery meets a sophisticated e-commerce catalog.",
+        "oneLiner": "A premium furniture brand blending high-fashion editorial photography with a clean, minimalist e-commerce experience."
+      },
+      "colors": {
+        "principle": "Restrained, monochromatic palette that lets the photography and typography command attention."
+      },
+      "typography": {
+        "rules": [
+          "Use negative letter-spacing for display and headline sizes to tighten the serif.",
+          "Maintain a consistent, generous line height for body text.",
+          "Keep font weights mostly at 400 for a refined, editorial feel.",
+          "Use uppercase tracking for specific utility elements."
+        ],
+        "scaleUses": [
+          "Hero headlines, large category titles",
+          "Section headers, modal titles",
+          "Main content, descriptions, navigation links",
+          "Legal text, cookie descriptions, metadata",
+          "Top navigation items, utility links"
+        ]
+      },
+      "spacing": {
+        "rhythm": "Generous spacing around content blocks and within modals emphasizes the premium feel."
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 0px 0px 0px rgba(0, 0, 0, 0) inset",
+          "3px 3px 10px 0px rgba(0, 0, 0, 0.1)"
+        ],
+        "borders": "Thin 1px borders in muted gray (#929292) for lists and subtle separators."
+      },
+      "layout": {
+        "skeleton": "Full-bleed photography with overlaid UI elements and centered, narrow content containers for reading."
+      },
+      "components": {
+        "button": "Minimalist, often text-only or with a simple border; pill-shaped radius for primary actions.",
+        "card": "Clean containers with thin borders and generous padding; often overlaid on large imagery.",
+        "chip": "Simple rectangular elements with thin borders and subtle background color changes.",
+        "input": "Clean, bordered fields with minimal styling, relying on the system's typography.",
+        "hero": "Large, immersive photography that fills the viewport with minimalist navigation overlaid on top."
+      },
+      "motion": {
+        "patterns": [
+          "Slow, elegant fades and transforms for revealing content.",
+          "Smooth transitions for interactive elements like buttons and background colors."
+        ]
+      },
+      "interaction": {
+        "hover": "Subtle color shifts for background or text, often using a smooth 0.2s transition.",
+        "click": "Immediate feedback via background or box-shadow changes.",
+        "transition": "Consistent use of cubic-bezier easing for a premium, fluid feel.",
+        "keyboard": "Standard focus states, likely using browser defaults or subtle outlines."
+      },
+      "voice": {
+        "tone": "Sophisticated, quiet, and authoritative.",
+        "headlineStyle": "Large, elegant serif typography with tight tracking.",
+        "ctaStyle": "Minimalist, often text-based or simple outlined buttons.",
+        "avoid": [
+          "Loud colors",
+          "Cluttered layouts",
+          "Playful or casual language"
+        ]
+      },
+      "donts": [
+        "Don't use bright or saturated colors — screenshot shows a strictly monochromatic palette of white, grays, and blacks.",
+        "Don't use thick, heavy borders — screenshot shows thin 1px lines in muted gray.",
+        "Don't use rounded corners on primary containers — screenshot shows very subtle rounding (2px-5px) or sharp corners.",
+        "Don't use heavy sans-serif fonts — screenshot shows a preference for transitional-serif headlines and humanist-sans body text.",
+        "Don't create dense, text-heavy layouts — screenshot shows generous whitespace and large photography.",
+        "Don't use aggressive shadows — screenshot shows very subtle, low-opacity drop shadows."
+      ],
+      "systemPrompt": "Moooi is a premium furniture and design brand, utilizing a high-end editorial aesthetic. The design features a restrained monochromatic palette of white (#FFFFFF), soft grays (#F3F3F3), and dark ink (#1F1F1F). Typography relies on a transitional-serif for display text and a humanist-sans for body text, both with tight letter-spacing and regular weight. Layouts are clean, generous, and photography-focused, using large, immersive hero images with minimalist navigation. Critical don'ts: avoid saturated colors, use thin borders instead of heavy ones, maintain subtle border-radius, ensure generous whitespace, avoid dense text blocks, and use refined, subtle shadows. The overall tone is quiet, sophisticated, and luxurious."
+    },
+    "zh-CN": {
+      "identity": {
+        "keywords": [
+          "家具",
+          "设计",
+          "编辑",
+          "画廊",
+          "产品"
+        ],
+        "analogy": "高端设计画廊邂逅精致电商目录。",
+        "oneLiner": "融合高级时装编辑摄影与简洁极简电商体验的高端家具品牌。"
+      },
+      "colors": {
+        "principle": "克制的单色系，让摄影与排版成为视觉焦点。"
+      },
+      "typography": {
+        "rules": [
+          "展示与标题尺寸使用负字距收紧衬线字体。",
+          "正文保持一致、宽松的行高。",
+          "字重多采用 400 以营造精致的编辑感。",
+          "特定功能元素使用大写字母间距。"
+        ],
+        "scaleUses": [
+          "主视觉标题、大型分类标题",
+          "区域标题、模态窗口标题",
+          "主要内容、描述、导航链接",
+          "法律文本、Cookie 说明、元数据",
+          "顶部导航项、功能链接"
+        ]
+      },
+      "spacing": {
+        "rhythm": "内容块周围及模态窗口内充裕的间距强调高端质感。"
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 0px 0px 0px rgba(0, 0, 0, 0) inset",
+          "3px 3px 10px 0px rgba(0, 0, 0, 0.1)"
+        ],
+        "borders": "列表与细微分隔线使用柔和灰色 (#929292) 的 1px 细边框。"
+      },
+      "layout": {
+        "skeleton": "全出血摄影配合叠加的 UI 元素，阅读区域采用居中的窄内容容器。"
+      },
+      "components": {
+        "button": "极简主义，常为纯文本或简单边框；主要操作采用胶囊形圆角。",
+        "card": "简洁容器，细边框与充裕内边距；常叠加于大型图像上。",
+        "chip": "带细边框的简单矩形元素，伴有细微的背景色变化。",
+        "input": "简洁、带边框的输入框，样式极简，依赖系统排版。",
+        "hero": "占据视口的大型沉浸式摄影，上方叠加极简导航。"
+      },
+      "motion": {
+        "patterns": [
+          "用于内容揭示的缓慢、优雅的淡入淡出与变换。",
+          "按钮与背景色等交互元素的平滑过渡。"
+        ]
+      },
+      "interaction": {
+        "hover": "背景或文字的细微色彩变化，常使用平滑的 0.2s 过渡。",
+        "click": "通过背景或 box-shadow 变化提供即时反馈。",
+        "transition": "统一使用 cubic-bezier 缓动，营造高端、流畅感。",
+        "keyboard": "标准焦点状态，可能采用浏览器默认或细微轮廓。"
+      },
+      "voice": {
+        "tone": "精致、沉静、权威。",
+        "headlineStyle": "采用紧凑字距的大型优雅衬线字体。",
+        "ctaStyle": "极简主义，常为基于文本或简单描边按钮。",
+        "avoid": [
+          "鲜艳色彩",
+          "杂乱布局",
+          "俏皮或随意的语言"
+        ]
+      },
+      "donts": [
+        "避免使用明亮或饱和的颜色——截图显示严格的单色系：白色、灰色与黑色。",
+        "避免使用厚重粗边框——截图显示柔和灰色的 1px 细线。",
+        "避免在主要容器上使用大圆角——截图显示非常细微的圆角 (2px-5px) 或直角。",
+        "避免使用厚重的无衬线字体——截图显示标题偏好过渡衬线字体，正文偏好人文主义无衬线字体。",
+        "避免创建密集、文字过多的布局——截图显示充裕的留白与大型摄影。",
+        "避免使用强烈的阴影——截图显示非常细微、低不透明度的投影。"
+      ],
+      "systemPrompt": "Moooi 是一个高端家具与设计品牌，采用高端编辑美学。设计采用克制的单色系：白色 (#FFFFFF)、柔和灰 (#F3F3F3) 与深墨色 (#1F1F1F)。排版使用过渡衬线字体作为展示文本，人文主义无衬线字体作为正文，两者均采用紧凑字距与常规字重。布局简洁、宽松且以摄影为中心，使用大型沉浸式主视觉图像与极简导航。关键禁忌：避免饱和色彩，使用细边框替代粗边框，保持细微的边角圆润，确保充裕留白，避免密集的文本块，使用精致、细微的阴影。整体基调沉静、精致且奢华。"
+    },
+    "zh-TW": {
+      "identity": {
+        "keywords": [
+          "家具",
+          "設計",
+          "編輯",
+          "展廊",
+          "產品"
+        ],
+        "analogy": "頂級設計展廊結合精緻的電子商務型錄。",
+        "oneLiner": "一個將高端時尚編輯攝影與簡潔極簡電子商務體驗相結合的 Premium 家具品牌。"
+      },
+      "colors": {
+        "principle": "克制的單色調色盤，讓攝影與字體排印成為視覺焦點。"
+      },
+      "typography": {
+        "rules": [
+          "在展示與標題尺寸中使用負 letter-spacing，以收緊襯線字體。",
+          "為內文保持一致且寬裕的行高。",
+          "主要字重維持在 400，以營造精緻的編輯感。",
+          "針對特定功能元素使用大寫 tracking。"
+        ],
+        "scaleUses": [
+          "主視覺標題、大型分類標題",
+          "區塊標題、彈窗標題",
+          "主要內文、描述、導覽連結",
+          "法律文字、Cookie 描述、元數據",
+          "頂部導覽項目、功能連結"
+        ]
+      },
+      "spacing": {
+        "rhythm": "內容區塊與彈窗內的寬裕間距，強調了高端質感。"
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 0px 0px 0px rgba(0, 0, 0, 0) inset",
+          "3px 3px 10px 0px rgba(0, 0, 0, 0.1)"
+        ],
+        "borders": "列表與細微分隔器採用柔和灰 (#929292) 的 1px 細邊框。"
+      },
+      "layout": {
+        "skeleton": "全版攝影圖搭配覆蓋的 UI 元素，以及居中、窄幅的內容容器以供閱讀。"
+      },
+      "components": {
+        "button": "極簡主義，常為純文字或僅帶簡單邊框；主要操作按鈕採用藥丸形圓角。",
+        "card": "帶有細邊框與寬裕 padding 的簡潔容器；常覆蓋於大型影像之上。",
+        "chip": "帶有細邊框與微妙背景色變化的簡潔矩形元素。",
+        "input": "簡潔、帶邊框的輸入欄位，樣式極簡，依賴系統的字體排印。",
+        "hero": "填滿視窗的大型沉浸式攝影圖，上方覆蓋極簡導覽。"
+      },
+      "motion": {
+        "patterns": [
+          "緩慢優雅的淡入淡出與變形，用於內容揭示。",
+          "按鈕與背景色等互動元素的平滑過渡。"
+        ]
+      },
+      "interaction": {
+        "hover": "背景或文字的細微色彩變化，通常使用 0.2s 的平滑過渡。",
+        "click": "透過背景或 box-shadow 變化提供即時回饋。",
+        "transition": "一致使用 cubic-bezier 緩動，營造高端流暢的感覺。",
+        "keyboard": "標準的焦點狀態，可能使用瀏覽器預設或細微的外框。"
+      },
+      "voice": {
+        "tone": "精緻、沉靜、且具權威感。",
+        "headlineStyle": "字型優雅的大型襯線字體，tracking 收緊。",
+        "ctaStyle": "極簡主義，常為文字鏈或簡單的描邊按鈕。",
+        "avoid": [
+          "鮮豔色彩",
+          "雜亂佈局",
+          "俏皮或隨意的語言"
+        ]
+      },
+      "donts": [
+        "勿使用明亮或飽和的顏色——截圖顯示了嚴格的單色調色盤（白色、灰色與黑色）。",
+        "勿使用粗重的邊框——截圖顯示了柔和灰色 (#929292) 的 1px 細線。",
+        "勿在主要容器上使用圓角——截圖顯示了非常 subtle 的圓角 (2px-5px) 或直角。",
+        "勿使用粗重的無襯線字體——截圖顯示偏好使用 transitional-serif 作為標題，humanist-sans 作為內文。",
+        "勿建立密集、文字擁擠的佈局——截圖顯示了寬裕的留白與大型攝影圖。",
+        "勿使用強烈的陰影——截圖顯示了非常 subtle、低不透明度的投影。"
+      ],
+      "systemPrompt": "Moooi 是一個高端家具與設計品牌，採用頂級編輯美學。其設計採用了由白色 (#FFFFFF)、柔灰 (#F3F3F3) 與深墨 (#1F1F1F) 組成的克制單色調色盤。字體排印方面，展示文字使用 transitional-serif，內文使用 humanist-sans，兩者皆具緊湊的 letter-spacing 與 regular 字重。佈局簡潔、寬裕且以攝影為主，使用大型沉浸式主視覺圖並搭配極簡導覽。關鍵禁忌：避免飽和色彩、使用細邊框而非粗重邊框、維持 subtle 的 border-radius、確保寬裕的留白、避免密集的文字區塊，並使用精緻 subtle 的陰影。整體語調是沉靜、精緻且奢華的。"
+    },
+    "ja": {
+      "identity": {
+        "keywords": [
+          "家具",
+          "デザイン",
+          "エディトリアル",
+          "ギャラリー",
+          "プロダクト"
+        ],
+        "analogy": "ハイエンド・デザイン・ギャラリーと洗練されたeコマースカタログの融合。",
+        "oneLiner": "ハイファッションのエディトリアル写真と、クリーンでミニマルなeコマース体験を融合したプレミアム家具ブランド。"
+      },
+      "colors": {
+        "principle": "抑制されたモノクローム・パレットで、写真とタイポグラフィに注目を集める。"
+      },
+      "typography": {
+        "rules": [
+          "ディスプレイと見出しのサイズでは、セリフ体を締めるためネガティブな文字間隔を使用する。",
+          "本文には一貫した、豊かな行間を維持する。",
+          "洗練されたエディトリアル感のため、フォントの太さは主に400を維持する。",
+          "特定のユーティリティ要素には、大文字の字送りを使用する。"
+        ],
+        "scaleUses": [
+          "ヒーロー見出し、大きなカテゴリータイトル",
+          "セクション見出し、モーダルタイトル",
+          "メインコンテンツ、説明文、ナビゲーションリンク",
+          "法的テキスト、クッキー説明、メタデータ",
+          "トップナビゲーション項目、ユーティリティリンク"
+        ]
+      },
+      "spacing": {
+        "rhythm": "コンテンツブロック周囲やモーダル内の豊かな余白が、プレミアム感を強調する。"
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 0px 0px 0px rgba(0, 0, 0, 0) inset",
+          "3px 3px 10px 0px rgba(0, 0, 0, 0.1)"
+        ],
+        "borders": "リストや微妙な区切り用の、マットなグレー（#929292）の細い1pxボーダー。"
+      },
+      "layout": {
+        "skeleton": "フルブリードの写真にオーバーレイされたUI要素と、読み込み用の中央揃えで狭いコンテンツコンテナ。"
+      },
+      "components": {
+        "button": "ミニマルで、テキストのみまたはシンプルなボーダーのみの場合が多い。プライマリアクションにはピル形の角丸。",
+        "card": "細いボーダーと豊かなパディングを持つクリーンなコンテナ。大きなイメージ上にオーバーレイされることが多い。",
+        "chip": "細いボーダーと微妙な背景色の変化を持つシンプルな長方形要素。",
+        "input": "システムのタイポグラフィに依存した、最小限のスタイリングで境界線のあるクリーンなフィールド。",
+        "hero": "ビューポートを埋める大きな没入型写真で、その上にミニマルなナビゲーションがオーバーレイされる。"
+      },
+      "motion": {
+        "patterns": [
+          "コンテンツを表示するための、遅くエレガントなフェードとトランスフォーム。",
+          "ボタンや背景色などのインタラクティブ要素のための滑らかなトランジション。"
+        ]
+      },
+      "interaction": {
+        "hover": "背景やテキストの微妙な色の変化。しばしば0.2sの滑らかなトランジションを使用。",
+        "click": "背景やボックスシャドウの変化による即座のフィードバック。",
+        "transition": "プレミアムで流れるような感触のための、cubic-bezier イージングの一貫した使用。",
+        "keyboard": "標準のフォーカス状態。おそらくブラウザのデフォルトまたは微妙なアウトラインを使用。"
+      },
+      "voice": {
+        "tone": "洗練され、静かで、威厳がある。",
+        "headlineStyle": "タイトな字送りによる、大きくエレガントなセリフ体タイポグラフィ。",
+        "ctaStyle": "ミニマルで、テキストベースまたはシンプルなアウトライン・ボタンの場合が多い。",
+        "avoid": [
+          "派手な色",
+          "雑然としたレイアウト",
+          "遊び心のある、またはカジュアルな言葉遣い"
+        ]
+      },
+      "donts": [
+        "明るく彩度の高い色を使用しない — スクリーンショットでは白、グレー、黒からなる厳格なモノクローム・パレットが示されている。",
+        "太く重いボーダーを使用しない — スクリーンショットではマットなグレーの細い1pxラインが示されている。",
+        "プライマリコンテナに角丸を使用しない — スクリーンショットでは非常に微妙な角丸（2px-5px）またはシャープな角が示されている。",
+        "重いサンセリフフォントを使用しない — スクリーンショットではトランジショナル・セリフの見出しとヒューマニスト・サンセリフの本文が好まれている。",
+        "密集した、テキストの多いレイアウトを作成しない — スクリーンショットでは豊かな余白と大きな写真が示されている。",
+        "アグレッシブなシャドウを使用しない — スクリーンショットでは非常に微妙で、低不透明度のドロップシャドウが示されている。"
+      ],
+      "systemPrompt": "Moooi は、ハイエンドなエディトリアル美学を活用したプレミアム家具・デザインブランドです。デザインは、白（#FFFFFF）、柔らかなグレー（#F3F3F3）、濃いインク（#1F1F1F）からなる抑制されたモノクローム・パレットを特徴としています。タイポグラフィは、ディスプレイテキストにトランジショナル・セリフ、本文にヒューマニスト・サンセリフを採用し、どちらもタイトな文字間隔と通常の太さです。レイアウトはクリーンで豊か、写真を重視し、ミニマルなナビゲーションをオーバーレイした大きな没入型ヒーロー画像を使用します。重要な禁止事項：彩度の高い色を避け、太いボーダーの代わりに細いボーダーを使用し、微妙なボーダーラディウスを維持し、豊かな余白を確保し、密集したテキストブロックを避け、洗練された微妙なシャドウを使用すること。全体的なトーンは静かで、洗練され、ラグジュアリーです。"
+    },
+    "ko": {
+      "identity": {
+        "keywords": [
+          "가구",
+          "디자인",
+          "에디토리얼",
+          "갤러리",
+          "제품"
+        ],
+        "analogy": "하이엔드 디자인 갤러리와 세련된 이커머스 카탈로그의 만남.",
+        "oneLiner": "하이패션 에디토리얼 사진과 깔끔한 미니멀리스트 이커머스 경험을 결합한 프리미엄 가구 브랜드."
+      },
+      "colors": {
+        "principle": "사진과 타이포그래피가 주목을 받게 하는 절제된 단색 팔레트."
+      },
+      "typography": {
+        "rules": [
+          "디스플레이 및 헤드라인 크기에는 세리프를 조밀하게 하기 위해 네거티브 자간을 사용합니다.",
+          "본문 텍스트에는 일관되고 여유로운 행간을 유지합니다.",
+          "대부분의 글꼴 두께는 400으로 유지하여 정교한 에디토리얼 느낌을 줍니다.",
+          "특정 유틸리티 요소에는 대문자 자간을 사용합니다."
+        ],
+        "scaleUses": [
+          "히어로 헤드라인, 대형 카테고리 제목",
+          "섹션 헤더, 모달 제목",
+          "주요 콘텐츠, 설명, 내비게이션 링크",
+          "법적 텍스트, 쿠키 설명, 메타데이터",
+          "최상위 내비게이션 항목, 유틸리티 링크"
+        ]
+      },
+      "spacing": {
+        "rhythm": "콘텐츠 블록 주변과 모달 내부의 여유로운 간격은 프리미엄 느낌을 강조합니다."
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 0px 0px 0px rgba(0, 0, 0, 0) inset",
+          "3px 3px 10px 0px rgba(0, 0, 0, 0.1)"
+        ],
+        "borders": "목록과 미묘한 구분선을 위한 옅은 그레이(#929292)의 얇은 1px 테두리."
+      },
+      "layout": {
+        "skeleton": "읽기를 위한 중앙 정렬된 좁은 콘텐츠 컨테이너 위에 UI 요소를 오버레이한 풀블리드 사진."
+      },
+      "components": {
+        "button": "미니멀리스트, 주로 텍스트만 또는 간단한 테두리가 있는 형태; 주요 작업을 위한 둥근 모서리.",
+        "card": "얇은 테두리와 여유로운 패딩이 있는 깔끔한 컨테이너; 대형 이미지 위에 오버레이되는 경우가 많음.",
+        "chip": "얇은 테두리와 미묘한 배경색 변화가 있는 간단한 직사각형 요소.",
+        "input": "미니멀한 스타일링, 시스템 타이포그래피에 의존하는 깔끔한 테두리가 있는 필드.",
+        "hero": "미니멀리스트 내비게이션이 상단에 오버레이된, 뷰포트를 채우는 대형 몰입감 있는 사진."
+      },
+      "motion": {
+        "patterns": [
+          "콘텐츠를 노출하기 위한 느리고 우아한 페이드 및 트랜스폼.",
+          "버튼 및 배경색과 같은 인터랙티브 요소를 위한 부드러운 트랜지션."
+        ]
+      },
+      "interaction": {
+        "hover": "배경 또는 텍스트의 미묘한 색상 변화, 주로 부드러운 0.2s 트랜지션 사용.",
+        "click": "배경 또는 box-shadow 변화를 통한 즉각적인 피드백.",
+        "transition": "프리미엄하고 유동적인 느낌을 위한 cubic-bezier 이징의 일관된 사용.",
+        "keyboard": "표준 포커스 상태, 브라우저 기본값 또는 미묘한 윤곽선 사용 가능."
+      },
+      "voice": {
+        "tone": "세련되고, 조용하며, 권위 있는 어조.",
+        "headlineStyle": "좁은 자간을 가진 크고 우아한 세리프 타이포그래피.",
+        "ctaStyle": "미니멀리스트, 주로 텍스트 기반 또는 간단한 아웃라인 버튼.",
+        "avoid": [
+          "화려한 색상",
+          "복잡한 레이아웃",
+          "장난기 있거나 캐주얼한 언어"
+        ]
+      },
+      "donts": [
+        "밝거나 채도 높은 색상을 사용하지 마세요 — 스크린샷은 흰색, 그레이, 검정으로 구성된 엄격한 단색 팔레트를 보여줍니다.",
+        "두껍고 무거운 테두리를 사용하지 마세요 — 스크린샷은 옅은 그레이의 얇은 1px 선을 보여줍니다.",
+        "주요 컨테이너에 둥근 모서리를 사용하지 마세요 — 스크린샷은 매우 미묘한 둥근 모서리(2px-5px) 또는 직선형 모서리를 보여줍니다.",
+        "무거운 sans-serif 글꼴을 사용하지 마세요 — 스크린샷은 디스플레이 텍스트를 위한 전환형 세리프와 본문 텍스트를 위한 humanist-sans를 선호합니다.",
+        "밀집된, 텍스트가 많은 레이아웃을 만들지 마세요 — 스크린샷은 여유로운 여백과 대형 사진을 보여줍니다.",
+        "공격적인 그림자를 사용하지 마세요 — 스크린샷은 매우 미묘하고 불투명도가 낮은 드롭 그림자를 보여줍니다."
+      ],
+      "systemPrompt": "Moooi는 하이엔드 에디토리얼 미학을 활용하는 프리미엄 가구 및 디자인 브랜드입니다. 디자인은 흰색(#FFFFFF), 부드러운 그레이(#F3F3F3), 어두운 잉크(#1F1F1F)로 구성된 절제된 단색 팔레트를 특징으로 합니다. 타이포그래피는 디스플레이 텍스트를 위한 전환형 세리프와 본문 텍스트를 위한 humanist-sans에 의존하며, 모두 좁은 자간과 일반 두께를 사용합니다. 레이아웃은 깔끔하고 여유로우며 사진 중심으로, 미니멀리스트 내비게이션이 상단에 오버레이된 대형 몰입감 있는 히어로 이미지를 사용합니다. 중요한 주의사항: 채도 높은 색상을 피하고, 무거운 대신 얇은 테두리를 사용하며, 미묘한 border-radius를 유지하고, 여유로운 여백을 확보하며, 밀집된 텍스트 블록을 피하고, 정교하고 미묘한 그림자를 사용합니다. 전체적인 톤은 조용하고, 세련되며, 럭셔리합니다."
+    }
+  },
+  "desc": {
+    "en": {
+      "palette": "A strict, monochromatic palette of white, soft grays, and dark ink that emphasizes typography and photography.",
+      "layout": "Generous whitespace and full-bleed photography create an immersive, editorial gallery experience.",
+      "interaction": "Smooth, elegant transitions using custom cubic-bezier easing for a refined, premium feel.",
+      "motion": "Slow, deliberate animations and transforms that enhance the sophisticated, unhurried pace of the site.",
+      "notes": "An excellent example of how a minimal, restrained design system can convey luxury and high-end design through typography and photography alone."
+    },
+    "zh-CN": {
+      "palette": "以白色、柔和灰与深墨色构成的严格单色系，强调排版与摄影。",
+      "layout": "充裕的留白与全出血摄影营造沉浸式、画廊般的编辑体验。",
+      "interaction": "采用自定义 cubic-bezier 曲线的平滑优雅过渡，营造精致高端感。",
+      "motion": "缓慢、从容的动画与变换，强化网站沉稳、考究的节奏。",
+      "notes": "一个优秀范例，展示如何通过极简克制的设计系统，仅凭排版与摄影传达奢华与高端设计感。"
+    },
+    "zh-TW": {
+      "palette": "嚴謹的單色調色盤，以白色、柔灰與深墨色為主，強調字體排印與攝影呈現。",
+      "layout": "寬裕的留白與全版攝影圖，營造沉浸式的編輯型展廊體驗。",
+      "interaction": "流暢優雅的過渡效果，採用自訂 cubic-bezier 緩動曲線，營造精緻高端的質感。",
+      "motion": "緩慢、沉著的動畫與變形效果，強化網站從容 sophisticated 的節奏。",
+      "notes": "展現了極簡克制的設計系統如何僅透過字體排印與攝影，傳達奢華與高端設計的絕佳範例。"
+    },
+    "ja": {
+      "palette": "白、柔らかなグレー、濃いインクからなる厳格なモノクローム・パレットで、タイポグラフィと写真を際立たせています。",
+      "layout": "豊かな余白とフルブリードの写真が、没入型のエディトリアル・ギャラリー体験を生み出します。",
+      "interaction": "カスタムの cubic-bezier イージングを用いた滑らかでエレガントなトランジションが、洗練されたプレミアム感を演出します。",
+      "motion": "遅く、意図的なアニメーションとトランスフォームが、サイトの洗練された落ち着いたペースを高めます。",
+      "notes": "最小限で抑制されたデザインシステムが、タイポグラフィと写真のみでラグジュアリーとハイエンドなデザインを伝達できる絶好の例です。"
+    },
+    "ko": {
+      "palette": "흰색, 부드러운 그레이, 그리고 어두운 잉크로 구성된 엄격한 단색 팔레트는 타이포그래피와 사진에 집중합니다.",
+      "layout": "여유로운 여백과 풀블리드 사진이 몰입감 있는 에디토리얼 갤러리 경험을 만듭니다.",
+      "interaction": "부드럽고 우아한 트랜지션은 맞춤형 cubic-bezier 이징을 사용하여 정교하고 프리미엄 느낌을 줍니다.",
+      "motion": "느리고 의도적인 애니메이션과 트랜스폼은 사이트의 세련되고 여유로운 템포를 강조합니다.",
+      "notes": "미니멀하고 절제된 디자인 시스템이 타이포그래피와 사진만으로 럭셔리와 하이엔드 디자인을 전달할 수 있는 훌륭한 예시입니다."
+    }
+  },
+  "_meta": {
+    "vision_model": "mimo-v2.5",
+    "vision_prompt_version": "0.3",
+    "vision_source": "playwright-extract:moooi",
+    "vision_grounded": true,
+    "vision_at": "2026-06-04T16:58:18+00:00",
+    "vision_tokens": 16916,
+    "vision_cost_usd": 0.188,
+    "translation_model": "mimo-v2.5",
+    "translation_at": "2026-06-04T16:59:44+00:00",
+    "translation_tokens": 17632,
+    "translation_cost_usd": 0.0588,
+    "narrative_model": "mimo-v2.5",
+    "narrative_prompt_version": "0.3",
+    "narrative_at": "2026-06-04T16:59:53+00:00",
+    "narrative_tokens": 2121,
+    "narrative_cost_usd": 0.0141,
+    "narrative_status": "ok",
+    "total_cost_usd": 0.2609
+  },
+  "narrative": {
+    "en": {
+      "ch1_intro": "Moooi's design system operates like a high-end gallery: the architecture recedes to let the collection command the room. Every element—from color to motion—is calibrated to support the furniture and photography, creating an experience where the interface feels both present and subordinate to the product itself.",
+      "ch2_intro": "The palette is strictly monochromatic, built from white, soft grays, and dark ink. This restraint ensures that the brand's rich product photography remains the primary source of color and visual interest.",
+      "ch2_outro": "The principle is subtraction: color is reserved for the product, not the platform.",
+      "ch3_intro": "The typographic voice is split between a transitional-serif for impactful headlines and a humanist-sans for body text. This pairing establishes a refined, editorial tone where the serif provides authority and the sans-serif ensures legibility at reading sizes.",
+      "ch4_intro": "Spacing follows a generous rhythm, creating clear separation between content blocks and within interactive elements.",
+      "ch5_intro": "Depth is suggested through subtlety, using minimal, low-opacity shadows and thin, muted borders. Surfaces are defined less by their own styling and more by the generous space around them.",
+      "ch6_intro": "The layout skeleton is built on two conflicting ideas: the expansive, full-bleed canvas for immersive photography, and the narrow, centered container for focused reading. This structure frames content like artworks within a gallery, using overlay techniques to keep navigation unobtrusive.",
+      "ch7_intro": "Motion is deliberate and unhurried, favoring slow fades and smooth transforms. The system uses consistent cubic-bezier easing to create a sense of fluid, premium interaction, never feeling abrupt or mechanical.",
+      "ch8_intro": "The editorial voice is sophisticated, quiet, and authoritative. Language avoids casual flair, instead relying on the visual weight of typography and photography to convey the brand's luxury positioning.",
+      "ch8_outro": "The system deliberately forgoes saturated color, playful language, and dense layouts—understanding that what it omits defines its premium character as much as what it includes."
+    },
+    "zh-CN": {
+      "ch1_intro": "Moooi 的设计系统运作如同高端画廊：建筑结构隐退，让陈列的家具成为整个空间的主宰。从色彩到动效的每一个细节都经过校准，旨在为家具与摄影提供支撑，营造一种界面既存在又从属于产品本身的体验。",
+      "ch2_intro": "色彩系统严格采用单色调，由白色、柔和灰与深墨色构成。这种克制确保了品牌丰富的产品摄影成为色彩与视觉趣味的主要来源。",
+      "ch2_outro": "其核心原则是减法：色彩专属于产品，而非平台本身。",
+      "ch3_intro": "字体系统分为两类：用于醒目标题的过渡衬线体，以及用于正文的人文无衬线体。这种组合确立了精致、编辑式的语调——衬线体赋予权威感，无衬线体则确保阅读尺寸下的易读性。",
+      "ch4_intro": "间距遵循宽裕的节奏，在内容区块之间、交互元素内部创造清晰的分隔。",
+      "ch5_intro": "深度通过微妙手法暗示，使用极简的低透明度阴影与纤细、柔和的边框。界面表面更多由周围充裕的空间所定义，而非自身的样式。",
+      "ch6_intro": "布局骨架建立于两种对立理念：用于沉浸式摄影的宽幅全出血画布，与用于专注阅读的窄幅居中容器。此结构如同画廊中陈列艺术品般框定内容，采用叠加技术使导航保持低调。",
+      "ch7_intro": "动效从容不迫，偏好缓慢的渐隐与平滑的变换。系统使用一致的 cubic-bezier 缓动曲线，营造流畅、高端的交互体验，绝无突兀或机械感。",
+      "ch8_intro": "编辑语言精致、沉静且权威。文案避免随意的修辞，转而依靠字体与摄影的视觉分量来传达品牌的奢华定位。",
+      "ch8_outro": "该系统刻意摒弃饱和色彩、 playful 语言与密集布局——深知其省略的内容，与保留的内容一样，共同定义了其高端特质。"
+    },
+    "zh-TW": {
+      "ch1_intro": "Moooi 的設計系統運作如高端藝廊：建築結構退居幕後，讓收藏品主導空間。每個元素——從色彩到動態——都經過校準，以支援家具與攝影，創造出介面既存在又從屬於產品本身的體驗。",
+      "ch2_intro": "色彩方案嚴格採用單色調，由白色、柔和灰調與深墨色構成。此克制手法確保品牌豐富的產品攝影成為色彩與視覺趣味的主要來源。",
+      "ch2_outro": "原則在於減法：色彩保留給產品，而非平台本身。",
+      "ch3_intro": "字體語調分為兩系：用於醒目標題的過渡襯線體，與用於內文的人文無襯線體。此組合建立起精緻的編輯語調，襯線賦予權威感，無襯線體則確保閱讀尺寸的清晰度。",
+      "ch4_intro": "間距遵循寬裕節奏，在內容區塊之間與互動元素內部創造清晰分隔。",
+      "ch5_intro": "層次感透過細膩手法暗示，運用極簡、低不透明度陰影與纖細的柔和邊框。表面質感更少取決於自身樣式，更多仰賴周圍的寬裕留白。",
+      "ch6_intro": "版面骨架建立於兩個對立概念：用於沉浸式攝影的擴展式全出血畫布，與用於專注閱讀的窄幅居中容器。此結構如藝廊中的藝術品般框住內容，運用覆蓋技巧讓導覽保持不突兀。",
+      "ch7_intro": "動態經過深思熟慮且從容不迫，偏好緩慢淡入與平滑轉換。系統使用一致的 cubic-bezier 緩動曲線，營造流暢、高端的互動感，絕不生硬或機械化。",
+      "ch8_intro": "編輯語調精緻、沉靜且具權威性。語言避免隨性修飾，轉而依賴字體與攝影的視覺重量來傳達品牌的奢華定位。",
+      "ch8_outro": "系統刻意捨棄飽和色彩、俏皮語言與密集版面——理解到其省略的部分，與收錄的內容同等定義其高端特質。"
+    },
+    "ja": {
+      "ch1_intro": "Moooiのデザインシステムは、ハイエンドのギャラリーのように機能します。建築が引退し、コレクションが空間を支配します。カラーからモーションまで、すべての要素は家具と写真を支えるように調整されており、インターフェースが存在感を持ちながらも製品自体に従属するという体験を生み出します。",
+      "ch2_intro": "パレットは白、柔らかなグレー、濃いインクから構成される厳格なモノクロムです。この抑制は、ブランドの豊かな製品写真が主な色彩と視覚的兴趣の源泉であることを保証します。",
+      "ch2_outro": "原則は引き算です。色はプラットフォームではなく、製品のために予約されています。",
+      "ch3_intro": "タイポグラフィの声は、インパクトのある見出しにはトランジショナルセリフ、本文にはヒューマニストサンセリフという2つに分かれます。この組み合わせは、セリフが権威を提供し、サンセリフがリーダビリティを確保する、洗練されたエディトリアルなトーンを確立します。",
+      "ch4_intro": "間隔はゆったりとしたリズムに従い、コンテンツブロック間やインタラクティブ要素内に明確な分離を生み出します。",
+      "ch5_intro": "奥行きは微細さを通じて示唆され、最小限の低不透明度シャドウと薄く、落ち着いたボーダーが使用されます。サーフェスは自身のスタイリングよりも、周囲のゆったりとした空間によってより多く定義されます。",
+      "ch6_intro": "レイアウトの骨格は、2つの対立するアイデアの上に構築されています。没入型の写真のための広がりのあるフルブリードキャンバスと、集中したリーディングのための狭く中央に配置されたコンテナです。この構造は、コンテンツをギャラリー内のアートワークのようにフレーミングし、オーバーレイ技術を使用してナビゲーションを控えめに保ちます。",
+      "ch7_intro": "モーションは意図的で急ぎません。ゆっくりとしたフェードとスムーズなトランスフォームを favor します。システムは一貫したcubic-bezierイージングを使用し、流れるような、プレミアムなインタラクションの感覚を生み出します。突然機械的であることはありません。",
+      "ch8_intro": "エディトリアルな声は、洗練されており、静かで、威厳があります。言語はカジュアルな彩りを避け、代わりにタイポグラフィと写真の視覚的重みに依存して、ブランドのラグジュアリーなポジショニングを伝えます。",
+      "ch8_outro": "システムは意図的に、彩度の高い色、遊び心のある言語、密集したレイアウトを放棄します。除外することで、 INCLUDED 也同样 define 其premium 特質, understanding that what it omits defines its premium character as much as what it includes."
+    },
+    "ko": {
+      "ch1_intro": "Moooi의 디자인 시스템은 하이엔드 갤러리처럼 작동합니다: 건축적 요소는 물러나고 컬렉션이 공간을 지배하도록 합니다. 색상에서 모션에 이르기까지 모든 요소는 가구와 사진을 지지하도록 조정되어, 인터페이스가 제품 자체에 대해 존재하면서도 종속적인 느낌을 주는 경험을 만듭니다.",
+      "ch2_intro": "팔레트는 순수한 단색으로 구성되어 있으며, 화이트, 부드러운 그레이, 짙은 잉크 블랙을 기반으로 합니다. 이러한 절제는 브랜드의 풍부한 제품 사진이 주요 색상과 시각적 재미의 원천이 되도록 보장합니다.",
+      "ch2_outro": "원칙은 감소입니다: 색상은 플랫폼이 아닌 제품을 위해 예약됩니다.",
+      "ch3_intro": "타이포그래피는 임팩트 있는 헤드라인을 위한 전환형 세리프와 본문 텍스트를 위한 휴머니스트 산스로 구성됩니다. 이 조합은 세리프가 권위를 제공하고 산스가 읽기 크기에서 가독성을 보장하는 정교한 편집 톤을 확립합니다.",
+      "ch4_intro": "간격은 넉넉한 리듬을 따르며, 콘텐츠 블록 사이와 인터랙티브 요소 내부에 명확한 분리를 만듭니다.",
+      "ch5_intro": "깊이는 미묘한 방식으로 암시되며, 최소한의 저불투명도 그림자와 얇고 차분한 테두리를 사용합니다. 표면은 자체 스타일링보다는 주변의 넉넉한 공간에 의해 더 많이 정의됩니다.",
+      "ch6_intro": "레이아웃 스켈레톤은 두 가지 상반된 아이디어를 기반으로 구축됩니다: 몰입감 있는 사진을 위한 확장된 풀블리드 캔버스와 집중된 읽기를 위한 좁고 중앙 정렬된 컨테이너입니다. 이 구조는 갤러리 내 작품처럼 콘텐츠를 프레임하며, 탐색이 눈에 띄지 않도록 오버레이 기법을 사용합니다.",
+      "ch7_intro": "모션은 의도적이고 서두르지 않으며, 느린 페이드와 부드러운 트랜스폼을 선호합니다. 시스템은 일관된 cubic-bezier 이징을 사용하여 유동적이고 프리미엄 인터랙션감을 만들어내며, 결코 급격하거나 기계적인 느낌을 주지 않습니다.",
+      "ch8_intro": "편집 톤은 세련되고 조용하며 권위적입니다. 언어는 캐주얼한 화려함을 피하고, 대신 타이포그래피와 사진의 시각적 무게에 의존하여 브랜드의 럭셔리 포지셔닝을 전달합니다.",
+      "ch8_outro": "시스템은 의도적으로 채도 높은 색상, 장난스러운 언어, 밀집된 레이아웃을 포기합니다—제외하는 것이 포함하는 것만큼이나 프리미엄 특성을 정의한다는 것을 이해합니다."
+    }
+  }
 }

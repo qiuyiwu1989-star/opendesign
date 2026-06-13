@@ -9,6 +9,577 @@
     "portfolio",
     "tool"
   ],
-  "status": "pending",
-  "added_at": "2026-06-02"
+  "status": "completed",
+  "added_at": "2026-06-02",
+  "spec": {
+    "colors": {
+      "bg": "#FFFFFF",
+      "bgSoft": "#FCFCFC",
+      "bgQuiet": null,
+      "ink": "#3F3F3F",
+      "inkSoft": "#000000",
+      "muted": "#D9D9D9",
+      "mutedSoft": null,
+      "accent": null,
+      "line": "rgba(0,0,0,0.75)"
+    },
+    "typography": {
+      "display": "humanist-sans",
+      "body": "humanist-sans",
+      "mono": null,
+      "scale": [
+        {
+          "token": "display",
+          "size": 80,
+          "lh": 1.0,
+          "weight": 400,
+          "ls": "-2px"
+        },
+        {
+          "token": "heading",
+          "size": 40,
+          "lh": 1.0,
+          "weight": 400,
+          "ls": "-1px"
+        },
+        {
+          "token": "body",
+          "size": 14.5,
+          "lh": 1.6,
+          "weight": 400,
+          "ls": "normal"
+        }
+      ]
+    },
+    "spacing": {
+      "base": 4,
+      "scale": [
+        4,
+        8,
+        16,
+        24,
+        32,
+        48,
+        64,
+        96
+      ]
+    },
+    "surfaces": {
+      "radius": {
+        "sm": 0,
+        "md": 4,
+        "lg": 8,
+        "pill": 999
+      }
+    },
+    "layout": {
+      "container": 1280,
+      "paragraph": 680,
+      "columns": 12,
+      "gutter": 24,
+      "breakpoints": [
+        768,
+        1024
+      ]
+    },
+    "motion": {
+      "durations": {
+        "micro": 220,
+        "small": 400,
+        "medium": 800
+      },
+      "easing": "cubic-bezier(0.25, 0.1, 0.25, 1)"
+    }
+  },
+  "spec_i18n": {
+    "en": {
+      "identity": {
+        "keywords": [
+          "creative",
+          "portfolio",
+          "builder",
+          "minimal"
+        ],
+        "analogy": "A gallery-grade digital canvas for creatives",
+        "oneLiner": "A minimalist site builder that prioritizes typography and creative work over platform chrome."
+      },
+      "colors": {
+        "principle": "Strictly monochrome and neutral, using a high-contrast white background to ensure the user's colorful creative work remains the only focal point."
+      },
+      "typography": {
+        "rules": [
+          "Tight tracking on display sizes to create a sophisticated, custom-lettered feel",
+          "Medium weight (500) used exclusively for interactive elements to provide clear affordance"
+        ],
+        "scaleUses": [
+          "Main brand lockup and primary navigation links",
+          "Section headers and template titles",
+          "Paragraphs and descriptive text"
+        ]
+      },
+      "spacing": {
+        "rhythm": "Asymmetric layout driven by explicit grid placement rather than linear vertical rhythm."
+      },
+      "surfaces": {
+        "shadows": [],
+        "borders": "None visible in the hero; relies entirely on spacing and typography for separation."
+      },
+      "layout": {
+        "skeleton": "Asymmetric split-grid in desktop with left-aligned branding and right-aligned actions."
+      },
+      "components": {
+        "button": "Solid blue filled button (inverted state) or text-only links with underlines.",
+        "card": "Template preview cards with zero border radius and heavy use of image bleed.",
+        "chip": "Simple tab-like dividers separating content views.",
+        "input": "Standard bordered text inputs with basic padding.",
+        "hero": "Full-screen asymmetric split layout with massive typography anchored to opposite corners."
+      },
+      "motion": {
+        "patterns": [
+          "Instant transitions on hover states",
+          "Staggered page entry animations"
+        ]
+      },
+      "interaction": {
+        "hover": "Cursor changes to pointer with no visible background change on text links.",
+        "click": "Immediate state change with no perceived latency.",
+        "transition": "Consistent use of all-property transitions across UI elements.",
+        "keyboard": "Standard focus management without visible custom ring styles."
+      },
+      "voice": {
+        "tone": "Sophisticated, direct, and slightly irreverent.",
+        "headlineStyle": "Punchy, minimal two-word commands or statements.",
+        "ctaStyle": "Action-oriented text wrapped in brackets or simple text links.",
+        "avoid": [
+          "Marketing buzzwords",
+          "Decorative gradients",
+          "Salesy exclamation points"
+        ]
+      },
+      "donts": [
+        "don't use border-radius on primary containers — screenshot shows completely square edges",
+        "don't use drop shadows for depth — screenshot shows completely flat surfaces",
+        "don't use a serif font for body copy — screenshot shows humanist sans-serif throughout",
+        "don't center-align large blocks of text — screenshot shows strict left-aligned or right-aligned positioning",
+        "don't use a vibrant background color — screenshot shows a strictly white or off-white canvas",
+        "don't use wide letter-spacing on headlines — screenshot shows tight negative tracking"
+      ],
+      "systemPrompt": "Cargo is a premium portfolio site builder for designers, utilizing a stark white background and near-black humanist sans-serif typography to ensure creative work takes center stage. The layout relies on a sophisticated, asymmetric split-grid in the desktop hero with massive, tightly tracked headlines. Primary actions are driven by medium-weight text links, while secondary flows use solid inverted buttons (bright blue). Critical constraints include avoiding border-radius on all containers, eschewing drop shadows for flat depth, and maintaining strict left-alignment for all typography. The design vocabulary must remain sparse, geometric, and strictly monochrome."
+    },
+    "zh-CN": {
+      "identity": {
+        "keywords": [
+          "创意",
+          "作品集",
+          "构建器",
+          "极简"
+        ],
+        "analogy": "专为创意人士打造的画廊级数字画布",
+        "oneLiner": "一款优先考虑排版与创意作品而非平台界面的极简网站构建器。"
+      },
+      "colors": {
+        "principle": "严格的黑白单色与中性色，使用高对比度白色背景，确保用户多彩的创意作品成为唯一焦点。"
+      },
+      "typography": {
+        "rules": [
+          "在大号展示尺寸上采用紧凑字距，营造精致、定制字体的感觉",
+          "仅对交互元素使用中等字重（500），以提供清晰的操作暗示"
+        ],
+        "scaleUses": [
+          "主品牌标识与主导航链接",
+          "区块标题与模板标题",
+          "段落与描述性文本"
+        ]
+      },
+      "spacing": {
+        "rhythm": "由显式网格定位而非线性垂直节奏驱动的不对称布局。"
+      },
+      "surfaces": {
+        "shadows": [],
+        "borders": "主视觉区域无可见边框；完全依靠间距和排版进行分隔。"
+      },
+      "layout": {
+        "skeleton": "桌面端采用不对称分栏网格，品牌元素左对齐，操作按钮右对齐。"
+      },
+      "components": {
+        "button": "实心蓝色填充按钮（反转状态）或仅带下划线的文本链接。",
+        "card": "模板预览卡片，零边框圆角，并大量使用图像出血效果。",
+        "chip": "分隔内容视图的简单标签式分隔符。",
+        "input": "带标准边框和基本内边距的文本输入框。",
+        "hero": "全屏不对称分栏布局，巨大字体锚定在对角。"
+      },
+      "motion": {
+        "patterns": [
+          "悬停状态下的即时转换",
+          "页面进入时的交错动画"
+        ]
+      },
+      "interaction": {
+        "hover": "光标变为指针，文本链接无可见背景变化。",
+        "click": "即时状态改变，无感知延迟。",
+        "transition": "在所有UI元素上一致使用全属性过渡。",
+        "keyboard": "标准焦点管理，无可见的自定义焦点环样式。"
+      },
+      "voice": {
+        "tone": "精致、直接，略带不羁。",
+        "headlineStyle": "有力、极简的双词命令或陈述。",
+        "ctaStyle": "包裹在括号中或作为简单文本链接的动作导向文本。",
+        "avoid": [
+          "营销流行语",
+          "装饰性渐变",
+          "销售式感叹号"
+        ]
+      },
+      "donts": [
+        "不要在主容器上使用边框圆角——截图显示完全方正的边缘",
+        "不要使用投影营造深度——截图显示完全平面的表面",
+        "不要为正文使用衬线字体——截图显示全文使用人文主义无衬线体",
+        "不要居中对齐大段文本——截图显示严格的左对齐或右对齐定位",
+        "不要使用鲜艳的背景色——截图显示严格的白色或离白色画布",
+        "不要在标题上使用宽字距——截图显示紧凑的负字距"
+      ],
+      "systemPrompt": "Cargo 是一款面向设计师的高级作品集网站构建器，采用纯白背景和近乎黑色的人文主义无衬线字体，确保创意作品成为绝对主角。桌面端主视觉依赖于精致的不对称分栏网格和紧凑字距的巨大标题。主要操作通过中等字重的文本链接驱动，而次要流程使用实心反转按钮（亮蓝色）。关键约束包括：所有容器避免使用边框圆角，不使用投影营造平面深度，以及所有排版保持严格的左对齐。设计词汇必须保持极简、几何化且严格单色。"
+    },
+    "zh-TW": {
+      "identity": {
+        "keywords": [
+          "創意",
+          "作品集",
+          "建構工具",
+          "極簡"
+        ],
+        "analogy": "一個藝廊級數的數位畫布，專為創意人士打造",
+        "oneLiner": "一個極簡的網站建構工具，將排版與創意作品置於平台裝飾之上。"
+      },
+      "colors": {
+        "principle": "嚴格單色與中性，使用高對比的白色背景，確保使用者繽紛的創意作品始終是唯一的焦點。"
+      },
+      "typography": {
+        "rules": [
+          "在展示型尺寸上使用緊湊字距，營造精緻、定制字型的感覺",
+          "互動元素專用中等字重（500），以提供明確的可操作性提示"
+        ],
+        "scaleUses": [
+          "主要品牌標識與一級導覽連結",
+          "區段標題與範本標題",
+          "段落與描述性文字"
+        ]
+      },
+      "spacing": {
+        "rhythm": "由明確的網格定位驅動的不對稱佈局，而非線性的垂直節奏。"
+      },
+      "surfaces": {
+        "shadows": [],
+        "borders": "英雄區中無可見邊框；完全依賴間距與排版來進行區隔。"
+      },
+      "layout": {
+        "skeleton": "桌面版採用不對稱分割網格，左側放置品牌標識，右側放置操作按鈕。"
+      },
+      "components": {
+        "button": "實心藍色填充按鈕（反白狀態）或僅帶有底線的文字連結。",
+        "card": "範本預覽卡片，邊框半徑為零，大量使用圖片出血處理。",
+        "chip": "簡潔的類分頁分隔線，用於區隔不同的內容視圖。",
+        "input": "帶有標準邊框與基本內距的文字輸入框。",
+        "hero": "全螢幕不對稱分割佈局，搭配錨定於對角的巨大排版文字。"
+      },
+      "motion": {
+        "patterns": [
+          "懸停狀態時的即時過渡",
+          "錯落的頁面進入動畫"
+        ]
+      },
+      "interaction": {
+        "hover": "游標變為指針，文字連結無可見的背景變化。",
+        "click": "即時狀態改變，無可感知的延遲。",
+        "transition": "在所有 UI 元素上一致使用全屬性過渡。",
+        "keyboard": "標準焦點管理，無可見的自訂外框樣式。"
+      },
+      "voice": {
+        "tone": "精緻、直接，帶點不羈。",
+        "headlineStyle": "簡潔有力的雙字詞命令或陳述。",
+        "ctaStyle": "行動導向的文字，以括號包裹或使用純文字連結。",
+        "avoid": [
+          "行銷術語",
+          "裝飾性漸層",
+          "推銷式的驚嘆號"
+        ]
+      },
+      "donts": [
+        "不要在主要容器上使用 border-radius — 螢幕截圖顯示完全方形的邊角",
+        "不要使用投影來創造深度感 — 螢幕截圖顯示完全平面的表面",
+        "不要在內文中使用襯線字體 — 螢幕截圖全程顯示人文主義無襯線字體",
+        "不要將大段文字置中對齊 — 螢幕截圖顯示嚴格的左對齊或右對齊定位",
+        "不要使用鮮豔的背景色 — 螢幕截圖顯示嚴格的白色或近白色畫布",
+        "不要在標題上使用寬鬆的字距 — 螢幕截圖顯示緊湊的負字距"
+      ],
+      "systemPrompt": "Cargo 是一個為設計師打造的頂級作品集網站建構工具，採用純淨白色背景與近乎黑色的人文主義無襯線字體，確保創意作品成為焦點。桌面版英雄區採用精緻的不對稱分割網格佈局，搭配巨大且字距緊湊的標題。主要操作由中等字重的文字連結驅動，次要流程則使用實心反白按鈕（亮藍色）。關鍵限制包括：所有容器避免使用 border-radius、不使用投影以維持平面深度感、所有排版維持嚴格的左對齊。設計語言必須保持簡潔、幾何感，並嚴格單色。"
+    },
+    "ja": {
+      "identity": {
+        "keywords": [
+          "クリエイティブ",
+          "ポートフォリオ",
+          "ビルダー",
+          "ミニマル"
+        ],
+        "analogy": "クリエイター向けのギャラリーグレードのデジタルキャンバス",
+        "oneLiner": "プラットフォームの装飾よりもタイポグラフィとクリエイティブワークを優先するミニマルサイトビルダー。"
+      },
+      "colors": {
+        "principle": "厳密にモノクロでニュートラル。ハイコントラストの白い背景を使用し、ユーザーのカラフルなクリエイティブワークが唯一の焦点として残るようにします。"
+      },
+      "typography": {
+        "rules": [
+          "ディスプレイサイズでトラッキングをタイトにし、洗練されたカスタムレタリング感を生み出す",
+          "インタラクティブ要素にはのみ中太（500）を使用し、明確なアフォーダンスを提供する"
+        ],
+        "scaleUses": [
+          "メインブランドロゴとプライマリナビゲーションリンク",
+          "セクションヘッダーとテンプレートタイトル",
+          "段落と説明テキスト"
+        ]
+      },
+      "spacing": {
+        "rhythm": "リニアな垂直リズムではなく、明示的なグリッド配置による非対称レイアウト。"
+      },
+      "surfaces": {
+        "shadows": [],
+        "borders": "ヒーローには NONE は表示されず、分離にはスペースとタイポグラフィのみに完全に依存。"
+      },
+      "layout": {
+        "skeleton": "デスクトップでは非対称分割グリッド。左揃えのブランド表示と右揃えのアクション。"
+      },
+      "components": {
+        "button": "青い塗りつぶしボタン（反転状態）またはアンダーライン付きのテキストのみリンク。",
+        "card": "ボーダーラディウスがゼロで、イメージブリードを多用したテンプレートプレビューカード。",
+        "chip": "コンテンツビューを区切るシンプルなタブ型区切り。",
+        "input": "基本的なパディング付きの標準ボーダーテキストインプット。",
+        "hero": "対角にアンカーされた巨大なタイポグラフィを備えた、フルスクリーンの非対称分割レイアウト。"
+      },
+      "motion": {
+        "patterns": [
+          "ホバー状態での即時トランジション",
+          "ページ入場時のスタッガードアニメーション"
+        ]
+      },
+      "interaction": {
+        "hover": "テキストリンクで背景変化なしにカーソルがポインタに変化。",
+        "click": "知覚されるレイテンシなしの即時状態変化。",
+        "transition": "UI要素全体で all-property トランジションを一貫して使用。",
+        "keyboard": "可視化されたカスタムリングスタイルなしの標準フォーカス管理。"
+      },
+      "voice": {
+        "tone": "洗練され、率直で、少し不遜。",
+        "headlineStyle": "パンチのある、ミニマルな二単語のコマンドまたはステートメント。",
+        "ctaStyle": "角括弧で囲まれた、またはシンプルなテキストリンクのアクション指向テキスト。",
+        "avoid": [
+          "マーケティング用語",
+          "装飾的なグラデーション",
+          "セールスコピー的な感嘆符"
+        ]
+      },
+      "donts": [
+        "プライマリコンテナに border-radius を使用しない — スクリーンショットは完全に四角いエッジを示している",
+        "奥行きのためにドロップシャドウを使用しない — スクリーンショットは完全にフラットな面を示している",
+        "本文にセリフフォントを使用しない — スクリーンショットは全体を通してヒューマニストサンセリフを示している",
+        "大きなテキストブロックを中央揃えにしない — スクリーンショットは厳密な左揃えまたは右揃えの配置を示している",
+        "鮮やかな背景色を使用しない — スクリーンショットは厳密に白またはオフホワイトのキャンバスを示している",
+        "見出しにワイドな文字間隔を使用しない — スクリーンショットはタイトなネガティブトラッキングを示している"
+      ],
+      "systemPrompt": "Cargo はデザイナー向けのプレミアムポートフォリオサイトビルダー。 stark white background と near-black humanist sans-serif typography を利用し、クリエイティブワークが最も際立つように設計。レイアウトは、desktop hero における洗練された非対称分割グリッドに依存し、巨大でタイトにトラッキングされた見出しが特徴。プライマリアクションは中太のテキストリンクで駆動し、セカンダリフローには塗りつぶし反転ボタン（明るい青）を使用。重要な制約には、すべてのコンテナで border-radius を回避、フラットな奥行きのためにドロップシャドウを廃棄、すべてのタイポグラフィで厳密な左揃えを維持することが含まれる。デザイン語彙は、スパースで幾何学的、厳密にモノクロのまま維持すること。"
+    },
+    "ko": {
+      "identity": {
+        "keywords": [
+          "creative",
+          "portfolio",
+          "builder",
+          "minimal"
+        ],
+        "analogy": "창작자를 위한 갤러리급 디지털 캔버스",
+        "oneLiner": "플랫폼 장식보다 타이포그래피와 창의 작업을 우선시하는 미니멀 사이트 빌더입니다."
+      },
+      "colors": {
+        "principle": "엄격히 단색이고 중립적이며, 높은 대비의 흰색 배경을 사용하여 사용자의 다채로운 창의 작업이 유일한 초점이 되도록 합니다."
+      },
+      "typography": {
+        "rules": [
+          "표시 크기에서 견고한 자간을 사용하여 정교하고 맞춤 글꼴 같은 느낌을 줍니다",
+          "중간 무게(500)를 인터랙티브 요소에 전용으로 사용하여 명확한 사용 가능성을 제공합니다"
+        ],
+        "scaleUses": [
+          "메인 브랜드 로고와 주요 내비게이션 링크",
+          "섹션 헤더와 템플릿 제목",
+          "단락 및 설명 텍스트"
+        ]
+      },
+      "spacing": {
+        "rhythm": "선형 수직 리듬이 아닌 명시적인 격자 배치에 의해 주도되는 비대칭 레이아웃입니다."
+      },
+      "surfaces": {
+        "shadows": [],
+        "borders": "히어로에 보이는 테두리는 없습니다. 분리에는 오직 간격과 타이포그래피에만 의존합니다."
+      },
+      "layout": {
+        "skeleton": "데스크톱에서 왼쪽 정렬 브랜딩과 오른쪽 정렬 액션이 있는 비대칭 분할 격자입니다."
+      },
+      "components": {
+        "button": "단단한 파란색 채워진 버튼(반전 상태) 또는 밑줄이 있는 텍스트 전용 링크입니다.",
+        "card": "테두리 반경이 제로이고 이미지 유출을 많이 사용하는 템플릿 미리보기 카드입니다.",
+        "chip": "콘텐츠 뷰를 분리하는 탭 유형의 단순 구분선입니다.",
+        "input": "기본 패딩이 있는 표준 테두리 텍스트 입력 필드입니다.",
+        "hero": "반대 모서리에 고정된 대형 타이포그래피가 있는 전체 화면 비대칭 분할 레이아웃입니다."
+      },
+      "motion": {
+        "patterns": [
+          "hover 상태에서 즉각적인 전환",
+          "단계적 페이지 진입 애니메이션"
+        ]
+      },
+      "interaction": {
+        "hover": "텍스트 링크에서 보이는 배경 변경 없이 커서가 포인터로 변경됩니다.",
+        "click": "인지되는 지연 없이 즉각적인 상태 변경이 있습니다.",
+        "transition": "UI 요소 전반에 걸쳐 일관된 모든 속성 전환을 사용합니다.",
+        "keyboard": "보이는 사용자 정의 링 스타일 없이 표준 포커스 관리입니다."
+      },
+      "voice": {
+        "tone": "정교하고 직접적이며 약간 불경스럽습니다.",
+        "headlineStyle": "강렬하고 미니멀한 두 단어 명령문 또는 진술문입니다.",
+        "ctaStyle": "괄호로 감싸거나 단순한 텍스트 링크 형태의 행동 지향적 텍스트입니다.",
+        "avoid": [
+          "마케팅 용어",
+          "장식적 그라데이션",
+          "상업적 느낌의 감탄사"
+        ]
+      },
+      "donts": [
+        "주요 컨테이너에 border-radius를 사용하지 마세요 — 스크린샷은 완전히 사각형 모서리를 보여줍니다",
+        "깊이를 위해 드롭 섀도우를 사용하지 마세요 — 스크린샷은 완전히 평평한 표면을 보여줍니다",
+        "본문에 세리프 글꼴을 사용하지 마세요 — 스크린샷은 전체적으로 인간주의 산세리프를 보여줍니다",
+        "큰 텍스트 블록을 중앙 정렬하지 마세요 — 스크린샷은 엄격한 왼쪽 정렬 또는 오른쪽 정렬 배치를 보여줍니다",
+        "화려한 배경 색상을 사용하지 마세요 — 스크린샷은 엄격히 흰색 또는 비색 캔버스를 보여줍니다",
+        "헤더에 넓은 자간을 사용하지 마세요 — 스크린샷은 견고한 음수 자간을 보여줍니다"
+      ],
+      "systemPrompt": "Cargo는 디자이너를 위한 프리미엄 포트폴리오 사이트 빌더로, 날카로운 흰색 배경과 거의 검은색 인간주의 산세리프 타이포그래피를 활용하여 창의 작업이 중심 무대를 차지하도록 합니다. 레이아웃은 데스크톱 히어로에서 견고하고 자간이 타이트한 대형 헤더가 있는 정교한 비대칭 분할 격자에 의존합니다. 주요 액션은 중간 무게의 텍스트 링크로 주도되며, 보조 흐름은 단단한 반전 버튼(밝은 파란색)을 사용합니다. 중요한 제약 조건에는 모든 컨테이너에 border-radius 사용 회피, 플랫 깊이를 위한 드롭 섀도우 기피, 그리고 모든 타이포그래피에 대한 엄격한 왼쪽 정렬 유지가 포함됩니다. 디자인 어휘는 반드시 미니멀하고 기하학적이며 엄격히 단색이어야 합니다."
+    }
+  },
+  "desc": {
+    "en": {
+      "palette": "A strictly monochromatic palette of pure white and deep charcoal, relying entirely on high-contrast typography and user-generated content for visual interest.",
+      "layout": "An asymmetric split-grid layout that creates a sophisticated editorial feel, breaking away from standard centered hero patterns.",
+      "interaction": "Minimalist and immediate interactions that rely on cursor changes and clean state transitions rather than heavy hover effects.",
+      "motion": "Subtle, fast transitions that prioritize perceived performance and content visibility over decorative animation.",
+      "notes": "An exceptional reference for how to build a premium creative tool that steps back to let the user's work shine, using typography as the primary interface element."
+    },
+    "zh-CN": {
+      "palette": "采用纯白与深炭灰的严格单色系，完全依赖高对比度排版和用户生成内容来创造视觉趣味。",
+      "layout": "不对称的分栏网格布局，营造出精致的编辑式感受，打破了标准的居中主视觉模式。",
+      "interaction": "极简且即时的交互，依赖光标变化和清晰的状态转换，而非厚重的悬停效果。",
+      "motion": "微妙、快速的过渡，优先考虑感知性能和内容可见性，而非装饰性动画。",
+      "notes": "对于如何构建一款高端创意工具的出色参考——通过退居幕后让用户作品闪耀，将排版作为核心界面元素。"
+    },
+    "zh-TW": {
+      "palette": "嚴格單色調色板，使用純白與深炭灰色，完全依賴高對比排版與使用者生成內容來創造視覺趣味。",
+      "layout": "不對稱分割網格佈局，營造精緻的編輯式設計感，跳脫標準的中央英雄區模式。",
+      "interaction": "極簡且即時的互動，依賴游標變化與簡潔的狀態轉換，而非繁複的懸停效果。",
+      "motion": "細膩、快速的過渡動畫，優先考量感知效能與內容可見性，而非裝飾性動效。",
+      "notes": "這是一個卓越的參考範例，展示如何建構一個頂級創意工具：退居幕後，讓使用者的作品發光，並以排版作為主要的介面元素。"
+    },
+    "ja": {
+      "palette": "純白と深い木炭色による厳密なモノクローパレット。視覚的な魅力は、ハイコントラストのタイポグラフィとユーザー生成コンテンツのみに完全に依存します。",
+      "layout": "洗練された編集風の雰囲気を生み出す非対称分割グリッドレイアウト。標準的な中央揃えヒーローパターンから逸脱しています。",
+      "interaction": "カーソルの変化とクリーンな状態遷移に依存し、重いホバー効果を避けたミニマルで即座のインタラクション。",
+      "motion": "装飾的なアニメーションよりも、知覚されるパフォーマンスとコンテンツの可視性を優先する、微細で高速なトランジション。",
+      "notes": "ユーザーの作品が輝けるように一歩引いた姿勢で、タイポグラフィを主要なインターフェース要素として使用する、プレミアムクリエイティブツールの構築方法の優れた参照例。"
+    },
+    "ko": {
+      "palette": "순백과 짙은 차콜의 엄격한 단색 팔레트로, 오직 고대비 타이포그래피와 사용자 생성 콘텐츠에만 시각적 흥미를 의존합니다.",
+      "layout": "정교한 에디토리얼 느낌을 주는 비대칭 분할 격자 레이아웃으로, 표준 중앙 정렬 히어로 패턴에서 벗어납니다.",
+      "interaction": "무거운 hover 효과 대신 커서 변경과 깔끔한 상태 전환에 의존하는 미니멀하고 즉각적인 인터랙션입니다.",
+      "motion": "장식적 애니메이션보다 인지 성능과 콘텐츠 가시성을 우선시하는 미묘하고 빠른 전환입니다.",
+      "notes": "사용자의 작업이 빛나도록 물러서는 프리미엄 창의 도구를 구축하는 방법의 뛰어난 참고 자료입니다. 타이포그래피를 주요 인터페이스 요소로 활용합니다."
+    }
+  },
+  "_meta": {
+    "vision_model": "mimo-v2.5",
+    "vision_prompt_version": "0.3",
+    "vision_source": "playwright-extract:cargo",
+    "vision_grounded": true,
+    "vision_at": "2026-06-04T14:24:50+00:00",
+    "vision_tokens": 15628,
+    "vision_cost_usd": 0.1736,
+    "translation_model": "mimo-v2.5",
+    "translation_at": "2026-06-04T14:26:05+00:00",
+    "translation_tokens": 15563,
+    "translation_cost_usd": 0.0519,
+    "narrative_model": "mimo-v2.5",
+    "narrative_prompt_version": "0.3",
+    "narrative_at": "2026-06-04T14:26:15+00:00",
+    "narrative_tokens": 1887,
+    "narrative_cost_usd": 0.0126,
+    "narrative_status": "ok",
+    "total_cost_usd": 0.2381
+  },
+  "narrative": {
+    "en": {
+      "ch1_intro": "Cargo operates as a gallery-grade digital canvas for creatives, a minimalist site builder that prioritizes typography and creative work over platform chrome. Its design system is built on a single principle: the interface must recede, leaving a stark, white stage for the user's portfolio to command all attention.",
+      "ch2_intro": "The color system is a study in deliberate absence. A strictly monochromatic palette of pure white and deep charcoal ensures the user's own colorful work remains the only focal point.",
+      "ch2_outro": "The principle is one of high-contrast neutrality, creating a pristine backdrop rather than a competing aesthetic.",
+      "ch3_intro": "Typography serves as the primary interface element, utilizing a near-black humanist sans-serif throughout. Tight tracking on display sizes crafts a sophisticated, custom-lettered feel, while medium weight is reserved exclusively for interactive elements to provide clear affordance.",
+      "ch4_intro": "Spacing follows an asymmetric layout driven by explicit grid placement rather than linear vertical rhythm.",
+      "ch5_intro": "Surfaces are rendered with stark flatness, relying entirely on spacing and typography for separation and hierarchy.",
+      "ch6_intro": "The layout skeleton is an asymmetric split-grid on desktop, with left-aligned branding anchoring one side and right-aligned actions balancing the other. This structure creates an editorial feel, deliberately breaking away from centered hero conventions.",
+      "ch7_intro": "Motion is subtle and fast, prioritizing perceived performance over decorative animation. Interactions are minimal and immediate, using instant hover transitions and staggered page entry to maintain content visibility.",
+      "ch8_intro": "The editorial voice is sophisticated, direct, and slightly irreverent. Headlines are punchy, minimal commands or statements, while calls to action use simple, action-oriented text.",
+      "ch8_outro": "What this system deliberately omits—border-radius, drop shadows, vibrant backgrounds, and wide letter-spacing—is as defining as what it includes."
+    },
+    "zh-CN": {
+      "ch1_intro": "Cargo 作为创意工作者的画廊级数字画布运作，是一个极简的网站构建器，将排版与创意作品置于平台装饰之上。其设计系统建立在一个核心原则上：界面必须隐退，为用户的留白舞台腾出空间，使其作品掌控所有注意力。",
+      "ch2_intro": "色彩系统是对刻意缺席的探索。纯白与深炭灰构成的严格单色方案，确保用户自身多彩的作品始终是唯一的焦点。",
+      "ch2_outro": "原则是高对比度的中性，营造纯净背景而非竞争性美学。",
+      "ch3_intro": "排版作为核心界面元素，通体采用近黑的人文主义无衬线字体。展示尺寸的紧凑字距营造出精致的定制字体感，而中等字重则专用于交互元素以提供明确的操作提示。",
+      "ch4_intro": "间距遵循由明确网格定位驱动的非对称布局，而非线性垂直节奏。",
+      "ch5_intro": "界面呈现绝对的平面化，完全依赖间距与排版实现分隔与层级。",
+      "ch6_intro": "桌面端的布局骨架是非对称分割网格：左侧品牌标识锚定一端，右侧操作按钮平衡另一端。此结构营造编辑质感，刻意打破居中首屏的传统范式。",
+      "ch7_intro": "动效追求克制与迅捷，优先考虑感知性能而非装饰动画。交互最小化且即时响应，运用即时 hover 过渡与交错页面入场来保持内容可见性。",
+      "ch8_intro": "编辑语调精致、直接且略带不羁。标题是有力而简洁的指令或陈述，行动号召则使用简单、以行动为导向的文案。",
+      "ch8_outro": "系统刻意省略的元素——圆角、投影、高饱和度背景及宽松字间距——与其包含的设计要素同样具有定义性。"
+    },
+    "zh-TW": {
+      "ch1_intro": "Cargo 為創作者提供一個展覽級的數位畫布，這是一個極簡的網站架構器，優先考量字體排印與創意作品，而非平台本身的裝飾。其設計系統建立於單一原則：介面必須退居幕後，留下一個純白、簡潔的舞台，讓使用者的作品集掌握所有注意力。",
+      "ch2_intro": "色彩系統是一場刻意缺席的研究。嚴格的單色調色板——純白與深炭灰——確保使用者自身的多彩作品成為唯一的焦點。",
+      "ch2_outro": "其原則是高對比的中性，創造一個純淨的背景，而非競爭性的美學。",
+      "ch3_intro": "字體排印作為主要的介面元素，整體採用近乎黑色的人文無襯線體。展示尺寸的緊湊字距營造出精緻的自訂字體感受，而中等字重則專門保留給互動元素，以提供清晰的可操作性提示。",
+      "ch4_intro": "間距遵循由明確網格佈局驅動的不對稱版面，而非線性的垂直節奏。",
+      "ch5_intro": "表面以極簡的平坦感呈現，完全依賴間距與字體排印來區分並建立層級。",
+      "ch6_intro": "版面骨架在桌面上採用不對稱分割網格，左側對齊的品牌標識錨定一側，右側對齊的操作區則平衡另一側。此結構創造出編輯感，刻意打破以中心為主頁的慣例。",
+      "ch7_intro": "動效微妙且快速，優先考量感知效能而非裝飾性動畫。互動極簡且即時，使用瞬間的 hover 過渡效果與錯落的頁面進入動畫，以維持內容的可見性。",
+      "ch8_intro": "編輯語調精緻、直接且略帶不羈。標題是精準、極簡的命令或陳述，而行動號召則使用簡單、以行動為導向的文字。",
+      "ch8_outro": "此系統刻意省略的元素——border-radius、drop shadows、鮮豔背景與寬鬆字距——與它所包含的元素同樣具有定義性。"
+    },
+    "ja": {
+      "ch1_intro": "Cargoは、クリエイティブのためのギャラリーグレードのデジタルキャンバスとして機能します。タイポグラフィとクリエイティブワークを、プラットフォームの装飾よりも優先するミニマルなサイトビルダーです。そのデザインシステムは一つの原則に基づいています：インターフェースは後退し、 stark な白い舞台をユーザーのポートフォリオがすべての注目を集めることを可能にします。",
+      "ch2_intro": "カラーシステムは、意図的な不在の研究です。純粋な白と深いチャコールの厳密にモノクロのパレットは、ユーザー自身のカラフルな作品が唯一の焦点であり続けることを保証します。",
+      "ch2_outro": "原則はコントラストの高い中立性であり、競合する美学ではなく、清廉な背景を作り出します。",
+      "ch3_intro": "タイポグラフィは主要なインターフェース要素として機能し、全体を通してほぼ黒のヒューマニストサンセリフを使用します。ディスプレイサイズでのタイトなトラッキングは、洗練されたカスタムレタリングのような感覚を作り出し、中程度のウェイトはインタラクティブな要素にのみ予約され、明確な操作性を提供します。",
+      "ch4_intro": "スペース設定は、線形の垂直リズムではなく、明示的なグリッド配置に基づいた非対称レイアウトに従います。",
+      "ch5_intro": "サーフェスは stark なフラットネスで描かれ、分離と階層構造を完全にスペース設定とタイポグラフィに依存します。",
+      "ch6_intro": "レイアウトの骨格は、デスクトップ上での非対称分割グリッドです。左揃えのブランディングが一方の側をアンカーとし、右揃えのアクションがもう一方をバランスさせます。この構造は、中央揃えのヒーロー慣行から意図的に脱却し、エディトリアルな感覚を生み出します。",
+      "ch7_intro": "モーションは微細で高速であり、装飾的なアニメーションよりも知覚されるパフォーマンスを優先します。インタラクションは最小限で即座に起こり、瞬時のhover遷移とページエントリの段階的な表示を使用し、コンテンツの可視性を維持します。",
+      "ch8_intro": "エディトリアルな語り口は洗練され、率直で、やや軽妙です。見出しはパンチのある、最小限の命令や声明であり、コール・トゥ・アクションはシンプルで行動志向のテキストを使用します。",
+      "ch8_outro": "このシステムが意図的に省略するもの—border-radius、drop shadows、鮮やかな背景、そして広いletter-spacing—は、含まれるものと同じくらい定義的です。"
+    },
+    "ko": {
+      "ch1_intro": "Cargo는 크리에이티브를 위한 갤러리급 디지털 캔버스로 작동하며, 플랫폼의 장식보다 타이포그래피와 창작물을 우선시하는 미니멀리스트 사이트 빌더입니다. 그 디자인 시스템은 단 하나의 원리 위에 구축되었습니다: 인터페이스는 물러나야 하며, 사용자의 포트폴리오가 모든 주목을 끌 수 있도록 깨끗한 무대를 남겨야 합니다.",
+      "ch2_intro": "컬러 시스템은 의도적인 부재에 대한 연구입니다. 순수한 흰색과 짙은 차콜의 엄격한 단색 팔레트는 사용자의 다채로운 작업이 유일한 초점이 되도록 보장합니다.",
+      "ch2_outro": "원리는 높은 대비의 중립성으로, 경쟁적인 미학 대신 깨끗한 배경을 만듭니다.",
+      "ch3_intro": "타이포그래피는 거의 검은색 휴머니스트 산세리프를 사용하여 주요 인터페이스 요소로 기능합니다. 디스플레이 크기에서의 좁은 트래킹은 세련된 맞춤 레터링 느낌을 만들어내며, 중간 무게는 상호작용 요소에만 전용되어 명확한 기능 암시를 제공합니다.",
+      "ch4_intro": "간격은 선형적인 수직 리듬보다 명시적 그리드 배치에 의해 주도되는 비대칭 레이아웃을 따릅니다.",
+      "ch5_intro": "표면은 완전한 평면성으로 렌더링되며, 분리와 계층 구조를 위해 간격과 타이포그래피에 전적으로 의존합니다.",
+      "ch6_intro": "레이아웃 스켈레톤은 데스크톱에서 비대칭 분할 그리드로, 왼쪽 정렬된 브랜딩이 한 쪽을 고정하고 오른쪽 정렬된 액션이 다른 쪽을 균형 있게 만듭니다. 이 구조는 편집적인 느낌을 만들어내며, 중앙 집중적인 히어로 관습에서 의도적으로 벗어납니다.",
+      "ch7_intro": "모션은 미세하고 빠르며, 장식적인 애니메이션보다 인지된 성능을 우선시합니다. 상호작용은 최소화되고 즉각적이며, 즉시 hover 트랜지션과 단계적 페이지 진입을 사용하여 콘텐츠 가시성을 유지합니다.",
+      "ch8_intro": "편집 톤은 세련되고 직접적이며 약간의 무례함이 섞여 있습니다. 헤드라인은 간결하고 미니멀한 명령이나 진술이며, 행동 유도 요소는 간단하고 행동 지향적인 텍스트를 사용합니다.",
+      "ch8_outro": "이 시스템이 의도적으로 생략하는 것—border-radius, 그림자, 선명한 배경, 넓은 글자 간격—은 포함하는 것만큼이나 결정적입니다."
+    }
+  }
 }

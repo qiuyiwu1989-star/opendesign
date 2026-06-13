@@ -8,6 +8,601 @@
     "design",
     "tool"
   ],
-  "status": "pending",
-  "added_at": "2026-06-02"
+  "status": "completed",
+  "added_at": "2026-06-02",
+  "spec": {
+    "colors": {
+      "bg": "#FFFFFF",
+      "bgSoft": "#F5F4F5",
+      "bgQuiet": "#F5F4F5",
+      "ink": "#220A33",
+      "inkSoft": "#5C275E",
+      "muted": "#6A5C70",
+      "mutedSoft": "#EAE9ED",
+      "accent": "#9E39E5",
+      "line": "rgba(224,219,227,1)"
+    },
+    "typography": {
+      "display": "humanist-sans",
+      "body": "humanist-sans",
+      "mono": "monospace",
+      "scale": [
+        {
+          "token": "display",
+          "size": 96,
+          "lh": 1.0,
+          "weight": 700,
+          "ls": "-0.96px"
+        },
+        {
+          "token": "h2",
+          "size": 32,
+          "lh": 1.2,
+          "weight": 700,
+          "ls": "-0.3px"
+        },
+        {
+          "token": "body",
+          "size": 16,
+          "lh": 1.5,
+          "weight": 400,
+          "ls": "0px"
+        }
+      ]
+    },
+    "spacing": {
+      "base": 4,
+      "scale": [
+        4,
+        8,
+        16,
+        24,
+        32,
+        48,
+        64,
+        96
+      ]
+    },
+    "surfaces": {
+      "radius": {
+        "sm": 4,
+        "md": 8,
+        "lg": 12,
+        "pill": 999
+      }
+    },
+    "layout": {
+      "container": 1280,
+      "paragraph": 680,
+      "columns": 12,
+      "gutter": 24,
+      "breakpoints": [
+        768,
+        1024
+      ]
+    },
+    "motion": {
+      "durations": {
+        "micro": 220,
+        "small": 400,
+        "medium": 800
+      },
+      "easing": "cubic-bezier(0.3, 0.1, 0, 1)"
+    }
+  },
+  "spec_i18n": {
+    "en": {
+      "identity": {
+        "keywords": [
+          "whiteboard",
+          "collaboration",
+          "technical",
+          "ideas",
+          "planning"
+        ],
+        "analogy": "A digital canvas meeting room for engineers",
+        "oneLiner": "Purpose-built whiteboard for technical teams and agents"
+      },
+      "colors": {
+        "principle": "High contrast ink on clean surfaces with vibrant purple accents"
+      },
+      "typography": {
+        "rules": [
+          "Use tight negative tracking for large display text",
+          "Use medium weights for interactive elements",
+          "Maintain strict typographic hierarchy"
+        ],
+        "scaleUses": [
+          "Hero headlines",
+          "Section headings",
+          "Body text"
+        ]
+      },
+      "spacing": {
+        "rhythm": "8px vertical rhythm"
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 16px 32px -4px rgba(37,8,53,0.06)",
+          "0px 12px 16px -4px rgba(37,8,53,0.2)"
+        ],
+        "borders": "1px solid rgba(224,219,227,1)"
+      },
+      "layout": {
+        "skeleton": "12-column fluid grid with centered content"
+      },
+      "components": {
+        "button": "Solid dark background with white text or outlined styles",
+        "card": "Clean containers with subtle shadows and rounded corners",
+        "chip": "Small rounded tags for labels",
+        "input": "Clean bordered fields with clear focus states",
+        "hero": "Large gradient background with centered bold typography"
+      },
+      "motion": {
+        "patterns": [
+          "Smooth hover transitions for interactive elements",
+          "Subtle lift on card hover"
+        ]
+      },
+      "interaction": {
+        "hover": "Subtle background color change or transform",
+        "click": "Immediate visual feedback",
+        "transition": "All properties transition smoothly with specific easing",
+        "keyboard": "Standard focus outlines for accessibility"
+      },
+      "voice": {
+        "tone": "Professional, clear, and encouraging",
+        "headlineStyle": "Bold, concise statements about value",
+        "ctaStyle": "Direct action verbs like 'Get started free'",
+        "avoid": [
+          "Overly casual slang",
+          "Dense technical jargon without context",
+          "Aggressive sales language"
+        ]
+      },
+      "donts": [
+        "Don't use dark mode interfaces — the screenshot shows a predominantly white/light gray background",
+        "Don't use heavy drop shadows — the screenshot shows soft, diffuse elevation shadows",
+        "Don't use playful, rounded display fonts — the screenshot shows clean, geometric humanist sans-serif typography",
+        "Don't use neon or highly saturated colors — the screenshot shows a restrained palette with deep purple accents",
+        "Don't clutter the layout with excessive borders — the screenshot shows minimal border usage",
+        "Don't use centered alignment for long paragraphs — the screenshot shows left-aligned body copy in feature grids"
+      ],
+      "systemPrompt": "Whimsical is a professional productivity tool positioning itself as a purpose-built whiteboard for technical teams. The design relies on a high-contrast palette featuring a deep, rich purple as the primary accent against clean white and soft gray surfaces. The typography pairs a display font for large, impactful headlines with a highly readable sans-serif for body text. Critical constraints include avoiding dark mode or overly playful aesthetics; the interface is structured and efficient. Maintain generous whitespace and ensure all interactive elements have smooth, deliberate transitions. The layout should prioritize clarity and focused collaboration, avoiding visual noise or heavy ornamentation."
+    },
+    "zh-CN": {
+      "identity": {
+        "keywords": [
+          "白板",
+          "协作",
+          "技术",
+          "想法",
+          "规划"
+        ],
+        "analogy": "工程师的数字画布会议室",
+        "oneLiner": "为技术团队和智能体打造的专用白板"
+      },
+      "colors": {
+        "principle": "干净表面上的高对比度墨色，辅以鲜明的紫色点缀"
+      },
+      "typography": {
+        "rules": [
+          "为大号展示文字使用紧凑的负字距",
+          "为交互元素使用中等字重",
+          "保持严格的排版层级"
+        ],
+        "scaleUses": [
+          "主标题",
+          "章节标题",
+          "正文"
+        ]
+      },
+      "spacing": {
+        "rhythm": "8px 垂直节奏"
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 16px 32px -4px rgba(37,8,53,0.06)",
+          "0px 12px 16px -4px rgba(37,8,53,0.2)"
+        ],
+        "borders": "1px solid rgba(224,219,227,1)"
+      },
+      "layout": {
+        "skeleton": "12列流式网格，内容居中"
+      },
+      "components": {
+        "button": "深色实心背景配白色文字，或采用描边样式",
+        "card": "带有细微阴影和圆角的简洁容器",
+        "chip": "用于标签的小型圆角标签",
+        "input": "带有清晰聚焦状态的简洁边框输入框",
+        "hero": "带有居中粗体文字的大型渐变背景"
+      },
+      "motion": {
+        "patterns": [
+          "交互元素平滑的hover过渡",
+          "卡片hover时的细微上浮"
+        ]
+      },
+      "interaction": {
+        "hover": "细微的背景色变化或变换",
+        "click": "即时视觉反馈",
+        "transition": "所有属性平滑过渡，并使用特定缓动效果",
+        "keyboard": "标准聚焦轮廓以保证可访问性"
+      },
+      "voice": {
+        "tone": "专业、清晰且富有鼓励性",
+        "headlineStyle": "关于价值的粗体、简洁陈述",
+        "ctaStyle": "直接的行动动词，如“免费开始”",
+        "avoid": [
+          "过于随意的俚语",
+          "脱离语境的密集技术术语",
+          "侵略性的销售语言"
+        ]
+      },
+      "donts": [
+        "不要使用深色模式界面——截图显示的是以白色/浅灰色为主的背景",
+        "不要使用厚重的投影——截图显示的是柔和、弥散的抬升阴影",
+        "不要使用俏皮、圆润的展示字体——截图显示的是干净、几何化的无衬线字体",
+        "不要使用霓虹色或高饱和度颜色——截图显示的是以深紫色为点缀的克制配色",
+        "不要用过多的边框使布局显得杂乱——截图显示边框使用极少",
+        "不要对长段落使用居中对齐——截图显示在功能网格中正文是左对齐的"
+      ],
+      "systemPrompt": "Whimsical是一款专业生产力工具，定位为技术团队的专用白板。设计采用高对比度配色，以深邃浓郁的紫色作为主色调，搭配干净的白色和柔和的灰色表面。字体方面，使用一款展示字体来呈现有冲击力的大型标题，搭配一款高度可读的无衬线字体用于正文。关键约束包括避免深色模式或过于俏皮的美学风格；界面应结构清晰、高效。保持充足的留白，并确保所有交互元素都有平滑、刻意的过渡效果。布局应优先考虑清晰度和专注的协作，避免视觉噪音或厚重的装饰。"
+    },
+    "zh-TW": {
+      "identity": {
+        "keywords": [
+          "白板",
+          "協作",
+          "技術",
+          "創意",
+          "規劃"
+        ],
+        "analogy": "專為工程師設計的數位畫布會議室",
+        "oneLiner": "為技術團隊與代理程式量身打造的專業白板"
+      },
+      "colors": {
+        "principle": "在乾淨的表面上使用高對比墨色，並搭配鮮明的紫色強調"
+      },
+      "typography": {
+        "rules": [
+          "大型展示文字採用緊湊的負字距",
+          "互動元素使用中等字重",
+          "維持嚴謹的字體層級結構"
+        ],
+        "scaleUses": [
+          "主視覺標題",
+          "章節標題",
+          "內文"
+        ]
+      },
+      "spacing": {
+        "rhythm": "8px 垂直節奏"
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 16px 32px -4px rgba(37,8,53,0.06)",
+          "0px 12px 16px -4px rgba(37,8,53,0.2)"
+        ],
+        "borders": "1px solid rgba(224,219,227,1)"
+      },
+      "layout": {
+        "skeleton": "12 欄流動格線，內容置中"
+      },
+      "components": {
+        "button": "深色實心背景搭配白色文字，或採用外框樣式",
+        "card": "帶有細膩陰影與圓角的簡潔容器",
+        "chip": "用於標籤的小型圓角標記",
+        "input": "帶有清晰 focus 狀態的簡潔邊框輸入欄位",
+        "hero": "大型漸層背景搭配置中的粗體排版"
+      },
+      "motion": {
+        "patterns": [
+          "互動元素具備流暢的 hover 過渡效果",
+          "卡片 hover 時帶有細微浮起效果"
+        ]
+      },
+      "interaction": {
+        "hover": "細微的背景色變化或變形效果",
+        "click": "立即的視覺回饋",
+        "transition": "所有屬性皆採用特定緩動函數平滑過渡",
+        "keyboard": "標準的 focus 輪廓以符合無障礙要求"
+      },
+      "voice": {
+        "tone": "專業、清晰且具鼓勵性",
+        "headlineStyle": "關於價值主張的粗體、簡潔陳述",
+        "ctaStyle": "直接的行動動詞，如「免費開始使用」",
+        "avoid": [
+          "過於隨意的俚語",
+          "缺乏脈絡的艱澀技術術語",
+          "具侵略性的銷售用語"
+        ]
+      },
+      "donts": [
+        "勿使用深色模式介面 — 截圖顯示以白色/淺灰為主的背景",
+        "勿使用厚重的投影陰影 — 截圖顯示柔和、漫射的浮起陰影",
+        "勿使用活潑、圓潤的展示字體 — 截圖顯示乾淨、幾何風格的無襯線字體",
+        "勿使用霓虹或高飽和度色彩 — 截圖顯示以深紫色強調的克制配色",
+        "勿在佈局中使用過多邊框而顯得雜亂 — 截圖顯示極簡的邊框運用",
+        "勿將長段落文字置中對齊 — 截圖顯示功能格線中的內文採左對齊"
+      ],
+      "systemPrompt": "Whimsical 是一款專業的生產力工具，定位為為技術團隊量身打造的專業白板。設計採用高對比配色方案，以深邃豐富的紫色作為主要強調色，搭配純淨白色與柔和灰色表面。字體方面，大型且具衝擊力的標題搭配展示字體，內文則使用高度易讀的無襯線字體。關鍵限制包括避免深色模式或過於活潑的美學；介面講求結構化與效率。需保留充足的留白，並確保所有互動元素具備流暢、刻意的過渡效果。佈局應優先考慮清晰度與專注協作，避免視覺噪音或繁複裝飾。"
+    },
+    "ja": {
+      "identity": {
+        "keywords": [
+          "ホワイトボード",
+          "コラボレーション",
+          "技術的",
+          "アイデア",
+          "計画"
+        ],
+        "analogy": "エンジニア向けのデジタルキャンバス会議室",
+        "oneLiner": "技術チームおよびエージェント向けに専用構築されたホワイトボード"
+      },
+      "colors": {
+        "principle": "クリーンなサーフェスにハイコントラストのインクを使用し、鮮やかな紫色のアクセントを加える"
+      },
+      "typography": {
+        "rules": [
+          "大きなディスプレイテキストにはタイトなネガティブトラッキングを使用",
+          "インタラクティブな要素には中程度のウェイトを使用",
+          "厳格なタイポグラフィ階層を維持"
+        ],
+        "scaleUses": [
+          "ヒーローヘッドライン",
+          "セクション見出し",
+          "本文テキスト"
+        ]
+      },
+      "spacing": {
+        "rhythm": "8pxの垂直リズム"
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 16px 32px -4px rgba(37,8,53,0.06)",
+          "0px 12px 16px -4px rgba(37,8,53,0.2)"
+        ],
+        "borders": "1px solid rgba(224,219,227,1)"
+      },
+      "layout": {
+        "skeleton": "中央揃えのコンテンツを備えた12カラムのフリードグリッド"
+      },
+      "components": {
+        "button": "白いテキストを持つ濃い色のソリッド背景、またはアウトラインスタイル",
+        "card": "繊細な影と角丸を持つクリーンなコンテナ",
+        "chip": "ラベル用の小さな角丸タグ",
+        "input": "明確なフォーカス状態を持つクリーンなボーダーフィールド",
+        "hero": "中央揃えの太字タイポグラフィを持つ大きなグラデーション背景"
+      },
+      "motion": {
+        "patterns": [
+          "インタラクティブな要素の滑らかなhoverトランジション",
+          "カードのhover時の繊細な浮き上がり"
+        ]
+      },
+      "interaction": {
+        "hover": "繊細な背景色の変更またはtransform",
+        "click": "即座に視覚的なフィードバック",
+        "transition": "すべてのプロパティが特定のeasingで滑らかにトランジション",
+        "keyboard": "アクセシビリティのための標準的なfocusアウトライン"
+      },
+      "voice": {
+        "tone": "プロフェッショナルで、明確かつ前向き",
+        "headlineStyle": "価値に関する大胆で簡潔なステートメント",
+        "ctaStyle": "「無料で始める」のような直接的なアクション動詞",
+        "avoid": [
+          "過度にカジュアルなスラング",
+          "文脈のない密度の高い技術用語",
+          "攻撃的なセールス言語"
+        ]
+      },
+      "donts": [
+        "ダークモードのインターフェースを使用しない — スクリーンショットは主に白/薄いグレーの背景を示しています",
+        "重いドロップシャドウを使用しない — スクリーンショットは柔らかく拡散したエレベーションシャドウを示しています",
+        "遊び心のある角丸のディスプレイフォントを使用しない — スクリーンショットはクリーンで幾何学的なヒューマンistサンセリフタイポグラフィを示しています",
+        "ネオンや高彩度の色を使用しない — スクリーンショットは深い紫色のアクセントを含む抑制されたパレットを示しています",
+        "余分なボーダーでレイアウトを散らかさない — スクリーンショットは最小限のボーダー使用を示しています",
+        "長い段落に中央揃えを使用しない — スクリーンショットは機能グリッドで左揃えの本文コピーを示しています"
+      ],
+      "systemPrompt": "Whimsicalは、技術チーム向けに専用構築されたホワイトボードとして位置づけられたプロフェッショナルな生産性ツールです。デザインは、クリーンな白と柔らかいグレーのサーフェスに対して、豊かで深い紫色を主なアクセントとするハイコントラストパレットに依存しています。タイポグラフィは、大きくインパクトのあるヘッドライン用のディスプレイフォントと、本文テキスト用の非常に読みやすいサンセリフを組み合わせています。重要な制約として、ダークモードや過度に遊び心のある美学の回避があります。インターフェースは構造化され、効率的です。十分なホワイトスペースを確保し、すべてのインタラクティブな要素に滑らかで意図的なトランジションがあることを確認してください。レイアウトは明瞭さと集中したコラボレーションを優先し、視覚的なノイズや重い装飾を避けるべきです。"
+    },
+    "ko": {
+      "identity": {
+        "keywords": [
+          "화이트보드",
+          "협업",
+          "기술적",
+          "아이디어",
+          "기획"
+        ],
+        "analogy": "엔지니어를 위한 디지털 캔버스 회의실",
+        "oneLiner": "기술 팀과 에이전트를 위해 특별히 제작된 화이트보드"
+      },
+      "colors": {
+        "principle": "깨끗한 표면에 고대비 잉크와 생동감 있는 보라색 강조"
+      },
+      "typography": {
+        "rules": [
+          "대형 디스플레이 텍스트에는 타이트한 네거티브 트래킹을 사용합니다",
+          "인터랙티브 요소에는 중간 무게감의 글꼴을 사용합니다",
+          "엄격한 타이포그래피 계층을 유지합니다"
+        ],
+        "scaleUses": [
+          "히어로 헤드라인",
+          "섹션 제목",
+          "본문 텍스트"
+        ]
+      },
+      "spacing": {
+        "rhythm": "8px 세로 리듬"
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 16px 32px -4px rgba(37,8,53,0.06)",
+          "0px 12px 16px -4px rgba(37,8,53,0.2)"
+        ],
+        "borders": "1px solid rgba(224,219,227,1)"
+      },
+      "layout": {
+        "skeleton": "콘텐츠를 중앙에 배치한 12컬럼 유동적 그리드"
+      },
+      "components": {
+        "button": "흰색 텍스트의 단색 다크 배경 또는 아웃라인 스타일",
+        "card": "미묘한 그림자와 둥근 모서리를 가진 깔끔한 컨테이너",
+        "chip": "라벨용 작은 둥근 태그",
+        "input": "명확한 포커스 상태가 있는 깔끔한 테두리 필드",
+        "hero": "중앙에 배치된 굵은 타이포그래피를 갖춘 큰 그라디언트 배경"
+      },
+      "motion": {
+        "patterns": [
+          "인터랙티브 요소의 부드러운 hover 전환",
+          "카드 hover 시 미묘한 부양 효과"
+        ]
+      },
+      "interaction": {
+        "hover": "미묘한 배경색 변화 또는 transform",
+        "click": "즉각적인 시각적 피드백",
+        "transition": "특정 easing을 사용하여 모든 속성이 부드럽게 전환",
+        "keyboard": "접근성을 위한 표준 포커스 윤곽선"
+      },
+      "voice": {
+        "tone": "전문적이고 명확하며 고무적인 어조",
+        "headlineStyle": "가치에 대한 굵고 간결한 진술",
+        "ctaStyle": "'무료로 시작하기'와 같은 직접적인 행동 동사",
+        "avoid": [
+          "지나치게 캐주얼한 은어",
+          "맥락 없는 밀도 높은 기술 용어",
+          "공격적인 판매 언어"
+        ]
+      },
+      "donts": [
+        "다크 모드 인터페이스를 사용하지 않습니다 — 스크린샷은 주로 흰색/연한 회색 배경을 보여줍니다",
+        "무거운 드롭 그림자를 사용하지 않습니다 — 스크린샷은 부드럽고 확산된 상승 그림자를 보여줍니다",
+        "장난기 있고 둥근 디스플레이 글꼴을 사용하지 않습니다 — 스크린샷은 깔끔하고 기하학적인 휴머니스트 산세리프 타이포그래피를 보여줍니다",
+        "네온이나 고채도 색상을 사용하지 않습니다 — 스크린샷은 깊은 보라색 강조가 있는 절제된 팔레트를 보여줍니다",
+        "과도한 테두리로 레이아웃을 어지럽히지 않습니다 — 스크린샷은 최소한의 테두리 사용을 보여줍니다",
+        "긴 단락에 중앙 정렬을 사용하지 않습니다 — 스크린샷은 기능 그리드에서 왼쪽 정렬된 본문 복사를 보여줍니다"
+      ],
+      "systemPrompt": "Whimsical은 기술 팀을 위해 특별히 제작된 화이트보드로 자리매김하는 전문적인 생산성 도구입니다. 디자인은 깨끗한 흰색과 부드러운 회색 표면에 주요 강조색으로 깊고 풍부한 보라색이 특징인 고대비 팔레트에 의존합니다. 타이포그래피는 크고 인상적인 헤드라인을 위한 디스플레이 글꼴과 본문 텍스트용으로 매우 읽기 쉬운 산세리프를 결합합니다. 핵심 제약 사항으로는 다크 모드나 지나치게 장난기 있는 미학 피해야 하며, 인터페이스는 구조화되고 효율적입니다. 넉넉한 여백을 유지하고 모든 인터랙티브 요소가 부드럽고 의도적인 전환을 갖도록 하세요. 레이아웃은 시각적 소음이나 무거한 장식을 피하고 명확성과 집중된 협업을 우선시해야 합니다."
+    }
+  },
+  "desc": {
+    "en": {
+      "palette": "A clean, high-contrast palette using deep purple as a primary accent against white and soft gray backgrounds.",
+      "layout": "A structured, centered layout utilizing a 12-column grid with ample whitespace for clarity.",
+      "interaction": "Smooth, subtle transitions on interactive elements with immediate visual feedback.",
+      "motion": "Efficient and purposeful animations that enhance usability without being distracting.",
+      "notes": "A great example of a modern SaaS tool that balances professional restraint with a distinct brand identity."
+    },
+    "zh-CN": {
+      "palette": "一个干净、高对比度的配色方案，以深紫色作为主色调，搭配白色和柔和灰色背景。",
+      "layout": "一个结构化的居中布局，采用12列网格，并留有充足的留白以保证清晰度。",
+      "interaction": "交互元素上有平滑、细微的过渡效果，并提供即时的视觉反馈。",
+      "motion": "高效且有目的性的动画，增强可用性而不造成干扰。",
+      "notes": "这是一个现代SaaS工具的绝佳范例，在专业克制与鲜明的品牌识别度之间取得了平衡。"
+    },
+    "zh-TW": {
+      "palette": "採用深紫色作為主要強調色，搭配白色與柔和灰背景，營造乾淨、高對比的配色方案。",
+      "layout": "結構化、置中的佈局，運用 12 欄格線系統，並保留充足留白以確保清晰度。",
+      "interaction": "互動元素具備流暢、細膩的過渡效果，並提供即時視覺回饋。",
+      "motion": "動畫設計講求效率與目的性，在增強易用性的同時避免造成干擾。",
+      "notes": "這是一款現代 SaaS 工具的優秀範例，在專業克制與鮮明品牌識別間取得平衡。"
+    },
+    "ja": {
+      "palette": "白と柔らかいグレーの背景に、深い紫を主なアクセントとして使用した、クリーンでハイコントラストのパレット。",
+      "layout": "明瞭さを重視した、12カラムグリッドを用いた構造化された中央揃えのレイアウト。十分なホワイトスペースを確保。",
+      "interaction": "インタラクティブな要素に、即座に視覚的なフィードバックを提供する滑らかで繊細なトランジション。",
+      "motion": "使いやすさを高めながら、注意をそらさない効率的で目的志向のアニメーション。",
+      "notes": "プロフェッショナルな抑制とユニークなブランドアイデンティティのバランスをとった、現代的なSaaSツールの優れた例です。"
+    },
+    "ko": {
+      "palette": "흰색과 부드러운 회색 배경에 깊은 보라색을 주요 강조색으로 사용하는 깔끔하고 고대비의 팔레트입니다.",
+      "layout": "명확성을 위해 충분한 여백을 두고 12컬럼 그리드를 활용하는 구조화된 중앙 정렬 레이아웃입니다.",
+      "interaction": "인터랙티브 요소에 즉각적인 시각적 피드백과 함께 부드럽고 미묘한 전환을 적용합니다.",
+      "motion": "주의를 분산시키지 않으면서 사용성을 향상시키는 효용성 있는 애니메이션을 구현합니다.",
+      "notes": "전문적인 절제미와 독특한 브랜드 아이덴티티의 균형을 잘 이룬 현대적인 SaaS 도구의 훌륭한 예시입니다."
+    }
+  },
+  "_meta": {
+    "vision_model": "mimo-v2.5",
+    "vision_prompt_version": "0.3",
+    "vision_source": "playwright-extract:whimsical",
+    "vision_grounded": true,
+    "vision_at": "2026-06-04T19:57:55+00:00",
+    "vision_tokens": 17053,
+    "vision_cost_usd": 0.1895,
+    "translation_model": "mimo-v2.5",
+    "translation_at": "2026-06-04T19:59:00+00:00",
+    "translation_tokens": 15654,
+    "translation_cost_usd": 0.0522,
+    "narrative_model": "mimo-v2.5",
+    "narrative_prompt_version": "0.3",
+    "narrative_at": "2026-06-04T19:59:08+00:00",
+    "narrative_tokens": 1886,
+    "narrative_cost_usd": 0.0126,
+    "narrative_status": "ok",
+    "total_cost_usd": 0.2543
+  },
+  "narrative": {
+    "en": {
+      "ch1_intro": "Whimsical's design system is a digital canvas meeting room for engineers, built to serve as a purpose-built whiteboard for technical teams and agents. Like a well-organized physical workshop, every element is positioned for clarity and focused collaboration, from its clean surfaces to its deliberate typographic hierarchy.",
+      "ch2_intro": "The palette operates on a high-contrast principle: deep, rich purple serves as the primary accent against pristine white and soft gray surfaces. This restraint ensures functional clarity while establishing a distinct brand presence.",
+      "ch2_outro": "The system prioritizes legibility and functional contrast over decorative color, using accent hues sparingly to guide attention.",
+      "ch3_intro": "Typography pairs a clean, geometric humanist sans-serif for body text with a display font for large, impactful headlines. The rules enforce tight negative tracking for display text and medium weights for interactive elements, maintaining a strict hierarchy that supports efficient scanning.",
+      "ch4_intro": "An 8-pixel vertical rhythm underpins all layout and component spacing, creating a consistent and predictable grid for content blocks.",
+      "ch5_intro": "Surfaces are defined by minimal borders and soft, diffuse elevation shadows rather than hard edges. This creates a clear sense of depth on predominantly light gray backgrounds without introducing visual noise.",
+      "ch6_intro": "The layout skeleton is a 12-column fluid grid with centered content, providing a flexible structure for varied page compositions. Ample whitespace and left-aligned body copy in feature grids ensure content remains uncluttered and easy to navigate.",
+      "ch7_intro": "Motion philosophy favors smooth, subtle transitions for interactive elements, such as hover states and card lifts. All animations are purposeful, designed to provide immediate visual feedback and enhance usability without becoming a distraction.",
+      "ch8_intro": "The editorial voice is professional, clear, and encouraging, using bold, concise statements and direct action verbs. It avoids overly casual slang, dense jargon without context, and aggressive sales language.",
+      "ch8_outro": "The system deliberately does not employ dark mode, heavy drop shadows, playful display fonts, neon colors, excessive borders, or centered long-form text."
+    },
+    "zh-CN": {
+      "ch1_intro": "Whimsical的设计系统是一个专为工程师打造的数字画布会议室，旨在成为技术团队与智能体专用的白板工具。如同一间井然有序的实体工作坊，从简洁的界面到精心设计的字体层级，每个元素都为清晰的视觉呈现与专注协作而精心布局。",
+      "ch2_intro": "色彩体系基于高对比度原则：深邃浓郁的紫色作为主强调色，与纯净白、柔和灰背景形成映衬。这种克制的手法既确保了功能清晰度，又建立了独特的品牌辨识度。",
+      "ch2_outro": "该系统优先考虑可读性与功能对比而非装饰性色彩，仅以少量强调色引导视觉焦点。",
+      "ch3_intro": "排版采用干净的几何人文无衬线字体作为正文，搭配展示字体呈现醒目的大标题。规范要求展示文字使用紧凑的负字距，交互元素采用中等字重，通过严格的层级关系确保高效阅读。",
+      "ch4_intro": "所有布局与组件间距均建立在8像素垂直韵律体系之上，为内容区块提供一致且可预测的网格基础。",
+      "ch5_intro": "界面层通过极简边框与柔和弥散的投影阴影定义，而非硬朗的边缘处理。在浅灰为主背景上创造出清晰的层次感，同时避免视觉噪点。",
+      "ch6_intro": "布局骨架采用12列流式网格与居中内容结构，为多样化的页面组合提供灵活框架。特性网格中的充足留白与左对齐正文确保内容整洁易读。",
+      "ch7_intro": "动效哲学倾向于为交互元素（如悬停状态与卡片悬浮）设计平滑、微妙的过渡效果。所有动画都具有明确目的，旨在提供即时视觉反馈并提升可用性，而不造成干扰。",
+      "ch8_intro": "编辑语言保持专业、清晰且富有感染力，采用加粗简洁的陈述句与直接的动作动词。避免使用过度口语化的俚语、缺乏语境的密集术语，以及具有攻击性的销售话术。",
+      "ch8_outro": "该系统刻意不采用深色模式、浓重投影、俏皮展示字体、霓虹色彩、繁复边框，或居中排列的长文本。"
+    },
+    "zh-TW": {
+      "ch1_intro": "Whimsical 的設計系統是一個為工程師打造的數位白板會議室，旨在成為技術團隊與代理的專用白板。如同一個組織完善的實體工作室，每一個元素都為了清晰度與專注協作而精心佈置，從其簡潔的表面到經過深思熟慮的字體層級。",
+      "ch2_outro": "此系統優先考量易讀性與功能性對比，而非裝飾性色彩，僅謹慎使用強調色調來引導注意力。",
+      "ch3_intro": "字體搭配採用乾淨、幾何感的人文主義無襯線字體作為內文，並搭配用於大型醒目標題的展示型字體。規範要求對展示型文字使用緊湊的負字距調整，互動元件則使用中等字重，以維持嚴格的層級結構，支援高效掃讀。",
+      "ch4_intro": "以 8 像素的垂直節奏作為所有版面與元件間距的基礎，為內容區塊創造出一致且可預期的格線系統。",
+      "ch5_intro": "表面由極簡邊框與柔和、擴散的陰影來定義，而非生硬的邊緣。這在以淺灰色為主的背景上創造出清晰的深度感，同時避免引入視覺雜訊。",
+      "ch6_intro": "版面骨架是一個以置中內容為核心的 12 欄彈性格線，為多樣化的頁面組合提供靈活的結構。在功能格線中，充足的留白與左對齊的內文確保了內容的簡潔易讀。",
+      "ch7_intro": "動態效果哲學偏好為互動元素提供流暢、細微的過渡效果，例如懸停狀態與卡片浮起效果。所有動畫皆具目的性，旨在提供即時的視覺回饋並提升可用性，而不成為干擾。",
+      "ch8_intro": "編輯語調專業、清晰且具鼓勵性，使用大膽、簡潔的陳述與直接的動作動詞。它避免使用過度隨意的俚語、缺乏脈絡的艱澀術語，以及具侵略性的銷售語言。",
+      "ch8_outro": "此系統刻意不採用深色模式、厚重的投影陰影、俏皮的展示型字體、霓虹色彩、過多邊框，或置中的長篇文字。"
+    },
+    "ja": {
+      "ch1_intro": "Whimsicalのデザインシステムは、エンジニアのためのデジタルキャンバス会議室であり、技術チームやエージェントのための専用ホワイトボードとして構築されています。整然とした物理工房と同様に、清潔な表面から意図的なタイポグラフィ階層まで、すべての要素は明瞭さと集中したコラボレーションのために配置されています。",
+      "ch2_intro": "カラーパレットはハイコントラストの原則に基づいています。深く豊かな紫色が、無垢の白や柔らかなグレーのサーフェスに対してプライマリアクセントとして機能します。この抑制は機能的な明瞭さを確保しつつ、独自のブランドプレゼンスを確立します。",
+      "ch2_outro": "このシステムは装飾的な色よりも可読性と機能的コントラストを優先し、アクセントカラーは注意を誘導するために控えめに使用します。",
+      "ch3_intro": "タイポグラフィは、本文テキストにクリーンで幾何学的なヒューマニストサンセリフを、大きくインパクトのある見出しにディスプレイフォントを組み合わせています。ルールは、ディスプレイテキストに対してタイトなネガティブトレッキングを、インタラクティブ要素には中程度のウェイトを適用し、効率的なスキャンニングを支援する厳格な階層を維持しています。",
+      "ch4_intro": "8ピクセルの垂直リズムがすべてのレイアウトとコンポーネント間隔の基盤となり、コンテンツブロックに一貫した予測可能なグリッドを生み出します。",
+      "ch5_intro": "サーフェスは、ハードエッジではなく、最小限のボーダーと柔らかく拡散したエレベーションシャドウによって定義されます。これにより、主にライトグレーの背景上に、視覚的ノイズを導入することなく明確な奥行き感が生まれます。",
+      "ch6_intro": "レイアウトスケルトンは、中央揃えのコンテンツを備えた12カラムのフリードグリッドであり、多様なページ構成に対応する柔軟な構造を提供します。フィーチャーグリッドにおける十分なホワイトスペースと左揃えの本文コピーにより、コンテンツは散らかることなく、容易にナビゲートできます。",
+      "ch7_intro": "モーション哲学は、ホバーステートやカードリフトなど、インタラクティブ要素に対して滑らかで微細なトランジションを重視します。すべてのアニメーションは意図的であり、即座に視覚的フィードバックを提供し、気を散らすことなく使いやすさを向上させるために設計されています。",
+      "ch8_intro": "エディトリアルボイスはプロフェッショナルで明瞭かつ励ますものであり、太字の簡潔な記述と直接的なアクション動詞を使用します。過度にカジュアルなスラング、文脈のない高度な専門用語、攻撃的なセールス言語は避けます。",
+      "ch8_outro": "このシステムは、ダークモード、重いドロップシャドウ、遊び心のあるディスプレイフォント、ネオンカラー、過度のボーダー、中央揃えの長文テキストを意図的に使用しません。"
+    },
+    "ko": {
+      "ch1_intro": "Whimsical의 디자인 시스템은 엔지니어를 위한 디지털 캔버스 회의실로, 기술 팀과 에이전트를 위한 목적 특화형 화이트보드로 구축되었습니다. 잘 정리된 물리적 작업장처럼, 깨끗한 표면부터 의도적인 타이포그래피 계층에 이르기까지 모든 요소는 명확성과 집중적인 협업을 위해 배치되었습니다.",
+      "ch2_outro": "이 시스템은 장식적 색상보다 가독성과 기능적 대비를 우선시하며, 주의를 안내하기 위해 강조 색상을 절제하여 사용합니다.",
+      "ch2_intro": "팔레트는 고대비 원리로 작동합니다. 깊고 풍부한 보라색이 순백색과 부드러운 회색 표면에 대한 주요 강조 색상 역할을 합니다. 이러한 절제는 기능적 명확성을 보장하면서 독특한 브랜드 존재감을 확립합니다.",
+      "ch3_intro": "타이포그래피는 본문 텍스트용 깨끗하고 기하학적인 휴머니스트 산세리프 폰트와 크고 강렬한 헤드라인용 디스플레이 폰트를 쌍으로 구성합니다. 규칙은 디스플레이 텍스트의 타이트한 네거티브 트래킹과 인터랙티브 요소의 중간 웨이트를 적용하여 효율적인 스캔을 지원하는 엄격한 계층을 유지합니다.",
+      "ch4_intro": "8픽셀의 수직 리듬이 모든 레이아웃과 컴포넌트 간격의 기반을 이루며, 콘텐츠 블록을 위한 일관되고 예측 가능한 격자를 만듭니다.",
+      "ch5_intro": "표면은 단단한 가장자리 대신 최소한의 테두리와 부드럽고 확산된 고도 그림자로 정의됩니다. 이는 시각적 노이즈를 도입하지 않고 주로 밝은 회색 배경에서 명확한 깊이감을 만듭니다.",
+      "ch6_intro": "레이아웃 골격은 중앙 정렬된 콘텐츠를 가진 12열 유체 격자로, 다양한 페이지 구성을 위한 유연한 구조를 제공합니다. 특징 격자에 넉넉한 여백과 왼쪽 정렬된 본문 텍스트는 콘텐츠가 지저분하지 않고 탐색하기 쉽게 유지되도록 합니다.",
+      "ch7_intro": "모션 철학은 hover 상태와 카드 리프트와 같은 인터랙티브 요소에 부드럽고 미묘한 전환을 선호합니다. 모든 애니메이션은 즉각적인 시각적 피드백을 제공하고 산만해지지 않으면서 사용성을 향상시키도록 의도적으로 설계되었습니다.",
+      "ch8_intro": "에디토리얼 보이스는 전문적이고 명확하며 격려하는 것으로, 굵고 간결한 진술과 직접적인 동사를 사용합니다. 지나치게 캐주얼한 속어, 맥락 없는 밀도 높은 전문 용어, 공격적인 판매 언어를 피합니다.",
+      "ch8_outro": "이 시스템은 의도적으로 다크 모드, 무거운 드롭 섀도우, 장난스러운 디스플레이 폰트, 네온 색상, 과도한 테두리, 또는 중앙 정렬된 긴 텍스트를 사용하지 않습니다."
+    }
+  }
 }

@@ -8,6 +8,578 @@
     "design",
     "community"
   ],
-  "status": "pending",
-  "added_at": "2026-06-02"
+  "status": "completed",
+  "added_at": "2026-06-02",
+  "spec": {
+    "colors": {
+      "bg": "#FFFFFF",
+      "bgSoft": null,
+      "bgQuiet": null,
+      "ink": "#000000",
+      "inkSoft": "#64748B",
+      "muted": "#94A3B8",
+      "mutedSoft": null,
+      "accent": null,
+      "line": "rgba(229, 231, 235, 1)"
+    },
+    "typography": {
+      "display": "grotesque-sans",
+      "body": "grotesque-sans",
+      "mono": null,
+      "scale": [
+        {
+          "token": "display",
+          "size": 36,
+          "lh": 1.1,
+          "weight": 500,
+          "ls": "-0.5px"
+        },
+        {
+          "token": "body",
+          "size": 16,
+          "lh": 1.5,
+          "weight": 400,
+          "ls": "0px"
+        },
+        {
+          "token": "caption",
+          "size": 14,
+          "lh": 1.4,
+          "weight": 400,
+          "ls": "0px"
+        }
+      ]
+    },
+    "spacing": {
+      "base": 4,
+      "scale": [
+        4,
+        8,
+        12,
+        16,
+        24,
+        32,
+        48,
+        64,
+        96
+      ]
+    },
+    "surfaces": {
+      "radius": {
+        "sm": 4,
+        "md": 8,
+        "lg": 12,
+        "pill": 9999
+      }
+    },
+    "layout": {
+      "container": 1280,
+      "paragraph": 680,
+      "columns": 12,
+      "gutter": 24,
+      "breakpoints": [
+        768,
+        1024
+      ]
+    },
+    "motion": {
+      "durations": {
+        "micro": 150,
+        "small": 300,
+        "medium": 500
+      },
+      "easing": "cubic-bezier(0.4, 0, 0.2, 1)"
+    }
+  },
+  "spec_i18n": {
+    "en": {
+      "identity": {
+        "keywords": [
+          "design curation",
+          "layers",
+          "portfolio",
+          "community"
+        ],
+        "analogy": "A digital gallery for UI/UX designers to showcase and discover layered design assets.",
+        "oneLiner": "A curated platform for designers to share and explore layered UI components and portfolios."
+      },
+      "colors": {
+        "principle": "Minimalist, high-contrast black and white with subtle gray hierarchy for a clean, gallery-like experience."
+      },
+      "typography": {
+        "rules": [],
+        "scaleUses": [
+          "Featured titles and large headings",
+          "Main content and descriptions",
+          "Metadata and secondary information"
+        ]
+      },
+      "spacing": {
+        "rhythm": "Consistent 4px base with 8px, 12px, and 16px increments for spacing and gaps."
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(0, 0, 0, 0.05) 0px 0px 0px 1px inset",
+          "rgba(0, 0, 0, 0.03) 0px 0px 0px 1px inset"
+        ],
+        "borders": "1px solid rgb(229, 231, 235) for subtle separation and card borders."
+      },
+      "layout": {
+        "skeleton": "Responsive grid layout with a left sidebar, main content area, and right sidebar for jobs and ads."
+      },
+      "components": {
+        "button": "Minimal, rounded corners (12px), often with border and hover state. Primary uses solid black, secondary uses white with border.",
+        "card": "Clean white cards with 12px border-radius, subtle 1px inset border, and image previews.",
+        "chip": "Tag-like elements with rounded corners (9999px), used for filtering categories.",
+        "input": "Search bar with rounded corners and subtle border.",
+        "hero": "Grid of content cards showcasing various design projects and assets."
+      },
+      "motion": {
+        "patterns": [
+          "Smooth transitions on hover for interactive elements (0.15s)",
+          "Fade transitions for modal overlays (0.5s)"
+        ]
+      },
+      "interaction": {
+        "hover": "Subtle background color change or border emphasis on interactive elements.",
+        "click": "Standard pointer cursor on interactive elements.",
+        "transition": "All transitions use cubic-bezier(0.4, 0, 0.2, 1) easing for smooth, natural movement.",
+        "keyboard": "Standard focus states for accessibility."
+      },
+      "voice": {
+        "tone": "Professional, clean, and focused on design community and curation.",
+        "headlineStyle": "Concise, capitalized for tags, bold for titles.",
+        "ctaStyle": "Simple, action-oriented buttons with clear labels.",
+        "avoid": [
+          "Playful or informal language",
+          "Overly decorative elements",
+          "Cluttered layouts"
+        ]
+      },
+      "donts": [
+        "Don't use complex gradients — screenshot shows clean, solid backgrounds with minimal color.",
+        "Don't implement dark mode — screenshot shows exclusively light theme with white backgrounds.",
+        "Don't use decorative serif fonts — screenshot shows consistent use of sans-serif typography.",
+        "Don't add heavy drop shadows — screenshot shows subtle inset borders instead of prominent shadows.",
+        "Don't use vibrant accent colors — screenshot maintains a strictly monochromatic palette with occasional brand colors in content.",
+        "Don't create cluttered layouts — screenshot demonstrates generous white space and clear visual hierarchy."
+      ],
+      "systemPrompt": "Layers.to is a curated design gallery platform for UI/UX designers. The visual system uses a minimalist black and white palette with #000000 ink on #FFFFFF background, supplemented by subtle gray hierarchy (#64748B, #94A3B8). Typography is exclusively grotesque-sans (Inter family) at 16px base with 400 weight. Layout follows a 12-column grid with 24px gutters and 1280px max container width. Critical donts: Never use dark mode (screenshot shows only light theme), avoid decorative serifs (only sans-serif used), and prevent heavy shadows (uses subtle inset borders instead). The interface prioritizes clean card-based layouts with 12px border-radius and minimal interactive states."
+    },
+    "zh-CN": {
+      "identity": {
+        "keywords": [
+          "设计策展",
+          "图层",
+          "作品集",
+          "社区"
+        ],
+        "analogy": "一个供UI/UX设计师展示和发现分层设计资源的数字画廊。",
+        "oneLiner": "一个供设计师分享和探索分层UI组件与作品集的策展平台。"
+      },
+      "colors": {
+        "principle": "极简主义，高对比度的黑白配色，辅以细微的灰色层次，营造干净、画廊般的体验。"
+      },
+      "typography": {
+        "rules": [],
+        "scaleUses": [
+          "特色标题和大号标题",
+          "主要内容和描述",
+          "元数据和次要信息"
+        ]
+      },
+      "spacing": {
+        "rhythm": "以4px为基础，间距和间隔采用8px、12px和16px的增量。"
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(0, 0, 0, 0.05) 0px 0px 0px 1px inset",
+          "rgba(0, 0, 0, 0.03) 0px 0px 0px 1px inset"
+        ],
+        "borders": "1px solid rgb(229, 231, 235)，用于细微分隔和卡片边框。"
+      },
+      "layout": {
+        "skeleton": "响应式栅格布局，包含左侧边栏、主内容区以及用于职位和广告的右侧边栏。"
+      },
+      "components": {
+        "button": "极简风格，圆角（12px），常带有边框和悬停状态。主按钮使用实心黑色，次按钮使用带边框的白色。",
+        "card": "干净的白色卡片，12px圆角，细微的1px内边框，以及图片预览。",
+        "chip": "类似标签的元素，圆角（9999px），用于筛选分类。",
+        "input": "带圆角和细微边框的搜索栏。",
+        "hero": "展示各种设计项目和资源的内容卡片网格。"
+      },
+      "motion": {
+        "patterns": [
+          "交互元素悬停时的平滑过渡（0.15秒）",
+          "模态框覆盖层的淡入淡出过渡（0.5秒）"
+        ]
+      },
+      "interaction": {
+        "hover": "交互元素上细微的背景色变化或边框强调。",
+        "click": "交互元素上使用标准指针光标。",
+        "transition": "所有过渡效果均采用 cubic-bezier(0.4, 0, 0.2, 1) 缓动，以实现平滑、自然的运动。",
+        "keyboard": "标准的无障碍焦点状态。"
+      },
+      "voice": {
+        "tone": "专业、干净，专注于设计社区和策展。",
+        "headlineStyle": "简洁，标签使用大写，标题使用加粗。",
+        "ctaStyle": "简洁、以行动为导向的按钮，带有清晰的标签。",
+        "avoid": [
+          "俏皮或非正式的语言",
+          "过度装饰的元素",
+          "杂乱的布局"
+        ]
+      },
+      "donts": [
+        "避免使用复杂渐变——截图显示的是干净的纯色背景，色彩极少。",
+        "避免实现深色模式——截图显示仅为浅色主题，白色背景。",
+        "避免使用装饰性衬线字体——截图显示一致使用无衬线字体。",
+        "避免添加厚重的投影——截图显示使用细微的内边框而非突出的阴影。",
+        "避免使用鲜艳的强调色——截图保持严格的单色方案，偶尔在内容中使用品牌色。",
+        "避免创建杂乱的布局——截图展示了充足的留白和清晰的视觉层次。"
+      ],
+      "systemPrompt": "Layers.to 是一个面向UI/UX设计师的策展设计画廊平台。其视觉系统采用极简的黑白配色方案，#000000墨色搭配#FFFFFF白色背景，辅以细微的灰色层次（#64748B、#94A3B8）。字体仅为 grotesque-sans（Inter字体族），基础尺寸16px，字重400。布局采用12栏栅格，间距24px，最大容器宽度1280px。关键禁忌：绝不使用深色模式（截图仅显示浅色主题），避免装饰性衬线字体（仅使用无衬线字体），并防止厚重阴影（使用细微内边框代替）。界面优先考虑干净的卡片式布局，圆角12px，交互状态极简。"
+    },
+    "zh-TW": {
+      "identity": {
+        "keywords": [
+          "設計策展",
+          "分層",
+          "作品集",
+          "社群"
+        ],
+        "analogy": "一個供 UI/UX 設計師展示與發現分層設計素材的數位畫廊。",
+        "oneLiner": "一個策展平台，供設計師分享與探索分層的 UI 元件與作品集。"
+      },
+      "colors": {
+        "principle": "極簡、高對比的黑白配色，搭配細微的灰色層次，營造乾淨、畫廊般的體驗。"
+      },
+      "typography": {
+        "rules": [],
+        "scaleUses": [
+          "特選標題與大型標題",
+          "主要內容與描述",
+          "中繼資料與次要資訊"
+        ]
+      },
+      "spacing": {
+        "rhythm": "以 4px 為基準，間距與間隙使用 8px、12px 和 16px 的增量。"
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(0, 0, 0, 0.05) 0px 0px 0px 1px inset",
+          "rgba(0, 0, 0, 0.03) 0px 0px 0px 1px inset"
+        ],
+        "borders": "1px solid rgb(229, 231, 235)，用於細微分隔與卡片邊框。"
+      },
+      "layout": {
+        "skeleton": "響應式網格佈局，包含左側邊欄、主要內容區域，以及用於職缺與廣告的右側邊欄。"
+      },
+      "components": {
+        "button": "極簡，圓角（12px），通常帶有邊框與 hover 狀態。主要按鈕使用純黑，次要按鈕使用白色搭配邊框。",
+        "card": "乾淨的白色卡片，12px border-radius，細微的 1px inset 邊框，並附有圖片預覽。",
+        "chip": "標籤式元素，圓角（9999px），用於篩選類別。",
+        "input": "搜尋欄，帶有圓角與細微邊框。",
+        "hero": "內容卡片網格，展示各種設計專案與素材。"
+      },
+      "motion": {
+        "patterns": [
+          "互動元素在 hover 時的平滑過渡效果（0.15 秒）",
+          "彈出視窗覆蓋層的淡入淡出過渡效果（0.5 秒）"
+        ]
+      },
+      "interaction": {
+        "hover": "互動元素在 hover 時細微的背景顏色變化或邊框強調。",
+        "click": "互動元素使用標準指標游標。",
+        "transition": "所有過渡效果均使用 cubic-bezier(0.4, 0, 0.2, 1) 緩動，以實現流暢、自然的移動。",
+        "keyboard": "標準的焦點狀態，以符合無障礙設計。"
+      },
+      "voice": {
+        "tone": "專業、簡潔，專注於設計社群與策展。",
+        "headlineStyle": "簡潔，標籤使用大寫，標題使用粗體。",
+        "ctaStyle": "簡單、以行動為導向的按鈕，標籤清晰明確。",
+        "avoid": [
+          "俏皮或非正式的語言",
+          "過度裝飾的元素",
+          "雜亂的佈局"
+        ]
+      },
+      "donts": [
+        "不要使用複雜的漸層 — 截圖顯示的是乾淨、純色的背景，色彩極簡。",
+        "不要實作暗色模式 — 截圖僅顯示淺色主題，採用白色背景。",
+        "不要使用裝飾性的襯線字體 — 截圖顯示一致使用無襯線字體。",
+        "不要添加厚重的投影 — 截圖顯示使用細微的 inset 邊框，而非突出的陰影。",
+        "不要使用鮮豔的強調色 — 截圖維持嚴格的單色調色板，偶爾在內容中使用品牌色彩。",
+        "不要建立雜亂的佈局 — 截圖展示了充裕的留白與清晰的視覺層次。"
+      ],
+      "systemPrompt": "Layers.to 是一個為 UI/UX 設計師打造的策展式設計畫廊平台。視覺系統採用極簡的黑白配色，使用 #000000 墨色搭配 #FFFFFF 背景，輔以細微的灰色層次（#64748B、#94A3B8）。字體僅使用 grotesque-sans（Inter 字族），基準為 16px，字重 400。佈局遵循 12 欄網格，欄間距 24px，最大容器寬度 1280px。關鍵禁忌：絕不使用暗色模式（截圖僅顯示淺色主題），避免使用裝飾性襯線體（僅使用無襯線字體），並防止厚重陰影（改用細微的 inset 邊框）。介面優先考量乾淨的卡片式佈局，採用 12px border-radius 與最小化的互動狀態。"
+    },
+    "ja": {
+      "identity": {
+        "keywords": [
+          "デザインキュレーション",
+          "レイヤーズ",
+          "ポートフォリオ",
+          "コミュニティ"
+        ],
+        "analogy": "UI/UX デザイナーが重層的なデザインアセットを紹介し、発見するためのデジタルギャラリー。",
+        "oneLiner": "デザイナーが重層的な UI コンポーネントとポートフォリオを共有・探求するためのキュレーションプラットフォーム。"
+      },
+      "colors": {
+        "principle": "ミニマルでハイコントラストな白と黒を基調とし、微細なグレーの階層を用いた、クリーンでギャラリーのような体験を実現します。"
+      },
+      "typography": {
+        "rules": [],
+        "scaleUses": [
+          "注目度の高いタイトルと大きな見出し",
+          "メインコンテンツと説明文",
+          "メタデータと補助情報"
+        ]
+      },
+      "spacing": {
+        "rhythm": "一貫した 4px を基準とし、間隔やガターには 8px、12px、16px の刻みを用います。"
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(0, 0, 0, 0.05) 0px 0px 0px 1px inset",
+          "rgba(0, 0, 0, 0.03) 0px 0px 0px 1px inset"
+        ],
+        "borders": "微細な区切りとカードボーダーとして、1px solid rgb(229, 231, 235) を使用します。"
+      },
+      "layout": {
+        "skeleton": "左サイドバー、メインコンテンツエリア、右サイドバー（ジョブと広告用）を持つレスポンシブグリッドレイアウトです。"
+      },
+      "components": {
+        "button": "ミニマルで角丸（12px）。ボーダーと hover 状態を伴うことが多いです。プライマリはブラックの塗りつぶし、セカンダリはボーダー付きのホワイトを使用します。",
+        "card": "12px のボーダー-radius、微細な 1px インセットボーダー、および画像プレビューを備えたクリーンなホワイトカード。",
+        "chip": "角丸（9999px）のタグライクな要素で、フィルタリングカテゴリに使用します。",
+        "input": "角丸と微細なボーダーを備えた検索バー。",
+        "hero": "様々なデザインプロジェクトとアセットを紹介するコンテンツカードのグリッド。"
+      },
+      "motion": {
+        "patterns": [
+          "インタラクティブ要素の hover 時の滑らかなトランジション（0.15秒）",
+          "モーダルオーバーレイのフェードトランジション（0.5秒）"
+        ]
+      },
+      "interaction": {
+        "hover": "インタラクティブ要素の背景色の変化やボーダーの強調など、微細な変化。",
+        "click": "インタラクティブ要素上の標準的なポインターカーソル。",
+        "transition": "すべてのトランジションには、滑らかで自然な動きのための cubic-bezier(0.4, 0, 0.2, 1) を使用します。",
+        "keyboard": "アクセシビリティのための標準的なフォーカス状態。"
+      },
+      "voice": {
+        "tone": "プロフェッショナルでクリーン。デザインコミュニティとキュレーションに焦点を当てます。",
+        "headlineStyle": "簡潔で、タグには大文字表記、タイトルには太字を使用。",
+        "ctaStyle": "明確なラベルを持つシンプルでアクション指向のボタン。",
+        "avoid": [
+          "遊び心のある、またはカジュアルな言葉遣い",
+          "過度に装飾的な要素",
+          "雑然としたレイアウト"
+        ]
+      },
+      "donts": [
+        "複雑なグラデーションを使用しない — スクリーンショットは最小限のカラーを使用したクリーンな塗りつぶし背景を示しています。",
+        "ダークモードを実装しない — スクリーンショットはホワイト背景のライトテーマのみを示しています。",
+        "装飾的なセリフフォントを使用しない — スクリーンショットはサンセリフタイポグラフィの一貫した使用を示しています。",
+        "重いドロップシャドウを追加しない — スクリーンショットは目立つシャドウの代わりに微細なインセットボーダーを使用しています。",
+        "鮮やかなアクセントカラーを使用しない — スクリーンショットは厳格なモノクロムパレットを維持し、コンテンツ内にブランドカラーを時折使用しています。",
+        "雑然としたレイアウトを作成しない — スクリーンショットは豊富なホワイトスペースと明確なビジュアルヒエラルキーを実演しています。"
+      ],
+      "systemPrompt": "Layers.to は UI/UX デザイナーのためのキュレーション型デザインギャラリープラットフォームです。ビジュアルシステムは、#FFFFFF 背景に #000000 インクを使用したミニマルな白と黒のパレットを採用し、微細なグレーの階層（#64748B, #94A3B8）で補完します。タイポグラフィは、16px を基準とし 400 のウェイトを持つ grotesque-sans（Inter ファミリー）のみを使用します。レイアウトは 24px のガターと 1280px の最大コンテナ幅を持つ 12カラムグリッドに従います。重要な禁止事項：ダークモードは絶対に使用しない（スクリーンショットはライトテーマのみを示す）、装飾的なセリフは避ける（サンセリフのみ使用）、重いシャドウを防止する（微細なインセットボーダーを使用）。インターフェースは 12px のボーダー-radius と最小限のインタラクティブ状態を持つクリーンなカードベースのレイアウトを優先します。"
+    },
+    "ko": {
+      "identity": {
+        "keywords": [
+          "디자인 큐레이션",
+          "레이어",
+          "포트폴리오",
+          "커뮤니티"
+        ],
+        "analogy": "UI/UX 디자이너들이 레이어링된 디자인 에셋을 선보이고 발견할 수 있는 디지털 갤러리입니다.",
+        "oneLiner": "디자이너들이 레이어링된 UI 컴포넌트와 포트폴리오를 공유하고 탐색할 수 있는 큐레이션 플랫폼입니다."
+      },
+      "colors": {
+        "principle": "깔끔한 갤러리 같은 경험을 위해 미니멀한 고대비 흑백과 미세한 회색 계층을 사용합니다."
+      },
+      "typography": {
+        "rules": [],
+        "scaleUses": [
+          "강조된 제목 및 큰 헤딩",
+          "본문 콘텐츠 및 설명",
+          "메타데이터 및 보조 정보"
+        ]
+      },
+      "spacing": {
+        "rhythm": "일관된 4px 기본 간격에 8px, 12px, 16px 단위로 간격과 간격을 설정합니다."
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(0, 0, 0, 0.05) 0px 0px 0px 1px inset",
+          "rgba(0, 0, 0, 0.03) 0px 0px 0px 1px inset"
+        ],
+        "borders": "미세한 구분과 카드 테두리를 위해 1px solid rgb(229, 231, 235)를 사용합니다."
+      },
+      "layout": {
+        "skeleton": "좌측 사이드바, 메인 콘텐츠 영역, 그리고 채용 공고 및 광고를 위한 우측 사이드바가 있는 반응형 그리드 레이아웃입니다."
+      },
+      "components": {
+        "button": "미니멀하고 모서리가 둥근(12px) 형태로, 주로 테두리와 hover 상태를 포함합니다. 기본 버튼은 검정색, 보조 버튼은 흰색과 테두리를 사용합니다.",
+        "card": "12px border-radius와 미세한 1px inset 테두리, 그리고 이미지 미리보기를 가진 깔끔한 흰색 카드입니다.",
+        "chip": "모서리가 둥근(9999px) 태그 형태의 요소로, 카테고리 필터링에 사용됩니다.",
+        "input": "모서리가 둥글고 미세한 테두리를 가진 검색 바입니다.",
+        "hero": "다양한 디자인 프로젝트와 에셋을 보여주는 콘텐츠 카드 그리드입니다."
+      },
+      "motion": {
+        "patterns": [
+          "상호작용 요소에 대한 부드러운 hover 전환(0.15초)",
+          "모달 오버레이를 위한 페이드 전환(0.5초)"
+        ]
+      },
+      "interaction": {
+        "hover": "상호작용 요소에 대한 미세한 배경색 변경 또는 테두리 강조.",
+        "click": "상호작용 요소에 대한 표준 포인터 커서.",
+        "transition": "모든 전환은 매끄럽고 자연스러운 움직임을 위해 cubic-bezier(0.4, 0, 0.2, 1) 완화를 사용합니다.",
+        "keyboard": "접근성을 위한 표준 focus 상태입니다."
+      },
+      "voice": {
+        "tone": "전문적이고 깔끔하며, 디자인 커뮤니티와 큐레이션에 중점을 둡니다.",
+        "headlineStyle": "태그는 간결하고 대문자로, 제목은 굵게 표시합니다.",
+        "ctaStyle": "명확한 레이블을 가진 단순하고 행동 지향적인 버튼입니다.",
+        "avoid": [
+          "장난스럽거나 비공식적인 언어",
+          "지나치게 장식적인 요소",
+          "지저분한 레이아웃"
+        ]
+      },
+      "donts": [
+        "복잡한 그라데이션을 사용하지 않습니다 — 스크린샷은 최소한의 색상으로 깔끔하고 단색 배경을 보여줍니다.",
+        "다크 모드를 구현하지 않습니다 — 스크린샷은 흰색 배경의 라이트 테마만 사용합니다.",
+        "장식용 세리프 폰트를 사용하지 않습니다 — 스크린샷은 산세리프 서체의 일관된 사용을 보여줍니다.",
+        "무거운 드롭 섀도우를 추가하지 않습니다 — 스크린샷은 두드러진 대신 미세한 inset 테두리를 사용합니다.",
+        "선명한 강조색을 사용하지 않습니다 — 스크린샷은 엄격한 단색 계열 팔레트를 유지하며, 콘텐츠 내에서 간헐적으로 브랜드 색상을 사용합니다.",
+        "지저분한 레이아웃을 만들지 않습니다 — 스크린샷은 넉넉한 여백과 명확한 시각적 계층을 시연합니다."
+      ],
+      "systemPrompt": "Layers.to는 UI/UX 디자이너를 위한 큐레이션된 디지털 갤러리 플랫폼입니다. 시각 시스템은 #FFFFFF 배경에 #000000 잉크를 사용하는 미니멀한 흑백 팔레트를 사용하며, 미세한 회색 계층(#64748B, #94A3B8)으로 보완됩니다. 타이포그래피는 기본 16px, 400 웨이트의 grotesque-sans(Inter 계열)만 사용합니다. 레이아웃은 24px 거터와 1280px 최대 컨테이너 너비를 가진 12컬럼 그리드를 따릅니다. 핵심 지침: 다크 모드를 절대 사용하지 않습니다(스크린샷은 라이트 테마만 표시), 장식용 세리프를 사용하지 않으며(산세리프만 사용), 무거운 섀도우를 사용하지 않습니다(미세한 inset 테두리를 대신 사용). 인터페이스는 12px border-radius와 최소한의 상호작용 상태를 가진 깔끔한 카드 기반 레이아웃을 우선시합니다."
+    }
+  },
+  "desc": {
+    "en": {
+      "palette": "Strictly monochromatic with black text on white background, using gray tones (#64748B, #94A3B8) for hierarchy and subtle borders (#E5E7EB).",
+      "layout": "Responsive 12-column grid layout with clear visual hierarchy, generous white space, and card-based content organization.",
+      "interaction": "Subtle hover transitions (0.15s) with cubic-bezier easing, standard cursor states, and minimal visual feedback on interactive elements.",
+      "motion": "Smooth, professional transitions with consistent easing curves, focusing on subtle fade and scale effects rather than complex animations.",
+      "notes": "This site is worth including as a prime example of minimalist, gallery-focused design systems that prioritize content curation and clean visual hierarchy over decorative elements."
+    },
+    "zh-CN": {
+      "palette": "严格的单色方案，白色背景配黑色文字，使用灰色调（#64748B、#94A3B8）建立视觉层次，并辅以细微的边框（#E5E7EB）。",
+      "layout": "响应式12栏栅格布局，具有清晰的视觉层次、充足的留白和基于卡片的内容组织方式。",
+      "interaction": "细微的悬停过渡效果（0.15秒），采用 cubic-bezier 缓动，标准的光标状态，以及交互元素上极简的视觉反馈。",
+      "motion": "平滑、专业的过渡效果，使用一致的缓动曲线，侧重于细微的淡入淡出和缩放效果，而非复杂动画。",
+      "notes": "该网站是极简主义、画廊式设计系统的典范，优先考虑内容策展与清晰的视觉层次，而非装饰性元素。"
+    },
+    "zh-TW": {
+      "palette": "嚴格的單色調，黑色文字搭配白色背景，使用灰色調（#64748B、#94A3B8）建立層次，並輔以細微邊框（#E5E7EB）。",
+      "layout": "響應式 12 欄網格佈局，具有清晰的視覺層次、充裕的留白，以及以卡片為基礎的內容組織。",
+      "interaction": "細微的 hover 過渡效果（0.15 秒），採用 cubic-bezier 緩動，標準游標狀態，互動元素提供最小化的視覺回饋。",
+      "motion": "流暢、專業的過渡效果，採用一致的緩動曲線，專注於細微的淡入淡出與縮放效果，而非複雜的動畫。",
+      "notes": "此網站是極簡、以作品集為焦點的設計系統之優良範例，其優先考量內容策展與清晰的視覺層次，而非裝飾性元素。"
+    },
+    "ja": {
+      "palette": "テキストを白地に黒で配置した厳格なモノクロム構成です。階層と微細なボーダー（#E5E7EB）にはグレーのトーン（#64748B, #94A3B8）を使用します。",
+      "layout": "明確なビジュアルヒエラルキー、豊富なホワイトスペース、カードベースのコンテンツ構成を持つレスポンシブ12カラムグリッドレイアウトです。",
+      "interaction": "hover トランジション（0.15秒）を cubic-bezier で補正し、標準カーソル状態と、インタラクティブ要素に対する最小限の視覚フィードバックを提供します。",
+      "motion": "一貫したイージングカーブを用いた滑らかでプロフェッショナルなトランジションです。複雑なアニメーションよりも、微細なフェードやスケール効果に焦点を当てます。",
+      "notes": "このサイトは、装飾要素よりもコンテンツキュレーションとクリーンなビジュアルヒエララジーを優先するミニマルでギャラリー中心のデザインシステムの、好例として組み込む価値があります。"
+    },
+    "ko": {
+      "palette": "배경은 흰색, 텍스트는 검정색으로 엄격한 단색계열을 사용합니다. 계층과 미세한 테두리를 위해 회색 음영(#64748B, #94A3B8)과(#E5E7EB)를 사용합니다.",
+      "layout": "명확한 시각적 계층과 넉넉한 여백을 가진 반응형 12컬럼 그리드 레이아웃으로, 카드 기반 콘텐츠 구성이 특징입니다.",
+      "interaction": "상호작용 요소에 대한 미세한 hover 전환(0.15초), cubic-bezier 완화, 표준 커서 상태, 그리고 최소한의 시각적 피드백을 제공합니다.",
+      "motion": "복잡한 애니메이션보다는 미세한 페이드 및 스케일 효과에 중점을 두어, 일관된 완화 곡선을 사용한 매끄럽고 전문적인 전환을 구현합니다.",
+      "notes": "이 사이트는 장식적 요소보다 콘텐츠 큐레이션과 깔끔한 시각적 계층을 우선시하는 미니멀리즘 및 갤러리 중심 디자인 시스템의 대표적인 예시로 포함할 가치가 있습니다."
+    }
+  },
+  "_meta": {
+    "vision_model": "mimo-v2.5",
+    "vision_prompt_version": "0.3",
+    "vision_source": "playwright-extract:layers",
+    "vision_grounded": true,
+    "vision_at": "2026-06-04T16:13:34+00:00",
+    "vision_tokens": 16358,
+    "vision_cost_usd": 0.1818,
+    "translation_model": "mimo-v2.5",
+    "translation_at": "2026-06-04T16:14:50+00:00",
+    "translation_tokens": 18687,
+    "translation_cost_usd": 0.0622,
+    "narrative_model": "mimo-v2.5",
+    "narrative_prompt_version": "0.3",
+    "narrative_at": "2026-06-04T16:15:02+00:00",
+    "narrative_tokens": 2239,
+    "narrative_cost_usd": 0.0149,
+    "narrative_status": "ok",
+    "total_cost_usd": 0.2589
+  },
+  "narrative": {
+    "en": {
+      "ch1_intro": "Layers operates with the spatial logic of a gallery: architecture exists to frame the work, not to be the work itself. The system's identity is built on **design curation**—a platform where the interface recedes to let portfolios and layered assets occupy the foreground. Like well-considered gallery walls, every decision in this system serves the content it holds.",
+      "ch2_intro": "The palette is a study in restraint—**strictly monochromatic**, with ink-black text anchored to a white ground. Grays (#64748B, #94A3B8) and a single border tone (#E5E7EB) create hierarchy without introducing color as a variable.",
+      "ch2_outro": "The principle is gallery-white: the surface should be felt, not seen.",
+      "ch3_intro": "Typography follows a single family—**Inter**, a workhorse grotesque-sans—at a 16px base. The choice is utilitarian; one typeface with multiple weights handles everything from featured titles to metadata, keeping the typographic voice unified and unadorned.",
+      "ch4_intro": "Spacing follows a **4px base rhythm**, with increments at 8, 12, and 16px providing a consistent measure for gaps, padding, and component sizing across the grid.",
+      "ch5_intro": "Depth is communicated through subtle inset borders and hairline shadows rather than elevation. A 1px solid border (#E5E7EB) delineates cards and containers, maintaining a flat, frontal plane that keeps visual weight on content.",
+      "ch6_intro": "The skeleton is a responsive three-column layout: a left sidebar for navigation, a central content area for the main gallery, and a right sidebar reserved for supplementary information like job listings. This structure is governed by a 12-column grid with 24px gutters and a 1280px max container width.",
+      "ch7_intro": "Motion is functional and brief—hover states transition at 0.15s, while modal overlays fade at 0.5s. All animations share a single easing curve: **cubic-bezier(0.4, 0, 0.2, 1)**, applied consistently to produce natural, professional movement without flourish.",
+      "ch8_intro": "The editorial voice is clean and professional, matching the visual tone. Headlines are concise and capitalized for tags, while CTAs use simple, action-oriented labels—language that directs without embellishment.",
+      "ch8_outro": "The system deliberately omits dark mode, decorative serifs, complex gradients, and heavy drop shadows—each exclusion a conscious choice to preserve the gallery's focused clarity."
+    },
+    "zh-CN": {
+      "ch1_intro": "Layers 的运作遵循画廊的空间逻辑：建筑结构的存在是为了衬托作品，而非喧宾夺主。系统的身份建立在**设计策展**之上——一个界面隐退、让作品集与分层资产占据前景的平台。如同精心考量的画廊墙面，系统中的每一个决策都服务于它所承载的内容。",
+      "ch2_intro": "调色板是克制的典范——**纯粹单色**，墨黑文字锚定于白色基底。灰色（#64748B、#94A3B8）与单一的边框色调（#E5E7EB）共同构建层次，未引入色彩作为变量。",
+      "ch2_outro": "原则是画廊白：表面应被感知，而非被看见。",
+      "ch3_intro": "字体遵循单一字族——**Inter**，一款实用的 grotesque-sans，基准尺寸为 16px。选择是功能性的；一款字型通过多种字重处理从特色标题到元数据的所有内容，保持排版语气的统一与质朴。",
+      "ch4_intro": "间距遵循 **4px 基础节奏**，以 8、12 和 16px 的递增量为网格内的间隙、内边距和组件尺寸提供一致的尺度。",
+      "ch5_intro": "深度通过微妙的内嵌边框和极细阴影而非凸起效果来传达。1px 实线边框（#E5E7EB）勾勒卡片与容器，维持扁平、正面的视觉平面，将视觉重量留于内容本身。",
+      "ch6_intro": "骨架是响应式三栏布局：左侧边栏用于导航，中央内容区用于主画廊，右侧边栏预留用于职位列表等补充信息。此结构由 12 栏网格、24px 栏间距和 1280px 最大容器宽度所规约。",
+      "ch7_intro": "动效是功能性且简短的——hover 状态过渡时长为 0.15s，模态覆盖层淡出时长为 0.5s。所有动画共享同一条缓动曲线：**cubic-bezier(0.4, 0, 0.2, 1)**，一致地应用以产生自然、专业的运动感，毫无矫饰。",
+      "ch8_intro": "编辑语气干净专业，与视觉基调匹配。标题简洁，标签采用首字母大写，而行动号召使用简单、面向操作的标签——语言直接，不加修饰。",
+      "ch8_outro": "系统有意省略了深色模式、装饰性衬线、复杂渐变和浓重投影——每一项排除都是为保持画廊般专注清晰度而作出的自觉选择。"
+    },
+    "zh-TW": {
+      "ch1_intro": "Layers 運作的空間邏輯如同美術館：架構是為了襯托作品，而非成為作品本身。系統的識別建立在 **設計策展** 之上——一個讓介面退居幕後，讓作品集與分層資產佔據前景的平台。如同深思熟慮的美術館展牆，此系統中的每一個決策都服務於它所承載的內容。",
+      "ch2_intro": "色彩配置是一場克制的實驗——**嚴格採用單色調**，以墨黑色文字錨定於白色基底上。灰色（#64748B, #94A3B8）與單一邊框色調（#E5E7EB）建立層次，而不引入色彩作為變數。",
+      "ch2_outro": "原則是美術館白：表面應被感受，而非被看見。",
+      "ch3_intro": "字型採用單一家族——**Inter**，一款實用的 grotesque-sans——以 16px 為基準。此選擇具備實用性；一款字型搭配多重字重，處理從醒目標題到中繼資料的所有需求，保持字型語調統一且不加修飾。",
+      "ch4_intro": "間距遵循 **4px 基準節奏**，以 8、12 及 16px 的增量提供一致尺度，用於間隙、內邊距與網格中的元件尺寸。",
+      "ch5_intro": "深度透過細微的內嵌邊框與髮絲陰影來傳達，而非抬升效果。1px 實線邊框（#E5E7EB）劃分卡片與容器，維持一個扁平的正面平面，將視覺重量集中於內容上。",
+      "ch6_intro": "骨架是響應式三欄佈局：左側邊欄用於導覽，中央內容區用於主要畫廊，右側邊欄則保留給補充資訊，如職缺列表。此結構由 12 欄網格、24px 欄間距及 1280px 最大容器寬度所管控。",
+      "ch7_intro": "動態效果簡潔且具功能性——hover 狀態過渡為 0.15s，而模態覆蓋層淡出為 0.5s。所有動畫共享單一緩動曲線：**cubic-bezier(0.4, 0, 0.2, 1)**，一致套用以產生自然、專業的動態，無多餘裝飾。",
+      "ch8_intro": "編輯語調簡潔專業，與視覺基調相符。標題簡練，標籤採用大寫；行動呼籲則使用簡單、導向行動的標籤——語言旨在引導而非修飾。",
+      "ch8_outro": "系統刻意省略深色模式、裝飾性襯線、複雜漸層與厚重陰影——每一項排除都是為維護美術館專注清晰度的有意選擇。"
+    },
+    "ja": {
+      "ch1_intro": "Layersは、ギャラリーの空間ロジックに基づいて動作します。建築は作品を枠組みするためだけに存在し、それ自体が作品ではありません。システムのアイデンティティは、**デザインキュレーション**——インターフェースが後退し、ポートフォリオやレイヤードアセットが前面に立つプラットフォーム——の上に築かれています。熟慮されたギャラリーの壁のように、このシステムのすべての決定は、保持するコンテンツに奉仕します。",
+      "ch2_intro": "パレットは節制の研究です——**厳密にモノクロマティック**で、インクブラックのテキストが白い地に固定されています。グレー（#64748B、#94A3B8）とボーダートーン（#E5E7EB）の1色が、カラーバリエーションとして導入されることなく階層を生み出します。",
+      "ch2_outro": "原則はギャラリーホワイトです。表面は見えず、感じられるべきものです。",
+      "ch3_intro": "タイポグラフィは単一のファミリー——**Inter**、ワーキングホースのグロテスクサンセリフ——を、16pxのベースサイズで遵循します。選択は功利的なものです。複数のウェイトを持つ1つの書体が、フィーチャードタイトルからメタデータまですべてを処理し、タイポグラフィックボイスを統一され、飾り気のないものに保ちます。",
+      "ch4_intro": "間隔は**4pxのベースリズム**に従い、8、12、16pxの増分が、グリッド全体のギャップ、パディング、コンポーネントサイズに一貫した尺度を提供します。",
+      "ch5_intro": "奥行きは、levationではなく、微妙なインセットボーダーと極細のシャドウで伝達されます。1pxのソリッドボーダー（#E5E7EB）がカードとコンテナを区切り、フラットなフロント面を維持し、視覚的な重みをコンテンツに留めます。",
+      "ch6_intro": "スケルトンはレスポンシブな3カラムレイアウトです：ナビゲーション用の左サイドバー、メインギャラリー用の中央コンテンツエリア、以及求人情報などの補足情報を保持する右サイドバー。この構造は、24pxのガターと1280pxの最大コンテナ幅を持つ12カラムグリッドによって支配されます。",
+      "ch7_intro": "モーションは機能的で簡潔です——hover状態は0.15sでトランジションし、モーダルオーバーレイは0.5sでフェードインします。すべてのアニメーションは単一のイージングカーブ：**cubic-bezier(0.4, 0, 0.2, 1)**を共有し、飾り気のない自然でプロフェッショナルな動きを一貫して生成するために適用されます。",
+      "ch8_intro": "編集ボイスはクリーンでプロフェッショナルであり、ビジュアルトーンに合います。見出しは簡潔で、タグにはキャピタルケースを使用し、CTAはシンプルでアクション指向のラベルを使用します——装飾なしで方向を示す言葉です。",
+      "ch8_outro": "システムは、ダークモード、装飾的なセリフ、複雑なグラデーション、重いドロップシャドウを意図的に省略しています——それぞれの除外は、ギャラリーの集中した明瞭さを維持するための意識的な選択です。"
+    },
+    "ko": {
+      "ch1_intro": "레이어스는 갤러리의 공간 논리로 작동합니다: 건축은 작품을 프레임 하는데 존재하며, 그 자체가 작품이 되지 않습니다. 시스템의 정체성은 **디자인 큐레이션** 위에 구축됩니다—인터페이스가 물러나고, 포트폴리오와 레이어링된 에셋이 전면에 자리하는 플랫폼 말입니다. 잘 고려된 갤러리 벽처럼, 이 시스템의 모든 결정은 담고 있는 콘텐츠를 위해 존재합니다.",
+      "ch2_intro": "팔레트는 절제에 대한 연구입니다—**엄격히 단색**이며, 잉크 블랙 텍스트가 흰색 바탕 위에 고정되어 있습니다. 그레이(#64748B, #94A3B8)와 단일 보더 톤(#E5E7EB)은 색상을 변수로 도입하지 않으면서 계층 구조를 만듭니다.",
+      "ch2_outro": "원칙은 갤러리 화이트입니다: 표면은 보이기보다 느껴져야 합니다.",
+      "ch3_intro": "타이포그래피는 하나의 패밀리—**Inter**, 작업용 grotesque-sans—를 따르며, 기본값은 16px입니다. 선택은 실용적입니다; 하나의 서체에 여러 웨이트를 두어, 하이라이트 타이틀부터 메타데이터까지 모든 것을 처리하여 타이포그래피의 음성을 통일되고 꾸밈없이 유지합니다.",
+      "ch4_intro": "간격은 **4px 기본 리듬**을 따르며, 8, 12, 16px 단위로 증가하여 격자 전체의 간격, 패딩 및 컴포넌트 크기에 일관된 측정 기준을 제공합니다.",
+      "ch5_intro": "깊이는 고도보다 미세한 인셋 보더와 실선 그림자를 통해 전달됩니다. 1px 실선(#E5E7EB)은 카드와 컨테이너를 구분하여, 시각적 무게를 콘텐츠에 유지하는 평면적 정면 평면을 유지합니다.",
+      "ch6_intro": "골격은 반응형 3컬럼 레이아웃입니다: 왼쪽 사이드바는 내비게이션용, 중앙 콘텐츠 영역은 메인 갤러리용, 오른쪽 사이드바는 채용 공고와 같은 보조 정보용으로 예약되어 있습니다. 이 구조는 24px 거터와 1280px 최대 컨테이너 폭을 가진 12컬럼 격자로 관리됩니다.",
+      "ch7_intro": "모션은 기능적이고 간결합니다—hover 상태는 0.15초로 전환되고, 모달 오버레이는 0.5초로 페이드인됩니다. 모든 애니메이션은 하나의 이징 커브—**cubic-bezier(0.4, 0, 0.2, 1)**—를 공유하여, 장식 없이 자연스럽고 전문적인 움직임을 일관되게 생성합니다.",
+      "ch8_intro": "에디토리얼 음성은 깔끔하고 전문적이며, 비주얼 톤과 일치합니다. 헤드라인은 간결하고 태그용으로 대문자화되며, CTA는 단순하고 행동 지향적인 레이블을 사용합니다—과장 없이 안내하는 언어입니다.",
+      "ch8_outro": "시스템은 의도적으로 다크 모드, 장식용 세리프, 복잡한 그라디언트, 무거운 드롭 섀도우를 생략합니다—각 생략은 갤러리의 집중된 명확성을 보존하기 위한 의식적인 선택입니다."
+    }
+  }
 }

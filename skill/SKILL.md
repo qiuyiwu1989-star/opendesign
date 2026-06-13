@@ -1,7 +1,7 @@
 ---
 name: opendesign
 description: >-
-  Ground any web design or frontend build in a curated library of 200+ real,
+  Ground any web design or frontend build in a curated library of 495+ real,
   AI-readable design systems (opendesign.cc). Use this whenever a user wants to
   design or build a website, landing page, dashboard, marketing site, or
   component — especially "in the style of X", "make it feel [adjective]", or
@@ -19,7 +19,7 @@ OpenDesign (https://opendesign.cc) is a curated library where **every site ships
 a downloadable, machine-readable design system** — 11 layers of real tokens
 (colors, typography scale, spacing, radii, shadows, layout, components,
 interaction, motion, voice, anti-patterns) extracted from the live site with a
-browser and grounded by AI against the actual computed styles. ~200 sites,
+browser and grounded by AI against the actual computed styles. 495 sites,
 hand-picked for taste.
 
 You are not meant to *copy* these sites. You use them as **grounded references**

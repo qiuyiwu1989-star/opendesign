@@ -8,8 +8,595 @@
     "product",
     "bookmarks"
   ],
-  "status": "pending",
+  "status": "completed",
   "added_at": "2026-06-02",
   "added_by": "expand-200",
-  "_meta": {}
+  "_meta": {
+    "vision_model": "mimo-v2.5",
+    "vision_prompt_version": "0.3",
+    "vision_source": "playwright-extract:mymind",
+    "vision_grounded": true,
+    "vision_at": "2026-06-04T17:07:50+00:00",
+    "vision_tokens": 16861,
+    "vision_cost_usd": 0.1873,
+    "translation_model": "mimo-v2.5",
+    "translation_at": "2026-06-04T17:09:12+00:00",
+    "translation_tokens": 17528,
+    "translation_cost_usd": 0.0585,
+    "narrative_model": "mimo-v2.5",
+    "narrative_prompt_version": "0.3",
+    "narrative_at": "2026-06-04T17:09:21+00:00",
+    "narrative_tokens": 2090,
+    "narrative_cost_usd": 0.0139,
+    "narrative_status": "ok",
+    "total_cost_usd": 0.2597
+  },
+  "spec": {
+    "colors": {
+      "bg": "#FFFFFF",
+      "bgSoft": "#F5F7F9",
+      "bgQuiet": "#FFEDED",
+      "ink": "#000000",
+      "inkSoft": "#3A475A",
+      "muted": "#748297",
+      "mutedSoft": "#717286",
+      "accent": "#FF5924",
+      "line": "rgba(0,0,0,0.1)"
+    },
+    "typography": {
+      "display": "transitional-serif",
+      "body": "humanist-sans",
+      "mono": "monospace",
+      "scale": [
+        {
+          "token": "display",
+          "size": 80,
+          "lh": 1.0,
+          "weight": 400,
+          "ls": "-2px"
+        },
+        {
+          "token": "h1",
+          "size": 52,
+          "lh": 1.3,
+          "weight": 400,
+          "ls": "-1.3px"
+        },
+        {
+          "token": "body",
+          "size": 18,
+          "lh": 1.67,
+          "weight": 400,
+          "ls": "0px"
+        },
+        {
+          "token": "small",
+          "size": 16,
+          "lh": 1.67,
+          "weight": 400,
+          "ls": "0.4px"
+        }
+      ]
+    },
+    "spacing": {
+      "base": 4,
+      "scale": [
+        4,
+        8,
+        16,
+        24,
+        32,
+        48,
+        64,
+        96
+      ]
+    },
+    "surfaces": {
+      "radius": {
+        "sm": 4,
+        "md": 12,
+        "lg": 16,
+        "pill": 999
+      }
+    },
+    "layout": {
+      "container": 1280,
+      "paragraph": 680,
+      "columns": 12,
+      "gutter": 24,
+      "breakpoints": [
+        768,
+        1024
+      ]
+    },
+    "motion": {
+      "durations": {
+        "micro": 200,
+        "small": 250,
+        "medium": 700
+      },
+      "easing": "cubic-bezier(0.19, 1, 0.22, 1)"
+    }
+  },
+  "spec_i18n": {
+    "en": {
+      "identity": {
+        "keywords": [
+          "memory",
+          "organization",
+          "simplicity",
+          "private",
+          "assistant"
+        ],
+        "analogy": "A serene, all-encompassing digital library that organizes itself.",
+        "oneLiner": "A private, effortless space to remember and organize everything in one place."
+      },
+      "colors": {
+        "principle": "Clean, expansive white space punctuated by a warm, energetic orange accent and soft, friendly multi-colored highlights."
+      },
+      "typography": {
+        "rules": [],
+        "scaleUses": [
+          "Hero headline 'Remember everything. Organize nothing.'",
+          "Secondary large headlines",
+          "Main body text and navigation",
+          "Secondary UI text and links"
+        ]
+      },
+      "spacing": {
+        "rhythm": "Consistent use of a 4px base grid with generous padding (20px, 24px, 40px) for breathing room."
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 57px 60px -54px rgba(255,154,36,0.1)",
+          "0px 0px 120px 0px rgba(0,0,0,0.15)"
+        ],
+        "borders": "Subtle 1px solid borders used sparingly, primarily on pill-shaped tags and input fields."
+      },
+      "layout": {
+        "skeleton": "Center-aligned layout with a massive, fluid circular background gradient framing the core content."
+      },
+      "components": {
+        "button": "Pill-shaped (border-radius: 999px) with solid orange background and white text, or outlined with thin borders.",
+        "card": "Clean white cards with subtle rounded corners (12-16px) used for content previews.",
+        "chip": "Small, rounded pill shapes with light pastel outlines and colored text for categorizing content types.",
+        "input": "Rounded search bar with a subtle gray background and italicized placeholder text.",
+        "hero": "Massive serif typography centered over a large, soft radial gradient."
+      },
+      "motion": {
+        "patterns": [
+          "Smooth, elastic transitions for hover states and menu reveals."
+        ]
+      },
+      "interaction": {
+        "hover": "Subtle scale and color shifts on interactive elements, with a hand cursor indicating clickability.",
+        "click": "Immediate visual feedback with subtle color darkening.",
+        "transition": "All properties transition smoothly over 0.7s using a custom cubic-bezier for a fluid, high-quality feel.",
+        "keyboard": "Standard focus outlines for accessibility."
+      },
+      "voice": {
+        "tone": "Reassuring, confident, and minimalist.",
+        "headlineStyle": "Short, punchy, and paradoxical statements set in elegant serif type.",
+        "ctaStyle": "Direct and action-oriented, often set in all-caps or bold sans-serif.",
+        "avoid": [
+          "Complex organizational jargon",
+          "Visual clutter",
+          "Heavy borders",
+          "Dense text blocks"
+        ]
+      },
+      "donts": [
+        "Don't use a complex grid or multi-column layout — screenshot shows a centered, single-column focus.",
+        "Don't use dark mode or dark backgrounds — screenshot shows a predominantly white (#FFFFFF) canvas.",
+        "Don't use sharp, square corners — screenshot shows extensively rounded, pill-shaped elements.",
+        "Don't use a strictly monochrome palette — screenshot features a vibrant orange accent (#FF5924) and soft pastels.",
+        "Don't use bold, heavy sans-serif for headlines — screenshot features a delicate transitional-serif display font.",
+        "Don't use aggressive, boxy buttons — screenshot shows soft, rounded pill-shaped buttons."
+      ],
+      "systemPrompt": "mymind.com is a private, effortless digital memory and organization tool. Its design DNA is characterized by massive transitional-serif headlines on a clean white background, accented by a vibrant orange (#FF5924) and soft, friendly pastel highlights. The layout is centered and minimalist, using a 4px grid for consistent spacing and highly rounded, pill-shaped components. It maintains a calm, premium feel through generous white space and fluid, elegant transitions. Critical donts: avoid dark mode, avoid sharp corners, avoid dense multi-column grids, avoid heavy sans-serif display fonts, avoid visual clutter, and avoid aggressive or boxy button styles."
+    },
+    "zh-CN": {
+      "identity": {
+        "keywords": [
+          "记忆",
+          "整理",
+          "简约",
+          "私密",
+          "助手"
+        ],
+        "analogy": "一个宁静、包罗万象的、能自我组织的数字图书馆。",
+        "oneLiner": "一个私密、毫不费力的空间，用来记住并整理一切。"
+      },
+      "colors": {
+        "principle": "干净、开阔的留白，点缀着温暖、充满活力的橙色强调色，以及柔和、友好的多彩高光。"
+      },
+      "typography": {
+        "rules": [],
+        "scaleUses": [
+          "主视觉标题 '记住一切。无需整理。'",
+          "次要大标题",
+          "正文文本和导航",
+          "次要界面文本和链接"
+        ]
+      },
+      "spacing": {
+        "rhythm": "一致使用 4px 基础网格，并辅以充裕的 padding（20px, 24px, 40px）以确保呼吸感。"
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 57px 60px -54px rgba(255,154,36,0.1)",
+          "0px 0px 120px 0px rgba(0,0,0,0.15)"
+        ],
+        "borders": "微弱的 1px 实线边框，使用克制，主要用于胶囊形标签和输入框。"
+      },
+      "layout": {
+        "skeleton": "居中对齐的布局，巨大的、流畅的圆形背景渐变勾勒出核心内容区域。"
+      },
+      "components": {
+        "button": "胶囊形（border-radius: 999px），实心橙色背景配白色文字，或带有细边框的描边样式。",
+        "card": "干净的白色卡片，带有微妙的圆角（12-16px），用于内容预览。",
+        "chip": "小型、圆润的胶囊形状，带有浅色柔彩描边和彩色文字，用于内容分类。",
+        "input": "圆角的搜索栏，带有微妙的灰色背景和斜体占位符文本。",
+        "hero": "超大衬线字体排版，居中放置在大型、柔和的径向渐变之上。"
+      },
+      "motion": {
+        "patterns": [
+          "针对 hover 状态和菜单展开的平滑、弹性过渡。"
+        ]
+      },
+      "interaction": {
+        "hover": "交互元素上的微妙缩放和色彩变化，手形光标表示可点击。",
+        "click": "通过微妙的色彩加深提供即时视觉反馈。",
+        "transition": "所有属性在 0.7s 内使用自定义 cubic-bezier 平滑过渡，营造流畅、高品质的感觉。",
+        "keyboard": "用于无障碍的标准 focus 轮廓线。"
+      },
+      "voice": {
+        "tone": "令人安心、自信且极简。",
+        "headlineStyle": "简短、有力、充满悖论感的陈述，使用优雅的衬线字体。",
+        "ctaStyle": "直接且以行动为导向，常使用大写或粗体无衬线字体。",
+        "avoid": [
+          "复杂的组织学术语",
+          "视觉杂乱",
+          "厚重的边框",
+          "密集的文本块"
+        ]
+      },
+      "donts": [
+        "不要使用复杂的网格或多栏布局——截图显示的是居中的、单栏焦点。",
+        "不要使用深色模式或深色背景——截图显示的是以白色（#FFFFFF）为主的画布。",
+        "不要使用尖锐、方正的圆角——截图显示的是广泛使用的圆角、胶囊形元素。",
+        "不要使用严格的单色调色板——截图包含一个活力橙色强调色（#FF5924）和柔和的柔彩色。",
+        "不要使用粗体、厚重的无衬线字体作为标题——截图使用的是精致的过渡衬线展示字体。",
+        "不要使用具有攻击性的、方正的按钮——截图显示的是柔和的、圆润的胶囊形按钮。"
+      ],
+      "systemPrompt": "mymind.com 是一个私密、毫不费力的数字记忆与组织工具。其设计 DNA 以干净白色背景上的超大过渡衬线标题为特征，点缀着活力橙色（#FF5924）和柔和、友好的柔彩色高光。布局居中且极简，使用 4px 网格以确保间距一致，以及高度圆润的胶囊形组件。它通过充裕的留白和流畅、优雅的过渡来维持平静、高级的感觉。关键禁忌：避免深色模式，避免尖锐圆角，避免密集的多栏网格，避免厚重的无衬线展示字体，避免视觉杂乱，以及避免具有攻击性或方正的按钮样式。"
+    },
+    "zh-TW": {
+      "identity": {
+        "keywords": [
+          "記憶",
+          "整理",
+          "簡約",
+          "私密",
+          "助理"
+        ],
+        "analogy": "一座寧靜、包羅萬象且能自我組織的數位圖書館。",
+        "oneLiner": "一個私密、毫不費力的空間，能將萬事萬物統一記憶與整理。"
+      },
+      "colors": {
+        "principle": "乾淨、寬敞的留白，點綴以溫暖、充滿活力的橘色強調色，以及柔和、友善的多彩亮色。"
+      },
+      "typography": {
+        "rules": [],
+        "scaleUses": [
+          "主標題「記憶一切。無需整理。」",
+          "次要大標題",
+          "主要內文與導覽",
+          "次要介面文字與連結"
+        ]
+      },
+      "spacing": {
+        "rhythm": "採用 4px 基礎網格的穩定節奏，搭配寬鬆的內邊距（20px, 24px, 40px）以創造舒適的呼吸空間。"
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 57px 60px -54px rgba(255,154,36,0.1)",
+          "0px 0px 120px 0px rgba(0,0,0,0.15)"
+        ],
+        "borders": "細微的 1px 實心邊框僅少量使用，主要應用於膠囊狀標籤與輸入欄位。"
+      },
+      "layout": {
+        "skeleton": "居中對齊的佈局，以大而流動的圓形背景漸層框住核心內容。"
+      },
+      "components": {
+        "button": "膠囊狀（border-radius: 999px），實心橘色背景搭配白色文字，或是帶有細邊框的描邊樣式。",
+        "card": "乾淨的白色卡片，帶有細微的圓角（12-16px），用於內容預覽。",
+        "chip": "小巧、圓潤的膠囊形狀，帶有淺色粉彩邊框與彩色文字，用於分類內容類型。",
+        "input": "圓角搜尋列，帶有細微的灰色背景與斜體佔位文字。",
+        "hero": "巨大的襯線字體標題，居中置於大而柔和的放射狀漸層之上。"
+      },
+      "motion": {
+        "patterns": [
+          "懸停狀態與選單展開時，流暢、彈性的過渡效果。"
+        ]
+      },
+      "interaction": {
+        "hover": "互動元素有細微的縮放與色彩變化，並以手型游標指示可點擊性。",
+        "click": "立即的視覺回饋，伴隨細微的顏色加深。",
+        "transition": "所有屬性在 0.7 秒內平滑過渡，使用自訂 cubic-bezier 以營造流暢、高品質的感受。",
+        "keyboard": "標準的焦點外框，確保無障礙性。"
+      },
+      "voice": {
+        "tone": "令人安心、自信且極簡。",
+        "headlineStyle": "簡短、有力、帶有悖論意味的語句，採用優雅的襯線字體呈現。",
+        "ctaStyle": "直接且注重行動，常以全大寫或粗體無襯線字體呈現。",
+        "avoid": [
+          "複雜的組織術語",
+          "視覺雜亂",
+          "厚重邊框",
+          "密集的文字區塊"
+        ]
+      },
+      "donts": [
+        "不要使用複雜的網格或多欄佈局——截圖顯示的是居中的單欄專注佈局。",
+        "不要使用深色模式或深色背景——截圖顯示的是以白色（#FFFFFF）為主的畫布。",
+        "不要使用尖銳的方形角落——截圖顯示的是大量圓潤、膠囊狀的元素。",
+        "不要使用嚴格的單色調色盤——截圖採用了鮮活的橘色強調色（#FF5924）與柔和的粉彩色。",
+        "不要使用粗體、厚重的無襯線字體作為標題——截圖使用的是細緻的過渡襯線展示字體。",
+        "不要使用強勢、方塊狀的按鈕——截圖顯示的是柔和、圓潤的膠囊狀按鈕。"
+      ],
+      "systemPrompt": "mymind.com 是一款私密、毫不費力的數位記憶與整理工具。其設計 DNA 以乾淨白色背景上的巨大過渡襯線字體標題為特色，並以鮮活的橘色（#FF5924）和柔和、友善的粉彩色點綴。佈局居中且極簡，使用 4px 網格以確保間距一致，並採用高度圓潤的膠囊狀元件。透過寬鬆的留白與流暢、優雅的過渡效果，維持著平靜、高端的氛圍。關鍵禁忌：避免深色模式、避免尖銳角落、避免密集的多欄網格、避免厚重的無襯線展示字體、避免視覺雜亂，以及避免強勢或方塊狀的按鈕樣式。"
+    },
+    "ja": {
+      "identity": {
+        "keywords": [
+          "記憶",
+          "整理",
+          "シンプル",
+          "プライベート",
+          "アシスタント"
+        ],
+        "analogy": "自らを整理する、穏やかで包括的なデジタルライブラリ。",
+        "oneLiner": "すべてを一か所で記憶し、整理するための、プライベートで手軽なスペース。"
+      },
+      "colors": {
+        "principle": "清潔で広大なホワイトスペースに、温かく活力のあるオレンジのアクセントと、柔らかく親しみやすいマルチカラーのハイライトを配したデザイン。"
+      },
+      "typography": {
+        "rules": [],
+        "scaleUses": [
+          "ヒーローヘッドライン 'Remember everything. Organize nothing.'",
+          "サブの大型ヘッドライン",
+          "メイン本文とナビゲーション",
+          "サブUIテキストとリンク"
+        ]
+      },
+      "spacing": {
+        "rhythm": "4pxの基本グリッドを一貫して使用し、息抜きのためのゆったりとしたパディング（20px、24px、40px）を採用しています。"
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 57px 60px -54px rgba(255,154,36,0.1)",
+          "0px 0px 120px 0px rgba(0,0,0,0.15)"
+        ],
+        "borders": "繊細な1pxの実線ボーダーは控えめに使用され、主にピルシェイプのタグや入力フィールドに適用されます。"
+      },
+      "layout": {
+        "skeleton": "中心揃えのレイアウト。流動的な円形の背景グラデーションが、コアコンテンツをフレームします。"
+      },
+      "components": {
+        "button": "ピルシェイプ（border-radius: 999px）。オレンジの塗りつぶし背景にホワイトテキスト、または細いボーダー付きのアウトライン。",
+        "card": "コンテンツプレビューに使用される、角丸（12-16px）のクリーンなホワイトカード。",
+        "chip": "コンテンツタイプを分類するための、淡いパステルのアウトラインとカラフルなテキストを持つ、小さく角丸のピルシェイプ。",
+        "input": "控えめなグレーの背景とイタリック体のプレースホルダーテキストを持つ、角丸の検索バー。",
+        "hero": "大きく柔らかな放射グラデーションの上に、中央揃えの巨大なセリフ體タイポグラフィ。"
+      },
+      "motion": {
+        "patterns": [
+          "ホバーステートやメニュー表示のための、滑らかで弾力性のあるトランジション。"
+        ]
+      },
+      "interaction": {
+        "hover": "インタラクティブ要素に繊細なスケールとカラーの変化を加え、クリック可能であることを示すハンドカーソル。",
+        "click": "控えめな色の暗転による、即座のビジュアルフィードバック。",
+        "transition": "すべてのプロパティはカスタムcubic-bezierを使用して0.7sで滑らかにトランジションし、流動的で高品質な感覚を実現。",
+        "keyboard": "アクセシビリティのための標準的なフォーカスアウトライン。"
+      },
+      "voice": {
+        "tone": "安心感、信頼感、そしてミニマル。",
+        "headlineStyle": "エレガントなセリフ體で設定された、短くインパクトがあり、逆説的な文章。",
+        "ctaStyle": "直接的でアクション指向。多くの場合、全角大文字または太字のサンセリフ體で表現。",
+        "avoid": [
+          "複雑な組織化用語",
+          "ビジュアルの杂多な状態",
+          "太いボーダー",
+          "密なテキストブロック"
+        ]
+      },
+      "donts": [
+        "複雑なグリッドや複数カラムのレイアウトを使用しない — スクリーンショットは中央揃えの単一カラムに焦点を当てています。",
+        "ダークモードや暗い背景を使用しない — スクリーンショットは主にホワイト（#FFFFFF）のキャンバスです。",
+        "鋭い角や四角い角を使用しない — スクリーンショットは広く角丸のピルシェイプ要素が特徴です。",
+        "厳密なモノクロームパレットを使用しない — スクリーンショットは鮮やかなオレンジ（#FF5924）のアクセントと柔らかなパステルカラーが特徴です。",
+        "ヘッドラインに太く重みのあるサンセリフ體を使用しない — スクリーンショットは繊細なトランジショナル・セリフ體のディスプレイフォントが特徴です。",
+        "攻撃的でボックス状なボタンを使用しない — スクリーンショットは柔らかく角丸のピルシェイプボタンを示しています。"
+      ],
+      "systemPrompt": "mymind.comはプライベートで手軽なデジタル記憶と整理ツールです。そのデザインDNAは、クリーンなホワイト背景上の巨大なトランジショナル・セリフ體ヘッドライン、鮮やかなオレンジ（#FF5924）と柔らかく親しみやすいパステルハイライトが特徴です。レイアウトは中央揃えでミニマル、4pxグリッドによる一貫した间距と、 Highly rounded pill-shaped components are used. It maintains a calm, premium feel through generous white space and fluid, elegant transitions. Critical donts: avoid dark mode, avoid sharp corners, avoid dense multi-column grids, avoid heavy sans-serif display fonts, avoid visual clutter, and avoid aggressive or boxy button styles."
+    },
+    "ko": {
+      "identity": {
+        "keywords": [
+          "기억",
+          "정리",
+          "간결함",
+          "비공개",
+          "어시스턴트"
+        ],
+        "analogy": "자신을 스스로 정리하는 고요하고 포괄적인 디지털 도서관.",
+        "oneLiner": "모든 것을 한 곳에서 기억하고 정리하는 비공개이고 편안한 공간."
+      },
+      "colors": {
+        "principle": "따뜻하고 에너제틱한 주황색 포인트와 부드럽고 친근한 다채로운 하이라이트로 채워진 깔끔하고 넓은 여백."
+      },
+      "typography": {
+        "rules": [],
+        "scaleUses": [
+          "모든 것을 기억하라. 어떤 것도 정리하지 마라. - 메인 헤드라인",
+          "2차 대형 헤드라인",
+          "본문 텍스트 및 내비게이션",
+          "2차 UI 텍스트 및 링크"
+        ]
+      },
+      "spacing": {
+        "rhythm": "4px 기본 그리드의 일관된 사용과 숨 쉴 공간을 위한 넉넉한 padding(20px, 24px, 40px)."
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 57px 60px -54px rgba(255,154,36,0.1)",
+          "0px 0px 120px 0px rgba(0,0,0,0.15)"
+        ],
+        "border": "알약 모양의 태그와 입력 필드에 주로 사용하는, 절제된 1px solid 테두리."
+      },
+      "layout": {
+        "skeleton": "핵심 콘텐츠를 감싸는 거대하고 유연한 원형 배경 그라데이션이 있는 중앙 정렬 레이아웃."
+      },
+      "components": {
+        "button": "주황색 배경에 흰색 텍스트, 또는 얇은 테두리가 있는 알약 모양(border-radius: 999px) 버튼.",
+        "card": "콘텐츠 미리보기에 사용되는, 미세한 둥근 모서리(12-16px)의 깔끔한 흰색 카드.",
+        "chip": "콘텐츠 유형 분류를 위한 밝은 파스텔색 테두리와 색상 텍스트의 작은 둥근 알약 모양.",
+        "input": "미세한 회색 배경과 이탤릭체 플레이스홀더 텍스트가 있는 둥근 검색 바.",
+        "hero": "크고 부드러운 방사형 그라데이션 위에 중앙 정렬된 거대한 세리프 타이포그래피."
+      },
+      "motion": {
+        "patterns": [
+          "hover 상태와 메뉴 전개를 위한 부드럽고 탄성 있는 전환 효과."
+        ]
+      },
+      "interaction": {
+        "hover": "상호작용 요소의 미세한 스케일과 색상 변화, 클릭 가능성을 나타내는 손 모양 커서.",
+        "click": "미세한 색상 어두워짐으로 즉각적인 시각적 피드백.",
+        "transition": "모든 속성이 0.7s 동안 유연하고 고품질 느낌을 위해 커스텀 cubic-bezier로 부드럽게 전환됩니다.",
+        "keyboard": "접근성을 위한 표준 focus 윤곽선."
+      },
+      "voice": {
+        "tone": "안심시키고, 자신감을 주며, 미니멀한 어조.",
+        "headlineStyle": "우아한 세리프 서체로 설정된, 짧고 임팩트 있는 역설적 진술.",
+        "ctaStyle": "직접적이고 행동 지향적인, 종종 대문자 또는 굵은 sans-serif로 설정.",
+        "avoid": [
+          "복잡한 조직화 용어",
+          "시각적 혼잡",
+          "무거운 테두리",
+          "밀도 높은 텍스트 블록"
+        ]
+      },
+      "donts": [
+        "복잡한 그리드나 다중 열 레이아웃을 사용하지 마세요 — 스크린샷은 중앙 정렬 단일 열 초점을 보여줍니다.",
+        "다크 모드나 어두운 배경을 사용하지 마세요 — 스크린샷은 주로 흰색(#FFFFFF) 캔버스를 보여줍니다.",
+        "날카롭고 사각형 모서리를 사용하지 마세요 — 스크린샷은 널리 둥글고 알약 모양 요소를 보여줍니다.",
+        "엄격한 단색 팔레트를 사용하지 마세요 — 스크린샷은 생동감 있는 주황색 포인트(#FF5924)와 부드러운 파스텔색을 특징으로 합니다.",
+        "대담하고 무거운 sans-serif를 헤드라인에 사용하지 마세요 — 스크린샷은 섬세한 전환 세리프 전시 글꼴을 특징으로 합니다.",
+        "공격적이고 박스형 버튼을 사용하지 마세요 — 스크린샷은 부드럽고 둥근 알약 모양 버튼을 보여줍니다."
+      ],
+      "systemPrompt": "mymind.com은 비공개이고 편안한 디지털 기억 및 정리 도구입니다. its design DNA는 깔끔한 흰색 배경 위의 거대한 전환 세리프 헤드라인, 생동감 있는 주황색(#FF5924) 포인트, 그리고 부드럽고 친근한 파스텔 하이라이트로 특징지어집니다. 레이아웃은 중앙 정렬 및 미니멀하며, 일관된 간격을 위해 4px 그리드와 매우 둥글고 알약 모양의 구성 요소를 사용합니다. 넉넉한 여백과 유연하고 우아한 전환을 통해 차분하고 프리미엄 느낌을 유지합니다. 중요하지 않은 점: 다크 모드, 날카로운 모서리, 밀도 높은 다중 열 그리드, 무거운 sans-serif 전시 글꼴, 시각적 혼잡, 공격적이거나 박스형 버튼 스타일은 피하세요."
+    }
+  },
+  "desc": {
+    "en": {
+      "palette": "A clean, expansive white canvas dominated by soft gradients, anchored by a vibrant orange (#FF5924) accent and delicate pastel highlights.",
+      "layout": "A centered, single-column structure focused on massive typography and generous white space, framed by a fluid circular gradient.",
+      "interaction": "Smooth, fluid transitions and elastic hover states create a high-quality, calming user experience.",
+      "motion": "Elegant, extended transitions using custom cubic-bezier curves provide a sense of premium fluidity.",
+      "notes": "This site is an excellent example of using bold, expressive typography on a minimalist canvas to create a strong, memorable brand identity."
+    },
+    "zh-CN": {
+      "palette": "一个干净、开阔的白色画布，以柔和的渐变为主导，点缀着活力橙色（#FF5924）强调色和精致的柔彩色高光。",
+      "layout": "居中的单栏结构，专注于超大排版和充裕的留白，由流畅的圆形渐变勾勒框架。",
+      "interaction": "平滑、流畅的过渡和弹性 hover 状态，创造出高品质、舒缓的用户体验。",
+      "motion": "优雅、舒展的过渡效果，采用自定义 cubic-bezier 曲线，营造出高级的流畅感。",
+      "notes": "这个网站是利用简约画布上的粗体、富有表现力的排版，来创造强烈、令人难忘的品牌标识的绝佳范例。"
+    },
+    "zh-TW": {
+      "palette": "一塊乾淨、寬敞的白色畫布，以柔和的漸層為主，搭配鮮活的橘色（#FF5924）強調色與細緻的粉彩色點綴。",
+      "layout": "以居中、單欄結構為核心，聚焦於大膽的排版與充足的留白，並以流動的圓形漸層作為框架。",
+      "interaction": "流暢、無縫的過渡效果與彈性的懸停狀態，營造出高品質、令人平靜的使用者體驗。",
+      "motion": "優雅、延展的過渡效果，使用自訂 cubic-bezier 曲線，帶來高端的流動感。",
+      "notes": "這個網站是極簡畫布上使用大膽、富有表現力字體，以塑造強烈且令人難忘品牌識別的絕佳範例。"
+    },
+    "ja": {
+      "palette": "柔らかなグラデーションを主とした、清潔で広大なホワイトキャンバス。鮮やかなオレンジ（#FF5924）のアクセントと繊細なパステルカラーのハイライトでまとめられています。",
+      "layout": "巨大なタイポグラフィと十分な余白に焦点を当てた、中央揃えの単一カラム構造。流動的な円形グラデーションでフレームを形成します。",
+      "interaction": "滑らかで流動的なトランジションと弾力性のあるホバーステートが、高品質で落ち着いたユーザー体験を生み出します。",
+      "motion": "カスタムcubic-bezierカーブを使用した、上品で長めのトランジションが、プレミアムな流動感を提供します。",
+      "notes": "このサイトは、ミニマルなキャンバス上に太字で表現力豊かなタイポグラフィを使用し、強く印象的なブランドアイデンティティを創造する絶好の例です。"
+    },
+    "ko": {
+      "palette": "부드러운 그라데이션이 지배하는 깔끔하고 넓은 흰색 캔버스에, 생동감 있는 주황색(#FF5924) 포인트와 섬세한 파스텔 하이라이트가 중심을 잡아줍니다.",
+      "layout": "거대한 타이포그래피와 넉넉한 여백에 초점을 맞춘 중앙 정렬 단일 열 구조로, 유연한 원형 그라데이션이 틀을 잡아줍니다.",
+      "interaction": "부드럽고 유연한 전환 효과와 탄성 있는 hover 상태가 고품질의 차분한 사용자 경험을 만들어냅니다.",
+      "motion": "커스텀 cubic-bezier 곡선을 사용한 우아하고 긴 전환 효과가 프리미엄 수준의 유연함을 제공합니다.",
+      "notes": "이 사이트는 미니멀한 캔버스 위에 대담하고 표현력 있는 타이포그래피를 사용하여 강력하고 기억에 남는 브랜드 아이덴티티를 만든 훌륭한 사례입니다."
+    }
+  },
+  "narrative": {
+    "en": {
+      "ch1_intro": "Mymind's design operates like a serene, all-encompassing digital library that organizes itself—a private, effortless space built to remember and organize everything. The system achieves this through a deliberate tension between massive, expressive typography and a vast, minimalist canvas.",
+      "ch2_intro": "The color palette is defined by a clean, expansive white space, punctuated by a warm, energetic orange accent and soft, friendly multi-colored highlights. This creates a sense of clarity and focus, where color is used sparingly as a functional and emotional beacon rather than a dominant force.",
+      "ch2_outro": "The principle is one of restraint, allowing the vibrant orange to act as a confident anchor within a calm, legible field.",
+      "ch3_intro": "The typographic voice is anchored by a delicate transitional serif for display headlines, set in a paradoxical, punchy style. This choice forges a memory-assistant persona that is both intelligent and reassuring, contrasting with the clean sans-serif used for functional body text and navigation.",
+      "ch4_intro": "A consistent 4px base grid establishes the underlying rhythm, providing mathematical harmony to the layout.",
+      "ch5_intro": "Depth is communicated through soft, ambient shadows—some tinted with the orange accent—rather than stark, defining edges. Borders are used with extreme sparingness, reserved primarily for the outlines of interactive pill-shaped components like tags and input fields.",
+      "ch6_intro": "The layout skeleton is a centered, single-column focus, deliberately avoiding dense, multi-column complexity. This structure is framed by a massive, fluid circular background gradient that adds warmth and organic movement behind the core content.",
+      "ch7_intro": "Motion philosophy favors smooth, elastic transitions that feel physically responsive and high-quality. All interactions use extended, fluid timings to create a calming, premium sense of continuity.",
+      "ch8_intro": "The editorial voice is reassuring, confident, and minimalist, avoiding complex organizational jargon and visual clutter. It communicates through short, punchy statements and direct, action-oriented calls to action.",
+      "ch8_outro": "The system deliberately avoids dark mode, sharp corners, dense grids, and heavy sans-serif headlines to preserve its signature atmosphere of serene simplicity."
+    },
+    "zh-CN": {
+      "ch1_intro": "Mymind 的设计运作如同一座宁静、包罗万象的数字图书馆，它能自我组织——这是一个私密、轻松的空间，专为记住和整理一切而构建。系统通过庞大的、富有表现力的排版与广阔、极简的画布之间的刻意张力来实现这一点。",
+      "ch2_intro": "色彩方案由干净、广阔的留白定义，点缀着温暖、充满活力的橙色强调色和柔和、友好的多彩高光。这营造出一种清晰和专注的感觉，色彩被节制地用作功能性和情感上的指引，而非主导力量。",
+      "ch2_outro": "其原则是克制，让充满活力的橙色在平静、易读的领域中充当自信的锚点。",
+      "ch3_intro": "排版的声音以用于展示标题的精致过渡衬线体为基础，采用了矛盾而有力的风格。这种选择塑造了一个既智能又令人安心的记忆助手形象，与用于功能性正文和导航的干净无衬线体形成对比。",
+      "ch4_intro": "一个一致的 4px 基础网格确立了底层的节奏，为布局提供了数学上的和谐感。",
+      "ch5_intro": "深度通过柔和的环境阴影来传达——部分带有橙色强调色的色调——而非生硬、清晰的边缘。边框的使用极其克制，主要保留给交互式胶囊形组件（如标签和输入框）的轮廓。",
+      "ch6_intro": "布局骨架是居中的单列焦点，刻意避免密集、多列的复杂性。这个结构由一个巨大、流动的圆形背景渐变构成框架，为核心内容增添了温暖感和有机的动感。",
+      "ch7_intro": "动效理念偏爱平滑、弹性的过渡，感觉具有物理响应性和高品质。所有交互都使用延长、流畅的时间设定，以营造一种平静、优质的连续感。",
+      "ch8_intro": "编辑的声音是令人安心的、自信的且极简的，避免复杂的组织术语和视觉杂乱。它通过简短、有力的陈述和直接、行动导向的号召性用语进行沟通。",
+      "ch8_outro": "系统刻意避免深色模式、尖锐边角、密集网格和厚重的无衬线标题，以保持其标志性的宁静简约氛围。"
+    },
+    "zh-TW": {
+      "ch1_intro": "Mymind 的設計運作如同一座寧靜、包羅萬象的數位圖書館，它自行組織——一個私密、毫不費力的空間，旨在記憶並整理一切。系統透過一個深思熟慮的張力來達成此目標：極具表現力的巨量排版，與廣闊極簡畫布之間的對話。",
+      "ch2_intro": "色彩方案以一片乾淨、寬廣的留白為定調，點綴著溫暖、充滿活力的橙色強調色，以及柔和、友善的多色高光。這創造出一種清晰且專注的氛圍，其中色彩被節制地用作功能與情感的指引燈塔，而非主導力量。",
+      "ch2_outro": "其原則是克制，讓活潑的橙色在平靜、易讀的場域中，扮演一個自信的錨點。",
+      "ch3_intro": "排版語調以一款精緻的過渡襯線字體為主導，用於顯示標題，並以一種矛盾、有力的方式設定。這個選擇塑造了一位既智慧又令人安心的記憶助手角色，與用於功能性內文及導航的簡潔無襯線字體形成對比。",
+      "ch4_intro": "一致的 4px 基礎網格建立了底層節奏，為版面佈局提供數學般的和諧。",
+      "ch5_intro": "深度透過柔和、環境感的陰影來傳達——部分陰影帶有橙色強調色的色調——而非生硬、定義邊緣的陰影。邊框的使用極度節制，主要保留給互動式膠囊形組件（如標籤和輸入欄位）的輪廓。",
+      "ch6_intro": "版面骨架是置中、單欄的焦點式佈局，刻意避免了密集、多欄的複雜性。此結構由一個巨大、流動的圓形背景漸層所框架，為核心內容背後增添了溫暖與有機的動感。",
+      "ch7_intro": "動態哲學偏好平滑、富有彈性的過渡，使其感覺具有物理回應性且高品質。所有互動皆使用延伸、流暢的時長，以營造一種冷靜、高級的連續感。",
+      "ch8_intro": "編輯語調是令人安心、自信且極簡的，避免了複雜的組織術語與視覺雜亂。它透過簡短、有力的陳述以及直接、以行動為導向的呼籲來溝通。",
+      "ch8_outro": "系統刻意避免了深色模式、銳利圓角、密集網格以及厚重的無襯線標題，以保留其標誌性的寧靜簡約氛圍。"
+    },
+    "ja": {
+      "ch1_intro": "Mymindのデザインは、静かで包み込むようなデジタル図書館のように機能し、自らが整理されるプライベートで手軽な空間として構築されています。記憶し、整理するために。このシステムは、巨大で表現力豊かなタイポグラフィと、広大でミニマルなキャンバスの間に意図的な緊張関係を作ることでそれを実現します。",
+      "ch2_intro": "カラーパレットは、清潔で広がりのあるホワイトスペースを基調とし、暖かくエネルギッシュなオレンジのアクセントと、柔らかくフレンドリーなマルチカラーのハイライトで装飾されています。これにより、明瞭さと集中力が生み出され、色彩は支配的な力としてではなく、機能的で感情的な灯台として控えめに使用されています。",
+      "ch2_outro": "原則は抑制にあり、鮮やかなオレンジが、穏やかで可読性の高いフィールド内で自信の拠り所となることを可能にしています。",
+      "ch3_intro": "タイポグラフィの声は、ディスプレイ見出しに繊細なトランジショナルセリフを基盤とし、逆説的で力強いスタイルで設定されています。この選択は、インテリジェントでありながら安心感を与える記憶補助ツールとしてのペルソナを形成し、機能的な本文とナビゲーションに使用されるクリーンなサンセリフとは対照をなしています。",
+      "ch4_intro": "一貫した4pxベースグリッドが基礎となるリズムを確立し、レイアウトに数学的な調和をもたらします。",
+      "ch5_intro": "奥行きは、鋭く定義された縁ではなく、ソフトで環境的なシャドウ（オレンジのアクセントが色づけられたものもある）によって伝達されます。ボーダーは極めて控えめに使用され、主にタグや入力フィールドなどのインタラクティブなピル型コンポーネントのアウトラインに限定されています。",
+      "ch6_intro": "レイアウトの骨格は、中央揃えの単一カラムフォーカスであり、密集した複雑なマルチカラム構成を意図的に避けています。この構造は、核心コンテンツの背後で温かみと有機的な動きを加える巨大で流動的な円形の背景グラデーションによってフレームをなされています。",
+      "ch7_intro": "モーションの哲学は、物理的に反応し、高品質に感じられる滑らかで弾力的な遷移を好んでいます。すべてのインタラクションは、穏やかで上品な連続性を生み出すために、拡張され流動的なタイミングを使用しています。",
+      "ch8_intro": "エディトリアルボイスは、安心感、自信、ミニマリズムを重視し、複雑な組織用語や視覚的な雑然とした要素を避けます。短く力強いステートメントと、直接的で行動を促すCTAを通じてコミュニケーションします。",
+      "ch8_outro": "システムは、静謐なシンプルさの独自の雰囲気を保つため、ダークモード、シャープな角、密集したグリッド、重厚なサンセリフの見出しなどを意図的に避けています。"
+    },
+    "ko": {
+      "ch1_intro": "Mymind의 디자인은 자체적으로 정리되는 고요하고 포용적인 디지털 도서관처럼 작동합니다. 기억하고 정리할 수 있도록 만들어진 사적이면서도 수월한 공간입니다. 이 시스템은 방대하고 표현적인 타이포그래피와 광활한 미니멀리스트 캔버스 사이의 의도적인 긴장을 통해 이를 구현합니다.",
+      "ch2_intro": "색상 팔레트는 깨끗하고 넓은 여백으로 정의되며, 여기에 따뜻하고 활기찬 오렌지 강조색과 부드럽고 친근한 다색 하이라이트가 점으로 찍힙니다. 이는 명확성과 집중감을 만들어내며, 색상은 지배적인 힘이 아닌 기능적이고 감정적인 신호로 절제되게 사용됩니다.",
+      "ch2_outro": "원리는 절제이며, 활기찬 오렌지가 차분하고 읽기 쉬운 공간 안에서 자신감 있는 앵커 역할을 하도록 허용합니다.",
+      "ch3_intro": "타이포그래피적 목소리는 디스플레이 헤드라인을 위해 우아한 전환체 세리프에 기반하며, 모순적이고 강렬한 스타일로 설정됩니다. 이 선택은 지능적이면서도 안심시키는 메모리 어시스턴트 페르소나를 만들어내며, 기능적인 본문 텍스트와 네비게이션에 사용되는 깨끗한 산세리프와 대조를 이룹니다.",
+      "ch4_intro": "일관된 4px 기본 그리드는 기본 리듬을 확립하여 레이아웃에 수학적 조화를 제공합니다.",
+      "ch5_intro": "깊이는 날카롭고 단정한 테두리 대신 부드러운 앰비언트 그림자로 전달됩니다. 일부는 오렌지 강조색으로 틴트됩니다. 테두리는 극도로 절제되게 사용되며, 주로 태그와 입력 필드 같은 인터랙티브 필pill 형태의 컴포넌트 윤곽선에 예약됩니다.",
+      "ch6_intro": "레이아웃 골격은 중심화된 단일 열 집중으로, 의도적으로 밀집된 다열 복잡성을 피합니다. 이 구조는 핵심 콘텐츠 뒤에 따뜻함과 유기적인 움직임을 더하는 거대하고 유동적인 원형 배경 그라디언트로 프레임을 이룹니다.",
+      "ch7_intro": "모션 철학은 물리적으로 반응하고 고품질로 느껴지는 부드럽고 탄력적인 전환을 선호합니다. 모든 상호작용은 차분하고 프리미엄한 연속성을 만들기 위해 확장되고 유동적인 타이밍을 사용합니다.",
+      "ch8_intro": "에디토리얼 목소리는 안심시키고 자신감 있으며 미니멀리스트로, 복잡한 조직화 전문 용어와 시각적 혼란을 피합니다. 짧고 강렬한 진술과 직접적이고 행동 지향적인 콜 투 액션을 통해 소통합니다.",
+      "ch8_outro": "이 시스템은 특유의 고요한 단순함 분위기를 보존하기 위해 다크 모드, 날카로운 모서리, 밀집된 그리드, 무거운 산세리프 헤드라인을 의도적으로 피합니다."
+    }
+  }
 }

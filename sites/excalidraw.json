@@ -8,6 +8,607 @@
     "design",
     "tool"
   ],
-  "status": "pending",
-  "added_at": "2026-06-02"
+  "status": "completed",
+  "added_at": "2026-06-02",
+  "spec": {
+    "colors": {
+      "bg": "#ecf0f4",
+      "bgSoft": "#f1f0ff",
+      "bgQuiet": "#ffffff",
+      "ink": "#1b1b1f",
+      "inkSoft": "#999999",
+      "muted": "#b8b8b8",
+      "mutedSoft": null,
+      "accent": "#6969db",
+      "line": "rgba(0,0,0,0.1)"
+    },
+    "typography": {
+      "display": "hand-drawn",
+      "body": "humanist-sans",
+      "mono": "monospace",
+      "scale": [
+        {
+          "token": "display",
+          "size": 32,
+          "lh": 1.2,
+          "weight": 700,
+          "ls": "0px"
+        },
+        {
+          "token": "body",
+          "size": 16,
+          "lh": 1.35,
+          "weight": 400,
+          "ls": "0px"
+        },
+        {
+          "token": "caption",
+          "size": 14,
+          "lh": 1.4,
+          "weight": 400,
+          "ls": "0px"
+        }
+      ]
+    },
+    "spacing": {
+      "base": 4,
+      "scale": [
+        4,
+        8,
+        12,
+        16,
+        24,
+        32,
+        48,
+        64
+      ]
+    },
+    "surfaces": {
+      "radius": {
+        "sm": 4,
+        "md": 8,
+        "lg": 12,
+        "pill": 999
+      }
+    },
+    "layout": {
+      "container": null,
+      "paragraph": null,
+      "columns": null,
+      "gutter": 8,
+      "breakpoints": [
+        768,
+        1024
+      ]
+    },
+    "motion": {
+      "durations": {
+        "micro": 220,
+        "small": 400,
+        "medium": 800
+      },
+      "easing": "ease-in-out"
+    }
+  },
+  "spec_i18n": {
+    "en": {
+      "identity": {
+        "keywords": [
+          "sketch",
+          "whiteboard",
+          "collaborative",
+          "hand-drawn",
+          "minimal"
+        ],
+        "analogy": "A blank canvas with a pencil, ready for rapid ideation",
+        "oneLiner": "A collaborative whiteboard tool designed for speed and simplicity, featuring a signature hand-drawn aesthetic."
+      },
+      "colors": {
+        "principle": "High-contrast hand-drawn lines on a soft, neutral canvas background."
+      },
+      "typography": {
+        "rules": [
+          "Use a hand-drawn style font for the primary logo and on-canvas elements.",
+          "Use a clean humanist-sans for UI elements, menus, and system messages.",
+          "Maintain high legibility with standard 16px base sizing for canvas UI."
+        ],
+        "scaleUses": [
+          "Brand logo",
+          "Default text",
+          "Secondary instructions"
+        ]
+      },
+      "spacing": {
+        "rhythm": "Flexible and organic, dictated by the canvas elements rather than a strict grid."
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 0px 0px 1px rgba(255, 255, 255, 1)",
+          "0px 0px 1px 0px rgba(0, 0, 0, 0.17)",
+          "0px 7px 14px 0px rgba(0, 0, 0, 0.05)"
+        ],
+        "borders": "Subtle 1px borders in neutral grays for UI containers."
+      },
+      "layout": {
+        "skeleton": "Infinite canvas with absolute positioning for user-created elements."
+      },
+      "components": {
+        "button": "Rounded rectangles with subtle shadows for UI controls.",
+        "card": "Simple bordered containers for settings or tooltips.",
+        "chip": "Keyboard shortcut indicators displayed in bordered rounded rectangles.",
+        "input": "Text input fields with clean borders and minimal styling.",
+        "hero": "Centralized brand logo and primary call-to-action links."
+      },
+      "motion": {
+        "patterns": [
+          "Smooth transitions for tool selection and UI state changes.",
+          "Subtle transform animations for interactive elements."
+        ]
+      },
+      "interaction": {
+        "hover": "Subtle shadow changes and color shifts on interactive elements.",
+        "click": "Immediate visual feedback on tool selection.",
+        "transition": "All transitions are smooth and use ease-in-out timing.",
+        "keyboard": "Extensive keyboard shortcuts displayed directly in the UI for efficiency."
+      },
+      "voice": {
+        "tone": "Helpful, direct, and slightly informal.",
+        "headlineStyle": "Hand-drawn, expressive, and visually distinct.",
+        "ctaStyle": "Clear and action-oriented, often paired with keyboard shortcuts.",
+        "avoid": [
+          "Avoid overly corporate or sterile language.",
+          "Avoid complex or confusing instructional text.",
+          "Avoid hidden UI elements that require discovery."
+        ]
+      },
+      "donts": [
+        "Don't use a dark theme — the screenshot shows a light, bright canvas background.",
+        "Don't use sharp 90-degree corners on UI elements — the screenshot shows a preference for 4px to 12px border-radius.",
+        "Don't use purely geometric, sterile fonts — the screenshot prominently features a hand-drawn font for the brand.",
+        "Don't hide keyboard shortcuts — the screenshot shows them clearly labeled next to UI actions.",
+        "Don't use heavy, dark borders — the screenshot shows light, subtle 1px borders and soft shadows.",
+        "Don't use a complex, multi-column layout — the screenshot shows a minimalist, canvas-centric interface."
+      ],
+      "systemPrompt": "Excalidraw is a minimalist, collaborative whiteboard tool that prioritizes a sketch-like, hand-drawn aesthetic. The primary accent color is a soft purple (#6969db) used for highlights and the brand mark, set against a light gray canvas (#ecf0f4). The typography mixes a custom hand-drawn font for on-canvas elements with a clean humanist-sans for UI components. Key interaction patterns include floating toolbars and inline keyboard shortcut labels. Critical design constraints: maintain a high-contrast, sketchy visual style; use rounded corners for all UI elements; and avoid dark modes or overly complex, corporate layouts."
+    },
+    "zh-CN": {
+      "identity": {
+        "keywords": [
+          "草图",
+          "白板",
+          "协作",
+          "手绘",
+          "极简"
+        ],
+        "analogy": "一张空白画布配上铅笔，随时可进行快速创意构思",
+        "oneLiner": "一款为速度和简洁性而设计的协作白板工具，具有标志性的手绘美学。"
+      },
+      "colors": {
+        "principle": "在柔和、中性的画布背景上绘制高对比度的手绘线条。"
+      },
+      "typography": {
+        "rules": [
+          "为标志和画布上的元素使用手绘风格字体。",
+          "为 UI 元素、菜单和系统消息使用干净的 humanist-sans 字体。",
+          "保持画布 UI 使用标准 16px 基础尺寸以确保高可读性。"
+        ],
+        "scaleUses": [
+          "品牌标志",
+          "默认文本",
+          "辅助说明"
+        ]
+      },
+      "spacing": {
+        "rhythm": "灵活且自然，由画布元素而非严格网格决定。"
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 0px 0px 1px rgba(255, 255, 255, 1)",
+          "0px 0px 1px 0px rgba(0, 0, 0, 0.17)",
+          "0px 7px 14px 0px rgba(0, 0, 0, 0.05)"
+        ],
+        "borders": "UI 容器使用中性灰色的细微 1px 边框。"
+      },
+      "layout": {
+        "skeleton": "无限画布，使用绝对定位放置用户创建的元素。"
+      },
+      "components": {
+        "button": "带有细微阴影的圆角矩形，用于 UI 控件。",
+        "card": "用于设置或工具提示的简单带边框容器。",
+        "chip": "在带边框的圆角矩形中显示的键盘快捷键指示器。",
+        "input": "带有干净边框和极简样式的文本输入框。",
+        "hero": "居中的品牌标志和主要号召性用语链接。"
+      },
+      "motion": {
+        "patterns": [
+          "用于工具选择和 UI 状态变化的流畅过渡。",
+          "交互元素的细微变换动画。"
+        ]
+      },
+      "interaction": {
+        "hover": "交互元素上的细微阴影变化和颜色偏移。",
+        "click": "工具选择时的即时视觉反馈。",
+        "transition": "所有过渡都是流畅的，并使用 ease-in-out 时序。",
+        "keyboard": "在 UI 中直接显示广泛的键盘快捷键以提高效率。"
+      },
+      "voice": {
+        "tone": "乐于助人、直接且略带非正式。",
+        "headlineStyle": "手绘、富有表现力且视觉上独特。",
+        "ctaStyle": "清晰且面向行动，通常与键盘快捷键配对。",
+        "avoid": [
+          "避免过于公司化或无菌的语言。",
+          "避免复杂或令人困惑的说明文本。",
+          "避免需要探索才能发现的隐藏 UI 元素。"
+        ]
+      },
+      "donts": [
+        "不要使用深色主题 — 截图显示的是浅色、明亮的画布背景。",
+        "不要在 UI 元素上使用尖锐的 90 度角 — 截图显示偏好 4px 到 12px 的圆角。",
+        "不要使用纯粹几何、无菌的字体 — 截图突出显示了品牌的手绘字体。",
+        "不要隐藏键盘快捷键 — 截图显示它们清晰地标注在 UI 操作旁边。",
+        "不要使用厚重、深色的边框 — 截图显示的是浅色、细微的 1px 边框和柔和阴影。",
+        "不要使用复杂、多列的布局 — 截图显示的是极简、以画布为中心的界面。"
+      ],
+      "systemPrompt": "Excalidraw 是一款极简的协作白板工具，优先考虑类似草图的手绘美学。主要的强调色是柔和的紫色 (#6969db)，用于高亮和品牌标识，设置在浅灰色画布 (#ecf0f4) 上。字体混合了用于画布元素的自定义手绘字体和用于 UI 组件的干净 humanist-sans。关键交互模式包括浮动工具栏和内联键盘快捷键标签。关键设计约束：保持高对比度、草图般的视觉风格；所有 UI 元素使用圆角；避免深色模式或过于复杂、公司化的布局。"
+    },
+    "zh-TW": {
+      "identity": {
+        "keywords": [
+          "素描",
+          "白板",
+          "協作",
+          "手繪",
+          "極簡"
+        ],
+        "analogy": "一張空白畫布配上鉛筆，準備進行快速構思",
+        "oneLiner": "一款專為速度與簡潔性而設計的協作白板工具，具有標誌性的手繪美學。"
+      },
+      "colors": {
+        "principle": "在柔軟、中性的畫布背景上，使用高對比的手繪線條。"
+      },
+      "typography": {
+        "rules": [
+          "主要標誌與畫布上的元素使用手繪風格字體。",
+          "UI 元素、選單與系統訊息使用清晰的人文無襯線字體。",
+          "畫布 UI 保持 16px 基礎尺寸，以確保高可讀性。"
+        ],
+        "scaleUses": [
+          "品牌標誌",
+          "預設文字",
+          "次要說明"
+        ]
+      },
+      "spacing": {
+        "rhythm": "靈活且有機，由畫布元素決定，而非嚴格的網格。"
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 0px 0px 1px rgba(255, 255, 255, 1)",
+          "0px 0px 1px 0px rgba(0, 0, 0, 0.17)",
+          "0px 7px 14px 0px rgba(0, 0, 0, 0.05)"
+        ],
+        "borders": "UI 容器使用細微的 1px 中性灰色邊框。"
+      },
+      "layout": {
+        "skeleton": "無限畫布，使用者建立的元素採用絕對定位。"
+      },
+      "components": {
+        "button": "圓角矩形，帶有細微陰影，用於 UI 控制項。",
+        "card": "簡單的邊框容器，用於設定或工具提示。",
+        "chip": "鍵盤快捷鍵指示器，顯示在帶邊框的圓角矩形中。",
+        "input": "文字輸入欄位，具有清晰的邊框與簡約的樣式。",
+        "hero": "中央的品牌標誌與主要行動呼籲連結。"
+      },
+      "motion": {
+        "patterns": [
+          "工具選擇與 UI 狀態變換時的平滑過渡。",
+          "互動元素的細微變換動畫。"
+        ]
+      },
+      "interaction": {
+        "hover": "互動元素上的細微陰影變化與顏色轉換。",
+        "click": "工具選擇時的即時視覺回饋。",
+        "transition": "所有過渡效果均流暢，並使用 ease-in-out 時間函數。",
+        "keyboard": "在 UI 中直接顯示大量鍵盤快捷鍵以提升效率。"
+      },
+      "voice": {
+        "tone": " helpful、直接且略帶非正式。",
+        "headlineStyle": "手繪、表達力強且視覺上獨特。",
+        "ctaStyle": "清晰且以行動為導向，常與鍵盤快捷鍵搭配。",
+        "avoid": [
+          "避免過於企業化或死板的語言。",
+          "避免複雜或令人困惑的指示性文字。",
+          "避免需要使用者探索的隱藏式 UI 元素。"
+        ]
+      },
+      "donts": [
+        "不要使用深色主題——截圖顯示的是淺色、明亮的畫布背景。",
+        "不要在 UI 元素上使用銳利的 90 度直角——截圖顯示偏好 4px 至 12px 的圓角半徑。",
+        "不要使用純粹幾何、死板的字體——截圖顯著地使用了手繪字體作為品牌標誌。",
+        "不要隱藏鍵盤快捷鍵——截圖顯示它們清晰地標示在 UI 操作旁邊。",
+        "不要使用厚重、深色的邊框——截圖顯示的是淺色、細微的 1px 邊框與柔和陰影。",
+        "不要使用複雜、多欄佈局——截圖顯示的是以畫布為中心的極簡介面。"
+      ],
+      "systemPrompt": "Excalidraw 是一款極簡的協作白板工具，優先採用類似素描、手繪的美學。主要的強調色是柔和的紫色 (#6969db)，用於標示重點與品牌標誌，背景是淺灰色的畫布 (#ecf0f4)。字體混合了用於畫布元素的自訂手繪字體，以及用於 UI 元件的清晰人文無襯線字體。關鍵互動模式包括浮動工具列與內聯的鍵盤快捷鍵標示。關鍵設計限制：保持高對比、素描般的視覺風格；所有 UI 元素使用圓角；避免深色模式或過於複雜、企業化的佈局。"
+    },
+    "ja": {
+      "identity": {
+        "keywords": [
+          "スケッチ",
+          "ホワイトボード",
+          "コラボレーション",
+          "手描き",
+          "ミニマル"
+        ],
+        "analogy": "鉛筆を持った空白のキャンバス。迅速なアイデア発想の準備完了",
+        "oneLiner": "スピードとシンプルさのためにデザインされた、シグネチャーな手描きアエステティックを特徴とするコラボレーションホワイトボードツール。"
+      },
+      "colors": {
+        "principle": "柔らかいニュートラルキャンバス背景の上に、ハイコントラストの手描きライン。"
+      },
+      "typography": {
+        "rules": [
+          "プライマリロゴとキャンバス上の要素には手描きスタイルのフォントを使用。",
+          "UI要素、メニュー、システムメッセージにはクリーンなhumanist-sansを使用。",
+          "キャンバスUIには標準の16pxベースサイズを維持し、高い可読性を確保。"
+        ],
+        "scaleUses": [
+          "ブランドロゴ",
+          "デフォルトテキスト",
+          "補助的な指示"
+        ]
+      },
+      "spacing": {
+        "rhythm": "厳格なグリッドではなく、キャンバス要素によって支配される柔軟でオーガニックなリズム。"
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 0px 0px 1px rgba(255, 255, 255, 1)",
+          "0px 0px 1px 0px rgba(0, 0, 0, 0.17)",
+          "0px 7px 14px 0px rgba(0, 0, 0, 0.05)"
+        ],
+        "borders": "UIコンテナにはニュートラルグレーの微細な1pxボーダー。"
+      },
+      "layout": {
+        "skeleton": "ユーザー作成要素の絶対位置指定を持つ無限キャンバス。"
+      },
+      "components": {
+        "button": "UIコントロール用の微細なシャドウ付き角丸長方形。",
+        "card": "設定やツールチップ用のシンプルなボーダー付きコンテナ。",
+        "chip": "ボーダー付き角丸長方形で表示されるキーボードショートカットインジケーター。",
+        "input": "クリーンなボーダーとミニマルなスタイリングのテキスト入力フィールド。",
+        "hero": "中央に配置されたブランドロゴとプライマリCTAリンク。"
+      },
+      "motion": {
+        "patterns": [
+          "ツール選択とUI状態変化のための滑らかなトランジション。",
+          "インタラクティブ要素のための微細なトランスフォームアニメーション。"
+        ]
+      },
+      "interaction": {
+        "hover": "インタラクティブ要素の微細なシャドウ変化とカラーシフト。",
+        "click": "ツール選択時の即時視覚フィードバック。",
+        "transition": "すべてのトランジションは滑らかで、ease-in-outタイミングを使用。",
+        "keyboard": "効率のためにUI内に直接表示される、幅広いキーボードショートカット。"
+      },
+      "voice": {
+        "tone": "フレンドリーで直接的、ややカジュアル。",
+        "headlineStyle": "手描きで表現豊か、視覚的に際立っている。",
+        "ctaStyle": "明確でアクション指向、キーボードショートカットと組み合わせることが多い。",
+        "avoid": [
+          "過度に企業的または無機質な言語を避ける。",
+          "複雑または混乱を招く指示テキストを避ける。",
+          "探す必要がある隠れたUI要素を避ける。"
+        ]
+      },
+      "donts": [
+        "ダークテーマを使用しない — スクリーンショットでは明るい、明るいキャンバス背景が示されている。",
+        "UI要素に鋭い90度の角を使用しない — スクリーンショットでは4pxから12pxのボーダーラディウスが好まれている。",
+        "純粋に幾何学的で無機質なフォントを使用しない — スクリーンショットではブランドに手描きフォントが顕著に使用されている。",
+        "キーボードショートカットを隠さない — スクリーンショットではUIアクションの横に明確にラベル付けされている。",
+        "太く暗いボーダーを使用しない — スクリーンショットでは明るく微細な1pxボーダーと柔らかいシャドウが使用されている。",
+        "複雑なマルチカラムレイアウトを使用しない — スクリーンショットではミニマルでキャンバス中心のインターフェースが示されている。"
+      ],
+      "systemPrompt": "Excalidrawは、スケッチ風の手描きアエステティックを優先するミニマルなコラボレーションホワイトボードツールです。プライマリアクセントカラーは、ハイライトとブランドマークに使用される柔らかい紫色(#6969db)で、ライトグレーのキャンバス(#ecf0f4)の上に配置されています。タイポグラフィは、キャンバス上の要素にはカスタム手描きフォント、UIコンポーネントにはクリーンなhumanist-sansを組み合わせています。主要なインタラクションパターンには、フローティングツールバーとインラインキーボードショートカットラベルが含まれます。重要なデザイン制約：ハイコントラストでスケッチ調のビジュアルスタイルを維持；すべてのUI要素に角丸を使用；ダークモードや過度に複雑で企業的なレイアウトを避ける。"
+    },
+    "ko": {
+      "identity": {
+        "keywords": [
+          "스케치",
+          "화이트보드",
+          "협업",
+          "손으로 그린 듯한",
+          "미니멀"
+        ],
+        "analogy": "빠른 아이디어 구상을 위해 준비된 연필과 빈 캔버스",
+        "oneLiner": "손으로 그린 듯한 미학을 특징으로 하여 속도와 단순성을 위해 설계된 협업 화이트보드 도구입니다."
+      },
+      "colors": {
+        "principle": "부드럽고 중립적인 캔버스 배경 위에 고대비의 손으로 그린 듯한 선을 사용합니다."
+      },
+      "typography": {
+        "rules": [
+          "로고와 캔버스 요소에는 손으로 그린 듯한 스타일의 글꼴을 사용합니다.",
+          "UI 요소, 메뉴 및 시스템 메시지에는 깔끔한 humanist-sans 글꼴을 사용합니다.",
+          "캔버스 UI에는 표준 16px 기본 크기를 유지하여 높은 가독성을 확보합니다."
+        ],
+        "scaleUses": [
+          "브랜드 로고",
+          "기본 텍스트",
+          "보조 설명"
+        ]
+      },
+      "spacing": {
+        "rhythm": "엄격한 그리드보다는 캔버스 요소에 의해 결정되는 유연하고 유기적인 리듬을 사용합니다."
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 0px 0px 1px rgba(255, 255, 255, 1)",
+          "0px 0px 1px 0px rgba(0, 0, 0, 0.17)",
+          "0px 7px 14px 0px rgba(0, 0, 0, 0.05)"
+        ],
+        "borders": "UI 컨테이너에는 섬세한 1px의 중립적인 회색 테두리를 사용합니다."
+      },
+      "layout": {
+        "skeleton": "사용자 생성 요소들을 위해 절대 위치를 사용하는 무한 캔버스입니다."
+      },
+      "components": {
+        "button": "UI 컨트롤을 위한 섬세한 그림자가 있는 둥근 사각형입니다.",
+        "card": "설정이나 툴팁을 위한 간단한 테두리 컨테이너입니다.",
+        "chip": "테두리가 있는 둥근 사각형으로 표시되는 키보드 단축키 표시기입니다.",
+        "input": "깔끔한 테두리와 최소한의 스타일링을 가진 텍스트 입력 필드입니다.",
+        "hero": "중앙에 배치된 브랜드 로고와 주요 호출-to-액션 링크입니다."
+      },
+      "motion": {
+        "patterns": [
+          "도구 선택 및 UI 상태 변경을 위한 부드러운 전환 효과.",
+          "상호작용 요소를 위한 미세한 변환 애니메이션."
+        ]
+      },
+      "interaction": {
+        "hover": "상호작용 요소에 미세한 그림자 변화와 색상 변화가 적용됩니다.",
+        "click": "도구 선택 시 즉각적인 시각적 피드백이 제공됩니다.",
+        "transition": "모든 전환은 부드럽게 적용되며 ease-in-out 타이밍을 사용합니다.",
+        "keyboard": "효율성을 위해 UI에 직접적으로 표시되는 광범위한 키보드 단축키."
+      },
+      "voice": {
+        "tone": "도움이 되고, 직접적이며, 약간 비격식적인 어조입니다.",
+        "headlineStyle": "손으로 그린 듯하며, 표현력이 있고, 시각적으로 뚜렷합니다.",
+        "ctaStyle": "명확하고 행동 지향적이며, 종종 키보드 단축키와 함께 표시됩니다.",
+        "avoid": [
+          "지나치게 기업적이거나 차가운 언어를 피합니다.",
+          "복잡하거나 혼란스러운 안내 텍스트를 피합니다.",
+          "탐색이 필요한 숨겨진 UI 요소를 피합니다."
+        ]
+      },
+      "donts": [
+        "다크 테마를 사용하지 마세요 — 스크린샷은 밝고 밝은 캔버스 배경을 보여줍니다.",
+        "UI 요소에 날카로운 90도 모서리를 사용하지 마세요 — 스크린샷은 4px에서 12px의 border-radius를 선호함을 보여줍니다.",
+        "순전히 기계적이고 차가운 글꼴을 사용하지 마세요 — 스크린샷은 브랜드에 손으로 그린 듯한 글꼴을 두드러지게 사용합니다.",
+        "키보드 단축키를 숨기지 마세요 — 스크린샷은 UI 액션 옆에 명확하게 레이블을 표시합니다.",
+        "무겁고 어두운 테두리를 사용하지 마세요 — 스크린샷은 가볍고 섬세한 1px 테두리와 부드러운 그림자를 보여줍니다.",
+        "복잡한 다단계 레이아웃을 사용하지 마세요 — 스크린샷은 미니멀하고 캔버스 중심의 인터페이스를 보여줍니다."
+      ],
+      "systemPrompt": "Excalidraw는 스케치와 손으로 그린 듯한 미학을 우선시하는 미니멀한 협업 화이트보드 도구입니다. 주요 강조색은 하이라이트와 브랜드 마크에 사용되는 부드러운 보라색(#6969db)이며, 밝은 회색 캔버스(#ecf0f4) 위에 배치됩니다. 타이포그래피는 캔버스 요소용 커스텀 손글씨체와 UI 컴포넌트용 깔끔한 humanist-sans를 혼합하여 사용합니다. 주요 상호작용 패턴은 떠 있는 도구 모음과 인라인 키보드 단축키 레이블을 포함합니다. 핵심 디자인 제약 조건: 고대비의 스케치풍 시각 스타일 유지; 모든 UI 요소에 둥근 모서리 사용; 다크 모드 또는 지나치게 복잡하고 기업적인 레이아웃 사용 금지."
+    }
+  },
+  "desc": {
+    "en": {
+      "palette": "A light, neutral canvas background with a single purple accent color for interactive elements.",
+      "layout": "An infinite, absolute-positioned canvas with floating, contextual toolbars and minimal fixed UI.",
+      "interaction": "Highly keyboard-driven and efficient, with clear shortcut labels and immediate visual feedback.",
+      "motion": "Smooth, subtle transitions that enhance usability without distracting from the primary task.",
+      "notes": "The design is a masterclass in building a complex tool that feels simple and approachable through a hand-drawn aesthetic."
+    },
+    "zh-CN": {
+      "palette": "浅色、中性的画布背景，搭配单个紫色强调色用于交互元素。",
+      "layout": "无限、绝对定位的画布，配有浮动的上下文工具栏和极简的固定 UI。",
+      "interaction": "高度键盘驱动且高效，提供清晰的快捷键标签和即时视觉反馈。",
+      "motion": "流畅、细微的过渡效果，增强可用性而不分散对主要任务的注意力。",
+      "notes": "该设计是构建复杂工具的典范，通过手绘美学让工具感觉简单而易于接近。"
+    },
+    "zh-TW": {
+      "palette": "淺色、中性的畫布背景，搭配單一紫色強調色用於互動元素。",
+      "layout": "無限、絕對定位的畫布，搭配浮動的上下文工具列與最小化的固定 UI。",
+      "interaction": "高度依賴鍵盤操作且效率導向，提供清晰的快捷鍵標示與即時的視覺回饋。",
+      "motion": "流暢、細微的過渡效果，在增強可用性的同時，不干擾主要任務。",
+      "notes": "此設計是打造複雜工具的典範，透過手繪美學，使其感覺簡單且平易近人。"
+    },
+    "ja": {
+      "palette": "インタラクティブ要素に単一の紫色のアクセントカラーを使用した、明るくニュートラルなキャンバス背景。",
+      "layout": "フローティングするコンテキストツールバーと最小限の固定UIを持つ、無限で絶対位置指定されたキャンバス。",
+      "interaction": "キーボード操作中心で効率的、明確なショートカットラベルと即時視覚フィードバック付き。",
+      "motion": "プライマリタスクから注意をそらさずに使いやすさを高める、滑らかで微細なトランジション。",
+      "notes": "このデザインは、手描きアエステティックを通じて複雑なツールをシンプルで親しみやすく構築する方法の教科書です。"
+    },
+    "ko": {
+      "palette": "밝고 중립적인 캔버스 배경에 상호작용 요소에 사용되는 보라색 강조색을 하나 사용합니다.",
+      "layout": "무한히 확장되는 절대 위치 캔버스 위에 떠 있는 상황별 도구 모음과 최소한의 고정 UI를 배치합니다.",
+      "interaction": "키보드 중심의 높은 효율성을 갖추며, 명확한 단축키 레이블과 즉각적인 시각적 피드백을 제공합니다.",
+      "motion": "주요 작업에 방해가 되지 않으면서도 사용성을 향상시키는 부드럽고 섬세한 전환 효과를 사용합니다.",
+      "notes": "이 디자인은 손으로 그린 듯한 미학을 통해 복잡한 도구를 단순하고 친근하게 느끼게 하는 데 있어 마스터 클래스입니다."
+    }
+  },
+  "_meta": {
+    "vision_model": "mimo-v2.5",
+    "vision_prompt_version": "0.3",
+    "vision_source": "playwright-extract:excalidraw",
+    "vision_grounded": true,
+    "vision_at": "2026-06-07T06:03:21+00:00",
+    "vision_tokens": 16131,
+    "vision_cost_usd": 0.1792,
+    "translation_model": "mimo-v2.5",
+    "translation_at": "2026-06-07T06:04:41+00:00",
+    "translation_tokens": 16556,
+    "translation_cost_usd": 0.0552,
+    "narrative_model": "mimo-v2.5",
+    "narrative_prompt_version": "0.3",
+    "narrative_at": "2026-06-07T06:04:49+00:00",
+    "narrative_tokens": 2021,
+    "narrative_cost_usd": 0.0135,
+    "narrative_status": "ok",
+    "total_cost_usd": 0.2479
+  },
+  "narrative": {
+    "en": {
+      "ch1_intro": "Excalidraw’s identity is built on a single, clarifying analogy: a blank canvas with a pencil, ready for rapid ideation. This sketch-like, hand-drawn aesthetic defines every surface and interaction, framing the digital tool as an extension of a physical brainstorming session.",
+      "ch2_intro": "The color system is intentionally sparse, built on a light, neutral canvas background. A single purple accent provides focus for interactive elements and brand identity, maintaining the high-contrast clarity essential for a sketch metaphor.",
+      "ch2_outro": "The principle is restraint: color is used sparingly to guide interaction, never to decorate.",
+      "ch3_intro": "Typography serves two distinct roles. A custom, hand-drawn font expresses the brand and on-canvas elements, while a clean humanist-sans ensures legibility for all UI controls and system text.",
+      "ch4_intro": "Spacing rhythm is organic and flexible, dictated by the canvas elements themselves rather than a rigid underlying grid.",
+      "ch5_intro": "Surfaces are defined by subtle depth, using soft shadows and light 1px borders. This creates a clear hierarchy without introducing heavy, decorative elements that would break the sketch aesthetic.",
+      "ch6_intro": "The layout skeleton is an infinite canvas, where user-created elements are absolutely positioned. This is complemented by floating, contextual toolbars and minimal fixed UI to maximize creative space.",
+      "ch7_intro": "Motion philosophy is functional and unobtrusive. All transitions are smooth and subtle, providing immediate feedback for tool selection and state changes without distracting from the primary task.",
+      "ch8_intro": "The editorial voice is helpful, direct, and slightly informal, matching the tool's accessible ethos. Headlines are hand-drawn and expressive, while calls to action are clear and action-oriented, often paired with keyboard shortcuts.",
+      "ch8_outro": "The system deliberately avoids dark themes, sharp corners, sterile typography, and hidden functionality—choices that would contradict its core identity as a simple, sketch-based canvas."
+    },
+    "zh-CN": {
+      "ch1_intro": "Excalidraw 的品牌理念建立在一个清晰的类比上：一张白纸与一支铅笔，随时准备快速构思。这种草图风格、手绘美感贯穿所有界面与交互，将数字工具定位为实体头脑风暴的延伸。",
+      "ch2_intro": "色彩体系刻意保持克制，以浅色中性画布背景为基础。单一的紫色强调色用于聚焦交互元素和品牌标识，维持草图隐喻所需的高对比度清晰感。",
+      "ch2_outro": "核心原则是克制：色彩仅用于引导交互，而非装饰。",
+      "ch3_intro": "字体承担两种不同角色：定制手绘字体用于表达品牌与画布元素，而清晰的人文无衬线字体则确保所有界面控件和系统文本的易读性。",
+      "ch4_intro": "间距节奏有机且灵活，由画布元素本身而非僵化的底层网格决定。",
+      "ch5_intro": "界面层次通过微妙的纵深感定义，采用柔和阴影和 1px 细边框。这创造了清晰的视觉层级，同时避免破坏草图美学的厚重装饰元素。",
+      "ch6_intro": "布局框架是无限画布，用户创建的元素采用绝对定位。辅以浮动上下文工具栏和极简固定界面，最大化创作空间。",
+      "ch7_intro": "动效理念注重功能性与低调性。所有过渡效果平滑细微，为工具选择和状态切换提供即时反馈，同时不干扰主要任务。",
+      "ch8_intro": "文案风格直接实用且略带非正式感，契合工具易用的特质。标题采用手绘表现形式，行动号召清晰明确且导向行动，常配合键盘快捷键呈现。",
+      "ch8_outro": "该系统刻意规避暗色主题、尖锐边角、冰冷字体与隐藏功能——这些选择与其作为简洁草图工具的核心身份相悖。"
+    },
+    "zh-TW": {
+      "ch1_intro": "Excalidraw 的身份建立在一個清晰的類比上：一張空白畫布搭配鉛筆，隨時準備快速構思。這種素描般的手繪美學定義了每一個介面與互動，將數位工具框定為實體腦力激盪的延伸。",
+      "ch2_intro": "色彩系統刻意保持簡潔，基於淺色、中性的畫布背景構建。單一的紫色強調色用於聚焦互動元素與品牌識別，維持素描隱喻所必需的高對比清晰度。",
+      "ch2_outro": "原則在於克制：色彩僅用於引導互動，絕不作為裝飾。",
+      "ch3_intro": "字體扮演兩個不同的角色。一款手繪風格的自訂字體用於表達品牌與畫布元素，而一款簡潔的 humanist-sans 確保所有介面控制項與系統文字的易讀性。",
+      "ch4_intro": "間距節奏是有機且靈活的，由畫布元素本身決定，而非依循嚴格的基礎網格。",
+      "ch5_intro": "介面以微妙的深度定義，使用柔和陰影與 1px 的淺色邊框。這創造了清晰的視覺層次，同時不會引入可能破壞素描美學的厚重裝飾元素。",
+      "ch6_intro": "佈局骨架是一塊無限畫布，使用者建立的元素以絕對定位放置。輔以浮動的上下文工具列與最小化的固定介面，以最大化創作空間。",
+      "ch7_intro": "動態哲學是功能性且不著痕跡的。所有過渡效果都流暢而細微，為工具選擇與狀態變化提供即時反饋，同時不偏離主要任務。",
+      "ch8_intro": "編輯語調是 helpful、直接且略帶非正式的，符合工具平易近人的特質。標題以手繪風格呈現，富有表現力，而行動呼籲則清晰明確、注重行動，常搭配鍵盤快捷鍵。",
+      "ch8_outro": "此系統刻意避免深色主題、銳利邊角、生硬的字體排印與隱藏功能——這些選擇會與其作為簡單、基於素描的畫布核心身份相悖。"
+    },
+    "ja": {
+      "ch1_intro": "Excalidrawのアイデンティティは、一つの明確なアナロジーの上に構築されています。それは、 rapidなアイデア出しに備えた、鉛筆を持つ白紙のキャンバスです。このスケッチのような、手描きのアズテティックが、あらゆる面とインタラクションを定義し、デジタルツールを、物理的なブレインストーミングセッションの延長として捉えます。",
+      "ch2_intro": "カラーシステムは意図的に簡素で、明るく中立的なキャンバスの背景に基づいています。単一の紫のアクセントが、インタラクティブ要素とブランドアイデンティティに焦点を当て、スケッチの比喩に不可欠な高コントラストの明瞭さを維持します。",
+      "ch2_outro": "原則は自制です。色はインタラクションを誘導するために控えめに使用され、装飾のために使われることはありません。",
+      "ch3_intro": "タイポグラフィは、二つの異なる役割を担います。カスタムで手描きのフォントはブランドとキャンバス上の要素を表現し、クリーンなhumanist-sansは、すべてのUIコントロールとシステムテキストの可読性を確保します。",
+      "ch4_intro": "スペーシングのリズムは有機的で柔軟で、堅い基盤グリッドではなく、キャンバス要素自体によって支配されます。",
+      "ch5_intro": "サーフェスは、柔らかな影と1pxの薄いボーダーによる、微妙な奥行きで定義されます。これにより、スケッチのアズテティックを壊すような重く装飾的な要素を導入せずに、明確なヒエラルキーを生み出します。",
+      "ch6_intro": "レイアウトの骨格は無限キャンバスで、ユーザーが作成した要素は絶対配置されます。これは、フローティングするコンテキストツールバーと最小限の固定UIで補完され、クリエイティブなスペースを最大化します。",
+      "ch7_intro": "モーションの哲学は機能的で、目立ちすぎないものです。すべてのトランジションは滑らかで繊細で、ツールの選択や状態変化に対する即時フィードバックを提供しつつ、主たるタスクから注意をそらすことはありません。",
+      "ch8_intro": "エディトリアルな声は、ツールの親しみやすいエトスに合致するよう、有益で、率直で、少し非公式です。見出しは手描きで表現力が豊かであり、アクションコールは明確で行動を促すもので、よくキーボードショートカットと組み合わされます。",
+      "ch8_outro": "システムは、ダークテーマ、鋭い角、無機質なタイポグラフィ、非表示の機能を意図的に避けます。これらは、シンプルでスケッチベースのキャンバスという中核のアイデンティティに矛盾する選択です。"
+    },
+    "ko": {
+      "ch1_intro": "Excalidraw의 아이덴티티는 하나의 명확한 비유 위에 세워져 있습니다: 즉석에서 아이디어를 떠올릴 수 있도록 준비된, 연필을 든 빈 캔버스입니다. 이러한 스케치 같은 손그림 미학은 모든 인터페이스와 상호작용을 정의하며, 디지털 도구를 실리 브레인스토밍 세션의 자연스러운 연장선으로 제시합니다.",
+      "ch2_intro": "색상 시스템은 의도적으로 절제되어 있으며, 밝고 중립적인 캔버스 배경을 기반으로 합니다. 단 하나의 보라색 강조 색상이 인터랙티브 요소와 브랜드 아이덴티티에 초점을 맞추며, 스케치 비유에 필수적인 고대비 명확성을 유지합니다.",
+      "ch2_outro": "원칙은 절제입니다: 색상은 장식이 아니라 상호작용을 안내하기 위해 최소한으로 사용됩니다.",
+      "ch3_intro": "타이포그래피는 두 가지 뚜렷한 역할을 수행합니다. 커스텀 손글씨 폰트는 브랜드와 캔버스 위의 요소를 표현하고, 깔끔한 humanist-sans는 모든 UI 컨트롤과 시스템 텍스트의 가독성을 보장합니다.",
+      "ch4_intro": "여백 리듬은 유기적이고 유연하며, 엄격한 기반 그리드보다는 캔버스 요소 자체에 의해 결정됩니다.",
+      "ch5_intro": "표면은 은은한 깊이감으로 정의되며, 부드러운 그림자와 1px의 가벼운 테두리를 사용합니다. 이는 스케치 미학을 깨뜨리는 무겁고 장식적인 요소를 도입하지 않으면서 명확한 계층 구조를 만듭니다.",
+      "ch6_intro": "레이아웃 스켈레톤은 무한 캔버스이며, 사용자가 만든 요소들이 절대 위치를 가집니다. 이를 보완하기 위해 플로팅된 컨텍스트 도구 모음과 최소한의 고정 UI가 사용되어 창의적인 공간을 극대화합니다.",
+      "ch7_intro": "모션 철학은 기능적이면서도 눈에 띄지 않습니다. 모든 전환은 부드럽고 은은하며, 주요 작업에서 주의를 분산시키지 않으면서 도구 선택과 상태 변경에 대한 즉각적인 피드백을 제공합니다.",
+      "ch8_intro": "에디토리얼 톤은 도구의 접근 가능한 철학에 맞춰 유용하고, 직접적이며, 약간 비격식적입니다. 헤드라인은 손그림으로 표현력 있게 작성되고, 행동 유도 요소는 명확하며 행동 지향적입니다. 종종 키보드 단축어와 함께 제시됩니다.",
+      "ch8_outro": "이 시스템은 의도적으로 다크 테마, 날카로운 모서리, 딱딱한 타이포그래피, 숨겨진 기능을 피합니다—이러한 선택들은 단순한 스케치 기반 캔버스로서의 핵심 아이덴티티에 모순되기 때문입니다."
+    }
+  }
 }

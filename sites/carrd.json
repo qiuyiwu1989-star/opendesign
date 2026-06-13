@@ -8,6 +8,591 @@
     "nocode",
     "tool"
   ],
-  "status": "pending",
-  "added_at": "2026-06-03"
+  "status": "completed",
+  "added_at": "2026-06-03",
+  "spec": {
+    "colors": {
+      "bg": "#24252d",
+      "bgSoft": null,
+      "bgQuiet": null,
+      "ink": "#ffffff",
+      "inkSoft": "rgba(255,255,255,0.75)",
+      "muted": "rgba(255,255,255,0.4)",
+      "mutedSoft": "rgba(255,255,255,0.376)",
+      "accent": "#33ada9",
+      "line": "rgba(255,255,255,0.075)"
+    },
+    "typography": {
+      "display": "grotesque-sans",
+      "body": "grotesque-sans",
+      "mono": "grotesque-sans",
+      "scale": [
+        {
+          "token": "display",
+          "size": 56,
+          "lh": 1.0,
+          "weight": 700,
+          "ls": "-1.4px"
+        },
+        {
+          "token": "heading",
+          "size": 34,
+          "lh": 1.25,
+          "weight": 700,
+          "ls": "-0.85px"
+        },
+        {
+          "token": "body-lg",
+          "size": 24,
+          "lh": 1.6,
+          "weight": 400,
+          "ls": "normal"
+        },
+        {
+          "token": "body",
+          "size": 16,
+          "lh": 1.75,
+          "weight": 400,
+          "ls": "normal"
+        },
+        {
+          "token": "caption",
+          "size": 12.8,
+          "lh": 1.5,
+          "weight": 400,
+          "ls": "normal"
+        }
+      ]
+    },
+    "spacing": {
+      "base": 4,
+      "scale": [
+        4,
+        8,
+        16,
+        24,
+        32,
+        48,
+        64,
+        96
+      ]
+    },
+    "surfaces": {
+      "radius": {
+        "sm": 4,
+        "md": 6,
+        "lg": 12,
+        "pill": 999
+      }
+    },
+    "layout": {
+      "container": 1280,
+      "paragraph": 680,
+      "columns": 12,
+      "gutter": 24,
+      "breakpoints": [
+        768,
+        1024
+      ]
+    },
+    "motion": {
+      "durations": {
+        "micro": 200,
+        "small": 250,
+        "medium": 800
+      },
+      "easing": "cubic-bezier(0.25, 0.1, 0.25, 1)"
+    }
+  },
+  "spec_i18n": {
+    "en": {
+      "identity": {
+        "keywords": [
+          "simplicity",
+          "accessibility",
+          "responsive"
+        ],
+        "analogy": "A calm, geometric welcome screen for a digital toolkit.",
+        "oneLiner": "A minimal, gradient-based landing page for a one-page site builder."
+      },
+      "colors": {
+        "principle": "High-contrast white text over a dark, low-chroma gradient, with a single vibrant teal accent."
+      },
+      "typography": {
+        "rules": [],
+        "scaleUses": [
+          "Primary logo text",
+          "Section headings",
+          "Subheadings and feature descriptions",
+          "Standard body text",
+          "Small labels and footnotes"
+        ]
+      },
+      "spacing": {
+        "rhythm": "Base 4px scale with generous padding (32-64px) for large sections."
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(0, 0, 0, 0.1) 0px 8px 16px 0px"
+        ],
+        "borders": "Subtle 1-2px white borders with varying opacity (0.4 to 0.75) or a solid white stroke."
+      },
+      "layout": {
+        "skeleton": "Centered single-column layout on hero, transitioning to a 2-column grid for features."
+      },
+      "components": {
+        "button": "Rounded rectangles with solid teal fill for primary actions, and thin white borders for secondary actions.",
+        "card": "Cards with images and subtle shadows, often used for template previews.",
+        "chip": "N/A",
+        "input": "N/A",
+        "hero": "Full-width centered layout with a large logo, headline, sub-headline, and primary CTA button."
+      },
+      "motion": {
+        "patterns": [
+          "Color and opacity transitions on hover and focus",
+          "Fade-in for page sections"
+        ]
+      },
+      "interaction": {
+        "hover": "Color transitions and subtle opacity changes on interactive elements.",
+        "click": "N/A",
+        "transition": "All elements use a 0.2s ease-in-out transition for color, background, and opacity changes.",
+        "keyboard": "Standard focus states with 2px white outline offset."
+      },
+      "voice": {
+        "tone": "Helpful, minimalist, and approachable.",
+        "headlineStyle": "Bold, large, and clean, often using a single word like 'Responsive' or 'Free'.",
+        "ctaStyle": "Direct and action-oriented, using phrases like 'Choose a Starting Point'.",
+        "avoid": [
+          "Jargon-heavy technical language",
+          "Overly complex sentences",
+          "Aggressive or urgent tone"
+        ]
+      },
+      "donts": [
+        "Don't use multiple competing accent colors — screenshot shows a single teal (#33ada9) as the only vibrant hue.",
+        "Don't use complex, multi-layered gradients — screenshot shows a simple two-color linear gradient overlay.",
+        "Don't use decorative or serif typefaces — screenshot shows a clean, standard grotesque-sans (Arial/Helvetica).",
+        "Don't use heavy, solid black backgrounds — screenshot shows a dark charcoal (#24252d) as the primary background.",
+        "Don't use square, sharp corners for buttons — screenshot shows consistent 6px rounded corners.",
+        "Don't use wide, sprawling layouts — screenshot shows content constrained to a narrow, centered column."
+      ],
+      "systemPrompt": "Carrd is a minimalist, user-friendly tool for creating simple one-page websites. The design utilizes a dark, desaturated palette centered around charcoal (#24252d) with a subtle purple-blue gradient overlay. Typography is strictly functional, relying on standard system grotesque-sans fonts (Arial/Helvetica) for all display and body text. The single vibrant accent is a muted teal (#33ada9), used exclusively for primary call-to-action buttons to provide clear visual guidance. Critical design constraints include avoiding complex color schemes, maintaining a strictly centered single-column or simple 2-column layout, and using only consistent 6px rounded corners for interactive elements. The overall tone is calm, restrained, and highly focused on clarity and ease of use."
+    },
+    "zh-CN": {
+      "identity": {
+        "keywords": [
+          "简洁性",
+          "可访问性",
+          "响应式"
+        ],
+        "analogy": "数字工具包的冷静、几何风格欢迎屏幕。",
+        "oneLiner": "基于渐变设计的单页网站构建器极简着陆页。"
+      },
+      "colors": {
+        "principle": "深色低饱和度渐变背景上的高对比度白色文字，搭配单一鲜明的青绿色强调色。"
+      },
+      "typography": {
+        "rules": [],
+        "scaleUses": [
+          "主标志文字",
+          "章节标题",
+          "副标题与功能描述",
+          "标准正文",
+          "小号标签与脚注"
+        ]
+      },
+      "spacing": {
+        "rhythm": "基于 4px 的基础比例，大区域采用宽裕内边距 (32-64px)。"
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(0, 0, 0, 0.1) 0px 8px 16px 0px"
+        ],
+        "borders": "微妙的 1-2px 白色边框，采用不同透明度 (0.4 至 0.75)，或纯白描边。"
+      },
+      "layout": {
+        "skeleton": "首屏采用居中单列布局，功能部分过渡为双列网格。"
+      },
+      "components": {
+        "button": "圆角矩形，主操作按钮填充纯色青绿色，次级操作按钮采用细白边框。",
+        "card": "带图片和微妙阴影的卡片，常用于模板预览。",
+        "chip": "N/A",
+        "input": "N/A",
+        "hero": "全宽居中布局，包含大号标志、标题、副标题和主操作按钮。"
+      },
+      "motion": {
+        "patterns": [
+          "悬停与聚焦时的颜色和透明度过渡",
+          "页面区域淡入"
+        ]
+      },
+      "interaction": {
+        "hover": "交互元素上的颜色过渡与微妙透明度变化。",
+        "click": "N/A",
+        "transition": "所有元素采用 0.2s ease-in-out 过渡实现颜色、背景和透明度变化。",
+        "keyboard": "标准焦点状态，带 2px 白色轮廓偏移。"
+      },
+      "voice": {
+        "tone": "乐于助人、极简且平易近人。",
+        "headlineStyle": "加粗、大号、简洁，常使用单个词汇如「响应式」或「免费」。",
+        "ctaStyle": "直接且行动导向，使用类似「选择一个起点」的措辞。",
+        "avoid": [
+          "术语密集的 technical 语言",
+          "过于复杂的句子",
+          "侵略性或紧迫的语调"
+        ]
+      },
+      "donts": [
+        "避免使用多种竞争性强调色——截图显示仅使用单一青绿色 (#33ada9) 作为唯一鲜明色相。",
+        "避免使用复杂、多层的渐变——截图显示简单的双色线性渐变叠加。",
+        "避免使用装饰性或衬线字体——截图显示简洁、标准的 grotesque-sans (Arial/Helvetica)。",
+        "避免使用厚重、纯黑的背景——截图显示深炭灰色 (#24252d) 作为主要背景。",
+        "避免按钮使用方形尖角——截图显示一致的 6px 圆角。",
+        "避免使用宽大、分散的布局——截图显示内容限制在窄的居中栏内。"
+      ],
+      "systemPrompt": "Carrd 是一款极简、用户友好的工具，用于创建简单的单页网站。设计采用以炭灰色 (#24252d) 为中心的深色、低饱和度调色板，搭配微妙的紫蓝渐变叠加。字体严格遵循功能性，所有展示和正文文字均使用标准系统 grotesque-sans 字体 (Arial/Helvetica)。单一鲜明的强调色是柔和的青绿色 (#33ada9)，专用于主操作按钮以提供清晰视觉引导。关键设计约束包括避免复杂配色方案、严格保持居中单列或简单双列布局，以及交互元素仅使用一致的 6px 圆角。整体基调冷静、克制，高度聚焦于清晰度与易用性。"
+    },
+    "zh-TW": {
+      "identity": {
+        "keywords": [
+          "簡潔",
+          "無障礙",
+          "響應式"
+        ],
+        "analogy": "一個數位工具包的沉靜幾何風格歡迎畫面。",
+        "oneLiner": "為單頁式網站建立器打造的極簡漸層風格登陸頁。"
+      },
+      "colors": {
+        "principle": "深色低飽和度漸層上的高對比白色文字，搭配一個鮮明的青綠色強調色。"
+      },
+      "typography": {
+        "rules": [],
+        "scaleUses": [
+          "主要標誌文字",
+          "區塊標題",
+          "副標題與功能描述",
+          "標準內文",
+          "小標籤與註釋"
+        ]
+      },
+      "spacing": {
+        "rhythm": "以 4px 為基礎的排版節奏，大型區塊採用寬鬆的內距（32-64px）。"
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(0, 0, 0, 0.1) 0px 8px 16px 0px"
+        ],
+        "borders": "細緻的 1-2px 白色邊框，可變透明度（0.4 至 0.75）或實心白色描邊。"
+      },
+      "layout": {
+        "skeleton": "首頁英雄區採置中單欄佈局，進入功能區時轉為雙欄網格。"
+      },
+      "components": {
+        "button": "圓角矩形，主要操作採實心青綠色填充，次要操作則為細白色邊框。",
+        "card": "帶有圖片與細緻陰影的卡片，常用於範本預覽。",
+        "chip": "不適用",
+        "input": "不適用",
+        "hero": "全寬置中佈局，包含大型標誌、主標題、副標題與主要 CTA 按鈕。"
+      },
+      "motion": {
+        "patterns": [
+          "hover 與 focus 時的顏色與透明度過渡",
+          "頁面區塊淡入"
+        ]
+      },
+      "interaction": {
+        "hover": "互動元素上的顏色過渡與細微透明度變化。",
+        "click": "不適用",
+        "transition": "所有元素在顏色、背景與透明度變化時，採用 0.2 秒的 ease-in-out 過渡。",
+        "keyboard": "標準聚焦狀態，帶有 2px 白色外框偏移。"
+      },
+      "voice": {
+        "tone": "實用、極簡且親切。",
+        "headlineStyle": "粗體、大字且乾淨，常使用單一詞彙如「響應式」或「免費」。",
+        "ctaStyle": "直接且以行動為導向，使用如「選擇一個起點」這樣的短語。",
+        "avoid": [
+          "術語過多的技術語言",
+          "過度複雜的句子",
+          "強勢或急迫的語氣"
+        ]
+      },
+      "donts": [
+        "勿使用多個相互競爭的強調色——截圖中僅有一個青綠色（#33ada9）作為唯一鮮豔色調。",
+        "勿使用複雜、多層次的漸層——截圖顯示為簡單的雙色線性漸層疊加。",
+        "勿使用裝飾性或襯線字體——截圖顯示為乾淨的標準 grotesque-sans（Arial/Helvetica）。",
+        "勿使用厚重、純黑的背景——截圖顯示為深炭灰色（#24252d）作為主要背景。",
+        "勿為按鈕使用方形、銳利的邊角——截圖顯示一致的 6px 圓角。",
+        "勿使用寬廣、散佈的佈局——截圖顯示內容限制在一個狹窄的置中欄位內。"
+      ],
+      "systemPrompt": "Carrd 是一個極簡且用戶友善的工具，用於建立簡單的單頁式網站。其設計採用以炭灰色（#24252d）為核心的深色低飽和度色調，搭配細微的紫藍色漸層疊加。字型嚴格以功能性為主，所有標題與內文皆依賴標準系統 grotesque-sans 字體（Arial/Helvetica）。單一鮮明的強調色是低飽和度的青綠色（#33ada9），專門用於主要號召行動按鈕，以提供清晰的視覺引導。關鍵設計限制包括避免複雜配色、維持嚴格的置中單欄或簡潔雙欄佈局，以及僅為互動元素使用一致的 6px 圓角。整體語調沉靜、克制，高度專注於清晰度與易用性。"
+    },
+    "ja": {
+      "identity": {
+        "keywords": [
+          "シンプルさ",
+          "アクセシビリティ",
+          "レスポンシブ"
+        ],
+        "analogy": "デジタルツールキットのための、落ち着いた幾何学的なウェルカムスクリーン。",
+        "oneLiner": "ワンページサイトビルダーのための、ミニマルでグラデーションベースのランディングページ。"
+      },
+      "colors": {
+        "principle": "ダークで低彩度のグラデーションの上に、高コントラストのホワイトテキストを配置し、鮮やかなティール色のアクセントを1色使用します。"
+      },
+      "typography": {
+        "rules": [],
+        "scaleUses": [
+          "プライマリロゴテキスト",
+          "セクション見出し",
+          "小見出しと機能説明",
+          "標準本文テキスト",
+          "小さなラベルとフッタノート"
+        ]
+      },
+      "spacing": {
+        "rhythm": "基本4pxスケールで、大きなセクションには余裕のあるパディング（32-64px）を使用します。"
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(0, 0, 0, 0.1) 0px 8px 16px 0px"
+        ],
+        "borders": "不透明度（0.4から0.75）を変化させた、控えめな1-2pxのホワイトボーダー、またはソリッドなホワイトストローク。"
+      },
+      "layout": {
+        "skeleton": "ヒーローでは中央揃えの単一カラムレイアウト、機能セクションでは2カラムグリッドに移行します。"
+      },
+      "components": {
+        "button": "プライマリアクションにはソリッドなティール色の塗りつぶしを持つ角丸長方形、セカンダリアクションには細いホワイトボーダーを使用します。",
+        "card": "画像と控えめなシャドウを持つカードで、テンプレートプレビューによく使用されます。",
+        "chip": "該当なし",
+        "input": "該当なし",
+        "hero": "大きなロゴ、見出し、サブヘッドライン、プライマリCTAボタンを配置した、フルワイドの中央揃えレイアウト。"
+      },
+      "motion": {
+        "patterns": [
+          "hover・focus時のカラーと不透明度のトランジション",
+          "ページセクションのフェードイン"
+        ]
+      },
+      "interaction": {
+        "hover": "インタラクティブな要素に、カラーのトランジションと控えめな不透明度の変化を適用します。",
+        "click": "該当なし",
+        "transition": "すべての要素は、カラー、背景、不透明度の変化に0.2sのease-in-outトランジションを使用します。",
+        "keyboard": "2pxのホワイトアウトラインオフセットを持つ標準的なフォーカス状態。"
+      },
+      "voice": {
+        "tone": "親切で、ミニマルかつ親しみやすい。",
+        "headlineStyle": "太字で大きくクリーンで、'Responsive'や'Free'のように単一の単語を使用することが多い。",
+        "ctaStyle": "直接的で行動を促すスタイルで、'Choose a Starting Point'这样的フレーズを使用します。",
+        "avoid": [
+          "専門用語が多い技術的な言葉遣い",
+          "複雑すぎる文章",
+          "攻撃的または焦りを感じさせるトーン"
+        ]
+      },
+      "donts": [
+        "複数の競合するアクセントカラーを使用しない — スクリーンショットでは、鮮やかな色として単一のティール色（#33ada9）のみが使用されています。",
+        "複雑な多層グラデーションを使用しない — スクリーンショットでは、シンプルな2色のリニアグラデーションオーバーレイが使用されています。",
+        "装飾的またはセリフ体のフォントを使用しない — スクリーンショットでは、クリーンで標準的なgrotesque-sans（Arial/Helvetica）が使用されています。",
+        "重くソリッドな黒の背景を使用しない — スクリーンショットでは、ダークな炭灰色（#24252d）がプライマリ背景として使用されています。",
+        "ボタンに角張った四角い角を使用しない — スクリーンショットでは、一貫して6pxの角丸が使用されています。",
+        "広く広がるレイアウトを使用しない — スクリーンショットでは、コンテンツが狭い中央カラムに制限されています。"
+      ],
+      "systemPrompt": "Carrdは、シンプルなワンページウェブサイトを作成するためのミニマルでユーザーフレンドリーなツールです。デザインは、炭灰色（#24252d）を中心としたダークで低彩度のパレットに、控えめな紫がかった青のグラデーションオーバーレイを用いています。タイポグラフィは厳密に機能的で、すべてのディスプレイおよび本文テキストに標準システムのgrotesque-sansフォント（Arial/Helvetica）に依存しています。単一の鮮やかなアクセントは、控えめなティール色（#33ada9）で、プライマリコール・トゥ・アクションボタンにのみ使用し、明確な視覚的ガイドを提供します。重要なデザイン制約には、複雑なカラースキームの回避、厳密に中央揃えの単一カラムまたはシンプルな2カラムレイアウトの維持、インタラクティブ要素には一貫して6pxの角丸のみを使用することが含まれます。全体的なトーンは落ち着いて抑制されており、明瞭さと使いやすさに完全に焦点を当てています。"
+    },
+    "ko": {
+      "identity": {
+        "keywords": [
+          "심플함",
+          "접근성",
+          "반응형"
+        ],
+        "analogy": "디지털 툴킷을 위한 차분하고 기하학적인 환영 화면.",
+        "oneLiner": "원페이지 사이트 빌더를 위한 미니멀하고 그라디언트 기반의 랜딩 페이지."
+      },
+      "colors": {
+        "principle": "다크하고 저채도의 그라디언트 위에 높은 대비의 흰색 텍스트를 적용하고, 단 하나의 선명한 틸 악센트를 사용합니다."
+      },
+      "typography": {
+        "rules": [],
+        "scaleUses": [
+          "메인 로고 텍스트",
+          "섹션 제목",
+          "소제목 및 기능 설명",
+          "본문 텍스트",
+          "작은 레이블 및 각주"
+        ]
+      },
+      "spacing": {
+        "rhythm": "기본 4px 스케일에 큰 섹션에는 넉넉한 패딩(32-64px)을 적용합니다."
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(0, 0, 0, 0.1) 0px 8px 16px 0px"
+        ],
+        "borders": "불투명도(0.4에서 0.75)가 변하는 미세한 1-2px 흰색 테두리 또는 단색 흰색 스트로크."
+      },
+      "layout": {
+        "skeleton": "히어로 센터 중앙 정렬 단일 컬럼 레이아웃이 기능을 위해 2열 그리드로 전환됩니다."
+      },
+      "components": {
+        "button": "주요 작업을 위한 단색 틸 채우기가 적용된 둥근 직사각형과 보조 작업을 위한 얇은 흰색 테두리.",
+        "card": "이미지와 미세한 그림자가 있는 카드로, 템플릿 미리보기에 자주 사용됩니다.",
+        "chip": "해당 없음",
+        "input": "해당 없음",
+        "hero": "큰 로고, 헤드라인, 서브헤드라인, 그리고 주요 CTA 버튼이 포함된 전폭 중앙 정렬 레이아웃."
+      },
+      "motion": {
+        "patterns": [
+          "호버 및 포커스 시 색상과 불투명도 트랜지션",
+          "페이지 섹션 페이드인"
+        ]
+      },
+      "interaction": {
+        "hover": "인터랙티브 요소에서의 색상 트랜지션과 미세한 불투명도 변화.",
+        "click": "해당 없음",
+        "transition": "모든 요소는 색상, 배경, 불투명도 변화를 위해 0.2초 ease-in-out 트랜지션을 사용합니다.",
+        "keyboard": "2px 흰색 아웃라인 오프셋이 적용된 표준 포커스 상태."
+      },
+      "voice": {
+        "tone": "도움이 되고, 미니멀하며, 접근하기 쉬운.",
+        "headlineStyle": "굵고, 크고, 깔끔하며, 종종 'Responsive' 또는 'Free' 같은 단어 하나를 사용합니다.",
+        "ctaStyle": "직접적이고 행동 지향적이며, 'Choose a Starting Point' 같은 구문을 사용합니다.",
+        "avoid": [
+          "전문 용어가 가득한 기술적 언어",
+          "지나치게 복잡한 문장",
+          "공격적이거나 긴박한 어조"
+        ]
+      },
+      "donts": [
+        "경쟁하는 여러 악센트 색상을 사용하지 마세요 — 스크린샷은 유일한 선명한 색상으로 단 하나의 틸(#33ada9)만 보여줍니다.",
+        "복잡한, 다층 그라디언트를 사용하지 마세요 — 스크린샷은 간단한 2색 리니어 그라디언트 오버레이를 보여줍니다.",
+        "장식적이거나 세리프 타이포그래피를 사용하지 마세요 — 스크린샷은 깔끔한 표준 grotesque-sans(Arial/Helvetica)를 보여줍니다.",
+        "무거운, 단색 검정 배경을 사용하지 마세요 — 스크린샷은 메인 배경으로 다크 차콜(#24252d)을 보여줍니다.",
+        "버튼에 사각, 날카로운 모서리를 사용하지 마세요 — 스크린샷은 일관된 6px 둥근 모서리를 보여줍니다.",
+        "넓고 퍼지는 레이아웃을 사용하지 마세요 — 스크린샷은 좁고 중앙 정렬된 컬럼으로 제한된 콘텐츠를 보여줍니다."
+      ],
+      "systemPrompt": "Carrd는 간단한 원페이지 웹사이트를 만들기 위한 미니멀하고 사용자 친화적인 도구입니다. 디자인은 차콜(#24252d)을 중심으로 한 다크, 디스채도 팔레트와 미세한 퍼플-블루 그라디언트 오버레이를 활용합니다. 타이포그래피는 엄격하게 기능적이며, 모든 디스플레이 및 본문 텍스트에 표준 시스템 grotesque-sans 폰트(Arial/Helvetica)에 의존합니다. 단 하나의 선명한 악센트는 주요 콜투액션 버튼에만 사용되어 명확한 시각적 안내를 제공하는 은은한 틸(#33ada9)입니다. 중요한 디자인 제약 조건에는 복잡한 색상 구성 회피, 엄격하게 중앙 정렬된 단일 컬럼 또는 간단한 2열 레이아웃 유지, 그리고 인터랙티브 요소에 일관된 6px 둥근 모서리만 사용하는 것이 포함됩니다. 전체적인 어조는 차분하고, 절제적이며, 명확성과 사용 편의성에 매우 초점을 맞추고 있습니다."
+    }
+  },
+  "desc": {
+    "en": {
+      "palette": "A dark, low-chroma palette centered on charcoal (#24252d) with a purple-blue gradient, punctuated by a single vibrant teal (#33ada9) accent.",
+      "layout": "The layout is primarily centered and single-column, transitioning into a simple 2-column grid for feature sections.",
+      "interaction": "Interaction is characterized by smooth 0.2s color and opacity transitions on buttons and links, with a standard keyboard focus ring.",
+      "motion": "Subtle motion is used for page section fade-ins and standard micro-interactions on hover and focus states.",
+      "notes": "This site is a perfect example of how a highly restrained, minimalist design can still feel modern and professional through careful use of a dark mode palette and a single, well-chosen accent color."
+    },
+    "zh-CN": {
+      "palette": "深色低饱和度调色板，以炭灰色 (#24252d) 为中心，搭配紫蓝渐变，点缀单一鲜明的青绿色 (#33ada9) 作为强调色。",
+      "layout": "布局以居中单列为主，在功能模块部分过渡为简洁的双列网格。",
+      "interaction": "交互特点体现为按钮和链接上平滑的 0.2s 颜色与透明度过渡，以及标准键盘焦点环。",
+      "motion": "运用微妙动效实现页面区域的淡入，以及悬停和聚焦状态下的标准微交互。",
+      "notes": "该网站完美展示了如何通过谨慎运用深色模式调色板和精心选择的单一强调色，使高度克制、极简的设计仍能呈现出现代感与专业感。"
+    },
+    "zh-TW": {
+      "palette": "以炭灰色（#24252d）為核心的深色低飽和度色調，搭配紫藍色漸層，並以一個鮮明的青綠色（#33ada9）作為點綴。",
+      "layout": "版面以置中單欄為主，進入功能區塊時則轉為簡潔的雙欄網格。",
+      "interaction": "互動體驗以按鈕與連結上 0.2 秒的顏色與透明度過渡為特色，並搭配標準的鍵盤聚焦外框。",
+      "motion": "細膩的動態效果用於頁面區塊的淡入，以及 hover 與 focus 狀態下的標準微互動。",
+      "notes": "此網站是高度克制的極簡設計如何透過精心運用深色模式色調與單一選色的強調色，依然能呈現現代感與專業質感的完美範例。"
+    },
+    "ja": {
+      "palette": "ダークで低彩度のパレットで、炭灰色（#24252d）を中心とし、紫がかった青のグラデーションを配置、鮮やかなティール色（#33ada9）のアクセントを1色で強調しています。",
+      "layout": "レイアウトは主に中央揃えの単一カラムで、機能セクションではシンプルな2カラムグリッドに移行します。",
+      "interaction": "インタラクションは、ボタンやリンクに0.2sの滑らかなカラーおよび不透明度のトランジション、標準的なキーボードフォーカスリングを特徴とします。",
+      "motion": "ページセクションのフェードインや、hover・focus状態での標準的なマイクロインタラクションに、控えめなモーションを使用します。",
+      "notes": "このサイトは、非常に抑制されたミニマルなデザインでも、ダークモードパレットと、よく選ばれた単一のアクセントカラーを丁寧に使うことで、現代的でプロフェッショナルな印象を与えることができるという完璧な例です。"
+    },
+    "ko": {
+      "palette": "다크, 저채도 팔레트는 차콜(#24252d)을 중심으로 퍼플-블루 그라디언트를 적용하고, 단 하나의 선명한 틸(#33ada9) 악센트로 포인트를 줍니다.",
+      "layout": "레이아웃은 주로 중앙 정렬 단일 컬럼이며, 기능 섹션에서는 간단한 2열 그리드로 전환됩니다.",
+      "interaction": "인터랙션은 버튼과 링크에서 부드러운 0.2초 색상 및 불투명도 트랜지션과 표준 키보드 포커스 링을 특징으로 합니다.",
+      "motion": "미세한 모션은 페이지 섹션 페이드인과 호버 및 포커스 상태의 표준 마이크로 인터랙션에 사용됩니다.",
+      "notes": "이 사이트는 Highly 절제된 미니멀 디자인이 다크 모드 팔레트와 단 하나의 잘 선택된 악센트 색상을 신중하게 사용함으로써 여전히 모던하고 전문적으로 느낄 수 있는 완벽한 예시입니다."
+    }
+  },
+  "_meta": {
+    "vision_model": "mimo-v2.5",
+    "vision_prompt_version": "0.3",
+    "vision_source": "playwright-extract:carrd",
+    "vision_grounded": true,
+    "vision_at": "2026-06-04T14:26:54+00:00",
+    "vision_tokens": 16748,
+    "vision_cost_usd": 0.1861,
+    "translation_model": "mimo-v2.5",
+    "translation_at": "2026-06-04T14:28:10+00:00",
+    "translation_tokens": 17547,
+    "translation_cost_usd": 0.0584,
+    "narrative_model": "mimo-v2.5",
+    "narrative_prompt_version": "0.3",
+    "narrative_at": "2026-06-04T14:28:21+00:00",
+    "narrative_tokens": 2121,
+    "narrative_cost_usd": 0.0141,
+    "narrative_status": "ok",
+    "total_cost_usd": 0.2586
+  },
+  "narrative": {
+    "en": {
+      "ch1_intro": "Carrd's design operates as a calm, geometric welcome screen for a digital toolkit. Like a well-lit showroom with a single product on a pedestal, it uses a dark, low-chroma gradient to focus all attention on a clear, singular path forward.",
+      "ch2_intro": "The palette is built on a desaturated foundation of charcoal (#24252d) with a subtle purple-blue gradient, establishing depth without drama. A single, vibrant teal (#33ada9) serves as the exclusive accent, a deliberate beacon for primary actions.",
+      "ch2_outro": "The principle is one of focused contrast: high-visibility white text over a muted field, with a solitary accent to guide the user's eye.",
+      "ch3_intro": "Typography is strictly functional, employing standard system grotesque-sans fonts like Arial/Helvetica for all text. This choice prioritizes universal readability and performance over stylistic expression, aligning with the tool's core ethos of simplicity.",
+      "ch4_intro": "A base 4px scale governs all spacing, creating a consistent internal rhythm. This structure is paired with generous padding (32–64px) for large sections, allowing content to breathe within the centered column.",
+      "ch5_intro": "Surface treatments are minimal and functional, using subtle shadows and borders to define elevation. Cards and inputs gain definition from a single, soft shadow and thin, semi-transparent white borders that maintain the interface's lightness.",
+      "ch6_intro": "The layout skeleton is straightforward: a centered single-column hero establishes the primary message, which then opens into a simple two-column grid for feature showcases. This transition from monologue to dialogue mirrors the user's journey from headline to detail.",
+      "ch7_intro": "Motion is applied with restraint, serving as functional feedback rather than ornament. All transitions use a consistent 0.2s ease-in-out curve for color, background, and opacity changes, ensuring interactions feel smooth and predictable.",
+      "ch8_intro": "The editorial voice is helpful, minimalist, and approachable, using bold, clean headlines and direct, action-oriented CTAs. It consistently avoids jargon, complex sentences, and any hint of aggressive urgency.",
+      "ch8_outro": "What it deliberately doesn't do is compete for attention; it relinquishes complexity in favor of an unwavering focus on a single, clear task."
+    },
+    "zh-CN": {
+      "ch1_intro": "Carrd 的设计如同一片宁静、几何化的欢迎界面，为数字工具包而生。就像一盏聚光灯照亮的展厅中，一件作品被单独陈列在展台上——它运用深沉、低饱和度的渐变，将所有注意力聚焦于一条清晰、唯一且向前的路径。",
+      "ch2_intro": "色彩体系建立在炭灰色（#24252d）的去饱和基底之上，辅以微妙的紫蓝色渐变，在不制造戏剧性冲突的前提下营造出纵深感。单一、鲜明的青绿色（#33ada9）作为唯一的强调色，被刻意用作核心操作的视觉引导。",
+      "ch2_outro": "其原则在于聚焦对比：高可见度的白色文字浮于柔和的底色之上，仅凭一抹强调色引导用户的视线流动。",
+      "ch3_intro": "排版严格遵循功能性，所有文字均采用标准的系统无衬线字体，如 Arial/Helvetica。这一选择将普适的可读性与性能置于风格化表达之上，契合了工具本身追求简约的核心理念。",
+      "ch4_intro": "以 4px 为基准的栅格体系管理着所有间距，建立起一致的内在韵律。这种结构与大区块慷慨的内边距（32–64px）相结合，让内容在居中的单栏布局中得以自由呼吸。",
+      "ch5_intro": "界面元素的处理极为克制且注重功能，通过细微的阴影与边框来定义层次感。卡片与输入框仅凭借一道柔和的阴影和纤细、半透明白色边框来获得轮廓，从而保持了界面整体的轻盈感。",
+      "ch6_intro": "布局骨架清晰明了：居中的单栏首屏确立了核心信息，随后展开为简洁的双栏网格以展示功能特性。这种从单向陈述到双向互动的过渡，恰好呼应了用户从浏览标题到探索细节的旅程。",
+      "ch7_intro": "动效的运用极为克制，旨在提供功能性反馈而非装饰。所有过渡均采用一致的 0.2 秒 ease-in-out 曲线，用于处理颜色、背景与透明度的变化，确保交互体验流畅且可预期。",
+      "ch8_intro": "文案语调是助益的、极简的、平易近人的，采用加粗、干净的标题与直接、面向行动的号召性用语。它始终避免使用行话、复杂句式以及任何带有侵略性紧迫感的暗示。",
+      "ch8_outro": "它刻意不去做的，是争夺注意力；它主动放弃复杂性，以坚定不移地聚焦于一项单一、清晰的任务。"
+    },
+    "zh-TW": {
+      "ch1_intro": "Carrd 的設計扮演著一個冷靜、幾何形狀的歡迎畫面，為數位工具組提供入口。如同一個燈光明亮的展示間，僅在基座上陳列單一產品，它使用低彩度、深色的漸層，將所有注意力集中於一條清晰、明確的前進路徑上。",
+      "ch2_intro": "色調建立在去飽和的炭灰色（#24252d）基礎上，搭配細微的紫藍色漸層，在不製造戲劇性的情況下建立深度。單一、鮮明的青綠色（#33ada9）作為唯一的強調色，是有意為之的指引，用於主要操作。",
+      "ch2_outro": "其原則在於聚焦的對比：高可見度的白色文字襯托於柔和的背景上，並以單一的強調色引導使用者的視線。",
+      "ch3_intro": "排版嚴格講求功能，所有文字皆採用標準的系統無襯線字體，如 Arial/Helvetica。此選擇優先考慮普遍的可讀性與效能，而非風格化的表現，與工具本身追求簡潔的核心精神相符。",
+      "ch4_intro": "基礎的 4px 縮放比例主導所有間距，創造出一致的內部節奏。此結構搭配寬裕的內邊距（32–64px）用於大型區塊，讓內容能在置中的欄位內保持舒適的呼吸空間。",
+      "ch5_intro": "表面處理極簡且功能化，使用細微的陰影與邊框來定義層級。卡片和輸入框透過單一、柔和的陰影以及細微、半透明的白色邊框來增加清晰度，同時維持介面的輕盈感。",
+      "ch6_intro": "佈局骨架相當直接：置中的單欄主視覺區塊確立主要訊息，接著展開為簡單的雙欄格狀佈局，用以展示功能。這種從獨白到對話的轉變，反映了使用者從標題到細節的探索旅程。",
+      "ch7_intro": "動態效果的應用極為克制，主要作為功能性回饋而非裝飾。所有轉場皆使用一致的 0.2s ease-in-out 曲線，處理顏色、背景與透明度的變化，確保互動感覺流暢且可預期。",
+      "ch8_intro": "編輯語調實用、簡約且親切，使用粗體、簡潔的標題以及直接、以行動為導向的號召用語。它一致避免使用術語、複雜句型，以及任何帶有侵略性急迫感的暗示。",
+      "ch8_outro": "它刻意不做的事，是爭奪注意力；它放棄複雜性，以換取對單一、明確任務的專注不移。"
+    },
+    "ja": {
+      "ch1_intro": "Carrdのデザインは、デジタルツールキットへの静かで幾何学的なウェルカムスクリーンとして機能します。一台の製品が台座に置かれた明るいショールームのように、暗く彩度の低いグラデーションを使用し、すべての注目をはっきりとした唯一の前進への道に集中させています。",
+      "ch2_intro": "パレットは、Charcoal (#24252d)という彩度を落とした基礎に、微妙な紫青のグラデーションを重ね、劇的さを伴わず奥行きを確立しています。単一の鮮やかなTeal (#33ada9)が唯一のアクセントとして機能し、主要なアクションのための意図的な目印となります。",
+      "ch2_outro": "この原則は「集中されたコントラスト」です。落ち着いた背景に高視認性の白いテキストを配置し、単一のアクセントでユーザーの視線を導きます。",
+      "ch3_intro": "タイポグラフィは厳密に機能的であり、Arial/Helveticaなどの標準システムgrotesque-sansフォントを全テキストに採用しています。この選択は、スタイル表現よりも普遍的な可読性とパフォーマンスを優先し、ツールの中核であるシンプルさの理念に沿っています。",
+      "ch4_intro": "すべてのスペーシングは4pxのベーススケールで統制され、一貫した内部リズムを生み出します。この構造は、大きなセクションに32～64pxの十分なpaddingを組み合わせ、中央カラム内でコンテンツが息をつく余裕を与えています。",
+      "ch5_intro": "サーフェス処理は最小限で機能的です。微妙なシャドウとボーダーを使用して段差を定義します。カードや入力欄は、単一の柔らかなシャドウと薄い半透明白いボーダーから明瞭さを獲得し、インターフェースの軽快さを維持しています。",
+      "ch6_intro": "レイアウトの骨格は単純明快です。中央揃えの単一カラムヒーローが主要メッセージを確立し、そこから機能紹介のためのシンプルな2カラムグリッドへと展開します。この独白から対話への移行は、ヘッドラインから詳細へのユーザーの旅を反映しています。",
+      "ch7_intro": "モーションは抑制をもって適用され、装飾ではなく機能的なフィードバックとして機能します。すべてのトランジションは、色、背景、不透明度の変化に一貫した0.2s ease-in-outカーブを使用し、インタラクションが滑らかで予測可能であることを保証します。",
+      "ch8_intro": "エディトリアルボイスは親切、ミニマル、そして親しみやすさを備え、太くクリーンな見出しと直接的でアクション指向のCTAを用いています。専門用語、複雑な文、および攻撃的な緊迫感の示唆を一貫して避けています。",
+      "ch8_outro": "意図的に行わないのは、注目を競い合うことです。複雑さを手放し、単一の明確なタスクへの揺るぎない集中を優先しています。"
+    },
+    "ko": {
+      "ch1_intro": "Carrd의 디자인은 디지털 툴킷을 위한 차분하고 기하학적인 환영 화면으로 작동합니다. 마치 한 제품을 전시한 밝은 쇼룸처럼, 어둡고 채도 낮은 그라데이션을 사용하여 모든 시선을 명확하고 단일한 다음 단계에 집중시킵니다.",
+      "ch2_intro": "팔레트는 차콜(#24252d)의 채도 낮은 기반 위에 은은한 퍼플-블루 그라데이션을 더해 극적인 연출 없이 깊이감을 형성합니다. 단일의 선명한 틸(#33ada9)이 전용 액센트로 사용되어 주요 행동을 위한 명확한 신호 역할을 합니다.",
+      "ch2_outro": "원칙은 집중된 대비입니다. 배경의 무난한 톤 위에 높은 가독성의 흰색 텍스트를 배치하고, 단일 액센트로 사용자의 시선을 유도합니다.",
+      "ch3_intro": "타이포그래피는 엄격하게 기능적이며, 모든 텍스트에 Arial/Helvetica와 같은 표준 시스템 grotesque-sans 폰트를 사용합니다. 이 선택은 스타일적 표현보다 보편적 가독성과 성능을 우선시하며, 도구의 단순함이라는 핵심 가치와 일치합니다.",
+      "ch4_intro": "기본 4px 스케일이 모든 간격을 조절하여 일관된 내부 리듬을 만듭니다. 이 구조는 넉넉한 padding(32–64px)과 결합하여 큰 섹션에 여백을 주고, 중앙 정렬된 칼럼 내에서 콘텐츠가 숨 쉴 수 있도록 합니다.",
+      "ch5_intro": "표면 처리는 최소한으로 기능적입니다. 은은한 그림자와 테두리로 높이감을 정의합니다. 카드와 입력 필드는 부드러운 그림자 하나와 얇고 반투명한 흰색 테두리로 형태감을 얻으며, 인터페이스의 경량성을 유지합니다.",
+      "ch6_intro": "레이아웃 스켈레톤은 간결합니다. 중앙 정렬된 단일 칼럼 히어로가 주요 메시지를 제시하고, 이후 기능 쇼케이스를 위한 간단한 2칼럼 그리드로 확장됩니다. 이 일방향에서 상호작용으로의 전환은 사용자의 헤드라인에서 세부 사항으로의 여정을 반영합니다.",
+      "ch7_intro": "모션은 절제되어 적용되며, 장식이 아닌 기능적 피드백으로서의 역할에 충실합니다. 모든 전환은 색상, 배경, 불투명도 변화에 일관된 0.2s ease-in-out 커브를 사용하여 상호작용이 부드럽고 예측 가능하게 느껴지도록 합니다.",
+      "ch8_intro": "에디토리얼 음성은 도움이 되고, 미니멀하며, 친근합니다. 굵고 깔끔한 헤드라인과 직접적인 행동 중심 CTA를 사용하며, 전문 용어, 복잡한 문장, 그리고 공격적인 긴급함의 어떤 암시도 일관되게 배제합니다.",
+      "ch8_outro": "의도적으로 하지 않는 것은 주의를 끄는 경쟁입니다. 복잡성을 내려놓고 명확하고 단일한 작업에 대한 흔들리지 않는 집중을 선택합니다."
+    }
+  }
 }

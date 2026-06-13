@@ -105,6 +105,8 @@ if [[ -n "${LOCAL_DEPLOY:-}" ]]; then
   sudo unzip -n -q "/var/www/opendesign.cc/packs/${SLUG}/${SLUG}-design-pack.zip" \
     -d "/var/www/opendesign.cc/packs/${SLUG}/" 2>/dev/null || true
   sudo chown -R www-data:www-data "/var/www/opendesign.cc/packs/${SLUG}/" 2>/dev/null || true
+  # 服务器模式：删除中间 extract 目录节省磁盘（ZIP+解压文件已在 /packs/，extract 冗余）
+  rm -rf "${EXDIR}" && echo "  ✓ 清理 extract 目录（磁盘释放）"
 else
   scp "${SSH_OPTS[@]}" "$ZIP" "${DEPLOY_USER}@${DEPLOY_HOST}:/tmp/${SLUG}-design-pack.zip"
   ssh "${SSH_OPTS[@]}" "${DEPLOY_USER}@${DEPLOY_HOST}" \

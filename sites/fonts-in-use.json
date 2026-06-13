@@ -8,6 +8,579 @@
     "editorial",
     "type"
   ],
-  "status": "pending",
-  "added_at": "2026-06-02"
+  "status": "completed",
+  "added_at": "2026-06-02",
+  "spec": {
+    "colors": {
+      "bg": "#F0F0F0",
+      "bgSoft": "#FFFFFF",
+      "bgQuiet": null,
+      "ink": "#000000",
+      "inkSoft": null,
+      "muted": "#999999",
+      "mutedSoft": "#DDDDDD",
+      "accent": null,
+      "line": "rgba(0,0,0,1.0)"
+    },
+    "typography": {
+      "display": "condensed-sans",
+      "body": "humanist-sans",
+      "mono": "geometric-sans",
+      "scale": [
+        {
+          "token": "display",
+          "size": 36,
+          "lh": 1.0,
+          "weight": 700,
+          "ls": "normal"
+        },
+        {
+          "token": "h2",
+          "size": 18,
+          "lh": 1.6,
+          "weight": 700,
+          "ls": "normal"
+        },
+        {
+          "token": "body",
+          "size": 14,
+          "lh": 1.6,
+          "weight": 400,
+          "ls": "normal"
+        },
+        {
+          "token": "caption",
+          "size": 10,
+          "lh": 1.1,
+          "weight": 400,
+          "ls": "normal"
+        }
+      ]
+    },
+    "spacing": {
+      "base": 4,
+      "scale": [
+        4,
+        8,
+        12,
+        16,
+        20,
+        24,
+        32,
+        48
+      ]
+    },
+    "surfaces": {
+      "radius": {
+        "sm": 2,
+        "md": 3,
+        "lg": 0,
+        "pill": 0
+      }
+    },
+    "layout": {
+      "container": 1280,
+      "paragraph": 680,
+      "columns": 4,
+      "gutter": 20,
+      "breakpoints": [
+        768,
+        1024
+      ]
+    },
+    "motion": {
+      "durations": {
+        "micro": 220,
+        "small": 250,
+        "medium": 400
+      },
+      "easing": "cubic-bezier(0.4, 0, 0.2, 1)"
+    }
+  },
+  "spec_i18n": {
+    "en": {
+      "identity": {
+        "keywords": [
+          "archive",
+          "typography",
+          "independent",
+          "collection",
+          "reference"
+        ],
+        "analogy": "A meticulously curated museum exhibition for type specimens.",
+        "oneLiner": "An independent archive of typography showcasing real-world usage."
+      },
+      "colors": {
+        "principle": "A strictly utilitarian palette that prioritizes content readability and lets the typography examples provide all visual color."
+      },
+      "typography": {
+        "rules": [],
+        "scaleUses": [
+          "Primary branding and bold categorization headers",
+          "Primary navigation and main headings",
+          "Body text, metadata, and descriptions",
+          "Micro-copy, labels, and secondary interface elements"
+        ]
+      },
+      "spacing": {
+        "rhythm": "Strict 4px base grid with utilitarian padding and margins."
+      },
+      "surfaces": {
+        "shadows": [],
+        "borders": "Solid black borders (1px) define primary structural elements, with 7px borders occasionally used for heavy visual separation."
+      },
+      "layout": {
+        "skeleton": "A dense, image-heavy 4-column masonry grid with minimal margins between items."
+      },
+      "components": {
+        "button": "Minimal, text-based links with no background, relying on bold weight or underline for affordance.",
+        "card": "A stark image-text combination with a clear typographic hierarchy, lacking any padding, shadows, or background.",
+        "chip": "Plain text-based filters separated by a solid forward slash.",
+        "input": "A minimal, single-line search box with a gray border and a top-aligned label.",
+        "hero": "A large, condensed typographic logo paired with a concise descriptive tagline."
+      },
+      "motion": {
+        "patterns": [
+          "Simple opacity fades on hover and basic margin transitions for interactive elements."
+        ]
+      },
+      "interaction": {
+        "hover": "Cursor changes to a pointer, with subtle text opacity or color transitions.",
+        "click": "Standard link navigation behavior.",
+        "transition": "Subtle 0.25s opacity transitions on interactive elements.",
+        "keyboard": "Standard browser focus states on links and input fields."
+      },
+      "voice": {
+        "tone": "Objective, scholarly, and strictly informative.",
+        "headlineStyle": "Bold, condensed sans-serif for branding; bold standard sans-serif for navigation.",
+        "ctaStyle": "Understated, text-based links with minimal visual emphasis.",
+        "avoid": [
+          "Marketing jargon",
+          "Decorative fonts",
+          "Loud visual hierarchy",
+          "Subjective adjectives"
+        ]
+      },
+      "donts": [
+        "don't use shadows — screenshot shows flat images with no drop shadows",
+        "don't use rounded corners — screenshot shows sharp, 0px or 2px radius corners",
+        "don't use gradients — screenshot shows flat, solid background colors",
+        "don't use decorative fonts — screenshot shows strictly functional sans-serif typography for the UI",
+        "don't add excessive padding — screenshot shows a dense layout with minimal whitespace between grid items",
+        "don't use background colors for cards — screenshot shows images sitting directly on the background"
+      ],
+      "systemPrompt": "Fonts In Use is an independent, scholarly archive of typography. The UI is strictly utilitarian, featuring a dense 4-column masonry grid of real-world typography examples. The palette is entirely monochromatic: #F0F0F0 backgrounds, #000000 text, and #999999 accents. Typography relies on a condensed sans-serif for branding and a humanist sans-serif for body text. Critical don'ts: 1. Never use decorative backgrounds or gradients. 2. Avoid soft card shadows or rounded corners. 3. Do not add excessive padding that breaks the dense archival feel."
+    },
+    "zh-CN": {
+      "identity": {
+        "keywords": [
+          "档案",
+          "排版",
+          "独立",
+          "收藏",
+          "参考"
+        ],
+        "analogy": "一个精心策划的排版样张博物馆展览。",
+        "oneLiner": "一个展示真实世界应用的独立排版档案。"
+      },
+      "colors": {
+        "principle": "严格的功能性调色板，优先考虑内容可读性，让排版示例提供所有视觉色彩。"
+      },
+      "typography": {
+        "rules": [],
+        "scaleUses": [
+          "主要品牌标识与加粗分类标题",
+          "主导航与主标题",
+          "正文文本、元数据与描述",
+          "微文案、标签与次级界面元素"
+        ]
+      },
+      "spacing": {
+        "rhythm": "严格的4像素基础网格，配合功能性的内边距与外边距。"
+      },
+      "surfaces": {
+        "shadows": [],
+        "borders": "实线黑色边框（1像素）界定主要结构元素，偶尔使用7像素边框进行强烈的视觉分隔。"
+      },
+      "layout": {
+        "skeleton": "采用密集、图像密集的四列瀑布流网格，项目间边距最小。"
+      },
+      "components": {
+        "button": "极简的纯文本链接，无背景，依靠加粗或下划线提供可操作性提示。",
+        "card": "鲜明的图像-文本组合，具有清晰的排版层次，无内边距、阴影或背景。",
+        "chip": "以实线正斜杠分隔的纯文本过滤器。",
+        "input": "极简的单行搜索框，灰色边框，标签顶对齐。",
+        "hero": "一个大型、紧凑的排版标识搭配简洁的描述性标语。"
+      },
+      "motion": {
+        "patterns": [
+          "hover时的简单透明度淡入淡出，以及交互元素的基边距过渡。"
+        ]
+      },
+      "interaction": {
+        "hover": "光标变为指针，伴有微妙的文本透明度或颜色过渡。",
+        "click": "标准链接导航行为。",
+        "transition": "交互元素上微妙的0.25秒透明度过渡。",
+        "keyboard": "链接和输入框上的标准浏览器focus状态。"
+      },
+      "voice": {
+        "tone": "客观、学术性且严格信息性。",
+        "headlineStyle": "品牌标识使用加粗、紧凑的无衬线字体；导航使用加粗标准无衬线字体。",
+        "ctaStyle": "低调的纯文本链接，视觉强调最小。",
+        "avoid": [
+          "营销术语",
+          "装饰性字体",
+          "强烈的视觉层次",
+          "主观形容词"
+        ]
+      },
+      "donts": [
+        "不要使用阴影——截图显示无投影的扁平图像",
+        "不要使用圆角——截图显示尖锐的、0或2像素圆角",
+        "不要使用渐变——截图显示扁平、纯色的背景",
+        "不要使用装饰性字体——截图显示界面严格使用功能性无衬线字体",
+        "不要添加过多内边距——截图显示网格项目间空白最小的密集布局",
+        "不要为卡片使用背景色——截图显示图像直接置于背景上"
+      ],
+      "systemPrompt": "Fonts In Use 是一个独立的、学术性的排版档案。界面严格遵循功能性，采用密集的四列瀑布流网格展示真实世界排版示例。调色板完全单色：#F0F0F0 背景、#000000 文本和 #999999 强调色。字体系统采用紧凑无衬线字体用于品牌标识，人文无衬线字体用于正文。关键禁止项：1. 绝不使用装饰性背景或渐变。2. 避免柔和的卡片阴影或圆角。3. 不要添加过多内边距而破坏密集的档案感。"
+    },
+    "zh-TW": {
+      "identity": {
+        "keywords": [
+          "典藏",
+          "字體排印",
+          "獨立",
+          "收藏",
+          "參考"
+        ],
+        "analogy": "一個精心策展的字體樣本博物館展覽。",
+        "oneLiner": "一個展現真實應用的獨立字體排印典藏。"
+      },
+      "colors": {
+        "principle": "一個嚴格實用的調色盤，優先考量內容的可讀性，讓字體範例提供所有的視覺色彩。"
+      },
+      "typography": {
+        "rules": [],
+        "scaleUses": [
+          "主要品牌識別與粗體分類標題",
+          "主要導覽與主標題",
+          "內文、後設資料與說明文字",
+          "微型文案、標籤與次要介面元素"
+        ]
+      },
+      "spacing": {
+        "rhythm": "嚴格的 4px 基礎格線，搭配實用的 padding 與 margin。"
+      },
+      "surfaces": {
+        "shadows": [],
+        "borders": "實心黑色邊框 (1px) 用於定義主要結構元素，偶爾使用 7px 邊框作為強烈的視覺分隔。"
+      },
+      "layout": {
+        "skeleton": "一個密集、影像為主的四欄瀑布流格線，項目間邊距極小。"
+      },
+      "components": {
+        "button": "極簡的文字型連結，無背景色，依賴粗體或底線作為互動提示。",
+        "card": "鮮明的影像與文字組合，具備清晰的字體層級，無任何 padding、陰影或背景。",
+        "chip": "純文字型篩選器，以實心斜線分隔。",
+        "input": "一個極簡的單行搜尋框，帶有灰色邊框與頂部對齊的標籤。",
+        "hero": "一個大型、緊縮的字體標誌，搭配簡潔的描述性標語。"
+      },
+      "motion": {
+        "patterns": [
+          "互動元素在 hover 時的簡樸 opacity 淡入淡出，以及基礎的 margin 過渡。"
+        ]
+      },
+      "interaction": {
+        "hover": "游標變為手形，伴隨細微的文字 opacity 或色彩過渡。",
+        "click": "標準的連結導覽行為。",
+        "transition": "互動元素上細微的 0.25s opacity 過渡。",
+        "keyboard": "連結與輸入欄位採用標準的瀏覽器 focus 狀態。"
+      },
+      "voice": {
+        "tone": "客觀、學術，且嚴格資訊性。",
+        "headlineStyle": "品牌識別使用粗體緊縮無襯線體；導覽則使用粗體標準無襯線體。",
+        "ctaStyle": "內斂的文字型連結，視覺強調極少。",
+        "avoid": [
+          "行銷術語",
+          "裝飾性字體",
+          "喧鬧的視覺層級",
+          "主觀的形容詞"
+        ]
+      },
+      "donts": [
+        "不要使用陰影 — 截圖顯示無投影陰影的平面影像",
+        "不要使用圓角 — 截圖顯示銳利、0px 或 2px 半徑的邊角",
+        "不要使用漸層 — 截圖顯示平面、實心的背景色彩",
+        "不要使用裝飾性字體 — 截圖顯示介面嚴格使用功能性的無襯線字體",
+        "不要添加過多的 padding — 截圖顯示格線項目間留白極小的密集佈局",
+        "不要為卡片使用背景色 — 截圖顯示影像直接置於背景上"
+      ],
+      "systemPrompt": "Fonts In Use 是一個獨立的、學術性的字體排印典藏。其介面嚴格實用，以密集的四欄瀑布流格線呈現真實世界的字體範例。調色盤完全單色：#F0F0F0 背景、#000000 文字，以及 #999999 強調色。字體排印依賴緊縮無襯線體作為品牌識別，以及人文主義無襯線體作為內文。關鍵禁令：1. 絕不使用裝飾性背景或漸層。2. 避免使用柔和的卡片陰影或圓角。3. 不要添加破壞密集典藏感的過多 padding。"
+    },
+    "ja": {
+      "identity": {
+        "keywords": [
+          "アーカイブ",
+          "タイポグラフィ",
+          "独立",
+          "コレクション",
+          "参照"
+        ],
+        "analogy": "タイポグラフィ標本のための、細心の注意を払ってキュレーションされた博物館展覧会。",
+        "oneLiner": "実際の使用例を紹介する、独立したタイポグラフィアーカイブ。"
+      },
+      "colors": {
+        "principle": "コンテンツの読みやすさを優先し、タイポグラフィのサンプルにすべての視覚的な色彩を委ねる、厳格に実用主義的なパレット。"
+      },
+      "typography": {
+        "rules": [],
+        "scaleUses": [
+          "プライマリブランドおよび太字の分類ヘッダー",
+          "プライマリナビゲーションおよび主要見出し",
+          "本文、メタデータ、説明文",
+          "マイクロコピー、ラベル、セカンダリインターフェース要素"
+        ]
+      },
+      "spacing": {
+        "rhythm": "実用的なパディングとマージンを用いた、厳格な4pxベースグリッド。"
+      },
+      "surfaces": {
+        "shadows": [],
+        "borders": "実黒のボーダー（1px）が主要な構造要素を定義し、視覚的な分離を強めるために7pxのボーダーが時折使用されます。"
+      },
+      "layout": {
+        "skeleton": "アイテム間のマージンが最小限の、密な画像多めの4カラムメソングリッド。"
+      },
+      "components": {
+        "button": "背景がなく、太字ウェイトや下線で操作性を示す、ミニマルなテキストベースリンク。",
+        "card": "パディング、シャドウ、背景がなく、明確なタイポグラフィ階層を持つ、鋭い画像とテキストの組み合わせ。",
+        "chip": "実線のスラッシュで区切られたプレーンテキストフィルター。",
+        "input": "グレーボーダーと上揃えラベルを持つ、ミニマルな単一行の検索ボックス。",
+        "hero": "簡潔な説明タグラインと組み合わされた、大型でコンパクトなタイポグラフィロゴ。"
+      },
+      "motion": {
+        "patterns": [
+          "ホバー時のシンプルなフェードイン・フェードアウトや、インタラクティブ要素の基本的なmargin遷移。"
+        ]
+      },
+      "interaction": {
+        "hover": "カーソルがポインタに変わり、微妙なテキストのopacityやカラー遷移が発生します。",
+        "click": "標準的なリンクナビゲーション挙動。",
+        "transition": "インタラクティブ要素に対する、微妙な0.25秒のopacity遷移。",
+        "keyboard": "リンクや入力フィールドに対する、標準的なブラウザのフォーカス状態。"
+      },
+      "voice": {
+        "tone": "客観的、学術的、かつ厳格に情報的。",
+        "headlineStyle": "ブランド用に太字のコンパクトsans-serif、ナビゲーション用に太字の標準sans-serif。",
+        "ctaStyle": "視覚的強調が最小限の、控えめなテキストベースリンク。",
+        "avoid": [
+          "マーめティング用語",
+          "装飾的フォント",
+          "派手な視覚階層",
+          "主観的な形容詞"
+        ]
+      },
+      "donts": [
+        "シャドウを使用しない — スクリーンショットにはドロップシャドウのないフラットな画像が示されている",
+        "角丸を使用しない — スクリーンショットには0pxまたは2px半径の鋭い角が示されている",
+        "グラデーションを使用しない — スクリーンショットにはフラットで固体の背景色が示されている",
+        "装飾フォントを使用しない — スクリーンショットにはUIに対して厳格に機能的なsans-serifタイポグラフィが示されている",
+        "過度のパディングを追加しない — スクリーンショットにはグリッドアイテム間の余白が最小限の密なレイアウトが示されている",
+        "カードに背景色を使用しない — スクリーンショットには画像が背景の上に直接配置されている"
+      ],
+      "systemPrompt": "Fonts In Useは、独立した学術的タイポグラフィアーカイブです。UIは厳格に実用的で、実際のタイポグラフィサンプルの密な4カラムメソングリッドを特徴とします。パレットは完全にモノクロ：背景#F0F0F0、テキスト#000000、アクセント#999999です。タイポグラフィは、ブランド用にコンパクトsans-serif、本文用にヒューマニストsans-serifに依存しています。重要な禁止事項：1. 装飾的な背景やグラデーションを絶対に使用しない。2. 柔らかいカードシャドウや角丸を避ける。3. 密なアーカイブ感を損なう過度のパディングを追加しない。"
+    },
+    "ko": {
+      "identity": {
+        "keywords": [
+          "아카이브",
+          "타이포그래피",
+          "독립적",
+          "컬렉션",
+          "참고 자료"
+        ],
+        "analogy": "타이포그래피 샘플을 위한 세심하게 큐레이션된 박물관 전시.",
+        "oneLiner": "실제 사용법을 보여주는 타이포그래피의 독립 아카이브."
+      },
+      "colors": {
+        "principle": "콘텐츠의 가독성을 우선시하고 타이포그래피 예제가 모든 시각적 색상을 제공하도록 하는, 엄격히 실용적인 팔레트입니다."
+      },
+      "typography": {
+        "rules": [],
+        "scaleUses": [
+          "기본 브랜딩 및 굵은 카테고리 헤더",
+          "기본 내비게이션 및 주요 제목",
+          "본문 텍스트, 메타데이터 및 설명",
+          "미세 텍스트, 레이블 및 보조 인터페이스 요소"
+        ]
+      },
+      "spacing": {
+        "rhythm": "엄격한 4px 기본 격자를 기반으로 한 실용적 padding과 margin."
+      },
+      "surfaces": {
+        "shadows": [],
+        "borders": "단색 검정 테두리(1px)로 주요 구조 요소를 정의하며, 무거운 시각적 구분을 위해 가끔 7px 테두리가 사용됩니다."
+      },
+      "layout": {
+        "skeleton": "항목 간 최소한의 margin으로 구성된, 이미지 중심의 조밀한 4열 masonry 격자."
+      },
+      "components": {
+        "button": "배경 없이 텍스트 기반의 미니멀 링크로, 굵은 weight 또는 underline으로 기능을 나타냅니다.",
+        "card": "명확한 타이포그래피 계층을 갖추고 padding, 그림자, 배경이 전혀 없는, 날카로운 이미지-텍스트 조합.",
+        "chip": "단단한 슬래시('/')로 구분된 일반 텍스트 필터.",
+        "input": "상단 정렬 레이블과 회색 테두리가 있는, 미니멀한 단일 줄 검색 상자.",
+        "hero": "간결하고 설명적인 태그라인과 함께 배치된, 크고 수축된 타이포그래피 로고."
+      },
+      "motion": {
+        "patterns": [
+          "hover 시 단순한 opacity 페이드 및 인터랙티브 요소를 위한 기본 margin 전환."
+        ]
+      },
+      "interaction": {
+        "hover": "커서가 포인터로 변경되며, 미세한 텍스트 opacity 또는 색상 전환이 발생합니다.",
+        "click": "표준 링크 내비게이션 동작.",
+        "transition": "인터랙티브 요소에 대한 미세한 0.25s opacity 전환.",
+        "keyboard": "링크 및 입력 필드에 대한 표준 브라우저 focus 상태."
+      },
+      "voice": {
+        "tone": "객관적이고 학술적이며 엄격히 정보 전달 지향적.",
+        "headlineStyle": "브랜딩을 위한 굵고 수축된 sans-serif; 내비게이션을 위한 굵은 표준 sans-serif.",
+        "ctaStyle": "시각적 강조를 최소화한 절제된 텍스트 기반 링크.",
+        "avoid": [
+          "마케팅 용어",
+          "장식적 서체",
+          "과장된 시각적 계층",
+          "주관적 형용사"
+        ]
+      },
+      "donts": [
+        "그림자를 사용하지 마세요 — 스크린샷은 그림자가 없는 평면 이미지를 보여줍니다.",
+        "둥근 모서리를 사용하지 마세요 — 스크린샷은 날카로운, 0px 또는 2px 반경의 모서리를 보여줍니다.",
+        "그래디언트를 사용하지 마세요 — 스크린샷은 평면적이고 단색 배경 색상을 보여줍니다.",
+        "장식적 서체를 사용하지 마세요 — 스크린샷은 UI를 위해 엄격히 기능적인 sans-serif 타이포그래피를 보여줍니다.",
+        "과도한 padding을 추가하지 마세요 — 스크린샷은 격자 항목 간 최소한의 여백으로 구성된 조밀한 레이아웃을 보여줍니다.",
+        "카드에 배경색을 사용하지 마세요 — 스크린샷은 배경 위에 직접 놓인 이미지를 보여줍니다."
+      ],
+      "systemPrompt": "Fonts In Use는 타이포그래피에 대한 독립적이고 학술적인 아카이브입니다. 인터페이스는 엄격히 실용적이며, 실제 타이포그래피 예제의 조밀한 4열 masonry 격자를 특징으로 합니다. 팔레트는 완전히 단색입니다: 배경 #F0F0F0, 텍스트 #000000, 포인트 컬러 #999999. 타이포그래피는 브랜딩을 위한 수축된 sans-serif와 본문을 위한 humanist sans-serif에 의존합니다. 핵심 금지 사항: 1. 절대 장식적 배경이나 그래디언트를 사용하지 마세요. 2. 부드러운 카드 그림자나 둥근 모서리를 피하세요. 3. 조밀한 기록적 느낌을 깨뜨리는 과도한 padding을 추가하지 마세요."
+    }
+  },
+  "desc": {
+    "en": {
+      "palette": "A strictly monochromatic utilitarian palette consisting of light gray, black, and mid-gray to ensure complete focus on the displayed typography.",
+      "layout": "A dense, image-heavy 4-column masonry grid with minimal padding and stark black borders defining structural sections.",
+      "interaction": "Minimalist interaction relying on subtle opacity transitions and standard browser link behaviors without elaborate visual feedback.",
+      "motion": "Extremely restrained motion profile with only basic opacity and margin transitions to maintain a scholarly, archival feel.",
+      "notes": "A perfect example of functional curation, where the interface intentionally recedes to let the typography specimens provide all the visual personality."
+    },
+    "zh-CN": {
+      "palette": "采用严格单色的功能性调色板，由浅灰色、黑色和中灰色构成，以确保对排版展示的完全专注。",
+      "layout": "采用密集、图像密集的四列瀑布流网格，具有最小的内边距和鲜明的黑色边框来界定结构分区。",
+      "interaction": "极简交互设计，依赖微妙的透明度过渡和标准浏览器链接行为，无复杂视觉反馈。",
+      "motion": "极其克制的动效方案，仅使用基础的透明度与边距过渡，以保持学术性、档案感。",
+      "notes": "功能性策展的完美范例，界面有意退居次要位置，让排版样张提供所有视觉个性。"
+    },
+    "zh-TW": {
+      "palette": "一個嚴格單色調的實用調色盤，包含淺灰、黑色與中灰，確保視覺完全聚焦於所呈現的字體排印。",
+      "layout": "一個密集、影像為主的四欄瀑布流格線，搭配最少的 padding 與鮮明的黑色邊框來定義結構性區域。",
+      "interaction": "極簡互動，依賴細微的 opacity 過渡與標準的瀏覽器連結行為，無繁複的視覺回饋。",
+      "motion": "極度克制的動態表現，僅有基礎的 opacity 與 margin 過渡，以維持學術與典藏的氛圍。",
+      "notes": "功能策展的完美範例，介面刻意後退，讓字體樣本提供所有的視覺個性。"
+    },
+    "ja": {
+      "palette": "軽灰、黒、中灰を用いた厳格なモノクロの実用的パレット。表示されるタイポグラフィに完全に集中できるように設計されています。",
+      "layout": "密な、画像多めの4カラムメソングリッド。最小限のパディングと、構造セクションを定義する鋭い黒いボーダーが特徴です。",
+      "interaction": "微妙なopacity遷移と標準的なブラウザリンク挙動に依存する、ミニマルなインタラクション。派手な視覚フィードバックはありません。",
+      "motion": "学術的、記録的な印象を維持するため、基本的なopacityとmargin遷移のみを用いた、極めて抑制されたモーションプロファイル。",
+      "notes": "機能的キュレーションの完璧な例です。インターフェースは意図的に後退し、タイポグラフィ標本がすべての視覚的個性を提供します。"
+    },
+    "ko": {
+      "palette": "엄격히 단색의 실용적 팔레트로, 밝은 회색, 검정, 중간 회색으로 구성되어 표시되는 타이포그래피에 완전히 집중할 수 있도록 합니다.",
+      "layout": "최소한의 padding과 구조적 섹션을 정의하는 날카로운 검정 테두리로 구성된, 이미지 중심의 조밀한 4열 masonry 격자 레이아웃입니다.",
+      "interaction": "미세한 opacity 전환과 표준 브라우저 링크 동작에 의존하는 미니멀리스트 상호작용으로, 화려한 시각적 피드백은 없습니다.",
+      "motion": "학술적이고 기록적인 느낌을 유지하기 위해 기본적인 opacity와 margin 전환만 사용하는 극도로 절제된 모션 프로필입니다.",
+      "notes": "기능적 큐레이션의 완벽한 예시로, 인터페이스는 의도적으로 수그러들어 타이포그래피 샘플이 모든 시각적 개성을 제공하도록 합니다."
+    }
+  },
+  "_meta": {
+    "vision_model": "mimo-v2.5",
+    "vision_prompt_version": "0.3",
+    "vision_source": "playwright-extract:fonts-in-use",
+    "vision_grounded": true,
+    "vision_at": "2026-06-04T15:14:41+00:00",
+    "vision_tokens": 15942,
+    "vision_cost_usd": 0.1771,
+    "translation_model": "mimo-v2.5",
+    "translation_at": "2026-06-04T15:15:48+00:00",
+    "translation_tokens": 15897,
+    "translation_cost_usd": 0.053,
+    "narrative_model": "mimo-v2.5",
+    "narrative_prompt_version": "0.3",
+    "narrative_at": "2026-06-04T15:16:00+00:00",
+    "narrative_tokens": 1950,
+    "narrative_cost_usd": 0.013,
+    "narrative_status": "ok",
+    "total_cost_usd": 0.2431
+  },
+  "narrative": {
+    "en": {
+      "ch1_intro": "Fonts In Use functions as a meticulously curated museum exhibition for type specimens, where the interface itself adopts the quiet, neutral tone of a gallery wall. The system's identity is that of an independent archive and reference collection, built to let the typography examples provide all visual color.",
+      "ch2_intro": "The color system is strictly monochromatic and utilitarian, designed to disappear into the background. The palette—light gray, black, and mid-gray—ensures the displayed typography specimens are the sole source of visual personality.",
+      "ch2_outro": "The guiding principle is absolute restraint: the interface recedes completely to prioritize the content it houses.",
+      "ch3_intro": "Typography is categorized by voice and function, employing a condensed sans-serif for primary branding and a humanist sans-serif for body text. The scale is utilitarian, clearly separating branding headers, main headings, body text, and micro-copy.",
+      "ch4_intro": "All vertical and horizontal spacing adheres to a strict 4px base grid, creating a dense, predictable rhythm throughout the interface.",
+      "ch5_intro": "Depth is conveyed solely through solid black borders, which define primary structural elements with stark clarity. The system rejects shadows and soft separations in favor of a flat, graphic immediacy.",
+      "ch6_intro": "The layout skeleton is a dense, image-heavy 4-column masonry grid with minimal margins between items. It is constructed to maximize content density, evoking the packed shelves of a specialized library.",
+      "ch7_intro": "Motion is extremely restrained, governed by a philosophy of scholarly quietness. Interactive feedback is limited to simple opacity fades on hover and basic margin transitions, avoiding any visual flourish that might distract from the archive's content.",
+      "ch8_intro": "The editorial voice is objective, scholarly, and strictly informative, avoiding all marketing jargon and subjective adjectives. The typographic hierarchy is blunt and functional, using bold weights for emphasis rather than decorative flourishes.",
+      "ch8_outro": "The system deliberately does not employ decorative fonts, rounded corners, gradients, or excessive padding, all of which would undermine the dense, archival integrity of the interface."
+    },
+    "zh-CN": {
+      "ch1_intro": "「使用中的字体」如同一个精心策划的字体标本博物馆展览，其界面本身采用画廊墙壁般的安静、中性基调。该系统的定位是一个独立的档案库与参考集合，旨在让字体范例自身呈现全部视觉表现力。",
+      "ch2_intro": "色彩系统严格遵循单色实用主义设计，旨在隐匿于背景之中。色板——浅灰、黑色与中灰——确保展示的字体标本成为唯一的视觉个性来源。",
+      "ch2_outro": "核心原则是绝对克制：界面完全退隐，以优先呈现其承载的内容。",
+      "ch3_intro": "字体按其声调与功能分类，品牌主视觉采用压缩无衬线字体，正文则使用人文主义无衬线字体。尺度安排以实用为导向，清晰区隔品牌标题、主标题、正文与微型文案。",
+      "ch4_intro": "所有垂直与水平间距均遵循严格的4px基础网格，在界面中构建出密集、可预测的节奏。",
+      "ch5_intro": "纵深感仅通过纯黑边框传达，以极简的清晰度定义主要结构元素。该系统摒弃阴影与柔和分隔，追求扁平、图形化的直接性。",
+      "ch6_intro": "布局骨架是一个密集、以图像为主的4列瀑布流网格，项目间留有极小边距。其构建旨在最大化内容密度，令人联想到专业图书馆塞满的书架。",
+      "ch7_intro": "动效极为克制，遵循学术性的静谧哲学。交互反馈限于悬停时的简单透明度渐变与基础边距过渡，避免任何可能分散档案内容注意力的视觉修饰。",
+      "ch8_intro": "编辑语气客观、严谨、纯信息性，避免所有营销术语与主观形容词。字体层级直接且功能化，使用粗体字重进行强调，而非装饰性修饰。",
+      "ch8_outro": "该系统刻意不使用装饰性字体、圆角、渐变或过度填充，这些元素均会破坏界面的密集档案完整性。"
+    },
+    "zh-TW": {
+      "ch1_intro": "Fonts In Use 功能如同精心策劃的字體標本博物館展覽，介面本身採用畫廊牆壁般的靜謐中性基調。系統定位為獨立的檔案庫與參考資料集，旨在讓字體範例自行展現所有視覺表現力。",
+      "ch2_intro": "色彩系統採用嚴格的單色實用主義設計，旨在融入背景而不顯突兀。調色盤由淺灰、黑色與中灰構成，確保所展示的字體標本成為唯一的視覺個性來源。",
+      "ch2_outro": "核心原則是絕對克制：介面完全退讓，以優先呈現其承載的內容。",
+      "ch3_intro": "字體依據語調與功能分類，主要品牌識別採用緊湊無襯線字體，內文則使用人文主義無襯線字體。尺度配置講求實用，清晰區分品牌標題、主要標題、內文與微型文案。",
+      "ch4_intro": "所有垂直與水平間距皆遵循嚴謹的 4px 基礎網格，在介面中營造出緊湊且可預期的節奏感。",
+      "ch5_intro": "深度感完全透過實心黑線框傳達，以鮮明清晰的方式界定主要結構元素。系統摒棄陰影與柔和分割，採用平面化、圖形化的直接表現。",
+      "ch6_intro": "版面骨架採用緊湊、圖像密集的四欄瀑布流網格，項目間邊距極小。此結構旨在最大化內容密度，彷彿專業圖書館中塞滿書籍的層架。",
+      "ch7_intro": "動態效果極度克制，遵循學術靜謐的設計哲學。互動回饋僅限於滑鼠懸停時的透明度淡化與基本邊距過渡，避免任何可能分散檔案內容注意力的視覺修飾。",
+      "ch8_intro": "編輯語調客觀、學術且嚴格資訊化，避免所有行銷術語與主觀形容詞。字體階級直接而功能化，使用粗體字重作為強調手段，而非裝飾性修飾。",
+      "ch8_outro": "系統刻意不採用裝飾性字體、圓角、漸層或過多內距，這些元素皆會削弱介面的緊湊檔案完整性。"
+    },
+    "ja": {
+      "ch1_intro": "「Fonts In Use」は、活字見本を厳密にキュレーションされた美術館の展示として機能し、インターフェース自体がギャラリーウォールの静かで中立的なトーンを採用しています。システムのアイデンティティは、独立したアーカイブおよび参考コレクションであり、タイポグラフィの例がすべてのビジュアルカラーを提供できるよう構築されています。",
+      "ch2_intro": "カラーシステムは厳密にモノクロで功利的であり、背景に溶け込むように設計されています。パレット（ライトグレー、ブラック、ミッドグレー）は、表示されるタイポグラフィ見本が唯一のビジュアル個性の源であることを保証します。",
+      "ch2_outro": "導く原則は絶対的な抑制です：インターフェースは、収容するコンテンツを優先するために完全に後退します。",
+      "ch3_intro": "タイポグラフィは声と機能で分類され、プライマリブランディングにはコンデンスサンセリフ、本文にはヒューマニストサンセリフが採用されています。スケールは功利的であり、ブランディングヘッダー、メイン見出し、本文、マイクロコピーを明確に分離しています。",
+      "ch4_intro": "すべての垂直および水平の間隔は厳密な4pxベースグリッドに準拠し、インターフェース全体に密度が高く予測可能なリズムを生み出しています。",
+      "ch5_intro": "奥行きはソリッドブラックボーダーのみで表現され、主要な構造要素を鮮明に定義しています。システムは、フラットで図形的な即時性を優先し、影や柔らかい分離を拒否します。",
+      "ch6_intro": "レイアウトスケルトンは、項目間の余白が最小限の、密度が高く画像を多用する4カラムメイソンリーグリッドです。専門図書館の詰まった本棚を想起させ、コンテンツの密度を最大化するために構築されています。",
+      "ch7_intro": "モーションは極めて抑制されており、学術的な静けさの哲学に従います。インタラクティブなフィードバックは、hover時の単純な不透明度フェードと基本的なマージントランジションに限定され、アーカイブのコンテンツから注意をそらす視覚的な装飾は避けられます。",
+      "ch8_intro": "エディトリアルボイスは客観的で学術的、かつ厳格に情報提供を目的とし、すべてのマーケティング用語や主観的な形容詞を避けています。タイポグラフィ階層は率直で機能的であり、装飾的な飾りではなく、強調のために太いウェイトを使用しています。",
+      "ch8_outro": "システムは意図的に装飾フォント、角丸、グラデーション、過剰なパディングを採用していません。これらはすべて、インターフェースの密度の高いアーカイブ的な完全性を損なうものです。"
+    },
+    "ko": {
+      "ch1_intro": "Fonts In Use는 타이포그래피 샘플을 위한 엄선된 박물관 전시처럼 기능하며, 인터페이스 자체는 갤러리 벽의 고요하고 중립적인 톤을 취합니다. 시스템의 정체성은 독립 아카이브와 참고 자료 모음으로, 타이포그래피 예시가 모든 시각적 개성을 제공하도록 구축되었습니다.",
+      "ch2_intro": "색상 시스템은 철저히 단색이며 실용적이며, 배경 속으로 사라지도록 설계되었습니다. 팔레트—밝은 회색, 검정, 중간 회색—는 표시된 타이포그래피 샘플이 유일한 시각적 개성의 원천이 되도록 보장합니다.",
+      "ch2_outro": "지배적인 원칙은 절대적인 절제입니다: 인터페이스는 자체가 담고 있는 콘텐츠를 우선시하기 위해 완전히 물러섭니다.",
+      "ch3_intro": "타이포그래피는 음성과 기능에 따라 분류되며, 주요 브랜딩에는 콘덴스드 산세리프를, 본문 텍스트에는 휴머니스트 산세리프를 사용합니다. 축척은 실용적이며, 브랜딩 헤더, 주 제목, 본문 텍스트, 마이크로 카피를 명확히 구분합니다.",
+      "ch4_intro": "모든 수직 및 수평 간격은 엄격한 4px 기본 그리드를 준수하여 인터페이스 전체에 밀집되고 예측 가능한 리듬을 만듭니다.",
+      "ch5_intro": "깊이는 오직 단단한 검정 테두리를 통해서만 전달되며, 이는 주요 구조 요소를 명확하게 정의합니다. 시스템은 그림자와 부드러운 분리를 거부하고 플랫하고 그래픽적인 즉각성을 선호합니다.",
+      "ch6_intro": "레이아웃 스켈레톤은 아이템 간 최소한의 여백을 가진 밀집된 이미지 중심 4열 메이슨리 그리드입니다. 콘텐츠 밀도를 최대화하여 전문 서가의 빽빽한 선반을 연상시키도록 구성되었습니다.",
+      "ch7_intro": "모션은 극도로 절제되어 있으며, 학술적 고요함의 철학에 의해 지배됩니다. 인터랙티브 피드백은 hover 시의 간단한 불투명도 페이드와 기본 마진 전환으로 제한되며, 아카이브의 콘텐츠에서 주의를 빼앗을 수 있는 모든 시각적 장식을 피합니다.",
+      "ch8_intro": "에디토리얼 음성은 객관적이고 학술적이며 철저히 정보를 전달하며, 모든 마케팅 용어와 주관적인 형용사를 피합니다. 타이포그래피 계층은 직설적이고 기능적이며, 장식적인 꾸밈보다는 강조를 위해 볼드 웨이트를 사용합니다.",
+      "ch8_outro": "시스템은 의도적으로 장식용 폰트, 둥근 모서리, gradient, 또는 과도한 padding을 사용하지 않으며, 이 모든 것은 인터페이스의 밀집된 아카이브적 무결성을 훼손할 것입니다."
+    }
+  }
 }

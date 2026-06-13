@@ -8,6 +8,617 @@
     "design",
     "motion"
   ],
-  "status": "pending",
-  "added_at": "2026-06-03"
+  "status": "completed",
+  "added_at": "2026-06-03",
+  "spec": {
+    "colors": {
+      "bg": "#ffffff",
+      "bgSoft": "#f6f7f5",
+      "bgQuiet": null,
+      "ink": "#1a1a2e",
+      "inkSoft": "#4a4a6a",
+      "muted": "#6b7280",
+      "mutedSoft": "#9ca3af",
+      "accent": "#00b894",
+      "line": "rgba(235,238,235,0.5)"
+    },
+    "typography": {
+      "display": "humanist-sans",
+      "body": "humanist-sans",
+      "mono": "ui-monospace",
+      "scale": [
+        {
+          "token": "display",
+          "size": 64,
+          "lh": 1.0,
+          "weight": 500,
+          "ls": "-2.56px"
+        },
+        {
+          "token": "h1",
+          "size": 48,
+          "lh": 1.0,
+          "weight": 500,
+          "ls": "-1.92px"
+        },
+        {
+          "token": "h2",
+          "size": 24,
+          "lh": 1.17,
+          "weight": 500,
+          "ls": "-0.72px"
+        },
+        {
+          "token": "body",
+          "size": 16,
+          "lh": 1.5,
+          "weight": 400,
+          "ls": "-0.2px"
+        },
+        {
+          "token": "small",
+          "size": 14,
+          "lh": 1.43,
+          "weight": 400,
+          "ls": "-0.24px"
+        }
+      ]
+    },
+    "spacing": {
+      "base": 4,
+      "scale": [
+        4,
+        8,
+        12,
+        16,
+        24,
+        32,
+        48,
+        64,
+        96
+      ]
+    },
+    "surfaces": {
+      "radius": {
+        "sm": 6,
+        "md": 8,
+        "lg": 16,
+        "pill": 9999
+      }
+    },
+    "layout": {
+      "container": 1280,
+      "paragraph": 680,
+      "columns": 12,
+      "gutter": 24,
+      "breakpoints": [
+        768,
+        1024
+      ]
+    },
+    "motion": {
+      "durations": {
+        "micro": 150,
+        "small": 300,
+        "medium": 800
+      },
+      "easing": "cubic-bezier(0.4, 0, 0.2, 1)"
+    }
+  },
+  "spec_i18n": {
+    "en": {
+      "identity": {
+        "keywords": [
+          "motion",
+          "animation",
+          "lightweight",
+          "interactive",
+          "developer"
+        ],
+        "analogy": "A playful motion design toolkit that makes animations accessible to developers and designers alike.",
+        "oneLiner": "Create, manage and implement lightweight animations across websites, apps, presentations, social and more."
+      },
+      "colors": {
+        "principle": "Clean, high-contrast palette with a single vibrant teal accent against neutral whites and darks, using playful multi-colored illustrations for personality."
+      },
+      "typography": {
+        "rules": [],
+        "scaleUses": [
+          "Hero headline",
+          "Section headlines",
+          "Card titles",
+          "Body copy",
+          "Captions and labels"
+        ]
+      },
+      "spacing": {
+        "rhythm": "Generous whitespace with consistent 4px base grid, creating breathing room between elements."
+      },
+      "surfaces": {
+        "shadows": [
+          "0 1px 2px 0 rgba(0,0,0,0.05)",
+          "0 1px 3px 0 rgba(0,0,0,0.1), 0 1px 2px -1px rgba(0,0,0,0.1)"
+        ],
+        "borders": "1px solid rgba(235,238,235,0.5)"
+      },
+      "layout": {
+        "skeleton": "Standard centered container with generous horizontal padding, full-width hero sections with left-aligned content."
+      },
+      "components": {
+        "button": "Rounded (pill) CTA with teal background, secondary outlined button variant with border",
+        "card": "Dark background cards with 16px radius in dark sections, light bordered cards in white sections",
+        "chip": "Small rounded badges with icon and label, used for feature highlights",
+        "input": "Search input with search icon, subtle border, rounded corners",
+        "hero": "Full-width section with large typography left, playful 3D character illustration right"
+      },
+      "motion": {
+        "patterns": [
+          "Smooth transitions on hover states for interactive elements",
+          "Transform and opacity animations for UI feedback",
+          "Color and background transitions on buttons and links"
+        ]
+      },
+      "interaction": {
+        "hover": "Color and background-color transitions at 150-300ms with subtle opacity changes",
+        "click": "Transform and scale micro-interactions",
+        "transition": "All properties transition with cubic-bezier(0.4, 0, 0.2, 1) easing",
+        "keyboard": "Standard focus management with visual focus indicators"
+      },
+      "voice": {
+        "tone": "Friendly, confident, and approachable",
+        "headlineStyle": "Action-oriented, large, bold statements about motion and design",
+        "ctaStyle": "Direct action verbs like 'Get started for free', 'Get in touch'",
+        "avoid": [
+          "Corporate jargon",
+          "Overly technical language without context",
+          "Aggressive sales language"
+        ]
+      },
+      "donts": [
+        "don't use rigid, sharp-edged containers — screenshot shows rounded corners on cards and buttons",
+        "don't use muted, desaturated accent colors — screenshot shows vibrant teal (#00b894) as primary accent",
+        "don't flatten all illustrations to 2D — screenshot shows playful 3D character illustrations with depth",
+        "don't use monochrome hero sections — screenshot shows white background with colorful character illustrations",
+        "don't use dense, packed layouts — screenshot shows generous whitespace and breathing room",
+        "don't use serif typography — screenshot shows clean humanist sans-serif throughout",
+        "don't use dark mode as default — screenshot shows light mode hero with dark sections below"
+      ],
+      "systemPrompt": "LottieFiles is a motion design platform for developers and designers. Position: Playful SaaS tool for lightweight animations. Key hex colors: #ffffff (background), #1a1a2e (text), #00b894 (teal accent), #f6f7f5 (soft background). Font categories: humanist-sans for display and body, ui-monospace for code. Critical donts: 1) Don't use rigid sharp corners—use rounded/pill shapes. 2) Don't flatten illustrations—maintain playful 3D character style. 3) Don't use monochrome—keep vibrant multi-colored accents in illustrations while maintaining clean teal as primary. 4) Don't create dense layouts—maintain generous whitespace. 5) Don't use serif fonts—stick to clean sans-serif. 6) Don't use aggressive CTAs—keep friendly, action-oriented copy."
+    },
+    "zh-CN": {
+      "identity": {
+        "keywords": [
+          "动效",
+          "动画",
+          "轻量化",
+          "交互",
+          "开发者"
+        ],
+        "analogy": "一款让动画对开发者和设计师都触手可及的趣味性动效设计工具包。",
+        "oneLiner": "在网站、应用、演示文稿、社交媒体等平台创建、管理并应用轻量化动画。"
+      },
+      "colors": {
+        "principle": "采用干净、高对比度的调色板，在中性的白色和深色背景上使用单一鲜艳的青绿色作为点缀，并通过活泼的多彩插图增添个性。"
+      },
+      "typography": {
+        "rules": [],
+        "scaleUses": [
+          "主视觉标题",
+          "区域标题",
+          "卡片标题",
+          "正文",
+          "说明文字与标签"
+        ]
+      },
+      "spacing": {
+        "rhythm": "采用充足的留白和基于4px的网格系统，在元素间创造舒适的呼吸空间。"
+      },
+      "surfaces": {
+        "shadows": [
+          "0 1px 2px 0 rgba(0,0,0,0.05)",
+          "0 1px 3px 0 rgba(0,0,0,0.1), 0 1px 2px -1px rgba(0,0,0,0.1)"
+        ],
+        "borders": "1px solid rgba(235,238,235,0.5)"
+      },
+      "layout": {
+        "skeleton": "标准的居中容器，水平方向留有充足内边距。全宽主视觉区域内容左对齐。"
+      },
+      "components": {
+        "button": "圆角（胶囊形）主操作按钮，采用青绿色背景；次要按钮为描边样式。",
+        "card": "深色区域使用16px圆角的深色背景卡片；白色区域使用带描边的浅色卡片。",
+        "chip": "用于功能亮点展示的圆角小标签，包含图标和文字。",
+        "input": "带搜索图标、微妙边框和圆角的搜索输入框。",
+        "hero": "全宽区域，左侧为大号排版文字，右侧为活泼的3D角色插图。"
+      },
+      "motion": {
+        "patterns": [
+          "交互元素在悬停状态下的平滑过渡",
+          "用于UI反馈的transform和opacity动画",
+          "按钮和链接的颜色与背景过渡"
+        ]
+      },
+      "interaction": {
+        "hover": "颜色与背景色在150-300毫秒内过渡，并伴有微妙的opacity变化。",
+        "click": "transform和scale微交互。",
+        "transition": "所有属性使用cubic-bezier(0.4, 0, 0.2, 1)缓动进行过渡。",
+        "keyboard": "标准焦点管理，带有明确的视觉焦点指示器。"
+      },
+      "voice": {
+        "tone": "友好、自信、平易近人。",
+        "headlineStyle": "以行动为导向，使用关于动效和设计的大号、加粗陈述句。",
+        "ctaStyle": "使用直接的动词，例如“免费开始”、“联系我们”。",
+        "avoid": [
+          "企业套话",
+          "缺乏语境的过度技术化语言",
+          "过于激进的销售用语"
+        ]
+      },
+      "donts": [
+        "不要使用生硬、尖锐的容器——截图显示卡片和按钮均为圆角。",
+        "不要使用灰暗、低饱和度的点缀色——截图显示使用鲜艳的青绿色（#00b894）作为主色。",
+        "不要将所有插图扁平化为2D——截图显示使用具有深度的趣味性3D角色插图。",
+        "不要使用单色主视觉区域——截图显示为白色背景搭配彩色角色插图。",
+        "不要使用拥挤、密集的布局——截图显示留有充足的留白和呼吸空间。",
+        "不要使用衬线字体——截图显示通篇使用干净的人文主义无衬线字体。",
+        "不要默认使用深色模式——截图显示主视觉区域为亮色模式，下方区域为深色。"
+      ],
+      "systemPrompt": "LottieFiles 是一个面向开发者和设计师的动效设计平台。定位：用于轻量化动画的趣味性SaaS工具。关键色值：#ffffff（背景）、#1a1a2e（文本）、#00b894（青绿色点缀）、#f6f7f5（浅色背景）。字体类别：用于展示和正文的人文主义无衬线字体，用于代码的等宽字体。关键禁忌：1) 不要使用生硬的尖锐角——使用圆角/胶囊形状。2) 不要将插图扁平化——保持趣味性的3D角色风格。3) 不要使用单色——在保持干净青绿色为主色的同时，插图中保留鲜艳的多彩点缀。4) 不要创建密集的布局——保持充足的留白。5) 不要使用衬线字体——坚持使用干净的无衬线字体。6) 不要使用过于激进的CTA——保持友好、以行动为导向的文案。"
+    },
+    "zh-TW": {
+      "identity": {
+        "keywords": [
+          "動態",
+          "動畫",
+          "輕量化",
+          "互動",
+          "開發者"
+        ],
+        "analogy": "一套活潑的動態設計工具，讓動畫變得對開發者與設計師都觸手可及。",
+        "oneLiner": "跨網站、應用程式、簡報、社群等平台，輕鬆建立、管理及實作輕量化動畫。"
+      },
+      "colors": {
+        "principle": "簡潔、高對比的配色方案，以單一鮮明的 teal 強調色搭配中性的白色與深色背景，並透過活潑的多彩插圖增添個性。"
+      },
+      "typography": {
+        "rules": [],
+        "scaleUses": [
+          "首頁標題",
+          "區段標題",
+          "卡片標題",
+          "內文",
+          "圖說與標籤"
+        ]
+      },
+      "spacing": {
+        "rhythm": "寬裕的留白搭配一致的 4px 基礎格線，為元素之間創造舒適的呼吸空間。"
+      },
+      "surfaces": {
+        "shadows": [
+          "0 1px 2px 0 rgba(0,0,0,0.05)",
+          "0 1px 3px 0 rgba(0,0,0,0.1), 0 1px 2px -1px rgba(0,0,0,0.1)"
+        ],
+        "borders": "1px solid rgba(235,238,235,0.5)"
+      },
+      "layout": {
+        "skeleton": "標準的置中容器，配有充足的水平內邊距，全寬首頁橫幅區域，內容置左對齊。"
+      },
+      "components": {
+        "button": "圓角（膠囊型）行動呼籲按鈕，採用 teal 背景色，次要按鈕為帶有邊框的外框樣式",
+        "card": "深色區段中的卡片採用深色背景與 16px 圓角，白色區段中的卡片則為帶有邊框的淺色樣式",
+        "chip": "帶有圖示與標籤的小型圓角徽章，用於突出顯示功能特點",
+        "input": "搜尋輸入框配有搜尋圖示、細微邊框與圓角",
+        "hero": "全寬區塊，左側為大字體排版，右側為活潑的 3D 角色插圖"
+      },
+      "motion": {
+        "patterns": [
+          "互動元素於 hover 狀態時的平滑過渡",
+          "用於 UI 回饋的變換與透明度動畫",
+          "按鈕與連結的色彩與背景過渡"
+        ]
+      },
+      "interaction": {
+        "hover": "色彩與背景色過渡時間為 150-300 毫秒，伴隨細微的透明度變化",
+        "click": "變換與縮放的微互動",
+        "transition": "所有屬性皆使用 cubic-bezier(0.4, 0, 0.2, 1) 緩動函數進行過渡",
+        "keyboard": "標準的焦點管理，並配有視覺化的焦點指示器"
+      },
+      "voice": {
+        "tone": "友善、自信且平易近人",
+        "headlineStyle": "以行動為導向、大而粗體的標語，強調動態與設計",
+        "ctaStyle": "直接的行動動詞，例如「免費開始」、「與我們聯繫」",
+        "avoid": [
+          "企業術語",
+          "缺乏脈絡的過度技術性語言",
+          "具侵略性的銷售用語"
+        ]
+      },
+      "donts": [
+        "避免使用生硬、帶有銳利邊角的容器 — 螢幕截圖顯示卡片與按鈕皆採用圓角設計",
+        "避免使用灰暗、不飽和的強調色 — 螢幕截圖顯示以鮮明的 teal (#00b894) 作為主要強調色",
+        "避免將所有插圖扁平化為 2D — 螢幕截圖顯示具有深度感的活潑 3D 角色插圖",
+        "避免使用單色調的首頁橫幅區塊 — 螢幕截圖顯示白色背景搭配多彩的角色插圖",
+        "避免使用擁擠、密實的佈局 — 螢幕截圖顯示寬裕的留白與呼吸空間",
+        "避免使用襯線字體 — 螢幕截圖顯示全程使用簡潔的 humanist-sans",
+        "避免將深色模式設為預設 — 螢幕截圖顯示首頁橫幅為淺色模式，下方區段為深色"
+      ],
+      "systemPrompt": "LottieFiles 是一個專為開發者與設計師打造的動態設計平台。定位：用於輕量化動畫的活潑 SaaS 工具。關鍵色碼：#ffffff（背景）、#1a1a2e（文字）、#00b894（teal 強調色）、#f6f7f5（柔和背景）。字體類別：用於標題與內文的 humanist-sans，用於程式碼的 ui-monospace。重要注意事項：1) 不要使用生硬的銳利邊角 — 改用圓角/膠囊形狀。2) 不要將插圖扁平化 — 保持活潑的 3D 角色風格。3) 不要使用單色調 — 在插圖中保留鮮明的多彩強調色，同時維持簡潔的 teal 作為主色。4) 不要建立擁擠的佈局 — 保持寬裕的留白。5) 不要使用襯線字體 — 堅持使用簡潔的無襯線字體。6) 不要使用具侵略性的行動呼籲 — 保持友善、以行動為導向的文案。"
+    },
+    "ja": {
+      "identity": {
+        "keywords": [
+          "モーション",
+          "アニメーション",
+          "軽量",
+          "インタラクティブ",
+          "開発者"
+        ],
+        "analogy": "開発者とデザイナーの両方にとって、アニメーションを身近にする、遊び心のあるモーションデザインツールキット。",
+        "oneLiner": "ウェブサイト、アプリ、プレゼンテーション、ソーシャルなどにおいて、軽量なアニメーションを作成、管理、実装します。"
+      },
+      "colors": {
+        "principle": "クリーンでコントラストの高いパレット。ニュートラルなホワイトとダークの背景に対し、鮮やかなティール色のアクセントを単色配置し、個性を出すための遊び心のあるマルチカラーイラストを使用します。"
+      },
+      "typography": {
+        "rules": [],
+        "scaleUses": [
+          "ヒーローヘッドライン",
+          "セクション見出し",
+          "カードタイトル",
+          "本文",
+          "キャプションとラベル"
+        ]
+      },
+      "spacing": {
+        "rhythm": "一貫した4pxベースグリッドによる余裕のあるホワイトスペース。要素間に呼吸できる余白を生み出します。"
+      },
+      "surfaces": {
+        "shadows": [
+          "0 1px 2px 0 rgba(0,0,0,0.05)",
+          "0 1px 3px 0 rgba(0,0,0,0.1), 0 1px 2px -1px rgba(0,0,0,0.1)"
+        ],
+        "border": "1px solid rgba(235,238,235,0.5)"
+      },
+      "layout": {
+        "skeleton": "水平方向に十分なパディングを持つ標準的な中央揃えコンテナ、左揃えコンテンツのフルワイドヒーローセクション。"
+      },
+      "components": {
+        "button": "ティール色背景の丸みのある（ピル型）CTA。ボーダー付きのセカンダリアウトラインボタンバリエーション。",
+        "card": "ダークセクションでは16pxの角丸を持つダーク背景カード、ホワイトセクションではボーダーのある明るいカード。",
+        "chip": "アイコンとラベルを備えた小さな丸みのあるバッジ。機能のハイライトに使用。",
+        "input": "検索アイコン付きの検索入力。微妙なボーダー、丸みのある角。",
+        "hero": "左に大きなタイポグラフィ、右に遊び心のある3Dキャラクターイラストを配置したフルワイドセクション。"
+      },
+      "motion": {
+        "patterns": [
+          "インタラクティブ要素のhover状態におけるスムーズなトランジション",
+          "UIフィードバックのためのtransformとopacityのアニメーション",
+          "ボタンやリンクのカラーおよび背景色のトランジション"
+        ]
+      },
+      "interaction": {
+        "hover": "150～300msのカラーおよびbackground-colorトランジション、微妙なopacity変化",
+        "click": "transformとscaleのマイクロインタラクション",
+        "transition": "すべてのプロパティがcubic-bezier(0.4, 0, 0.2, 1)イージングでトランジション",
+        "keyboard": "視覚的なフォーカスインジケーターによる標準的なフォーカス管理"
+      },
+      "voice": {
+        "tone": "フレンドリーで、自信があり、親しみやすい",
+        "headlineStyle": "モーションとデザインについての、アクション志向で大きく太字の声明",
+        "ctaStyle": "「無料で始める」「お問い合わせ」のような直接的なアクション動詞",
+        "avoid": [
+          "企業の専門用語",
+          "文脈のない過度に技術的な言葉",
+          "攻撃的な営業言語"
+        ]
+      },
+      "donts": [
+        "堅苦しい鋭角のコンテナを使用しない — スクリーンショットではカードやボタンに角丸が使用されている",
+        "くすんだ、彩度の低いアクセントカラーを使用しない — スクリーンショットでは鮮やかなティール色（#00b894）がプライマリアクセントとして使用されている",
+        "すべてのイラストをフラットな2Dにしない — スクリーンショットでは奥行きのある遊び心のある3Dキャラクターイラストが使用されている",
+        "モノクロームのヒーローセクションを作成しない — スクリーンショットではホワイト背景にカラフルなキャラクターイラストが使用されている",
+        "密集した、ぎっしり詰まったレイアウトを作成しない — スクリーンショットでは余裕のあるホワイトスペースと呼吸できる余白が使用されている",
+        "セリフ体のタイポグラフィを使用しない — スクリーンショットではクリーンなヒューマンサンスが全体で使用されている",
+        "ダークモードをデフォルトにしない — スクリーンショットではライトモードのヒーロー、その下にダークセクションが表示されている"
+      ],
+      "systemPrompt": "LottieFilesは、開発者とデザイナーのためのモーションデザインプラットフォームです。ポジション：軽量なアニメーションのための遊び心のあるSaaSツール。主要なHEXカラー：#ffffff（背景）、#1a1a2e（テキスト）、#00b894（ティールアクセント）、#f6f7f5（ソフト背景）。フォントカテゴリ：表示および本文にhumanist-sans、コードにui-monospace。重要な禁止事項：1) 堅苦しい鋭角を使用しない — 丸み/pill形状を使用。2) イラストをフラットにしない — 遊び心のある3Dキャラクタースタイルを維持。3) モノクロームにしない — クリーンなティールをプライマリーに保ちながら、イラストでは鮮やかなマルチカラーアクセントを維持。4) 密集したレイアウトを作成しない — 余裕のあるホワイトスペースを維持。5) セリフ体フォントを使用しない — クリーンなサンセリフにとどめる。6) 攻撃的なCTAを使用しない — フレンドリーでアクション志向のコピーを維持。"
+    },
+    "ko": {
+      "identity": {
+        "keywords": [
+          "모션",
+          "애니메이션",
+          "경량",
+          "인터랙티브",
+          "개발자"
+        ],
+        "analogy": "개발자와 디자이너 모두에게 애니메이션을 쉽게 만들어주는 장난스러운 모션 디자인 툴킷입니다.",
+        "oneLiner": "웹사이트, 앱, 프레젠테이션, 소셜 등 다양한 곳에서 경량 애니메이션을 생성하고, 관리하며, 구현합니다."
+      },
+      "colors": {
+        "principle": "중립적인 화이트와 다크 배경에 단일한 생동감 있는 틸 악센트를 사용하는 깨끗하고 고대비 팔레트로, 장난스러운 다채로운 일러스트레이션으로 개성을 더합니다."
+      },
+      "typography": {
+        "rules": [],
+        "scaleUses": [
+          "히어로 헤드라인",
+          "섹션 헤드라인",
+          "카드 제목",
+          "본문 텍스트",
+          "캡션 및 레이블"
+        ]
+      },
+      "spacing": {
+        "rhythm": "일관된 4px 기본 그리드를 사용한 여유로운 여백으로 요소 사이에 호흡 공간을 만듭니다."
+      },
+      "surfaces": {
+        "shadows": [
+          "0 1px 2px 0 rgba(0,0,0,0.05)",
+          "0 1px 3px 0 rgba(0,0,0,0.1), 0 1px 2px -1px rgba(0,0,0,0.1)"
+        ],
+        "borders": "1px solid rgba(235,238,235,0.5)"
+      },
+      "layout": {
+        "skeleton": "여유로운 수평 패딩을 가진 표준 중앙 정렬 컨테이너, 왼쪽 정렬 콘텐츠를 가진 전체 폭 히어로 섹션입니다."
+      },
+      "components": {
+        "button": "틸 배경의 둥근(필) CTA, 테두리가 있는 보조 아웃라인 버튼 변형",
+        "card": "다크 섹션에서는 16px 반경의 다크 배경 카드, 화이트 섹션에서는 둥근 테두리의 라이트 카드",
+        "chip": "아이콘과 레이블이 있는 작은 둥근 배지, 기능 하이라이트에 사용",
+        "input": "검색 아이콘, 미세한 테두리, 둥근 모서리가 있는 검색 입력",
+        "hero": "왼쪽에 큰 타이포그래피, 오른쪽에 장난스러운 3D 캐릭터 일러스트레이션이 있는 전체 폭 섹션"
+      },
+      "motion": {
+        "patterns": [
+          "인터랙티브 요소 호버 상태에서 부드러운 트랜지션",
+          "UI 피드백을 위한 transform과 불투명도 애니메이션",
+          "버튼과 링크의 색상 및 배경 트랜지션"
+        ]
+      },
+      "interaction": {
+        "hover": "150-300ms의 색상 및 배경색 트랜지션과 미세한 불투명도 변화",
+        "click": "transform과 scale 마이크로 인터랙션",
+        "transition": "모든 속성에 cubic-bezier(0.4, 0, 0.2, 1) 이징 적용",
+        "keyboard": "시각적 포커스 표시기를 가진 표준 포커스 관리"
+      },
+      "voice": {
+        "tone": "친근하고 자신감 있으며 접근하기 쉬운",
+        "headlineStyle": "모션과 디자인에 대한 행동을 유도하는 크고 굵은 문구",
+        "ctaStyle": "'무료로 시작하기', '문의하기'와 같은 직접적인 동사",
+        "avoid": [
+          "기업 용어",
+          "맥락 없는 지나치게 기술적인 언어",
+          "공격적인 판매 언어"
+        ]
+      },
+      "donts": [
+        "단단하고 날카로운 모서리의 컨테이너를 사용하지 마세요 — 스크린샷에서 카드와 버튼의 둥근 모서리를 보여줍니다",
+        "흐릿하고 채도 낮은 악센트 색상을 사용하지 마세요 — 스크린샷에서 주요 악센트로 생동감 있는 틸(#00b894)을 보여줍니다",
+        "모든 일러스트레이션을 2D로 평면화하지 마세요 — 깊이감이 있는 장난스러운 3D 캐릭터 일러스트레이션을 보여줍니다",
+        "단색 히어로 섹션을 사용하지 마세요 — 다채로운 캐릭터 일러스트레이션이 있는 화이트 배경을 보여줍니다",
+        "빽빽하고 꽉 찬 레이아웃을 사용하지 마세요 — 여유로운 여백과 호흡 공간을 보여줍니다",
+        "세리프 타이포그래피를 사용하지 마세요 — 전체적으로 깨끗한 humanist sans-serif를 보여줍니다",
+        "다크 모드를 기본으로 사용하지 마세요 — 아래에 다크 섹션이 있는 라이트 모드 히어로를 보여줍니다"
+      ],
+      "systemPrompt": "LottieFiles는 개발자와 디자이너를 위한 모션 디자인 플랫폼입니다. 포지셔닝: 경량 애니메이션을 위한 장난스러운 SaaS 툴. 주요 헥스 색상: #ffffff (배경), #1a1a2e (텍스트), #00b894 (틸 악센트), #f6f7f5 (소프트 배경). 폰트 카테고리: 디스플레이 및 본문용 humanist-sans, 코드용 ui-monospace. 중요 금지 사항: 1) 단단하고 날카로운 모서리 사용 금지—둥근/필 형태를 사용하세요. 2) 일러스트레이션 평면화 금지—장난스러운 3D 캐릭터 스타일을 유지하세요. 3) 단색 사용 금지—깨끗한 틸을 주요 색상으로 유지하면서 일러스트레이션에서는 생동감 있는 다채로운 악센트를 유지하세요. 4) 빽빽한 레이아웃 생성 금지—여유로운 여백을 유지하세요. 5) 세리프 폰트 사용 금지— 깨끗한 sans-serif를 고수하세요. 6) 공격적인 CTA 사용 금지—친근하고 행동을 유도하는 카피를 유지하세요."
+    }
+  },
+  "desc": {
+    "en": {
+      "palette": "Clean white and dark backgrounds with a single vibrant teal accent, complemented by playful multi-colored 3D character illustrations.",
+      "layout": "Centered container with generous padding, full-width hero sections featuring asymmetric content with text left and illustrations right.",
+      "interaction": "Smooth 150-300ms transitions on hover with opacity, color, and subtle transform changes using cubic-bezier easing.",
+      "motion": "Subtle UI transitions with defined easing curves, primarily for interactive feedback rather than complex animations.",
+      "notes": "Worth including as a prime example of playful yet professional SaaS design that balances developer-focused content with accessible, friendly branding."
+    },
+    "zh-CN": {
+      "palette": "以纯净白色和深色背景为主，搭配单一鲜艳的青绿色调作为点缀，并辅以活泼多彩的3D角色插图。",
+      "layout": "采用居中容器布局，留有充足的内边距。全宽主区域内容呈不对称排列，文本居左，插图居右。",
+      "interaction": "在悬停状态下，通过opacity、color和微妙的transform变化实现150-300毫秒的平滑过渡，使用cubic-bezier缓动。",
+      "motion": "主要提供交互反馈，而非复杂动画，采用具有明确缓动曲线的微妙UI过渡效果。",
+      "notes": "作为兼具趣味性与专业性的SaaS设计典范，值得参考。它巧妙地平衡了面向开发者的专业内容与平易近人、友好的品牌形象。"
+    },
+    "zh-TW": {
+      "palette": "簡潔的白色與深色背景，搭配單一鮮明的 teal 強調色，輔以活潑的多彩 3D 角色插圖。",
+      "layout": "置中容器並留有充足內邊距，全寬首頁橫幅採用不對稱內容配置，文字置左，插圖置右。",
+      "interaction": "互動元素於 hover 時提供 150-300 毫秒的平滑過渡，包含透明度、色彩與細微變換，使用 cubic-bezier 緩動函數。",
+      "motion": "以定義的緩動曲線實現細膩的 UI 過渡，主要用於互動回饋，而非複雜動畫。",
+      "notes": "值得作為一個範例，展示如何平衡開發者導向的內容與親切、易於理解的品牌形象，打造既活潑又專業的 SaaS 設計。"
+    },
+    "ja": {
+      "palette": "クリーンな白とダークの背景に、鮮やかなティール色のアクセントを単色配置し、遊び心のあるマルチカラーの3Dキャラクターイラストで補完します。",
+      "layout": "余裕のあるパディングを持つ中央揃えコンテナ、テキストを左、イラストを右に配置した非対称コンテンツのフルワイドヒーローセクション。",
+      "interaction": "hover時にopacity、カラー、微妙なtransform変化を伴う、cubic-bezierイージングによる150～300msのスムーズなトランジション。",
+      "motion": "複雑なアニメーションではなく、主にインタラクティブフィードバックのための、定義されたイージングカーブを用いた微妙なUIトランジション。",
+      "notes": "開発者向けコンテンツとアクセシブルでフレンドリーなブランディングのバランスをとる、遊び心がありながらもプロフェッショナルなSaaSデザインの好例として、組み込む価値があります。"
+    },
+    "ko": {
+      "palette": "깨끗한 화이트와 다크 배경에 단일한 생동감 있는 틸 악센트를 적용하고, 장난스러운 다채로운 3D 캐릭터 일러스트레이션으로 보완합니다.",
+      "layout": "여유로운 패딩을 가진 중앙 정렬 컨테이너, 텍스트는 왼쪽, 일러스트레이션은 오른쪽에 배치된 비대칭 콘텐츠를 특징으로 하는 전체 폭 히어로 섹션입니다.",
+      "interaction": "호버 시 150-300ms 부드러운 트랜지션으로 불투명도, 색상, 미세한 transform 변화를 cubic-bezier 이징으로 구현합니다.",
+      "motion": "정의된 이징 곡선을 가진 미세한 UI 트랜지션으로, 복잡한 애니메이션보다는 주로 인터랙티브 피드백을 위해 사용됩니다.",
+      "notes": "개발자 중심 콘텐츠와 접근 가능하고 친근한 브랜딩의 균형을 맞춘 장난스러우면서도 전문적인 SaaS 디자인의 대표적인 예시로 포함할 가치가 있습니다."
+    }
+  },
+  "_meta": {
+    "vision_model": "mimo-v2.5",
+    "vision_prompt_version": "0.3",
+    "vision_source": "playwright-extract:lottiefiles",
+    "vision_grounded": true,
+    "vision_at": "2026-06-04T16:29:07+00:00",
+    "vision_tokens": 18358,
+    "vision_cost_usd": 0.204,
+    "translation_model": "mimo-v2.5",
+    "translation_at": "2026-06-04T16:30:35+00:00",
+    "translation_tokens": 18438,
+    "translation_cost_usd": 0.0615,
+    "narrative_model": "mimo-v2.5",
+    "narrative_prompt_version": "0.3",
+    "narrative_at": "2026-06-04T16:30:44+00:00",
+    "narrative_tokens": 2173,
+    "narrative_cost_usd": 0.0145,
+    "narrative_status": "ok",
+    "total_cost_usd": 0.28
+  },
+  "narrative": {
+    "en": {
+      "ch1_intro": "LottieFiles is a motion design toolkit that democratizes animation for both developers and designers. The system is built on a foundation of playful lightness, mirroring the accessible and lightweight nature of the Lottie format itself. Its design language balances professional utility with an approachable, creative spirit.",
+      "ch2_intro": "The palette operates on a principle of high-contrast clarity. A clean canvas of white and near-white neutrals is punctuated by a single, vibrant teal accent, while playful multi-colored illustrations inject personality and whimsy.",
+      "ch2_outro": "The core rule is restraint: the teal provides all the necessary chromatic focus, allowing supporting illustrations to carry expressive color without creating visual competition.",
+      "ch3_intro": "The typographic voice is clear and humanist, using a sans-serif category for both display and body copy to maintain a consistent, approachable tone. This choice supports a friendly, confident feel that avoids the coldness of geometric fonts while remaining highly legible across scales.",
+      "ch4_intro": "Generous whitespace establishes a deliberate, open rhythm, governed by a consistent 4px base grid that ensures proportional relationships between all elements.",
+      "ch5_intro": "Depth is conveyed through subtle, layered elevation. Minimal shadows and delicate, semi-transparent borders define cards and surfaces, creating a sense of physical stacking without heavy visual weight.",
+      "ch6_intro": "The layout skeleton is built around a standard centered container with ample horizontal padding, ensuring content remains comfortably readable. Full-width hero sections break this container, using asymmetric compositions with left-aligned text and right-aligned illustrations to create visual dynamism.",
+      "ch7_intro": "Motion is treated as functional feedback rather than decoration. The philosophy prioritizes subtle, purposeful transitions—primarily transforms, opacity, and color shifts—that confirm user interaction and guide attention smoothly.",
+      "ch8_intro": "The editorial voice is friendly, confident, and approachable. Headlines are action-oriented, making bold, clear statements, while calls to action use direct verbs that feel like an invitation, not a demand.",
+      "ch8_outro": "The system deliberately avoids corporate jargon, aggressive sales language, and overly technical phrasing without context, ensuring the platform remains welcoming to a broad creative audience."
+    },
+    "zh-CN": {
+      "ch1_intro": "LottieFiles 是一款面向开发者和设计师的动效设计工具包，它让动画创作变得触手可及。整个系统建立在轻盈灵动的基调之上，呼应了 Lottie 格式本身易用且轻量化的特点。其设计语言在专业实用性与平易近人的创意精神之间取得了平衡。",
+      "ch2_intro": "色彩系统遵循高对比度清晰度原则。以纯净的白色与近白色中性色为基底，点缀一抹鲜明的蓝绿色作为强调色，而趣味盎然的多彩插画则注入个性与巧思。",
+      "ch2_outro": "核心原则是克制：蓝绿色承担了全部必要的色彩焦点，使辅助插画能够承载富有表现力的色彩，而不会形成视觉竞争。",
+      "ch3_intro": "字体风格清晰且具有人文主义气息，采用无衬线字体类别用于标题和正文，以保持一致且平易近人的语调。这一选择营造出友好、自信的观感，避免了几何字体带来的冰冷感，同时在不同尺寸下都保持高度可读性。",
+      "ch4_intro": "充足的留白建立起一种从容、开放的节奏感，由一致的 4px 基础网格规范，确保所有元素之间保持协调的比例关系。",
+      "ch5_intro": "通过细腻的层叠高程来传达深度。极简的阴影与精致的半透明边框定义卡片与界面层，在不增加视觉重量的前提下，营造出实体的堆叠感。",
+      "ch6_intro": "布局骨架围绕一个标准居中容器构建，配有充裕的水平内边距，确保内容保持舒适的阅读体验。全宽的主视觉区域打破此容器，采用非对称构图——左侧文字与右侧插画，创造出视觉动感。",
+      "ch7_intro": "动效被视为功能性的反馈而非装饰。其哲学优先考虑微妙、有目的性的过渡——主要通过变换、透明度和色彩变化——来确认用户交互并顺畅地引导注意力。",
+      "ch8_intro": "编辑风格友好、自信且平易近人。标题以行动为导向，作出大胆、清晰的陈述；而行动号召则使用直接的动词，感觉像是一种邀请，而非要求。",
+      "ch8_outro": "该系统刻意避免使用企业行话、激进的销售语言以及缺乏语境的过度技术性表述，确保平台对广泛的创意受众保持欢迎姿态。"
+    },
+    "zh-TW": {
+      "ch1_intro": "LottieFiles 是一套動態設計工具組，將動畫的民主化帶給開發者與設計師。其系統建立在一個輕盈、玩味的基礎上，呼應了 Lottie 格式本身易於使用與輕量的特性。設計語言在專業實用性與親近、富有創造力的精神之間取得平衡。",
+      "ch2_intro": "色彩調色盤運作於高對比清晰度的原則上。以白色與近乎白色的中性色調作為乾淨畫布，並以單一、鮮活的藍綠色作為強調色點綴其間，同時繽紛的插畫注入個性與趣味性。",
+      "ch2_outro": "核心規則是克制：藍綠色提供了所有必要的色彩焦點，讓輔助插畫得以承載富有表現力的色彩，而不造成視覺競爭。",
+      "ch3_intro": "字體風格清晰且具人文主義精神，標題與內文皆使用無襯線字體類別，以維持一致、親切的語調。此選擇營造出友好、自信的感受，避免了幾何字體的冰冷感，同時在各尺寸下皆保持高度可讀性。",
+      "ch4_intro": "寬裕的留白建立了刻意、開放的節奏，並遵循一致的 4px 基礎網格，確保所有元素間的比例關係。",
+      "ch5_intro": "透過細膩的層次感傳達深度。最小的陰影與精緻的半透明邊框定義了卡片與介面層，營造出實體堆疊感，同時避免了沉重的視覺負擔。",
+      "ch6_intro": "版面骨架圍繞著標準的置中容器與寬裕的水平內邊距建立，確保內容保持舒適的可讀性。全寬的主視覺區段打破此容器，運用不對稱構圖，搭配左側對齊的文字與右側對齊的插畫，創造視覺動態感。",
+      "ch7_intro": "動態被視為功能性回饋，而非裝飾。其哲學優先考量細膩、有目的的轉場——主要是變形、透明度與色彩變化——以確認使用者互動並平順地引導注意力。",
+      "ch8_intro": "編輯語調友好、自信且親近。標題以行動為導向，做出大膽、清晰的陳述，而號召性用語則使用直接的動詞，感覺像是一份邀請，而非要求。",
+      "ch8_outro": "此系統刻意避免企業術語、強勢的銷售語言，以及缺乏脈絡的過度技術性措辭，確保平台對廣泛的創意受眾保持歡迎態度。"
+    },
+    "ja": {
+      "ch1_intro": "LottieFilesは、開発者とデザイナーの両方にとってアニメーションを民主化するモーションデザインツールキットです。このシステムは、Lottieフォーマット自体の親しみやすく軽量な性質を反映した、遊び心ある軽快さを基盤として構築されています。そのデザイン言語は、プロフェッショナルな実用性と親しみやすいクリエイティブな精神のバランスを保っています。",
+      "ch2_intro": "カラーパレットは、高コントラストの明瞭性という原則に基づいて機能します。白およびほぼ白のニュートラルカラーによる清潔なキャンバスに、鮮やかなティールカラーのアクセントが単一で添えられ、一方で遊び心のある多色のイラストが個性と軽妙さを加えます。",
+      "ch2_outro": "基本原則は抑制です。ティールカラーがすべての必須な色味の焦点を担い、サポートするイラストが表現豊かなカラーを带来つつも、視覚的な競合を生まないようにしています。",
+      "ch3_intro": "タイポグラフィの声は明瞭でヒューマニストであり、見出しと本文の両方においてサンセリフカテゴリを使用し、一貫した親しみやすいトーンを維持しています。この選択は、幾何学フォントの冷たさを避けつつ、スケール全体で高い可読性を維持する、フレンドリーで自信に満ちた感覚を支えています。",
+      "ch4_intro": "適度な余白が意図的でオープンなリズムを確立し、一貫した4pxのベースグリッドにより、すべての要素間の比率関係が保証されています。",
+      "ch5_intro": "奥行きは、微妙なレイヤードによる高さ表現で伝達されます。最小限のシャドウと繊細な半透明ボーダーがカードとサーフェスを定義し、視覚的な重さなしに物理的な積み重ね感を生み出します。",
+      "ch6_intro": "レイアウトのスケルトンは、十分な水平パディングを備えた標準的な中央揃えコンテナを中心に構築されており、コンテンツが快適に読めるように保証されています。フルワイドのヒーローセクションはこのコンテナを破り、左揃えのテキストと右揃えのイラストを使用した非対称の構図で視覚的な動的さを生み出します。",
+      "ch7_intro": "モーションは装飾ではなく、機能的なフィードバックとして扱われます。この哲学は、主にtransform、opacity、カラーシフトを用いた、ユーザーインタラクションを確認し注意を滑らかに導く、微妙で目的に沿ったトランジションを優先します。",
+      "ch8_intro": "エディトリアルな声は、フレンドリーで自信に満ち、親しみやすいものです。見出しはアクション指向で、大胆かつ明確な主張を行い、一方でコール・トゥ・アクションは、要求ではなく招待のように感じる直接的な動詞を使用します。",
+      "ch8_outro": "このシステムは、コンテキストのない企業用ジゴン、攻撃的な営業言語、そして過度に技術的な表現を意図的に避け、プラットフォームが幅広いクリエイティブなオーディエンスにとって welcoming であることを保証しています。"
+    },
+    "ko": {
+      "ch1_intro": "LottieFiles는 개발자와 디자이너 모두에게 애니메이션을 보편화하는 모션 디자인 툴킷입니다. 시스템은 장난기 있는 가벼움을 바탕으로 구축되었으며, 이는 Lottie 포맷 자체의 접근 가능하고 가벼운 특성을 반영합니다. 그 언어는 전문적인 활용성과 친근하고 창의적인 정신 사이의 균형을 이룹니다.",
+      "ch2_intro": "팔레트는 고대비 명확성의 원리로 작동합니다. 흰색과 거의 흰색의 중립적인 깨끗한 캔버스에 단일한 생생한 틸 악센트가 점을 찍으며, 장난기 있는 다색 일러스트레이션이 개성과 기발함을 더합니다.",
+      "ch2_outro": "핵심 규칙은 절제입니다: 틸이 모든 필수적인 색채적 초점을 제공하여, 지원 일러스트레이션이 시각적 경쟁 없이 표현적 색채를 담당할 수 있도록 합니다.",
+      "ch3_intro": "타이포그래피는 명확하고 휴머니스트하며, 디스플레이와 본문 모두에서 일관되고 친근한 톤을 유지하기 위해 세리프 없는 카테고리를 사용합니다. 이 선택은 기하학적 글꼴의 차가움을 피하면서도 다양한 규모에서 뛰어난 가독성을 유지하는 친근하고 자신감 있는 느낌을 지탱합니다.",
+      "ch4_intro": "넉넉한 여백은 의도적이고 개방적인 리듬을 확립하며, 모든 요소 간의 비례 관계를 보장하는 일관된 4px 기본 그리드에 의해 제어됩니다.",
+      "ch5_intro": "깊음은 미묘한 레이어드 엘리베이션을 통해 전달됩니다. 최소한의 그림자와 섬세하고 반투명한 테두리가 카드와 표면을 정의하여, 무거운 시각적 무게 없이 물리적 쌓임의 느낌을 만듭니다.",
+      "ch6_intro": "레이아웃 골격은 충분한 수평 패딩을 갖춘 표준 중앙 정렬 컨테이너를 중심으로 구축되어, 콘텐츠가 편안하게 읽히도록 합니다. 전체 폭의 히어로 섹션은 이 컨테이너를 깨뜨리며, 왼쪽 정렬 텍스트와 오른쪽 정렬 일러스트레이션을 사용한 비대칭 구성을 통해 시각적 역동성을 만듭니다.",
+      "ch7_intro": "모션은 장식보다는 기능적 피드백으로 간주됩니다. 이 철학은 주로 transform, opacity, 그리고 색상 변화를 통한 미묘하고 의도적인 전환을 우선시하여, 사용자 상호작용을 확인하고 주의를 부드럽게 유도합니다.",
+      "ch8_intro": "에디토리얼 톤은 친근하고 자신감 있으며 접근 가능합니다. 헤드라인은 행동 지향적이며, 대담하고 명확한 진술을 하고, 콜 투 액션은 요구가 아닌 초대처럼 느껴지는 직접적인 동사를 사용합니다.",
+      "ch8_outro": "시스템은 의도적으로 기업 용어, 공격적인 판매 언어, 그리고 문맥 없는 지나치게 전문적인 표현을 피하여, 플랫폼이 광범위한 창의적 청중에게 환영받을 수 있도록 보장합니다."
+    }
+  }
 }

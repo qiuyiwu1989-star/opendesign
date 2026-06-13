@@ -8,6 +8,643 @@
     "dev",
     "rtc"
   ],
-  "status": "pending",
-  "added_at": "2026-06-03"
+  "status": "completed",
+  "added_at": "2026-06-03",
+  "spec": {
+    "colors": {
+      "bg": "#FCFCFC",
+      "bgSoft": "#F4F5F6",
+      "bgQuiet": null,
+      "ink": "#161618",
+      "inkSoft": "#374151",
+      "muted": "#6B7280",
+      "mutedSoft": null,
+      "accent": null,
+      "line": "rgba(229,231,235,1)"
+    },
+    "typography": {
+      "display": "humanist-sans",
+      "body": "humanist-sans",
+      "mono": "monospace",
+      "scale": [
+        {
+          "token": "display",
+          "size": 48,
+          "lh": 1.0,
+          "weight": 500,
+          "ls": "-0.5px"
+        },
+        {
+          "token": "headline",
+          "size": 36,
+          "lh": 1.1,
+          "weight": 500,
+          "ls": "-0.5px"
+        },
+        {
+          "token": "subhead",
+          "size": 20,
+          "lh": 1.4,
+          "weight": 400,
+          "ls": "0"
+        },
+        {
+          "token": "body",
+          "size": 16,
+          "lh": 1.55,
+          "weight": 400,
+          "ls": "0"
+        },
+        {
+          "token": "label",
+          "size": 14,
+          "lh": 1.4,
+          "weight": 400,
+          "ls": "0.7px"
+        },
+        {
+          "token": "stat",
+          "size": 36,
+          "lh": 1.0,
+          "weight": 500,
+          "ls": "-0.5px"
+        }
+      ]
+    },
+    "spacing": {
+      "base": 4,
+      "scale": [
+        4,
+        8,
+        16,
+        24,
+        32,
+        48,
+        64,
+        96
+      ]
+    },
+    "surfaces": {
+      "radius": {
+        "sm": 4,
+        "md": 4,
+        "lg": 0,
+        "pill": 9999
+      }
+    },
+    "layout": {
+      "container": 1280,
+      "paragraph": 680,
+      "columns": 12,
+      "gutter": 24,
+      "breakpoints": [
+        768,
+        1024
+      ]
+    },
+    "motion": {
+      "durations": {
+        "micro": 150,
+        "small": 300,
+        "medium": 500
+      },
+      "easing": "cubic-bezier(0.4, 0, 0.2, 1)"
+    }
+  },
+  "spec_i18n": {
+    "en": {
+      "identity": {
+        "keywords": [
+          "realtime",
+          "infrastructure",
+          "WebRTC",
+          "global",
+          "enterprise",
+          "developer"
+        ],
+        "analogy": "Industrial-grade infrastructure provider with a clean, developer-focused aesthetic.",
+        "oneLiner": "A minimalist, monochrome interface for a global realtime communication platform."
+      },
+      "colors": {
+        "principle": "Strict monochrome palette focusing on content clarity through high contrast and neutral grays."
+      },
+      "typography": {
+        "rules": [
+          "Use DM Sans (humanist-sans) for headlines and body text.",
+          "Use DM Mono for UI labels, navigation items, and technical callouts.",
+          "Maintain tight tracking for large headlines and loose tracking (0.7px) for uppercase labels."
+        ],
+        "scaleUses": [
+          "Primary hero headline",
+          "Section headlines",
+          "Introductory sub-headlines",
+          "Standard body text",
+          "Uppercase navigation and small labels",
+          "Large statistic numbers"
+        ]
+      },
+      "spacing": {
+        "rhythm": "Standard 4px base with generous vertical spacing (48px-96px) between major content sections."
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 4px 6px -4px rgba(0,0,0,0.1)",
+          "0px 10px 15px -3px rgba(0,0,0,0.1)"
+        ],
+        "borders": "1px solid #E5E7EB"
+      },
+      "layout": {
+        "skeleton": "Asymmetric hero with text left and minimal graphics right; structured grid for stats."
+      },
+      "components": {
+        "button": "Monochrome buttons using either a solid black background with white text or a ghost style with a square bullet prefix.",
+        "card": "Clean, borderless content blocks separated by subtle horizontal rules.",
+        "chip": "Uppercase text labels in monospace font, enclosed in brackets like [PLATFORM].",
+        "input": "Minimalist and not heavily featured in the primary view.",
+        "hero": "Large, bold headline with a concise sub-headline and primary action buttons."
+      },
+      "motion": {
+        "patterns": [
+          "Smooth opacity and transform transitions for standard UI interactions.",
+          "Subtle fade-in and slide-up effects for content appearance."
+        ]
+      },
+      "interaction": {
+        "hover": "Standard color and background transitions (0.15s) for interactive elements.",
+        "click": "Immediate visual feedback with no heavy scaling or complex animations.",
+        "transition": "All standard transitions utilize a 0.3s or 0.5s cubic-bezier(0.4, 0, 0.2, 1) curve.",
+        "keyboard": "Standard focusable elements with standard browser outlines."
+      },
+      "voice": {
+        "tone": "Technical, authoritative, and precise.",
+        "headlineStyle": "Direct and descriptive, focusing on scale and capability.",
+        "ctaStyle": "Action-oriented, such as 'START BUILDING' and 'LEARN MORE'.",
+        "avoid": [
+          "Excessive marketing jargon",
+          "Complex sentence structures",
+          "Vague claims without technical backing"
+        ]
+      },
+      "donts": [
+        "Don't use vibrant accent colors — screenshot shows a strictly monochrome palette.",
+        "Don't use decorative or serif fonts — screenshot shows only humanist-sans and monospace categories.",
+        "Don't use rounded, friendly card styles — screenshot shows sharp or slightly rounded (4px) corners and hard dividers.",
+        "Don't use dense, cramped layouts — screenshot shows generous whitespace (48px-96px) between sections.",
+        "Don't use informal, casual language — screenshot uses precise technical terms like 'WebRTC infrastructure'.",
+        "Don't use complex, busy background patterns — screenshot uses a plain, near-white (#FCFCFC) background."
+      ],
+      "systemPrompt": "Design a minimalist, developer-focused interface for a global realtime infrastructure platform. The system uses a strict monochrome palette of near-white (#FCFCFC) and deep charcoal (#161618), with medium gray (#6B7280) for secondary text and #E5E7EB for borders. Typography is split between a humanist-sans (DM Sans) for primary content and a monospace (DM Mono) for UI labels and navigation, maintaining a 4px base grid with generous vertical rhythm. Key critical don'ts: avoid any vibrant accent colors, do not use decorative serif typefaces, and never use rounded, 'friendly' card components. The layout should prioritize extreme clarity and technical authority over visual flair."
+    },
+    "zh-CN": {
+      "identity": {
+        "keywords": [
+          "实时",
+          "基础设施",
+          "WebRTC",
+          "全球",
+          "企业",
+          "开发者"
+        ],
+        "analogy": "工业级基础设施提供商，拥有简洁、面向开发者的美学风格。",
+        "oneLiner": "一个面向全球实时通信平台的极简单色界面。"
+      },
+      "colors": {
+        "principle": "严格的单色色板，通过高对比度和中性灰聚焦于内容清晰度。"
+      },
+      "typography": {
+        "rules": [
+          "标题和正文使用 DM Sans（人文无衬线体）。",
+          "界面标签、导航项和技术注释使用 DM Mono。",
+          "大标题采用紧凑字间距，大写标签采用宽松字间距（0.7px）。"
+        ],
+        "scaleUses": [
+          "主视觉大标题",
+          "章节标题",
+          "引言副标题",
+          "标准正文",
+          "大写导航和小型标签",
+          "大型统计数据"
+        ]
+      },
+      "spacing": {
+        "rhythm": "标准的 4px 基准网格，主要章节间采用充裕的垂直间距（48px-96px）。"
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 4px 6px -4px rgba(0,0,0,0.1)",
+          "0px 10px 15px -3px rgba(0,0,0,0.1)"
+        ],
+        "borders": "1px solid #E5E7EB"
+      },
+      "layout": {
+        "skeleton": "不对称的主视觉区，左侧为文本，右侧为简约图形；统计数据采用结构化网格。"
+      },
+      "components": {
+        "button": "单色按钮，可选纯黑背景配白色文字，或幽灵样式配方形项目符号前缀。",
+        "card": "简洁、无边框的内容块，由细微的水平分隔线隔开。",
+        "chip": "等宽字体大写文本标签，用方括号括起，如 [PLATFORM]。",
+        "input": "极简风格，在主视图中不突出呈现。",
+        "hero": "醒目、加粗的大标题，配以简洁的副标题和主要操作按钮。"
+      },
+      "motion": {
+        "patterns": [
+          "标准界面交互采用平滑的透明度和变换过渡。",
+          "内容出现时采用微妙的淡入和上滑效果。"
+        ]
+      },
+      "interaction": {
+        "hover": "交互元素采用标准的颜色和背景过渡（0.15秒）。",
+        "click": "立即提供视觉反馈，无显著缩放或复杂动画。",
+        "transition": "所有标准过渡使用 0.3 秒或 0.5 秒 cubic-bezier(0.4, 0, 0.2, 1) 曲线。",
+        "keyboard": "标准的可聚焦元素，使用浏览器默认轮廓。"
+      },
+      "voice": {
+        "tone": "专业、权威且精确。",
+        "headlineStyle": "直接且具描述性，聚焦于规模与能力。",
+        "ctaStyle": "以行动为导向，例如‘开始构建’和‘了解更多’。",
+        "avoid": [
+          "过度营销术语",
+          "复杂的句子结构",
+          "缺乏技术支撑的模糊主张"
+        ]
+      },
+      "donts": [
+        "不使用鲜艳的强调色——截图显示为严格的单色色板。",
+        "不使用装饰性或衬线字体——截图仅显示人文无衬线体和等宽字体类别。",
+        "不使用圆角、友好的卡片样式——截图显示为直角或轻微圆角（4px）及硬质分隔线。",
+        "不使用拥挤、局促的布局——截图显示章节间有充裕的留白（48px-96px）。",
+        "不使用非正式、随意的语言——截图使用‘WebRTC 基础设施’等精确的技术术语。",
+        "不使用复杂、杂乱的背景图案——截图使用纯净的近白色（#FCFCFC）背景。"
+      ],
+      "systemPrompt": "设计一个面向全球实时基础设施平台的极简开发者界面。系统采用严格的单色色板，包括近白色（#FCFCFC）和深炭灰色（#161618），次要文本使用中灰色（#6B7280），边框使用 #E5E7EB。字体分为人文无衬线体（DM Sans）用于主要内容，等宽字体（DM Mono）用于界面标签和导航，保持 4px 基准网格和充裕的垂直韵律。关键禁忌：避免任何鲜艳的强调色，不使用装饰性衬线字体，绝不使用圆角、‘友好’的卡片组件。布局应优先考虑极致的清晰度和专业权威感，而非视觉华丽。"
+    },
+    "zh-TW": {
+      "identity": {
+        "keywords": [
+          "即時",
+          "基礎設施",
+          "WebRTC",
+          "全球",
+          "企業",
+          "開發者"
+        ],
+        "analogy": "工業級基礎設施供應商，具備簡潔、以開發者為中心的美學。",
+        "oneLiner": "一個用於全球即時通訊平台的極簡單色調介面。"
+      },
+      "colors": {
+        "principle": "嚴格的單色調色盤，透過高對比與中性灰聚焦內容清晰度。"
+      },
+      "typography": {
+        "rules": [
+          "使用 DM Sans（人文無襯線體）作為標題與內文字體。",
+          "使用 DM Mono 作為介面標籤、導航項目與技術註釋的字體。",
+          "大型標題保持緊湊字距，大寫標籤則使用寬鬆字距（0.7px）。"
+        ],
+        "scaleUses": [
+          "主要首頁標題",
+          "區塊標題",
+          "引言副標題",
+          "標準內文",
+          "大寫導航與小型標籤",
+          "大型統計數字"
+        ]
+      },
+      "spacing": {
+        "rhythm": "標準 4px 基礎單位，主要內容區塊間使用寬裕的垂直間距（48px-96px）。"
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 4px 6px -4px rgba(0,0,0,0.1)",
+          "0px 10px 15px -3px rgba(0,0,0,0.1)"
+        ],
+        "borders": "1px solid #E5E7EB"
+      },
+      "layout": {
+        "skeleton": "非對稱首頁區塊，文字置左、極簡圖形置右；採用結構化網格呈現統計數據。"
+      },
+      "components": {
+        "button": "單色調按鈕，可使用純黑背景配白色文字，或幽靈樣式並帶有方塊項目符號前綴。",
+        "card": "簡潔、無邊框的內容區塊，以細微水平分隔線區隔。",
+        "chip": "大寫文字標籤，使用等寬字型，並以方括號包裹，例如 [PLATFORM]。",
+        "input": "極簡主義，主要視圖中不強調。",
+        "hero": "大型粗體標題，搭配簡潔副標題與主要操作按鈕。"
+      },
+      "motion": {
+        "patterns": [
+          "標準介面互動採用平滑的透明度與變換過渡。",
+          "內容顯現使用細微的淡入與向上滑動效果。"
+        ]
+      },
+      "interaction": {
+        "hover": "互動元素採用標準的顏色與背景過渡效果（0.15s）。",
+        "click": "提供即時視覺回饋，不使用誇張的縮放或複雜動畫。",
+        "transition": "所有標準過渡均使用 0.3s 或 0.5s 的 cubic-bezier(0.4, 0, 0.2, 1) 曲線。",
+        "keyboard": "標準可聚焦元素，使用瀏覽器預設外框。"
+      },
+      "voice": {
+        "tone": "技術性、權威且精確。",
+        "headlineStyle": "直接且具描述性，聚焦於規模與能力。",
+        "ctaStyle": "以行動為導向，例如「開始建構」和「深入了解」。",
+        "avoid": [
+          "過度行銷術語",
+          "複雜句型結構",
+          "缺乏技術支撐的模糊聲明"
+        ]
+      },
+      "donts": [
+        "勿使用鮮豔的強調色——截圖顯示採用嚴格的單色調色盤。",
+        "勿使用裝飾性或襯線字體——截圖僅顯示人文無襯線與等寬字型類別。",
+        "勿使用圓角、親和的卡片樣式——截圖顯示尖角或輕微圓角（4px）及硬式分隔線。",
+        "勿使用擁擠、緊密的版面——截圖顯示區塊間有寬裕的留白（48px-96px）。",
+        "勿使用非正式、隨意的語言——截圖使用精確的技術術語，如「WebRTC 基礎設施」。",
+        "勿使用複雜、雜亂的背景圖案——截圖使用純淨的近白色（#FCFCFC）背景。"
+      ],
+      "systemPrompt": "設計一個以開發者為中心的極簡介面，適用於全球即時基礎設施平台。系統採用嚴格的單色調色盤，包含近白色（#FCFCFC）與深炭灰色（#161618），次要文字使用中灰色（#6B7280），邊框使用 #E5E7EB。字型分為人文無襯線體（DM Sans）用於主要內容，以及等寬字型（DM Mono）用於介面標籤與導航，維持 4px 基礎網格與寬裕的垂直節奏。關鍵禁忌：避免使用任何鮮豔強調色，不使用裝飾性襯線字體，絕不使用圓角、親和的卡片元件。版面應優先考慮極致的清晰度與技術權威感，而非視覺華麗。"
+    },
+    "ja": {
+      "identity": {
+        "keywords": [
+          "リアルタイム",
+          "インフラ",
+          "WebRTC",
+          "グローバル",
+          "エンタープライズ",
+          "開発者"
+        ],
+        "analogy": "クリーンで開発者中心の美学を持つ産業グレードのインフラプロバイダー。",
+        "oneLiner": "グローバルなリアルタイム通信プラットフォームのためのミニマルなモノクロームインターフェース。"
+      },
+      "colors": {
+        "principle": "高コントラストとニュートラルグレーを通じてコンテンツの明瞭さに焦点を当てた厳格なモノクロームパレット。"
+      },
+      "typography": {
+        "rules": [
+          "見出しと本文にはDM Sans（ヒューマニストサンス）を使用。",
+          "UIラベル、ナビゲーション項目、技術的な呼び出しにはDM Monoを使用。",
+          "大きな見出しにはタイトな文字間隔、大文字ラベルには緩い文字間隔（0.7px）を維持。"
+        ],
+        "scaleUses": [
+          "プライマリヒーローヘッドライン",
+          "セクションヘッドライン",
+          "導入サブヘッドライン",
+          "標準本文テキスト",
+          "大文字ナビゲーションおよび小型ラベル",
+          "大きな統計数字"
+        ]
+      },
+      "spacing": {
+        "rhythm": "標準的な4pxベースと、主要コンテンツセクション間の十分な垂直間隔（48px-96px）。"
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 4px 6px -4px rgba(0,0,0,0.1)",
+          "0px 10px 15px -3px rgba(0,0,0,0.1)"
+        ],
+        "borders": "1px solid #E5E7EB"
+      },
+      "layout": {
+        "skeleton": "テキストを左に、最小限のグラフィックを右に配置した非対称ヒーロー。統計データには構造化されたグリッド。"
+      },
+      "components": {
+        "button": "白地に黒の背景を持つ実線スタイル、または四角いビュレット付きのゴーストスタイルのモノクロームボタン。",
+        "card": "微細な水平線で区切られた、ボーダレスのクリーンなコンテンツブロック。",
+        "chip": "モノスペースフォントの大文字テキストラベル。[PLATFORM] のように括弧で囲む。",
+        "input": "ミニマルで、プライマリビューでは目立っては使用されない。",
+        "hero": "簡潔なサブヘッドラインとプライマリアクションボタンを持つ、大きく太字のヘッドライン。"
+      },
+      "motion": {
+        "patterns": [
+          "標準的なUIインタラクションのための、滑らかな不透明度とトランスフォーム遷移。",
+          "コンテンツ表示のための、微細なフェードインとスライドアップ効果。"
+        ]
+      },
+      "interaction": {
+        "hover": "インタラクティブ要素のための、標準的なカラーと背景の遷移（0.15s）。",
+        "click": "重いスケーリングや複雑なアニメーションなしの、即座のビジュアルフィードバック。",
+        "transition": "すべての標準遷移は、0.3sまたは0.5sのcubic-bezier(0.4, 0, 0.2, 1)カーブを使用。",
+        "keyboard": "標準的なブラウザアウトラインを持つ、標準的なフォーカス可能な要素。"
+      },
+      "voice": {
+        "tone": "技術的で、権威があり、正確。",
+        "headlineStyle": "直接的で記述的。規模と能力に焦点。",
+        "ctaStyle": "'START BUILDING' や 'LEARN MORE' のような、アクション指向。",
+        "avoid": [
+          "過度なマーケティング用語",
+          "複雑な文章構造",
+          "技術的裏付けのない曖昧な主張"
+        ]
+      },
+      "donts": [
+        "鮮やかなアクセントカラーを使用しない — スクリーンショットは厳格なモノクロームパレットを示している。",
+        "装飾的なセリフフォントを使用しない — スクリーンショットはヒューマニストサンスとモノスペースのカテゴリのみを示している。",
+        "角丸のフレンドリーなカードスタイルを使用しない — スクリーンショットは鋭角またはわずかな角丸（4px）とハードな区切りを示している。",
+        "密集したぎゅうぎゅう詰めのレイアウトを使用しない — スクリーンショットはセクション間の十分な余白（48px-96px）を示している。",
+        "非公式でカジュアルな言葉遣いを使用しない — スクリーンショットは 'WebRTC infrastructure' のような正確な技術用語を使用している。",
+        "複雑で煩雑な背景パターンを使用しない — スクリーンショットは無地の近白色（#FCFCFC）の背景を使用している。"
+      ],
+      "systemPrompt": "グローバルなリアルタイムインフラプラットフォームのための、ミニマルで開発者中心のインターフェースをデザイン。システムは近白色（#FCFCFC）と深いグレー（#161618）の厳格なモノクロームパレットを使用し、補助テキストには中グレー（#6B7280）、ボーダーには#E5E7EBを使用。タイポグラフィは、プライマリコンテンツにはヒューマニストサンス（DM Sans）、UIラベルとナビゲーションにはモノスペース（DM Mono）を配分。4pxベースグリッドと十分な垂直リズムを維持。重要不可：鮮やかなアクセントカラーは一切使用せず、装飾的なセリフ書体を使用せず、角丸でフレンドリーなカードコンポーネントは決して使用しない。レイアウトは、視覚的な華やかさよりも、極限の明瞭さと技術的権威を優先。"
+    },
+    "ko": {
+      "identity": {
+        "keywords": [
+          "실시간",
+          "인프라",
+          "WebRTC",
+          "글로벌",
+          "엔터프라이즈",
+          "개발자"
+        ],
+        "analogy": "깔끔하고 개발자 중심의 미학을 가진 산업 등급 인프라 제공자.",
+        "oneLiner": "글로벌 실시간 통신 플랫폼을 위한 미니멀리스트 단색 인터페이스."
+      },
+      "colors": {
+        "principle": "높은 대비와 중립적인 회색을 통해 콘텐츠 명확성에 초점을 맞춘 엄격한 단색 팔레트."
+      },
+      "typography": {
+        "rules": [
+          "헤드라인과 본문 텍스트에는 DM Sans(humanist-sans)를 사용합니다.",
+          "UI 라벨, 네비게이션 항목, 기술적 주석에는 DM Mono를 사용합니다.",
+          "큰 헤드라인에는 타이트한 트래킹을, 대문자 라벨에는 느슨한 트래킹(0.7px)을 유지합니다."
+        ],
+        "scaleUses": [
+          "메인 히어로 헤드라인",
+          "섹션 헤드라인",
+          "서문 하위 헤드라인",
+          "표준 본문 텍스트",
+          "대문자 네비게이션 및 소형 라벨",
+          "큰 통계 숫자"
+        ]
+      },
+      "spacing": {
+        "rhythm": "표준 4px 기반과 주요 콘텐츠 섹션 간 넉넉한 수직 간격(48px-96px)."
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 4px 6px -4px rgba(0,0,0,0.1)",
+          "0px 10px 15px -3px rgba(0,0,0,0.1)"
+        ],
+        "borders": "1px solid #E5E7EB"
+      },
+      "layout": {
+        "skeleton": "텍스트가 왼쪽, 최소한의 그래픽이 오른쪽에 위치한 비대칭 히어로; 통계를 위한 구조화된 그리드."
+      },
+      "components": {
+        "button": "흰색 텍스트가 포함된 검은색 단색 배경 또는 사각 불릿 접두사가 있는 고스트 스타일을 사용하는 단색 버튼.",
+        "card": "섬세한 수평선으로 구분되는 깔끔하고 테두리 없는 콘텐츠 블록.",
+        "chip": "[PLATFORM]과 같은 대괄호로 감싸진 모노스페이스 폰트의 대문자 텍스트 라벨.",
+        "input": "미니멀리스트적이며 메인 뷰에서 크게 부각되지 않음.",
+        "hero": "간결한 하위 헤드라인과 메인 액션 버튼이 있는 크고 굵은 헤드라인."
+      },
+      "motion": {
+        "patterns": [
+          "표준 UI 상호작용을 위한 부드러운 불투명도 및 변환 전환.",
+          "콘텐츠 표시를 위한 섬세한 페이드인 및 슬라이드업 효과."
+        ]
+      },
+      "interaction": {
+        "hover": "상호작용 요소를 위한 표준 색상 및 배경 전환(0.15초).",
+        "click": "과도한 스케일링이나 복잡한 애니메이션 없이 즉각적인 시각적 피드백.",
+        "transition": "모든 표준 전환은 0.3초 또는 0.5초 cubic-bezier(0.4, 0, 0.2, 1) 곡선을 사용합니다.",
+        "keyboard": "표준 브라우저 윤곽선을 가진 표준 포커스 가능 요소."
+      },
+      "voice": {
+        "tone": "기술적이고 권위 있으며 정확함.",
+        "headlineStyle": "직관적이고 설명적이며, 규모와 기능에 초점을 맞춤.",
+        "ctaStyle": "'BUILDING 시작하기' 및 '자세히 알아보기'와 같은 행동 지향적.",
+        "avoid": [
+          "과도한 마케팅 용어",
+          "복잡한 문장 구조",
+          "기술적 지원 없는 모호한 주장"
+        ]
+      },
+      "donts": [
+        "강렬한 강조 색상을 사용하지 마세요 — 스크린샷은 엄격한 단색 팔레트를 보여줍니다.",
+        "장식적이거나 세리프 폰트를 사용하지 마세요 — 스크린샷은 humanist-sans와 monospace 카테고리만 보여줍니다.",
+        "둥글고 친근한 카드 스타일을 사용하지 마세요 — 스크린샷은 날카롭거나 약간 둥근(4px) 모서리와 단단한 구분선을 보여줍니다.",
+        "밀집하고 비좁은 레이아웃을 사용하지 마세요 — 스크린샷은 섹션 간 넉넉한 여백(48px-96px)을 보여줍니다.",
+        "비공식적이고 캐주얼한 언어를 사용하지 마세요 — 스크린샷은 'WebRTC 인프라'와 같은 정확한 기술 용어를 사용합니다.",
+        "복잡하고 바쁜 배경 패턴을 사용하지 마세요 — 스크린샷은 단순한 근백색(#FCFCFC) 배경을 사용합니다."
+      ],
+      "systemPrompt": "글로벌 실시간 인프라 플랫폼을 위한 미니멀리스트, 개발자 중심 인터페이스를 설계합니다. 시스템은 근백색(#FCFCFC)과 깊은 차콜(#161618)의 엄격한 단색 팔레트를 사용하며, 부가 텍스트에는 중간 회색(#6B7280), 테두리에는 #E5E7EB를 사용합니다. 타이포그래피는 메인 콘텐츠용 humanist-sans(DM Sans)와 UI 라벨 및 네비게이션용 monospace(DM Mono)로 구분되며, 4px 기본 그리드와 넉넉한 수직 리듬을 유지합니다. 핵심 주요 금지 사항: 강렬한 강조 색상 사용 금지, 장식적 세리프 타입페이스 사용 금지, 둥글고 '친근한' 카드 컴포넌트 절대 사용 금지. 레이아웃은 시각적 화려함보다 극도의 명확성과 기술적 권위를 우선시해야 합니다."
+    }
+  },
+  "desc": {
+    "en": {
+      "palette": "A strictly monochrome palette using near-white, deep charcoal, and neutral grays to maximize content clarity and technical authority.",
+      "layout": "An asymmetric, spacious layout with a clear vertical hierarchy, generous section spacing (48px-96px), and a focus on content-first presentation.",
+      "interaction": "Standard, subtle transitions (0.15s-0.3s) using a standard easing curve for hover states and content appearance.",
+      "motion": "Minimal motion, primarily focusing on simple fade and slide transitions for UI elements and content reveals.",
+      "notes": "Worth including for its masterful execution of 'developer-focused minimalism,' using a restricted monochrome palette and monospace accents to project technical expertise."
+    },
+    "zh-CN": {
+      "palette": "采用严格的单色色板，使用近白色、深炭灰色和中性灰，以最大化内容清晰度和专业权威感。",
+      "layout": "采用不对称、宽敞的布局，具有清晰的垂直层次、充裕的段落间距（48px-96px），并聚焦于内容优先的呈现方式。",
+      "interaction": "使用标准缓动曲线，为悬停状态和内容显示提供标准、细腻的过渡效果（0.15秒-0.3秒）。",
+      "motion": "极简动效，主要采用简单的淡入淡出和滑动过渡，用于界面元素和内容的展现。",
+      "notes": "因其对‘开发者聚焦的极简主义’的精湛执行而值得借鉴，它运用受限的单色色板和等宽字体点缀，塑造出专业的技术形象。"
+    },
+    "zh-TW": {
+      "palette": "採用嚴格的單色調色盤，以近白色、深炭灰色與中性灰，最大化內容清晰度與技術權威感。",
+      "layout": "非對稱、寬敞的版面配置，具有明確的垂直層次、寬裕的區塊間距（48px-96px），並優先呈現內容。",
+      "interaction": "標準、細微的過渡效果（0.15s-0.3s），使用標準緩動曲線處理懸停狀態與內容顯現。",
+      "motion": "極簡動態效果，主要聚焦於介面元素與內容揭示的簡單淡入與滑動過渡。",
+      "notes": "值得參考其對「以開發者為中心的極簡主義」的精湛實踐，使用受限的單色調色盤與等寬字型強調，塑造技術專業形象。"
+    },
+    "ja": {
+      "palette": "近白色、深いグレー、ニュートラルグレーのみを使用した厳格なモノクロームパレット。コンテンツの明瞭さと技術的権威を最大化します。",
+      "layout": "明確な垂直階層と十分なセクション間隔（48px-96px）を持つ非対称で広々としたレイアウト。コンテンツファーストのプレゼンテーションに焦点を当てます。",
+      "interaction": "hover状態やコンテンツ表示のため、標準的な緩和カーブを使用した標準的で微細な遷移（0.15s-0.3s）。",
+      "motion": "UI要素やコンテンツの表示のためのシンプルなフェードやスライド遷移に焦点を当てた最小限の動き。",
+      "notes": "'開発者向けミニマリズム'の優れた実装として高く評価できます。モノクロームパレットとモノスペースのアクセントを制限的に使用し、技術的な専門性を投影しています。"
+    },
+    "ko": {
+      "palette": "콘텐츠의 명확성과 기술적 권위를 극대화하기 위해 근백색, 깊은 차콜, 중립적인 회색을 사용하는 엄격한 단색 팔레트.",
+      "layout": "명확한 수직 계층, 넉넉한 섹션 간격(48px-96px), 콘텐츠 우선presentation에 초점을 맞춘 비대칭적이고 여백이 많은 레이아웃.",
+      "interaction": "hover 상태와 콘텐츠 등장을 위해 표준 easing 곡선을 사용하는 표준적이고 섬세한 전환(0.15초-0.3초).",
+      "motion": "UI 요소와 콘텐츠 표시를 위한 단순한 페이드 및 슬라이드 전환에 주로 초점을 맞춘 최소한의 모션.",
+      "notes": "엄격한 단색 팔레트와 모노스페이스 악센트를 사용하여 기술적 전문성을 표출하는 '개발자 중심 미니멀리즘'의 탁월한 실행을 보여주어 포함할 가치가 있음."
+    }
+  },
+  "_meta": {
+    "vision_model": "mimo-v2.5",
+    "vision_prompt_version": "0.3",
+    "vision_source": "playwright-extract:daily",
+    "vision_grounded": true,
+    "vision_at": "2026-06-04T14:41:17+00:00",
+    "vision_tokens": 18608,
+    "vision_cost_usd": 0.2068,
+    "translation_model": "mimo-v2.5",
+    "translation_at": "2026-06-04T14:42:40+00:00",
+    "translation_tokens": 17540,
+    "translation_cost_usd": 0.0585,
+    "narrative_model": "mimo-v2.5",
+    "narrative_prompt_version": "0.3",
+    "narrative_at": "2026-06-04T14:42:47+00:00",
+    "narrative_tokens": 2128,
+    "narrative_cost_usd": 0.0142,
+    "narrative_status": "ok",
+    "total_cost_usd": 0.2795
+  },
+  "narrative": {
+    "en": {
+      "ch1_intro": "The design system for Daily is built like industrial-grade infrastructure: robust, precise, and engineered for clarity over ornament. Its strict monochrome palette and typographic dualism create a visual language that prioritizes technical authority, mirroring the company's role as a global realtime communication provider.",
+      "ch2_intro": "The color system is a study in restraint, employing a near-white background and deep charcoal to create a high-contrast foundation. Neutral grays provide the necessary hierarchy for secondary information without introducing visual noise.",
+      "ch2_outro": "This commitment to a strictly monochrome palette ensures content remains the undisputed focal point.",
+      "ch3_intro": "Typography operates on a dual-axis: DM Sans provides a clean, humanist voice for primary communication, while DM Mono handles technical labeling with categorical precision. The scale balances dramatic hero headlines with a clear hierarchy for navigation and data.",
+      "ch4_intro": "A 4px base unit governs the rhythm, with deliberate vertical spacing (48px–96px) creating breathing room between major content sections.",
+      "ch5_intro": "Surfaces are defined by subtle, layered shadows that imply depth without heavy UI chrome. Borders are minimal and functional, using a consistent light gray rule.",
+      "ch6_intro": "The layout skeleton is asymmetric and spacious, typically placing bold headline text on the left with supporting graphics or space to the right. Structured grids then organize detailed information like statistics and features.",
+      "ch7_intro": "Motion philosophy favors subtlety and purpose, using smooth, short-duration transitions for state changes. Content appearance is handled through simple fade-in and slide-up effects.",
+      "ch8_intro": "The editorial voice is technical, direct, and authoritative, using precise language like 'WebRTC infrastructure' to describe capability. It deliberately avoids marketing jargon and complex phrasing.",
+      "ch8_outro": "The system explicitly rejects vibrant colors, decorative type, and rounded, friendly components in favor of technical starkness."
+    },
+    "zh-CN": {
+      "ch1_intro": "Daily 的设计系统如工业级基础设施般构建：坚固、精准，为清晰而非装饰而生。其严格的单色配色与字体双轨制，创造出一种优先体现技术权威性的视觉语言，映射了公司作为全球实时通信提供商的角色。",
+      "ch2_intro": "色彩系统是对克制的极致演绎，采用近白背景与深炭灰色构建高对比度基础。中性灰为次要信息提供必要的层次感，同时避免引入视觉干扰。",
+      "ch2_outro": "这种对严格单色配色的坚持，确保了内容作为无可争议的视觉焦点。",
+      "ch3_intro": "字体排版基于双轴体系：DM Sans 以干净的人文无衬线风格承担主要沟通角色，而 DM Mono 则以分类化的精准度处理技术标签。字标体系在引人注目的主标题与清晰的导航及数据层级间取得平衡。",
+      "ch4_intro": "4px 基准单位主导节奏，刻意设计的垂直间距（48px–96px）在主要版块间创造呼吸空间。",
+      "ch5_intro": "界面层次通过微妙、层叠的阴影定义深度，无需厚重的界面装饰。边框极简且功能化，采用一致的浅灰色线条。",
+      "ch6_intro": "版式骨架采用非对称且宽松布局，通常将加粗标题置于左侧，右侧配以辅助图形或留白。结构化网格则用于组织统计数据、功能特性等详细信息。",
+      "ch7_intro": "动态理念侧重精微与目的性，采用平滑、短时长的过渡处理状态变化。内容呈现通过简单的淡入与上滑效果实现。",
+      "ch8_intro": "编辑语气技术化、直接且权威，使用如‘WebRTC 基础设施’等精准表述来描述能力。刻意避免营销术语与复杂措辞。",
+      "ch8_outro": "该系统明确摒弃鲜艳色彩、装饰性字体与圆润友好的组件，转而追求技术性的冷峻质感。"
+    },
+    "zh-TW": {
+      "ch1_intro": "Daily 的設計系統建構得像工業級基礎設施：穩固、精確，並為清晰而非裝飾而工程化。其嚴格的單色調色盤與字體雙重性創造了一種視覺語言，優先考量技術權威，反映了公司作為全球即時通訊服務提供者的角色。",
+      "ch2_intro": "色彩系統是一場關於克制的實踐，採用近乎白色的背景與深木炭色來建立高對比度的基礎。中性灰色為次要資訊提供了必要的層級結構，而不引入視覺雜訊。",
+      "ch2_outro": "這種對嚴格單色調色盤的堅持，確保了內容始終是無可爭議的焦點。",
+      "ch3_intro": "字體排印運作於雙軸線上：DM Sans 提供一種簡潔、人文主義的語氣用於主要通訊，而 DM Mono 則以分類的精確度處理技術標籤。字體比例在戲劇性的主標題與清晰的導覽及數據層級之間取得了平衡。",
+      "ch4_intro": "一個 4px 的基礎單位主導著節奏，刻意的垂直間距（48px–96px）在主要內容區塊之間創造了呼吸空間。",
+      "ch5_intro": "表面由細微、分層的陰影定義，暗示深度而不使用沉重的 UI 外框。邊框保持極簡且功能化，使用一致的淺灰色細線。",
+      "ch6_intro": "版面骨架是非對稱且寬敞的，通常將粗體標題文字置於左側，右側則放置輔助圖形或留白。結構化的網格則組織統計數據和功能等詳細資訊。",
+      "ch7_intro": "動態設計哲學傾向於微妙與目的性，使用流暢、短暫的過渡效果處理狀態變化。內容的出現則透過簡單的淡入和向上滑動效果來處理。",
+      "ch8_intro": "編輯語氣是技術性的、直接且具權威性的，使用精確的語言如「WebRTC 基礎設施」來描述能力。它刻意避免行銷術語和複雜的措辭。",
+      "ch8_outro": "此系統明確摒棄了鮮豔的色彩、裝飾性字體以及圓潤、友善的元件，轉而採用技術性的簡潔風格。"
+    },
+    "ja": {
+      "ch1_intro": "Dailyのデザインシステムは、産業用インフラのように構築されています。堅牢で、精緻であり、装飾よりも明瞭さを重視して設計されています。厳格なモノクロームのカラーパレットとタイポグラフィの二元性は、技術的な権威を重視する視覚言語を生み出し、グローバルなリアルタイム通信プロバイダーとしての会社の役割を反映しています。",
+      "ch2_intro": "カラーシステムは抑制の研究であり、ほぼ白色の背景と深い石炭色を採用して、ハイコントラストの基盤を構築しています。ニュートラルなグレーは、視覚的なノイズを導入せずに、二次情報に必要な階層を提供します。",
+      "ch2_outro": "厳格なモノクロームパレットへのこの約束は、コンテンツが疑いようのない焦点であり続けることを保証します。",
+      "ch3_intro": "タイポグラフィは二軸で動作します。DM Sansは主要なコミュニケーションに対して清潔でヒューマニストな声を提供し、DM Monoは技術的なラベル付けを分類的な精度で処理します。スケールは、劇的なヒーローヘッドラインと、ナビゲーションやデータの明確な階層のバランスを取っています。",
+      "ch4_intro": "4pxの基本単位がリズムを支配し、意図的な垂直方向の余白（48px〜96px）が、主要なコンテンツセクション間に息の間を生み出します。",
+      "ch5_intro": "サーフェスは、重いUIクロームなしに奥行きを示唆する、微細で重ねられた影で定義されます。ボーダーは最小限で機能的であり、一貫したライトグレーのルールを使用します。",
+      "ch6_intro": "レイアウトの骨格は非対称で広々としており、通常、左側に太字のヘッドラインテキストを配置し、右側に補足グラフィックやスペースを配置します。構造化されたグリッドは、統計や機能などの詳細情報を整理します。",
+      "ch7_intro": "モーションの哲学は、微細さと目的を重視し、状態変化に対して滑らかで短い期間のトランジションを使用します。コンテンツの表示は、シンプルなフェードインとスライドアップ効果で処理されます。",
+      "ch8_intro": "編集ボイスは技術的で、直接的で、権威があります。「WebRTC infrastructure」のような正確な言語を使用して、能力を記述します。意図的にマーケティング用語や複雑な表現を避けます。",
+      "ch8_outro": "システムは、鮮やかな色、装飾的なタイポグラフィ、角の丸くフレンドリーなコンポーネントを明確に拒否し、代わりに技術的な厳しさを重視しています。"
+    },
+    "ko": {
+      "ch1_intro": "Daily의 디자인 시스템은 산업 수준의 인프라처럼 구축되었습니다: 견고하고 정확하며, 장식보다 명확성을 위해 설계된 엔지니어링 제품입니다. 엄격한 단색 팔레트와 타이포그래피의 이중 구조는 기술적 권위를 우선시하는 시각적 언어를 만들어내며, 이는 글로벌 실시간 통신 제공자로서의 회사 역할을 반영합니다.",
+      "ch2_intro": "색상 시스템은 절제에 대한 연구이며, 거의 흰색 배경과 짙은 차콜 그레이를 사용하여 고대비 기반을 만듭니다. 중립적인 그레이스케일은 시각적 노이즈를 도입하지 않으면서 보조 정보에 필요한 계층 구조를 제공합니다.",
+      "ch2_outro": "이처럼 엄격한 단색 팔레트에 대한 헌신은 콘텐츠가 의심할 여지 없이 초점이 되도록 보장합니다.",
+      "ch3_intro": "타이포그래피는 이중 축으로 작동합니다: DM Sans는 주요 커뮤니케이션을 위해 깨끗하고 인본주의적인 목소리를 제공하고, DM Mono는 기술적 레이블링을 범주적으로 정밀하게 처리합니다. 스케일은 드라마틱한 히로 헤드라인과 내비게이션 및 데이터를 위한 명확한 계층 구조 사이의 균형을 이룹니다.",
+      "ch4_intro": "4px 기본 단위가 리듬을 지배하며, 의도적인 수직 간격(48px~96px)이 주요 콘텐츠 섹션 사이에 숨 쉴 공간을 만듭니다.",
+      "ch5_intro": "표면은 깊이를 암시하지만 무거운 UI 장식 없이 미묘하고 층을 이룬 그림자로 정의됩니다. 테두리는 최소한이고 기능적이며, 일관된 밝은 그레이 라인을 사용합니다.",
+      "ch6_intro": "레이아웃 스켈레톤은 비대칭적이고 넓으며, 일반적으로 굵은 헤드라인 텍스트를 왼쪽에, 지원 그래픽이나 공간을 오른쪽에 배치합니다. 그런 다음 구조화된 그리드는 통계나 기능과 같은 상세 정보를 조직합니다.",
+      "ch7_intro": "모션 철학은 미묘함과 목적을 중시하며, 상태 변화를 위해 부드럽고 짧은 기간의 전환을 사용합니다. 콘텐츠 등장은 간단한 페이드인 및 슬라이드업 효과로 처리됩니다.",
+      "ch8_intro": "에디토리얼 목소리는 기술적이고 직접적이며 권위 있는 것이며, 기능을 설명하기 위해 'WebRTC 인프라'와 같은 정확한 언어를 사용합니다. 마케팅 용어와 복잡한 표현을 의도적으로 피합니다.",
+      "ch8_outro": "이 시스템은 기술적 간결함을 위해 밝은 색상, 장식적 타입, 그리고 둥글고 친근한 컴포넌트를 명백히 거부합니다."
+    }
+  }
 }

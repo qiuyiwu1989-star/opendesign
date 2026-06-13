@@ -9,6 +9,641 @@
     "design",
     "tool"
   ],
-  "status": "pending",
-  "added_at": "2026-06-02"
+  "status": "completed",
+  "added_at": "2026-06-02",
+  "spec": {
+    "colors": {
+      "bg": "#000000",
+      "bgSoft": null,
+      "bgQuiet": null,
+      "ink": "#FFFFFF",
+      "inkSoft": "#757575",
+      "muted": "#17191C",
+      "mutedSoft": null,
+      "accent": "#18B6F6",
+      "line": "rgba(255,255,255,0.1)"
+    },
+    "typography": {
+      "display": "geometric-sans",
+      "body": "humanist-sans",
+      "mono": "monospace",
+      "scale": [
+        {
+          "token": "display",
+          "size": 56,
+          "lh": 1.0,
+          "weight": 600,
+          "ls": "-1px"
+        },
+        {
+          "token": "heading",
+          "size": 48,
+          "lh": 1.1,
+          "weight": 600,
+          "ls": "-0.5px"
+        },
+        {
+          "token": "subheading",
+          "size": 24,
+          "lh": 1.3,
+          "weight": 500,
+          "ls": "0"
+        },
+        {
+          "token": "body",
+          "size": 18,
+          "lh": 1.6,
+          "weight": 400,
+          "ls": "0"
+        },
+        {
+          "token": "small",
+          "size": 14,
+          "lh": 1.5,
+          "weight": 400,
+          "ls": "0"
+        }
+      ]
+    },
+    "spacing": {
+      "base": 4,
+      "scale": [
+        4,
+        8,
+        16,
+        24,
+        32,
+        48,
+        64,
+        96
+      ]
+    },
+    "surfaces": {
+      "radius": {
+        "sm": 4,
+        "md": 8,
+        "lg": 20,
+        "pill": 999
+      }
+    },
+    "layout": {
+      "container": 1280,
+      "paragraph": 680,
+      "columns": 12,
+      "gutter": 24,
+      "breakpoints": [
+        768,
+        1024
+      ]
+    },
+    "motion": {
+      "durations": {
+        "micro": 220,
+        "small": 400,
+        "medium": 800
+      },
+      "easing": "cubic-bezier(0.37, 0.01, 0, 0.98)"
+    }
+  },
+  "spec_i18n": {
+    "en": {
+      "identity": {
+        "keywords": [
+          "collaborative",
+          "production-ready",
+          "AI",
+          "workspace",
+          "code"
+        ],
+        "analogy": "A digital command center where designers, PMs, and developers co-exist in a single code-driven environment.",
+        "oneLiner": "The AI product development platform for your real codebase and design system."
+      },
+      "colors": {
+        "principle": "High-contrast dark mode with a single high-chroma cyan accent for primary actions and emphasis."
+      },
+      "typography": {
+        "rules": [
+          "Use geometric-sans for display text to match the Poppins-inspired aesthetic.",
+          "Use humanist-sans for body text to ensure readability.",
+          "Use monospace for code snippets and terminal commands.",
+          "Maintain tight tracking on large display text."
+        ],
+        "scaleUses": [
+          "Hero Headline",
+          "Section Title",
+          "Card Title",
+          "Paragraph",
+          "Fine Print"
+        ]
+      },
+      "spacing": {
+        "rhythm": "4px base unit with a standard scale."
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 1px 4px 0px rgba(0,0,0,0.08)",
+          "0px 0px 30px 0px rgba(0,0,0,0.2)"
+        ],
+        "borders": "1px solid rgba(255,255,255,0.1)"
+      },
+      "layout": {
+        "skeleton": "Standard 12-column grid with a fixed max-width container."
+      },
+      "components": {
+        "button": "High-contrast cyan primary button with rounded corners, and ghost/outline secondary buttons.",
+        "card": "Dark surface cards with subtle borders and generous padding.",
+        "chip": "Small rounded labels for categorization.",
+        "input": "Standard form inputs with dark backgrounds.",
+        "hero": "Full-width section with large typography and a conceptual illustration."
+      },
+      "motion": {
+        "patterns": [
+          "Fade-in and slide-up for section entry.",
+          "Smooth opacity transitions for hover states."
+        ]
+      },
+      "interaction": {
+        "hover": "Subtle brightness increase or border color change.",
+        "click": "Immediate visual feedback.",
+        "transition": "Smooth 0.3s - 0.5s transitions for state changes.",
+        "keyboard": "Standard focus management with visible focus rings."
+      },
+      "voice": {
+        "tone": "Confident, professional, and technically proficient.",
+        "headlineStyle": "Direct and action-oriented, often highlighting 'collaborative' or 'production-ready'.",
+        "ctaStyle": "Simple and clear, such as 'Start building' or 'Sign up'.",
+        "avoid": [
+          "Overly casual or conversational tone",
+          "Vague marketing jargon",
+          "Passive voice",
+          "Complex sentences that obscure the value proposition"
+        ]
+      },
+      "donts": [
+        "Don't use a light background — screenshot shows a deep black (#000000) background.",
+        "Don't use a secondary accent color — screenshot shows a single dominant cyan (#18B6F6).",
+        "Don't use high-contrast borders for every card — screenshot shows subtle or no borders on many elements.",
+        "Don't use serif fonts for display text — screenshot shows a geometric sans-serif.",
+        "Don't use centered alignment for body text — screenshot shows left-aligned paragraphs.",
+        "Don't use excessive decorative icons — screenshot uses clean, minimalist line icons.",
+        "Don't use small, cramped layouts — screenshot shows generous whitespace and padding."
+      ],
+      "systemPrompt": "This is Builder.io, a premium SaaS developer tool. The design is characterized by a high-contrast dark mode (#000000 background, #FFFFFF text) with a single, vibrant cyan accent (#18B6F6). Typography is geometric sans-serif for display and humanist sans-serif for body. The layout is clean and spacious, emphasizing clarity and professionalism. Critical donts: Never use a light theme, never introduce a secondary accent color, and never use decorative or cluttered UI elements. The system is built for technical users who value efficiency and production-readiness."
+    },
+    "zh-CN": {
+      "identity": {
+        "keywords": [
+          "协作",
+          "生产就绪",
+          "AI",
+          "工作区",
+          "代码"
+        ],
+        "analogy": "一个数字指挥中心，设计师、产品经理和开发人员在统一的代码驱动环境中协同工作。",
+        "oneLiner": "面向您真实代码库和设计系统的 AI 产品开发平台。"
+      },
+      "colors": {
+        "principle": "高对比度的暗色模式，搭配单一高饱和度青色作为主要操作和强调的强调色。"
+      },
+      "typography": {
+        "rules": [
+          "为展示文本使用几何无衬线字体，以匹配 Poppins 灵感的美学风格。",
+          "为正文使用人文主义无衬线字体，以确保可读性。",
+          "为代码片段和终端命令使用等宽字体。",
+          "在大型展示文本上保持紧凑的字间距。"
+        ],
+        "scaleUses": [
+          "主标题",
+          "区域标题",
+          "卡片标题",
+          "段落",
+          "辅助文本"
+        ]
+      },
+      "spacing": {
+        "rhythm": "以 4px 为基础单位，采用标准比例尺。"
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 1px 4px 0px rgba(0,0,0,0.08)",
+          "0px 0px 30px 0px rgba(0,0,0,0.2)"
+        ],
+        "borders": "1px solid rgba(255,255,255,0.1)"
+      },
+      "layout": {
+        "skeleton": "标准的 12 列栅格，带有固定最大宽度的容器。"
+      },
+      "components": {
+        "button": "高对比度青色主按钮，采用圆角设计；搭配幽灵/线框次要按钮。",
+        "card": "深色表面卡片，带有微妙边框和充裕内边距。",
+        "chip": "用于分类的小型圆角标签。",
+        "input": "标准的深色背景表单输入框。",
+        "hero": "全宽区域，采用大号字体和概念性插图。"
+      },
+      "motion": {
+        "patterns": [
+          "区域进入时采用淡入和向上滑动效果。",
+          "hover 状态采用平滑的透明度过渡。"
+        ]
+      },
+      "interaction": {
+        "hover": "微妙的亮度提升或边框颜色变化。",
+        "click": "即时的视觉反馈。",
+        "transition": "状态变化采用 0.3s - 0.5s 的平滑过渡。",
+        "keyboard": "标准焦点管理，带有可见的焦点环。"
+      },
+      "voice": {
+        "tone": "自信、专业、技术精湛。",
+        "headlineStyle": "直接且以行动为导向，常强调‘协作’或‘生产就绪’。",
+        "ctaStyle": "简洁明了，例如‘开始构建’或‘注册’。",
+        "avoid": [
+          "过于随意或口语化的语气",
+          "模糊的营销术语",
+          "被动语态",
+          "掩盖价值主张的复杂句子"
+        ]
+      },
+      "donts": [
+        "不要使用浅色背景——截图显示的是深黑色 (#000000) 背景。",
+        "不要使用次要强调色——截图显示的是单一的主青色 (#18B6F6)。",
+        "不要为每张卡片都使用高对比度边框——截图显示许多元素边框微妙或无边框。",
+        "不要为展示文本使用衬线字体——截图显示的是几何无衬线字体。",
+        "不要为正文使用居中对齐——截图显示的是左对齐段落。",
+        "不要使用过多的装饰性图标——截图使用的是简洁的极简线条图标。",
+        "不要使用狭小、拥挤的布局——截图显示的是充裕的空白和内边距。"
+      ],
+      "systemPrompt": "这是 Builder.io，一个高端 SaaS 开发者工具。其设计特点是高对比度的暗色模式（#000000 背景，#FFFFFF 文字），搭配单一、鲜明的青色强调色 (#18B6F6)。字体方面，展示文本采用几何无衬线字体，正文采用人文主义无衬线字体。布局简洁宽敞，强调清晰度和专业性。关键禁忌：绝不使用浅色主题，绝不引入次要强调色，绝不使用装饰性或杂乱的 UI 元素。该系统专为注重效率和生产就绪性的技术用户而构建。"
+    },
+    "zh-TW": {
+      "identity": {
+        "keywords": [
+          "協作",
+          "生產就緒",
+          "AI",
+          "工作空間",
+          "程式碼"
+        ],
+        "analogy": "一個數位指揮中心，讓設計師、專案經理與工程師在同一個以程式碼驅動的環境中共存。",
+        "oneLiner": "專為您的實際程式碼庫與設計系統打造的 AI 產品開發平台。"
+      },
+      "colors": {
+        "principle": "高對比度深色模式，搭配單一高飽和度的青綠色，用於主要操作與強調。"
+      },
+      "typography": {
+        "rules": [
+          "使用幾何無襯線字體作為展示文字，以符合 Poppins 風格的美學。",
+          "使用人文無襯線字體作為內文，以確保可讀性。",
+          "使用等寬字體顯示程式碼片段與終端機命令。",
+          "大型展示文字採用緊湊的字間距。"
+        ],
+        "scaleUses": [
+          "首頁大標題",
+          "章節標題",
+          "卡片標題",
+          "段落",
+          "輔助說明文字"
+        ]
+      },
+      "spacing": {
+        "rhythm": "以 4px 為基礎單位，搭配標準比例系統。"
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 1px 4px 0px rgba(0,0,0,0.08)",
+          "0px 0px 30px 0px rgba(0,0,0,0.2)"
+        ],
+        "borders": "1px solid rgba(255,255,255,0.1)"
+      },
+      "layout": {
+        "skeleton": "標準 12 欄網格，搭配固定最大寬度容器。"
+      },
+      "components": {
+        "button": "高對比度的青綠色主要按鈕（圓角），以及次要按鈕（外框/幽靈按鈕）。",
+        "card": "深色表面卡片，配有細微邊框與充足內邊距。",
+        "chip": "用於分類的小型圓角標籤。",
+        "input": "標準表單輸入欄位，採用深色背景。",
+        "hero": "全寬區塊，搭配大型排版與概念性插圖。"
+      },
+      "motion": {
+        "patterns": [
+          "區塊進入時採用淡入與向上滑動效果。",
+          "hover 狀態時進行平滑的透明度過渡。"
+        ]
+      },
+      "interaction": {
+        "hover": "細微的亮度提升或邊框顏色變化。",
+        "click": "立即的視覺回饋。",
+        "transition": "狀態變化時採用平滑的 0.3s - 0.5s 過渡效果。",
+        "keyboard": "標準焦點管理，配有可見的焦點環。"
+      },
+      "voice": {
+        "tone": "自信、專業且技術嫻熟。",
+        "headlineStyle": "直接且以行動為導向，通常強調「協作」或「生產就緒」。",
+        "ctaStyle": "簡潔明確，例如「開始建置」或「立即註冊」。",
+        "avoid": [
+          "過於隨意或對話式的語氣",
+          "模糊的行銷術語",
+          "被動語態",
+          "模糊價值主張的複雜句型"
+        ]
+      },
+      "donts": [
+        "不要使用淺色背景——截圖顯示背景為純黑 (#000000)。",
+        "不要使用次要強調色——截圖顯示僅使用單一主導的青綠色 (#18B6F6)。",
+        "不要為每張卡片都使用高對比度邊框——截圖顯示許多元素採用細微或無邊框設計。",
+        "不要為展示文字使用襯線字體——截圖顯示使用幾何無襯線字體。",
+        "不要將內文置中對齊——截圖顯示段落為左對齊。",
+        "不要使用過多裝飾性圖示——截圖使用簡潔的線條圖示。",
+        "不要使用狹窄擁擠的版面——截圖顯示充足的留白與內邊距。"
+      ],
+      "systemPrompt": "這是 Builder.io，一款高階 SaaS 開發工具。設計以高對比度深色模式為特徵（背景 #000000，文字 #FFFFFF），並搭配單一鮮豔的青綠色強調色 (#18B6F6)。展示文字使用幾何無襯線字體，內文使用人文無襯線字體。版面簡潔寬敞，強調清晰度與專業性。重要禁忌：切勿使用淺色主題、切勿引入次要強調色、切勿使用裝飾性或雜亂的 UI 元素。此系統專為重視效率與生產就緒性的技術用戶而設計。"
+    },
+    "ja": {
+      "identity": {
+        "keywords": [
+          "コラボレーション",
+          "プロダクションレディ",
+          "AI",
+          "ワークスペース",
+          "コード"
+        ],
+        "analogy": "デザイナー、PM、開発者がコード駆動環境で共存する、デジタルコマンドセンター。",
+        "oneLiner": "実際のコードベースとデザインシステムのための、AI製品開発プラットフォーム。"
+      },
+      "colors": {
+        "principle": "高コントラスト暗色モードに、プライマリアクションや強調のための高彩度シアンアクセントを1つ配置。"
+      },
+      "typography": {
+        "rules": [
+          "Poppinsを彷彿とさせるデザインに合わせ、表示テキストにはジオメトリック・サンセリフを使用。",
+          "本文テキストには、読みやすさを確保するためヒューマニスト・サンセリフを使用。",
+          "コードスニペットやターミナルコマンドにはモノスペースを使用。",
+          "大型の表示テキストには、狭めの字間を維持。"
+        ],
+        "scaleUses": [
+          "ヒーローヘッドライン",
+          "セクションタイトル",
+          "カードタイトル",
+          "段落",
+          "注釈"
+        ]
+      },
+      "spacing": {
+        "rhythm": "4pxの基本単位と標準スケール。"
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 1px 4px 0px rgba(0,0,0,0.08)",
+          "0px 0px 30px 0px rgba(0,0,0,0.2)"
+        ],
+        "borders": "1px solid rgba(255,255,255,0.1)"
+      },
+      "layout": {
+        "skeleton": "固定幅コンテナの標準12カラムグリッド。"
+      },
+      "components": {
+        "button": "角丸の高コントラストシアンプライマリボタンと、ゴースト/アウトラインのセカンダリボタン。",
+        "card": "繊細なボーダーと十分なパディングを持つ、暗色サーフェスカード。",
+        "chip": "分類用の小型丸みラベル。",
+        "input": "暗色背景の標準フォーム入力。",
+        "hero": "大型タイポグラフィと概念的なイラストを含む、フルワイドセクション。"
+      },
+      "motion": {
+        "patterns": [
+          "セクション入場のフェードイン＆スライドアップ。",
+          "ホバーステートの滑らかな不透明度トランジション。"
+        ]
+      },
+      "interaction": {
+        "hover": "明るさの微細な上昇またはボーダーカラーの変化。",
+        "click": "即座のビジュアルフィードバック。",
+        "transition": "ステート変化のための0.3s〜0.5sの滑らかなトランジション。",
+        "keyboard": "可視フォーカスリング付きの標準フォーカス管理。"
+      },
+      "voice": {
+        "tone": "自信に満ち、プロフェッショナルで、技術的に熟達した語り口。",
+        "headlineStyle": "直接的で行動を促すスタイル。「コラボレーション」や「プロダクションレディ」を強調。",
+        "ctaStyle": "シンプルかつ明確。「ビルドを始める」や「サインアップ」など。",
+        "avoid": [
+          "過度にカジュアルまたは会話的なトーン",
+          "曖昧なマーケティング用語",
+          "受動態",
+          "価値提案を曖昧にする複雑な文章"
+        ]
+      },
+      "donts": [
+        "明るい背景を使用しない。スクリーンショットでは深い黒（#000000）の背景が使用されている。",
+        "セカンダリアクセントカラーを使用しない。スクリーンショットではシアン（#18B6F6）が単一の支配的カラーとして使用されている。",
+        "すべてのカードに高コントラストボーダーを使用しない。スクリーンショットでは多くの要素に繊細またはなしのボーダーが使用されている。",
+        "表示テキストにセリフフォントを使用しない。スクリーンショットではジオメトリックなサンセリフが使用されている。",
+        "本文テキストにセンタリングを使用しない。スクリーンショットでは左揃えの段落が使用されている。",
+        "過度な装飾アイコンを使用しない。スクリーンショットではクリーンでミニマルなラインアイコンが使用されている。",
+        "狭小で窮屈なレイアウトを使用しない。スクリーンショットでは十分なホワイトスペースとパディングが使用されている。"
+      ],
+      "systemPrompt": "これは、プレミアムSaaS開発ツールのBuilder.ioです。デザインは、高コントラスト暗色モード（背景#000000、テキスト#FFFFFF）と、鮮やかなシアンアクセント（#18B6F6）を単一配置したのが特徴です。タイポグラフィは、ジオメトリック・サンセリフが表示用、ヒューマニスト・サンセリフが本文用に使用されています。レイアウトは清潔で広々としており、明瞭さとプロフェッショナリズムを重視しています。重要な禁止事項：決して明るいテーマを使用せず、決してセカンダリアクセントカラーを導入せず、決して装飾的または雑然としたUI要素を使用しないこと。このシステムは、効率性とプロダクションレディネスを重視する技術者向けに構築されています。"
+    },
+    "ko": {
+      "identity": {
+        "keywords": [
+          "협업형",
+          "프로덕션 준비 완료",
+          "AI",
+          "작업 공간",
+          "코드"
+        ],
+        "analogy": "디자이너, PM, 개발자가 하나의 코드 기반 환경에서 공존하는 디지털 명령 센터입니다.",
+        "oneLiner": "실제 코드베이스와 디자인 시스템을 위한 AI 제품 개발 플랫폼입니다."
+      },
+      "colors": {
+        "principle": "주요 작업과 강조를 위한 단일 고채도 시안 악센트가 포함된 고대비 다크 모드입니다."
+      },
+      "typography": {
+        "rules": [
+          "Poppins 스타일의 미학에 맞춰 디스플레이 텍스트에는 기하학적 sans를 사용합니다.",
+          "본문 텍스트에는 가독성을 위해 인문학적 sans를 사용합니다.",
+          "코드 스니펫 및 터미널 명령에는 모노스페이스를 사용합니다.",
+          "큰 디스플레이 텍스트에는 타이트한 트래킹을 유지합니다."
+        ],
+        "scaleUses": [
+          "히어로 헤드라인",
+          "섹션 제목",
+          "카드 제목",
+          "단락",
+          "미세 인쇄물"
+        ]
+      },
+      "spacing": {
+        "rhythm": "표준 스케일을 적용한 4px 기본 단위입니다."
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 1px 4px 0px rgba(0,0,0,0.08)",
+          "0px 0px 30px 0px rgba(0,0,0,0.2)"
+        ],
+        "borders": "1px solid rgba(255,255,255,0.1)"
+      },
+      "layout": {
+        "skeleton": "고정 최대 너비 컨테이너가 있는 표준 12열 그리드입니다."
+      },
+      "components": {
+        "button": "둥근 모서리의 고대비 시안 주요 버튼과 고스트/아웃라인 보조 버튼입니다.",
+        "card": "미세한 테두리와 여유로운 패딩을 가진 다크 표면 카드입니다.",
+        "chip": "분류용 작은 둥근 라벨입니다.",
+        "input": "다크 배경의 표준 폼 입력 필드입니다.",
+        "hero": "큰 타이포그래피와 컨셉추얼 일러스트레이션이 있는 전체 너비 섹션입니다."
+      },
+      "motion": {
+        "patterns": [
+          "섹션 진입 시 페이드인 및 슬라이드업.",
+          "hover 상태의 부드러운 불투명도 전환."
+        ]
+      },
+      "interaction": {
+        "hover": "미세한 밝기 증가 또는 테두리 색상 변화.",
+        "click": "즉각적인 시각적 피드백.",
+        "transition": "상태 변화를 위한 0.3초 ~ 0.5초의 부드러운 전환.",
+        "keyboard": "보이는 포커스 링이 있는 표준 포커스 관리."
+      },
+      "voice": {
+        "tone": "자신감 있고 전문적이며 기술적으로 숙련된 어조입니다.",
+        "headlineStyle": "직관적이고 행동을 유도하며, '협업형' 또는 '프로덕션 준비 완료'를 강조하는 경향이 있습니다.",
+        "ctaStyle": "'빌드 시작' 또는 '가입하기'와 같이 간결하고 명확합니다.",
+        "avoid": [
+          "지나치게 캐주얼하거나 대화체인 어조",
+          "모호한 마케팅 용어",
+          "수동태",
+          "가치 제안을 흐리는 복잡한 문장"
+        ]
+      },
+      "donts": [
+        "밝은 배경을 사용하지 마세요 — 스크린샷은 깊은 블랙(#000000) 배경을 보여줍니다.",
+        "보조 악센트 컬러를 사용하지 마세요 — 스크린샷은 단일 주요 시안(#18B6F6)을 보여줍니다.",
+        "모든 카드에 고대비 테두리를 사용하지 마세요 — 스크린샷은 많은 요소에 미세하거나 없는 테두리를 보여줍니다.",
+        "디스플레이 텍스트에 세리프 폰트를 사용하지 마세요 — 스크린샷은 기하학적 sans-serif를 보여줍니다.",
+        "본문 텍스트에 가운데 정렬을 사용하지 마세요 — 스크린샷은 왼쪽 정렬된 단락을 보여줍니다.",
+        "지나치게 장식적인 아이콘을 사용하지 마세요 — 스크린샷은 깔끔하고 미니멀한 라인 아이콘을 사용합니다.",
+        "좁고 비좁은 레이아웃을 사용하지 마세요 — 스크린샷은 여유로운 여백과 패딩을 보여줍니다."
+      ],
+      "systemPrompt": "This is Builder.io, a premium SaaS developer tool. The design is characterized by a high-contrast dark mode (#000000 background, #FFFFFF text) with a single, vibrant cyan accent (#18B6F6). Typography is geometric sans-serif for display and humanist sans-serif for body. The layout is clean and spacious, emphasizing clarity and professionalism. Critical donts: Never use a light theme, never introduce a secondary accent color, and never use decorative or cluttered UI elements. The system is built for technical users who value efficiency and production-readiness."
+    }
+  },
+  "desc": {
+    "en": {
+      "palette": "Strictly monochromatic dark mode with a single vibrant cyan accent color.",
+      "layout": "Clean, spacious 12-column grid with generous padding and a focus on readability.",
+      "interaction": "Subtle and smooth transitions for hover and state changes, maintaining a professional feel.",
+      "motion": "Polished, smooth animations using a custom cubic-bezier curve for a refined feel.",
+      "notes": "A classic example of a high-end, technical SaaS landing page that uses a dark theme to convey professionalism and technical depth."
+    },
+    "zh-CN": {
+      "palette": "严格的单色暗色模式，仅使用一种鲜明的青色作为强调色。",
+      "layout": "简洁、宽敞的12列栅格系统，采用充裕的内边距，注重可读性。",
+      "interaction": "为 hover 和状态变化提供微妙而流畅的过渡，保持专业感。",
+      "motion": "使用自定义 cubic-bezier 曲线打造精致、流畅的动画效果。",
+      "notes": "一个经典的高端技术类 SaaS 登陆页面范例，运用暗色主题来传达专业性和技术深度。"
+    },
+    "zh-TW": {
+      "palette": "嚴格的單色深色模式，搭配單一鮮豔的青綠色作為強調色。",
+      "layout": "簡潔、寬敞的 12 欄網格，配有充足的內邊距，並著重於可讀性。",
+      "interaction": "微妙且流暢的過渡效果，用於 hover 和狀態變化，保持專業感。",
+      "motion": "精緻、流暢的動畫，使用自訂 cubic-bezier 曲線以營造細膩感。",
+      "notes": "這是一個採用深色主題的高階技術型 SaaS 頁面經典範例，用以傳達專業性與技術深度。"
+    },
+    "ja": {
+      "palette": "厳格なモノクロ暗色モードに、鮮やかなシアンのアクセントカラーを1つ配置。",
+      "layout": "清潔で広々とした12カラムグリッド。十分なパディングを設け、読みやすさを重視。",
+      "interaction": "hoverやステート変化のための、繊細で滑らかなトランジション。プロフェッショナルな印象を維持。",
+      "motion": "カスタムcubic-bezierカーブを使用した、洗練された滑らかなアニメーション。",
+      "notes": "高級技術系SaaSランディングページの典型例。暗色テーマを用い、プロフェッショナリズムと技術的深みを表現。"
+    },
+    "ko": {
+      "palette": "강렬한 시안 악센트 컬러 하나만 사용한 엄격한 단색 다크 모드입니다.",
+      "layout": "여유로운 패딩과 가독성에 중점을 둔 깔끔하고 넓은 12열 그리드입니다.",
+      "interaction": "hover 및 상태 변화에 부드럽고 세련된 전환 효과를 적용하여 전문적인 느낌을 유지합니다.",
+      "motion": "세련된 느낌을 위해 커스텀 cubic-bezier 커브를 사용한 정교하고 부드러운 애니메이션입니다.",
+      "notes": "다크 테마를 사용하여 전문성과 기술적 깊이를 전달하는 프리미엄 기술 SaaS 랜딩 페이지의 고전적인 예시입니다."
+    }
+  },
+  "_meta": {
+    "vision_model": "mimo-v2.5",
+    "vision_prompt_version": "0.3",
+    "vision_source": "playwright-extract:builder",
+    "vision_grounded": true,
+    "vision_at": "2026-06-04T14:21:12+00:00",
+    "vision_tokens": 17219,
+    "vision_cost_usd": 0.1913,
+    "translation_model": "mimo-v2.5",
+    "translation_at": "2026-06-04T14:22:35+00:00",
+    "translation_tokens": 16589,
+    "translation_cost_usd": 0.0553,
+    "narrative_model": "mimo-v2.5",
+    "narrative_prompt_version": "0.3",
+    "narrative_at": "2026-06-04T14:22:47+00:00",
+    "narrative_tokens": 2040,
+    "narrative_cost_usd": 0.0136,
+    "narrative_status": "ok",
+    "total_cost_usd": 0.2602
+  },
+  "narrative": {
+    "en": {
+      "ch1_intro": "Builder.io's design system is built as a digital command center, a collaborative workspace where designers, product managers, and developers converge within a single code-driven environment. It is a production-ready platform for real codebases and design systems, where every visual decision serves the core functions of building, testing, and deploying.",
+      "ch2_intro": "The palette is a strict study in high-contrast dark mode, anchored by a deep black background and pure white text. A single, vibrant cyan accent is reserved exclusively for primary actions and key points of emphasis, creating a focused visual hierarchy.",
+      "ch2_outro": "The principle is restraint: one high-chroma accent against a monochromatic dark field for maximum clarity and intentionality.",
+      "ch3_intro": "Typography establishes a clear voice through category pairing: a geometric sans-serif for commanding display text, and a humanist sans-serif for readable body copy. This duality supports both bold, action-oriented headlines and the technical density of long-form documentation.",
+      "ch4_intro": "Spacing follows a strict 4px base unit, creating a predictable, rhythmic grid that underpins every component and layout.",
+      "h5_intro": "Depth is communicated through subtle, layered shadows and thin, semi-transparent borders on a dark surface. These elements define boundaries without adding visual weight, maintaining the interface's crisp, functional clarity.",
+      "ch6_intro": "The layout skeleton is a standard 12-column grid with a fixed maximum-width container. This structure provides the consistent framework needed for responsive, spacious compositions that emphasize content hierarchy.",
+      "ch7_intro": "Motion is functional and refined, employed to guide focus and confirm interaction. Entry animations use a smooth fade-in and slide-up pattern, while hover and state changes rely on gradual opacity and color shifts.",
+      "ch8_intro": "The voice is confident, professional, and technically proficient, matching the direct, action-oriented style of its headlines. It avoids passive constructions, vague jargon, and conversational tone in favor of clear, value-driven statements.",
+      "ch8_outro": "The system deliberately avoids light themes, secondary accent colors, serif fonts, and decorative clutter, enforcing a discipline of functional minimalism."
+    },
+    "zh-CN": {
+      "ch1_intro": "Builder.io 的设计系统作为一个数字指挥中心构建，这是一个协作工作空间，设计师、产品经理和开发者在一个由代码驱动的单一环境中汇聚。它是一个为真实代码库和设计系统准备的生产就绪平台，其中每一个视觉决策都服务于构建、测试和部署的核心功能。",
+      "ch2_intro": "调色板是对高对比度深色模式的严格研究，以深黑色背景和纯白色文本为基础。单一、充满活力的青色强调色专门保留用于主要操作和关键强调点，从而创建一个专注的视觉层次。",
+      "ch2_outro": "原则是克制：在单色深色场域中使用一个高饱和度强调色，以获得最大的清晰度和意图性。",
+      "ch3_intro": "字体通过类别配对建立清晰的声音：几何无衬线字体用于引人注目的显示文本，人文主义无衬线字体用于易读的正文。这种双重性既支持大胆、以行动为导向的标题，也支持长篇文档的技术密度。",
+      "ch4_intro": "间距遵循严格的 4px 基本单位，创建可预测、有节奏的网格，作为每个组件和布局的基础。",
+      "h5_intro": "深度通过微妙、分层的阴影和深色表面上细薄的半透明边框来传达。这些元素在不增加视觉重量的情况下定义了边界，保持了界面清晰、功能性的明确。",
+      "ch6_intro": "布局骨架是标准的 12 列网格，带有固定最大宽度容器。此结构为响应式、宽敞的构图提供了一致的框架，强调内容层次。",
+      "ch7_intro": "动效是功能性的且精致的，用于引导注意力和确认交互。进入动画使用平滑的淡入和上滑模式，而 hover 和状态变化则依赖于渐变的透明度和颜色变化。",
+      "ch8_intro": "声音自信、专业且技术娴熟，与其直接、以行动为导向的标题风格相匹配。它避免被动结构、模糊术语和对话式语气，转而采用清晰、以价值为驱动的陈述。",
+      "ch8_outro": "该系统刻意避免浅色主题、次要强调色、衬线字体和装饰性杂乱，强制执行功能极简主义的纪律。"
+    },
+    "zh-TW": {
+      "ch1_intro": "Builder.io 的設計系統以數位指揮中心的概念建構，這是一個協作工作空間，讓設計師、產品經理與開發者在單一程式碼驅動的環境中共同運作。這是一個準備就緒的平台，適用於實際程式碼庫與設計系統，其中每個視覺決策都服務於建構、測試與部署的核心功能。",
+      "ch2_intro": "色調採用嚴謹的高對比深色模式研究，以深邃黑色背景與純白文字為基調。單一鮮明的青色重點色專門保留給主要操作與關鍵強調點，創造出聚焦的視覺層級。",
+      "ch2_outro": "原則在於節制：以單一高飽和度重點色對應單色深色背景，實現最大清晰度與意圖性。",
+      "ch3_intro": "字型透過分類搭配確立清晰的語調：幾何無襯線字體用於具統馭力的展示文字，人文無襯線字體則用於易讀的正文內容。這種雙重性同時支援大膽、行動導向的標題，以及技術密度高的長篇文件。",
+      "ch4_intro": "間距遵循嚴格的 4px 基礎單位，建立可預測、具節奏感的網格系統，作為每個元件與版面佈局的基礎。",
+      "h5_intro": "深度透過細微、分層的陰影與深色表面上的薄型半透明邊框來傳達。這些元素在不增加視覺重量的情況下定義邊界，維持介面清晰、功能性的明確度。",
+      "ch6_intro": "版面骨架採用標準 12 欄網格搭配固定最大寬度容器。此結構提供一致的框架，實現回應式、寬鬆的構圖，並強調內容層級。",
+      "ch7_intro": "動態效果兼具功能性與精緻感，用於引導注意力並確認互動。進入動畫採用平滑的淡入與向上滑動模式，懸停與狀態變化則依賴漸進的透明度與色彩轉換。",
+      "ch8_intro": "語調自信、專業且技術精湛，與其行動導向的標題風格相呼應。它避免被動語態、模糊術語與口語化語氣，偏好清晰、強調價值的表述。",
+      "ch8_outro": "此系統刻意避免淺色主題、次要重點色、襯線字體與裝飾性雜亂，堅持功能極簡主義的紀律。"
+    },
+    "ja": {
+      "ch1_intro": "Builder.ioのデザインシステムは、デジタルコマンドセンターとして構築されています。デザイナー、プロダクトマネージャー、開発者が単一のコード駆動環境に集約する共同作業空間です。これは、実際のコードベースやデザインシステムに対応した、本番環境向けのプラットフォームであり、すべての視覚的な決定がビルド、テスト、デプロイという核心機能を serve します。",
+      "ch2_intro": "パレットは、濃いブラックの背景と純白のテキストを基盤とする、高コントラストダークモードの厳格な研究です。鮮やかなシアンのアクセントは、プライマリアクションや強調ポイントにのみ排他的に割り当てられ、焦点を絞った視覚的階層を生み出します。",
+      "ch2_outro": "原則は節度です。モノクロの暗いフィールドに対して、1つの高彩度アクセントを配置することで、最大限の明瞭さと意図性を実現します。",
+      "ch3_intro": "タイポグラフィは、カテゴリのペアリングによって明確な声を確立します。ディスプレイテキストには幾何学的なsans-serifを、本文テキストにはヒューマニストsans-serifを用います。この二元性は、大胆でアクション导向な見出しと、長文ドキュメントの技術的な密度の両方を支援します。",
+      "ch4_intro": "スペーシングは厳格な4pxの基本単位に従い、予測可能でリズミカルなグリッドを生み出します。このグリッドが、すべてのコンポーネントとレイアウトの土台となります。",
+      "h5_intro": "ディープネスは、暗いサーフェス上の、微細な階層化シャドウと薄い半透明ボーダーによって表現されます。これらの要素は、視覚的な重さを加えずに境界を定義し、インターフェースの鮮明で機能的な明瞭さを維持します。",
+      "ch6_intro": "レイアウトのスケルトンは、固定の最大幅コンテナを持つ標準的な12カラムグリッドです。この構造は、コンテンツの階層を強調する、レスポンシンドで広々とした構成に必要な一貫したフレームワークを提供します。",
+      "ch7_intro": "モーションは機能的で洗練されており、フォーカスを誘導し、インタラクションを確認するために使用されます。エントリーアニメーションは、滑らかなフェードインとスライドアップパターンを使用し、ホバーと状態の変化は、段階的な不透明度と色の変化に依存します。",
+      "ch8_intro": "声は自信に満ち、プロフェッショナルで、技術的に熟達しており、見出しの直接的でアクション导向なスタイルに合致します。受動態、曖昧な業界用語、会話的なトーンを避け、明確で価値导向な声明を重視します。",
+      "ch8_outro": "このシステムは、意図的にライトテーマ、セカンダリアクセントカラー、セリフフォント、装飾的な雑多さを排除し、機能的ミニマリズムの規律を強制します。"
+    },
+    "ko": {
+      "ch1_intro": "Builder.io의 디자인 시스템은 디지털 명령 센터로 구축되었으며, 디자이너, 프로duct 매니저, 개발자가 하나의 코드 기반 환경에서 협업하는 작업 공간입니다. 이는 실제 코드베이스와 디자인 시스템을 위한 프로덕션-ready 플랫폼으로, 모든 시각적 결정이 빌드, 테스트, 배포라는 핵심 기능을 지원합니다.",
+      "ch2_intro": "팔레트는 깊은 검은색 배경과 순백의 텍스트로 기반을 둔, 고대비 다크 모드의 엄격한 연구입니다. 단 하나의 선명한 시안 강조색은 주요 액션과 핵심 강조점에만 전적으로 사용되어, 집중된 시각적 계층 구조를 만듭니다.",
+      "ch2_outro": "원칙은 절제입니다: 단일한 고채도 강조색을 단색 다크 필드 위에 배치하여 최대한의 명확성과 의도성을 추구합니다.",
+      "ch3_intro": "타이포그래피는 범주 결합을 통해 명확한 목소리를 확립합니다: 지시적인 전시 텍스트를 위한 기하학적 sans-serif, 읽기 편한 본문용 humanist sans-serif입니다. 이 이중성은 대담하고 행동 지향적인 헤드라인과 긴 기술 문서의 밀도 높은 내용을 모두 지원합니다.",
+      "ch4_intro": "간격은 4px 기본 단위를 엄격히 따르며, 모든 컴포넌트와 레이아웃의 기반이 되는 예측 가능하고 리듬감 있는 그리드를 만듭니다.",
+      "h5_intro": "깊이는 어두운 표면 위의 미묘한 계층적 그림자와 얇은 반투명 테두리를 통해 전달됩니다. 이러한 요소들은 시각적 무게를 추가하지 않으면서 경계를 정의하여 인터페이스의 선명하고 기능적인 명확성을 유지합니다.",
+      "ch6_intro": "레이아웃 스켈레톤은 고정된 최대 너비 컨테이너를 갖춘 표준 12열 그리드입니다. 이 구조는 콘텐츠 계층 구조를 강조하는 반응적이고 넓은 구성을 위해 필요한 일관된 프레임워크를 제공합니다.",
+      "ch7_intro": "모션은 기능적이고 정교하며, 초점을 안내하고 상호작용을 확인하기 위해 활용됩니다. 진입 애니메이션은 부드러운 fade-in과 slide-up 패턴을 사용하며, hover 및 상태 변경은 점진적인 opacity와 color 변화에 의존합니다.",
+      "ch8_intro": "목소리는 자신감 있고 전문적이며 기술적으로 숙련되어, 헤드라인의 직접적이고 행동 지향적인 스타일과 일치합니다. 수동적 구문, 모호한 전문 용어, 대화체 어조를 피하고 명확하고 가치 지향적인 진술을 선호합니다.",
+      "ch8_outro": "이 시스템은 의도적으로 라이트 테마, 보조 강조색, serif 글꼴, 장식적 혼란을 피하며, 기능적 미니멀리즘의 규율을 강제합니다."
+    }
+  }
 }

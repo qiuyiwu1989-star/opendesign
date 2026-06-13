@@ -8,6 +8,585 @@
     "ai",
     "saas"
   ],
-  "status": "pending",
-  "added_at": "2026-06-02"
+  "status": "completed",
+  "added_at": "2026-06-02",
+  "spec": {
+    "colors": {
+      "bg": "#FFFFFF",
+      "bgSoft": "#E4E9FF",
+      "bgQuiet": "#F3F3F3",
+      "ink": "#000000",
+      "inkSoft": "#2D2D2D",
+      "muted": "#BDBDBD",
+      "mutedSoft": "#D2D4D7",
+      "accent": "#5551FF",
+      "line": "rgba(0,0,0,0.1)"
+    },
+    "typography": {
+      "display": "transitional-serif",
+      "body": "geometric-sans",
+      "mono": "monospaced",
+      "scale": [
+        {
+          "token": "display",
+          "size": 64,
+          "lh": 1.0,
+          "weight": 400,
+          "ls": "-2px"
+        },
+        {
+          "token": "body",
+          "size": 16,
+          "lh": 1.2,
+          "weight": 400,
+          "ls": "0px"
+        }
+      ]
+    },
+    "spacing": {
+      "base": 4,
+      "scale": [
+        4,
+        8,
+        16,
+        24,
+        32,
+        48,
+        64,
+        96
+      ]
+    },
+    "surfaces": {
+      "radius": {
+        "sm": 4,
+        "md": 12,
+        "lg": 12,
+        "pill": 999
+      }
+    },
+    "layout": {
+      "container": 1280,
+      "paragraph": 680,
+      "columns": 12,
+      "gutter": 24,
+      "breakpoints": [
+        768,
+        1024
+      ]
+    },
+    "motion": {
+      "durations": {
+        "micro": 220,
+        "small": 400,
+        "medium": 800
+      },
+      "easing": "cubic-bezier(0.25, 0.1, 0.25, 1)"
+    }
+  },
+  "spec_i18n": {
+    "en": {
+      "identity": {
+        "keywords": [
+          "Enterprise AI",
+          "Scalability",
+          "Trust",
+          "Professionalism"
+        ],
+        "analogy": "An enterprise-grade command center for AI-driven content and workflow execution.",
+        "oneLiner": "An enterprise AI platform for scaling brand-consistent execution with autonomous agents."
+      },
+      "colors": {
+        "principle": "High-contrast monochrome core with a single high-chroma violet accent for primary CTAs and emphasis."
+      },
+      "typography": {
+        "rules": [
+          "Headlines use a transitional serif for authority and elegance.",
+          "Body text and UI use a clean geometric sans for high readability.",
+          "Uppercase tracking is used extensively for labels and navigation to add structure."
+        ],
+        "scaleUses": [
+          "Hero and section headlines",
+          "Primary body text and UI elements"
+        ]
+      },
+      "spacing": {
+        "rhythm": "8px baseline grid with generous vertical whitespace to maintain a premium, uncluttered feel."
+      },
+      "surfaces": {
+        "shadows": [
+          "rgb(243, 243, 243) 0px 2px 4px 0px",
+          "rgba(191, 203, 255, 0.25) 0px 1px 8px 0px"
+        ],
+        "borders": "Subtle 1px borders used to define inputs and card edges without adding visual noise."
+      },
+      "layout": {
+        "skeleton": "Centered single-column flow for content, with two-column layouts for feature showcases."
+      },
+      "components": {
+        "button": "Pill-shaped primary buttons with high-contrast fills; text-based secondary buttons.",
+        "card": "Clean, rounded-corner cards with subtle shadows, often used to demonstrate UI features.",
+        "chip": "Small, uppercase badges used for categorization and status indicators.",
+        "input": "Rounded-pill input fields with subtle borders and clear placeholder text.",
+        "hero": "Massive serif headline paired with a single high-chroma accent word and a prominent demo request form."
+      },
+      "motion": {
+        "patterns": [
+          "Smooth color and background transitions on interactive elements.",
+          "Subtle scale and opacity shifts on hover states."
+        ]
+      },
+      "interaction": {
+        "hover": "Color transitions for text links and background shifts for buttons.",
+        "click": "Subtle scale-down transform on primary action buttons.",
+        "transition": "Standard 0.2s to 0.35s transitions for all state changes.",
+        "keyboard": "Visible focus outlines maintained for accessibility on all interactive elements."
+      },
+      "voice": {
+        "tone": "Authoritative, professional, and direct.",
+        "headlineStyle": "Large, impactful serif text with a single highlighted word to draw focus.",
+        "ctaStyle": "Action-oriented and clear, emphasizing direct value or trial.",
+        "avoid": [
+          "Casual slang",
+          "Overly complex jargon",
+          "Cluttered or noisy layouts"
+        ]
+      },
+      "donts": [
+        "Don't use a dark mode — the design strictly follows a high-contrast light-background paradigm.",
+        "Don't use highly rounded sans-serif fonts for headlines — the screenshot specifically uses a transitional serif.",
+        "Don't remove uppercase tracking from labels — navigation and labels rely heavily on `text-transform: uppercase`.",
+        "Don't use soft pastel backgrounds — the palette stays strictly monochrome with one vibrant accent.",
+        "Don't use heavy drop shadows — the design relies on subtle box-shadows for minimal depth.",
+        "Don't mix in secondary accent colors — the violet (#5551FF) is the sole high-chroma color used."
+      ],
+      "systemPrompt": "This is a premium enterprise AI platform for B2B SaaS. The design DNA is characterized by a stark, high-contrast monochrome core (#FFFFFF and #000000) with a single high-chroma violet accent (#5551FF). Typography combines an authoritative transitional-serif for display with a clean geometric-sans for body and UI. Critical constraints include: never introduce secondary high-chroma colors, maintain generous whitespace, and ensure all labels use uppercase tracking. Avoid dark mode and overly decorative or playful elements. Always prioritize clarity and professional restraint."
+    },
+    "zh-CN": {
+      "identity": {
+        "keywords": [
+          "企业级 AI",
+          "可扩展性",
+          "信赖感",
+          "专业性"
+        ],
+        "analogy": "一个用于 AI 驱动内容与工作流执行的企业级指挥中心。",
+        "oneLiner": "一个企业级 AI 平台，通过自主代理实现品牌一致性执行的规模化。"
+      },
+      "colors": {
+        "principle": "以高对比度单色为核心，搭配单一高饱和度亮紫色作为主要行动号召（CTA）和强调色。"
+      },
+      "typography": {
+        "rules": [
+          "标题使用过渡衬线字体，体现权威与优雅。",
+          "正文和 UI 使用简洁的几何无衬线字体，确保高可读性。",
+          "标签和导航广泛使用大写加字距调整，以增加结构感。"
+        ],
+        "scaleUses": [
+          "主视觉和板块标题",
+          "主要正文文本和 UI 元素"
+        ]
+      },
+      "spacing": {
+        "rhythm": "基于 8px 的基准网格，搭配充足的垂直留白，以维持高端、整洁的视觉感受。"
+      },
+      "surfaces": {
+        "shadows": [
+          "rgb(243, 243, 243) 0px 2px 4px 0px",
+          "rgba(191, 203, 255, 0.25) 0px 1px 8px 0px"
+        ],
+        "borders": "使用细微的 1px 边框来定义输入框和卡片边缘，而不增加视觉噪点。"
+      },
+      "layout": {
+        "skeleton": "内容部分采用居中单栏布局，功能展示部分采用双栏布局。"
+      },
+      "components": {
+        "button": "胶囊形主按钮，采用高对比度填充；文本型次级按钮。",
+        "card": "简洁的圆角卡片，带有细微阴影，常用于展示 UI 功能。",
+        "chip": "小型大写徽章，用于分类和状态指示。",
+        "input": "圆角胶囊形输入框，带有细微边框和清晰的占位符文本。",
+        "hero": "大型衬线标题搭配一个高饱和度的强调词和一个显眼的演示申请表单。"
+      },
+      "motion": {
+        "patterns": [
+          "交互元素上平滑的颜色和背景过渡。",
+          "hover 状态下细微的缩放和透明度变化。"
+        ]
+      },
+      "interaction": {
+        "hover": "文本链接的颜色过渡，按钮的背景变化。",
+        "click": "主要操作按钮上细微的缩放效果。",
+        "transition": "所有状态变化采用标准的 0.2s 至 0.35s 过渡。",
+        "keyboard": "为所有交互元素保持可见的焦点轮廓，以确保可访问性。"
+      },
+      "voice": {
+        "tone": "权威、专业且直接。",
+        "headlineStyle": "大型、有冲击力的衬线文本，通过单个高亮单词引导焦点。",
+        "ctaStyle": "以行动为导向且清晰，强调直接价值或试用。",
+        "avoid": [
+          "随意俚语",
+          "过于复杂的术语",
+          "杂乱或嘈杂的布局"
+        ]
+      },
+      "donts": [
+        "不要使用暗色模式 — 设计严格遵循高对比度亮色背景范式。",
+        "不要为标题使用高度圆润的无衬线字体 — 截图中明确使用的是过渡衬线字体。",
+        "不要移除标签的大写和字距调整 — 导航和标签严重依赖 `text-transform: uppercase`。",
+        "不要使用柔和的粉彩背景 — 色板严格保持单色，仅有一个鲜艳的强调色。",
+        "不要使用厚重的投影 — 设计依赖细微的 box-shadow 来营造极简的深度感。",
+        "不要混入次级强调色 — 亮紫色（#5551FF）是唯一使用的高饱和度颜色。"
+      ],
+      "systemPrompt": "这是一个高端的 B2B SaaS 企业级 AI 平台。其设计基因以鲜明的高对比度单色核心（#FFFFFF 和 #000000）和单一高饱和度亮紫色（#5551FF）为特征。字体结合了用于展示的权威过渡衬线字体和用于正文及 UI 的简洁几何无衬线字体。关键约束包括：绝不引入次级高饱和度颜色，保持充足的留白，并确保所有标签使用大写字距调整。避免使用暗色模式以及过度装饰或俏皮的元素。始终优先考虑清晰度和专业克制。"
+    },
+    "zh-TW": {
+      "identity": {
+        "keywords": [
+          "企業級 AI",
+          "可擴展性",
+          "信任",
+          "專業形象"
+        ],
+        "analogy": "一個用於 AI 驅動內容與工作流程執行的企業級指揮中心。",
+        "oneLiner": "一個透過自主代理擴展品牌一致執行的企業級 AI 平台。"
+      },
+      "colors": {
+        "principle": "高對比的單色核心，搭配單一高飽和度的紫羅蘭色作為主要行動呼籲與強調色。"
+      },
+      "typography": {
+        "rules": [
+          "標題使用過渡襯線體，以展現權威感與優雅。",
+          "內文與 UI 使用乾淨的幾何無線體，確保高度可讀性。",
+          "標籤與導覽廣泛使用大寫與字距調整，以增加結構感。"
+        ],
+        "scaleUses": [
+          "主視覺與區塊標題",
+          "主要內文與 UI 元素"
+        ]
+      },
+      "spacing": {
+        "rhythm": "8px 基線網格，搭配充裕的垂直留白，以維持高質感、不雜亂的視覺感受。"
+      },
+      "surfaces": {
+        "shadows": [
+          "rgb(243, 243, 243) 0px 2px 4px 0px",
+          "rgba(191, 203, 255, 0.25) 0px 1px 8px 0px"
+        ],
+        "borders": "使用細微的 1px 邊框來界定輸入框與卡片邊緣，避免增加視覺干擾。"
+      },
+      "layout": {
+        "skeleton": "內容採用居中單欄流動，功能展示則採用雙欄佈局。"
+      },
+      "components": {
+        "button": "膠囊形的主要按鈕採用高對比填色；次要按鈕則使用純文字形式。",
+        "card": "乾淨的圓角卡片，帶有細微陰影，常用於展示 UI 功能。",
+        "chip": "小型、大寫的徽章，用於分類與狀態指標。",
+        "input": "膠囊形的輸入欄位，帶有細微邊框與清晰的佔位文字。",
+        "hero": "巨大的襯線標題，搭配單一高飽和度的強調詞與顯眼的示範申請表單。"
+      },
+      "motion": {
+        "patterns": [
+          "互動元素上流暢的色彩與背景過渡。",
+          "hover 狀態下細微的縮放與透明度變化。"
+        ]
+      },
+      "interaction": {
+        "hover": "文字連結的色彩過渡與按鈕的背景變化。",
+        "click": "主要行動按鈕的細微縮放變形。",
+        "transition": "所有狀態變更採用標準的 0.2 秒至 0.35 秒過渡效果。",
+        "keyboard": "所有互動元素維持可見的焦點外框，以確保無障礙訪問。"
+      },
+      "voice": {
+        "tone": "具權威感、專業且直接。",
+        "headlineStyle": "大型、具衝擊力的襯線文字，搭配單一高亮詞以引導視覺焦點。",
+        "ctaStyle": "行動導向且清晰，強調直接價值或試用體驗。",
+        "avoid": [
+          "隨意的俚語",
+          "過度複雜的術語",
+          "雜亂或喧鬧的佈局"
+        ]
+      },
+      "donts": [
+        "勿使用深色模式 — 設計嚴格遵循高對比的淺色背景範式。",
+        "勿在標題中使用高度圓潤的無線體字型 — 畫面截圖明確使用了過渡襯線體。",
+        "勿移除標籤的大寫字距調整 — 導覽與標籤極度依賴 `text-transform: uppercase`。",
+        "勿使用柔和的粉彩背景 — 調色盤嚴格維持單色調，並僅搭配一個鮮豔的強調色。",
+        "勿使用厚重的投影陰影 — 設計依賴細微的 box-shadow 來營造極簡的深度感。",
+        "勿混入次要強調色 — 紫羅蘭色（#5551FF）是唯一使用的高飽和度色彩。"
+      ],
+      "systemPrompt": "這是一個高端的企業級 B2B SaaS AI 平台。其設計 DNA 特徵為鮮明的高對比單色核心（#FFFFFF 和 #000000），並搭配單一高飽和度的紫羅蘭色（#5551FF）作為強調。字體組合採用了具權威感的過渡襯線體作為展示，以及乾淨的幾何無線體作為內文與 UI。關鍵限制包括：永不引入次要的高飽和度色彩、維持充裕的留白，並確保所有標籤使用大寫字距調整。避免使用深色模式以及過度裝飾或嬉鬧的元素。始終優先考慮清晰度與專業的克制感。"
+    },
+    "ja": {
+      "identity": {
+        "keywords": [
+          "エンタープライズAI",
+          "スケーラビリティ",
+          "信頼性",
+          "プロフェッショナリズム"
+        ],
+        "analogy": "AI駆動のコンテンツとワークフロー実行のためのエンタープライズグレードのコマンドセンター。",
+        "oneLiner": "自律エージェントによるブランド一貫性のある実行をスケールするためのエンタープライズAIプラットフォーム。"
+      },
+      "colors": {
+        "principle": "高コントラストなモノクロームコアに、プライマリCTAと強調用の単一の高クロマのバイオレットアクセントを配したデザイン。"
+      },
+      "typography": {
+        "rules": [
+          "見出しには権威と優雅さを演出するトランジショナルセリフ体を使用。",
+          "本文とUIには高い可読性を実現するクリーンなジオメトリックサンセリフ体を使用。",
+          "ラベルやナビゲーションには構造を加えるため、広範囲に大文字の字間調整（tracking）を使用。"
+        ],
+        "scaleUses": [
+          "ヒーローおよびセクション見出し",
+          "プライマリ本文およびUI要素"
+        ]
+      },
+      "spacing": {
+        "rhythm": "8pxベースライングリッドと、プレミアムで散らばりのない印象を維持するための十分な垂直方向の余白。"
+      },
+      "surfaces": {
+        "shadows": [
+          "rgb(243, 243, 243) 0px 2px 4px 0px",
+          "rgba(191, 203, 255, 0.25) 0px 1px 8px 0px"
+        ],
+        "borders": "入力フィールドやカードのエッジを定義するために使用される、微細な1pxボーダー。ビジュアルノイズを追加しません。"
+      },
+      "layout": {
+        "skeleton": "コンテンツには中央揃えの単一カラムフローを、フィーチャーショーケースには2カラムレイアウトを使用。"
+      },
+      "components": {
+        "button": "ハイコントラストな塗りつぶしを持つピル型プライマリボタン。テキストベースのセカンダリボタン。",
+        "card": "微細なシャドウを持つクリーンな角丸カード。UIフィーチャーを説明するために頻繁に使用。",
+        "chip": "分類とステータスインジケーターに使用される、小規模な大文字バッジ。",
+        "input": "微細なボーダーと明確なプレースホルダーテキストを持つ、角丸ピル型入力フィールド。",
+        "hero": "巨大なセリフ見出しに、単一の高クロマアクセントワードと顕著なデモリクエストフォームを組み合わせたデザイン。"
+      },
+      "motion": {
+        "patterns": [
+          "インタラクティブ要素の滑らかなカラーおよび背景トランジション。",
+          "hover状態の微細なスケールと不透明度の変化。"
+        ]
+      },
+      "interaction": {
+        "hover": "テキストリンクのカラートランジションと、ボタンの背景シフト。",
+        "click": "プライマリアクションボタンの微細な縮小トランスフォーム。",
+        "transition": "すべての状態変更には標準的な0.2sから0.35sのトランジション。",
+        "keyboard": "すべてのインタラクティブ要素にアクセシビリティのための明確なフォーカスアウトラインを維持。"
+      },
+      "voice": {
+        "tone": "権威があり、プロフェッショナルで、率直。",
+        "headlineStyle": "焦点を引きつけるために単一の単語をハイライトした、大きくインパクトのあるセリフテキスト。",
+        "ctaStyle": "アクション志向で明確。直接的な価値またはトライアルを強調。",
+        "avoid": [
+          "カジュアルなスラング",
+          "過度に複雑な業界用語",
+          "雑然としたまたは騒がしいレイアウト"
+        ]
+      },
+      "donts": [
+        "ダークモードを使用しない — デザインは严格的にハイコントラストのライト背景パラダイムに従います。",
+        "見出しに丸みのあるサンセリフフォントを使用しない — スクリーンショットではトランジショナルセリフ体が具体的に使用されています。",
+        "ラベルの字間調整（tracking）を削除しない — ナビゲーションとラベルは`text-transform: uppercase`に大きく依存しています。",
+        "ソフトなパステル背景を使用しない — パレットは単一の鮮やかなアクセントを持つ严格的なモノクロームにとどまります。",
+        "重いドロップシャドウを使用しない — デザインは最小限の深みのために微細なボックスシャドウに依存しています。",
+        "セカンダリアクセントカラーを混ぜない — バイオレット（#5551FF）が使用される唯一の高クロマカラーです。"
+      ],
+      "systemPrompt": "これはB2B SaaS向けのプレミアムエンタープライズAIプラットフォームです。デザインDNAは、厳格でハイコントラストなモノクロームコア（#FFFFFFと#000000）に単一の高クロマのバイオレットアクセント（#5551FF）を特徴とします。タイポグラフィは、ディスプレイ用の権威あるトランジショナルセリフ体と、本文およびUI用のクリーンなジオメトリックサンセリフ体を組み合わせています。重要な制約には、セカンダリの高クロマカラーの導入禁止、十分な余白の維持、すべてのラベルに字間調整（tracking）を使用することが含まれます。ダークモードや過度に装飾的または遊び心のある要素は避けてください。常に明瞭さとプロフェッショナルな抑制を優先してください。"
+    },
+    "ko": {
+      "identity": {
+        "keywords": [
+          "엔터프라이즈 AI",
+          "확장성",
+          "신뢰",
+          "전문성"
+        ],
+        "analogy": "AI 기반 콘텐츠 및 워크플로우 실행을 위한 엔터프라이즈급 명령 센터.",
+        "oneLiner": "자동화된 에이전트를 활용하여 브랜드 일관성을 유지하며 실행을 확장하는 엔터프라이즈 AI 플랫폼."
+      },
+      "colors": {
+        "principle": "기본 CTA 및 강조를 위한 단일 고채도 violet 악센트가 있는 고대비 단색 코어."
+      },
+      "typography": {
+        "rules": [
+          "헤드라인은 권위와 우아함을 위해 전환형 세리프를 사용합니다.",
+          "본문 텍스트 및 UI는 높은 가독성을 위해 깔끔한 기하학적 산세리프를 사용합니다.",
+          "레이블과 내비게이션에는 구조감을 더하기 위해 대문자 tracking을 광범위하게 사용합니다."
+        ],
+        "scaleUses": [
+          "히어로 및 섹션 헤드라인",
+          "기본 본문 텍스트 및 UI 요소"
+        ]
+      },
+      "spacing": {
+        "rhythm": "프리미엄 느낌과 깔끔한 인상을 유지하기 위한 넉넉한 수직 여백의 8px baseline grid."
+      },
+      "surfaces": {
+        "shadows": [
+          "rgb(243, 243, 243) 0px 2px 4px 0px",
+          "rgba(191, 203, 255, 0.25) 0px 1px 8px 0px"
+        ],
+        "borders": "시각적 노이즈를 추가하지 않고 입력 필드와 카드 테두리를 정의하기 위한 섬세한 1px 테두리."
+      },
+      "layout": {
+        "skeleton": "콘텐츠는 중앙 정렬 단일 열 흐름, 기능 쇼케이스는 이중 열 레이아웃."
+      },
+      "components": {
+        "button": "고대비 채우지가 있는 알약 모양의 기본 버튼과 텍스트 기반 보조 버튼.",
+        "card": "미세한 그림자가 있는 깔끔하고 둥근 모서리의 카드, UI 기능을 시연하는 데 자주 사용됩니다.",
+        "chip": "분류 및 상태 표시에 사용되는 작은 대문자 뱃지.",
+        "input": "미세한 테두리와 명확한 placeholder 텍스트가 있는 둥근 알약 모양의 입력 필드.",
+        "hero": "단일 고채도 악센트 단어와 두드러진 데모 요청 양식이 결합된 거대한 세리프 헤드라인."
+      },
+      "motion": {
+        "patterns": [
+          "인터랙티브 요소에서의 매끄러운 색상 및 배경 전환.",
+          "hover 상태에서의 미세한 scale 및 opacity 변화."
+        ]
+      },
+      "interaction": {
+        "hover": "텍스트 링크의 색상 전환 및 버튼의 배경 변화.",
+        "click": "기본 액션 버튼에 대한 미세한 scale-down transform.",
+        "transition": "모든 상태 변경에 대한 0.2초에서 0.35초의 표준 전환.",
+        "keyboard": "모든 인터랙티브 요소의 접근성을 위한 명확한 focus 윤곽선 유지."
+      },
+      "voice": {
+        "tone": "권위적, 전문적, 직접적.",
+        "headlineStyle": "시선을 집중시키기 위해 하나의 단어를 강조하는 크고 영향력 있는 세리프 텍스트.",
+        "ctaStyle": "직접적인 가치나 체험을 강조하는 행동 지향적이고 명확한 스타일.",
+        "avoid": [
+          "격식 없는 슬랭",
+          "지나치게 복잡한 전문 용어",
+          "지저분하거나 소란스러운 레이아웃"
+        ]
+      },
+      "donts": [
+        "다크 모드를 사용하지 마세요 — 디자인은 고대비 백그라운드 패러다임을 엄격히 따릅니다.",
+        "헤드라인에 지나치게 둥근 산세리프 폰트를 사용하지 마세요 — 스크린샷에서는 전환형 세리프를 명확히 사용합니다.",
+        "레이블에서 대문자 tracking을 제거하지 마세요 — 내비게이션과 레이블은 `text-transform: uppercase`에 크게 의존합니다.",
+        "부드러운 파스텔 배경을 사용하지 마세요 — 팔레트는 한 가지 선명한 악센트와 함께 엄격히 단색을 유지합니다.",
+        "무거운 drop shadow를 사용하지 마세요 — 디자인은 최소한의 깊이를 위해 미세한 box-shadow에 의존합니다.",
+        "보조 악센트 색상을 혼용하지 마세요 — violet(#5551FF)이 유일하게 사용되는 고채도 색상입니다."
+      ],
+      "systemPrompt": "이것은 B2B SaaS를 위한 프리미엄 엔터프라이즈 AI 플랫폼입니다. 디자인 DNA는 엄격하고 고대비의 단색 코어(#FFFFFF와 #000000)와 단일 고채도 violet 악센트(#5551FF)로 특징지어집니다. 타이포그래피는 전시용 권위 있는 전환형 세리프와 본문 및 UI용 깔끔한 기하학적 산세리프를 결합합니다. 중요한 제약 사항은 다음과 같습니다: 절대로 보조 고채도 색상을 도입하지 마세요, 넉넉한 여백을 유지하세요, 그리고 모든 레이블은 대문자 tracking을 사용하도록 하세요. 다크 모드와 지나치게 장식적이거나 장난스러운 요소는 피하세요. 항상 명확성과 전문적인 절제를 우선시하세요."
+    }
+  },
+  "desc": {
+    "en": {
+      "palette": "A clean, high-contrast monochrome palette featuring a single dominant violet accent (#5551FF) for emphasis and action.",
+      "layout": "Centered, spacious single-column flow that transitions into clean two-column feature sections with generous padding.",
+      "interaction": "Smooth, standard transitions on interactive elements with subtle hover states and clear visual feedback.",
+      "motion": "Restrained micro-animations focused on color shifts and subtle transforms to maintain a professional feel.",
+      "notes": "A strong example of modern B2B SaaS design that balances editorial authority with functional clarity."
+    },
+    "zh-CN": {
+      "palette": "一个干净、高对比度的单色色板，采用单一的亮紫色（#5551FF）作为强调和行动的核心色。",
+      "layout": "居中、宽敞的单栏布局，过渡到带有充足内边距的整洁双栏功能区块。",
+      "interaction": "交互元素采用流畅、标准的过渡效果，带有微妙的 hover 状态和清晰的视觉反馈。",
+      "motion": "克制的微动画，聚焦于颜色变化和细微变换，以维持专业感。",
+      "notes": "这是现代 B2B SaaS 设计的优秀范例，平衡了编辑权威性与功能清晰度。"
+    },
+    "zh-TW": {
+      "palette": "乾淨、高對比的單色調色盤，以單一主導的紫羅蘭色（#5551FF）作為強調與行動呼籲的亮點。",
+      "layout": "居中、寬敞的單欄流動，過渡至乾淨的雙欄功能區塊，並留有充裕的內距。",
+      "interaction": "互動元素採用流暢的標準過渡效果，搭配細微的 hover 狀態與清晰的視覺回饋。",
+      "motion": "克制的微動畫，聚焦於色彩轉換與細微變形，以維持專業質感。",
+      "notes": "現代 B2B SaaS 設計的優質範例，平衡了編輯權威性與功能清晰度。"
+    },
+    "ja": {
+      "palette": "単一の支配的なバイオレットアクセント（#5551FF）を強調とアクションに用いる、クリーンでハイコントラストなモノクロームパレット。",
+      "layout": "余裕のある単一カラムのフローを中心に配置し、十分なパディングを備えたクリーンな2カラムのフィーチャーセクションへと展開。",
+      "interaction": "インタラクティブ要素には滑らかな標準トランジション、微細なhover状態、明確なビジュアルフィードバック。",
+      "motion": "プロフェッショナルな印象を保つため、カラーシフトと微細な変形に焦点を当てた抑制されたマイクロアニメーション。",
+      "notes": "編集的権威と機能的明瞭さのバランスを取った、現代的なB2B SaaSデザインの好例。"
+    },
+    "ko": {
+      "palette": "단일 강조 violet(#5551FF)를 강조 및 행동에 활용하는 깨끗하고 고대비의 단색 팔레트입니다.",
+      "layout": "여유로운 단일 열 흐름으로 중앙 정렬되며, 넉넉한 padding을 두고 깔끔한 이중 열 기능 섹션으로 전환됩니다.",
+      "interaction": "매끄럽고 표준적인 전환 효과, 섬세한 hover 상태, 명확한 시각적 피드백을 갖춘 인터랙티브 요소입니다.",
+      "motion": "프로페셔널한 느낌을 유지하기 위해 색상 변화와 미세한 transform에 집중한 절제된 마이크로 애니메이션입니다.",
+      "notes": "편집적 권위와 기능적 명확성의 균형을 보여주는 현대적인 B2B SaaS 디자인의 좋은 예시입니다."
+    }
+  },
+  "_meta": {
+    "vision_model": "mimo-v2.5",
+    "vision_prompt_version": "0.3",
+    "vision_source": "playwright-extract:writer",
+    "vision_grounded": true,
+    "vision_at": "2026-06-04T20:04:36+00:00",
+    "vision_tokens": 16225,
+    "vision_cost_usd": 0.1803,
+    "translation_model": "mimo-v2.5",
+    "translation_at": "2026-06-04T20:05:53+00:00",
+    "translation_tokens": 17026,
+    "translation_cost_usd": 0.0567,
+    "narrative_model": "mimo-v2.5",
+    "narrative_prompt_version": "0.3",
+    "narrative_at": "2026-06-04T20:06:00+00:00",
+    "narrative_tokens": 2035,
+    "narrative_cost_usd": 0.0136,
+    "narrative_status": "ok",
+    "total_cost_usd": 0.2506
+  },
+  "narrative": {
+    "en": {
+      "ch1_intro": "The Writer design system is structured as an enterprise-grade command center for AI-driven content. Its identity DNA is defined by keywords of Enterprise AI, Scalability, Trust, and Professionalism, all expressed through a stark, high-contrast monochrome core with a single, deliberate violet accent.",
+      "ch2_intro": "The color system is defined by a clean, high-contrast monochrome palette featuring a single dominant violet accent for emphasis and action. This strict adherence to a one-chroma approach ensures visual focus and reinforces the platform's authoritative tone.",
+      "ch2_outro": "The governing principle is the exclusive use of a high-chroma violet as the sole non-monochrome color, with no secondary accents permitted.",
+      "ch3_intro": "Typography employs a clear dual-category approach: a transitional serif for headlines to convey authority and elegance, paired with a clean geometric sans for body text and UI to ensure high readability. Extensive uppercase tracking is applied to labels and navigation to add structural clarity.",
+      "ch4_intro": "A strict 8px baseline grid underpins the entire system, with generous vertical whitespace used to maintain a premium, uncluttered feel.",
+      "ch5_intro": "Depth is communicated through subtle, purposeful means. Clean, rounded-corner cards and inputs are defined by light 1px borders and minimal box-shadows, preventing visual noise while establishing clear hierarchy.",
+      "ch6_intro": "The layout skeleton prioritizes content clarity through a centered single-column flow for primary reading. This transitions into clean two-column layouts for feature showcases, all supported by generous padding.",
+      "ch7_intro": "Motion is treated as functional feedback rather than decoration. The philosophy centers on smooth, restrained micro-animations focused on color shifts and subtle transforms for interactive states.",
+      "ch8_intro": "The editorial voice is authoritative, professional, and direct. Headlines are large and impactful, often using a single highlighted word to draw focus, while CTAs are action-oriented and clear.",
+      "ch8_outro": "The system deliberately avoids dark mode, casual slang, overly complex jargon, and any cluttered or noisy layouts."
+    },
+    "zh-CN": {
+      "ch1_intro": "Writer 设计系统被构建为一个企业级的 AI 驱动内容指挥中心。其身份 DNA 由企业 AI、可扩展性、信任与专业性等关键词定义，通过鲜明的高对比度黑白主调，搭配单一、精心设计的紫色强调色来呈现。",
+      "ch2_intro": "色彩体系基于一个干净的高对比度黑白调色板构建，并以单一的紫色强调色用于重点和行动提示。这种对单色方法的严格遵守，确保了视觉聚焦，并强化了平台的权威基调。",
+      "ch2_outro": "核心原则是仅使用高饱和度紫色作为唯一的非黑白颜色，不允许使用任何次要强调色。",
+      "ch3_intro": "字体采用清晰的双分类方法：用于标题的过渡衬线字体以传达权威与优雅，搭配用于正文和 UI 的简洁几何无衬线字体以确保高可读性。标签和导航栏广泛使用大写字母和宽松字间距，以增加结构清晰度。",
+      "ch4_intro": "严格的 8px 基线网格构成了整个系统的基础，并运用充裕的垂直留白来保持高端、整洁的感受。",
+      "ch5_intro": "层次感通过微妙且有目的性的方式传达。干净的圆角卡片和输入框由 1px 的细边框和最小化的 box-shadows 定义，避免视觉噪音的同时建立了清晰的视觉层级。",
+      "ch6_intro": "布局骨架通过居中的单栏流动来优先保证主要阅读内容的清晰度。对于功能展示则过渡为干净的双栏布局，所有布局都由充裕的 padding 支撑。",
+      "ch7_intro": "动效被视为功能性反馈而非装饰。其理念集中在平滑、克制的微交互上，聚焦于颜色变化和细微变换，用于交互状态反馈。",
+      "ch8_intro": "编辑语气权威、专业且直接。标题宏大且富有冲击力，常使用单个高亮词汇来吸引焦点，而行动号召则目标明确、清晰直接。",
+      "ch8_outro": "该系统刻意避免深色模式、随意俚语、过于复杂的术语，以及任何杂乱或喧闹的布局。"
+    },
+    "zh-TW": {
+      "ch1_intro": "Writer 設計系統架構為企業級的人工智慧驅動內容指揮中心。其核心 DNA 由企業級 AI、可擴展性、信任感與專業度等關鍵字所定義，所有特質皆透過極簡、高對比的單色核心與單一、刻意的紫色強調色來呈現。",
+      "ch2_intro": "色彩系統以清晰、高對比的單色調色板為基礎，並搭配單一主導的紫色強調色，用於強調與操作。這種嚴格遵循單一色彩的手法，確保了視覺聚焦，並強化了平台的權威性語調。",
+      "ch2_outro": "其治理原則為：僅使用高飽和度的紫色作為唯一的非單色色彩，不允許任何次要強調色。",
+      "ch3_intro": "字體排印採用清晰的雙類別方法：過渡型襯線字體用於標題，以傳達權威與優雅；搭配純淨的幾何無襯線字體用於內文與 UI，以確保高可讀性。標籤與導航欄廣泛使用大寫字母與字距調整，以增加結構清晰度。",
+      "ch4_intro": "嚴格的 8px 基線網格支撐著整個系統，並運用充裕的垂直留白，以維持高端、簡潔的感受。",
+      "ch5_intro": "深度透過微妙且有意義的方式來傳達。乾淨、圓角的卡片與輸入框由輕盈的 1px 邊框與極簡的 box-shadow 定義，避免視覺雜訊，同時建立清晰的層級結構。",
+      "ch6_intro": "版面骨架優先考慮內容清晰度，主要閱讀採用居中的單欄流。此後轉換為簡潔的雙欄版面以展示功能特色，所有配置皆由充裕的 padding 所支持。",
+      "ch7_intro": "動態效果被視為功能性回饋而非裝飾。其哲學核心是流暢、克制的微動畫，聚焦於互動狀態下的色彩轉換與微細變換。",
+      "ch8_intro": "編輯語調具有權威性、專業且直接。標題大而具衝擊力，常使用單一亮點詞彙吸引焦點，而 CTA 則明確導向行動。",
+      "ch8_outro": "該系統刻意避免深色模式、非正式俚語、過度複雜的行話，以及任何雜亂或嘈雜的版面配置。"
+    },
+    "ja": {
+      "ch1_intro": "Writerデザインシステムは、AI駆動コンテンツのためのエンタープライズグレードのコマンドセンターとして構成されています。そのアイデンティティDNAは、企業AI、スケーラビリティ、信頼性、プロフェッショナリズムというキーワードで定義されており、すべて厳格なハイコントラストのモノクロームコアと、意図的な1つのバイオレットアクセントを通じて表現されています。",
+      "ch2_intro": "カラーシステムは、強調やアクションのための単一の主要なバイオレットアクセントを特徴とする、クリーンなハイコントラストのモノクロームパレットで定義されています。この一色相アプローチへの厳格な遵守は、視覚的な焦点を確保し、プラットフォームの権威あるトーンを強化します。",
+      "ch2_outro": "支配的な原則は、唯一の非モノクロームカラーとして高彩度のバイオレットを排他的に使用し、二次的なアクセントは許可しないことです。",
+      "ch3_intro": "タイポグラフィは、明確な二重カテゴリアプローチを採用しています。見出しには権威と優雅さを伝えるトランジショナル・セリフ、本文テキストとUIには高い可読性を確保するクリーンなジオメトリック・サンセリフを採用しています。ラベルやナビゲーションには、構造的な明瞭さを加えるために、広範な大文字字間を適用しています。",
+      "ch4_intro": "厳格な8pxベースライングリッドがシステム全体を支え、プレミアムで無雑な印象を維持するために、十分な垂直方向の余白が使用されています。",
+      "ch5_intro": "奥行きは、慎重で目的のある方法で伝達されます。クリーンな丸角カードとインプットは、軽量な1pxボーダーと最小限のボックスシャドウで定義され、視覚的なノイズを防ぎながら明確な階層を確立しています。",
+      "ch6_intro": "レイアウトスケルトンは、主要なコンテンツのための中央揃えの単一カラムフローを通じて、コンテンツの明瞭さを優先しています。これは、フィーチャーショーケースのためのクリーンな2カラムレイアウトに移行し、すべてが十分なパディングで支えられています。",
+      "ch7_intro": "モーションは、装飾ではなく機能的なフィードバックとして扱われます。この哲学は、インタラクティブな状態におけるカラーシフトや微細なトランスフォームに焦点を当てた、滑らかで抑制されたマイクロアニメーションを中心に構成されています。",
+      "ch8_intro": "エディトリアルボイスは、権威があり、プロフェッショナルで、直接的です。見出しは大きくインパクトがあり、注目を集めるために単一のハイライトワードを使用することがよくあります。一方、CTAは行動を促し、明確です。",
+      "ch8_outro": "システムは、ダークモード、カジュアルなスラング、過度に複雑な専門用語、および雑踏や騒がしいレイアウトを意図的に回避しています。"
+    },
+    "ko": {
+      "ch1_intro": "Writer 디자인 시스템은 AI 기반 콘텐츠를 위한 엔터프라이즈급 제어 센터로 구조화되어 있습니다. 그 정체성 DNA는 엔터프라이즈 AI, 확장성, 신뢰, 전문성이라는 키워드로 정의되며, 단일 의도적인 바이올렛 강조색을 사용한 강렬한 고대비 단색 코어를 통해 표현됩니다.",
+      "ch2_intro": "컬러 시스템은 강조와 행동을 위한 단일 주도적 바이올렛 강조색을 특징으로 하는 깨끗한 고대비 단색 팔레트로 정의됩니다. 이 엄격한 단색 접근법의 준수는 시각적 초점을 확보하고 플랫폼의 권위 있는 톤을 강화합니다.",
+      "ch2_outro": "지배적인 원칙은 고채도 바이올렛을 유일한 비단색으로 독점 사용하는 것이며, 보조 강조색은 허용되지 않습니다.",
+      "ch3_intro": "타이포그래피는 명확한 이중 카테고리 접근법을 사용합니다: 권위와 우아함을 전달하기 위해 제목용 전이 세리프를, 높은 가독성을 보장하기 위해 본문 텍스트 및 UI용 깨끗한 기하학산스를 사용합니다. 라벨과 내비게이션에는 구조적 명확성을 더하기 위해 광범위한 대문자 자간 처리가 적용됩니다.",
+      "ch4_intro": "엄격한 8px 기준선 그리드가 전체 시스템의 토대가 되며, 프리미엄하고 개방된 느낌을 유지하기 위해 넉넉한 수직 여백이 사용됩니다.",
+      "ch5_intro": "깊이감은 미묘하고 목적 있는 수단을 통해 전달됩니다. 깨끗하고 둥근 모서리의 카드와 입력 필드는 가벼운 1px 테두리와 최소한의 box-shadow으로 정의되어, 명확한 계층 구조를 확립하면서 시각적 잡음을 방지합니다.",
+      "ch6_intro": "레이아웃 스켈레톤은 주요 독서를 위한 중앙 정렬 단일 열 흐름을 통해 콘텐츠 명확성을 우선시합니다. 이는 기능 쇼케이스를 위한 깨끗한 2열 레이아웃으로 전환되며, 모두 넉넉한 padding으로 지원됩니다.",
+      "ch7_intro": "모션은 장식이 아닌 기능적 피드백으로 취급됩니다. 철학은 매끄럽고 절제된 마이크로 애니메이션에 초점을 맞추며, 상호작용 상태에서의 색상 변화와 미세한 transform에 중점을 둡니다.",
+      "ch8_intro": "에디토리얼 톤은 권위적이고 전문적이며 직접적입니다. 제목은 크고 임팩트가 있으며, 종종 초점을 끌기 위해 단일 강조 단어를 사용하는 반면, CTA는 행동 지향적이고 명확합니다.",
+      "ch8_outro": "시스템은 의도적으로 다크 모드, 비공식적인 속어, 지나치게 복잡한 전문 용어, 그리고任何 혼잡하거나 소음이 많은 레이아웃을 피합니다."
+    }
+  }
 }

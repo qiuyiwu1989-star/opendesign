@@ -20,12 +20,16 @@ if [[ -z "${SKIP_BUILD:-}" ]]; then
   python3 "${ROOT_DIR}/scripts/build.py"
 fi
 
-# Step 2: build.py 出的 legacy 三件套同步回根目录（前端目前还读根目录）
-echo "▸ Sync built legacy files → root"
+# Step 2: build.py 出的产物同步回根目录（前端从根目录读）
+echo "▸ Sync built files → root"
 cp "${ROOT_DIR}/dist/legacy/sites.js"          "${ROOT_DIR}/sites.js"
 cp "${ROOT_DIR}/dist/legacy/sites-specs.json"  "${ROOT_DIR}/sites-specs.json"
 cp "${ROOT_DIR}/dist/legacy/sites-i18n.json"   "${ROOT_DIR}/sites-i18n.json"
+for _lang in en zh-CN zh-TW ja ko; do
+  cp "${ROOT_DIR}/dist/legacy/sites-i18n.${_lang}.json" "${ROOT_DIR}/sites-i18n.${_lang}.json"
+done
 cp "${ROOT_DIR}/dist/sitemap.xml"              "${ROOT_DIR}/sitemap.xml"
+cp "${ROOT_DIR}/dist/sites-index.json"         "${ROOT_DIR}/sites-index.json"   # 精简索引 14KB（异步加载用）
 
 # 网站运行所需的前端资源
 FILES=(
@@ -35,9 +39,15 @@ FILES=(
   styles.css
   app.js
   i18n.js
+  sites-index.json
   sites.js
   sites-specs.json
   sites-i18n.json
+  sites-i18n.en.json
+  sites-i18n.zh-CN.json
+  sites-i18n.zh-TW.json
+  sites-i18n.ja.json
+  sites-i18n.ko.json
   supabase-config.js
   favicon.svg
   og-cover.png

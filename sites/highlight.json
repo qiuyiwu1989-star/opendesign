@@ -8,6 +8,590 @@
     "dev",
     "observability"
   ],
-  "status": "pending",
-  "added_at": "2026-06-03"
+  "status": "completed",
+  "added_at": "2026-06-03",
+  "spec": {
+    "colors": {
+      "bg": "#0D0225",
+      "bgSoft": "#30294E",
+      "bgQuiet": null,
+      "ink": "#FFFFFF",
+      "inkSoft": "#DFDFDF",
+      "muted": "#9D97AA",
+      "mutedSoft": null,
+      "accent": "#72E4FC",
+      "line": "rgba(48, 41, 78, 1)"
+    },
+    "typography": {
+      "display": "humanist-sans",
+      "body": "humanist-sans",
+      "mono": "monospace",
+      "scale": [
+        {
+          "token": "display",
+          "size": 58,
+          "lh": 1.0,
+          "weight": 600,
+          "ls": "-0.5px"
+        },
+        {
+          "token": "heading",
+          "size": 44,
+          "lh": 1.0,
+          "weight": 600,
+          "ls": "-0.5px"
+        },
+        {
+          "token": "body-lg",
+          "size": 18,
+          "lh": 1.44,
+          "weight": 400,
+          "ls": "0"
+        },
+        {
+          "token": "body",
+          "size": 16,
+          "lh": 1.5,
+          "weight": 400,
+          "ls": "0"
+        }
+      ]
+    },
+    "spacing": {
+      "base": 4,
+      "scale": [
+        4,
+        8,
+        12,
+        16,
+        24,
+        32,
+        44,
+        48,
+        64,
+        96
+      ]
+    },
+    "surfaces": {
+      "radius": {
+        "sm": 4,
+        "md": 8,
+        "lg": 16,
+        "pill": 44
+      }
+    },
+    "layout": {
+      "container": 1280,
+      "paragraph": 680,
+      "columns": 12,
+      "gutter": 24,
+      "breakpoints": [
+        768,
+        1024
+      ]
+    },
+    "motion": {
+      "durations": {
+        "micro": 150,
+        "small": 200,
+        "medium": 400
+      },
+      "easing": "cubic-bezier(0.4, 0, 0.2, 1)"
+    }
+  },
+  "spec_i18n": {
+    "en": {
+      "identity": {
+        "keywords": [
+          "Open Source",
+          "Monitoring",
+          "Fullstack",
+          "Developer Tools",
+          "Observability"
+        ],
+        "analogy": "A dark, clean IDE dashboard for full-stack monitoring.",
+        "oneLiner": "An open-source full-stack monitoring platform for modern web applications."
+      },
+      "colors": {
+        "principle": "Dark mode first with high-contrast cyan accents and a subtle neon yellow highlight."
+      },
+      "typography": {
+        "rules": [],
+        "scaleUses": [
+          "Hero Headline",
+          "Section Headlines",
+          "Subheadings and Intro Text",
+          "General Body Text"
+        ]
+      },
+      "spacing": {
+        "rhythm": "Consistent 4px grid base with generous whitespace for readability."
+      },
+      "surfaces": {
+        "shadows": [
+          "rgb(108, 55, 244) 8px 8px 0px -2px"
+        ],
+        "borders": "1px solid rgba(48, 41, 78, 1)"
+      },
+      "layout": {
+        "skeleton": "Centered content with wide margins, utilizing flexbox for feature tabs."
+      },
+      "components": {
+        "button": "Pill-shaped buttons with solid cyan primary and outlined secondary variants.",
+        "card": "Dark cards with subtle borders, often containing integration icons.",
+        "chip": "Tab-like chips for feature navigation (Session Replay, Error Monitoring, etc.).",
+        "input": "Minimalist dark inputs, though not prominently featured in the hero.",
+        "hero": "Large centered headline with accent color, stacked CTAs, and feature overview tabs."
+      },
+      "motion": {
+        "patterns": [
+          "Subtle color transitions on hover for interactive elements.",
+          "Smooth transitions between feature tabs."
+        ]
+      },
+      "interaction": {
+        "hover": "Subtle color shifts and opacity changes on buttons and links.",
+        "click": "Immediate feedback with color transitions.",
+        "transition": "0.2s cubic-bezier(0.4, 0, 0.2, 1) for standard interactions.",
+        "keyboard": "Standard tab navigation for interactive elements."
+      },
+      "voice": {
+        "tone": "Technical yet accessible, professional, and developer-focused.",
+        "headlineStyle": "Direct, value-driven, and highlighting open-source nature.",
+        "ctaStyle": "Action-oriented (Get started, Live demo) with clear visual hierarchy.",
+        "avoid": [
+          "Avoid overly casual or 'startup-bro' jargon.",
+          "Avoid complex architectural diagrams in the hero.",
+          "Avoid cluttered layouts that obscure the core value prop."
+        ]
+      },
+      "donts": [
+        "Don't use a light theme — screenshot shows a dark mode interface with a deep navy background (#0D0225).",
+        "Don't use a secondary accent color — screenshot shows a single dominant high-chroma cyan accent (#72E4FC) for buttons and highlights.",
+        "Don't use decorative serif fonts — screenshot shows a clean, modern humanist sans-serif (Poppins) for all text.",
+        "Don't use sharp corners everywhere — screenshot shows a mix of subtle 8px/16px rounded corners and 44px pill shapes.",
+        "Don't use low-contrast text — screenshot shows high-contrast white (#FFFFFF) and light gray (#DFDFDF) on the dark background.",
+        "Don't clutter the header — screenshot shows a clean, top-aligned navigation with clear primary/secondary action buttons."
+      ],
+      "systemPrompt": "This is a developer-focused SaaS landing page for an open-source monitoring platform. The design DNA features a dark mode interface with a deep navy background (#0D0225), high-contrast white text (#FFFFFF), and a single dominant cyan accent color (#72E4FC). Typography uses a modern humanist sans-serif (Poppins) for a clean, technical feel. Key elements include large, bold headlines, pill-shaped buttons (solid cyan and outlined variants), and feature navigation tabs. The layout is centered and spacious, emphasizing readability and clear calls to action. Critical donts: never use a light theme, never introduce secondary accent colors, and never use decorative serif fonts. The design is clean, professional, and optimized for a developer audience."
+    },
+    "zh-CN": {
+      "identity": {
+        "keywords": [
+          "开源",
+          "监控",
+          "全栈",
+          "开发者工具",
+          "可观测性"
+        ],
+        "analogy": "一个用于全栈监控的、深色、简洁的 IDE 仪表盘。",
+        "oneLiner": "一个面向现代 Web 应用的开源全栈监控平台。"
+      },
+      "colors": {
+        "principle": "深色模式优先，搭配高对比度青色点缀与微妙的霓虹黄高亮。"
+      },
+      "typography": {
+        "rules": [],
+        "scaleUses": [
+          "主标题",
+          "章节标题",
+          "副标题与引言文字",
+          "正文文本"
+        ]
+      },
+      "spacing": {
+        "rhythm": "基于一致的4px网格，留白充裕以保证可读性。"
+      },
+      "surfaces": {
+        "shadows": [
+          "rgb(108, 55, 244) 8px 8px 0px -2px"
+        ],
+        "borders": "1px solid rgba(48, 41, 78, 1)"
+      },
+      "layout": {
+        "skeleton": "内容居中，两侧留有宽边距，使用 flexbox 实现功能标签页。"
+      },
+      "components": {
+        "button": "药丸形按钮，主按钮为实心青色，次按钮为描边样式。",
+        "card": "深色卡片，带微妙边框，常包含集成图标。",
+        "chip": "标签页式芯片，用于功能导航（如会话重放、错误监控等）。",
+        "input": "极简深色输入框，但在主视觉区域中不突出显示。",
+        "hero": "大型居中标题，采用点缀色，堆叠式 CTA 按钮，并配有功能概览标签页。"
+      },
+      "motion": {
+        "patterns": [
+          "交互元素在 hover 时进行微妙的颜色过渡。",
+          "功能标签页之间平滑过渡。"
+        ]
+      },
+      "interaction": {
+        "hover": "按钮和链接在 hover 时进行微妙的色彩与不透明度变化。",
+        "click": "通过颜色过渡提供即时反馈。",
+        "transition": "标准交互使用 0.2s cubic-bezier(0.4, 0, 0.2, 1)。",
+        "keyboard": "交互元素支持标准的 Tab 键导航。"
+      },
+      "voice": {
+        "tone": "技术感强但平易近人，专业，面向开发者。",
+        "headlineStyle": "直接、价值驱动，并突出开源特性。",
+        "ctaStyle": "行动导向（开始使用、实时演示），视觉层次清晰。",
+        "avoid": [
+          "避免使用过于随意或“创业兄弟”式的行话。",
+          "避免在主视觉区域使用复杂的架构图。",
+          "避免使用杂乱的布局而模糊核心价值主张。"
+        ]
+      },
+      "donts": [
+        "不要使用浅色主题——截图显示的是深海军蓝背景（#0D0225）的深色模式界面。",
+        "不要使用次要强调色——截图显示按钮和高亮仅使用单一主导的高饱和青色（#72E4FC）。",
+        "不要使用装饰性衬线字体——截图显示所有文字使用的是简洁、现代的人文主义无衬线字体（Poppins）。",
+        "不要全部使用直角——截图显示采用微妙的8px/16px圆角与44px药丸形状的混合设计。",
+        "不要使用低对比度文字——截图显示在深色背景上使用高对比度白色（#FFFFFF）和浅灰色（#DFDFDF）。",
+        "不要让页头显得杂乱——截图显示的是简洁、顶部对齐的导航，并设有清晰的主要/次要操作按钮。"
+      ],
+      "systemPrompt": "这是一个面向开发者的 SaaS 落地页，用于一个开源监控平台。设计基因包含深色模式界面，深海军蓝背景（#0D0225），高对比度白色文字（#FFFFFF），以及单一主导的青色强调色（#72E4FC）。排版使用现代人文主义无衬线字体（Poppins），营造简洁、技术感。关键元素包括大型粗体标题、药丸形按钮（实心青色和描边变体）以及功能导航标签页。布局居中且宽敞，强调可读性和清晰的行动号召。关键禁忌：绝不要使用浅色主题，绝不要引入次要强调色，绝不要使用装饰性衬线字体。设计整洁、专业，并针对开发者受众进行了优化。"
+    },
+    "zh-TW": {
+      "identity": {
+        "keywords": [
+          "開源",
+          "監控",
+          "全端",
+          "開發者工具",
+          "可觀測性"
+        ],
+        "analogy": "一個簡潔的深色 IDE 儀表板，用於全端監控。",
+        "oneLiner": "為現代網路應用程式打造的開源全端監控平台。"
+      },
+      "colors": {
+        "principle": "優先採用深色模式，搭配高對比的青色強調色與細微的霓黃色高光。"
+      },
+      "typography": {
+        "rules": [],
+        "scaleUses": [
+          "主視覺標題",
+          "區塊標題",
+          "副標題與導言文字",
+          "內文"
+        ]
+      },
+      "spacing": {
+        "rhythm": "以一致的 4px 網格為基底，搭配充足的留白以提升可讀性。"
+      },
+      "surfaces": {
+        "shadows": [
+          "rgb(108, 55, 244) 8px 8px 0px -2px"
+        ],
+        "borders": "1px solid rgba(48, 41, 78, 1)"
+      },
+      "layout": {
+        "skeleton": "內容居中，留有寬闊的邊距，使用 Flexbox 佈局功能分頁。"
+      },
+      "components": {
+        "button": "膠囊形按鈕，包含實心青色的主按鈕與描邊樣式的次要按鈕。",
+        "card": "深色卡片，帶有細微邊框，常包含整合圖示。",
+        "chip": "標籤式選項，用於功能導航（如：工作階段回放、錯誤監控等）。",
+        "input": "極簡風格的深色輸入框，但在主視覺中並未突出顯示。",
+        "hero": "大型居中標題，使用強調色，搭配堆疊的行動呼籲按鈕與功能概覽分頁。"
+      },
+      "motion": {
+        "patterns": [
+          "互動元素在懸停時的細微顏色過渡。",
+          "功能分頁之間的平滑切換過渡。"
+        ]
+      },
+      "interaction": {
+        "hover": "按鈕與連結在懸停時的細微顏色與透明度變化。",
+        "click": "點擊時提供即時的顏色過渡回饋。",
+        "transition": "標準互動採用 0.2s cubic-bezier(0.4, 0, 0.2, 1) 緩動。",
+        "keyboard": "互動元素支援標準 Tab 鍵盤導航。"
+      },
+      "voice": {
+        "tone": "兼具技術性與親和力，專業且專注於開發者。",
+        "headlineStyle": "直接、強調價值，並突顯其開源本質。",
+        "ctaStyle": "以行動為導向（開始使用、即時演示），並建立清晰的視覺層級。",
+        "avoid": [
+          "避免使用過於隨意或「新創兄弟」式的術語。",
+          "避免在主視覺中放入複雜的架構圖。",
+          "避免使用雜亂的佈局，以免模糊核心價值主張。"
+        ]
+      },
+      "donts": [
+        "切勿使用淺色主題——截圖顯示的是深色模式介面，背景為深海軍藍（#0D0225）。",
+        "切勿使用次要強調色——截圖顯示僅有一個主導的高飽和度青色（#72E4FC）用於按鈕與高光。",
+        "切勿使用裝飾性襯線字體——截圖顯示所有文字皆使用簡潔現代的 Poppins 無襯線字體。",
+        "切勿到處使用尖銳的圓角——截圖顯示結合了細微的 8px/16px 圓角與 44px 的膠囊形圓角。",
+        "切勿使用低對比文字——截圖顯示在深色背景上使用高對比的白色（#FFFFFF）與淺灰色（#DFDFDF）。",
+        "切勿讓頁首雜亂——截圖顯示清晰的頂端對齊導覽列，並有明確的主要/次要操作按鈕。"
+      ],
+      "systemPrompt": "這是一個專為開發者設計的 SaaS 登入頁面，用於推廣開源監控平台。其設計 DNA 以深色模式介面為特色，採用深海軍藍背景（#0D0225）、高對比的白色文字（#FFFFFF），以及單一主導的青色強調色（#72E4FC）。字體使用現代的 Poppins 無襯線字體，營造簡潔、技術性的感覺。關鍵元素包括大型粗體標題、膠囊形按鈕（實心青色與描邊變體），以及功能導航分頁。佈局居中且寬敞，強調可讀性與清晰的行動呼籲。關鍵禁忌：絕不使用淺色主題、絕不引入次要強調色，也絕不使用裝飾性襯線字體。整體設計簡潔、專業，並針對開發者受眾進行了優化。"
+    },
+    "ja": {
+      "identity": {
+        "keywords": [
+          "オープンソース",
+          "モニタリング",
+          "フルスタック",
+          "開発者ツール",
+          "オブザーバビリティ"
+        ],
+        "analogy": "フルスタックモニタリングのための、ダークでクリーンなIDEダッシュボード。",
+        "oneLiner": "モダンなWebアプリケーション向けの、オープンソースフルスタックモニタリングプラットフォーム。"
+      },
+      "colors": {
+        "principle": "ダークモードを第一とし、ハイコントラストのシアンアクセントと、控えめなネオンイエローのハイライトを採用。"
+      },
+      "typography": {
+        "rules": [],
+        "scaleUses": [
+          "ヒーローヘッドライン",
+          "セクションヘッドライン",
+          "見出しとイントロダクションテキスト",
+          "一般本文テキスト"
+        ]
+      },
+      "spacing": {
+        "rhythm": "読みやすさを考慮した、一貫した4pxグリッドベースと豊富なホワイトスペース。"
+      },
+      "surfaces": {
+        "shadows": [
+          "rgb(108, 55, 244) 8px 8px 0px -2px"
+        ],
+        "borders": "1px solid rgba(48, 41, 78, 1)"
+      },
+      "layout": {
+        "skeleton": "幅広のマージンを持つ中央配置コンテンツ。機能タブにはflexboxを活用。"
+      },
+      "components": {
+        "button": "ピルシェイプ（カプセル型）のボタン。プライマリはソリッドシアン、セカンダリはアウトラインバリアント。",
+        "card": "ダークなカード。控えめなボーダーを持ち、しばしばインテグレーションアイコンを含む。",
+        "chip": "機能ナビゲーション（セッションリプレイ、エラーモニタリングなど）のための、タブのようなチップ。",
+        "input": "ミニマリストなダークインプット。ヒーローでは目立った役割を果たさない。",
+        "hero": "アクセントカラーを用いた大型の中央配置ヘッドライン、スタックされたCTA、機能概要タブ。"
+      },
+      "motion": {
+        "patterns": [
+          "インタラクティブ要素のホバー時、微妙なカラートランジション。",
+          "機能タブ間のスムーズなトランジション。"
+        ]
+      },
+      "interaction": {
+        "hover": "ボタンとリンクに、微妙なカラーシフトと不透明度の変化。",
+        "click": "カラートランジションによる即座のフィードバック。",
+        "transition": "標準的なインタラクションには0.2s cubic-bezier(0.4, 0, 0.2, 1)。",
+        "keyboard": "インタラクティブ要素には標準的なタブナビゲーション。"
+      },
+      "voice": {
+        "tone": "技術的でありながらも理解しやすく、プロフェッショナルで、開発者目線。",
+        "headlineStyle": "直接的で価値を示し、オープンソースである点を強調。",
+        "ctaStyle": "アクション指向（始めよう、ライブデモなど）で、明確なビジュアル階層。",
+        "avoid": [
+          "過度にカジュアルな、または「スタートアップ風」の俗語を避ける。",
+          "ヒーローに複雑なアーキテクチャ図を避ける。",
+          "核心的な価値提案が見づかるような、ごちゃごちゃしたレイアウトを避ける。"
+        ]
+      },
+      "donts": [
+        "ライトテーマを使用しない — スクリーンショットは、深いネイビーの背景（#0D0225）を持つダークモードインターフェースを示しています。",
+        "セカンダリアクセントカラーを使用しない — スクリーンショットは、ボタンやハイライトに単一の主要なハイクロマシアン（#72E4FC）を使用しています。",
+        "装飾的なセリフフォントを使用しない — スクリーンショットは、すべてのテキストにクリーンでモダンなヒューマニストサンセリフ（Poppins）を使用しています。",
+        "あらゆる箇所にシャープな角を使用しない — スクリーンショットは、控えめな8px/16pxの角丸と44pxのピルシェイプのミックスを示しています。",
+        "低コントラストのテキストを使用しない — スクリーンショットは、ダーク背景上にハイコントラストのホワイト（#FFFFFF）とライトグレー（#DFDFDF）を使用しています。",
+        "ヘッダーを雑踏させない — スクリーンショットは、明確なプライマリ/セカンダリアクションボタンを持つ、クリーンでトップ揃えのナビゲーションを示しています。"
+      ],
+      "systemPrompt": "これは、オープンソースモニタリングプラットフォームの、開発者向けSaaSランディングページです。デザインのDNAは、深いネイビーの背景（#0D0225）、ハイコントラストのホワイトテキスト（#FFFFFF）、単一の主要なシアンアクセントカラー（#72E4FC）を持つダークモードインターフェースを特徴とします。タイポグラフィは、クリーンで技術的な印象を与えるモダンなヒューマニストサンセリフ（Poppins）を採用。重要な要素には、大型の太字ヘッドライン、ピルシェイプのボタン（ソリッドシアンとアウトラインバリアント）、機能ナビゲーションタブが含まれます。レイアウトは中心に配置され余裕があり、読みやすさと明確なCTAを重視。重要な制約：ライトテーマは決して使用せず、セカンダリアクションカラーを導入せず、装飾的なセリフフォントは使用しないこと。デザインはクリーンでプロフェッショナルであり、開発者向けに最適化されています。"
+    },
+    "ko": {
+      "identity": {
+        "keywords": [
+          "Open Source",
+          "Monitoring",
+          "Fullstack",
+          "Developer Tools",
+          "Observability"
+        ],
+        "analogy": "풀스택 모니터링을 위한 다크 테마 깔끔한 IDE 대시보드.",
+        "oneLiner": "현대 웹 애플리케이션을 위한 오픈소스 풀스택 모니터링 플랫폼."
+      },
+      "colors": {
+        "principle": "다크 모드 우선, 고대비 시안 포인트 컬러와 절제된 네온 옐로우 하이라이트 적용."
+      },
+      "typography": {
+        "rules": [],
+        "scaleUses": [
+          "히어로 헤드라인",
+          "섹션 헤드라인",
+          "소제목 및 소개 텍스트",
+          "일반 본문 텍스트"
+        ]
+      },
+      "spacing": {
+        "rhythm": "가독성을 위한 일관된 4px 그리드 기반 및 넉넉한 여백."
+      },
+      "surfaces": {
+        "shadows": [
+          "rgb(108, 55, 244) 8px 8px 0px -2px"
+        ],
+        "borders": "1px solid rgba(48, 41, 78, 1)"
+      },
+      "layout": {
+        "skeleton": "넓은 마진을 갖춘 중앙 정렬 콘텐츠, 기능 탭에 flexbox 활용."
+      },
+      "components": {
+        "button": "단색 시안 주요 버튼과 윤곽선 보조 변형이 있는 알약형 버튼.",
+        "card": "미세한 테두리가 있는 다크 카드, 통합 아이콘이 포함된 경우 많음.",
+        "chip": "기능 네비게이션을 위한 탭 형태 칩 (세션 리플레이, 에러 모니터링 등).",
+        "input": "히어로에서 두드러지게 나타나지 않는 미니멀 다크 입력 필드.",
+        "hero": "포인트 컬러가 적용된 큰 중앙 헤드라인, 스택형 CTA 및 기능 개요 탭."
+      },
+      "motion": {
+        "patterns": [
+          "대화형 요소의 hover 시 미세한 색상 전환.",
+          "기능 탭 간 부드러운 트랜지션."
+        ]
+      },
+      "interaction": {
+        "hover": "버튼 및 링크의 미세한 색상 변화와 불투명도 변경.",
+        "click": "색상 전환을 통한 즉각적인 피드백.",
+        "transition": "표준 인터랙션을 위한 0.2s cubic-bezier(0.4, 0, 0.2, 1).",
+        "keyboard": "대화형 요소에 대한 표준 탭 내비게이션."
+      },
+      "voice": {
+        "tone": "기술적이면서도 접근 가능한, 전문적이며 개발자 중심적.",
+        "headlineStyle": "직접적이고 가치 지향적이며 오픈소스 특성을 강조.",
+        "ctaStyle": "명확한 시각적 계층을 갖춘 행동 지향적 (시작하기, 라이브 데모).",
+        "avoid": [
+          "지나치게 캐주얼하거나 '스타트업 느낌' 과장된 용어 사용 지양.",
+          "히어로에 복잡한 아키텍처 다이어그램 사용 지양.",
+          "핵심 가치 제안을 흐리게 하는 지저분한 레이아웃 지양."
+        ]
+      },
+      "donts": [
+        "라이트 테마 사용 금지 — 스크린샷은 깊은 네이비 배경(#0D0225)의 다크 모드 인터페이스를 보여줌.",
+        "보조 포인트 컬러 사용 금지 — 스크린샷은 단일 지배적 고채도 시안(#72E4FC) 포인트 컬러를 버튼 및 하이라이트에 사용.",
+        "장식용 세리프 폰트 사용 금지 — 스크린샷은 모든 텍스트에 깔끔하고 현대적인 휴머니스트 산세리프(Poppins) 사용.",
+        "모든 요소에 날카로운 모서리 사용 금지 — 스크린샷은 8px/16px 미세 둥근 모서리와 44px 알약형이 혼합되어 있음.",
+        "저대비 텍스트 사용 금지 — 스크린샷은 다크 배경에 고대비 흰색(#FFFFFF) 및 밝은 회색(#DFDFDF) 사용.",
+        "헤더 지저분하게 만들기 금지 — 스크린샷은 명확한 주요/보조 액션 버튼이 있는 깔끔한 상단 정렬 내비게이션을 보여줌."
+      ],
+      "systemPrompt": "이것은 오픈소스 모니터링 플랫폼을 위한 개발자 중심 SaaS 랜딩 페이지입니다. 디자인 DNA는 깊은 네이비 배경(#0D0225)의 다크 모드 인터페이스, 고대비 흰색 텍스트(#FFFFFF), 단일 지배적 시안 포인트 컬러(#72E4FC)를 특징으로 합니다. 타이포그래피는 깔끔하고 기술적인 느낌을 주기 위해 현대적인 휴머니스트 산세리프(Poppins)를 사용합니다. 주요 요소로는 크고 볼드한 헤드라인, 알약형 버튼(단색 시안 및 윤곽선 변형), 기능 네비게이션 탭이 포함됩니다. 레이아웃은 중앙 정렬되어 여백이 풍부하며, 가독성과 명확한 행동 유도를 강조합니다. 핵심 지침: 라이트 테마를 절대 사용하지 말고, 보조 포인트 컬러를 절대 도입하지 말며, 장식용 세리프 폰트를 절대 사용하지 마세요. 디자인은 깔끔하고 전문적이며 개발자 대상으로 최적화되어 있습니다."
+    }
+  },
+  "desc": {
+    "en": {
+      "palette": "Dark mode navy base with high-contrast white and gray text, accented by a single vibrant cyan for interactive elements.",
+      "layout": "Centered, spacious layout with a clear hierarchy, utilizing a 12-column grid and generous whitespace.",
+      "interaction": "Standard hover and click transitions with a consistent 0.2s easing curve for a responsive feel.",
+      "motion": "Subtle, purpose-driven transitions and animations that enhance usability without being distracting.",
+      "notes": "Worth including as a prime example of modern, dark-themed SaaS design for developer tools, balancing technical clarity with visual appeal."
+    },
+    "zh-CN": {
+      "palette": "深色模式海军蓝基底，搭配高对比度白色与灰色文字，并以单一鲜明青色作为交互元素的点缀。",
+      "layout": "居中、宽敞的布局，层次分明，采用12列网格与充裕留白。",
+      "interaction": "标准的 hover 和点击过渡，配合一致的0.2秒缓动曲线，营造流畅响应感。",
+      "motion": "微妙且有目的性的过渡与动画，旨在提升可用性而不分散注意力。",
+      "notes": "值得作为现代、深色主题开发者工具 SaaS 设计的典范，平衡了技术清晰度与视觉吸引力。"
+    },
+    "zh-TW": {
+      "palette": "深色模式為基底，搭配高對比的白色與灰色文字，並以單一鮮豔的青色作為互動元素的強調色。",
+      "layout": "採用居中、寬敞的佈局，建立清晰的視覺層級，使用 12 欄網格與充足的留白。",
+      "interaction": "標準的懸停與點擊過渡效果，使用一致的 0.2 秒緩動曲線，營造靈敏的回饋感。",
+      "motion": "細微且目的明確的過渡與動畫，在提升可用性的同時不造成干擾。",
+      "notes": "適合作為現代深色主題 SaaS 開發者工具設計的範例，在技術清晰度與視覺吸引力之間取得平衡。"
+    },
+    "ja": {
+      "palette": "ダークモードのネイビーをベースに、ハイコントラストのホワイトとグレーのテキスト、インタラクティブ要素には鮮やかなシアンをアクセントとして単色使用。",
+      "layout": "中心に配置され、余裕のあるレイアウト。明確な階層構造を持ち、12カラムグリッドと豊富なホワイトスペースを活用。",
+      "interaction": "標準的なホバーおよびクリックトランジション。一貫した0.2秒のイージングカーブで、レスポンシブな感触を実現。",
+      "motion": "使いやすさを損なうことなく、目的に沿った微妙なトランジションとアニメーション。",
+      "notes": "開発者向けツールのモダンでダークテーマのSaaSデザインの代表例として、技術的な明瞭さとビジュアルの魅力を両立している点が、収録に値する。"
+    },
+    "ko": {
+      "palette": "다크 모드 네이비 배경에 고대비 흰색/회색 텍스트, 대화형 요소에 단일 시안 포인트 컬러 적용.",
+      "layout": "명확한 계층 구조를 갖춘 중앙 정렬 여백 풍부 레이아웃, 12열 그리드 및 넉넉한 여백 활용.",
+      "interaction": "일관된 0.2s 이징 곡선으로 반응감 있는 표준 hover 및 클릭 트랜지션.",
+      "motion": "사용성을 강화하는 동시에 집중을 흐트리지 않는 절제된 목적 지향적 트랜지션 및 애니메이션.",
+      "notes": "개발자 도구를 위한 현대적 다크 테마 SaaS 디자인의 대표 사례로, 기술적 명확성과 시각적 매력을 동시에 고려함."
+    }
+  },
+  "_meta": {
+    "vision_model": "mimo-v2.5",
+    "vision_prompt_version": "0.3",
+    "vision_source": "playwright-extract:highlight",
+    "vision_grounded": true,
+    "vision_at": "2026-06-04T15:42:12+00:00",
+    "vision_tokens": 16284,
+    "vision_cost_usd": 0.1809,
+    "translation_model": "mimo-v2.5",
+    "translation_at": "2026-06-04T15:43:24+00:00",
+    "translation_tokens": 16875,
+    "translation_cost_usd": 0.0561,
+    "narrative_model": "mimo-v2.5",
+    "narrative_prompt_version": "0.3",
+    "narrative_at": "2026-06-04T15:43:32+00:00",
+    "narrative_tokens": 2035,
+    "narrative_cost_usd": 0.0136,
+    "narrative_status": "ok",
+    "total_cost_usd": 0.2506
+  },
+  "narrative": {
+    "en": {
+      "ch1_intro": "Highlight is a developer dashboard made tangible—a system built on the principles of a clean, dark-mode IDE. Its identity is defined by focused observation, where every design choice serves the clarity of monitoring and debugging. This is observability rendered in pixels, not just described in documentation.",
+      "ch2_intro": "The color system is a study in focused contrast. A deep navy background provides a neutral canvas for high-legibility text, while a single, vibrant cyan accent directs the eye to primary actions and status highlights.",
+      "ch2_outro": "The principle is deliberate constraint: a single accent color prevents visual noise and establishes a clear hierarchy for interactive states.",
+      "ch3_intro": "Typography adopts a modern, humanist sans-serif (Poppins) for a voice that is technical yet accessible. The scale progresses from commanding hero headlines down to clear body text, establishing a rhythm for scanning dense information.",
+      "ch4_intro": "A consistent 4px grid base underpins the layout, creating a predictable rhythm of space that aids comprehension.",
+      "ch5_intro": "Depth is communicated through surface treatment rather than heavy gradients. Cards and containers are defined by subtle, high-contrast borders and occasional offset shadows, maintaining the dark, flat aesthetic.",
+      "ch6_intro": "The layout skeleton is a centered column of content flanked by wide margins, focusing attention on the core value proposition. Within this structure, feature tabs and cards are arranged using flexible containers to create organized, scannable sections.",
+      "ch7_intro": "Motion is functional and restrained, with transitions serving to confirm interaction and guide focus. The philosophy is one of immediate feedback—color shifts on hover and smooth, quick transitions between interface states.",
+      "ch8_intro": "The editorial voice is professional and direct, speaking to developers with clarity and avoiding superfluous jargon. The tone matches the interface: informative, efficient, and focused on utility.",
+      "ch8_outro": "The system deliberately excludes decorative elements, light themes, and secondary accents that would dilute the focused, tool-like clarity of the interface."
+    },
+    "zh-CN": {
+      "ch1_intro": "Highlight 是一款具象化的开发者仪表盘——一个建立在简洁暗色模式 IDE 理念之上的系统。其身份由专注的观察所定义，每一个设计选择都服务于监控和调试的清晰度。这是以像素呈现的可观察性，而非仅仅在文档中描述的概念。",
+      "ch2_intro": "色彩系统是对专注对比度的深入研究。深邃的海军蓝背景为高可读性文本提供了中性画布，而单一、鲜明的青色强调色则引导视线关注主要操作和状态高亮。",
+      "ch2_outro": "其原则是刻意的克制：单一强调色避免视觉噪音，并为交互状态建立清晰的层级。",
+      "ch3_intro": "字体采用现代人文无衬线字体（Poppins），营造技术感与易读性兼备的语调。字号从醒目的主标题逐级递减至清晰的正文，为浏览密集信息建立了节奏。",
+      "ch4_intro": "一致的 4px 网格基线支撑着布局，创造出有助于理解的、可预测的空间节奏。",
+      "ch5_intro": "深度通过表面处理而非厚重渐变来传达。卡片和容器通过细微、高对比度的边框和偶尔的偏移阴影来定义，保持了暗色、扁平的美学。",
+      "ch6_intro": "布局骨架是一个居中的内容栏，两侧留有宽边距，将注意力集中在核心价值主张上。在此结构内，功能标签页和卡片使用弹性容器排列，形成有组织、易于浏览的区域。",
+      "ch7_intro": "动效是功能性且克制的，过渡用于确认交互并引导焦点。其理念是即时反馈——悬停时的色彩变化以及界面状态之间平滑、快速的过渡。",
+      "ch8_intro": "编辑语调专业而直接，以清晰的措辞面向开发者，避免多余的术语。语调与界面相匹配：信息丰富、高效，并专注于实用性。",
+      "ch8_outro": "该系统特意排除了装饰元素、浅色主题和次要强调色，这些会稀释界面如工具般专注、清晰的特质。"
+    },
+    "zh-TW": {
+      "ch1_intro": "Highlight 是一個具體化的開發者儀表板——一個建立在簡潔、深色模式 IDE 原則上的系統。其身份由專注觀察所定義，每一個設計選擇都服務於監控與除錯的清晰度。這是將可觀測性化為像素的呈現，而不僅僅是在文檔中描述。",
+      "ch2_outro": "其原則是刻意的限制：單一強調色能避免視覺噪音，並為互動狀態建立清晰的層級。",
+      "ch3_intro": "排版採用現代人文無襯線字體 (Poppins)，呈現兼具技術感與親和力的語氣。字型尺寸從醒目的主標題逐步過渡到清晰的內文，為掃描密集資訊建立節奏。",
+      "ch4_intro": "一致的 4px 網格基礎支撐著版面，創造出可預期的空間節奏，有助於理解。",
+      "ch5_intro": "深度透過表面處理而非厚重的漸層來傳達。卡片和容器由細微、高對比度的邊框及偶爾的偏移陰影來定義，維持深色、平面的美學。",
+      "ch6_intro": "版面骨架是一個以寬邊距框住的中央內容欄，將注意力集中在核心價值主張上。在此結構中，功能標籤頁與卡片使用彈性容器進行排列，以創造出有組織、易於掃描的區塊。",
+      "ch7_intro": "動態效果是功能性且克制的，過渡效果用於確認互動並引導視覺焦點。其哲學是提供即時反饋——hover 時的色彩變化，以及介面狀態之間流暢、快速的過渡。",
+      "ch8_intro": "編輯語氣專業且直接，以清晰的方式與開發者溝通，避免多餘的術語。其語調與介面相符：資訊豐富、有效率，並專注於實用性。",
+      "ch8_outro": "此系統刻意排除了裝飾性元素、淺色主題和會分散介面專注、工具般清晰度的次要強調色。"
+    },
+    "ja": {
+      "ch1_intro": "Highlightは、実体化された開発者ダッシュボードです。クリーンでダークモードのIDEの原則に基づいて構築されたシステムです。そのアイデンティティは、集中した観察によって定義され、すべてのデザイン選択が監視とデバッグの明瞭さに貢献します。これは、ドキュメントで記述されるだけでなく、ピクセルとして具現化された観測可能性です。",
+      "ch2_outro": "原則は意図的な制約です。単一のアクセントカラーは視覚的なノイズを防ぎ、インタラクティブな状態の明確な階層を確立します。",
+      "ch2_intro": "カラーシステムは、集中したコントラストの探求です。深いネイビーの背景が、高可読性のテキストのためのニュートラルなキャンバスを提供し、単一の鮮やかなシアンのアクセントが、主要なアクションとステータスのハイライトに目を向けさせます。",
+      "ch3_intro": "タイポグラフィは、技術的でありながらも親しみやすい声のために、モダンなヒューマニスト・サンセリフ（Poppins）を採用しています。スケールは、指揮的なヒーローヘッドラインから明確な本文テキストまで段階的に変化し、情報密度の高い情報のスキャンにリズムをもたらします。",
+      "ch4_intro": "一貫した4pxのグリッドベースがレイアウトの基盤となり、理解を助ける予測可能な空間のリズムを作り出します。",
+      "ch5_intro": "深度は、重いグラデーションではなく、サーフェスの扱いによって表現されます。カードとコンテナは、微細でハイコントラストのボーダーと偶発的なオフセットシャドウで定義され、ダークでフラットな美学を維持します。",
+      "ch6_intro": "レイアウトのスケルトンは、広いマージンに挟まれた中央揃えのコンテンツ列であり、中核の価値提案に注目を集中させます。この構造内では、柔軟なコンテナを使用して機能タブとカードを配置し、整理され、スキャンしやすいセクションを作り出します。",
+      "ch7_intro": "モーションは機能的で抑制されており、遷移はインタラクションを確認し、フォーカスを導きます。哲学は、即座のフィードバックです。hover時の色の変化と、インタフェース状態間のスムーズで迅速な遷移。",
+      "ch8_intro": "エディトリアルボイスは専門的で直截的です。開発者に明確に語りかけ、余計な専門用語を避けます。トーンはインタフェースと一致し：情報的で、効率的で、実用性に焦点を当てています。",
+      "ch8_outro": "システムは、意図的に装飾要素、ライトテーマ、およびインタフェースの集中したツールのような明瞭さを希釈する可能性のあるアクセントを排除しています。"
+    },
+    "ko": {
+      "ch1_intro": "하이라이트는 실체화된 개발자 대시보드입니다. 깔끔한 다크모드 IDE의 원칙 위에 구축된 시스템이죠. 이 시스템의 정체성은 집중된 관찰에서 비롯됩니다. 모든 설계 선택은 모니터링과 디버깅의 명확성을 위해 존재합니다. 이는 문서에 기술되는 것이 아니라 픽셀로 구현된 관찰 가능성입니다.",
+      "ch2_intro": "컬러 시스템은 집중된 대비에 대한 연구입니다. 깊은 네이비 배경은 높은 가독성을 위한 중립적인 캔버스를 제공하고, 단 하나의 생생한 시안 강조색이 시선을 주요 동작과 상태 하이라이트로 유도합니다.",
+      "ch2_outro": "원칙은 의도적인 제약입니다. 단일 강조색은 시각적 노이즈를 방지하고 상호작용 상태에 대한 명확한 계층을 확립합니다.",
+      "ch3_intro": "타이포그래피는 기술적이면서도 접근 가능한 목소리를 위해 현대적이고 휴머니스틱한 산세리프(Poppins)를 채택했습니다. 스케일은 장엄한 히어로 헤드라인에서 명확한 본문 텍스트까지 점진적으로 진행되어 밀도 높은 정보를 스캔하는 리듬을 확립합니다.",
+      "ch4_intro": "일관된 4px 그리드 기반이 레이아웃의 토대가 되어 이해를 돕는 예측 가능한 공간 리듬을 만듭니다.",
+      "ch5_intro": "깊이는 무거운 그라데이션이 아닌 표면 처리를 통해 전달됩니다. 카드와 컨테이너는 미묘하고 높은 대비의 테두리와 간헐적인 오프셋 그림자로 정의되어 다크하고 플랫한 미학을 유지합니다.",
+      "ch6_intro": "레이아웃 스켈레톤은 넓은 여백으로 둘러싸인 중앙 정렬된 콘텐츠 열로, 핵심 가치 제안에 주의를 집중시킵니다. 이 구조 내에서 기능 탭과 카드는 유연한 컨테이너를 사용하여 정리되고 스캔하기 쉬운 섹션을 만들기 위해 배치됩니다.",
+      "ch7_intro": "모션은 기능적이고 절제되어 있으며, 전환은 상호작용을 확인하고 초점을 안내하는 역할을 합니다. 철학은 즉각적인 피드백입니다. hover 시의 색상 변화와 인터페이스 상태 간의 부드럽고 빠른 전환이 이를 구현합니다.",
+      "ch8_intro": "에디토리얼 목소리는 전문적이고 직접적이며, 개발자에게 명확하게 말하고 불필요한 전문 용어를 피합니다. 어조는 인터페이스와 일치합니다. 정보를 전달하고, 효율적이며, 유용성에 초점을 맞춥니다.",
+      "ch8_outro": "이 시스템은 의도적으로 장식 요소, 라이트 테마, 그리고 인터페이스의 집중적이고 도구 같은 명확성을 희석시킬 수 있는 보조 강조색을 배제합니다."
+    }
+  }
 }

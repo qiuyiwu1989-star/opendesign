@@ -8,6 +8,637 @@
     "cms",
     "dev"
   ],
-  "status": "pending",
-  "added_at": "2026-06-03"
+  "status": "completed",
+  "added_at": "2026-06-03",
+  "spec": {
+    "colors": {
+      "bg": "#FFFFFF",
+      "bgSoft": "#F6F8F9",
+      "bgQuiet": "#E7EAEF",
+      "ink": "#081026",
+      "inkSoft": "#2D3A5F",
+      "muted": "#566A95",
+      "mutedSoft": null,
+      "accent": "#685CEF",
+      "line": "rgba(231, 234, 239, 1.0)"
+    },
+    "typography": {
+      "display": "geometric-sans",
+      "body": "humanist-sans",
+      "mono": "monospace",
+      "scale": [
+        {
+          "token": "display",
+          "size": 56,
+          "lh": 1.0,
+          "weight": 500,
+          "ls": "-2.4px"
+        },
+        {
+          "token": "headline",
+          "size": 40,
+          "lh": 1.2,
+          "weight": 500,
+          "ls": "-0.56px"
+        },
+        {
+          "token": "subtitle",
+          "size": 20,
+          "lh": 1.5,
+          "weight": 400,
+          "ls": "-0.22px"
+        },
+        {
+          "token": "body",
+          "size": 16,
+          "lh": 1.625,
+          "weight": 400,
+          "ls": "normal"
+        },
+        {
+          "token": "label",
+          "size": 14,
+          "lh": 1.57,
+          "weight": 500,
+          "ls": "1.28px"
+        }
+      ]
+    },
+    "spacing": {
+      "base": 4,
+      "scale": [
+        4,
+        8,
+        12,
+        16,
+        24,
+        32,
+        48,
+        64,
+        96
+      ]
+    },
+    "surfaces": {
+      "radius": {
+        "sm": 6,
+        "md": 8,
+        "lg": 10,
+        "pill": 9999
+      }
+    },
+    "layout": {
+      "container": 1280,
+      "paragraph": 680,
+      "columns": 12,
+      "gutter": 24,
+      "breakpoints": [
+        768,
+        1024
+      ]
+    },
+    "motion": {
+      "durations": {
+        "micro": 150,
+        "small": 300,
+        "medium": 800
+      },
+      "easing": "cubic-bezier(0.4, 0, 0.2, 1)"
+    }
+  },
+  "spec_i18n": {
+    "en": {
+      "identity": {
+        "keywords": [
+          "Headless CMS",
+          "Content Velocity",
+          "Structured Content",
+          "AI-Powered"
+        ],
+        "analogy": "A high-performance engine for enterprise content operations.",
+        "oneLiner": "An AI-powered headless CMS designed to accelerate content velocity for enterprise teams."
+      },
+      "colors": {
+        "principle": "Clean and professional with a vibrant purple accent to highlight key actions and state changes."
+      },
+      "typography": {
+        "rules": [
+          "Headlines use a geometric sans font for a modern, structured look.",
+          "Body text uses a humanist sans font for high readability.",
+          "Monospace font (Space Grotesk) is used for code snippets and technical details.",
+          "Uppercase text is used sparingly for labels and navigation elements.",
+          "Letter spacing is slightly increased for uppercase text to improve legibility."
+        ],
+        "scaleUses": [
+          "Main hero headline",
+          "Section headlines",
+          "Hero subtext and lead paragraphs",
+          "General body copy",
+          "Navigation, uppercase buttons, and tags"
+        ]
+      },
+      "spacing": {
+        "rhythm": "A 4px base grid is used consistently for padding, margins, and layout spacing."
+      },
+      "surfaces": {
+        "shadows": [
+          "None: rgba(0, 0, 0, 0.047) 0px 12px 12px 0px, rgba(0, 0, 0, 0.055) 0px 25px 25px 0px",
+          "None: rgba(91, 76, 255, 0.6) 0px 2px 4px 0px, rgb(91, 76, 255) 0px 0px 0px 1px"
+        ],
+        "borders": "1px solid rgba(231, 234, 239, 1.0)"
+      },
+      "layout": {
+        "skeleton": "A standard 12-column grid system with a maximum width of 1280px and responsive breakpoints at 768px and 1024px."
+      },
+      "components": {
+        "button": "Primary buttons are pill-shaped (9999px radius) with a solid purple background (#685CEF) and white text. Secondary buttons have a light lavender background (#E8E9FF) and purple text.",
+        "card": "Cards are simple containers with a subtle border, white background, and minimal shadow.",
+        "chip": "Small, pill-shaped elements used for tags or labels, often with a light background and subtle border.",
+        "input": "Text inputs have a subtle border, rounded corners, and a clean white background.",
+        "hero": "A large, centered hero section with a prominent headline, subtext, and a clear call-to-action."
+      },
+      "motion": {
+        "patterns": [
+          "A subtle spring animation (cubic-bezier(0.18, 0.89, 0.31, 1.57)) is used for bouncy hover states on interactive elements.",
+          "Smooth transitions (0.15s) are used for color, background-color, and border-color changes.",
+          "Opacity fades (0.3s) are used for revealing elements."
+        ]
+      },
+      "interaction": {
+        "hover": "Interactive elements like buttons and links have subtle color or background changes on hover, often accompanied by a subtle spring animation.",
+        "click": "Clicking an element may trigger a slight transform or color change to provide feedback.",
+        "transition": "All transitions use a consistent 0.15s or 0.3s duration with a standard ease-out cubic-bezier curve.",
+        "keyboard": "Standard keyboard navigation is supported, with focus states likely matching hover states for accessibility."
+      },
+      "voice": {
+        "tone": "Professional, confident, and forward-thinking.",
+        "headlineStyle": "Large, impactful headlines that state a clear value proposition.",
+        "ctaStyle": "Direct and action-oriented, such as 'Contact us' or 'Get started'.",
+        "avoid": [
+          "Overly casual language",
+          "Technical jargon without context",
+          "Passive voice"
+        ]
+      },
+      "donts": [
+        "Don't use harsh, high-saturation colors outside the established purple palette.",
+        "Don't use a heavy, blackletter or highly decorative font for headlines.",
+        "Don't use a fully dark mode theme, as the screenshot shows a light, airy interface.",
+        "Don't use sharp, 90-degree corners on buttons or cards, as the design favors softer, rounded shapes.",
+        "Don't use dense, multi-column text layouts for main content, as the design favors clean, centered reading paths.",
+        "Don't use large, complex background images that compete with the text content."
+      ],
+      "systemPrompt": "You are designing a professional, enterprise-focused B2B SaaS website for an AI-powered headless CMS. The design should be clean, airy, and trustworthy, using a white background with a primary purple accent (#685CEF) to drive calls to action. Typography is a mix of a geometric sans for headlines and a humanist sans for body text, both highly legible. Key elements include rounded buttons (pill-shaped), subtle shadows, and a generous amount of white space. Do not use a dark mode, do not use sharp corners on interactive elements, and do not use dense, cluttered layouts. The overall feeling should be one of precision, efficiency, and modern technology."
+    },
+    "zh-CN": {
+      "identity": {
+        "keywords": [
+          "Headless CMS",
+          "内容交付速度",
+          "结构化内容",
+          "AI驱动"
+        ],
+        "analogy": "企业内容运营的高性能引擎。",
+        "oneLiner": "一款AI驱动的Headless CMS，旨在加速企业团队的内容交付速度。"
+      },
+      "colors": {
+        "principle": "干净专业，以鲜明的紫色作为点缀，用于突出关键操作和状态变化。"
+      },
+      "typography": {
+        "rules": [
+          "标题使用几何无衬线字体，营造现代、结构化的视觉效果。",
+          "正文使用人文主义无衬线字体，确保高可读性。",
+          "等宽字体（Space Grotesk）用于代码片段和技术细节。",
+          "大写字母谨慎用于标签和导航元素。",
+          "大写文本的字距会略微增加以提升辨识度。"
+        ],
+        "scaleUses": [
+          "主标题",
+          "章节标题",
+          "副标题和导语段落",
+          "通用正文",
+          "导航、大写按钮和标签"
+        ]
+      },
+      "spacing": {
+        "rhythm": "统一采用4px基础网格，用于内边距、外边距和布局间距。"
+      },
+      "surfaces": {
+        "shadows": [
+          "None: rgba(0, 0, 0, 0.047) 0px 12px 12px 0px, rgba(0, 0, 0, 0.055) 0px 25px 25px 0px",
+          "None: rgba(91, 76, 255, 0.6) 0px 2px 4px 0px, rgb(91, 76, 255) 0px 0px 0px 1px"
+        ],
+        "borders": "1px solid rgba(231, 234, 239, 1.0)"
+      },
+      "layout": {
+        "skeleton": "采用标准12列网格系统，最大宽度为1280px，在768px和1024px处设有响应式断点。"
+      },
+      "components": {
+        "button": "主按钮为药丸形（9999px圆角），纯紫色背景（#685CEF）配白色文字。次按钮为淡薰衣草背景（#E8E9FF）配紫色文字。",
+        "card": "卡片是简单的容器，带有微妙边框、白色背景和极简阴影。",
+        "chip": "用于标签或标记的小型药丸状元素，通常为浅色背景配细微边框。",
+        "input": "文本输入框带有细微边框、圆角和干净的白色背景。",
+        "hero": "一个大型、居中的hero区域，包含醒目的标题、副文本和明确的行动号召。"
+      },
+      "motion": {
+        "patterns": [
+          "交互元素的弹性hover状态使用微妙的弹性动画（cubic-bezier(0.18, 0.89, 0.31, 1.57)）。",
+          "颜色、背景色和边框色的变化使用平滑过渡（0.15秒）。",
+          "元素的显隐使用不透明度渐变（0.3秒）。"
+        ]
+      },
+      "interaction": {
+        "hover": "按钮和链接等交互元素在hover时会有细微的颜色或背景变化，通常伴随微妙的弹性动画。",
+        "click": "点击元素可能触发轻微的变换或颜色变化以提供反馈。",
+        "transition": "所有过渡均使用一致的0.15秒或0.3秒时长，配合标准的ease-out cubic-bezier曲线。",
+        "keyboard": "支持标准键盘导航，焦点状态可能与hover状态一致以确保无障碍性。"
+      },
+      "voice": {
+        "tone": "专业、自信且富有远见。",
+        "headlineStyle": "大型、有冲击力的标题，清晰阐述价值主张。",
+        "ctaStyle": "直接且以行动为导向，例如“联系我们”或“立即开始”。",
+        "avoid": [
+          "过于随意的语言",
+          "缺乏上下文的技术术语",
+          "被动语态"
+        ]
+      },
+      "donts": [
+        "避免使用既定紫色配色方案之外的刺眼、高饱和度颜色。",
+        "避免使用厚重、黑体或高度装饰性的字体作为标题。",
+        "避免使用全深色模式主题，因为截图展示的是明亮、通透的界面。",
+        "避免在按钮或卡片上使用尖锐的90度直角，因为设计倾向于更柔和、圆润的形状。",
+        "避免为主内容使用密集、多栏文本布局，因为设计倾向于干净、居中的阅读路径。",
+        "避免使用会与文本内容争夺注意力的大型复杂背景图片。"
+      ],
+      "systemPrompt": "你正在为一个AI驱动的Headless CMS设计一个专业、面向企业级的B2B SaaS网站。设计应干净、通透且值得信赖，使用白色背景，以主紫色（#685CEF）引导行动号召。字体是几何无衬线标题与人文主义无衬线正文的混合，两者都具有高可读性。关键元素包括圆形按钮（药丸形）、微妙的阴影和充足的留白。不要使用深色模式，不要在交互元素上使用尖角，不要使用密集、杂乱的布局。整体感觉应体现精准、高效和现代科技。"
+    },
+    "zh-TW": {
+      "identity": {
+        "keywords": [
+          "Headless CMS",
+          "內容速度",
+          "結構化內容",
+          "AI 驅動"
+        ],
+        "analogy": "企業內容營運的高效能引擎。",
+        "oneLiner": "一款 AI 驅動的 Headless CMS，旨在加速企業團隊的內容速度。"
+      },
+      "colors": {
+        "principle": "簡潔專業，以充滿活力的紫色作為強調色，用於突顯關鍵操作與狀態變更。"
+      },
+      "typography": {
+        "rules": [
+          "標題採用幾何無襯線字體，營造現代、結構化的視覺感。",
+          "內文使用人文無襯線字體，確保高度可讀性。",
+          "等寬字體（Space Grotesk）用於程式碼片段與技術細節。",
+          "大寫文字謹慎用於標籤與導航元素。",
+          "大寫文字的字距稍微增加，以提升辨識度。"
+        ],
+        "scaleUses": [
+          "主視覺大標題",
+          "章節標題",
+          "副標題與引言段落",
+          "一般內文",
+          "導航列、大寫按鈕與標籤"
+        ]
+      },
+      "spacing": {
+        "rhythm": "所有內邊距、外邊距與佈局間距均一致使用 4px 基礎網格。"
+      },
+      "surfaces": {
+        "shadows": [
+          "None: rgba(0, 0, 0, 0.047) 0px 12px 12px 0px, rgba(0, 0, 0, 0.055) 0px 25px 25px 0px",
+          "None: rgba(91, 76, 255, 0.6) 0px 2px 4px 0px, rgb(91, 76, 255) 0px 0px 0px 1px"
+        ],
+        "borders": "1px solid rgba(231, 234, 239, 1.0)"
+      },
+      "layout": {
+        "skeleton": "標準的 12 欄網格系統，最大寬度 1280px，並在 768px 與 1024px 設有響應式斷點。"
+      },
+      "components": {
+        "button": "主要按鈕為膠囊形狀（9999px 圓角），背景為實心紫色（#685CEF）並配白色文字。次要按鈕背景為淺薰衣草色（#E8E9FF），文字為紫色。",
+        "card": "卡片是簡潔的容器，帶有細微邊框、白色背景和極簡陰影。",
+        "chip": "小型膠囊狀元素，用於標籤或標示，通常帶有淺色背景和細微邊框。",
+        "input": "文字輸入框帶有細微邊框、圓角和簡潔的白色背景。",
+        "hero": "一個寬大、置中的主視覺區塊，包含醒目的標題、副標題和清晰的行動呼籲。"
+      },
+      "motion": {
+        "patterns": [
+          "互動元素的懸停狀態使用細膩的彈簧動畫（cubic-bezier(0.18, 0.89, 0.31, 1.57)）營造彈跳感。",
+          "顏色、背景色與邊框色的變更使用流暢的過渡效果（0.15 秒）。",
+          "元素的顯示使用淡入淡出效果（0.3 秒）。"
+        ]
+      },
+      "interaction": {
+        "hover": "按鈕和連結等互動元素在懸停時，顏色或背景會發生細微變化，通常伴隨彈簧動畫效果。",
+        "click": "點擊元素可能會觸發輕微的變形或顏色變化，以提供回饋。",
+        "transition": "所有過渡效果均使用一致的 0.15 秒或 0.3 秒時長，並搭配標準的 ease-out cubic-bezier 曲線。",
+        "keyboard": "支援標準鍵盤導航，焦點狀態可能與懸停狀態一致，以確保無障礙使用。"
+      },
+      "voice": {
+        "tone": "專業、自信且具前瞻性。",
+        "headlineStyle": "大而具衝擊力的標題，清晰陳述價值主張。",
+        "ctaStyle": "直接且以行動為導向，例如「聯繫我們」或「立即開始」。",
+        "avoid": [
+          "過於隨意的語言",
+          "缺乏背景的技術術語",
+          "被動語態"
+        ]
+      },
+      "donts": [
+        "不要使用既定紫色色板以外的刺眼、高飽和度顏色。",
+        "不要使用厚重、哥德體或高度裝飾性的字體作為標題。",
+        "不要使用完全的深色模式，因為截圖顯示的是一個明亮、通透的介面。",
+        "不要在按鈕或卡片上使用銳利的 90 度直角，因為設計偏好較柔和、圓潤的形狀。",
+        "不要在主要內容中使用密集、多欄的文字佈局，因為設計偏好簡潔、置中的閱讀路徑。",
+        "不要使用會與文字內容競爭的大型、複雜背景圖片。"
+      ],
+      "systemPrompt": "您正在為一款 AI 驅動的 Headless CMS 設計一個專業、專注企業的 B2B SaaS 網站。設計應簡潔、通透且值得信賴，使用白色背景並以主要紫色（#685CEF）作為強調色來驅動行動呼籲。字體搭配採用幾何無襯線字體作為標題，人文無襯線字體作為內文，兩者均需高度可讀。關鍵元素包括圓形按鈕（膠囊狀）、細微陰影和充足的留白。請勿使用深色模式，不要在互動元素上使用銳利的圓角，並避免使用密集、雜亂的佈局。整體感覺應體現精準、效率與現代科技感。"
+    },
+    "ja": {
+      "identity": {
+        "keywords": [
+          "Headless CMS",
+          "Content Velocity",
+          "Structured Content",
+          "AI-Powered"
+        ],
+        "analogy": "エンタープライズコンテンツオペレーション向けの高性能エンジン。",
+        "oneLiner": "エンタープライズチームのコンテンツスピードを加速するために設計された、AI駆動のヘッドレスCMSです。"
+      },
+      "colors": {
+        "principle": "クリーンでプロフェッショナルな印象を基調とし、主要なアクションや状態変化を強調するために鮮やかなパープルアクセントを採用しています。"
+      },
+      "typography": {
+        "rules": [
+          "見出しにはジオメトリック・サンセリフフォントを使用し、モダンで構造的な見た目を実現しています。",
+          "本文テキストにはヒューマニスト・サンセリフフォントを使用し、高い可読性を確保しています。",
+          "モノスペースフォント（Space Grotesk）はコードスニペットや技術的な詳細に使用されます。",
+          "大文字テキストは、ラベルやナビゲーション要素に控えめに使用されます。",
+          "大文字テキストの字間は、可読性を高めるためにわずかに広めに設定されています。"
+        ],
+        "scaleUses": [
+          "メインヒーロー見出し",
+          "セクション見出し",
+          "ヒーローサブテキストと導入段落",
+          "一般的な本文",
+          "ナビゲーション、大文字ボタン、タグ"
+        ]
+      },
+      "spacing": {
+        "rhythm": "パディング、マージン、レイアウト間隔には、4pxのベースグリッドが一貫して使用されています。"
+      },
+      "surfaces": {
+        "shadows": [
+          "None: rgba(0, 0, 0, 0.047) 0px 12px 12px 0px, rgba(0, 0, 0, 0.055) 0px 25px 25px 0px",
+          "None: rgba(91, 76, 255, 0.6) 0px 2px 4px 0px, rgb(91, 76, 255) 0px 0px 0px 1px"
+        ],
+        "borders": "1px solid rgba(231, 234, 239, 1.0)"
+      },
+      "layout": {
+        "skeleton": "標準の12カラムグリッドシステムを使用し、最大幅は1280px、レスポンシブブレークポイントは768pxと1024pxです。"
+      },
+      "components": {
+        "button": "プライマリボタンはピル型（9999px radius）で、ソリッドパープル背景（#685CEF）と白文字です。セカンダリボタンは明るいラベンダー背景（#E8E9FF）とパープル文字を採用しています。",
+        "card": "カードは、繊細なボーダー、白い背景、最小限のシャドウを持つシンプルなコンテナです。",
+        "chip": "タグやラベルに使用される、ピル型の小さな要素です。明るい背景と繊細なボーダーが特徴です。",
+        "input": "テキスト入力欄は、繊細なボーダー、丸みのある角、クリーンな白い背景を持っています。",
+        "hero": "目立つ見出し、サブテキスト、明確なCTAを配置した、大きな中央揃えのヒーローセクションです。"
+      },
+      "motion": {
+        "patterns": [
+          "インタラクティブ要素のホバーステートに、微細なバネアニメーション（cubic-bezier(0.18, 0.89, 0.31, 1.57)）が使用されます。",
+          "カラー、背景カラー、ボーダーカラーの変更には、滑らかなトランジション（0.15s）が使用されます。",
+          "要素の表示には、フェードイン（0.3s）が使用されます。"
+        ]
+      },
+      "interaction": {
+        "hover": "ボタンやリンクなどのインタラクティブ要素は、ホバー時に繊細なカラーまたは背景の変化が加わり、しばしば微細なバネアニメーションを伴います。",
+        "click": "要素をクリックすると、フィードバックとして軽微なトランスフォームやカラーチェンジがトリガーされる場合があります。",
+        "transition": "すべてのトランジションは、標準的なease-out cubic-bezierカーブを使用し、一貫した0.15秒または0.3秒の持続時間が設定されています。",
+        "keyboard": "標準的なキーボードナビゲーションがサポートされており、アクセシビリティ向上のため、フォーカスステートはホバーステートと一致する可能性が高いです。"
+      },
+      "voice": {
+        "tone": "プロフェッショナルで、自信に満ち、未来志向のトーンです。",
+        "headlineStyle": "明確な価値提案を伝える、インパクトの大きい大きな見出しです。",
+        "ctaStyle": "「お問い合わせ」や「無料で始める」のように、直接的で行動を促すスタイルです。",
+        "avoid": [
+          "過度にカジュアルな言葉遣い",
+          "文脈のない技術用語",
+          "受動態"
+        ]
+      },
+      "donts": [
+        "確立されたパープルパレット以外の、刺激的で高彩度のカラーを使用しないでください。",
+        "見出しに重厚なブラックレターや高度に装飾的なフォントを使用しないでください。",
+        "スクリーンショットが明るく空気感のあるインターフェースを示しているため、完全なダークモードテーマは使用しないでください。",
+        "ボタンやカードに鋭い90度の角を使用しないでください。デザインはより柔らかく丸みのある形状を好んでいます。",
+        "メインコンテンツに密集した複数カラムのテキストレイアウトを使用しないでください。デザインはクリーンで中央揃えの読書パスを好んでいます。",
+        "テキストコンテンツと競合するような、大きく複雑な背景画像は使用しないでください。"
+      ],
+      "systemPrompt": "AI駆動のヘッドレスCMS向けの、プロフェッショナルでエンタープライズ志向のB2B SaaSウェブサイトをデザインしています。デザインはクリーンで、空気感があり、信頼感を与えるものでなければなりません。白い背景に、CTAを誘導するメインのパープルアクセント（#685CEF）を採用します。タイポグラフィは、見出し用のジオメトリック・サンセリフと本文用のヒューマニスト・サンセリフを組み合わせ、両方とも高い可読性を持ちます。主要な要素には、丸みのあるボタン（ピル型）、微細なシャドウ、豊かなホワイトスペースが含まれます。ダークモードは使用せず、インタラクティブ要素には鋭い角を使用せず、密集した乱雑なレイアウトは使用しないでください。全体的な印象は、精密さ、効率性、モダンなテクノロジーを感じるものでなければなりません。"
+    },
+    "ko": {
+      "identity": {
+        "keywords": [
+          "Headless CMS",
+          "Content Velocity",
+          "Structured Content",
+          "AI-Powered"
+        ],
+        "analogy": "엔터프라이즈 콘텐츠 운영을 위한 고성능 엔진입니다.",
+        "oneLiner": "엔터프라이즈 팀을 위해 콘텐츠 속도를 가속화하도록 설계된 AI 기반 Headless CMS입니다."
+      },
+      "colors": {
+        "principle": "핵심 동작과 상태 변화를 강조하기 위한 선명한 보라색 강조 포인트가 있는 깔끔하고 전문적인 톤입니다."
+      },
+      "typography": {
+        "rules": [
+          "헤드라인은 기하학적 sans 폰트를 사용하여 현대적이고 구조적인 느낌을 줍니다.",
+          "본문 텍스트는 높은 가독성을 위해 인간주의적 sans 폰트를 사용합니다.",
+          "모노스페이스 폰트(Space Grotesk)는 코드 조각과 기술 세부사항에 사용됩니다.",
+          "대문자 텍스트는 레이블과 내비게이션 요소에 절제하여 사용됩니다.",
+          "대문자 텍스트의 자간은 가독성을 위해 약간 넓게 설정됩니다."
+        ],
+        "scaleUses": [
+          "메인 히어로 헤드라인",
+          "섹션 헤드라인",
+          "히어로 보조 텍스트 및 리드 단락",
+          "일반 본문",
+          "내비게이션, 대문자 버튼 및 태그"
+        ]
+      },
+      "spacing": {
+        "rhythm": "패딩, 마진 및 레이아웃 간격에 4px 기본 그리드가 일관되게 사용됩니다."
+      },
+      "surfaces": {
+        "shadows": [
+          "None: rgba(0, 0, 0, 0.047) 0px 12px 12px 0px, rgba(0, 0, 0, 0.055) 0px 25px 25px 0px",
+          "None: rgba(91, 76, 255, 0.6) 0px 2px 4px 0px, rgb(91, 76, 255) 0px 0px 0px 1px"
+        ],
+        "borders": "1px solid rgba(231, 234, 239, 1.0)"
+      },
+      "layout": {
+        "skeleton": "최대 너비 1280px의 표준 12열 그리드 시스템에 768px 및 1024px 반응형 브레이크포인트를 적용합니다."
+      },
+      "components": {
+        "button": "Primary 버튼은 pill 형태(9999px radius)이며, 보라색(#685CEF) 배경에 화이트 텍스트를 사용합니다. Secondary 버튼은 연한 라벤더 배경(#E8E9FF)에 보라색 텍스트를 사용합니다.",
+        "card": "카드는 미세한 테두리, 화이트 배경, 최소한의 그림자가 적용된 간결한 컨테이너입니다.",
+        "chip": "태그나 레이블로 사용되는 작은 pill 형태 요소로, 종종 연한 배경과 미세한 테두리를 사용합니다.",
+        "input": "텍스트 입력 필드는 미세한 테두리, 둥근 모서리, 깔끔한 화이트 배경을 가집니다.",
+        "hero": "두드러진 헤드라인, 보조 텍스트, 명확한 call-to-action이 있는 대형 중앙 정렬 히어로 섹션입니다."
+      },
+      "motion": {
+        "patterns": [
+          "인터랙티브 요소의 반동 있는 hover 상태를 위해 미세한 스프링 애니메이션(cubic-bezier(0.18, 0.89, 0.31, 1.57))을 사용합니다.",
+          "색상, 배경색, 테두리색 변경을 위해 매끄러운 전환(0.15s)을 사용합니다.",
+          "요소를 나타내기 위해 페이드 인(0.3s) 효과를 사용합니다."
+        ]
+      },
+      "interaction": {
+        "hover": "버튼과 링크 같은 인터랙티브 요소는 hover 시 미세한 색상 또는 배경 변화를 가지며, 종종 미세한 스프링 애니메이션이 동반됩니다.",
+        "click": "요소를 클릭하면 약간의 변환 또는 색상 변화가 발생하여 피드백을 제공할 수 있습니다.",
+        "transition": "모든 전환은 일관된 0.15초 또는 0.3초 지속 시간과 표준 ease-out cubic-bezier 곡선을 사용합니다.",
+        "keyboard": "표준 키보드 내비게이션이 지원되며, 포커스 상태는 접근성을 위해 hover 상태와 일치하는 경우가 많습니다."
+      },
+      "voice": {
+        "tone": "전문적이고 자신감 있으며 미래지향적입니다.",
+        "headlineStyle": "명확한 가치 제안을 전달하는 크고 임팩트 있는 헤드라인입니다.",
+        "ctaStyle": "'문의하기' 또는 '시작하기'와 같이 직접적이고 행동 지향적인 표현을 사용합니다.",
+        "avoid": [
+          "지나치게 캐주얼한 언어",
+          "맥락 없는 기술 용어",
+          "수동태 표현"
+        ]
+      },
+      "donts": [
+        "확립된 보라색 팔레트 외의 거칠고 높은 채도의 색상을 사용하지 마세요.",
+        "헤드라인에 무거운 블랙레터 또는 과도하게 장식적인 폰트를 사용하지 마세요.",
+        "스크린샷에 밝고 통풍이 잘되는 인터페이스가 나타나므로 완전한 다크 모드 테마를 사용하지 마세요.",
+        "버튼이나 카드에 날카로운 90도 모서리를 사용하지 마세요. 이 디자인은 더 부드럽고 둥근 형태를 선호합니다.",
+        "메인 콘텐츠에 밀집된 다단계 텍스트 레이아웃을 사용하지 마세요. 이 디자인은 깔끔하고 중앙 정렬된 읽기 경로를 선호합니다.",
+        "텍스트 콘텐츠와 경쟁하는 크고 복잡한 배경 이미지를 사용하지 마세요."
+      ],
+      "systemPrompt": "당신은 AI 기반 Headless CMS를 위한 전문적이고 엔터프라이즈 중심의 B2B SaaS 웹사이트를 디자인하고 있습니다. 디자인은 깔끔하고 통풍이 잘되며 신뢰할 수 있어야 하며, 화이트 배경에 주요 강조 보라색(#685CEF)을 사용하여 call-to-action을 유도해야 합니다. 타이포그래피는 헤드라인용 기하학적 sans와 본문용 인간주의적 sans가 혼합되어 있으며, 둘 다 높은 가독성을 가집니다. 주요 요소로는 둥근 버튼(pill 형태), 미세한 그림자, 충분한 여백이 포함됩니다. 다크 모드를 사용하지 마세요. 인터랙티브 요소에 날카로운 모서리를 사용하지 마세요. 밀집되고 지저분한 레이아웃을 사용하지 마세요. 전반적인 느낌은 정확성, 효율성, 현대 기술이어야 합니다."
+    }
+  },
+  "desc": {
+    "en": {
+      "palette": "A clean, professional palette centered on white and a vibrant purple (#685CEF), with a range of soft grays for background variations and text hierarchy.",
+      "layout": "A standard 12-column grid system with a maximum container width of 1280px, ensuring a structured and spacious layout.",
+      "interaction": "Subtle, smooth transitions and a distinctive spring-like hover animation provide tactile feedback without being distracting.",
+      "motion": "Motion is minimal and purposeful, used primarily for subtle hover effects and smooth transitions between states.",
+      "notes": "This site is an excellent example of a modern, enterprise B2B SaaS design that balances professionalism with a clean, modern aesthetic."
+    },
+    "zh-CN": {
+      "palette": "一个干净、专业的配色方案，以白色和鲜明的紫色（#685CEF）为核心，搭配一系列柔和的灰色用于背景变化和文字层级。",
+      "layout": "采用标准12列网格系统，最大容器宽度为1280px，确保布局结构清晰且富有呼吸感。",
+      "interaction": "通过微妙、平滑的过渡和独特的弹性hover动画提供触觉反馈，同时避免分散注意力。",
+      "motion": "动效简约且有目的性，主要用于微妙的hover效果和状态间的平滑过渡。",
+      "notes": "该网站是现代企业级B2B SaaS设计的优秀范例，在专业感与简洁现代的美学之间取得了平衡。"
+    },
+    "zh-TW": {
+      "palette": "一套以白色和充滿活力的紫色（#685CEF）為核心的簡潔專業色板，搭配一系列柔和的灰色作為背景變化與文字層次。",
+      "layout": "標準的 12 欄網格系統，容器最大寬度為 1280px，確保佈局結構清晰且寬敞。",
+      "interaction": "細膩、流暢的過渡效果，以及獨特的彈簧式懸停動畫，提供觸覺回饋，同時不會分散注意力。",
+      "motion": "動效極簡且具目的性，主要用於細微的懸停效果與狀態之間的流暢過渡。",
+      "notes": "此網站是現代企業級 B2B SaaS 設計的優秀範例，在專業度與簡潔、現代的美學之間取得了平衡。"
+    },
+    "ja": {
+      "palette": "白色と鮮やかなパープル（#685CEF）を基調とした、クリーンでプロフェッショナルなカラーパレットです。背景のバリエーションやテキスト階層には、柔らかなグレーの範囲が使用されています。",
+      "layout": "標準の12カラムグリッドシステムを採用し、コンテナの最大幅は1280pxです。構造的で広々としたレイアウトを確保しています。",
+      "interaction": "繊細で滑らかなトランジションと、特徴的なバネのようなホバーアニメーションが、邪魔にならないタッチフィードバックを提供します。",
+      "motion": "モーションは最小限で意図的です。主に微細なホバーエフェクトや、状態間の滑らかな遷移に使用されます。",
+      "notes": "このサイトは、プロフェッショナルさとクリーンでモダンな美学のバランスを取った、現代的なエンタープライズ向けB2B SaaSデザインの優れた例です。"
+    },
+    "ko": {
+      "palette": "화이트와 선명한 보라색(#685CEF)을 중심으로 한 깔끔하고 전문적인 팔레트에, 배경 변화와 텍스트 계층을 위한 부드러운 그레이 톤이 더해져 있습니다.",
+      "layout": "최대 컨테이너 너비 1280px를 보장하는 표준 12열 그리드 시스템으로, 구조적이고 여유로운 레이아웃을 제공합니다.",
+      "interaction": "섬세하고 매끄러운 전환 효과와 독특한 스프링 같은 hover 애니메이션이 주의를 분산시키지 않으면서도 촉각적 피드백을 제공합니다.",
+      "motion": "모션은 최소화하고 목적에 맞게 사용되며, 주로 미묘한 hover 효과와 상태 간의 매끄러운 전환에 적용됩니다.",
+      "notes": "이 사이트는 전문성과 깔끔한 현대적 미학의 균형을 맞춘 현대적인 엔터프라이즈 B2B SaaS 디자인의 훌륭한 예시입니다."
+    }
+  },
+  "_meta": {
+    "vision_model": "mimo-v2.5",
+    "vision_prompt_version": "0.3",
+    "vision_source": "playwright-extract:hygraph",
+    "vision_grounded": true,
+    "vision_at": "2026-06-04T15:50:24+00:00",
+    "vision_tokens": 19323,
+    "vision_cost_usd": 0.2147,
+    "translation_model": "mimo-v2.5",
+    "translation_at": "2026-06-04T15:51:44+00:00",
+    "translation_tokens": 19987,
+    "translation_cost_usd": 0.0665,
+    "narrative_model": "mimo-v2.5",
+    "narrative_prompt_version": "0.3",
+    "narrative_at": "2026-06-04T15:51:53+00:00",
+    "narrative_tokens": 2415,
+    "narrative_cost_usd": 0.0161,
+    "narrative_status": "ok",
+    "total_cost_usd": 0.2973
+  },
+  "narrative": {
+    "en": {
+      "ch1_intro": "The Hygraph design system is built like a high-performance engine for enterprise content operations—every component precisely machined to accelerate content velocity. It achieves this through a disciplined, clean aesthetic where white space serves as the primary structural element, allowing the vibrant purple accent to function as a clear signal for action and state change.",
+      "ch2_intro": "The color system is a disciplined study in restraint, using a vast field of neutral grays and white to establish a clean, professional baseline. This makes the single, vibrant purple accent a powerful and unambiguous signal for calls-to-action and interactive states.",
+      "ch2_outro": "The governing principle is functional clarity: color is applied with purpose, never for mere decoration.",
+      "ch3_intro": "Typography is bifurcated by function: a geometric sans-serif provides a modern, structured voice for headlines, while a humanist sans-serif ensures high readability for body copy. A monospace font, Space Grotesk, is reserved for technical code snippets, maintaining a clear hierarchy of information.",
+      "ch4_intro": "A strict 4px base grid underpins the entire system, establishing a consistent vertical and horizontal rhythm that creates order and predictability in all spacing.",
+      "ch5_intro": "Depth is communicated sparingly through a single, soft shadow that lifts surfaces subtly off the white canvas. Borders are reduced to the faintest hairline, defining space without visual weight.",
+      "ch6_intro": "The layout skeleton is a standard 12-column grid with a maximum container width, providing a spacious yet structured foundation. Responsive breakpoints ensure the grid adapts gracefully, maintaining clarity from desktop to mobile.",
+      "ch7_intro": "Motion is minimal and purposeful, applied only to communicate interactivity and state changes. The philosophy favors subtle feedback—a soft spring for hover states and smooth fades for reveals—over flashy animation.",
+      "ch8_intro": "The editorial voice is professional, confident, and forward-thinking, stating clear value propositions through large, impactful headlines. Language is direct and action-oriented, avoiding casual tone, unexplained jargon, and passive constructions.",
+      "ch8_outro": "The system deliberately forgoes dark mode, sharp corners, and dense layouts in favor of its defined light, airy, and soft-edged aesthetic."
+    },
+    "zh-CN": {
+      "ch1_intro": "Hygraph 设计系统如同为高性能内容运营打造的精密引擎——每个组件都经过精心雕琢，旨在提升内容流转效率。它通过严谨、克制的视觉美学实现这一目标，其中留白作为核心结构元素，让醒目的紫色成为行动与状态变化的清晰信号。",
+      "ch2_intro": "色彩系统体现了严谨的克制理念，通过大面积的中性灰与白色建立起干净专业的基底。这使得唯一的亮紫色成为行动号召与交互状态中明确有力的视觉标识。",
+      "ch2_outro": "核心原则是功能清晰性：色彩运用始终具有明确目的，绝不为装饰而存在。",
+      "ch3_intro": "字体系统按功能划分：几何无衬线字体为标题提供现代、结构化的语调，人文无衬线字体则确保正文的高可读性。等宽字体 Space Grotesk 专用于技术代码片段，维持清晰的信息层级。",
+      "ch4_intro": "整个系统建立在严格的 4px 基础网格之上，确立统一的垂直与水平节奏，使所有间距呈现秩序感与可预测性。",
+      "ch5_intro": "通过单一柔和阴影谨慎地传递层次感，使界面元素微妙地脱离白色画布。边框被简化为极细的发丝线，在无视觉负担的前提下界定空间。",
+      "ch6_intro": "布局骨架采用标准的 12 列网格与最大容器宽度，提供宽敞而有序的结构基础。响应式断点确保网格优雅适配，从桌面端到移动端始终保持清晰可读。",
+      "ch7_intro": "动效运用克制且有目的，仅用于传达交互性与状态变化。设计哲学倾向于微妙反馈——hover 状态下的柔和弹性动画与内容揭示时的平滑渐显——而非炫目特效。",
+      "ch8_intro": "编辑语气专业、自信且具有前瞻性，通过醒目有力的标题传递清晰的价值主张。语言直接且行动导向，避免随意语调、未解释的专业术语和被动句式。",
+      "ch8_outro": "系统刻意舍弃深色模式、尖锐边角与密集布局，专注于其既定的明亮、通透、柔边的视觉美学。"
+    },
+    "zh-TW": {
+      "ch1_intro": "Hygraph 設計系統的建構，如同為企業內容營運打造的高性能引擎——每個組件都經過精準調校，以加速內容流動。它透過一種講究、簡潔的美學實現這一點，其中留白成為主要的結構元素，讓鮮明的紫色強調色能作為行動與狀態變化的清晰信號。",
+      "ch2_intro": "色彩系統是一項講究節制的修習，運用大面積的中性灰階與白色，建立起乾淨、專業的基調。這使得單一、鮮明的紫色強調色成為一個強大且明確的信號，用於號召性用語與互動狀態。",
+      "ch2_outro": "其指導原則是功能清晰性：色彩的運用皆有目的，絕非純粹為了裝飾。",
+      "ch3_intro": "字體的運用依據功能而分：幾何無襯線字體為標題提供現代、結構化的語調；而人文無襯線字體則確保內文的高度可讀性。等寬字體 Space Grotesk 則保留給技術程式碼片段使用，以維持資訊的清晰層次。",
+      "ch4_intro": "嚴格的 4px 基礎網格支撐著整個系統，建立起一致的垂直與水平節奏，為所有間距帶來秩序與可預測性。",
+      "ch5_intro": "深度透過一個柔和的陰影，被謹慎地傳達出來，將表面從白色畫布上微微抬升。邊框則細化到最微弱的髮絲線，以不增加視覺重量的方式來界定空間。",
+      "ch6_intro": "版面結構採用標準的 12 欄網格與最大容器寬度，提供寬敞但有結構的基礎。響應式斷點確保網格能優雅地適應，在從桌面到手機的所有裝置上維持清晰度。",
+      "ch7_intro": "動態效果是極簡且有目的的，僅用於傳達互動性與狀態變化。其哲學傾向於細微的回饋——例如 hover 狀態時輕柔的彈性回彈，以及顯現時的平滑淡入淡出——而非華麗的動畫。",
+      "ch8_intro": "其編輯語調是專業、自信且具前瞻性的，透過大型、具衝擊力的標題來陳述清晰的價值主張。語言直接且以行動為導向，避免隨意的語氣、未解釋的術語和被動語態。",
+      "ch8_outro": "該系統刻意捨棄了暗色模式、尖銳邊角和密集佈局，以 favor 其所定義的明亮、通透且邊緣柔和的美學。"
+    },
+    "ja": {
+      "ch1_intro": "ハイグラフのデザインシステムは、エンタープライズ向けコンテンツ運用のための高性能エンジンのように構築されています。すべてのコンポーネントがコンテンツの速度を加速するために、正確に加工されています。これには、白い空間を主要な構造要素として機能させる、律儀でクリーンな美学が用いられています。これにより、鮮やかな紫のアクセントがアクションや状態変化の明確なシグナルとして機能します。",
+      "ch2_intro": "カラーシステムは、抑制の学びとして構築されています。広大なニュートラルグレーと白のフィールドが、クリーンでプロフェッショナルなベースラインを確立します。これにより、単一の鮮やかな紫色のアクセントが、CTAやインタラクティブな状態に対する強力で明確なシグナルとなります。",
+      "ch2_outro": "支配的な原則は機能的な明瞭さです。色は目的をもって適用され、単なる装飾のために使われることはありません。",
+      "ch3_intro": "タイポグラフィは機能ごとに分かれています。幾何学的なサンセリフが、ヘッドラインにモダンで構造的な声を提供し、ヒューマニストサンセリフが本文の高い可読性を確保します。モノスペースフォントのSpace Groteskは、技術的なコードスニペット専用に予約されており、情報の明確な階層を維持しています。",
+      "ch4_intro": "厳格な4pxのベースグリッドがシステム全体を支え、すべてのスペーシングにおいて秩序と予測可能性を生み出す、一貫した垂直および水平のリズムを確立します。",
+      "ch5_intro": "奥行きは、表面上を白いキャンバスからほんのりと浮かび上がらせる、単一の柔らかな影によって控えめに表現されます。ボーダーは最も薄いヘアラインにまで縮小され、視覚的な重みをかけずに空間を定義します。",
+      "ch6_intro": "レイアウトの骨格は、最大コンテナ幅を備えた標準的な12カラムグリッドであり、広々としたながらも構造化された基盤を提供します。レスポンシブブレークポイントにより、グリッドはデスクトップからモバイルまで優雅に適応し、明瞭さを維持します。",
+      "ch7_intro": "モーションは最小限で意図的です。インタラクティビティと状態変化を伝えるためにのみ適用されます。この哲学は、派手なアニメーションよりも、ホバーステートのための柔らかなスプリングや、表示のための滑らかなフェードなど、繊細なフィードバックを好んでいます。",
+      "ch8_intro": "エディトリアルボイスは、プロフェッショナルで、自信に満ち、未来志向です。大きくインパクトのあるヘッドラインを通じて、明確な価値提案を述べます。言葉は直接的でアクション志向であり、カジュアルなトーン、説明のない専門用語、受動的な構成を避けます。",
+      "ch8_outro": "このシステムは、暗いモード、鋭い角、密集したレイアウトを意図的に避け、定義された明るく、空気感のある、柔らかなエッジの美学を優先しています。"
+    },
+    "ko": {
+      "ch1_intro": "하이그래프 디자인 시스템은 엔터프라이즈 콘텐츠 운영을 위한 고성능 엔진처럼 구축되었습니다. 모든 구성 요소는 콘텐츠 가속도를 높이기 위해 정밀하게 가공되었습니다. 이 시스템은 여백을 주요 구조 요소로 활용하는 규율 있고 깔끔한 미학을 통해 이를 달성하며, 활기찬 보라색 강조 색상이 명확한 행동 및 상태 변화의 신호로 기능할 수 있게 합니다.",
+      "ch2_intro": "색상 체계는 절제에 대한 규율 있는 탐구로, 광범위한 중성 그레이와 화이트 톤을 사용하여 깔끔하고 전문적인 기본 선을 확립합니다. 이를 통해 단일하고 활기찬 보라색 강조 색상이 행동 유도 및 인터랙티브 상태를 위한 강력하고 명확한 신호가 됩니다.",
+      "ch2_outro": "지배적인 원칙은 기능적 명확성입니다. 색상은 목적을 가지고 적용되며, 단순한 장식을 위해서가 아닙니다.",
+      "ch3_intro": "타이포그래피는 기능에 따라 분리됩니다. 기하학적 sans-serif는 헤드라인에 현대적이고 구조적인 어조를 제공하는 반면, 인간주의적 sans-serif는 본문의 높은 가독성을 보장합니다. 모노스페이스 폰트인 Space Grotesk는 기술 코드 스니펫을 위해 예약되어, 정보의 명확한 계층 구조를 유지합니다.",
+      "ch4_intro": "엄격한 4px 기본 그리드가 전체 시스템의 토대를 마련하며, 모든 간격에서 질서와 예측 가능성을 창출하는 일관된 수직 및 수평 리듬을 확립합니다.",
+      "ch5_intro": "깊이는 단일하고 부드러운 그림자를 통해 절제 있게 전달되어, 표면을 화이트 캔버스 위에서 미묘하게 띄웁니다. 테두리는 가장 미세한 하이라인으로 줄어들어, 시각적 무게감 없이 공간을 정의합니다.",
+      "ch6_intro": "레이아웃 골격은 최대 컨테이너 너비를 가진 표준 12열 그리드로, 넓으면서도 구조화된 기반을 제공합니다. 반응형 브레이크포인트는 데스크톱에서 모바일까지 명확성을 유지하면서 그리드가 우아하게 적응하도록 보장합니다.",
+      "ch7_intro": "모션은 최소한이며 목적을 가지고 적용됩니다. 이는 오직 인터랙티브성과 상태 변화를 전달하기 위해서만 사용됩니다. 이 철학은 화려한 애니메이션보다 미묘한 피드백을 선호합니다. 예를 들어, hover 상태를 위한 부드러운 스프링과 표시를 위한 매끄러운 페이드 효과 등입니다.",
+      "ch8_intro": "에디토리얼 어조는 전문적이고 자신감 있으며 미래지향적입니다. 크고 임팩트 있는 헤드라인을 통해 명확한 가치 제안을 전달합니다. 언어는 직접적이며 행동 지향적이고, 캐주얼한 어조, 설명되지 않은 전문 용어, 수동태 구문을 피합니다.",
+      "ch8_outro": "이 시스템은 명시된 밝고, 공기감 있으며, 부드러운 모서리의 미학을 위해 의도적으로 다크 모드, 날카로운 모서리, 빽빽한 레이아웃을 포기합니다."
+    }
+  }
 }

@@ -8,6 +8,635 @@
     "automotive",
     "ev"
   ],
-  "status": "pending",
-  "added_at": "2026-06-02"
+  "status": "completed",
+  "added_at": "2026-06-02",
+  "spec": {
+    "colors": {
+      "bg": "#ffffff",
+      "bgSoft": "#f2f2f2",
+      "bgQuiet": "#9fa1b8",
+      "ink": "#151515",
+      "inkSoft": "#616161",
+      "muted": "#b8b8b8",
+      "mutedSoft": null,
+      "accent": "#f5a623",
+      "line": "rgba(0,0,0,0.1)"
+    },
+    "typography": {
+      "display": "humanist-sans",
+      "body": "humanist-sans",
+      "mono": null,
+      "scale": [
+        {
+          "token": "display",
+          "size": 72,
+          "lh": 1.0,
+          "weight": 500,
+          "ls": "-2.5px"
+        },
+        {
+          "token": "heading-lg",
+          "size": 32,
+          "lh": 1.1,
+          "weight": 500,
+          "ls": "-1.8px"
+        },
+        {
+          "token": "body-lg",
+          "size": 20,
+          "lh": 1.2,
+          "weight": 400,
+          "ls": "-0.5px"
+        },
+        {
+          "token": "body",
+          "size": 16,
+          "lh": 1.25,
+          "weight": 400,
+          "ls": "-0.32px"
+        },
+        {
+          "token": "small",
+          "size": 14,
+          "lh": 1.4,
+          "weight": 400,
+          "ls": "-0.14px"
+        }
+      ]
+    },
+    "spacing": {
+      "base": 4,
+      "scale": [
+        4,
+        8,
+        12,
+        16,
+        20,
+        24,
+        32,
+        40,
+        48,
+        64,
+        96
+      ]
+    },
+    "surfaces": {
+      "radius": {
+        "sm": 4,
+        "md": 8,
+        "lg": 12,
+        "pill": 999
+      }
+    },
+    "layout": {
+      "container": 1280,
+      "paragraph": 680,
+      "columns": 12,
+      "gutter": 24,
+      "breakpoints": [
+        768,
+        1024
+      ]
+    },
+    "motion": {
+      "durations": {
+        "micro": 100,
+        "small": 200,
+        "medium": 300,
+        "large": 500
+      },
+      "easing": "cubic-bezier(0.83, 0, 0.17, 1)"
+    }
+  },
+  "spec_i18n": {
+    "en": {
+      "identity": {
+        "keywords": [
+          "Adventure",
+          "Electric",
+          "Rugged",
+          "Minimal",
+          "Outdoors"
+        ],
+        "analogy": "A high-end outdoor equipment brand meets automotive engineering.",
+        "oneLiner": "Premium electric vehicle brand emphasizing adventure, rugged capability, and refined minimalism."
+      },
+      "colors": {
+        "principle": "High-contrast monochrome base with warm golden-orange accent for action, supported by muted blue-grays in gradients."
+      },
+      "typography": {
+        "rules": [
+          "Tight letter-spacing on large display text",
+          "High contrast between display and body weights",
+          "Uppercase used sparingly for navigation elements"
+        ],
+        "scaleUses": [
+          "Main hero headlines",
+          "Section headlines",
+          "Subheadings and descriptions",
+          "Standard text and navigation",
+          "Fine print and metadata"
+        ]
+      },
+      "spacing": {
+        "rhythm": "Strict 4px grid system with generous whitespace around major content blocks."
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 2px 8px 0px rgba(0, 0, 0, 0.15)",
+          "0px 0px 10px 0px rgb(159, 161, 184)",
+          "0px 0px 5px 0px rgb(128, 128, 128)"
+        ],
+        "borders": "1px solid rgb(229, 231, 235) for subtle structure."
+      },
+      "layout": {
+        "skeleton": "Full-width hero sections followed by centered content blocks on light backgrounds."
+      },
+      "components": {
+        "button": "Pill-shaped primary buttons with dark background or transparent outlines with text labels.",
+        "card": "Image-heavy cards with rounded corners (20px radius) and subtle shadows.",
+        "chip": "Capsule-shaped category selectors (Technology, Performance, Design) with active state differentiation.",
+        "input": "Standard rounded input fields with clear borders.",
+        "hero": "Full-bleed cinematic photography with centered overlaid text and call-to-action buttons."
+      },
+      "motion": {
+        "patterns": [
+          "Smooth color and background-color transitions on hover",
+          "Width and opacity transitions for expandable elements"
+        ]
+      },
+      "interaction": {
+        "hover": "Smooth color transitions on text and background elements.",
+        "click": "Immediate visual feedback with opacity changes.",
+        "transition": "Consistent use of cubic-bezier(0.83, 0, 0.17, 1) for all interactive state changes.",
+        "keyboard": "Standard focus management for navigation and buttons."
+      },
+      "voice": {
+        "tone": "Confident, adventurous, and informative.",
+        "headlineStyle": "Bold, imperative statements (e.g., 'Find your Rivian').",
+        "ctaStyle": "Direct and action-oriented (e.g., 'Design your R1T', 'Demo drive').",
+        "avoid": [
+          "Technical jargon",
+          "Overly aggressive sales language",
+          "Complicated sentence structures"
+        ]
+      },
+      "donts": [
+        "Don't use decorative serif fonts — screenshot shows clean, humanist sans-serif typography.",
+        "Don't use excessive drop shadows — screenshot shows minimal, soft box shadows only on specific elements.",
+        "Don't use a cluttered layout — screenshot shows generous whitespace and a focused, grid-based structure.",
+        "Don't use a complex color palette — screenshot shows a dominant monochrome scheme with a single warm accent.",
+        "Don't use harsh, saturated background colors — screenshot shows neutral whites, soft grays, and photographic backgrounds.",
+        "Don't use uppercase for body copy — screenshot shows uppercase used only sparingly for navigation and fine print."
+      ],
+      "systemPrompt": "This is a premium automotive website for an electric vehicle brand focused on adventure and capability. The design system uses a high-contrast monochrome base (#151515 ink on #ffffff background) with a warm golden-orange accent (#f5a623) for key calls to action. Typography is clean and humanist-sans-serif, with bold, tightly-spaced display text (up to 72px with -2.5px letter-spacing) for headlines and lighter weights for body copy. The layout is full-bleed and photographic, prioritizing cinematic hero images over text-heavy sections. Surfaces are minimal, using generous whitespace and subtle shadows. Key donts: avoid using decorative serifs, avoid cluttered layouts, and avoid using the accent color excessively."
+    },
+    "zh-CN": {
+      "identity": {
+        "keywords": [
+          "探险",
+          "电动",
+          "粗犷",
+          "极简",
+          "户外"
+        ],
+        "analogy": "高端户外装备品牌与汽车工程的结合。",
+        "oneLiner": "强调探险、粗犷性能与精致极简主义的高端电动汽车品牌。"
+      },
+      "colors": {
+        "principle": "以高对比度单色系为基底，搭配用于行动召唤的暖金色-橙色点缀色，辅以渐变中的柔和蓝灰色。"
+      },
+      "typography": {
+        "rules": [
+          "大号展示文本使用紧凑的字间距",
+          "展示字体与正文字重之间保持高对比度",
+          "导航元素慎用全大写"
+        ],
+        "scaleUses": [
+          "主首屏标题",
+          "章节标题",
+          "副标题与描述",
+          "标准文本与导航",
+          "小字与元数据"
+        ]
+      },
+      "spacing": {
+        "rhythm": "严格的4px网格系统，主要区块周围留有充足留白。"
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 2px 8px 0px rgba(0, 0, 0, 0.15)",
+          "0px 0px 10px 0px rgb(159, 161, 184)",
+          "0px 0px 5px 0px rgb(128, 128, 128)"
+        ],
+        "borders": "1px solid rgb(229, 231, 235) 用于微妙结构。"
+      },
+      "layout": {
+        "skeleton": "全宽首屏区域，后接浅色背景上的居中内容区块。"
+      },
+      "components": {
+        "button": "胶囊形主按钮，采用深色背景或透明描边加文字标签。",
+        "card": "以图片为主的卡片，圆角（20px半径）并带微妙阴影。",
+        "chip": "药丸形分类选择器（科技、性能、设计），带激活状态区分。",
+        "input": "标准圆角输入框，带清晰边框。",
+        "hero": "全出血电影感摄影，叠加居中文字与行动召唤按钮。"
+      },
+      "motion": {
+        "patterns": [
+          "hover 时平滑的颜色与背景色过渡",
+          "可展开元素的宽度与透明度过渡"
+        ]
+      },
+      "interaction": {
+        "hover": "文本与背景元素的平滑颜色过渡。",
+        "click": "通过透明度变化提供即时视觉反馈。",
+        "transition": "所有交互状态变化均一致使用 cubic-bezier(0.83, 0, 0.17, 1)。",
+        "keyboard": "标准的导航与按钮焦点管理。"
+      },
+      "voice": {
+        "tone": "自信、富有探险精神、信息丰富。",
+        "headlineStyle": "大胆、祈使句式的陈述（例如，'发现你的 Rivian'）。",
+        "ctaStyle": "直接、行动导向（例如，'设计你的 R1T'，'预约试驾'）。",
+        "avoid": [
+          "技术术语",
+          "过于激进的销售语言",
+          "复杂的句子结构"
+        ]
+      },
+      "donts": [
+        "勿使用装饰性衬线字体——截图显示为干净的人文主义无衬线字体。",
+        "勿使用过多投影——截图仅显示特定元素上的极简、柔和投影。",
+        "勿使用杂乱的布局——截图显示充足的留白与聚焦的网格结构。",
+        "勿使用复杂的配色方案——截图显示以单色为主，仅有一个暖色点缀。",
+        "勿使用刺眼、饱和的背景色——截图显示中性白、柔和灰及摄影背景。",
+        "勿对正文使用全大写——截图显示仅在导航与小字中慎用全大写。"
+      ],
+      "systemPrompt": "这是一个面向注重探险与性能的电动汽车品牌的高端汽车网站。设计系统使用高对比度单色基底（#151515 墨色在 #ffffff 背景上），并以暖金色-橙色（#f5a623）作为关键行动召唤的点缀色。字体采用干净的人文主义无衬线体，标题使用粗体、间距紧凑的展示文本（最大72px，字间距-2.5px），正文则使用较轻字重。布局为全出血摄影式，优先呈现电影感首屏图像而非文字密集区块。界面元素极简，利用充足留白与微妙阴影。关键禁忌：避免使用装饰性衬线字体、避免杂乱布局、避免过度使用点缀色。"
+    },
+    "zh-TW": {
+      "identity": {
+        "keywords": [
+          "冒險",
+          "電動",
+          "強韌",
+          "極簡",
+          "戶外"
+        ],
+        "analogy": "高端戶外裝備品牌結合汽車工程。",
+        "oneLiner": "強調冒險、強韌性能與精緻極簡主義的高端電動車品牌。"
+      },
+      "colors": {
+        "principle": "高對比度單色基調，搭配溫暖的金橘色作為行動強調色，輔以漸層中的柔和藍灰色。"
+      },
+      "typography": {
+        "rules": [
+          "大型展示文字採用緊湊字距",
+          "展示與內文字重之間保持高對比",
+          "大寫字母僅謹慎用於導覽元素"
+        ],
+        "scaleUses": [
+          "主英雄區域標題",
+          "章節標題",
+          "副標題與描述",
+          "標準文字與導覽",
+          "微型文字與中繼資料"
+        ]
+      },
+      "spacing": {
+        "rhythm": "嚴格遵循 4px 網格系統，主要內容區塊周圍留有充足空白。"
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 2px 8px 0px rgba(0, 0, 0, 0.15)",
+          "0px 0px 10px 0px rgb(159, 161, 184)",
+          "0px 0px 5px 0px rgb(128, 128, 128)"
+        ],
+        "borders": "1px solid rgb(229, 231, 235)，提供細微的結構感。"
+      },
+      "layout": {
+        "skeleton": "全版面英雄區域，後接置於淺色背景上的居中內容區塊。"
+      },
+      "components": {
+        "button": "膠囊形主要按鈕，採用深色背景或透明外框搭配文字標籤。",
+        "card": "圖片導向的卡片，具有圓角（20px radius）與細微陰影。",
+        "chip": "膠囊形類別選擇器（科技、性能、設計），並區分使用中狀態。",
+        "input": "標準圓角輸入欄位，帶有明確邊框。",
+        "hero": "全版面出血的電影感攝影，搭配居中疊加的文字與行動呼籲按鈕。"
+      },
+      "motion": {
+        "patterns": [
+          "懸停時的顏色與背景色平滑過渡",
+          "可展開元素的寬度與 opacity 過渡"
+        ]
+      },
+      "interaction": {
+        "hover": "文字與背景元素的流暢顏色過渡。",
+        "click": "立即的視覺回饋，透過 opacity 變化實現。",
+        "transition": "所有互動狀態變化一致使用 cubic-bezier(0.83, 0, 0.17, 1)。",
+        "keyboard": "導覽與按鈕採用標準焦點管理。"
+      },
+      "voice": {
+        "tone": "自信、冒險且具資訊性。",
+        "headlineStyle": "粗體、祈使語氣的陳述（例如：「探索你的冒險」）。",
+        "ctaStyle": "直接且行動導向（例如：「客製你的電動車」、「預約試駕」）。",
+        "avoid": [
+          "技術術語",
+          "過度侵略的銷售語言",
+          "複雜的句子結構"
+        ]
+      },
+      "donts": [
+        "勿使用裝飾性襯線字體——截圖顯示乾淨、人文無襯線字體排印。",
+        "勿使用過多陰影效果——截圖僅在特定元素上顯示極簡、柔和的盒狀陰影。",
+        "勿使用雜亂的佈局——截圖顯示充足留白與專注、基於網格的結構。",
+        "勿使用複雜的配色方案——截圖顯示以單色調為主，搭配單一溫暖強調色。",
+        "勿使用刺眼、飽和的背景色——截圖顯示中性白、柔和灰與攝影背景。",
+        "勿在內文中使用大寫字母——截圖僅謹慎使用大寫於導覽與微型文字。"
+      ],
+      "systemPrompt": "這是一個針對強調冒險與性能的電動車品牌的高端汽車網站。設計系統採用高對比度單色基調（#151515 墨色置於 #ffffff 背景上），搭配溫暖的金橘色強調色（#f5a623）用於關鍵行動呼籲。字體排印乾淨，採用人文無襯線體，標題使用粗體、緊湊字距的展示文字（最大 72px，字距 -2.5px），內文則使用較輕字重。佈局為全版面出血且以攝影為主，優先呈現電影感的英雄圖片而非文字密集的區塊。介面極簡，使用充足留白與細微陰影。關鍵禁忌：避免使用裝飾性襯線體、避免雜亂佈局，並避免過度使用強調色。"
+    },
+    "ja": {
+      "identity": {
+        "keywords": [
+          "アドベンチャー",
+          "電気",
+          "ラugged",
+          "ミニマル",
+          "アウトドア"
+        ],
+        "analogy": "ハイエンドのアウトドアブランドと自動車工学の融合。",
+        "oneLiner": "アドベンチャー、ラuggedな性能、洗練されたミニマリズムを重視するプレミアム電気自動車ブランド。"
+      },
+      "colors": {
+        "principle": "アクション用の温かいゴールデンオレンジアクセントを持つ、ハイコントラストのモノクロームベースを基盤とし、グラデーションにマットなブルーグレーを補助として使用します。"
+      },
+      "typography": {
+        "rules": [
+          "大きなディスプレイテキストにはタイトな文字間隔を設定",
+          "ディスプレイと本文のウェイトに高いコントラストをつける",
+          "ナビゲーション要素には大文字を控えめに使用"
+        ],
+        "scaleUses": [
+          "メインヘッダーヘッドライン",
+          "セクションヘッドライン",
+          "サブヘッドラインと説明文",
+          "標準テキストとナビゲーション",
+          "フッターテキストとメタデータ"
+        ]
+      },
+      "spacing": {
+        "rhythm": "厳密な4pxグリッドシステムを採用し、主要コンテンツブロックの周囲に十分な余白を設けます。"
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 2px 8px 0px rgba(0, 0, 0, 0.15)",
+          "0px 0px 10px 0px rgb(159, 161, 184)",
+          "0px 0px 5px 0px rgb(128, 128, 128)"
+        ],
+        "borders": "1px solid rgb(229, 231, 235) による控えめな構造を実現します。"
+      },
+      "layout": {
+        "skeleton": "フルワイドのヘッダーセクションに続き、明るい背景の中央揃えコンテンツブロックを配置します。"
+      },
+      "components": {
+        "button": "ダークな背景または透明なアウトラインとテキストラベルを持つ、ピル-shapedプライマリボタンです。",
+        "card": "角丸（20px radius）と控えめなシャドウを持つ、画像重視のカードです。",
+        "chip": "（テクノロジー、パフォーマンス、デザイン）などのカテゴリセレクター用のカプセル型で、アクティブ状態で差別化します。",
+        "input": "明確な境界線を持つ、標準的な角丸入力フィールドです。",
+        "hero": "中央揃えのオーバーレイテキストとCTAボタンを持つ、フルブリードのシネマティックな写真です。"
+      },
+      "motion": {
+        "patterns": [
+          "hover時の滑らかなカラーおよびbackground-colorトランジション",
+          "展開可能要素の幅および不透明度トランジション"
+        ]
+      },
+      "interaction": {
+        "hover": "テキストおよび背景要素の滑らかなカラートランジション。",
+        "click": "不透明度の変化による即座のビジュアルフィードバック。",
+        "transition": "すべてのインタラクティブな状態変化にcubic-bezier(0.83, 0, 0.17, 1)を一貫して使用します。",
+        "keyboard": "ナビゲーションおよびボタンの標準的なフォーカス管理です。"
+      },
+      "voice": {
+        "tone": "自信に満ち、アドベンチャーous、情報的。",
+        "headlineStyle": "大胆で命令的なステートメント（例：「Find your Rivian」）。",
+        "ctaStyle": "直接的でアクション指向（例：「Design your R1T」、「Demo drive」）。",
+        "avoid": [
+          "技術用語",
+          "過度にアグレッシブなセールス表現",
+          "複雑な文構造"
+        ]
+      },
+      "donts": [
+        "装飾的なセリフフォントを使用しない — スクリーンショットはクリーンなヒューマニストサンセリフタイポグラフィを示しています。",
+        "過度にドロップシャドウを使用しない — スクリーンショットは特定の要素にのみ控えめでソフトなボックスシャドウを示しています。",
+        "ごちゃごちゃしたレイアウトを使用しない — スクリーンショットは豊かな余白とフォーカスされたグリッドベースの構造を示しています。",
+        "複雑なカラーパレットを使用しない — スクリーンショットは単一の温かいアクセントを持つ支配的なモノクロームスキームを示しています。",
+        "荒い、彩度の高い背景カラーを使用しない — スクリーンショットはニュートラルなホワイト、ソフトグレー、写真背景を示しています。",
+        "本文に大文字を使用しない — スクリーンショットは大文字がナビゲーションとフッターテキストにのみ控えめに使用されていることを示しています。"
+      ],
+      "systemPrompt": "これはアドベンチャーと性能に焦点を当てた電気自動車ブランドのプレミアム自動車ウェブサイトです。デザインシステムは、ハイコントラストのモノクロームベース（#151515インク on #ffffff背景）を基盤とし、主要なCTA用に温かいゴールデンオレンジのアクセント（#f5a623）を使用します。タイポグラフィはクリーンなヒューマニストサンセリフで、ヘッドライン用に-boldでタイトな間隔のディスプレイテキスト（最大72px、-2.5px文字間隔）と、本文用に軽いウェイトを採用します。レイアウトはフルブリードで写真重視で、テキスト多めのセクションよりもシネマティックなヘッダーイメージを優先します。サーフェスはミニマルで、豊かな余白と控えめなシャドウを使用します。重要な避けるべき点：装飾的なセリフの使用、ごちゃごちゃしたレイアウト、アクセントカラーの過度な使用を避けてください。"
+    },
+    "ko": {
+      "identity": {
+        "keywords": [
+          "어드벤처",
+          "전기",
+          "강인함",
+          "미니멀",
+          "아웃도어"
+        ],
+        "analogy": "하이엔드 아웃도어 장비 브랜드와 자동차 공학의 만남.",
+        "oneLiner": "어드벤처, 뛰어난 내구성, 정제된 미니멀리즘을 강조하는 프리미엄 전기차 브랜드."
+      },
+      "colors": {
+        "principle": "행동을 위해 따뜻한 골든 오렌지 악센트를 사용한 고대비 모노크롬 베이스와, 그라디언트에서 지원되는 차분한 블루 그레이."
+      },
+      "typography": {
+        "rules": [
+          "대형 디스플레이 텍스트에 타이트한 자간",
+          "디스플레이와 본문 굵기 간의 고대비",
+          "네비게이션 요소에 절제된 대문자 사용"
+        ],
+        "scaleUses": [
+          "메인 히어로 헤드라인",
+          "섹션 헤드라인",
+          "소제목 및 설명",
+          "표준 텍스트 및 네비게이션",
+          "미주 및 메타데이터"
+        ]
+      },
+      "spacing": {
+        "rhythm": "주요 콘텐츠 블록 주변에 여유로운 여백을 두는 엄격한 4px 그리드 시스템."
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 2px 8px 0px rgba(0, 0, 0, 0.15)",
+          "0px 0px 10px 0px rgb(159, 161, 184)",
+          "0px 0px 5px 0px rgb(128, 128, 128)"
+        ],
+        "borders": "미세한 구조를 위한 1px solid rgb(229, 231, 235)."
+      },
+      "layout": {
+        "skeleton": "전체 폭 히어로 섹션 뒤에 밝은 배경 위의 중앙 정렬 콘텐츠 블록."
+      },
+      "components": {
+        "button": "어두운 배경이나 텍스트 레이블이 있는 투명한 테두리의 필 모양 기본 버튼.",
+        "card": "둥근 모서리(20px radius)와 미세한 그림자가 있는 이미지 중심 카드.",
+        "chip": "활성 상태 구분이 있는 캡슐 모양 카테고리 선택기(기술, 성능, 디자인).",
+        "input": "명확한 테두리가 있는 표준 둥근 입력 필드.",
+        "hero": "중앙 정렬된 오버레이 텍스트와 CTA 버튼이 있는 전체 폭 시네마틱 사진."
+      },
+      "motion": {
+        "patterns": [
+          "hover 시 부드러운 색상 및 background-color 전환",
+          "확장 가능 요소를 위한 너비 및 불투명도 전환"
+        ]
+      },
+      "interaction": {
+        "hover": "텍스트 및 배경 요소에 부드러운 색상 전환.",
+        "click": "불투명도 변화를 통한 즉각적인 시각적 피드백.",
+        "transition": "모든 인터랙티브 상태 변경에 일관된 cubic-bezier(0.83, 0, 0.17, 1) 사용.",
+        "keyboard": "네비게이션 및 버튼을 위한 표준 포커스 관리."
+      },
+      "voice": {
+        "tone": "자신감 있고, 모험적이며, 유용한 정보 제공.",
+        "headlineStyle": "대담하고 지시적인 문장(예: 'Find your Rivian').",
+        "ctaStyle": "직설적이고 행동 지향적(예: 'Design your R1T', 'Demo drive').",
+        "avoid": [
+          "전문 용어",
+          "지나치게 공격적인 판매 언어",
+          "복잡한 문장 구조"
+        ]
+      },
+      "donts": [
+        "장식용 세리프 서체를 사용하지 마세요 — 스크린샷은 깔끔한 휴머니스트 산세리프 타이포그래피를 보여줍니다.",
+        "과도한 드롭 섀도우를 사용하지 마세요 — 스크린샷은 특정 요소에만 최소한의 부드러운 박스 섀도우를 사용합니다.",
+        "복잡한 레이아웃을 사용하지 마세요 — 스크린샷은 여유로운 여백과 집중된 그리드 기반 구조를 보여줍니다.",
+        "복잡한 색상 팔레트를 사용하지 마세요 — 스크린샷은 단일한 따뜻한 악센트가 있는 주도적인 모노크롬 스킴을 보여줍니다.",
+        "거칠고 채도 높은 배경색을 사용하지 마세요 — 스크린샷은 중립적인 흰색, 부드러운 회색, 사진 배경을 보여줍니다.",
+        "본문 텍스트에 대문자를 사용하지 마세요 — 스크린샷은 네비게이션과 미주에만 절제된 대문자를 사용합니다."
+      ],
+      "systemPrompt": "이것은 어드벤처와 성능에 초점을 맞춘 전기차 브랜드를 위한 프리미엄 자동차 웹사이트입니다. 디자인 시스템은(#151515 잉크 on #ffffff 배경) 고대비 모노크롬 베이스를 사용하며, 핵심 CTA를 위해 따뜻한 골든 오렌지 악센트(#f5a623)를 사용합니다. 타이포그래피는 깔끔한 휴머니스트 산세리프로, 헤드라인용 대담하고 자간이 타이트한 디스플레이 텍스트(최대 72px, 자간 -2.5px)와 본문용 가벼운 굵기를 사용합니다. 레이아웃은 전체 폭 사진형으로, 텍스트가 많은 섹션보다는 시네마틱 히어로 이미지를 우선시합니다. 표면은 최소한으로, 여유로운 여백과 미세한 그림자를 사용합니다. 핵심 금지사항: 장식용 세리프 사용 지양, 복잡한 레이아웃 지양, 악센트 색상의 과도한 사용 지양."
+    }
+  },
+  "desc": {
+    "en": {
+      "palette": "A high-contrast monochrome palette (black, white, soft grays) punctuated by a single warm golden-orange accent for high-priority interactions.",
+      "layout": "Full-bleed, photographic hero sections followed by centered, generous content blocks on a clean white or soft gray grid.",
+      "interaction": "Smooth, high-easing transitions (cubic-bezier 0.83, 0, 0.17, 1) on hover and state changes, with pill-shaped buttons and capsule selectors.",
+      "motion": "Subtle and refined motion focused on color, opacity, and width transitions rather than complex choreographed animations.",
+      "notes": "This site is an excellent reference for high-end automotive design, demonstrating how to balance cinematic imagery with a clean, structured design system and restrained accent usage."
+    },
+    "zh-CN": {
+      "palette": "高对比度单色系（黑色、白色、柔和灰）为主，仅以单一暖金色-橙色点缀高优先级交互。",
+      "layout": "全出血摄影式首屏区域，后接居中且留白充足的区块，布局于干净白色或柔和灰网格之上。",
+      "interaction": "在 hover 和状态变化时使用平滑、高缓动的过渡效果（cubic-bezier 0.83, 0, 0.17, 1），按钮采用胶囊形设计，选择器采用药丸形样式。",
+      "motion": "精致微妙的动态效果，聚焦于颜色、透明度和宽度过渡，而非复杂的编排动画。",
+      "notes": "该网站是高端汽车设计的优秀范例，展示了如何在电影感影像、干净的结构化设计系统与克制的点缀色使用之间取得平衡。"
+    },
+    "zh-TW": {
+      "palette": "高對比度單色調色盤（黑、白、柔和灰色），點綴一個溫暖的金橘色強調色，用於高優先度互動。",
+      "layout": "全版面出血的攝影英雄區域，後接居中、留白充足的內容區塊，置於乾淨的白色或柔和灰色網格上。",
+      "interaction": "流暢、高緩動的過渡效果（cubic-bezier 0.83, 0, 0.17, 1），應用於懸停和狀態變化，搭配膠囊形按鈕與膠囊選擇器。",
+      "motion": "細膩精緻的動態效果，聚焦於顏色、opacity 和寬度過渡，而非複雜的編排動畫。",
+      "notes": "此網站是高端汽車設計的絕佳參考，展示了如何平衡電影感的意象與乾淨、結構化的設計系統，以及克制的強調色使用。"
+    },
+    "ja": {
+      "palette": "モノクロームのハイコントラストなパレット（ブラック、ホワイト、ソフトグレー）に、高優先度のインタラクション用に単一の温かいゴールデンオレンジのアクセントを配したものです。",
+      "layout": "フルブリードの写真ヘッダーに続き、クリーンなホワイトまたはソフトグレーのグリッド上に中央揃えの余裕あるコンテンツブロックを配置します。",
+      "interaction": "hoverや状態変化において、滑らかでハイイージングのトランジション（cubic-bezier 0.83, 0, 0.17, 1）を使用し、ピル-shapedボタンとカプセル型セレクターを採用します。",
+      "motion": "複雑な振付アニメーションではなく、カラー、不透明度、幅のトランジションに焦点を当てた、洗練された控えめなモーションです。",
+      "notes": "このサイトは、シネマティックなイメージと、クリーンで構造化されたデザインシステム、および抑制されたアクセント使用のバランスを示す、ハイエンドの自動車デザインの優れた参考例です。"
+    },
+    "ko": {
+      "palette": "고대비 모노크롬 팔레트(흑백, 부드러운 회색)를 기반으로, 높은 우선순위 인터랙션을 위해 단일한 따뜻한 골든 오렌지 악센트를 사용합니다.",
+      "layout": "전체 폭 사진 히어로 섹션 뒤에, 깨끗한 흰색 또는 부드러운 회색 그리드 위에 중앙 정렬된 여유로운 콘텐츠 블록이 배치됩니다.",
+      "interaction": "hover 및 상태 변경 시 부드럽고 높은 easing의 전환(cubic-bezier 0.83, 0, 0.17, 1)을 적용하며, 필 모양 버튼과 캡슐 선택기를 사용합니다.",
+      "motion": "복잡한 안무 애니메이션보다는 색상, 불투명도, 너비 전환에 초점을 맞춘 미묘하고 정교한 모션입니다.",
+      "notes": "이 사이트는 하이엔드 자동차 디자인의 훌륭한 참고 자료로, 시네마틱 이미지와 깔끔하고 구조화된 디자인 시스템 및 절제된 악센트 사용 간의 균형을 보여줍니다."
+    }
+  },
+  "_meta": {
+    "vision_model": "mimo-v2.5",
+    "vision_prompt_version": "0.3",
+    "vision_source": "playwright-extract:rivian",
+    "vision_grounded": true,
+    "vision_at": "2026-06-04T18:37:28+00:00",
+    "vision_tokens": 17165,
+    "vision_cost_usd": 0.1907,
+    "translation_model": "mimo-v2.5",
+    "translation_at": "2026-06-04T18:39:02+00:00",
+    "translation_tokens": 17914,
+    "translation_cost_usd": 0.0596,
+    "narrative_model": "mimo-v2.5",
+    "narrative_prompt_version": "0.3",
+    "narrative_at": "2026-06-04T18:39:12+00:00",
+    "narrative_tokens": 2156,
+    "narrative_cost_usd": 0.0144,
+    "narrative_status": "ok",
+    "total_cost_usd": 0.2647
+  },
+  "narrative": {
+    "en": {
+      "ch1_intro": "The design system operates like a high-end outdoor equipment brand crossed with precision automotive engineering—every component is purpose-built, durable, and stripped of ornamentation. Its identity DNA balances rugged adventure with refined minimalism, resulting in a visual language that feels equally at home on a trailhead or a showroom floor.",
+      "ch2_intro": "A high-contrast monochrome palette forms the foundation, with blacks and whites providing a clean canvas for photography and content. The system reserves a single warm golden-orange accent for calls to action, ensuring these interactive moments stand out with clear purpose.",
+      "ch2_outro": "The principle is restraint: color is applied sparingly to guide attention, not to decorate.",
+      "ch3_intro": "Typography follows a humanist sans-serif category, using weight and scale to create hierarchy. Bold, tightly-spaced display headlines contrast with lighter body weights, while uppercase letters are reserved exclusively for navigation elements.",
+      "ch4_intro": "Spacing follows a strict 4px grid, creating consistent vertical rhythm and generous whitespace around major content blocks.",
+      "ch5_intro": "Surfaces are minimal, relying on soft, subtle shadows for elevation rather than heavy borders or fills. The design uses thin, light borders sparingly for structural clarity, keeping the focus on content and photography.",
+      "ch6_intro": "The layout skeleton begins with full-bleed, cinematic hero sections that dominate the viewport. These are followed by centered, generous content blocks arranged on a clean, light-background grid.",
+      "ch7_intro": "Motion philosophy prioritizes subtlety and refinement over complex choreography. All interactive state changes use smooth, high-easing transitions focused on color, opacity, and width rather than elaborate animations.",
+      "ch8_intro": "The editorial voice is confident and adventurous, using bold, imperative headlines and direct, action-oriented calls to action. Language avoids technical jargon and aggressive sales language in favor of clear, informative statements.",
+      "ch8_outro": "The system deliberately excludes decorative serif fonts, cluttered layouts, and complex color palettes to maintain its focused, cinematic clarity."
+    },
+    "zh-CN": {
+      "ch1_intro": "设计系统如同高端户外装备品牌与精密汽车工程的融合——每个组件都为特定功能而生，经久耐用，且剥离了所有装饰。其身份DNA平衡了粗犷的冒险精神与精致的极简主义，形成一种视觉语言，无论是在小径起点还是在展厅中都同样得体。",
+      "ch2_intro": "高对比度的单色构成基础，黑白为摄影与内容提供了干净的画布。系统仅保留一种温暖的金橙色作为行动号召色，确保这些交互时刻能以明确的目的脱颖而出。",
+      "ch2_outro": "原则在于克制：色彩被谨慎运用以引导注意力，而非用于装饰。",
+      "ch3_intro": "字体遵循人文无衬线类别，通过字重和尺寸建立层级。加粗、紧凑的展示标题与较轻的正文字重形成对比，而大写字母则专门保留给导航元素。",
+      "ch4_intro": "间距遵循严格的4px网格，创造出一致的垂直节奏和主要的宽敞留白。",
+      "ch5_intro": "界面极其简洁，依靠柔和、微妙的阴影来营造层次，而非厚重的边框或填充。设计审慎使用细而浅的边框以保持结构清晰，让焦点集中在内容和摄影上。",
+      "ch6_intro": "布局骨架始于全出血、电影感十足的首屏区域，占据了视口的主要部分。随后是居中、宽敞的内容块，排列在干净、浅背景的网格上。",
+      "ch7_intro": "动效理念优先考虑微妙与精致，而非复杂的编排。所有交互状态变化都使用平滑、缓动效果良好的过渡，聚焦于颜色、透明度和宽度，而非繁琐的动画。",
+      "ch8_intro": "编辑声音自信且富有冒险精神，采用加粗、祈使句式的标题和直接、行动导向的行动号召。语言避免技术术语和激进的销售话术，倾向于清晰、信息丰富的陈述。",
+      "ch8_outro": "该系统特意排除了装饰性衬线字体、杂乱的布局和复杂的色彩组合，以保持其专注、电影般的清晰感。"
+    },
+    "zh-TW": {
+      "ch1_intro": "這套設計系統的運作，宛如高端戶外裝備品牌與精密汽車工程的結合——每個組件都具備專門用途、耐用性，並去除多餘裝飾。它的識別 DNA 在粗獷冒險與精緻極簡之間取得平衡，形成一種視覺語言，無論在登山口或展示間都同樣得體。",
+      "ch2_intro": "高對比的單色調調色盤構成基礎，黑與白為攝影內容提供乾淨畫布。系統為行動呼籲保留單一溫暖的金橙色強調色，確保這些互動時刻能明確突顯其目的。",
+      "ch2_outro": "原則在於克制：色彩僅用於引導注意力，而非裝飾。",
+      "ch3_intro": "字體採用人文主義無襯線分類，透過字重與字級建立層級。粗重且字距緊密的展示標題，與較輕的內文字重形成對比，而大寫字母則專用於導覽元素。",
+      "ch4_intro": "間距遵循嚴格的 4px 格線，創造一致的垂直節奏，並在主要內容區塊周圍保留充裕留白。",
+      "ch5_intro": "介面表面保持極簡，依靠柔和、細微的陰影創造層次，而非厚重邊框或填充。設計謹慎使用細薄淺色邊框來構建結構清晰度，使焦點留在內容與攝影作品上。",
+      "ch6_intro": "版面骨架以全出血、電影感的主視覺區塊開場，佔據大部分視窗。隨後是以乾淨淺色格線為基底，置中且寬裕的內容區塊排列。",
+      "ch7_intro": "動態設計哲學優先考量細膩精緻，而非複雜編排。所有互動狀態變化均採用平順、高緩動的過渡效果，聚焦於顏色、透明度與寬度，而非繁複動畫。",
+      "ch8_intro": "編輯語調自信且冒險，使用大膽的祈使句標題與直接、行動導向的呼籲。語言避免技術術語與侵略性銷售用語，改採清晰、資訊性的陳述。",
+      "ch8_outro": "系統刻意排除裝飾性襯線字體、雜亂版面與複雜配色，以維持其專注、電影般的清晰度。"
+    },
+    "ja": {
+      "ch1_intro": "このデザインシステムは、高級アウトドアギアブランドと精密な自動車工学を融合したかのように機能します。すべてのコンポーネントは目的に応じて構築され、耐久性があり、装飾は排除されています。そのアイデンティティDNAは、荒々しい冒険と洗練されたミニマリズムのバランスを取り、トレイルヘッドでもショールームフロアでも equally 自然に馴染むビジュアル言語を生み出しています。",
+      "ch2_intro": "高コントラストのモノクロームパレットが基盤を形成し、黒と白が写真やコンテンツにクリーンなキャンバスを提供します。システムは、CTA（行動を促す要素）に単一の暖色系ゴールデンオレンジのアクセントを予約しており、これらインタラクティブな瞬間が明確な目的を持って際立つようにしています。",
+      "ch2_outro": "原則は抑制です：色は注意を誘導するために控えめに適用され、装飾用ではありません。",
+      "ch3_intro": "タイポグラフィはヒューマニストサンセリフカテゴリーに従い、ウェイトとスケールを使って階層を構築します。太字で tighten された表示見出しは、より軽い本文ウェイトと対比を形成し、大文字はナビゲーション要素専用として予約されています。",
+      "ch4_intro": "スペースは厳密な4pxグリッドに従い、一貫した垂直リズムと主要コンテンツブロック周囲の適切な余白を生み出します。",
+      "ch5_intro": "面はミニマルで、太いボーダーや塗りつぶしではなく、柔らかく微妙なシャドウによって浮き上がりを表現します。デザインは構造的な明瞭さのために、細く軽いボーダーを控えめに使用し、コンテンツと写真に焦点を保ちます。",
+      "ch6_intro": "レイアウトの骨格は、ビューポートを支配するフルブリードのシネマティックなヒーローセクションから始まります。その後に、クリーンで明るい背景グリッド上に配置された、中央揃えの適切なコンテンツブロックが続きます。",
+      "ch7_intro": "モーションの哲学は、複雑なコレオグラフィーよりも、繊細さと洗練を優先します。すべてのインタラクティブな状態変化は、洗練されたアニメーションよりも、色、不透明度、幅に焦点を当てた滑らかな、高イージングのトランジションを使用します。",
+      "ch8_intro": "エディトリアルボイスは自信に満ち、冒険的で、太字の命令的な見出しと直接的で行動志向のCTAを使用します。言語は、技術用語やアグレッシブな販売言語を避け、明確で情報に富んだstatementを重視します。",
+      "ch8_outro": "システムは、集中したシネマティックな明瞭さを維持するために、装飾的なセリフフォント、ごちゃごちゃしたレイアウト、複雑なカラーパレットを意図的に排除しています。"
+    },
+    "ko": {
+      "ch1_intro": "이 디자인 시스템은 하이엔드 아웃도어 장비 브랜드와 정밀 자동차 공학이 결합된 것처럼 작동합니다—모든 요소는 목적에 맞게 제작되고, 내구성이 뛰어나며, 장식이 배제되어 있습니다. Its identity DNA는 거친 모험과 세련된 미니멀리즘의 균형을 이루며, 트레일헤드나 쇼룸 바닥 어느 곳에서도 자연스럽게 어우러지는 시각적 언어를 만들어냅니다.",
+      "ch2_intro": "고대비 모노크롬 팔레트가 기반을 형성하며, 블랙과 화이트가 사진과 콘텐츠를 위한 깔끔한 캔버스를 제공합니다. 이 시스템은 행동을 유도하는 요소에 단 하나의 따뜻한 골든 오렌지 악센트를 예약하여, 이러한 인터랙티브 순간들이 명확한 목적을 가지고 돋보이도록 합니다.",
+      "ch2_outro": "원칙은 절제입니다: 색상은 장식하기보다 주의를 이끌기 위해 절제적으로 적용됩니다.",
+      "ch3_intro": "타이포그래피는 휴머니스트 sans-serif 카테고리를 따르며, 무게와 크기를 사용하여 계층을 만듭니다. 굵고 좁게 간격을 둔 디스플레이 헤드라인은 가벼본 본문 무게와 대비되며, 대문자는 탐색 요소에만 독점적으로 사용됩니다.",
+      "ch4_intro": "간격은 엄격한 4px 그리드를 따르며, 일관된 수직 리듬과 주요 콘텐츠 블록 주변의 넉넉한 여백을 만듭니다.",
+      "ch5_intro": "표면은 미니멀하며, 무거운 테두리나 채우기 대신 부드럽고 은은한 그림자를 사용하여 높이감을 표현합니다. 디자인은 구조적 명확성을 위해 얇고 가벼운 테두리를 절제적으로 사용하며, 콘텐츠와 사진에 초점을 맞춥니다.",
+      "ch6_intro": "레이아웃 스켈레톤은 뷰포트를 지배하는 풀블리드 시네마틱 히어로 섹션으로 시작합니다. 이어서 정렬된, 넉넉한 콘텐츠 블록이 깔끔하고 밝은 배경의 그리드 위에 배열됩니다.",
+      "ch7_intro": "모션 철학은 복안한 안무보다 미묘함과 세련됨을 우선시합니다. 모든 인터랙티브 상태 변화는 정교한 애니메이션이 아닌, 색상, 불투명도, 너비에 초점을 맞춘 부드럽고 높은 이징의 트랜지션을 사용합니다.",
+      "ch8_intro": "에디토리얼 목소리는 자신감 있고 모험적이며, 굵은 명령형 헤드라인과 직접적이고 행동 지향적인 행동 유도 요소를 사용합니다. 언어는 기술 용어나 공격적인 판매 언어를 피하고 명확하고 정보적인 진술을 선호합니다.",
+      "ch8_outro": "이 시스템은 집중적이고 시네마틱한 명확성을 유지하기 위해 장식용 세리프 폰트, 복잡한 레이아웃, 복잡한 색상 팔레트를 의도적으로 배제합니다."
+    }
+  }
 }

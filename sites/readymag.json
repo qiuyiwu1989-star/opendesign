@@ -8,8 +8,615 @@
     "tool",
     "design"
   ],
-  "status": "pending",
+  "status": "completed",
   "added_at": "2026-06-02",
   "added_by": "expand-200",
-  "_meta": {}
+  "_meta": {
+    "vision_model": "mimo-v2.5",
+    "vision_prompt_version": "0.3",
+    "vision_source": "playwright-extract:readymag",
+    "vision_grounded": true,
+    "vision_at": "2026-06-04T18:18:43+00:00",
+    "vision_tokens": 16945,
+    "vision_cost_usd": 0.1883,
+    "translation_model": "mimo-v2.5",
+    "translation_at": "2026-06-04T18:20:05+00:00",
+    "translation_tokens": 17434,
+    "translation_cost_usd": 0.0582,
+    "narrative_model": "mimo-v2.5",
+    "narrative_prompt_version": "0.3",
+    "narrative_at": "2026-06-04T18:20:15+00:00",
+    "narrative_tokens": 2067,
+    "narrative_cost_usd": 0.0138,
+    "narrative_status": "ok",
+    "total_cost_usd": 0.2603
+  },
+  "spec": {
+    "colors": {
+      "bg": "#FFFFFF",
+      "bgSoft": "#F4F4F4",
+      "bgQuiet": null,
+      "ink": "#282828",
+      "inkSoft": "#444444",
+      "muted": "#808080",
+      "mutedSoft": null,
+      "accent": "#FF5000",
+      "line": "rgba(40,40,40,0.24)"
+    },
+    "typography": {
+      "display": "humanist-sans",
+      "body": "system-sans",
+      "mono": null,
+      "scale": [
+        {
+          "token": "display",
+          "size": 80,
+          "lh": 1.0,
+          "weight": 500,
+          "ls": "-2px"
+        },
+        {
+          "token": "headline",
+          "size": 30,
+          "lh": 1.3,
+          "weight": 400,
+          "ls": "-0.8px"
+        },
+        {
+          "token": "body",
+          "size": 16,
+          "lh": 1.5,
+          "weight": 400,
+          "ls": "-0.04px"
+        },
+        {
+          "token": "caption",
+          "size": 14,
+          "lh": 1.7,
+          "weight": 400,
+          "ls": "0px"
+        }
+      ]
+    },
+    "spacing": {
+      "base": 4,
+      "scale": [
+        4,
+        8,
+        16,
+        24,
+        32,
+        48,
+        64,
+        96
+      ]
+    },
+    "surfaces": {
+      "radius": {
+        "sm": 4,
+        "md": 10,
+        "lg": 20,
+        "pill": 999
+      }
+    },
+    "layout": {
+      "container": 1280,
+      "paragraph": 680,
+      "columns": 12,
+      "gutter": 24,
+      "breakpoints": [
+        768,
+        1024
+      ]
+    },
+    "motion": {
+      "durations": {
+        "micro": 220,
+        "small": 400,
+        "medium": 800
+      },
+      "easing": "cubic-bezier(0.25, 0.1, 0.25, 1.0)"
+    }
+  },
+  "spec_i18n": {
+    "en": {
+      "identity": {
+        "keywords": [
+          "creative",
+          "expressive",
+          "design-led",
+          "gallery",
+          "portfolio"
+        ],
+        "analogy": "A Swiss-style gallery for digital design tools.",
+        "oneLiner": "A premium design tool platform for creating expressive, gallery-like websites."
+      },
+      "colors": {
+        "principle": "High-contrast base with bold, saturated accents and generous white space."
+      },
+      "typography": {
+        "rules": [
+          "Use Geometric/Humanist sans for display headlines.",
+          "Use system fonts for UI elements.",
+          "Ensure tight letter-spacing for large display text."
+        ],
+        "scaleUses": [
+          "Main hero headlines",
+          "Section headers and feature cards",
+          "Standard paragraph and UI text",
+          "Small supporting text and captions"
+        ]
+      },
+      "spacing": {
+        "rhythm": "4px base grid with tight, intentional spacing for compact UI elements."
+      },
+      "surfaces": {
+        "shadows": [
+          "0 2px 8px rgba(0,0,0,0.05)"
+        ],
+        "borders": "1px solid rgba(40,40,40,0.24)"
+      },
+      "layout": {
+        "skeleton": "Standard 12-column grid with flexible gutters and high-density gallery layouts."
+      },
+      "components": {
+        "button": "Pill-shaped with bold orange background and white text, or outlined with dark borders.",
+        "card": "Image-heavy with tight borders and minimal padding, focusing on visual content.",
+        "chip": "Not prominently featured, used for tags or small status labels.",
+        "input": "Clean text inputs with bottom borders or subtle backgrounds.",
+        "hero": "Large expressive typography paired with a high-density image gallery or bold color blocks."
+      },
+      "motion": {
+        "patterns": [
+          "Smooth opacity transitions for UI state changes.",
+          "Subtle transform animations for interactive elements.",
+          "Fade-in/out for modal and overlay appearances."
+        ]
+      },
+      "interaction": {
+        "hover": "Subtle brightness or opacity change on interactive elements.",
+        "click": "Immediate visual feedback with slight transform or color shift.",
+        "transition": "Smooth opacity and transform transitions for all interactive states.",
+        "keyboard": "Standard focus outlines with high-contrast visibility."
+      },
+      "voice": {
+        "tone": "Confident, direct, and creatively focused.",
+        "headlineStyle": "Bold, minimalist, and often experimental or oversized.",
+        "ctaStyle": "Direct and action-oriented, often using bold primary colors.",
+        "avoid": [
+          "Jargon-heavy technical language",
+          "Overly corporate or sterile tone",
+          "Low-contrast or hard-to-read typography"
+        ]
+      },
+      "donts": [
+        "Don't use decorative or script fonts — screenshot shows clean, functional sans-serif typography.",
+        "Don't use low-contrast colors for text — screenshot shows high-contrast black and white with bold accents.",
+        "Don't use complex, cluttered layouts — screenshot shows clear, grid-based gallery layouts.",
+        "Don't use rounded, bubbly UI components everywhere — screenshot shows sharp, intentional borders and pill shapes for buttons only.",
+        "Don't use muted, pastel color palettes — screenshot shows bold, saturated colors like orange and purple.",
+        "Don't hide visual content behind interactions — screenshot shows high-density image galleries as primary content."
+      ],
+      "systemPrompt": "This is a premium design tool platform for creating expressive, gallery-like websites. The primary background is white (#FFFFFF) with dark ink (#282828) for text, accented by a bold orange (#FF5000) for CTAs and purple (#8800FF) for highlights. Typography uses a humanist-sans display font and system sans-serif for body text. Critical donts: don't use decorative fonts, don't use low-contrast text, and don't use cluttered layouts. The layout is grid-based with high-density visual galleries and generous white space, focusing on showcasing design work."
+    },
+    "zh-CN": {
+      "identity": {
+        "keywords": [
+          "创意",
+          "表现力",
+          "设计驱动",
+          "画廊",
+          "作品集"
+        ],
+        "analogy": "一个用于数字设计工具的瑞士风格画廊。",
+        "oneLiner": "一个用于创建富有表现力、画廊般网站的高端设计工具平台。"
+      },
+      "colors": {
+        "principle": "高对比度基底，搭配大胆、饱和的点缀色与充足的留白。"
+      },
+      "typography": {
+        "rules": [
+          "展示标题使用几何/人文无衬线字体。",
+          "UI元素使用系统字体。",
+          "大型展示文字确保紧凑的字间距。"
+        ],
+        "scaleUses": [
+          "主视觉标题",
+          "区域标题和功能卡片",
+          "标准段落和UI文本",
+          "辅助性小文本和说明文字"
+        ]
+      },
+      "spacing": {
+        "rhythm": "基于4px的网格，紧凑UI元素的间距紧凑且有意为之。"
+      },
+      "surfaces": {
+        "shadows": [
+          "0 2px 8px rgba(0,0,0,0.05)"
+        ],
+        "border": "1px solid rgba(40,40,40,0.24)"
+      },
+      "layout": {
+        "skeleton": "标准12栏网格，具有灵活的栏间距和高密度画廊布局。"
+      },
+      "components": {
+        "button": "药丸形状，配以大胆的橙色背景和白色文字，或使用深色边框的描边样式。",
+        "card": "以图片为主，边框紧凑，内边距极小，聚焦于视觉内容。",
+        "chip": "未突出显示，用于标签或小型状态标签。",
+        "input": "简洁的文本输入框，采用底部边框或细微背景。",
+        "hero": "大型表现力排版，搭配高密度图片画廊或大胆的色块。"
+      },
+      "motion": {
+        "patterns": [
+          "UI状态变化时使用平滑的透明度过渡。",
+          "交互元素使用细微的变换动画。",
+          "模态框和覆盖层的出现使用淡入/淡出效果。"
+        ]
+      },
+      "interaction": {
+        "hover": "交互元素上的细微亮度或透明度变化。",
+        "click": "立即提供视觉反馈，伴有轻微的变换或颜色偏移。",
+        "transition": "所有交互状态使用平滑的透明度和变换过渡。",
+        "keyboard": "标准焦点轮廓，具有高对比度可见性。"
+      },
+      "voice": {
+        "tone": "自信、直接、专注于创意。",
+        "headlineStyle": "大胆、简约，且常常实验性或超大尺寸。",
+        "ctaStyle": "直接且面向行动，常使用大胆的主色。",
+        "avoid": [
+          "术语过多的技术语言",
+          "过于企业化或枯燥的语调",
+          "低对比度或难以阅读的排版"
+        ]
+      },
+      "donts": [
+        "不要使用装饰性或手写体字体——截图显示的是干净、功能性的无衬线排版。",
+        "不要使用低对比度的文字颜色——截图显示的是高对比度的黑白搭配，辅以大胆的点缀色。",
+        "不要使用复杂、拥挤的布局——截图显示的是清晰的、基于网格的画廊布局。",
+        "不要到处使用圆润、气泡状的UI组件——截图显示的是锐利、有意图的边框，且药丸形状仅用于按钮。",
+        "不要使用柔和、粉彩的调色板——截图显示的是大胆、饱和的颜色，如橙色和紫色。",
+        "不要将视觉内容隐藏在交互之后——截图显示高密度图片画廊是主要内容。"
+      ],
+      "systemPrompt": "这是一个用于创建富有表现力、画廊般网站的高端设计工具平台。主要背景为白色（#FFFFFF），文字使用深墨色（#282828），并以大胆的橙色（#FF5000）用于CTA，紫色（#8800FF）用于强调。排版使用人文无衬线展示字体和系统无衬线字体用于正文。关键禁忌：不要使用装饰性字体，不要使用低对比度文字，不要使用杂乱的布局。布局基于网格，包含高密度的视觉画廊和充足的留白，聚焦于展示设计作品。"
+    },
+    "zh-TW": {
+      "identity": {
+        "keywords": [
+          "創意",
+          "表現力",
+          "設計導向",
+          "畫廊",
+          "作品集"
+        ],
+        "analogy": "一個瑞士風格的數位設計工具畫廊。",
+        "oneLiner": "一個用於打造具有表現力、畫廊式網站的高端設計工具平台。"
+      },
+      "colors": {
+        "principle": "高對比度基調，搭配大膽、飽和的強調色與充足的留白。"
+      },
+      "typography": {
+        "rules": [
+          "使用幾何/人文無襯線字體作為標題展示字型。",
+          "使用系統字體作為介面元素。",
+          "確保大型標題字的字母間距緊湊。"
+        ],
+        "scaleUses": [
+          "主視覺標題",
+          "區塊標題與功能卡片",
+          "標準段落與介面文字",
+          "小型輔助文字與說明文字"
+        ]
+      },
+      "spacing": {
+        "rhythm": "以 4px 為基礎網格，針對緊湊的介面元素採用緊密且具意圖的間距。"
+      },
+      "surfaces": {
+        "shadows": [
+          "0 2px 8px rgba(0,0,0,0.05)"
+        ],
+        "borders": "1px solid rgba(40,40,40,0.24)"
+      },
+      "layout": {
+        "skeleton": "標準的 12 欄網格，具有靈活的溝槽與高密度畫廊佈局。"
+      },
+      "components": {
+        "button": "藥丸形狀，採用大膽的橙色背景與白色文字，或帶有深色邊框的輪廓樣式。",
+        "card": "以圖片為主，邊框緊密且內距極小，專注於視覺內容。",
+        "chip": "並非主要特色，用於標籤或小型狀態標示。",
+        "input": "簡潔的文字輸入框，帶有底部邊框或細微背景。",
+        "hero": "大膽、具表現力的字體排印，搭配高密度圖片畫廊或大膽的色塊。"
+      },
+      "motion": {
+        "patterns": [
+          "UI 狀態變更時採用流暢的透明度過渡。",
+          "互動元素採用細微的變換動畫。",
+          "模態視窗與覆蓋層出現時採用淡入/淡出效果。"
+        ]
+      },
+      "interaction": {
+        "hover": "互動元素在互動時產生細微的亮度或透明度變化。",
+        "click": "立即提供視覺反饋，帶有輕微的變換或色彩偏移。",
+        "transition": "所有互動狀態均採用流暢的透明度與變換過渡。",
+        "keyboard": "標準的焦點輪廓，具備高對比度可見性。"
+      },
+      "voice": {
+        "tone": "自信、直接且專注於創意。",
+        "headlineStyle": "大膽、極簡，常帶有實驗性或超大尺寸。",
+        "ctaStyle": "直接且以行動為導向，常使用大膽的主色調。",
+        "avoid": [
+          "充斥行話的技術性語言",
+          "過度企業化或死板的語氣",
+          "低對比度或難以閱讀的字體排印"
+        ]
+      },
+      "donts": [
+        "不要使用裝飾性或手寫體字型 — 截圖顯示的是乾淨、功能性的無襯線字體排印。",
+        "不要使用低對比度的文字顏色 — 截圖顯示的是高對比度的黑白搭配大膽強調色。",
+        "不要使用複雜、雜亂的佈局 — 截圖顯示的是清晰、基於網格的畫廊佈局。",
+        "不要在所有地方都使用圓潤、氣泡狀的 UI 元素 — 截圖顯示的是銳利、具意圖的邊框，僅按鈕使用藥丸形狀。",
+        "不要使用柔和、粉彩色的色盤 — 截圖顯示的是像橙色與紫色這樣大膽、飽和的色彩。",
+        "不要將視覺內容隱藏在互動之後 — 截圖顯示的是以高密度圖片畫廊作為主要內容。"
+      ],
+      "systemPrompt": "這是一個用於打造具有表現力、畫廊式網站的高端設計工具平台。主要背景為白色 (#FFFFFF)，文字使用深墨色 (#282828)，並以大膽的橙色 (#FF5000) 作為行動呼籲的強調色，紫色 (#8800FF) 作為點綴。字體排印使用人文無襯線展示字型與系統無襯線字體作為內文字型。關鍵禁忌：不要使用裝飾性字型，不要使用低對比度文字，不要使用雜亂的佈局。佈局基於網格，包含高密度的視覺畫廊與充足的留白，專注於展示設計作品。"
+    },
+    "ja": {
+      "identity": {
+        "keywords": [
+          "クリエイティブ",
+          "表現的",
+          "デザイン主導",
+          "ギャラリー",
+          "ポートフォリオ"
+        ],
+        "analogy": "デジタルデザインツールのためのスイススタイルのギャラリー。",
+        "oneLiner": "表現力豊かでギャラリーのようなウェブサイトを作成するための、プレミアムなデザインツールプラットフォーム。"
+      },
+      "colors": {
+        "principle": "大胆で鮮やかなアクセントと豊かなホワイトスペースを持つハイコントラストベース。"
+      },
+      "typography": {
+        "rules": [
+          "ディスプレイ見出しにはGeometric/Humanist sansを使用。",
+          "UI要素にはシステムフォントを使用。",
+          "大きなディスプレイテキストには tightening letter-spacing を確保。"
+        ],
+        "scaleUses": [
+          "メインヒーロー見出し",
+          "セクションヘッダーとフィーチャーカード",
+          "標準段落とUIテキスト",
+          "小さな補足テキストとキャプション"
+        ]
+      },
+      "spacing": {
+        "rhythm": "4pxベースグリッド、コンパクトなUI要素にはtightで意図的なスペーシング。"
+      },
+      "surfaces": {
+        "shadows": [
+          "0 2px 8px rgba(0,0,0,0.05)"
+        ],
+        "borders": "1px solid rgba(40,40,40,0.24)"
+      },
+      "layout": {
+        "skeleton": "フレキシブルなガターとハイデンシティギャラリーレイアウトを持つ標準12カラムグリッド。"
+      },
+      "components": {
+        "button": "大胆なオレンジ背景に白文字のピル型、またはダークボーダーのアウトライン。",
+        "card": " tightなボーダーと最小限のpaddingで、ビジュアルコンテンツに焦点を当てた画像重視のもの。",
+        "chip": "目立った使用はせず、タグや小さなステータスラベルに使用。",
+        "input": "ボトムボーダーまたは繊細な背景を持つクリーンなテキスト入力。",
+        "hero": "大胆なタイポグラフィーと、高密度の画像ギャラリーやboldなカラーブロックを組み合わせたもの。"
+      },
+      "motion": {
+        "patterns": [
+          "UI状態変化のための滑らかなopacityトランジション。",
+          "インタラクティブな要素のための微妙なtransformアニメーション。",
+          "モーダルやオーバーレイの表示のためのフェードイン/フェードアウト。"
+        ]
+      },
+      "interaction": {
+        "hover": "インタラクティブな要素のわずかな明るさやopacityの変化。",
+        "click": "軽微なtransformや色の変化による即座の視覚的フィードバック。",
+        "transition": "すべてのインタラクティブ状態に対する滑らかなopacityとtransformのトランジション。",
+        "keyboard": "ハイコントラストの視認性を持つ標準のfocusアウトライン。"
+      },
+      "voice": {
+        "tone": "自信に満ち、直接的で、クリエイティブに焦点を当てたもの。",
+        "headlineStyle": "boldでミニマル、しばしば実験的またはオーバーサイズ。",
+        "ctaStyle": "直接的でアクション指向、しばしばboldなプライマリカラーを使用。",
+        "avoid": [
+          "難解な技術用語",
+          "過度にコーポレートで無機質なトーン",
+          "低コントラストまたは読みにくいタイポグラフィー"
+        ]
+      },
+      "donts": [
+        "装飾的やスクリプトフォントを使用しない — スクリーンショットはクリーンで機能的なsans-serifタイポグラフィーを示している。",
+        "テキストに低コントラストカラーを使用しない — スクリーンショットはboldなアクセントを持つハイコントラストの白黒を示している。",
+        "複雑で雑然としたレイアウトを使用しない — スクリーンショットはクリアでグリッドベースのギャラリーレイアウトを示している。",
+        "すべてのUIコンポーネントに丸みのある、泡立ったデザインを使用しない — スクリーンショットはシャープで意図的なボーダーと、ボタンのみのピルシェイプを示している。",
+        "ミュートされたパステルカラーパレットを使用しない — スクリーンショットはオレンジやパープルのようなboldで鮮やかなカラーを示している。",
+        "インタラクションの背後にビジュアルコンテンツを隠さない — スクリーンショットはプライマリコンテンツとして高密度の画像ギャラリーを示している。"
+      ],
+      "systemPrompt": "これは、表現力豊かでギャラリーのようなウェブサイトを作成するための、プレミアムなデザインツールプラットフォームです。プライマリ背景は白（#FFFFFF）で、テキストにはダークインク（#282828）を使用し、CTAにはboldなオレンジ（#FF5000）、ハイライトにはパープル（#8800FF）をアクセントとしています。タイポグラフィーにはhumanist-sansのディスプレイフォントと本文にはシステムsans-serifを使用。重要な禁止事項：装飾フォントを使用しない、低コントラストテキストを使用しない、雑然としたレイアウトを使用しない。レイアウトはグリッドベースで、高密度のビジュアルギャラリーと豊かなホワイトスペースを持ち、デザインワークの展示に焦点を当てています。"
+    },
+    "ko": {
+      "identity": {
+        "keywords": [
+          "창의적",
+          "표현력 있는",
+          "디자인 주도",
+          "갤러리",
+          "포트폴리오"
+        ],
+        "analogy": "디자인 도구를 위한 스위스 스타일 갤러리.",
+        "oneLiner": "표현력 있는 갤러리 스타일 웹사이트를 만들기 위한 프리미엄 디자인 도구 플랫폼."
+      },
+      "colors": {
+        "principle": "굵고 포화된 강조색과 넉넉한 여백을 가진 고대비 기본값."
+      },
+      "typography": {
+        "rules": [
+          "디스플레이 헤드라인에는 기하학적/휴머니스트 산세리프를 사용합니다.",
+          "UI 요소에는 시스템 폰트를 사용합니다.",
+          "큰 디스플레이 텍스트에는 타이트한 자간을 적용합니다."
+        ],
+        "scaleUses": [
+          "메인 히어로 헤드라인",
+          "섹션 헤더 및 기능 카드",
+          "일반 단락 및 UI 텍스트",
+          "보조 텍스트 및 캡션"
+        ]
+      },
+      "spacing": {
+        "rhythm": "컴팩트 UI 요소를 위한 타이트하고 의도적인 간격을 가진 4px 기본 그리드."
+      },
+      "surfaces": {
+        "shadows": [
+          "0 2px 8px rgba(0,0,0,0.05)"
+        ],
+        "borders": "1px solid rgba(40,40,40,0.24)"
+      },
+      "layout": {
+        "skeleton": "유연한 거터와 고밀도 갤러리 레이아웃을 갖춘 표준 12컬럼 그리드."
+      },
+      "components": {
+        "button": "굵은 오렌지 배경에 흰색 텍스트가 있는 알약 모양이거나, 짙은 테두리가 있는 윤곽선 스타일.",
+        "card": "이미지 위주에 타이트한 테두리와 최소한의 패딩을 사용하여 시각적 콘텐츠에 초점을 맞춥니다.",
+        "chip": "두드러지게 사용되지 않으며, 태그 또는 작은 상태 레이블로 사용됩니다.",
+        "input": "하단 테두리 또는 섬세한 배경이 있는 깔끔한 텍스트 입력 필드.",
+        "hero": "대규모 표현적 타이포그래피와 고밀도 이미지 갤러리 또는 굵은 색상 블록을 결합합니다."
+      },
+      "motion": {
+        "patterns": [
+          "UI 상태 변화를 위한 부드러운 불투명도 전환.",
+          "인터랙티브 요소를 위한 섬세한 변형 애니메이션.",
+          "모달 및 오버레이가 나타날 때의 페이드 인/아웃."
+        ]
+      },
+      "interaction": {
+        "hover": "인터랙티브 요소의 미세한 밝기 또는 불투명도 변화.",
+        "click": "약간의 변형이나 색상 변화로 즉각적인 시각적 피드백.",
+        "transition": "모든 인터랙티브 상태에 대한 부드러운 불투명도 및 변형 전환.",
+        "keyboard": "고대비 가시성을 가진 표준 focus 윤곽선."
+      },
+      "voice": {
+        "tone": "자신감 있고 직접적이며 창의적으로 초점을 맞춥니다.",
+        "headlineStyle": "굵고 미니멀하며 종종 실�적이거나 과장된 크기.",
+        "ctaStyle": "직접적이고 행동 지향적이며, 종종 굵은 기본 색상을 사용합니다.",
+        "avoid": [
+          "전문 용어가 많이 포함된 기술적 언어",
+          "지나치게 기업적이거나 건조한 톤",
+          "저대비이거나 읽기 어려운 타이포그래피"
+        ]
+      },
+      "donts": [
+        "장식적이거나 붓글꼴을 사용하지 마세요 — 스크린샷은 깔끔하고 기능적인 산세리프 타이포그래피를 보여줍니다.",
+        "텍스트에 저대비 색상을 사용하지 마세요 — 스크린샷은 굵은 강조색이 포함된 고대비 흑백을 보여줍니다.",
+        "복잡하고 지저분한 레이아웃을 사용하지 마세요 — 스크린샷은 명확하고 그리드 기반의 갤러리 레이아웃을 보여줍니다.",
+        "모든 곳에 둥글고 통통한 UI 컴포넌트를 사용하지 마세요 — 스크린샷은 날카롭고 의도적인 테두리와 버튼에만 사용되는 알약 모양을 보여줍니다.",
+        "뮤트된 파스텔 팔레트를 사용하지 마세요 — 스크린샷은 오렌지와 보라색과 같은 굵고 포화된 색상을 보여줍니다.",
+        "상호작용 뒤에 시각적 콘텐츠를 숨기지 마세요 — 스크린샷은 주요 콘텐츠로서 고밀도 이미지 갤러리를 보여줍니다."
+      ],
+      "systemPrompt": "This is a premium design tool platform for creating expressive, gallery-like websites. The primary background is white (#FFFFFF) with dark ink (#282828) for text, accented by a bold orange (#FF5000) for CTAs and purple (#8800FF) for highlights. Typography uses a humanist-sans display font and system sans-serif for body text. Critical donts: don't use decorative fonts, don't use low-contrast text, and don't use cluttered layouts. The layout is grid-based with high-density visual galleries and generous white space, focusing on showcasing design work."
+    }
+  },
+  "desc": {
+    "en": {
+      "palette": "A high-contrast palette featuring a clean white background, dark charcoal ink, and bold, saturated accents in orange and purple.",
+      "layout": "A flexible 12-column grid layout that adapts to high-density galleries and bold typographic sections.",
+      "interaction": "Smooth, subtle transitions and hover effects that enhance the creative, expressive feel without being distracting.",
+      "motion": "Efficient and purposeful animations with varied durations for micro-interactions and larger page transitions.",
+      "notes": "This site exemplifies a design-led platform that balances premium, editorial aesthetics with the functional needs of a design tool, making it a strong reference for creative digital products."
+    },
+    "zh-CN": {
+      "palette": "高对比度调色板，以纯净白色背景、深炭墨色文字为主，搭配橙色和紫色的大胆饱和点缀色。",
+      "layout": "灵活的12栏网格布局，可适应高密度画廊和醒目的排版区域。",
+      "interaction": "流畅、细腻的过渡与悬停效果，在不分散注意力的前提下，增强创意与表现力。",
+      "motion": "高效且富有目的性的动画，为微交互和大型页面转换提供不同的持续时间。",
+      "notes": "该网站是一个设计驱动型平台的典范，它平衡了高端、编辑的美学与设计工具的功能需求，是创意数字产品的优秀参考。"
+    },
+    "zh-TW": {
+      "palette": "高對比度的色盤，以乾淨的白色背景、深炭黑墨色為基調，搭配大膽、飽和的橙色與紫色作為強調色。",
+      "layout": "靈活的 12 欄網格佈局，能適應高密度畫廊與大膽的字體排印區塊。",
+      "interaction": "流暢、細膩的過渡效果與互動懸停效果，在不造成干擾的前提下，增強創意與表現力。",
+      "motion": "高效且具目的性的動畫，針對微互動與較大型的頁面過渡，採用不同的持續時間。",
+      "notes": "此網站展現了一個設計導向的平台典範，平衡了高端、編輯式的美學與設計工具的功能性需求，是創意數位產品的有力參考。"
+    },
+    "ja": {
+      "palette": "クリーンな白の背景、ダークチャコールインク、そしてオレンジとパープルの大胆で鮮やかなアクセントを特徴とする、ハイコントラストのパレット。",
+      "layout": "ハイデンシティのギャラリーや大胆なタイポグラフィーセクションに適応する、柔軟な12カラムグリッドレイアウト。",
+      "interaction": "目を引かずに、クリエイティブで表現力豊かな感覚を高める、滑らかで繊細なトランジションとhover効果。",
+      "motion": "マイクロインタラクションと大規模なページトランジションに異なる持続時間を用いた、効率的で目的意識のあるアニメーション。",
+      "notes": "このサイトは、プレミアムなエディトリアル美学とデザインツールの機能的ニーズのバランスを取る、デザイン主導のプラットフォームの模範であり、クリエイティブなデジタル製品の強力な参考資料となります。"
+    },
+    "ko": {
+      "palette": "흰 배경, 짙은 차콜 잉크, 그리고 오렌지와 보라색의 굵고 포화된 강조색이 특징인 고대비 팔레트입니다.",
+      "layout": "고밀도 갤러리와 굵은 타이포그래피 섹션에 맞게 유연하게 조정되는 12컬럼 그리드 레이아웃입니다.",
+      "interaction": "집중을 방해하지 않으면서도 창의적이고 표현력 있는 느낌을 강화하는 부드럽고 섬세한 전환 및 hover 효과입니다.",
+      "motion": "마이크로 상호작용과 더 큰 페이지 전환을 위해 다양한 지속 시간을 가진 효율적이고 목적 있는 애니메이션입니다.",
+      "notes": "이 사이트는 프리미엄 편집적 미학과 디자인 도구의 기능적 요구 사이의 균형을 맞추는 디자인 주도 플랫폼의 예시로, 창의적인 디지털 제품을 위한 강력한 참고 자료가 됩니다."
+    }
+  },
+  "narrative": {
+    "en": {
+      "ch1_intro": "The system is conceived as a Swiss-style gallery for digital design tools, where the architecture prioritizes clarity and the exhibit—creative work—remains the focal point. Every decision, from the grid to the type scale, supports this gallery metaphor, ensuring the platform itself recedes to let user expression take center stage.",
+      "ch2_intro": "Color operates on a principle of high-contrast clarity, establishing a pristine white ground against deep charcoal ink for maximum legibility. A deliberate accent palette of bold orange and electric purple provides visual punctuation, marking calls to action and key highlights without cluttering the neutral base.",
+      "ch2_outro": "The core principle is function: contrast drives readability, while saturated accents direct user attention with purpose.",
+      "ch3_intro": "Typographic voice is split between expressive display and utilitarian function, using a humanist sans for dramatic headlines and system fonts for interface text to ensure optimal rendering. This duality allows the platform to present bold, gallery-like statements while maintaining clean, unobtrusive usability for tools and navigation.",
+      "ch4_intro": "Spacing follows a strict 4px base grid, creating a compact, intentional rhythm that tightens around interactive elements while allowing generous whitespace in presentation areas.",
+      "ch5_intro": "Surfaces are defined by subtle depth and precise delineation, using light shadows to lift interactive cards from the ground and fine, translucent borders to structure dense visual galleries without visual weight.",
+      "ch6_intro": "The structural skeleton is a standard 12-column grid with flexible gutters, designed to accommodate both high-density image galleries and expansive typographic layouts. This framework provides the necessary order for expressive content, ensuring alignment and rhythm even in the most content-rich portfolio displays.",
+      "ch7_intro": "Motion is treated as a functional enhancement rather than decoration, with smooth opacity transitions defining state changes and subtle transforms marking interactivity. The philosophy prioritizes efficiency and purpose, ensuring animations clarify the interface's mechanics without distracting from the primary visual content.",
+      "ch8_intro": "Editorial voice is confident, direct, and creatively focused, mirrored in bold, often oversized headline styles and action-oriented call-to-action labels. The system deliberately avoids corporate sterility and technical jargon, maintaining a tone that speaks peer-to-peer with a design-literate audience.",
+      "ch8_outro": "The system deliberately excludes decorative fonts, low-contrast text, and cluttered layouts, reinforcing its commitment to functional beauty and content-first presentation."
+    },
+    "zh-CN": {
+      "ch1_intro": "该系统被构想为一个瑞士风格的数字设计工具画廊，其架构优先考虑清晰度，而展品——创意作品——始终是焦点。从网格到字型比例的每一个决定，都支持着这个画廊隐喻，确保平台本身退居次席，让用户表达成为中心。",
+      "ch2_intro": "色彩运用遵循高对比度清晰度的原则，以深炭墨色字迹搭配纯净白底，实现最佳可读性。大胆的橙色和电光紫构成刻意为之的强调色系，提供视觉标点，用于标记行动号召和关键亮点，而不干扰中性基底。",
+      "ch2_outro": "核心原则是功能性：对比度驱动可读性，而饱和的强调色则有目的地引导用户注意力。",
+      "ch3_intro": "字体声音分为表现力强的展示型和功能实用型，使用人文主义无衬线字体用于戏剧性标题，系统字体用于界面文本，以确保最佳渲染效果。这种二元性使平台既能呈现大胆的、画廊般的宣言，又能保持工具和导航的简洁、不干扰的可用性。",
+      "ch4_intro": "间距遵循严格的4px基础网格，创造出紧凑、有目的性的节奏，在交互元素周围收紧，同时在展示区域提供充足的留白。",
+      "ch5_intro": "界面表面通过微妙的深度和精确的界定来定义，使用轻阴影将交互卡片从背景中提升，并用纤细、半透明的边框来构建密集的视觉画廊，而不增加视觉负担。",
+      "ch6_intro": "结构骨架是标准的12列网格，带有灵活的栏间距，旨在适应高密度图像画廊和宽幅的字型排版布局。该框架为富有表现力的内容提供了必要的秩序，确保即使在内容最丰富的作品集展示中，也能保持对齐和节奏。",
+      "ch7_intro": "动效被视为功能增强而非装饰，平滑的透明度过渡定义状态变化，微妙的变换标记交互性。其理念优先考虑效率和目的，确保动画能阐明界面的运作机制，而不分散对主要视觉内容的注意力。",
+      "ch8_intro": "编辑声音自信、直接且聚焦于创意，这反映在粗体、常常是超大尺寸的标题风格和行动导向的行动号召标签中。系统刻意避免企业化的冰冷感和技术术语，保持一种与设计素养受众平级对话的语气。",
+      "ch8_outro": "该系统刻意排除装饰性字体、低对比度文本和杂乱的布局，强化其对功能性美感和内容优先呈现方式的承诺。"
+    },
+    "zh-TW": {
+      "ch1_intro": "系統以瑞士風格的數位設計工具展廳為藍本，架構優先考慮清晰度，而展品——創意作品——則是焦點所在。從網格到字體比例的每項決策都支持這個展廳隱喻，確保平台本身退居幕後，讓用戶的表達成為主角。",
+      "ch2_intro": "色彩運作基於高對比清晰度原則，以深炭墨色於純白背景上建立最大可讀性。大膽的橘色與電光紫組成的刻意強調色調提供了視覺標點，標示行動呼籲與關鍵亮點，同時不損害中性基調的整潔。",
+      "ch2_outro": "核心原則是功能：對比驅動可讀性，而飽和的強調色則有目的地引導用戶注意力。",
+      "ch3_intro": "排版語氣在表達性展示與實用功能之間取得平衡，使用人文無襯線字體營造戲劇性的標題，並以系統字體處理介面文字以確保最佳渲染效果。這種二元性讓平台既能呈現大膽、展廳般的聲明，又能保持工具與導覽的簡潔、不干擾的可用性。",
+      "ch4_intro": "間距遵循嚴格的 4px 基礎網格，創造緊湊、有目的的節奏，在互動元素周圍緊縮，同時在展示區域保留充足的留白。",
+      "ch5_intro": "表面由細微的深度與精確的劃界定義，使用淺陰影將互動卡片從底層提升，並以精細、半透明的邊框來結構化密集的視覺展廳，而不增加視覺重量。",
+      "ch6_intro": "結構骨架是標準的 12 欄網格，配有彈性間距，旨在同時容納高密度影像展廳與寬闊的排版版面。此框架為表達性內容提供必要的秩序，即使在最豐富的內容展示組合中，也能確保對齊與節奏。",
+      "ch7_intro": "動態被視為功能性增強而非裝飾，流暢的透明度過渡定義了狀態變化，而細微的變換則標示互動性。此理念優先考慮效率與目的，確保動畫能闡明介面的機制，而不從主要視覺內容上分散注意力。",
+      "ch8_intro": "編輯語氣自信、直接且專注於創意，體現在大膽、常為超大尺寸的標題樣式與以行動為導向的行動呼籲標籤中。系統刻意避免企業式的冰冷感與技術術語，維持與具備設計素養的受眾平等對話的語氣。",
+      "ch8_outro": "系統刻意排除裝飾性字體、低對比文字與雜亂的版面，強化其對功能性美感與內容優先展示的承諾。"
+    },
+    "ja": {
+      "ch1_intro": "本システムは、スイス・スタイルのデジタルデザインツールのギャラリーとして構想されています。アーキテクチャは明瞭さを優先し、展示物であるクリエイティブワークが焦点であり続けます。グリッドからタイポスケールに至るまでのあらゆる決定は、このギャラリーメタファーを支え、プラットフォーム自体が後退し、ユーザーの表現が主役となることを保証します。",
+      "ch2_intro": "色は高コントラストによる明瞭さの原則に基づき、最大限の可読性のために、深い炭墨色のインクに対し清廉潔白な白の地を確立します。大胆なオレンジと電気的な紫からなる意図的なアクセントパレットは、視読上の句読点となり、操作要求や主要なハイライトを示しますが、ニュートラルな土台を雑踏させることはありません。",
+      "ch2_outro": "中心原理は機能です。コントラストは可読性を推進し、鮮やかなアクセントは目的を持ってユーザーの注意を誘導します。",
+      "ch3_intro": "タイポグラフィックな声は、表現力のあるディスプレイと実用的な機能に分かれており、ドラマチックな見出しにはヒューマニスト・サンセリフを、インターフェーステキストにはシステムフォントを採用し、最適なレンダリングを確保しています。この二元性により、プラットフォームは大胆でギャラリーのような声明を提示しながら、ツールやナビゲーションに対してクリーンで目立たない使いやすさを維持します。",
+      "ch4_intro": "スペースは厳格な4pxベースグリッドに従い、インタラクティブな要素の周りは紧凑なリズムを刻み、プレゼンテーション領域には豊かな余白を許容します。",
+      "ch5_intro": "サーフェスは微細な奥行きと精密な境界線によって定義され、インタラクティブなカードを背景から浮かび上がらせる軽いシャドウと、視覚的な重みなしに密集したビジュアルギャラリーを構造化する細く半透明なボーダーを使用します。",
+      "ch6_intro": "構造的な骨格は、柔軟なガターを持つ標準的な12カラムグリッドであり、高密度の画像ギャラリーと広大なタイポグラフィックレイアウトの両方に対応するよう設計されています。このフレームワークは、表現力豊かなコンテンツに必要な秩序を提供し、最もコンテンツが豊富なポートフォリオ表示であっても、整列とリズムを確保します。",
+      "ch7_intro": "モーションは装飾ではなく機能的な強調として扱われ、滑らかな透明度の遷移が状態変化を定義し、微細なトランスフォームがインタラクティビティを示します。この哲学は効率と目的を優先し、アニメーションがインターフェースの仕組みを明確にしつつ、主要なビジュアルコンテンツから注意をそらさないことを保証します。",
+      "ch8_intro": "エディトリアルボイスは自信に満ち、直接的で、クリエイティブに焦点を合わせており、大胆でしばしばオーバーサイズの見出しスタイルやアクション指向のラベルに反映されています。本システムは、あえて企業的な無機質さや専門用語を避け、デザインに精通した聴衆と対等に語りかけるトーンを維持しています。",
+      "ch8_outro": "本システムは、あえて装飾的なフォント、低コントラストのテキスト、雑踏したレイアウトを排除し、機能的な美しさとコンテンツファーストのプレゼンテーションへの commitments を再確認しています。"
+    },
+    "ko": {
+      "ch1_intro": "이 시스템은 디자인 도구를 위한 스위스 스타일 갤러리로 구상되었으며, 구조는 명확성을 우선시하고 전시물인 창작 작품이 초점으로 남도록 합니다. 그리드부터 타이포그래피 스케일까지 모든 결정은 이 갤러리 비유를 뒷받침하며, 플랫폼 자체가 후퇴하여 사용자의 표현이 중심이 되도록 보장합니다.",
+      "ch2_intro": "색상은 고대비 명확성의 원칙으로 운영되며, 최대 가독성을 위해 깊은 차콜 잉크와 깨끗한 흰색 바탕을 대비시킵니다. 대담한 오렌지와 일렉트릭 퍼플로 구성된 의도적인 강조 팔레트는 시각적 강조를 제공하여, 중립적인 기반을 어지럽히지 않으면서 행동 유도 요소와 핵심 하이라이트를 표시합니다.",
+      "ch2_outro": "핵심 원칙은 기능입니다: 대비는 가독성을 주도하고, 포화된 강조 색상은 목적을 가지고 사용자의 주의를 유도합니다.",
+      "ch3_intro": "타이포그래피 음성은 표현적 전시와 실용적 기능으로 나뉘며, 극적인 헤드라인에는 휴머니스트 sans를, 인터페이스 텍스트에는 시스템 폰트를 사용하여 최적의 렌더링을 보장합니다. 이 이중성은 플랫폼이 대담한 갤러리 스타일의 진술을 제시하면서도 도구와 탐색을 위한 깔끔하고 눈에 띄지 않는 사용 편의성을 유지할 수 있게 합니다.",
+      "ch4_intro": "간격은 엄격한 4px 기본 그리드를 따르며, 인터랙티브 요소 주변은 촘촘하게 하면서 프레젠테이션 영역에는 넉넉한 여백을 허용하는 의도적이고 밀도 높은 리듬을 만듭니다.",
+      "ch5_intro": "표면은 섬세한 깊이와 정밀한 구분으로 정의되며, 인터랙티브 카드를 바닥에서 들어 올리는 가벼운 그림자와 시각적 무게 없이 밀도 높은 비주얼 갤러리를 구성하는 미세하고 반투운한 테두리를 사용합니다.",
+      "ch6_intro": "구조적 골격은 유연한 거터를 갖춘 표준 12칼럼 그리드로, 고밀도 이미지 갤러리와 넓은 타이포그래피 레이아웃을 모두 수용하도록 설계되었습니다. 이 프레임워크는 표현적인 콘텐츠에 필요한 질서를 제공하여, 가장 콘텐츠가 풍부한 포트폴리오 전시에서도 정렬과 리듬을 보장합니다.",
+      "ch7_intro": "모션은 장식이 아닌 기능적 향상으로 취급되며, 부드러운 불투명도 전환으로 상태 변화를 정의하고 섬세한 변환으로 인터랙티브를 표시합니다. 이 철학은 효율성과 목적을 우선시하여, 주요 비주얼 콘텐츠에서 주의를 빼앗지 않으면서도 인터페이스의 메커니즘을 명확히 하는 애니메이션을 보장합니다.",
+      "ch8_intro": "에디토리얼 음성은 자신감 있고 직접적이며 창의적으로 집중되어 있으며, 대담하고 종종 과장된 헤드라인 스타일과 행동 지향적인 행동 유도 레이블로 구현됩니다. 이 시스템은 의도적으로 기업적 무미건조함과 기술 전문 용어를 피하며, 디자인을 이해하는 청중과 동등한 위치에서 대화하는 톤을 유지합니다.",
+      "ch8_outro": "이 시스템은 의도적으로 장식용 폰트, 저대비 텍스트 및 복잡한 레이아웃을 제외하여, 기능적 아름다움과 콘텐츠 우선 제시에 대한 헌신을 강화합니다."
+    }
+  }
 }

@@ -8,6 +8,602 @@
     "design",
     "gallery"
   ],
-  "status": "pending",
-  "added_at": "2026-06-02"
+  "status": "completed",
+  "added_at": "2026-06-02",
+  "spec": {
+    "colors": {
+      "bg": "#f4f4f5",
+      "bgSoft": "#fafafa",
+      "bgQuiet": "#ffffff",
+      "ink": "#18181b",
+      "inkSoft": "#71717a",
+      "muted": "#a1a1aa",
+      "mutedSoft": null,
+      "accent": null,
+      "line": "rgba(228,228,231,1)"
+    },
+    "typography": {
+      "display": "grotesque-sans",
+      "body": "grotesque-sans",
+      "mono": null,
+      "scale": [
+        {
+          "token": "display",
+          "size": 56,
+          "lh": 1.0,
+          "weight": 500,
+          "ls": "-1px"
+        },
+        {
+          "token": "heading",
+          "size": 30,
+          "lh": 1.2,
+          "weight": 500,
+          "ls": "-0.4px"
+        },
+        {
+          "token": "body",
+          "size": 14,
+          "lh": 1.4,
+          "weight": 400,
+          "ls": "-0.4px"
+        }
+      ]
+    },
+    "spacing": {
+      "base": 4,
+      "scale": [
+        4,
+        8,
+        16,
+        24,
+        32,
+        48,
+        64,
+        96
+      ]
+    },
+    "surfaces": {
+      "radius": {
+        "sm": 2,
+        "md": 4,
+        "lg": 9999,
+        "pill": 9999
+      }
+    },
+    "layout": {
+      "container": 1400,
+      "paragraph": 680,
+      "columns": 12,
+      "gutter": 24,
+      "breakpoints": [
+        768,
+        1024
+      ]
+    },
+    "motion": {
+      "durations": {
+        "micro": 150,
+        "small": 150,
+        "medium": 300
+      },
+      "easing": "cubic-bezier(0.4, 0, 0.2, 1)"
+    }
+  },
+  "spec_i18n": {
+    "en": {
+      "identity": {
+        "keywords": [
+          "design showcase",
+          "inspiration",
+          "curation",
+          "gallery",
+          "directory"
+        ],
+        "analogy": "a curated museum exhibition of digital design",
+        "oneLiner": "A premium, minimalist curation gallery showcasing the web's finest design and talent."
+      },
+      "colors": {
+        "principle": "Monochromatic and restrained, relying on a soft off-white canvas to let the showcased colorful design work breathe without competing."
+      },
+      "typography": {
+        "rules": [
+          "Use tight tracking (-0.4px) across all text to maintain a compact, high-end editorial feel.",
+          "Keep body text size relatively small (14px) to prioritize the visual density of the gallery thumbnails.",
+          "Reserve weight 500 exclusively for headlines, subheadings, and active navigation items."
+        ],
+        "scaleUses": [
+          "Main hero statement",
+          "Subheadings and category titles",
+          "Primary reading and navigation text"
+        ]
+      },
+      "spacing": {
+        "rhythm": "A consistent 4px micro-grid is used for all internal padding and margin, creating a tight, predictable structure."
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 0px 0px 0px rgba(0,0,0,0)",
+          "0 4px 6px -1px rgba(0,0,0,0.05)"
+        ],
+        "borders": "1px solid rgb(228,228,231) for structural separation and card outlines."
+      },
+      "layout": {
+        "skeleton": "A fixed top navigation bar sits above a full-width hero area. Below, a flexible grid layout (typically 3 columns) displays project thumbnails, with a collapsible footer for category navigation."
+      },
+      "components": {
+        "button": "Pill-shaped (border-radius: 9999px) for primary actions like 'Sign In', often with a solid dark background. Standard text links for navigation.",
+        "card": "A simple, borderless or lightly bordered container holding a large thumbnail image with metadata (title, date, author) cleanly aligned underneath.",
+        "chip": "Text-based category tags in the footer section, presented as a horizontal list of simple text links.",
+        "input": "Minimalist search input in the top navigation, primarily indicated by a magnifying glass icon and simple text label.",
+        "hero": "A large, horizontally scrolling carousel area displaying featured project screenshots against a soft gray background."
+      },
+      "motion": {
+        "patterns": [
+          "Quick 150ms transitions on opacity and color for hovers.",
+          "Smoother 0.15s transitions for interactive state changes like border-color and background-color."
+        ]
+      },
+      "interaction": {
+        "hover": "Subtle color shifts on text links and UI elements, maintaining the overall calm aesthetic.",
+        "click": "Standard pointer cursor for interactive elements, with immediate visual feedback via transitions.",
+        "transition": "All interactive elements utilize a standard 0.15s cubic-bezier transition for a responsive but unhurried feel.",
+        "keyboard": "Standard browser focus outlines for accessibility, though visually unstyled in the base design."
+      },
+      "voice": {
+        "tone": "Authoritative, curated, and objective.",
+        "headlineStyle": "Direct, concise, and punchy statements (e.g., 'A showcase of the web's finest design + talent').",
+        "ctaStyle": "Minimalist and action-oriented, often just a single word or short phrase (e.g., 'Sign In', 'Subscribe').",
+        "avoid": [
+          "Avoid overly casual or enthusiastic language.",
+          "Avoid visual clutter or complex decorative elements.",
+          "Avoid bright, competing accent colors that distract from the showcased work."
+        ]
+      },
+      "donts": [
+        "Don't use vibrant, high-contrast accent colors — screenshot shows a strictly monochromatic palette with only one subtle red logo dot.",
+        "Don't use decorative, serif, or script fonts — screenshot exclusively uses a clean, uniform grotesque sans-serif.",
+        "Don't implement heavy drop shadows or complex border-radiuses — screenshot shows mostly flat surfaces with minimal radius (2px, 4px, or pill-shaped).",
+        "Don't crowd the interface with excessive text or complex UI components — screenshot relies heavily on a clean, image-first grid layout.",
+        "Don't use large, bulky button styles — screenshot shows minimal, pill-shaped buttons with plenty of white space.",
+        "Don't deviate from the strict 4px base grid — screenshot shows very consistent, tight spacing patterns throughout all elements."
+      ],
+      "systemPrompt": "SiteInspire is a premium, minimalist curation gallery showcasing the web's finest design and talent. It uses a strict monochromatic palette: a soft off-white background (#f4f4f5), deep ink text (#18181b), and muted secondary text (#71717a). The typography relies exclusively on a clean, tightly tracked grotesque sans-serif. Critical donts include: never use bright, competing accent colors; never use decorative or serif fonts; never implement heavy drop shadows; and always maintain a strict 4px base spacing grid. The design prioritizes visual density through an image-first grid, treating the showcased content as the primary visual element."
+    },
+    "zh-CN": {
+      "identity": {
+        "keywords": [
+          "设计展示",
+          "灵感",
+          "策展",
+          "画廊",
+          "目录"
+        ],
+        "analogy": "一场经过精心策展的数字设计博物馆展览",
+        "oneLiner": "一个展示网络顶尖设计与人才的优质极简策展画廊。"
+      },
+      "colors": {
+        "principle": "单色系且克制，依靠柔和的米白色画布，让展示的彩色设计作品得以自由呼吸，避免视觉竞争。"
+      },
+      "typography": {
+        "rules": [
+          "所有文本使用紧凑的字间距（-0.4px），以保持紧凑、高端的编辑感。",
+          "正文尺寸相对较小（14px），以优先呈现画廊缩略图的视觉密度。",
+          "仅标题、副标题和激活的导航项使用字重500。"
+        ],
+        "scaleUses": [
+          "主视觉区大标题",
+          "副标题与分类标题",
+          "主要阅读与导航文本"
+        ]
+      },
+      "spacing": {
+        "rhythm": "所有内边距与外边距均采用一致的4px微网格，营造紧凑、可预测的结构。"
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 0px 0px 0px rgba(0,0,0,0)",
+          "0 4px 6px -1px rgba(0,0,0,0.05)"
+        ],
+        "borders": "使用1px实线 rgb(228,228,231) 进行结构分隔和卡片轮廓勾勒。"
+      },
+      "layout": {
+        "skeleton": "固定顶部导航栏位于全宽主视觉区域上方。下方是灵活的网格布局（通常为3列），用于展示项目缩略图，底部设有可折叠的页脚用于分类导航。"
+      },
+      "components": {
+        "button": "药丸形（border-radius: 9999px），用于“登录”等主要操作，常采用深色实心背景。导航使用标准文本链接。",
+        "card": "简洁的无边框或带细边框容器，内含大尺寸缩略图及下方对齐的元数据（标题、日期、作者）。",
+        "chip": "页脚区域的文本类分类标签，呈现为水平排列的简单文本链接列表。",
+        "input": "顶部导航中的极简搜索框，主要由放大镜图标和简单文本标签指示。",
+        "hero": "一个大型、水平滚动的轮播区域，以柔和的灰色背景展示精选项目截图。"
+      },
+      "motion": {
+        "patterns": [
+          "悬停时，透明度与颜色采用快速的150毫秒过渡。",
+          "交互状态变化（如边框颜色、背景颜色）采用更平滑的0.15秒过渡。"
+        ]
+      },
+      "interaction": {
+        "hover": "文本链接和UI元素进行细微的色彩变化，保持整体沉静的美学风格。",
+        "click": "交互元素使用标准指针光标，通过过渡动画提供即时视觉反馈。",
+        "transition": "所有交互元素均采用标准的0.15秒cubic-bezier过渡，营造响应及时但不急促的感觉。",
+        "keyboard": "遵循标准浏览器焦点轮廓以保证可访问性，尽管在基础设计中视觉上未做特殊样式处理。"
+      },
+      "voice": {
+        "tone": "权威、策展性、客观。",
+        "headlineStyle": "直接、简洁、有力的陈述（例如：“展示网络顶尖设计与人才”）。",
+        "ctaStyle": "极简且以行动为导向，常仅为一个词或短语（例如：“登录”、“订阅”）。",
+        "avoid": [
+          "避免使用过于随意或热情的语言。",
+          "避免视觉杂乱或复杂的装饰性元素。",
+          "避免使用会分散对展示作品注意力的明亮、竞争性强的强调色。"
+        ]
+      },
+      "donts": [
+        "勿使用鲜艳、高对比度的强调色——截图显示的是严格的单色系调色板，仅有一个微妙的红色Logo点。",
+        "勿使用装饰性、衬线或手写体字体——截图仅使用干净、统一的怪诞无衬线体。",
+        "勿添加厚重的阴影或复杂的圆角——截图显示的是大多为平面、圆角极小（2px、4px或药丸形）的表面。",
+        "勿用过多文本或复杂UI组件充斥界面——截图严重依赖干净的、以图像优先的网格布局。",
+        "勿使用大而笨重的按钮样式——截图显示的是极简的药丸形按钮，留有充足留白。",
+        "勿偏离严格的4px基础网格——截图显示所有元素间始终保持非常一致、紧凑的间距模式。"
+      ],
+      "systemPrompt": "SiteInspire 是一个展示网络顶尖设计与人才的优质极简策展画廊。它使用严格的单色系调色板：柔和的米白色背景（#f4f4f5）、深墨色文字（#18181b）和柔和的次要文本色（#71717a）。排版完全依赖干净、字间距紧凑的怪诞无衬线体。关键禁忌包括：切勿使用明亮、竞争性的强调色；切勿使用装饰性或衬线字体；切勿实现厚重的阴影；并始终保持严格的4px基础间距网格。设计通过以图像优先的网格强调视觉密度，将展示内容视为主要视觉元素。"
+    },
+    "zh-TW": {
+      "identity": {
+        "keywords": [
+          "設計展示",
+          "靈感",
+          "策展",
+          "圖庫",
+          "目錄"
+        ],
+        "analogy": "一個精心策劃的數位設計博物館展覽",
+        "oneLiner": "一個優質、極簡的策展圖庫，展示網路上最優秀的設計與人才。"
+      },
+      "colors": {
+        "principle": "單色且克制，依賴柔和的灰白畫布，讓展示的多彩設計作品得以呼吸，而不相互競爭。"
+      },
+      "typography": {
+        "rules": [
+          "所有文字皆使用緊湊的字距（-0.4px），以維持緊實、高端的編輯感。",
+          "內文字號保持相對較小（14px），以優先呈現圖庫縮圖的視覺密度。",
+          "字重 500 專用於標題、副標題及啟用的導覽項目。"
+        ],
+        "scaleUses": [
+          "主要標題陳述",
+          "副標題與分類標題",
+          "主要閱讀與導覽文字"
+        ]
+      },
+      "spacing": {
+        "rhythm": "所有內部邊距與外邊距皆採用一致的 4px 微型格線，創造緊實且可預期的結構。"
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 0px 0px 0px rgba(0,0,0,0)",
+          "0 4px 6px -1px rgba(0,0,0,0.05)"
+        ],
+        "borders": "1px solid rgb(228,228,231) 用於結構性區隔與卡片邊框。"
+      },
+      "layout": {
+        "skeleton": "固定的頂端導覽列位於全寬度主視覺區域之上。下方則是靈活的格線佈局（通常為三欄），顯示專案縮圖，並附有可收合的頁尾用於分類導覽。"
+      },
+      "components": {
+        "button": "藥丸形（border-radius: 9999px）用於主要操作，例如「登入」，通常帶有深色實心背景。導覽則使用標準文字連結。",
+        "card": "一個簡潔、無邊框或帶有細邊框的容器，內含大型縮圖影像，下方整齊排列著中繼資料（標題、日期、作者）。",
+        "chip": "位於頁尾區域的文字式分類標籤，以簡單的文字連結水平列表呈現。",
+        "input": "頂端導覽中的極簡搜尋輸入框，主要透過放大鏡圖示與簡潔文字標籤來指示。",
+        "hero": "一個大型的水平滾動輪播區域，在柔和的灰色背景上展示精選的專案截圖。"
+      },
+      "motion": {
+        "patterns": [
+          "懸停時針對透明度與顏色進行快速的 150 毫秒過渡。",
+          "針對互動狀態變化（如邊框顏色與背景顏色）採用更平順的 0.15 秒過渡。"
+        ]
+      },
+      "interaction": {
+        "hover": "文字連結與 UI 元素上的細微色彩變化，維持整體的沉靜美感。",
+        "click": "互動元素使用標準的指標游標，並透過過渡效果提供即時的視覺回饋。",
+        "transition": "所有互動元素皆採用標準的 0.15 秒 cubic-bezier 過渡，帶來靈敏但不匆忙的感受。",
+        "keyboard": "使用標準的瀏覽器焦點外框以確保無障礙性，但在基礎設計中視覺上未經樣式化。"
+      },
+      "voice": {
+        "tone": "權威、策展性且客觀。",
+        "headlineStyle": "直接、簡潔且有力的陳述（例如：「展示網路上最優秀的設計與人才」）。",
+        "ctaStyle": "極簡且以行動為導向，通常僅為單個詞彙或短語（例如：「登入」、「訂閱」）。",
+        "avoid": [
+          "避免過於隨意或熱情的語言。",
+          "避免視覺雜亂或複雜的裝飾性元素。",
+          "避免使用明亮、相互競爭的強調色，以免分散對展示作品的注意力。"
+        ]
+      },
+      "donts": [
+        "不要使用鮮豔、高對比的強調色——截圖顯示的是嚴格的單色調色板，僅有一個細微的紅色標誌點。",
+        "不要使用裝飾性、襯線或手寫字體——截圖完全採用乾淨、統一的 grotesque-sans。",
+        "不要實作沉重的陰影或複雜的圓角——截圖顯示的主要是平面表面，僅有最小半徑（2px、4px 或藥丸形）。",
+        "不要讓介面充斥過多文字或複雜的 UI 元素——截圖高度依賴乾淨、以圖像為主的格線佈局。",
+        "不要使用大型、笨重的按鈕樣式——截圖顯示的是簡約的藥丸形按鈕，並留有充足的留白。",
+        "不要偏離嚴格的 4px 基礎格線——截圖顯示所有元素間的間距模式非常一致且緊實。"
+      ],
+      "systemPrompt": "SiteInspire 是一個優質、極簡的策展圖庫，展示網路上最優秀的設計與人才。它採用嚴格的單色調色板：柔和的灰白背景（#f4f4f5）、深色墨水文字（#18181b）及柔和的次要文字（#71717a）。字型完全依賴於一種乾淨、字距緊湊的 grotesque-sans。關鍵的禁忌包括：絕不使用明亮、相互競爭的強調色；絕不使用裝飾性或襯線字體；絕不實作沉重的陰影；並始終維持嚴格的 4px 基礎間距格線。該設計透過以圖像為主的格線佈局優先呈現視覺密度，將展示的內容視為主要的視覺元素。"
+    },
+    "ja": {
+      "identity": {
+        "keywords": [
+          "デザインショーケース",
+          "インスピレーション",
+          "キュレーション",
+          "ギャラリー",
+          "ディレクトリ"
+        ],
+        "analogy": "デジタルデザインのキュレーションされた博物館展覧会",
+        "oneLiner": "ウェブの最高のデザインと才能を紹介する、プレミアムでミニマリストなキュレーションギャラリー。"
+      },
+      "colors": {
+        "principle": "モノクロで抑制的。柔らかなオフホワイトのキャンバスに依存し、紹介されているカラフルなデザイン作品が競合せずに息を吹き込まれる空間を提供します。"
+      },
+      "typography": {
+        "rules": [
+          "すべてのテキストに、緊密なトラッキング（-0.4px）を使用し、コンパクトでハイエンドなエディトリアル感を維持します。",
+          "本文テキストは比較的小さなサイズ（14px）を維持し、ギャラリーサムネールの視覚的な密度を優先します。",
+          "ウェイト500は、見出し、サブ見出し、アクティブなナビゲーションアイテムにのみ予約します。"
+        ],
+        "scaleUses": [
+          "メインヒーローステートメント",
+          "サブ見出しとカテゴリータイトル",
+          "主要な読書テキストとナビゲーションテキスト"
+        ]
+      },
+      "spacing": {
+        "rhythm": "すべての内部パディングとマージンに、一貫した4pxのマイクログリッドを使用し、緊密で予測可能な構造を作り出します。"
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 0px 0px 0px rgba(0,0,0,0)",
+          "0 4px 6px -1px rgba(0,0,0,0.05)"
+        ],
+        "borders": "構造的な区切りやカードのアウトラインに、1px solid rgb(228,228,231)を使用します。"
+      },
+      "layout": {
+        "skeleton": "固定のトップナビゲーションバーの下に、フルワイドのヒーローエリアが配置されます。その下に、柔軟なグリッドレイアウト（通常3カラム）がプロジェクトのサムネールを表示し、折りたたみ可能なフッターがカテゴリーナビゲーションを担当します。"
+      },
+      "components": {
+        "button": "「サインイン」などの主要なアクションには、ピルシェイプ（border-radius: 9999px）を採用し、通常はダークなソリッド背景を使用します。ナビゲーションには標準的なテキストリンクを使用します。",
+        "card": "大きなサムネール画像と、メタデータ（タイトル、日付、著者）がその下にきれいに整列された、シンプルでボーダーレスまたは軽いボーダーのコンテナ。",
+        "chip": "フッターセクションのテキストベースのカテゴリータグ。シンプルなテキストリンクの水平リストとして表示されます。",
+        "input": "トップナビゲーションのミニマリストな検索インプット。主に虫眼鏡アイコンとシンプルなテキストラベルで示されます。",
+        "hero": "柔らかなグレーの背景に対して、フィーチャープロジェクトのスクリーンショットを水平にスクロールする大きなカルーセルエリア。"
+      },
+      "motion": {
+        "patterns": [
+          "ホバー時の透明度と色に対する、迅速な150msのトランジション。",
+          "ボーダーカラーやバックグラウンドカラーなどのインタラクティブな状態変化に対する、より滑らかな0.15sのトランジション。"
+        ]
+      },
+      "interaction": {
+        "hover": "テキストリンクやUI要素に対する微細な色の変化。全体的な落ち着いた美学を維持します。",
+        "click": "インタラクティブ要素には標準のポインターカーソル。トランジションによる即座のビジュアルフィードバックを提供します。",
+        "transition": "すべてのインタラクティブ要素は、レスポンシブでありながら焦りのないフィールのために、標準的な0.15sのcubic-bezierトランジションを使用します。",
+        "keyboard": "アクセシビリティのための標準的なブラウザフォーカスアウトライン。ただし、ベースデザインでは視覚的にはスタイルされていません。"
+      },
+      "voice": {
+        "tone": "権威があり、キュレーションされ、客観的。",
+        "headlineStyle": "直接的で簡潔、力強いステートメント（例：「ウェブの最高のデザインと才能のショーケース」）。",
+        "ctaStyle": "ミニマリストでアクション指向。しばしば単一の単語または短いフレーズ（例：「サインイン」、「登録」）。",
+        "avoid": [
+          "過度にカジュアルまたは熱狂的な言葉を避ける。",
+          "視覚的な雑然とした感じや複雑な装飾要素を避ける。",
+          "紹介されている作品から注意をそらす、明るく競合するアクセントカラーを避ける。"
+        ]
+      },
+      "donts": [
+        "ビビッドでハイコントラストのアクセントカラーを使用しない — スクリーンショットは、ロゴの1つの控えめなレッドドットのみを含む厳格なモノクロパレットを示しています。",
+        "装飾的、セリフ、またはスクリプトフォントを使用しない — スクリーンショットはクリーンで均一なグロテスクサンスに限定して使用しています。",
+        "重いドロップシャドウや複雑なボーダーラディウスを実装しない — スクリーンショットは主にフラットなサーフェスで、最小限のラディウス（2px、4px、またはピルシェイプ）を示しています。",
+        "過度のテキストや複雑なUIコンポーネントでインターフェースを混雑させない — スクリーンショットはクリーンで画像ファーストのグリッドレイアウトに大きく依存しています。",
+        "大きく、分厚いボタンスタイルを使用しない — スクリーンショットは、十分なホワイトスペースを確保したミニマリストでピルシェイプのボタンを示しています。",
+        "厳格な4pxベースグリッドから逸脱しない — スクリーンショットは、すべての要素を通じて非常に一貫した、緊密なスペーシングパターンを示しています。"
+      ],
+      "systemPrompt": "SiteInspireは、ウェブの最高のデザインと才能を紹介する、プレミアムでミニマリストなキュレーションギャラリーです。厳格なモノクロパレットを使用します：柔らかなオフホワイトの背景（#f4f4f5）、深いインクのテキスト（#18181b）、控えめなセカンダリテキスト（#71717a）。タイポグラフィは、クリーンでトラッキングの緊密なグロテスクサンスに完全に依存します。重要な禁忌は以下の通りです：明るく競合するアクセントカラーを決して使用しない；装飾的またはセリフフォントを決して使用しない；重いドロップシャドウを決して実装しない；そして常に厳格な4pxベースのスペーシンググリッドを維持する。デザインは、画像ファーストのグリッドを通じて視覚的な密度を優先し、紹介されているコンテンツを主要なビジュアル要素として扱います。"
+    },
+    "ko": {
+      "identity": {
+        "keywords": [
+          "디자인 쇼케이스",
+          "영감",
+          "큐레이션",
+          "갤러리",
+          "디렉토리"
+        ],
+        "analogy": "디자인의 큐레이티드 뮤지엄 전시회",
+        "oneLiner": "웹의 최고 수준 디자인과 인재를 선보이는 프리미엄 미니멀 큐레이션 갤러리입니다."
+      },
+      "colors": {
+        "principle": "단일색이며 절제된 팔레트로, 부드러운 오프화이트 캔버스에 의존하여 선보이는 다채로운 디자인 작업이 경쟁 없이 숨 쉴 수 있게 합니다."
+      },
+      "typography": {
+        "rules": [
+          "모든 텍스트에 타이트한 자간(-0.4px)을 사용하여 compact하고 고급 편집 느낌을 유지합니다.",
+          "본문 텍스트 크기는 상대적으로 작게(14px) 유지하여 갤러리 썸네일의 시각적 밀도를 우선시합니다.",
+          "제목, 부제목 및 활성 내비게이션 항목에만 웨이트 500을 예약합니다."
+        ],
+        "scaleUses": [
+          "메인 히어로 스테이트먼트",
+          "부제목 및 카테고리 제목",
+          "주요 읽기 및 내비게이션 텍스트"
+        ]
+      },
+      "spacing": {
+        "rhythm": "모든 내부 패딩과 마진에 일관된 4px 마이크로 그리드를 사용하여 타이트하고 예측 가능한 구조를 만듭니다."
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 0px 0px 0px rgba(0,0,0,0)",
+          "0 4px 6px -1px rgba(0,0,0,0.05)"
+        ],
+        "borders": "구조적 분리와 카드 윤곽을 위해 1px solid rgb(228,228,231)를 사용합니다."
+      },
+      "layout": {
+        "skeleton": "고정형 상단 내비게이션 바가 전체 폭의 히어로 영역 위에 위치합니다. 그 아래, 유연한 그리드 레이아웃(보통 3열)이 프로젝트 썸네일을 표시하며, 접을 수 있는 푸터가 카테고리 내비게이션을 담당합니다."
+      },
+      "components": {
+        "button": "'Sign In'과 같은 주요 작업을 위한 필 모양(border-radius: 9999px)으로, 종종 단색 다크 배경을 사용합니다. 내비게이션에는 표준 텍스트 링크를 사용합니다.",
+        "card": "대형 썸네일 이미지를 담는 간결한 보더리스 또는 가벼운 테두리의 컨테이너로, 메타데이터(제목, 날짜, 저자)가 그 아래에 깔끔하게 정렬됩니다.",
+        "chip": "푸터 섹션의 텍스트 기반 카테고리 태그로, 간단한 텍스트 링크의 수평 목록으로 제시됩니다.",
+        "input": "상단 내비게이션의 미니멀리스트 검색 입력으로, 주로 돋보기 아이콘과 간단한 텍스트 레이블로 표시됩니다.",
+        "hero": "부드러운 회색 배경에 선보이는 프로젝트 스크린샷을 표시하는 대형 수평 스크롤 캠러셀 영역입니다."
+      },
+      "motion": {
+        "patterns": [
+          "호버 시 불투명도 및 색상에 대한 빠른 150ms 트랜지션.",
+          "border-color 및 background-color와 같은 인터랙티브 상태 변경을 위한 더 부드러운 0.15s 트랜지션."
+        ]
+      },
+      "interaction": {
+        "hover": "전반적인 차분한 미학을 유지하면서 텍스트 링크 및 UI 요소에 미묘한 색상 변화.",
+        "click": "인터랙티브 요소에 대한 표준 포인터 커서로, 트랜지션을 통한 즉각적인 시각적 피드백.",
+        "transition": "모든 인터랙티브 요소는 반응감 있지만 서두르지 않는 느낌을 위해 표준 0.15s cubic-bezier 트랜지션을 활용합니다.",
+        "keyboard": "접근성을 위한 표준 브라우저 포커스 윤곽선이지만, 기본 디자인에서는 시각적으로 스타일이 지정되지 않습니다."
+      },
+      "voice": {
+        "tone": "권위 있고, 큐레이션적이며, 객관적입니다.",
+        "headlineStyle": "직설적이고 간결하며 강렬한 진술(예: '웹의 최고 수준 디자인 + 인재 쇼케이스').",
+        "ctaStyle": "미니멀리스트이며 행동 지향적입니다. 종종 단어 하나 또는 짧은 구문(예: 'Sign In', 'Subscribe').",
+        "avoid": [
+          "지나치게 캐주얼하거나 열정적인 언어를 피합니다.",
+          "시각적 혼란이나 복잡한 장식 요소를 피합니다.",
+          "선보이는 작업에서 주의를 산만하게 하는 밝고 경쟁적인 액센트 색상을 피합니다."
+        ]
+      },
+      "donts": [
+        "선명하고 대비가 높은 액센트 색상을 사용하지 마세요 — 스크린샷은 로고에 은은한 빨간 점 하나만 있는 엄격한 단일색 팔레트를 보여줍니다.",
+        "장식적, 세리프 또는 스크립트 글꼴을 사용하지 마세요 — 스크린샷은 깔끔하고 균일한 고트릭산스를 독점적으로 사용합니다.",
+        "무거운 드롭 섀도우 또는 복잡한 border-radius를 구현하지 마세요 — 스크린샷은 최소한의 radius(2px, 4px 또는 필 모양)를 가진 대부분의 플랫 표면을 보여줍니다.",
+        "과도한 텍스트나 복잡한 UI 컴포넌트로 인터페이스를 혼잡하게 하지 마세요 — 스크린샷은 깔끔하고 이미지 우선의 그리드 레이아웃에 크게 의존합니다.",
+        "크고 벌키한 버튼 스퀘일을 사용하지 마세요 — 스크린샷은 충분한 여백을 가진 미니멀한 필 모양 버튼을 보여줍니다.",
+        "엄격한 4px 기본 그리드에서 벗어나지 마세요 — 스크린샷은 모든 요소에 걸쳐 매우 일관되고 타이트한 간격 패턴을 보여줍니다."
+      ],
+      "systemPrompt": "SiteInspire는 웹의 최고 수준 디자인과 인재를 선보이는 프리미엄 미니멀 큐레이션 갤러리입니다. 부드러운 오프화이트 배경(#f4f4f5), 깊은 잉크 텍스트(#18181b), 그리고 무거운 보조 텍스트(#71717a)를 사용하는 엄격한 단일색 팔레트를 사용합니다. 타이포그래피는 깔끔하고 자간이 타이트한 고트릭산스에 독점적으로 의존합니다. 핵심 주의사항은 다음과 같습니다: 밝고 경쟁적인 액센트 색상을 절대 사용하지 말 것; 장식적이거나 세리프 글꼴을 절대 사용하지 말 것; 무거운 드롭 섀도우를 절대 구현하지 말 것; 그리고 항상 엄격한 4px 기본 간격 그리드를 유지할 것. 디자인은 이미지 우선 그리드를 통해 시각적 밀도를 우선시하며, 선보이는 콘텐츠를 주요 시각적 요소로 취급합니다."
+    }
+  },
+  "desc": {
+    "en": {
+      "palette": "A highly restrained, monochromatic palette centered on soft off-white backgrounds, deep charcoal text, and a single subtle red accent only in the logo.",
+      "layout": "A clean, predictable structure featuring a fixed top navigation, a full-width hero carousel, and a flexible multi-column grid for gallery items.",
+      "interaction": "Smooth, subtle 150ms transitions on hovers and state changes provide a responsive feel without drawing attention away from the content.",
+      "motion": "Motion is purely functional, utilizing quick, standard cubic-bezier easing for UI state changes and carousel navigation.",
+      "notes": "Worth including as a definitive example of minimalist editorial curation, demonstrating how extreme restraint and a strict typographic system can elevate a gallery UI."
+    },
+    "zh-CN": {
+      "palette": "高度克制的单色系调色板，以柔和的米白色背景、深炭灰色文字为主，仅在Logo处运用一处微妙的红色点缀。",
+      "layout": "清晰、可预测的结构，包含固定顶部导航栏、全宽轮播主视觉区，以及用于展示画廊项目的灵活多列网格。",
+      "interaction": "在悬停和状态变化时，采用平滑、细微的150毫秒过渡动画，在提供响应感的同时避免分散对内容本身的注意力。",
+      "motion": "动效纯粹出于功能考虑，为UI状态切换和轮播导航采用快速、标准的cubic-bezier缓动曲线。",
+      "notes": "作为极简编辑策展的典范之作值得收录，它展示了极致的克制与严格的排版体系如何提升画廊界面的格调。"
+    },
+    "zh-TW": {
+      "palette": "一套高度克制的單色調色板，以柔和的灰白背景、深炭色文字為核心，僅在標誌中使用一個細微的紅色點綴。",
+      "layout": "清晰、可預期的結構，包含固定的頂端導覽列、全寬度的主視覺輪播區域，以及用於展示圖庫項目的靈活多欄格線佈局。",
+      "interaction": "在懸停與狀態變化時，提供平滑、細微的 150 毫秒過渡效果，帶來靈敏的回應感，同時不分散對內容的注意力。",
+      "motion": "動效純粹基於功能性，運用快速、標準的 cubic-bezier 緩動函數處理 UI 狀態變化與輪播導覽。",
+      "notes": "作為一個極簡主義編輯策展的明確範例，其價值在於展示如何透過極度的克制與嚴格的字型系統，來提升圖庫介面的格調。"
+    },
+    "ja": {
+      "palette": "非常に抑制された、モノクロのカラーパレット。柔らかなオフホワイトの背景、深いチャコールのテキスト、そしてロゴにのみ使われる1つの控えめなレッドアクセントで構成されます。",
+      "layout": "清潔で予測可能な構造。固定のトップナビゲーション、フルワイドのヒーローカルーセル、ギャラリーアイテム用の柔軟なマルチカラムグリッドを特徴とします。",
+      "interaction": "ホバーや状態変化時の、滑らかで微細な150msのトランジション。コンテンツから注意を引くことなく、レスポンシブなフィールを提供します。",
+      "motion": "モーションは純粋に機能的です。UIの状態変化やカルーセルのナビゲーションに、迅速な標準的なcubic-bezierイージングを使用します。",
+      "notes": "ミニマリストなエディトリアルキュレーションの決定的な例として記載する価値があります。極度の抑制と厳格なタイポグラフィシステムが、ギャラリーUIをどのように高められるかを示しています。"
+    },
+    "ko": {
+      "palette": "부드러운 오프화이트 배경, 깊은 차콜 텍스트, 그리고 로고에만 사용되는 은은한 단 하나의 레드 액센트에 초점을 맞춘 매우 절제된 단일색 팔레트입니다.",
+      "layout": "고정형 상단 내비게이션, 전체 폭의 히어로 캐러셀, 그리고 갤러리 항목을 위한 유연한 다중열 그리드를 특징으로 하는 깔끔하고 예측 가능한 구조입니다.",
+      "interaction": "호버 및 상태 변경 시 부드럽고 미묘한 150ms 트랜지션은 콘텐츠에서 주의를 빼앗지 않으면서 반응감을 제공합니다.",
+      "motion": "모션은 순수하게 기능적이며, UI 상태 변경과 캐러셀 내비게이션을 위해 빠르고 표준적인 cubic-bezier 이징을 활용합니다.",
+      "notes": "미니멀리스트 편집 큐레이션의 결정적인 예로서, 극도의 절제와 엄격한 타이포그래피 시스템이 갤러리 UI를 어떻게 고양시킬 수 있는지 보여주기에 가치가 있습니다."
+    }
+  },
+  "_meta": {
+    "vision_model": "mimo-v2.5",
+    "vision_prompt_version": "0.3",
+    "vision_source": "playwright-extract:siteinspire",
+    "vision_grounded": true,
+    "vision_at": "2026-06-04T18:48:33+00:00",
+    "vision_tokens": 16899,
+    "vision_cost_usd": 0.1878,
+    "translation_model": "mimo-v2.5",
+    "translation_at": "2026-06-04T18:50:13+00:00",
+    "translation_tokens": 19623,
+    "translation_cost_usd": 0.0654,
+    "narrative_model": "mimo-v2.5",
+    "narrative_prompt_version": "0.3",
+    "narrative_at": "2026-06-04T18:50:22+00:00",
+    "narrative_tokens": 2319,
+    "narrative_cost_usd": 0.0155,
+    "narrative_status": "ok",
+    "total_cost_usd": 0.2687
+  },
+  "narrative": {
+    "en": {
+      "ch1_intro": "SiteInspire operates like a curated museum exhibition of digital design, where the system's architecture exists solely to frame the artifacts on display. Its identity is one of disciplined omission, a framework that gains authority by what it chooses to leave out.",
+      "ch2_intro": "The color system is a strict monochrome, a palette of restraint that serves as a neutral gallery wall. Deep ink text and soft off-white backgrounds ensure the showcased work remains the sole focal point of visual interest.",
+      "ch2_outro": "The governing principle is that the platform's palette must never compete with the creative output it presents.",
+      "ch3_intro": "Typography is handled by a single, clean grotesque sans-serif, set with tight tracking to achieve a compact, editorial density. The system reserves weight 500 exclusively for hierarchy, maintaining a uniform and objective typographic voice throughout.",
+      "ch4_intro": "A consistent 4px micro-grid governs all spacing, creating a tight, rhythmic structure that underpins the interface's visual predictability.",
+      "ch5_intro": "Surfaces are defined by minimal intervention: soft, almost imperceptible shadows and thin, light borders provide just enough separation for structural clarity. The design avoids depth effects that would distract from the flat, image-driven grid.",
+      "ch6_intro": "The layout is a predictable scaffold: a fixed navigation bar caps a full-width hero area, which gives way to a flexible, multi-column grid for gallery thumbnails. This structure prioritizes visual density and allows the collection of work to form the primary visual pattern.",
+      "ch7_intro": "Motion is purely functional, a brief 150ms transition applied to opacity and color for interactive feedback. The philosophy is one of immediate but unobtrusive response, ensuring the interface feels alive without becoming performative.",
+      "ch8_intro": "The editorial voice is authoritative, curated, and objective, mirroring the tone of a professional journal. Headlines are direct and punchy, while calls to action are minimalist and action-oriented, often just a single word.",
+      "ch8_outro": "The system deliberately avoids decorative fonts, bright accent colors, and visual clutter, maintaining its role as a silent, respectful frame for others' work."
+    },
+    "zh-CN": {
+      "ch1_intro": "SiteInspire 就像一座策展精良的数字设计博物馆，其架构完全服务于展品呈现。它的身份在于克制的留白——一个通过主动舍弃而获得权威的框架。",
+      "ch2_intro": "色彩体系采用纯粹的单色调，克制的配色如同中性的画廊墙面。深墨色文字与柔和的米白背景确保展示作品始终是视觉兴趣的唯一焦点。",
+      "ch2_outro": "核心原则在于：平台的配色永远不应与呈现的创意作品争夺注意力。",
+      "ch3_intro": "排版由单一、简洁的无衬线字体承担，采用紧凑字距营造紧凑的编辑密度。系统将字重 500 保留给层级结构，保持整体排版语言的统一与客观。",
+      "ch4_intro": "统一的 4px 微型网格规范所有间距，形成紧凑而富有韵律的结构，奠定界面视觉可预测性的基础。",
+      "ch5_intro": "界面表面通过最小干预定义：柔和的近乎不可见的阴影与纤细的浅色边框，仅提供足够的结构清晰度。设计避免会分散扁平化图像网格注意力的景深效果。",
+      "ch6_intro": "布局采用可预测的脚手架结构：固定导航栏位于全宽英雄区域上方，下方是灵活的多列画廊缩略图网格。这种结构优先考虑视觉密度，让作品集本身构成主要视觉图式。",
+      "ch7_intro": "动效纯粹功能化，仅对不透明度与颜色施加 150ms 的短暂过渡以提供交互反馈。其哲学在于即时而不突兀的响应，确保界面保持活力却不流于表演性。",
+      "ch8_intro": "编辑语言权威、精选且客观，契合专业期刊的基调。标题直接有力，行动召唤则极简且导向明确，往往仅用一个词。",
+      "ch8_outro": "系统刻意避免装饰性字体、高饱和度强调色与视觉杂乱，坚守其作为他人作品静默而尊重的展示框架的角色。"
+    },
+    "zh-TW": {
+      "ch1_intro": "SiteInspire 運作方式如同一座策展完備的數位設計博物館，系統架構僅為展示作品而存在。其身份是節制的省略，一個透過選擇性地留白而獲得權威的框架。",
+      "ch2_intro": "色彩系統採用嚴謹的單色調，這是一套克制的調色盤，充當中性的展覽牆面。深色墨調文字與柔和的灰白背景，確保展示的作品始終是視覺興趣的唯一焦點。",
+      "ch2_outro": "指導原則是：平台的調色盤絕不可與其呈現的創意作品競爭。",
+      "ch3_intro": "字體排版由單一、簡潔的 grotesque-sans-serif 字體處理，透過緊湊的字距設定以達成緊實、編輯式的密度。系統將字重 500 專用於層級區分，維持整體統一且客觀的字體語氣。",
+      "ch4_intro": "一致的 4px 微型網格主導所有間距，創造緊實、具節奏感的結構，作為介面視覺可預測性的基石。",
+      "ch5_intro": "介面表面的定義來自最小化的干預：柔和、幾乎難以察覺的陰影與細薄、淺色的邊框，僅提供足夠的區隔以確保結構清晰。設計避免使用會分散平面化、圖像驅動網格注意力的深度效果。",
+      "ch6_intro": "版面配置是可預測的骨架：固定的導覽列位於全寬首圖區域上方，下方則延伸出靈活的多欄網格，用於展示作品縮圖。此結構優先考慮視覺密度，讓作品集合本身形成主要的視覺模式。",
+      "ch7_intro": "動態效果純粹出於功能考量，僅以短暫的 150ms 過渡應用於不透明度與顏色，提供互動回饋。其哲學是即時但不突兀的回應，確保介面感覺活潑卻不流於表演性質。",
+      "ch8_intro": "編輯語氣具有權威性、策展性且客觀，反映專業期刊的調性。標題直接有力，而行動呼籲則極簡且指向行動，往往僅需一個詞彙。",
+      "ch8_outro": "系統刻意避免裝飾性字體、鮮豔的強調色與視覺雜訊，維持其作為他人作品靜謙、尊重框架的角色。"
+    },
+    "ja": {
+      "ch1_intro": "SiteInspireは、デジタルデザインのキュレーションされた博物館展示のように機能します。システムのアーキテクチャは、展示される作品を枠付けるためにのみ存在しています。そのアイデンティティは、厳格な省略にあり、選択的に排除することで権威を獲得するフレームワークです。",
+      "ch2_intro": "カラーシステムは厳格なモノクロームで、中立的なギャラリーの壁として機能する抑制のパレットです。濃いインクのテキストと柔らかいオフホワイトの背景により、紹介される作品が視覚的関心の唯一の焦点として残ります。",
+      "ch2_outro": "基本原則は、プラットフォームのパレットが、紹介するクリエイティブな成果物と競合してはならないということです。",
+      "ch3_intro": "タイポグラフィは、1つのクリーンなグロテスクサンセリフで扱われ、タイトなトラッキングでセットされ、凝縮されたエディトリアルな密度を達成しています。システムはウェイト500を階層構造にのみ予約し、全体を通して均一で客観的なタイポグラフィックな声を維持します。",
+      "ch4_intro": "一貫した4pxのマイクログリッドがすべてのスペーシングを支配し、インターフェースの視覚的な予測可能性を支える、緊密でリズミカルな構造を生み出しています。",
+      "ch5_intro": "面は最小限の介入によって定義されます。柔らかく、ほとんど察知できない影と、薄く明るいボーダーが、構造的な明瞭性のためにちょうど十分な分離を提供します。デザインは、フラットで画像主導のグリッドから注意をそらすような効果を避けます。",
+      "ch6_intro": "レイアウトは予測可能な脚手架です：固定されたナビゲーションバーがフルワイドのヒーローエリアを覆い、その後にギャラリーサムネイル用の柔軟なマルチカラングリッドが続きます。この構造は視覚的な密度を優先し、作品のコレクションが主要なビジュアルパターンを形成できるようにします。",
+      "ch7_intro": "モーションは純粋に機能的で、インタラクティブなフィードバックのために透明度と色に適用される短い150msのトランジションです。哲学は、即応性がありつつも目立たない応答であり、インタラフェースが演じているようにはならず、生きていると感じさせることを保証します。",
+      "ch8_intro": "エディトリアルな声は、権威があり、キュレーションされ、客観的であり、専門誌のトーンを反映しています。見出しは直接的でパンチがあり、CTAはミニマルで行動志向で、しばしば単一の言葉です。",
+      "ch8_outro": "システムは意図的に装飾的なフォント、明るいアクセントカラー、視覚的な雑踏を避け、他の作品の静かで敬意ある枠としての役割を維持しています。"
+    },
+    "ko": {
+      "ch1_intro": "SiteInspire는 디지털 디자인의 큐레이션된 박물관 전시처럼 운영됩니다. 시스템 구조는 전시된 작품을 프레이밍하기 위해 존재합니다. 그 정체성은 절제된 배제에 있으며, 선택적으로 빠뜨리는 것을 통해 권위를 얻는 프레임워크입니다.",
+      "ch2_intro": "컬러 시스템은 엄격한 단색으로 구성되어 있으며, 절제의 팔레트는 중립적인 갤러리 벽 역할을 합니다. 깊은 잉크 텍스트와 부드러운 오프화이트 배경은 전시된 작업이 시각적 관심의 유일한 초점으로 남도록 보장합니다.",
+      "ch2_outro": "지배적인 원칙은 플랫폼의 팔레트가 제시하는 창의적 출력과 결코 경쟁해서는 안 된다는 것입니다.",
+      "ch3_intro": "타이포그래피는 단일하고 깔끔한 grotesque sans-serif로 처리되며, 컴팩트하고 편집적인 밀도를 얻기 위해 좁은 트래킹으로 설정됩니다. 이 시스템은 계층 구조를 위해 무게 500을 엄선하여 사용하며, 전체적으로 균일하고 객관적인 타이포그래피 음성을 유지합니다.",
+      "ch4_intro": "일관된 4px 마이크로 그리드가 모든 간격을 지배하며, 인터페이스의 시각적 예측성을 뒷받침하는 타이트하고 리듬감 있는 구조를 만듭니다.",
+      "ch5_intro": "표면은 최소한의 개입으로 정의됩니다. 부드럽고 거의 감지할 수 없는 그림자와 얇고 밝은 테두리는 구조적 명확성을 위해 필요한 분리만을 제공합니다. 디자인은 평면적이고 이미지 기반 그리드에서 주의를 분산시킬 수 있는 깊이 효과를 피합니다.",
+      "ch6_intro": "레이아웃은 예측 가능한 골격입니다: 고정된 내비게이션 바가 전체 너비의 히어로 영역을 덮고, 유연한 다중 열 그리드가 갤러리 썸네일로 이어집니다. 이 구조는 시각적 밀도를 우선시하고, 작업 모음이 주요 시각적 패턴을 형성하도록 합니다.",
+      "ch7_intro": "모션은 순수하게 기능적이며, 상호작용 피드백을 위해 불투명도와 색상에 적용되는 150ms의 간단한 전환입니다. 그 철학은 즉각적이지만 방해가 되지 않는 반응이며, 인터페이스가 과장되지 않으면서도 살아있는 느낌을 주도록 보장합니다.",
+      "ch8_intro": "편집 음성은 권위 있고, 큐레이션되며, 객관적입니다. 전문 저널의 어조를 반영합니다. 헤드라인은 직접적이고 강렬하며, 행동을 촉구하는 문구는 미니멀하고 행동 지향적입니다. 종종 단어 하나로 구성됩니다.",
+      "ch8_outro": "이 시스템은 의도적으로 장식용 글꼴, 밝은 강조색, 시각적 혼잡함을 피하며, 타인의 작품에 대한 존중하는 무성의 프레임 역할을 유지합니다."
+    }
+  }
 }

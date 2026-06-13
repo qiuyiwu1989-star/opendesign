@@ -22,315 +22,543 @@ https://opendesign.cc/packs/<slug>/spec.json          → 11 层设计 tokens（
 
 本站全部内容已静态化（每站 × 5 语言独立 HTML），无需执行 JS 即可抓取。
 
-## 完整包（Tier 2 · 含真截图 + 真 computed styles · 152 个）
+## 完整包（527 个 · Tier 2 · 含真截图 + 真 computed styles）
 
-这些站除文档外还含 Playwright 抓取的真实页面证据 + 按频次聚合的真 computed styles：
+每个 slug 有 5 个机器可读端点：
+```
+DESIGN_SPEC.en.md   → 11 层完整规范（英文）
+DESIGN_SPEC.zh-CN.md → 中文规范
+spec.json           → 结构化 tokens
+DESIGN.md           → Google design.md 格式
+<slug>-design-pack.zip → 完整包含截图的 ZIP
+```
 
-- [205TF](https://opendesign.cc/packs/205tf/) — ZIP: https://opendesign.cc/packs/205tf/205tf-design-pack.zip
-- [A-COLD-WALL*](https://opendesign.cc/packs/a-cold-wall/) — ZIP: https://opendesign.cc/packs/a-cold-wall/a-cold-wall-design-pack.zip
-- [Aave](https://opendesign.cc/packs/aave/) — ZIP: https://opendesign.cc/packs/aave/aave-design-pack.zip
-- [Ably](https://opendesign.cc/packs/ably/) — ZIP: https://opendesign.cc/packs/ably/ably-design-pack.zip
-- [About Meta](https://opendesign.cc/packs/about-meta/) — ZIP: https://opendesign.cc/packs/about-meta/about-meta-design-pack.zip
-- [Acne Studios](https://opendesign.cc/packs/acne-studios/) — ZIP: https://opendesign.cc/packs/acne-studios/acne-studios-design-pack.zip
-- [Aeon](https://opendesign.cc/packs/aeon/) — ZIP: https://opendesign.cc/packs/aeon/aeon-design-pack.zip
-- [Aesop](https://opendesign.cc/packs/aesop/) — ZIP: https://opendesign.cc/packs/aesop/aesop-design-pack.zip
-- [Aimé Leon Dore](https://opendesign.cc/packs/aime-leon-dore/) — ZIP: https://opendesign.cc/packs/aime-leon-dore/aime-leon-dore-design-pack.zip
-- [Airbnb](https://opendesign.cc/packs/airbnb/) — ZIP: https://opendesign.cc/packs/airbnb/airbnb-design-pack.zip
-- [Airtable](https://opendesign.cc/packs/airtable/) — ZIP: https://opendesign.cc/packs/airtable/airtable-design-pack.zip
-- [Akaru](https://opendesign.cc/packs/akaru/) — ZIP: https://opendesign.cc/packs/akaru/akaru-design-pack.zip
-- [Akiflow](https://opendesign.cc/packs/akiflow/) — ZIP: https://opendesign.cc/packs/akiflow/akiflow-design-pack.zip
-- [Allbirds](https://opendesign.cc/packs/allbirds/) — ZIP: https://opendesign.cc/packs/allbirds/allbirds-design-pack.zip
-- [Amie](https://opendesign.cc/packs/amie/) — ZIP: https://opendesign.cc/packs/amie/amie-design-pack.zip
-- [Anthropic](https://opendesign.cc/packs/anthropic/) — ZIP: https://opendesign.cc/packs/anthropic/anthropic-design-pack.zip
-- [Apple](https://opendesign.cc/packs/apple/) — ZIP: https://opendesign.cc/packs/apple/apple-design-pack.zip
-- [Arc Browser](https://opendesign.cc/packs/arc/) — ZIP: https://opendesign.cc/packs/arc/arc-design-pack.zip
-- [Are.na](https://opendesign.cc/packs/are-na/) — ZIP: https://opendesign.cc/packs/are-na/are-na-design-pack.zip
-- [AREA 17](https://opendesign.cc/packs/area17/) — ZIP: https://opendesign.cc/packs/area17/area17-design-pack.zip
-- [Aristide Benoist](https://opendesign.cc/packs/aristide/) — ZIP: https://opendesign.cc/packs/aristide/aristide-design-pack.zip
-- [Astro](https://opendesign.cc/packs/astro/) — ZIP: https://opendesign.cc/packs/astro/astro-design-pack.zip
-- [Atlas](https://opendesign.cc/packs/atlas/) — ZIP: https://opendesign.cc/packs/atlas/atlas-design-pack.zip
-- [Away](https://opendesign.cc/packs/away/) — ZIP: https://opendesign.cc/packs/away/away-design-pack.zip
-- [Base](https://opendesign.cc/packs/base/) — ZIP: https://opendesign.cc/packs/base/base-design-pack.zip
-- [Basement Studio](https://opendesign.cc/packs/basement-studio/) — ZIP: https://opendesign.cc/packs/basement-studio/basement-studio-design-pack.zip
-- [Bear](https://opendesign.cc/packs/bear/) — ZIP: https://opendesign.cc/packs/bear/bear-design-pack.zip
-- [Binance](https://opendesign.cc/packs/binance/) — ZIP: https://opendesign.cc/packs/binance/binance-design-pack.zip
-- [Bmw M](https://opendesign.cc/packs/bmw-m/) — ZIP: https://opendesign.cc/packs/bmw-m/bmw-m-design-pack.zip
-- [Bmw](https://opendesign.cc/packs/bmw/) — ZIP: https://opendesign.cc/packs/bmw/bmw-design-pack.zip
-- [Brittany Chiang](https://opendesign.cc/packs/brittany-chiang/) — ZIP: https://opendesign.cc/packs/brittany-chiang/brittany-chiang-design-pack.zip
-- [Bugatti](https://opendesign.cc/packs/bugatti/) — ZIP: https://opendesign.cc/packs/bugatti/bugatti-design-pack.zip
-- [Bun](https://opendesign.cc/packs/bun/) — ZIP: https://opendesign.cc/packs/bun/bun-design-pack.zip
-- [Cal](https://opendesign.cc/packs/cal/) — ZIP: https://opendesign.cc/packs/cal/cal-design-pack.zip
-- [Cap](https://opendesign.cc/packs/cap/) — ZIP: https://opendesign.cc/packs/cap/cap-design-pack.zip
-- [Captions](https://opendesign.cc/packs/captions/) — ZIP: https://opendesign.cc/packs/captions/captions-design-pack.zip
-- [Character.AI](https://opendesign.cc/packs/character/) — ZIP: https://opendesign.cc/packs/character/character-design-pack.zip
-- [Claude](https://opendesign.cc/packs/claude/) — ZIP: https://opendesign.cc/packs/claude/claude-design-pack.zip
-- [Clay](https://opendesign.cc/packs/clay/) — ZIP: https://opendesign.cc/packs/clay/clay-design-pack.zip
-- [Clerk](https://opendesign.cc/packs/clerk/) — ZIP: https://opendesign.cc/packs/clerk/clerk-design-pack.zip
-- [Clickhouse](https://opendesign.cc/packs/clickhouse/) — ZIP: https://opendesign.cc/packs/clickhouse/clickhouse-design-pack.zip
-- [Coinbase](https://opendesign.cc/packs/coinbase/) — ZIP: https://opendesign.cc/packs/coinbase/coinbase-design-pack.zip
-- [Collins](https://opendesign.cc/packs/collins/) — ZIP: https://opendesign.cc/packs/collins/collins-design-pack.zip
-- [Commercial Type](https://opendesign.cc/packs/commercial-type/) — ZIP: https://opendesign.cc/packs/commercial-type/commercial-type-design-pack.zip
-- [Composio](https://opendesign.cc/packs/composio/) — ZIP: https://opendesign.cc/packs/composio/composio-design-pack.zip
-- [Convex](https://opendesign.cc/packs/convex/) — ZIP: https://opendesign.cc/packs/convex/convex-design-pack.zip
-- [Cosmos](https://opendesign.cc/packs/cosmos/) — ZIP: https://opendesign.cc/packs/cosmos/cosmos-design-pack.zip
-- [Craft](https://opendesign.cc/packs/craft/) — ZIP: https://opendesign.cc/packs/craft/craft-design-pack.zip
-- [Cuberto](https://opendesign.cc/packs/cuberto/) — ZIP: https://opendesign.cc/packs/cuberto/cuberto-design-pack.zip
-- [Cursor](https://opendesign.cc/packs/cursor/) — ZIP: https://opendesign.cc/packs/cursor/cursor-design-pack.zip
-- [Deno](https://opendesign.cc/packs/deno/) — ZIP: https://opendesign.cc/packs/deno/deno-design-pack.zip
-- [Descript](https://opendesign.cc/packs/descript/) — ZIP: https://opendesign.cc/packs/descript/descript-design-pack.zip
-- [Dezeen](https://opendesign.cc/packs/dezeen/) — ZIP: https://opendesign.cc/packs/dezeen/dezeen-design-pack.zip
-- [ABC Dinamo](https://opendesign.cc/packs/dinamo/) — ZIP: https://opendesign.cc/packs/dinamo/dinamo-design-pack.zip
-- [Dogstudio](https://opendesign.cc/packs/dogstudio/) — ZIP: https://opendesign.cc/packs/dogstudio/dogstudio-design-pack.zip
-- [Dribbble](https://opendesign.cc/packs/dribbble/) — ZIP: https://opendesign.cc/packs/dribbble/dribbble-design-pack.zip
-- [Drizzle ORM](https://opendesign.cc/packs/drizzle/) — ZIP: https://opendesign.cc/packs/drizzle/drizzle-design-pack.zip
-- [Elevenlabs](https://opendesign.cc/packs/elevenlabs/) — ZIP: https://opendesign.cc/packs/elevenlabs/elevenlabs-design-pack.zip
-- [Ethereum](https://opendesign.cc/packs/ethereum/) — ZIP: https://opendesign.cc/packs/ethereum/ethereum-design-pack.zip
-- [Everlane](https://opendesign.cc/packs/everlane/) — ZIP: https://opendesign.cc/packs/everlane/everlane-design-pack.zip
-- [Expo](https://opendesign.cc/packs/expo/) — ZIP: https://opendesign.cc/packs/expo/expo-design-pack.zip
-- [fal](https://opendesign.cc/packs/fal/) — ZIP: https://opendesign.cc/packs/fal/fal-design-pack.zip
-- [Family](https://opendesign.cc/packs/family/) — ZIP: https://opendesign.cc/packs/family/family-design-pack.zip
-- [Ferrari](https://opendesign.cc/packs/ferrari/) — ZIP: https://opendesign.cc/packs/ferrari/ferrari-design-pack.zip
-- [Fey](https://opendesign.cc/packs/fey/) — ZIP: https://opendesign.cc/packs/fey/fey-design-pack.zip
-- [Figma](https://opendesign.cc/packs/figma/) — ZIP: https://opendesign.cc/packs/figma/figma-design-pack.zip
-- [Fly.io](https://opendesign.cc/packs/fly/) — ZIP: https://opendesign.cc/packs/fly/fly-design-pack.zip
-- [Foundation](https://opendesign.cc/packs/foundation/) — ZIP: https://opendesign.cc/packs/foundation/foundation-design-pack.zip
-- [14islands](https://opendesign.cc/packs/fourteen-islands/) — ZIP: https://opendesign.cc/packs/fourteen-islands/fourteen-islands-design-pack.zip
-- [Framer](https://opendesign.cc/packs/framer/) — ZIP: https://opendesign.cc/packs/framer/framer-design-pack.zip
-- [Gentle Monster](https://opendesign.cc/packs/gentle-monster/) — ZIP: https://opendesign.cc/packs/gentle-monster/gentle-monster-design-pack.zip
-- [Glean](https://opendesign.cc/packs/glean/) — ZIP: https://opendesign.cc/packs/glean/glean-design-pack.zip
-- [Glossier](https://opendesign.cc/packs/glossier/) — ZIP: https://opendesign.cc/packs/glossier/glossier-design-pack.zip
-- [Graza](https://opendesign.cc/packs/graza/) — ZIP: https://opendesign.cc/packs/graza/graza-design-pack.zip
-- [Grilli Type](https://opendesign.cc/packs/grilli-type/) — ZIP: https://opendesign.cc/packs/grilli-type/grilli-type-design-pack.zip
-- [Groq](https://opendesign.cc/packs/groq/) — ZIP: https://opendesign.cc/packs/groq/groq-design-pack.zip
-- [Gymshark](https://opendesign.cc/packs/gymshark/) — ZIP: https://opendesign.cc/packs/gymshark/gymshark-design-pack.zip
-- [Hashicorp](https://opendesign.cc/packs/hashicorp/) — ZIP: https://opendesign.cc/packs/hashicorp/hashicorp-design-pack.zip
-- [Hello Monday](https://opendesign.cc/packs/hello-monday/) — ZIP: https://opendesign.cc/packs/hello-monday/hello-monday-design-pack.zip
-- [Hex](https://opendesign.cc/packs/hex/) — ZIP: https://opendesign.cc/packs/hex/hex-design-pack.zip
-- [Hp](https://opendesign.cc/packs/hp/) — ZIP: https://opendesign.cc/packs/hp/hp-design-pack.zip
-- [Hugging Face](https://opendesign.cc/packs/huggingface/) — ZIP: https://opendesign.cc/packs/huggingface/huggingface-design-pack.zip
-- [Ibm](https://opendesign.cc/packs/ibm/) — ZIP: https://opendesign.cc/packs/ibm/ibm-design-pack.zip
-- [Immersive Garden](https://opendesign.cc/packs/immersive-garden/) — ZIP: https://opendesign.cc/packs/immersive-garden/immersive-garden-design-pack.zip
-- [Inngest](https://opendesign.cc/packs/inngest/) — ZIP: https://opendesign.cc/packs/inngest/inngest-design-pack.zip
-- [Intercom](https://opendesign.cc/packs/intercom/) — ZIP: https://opendesign.cc/packs/intercom/intercom-design-pack.zip
-- [It's Nice That](https://opendesign.cc/packs/its-nice-that/) — ZIP: https://opendesign.cc/packs/its-nice-that/its-nice-that-design-pack.zip
-- [Jupi](https://opendesign.cc/packs/jupi/) — ZIP: https://opendesign.cc/packs/jupi/jupi-design-pack.zip
-- [Kith](https://opendesign.cc/packs/kith/) — ZIP: https://opendesign.cc/packs/kith/kith-design-pack.zip
-- [Klim Type Foundry](https://opendesign.cc/packs/klim/) — ZIP: https://opendesign.cc/packs/klim/klim-design-pack.zip
-- [Kraken](https://opendesign.cc/packs/kraken/) — ZIP: https://opendesign.cc/packs/kraken/kraken-design-pack.zip
-- [Krea](https://opendesign.cc/packs/krea/) — ZIP: https://opendesign.cc/packs/krea/krea-design-pack.zip
-- [Lamborghini](https://opendesign.cc/packs/lamborghini/) — ZIP: https://opendesign.cc/packs/lamborghini/lamborghini-design-pack.zip
-- [Linear](https://opendesign.cc/packs/linear/) — ZIP: https://opendesign.cc/packs/linear/linear-design-pack.zip
-- [Liquid Death](https://opendesign.cc/packs/liquid-death/) — ZIP: https://opendesign.cc/packs/liquid-death/liquid-death-design-pack.zip
-- [Locomotive](https://opendesign.cc/packs/locomotive/) — ZIP: https://opendesign.cc/packs/locomotive/locomotive-design-pack.zip
-- [Lovable](https://opendesign.cc/packs/lovable/) — ZIP: https://opendesign.cc/packs/lovable/lovable-design-pack.zip
-- [Luma](https://opendesign.cc/packs/luma/) — ZIP: https://opendesign.cc/packs/luma/luma-design-pack.zip
-- [Lusion](https://opendesign.cc/packs/lusion/) — ZIP: https://opendesign.cc/packs/lusion/lusion-design-pack.zip
-- [Mercury](https://opendesign.cc/packs/mercury/) — ZIP: https://opendesign.cc/packs/mercury/mercury-design-pack.zip
-- [Metalab](https://opendesign.cc/packs/metalab/) — ZIP: https://opendesign.cc/packs/metalab/metalab-design-pack.zip
-- [Midjourney](https://opendesign.cc/packs/midjourney/) — ZIP: https://opendesign.cc/packs/midjourney/midjourney-design-pack.zip
-- [Minimax](https://opendesign.cc/packs/minimax/) — ZIP: https://opendesign.cc/packs/minimax/minimax-design-pack.zip
-- [Mintlify](https://opendesign.cc/packs/mintlify/) — ZIP: https://opendesign.cc/packs/mintlify/mintlify-design-pack.zip
-- [Miro](https://opendesign.cc/packs/miro/) — ZIP: https://opendesign.cc/packs/miro/miro-design-pack.zip
-- [Mistral](https://opendesign.cc/packs/mistral/) — ZIP: https://opendesign.cc/packs/mistral/mistral-design-pack.zip
-- [Mobbin](https://opendesign.cc/packs/mobbin/) — ZIP: https://opendesign.cc/packs/mobbin/mobbin-design-pack.zip
-- [Mongodb](https://opendesign.cc/packs/mongodb/) — ZIP: https://opendesign.cc/packs/mongodb/mongodb-design-pack.zip
-- [Nike](https://opendesign.cc/packs/nike/) — ZIP: https://opendesign.cc/packs/nike/nike-design-pack.zip
-- [Notion](https://opendesign.cc/packs/notion/) — ZIP: https://opendesign.cc/packs/notion/notion-design-pack.zip
-- [Nvidia](https://opendesign.cc/packs/nvidia/) — ZIP: https://opendesign.cc/packs/nvidia/nvidia-design-pack.zip
-- [Obys Agency](https://opendesign.cc/packs/obys/) — ZIP: https://opendesign.cc/packs/obys/obys-design-pack.zip
-- [Ollama](https://opendesign.cc/packs/ollama/) — ZIP: https://opendesign.cc/packs/ollama/ollama-design-pack.zip
-- [Opal Camera Inc.](https://opendesign.cc/packs/opal-camera/) — ZIP: https://opendesign.cc/packs/opal-camera/opal-camera-design-pack.zip
-- [OpenAI](https://opendesign.cc/packs/openai/) — ZIP: https://opendesign.cc/packs/openai/openai-design-pack.zip
-- [Opencode](https://opendesign.cc/packs/opencode/) — ZIP: https://opendesign.cc/packs/opencode/opencode-design-pack.zip
-- [Pinterest](https://opendesign.cc/packs/pinterest/) — ZIP: https://opendesign.cc/packs/pinterest/pinterest-design-pack.zip
-- [Pitch](https://opendesign.cc/packs/pitch/) — ZIP: https://opendesign.cc/packs/pitch/pitch-design-pack.zip
-- [Playstation](https://opendesign.cc/packs/playstation/) — ZIP: https://opendesign.cc/packs/playstation/playstation-design-pack.zip
-- [Posthog](https://opendesign.cc/packs/posthog/) — ZIP: https://opendesign.cc/packs/posthog/posthog-design-pack.zip
-- [Railway](https://opendesign.cc/packs/railway/) — ZIP: https://opendesign.cc/packs/railway/railway-design-pack.zip
-- [Rauno Freiberg](https://opendesign.cc/packs/rauno/) — ZIP: https://opendesign.cc/packs/rauno/rauno-design-pack.zip
-- [Raycast](https://opendesign.cc/packs/raycast/) — ZIP: https://opendesign.cc/packs/raycast/raycast-design-pack.zip
-- [Reflect](https://opendesign.cc/packs/reflect/) — ZIP: https://opendesign.cc/packs/reflect/reflect-design-pack.zip
-- [Renault](https://opendesign.cc/packs/renault/) — ZIP: https://opendesign.cc/packs/renault/renault-design-pack.zip
-- [Replicate](https://opendesign.cc/packs/replicate/) — ZIP: https://opendesign.cc/packs/replicate/replicate-design-pack.zip
-- [Resend](https://opendesign.cc/packs/resend/) — ZIP: https://opendesign.cc/packs/resend/resend-design-pack.zip
-- [Revolut](https://opendesign.cc/packs/revolut/) — ZIP: https://opendesign.cc/packs/revolut/revolut-design-pack.zip
-- [Runwayml](https://opendesign.cc/packs/runwayml/) — ZIP: https://opendesign.cc/packs/runwayml/runwayml-design-pack.zip
-- [Sanity](https://opendesign.cc/packs/sanity/) — ZIP: https://opendesign.cc/packs/sanity/sanity-design-pack.zip
-- [Sentry](https://opendesign.cc/packs/sentry/) — ZIP: https://opendesign.cc/packs/sentry/sentry-design-pack.zip
-- [Shopify](https://opendesign.cc/packs/shopify/) — ZIP: https://opendesign.cc/packs/shopify/shopify-design-pack.zip
-- [Spacex](https://opendesign.cc/packs/spacex/) — ZIP: https://opendesign.cc/packs/spacex/spacex-design-pack.zip
-- [Spotify](https://opendesign.cc/packs/spotify/) — ZIP: https://opendesign.cc/packs/spotify/spotify-design-pack.zip
-- [Starbucks](https://opendesign.cc/packs/starbucks/) — ZIP: https://opendesign.cc/packs/starbucks/starbucks-design-pack.zip
-- [Stripe Press](https://opendesign.cc/packs/stripe-press/) — ZIP: https://opendesign.cc/packs/stripe-press/stripe-press-design-pack.zip
-- [Stripe](https://opendesign.cc/packs/stripe/) — ZIP: https://opendesign.cc/packs/stripe/stripe-design-pack.zip
-- [Supabase](https://opendesign.cc/packs/supabase/) — ZIP: https://opendesign.cc/packs/supabase/supabase-design-pack.zip
-- [Superhuman](https://opendesign.cc/packs/superhuman/) — ZIP: https://opendesign.cc/packs/superhuman/superhuman-design-pack.zip
-- [Teenage Engineering](https://opendesign.cc/packs/teenage-engineering/) — ZIP: https://opendesign.cc/packs/teenage-engineering/teenage-engineering-design-pack.zip
-- [Theverge](https://opendesign.cc/packs/theverge/) — ZIP: https://opendesign.cc/packs/theverge/theverge-design-pack.zip
-- [Together](https://opendesign.cc/packs/together/) — ZIP: https://opendesign.cc/packs/together/together-design-pack.zip
-- [Uber](https://opendesign.cc/packs/uber/) — ZIP: https://opendesign.cc/packs/uber/uber-design-pack.zip
-- [Vercel](https://opendesign.cc/packs/vercel/) — ZIP: https://opendesign.cc/packs/vercel/vercel-design-pack.zip
-- [Vodafone](https://opendesign.cc/packs/vodafone/) — ZIP: https://opendesign.cc/packs/vodafone/vodafone-design-pack.zip
-- [Voltagent](https://opendesign.cc/packs/voltagent/) — ZIP: https://opendesign.cc/packs/voltagent/voltagent-design-pack.zip
-- [Warp](https://opendesign.cc/packs/warp/) — ZIP: https://opendesign.cc/packs/warp/warp-design-pack.zip
-- [Webflow](https://opendesign.cc/packs/webflow/) — ZIP: https://opendesign.cc/packs/webflow/webflow-design-pack.zip
-- [Wired](https://opendesign.cc/packs/wired/) — ZIP: https://opendesign.cc/packs/wired/wired-design-pack.zip
-- [Wise](https://opendesign.cc/packs/wise/) — ZIP: https://opendesign.cc/packs/wise/wise-design-pack.zip
-- [xAI](https://opendesign.cc/packs/xai/) — ZIP: https://opendesign.cc/packs/xai/xai-design-pack.zip
-- [Zapier](https://opendesign.cc/packs/zapier/) — ZIP: https://opendesign.cc/packs/zapier/zapier-design-pack.zip
+路径格式：`https://opendesign.cc/packs/<slug>/<filename>`
 
-## 全部收录（153 个）
-
-- [205TF](https://opendesign.cc/en/sites/205tf) → 设计系统 https://opendesign.cc/packs/205tf/ · Tier-2 完整包 — Worth including as a prime example of a 'restraint-first' design system where extreme minimalism and custom interaction patterns are used to elevate a specialized product (type specimens).
-- [A-COLD-WALL*](https://opendesign.cc/en/sites/a-cold-wall) → 设计系统 https://opendesign.cc/packs/a-cold-wall/ · Tier-2 完整包 — Worth including as a prime example of a brutalist, premium fashion e-commerce aesthetic with extreme restraint.
-- [Aave](https://opendesign.cc/en/sites/aave) → 设计系统 https://opendesign.cc/packs/aave/ · Tier-2 完整包 — This site is a masterclass in applying 'mobile-first' fintech aesthetics to a decentralized web protocol, making complex DeFi concepts feel simple and trustworthy.
-- [Ably](https://opendesign.cc/en/sites/ably) → 设计系统 https://opendesign.cc/packs/ably/ · Tier-2 完整包 — This site is a prime example of a modern, developer-focused SaaS design that effectively uses a dark theme, bold typography, and a limited, high-impact color palette to convey reliability and performance.
-- [About Meta](https://opendesign.cc/en/sites/about-meta) → 设计系统 https://opendesign.cc/packs/about-meta/ · Tier-2 完整包 — The site is worth including for its sophisticated blend of corporate branding and expressive, human-centric photography with bold, clear typography.
-- [Acne Studios](https://opendesign.cc/en/sites/acne-studios) → 设计系统 https://opendesign.cc/packs/acne-studios/ · Tier-2 完整包 — This site is a definitive example of high-fashion minimalism, demonstrating how extreme typographic scale and a restricted palette can create a powerful brand identity.
-- [Aeon](https://opendesign.cc/en/sites/aeon) → 设计系统 https://opendesign.cc/packs/aeon/ · Tier-2 完整包 — Aeon is an excellent reference for premium digital publishing, demonstrating how to balance high-end serif typography with a modern, clean grid layout.
-- [Aesop](https://opendesign.cc/en/sites/aesop) → 设计系统 https://opendesign.cc/packs/aesop/ · Tier-2 完整包 — A masterclass in restrained, premium e-commerce design that prioritizes product and typography over visual noise.
-- [Aimé Leon Dore](https://opendesign.cc/en/sites/aime-leon-dore) → 设计系统 https://opendesign.cc/packs/aime-leon-dore/ · Tier-2 完整包 — This site is a masterclass in restrained luxury e-commerce design, relying entirely on strong photography, strict typography, and a rigid grid rather than UI embellishments.
-- [Airbnb](https://opendesign.cc/en/sites/airbnb) → 设计系统 https://opendesign.cc/packs/airbnb/ · Tier-2 完整包 — A classic example of a modern, consumer-focused SaaS interface that balances high-quality imagery with a clean, trust-building design system.
-- [Airtable](https://opendesign.cc/en/sites/airtable) → 设计系统 https://opendesign.cc/packs/airtable/ · Tier-2 完整包 — Airtable exemplifies a refined, trustworthy enterprise SaaS design that prioritizes clarity and ease of use through minimalist aesthetics.
-- [Akaru](https://opendesign.cc/en/sites/akaru) → 设计系统 https://opendesign.cc/packs/akaru/ · Tier-2 完整包 — A masterclass in typography-led design, using custom typefaces and generous whitespace to convey high-end craftsmanship.
-- [Akiflow](https://opendesign.cc/en/sites/akiflow) → 设计系统 https://opendesign.cc/packs/akiflow/ · Tier-2 完整包 — A strong example of modern SaaS design that balances bold branding with a clean, uncluttered user interface.
-- [Allbirds](https://opendesign.cc/en/sites/allbirds) → 设计系统 https://opendesign.cc/packs/allbirds/ · Tier-2 完整包 — This site is a prime example of how a minimalist, sustainable brand can use high-quality photography and restrained UI to build trust and clarity.
-- [Amie](https://opendesign.cc/en/sites/amie) → 设计系统 https://opendesign.cc/packs/amie/ · Tier-2 完整包 — A prime example of a modern, human-centric SaaS design that balances professionalism with approachability through clean typography and thoughtful spacing.
-- [Anthropic](https://opendesign.cc/en/sites/anthropic) → 设计系统 https://opendesign.cc/packs/anthropic/ · Tier-2 完整包 — This site is an excellent example of how to build a premium, authoritative brand for a deep-tech company using restraint, typography, and a refined warm-neutral palette.
-- [Apple](https://opendesign.cc/en/sites/apple) → 设计系统 https://opendesign.cc/packs/apple/ · Tier-2 完整包 — The gold standard for premium hardware presentation, proving that absolute restraint and typography can create a highly effective visual identity.
-- [Arc Browser](https://opendesign.cc/en/sites/arc) → 设计系统 https://opendesign.cc/packs/arc/ · Tier-2 完整包 — This site is worth including for its masterful blend of warmth, playfulness, and modern design that feels genuinely approachable.
-- [Are.na](https://opendesign.cc/en/sites/are-na) → 设计系统 https://opendesign.cc/packs/are-na/ · Tier-2 完整包 — This site is a masterclass in restraint and typography-driven design, making it an excellent reference for editorial and curation-focused interfaces.
-- [AREA 17](https://opendesign.cc/en/sites/area17) → 设计系统 https://opendesign.cc/packs/area17/ · Tier-2 完整包 — An excellent reference for minimalist, type-driven agency portfolios that prioritize content and whitespace over decorative elements.
-- [Aristide Benoist](https://opendesign.cc/en/sites/aristide) → 设计系统 https://opendesign.cc/packs/aristide/ · Tier-2 完整包 — Worth including for its extreme typographic scale, sophisticated dark aesthetic, and motion-focused interaction patterns.
-- [Astro](https://opendesign.cc/en/sites/astro) → 设计系统 https://opendesign.cc/packs/astro/ · Tier-2 完整包 — Worth including as a prime example of a modern, high-end developer tool landing page with a strong, cohesive visual identity.
-- [Atlas](https://opendesign.cc/en/sites/atlas) → 设计系统 https://opendesign.cc/packs/atlas/ · Tier-2 完整包 — A masterclass in premium fintech UI, blending cinematic photography with a strict, minimalist design system to convey exclusivity and global scale.
-- [Away](https://opendesign.cc/en/sites/away) → 设计系统 https://opendesign.cc/packs/away/ · Tier-2 完整包 — The site is a great example of a premium, photo-driven e-commerce brand that balances aspirational imagery with a clean, functional UI.
-- [Base](https://opendesign.cc/en/sites/base) → 设计系统 https://opendesign.cc/packs/base/ · Tier-2 完整包 — This site is a prime example of 'institutional minimalism' in the fintech space, using strict restraint and high-contrast typography to convey reliability.
-- [Basement Studio](https://opendesign.cc/en/sites/basement-studio) → 设计系统 https://opendesign.cc/packs/basement-studio/ · Tier-2 完整包 — This site is worth including as a prime example of a premium, dark-themed creative agency portfolio with a bold, minimalist aesthetic.
-- [Bear](https://opendesign.cc/en/sites/bear) → 设计系统 https://opendesign.cc/packs/bear/ · Tier-2 完整包 — An excellent reference for restrained, text-first product design that prioritizes focus and clarity over visual noise.
-- [Binance](https://opendesign.cc/en/sites/binance) → 设计系统 https://opendesign.cc/packs/binance/ · Tier-2 完整包 — This site is a prime example of a high-performance dark-mode interface for complex fintech applications, prioritizing data legibility and professional trust through its restrained but bold color palette.
-- [Bmw M](https://opendesign.cc/en/sites/bmw-m) → 设计系统 https://opendesign.cc/packs/bmw-m/ · Tier-2 完整包 — This site effectively combines automotive photography with a premium, dark-themed UI to create an aspirational brand experience that showcases high-performance vehicles.
-- [Bmw](https://opendesign.cc/en/sites/bmw) → 设计系统 https://opendesign.cc/packs/bmw/ · Tier-2 完整包 — Worth including as a benchmark for premium automotive brand digital presence—demonstrates how dramatic photography and restrained typography create luxury without excess.
-- [Brittany Chiang](https://opendesign.cc/en/sites/brittany-chiang) → 设计系统 https://opendesign.cc/packs/brittany-chiang/ · Tier-2 完整包 — A benchmark for accessible, content-focused developer portfolios.
-- [Bugatti](https://opendesign.cc/en/sites/bugatti) → 设计系统 https://opendesign.cc/packs/bugatti/ · Tier-2 完整包 — Excellent example of luxury automotive digital design that proves restraint and premium positioning can be achieved with minimal color and typography.
-- [Bun](https://opendesign.cc/en/sites/bun) → 设计系统 https://opendesign.cc/packs/bun/ · Tier-2 完整包 — This site is an excellent example of a modern developer tool's UI, balancing technical clarity with a bold, high-end aesthetic.
-- [Cal](https://opendesign.cc/en/sites/cal) → 设计系统 https://opendesign.cc/packs/cal/ · Tier-2 完整包 — Cal.com is a prime example of a modern SaaS product that uses restrained, high-contrast design to convey professional reliability and developer-focused precision.
-- [Cap](https://opendesign.cc/en/sites/cap) → 设计系统 https://opendesign.cc/packs/cap/ · Tier-2 完整包 — This site is a prime example of a modern, developer-focused SaaS landing page with excellent typography hierarchy and restraint.
-- [Captions](https://opendesign.cc/en/sites/captions) → 设计系统 https://opendesign.cc/packs/captions/ · Tier-2 完整包 — This site is an excellent example of a modern, professional SaaS tool that uses typography and subtle depth to create a premium feel.
-- [Character.AI](https://opendesign.cc/en/sites/character) → 设计系统 https://opendesign.cc/packs/character/ · Tier-2 完整包 — This site is worth including as a prime example of a modern, minimalist AI product interface that prioritizes user onboarding through a clean and friendly design.
-- [Claude](https://opendesign.cc/en/sites/claude) → 设计系统 https://opendesign.cc/packs/claude/ · Tier-2 完整包 — Worth including as a masterclass in restrained, premium AI product design that uses traditional typography in a modern web context.
-- [Clay](https://opendesign.cc/en/sites/clay) → 设计系统 https://opendesign.cc/packs/clay/ · Tier-2 完整包 — This site is a perfect example of restrained, premium agency design where the typography and high-quality portfolio imagery are the primary focus.
-- [Clerk](https://opendesign.cc/en/sites/clerk) → 设计系统 https://opendesign.cc/packs/clerk/ · Tier-2 完整包 — Exemplary developer tool design that balances professionalism with approachability through careful typography and purposeful visual hierarchy
-- [Clickhouse](https://opendesign.cc/en/sites/clickhouse) → 设计系统 https://opendesign.cc/packs/clickhouse/ · Tier-2 完整包 — A strong example of a premium developer tool interface that balances bold typography with a clean, dark aesthetic.
-- [Coinbase](https://opendesign.cc/en/sites/coinbase) → 设计系统 https://opendesign.cc/packs/coinbase/ · Tier-2 完整包 — A perfect example of a 'restraint-first' fintech design that uses cleanliness and professional typography to establish immediate user trust.
-- [Collins](https://opendesign.cc/en/sites/collins) → 设计系统 https://opendesign.cc/packs/collins/ · Tier-2 完整包 — Excellent example of restrained premium agency design where typography and whitespace do all the heavy lifting without decorative elements.
-- [Commercial Type](https://opendesign.cc/en/sites/commercial-type) → 设计系统 https://opendesign.cc/packs/commercial-type/ · Tier-2 完整包 — An excellent reference for high-end typographic presentation and gallery-style UI layouts.
-- [Composio](https://opendesign.cc/en/sites/composio) → 设计系统 https://opendesign.cc/packs/composio/ · Tier-2 完整包 — This site exemplifies a clean, developer-focused design that prioritizes readability and functionality while maintaining professional aesthetics through restrained use of color and typography.
-- [Convex](https://opendesign.cc/en/sites/convex) → 设计系统 https://opendesign.cc/packs/convex/ · Tier-2 完整包 — A prime example of modern developer tools design, blending editorial warmth with the focused, dark-themed utility of professional code interfaces.
-- [Cosmos](https://opendesign.cc/en/sites/cosmos) → 设计系统 https://opendesign.cc/packs/cosmos/ · Tier-2 完整包 — Worth including as a prime example of a modern, editorial-style curation platform that balances minimalism with rich visual content.
-- [Craft](https://opendesign.cc/en/sites/craft) → 设计系统 https://opendesign.cc/packs/craft/ · Tier-2 完整包 — This site is a perfect example of a premium, calm productivity UI that successfully balances utility with expressive, illustrative design.
-- [Cuberto](https://opendesign.cc/en/sites/cuberto) → 设计系统 https://opendesign.cc/packs/cuberto/ · Tier-2 完整包 — This site is a perfect example of how a restricted monochrome palette and bold typography can establish a highly premium and professional agency identity.
-- [Cursor](https://opendesign.cc/en/sites/cursor) → 设计系统 https://opendesign.cc/packs/cursor/ · Tier-2 完整包 — This site is a great example of a refined, product-focused SaaS landing page that uses a warm, sophisticated palette to differentiate itself in the developer tools space.
-- [Deno](https://opendesign.cc/en/sites/deno) → 设计系统 https://opendesign.cc/packs/deno/ · Tier-2 完整包 — This site is a great example of modern developer documentation design, balancing bold typography with a clean, approachable aesthetic.
-- [Descript](https://opendesign.cc/en/sites/descript) → 设计系统 https://opendesign.cc/packs/descript/ · Tier-2 完整包 — This site is a prime example of a modern, professional SaaS design that uses classic typography and a restrained color palette to build trust and clarity.
-- [Dezeen](https://opendesign.cc/en/sites/dezeen) → 设计系统 https://opendesign.cc/packs/dezeen/ · Tier-2 完整包 — This site is a perfect example of a premium editorial design that prioritizes content and photography through a highly structured and refined visual system.
-- [ABC Dinamo](https://opendesign.cc/en/sites/dinamo) → 设计系统 https://opendesign.cc/packs/dinamo/ · Tier-2 完整包 — An excellent reference for balancing heavy typographic presence with generous whitespace and editorial photography.
-- [Dogstudio](https://opendesign.cc/en/sites/dogstudio) → 设计系统 https://opendesign.cc/packs/dogstudio/ · Tier-2 完整包 — This site is an excellent reference for high-end creative agency design, showcasing how bold typography and 3D art can create a powerful, memorable digital presence.
-- [Dribbble](https://opendesign.cc/en/sites/dribbble) → 设计系统 https://opendesign.cc/packs/dribbble/ · Tier-2 完整包 — The site is a prime example of a gallery-style SaaS platform that uses a neutral UI to highlight its primary content: visual design.
-- [Drizzle ORM](https://opendesign.cc/en/sites/drizzle) → 设计系统 https://opendesign.cc/packs/drizzle/ · Tier-2 完整包 — A great example of a clean, functional developer-focused design that prioritizes readability and speed.
-- [Elevenlabs](https://opendesign.cc/en/sites/elevenlabs) → 设计系统 https://opendesign.cc/packs/elevenlabs/ · Tier-2 完整包 — Worth including as a prime example of a modern, premium SaaS aesthetic that balances professionalism with a warm, slightly playful feel through its use of soft gradients and rounded shapes.
-- [Ethereum](https://opendesign.cc/en/sites/ethereum) → 设计系统 https://opendesign.cc/packs/ethereum/ · Tier-2 完整包 — A highly successful example of a 'calm' design for a complex technical topic, making decentralized technology feel accessible and trustworthy.
-- [Everlane](https://opendesign.cc/en/sites/everlane) → 设计系统 https://opendesign.cc/packs/everlane/ · Tier-2 完整包 — This site is an excellent reference for how a highly restrained, monochromatic UI can effectively showcase a premium product line through typography and photography.
-- [Expo](https://opendesign.cc/en/sites/expo) → 设计系统 https://opendesign.cc/packs/expo/ · Tier-2 完整包 — This site is a prime example of a clean, developer-focused SaaS interface that prioritizes clarity and utility over decoration.
-- [fal](https://opendesign.cc/en/sites/fal) → 设计系统 https://opendesign.cc/packs/fal/ · Tier-2 完整包 — This site is worth including for its bold, expressive use of color and typography to create a distinct, playful developer-focused identity.
-- [Family](https://opendesign.cc/en/sites/family) → 设计系统 https://opendesign.cc/packs/family/ · Tier-2 完整包 — Worth including as a masterclass in making fintech feel approachable through playful illustrations while maintaining premium restraint in the UI itself.
-- [Ferrari](https://opendesign.cc/en/sites/ferrari) → 设计系统 https://opendesign.cc/packs/ferrari/ · Tier-2 完整包 — A masterclass in using photography as the primary design element with extreme typographic restraint.
-- [Fey](https://opendesign.cc/en/sites/fey) → 设计系统 https://opendesign.cc/packs/fey/ · Tier-2 完整包 — This site is a perfect example of a premium, data-heavy fintech interface that uses restraint and high-quality typography to convey authority and clarity.
-- [Figma](https://opendesign.cc/en/sites/figma) → 设计系统 https://opendesign.cc/packs/figma/ · Tier-2 完整包 — This site is a prime example of a modern, premium SaaS interface that balances professional clarity with creative expression, making it an excellent reference for clean, scalable design systems.
-- [Fly.io](https://opendesign.cc/en/sites/fly) → 设计系统 https://opendesign.cc/packs/fly/ · Tier-2 完整包 — The site is a strong example of balancing technical infrastructure messaging with a warm, playful, and human-centric visual language.
-- [Foundation](https://opendesign.cc/en/sites/foundation) → 设计系统 https://opendesign.cc/packs/foundation/ · Tier-2 完整包 — This site is an excellent example of a restrained, editorial design system focused purely on conveying a direct and sincere message through typography and space.
-- [14islands](https://opendesign.cc/en/sites/fourteen-islands) → 设计系统 https://opendesign.cc/packs/fourteen-islands/ · Tier-2 完整包 — Exemplary minimalist agency design that uses extreme typographic scale and restraint as its primary design language.
-- [Framer](https://opendesign.cc/en/sites/framer) → 设计系统 https://opendesign.cc/packs/framer/ · Tier-2 完整包 — A masterclass in modern SaaS design, balancing bold typography with a dark, premium aesthetic.
-- [Gentle Monster](https://opendesign.cc/en/sites/gentle-monster) → 设计系统 https://opendesign.cc/packs/gentle-monster/ · Tier-2 完整包 — Worth including as a prime example of minimalist luxury e-commerce design, demonstrating how extreme restraint in UI can elevate product presentation.
-- [Glean](https://opendesign.cc/en/sites/glean) → 设计系统 https://opendesign.cc/packs/glean/ · Tier-2 完整包 — The site exemplifies a modern, premium SaaS aesthetic, balancing technical authority with an approachable, friendly UI through rounded corners and soft gradients.
-- [Glossier](https://opendesign.cc/en/sites/glossier) → 设计系统 https://opendesign.cc/packs/glossier/ · Tier-2 完整包 — Worth including as a prime example of 'clean' modern DTC design that uses photography and typography as the primary design drivers rather than complex UI components.
-- [Graza](https://opendesign.cc/en/sites/graza) → 设计系统 https://opendesign.cc/packs/graza/ · Tier-2 完整包 — This site is a great example of building a strong, distinctive brand identity for a physical product through bold typography, a unique color palette, and high-quality photography.
-- [Grilli Type](https://opendesign.cc/en/sites/grilli-type) → 设计系统 https://opendesign.cc/packs/grilli-type/ · Tier-2 完整包 — The site serves as a masterclass in restraint, using a minimalist framework to let the typography products themselves be the primary visual focus.
-- [Groq](https://opendesign.cc/en/sites/groq) → 设计系统 https://opendesign.cc/packs/groq/ · Tier-2 完整包 — The site is worth including because it demonstrates a high-end, performance-focused B2B brand identity that balances industrial precision with accessible developer aesthetics.
-- [Gymshark](https://opendesign.cc/en/sites/gymshark) → 设计系统 https://opendesign.cc/packs/gymshark/ · Tier-2 完整包 — An excellent example of a product-focused e-commerce site that uses restraint in UI design to elevate the product photography.
-- [Hashicorp](https://opendesign.cc/en/sites/hashicorp) → 设计系统 https://opendesign.cc/packs/hashicorp/ · Tier-2 完整包 — This site is a great example of a restrained, professional enterprise design that balances a modern dark mode aesthetic with clear, functional UI patterns for developer tools.
-- [Hello Monday](https://opendesign.cc/en/sites/hello-monday) → 设计系统 https://opendesign.cc/packs/hello-monday/ · Tier-2 完整包 — This site is an excellent example of how a restrictive color palette combined with strong typography can create a highly memorable and premium brand identity for a creative studio.
-- [Hex](https://opendesign.cc/en/sites/hex) → 设计系统 https://opendesign.cc/packs/hex/ · Tier-2 完整包 — This site is worth including because it perfectly balances a premium, editorial aesthetic with the functional requirements of a developer-facing tool.
-- [Hp](https://opendesign.cc/en/sites/hp) → 设计系统 https://opendesign.cc/packs/hp/ · Tier-2 完整包 — This site is a perfect example of restrained, professional e-commerce design for consumer hardware.
-- [Hugging Face](https://opendesign.cc/en/sites/huggingface) → 设计系统 https://opendesign.cc/packs/huggingface/ · Tier-2 完整包 — This site is an excellent example of balancing a playful mascot with a highly technical, utility-driven interface for a professional developer community.
-- [Ibm](https://opendesign.cc/en/sites/ibm) → 设计系统 https://opendesign.cc/packs/ibm/ · Tier-2 完整包 — A textbook example of enterprise software design DNA, prioritizing clarity, scalability, and professional authority.
-- [Immersive Garden](https://opendesign.cc/en/sites/immersive-garden) → 设计系统 https://opendesign.cc/packs/immersive-garden/ · Tier-2 完整包 — Worth including as a benchmark for ultra-refined, minimalist luxury UI that avoids common SaaS patterns in favor of a gallery-like experience.
-- [Inngest](https://opendesign.cc/en/sites/inngest) → 设计系统 https://opendesign.cc/packs/inngest/ · Tier-2 完整包 — Inngest provides an excellent reference for a premium developer tools brand, balancing technical credibility with a sophisticated, modern dark mode aesthetic.
-- [Instrument](https://opendesign.cc/en/sites/instrument) → 设计系统 https://opendesign.cc/packs/instrument/ — This site is a masterclass in using extreme typographic scale and whitespace to create a premium agency identity.
-- [Intercom](https://opendesign.cc/en/sites/intercom) → 设计系统 https://opendesign.cc/packs/intercom/ · Tier-2 完整包 — A premium example of balancing editorial photography with functional SaaS UI, showcasing restraint and clarity.
-- [It's Nice That](https://opendesign.cc/en/sites/its-nice-that) → 设计系统 https://opendesign.cc/packs/its-nice-that/ · Tier-2 完整包 — This site is a quintessential example of modern editorial design, successfully blending traditional serif typography with a vibrant, digital-first content strategy.
-- [Jupi](https://opendesign.cc/en/sites/jupi) → 设计系统 https://opendesign.cc/packs/jupi/ · Tier-2 完整包 — This site exemplifies how a restrained, high-contrast design can create a professional and focused user experience, making it a strong reference for clean SaaS interfaces.
-- [Kith](https://opendesign.cc/en/sites/kith) → 设计系统 https://opendesign.cc/packs/kith/ · Tier-2 完整包 — This site is an excellent example of a 'chromeless' e-commerce experience where the UI completely retreats to let the product photography and editorial imagery take center stage.
-- [Klim Type Foundry](https://opendesign.cc/en/sites/klim) → 设计系统 https://opendesign.cc/packs/klim/ · Tier-2 完整包 — This site serves as a masterclass in premium typography presentation, using extreme minimalism to ensure the type specimens are the absolute focal point.
-- [Kraken](https://opendesign.cc/en/sites/kraken) → 设计系统 https://opendesign.cc/packs/kraken/ · Tier-2 完整包 — Worth including as a benchmark for 'Clean Fintech' design, showing how to balance professional tooling with accessible, premium aesthetics.
-- [Krea](https://opendesign.cc/en/sites/krea) → 设计系统 https://opendesign.cc/packs/krea/ · Tier-2 完整包 — Excellent example of a modern, dark-themed SaaS landing page that prioritizes clarity and premium aesthetics.
-- [Lamborghini](https://opendesign.cc/en/sites/lamborghini) → 设计系统 https://opendesign.cc/packs/lamborghini/ · Tier-2 完整包 — This site is worth including as a masterclass in using bold typography and immersive photography to define a luxury brand.
-- [Linear](https://opendesign.cc/en/sites/linear) → 设计系统 https://opendesign.cc/packs/linear/ · Tier-2 完整包 — Linear's design is a masterclass in modern, high-precision dark mode for professional tools.
-- [Liquid Death](https://opendesign.cc/en/sites/liquid-death) → 设计系统 https://opendesign.cc/packs/liquid-death/ · Tier-2 完整包 — This site is an excellent example of building a strong, irreverent brand identity through consistent use of bold typography and a restricted, high-impact color palette.
-- [Locomotive](https://opendesign.cc/en/sites/locomotive) → 设计系统 https://opendesign.cc/packs/locomotive/ · Tier-2 完整包 — The site is worth including as a masterclass in using typography and stark contrast to create a premium, expressive agency aesthetic.
-- [Lovable](https://opendesign.cc/en/sites/lovable) → 设计系统 https://opendesign.cc/packs/lovable/ · Tier-2 完整包 — This site effectively combines a clean, professional interface with a bold, expressive gradient to create a sense of both power and approachability for its AI-driven builder tool.
-- [Luma](https://opendesign.cc/en/sites/luma) → 设计系统 https://opendesign.cc/packs/luma/ · Tier-2 完整包 — A perfect example of how to balance a clean, professional SaaS UI with playful, expressive 3D elements.
-- [Lusion](https://opendesign.cc/en/sites/lusion) → 设计系统 https://opendesign.cc/packs/lusion/ · Tier-2 完整包 — A premium example of a creative studio website that uses 3D visuals and bold typography to establish a strong, innovative brand identity.
-- [Mercury](https://opendesign.cc/en/sites/mercury) → 设计系统 https://opendesign.cc/packs/mercury/ · Tier-2 完整包 — A strong example of how premium fintech branding can use editorial photography and refined typography to stand out in a crowded market.
-- [Metalab](https://opendesign.cc/en/sites/metalab) → 设计系统 https://opendesign.cc/packs/metalab/ · Tier-2 完整包 — A masterclass in using dramatic typography and abstract imagery to create a premium, high-impact agency presence without relying on color.
-- [Midjourney](https://opendesign.cc/en/sites/midjourney) → 设计系统 https://opendesign.cc/packs/midjourney/ · Tier-2 完整包 — A highly distinctive AI company site that blends developer aesthetic (monospace, ASCII art) with high-end visual art.
-- [Minimax](https://opendesign.cc/en/sites/minimax) → 设计系统 https://opendesign.cc/packs/minimax/ · Tier-2 完整包 — This site is a prime example of a modern, professional AI platform UI that balances clean aesthetics with functional clarity.
-- [Mintlify](https://opendesign.cc/en/sites/mintlify) → 设计系统 https://opendesign.cc/packs/mintlify/ · Tier-2 完整包 — This site is worth including as a prime example of modern SaaS documentation design, blending professional aesthetics with developer-friendly tooling.
-- [Miro](https://opendesign.cc/en/sites/miro) → 设计系统 https://opendesign.cc/packs/miro/ · Tier-2 完整包 — Miro exemplifies a professional, high-utility SaaS design that uses minimalism and a single accent color to guide user attention effectively.
-- [Mistral](https://opendesign.cc/en/sites/mistral) → 设计系统 https://opendesign.cc/packs/mistral/ · Tier-2 完整包 — Worth including for its mastery of the 'editorial tech' style, where restrained UI allows bold brand patterns and clear typography to shine.
-- [Mobbin](https://opendesign.cc/en/sites/mobbin) → 设计系统 https://opendesign.cc/packs/mobbin/ · Tier-2 完整包 — An excellent example of a 'content-first' UI where the design framework intentionally recedes to highlight the diverse screenshots it displays.
-- [Mongodb](https://opendesign.cc/en/sites/mongodb) → 设计系统 https://opendesign.cc/packs/mongodb/ · Tier-2 完整包 — Worth including as a prime example of modern developer tool aesthetics: clean, authoritative, and highly readable with a disciplined accent color.
-- [Nike](https://opendesign.cc/en/sites/nike) → 设计系统 https://opendesign.cc/packs/nike/ · Tier-2 完整包 — This site exemplifies how a global brand achieves premium positioning through radical restraint—letting world-class photography and bold type do all the emotional work.
-- [Notion](https://opendesign.cc/en/sites/notion) → 设计系统 https://opendesign.cc/packs/notion/ · Tier-2 完整包 — A prime example of refined SaaS design, blending bold typography with a highly functional, clean interface.
-- [Nvidia](https://opendesign.cc/en/sites/nvidia) → 设计系统 https://opendesign.cc/packs/nvidia/ · Tier-2 完整包 — A prime example of a premium, technical corporate site that balances boldness with restraint.
-- [Obys Agency](https://opendesign.cc/en/sites/obys) → 设计系统 https://opendesign.cc/packs/obys/ · Tier-2 完整包 — This site is a definitive example of avant-garde digital design, pushing the boundaries of web aesthetics through brutalist principles and complex motion.
-- [Ollama](https://opendesign.cc/en/sites/ollama) → 设计系统 https://opendesign.cc/packs/ollama/ · Tier-2 完整包 — Worth including as a masterclass in developer tooling design, showing how strict minimalism and restraint can create a highly professional, trustworthy, and accessible brand identity.
-- [Opal Camera Inc.](https://opendesign.cc/en/sites/opal-camera) → 设计系统 https://opendesign.cc/packs/opal-camera/ · Tier-2 完整包 — This site is a textbook example of modern premium hardware branding, balancing minimalist UI with warm, human-centric photography.
-- [OpenAI](https://opendesign.cc/en/sites/openai) → 设计系统 https://opendesign.cc/packs/openai/ · Tier-2 完整包 — A masterclass in minimalist AI interface design, using absolute restraint and typography to build trust and authority without visual noise.
-- [Opencode](https://opendesign.cc/en/sites/opencode) → 设计系统 https://opendesign.cc/packs/opencode/ · Tier-2 完整包 — The site is a strong example of a monochromatic, monospace-driven design system that effectively communicates a technical, developer-first product identity.
-- [Pinterest](https://opendesign.cc/en/sites/pinterest) → 设计系统 https://opendesign.cc/packs/pinterest/ · Tier-2 完整包 — Worth including as a masterclass in high-volume photographic content presentation, using clean typography and a single, powerful accent color to guide the user's eye.
-- [Pitch](https://opendesign.cc/en/sites/pitch) → 设计系统 https://opendesign.cc/packs/pitch/ · Tier-2 完整包 — An excellent example of a modern, premium SaaS aesthetic that combines bold typography with a dark, focused canvas.
-- [Playstation](https://opendesign.cc/en/sites/playstation) → 设计系统 https://opendesign.cc/packs/playstation/ · Tier-2 完整包 — This site is worth including as a prime example of a premium consumer product portal that successfully balances high-impact cinematic visuals with a clean, functional, and responsive UI framework.
-- [Posthog](https://opendesign.cc/en/sites/posthog) → 设计系统 https://opendesign.cc/packs/posthog/ · Tier-2 完整包 — This site is worth including as a prime example of a playful, developer-focused SaaS brand that successfully balances professional utility with a fun, irreverent personality.
-- [Railway](https://opendesign.cc/en/sites/railway) → 设计系统 https://opendesign.cc/packs/railway/ · Tier-2 完整包 — Worth including for its successful blend of elegant serif typography with a modern, dark developer tool aesthetic.
-- [Rauno Freiberg](https://opendesign.cc/en/sites/rauno) → 设计系统 https://opendesign.cc/packs/rauno/ · Tier-2 完整包 — This site is a prime example of bold, typographic portfolio design, using extreme scale and stark contrast to create a memorable visual impact.
-- [Raycast](https://opendesign.cc/en/sites/raycast) → 设计系统 https://opendesign.cc/packs/raycast/ · Tier-2 完整包 — A masterclass in restrained dark-mode design for a technical product, proving that deep blacks and minimal color can create a premium, high-performance feel.
-- [Reflect](https://opendesign.cc/en/sites/reflect) → 设计系统 https://opendesign.cc/packs/reflect/ · Tier-2 完整包 — This site is a great example of a premium, dark-mode SaaS design that uses a single accent color and cosmic visuals to convey intelligence and calm.
-- [Renault](https://opendesign.cc/en/sites/renault) → 设计系统 https://opendesign.cc/packs/renault/ · Tier-2 完整包 — An excellent example of a premium corporate site that uses editorial photography and strict typographic hierarchy to convey authority and innovation.
-- [Replicate](https://opendesign.cc/en/sites/replicate) → 设计系统 https://opendesign.cc/packs/replicate/ · Tier-2 完整包 — This site demonstrates excellent developer experience design with its code-first approach, clean typography, and purposeful use of color to highlight key information without overwhelming the technical content.
-- [Resend](https://opendesign.cc/en/sites/resend) → 设计系统 https://opendesign.cc/packs/resend/ · Tier-2 完整包 — Resend's design is worth including as a masterclass in high-end developer tool aesthetics, blending premium editorial typography with a stark, functional dark-mode interface.
-- [Revolut](https://opendesign.cc/en/sites/revolut) → 设计系统 https://opendesign.cc/packs/revolut/ · Tier-2 完整包 — This site is a prime example of premium fintech design, using restrained UI to let high-quality photography and bold typography build trust and modern appeal.
-- [Runwayml](https://opendesign.cc/en/sites/runwayml) → 设计系统 https://opendesign.cc/packs/runwayml/ · Tier-2 完整包 — This site is a perfect example of a modern, premium AI tool that uses restraint and high-quality photography to communicate complex, visionary concepts.
-- [Sanity](https://opendesign.cc/en/sites/sanity) → 设计系统 https://opendesign.cc/packs/sanity/ · Tier-2 完整包 — A strong example of a modern developer platform that uses high-contrast typography and strict spatial discipline to convey authority.
-- [Sentry](https://opendesign.cc/en/sites/sentry) → 设计系统 https://opendesign.cc/packs/sentry/ · Tier-2 完整包 — Sentry's design successfully balances technical credibility with a bold, slightly irreverent brand voice, making a complex developer tool feel accessible and modern.
-- [Shopify](https://opendesign.cc/en/sites/shopify) → 设计系统 https://opendesign.cc/packs/shopify/ · Tier-2 完整包 — An excellent example of a modern, premium SaaS design that uses a dark theme to project authority and focus, while using a single vibrant accent to guide user attention.
-- [Spacex](https://opendesign.cc/en/sites/spacex) → 设计系统 https://opendesign.cc/packs/spacex/ · Tier-2 完整包 — This site is a prime example of a cinematic, high-contrast interface where the typography and layout are designed to disappear, making the imagery the primary focus.
-- [Spotify](https://opendesign.cc/en/sites/spotify) → 设计系统 https://opendesign.cc/packs/spotify/ · Tier-2 完整包 — This site is a masterclass in dark-mode design and content-heavy UI, demonstrating how to maintain a clear hierarchy while keeping the focus on high-contrast imagery and typography.
-- [Starbucks](https://opendesign.cc/en/sites/starbucks) → 设计系统 https://opendesign.cc/packs/starbucks/ · Tier-2 完整包 — This site is a great example of a high-traffic consumer brand using a clean, photography-driven layout to promote seasonal products.
-- [Stripe Press](https://opendesign.cc/en/sites/stripe-press) → 设计系统 https://opendesign.cc/packs/stripe-press/ · Tier-2 完整包 — An excellent example of a premium editorial site that uses 3D objects as primary UI elements within a dark, refined aesthetic.
-- [Stripe](https://opendesign.cc/en/sites/stripe) → 设计系统 https://opendesign.cc/packs/stripe/ · Tier-2 完整包 — A benchmark for premium SaaS design, showcasing how to blend professional authority with modern, developer-friendly aesthetics through a restrained palette and clean typography.
-- [Supabase](https://opendesign.cc/en/sites/supabase) → 设计系统 https://opendesign.cc/packs/supabase/ · Tier-2 完整包 — This site is worth including as a prime example of a modern, developer-centric SaaS landing page that balances bold typography with clean, restrained aesthetics.
-- [Superhuman](https://opendesign.cc/en/sites/superhuman) → 设计系统 https://opendesign.cc/packs/superhuman/ · Tier-2 完整包 — This site exemplifies how premium SaaS products balance sophistication with clarity through restrained color usage and purposeful typography.
-- [Teenage Engineering](https://opendesign.cc/en/sites/teenage-engineering) → 设计系统 https://opendesign.cc/packs/teenage-engineering/ · Tier-2 完整包 — A masterclass in premium hardware branding, using extreme minimalism and a restrained palette to emphasize product craftsmanship and industrial design.
-- [Theverge](https://opendesign.cc/en/sites/theverge) → 设计系统 https://opendesign.cc/packs/theverge/ · Tier-2 完整包 — The Verge's design is a benchmark for modern editorial sites, balancing bold visual identity with excellent readability and usability.
-- [Together](https://opendesign.cc/en/sites/together) → 设计系统 https://opendesign.cc/packs/together/ · Tier-2 完整包 — This site is a great example of a clean, professional SaaS aesthetic that prioritizes technical credibility over visual flair.
-- [Uber](https://opendesign.cc/en/sites/uber) → 设计系统 https://opendesign.cc/packs/uber/ · Tier-2 完整包 — Worth including as a prime example of a high-utility consumer platform that achieves premium feel through strict restraint, bold typography, and a monochrome palette.
-- [Vercel](https://opendesign.cc/en/sites/vercel) → 设计系统 https://opendesign.cc/packs/vercel/ · Tier-2 完整包 — This site is a definitive example of modern, developer-focused design, combining stark minimalism with high-contrast UI and precise typography.
-- [Vodafone](https://opendesign.cc/en/sites/vodafone) → 设计系统 https://opendesign.cc/packs/vodafone/ · Tier-2 完整包 — The site is a strong example of premium editorial design for a global brand, balancing bold, artistic typographic choices with a highly restrained and functional UI.
-- [Voltagent](https://opendesign.cc/en/sites/voltagent) → 设计系统 https://opendesign.cc/packs/voltagent/ · Tier-2 完整包 — An excellent example of a modern, dark-themed developer tool interface with a professional, restrained aesthetic.
-- [Warp](https://opendesign.cc/en/sites/warp) → 设计系统 https://opendesign.cc/packs/warp/ · Tier-2 完整包 — This site is a prime example of a modern, high-end developer tool that uses a dark mode to reduce eye strain while maintaining a premium, sophisticated brand identity.
-- [Webflow](https://opendesign.cc/en/sites/webflow) → 设计系统 https://opendesign.cc/packs/webflow/ · Tier-2 完整包 — A perfect example of a modern, clean SaaS aesthetic that balances professional restraint with confident, growth-oriented messaging.
-- [Wired](https://opendesign.cc/en/sites/wired) → 设计系统 https://opendesign.cc/packs/wired/ · Tier-2 完整包 — A classic example of high-end editorial design that uses typography as the primary design element, perfect for establishing brand authority.
-- [Wise](https://opendesign.cc/en/sites/wise) → 设计系统 https://opendesign.cc/packs/wise/ · Tier-2 完整包 — Wise's design is a masterclass in using bold color and typography to make a complex financial service feel simple, fast, and accessible.
-- [xAI](https://opendesign.cc/en/sites/xai) → 设计系统 https://opendesign.cc/packs/xai/ · Tier-2 完整包 — A strong example of a premium, developer-focused SaaS landing page that balances minimalism with powerful, large-scale typography.
-- [Zapier](https://opendesign.cc/en/sites/zapier) → 设计系统 https://opendesign.cc/packs/zapier/ · Tier-2 完整包 — A masterclass in clean, enterprise SaaS design that balances approachable warmth with authoritative professionalism through strong typography and intentional whitespace.
+- [Ably](https://opendesign.cc/en/sites/ably) · <https://opendesign.cc/packs/ably/DESIGN_SPEC.en.md> — This site is a prime example of a modern, developer-focused SaaS design that eff
+- [Algolia](https://opendesign.cc/en/sites/algolia) · <https://opendesign.cc/packs/algolia/DESIGN_SPEC.en.md> — This site is worth including as a prime example of a 'Dark Mode First' SaaS deve
+- [Anytype](https://opendesign.cc/en/sites/anytype) · <https://opendesign.cc/packs/anytype/DESIGN_SPEC.en.md> — This design is an excellent example of a premium, trustworthy aesthetic for a Sa
+- [Appwrite](https://opendesign.cc/en/sites/appwrite) · <https://opendesign.cc/packs/appwrite/DESIGN_SPEC.en.md> — This site is a prime example of a modern, developer-focused SaaS UI, effectively
+- [AssemblyAI](https://opendesign.cc/en/sites/assemblyai) · <https://opendesign.cc/packs/assemblyai/DESIGN_SPEC.en.md> — A strong example of a modern developer-focused site that balances technical cred
+- [Auth0](https://opendesign.cc/en/sites/auth0) · <https://opendesign.cc/packs/auth0/DESIGN_SPEC.en.md> — Auth0 demonstrates a mature developer-focused design system that balances profes
+- [Baseten](https://opendesign.cc/en/sites/baseten) · <https://opendesign.cc/packs/baseten/DESIGN_SPEC.en.md> — This site perfectly embodies the modern 'technical blueprint' aesthetic, balanci
+- [beehiiv](https://opendesign.cc/en/sites/beehiiv) · <https://opendesign.cc/packs/beehiiv/DESIGN_SPEC.en.md> — This site exemplifies modern SaaS design with its bold typography, dark mode aes
+- [Browserbase](https://opendesign.cc/en/sites/browserbase) · <https://opendesign.cc/packs/browserbase/DESIGN_SPEC.en.md> — This site is a great example of modern developer tools branding, balancing techn
+- [Buttondown](https://opendesign.cc/en/sites/buttondown) · <https://opendesign.cc/packs/buttondown/DESIGN_SPEC.en.md> — Worth including as an excellent example of using typography and generous whitesp
+- [Carrd](https://opendesign.cc/en/sites/carrd) · <https://opendesign.cc/packs/carrd/DESIGN_SPEC.en.md> — This site is a perfect example of how a highly restrained, minimalist design can
+- [Cartesia](https://opendesign.cc/en/sites/cartesia) · <https://opendesign.cc/packs/cartesia/DESIGN_SPEC.en.md> — The site is a strong example of the 'Academic Tech' aesthetic, successfully brid
+- [Checkout.com](https://opendesign.cc/en/sites/checkout) · <https://opendesign.cc/packs/checkout/DESIGN_SPEC.en.md> — The site exemplifies a premium 'dark mode' fintech aesthetic, using extreme typo
+- [Cockroach Labs](https://opendesign.cc/en/sites/cockroach) · <https://opendesign.cc/packs/cockroach/DESIGN_SPEC.en.md> — This site is an excellent example of a developer-focused SaaS platform that bala
+- [CodeSandbox](https://opendesign.cc/en/sites/codesandbox) · <https://opendesign.cc/packs/codesandbox/DESIGN_SPEC.en.md> — The site's use of a single, extremely high-chroma accent color against a dark ca
+- [Column](https://opendesign.cc/en/sites/column) · <https://opendesign.cc/packs/column/DESIGN_SPEC.en.md> — This site is a great example of high-end fintech design, balancing professionali
+- [Contentful](https://opendesign.cc/en/sites/contentful) · <https://opendesign.cc/packs/contentful/DESIGN_SPEC.en.md> — A strong example of a professional, developer-friendly SaaS interface that balan
+- [Courier](https://opendesign.cc/en/sites/courier) · <https://opendesign.cc/packs/courier/DESIGN_SPEC.en.md> — A strong example of a modern, dark-themed developer tool interface that balances
+- [Daily](https://opendesign.cc/en/sites/daily) · <https://opendesign.cc/packs/daily/DESIGN_SPEC.en.md> — Worth including for its masterful execution of 'developer-focused minimalism,' u
+- [dbt](https://opendesign.cc/en/sites/dbt) · <https://opendesign.cc/packs/dbt/DESIGN_SPEC.en.md> — This site is a prime example of a modern developer tool aesthetic, balancing aut
+- [Deel](https://opendesign.cc/en/sites/deel) · <https://opendesign.cc/packs/deel/DESIGN_SPEC.en.md> — The site is a prime example of a modern, professional B2B platform that balances
+- [Deepgram](https://opendesign.cc/en/sites/deepgram) · <https://opendesign.cc/packs/deepgram/DESIGN_SPEC.en.md> — The site exemplifies a modern 'developer-tools' aesthetic, using a dark theme an
+- [Depot](https://opendesign.cc/en/sites/depot) · <https://opendesign.cc/packs/depot/DESIGN_SPEC.en.md> — Effective example of dark-mode developer tool design with clear performance mess
+- [Dify](https://opendesign.cc/en/sites/dify) · <https://opendesign.cc/packs/dify/DESIGN_SPEC.en.md> — Worth including as a prime example of modern, clean SaaS design for developer to
+- [Directus](https://opendesign.cc/en/sites/directus) · <https://opendesign.cc/packs/directus/DESIGN_SPEC.en.md> — This site is a strong example of a developer-oriented SaaS brand that balances t
+- [Discord](https://opendesign.cc/en/sites/discord) · <https://opendesign.cc/packs/discord/DESIGN_SPEC.en.md> — Worth including as a prime example of a dark-mode consumer app with a strong, pl
+- [Doppler](https://opendesign.cc/en/sites/doppler) · <https://opendesign.cc/packs/doppler/DESIGN_SPEC.en.md> — Exemplary dark mode developer tool aesthetic with strong brand consistency
+- [E2B](https://opendesign.cc/en/sites/e2b) · <https://opendesign.cc/packs/e2b/DESIGN_SPEC.en.md> — The site is worth including for its excellent execution of a developer-centric '
+- [Evidence](https://opendesign.cc/en/sites/evidence) · <https://opendesign.cc/packs/evidence/DESIGN_SPEC.en.md> — Worth including as an excellent example of developer-focused SaaS design that ba
+- [Fathom](https://opendesign.cc/en/sites/fathom) · <https://opendesign.cc/packs/fathom/DESIGN_SPEC.en.md> — The site is a prime example of a clean, focused SaaS design that uses simplicity
+- [Fireworks AI](https://opendesign.cc/en/sites/fireworks) · <https://opendesign.cc/packs/fireworks/DESIGN_SPEC.en.md> — Excellent example of developer-focused SaaS design with premium typography and r
+- [Format](https://opendesign.cc/en/sites/format) · <https://opendesign.cc/packs/format/DESIGN_SPEC.en.md> — The site effectively uses high-contrast typography and a bold color palette to a
+- [Stream](https://opendesign.cc/en/sites/getstream) · <https://opendesign.cc/packs/getstream/DESIGN_SPEC.en.md> — This site exemplifies a successful developer-first SaaS landing page, balancing 
+- [Ghost](https://opendesign.cc/en/sites/ghost) · <https://opendesign.cc/packs/ghost/DESIGN_SPEC.en.md> — Ghost represents a clean, professional standard for SaaS and publishing platform
+- [GitLab](https://opendesign.cc/en/sites/gitlab) · <https://opendesign.cc/packs/gitlab/DESIGN_SPEC.en.md> — Worth including as a benchmark for modern enterprise SaaS design, effectively ba
+- [Gitpod](https://opendesign.cc/en/sites/gitpod) · <https://opendesign.cc/packs/gitpod/DESIGN_SPEC.en.md> — This site is a strong example of how to combine editorial serif typography with 
+- [GoCardless](https://opendesign.cc/en/sites/gocardless) · <https://opendesign.cc/packs/gocardless/DESIGN_SPEC.en.md> — This site is an excellent reference for balancing premium B2B professionalism wi
+- [Grafana](https://opendesign.cc/en/sites/grafana) · <https://opendesign.cc/packs/grafana/DESIGN_SPEC.en.md> — A strong example of how a technical platform can use clean design and subtle gra
+- [Granola](https://opendesign.cc/en/sites/granola) · <https://opendesign.cc/packs/granola/DESIGN_SPEC.en.md> — The site is an excellent example of how a refined, organic aesthetic can make a 
+- [Gusto](https://opendesign.cc/en/sites/gusto) · <https://opendesign.cc/packs/gusto/DESIGN_SPEC.en.md> — A strong example of a trustworthy, high-end SaaS design that balances classic ed
+- [Highlight](https://opendesign.cc/en/sites/highlight) · <https://opendesign.cc/packs/highlight/DESIGN_SPEC.en.md> — Worth including as a prime example of modern, dark-themed SaaS design for develo
+- [Hygraph](https://opendesign.cc/en/sites/hygraph) · <https://opendesign.cc/packs/hygraph/DESIGN_SPEC.en.md> — This site is an excellent example of a modern, enterprise B2B SaaS design that b
+- [incident.io](https://opendesign.cc/en/sites/incident) · <https://opendesign.cc/packs/incident/DESIGN_SPEC.en.md> — The site is worth including for its masterful blend of editorial typography (tra
+- [Increase](https://opendesign.cc/en/sites/increase) · <https://opendesign.cc/packs/increase/DESIGN_SPEC.en.md> — A prime example of a modern, developer-focused Fintech interface that balances p
+- [Infisical](https://opendesign.cc/en/sites/infisical) · <https://opendesign.cc/packs/infisical/DESIGN_SPEC.en.md> — This site is an excellent example of a clean, professional SaaS/developer tool i
+- [Jitter](https://opendesign.cc/en/sites/jitter) · <https://opendesign.cc/packs/jitter/DESIGN_SPEC.en.md> — This site is a great example of a clean, modern SaaS landing page that prioritiz
+- [June](https://opendesign.cc/en/sites/june) · <https://opendesign.cc/packs/june/DESIGN_SPEC.en.md> — This site is a great example of how to communicate sensitive business news (an a
+- [Kit](https://opendesign.cc/en/sites/kit) · <https://opendesign.cc/packs/kit/DESIGN_SPEC.en.md> — This site is an excellent example of a modern, clean SaaS landing page that uses
+- [LangChain](https://opendesign.cc/en/sites/langchain) · <https://opendesign.cc/packs/langchain/DESIGN_SPEC.en.md> — This site exemplifies modern developer tool aesthetics with its dark theme, tech
+- [Lindy](https://opendesign.cc/en/sites/lindy) · <https://opendesign.cc/packs/lindy/DESIGN_SPEC.en.md> — This site is an excellent example of a modern SaaS landing page that balances pr
+- [LiveKit](https://opendesign.cc/en/sites/livekit) · <https://opendesign.cc/packs/livekit/DESIGN_SPEC.en.md> — This site is an excellent example of a high-contrast, developer-first UI that ba
+- [Logseq](https://opendesign.cc/en/sites/logseq) · <https://opendesign.cc/packs/logseq/DESIGN_SPEC.en.md> — A beautiful example of how dark mode can be both functional and emotionally reso
+- [Loom](https://opendesign.cc/en/sites/loom) · <https://opendesign.cc/packs/loom/DESIGN_SPEC.en.md> — A textbook example of a modern, high-trust SaaS landing page that balances profe
+- [LottieFiles](https://opendesign.cc/en/sites/lottiefiles) · <https://opendesign.cc/packs/lottiefiles/DESIGN_SPEC.en.md> — Worth including as a prime example of playful yet professional SaaS design that 
+- [Matter](https://opendesign.cc/en/sites/matter) · <https://opendesign.cc/packs/matter/DESIGN_SPEC.en.md> — Worth including as an example of a premium, content-focused dark UI with excelle
+- [Meilisearch](https://opendesign.cc/en/sites/meilisearch) · <https://opendesign.cc/packs/meilisearch/DESIGN_SPEC.en.md> — Exemplifies a modern developer-focused SaaS aesthetic with a strong balance of b
+- [Mem](https://opendesign.cc/en/sites/mem) · <https://opendesign.cc/packs/mem/DESIGN_SPEC.en.md> — This site is an excellent example of a clean, warm, and approachable SaaS landin
+- [Metabase](https://opendesign.cc/en/sites/metabase) · <https://opendesign.cc/packs/metabase/DESIGN_SPEC.en.md> — Worth including as a prime example of a clean, professional, and highly function
+- [Missive](https://opendesign.cc/en/sites/missive) · <https://opendesign.cc/packs/missive/DESIGN_SPEC.en.md> — A classic example of a clean, professional SaaS landing page that effectively us
+- [Modern Treasury](https://opendesign.cc/en/sites/modern-treasury) · <https://opendesign.cc/packs/modern-treasury/DESIGN_SPEC.en.md> — A prime example of clean, technical design language in modern fintech.
+- [Mollie](https://opendesign.cc/en/sites/mollie) · <https://opendesign.cc/packs/mollie/DESIGN_SPEC.en.md> — Clean, professional execution that effectively communicates scale and trust thro
+- [Monzo](https://opendesign.cc/en/sites/monzo) · <https://opendesign.cc/packs/monzo/DESIGN_SPEC.en.md> — This site is a masterclass in modern fintech design, balancing a highly approach
+- [Morgen](https://opendesign.cc/en/sites/morgen) · <https://opendesign.cc/packs/morgen/DESIGN_SPEC.en.md> — This site is an excellent example of a modern, premium SaaS application using a 
+- [MotherDuck](https://opendesign.cc/en/sites/motherduck) · <https://opendesign.cc/packs/motherduck/DESIGN_SPEC.en.md> — The site stands out by combining technical precision with a friendly, illustrati
+- [N26](https://opendesign.cc/en/sites/n26) · <https://opendesign.cc/packs/n26/DESIGN_SPEC.en.md> — This design is a masterclass in modern fintech branding, using a restricted colo
+- [n8n](https://opendesign.cc/en/sites/n8n) · <https://opendesign.cc/packs/n8n/DESIGN_SPEC.en.md> — This site is an excellent example of a modern, premium developer tool aesthetic,
+- [Novu](https://opendesign.cc/en/sites/novu) · <https://opendesign.cc/packs/novu/DESIGN_SPEC.en.md> — Worth including as a prime example of modern developer-focused dark-mode SaaS de
+- [Omnivore](https://opendesign.cc/en/sites/omnivore) · <https://opendesign.cc/packs/omnivore/DESIGN_SPEC.en.md> — Worth including as a prime example of a distraction-free, human-centric design s
+- [Payload](https://opendesign.cc/en/sites/payload) · <https://opendesign.cc/packs/payload/DESIGN_SPEC.en.md> — Excellent example of developer-focused design with technical aesthetics and clea
+- [Penpot](https://opendesign.cc/en/sites/penpot) · <https://opendesign.cc/packs/penpot/DESIGN_SPEC.en.md> — A strong example of a modern, dark-themed SaaS design system tool with a clear f
+- [Pinecone](https://opendesign.cc/en/sites/pinecone) · <https://opendesign.cc/packs/pinecone/DESIGN_SPEC.en.md> — This site is an excellent example of 'Engineered Clarity,' a design approach tha
+- [Pleo](https://opendesign.cc/en/sites/pleo) · <https://opendesign.cc/packs/pleo/DESIGN_SPEC.en.md> — An excellent example of a refined, trust-focused fintech interface that relies o
+- [PocketBase](https://opendesign.cc/en/sites/pocketbase) · <https://opendesign.cc/packs/pocketbase/DESIGN_SPEC.en.md> — Excellent example of a developer-focused tool that balances technical utility wi
+- [Postmark](https://opendesign.cc/en/sites/postmark) · <https://opendesign.cc/packs/postmark/DESIGN_SPEC.en.md> — This site is a great example of how to use a bold, unconventional color to creat
+- [Prismic](https://opendesign.cc/en/sites/prismic) · <https://opendesign.cc/packs/prismic/DESIGN_SPEC.en.md> — A prime example of a clean, effective B2B SaaS design that prioritizes clarity a
+- [Pulumi](https://opendesign.cc/en/sites/pulumi) · <https://opendesign.cc/packs/pulumi/DESIGN_SPEC.en.md> — A strong example of a modern, developer-focused SaaS site that balances professi
+- [Qdrant](https://opendesign.cc/en/sites/qdrant) · <https://opendesign.cc/packs/qdrant/DESIGN_SPEC.en.md> — This site is a prime example of a modern 'Developer Tool' aesthetic, balancing t
+- [Qonto](https://opendesign.cc/en/sites/qonto) · <https://opendesign.cc/packs/qonto/DESIGN_SPEC.en.md> — This site exemplifies premium fintech design through its confident monospace pal
+- [Raindrop](https://opendesign.cc/en/sites/raindrop) · <https://opendesign.cc/packs/raindrop/DESIGN_SPEC.en.md> — This site is an excellent example of a clean, modern SaaS landing page that effe
+- [Reclaim](https://opendesign.cc/en/sites/reclaim) · <https://opendesign.cc/packs/reclaim/DESIGN_SPEC.en.md> — This site is a prime example of modern SaaS design, balancing bold, expressive t
+- [Redis](https://opendesign.cc/en/sites/redis) · <https://opendesign.cc/packs/redis/DESIGN_SPEC.en.md> — This site is an excellent example of a modern, developer-oriented dark mode desi
+- [Relevance AI](https://opendesign.cc/en/sites/relevance) · <https://opendesign.cc/packs/relevance/DESIGN_SPEC.en.md> — The design effectively communicates enterprise readiness and technical sophistic
+- [Rippling](https://opendesign.cc/en/sites/rippling) · <https://opendesign.cc/packs/rippling/DESIGN_SPEC.en.md> — The site effectively balances a bold, premium brand identity with a clean, funct
+- [Shortwave](https://opendesign.cc/en/sites/shortwave) · <https://opendesign.cc/packs/shortwave/DESIGN_SPEC.en.md> — Exemplary dark mode SaaS design with strong typography hierarchy and focused AI 
+- [Sourcegraph](https://opendesign.cc/en/sites/sourcegraph) · <https://opendesign.cc/packs/sourcegraph/DESIGN_SPEC.en.md> — A quintessential example of a modern, high-end developer tool interface that bal
+- [Spark](https://opendesign.cc/en/sites/spark) · <https://opendesign.cc/packs/spark/DESIGN_SPEC.en.md> — A prime example of modern SaaS design using restraint, clarity, and high-quality
+- [StackBlitz](https://opendesign.cc/en/sites/stackblitz) · <https://opendesign.cc/packs/stackblitz/DESIGN_SPEC.en.md> — This site is a great example of a premium developer tool aesthetic, balancing hi
+- [Storyblok](https://opendesign.cc/en/sites/storyblok) · <https://opendesign.cc/packs/storyblok/DESIGN_SPEC.en.md> — Excellent example of developer-focused SaaS design that balances technical credi
+- [Strapi](https://opendesign.cc/en/sites/strapi) · <https://opendesign.cc/packs/strapi/DESIGN_SPEC.en.md> — Excellent example of developer-focused design that balances technical credibilit
+- [Stytch](https://opendesign.cc/en/sites/stytch) · <https://opendesign.cc/packs/stytch/DESIGN_SPEC.en.md> — This site is an excellent example of a developer-focused SaaS platform that uses
+- [Substack](https://opendesign.cc/en/sites/substack) · <https://opendesign.cc/packs/substack/DESIGN_SPEC.en.md> — This site is worth including as a prime example of a modern, content-first publi
+- [Super](https://opendesign.cc/en/sites/super) · <https://opendesign.cc/packs/super/DESIGN_SPEC.en.md> — Worth including as an excellent example of a clean, focused SaaS landing page th
+- [Tella](https://opendesign.cc/en/sites/tella) · <https://opendesign.cc/packs/tella/DESIGN_SPEC.en.md> — This site is a great example of modern SaaS design that balances professional ut
+- [Tinybird](https://opendesign.cc/en/sites/tinybird) · <https://opendesign.cc/packs/tinybird/DESIGN_SPEC.en.md> — The site effectively balances a technical, developer-oriented aesthetic with cle
+- [Tiptap](https://opendesign.cc/en/sites/tiptap) · <https://opendesign.cc/packs/tiptap/DESIGN_SPEC.en.md> — This site exemplifies a modern, premium developer tool aesthetic with bold typog
+- [Typesense](https://opendesign.cc/en/sites/typesense) · <https://opendesign.cc/packs/typesense/DESIGN_SPEC.en.md> — The site effectively uses a bold, simple color palette and strong typography to 
+- [Udio](https://opendesign.cc/en/sites/udio) · <https://opendesign.cc/packs/udio/DESIGN_SPEC.en.md> — This site is a prime example of modern AI product landing pages, using a dark, p
+- [Uizard](https://opendesign.cc/en/sites/uizard) · <https://opendesign.cc/packs/uizard/DESIGN_SPEC.en.md> — The site perfectly captures the 'AI design' aesthetic, using dark mode and glowi
+- [Umami](https://opendesign.cc/en/sites/umami) · <https://opendesign.cc/packs/umami/DESIGN_SPEC.en.md> — This site is a great example of a clean, restrained SaaS design that uses a sing
+- [Motion](https://opendesign.cc/en/sites/usemotion) · <https://opendesign.cc/packs/usemotion/DESIGN_SPEC.en.md> — Well-balanced design that combines modern SaaS aesthetics with clear information
+- [Vapi](https://opendesign.cc/en/sites/vapi) · <https://opendesign.cc/packs/vapi/DESIGN_SPEC.en.md> — This site is an excellent example of balancing high-end editorial photography wi
+- [Vectary](https://opendesign.cc/en/sites/vectary) · <https://opendesign.cc/packs/vectary/DESIGN_SPEC.en.md> — A perfect example of a modern SaaS hero section that balances professional restr
+- [Vimcal](https://opendesign.cc/en/sites/vimcal) · <https://opendesign.cc/packs/vimcal/DESIGN_SPEC.en.md> — Worth including for its excellent execution of dark mode productivity design
+- [Weights & Biases](https://opendesign.cc/en/sites/wandb) · <https://opendesign.cc/packs/wandb/DESIGN_SPEC.en.md> — This site is a prime example of balancing enterprise-grade seriousness with deve
+- [Weaviate](https://opendesign.cc/en/sites/weaviate) · <https://opendesign.cc/packs/weaviate/DESIGN_SPEC.en.md> — This site is worth including as it masterfully combines a dark, technical aesthe
+- [Webstudio](https://opendesign.cc/en/sites/webstudio) · <https://opendesign.cc/packs/webstudio/DESIGN_SPEC.en.md> — This site showcases modern dark UI patterns with thoughtful use of gradients and
+- [Womp](https://opendesign.cc/en/sites/womp) · <https://opendesign.cc/packs/womp/DESIGN_SPEC.en.md> — This site is worth including as a prime example of restrained, modern SaaS desig
+- [Xata](https://opendesign.cc/en/sites/xata) · <https://opendesign.cc/packs/xata/DESIGN_SPEC.en.md> — Excellent example of developer-focused dark mode design with technical precision
+- [Zen Browser](https://opendesign.cc/en/sites/zen-browser) · <https://opendesign.cc/packs/zen-browser/DESIGN_SPEC.en.md> — This site is a great example of how to execute a 'calm' and 'premium' aesthetic 
+- [205TF](https://opendesign.cc/en/sites/205tf) · <https://opendesign.cc/packs/205tf/DESIGN_SPEC.en.md> — Worth including as a prime example of a 'restraint-first' design system where ex
+- [A-COLD-WALL*](https://opendesign.cc/en/sites/a-cold-wall) · <https://opendesign.cc/packs/a-cold-wall/DESIGN_SPEC.en.md> — Worth including as a prime example of a brutalist, premium fashion e-commerce ae
+- [Aave](https://opendesign.cc/en/sites/aave) · <https://opendesign.cc/packs/aave/DESIGN_SPEC.en.md> — This site is a masterclass in applying 'mobile-first' fintech aesthetics to a de
+- [Acne Studios](https://opendesign.cc/en/sites/acne-studios) · <https://opendesign.cc/packs/acne-studios/DESIGN_SPEC.en.md> — This site is a definitive example of high-fashion minimalism, demonstrating how 
+- [Aeon](https://opendesign.cc/en/sites/aeon) · <https://opendesign.cc/packs/aeon/DESIGN_SPEC.en.md> — Aeon is an excellent reference for premium digital publishing, demonstrating how
+- [Aesop](https://opendesign.cc/en/sites/aesop) · <https://opendesign.cc/packs/aesop/DESIGN_SPEC.en.md> — A masterclass in restrained, premium e-commerce design that prioritizes product 
+- [Aimé Leon Dore](https://opendesign.cc/en/sites/aime-leon-dore) · <https://opendesign.cc/packs/aime-leon-dore/DESIGN_SPEC.en.md> — This site is a masterclass in restrained luxury e-commerce design, relying entir
+- [Akaru](https://opendesign.cc/en/sites/akaru) · <https://opendesign.cc/packs/akaru/DESIGN_SPEC.en.md> — A masterclass in typography-led design, using custom typefaces and generous whit
+- [Akiflow](https://opendesign.cc/en/sites/akiflow) · <https://opendesign.cc/packs/akiflow/DESIGN_SPEC.en.md> — A strong example of modern SaaS design that balances bold branding with a clean,
+- [Alchemy](https://opendesign.cc/en/sites/alchemy) · <https://opendesign.cc/packs/alchemy/DESIGN_SPEC.en.md> — This site is a prime example of a modern, trustworthy B2B SaaS design for develo
+- [Allbirds](https://opendesign.cc/en/sites/allbirds) · <https://opendesign.cc/packs/allbirds/DESIGN_SPEC.en.md> — This site is a prime example of how a minimalist, sustainable brand can use high
+- [Amplitude](https://opendesign.cc/en/sites/amplitude) · <https://opendesign.cc/packs/amplitude/DESIGN_SPEC.en.md> — This site is an excellent example of a professional, high-utility design system 
+- [&Tradition](https://opendesign.cc/en/sites/and-tradition) · <https://opendesign.cc/packs/and-tradition/DESIGN_SPEC.en.md> — This site is an excellent example of translating a high-end physical brand ident
+- [Anduril](https://opendesign.cc/en/sites/anduril) · <https://opendesign.cc/packs/anduril/DESIGN_SPEC.en.md> — This site is a masterclass in using photography-driven storytelling and extreme 
+- [AnOther](https://opendesign.cc/en/sites/another-magazine) · <https://opendesign.cc/packs/another-magazine/DESIGN_SPEC.en.md> — Worth including as a benchmark for premium editorial design that achieves sophis
+- [Anthropic](https://opendesign.cc/en/sites/anthropic) · <https://opendesign.cc/packs/anthropic/DESIGN_SPEC.en.md> — This site is an excellent example of how to build a premium, authoritative brand
+- [Antinomy Studio](https://opendesign.cc/en/sites/antinomy) · <https://opendesign.cc/packs/antinomy/DESIGN_SPEC.en.md> — This site is worth including as a premier example of 'restrained' agency portfol
+- [Apartamento](https://opendesign.cc/en/sites/apartamento) · <https://opendesign.cc/packs/apartamento/DESIGN_SPEC.en.md> — Worth including as a prime example of blending classic print magazine sensibilit
+- [Arbitrum](https://opendesign.cc/en/sites/arbitrum) · <https://opendesign.cc/packs/arbitrum/DESIGN_SPEC.en.md> — A strong example of a modern, premium fintech identity that uses bold typography
+- [Arc'teryx](https://opendesign.cc/en/sites/arcteryx) · <https://opendesign.cc/packs/arcteryx/DESIGN_SPEC.en.md> — Excellent example of restraint-driven premium design where photography does all 
+- [Are.na](https://opendesign.cc/en/sites/are-na) · <https://opendesign.cc/packs/are-na/DESIGN_SPEC.en.md> — This site is a masterclass in restraint and typography-driven design, making it 
+- [AREA 17](https://opendesign.cc/en/sites/area17) · <https://opendesign.cc/packs/area17/DESIGN_SPEC.en.md> — An excellent reference for minimalist, type-driven agency portfolios that priori
+- [Aristide Benoist](https://opendesign.cc/en/sites/aristide) · <https://opendesign.cc/packs/aristide/DESIGN_SPEC.en.md> — Worth including for its extreme typographic scale, sophisticated dark aesthetic,
+- [Artek](https://opendesign.cc/en/sites/artek) · <https://opendesign.cc/packs/artek/DESIGN_SPEC.en.md> — A great example of restrained, premium design where the product photography take
+- [Article](https://opendesign.cc/en/sites/article) · <https://opendesign.cc/packs/article/DESIGN_SPEC.en.md> — This site is a prime example of modern, photography-driven e-commerce that uses 
+- [Astro](https://opendesign.cc/en/sites/astro) · <https://opendesign.cc/packs/astro/DESIGN_SPEC.en.md> — Worth including as a prime example of a modern, high-end developer tool landing 
+- [Athletic Brewing](https://opendesign.cc/en/sites/athletic-brewing) · <https://opendesign.cc/packs/athletic-brewing/DESIGN_SPEC.en.md> — Worth including as a prime example of a modern DTC beverage brand using bold typ
+- [Atlas Obscura](https://opendesign.cc/en/sites/atlas-obscura) · <https://opendesign.cc/packs/atlas-obscura/DESIGN_SPEC.en.md> — This site is a perfect example of modern editorial design that balances classic 
+- [Audemars Piguet](https://opendesign.cc/en/sites/audemars-piguet) · <https://opendesign.cc/packs/audemars-piguet/DESIGN_SPEC.en.md> — This site is a masterclass in using typography (thin serifs) and negative space 
+- [Audo Copenhagen](https://opendesign.cc/en/sites/audo) · <https://opendesign.cc/packs/audo/DESIGN_SPEC.en.md> — Worth including as a prime example of restrained, premium e-commerce design wher
+- [Aura Bora](https://opendesign.cc/en/sites/aura-bora) · <https://opendesign.cc/packs/aura-bora/DESIGN_SPEC.en.md> — This site is a great example of using bold, illustrative typography and simple p
+- [Away](https://opendesign.cc/en/sites/away) · <https://opendesign.cc/packs/away/DESIGN_SPEC.en.md> — The site is a great example of a premium, photo-driven e-commerce brand that bal
+- [Awwwards](https://opendesign.cc/en/sites/awwwards) · <https://opendesign.cc/packs/awwwards/DESIGN_SPEC.en.md> — This site is a perfect reference for 'quiet luxury' web design, demonstrating ho
+- [Balenciaga](https://opendesign.cc/en/sites/balenciaga) · <https://opendesign.cc/packs/balenciaga/DESIGN_SPEC.en.md> — This site is a perfect example of how strict UI restraint and a monochromatic pa
+- [Bang & Olufsen](https://opendesign.cc/en/sites/bang-olufsen) · <https://opendesign.cc/packs/bang-olufsen/DESIGN_SPEC.en.md> — Worth including as a prime example of a premium, dark-mode hardware product site
+- [Barbican](https://opendesign.cc/en/sites/barbican) · <https://opendesign.cc/packs/barbican/DESIGN_SPEC.en.md> — The site is a prime example of high-end institutional design that successfully b
+- [Base](https://opendesign.cc/en/sites/base) · <https://opendesign.cc/packs/base/DESIGN_SPEC.en.md> — This site is a prime example of 'institutional minimalism' in the fintech space,
+- [Basement Studio](https://opendesign.cc/en/sites/basement-studio) · <https://opendesign.cc/packs/basement-studio/DESIGN_SPEC.en.md> — This site is worth including as a prime example of a premium, dark-themed creati
+- [Bear](https://opendesign.cc/en/sites/bear) · <https://opendesign.cc/packs/bear/DESIGN_SPEC.en.md> — An excellent reference for restrained, text-first product design that prioritize
+- [Bellroy](https://opendesign.cc/en/sites/bellroy) · <https://opendesign.cc/packs/bellroy/DESIGN_SPEC.en.md> — This site is an excellent example of premium e-commerce design that balances fun
+- [Blu Dot](https://opendesign.cc/en/sites/blu-dot) · <https://opendesign.cc/packs/blu-dot/DESIGN_SPEC.en.md> — The site is a great example of balancing bold, high-chroma product photography w
+- [Blue Origin](https://opendesign.cc/en/sites/blue-origin) · <https://opendesign.cc/packs/blue-origin/DESIGN_SPEC.en.md> — This site is a premier example of using scale and imagery to create a powerful b
+- [Bolt](https://opendesign.cc/en/sites/bolt) · <https://opendesign.cc/packs/bolt/DESIGN_SPEC.en.md> — A clean, professional dark-mode interface for an AI developer tool that balances
+- [Bond](https://opendesign.cc/en/sites/bond) · <https://opendesign.cc/packs/bond/DESIGN_SPEC.en.md> — A strong example of a portfolio-driven agency site that uses bold typography and
+- [Boom Supersonic](https://opendesign.cc/en/sites/boom) · <https://opendesign.cc/packs/boom/DESIGN_SPEC.en.md> — The site effectively combines dramatic aerospace photography with minimalist UI 
+- [Bottega Veneta](https://opendesign.cc/en/sites/bottega-veneta) · <https://opendesign.cc/packs/bottega-veneta/DESIGN_SPEC.en.md> — The site is a premier example of 'quiet luxury' digital design, using extreme re
+- [Brex](https://opendesign.cc/en/sites/brex) · <https://opendesign.cc/packs/brex/DESIGN_SPEC.en.md> — A perfect example of modern fintech branding that balances corporate authority w
+- [Brightland](https://opendesign.cc/en/sites/brightland) · <https://opendesign.cc/packs/brightland/DESIGN_SPEC.en.md> — This site is an excellent reference for how to build a strong, personality-drive
+- [Buck](https://opendesign.cc/en/sites/buck) · <https://opendesign.cc/packs/buck/DESIGN_SPEC.en.md> — This site is a masterclass in agency minimalism, using extreme typographic restr
+- [Build in Amsterdam](https://opendesign.cc/en/sites/build-in-amsterdam) · <https://opendesign.cc/packs/build-in-amsterdam/DESIGN_SPEC.en.md> — Excellent example of editorial-influenced agency design that balances portfolio 
+- [Builder.io](https://opendesign.cc/en/sites/builder) · <https://opendesign.cc/packs/builder/DESIGN_SPEC.en.md> — A classic example of a high-end, technical SaaS landing page that uses a dark th
+- [Bun](https://opendesign.cc/en/sites/bun) · <https://opendesign.cc/packs/bun/DESIGN_SPEC.en.md> — This site is an excellent example of a modern developer tool's UI, balancing tec
+- [Byredo](https://opendesign.cc/en/sites/byredo) · <https://opendesign.cc/packs/byredo/DESIGN_SPEC.en.md> — A masterclass in luxury restraint, demonstrating how a brand can achieve a premi
+- [Cap](https://opendesign.cc/en/sites/cap) · <https://opendesign.cc/packs/cap/DESIGN_SPEC.en.md> — This site is a prime example of a modern, developer-focused SaaS landing page wi
+- [Capacities](https://opendesign.cc/en/sites/capacities) · <https://opendesign.cc/packs/capacities/DESIGN_SPEC.en.md> — Worth including as a premier example of 'Calm Tech' design, successfully blendin
+- [Captions](https://opendesign.cc/en/sites/captions) · <https://opendesign.cc/packs/captions/DESIGN_SPEC.en.md> — This site is an excellent example of a modern, professional SaaS tool that uses 
+- [Caraway](https://opendesign.cc/en/sites/caraway) · <https://opendesign.cc/packs/caraway/DESIGN_SPEC.en.md> — A great example of a premium DTC brand using restrained design to highlight prod
+- [Cargo](https://opendesign.cc/en/sites/cargo) · <https://opendesign.cc/packs/cargo/DESIGN_SPEC.en.md> — An exceptional reference for how to build a premium creative tool that steps bac
+- [Character.AI](https://opendesign.cc/en/sites/character) · <https://opendesign.cc/packs/character/DESIGN_SPEC.en.md> — This site is worth including as a prime example of a modern, minimalist AI produ
+- [Clerk](https://opendesign.cc/en/sites/clerk) · <https://opendesign.cc/packs/clerk/DESIGN_SPEC.en.md> — Exemplary developer tool design that balances professionalism with approachabili
+- [Coda](https://opendesign.cc/en/sites/coda) · <https://opendesign.cc/packs/coda/DESIGN_SPEC.en.md> — This site is a perfect example of how to balance a professional SaaS product wit
+- [Cognition](https://opendesign.cc/en/sites/cognition) · <https://opendesign.cc/packs/cognition/DESIGN_SPEC.en.md> — This site is a masterclass in restrained, premium design for technical products,
+- [Collins](https://opendesign.cc/en/sites/collins) · <https://opendesign.cc/packs/collins/DESIGN_SPEC.en.md> — Excellent example of restrained premium agency design where typography and white
+- [Commercial Type](https://opendesign.cc/en/sites/commercial-type) · <https://opendesign.cc/packs/commercial-type/DESIGN_SPEC.en.md> — An excellent reference for high-end typographic presentation and gallery-style U
+- [Convex](https://opendesign.cc/en/sites/convex) · <https://opendesign.cc/packs/convex/DESIGN_SPEC.en.md> — A prime example of modern developer tools design, blending editorial warmth with
+- [Cooper Hewitt](https://opendesign.cc/en/sites/cooper-hewitt) · <https://opendesign.cc/packs/cooper-hewitt/DESIGN_SPEC.en.md> — This site is an excellent example of institutional editorial design, using bold 
+- [Craft](https://opendesign.cc/en/sites/craft) · <https://opendesign.cc/packs/craft/DESIGN_SPEC.en.md> — This site is a perfect example of a premium, calm productivity UI that successfu
+- [Create](https://opendesign.cc/en/sites/create-xyz) · <https://opendesign.cc/packs/create-xyz/DESIGN_SPEC.en.md> — The design effectively balances a playful, creative AI tool identity with a clea
+- [Cuberto](https://opendesign.cc/en/sites/cuberto) · <https://opendesign.cc/packs/cuberto/DESIGN_SPEC.en.md> — This site is a perfect example of how a restricted monochrome palette and bold t
+- [Dae](https://opendesign.cc/en/sites/dae) · <https://opendesign.cc/packs/dae/DESIGN_SPEC.en.md> — Worth including for its strong, cohesive visual identity that successfully blend
+- [Dazed](https://opendesign.cc/en/sites/dazed) · <https://opendesign.cc/packs/dazed/DESIGN_SPEC.en.md> — This site is worth including as a prime example of high-end editorial web design
+- [Delba de Oliveira](https://opendesign.cc/en/sites/delba) · <https://opendesign.cc/packs/delba/DESIGN_SPEC.en.md> — This site is a perfect example of a text-first, editorial portfolio where typogr
+- [Deno](https://opendesign.cc/en/sites/deno) · <https://opendesign.cc/packs/deno/DESIGN_SPEC.en.md> — This site is a great example of modern developer documentation design, balancing
+- [Descript](https://opendesign.cc/en/sites/descript) · <https://opendesign.cc/packs/descript/DESIGN_SPEC.en.md> — This site is a prime example of a modern, professional SaaS design that uses cla
+- [Design Museum](https://opendesign.cc/en/sites/design-museum) · <https://opendesign.cc/packs/design-museum/DESIGN_SPEC.en.md> — This site is an excellent reference for institutional design that balances bold 
+- [Dezeen](https://opendesign.cc/en/sites/dezeen) · <https://opendesign.cc/packs/dezeen/DESIGN_SPEC.en.md> — This site is a perfect example of a premium editorial design that prioritizes co
+- [DIA Studio](https://opendesign.cc/en/sites/dia-studio) · <https://opendesign.cc/packs/dia-studio/DESIGN_SPEC.en.md> — The site is a masterclass in minimalist editorial design, using a strict serif t
+- [ABC Dinamo](https://opendesign.cc/en/sites/dinamo) · <https://opendesign.cc/packs/dinamo/DESIGN_SPEC.en.md> — An excellent reference for balancing heavy typographic presence with generous wh
+- [Diptyque](https://opendesign.cc/en/sites/diptyque) · <https://opendesign.cc/packs/diptyque/DESIGN_SPEC.en.md> — Worth including as a prime example of a luxury retail design system where the UI
+- [Displaay](https://opendesign.cc/en/sites/displaay) · <https://opendesign.cc/packs/displaay/DESIGN_SPEC.en.md> — A masterclass in how a type foundry can showcase its craft through its own UI, u
+- [Dogstudio](https://opendesign.cc/en/sites/dogstudio) · <https://opendesign.cc/packs/dogstudio/DESIGN_SPEC.en.md> — This site is an excellent reference for high-end creative agency design, showcas
+- [Dribbble](https://opendesign.cc/en/sites/dribbble) · <https://opendesign.cc/packs/dribbble/DESIGN_SPEC.en.md> — The site is a prime example of a gallery-style SaaS platform that uses a neutral
+- [Drizzle ORM](https://opendesign.cc/en/sites/drizzle) · <https://opendesign.cc/packs/drizzle/DESIGN_SPEC.en.md> — A great example of a clean, functional developer-focused design that prioritizes
+- [Droga5](https://opendesign.cc/en/sites/droga5) · <https://opendesign.cc/packs/droga5/DESIGN_SPEC.en.md> — This site is a masterclass in using massive, bold typography and strict minimali
+- [Dyson](https://opendesign.cc/en/sites/dyson) · <https://opendesign.cc/packs/dyson/DESIGN_SPEC.en.md> — Exemplary premium hardware e-commerce design that balances dramatic product pres
+- [Emil Kowalski](https://opendesign.cc/en/sites/emil-kowalski) · <https://opendesign.cc/packs/emil-kowalski/DESIGN_SPEC.en.md> — A prime example of 'restraint' in design, showing how a simple palette and layou
+- [Ethereum](https://opendesign.cc/en/sites/ethereum) · <https://opendesign.cc/packs/ethereum/DESIGN_SPEC.en.md> — A highly successful example of a 'calm' design for a complex technical topic, ma
+- [Everlane](https://opendesign.cc/en/sites/everlane) · <https://opendesign.cc/packs/everlane/DESIGN_SPEC.en.md> — This site is an excellent reference for how a highly restrained, monochromatic U
+- [Excalidraw](https://opendesign.cc/en/sites/excalidraw) · <https://opendesign.cc/packs/excalidraw/DESIGN_SPEC.en.md> — The design is a masterclass in building a complex tool that feels simple and app
+- [Exo Ape](https://opendesign.cc/en/sites/exo-ape) · <https://opendesign.cc/packs/exo-ape/DESIGN_SPEC.en.md> — This site is a masterclass in using photography and massive, light-weight typogr
+- [Eye on Design](https://opendesign.cc/en/sites/eye-on-design) · <https://opendesign.cc/packs/eye-on-design/DESIGN_SPEC.en.md> — A strong example of editorial design principles applied to a digital medium, bal
+- [fal](https://opendesign.cc/en/sites/fal) · <https://opendesign.cc/packs/fal/DESIGN_SPEC.en.md> — This site is worth including for its bold, expressive use of color and typograph
+- [Family](https://opendesign.cc/en/sites/family) · <https://opendesign.cc/packs/family/DESIGN_SPEC.en.md> — Worth including as a masterclass in making fintech feel approachable through pla
+- [Fantasy](https://opendesign.cc/en/sites/fantasy) · <https://opendesign.cc/packs/fantasy/DESIGN_SPEC.en.md> — This site is a perfect reference for high-end agency design, demonstrating how e
+- [Farcaster](https://opendesign.cc/en/sites/farcaster) · <https://opendesign.cc/packs/farcaster/DESIGN_SPEC.en.md> — A strong example of a modern, focused SaaS landing page for a decentralized prot
+- [Ferm Living](https://opendesign.cc/en/sites/ferm-living) · <https://opendesign.cc/packs/ferm-living/DESIGN_SPEC.en.md> — The site effectively uses high-quality editorial photography and generous whites
+- [Fey](https://opendesign.cc/en/sites/fey) · <https://opendesign.cc/packs/fey/DESIGN_SPEC.en.md> — This site is a perfect example of a premium, data-heavy fintech interface that u
+- [Flos](https://opendesign.cc/en/sites/flos) · <https://opendesign.cc/packs/flos/DESIGN_SPEC.en.md> — This site is a prime example of premium product presentation, using restraint an
+- [Fly.io](https://opendesign.cc/en/sites/fly) · <https://opendesign.cc/packs/fly/DESIGN_SPEC.en.md> — The site is a strong example of balancing technical infrastructure messaging wit
+- [Fly By Jing](https://opendesign.cc/en/sites/fly-by-jing) · <https://opendesign.cc/packs/fly-by-jing/DESIGN_SPEC.en.md> — Worth including for its masterful use of bold, expressive typography and a highl
+- [Fonts In Use](https://opendesign.cc/en/sites/fonts-in-use) · <https://opendesign.cc/packs/fonts-in-use/DESIGN_SPEC.en.md> — A perfect example of functional curation, where the interface intentionally rece
+- [Footer](https://opendesign.cc/en/sites/footer-design) · <https://opendesign.cc/packs/footer-design/DESIGN_SPEC.en.md> — A refined curation platform that demonstrates how strict restraint in color and 
+- [Foster + Partners](https://opendesign.cc/en/sites/foster-partners) · <https://opendesign.cc/packs/foster-partners/DESIGN_SPEC.en.md> — A masterclass in restrained, high-end portfolio design where the interface serve
+- [Foundation](https://opendesign.cc/en/sites/foundation) · <https://opendesign.cc/packs/foundation/DESIGN_SPEC.en.md> — This site is an excellent example of a restrained, editorial design system focus
+- [14islands](https://opendesign.cc/en/sites/fourteen-islands) · <https://opendesign.cc/packs/fourteen-islands/DESIGN_SPEC.en.md> — Exemplary minimalist agency design that uses extreme typographic scale and restr
+- [Frere-Jones Type](https://opendesign.cc/en/sites/frere-jones) · <https://opendesign.cc/packs/frere-jones/DESIGN_SPEC.en.md> — This site is a masterclass in 'less is more' design, proving that a single, well
+- [Fritz Hansen](https://opendesign.cc/en/sites/fritz-hansen) · <https://opendesign.cc/packs/fritz-hansen/DESIGN_SPEC.en.md> — A benchmark for high-end product sites, showing how restraint and typography can
+- [Frog](https://opendesign.cc/en/sites/frog) · <https://opendesign.cc/packs/frog/DESIGN_SPEC.en.md> — This site is worth including as a prime example of a premium agency portfolio th
+- [Gamma](https://opendesign.cc/en/sites/gamma) · <https://opendesign.cc/packs/gamma/DESIGN_SPEC.en.md> — This site is an excellent example of modern AI SaaS design, balancing a friendly
+- [Ganni](https://opendesign.cc/en/sites/ganni) · <https://opendesign.cc/packs/ganni/DESIGN_SPEC.en.md> — A highly effective example of how a minimalist UI framework can successfully sup
+- [General Type Studio](https://opendesign.cc/en/sites/general-type) · <https://opendesign.cc/packs/general-type/DESIGN_SPEC.en.md> — The site is a prime example of a typography-first design that uses large-scale i
+- [Genesis](https://opendesign.cc/en/sites/genesis) · <https://opendesign.cc/packs/genesis/DESIGN_SPEC.en.md> — Excellent example of premium automotive brand design with cinematic photography 
+- [Gentle Monster](https://opendesign.cc/en/sites/gentle-monster) · <https://opendesign.cc/packs/gentle-monster/DESIGN_SPEC.en.md> — Worth including as a prime example of minimalist luxury e-commerce design, demon
+- [Glean](https://opendesign.cc/en/sites/glean) · <https://opendesign.cc/packs/glean/DESIGN_SPEC.en.md> — The site exemplifies a modern, premium SaaS aesthetic, balancing technical autho
+- [Glossier](https://opendesign.cc/en/sites/glossier) · <https://opendesign.cc/packs/glossier/DESIGN_SPEC.en.md> — Worth including as a prime example of 'clean' modern DTC design that uses photog
+- [Godly](https://opendesign.cc/en/sites/godly) · <https://opendesign.cc/packs/godly/DESIGN_SPEC.en.md> — This site is an excellent example of how extreme restraint in UI design can elev
+- [Graza](https://opendesign.cc/en/sites/graza) · <https://opendesign.cc/packs/graza/DESIGN_SPEC.en.md> — This site is a great example of building a strong, distinctive brand identity fo
+- [Great Jones](https://opendesign.cc/en/sites/great-jones) · <https://opendesign.cc/packs/great-jones/DESIGN_SPEC.en.md> — A strong example of blending lifestyle photography with an institutional financi
+- [Gretel](https://opendesign.cc/en/sites/gretel) · <https://opendesign.cc/packs/gretel/DESIGN_SPEC.en.md> — A masterclass in restraint, this site is worth including as a benchmark for prem
+- [Grilli Type](https://opendesign.cc/en/sites/grilli-type) · <https://opendesign.cc/packs/grilli-type/DESIGN_SPEC.en.md> — The site serves as a masterclass in restraint, using a minimalist framework to l
+- [Groq](https://opendesign.cc/en/sites/groq) · <https://opendesign.cc/packs/groq/DESIGN_SPEC.en.md> — The site is worth including because it demonstrates a high-end, performance-focu
+- [Guggenheim](https://opendesign.cc/en/sites/guggenheim) · <https://opendesign.cc/packs/guggenheim/DESIGN_SPEC.en.md> — This design is worth including as a prime example of a refined, institutional mu
+- [Gymshark](https://opendesign.cc/en/sites/gymshark) · <https://opendesign.cc/packs/gymshark/DESIGN_SPEC.en.md> — An excellent example of a product-focused e-commerce site that uses restraint in
+- [Harvey](https://opendesign.cc/en/sites/harvey) · <https://opendesign.cc/packs/harvey/DESIGN_SPEC.en.md> — This site is an excellent example of premium, restrained design for a high-end B
+- [Hello Monday](https://opendesign.cc/en/sites/hello-monday) · <https://opendesign.cc/packs/hello-monday/DESIGN_SPEC.en.md> — This site is an excellent example of how a restrictive color palette combined wi
+- [Heptabase](https://opendesign.cc/en/sites/heptabase) · <https://opendesign.cc/packs/heptabase/DESIGN_SPEC.en.md> — Excellent example of restrained, professional SaaS design for productivity tools
+- [Herman Miller](https://opendesign.cc/en/sites/herman-miller) · <https://opendesign.cc/packs/herman-miller/DESIGN_SPEC.en.md> — Exemplary restraint in digital retail design, allowing large-scale product photo
+- [Hex](https://opendesign.cc/en/sites/hex) · <https://opendesign.cc/packs/hex/DESIGN_SPEC.en.md> — This site is worth including because it perfectly balances a premium, editorial 
+- [HeyGen](https://opendesign.cc/en/sites/heygen) · <https://opendesign.cc/packs/heygen/DESIGN_SPEC.en.md> — A polished, premium AI SaaS example that balances high-impact typography with a 
+- [Highsnobiety](https://opendesign.cc/en/sites/highsnobiety) · <https://opendesign.cc/packs/highsnobiety/DESIGN_SPEC.en.md> — A quintessential example of a modern editorial site that blends streetwear aesth
+- [Hoefler&Co](https://opendesign.cc/en/sites/hoefler-co) · <https://opendesign.cc/packs/hoefler-co/DESIGN_SPEC.en.md> — This site exemplifies how typography itself can be the primary design element, w
+- [Huge](https://opendesign.cc/en/sites/hugeinc) · <https://opendesign.cc/packs/hugeinc/DESIGN_SPEC.en.md> — Worth including as a prime example of a modern, high-impact agency aesthetic tha
+- [Hugging Face](https://opendesign.cc/en/sites/huggingface) · <https://opendesign.cc/packs/huggingface/DESIGN_SPEC.en.md> — This site is an excellent example of balancing a playful mascot with a highly te
+- [Hume AI](https://opendesign.cc/en/sites/hume) · <https://opendesign.cc/packs/hume/DESIGN_SPEC.en.md> — A high-quality example of a 'warm-corporate' AI research aesthetic that balances
+- [Hypebeast](https://opendesign.cc/en/sites/hypebeast) · <https://opendesign.cc/packs/hypebeast/DESIGN_SPEC.en.md> — This site is worth including as a benchmark for high-end digital editorial desig
+- [IDEO](https://opendesign.cc/en/sites/ideo) · <https://opendesign.cc/packs/ideo/DESIGN_SPEC.en.md> — This site is a quintessential example of high-end studio branding that balances 
+- [Ideogram](https://opendesign.cc/en/sites/ideogram) · <https://opendesign.cc/packs/ideogram/DESIGN_SPEC.en.md> — This site is a masterclass in applying editorial design principles to a modern t
+- [Ilia](https://opendesign.cc/en/sites/ilia) · <https://opendesign.cc/packs/ilia/DESIGN_SPEC.en.md> — Clean beauty brand with strong photographic presence and restrained, premium UI 
+- [Immersive Garden](https://opendesign.cc/en/sites/immersive-garden) · <https://opendesign.cc/packs/immersive-garden/DESIGN_SPEC.en.md> — Worth including as a benchmark for ultra-refined, minimalist luxury UI that avoi
+- [Inngest](https://opendesign.cc/en/sites/inngest) · <https://opendesign.cc/packs/inngest/DESIGN_SPEC.en.md> — Inngest provides an excellent reference for a premium developer tools brand, bal
+- [Instrument](https://opendesign.cc/en/sites/instrument) · <https://opendesign.cc/packs/instrument/DESIGN_SPEC.en.md> — Worth including for its masterful balance of bold, oversized typography and play
+- [It's Nice That](https://opendesign.cc/en/sites/its-nice-that) · <https://opendesign.cc/packs/its-nice-that/DESIGN_SPEC.en.md> — This site is a quintessential example of modern editorial design, successfully b
+- [Jam3](https://opendesign.cc/en/sites/jam3) · <https://opendesign.cc/packs/jam3/DESIGN_SPEC.en.md> — Worth including as a prime example of a premium agency portfolio combining bold 
+- [Jhey Tompkins](https://opendesign.cc/en/sites/jhey) · <https://opendesign.cc/packs/jhey/DESIGN_SPEC.en.md> — A refined developer portfolio that uses strong typography and whitespace to crea
+- [Jones Road](https://opendesign.cc/en/sites/jones-road) · <https://opendesign.cc/packs/jones-road/DESIGN_SPEC.en.md> — This site is a masterclass in restrained, premium beauty branding, using a minim
+- [Josh Comeau](https://opendesign.cc/en/sites/josh-comeau) · <https://opendesign.cc/packs/josh-comeau/DESIGN_SPEC.en.md> — This site is worth including as a prime example of how to make technical educati
+- [Kengo Kuma](https://opendesign.cc/en/sites/kengo-kuma) · <https://opendesign.cc/packs/kengo-kuma/DESIGN_SPEC.en.md> — This site is an excellent example of a highly refined, restraint-driven portfoli
+- [Khaite](https://opendesign.cc/en/sites/khaite) · <https://opendesign.cc/packs/khaite/DESIGN_SPEC.en.md> — A masterclass in restrained luxury e-commerce design where photography does all 
+- [Kinfolk](https://opendesign.cc/en/sites/kinfolk) · <https://opendesign.cc/packs/kinfolk/DESIGN_SPEC.en.md> — This site is an excellent example of a digital magazine translating a premium pr
+- [Kith](https://opendesign.cc/en/sites/kith) · <https://opendesign.cc/packs/kith/DESIGN_SPEC.en.md> — This site is an excellent example of a 'chromeless' e-commerce experience where 
+- [Klim Type Foundry](https://opendesign.cc/en/sites/klim) · <https://opendesign.cc/packs/klim/DESIGN_SPEC.en.md> — This site serves as a masterclass in premium typography presentation, using extr
+- [Knock](https://opendesign.cc/en/sites/knock) · <https://opendesign.cc/packs/knock/DESIGN_SPEC.en.md> — A textbook example of a modern, developer-focused SaaS design that balances prof
+- [Knoll](https://opendesign.cc/en/sites/knoll) · <https://opendesign.cc/packs/knoll/DESIGN_SPEC.en.md> — This site exemplifies premium brand design with high-quality photography and res
+- [Krea](https://opendesign.cc/en/sites/krea) · <https://opendesign.cc/packs/krea/DESIGN_SPEC.en.md> — Excellent example of a modern, dark-themed SaaS landing page that prioritizes cl
+- [Layers](https://opendesign.cc/en/sites/layers) · <https://opendesign.cc/packs/layers/DESIGN_SPEC.en.md> — This site is worth including as a prime example of minimalist, gallery-focused d
+- [Le Labo](https://opendesign.cc/en/sites/le-labo) · <https://opendesign.cc/packs/le-labo/DESIGN_SPEC.en.md> — This site is a masterclass in using photography and typography to establish a pr
+- [Ledger](https://opendesign.cc/en/sites/ledger) · <https://opendesign.cc/packs/ledger/DESIGN_SPEC.en.md> — A prime example of high-impact, minimalist dark mode design for premium financia
+- [Leica](https://opendesign.cc/en/sites/leica) · <https://opendesign.cc/packs/leica/DESIGN_SPEC.en.md> — A masterclass in how a heritage brand can use minimal UI to elevate high-quality
+- [Lemon Squeezy](https://opendesign.cc/en/sites/lemon-squeezy) · <https://opendesign.cc/packs/lemon-squeezy/DESIGN_SPEC.en.md> — This site is a prime example of modern fintech SaaS branding that balances profe
+- [Lens](https://opendesign.cc/en/sites/lens) · <https://opendesign.cc/packs/lens/DESIGN_SPEC.en.md> — This site is worth including as a prime example of a modern, clean aesthetic app
+- [Leonardo.Ai](https://opendesign.cc/en/sites/leonardo-ai) · <https://opendesign.cc/packs/leonardo-ai/DESIGN_SPEC.en.md> — The extreme use of massive, 3D-perspective uppercase typography creates a highly
+- [Lineto](https://opendesign.cc/en/sites/lineto) · <https://opendesign.cc/packs/lineto/DESIGN_SPEC.en.md> — An excellent example of extreme minimalism in design, where typography alone ser
+- [Liquid Death](https://opendesign.cc/en/sites/liquid-death) · <https://opendesign.cc/packs/liquid-death/DESIGN_SPEC.en.md> — This site is an excellent example of building a strong, irreverent brand identit
+- [Liveblocks](https://opendesign.cc/en/sites/liveblocks) · <https://opendesign.cc/packs/liveblocks/DESIGN_SPEC.en.md> — A quintessential modern developer tool landing page that uses extreme restraint 
+- [Locomotive](https://opendesign.cc/en/sites/locomotive) · <https://opendesign.cc/packs/locomotive/DESIGN_SPEC.en.md> — The site is worth including as a masterclass in using typography and stark contr
+- [Loewe](https://opendesign.cc/en/sites/loewe) · <https://opendesign.cc/packs/loewe/DESIGN_SPEC.en.md> — This site is a masterclass in luxury e-commerce design, demonstrating how powerf
+- [Loops](https://opendesign.cc/en/sites/loops) · <https://opendesign.cc/packs/loops/DESIGN_SPEC.en.md> — This site is a great example of modern SaaS design that balances developer-centr
+- [Louis Poulsen](https://opendesign.cc/en/sites/louis-poulsen) · <https://opendesign.cc/packs/louis-poulsen/DESIGN_SPEC.en.md> — This site is a masterclass in editorial e-commerce, proving that a minimalist mo
+- [Louisiana](https://opendesign.cc/en/sites/louisiana) · <https://opendesign.cc/packs/louisiana/DESIGN_SPEC.en.md> — This site is worth including as a prime example of a 'Refined' and 'Clean' desig
+- [Lucid](https://opendesign.cc/en/sites/lucid) · <https://opendesign.cc/packs/lucid/DESIGN_SPEC.en.md> — A perfect example of premium automotive branding using minimalist design to elev
+- [Luma](https://opendesign.cc/en/sites/luma) · <https://opendesign.cc/packs/luma/DESIGN_SPEC.en.md> — A perfect example of how to balance a clean, professional SaaS UI with playful, 
+- [Luma AI](https://opendesign.cc/en/sites/lumalabs) · <https://opendesign.cc/packs/lumalabs/DESIGN_SPEC.en.md> — This site is a masterclass in using a restrained, dark-mode UI to let high-quali
+- [Magic](https://opendesign.cc/en/sites/magic-dev) · <https://opendesign.cc/packs/magic-dev/DESIGN_SPEC.en.md> — This site is a prime example of restrained, high-impact typography-driven design
+- [Magic Eden](https://opendesign.cc/en/sites/magic-eden) · <https://opendesign.cc/packs/magic-eden/DESIGN_SPEC.en.md> — Worth including as a prime example of a high-performance, dark-mode marketplace 
+- [Magic Spoon](https://opendesign.cc/en/sites/magic-spoon) · <https://opendesign.cc/packs/magic-spoon/DESIGN_SPEC.en.md> — Worth including for its successful blend of nostalgic 'cereal box' vibrancy with
+- [Master & Dynamic](https://opendesign.cc/en/sites/master-dynamic) · <https://opendesign.cc/packs/master-dynamic/DESIGN_SPEC.en.md> — A strong example of restrained premium e-commerce where typography precision and
+- [McLaren](https://opendesign.cc/en/sites/mclaren) · <https://opendesign.cc/packs/mclaren/DESIGN_SPEC.en.md> — This site is a premier example of how a brand can communicate immense power and 
+- [Merci-Michel](https://opendesign.cc/en/sites/merci-michel) · <https://opendesign.cc/packs/merci-michel/DESIGN_SPEC.en.md> — This site is a great example of a high-end creative portfolio, using typography 
+- [Mercury](https://opendesign.cc/en/sites/mercury) · <https://opendesign.cc/packs/mercury/DESIGN_SPEC.en.md> — A strong example of how premium fintech branding can use editorial photography a
+- [Merit](https://opendesign.cc/en/sites/merit) · <https://opendesign.cc/packs/merit/DESIGN_SPEC.en.md> — This site is a masterclass in restrained, premium e-commerce design, perfectly b
+- [MetaMask](https://opendesign.cc/en/sites/metamask) · <https://opendesign.cc/packs/metamask/DESIGN_SPEC.en.md> — This site is a strong example of how to use extreme typography and a vibrant, no
+- [Midjourney](https://opendesign.cc/en/sites/midjourney) · <https://opendesign.cc/packs/midjourney/DESIGN_SPEC.en.md> — A highly distinctive AI company site that blends developer aesthetic (monospace,
+- [Milieu Grotesque](https://opendesign.cc/en/sites/milieu-grotesque) · <https://opendesign.cc/packs/milieu-grotesque/DESIGN_SPEC.en.md> — This site is worth including as a masterclass in professional typography-driven 
+- [Minimal Gallery](https://opendesign.cc/en/sites/minimal-gallery) · <https://opendesign.cc/packs/minimal-gallery/DESIGN_SPEC.en.md> — Worth including as a premier example of restraint and curation, proving that a l
+- [Mixpanel](https://opendesign.cc/en/sites/mixpanel) · <https://opendesign.cc/packs/mixpanel/DESIGN_SPEC.en.md> — This site is an excellent example of balancing high-end brand aesthetics with cl
+- [Modal](https://opendesign.cc/en/sites/modal) · <https://opendesign.cc/packs/modal/DESIGN_SPEC.en.md> — This site is a prime example of modern developer tool branding, using a bold, mi
+- [MoMA](https://opendesign.cc/en/sites/moma) · <https://opendesign.cc/packs/moma/DESIGN_SPEC.en.md> — An excellent reference for institutional and editorial design, showing how a min
+- [Monocle](https://opendesign.cc/en/sites/monocle) · <https://opendesign.cc/packs/monocle/DESIGN_SPEC.en.md> — Monocle is an excellent example of a premium editorial brand that leverages rest
+- [Monos](https://opendesign.cc/en/sites/monos) · <https://opendesign.cc/packs/monos/DESIGN_SPEC.en.md> — A strong example of premium e-commerce that uses editorial photography and gener
+- [Moooi](https://opendesign.cc/en/sites/moooi) · <https://opendesign.cc/packs/moooi/DESIGN_SPEC.en.md> — An excellent example of how a minimal, restrained design system can convey luxur
+- [Moving Brands](https://opendesign.cc/en/sites/moving-brands) · <https://opendesign.cc/packs/moving-brands/DESIGN_SPEC.en.md> — An excellent example of restrained, high-end agency design that uses extreme con
+- [Mucho](https://opendesign.cc/en/sites/mucho) · <https://opendesign.cc/packs/mucho/DESIGN_SPEC.en.md> — A perfect example of how typography-driven design can create a powerful brand pr
+- [Muuto](https://opendesign.cc/en/sites/muuto) · <https://opendesign.cc/packs/muuto/DESIGN_SPEC.en.md> — This site is a prime example of high-end, design-led e-commerce that successfull
+- [MVRDV](https://opendesign.cc/en/sites/mvrdv) · <https://opendesign.cc/packs/mvrdv/DESIGN_SPEC.en.md> — The site perfectly exemplifies the 'bold typography over photography' aesthetic,
+- [Mymind](https://opendesign.cc/en/sites/mymind) · <https://opendesign.cc/packs/mymind/DESIGN_SPEC.en.md> — This site is an excellent example of using bold, expressive typography on a mini
+- [Neon](https://opendesign.cc/en/sites/neon) · <https://opendesign.cc/packs/neon/DESIGN_SPEC.en.md> — This site is a prime example of a modern developer tool interface, balancing a t
+- [Netlify](https://opendesign.cc/en/sites/netlify) · <https://opendesign.cc/packs/netlify/DESIGN_SPEC.en.md> — This site is an excellent example of modern SaaS design, balancing a playful ill
+- [New Museum](https://opendesign.cc/en/sites/new-museum) · <https://opendesign.cc/packs/new-museum/DESIGN_SPEC.en.md> — A perfect example of institutional avant-garde design that uses extreme typograp
+- [Newglyph](https://opendesign.cc/en/sites/newglyph) · <https://opendesign.cc/packs/newglyph/DESIGN_SPEC.en.md> — This site is a prime example of using bold color and massive typography to creat
+- [Nintendo](https://opendesign.cc/en/sites/nintendo) · <https://opendesign.cc/packs/nintendo/DESIGN_SPEC.en.md> — A masterclass in letting high-quality product imagery drive the user experience 
+- [Nomad](https://opendesign.cc/en/sites/nomad) · <https://opendesign.cc/packs/nomad/DESIGN_SPEC.en.md> — Worth including as a strong example of a high-end, photographic e-commerce desig
+- [Normann Copenhagen](https://opendesign.cc/en/sites/normann-copenhagen) · <https://opendesign.cc/packs/normann-copenhagen/DESIGN_SPEC.en.md> — A masterclass in restrained premium design, using a limited visual vocabulary to
+- [Norse Projects](https://opendesign.cc/en/sites/norse-projects) · <https://opendesign.cc/packs/norse-projects/DESIGN_SPEC.en.md> — This site is a masterclass in premium, minimalist e-commerce design, demonstrati
+- [North Kingdom](https://opendesign.cc/en/sites/north-kingdom) · <https://opendesign.cc/packs/north-kingdom/DESIGN_SPEC.en.md> — This site is a strong example of a premium, modern creative agency portfolio tha
+- [Nothing](https://opendesign.cc/en/sites/nothing) · <https://opendesign.cc/packs/nothing/DESIGN_SPEC.en.md> — A strong example of technical minimalism, stripping away all non-essential visua
+- [Oatly](https://opendesign.cc/en/sites/oatly) · <https://opendesign.cc/packs/oatly/DESIGN_SPEC.en.md> — This site is a great example of a brand that successfully uses an anti-design ae
+- [Obsidian](https://opendesign.cc/en/sites/obsidian) · <https://opendesign.cc/packs/obsidian/DESIGN_SPEC.en.md> — This site is a masterclass in focused, utility-driven dark mode design that prio
+- [Obys Agency](https://opendesign.cc/en/sites/obys) · <https://opendesign.cc/packs/obys/DESIGN_SPEC.en.md> — This site is a definitive example of avant-garde digital design, pushing the bou
+- [Off-White](https://opendesign.cc/en/sites/off-white) · <https://opendesign.cc/packs/off-white/DESIGN_SPEC.en.md> — This site is worth including as a prime example of high-fashion luxury streetwea
+- [OH no Type Co](https://opendesign.cc/en/sites/ohno) · <https://opendesign.cc/packs/ohno/DESIGN_SPEC.en.md> — This site is a masterclass in expressive typography, demonstrating how bold type
+- [Olipop](https://opendesign.cc/en/sites/olipop) · <https://opendesign.cc/packs/olipop/DESIGN_SPEC.en.md> — This site exemplifies how to blend nostalgic retro aesthetics with modern health
+- [OMA](https://opendesign.cc/en/sites/oma) · <https://opendesign.cc/packs/oma/DESIGN_SPEC.en.md> — A powerful example of restraint in architectural design systems, where the UI in
+- [Omega](https://opendesign.cc/en/sites/omega) · <https://opendesign.cc/packs/omega/DESIGN_SPEC.en.md> — This site exemplifies a premium, editorial approach to luxury e-commerce, using 
+- [Omsom](https://opendesign.cc/en/sites/omsom) · <https://opendesign.cc/packs/omsom/DESIGN_SPEC.en.md> — A great example of a bold, expressive brand identity that uses comic-book aesthe
+- [On](https://opendesign.cc/en/sites/on-running) · <https://opendesign.cc/packs/on-running/DESIGN_SPEC.en.md> — This site is a prime example of minimalist premium e-commerce where the design s
+- [One Page Love](https://opendesign.cc/en/sites/one-page-love) · <https://opendesign.cc/packs/one-page-love/DESIGN_SPEC.en.md> — A perfect example of a refined, editorial-style gallery with a warm, paper-like 
+- [OpenAI](https://opendesign.cc/en/sites/openai) · <https://opendesign.cc/packs/openai/DESIGN_SPEC.en.md> — A masterclass in minimalist AI interface design, using absolute restraint and ty
+- [OpenSea](https://opendesign.cc/en/sites/opensea) · <https://opendesign.cc/packs/opensea/DESIGN_SPEC.en.md> — OpenSea represents the 'pro' end of marketplace design, balancing complex real-t
+- [Optimism](https://opendesign.cc/en/sites/optimism) · <https://opendesign.cc/packs/optimism/DESIGN_SPEC.en.md> — This site exemplifies premium fintech design with its confident typography, rest
+- [Order](https://opendesign.cc/en/sites/order) · <https://opendesign.cc/packs/order/DESIGN_SPEC.en.md> — This site is a masterclass in restraint, using minimal elements to create a high
+- [Our Legacy](https://opendesign.cc/en/sites/our-legacy) · <https://opendesign.cc/packs/our-legacy/DESIGN_SPEC.en.md> — A great example of editorial fashion e-commerce that prioritizes photography and
+- [Our Place](https://opendesign.cc/en/sites/our-place) · <https://opendesign.cc/packs/our-place/DESIGN_SPEC.en.md> — This site is a strong example of a premium, modern DTC brand using a refined mix
+- [Paco Coursey](https://opendesign.cc/en/sites/paco) · <https://opendesign.cc/packs/paco/DESIGN_SPEC.en.md> — A masterclass in minimalist design, demonstrating how rigorous restraint in colo
+- [Pangram Pangram](https://opendesign.cc/en/sites/pangram) · <https://opendesign.cc/packs/pangram/DESIGN_SPEC.en.md> — This site is a masterclass in using typography as the primary visual asset, maki
+- [Peak Design](https://opendesign.cc/en/sites/peak-design) · <https://opendesign.cc/packs/peak-design/DESIGN_SPEC.en.md> — This site is a prime example of how minimalist UI design can effectively frame a
+- [Pentagram](https://opendesign.cc/en/sites/pentagram) · <https://opendesign.cc/packs/pentagram/DESIGN_SPEC.en.md> — This site is a benchmark for premium agency portfolio design, demonstrating how 
+- [Phantom](https://opendesign.cc/en/sites/phantom) · <https://opendesign.cc/packs/phantom/DESIGN_SPEC.en.md> — A strong example of a modern fintech brand that balances playful aesthetics with
+- [Pi](https://opendesign.cc/en/sites/pi-ai) · <https://opendesign.cc/packs/pi-ai/DESIGN_SPEC.en.md> — The site effectively balances a premium, sophisticated feel with a warm, approac
+- [Pika](https://opendesign.cc/en/sites/pika) · <https://opendesign.cc/packs/pika/DESIGN_SPEC.en.md> — Worth including for its bold, high-contrast typography and playful yet clean int
+- [Plaid](https://opendesign.cc/en/sites/plaid) · <https://opendesign.cc/packs/plaid/DESIGN_SPEC.en.md> — Plaid is a prime example of a high-end Fintech brand balancing technical develop
+- [PlanetScale](https://opendesign.cc/en/sites/planetscale) · <https://opendesign.cc/packs/planetscale/DESIGN_SPEC.en.md> — This site is a great example of a developer-focused tool that uses typography an
+- [Playground](https://opendesign.cc/en/sites/playground-ai) · <https://opendesign.cc/packs/playground-ai/DESIGN_SPEC.en.md> — This site is a great example of a minimal, focused SaaS design where the interfa
+- [Poe](https://opendesign.cc/en/sites/poe) · <https://opendesign.cc/packs/poe/DESIGN_SPEC.en.md> — A prime example of a utility-first SaaS landing page that prioritizes clarity an
+- [Polar](https://opendesign.cc/en/sites/polar) · <https://opendesign.cc/packs/polar/DESIGN_SPEC.en.md> — A strong example of 'Developer Tools' design DNA, using massive typography and s
+- [Polaroid](https://opendesign.cc/en/sites/polaroid) · <https://opendesign.cc/packs/polaroid/DESIGN_SPEC.en.md> — This site perfectly balances a premium, editorial aesthetic with a functional e-
+- [Polestar](https://opendesign.cc/en/sites/polestar) · <https://opendesign.cc/packs/polestar/DESIGN_SPEC.en.md> — An exceptional example of Scandinavian minimalism where typography and photograp
+- [Poppi](https://opendesign.cc/en/sites/poppi) · <https://opendesign.cc/packs/poppi/DESIGN_SPEC.en.md> — This site is a strong example of a bold, personality-driven consumer brand using
+- [Porsche](https://opendesign.cc/en/sites/porsche) · <https://opendesign.cc/packs/porsche/DESIGN_SPEC.en.md> — This site exemplifies luxury automotive web design with its bold typography, dar
+- [Prisma](https://opendesign.cc/en/sites/prisma) · <https://opendesign.cc/packs/prisma/DESIGN_SPEC.en.md> — A textbook example of a high-quality, professional developer tool landing page t
+- [Production Type](https://opendesign.cc/en/sites/production-type) · <https://opendesign.cc/packs/production-type/DESIGN_SPEC.en.md> — The site exemplifies how typography can be the primary design element, using sca
+- [Prose](https://opendesign.cc/en/sites/prose) · <https://opendesign.cc/packs/prose/DESIGN_SPEC.en.md> — This site is an excellent example of a modern, premium Direct-to-Consumer brand 
+- [The Pudding](https://opendesign.cc/en/sites/pudding) · <https://opendesign.cc/packs/pudding/DESIGN_SPEC.en.md> — This site is a premier example of how to blend editorial rigor with playful, acc
+- [Railway](https://opendesign.cc/en/sites/railway) · <https://opendesign.cc/packs/railway/DESIGN_SPEC.en.md> — Worth including for its successful blend of elegant serif typography with a mode
+- [Rainbow](https://opendesign.cc/en/sites/rainbow) · <https://opendesign.cc/packs/rainbow/DESIGN_SPEC.en.md> — Worth including for its masterful use of 3D typography and illustrations to make
+- [Rains](https://opendesign.cc/en/sites/rains) · <https://opendesign.cc/packs/rains/DESIGN_SPEC.en.md> — Excellent example of fashion ecommerce where the photography does all the emotio
+- [Ramp](https://opendesign.cc/en/sites/ramp) · <https://opendesign.cc/packs/ramp/DESIGN_SPEC.en.md> — A masterclass in professional SaaS design, demonstrating how a restricted palett
+- [Guillermo Rauch](https://opendesign.cc/en/sites/rauchg) · <https://opendesign.cc/packs/rauchg/DESIGN_SPEC.en.md> — A perfect example of extreme minimalist design where content and typography are 
+- [Rauno Freiberg](https://opendesign.cc/en/sites/rauno) · <https://opendesign.cc/packs/rauno/DESIGN_SPEC.en.md> — This site is a prime example of bold, typographic portfolio design, using extrem
+- [Readwise Reader](https://opendesign.cc/en/sites/readwise) · <https://opendesign.cc/packs/readwise/DESIGN_SPEC.en.md> — Worth including as a prime example of how to balance literary aesthetics with mo
+- [Readymag](https://opendesign.cc/en/sites/readymag) · <https://opendesign.cc/packs/readymag/DESIGN_SPEC.en.md> — This site exemplifies a design-led platform that balances premium, editorial aes
+- [Recess](https://opendesign.cc/en/sites/recess) · <https://opendesign.cc/packs/recess/DESIGN_SPEC.en.md> — The site is a strong example of modern DTC branding, using whimsical shapes and 
+- [Recraft](https://opendesign.cc/en/sites/recraft) · <https://opendesign.cc/packs/recraft/DESIGN_SPEC.en.md> — This site is worth including as a prime example of how AI tools can present them
+- [Refero](https://opendesign.cc/en/sites/refero) · <https://opendesign.cc/packs/refero/DESIGN_SPEC.en.md> — A prime example of a modern, premium SaaS gallery UI, effectively balancing high
+- [Relume](https://opendesign.cc/en/sites/relume) · <https://opendesign.cc/packs/relume/DESIGN_SPEC.en.md> — Relume demonstrates how to balance high-impact typography with a clean, tool-lik
+- [Remix](https://opendesign.cc/en/sites/remix) · <https://opendesign.cc/packs/remix/DESIGN_SPEC.en.md> — This site is a prime example of a modern, developer-focused landing page that us
+- [Render](https://opendesign.cc/en/sites/render) · <https://opendesign.cc/packs/render/DESIGN_SPEC.en.md> — Worth including as a prime example of professional developer tools design with e
+- [Replit](https://opendesign.cc/en/sites/replit) · <https://opendesign.cc/packs/replit/DESIGN_SPEC.en.md> — A prime example of modern SaaS design that uses warmth and restraint to make a c
+- [Represent](https://opendesign.cc/en/sites/represent) · <https://opendesign.cc/packs/represent/DESIGN_SPEC.en.md> — Worth including as a prime example of how minimalist typography and high-quality
+- [Retool](https://opendesign.cc/en/sites/retool) · <https://opendesign.cc/packs/retool/DESIGN_SPEC.en.md> — Worth including as a prime example of a high-end, developer-focused SaaS interfa
+- [R/GA](https://opendesign.cc/en/sites/rga) · <https://opendesign.cc/packs/rga/DESIGN_SPEC.en.md> — A quintessential example of bold, typography-driven agency design that uses extr
+- [Rijksmuseum](https://opendesign.cc/en/sites/rijksmuseum) · <https://opendesign.cc/packs/rijksmuseum/DESIGN_SPEC.en.md> — The site serves as an excellent example of how bold typography and high-quality 
+- [Rive](https://opendesign.cc/en/sites/rive) · <https://opendesign.cc/packs/rive/DESIGN_SPEC.en.md> — This site is a perfect example of a premium developer tool brand using a bold, d
+- [Rivian](https://opendesign.cc/en/sites/rivian) · <https://opendesign.cc/packs/rivian/DESIGN_SPEC.en.md> — This site is an excellent reference for high-end automotive design, demonstratin
+- [Robin Noguier](https://opendesign.cc/en/sites/robin-noguier) · <https://opendesign.cc/packs/robin-noguier/DESIGN_SPEC.en.md> — This site is worth including as a prime example of a refined, portfolio-focused 
+- [Rolls-Royce](https://opendesign.cc/en/sites/rolls-royce) · <https://opendesign.cc/packs/rolls-royce/DESIGN_SPEC.en.md> — This site is a prime example of restrained, ultra-premium digital design that us
+- [Safe](https://opendesign.cc/en/sites/safe) · <https://opendesign.cc/packs/safe/DESIGN_SPEC.en.md> — The site perfectly exemplifies 'premium utility' by balancing a sterile, technic
+- [Savee](https://opendesign.cc/en/sites/savee) · <https://opendesign.cc/packs/savee/DESIGN_SPEC.en.md> — A textbook example of a premium dark-mode SaaS design that uses minimal color an
+- [Screen Studio](https://opendesign.cc/en/sites/screen-studio) · <https://opendesign.cc/packs/screen-studio/DESIGN_SPEC.en.md> — This site is a strong example of a modern, professional SaaS landing page that u
+- [Segment](https://opendesign.cc/en/sites/segment) · <https://opendesign.cc/packs/segment/DESIGN_SPEC.en.md> — This site is a great example of a modern, professional B2B SaaS design that bala
+- [Serpentine](https://opendesign.cc/en/sites/serpentine) · <https://opendesign.cc/packs/serpentine/DESIGN_SPEC.en.md> — This site is an excellent example of how bold, architectural typography can driv
+- [SFMOMA](https://opendesign.cc/en/sites/sfmoma) · <https://opendesign.cc/packs/sfmoma/DESIGN_SPEC.en.md> — A masterful example of balancing institutional authority with modern, photograph
+- [Sharp Type](https://opendesign.cc/en/sites/sharp-type) · <https://opendesign.cc/packs/sharp-type/DESIGN_SPEC.en.md> — This site is worth including as a premier example of how typography-focused desi
+- [Sierra](https://opendesign.cc/en/sites/sierra) · <https://opendesign.cc/packs/sierra/DESIGN_SPEC.en.md> — This site is an excellent example of how to balance a sophisticated, enterprise-
+- [SiteInspire](https://opendesign.cc/en/sites/siteinspire) · <https://opendesign.cc/packs/siteinspire/DESIGN_SPEC.en.md> — Worth including as a definitive example of minimalist editorial curation, demons
+- [Snøhetta](https://opendesign.cc/en/sites/snohetta) · <https://opendesign.cc/packs/snohetta/DESIGN_SPEC.en.md> — This site exemplifies how extreme restraint and typographic elegance can create 
+- [Solana](https://opendesign.cc/en/sites/solana) · <https://opendesign.cc/packs/solana/DESIGN_SPEC.en.md> — The design effectively blends the high-stakes world of finance with the cutting-
+- [Sonos](https://opendesign.cc/en/sites/sonos) · <https://opendesign.cc/packs/sonos/DESIGN_SPEC.en.md> — This site is a masterclass in premium, minimalist brand presentation, using rest
+- [Spindrift](https://opendesign.cc/en/sites/spindrift) · <https://opendesign.cc/packs/spindrift/DESIGN_SPEC.en.md> — This site is worth including as a prime example of how to effectively blend prem
+- [Spline](https://opendesign.cc/en/sites/spline) · <https://opendesign.cc/packs/spline/DESIGN_SPEC.en.md> — This site is worth including as a prime example of a modern, dark-mode design sy
+- [SSENSE](https://opendesign.cc/en/sites/ssense) · <https://opendesign.cc/packs/ssense/DESIGN_SPEC.en.md> — This site is an excellent study in how to build a high-end luxury e-commerce exp
+- [Starface](https://opendesign.cc/en/sites/starface) · <https://opendesign.cc/packs/starface/DESIGN_SPEC.en.md> — A defining example of Gen Z 'ugly-cute' aesthetics, blending brutalist layout pr
+- [Statsig](https://opendesign.cc/en/sites/statsig) · <https://opendesign.cc/packs/statsig/DESIGN_SPEC.en.md> — A highly polished, trust-building B2B SaaS design that balances technical credib
+- [Studio Dumbar](https://opendesign.cc/en/sites/studio-dumbar) · <https://opendesign.cc/packs/studio-dumbar/DESIGN_SPEC.en.md> — This site is worth including as a prime example of how a design studio can demon
+- [Suno](https://opendesign.cc/en/sites/suno) · <https://opendesign.cc/packs/suno/DESIGN_SPEC.en.md> — Worth including as a prime example of a modern, AI-driven consumer product with 
+- [Sunsama](https://opendesign.cc/en/sites/sunsama) · <https://opendesign.cc/packs/sunsama/DESIGN_SPEC.en.md> — Worth including as an excellent example of a premium, 'calm' productivity tool t
+- [Superlist](https://opendesign.cc/en/sites/superlist) · <https://opendesign.cc/packs/superlist/DESIGN_SPEC.en.md> — This site is a strong example of a modern, dark-mode-first productivity app that
+- [Svelte](https://opendesign.cc/en/sites/svelte) · <https://opendesign.cc/packs/svelte/DESIGN_SPEC.en.md> — This site is a prime example of how to elevate developer tooling with editorial 
+- [Swiss Typefaces](https://opendesign.cc/en/sites/swiss-typefaces) · <https://opendesign.cc/packs/swiss-typefaces/DESIGN_SPEC.en.md> — This site is a prime example of how typography can be the hero of a design, usin
+- [Synthesia](https://opendesign.cc/en/sites/synthesia) · <https://opendesign.cc/packs/synthesia/DESIGN_SPEC.en.md> — This site is worth including as a prime example of modern, professional SaaS des
+- [TAG Heuer](https://opendesign.cc/en/sites/tag-heuer) · <https://opendesign.cc/packs/tag-heuer/DESIGN_SPEC.en.md> — Excellent example of luxury e-commerce restraint where every design decision rei
+- [Tailwind CSS](https://opendesign.cc/en/sites/tailwind) · <https://opendesign.cc/packs/tailwind/DESIGN_SPEC.en.md> — A masterclass in developer-focused design that balances power with approachabili
+- [Tana](https://opendesign.cc/en/sites/tana) · <https://opendesign.cc/packs/tana/DESIGN_SPEC.en.md> — Worth including as a prime example of blending editorial elegance (serif headlin
+- [Tate](https://opendesign.cc/en/sites/tate) · <https://opendesign.cc/packs/tate/DESIGN_SPEC.en.md> — Worth including as a prime example of a refined, institutional web design that b
+- [Teenage Engineering](https://opendesign.cc/en/sites/teenage-engineering) · <https://opendesign.cc/packs/teenage-engineering/DESIGN_SPEC.en.md> — A masterclass in premium hardware branding, using extreme minimalism and a restr
+- [Telfar](https://opendesign.cc/en/sites/telfar) · <https://opendesign.cc/packs/telfar/DESIGN_SPEC.en.md> — An excellent example of minimalist e-commerce where the 'less is more' approach 
+- [Temporal](https://opendesign.cc/en/sites/temporal) · <https://opendesign.cc/packs/temporal/DESIGN_SPEC.en.md> — This site is a prime example of a modern, dark-mode-first developer tool UI, eff
+- [Texts](https://opendesign.cc/en/sites/texts) · <https://opendesign.cc/packs/texts/DESIGN_SPEC.en.md> — This site is a prime example of a modern, AI-integrated productivity tool with a
+- [The Broad](https://opendesign.cc/en/sites/the-broad) · <https://opendesign.cc/packs/the-broad/DESIGN_SPEC.en.md> — This site is a perfect example of institutional gallery design, balancing bold b
+- [The FWA](https://opendesign.cc/en/sites/the-fwa) · <https://opendesign.cc/packs/the-fwa/DESIGN_SPEC.en.md> — This site is worth including as a prime example of restrained, content-first gal
+- [The Marginalian](https://opendesign.cc/en/sites/the-marginalian) · <https://opendesign.cc/packs/the-marginalian/DESIGN_SPEC.en.md> — This site is a masterclass in text-first editorial design, proving that a single
+- [The Row](https://opendesign.cc/en/sites/the-row) · <https://opendesign.cc/packs/the-row/DESIGN_SPEC.en.md> — The site is a masterclass in restraint, using negative space and monochrome simp
+- [Things](https://opendesign.cc/en/sites/things) · <https://opendesign.cc/packs/things/DESIGN_SPEC.en.md> — Worth including as a prime example of refined, Apple-style minimalism applied to
+- [tldraw](https://opendesign.cc/en/sites/tldraw) · <https://opendesign.cc/packs/tldraw/DESIGN_SPEC.en.md> — A masterclass in minimalist utility design, where the interface disappears to le
+- [Todoist](https://opendesign.cc/en/sites/todoist) · <https://opendesign.cc/packs/todoist/DESIGN_SPEC.en.md> — Excellent example of premium SaaS design that balances professionalism with appr
+- [Topicals](https://opendesign.cc/en/sites/topicals) · <https://opendesign.cc/packs/topicals/DESIGN_SPEC.en.md> — This site is a great example of using oversized typography and high-quality phot
+- [ToyFight](https://opendesign.cc/en/sites/toyfight) · <https://opendesign.cc/packs/toyfight/DESIGN_SPEC.en.md> — This site masterfully balances playful, retro-gaming inspired aesthetics with hi
+- [Trigger.dev](https://opendesign.cc/en/sites/trigger) · <https://opendesign.cc/packs/trigger/DESIGN_SPEC.en.md> — The site effectively uses a dark, developer-centric aesthetic with a single, hig
+- [Turso](https://opendesign.cc/en/sites/turso) · <https://opendesign.cc/packs/turso/DESIGN_SPEC.en.md> — A strong example of the modern 'developer-first' aesthetic, balancing high-contr
+- [Type Network](https://opendesign.cc/en/sites/typenetwork) · <https://opendesign.cc/packs/typenetwork/DESIGN_SPEC.en.md> — This site is worth including as a masterclass in editorial web design, demonstra
+- [Typewolf](https://opendesign.cc/en/sites/typewolf) · <https://opendesign.cc/packs/typewolf/DESIGN_SPEC.en.md> — An excellent reference for how to build a sophisticated, typography-first editor
+- [Typology](https://opendesign.cc/en/sites/typology) · <https://opendesign.cc/packs/typology/DESIGN_SPEC.en.md> — This site is a prime example of minimalist e-commerce design, using a restrained
+- [Typotheque](https://opendesign.cc/en/sites/typotheque) · <https://opendesign.cc/packs/typotheque/DESIGN_SPEC.en.md> — This site is a perfect example of a modern typography foundry, blending editoria
+- [Ueno](https://opendesign.cc/en/sites/ueno) · <https://opendesign.cc/packs/ueno/DESIGN_SPEC.en.md> — This site is a quintessential example of high-end studio design, using restraint
+- [Uniswap](https://opendesign.cc/en/sites/uniswap) · <https://opendesign.cc/packs/uniswap/DESIGN_SPEC.en.md> — Worth including as a prime example of a clean, accessible, and playful fintech U
+- [Unseen Studio](https://opendesign.cc/en/sites/unseen-studio) · <https://opendesign.cc/packs/unseen-studio/DESIGN_SPEC.en.md> — This site is worth including as an excellent example of a creative agency splash
+- [Upstash](https://opendesign.cc/en/sites/upstash) · <https://opendesign.cc/packs/upstash/DESIGN_SPEC.en.md> — Worth including as a prime example of modern B2B SaaS design that balances a pro
+- [Use All Five](https://opendesign.cc/en/sites/use-all-five) · <https://opendesign.cc/packs/use-all-five/DESIGN_SPEC.en.md> — Worth including as a prime example of high-end, contemporary digital agency port
+- [USM](https://opendesign.cc/en/sites/usm) · <https://opendesign.cc/packs/usm/DESIGN_SPEC.en.md> — A perfect example of high-end Swiss modernism applied to web design, where the U
+- [Val Town](https://opendesign.cc/en/sites/val-town) · <https://opendesign.cc/packs/val-town/DESIGN_SPEC.en.md> — A great example of a modern developer tool that balances technical capability wi
+- [Vanta](https://opendesign.cc/en/sites/vanta) · <https://opendesign.cc/packs/vanta/DESIGN_SPEC.en.md> — A prime example of a modern B2B SaaS design that successfully blends editorial s
+- [Veja](https://opendesign.cc/en/sites/veja) · <https://opendesign.cc/packs/veja/DESIGN_SPEC.en.md> — Worth including as a prime example of a premium e-commerce brand using a minimal
+- [Vitra](https://opendesign.cc/en/sites/vitra) · <https://opendesign.cc/packs/vitra/DESIGN_SPEC.en.md> — A benchmark for high-end product sites that use restraint and photography to con
+- [Vitsœ](https://opendesign.cc/en/sites/vitsoe) · <https://opendesign.cc/packs/vitsoe/DESIGN_SPEC.en.md> — A perfect example of 'less, but better' design, demonstrating how high contrast 
+- [Warby Parker](https://opendesign.cc/en/sites/warby-parker) · <https://opendesign.cc/packs/warby-parker/DESIGN_SPEC.en.md> — This site is a masterclass in modern e-commerce design, balancing premium editor
+- [Warpcast](https://opendesign.cc/en/sites/warpcast) · <https://opendesign.cc/packs/warpcast/DESIGN_SPEC.en.md> — This site is a prime example of a modern, dark-mode-first consumer app interface
+- [Waymo](https://opendesign.cc/en/sites/waymo) · <https://opendesign.cc/packs/waymo/DESIGN_SPEC.en.md> — A prime example of a modern, trust-oriented tech interface that successfully bal
+- [Whimsical](https://opendesign.cc/en/sites/whimsical) · <https://opendesign.cc/packs/whimsical/DESIGN_SPEC.en.md> — A great example of a modern SaaS tool that balances professional restraint with 
+- [Whitney](https://opendesign.cc/en/sites/whitney) · <https://opendesign.cc/packs/whitney/DESIGN_SPEC.en.md> — This site serves as a masterclass in brutalist-adjacent editorial design, provin
+- [Wieden+Kennedy](https://opendesign.cc/en/sites/wieden-kennedy) · <https://opendesign.cc/packs/wieden-kennedy/DESIGN_SPEC.en.md> — Wieden+Kennedy's site is a masterclass in letting creative work speak for itself
+- [Windsurf](https://opendesign.cc/en/sites/windsurf) · <https://opendesign.cc/packs/windsurf/DESIGN_SPEC.en.md> — A strong example of a modern, professional developer tool landing page that prio
+- [Work & Co](https://opendesign.cc/en/sites/work-and-co) · <https://opendesign.cc/packs/work-and-co/DESIGN_SPEC.en.md> — A perfect example of restrained, typography-driven agency design that prioritize
+- [WorkOS](https://opendesign.cc/en/sites/workos) · <https://opendesign.cc/packs/workos/DESIGN_SPEC.en.md> — This site is an excellent example of modern, enterprise-focused SaaS design that
+- [Writer](https://opendesign.cc/en/sites/writer) · <https://opendesign.cc/packs/writer/DESIGN_SPEC.en.md> — A strong example of modern B2B SaaS design that balances editorial authority wit
+- [Your Majesty](https://opendesign.cc/en/sites/your-majesty) · <https://opendesign.cc/packs/your-majesty/DESIGN_SPEC.en.md> — This site is a masterclass in balancing bold, expressive typography with a minim
+- [Zaha Hadid Architects](https://opendesign.cc/en/sites/zaha-hadid) · <https://opendesign.cc/packs/zaha-hadid/DESIGN_SPEC.en.md> — A highly distinctive and expressive architectural portfolio that defies standard
+- [Zed](https://opendesign.cc/en/sites/zed) · <https://opendesign.cc/packs/zed/DESIGN_SPEC.en.md> — This site exemplifies how restraint and precision in design can create a premium
+- [Zora](https://opendesign.cc/en/sites/zora) · <https://opendesign.cc/packs/zora/DESIGN_SPEC.en.md> — This site exemplifies the 'less is more' philosophy, using extreme restraint in 
+- [About Meta](https://opendesign.cc/en/sites/about-meta) · <https://opendesign.cc/packs/about-meta/DESIGN_SPEC.en.md> — The site is worth including for its sophisticated blend of corporate branding an
+- [Airbnb](https://opendesign.cc/en/sites/airbnb) · <https://opendesign.cc/packs/airbnb/DESIGN_SPEC.en.md> — A classic example of a modern, consumer-focused SaaS interface that balances hig
+- [Airtable](https://opendesign.cc/en/sites/airtable) · <https://opendesign.cc/packs/airtable/DESIGN_SPEC.en.md> — Airtable exemplifies a refined, trustworthy enterprise SaaS design that prioriti
+- [Binance](https://opendesign.cc/en/sites/binance) · <https://opendesign.cc/packs/binance/DESIGN_SPEC.en.md> — This site is a prime example of a high-performance dark-mode interface for compl
+- [Bmw](https://opendesign.cc/en/sites/bmw) · <https://opendesign.cc/packs/bmw/DESIGN_SPEC.en.md> — Worth including as a benchmark for premium automotive brand digital presence—dem
+- [Bmw M](https://opendesign.cc/en/sites/bmw-m) · <https://opendesign.cc/packs/bmw-m/DESIGN_SPEC.en.md> — This site effectively combines automotive photography with a premium, dark-theme
+- [Bugatti](https://opendesign.cc/en/sites/bugatti) · <https://opendesign.cc/packs/bugatti/DESIGN_SPEC.en.md> — Excellent example of luxury automotive digital design that proves restraint and 
+- [Cal](https://opendesign.cc/en/sites/cal) · <https://opendesign.cc/packs/cal/DESIGN_SPEC.en.md> — Cal.com is a prime example of a modern SaaS product that uses restrained, high-c
+- [Claude](https://opendesign.cc/en/sites/claude) · <https://opendesign.cc/packs/claude/DESIGN_SPEC.en.md> — Worth including as a masterclass in restrained, premium AI product design that u
+- [Clay](https://opendesign.cc/en/sites/clay) · <https://opendesign.cc/packs/clay/DESIGN_SPEC.en.md> — This site is a perfect example of restrained, premium agency design where the ty
+- [Clickhouse](https://opendesign.cc/en/sites/clickhouse) · <https://opendesign.cc/packs/clickhouse/DESIGN_SPEC.en.md> — A strong example of a premium developer tool interface that balances bold typogr
+- [Coinbase](https://opendesign.cc/en/sites/coinbase) · <https://opendesign.cc/packs/coinbase/DESIGN_SPEC.en.md> — A perfect example of a 'restraint-first' fintech design that uses cleanliness an
+- [Composio](https://opendesign.cc/en/sites/composio) · <https://opendesign.cc/packs/composio/DESIGN_SPEC.en.md> — This site exemplifies a clean, developer-focused design that prioritizes readabi
+- [Cursor](https://opendesign.cc/en/sites/cursor) · <https://opendesign.cc/packs/cursor/DESIGN_SPEC.en.md> — This site is a great example of a refined, product-focused SaaS landing page tha
+- [Elevenlabs](https://opendesign.cc/en/sites/elevenlabs) · <https://opendesign.cc/packs/elevenlabs/DESIGN_SPEC.en.md> — Worth including as a prime example of a modern, premium SaaS aesthetic that bala
+- [Expo](https://opendesign.cc/en/sites/expo) · <https://opendesign.cc/packs/expo/DESIGN_SPEC.en.md> — This site is a prime example of a clean, developer-focused SaaS interface that p
+- [Ferrari](https://opendesign.cc/en/sites/ferrari) · <https://opendesign.cc/packs/ferrari/DESIGN_SPEC.en.md> — A masterclass in using photography as the primary design element with extreme ty
+- [Figma](https://opendesign.cc/en/sites/figma) · <https://opendesign.cc/packs/figma/DESIGN_SPEC.en.md> — This site is a prime example of a modern, premium SaaS interface that balances p
+- [Hashicorp](https://opendesign.cc/en/sites/hashicorp) · <https://opendesign.cc/packs/hashicorp/DESIGN_SPEC.en.md> — This site is a great example of a restrained, professional enterprise design tha
+- [Hp](https://opendesign.cc/en/sites/hp) · <https://opendesign.cc/packs/hp/DESIGN_SPEC.en.md> — This site is a perfect example of restrained, professional e-commerce design for
+- [Ibm](https://opendesign.cc/en/sites/ibm) · <https://opendesign.cc/packs/ibm/DESIGN_SPEC.en.md> — A textbook example of enterprise software design DNA, prioritizing clarity, scal
+- [Intercom](https://opendesign.cc/en/sites/intercom) · <https://opendesign.cc/packs/intercom/DESIGN_SPEC.en.md> — A premium example of balancing editorial photography with functional SaaS UI, sh
+- [Jupi](https://opendesign.cc/en/sites/jupi) · <https://opendesign.cc/packs/jupi/DESIGN_SPEC.en.md> — This site exemplifies how a restrained, high-contrast design can create a profes
+- [Kraken](https://opendesign.cc/en/sites/kraken) · <https://opendesign.cc/packs/kraken/DESIGN_SPEC.en.md> — Worth including as a benchmark for 'Clean Fintech' design, showing how to balanc
+- [Lamborghini](https://opendesign.cc/en/sites/lamborghini) · <https://opendesign.cc/packs/lamborghini/DESIGN_SPEC.en.md> — This site is worth including as a masterclass in using bold typography and immer
+- [Lovable](https://opendesign.cc/en/sites/lovable) · <https://opendesign.cc/packs/lovable/DESIGN_SPEC.en.md> — This site effectively combines a clean, professional interface with a bold, expr
+- [Minimax](https://opendesign.cc/en/sites/minimax) · <https://opendesign.cc/packs/minimax/DESIGN_SPEC.en.md> — This site is a prime example of a modern, professional AI platform UI that balan
+- [Mintlify](https://opendesign.cc/en/sites/mintlify) · <https://opendesign.cc/packs/mintlify/DESIGN_SPEC.en.md> — This site is worth including as a prime example of modern SaaS documentation des
+- [Miro](https://opendesign.cc/en/sites/miro) · <https://opendesign.cc/packs/miro/DESIGN_SPEC.en.md> — Miro exemplifies a professional, high-utility SaaS design that uses minimalism a
+- [Mistral](https://opendesign.cc/en/sites/mistral) · <https://opendesign.cc/packs/mistral/DESIGN_SPEC.en.md> — Worth including for its mastery of the 'editorial tech' style, where restrained 
+- [Mongodb](https://opendesign.cc/en/sites/mongodb) · <https://opendesign.cc/packs/mongodb/DESIGN_SPEC.en.md> — Worth including as a prime example of modern developer tool aesthetics: clean, a
+- [Nike](https://opendesign.cc/en/sites/nike) · <https://opendesign.cc/packs/nike/DESIGN_SPEC.en.md> — This site exemplifies how a global brand achieves premium positioning through ra
+- [Notion](https://opendesign.cc/en/sites/notion) · <https://opendesign.cc/packs/notion/DESIGN_SPEC.en.md> — A prime example of refined SaaS design, blending bold typography with a highly f
+- [Nvidia](https://opendesign.cc/en/sites/nvidia) · <https://opendesign.cc/packs/nvidia/DESIGN_SPEC.en.md> — A prime example of a premium, technical corporate site that balances boldness wi
+- [Ollama](https://opendesign.cc/en/sites/ollama) · <https://opendesign.cc/packs/ollama/DESIGN_SPEC.en.md> — Worth including as a masterclass in developer tooling design, showing how strict
+- [Opencode](https://opendesign.cc/en/sites/opencode) · <https://opendesign.cc/packs/opencode/DESIGN_SPEC.en.md> — The site is a strong example of a monochromatic, monospace-driven design system 
+- [Pinterest](https://opendesign.cc/en/sites/pinterest) · <https://opendesign.cc/packs/pinterest/DESIGN_SPEC.en.md> — Worth including as a masterclass in high-volume photographic content presentatio
+- [Playstation](https://opendesign.cc/en/sites/playstation) · <https://opendesign.cc/packs/playstation/DESIGN_SPEC.en.md> — This site is worth including as a prime example of a premium consumer product po
+- [Posthog](https://opendesign.cc/en/sites/posthog) · <https://opendesign.cc/packs/posthog/DESIGN_SPEC.en.md> — This site is worth including as a prime example of a playful, developer-focused 
+- [Renault](https://opendesign.cc/en/sites/renault) · <https://opendesign.cc/packs/renault/DESIGN_SPEC.en.md> — An excellent example of a premium corporate site that uses editorial photography
+- [Replicate](https://opendesign.cc/en/sites/replicate) · <https://opendesign.cc/packs/replicate/DESIGN_SPEC.en.md> — This site demonstrates excellent developer experience design with its code-first
+- [Resend](https://opendesign.cc/en/sites/resend) · <https://opendesign.cc/packs/resend/DESIGN_SPEC.en.md> — Resend's design is worth including as a masterclass in high-end developer tool a
+- [Revolut](https://opendesign.cc/en/sites/revolut) · <https://opendesign.cc/packs/revolut/DESIGN_SPEC.en.md> — This site is a prime example of premium fintech design, using restrained UI to l
+- [Runwayml](https://opendesign.cc/en/sites/runwayml) · <https://opendesign.cc/packs/runwayml/DESIGN_SPEC.en.md> — This site is a perfect example of a modern, premium AI tool that uses restraint 
+- [Sanity](https://opendesign.cc/en/sites/sanity) · <https://opendesign.cc/packs/sanity/DESIGN_SPEC.en.md> — A strong example of a modern developer platform that uses high-contrast typograp
+- [Sentry](https://opendesign.cc/en/sites/sentry) · <https://opendesign.cc/packs/sentry/DESIGN_SPEC.en.md> — Sentry's design successfully balances technical credibility with a bold, slightl
+- [Shopify](https://opendesign.cc/en/sites/shopify) · <https://opendesign.cc/packs/shopify/DESIGN_SPEC.en.md> — An excellent example of a modern, premium SaaS design that uses a dark theme to 
+- [Spacex](https://opendesign.cc/en/sites/spacex) · <https://opendesign.cc/packs/spacex/DESIGN_SPEC.en.md> — This site is a prime example of a cinematic, high-contrast interface where the t
+- [Spotify](https://opendesign.cc/en/sites/spotify) · <https://opendesign.cc/packs/spotify/DESIGN_SPEC.en.md> — This site is a masterclass in dark-mode design and content-heavy UI, demonstrati
+- [Starbucks](https://opendesign.cc/en/sites/starbucks) · <https://opendesign.cc/packs/starbucks/DESIGN_SPEC.en.md> — This site is a great example of a high-traffic consumer brand using a clean, pho
+- [Supabase](https://opendesign.cc/en/sites/supabase) · <https://opendesign.cc/packs/supabase/DESIGN_SPEC.en.md> — This site is worth including as a prime example of a modern, developer-centric S
+- [Superhuman](https://opendesign.cc/en/sites/superhuman) · <https://opendesign.cc/packs/superhuman/DESIGN_SPEC.en.md> — This site exemplifies how premium SaaS products balance sophistication with clar
+- [Theverge](https://opendesign.cc/en/sites/theverge) · <https://opendesign.cc/packs/theverge/DESIGN_SPEC.en.md> — The Verge's design is a benchmark for modern editorial sites, balancing bold vis
+- [Together](https://opendesign.cc/en/sites/together) · <https://opendesign.cc/packs/together/DESIGN_SPEC.en.md> — This site is a great example of a clean, professional SaaS aesthetic that priori
+- [Uber](https://opendesign.cc/en/sites/uber) · <https://opendesign.cc/packs/uber/DESIGN_SPEC.en.md> — Worth including as a prime example of a high-utility consumer platform that achi
+- [Vodafone](https://opendesign.cc/en/sites/vodafone) · <https://opendesign.cc/packs/vodafone/DESIGN_SPEC.en.md> — The site is a strong example of premium editorial design for a global brand, bal
+- [Voltagent](https://opendesign.cc/en/sites/voltagent) · <https://opendesign.cc/packs/voltagent/DESIGN_SPEC.en.md> — An excellent example of a modern, dark-themed developer tool interface with a pr
+- [Warp](https://opendesign.cc/en/sites/warp) · <https://opendesign.cc/packs/warp/DESIGN_SPEC.en.md> — This site is a prime example of a modern, high-end developer tool that uses a da
+- [Webflow](https://opendesign.cc/en/sites/webflow) · <https://opendesign.cc/packs/webflow/DESIGN_SPEC.en.md> — A perfect example of a modern, clean SaaS aesthetic that balances professional r
+- [Wired](https://opendesign.cc/en/sites/wired) · <https://opendesign.cc/packs/wired/DESIGN_SPEC.en.md> — A classic example of high-end editorial design that uses typography as the prima
+- [Wise](https://opendesign.cc/en/sites/wise) · <https://opendesign.cc/packs/wise/DESIGN_SPEC.en.md> — Wise's design is a masterclass in using bold color and typography to make a comp
+- [xAI](https://opendesign.cc/en/sites/xai) · <https://opendesign.cc/packs/xai/DESIGN_SPEC.en.md> — A strong example of a premium, developer-focused SaaS landing page that balances
+- [Zapier](https://opendesign.cc/en/sites/zapier) · <https://opendesign.cc/packs/zapier/DESIGN_SPEC.en.md> — A masterclass in clean, enterprise SaaS design that balances approachable warmth
+- [Amie](https://opendesign.cc/en/sites/amie) · <https://opendesign.cc/packs/amie/DESIGN_SPEC.en.md> — A prime example of a modern, human-centric SaaS design that balances professiona
+- [Apple](https://opendesign.cc/en/sites/apple) · <https://opendesign.cc/packs/apple/DESIGN_SPEC.en.md> — The gold standard for premium hardware presentation, proving that absolute restr
+- [Arc Browser](https://opendesign.cc/en/sites/arc) · <https://opendesign.cc/packs/arc/DESIGN_SPEC.en.md> — This site is worth including for its masterful blend of warmth, playfulness, and
+- [Atlas](https://opendesign.cc/en/sites/atlas) · <https://opendesign.cc/packs/atlas/DESIGN_SPEC.en.md> — A masterclass in premium fintech UI, blending cinematic photography with a stric
+- [Brittany Chiang](https://opendesign.cc/en/sites/brittany-chiang) · <https://opendesign.cc/packs/brittany-chiang/DESIGN_SPEC.en.md> — A benchmark for accessible, content-focused developer portfolios.
+- [Cosmos](https://opendesign.cc/en/sites/cosmos) · <https://opendesign.cc/packs/cosmos/DESIGN_SPEC.en.md> — Worth including as a prime example of a modern, editorial-style curation platfor
+- [Framer](https://opendesign.cc/en/sites/framer) · <https://opendesign.cc/packs/framer/DESIGN_SPEC.en.md> — A masterclass in modern SaaS design, balancing bold typography with a dark, prem
+- [Linear](https://opendesign.cc/en/sites/linear) · <https://opendesign.cc/packs/linear/DESIGN_SPEC.en.md> — Linear's design is a masterclass in modern, high-precision dark mode for profess
+- [Lusion](https://opendesign.cc/en/sites/lusion) · <https://opendesign.cc/packs/lusion/DESIGN_SPEC.en.md> — A premium example of a creative studio website that uses 3D visuals and bold typ
+- [Metalab](https://opendesign.cc/en/sites/metalab) · <https://opendesign.cc/packs/metalab/DESIGN_SPEC.en.md> — A masterclass in using dramatic typography and abstract imagery to create a prem
+- [Mobbin](https://opendesign.cc/en/sites/mobbin) · <https://opendesign.cc/packs/mobbin/DESIGN_SPEC.en.md> — An excellent example of a 'content-first' UI where the design framework intentio
+- [Opal Camera Inc.](https://opendesign.cc/en/sites/opal-camera) · <https://opendesign.cc/packs/opal-camera/DESIGN_SPEC.en.md> — This site is a textbook example of modern premium hardware branding, balancing m
+- [Pitch](https://opendesign.cc/en/sites/pitch) · <https://opendesign.cc/packs/pitch/DESIGN_SPEC.en.md> — An excellent example of a modern, premium SaaS aesthetic that combines bold typo
+- [Raycast](https://opendesign.cc/en/sites/raycast) · <https://opendesign.cc/packs/raycast/DESIGN_SPEC.en.md> — A masterclass in restrained dark-mode design for a technical product, proving th
+- [Reflect](https://opendesign.cc/en/sites/reflect) · <https://opendesign.cc/packs/reflect/DESIGN_SPEC.en.md> — This site is a great example of a premium, dark-mode SaaS design that uses a sin
+- [Stripe](https://opendesign.cc/en/sites/stripe) · <https://opendesign.cc/packs/stripe/DESIGN_SPEC.en.md> — A benchmark for premium SaaS design, showcasing how to blend professional author
+- [Stripe Press](https://opendesign.cc/en/sites/stripe-press) · <https://opendesign.cc/packs/stripe-press/DESIGN_SPEC.en.md> — An excellent example of a premium editorial site that uses 3D objects as primary
+- [Vercel](https://opendesign.cc/en/sites/vercel) · <https://opendesign.cc/packs/vercel/DESIGN_SPEC.en.md> — This site is a definitive example of modern, developer-focused design, combining

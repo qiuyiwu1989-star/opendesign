@@ -8,6 +8,635 @@
     "dev",
     "devops"
   ],
-  "status": "pending",
-  "added_at": "2026-06-03"
+  "status": "completed",
+  "added_at": "2026-06-03",
+  "spec": {
+    "colors": {
+      "bg": "#FFFFFF",
+      "bgSoft": "#F2F1F5",
+      "bgQuiet": "#1F1C2E",
+      "ink": "#171321",
+      "inkSoft": "#74717A",
+      "muted": "#E8E7EB",
+      "mutedSoft": "rgba(255, 255, 255, 0.15)",
+      "accent": "#FC6D26",
+      "line": "rgba(232, 231, 235, 1)"
+    },
+    "typography": {
+      "display": "geometric-sans",
+      "body": "geometric-sans",
+      "mono": "monospace",
+      "scale": [
+        {
+          "token": "display",
+          "size": 96,
+          "lh": 1.0,
+          "weight": 660,
+          "ls": "-2.88px"
+        },
+        {
+          "token": "display-lg",
+          "size": 64,
+          "lh": 1.0,
+          "weight": 660,
+          "ls": "-1.92px"
+        },
+        {
+          "token": "display-md",
+          "size": 32,
+          "lh": 1.125,
+          "weight": 660,
+          "ls": "-0.64px"
+        },
+        {
+          "token": "body",
+          "size": 16,
+          "lh": 1.5,
+          "weight": 400,
+          "ls": "0"
+        },
+        {
+          "token": "body-sm",
+          "size": 14,
+          "lh": 1.5,
+          "weight": 400,
+          "ls": "0"
+        }
+      ]
+    },
+    "spacing": {
+      "base": 4,
+      "scale": [
+        4,
+        8,
+        16,
+        24,
+        32,
+        48,
+        64,
+        96
+      ]
+    },
+    "surfaces": {
+      "radius": {
+        "sm": 4,
+        "md": 8,
+        "lg": 16,
+        "pill": 999
+      }
+    },
+    "layout": {
+      "container": 1280,
+      "paragraph": 680,
+      "columns": 12,
+      "gutter": 24,
+      "breakpoints": [
+        768,
+        1024
+      ]
+    },
+    "motion": {
+      "durations": {
+        "micro": 220,
+        "small": 400,
+        "medium": 800
+      },
+      "easing": "cubic-bezier(0.34, 1.56, 0.64, 1)"
+    }
+  },
+  "spec_i18n": {
+    "en": {
+      "identity": {
+        "keywords": [
+          "DevSecOps",
+          "Enterprise",
+          "Agentic AI",
+          "Orchestration",
+          "Platform"
+        ],
+        "analogy": "An enterprise command center for software delivery",
+        "oneLiner": "GitLab is an intelligent orchestration platform for DevSecOps, positioning itself as a secure, all-in-one solution for enterprise software delivery."
+      },
+      "colors": {
+        "principle": "Clean, high-contrast UI with a striking orange accent on a predominantly light background, utilizing dark surfaces for emphasis."
+      },
+      "typography": {
+        "rules": [
+          "Tight letter-spacing on large display sizes for a bold, modern feel",
+          "High font weight (660) for headings to establish strong visual hierarchy",
+          "Consistent line-height of 1.5 for body text to maintain readability"
+        ],
+        "scaleUses": [
+          "Hero headline",
+          "Section headings",
+          "Card titles",
+          "Default text",
+          "Helper text"
+        ]
+      },
+      "spacing": {
+        "rhythm": "4px base grid with standard spatial progression for components and layout"
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 3px 7px 0px rgba(0, 0, 0, 0.05)",
+          "0px 13px 13px 0px rgba(0, 0, 0, 0.04)",
+          "0px 29px 17px 0px rgba(0, 0, 0, 0.03)"
+        ],
+        "borders": "1px solid #E8E7EB"
+      },
+      "layout": {
+        "skeleton": "Multi-column grid layout with a centered container and flexible content blocks"
+      },
+      "components": {
+        "button": "Filled primary button (black bg, white text) and outlined secondary button (transparent bg, black text)",
+        "card": "Dark bg (#1F1C2E) with white text, used for feature highlights and status updates",
+        "chip": "Interactive action chips within the chat widget interface",
+        "input": "Floating chat input field with a dedicated send icon",
+        "hero": "Full-width section with a prominent gradient background (pink/orange), large typography, and primary CTA"
+      },
+      "motion": {
+        "patterns": [
+          "Elastic/overshoot easing for interactive elements (buttons, links)",
+          "Standard background-color transitions (0.2s)",
+          "Transform-based hover effects (0.3s)"
+        ]
+      },
+      "interaction": {
+        "hover": "Background color change or transform (overshoot easing)",
+        "click": "Immediate feedback via background-color transition",
+        "transition": "Smooth color and background-color transitions with varied durations (0.2s to 0.3s)",
+        "keyboard": "Standard focus indicators for interactive elements"
+      },
+      "voice": {
+        "tone": "Confident, authoritative, and direct",
+        "headlineStyle": "Short, punchy, and benefit-driven (e.g., 'Ship faster. With trust.')",
+        "ctaStyle": "Action-oriented and clear (e.g., 'Try for free', 'Request a demo')",
+        "avoid": [
+          "Jargon without context",
+          "Overly formal corporate language",
+          "Ambiguous or passive phrasing"
+        ]
+      },
+      "donts": [
+        "Don't use low-contrast text — screenshot shows a stark black (#171321) on white (#FFFFFF) for maximum readability.",
+        "Don't use playful or rounded typography — screenshot shows a structured, geometric sans-serif system.",
+        "Don't rely on a single color for all states — screenshot shows an orange (#FC6D26) accent used sparingly alongside black and white.",
+        "Don't use excessive drop shadows — screenshot shows only very subtle, layered box shadows on cards and popups.",
+        "Don't use a rigid grid for everything — screenshot shows a flexible grid that accommodates a full-width hero section.",
+        "Don't use a light background for feature highlights — screenshot shows dark (#1F1C2E) surfaces to create visual contrast and focus."
+      ],
+      "systemPrompt": "GitLab's visual system is a clean, enterprise-grade SaaS aesthetic defined by high-contrast typography and a striking orange (#FC6D26) accent. It uses a geometric sans-serif (GitLab Sans) for a modern, developer-focused feel, set against a primary white (#FFFFFF) background with dark (#1F1C2E) feature cards for emphasis. The layout relies on a strict 4px base grid and generous spacing to maintain professional clarity. Key hex colors are #171321 for ink, #74717A for muted text, and #F2F1F5 for soft backgrounds. Critical donts include: never use low-contrast text, avoid playful typography, and never overuse the orange accent color. The system prioritizes bold, benefit-driven headlines and clear, action-oriented CTAs."
+    },
+    "zh-CN": {
+      "identity": {
+        "keywords": [
+          "DevSecOps",
+          "企业级",
+          "Agentic AI",
+          "编排",
+          "平台"
+        ],
+        "analogy": "一个用于软件交付的企业指挥中心",
+        "oneLiner": "GitLab 是一个面向 DevSecOps 的智能编排平台，定位为企业软件交付的安全、一体化解决方案。"
+      },
+      "colors": {
+        "principle": "以浅色背景为主，采用高对比度的简洁界面，搭配醒目的橙色强调色，并使用深色表面进行视觉突出。"
+      },
+      "typography": {
+        "rules": [
+          "大尺寸显示文本采用紧凑的字间距，呈现大胆、现代的视觉效果",
+          "标题使用高字重（660）以建立清晰的视觉层次",
+          "正文统一采用 1.5 的行高以保持可读性"
+        ],
+        "scaleUses": [
+          "主标题",
+          "章节标题",
+          "卡片标题",
+          "默认文本",
+          "辅助文本"
+        ]
+      },
+      "spacing": {
+        "rhythm": "基于 4px 的基础网格，组件和布局遵循标准的空间递进规则"
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 3px 7px 0px rgba(0, 0, 0, 0.05)",
+          "0px 13px 13px 0px rgba(0, 0, 0, 0.04)",
+          "0px 29px 17px 0px rgba(0, 0, 0, 0.03)"
+        ],
+        "borders": "1px solid #E8E7EB"
+      },
+      "layout": {
+        "skeleton": "多列网格布局，采用居中容器与灵活的内容区块"
+      },
+      "components": {
+        "button": "填充式主按钮（黑色背景，白色文字）和描边式次按钮（透明背景，黑色文字）",
+        "card": "深色背景（#1F1C2E）搭配白色文字，用于功能亮点展示和状态更新",
+        "chip": "聊天组件界面内的交互式操作标签",
+        "input": "悬浮式聊天输入框，配有专用的发送图标",
+        "hero": "全宽区块，具有醒目的渐变背景（粉色/橙色）、大号字体和主要行动号召"
+      },
+      "motion": {
+        "patterns": [
+          "交互元素（按钮、链接）采用弹性/回弹过渡效果",
+          "标准背景色过渡（0.2秒）",
+          "基于 transform 的悬停效果（0.3秒）"
+        ]
+      },
+      "interaction": {
+        "hover": "背景色变化或 transform 效果（弹性回弹过渡）",
+        "click": "通过背景色过渡提供即时反馈",
+        "transition": "平滑的颜色与背景色过渡，时长在 0.2秒至 0.3秒之间变化",
+        "keyboard": "交互元素采用标准的焦点指示器"
+      },
+      "voice": {
+        "tone": "自信、权威、直接",
+        "headlineStyle": "简短、有力、以价值为导向（例如：“更快交付。值得信赖。”）",
+        "ctaStyle": "以行动为导向且清晰明确（例如：“免费试用”，“申请演示”）",
+        "avoid": [
+          "缺乏上下文的术语",
+          "过于正式的企业语言",
+          "模糊或被动的措辞"
+        ]
+      },
+      "donts": [
+        "不要使用低对比度文本——示例截图展示了纯黑（#171321）与纯白（#FFFFFF）的搭配以确保最佳可读性。",
+        "不要使用活泼或圆润的字体——示例截图展示了结构化、几何感强的无衬线字体系统。",
+        "不要仅用单一颜色表示所有状态——示例截图展示了橙色（#FC6D26）强调色在黑、白基色上的适度使用。",
+        "不要过度使用投影效果——示例截图展示了仅在卡片和弹窗上使用非常微妙、分层的盒阴影。",
+        "不要对所有内容都使用固定网格——示例截图展示了可容纳全宽 hero 区块的灵活网格。",
+        "不要使用浅色背景来突出功能亮点——示例截图展示了深色（#1F1C2E）表面以创造视觉对比和焦点。"
+      ],
+      "systemPrompt": "GitLab 的视觉系统是一套简洁的企业级 SaaS 美学，其特点是高对比度的排版和醒目的橙色（#FC6D26）强调色。它使用几何无衬线字体（GitLab Sans）以营造现代、面向开发者的感受，背景主要为纯白（#FFFFFF），并使用深色（#1F1C2E）功能卡片进行视觉突出。布局依赖于严格的 4px 基础网格和充裕的间距，以保持专业的清晰度。关键的十六进制颜色值包括：用于主要文字的 #171321、用于弱化文字的 #74717A，以及用于柔和背景的 #F2F1F5。关键禁忌包括：绝不要使用低对比度文本，避免活泼的字体风格，切勿过度使用橙色强调色。该系统优先采用大胆、价值导向的标题和清晰、以行动为导向的行动号召。"
+    },
+    "zh-TW": {
+      "identity": {
+        "keywords": [
+          "DevSecOps",
+          "Enterprise",
+          "Agentic AI",
+          "Orchestration",
+          "Platform"
+        ],
+        "analogy": "軟體交付的企業級指揮中心",
+        "oneLiner": "GitLab 是一個用於 DevSecOps 的智慧編排平台，定位為企業軟體交付的安全、全方位解決方案。"
+      },
+      "colors": {
+        "principle": "以淺色背景為主，搭配醒目橘色強調的簡潔高對比 UI，並運用深色表面來凸顯重點。"
+      },
+      "typography": {
+        "rules": [
+          "大型展示尺寸採用緊湊字距，營造大膽現代的視覺感受",
+          "標題使用高字重（660）以建立強烈的視覺層次",
+          "內文統一行高 1.5 以維持可讀性"
+        ],
+        "scaleUses": [
+          "主視覺標題",
+          "區塊標題",
+          "卡片標題",
+          "預設文字",
+          "輔助文字"
+        ]
+      },
+      "spacing": {
+        "rhythm": "以 4px 為基礎網格，元件與版面採用標準空間遞增規則"
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 3px 7px 0px rgba(0, 0, 0, 0.05)",
+          "0px 13px 13px 0px rgba(0, 0, 0, 0.04)",
+          "0px 29px 17px 0px rgba(0, 0, 0, 0.03)"
+        ],
+        "borders": "1px solid #E8E7EB"
+      },
+      "layout": {
+        "skeleton": "多欄網格版面，搭配置中容器與彈性內容區塊"
+      },
+      "components": {
+        "button": "實心主按鈕（黑色背景、白色文字）與外框次按鈕（透明背景、黑色文字）",
+        "card": "深色背景（#1F1C2E）搭配白色文字，用於功能亮點與狀態更新",
+        "chip": "聊天視窗介面中的互動操作標籤",
+        "input": "浮動式聊天輸入欄位，附專屬傳送圖示",
+        "hero": "全寬區塊，採用顯眼漸層背景（粉橘色系）、大型字體與主要行動呼籲"
+      },
+      "motion": {
+        "patterns": [
+          "互動元素（按鈕、連結）採用彈性/過衝緩動效果",
+          "標準 background-color 轉場（0.2 秒）",
+          "基於 transform 的 hover 效果（0.3 秒）"
+        ]
+      },
+      "interaction": {
+        "hover": "背景顏色變換或 transform（過衝緩動）",
+        "click": "透過 background-color 轉場提供即時回饋",
+        "transition": "流暢的顏色與背景顏色轉場，搭配不同時長（0.2 至 0.3 秒）",
+        "keyboard": "互動元件採用標準焦點指示樣式"
+      },
+      "voice": {
+        "tone": "自信、權威且直接",
+        "headlineStyle": "簡短有力、強調效益（例如：「更快交付。值得信賴。」）",
+        "ctaStyle": "以行動為導向且清晰明確（例如：「免費試用」、「申請演示」）",
+        "avoid": [
+          "未經解釋的專業術語",
+          "過於正式的企業用語",
+          "模糊或被動的語句結構"
+        ]
+      },
+      "donts": [
+        "避免使用低對比文字 — 截圖顯示採用純黑（#171321）與白色（#FFFFFF）以確保最大可讀性。",
+        "避免使用活潑或圓潤的字體 — 截圖顯示採用結構化的幾何無襯線字體系統。",
+        "避免單一顏色涵蓋所有狀態 — 截圖顯示橘色（#FC6D26）僅作為強調色，與黑白搭配使用。",
+        "避免過度使用陰影效果 — 截圖顯示卡片與彈出視窗僅採用極為細微的多層陰影。",
+        "避免所有版面皆採用剛性網格 — 截圖顯示採用彈性網格以容納全寬主視覺區塊。",
+        "避免功能亮點使用淺色背景 — 截圖顯示採用深色（#1F1C2E）表面以建立視覺對比與焦點。"
+      ],
+      "systemPrompt": "GitLab 的視覺系統是一套簡潔的企業級 SaaS 美學，以高對比字體與醒目橘色（#FC6D26）強調色為特色。採用幾何無襯線字體（GitLab Sans）營造現代化、面向開發者的風格，背景以白色（#FFFFFF）為主，搭配深色（#1F1C2E）功能卡片作為強調。版面依循嚴格的 4px 基礎網格與寬裕間距以維持專業清晰度。關鍵色碼包括：墨黑 #171321、柔和文字 #74717A、淺灰背景 #F2F1F5。重要禁忌包括：切勿使用低對比文字、避免活潑字體、切勿過度使用橘色強調色。系統強調大膽的效益導向標題與清晰明確的行動呼籲。"
+    },
+    "ja": {
+      "identity": {
+        "keywords": [
+          "DevSecOps",
+          "エンタープライズ",
+          "Agentic AI",
+          "オーケストレーション",
+          "プラットフォーム"
+        ],
+        "analogy": "ソフトウェア配信用のエンタープライズ コマンドセンター",
+        "oneLiner": "GitLabは、DevSecOpsのためのインテリジェントなオーケストレーションプラットフォームであり、エンタープライズ向けソフトウェア配信のためのセキュアなオールインワンソリューションとして位置づけられています。"
+      },
+      "colors": {
+        "principle": "主に明るい背景に、印象的なオレンジアクセントを配したクリーンでハイコントラストなUI。強調にはダークサーフェスを使用しています。"
+      },
+      "typography": {
+        "rules": [
+          "大きなディスプレイサイズでは字間を詰め、boldでモダンな印象を演出",
+          "見出しには高いフォントウェイト（660）を採用し、強力な視覚的階層を確立",
+          "本文テキストには一貫した行高1.5を採用し、読みやすさを維持"
+        ],
+        "scaleUses": [
+          "ヒーローヘッドライン",
+          "セクション見出し",
+          "カードタイトル",
+          "デフォルトテキスト",
+          "ヘルパーテキスト"
+        ]
+      },
+      "spacing": {
+        "rhythm": "4pxベースグリッドに基づく、コンポーネントとレイアウト用の標準的な間隔プロGRESSION（進行）"
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 3px 7px 0px rgba(0, 0, 0, 0.05)",
+          "0px 13px 13px 0px rgba(0, 0, 0, 0.04)",
+          "0px 29px 17px 0px rgba(0, 0, 0, 0.03)"
+        ],
+        "borders": "1px solid #E8E7EB"
+      },
+      "layout": {
+        "skeleton": "センタリングされたコンテナとフレキシブルなコンテンツブロックを持つマルチカラングリッドレイアウト"
+      },
+      "components": {
+        "button": "塗りつぶしプライマリボタン（黒背景、白テキスト）とアウトラインセカンダリボタン（透明背景、黒テキスト）",
+        "card": "ダーク背景（#1F1C2E）に白テキスト。機能のハイライトやステータス更新に使用",
+        "chip": "チャットウィジェットインターフェース内のインタラクティブアクションチップ",
+        "input": "送信アイコンを備えたフローティングチャット入力フィールド",
+        "hero": "目立つグラデーション背景（ピンク/オレンジ）、大きなタイポグラフィ、プライマリCTAを備えた全幅セクション"
+      },
+      "motion": {
+        "patterns": [
+          "インタラクティブ要素（ボタン、リンク）のための弾性/オーバーフルーズイージング",
+          "標準的なbackground-colorトランジション（0.2秒）",
+          "Transform（変形）ベースのホバーエフェクト（0.3秒）"
+        ]
+      },
+      "interaction": {
+        "hover": "背景色の変化またはTransform（オーバーフルーズイージング）",
+        "click": "background-colorトランジションによる即時フィードバック",
+        "transition": "異なる期間（0.2秒から0.3秒）を用いた滑らかなcolorおよびbackground-colorトランジション",
+        "keyboard": "インタラクティブ要素に対する標準的なフォーカスインジケーター"
+      },
+      "voice": {
+        "tone": "自信に満ち、権威があり、率直",
+        "headlineStyle": "短く、力強く、メリット重視（例：'より速く。信頼と共に。'）",
+        "ctaStyle": "行動を促し、明確（例：'無料で試す'、'デモをリクエスト'）",
+        "avoid": [
+          "文脈のない専門用語",
+          "形式張りすぎた企業用語",
+          "曖昧で受動的な表現"
+        ]
+      },
+      "donts": [
+        "低コントラストなテキストを使用しない — スクリーンショットでは、最大限の読みやすさのために、鮮明な黒（#171321）を白（#FFFFFF）に使用しています。",
+        "遊び心のある丸みのあるタイポグラフィを使用しない — スクリーンショットでは、構造化された幾何学的なsans-serifシステムが使用されています。",
+        "すべての状態に単一の色に依存しない — スクリーンショットでは、オレンジ（#FC6D26）アクセントが黒と白と並んで控えめに使用されています。",
+        "過度に強いドロップシャドウを使用しない — スクリーンショットでは、カードやポップアップに非常に微細で、レイヤードされたbox-shadowのみが使用されています。",
+        "すべてにigidなグリッドを使用しない — スクリーンショットでは、全幅ヒーローセクションに対応するフレキシブルなグリッドが使用されています。",
+        "機能のハイライトに明るい背景を使用しない — スクリーンショットでは、視覚的なコントラストと焦点をつくるためにダーク（#1F1C2E）サーフェスが使用されています。"
+      ],
+      "systemPrompt": "GitLabのビジュアルシステムは、ハイコントラストなタイポグラフィと印象的なオレンジ（#FC6D26）アクセントで定義される、クリーンでエンタープライズグレードのSaaS美学です。モダンで開発者志向の印象を与える幾何学的なsans-serif（GitLab Sans）を採用し、プライマリの白（#FFFFFF）背景に、強調用のダーク（#1F1C2E）機能カードを配置しています。レイアウトは厳格な4pxベースグリッドとゆったりとしたスペーシングに依存し、プロフェッショナルな明瞭さを維持します。主要なHEXカラーは、インク用の#171321、控えめなテキスト用の#74717A、ソフトな背景用の#F2F1F5です。重要な禁止事項には、決して低コントラストテキストを使用しないこと、遊び心のあるタイポグラフィを避けること、オレンジアクセントカラーを過度に使用しないことが含まれます。このシステムは、大胆でメリット重視の見出しと明確で行動を促すCTAを優先します。"
+    },
+    "ko": {
+      "identity": {
+        "keywords": [
+          "DevSecOps",
+          "Enterprise",
+          "Agentic AI",
+          "Orchestration",
+          "Platform"
+        ],
+        "analogy": "소프트웨어 배포를 위한 엔터프라이즈 명령 센터",
+        "oneLiner": "GitLab은 DevSecOps를 위한 지능형 오케스트레이션 플랫폼으로서, 엔터프라이즈 소프트웨어 배포를 위한 안전하고 올인원 솔루션으로 자리매김합니다."
+      },
+      "colors": {
+        "principle": "주로 밝은 배경 위에 강렬한 주황색 강조를 사용하는 깔끔한 고대비 UI로, 강조를 위해 어두운 표면을 활용합니다."
+      },
+      "typography": {
+        "rules": [
+          "크기 표시용 텍스트에는 좁은 자간을 적용하여 강렬하고 모던한 느낌을 줍니다.",
+          "제목에는 높은 글꼴 굵기(660)를 사용하여 강한 시각적 계층을 구축합니다.",
+          "본문 텍스트에는 일관된 행간(1.5)을 유지하여 가독성을 유지합니다."
+        ],
+        "scaleUses": [
+          "히어로 헤드라인",
+          "섹션 제목",
+          "카드 제목",
+          "기본 텍스트",
+          "도움말 텍스트"
+        ]
+      },
+      "spacing": {
+        "rhythm": "요소와 레이아웃을 위한 표준 공간 진행 단계를 갖춘 4px 기본 격자"
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 3px 7px 0px rgba(0, 0, 0, 0.05)",
+          "0px 13px 13px 0px rgba(0, 0, 0, 0.04)",
+          "0px 29px 17px 0px rgba(0, 0, 0, 0.03)"
+        ],
+        "borders": "1px solid #E8E7EB"
+      },
+      "layout": {
+        "skeleton": "중앙 정렬 컨테이너와 유연한 콘텐츠 블록을 갖춘 다단식 격자 레이아웃"
+      },
+      "components": {
+        "button": "배경 채워진 기본 버튼(검정 배경, 흰색 텍스트)과 테두리가 있는 보조 버튼(투명 배경, 검정 텍스트)",
+        "card": "어두운 배경(#1F1C2E)과 흰색 텍스트를 사용하며, 기능 하이라이트 및 상태 업데이트에 사용됩니다.",
+        "chip": "채팅 위젯 인터페이스 내의 인터랙티브 작업 칩",
+        "input": "전용 전송 아이콘이 있는 부유형 채팅 입력 필드",
+        "hero": "돋보이는 그라데이션 배경(핑크/오렌지), 큰 타이포그래피, 그리고 기본 CTA를 갖춘 전체 폭 섹션"
+      },
+      "motion": {
+        "patterns": [
+          "인터랙티브 요소(버튼, 링크)를 위한 탄성/오버슈트 이징",
+          "표준 배경색 전환(0.2초)",
+          "transform 기반 hover 효과(0.3초)"
+        ]
+      },
+      "interaction": {
+        "hover": "배경색 변경 또는 transform(오버슈트 이징)",
+        "click": "배경색 전환을 통한 즉각적인 피드백",
+        "transition": "다양한 지속 시간(0.2초~0.3초)을 갖춘 부드러운 색상 및 배경색 전환",
+        "keyboard": "인터랙티브 요소를 위한 표준 focus 표시기"
+      },
+      "voice": {
+        "tone": "자신감 있고 권위적이며 직접적인 어조",
+        "headlineStyle": "간결하고 임팩트 있으며 혜택 중심적 (예: 'Ship faster. With trust.')",
+        "ctaStyle": "행동 지향적이고 명확한 (예: 'Try for free', 'Request a demo')",
+        "avoid": [
+          "맥락 없는 전문 용어",
+          "지나치게 형식적인 기업 언어",
+          "애매하거나 수동적인 어조"
+        ]
+      },
+      "donts": [
+        "저대비 텍스트를 사용하지 마세요 — 스크린샷은 최대 가독성을 위해 검정(#171321)을 흰색(#FFFFFF) 위에 선명하게 보여줍니다.",
+        "장난스럽거나 둥근 타이포그래피를 사용하지 마세요 — 스크린샷은 구조화된 기하학적 고딕 시스템을 보여줍니다.",
+        "모든 상태에 단일 색상에 의존하지 마세요 — 스크린샷은 검정과 흰색 옆에 주황색(#FC6D26) 강조를 절제 있게 사용하는 것을 보여줍니다.",
+        "과도한 그림자를 사용하지 마세요 — 스크린샷은 카드와 팝업에 매우 미세하고 레이어링된 상자 그림자만 사용하는 것을 보여줍니다.",
+        "모든 것에 엄격한 격자를 사용하지 마세요 — 스크린샷은 전체 폭 히어로 섹션을 수용하는 유연한 격자를 보여줍니다.",
+        "기능 하이라이트에 밝은 배경을 사용하지 마세요 — 스크린샷은 시각적 대비와 초점을 만들기 위해 어두운(#1F1C2E) 표면을 사용하는 것을 보여줍니다."
+      ],
+      "systemPrompt": "GitLab의 비주얼 시스템은 고대비 타이포그래피와 돋보이는 주황색(#FC6D26) 강조로 정의된 깔끔한 엔터프라이즈급 SaaS 미학입니다. 주요 흰색(#FFFFFF) 배경 위에 개발자 중심의 현대적인 느낌을 주는 기하학적 고딕(GitLab Sans)을 사용하며, 강조를 위해 어두운(#1F1C2E) 기능 카드를 사용합니다. 레이아웃은 엄격한 4px 기본 격자와 여유로운 간격에 의존하여 전문적인 명확성을 유지합니다. 주요 색상 코드는 잉크를 위한 #171321, 흐린 텍스트를 위한 #74717A, 그리고 부드러운 배경을 위한 #F2F1F5입니다. 중요한 주의 사항은 다음과 같습니다: 절대 저대비 텍스트를 사용하지 마세요, 장난스러운 타이포그래피를 피하세요, 그리고 주황색 강조 색상을 절대 과용하지 마세요. 이 시스템은 강렬하고 혜택 중심적인 헤드라인과 명확한 행동 지향적 CTA를 우선시합니다."
+    }
+  },
+  "desc": {
+    "en": {
+      "palette": "A high-contrast palette centered on black, white, and a vibrant orange accent, creating a clean and professional enterprise look.",
+      "layout": "A structured, multi-column grid system with generous spacing and centered containers to accommodate a wide variety of content blocks.",
+      "interaction": "Smooth transitions with subtle elastic overshoot easing for interactive elements, providing a responsive and polished feel.",
+      "motion": "Discrete motion patterns using background-color and transform transitions with varying durations for different levels of feedback.",
+      "notes": "Worth including as a benchmark for modern enterprise SaaS design, effectively balancing a bold brand identity with a highly functional, content-heavy interface."
+    },
+    "zh-CN": {
+      "palette": "以黑、白为主，搭配鲜明的橙色强调色的高对比度配色方案，营造出简洁、专业的品牌形象。",
+      "layout": "结构化的多列网格系统，留有充裕间距并采用居中容器，可适应多种内容区块。",
+      "interaction": "交互元素采用平滑过渡，带有微妙的弹性回弹效果，提供响应迅速、精致流畅的体验。",
+      "motion": "离散的动效模式，利用背景色和 transform 过渡，通过不同时长提供不同级别的反馈。",
+      "notes": "可作为现代企业级 SaaS 设计的基准参考，有效平衡了鲜明的品牌识别度与高度实用、内容密集型界面。"
+    },
+    "zh-TW": {
+      "palette": "以黑、白為核心，搭配鮮明橘色作為強調的高對比色調，營造簡潔專業的企業級視覺風格。",
+      "layout": "採用結構化的多欄網格系統，搭配寬裕的間距與置中容器，以適應多樣化的內容區塊。",
+      "interaction": "互動元素採用流暢的過渡動畫，搭配細微的彈性緩動效果，提供靈敏且精緻的使用者體驗。",
+      "motion": "運用 background-color 與 transform 轉場，搭配不同時長的離散動態模式，區分各級別的回饋效果。",
+      "notes": "適合作為現代企業級 SaaS 設計的基準參考，有效平衡大膽的品牌識別與高度功能性的內容密集型介面。"
+    },
+    "ja": {
+      "palette": "黒、白、鮮やかなオレンジアクセントを軸としたハイコントラストなパレット。クリーンでプロフェッショナルなエンタープライズ感を演出します。",
+      "layout": "多様なコンテンツブロックに対応できるよう、ゆったりとしたスペーシングとセンタリングされたコンテナを備えた、構造化されたマルチカラングリッドシステムです。",
+      "interaction": "インタラクティブ要素に、きめ細かい弾性オーバーフルーズイージングを用いた滑らかなトランジションを実装。 Responsiveness（応答性）と洗練された感触を提供します。",
+      "motion": "異なるフィードバックレベルに応じた異なる期間を用いた、background-colorとtransformトランジションによる離散的なモーションパターンです。",
+      "notes": "モダンなエンタープライズSaaSデザインのベンチマークとして組み込む価値があります。大胆なブランドアイデンティティと、非常に機能的で情報量の多いインターフェースを効果的にバランスさせています。"
+    },
+    "ko": {
+      "palette": "검정, 흰색, 그리고 선명한 주황색 강조를 중심으로 한 고대비 팔레트로, 깔끔하고 전문적인 엔터프라이즈 느낌을 연출합니다.",
+      "layout": "여유로운 간격과 중앙 정렬 컨테이너를 갖춘 구조화된 다단식 격자 시스템으로, 다양한 콘텐츠 블록을 수용합니다.",
+      "interaction": "인터랙티브 요소에 부드러운 전환과 미세한 탄성 오버슈트 이징을 적용하여, 반응감 있고 정제된 느낌을 제공합니다.",
+      "motion": "배경색 및 transform 전환을 사용한 개별적인 모션 패턴으로, 피드백 수준에 따라 다양한 지속 시간을 적용합니다.",
+      "notes": "모던 엔터프라이즈 SaaS 디자인의 벤치마크로 포함할 가치가 있으며, 강렬한 브랜드 정체성과 기능적이고 콘텐츠가 많은 인터페이스를 효과적으로 조화시킵니다."
+    }
+  },
+  "_meta": {
+    "vision_model": "mimo-v2.5",
+    "vision_prompt_version": "0.3",
+    "vision_source": "playwright-extract:gitlab",
+    "vision_grounded": true,
+    "vision_at": "2026-06-04T15:29:51+00:00",
+    "vision_tokens": 16723,
+    "vision_cost_usd": 0.1858,
+    "translation_model": "mimo-v2.5",
+    "translation_at": "2026-06-04T15:31:15+00:00",
+    "translation_tokens": 18541,
+    "translation_cost_usd": 0.0618,
+    "narrative_model": "mimo-v2.5",
+    "narrative_prompt_version": "0.3",
+    "narrative_at": "2026-06-04T15:31:28+00:00",
+    "narrative_tokens": 2241,
+    "narrative_cost_usd": 0.0149,
+    "narrative_status": "ok",
+    "total_cost_usd": 0.2625
+  },
+  "narrative": {
+    "en": {
+      "ch1_intro": "GitLab's design system operates as an enterprise command center for software delivery, translating complex orchestration into a clean, legible interface. The system is built on the principle of high-contrast clarity, where every visual decision serves the goal of reducing cognitive load in a developer-focused environment.",
+      "ch2_intro": "The color system is defined by its stark restraint: a foundation of ink black and white, activated by a vibrant orange accent used with deliberate economy. This creates a professional, high-contrast canvas where color signals action and status without visual noise.",
+      "ch2_outro": "The principle is one of functional contrast, where the orange accent is a strategic tool for interaction, not a decorative element.",
+      "ch3_intro": "Typography is handled with a geometric sans-serif that communicates modernity and precision, avoiding any playful or rounded qualities. Headings are set at a high weight to establish a clear hierarchy, while body text maintains a consistent, readable line-height.",
+      "ch4_intro": "A strict 4px base grid establishes a rhythmic foundation, ensuring all components and spacing progressions are mathematically harmonious.",
+      "ch5_intro": "Depth is conveyed through a carefully layered shadow system on a predominantly light background, with subtle opacity reductions for larger offsets. Feature highlights and key content are isolated on dark surfaces, using a single-pixel border for crisp definition.",
+      "ch6_intro": "The layout skeleton is a multi-column grid centered within a flexible container, designed to accommodate varied content blocks. It provides a structured framework that can expand to full-width sections, like the hero, without breaking the underlying rhythm.",
+      "ch7_intro": "Motion is purposeful and restrained, with discrete patterns for different feedback types. Interactive elements like buttons employ an elastic easing curve for a tactile response, while state changes use smooth, timed transitions.",
+      "ch8_intro": "The editorial voice is confident and direct, matching the interface's authority. It favors short, benefit-driven headlines and clear, action-oriented calls to action, avoiding jargon and passive phrasing.",
+      "ch8_outro": "The system deliberately avoids low-contrast text, playful typography, and the overuse of its own orange accent, prioritizing function and clarity over decorative expression."
+    },
+    "zh-CN": {
+      "ch1_intro": "GitLab 的设计系统作为软件交付的企业指挥中心运作，将复杂的编排转化为清晰、易读的界面。该系统建立在高对比度清晰度的原则之上，每一个视觉决策都服务于在开发者为中心的环境中降低认知负荷的目标。",
+      "ch2_intro": "色彩体系以其鲜明的克制为特点：以墨黑与纯白为基底，辅以克制使用的活力橙色作为强调。这构建了一个专业、高对比度的画布，其中色彩信号传递动作与状态，而不产生视觉噪声。",
+      "ch2_outro": "其原则是功能性对比，橙色强调是交互的战略工具，而非装饰元素。",
+      "ch3_intro": "字体采用几何无衬线体，传达现代感与精确性，避免任何俏皮或圆润的特质。标题以高字重设置以建立清晰的层级，而正文则保持一致、易读的行高。",
+      "ch4_intro": "严格的 4px 基础网格奠定了节奏基础，确保所有组件与间距递进在数学上和谐统一。",
+      "ch5_intro": "深度通过精心分层的阴影系统在主要为浅色的背景上传达，对于较大的偏移量使用微妙的透明度降低。功能亮点与关键内容置于深色表面上，使用单像素边框以获得清晰的定义。",
+      "ch6_intro": "布局骨架是居中于弹性容器内的多栏网格，旨在容纳多样化的内容块。它提供了一个结构化框架，可以扩展至全宽部分（如主视觉区），而不破坏底层的节奏。",
+      "ch7_intro": "动效是有目的且克制的，针对不同的反馈类型使用离散模式。按钮等交互元素采用弹性缓动曲线以获得触觉响应，而状态变化则使用平滑、定时的过渡。",
+      "ch8_intro": "编辑语调自信而直接，与界面的权威感相匹配。它偏好简短、以收益为导向的标题以及清晰、以行动为导向的号召性用语，避免行话和被动表述。",
+      "ch8_outro": "该系统刻意避免低对比度文本、俏皮字体以及对其自身橙色强调的过度使用，优先考虑功能性与清晰度，而非装饰性表达。"
+    },
+    "zh-TW": {
+      "ch1_intro": "GitLab 的設計系統如同企業級軟體交付的指揮中心，將複雜的協作流程轉化為清晰、易讀的介面。系統建立於高對比清晰度的原則之上，每一項視覺決策都旨在減少開發者專注環境中的認知負荷。",
+      "ch2_intro": "色彩系統以極度克制為定義：墨黑與純白為基底，搭配刻意節制使用的鮮亮橘色強調色。這營造出專業、高對比的畫布，讓色彩在不產生視覺噪音的前提下，傳遞操作動態與狀態資訊。",
+      "ch2_outro": "其原則為功能性對比：橘色強調色是互動策略工具，而非裝飾元素。",
+      "ch3_intro": "字型採用幾何無襯線字體，傳遞現代感與精準度，避免任何圓潤或活潑特質。標題使用高字重以建立清晰層級，內文則維持一致且易讀的行高設定。",
+      "ch4_intro": "嚴謹的 4px 基礎網格建立節奏基底，確保所有元件與間距進階皆符合數學和諧。",
+      "ch5_intro": "在以淺色為主的背景上，透過精心分層的陰影系統傳達深度，較大偏移量搭配細微的透明度降低。功能重點與核心內容隔離於深色表面上，使用單像素邊框實現清晰定義。",
+      "ch6_intro": "版面架構為置於彈性容器中的多欄網格，設計可容納各異內容區塊。此結構化框架可延伸至全寬區段（如首圖），同時不破壞基礎節奏。",
+      "ch7_intro": "動效具有目的性且克制，不同反饋類型採用明確模式。按鈕等互動元件使用彈性緩動曲線帶來觸感回應，狀態轉換則採用平滑的計時過渡。",
+      "ch8_intro": "編輯語調自信直接，與介面權威感相符。偏好簡短、效益導向的標題，以及清晰、行動導向的呼籲用語，避免專業術語與被動語態。",
+      "ch8_outro": "系統刻意避開低對比文字、活潑字型過度使用，以及自身橘色強調色的濫用，將功能性與清晰度置於裝飾性表達之上。"
+    },
+    "ja": {
+      "ch1_intro": "GitLabのデザインシステムは、ソフトウェア配信のためのエンタープライズ・コマンドセンターとして機能し、複雑なオーケストレーションをクリーンで読みやすいインターフェースに変換します。このシステムは、開発者に焦点を当てた環境での認知負荷を軽減するという目標に基づき、高コントラストの明瞭性という原則の上に構築されています。",
+      "ch2_outro": "原理は、オレンジのアクセントが装飾的要素ではなく、インタラクションのための戦略的ツールである、機能的コントラストです。",
+      "ch3_intro": "タイポグラフィは、幾何学的なサンセリフ体で処理され、遊び心や丸みのある品質を避け、近代性と精密さを伝えます。見出しは明確な階層を確立するために高ウェイトで設定され、本文テキストは一貫した、読みやすい行間を維持します。",
+      "ch4_intro": "厳格な4pxベースグリッドがリズミカルな基盤を確立し、すべてのコンポーネントとスペーシングの進行が数学的に調和することを保証します。",
+      "ch5_intro": "深度は、主に明るい背景上の慎重にレイヤリングされたシャドウシステムで伝達され、大きなオフセットに対しては微妙な不透明度の減少が施されます。機能のハイライトと主要コンテンツは、鮮明な定義のためにシングルピクセルボーダーを使用し、暗いサーフェス上に分離されます。",
+      "ch6_intro": "レイアウトの骨格は、柔軟なコンテナ内に-centeredされたマルチカラーグリッドで、多様なコンテンツブロックに対応するように設計されています。これは、基礎となるリズムを壊すことなく、ヒーローなどのフル幅セクションに拡張できる構造化されたフレームワークを提供します。",
+      "ch7_intro": "モーションは意図的で控えめで、異なるフィードバックタイプに対して離散的なパターンが使用されます。ボタンなどのインタラクティブ要素には、触覚的な応答のための弾力的なイージングカーブが採用され、状態の変更にはスムーズでタイミングのあるトランジションが使用されます。",
+      "ch8_intro": "エディトリアルの声は、インターフェースの権威と一致する、自信に満ちた直接的なものです。短く、メリットを促進する見出しと明確で、アクション指向のコール・トゥ・アクションを好み、専門用語や受動的な言い回しを避けます。",
+      "ch8_outro": "このシステムは意図的に低コントラストのテキスト、遊び心のあるタイポグラフィ、そして自社のオレンジ・アクセントの過度な使用を避け、装飾的な表現よりも機能性と明瞭さを優先しています。"
+    },
+    "ko": {
+      "ch1_intro": "GitLab의 디자인 시스템은 소프트웨어 전달을 위한 기업 명령 센터로서 작동하며, 복잡한 오케스트레이션을 깔끔하고 읽기 쉬운 인터페이스로 변환합니다. 이 시스템은 고대비 명확성의 원칙 위에 구축되었으며, 모든 시각적 결정은 개발자 중심 환경에서 인지적 부담을 줄이는 목표를 위해 존재합니다.",
+      "ch2_intro": "컬러 시스템은 철저한 절제로 정의됩니다: 잉크 블랙과 화이트의 기반 위에, 의도적으로 절약 사용되는 생동감 있는 오렌지 강조색이 활성화됩니다. 이는 색상이 시각적 잡음 없이 액션과 상태를 신호하는 전문적이고 고대비의 캔버스를 만듭니다.",
+      "ch2_outro": "원칙은 기능적 대비이며, 오렌지 강조색은 장식적 요소가 아닌 상호작용을 위한 전략적 도구입니다.",
+      "ch3_intro": "타이포그래피는 현대성과 정밀함을 전달하는 기하학적 sans-serif로 다루어지며, 장난스럽거나 둥근 특성은 피합니다. 제목은 명확한 계층을 구축하기 위해 높은 굵기로 설정되고, 본문 텍스트는 일관되고 읽기 쉬운 행간을 유지합니다.",
+      "ch4_intro": "엄격한 4px 기본 그리드는 리듬감 있는 기반을 확립하여, 모든 구성 요소와 간격 진행이 수학적으로 조화롭도록 보장합니다.",
+      "ch5_intro": "깊이는 주로 밝은 배경 위의 신중하게 계층화된 그림자 시스템을 통해 전달되며, 더 큰 오프셋에는 미세한 불투명도 감소가 적용됩니다. 기능 하이라이트와 핵심 콘텐츠는 어두운 표면에 격리되며, 선명한 정의를 위해 단일 픽셀 테두리를 사용합니다.",
+      "ch6_intro": "레이아웃 골격은 유연한 컨테이너 내부에 중앙 정렬된 다중 열 그리드로, 다양한 콘텐츠 블록을 수용하도록 설계되었습니다. 히어로와 같은 전체 너비 섹션으로 확장할 수 있으면서도 기본 리듬을 깨뜨리지 않는 구조화된 프레임워크를 제공합니다.",
+      "ch7_intro": "모션은 의도적이고 절제되며, 다양한 피드백 유형에 대한 명확한 패턴을 사용합니다. 버튼과 같은 인터랙티브 요소는 촉각적 반응을 위해 탄력적인 easing 곡선을 사용하며, 상태 변화는 부드럽고 타이밍이 맞춰진 전환을 사용합니다.",
+      "ch8_intro": "에디토리얼 톤은 인터페이스의 권위에 맞춰 자신감 있고 직접적입니다. 짧고 혜택 중심적인 헤드라인과 명확하고 액션 지향적인 call to action을 선호하며, 전문 용어와 수동적인 표현을 피합니다.",
+      "ch8_outro": "이 시스템은 의도적으로 저대비 텍스트, 장난스러운 타이포그래피, 그리고 자체 오렌지 강조색의 과도한 사용을 피하며, 장식적 표현보다 기능과 명확성을 우선시합니다."
+    }
+  }
 }

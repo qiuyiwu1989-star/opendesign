@@ -8,6 +8,593 @@
     "design",
     "tool"
   ],
-  "status": "pending",
-  "added_at": "2026-06-02"
+  "status": "completed",
+  "added_at": "2026-06-02",
+  "spec": {
+    "colors": {
+      "bg": "#ffffff",
+      "bgSoft": "#f9fafb",
+      "bgQuiet": null,
+      "ink": "#000000",
+      "inkSoft": "#2e2e2e",
+      "muted": "#6e7477",
+      "mutedSoft": null,
+      "accent": "#2070f0",
+      "line": "rgba(0,0,0,0.1)"
+    },
+    "typography": {
+      "display": "humanist-sans",
+      "body": "humanist-sans",
+      "mono": null,
+      "scale": [
+        {
+          "token": "body",
+          "size": 12,
+          "lh": 1.6,
+          "weight": 500,
+          "ls": "0px"
+        },
+        {
+          "token": "caption",
+          "size": 16,
+          "lh": 1.6,
+          "weight": 500,
+          "ls": "0px"
+        },
+        {
+          "token": "h1",
+          "size": 24,
+          "lh": 1.6,
+          "weight": 700,
+          "ls": "0px"
+        }
+      ]
+    },
+    "spacing": {
+      "base": 4,
+      "scale": [
+        2,
+        4,
+        8,
+        12,
+        16,
+        24,
+        32
+      ]
+    },
+    "surfaces": {
+      "radius": {
+        "sm": 9,
+        "md": 11,
+        "lg": 14,
+        "pill": 999
+      }
+    },
+    "layout": {
+      "container": null,
+      "paragraph": null,
+      "columns": null,
+      "gutter": null,
+      "breakpoints": []
+    },
+    "motion": {
+      "durations": {
+        "micro": 200,
+        "small": 400,
+        "medium": 800
+      },
+      "easing": "ease-in-out"
+    }
+  },
+  "spec_i18n": {
+    "en": {
+      "identity": {
+        "keywords": [
+          "canvas",
+          "drawing",
+          "whiteboard",
+          "minimal",
+          "utility"
+        ],
+        "analogy": "A clean, digital whiteboard with hidden chrome",
+        "oneLiner": "A minimalist, collaborative canvas tool designed to get out of the way of your ideas."
+      },
+      "colors": {
+        "principle": "Neutral canvas with a single vibrant blue for primary actions"
+      },
+      "typography": {
+        "rules": [
+          "Use a neutral sans-serif for UI elements",
+          "Maintain a consistent weight of 500 for standard UI text",
+          "Use bold weight sparingly, primarily for headings"
+        ],
+        "scaleUses": [
+          "UI labels, tools, and status",
+          "Secondary text",
+          "Headings"
+        ]
+      },
+      "spacing": {
+        "rhythm": "8px base grid"
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(0, 0, 0, 0.16) 0px 0px 2px 0px",
+          "rgba(0, 0, 0, 0.24) 0px 2px 3px 0px"
+        ],
+        "borders": "1px solid rgba(0,0,0,0.1)"
+      },
+      "layout": {
+        "skeleton": "Full-screen canvas with fixed-position toolbars and panels"
+      },
+      "components": {
+        "button": "Primary buttons are solid blue with white text and pill-shaped radii; secondary buttons are gray or outlined.",
+        "card": "No traditional cards; UI is presented as floating panels with shadows.",
+        "chip": "No chips observed.",
+        "input": "No text inputs visible; the interface is primarily icon-based.",
+        "hero": "The entire canvas acts as the hero space."
+      },
+      "motion": {
+        "patterns": [
+          "Smooth transitions for UI panel visibility"
+        ]
+      },
+      "interaction": {
+        "hover": "Cursor changes to pointer on interactive elements",
+        "click": "Active states indicated by color changes or subtle shadows",
+        "transition": "Background-color transitions over 0.2s",
+        "keyboard": "Standard keyboard shortcuts likely available for tools"
+      },
+      "voice": {
+        "tone": "minimal, functional, and unobtrusive",
+        "headlineStyle": "Concise, action-oriented labels",
+        "ctaStyle": "Direct and clear, like 'Sign in to share'",
+        "avoid": [
+          "Cluttering the canvas with unnecessary UI",
+          "Using overly decorative fonts",
+          "Employing a wide range of primary colors"
+        ]
+      },
+      "donts": [
+        "Don't use a dark background — screenshot shows a bright white canvas.",
+        "Don't use a wide variety of fonts — screenshot shows a consistent humanist-sans.",
+        "Don't use heavy drop shadows — screenshot shows subtle, realistic shadows.",
+        "Don't clutter the UI — screenshot shows minimal, floating toolbars.",
+        "Don't use a complex color palette — screenshot shows a neutral base with a single blue accent.",
+        "Don't use overly complex typography — screenshot shows simple, weight-based hierarchy."
+      ],
+      "systemPrompt": "This is tldraw, a minimalist whiteboard tool. The design is centered around a vast white canvas with unobtrusive UI. Key colors include a white background (#ffffff), near-black ink (#000000), and a vibrant blue accent (#2070f0) for primary actions. The typography relies on a clean humanist-sans-serif, primarily in weight 500. Critical donts include: avoid dark mode or dark backgrounds, avoid decorative or serif fonts, and avoid complex color palettes that distract from the canvas. The layout is full-screen with floating toolbars and panels, prioritizing the user's content over the interface itself."
+    },
+    "zh-CN": {
+      "identity": {
+        "keywords": [
+          "画布",
+          "绘图",
+          "白板",
+          "极简",
+          "功能型"
+        ],
+        "analogy": "一个干净的数字白板，界面元素被巧妙隐藏",
+        "oneLiner": "一款极简的协作画布工具，旨在为你的创意让路。"
+      },
+      "colors": {
+        "principle": "以中性画布为底，使用单一的鲜明蓝色作为主要操作色。"
+      },
+      "typography": {
+        "rules": [
+          "为界面元素使用中性无衬线字体",
+          "为标准界面文本保持一致的500字重",
+          "粗体仅用于标题，慎用"
+        ],
+        "scaleUses": [
+          "界面标签、工具和状态",
+          "辅助文本",
+          "标题"
+        ]
+      },
+      "spacing": {
+        "rhythm": "8像素基础网格"
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(0, 0, 0, 0.16) 0px 0px 2px 0px",
+          "rgba(0, 0, 0, 0.24) 0px 2px 3px 0px"
+        ],
+        "borders": "1px solid rgba(0,0,0,0.1)"
+      },
+      "layout": {
+        "skeleton": "全屏画布，配有固定位置的工具栏和面板"
+      },
+      "components": {
+        "button": "主要按钮为实心蓝色，白色文字，圆角药丸形状；次要按钮为灰色或带轮廓线。",
+        "card": "无传统卡片；界面表现为带阴影的浮动面板。",
+        "chip": "未观察到标签组件。",
+        "input": "未见文本输入框；界面主要基于图标。",
+        "hero": "整个画布即为主视觉区域。"
+      },
+      "motion": {
+        "patterns": [
+          "界面面板显示/隐藏的平滑过渡"
+        ]
+      },
+      "interaction": {
+        "hover": "光标在交互元素上变为指针",
+        "click": "激活状态通过颜色变化或细微阴影来指示",
+        "transition": "背景色过渡时长0.2秒",
+        "keyboard": "可能提供标准键盘快捷键用于工具操作"
+      },
+      "voice": {
+        "tone": "极简、功能性、不打扰",
+        "headlineStyle": "简洁、行动导向的标签",
+        "ctaStyle": "直接清晰，例如「登录以共享」",
+        "avoid": [
+          "用不必要的UI元素扰乱画布",
+          "使用过于装饰性的字体",
+          "使用过多的主色调"
+        ]
+      },
+      "donts": [
+        "不要使用深色背景——截图显示的是明亮的白色画布。",
+        "不要使用多种字体——截图显示的是统一的 humanist-sans 字体。",
+        "不要使用厚重的投影——截图显示的是细微、真实的阴影。",
+        "不要让界面显得杂乱——截图显示的是极简的浮动工具栏。",
+        "不要使用复杂的配色方案——截图显示的是中性底色搭配单一蓝色点缀。",
+        "不要使用过于复杂的排版——截图显示的是基于字重的简洁层级。"
+      ],
+      "systemPrompt": "这是 tldraw，一款极简白板工具。设计围绕一个广阔、干净的白色画布展开，界面元素不显眼。关键色彩包括白色背景（#ffffff）、近黑色墨迹（#000000）和用于主要操作的鲜明蓝色点缀（#2070f0）。排版依赖于简洁的 humanist-sans-serif 字体，主要使用500字重。关键禁忌包括：避免深色模式或深色背景，避免装饰性或衬线字体，避免使用分散画布注意力的复杂配色方案。布局为全屏式，配有浮动工具栏和面板，用户内容优先于界面本身。"
+    },
+    "zh-TW": {
+      "identity": {
+        "keywords": [
+          "畫布",
+          "繪圖",
+          "白板",
+          "簡約",
+          "實用"
+        ],
+        "analogy": "簡潔的數位白板，隱藏工具介面",
+        "oneLiner": "一款簡約的協作畫布工具，旨在不干擾你的創意流動。"
+      },
+      "colors": {
+        "principle": "中性畫布搭配單一鮮明藍色作為主要操作色"
+      },
+      "typography": {
+        "rules": [
+          "UI 元素使用中性無襯線字體",
+          "標準 UI 文字統一使用 500 字重",
+          "粗體謹慎使用，主要用於標題"
+        ],
+        "scaleUses": [
+          "UI 標籤、工具與狀態文字",
+          "次要文字",
+          "標題"
+        ]
+      },
+      "spacing": {
+        "rhythm": "8px 基礎網格"
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(0, 0, 0, 0.16) 0px 0px 2px 0px",
+          "rgba(0, 0, 0, 0.24) 0px 2px 3px 0px"
+        ],
+        "borders": "1px solid rgba(0,0,0,0.1)"
+      },
+      "layout": {
+        "skeleton": "全螢幕畫布搭配固定定位的工具列與面板"
+      },
+      "components": {
+        "button": "主要按鈕為實心藍色白字，採用膠囊圓角；次要按鈕為灰色或外框樣式。",
+        "card": "無傳統卡片設計；UI 以帶陰影的浮動面板呈現。",
+        "chip": "未觀察到標籤元件。",
+        "input": "無可見文字輸入框；介面以圖示為主。",
+        "hero": "整個畫布即為主要展示空間。"
+      },
+      "motion": {
+        "patterns": [
+          "UI 面板顯示/隱藏時的平滑轉場"
+        ]
+      },
+      "interaction": {
+        "hover": "游標於互動元素上變為指針圖示",
+        "click": "點擊狀態透過顏色變化或細微陰影指示",
+        "transition": "背景顏色轉場時間 0.2 秒",
+        "keyboard": "工具應提供標準鍵盤快捷鍵"
+      },
+      "voice": {
+        "tone": "簡約、功能導向、不引人注目",
+        "headlineStyle": "精簡、具行動力的標籤文字",
+        "ctaStyle": "直接清晰，例如「登入以分享」",
+        "avoid": [
+          "避免在畫布上堆砌不必要的 UI 元素",
+          "避免使用過度裝飾性字體",
+          "避免使用多樣化的主色調"
+        ]
+      },
+      "donts": [
+        "勿使用深色背景——截圖顯示為明亮的白色畫布。",
+        "勿使用多種字體——截圖顯示統一使用 humanist-sans。",
+        "勿使用過重投影陰影——截圖顯示細緻、真實的陰影效果。",
+        "勿讓 UI 顯得擁擠——截圖顯示極簡的浮動工具列。",
+        "勿使用複雜色調——截圖顯示中性基底搭配單一藍色強調。",
+        "勿使用過於複雜的字體層級——截圖顯示以字重區分的簡潔層次。"
+      ],
+      "systemPrompt": "這是 tldraw，一款簡約的白板工具。設計核心為廣大的白色畫布搭配不干擾的 UI。主要顏色包含白色背景 (#ffffff)、近黑色墨色 (#000000)，以及用於主要操作的鮮明藍色強調色 (#2070f0)。字體採用簡潔的 humanist-sans-serif，主要使用 500 字重。關鍵禁忌包括：避免深色模式或深色背景、避免裝飾性或襯線字體、避免使用分散畫布注意力的複雜色調。佈局為全螢幕浮動工具列與面板，優先展現使用者內容而非介面本身。"
+    },
+    "ja": {
+      "identity": {
+        "keywords": [
+          "キャンバス",
+          "ドローイング",
+          "ホワイトボード",
+          "ミニマル",
+          "ユーティリティ"
+        ],
+        "analogy": "隠れたクロームを備えたクリーンなデジタルホワイトボード",
+        "oneLiner": "あなたのアイデアを邪魔しないように設計された、ミニマルで共同作業用のキャンバスツール。"
+      },
+      "colors": {
+        "principle": "プライマリアクションに鮮やかなブルーを1つだけ使用した中立的なキャンバス"
+      },
+      "typography": {
+        "rules": [
+          "UI要素には中立的なsans-serifを使用",
+          "標準UIテキストには一貫してウェイト500を維持",
+          "ボールドウェイトは控えめに使用し、主に見出しに限定"
+        ],
+        "scaleUses": [
+          "UIラベル、ツール、ステータス",
+          "セカンダリテキスト",
+          "見出し"
+        ]
+      },
+      "spacing": {
+        "rhythm": "8pxベースグリッド"
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(0, 0, 0, 0.16) 0px 0px 2px 0px",
+          "rgba(0, 0, 0, 0.24) 0px 2px 3px 0px"
+        ],
+        "borders": "1px solid rgba(0,0,0,0.1)"
+      },
+      "layout": {
+        "skeleton": "固定位置のツールバーとパネルを備えたフルスクリーンキャンバス"
+      },
+      "components": {
+        "button": "プライマリボタンは白文字の塗りつぶしブルーで、ピル型の角丸。セカンダリボタンはグレーまたはアウトラインスタイル。",
+        "card": "従来のカードは不使用。UIはシャドウ付きの浮遊パネルとして表示。",
+        "chip": "チップは未使用。",
+        "input": "テキスト入力は見られず、インターフェースは主にアイコンベース。",
+        "hero": "キャンバス全体がヒーロースペースとして機能。"
+      },
+      "motion": {
+        "patterns": [
+          "UIパネルの可視性に対する滑らかなトランジション"
+        ]
+      },
+      "interaction": {
+        "hover": "インタラクティブ要素上でカーソルがポインタに変化",
+        "click": "アクティブ状態は色の変化や微細なシャドウで示される",
+        "transition": "背景色のトランジションは0.2秒で実行",
+        "keyboard": "ツールには標準的なキーボードショートカットが利用可能"
+      },
+      "voice": {
+        "tone": "ミニマルで機能的、かつ控えめ",
+        "headlineStyle": "簡潔でアクションを促すラベル",
+        "ctaStyle": "「サインインして共有」といった直接的で明確な表現",
+        "avoid": [
+          "不必要なUIでキャンバスを雑然とさせる",
+          "装飾的なフォントを使用する",
+          "多様なプライマリカラーを採用する"
+        ]
+      },
+      "donts": [
+        "ダーク背景を使用しない — スクリーンショットは明るいホワイトキャンバスを示している。",
+        "多様なフォントを使用しない — スクリーンショットは一貫したhumanist-sansを示している。",
+        "重いドロップシャドウを使用しない — スクリーンショットは微細でリアルなシャドウを示している。",
+        "UIを雑然とさせない — スクリーンショットは最小限の浮遊ツールバーを示している。",
+        "複雑なカラーパレットを使用しない — スクリーンショットは中立ベースにブルーアクセント1つだけを示している。",
+        "過度に複雑なタイポグラフィを使用しない — スクリーンショットはシンプルでウェイトベースの階層を示している。"
+      ],
+      "systemPrompt": "これはtldraw、ミニマルなホワイトボードツール。デザインは控えめなUIを備えた広大なホワイトキャンバスを中心に構成。主要カラーはホワイト背景(#ffffff)、ネアブラックのインク(#000000)、およびプライマリアクション用の鮮やかなブルーアクセント(#2070f0)。タイポグラフィはクリーンなhumanist-sans-serifを採用し、主にウェイト500を使用。重要な注意点: ダークモードやダーク背景は避けること、装飾的またはセリフフォントは避けること、キャンバスから注意をそらす複雑なカラーパレットは避けること。レイアウトはフルスクリーンで、浮遊ツールバーとパネルを備え、インターフェース自体よりもユーザーのコンテンツを優先。"
+    },
+    "ko": {
+      "identity": {
+        "keywords": [
+          "캔버스",
+          "드로잉",
+          "화이트보드",
+          "미니멀",
+          "유틸리티"
+        ],
+        "analogy": "숨겨진 크롬이 있는 깔끔한 디지털 화이트보드",
+        "oneLiner": "아이디어의 흐름을 방해하지 않도록 설계된 미니멀리즘 협업 캔버스 도구."
+      },
+      "colors": {
+        "principle": "기본 작업을 위한 단 하나의 선명한 블루가 포함된 중립적 캔버스"
+      },
+      "typography": {
+        "rules": [
+          "UI 요소에는 중립적인 sans-serif 사용",
+          "일반 UI 텍스트의 일관된 weight 500 유지",
+          "굵은 글꼴은 제목에만 절제하여 사용"
+        ],
+        "scaleUses": [
+          "UI 레이블, 도구 및 상태",
+          "보조 텍스트",
+          "제목"
+        ]
+      },
+      "spacing": {
+        "rhythm": "8px 기본 그리드"
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(0, 0, 0, 0.16) 0px 0px 2px 0px",
+          "rgba(0, 0, 0, 0.24) 0px 2px 3px 0px"
+        ],
+        "borders": "1px solid rgba(0,0,0,0.1)"
+      },
+      "layout": {
+        "skeleton": "고정 위치 도구 모음과 패널이 포함된 전체 화면 캔버스"
+      },
+      "components": {
+        "button": "기본 버튼은 흰색 텍스트와 둥근 모서리가 적용된 단색 블루이며, 보조 버튼은 회색 또는 테두리만 있는 형태입니다.",
+        "card": "전통적인 카드 없음; UI는 그림자가 적용된 플로팅 패널로 표시됩니다.",
+        "chip": "관찰된 칩 없음.",
+        "input": "텍스트 입력 필드가 보이지 않음; 인터페이스는 주로 아이콘 기반입니다.",
+        "hero": "전체 캔버스가 히어로 영역으로 작동합니다."
+      },
+      "motion": {
+        "patterns": [
+          "UI 패널 가시성을 위한 부드러운 전환"
+        ]
+      },
+      "interaction": {
+        "hover": "인터랙티브 요소에서 커서가 포인터로 변경됨",
+        "click": "색상 변경 또는 미세한 그림자로 활성 상태 표시",
+        "transition": "0.2초 동안의 배경색 전환",
+        "keyboard": "도구에 대한 표준 키보드 단축키가 제공될 가능성이 높음"
+      },
+      "voice": {
+        "tone": "미니멀하고 기능적이며, 방해하지 않는",
+        "headlineStyle": "간결하고 행동 지향적인 레이블",
+        "ctaStyle": "'로그인하여 공유하기'처럼 직접적이고 명확한",
+        "avoid": [
+          "불필요한 UI로 캔버스를 어지럽히는 것",
+          "지나치게 장식적인 글꼴 사용",
+          "다양한 기본 색상 사용"
+        ]
+      },
+      "donts": [
+        "어두운 배경을 사용하지 마세요 — 스크린샷은 밝은 흰색 캔버스를 보여줍니다.",
+        "다양한 글꼴을 사용하지 마세요 — 스크린샷은 일관된 humanist-sans를 보여줍니다.",
+        "무거운 드롭 그림자를 사용하지 마세요 — 스크린샷은 미묘하고 사실적인 그림자를 보여줍니다.",
+        "UI를 복잡하게 하지 마세요 — 스크린샷은 최소화된 플로팅 도구 모음을 보여줍니다.",
+        "복잡한 색상 팔레트를 사용하지 마세요 — 스크린샷은 단일 블루 액센트가 포함된 중립적 기본 색상을 보여줍니다.",
+        "지나치게 복잡한 타이포그래피를 사용하지 마세요 — 스크린샷은 단순하고 weight 기반의 계층 구조를 보여줍니다."
+      ],
+      "systemPrompt": "이것은 미니멀리즘 화이트보드 도구인 tldraw입니다. 디자인은 방해하지 않는 UI와 함께 광활한 흰색 캔버스를 중심으로 합니다. 주요 색상에는 흰색 배경(#ffffff), 거의 검은색 잉크(#000000), 그리고 기본 작업을 위한 선명한 블루 액센트(#2070f0)가 포함됩니다. 타이포그래피는 주로 weight 500의 깔끔한 humanist-sans-serif에 의존합니다. 핵심 주의사항: 다크 모드 또는 어두운 배경 사용 피하기, 장식적이거나 세리프 글꼴 사용 피하기, 캔버스에서 주의를 분산시키는 복잡한 색상 팔레트 사용 피하기. 레이아웃은 인터페이스 자체보다 사용자의 콘텐츠를 우선시하는 플로팅 도구 모음과 패널이 포함된 전체 화면입니다."
+    }
+  },
+  "desc": {
+    "en": {
+      "palette": "A high-contrast, neutral palette dominated by white and near-black, with a single vibrant blue accent.",
+      "layout": "A full-screen canvas layout with minimal, floating toolbars and panels positioned at the edges.",
+      "interaction": "Interactive elements are primarily icon-based with cursor changes and subtle transitions for feedback.",
+      "motion": "Motion is subtle, used primarily for UI state changes rather than decorative animation.",
+      "notes": "A masterclass in minimalist utility design, where the interface disappears to let the user's work take center stage."
+    },
+    "zh-CN": {
+      "palette": "一个高对比度的中性色系，以白色和近黑色为主，搭配一个鲜明的蓝色作为点缀色。",
+      "layout": "全屏画布布局，包含位于边缘的极简浮动工具栏和面板。",
+      "interaction": "交互元素主要以图标为主，配合光标变化和细微的过渡效果提供反馈。",
+      "motion": "动效细微，主要用于界面状态变化，而非装饰性动画。",
+      "notes": "这是极简功能型设计的典范，界面本身退居幕后，让用户的工作成为焦点。"
+    },
+    "zh-TW": {
+      "palette": "以白色與近黑色為主的高對比中性色調，搭配單一鮮明的藍色作為強調色。",
+      "layout": "全螢幕畫布佈局，工具列與面板採用浮動式設計，極簡且置於邊緣。",
+      "interaction": "互動元素以圖示為主，透過游標變化與細微轉場提供反饋。",
+      "motion": "動態效果細緻，主要用於 UI 狀態切換，而非裝飾性動畫。",
+      "notes": "簡約實用設計的典範，介面隱於背景，讓使用者的創作成為焦點。"
+    },
+    "ja": {
+      "palette": "ホワイトとネアブラックを基調としたハイコントラストの中立パレット。鮮やかなブルーがアクセントとして1つだけ配置。",
+      "layout": "最小限の浮遊ツールバーとパネルをエッジに配置した、フルスクリーンキャンバスレイアウト。",
+      "interaction": "インタラクティブな要素は主にアイコンベースで、フィードバックとしてカーソル変化と微細なトランジションを採用。",
+      "motion": "モーションは控えめで、装飾的なアニメーションよりもUIの状態変化に主に使用。",
+      "notes": "ミニマルなユーティリティデザインの見本。インターフェースが消えることで、ユーザーのワークが主役となる。"
+    },
+    "ko": {
+      "palette": "흰색과 거의 검은색이 지배하는 고대비, 중립 팔레트에 단 하나의 선명한 블루 액센트가 사용됩니다.",
+      "layout": "최소화된 플로팅 도구 모음과 패널이 가장자리에 배치된 전체 화면 캔버스 레이아웃입니다.",
+      "interaction": "인터랙티브 요소는 주로 아이콘 기반으로, 커서 변경과 미세한 전환으로 피드백을 제공합니다.",
+      "motion": "모션은 미묘하며, 주로 장식적 애니메이션이 아닌 UI 상태 변경에 사용됩니다.",
+      "notes": "인터페이스가 사라져 사용자의 작업이 중심이 되는 미니멀리즘 유틸리티 디자인의 교과서적 사례입니다."
+    }
+  },
+  "_meta": {
+    "vision_model": "mimo-v2.5",
+    "vision_prompt_version": "0.3",
+    "vision_source": "playwright-extract:tldraw",
+    "vision_grounded": true,
+    "vision_at": "2026-06-04T19:28:18+00:00",
+    "vision_tokens": 16419,
+    "vision_cost_usd": 0.1824,
+    "translation_model": "mimo-v2.5",
+    "translation_at": "2026-06-04T19:29:18+00:00",
+    "translation_tokens": 15689,
+    "translation_cost_usd": 0.0523,
+    "narrative_model": "mimo-v2.5",
+    "narrative_prompt_version": "0.3",
+    "narrative_at": "2026-06-04T19:29:28+00:00",
+    "narrative_tokens": 1979,
+    "narrative_cost_usd": 0.0132,
+    "narrative_status": "ok",
+    "total_cost_usd": 0.2479
+  },
+  "narrative": {
+    "en": {
+      "ch1_intro": "The system is architected like a digital whiteboard with its chrome hidden—a tool designed to recede into the background, leaving only the user's work as the focal point. Its identity is one of intentional minimalism and pure utility, where every element serves a clear purpose before disappearing again.",
+      "ch2_intro": "The palette is a study in restraint, built on a neutral canvas of stark white and near-black ink. A single, vibrant blue is reserved exclusively for primary actions, acting as a clear beacon of interactivity within the monochrome field.",
+      "ch2_outro": "The core principle is absolute clarity: the interface provides the stage, but the content, rendered in high-contrast ink, must always command the lead.",
+      "ch3_intro": "Typography here is purely functional, using a consistent humanist sans-serif to deliver information without vocal flourish. A single, medium weight forms the baseline for all UI text, with bold reserved sparingly for structural hierarchy in headings.",
+      "ch4_intro": "Rhythm is governed by a strict 8px base grid, creating a predictable and orderly foundation for all element placement and internal padding.",
+      "ch5_intro": "Depth is communicated through carefully layered shadows that lift floating panels just above the infinite canvas. Borders are rendered as thin, translucent lines—more suggestion than barrier—defining edges without introducing visual weight.",
+      "ch6_intro": "The layout skeleton is a full-bleed canvas that occupies the entire viewport. Essential toolbars and panels are positioned as fixed, floating elements at the periphery, ensuring the central workspace remains uncluttered and dominant.",
+      "ch7_intro": "Motion philosophy is one of subtle reinforcement, where transitions exist solely to clarify state changes and panel visibility. Animation is smooth, brief, and strictly functional, avoiding any decorative flourish that might distract from the creative act.",
+      "ch8_intro": "The editorial voice is minimal, functional, and unobtrusive, delivering concise, action-oriented labels that guide without interrupting flow. This voice extends to a deliberate set of omissions that define the system's character.",
+      "ch8_outro": "It deliberately refuses to employ dark backgrounds, decorative typography, or complex color palettes, understanding that such choices would compete with the user's own expression."
+    },
+    "zh-CN": {
+      "ch1_intro": "系统架构如同一块隐去外框的数字白板——一个设计为退居幕后、仅将用户工作内容置于焦点的工具。其特质在于刻意的极简与纯粹的功能性，每个元素在完成明确使命后便悄然隐去。",
+      "ch2_intro": "配色方案体现了克制之美，以纯白与近黑墨色构成中性基底。仅用一种鲜亮的蓝色专用于主要操作，在单色领域中成为交互性的清晰信标。",
+      "ch2_outro": "核心原则是绝对清晰：界面搭建舞台，但以高对比墨色呈现的内容，必须始终占据主导地位。",
+      "ch3_intro": "此处的字体排印纯粹追求功能性，采用统一的人文主义无衬线字体传递信息，摒弃任何修饰性表达。中等字重构成所有用户界面文本的基础，仅在标题结构层级中审慎使用粗体。",
+      "ch4_intro": "节奏由严格的8像素基础网格掌控，为所有元素布局与内部间距创造可预测的有序基础。",
+      "ch5_intro": "层次感通过精心分层的阴影呈现，使浮动面板悬浮于无限画布之上。边框以纤细的半透明线条绘制——更似暗示而非屏障——在不增加视觉重量的前提下界定边缘。",
+      "ch6_intro": "布局骨架是占据整个视口的延伸式画布。必要的工具栏与面板以固定浮动元素形式置于外围，确保中央工作区保持整洁与主导地位。",
+      "ch7_intro": "动效理念强调微妙强化，转场仅用于明确状态变化与面板显隐。动画流畅、简短且严格功能化，避免任何可能干扰创作过程的装饰性修饰。",
+      "ch8_intro": "编辑语调保持极简、功能化且不显突兀，传递简洁、导向明确的标签以引导用户而不中断工作流程。这种语调延伸为一组刻意的省略，由此定义系统的性格。",
+      "ch8_outro": "系统明确拒绝使用深色背景、装饰性字体或复杂配色方案，深知这些选择会与用户自身的表达形成竞争。"
+    },
+    "zh-TW": {
+      "ch1_intro": "系統架構如同隱藏介面細節的數位白板——這是一個設計來融入背景的工具，只留下使用者的作品作為視覺焦點。其設計理念是刻意的極簡與純粹實用，每個元素都有明確目的，隨後便會再次消失。",
+      "ch2_intro": "色彩調性是對克制的探討，以純白與近乎墨黑的中性畫布為基礎。單一鮮明的藍色專用於主要操作，在單色領域中成為互動性的明確指引燈塔。",
+      "ch2_outro": "核心原則是絕對的清晰度：介面提供舞台，但以高對比墨色呈現的內容，必須始終掌握主導地位。",
+      "ch3_intro": "此處的排版純粹功能性，使用一致的人文主義無襯線字體傳遞資訊，不帶冗餘裝飾。單一中等字重構成所有使用者介面文字的基準，粗體則謹慎保留用於標題的結構性層級。",
+      "ch4_intro": "節奏由嚴格的 8px 基礎網格控制，為所有元素定位與內部間距創造可預測且有序的基礎。",
+      "ch5_intro": "深度透過精心分層的陰影傳達，使浮動面板略微浮現於無限畫布之上。邊框以纖細的半透明線條呈現——更似暗示而非屏障——界定邊緣而不增加視覺重量。",
+      "ch6_intro": "版面骨架是佔據整個視域的全幅畫布。必要的工具列與面板以固定浮動元素配置於周邊，確保中央工作區保持無雜亂且主導地位。",
+      "ch7_intro": "動態理念是細微的強化，過渡效果僅用於釐清狀態變化與面板顯示性。動畫平滑、簡短且嚴格功能導向，避免任何可能分散創作注意力的裝飾性修飾。",
+      "ch8_intro": "編輯語調是極簡、功能性且不顯眼的，提供簡潔、行動導向的標籤，在不打斷流程的前提下引導使用者。這種語調延伸至一套刻意的省略，定義了系統的特質。",
+      "ch8_outro": "系統刻意拒絕採用深色背景、裝飾性字體或複雜色彩調性，理解這些選擇會與使用者自身的表達相互競爭。"
+    },
+    "ja": {
+      "ch1_intro": "このシステムは、その装飾を隠したデジタルホワイトボードのように設計されています。ユーザーの作業のみを焦点に留め、背後に退くことを目的としたツールです。そのアイデンティティは、意図されたミニマリズムと純粋な実用性にあり、すべての要素が明確な目的を果たした後に再び消えていくことを意味します。",
+      "ch2_intro": "パレットは抑制の研究であり、純白とインク黒に近いニュートラルなキャンバスの上に構築されています。鮮やかな青は主なアクションにのみ排他的に使用され、モノクロームのフィールド内でインタラクティブ性の明確な存在を示します。",
+      "ch2_outro": "基本原則は絶対的な明瞭さです。インターフェースは舞台を提供しますが、高コントラストのインクで描かれるコンテンツが、常に主役を務めなければなりません。",
+      "ch3_intro": "ここでのタイポグラフィは純粋に機能的であり、一貫したヒューマニストサンセリフを使用して、飾り気なく情報を伝えます。中程度のウェイトがすべてのUIテキストの基準を形成し、太字は見出しの構造的な階層において控えめに使用されます。",
+      "ch4_intro": "リズムは厳格な8pxベースグリッドによって支配され、すべての要素の配置と内部paddingに予測可能で整然とした基盤を提供します。",
+      "ch5_intro": "深みは、無限のキャンバスの上に浮遊パネルを持ち上げる、慎重にレイヤー化されたシャドウによって表現されます。ボーダーは薄く半透明の線として描画され、視覚的な重みを加えることなく、端を定義します。",
+      "ch6_intro": "レイアウトのスケルトンは、ビューポート全体を占めるフルブリードキャンバスです。必須のツールバーとパネルは、周辺に固定された浮遊要素として配置され、中央のワークスペースが散らからず、支配的であることを保証します。",
+      "ch7_intro": "モーション哲学は、微かな強調にあり、遷移は状態の変化とパネルの可視性を明確にするためにのみ存在します。アニメーションは滑らかで短く、厳密に機能的であり、クリエイティブな行為を邪魔する装飾的な装いを避けます。",
+      "ch8_intro": "エディトリアルボイスはミニマルで機能的かつ控えめであり、流れを中断することなくガイドする簡潔でアクション指向のラベルを提供します。このボイスは、システムの特徴を定義する意図的な省略のセットにも及びます。",
+      "ch8_outro": "それは意図的に暗い背景、装飾的なタイポグラフィ、複雑なカラーパレットの使用を拒否しており、そのような選択がユーザー自身の表現と競合することを理解しています。"
+    },
+    "ko": {
+      "ch1_intro": "시스템은 크롬을 숨긴 디지털 화이트보드처럼 설계되어 있으며, 사용자의 작업만이 초점이 되도록 배경에 스며드는 도구입니다. 의도된 미니멀리즘과 순수한 실용성의 정체성을 지니고 있으며, 모든 요소는 명확한 목적을 수행한 후 다시 사라집니다.",
+      "ch2_intro": "팔레트는 절제의 연구로, 순백과 거의 검은 잉크의 중립적인 캔버스 위에 구축됩니다. 단 하나의 생생한 블루는 주요 액션에만 독점적으로 사용되며, 단색 영역 내에서 인터랙티브의 명확한 신호 역할을 합니다.",
+      "ch2_outro": "핵심 원칙은 절대적인 명료함입니다: 인터페이스는 무대를 제공하지만, 고대비 잉크로 렌더링된 콘텐츠는 항상 주도권을 가져야 합니다.",
+      "ch3_intro": "여기서 타이포그래피는 순수하게 기능적이며, 일관된 humanist sans-serif를 사용하여 음색의 꾸밈없이 정보를 전달합니다. 단일 medium weight가 모든 UI 텍스트의 기반을 형성하며, bold는 제목의 구조적 위계에만 절제되게 사용됩니다.",
+      "ch4_intro": "리듬은 엄격한 8px 기본 그리드에 의해 지배되며, 모든 요소 배치와 내부 padding을 위한 예측 가능하고 질서 있는 기반을 만듭니다.",
+      "ch5_intro": "깊이는 세심하게 층을 이룬 그림자를 통해 전달되며, 부유 패널을 무한 캔버스 바로 위로 들어 올립니다. 테두리는 얇고 반투명한 선으로 렌더링되며, 장벽보다는 암시에 가깝게 시각적 무게를 도입하지 않고 가장자를 정의합니다.",
+      "ch6_intro": "레이아웃 스켈레톤은 전체 viewport를 차지하는 풀블리드 캔버스입니다. 필수 도구 모음과 패널은 주변에 고정된 부유 요소로 배치되어, 중앙 작업 공간이 어지럽지 않고 지배적으로 유지되도록 합니다.",
+      "ch7_intro": "모션 철학은 미세한 강화로, 전환이 상태 변화와 패널 가시성을 명확히 하기 위해 존재합니다. 애니메이션은 매끄럽고 짧으며 엄격하게 기능적이며, 창작 행위를 방해할 수 있는 장식적 꾸밈을 피합니다.",
+      "ch8_intro": "에디토리얼 음성은 미니멀하고 기능적이며 방해가 되지 않으며, 흐름을 중단하지 않고 안내하는 간결하고 행동 지향적인 레이블을 제공합니다. 이 음성은 시스템의 성격을 정의하는 의도적인 생략 세트로 확장됩니다.",
+      "ch8_outro": "그것은 의도적으로 어두운 배경, 장식적 타이포그래피, 또는 복잡한 색상 팔레트를 사용하는 것을 거부하며, 그러한 선택이 사용자의 자체적인 표현과 경쟁하게 될 것임을 이해합니다."
+    }
+  }
 }

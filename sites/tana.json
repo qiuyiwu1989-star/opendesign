@@ -8,8 +8,616 @@
     "product",
     "notes"
   ],
-  "status": "pending",
+  "status": "completed",
   "added_at": "2026-06-02",
   "added_by": "expand-200",
-  "_meta": {}
+  "_meta": {
+    "vision_model": "mimo-v2.5",
+    "vision_prompt_version": "0.3",
+    "vision_source": "playwright-extract:tana",
+    "vision_grounded": true,
+    "vision_at": "2026-06-04T19:16:03+00:00",
+    "vision_tokens": 17189,
+    "vision_cost_usd": 0.191,
+    "translation_model": "mimo-v2.5",
+    "translation_at": "2026-06-04T19:17:26+00:00",
+    "translation_tokens": 18104,
+    "translation_cost_usd": 0.0603,
+    "narrative_model": "mimo-v2.5",
+    "narrative_prompt_version": "0.3",
+    "narrative_at": "2026-06-04T19:17:35+00:00",
+    "narrative_tokens": 2180,
+    "narrative_cost_usd": 0.0145,
+    "narrative_status": "ok",
+    "total_cost_usd": 0.2658
+  },
+  "spec": {
+    "colors": {
+      "bg": "#FBFBFB",
+      "bgSoft": "#FFF2EF",
+      "bgQuiet": null,
+      "ink": "#0C0805",
+      "inkSoft": "#3A3A3A",
+      "muted": "#6A6A6A",
+      "mutedSoft": null,
+      "accent": null,
+      "line": "rgba(12,8,5,0.1)"
+    },
+    "typography": {
+      "display": "didone-serif",
+      "body": "humanist-sans",
+      "mono": "monospace",
+      "scale": [
+        {
+          "token": "display",
+          "size": 72,
+          "lh": 1.05,
+          "weight": 400,
+          "ls": "-2.16px"
+        },
+        {
+          "token": "headline",
+          "size": 48,
+          "lh": 1.1,
+          "weight": 400,
+          "ls": "-1.44px"
+        },
+        {
+          "token": "body",
+          "size": 17,
+          "lh": 1.5,
+          "weight": 400,
+          "ls": "0px"
+        },
+        {
+          "token": "nav",
+          "size": 15,
+          "lh": 1.5,
+          "weight": 400,
+          "ls": "0px"
+        }
+      ]
+    },
+    "spacing": {
+      "base": 4,
+      "scale": [
+        4,
+        8,
+        12,
+        16,
+        24,
+        32,
+        48,
+        64,
+        96
+      ]
+    },
+    "surfaces": {
+      "radius": {
+        "sm": 6,
+        "md": 14,
+        "lg": 20,
+        "pill": 999
+      }
+    },
+    "layout": {
+      "container": 1280,
+      "paragraph": 680,
+      "columns": 12,
+      "gutter": 24,
+      "breakpoints": [
+        768,
+        1024
+      ]
+    },
+    "motion": {
+      "durations": {
+        "micro": 120,
+        "small": 160,
+        "medium": 400
+      },
+      "easing": "cubic-bezier(0.25, 0.1, 0.25, 1)"
+    }
+  },
+  "spec_i18n": {
+    "en": {
+      "identity": {
+        "keywords": [
+          "Productivity",
+          "Meetings",
+          "Notes",
+          "AI",
+          "Collaboration",
+          "Workflow"
+        ],
+        "analogy": "A sleek, high-end productivity application that blends classic editorial typography with modern app UI patterns.",
+        "oneLiner": "A premium productivity tool that uses editorial typography and warm, human photography to make meetings feel like active work."
+      },
+      "colors": {
+        "principle": "Warm, high-contrast monochrome palette with soft peach accents, prioritizing readability and premium feel."
+      },
+      "typography": {
+        "rules": [
+          "Use Didone Serif (Source Serif 4) for large display text and headlines.",
+          "Use Humanist Sans (Inter) for body copy, UI elements, and navigation.",
+          "Maintain tight negative letter spacing for display text."
+        ],
+        "scaleUses": [
+          "Main hero headline",
+          "Section headlines",
+          "Paragraphs and descriptions",
+          "Navigation links"
+        ]
+      },
+      "spacing": {
+        "rhythm": "Use 4px base increments for consistent rhythm, ensuring generous padding (24px-48px) in cards and sections."
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(20, 22, 36, 0.1) 0px 6px 18px -12px",
+          "rgba(20, 22, 36, 0.28) 0px 40px 96px -28px"
+        ],
+        "borders": "Subtle 1px borders using rgba(12,8,5,0.1) for separation."
+      },
+      "layout": {
+        "skeleton": "Centered single-column layout for hero sections, expanding to grid for content."
+      },
+      "components": {
+        "button": "High-contrast black rounded pill buttons for primary actions, transparent or light gray for secondary.",
+        "card": "Soft, rounded cards with large border-radius (14px-20px), often containing media or complex UI previews.",
+        "chip": "Small, rounded pill-shaped tags or status indicators.",
+        "input": "Subtle, clean input fields with minimal borders.",
+        "hero": "Full-width centered headline with generous vertical spacing and soft background gradients."
+      },
+      "motion": {
+        "patterns": [
+          "Smooth opacity and transform transitions on hover and click."
+        ]
+      },
+      "interaction": {
+        "hover": "Subtle opacity reduction or background color change.",
+        "click": "Scale down slightly (transform) or opacity change.",
+        "transition": "All properties transitioned over 120ms-160ms for UI elements.",
+        "keyboard": "Standard focus rings using subtle shadows or borders."
+      },
+      "voice": {
+        "tone": "Confident, professional, and slightly editorial.",
+        "headlineStyle": "Short, impactful statements, often using a single emphasized word in italics.",
+        "ctaStyle": "Direct and benefit-oriented, e.g., 'Start free trial'.",
+        "avoid": [
+          "Excessive punctuation",
+          "ALL CAPS for body text",
+          "Overly technical jargon"
+        ]
+      },
+      "donts": [
+        "Don't use vibrant, high-chroma accent colors — screenshot shows a mostly monochrome palette with warm, soft accents.",
+        "Don't use a geometric or technical sans-serif for headlines — screenshot shows elegant serif typography.",
+        "Don't use dark mode as the default — screenshot shows a light, off-white background (#FBFBFB).",
+        "Don't use sharp, square corners — screenshot shows large border-radii (14px, 20px) on all cards and buttons.",
+        "Don't clutter the layout with dense grids — screenshot shows generous whitespace and a focused, centered hero.",
+        "Don't use playful or cartoonish illustrations — screenshot relies on high-quality, cinematic photography."
+      ],
+      "systemPrompt": "Tana is a premium productivity tool that blends classic editorial design with modern app UI. The visual system uses a didone-serif (Source Serif 4) for large display headlines and a humanist-sans (Inter) for all body copy and UI elements. The primary color palette is a high-contrast monochrome (ink #0C0805 on off-white #FBFBFB) with a soft peach/warm accent (#FFF2EF) in specific sections. Critical constraints: Never use vibrant, high-chroma accent colors; always use soft, rounded corners (14px-20px radius); and ensure generous vertical whitespace (24px-96px) to maintain a premium, editorial feel. The tone is confident and professional, using short, impactful headlines with occasional italic emphasis."
+    },
+    "zh-CN": {
+      "identity": {
+        "keywords": [
+          "生产力",
+          "会议",
+          "笔记",
+          "AI",
+          "协作",
+          "工作流程"
+        ],
+        "analogy": "一款精致的高端生产力应用，融合了经典编辑字体与现代应用界面模式。",
+        "oneLiner": "一款高端生产力工具，运用编辑字体风格和温暖、人性化摄影，让会议感觉像是积极的工作过程。"
+      },
+      "colors": {
+        "principle": "温暖、高对比度的单色调色板，辅以柔和桃色点缀，优先考虑可读性和高端质感。"
+      },
+      "typography": {
+        "rules": [
+          "大型展示文本和标题使用迪多尼衬线体（Source Serif 4）。",
+          "正文、UI 元素和导航使用人文主义无衬线体（Inter）。",
+          "展示文本保持紧凑的负字距。"
+        ],
+        "scaleUses": [
+          "主英雄标题",
+          "章节标题",
+          "段落与描述",
+          "导航链接"
+        ]
+      },
+      "spacing": {
+        "rhythm": "使用 4px 为基础单位保持节奏一致，确保卡片和区块内有充裕的内边距（24px-48px）。"
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(20, 22, 36, 0.1) 0px 6px 18px -12px",
+          "rgba(20, 22, 36, 0.28) 0px 40px 96px -28px"
+        ],
+        "borders": "使用 rgba(12,8,5,0.1) 的微妙 1px 边框进行分隔。"
+      },
+      "layout": {
+        "skeleton": "英雄区块采用居中的单列布局，内容区域扩展为网格。"
+      },
+      "components": {
+        "button": "主要操作使用高对比度黑色圆角胶囊按钮，次要操作使用透明或浅灰色。",
+        "card": "柔和的圆角卡片，大边框半径（14px-20px），常包含媒体内容或复杂界面预览。",
+        "chip": "小型圆角胶囊状标签或状态指示器。",
+        "input": "简洁、干净的输入框，边框最小化。",
+        "hero": "全宽居中标题，垂直间距充裕，背景使用柔和渐变。"
+      },
+      "motion": {
+        "patterns": [
+          "在悬停和点击时进行平滑的透明度和变换过渡。"
+        ]
+      },
+      "interaction": {
+        "hover": "微妙的透明度降低或背景色变化。",
+        "click": "轻微缩小（变换）或透明度变化。",
+        "transition": "所有 UI 元素属性在 120ms-160ms 内过渡完成。",
+        "keyboard": "使用微妙阴影或边框的标准焦点环。"
+      },
+      "voice": {
+        "tone": "自信、专业，略带编辑风格。",
+        "headlineStyle": "简短、有力的陈述，常将单个强调词以斜体呈现。",
+        "ctaStyle": "直接且面向利益，例如“免费开始试用”。",
+        "avoid": [
+          "过度使用标点符号",
+          "正文使用全大写",
+          "过于技术化的术语"
+        ]
+      },
+      "donts": [
+        "不要使用鲜艳、高饱和度的强调色——截图显示主要是单色调，搭配温暖、柔和的色调。",
+        "不要在标题中使用几何或技术感无衬线体——截图显示的是优雅的衬线字体。",
+        "不要默认使用深色模式——截图显示的是浅色、米白色的背景（#FBFBFB）。",
+        "不要使用尖锐的方形圆角——截图显示所有卡片和按钮都使用大边框半径（14px, 20px）。",
+        "不要在布局中使用密集的网格——截图显示留白充裕，聚焦于居中的英雄区块。",
+        "不要使用俏皮或卡通风格的插图——截图依赖高质量、电影感的摄影。"
+      ],
+      "systemPrompt": "Tana 是一款高端生产力工具，融合了经典编辑设计与现代应用界面。视觉系统对大型展示标题使用迪多尼衬线体（Source Serif 4），对所有正文和 UI 元素使用人文主义无衬线体（Inter）。主色调为高对比度单色（墨色 #0C0805 搭配米白色 #FBFBFB），在特定部分使用柔和的桃色/暖色调（#FFF2EF）作为点缀。关键约束：绝不使用鲜艳、高饱和度的强调色；始终使用柔和、大圆角（14px-20px 半径）；并确保充裕的垂直留白（24px-96px）以维持高端、编辑感的氛围。语调自信专业，使用简短有力的标题，偶尔以斜体强调。"
+    },
+    "zh-TW": {
+      "identity": {
+        "keywords": [
+          "生產力",
+          "會議",
+          "筆記",
+          "AI",
+          "協作",
+          "工作流程"
+        ],
+        "analogy": "一款時尚的高階生產力應用程式，融合經典編輯排版與現代應用程式 UI 模式。",
+        "oneLiner": "一款採用編輯排版與溫暖、人性化攝影的 premium 生產力工具，讓會議感覺像是一項主動的工作。"
+      },
+      "colors": {
+        "principle": "溫暖、高對比的單色調色盤，搭配柔和蜜桃色點綴，優先考慮可讀性與 premium 質感。"
+      },
+      "typography": {
+        "rules": [
+          "大型顯示文字與標題使用 Didone Serif（Source Serif 4）。",
+          "內文、UI 元素與導覽使用 Humanist Sans（Inter）。",
+          "顯示文字保持緊湊的負字距。"
+        ],
+        "scaleUses": [
+          "主要英雄標題",
+          "區段標題",
+          "段落與描述",
+          "導覽連結"
+        ]
+      },
+      "spacing": {
+        "rhythm": "使用 4px 基礎增量以維持一致的節奏，確保卡片與區段擁有寬裕的內距（24px-48px）。"
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(20, 22, 36, 0.1) 0px 6px 18px -12px",
+          "rgba(20, 22, 36, 0.28) 0px 40px 96px -28px"
+        ],
+        "borders": "使用 rgba(12,8,5,0.1) 的細緻 1px 邊框進行分隔。"
+      },
+      "layout": {
+        "skeleton": "英雄區段採用置中單欄佈局，內容區則擴展為網格。"
+      },
+      "components": {
+        "button": "主要操作使用高對比黑色圓角膠囊按鈕，次要操作使用透明或淺灰色按鈕。",
+        "card": "柔和、圓角的卡片，具備大圓角（14px-20px），通常包含媒體或複雜的 UI 預覽。",
+        "chip": "小巧的圓角膠囊標籤或狀態指示器。",
+        "input": "細膩、簡潔的輸入欄位，邊框極簡。",
+        "hero": "全寬置中標題，搭配寬裕的垂直間距與柔和背景漸層。"
+      },
+      "motion": {
+        "patterns": [
+          "在 hover 和點擊時，套用平滑的透明度與變形過渡效果。"
+        ]
+      },
+      "interaction": {
+        "hover": "細微的透明度降低或背景顏色變化。",
+        "click": "輕微縮放（transform）或透明度變化。",
+        "transition": "所有 UI 元素的屬性過渡效果皆為 120ms-160ms。",
+        "keyboard": "使用細微陰影或邊框的標準焦點環。"
+      },
+      "voice": {
+        "tone": "自信、專業，並帶有略微的編輯風格。",
+        "headlineStyle": "簡短、具衝擊力的陳述，常使用單一斜體強調詞彙。",
+        "ctaStyle": "直接且以效益為導向，例如：「開始免費試用」。",
+        "avoid": [
+          "過度使用標點符號",
+          "內文使用全大寫",
+          "過於技術性的術語"
+        ]
+      },
+      "donts": [
+        "不要使用鮮豔、高飽和度的點綴色——截圖顯示為以單色調為主，搭配溫暖、柔和的點綴色。",
+        "不要使用幾何或技術型無襯線字體作為標題——截圖顯示為優雅的襯線字體。",
+        "不要使用深色模式作為預設——截圖顯示為明亮、米白色的背景（#FBFBFB）。",
+        "不要使用銳利的方形邊角——截圖顯示所有卡片與按鈕皆採用大圓角（14px, 20px）。",
+        "不要使用密集的網格使版面雜亂——截圖顯示寬裕的留白與專注、置中的英雄區段。",
+        "不要使用俏皮或卡通風格的插圖——截圖依賴高品質、電影感的攝影。"
+      ],
+      "systemPrompt": "Tana 是一款 premium 生產力工具，融合經典編輯設計與現代應用程式 UI。視覺系統使用 didone-serif（Source Serif 4）作為大型顯示標題，humanist-sans（Inter）作為所有內文與 UI 元素。主要色板為高對比單色調（墨色 #0C0805 搭配米白色 #FBFBFB），在特定區段使用柔和蜜桃/暖色點綴（#FFF2EF）。關鍵限制：切勿使用鮮豔、高飽和度的點綴色；務必使用柔和的圓角（14px-20px 半徑）；並確保寬裕的垂直留白（24px-96px）以維持 premium、編輯風格的質感。語氣自信專業，使用簡短、具衝擊力的標題，並偶爾使用斜體強調。"
+    },
+    "ja": {
+      "identity": {
+        "keywords": [
+          "生産性",
+          "会議",
+          "メモ",
+          "AI",
+          "コラボレーション",
+          "ワークフロー"
+        ],
+        "analogy": "クラシックな編集タイポグラフィとモダンなアプリUIパターンを融合させた、スタイリッシュでハイエンドな生産性アプリケーション。",
+        "oneLiner": "編集タイポグラフィと温かみのある人間的な写真を使用し、会議を能動的な作業のように感じさせるプレミアム生産性ツール。"
+      },
+      "colors": {
+        "principle": "柔らかいピーチのアクセントを加えた暖かみのある高コントラストモノクロームパレット。可読性とプレミアム感を優先します。"
+      },
+      "typography": {
+        "rules": [
+          "大規模なディスプレイテキストと見出しにはDidone Serif（Source Serif 4）を使用。",
+          "本文、UI要素、ナビゲーションにはHumanist Sans（Inter）を使用。",
+          "ディスプレイテキストには、 tighterなnegative letter spacingを維持。"
+        ],
+        "scaleUses": [
+          "メインヒーロー見出し",
+          "セクション見出し",
+          "段落と説明文",
+          "ナビゲーションリンク"
+        ]
+      },
+      "spacing": {
+        "rhythm": "一貫したリズムのために4pxの基本incrementを使用。カードとセクションでは、たっぷりとしたpadding（24px-48px）を確保します。"
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(20, 22, 36, 0.1) 0px 6px 18px -12px",
+          "rgba(20, 22, 36, 0.28) 0px 40px 96px -28px"
+        ],
+        "borders": "分離のためにrgba(12,8,5,0.1)を使用した、繊細な1pxボーダー。"
+      },
+      "layout": {
+        "skeleton": "ヒーローセクションにはセンタリングされた単一カラムレイアウト、コンテンツにはグリッドに拡張。"
+      },
+      "components": {
+        "button": "プライマリアクションには高コントラストの黒い角丸ピルボタン、セカンダリには透明またはライトグレー。",
+        "card": "大きなborder-radius（14px-20px）を持つ柔らかく角丸のカード。メディアや複雑なUIプレビューを含むことが多い。",
+        "chip": "小さな、角丸のピル-shapedタグまたはステータスインジケーター。",
+        "input": "最小限のボーダーを持つ、繊細でクリーンな入力フィールド。",
+        "hero": "たっぷりとした縦方向の余白と柔らかい背景グラデーションを持つ、全幅のセンタリングされた見出し。"
+      },
+      "motion": {
+        "patterns": [
+          "hoverおよびclick時の、滑らかなopacityとtransformトランジション。"
+        ]
+      },
+      "interaction": {
+        "hover": "繊細なopacityの低下または背景色の変更。",
+        "click": "少しscale down（transform）またはopacityの変更。",
+        "transition": "UI要素の全プロパティを120ms-160msでトランジション。",
+        "keyboard": "繊細なshadowまたはborderを使用した標準的なfocus rings。"
+      },
+      "voice": {
+        "tone": "自信に満ち、プロフェッショナルで、少し編集的な響き。",
+        "headlineStyle": "短くインパクトのある文章。イタリックで強調された単語を1つ使用することが多い。",
+        "ctaStyle": "直接的で利益志向。例：「無料で試す」。",
+        "avoid": [
+          "過度な句読点",
+          "本文のALL CAPS",
+          "過度に技術的な専門用語"
+        ]
+      },
+      "donts": [
+        "ビビッドで高クロマのアクセントカラーを使用しない — スクリーンショットは主にモノクロームパレットで、暖かみのある柔らかいアクセントが使用されている。",
+        "見出しに幾何学的または技術的なsans-serifを使用しない — スクリーンショットはエレガントなserifタイポグラフィを使用している。",
+        "ダークモードをデフォルトにしない — スクリーンショットは明るいオフホワイト背景（#FBFBFB）を使用している。",
+        "鋭く四角い角を使用しない — スクリーンショットはすべてのカードとボタンに大きなborder-radius（14px、20px）を使用している。",
+        "密集したグリッドでレイアウトを雑踏させない — スクリーンショットはたっぷりとした余白と、焦点を絞ったセンタリングされたヒーローを使用している。",
+        "遊び心のあるまたはアニメーション調のイラストを使用しない — スクリーンショットは高品質でシネマティックな写真に依存している。"
+      ],
+      "systemPrompt": "Tanaは、クラシックな編集デザインとモダンなアプリUIを融合させたプレミアム生産性ツールです。ビジュアルシステムでは、大規模なディスプレイ見出しにDidone-serif（Source Serif 4）を、すべての本文とUI要素にHumanist-sans（Inter）を使用しています。プライマリカラーパレットは、オフホワイト（#FBFBFB）の上のインク（#0C0805）という高コントラストのモノクロームで、特定のセクションでは柔らかいピーチ/暖色（#FFF2EF）のアクセントを加えています。重要な制約：ビビッドで高クロマのアクセントカラーは決して使用せず、常に柔らかく角丸の角（14px-20px radius）を使用し、プレミアムで編集的な雰囲気を維持するためにたっぷりとした縦方向の余白（24px-96px）を確保します。トーンは自信に満ち、プロフェッショナルで、短くインパクトのある見出しに、時折イタリックの強調を使用します。"
+    },
+    "ko": {
+      "identity": {
+        "keywords": [
+          "생산성",
+          "회의",
+          "노트",
+          "AI",
+          "협업",
+          "워크플로우"
+        ],
+        "analogy": "고전적 에디토리얼 타이포그래피와 현대적 앱 UI 패턴을 융합한 세련된 하이엔드 생산성 애플리케이션.",
+        "oneLiner": "에디토리얼 타이포그래피와 따뜻하고 인간적인 사진을 사용하여 회의를 능동적인 작업처럼 느끼게 하는 프리미엄 생산성 도구입니다."
+      },
+      "colors": {
+        "principle": "가독성과 프리미엄 느낌을 우선시하는 부드러운 피치 강조가 있는 따뜻하고 고대비 단색 팔레트입니다."
+      },
+      "typography": {
+        "rules": [
+          "대형 디스플레이 텍스트 및 제목에는 Didone Serif(Source Serif 4)를 사용합니다.",
+          "본문, UI 요소, 탐색에는 Humanist Sans(Inter)를 사용합니다.",
+          "디스플레이 텍스트에는 타이트한 네거티브 letterSpacing을 유지합니다."
+        ],
+        "scaleUses": [
+          "메인 히어로 제목",
+          "섹션 제목",
+          "단락 및 설명",
+          "탐색 링크"
+        ]
+      },
+      "spacing": {
+        "rhythm": "일관된 리듬을 위해 4px 기본 증분을 사용하며, 카드 및 섹션에 풍부한 padding(24px-48px)을 보장합니다."
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(20, 22, 36, 0.1) 0px 6px 18px -12px",
+          "rgba(20, 22, 36, 0.28) 0px 40px 96px -28px"
+        ],
+        "borders": "구분을 위해 rgba(12,8,5,0.1)를 사용한 미세한 1px 테두리입니다."
+      },
+      "layout": {
+        "skeleton": "히어로 섹션에는 중앙 정렬된 단일 열 레이아웃을, 콘텐츠에는 확장 그리드를 사용합니다."
+      },
+      "components": {
+        "button": "주요 작업을 위한 고대비 검정 둥근 필 버튼, 보조 작업을 위한 투명 또는 밝은 회색 버튼입니다.",
+        "card": "크고 둥근 모서리 반경(14px-20px)을 가진 부드러운 둥근 카드로, 주로 미디어나 복잡한 UI 미리보기를 포함합니다.",
+        "chip": "작고 둥근 필 모양의 태그 또는 상태 표시기입니다.",
+        "input": "최소한의 테두리를 사용한 미세하고 깔끔한 입력 필드입니다.",
+        "hero": "풍부한 수직 간격과 부드러운 배경 그라디언트가 있는 전체 너비 중앙 정렬 제목입니다."
+      },
+      "motion": {
+        "patterns": [
+          "hover 및 click 시 부드러운 불투명도 및 transform 트랜지션."
+        ]
+      },
+      "interaction": {
+        "hover": "미세한 불투명도 감소 또는 배경색 변경.",
+        "click": "약간 축소(transform) 또는 불투명도 변경.",
+        "transition": "UI 요소의 모든 속성이 120ms-160ms 동안 트랜지션됩니다.",
+        "keyboard": "미세한 그림자 또는 테두리를 사용한 표준 포커스 링."
+      },
+      "voice": {
+        "tone": "자신감 있고 전문적이며 약간의 에디토리얼 느낌.",
+        "headlineStyle": "강조된 단일 단어를 이탤릭체로 사용하는 짧고 임팩트 있는 문장.",
+        "ctaStyle": "예를 들어 '무료 체험 시작'과 같이 직접적이고 혜택 지향적.",
+        "avoid": [
+          "과도한 구두점",
+          "본문 텍스트의 ALL CAPS",
+          "지나치게 기술적인 전문 용어"
+        ]
+      },
+      "donts": [
+        "선명하고 고채도의 강조색을 사용하지 마세요 — 스크린샷은 따뜻하고 부드러운 강조가 있는 대부분 단색 팔레트를 보여줍니다.",
+        "제목에 기하학적이거나 기술적인 sans-serif를 사용하지 마세요 — 스크린샷은 우아한 세리프 타이포그래피를 보여줍니다.",
+        "다크 모드를 기본으로 사용하지 마세요 — 스크린샷은 밝은 오프화이트 배경(#FBFBFB)을 보여줍니다.",
+        "날카롭고 사각형 모서리를 사용하지 마세요 — 스크린샷은 모든 카드와 버튼에 큰 border-radius(14px, 20px)를 보여줍니다.",
+        "빈번한 그리드로 레이아웃을 복잡하게 하지 마세요 — 스크린샷은 풍부한 여백과 집중된 중앙 정렬 히어로를 보여줍니다.",
+        "장난스럽거나 만화적인 일러스트레이션을 사용하지 마세요 — 스크린샷은 고품질 시네마틱 사진에 의존합니다."
+      ],
+      "systemPrompt": "Tana는 고전적 에디토리얼 디자인과 현대적 앱 UI를 융합한 프리미엄 생산성 도구입니다. 비주얼 시스템은 대형 디스플레이 제목에 didone-serif(Source Serif 4)를, 모든 본문 및 UI 요소에 humanist-sans(Inter)를 사용합니다. 기본 색상 팔레트는 오프화이트(#FBFBFB) 위의 잉크(#0C0805) 고대비 단색이며 특정 섹션에 부드러운 피치/따뜻한 강조(#FFF2EF)가 있습니다. 핵심 제약 조건: 선명하고 고채도의 강조색을 절대 사용하지 마세요; 항상 부드럽고 둥근 모서리(14px-20px 반경)를 사용하세요; 프리미엄하고 에디토리얼 느낌을 유지하기 위해 풍부한 수직 여백(24px-96px)을 보장하세요. 톤은 자신감 있고 전문적이며 가끔 이탤릭체 강조가 있는 짧고 임팩트 있는 제목을 사용합니다."
+    }
+  },
+  "desc": {
+    "en": {
+      "palette": "A warm, high-contrast monochrome palette using deep charcoal text on soft off-white backgrounds, accented by subtle peach tones.",
+      "layout": "A clean, centered layout with generous vertical whitespace and a focus on large, impactful typography.",
+      "interaction": "Subtle, refined transitions (120ms-160ms) for hover and click states, emphasizing smoothness over flashy effects.",
+      "motion": "Minimal, purposeful motion focused on opacity and small scale changes to guide user focus without distraction.",
+      "notes": "Worth including as a prime example of blending editorial elegance (serif headlines) with modern SaaS utility (clean UI, rounded cards)."
+    },
+    "zh-CN": {
+      "palette": "采用深炭灰色文字与柔和米白色背景形成温暖、高对比度的单色调，并点缀以微妙的桃色调。",
+      "layout": "布局简洁居中，垂直留白充裕，注重大而有冲击力的字体设计。",
+      "interaction": "为悬停和点击状态提供微妙、精致的过渡效果（120ms-160ms），强调流畅而非炫目。",
+      "motion": "动作克制且目的明确，聚焦于透明度和微小的缩放变化，以引导用户注意力，避免干扰。",
+      "notes": "作为融合编辑优雅感（衬线标题）与现代 SaaS 功能性（简洁界面、圆角卡片）的典范，值得参考。"
+    },
+    "zh-TW": {
+      "palette": "溫暖、高對比的單色調色盤，使用深炭灰色文字搭配柔和的米白色背景，並點綴柔和的蜜桃色。",
+      "layout": "簡潔、置中的版面佈局，搭配寬裕的垂直留白，並著重於大而具衝擊力的排版。",
+      "interaction": "細膩、精緻的過渡效果（120ms-160ms），用於 hover 和點擊狀態，強調流暢度而非炫目效果。",
+      "motion": "極簡且有目的的動畫，專注於透明度與微小縮放變化，引導使用者注意力而不造成干擾。",
+      "notes": "值得收錄為典範，展示如何融合編輯優雅（襯線標題）與現代 SaaS 實用性（簡潔介面、圓角卡片）。"
+    },
+    "ja": {
+      "palette": "暖かみのある高コントラストモノクロームパレット。柔らかいオフホワイトの背景に深いチャコールのテキストを使用し、繊細なピーチのトーンでアクセントを加えています。",
+      "layout": "清潔なセンタリングレイアウト。縦方向にたっぷりと余白をとり、大規模でインパクトのあるタイポグラフィに焦点を当てています。",
+      "interaction": "hoverおよびclick状態に対する、洗練された繊細なトランジション（120ms-160ms）。派手な効果よりも滑らかさを重視します。",
+      "motion": "opacityと小さなscale変更に焦点を当てた最小限で意図的なモーション。ユーザーの注意を引きつけつつ、邪魔にならないようガイドします。",
+      "notes": "編集的なエレガンス（セリフ見出し）とモダンなSaaSの実用性（クリーンなUI、角丸カード）を融合させた、優れた例として Worth including."
+    },
+    "ko": {
+      "palette": "부드러운 오프화이트 배경에 깊은 차콜 텍스트를 사용한 따뜻하고 고대비 단색 팔레트로, 미묘한 피치 톤으로 강조했습니다.",
+      "layout": "풍부한 수직 여백을 사용한 깔끔하고 중앙 정렬된 레이아웃으로, 크고 임팩트 있는 타이포그래피에 중점을 둡니다.",
+      "interaction": "hover 및 클릭 상태를 위한 미세하고 세련된 트랜지션(120ms-160ms)으로, 화려한 효과보다 부드러움을 강조합니다.",
+      "motion": "사용자 주의를 산만하게 하지 않으면서 시선을 유도하기 위해 불투명도와 미세한 크기 변화에 초점을 맞춘 최소한의 의도적 모션입니다.",
+      "notes": "에디토리얼 우아함(세리프 제목)과 현대적 SaaS 활용성(깔끔한 UI, 둥근 카드)을 융합한 훌륭한 예시로 포함할 가치가 있습니다."
+    }
+  },
+  "narrative": {
+    "en": {
+      "ch1_intro": "Tana's visual identity is built on a precise tension: the classicism of an editorial masthead applied to the interactive canvas of a modern software tool. It functions like a well-appointed study, where the weight of a serif headline provides gravitas, and the clarity of a sans-serif interface ensures focused, productive work.",
+      "ch2_intro": "The color system is a disciplined exercise in restraint, built on a high-contrast monochrome foundation. Deep charcoal ink sits against a warm, off-white field, with soft peach accents appearing only to mark specific zones or interactive states.",
+      "ch2_outro": "This strict palette ensures content and functionality remain the primary focus, with color serving as a subtle signal rather than a dominant decoration.",
+      "ch3_intro": "The typographic voice is defined by a clear hierarchy between display and body text, assigning distinct roles to each category. A **Didone Serif** (Source Serif 4) provides the authoritative, elegant headlines, while a **Humanist Sans** (Inter) delivers the neutral, highly legible interface and body copy.",
+      "ch4_intro": "A strict 4px base rhythm governs all spatial decisions, creating a consistent and harmonious grid throughout the interface.",
+      "ch5_intro": "Depth is communicated through soft, elevated shadows that lift surfaces from the background without harsh edges. Borders, when used, are whisper-thin and semi-transparent, providing delineation with minimal visual noise.",
+      "ch6_intro": "The foundational layout is a centered, single-column column for primary focus areas like the hero. This skeleton expands into a grid for denser content, but always returns to a clear, vertical flow anchored by generous whitespace.",
+      "ch7_intro": "Motion is treated as functional feedback, not flourish. Transitions are brief and smooth, relying on opacity and subtle scale changes to confirm interactions without disrupting the user's cognitive flow.",
+      "ch8_intro": "The editorial voice is confident and direct, using short, impactful statements. It favors benefit-oriented language and occasional italic emphasis over superlatives or decorative punctuation.",
+      "ch8_outro": "The system deliberately avoids vibrant chromatic accents, sharp geometric corners, and dark-mode defaults to preserve its warm, human, and premium character."
+    },
+    "zh-CN": {
+      "ch1_intro": "Tana 的视觉设计建立于一种精准的张力之上：将经典社论的标题气质，应用于现代软件工具的交互画布。它如同一个布置精良的书房，衬线标题的厚重感赋予其庄重，而无衬线界面的清晰性则确保专注、高效的工作。",
+      "ch2_intro": "色彩系统是一场克制而严谨的实践，建立在高对比度的单色基调之上。深炭灰墨色衬以温暖的灰白底色，柔和的桃色仅用于标记特定区域或交互状态。",
+      "ch2_outro": "这种严格的调色板确保内容与功能始终是核心焦点，色彩仅作为细微的信号，而非主导的装饰。",
+      "ch3_intro": "字体的表达力由展示文本与正文之间清晰的层级关系定义，为每类字体赋予了独特角色。一款**Didone 衬线字体**（Source Serif 4）用于权威、优雅的标题，而一款**人文主义无衬线字体**（Inter）则提供中性、高可读性的界面与正文内容。",
+      "ch4_intro": "一个严格的 4px 基础节奏主导着所有空间决策，在整个界面中创建了一致且和谐的网格系统。",
+      "ch5_intro": "纵深感通过柔和、抬升的阴影来传达，使界面元素从背景中浮起，边缘不显生硬。边框的使用极为克制，近乎透明且纤细，在最小化视觉噪点的前提下提供区分。",
+      "ch6_intro": "基础布局采用居中、单栏结构，用于英雄区等主要聚焦区域。这一骨架会扩展为网格以容纳更密集的内容，但始终回归到由充足留白锚定的清晰纵向流。",
+      "ch7_intro": "动效被视为功能性反馈，而非装饰。过渡效果简短而流畅，依赖透明度与微妙的缩放变化来确认交互，而不干扰用户的认知流。",
+      "ch8_intro": "文案风格自信而直接，使用简短有力的陈述。它倾向于强调益处的语言，并偶尔使用斜体强调，而非堆砌最高级或装饰性标点。",
+      "ch8_outro": "该设计体系刻意避免鲜艳的彩色点缀、尖锐的几何转角与深色模式默认设置，以保留其温暖、人性化与高端的特质。"
+    },
+    "zh-TW": {
+      "ch1_intro": "Tana 的視覺識別建立在一種精確的張力之上：將編輯式報頭的經典感，應用於現代軟體工具的互動畫布。它運作得如同一個配置精良的書房，其中，襯線體標題的份量賦予了莊重感，而無介面式的清晰度則確保了專注、高效的工作。",
+      "ch2_intro": "色彩系統是一場自律的克制練習，建立在一個高對比的單色基礎上。深炭色墨水映襯在溫暖的米白色背景上，而柔和的桃色點綴僅在標記特定區域或互動狀態時出現。",
+      "ch2_outro": "這種嚴格的調色盤確保內容與功能性始終是主要焦點，色彩僅作為微妙的訊號，而非主導的裝飾。",
+      "ch3_intro": "排版的聲調由標題與內文之間的清晰層級來定義，為每個類別指派了不同的角色。一個 **Didone Serif**（Source Serif 4）提供了權威、優雅的標題，而一個 **Humanist Sans**（Inter）則傳達了中性、高度可讀的介面與內文。",
+      "ch4_intro": "一個嚴格的 4px 基礎節奏支配了所有空間決策，在整個介面中創造出一致且和諧的網格系統。",
+      "ch5_intro": "深度透過柔軟、提升的陰影來傳達，將表面從背景中抬起，邊緣不顯生硬。當使用邊框時，它們極細且半透明，以最小的視覺噪音提供清晰的界線。",
+      "ch6_intro": "基礎版面是一個居中的單欄結構，用於像首頁橫幅這樣的主要焦點區域。這個骨架會擴展為更密集內容的網格，但始終回歸到由充足留白所錨定的、清晰的垂直流動。",
+      "ch7_intro": "動態被視為功能性反饋，而非裝飾。過渡短暫而流暢，依賴不透明度與細微的縮放變化來確認互動，而不打斷使用者的認知流。",
+      "ch8_intro": "編輯的語氣自信而直接，使用簡短、有力的陳述。它偏好以效益為導向的語言和偶爾的斜體強調，而非最高級形容詞或裝飾性標點。",
+      "ch8_outro": "此系統刻意避免使用鮮豔的彩色點綴、尖銳的幾何邊角以及深色模式的預設設定，以保持其溫暖、人性化且高端的特質。"
+    },
+    "ja": {
+      "ch1_intro": "Tanaのビジュアルアイデンティティは、正確な緊張感の上に構築されています。雑誌のロゴ見出しのような古典的な要素が、モダンなソフトウェアツールのインタラクティブなキャンバスに適用されています。それは、整然とした書斎のように機能します。セリフ体の見出しの重みが権威を添え、sans-serifのインターフェースの明瞭さが集中した生産的な作業を保証します。",
+      "ch2_intro": "カラーシステムは、抑制の規律ある実践であり、ハイコントラストのモノクローム基盤の上に構築されています。深いチャコールインクが、暖かいオフホワイトの背景に対し、柔らかな桃色のアクセントは特定のゾーンやインタラクティブな状態を示す場合にのみ現れます。",
+      "ch2_outro": "この厳格なパレットは、コンテンツと機能性が主な焦点であり続けることを保証し、色彩は支配的な装飾ではなく、繊細なシグナルとして機能します。",
+      "ch3_intro": "タイポグラフィの声は、ディスプレイテキストと本文テキストの明確な階層によって定義され、それぞれのカテゴリに異なる役割を割り当てています。**Didone Serif（Source Serif 4）**が権威ある、エレガントな見出しを提供し、**Humanist Sans（Inter）**が中立的で非常に読みやすいインターフェースと本文コピーを提供します。",
+      "ch4_intro": "厳格な4pxの基本リズムがすべての空間的決定を支配し、インターフェース全体に一貫性と調和のとれたグリッドを生み出します。",
+      "ch5_intro": "奥行きは、表面を背景から鋭いエッジなしに浮かび上がらせる、柔らかく持ち上げられたシャドウを通じて伝達されます。ボーダーが使用される場合は、極めて薄く半透明で、視覚的ノイズを最小限に抑えながら区切りを提供します。",
+      "ch6_intro": "基礎レイアウトは、ヒーローセクションなどのプライマリフォーカスエリア向けに、中央揃えのシングルカラムです。このスケルトンは、より密集したコンテンツ用にグリッドに展開しますが、常に、適切なホワイトスペースに锚を置いた明確な垂直フローに戻ります。",
+      "ch7_intro": "モーションは装飾ではなく、機能的なフィードバックとして扱われます。遷移は短く滑らかで、不透明度と微妙なスケール変化に依存し、ユーザーの認知フローを乱すことなくインタラクションを確認します。",
+      "ch8_intro": "エディトリアルな声は自信に満ち、直接的で、短く、印象的な声明を使用します。利益を重視する言葉遣いを好む傾向があり、絶え間ない強調や装飾的な句読点よりも、斜体による強調を時折使用します。",
+      "8_outro": "このシステムは、温かみ、人間性、そしてプレミアムな特質を保つために、意図的に鮮やかなカラーアクセント、鋭い幾何学的コーナー、およびダークモードのデフォルトを回避しています。"
+    },
+    "ko": {
+      "ch1_intro": "Tana의 시각적 정체성은 정교한 긴장감 위에 구축되었습니다. 잡지 편집 간판의 고전미를 현대 소프트웨어 도구의 인터랙티브 캔버스에 적용한 것입니다. 마치 잘 꾸며진 서재처럼 기능하며, 세리프 제목의 무게감이 무게중심을 잡아주고, 산세리프 인터페이스의 명료함이 집중적이고 생산적인 작업을 보장합니다.",
+      "ch2_intro": "색상 시스템은 절제의 엄격한 훈련입니다. 고대비 흑백을 기반으로 구축되었으며, 깊은 숯색 잉크가 따뜻한 오프화이드 배경 위에 놓이고, 부드러운 피치 포인트는 특정 영역이나 인터랙티브 상태를 표시할 때만 나타납니다.",
+      "ch2_outro": "이 엄격한 팔레트는 콘텐츠와 기능이 주요 초점으로 남도록 보장하며, 색상은 지배적인 장식이 아닌 미묘한 신호로 역할을 수행합니다.",
+      "ch3_intro": "타이포그래피 보이스는 디스플레이 텍스트와 본문 텍스트 간의 명확한 계층으로 정의되며, 각 카테고리에 뚜렷한 역할을 부여합니다. **디도네 세리프**(Source Serif 4)가 권위 있고 우아한 헤드라인을 담당하며, **휴머니스트 산스**(Inter)는 중립적이고 가독성 높은 인터페이스 및 본문 텍스트를 전달합니다.",
+      "ch4_intro": "엄격한 4px 기본 리듬이 모든 공간적 결정을 지배하여 인터페이스 전체에 일관되고 조화로운 그리드를 만듭니다.",
+      "ch5_intro": "깊이는 부드럽고 떠 있는 그림자로 전달되며, 날카로운 가장자리 없이 배경에서 표면을 들어 올립니다. 테두리가 사용될 경우, 매우 얇고 반투명하여 최소한의 시각적 노이즈로 구분을 제공합니다.",
+      "ch6_intro": "기본 레이아웃은 히어로와 같은 주요 초점 영역을 위한 중앙 정렬 단일 열입니다. 이 골격은 더 밀도 높은 콘텐츠를 위해 그리드로 확장되지만, 항상 넉넉한 여백으로 고정된 명확한 수직 흐름으로 돌아갑니다.",
+      "ch7_intro": "모션은 기능적 피드백으로 취급되며, 장식이 아닙니다. 전환은 짧고 부드러우며, 불투명도와 미세한 크기 변화를 활용하여 사용자의 인지 흐름을 방해하지 않으면서 인터랙션을 확인합니다.",
+      "ch8_intro": "편집 보이스는 자신감 있고 직설적이며, 짧고 영향력 있는 문장을 사용합니다. 이점 중심의 언어와 간헐적인 이탤릭 강조를 선호하며, 과장된 표현이나 장식적 구두점은 지양합니다.",
+      "ch8_outro": "이 시스템은 따뜻하고 인간적이며 프리미엄인 특성을 보존하기 위해 의도적으로 밝은 색조의 포인트, 날카로운 기하학적 모서리, 다크 모드 기본값을 피합니다."
+    }
+  }
 }

@@ -8,6 +8,627 @@
     "editorial",
     "magazine"
   ],
-  "status": "pending",
-  "added_at": "2026-06-02"
+  "status": "completed",
+  "added_at": "2026-06-02",
+  "spec": {
+    "colors": {
+      "bg": "#FFFFFF",
+      "bgSoft": "#F8F8F8",
+      "bgQuiet": null,
+      "ink": "#000000",
+      "inkSoft": "#141414",
+      "muted": "#6E6E6E",
+      "mutedSoft": "#B3B3B3",
+      "accent": "#FFC500",
+      "line": "rgba(0,0,0,0.1)"
+    },
+    "typography": {
+      "display": "transitional-serif",
+      "body": "grotesque-sans",
+      "mono": null,
+      "scale": [
+        {
+          "token": "display",
+          "size": 96,
+          "lh": 1.0,
+          "weight": 400,
+          "ls": "-0.5px"
+        },
+        {
+          "token": "h1",
+          "size": 48,
+          "lh": 1.1,
+          "weight": 700,
+          "ls": "-0.25px"
+        },
+        {
+          "token": "h2",
+          "size": 24,
+          "lh": 1.2,
+          "weight": 700,
+          "ls": "0px"
+        },
+        {
+          "token": "body",
+          "size": 16,
+          "lh": 1.5,
+          "weight": 400,
+          "ls": "0px"
+        },
+        {
+          "token": "caption",
+          "size": 13,
+          "lh": 1.4,
+          "weight": 400,
+          "ls": "0.1px"
+        }
+      ]
+    },
+    "spacing": {
+      "base": 4,
+      "scale": [
+        4,
+        8,
+        16,
+        24,
+        32,
+        48,
+        64,
+        80,
+        96
+      ]
+    },
+    "surfaces": {
+      "radius": {
+        "sm": 4,
+        "md": 8,
+        "lg": 12,
+        "pill": 999
+      }
+    },
+    "layout": {
+      "container": 1280,
+      "paragraph": 680,
+      "columns": 12,
+      "gutter": 24,
+      "breakpoints": [
+        768,
+        1024
+      ]
+    },
+    "motion": {
+      "durations": {
+        "micro": 220,
+        "small": 250,
+        "medium": 400
+      },
+      "easing": "ease-in"
+    }
+  },
+  "spec_i18n": {
+    "en": {
+      "identity": {
+        "keywords": [
+          "Editorial",
+          "Global Affairs",
+          "Lifestyle",
+          "Curated",
+          "Premium"
+        ],
+        "analogy": "A high-end international magazine distilled into a digital format.",
+        "oneLiner": "A refined editorial platform for global affairs, culture, and lifestyle."
+      },
+      "colors": {
+        "principle": "High-contrast black and white with a single vibrant yellow accent and muted grays for structure."
+      },
+      "typography": {
+        "rules": [
+          "Use uppercase for all-caps navigation and secondary section links.",
+          "Strictly maintain high contrast between black text and white backgrounds.",
+          "Keep the masthead centered and prominent with a large serif font."
+        ],
+        "scaleUses": [
+          "Main masthead and major section headers",
+          "Primary article titles",
+          "Section headings like TRAVEL, RETAIL",
+          "Main article body text",
+          "Captions and small metadata"
+        ]
+      },
+      "spacing": {
+        "rhythm": "Consistent 4px grid with generous whitespace for editorial clarity."
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 0px 0px 1px #D9D9D9",
+          "0px 30px 70px 0px rgba(0,0,0,0.3)"
+        ],
+        "borders": "Thin 1px black or gray borders used for structural separation and buttons."
+      },
+      "layout": {
+        "skeleton": "A structured 12-column grid with a fixed, centered top navigation bar."
+      },
+      "components": {
+        "button": "A bright yellow primary button with black uppercase text and a pill-like or rectangular shape with small border radius.",
+        "card": "Simple content blocks defined by white space and subtle border lines, featuring large imagery and bold headers.",
+        "chip": "Simple text labels separated by vertical pipes in the main navigation.",
+        "input": "Not visible in the main content area, but implied forms would likely use minimal borders and 4px radius.",
+        "hero": "A full-width area featuring either a large centered masthead or a horizontal row of bordered editorial illustrations."
+      },
+      "motion": {
+        "patterns": [
+          "Subtle background-color and transform transitions on interactive elements.",
+          "Linear slide or fade transitions for UI state changes."
+        ]
+      },
+      "interaction": {
+        "hover": "Subtle background-color changes or transform shifts on buttons and links.",
+        "click": "Immediate visual response with cursor pointer states.",
+        "transition": "All interactive elements use smooth 0.25s transitions.",
+        "keyboard": "Standard tab-based navigation supported."
+      },
+      "voice": {
+        "tone": "Authoritative, sophisticated, and globally minded.",
+        "headlineStyle": "Direct, informative, and often in all-caps for category navigation.",
+        "ctaStyle": "Bold, clear, and functional, using high-contrast yellow for primary actions like 'SUBSCRIBE'.",
+        "avoid": [
+          "Avoid overly casual language or excessive exclamation points.",
+          "Avoid cluttering the interface with too many competing visual elements.",
+          "Avoid using low-contrast colors that compromise readability."
+        ]
+      },
+      "donts": [
+        "Don't use primary colors like red, blue, or green — screenshot shows yellow as the sole high-chroma accent.",
+        "Don't use rounded, pill-shaped buttons everywhere — screenshot shows rectangular or slightly rounded buttons (4px radius).",
+        "Don't use decorative script or handwriting fonts — screenshot shows structured transitional-serifs and clean sans-serifs.",
+        "Don't leave the background dark or colored — screenshot shows a clean white background (#FFFFFF) for the main content area.",
+        "Don't hide the primary navigation — screenshot shows persistent top-level links for MAGAZINE, RADIO, SHOP.",
+        "Don't use complex gradients for backgrounds — screenshot shows solid white or simple transparent-to-white gradients."
+      ],
+      "systemPrompt": "Monocle is a refined editorial platform focusing on global affairs, culture, and lifestyle. It uses a high-contrast palette of pure black (#000000) on white (#FFFFFF) with a single vibrant yellow (#FFC500) as the primary accent. The typography relies heavily on transitional-serif fonts for headers and mastheads, paired with clean grotesque-sans for body text. Critical design rules include: never use low-contrast grays for primary text, always maintain generous whitespace to preserve the premium editorial feel, and strictly adhere to the two-color-plus-yellow palette. Avoid using overly decorative fonts, cluttered layouts, or any secondary accent colors that would distract from the curated content."
+    },
+    "zh-CN": {
+      "identity": {
+        "keywords": [
+          "编辑",
+          "全球事务",
+          "生活方式",
+          "精选",
+          "高端"
+        ],
+        "analogy": "一本高端国际杂志的数字化提炼。",
+        "oneLiner": "一个专注于全球事务、文化与生活方式的精致编辑平台。"
+      },
+      "colors": {
+        "principle": "高对比度的黑白搭配，辅以单一鲜亮的黄色点缀色，并使用柔和的灰色构建结构。"
+      },
+      "typography": {
+        "rules": [
+          "所有全大写的导航和次要章节链接均使用大写字母。",
+          "严格保持黑色文字与白色背景之间的高对比度。",
+          "报头需居中突出，使用大号衬线字体。"
+        ],
+        "scaleUses": [
+          "主报头与主要章节标题",
+          "主要文章标题",
+          "章节标题，如 TRAVEL、RETAIL",
+          "文章正文",
+          "图注与小字元数据"
+        ]
+      },
+      "spacing": {
+        "rhythm": "遵循统一的4px网格，并配以充足的留白，以确保编辑内容的清晰度。"
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 0px 0px 1px #D9D9D9",
+          "0px 30px 70px 0px rgba(0,0,0,0.3)"
+        ],
+        "borders": "使用1px的细黑色或灰色边框进行结构分隔，也用于按钮。"
+      },
+      "layout": {
+        "skeleton": "采用结构化的12栏网格系统，顶部设有固定的居中导航栏。"
+      },
+      "components": {
+        "button": "亮黄色的按钮，搭配黑色大写文字，形状为药丸形或矩形，圆角较小。",
+        "card": "简单的内容区块，由留白和细微的边框线定义，特点是大型图片和加粗的标题。",
+        "chip": "主导航中由竖线分隔的简单文字标签。",
+        "input": "在主要内容区域不常见，但隐含的表单可能会使用极简的边框和4px圆角。",
+        "hero": "全宽区域，包含一个居中的大型报头，或一排带边框的编辑插图。"
+      },
+      "motion": {
+        "patterns": [
+          "交互元素采用微妙的背景色和变换过渡效果。",
+          "UI状态变化采用线性滑动或淡入淡出过渡。"
+        ]
+      },
+      "interaction": {
+        "hover": "按钮和链接在悬停时采用微妙的背景色变化或变换位移。",
+        "click": "伴随光标指针状态变化，提供即时的视觉反馈。",
+        "transition": "所有交互元素均使用平滑的0.25秒过渡效果。",
+        "keyboard": "支持基于Tab键的标准导航。"
+      },
+      "voice": {
+        "tone": "权威、精致且具有全球视野。",
+        "headlineStyle": "直接、信息明确，用于类别导航时常采用全大写。",
+        "ctaStyle": "加粗、清晰且功能性强，主要操作（如“订阅”）使用高对比度的黄色。",
+        "avoid": [
+          "避免使用过于随意的语言或过多的感叹号。",
+          "避免在界面上堆砌过多竞争性的视觉元素。",
+          "避免使用低对比度的颜色，以免损害可读性。"
+        ]
+      },
+      "donts": [
+        "不要使用红、蓝、绿等原色——截图显示黄色是唯一的高饱和度强调色。",
+        "不要到处使用圆角的药丸形按钮——截图显示为矩形或轻微圆角（4px半径）的按钮。",
+        "不要使用装饰性手写或手写字体——截图显示为结构化的过渡衬线体和简洁的无衬线体。",
+        "不要将背景设为深色或彩色——截图显示主要内容区域采用纯净的白色背景 (#FFFFFF)。",
+        "不要隐藏主导航——截图显示了固定的顶层链接，如 MAGAZINE、RADIO、SHOP。",
+        "不要使用复杂的渐变背景——截图显示为纯白色或简单的透明到白色渐变。"
+      ],
+      "systemPrompt": "Monocle是一个专注于全球事务、文化和生活方式的精致编辑平台。它采用纯黑 (#000000) 搭配白色 (#FFFFFF) 的高对比度配色方案，辅以单一鲜亮的黄色 (#FFC500) 作为主要强调色。字体方面，标题和报头主要依赖过渡衬线字体，正文则搭配简洁的无衬线字体。关键设计准则包括：绝不为正文使用低对比度的灰色；始终保持充足的留白以维持高端的编辑质感；严格遵守黑白加黄色的三色配色方案。避免使用过度装饰的字体、杂乱的布局，或任何会分散对精选内容注意力的次要强调色。"
+    },
+    "zh-TW": {
+      "identity": {
+        "keywords": [
+          "編輯精選",
+          "全球時事",
+          "生活風格",
+          "精心策劃",
+          "頂級質感"
+        ],
+        "analogy": "將高端國際雜誌精華提煉為數位格式。",
+        "oneLiner": "專注全球時事、文化與生活風格的精緻編輯平台。"
+      },
+      "colors": {
+        "principle": "高對比黑白基底，搭配單一鮮豔黃色強調色，以及柔和灰階構成結構層次。"
+      },
+      "typography": {
+        "rules": [
+          "導航與次級區塊連結採用全大寫字母。",
+          "嚴格維持黑色文字與白色背景的高對比度。",
+          "刊頭置中並以大型襯線字體突出呈現。"
+        ],
+        "scaleUses": [
+          "主要刊頭與大型區塊標題",
+          "文章主標題",
+          "如「旅遊」「零售」等區塊標題",
+          "文章內文",
+          "圖片說明與小型中繼資料"
+        ]
+      },
+      "spacing": {
+        "rhythm": "一致的4px網格基準，搭配充足留白強化編輯清晰度。"
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 0px 0px 1px #D9D9D9",
+          "0px 30px 70px 0px rgba(0,0,0,0.3)"
+        ],
+        "borders": "採用1px細黑色或灰色邊框，用於結構區隔與按鈕設計。"
+      },
+      "layout": {
+        "skeleton": "結構化的12欄網格，頂部設有固定置中導航列。"
+      },
+      "components": {
+        "button": "鮮黃色主按鈕搭配黑色大寫文字，採用藥丸形或矩形設計，邊框圓角較小。",
+        "card": "透過留白與細微邊框線定義的簡潔內容區塊，搭配大型圖像與粗體標題。",
+        "chip": "導航中以垂直分隔符號區隔的文字標籤。",
+        "input": "主內容區未顯示，但隱含表單可能採用極簡邊框與4px圓角。",
+        "hero": "全寬區域，展示大型置中刊頭或一排帶邊框的編輯插圖。"
+      },
+      "motion": {
+        "patterns": [
+          "互動元素採用細膩的背景色與變形過渡效果。",
+          "UI狀態變換採用線性滑動或淡入淡出過渡。"
+        ]
+      },
+      "interaction": {
+        "hover": "按鈕與連結懸停時產生細微的背景色變換或位移效果。",
+        "click": "點擊時立即產生視覺回應與游標狀態變化。",
+        "transition": "所有互動元素均採用0.25秒平滑過渡。",
+        "keyboard": "支援標準Tab鍵導航。"
+      },
+      "voice": {
+        "tone": "權威、精緻且具全球視野。",
+        "headlineStyle": "直接、資訊豐富，分類導航常採用全大寫形式。",
+        "ctaStyle": "粗體、清晰且功能明確，主要操作（如「訂閱」）採用高對比黃色。",
+        "avoid": [
+          "避免過度口語化或使用過多驚嘆號。",
+          "避免介面充斥過多視覺元素造成雜亂。",
+          "避免使用影響可讀性的低對比色彩。"
+        ]
+      },
+      "donts": [
+        "勿使用紅、藍、綠等主色調——截圖顯示僅以黃色作為單一高飽和強調色。",
+        "勿隨處使用圓形藥丸按鈕——截圖顯示採用矩形或微圓角按鈕（4px圓角）。",
+        "勿使用裝飾性手寫字體——截圖顯示採用結構化過渡襯線體與簡潔無襯線體。",
+        "勿將背景設為深色或彩色——截圖顯示主內容區採用純白背景（#FFFFFF）。",
+        "勿隱藏主要導航——截圖顯示頂層導航（雜誌、電台、商店）始終可見。",
+        "勿使用複雜漸層背景——截圖顯示採用純白或簡單的透明到白色漸層。"
+      ],
+      "systemPrompt": "Monocle是專注全球時事、文化與生活風格的精緻編輯平台。它採用純黑（#000000）與純白（#FFFFFF）的高對比配色，僅以鮮豔黃色（#FFC500）作為主要強調色。字體系統大量使用過渡襯線體作為標題與刊頭，搭配簡潔的怪誕無襯線體作為內文。關鍵設計規範包括：絕不使用低對比灰色作為主要文字，始終保持充足留白以維持頂級編輯質感，嚴格遵循黑白加黃色的三色配色方案。避免使用過度裝飾的字體、雜亂版面，或任何會分散精選內容關注的次要強調色。"
+    },
+    "ja": {
+      "identity": {
+        "keywords": [
+          "Editorial",
+          "Global Affairs",
+          "Lifestyle",
+          "Curated",
+          "Premium"
+        ],
+        "analogy": "高級国際誌をデジタルフォーマットに凝縮したもの。",
+        "oneLiner": "世界の情勢、文化、ライフスタイルを扱う、洗練された編集プラットフォーム。"
+      },
+      "colors": {
+        "principle": "黑白のハイコントラストを基調とし、単一の鮮やかな黄色アクセントと構造用の穏やかなグレーを用いる。"
+      },
+      "typography": {
+        "rules": [
+          "ナビゲーションやセカンダリセクションリンクには、全て大文字を使用する。",
+          "黒いテキストと白い背景の間には、高いコントラストを厳守する。",
+          "メインの見出し（masthead）は中央揃えとし、大きなセリフフォントで目立つように配置する。"
+        ],
+        "scaleUses": [
+          "メインの見出し（masthead）および主要セクション見出し",
+          "記事の主要タイトル",
+          "TRAVEL、RETAILなどのセクション見出し",
+          "記事本文",
+          "キャプションおよび小型メタデータ"
+        ]
+      },
+      "spacing": {
+        "rhythm": "一貫した4pxグリッド。編集の明瞭性を高めるため、十分なホワイトスペースを確保。"
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 0px 0px 1px #D9D9D9",
+          "0px 30px 70px 0px rgba(0,0,0,0.3)"
+        ],
+        "borders": "構造的な区切りやボタンに、薄い1pxの黒またはグレーのボーダーを使用。"
+      },
+      "layout": {
+        "skeleton": "固定された中央揃えのトップナビゲーションバーを備えた、構造化された12カラムグリッド。"
+      },
+      "components": {
+        "button": "黒の大文字テキストを持つ明るい黄のプライマリボタン。丸型または角丸4px程度の矩形シェイプ。",
+        "card": "ホワイトスペースと微細なボーダーラインで定義されたシンプルなコンテンツブロック。大きな画像と太字の見出しが特徴。",
+        "chip": "メインナビゲーションで縦線（パイプ）で区切られた、シンプルなテキストラベル。",
+        "input": "メインコンテンツエリアには表示されませんが、想定されるフォームは最小限のボーダーと4pxのradiusを使用するでしょう。",
+        "hero": "フルワイドエリア。大きな中央揃えの見出し（masthead）または、ボーダー付きの編集用イラストの水平列を配置。"
+      },
+      "motion": {
+        "patterns": [
+          "インタラクティブ要素における、微細なbackground-colorとtransformのトランジション。",
+          "UI状態変更時のリニアスライドまたはフェードトランジション。"
+        ]
+      },
+      "interaction": {
+        "hover": "ボタンやリンクの、微細なbackground-color変更やtransformシフト。",
+        "click": "カーソルがポインタ状態となり、即座に視覚応答。",
+        "transition": "全インタラクティブ要素に、スムーズな0.25sトランジションを適用。",
+        "keyboard": "標準的なtabベースのナビゲーションをサポート。"
+      },
+      "voice": {
+        "tone": "権威あり、洗練され、グローバルな視点を持つ。",
+        "headlineStyle": "直接的で情報を提供し、カテゴリナビゲーションにはしばしば全て大文字で表記。",
+        "ctaStyle": "大胆で明確かつ機能的。「SUBSCRIBE」などのプライマリアクションにはハイコントラストな黄色を使用。",
+        "avoid": [
+          "過度にカジュアルな言葉遣いや、過剰な感嘆符は避ける。",
+          "競合する視覚要素を多数詰め込み、インターフェースを雑然とさせるのを避ける。",
+          "可読性を損なうような、低コントラストのカラーパレットの使用を避ける。"
+        ]
+      },
+      "donts": [
+        "赤、青、緑などのプライマリカラーは使用しない。スクリーンショットでは黄色が唯一の高彩度アクセントとして示されている。",
+        "全てのボタンに丸型・ピル型を使用しない。スクリーンショットでは矩形またはわずかに角丸（4px radius）のボタンが示されている。",
+        "装飾的なスクリプトフォントやハンドワーティングフォントは使用しない。スクリーンショットでは、構造化されたトランジショナルセリフとクリーンなサンセリフが示されている。",
+        "背景を暗色や彩色されたままにしない。スクリーンショットでは、メインコンテンツエリアがクリーンな白背景（#FFFFFF）であることが示されている。",
+        "プライマリナビゲーションを隠さない。スクリーンショットでは、MAGAZINE、RADIO、SHOPといった常時表示のトップレベルリンクが示されている。",
+        "背景に複雑なグラデーションを使用しない。スクリーンショットでは、塗りつぶしの白またはシンプルな透明から白へのグラデーションが示されている。"
+      ],
+      "systemPrompt": "Monocleは、世界の情勢、文化、ライフスタイルに焦点を当てた洗練された編集プラットフォームです。純白（#FFFFFF）を背景に、純黒（#000000）をテキストとするハイコントラストパレットを採用し、単一の鮮やかな黄（#FFC500）をプライマリアクセントとして使用しています。タイポグラフィは、見出しやメインの見出し（masthead）にトランジショナルセリフを多用し、本文にはクリーンなサンセリフを組み合わせています。重要なデザインルールには以下の点が含まれます：プライマリテキストに低コントラストのグレーを決して使用せず、プレミアムな編集感覚を保つために十分なホワイトスペースを常に確保し、二色プラス黄のカラーパレットに厳密に従うこと。過度に装飾的なフォント、雑然としたレイアウト、またはキュレーションされたコンテンツから注意をそらすようなセカンダリアクセントカラーの使用は避けてください。"
+    },
+    "ko": {
+      "identity": {
+        "keywords": [
+          "에디토리얼",
+          "글로벌 이슈",
+          "라이프스타일",
+          "큐레이션",
+          "프리미엄"
+        ],
+        "analogy": "하이엔드 국제 매거진을 디지털 형식으로 정제한 것.",
+        "oneLiner": "글로벌 이슈, 문화, 라이프스타일을 다루는 세련된 에디토리얼 플랫폼."
+      },
+      "colors": {
+        "principle": "단 하나의 선명한 노란색 강조색과 구조를 위한 무채색의 회색 톤을 더한 고대비 흑백 구성."
+      },
+      "typography": {
+        "rules": [
+          "전체 대문자 내비게이션과 보조 섹션 링크에는 대문자를 사용합니다.",
+          "검은색 텍스트와 흰색 배경 간의 높은 대비를 반드시 유지합니다.",
+          "대형 세리프 서체를 사용하여 마스트헤드를 중앙에 두드러지게 배치합니다."
+        ],
+        "scaleUses": [
+          "주요 마스트헤드 및 대형 섹션 헤더",
+          "주요 기사 제목",
+          "TRAVEL, RETAIL과 같은 섹션 제목",
+          "기사 본문",
+          "캡션 및 작은 메타데이터"
+        ]
+      },
+      "spacing": {
+        "rhythm": "에디토리얼의 선명함을 위해 넉넉한 여백을 둔 일관된 4px 그리드."
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 0px 0px 1px #D9D9D9",
+          "0px 30px 70px 0px rgba(0,0,0,0.3)"
+        ],
+        "borders": "구조적 구분과 버튼을 위해 사용되는 1px의 얇은 검정색 또는 회색 테두리."
+      },
+      "layout": {
+        "skeleton": "고정되고 중앙에 정렬된 상단 내비게이션 바를 중심으로 한 12컬럼 그리드 구조."
+      },
+      "components": {
+        "button": "검은색 대문자 텍스트가 들어간 밝은 노란색 주요 버튼으로, 작은 border-radius를 가진 타원형 또는 직사각형 형태.",
+        "card": "여백과 미세한 테두리로 정의된 단순한 콘텐츠 블록으로, 큰 이미지와 굵은 제목을 특징으로 합니다.",
+        "chip": "주요 내비게이션에서 세로 파이프(|)로 분리된 단순한 텍스트 레이블.",
+        "input": "주요 콘텐츠 영역에 보이지 않지만, 암시된 양식은 미니멀한 border와 4px border-radius를 사용할 가능성이 높습니다.",
+        "hero": "중앙에 정렬된 대형 마스트헤드 또는 테두리가 있는 에디토리얼 일러스트의 가로 행이 있는 전체 너비 영역."
+      },
+      "motion": {
+        "patterns": [
+          "인터랙티브 요소에 대한 미세한 배경색 및 transform 전환.",
+          "UI 상태 변경 시 선형 슬라이드 또는 페이드 전환."
+        ]
+      },
+      "interaction": {
+        "hover": "버튼과 링크에 대한 미세한 배경색 변화 또는 transform 이동.",
+        "click": "커서 포인터 상태를 통한 즉각적인 시각적 반응.",
+        "transition": "모든 인터랙티브 요소는 부드러운 0.25초 전환을 사용합니다.",
+        "keyboard": "표준 tab 기반 내비게이션을 지원합니다."
+      },
+      "voice": {
+        "tone": "권위 있고, 세련되며, 세계적인 시야를 갖춘 어조.",
+        "headlineStyle": "직접적이고 정보 전달적이며, 카테고리 내비게이션에는 주로 대문자를 사용합니다.",
+        "ctaStyle": "대담하고 명확하며 기능적인 스타일로, 'SUBSCRIBE'와 같은 주요 작업에는 고대비 노란색을 사용합니다.",
+        "avoid": [
+          "지나치게 캐주얼한 언어나 과도한 느낌표 사용을 피합니다.",
+          "太多的 경쟁적인 시각 요소로 인터페이스를 어지럽히지 않습니다.",
+          "가독성을 저해하는 저대비 색상을 사용하지 않습니다."
+        ]
+      },
+      "donts": [
+        "빨강, 파랑, 초록과 같은 원색을 사용하지 않습니다. 스크린샷은 선명한 노란색만이 유일한 고채도 강조색임을 보여줍니다.",
+        "모든 곳에 둥근 타원형 버튼을 사용하지 않습니다. 스크린샷은 직사각형 또는 약간 둥근 버튼(4px radius)을 보여줍니다.",
+        "장식용 크립트 또는 손글씨 서체를 사용하지 않습니다. 스크린샷은 구조적인 전환 세리프와 깔끔한 고트릭-산세리프를 보여줍니다.",
+        "배경을 어둡거나 유색으로 남기지 않습니다. 스크린샷은 주요 콘텐츠 영역의 깔끔한 흰색 배경(#FFFFFF)을 보여줍니다.",
+        "주요 내비게이션을 숨기지 않습니다. 스크린샷은 MAGAZINE, RADIO, SHOP을 위한 상위 레벨 링크가 지속적으로 표시됨을 보여줍니다.",
+        "배경에 복잡한 gradient를 사용하지 않습니다. 스크린샷은 단색 흰색 또는 단순한 투명-흰색 gradient를 보여줍니다."
+      ],
+      "systemPrompt": "Monocle은 글로벌 이슈, 문화, 라이프스타일에 초점을 맞춘 세련된 에디토리얼 플랫폼입니다. 흰색(#FFFFFF) 배경에 순수 검정(#000000)을 사용한 고대비 팔레트를 기반으로 하며, 주요 강조색으로 단 하나의 선명한 노란색(#FFC500)을 사용합니다. 타이포그래피는 헤더와 마스트헤드에 전환 세리프 서체를 크게 의존하며, 본문에는 깔끔한 고트릭-산세리프를 페어링합니다. 핵심 디자인 규칙은 다음과 같습니다: 주요 텍스트에 저대비 회색을 절대 사용하지 말 것, 프리미엄 에디토리얼 느낌을 유지하기 위해 항상 넉넉한 여백을 유지할 것, 그리고 두 가지 색상에 노란색을 더한 팔레트를 엄격히 준수할 것. 지나치게 장식적인 서체, 복잡한 레이아웃, 또는 큐레이션된 콘텐츠에서 주의를 분산시킬 수 있는 보조 강조색을 사용하지 않습니다."
+    }
+  },
+  "desc": {
+    "en": {
+      "palette": "A stark, high-contrast black-and-white palette punctuated by a single vibrant yellow (#FFC500) and muted grays for structural hierarchy.",
+      "layout": "A structured 12-column grid with a fixed, centered top navigation and generous vertical whitespace between editorial sections.",
+      "interaction": "Subtle, smooth transitions on interactive elements, primarily using background-color changes and minor transforms for a refined feel.",
+      "motion": "Minimal and purposeful motion, focusing on 0.25s ease-in transitions for UI states and hover effects.",
+      "notes": "Monocle is an excellent example of a premium editorial brand that leverages restraint and high-quality typography to convey a sense of global sophistication."
+    },
+    "zh-CN": {
+      "palette": "采用纯粹、高对比度的黑白配色，点缀一抹鲜亮的黄色 (#FFC500)，并搭配柔和的灰色以构建视觉层次。",
+      "layout": "采用结构化的12栏网格系统，顶部设有固定的居中导航栏，各编辑内容板块之间留有充足的垂直留白。",
+      "interaction": "交互元素采用微妙、平滑的过渡效果，主要通过背景色变化和细微的变换来营造精致的体验感。",
+      "motion": "运动效果力求精简且有目的性，主要用于UI状态和悬停效果，采用0.25秒的缓入过渡。",
+      "notes": "Monocle是高端编辑品牌的杰出典范，它通过克制的设计和高质量的排版，传达出一种全球化的精致感。"
+    },
+    "zh-TW": {
+      "palette": "極簡、高對比的黑白配色，僅以鮮豔的黃色（#FFC500）點綴，並搭配柔和灰階營造結構層次。",
+      "layout": "結構化的12欄網格，頂部固定置中導航，並在編輯區塊之間保留充足的垂直留白。",
+      "interaction": "互動元素採用細膩平滑的過渡效果，主要透過背景色變換與輕微變形，營造精緻質感。",
+      "motion": "極簡且目的明確的動態效果，聚焦於UI狀態與懸停效果的0.25秒緩入過渡。",
+      "notes": "Monocle是頂級編輯品牌的優秀典範，它透過克制與高品質排版傳達全球化的精緻感。"
+    },
+    "ja": {
+      "palette": "黑白を基調とした、 starkでハイコントラストなパレット。単一の鮮やかな黄 (#FFC500) と構造的階層を示す穏やかなグレーでアクセントを付けます。",
+      "layout": "固定された中央揃えトップナビゲーションを備えた、構造化された12カラムグリッド。編集セクション間には十分な縦方向のホワイトスペースを設けています。",
+      "interaction": "インタラクティブ要素には、主にbackground-colorの変更や微細なtransformを用いた、繊細でスムーズなトランジションを実現。洗練された雰囲気を演出します。",
+      "motion": "最小限で目的に即したモーション。UI状態やhover効果に、主に0.25s ease-inのトランジションを採用します。",
+      "notes": "Monocleは、抑制と高品質なタイポグラフィを駆使して、世界的な洗練された感覚を伝えるプレミアム編集ブランドの優れた例です。"
+    },
+    "ko": {
+      "palette": "배경이 되는 고대비 흑백 팔레트에 단 하나의 선명한 노란색(#FFC500)과 구조적 계층을 위한 무채색의 회색 톤을 더한 미니멀한 구성입니다.",
+      "layout": "고정되고 중앙에 정렬된 상단 내비게이션을 중심으로 한 12컬럼 그리드 구조를 사용하며, 에디토리얼 섹션 사이에는 넉넉한 세로 여백을 둡니다.",
+      "interaction": "배경색 변화와 미세한 변환 효과를 주로 사용하여, 인터랙티브 요소에 섬세하고 부드러운 전환을 적용합니다.",
+      "motion": "의도적이고 최소한의 모션을 사용하며, UI 상태 변경 및 hover 효과에는 주로 0.25초 ease-in 트랜지션을 적용합니다.",
+      "notes": "Monocle은 절제된 미학과 고품질 타이포그래피를 통해 세계적인 수준의 세련됨을 전달하는 프리미엄 에디토리얼 브랜드의 훌륭한 예시입니다."
+    }
+  },
+  "_meta": {
+    "vision_model": "mimo-v2.5",
+    "vision_prompt_version": "0.3",
+    "vision_source": "playwright-extract:monocle",
+    "vision_grounded": true,
+    "vision_at": "2026-06-07T06:13:40+00:00",
+    "vision_tokens": 16776,
+    "vision_cost_usd": 0.1864,
+    "translation_model": "mimo-v2.5",
+    "translation_at": "2026-06-07T06:15:06+00:00",
+    "translation_tokens": 17290,
+    "translation_cost_usd": 0.0575,
+    "narrative_model": "mimo-v2.5",
+    "narrative_prompt_version": "0.3",
+    "narrative_at": "2026-06-07T06:15:15+00:00",
+    "narrative_tokens": 2114,
+    "narrative_cost_usd": 0.0141,
+    "narrative_status": "ok",
+    "total_cost_usd": 0.258
+  },
+  "narrative": {
+    "en": {
+      "ch1_intro": "The Monocle design system is a high-end international magazine distilled into a digital format. It operates on a principle of rigorous restraint, where every element serves a clear editorial purpose.",
+      "ch2_intro": "The palette is a study in high-contrast clarity: a stark foundation of pure black and white, punctuated by a single vibrant yellow for primary action. Muted grays provide subtle structural hierarchy without competing for attention.",
+      "ch2_outro": "The guiding principle is absolute focus: the accent yellow exists solely to direct the eye to the most important interactive element.",
+      "ch3_intro": "Typography establishes a voice of authoritative sophistication, pairing transitional-serif fonts for prominent mastheads and headers with clean grotesque-sans for body text. This combination creates a clear hierarchy, with uppercase treatments defining navigational zones.",
+      "ch4_intro": "Layout rhythm is governed by a consistent 4px grid, providing a reliable foundation for all spacing decisions.",
+      "ch5_intro": "Surfaces are defined by thin, 1px borders and a precise shadow system that creates a subtle, layered depth. The primary background is a clean, uninterrupted white, allowing content to be the focal point.",
+      "ch6_intro": "The layout skeleton is a structured 12-column grid, anchored by a fixed, centered top navigation bar. Generous vertical whitespace separates editorial sections, reinforcing a calm, curated reading experience.",
+      "ch7_intro": "Motion is minimal and purposeful, using subtle background-color changes and transforms on interactive elements. All transitions follow a smooth 0.25s timing, providing immediate but refined feedback.",
+      "ch8_intro": "The editorial voice is direct, globally minded, and sophisticated, mirroring the clarity of the visual system. Language is functional and authoritative, with headlines often in all-caps to denote categorical importance.",
+      "ch8_outro": "The system deliberately avoids decorative flair, secondary accent colors, and low-contrast elements that would compromise its core tenets of readability and premium curation."
+    },
+    "zh-CN": {
+      "ch1_intro": "Monocle 设计系统是一本高端国际杂志的数字化精粹。它遵循严谨克制的原则，每个元素都服务于明确的编辑目的。",
+      "ch2_intro": "配色是对高对比度清晰度的探索：以纯黑白为鲜明基底，点缀一种鲜亮的黄色用于主要操作。柔和的灰色则提供微妙的结构层次，而不争夺注意力。",
+      "ch2_outro": "指导原则是绝对聚焦：强调色黄色的存在，完全是为了将视线引向最重要的交互元素。",
+      "ch3_intro": "字体排印确立了一种权威而精致的语调，将过渡衬线字体用于醒目的刊头和标题，与简洁的怪诞无衬线字体用于正文。这种组合创造了清晰的层级，大写处理定义了导航区域。",
+      "ch4_intro": "布局节奏由一致的 4px 网格掌控，为所有间距决策提供可靠的基础。",
+      "ch5_intro": "表面通过纤细的 1px 边框和精确的阴影系统来定义，营造出微妙的、有层次的深度。主背景是干净、不间断的白色，让内容成为焦点。",
+      "ch6_intro": "布局骨架是一个结构化的 12 列网格，由固定、居中的顶部导航栏锚定。充足的垂直留白分隔各个编辑板块，强化了平静、精心策划的阅读体验。",
+      "ch7_intro": "动效是极简且有目的的，使用微妙的背景色变化和交互元素上的 transform。所有过渡都遵循平滑的 0.25s 时长，提供即时而精致的反馈。",
+      "ch8_intro": "编辑语调直接、具有全球视野且精致，反映了视觉系统的清晰度。语言是功能性且权威的，标题常采用全大写以标示类别重要性。",
+      "ch8_outro": "该系统刻意避免装饰性点缀、次要强调色和会损害其可读性与高端策划核心原则的低对比度元素。"
+    },
+    "zh-TW": {
+      "ch1_intro": "Monocle 設計系統是一本高端國際雜誌的數位化精華。它遵循嚴謹克制的原則，每個元素都服務於明確的編輯目的。",
+      "ch2_intro": "色彩配置是對高對比清晰度的研究：以純黑與純白的簡潔基調為基礎，點綴單一鮮明的黃色用於主要操作。柔和的灰色提供細膩的結構層級，而不會爭奪視覺注意力。",
+      "ch2_outro": "指導原則是絕對專注：強調用黃色僅用於引導視線至最重要的互動元素。",
+      "ch3_intro": "字型系統確立了權威而精緻的語調，將過渡襯線字體用於顯著的刊頭與標題，搭配簡潔的 grotesque-sans 作為內文字體。這種組合創造了清晰的層級，全大寫處理則定義了導覽區域。",
+      "ch4_intro": "版面節奏由一致的 4px 網格掌控，為所有間距決策提供可靠的基礎。",
+      "ch5_intro": "表面由細緻的 1px 邊框和精確的陰影系統定義，創造出細膩、層次化的深度感。主要背景是純淨、無干擾的白色，使內容成為視覺焦點。",
+      "ch6_intro": "版面骨架是結構化的 12 欄網格，以固定、置頂的導覽列為基礎。充裕的垂直留白區隔編輯區塊，強化冷靜、精選的閱讀體驗。",
+      "ch7_intro": "動態效果簡約而有意義，透過互動元素上細微的背景色變化與變形實現。所有過渡遵循 0.25s 的平滑節奏，提供即時但精緻的回饋。",
+      "ch8_intro": "編輯語調直接、具全球觀且精緻，呼應視覺系統的清晰度。語言功能而權威，標題常以全大寫標示分類重要性。",
+      "ch8_outro": "系統刻意避免裝飾性手法、次要強調色以及可能損害其可讀性與高品質精選核心原則的低對比元素。"
+    },
+    "ja": {
+      "ch1_intro": "The Monocle design system is a high-end international magazine distilled into a digital format. It operates on a principle of rigorous restraint, where every element serves a clear editorial purpose.",
+      "ch2_intro": "The palette is a study in high-contrast clarity: a stark foundation of pure black and white, punctuated by a single vibrant yellow for primary action. Muted grays provide subtle structural hierarchy without competing for attention.",
+      "ch2_outro": "The guiding principle is absolute focus: the accent yellow exists solely to direct the eye to the most important interactive element.",
+      "ch3_intro": "Typography establishes a voice of authoritative sophistication, pairing transitional-serif fonts for prominent mastheads and headers with clean grotesque-sans for body text. This combination creates a clear hierarchy, with uppercase treatments defining navigational zones.",
+      "ch4_intro": "Layout rhythm is governed by a consistent 4px grid, providing a reliable foundation for all spacing decisions.",
+      "ch5_intro": "Surfaces are defined by thin, 1px borders and a precise shadow system that creates a subtle, layered depth. The primary background is a clean, uninterrupted white, allowing content to be the focal point.",
+      "ch6_intro": "The layout skeleton is a structured 12-column grid, anchored by a fixed, centered top navigation bar. Generous vertical whitespace separates editorial sections, reinforcing a calm, curated reading experience.",
+      "ch7_intro": "Motion is minimal and purposeful, using subtle background-color changes and transforms on interactive elements. All transitions follow a smooth 0.25s timing, providing immediate but refined feedback.",
+      "ch8_intro": "The editorial voice is direct, globally minded, and sophisticated, mirroring the clarity of the visual system. Language is functional and authoritative, with headlines often in all-caps to denote categorical importance.",
+      "ch8_outro": "The system deliberately avoids decorative flair, secondary accent colors, and low-contrast elements that would compromise its core tenets of readability and premium curation."
+    },
+    "ko": {
+      "ch1_intro": "Monocle 디자인 시스템은 프리미엄 국제 매거진을 디지털 형식으로 정제한 것입니다. 모든 요소가 명확한 편집 목적을 지니는 엄격한 절제의 원칙을 따릅니다.",
+      "ch2_intro": "팔레트는 고대비 명확성에 대한 연구입니다: 순수 흑백의 깨끗한 기반 위에, 단일한 선명한 옐로우가 주요 액션을 위해 배치되었습니다. 차분한 회색은 주의를 끌지 않으면서도 미묘한 구조적 위계를 제공합니다.",
+      "ch2_outro": "핵심 원칙은 절대적 집중입니다: 악센트 옐로우는 가장 중요한 인터랙티브 요소로 시선을 유도하기 위해 존재합니다.",
+      "ch3_intro": "타이포그래피는 권위 있는 세련미의 목소리를 확립합니다. 두드러진 마스트헤드와 헤더에는 트지션 serifs를, 본문 텍스트에는 깔끔한 grotesque-sans를 결합합니다. 이 조합은 명확한 위계를 만들어내며, 대문자 처리는 내비게이션 영역을 정의합니다.",
+      "ch4_intro": "레이아웃 리듬은 일관된 4px 그리드에 의해 지배되며, 모든 간격 결정을 위한 신뢰할 수 있는 기반을 제공합니다.",
+      "ch5_intro": "표면은 얇은 1px 테두리와 정교한 그림자 시스템으로 정의되어 미묘하고 층진 깊이감을 만듭니다. 주요 배경은 깨끗하고 방해받지 않는 흰색으로, 콘텐츠가 초점이 되도록 합니다.",
+      "ch6_intro": "레이아웃 뼈대는 12컬럼 그리드의 구조화된 구조이며, 고정된 중앙 상단 내비게이션 바로 고정됩니다. 넉넉한 수직 여백은 편집 섹션을 구분하여 차분하고 큐레이션된 읽기 경험을 강화합니다.",
+      "ch7_intro": "모션은 미니멀하고 목적이 명확하며, 인터랙티브 요소에 대한 미묘한 배경색 변화와 transform을 사용합니다. 모든 전환은 부드러운 0.25s 타이밍을 따르며, 즉각적이고 세련된 피드백을 제공합니다.",
+      "ch8_intro": "편집적 어조는 직접적이고 글로벌하며 세련되어, 시각 시스템의 명확성을 반영합니다. 언어는 기능적이고 권위 있으며, 제목은 종종 범주의 중요성을 나타내기 위해 전대문자로 표시됩니다.",
+      "ch8_outro": "이 시스템은 의도적으로 장식적 화려함, 보조 악센트 컬러, 그리고 가독성과 프리미엄 큐레이션이라는 핵심 원칙을 저해할 수 있는 저대비 요소를 피합니다."
+    }
+  }
 }

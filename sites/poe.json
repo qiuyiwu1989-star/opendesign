@@ -8,6 +8,577 @@
     "ai",
     "chat"
   ],
-  "status": "pending",
-  "added_at": "2026-06-02"
+  "status": "completed",
+  "added_at": "2026-06-02",
+  "spec": {
+    "colors": {
+      "bg": "#FFFFFF",
+      "bgSoft": "#EAEEFA",
+      "bgQuiet": "#F5F5F5",
+      "ink": "#0D0D0D",
+      "inkSoft": "#505157",
+      "muted": "#808080",
+      "mutedSoft": null,
+      "accent": "#413FA9",
+      "line": "rgba(227, 227, 231, 1)"
+    },
+    "typography": {
+      "display": "system-ui",
+      "body": "system-ui",
+      "mono": "system-ui",
+      "scale": [
+        {
+          "token": "display",
+          "size": 36,
+          "lh": 1.16,
+          "weight": 700,
+          "ls": "-0.5px"
+        },
+        {
+          "token": "body",
+          "size": 16,
+          "lh": 1.45,
+          "weight": 400,
+          "ls": "0px"
+        },
+        {
+          "token": "caption",
+          "size": 14,
+          "lh": 1.45,
+          "weight": 400,
+          "ls": "0px"
+        }
+      ]
+    },
+    "spacing": {
+      "base": 4,
+      "scale": [
+        4,
+        8,
+        16,
+        24,
+        32,
+        48,
+        64,
+        96
+      ]
+    },
+    "surfaces": {
+      "radius": {
+        "sm": 2,
+        "md": 8,
+        "lg": 12,
+        "pill": 9999
+      }
+    },
+    "layout": {
+      "container": 1280,
+      "paragraph": 680,
+      "columns": 12,
+      "gutter": 24,
+      "breakpoints": [
+        768,
+        1024
+      ]
+    },
+    "motion": {
+      "durations": {
+        "micro": 150,
+        "small": 200,
+        "medium": 300
+      },
+      "easing": "cubic-bezier(0.4, 0, 0.2, 1)"
+    }
+  },
+  "spec_i18n": {
+    "en": {
+      "identity": {
+        "keywords": [
+          "AI Hub",
+          "Multi-model",
+          "Aggregator",
+          "Utility",
+          "Clean"
+        ],
+        "analogy": "A utility room for interacting with multiple AI models",
+        "oneLiner": "A clean, utility-focused gateway to interact with various AI models."
+      },
+      "colors": {
+        "principle": "High-contrast neutral background with a single subtle brand accent color for links."
+      },
+      "typography": {
+        "rules": [],
+        "scaleUses": [
+          "Main headline",
+          "General text and inputs",
+          "Footer and secondary info"
+        ]
+      },
+      "spacing": {
+        "rhythm": "Standard 4px base grid with consistent 16px and 32px section padding."
+      },
+      "surfaces": {
+        "shadows": [
+          "rgb(128, 128, 128) 0px 0px 5px 0px"
+        ],
+        "borders": "1px solid #E3E3E7"
+      },
+      "layout": {
+        "skeleton": "Centered single-column layout with a top scrolling marquee banner."
+      },
+      "components": {
+        "button": "Full-width outlined pill buttons with centered text.",
+        "card": "Top scrolling banner cards with rounded corners.",
+        "chip": null,
+        "input": "Full-width single-line text input with rounded corners.",
+        "hero": "Centered text block with logo, descriptive paragraph, and CTA buttons."
+      },
+      "motion": {
+        "patterns": [
+          "Background-color and border-color transitions on hover.",
+          "Right transition for sliding elements."
+        ]
+      },
+      "interaction": {
+        "hover": "Subtle border and background color changes.",
+        "click": "Immediate state change or transition.",
+        "transition": "0.15s ease for standard interactive elements.",
+        "keyboard": "Standard focusable elements with visible focus states."
+      },
+      "voice": {
+        "tone": "Informative, direct, and functional.",
+        "headlineStyle": "Bold, concise, and descriptive of the platform's utility.",
+        "ctaStyle": "Simple, action-oriented labels like 'Continue with Google'.",
+        "avoid": [
+          "Overly flowery language",
+          "Unnecessary decorations",
+          "Complex jargon without context"
+        ]
+      },
+      "donts": [
+        "Don't use dark mode — screenshot shows a bright white background.",
+        "Don't use decorative serif fonts — screenshot shows a clean sans-serif system font.",
+        "Don't use complex background gradients — screenshot shows solid white and light gray surfaces.",
+        "Don't use small, cramped spacing — screenshot shows generous vertical rhythm and padding.",
+        "Don't use colorful primary buttons — screenshot shows outlined buttons with no fill color.",
+        "Don't use heavy drop shadows — screenshot shows minimal or no shadow elevation on elements."
+      ],
+      "systemPrompt": "This is a clean, utility-focused AI aggregator landing page. Key colors are a white background (#FFFFFF), dark ink (#0D0D0D), and a subtle purple accent (#413FA9) for links. The typography relies on system-ui sans-serif fonts with a bold 36px headline. Critical donts: never use dark mode, never use decorative serif fonts, never add complex background gradients, never use small spacing, never use heavy drop shadows, and never use colorful primary buttons. The layout is strictly centered and single-column, emphasizing ease of access and functionality."
+    },
+    "zh-CN": {
+      "identity": {
+        "keywords": [
+          "AI Hub",
+          "Multi-model",
+          "Aggregator",
+          "Utility",
+          "Clean"
+        ],
+        "analogy": "一个与多个 AI 模型交互的实用工具室",
+        "oneLiner": "一个简洁、以功能为核心的入口，用于与各种 AI 模型交互。"
+      },
+      "colors": {
+        "principle": "高对比度的中性背景，搭配单一微妙的品牌色作为链接点缀。"
+      },
+      "typography": {
+        "rules": [],
+        "scaleUses": [
+          "主标题",
+          "通用文本和输入框",
+          "页脚和次要信息"
+        ]
+      },
+      "spacing": {
+        "rhythm": "基于标准 4px 网格，区块内边距统一为 16px 和 32px。"
+      },
+      "surfaces": {
+        "shadows": [
+          "rgb(128, 128, 128) 0px 0px 5px 0px"
+        ],
+        "borders": "1px solid #E3E3E7"
+      },
+      "layout": {
+        "skeleton": "居中单栏布局，顶部带有滚动文字横幅。"
+      },
+      "components": {
+        "button": "全宽描边胶囊按钮，文字居中。",
+        "card": "带圆角的顶部滚动横幅卡片。",
+        "chip": null,
+        "input": "带圆角的全宽单行文本输入框。",
+        "hero": "居中文字区块，包含标志、描述性段落和 CTA 按钮。"
+      },
+      "motion": {
+        "patterns": [
+          "hover 状态下的背景色和边框色 transition。",
+          "滑动元素的向右 transition。"
+        ]
+      },
+      "interaction": {
+        "hover": "微妙的边框和背景色变化。",
+        "click": "即时的状态变化或 transition。",
+        "transition": "标准交互元素使用 0.15s ease。",
+        "keyboard": "标准的可聚焦元素，带有可见的 focus 状态。"
+      },
+      "voice": {
+        "tone": "信息丰富、直接且功能性强。",
+        "headlineStyle": "粗体、简洁，描述平台的功能用途。",
+        "ctaStyle": "简洁、面向行动的标签，如“使用 Google 继续”。",
+        "avoid": [
+          "过于华丽的语言",
+          "不必要的装饰",
+          "脱离语境的复杂术语"
+        ]
+      },
+      "donts": [
+        "不要使用暗色模式 — 截图显示为明亮的白色背景。",
+        "不要使用装饰性衬线字体 — 截图显示为简洁的无衬线系统字体。",
+        "不要使用复杂的背景渐变 — 截图显示为纯白色和浅灰色的表面。",
+        "不要使用狭小的间距 — 截图显示为充裕的垂直节奏和内边距。",
+        "不要使用色彩鲜艳的主要按钮 — 截图显示为无填充色的描边按钮。",
+        "不要使用厚重的投影 — 截图显示为元素上极简或无投影效果。"
+      ],
+      "systemPrompt": "这是一个简洁、以功能为核心的 AI 聚合器落地页。关键颜色为白色背景（#FFFFFF）、深墨色（#0D0D0D）和用于链接的微妙紫色（#413FA9）。排版依赖 system-ui 无衬线字体，标题为粗体 36px。关键禁忌：绝不使用暗色模式，绝不使用装饰性衬线字体，绝不添加复杂的背景渐变，绝不使用狭小间距，绝不使用厚重投影，绝不使用色彩鲜艳的主要按钮。布局严格居中且为单栏，强调易用性和功能性。"
+    },
+    "zh-TW": {
+      "identity": {
+        "keywords": [
+          "AI 中心",
+          "多模型",
+          "聚合平台",
+          "實用工具",
+          "簡潔"
+        ],
+        "analogy": "用於與多個 AI 模型互動的實用工具室",
+        "oneLiner": "一個簡潔、專注實用功能的多模型 AI 互動閘道。"
+      },
+      "colors": {
+        "principle": "高對比中性背景，搭配單一柔和的品牌強調色用於連結。"
+      },
+      "typography": {
+        "rules": [],
+        "scaleUses": [
+          "主標題",
+          "一般文字與輸入欄位",
+          "頁尾與次要資訊"
+        ]
+      },
+      "spacing": {
+        "rhythm": "標準 4px 基礎網格，區塊間距統一採用 16px 與 32px。"
+      },
+      "surfaces": {
+        "shadows": [
+          "rgb(128, 128, 128) 0px 0px 5px 0px"
+        ],
+        "borders": "1px solid #E3E3E7"
+      },
+      "layout": {
+        "skeleton": "置中單欄佈局，頂部設有滾動跑馬燈橫幅。"
+      },
+      "components": {
+        "button": "全寬描邊膠囊按鈕，文字置中。",
+        "card": "頂部滾動橫幅卡片，圓角設計。",
+        "chip": null,
+        "input": "全寬單行文字輸入框，圓角設計。",
+        "hero": "置中文字區塊，包含商標、描述段落與行動呼籲按鈕。"
+      },
+      "motion": {
+        "patterns": [
+          "懸停時的背景色與邊框顏色轉場。",
+          "滑動元素的向右轉場效果。"
+        ]
+      },
+      "interaction": {
+        "hover": "細微的邊框與背景色變化。",
+        "click": "立即狀態變化或轉場。",
+        "transition": "標準互動元素採用 0.15s ease。",
+        "keyboard": "標準可聚焦元素，具有可見的聚焦狀態。"
+      },
+      "voice": {
+        "tone": "資訊性、直接且注重功能。",
+        "headlineStyle": "粗體、簡潔，描述平台實用功能。",
+        "ctaStyle": "簡潔、以行動為導向的標籤，例如「使用 Google 繼續」。",
+        "avoid": [
+          "過度修飾的語言",
+          "不必要的裝飾",
+          "缺乏脈絡的複雜術語"
+        ]
+      },
+      "donts": [
+        "不要使用深色模式——截圖顯示明亮的白色背景。",
+        "不要使用裝飾性襯線字體——截圖顯示簡潔的無襯線系統字體。",
+        "不要使用複雜的背景漸層——截圖顯示純白色與淺灰色表面。",
+        "不要使用狹窄擁擠的間距——截圖顯示充足的垂直節奏與留白。",
+        "不要使用彩色主要按鈕——截圖顯示無填充色的描邊按鈕。",
+        "不要使用厚重的投影——截圖顯示元素幾乎無陰影或陰影極簡。"
+      ],
+      "systemPrompt": "這是一個簡潔、專注實用功能的 AI 聚合平台登入頁。主要顏色為白色背景 (#FFFFFF)、深墨色 (#0D0D0D)，以及用於連結的柔和紫色 (#413FA9)。字型採用系統無襯線字體，主標題為 36px 粗體。重要禁忌：切勿使用深色模式、切勿使用裝飾性襯線字體、切勿添加複雜的背景漸層、切勿使用狹窄間距、切勿使用厚重投影，切勿使用彩色主要按鈕。佈局嚴格置中且為單欄，強調易用性與功能性。"
+    },
+    "ja": {
+      "identity": {
+        "keywords": [
+          "AI Hub",
+          "Multi-model",
+          "Aggregator",
+          "Utility",
+          "Clean"
+        ],
+        "analogy": "複数のAIモデルと対話するためのユーティリティルーム",
+        "oneLiner": "各種AIモデルと対話するための、クリーンでユーティリティ重視のゲートウェイ。"
+      },
+      "colors": {
+        "principle": "リンク用に単一の控えめなブランドアクセントカラーを持つ、高コントラストの中性背景。"
+      },
+      "typography": {
+        "rules": [],
+        "scaleUses": [
+          "メイン見出し",
+          "一般テキストと入力欄",
+          "フッターおよびセカンダリ情報"
+        ]
+      },
+      "spacing": {
+        "rhythm": "標準4pxベースグリッド。一貫した16pxおよび32pxのセクションパディング。"
+      },
+      "surfaces": {
+        "shadows": [
+          "rgb(128, 128, 128) 0px 0px 5px 0px"
+        ],
+        "borders": "1px solid #E3E3E7"
+      },
+      "layout": {
+        "skeleton": "トップにスクロールするマーキーバナーを持つ、中央揃えの単一カラムレイアウト。"
+      },
+      "components": {
+        "button": "テキストを中央揃えにした、フル幅のアウトライン付きピル型ボタン。",
+        "card": "角丸のトップスクロールバナーカード。",
+        "chip": null,
+        "input": "角丸のフル幅シングルラインテキスト入力欄。",
+        "hero": "ロゴ、説明文、CTAボタンを含む中央揃えテキストブロック。"
+      },
+      "motion": {
+        "patterns": [
+          "ホバー時の背景色およびボーダーカラーのトランジション。",
+          "スライディング要素用の右方向トランジション。"
+        ]
+      },
+      "interaction": {
+        "hover": "控えめなボーダーおよび背景色の変化。",
+        "click": "即座のステート変化またはトランジション。",
+        "transition": "標準インタラクティブ要素向け0.15s ease。",
+        "keyboard": "明確なフォーカスステートを持つ標準フォーカス可能要素。"
+      },
+      "voice": {
+        "tone": "情報提供的で、直接的かつ機能的。",
+        "headlineStyle": "太字で簡潔、かつプラットフォームのユーティリティを説明する見出し。",
+        "ctaStyle": "「Continue with Google」のようなシンプルで行動导向のラベル。",
+        "avoid": [
+          "過度に飾り立てた言葉",
+          "不要な装飾",
+          "文脈のない複雑な専門用語"
+        ]
+      },
+      "donts": [
+        "ダークモードを使用しない — スクリーンショットは明るい白の背景を示している。",
+        "装飾的なセリフフォントを使用しない — スクリーンショットはクリーンなサンセリフシステムフォントを示している。",
+        "複雑な背景グラデーションを使用しない — スクリーンショットは白と明るいグレーの単色サーフェスを示している。",
+        "狭いスペースを使用しない — スクリーンショットは十分な垂直リズムとパディングを示している。",
+        "カラフルなプライマリボタンを使用しない — スクリーンショットは塗りつぶしのないアウトラインボタンを示している。",
+        "重いドロップシャドウを使用しない — スクリーンショットは最小限またはなしのエレベーションシャドウを示している。"
+      ],
+      "systemPrompt": "これはクリーンでユーティリティ重視のAIアグリゲーターランディングページです。主要カラーは白の背景(#FFFFFF)、ダークインク(#0D0D0D)、およびリンク用の控えめなアクセント紫(#413FA9)です。タイポグラフィはsystem-uiサンセリフフォントに依存し、太字36pxの見出しを使用。重要注意事项：ダークモードは決して使用せず、装飾的なセリフフォントは決して使用せず、複雑な背景グラデーションは決して追加せず、狭いスペースは決して使用せず、重いドロップシャドウは決して使用せず、カラフルなプライマリボタンは決して使用しないこと。レイアウトは厳密に中央揃えの単一カラムで、アクセスしやすさと機能性を強調。"
+    },
+    "ko": {
+      "identity": {
+        "keywords": [
+          "AI Hub",
+          "Multi-model",
+          "Aggregator",
+          "Utility",
+          "Clean"
+        ],
+        "analogy": "여러 AI 모델과 상호작용하기 위한 유틸리티 룸",
+        "oneLiner": "다양한 AI 모델과 상호작용하기 위한 깔끔하고 유틸리티 중심의 게이트웨이입니다."
+      },
+      "colors": {
+        "principle": "고대비 중성 배경에 링크용으로 은은한 브랜드 포인트 컬러를 하나 사용합니다."
+      },
+      "typography": {
+        "rules": [],
+        "scaleUses": [
+          "메인 헤드라인",
+          "일반 텍스트 및 입력 필드",
+          "푸터 및 보조 정보"
+        ]
+      },
+      "spacing": {
+        "rhythm": "표준 4px 기본 그리드를 사용하며, 일관된 16px 및 32px 섹션 패딩을 적용합니다."
+      },
+      "surfaces": {
+        "shadows": [
+          "rgb(128, 128, 128) 0px 0px 5px 0px"
+        ],
+        "borders": "1px solid #E3E3E7"
+      },
+      "layout": {
+        "skeleton": "상단 스크롤링 마quee 배너가 있는 중앙 정렬 단일 열 레이아웃입니다."
+      },
+      "components": {
+        "button": "전체 너비의 outlined 필 버튼으로 중앙 정렬된 텍스트를 가집니다.",
+        "card": "상단 스크롤링 배너 카드로 둥근 모서리가 특징입니다.",
+        "chip": null,
+        "input": "전체 너비의 단일 라인 텍스트 입력 필드로 둥근 모서리를 가집니다.",
+        "hero": "로고, 설명 문단, CTA 버튼이 포함된 중앙 정렬된 텍스트 블록입니다."
+      },
+      "motion": {
+        "patterns": [
+          "hover 시 background-color 및 border-color 전환 효과.",
+          "슬라이딩 요소에 대한 right 전환 효과."
+        ]
+      },
+      "interaction": {
+        "hover": "미세한 테두리 및 배경색 변화.",
+        "click": "즉각적인 상태 변화 또는 전환.",
+        "transition": "표준 인터랙티브 요소에 0.15s ease 적용.",
+        "keyboard": "표시되는 포커스 상태를 가진 표준 포커스 가능 요소."
+      },
+      "voice": {
+        "tone": "정보를 전달하고, 직접적이며, 기능적입니다.",
+        "headlineStyle": "대담하고 간결하며 플랫폼의 유틸리티를 설명합니다.",
+        "ctaStyle": "'Google로 계속하기'와 같이 간단하고 행동을 유도하는 레이블.",
+        "avoid": [
+          "지나치게 화려한 언어",
+          "불필요한 장식",
+          "맥락 없는 복잡한 전문 용어"
+        ]
+      },
+      "donts": [
+        "다크 모드를 사용하지 마세요 — 스크린샷은 밝은 흰색 배경을 보여줍니다.",
+        "장식용 세리프 폰트를 사용하지 마세요 — 스크린샷은 깔끔한 산세리프 시스템 폰트를 보여줍니다.",
+        "복잡한 배경 그라데이션을 사용하지 마세요 — 스크린샷은 단색 흰색과 연한 회색 표면을 보여줍니다.",
+        "좁고 비좁은 간격을 사용하지 마세요 — 스크린샷은 넉넉한 수직 리듬과 패딩을 보여줍니다.",
+        "화려한 primary 버튼을 사용하지 마세요 — 스크린샷은 채워지지 않은 outlined 버튼을 보여줍니다.",
+        "무거운 드롭 섀도우를 사용하지 마세요 — 스크린샷은 요소에 미미하거나 없는 섀도우 엘리베이션을 보여줍니다."
+      ],
+      "systemPrompt": "이것은 깔끔하고 유틸리티 중심의 AI aggregator 랜딩 페이지입니다. 주요 색상은 흰색 배경(#FFFFFF), 짙은 잉크(#0D0D0D), 그리고 링크용 은은한 보라색 포인트(#413FA9)입니다. 타이포그래피는 system-ui 산세리프 폰트에 기반하며, 36px 굵은 헤드라인을 사용합니다. 핵심 금지 사항: 다크 모드를 절대 사용하지 말 것, 장식용 세리프 폰트를 절대 사용하지 말 것, 복잡한 배경 그라데이션을 절대 추가하지 말 것, 좁은 간격을 절대 사용하지 말 것, 무거운 드롭 섀도우를 절대 사용하지 말 것, 화려한 primary 버튼을 절대 사용하지 말 것. 레이아웃은 엄격하게 중앙 정렬되고 단일 열이며, 접근 용이성과 기능성을 강조합니다."
+    }
+  },
+  "desc": {
+    "en": {
+      "palette": "A high-contrast neutral palette dominated by white and dark gray, with a single subtle purple accent.",
+      "layout": "A strictly centered, single-column layout with a top scrolling marquee banner.",
+      "interaction": "Simple hover transitions on buttons and links with 0.15s durations.",
+      "motion": "Minimal motion, primarily limited to standard CSS transitions on interactive elements.",
+      "notes": "A prime example of a utility-first SaaS landing page that prioritizes clarity and function over expressive design."
+    },
+    "zh-CN": {
+      "palette": "以白色和深灰色为主的高对比度中性调色板，搭配一抹微妙的紫色点缀。",
+      "layout": "严格居中的单栏布局，顶部带有滚动文字横幅。",
+      "interaction": "按钮和链接上的简洁 hover 效果，持续时间为 0.15 秒。",
+      "motion": "极简动效，主要限于交互元素的标准 CSS transition。",
+      "notes": "一个以功能为先、优先考虑清晰度和实用性的 SaaS 落地页典范。"
+    },
+    "zh-TW": {
+      "palette": "以白色與深灰為主的高對比中性色板，單一柔和的紫色作為點綴色。",
+      "layout": "嚴格置中的單欄佈局，頂部設有滾動跑馬燈橫幅。",
+      "interaction": "按鈕與連結採用 0.15 秒的簡潔懸停轉場效果。",
+      "motion": "極簡動效，主要限於互動元素的標準 CSS 轉場。",
+      "notes": "典型的實用優先 SaaS 登入頁，優先考慮清晰度與功能性，而非表現性設計。"
+    },
+    "ja": {
+      "palette": "白とダークグレーを基調とした高コントラストの中性パレットに、控えめなアクセントとして紫色を単一使用。",
+      "layout": "トップにスクロールするマーキーバナーを配置した、厳密に中央揃えの単一カラムレイアウト。",
+      "interaction": "ボタンやリンクに0.15秒のホバートランジション。",
+      "motion": "最小限のモーション。インタラクティブ要素の標準的なCSSトランジションが中心。",
+      "notes": "表現よりも明瞭さと機能を重視する、ユーティリティファーストSaaSランディングページの好例。"
+    },
+    "ko": {
+      "palette": "흰색과 짙은 회색을 중심으로 한 고대비 중성 팔레트에 은은한 보라색 포인트를 하나 더했습니다.",
+      "layout": "상단에 스크롤링 마quee 배너가 있는, 엄격하게 중앙 정렬된 단일 열 레이아웃입니다.",
+      "interaction": "버튼과 링크에 0.15초 동안의 간단한 hover 전환 효과를 적용합니다.",
+      "motion": "최소한의 모션으로, 주로 인터랙티브 요소에 대한 표준 CSS 전환에 한정됩니다.",
+      "notes": "기능적이고 명확한 디자인을 표현적 디자인보다 우선시하는 유틸리티 중심 SaaS 랜딩 페이지의 대표적인 예시입니다."
+    }
+  },
+  "_meta": {
+    "vision_model": "mimo-v2.5",
+    "vision_prompt_version": "0.3",
+    "vision_source": "playwright-extract:poe",
+    "vision_grounded": true,
+    "vision_at": "2026-06-04T17:55:04+00:00",
+    "vision_tokens": 15836,
+    "vision_cost_usd": 0.176,
+    "translation_model": "mimo-v2.5",
+    "translation_at": "2026-06-04T17:56:02+00:00",
+    "translation_tokens": 14493,
+    "translation_cost_usd": 0.0483,
+    "narrative_model": "mimo-v2.5",
+    "narrative_prompt_version": "0.3",
+    "narrative_at": "2026-06-04T17:56:13+00:00",
+    "narrative_tokens": 1809,
+    "narrative_cost_usd": 0.0121,
+    "narrative_status": "ok",
+    "total_cost_usd": 0.2364
+  },
+  "narrative": {
+    "en": {
+      "ch1_intro": "Poe functions as a utility room for interacting with multiple AI models, a clean and direct gateway where the architecture serves access. Its design language is one of pure utility, prioritizing function and clarity above all decorative impulse. The system is built for immediate comprehension and task completion.",
+      "ch2_intro": "The palette is high-contrast and deliberately limited, built on a foundation of pure white and dark ink. A single, subtle purple accent provides directional guidance without overwhelming the neutral field.",
+      "ch2_outro": "The principle is restraint; color is a functional signal, not a primary expressive element.",
+      "ch3_intro": "Typography relies on the system's native sans-serif stack, favoring legibility and performance over distinctive character. The type scale is minimal, establishing a clear hierarchy from bold headline to general text and secondary footer information.",
+      "ch4_intro": "Spacing follows a standard 4px base grid, establishing a predictable and clean vertical rhythm.",
+      "ch5_intro": "Surface definition is subtle and minimal, achieved through thin borders and a barely perceptible shadow. Elements float just above the background, with depth implied through simple line and a hint of grey.",
+      "ch6_intro": "The layout is strictly centered in a single column, focusing user attention on a linear path. A top scrolling marquee banner sits above this core content, creating a defined header region.",
+      "ch7_intro": "Motion philosophy is minimal and strictly functional, limited to standard CSS transitions for interface feedback. Background-color and border-color changes on hover, and rightward slides for elements, provide immediate, unambiguous response to user action.",
+      "ch8_intro": "The editorial voice is informative, direct, and functional. It avoids flowery language and decorative jargon, favoring concise, action-oriented labels that describe utility.",
+      "ch8_outro": "This system deliberately does not support dark mode, decorative serif fonts, complex gradients, or heavy drop shadows."
+    },
+    "zh-CN": {
+      "ch1_intro": "Poe 作为一个与多种AI模型交互的工具间，一个清晰直接的入口，其架构服务于访问。其设计语言纯粹注重实用性，优先考虑功能与清晰度，摒弃一切装饰性冲动。系统旨在实现即时理解与任务完成。",
+      "ch2_intro": "配色方案高对比度且刻意克制，建立在纯白与深墨的基础之上。单一的微妙紫色点缀提供方向性引导，而不破坏中性色域。",
+      "ch2_outro": "原则是克制；色彩是一种功能性信号，而非主要的表现元素。",
+      "ch3_intro": "字体排印依赖系统原生的无衬线字体栈，优先考虑可读性和性能，而非独特性。字阶极为简洁，建立起从加粗标题到正文及次要页脚信息的清晰层级。",
+      "ch4_intro": "间距遵循标准的 4px 基础网格，建立起可预测且干净的垂直韵律。",
+      "ch5_intro": "表面定义微妙而极简，通过细边框和几乎不可察觉的阴影实现。元素轻浮于背景之上，深度通过简洁的线条和一抹灰色来暗示。",
+      "ch6_intro": "布局严格采用居中单栏，将用户注意力集中在线性路径上。顶部滚动的跑马灯横幅位于核心内容之上，形成明确的头部区域。",
+      "ch7_intro": "动效理念极简且严格遵循功能，仅限于用于界面反馈的标准 CSS 过渡。悬停时的背景色和边框色变化，以及元素的右向滑动，为用户操作提供即时、明确的反馈。",
+      "ch8_intro": "编辑语调是信息性、直接且功能性的。它避免华丽的措辞和装饰性术语，倾向于简洁、目标导向的标签来描述功能。",
+      "ch8_outro": "该系统刻意不支持深色模式、装饰性衬线字体、复杂渐变或厚重阴影。"
+    },
+    "zh-TW": {
+      "ch1_intro": "Poe 是一個實用工具間，用於與多個 AI 模型互動，一個簡潔直接的入口，其架構服務於存取。其設計語言純粹基於實用性，優先考慮功能與清晰度，而非任何裝飾性衝動。此系統旨在實現即時理解與任務完成。",
+      "ch2_intro": "色彩方案高對比且刻意受限，建立在純白與深墨色基礎上。一個細微的紫色強調色提供方向引導，而不壓過中性色域。",
+      "ch2_outro": "原則是克制；顏色是功能性訊號，而非主要的表達元素。",
+      "ch3_intro": "字體排印依賴系統原生的無襯線字體堆疊，優先考慮可讀性與效能，而非獨特風格。字體尺度極簡，從粗體標題到一般文字與次要頁尾資訊，建立清晰層級。",
+      "ch4_intro": "間距遵循標準的 4px 基礎網格，建立可預期且整潔的垂直節奏。",
+      "ch5_intro": "表面定義細微且極簡，透過細邊框與幾乎察覺不到的陰影實現。元素輕浮於背景之上，深度透過簡單線條與一絲灰色暗示。",
+      "ch6_intro": "版面嚴格以單欄置中，將使用者注意力集中於線性路徑。頂部滾動跑馬燈橫幅置於核心內容上方，定義出一個明確的標頭區域。",
+      "ch7_intro": "動效哲學是極簡且嚴格功能性的，僅限於標準 CSS 過渡效果用於介面回饋。hover 時的 background-color 和 border-color 變化，以及元素向右滑動，提供立即、明確的使用者動作回應。",
+      "ch8_intro": "編輯語氣是資訊性、直接且功能性的。避免華麗語言與裝飾性術語，偏好簡潔、行動導向的標籤來描述實用性。",
+      "ch8_outro": "此系統刻意不支援深色模式、裝飾性襯線字體、複雜漸層或厚重陰影。"
+    },
+    "ja": {
+      "ch1_intro": "Poeは、複数のAIモデルと対話するためのユーティリティルームとして機能します。アクセスを重視したアーキテクチャを持つ、清潔で直接的なゲートウェイです。そのデザイン言語は純粋なユーティリティそのものであり、あらゆる装飾的衝動よりも機能性と明瞭さを優先しています。システムは、即座の理解とタスク完了のために構築されています。",
+      "ch2_intro": "パレットは高コントラストで意図的に制限されており、純白と濃いインクの基礎の上に構成されています。単一の微かなアクセントカラーが、中立的なフィールドを圧倒することなく方向性を示します。",
+      "ch2_outro": "原則は克制です。カラーは機能的なシグナルであり、主要な表現要素ではありません。",
+      "ch3_intro": "タイポグラフィはシステムネイティブのsans-serifスタックに依存し、個性的な字形よりも可読性とパフォーマンスを優先しています。文字スケールは最小限で、太字の見出しから本文、フッターの補足情報に至るまで、明確な階層を構築しています。",
+      "ch4_intro": "スペーシングは標準の4pxベースグリッドに従い、予測可能で清潔な垂直リズムを確立しています。",
+      "ch5_intro": "サーフェスの定義は微かで最小限であり、細いボーダーとほとんど感じられないシャドウによって実現されています。要素は背景のすぐ上に浮遊し、シンプルな線とわずかなグレーによって奥行きが示唆されています。",
+      "ch6_intro": "レイアウトは単一のカラムで厳密に中央揃えであり、ユーザーの注意をリニアなパスに集中させます。上部にはスクロールするマーキーバナーが配置され、このコアコンテンツの上に明確なヘッダー領域を形成しています。",
+      "ch7_intro": "モーションの哲学は最小限で厳密に機能的であり、インターフェースフィードバックのための標準的なCSS transitionに限定されています。hover時のbackground-colorとborder-colorの変化、および要素の右方向へのスライドが、ユーザーのアクションに対する即座の、明白な応答を提供します。",
+      "ch8_intro": "エディトリアルボイスは情報的で直接的、かつ機能的です。華美な言葉や装飾的な専門用語を避け、ユーティリティを記述する簡潔で行動指向のラベルを優先します。",
+      "ch8_outro": "このシステムは、意図的にダークモード、装飾的なセリフフォント、複雑なgradient、または重いdrop shadowをサポートしません。"
+    },
+    "ko": {
+      "ch1_intro": "Poe는 여러 AI 모델과 상호작용하기 위한 유틸리티 룸으로, 아키텍션이 접근성을 위해 설계된 깔끔하고 직접적인 게이트웨이입니다. Its design language is one of pure utility, prioritizing function and clarity above all decorative impulse. The system is built for immediate comprehension and task completion.",
+      "ch2_intro": "팔레트는 고대비이며 의도적으로 제한되어, 순백과 짙은 잉크를 기반으로 구축되었습니다. 단일의 은은한 보라색 강조색이 중립적인 영역을 압도하지 않으면서 방향성을 안내합니다.",
+      "ch2_outro": "원칙은 절제입니다; 색상은 기능적 신호이며, 주된 표현 요소가 아닙니다.",
+      "ch3_intro": "타이포그래피는 시스템의 기본 sans-serif 스택에 의존하며, 독특한 개성보다 가독성과 성능을 우선합니다. The type scale is minimal, establishing a clear hierarchy from bold headline to general text and secondary footer information.",
+      "ch4_intro": "여백은 표준 4px 기본 그리드를 따르며, 예측 가능하고 깔끔한 수직 리듬을 확립합니다.",
+      "ch5_intro": "표면 정의는 미묘하고 최소한으로, 얇은 테두리와 거의 인식할 수 없는 그림자를 통해 달성됩니다. 요소는 배경 바로 위에 떠 있으며, 깊이는 단순한 선과 약간의 회색을 통해 암시됩니다.",
+      "ch6_intro": "레이아웃은 단일 열에 엄격히 중앙 정렬되어 사용자의 주의를 선형 경로에 집중시킵니다. 상단 스크롤링 마키 배너가 이 핵심 콘텐츠 위에 위치하여 명확한 헤더 영역을 만듭니다.",
+      "ch7_intro": "모션 철학은 최소한이며 엄격히 기능적입니다. 인터페이스 피드백을 위한 표준 CSS 전환으로 제한됩니다. hover 시 background-color 및 border-color 변경, 요소의 오른쪽 슬라이드는 사용자 작업에 대한 즉각적이고 명확한 반응을 제공합니다.",
+      "ch8_intro": "에디토리얼 목소리는 정보적이고, 직접적이며, 기능적입니다. 장식적인 언어와 화려한 전문 용어를 피하고, 기능을 설명하는 간결하고 행동 지향적인 레이블을 선호합니다.",
+      "ch8_outro": "이 시스템은 의도적으로 다크 모드, 장식용 세리프 폰트, 복잡한 그라디언트 또는 무거운 드롭 섀도우를 지원하지 않습니다."
+    }
+  }
 }

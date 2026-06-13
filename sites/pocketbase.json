@@ -8,6 +8,614 @@
     "dev",
     "infra"
   ],
-  "status": "pending",
-  "added_at": "2026-06-03"
+  "status": "completed",
+  "added_at": "2026-06-03",
+  "spec": {
+    "colors": {
+      "bg": "#ffffff",
+      "bgSoft": "#e8eaee",
+      "bgQuiet": "#b8dbd6",
+      "ink": "#25272d",
+      "inkSoft": "#111b27",
+      "muted": "#617079",
+      "mutedSoft": null,
+      "accent": null,
+      "line": "rgba(37,39,45,0.12)"
+    },
+    "typography": {
+      "display": "humanist-sans",
+      "body": "humanist-sans",
+      "mono": "monospace",
+      "scale": [
+        {
+          "token": "display",
+          "size": 48,
+          "lh": 1.1,
+          "weight": 600,
+          "ls": "-0.5px"
+        },
+        {
+          "token": "h2",
+          "size": 28,
+          "lh": 1.2,
+          "weight": 600,
+          "ls": "-0.25px"
+        },
+        {
+          "token": "body",
+          "size": 15,
+          "lh": 1.6,
+          "weight": 400,
+          "ls": "0"
+        },
+        {
+          "token": "code",
+          "size": 14.5,
+          "lh": 1.4,
+          "weight": 400,
+          "ls": "0"
+        }
+      ]
+    },
+    "spacing": {
+      "base": 4,
+      "scale": [
+        4,
+        8,
+        16,
+        24,
+        32,
+        48,
+        64,
+        96
+      ]
+    },
+    "surfaces": {
+      "radius": {
+        "sm": 4,
+        "md": 8,
+        "lg": 12,
+        "pill": 999
+      }
+    },
+    "layout": {
+      "container": 1280,
+      "paragraph": 680,
+      "columns": 12,
+      "gutter": 24,
+      "breakpoints": [
+        768,
+        1024
+      ]
+    },
+    "motion": {
+      "durations": {
+        "micro": 150,
+        "small": 150,
+        "medium": 150
+      },
+      "easing": "cubic-bezier(0.25, 0.1, 0.25, 1)"
+    }
+  },
+  "spec_i18n": {
+    "en": {
+      "identity": {
+        "keywords": [
+          "open-source",
+          "backend",
+          "simplicity",
+          "all-in-one"
+        ],
+        "analogy": "A friendly, approachable toolkit that simplifies complex backend infrastructure into a single, accessible file.",
+        "oneLiner": "A developer-focused backend that emphasizes simplicity and approachability through a clean, friendly UI."
+      },
+      "colors": {
+        "principle": "High-contrast, clean, and functional palette with a friendly pastel teal hero and standard dark grays for maximum readability."
+      },
+      "typography": {
+        "rules": [
+          "Use Source Sans Pro for primary UI and body text.",
+          "Use Ubuntu Mono for all code blocks and technical snippets.",
+          "Maintain strict text alignment and consistent line heights."
+        ],
+        "scaleUses": [
+          "Hero headline",
+          "Section headers",
+          "General text",
+          "Code snippets"
+        ]
+      },
+      "spacing": {
+        "rhythm": "Standard 4px baseline grid with generous section padding."
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(0, 0, 0, 0.06) 0px 2px 5px 0px",
+          "rgba(0, 0, 0, 0.06) 0px 3px 10px 3px"
+        ],
+        "borders": "1px solid rgba(37,39,45,0.12)"
+      },
+      "layout": {
+        "skeleton": "Centered single-column layout for the landing page with a wide container for the dashboard preview."
+      },
+      "components": {
+        "button": "Clean, slightly rounded (4px) buttons with distinct dark borders and subtle shadows; primary uses dark background.",
+        "card": "White background with a subtle drop shadow and a soft, rounded border radius.",
+        "chip": "Small, pill-shaped tags (999px radius) for feature lists and status indicators.",
+        "input": "Rounded pill-shaped search bars with a light background.",
+        "hero": "Large pastel teal background (#b8dbd6) with bold text and a prominent UI screenshot."
+      },
+      "motion": {
+        "patterns": [
+          "Smooth color and background transitions on hover.",
+          "Filter and bottom position transitions for interactive elements."
+        ]
+      },
+      "interaction": {
+        "hover": "Subtle background and color shifts on interactive elements.",
+        "click": "Standard pointer feedback.",
+        "transition": "Unified 0.15s transition for color, background, and filter properties.",
+        "keyboard": "Standard focus ring behaviors typical of clean UI frameworks."
+      },
+      "voice": {
+        "tone": "Helpful, direct, and developer-focused.",
+        "headlineStyle": "Concise and bold, emphasizing the core value proposition.",
+        "ctaStyle": "Action-oriented and straightforward (e.g., 'Read the documentation', 'Live demo').",
+        "avoid": [
+          "Excessive marketing jargon or flowery language.",
+          "Aggressive sales tones or complex sales funnels.",
+          "Dense, unreadable technical documentation without clear structure."
+        ]
+      },
+      "donts": [
+        "Don't use a dark hero section — screenshot shows a bright pastel teal (#b8dbd6) background instead.",
+        "Don't use decorative, playful, or script fonts — screenshot uses clean humanist-sans (Source Sans Pro) and monospace (Ubuntu Mono).",
+        "Don't use heavy, glowing gradients — screenshot uses flat colors, subtle shadows, and clean borders.",
+        "Don't use rounded, bubbly buttons — screenshot uses slightly rounded (4px) buttons with distinct dark borders.",
+        "Don't rely on a single high-chroma accent color — screenshot uses a balanced palette of grays, teal, and code syntax colors.",
+        "Don't clutter the interface with excessive animations — screenshot shows a very static, functional, and clean UI.",
+        "Don't use decorative icons — screenshot uses simple, functional Remixicon line icons."
+      ],
+      "systemPrompt": "PocketBase is an open-source backend positioned as a simple, all-in-one solution for developers, featuring a clean and functional UI. The visual system uses a light, approachable palette anchored by a pastel teal hero (#b8dbd6), standard dark grays (#25272d), and white surfaces (#ffffff), with no single dominant high-chroma accent color. Typography relies on Source Sans Pro (humanist-sans) for body and display text, and Ubuntu Mono for code snippets. The layout is centered and spacious, emphasizing clarity and readability. Critical design constraints: do not use dark hero sections; stick to clean humanist-sans and monospace fonts; avoid heavy gradients; use functional icons; maintain a 4px baseline grid; avoid excessive or decorative animations; and ensure all interactive elements use clean, slightly rounded borders."
+    },
+    "zh-CN": {
+      "identity": {
+        "keywords": [
+          "开源",
+          "后端",
+          "简洁性",
+          "一体化"
+        ],
+        "analogy": "一个友好、平易近人的工具包，将复杂的后端基础设施简化为一个单一、易于访问的文件。",
+        "oneLiner": "一个开发者导向的后端，通过干净、友好的界面强调简洁性和易用性。"
+      },
+      "colors": {
+        "principle": "高对比度、干净且功能性的调色板，带有友好的柔和青色主色调和标准深灰色，以实现最佳可读性。"
+      },
+      "typography": {
+        "rules": [
+          "主要界面和正文使用 Source Sans Pro。",
+          "所有代码块和技术片段使用 Ubuntu Mono。",
+          "保持严格的文本对齐和一致的行高。"
+        ],
+        "scaleUses": [
+          "主标题",
+          "章节标题",
+          "通用文本",
+          "代码片段"
+        ]
+      },
+      "spacing": {
+        "rhythm": "标准 4px 基线网格，配以充裕的章节内边距。"
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(0, 0, 0, 0.06) 0px 2px 5px 0px",
+          "rgba(0, 0, 0, 0.06) 0px 3px 10px 3px"
+        ],
+        "borders": "1px solid rgba(37,39,45,0.12)"
+      },
+      "layout": {
+        "skeleton": "落地页采用居中的单栏布局，仪表盘预览使用宽幅容器。"
+      },
+      "components": {
+        "button": "干净、略圆（4px）的按钮，带有明显的深色边框和细微阴影；主按钮使用深色背景。",
+        "card": "白色背景，带有细微的投影和柔和、圆润的边框圆角。",
+        "chip": "小型、药丸状标签（999px 圆角），用于功能列表和状态指示器。",
+        "input": "圆角药丸状搜索栏，带有浅色背景。",
+        "hero": "大尺寸柔和青色背景 (#b8dbd6)，配以粗体文字和突出的界面截图。"
+      },
+      "motion": {
+        "patterns": [
+          "hover 时平滑的颜色和背景过渡。",
+          "交互元素的滤镜和底部位置过渡。"
+        ]
+      },
+      "interaction": {
+        "hover": "交互元素上细微的背景和颜色变化。",
+        "click": "标准的指针反馈。",
+        "transition": "颜色、背景和滤镜属性使用统一的 0.15s 过渡。",
+        "keyboard": "干净界面框架典型的标准焦点环行为。"
+      },
+      "voice": {
+        "tone": "有帮助、直接且开发者导向。",
+        "headlineStyle": "简洁有力，强调核心价值主张。",
+        "ctaStyle": "行动导向且直接（例如：“阅读文档”、“实时演示”）。",
+        "avoid": [
+          "过多的营销术语或浮夸语言。",
+          "激进的销售语气或复杂的销售流程。",
+          "缺乏清晰结构的密集、难以阅读的技术文档。"
+        ]
+      },
+      "donts": [
+        "不要使用深色主视觉区域——截图显示的是明亮的柔和青色 (#b8dbd6) 背景。",
+        "不要使用装饰性、俏皮或手写字体——截图使用干净的人文无衬线字体 (Source Sans Pro) 和等宽字体 (Ubuntu Mono)。",
+        "不要使用厚重、发光的渐变——截图使用纯色、细微阴影和干净的边框。",
+        "不要使用圆润、气泡状按钮——截图使用略圆（4px）且带有明显深色边框的按钮。",
+        "不要依赖单一的高饱和度强调色——截图使用灰色、青色和代码语法颜色的平衡调色板。",
+        "不要用过多动画使界面杂乱——截图显示的是非常静态、功能性和干净的界面。",
+        "不要使用装饰性图标——截图使用简单的功能性 Remixicon 线性图标。"
+      ],
+      "systemPrompt": "PocketBase 是一个开源后端，定位为开发者的简单、一体化解决方案，具有干净且功能性的界面。视觉系统使用以柔和青色主色调 (#b8dbd6)、标准深灰色 (#25272d) 和白色表面 (#ffffff) 为基础的明亮、平易近人的调色板，没有单一的主导高饱和度强调色。排版依赖于 Source Sans Pro（人文无衬线字体）用于正文和显示文本，Ubuntu Mono 用于代码片段。布局居中且宽敞，强调清晰度和可读性。关键设计约束：不要使用深色主视觉区域；坚持使用干净的人文无衬线和等宽字体；避免厚重渐变；使用功能性图标；保持 4px 基线网格；避免过多或装饰性动画；确保所有交互元素使用干净、略圆的边框。"
+    },
+    "zh-TW": {
+      "identity": {
+        "keywords": [
+          "開源",
+          "後端",
+          "簡約",
+          "一體式"
+        ],
+        "analogy": "一個友好、易用的工具包，將複雜的後端基礎設施簡化為單一、可存取的檔案。",
+        "oneLiner": "一個專為開發者設計的後端，透過簡潔、友善的 UI 強調簡約與易用性。"
+      },
+      "colors": {
+        "principle": "高對比、簡潔且功能性的調色盤，以友好的粉彩青綠色為主視覺，並使用標準深灰色以確保最佳可讀性。"
+      },
+      "typography": {
+        "rules": [
+          "主要 UI 和內文使用 Source Sans Pro。",
+          "所有程式碼區塊和技術片段使用 Ubuntu Mono。",
+          "保持嚴格的文字對齊和一致的行高。"
+        ],
+        "scaleUses": [
+          "主標題",
+          "區塊標題",
+          "一般文字",
+          "程式碼片段"
+        ]
+      },
+      "spacing": {
+        "rhythm": "標準 4px 基線網格，搭配充裕的區塊內距。"
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(0, 0, 0, 0.06) 0px 2px 5px 0px",
+          "rgba(0, 0, 0, 0.06) 0px 3px 10px 3px"
+        ],
+        "borders": "1px solid rgba(37,39,45,0.12)"
+      },
+      "layout": {
+        "skeleton": "登陸頁採用居中單欄佈局，搭配用於儀表板預覽的寬幅容器。"
+      },
+      "components": {
+        "button": "簡潔、略帶圓角（4px）的按鈕，具明顯深色邊框和細微陰影；主要按鈕使用深色背景。",
+        "card": "白色背景，帶有細微投影和柔和的圓角邊框半徑。",
+        "chip": "小型膠囊狀標籤（999px 圓角），用於功能列表和狀態指示器。",
+        "input": "圓角膠囊狀搜尋列，淺色背景。",
+        "hero": "大型粉彩青綠色背景（#b8dbd6），搭配粗體文字和顯眼的 UI 螢幕截圖。"
+      },
+      "motion": {
+        "patterns": [
+          "hover 時平滑的顏色和背景過渡。",
+          "互動元素的濾鏡和底部位置過渡。"
+        ]
+      },
+      "interaction": {
+        "hover": "互動元素上的細微背景和顏色變化。",
+        "click": "標準的指標回饋。",
+        "transition": "統一的 0.15s 過渡，用於顏色、背景和濾鏡屬性。",
+        "keyboard": "簡潔 UI 框架中常見的標準焦點環行為。"
+      },
+      "voice": {
+        "tone": "樂於助人、直接且專注於開發者。",
+        "headlineStyle": "簡潔有力，強調核心價值主張。",
+        "ctaStyle": "以行動為導向且直接（例如「閱讀文件」、「線上展示」）。",
+        "avoid": [
+          "過度的行銷術語或華麗辭藻。",
+          "強勢的銷售語氣或複雜的銷售漏斗。",
+          "結構不清、難以閱讀的技術文件。"
+        ]
+      },
+      "donts": [
+        "不要使用深色主視覺區塊 — 螢幕截圖顯示的是明亮的粉彩青綠色（#b8dbd6）背景。",
+        "不要使用裝飾性、俏皮或書法字體 — 螢幕截圖使用簡潔的 humanist-sans（Source Sans Pro）和等寬字體（Ubuntu Mono）。",
+        "不要使用厚重、發光的漸層 — 螢幕截圖使用純色、細微陰影和簡潔邊框。",
+        "不要使用圓潤、蓬鬆的按鈕 — 螢幕截圖使用略帶圓角（4px）並帶有明顯深色邊框的按鈕。",
+        "不要依賴單一高彩度的強調色 — 螢幕截圖使用灰色、青綠色和程式碼語法顏色的平衡調色盤。",
+        "不要讓介面充斥過多動畫 — 螢幕截圖顯示的是非常靜態、功能性和簡潔的 UI。",
+        "不要使用裝飾性圖標 — 螢幕截圖使用簡單、功能性的 Remixicon 線條圖標。"
+      ],
+      "systemPrompt": "PocketBase 是一個開源後端，定位為開發者的簡約一體式解決方案，具備簡潔且功能性的 UI。視覺系統採用輕盈、親和的調色盤，以粉彩青綠色主視覺（#b8dbd6）為基調，搭配標準深灰色（#25272d）和白色表面（#ffffff），沒有單一主導的高彩度強調色。字體方面，內文和顯示文字依賴 Source Sans Pro（humanist-sans），程式碼片段則使用 Ubuntu Mono。佈局居中且寬敞，強調清晰度和可讀性。關鍵設計限制：不要使用深色主視覺區塊；堅持使用簡潔的 humanist-sans 和等寬字體；避免厚重漸層；使用功能性圖標；保持 4px 基線網格；避免過多或裝飾性動畫；並確保所有互動元素使用簡潔、略帶圓角的邊框。"
+    },
+    "ja": {
+      "identity": {
+        "keywords": [
+          "オープンソース",
+          "バックエンド",
+          "シンプルさ",
+          "オールインワン"
+        ],
+        "analogy": "複雑なバックエンドインフラを単一のアクセスしやすいファイルに簡素化する、フレンドリーでアプローチしやすいツールキット。",
+        "oneLiner": "クリーンでフレンドリーなUIを通じて、シンプルさとアプローチしやすさを重視する、開発者向けバックエンド。"
+      },
+      "colors": {
+        "principle": "最大限の可読性を実現する、高コントラストでクリーンな機能的パレット。フレンドリーなパステルティールのヒーローと、標準的なダークグレーを使用。"
+      },
+      "typography": {
+        "rules": [
+          "プライマリUIと本文テキストには Source Sans Pro を使用。",
+          "すべてのコードブロックと技術スニペットには Ubuntu Mono を使用。",
+          "厳密なテキストアラインメントと一貫したラインハイトを維持。"
+        ],
+        "scaleUses": [
+          "ヒーローヘッドライン",
+          "セクション見出し",
+          "一般テキスト",
+          "コードスニペット"
+        ]
+      },
+      "spacing": {
+        "rhythm": "標準4pxベースライングリッド。セクションにはゆったりとしたパディングを適用。"
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(0, 0, 0, 0.06) 0px 2px 5px 0px",
+          "rgba(0, 0, 0, 0.06) 0px 3px 10px 3px"
+        ],
+        "borders": "1px solid rgba(37,39,45,0.12)"
+      },
+      "layout": {
+        "skeleton": "ダッシュボードプレビュー用のワイドコンテナを持つ、中央揃えシングルカラムのランディングページレイアウト。"
+      },
+      "components": {
+        "button": "クリーンでわずかに角丸（4px）のボタン。明確なダークボーダーと微細なシャドウ。プライマリはダーク背景を使用。",
+        "card": "白色背景。微細なドロップシャドウと柔らかい角丸ボーダーラディウス。",
+        "chip": "小粒のピル型（999px ラディウス）タグ。機能リストやステータス表示に使用。",
+        "input": "明るい背景の角丸ピル型検索バー。",
+        "hero": "大胆なテキストと目立つUIスクリーンショットを持つ、大きなパステルティール背景（#b8dbd6）。"
+      },
+      "motion": {
+        "patterns": [
+          "ホバー時の滑らかな色と背景トランジション。",
+          "インタラクティブ要素のフィルターおよびボトムポジションのトランジション。"
+        ]
+      },
+      "interaction": {
+        "hover": "インタラクティブ要素上の微細な背景と色の変化。",
+        "click": "標準的なポインターフィードバック。",
+        "transition": "色、背景、フィルタープロパティに対する統一された 0.15s のトランジション。",
+        "keyboard": "クリーンなUIフレームワークに典型的な、標準的なフォーカスリングの動作。"
+      },
+      "voice": {
+        "tone": "親切で、率直、かつ開発者に焦点を当てたトーン。",
+        "headlineStyle": "コンサイスで大胆。中核の価値提案を強調。",
+        "ctaStyle": "アクション重視で簡潔（例：「ドキュメントを読む」「ライブデモ」）。",
+        "avoid": [
+          "過度なマーケティング用語や大げさな表現。",
+          "アグレッシブなセールストーンや複雑な販売ファネル。",
+          "明確な構造のない、読みにくい技術ドキュメント。"
+        ]
+      },
+      "donts": [
+        "ダークなヒーローセクションを使用しない — スクリーンショットでは明るいパステルティール（#b8dbd6）の背景が使用されている。",
+        "装飾的、遊び心のある、あるいはスクリプト系のフォントを使用しない — スクリーンショットではクリーンな humanist-sans（Source Sans Pro）とモノスペース（Ubuntu Mono）が使用されている。",
+        "重厚で発光するグラデーションを使用しない — スクリーンショットではフラットカラー、微細なシャドウ、クリーンなボーダーが使用されている。",
+        "丸みを帯びた、ふわふわしたボタンを使用しない — スクリーンショットではわずかに角丸（4px）で明確なダークボーダーを持つボタンが使用されている。",
+        "単一の高クロマアクセントカラーに依存しない — スクリーンショットではグレー、ティール、コードシンタックスカラーのバランスの取れたパレットが使用されている。",
+        "過度なアニメーションでインタフェースを雑然とさせない — スクリーンショットでは非常に静的で機能的、かつクリーンなUIが示されている。",
+        "装飾的なアイコンを使用しない — スクリーンショットではシンプルで機能的な Remixicon ラインアイコンが使用されている。"
+      ],
+      "systemPrompt": "PocketBaseは、開発者向けのシンプルなオールインワンソリュションとしてポジショニングされたオープンソースバックエンドであり、クリーンで機能的なUIが特徴。ビジュアルシステムは、パステルティールのヒーロー（#b8dbd6）、標準的なダークグレー（#25272d）、白色サーフェス（#ffffff）を基調とした、明るくアプローチしやすいパレットを使用し、単一の支配的な高クロマアクセントカラーは使用しない。タイポグラフィは、本文およびディスプレイテキストに Source Sans Pro（humanist-sans）、コードスニペットに Ubuntu Mono を使用。レイアウトは中央揃えでゆったりとしており、明瞭さと可読性を重視。重要なデザイン制約：ダークなヒーローセクションは使用しない。クリーンな humanist-sans およびモノスペースフォントに留まる。重厚なグラデーションは回避する。機能的なアイコンを使用する。4pxベースライングリッドを維持する。過度な装飾的なアニメーションは回避する。すべてのインタラクティブ要素にはクリーンでわずかに角丸のボーダーを使用する。"
+    },
+    "ko": {
+      "identity": {
+        "keywords": [
+          "오픈소스",
+          "백엔드",
+          "단순성",
+          "올인원"
+        ],
+        "analogy": "복잡한 백엔드 인프라를 단일의 접근 가능한 파일로 단순화하는, 친근하고 접근하기 쉬운 도구 모음.",
+        "oneLiner": "깔끔하고 우호적인 UI를 통해 단순성과 접근성을 강조하는, 개발자 중심 백엔드입니다."
+      },
+      "colors": {
+        "principle": "친근한 파스텔 티즈 하이라이트와 최대 가독성을 위한 표준 어두운 회색을 사용하는, 고대비, 깔끔하고 기능적인 팔레트입니다."
+      },
+      "typography": {
+        "rules": [
+          "기본 UI 및 본문 텍스트에는 Source Sans Pro를 사용합니다.",
+          "모든 코드 블록 및 기술 스니펫에는 Ubuntu Mono를 사용합니다.",
+          "엄격한 텍스트 정렬과 일관된 행 높이를 유지합니다."
+        ],
+        "scaleUses": [
+          "히어로 헤드라인",
+          "섹션 제목",
+          "일반 텍스트",
+          "코드 스니펫"
+        ]
+      },
+      "spacing": {
+        "rhythm": "풍부한 섹션 패딩을 적용한 표준 4px 기준선 그리드입니다."
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(0, 0, 0, 0.06) 0px 2px 5px 0px",
+          "rgba(0, 0, 0, 0.06) 0px 3px 10px 3px"
+        ],
+        "borders": "1px solid rgba(37,39,45,0.12)"
+      },
+      "layout": {
+        "skeleton": "대시보드 프리뷰를 위한 넓은 컨테이너가 포함된, 랜딩 페이지의 중앙 정렬 단일 컬럼 레이아웃입니다."
+      },
+      "components": {
+        "button": "명확한 어두운 테두리와 섬세한 그림자가 있는 깔끔하고 약간 둥근(4px) 버튼; 주요 버튼은 어두운 배경을 사용합니다.",
+        "card": "섬세한 그림자와 부드럽고 둥근 테두리 반경이 있는 흰색 배경.",
+        "chip": "기능 목록 및 상태 표시를 위한 작고 알약 모양의 태그(반경 999px).",
+        "input": "밝은 배경의 둥근 알약 모양 검색창.",
+        "hero": "굵은 텍스트와 돋보이는 UI 스크린샷이 있는, 큰 파스텔 티즈 배경(#b8dbd6)."
+      },
+      "motion": {
+        "patterns": [
+          "hover 시 부드러운 색상 및 배경 전환.",
+          "인터랙티브 요소를 위한 필터 및 하단 위치 전환."
+        ]
+      },
+      "interaction": {
+        "hover": "인터랙티브 요소의 미세한 배경 및 색상 변화.",
+        "click": "표준 포인터 피드백.",
+        "transition": "색상, 배경, 필터 속성을 위한 통합 0.15s 전환.",
+        "keyboard": "깔끔한 UI 프레임워크에 일반적인 표준 focus ring 동작."
+      },
+      "voice": {
+        "tone": "도움이 되고, 직접적이며, 개발자 중심적.",
+        "headlineStyle": "핵심 가치 제안을 강조하는 간결하고 굵은 텍스트.",
+        "ctaStyle": "행동 지향적이고 직관적인 (예: '문서 읽기', '실시간 데모').",
+        "avoid": [
+          "지나치게 많은 마케팅 용어나 화려한 표현.",
+          "공격적인 판매 톤이나 복잡한 판매 퍼널.",
+          "명확한 구조 없이 밀도 높고 읽기 힘든 기술 문서."
+        ]
+      },
+      "donts": [
+        "어두운 히어로 섹션을 사용하지 마세요 — 스크린샷에서는 밝은 파스텔 티즈(#b8dbd6) 배경을 대신 사용합니다.",
+        "장식적, 장난스럽거나 스크립트 폰트를 사용하지 마세요 — 스크린샷은 깔끔한 humanist-sans(Source Sans Pro)와 monospace(Ubuntu Mono)를 사용합니다.",
+        "무거운, 빛나는 그래디언트를 사용하지 마세요 — 스크린샷은 플랫 컬러, 미세한 그림자, 깔끔한 테두리를 사용합니다.",
+        "둥글고 통통한 버튼을 사용하지 마세요 — 스크린샷은 명확한 어두운 테두리가 있는 약간 둥근(4px) 버튼을 사용합니다.",
+        "단일 고채도 강조색에 의존하지 마세요 — 스크린샷은 회색, 티즈 및 코드 구문 색상의 균형 잡힌 팔레트를 사용합니다.",
+        "과도한 애니메이션으로 인터페이스를 어지럽히지 마세요 — 스크린샷은 매우 정적이고 기능적이며 깔끔한 UI를 보여줍니다.",
+        "장식적 아이콘을 사용하지 마세요 — 스크린샷은 간단하고 기능적인 Remixicon 라인 아이콘을 사용합니다."
+      ],
+      "systemPrompt": "PocketBase는 개발자를 위한 간단하고 올인원 솔루션으로 포지셔닝된 오픈소스 백엔드이며, 깔끔하고 기능적인 UI를 특징으로 합니다. 이 시각 시스템은 파스텔 티즈 하이라이트(#b8dbd6), 표준 어두운 회색(#25272d), 그리고 흰색 서피스(#ffffff)로 구성된 밝고 접근하기 쉬운 팔레트를 사용하며, 단일한 지배적인 고채도 강조색은 없습니다. 타이포그래피는 본문 및 전시 텍스트에 Source Sans Pro(humanist-sans), 코드 스니펫에 Ubuntu Mono를 사용합니다. 레이아웃은 중앙 정렬되어 있으며 여유롭게, 명확성과 가독성을 강조합니다. 중요한 디자인 제약 조건: 어두운 히어로 섹션 사용 금지; 깔끔한 humanist-sans 및 monospace 폰트 사용; 무거운 그래디언트 사용 금지; 기능적 아이콘 사용; 4px 기준선 그리드 유지; 과도하거나 장식적인 애니메이션 사용 금지; 모든 인터랙티브 요소가 깔끔하고 약간 둥근 테두리를 사용하도록 보장합니다."
+    }
+  },
+  "desc": {
+    "en": {
+      "palette": "A clean, functional palette dominated by white, dark grays, and a friendly pastel teal hero.",
+      "layout": "Centered, single-column landing page with generous whitespace and a prominent, wide UI preview.",
+      "interaction": "Minimalist and functional, focusing on clear hover states and fast, subtle transitions.",
+      "motion": "Strictly utility-focused, using short, consistent durations for basic color and filter changes.",
+      "notes": "Excellent example of a developer-focused tool that balances technical utility with a highly approachable, clean, and friendly visual language."
+    },
+    "zh-CN": {
+      "palette": "一个干净、功能性的调色板，以白色、深灰色和友好的柔和青色主色调为主。",
+      "layout": "居中的单栏落地页布局，留有充足的白色空间和一个突出、宽幅的界面预览。",
+      "interaction": "极简且功能导向，专注于清晰的 hover 状态和快速、细微的过渡效果。",
+      "motion": "严格以实用为导向，使用简短、一致的时长进行基本的颜色和滤镜变化。",
+      "notes": "这是一个开发者工具优秀范例，平衡了技术实用性与高度平易近人、干净且友好的视觉语言。"
+    },
+    "zh-TW": {
+      "palette": "以白色、深灰色為主的簡潔功能性調色盤，搭配友好的粉彩青綠色主視覺。",
+      "layout": "居中單欄登陸頁，留白充裕，配以顯眼的寬幅 UI 預覽。",
+      "interaction": "極簡且注重功能，聚焦清晰的 hover 狀態與快速、細微的過渡效果。",
+      "motion": "嚴格以實用為導向，使用短暫且一致的持續時間，用於基礎顏色與濾鏡變更。",
+      "notes": "這是開發者導向工具的優秀範例，在技術實用性與高度親和、簡潔、友善的視覺語言之間取得平衡。"
+    },
+    "ja": {
+      "palette": "白、ダークグレー、フレンドリーなパステルティールのヒーローを主体とした、クリーンで機能的なカラーパレット。",
+      "layout": "中央揃えのシングルカラムランディングページ。ゆったりとしたホワイトスペースと、目立つワイドなUIプレビューが特徴。",
+      "interaction": "ミニマルかつ機能重視。明確なホバー状態と、高速で目立たないトランジションに焦点を当てています。",
+      "motion": "純粋にユーティリティに焦点を当て、基本的な色やフィルターの変化に短く一貫した Duration を使用。",
+      "notes": "技術的なユーティリティと、非常にアプローチしやすくクリーンでフレンドリーなビジュアル言語のバランスが取れた、開発者向けツールの優れた例。"
+    },
+    "ko": {
+      "palette": "흰색, 어두운 회색, 그리고 친근한 파스텔 티즈 하이라이트가 주도하는 깔끔하고 기능적인 팔레트입니다.",
+      "layout": "풍부한 여백과 넓은 UI 프리뷰가 돋보이는, 중앙 정렬 단일 컬럼 랜딩 페이지입니다.",
+      "interaction": "미니멀하고 기능적이며, 명확한 hover 상태와 빠르고 섬세한 전환에 초점을 맞춥니다.",
+      "motion": "엄격하게 기능에 초점을 맞추며, 기본적인 색상 및 필터 변경을 위한 짧고 일관된 지속 시간을 사용합니다.",
+      "notes": "개발자 중심 도구가 기능적 유용성과 매우 친근하고 깔끔하며 우호적인 시각 언어를 어떻게 균형 있게 구현하는지 보여주는 훌륭한 예시입니다."
+    }
+  },
+  "_meta": {
+    "vision_model": "mimo-v2.5",
+    "vision_prompt_version": "0.3",
+    "vision_source": "playwright-extract:pocketbase",
+    "vision_grounded": true,
+    "vision_at": "2026-06-04T17:52:37+00:00",
+    "vision_tokens": 16449,
+    "vision_cost_usd": 0.1828,
+    "translation_model": "mimo-v2.5",
+    "translation_at": "2026-06-04T17:54:00+00:00",
+    "translation_tokens": 18330,
+    "translation_cost_usd": 0.0611,
+    "narrative_model": "mimo-v2.5",
+    "narrative_prompt_version": "0.3",
+    "narrative_at": "2026-06-04T17:54:07+00:00",
+    "narrative_tokens": 2189,
+    "narrative_cost_usd": 0.0146,
+    "narrative_status": "ok",
+    "total_cost_usd": 0.2585
+  },
+  "narrative": {
+    "en": {
+      "ch1_intro": "PocketBase operates like a well-organized toolbox: it consolidates complex backend infrastructure into a single, manageable file. Its design DNA reflects this, prioritizing clarity, approachability, and functional simplicity over decorative flair. The result is a system that feels both technically capable and welcoming to the developer at the terminal.",
+      "ch2_intro": "The color system is built on a foundation of high-contrast neutrality, using dark grays and white for maximum readability. A friendly pastel teal serves as the primary hero color, creating a welcoming and distinct entry point without overwhelming the functional interface.",
+      "ch2_outro": "The guiding principle is balance—using a single, soft chromatic accent against a disciplined neutral canvas to achieve both warmth and clarity.",
+      "ch3_intro": "Typography is assigned clear roles: the humanist sans-serif Source Sans Pro carries the primary UI and body text with a clean, readable voice, while the monospaced Ubuntu Mono provides a technical counterpoint for all code and snippet contexts. The scale is pragmatic, distinguishing between hero headlines, section headers, general text, and technical content.",
+      "ch4_intro": "Spacing adheres to a standard 4px baseline grid, creating a consistent and predictable rhythm throughout the interface.",
+      "ch5_intro": "Surfaces are defined by lightness and subtle depth, using clean white backgrounds with soft, rounded borders. A consistent shadow system provides just enough elevation to separate content without visual weight.",
+      "ch6_intro": "The layout skeleton is a centered, single-column structure for the core landing experience, promoting focused reading. This narrow column then gives way to a wide container for dashboard previews, demonstrating the system's flexibility within a clean framework.",
+      "ch7_intro": "Motion is strictly utilitarian, serving only to confirm interaction and state change. Transitions are brief and uniform, focused on color, background, and filter properties to provide immediate, functional feedback.",
+      "ch8_intro": "The editorial voice is helpful, direct, and tailored for a developer audience. It favors concise, bold headlines and action-oriented calls to action, stripping away marketing abstraction to focus on utility and documentation.",
+      "ch8_outro": "The system deliberately excludes decorative typography, heavy gradients, and aggressive sales narratives, trusting in functional clarity to communicate value."
+    },
+    "zh-CN": {
+      "ch1_intro": "PocketBase 就像一个组织有序的工具箱：它将复杂的后端基础设施整合到一个易于管理的文件中。其设计 DNA 体现了这一点，优先考虑清晰度、易用性和功能简洁性，而非装饰性的华丽。最终呈现的是一个在技术上足够强大，同时对终端开发者又十分友好的系统。",
+      "ch2_intro": "色彩系统建立在高对比度的中性基调之上，使用深灰与白色以实现最佳可读性。一种友好的柔和青色作为主色调，营造出一个既友好又独特的入口点，而不会压倒功能性界面。",
+      "ch2_outro": "指导原则是平衡——在严谨的中性画布上，使用单一、柔和的色彩点缀，以实现温暖与清晰的统一。",
+      "ch3_intro": "字体被赋予明确的角色：人文无衬线字体 Source Sans Pro 以清晰、易读的风格承载主要界面与正文，而等宽字体 Ubuntu Mono 则为所有代码和代码片段场景提供技术性的对比。字体规模是实用的，区分了主标题、章节标题、通用文本和技术内容。",
+      "ch4_intro": "间距遵循标准的 4px 基线网格，在整个界面中创造一致且可预测的节奏。",
+      "ch5_intro": "界面表面由明度和微妙的层次感定义，使用洁净的白色背景搭配柔和的圆角边框。一致的阴影系统提供了恰到好处的层级感，用以分隔内容而不增加视觉负担。",
+      "ch6_intro": "布局骨架是为着陆页核心体验设计的居中单栏结构，以促进专注阅读。这个窄栏随后让位给用于仪表板预览的宽容器，在简洁的框架内展示了系统的灵活性。",
+      "ch7_intro": "动效严格遵循实用主义，仅用于确认交互与状态变化。过渡效果短暂且统一，聚焦于颜色、背景和 filter 属性，以提供即时、功能性的反馈。",
+      "ch8_intro": "编辑语调是乐于助人、直接且为开发者受众量身定制的。它倾向于简洁、大胆的标题和行动导向的号召，剥离营销抽象，专注于实用性与文档。",
+      "ch8_outro": "该系统刻意摒弃了装饰性排版、厚重的渐变和激进的销售叙事，相信功能性清晰度本身就能传递价值。"
+    },
+    "zh-TW": {
+      "ch1_intro": "PocketBase 運作起來就像一個組織有序的工具箱：它將複雜的後端基礎設施整合成單一、易於管理的檔案。其設計 DNA 反映了這一點，優先考慮清晰度、親和力和功能性簡潔，而非裝飾性花俏。最終成果是一個在技術上既強大，又對終端機前的開發者保持友善的系統。",
+      "ch2_intro": "色彩系統建立在高對比中性的基礎上，使用深灰與白色以達到最佳可讀性。友好的粉彩藍綠色作為主要的主色調，營造出 welcoming 且獨特的入口點，同時不壓倒功能性的介面。",
+      "ch2_outro": "指導原則是平衡——使用單一、柔和的色彩強調色，搭配嚴謹的中性畫布，以同時達成溫暖感與清晰度。",
+      "ch3_intro": "字型被賦予明確的角色：人文無襯線體 Source Sans Pro 以其乾淨、易讀的語調承擔主要的 UI 與內文字型；而等寬字型 Ubuntu Mono 則為所有程式碼與程式碼片段情境提供技術性的對照。字型尺度務實地加以區分，涵蓋主標題、章節標題、一般文字與技術內容。",
+      "ch4_intro": "間距遵循標準的 4px 基線網格，為整個介面創造一致且可預期的節奏。",
+      "ch5_intro": "表面由亮度和細微的深度來定義，採用乾淨的白色背景搭配柔和、圓角的邊框。一致的陰影系統提供恰到好處的層次感，以分離內容，同時避免視覺上的沉重感。",
+      "ch6_intro": "版面架構的核心登陸體驗採用置中、單欄結構，以促進專注閱讀。隨後，窄欄讓位給寬容器，用於儀表板預覽，展示系統在簡潔框架內的靈活性。",
+      "ch7_intro": "動效嚴格遵循實用主義，僅用於確認互動與狀態變化。轉場效果簡短且統一，專注於 color、background 與 filter 屬性，以提供立即、功能性的回饋。",
+      "ch8_intro": "編輯語調 helpful、直接，並為開發者受眾量身打造。它偏愛簡潔、粗體的標題和以行動為導向的號召性用語，剝除行銷術語的抽象，專注於實用性與文件說明。",
+      "ch8_outro": "此系統刻意排除裝飾性字型、厚重的漸層以及 aggressive 的銷售敘事，相信功能性的清晰度本身即能傳達價值。"
+    },
+    "ja": {
+      "ch1_intro": "PocketBaseは、整然と管理されたツールボックスのように動作します。複雑なバックエンド基盤を単一で管理可能なファイルに統合しています。そのデザインDNAはこの性質を反映し、装飾的な華やかさよりも、明確さ、親しみやすさ、機能的なシンプルさを優先しています。結果として、ターミナルに向かう開発者にとって技術的にも十分な能力を持ちながら、歓迎の念を感じさせるシステムが生まれました。",
+      "ch2_intro": "カラーシステムは、ダークグレーと白を用いた高コントラクトの中立性を基盤として構築され、最大限の可読性を実現しています。フレンドリーなパステルティールがプライマリヒーローカラーとして機能し、機能的なインターフェースを圧倒することなく、歓迎の意と独自の入口を提供します。",
+      "ch2_outro": "導かれる原則はバランスです。規律ある中立的なキャンバスに対して単一のソフトなクロマティックアクセントを用いることで、温かさと明確さの両方を達成しています。",
+      "ch3_intro": "タイポグラフィには明確な役割が与えられています。ヒューマニストサンセリフのSource Sans Proは、クリーンで可読性の高い声で、プライマリUIと本文テキストを担います。等幅のUbuntuMonoは、すべてのコードおよびスニペットコンテキストにおいて、技術的な対比を提供します。この段階は実用的であり、ヒーローヘッドライン、セクション見出し、一般テキスト、技術コンテンツを区別しています。",
+      "ch4_intro": "スペーシングは標準の4pxベースライングリッドに従い、インターフェース全体に一貫して予測可能なリズムを生み出しています。",
+      "ch5_intro": "サーフェスは明るさと微かな奥行きで定義され、クリーンな白背景にソフトで丸みのあるボーダーを使用しています。一貫したシャドウシステムは、ビジュアルウェイトを加えることなく、コンテンツを分離するために必要な最小限の高みを提供します。",
+      "ch6_intro": "レイアウトの骨格は、集中した単一カラム構造であり、コアのランディング体験を促進し、没入した読書を可能にします。この狭いカラムはその後、ダッシュボードプレビューのためのワイドコンテナへと道を譲り、クリーンなフレームワーク内でのシステムの柔軟性を実証します。",
+      "ch7_intro": "モーションは厳密にユーティリタリアンであり、インタラクションと状態変化の確認のみに役立ちます。トランジションは短く均一であり、カラー、背景、フィルタプロパティに焦点を当て、即座の機能的フィードバックを提供します。",
+      "ch8_intro": "エディトリアルボイスは、開発者オーディエンスに合わせて、役に立ち、直接的です。簡潔で大胆な見出しとアクションを重視したCTAを好み、マーケティングの抽象表現を削ぎ落とし、実用性とドキュメントに焦点を当てます。",
+      "ch8_outro": "このシステムは意図的に、装飾的なタイポグラフィ、重いグラデーション、攻撃的なセールスナラティブを排除しており、機能的な明確さが価値を伝えること任せています。"
+    },
+    "ko": {
+      "ch1_intro": "PocketBase는 잘 정리된 도구 상자처럼 작동합니다: 복잡한 백엔드 인프라를 하나의 관리 가능한 파일로 통합합니다. 그 설계 DNA는 이를 반영하여, 장식적인 화려함보다 명확성, 접근성, 기능적 단순성을 우선시합니다. 그 결과, 터미널 앞에서 기술적으로 유능하면서도 개발자에게 친근하게 느껴지는 시스템이 탄생했습니다.",
+      "ch2_intro": "컬러 시스템은 고대비 중립성을 기반으로 구축되어, 최대 가독성을 위해 짙은 회색과 흰색을 사용합니다. 친근한 파스텔 틸이 주요 히어로 컬러로 사용되어, 기능적인 인터페이스를 압도하지 않으면서도 환영받는 뚜렷한 진입점을 만듭니다.",
+      "ch2_outro": "지배적인 원칙은 균형입니다: 절제된 중립적인 캔버스 위에 단 하나의 부드러운 색조 악센트를 사용하여 따뜻함과 명확성을 동시에 달성합니다.",
+      "ch3_intro": "타이포그래피는 명확한 역할을 부여받습니다: 휴머니스트 산세리프 Source Sans Pro는 깨끗하고 읽기 쉬운 음성으로 주요 UI와 본문 텍스트를 담당하며, 모노스페이스 Ubuntu Mono는 모든 코드 및 스니펫 컨텍스트에 기술적인 대조를 제공합니다. 축척은 실용적이며, 히어로 헤드라인, 섹션 제목, 일반 텍스트, 기술적 콘텐츠를 구별합니다.",
+      "ch4_intro": "간격은 표준 4px 기준선 그리드를 준수하여, 인터페이스 전체에 일관되고 예측 가능한 리듬을 만듭니다.",
+      "ch5_intro": "표면은 밝음과 미묘한 깊이로 정의됩니다. 깨끗한 흰색 배경에 부드럽고 둥근 테두리를 사용합니다. 일관된 그림자 시스템은 시각적 무게감 없이 콘텐츠를 분리하기에 충분한 높이감을 제공합니다.",
+      "ch6_intro": "레이아웃 스켈레톤은 핵심 랜딩 경험을 위한 중앙 정렬 단일 열 구조로, 집중적인 독서를 촉진합니다. 이 좁은 열은 이후 대시보드 미리보기를 위한 넓은 컨테이너로 확장되어, 깨끗한 프레임워크 내에서 시스템의 유연성을 보여줍니다.",
+      "ch7_intro": "모션은 엄격하게 실용적이어서, 오직 상호작용과 상태 변화를 확인하는 데에만 사용됩니다. 트랜지션은 짧고 일관적이며, 즉각적이고 기능적인 피드백을 위해 색상, 배경, 필터 속성에 초점을 맞춥니다.",
+      "ch8_intro": "에디토리얼 음성은 유용하고 직접적이며 개발자 대상에 맞춰져 있습니다. 간결하고 대담한 헤드라인과 행동 지향적인 CTA를 선호하며, 마케팅적 추상성을 제거하고 유용성 및 문서화에 집중합니다.",
+      "ch8_outro": "시스템은 의도적으로 장식적 타이포그래피, 무거운 그라디언트, 공격적인 판매 내러티브를 배제하며, 기능적 명확성이 가치를 전달할 수 있다고 신뢰합니다."
+    }
+  }
 }

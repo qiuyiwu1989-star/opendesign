@@ -8,6 +8,631 @@
     "publishing",
     "newsletter"
   ],
-  "status": "pending",
-  "added_at": "2026-06-03"
+  "status": "completed",
+  "added_at": "2026-06-03",
+  "spec": {
+    "colors": {
+      "bg": "#FFFFFF",
+      "bgSoft": "#F4F4F4",
+      "bgQuiet": "#EEEEEE",
+      "ink": "#363737",
+      "inkSoft": "#777777",
+      "muted": "#999999",
+      "mutedSoft": "#C8C8C8",
+      "accent": "#FF6719",
+      "line": "rgba(0,0,0,0.1)"
+    },
+    "typography": {
+      "display": "transitional-serif",
+      "body": "humanist-sans",
+      "mono": "monospace",
+      "scale": [
+        {
+          "token": "display",
+          "size": 40,
+          "lh": 1.1,
+          "weight": 600,
+          "ls": "-0.5px"
+        },
+        {
+          "token": "h1",
+          "size": 24,
+          "lh": 1.2,
+          "weight": 600,
+          "ls": "0px"
+        },
+        {
+          "token": "h2",
+          "size": 20,
+          "lh": 1.3,
+          "weight": 600,
+          "ls": "0px"
+        },
+        {
+          "token": "body",
+          "size": 15,
+          "lh": 1.35,
+          "weight": 400,
+          "ls": "0px"
+        },
+        {
+          "token": "caption",
+          "size": 13,
+          "lh": 1.3,
+          "weight": 400,
+          "ls": "0px"
+        }
+      ]
+    },
+    "spacing": {
+      "base": 4,
+      "scale": [
+        4,
+        8,
+        12,
+        16,
+        20,
+        24,
+        32,
+        48
+      ]
+    },
+    "surfaces": {
+      "radius": {
+        "sm": 4,
+        "md": 8,
+        "lg": 12,
+        "pill": 9999
+      }
+    },
+    "layout": {
+      "container": 1280,
+      "paragraph": 680,
+      "columns": 12,
+      "gutter": 24,
+      "breakpoints": [
+        768,
+        1024
+      ]
+    },
+    "motion": {
+      "durations": {
+        "micro": 220,
+        "small": 250,
+        "medium": 400
+      },
+      "easing": "cubic-bezier(0.19, 1, 0.22, 1)"
+    }
+  },
+  "spec_i18n": {
+    "en": {
+      "identity": {
+        "keywords": [
+          "publishing",
+          "newsletter",
+          "creator",
+          "community"
+        ],
+        "analogy": "A clean, editorial-focused platform that feels like a modern, digital magazine or a curated feed for independent writers and readers.",
+        "oneLiner": "A clean, content-first publishing platform with a bold orange accent and a focus on readability."
+      },
+      "colors": {
+        "principle": "White background with high-contrast ink for readability; a single, vibrant orange accent provides energy and call-to-action focus."
+      },
+      "typography": {
+        "rules": [
+          "Use the serif font family for prominent headlines and editorial display.",
+          "Use the system sans-serif stack for body text, navigation, and UI elements.",
+          "Maintain clear hierarchy through size and weight differences between titles and body."
+        ],
+        "scaleUses": [
+          "Hero headlines",
+          "Section titles",
+          "Post titles",
+          "Body text and post content",
+          "Metadata, timestamps, small labels"
+        ]
+      },
+      "spacing": {
+        "rhythm": "Consistent 8px-based vertical rhythm for spacing between elements, with 4px increments for tighter gaps."
+      },
+      "surfaces": {
+        "shadows": [
+          "0 1px 0 0 rgba(255,255,255,0.2) inset, 0 -1px 0 0 rgba(0,0,0,0.1) inset",
+          "0 2px 4px -1px rgba(0,0,0,0.06), 0 4px 6px -1px rgba(0,0,0,0.1)"
+        ],
+        "borders": "1px solid rgba(0,0,0,0.1)"
+      },
+      "layout": {
+        "skeleton": "Fixed left sidebar navigation (desktop), central feed column, right sidebar for login/search (desktop); single-column stack with bottom navigation (mobile)."
+      },
+      "components": {
+        "button": "Solid orange for primary CTAs ('Create', 'Start your Substack'); secondary buttons use white background with a subtle border or light grey fill.",
+        "card": "Feed items are separated by thin borders, featuring an author avatar, metadata, text content, media, and an action bar (like, comment, share).",
+        "chip": "Minimal use; the 'Subscribe' text acts as a secondary action link.",
+        "input": "Search fields use a clean white background with a subtle border and rounded corners.",
+        "hero": "A large, dark teal banner with a serif headline and two distinct CTA options (solid orange button vs. white text link)."
+      },
+      "motion": {
+        "patterns": [
+          "Smooth 250ms transitions for color, background-color, and border properties on interactive elements.",
+          "Transform transitions for hover states.",
+          "No complex animations; motion is subtle and functional."
+        ]
+      },
+      "interaction": {
+        "hover": "Subtle background-color or text-color changes on interactive elements like links and buttons.",
+        "click": "Immediate feedback via standard browser focus states.",
+        "transition": "All transitions follow the 250ms cubic-bezier(0.19, 1, 0.22, 1) curve for a smooth, slightly bouncy feel.",
+        "keyboard": "Standard focus outlines for accessibility."
+      },
+      "voice": {
+        "tone": "Confident, straightforward, and creator-focused.",
+        "headlineStyle": "Concise and empowering, often using a serif font for a more editorial feel.",
+        "ctaStyle": "Direct and action-oriented, using clear verbs like 'Start', 'Sign in', 'Log in'.",
+        "avoid": [
+          "Overly casual slang",
+          "Technical jargon",
+          "Hype words"
+        ]
+      },
+      "donts": [
+        "Don't use a dark theme — the screenshot shows a predominantly white background with light grey accents.",
+        "Don't use multiple accent colors — the screenshot shows orange as the single, dominant high-chroma color.",
+        "Don't use rounded cards for the main feed — the screenshot shows items separated by simple horizontal lines.",
+        "Don't use a sans-serif font for major headlines — the screenshot shows serif fonts (like Cahuenga/Spectral) for display text.",
+        "Don't use heavy, drop shadows on cards — the screenshot shows very subtle or no shadows on feed items.",
+        "Don't use a dense, multi-column grid for content — the screenshot shows a single, focused column for the main feed.",
+        "Don't use decorative elements or illustrations in the UI — the screenshot shows a clean, functional layout with icons and photos only."
+      ],
+      "systemPrompt": "This design is for a publishing and newsletter platform. It prioritizes readability and content discovery with a clean, white-background layout. The primary accent is a vibrant orange (#FF6719) used for CTAs and branding. Typography uses a mix of a serif font (like Cahuenga or Spectral) for display headlines and a system sans-serif stack for body text. The layout features a fixed sidebar (desktop), a central feed, and a right sidebar for login, transitioning to a single-column mobile layout with bottom navigation. Critical don'ts: don't use dark mode, don't introduce multiple accent colors, and don't use complex animations."
+    },
+    "zh-CN": {
+      "identity": {
+        "keywords": [
+          "发布",
+          "新闻通讯",
+          "创作者",
+          "社区"
+        ],
+        "analogy": "一个专注于编辑内容的简洁平台，给人感觉像是一本现代数字杂志，或为独立作家和读者策划的信息流。",
+        "oneLiner": "一个简洁、内容优先的发布平台，以醒目的橙色为点缀，专注于可读性。"
+      },
+      "colors": {
+        "principle": "采用白色背景与高对比度文字以确保可读性；单一的鲜亮橙色点缀用于提升活力并聚焦行动号召。"
+      },
+      "typography": {
+        "rules": [
+          "重要标题和编辑展示使用衬线字体族。",
+          "正文、导航和UI元素使用系统无衬线字体栈。",
+          "通过标题与正文在字号和字重上的差异来维持清晰的层次结构。"
+        ],
+        "scaleUses": [
+          "主标题",
+          "板块标题",
+          "文章标题",
+          "正文和文章内容",
+          "元数据、时间戳、小标签"
+        ]
+      },
+      "spacing": {
+        "rhythm": "元素间采用基于8px的统一垂直节奏，更紧凑的间距则以4px为增量。"
+      },
+      "surfaces": {
+        "shadows": [
+          "0 1px 0 0 rgba(255,255,255,0.2) inset, 0 -1px 0 0 rgba(0,0,0,0.1) inset",
+          "0 2px 4px -1px rgba(0,0,0,0.06), 0 4px 6px -1px rgba(0,0,0,0.1)"
+        ],
+        "borders": "1px solid rgba(0,0,0,0.1)"
+      },
+      "layout": {
+        "skeleton": "桌面端：固定左侧导航栏、中央信息流栏、右侧登录/搜索栏；移动端：单栏堆叠式布局，配有底部导航。"
+      },
+      "components": {
+        "button": "主要行动号召按钮（如‘创建’、‘开始你的Substack’）采用实心橙色；次要按钮使用白色背景，配以细微边框或浅灰色填充。",
+        "card": "信息流项目由细边框分隔，包含作者头像、元数据、文本内容、媒体以及操作栏（点赞、评论、分享）。",
+        "chip": "极少使用；‘订阅’文本作为次要操作链接存在。",
+        "input": "搜索框使用干净的白色背景，配以细微边框和圆角。",
+        "hero": "大型深青色横幅，包含衬线标题和两个明确的行动号召选项（实心橙色按钮 vs. 白色文字链接）。"
+      },
+      "motion": {
+        "patterns": [
+          "交互元素的颜色、背景色和边框属性过渡采用平滑的250毫秒过渡。",
+          "悬停状态使用Transform过渡。",
+          "无复杂动画；动效保持含蓄且实用。"
+        ]
+      },
+      "interaction": {
+        "hover": "链接和按钮等交互元素在悬停时有细微的背景色或文字颜色变化。",
+        "click": "通过标准的浏览器焦点状态提供即时反馈。",
+        "transition": "所有过渡均遵循250毫秒 cubic-bezier(0.19, 1, 0.22, 1) 曲线，实现流畅且略带弹性的效果。",
+        "keyboard": "使用标准焦点轮廓以确保可访问性。"
+      },
+      "voice": {
+        "tone": "自信、直接、以创作者为中心。",
+        "headlineStyle": "简洁有力，常使用衬线字体以增强编辑感。",
+        "ctaStyle": "直接且以行动为导向，使用清晰的动词，如‘开始’、‘登录’、‘注册’。",
+        "avoid": [
+          "过于随意的俚语",
+          "技术术语",
+          "炒作性词汇"
+        ]
+      },
+      "donts": [
+        "不要使用深色主题——截图显示的是以白色为主、浅灰色为辅的背景。",
+        "不要使用多种点缀色——截图显示橙色是唯一的主导高饱和度颜色。",
+        "不要为信息流中的主要卡片使用圆角设计——截图显示项目由简单的水平线分隔。",
+        "不要为重要标题使用无衬线字体——截图显示展示性文字使用衬线字体（如Cahuenga/Spectral）。",
+        "不要在卡片上使用厚重的投影——截图显示信息流项目上的投影非常细微或无投影。",
+        "不要使用密集的多栏网格布局来呈现内容——截图显示主要信息流为单一、聚焦的栏。",
+        "不要在UI中使用装饰性元素或插图——截图显示的是仅包含图标和照片的干净、功能化布局。"
+      ],
+      "systemPrompt": "此设计用于发布和新闻通讯平台。它采用干净的白色背景布局，优先考虑可读性和内容发现。主要点缀色为鲜亮的橙色（#FF6719），用于行动号召和品牌标识。字体方面，展示性标题使用衬线字体（如Cahuenga或Spectral），正文使用系统无衬线字体栈。布局上，桌面端为固定侧边栏、中央信息流和右侧登录栏，移动端则转为带底部导航的单栏布局。关键禁忌：不要使用深色模式，不要引入多种点缀色，不要使用复杂动画。"
+    },
+    "zh-TW": {
+      "identity": {
+        "keywords": [
+          "發布",
+          "電子報",
+          "創作者",
+          "社群"
+        ],
+        "analogy": "一個簡潔、以編輯為核心的平台，彷彿現代數位雜誌或為獨立作者與讀者策展的資訊流。",
+        "oneLiner": "一款簡潔、內容優先的發布平台，以大膽橙色強調色與可讀性為核心。"
+      },
+      "colors": {
+        "principle": "白色背景搭配高對比墨色文字以確保可讀性；單一鮮明的橙色強調色提供活力與行動呼籲焦點。"
+      },
+      "typography": {
+        "rules": [
+          "使用襯線字體系列作為顯著標題與編輯展示用途。",
+          "使用系統無襯線字體組合處理內文、導覽與介面元素。",
+          "透過標題與內文之間的尺寸與字重差異，維持清晰的層級關係。"
+        ],
+        "scaleUses": [
+          "橫幅標題",
+          "章節標題",
+          "文章標題",
+          "內文與文章內容",
+          "中繼資料、時間戳記、小型標籤"
+        ]
+      },
+      "spacing": {
+        "rhythm": "元素間採用一致的 8px 基礎垂直節奏，較緊密的間距使用 4px 增量。"
+      },
+      "surfaces": {
+        "shadows": [
+          "0 1px 0 0 rgba(255,255,255,0.2) inset, 0 -1px 0 0 rgba(0,0,0,0.1) inset",
+          "0 2px 4px -1px rgba(0,0,0,0.06), 0 4px 6px -1px rgba(0,0,0,0.1)"
+        ],
+        "borders": "1px solid rgba(0,0,0,0.1)"
+      },
+      "layout": {
+        "skeleton": "桌面端採用固定左側導覽側邊欄、中央資訊流欄位、右側用於登入/搜尋的側邊欄；手機端則為單欄堆疊式佈局並搭配底部導覽。"
+      },
+      "components": {
+        "button": "主要行動呼籲使用實心橙色（如「建立」、「開始你的 Substack」）；次要按鈕採用白色背景搭配細微邊框或淺灰色填充。",
+        "card": "資訊流項目以細線分隔，包含作者頭像、中繼資料、文字內容、媒體及操作列（讚、留言、分享）。",
+        "chip": "極少使用；「訂閱」文字作為次要操作連結。",
+        "input": "搜尋欄位採用簡潔白色背景、細微邊框與圓角設計。",
+        "hero": "大型深青綠色橫幅，搭配襯線字體標題與兩種明確的行動呼籲選項（實心橙色按鈕 vs. 白色文字連結）。"
+      },
+      "motion": {
+        "patterns": [
+          "互動元素的顏色、背景色與邊框屬性採用流暢的 250ms 過渡效果。",
+          "hover 狀態使用變形過渡。",
+          "不採用複雜動畫；動態效果低調且具功能性。"
+        ]
+      },
+      "interaction": {
+        "hover": "連結與按鈕等互動元素透過細微的背景色或文字顏色變化提供回應。",
+        "click": "透過標準瀏覽器 focus 狀態提供即時回饋。",
+        "transition": "所有過渡遵循 250ms cubic-bezier(0.19, 1, 0.22, 1) 曲線，營造流暢略帶彈性的感受。",
+        "keyboard": "採用標準的焦點外框以符合無障礙需求。"
+      },
+      "voice": {
+        "tone": "自信、直接、以創作者為核心。",
+        "headlineStyle": "簡潔且具啟發性，常使用襯線字體以強化編輯感。",
+        "ctaStyle": "直接導向行動，使用清晰動詞如「開始」、「登入」、「簽到」。",
+        "avoid": [
+          "過度隨意的俚語",
+          "技術術語",
+          "誇飾用語"
+        ]
+      },
+      "donts": [
+        "不使用深色主題——截圖顯示為以白色為主背景並搭配淺灰色調。",
+        "不使用多種強調色——截圖顯示橙色作為單一主導高飽和度色彩。",
+        "主要資訊流不使用圓角卡片——截圖顯示項目以簡單水平線分隔。",
+        "主要標題不使用無襯線字體——截圖顯示展示文字使用襯線字體（如 Cahuenga/Spectral）。",
+        "卡片不使用厚重陰影——截圖顯示資訊流項目陰影非常細微或無陰影。",
+        "內容不使用密集的多欄格線佈局——截圖顯示主要資訊流採用單一聚焦欄位。",
+        "UI 中不使用裝飾性元素或插圖——截圖顯示佈局簡潔功能化，僅使用圖示與照片。"
+      ],
+      "systemPrompt": "此設計用於發布與電子報平台。以簡潔白色背景佈局優先考量可讀性與內容探索。主要強調色為鮮明橙色（#FF6719），用於行動呼籲與品牌識別。字體組合採用襯線字體（如 Cahuenga 或 Spectral）作為展示標題，並搭配系統無襯線字體組合處理內文。佈局包含固定側邊欄（桌面端）、中央資訊流與右側登入側邊欄，手機端轉換為單欄佈局並搭配底部導覽。關鍵禁忌：不使用深色模式、不引入多種強調色、不使用複雜動畫。"
+    },
+    "ja": {
+      "identity": {
+        "keywords": [
+          "出版",
+          "ニュースレター",
+          "クリエイター",
+          "コミュニティ"
+        ],
+        "analogy": "現代的なデジタルマガジンや、インデペンデントなライターと読者のためのキュレーションされたフィードのように感じられる、クリーンでエディトリアルに焦点を当てたプラットフォーム。",
+        "oneLiner": "大胆なオレンジアクセントと読みやすさに焦点を当てた、クリーンなコンテンツファーストの出版プラットフォーム。"
+      },
+      "colors": {
+        "principle": "可読性のために白背景と高コントラストのインクを使用。1つの鮮やかなオレンジアクセントがエネルギーとCTAの焦点を提供。"
+      },
+      "typography": {
+        "rules": [
+          "顕著な見出しやエディトリアルディスプレイにはセリフフォントファミリーを使用。",
+          "本文テキスト、ナビゲーション、UI要素にはシステムサンセリフスタックを使用。",
+          "タイトルと本文のサイズとウェイトの違いによる明確な階層を維持。"
+        ],
+        "scaleUses": [
+          "ヒーローヘッドライン",
+          "セクションタイトル",
+          "記事タイトル",
+          "本文テキストと記事コンテンツ",
+          "メタデータ、タイムスタンプ、小ラベル"
+        ]
+      },
+      "spacing": {
+        "rhythm": "要素間の間隔には一貫した8pxベースの垂直リズムを、よりタイトなギャップには4pxの増分を使用。"
+      },
+      "surfaces": {
+        "shadows": [
+          "0 1px 0 0 rgba(255,255,255,0.2) inset, 0 -1px 0 0 rgba(0,0,0,0.1) inset",
+          "0 2px 4px -1px rgba(0,0,0,0.06), 0 4px 6px -1px rgba(0,0,0,0.1)"
+        ],
+        "borders": "1px solid rgba(0,0,0,0.1)"
+      },
+      "layout": {
+        "skeleton": "固定左サイドバーナビゲーション（デスクトップ）、中央フィードカラム、右サイドバー（ログイン/検索用、デスクトップ）；単一カラムスタックとボトムナビゲーション（モバイル）。"
+      },
+      "components": {
+        "button": "主要なCTA（「作成」「Substackを始める」）にはソリッドオレンジ。セカンダリボタンは、控えめなボーダーまたはライトグレーの塗りつぶしを用いた白背景を使用。",
+        "card": "フィードアイテムは細い境界線で区切られ、著者アバター、メタデータ、テキストコンテンツ、メディア、アクションバー（いいね、コメント、共有）を特徴とする。",
+        "chip": "最小限の使用。「購読」テキストはセカンダリアクションリンクとして機能。",
+        "input": "検索フィールドは、控えめなボーダーと角丸の清潔な白背景を使用。",
+        "hero": "セリフの見出しと2つの明確なCTAオプション（ソリッドオレンジボタン vs. 白テキストリンク）を持つ、大きなダークティールバナー。"
+      },
+      "motion": {
+        "patterns": [
+          "インタラクティブ要素のcolor、background-color、borderプロパティに対する滑らかな250msトランジション。",
+          "ホバー状態のTransformトランジション。",
+          "複雑なアニメーションなし；モーションは控えめで機能的。"
+        ]
+      },
+      "interaction": {
+        "hover": "リンクやボタンなどのインタラクティブ要素に対する控えめなbackground-colorまたはtext-colorの変化。",
+        "click": "標準のブラウザフォーカス状態による即時フィードバック。",
+        "transition": "すべてのトランジションは、滑らかでわずかに跳ねるような感覚のために、250ms cubic-bezier(0.19, 1, 0.22, 1)カーブに従う。",
+        "keyboard": "アクセシビリティのための標準的なフォーカスアウトライン。"
+      },
+      "voice": {
+        "tone": "自信に満ち、率直で、クリエイター中心。",
+        "headlineStyle": "簡潔で力強い、エディトリアル感を出すためにセリフフォントを多用。",
+        "ctaStyle": "直接的で行動を促す、「開始」「サインイン」「ログイン」などの明確な動詞を使用。",
+        "avoid": [
+          "過度にカジュアルなスラング",
+          "技術的な専門用語",
+          "煽り系の言葉"
+        ]
+      },
+      "donts": [
+        "ダークテーマを使用しない — スクリーンショットは主に白背景とライトグレーのアクセントを示している。",
+        "複数のアクセントカラーを使用しない — スクリーンショットはオレンジを単一の支配的な高彩度カラーとして示している。",
+        "メインフィードに角丸カードを使用しない — スクリーンショットはアイテムを単純な水平線で区切っている。",
+        "主要な見出しにサンセリフフォントを使用しない — スクリーンショットはディスプレイテキストにセリフフォント（Cahuenga/Spectralなど）を使用している。",
+        "カードに重いドロップシャドウを使用しない — スクリーンショットはフィードアイテムに非常に控えめまたはシャドウなしを示している。",
+        "コンテンツに密集した複数カラムグリッドを使用しない — スクリーンショットはメインフィードに単一の集中されたカラムを示している。",
+        "UIに装飾的な要素やイラストを使用しない — スクリーンショットはアイコンと写真のみのクリーンで機能的なレイアウトを示している。"
+      ],
+      "systemPrompt": "このデザインは、出版およびニュースレター向けプラットフォーム用です。クリーンな白背景レイアウトで、可読性とコンテンツの発見を優先。プライマリアクセントは、CTAやブランディングに使用される鮮やかなオレンジ（#FF6719）。タイポグラフィは、ディスプレイ見出しにセリフフォント（CahuengaやSpectralなど）と、本文テキストにシステムサンセリフスタックを組み合わせ使用。レイアウトは、固定サイドバー（デスクトップ）、中央フィード、ログイン用の右サイドバーを特徴とし、ボトムナビゲーションのある単一カラムのモバイルレイアウトに移行。重要な禁止事項：ダークモードを使用しない、複数のアクセントカラーを導入しない、複雑なアニメーションを使用しない。"
+    },
+    "ko": {
+      "identity": {
+        "keywords": [
+          "퍼블리싱",
+          "뉴스레터",
+          "크리에이터",
+          "커뮤니티"
+        ],
+        "analogy": "독립적인 작가와 독자를 위한 현대적인 디지털 매거진이나 큐레이션 피드처럼 느껴지는, 깔끔하고 편집 중심의 플랫폼입니다.",
+        "oneLiner": "대담한 주황색 악센트와 가독성에 초점을 맞춘 깔끔하고 콘텐츠 우선의 퍼블리싱 플랫폼입니다."
+      },
+      "colors": {
+        "principle": "가독성을 위한 높은 대비 잉크와 흰색 배경; 단 하나의 선명한 주황색 악센트가 에너지와 행동 유도 초점을 제공합니다."
+      },
+      "typography": {
+        "rules": [
+          "두드러진 헤드라인과 편집 디스플레이에는 세리프 폰트 패밀리를 사용합니다.",
+          "본문 텍스트, 내비게이션, UI 요소에는 시스템산세리프 스택을 사용합니다.",
+          "제목과 본문 간의 크기와 두께 차이를 통해 명확한 계층 구조를 유지합니다."
+        ],
+        "scaleUses": [
+          "히어로 헤드라인",
+          "섹션 제목",
+          "포스트 제목",
+          "본문 텍스트 및 포스트 콘텐츠",
+          "메타데이터, 타임스탬프, 작은 레이블"
+        ]
+      },
+      "spacing": {
+        "rhythm": "요소 간 간격을 위한 일관된 8px 기반 수직 리듬과 더 촘촘한 간격을 위한 4px 단위 증가."
+      },
+      "surfaces": {
+        "shadows": [
+          "0 1px 0 0 rgba(255,255,255,0.2) inset, 0 -1px 0 0 rgba(0,0,0,0.1) inset",
+          "0 2px 4px -1px rgba(0,0,0,0.06), 0 4px 6px -1px rgba(0,0,0,0.1)"
+        ],
+        "borders": "1px solid rgba(0,0,0,0.1)"
+      },
+      "layout": {
+        "skeleton": "고정된 왼쪽 사이드바 내비게이션(데스크톱), 중앙 피드 컬럼, 로그인/검색용 오른쪽 사이드바(데스크톱); 하단 내비게이션이 포함된 단일 컬럼 스택(모바일)."
+      },
+      "components": {
+        "button": "주요 행동 유도용('Create', 'Start your Substack')에는 단색 주황색; 보조 버튼은 미세한 테두리나 연한 회색 채우기가 적용된 흰색 배경을 사용합니다.",
+        "card": "피드 항목은 얇은 테두리로 구분되며, 작성자 아바타, 메타데이터, 텍스트 콘텐츠, 미디어, 그리고 행동 바(좋아요, 댓글, 공유)가 특징입니다.",
+        "chip": "최소한으로 사용; '구독' 텍스트는 보조 행동 링크로 작용합니다.",
+        "input": "검색 필드는 미세한 테두리와 둥근 모서리가 적용된 깔끔한 흰색 배경을 사용합니다.",
+        "hero": "세리프 헤드라인과 두 가지 뚜렷한 행동 유도 옵션(단색 주황색 버튼 대 흰색 텍스트 링크)이 있는 크고 짙은 청록색 배너입니다."
+      },
+      "motion": {
+        "patterns": [
+          "인터랙티브 요소의 색상, 배경색, 테두리 속성에 대한 부드러운 250ms 트랜지션.",
+          "hover 상태에 대한 Transform 트랜지션.",
+          "복잡한 애니메이션 없음; 모션은 미세하고 기능적임."
+        ]
+      },
+      "interaction": {
+        "hover": "링크 및 버튼과 같은 인터랙티브 요소에서 미세한 배경색 또는 텍스트색 변경.",
+        "click": "표준 브라우저 focus 상태를 통한 즉각적인 피드백.",
+        "transition": "모든 트랜지션은 부드럽고 약간 통통 튀는 느낌을 위해 250ms cubic-bezier(0.19, 1, 0.22, 1) 커브를 따릅니다.",
+        "keyboard": "접근성을 위한 표준 focus 윤곽선."
+      },
+      "voice": {
+        "tone": "자신감 있고 직설적이며 크리에이터 중심적입니다.",
+        "headlineStyle": "간결하고 권한을 부여하며, 종종 더 편집적인 느낌을 위해 세리프 폰트를 사용합니다.",
+        "ctaStyle": "직접적이고 행동 지향적이며, 'Start', 'Sign in', 'Log in'과 같은 명확한 동사를 사용합니다.",
+        "avoid": [
+          "지나치게 캐주얼한 은어",
+          "기술 전문 용어",
+          "과장된 표현"
+        ]
+      },
+      "donts": [
+        "다크 테마를 사용하지 마세요 — 스크린샷은 밝은 회색 악센트가 적용된 주로 흰색 배경을 보여줍니다.",
+        "여러 악센트 색상을 사용하지 마세요 — 스크린샷은 단일로 지배적인 고채도 색상인 주황색을 보여줍니다.",
+        "메인 피드에 둥근 카드를 사용하지 마세요 — 스크린샷은 단순한 수평선으로 구분된 항목을 보여줍니다.",
+        "주요 헤드라인에 산세리프 폰트를 사용하지 마세요 — 스크린샷은 디스플레이 텍스트에 세리프 폰트(예: Cahuenga/Spectral)를 보여줍니다.",
+        "카드에 무거운 드롭 섀도우를 사용하지 마세요 — 스크린샷은 피드 항목에 매우 미세하거나 없는 섀도우를 보여줍니다.",
+        "콘텐츠에 밀집된 다컬럼 그리드를 사용하지 마세요 — 스크린샷은 메인 피드를 위한 단일 집중 컬럼을 보여줍니다.",
+        "UI에 장식 요소나 일러스트레이션을 사용하지 마세요 — 스크린샷은 아이콘과 사진만으로 구성된 깔끔하고 기능적인 레이아웃을 보여줍니다."
+      ],
+      "systemPrompt": "이 디자인은 퍼블리싱 및 뉴스레터 플랫폼을 위한 것입니다. 깔끔한 흰색 배경 레이아웃으로 가독성과 콘텐츠 발견을 우선시합니다. 주요 악센트는 행동 유도 및 브랜딩에 사용되는 선명한 주황색(#FF6719)입니다. 타이포그래피는 디스플레이 헤드라인용 세리프 폰트(예: Cahuenga 또는 Spectral)와 본문용 시스템산세리프 스택의 혼합을 사용합니다. 레이아웃은 고정된 사이드바(데스크톱), 중앙 피드, 로그인용 오른쪽 사이드바를 특징으로 하며, 하단 내비게이션이 있는 단일 컬럼 모바일 레이아웃으로 전환됩니다. 중요한 금지 사항: 다크 모드를 사용하지 말 것, 여러 악센트 색상을 도입하지 말 것, 복잡한 애니메이션을 사용하지 말 것."
+    }
+  },
+  "desc": {
+    "en": {
+      "palette": "A minimalist palette centered on white and near-black text, energized by a single, vibrant orange accent color and grounded by dark teal in hero banners.",
+      "layout": "A classic three-column desktop layout (sidebar, feed, utility) that collapses into a clean, single-column mobile stack with bottom navigation.",
+      "interaction": "Interactions are subtle, utilizing a consistent 250ms easing transition for hover states on buttons and links to provide smooth, responsive feedback.",
+      "motion": "Motion is functional and understated, limited to standard CSS transitions for interactive states without any flashy or distracting animations.",
+      "notes": "This site is worth including as a prime example of a modern, content-first publishing platform that balances editorial aesthetics with clear, functional UI."
+    },
+    "zh-CN": {
+      "palette": "以白色和近黑色文字为核心的极简配色，辅以单一鲜亮的橙色作为点缀，并在主横幅中使用深青色作为基底。",
+      "layout": "经典的三栏桌面端布局（侧边栏、信息流、功能区），在移动端则精简为干净的单栏堆叠式布局，并配有底部导航栏。",
+      "interaction": "交互效果保持含蓄，按钮和链接的悬停状态采用一致的250毫秒缓动过渡，以提供流畅且及时的反馈。",
+      "motion": "动效服务于功能且保持低调，仅使用标准CSS过渡来处理交互状态，避免任何花哨或分散注意力的动画。",
+      "notes": "该网站堪称现代、内容优先型发布平台的典范，在编辑美学与清晰、功能化的UI之间取得了良好平衡，值得收录。"
+    },
+    "zh-TW": {
+      "palette": "以白色與近乎黑色文字為核心的極簡調色盤，由單一鮮明的橙色強調色注入活力，並以深青綠色在橫幅區域穩固基調。",
+      "layout": "經典的三欄桌面佈局（側邊欄、資訊流、工具列），在手機端會折疊為簡潔的單欄堆疊式佈局，並搭配底部導覽。",
+      "interaction": "互動細節克制，按鈕與連結的 hover 狀態採用一致的 250ms 緩動過渡，提供流暢且即時的回應感。",
+      "motion": "動態效果務實而低調，僅限於互動狀態的標準 CSS 過渡，不採用任何炫目或分散注意力的動畫。",
+      "notes": "此網站值得收錄為現代化、內容優先發布平台的典範，在編輯美學與清晰功能型 UI 間取得平衡。"
+    },
+    "ja": {
+      "palette": "白と近黒のテキストを中心に、1つの鮮やかなオレンジアクセントカラーで活力を加え、ヒーローバナーではダークティールで安定感を出したミニマルなパレット。",
+      "layout": "クラシックな3カラムのデスクトップレイアウト（サイドバー、フィード、ユーティリティ）で、モバイルでは清潔な1カラムのスタックとボトムナビゲーションに展開。",
+      "interaction": "インタラクションは控えめで、ボタンやリンクのホバー状態には一貫した250msのイージングトランジションを用い、滑らかで応答性の高いフィードバックを提供。",
+      "motion": "モーションは機能的で控えめに、インタラクティブな状態の標準的なCSSトランジションに限定し、派手で注意を引くアニメーションは一切使用しない。",
+      "notes": "このサイトは、エディトリアルの美学と明確で機能的なUIを両立させた、現代的でコンテンツファーストのプラットフォームの模範例として掲載する価値がある。"
+    },
+    "ko": {
+      "palette": "흰색과 거의 검은색 텍스트를 중심으로 한 미니멀 팔레트로, 단 하나의 선명한 주황색 악센트로 활기를 더하고, 히어로 배너에는 짙은 청록색으로 무게감을 줍니다.",
+      "layout": "데스크톱용 클래식 3컬럼 레이아웃(사이드바, 피드, 유틸리티)으로, 모바일에서는 하단 내비게이션이 포함된 깔끔한 단일 컬럼 스택으로 축소됩니다.",
+      "interaction": "인터랙션은 섬세하게 이루어지며, 버튼과 링크의 hover 상태에 대해 일관된 250ms 이징 트랜지션을 활용하여 부드럽고 반응적인 피드백을 제공합니다.",
+      "motion": "모션은 기능적이고 절제되어 있으며, 눈에 띄거나 산만한 애니메이션 없이 인터랙티브 상태에 대한 표준 CSS 트랜지션으로 제한됩니다.",
+      "notes": "이 사이트는 편집 미학과 명확하고 기능적인 UI를 균형 있게 갖춘 현대적이고 콘텐츠 우선의 퍼블리싱 플랫폼의 좋은 예로 포함할 가치가 있습니다."
+    }
+  },
+  "_meta": {
+    "vision_model": "mimo-v2.5",
+    "vision_prompt_version": "0.3",
+    "vision_source": "playwright-extract:substack",
+    "vision_grounded": true,
+    "vision_at": "2026-06-04T19:05:03+00:00",
+    "vision_tokens": 17692,
+    "vision_cost_usd": 0.1966,
+    "translation_model": "mimo-v2.5",
+    "translation_at": "2026-06-04T19:06:43+00:00",
+    "translation_tokens": 19002,
+    "translation_cost_usd": 0.0634,
+    "narrative_model": "mimo-v2.5",
+    "narrative_prompt_version": "0.3",
+    "narrative_at": "2026-06-04T19:06:51+00:00",
+    "narrative_tokens": 2279,
+    "narrative_cost_usd": 0.0152,
+    "narrative_status": "ok",
+    "total_cost_usd": 0.2752
+  },
+  "narrative": {
+    "en": {
+      "ch1_intro": "Substack's design system is built as a clean, editorial-focused platform, functioning like a modern, digital magazine. Its identity is defined by a content-first approach, where the architecture supports the act of publishing itself.",
+      "ch2_intro": "The palette is a study in focused contrast: a pristine white background with high-contrast ink for optimal readability, anchored by a single, vibrant orange accent. This orange provides all the platform's energy and call-to-action focus.",
+      "ch2_outro": "The principle is restraint, using a single high-chroma accent against a neutral field to direct attention without visual noise.",
+      "ch3_intro": "The typographic voice establishes a clear hierarchy between editorial display and functional UI. Serif fonts are reserved for prominent headlines, lending a literary weight, while the system sans-serif stack handles body copy and navigation for clarity.",
+      "ch4_intro": "A consistent 8px-based vertical rhythm governs the space between elements, creating a predictable and calm visual cadence.",
+      "ch5_intro": "Depth is communicated through minimal, almost imperceptible elevation. Borders are fine and shadows are shallow, keeping the interface flat, focused, and layered only by necessity.",
+      "ch6_intro": "The desktop layout is a classic three-part skeleton: a fixed left sidebar for navigation, a central column for the content feed, and a right sidebar for login and search. On mobile, this collapses into a single-column stack with a bottom navigation bar.",
+      "ch7_intro": "Motion is functional and understated, limited to smooth 250ms transitions that provide responsive feedback without distraction. It is used to signal interactivity, not to decorate the experience.",
+      "ch8_intro": "The platform's voice is confident, straightforward, and creator-focused. It avoids hype, technical jargon, and overly casual slang in favor of clear, empowering language.",
+      "ch8_outro": "The system deliberately avoids decorative elements, complex animations, dark themes, and multiple accent colors to maintain its clean, content-first integrity."
+    },
+    "zh-CN": {
+      "ch1_intro": "Substack 的设计系统建立在一个干净、以编辑为核心的平台上，运作方式如同现代数字杂志。其身份由内容优先的方法定义，架构旨在支持出版行为本身。",
+      "ch2_intro": "配色方案是聚焦对比的体现：纯净的白色背景搭配高对比度墨色以实现最佳可读性，辅以单一的鲜橙色作为点缀。这种橙色为整个平台注入了活力，并引导着所有行动号召的焦点。",
+      "ch2_outro": "其原则是克制，使用单一高饱和度的点缀色置于中性背景之上，以引导注意力而不引入视觉噪音。",
+      "ch3_intro": "排版风格在编辑展示与功能性界面之间建立了清晰的层级。衬线字体专用于醒目的标题，赋予其文学分量，而系统的无衬线字体栈则用于正文和导航，确保清晰度。",
+      "ch4_intro": "统一的 8px 基准垂直韵律规范着元素间的间距，创造出可预期且平静的视觉节奏。",
+      "ch5_intro": "深度通过极简、几乎难以察觉的提升来传达。边框精细，阴影浅薄，使界面保持扁平、专注，仅在必要时进行分层。",
+      "ch6_intro": "桌面端布局采用经典的三栏骨架：固定的左侧边栏用于导航，中央栏用于内容流，右侧边栏用于登录和搜索。在移动端，这会折叠成带有底部导航栏的单栏堆叠布局。",
+      "ch7_intro": "动效是功能性的且低调的，仅限于平滑的 250ms 过渡，提供响应式反馈而不分散注意力。它用于标示交互性，而非装饰体验。",
+      "ch8_intro": "平台的语调是自信、直接且以创作者为中心的。它避免炒作、技术术语和过于随意的俚语，倾向于清晰、赋能的语言。",
+      "ch8_outro": "该系统刻意避免装饰性元素、复杂动画、深色主题和多种点缀色，以保持其干净、内容至上的完整性。"
+    },
+    "zh-TW": {
+      "ch1_intro": "Substack 的設計系統建立於一個簡潔、編輯導向的平台，運作如同現代數位雜誌。其特質由「內容優先」的理念定義，架構支持著出版本身。",
+      "ch2_intro": "調色盤是一場聚焦對比的實驗：純淨白色背景搭配高對比墨色以確保最佳可讀性，並由單一、鮮活的橘色強調色作為基調。此橘色賦予了平台所有活力與行動呼籲的焦點。",
+      "ch2_outro": "其原則在於克制，運用單一高彩度強調色於中性背景上，以引導視覺注意力，無需額外視覺干擾。",
+      "ch3_intro": "排版語音確立了編輯展示與功能性使用者介面之間的清晰層級。襯線字體保留用於顯眼標題，賦予文學份量，而系統無襯線字體組則處理內文與導覽，以確保清晰度。",
+      "ch4_intro": "一致的 8px 基礎垂直節奏規範著元素間距，創造出可預期且平靜的視覺韻律。",
+      "ch5_intro": "深度透過極簡、幾乎難以察覺的高度差傳達。邊框精細、陰影淺淡，使介面保持平面、專注，僅在必要時才增加層次。",
+      "ch6_intro": "桌面版佈局採用經典三段式骨架：固定左側導覽欄、中央內容動態欄，以及右側登入與搜尋欄。在行動裝置上，則折疊為單欄堆疊，搭配底部導覽列。",
+      "ch7_intro": "動態效果功能性且低調，限於流暢的 250ms 轉場，提供即時反饋而不造成分心。其用於標示互動性，而非裝飾體驗。",
+      "ch8_intro": "平台的語音自信、直接且以創作者為中心。它避免誇飾、技術術語與過度隨意的俚語，偏好清晰、賦能的語言。",
+      "ch8_outro": "此系統刻意避免裝飾性元素、複雜動畫、深色主題與多種強調色，以維持其簡潔、內容優先的本質。"
+    },
+    "ja": {
+      "ch1_intro": "Substackのデザインシステムは、現代的なデジタル雑誌として機能する、クリーンでエディトリアル志向のプラットフォームとして構築されています。そのアイデンティティは、出版行為自体を支えるアーキテクチャを特徴とする、コンテンツファーストのアプローチによって定義されています。",
+      "ch2_intro": "パレットは、集中したコントラストの研究です：最適な可読性のために、きわめて高コントラストのインクで描かれた、無染の白い背景を、1つの鮮やかなオレンジアクセントで支えています。このオレンジが、プラットフォームのすべてのエネルギーと行動喚起の焦点を担います。",
+      "ch2_outro": "原則は抑制です。視覚的なノイズなしに注意を向けるために、中立的な地に1つの高彩度アクセントを使用します。",
+      "ch3_intro": "タイポグラフィの声は、エディトリアルディスプレイと機能的なUIの間に明確な階層を確立します。セリフフォントは、文学的な重みを添えるために目立つ見出しに専用とされ、システムサンセリフスタックは明瞭さのために本文コピーとナビゲーションを担当します。",
+      "ch4_intro": "一貫した8pxベースの垂直リズムが、要素間の空間を支配し、予測可能で落ち着いたビジュアルリズムを生み出します。",
+      "ch5_intro": "奥行きは、最小限の、ほぼ気づかれないような高さによって表現されます。ボーダーは細く、シャドウは浅く保たれ、インターフェースをフラットで集中し、必要に応じてのみレイヤードに保ちます。",
+      "ch6_intro": "デスクトップレイアウトは、古典的な3部構成のスケルトンです：ナビゲーション用の固定左サイドバー、コンテンツフィード用の中央カラム、ログインおよび検索用の右サイドバー。モバイルでは、これはボトムナビゲーションバー付きの単一カラムスタックに崩壊します。",
+      "ch7_intro": "モーションは機能的で控えめで、気を散らさずにレスポンシブなフィードバックを提供する滑らかな250msのトランジションに限定されます。これは体験を装飾するのではなく、インタラクティビティを示すために使用されます。",
+      "ch8_intro": "プラットフォームの声は、自信があり、率直で、クリエイター中心です。炒り立てるような表現、技術用語、過度にカジュアルなスラングを避け、明確で力強い言葉を優先します。",
+      "ch8_outro": "このシステムは、クリーンでコンテンツファーストの完全性を維持するために、装飾的な要素、複雑なアニメーション、ダークテーマ、複数のアクセントカラーを意図的に回避しています。"
+    },
+    "ko": {
+      "ch1_intro": "Substack의 디자인 시스템은 깔끔하고 편집 중심적인 플랫폼으로 구축되어 현대적인 디지털 잡지처럼 기능합니다. 그 정체성은 콘텐츠 우선 접근 방식으로 정의되며, 이 구조는 발행 행위 자체를 지원합니다.",
+      "ch2_outro": "이 원칙은 절제이며, 시각적 잡음 없이 주의를 끌기 위해 중립적인 배경에 단일 고채도 악센트를 사용합니다.",
+      "ch2_intro": "팔레트는 집중된 대비에 대한 연구입니다: 최적의 가독성을 위한 고대비 잉크와 깨끗한 흰색 배경이 결합되어 있으며, 단 하나의 생동감 있는 주황색 악센트로 마감됩니다. 이 주황색은 플랫폼의 모든 에너지와 행동 유도 초점을 제공합니다.",
+      "ch3_intro": "타이포그래피 음성은 편집용 디스플레이와 기능적인 UI 사이에 명확한 위계를 설정합니다. 세리프 서체는 눈에 띄는 헤드라인에만 사용되어 문학적 무게감을 더하고, 시스템 고딕체 스택은 본문과 탐색을 명확하게 처리합니다.",
+      "ch4_intro": "일관된 8px 기반 수직 리듬이 요소 간의 공간을 규율하여 예측 가능하고 차분한 시각적 리듬을 만듭니다.",
+      "ch5_intro": "깊이는 최소한의, 거의 인식할 수 없는 높이로 전달됩니다. 테두리는 미세하고 그림자는 얕아 인터페이스를 평면적이고 집중적이며, 오직 필요에 의해서만 층을 이룹니다.",
+      "ch6_intro": "데스크톱 레이아웃은 고전적인 3단 골격입니다: 탐색을 위한 완전히 고정된 왼쪽 사이드바, 콘텐츠 피드를 위한 중앙 열, 로그인과 검색을 위한 오른쪽 사이드바. 모바일에서는 하단 탐색 막대가 있는 단일 열 스택으로 축소됩니다.",
+      "ch7_intro": "모션은 기능적이고 절제되어 있으며, 주의를 산만하게 하지 않으면서 반응적인 피드백을 제공하는 부드러운 250ms 트랜지션으로 제한됩니다. 이는 경험을 장식하기보다는 상호작용을 알리는 데 사용됩니다.",
+      "ch8_intro": "플랫폼의 음성은 자신감 있고 직접적이며 크리에이터 중심적입니다. 흥분, 기술 용어, 지나치게 캐주얼한 은어 대신 명확하고 힘을 실어주는 언어를 선호합니다.",
+      "ch8_outro": "이 시스템은 깔끔하고 콘텐츠 우선의 무결성을 유지하기 위해 장식 요소, 복잡한 애니메이션, 다크 테마, 여러 악센트 색상을 의도적으로 피합니다."
+    }
+  }
 }

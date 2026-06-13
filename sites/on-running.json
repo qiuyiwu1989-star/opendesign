@@ -8,8 +8,580 @@
     "ecommerce",
     "athletic"
   ],
-  "status": "pending",
+  "status": "completed",
   "added_at": "2026-06-02",
   "added_by": "expand-200",
-  "_meta": {}
+  "_meta": {
+    "vision_model": "mimo-v2.5",
+    "vision_prompt_version": "0.3",
+    "vision_source": "playwright-extract:on-running",
+    "vision_grounded": true,
+    "vision_at": "2026-06-04T17:32:59+00:00",
+    "vision_tokens": 16394,
+    "vision_cost_usd": 0.1822,
+    "translation_model": "mimo-v2.5",
+    "translation_at": "2026-06-04T17:34:10+00:00",
+    "translation_tokens": 16430,
+    "translation_cost_usd": 0.0548,
+    "narrative_model": "mimo-v2.5",
+    "narrative_prompt_version": "0.3",
+    "narrative_at": "2026-06-04T17:34:21+00:00",
+    "narrative_tokens": 2006,
+    "narrative_cost_usd": 0.0134,
+    "narrative_status": "ok",
+    "total_cost_usd": 0.2504
+  },
+  "spec": {
+    "colors": {
+      "bg": "#FFFFFF",
+      "bgSoft": null,
+      "bgQuiet": null,
+      "ink": "#000000",
+      "inkSoft": null,
+      "muted": "#666666",
+      "mutedSoft": null,
+      "accent": null,
+      "line": "rgba(0,0,0,0.05)"
+    },
+    "typography": {
+      "display": "humanist-sans",
+      "body": "humanist-sans",
+      "mono": "semi-monospace",
+      "scale": [
+        {
+          "token": "display",
+          "size": 56,
+          "lh": 1.0,
+          "weight": 700,
+          "ls": "-1px"
+        },
+        {
+          "token": "heading",
+          "size": 24,
+          "lh": 1.2,
+          "weight": 700,
+          "ls": "0px"
+        },
+        {
+          "token": "body",
+          "size": 16,
+          "lh": 1.5,
+          "weight": 400,
+          "ls": "0px"
+        },
+        {
+          "token": "caption",
+          "size": 12,
+          "lh": 1.3,
+          "weight": 400,
+          "ls": "0.72px"
+        }
+      ]
+    },
+    "spacing": {
+      "base": 4,
+      "scale": [
+        4,
+        8,
+        16,
+        24,
+        32,
+        48,
+        64,
+        96
+      ]
+    },
+    "surfaces": {
+      "radius": {
+        "sm": 4,
+        "md": 8,
+        "lg": 12,
+        "pill": 999
+      }
+    },
+    "layout": {
+      "container": 1280,
+      "paragraph": 680,
+      "columns": 12,
+      "gutter": 24,
+      "breakpoints": [
+        768,
+        1024
+      ]
+    },
+    "motion": {
+      "durations": {
+        "micro": 200,
+        "small": 300,
+        "medium": 400
+      },
+      "easing": "cubic-bezier(0.87, 0, 0.13, 1)"
+    }
+  },
+  "spec_i18n": {
+    "en": {
+      "identity": {
+        "keywords": [
+          "minimalist",
+          "performance",
+          "premium athletic"
+        ],
+        "analogy": "A premium Swiss performance brand where the product is the hero against a clinical white backdrop.",
+        "oneLiner": "Swiss-engineered performance footwear presented with minimal, clean aesthetics."
+      },
+      "colors": {
+        "principle": "High-contrast monochrome palette focusing entirely on product photography."
+      },
+      "typography": {
+        "rules": [],
+        "scaleUses": [
+          "Primary section headings",
+          "Product titles and modal headings",
+          "Standard paragraph and description text",
+          "Uppercase tags and fine print"
+        ]
+      },
+      "spacing": {
+        "rhythm": "Clean and consistent spacing with a strong focus on alignment to a grid."
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(0, 0, 0, 0.2) 0px 0px 18px 0px"
+        ],
+        "borders": "1px solid rgba(0,0,0,0.05)"
+      },
+      "layout": {
+        "skeleton": "Structured multi-column grid for product catalogs."
+      },
+      "components": {
+        "button": "Pill-shaped black buttons with white text, or minimal text-based links.",
+        "card": "Clean product cards with large isolated imagery, gray backgrounds, and minimal UI elements like heart icons.",
+        "chip": "Small, uppercase, bordered or outlined tags for features like 'BESTSELLER'.",
+        "input": "Standard text inputs with clear borders and minimal styling.",
+        "hero": "Large product showcase on a white background with bold typography."
+      },
+      "motion": {
+        "patterns": [
+          "Smooth transitions for hover states and background changes.",
+          "Cubic-bezier easing for precise, high-quality UI animations."
+        ]
+      },
+      "interaction": {
+        "hover": "Subtle background color changes or slight transforms on interactive elements.",
+        "click": "Immediate visual feedback with opacity or background color adjustments.",
+        "transition": "All properties usually transition smoothly over 200ms to 400ms.",
+        "keyboard": "Standard focus outlines and logical tab order."
+      },
+      "voice": {
+        "tone": "Professional, direct, and performance-focused.",
+        "headlineStyle": "Bold, often uppercase or heavily weighted sans-serif text.",
+        "ctaStyle": "Clear, high-contrast buttons or simple text links.",
+        "avoid": [
+          "Cluttered layouts",
+          "Heavy decorative elements",
+          "Overly complex color palettes"
+        ]
+      },
+      "donts": [
+        "don't use drop shadows on product images — screenshot shows flat, clean product isolation.",
+        "don't use highly saturated accent colors — screenshot shows a strict monochrome palette.",
+        "don't use decorative script or display serif fonts — screenshot shows a modern humanist sans.",
+        "don't use heavy border weights — screenshot shows a subtle 1px border for cards and inputs.",
+        "don't use complex multi-color gradients — screenshot shows a solid white background.",
+        "don't use playful or rounded typography — screenshot shows tight, performance-oriented tracking."
+      ],
+      "systemPrompt": "This is a premium Swiss athletic brand with a clean, minimalist e-commerce interface. The design relies on a high-contrast monochrome palette with a pure white background (#FFFFFF) and deep black text (#000000), allowing the product photography to be the primary focus. The typography uses a custom humanist-sans family for bold, confident headings and a clear, legible body font. Interaction is subtle, with smooth 200-400ms transitions using cubic-bezier easing. Critical donts: never use heavy drop shadows on products, avoid multi-color gradients, and keep the layout spacious and grid-based. The interface is clinical yet premium, emphasizing engineering and performance."
+    },
+    "zh-CN": {
+      "identity": {
+        "keywords": [
+          "极简主义",
+          "高性能",
+          "高端运动"
+        ],
+        "analogy": "一个高端的瑞士高性能品牌，产品在临床般的白色背景上成为主角。",
+        "oneLiner": "瑞士工程性能鞋款，以极简、干净的美学呈现。"
+      },
+      "colors": {
+        "principle": "完全聚焦于产品摄影的高对比度单色配色方案。"
+      },
+      "typography": {
+        "rules": [],
+        "scaleUses": [
+          "主要版块标题",
+          "产品标题和弹窗标题",
+          "标准段落和描述文本",
+          "大写标签和细则文字"
+        ]
+      },
+      "spacing": {
+        "rhythm": "干净一致的间距，强调整体对齐网格。"
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(0, 0, 0, 0.2) 0px 0px 18px 0px"
+        ],
+        "borders": "1px solid rgba(0,0,0,0.05)"
+      },
+      "layout": {
+        "skeleton": "用于产品目录的结构化多列网格。"
+      },
+      "components": {
+        "button": "药丸形状的黑色按钮配白色文字，或极简的文字链接。",
+        "card": "干净的产品卡片，配有大型独立图像、灰色背景和最小的界面元素（如心形图标）。",
+        "chip": "小型、大写、带边框或轮廓的标签，用于如'畅销品'等特性。",
+        "input": "带有清晰边框和极简样式的标准文本输入框。",
+        "hero": "白色背景上的大型产品展示，配以粗体排版。"
+      },
+      "motion": {
+        "patterns": [
+          "用于 hover 状态和背景变化的平滑过渡。",
+          "用于精准、高质量 UI 动画的 cubic-bezier 缓动。"
+        ]
+      },
+      "interaction": {
+        "hover": "交互元素上的微妙背景色变化或轻微形变。",
+        "click": "通过透明度或背景色调整提供即时的视觉反馈。",
+        "transition": "所有属性通常在 200ms 到 400ms 内平滑过渡。",
+        "keyboard": "标准的焦点轮廓和合理的标签顺序。"
+      },
+      "voice": {
+        "tone": "专业、直接且聚焦性能。",
+        "headlineStyle": "粗体，通常大写或使用重磅无衬线字体。",
+        "ctaStyle": "清晰、高对比度的按钮或简单的文字链接。",
+        "avoid": [
+          "杂乱的布局",
+          "厚重的装饰性元素",
+          "过于复杂的配色方案"
+        ]
+      },
+      "donts": [
+        "不要在产品图片上使用投影——截图显示的是扁平、干净的产品孤立效果。",
+        "不要使用高饱和度的强调色——截图显示的是严格的单色配色方案。",
+        "不要使用装饰性手写体或展示衬线字体——截图显示的是现代人文主义无衬线体。",
+        "不要使用粗重的边框——截图显示的是卡片和输入框上微妙的 1px 边框。",
+        "不要使用复杂的多色渐变——截图显示的是纯白色背景。",
+        "不要使用活泼或圆润的排版——截图显示的是紧凑、性能导向的字间距。"
+      ],
+      "systemPrompt": "这是一个高端瑞士运动品牌，拥有干净、极简的电子商务界面。设计依赖于高对比度的单色配色方案，使用纯白色背景 (#FFFFFF) 和深黑色文字 (#000000)，让产品摄影成为主要焦点。排版使用自定义的人文主义无衬线字体系列来制作粗体、自信的标题，以及清晰易读的正文。交互是微妙的，使用 200-400ms 的平滑 cubic-bezier 缓动过渡。关键禁忌：绝不要在产品上使用厚重投影，避免多色渐变，并保持布局宽敞且基于网格。界面既临床又高端，强调工程和性能。"
+    },
+    "zh-TW": {
+      "identity": {
+        "keywords": [
+          "極簡",
+          "高性能",
+          "高端運動"
+        ],
+        "analogy": "一個高端的瑞士性能品牌，產品在純白背景中成為主角。",
+        "oneLiner": "以簡約、乾淨美學呈現的瑞士工程高性能鞋款。"
+      },
+      "colors": {
+        "principle": "完全專注於產品攝影的高對比單色調色盤。"
+      },
+      "typography": {
+        "rules": [],
+        "scaleUses": [
+          "主要章節標題",
+          "產品標題與彈窗標題",
+          "標準段落與描述文字",
+          "大寫標籤與細字"
+        ]
+      },
+      "spacing": {
+        "rhythm": "乾淨且一致的間距，強烈專注於與網格對齊。"
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(0, 0, 0, 0.2) 0px 0px 18px 0px"
+        ],
+        "borders": "1px solid rgba(0,0,0,0.05)"
+      },
+      "layout": {
+        "skeleton": "用於產品目錄的結構化多欄網格。"
+      },
+      "components": {
+        "button": "藥丸形黑色按鈕，搭配白色文字，或極簡的文字連結。",
+        "card": "乾淨的產品卡片，搭配大型孤立圖像、灰色背景，以及心形圖示等極簡 UI 元素。",
+        "chip": "小型、大寫、有邊框或外框的標籤，用於「暢銷品」等特徵。",
+        "input": "標準文字輸入框，具有清晰邊框與極簡樣式。",
+        "hero": "白色背景上的大型產品展示，搭配粗體排版。"
+      },
+      "motion": {
+        "patterns": [
+          "hover 狀態與背景變化的流暢過渡。",
+          "使用 cubic-bezier 緩動函數，實現精確、高品質的 UI 動畫。"
+        ]
+      },
+      "interaction": {
+        "hover": "互動元素的細微背景色變化或輕微變形。",
+        "click": "透過透明度或背景色調整提供即時視覺回饋。",
+        "transition": "所有屬性通常在 200ms 至 400ms 內平滑過渡。",
+        "keyboard": "標準的焦點外框與合乎邏輯的 tab 順序。"
+      },
+      "voice": {
+        "tone": "專業、直接，並專注於性能。",
+        "headlineStyle": "粗體，常為大寫或高字重的無襯線文字。",
+        "ctaStyle": "清晰、高對比的按鈕或簡潔的文字連結。",
+        "avoid": [
+          "雜亂的佈局",
+          "沉重的裝飾元素",
+          "過於複雜的調色盤"
+        ]
+      },
+      "donts": [
+        "不要在產品圖片上使用陰影 — 截圖顯示的是平坦、乾淨的產品孤立效果。",
+        "不要使用高飽和的強調色 — 截圖顯示的是嚴格的單色調色盤。",
+        "不要使用裝飾性腳本或展示用襯線字體 — 截圖顯示的是現代的 humanist sans。",
+        "不要使用粗重的邊框 — 截圖顯示的是卡片與輸入框使用的細微 1px 邊框。",
+        "不要使用複雜的多色漸層 — 截圖顯示的是純白背景。",
+        "不要使用活潑或圓潤的排版 — 截圖顯示的是緊湊、以性能為導向的字間距。"
+      ],
+      "systemPrompt": "這是一個高端瑞士運動品牌，擁有乾淨、極簡的電商介面。設計依賴於高對比的單色調色盤，使用純白背景（#FFFFFF）與深黑文字（#000000），讓產品攝影成為主要焦點。排版使用自訂的 humanist-sans 字族，打造粗體、自信的標題，以及清晰易讀的正文字體。互動效果細微，使用 200-400ms 的平滑過渡與 cubic-bezier 緩動函數。關鍵禁忌：永遠不要在產品上使用沉重陰影，避免多色漸層，並保持佈局寬敞且基於網格。介面兼具臨床感與高端感，強調工程與性能。"
+    },
+    "ja": {
+      "identity": {
+        "keywords": [
+          "ミニマル",
+          "パフォーマンス",
+          "プレミアムアスレティック"
+        ],
+        "analogy": "クリニカルな白い背景をバックに製品が主役となる、プレミアムスイスのパフォーマンスブランド。",
+        "oneLiner": "ミニマルでクリーンな美学で提示された、スイスエンジニアリングによるパフォーマンスフットウェア。"
+      },
+      "colors": {
+        "principle": "製品写真に完全に焦点を当てたハイコントラストのモノクロームパレット。"
+      },
+      "typography": {
+        "rules": [],
+        "scaleUses": [
+          "主要セクション見出し",
+          "製品タイトルとモーダル見出し",
+          "標準段落と説明テキスト",
+          "大文字タグと細字印刷物"
+        ]
+      },
+      "spacing": {
+        "rhythm": "グリッドへの揃えに重点を置いた、クリーンで一貫したスペーシング。"
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(0, 0, 0, 0.2) 0px 0px 18px 0px"
+        ],
+        "borders": "1px solid rgba(0,0,0,0.05)"
+      },
+      "layout": {
+        "skeleton": "製品カタログのための構造化されたマルチカラムグリッド。"
+      },
+      "components": {
+        "button": "白文字の黒いピル-shaped ボタン、または最小限のテキストリンク。",
+        "card": "大きな分離されたイメージ、グレーの背景、ハートアイコンなど最小限の UI 要素を持つクリーンな製品カード。",
+        "chip": "「BESTSELLER」のような特徴のための、小さく大文字の、ボーダー付きまたはアウトライン付きタグ。",
+        "input": "明確なボーダーと最小限のスタイリングを備えた標準的なテキスト入力。",
+        "hero": "太字のタイポグラフィを用いた、白い背景上の大規模な製品ショーケース。"
+      },
+      "motion": {
+        "patterns": [
+          "hover 状態と背景変化のための滑らかなトランジション。",
+          "正確で高品質の UI アニメーションのための cubic-bezier イージング。"
+        ]
+      },
+      "interaction": {
+        "hover": "インタラクティブな要素に対する、繊細な背景色の変化やわずかな変形。",
+        "click": "不透明度や背景色の調整による即座の視覚フィードバック。",
+        "transition": "すべてのプロパティは通常、200ms から 400ms の間滑らかにトランジションします。",
+        "keyboard": "標準的な focus アウトラインと論理的な tab 順序。"
+      },
+      "voice": {
+        "tone": "プロフェッショナルで直接的、パフォーマンス重視。",
+        "headlineStyle": "太字で、大文字または重みのあるサンセリフ テキスト。",
+        "ctaStyle": "明確でハイコントラストなボタン、またはシンプルなテキストリンク。",
+        "avoid": [
+          "ごちゃごちゃしたレイアウト",
+          "重い装飾的要素",
+          "過度に複雑なカラーパレット"
+        ]
+      },
+      "donts": [
+        "製品画像にドロップシャドウを使用しない — スクリーンショットはフラットでクリーンな製品分離を示しています。",
+        "彩度の高いアクセントカラーを使用しない — スクリーンショットは厳格なモノクロームパレットを示しています。",
+        "装飾的なスクリプトやディスプレイ serif フォントを使用しない — スクリーンショットは現代的な humanist sans を示しています。",
+        "太いボーダーを使用しない — スクリーンショットはカードと入力に対する微妙な 1px ボーダーを示しています。",
+        "複雑なマルチカラーグラデーションを使用しない — スクリーンショットはソリッドな白い背景を示しています。",
+        "遊び心のあるまたは丸みのあるタイポグラフィを使用しない — スクリーンショットはタイトでパフォーマンス指向のトラッキングを示しています。"
+      ],
+      "systemPrompt": "これは、クリーンでミニマルな e コーマースインターフェースを備えた、プレミアムスイスのアスレティックブランドです。デザインは、純白の背景（#FFFFFF）と深い黒のテキスト（#000000）によるハイコントラストのモノクロームパレットに依存し、製品写真を主たる焦点にしています。タイポグラフィは、太く自信のある見出しと明確で読みやすい本文フォントにカスタム humanist-sans ファミリーを使用しています。インタラクションは繊細で、cubic-bezier イージングを使用した滑らかな 200-400ms のトランジションを用います。重要な禁止事項：製品に重いドロップシャドウを使用せず、マルチカラーグラデーションを避け、レイアウトをゆったりとしたグリッドベースに保ちます。インターフェースはクリニカルでありながら高級感があり、エンジニアリングとパフォーマンスを強調しています。"
+    },
+    "ko": {
+      "identity": {
+        "keywords": [
+          "미니멀",
+          "성능",
+          "프리미엄 애슬레틱"
+        ],
+        "analogy": "임상적인 화이트 배경 위에 제품이 주인공인 프리미엄 스위스 성능 브랜드.",
+        "oneLiner": "미니멀하고 깔끔한 미학으로 선보이는 스위스 엔지니어링 성능 풋웨어."
+      },
+      "colors": {
+        "principle": "제품 사진에 완전히 초점을 맞춘 고대비 단색 팔레트."
+      },
+      "typography": {
+        "rules": [],
+        "scaleUses": [
+          "주요 섹션 제목",
+          "제품 제목 및 모달 제목",
+          "일반 단락 및 설명 텍스트",
+          "대문자 태그 및 세부 텍스트"
+        ]
+      },
+      "spacing": {
+        "rhythm": "격자에 대한 정렬을 강조하는 깔끔하고 일관된 간격."
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(0, 0, 0, 0.2) 0px 0px 18px 0px"
+        ],
+        "borders": "1px solid rgba(0,0,0,0.05)"
+      },
+      "layout": {
+        "skeleton": "제품 카탈로그를 위한 구조화된 다중 열 격자."
+      },
+      "components": {
+        "button": "흰색 텍스트의 블랙 필 모양 버튼 또는 미니멀한 텍스트 기반 링크.",
+        "card": "크고 분리된 이미지, 회색 배경, 하트 아이콘과 같은 미니멀한 UI 요소를 갖춘 깔끔한 제품 카드.",
+        "chip": "'BESTSELLER'와 같은 기능을 위한 작고 대문자, 테두리가 있거나 윤곽선 형태의 태그.",
+        "input": "명확한 테두리와 미니멀한 스타일링의 표준 텍스트 입력 필드.",
+        "hero": "굵은 타이포그래피와 함께 화이트 배경 위에 선보이는 대규모 제품 쇼케이스."
+      },
+      "motion": {
+        "patterns": [
+          "hover 상태 및 배경 변화를 위한 부드러운 전환.",
+          "정확하고 고품질의 UI 애니메이션을 위한 cubic-bezier easing."
+        ]
+      },
+      "interaction": {
+        "hover": "인터랙티브 요소의 미세한 배경색 변화 또는 약간의 변환.",
+        "click": "투명도 또는 배경색 조절을 통한 즉각적인 시각적 피드백.",
+        "transition": "모든 속성은 일반적으로 200ms에서 400ms 동안 부드럽게 전환됩니다.",
+        "keyboard": "표준 focus 윤곽선과 논리적인 탭 순서."
+      },
+      "voice": {
+        "tone": "전문적이고 직접적이며 성능에 초점을 맞춘 어조.",
+        "headlineStyle": "굵은, 종종 대문자이거나 두꺼운 무게감의 sans-serif 텍스트.",
+        "ctaStyle": "명확한 고대비 버튼 또는 간단한 텍스트 링크.",
+        "avoid": [
+          "복잡한 레이아웃",
+          "무거운 장식 요소",
+          "지나치게 복잡한 색상 팔레트"
+        ]
+      },
+      "donts": [
+        "제품 이미지에 드롭 섀도우를 사용하지 마세요 — 스크린샷은 플랫하고 깔끔한 제품 고립을 보여줍니다.",
+        "높은 채도의 포인트 색상을 사용하지 마세요 — 스크린샷은 엄격한 단색 팔레트를 보여줍니다.",
+        "장식용 필기체 또는 디스플레이 세리프 서체를 사용하지 마세요 — 스크린샷은 현대적인 휴머니스틱 sans-serif를 보여줍니다.",
+        "무거운 테두리 두께를 사용하지 마세요 — 스크린샷은 카드와 입력 필드를 위한 미세한 1px 테두리를 보여줍니다.",
+        "복잡한 다색 그라디언트를 사용하지 마세요 — 스크린샷은 단색 화이트 배경을 보여줍니다.",
+        "장난스럽거나 둥근 타이포그래피를 사용하지 마세요 — 스크린샷은 타이트하고 성능 지향적인 자간을 보여줍니다."
+      ],
+      "systemPrompt": "이것은 깔끔하고 미니멀한 이커머스 인터페이스를 갖춘 프리미엄 스위스 애슬레틱 브랜드입니다. 디자인은 순백(#FFFFFF) 배경과 짙은 블랙(#000000) 텍스트를 사용하는 고대비 단색 팔레트에 의존하며, 제품 사진이 주요 초점이 되도록 합니다. 타이포그래피는 굵고 자신감 있는 제목을 위한 맞춤형 휴머니스틱 sans-serif 계열과 명확하고 가독성 높은 본문 폰트를 사용합니다. 인터랙션은 cubic-bezier easing을 사용한 부드러운 200-400ms 전환으로 미세합니다. 핵심 주의 사항: 제품에 절대 무거운 드롭 섀도우를 사용하지 말 것, 다색 그라디언트를 피할 것, 레이아웃을 넉넉하고 격자 기반으로 유지할 것. 인터페이스는 임상적이면서도 프리미엄하며, 엔지니어링과 성능을 강조합니다."
+    }
+  },
+  "desc": {
+    "en": {
+      "palette": "A strict, high-contrast monochrome palette using pure white and deep black, allowing product photography to provide all the color.",
+      "layout": "A spacious, structured grid layout with generous white space to emphasize product isolation and premium feel.",
+      "interaction": "Subtle and precise micro-interactions using smooth cubic-bezier transitions for a refined user experience.",
+      "motion": "Minimal and functional motion, primarily focusing on smooth state changes and hover effects.",
+      "notes": "This site is a prime example of minimalist premium e-commerce where the design system completely defers to the product, creating a clean, high-end aesthetic."
+    },
+    "zh-CN": {
+      "palette": "一种严格、高对比度的单色配色方案，仅使用纯白和深黑，让产品摄影提供所有色彩。",
+      "layout": "一个宽敞、结构化的网格布局，配以充足的留白，以强调产品的孤立感和高级质感。",
+      "interaction": "使用平滑 cubic-bezier 过渡的微妙而精准的微交互，带来精致的用户体验。",
+      "motion": "极简且功能性的动效，主要聚焦于平滑的状态变化和 hover 效果。",
+      "notes": "此网站是极简主义高端电子商务的典范，设计系统完全服务于产品本身，营造出一种干净、高端的美感。"
+    },
+    "zh-TW": {
+      "palette": "一套嚴謹、高對比的單色調色盤，僅使用純白與深黑，讓產品攝影提供所有色彩。",
+      "layout": "寬敞、結構化的網格佈局，搭配充足的留白，以強調產品的孤立感與高端質感。",
+      "interaction": "細微且精確的微互動，使用流暢的 cubic-bezier 過渡效果，營造精緻的使用者體驗。",
+      "motion": "簡約且實用的動態效果，主要著重於平滑的狀態變化與 hover 效果。",
+      "notes": "此網站是極簡高端電商的典範，設計系統完全服務於產品，營造出乾淨、高端的美學。"
+    },
+    "ja": {
+      "palette": "純白と深い黒による、厳格でハイコントラストのモノクロームパレット。製品写真がすべての色彩を担います。",
+      "layout": "製品の分離感と高級感を強調するための、ゆったりとした構造化グリッドレイアウトと豊かな余白。",
+      "interaction": "滑らかな cubic-bezier トランジションを使用した、繊細で正確なマイクロインタラクションによる洗練された体験。",
+      "motion": "滑らかな状態変化と hover エフェクトに主眼を置いた、最小限で機能的なモーション。",
+      "notes": "このサイトは、デザインシステムが製品に完全に委ねられ、クリーンでハイエンドな美学を生み出す、ミニマルプレミアム e コーマースの代表的な例です。"
+    },
+    "ko": {
+      "palette": "순백과 짙은 블랙을 사용하는 엄격하고 고대비의 단색 팔레트로, 제품 사진이 모든 색감을 담당합니다.",
+      "layout": "여백이 넉넉하고 구조화된 격자 레이아웃으로, 제품의 고립감과 프리미엄 느낌을 강조합니다.",
+      "interaction": "부드러운 cubic-bezier 전환을 사용하는 미세하고 정밀한 마이크로 인터랙션으로, 정교한 사용자 경험을 제공합니다.",
+      "motion": "매우 최소화되고 기능적인 모션으로, 주로 부드러운 상태 변화와 hover 효과에 초점을 맞춥니다.",
+      "notes": "이 사이트는 디자인 시스템이 제품에 완전히 종속되어 깔끔하고 하이엔드 미학을 만들어내는 미니멀 프리미엄 이커머스의 대표적인 예입니다."
+    }
+  },
+  "narrative": {
+    "en": {
+      "ch1_intro": "This is a design system built with the precision of a Swiss laboratory, where every element is calibrated to let the product be the sole focus. The identity is one of minimalist performance, presenting athletic engineering against a clinical, unadorned backdrop.",
+      "ch2_intro": "The color system is a deliberate act of subtraction: a strict, high-contrast monochrome palette that defers entirely to the product photography. Pure white (#FFFFFF) and deep black (#000000) provide the structural framework, ensuring the shoe itself is the only source of visual richness.",
+      "ch2_outro": "The principle is clear: color is a functional tool for hierarchy and contrast, never a decorative layer that competes with the product.",
+      "ch3_intro": "Typography is direct and performance-oriented, using a modern humanist sans-serif to convey both technical precision and clear readability. Bold, often uppercase headlines establish authority, while body text maintains a tight, focused tracking that feels engineered rather than typeset.",
+      "ch4_intro": "The spatial rhythm is clean and grid-aligned, creating a structured foundation that organizes content with mechanical consistency.",
+      "ch5_intro": "Depth is communicated through minimal, almost invisible cues—a single, subtle shadow and a nearly transparent border define surfaces without adding visual weight. The system favors clean, flat planes over layered complexity, reinforcing the premium, uncluttered aesthetic.",
+      "ch6_intro": "The layout is a structured, multi-column grid designed for efficient product catalog presentation. Generous white space is not an afterthought but a core component, creating the generous isolation that allows each product to be considered on its own merits.",
+      "ch7_intro": "Motion is a tool for precision, not spectacle, with smooth transitions (200-400ms) using cubic-bezier easing to provide tactile, high-quality feedback. Interactions are subtle—slight background shifts and transforms that acknowledge the user without interrupting the clinical focus.",
+      "ch8_intro": "The voice is professional and direct, matching the performance focus of the product with clear, confident headlines and functional calls-to-action. It is a tone of engineering and purpose, devoid of playful embellishment or superfluous decoration.",
+      "ch8_outro": "They deliberately do not use cluttered layouts, heavy decorative elements, or complex color palettes, allowing the product's inherent quality to make the statement."
+    },
+    "zh-CN": {
+      "ch1_intro": "这是一个以瑞士实验室般的精密精神构建的设计系统，每个元素都经过精心校准，以确保产品成为唯一的焦点。其设计语言追求极简性能，在临床般纯净、无修饰的背景上展现运动工程的精髓。",
+      "ch2_intro": "色彩体系是一次深思熟虑的减法：采用严格、高对比度的单色色调，完全服务于产品摄影。纯白（#FFFFFF）与深黑（#000000）构成了结构框架，确保鞋款本身成为视觉丰富性的唯一来源。",
+      "ch2_outro": "原则很明确：色彩是用于层次与对比的功能性工具，绝非与产品争夺注意力的装饰层。",
+      "ch3_intro": "字体排印直接而注重性能，采用现代人文无衬线字体，既传达技术精度又确保清晰可读。加粗、常为全大写的标题建立权威感，正文则保持紧凑、专注的字距——这种间距感更像是工程计算而非排版处理。",
+      "ch4_intro": "空间韵律简洁且与网格对齐，创造出以机械般一致性组织内容的结构化基础。",
+      "ch5_intro": "深度通过极简、几乎不可见的线索传达——一道微妙的阴影和一条近乎透明的边框界定表面，而不增加视觉重量。系统倾向于干净的平面而非层叠的复杂性，强化了高端、无杂乱的美学。",
+      "ch6_intro": "布局采用结构化多栏网格，专为高效的产品目录展示而设计。充裕的留白并非事后考虑，而是核心组成部分，创造出让每件产品得以独立展示的宽敞隔离感。",
+      "ch7_intro": "动效是用于精度的工具而非奇观，采用平滑过渡（200-400毫秒）配合 cubic-bezier 缓动，提供触感优质反馈。交互效果微妙——细微的背景偏移和变换，在不干扰临床般专注的前提下回应用户。",
+      "ch8_intro": "文案专业而直接，以清晰、自信的标题和功能性行动号召与产品的性能定位相匹配。这是工程化、目标明确的语气，摒弃嬉戏性修饰或多余装饰。",
+      "ch8_outro": "他们刻意避免使用杂乱的布局、厚重的装饰元素或复杂的色彩组合，让产品本身的内在品质成为表达的主体。"
+    },
+    "zh-TW": {
+      "ch1_intro": "這是一個以瑞士實驗室精密度構建的設計系統，每個元素都經過校準，讓產品成為唯一的焦點。其識別標誌是極簡的高性能，在臨床、無裝飾的背景上展現運動工程。",
+      "ch2_intro": "色彩系統是刻意的減法：嚴格的高對比單色調色盤，完全服從於產品攝影。純白 (#FFFFFF) 與深黑 (#000000) 提供結構框架，確保鞋子本身是唯一的視覺豐富性來源。",
+      "ch2_outro": "原則很明確：色彩是用於層級與對比的功能工具，絕非與產品競爭的裝飾層。",
+      "ch3_intro": "字體直接且以性能為導向，使用現代的人文無襯線字體，傳達技術精準度與清晰可讀性。粗體、常全大寫的標題確立權威性，而內文則保持緊湊、專注的字距調整，感覺是工程設計而非排版。",
+      "ch4_intro": "空間節奏乾淨且與網格對齊，創建結構化基礎，以機械一致性組織內容。",
+      "ch5_intro": "深度透過極簡、幾乎不可見的提示來傳達——一道單一、細微的陰影和一個近乎透明的邊框，在不增加視覺重量的情況下定義表面。系統偏好乾淨、平面的設計，而非層次複雜性，強化高級、簡潔的美學。",
+      "ch6_intro": "版面是一個結構化的多欄網格，專為高效產品目錄展示而設計。寬敞的留白不是事後的想法，而是核心組件，創造出允許每個產品以其自身優點被考量的充足隔離。",
+      "ch7_intro": "動效是精準的工具，而非 spectacle，使用流暢的過渡（200-400ms）與 cubic-bezier 緩動，提供觸感、高品質的回饋。互動很細微——輕微的背景位移與轉換，確認使用者的存在而不中斷臨床般的專注。",
+      "ch8_intro": "語調專業且直接，以清晰、自信的標題與功能性的號召性用語，匹配產品的性能焦點。這是一種工程與目的的語調，沒有 playful 的修飾或多餘的裝飾。",
+      "ch8_outro": "他們刻意不使用雜亂的版面、厚重的裝飾元素或複雜的調色盤，讓產品內在的品質自行說明。"
+    },
+    "ja": {
+      "ch1_intro": "これはスイスの実験室のような精密さで構築されたデザインシステムです。すべての要素が、製品のみが焦点となるように調整されています。そのアイデンティティは、ミニマリスティックなパフォーマンスであり、無装飾でクリニカルな背景の上に、アスリートエンジニアリングを提示します。",
+      "ch2_intro": "カラーシステムは意図的な引き算の行為です。製品写真に完全に委ねる、厳格でハイコントラストのモノクロームパレットです。純白（#FFFFFF）と深い黒（#000000）が構造的フレームワークを提供し、シューズ自体が唯一の視覚的リッチネスの源であることを保証します。",
+      "ch2_outro": "原則は明確です。カラーは階層とコントラクトのための機能的なツールであり、製品と競合する装飾的なレイヤーではありません。",
+      "ch3_intro": "タイポグラフィは直接的でパフォーマンス志向です。技術的な精密さと明確な可読性の両方を伝えるために、モダンなヒューマニストサンセリフが使用されます。太字で、しばしば大文字の見出しが権威を確立し、本文は組版されたというよりは、エンジニアリングされたと感じられる、 tighten された集中したトゥラッキングを維持します。",
+      "ch4_intro": "空間のリズムはクリーンでグリッドに整合し、機械的な一貫性でコンテンツを整理する構造化された基盤を作ります。",
+      "ch5_intro": "奥行きは、最小限でほとんど見えないヒントによって伝達されます。単一の微細なシャドウとほぼ透明のボーダーが、視覚的な重みを追加せずに表面を定義します。このシステムは、積層された複雑さよりもクリーンでフラットな平面を優先し、プレミアムで無雑な美学を強化します。",
+      "ch6_intro": "レイアウトは、効率的な製品カタログの提示のために設計された構造化されたマルチカラムグリッドです。豊かなホワイトスペースは、後付けではなく、核心となる要素です。各製品がその merit のみで検討できる、豊かな分離空間を創造します。",
+      "ch7_intro": "モーションは、見世物のためではなく、精密さのためのツールです。滑らかなトランジション（200-400ms）とcubic-bezierイージングが、触覚的で高品質なフィードバックを提供します。インタラクションは微細です。ユーザーを認識させつつ、クリニカルな焦点を中断しない、軽微な背景シフトやトランスフォームです。",
+      "ch8_intro": "声調はプロフェッショナルで直接的です。明確で自信のある見出しと機能的な行動喚起により、製品のパフォーマンス焦点に合致します。それはエンジニアリングと目的のトーンであり、遊び心のある装飾や不必要な装飾からは完全に排除されています。",
+      "ch8_outro": "彼らは意図的に雑然としたレイアウト、重厚な装飾要素、複雑なカラーパレットを使用せず、製品の本来の品質がその主張を行えるようにしています。"
+    },
+    "ko": {
+      "ch1_intro": "이것은 스위스 실험실의 정밀함으로 구축된 디자인 시스템으로, 모든 요소가 제품에 온전히 집중할 수 있도록 조정되어 있습니다. 정체성은 미니멀리스트 성능으로, 임상적이고 꾸밈없는 배경 위에 운동 공학을 제시합니다.",
+      "ch2_intro": "컬러 시스템은 의도적인 감소의 행위입니다: 제품 사진에 완전히 종속되는 엄격한 고대비 모노크롬 팔레트입니다. 순백(#FFFFFF)과 깊은 블랙(#000000)이 구조적 틀을 제공하여, 슈즈 자체가 유일한 시각적 풍요의 원천이 되도록 보장합니다.",
+      "ch2_outro": "원칙은 명확합니다: 색상은 계층과 대비를 위한 기능적 도구이며, 제품과 경쟁하는 장식적 레이어가 아닙니다.",
+      "ch3_intro": "타이포그래피는 직접적이며 성능 지향적이며, 기술적 정밀함과 명확한 가독성을 동시에 전달하는 현대적인 휴머니스트 산세리프를 사용합니다. 굵고, 주로 대문자 헤드라인은 권위를 확립하고, 본문 텍스트는 타이핑된 것보다는 공학적으로 설계된 느낌을 주는 타이트하고 집중된 트래킹을 유지합니다.",
+      "ch4_intro": "공간 리듬은 깔끔하고 격자에 정렬되어, 기계적 일관성으로 내용을 조직하는 구조화된 기반을 만듭니다.",
+      "ch5_intro": "깊이는 최소한의, 거의 보이지 않는 단서들로 전달됩니다—하나의 미세한 그림자와 거의 투명한 테두리가 시각적 무게를 추가하지 않고 표면을 정의합니다. 이 시스템은 레이어링된 복잡성보다 깨끗하고 평면적인 면을 선호하여, 프리미엄이고 정돈되지 않은 미학을 강화합니다.",
+      "ch6_intro": "레이아웃은 효율적인 제품 카탈로그 표현을 위해 설계된 구조화된 다중 컬럼 격자입니다. 넉넉한 여백은 부수적인 것이 아니라 핵심 구성 요소로, 각 제품을 그 자체의 장점으로 고려할 수 있게 하는 넉넉한 격리를 만듭니다.",
+      "ch7_intro": "모션은 화려함을 위한 도구가 아닌 정밀함을 위한 도구이며, 촉감 있고 고품질의 피드백을 제공하기 위해 cubic-bezier 이징을 사용하는 부드러운 전환(200-400ms)을 포함합니다. 상호작용은 미묘합니다—임상적 집중을 방해하지 않으면서 사용자를 인식하는 미세한 배경 이동과 변환입니다.",
+      "ch8_intro": "음성은 전문적이고 직접적이며, 명확하고 자신감 있는 헤드라인과 기능적인 행동 유도(CTA)로 제품의 성능 초점과 일치합니다. 이것은 장난스러운 장식이나 불필요한 장식이 없는, 공학과 목적의 어조입니다.",
+      "ch8_outro": "그들은 의도적으로 혼잡한 레이아웃, 무거운 장식 요소 또는 복잡한 컬러 팔레트를 사용하지 않아, 제품의 고유한 품질이 진술을 할 수 있게 합니다."
+    }
+  }
 }

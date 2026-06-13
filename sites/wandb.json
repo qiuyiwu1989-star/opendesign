@@ -8,6 +8,618 @@
     "ai",
     "ml"
   ],
-  "status": "pending",
-  "added_at": "2026-06-03"
+  "status": "completed",
+  "added_at": "2026-06-03",
+  "spec": {
+    "colors": {
+      "bg": "#202226",
+      "bgSoft": "#282A2F",
+      "bgQuiet": "#2B303B",
+      "ink": "#FFFFFF",
+      "inkSoft": "#ADAFB5",
+      "muted": "#C5C7CC",
+      "mutedSoft": "#CCCECC",
+      "accent": "#FCBC32",
+      "line": "rgba(43, 48, 59, 1.0)"
+    },
+    "typography": {
+      "display": "transitional-serif",
+      "body": "humanist-sans",
+      "mono": "monospace",
+      "scale": [
+        {
+          "token": "display",
+          "size": 80,
+          "lh": 1.0,
+          "weight": 400,
+          "ls": "-1px"
+        },
+        {
+          "token": "h1",
+          "size": 48,
+          "lh": 1.1,
+          "weight": 400,
+          "ls": "0px"
+        },
+        {
+          "token": "body",
+          "size": 20,
+          "lh": 1.5,
+          "weight": 400,
+          "ls": "0px"
+        }
+      ]
+    },
+    "spacing": {
+      "base": 4,
+      "scale": [
+        4,
+        8,
+        12,
+        16,
+        24,
+        32,
+        48,
+        64,
+        96
+      ]
+    },
+    "surfaces": {
+      "radius": {
+        "sm": 4,
+        "md": 8,
+        "lg": 12,
+        "pill": 999
+      }
+    },
+    "layout": {
+      "container": 1280,
+      "paragraph": 680,
+      "columns": 12,
+      "gutter": 24,
+      "breakpoints": [
+        768,
+        1024
+      ]
+    },
+    "motion": {
+      "durations": {
+        "micro": 220,
+        "small": 400,
+        "medium": 800
+      },
+      "easing": "cubic-bezier(0.25, 0.1, 0.25, 1.0)"
+    }
+  },
+  "spec_i18n": {
+    "en": {
+      "identity": {
+        "keywords": [
+          "technical",
+          "robust",
+          "playful",
+          "confident",
+          "enterprise"
+        ],
+        "analogy": "A high-performance engineering dashboard with a touch of personality",
+        "oneLiner": "An enterprise AI platform that uses dark themes and playful handwritten annotations to humanize complex technical tooling."
+      },
+      "colors": {
+        "principle": "High-contrast dark theme with a vibrant amber accent for warmth and a signature cyan for secondary CTAs"
+      },
+      "typography": {
+        "rules": [
+          "Use transitional-serif for large display type and authoritative headings",
+          "Use humanist-sans for body copy and UI elements",
+          "Use monospace for code blocks and terminal-like interfaces",
+          "Handwritten annotations (e.g., 'easy') are treated as a special decorative layer over standard type"
+        ],
+        "scaleUses": [
+          "Hero headline",
+          "Section titles",
+          "General text"
+        ]
+      },
+      "spacing": {
+        "rhythm": "Standard 4px grid with generous whitespace to emphasize scale and importance"
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(10, 14, 21, 0.5) 0px -1px 16px 0px",
+          "rgba(10, 14, 21, 0.5) 0px 16px 16px 0px"
+        ],
+        "borders": "Solid 1px borders using rgba(43, 48, 59, 1.0) for subtle container delineation"
+      },
+      "layout": {
+        "skeleton": "A centered, wide-format layout with clear section breaks, utilizing a two-column grid for code examples"
+      },
+      "components": {
+        "button": "Primary buttons are solid amber with dark text; secondary buttons are cyan with dark text. Outlined buttons are used for navigation links.",
+        "card": "Dark, slightly elevated containers for code blocks and feature modules, featuring rounded corners and subtle shadows.",
+        "chip": "Small badges with border-radius: 50% for status indicators or decorative dots.",
+        "input": "Styled as terminal-like windows with line numbers, featuring a dark background and monospace font.",
+        "hero": "A large-scale centered headline with a playful handwritten annotation overlay, supported by a clear value proposition and prominent CTAs."
+      },
+      "motion": {
+        "patterns": [
+          "Hover states for buttons and interactive elements",
+          "Subtle background color transitions on hover",
+          "Transformations for interactive card elements"
+        ]
+      },
+      "interaction": {
+        "hover": "Background color darkens or lightens slightly; cursor changes to pointer.",
+        "click": "Immediate visual feedback with slight scale or color shift.",
+        "transition": "Smooth background, border, and transform transitions over 0.3s to 0.4s.",
+        "keyboard": "Standard focus outlines for accessibility."
+      },
+      "voice": {
+        "tone": "Expert yet approachable, blending technical precision with playful confidence.",
+        "headlineStyle": "Bold, declarative statements with occasional playful corrections (e.g., crossing out 'hard' for 'easy').",
+        "ctaStyle": "Direct and action-oriented, using uppercase for emphasis (e.g., 'GET STARTED WITH WEAVE').",
+        "avoid": [
+          "Avoid overly corporate or dry language",
+          "Avoid a cluttered or chaotic layout",
+          "Avoid using a purely minimalist, stark aesthetic",
+          "Avoid complex jargon without visual support"
+        ]
+      },
+      "donts": [
+        "don't use light backgrounds — screenshot shows a dark theme with a main background of #202226",
+        "don't use sans-serif for large display headings — screenshot shows a transitional-serif font for the main headline",
+        "don't use red for primary CTAs — screenshot shows amber (#FCBC32) as the dominant accent color",
+        "don't use a strict, purely utilitarian layout — screenshot shows playful, handwritten-style annotations over standard type",
+        "don't use tiny, dense containers — screenshot shows generous padding and spacing for major components",
+        "don't use complex gradients for backgrounds — screenshot shows solid dark colors with occasional subtle gradients in decorative elements"
+      ],
+      "systemPrompt": "This is a dark-themed developer platform for AI and machine learning, balancing enterprise credibility with technical playfulness. The design centers on a deep charcoal background (#202226) with a vibrant amber accent (#FCBC32) for primary actions and a secondary cyan for other CTAs. Typography uses a transitional-serif for bold, authoritative display headings and a humanist-sans for readable body copy, supplemented by monospace for code-focused areas. A signature element is the playful use of handwritten annotations that modify the main headline, injecting personality into a high-tech product. Critical design constraints include: never use light backgrounds, avoid red as a primary accent, and do not omit the generous spacing required for the large-scale elements. The layout is structured but allows for expressive, non-grid-aligned decorative touches like the crossed-out 'hard' in the hero section."
+    },
+    "zh-CN": {
+      "identity": {
+        "keywords": [
+          "技术",
+          "稳健",
+          "俏皮",
+          "自信",
+          "企业"
+        ],
+        "analogy": "兼具个性触感的高性能工程仪表盘",
+        "oneLiner": "一个企业级AI平台，运用暗色主题与俏皮的手写注释，为复杂技术工具赋予人性化温度。"
+      },
+      "colors": {
+        "principle": "高对比度暗色主题，以活力琥珀色传递温暖感，并以标志性青色用于次要行动号召"
+      },
+      "typography": {
+        "rules": [
+          "大型展示字体与权威标题使用过渡衬线体",
+          "正文与UI元素使用人文无衬线体",
+          "代码块与类终端界面使用等宽字体",
+          "手写注释（例如“easy”）作为特殊装饰层叠加于标准字体之上"
+        ],
+        "scaleUses": [
+          "主标题",
+          "章节标题",
+          "通用文本"
+        ]
+      },
+      "spacing": {
+        "rhythm": "采用标准4px网格，配以充裕的留白以强调尺度与重要性"
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(10, 14, 21, 0.5) 0px -1px 16px 0px",
+          "rgba(10, 14, 21, 0.5) 0px 16px 16px 0px"
+        ],
+        "borders": "使用rgba(43, 48, 59, 1.0)的1px实线边框，用于容器的细微界定"
+      },
+      "layout": {
+        "skeleton": "居中的宽格式布局，带有清晰的章节分隔，采用双栏网格展示代码示例"
+      },
+      "components": {
+        "button": "主按钮为实心琥珀色配深色文字；次按钮为青色配深色文字。轮廓按钮用于导航链接。",
+        "card": "深色、略带抬升效果的容器，用于代码块与功能模块，具有圆角和细微阴影。",
+        "chip": "小型徽章，边框圆角为50%，用于状态指示或装饰性圆点。",
+        "input": "设计为类终端窗口样式，带行号，采用深色背景与等宽字体。",
+        "hero": "大规模居中标题，叠加俏皮的手写注释，辅以清晰的价值主张与突出的行动号召。"
+      },
+      "motion": {
+        "patterns": [
+          "按钮与交互元素的悬停状态",
+          "悬停时细微的背景色过渡",
+          "交互卡片元素的变换效果"
+        ]
+      },
+      "interaction": {
+        "hover": "背景色略微变深或变浅；光标变为指针。",
+        "click": "提供即时视觉反馈，伴有轻微的缩放或色彩偏移。",
+        "transition": "背景、边框与变换的平滑过渡，时长0.3秒至0.4秒。",
+        "keyboard": "为保障可访问性，采用标准的焦点轮廓线。"
+      },
+      "voice": {
+        "tone": "专业且平易近人，融合技术精确性与俏皮的自信感。",
+        "headlineStyle": "大胆、宣言式的语句，偶尔加入俏皮的修正（例如将“hard”划掉改为“easy”）。",
+        "ctaStyle": "直接且以行动为导向，使用大写字母以示强调（例如“GET STARTED WITH WEAVE”）。",
+        "avoid": [
+          "避免过于企业化或枯燥的语言",
+          "避免杂乱或混乱的布局",
+          "避免使用纯粹极简、冷峻的美学风格",
+          "避免在没有视觉支持的情况下使用复杂行话"
+        ]
+      },
+      "donts": [
+        "避免使用浅色背景——截图显示的是以#202226为主背景的暗色主题",
+        "避免在大型展示标题中使用无衬线体——截图显示主标题使用的是过渡衬线字体",
+        "避免使用红色作为主行动号召色——截图显示琥珀色（#FCBC32）是主导强调色",
+        "避免使用严格、纯粹功能性的布局——截图显示在标准字体之上叠加了俏皮的手写风格注释",
+        "避免使用微小、密集的容器——截图显示主要组件具有充裕的内边距与间距",
+        "避免为背景使用复杂的渐变——截图显示以纯色深色为主，仅在装饰元素中使用偶尔的细微渐变"
+      ],
+      "systemPrompt": "这是一个面向AI与机器学习的暗色主题开发者平台，在企业可信度与技术趣味性之间取得平衡。设计以深炭灰背景（#202226）为核心，采用活力琥珀色（#FCBC32）作为主操作强调色，青色用于其他行动号召。字体方面，使用过渡衬线体呈现大胆、权威的展示标题，使用人文无衬线体保证正文可读性，并辅以等宽字体用于代码相关区域。标志性的设计元素是俏皮地使用手写注释来修饰主标题，为高技术产品注入个性。关键的设计约束包括：永远不使用浅色背景，避免将红色作为主强调色，以及不能省略大型元素所需的充裕间距。布局结构严谨，但允许在英雄区等部位采用富有表现力、非网格对齐的装饰性细节，例如被划掉的“hard”字样。"
+    },
+    "zh-TW": {
+      "identity": {
+        "keywords": [
+          "技術性",
+          "強健",
+          "俏皮",
+          "自信",
+          "企業級"
+        ],
+        "analogy": "帶有一絲個性的高效能工程儀表板",
+        "oneLiner": "一個企業級 AI 平台，採用暗色主題與俏皮的手寫註解，讓複雜的技術工具更具人性化。"
+      },
+      "colors": {
+        "principle": "高對比暗色主題，使用鮮明的琥珀色強調色帶來溫暖感，並以標誌性的青色作為次要行動呼籲"
+      },
+      "typography": {
+        "rules": [
+          "大型展示文字與權威性標題使用過渡襯線體 (transitional-serif)",
+          "內文與使用者介面元素使用人文無襯線體 (humanist-sans)",
+          "程式碼區塊與類終端機介面使用等寬字體 (monospace)",
+          "手寫註解（例如「easy」）視為覆蓋於標準字體之上的特殊裝飾層"
+        ],
+        "scaleUses": [
+          "首頁大標題",
+          "區塊標題",
+          "一般文字"
+        ]
+      },
+      "spacing": {
+        "rhythm": "標準 4px 網格，搭配充裕的留白以強調規模與重要性"
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(10, 14, 21, 0.5) 0px -1px 16px 0px",
+          "rgba(10, 14, 21, 0.5) 0px 16px 16px 0px"
+        ],
+        "borders": "使用 rgba(43, 48, 59, 1.0) 的 1px 實線邊框，作為細微的容器劃分"
+      },
+      "layout": {
+        "skeleton": "置中、寬幅格式的佈局，具有清晰的區塊分隔，並運用雙欄網格展示程式碼範例"
+      },
+      "components": {
+        "button": "主要按鈕為實心琥珀色配深色文字；次要按鈕為青色配深色文字。描邊按鈕用於導覽連結。",
+        "card": "用於程式碼區塊與功能模組的深色、微提升容器，具有圓角與細微陰影。",
+        "chip": "邊框半徑為 50% 的小型徽章，用於狀態指示器或裝飾性圓點。",
+        "input": "設計為帶有行號的類終端機視窗，具有深色背景與等寬字體。",
+        "hero": "大型置中標題，覆蓋有俏皮的手寫註解，輔以清晰的價值主張與顯著的行動呼籲。"
+      },
+      "motion": {
+        "patterns": [
+          "按鈕與互動元素的懸停狀態",
+          "懸停時細微的背景顏色過渡",
+          "互動式卡片元素的變換效果"
+        ]
+      },
+      "interaction": {
+        "hover": "背景顏色略微加深或變亮；游標變為指向圖示。",
+        "click": "提供即時的視覺回饋，伴隨輕微的縮放或顏色變化。",
+        "transition": "流暢的背景、邊框與變換過渡效果，持續時間為 0.3 秒至 0.4 秒。",
+        "keyboard": "標準的焦點外框以符合無障礙要求。"
+      },
+      "voice": {
+        "tone": "專業 yet 平易近人，融合技術精確性與俏皮的自信感。",
+        "headlineStyle": "大膽、宣言式的陳述，偶爾帶有俏皮的修正（例如刪除「hard」寫上「easy」）。",
+        "ctaStyle": "直接且以行動為導向，使用大寫強調（例如「GET STARTED WITH WEAVE」）。",
+        "avoid": [
+          "避免過於企業化或生硬的語言",
+          "避免雜亂或混沌的佈局",
+          "避免使用純粹的極簡主義、冷峻美學",
+          "避免使用缺乏視覺輔助的複雜術語"
+        ]
+      },
+      "donts": [
+        "不要使用淺色背景——截圖顯示的是以 #202226 為主要背景的暗色主題",
+        "不要使用無襯線體作為大型展示標題——截圖顯示主標題使用過渡襯線體",
+        "不要使用紅色作為主要行動呼籲——截圖顯示琥珀色 (#FCBC32) 作為主要強調色",
+        "不要使用嚴格、純實用的佈局——截圖顯示在標準字體上覆蓋了俏皮的手寫風格註解",
+        "不要使用狹小、密集的容器——截圖顯示主要元件具有充裕的內距與間距",
+        "不要使用複雜的漸層作為背景——截圖顯示純色的深色背景，僅在裝飾性元素中偶爾使用細微的漸層"
+      ],
+      "systemPrompt": "這是一個面向 AI 與機器學習的暗色主題開發者平台，平衡了企業可信度與技術趣味性。設計以深木炭色背景 (#202226) 為中心，主要操作使用鮮明的琥珀色強調色 (#FCBC32)，其他行動呼籲則採用次要青色。字體方面，使用過渡襯線體 (transitional-serif) 呈現大膽、權威的展示標題，人文無襯線體 (humanist-sans) 用於可讀內文，並以等寬字體 (monospace) 補充程式碼專注區域。標誌性元素是俏皮地運用手寫註解來修改主標題，為高科技產品注入個性。關鍵設計限制包括：絕不使用淺色背景，避免使用紅色作為主要強調色，且不可省略大型元件所需的充裕間距。佈局結構化，但允許非網格對齊的表達性裝飾細節，例如首頁區塊中被刪除的「hard」字樣。"
+    },
+    "ja": {
+      "identity": {
+        "keywords": [
+          "テクニカル",
+          "堅牢",
+          "遊び心",
+          "自信",
+          "エンタープライズ"
+        ],
+        "analogy": "パーソナリティを纏った高性能エンジニアリングダッシュボード",
+        "oneLiner": "ダークテーマと遊び心のある手書きアノテーションを用い、複雑な技術ツールを人間味のあるものとするエンタープライズAIプラットフォーム。"
+      },
+      "colors": {
+        "principle": "温かみを加える鮮やかなアンバーアクセントと、セカンダリーCTA用の特徴的なシアンを採用した高コントラストダークテーマ"
+      },
+      "typography": {
+        "rules": [
+          "大型ディスプレイタイプや権威のある見出しにはトランジショナルセリフを使用",
+          "本文およびUI要素にはヒューマニストサンスを使用",
+          "コードブロックやターミナル風インターフェースにはモノスペースを使用",
+          "手書きアノテーション（例：'easy'）は、標準タイポグラフィの上に特殊な装飾レイヤーとして扱う"
+        ],
+        "scaleUses": [
+          "ヒーローヘッドライン",
+          "セクションタイトル",
+          "一般テキスト"
+        ]
+      },
+      "spacing": {
+        "rhythm": "スケールと重要性を強調するための、ゆとりのある余白を備えた標準4pxグリッド"
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(10, 14, 21, 0.5) 0px -1px 16px 0px",
+          "rgba(10, 14, 21, 0.5) 0px 16px 16px 0px"
+        ],
+        "borders": "rgba(43, 48, 59, 1.0)を使用した、コンテナの微妙な区切りのための1px実線ボーダー"
+      },
+      "layout": {
+        "skeleton": "セクション区切りが明確な、中央揃えのワイドフォーマットレイアウト。コードサンプルには2カラムグリッドを活用"
+      },
+      "components": {
+        "button": "プライマリボタンはアンバー背景にダークテキスト。セカンダリボタンはシアン背景にダークテキスト。アウラインボタンはナビゲーションリンクに使用。",
+        "card": "コードブロックや機能モジュール用の、ダークでわずかに浮き上がったコンテナ。角丸と微妙なシャドウを採用。",
+        "chip": "ステータスインジケーターや装飾ドット用の、border-radius: 50%の小型バッジ。",
+        "input": "行番号付きのターミナル風ウィンドウとしてスタイル化。ダーク背景とモノスペースフォントを採用。",
+        "hero": "遊び心のある手書きアノテーションオーバーレイを持つ大型中央見出し。明確なバリュー・プロポジションと主要CTAをサポート。"
+      },
+      "motion": {
+        "patterns": [
+          "ボタンおよびインタラクティブ要素のホバーステート",
+          "ホバー時の微妙な背景色トランジション",
+          "インタラクティブカード要素のトランスフォーム"
+        ]
+      },
+      "interaction": {
+        "hover": "背景色がわずかに暗くまたは明るく変化。カーソルがポインタに変更。",
+        "click": "軽微なスケールや色の変化による即座のビジュアルフィードバック。",
+        "transition": "背景、ボーダー、トランスフォームに対する、0.3秒から0.4秒の滑らかなトランジション。",
+        "keyboard": "アクセシビリティのための標準的なフォーカスアウトライン。"
+      },
+      "voice": {
+        "tone": "専門的でありながらも親しみやすく、テクニカルな精緻さと遊び心のある自信を融合。",
+        "headlineStyle": "大胆で断定的なステートメント。時折、遊び心のある訂正を挿入（例：'hard'を消し線で引いて'easy'に変更）。",
+        "ctaStyle": "直接的でアクション重視。強調のため大文字を使用（例：'GET STARTED WITH WEAVE'）。",
+        "avoid": [
+          "過度にコーポレートまたはドライな言葉遣いを避ける",
+          "雑然とした、カオスなレイアウトを避ける",
+          "純粋にミニマルで無機質な美学を避ける",
+          "ビジュアルサポートのない複雑な専門用語を避ける"
+        ]
+      },
+      "donts": [
+        "ライト背景を使用しない — スクリーンショットではメイン背景#202226のダークテーマを確認",
+        "大型ディスプレイ見出しにサンセリフを使用しない — スクリーンショットではメインヘッドラインにトランジショナルセリフフォントを使用",
+        "プライマリCTAに赤色を使用しない — スクリーンショットでは主要アクセントカラーとしてアンバー（#FCBC32）を使用",
+        "厳格で純粋にユーティリティなレイアウトを使用しない — スクリーンショットでは標準タイポグラフィの上に遊び心のある手書きスタイルアノテーションを確認",
+        "小さく密なコンテナを使用しない — スクリーンショットでは主要コンポーネントにゆとりのあるパディングとスペーシングを確認",
+        "背景に複雑なグラデーションを使用しない — スクリーンショットでは装飾要素に時折微妙なグラデーションを含む、ソリッドなダークカラーを使用"
+      ],
+      "systemPrompt": "これはAIおよび機械学習向けのダークテーマ開発者プラットフォームで、エンタープライズの信頼性とテクニカルな遊び心のバランスを取っています。デザインは、プライマリアクションに鮮やかなアンバー（#FCBC32）をアクセントに、セカンダリーCTAにシアンを採用した、深炭色の背景（#202226）を中心に構成されています。タイポグラフィでは、大胆で権威のあるディスプレイ見出しにトランジショナルセリフを、読みやすい本文にヒューマニストサンスを、コード重視エリアにはモノスペースを補足的に使用。特徴的な要素は、メインヘッドラインを変更する遊び心のある手書きアノテーションの使用で、ハイテク製品にパーソナリティを注入しています。重要なデザイン制約には、ライト背景の禁止、プライマリアクセントとして赤色の不使用、および大型要素に必要なゆとりのあるスペーシングの省略不可が含まれます。レイアウトは構造化されていますが、ヒーローセクションの消し線引かれた'hard'のような、グリッドに固定されない表現的な装飾タッチを許容しています。"
+    },
+    "ko": {
+      "identity": {
+        "keywords": [
+          "기술적",
+          "견고한",
+          "장난기 있는",
+          "자신감 있는",
+          "기업용"
+        ],
+        "analogy": "약간의 개성이 더해진 고성능 엔지니어링 대시보드",
+        "oneLiner": "다크 테마와 장난기 있는 손글씨 주석을 사용하여 복잡한 기술 도구를 인간화하는 기업용 AI 플랫폼입니다."
+      },
+      "colors": {
+        "principle": "따뜻함을 주는 활기찬 앰버 악센트와 보조 CTA를 위한 시그니처 시안이 있는 고대비 다크 테마"
+      },
+      "typography": {
+        "rules": [
+          "대형 디스플레이 타입과 권위 있는 제목에는 전환형 세리프를 사용합니다",
+          "본문과 UI 요소에는 휴머니트 산스를 사용합니다",
+          "코드 블록과 터미널 유사 인터페이스에는 모노스페이스를 사용합니다",
+          "손글씨 주석(예: 'easy')은 표준 타입 위에 특별한 장식 레이어로 처리됩니다"
+        ],
+        "scaleUses": [
+          "히어로 헤드라인",
+          "섹션 제목",
+          "일반 텍스트"
+        ]
+      },
+      "spacing": {
+        "rhythm": "규모와 중요성을 강조하기 위한 넉넉한 여백이 있는 표준 4px 그리드"
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(10, 14, 21, 0.5) 0px -1px 16px 0px",
+          "rgba(10, 14, 21, 0.5) 0px 16px 16px 0px"
+        ],
+        "borders": "미묘한 컨테이너 구분을 위해 rgba(43, 48, 59, 1.0)를 사용하는 솔리드 1px 테두리"
+      },
+      "layout": {
+        "skeleton": "명확한 섹션 구분이 있는 중앙 정렬된 와이드 포맷 레이아웃. 코드 예시를 위해 2컬럼 그리드를 활용"
+      },
+      "components": {
+        "button": "주요 버튼은 어두운 텍스트가 있는 솔리드 앰버입니다. 보조 버튼은 어두운 텍스트가 있는 시안입니다. 아웃라인 버튼은 내비게이션 링크에 사용됩니다.",
+        "card": "코드 블록과 기능 모듈을 위한 어둡고 약간 높이감이 있는 컨테이너. 둥근 모서리와 미묘한 그림자가 특징입니다.",
+        "chip": "상태 표시기 또는 장식용 도트를 위한 border-radius: 50%의 작은 뱃지.",
+        "input": "줄 번호가 있는 터미널 유사 윈도우로 스타일링. 어두운 배경과 모노스페이스 폰트가 특징입니다.",
+        "hero": "장난기 있는 손글씨 주석 오버레이가 있는 대규모 중앙 정렬 헤드라인. 명확한 가치 제안과 두드러진 CTA가 뒷받침됩니다."
+      },
+      "motion": {
+        "patterns": [
+          "버튼과 인터랙티브 요소의 hover 상태",
+          "hover 시 미묘한 배경 색상 전환",
+          "인터랙티브 카드 요소를 위한 변환"
+        ]
+      },
+      "interaction": {
+        "hover": "배경 색상이 약간 어두워지거나 밝아집니다. 커서가 포인터로 변경됩니다.",
+        "click": "약간의 스케일 또는 색상 변화로 즉각적인 시각적 피드백을 제공합니다.",
+        "transition": "0.3s~0.4s 동안 부드러운 배경, 테두리 및 변환 트랜지션.",
+        "keyboard": "접근성을 위한 표준 focus 윤곽선."
+      },
+      "voice": {
+        "tone": "기술적 정밀함과 장난기 있는 자신감을 혼합한 전문적이면서도 친근한 어조.",
+        "headlineStyle": "가끔 장난기 있는 수정(예: 'hard'를 'easy'로 긋기)이 있는 굵고 선언적인 문장.",
+        "ctaStyle": "직접적이고 행동 지향적이며, 강조를 위해 대문자 사용(예: 'GET STARTED WITH WEAVE').",
+        "avoid": [
+          "지나치게 기업적이거나 건조한 언어 사용 회피",
+          "지저분하거나 혼란스러운 레이아웃 회피",
+          "순수 미니멀리즘의 딱딱한 미학 회피",
+          "시각적 지원 없이 복잡한 전문 용어 사용 회피"
+        ]
+      },
+      "donts": [
+        "밝은 배경을 사용하지 마세요 — 스크린샷은 #202226의 메인 배경을 가진 다크 테마를 보여줍니다",
+        "대형 디스플레이 제목에 산스체를 사용하지 마세요 — 스크린샷은 메인 헤드라인에 전환형 세리프 폰트를 보여줍니다",
+        "보조 CTA에 빨간색을 사용하지 마세요 — 스크린샷은 앰버(#FCBC32)를 주요 악센트 색상으로 보여줍니다",
+        "엄격하고 순수 실용적인 레이아웃을 사용하지 마세요 — 스크린샷은 표준 타입 위에 장난기 있는 손글씨 스타일 주석을 보여줍니다",
+        "작고 밀집된 컨테이너를 사용하지 마세요 — 스크린샷은 주요 요소에 넉넉한 패딩과 간격을 보여줍니다",
+        "배경에 복잡한 그라디언트를 사용하지 마세요 — 스크린샷은 장식 요소에 미묘한 그라디언트가 간헐적으로 있는 솔리드 어두운 색상을 보여줍니다"
+      ],
+      "systemPrompt": "이것은 기업의 신뢰성과 기술적 장난기를 균형 잡은 AI 및 머신러닝을 위한 다크 테마 개발자 플랫폼입니다. 디자인은 깊은 차콜 배경(#202226)을 중심으로 하며, 주요 작업에는 활기찬 앰버 악센트(#FCBC32)를, 기타 CTA에는 보조 시안을 사용합니다. 타이포그래피는 굵고 권위 있는 디스플레이 제목에 전환형 세리프를, 읽기 좋은 본문에는 휴머니트 산스를 사용하며, 코드 중심 영역에는 모노스페이스가 보충됩니다. 시그니처 요소는 메인 헤드라인을 수정하는 손글씨 주석의 장난기 있는 사용으로, 하이테크 제품에 개성을 불어넣습니다. 핵심 디자인 제약 조건은 다음과 같습니다: 절대 밝은 배경을 사용하지 말 것, 주요 악센트로 빨간색을 피할 것, 대규모 요소에 필요한 넉넉한 간격을 생략하지 말 것. 레이아웃은 구조화되어 있지만 히어로 섹션에서 긋어버린 'hard'와 같은 표현적이고 그리드에 정렬되지 않은 장식적touches를 허용합니다."
+    }
+  },
+  "desc": {
+    "en": {
+      "palette": "A high-contrast dark theme using deep charcoal as the base, with a vibrant amber accent for primary actions and cyan for secondary CTAs.",
+      "layout": "A centered, wide-format container layout with clear section breaks, utilizing a two-column grid for showcasing code examples.",
+      "interaction": "Smooth transitions and hover states on buttons and interactive elements, with subtle color and background changes.",
+      "motion": "Standard web transitions with durations ranging from micro-interactions to more pronounced medium-duration shifts.",
+      "notes": "This site is a prime example of balancing enterprise-grade seriousness with developer-friendly personality through its playful annotations and robust dark-mode design."
+    },
+    "zh-CN": {
+      "palette": "采用深炭灰为基底的高对比度暗色主题，搭配活力琥珀色作为主操作强调色，青色则用于次要行动号召。",
+      "layout": "居中的宽格式容器布局，带有清晰的章节分隔，采用双栏网格展示代码示例。",
+      "interaction": "按钮与交互元素具备平滑过渡与悬停状态，伴有细微的色彩与背景变化。",
+      "motion": "采用标准的网页过渡效果，时长范围涵盖微交互至更明显的中时长变换。",
+      "notes": "此网站是通过俏皮的注释与稳健的暗色模式设计，在企业级严肃性与开发者友好个性之间取得平衡的典范。"
+    },
+    "zh-TW": {
+      "palette": "採用深木炭色為基底的高對比暗色主題，主要操作使用鮮明的琥珀色作為強調色，次要行動呼籲則採用青色。",
+      "layout": "以置中、寬幅格式的容器佈局為主，具有清晰的區塊分隔，並運用雙欄網格來展示程式碼範例。",
+      "interaction": "按鈕與互動元素提供流暢的過渡效果與懸停狀態，帶有細微的顏色與背景變化。",
+      "motion": "標準的網路過渡效果，持續時間涵蓋從微互動到較為明顯的中等時長轉換。",
+      "notes": "此網站是平衡企業級嚴謹性與開發者友好個性的典範，透過俏皮的註解與強健的暗色模式設計來體現。"
+    },
+    "ja": {
+      "palette": "深炭色をベースとした高コントラストのダークテーマ。プライマリアクションには鮮やかなアンバーをアクセントに、セカンダリーCTAにはシアンを採用。",
+      "layout": "セクション区切りが明確な、中央揃えのワイドフォーマットコンテナレイアウト。コードサンプルの表示には2カラムグリッドを活用。",
+      "interaction": "ボタンやインタラクティブ要素に滑らかなトランジションとホバーステートを適用。微妙なカラーおよび背景の変化を実装。",
+      "motion": "マイクロインタラクションからやや長めの中間デュレーションまで、幅広い持続時間の標準的なウェブトランジションを採用。",
+      "notes": "このサイトは、遊び心のあるアノテーションと堅牢なダークモードデザインを通じて、エンタープライズ級の真摯さとデベロッパー向けの親しみやすさのバランスを取る好例です。"
+    },
+    "ko": {
+      "palette": "깊은 차콜을 베이스로 한 고대비 다크 테마. 주요 작업에는 활기찬 앰버 악센트를, 보조 CTA에는 시안을 사용합니다.",
+      "layout": "명확한 섹션 구분이 있는 중앙 정렬된 와이드 포맷 컨테이너 레이아웃. 코드 예시를 보여주기 위해 2컬럼 그리드를 활용합니다.",
+      "interaction": "버튼과 인터랙티브 요소에 부드러운 트랜지션과 hover 상태를 적용하며, 미묘한 색상 및 배경 변화가 있습니다.",
+      "motion": "마이크로 인터랙션부터 더 뚜렷한 중간 지속 시간 전환까지 다양한 시간 범위의 표준 웹 트랜지션입니다.",
+      "notes": "이 사이트는 재치 있는 주석과 견고한 다크 모드 디자인을 통해 기업급 진지함과 개발자 친화적 성격의 균형을 맞춘 대표적인 예시입니다."
+    }
+  },
+  "_meta": {
+    "vision_model": "mimo-v2.5",
+    "vision_prompt_version": "0.3",
+    "vision_source": "playwright-extract:wandb",
+    "vision_grounded": true,
+    "vision_at": "2026-06-04T19:52:46+00:00",
+    "vision_tokens": 16610,
+    "vision_cost_usd": 0.1846,
+    "translation_model": "mimo-v2.5",
+    "translation_at": "2026-06-04T19:54:12+00:00",
+    "translation_tokens": 18975,
+    "translation_cost_usd": 0.0633,
+    "narrative_model": "mimo-v2.5",
+    "narrative_prompt_version": "0.3",
+    "narrative_at": "2026-06-04T19:54:21+00:00",
+    "narrative_tokens": 2256,
+    "narrative_cost_usd": 0.015,
+    "narrative_status": "ok",
+    "total_cost_usd": 0.2629
+  },
+  "narrative": {
+    "en": {
+      "ch1_intro": "Weights & Biases presents itself as a high-performance engineering dashboard, where the density of enterprise tooling meets a deliberate touch of personality. The system is built on a foundation of technical robustness, yet it refuses to sacrifice approachability for the sake of sheer authority.",
+      "ch2_intro": "The palette is anchored by a deep charcoal field, a high-contrast foundation that allows content to recede and interface elements to command attention. A vibrant amber serves as the signature warmth for primary actions, while a secondary cyan provides a clear, cool counterpoint.",
+      "ch2_outro": "The principle is clear: dark backgrounds are non-negotiable, and the accent colors exist to guide, not to decorate.",
+      "ch3_intro": "Type is deployed in a deliberate hierarchy, using a transitional-serif for display type to convey authority and a humanist-sans for body copy to ensure readability. Monospace is reserved for the literal language of the platform—code blocks and terminal interfaces—maintaining a clear distinction between narrative and command.",
+      "ch4_intro": "A standard 4px grid provides the underlying rhythm, but the system employs generous whitespace to articulate the scale and importance of major components.",
+      "ch5_intro": "Depth is communicated through carefully calibrated shadows and subtle 1px borders, which delineate containers without harsh division. These elements create a layered environment where cards and modules feel elevated, yet firmly rooted in the dark surface.",
+      "ch6_intro": "The layout skeleton is a centered, wide-format composition that prioritizes clear section breaks. Within this structure, a two-column grid emerges specifically to juxtapose explanatory text with rendered code examples.",
+      "ch7_intro": "Motion is treated as functional feedback rather than spectacle. The system favors standard, smooth transitions for hover states and interactive feedback, ensuring that movement always clarifies the interface's response.",
+      "ch8_intro": "The voice is expert yet approachable, blending technical precision with a confident, playful tone. It speaks in declarative statements and direct calls to action, deliberately avoiding the dryness of corporate jargon.",
+      "ch8_outro": "The system deliberately avoids light themes, purely utilitarian layouts, and complex gradients, trusting instead in solid color, generous spacing, and purposeful typographic play."
+    },
+    "zh-CN": {
+      "ch1_intro": "Weights & Biases 将自身定位为高性能工程仪表盘，企业工具的密度在此与精心设计的个性触感相遇。系统建立在技术稳健性的基石之上，却又拒绝为纯粹的权威感牺牲亲和力。",
+      "ch2_intro": "调色板以深炭灰色为基调，高对比度的基底让内容退居次席，界面元素得以主导视觉。醒目的琥珀色为主操作注入标志性暖意，而次级青色则提供清晰、冷静的平衡点。",
+      "ch2_outro": "原则很明确：深色背景不容妥协，强调色用于引导而非装饰。",
+      "ch3_intro": "字体排布遵循刻意构建的层级：展示型文字采用过渡衬线体以传递权威，正文则使用人文无衬线体确保可读性。等宽字体专属于平台的直白语言——代码块与终端界面——在叙述与指令间保持清晰界限。",
+      "ch4_intro": "标准4px网格构建底层韵律，系统通过充足留白来勾勒主要组件的尺度与重要性。",
+      "ch5_intro": "深度通过精心校准的阴影与微妙的1px边框传达，它们在不制造生硬分割的前提下界定容器。这些元素创造出分层环境，卡片与模块既呈现悬浮感，又坚实扎根于深色基底。",
+      "ch6_intro": "布局骨架采用居中宽幅构图，优先呈现清晰的段落分隔。在此结构内，双栏网格专门用于并置说明文本与渲染后的代码示例。",
+      "ch7_intro": "动态效果被视为功能性反馈而非视觉奇观。系统倾向于为hover状态与交互反馈使用标准平滑过渡，确保运动始终能厘清界面响应。",
+      "ch8_intro": "语调专业而平易，融合技术精准度与自信诙谐的语气。采用陈述句与直接行动号召，刻意规避企业术语的枯燥感。",
+      "ch8_outro": "系统刻意摒弃浅色主题、纯功能化布局与复杂渐变，转而信赖纯色、充足间距与富有目的性的字体排印游戏。"
+    },
+    "zh-TW": {
+      "ch1_intro": "Weights & Biases 呈現為一個高效能的工程儀表板，企業工具的高密度與刻意流露的個性在此交會。系統建立於技術穩健的基礎上，卻不願為了純粹的權威感而犧牲親和力。",
+      "ch2_intro": "色彩配置以深碳色為基底，高對比的基礎讓內容退後，介面元素主導視覺。鮮明的琥珀色作為主要操作的標誌性暖色調，而輔助的青藍色則提供清晰、冷靜的對比。",
+      "ch2_outro": "原則明確：深色背景不容妥協，強調色僅用於引導，而非裝飾。",
+      "ch3_intro": "字型以刻意的層級部署，展示字型採用過渡襯線體傳達權威感，內文字型使用人文無襯線體確保可讀性。等寬字體保留給平台的直觀語言——程式碼區塊與終端機介面——維持敘事與指令之間的清晰區隔。",
+      "ch4_intro": "標準的 4px 網格提供基礎節奏，但系統運用充足的留白來闡釋主要元件的規模與重要性。",
+      "ch5_intro": "透過精心校準的陰影與細微的 1px 邊框傳達深度，這些元素在不生硬分割的情況下劃分容器。它們創造出層次豐富的環境，讓卡片與模組感覺輕盈浮現，卻又穩固地植基於深色表面。",
+      "ch6_intro": "佈局骨架採用置中的寬幅構圖，優先考慮清晰的區段劃分。在此結構中，雙欄網格專門用於並置說明文字與渲染的程式碼範例。",
+      "ch7_intro": "動效被視為功能性回饋而非 spectacle。系統偏好標準、流暢的過渡效果用於 hover 狀態與互動回饋，確保動態始終清晰傳達介面的回應。",
+      "ch8_intro": "語調專業 yet 平易近人，融合技術精確度與自信、俏皮的語氣。它以陳述句與直接的行動呼籲發言，刻意避開企業術語的生硬感。",
+      "ch8_outro": "系統刻意避免淺色主題、純粹實用主義的佈局與複雜漸層，轉而信賴純色、充足間距與有目的的字型遊戲。"
+    },
+    "ja": {
+      "ch1_intro": "Weights & Biasesは、高性能エンジニアリングダッシュボードとして提示されています。エンタープライズツールの密度と、意図的な個性のタッチが出会う場所です。技術的堅牢性の土台の上に構築されていますが、純粋な権威のために親しみやすさを犠牲にはしません。",
+      "ch2_intro": "パレットは深い炭色のフィールドを基盤とし、コンテンツを後退させ、インターフェース要素が注目を集める高コントラストの基盤です。鮮やかなアンバーがプライマリアクションの象徴的な温かみを提供し、セカンダリのシアントは明確で涼やかな対照を加えます。",
+      "ch2_outro": "原則は明確です。ダークバックグラウンドは譲れず、アクセントカラーは装飾のためではなく、ガイドのため存在します。",
+      "ch3_intro": "タイポグラフィは意図的な階層で配置され、ディスプレイタイプには権威を伝えるトランジショナル・セリフを、本文には読みやすさを確保するヒューマニスト・サンズを使用します。モノスペースはプラットフォームの文字通りの言語—コードブロックやターミナルインターフェース—に限られ、ナラティブとコマンドの明確な区別を保ちます。",
+      "ch4_intro": "標準的な4pxグリッドが基礎となるリズムを提供しますが、システムは主要コンポーネントのスケールと重要性を明確にするために、豊かな余白を採用しています。",
+      "ch5_intro": "深みは、慎重に調整されたシャドウと微細な1pxのボーダーによって伝達されます。これらは激しい分割なしにコンテナを区切ります。これらの要素は、カードやモジュールが浮き上がりつつ、暗い表面にしっかりと根を張った、階層化された環境を生み出します。",
+      "ch6_intro": "レイアウトの骨格は、明確なセクション区切りを優先する、センタリングされた広いフォーマットの構成です。この構造の中で、説明テキストとレンダリングされたコード例を並置するために、特に2カラムグリッドが登場します。",
+      "ch7_intro": "モーションはスペクタクルとしてではなく、機能的なフィードバックとして扱われます。システムは、ホバーステートやインタラクティブフィードバックのために標準的で滑らかなトランジションを好んで使用し、動きが常にインターフェースの応答を明確にするよう保証します。",
+      "ch8_intro": "声は専門的でありながら親しみやすく、技術的精度と自信に満ちた遊び心のあるトーンを融合させています。宣言的な文や直接的な行動喚起で語り、企業用語の乾いた雰囲気を意図的に避けます。",
+      "ch8_outro": "システムは、ライトテーマ、純粋に実用主義的なレイアウト、複雑なグラデーションを意図的に避け、代わりに無地のカラー、豊かなスペース、目的に沿ったタイポグラフィの玩びを信頼しています。"
+    },
+    "ko": {
+      "ch1_intro": "Weights & Biases는 고성능 엔지니어링 대시보드로 자리매김하며, 기업 도구의 밀도와 의도적인 개성이 결합된 곳입니다. 이 시스템은 기술적 견고성을 기반으로 구축되었으나, 권위를 위해 접근성을 희생하는 것을 거부합니다.",
+      "ch2_intro": "팔레트는 깊은 차콜 배경으로 고정되어 있으며, 높은 대비의 기반은 콘텐츠가 물러나고 인터페이스 요소가 주목을 받을 수 있게 합니다. 활기적인 앰버가 주요 액션을 위한 시그니처 웜스로 작용하며, 보조 시안은 명확하고 시원한 대조를 제공합니다.",
+      "ch2_outro": "원칙은 명확합니다: 어두운 배경은 타협할 수 없으며, 강조 색상은 장식이 아닌 안내를 위해 존재합니다.",
+      "ch3_intro": "타이포그래피는 의도적 계층으로 전개됩니다. 전환체 세리프를 제목에 사용하여 권위를 전달하고, 휴머니스트산스를 본문에 사용하여 가독성을 보장합니다. 모노스페이스는 플랫폼의 문자 언어—코드 블록과 터미널 인터페이스—에 예약되어, 내러티브와 명령 간의 명확한 구분을 유지합니다.",
+      "ch4_intro": "표준 4px 그리드는 기본 리듬을 제공하지만, 시스템은 여유로운 여백을 사용하여 주요 컴포넌트의 규모와 중요성을 명확히 표현합니다.",
+      "ch5_intro": "깊이는 정밀하게 조정된 그림자와 미세한 1px 테두리를 통해 전달되며, 이는 가혹한 구분 없이 컨테이너를 윤곽화합니다. 이러한 요소들은 카드와 모듈이 높이 올라간 듯 느껴지면서도 어두운 표면에 확고히 뿌리내린 계층적 환경을 조성합니다.",
+      "ch6_intro": "레이아웃 골격은 명확한 섹션 구분을 우선시하는 중앙 정렬 와이드 포맷 구성입니다. 이 구조 내에서 이중 열 그리드는 설명 텍스트와 렌더링된 코드 예시를 나란히 배치하기 위해 특별히 등장합니다.",
+      "ch7_intro": "모션은 화려함보다 기능적 피드백으로 다룹니다. 시스템은 hover 상태와 인터랙티브 피드백을 위해 표준적이고 부드러운 전환을 선호하며, 움직임이 항상 인터페이스의 응답을 명확히 하도록 보장합니다.",
+      "ch8_intro": "어조는 전문적이면서도 접근 가능하며, 기술적 정밀함과 자신감 넘치고 장난기 어린 톤을 결합합니다. 선언적 진술과 직접적인 행동 촉구로 말하며, 기업 용어의 건조함을 의도적으로 피합니다.",
+      "ch8_outro": "시스템은 의도적으로 라이트 테마, 순수하게 실용적인 레이아웃, 복잡한 그라디언트를 피하며, 대신 단색, 여유로운 간격, 목적을 지닌 타이포그래피적 활용을 신뢰합니다."
+    }
+  }
 }

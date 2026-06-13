@@ -8,6 +8,640 @@
     "design",
     "ai"
   ],
-  "status": "pending",
-  "added_at": "2026-06-03"
+  "status": "completed",
+  "added_at": "2026-06-03",
+  "spec": {
+    "colors": {
+      "bg": "#0D0D0D",
+      "bgSoft": "#171717",
+      "bgQuiet": "#080808",
+      "ink": "#F5F5F5",
+      "inkSoft": "#AEAEAE",
+      "muted": "#232323",
+      "mutedSoft": "#2E2E2E",
+      "accent": "#6419FF",
+      "line": "rgba(33,33,33,1)"
+    },
+    "typography": {
+      "display": "geometric-sans",
+      "body": "humanist-sans",
+      "mono": "monospace",
+      "scale": [
+        {
+          "token": "display",
+          "size": 56,
+          "lh": 1.0,
+          "weight": 500,
+          "ls": "-1px"
+        },
+        {
+          "token": "h1",
+          "size": 40,
+          "lh": 1.1,
+          "weight": 480,
+          "ls": "-0.6px"
+        },
+        {
+          "token": "body-lg",
+          "size": 18,
+          "lh": 1.33,
+          "weight": 400,
+          "ls": "-0.2px"
+        },
+        {
+          "token": "body",
+          "size": 16,
+          "lh": 1.15,
+          "weight": 400,
+          "ls": "-0.2px"
+        },
+        {
+          "token": "caption",
+          "size": 14,
+          "lh": 1.15,
+          "weight": 400,
+          "ls": "0px"
+        }
+      ]
+    },
+    "spacing": {
+      "base": 4,
+      "scale": [
+        4,
+        8,
+        12,
+        16,
+        20,
+        24,
+        32,
+        40,
+        48,
+        64,
+        90
+      ]
+    },
+    "surfaces": {
+      "radius": {
+        "sm": 4,
+        "md": 8,
+        "lg": 12,
+        "xl": 16,
+        "pill": 999
+      }
+    },
+    "layout": {
+      "container": 1280,
+      "paragraph": 680,
+      "columns": 12,
+      "gutter": 24,
+      "breakpoints": [
+        768,
+        1024
+      ]
+    },
+    "motion": {
+      "durations": {
+        "micro": 200,
+        "small": 300,
+        "medium": 500
+      },
+      "easing": "cubic-bezier(0.25, 0.1, 0.25, 1)"
+    }
+  },
+  "spec_i18n": {
+    "en": {
+      "identity": {
+        "keywords": [
+          "AI-powered",
+          "rapid prototyping",
+          "UI design",
+          "wireframing",
+          "product concepts"
+        ],
+        "analogy": "An autopilot for UI design that turns text prompts into wireframes.",
+        "oneLiner": "Turn product ideas into concepts instantly with GenAI."
+      },
+      "colors": {
+        "principle": "High-contrast dark mode with a vibrant purple AI accent to signal creativity and modern tech."
+      },
+      "typography": {
+        "rules": [
+          "Maintain tight line-heights (1.1-1.15) for headings.",
+          "Use negative letter-spacing (-1px to -0.2px) for a modern, tight feel.",
+          "Prioritize clean, geometric shapes for all display typography."
+        ],
+        "scaleUses": [
+          "Main hero headline",
+          "Section headings",
+          "Subheadings and emphasis",
+          "Standard paragraph text",
+          "Secondary text and UI labels"
+        ]
+      },
+      "spacing": {
+        "rhythm": "A consistent 4px grid system ensures harmonious spacing across all UI components."
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 12px 30px -4px rgba(3,3,3,0.12)",
+          "0px 2px 12px 0px rgba(168,129,254,0.64)",
+          "0px -20px 200px 0px rgba(68,20,187,0.75)"
+        ],
+        "borders": "1px solid rgb(245,245,245) or rgb(33,33,33) depending on context."
+      },
+      "layout": {
+        "skeleton": "A structured grid layout centered on the page with distinct sections for hero, features, and social proof."
+      },
+      "components": {
+        "button": "High-contrast primary buttons with pill-shaped borders and subtle purple glows.",
+        "card": "Rounded cards with soft borders (1px solid #212121) and deep background colors.",
+        "chip": "Small, rounded labels used for status or tags within the interface.",
+        "input": "Clean input fields with dark backgrounds and subtle borders, often grouped with action buttons.",
+        "hero": "A dominant, centered hero section featuring a large headline, subtext, and a prominent prompt input."
+      },
+      "motion": {
+        "patterns": [
+          "Smooth transitions on background-color and opacity.",
+          "Subtle hover effects on interactive elements.",
+          "Dynamic glows and gradients that enhance the AI-centric feel."
+        ]
+      },
+      "interaction": {
+        "hover": "Subtle color shifts and slight scale or glow effects on primary actions.",
+        "click": "Immediate visual feedback through color change or inset shadow.",
+        "transition": "Standardized 0.3s transitions for all state changes.",
+        "keyboard": "Full keyboard accessibility for navigation and action triggers."
+      },
+      "voice": {
+        "tone": "Innovative, empowering, and direct.",
+        "headlineStyle": "Bold, benefit-driven statements that focus on speed and AI capabilities.",
+        "ctaStyle": "Action-oriented verbs like 'Generate', 'Sign up', and 'Explore'.",
+        "avoid": [
+          "Overly technical jargon that isn't explained.",
+          "Passive or hesitant language.",
+          "Excessive exclamation marks or sensationalism."
+        ]
+      },
+      "donts": [
+        "Don't use a white or light background — the screenshot shows a deep dark theme (#0D0D0D) as the foundation.",
+        "Don't use warm, earthy, or pastel colors — the palette is dominated by blacks, whites, and high-chroma purples.",
+        "Don't use serif fonts — the screenshot shows exclusively clean, geometric, and humanist sans-serif typefaces.",
+        "Don't use rounded corners smaller than 4px — even small elements use at least 4px, with many cards using 12px or 16px.",
+        "Don't use generic placeholder text in marketing materials — the screenshot uses clear, instructional prompt examples.",
+        "Don't use low-contrast text — the screenshot shows high-contrast white (#F5F5F5) on dark backgrounds for maximum legibility."
+      ],
+      "systemPrompt": "Uizard is an AI-powered UI design tool that prioritizes speed and innovation. The visual system is built on a high-contrast dark mode (#0D0D0D background) with vibrant purple accents (#6419FF). Typography is dominated by clean, geometric sans-serif categories (display and body). Critical constraints include avoiding light themes, using exclusively modern sans-serif fonts, and maintaining high contrast for all text. The design uses a consistent 4px spacing grid and rounded corners (12px-16px) for a soft yet professional feel. Never use serif fonts or warm, earthy color palettes. The focus should always be on the 'magic' of AI-generated content, highlighted through glowing accents and bold, benefit-driven headlines."
+    },
+    "zh-CN": {
+      "identity": {
+        "keywords": [
+          "AI驱动",
+          "快速原型设计",
+          "UI设计",
+          "线框绘制",
+          "产品概念"
+        ],
+        "analogy": "UI设计的自动驾驶仪，将文本提示转化为线框图。",
+        "oneLiner": "借助GenAI，将产品创意瞬间转化为概念。"
+      },
+      "colors": {
+        "principle": "高对比度的深色模式，搭配充满活力的紫色AI点缀色，以象征创意与现代科技。"
+      },
+      "typography": {
+        "rules": [
+          "保持标题行高紧凑（1.1-1.15）。",
+          "使用负字间距（-1px至-0.2px）营造现代、紧凑的视觉感受。",
+          "所有展示性字体均优先选择简洁、几何化的字形。"
+        ],
+        "scaleUses": [
+          "主首屏标题",
+          "章节标题",
+          "副标题与强调文本",
+          "标准段落文本",
+          "辅助文本与UI标签"
+        ]
+      },
+      "spacing": {
+        "rhythm": "统一的4px网格系统确保所有UI组件间的间距和谐一致。"
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 12px 30px -4px rgba(3,3,3,0.12)",
+          "0px 2px 12px 0px rgba(168,129,254,0.64)",
+          "0px -20px 200px 0px rgba(68,20,187,0.75)"
+        ],
+        "borders": "根据场景使用1px实线边框，颜色为rgb(245,245,245)或rgb(33,33,33)。"
+      },
+      "layout": {
+        "skeleton": "页面中心采用结构化的网格布局，包含首屏、功能展示和社会证明等明确分区。"
+      },
+      "components": {
+        "button": "高对比度的主操作按钮，采用胶囊形边框和细微的紫色光晕。",
+        "card": "圆角卡片，配有柔和的边框（1px solid #212121）和深色背景。",
+        "chip": "用于界面内状态或标签的小型圆角标签。",
+        "input": "简洁的输入框，采用深色背景和细微边框，常与操作按钮组合使用。",
+        "hero": "一个占据主导地位的居中首屏区域，包含大标题、副标题和醒目的提示词输入框。"
+      },
+      "motion": {
+        "patterns": [
+          "background-color和opacity的平滑过渡。",
+          "交互元素上的细微hover效果。",
+          "增强AI核心感受的动态光晕与渐变。"
+        ]
+      },
+      "interaction": {
+        "hover": "主操作元素上出现细微的颜色变化和轻微的缩放或光晕效果。",
+        "click": "通过颜色变化或内阴影提供即时视觉反馈。",
+        "transition": "所有状态变化使用标准化的0.3秒过渡。",
+        "keyboard": "导航和操作触发器均支持完整的键盘访问。"
+      },
+      "voice": {
+        "tone": "创新、赋能且直接。",
+        "headlineStyle": "大胆、以效益为导向的陈述，聚焦速度与AI能力。",
+        "ctaStyle": "使用行动导向的动词，如“生成”、“注册”和“探索”。",
+        "avoid": [
+          "未经解释的过度技术性术语。",
+          "被动或犹豫的语言。",
+          "过多的感叹号或夸张表述。"
+        ]
+      },
+      "donts": [
+        "不要使用白色或浅色背景——截图显示深色主题（#0D0D0D）是基础。",
+        "不要使用暖色、大地色或柔和色调——调色板以黑色、白色和高饱和度紫色为主。",
+        "不要使用衬线字体——截图显示仅使用简洁、几何化、人文主义无衬线字体类别。",
+        "不要使用小于4px的圆角——即使是小元素也至少使用4px圆角，许多卡片使用12px或16px。",
+        "不要在营销材料中使用通用占位文本——截图使用了清晰、指导性的提示词示例。",
+        "不要使用低对比度文本——截图显示在深色背景上使用高对比度白色（#F5F5F5）以确保最佳可读性。"
+      ],
+      "systemPrompt": "Uizard是一款以速度和创新为核心的AI驱动UI设计工具。视觉系统建立在高对比度的深色模式（#0D0D0D背景）和充满活力的紫色点缀色（#6419FF）之上。字体以简洁、几何化的无衬线字体类别（展示与正文）为主。关键约束包括：避免浅色主题、仅使用现代无衬线字体、所有文本保持高对比度。设计采用统一的4px间距网格和圆角（12px-16px），营造柔和而专业的质感。切勿使用衬线字体或暖色、大地色调色板。重点始终应放在AI生成内容的“魔力”上，通过发光点缀和大胆、以效益为导向的标题来突出。"
+    },
+    "zh-TW": {
+      "identity": {
+        "keywords": [
+          "AI 驅動",
+          "快速原型設計",
+          "UI 設計",
+          "線框圖",
+          "產品概念"
+        ],
+        "analogy": "UI 設計的自動駕駛系統，可將文字提示轉化為線框圖。",
+        "oneLiner": "運用 GenAI 即時將產品想法轉化為概念。"
+      },
+      "colors": {
+        "principle": "高對比深色模式，搭配鮮豔的紫色 AI 裝飾色，以傳達創造力與現代科技感。"
+      },
+      "typography": {
+        "rules": [
+          "標題採用緊湊的行高（1.1-1.15）。",
+          "使用負字距（-1px 至 -0.2px）營造現代、緊湊的感受。",
+          "所有展示字體優先採用乾淨、幾何形狀的字型。"
+        ],
+        "scaleUses": [
+          "主英雄標題",
+          "段落標題",
+          "副標題與強調文字",
+          "標準段落文字",
+          "次要文字與介面標籤"
+        ]
+      },
+      "spacing": {
+        "rhythm": "採用一致的 4px 網格系統，確保所有 UI 元件間的間距和諧統一。"
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 12px 30px -4px rgba(3,3,3,0.12)",
+          "0px 2px 12px 0px rgba(168,129,254,0.64)",
+          "0px -20px 200px 0px rgba(68,20,187,0.75)"
+        ],
+        "borders": "根據情境使用 1px solid rgb(245,245,245) 或 rgb(33,33,33)。"
+      },
+      "layout": {
+        "skeleton": "頁面採用結構化的網格佈局，並明確劃分英雄區、功能區與社會證明區等不同段落。"
+      },
+      "components": {
+        "button": "高對比的主要按鈕，採用藥丸形邊框與細微的紫色發光效果。",
+        "card": "圓角卡片，配有柔和邊框（1px solid #212121）與深色背景色。",
+        "chip": "用於介面中狀態或標籤的小型圓角標籤。",
+        "input": "乾淨的輸入欄位，具有深色背景與細微邊框，通常與操作按鈕分組配置。",
+        "hero": "顯著的置中英雄區域，包含大型標題、副文字與顯眼的提示詞輸入框。"
+      },
+      "motion": {
+        "patterns": [
+          "background-color 與 opacity 的流暢轉場。",
+          "互動元素上細微的 hover 效果。",
+          "強化 AI 導向感受的動態發光與漸層效果。"
+        ]
+      },
+      "interaction": {
+        "hover": "主要操作按鈕上細微的顏色變化與輕微的縮放或發光效果。",
+        "click": "透過顏色變化或內嵌陰影提供即時的視覺回饋。",
+        "transition": "所有狀態變動均採用標準化的 0.3s 轉場時間。",
+        "keyboard": "支援完整的鍵盤操作以進行導覽與觸發操作。"
+      },
+      "voice": {
+        "tone": "創新、賦能且直接。",
+        "headlineStyle": "大膽、著重效益的陳述，聚焦於速度與 AI 能力。",
+        "ctaStyle": "採用行動導向的動詞，如「生成」、「註冊」、「探索」。",
+        "avoid": [
+          "未經解釋的過度技術術語。",
+          "被動或猶豫不決的語言。",
+          "過多的驚嘆號或聳動的表述。"
+        ]
+      },
+      "donts": [
+        "勿使用白色或淺色背景——截圖顯示以深色主題（#0D0D0D）為基礎。",
+        "勿使用溫暖、大地色或粉彩色調——色板以黑色、白色與高飽和度紫色為主。",
+        "勿使用襯線字體——截圖顯示僅使用乾淨、幾何形狀與人文主義無襯線字型。",
+        "勿使用小於 4px 的圓角——即使是小元素也至少使用 4px，許多卡片採用 12px 或 16px。",
+        "勿在行銷材料中使用通用的佔位符文字——截圖使用清晰、具教學性的提示詞範例。",
+        "勿使用低對比文字——截圖顯示在深色背景上使用高對比白色（#F5F5F5）以最大化可讀性。"
+      ],
+      "systemPrompt": "Uizard 是一款 AI 驅動的 UI 設計工具，優先考量速度與創新。視覺系統建立在高對比深色模式（#0D0D0D 背景）上，並搭配鮮豔的紫色裝飾色（#6419FF）。字體以乾淨、幾何形狀的無襯線類別（展示型與內文型）為主。關鍵限制包括避免淺色主題、僅使用現代無襯線字體，並確保所有文字具有高對比。設計採用一致的 4px 間距網格與圓角（12px-16px），以營造柔和而專業的感受。切勿使用襯線字體或溫暖、大地色的色板。焦點應始終放在 AI 生成內容的「魔力」上，透過發光裝飾色與大膽、著重效益的標題來凸顯。"
+    },
+    "ja": {
+      "identity": {
+        "keywords": [
+          "AI駆動",
+          "高速プロトタイピング",
+          "UIデザイン",
+          "ワイヤーフレーミング",
+          "プロダクトコンセプト"
+        ],
+        "analogy": "テキストプロンプトをワイヤーフレームに変換する、UIデザインの自動操縦。",
+        "oneLiner": "GenAIで、プロダクトのアイデアを瞬時にコンセプトへ変換。"
+      },
+      "colors": {
+        "principle": "鮮やかな紫色のAIアクセントカラーを配した高コントラストダークモードで、クリエイティビティと最新の技術を示します。"
+      },
+      "typography": {
+        "rules": [
+          "見出しには tight な行間（1.1-1.15）を維持します。",
+          "モダンで緊迫感のある印象のため、ネガティブな字送り（-1px〜-0.2px）を使用します。",
+          "すべてのディスプレイタイポグラフィには、クリーンで幾何学的な形状を優先します。"
+        ],
+        "scaleUses": [
+          "メインヒーローヘッドライン",
+          "セクション見出し",
+          "小見出しと強調",
+          "標準パラグラフテキスト",
+          "サブテキストとUIラベル"
+        ]
+      },
+      "spacing": {
+        "rhythm": "一貫した4pxグリッドシステムにより、すべてのUIコンポーネント間で調和のとれた間隔を保証します。"
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 12px 30px -4px rgba(3,3,3,0.12)",
+          "0px 2px 12px 0px rgba(168,129,254,0.64)",
+          "0px -20px 200px 0px rgba(68,20,187,0.75)"
+        ],
+        "borders": "1px solid rgb(245,245,245) または 1px solid rgb(33,33,33) を、コンテキストに応じて使用します。"
+      },
+      "layout": {
+        "skeleton": "ページ中央に構造化されたグリッドレイアウトを配置し、ヒーロー、機能、ソーシャルプルーフの明確なセクションを持ちます。"
+      },
+      "components": {
+        "button": "ピル型のボーダーと微細な紫色のグローを持つ、高コントラストなプライマリボタンです。",
+        "card": "柔らかなボーダー（1px solid #212121）と深い背景色を持つ、角丸カードです。",
+        "chip": "インターフェース内のステータスやタグに使用される、小さく角丸のラベルです。",
+        "input": "ダークな背景と微細なボーダーを持つクリーンな入力フィールドで、アクションボタンとセットで使用されることが多いです。",
+        "hero": "大きなヘッドライン、サブテキスト、および目立つプロンプト入力を備えた、支配的で中央揃えのヒーローセクションです。"
+      },
+      "motion": {
+        "patterns": [
+          "background-colorとopacityの滑らかな遷移。",
+          "インタラクティブ要素の微細なホバーエフェクト。",
+          "AI中心の雰囲気を高める、ダイナミックなグローとグラデーション。"
+        ]
+      },
+      "interaction": {
+        "hover": "プライマリアクションに対する微細な色の変化や、わずかなスケール／グロー効果。",
+        "click": "色の変化や内側のシャドウによる、即座のビジュアルフィードバック。",
+        "transition": "すべての状態変化に対する、標準化された0.3秒の遷移。",
+        "keyboard": "ナビゲーションとアクショントリガーのための、完全なキーボードアクセシビリティ。"
+      },
+      "voice": {
+        "tone": "革新的で、力強く、率直。",
+        "headlineStyle": "スピードとAI能力に焦点を当てた、大胆で便益を強調するステートメント。",
+        "ctaStyle": "「生成する」「サインアップ」「探る」などの、行動を促す動詞。",
+        "avoid": [
+          "説明のない過度に技術的な専門用語。",
+          "受動的またはためらいがちな言葉遣い。",
+          "過度な感嘆符や誇張表現。"
+        ]
+      },
+      "donts": [
+        "白または明るい背景を使用しないこと。スクリーンショットでは、深いダークテーマ（#0D0D0D）が基盤として示されています。",
+        "温かみのある、土の色調、パステルカラーを使用しないこと。パレットは、黒、白、高彩度の紫色が支配的です。",
+        "セリフフォントを使用しないこと。スクリーンショットでは、クリーンで幾何学的なサンセリフ（humanist-sans、 grotesque-sansなど）の書体のみが使用されています。",
+        "4px未満の角丸を使用しないこと。小さな要素でも少なくとも4pxを使用し、多くのカードでは12pxや16pxが使用されています。",
+        "マーケティング素材に一般的なプレースホルダーテキストを使用しないこと。スクリーンショットでは、明確で指示的なプロンプト例が使用されています。",
+        "低コントラストのテキストを使用しないこと。スクリーンショットでは、最大限の可読性のために、ダーク背景に高コントラストの白（#F5F5F5）が使用されています。"
+      ],
+      "systemPrompt": "Uizardは、スピードと革新を重視するAI駆動のUIデザインツールです。ビジュアルシステムは、高コントラストダークモード（#0D0D0D背景）と鮮やかな紫色のアクセント（#6419FF）を基盤に構築されています。タイポグラフィは、クリーンで幾何学的なサンセリフ（ディスプレイとボディ）が主です。重要な制約として、ライトテーマの回避、現代的なサンセリフフォントのみの使用、全テキストの高コントラスト維持が挙げられます。デザインでは、一貫した4pxの間隔グリッドと、柔らかくもプロフェッショナルな印象を与える角丸（12px-16px）が使用されています。決してセリフフォントや温かみのあるカラーパレットを使用しないでください。焦点は常に、燐光のアクセントと大胆な便益強調見出しを通じて強調される、AI生成コンテンツの「魔法」に置かれるべきです。"
+    },
+    "ko": {
+      "identity": {
+        "keywords": [
+          "AI 기반",
+          "빠른 프로토타이핑",
+          "UI 디자인",
+          "와이어프레이밍",
+          "제품 컨셉"
+        ],
+        "analogy": "텍스트 프롬프트를 와이어프레임으로 변환하는 UI 디자인 자동 조종 장치.",
+        "oneLiner": "GenAI로 제품 아이디어를 즉시 컨셉으로 전환합니다."
+      },
+      "colors": {
+        "principle": "활기찬 보라색 AI 악센트를 사용하여 창의성과 현대 기술을 나타내는 고대비 다크 모드."
+      },
+      "typography": {
+        "rules": [
+          "제목용으로 타이트한 행간(1.1-1.15)을 유지합니다.",
+          "현대적이고 타이트한 느낌을 위해 음수 자간(-1px ~ -0.2px)을 사용합니다.",
+          "모든 디스플레이 타이포그래피에 깔끔하고 기하학적인 형태를 우선시합니다."
+        ],
+        "scaleUses": [
+          "메인 히어로 헤드라인",
+          "섹션 제목",
+          "소제목 및 강조",
+          "표준 본문 텍스트",
+          "보조 텍스트 및 UI 레이블"
+        ]
+      },
+      "spacing": {
+        "rhythm": "일관된 4px 그리드 시스템은 모든 UI 컴포넌트에 걸쳐 조화로운 간격을 보장합니다."
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 12px 30px -4px rgba(3,3,3,0.12)",
+          "0px 2px 12px 0px rgba(168,129,254,0.64)",
+          "0px -20px 200px 0px rgba(68,20,187,0.75)"
+        ],
+        "borders": "문맥에 따라 1px solid rgb(245,245,245) 또는 rgb(33,33,33)를 사용합니다."
+      },
+      "layout": {
+        "skeleton": "페이지 중앙에 정렬된 구조화된 그리드 레이아웃으로, 히어로, 기능, 사회적 증명을 위한 명확한 섹션을 갖춥니다."
+      },
+      "components": {
+        "button": "알약 모양 테두리와 은은한 보라색 글로우가 적용된 고대비 기본 버튼.",
+        "card": "부드러운 테두리(1px solid #212121)와 깊은 배경색을 가진 둥근 모서리 카드.",
+        "chip": "인터페이스 내 상태나 태그에 사용되는 작고 둥근 레이블.",
+        "input": "어두운 배경과 은은한 테두리가 있는 깔끔한 입력 필드로, 종종 액션 버튼과 함께 그룹화됩니다.",
+        "hero": "대형 헤드라인, 부제목, 그리고 두드러진 프롬프트 입력을 특징으로 하는 지배적인 중앙 정렬 히어로 섹션."
+      },
+      "motion": {
+        "patterns": [
+          "background-color 및 opacity에 대한 매끄러운 트랜지션.",
+          "상호작용 요소에 대한 은은한 hover 효과.",
+          "AI 중심 느낌을 강화하는 역동적인 글로우와 그라디언트."
+        ]
+      },
+      "interaction": {
+        "hover": "기본 액션에 대한 미묘한 색상 변화와 약간의 스케일 또는 글로우 효과.",
+        "click": "색상 변화 또는 inset 그림자를 통한 즉각적인 시각적 피드백.",
+        "transition": "모든 상태 변경에 대한 표준화된 0.3s 트랜지션.",
+        "keyboard": "탐색 및 액션 트리거를 위한 완전한 키보드 접근성."
+      },
+      "voice": {
+        "tone": "혁신적이고, 강력하며, 직접적입니다.",
+        "headlineStyle": "속도와 AI 역량에 중점을 둔 굵고 혜택 중심적인 문구.",
+        "ctaStyle": "'생성하기', '가입하기', '탐색하기'와 같은 행동 지향적 동사.",
+        "avoid": [
+          "설명되지 않는 지나치게 전문적인 용어.",
+          "수동적이거나 주저하는 언어.",
+          "과도한 느낌표 또는 선정적 표현."
+        ]
+      },
+      "donts": [
+        "흰색 또는 밝은 배경을 사용하지 마세요 — 스크린샷은 깊은 다크 테마(#0D0D0D)를 기반으로 보여줍니다.",
+        "따뜻하고, 자연스럽거나, 파스텔 색상을 사용하지 마세요 — 팔레트는 블랙, 화이트, 그리고 고채도 보라색이 지배적입니다.",
+        "세리프 폰트를 사용하지 마세요 — 스크린샷은 오로지 깔끔하고 기하학적이며 휴머니트 계열의 산세리프 타이포그래피를 보여줍니다.",
+        "모서리 둥글기를 4px보다 작게 사용하지 마세요 — 작은 요소들도 최소 4px를 사용하며, 많은 카드는 12px 또는 16px를 사용합니다.",
+        "마케팅 자료에 일반적인 플레이스홀더 텍스트를 사용하지 마세요 — 스크린샷은 명확하고 지시적인 프롬프트 예시를 사용합니다.",
+        "저대비 텍스트를 사용하지 마세요 — 스크린샷은 최대 가독성을 위해 어두운 배경에 고대비 화이트(#F5F5F5)를 보여줍니다."
+      ],
+      "systemPrompt": "Uizard는 속도와 혁신을 우선시하는 AI 기반 UI 디자인 도구입니다. 이 시각적 시스템은 고대비 다크 모드(#0D0D0D 배경)와 활기찬 보라색 악센트(#6419FF)를 기반으로 구축되었습니다. 타이포그래피는 깔끔하고 기하학적인 산세리프 계열(디스플레이 및 본문)이 지배적입니다. 중요한 제약 사항으로는 밝은 테마 사용 배제, 현대적인 산세리프 폰트 독점 사용, 모든 텍스트의 고대비 유지가 포함됩니다. 디자인은 일관된 4px 간격 그리드와 부드러우면서도 전문적인 느낌을 주기 위한 둥근 모서리(12px-16px)를 사용합니다. 절대 세리프 폰트나 따뜻하고 자연스러운 색상 팔레트를 사용하지 마세요. 초점은 항상 AI가 생성한 콘텐츠의 '마법'에 있어야 하며, 이는 글로우하는 악센트와 굵고 혜택 중심적인 헤드라인을 통해 강조됩니다."
+    }
+  },
+  "desc": {
+    "en": {
+      "palette": "A sophisticated dark mode palette anchored in deep blacks (#0D0D0D) with a singular, high-vibrancy purple accent (#6419FF) and crisp white typography (#F5F5F5).",
+      "layout": "A centered, full-width layout with a massive hero section and a clear 12-column grid structure for organized content distribution.",
+      "interaction": "Interaction is centered around the prompt-based AI generation, using clear, high-contrast buttons and smooth hover transitions to guide the user's workflow.",
+      "motion": "Motion is functional and modern, focusing on subtle glows and smooth opacity/position transitions that reinforce the high-tech, AI-driven nature of the product.",
+      "notes": "The site perfectly captures the 'AI design' aesthetic, using dark mode and glowing purple to signal both power and creative potential."
+    },
+    "zh-CN": {
+      "palette": "一款精致的深色模式调色板，以深邃的黑色（#0D0D0D）为基底，搭配一抹高饱和度的紫色点缀（#6419FF），并辅以清晰的白色字体（#F5F5F5）。",
+      "layout": "采用居中的全宽布局，包含一个宏大的首屏区域和清晰的12列网格结构，以实现内容的有序分布。",
+      "interaction": "交互核心围绕基于提示词的AI生成，使用清晰、高对比度的按钮和平滑的hover过渡，来引导用户的工作流程。",
+      "motion": "动效注重功能性与现代感，聚焦于细微的光晕和流畅的透明度/位置过渡，以强化产品的高科技与AI驱动特性。",
+      "notes": "该网站完美捕捉了“AI设计”美学，通过深色模式与发光紫色，同时传达了强大功能与创意潜力。"
+    },
+    "zh-TW": {
+      "palette": "以深邃黑色（#0D0D0D）為基調的精緻深色模式色板，點綴著單一高飽和度紫色裝飾色（#6419FF），搭配純淨白色字體（#F5F5F5）。",
+      "layout": "採用置中、全寬佈局，設有龐大的英雄區域，並搭配清晰的 12 欄網格結構，以實現有組織的內容分佈。",
+      "interaction": "互動核心環繞著基於提示詞的 AI 生成功能，運用清晰、高對比的按鈕與流暢的 hover 轉場，引導使用者的工作流程。",
+      "motion": "動態效果務實且現代，著重於細微的發光效果與流暢的 opacity/position 轉場，以強化產品的高科技、AI 驅動特質。",
+      "notes": "該網站完美捕捉了「AI 設計」美學，透過深色模式與發光紫色，傳達出強大功能與創意潛力。"
+    },
+    "ja": {
+      "palette": "深い黒（#0D0D0D）を基調とした洗練されたダークモードパレットに、一点の高鮮度アクセントカラー（#6419FF）と鮮明な白のタイポグラフィ（#F5F5F5）を配したものです。",
+      "layout": "中央揃えのフルワイドルーアットアウトで、大規模なヒーローセクションと12カラムグリッド構造を用いた、整然としたコンテンツ配分を実現します。",
+      "interaction": "プロンプトベースのAI生成を中心に据え、明確で高コントラストなボタンと滑らかなホバー遷移によって、ユーザーのワークフローを誘導します。",
+      "motion": "モーションは機能的かつモダンで、製品のハイテクでAI主導の性質を強調する、繊細なグローと滑らかな透過度／位置遷移に焦点を当てています。",
+      "notes": "このサイトはダークモードと燐光の紫色を用い、「AIデザイン」の美学を完璧に捉え、パワフルさとクリエイティブな可能性の両方を示しています。"
+    },
+    "ko": {
+      "palette": "심층 블랙(#0D0D0D)을 기반으로 한 정교한 다크 모드 팔레트에, 단일의 고채도 보라색 악센트(#6419FF)와 선명한 타이포그래피(#F5F5F5)를 적용합니다.",
+      "layout": "거대한 히어로 섹션과 명확한 12컬럼 그리드 구조를 갖춘, 중앙 정렬된 풀폭 레이아웃으로 체계적인 콘텐츠 배분을 구현합니다.",
+      "interaction": "상호작용은 프롬프트 기반 AI 생성을 중심으로, 명확하고 고대비 버튼과 매끄러운 hover 트랜지션을 통해 사용자 워크플로우를 안내합니다.",
+      "motion": "모션은 기능적이고 현대적이며, 제품의 첨단적이고 AI 중심적인 특성을 강화하는 은은한 글로우와 매끄러운 opacity/position 트랜지션에 초점을 맞춥니다.",
+      "notes": "이 사이트는 다크 모드와 글로우하는 보라색을 사용하여 강력함과 창의적 잠재력을 동시에 전달하는, 완벽한 'AI 디자인' 미학을 구현합니다."
+    }
+  },
+  "_meta": {
+    "vision_model": "mimo-v2.5",
+    "vision_prompt_version": "0.3",
+    "vision_source": "playwright-extract:uizard",
+    "vision_grounded": true,
+    "vision_at": "2026-06-04T19:39:21+00:00",
+    "vision_tokens": 17150,
+    "vision_cost_usd": 0.1906,
+    "translation_model": "mimo-v2.5",
+    "translation_at": "2026-06-04T19:40:46+00:00",
+    "translation_tokens": 18971,
+    "translation_cost_usd": 0.0633,
+    "narrative_model": "mimo-v2.5",
+    "narrative_prompt_version": "0.3",
+    "narrative_at": "2026-06-04T19:40:56+00:00",
+    "narrative_tokens": 2273,
+    "narrative_cost_usd": 0.0152,
+    "narrative_status": "ok",
+    "total_cost_usd": 0.2691
+  },
+  "narrative": {
+    "en": {
+      "ch1_intro": "The Uizard design system is an autopilot for UI design, translating the chaos of early product ideas into structured, editable wireframes. Its visual language is built to feel both technically precise and creatively generative, establishing a clear identity for rapid prototyping.",
+      "ch2_intro": "The palette is a study in high-contrast focus, built on a foundation of deep, near-black dark mode with a singular, vibrant purple accent. This combination isolates interactive elements and signals creative potential against a backdrop of focused calm.",
+      "ch2_outro": "The guiding principle is chromatic restraint: a vast dark canvas that makes every accent and piece of text demand attention.",
+      "ch3_intro": "Typography relies on clean, geometric sans-serif categories for both display and body copy. Tight line-heights and negative letter-spacing create a dense, modern typographic mass that prioritizes scannable headlines and clear interface labels.",
+      "ch4_intro": "All spacing derives from a consistent 4px grid, ensuring a predictable and harmonious rhythm across every component and section.",
+      "ch5_intro": "Surfaces are defined by deep background values and layered with sophisticated shadows to create a subtle sense of depth. Crisp, context-dependent borders provide essential delineation without visual clutter.",
+      "ch6_intro": "The layout is a centered, full-width structure that anchors the experience with a dominant hero section. A clear 12-column grid governs the arrangement of features and social proof, creating an organized flow of information.",
+      "ch7_intro": "Motion is functional and reinforces the system's high-tech character, with smooth, standardized transitions on core properties. Dynamic glows and subtle hover effects provide feedback and emphasize the AI-driven core of the product.",
+      "ch8_intro": "The editorial voice is innovative and direct, speaking in bold, benefit-driven headlines that foreground speed and AI capabilities. Calls to action use clear, active verbs to reduce friction and encourage exploration.",
+      "ch8_outro": "The system deliberately excludes serif typography, light themes, and warm, earthy palettes to maintain its sharp, AI-native aesthetic."
+    },
+    "zh-CN": {
+      "ch1_intro": "Uizard 设计系统是 UI 设计的自动驾驶仪，将早期产品构想的混沌状态转化为结构化、可编辑的线框图。其视觉语言旨在同时传递技术精确性与创造性生成力，为快速原型设计建立清晰的身份认同。",
+      "ch2_intro": "调色板是对高对比度焦点的研究，建立在深邃的近乎纯黑的深色模式基础上，配以单一醒目的紫色强调色。这种组合在专注而沉静的背景中孤立出交互元素，并暗示着创造潜能。",
+      "ch2_outro": "核心原则是色彩克制：以巨大的深色画布为基础，使每一个强调色和文本片段都能吸引全部注意力。",
+      "ch3_intro": "字体设计依赖于简洁的几何无衬线类别，涵盖展示字体与正文字体。紧凑的行高与负字间距营造出密集、现代的排版肌理，优先考虑可快速扫读的标题与清晰的界面标签。",
+      "ch4_intro": "所有间距均源自统一的 4px 网格系统，确保每个组件和区块之间具有可预测且和谐的节奏感。",
+      "ch5_intro": "界面层由深色背景值定义，并叠加了精致的阴影以营造微妙的纵深感。清晰且依赖上下文的边框提供了必要的区隔，且不造成视觉杂乱。",
+      "ch6_intro": "布局采用居中、全宽结构，以占据主导地位的英雄区块锚定整体体验。清晰的 12 列网格规范了功能与社会认同元素的排列，形成有序的信息流。",
+      "ch7_intro": "动效是功能性的，并强化了系统的高科技特性，在核心属性上应用平滑、标准化的过渡。动态光效与细微的悬停效果提供反馈，并强调产品由 AI 驱动的核心。",
+      "ch8_intro": "叙事语调是创新且直接的，采用大胆、利益驱动的标题，突出速度与 AI 能力。行动号召使用清晰、积极的动词以减少摩擦，鼓励探索。",
+      "ch8_outro": "该系统刻意排除了衬线字体、浅色主题以及温暖、大地色系的调色板，以维持其锐利、AI 原生的美学风格。"
+    },
+    "zh-TW": {
+      "ch1_intro": "Uizard 設計系統是 UI 設計的自動駕駛，將早期產品構想的混亂轉化為結構化、可編輯的線框圖。其視覺語言旨在兼具技術精確性與創意生成力，為快速原型設計建立清晰的識別度。",
+      "ch2_intro": "色盤是一場高對比專注的研究，以深邃、近乎黑色的深色模式為基底，搭配單一、鮮明的紫色強調色。此組合在專注平靜的背景中，突顯互動元素並暗示創造潛能。",
+      "ch2_outro": "指導原則是色彩節制：以廣闊的深色畫布，讓每個強調色與文字都必須受到關注。",
+      "ch3_intro": "字型設計依賴乾淨、幾何式的無襯線類別，用於標題與內文。緊湊的行高與負字距創造出密實、現代的排版體量，優先考慮可掃視的標題與清晰的介面標籤。",
+      "ch4_intro": "所有間距均源自一致的 4px 格線，確保每個元件與區段之間具有可預期且和諧的節奏。",
+      "ch5_intro": "表面以深色背景值定義，並疊加精緻的陰影，營造出細微的深度感。清晰、隨情境變化的邊框提供必要的區隔，而不造成視覺雜亂。",
+      "ch6_intro": "版面採用居中、全寬的結構，以一個顯著的英雄區塊作為體驗的錨點。清晰的 12 欄格線掌控功能與社會認證的佈局，創造有組織的資訊流。",
+      "ch7_intro": "動態效果具功能性，並強化系統的高科技特性，在核心屬性上使用流暢、標準化的過渡效果。動態光暈與細微的 hover 效果提供回饋，並強調產品以 AI 為核心的特質。",
+      "ch8_intro": "敘事語調創新且直接，以大膽、強調效益的標題發言，凸顯速度與 AI 能力。行動召喚使用清晰、主動的動詞，以減少摩擦並鼓勵探索。",
+      "ch8_outro": "此系統刻意排除襯線字型、淺色主題及溫暖、大地色系的色盤，以維持其敏銳、AI 原生的美學。"
+    },
+    "ja": {
+      "ch1_intro": "Uizardデザインシステムは、UIデザインの自動操縦装置であり、プロダクト開発の初期段階における混沌としたアイデアを、構造化され編集可能なワイヤーフレームに変換します。そのビジュアル言語は、技術的に正確でありながら創造的に生成的な印象を与えるように構築され、高速プロトタイピングのための明確なアイデンティティを確立します。",
+      "ch2_intro": "カラーパレットは、深くほぼ黒に近いダークモードを基盤とし、1つの鮮やかなアクセントカラー（purple）を加えた、ハイコントラストに焦点を当てた構成です。この組み合わせにより、インタラクティブな要素が浮き立ち、集中した静寂の中で創造的な可能性を示します。",
+      "ch2_outro": "導入原則は色彩の抑制です。広大なダークキャンバスが、すべてのアクセントとテキストに注目を集める効果を生み出します。",
+      "ch3_intro": "タイポグラフィは、見出し本文の両方でクリーンで幾何学的なsans-serifカテゴリに依存しています。 Tightな行間とネガティブな文字間隔が、スキャンしやすい見出しと明確なインターフェースラベルを重視した、密度の高い現代的なタイポグラフィ mass を形成します。",
+      "ch4_intro": "すべての間隔は一貫した4pxグリッドに由来し、すべてのコンポーネントとセクションにおいて予測可能で調和のとれたリズムを確保します。",
+      "ch5_intro": "サーフェスは深い背景値で定義され、洗練されたシャドウを重ねることで、繊細な奥行き感を生み出します。鮮明で文脈依存のボーダーが、視覚的な雑踏なしに本質的な区切りを提供します。",
+      "ch6_intro": "レイアウトは、中心に配置されたフルワイド構造であり、主要なヒーローセクションでエクスペリエンスを固定します。明確な12カラムグリッドが、機能とソーシャルプルーフの配置を管理し、整理された情報フローを生み出します。",
+      "ch7_intro": "モーションは機能的であり、システムのハイテクな特性を強化します。主要プロパティにおける滑らかで標準化されたトランジションを備えています。ダイナミックなグローと繊細なhoverエフェクトがフィードバックを提供し、プロダクトの中核にあるAI駆動性を強調します。",
+      "ch8_intro": "エディトリアルボイスは革新的で直接的です。スピードとAI機能を前面に出した、大胆で利益を前面に出した見出しで語りかけます。コール・トゥ・アクションは、摩擦を減らし探索を促進するために、明確で能動的な動詞を使用します。",
+      "ch8_outro": "このシステムは、鋭くAIネイティブな美学を維持するために、セリフタイポグラフィ、ライトテーマ、そして温かみのある地の色のパレットを意図的に排除しています。"
+    },
+    "ko": {
+      "ch1_intro": "Uizard 디자인 시스템은 UI 디자인의 오토플라이트로, 초기 제품 아이디어의 혼란을 구조화되고 편집 가능한 와이어프레임으로 변환합니다. 그 시각적 언어는 기술적으로 정확하면서도 창의적으로 생성적 느낌을 주도록 구축되어, 빠른 프로토타이핑을 위한 명확한 정체성을 확립합니다.",
+      "ch2_intro": "팔레트는 고대비 집중에 대한 연구로, 깊고 거의 검에 가까운 다크 모드를 기반으로 단일하고 생동감 넘치는 보라색 강조색을 사용합니다. 이 조합은 상호작용 요소를 격리하고, 집중된 고요함을 배경으로 창의적 가능성을 시그널링합니다.",
+      "ch2_outro": "지배적인 원칙은 색채적 절제입니다. 광활한 다크 캔버스를 사용하여 모든 강조색과 텍스트가 주목을 요구하도록 만듭니다.",
+      "ch3_intro": "타이포그래피는 디스플레이와 본문 모두에 깔끔하고 기하학적인 고딕체 범주에 의존합니다. 타이트한 줄 간격과 네거티브 문자 간격은 스캔 가능한 헤드라인과 명확한 인터페이스 레이블을 우선시하는 조밀하고 현대적인 타이포그래피 덩어리를 만듭니다.",
+      "ch4_intro": "모든 간격은 일관된 4px 격자에서 파생되어, 모든 구성 요소와 섹션에 걸쳐 예측 가능하고 조화로운 리듬을 보장합니다.",
+      "ch5_intro": "표면은 깊은 배경 값으로 정의되고, 정교한 그림자를 층층이 쌓아 미묘한 깊이감을 만듭니다. 날카롭고 맥락에 의존적인 테두리는 시각적 혼란 없이 필수적인 구분을 제공합니다.",
+      "ch6_intro": "레이아웃은 중앙 정렬된 전체 너비 구조로, 지배적인 히어로 섹션으로 경험을 고정합니다. 명확한 12열 격자가 기능과 소셜 프루프의 배치를 지배하여, 정보의 조직적인 흐름을 만듭니다.",
+      "ch7_intro": "모션은 기능적이며 시스템의 첨단 기술적 특성을 강화하며, 핵심 속성에 부드럽고 표준화된 전환을 제공합니다. 역동적인 글로우와 미묘한 호버 효과는 피드백을 제공하고 제품의 AI 기반 핵심을 강조합니다.",
+      "ch8_intro": "에디토리얼 톤은 혁신적이고 직접적이며, 속도와 AI 기능을 전면에 내세우는 대담하고 혜택 중심적인 헤드라인으로 말합니다. 행동 유도는 마찰을 줄이고 탐구를 장려하기 위해 명확하고 활동적인 동사를 사용합니다.",
+      "ch8_outro": "시스템은 날카롭고 AI 네이티브한 미학을 유지하기 위해 세리프 타이포그래피, 라이트 테마, 따뜻하고 흙빛 팔레트를 의도적으로 제외합니다."
+    }
+  }
 }

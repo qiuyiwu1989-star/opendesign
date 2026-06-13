@@ -8,8 +8,627 @@
     "ai",
     "video"
   ],
-  "status": "pending",
+  "status": "completed",
   "added_at": "2026-06-02",
   "added_by": "expand-200",
-  "_meta": {}
+  "_meta": {
+    "vision_model": "mimo-v2.5",
+    "vision_prompt_version": "0.3",
+    "vision_source": "playwright-extract:pika",
+    "vision_grounded": true,
+    "vision_at": "2026-06-07T06:23:21+00:00",
+    "vision_tokens": 17688,
+    "vision_cost_usd": 0.1965,
+    "translation_model": "mimo-v2.5",
+    "translation_at": "2026-06-07T06:24:38+00:00",
+    "translation_tokens": 17620,
+    "translation_cost_usd": 0.0587,
+    "narrative_model": "mimo-v2.5",
+    "narrative_prompt_version": "0.3",
+    "narrative_at": "2026-06-07T06:24:46+00:00",
+    "narrative_tokens": 2114,
+    "narrative_cost_usd": 0.0141,
+    "narrative_status": "ok",
+    "total_cost_usd": 0.2693
+  },
+  "spec": {
+    "colors": {
+      "bg": "#FCFAF7",
+      "bgSoft": "#FFFFFF",
+      "bgQuiet": null,
+      "ink": "#0D0D0D",
+      "inkSoft": "#222222",
+      "muted": null,
+      "mutedSoft": null,
+      "accent": "#FFD184",
+      "line": "rgba(207, 195, 255, 0.5)"
+    },
+    "typography": {
+      "display": "grotesque-sans",
+      "body": "humanist-sans",
+      "mono": null,
+      "scale": [
+        {
+          "token": "display",
+          "size": 80,
+          "lh": 1.0,
+          "weight": 900,
+          "ls": "-2px"
+        },
+        {
+          "token": "h1",
+          "size": 48,
+          "lh": 1.1,
+          "weight": 700,
+          "ls": "-1px"
+        },
+        {
+          "token": "h2",
+          "size": 32,
+          "lh": 1.2,
+          "weight": 500,
+          "ls": "0px"
+        },
+        {
+          "token": "body",
+          "size": 17,
+          "lh": 1.5,
+          "weight": 400,
+          "ls": "0px"
+        },
+        {
+          "token": "caption",
+          "size": 14,
+          "lh": 1.4,
+          "weight": 300,
+          "ls": "0px"
+        }
+      ]
+    },
+    "spacing": {
+      "base": 4,
+      "scale": [
+        4,
+        8,
+        16,
+        24,
+        32,
+        48,
+        64,
+        96
+      ]
+    },
+    "surfaces": {
+      "radius": {
+        "sm": 4,
+        "md": 8,
+        "lg": 18,
+        "pill": 999
+      }
+    },
+    "layout": {
+      "container": 1280,
+      "paragraph": 680,
+      "columns": 12,
+      "gutter": 24,
+      "breakpoints": [
+        768,
+        1024
+      ]
+    },
+    "motion": {
+      "durations": {
+        "micro": 150,
+        "small": 200,
+        "medium": 300
+      },
+      "easing": "cubic-bezier(0.23, 1, 0.32, 1)"
+    }
+  },
+  "spec_i18n": {
+    "en": {
+      "identity": {
+        "keywords": [
+          "AI video generation",
+          "creative tool",
+          "playful",
+          "bold"
+        ],
+        "analogy": "A playful yet powerful AI creative studio.",
+        "oneLiner": "A bold, playful AI video generation platform with a clean, high-contrast interface."
+      },
+      "colors": {
+        "principle": "Warm off-white background with sharp black typography and playful golden accents."
+      },
+      "typography": {
+        "rules": [
+          "Headlines are ultra-bold and uppercase, creating a strong, impactful visual hierarchy.",
+          "Body text is set in a lighter weight for readability against the bold headlines.",
+          "Typography is tightly set with negative letter spacing for a compact, modern feel."
+        ],
+        "scaleUses": [
+          "Main hero headline",
+          "Section headlines",
+          "Subheadlines",
+          "Main body text",
+          "Captions and small text"
+        ]
+      },
+      "spacing": {
+        "rhythm": "Consistent 4px base unit with generous padding in sections (40px)."
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 2px 0px 0px #111111",
+          "0px 4px 4px 0px rgba(0, 0, 0, 0.05)"
+        ],
+        "borders": "1px solid rgba(207, 195, 255, 0.5)"
+      },
+      "layout": {
+        "skeleton": "Single-column centered hero with a wide content area below."
+      },
+      "components": {
+        "button": "High-contrast buttons with rounded corners; primary is dark with white text, secondary is light with dark text.",
+        "card": "Large, rounded cards with distinct background colors (purple, dark gray, orange) and bold typography.",
+        "chip": "Small, rounded tags (e.g., 'PIKA AGENT') with dark backgrounds and light text.",
+        "input": "Large, rounded text input area with a light gray background and integrated action buttons.",
+        "hero": "Centered hero with a massive, bold headline, sub-headline, and a prominent input field."
+      },
+      "motion": {
+        "patterns": [
+          "Smooth color and background-color transitions on interactive elements.",
+          "Subtle transform transitions on buttons and cards."
+        ]
+      },
+      "interaction": {
+        "hover": "Subtle color or background-color shifts on interactive elements.",
+        "click": "Slight transform or opacity change.",
+        "transition": "Fast transitions (0.15s-0.2s) with a custom cubic-bezier easing curve.",
+        "keyboard": "Standard focus outlines and accessibility patterns."
+      },
+      "voice": {
+        "tone": "Playful, energetic, and direct.",
+        "headlineStyle": "Bold, uppercase, and highly impactful.",
+        "ctaStyle": "Action-oriented and clear (e.g., 'Generate', 'Try on Web').",
+        "avoid": [
+          "Overly technical jargon",
+          "Passive language",
+          "Weak or thin typography",
+          "Cluttered layouts"
+        ]
+      },
+      "donts": [
+        "Don't use thin or light typography for headlines — screenshot shows ultra-bold, heavy-weight display text.",
+        "Don't use a pure white background — screenshot shows a warm off-white (#FCFAF7).",
+        "Don't use cool blues or greens as primary accents — screenshot shows warm golden-yellow (#FFD184) and purples.",
+        "Don't use sharp, square corners — screenshot shows large border-radius (18px) on cards and inputs.",
+        "Don't use small, cramped spacing — screenshot shows generous padding (40px) in sections.",
+        "Don't use dark mode as the default — screenshot shows a predominantly light interface with dark text."
+      ],
+      "systemPrompt": "This is the design system for Pika, a playful and powerful AI video generation platform. The visual language is defined by a warm, off-white background (#FCFAF7) contrasted with sharp, ultra-bold black typography (#0D0D0D). Key accent colors include a golden-yellow (#FFD184) for primary actions and soft purples/oranges for card backgrounds. The typography is dominated by a heavy, grotesque-sans display font for headlines, creating a high-impact, energetic feel, while body text uses a cleaner humanist-sans. Layouts are spacious with generous padding. Critical design rules include: never use thin typography for headlines, always use the warm off-white background instead of pure white, and avoid cool color palettes in favor of the established warm accents. Avoid cluttered layouts and passive language."
+    },
+    "zh-CN": {
+      "identity": {
+        "keywords": [
+          "AI视频生成",
+          "创意工具",
+          "活泼",
+          "大胆"
+        ],
+        "analogy": "一个活泼而强大的AI创意工作室。",
+        "oneLiner": "一个拥有简洁、高对比度界面的大胆、活泼的AI视频生成平台。"
+      },
+      "colors": {
+        "principle": "温暖的米白色背景，搭配锐利的黑色字体与活泼的金色点缀。"
+      },
+      "typography": {
+        "rules": [
+          "标题采用超粗体和大写形式，营造强烈、富有冲击力的视觉层次。",
+          "正文使用较细的字重，以便在粗体标题下保持可读性。",
+          "字体采用紧凑排版和负字间距，呈现紧凑、现代的感觉。"
+        ],
+        "scaleUses": [
+          "主核心标题",
+          "区块标题",
+          "副标题",
+          "正文",
+          "说明文字与小字体"
+        ]
+      },
+      "spacing": {
+        "rhythm": "基于一致的4px基础单位，区块内采用充裕的内边距（40px）。"
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 2px 0px 0px #111111",
+          "0px 4px 4px 0px rgba(0, 0, 0, 0.05)"
+        ],
+        "borders": "1px solid rgba(207, 195, 255, 0.5)"
+      },
+      "layout": {
+        "skeleton": "居中的单列核心区域，下方是宽幅内容区。"
+      },
+      "components": {
+        "button": "高对比度圆角按钮；主按钮为深色配白色文字，次按钮为浅色配深色文字。",
+        "card": "大尺寸圆角卡片，具有鲜明的背景色（紫色、深灰色、橙色）和粗体字体。",
+        "chip": "小尺寸圆角标签（例如 'PIKA AGENT'），深色背景配浅色文字。",
+        "input": "大尺寸圆角文本输入区，浅灰色背景，并集成操作按钮。",
+        "hero": "居中的核心区域，包含一个巨大、粗体的标题、副标题以及一个醒目的输入框。"
+      },
+      "motion": {
+        "patterns": [
+          "交互元素上平滑的颜色与背景色过渡。",
+          "按钮与卡片上微妙的transform过渡。"
+        ]
+      },
+      "interaction": {
+        "hover": "交互元素上微妙的颜色或背景色变化。",
+        "click": "轻微的transform或透明度变化。",
+        "transition": "快速过渡（0.15秒-0.2秒），采用自定义cubic-bezier缓动曲线。",
+        "keyboard": "标准的焦点轮廓和无障碍模式。"
+      },
+      "voice": {
+        "tone": "活泼、有活力且直接。",
+        "headlineStyle": "粗体、大写且极具冲击力。",
+        "ctaStyle": "以行动为导向且清晰（例如，“生成”、“在线尝试”）。",
+        "avoid": [
+          "过于技术性的术语",
+          "被动语态",
+          "纤细或轻薄的字体",
+          "杂乱的布局"
+        ]
+      },
+      "donts": [
+        "不要使用纤细或轻薄的字体作为标题——截图显示的是超粗体、重字重的展示文本。",
+        "不要使用纯白背景——截图显示的是温暖的米白色（#FCFAF7）。",
+        "不要使用冷色调的蓝色或绿色作为主强调色——截图显示的是温暖的金黄色（#FFD184）和紫色。",
+        "不要使用尖锐的方形圆角——截图显示的是卡片与输入框的大圆角（18px）。",
+        "不要使用紧凑狭小的间距——截图显示的是区块内充裕的内边距（40px）。",
+        "不要使用深色模式作为默认——截图显示的是以浅色界面为主、深色文字的设计。"
+      ],
+      "systemPrompt": "这是Pika的设计系统，一个活泼而强大的AI视频生成平台。其视觉语言以温暖的米白色背景（#FCFAF7）为特征，与锐利的超粗体黑色字体（#0D0D0D）形成对比。关键强调色包括用于主要操作的金黄色（#FFD184），以及用于卡片背景的柔和紫色/橙色。字体以用于标题的粗体、怪诞无衬线展示字体为主，营造出高冲击力、充满活力的感觉，而正文则使用更简洁的人文无衬线字体。布局宽敞，内边距充裕。关键设计规则包括：绝不使用纤细字体作为标题，始终使用温暖的米白色背景而非纯白色，并避免冷色调调色板，优先使用既定的温暖强调色。避免杂乱的布局和被动语言。"
+    },
+    "zh-TW": {
+      "identity": {
+        "keywords": [
+          "AI 影片生成",
+          "創意工具",
+          "俏皮",
+          "大膽"
+        ],
+        "analogy": "一個俏皮而強大的 AI 創意工作室。",
+        "oneLiner": "一個大膽、俏皮的 AI 影片生成平台，擁有簡潔、高對比度的介面。"
+      },
+      "colors": {
+        "principle": "溫暖的米白色背景，搭配銳利的黑色排版與俏皮的金色點綴。"
+      },
+      "typography": {
+        "rules": [
+          "標題採用超粗體與全大寫，建立強烈、具衝擊力的視覺層級。",
+          "內文字體採用較輕的字重，以確保在粗體標題下的可讀性。",
+          "排版緊湊，字距設為負值，營造出簡潔、現代的感受。"
+        ],
+        "scaleUses": [
+          "主首頁標題",
+          "區塊標題",
+          "副標題",
+          "主要內文",
+          "說明文字與小字"
+        ]
+      },
+      "spacing": {
+        "rhythm": "一致的 4px 基礎單位，區塊內採用寬裕的內距（40px）。"
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 2px 0px 0px #111111",
+          "0px 4px 4px 0px rgba(0, 0, 0, 0.05)"
+        ],
+        "borders": "1px solid rgba(207, 195, 255, 0.5)"
+      },
+      "layout": {
+        "skeleton": "單欄置中首頁，下方為寬闊的內容區域。"
+      },
+      "components": {
+        "button": "高對比度按鈕，採用圓角設計；主要按鈕為深色配白字，次要按鈕為淺色配深字。",
+        "card": "大型圓角卡片，具有獨特的背景色（紫色、深灰色、橙色）與大膽排版。",
+        "chip": "小巧的圓角標籤（例如：「PIKA AGENT」），採用深色背景與淺色文字。",
+        "input": "大型圓角文字輸入區，背景為淺灰色，並整合操作按鈕。",
+        "hero": "置中的首頁區塊，包含超大、粗體的標題、副標題以及顯著的輸入欄位。"
+      },
+      "motion": {
+        "patterns": [
+          "互動元素上的顏色與背景色平滑過渡。",
+          "按鈕與卡片上的細微變換過渡。"
+        ]
+      },
+      "interaction": {
+        "hover": "互動元素上的細微顏色或背景色變化。",
+        "click": "輕微的變換或透明度改變。",
+        "transition": "快速過渡（0.15秒-0.2秒），採用自訂的 cubic-bezier 緩動曲線。",
+        "keyboard": "標準的焦點外框與無障礙模式。"
+      },
+      "voice": {
+        "tone": "俏皮、有活力且直接。",
+        "headlineStyle": "大膽、全大寫且極具衝擊力。",
+        "ctaStyle": "以行動為導向且清晰（例如：「生成」、「在網路上試用」）。",
+        "avoid": [
+          "過度專業的術語",
+          "被動語態",
+          "纖細或薄弱的排版",
+          "雜亂的佈局"
+        ]
+      },
+      "donts": [
+        "不要使用纖細或輕量的字體作為標題——截圖顯示的是超粗體、重字重的展示文字。",
+        "不要使用純白色背景——截圖顯示的是溫暖的米白色（#FCFAF7）。",
+        "不要使用冷色調的藍色或綠色作為主要點綴色——截圖顯示的是溫暖的金黃色（#FFD184）與紫色。",
+        "不要使用銳利的方角——截圖顯示卡片與輸入欄位採用了大圓角（18px）。",
+        "不要使用狹窄、擁擠的間距——截圖顯示區塊內採用寬裕的內距（40px）。",
+        "不要以深色模式作為預設——截圖顯示的是以淺色介面搭配深色文字為主。"
+      ],
+      "systemPrompt": "這是 Pika 的設計系統，一個俏皮而強大的 AI 影片生成平台。其視覺語言以溫暖的米白色背景（#FCFAF7）搭配銳利、超粗體的黑色排版（#0D0D0D）為定義。關鍵點綴色包括用於主要操作的金黃色（#FFD184），以及用於卡片背景的柔和紫色/橙色。排版以用於標題的粗重 grotesque-sans 展示字體為主導，營造出高衝擊力、有活力的感受，而內文則使用更簡潔的 humanist-sans。佈局寬裕，採用寬裕的內距。關鍵設計規則包括：標題切勿使用纖細排版、務必使用溫暖的米白色背景而非純白色、避免使用冷色調色板而採用既定的溫暖點綴色。避免雜亂的佈局與被動語態。"
+    },
+    "ja": {
+      "identity": {
+        "keywords": [
+          "AI動画生成",
+          "クリエイティブツール",
+          "遊び心",
+          "大胆"
+        ],
+        "analogy": "遊び心がありながらも強力なAIクリエイティブスタジオ。",
+        "oneLiner": "大胆で遊び心のあるAI動画生成プラットフォーム。清潔でハイコントラストのインターフェース。"
+      },
+      "colors": {
+        "principle": "温かみのあるオフホワイトの背景に、鋭い黒のタイポグラフィと遊び心のあるゴールデンアクセント。"
+      },
+      "typography": {
+        "rules": [
+          "見出しはウルトラボールドの大文字で、力強くインパクトのある視覚的階層を生み出す。",
+          "本文は見出しの大胆さに対し、可読性のためにより軽いウェイトで設定する。",
+          "タイポグラフィは、現代的でコンパクトな印象を与えるため、字間を tight に設定する。"
+        ],
+        "scaleUses": [
+          "メインヒーロー見出し",
+          "セクション見出し",
+          "サブ見出し",
+          "メイン本文",
+          "キャプションと小文字テキスト"
+        ]
+      },
+      "spacing": {
+        "rhythm": "一貫した4pxの基本単位で、セクションには広めのパディング（40px）。"
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 2px 0px 0px #111111",
+          "0px 4px 4px 0px rgba(0, 0, 0, 0.05)"
+        ],
+        "borders": "1px solid rgba(207, 195, 255, 0.5)"
+      },
+      "layout": {
+        "skeleton": "中央揃えの単一カラムヒーローで、下部に広いコンテンツエリア。"
+      },
+      "components": {
+        "button": "ハイコントラストの角丸ボタン。プライマリはダーク背景に白文字、セカンダリはライト背景にダーク文字。",
+        "card": "大きな角丸カード。明確な背景色（パープル、ダークグレー、オレンジ）と大胆なタイポグラフィ。",
+        "chip": "小さな角丸タグ（例：'PIKA AGENT'）。ダーク背景にライトテキスト。",
+        "input": "大きな角丸テキスト入力エリア。ライトグレー背景に、アクションボタンを統合。",
+        "hero": "中央揃えのヒーロー。巨大で大胆な見出し、サブヘッドライン、目立つ入力フィールド。"
+      },
+      "motion": {
+        "patterns": [
+          "インタラクティブ要素のスムーズな色と背景色のトランジション。",
+          "ボタンやカードの微細なtransformトランジション。"
+        ]
+      },
+      "interaction": {
+        "hover": "インタラクティブ要素の微細な色や背景色の変化。",
+        "click": "わずかなtransformや透明度の変化。",
+        "transition": "高速トランジション（0.15秒〜0.2秒）とカスタムcubic-bezier easing curve。",
+        "keyboard": "標準的なフォーカスアウトラインとアクセシビリティパターン。"
+      },
+      "voice": {
+        "tone": "遊び心があり、エネルギッシュで、率直。",
+        "headlineStyle": "大胆、大文字、非常にインパクトがある。",
+        "ctaStyle": "アクション指向で明確（例：「生成」「Webで試す」）。",
+        "avoid": [
+          "過度に技術的な専門用語",
+          "受動的な言葉遣い",
+          "細く薄いタイポグラフィ",
+          "ごちゃごちゃしたレイアウト"
+        ]
+      },
+      "donts": [
+        "見出しに細く軽いタイポグラフィを使用しない — スクリーンショットはウルトラボールドの重いウェイトのディスプレイテキストを示している。",
+        "純粋な白の背景を使用しない — スクリーンショットは温かみのあるオフホワイト（#FCFAF7）を示している。",
+        "クールな青やグリーンをプライマリアクセントに使用しない — スクリーンショットは温かみのあるゴールデンイエロー（#FFD184）とパープルを示している。",
+        "シャープで四角い角を使用しない — スクリーンショットはカードや入力に大きなborder-radius（18px）を示している。",
+        "小さく窮屈な間隔を使用しない — スクリーンショットはセクションに広めのパディング（40px）を示している。",
+        "ダークモードをデフォルトにしない — スクリーンショットはダークテキストを用いた主にライトのインターフェースを示している。"
+      ],
+      "systemPrompt": "これは、遊び心と強さを併せ持つAI動画生成プラットフォーム、Pikaのデザインシステムです。ビジュアル言語は、温かみのあるオフホワイト背景（#FCFAF7）と鋭くウルトラボールドな黒のタイポグラフィ（#0D0D0D）のコントラストによって定義されます。主なアクセントカラーには、プライマリアクション用のゴールデンイエロー（#FFD184）と、カード背景用の柔らかなパープル/オレンジがあります。タイポグラフィは、ヘビーウェイトのgrotesque-sansディスプレイフォントが見出しを支配し、ハイインパクトでエネルギッシュな印象を与え、本文テキストにはよりクリーンなhumanist-sansが使用されます。レイアウトは、広めのパディングを備えた広々としたもの。重要なデザインルールには、以下が含まれます：見出しには決して細いタイポグラフィを使用せず、常に純白ではなく温かみのあるオフホワイト背景を使用し、確立された温かみのあるアクセントに反するクールなカラーパレットを避けること。ごちゃごちゃしたレイアウトと受動的な言葉遣いを避けること。"
+    },
+    "ko": {
+      "identity": {
+        "keywords": [
+          "AI 비디오 생성",
+          "크리에이티브 도구",
+          "장난기 있는",
+          "대담한"
+        ],
+        "analogy": "장난기 있으면서도 강력한 AI 크리에이티브 스튜디오.",
+        "oneLiner": "깔끔하고 고대비 인터페이스를 갖춘 대담하고 장난스러운 AI 비디오 생성 플랫폼."
+      },
+      "colors": {
+        "principle": "따뜻한 오프화이트 배경에 날카로운 블랙 타이포그래피와 장난스러운 골든 액센트."
+      },
+      "typography": {
+        "rules": [
+          "헤드라인은 울트라 볼드이며 대문자로 설정하여 강하고 임팩트 있는 시각적 위계를 형성합니다.",
+          "본문 텍스트는 대담한 헤드라인과 대비하여 가독성을 위해 더 가벼운 무게로 설정됩니다.",
+          "타이포그래피는 컴팩트하고 현대적인 느낌을 위해 네거티브 자간으로 빡빡하게 설정됩니다."
+        ],
+        "scaleUses": [
+          "메인 히어로 헤드라인",
+          "섹션 헤드라인",
+          "서브 헤드라인",
+          "메인 본문 텍스트",
+          "캡션 및 소소한 텍스트"
+        ]
+      },
+      "spacing": {
+        "rhythm": "섹션에 넉넉한 padding (40px)을 둔 일관된 4px 기본 단위."
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 2px 0px 0px #111111",
+          "0px 4px 4px 0px rgba(0, 0, 0, 0.05)"
+        ],
+        "borders": "1px solid rgba(207, 195, 255, 0.5)"
+      },
+      "layout": {
+        "skeleton": "하단에 넓은 콘텐츠 영역이 있는 단일 컬럼 중앙 히어로."
+      },
+      "components": {
+        "button": "둥근 모서리의 고대비 버튼. 프라이머리는 흰색 텍스트의 다크 테마, 세컨더리는 어두운 텍스트의 라이트 테마.",
+        "card": "보라색, 다크그레이, 오렌지 등 뚜렷한 배경색과 대담한 타이포그래피를 가진 크고 둥근 카드.",
+        "chip": "다크 배경과 라이트 텍스트의 작고 둥근 태그 (예: 'PIKA AGENT').",
+        "input": "라이트 그레이 배경과 통합된 액션 버튼을 가진 크고 둥근 텍스트 입력 영역.",
+        "hero": "거대하고 대담한 헤드라인, 서브 헤드라인, 그리고 두드러진 입력 필드가 있는 중앙 히어로."
+      },
+      "motion": {
+        "patterns": [
+          "인터랙티브 요소들에서의 부드러운 컬러 및 background-color 전환.",
+          "버튼과 카드에서의 미세한 transform 전환."
+        ]
+      },
+      "interaction": {
+        "hover": "인터랙티브 요소들에서의 미세한 컬러 또는 background-color 변화.",
+        "click": "약간의 transform 또는 opacity 변화.",
+        "transition": "커스텀 cubic-bezier 이징 커브를 사용한 빠른 전환 (0.15초-0.2초).",
+        "keyboard": "표준 focus 아웃라인 및 접근성 패턴."
+      },
+      "voice": {
+        "tone": "장난기 있고, 활기차며, 직접적입니다.",
+        "headlineStyle": "대담하고, 대문자이며, 매우 임팩트 있습니다.",
+        "ctaStyle": "행동 중심적이고 명확합니다 (예: '생성', '웹에서 시도').",
+        "avoid": [
+          "지나치게 기술적인 전문 용어",
+          "수동적인 언어",
+          "얇거나 가벼운 타이포그래피",
+          "지저분한 레이아웃"
+        ]
+      },
+      "donts": [
+        "헤드라인에 얇거나 가벼운 타이포그래피를 사용하지 마세요 — 스크린샷에는 울트라 볼드, 하비 웨이트의 디스플레이 텍스트가 나타납니다.",
+        "순백 배경을 사용하지 마세요 — 스크린샷에는 따뜻한 오프화이트 (#FCFAF7)이 나타납니다.",
+        "쿨 블루나 그린을 주요 액센트로 사용하지 마세요 — 스크린샷에는 따뜻한 골든옐로우 (#FFD184)와 퍼플이 나타납니다.",
+        "날카롭고 사각형 모서리를 사용하지 마세요 — 스크린샷에는 카드와 입력에 큰 border-radius (18px)가 나타납니다.",
+        "작고 비좁은 spacing을 사용하지 마세요 — 스크린샷에는 섹션에 넉넉한 padding (40px)이 나타납니다.",
+        "다크 모드를 기본값으로 사용하지 마세요 — 스크린샷에는 어두운 텍스트가 주된 라이트 인터페이스가 나타납니다."
+      ],
+      "systemPrompt": "이것은 장난스럽고 강력한 AI 비디오 생성 플랫폼 Pika의 디자인 시스템입니다. 시각적 언어는 따뜻한 오프화이트 배경 (#FCFAF7)과 날카롭고 울트라 볼드한 블랙 타이포그래피 (#0D0D0D)의 대비로 정의됩니다. 주요 액센트 컬러로는 프라이머리 액션을 위한 골든옐로우 (#FFD184)와 카드 배경을 위한 부드러운 퍼플/오렌지가 포함됩니다. 타이포그래피는 임팩트 있고 활기찬 느낌을 주기 위해 대담한 grotesque-sans 디스플레이 폰트가 헤드라인을 지배하며, 본문 텍스트는 더 깔끔한 humanist-sans를 사용합니다. 레이아웃은 넉넉한 padding으로 여유롭습니다. 중요한 디자인 규칙으로는: 헤드라인에 절대 얇은 타이포그래피를 사용하지 말 것, 항상 순백 대신 따뜻한 오프화이트 배경을 사용할 것, 그리고 기존의 따뜻한 액센트를 선호하여 쿨 컬러 팔레트를 피할 것 등이 있습니다. 지저분한 레이아웃과 수동적인 언어는 피하세요."
+    }
+  },
+  "desc": {
+    "en": {
+      "palette": "A warm, off-white background with sharp black typography and playful golden-yellow and purple accents.",
+      "layout": "A clean, single-column centered hero layout with spacious sections and large, rounded cards.",
+      "interaction": "Fast, smooth transitions (0.15s-0.2s) with a custom cubic-bezier easing curve for a responsive feel.",
+      "motion": "Subtle, snappy transitions on color and background-color for interactive elements.",
+      "notes": "Worth including for its bold, high-contrast typography and playful yet clean interface that balances personality with usability."
+    },
+    "zh-CN": {
+      "palette": "温暖的米白色背景，搭配锐利的黑色字体，以及活泼的金黄色与紫色点缀。",
+      "layout": "简洁、居中的单列核心布局，包含宽敞的区块与大尺寸的圆角卡片。",
+      "interaction": "快速、流畅的过渡动画（0.15秒-0.2秒），采用自定义cubic-bezier缓动曲线，营造响应式体验。",
+      "motion": "交互元素在颜色与背景色上实现微妙、迅捷的过渡。",
+      "notes": "值得参考，因其大胆、高对比度的字体运用，以及在活泼与整洁间取得平衡、兼顾个性与可用性的界面设计。"
+    },
+    "zh-TW": {
+      "palette": "溫暖的米白色背景，搭配銳利的黑色排版與俏皮的金黃色及紫色點綴。",
+      "layout": "簡潔的單欄置中首頁佈局，區塊寬裕，搭配大型圓角卡片。",
+      "interaction": "快速流暢的過渡（0.15秒-0.2秒），採用自訂的 cubic-bezier 緩動曲線，營造靈敏的回饋感。",
+      "motion": "互動元素在顏色與背景色上帶有細微、俐落的過渡效果。",
+      "notes": "其大膽、高對比度的排版以及兼具個性與實用性的俏皮簡潔介面，值得納入參考。"
+    },
+    "ja": {
+      "palette": "温かみのあるオフホワイトの背景に、鋭い黒のタイポグラフィと、遊び心のあるゴールデンイエローとパープルのアクセント。",
+      "layout": "清潔な、中央揃えの単一カラムのヒーローレイアウトで、広々としたセクションと大きな角丸カード。",
+      "interaction": "高速でスムーズなトランジション（0.15秒〜0.2秒）と、カスタムcubic-bezier easing curveによる応答性の高いフィール。",
+      "motion": "インタラクティブ要素の色や背景色に対する、微細でスナッピーなトランジション。",
+      "notes": "大胆でハイコントラストなタイポグラフィと、個性と使いやすさを兼顾した遊び心のある清潔なインターフェースが見事であり、採用する価値がある。"
+    },
+    "ko": {
+      "palette": "따뜻한 오프화이트 배경에 날카로운 블랙 타이포그래피와 장난스러운 골든옐로우 및 퍼플 액센트.",
+      "layout": "여유로운 섹션과 크고 둥근 카드가 있는 깔끔한 단일 컬럼 중앙 집중 히어로 레이아웃.",
+      "interaction": "반응감을 높이기 위한 커스텀 cubic-bezier 이징 커브를 사용한 빠르고 부드러운 전환 (0.15초-0.2초).",
+      "motion": "인터랙티브 요소들의 컬러 및 background-color에서의 미세하고 날렵한 전환.",
+      "notes": "대담하고 고대비 타이포그래피와 개성과 유용성을 절충한 장난스러우면서도 깔끔한 인터페이스로 포함할 가치가 있음."
+    }
+  },
+  "narrative": {
+    "en": {
+      "ch1_intro": "Pika's design system is built like a playful yet powerful AI creative studio, where every decision serves the dual mandate of clarity and character. The visual language establishes a high-contrast, energetic environment that feels both intentional and inviting.",
+      "ch2_intro": "The color system is anchored by a warm off-white canvas, providing a softer foundation than clinical white. This warmth is punctuated by a sharp black and playful golden-yellow accents, creating a palette that is direct and lively without relying on cool tones.",
+      "ch2_outro": "The principle is consistent: warmth provides the ground, contrast provides the structure, and playful accents provide the punctuation.",
+      "ch3_intro": "Typography is the system's most assertive voice, with ultra-bold, uppercase grotesque-sans headlines that create an impactful, compact hierarchy. A lighter, humanist-sans for body text ensures legibility, while tight letter spacing maintains a modern, condensed feel.",
+      "ch4_intro": "Spacing follows a consistent 4px base unit, creating a reliable grid that underpins the generous 40px section padding.",
+      "ch5_intro": "Depth is constructed through precise, flat shadows and a distinctive light purple border. The system favors large border-radius on all surfaces, ensuring softness coexists with strong contrast.",
+      "ch6_intro": "The layout skeleton begins with a single-column centered hero, establishing a clear focal point. Below this, a wide content area accommodates large, rounded cards that carry distinct background colors and bold typographic treatments.",
+      "ch7_intro": "Motion philosophy prioritizes snappy, purposeful feedback over elaborate flourish. Transitions are fast and smooth, using a custom cubic-bezier curve to give interactive elements a responsive, tactile feel.",
+      "ch8_intro": "The editorial voice is playful, energetic, and direct, using bold, uppercase headlines and clear action-oriented calls to action. The system actively avoids overly technical jargon and passive language.",
+      "ch8_outro": "The system deliberately avoids thin or light typography for headlines, cluttered layouts, and cool-toned palettes."
+    },
+    "zh-CN": {
+      "ch1_intro": "Pika的设计系统构建得像一个既有趣又强大的AI创意工作室，每个决策都服务于清晰与个性这双重使命。视觉语言营造出一种高对比度、充满活力的环境，既经过精心考量，又令人感到亲切。",
+      "ch2_intro": "色彩系统以温暖的米白色画布为基底，提供了比纯白色更柔和的基础。这种温暖感通过鲜明的黑色和俏皮的金黄色点缀得以强化，创造出一种直接而活泼的调色板，不依赖冷色调。",
+      "ch2_outro": "原则是一致的：温暖提供底色，对比构建结构，俏皮的点缀则提供点睛之笔。",
+      "ch3_intro": "字体排印是系统中最具表现力的声音，采用超粗、大写的 grotesque-sans 标题字体，形成富有冲击力、紧凑的层级结构。正文则采用较轻盈的 humanist-sans 字体以确保可读性，同时紧密的字距保持了现代、紧凑的感觉。",
+      "ch4_intro": "间距遵循一致的4px基础单位，构建出可靠的网格系统，支撑起慷慨的40px区块内边距。",
+      "ch5_intro": "层次感通过精确的平面阴影和独特的淡紫色边框来构建。系统倾向于在所有表面上使用大圆角，确保柔和感与强烈对比并存。",
+      "ch6_intro": "布局骨架从一个单列居中的英雄区域开始，确立了清晰的焦点。其下方，一个宽大的内容区域容纳了大型、圆角的卡片，这些卡片具有独特的背景颜色和醒目的字体排印处理。",
+      "ch7_intro": "动效理念优先考虑快速、有目的性的反馈，而非复杂的装饰。过渡快速而流畅，使用自定义 cubic-bezier 曲线赋予交互元素响应迅速、触感分明的感觉。",
+      "ch8_intro": "编辑语调是俏皮、充满活力且直接的，使用粗体、大写标题和清晰、以行动为导向的号召性用语。系统主动避免使用过于技术化的术语和被动语态。",
+      "ch8_outro": "系统刻意避免为标题使用纤细或轻盈的字体、杂乱的布局以及冷色调的调色板。"
+    },
+    "zh-TW": {
+      "ch1_intro": "Pika 的設計系統就像一個充滿趣味又強大的 AI 創意工作室，每個決策都服務於清晰度與個性的雙重任務。視覺語言建立了一個高對比、充滿活力的環境，既具目的性又令人感到親切。",
+      "ch2_intro": "色彩系統以溫暖的米白色畫布為基調，提供比純白更柔和的基礎。這種溫暖感被銳利的黑色與俏皮的金黃色點綴所強化，創造出一個直接而活潑的調色盤，無需依賴冷色調。",
+      "ch2_outro": "原則始終如一：溫暖提供基礎，對比提供結構，而俏皮的點綴則提供畫龍點睛的效果。",
+      "ch3_intro": "排版是系統最具表達力的聲音，採用超粗體、全大寫的 grotesque-sans 標題，創造出有力且緊湊的層級結構。較輕的 humanist-sans 用於內文，確保可讀性，而緊湊的字間距則維持了現代、精煉的感覺。",
+      "ch4_intro": "間距遵循一致的 4px 基礎單位，創造出可靠的網格，支撐著寬裕的 40px 區塊內距。",
+      "ch5_intro": "深度透過精準的平面陰影和獨特的淡紫色邊框來構建。系統偏好在所有表面上使用大圓角，確保柔軟感與強烈對比並存。",
+      "ch6_intro": "版面結構從單欄置中的首頁橫幅開始，建立清晰的視覺焦點。下方則設有寬廣的內容區域，容納大型、圓角的卡片，這些卡片具有獨特的背景色彩與粗體排版處理。",
+      "ch7_intro": "動效哲學優先考慮快速、有目的的反饋，而非繁複的裝飾。過渡動畫快速而流暢，使用自訂的 cubic-bezier 曲線，賦予互動元素靈敏且具觸感的體驗。",
+      "ch8_intro": "編輯語氣俏皮、充滿活力且直接，採用粗體、全大寫的標題和清晰的行動呼籲。系統刻意避免過於技術性的術語和被動語態。",
+      "ch8_outro": "系統刻意避免使用細體或輕量字體作為標題，以及雜亂的版面和冷色調的調色盤。"
+    },
+    "ja": {
+      "ch1_intro": "Pikaのデザインシステムは、遊び心と力強さを併せ持つAIクリエイティブスタジオのように構築されています。あらゆる決定は、明瞭さと個性という二重の使命に奉仕します。ビジュアル言語は、意図的でありながらも温かみのある、ハイコントラストでエネルギッシュな環境を確立します。",
+      "ch2_intro": "カラーシステムは、温かみのあるオフホワイトのキャンバスを中心に構成されています。これにより、クリニカルな白よりも柔らかい基盤が提供されます。この温かみを、シャープな黒と遊び心のあるゴールデンイエローのアクセントが補完し、クールなトーンに頼らない、ダイレクトかつ活気のあるパレットを作り出しています。",
+      "ch2_outro": "原則は一貫しています。温かみがgroundを提供し、コントラストがstructureを提供し、遊び心のあるアクセントがpunctuationを提供します。",
+      "ch3_intro": "タイポグラフィはシステムの最も断固たる声であり、超太字の大文字のグロテスクsansの見出しは、インパクトのある、コンパクトな階層構造を生み出します。本文用のより軽いヒューマニストsansは可読性を確保し、 tightな文字間隔が現代的で凝縮された感覚を維持します。",
+      "ch4_intro": "スペーシングは一貫した4pxの基本単位に従い、包括的な40pxのセクションパディングを支える信頼性の高いグリッドを生み出します。",
+      "ch5_intro": "奥行きは、精密なフラットシャドウと特徴的なライトパープルのボーダーによって構築されます。システムは、すべてのサーフェスに大きいボーダーラジアスを採用し、柔らかさが強いコントラットと共存することを保証します。",
+      "ch6_intro": "レイアウトの骨格は、単一のカラムで中央揃えのヒーローセクションから始まり、明確な焦点を確立します。その下には、広いコンテンツエリアが設けられ、独自の背景色と太字のタイポグラフィック処理を備えた、大きく丸みを帯びたカードが配置されます。",
+      "ch7_intro": "モーションの哲学は、精巧な装飾よりも、的確で目的に沿ったフィードバックを優先します。トランジションは高速かつスムーズで、カスタムcubic-bezierカーブを使用し、インタラクティブ要素に応答性の高い、触覚的な感覚を与えます。",
+      "ch8_intro": "エディトリアルボイスは遊び心があり、エネルギッシュで、率直です。太字の大文字の見出しと、明確でアクションを促すCTAを用います。システムは、過度にテクニカルな専門用語や受動的な言葉遣いを意図的に避けます。",
+      "ch8_outro": "システムは、見出しに細いまたは軽いタイポグラフィを使用すること、雑然としたレイアウト、クールトーンのパレットを意図的に回避します。"
+    },
+    "ko": {
+      "ch1_intro": "피카의 디자인 시스템은 장난기 있으면서도 강력한 AI 크리에이티브 스튜디오처럼 구축되어 있으며, 모든 결정은 명확성과 개성이라는 이중 과제를 수행합니다. 시각적 언어는 의도적이면서도 친근한 느낌을 주는 고대비, 활기찬 환경을 조성합니다.",
+      "ch2_intro": "색상 시스템은 따뜻한 오프화이트 캔버스를 기반으로 하여, 차가운 백색보다 부드러운 토대를 제공합니다. 이 따뜻함은 날카로운 블랙과 장난스러운 골든옐로우 액센트로 강조되어, 쿨 톤에 의존하지 않으면서도 직설적이고 활기찬 팔레트를 만듭니다.",
+      "ch2_outro": "원칙은 일관됩니다: 따뜻함이 바탕을, 대비가 구조를, 장난스러운 액센트가 마침표를 제공합니다.",
+      "ch3_intro": "타이포그래피는 시스템에서 가장 주도적인 목소리로, 굵고 대문자 grostesk-산스 제목이 임팩트 있고 compact한 계층 구조를 만듭니다. 본문에는 가벼운 휴매니스트-산스를 사용하여 가독성을 보장하며, 타이트한 자간은 현대적이고 compact한 느낌을 유지합니다.",
+      "ch4_intro": "간격은 일관된 4px 기본 단위를 따르며, 넉넉한 40px 섹션 패딩을 뒷받침하는 신뢰할 수 있는 그리드를 만듭니다.",
+      "ch5_intro": "깊이는 정밀한 플랫 그림자와 독특한 라이트 퍼플 테두리로 구현됩니다. 이 시스템은 모든 표면에 큰 border-radius를 선호하여, 부드러움이 강한 대비와 공존하도록 합니다.",
+      "ch6_intro": "레이아웃 스켈레톤은 명확한 초점을 설정하는 단일 열 중앙 히어로로 시작됩니다. 아래로는 큰 둥근 카드가 배치되며, 각 카드는 뚜렷한 배경 색상과 굵은 타이포그래피 처리를 특징으로 합니다.",
+      "ch7_intro": "모션 철학은 화려한 장식보다는 빠르고 목적 있는 피드백을 우선시합니다. 전환은 빠르고 부드러우며, 맞춤형 cubic-bezier 곡선을 사용하여 인터랙티브 요소에 반응적이고 촉각적인 느낌을 줍니다.",
+      "ch8_intro": "에디토리얼 톤은 장난기 있고 활기차며 직설적이며, 굵은 대문자 제목과 명확한 행동 지향적 호출-to-행동을 사용합니다. 이 시스템은 지나치게 기술적인 용어와 수동적인 언어를 적극적으로 피합니다.",
+      "ch8_outro": "이 시스템은 제목에 얇거나 가벼운 타이포그래피, 복잡한 레이아웃, 쿨 톤 팔레트를 의도적으로 피합니다."
+    }
+  }
 }

@@ -8,6 +8,625 @@
     "dev",
     "infra"
   ],
-  "status": "pending",
-  "added_at": "2026-06-02"
+  "status": "completed",
+  "added_at": "2026-06-02",
+  "spec": {
+    "colors": {
+      "bg": "#ffffff",
+      "bgSoft": "#f8faf9",
+      "bgQuiet": "#f1f5f3",
+      "ink": "#022c22",
+      "inkSoft": "#4b5563",
+      "muted": "#9ca3af",
+      "mutedSoft": "#d1d5db",
+      "accent": "#047857",
+      "line": "rgba(229, 231, 235, 1)"
+    },
+    "typography": {
+      "display": "geometric-sans",
+      "body": "humanist-sans",
+      "mono": "monospace",
+      "scale": [
+        {
+          "token": "display",
+          "size": 72,
+          "lh": 1.0,
+          "weight": 600,
+          "ls": "-2px"
+        },
+        {
+          "token": "heading",
+          "size": 32,
+          "lh": 1.25,
+          "weight": 500,
+          "ls": "-0.5px"
+        },
+        {
+          "token": "body",
+          "size": 16,
+          "lh": 1.5,
+          "weight": 400,
+          "ls": "0px"
+        },
+        {
+          "token": "caption",
+          "size": 14,
+          "lh": 1.4,
+          "weight": 400,
+          "ls": "0px"
+        }
+      ]
+    },
+    "spacing": {
+      "base": 4,
+      "scale": [
+        4,
+        8,
+        12,
+        16,
+        24,
+        32,
+        40,
+        48,
+        64
+      ]
+    },
+    "surfaces": {
+      "radius": {
+        "sm": 8,
+        "md": 12,
+        "lg": 16,
+        "pill": 9999
+      }
+    },
+    "layout": {
+      "container": 1280,
+      "paragraph": 680,
+      "columns": 12,
+      "gutter": 24,
+      "breakpoints": [
+        768,
+        1024
+      ]
+    },
+    "motion": {
+      "durations": {
+        "micro": 150,
+        "small": 220,
+        "medium": 300
+      },
+      "easing": "cubic-bezier(0.4, 0, 0.2, 1)"
+    }
+  },
+  "spec_i18n": {
+    "en": {
+      "identity": {
+        "keywords": [
+          "serverless",
+          "data platform",
+          "developer",
+          "infrastructure",
+          "performance"
+        ],
+        "analogy": "A clean, high-performance data utility for modern developers",
+        "oneLiner": "A unified serverless data platform for Redis, vectors, queues, and more."
+      },
+      "colors": {
+        "principle": "Clean, high-contrast light theme with a vibrant green accent signaling performance and modern infrastructure."
+      },
+      "typography": {
+        "rules": [
+          "Use geometric-sans for hero text and primary headings",
+          "Use humanist-sans for body copy and descriptions",
+          "Use monospace for code snippets and CLI commands"
+        ],
+        "scaleUses": [
+          "Primary hero headline",
+          "Section titles and card headings",
+          "Primary body text and descriptions",
+          "Secondary text, labels, and navigation"
+        ]
+      },
+      "spacing": {
+        "rhythm": "Consistent 4px base unit with generous whitespace to reflect the 'serverless' simplicity."
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 1px 2px 0px rgba(0, 0, 0, 0.05)",
+          "0px 5px 40px 0px rgba(9, 14, 21, 0.16)"
+        ],
+        "borders": "1px solid #e5e7eb"
+      },
+      "layout": {
+        "skeleton": "Centered single-column hero transitioning into a multi-column card grid for features."
+      },
+      "components": {
+        "button": "Pill-shaped primary buttons with solid green fill and white text; ghost or outlined secondary variants.",
+        "card": "White cards with subtle border and generous padding, used for product modules and feature highlights.",
+        "chip": "Horizontal scrollable row of tab-like chips for switching between different platform products (Redis, Vector, etc.).",
+        "input": "Standard text inputs with subtle gray borders and rounded corners.",
+        "hero": "Large-scale centered typography with a vibrant gradient on the main headline, followed by a concise value proposition and primary CTA."
+      },
+      "motion": {
+        "patterns": [
+          "Color and background-color transitions for interactive elements",
+          "Smooth opacity and transform transitions for UI state changes"
+        ]
+      },
+      "interaction": {
+        "hover": "Subtle color shifts or background fills on interactive elements",
+        "click": "Immediate visual feedback via transition or slight transform",
+        "transition": "Standardized 150ms ease-out transitions for color, background, and opacity",
+        "keyboard": "Standard focus rings for accessibility on interactive elements"
+      },
+      "voice": {
+        "tone": "Direct, developer-focused, and performance-oriented",
+        "headlineStyle": "Bold, concise, and value-driven statements",
+        "ctaStyle": "Action-oriented and clear (e.g., 'Start for Free', 'Create Database')",
+        "avoid": [
+          "Marketing jargon",
+          "Vague promises",
+          "Overly complex sentences",
+          "Passive voice"
+        ]
+      },
+      "donts": [
+        "Don't use decorative serif fonts — screenshot shows clean geometric and humanist sans-serif typefaces.",
+        "Don't use a dark theme as the primary interface — screenshot shows a light, airy layout with a white background.",
+        "Don't use neon or overly saturated neon-pastels — screenshot uses a grounded emerald green (#047857) as the main accent.",
+        "Don't use sharp, square corners on primary components — screenshot shows generously rounded corners (12px, pill-shape).",
+        "Don't clutter the interface with too many competing colors — screenshot maintains a tight palette of green, white, and gray.",
+        "Don't use decorative, complex illustrations — screenshot uses simple, abstract geometric graphics and icons.",
+        "Don't use small, cramped typography — screenshot uses a very large, bold hero font with generous line-height."
+      ],
+      "systemPrompt": "Design DNA for Upstash, a serverless data platform. The UI is a clean, light-themed developer tool focused on clarity and performance. Key colors are white (#ffffff) for the background, dark green (#022c22) for text, and a vibrant emerald (#047857) for primary accents and CTAs. Typography uses geometric-sans for bold hero headlines and humanist-sans for readable body text, with monospace for code. Critical design rules: 1) Maintain a spacious, high-contrast light theme with ample whitespace. 2) Use vibrant green only for primary actions and highlights to draw attention without overwhelming the interface. 3) Ensure all interactive elements have clear, rounded corners and smooth 150ms transitions for a polished, modern feel."
+    },
+    "zh-CN": {
+      "identity": {
+        "keywords": [
+          "无服务器",
+          "数据平台",
+          "开发者",
+          "基础设施",
+          "性能"
+        ],
+        "analogy": "为现代开发者打造的纯净、高性能数据实用工具",
+        "oneLiner": "面向 Redis、向量、队列等的统一无服务器数据平台。"
+      },
+      "colors": {
+        "principle": "纯净、高对比度的亮色主题，搭配象征性能与现代基础设施的鲜明绿色强调色。"
+      },
+      "typography": {
+        "rules": [
+          "英雄文本和主要标题使用几何无衬线体",
+          "正文和描述使用人文无衬线体",
+          "代码片段和 CLI 命令使用等宽字体"
+        ],
+        "scaleUses": [
+          "主英雄标题",
+          "区域标题和卡片标题",
+          "主要正文和描述",
+          "次要文本、标签和导航"
+        ]
+      },
+      "spacing": {
+        "rhythm": "基于 4px 的统一间距单位，配合充足的留白，以体现“无服务器”的简洁性。"
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 1px 2px 0px rgba(0, 0, 0, 0.05)",
+          "0px 5px 40px 0px rgba(9, 14, 21, 0.16)"
+        ],
+        "borders": "1px solid #e5e7eb"
+      },
+      "layout": {
+        "skeleton": "居中的单列英雄区域，过渡到多列卡片网格以展示功能。"
+      },
+      "components": {
+        "button": "药丸形的主按钮，采用实心绿色填充和白色文字；次要变体使用幽灵或描边样式。",
+        "card": "白色卡片，带微妙边框和充足内边距，用于产品模块和功能亮点。",
+        "chip": "可水平滚动的标签式芯片行，用于切换不同的平台产品（Redis、Vector 等）。",
+        "input": "标准文本输入框，带微妙灰色边框和圆角。",
+        "hero": "大尺寸居中排版，主标题使用鲜明渐变色，后接简洁的价值主张和主要行动号召按钮。"
+      },
+      "motion": {
+        "patterns": [
+          "交互元素的颜色和背景颜色过渡",
+          "UI 状态变化的平滑透明度和变换过渡"
+        ]
+      },
+      "interaction": {
+        "hover": "交互元素上的微妙颜色变化或背景填充",
+        "click": "通过过渡或轻微变换提供即时视觉反馈",
+        "transition": "标准化的 150ms ease-out 过渡，用于颜色、背景和透明度",
+        "keyboard": "交互元素的标准焦点环，以确保无障碍访问"
+      },
+      "voice": {
+        "tone": "直接、面向开发者、专注于性能",
+        "headlineStyle": "大胆、简洁、价值驱动的陈述",
+        "ctaStyle": "以行动为导向且清晰明了（例如“免费开始”、“创建数据库”）",
+        "avoid": [
+          "营销术语",
+          "模糊的承诺",
+          "过于复杂的句子",
+          "被动语态"
+        ]
+      },
+      "donts": [
+        "避免使用装饰性衬线字体——截图显示的是纯净的几何和人文无衬线字体。",
+        "避免将深色主题作为主要界面——截图显示的是以白色背景为主、通透大气的亮色布局。",
+        "避免使用霓虹或过度饱和的霓虹柔色——截图使用一种沉稳的祖母绿色（#047857）作为主要强调色。",
+        "避免在主要组件上使用尖锐的方形圆角——截图显示的是充分圆润的圆角（12px，药丸形）。",
+        "避免使用过多竞争性颜色使界面杂乱——截图保持了由绿色、白色和灰色构成的紧凑调色板。",
+        "避免使用装饰性、复杂的插图——截图使用简单的抽象几何图形和图标。",
+        "避免使用小而拥挤的排版——截图使用非常大、加粗的英雄字体，并配有充足的行高。"
+      ],
+      "systemPrompt": "Upstash 的设计基因，这是一个无服务器数据平台。界面是干净、亮色主题的开发者工具，专注于清晰度和性能。关键颜色：背景使用白色（#ffffff），文本使用深绿色（#022c22），主要强调色和行动号召按钮使用鲜明的祖母绿色（#047857）。排版方面，加粗的英雄标题使用几何无衬线体，可读的正文使用人文无衬线体，代码使用等宽字体。关键设计规则：1) 保持宽敞、高对比度的亮色主题，留有充足留白。2) 仅将鲜明绿色用于主要操作和亮点，以吸引注意力而不使界面不堪重负。3) 确保所有交互元素具有清晰、圆润的圆角和平滑的 150ms 过渡，以营造精致、现代的感觉。"
+    },
+    "zh-TW": {
+      "identity": {
+        "keywords": [
+          "無伺服器",
+          "資料平台",
+          "開發者",
+          "基礎設施",
+          "效能"
+        ],
+        "analogy": "專為現代開發者打造的高效能資料工具",
+        "oneLiner": "整合 Redis、向量、佇列等功能的統一無伺服器資料平台。"
+      },
+      "colors": {
+        "principle": "採用純淨、高對比度的淺色主題，以鮮明綠色強調效能與現代基礎設施特質。"
+      },
+      "typography": {
+        "rules": [
+          "首頁主視覺與主要標題使用幾何無襯線字體",
+          "內文與描述使用人文無襯線字體",
+          "程式碼片段與 CLI 指令使用等寬字體"
+        ],
+        "scaleUses": [
+          "首頁主標題",
+          "區塊標題與卡片標題",
+          "主要內文與描述文字",
+          "次要文字、標籤與導航元素"
+        ]
+      },
+      "spacing": {
+        "rhythm": "以 4px 為基準單位，搭配充裕的留白空間，體現「無伺服器」的簡約特質。"
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 1px 2px 0px rgba(0, 0, 0, 0.05)",
+          "0px 5px 40px 0px rgba(9, 14, 21, 0.16)"
+        ],
+        "borders": "1px solid #e5e7eb"
+      },
+      "layout": {
+        "skeleton": "採用置中單欄首頁主視覺，過渡至多欄卡片網格以呈現功能特色。"
+      },
+      "components": {
+        "button": "圓角藥丸狀主要按鈕，採用綠色實心填充與白色文字；次要按鈕提供透明或外框樣式。",
+        "card": "白色卡片搭配細微邊框與充裕內距，用於產品模組與功能亮點展示。",
+        "chip": "橫向可捲動的標籤式分段控制器，用於切換不同平台產品（Redis、Vector 等）。",
+        "input": "標準文字輸入框，採用細微灰色邊框與圓角設計。",
+        "hero": "大尺度置中排版，主標題採用鮮明的漸層色，搭配簡潔的價值主張與主要行動號召。"
+      },
+      "motion": {
+        "patterns": [
+          "互動元素的色彩與背景色轉場效果",
+          "UI 狀態變更時的平滑透明度與變換轉場"
+        ]
+      },
+      "interaction": {
+        "hover": "互動元素在懸停時產生細微色彩變化或背景填充效果",
+        "click": "透過轉場或輕微變換提供即時視覺回饋",
+        "transition": "色彩、背景與透明度採用標準的 150 毫秒 ease-out 轉場",
+        "keyboard": "互動元素提供標準的焦點環以支援無障礙功能"
+      },
+      "voice": {
+        "tone": "直接、以開發者為導向、強調效能",
+        "headlineStyle": "簡潔大膽、以價值為核心的陳述語句",
+        "ctaStyle": "行動導向且明確（例如：「免費開始」、「建立資料庫」）",
+        "avoid": [
+          "行銷術語",
+          "模糊的承諾",
+          "過度複雜的句式",
+          "被動語態"
+        ]
+      },
+      "donts": [
+        "勿使用裝飾性襯線字體——截圖顯示採用簡潔的幾何與人文無襯線字型。",
+        "勿將深色主題作為主要介面——截圖顯示以白色為底的明亮開闊版面。",
+        "勿使用霓虹色或過度飽和的霓虹柔和色——截圖採用沉穩的翡翠綠（#047857）作為主要強調色。",
+        "勿在主要元件上使用尖銳方角——截圖顯示採用大圓角（12px、藥丸狀）設計。",
+        "勿使用過多衝突色彩使介面雜亂——截圖維持綠、白、灰的精簡配色。",
+        "勿使用裝飾性複雜插圖——截圖採用簡約的抽象幾何圖形與圖示。",
+        "勿使用擁擠的小字型——截圖採用極大、粗體的首頁主視覺字型，搭配充裕行高。"
+      ],
+      "systemPrompt": "Upstash 無伺服器資料平台的設計 DNA。使用者介面採用簡潔的淺色主題開發者工具，專注於清晰度與效能。關鍵色彩包括白色背景（#ffffff）、深綠文字（#022c22），以及鮮明翡翠綠作為主要強調色與行動號召（#047857）。排版採用幾何無襯線字體作為粗體首頁主視覺標題，人文無襯線字體用於易讀的內文，等寬字體用於程式碼。關鍵設計規範：1）保持寬敞、高對比度的淺色主題，搭配充足留白。2）僅在主要操作與重點項目使用鮮明綠色以吸引注意力，避免過度佔據視覺。3）確保所有互動元件具有清晰的圓角與流暢的 150 毫秒轉場，呈現精緻現代的質感。"
+    },
+    "ja": {
+      "identity": {
+        "keywords": [
+          "サーバーレス",
+          "データプラットフォーム",
+          "開発者",
+          "インフラストラクチャ",
+          "パフォーマンス"
+        ],
+        "analogy": "現代の開発者のための、クリーンで高性能なデータユーティリティ",
+        "oneLiner": "Redis、ベクトル、キューなどを統合したサーバーレスデータプラットフォーム。"
+      },
+      "colors": {
+        "principle": "クリーンでハイコントラストのライトテーマに、性能と現代的なインフラストラクチャを示す鮮やかなグリーンアクセントを採用。"
+      },
+      "typography": {
+        "rules": [
+          "ヒーローテキストと主要見出しにはジオメトリック・サンスを使用",
+          "本文と説明にはヒューマニスト・サンスを使用",
+          "コードスニペットやCLIコマンドにはモノスペースを使用"
+        ],
+        "scaleUses": [
+          "プライマリヒーローヘッドライン",
+          "セクションタイトルとカード見出し",
+          "プライマリ本文と説明",
+          "セカンダリテキスト、ラベル、ナビゲーション"
+        ]
+      },
+      "spacing": {
+        "rhythm": "「サーバーレス」のシンプルさを反映した、豊富な余白を備えた一貫した4pxベースユニット。"
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 1px 2px 0px rgba(0, 0, 0, 0.05)",
+          "0px 5px 40px 0px rgba(9, 14, 21, 0.16)"
+        ],
+        "borders": "1px solid #e5e7eb"
+      },
+      "layout": {
+        "skeleton": "センタリングされた単一カラムのヒーローから、機能向けのマルチカラムカードグリッドへと移行。"
+      },
+      "components": {
+        "button": "ソリッドグリーンの塗りとホワイトテキストを備えた、ピル型プライマリボタン。ゴーストまたはアウトラインのセカンダリバリエーション。",
+        "card": "微細なボーダーと豊富なパディングを備えたホワイトカード。製品モジュールや機能ハイライトに使用。",
+        "chip": "Redis、Vectorなどの異なるプラットフォーム製品を切り替えるための、タブ型チップの水平スクロール可能な行。",
+        "input": "微細なグレーボーダーと角丸を備えた標準テキスト入力。",
+        "hero": "メインヘッドラインの鮮やかなグラデーションを備えた、大規模なセンタリングタイポグラフィ。その後に簡潔なバリュープロポジションとプライマリCTAが続きます。"
+      },
+      "motion": {
+        "patterns": [
+          "インタラクティブ要素のカラーおよびbackground-colorトランジション",
+          "UI状態変化のための滑らかなopacityおよびtransformトランジション"
+        ]
+      },
+      "interaction": {
+        "hover": "インタラクティブ要素の微細な色の変化または背景塗り",
+        "click": "トランジションまたは微細なtransformによる即座のビジュアルフィードバック",
+        "transition": "カラー、背景、opacityのための標準化された150ms ease-outトランジション",
+        "keyboard": "インタラクティブ要素のアクセシビリティのための標準フォーカスリング"
+      },
+      "voice": {
+        "tone": "直接的で開発者向け、かつパフォーマンス重視",
+        "headlineStyle": "大胆で簡潔、かつバリュー重視のステートメント",
+        "ctaStyle": "行動を促す明確な表現（例：「無料で始める」「データベースを作成」）",
+        "avoid": [
+          "マーケティング用語",
+          "曖昧な約束",
+          "過度に複雑な文",
+          "受動態"
+        ]
+      },
+      "donts": [
+        "装飾的なセリフフォントを使用しない — スクリーンショットはクリーンなジオメトリックおよびヒューマニストサンセリフタイポグラフィを示しています。",
+        "プライマリインターフェースとしてダークテーマを使用しない — スクリーンショットはホワイト背景の軽やかで広々としたレイアウトを示しています。",
+        "ネオン色や過度に飽和したネオンパステルを使用しない — スクリーンショットはメインアクセントとして落ち着いたエメラルドグリーン（#047857）を使用しています。",
+        "プライマリコンポーネントに鋭く角張ったコーナーを使用しない — スクリーンショットは十分な角丸（12px、ピル型）を示しています。",
+        "競合する色が多すぎてインターフェースを雑然とさせない — スクリーンショットはグリーン、ホワイト、グレーの緊密なパレットを維持しています。",
+        "装飾的で複雑なイラストを使用しない — スクリーンショットはシンプルで抽象的な幾何学図形とアイコンを使用しています。",
+        "小さく窮屈なタイポグラフィを使用しない — スクリーンショットは非常に大きく太字のヒーローフォントと豊富な行間を使用しています。"
+      ],
+      "systemPrompt": "UpstashのためのデザインDNA。サーバーレスデータプラットフォーム。UIは、明瞭さとパフォーマンスに焦点を当てた、クリーンなライトテーマの開発者ツールです。主要カラーは、背景のホワイト（#ffffff）、テキストのダークグリーン（#022c22）、プライマリアクセントおよびCTAの鮮やかなエメラルドグリーン（#047857）です。タイポグラフィは、太字のヒーローヘッドラインにジオメトリック・サンス、読みやすい本文にヒューマニスト・サンス、コードにモノスペースを使用します。重要なデザインルール：1）豊富な余白を備えた、広々としたハイコントラストのライトテーマを維持。2）インターフェースを圧倒せずに注目を集めるために、プライマリアクションとハイライトにのみ鮮やかなグリーンを使用。3）洗練された現代的な感覚のために、すべてのインタラクティブ要素に明確な角丸と滑らかな150msトランジションを確保。"
+    },
+    "ko": {
+      "identity": {
+        "keywords": [
+          "serverless",
+          "데이터 플랫폼",
+          "개발자",
+          "인프라",
+          "성능"
+        ],
+        "analogy": "현대 개발자를 위한 깨끗하고 고성능의 데이터 유틸리티",
+        "oneLiner": "Redis, 벡터, 큐 등을 위한 통합 serverless 데이터 플랫폼."
+      },
+      "colors": {
+        "principle": "성능과 현대적인 인프라를 상징하는 선명한 그린 악센트가 있는 깨끗하고 고대비의 라이트 테마."
+      },
+      "typography": {
+        "rules": [
+          "히어로 텍스트 및 주요 제목에는 geometric-sans 사용",
+          "본문 및 설명에는 humanist-sans 사용",
+          "코드 조각 및 CLI 명령에는 monospace 사용"
+        ],
+        "scaleUses": [
+          "주요 히어로 헤드라인",
+          "섹션 제목 및 카드 헤딩",
+          "주요 본문 텍스트 및 설명",
+          "보조 텍스트, 레이블 및 내비게이션"
+        ]
+      },
+      "spacing": {
+        "rhythm": "'serverless'의 단순함을 반영하기 위해 넉넉한 여백을 가진 일관된 4px 기본 단위."
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 1px 2px 0px rgba(0, 0, 0, 0.05)",
+          "0px 5px 40px 0px rgba(9, 14, 21, 0.16)"
+        ],
+        "borders": "1px solid #e5e7eb"
+      },
+      "layout": {
+        "skeleton": "기능을 위한 다중 컬럼 카드 그리드로 전환되는 중앙 정렬 단일 컬럼 히어로."
+      },
+      "components": {
+        "button": "단일 그린 채우기와 화이트 텍스트가 있는 알약 모양의 주요 버튼; 고스트 또는 아웃라인 보조 변형.",
+        "card": "제품 모듈 및 기능 하이라이트에 사용되는, 은은한 테두리와 넉넉한 padding을 가진 화이트 카드.",
+        "chip": "Redis, Vector 등 서로 다른 플랫폼 제품 간 전환을 위한 탭형 카드의 가로 스크롤 행.",
+        "input": "은은한 그레이 테두리와 둥근 모서리를 가진 표준 텍스트 입력.",
+        "hero": "메인 헤드라인의 선명한 그라디언트가 있는 대규모 중앙 정렬 타이포그래피, 뒤이어 간결한 가치 제안 및 주요 CTA."
+      },
+      "motion": {
+        "patterns": [
+          "인터랙티브 요소를 위한 색상 및 background-color 전환",
+          "UI 상태 변경을 위한 부드러운 opacity 및 transform 전환"
+        ]
+      },
+      "interaction": {
+        "hover": "인터랙티브 요소에 대한 은은한 색상 변화 또는 배경 채우기",
+        "click": "전환 또는 약간의 transform을 통한 즉각적인 시각적 피드백",
+        "transition": "색상, 배경 및 opacity를 위한 표준화된 150ms ease-out 전환",
+        "keyboard": "인터랙티브 요소의 접근성을 위한 표준 focus 링"
+      },
+      "voice": {
+        "tone": "직설적이고 개발자 중심적이며 성능 지향적",
+        "headlineStyle": "대담하고 간결하며 가치를 전달하는 문장",
+        "ctaStyle": "행동 지향적이고 명확한 (예: 'Start for Free', 'Create Database')",
+        "avoid": [
+          "마케팅 용어",
+          "모호한 약속",
+          "지나치게 복잡한 문장",
+          "수동태"
+        ]
+      },
+      "donts": [
+        "장식용 세리프 폰트를 사용하지 마세요 - 스크린샷은 깨끗한 geometric 및 humanist sans-serif 타입faces를 보여줍니다.",
+        "어두운 테마를 주 인터페이스로 사용하지 마세요 - 스크린샷은 흰색 배경을 가진 가볍고 개방적인 레이아웃을 보여줍니다.",
+        "네온 또는 지나치게 채도 높은 네온 파스텔을 사용하지 마세요 - 스크린샷은 주요 악센트로 안정적인 에메랄드 그린(#047857)을 사용합니다.",
+        "주요 구성 요소에 날카롭고 각진 모서리를 사용하지 마세요 - 스크린샷은 넉넉하게 둥근 모서리(12px, 알약 모양)를 보여줍니다.",
+        "지나치게 많은 경쟁 색상으로 인터페이스를 어지럽히지 마세요 - 스크린샷은 그린, 화이트, 그레이의 타이트한 팔레트를 유지합니다.",
+        "장식적이고 복잡한 일러스트레이션을 사용하지 마세요 - 스크린샷은 간단한 추상적 기하학적 그래픽과 아이콘을 사용합니다.",
+        "작고 비좁은 타이포그래피를 사용하지 마세요 - 스크린샷은 넉넉한 line-height를 가진 매우 크고 대담한 히어로 폰트를 사용합니다."
+      ],
+      "systemPrompt": "Upstash, serverless 데이터 플랫폼을 위한 디자인 DNA. UI는 명확성과 성능에 중점을 둔 깨끗하고 라이트 테마의 개발자 도구입니다. 주요 색상은 배경을 위한 화이트(#ffffff), 텍스트를 위한 다크 그린(#022c22), 주요 악센트 및 CTA를 위한 선명한 에메랄드(#047857)입니다. 타이포그래피는 대담한 히어로 헤드라인을 위한 geometric-sans, 읽기 쉬운 본문 텍스트를 위한 humanist-sans, 코드를 위한 monospace를 사용합니다. 핵심 디자인 규칙: 1) 넉넉한 여백을 가진 개방적이고 고대비의 라이트 테마를 유지. 2) 인터페이스를 압도하지 않으면서 주의를 끌기 위해 주요 동작 및 하이라이트에만 선명한 그린을 사용. 3) 모든 인터랙티브 요소가 명확한 둥근 모서리와 부드러운 150ms 전환을 갖추어 세련되고 현대적인 느낌을 보장."
+    }
+  },
+  "desc": {
+    "en": {
+      "palette": "The palette is a high-contrast light theme using clean whites, subtle grays, and a dominant vibrant green accent to signal modern performance.",
+      "layout": "The layout is a centered, single-column responsive design that flows from a large-scale hero into a structured grid of product features.",
+      "interaction": "Interaction relies on subtle color transitions and hover states, maintaining a fast and professional feel typical of developer infrastructure.",
+      "motion": "Motion is minimal and functional, utilizing consistent 150ms ease-out transitions for a smooth, polished, and predictable user experience.",
+      "notes": "Worth including as a prime example of modern B2B SaaS design that balances a professional, trustworthy feel with bold, performance-oriented typography."
+    },
+    "zh-CN": {
+      "palette": "调色板采用高对比度的亮色主题，使用纯净的白色、微妙的灰色和主导的鲜明绿色作为强调色，以体现现代性能。",
+      "layout": "布局为居中的单列响应式设计，从大尺寸的英雄区域流畅过渡到结构化的产品功能网格。",
+      "interaction": "交互依赖于细微的颜色过渡和悬停状态，保持开发者基础设施典型的快速与专业感。",
+      "motion": "动效简约且功能化，采用统一的 150ms ease-out 过渡，营造流畅、精致且可预测的用户体验。",
+      "notes": "作为现代 B2B SaaS 设计的典范，它平衡了专业、可信赖的感觉与大胆、面向性能的排版，值得作为首要案例参考。"
+    },
+    "zh-TW": {
+      "palette": "調色板採用高對比度的淺色主題，結合純淨白色、細微灰色與鮮明的綠色強調色，展現現代效能感。",
+      "layout": "版面採用置中單欄響應式設計，從大尺度的首頁主視覺流暢銜接至結構化的產品功能網格。",
+      "interaction": "互動依賴細膩的色彩轉場與懸停狀態，維持開發者基礎設施典型的快速專業體驗。",
+      "motion": "動態效果簡約而實用，採用統一的 150 毫秒 ease-out 轉場，實現流暢、精緻且可預測的使用者體驗。",
+      "notes": "作為現代 B2B SaaS 設計的優秀範例，成功平衡專業可信的質感與大膽強調效能的排版風格。"
+    },
+    "ja": {
+      "palette": "パレットは、クリーンなホワイト、微細なグレー、そして現代的な性能を示す鮮やかなグリーンアクセントを組み合わせた、ハイコントラストのライトテーマです。",
+      "layout": "レイアウトは、大規模なヒーローセクションから構造化された製品機能のグリッドへと流れる、センタリングされた単一カラムのレスポンシブデザインです。",
+      "interaction": "インタラクションは、微細なカラートランジションとホバーステートに依存し、開発者基盤に特有の速く、プロフェッショナルな感覚を維持しています。",
+      "motion": "モーションは最小限で機能的です。滑らかで洗練された、予測可能なユーザーエクスペリエンスのために、一貫した150msのease-outトランジションを使用します。",
+      "notes": "プロフェッショナルで信頼性の高い感覚と、大胆で性能重視のタイポグラフィのバランスを取る現代的なB2B SaaSデザインの模範として、ぜひ参照すべきものです。"
+    },
+    "ko": {
+      "palette": "팔레트는 깨끗한 화이트, 은은한 그레이, 그리고 현대적인 성능을 상징하는 선명한 그린 악센트를 사용하는 고대비 라이트 테마입니다.",
+      "layout": "레이아웃은 대규모 히어로부터 구조화된 제품 기능 그리드로 자연스럽게 이어지는, 중앙 정렬 단일 컬럼 반응형 디자인입니다.",
+      "interaction": "인터랙션은 개발자 인프라 특유의 빠르고 전문적인 느낌을 유지하기 위해 은은한 색상 전환과 hover 상태에 의존합니다.",
+      "motion": "모션은 최소한이며 기능적입니다. 부드럽고 세련되며 예측 가능한 사용자 경험을 위해 일관된 150ms ease-out 전환을 활용합니다.",
+      "notes": "전문적이고 신뢰감 있는 느낌과 대담하고 성능 지향적인 타이포그래피의 균형을 갖춘 현대적인 B2B SaaS 디자인의 대표적인 예로 포함할 가치가 있습니다."
+    }
+  },
+  "_meta": {
+    "vision_model": "mimo-v2.5",
+    "vision_prompt_version": "0.3",
+    "vision_source": "playwright-extract:upstash",
+    "vision_grounded": true,
+    "vision_at": "2026-06-04T19:42:45+00:00",
+    "vision_tokens": 17228,
+    "vision_cost_usd": 0.1914,
+    "translation_model": "mimo-v2.5",
+    "translation_at": "2026-06-04T19:44:06+00:00",
+    "translation_tokens": 17867,
+    "translation_cost_usd": 0.0596,
+    "narrative_model": "mimo-v2.5",
+    "narrative_prompt_version": "0.3",
+    "narrative_at": "2026-06-04T19:44:13+00:00",
+    "narrative_tokens": 2157,
+    "narrative_cost_usd": 0.0144,
+    "narrative_status": "ok",
+    "total_cost_usd": 0.2654
+  },
+  "narrative": {
+    "en": {
+      "ch1_intro": "The design system for Upstash is built around the analogy of a high-performance data utility: clean, reliable, and immediately accessible. Every element serves a functional purpose, reflecting the platform's serverless architecture where complexity is abstracted into simplicity.",
+      "ch2_intro": "The color system is a study in restraint, using a foundational palette of white and gray to establish clarity. A single vibrant green accent is reserved exclusively for primary actions and key performance indicators, creating a clear visual hierarchy of importance.",
+      "ch2_outro": "This disciplined application of color ensures the interface remains focused and performance-oriented, never decorative.",
+      "ch3_intro": "The typographic voice combines a bold, geometric sans-serif for authoritative headlines with a more humanist sans-serif for approachable body copy. This duality mirrors the product's balance between robust infrastructure and developer-friendly accessibility.",
+      "ch4_intro": "Spacing is governed by a strict 4px base unit, creating a consistent vertical rhythm throughout the interface.",
+      "ch5_intro": "Surfaces are defined by lightness and subtle elevation, using thin borders and soft shadows to delineate content cards from the background. This creates a clean, layered depth without adding visual weight.",
+      "ch6_intro": "The layout follows a centered, single-column skeleton that establishes immediate focus in the hero section. This linear flow then expands into a multi-column grid to present platform features in a structured, scannable format.",
+      "ch7_intro": "Motion in this system is strictly functional, applied only to communicate interactive feedback and state changes. All transitions follow a standardized 150ms ease-out curve, ensuring consistency and reinforcing the platform's emphasis on speed and reliability.",
+      "ch8_intro": "The editorial voice is direct and technical, mirroring the clarity of well-written documentation. It uses concise, value-driven statements and active CTAs, deliberately avoiding marketing abstraction.",
+      "ch8_outro": "The system explicitly rejects decorative elements, complex illustrations, and dark themes, committing instead to a focused, high-contrast light interface."
+    },
+    "zh-CN": {
+      "ch1_intro": "Upstash 的设计系统围绕高性能数据工具的类比构建：简洁、可靠、即时可用。每个元素都服务于明确的功能目的，体现了平台无服务器架构的本质——将复杂性抽象为简洁。",
+      "ch2_intro": "色彩系统以克制为核心，采用白色与灰色的基础色调建立清晰感。单一的鲜亮绿色仅用于核心操作与关键性能指标，形成清晰的视觉优先级层次。",
+      "ch2_outro": "这种严谨的色彩应用确保界面始终聚焦于性能表现，而非装饰性。",
+      "ch3_intro": "排版设计融合了用于权威标题的粗体几何无衬线字体，与用于正文内容的亲和力人文无衬线字体。这种双重性呼应了产品在稳健基础设施与开发者友好体验之间的平衡。",
+      "ch4_intro": "间距遵循严格的 4px 基础单位，在界面中建立统一的垂直韵律。",
+      "ch5_intro": "界面层次通过轻盈感与细微的立体效果定义，运用纤细边框与柔和阴影区分内容卡片与背景。在不增加视觉重量的前提下，形成清晰的分层深度。",
+      "ch6_intro": "布局采用居中单栏骨架结构，在首屏区域建立即时视觉焦点。线性流向随后扩展为多栏网格，以结构化、可扫描的格式呈现平台功能。",
+      "ch7_intro": "系统中的动效严格遵循功能导向，仅用于传递交互反馈与状态变化。所有过渡动画采用标准化 150ms 缓出曲线，确保一致性并强化平台对速度与可靠性的强调。",
+      "ch8_intro": "文案风格直接且技术化，呼应优质文档的清晰特质。采用简洁的价值导向表述与主动式行动号召，刻意避免营销化抽象表达。",
+      "ch8_outro": "系统明确摒弃装饰性元素、复杂插图与深色主题，致力于打造专注、高对比度的浅色界面。"
+    },
+    "zh-TW": {
+      "ch1_intro": "Upstash 的設計系統建立在高效能數據基礎設施的類比上：簡潔、可靠、即時可用。每個元素都具備功能性目的，反映了平台將複雜性抽象為簡潔性的無伺服器架構。",
+      "ch2_intro": "色彩系統展現了極致的克制，以白色與灰色的基本調性建立清晰度。鮮亮的綠色僅保留用於首要操作與關鍵績效指標，形成明確的視覺層級與重要性區分。",
+      "ch2_outro": "這種嚴謹的色彩應用確保介面保持專注與效能導向，從不流於裝飾。",
+      "ch3_intro": "字體語音結合了權威感標題使用的粗體幾何無襯線字型，與親和內文使用的較為人文主義的無襯線字型。此二元性反映了產品在強健基礎架構與開發者友善親和力之間的平衡。",
+      "ch4_intro": "間距以嚴格的 4px 基礎單位為準則，創造出介面中一致的垂直節奏。",
+      "ch5_intro": "表面由輕盈感與細微的層次定義，使用細邊框與柔和陰影區分內容卡片與背景。這創造了清晰的層次深度，而不增加視覺重量。",
+      "ch6_intro": "佈局採用居中的單欄骨架結構，在主視覺區域建立立即聚焦。此線性流隨後擴展為多欄網格，以結構化、易掃視的方式呈現平台功能。",
+      "ch7_intro": "系統中的動態效果嚴格功能化，僅用於傳達互動回饋與狀態變更。所有過渡效果遵循標準化的 150ms ease-out 曲線，確保一致性並強化平台對速度與可靠性的強調。",
+      "ch8_intro": "編輯語音直接且技術性，反映良好撰寫文件的清晰度。它使用簡潔、價值驅動的陳述與主動式行動呼籲，刻意避免行銷式的抽象描述。",
+      "ch8_outro": "系統明確拒絕裝飾性元素、複雜插圖與深色主題，轉而致力於專注、高對比的明亮介面。"
+    },
+    "ja": {
+      "ch1_intro": "Upstashのデザインシステムは、高性能データユーティリティのアナロジーを中心に構築されています。クリーンで、信頼性が高く、すぐにアクセス可能です。あらゆる要素は機能的な目的を果たし、複雑さがシンプルさに抽象化されるサーバーレスアーキテクチャを反映しています。",
+      "ch2_intro": "カラーシステムは抑制の study であり、白とグレーの基礎パレットを使用して明瞭さを確立しています。鮮やかなグリーンのアクセントは、プライマリアクションと主要なパフォーマンス指標にのみ予約されており、重要性の明確なビジュアル階層を生み出しています。",
+      "ch2_outro": "この律儀な色の適用により、インターフェースは常にフォーカスとパフォーマンス志向を保ち、決して装飾的ではありません。",
+      "ch3_intro": "タイポグラフィの声は、権威ある見出しに大胆で幾何学的なサンセリフを、親しみやすい本文にはよりヒューマニストなサンセリフを組み合わせています。この二重性は、堅牢なインフラストラクチャと開発者フレンドリーなアクセシビリティのバランスを反映しています。",
+      "ch4_intro": "間隔は厳格な4pxの基本単位で管理され、インターフェース全体に一貫した垂直リズムを作り出しています。",
+      "ch5_intro": "サーフェスは明るさと微かな浮遊感で定義され、細いボーダーと柔らかいシャドウを使用してコンテンツカードを背景から区別しています。これにより、視覚的な重みを加えることなく、クリーンでレイヤードされた奥行きが生まれています。",
+      "ch6_intro": "レイアウトは、ヒーローセクションに即座の焦点を確立する中心化されたシングルカラムの骨格に従います。このリニアなフローは、プラットフォームの機能を構造化され、スキャンしやすい形式で提示するために、マルチカラムグリッドに展開されます。",
+      "ch7_intro": "このシステムにおける動きは厳密に機能的であり、インタラクティブなフィードバックと状態変化を伝えるためにのみ適用されます。すべてのトランジションは標準化された150ms ease-outカーブに従い、一貫性を確保し、スピードと信頼性を重視するプラットフォームの重点を強化します。",
+      "ch8_intro": "エディトリアルな声は直接的で技術的であり、よく書かれたドキュメントの明瞭さを反映しています。簡潔で価値を示す文とアクティブなCTAを使用し、マーケティング的な抽象化を意図的に避けています。",
+      "ch8_outro": "システムは装飾的な要素、複雑なイラスト、ダークテーマを明確に拒否し、代わりにフォーカスされた、高コントラストの明るいインターフェースに専念しています。"
+    },
+    "ko": {
+      "ch1_intro": "Upstash의 디자인 시스템은 고성능 데이터 유틸리티의 비유를 중심으로 구축되었습니다: 깨끗하고, 신뢰할 수 있으며, 즉시 접근 가능합니다. 모든 요소는 기능적인 목적을 가지며, 복잡성을 단순함으로 추상화하는 플랫폼의 서버리스 아키텍처를 반영합니다.",
+      "ch2_intro": "색상 시스템은 절제에 대한 연구이며, 흰색과 회색의 기본 팔레트를 사용하여 명확성을 확립합니다. 단 하나의 밝은 녹색 강조색은 주요 작업 및 핵심 성과 지표에만 독점적으로 사용되어, 중요성의 명확한 시각적 계층을 만듭니다.",
+      "ch2_outro": "이 색상의 규율 있는 적용은 인터페이스가 기능적이고 성능 중심으로 유지되도록 보장하며, 결코 장식적이지 않습니다.",
+      "ch3_intro": "타이포그래피 음성은 권위 있는 헤드라인을 위해 굵고 기하학적인 sans-serif와, 접근 가능한 본문을 위해 좀 더 인간적인 sans-serif를 결합합니다. 이 이중성은 강력한 인프라와 개발자 친화적인 접근성 사이의 제품의 균형을 반영합니다.",
+      "ch4_intro": "간격은 엄격한 4px 기본 단위로 관리되어, 인터페이스 전체에 일관된 수직 리듬을 만듭니다.",
+      "ch5_intro": "표면은 가벼움과 미세한 부각으로 정의되며, 얇은 테두리와 부드러운 그림자를 사용하여 배경에서 콘텐츠 카드를 구분합니다. 이는 시각적 무게를 추가하지 않고 깊이감을 층을 지어 만듭니다.",
+      "ch6_intro": "레이아웃은 히어로 섹션에서 즉각적인 초점을 설정하는 중앙 정렬된 단일 컬럼 골격을 따릅니다. 이 선형 흐름은 플랫폼 기능을 구조화된, 스캔 가능한 형식으로 제시하기 위해 다중 컬럼 격자로 확장됩니다.",
+      "ch7_intro": "이 시스템의 모션은 엄격하게 기능적이며, 상호작용 피드백과 상태 변경을 전달하기 위해서만 적용됩니다. 모든 전환은 150ms ease-out 곡선을 표준으로 따르며, 일관성을 보장하고 플랫폼의 속도와 신뢰성에 대한 강조를 강화합니다.",
+      "ch8_intro": "에디토리얼 음성은 직접적이고 기술적이며, 잘 작성된 문서의 명확성을 반영합니다. 간결하고 가치 중심적인 진술과 능동적인 CTA를 사용하며, 마케팅적인 추상화는 의도적으로 피합니다.",
+      "ch8_outro": "이 시스템은 장식적인 요소, 복잡한 일러스트레이션, 다크 테마를 명백히 거부하고, 대신에 초점이 맞춰진, 고대비의 밝은 인터페이스에 전념합니다."
+    }
+  }
 }

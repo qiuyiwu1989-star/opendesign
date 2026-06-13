@@ -1,6 +1,6 @@
 const STORAGE_KEY = "style-atlas-drafts";
 const OWNER_MODE = new URLSearchParams(location.search).has("owner");
-const curatedSites = Array.isArray(window.STYLE_ATLAS_SITES) ? window.STYLE_ATLAS_SITES : [];
+const curatedSites = []; // 由 initSitesData() 异步填充（从 sites-index.json 14 KB 而非 sites.js 3.4 MB）
 
 /* ========== 双发事件追踪：一次调用同时上报 GA4 + 百度统计 ========== */
 window.track = function (eventName, params = {}) {
@@ -73,10 +73,11 @@ let packsIndex = {};       // overlay：site_id → { file, size, agentUrl, ... 
 let currentView = "canvas";
 const HOME_VIEW = { x: -110, y: -70, scale: 1 };  // 画布默认原点
 let viewState = { ...HOME_VIEW };
-// 无限画布虚拟化：只渲染视口内（+ 余量）的节点，不一次性铺全部 DOM / 图片
-let canvasNodes = [];                 // [{ site, x, y }] 全量定位（不进 DOM）
+// 无限画布虚拟化：网格在 2D 平面无限平铺，只渲染视口内（+ 余量）的格子
+let canvasAll = [];                   // 当前过滤后的全量站点（用于按格子取站）
+let canvasCols = 1;                   // 基础块宽（ceil√N）—— 平铺周期
 let canvasLayout = { nodeW: 540, nodeH: 420 };
-const renderedNodes = new Map();      // site.id → 当前在 DOM 里的 .site-node
+const renderedNodes = new Map();      // "gx:gy" → 当前在 DOM 里的 .site-node（按格子键，非站 id）
 let windowRaf = 0;                    // rAF 节流句柄
 let dragging = false;
 let dragStart = { x: 0, y: 0 };
@@ -121,6 +122,52 @@ function saveSites() {
   const curatedIds = new Set(curatedSites.map((site) => site.id));
   const drafts = sites.filter((site) => !curatedIds.has(site.id));
   localStorage.setItem(STORAGE_KEY, JSON.stringify(drafts));
+}
+
+/* ========== 异步数据加载：sites-index.json（14 KB）替代阻塞性 sites.js（3.4 MB） ========== */
+
+/**
+ * 从 sites-index.json 异步拉取精简站点列表，填充 curatedSites。
+ * 若 sites.js 已预先加载（OWNER_MODE 手动注入场景），直接复用。
+ */
+async function initSitesData() {
+  // 兜底：若 sites.js 已被手动注入（OWNER_MODE 调试），直接用
+  if (Array.isArray(window.STYLE_ATLAS_SITES) && window.STYLE_ATLAS_SITES.length) {
+    curatedSites.push(...window.STYLE_ATLAS_SITES);
+    return;
+  }
+  try {
+    const res = await fetch("/sites-index.json", { cache: "default" });
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    const data = await res.json();
+    const items = Array.isArray(data.sites) ? data.sites : Array.isArray(data) ? data : [];
+    // 只收录已完成的站点（过滤 pending/failed）
+    const published = items.filter((s) => !s.status || s.status === "completed");
+    curatedSites.push(...published);
+  } catch (err) {
+    console.warn("[init] sites-index.json 加载失败，回退空列表:", err);
+  }
+}
+
+/* ========== 骨架屏：数据到达前的占位动画 ========== */
+
+/**
+ * 在 libraryList 里插入 count 张骨架卡片，给用户即时的视觉反馈。
+ * 数据加载完成后由 renderLibrary() 替换。
+ */
+function renderLibrarySkeleton(count = 12) {
+  const el = document.querySelector("#libraryList");
+  if (!el) return;
+  el.innerHTML = Array.from({ length: count }, () => `
+    <article class="library-card library-card--skeleton" aria-hidden="true">
+      <div class="library-thumb skeleton-thumb"></div>
+      <div class="library-meta">
+        <div class="skeleton-line" style="width:62%"></div>
+        <div class="skeleton-line" style="width:38%;margin-top:6px"></div>
+        <div class="skeleton-line" style="width:52%;margin-top:6px"></div>
+      </div>
+    </article>
+  `).join("");
 }
 
 function siteAsJsonSnippet(site) {
@@ -499,8 +546,12 @@ function imageFallbackChain(site) {
   const target = site.url;
   const enc = encodeURIComponent(target);
   const chain = [];
-  // 1) 原始 image（多半是 thum.io 1440）
+  // 1) 原始 image（优化版 /thumbs/<slug>.webp，最快）
   if (site.image) chain.push(site.image);
+  // 1.5) 素材包真截图（Playwright 实拍，COS 缩放到 640px ~20KB）—— 缩略图缺失/404 时优先回退到它，
+  //      而不是落到 thum.io（深色站常返回黑图、且"加载成功"不触发 onerror）
+  const packShot = packHeroShot(site.id, 640);
+  if (packShot) chain.push(packShot);
   // 2) thum.io 带 noanimate + 更小宽度（更快返回真图）
   chain.push(`https://image.thum.io/get/width/1200/noanimate/${target}`);
   // 3) wsrv.nl 代理（缓存 + 重新取）
@@ -512,16 +563,42 @@ function imageFallbackChain(site) {
 }
 
 /** 生成 <img> 标签的 src + onerror fallback 属性串 */
-function imgAttrs(site, { lazy = true } = {}) {
-  const chain = imageFallbackChain(site);
-  const chainAttr = encodeURIComponent(JSON.stringify(chain));
+function imgAttrs(site, { lazy = true, chain = null } = {}) {
+  const ch = chain || imageFallbackChain(site);
+  const chainAttr = encodeURIComponent(JSON.stringify(ch));
   const loading = lazy ? ' loading="lazy"' : "";
-  return `src="${chain[0]}" data-fallback="${chainAttr}" data-fallback-idx="0" onerror="window.__imgFallback&&window.__imgFallback(this)"${loading}`;
+  return `src="${ch[0]}" data-fallback="${chainAttr}" data-fallback-idx="0" onerror="window.__imgFallback&&window.__imgFallback(this)"${loading}`;
+}
+
+/**
+ * 取这个站素材包里的「真截图」当主图源 —— Playwright 实拍，比 thum.io 可靠得多
+ * （thum.io 对深色/重 JS 的站常返回黑图）。优先桌面首屏，依次降级。
+ */
+function packHeroShot(siteId, width) {
+  const pack = (typeof packsIndex !== "undefined") && packsIndex[siteId];
+  if (!pack || !pack.files) return null;
+  const find = (re) => pack.files.find((f) => f.category === "shot" && re.test(f.name));
+  const f = find(/^02_desktop_hero/) || find(/^01_desktop_full/)
+         || find(/^03_desktop_section/) || find(/^05_mobile_hero/);
+  if (!f) return null;
+  let url = f.url || `/packs/${siteId}/${f.name}`;
+  // 卡片缩略图：用腾讯 COS 图片处理实时缩放（258KB → ~20KB），省带宽。主图(hero)不传 width 用原图。
+  if (width && url.includes("myqcloud.com")) url += `?imageMogr2/thumbnail/${width}x`;
+  return url;
 }
 
 // 全局 onerror handler：沿 fallback 链前进
 window.__imgFallback = function (img) {
   try {
+    // 缩略图 404/加载失败时，优先注入素材包真截图（COS 640px 缩放）——
+    // 覆盖「卡片在 packsIndex 加载前渲染、初始链未含 packShot」的情况，普遍自愈。
+    if (!img.dataset.packTried) {
+      img.dataset.packTried = "1";
+      const card = img.closest("[data-id]");
+      const sid = card && card.dataset.id;
+      const ps = sid && packHeroShot(sid, 640);
+      if (ps && img.src.indexOf(ps) === -1) { img.src = ps; return; }
+    }
     const chain = JSON.parse(decodeURIComponent(img.dataset.fallback || "[]"));
     let idx = parseInt(img.dataset.fallbackIdx || "0", 10) + 1;
     if (idx < chain.length) {
@@ -1067,58 +1144,87 @@ function siteNodeHTML(site, x, y) {
 
 /** 计算全量节点定位（不进 DOM）。filter / resize 时调用。 */
 function layoutCanvas() {
-  const visibleSites = filteredSites();
+  canvasAll = filteredSites();
   const isMobile = window.innerWidth <= 760;
-  const columns = Math.ceil(Math.sqrt(Math.max(visibleSites.length, 1)));
-  const spacingX = isMobile ? 332 : 540;
-  const spacingY = isMobile ? 286 : 420;
-  const offsetX = -Math.floor(columns / 2) * spacingX;
-  const offsetY = -Math.ceil(visibleSites.length / columns / 2) * spacingY;
-  canvasLayout = { nodeW: spacingX, nodeH: spacingY };
-  canvasNodes = visibleSites.map((site, index) => ({
-    site,
-    x: offsetX + (index % columns) * spacingX,
-    y: offsetY + Math.floor(index / columns) * spacingY,
-  }));
+  canvasLayout = { nodeW: isMobile ? 332 : 540, nodeH: isMobile ? 286 : 420 };
+  canvasCols = Math.max(1, Math.ceil(Math.sqrt(Math.max(canvasAll.length, 1))));
 }
 
 /**
- * 虚拟化窗口：只把视口内（+ 余量）的节点渲染进 DOM；离开视口的回收。
- * 这样 1000 个站点也只挂几十个 DOM / 加载几十张图，而不是一次性全部。
+ * 无限平铺：把 2D 平面切成无限网格，格子 (gx,gy) → 站点下标。
+ * 一个 cols×rows 的「基础块」铺满全部站点，再向四面八方无限重复；
+ * 每个块按坐标哈希做一次旋转，让相邻块的接缝不出现整齐的重复行/列。
+ * 用户往任何方向拖，都会有新卡片涌入 —— 像 2D 瀑布流，没有边界。
+ */
+function cellSiteIndex(gx, gy) {
+  const N = canvasAll.length;
+  if (N === 0) return -1;
+  const cols = canvasCols;
+  const rows = Math.max(1, Math.ceil(N / cols));
+  // 块内局部坐标（取正模）
+  let lx = gx % cols; if (lx < 0) lx += cols;
+  let ly = gy % rows; if (ly < 0) ly += rows;
+  const base = ly * cols + lx;                 // 0 .. cols*rows-1
+  // 块坐标 → 旋转量（错开接缝）
+  const blockX = Math.floor(gx / cols);
+  const blockY = Math.floor(gy / rows);
+  const rot = ((blockX * 73856093) ^ (blockY * 19349663)) >>> 0;
+  return (base + rot) % N;
+}
+
+/**
+ * 虚拟化窗口：算出当前视口覆盖的格子范围，只渲染这些格子；离开视口的回收。
+ * 无论平面多大，DOM 里始终只有视口附近的几十张卡片。
  */
 function updateCanvasWindow() {
   windowRaf = 0;
+  if (!canvasAll.length) {            // 搜索无结果：清空画布
+    for (const [, el] of renderedNodes) el.remove();
+    renderedNodes.clear();
+    return;
+  }
   const surfaceW = canvasSurface.clientWidth || window.innerWidth;
   const surfaceH = canvasSurface.clientHeight || window.innerHeight;
   const s = viewState.scale;
-  const originX = surfaceW / 2 + viewState.x;   // 网格 (0,0) 在 surface 内的屏幕坐标
+  const originX = surfaceW / 2 + viewState.x;   // 平面 (0,0) 在 surface 内的屏幕坐标
   const originY = surfaceH / 2 + viewState.y;
-  const margin = Math.max(canvasLayout.nodeW, canvasLayout.nodeH) * 1.2; // 预渲染余量（屏幕 px）
-  const nodeW = canvasLayout.nodeW * s;
-  const nodeH = canvasLayout.nodeH * s;
+  const cw = canvasLayout.nodeW;                // 格距（世界单位）
+  const ch = canvasLayout.nodeH;
+  const margin = Math.max(cw, ch) * 1.2 * s;    // 预渲染余量（屏幕 px）
+
+  // 屏幕可见区 → 世界坐标 → 格子范围
+  const worldLeft   = (-margin - originX) / s;
+  const worldRight  = (surfaceW + margin - originX) / s;
+  const worldTop    = (-margin - originY) / s;
+  const worldBottom = (surfaceH + margin - originY) / s;
+  const gx0 = Math.floor(worldLeft  / cw);
+  const gx1 = Math.ceil (worldRight / cw);
+  const gy0 = Math.floor(worldTop    / ch);
+  const gy1 = Math.ceil (worldBottom / ch);
 
   const wanted = new Set();
-  for (const n of canvasNodes) {
-    const sx = originX + n.x * s;
-    const sy = originY + n.y * s;
-    const visible =
-      sx < surfaceW + margin && sx + nodeW > -margin &&
-      sy < surfaceH + margin && sy + nodeH > -margin;
-    if (!visible) continue;
-    wanted.add(n.site.id);
-    if (!renderedNodes.has(n.site.id)) {
-      const tpl = document.createElement("template");
-      tpl.innerHTML = siteNodeHTML(n.site, n.x, n.y).trim();
-      const el = tpl.content.firstElementChild;
-      canvasGrid.appendChild(el);
-      renderedNodes.set(n.site.id, el);
+  let budget = 240;                  // 安全上限：极端缩放下也不会爆 DOM
+  for (let gy = gy0; gy <= gy1 && budget > 0; gy++) {
+    for (let gx = gx0; gx <= gx1 && budget > 0; gx++) {
+      budget--;
+      const key = gx + ":" + gy;
+      wanted.add(key);
+      if (!renderedNodes.has(key)) {
+        const idx = cellSiteIndex(gx, gy);
+        if (idx < 0) continue;
+        const tpl = document.createElement("template");
+        tpl.innerHTML = siteNodeHTML(canvasAll[idx], gx * cw, gy * ch).trim();
+        const el = tpl.content.firstElementChild;
+        canvasGrid.appendChild(el);
+        renderedNodes.set(key, el);
+      }
     }
   }
-  // 回收离开视口的节点
-  for (const [id, el] of renderedNodes) {
-    if (!wanted.has(id)) {
+  // 回收离开视口的格子
+  for (const [key, el] of renderedNodes) {
+    if (!wanted.has(key)) {
       el.remove();
-      renderedNodes.delete(id);
+      renderedNodes.delete(key);
     }
   }
 }
@@ -1137,14 +1243,105 @@ function renderCanvas() {
   applyTransform();
 }
 
+/* ═══════════════════════════════════════════════════════════════════
+   无限画布（Infinite Canvas）— 类 godly.website 无尽探索体验
+   ─────────────────────────────────────────────────────────────────
+   原理：
+     第一遍按策展顺序展示全部；耗尽后随机洗牌重新追加，循环 MAX_LOOPS 次。
+     没有"终点"：用户向下滚动永远有新卡片出现。
+   ═══════════════════════════════════════════════════════════════════ */
+const LIB_PAGE_SIZE = 48;    // 每批 48 张，首屏 ~1.5 屏，预加载几乎无感
+const MAX_LIB_LOOPS = 20;    // 最多循环 20 遍（~10 000 张卡片）防止 DOM 无限膨胀
+
+let _libAllSites  = [];      // 当前过滤结果全集
+let _libQueue     = [];      // 本轮待渲染队列
+let _libLoopCount = 0;       // 已循环次数（0 = 首遍）
+let _libShownIdx  = 0;       // 全局已渲染计数（用于卡片编号）
+let _libObserver  = null;
+let _specsLoadP   = null;
+
+/** Fisher-Yates 洗牌 */
+function _shuffle(arr) {
+  const a = arr.slice();
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+
+/**
+ * 追加下一批卡片。
+ * 当 _libQueue 耗尽时洗牌重填并插入「循环分隔线」，实现真正的无限画布。
+ */
+function _libAppendCards(count) {
+  if (!_libAllSites.length) return;
+
+  // 队列耗尽 → 洗牌重填（无限循环）
+  if (!_libQueue.length) {
+    if (_libLoopCount >= MAX_LIB_LOOPS) return;   // 达上限，停止追加
+    _libLoopCount++;
+    _libQueue = _shuffle(_libAllSites);
+
+    // 插入视觉分隔线（非第一遍才显示）
+    const div = document.createElement("div");
+    div.className = "lib-loop-divider";
+    div.setAttribute("aria-hidden", "true");
+    div.innerHTML = `<span>── 继续探索 ──</span>`;
+    libraryList.appendChild(div);
+  }
+
+  const slice = _libQueue.splice(0, count);
+  const frag  = document.createDocumentFragment();
+  slice.forEach((site) => {
+    const el = document.createElement("div");
+    el.innerHTML = libraryCardHTML(site, _libShownIdx++);
+    frag.appendChild(el.firstElementChild);
+  });
+
+  // 挂 sentinel —— 只要还能加载就继续（_libQueue 会在下次进入时重填）
+  const canLoadMore = _libQueue.length > 0 || _libLoopCount < MAX_LIB_LOOPS;
+  if (canLoadMore) {
+    const sentinel = document.createElement("div");
+    sentinel.className = "lib-sentinel";
+    sentinel.setAttribute("aria-hidden", "true");
+    frag.appendChild(sentinel);
+    libraryList.appendChild(frag);
+
+    if (_libObserver) _libObserver.disconnect();
+    _libObserver = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting) {
+          _libObserver.disconnect();
+          _libObserver = null;
+          sentinel.remove();
+          _libAppendCards(LIB_PAGE_SIZE);
+        }
+      },
+      { rootMargin: "600px" }   // 提前 600 px 预加载，保证丝滑
+    );
+    _libObserver.observe(sentinel);
+  } else {
+    libraryList.appendChild(frag);
+  }
+}
+
 function renderLibrary() {
+  if (_libObserver) { _libObserver.disconnect(); _libObserver = null; }
+
   const visibleSites = filteredSites();
+  _libAllSites  = visibleSites;
+  _libQueue     = [...visibleSites];   // 首遍：策展原序
+  _libLoopCount = 0;
+  _libShownIdx  = 0;
+
   if (!visibleSites.length) {
-    // 搜索/筛选无结果 —— 别留白让用户懵；给方向 + 指向顶部「＋ 收录」
     libraryList.innerHTML = `<div class="library-empty" style="grid-column:1/-1;text-align:center;color:var(--ink-soft);padding:64px 16px;font-size:15px;line-height:1.6;">${t("search.empty")}</div>`;
     return;
   }
-  libraryList.innerHTML = visibleSites.map((site, index) => libraryCardHTML(site, index)).join("");
+
+  libraryList.innerHTML = "";
+  _libAppendCards(LIB_PAGE_SIZE);
 }
 
 function libraryCardHTML(site, index) {
@@ -1244,12 +1441,29 @@ function applyTransform() {
 function openDetail(siteId) {
   activeSite = sites.find((site) => site.id === siteId) || sites[0];
   track("card_view", { category: "card", slug: activeSite.id, name: activeSite.title });
-  // 用户存过的「刷新版」截图（localStorage）优先，否则用 site.image
+  // Lazy-load specs: 首次开抽屉时触发；加载完后若当前站缺 spec 则补渲染 markdown + 相关推荐
+  if (!_specsLoadP) {
+    const capId = activeSite.id;
+    mergeExternalSpecs().then(() => {
+      if (activeSite && activeSite.id === capId && activeSite.spec) {
+        const mo = document.querySelector("#markdownOutput");
+        if (mo) mo.textContent = createMarkdown(activeSite);
+        renderRelatedSites(activeSite);
+      }
+    }).catch(() => {});
+  }
+  // 主图来源优先级：素材包真截图（Playwright 实拍，最可靠）→ 用户刷新版 → site.image → thum.io 链
+  // 解决「深色/重 JS 的站 thum.io 返回黑图」问题：有素材包的站直接用包内首屏截图当主图。
+  const packShot = packHeroShot(activeSite.id);
   const shotOverride = localStorage.getItem(`shot-override:${activeSite.id}`);
-  const heroImg = shotOverride || activeSite.image;
+  const heroChain = [...new Set([
+    ...(packShot ? [packShot] : []),
+    ...(shotOverride ? [shotOverride] : []),
+    ...imageFallbackChain(activeSite),
+  ])];
   document.querySelector("#drawerMedia").innerHTML = `
-    <a href="${activeSite.url}" target="_blank" rel="noreferrer" aria-label="${t("drawer.visit.aria")}">
-      <img id="drawerHeroImg" ${imgAttrs({ ...activeSite, image: heroImg }, { lazy: false })} alt="${activeSite.title} screenshot" />
+    <a href="${safeHref(activeSite.url)}" target="_blank" rel="noreferrer" aria-label="${t("drawer.visit.aria")}">
+      <img id="drawerHeroImg" ${imgAttrs(activeSite, { lazy: false, chain: heroChain })} alt="${activeSite.title} screenshot" />
       <span class="media-visit-badge">
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8" /></svg>
         ${t("drawer.media.visit")}
@@ -1433,6 +1647,8 @@ function refreshDrawerActions() {
   }
 
   renderPackManifest();
+  if (typeof renderPackGallery === "function") renderPackGallery();
+  renderPackDocs();
 }
 
 /** 渲染详情抽屉里的「设计素材包」区 —— 文件清单 + 下载 ZIP + 复制 Agent URL */
@@ -1538,8 +1754,10 @@ function packFileRowHTML(f, slug) {
              : "📦";
   const sizeText = formatBytes(f.size);
   const displayName = f._displayName || f.name;
-  // 单文件直接链接；group 链接到 folder（让用户去 nginx 目录列表看，或我们以后做画廊预览）
-  const href = f._isGroup ? `/packs/${slug}/` : `/packs/${slug}/${f.name}`;
+  // 单文件直接链接（优先用 COS URL）；group 链接到 folder
+  const href = f._isGroup
+    ? `/packs/${slug}/`
+    : (f.url || `/packs/${slug}/${f.name}`);
   const isImage = /\.png$|\.jpe?g$|\.webp$|\.svg$/i.test(f.name);
   const target = isImage || f._isGroup ? "_blank" : "_self";
   return `
@@ -1551,6 +1769,253 @@ function packFileRowHTML(f, slug) {
     </li>
   `;
 }
+
+/* ══════════════════════════════════════════════════════
+   截图画廊
+   ══════════════════════════════════════════════════════ */
+(function () {
+  let _galleryTab   = "desktop";   // "desktop" | "mobile"
+  let _galleryShots = [];          // all shot files for current site
+  let _lbIdx        = 0;           // current lightbox index within visible shots
+
+  /** 初始化画廊区域 */
+  window.renderPackGallery = function renderPackGallery() {
+    const section = document.querySelector("#packGallery");
+    if (!section || !activeSite) return;
+
+    const pack = packsIndex && packsIndex[activeSite.id];
+    if (!pack || !pack.files) { section.hidden = true; return; }
+
+    const shots = pack.files.filter((f) => f.category === "shot");
+    if (!shots.length) { section.hidden = true; return; }
+
+    _galleryShots = shots;
+    section.hidden = false;
+
+    // 判断是否有可展示的移动端截图（只认 05_mobile_hero，与 strip 过滤一致）；
+    // 没有时隐藏移动 Tab 并强制回到桌面 Tab（防止换站点后停留在空 Tab）
+    const hasMobile = shots.some((f) => /^05_mobile_hero/.test(f.name));
+    const mobileTab = section.querySelector("[data-gt='mobile']");
+    if (mobileTab) mobileTab.style.display = hasMobile ? "" : "none";
+    if (!hasMobile) _galleryTab = "desktop";
+
+    // 同步 Tab 高亮（换站点时状态重置）
+    section.querySelectorAll(".gallery-tab").forEach((b) =>
+      b.classList.toggle("active", b.dataset.gt === _galleryTab));
+
+    // Tab 切换：事件委托只绑一次，读模块态 _galleryShots（避免闭包捕获旧站点的 shots）
+    const tabs = section.querySelector("#galleryTabs");
+    if (tabs && !tabs._bound) {
+      tabs._bound = true;
+      tabs.addEventListener("click", (e) => {
+        const btn = e.target.closest(".gallery-tab");
+        if (!btn) return;
+        _galleryTab = btn.dataset.gt;
+        section.querySelectorAll(".gallery-tab").forEach((b) => b.classList.toggle("active", b === btn));
+        _renderStrip(section, _galleryShots);
+      });
+    }
+
+    _renderStrip(section, shots);
+  };
+
+  function _renderStrip(section, shots) {
+    const strip    = section.querySelector("#galleryStrip");
+    const countEl  = section.querySelector("#galleryCount");
+    if (!strip) return;
+
+    // 排除超长全页图（01_desktop_full / 04_mobile_full）：首屏 hero + 分段 section 已覆盖整页内容，
+    // 全页图裁成 16:9 只会与 hero 重复，且原图过长不宜内联展示（仍保留在下方文件清单可下载）。
+    const isDesktop = _galleryTab === "desktop";
+    const visible   = shots.filter((f) => isDesktop
+      ? /^0[23]_desktop_(hero|section)/.test(f.name)
+      : /^05_mobile_hero/.test(f.name));
+
+    if (countEl) countEl.textContent = visible.length ? `${visible.length} 张` : "";
+
+    strip.innerHTML = visible.map((f, i) => {
+      const label = _shotLabel(f.name);
+      const cls   = _shotClass(f.name);
+      const url   = f.url || `/packs/${activeSite.id}/${f.name}`;
+      return `<div class="gallery-img-wrap ${cls}" data-idx="${i}" role="button" tabindex="0" aria-label="${label}">
+        <img src="${url}" alt="${label}" loading="lazy" decoding="async" />
+        <span class="gallery-img-label">${label}</span>
+      </div>`;
+    }).join("");
+
+    // 绑定点击 → 灯箱
+    strip.querySelectorAll(".gallery-img-wrap").forEach((wrap) => {
+      wrap.addEventListener("click", () => {
+        _openLightbox(visible, parseInt(wrap.dataset.idx, 10));
+      });
+      wrap.addEventListener("keydown", (e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          _openLightbox(visible, parseInt(wrap.dataset.idx, 10));
+        }
+      });
+    });
+  }
+
+  function _shotLabel(name) {
+    if (/^01_desktop_full/.test(name))    return "全页截图";
+    if (/^02_desktop_hero/.test(name))    return "首屏";
+    if (/^03_desktop_section/.test(name)) {
+      const m = name.match(/section_(\d+)/);
+      return m ? `分段 ${parseInt(m[1], 10) + 1}` : "分段";
+    }
+    if (/^04_mobile_full/.test(name))     return "移动全页";
+    if (/^05_mobile_hero/.test(name))     return "移动首屏";
+    return name.replace(/\.\w+$/, "");
+  }
+
+  function _shotClass(name) {
+    if (/^01_desktop_full/.test(name))    return "full-shot";
+    if (/^02_desktop_hero/.test(name))    return "hero-shot";
+    if (/^03_desktop_section/.test(name)) return "section-shot";
+    if (/^04_mobile_full/.test(name))     return "mobile-shot full-shot";
+    if (/^05_mobile_hero/.test(name))     return "mobile-shot hero-shot";
+    return "section-shot";
+  }
+
+  /* ── 灯箱 ──────────────────────────────────────── */
+  function _openLightbox(shots, idx) {
+    _lbIdx = idx;
+    let lb = document.querySelector(".gallery-lightbox");
+    if (!lb) {
+      lb = document.createElement("div");
+      lb.className = "gallery-lightbox";
+      lb.setAttribute("role", "dialog");
+      lb.setAttribute("aria-modal", "true");
+      lb.innerHTML = `
+        <button class="gallery-lightbox-close" aria-label="关闭">✕</button>
+        <button class="gallery-lightbox-prev"  aria-label="上一张">‹</button>
+        <img src="" alt="" />
+        <button class="gallery-lightbox-next"  aria-label="下一张">›</button>
+        <span   class="gallery-lightbox-caption"></span>
+      `;
+      document.body.appendChild(lb);
+
+      lb.querySelector(".gallery-lightbox-close").addEventListener("click", () => lb.remove());
+      lb.addEventListener("click", (e) => { if (e.target === lb) lb.remove(); });
+      lb.querySelector(".gallery-lightbox-prev").addEventListener("click", (e) => {
+        e.stopPropagation();
+        _lbIdx = (_lbIdx - 1 + shots.length) % shots.length;
+        _updateLb(lb, shots);
+      });
+      lb.querySelector(".gallery-lightbox-next").addEventListener("click", (e) => {
+        e.stopPropagation();
+        _lbIdx = (_lbIdx + 1) % shots.length;
+        _updateLb(lb, shots);
+      });
+      document.addEventListener("keydown", _lbKeyHandler);
+      lb._shots = shots;
+    } else {
+      lb._shots = shots;
+    }
+    _updateLb(lb, shots);
+  }
+
+  function _updateLb(lb, shots) {
+    const f   = shots[_lbIdx];
+    const url = f.url || `/packs/${activeSite.id}/${f.name}`;
+    lb.querySelector("img").src = url;
+    lb.querySelector("img").alt = _shotLabel(f.name);
+    lb.querySelector(".gallery-lightbox-caption").textContent =
+      `${_shotLabel(f.name)}  ${_lbIdx + 1} / ${shots.length}`;
+    const prev = lb.querySelector(".gallery-lightbox-prev");
+    const next = lb.querySelector(".gallery-lightbox-next");
+    if (prev) prev.style.display = shots.length > 1 ? "" : "none";
+    if (next) next.style.display = shots.length > 1 ? "" : "none";
+  }
+
+  function _lbKeyHandler(e) {
+    const lb = document.querySelector(".gallery-lightbox");
+    if (!lb) { document.removeEventListener("keydown", _lbKeyHandler); return; }
+    if (e.key === "Escape")      { lb.remove(); document.removeEventListener("keydown", _lbKeyHandler); }
+    else if (e.key === "ArrowLeft")  { _lbIdx = (_lbIdx - 1 + lb._shots.length) % lb._shots.length; _updateLb(lb, lb._shots); }
+    else if (e.key === "ArrowRight") { _lbIdx = (_lbIdx + 1) % lb._shots.length; _updateLb(lb, lb._shots); }
+  }
+})();
+
+/* ══════════════════════════════════════════════════════
+   设计文档内联预览（DESIGN.md → Markdown 渲染）
+   ══════════════════════════════════════════════════════ */
+async function renderPackDocs() {
+  const section  = document.querySelector("#packDocs");
+  const body     = document.querySelector("#packDocsBody");
+  const linkEl   = document.querySelector("#packDocsLink");
+  if (!section || !body || !activeSite) return;
+
+  const slug = activeSite.id;
+  // 依次尝试当前语言 spec → en spec → DESIGN.md
+  const lang = (document.documentElement.lang || "en").replace("zh", "zh-CN").split("-")[0];
+  const candidates = [
+    `/packs/${slug}/DESIGN_SPEC.${lang === "zh" ? "zh-CN" : lang}.md`,
+    `/packs/${slug}/DESIGN_SPEC.en.md`,
+    `/packs/${slug}/DESIGN.md`,
+  ];
+
+  let mdText = null;
+  let srcUrl = null;
+  for (const url of candidates) {
+    const txt = await fetchTextSafe(url);
+    if (txt && txt.trim().length > 80) { mdText = txt; srcUrl = url; break; }
+  }
+
+  if (!mdText) { section.hidden = true; return; }
+
+  section.hidden = false;
+  if (linkEl) { linkEl.href = srcUrl; }
+
+  // 简易 Markdown → HTML（不引入外部库）
+  body.innerHTML = simpleMd(mdText);
+  body.classList.remove("expanded");
+
+  // 展开按钮（如果内容被截断）
+  let expandBtn = section.querySelector(".pack-docs-expand");
+  if (!expandBtn) {
+    expandBtn = document.createElement("button");
+    expandBtn.className = "pack-docs-expand";
+    expandBtn.textContent = "展开全部 ↓";
+    section.appendChild(expandBtn);
+    expandBtn.addEventListener("click", () => {
+      body.classList.toggle("expanded");
+      expandBtn.textContent = body.classList.contains("expanded") ? "收起 ↑" : "展开全部 ↓";
+    });
+  }
+}
+
+/** 极简 Markdown → HTML（仅用于 DESIGN.md 场景，不需要完整规范） */
+function simpleMd(md) {
+  return md
+    // 代码块
+    .replace(/```[\w]*\n([\s\S]*?)```/g, (_, c) => `<pre><code>${esc(c)}</code></pre>`)
+    // 行内代码
+    .replace(/`([^`]+)`/g, (_, c) => `<code>${esc(c)}</code>`)
+    // 标题
+    .replace(/^### (.+)$/gm, "<h3>$1</h3>")
+    .replace(/^## (.+)$/gm, "<h2>$1</h2>")
+    .replace(/^# (.+)$/gm, "<h1>$1</h1>")
+    // 分割线
+    .replace(/^---+$/gm, "<hr>")
+    // 粗体 / 斜体
+    .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
+    .replace(/\*(.+?)\*/g, "<em>$1</em>")
+    // 无序列表（连续行合并为 <ul>）
+    .replace(/((?:^- .+\n?)+)/gm, (m) =>
+      "<ul>" + m.trim().split("\n").map((l) => `<li>${l.replace(/^- /, "")}</li>`).join("") + "</ul>")
+    // 段落（空行分隔，排除已处理的 block 元素）
+    .split(/\n{2,}/)
+    .map((block) => {
+      const b = block.trim();
+      if (!b) return "";
+      if (/^<(h[1-6]|ul|ol|pre|hr|li)/.test(b)) return b;
+      return `<p>${b.replace(/\n/g, " ")}</p>`;
+    })
+    .join("\n");
+}
+function esc(s) { return s.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;"); }
 
 function closeDetail() {
   detailDrawer.classList.remove("open");
@@ -2215,6 +2680,10 @@ function switchView(view, { fromHash = false } = {}) {
   // 切到面板视图时，把页面滚到顶部（避免上一个视图的滚动位置错乱）
   if (view !== "canvas") window.scrollTo(0, 0);
   if (view === "saved") renderSaved();
+  // 进入 About 时懒加载 specs + 渲染 specExample（首次加载后命中缓存 = 0ms）
+  if (view === "about") {
+    mergeExternalSpecs().then(() => renderSpecExample()).catch(() => {});
+  }
   // 进入画布时 surface 才有真实尺寸 —— 补一次虚拟化窗口渲染 + 复位提示
   if (view === "canvas") { updateCanvasWindow(); reflectHomeState(); }
   if (!fromHash) setHash(viewToHash(view), { silent: true });
@@ -2278,6 +2747,7 @@ function applyHash() {
   if (detailDrawer.classList.contains("open")) {
     detailDrawer.classList.remove("open");
     detailDrawer.setAttribute("aria-hidden", "true");
+    document.body.classList.remove("drawer-open"); // L-1: prevent scroll-lock leak on back navigation
   }
   switchView(state.view, { fromHash: true });
 }
@@ -2641,16 +3111,31 @@ document.querySelector("#drawerMedia")?.addEventListener("click", (e) => {
   if (!btn || !activeSite) return;
   e.preventDefault();
   e.stopPropagation();
-  const stamp = Date.now();
-  // thum.io noanimate + cache-bust，强制重抓
-  const fresh = `https://image.thum.io/get/width/1440/noanimate/?_cb=${stamp}/${activeSite.url}`;
   const img = document.querySelector("#drawerHeroImg");
-  if (img) {
-    btn.classList.add("spinning");
-    img.onerror = null;
+  if (!img) return;
+  btn.classList.add("spinning");
+  const packShot = packHeroShot(activeSite.id);
+  const stamp = Date.now();
+  const fresh = `https://image.thum.io/get/width/1440/noanimate/?_cb=${stamp}/${activeSite.url}`;
+
+  // 有素材包真截图：刷新直接换成包内首屏（最可靠，避免再次黑屏）；持久化覆盖。
+  // 没素材包：cache-bust 重抓 thum.io，失败再走回退链。
+  if (packShot && img.src !== packShot) {
+    img.onerror = () => window.__imgFallback && window.__imgFallback(img);
+    img.dataset.fallback = encodeURIComponent(JSON.stringify(
+      [...new Set([packShot, fresh, ...imageFallbackChain(activeSite)])]));
+    img.dataset.fallbackIdx = "0";
+    img.onload = () => { btn.classList.remove("spinning"); };
+    img.src = packShot;
+    localStorage.setItem(`shot-override:${activeSite.id}`, packShot);
+    showToast(t("drawer.refreshShot.done"));
+  } else {
+    img.onerror = () => window.__imgFallback && window.__imgFallback(img);
+    img.dataset.fallback = encodeURIComponent(JSON.stringify(
+      [...new Set([fresh, ...(packShot ? [packShot] : []), ...imageFallbackChain(activeSite)])]));
+    img.dataset.fallbackIdx = "0";
     img.onload = () => { btn.classList.remove("spinning"); };
     img.src = fresh;
-    // 持久化覆盖：下次打开仍是这张新图
     localStorage.setItem(`shot-override:${activeSite.id}`, fresh);
     showToast(t("drawer.refreshShot.done"));
   }
@@ -2741,13 +3226,20 @@ async function openAssetPreview(url, name) {
       if (!res.ok) throw new Error(`HTTP ${res.status}`);
       const text = await res.text();
       sizeEl.textContent = formatBytes(new Blob([text]).size);
-      // 渲染 markdown
+      // 渲染 markdown：按需动态加载 marked（首次打开 MD 预览时才下载）
       let html;
-      if (window.marked && typeof window.marked.parse === "function") {
+      try {
+        if (!window.marked) {
+          await new Promise((resolve, reject) => {
+            const s = document.createElement("script");
+            s.src = "https://cdn.jsdelivr.net/npm/marked@11.2.0/marked.min.js";
+            s.onload = resolve; s.onerror = reject;
+            document.head.appendChild(s);
+          });
+        }
         window.marked.setOptions({ gfm: true, breaks: false, headerIds: false, mangle: false });
         html = window.marked.parse(text);
-      } else {
-        // 兜底：把代码块和段落简单转一下
+      } catch {
         html = `<pre>${escapeHtml(text)}</pre>`;
       }
       previewBody.innerHTML = `<div class="preview-md">${html}</div>`;
@@ -3013,53 +3505,114 @@ function applyPathRoute() {
   return false;
 }
 
+/** SEO 静态页「在 OpenDesign 中打开」→ ?open=slug → 打开抽屉 */
+function applyOpenParam() {
+  const slug = new URLSearchParams(location.search).get("open");
+  if (!slug) return false;
+  const target = sites.find((s) => s.id === slug);
+  if (!target) return false;
+  // 清掉 ?open= 参数，避免刷新时重复触发
+  const clean = location.pathname + (location.hash || "");
+  history.replaceState({}, "", clean);
+  openDetail(target.id);
+  return true;
+}
+
 window.addEventListener("popstate", () => {
   // 优先路径路由（详情页），否则回退 hash 视图路由
   if (!applyPathRoute()) applyHash();
 });
 
-renderAll();
-// 启动：先看 URL 是不是详情页路径，否则走 hash
+/* ========== 启动序列（异步优先，骨架屏占位，数据到后一次性渲染）========== */
+// 1. 立刻显示骨架屏（< 1 ms，用户即时感知到页面在工作）
+renderLibrarySkeleton(12);
+// 2. 路由：先判断是否是详情页直链（数据加载后会重跑一次）
 if (!applyPathRoute()) applyHash();
 
-/* 启动后异步:
- * 1) merge 外部 sites-specs.json 进 curatedSites（AI 批跑产物，独立维护避免污染 sites.js）
- * 2) Supabase 拉取访客 saves/likes
- * 完成后刷新一次 UI。 */
 (async () => {
+  // 3. 并行拉取：站点精简索引（14 KB） + spec + packs + i18n
+  //    sites-index.json 是关键路径，其余并行不阻塞
+  await initSitesData();           // ~50 ms：填充 curatedSites（527 站，14 KB gzip）
+  sites = loadSites();             // 用填充后的 curatedSites 重建 sites（含 OWNER_MODE 草稿）
+  activeSite = sites[0] || null;
+
+  // 4. 首次真实渲染（数据已就绪，骨架屏被替换）
+  renderAll();
+  // 路由需要重跑一次：数据加载前 sites 为空，find(slug) 会失败
+  if (!applyPathRoute() && !applyOpenParam()) applyHash();
+
+  // 5. 后台并行：packs / i18n / Supabase（不阻塞首屏）
+  //    sites-specs.json 改为懒加载：首次开详情抽屉 / About 时才触发，节省 ~186KB
   await Promise.all([
-    mergeExternalSpecs(),
     loadPacksIndex(),
     loadSitesI18n()
   ]);
   await store.init();
-  // spec / packs / i18n / supabase 任一有变化都要重渲
-  renderAll();
+  // 二次渲染：更新 canvas / filters / counts / saved，但 不 重置 library 分页
+  // （重置会把用户已滚动加载的卡片清掉，体验很差）
+  renderFilters();
+  renderCanvas();
+  renderLibraryCount();
+  renderSaved();
+  // renderSpecExample() 移到 switchView("about") 时懒触发（mergeExternalSpecs 完成后）
+  // library 里已渲染的卡片：只原地刷新收藏数小标，不整体重建
+  _libRefreshSaveCounts();
   if (detailDrawer.classList.contains("open") && activeSite) {
-    openDetail(activeSite.id);   // 重新渲染抽屉用新 spec / 显示下载按钮 / 用新语言
+    // 直链进入详情页（URL 带 /{lang}/sites/{slug}）：先加载 spec 再重渲染抽屉
+    await mergeExternalSpecs();
+    openDetail(activeSite.id);   // 重新渲染抽屉（新 spec / 下载按钮 / 语言）
   }
 })();
 
-/** 加载 sites-specs.json（AI 批跑结果），合并 spec 到对应 curated site。
- *  原则：sites.js 里手写的 spec 优先（用户精校过的不要被覆盖）；
- *  只有 site.spec 缺失时才用外部 spec 填。*/
-async function mergeExternalSpecs() {
-  try {
-    const res = await fetch("/sites-specs.json", { cache: "no-cache" });
-    if (!res.ok) return;
-    const data = await res.json();
-    let merged = 0;
-    for (const s of curatedSites) {
-      const ext = data[s.id];
-      if (ext && ext.spec && !s.spec) {
-        s.spec = ext.spec;
-        merged++;
-      }
+/**
+ * 原地更新 libraryList 内已渲染卡片的「收藏数」标签，
+ * 避免二次 renderAll() 重置分页位置。
+ */
+function _libRefreshSaveCounts() {
+  libraryList.querySelectorAll(".library-card[data-id]").forEach((card) => {
+    const id = card.dataset.id;
+    const n = store.saveCount(id);
+    let chip = card.querySelector(".library-save-count");
+    const saved = store.isSaved(id);
+    // 同步收藏按钮状态
+    const btn = card.querySelector(".library-save");
+    if (btn) {
+      btn.setAttribute("aria-pressed", saved);
+      btn.setAttribute("aria-label", t(saved ? "drawer.save.done" : "drawer.save"));
     }
-    if (merged > 0) console.info(`[specs] merged ${merged} AI spec(s) from sites-specs.json`);
-  } catch (err) {
-    // 文件不存在 / 解析失败都没事，正常运行
-  }
+    if (saved) card.setAttribute("data-saved", "true");
+    else card.removeAttribute("data-saved");
+    // 收藏数小标
+    if (n > 0) {
+      const html = `<p class="library-save-count" aria-label="${t("count.saves.aria", { n })}"><svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M12 21s-7-4.5-9.3-9A5.4 5.4 0 0 1 12 6a5.4 5.4 0 0 1 9.3 6c-2.3 4.5-9.3 9-9.3 9Z"/></svg> ${t("count.saves", { n })}</p>`;
+      if (chip) chip.outerHTML = html;
+      else card.querySelector(".library-meta")?.insertAdjacentHTML("beforeend", html);
+    } else if (chip) {
+      chip.remove();
+    }
+  });
+}
+
+/** 加载 sites-specs.json（AI 批跑结果），合并 spec 到对应 curated site。
+ *  懒加载：首次开详情抽屉或进 About 视图时触发，不阻塞首屏。
+ *  幂等：重复调用返回同一 promise，文件只下载一次（浏览器缓存进一步优化）。
+ *  原则：sites.js 里手写的 spec 优先；只有 site.spec 缺失时才用外部 spec 填。*/
+function mergeExternalSpecs() {
+  if (_specsLoadP) return _specsLoadP;
+  _specsLoadP = (async () => {
+    try {
+      const res = await fetch("/sites-specs.json", { cache: "default" }); // was no-cache
+      if (!res.ok) return;
+      const data = await res.json();
+      for (const s of curatedSites) {
+        const ext = data[s.id];
+        if (ext && ext.spec && !s.spec) s.spec = ext.spec;
+      }
+    } catch (err) {
+      // 文件不存在 / 解析失败都没事，正常运行
+    }
+  })();
+  return _specsLoadP;
 }
 
 /* ====== Sites i18n overlay ======
@@ -3069,15 +3622,37 @@ async function mergeExternalSpecs() {
  * 注：sitesI18n 变量声明在文件顶部状态区，避免 TDZ。
  */
 async function loadSitesI18n() {
+  // 按语言拆分加载，减少 ~70% 传输量（en: 75KB, zh-CN: 89KB vs 全量 608KB gzip）
+  const lang = (window.i18n && window.i18n.current) || "en";
+  const langs = lang !== "en" ? [lang, "en"] : ["en"];
   try {
-    const res = await fetch("/sites-i18n.json", { cache: "no-cache" });
+    const results = await Promise.all(
+      langs.map((l) =>
+        fetch(`/sites-i18n.${l}.json`, { cache: "default" })
+          .then((r) => (r.ok ? r.json() : null))
+          .catch(() => null)
+      )
+    );
+    let loaded = 0;
+    results.forEach((data, idx) => {
+      if (!data) return;
+      const l = langs[idx];
+      // 按语言文件格式是扁平的：{ site_id: { palette, layout, ... } }
+      // 合并进 sitesI18n 的嵌套格式：{ site_id: { lang: { ... } } }
+      Object.keys(data).forEach((siteId) => {
+        if (!sitesI18n[siteId]) sitesI18n[siteId] = {};
+        sitesI18n[siteId][l] = data[siteId];
+        loaded++;
+      });
+    });
+    if (loaded > 0) return; // 按语言加载成功
+    // 降级：加载全量 sites-i18n.json（兼容旧版部署 / 按语言文件不存在时）
+    const res = await fetch("/sites-i18n.json", { cache: "default" });
     if (!res.ok) return;
     const data = await res.json();
-    // 剥掉 _meta，剩下都是 site_id → { lang → fields }
     Object.keys(data).forEach((k) => {
       if (!k.startsWith("_")) sitesI18n[k] = data[k];
     });
-    console.info(`[i18n] loaded sites-i18n for ${Object.keys(sitesI18n).length} sites`);
   } catch (err) {
     // 静默 fallback 到 sites.js 自带字段
   }
@@ -3099,10 +3674,9 @@ function localizedField(site, field) {
  *  注：packsIndex 变量声明在文件顶部状态区，避免 TDZ。 */
 async function loadPacksIndex() {
   try {
-    const res = await fetch("/packs-index.json", { cache: "no-cache" });
+    const res = await fetch("/packs-index.json", { cache: "default" }); // 日更一次，用浏览器缓存
     if (!res.ok) return;
     packsIndex = await res.json();
-    console.info(`[packs] ${Object.keys(packsIndex).length} design packs available`);
   } catch (err) {
     // 没索引也没关系，按钮就藏着
   }

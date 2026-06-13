@@ -8,6 +8,631 @@
     "dev",
     "notifications"
   ],
-  "status": "pending",
-  "added_at": "2026-06-03"
+  "status": "completed",
+  "added_at": "2026-06-03",
+  "spec": {
+    "colors": {
+      "bg": "#0A0A0A",
+      "bgSoft": null,
+      "bgQuiet": null,
+      "ink": "#FFFFFF",
+      "inkSoft": "rgba(255,255,255,0.72)",
+      "muted": "rgba(255,255,255,0.56)",
+      "mutedSoft": null,
+      "accent": null,
+      "line": "rgba(255,255,255,0.04)"
+    },
+    "typography": {
+      "display": "humanist-sans",
+      "body": "humanist-sans",
+      "mono": "monospaced",
+      "scale": [
+        {
+          "token": "display",
+          "size": 56,
+          "lh": 1.0,
+          "weight": 500,
+          "ls": "-1px"
+        },
+        {
+          "token": "display-sm",
+          "size": 40,
+          "lh": 1.2,
+          "weight": 500,
+          "ls": "-0.4px"
+        },
+        {
+          "token": "body-lg",
+          "size": 18,
+          "lh": 1.45,
+          "weight": 400,
+          "ls": "-0.18px"
+        },
+        {
+          "token": "body-sm",
+          "size": 14,
+          "lh": 1.5,
+          "weight": 400,
+          "ls": "-0.14px"
+        },
+        {
+          "token": "mono",
+          "size": 12,
+          "lh": 1.6,
+          "weight": 400,
+          "ls": "0"
+        }
+      ]
+    },
+    "spacing": {
+      "base": 4,
+      "scale": [
+        4,
+        8,
+        16,
+        24,
+        32,
+        48,
+        64,
+        96
+      ]
+    },
+    "surfaces": {
+      "radius": {
+        "sm": 4,
+        "md": 8,
+        "lg": 12,
+        "pill": 999
+      }
+    },
+    "layout": {
+      "container": 1280,
+      "paragraph": 680,
+      "columns": 12,
+      "gutter": 24,
+      "breakpoints": [
+        768,
+        1024
+      ]
+    },
+    "motion": {
+      "durations": {
+        "micro": 220,
+        "small": 400,
+        "medium": 800
+      },
+      "easing": "cubic-bezier(0.25, 0.1, 0.25, 1)"
+    }
+  },
+  "spec_i18n": {
+    "en": {
+      "identity": {
+        "keywords": [
+          "notification",
+          "orchestration",
+          "messaging",
+          "platform",
+          "developer"
+        ],
+        "analogy": "A developer-first control center for orchestrating cross-channel notifications.",
+        "oneLiner": "A premium dark-themed SaaS platform for designing and sending notifications."
+      },
+      "colors": {
+        "principle": "High-contrast dark UI with subtle elevation."
+      },
+      "typography": {
+        "rules": [
+          "Use tight line-height (1.0-1.2) for large display text.",
+          "Maintain generous vertical padding between sections.",
+          "Use monospaced font for code snippets and variables."
+        ],
+        "scaleUses": [
+          "Main headline",
+          "Section headers",
+          "Subheadings",
+          "UI text",
+          "Code and variables"
+        ]
+      },
+      "spacing": {
+        "rhythm": "8px base unit, consistent vertical spacing."
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 1px 1px 0px rgba(0, 0, 0, 0.12)",
+          "0px 0.602187px 0.602187px -1.25px rgba(0, 0, 0, 0.25)",
+          "0px 2.28853px 2.28853px -2.5px rgba(0, 0, 0, 0.22)"
+        ],
+        "borders": "Thin, low-contrast borders for subtle separation."
+      },
+      "layout": {
+        "skeleton": "Standard centered-column layout with full-width hero sections."
+      },
+      "components": {
+        "button": "Rounded, pill-shaped buttons with subtle background transitions.",
+        "card": "Elevated containers with rounded corners and subtle background gradients.",
+        "chip": "Small, rounded badges for status or tags.",
+        "input": "Dark-themed inputs with subtle borders and rounded corners.",
+        "hero": "Large, centered headline with supporting text and interactive product mockups."
+      },
+      "motion": {
+        "patterns": [
+          "Smooth fade-ins and subtle parallax on scroll.",
+          "Interactive elements respond to hover with subtle scale or opacity changes."
+        ]
+      },
+      "interaction": {
+        "hover": "Subtle background or opacity change on interactive elements.",
+        "click": "Subtle scale or depth change to indicate activation.",
+        "transition": "Smooth transitions on all interactive properties.",
+        "keyboard": "Standard focus rings for accessibility."
+      },
+      "voice": {
+        "tone": "Confident, technical, and professional.",
+        "headlineStyle": "Direct, benefit-oriented statements.",
+        "ctaStyle": "Action-oriented verbs like 'Request demo', 'Sign up'.",
+        "avoid": [
+          "Overly casual or playful language.",
+          "Vague marketing jargon.",
+          "Unnecessary exclamation points."
+        ]
+      },
+      "donts": [
+        "Don't use light backgrounds — the screenshot shows a near-black (#0A0A0A) primary background.",
+        "Don't use multiple bright accent colors — the screenshot shows a monochrome palette with only one brand color (purple) used sparingly.",
+        "Don't use decorative serif fonts — the screenshot shows a clean humanist sans-serif for all text.",
+        "Don't use complex grid patterns or heavy textures — the screenshot shows clean, flat surfaces with subtle gradients.",
+        "Don't use sharp, square corners — the screenshot shows rounded corners (8px, 12px) on all UI elements.",
+        "Don't use busy layouts — the screenshot shows a clean, centered layout with generous white space."
+      ],
+      "systemPrompt": "Courier is a premium B2B SaaS platform for developer-centric notification orchestration. It uses a dark mode (#0A0A0A) design system with high-contrast white (#FFFFFF) and muted (#rgba(255,255,255,0.72)) text. The typography is a clean humanist sans-serif paired with a monospaced font for code elements. The layout is spacious, centered, and focuses on product mockups. Critical don'ts: don't use bright, multi-color accents; don't use decorative or serif fonts; don't clutter the interface with unnecessary patterns or textures; don't use sharp corners; don't use light backgrounds. The tone is confident and technical, speaking directly to developers and product managers."
+    },
+    "zh-CN": {
+      "identity": {
+        "keywords": [
+          "通知",
+          "编排",
+          "消息",
+          "平台",
+          "开发者"
+        ],
+        "analogy": "一个以开发者为中心的控制中心，用于编排跨渠道通知。",
+        "oneLiner": "一个高端的深色主题 SaaS 平台，用于设计和发送通知。"
+      },
+      "colors": {
+        "principle": "高对比度深色 UI，搭配细微的层次感。"
+      },
+      "typography": {
+        "rules": [
+          "对大型展示文本使用紧凑的行高（1.0-1.2）。",
+          "在各部分之间保持充裕的垂直内边距。",
+          "对代码片段和变量使用等宽字体。"
+        ],
+        "scaleUses": [
+          "主标题",
+          "章节标题",
+          "副标题",
+          "界面文本",
+          "代码和变量"
+        ]
+      },
+      "spacing": {
+        "rhythm": "以 8px 为基础单位，保持一致的垂直间距。"
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 1px 1px 0px rgba(0, 0, 0, 0.12)",
+          "0px 0.602187px 0.602187px -1.25px rgba(0, 0, 0, 0.25)",
+          "0px 2.28853px 2.28853px -2.5px rgba(0, 0, 0, 0.22)"
+        ],
+        "borders": "纤细、低对比度的边框用于实现细微的分隔。"
+      },
+      "layout": {
+        "skeleton": "标准的居中单栏布局，搭配全宽的 Hero 区域。"
+      },
+      "components": {
+        "button": "圆角的药丸形按钮，带有细微的背景过渡效果。",
+        "card": "带有圆角和细微背景渐变的凸起容器。",
+        "chip": "用于状态或标签的微小圆角徽章。",
+        "input": "深色主题的输入框，带有细微边框和圆角。",
+        "hero": "居中的大型标题，配有辅助文本和交互式产品模型。"
+      },
+      "motion": {
+        "patterns": [
+          "平滑的淡入效果和滚动时的细微视差。",
+          "交互元素通过细微的缩放或透明度变化来响应悬停。"
+        ]
+      },
+      "interaction": {
+        "hover": "交互元素上的细微背景或透明度变化。",
+        "click": "细微的缩放或深度变化以表示激活状态。",
+        "transition": "所有交互属性上的平滑过渡。",
+        "keyboard": "标准的聚焦环，确保无障碍访问。"
+      },
+      "voice": {
+        "tone": "自信、技术性和专业性。",
+        "headlineStyle": "直接、面向利益的陈述。",
+        "ctaStyle": "行动导向的动词，例如“请求演示”、“注册”。",
+        "avoid": [
+          "过于随意或俏皮的语言。",
+          "模糊的营销术语。",
+          "不必要的感叹号。"
+        ]
+      },
+      "donts": [
+        "不要使用浅色背景——截图显示主背景为近黑色（#0A0A0A）。",
+        "不要使用多种明亮的强调色——截图显示为单色调色板，仅少量使用一种品牌色（紫色）。",
+        "不要使用装饰性衬线字体——截图显示所有文本都使用简洁的人文无衬线字体。",
+        "不要使用复杂的网格图案或厚重的纹理——截图显示为简洁的平面，带有细微渐变。",
+        "不要使用尖锐的直角——截图显示所有 UI 元素都采用圆角（8px，12px）。",
+        "不要使用拥挤的布局——截图显示为简洁的居中布局，留有充裕的空白。"
+      ],
+      "systemPrompt": "Courier 是一个高端的 B2B SaaS 平台，专注于以开发者为中心的通知编排。它采用深色模式（#0A0A0A）设计系统，搭配高对比度白色（#FFFFFF）和柔和（#rgba(255,255,255,0.72)）的文本。排版采用简洁的人文无衬线字体，并为代码元素搭配等宽字体。布局宽敞、居中，并聚焦于产品模型。关键禁忌：不要使用明亮的多色强调；不要使用装饰性或衬线字体；不要用不必要的图案或纹理使界面变得杂乱；不要使用尖锐的直角；不要使用浅色背景。语调自信且技术性强，直接面向开发者和产品经理。"
+    },
+    "zh-TW": {
+      "identity": {
+        "keywords": [
+          "通知",
+          "編排",
+          "訊息傳遞",
+          "平台",
+          "開發者"
+        ],
+        "analogy": "一個以開發者為首的控制中心，用於編排跨管道通知。",
+        "oneLiner": "一個高級的深色主題 SaaS 平台，用於設計與發送通知。"
+      },
+      "colors": {
+        "principle": "高對比度深色介面，搭配細膩的視覺層次感。"
+      },
+      "typography": {
+        "rules": [
+          "大型展示文字使用緊湊行高（1.0-1.2）。",
+          "各區塊之間保持寬裕的垂直間距。",
+          "程式碼片段與變數使用等寬字體。"
+        ],
+        "scaleUses": [
+          "主標題",
+          "區塊標題",
+          "副標題",
+          "介面文字",
+          "程式碼與變數"
+        ]
+      },
+      "spacing": {
+        "rhythm": "以 8px 為基準單位，保持一致的垂直間距。"
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 1px 1px 0px rgba(0, 0, 0, 0.12)",
+          "0px 0.602187px 0.602187px -1.25px rgba(0, 0, 0, 0.25)",
+          "0px 2.28853px 2.28853px -2.5px rgba(0, 0, 0, 0.22)"
+        ],
+        "borders": "纖細、低對比度的邊框，用於細膩的區隔。"
+      },
+      "layout": {
+        "skeleton": "標準的置中欄位佈局，搭配全寬度英雄區域。"
+      },
+      "components": {
+        "button": "圓角藥丸形按鈕，具有細膩的背景過渡效果。",
+        "card": "具有圓角與細膩背景漸層的浮凸容器。",
+        "chip": "小型圓角徽章，用於狀態或標籤。",
+        "input": "深色主題輸入框，具有細膩邊框與圓角。",
+        "hero": "大型置中標題，搭配輔助文字與互動式產品模型。"
+      },
+      "motion": {
+        "patterns": [
+          "平滑的淡入效果與滾動時細膩的視差效果。",
+          "互動元素懸停時，以細膩的縮放或透明度變化作為回應。"
+        ]
+      },
+      "interaction": {
+        "hover": "互動元素在懸停時，背景或透明度發生細膩變化。",
+        "click": "細膩的縮放或深度變化，以指示啟用狀態。",
+        "transition": "所有互動屬性均採用平滑過渡。",
+        "keyboard": "標準的聚焦環，以確保無障礙性。"
+      },
+      "voice": {
+        "tone": "自信、技術性且專業。",
+        "headlineStyle": "直接、以效益為導向的陳述。",
+        "ctaStyle": "以行動為導向的動詞，例如「申請演示」、「立即註冊」。",
+        "avoid": [
+          "過於隨意或俏皮的語言。",
+          "模糊的行銷術語。",
+          "不必要的驚嘆號。"
+        ]
+      },
+      "donts": [
+        "不要使用淺色背景——截圖顯示主背景色為接近黑色（#0A0A0A）。",
+        "不要使用多種亮色調的強調色——截圖顯示的是單色調色盤，僅謹慎使用一個品牌色（紫色）。",
+        "不要使用裝飾性襯線字體——截圖顯示所有文字均採用乾淨的人文無襯線字體。",
+        "不要使用複雜的網格圖案或厚重的紋理——截圖顯示的是乾淨、扁平的表面，搭配細膩的漸層。",
+        "不要使用尖銳的方形角落——截圖顯示所有介面元素均採用圓角（8px, 12px）。",
+        "不要使用複雜的佈局——截圖顯示的是乾淨、置中的佈局，具有寬裕的留白。"
+      ],
+      "systemPrompt": "Courier 是一個高級的 B2B SaaS 平台，專為開發者為核心的通知編排而設計。它採用深色模式（#0A0A0A）設計系統，搭配高對比度白色（#FFFFFF）與柔和（#rgba(255,255,255,0.72)）文字。排版採用乾淨的人文無襯線字體，並搭配等寬字體用於程式碼元素。佈局寬敞、置中，並聚焦於產品模型。關鍵禁忌：不要使用明亮、多彩的強調色；不要使用裝飾性或襯線字體；不要用不必要的圖案或紋理使介面雜亂；不要使用尖銳的角落；不要使用淺色背景。語氣自信且技術性，直接與開發者及產品經理對話。"
+    },
+    "ja": {
+      "identity": {
+        "keywords": [
+          "通知",
+          "オーケストレーション",
+          "メッセージング",
+          "プラットフォーム",
+          "開発者"
+        ],
+        "analogy": "クロスチャネル通知をオーケストレーションするための、開発者ファーストなコントロールセンター。",
+        "oneLiner": "通知を設計・送信するための、プレミアムなダークテーマSaaSプラットフォーム。"
+      },
+      "colors": {
+        "principle": "微妙な段階感を用いた、高コントラストのダークUI。"
+      },
+      "typography": {
+        "rules": [
+          "大きなディスプレイテキストには、 tightenされたline-height（1.0-1.2）を使用する。",
+          "セクション間には、豊かな垂直パディングを維持する。",
+          "コードスニペットや変数には、monospacedフォントを使用する。"
+        ],
+        "scaleUses": [
+          "メインヘッドライン",
+          "セクション見出し",
+          "サブヘッドライン",
+          "UIテキスト",
+          "コードと変数"
+        ]
+      },
+      "spacing": {
+        "rhythm": "8pxを基準単位とし、垂直方向のスペースを一貫して保持する。"
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 1px 1px 0px rgba(0, 0, 0, 0.12)",
+          "0px 0.602187px 0.602187px -1.25px rgba(0, 0, 0, 0.25)",
+          "0px 2.28853px 2.28853px -2.5px rgba(0, 0, 0, 0.22)"
+        ],
+        "borders": "微妙な区切りをつけるための、薄く低コントラストのボーダー。"
+      },
+      "layout": {
+        "skeleton": "全幅のヒーローセクションを含む、標準的な中央揃えカラムレイアウト。"
+      },
+      "components": {
+        "button": "微妙な背景トランジションを備えた、丸みのあるピル形状ボタン。",
+        "card": "丸みのある角と微妙な背景グラデーションを備えた、浮き上がりコンテナ。",
+        "chip": "ステータスやタグのための、小さな丸みのあるバッジ。",
+        "input": "微妙なボーダーと丸みのある角を備えた、ダークテーマのインプット。",
+        "hero": "サポートテキストとインタラクティブな製品モックアップを伴う、大きく中央揃えのヘッドライン。"
+      },
+      "motion": {
+        "patterns": [
+          "スムーズなフェードインと、scroll時の微妙なparallax。",
+          "インタラクティブ要素は、hover時に微妙なscaleやopacityの変化で応答する。"
+        ]
+      },
+      "interaction": {
+        "hover": "インタラクティブ要素に対する、微妙な背景やopacityの変化。",
+        "click": "アクティブ状態を示すための、微妙なscaleや深さの変化。",
+        "transition": "すべてのインタラクティブプロパティに対する、スムーズなトランジション。",
+        "keyboard": "アクセシビリティのための、標準的なfocus ring。"
+      },
+      "voice": {
+        "tone": "自信に満ち、テクニカルでプロフェッショナル。",
+        "headlineStyle": "直接的で、メリットを指向したステートメント。",
+        "ctaStyle": "「デモを依頼する」「サインアップする」のような、アクション指向の動詞。",
+        "avoid": [
+          "極端にカジュアルまたは遊び心のある言葉遣い。",
+          "曖昧なマーケティング用語。",
+          "不必要な感嘆符。"
+        ]
+      },
+      "donts": [
+        "明るい背景を使わない — スクリーンショットでは、ほぼ黒（#0A0A0A）のプライマリ背景が示されている。",
+        "複数の明るいアクセントカラーを使わない — スクリーンショットでは、控えめに使用された1色のブランドカラー（紫色）のみを用いたモノクロームパレットが示されている。",
+        "装飾的なセリフフォントを使わない — スクリーンショットでは、すべてのテキストにクリーンなhumanist sans-serifが使われている。",
+        "複雑なグリッドパターンや重いテクスチャを使わない — スクリーンショットでは、微妙なグラデーションを用いたクリーンでフラットなサーフェスが示されている。",
+        "鋭い角を使わない — スクリーンショットでは、すべてのUI要素に丸みのある角（8px、12px）が使われている。",
+        "雑然としたレイアウトにしない — スクリーンショットでは、クリーンで中央揃えのレイアウトと豊かなホワイトスペースが示されている。"
+      ],
+      "systemPrompt": "Courierは、開発者中心の通知オーケストレーションのためのプレミアムB2B SaaSプラットフォームです。ダークモード（#0A0A0A）のデザインシステムを採用し、高コントラストの白（#FFFFFF）と控えめな（#rgba(255,255,255,0.72)）テキストを使用しています。タイポグラフィはクリーンなhumanist sans-serifを、コード要素にはmonospacedフォントを組み合わせています。レイアウトはゆったりとし、中央揃えで、製品モックアップに焦点を当てています。重要な注意点：明るい複数カラーアクセントを使用しない。装飾的またはセリフフォントを使用しない。不要なパターンやテクスチャでインターフェースを雑然とさせない。鋭い角を使用しない。明るい背景を使用しない。口調は自信に満ち、テクニカルで、開発者やプロダクトマネージャーに直接語りかけるものとする。"
+    },
+    "ko": {
+      "identity": {
+        "keywords": [
+          "알림",
+          "오케스트레이션",
+          "메시징",
+          "플랫폼",
+          "개발자"
+        ],
+        "analogy": "교차 채널 알림을 오케스트레이션하는 개발자 중심 제어 센터입니다.",
+        "oneLiner": "알림을 설계하고 전송하는 프리미엄 다크 테마 SaaS 플랫폼입니다."
+      },
+      "colors": {
+        "principle": "미묘한 높이감을 활용한 고대비 다크 UI입니다."
+      },
+      "typography": {
+        "rules": [
+          "큰 디스플레이 텍스트에는 타이트한 행간(1.0-1.2)을 사용합니다.",
+          "섹션 간에는 여유로운 수직 패딩을 유지합니다.",
+          "코드 스니펫과 변수에는 모노스페이스 폰트를 사용합니다."
+        ],
+        "scaleUses": [
+          "메인 헤드라인",
+          "섹션 헤더",
+          "부제목",
+          "UI 텍스트",
+          "코드 및 변수"
+        ]
+      },
+      "spacing": {
+        "rhythm": "8px 기본 단위, 일관된 수직 간격입니다."
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 1px 1px 0px rgba(0, 0, 0, 0.12)",
+          "0px 0.602187px 0.602187px -1.25px rgba(0, 0, 0, 0.25)",
+          "0px 2.28853px 2.28853px -2.5px rgba(0, 0, 0, 0.22)"
+        ],
+        "borders": "미묘한 분리를 위한 얇고 저대비 테두리입니다."
+      },
+      "layout": {
+        "skeleton": "전체 너비의 히어로 섹션을 포함한 표준 중앙 정렬 컬럼 레이아웃입니다."
+      },
+      "components": {
+        "button": "미묘한 배경 전환을 갖춘 둥근 알약 모양 버튼입니다.",
+        "card": "둥근 모서리와 미묘한 배경 그라데이션이 있는 높이감 있는 컨테이너입니다.",
+        "chip": "상태 또는 태그를 위한 작고 둥근 배지입니다.",
+        "input": "미묘한 테두리와 둥근 모서리를 갖춘 다크 테마 입력 필드입니다.",
+        "hero": "지지 텍스트와 상호작용 제품 목업을 갖춘 크고 중앙 정렬된 헤드라인입니다."
+      },
+      "motion": {
+        "patterns": [
+          "부드러운 페이드 인과 스크롤 시 미묘한 패럴랙스입니다.",
+          "상호작용 요소는 hover에 미묘한 스케일 또는 불투명도 변화로 반응합니다."
+        ]
+      },
+      "interaction": {
+        "hover": "상호작용 요소에서 미묘한 배경 또는 불투명도 변화입니다.",
+        "click": "활성화를 나타내기 위한 미묘한 스케일 또는 깊이 변화입니다.",
+        "transition": "모든 상호작용 속성에 부드러운 전환입니다.",
+        "keyboard": "접근성을 위한 표준 포커스 링입니다."
+      },
+      "voice": {
+        "tone": "자신감 있고 기술적이며 전문적입니다.",
+        "headlineStyle": "직접적이고 혜택 중심적인 진술입니다.",
+        "ctaStyle": "'데모 요청', '가입하기'와 같은 행동 지향적 동사입니다.",
+        "avoid": [
+          "지나치게 캐주얼하거나 장난스러운 언어.",
+          "모호한 마케팅 용어.",
+          "불필요한 느낌표."
+        ]
+      },
+      "donts": [
+        "밝은 배경을 사용하지 마세요 — 스크린샷은 거의 검정(#0A0A0A)의 주 배경을 보여줍니다.",
+        "여러 개의 밝은 강조 색상을 사용하지 마세요 — 스크린샷은 하나의 브랜드 컬러(퍼플)만 절제하게 사용한 단색 팔레트를 보여줍니다.",
+        "장식용 세리프 폰트를 사용하지 마세요 — 스크린샷은 모든 텍스트에 깔끔한 휴머니스트 산세리프를 보여줍니다.",
+        "복잡한 격자 패턴이나 무거운 질감을 사용하지 마세요 — 스크린샷은 미묘한 그라데이션이 있는 깔끔하고 평평한 표면을 보여줍니다.",
+        "날카롭고 네모난 모서리를 사용하지 마세요 — 스크린샷은 모든 UI 요소에 둥근 모서리(8px, 12px)를 보여줍니다.",
+        "복잡한 레이아웃을 사용하지 마세요 — 스크린샷은 여유로운 여백을 갖춘 깔끔하고 중앙 정렬된 레이아웃을 보여줍니다."
+      ],
+      "systemPrompt": "Courier는 개발자 중심 알림 오케스트레이션을 위한 프리미엄 B2B SaaS 플랫폼입니다. 다크 모드(#0A0A0A) 디자인 시스템을 사용하며, 고대비 흰색(#FFFFFF)과 절제된(#rgba(255,255,255,0.72)) 텍스트를 적용합니다. 타이포그래피는 코드 요소용 모노스페이드 폰트와 함께 깔끔한 휴머니스트 산세리프입니다. 레이아웃은 넓고 중앙 정렬되어 있으며 제품 목업에 집중합니다. 중요 금지 사항: 밝고 다채로운 강조색을 사용하지 마세요; 장식용 또는 세리프 폰트를 사용하지 마세요; 불필요한 패턴이나 질감으로 인터페이스를 복잡하게 하지 마세요; 날카로운 모서리를 사용하지 마세요; 밝은 배경을 사용하지 마세요. 톤은 자신감 있고 기술적이며, 개발자와 제품 관리자에게 직접 말합니다."
+    }
+  },
+  "desc": {
+    "en": {
+      "palette": "A monochromatic dark palette with high-contrast white text and a single muted purple brand color.",
+      "layout": "A clean, centered-column layout with generous vertical rhythm and large typography.",
+      "interaction": "Subtle, smooth transitions on hover and focus states for a premium feel.",
+      "motion": "Minimal, purposeful animations that enhance the user's focus on the product.",
+      "notes": "A strong example of a modern, dark-themed developer tool interface that balances technical sophistication with clean, accessible design."
+    },
+    "zh-CN": {
+      "palette": "一种单色深色调色板，搭配高对比度白色文字和一个柔和的紫色品牌色。",
+      "layout": "简洁的居中单栏布局，拥有充裕的垂直节奏和大号排版。",
+      "interaction": "在悬停和聚焦状态上采用细微、平滑的过渡效果，营造高端质感。",
+      "motion": "最小化、有目的的动画，旨在增强用户对产品的专注度。",
+      "notes": "这是一个现代深色主题开发者工具界面的优秀范例，在技术精密度与简洁、易用的设计之间取得了良好平衡。"
+    },
+    "zh-TW": {
+      "palette": "單色深色調色盤，搭配高對比度白色文字與單一柔和紫色品牌色。",
+      "layout": "乾淨、置中的欄位佈局，具有寬裕的垂直節奏與大型排版。",
+      "interaction": "懸停與聚焦狀態下，細膩、流暢的過渡效果，營造高級質感。",
+      "motion": "簡約、有意義的動畫，旨在強化使用者對產品的專注。",
+      "notes": "這是一個現代化深色主題開發者工具介面的優秀範例，平衡了技術精緻度與乾淨、無障礙的設計。"
+    },
+    "ja": {
+      "palette": "高コントラストの白いテキストと、控えめな紫色のブランドカラー1色を用いた、モノクロームの暗いパレット。",
+      "layout": "垂直のリズムを豊かに保ち、大きなタイポグラフィを用いた、清潔な中央揃えカラムレイアウト。",
+      "interaction": "上質な印象を生むための、hoverやfocus状態における微細でスムーズなトランジション。",
+      "motion": "ユーザーが製品に集中できるよう支援する、最小限で目的意識のあるアニメーション。",
+      "notes": "テクニカルな洗練さとクリーンでアクセシブルなデザインを両立させた、モダンなダークテーマの開発者ツールインターフェースの好例。"
+    },
+    "ko": {
+      "palette": "고대비 흰색 텍스트와 보색 브랜드 컬러를 사용한 단일 톤의 다크 팔레트입니다.",
+      "layout": "여유로운 수직 리듬과 큰 타이포그래피를 갖춘 깔끔한 중앙 정렬 컬럼 레이아웃입니다.",
+      "interaction": "hover 및 focus 상태에서 미묘하고 부드러운 전환으로 프리미엄 느낌을 줍니다.",
+      "motion": "사용자가 제품에 집중하도록 돕는 최소화된 목적 지향적 애니메이션입니다.",
+      "notes": "기술적 정교함과 깔끔하고 접근성 높은 디자인의 균형을 이루는 현대적 다크 테마 개발자 도구 인터페이스의 좋은 예입니다."
+    }
+  },
+  "_meta": {
+    "vision_model": "mimo-v2.5",
+    "vision_prompt_version": "0.3",
+    "vision_source": "playwright-extract:courier",
+    "vision_grounded": true,
+    "vision_at": "2026-06-04T14:37:04+00:00",
+    "vision_tokens": 17149,
+    "vision_cost_usd": 0.1905,
+    "translation_model": "mimo-v2.5",
+    "translation_at": "2026-06-04T14:38:22+00:00",
+    "translation_tokens": 17311,
+    "translation_cost_usd": 0.0576,
+    "narrative_model": "mimo-v2.5",
+    "narrative_prompt_version": "0.3",
+    "narrative_at": "2026-06-04T14:38:32+00:00",
+    "narrative_tokens": 2099,
+    "narrative_cost_usd": 0.014,
+    "narrative_status": "ok",
+    "total_cost_usd": 0.2621
+  },
+  "narrative": {
+    "en": {
+      "ch1_intro": "Courier is a developer-first control center for orchestrating cross-channel notifications, and its design system reflects this precision. The analogy is architectural: it's a control room built for clarity, where every surface, shadow, and typographic decision serves the operator's focus.",
+      "ch2_intro": "The palette is a study in restraint: a monochromatic dark field of near-black (#0A0A0A) provides the stage for high-contrast white text and a single, muted purple brand accent. This is a system that understands color as a tool for hierarchy and emphasis, not decoration.",
+      "ch2_outro": "The guiding principle is high contrast for readability and a single chromatic signal for brand identity within a dark, utilitarian environment.",
+      "ch3_intro": "The typographic voice is clean and functional, built on a humanist sans-serif for all interface text. A tight line-height for display sizes and a dedicated monospaced face for code snippets and variables create a clear distinction between interface language and the code it describes.",
+      "ch4_intro": "The system's rhythm is governed by an 8px base unit, creating a consistent vertical grid that imposes order on spacious layouts.",
+      "ch5_intro": "Surfaces are defined by subtle depth, achieved through a triad of low-opacity shadows that lift cards and containers from the background. Thin, low-contrast borders provide additional separation without introducing visual noise.",
+      "ch6_intro": "The structural skeleton is a standard, centered-column layout that prioritizes content focus. Full-width hero sections break this column for primary announcements, creating a clear visual hierarchy from marketing to application.",
+      "ch7_intro": "Motion is treated as a functional enhancement, not a spectacle. Animations are limited to smooth fade-ins and subtle parallax on scroll, designed to guide attention without diverting it from the product's utility.",
+      "ch8_intro": "The editorial voice is confident, technical, and professional, speaking in direct, benefit-oriented statements. It avoids playful language and vague marketing jargon, opting instead for precise, action-oriented calls to action.",
+      "ch8_outro": "The system deliberately omits decorative serif fonts, light backgrounds, busy patterns, and sharp corners to maintain its core identity of technical sophistication and clean focus."
+    },
+    "zh-CN": {
+      "ch1_intro": "Courier 是一个以开发者为核心的控制中心，用于编排跨渠道通知，其设计系统反映了这种精确性。这好比建筑学上的类比：它是一个为清晰度而建的控制室，其中每一个表面、阴影和排版决策都服务于操作员的专注。",
+      "ch2_intro": "配色方案体现了克制：一个近乎黑色（#0A0A0A）的单色暗色场域，为高对比度的白色文字和一个柔和的紫色品牌强调色搭建了舞台。这是一个理解色彩是用于层级和强调的工具，而非装饰的系统。",
+      "ch2_outro": "指导原则是在黑暗、实用主义的环境中，采用高对比度以确保可读性，并用单一的色彩信号来体现品牌识别。",
+      "ch3_intro": "排版风格清晰且功能性，基于人文无衬线字体构建所有界面文本。显示尺寸采用紧凑的行高，而代码片段和变量则使用专用的等宽字体，从而清晰区分界面语言及其所描述的代码。",
+      "ch4_intro": "系统的节奏由 8px 基础单位掌控，形成了一致的垂直网格，为宽敞的布局赋予秩序。",
+      "ch5_intro": "界面表面通过微妙的深度来定义，这是通过三个低不透明度阴影层实现的，它们将卡片和容器从背景中托起。纤细、低对比度的边框提供了额外的分隔，而没有引入视觉噪声。",
+      "ch6_intro": "结构骨架是标准的、居中列布局，优先考虑内容聚焦。全宽的英雄区域打破了这种列式结构，用于主要公告，从而创建了从营销到应用程序的清晰视觉层级。",
+      "ch7_intro": "动效被视为功能性的增强，而非奇观。动画仅限于平滑的淡入效果和滚动时的微妙视差，旨在引导注意力，而不使其从产品的实用性上分散。",
+      "ch8_intro": "编辑风格自信、技术且专业，采用直接、以效益为导向的陈述。它避免了俏皮的语言和模糊的营销术语，转而选择精确、以行动为导向的号召性用语。",
+      "ch8_outro": "该系统刻意省略了装饰性衬线字体、浅色背景、繁复图案和尖锐边角，以保持其技术精密和清晰聚焦的核心身份。"
+    },
+    "zh-TW": {
+      "ch1_intro": "Courier 是一個以開發者為核心的控制中心，用於協調跨通訊管道的通知，其設計系統反映了這種精準度。類比於建築：它是一個為了清晰度而建的控制室，每一個介面、陰影和字體排印決策都服務於操作者的專注。",
+      "ch2_intro": "色彩調色盤是一場克制的練習：近乎黑色（#0A0A0A）的單色暗調場景，為高對比度的白色文字和單一、柔和的紫色品牌強調色提供了舞台。這是一個理解色彩作為層級和強調工具（而非裝飾）的系統。",
+      "ch2_outro": "指導原則是高對比度以確保可讀性，以及在黑暗、實用主義的環境中使用單一色彩信號來建立品牌識別。",
+      "ch3_intro": "字體聲音乾淨且功能性強，所有介面文字都基於人文無襯線字體。顯示尺寸的緊湊行高，以及用於程式碼片段和變數的專用等寬字體，在介面語言與其描述的程式碼之間建立了清晰的區別。",
+      "ch4_intro": "系統的節奏由 8px 基礎單位控制，創建了一致的垂直網格，為寬敞的佈局帶來秩序。",
+      "ch5_intro": "表面透過微妙的深度來定義，這透過三組低不透明度陰影實現，將卡片和容器從背景中提升。纖細、低對比度的邊框提供了額外的分隔，且不引入視覺雜訊。",
+      "ch6_intro": "結構骨架是標準的、置中的欄位佈局，優先考慮內容焦點。全寬的首頁區域打破了這個欄位，用於主要公告，從行銷到應用程式建立了清晰的視覺層級。",
+      "ch7_intro": "動態效果被視為功能性的增強，而非 spectacle。動畫限於平滑的淡入效果和滾動時微妙的視差，旨在引導注意力，而不使其偏離產品的實用性。",
+      "ch8_intro": "編輯聲音自信、技術性且專業，以直接、以效益為導向的陳述方式發言。它避免了俏皮的語言和模糊的行銷術語，而是選擇精準、以行動為導向的號召性用語。",
+      "ch8_outro": "系統刻意省略了裝飾性襯線字體、淺色背景、繁複的圖案和尖銳的邊角，以維持其技術精緻感和清晰專注的核心身份。"
+    },
+    "ja": {
+      "ch1_intro": "Courierは、クロスチャネル通知をオーケストレーションするための、開発者中心のコントロールセンターであり、そのデザインシステムはこの精密さを反映しています。これは建築的なアナロジーです：明瞭性のために構築された制御室であり、あらゆる面、影、タイポグラフィの意思決定が、オペレーターの集中力を支えるために機能しています。",
+      "ch2_intro": "パレットは抑制の研究です：準黒（#0A0A0A）のモノクロームな暗いフィールドが、高コントラストの白いテキストと、1つの中間的な紫のブランドアクセントのための舞台を提供します。これは、色を装飾ではなく、階層と強調のためのツールとして理解するシステムです。",
+      "ch2_outro": "導入原則は、暗く実用的な環境における、読みやすさのための高コントラストと、ブランドアイデンティティのための単一のクロマティック信号です。",
+      "ch3_intro": "タイポグラフィの声はクリーンで機能的であり、すべてのインターフェーステキストにはヒューマニスト・サンセリフがベースです。ディスプレイサイズのためのタイトなline-heightと、コードスニペットや変数のための専用の等幅フォントが、インターフェース言語と、それ describing コードの間にはっきりとした区別を生み出しています。",
+      "ch4_intro": "システムのリズムは、8pxの基本単位によって支配され、ゆったりとしたレイアウトに秩序を課す一貫した垂直グリッドを作り出しています。",
+      "ch5_intro": "面は、低不透明度の影のトリオによって達成される、微細な深さによって定義されます。これらはカードやコンテナを背景から浮かび上がらせます。細く、低コントラストの境界線は、視覚的なノイズを導入せずに、追加の分離を提供します。",
+      "ch6_intro": "構造的スケルトンは、コンテンツの集中を優先する、標準的で中央揃えのカラムレイアウトです。フルワイドのヒーローセクションは、主要なアナウンスのためにこのカラムを崩し、マーケティングからアプリケーションへと至る、明確な視覚的階層を生み出しています。",
+      "ch7_intro": "モーションは、スペクタクルではなく、機能的な強化として扱われます。アニメーションは、製品の実用性から注意を逸らすことなく導くように設計された、スムーズなフェードインと、scroll時の微細なparallaxに限定されています。",
+      "ch8_intro": "エディトリアルな声は、自信があり、技術的で、プロフェッショナルであり、直接的で利益志向のステートメントで語ります。遊び心のある言葉や曖昧なマーケティング用語を避け、代わりに正確で行動指向の呼びかけを選びます。",
+      "ch8_outro": "システムは、技術的な洗練とクリーンな集中というその中核のアイデンティティを維持するために、装飾的なセリフフォント、明るい背景、忙しいパターン、鋭い角を意図的に省いています。"
+    },
+    "ko": {
+      "ch1_intro": "Courier는 크로스 채널 알림을 조율하기 위한 개발자 중심 제어 센터이며, 그 디자인 시스템은 이러한 정밀함을 반영합니다. 비유하자면 건축적입니다: 명확성을 위해 구축된 제어실로, 모든 표면, 그림자, 타이포그래피 결정은 운영자의 집중력을 위해 존재합니다.",
+      "ch2_intro": "팔레트는 절제의 연구입니다: 거의 검은색(#0A0A0A)의 단일색상 어두운 영역이 대비 높은 흰색 텍스트와 단일, 은은한 보라색 브랜드 악센트를 위한 무대를 제공합니다. 이는 색상을 장식이 아닌 계층과 강조를 위한 도구로 이해하는 시스템입니다.",
+      "ch2_outro": "지배적인 원칙은 가독성을 위한 고대비와 어둡고 실용적인 환경 내에서 브랜드 정체성을 위한 단일 색상 신호입니다.",
+      "ch3_intro": "타이포그래피 음성은 기능적이며 깨끗하며, 모든 인터페이스 텍스트를 위한 휴머니스트 산세리프체를 기반으로 합니다. 디스플레이 크기용 타이트한 행간과 코드 조각 및 변수용 전용 고정폭 서체는 인터페이스 언어와 그 언어가 설명하는 코드 간의 명확한 구분을 만듭니다.",
+      "ch4_intro": "시스템의 리듬은 8px 기본 단위에 의해 지배되어, 넓은 레이아웃에 질서를 부과하는 일관된 수직 그리드를 만듭니다.",
+      "ch5_intro": "표면은 미묘한 깊이로 정의되며, 이는 카드와 컨테이너를 배경에서 들어 올리는 저불투명도 그림자의 삼중체를 통해 달성됩니다. 얇고, 저대비의 테두리는 시각적 잡음 없이 추가적인 구분을 제공합니다.",
+      "ch6_intro": "구조적 골격은 콘텐츠 집중을 우선시하는 표준, 중앙 정렬 컬럼 레이아웃입니다. 전체 폭 히어로 섹션은 주요 공지용으로 이 컬럼을 깨뜨려, 마케팅에서 애플리케이션으로의 명확한 시각적 계층을 만듭니다.",
+      "ch7_intro": "모션은 기능적 향상으로 다루어지며, 화려함이 아닙니다. 애니메이션은 매끄러운 페이드인과 스크롤 시 미묘한 패럴랙스로 제한되며, 제품의 유용성에서 주의를 전환하지 않으면서 주의를 안내하도록 설계되었습니다.",
+      "ch8_intro": "에디토리얼 음성은 자신감 있고, 기술적이며, 전문적이며, 직접적이고, 혜택 중심적인 진술로 말합니다. 장난스러운 언어와 모호한 마케팅 용어를 피하고, 대신 정확하고, 행동 지향적인 콜 투 액션을 선택합니다.",
+      "ch8_outro": "시스템은 기술적 정교함과 깨끗한 집중이라는 핵심 정체성을 유지하기 위해 장식용 세리프 폰트, 밝은 배경, 바쁜 패턴, 그리고 날카로운 모서리를 의도적으로 제외합니다."
+    }
+  }
 }

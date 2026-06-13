@@ -8,6 +8,621 @@
     "saas",
     "payments"
   ],
-  "status": "pending",
-  "added_at": "2026-06-02"
+  "status": "completed",
+  "added_at": "2026-06-02",
+  "spec": {
+    "colors": {
+      "bg": "#FFFFFF",
+      "bgSoft": "#F7F7F8",
+      "bgQuiet": null,
+      "ink": "#121217",
+      "inkSoft": "#6C6C89",
+      "muted": "#6C6C89",
+      "mutedSoft": null,
+      "accent": "#5423E7",
+      "line": "rgba(18,18,23,0.1)"
+    },
+    "typography": {
+      "display": "geometric-sans",
+      "body": "humanist-sans",
+      "mono": "monospace",
+      "scale": [
+        {
+          "token": "display",
+          "size": 72,
+          "lh": 1.05,
+          "weight": 500,
+          "ls": "-1.5px"
+        },
+        {
+          "token": "heading",
+          "size": 38,
+          "lh": 1.2,
+          "weight": 500,
+          "ls": "-0.5px"
+        },
+        {
+          "token": "body",
+          "size": 18,
+          "lh": 1.6,
+          "weight": 400,
+          "ls": "0px"
+        },
+        {
+          "token": "small",
+          "size": 14,
+          "lh": 1.6,
+          "weight": 400,
+          "ls": "0px"
+        }
+      ]
+    },
+    "spacing": {
+      "base": 4,
+      "scale": [
+        4,
+        8,
+        16,
+        24,
+        32,
+        40,
+        48,
+        64,
+        96,
+        160
+      ]
+    },
+    "surfaces": {
+      "radius": {
+        "sm": 4,
+        "md": 8,
+        "lg": 20,
+        "pill": 40
+      }
+    },
+    "layout": {
+      "container": 1280,
+      "paragraph": 680,
+      "columns": 12,
+      "gutter": 24,
+      "breakpoints": [
+        768,
+        1024
+      ]
+    },
+    "motion": {
+      "durations": {
+        "micro": 220,
+        "small": 400,
+        "medium": 800
+      },
+      "easing": "cubic-bezier(0.215, 0.61, 0.355, 1)"
+    }
+  },
+  "spec_i18n": {
+    "en": {
+      "identity": {
+        "keywords": [
+          "payments",
+          "merchant of record",
+          "subscriptions",
+          "software",
+          "developer"
+        ],
+        "analogy": "A friendly, purple-hued fintech dashboard that handles the boring stuff so you can focus on building.",
+        "oneLiner": "Payments, tax & subscriptions for software companies."
+      },
+      "colors": {
+        "principle": "High-contrast primary purple (#5423E7) paired with deep ink (#121217) and warm yellow (#FFC83C) for playful, confident fintech branding."
+      },
+      "typography": {
+        "rules": [
+          "Use tight letter-spacing (-1.5px) on large display text for impact.",
+          "Maintain a strict 400/500 weight hierarchy for regular and emphasis text.",
+          "Body text should use a readable humanist sans-serif for maximum legibility."
+        ],
+        "scaleUses": [
+          "Hero headlines on purple background",
+          "Section headings",
+          "Primary body text and descriptions",
+          "Fine print and UI labels"
+        ]
+      },
+      "spacing": {
+        "rhythm": "Consistent 4px base grid with generous padding (40px) for section isolation."
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 4px 24px rgba(0,0,0,0.06)",
+          "0px 8px 48px rgba(0,0,0,0.08)"
+        ],
+        "borders": "1px solid rgba(18,18,23,0.1) for inputs; mostly borderless cards."
+      },
+      "layout": {
+        "skeleton": "Full-width hero with asymmetric split (text left, device mockup right); 3-column feature grid below."
+      },
+      "components": {
+        "button": "Pill-shaped (border-radius 40px) primary buttons with dark text on white, or white text on purple accent. High contrast, generous padding.",
+        "card": "Minimalist cards with subtle shadows (0px 4px 24px) and 8-20px radius, often containing screenshots or feature lists.",
+        "chip": "Small uppercase labels (e.g., 'M / 1') in muted blue (#0075AD) acting as section markers.",
+        "input": "Standard rectangular inputs with 8px radius, light gray borders, and clear placeholder text.",
+        "hero": "Full-bleed purple (#5423E7) background with massive display typography and a floating, angled device mockup."
+      },
+      "motion": {
+        "patterns": [
+          "Smooth color transitions on hover (0.2s)",
+          "Transform shifts on interactive elements (0.22s)",
+          "Overall state transitions (0.28s)"
+        ]
+      },
+      "interaction": {
+        "hover": "Subtle background color shifts or opacity changes on buttons and links; cursor changes to pointer.",
+        "click": "Immediate visual feedback through transform or color change.",
+        "transition": "Standardized cubic-bezier easing (0.215, 0.61, 0.355, 1) for all interactive state changes.",
+        "keyboard": "Standard focus outlines and logical tab order for accessibility."
+      },
+      "voice": {
+        "tone": "Friendly, approachable, and confident, yet professional.",
+        "headlineStyle": "Direct, benefit-driven, and slightly playful (e.g., 'Payout fees sliced').",
+        "ctaStyle": "Action-oriented and clear (e.g., 'Get started for free' with a right arrow icon).",
+        "avoid": [
+          "Stiff or overly formal corporate jargon.",
+          "Vague promises without clear value propositions.",
+          "Cluttered interfaces that obscure the core message."
+        ]
+      },
+      "donts": [
+        "Don't use dark mode — screenshot shows a predominantly bright white and vibrant purple palette.",
+        "Don't use heavy serif fonts — screenshot shows a clean, modern sans-serif for all display and body text.",
+        "Don't use complex gradients — screenshot shows solid color blocks for backgrounds.",
+        "Don't use sharp rectangular buttons — screenshot shows fully rounded pill-shaped buttons (border-radius 40px).",
+        "Don't use muted, low-contrast colors for primary actions — screenshot shows high-contrast white-on-purple or dark-on-white buttons.",
+        "Don't use small, cramped layouts — screenshot shows generous padding (40px) and wide spacing between elements."
+      ],
+      "systemPrompt": "Lemon Squeezy is a merchant of record for software companies, positioning itself as a friendly, all-in-one solution for payments, tax, and subscriptions. The visual system centers on a bold, high-chroma purple (#5423E7) primary accent, complemented by a deep ink (#121217) and playful warm yellow (#FFC83C). Typography relies on a clean geometric and humanist sans-serif hierarchy (likely Inter and Circular Pro). Critical design rules include: 1) Never use dark mode, as the brand identity is built on bright, vibrant surfaces. 2) Always use fully rounded pill-shaped buttons for primary actions. 3) Maintain generous whitespace and large, tight letter-spaced headlines to project confidence and modernity."
+    },
+    "zh-CN": {
+      "identity": {
+        "keywords": [
+          "支付",
+          "记录商户",
+          "订阅",
+          "软件",
+          "开发者"
+        ],
+        "analogy": "一个友好、紫色调的金融科技仪表板，处理繁琐事务，让你能专注于构建。",
+        "oneLiner": "为软件公司提供支付、税务与订阅服务。"
+      },
+      "colors": {
+        "principle": "高对比度的主色调紫色 (#5423E7) 搭配深邃墨色 (#121217) 与暖黄色 (#FFC83C)，打造活泼、自信的金融科技品牌标识。"
+      },
+      "typography": {
+        "rules": [
+          "在大号展示文本上使用紧凑的字距（-1.5px）以增强视觉冲击力。",
+          "严格遵循 400/500 的字重层级，用于常规和强调文本。",
+          "正文应使用易读的人文主义无衬线字体，以获得最佳可读性。"
+        ],
+        "scaleUses": [
+          "紫色背景上的首屏大标题",
+          "章节标题",
+          "主要正文和描述",
+          "小字说明和界面标签"
+        ]
+      },
+      "spacing": {
+        "rhythm": "基于一致的 4px 网格，章节间采用充裕的内边距（40px）进行分隔。"
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 4px 24px rgba(0,0,0,0.06)",
+          "0px 8px 48px rgba(0,0,0,0.08)"
+        ],
+        "borders": "输入框采用 1px solid rgba(18,18,23,0.1) 边框；卡片大多无边框。"
+      },
+      "layout": {
+        "skeleton": "全宽首屏采用不对称分割（文字居左，设备模型居右）；下方是三列功能网格。"
+      },
+      "components": {
+        "button": "药丸形（border-radius 40px）主按钮，白色背景深色文字，或紫色背景白色文字。高对比度，内边距充裕。",
+        "card": "极简风格卡片，带有微妙阴影（0px 4px 24px）和 8-20px 圆角，通常包含截图或功能列表。",
+        "chip": "小型大写标签（例如 'M / 1'），采用柔和蓝色（#0075AD），用作章节标记。",
+        "input": "标准矩形输入框，8px 圆角，浅灰色边框，带有清晰的占位符文本。",
+        "hero": "全出血紫色（#5423E7）背景，搭配超大展示字体和一个悬浮、倾斜的设备模型。"
+      },
+      "motion": {
+        "patterns": [
+          "悬停时平滑的颜色过渡（0.2s）",
+          "交互元素的变换移动（0.22s）",
+          "整体状态过渡（0.28s）"
+        ]
+      },
+      "interaction": {
+        "hover": "按钮和链接在悬停时背景颜色或透明度发生微妙变化；光标变为指针。",
+        "click": "通过变换或颜色变化提供即时的视觉反馈。",
+        "transition": "所有交互状态变化均采用标准化的 cubic-bezier 缓动（0.215, 0.61, 0.355, 1）。",
+        "keyboard": "遵循标准的焦点轮廓和逻辑化的标签顺序，确保可访问性。"
+      },
+      "voice": {
+        "tone": "友好、平易近人、自信，同时保持专业。",
+        "headlineStyle": "直接、以效益为导向，略带趣味性（例如，'降低提现费用'）。",
+        "ctaStyle": "以行动为导向，表述清晰（例如，'免费开始'，并带有右箭头图标）。",
+        "avoid": [
+          "生硬或过于正式的企业术语。",
+          "缺乏明确价值主张的模糊承诺。",
+          "使核心信息模糊不清的杂乱界面。"
+        ]
+      },
+      "donts": [
+        "不要使用深色模式——截图显示的是一种以明亮白色和鲜艳紫色为主的配色方案。",
+        "不要使用厚重的衬线字体——截图显示所有展示和正文文本均采用简洁、现代的无衬线字体。",
+        "不要使用复杂的渐变——截图显示背景使用纯色块。",
+        "不要使用尖锐的矩形按钮——截图显示的是完全圆润的药丸形按钮（border-radius 40px）。",
+        "不要为重要操作使用柔和、低对比度的颜色——截图显示的是高对比度的白底紫字或深底白字按钮。",
+        "不要使用狭小、拥挤的布局——截图显示的是充裕的内边距（40px）和元素间宽大的间距。"
+      ],
+      "systemPrompt": "Lemon Squeezy 是一家为软件公司服务的记录商户，定位为友好、一体化的支付、税务和订阅解决方案。其视觉系统以大胆、高饱和度的紫色（#5423E7）为主色调，辅以深邃墨色（#121217）和活泼的暖黄色（#FFC83C）。排版依赖于简洁的几何与人文主义无衬线字体层级（可能是 Inter 和 Circular Pro）。关键设计规则包括：1）绝不使用深色模式，因为品牌标识建立在明亮、鲜艳的界面之上。2）重要操作务必使用完全圆润的药丸形按钮。3）保持充裕的留白和字距紧凑的大标题，以传递自信和现代感。"
+    },
+    "zh-TW": {
+      "identity": {
+        "keywords": [
+          "支付",
+          "記錄商家",
+          "訂閱",
+          "軟體",
+          "開發者"
+        ],
+        "analogy": "一個友善的紫色調金融科技儀表板，處理繁瑣事務，讓你能專注於產品開發。",
+        "oneLiner": "為軟體公司提供的支付、稅務與訂閱解決方案。"
+      },
+      "colors": {
+        "principle": "高對比的主要紫色 (#5423E7) 搭配深墨色 (#121217) 與暖黃色 (#FFC83C)，打造俏皮且自信的金融科技品牌色調。"
+      },
+      "typography": {
+        "rules": [
+          "大型展示文字使用緊湊字距 (-1.5px) 以增強視覺衝擊力。",
+          "嚴格遵循 400/500 字重層級，區分常規與強調文字。",
+          "內文應採用易讀的人文無襯線字體，以確保最大可讀性。"
+        ],
+        "scaleUses": [
+          "紫色背景上的首頁大標題",
+          "區塊標題",
+          "主要內文與描述文字",
+          "小字體與介面標籤"
+        ]
+      },
+      "spacing": {
+        "rhythm": "統一的 4px 基礎格線，搭配寬裕的內距 (40px) 以區隔不同區塊。"
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 4px 24px rgba(0,0,0,0.06)",
+          "0px 8px 48px rgba(0,0,0,0.08)"
+        ],
+        "borders": "輸入框採用 1px solid rgba(18,18,23,0.1) 邊框；卡片大多無邊框。"
+      },
+      "layout": {
+        "skeleton": "全寬首頁橫幅採不對稱分割（文字置左，裝置模型置右）；下方為三欄功能格線。"
+      },
+      "components": {
+        "button": "藥丸形 (border-radius 40px) 主要按鈕，深色文字搭配白色背景，或白色文字搭配紫色點綴。高對比度，寬裕內距。",
+        "card": "極簡卡片，帶有微弱陰影 (0px 4px 24px) 與 8-20px 圓角，通常包含截圖或功能列表。",
+        "chip": "小型大寫標籤（例如 'M / 1'），採用柔和藍色 (#0075AD)，作為區塊標記。",
+        "input": "標準矩形輸入框，8px 圓角，淺灰色邊框與清晰的佔位符文字。",
+        "hero": "全出血紫色 (#5423E7) 背景，搭配超大展示字體與懸浮傾斜的裝置模型。"
+      },
+      "motion": {
+        "patterns": [
+          "hover 時平滑的色彩過渡 (0.2秒)",
+          "互動元素的變形位移 (0.22秒)",
+          "整體狀態過渡 (0.28秒)"
+        ]
+      },
+      "interaction": {
+        "hover": "按鈕和連結有細微的背景色或透明度變化；游標變為指針。",
+        "click": "透過變形或色彩變更提供即時視覺回饋。",
+        "transition": "所有互動狀態過渡採用標準化的 cubic-bezier 緩動函數 (0.215, 0.61, 0.355, 1)。",
+        "keyboard": "標準焦點外框與合理的 tab 順序，確保無障礙使用。"
+      },
+      "voice": {
+        "tone": "友善、親和且自信，同時保持專業。",
+        "headlineStyle": "直接、強調效益且略帶俏皮（例如：「支付手續費大幅降低」）。",
+        "ctaStyle": "行動導向且清晰（例如：「免費開始使用」搭配向右箭頭圖示）。",
+        "avoid": [
+          "生硬或過度正式的企業術語。",
+          "缺乏明確價值主張的模糊承諾。",
+          "雜亂的介面模糊了核心訊息。"
+        ]
+      },
+      "donts": [
+        "勿使用深色模式 — 截圖顯示以明亮白色與活潑紫色為主的色調。",
+        "勿使用厚重襯線字體 — 截圖顯示所有展示與內文文字均採用簡潔現代的無襯線字體。",
+        "勿使用複雜漸層 — 截圖顯示背景為純色區塊。",
+        "勿使用尖銳的矩形按鈕 — 截圖顯示完全圓潤的藥丸形按鈕 (border-radius 40px)。",
+        "勿使用柔和、低對比度的色彩作為主要行動按鈕 — 截圖顯示高對比度的白底紫字或深底白字按鈕。",
+        "勿使用狹小擁擠的佈局 — 截圖顯示寬裕的內距 (40px) 與元素間寬敞的間距。"
+      ],
+      "systemPrompt": "Lemon Squeezy 是一家軟體公司的記錄商家，定位為處理支付、稅務與訂閱的友善全方位解決方案。其視覺系統以大膽、高飽和度的紫色 (#5423E7) 為主要點綴色，輔以深墨色 (#121217) 與俏皮的暖黃色 (#FFC83C)。排版依賴簡潔的幾何與人文無襯線字體層級（可能是 Inter 和 Circular Pro）。關鍵設計準則包括：1) 永不使用深色模式，因品牌識別建立於明亮活潑的表面。2) 主要行動按鈕始終使用完全圓潤的藥丸形。3) 保持寬裕的留白與大字體、緊湊字距的標題，以展現自信與現代感。"
+    },
+    "ja": {
+      "identity": {
+        "keywords": [
+          "決済",
+          "マーチャント・オブ・レコード",
+          "サブスクリプション",
+          "ソフトウェア",
+          "開発者"
+        ],
+        "analogy": "面倒な処理を引き受け、構築に集中できるようにする、親しみやすい紫のフィンテックダッシュボード。",
+        "oneLiner": "ソフトウェア企業のための決済、税金、サブスクリプション管理。"
+      },
+      "colors": {
+        "principle": "高コントラートのプライマリ紫（#5423E7）を、深いインク（#121217）と暖かみのある黄（#FFC838）と組み合わせ、遊び心と自信に満ちたフィンテックブランディングを実現。"
+      },
+      "typography": {
+        "rules": [
+          "大きなディスプレイテキストにはインパクトのため、狭い文字間隔（-1.5px）を使用。",
+          "通常テキストと強調テキストで、400/500の厳格なウェイト階層を維持。",
+          "本文テキストには、最大限の可読性を確保するため、ヒューマニスト・サンセリフを使用。"
+        ],
+        "scaleUses": [
+          "紫背景のヒーローヘッドライン",
+          "セクション見出し",
+          "プライマリ本文テキストと説明",
+          "注釈とUIラベル"
+        ]
+      },
+      "spacing": {
+        "rhythm": "セクション分離のための十分なパディング（40px）を持つ、一貫した4pxベースグリッド。"
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 4px 24px rgba(0,0,0,0.06)",
+          "0px 8px 48px rgba(0,0,0,0.08)"
+        ],
+        "borders": "入力フィールドには1px solid rgba(18,18,23,0.1)。カードは主にボーダーレス。"
+      },
+      "layout": {
+        "skeleton": "非対称分割のフル幅ヒーロー（左にテキスト、右にデバイスモックアップ）。下部に3カラム機能グリッド。"
+      },
+      "components": {
+        "button": "ピル型（border-radius 40px）のプライマリボタン。白地に濃色テキスト、または紫アクセント地に白テキスト。高コントラートで十分なパディング。",
+        "card": "0px 4px 24pxの微細なシャドウと8〜20pxのradiusを持つミニマリストなカード。スクリーンショットや機能リストを含むことが多い。",
+        "chip": "セクションマーカーとして機能する、落ち着いた青（#0075AD）の小さな大文字ラベル（例：'M / 1'）。",
+        "input": "8px radius、薄いグレーのボーダー、明確なプレースホルダーテキストを持つ標準的な長方形入力フィールド。",
+        "hero": "紫（#5423E7）のフルブリード背景に、巨大なディスプレイタイポグラフィと浮遊する角度付きデバイスモックアップ。"
+      },
+      "motion": {
+        "patterns": [
+          "ホバー時の滑らかなカラートランジション（0.2s）",
+          "インタラクティブ要素のトランスフォームシフト（0.22s）",
+          "全体的なステートトランジション（0.28s）"
+        ]
+      },
+      "interaction": {
+        "hover": "ボタンやリンクの微細な背景色シフトや不透明度の変化。カーソルはポインタに変化。",
+        "click": "トランスフォームやカラー変化による即座の視覚フィードバック。",
+        "transition": "すべてのインタラクティブステート変化に標準化されたcubic-bezierイージング（0.215, 0.61, 0.355, 1）を適用。",
+        "keyboard": "アクセシビリティのための標準的なフォーカスアウトラインと論理的なタブ順序。"
+      },
+      "voice": {
+        "tone": "フレンドリーで親しみやすく、自信に満ちつつプロフェッショナル。",
+        "headlineStyle": "直接的でメリット重視、少し遊び心を交えたスタイル（例：'Payout fees sliced'）。",
+        "ctaStyle": "行動を促す明確なスタイル（例：右矢印アイコン付きの'Get started for free'）。",
+        "avoid": [
+          "硬直した、または過度にフォーマルな企業用語。",
+          "明確な価値提案のない曖昧な約束。",
+          "核心メッセージを曖昧にする雑然としたインターフェース。"
+        ]
+      },
+      "donts": [
+        "ダークモードを使用しない — スクリーンショットでは明るい白と鮮やかな紫のパレットが支配的。",
+        "重厚なセリフフォントを使用しない — スクリーンショットではすべてのディスプレイおよび本文テキストにクリーンでモダンなサンセリフを使用。",
+        "複雑なグラデーションを使用しない — スクリーンショットでは背景にソリッドカラーブロックを使用。",
+        "鋭角の長方形ボタンを使用しない — スクリーンショットでは完全に丸みのあるピル型ボタン（border-radius 40px）を使用。",
+        "プライマリアクションにくすんだ低コントラートカラーを使用しない — スクリーンショットでは高コントラートの白地に紫、または濃色地に白のボタンを使用。",
+        "狭く窮屈なレイアウトを使用しない — スクリーンショットでは十分なパディング（40px）と要素間の広いスペースを使用。"
+      ],
+      "systemPrompt": "Lemon Squeezyは、ソフトウェア企業向けのマーチャント・オブ・レコードであり、決済、税金、サブスクリプションのための親しみやすいオールインワンソリューションとして位置づけられています。ビジュアルシステムは、大胆で高クロマの紫（#5423E7）のプライマリアクセントを中心に、深いインク（#121217）と遊び心のある暖かみのある黄（#FFC838）で補完しています。タイポグラフィは、クリーンなジオメトリックおよびヒューマニスト・サンセリフの階層（おそらくInterとCircular Pro）に依存しています。重要なデザインルール：1) ブランドアイデンティティが明るくビブラントなサーフェスに構築されているため、ダークモードは決して使用しない。2) プライマリアクションには必ず完全に丸みのあるピル型ボタンを使用。3) 自信とモダンさを投影するため、十分なホワイトスペースと大きく狭い文字間隔のヘッドラインを維持する。"
+    },
+    "ko": {
+      "identity": {
+        "keywords": [
+          "결제",
+          "판매 대행사",
+          "구독",
+          "소프트웨어",
+          "개발자"
+        ],
+        "analogy": "지루한 일을 처리해주는 친근한 보라빛 핀테크 대시보드로, 여러분은 빌드에 집중할 수 있습니다.",
+        "oneLiner": "소프트웨어 기업을 위한 결제, 세금 및 구독."
+      },
+      "colors": {
+        "principle": "대담하고 자신감 있는 핀테크 브랜딩을 위해 고대비 주요 보라색(#5423E7)을 짙은 잉크(#121217)와 따뜻한 노란색(#FFC83C)과 조화롭게 배치합니다."
+      },
+      "typography": {
+        "rules": [
+          "강조를 위해 큰 디스플레이 텍스트에는 타이트한 자간(-1.5px)을 사용합니다.",
+          "일반 및 강조 텍스트에 대해 400/500의 엄격한 웨이트 계층을 유지합니다.",
+          "본문 텍스트는 최대 가독성을 위해 읽기 좋은 휴머니스트 산세리프를 사용합니다."
+        ],
+        "scaleUses": [
+          "보라색 배경의 히어로 헤드라인",
+          "섹션 제목",
+          "주요 본문 텍스트 및 설명",
+          "미주 및 UI 레이블"
+        ]
+      },
+      "spacing": {
+        "rhythm": "일관된 4px 기본 그리드와 섹션을 분리하기 위한 넉넉한 패딩(40px)을 적용합니다."
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 4px 24px rgba(0,0,0,0.06)",
+          "0px 8px 48px rgba(0,0,0,0.08)"
+        ],
+        "border": "입력 필드는 1px solid rgba(18,18,23,0.1) 테두리를 사용하며, 카드는 대부분 테두리가 없습니다."
+      },
+      "layout": {
+        "skeleton": "비대칭 분할(텍스트 왼쪽, 기기 목업 오른쪽)의 풀폭 히어로; 아래에 3컬럼 기능 그리드."
+      },
+      "components": {
+        "button": "알약 모양(border-radius 40px) 주요 버튼으로, 흰색 배경에 어두운 텍스트 또는 보라색 강조 배경에 흰색 텍스트를 사용합니다. 고대비이며 패딩이 넉넉합니다.",
+        "card": "미니멀한 카드로, 섬세한 그림자(0px 4px 24px)와 8-20px 반경을 가지며, 스크린샷이나 기능 목록을 포함합니다.",
+        "chip": "섹션 표시자 역할을 하는 차분한 파란색(#0075AD)의 대문자 소형 레이블(예: 'M / 1').",
+        "input": "표준 직사각형 입력 필드로, 8px 반경, 밝은 회색 테두리 및 명확한 플레이스홀더 텍스트를 사용합니다.",
+        "hero": "보라색(#5423E7) 배경의 풀블리드 히어로로, 거대한 디스플레이 타이포그래피와 부유하며 각진 기기 목업이 배치됩니다."
+      },
+      "motion": {
+        "patterns": [
+          "hover 시 부드러운 색상 전환(0.2s)",
+          "인터랙티브 요소의 transform 변화(0.22s)",
+          "전체 상태 전환(0.28s)"
+        ]
+      },
+      "interaction": {
+        "hover": "버튼과 링크에서 미묘한 배경 색상 변화 또는 불투명도 변경; 커서가 포인터로 변경됩니다.",
+        "click": "transform 또는 색상 변화를 통한 즉각적인 시각적 피드백.",
+        "transition": "모든 인터랙티브 상태 변경에 표준화된 cubic-bezier 이징(0.215, 0.61, 0.355, 1)을 사용합니다.",
+        "keyboard": "접근성을 위한 표준 포커스 윤곽선과 논리적 탭 순서."
+      },
+      "voice": {
+        "tone": "친근하고 접근 가능하며 자신감 있으면서도 전문적입니다.",
+        "headlineStyle": "직접적이고 혜택 중심적이며 약간 장난기 있는(예: '수수료를 확 쪼갰습니다').",
+        "ctaStyle": "행동 지향적이고 명확합니다(예: '무료로 시작하기'와 함께 오른쪽 화살표 아이콘).",
+        "avoid": [
+          "딱딱하거나 지나치게 공식적인 기업 용어.",
+          "명확한 가치 제안 없는 모호한 약속.",
+          "핵심 메시지를 흐리게 하는 지나치게 복잡한 인터페이스."
+        ]
+      },
+      "donts": [
+        "다크 모드를 사용하지 마세요 — 스크린샷은 주로 밝은 흰색과 선명한 보라색 팔레트를 보여줍니다.",
+        "두꺼운 세리프 폰트를 사용하지 마세요 — 스크린샷은 모든 디스플레이 및 본문 텍스트에 깔끔하고 현대적인 산세리프를 보여줍니다.",
+        "복잡한 그라데이션을 사용하지 마세요 — 스크린샷은 배경에 단색 블록을 보여줍니다.",
+        "날카로운 직사각형 버튼을 사용하지 마세요 — 스크린샷은 완전히 둥근 알약 모양 버튼(border-radius 40px)을 보여줍니다.",
+        "주요 작업에 차분하고 저대비 색상을 사용하지 마세요 — 스크린샷은 고대비의 흰색-on-보라색 또는 어두운-on-흰색 버튼을 보여줍니다.",
+        "좁고 비좁은 레이아웃을 사용하지 마세요 — 스크린샷은 넉넉한 패딩(40px)과 요소 간의 넓은 간격을 보여줍니다."
+      ],
+      "systemPrompt": "Lemon Squeezy는 소프트웨어 기업을 위한 판매 대행사로, 결제, 세금 및 구독을 위한 친근한 올인원 솔루션을 지향합니다. 비주얼 시스템은 굵은 고채도 보라색(#5423E7) 주요 강조를 중심으로, 짙은 잉크(#121217)와 장난기 있는 따뜻한 노란색(#FFC83C)으로 보완됩니다. 타이포그래피는 깔끔한 기하학적 및 휴머니스트 산세리프 계층(Inter와 Circular Pro 가능성)에 의존합니다. 핵심 디자인 규칙은 다음과 같습니다: 1) 브랜드 아이덴티티가 밝고 선명한 표면 위에 구축되었으므로, 절대로 다크 모드를 사용하지 마세요. 2) 주요 작업에는 항상 완전히 둥근 알약 모양 버튼을 사용하세요. 3) 자신감과 현대성을 전달하기 위해 넉넉한 여백과 크고 자간이 타이트한 헤드라인을 유지하세요."
+    }
+  },
+  "desc": {
+    "en": {
+      "palette": "A high-contrast palette dominated by vibrant purple (#5423E7) and deep ink (#121217), accented with warm yellow (#FFC83C) and muted blue (#0075AD) on a clean white base.",
+      "layout": "Asymmetric full-width hero with text and angled device mockup, followed by a structured multi-column feature grid with generous section padding.",
+      "interaction": "Smooth, standardized transitions using a specific cubic-bezier easing for all hover, click, and state changes, emphasizing a polished feel.",
+      "motion": "Micro-interactions are brief (220-400ms) with a focus on transform and color shifts, creating a responsive and fluid user experience.",
+      "notes": "This site is a prime example of modern fintech SaaS branding that balances professionalism with approachable, playful design elements through bold color and clean typography."
+    },
+    "zh-CN": {
+      "palette": "一套以鲜明紫色 (#5423E7) 和深邃墨色 (#121217) 为主导的高对比度调色板，点缀着暖黄色 (#FFC83C) 与柔和蓝色 (#0075AD)，置于纯净的白色基底之上。",
+      "layout": "采用不对称的全宽首屏设计，包含文字与倾斜的设备模型，随后是结构化的多列功能网格，各部分间距充裕。",
+      "interaction": "采用特定的 cubic-bezier 缓动曲线，为所有悬停、点击和状态变化提供平滑、标准化的过渡效果，强调精致的质感。",
+      "motion": "微交互简洁短暂（220-400毫秒），聚焦于变换和色彩变化，营造出响应迅速、流畅自如的用户体验。",
+      "notes": "该网站是现代金融科技 SaaS 品牌塑造的典范，通过大胆的色彩和简洁的排版，将专业性与平易近人、富有趣味的设计元素相平衡。"
+    },
+    "zh-TW": {
+      "palette": "以活潑紫色 (#5423E7) 和深墨色 (#121217) 為主的高對比色調，點綴暖黃色 (#FFC83C) 和柔和藍色 (#0075AD)，背景為潔淨白色。",
+      "layout": "不對稱的全寬首頁橫幅，結合文字與傾斜的裝置模型，後接結構化的多欄功能格線，並保留寬裕的區塊內距。",
+      "interaction": "流暢且標準化的過渡效果，運用特定的 cubic-bezier 緩動函數處理所有 hover、點擊和狀態切換，強調精緻質感。",
+      "motion": "微互動持續時間簡短 (220-400毫秒)，專注於變形與色彩變化，創造靈敏流暢的使用者體驗。",
+      "notes": "此網站是現代金融科技 SaaS 品牌設計的典範，透過大膽色彩與簡潔排版，在專業感與親和、俏皮的設計元素之間取得平衡。"
+    },
+    "ja": {
+      "palette": "鮮やかな紫（#5423E7）と深いインク（#121217）を基調とした高コントラートなパレット。清潔な白をベースに、暖かみのある黄（#FFC83C）と落ち着いた青（#0075AD）でアクセントを加えています。",
+      "layout": "テキストと角度付きデバイスモックアップを配置した非対称のフル幅ヒーローセクションに続き、十分なセクションパディングを持つ構造化されたマルチカラム機能グリッド。",
+      "interaction": "ホバー、クリック、ステート変化すべてに特定のcubic-bezierイージングを用いた滑らかで標準化されたトランジション。洗練された質感を重視。",
+      "motion": "220〜400msの短いマイクロインタラクション。トランスフォームとカラーシフトに焦点を当て、レスポンシブで流動的なユーザーエクスペリエンスを生み出します。",
+      "notes": "本サイトは、大胆なカラーデザインとクリーンなタイポグラフィを通じて、プロフェッショナリズムと親しみやすさのある遊び心あるデザイン要素のバランスを実現した、現代的なフィンテックSaaSブランディングの好例です。"
+    },
+    "ko": {
+      "palette": "선명한 보라색(#5423E7)과 짙은 잉크(#121217)를 주도하는 고대비 팔레트에, 깔끔한 흰색 바탕 위에 따뜻한 노란색(#FFC83C)과 차분한 파란색(#0075AD)으로 포인트를 주었습니다.",
+      "layout": "텍스트와 각진 기기 목업이 있는 비대칭 풀폭 히어로 섹션 뒤에, 넉넉한 섹션 패딩이 적용된 구조화된 다중 컬럼 기능 그리드가 이어집니다.",
+      "interaction": "매끄럽고 표준화된 트랜지션으로, 모든 hover, 클릭 및 상태 변경에 특별한 cubic-bezier 이징을 사용하여 마감된 느낌을 강조합니다.",
+      "motion": "마이크로 인터랙션은 짧게(220-400ms) 구성되며, transform과 색상 변화에 집중하여 반응적이고 유연한 사용자 경험을 만듭니다.",
+      "notes": "이 사이트는 대담한 색상과 깔끔한 타이포그래피를 통해 전문성과 접근 가능하며 장난기 있는 디자인 요소의 균형을 맞춘 현대적인 핀테크 SaaS 브랜딩의 훌륭한 예시입니다."
+    }
+  },
+  "_meta": {
+    "vision_model": "mimo-v2.5",
+    "vision_prompt_version": "0.3",
+    "vision_source": "playwright-extract:lemon-squeezy",
+    "vision_grounded": true,
+    "vision_at": "2026-06-04T16:16:27+00:00",
+    "vision_tokens": 16567,
+    "vision_cost_usd": 0.1841,
+    "translation_model": "mimo-v2.5",
+    "translation_at": "2026-06-04T16:17:55+00:00",
+    "translation_tokens": 19612,
+    "translation_cost_usd": 0.0654,
+    "narrative_model": "mimo-v2.5",
+    "narrative_prompt_version": "0.3",
+    "narrative_at": "2026-06-04T16:18:05+00:00",
+    "narrative_tokens": 2337,
+    "narrative_cost_usd": 0.0156,
+    "narrative_status": "ok",
+    "total_cost_usd": 0.2651
+  },
+  "narrative": {
+    "en": {
+      "ch1_intro": "Lemon Squeezy operates as a merchant of record, a quiet engine room for software companies. The design system acts as the clean, functional facade of that engine—a dashboard that handles complexity with a confident, friendly demeanor.",
+      "ch2_intro": "The palette is built on a stark, high-contrast foundation of vibrant purple and deep ink, used not as decoration but as clear signifiers of primary action and background. A warm yellow and muted blue provide secondary accents for emphasis and labeling.",
+      "ch2_outro": "The core principle is functional clarity: every color choice serves to guide the user's eye and reinforce a hierarchy of information.",
+      "ch3_intro": "Typography establishes a direct and approachable voice through a strict geometric and humanist sans-serif hierarchy. Tight letter-spacing on large display text creates a sense of modern confidence, while a clear weight distinction ensures readability across all scales.",
+      "ch4_intro": "A consistent 4px base grid underpins the entire layout, creating a predictable visual rhythm.",
+      "ch5_intro": "Depth is implied through soft, layered shadows on key components, while a single-pixel border provides necessary definition for inputs. The system largely favors borderless cards to maintain a clean, open feel.",
+      "ch6_intro": "The foundational layout presents a bold, asymmetric hero section with a floating device mockup, establishing visual interest and core message immediately. This transitions into a structured multi-column grid for feature presentation, framed by generous padding for section isolation.",
+      "ch7_intro": "Motion is treated as a functional polish, with smooth, standardized transitions providing immediate feedback for interactive states. The philosophy prioritizes subtle, responsive shifts over decorative animation, using a consistent easing curve for a cohesive feel.",
+      "ch8_intro": "The voice is direct, benefit-driven, and conversational, avoiding corporate stiffness in favor of clear, playful communication. This tone is mirrored in the interface, which prioritizes clarity and generous spacing over dense information.",
+      "ch8_outro": "The system deliberately avoids dark mode, complex gradients, and formal typography to maintain its signature bright, confident, and approachable character."
+    },
+    "zh-CN": {
+      "ch1_intro": "Lemon Squeezy 作为软件公司的隐形中枢，扮演着销售记录商的角色。设计系统则是这台引擎干净、功能性的外立面——一个仪表盘，以自信、友好的姿态驾驭复杂。",
+      "ch2_intro": "色彩建立在鲜明紫色与深墨色的高对比基底之上，它们并非装饰，而是主要操作与背景的明确标识。暖黄色与柔和的蓝色则作为次要强调色，用于突出重点与标签。",
+      "ch2_outro": "核心原则是功能性清晰：每一种色彩选择都旨在引导用户视线，并强化信息层级。",
+      "ch3_intro": "排版通过严格的几何无衬线与人文无衬线层级，建立起直接而亲切的语调。大字号展示文字采用紧凑的字间距，营造现代自信感，而清晰的字重区分确保了所有尺寸下的可读性。",
+      "ch4_intro": "统一的 4px 基础网格奠定了整个布局的基础，形成可预测的视觉节奏。",
+      "ch5_intro": "深度感通过关键组件上柔和、分层的阴影来暗示，而单像素边框则为输入框提供了必要的清晰度。系统大多采用无边框卡片，以保持干净、开放的感觉。",
+      "ch6_intro": "基础布局呈现为一个大胆、不对称的主视觉区域，配有浮动设备模型，立即建立视觉吸引力和核心信息。这过渡到用于功能展示的结构化多栏网格，并以充足的留白（padding）进行区域分隔。",
+      "ch7_intro": "动效被视为功能性的打磨，平滑、标准化的过渡为交互状态提供了即时反馈。其理念优先考虑细微、响应式的变化，而非装饰性动画，并使用一致的缓动曲线以营造整体感。",
+      "ch8_intro": "语调直接、以利益为导向且富有对话性，避免企业式的生硬，转而采用清晰、俏皮的沟通方式。这种风格也反映在界面中，优先考虑清晰度与充足间距，而非密集的信息呈现。",
+      "ch8_outro": "系统刻意避免深色模式、复杂渐变和正式排版，以保持其标志性的明亮、自信且亲切的特质。"
+    },
+    "zh-TW": {
+      "ch1_intro": "Lemon Squeezy 運作作為一家紀錄商家，是軟體公司背後安靜的引擎室。設計系統則是這個引擎室乾淨、功能性的門面——一個以自信、友善態度處理複雜性的控制面板。",
+      "ch2_intro": "調色盤建立在鮮豔紫色與深邃墨色的強烈高對比基礎上，並非作為裝飾，而是作為主要動作與背景的明確標示。溫暖的黃色與柔和的藍色則作為次要強調與標籤用色。",
+      "ch2_outro": "核心原則是功能性清晰：每個色彩選擇都旨在引導使用者視線並強化資訊層級。",
+      "ch3_intro": "字型透過嚴謹的幾何與人文無襯線字型層級，建立直接且易於親近的語調。大型展示文字緊湊的字距營造出現代自信感，而明確的字重區分則確保所有尺寸下的可讀性。",
+      "ch4_intro": "一致的 4px 基礎網格支撐著整體版面，創造出可預期的視覺節奏。",
+      "ch5_intro": "深度透過關鍵元件上柔和、層疊的陰影來暗示，而單像素邊框則為輸入框提供必要的明確界定。系統主要偏好無邊框卡片以保持乾淨、開放的感覺。",
+      "ch6_intro": "基礎版面呈現一個大膽、不對稱的主視覺區域，搭配浮動裝置模型，立即建立視覺吸引力與核心訊息。此區過渡至結構化的多欄網格以呈現功能特色，並以寬裕的 padding 進行區塊隔離。",
+      "ch7_intro": "動態被視為功能性的精煉，流暢、標準化的轉場為互動狀態提供即時回饋。其哲學優先考慮細微、響應性的變化而非裝飾性動畫，使用一致的 cubic-bezier 曲線以營造整體協調感。",
+      "ch8_intro": "語調直接、以利益為導向且具對話性，避免企業式的生硬，採用清晰、俏皮的溝通方式。此語調亦反映在介面上，優先考慮清晰度與寬裕間距，而非密集的資訊呈現。",
+      "ch8_outro": "系統刻意避免深色模式、複雜漸層與正式字型，以維持其標誌性明亮、自信且易於親近的特質。"
+    },
+    "ja": {
+      "ch1_intro": "Lemon Squeezyは、ソフトウェア企業向けの静かなエンジンルームとして、マーチャント・オブ・レコードとして機能しています。そのデザインシステムは、このエンジンのクリーンで機能的な外装であり、自信に満ち、フレンドリーな様子で複雑さを処理するダッシュボードです。",
+      "ch2_intro": "パレットは、鮮やかな紫と深いインクの鮮烈で高いコントラストの基盤の上に構築されています。装飾としてではなく、プライマリアクションと背景を明確に示すための記号として使用されます。温かみのある黄色と控えめな青は、強調やラベル付けのためのアクセントとして機能します。",
+      "ch2_outro": "中核原則は機能的な明瞭さです。すべての色の選択は、ユーザーの視線を導き、情報の階層を強化するために役立ちます。",
+      "ch3_intro": "タイポグラフィは、厳格な幾何学的およびヒューマニスト・サンセリフ階層を通じて、直接的で親しみやすい声を確立します。大きなディスプレイテキストのtightな字間は、現代的な自信感を生み出しますが、明確なウェイトの区別は、すべてのスケールで可読性を確保します。",
+      "ch4_intro": "一貫した4pxのベースグリッドが、レイアウト全体を支え、予測可能なビジュアルリズムを生み出します。",
+      "ch5_intro": "深みは、主要コンポーネントの上に重ねられた柔らかな陰影を通じて暗示され、入力には必要な定義を単一ピクセルのボーダーが提供します。システムは、クリーンでオープンな感覚を維持するために、主にボーダーレスのカードを採用しています。",
+      "ch6_intro": "基盤となるレイアウトは、浮遊するデバイスマックアップを備えた大胆な非対称のヒーローセクションを提示し、ビジュアルな関心とコアメッセージを即座に確立します。これは、セクションの分離のための豊かなpaddingで枠組まれた、機能を提示するための構造化されたマルチカラムグリッドへと移行します。",
+      "ch7_intro": "モーションは機能的な仕上げとして扱われ、スムーズで標準化されたトランジションが、インタラクティブな状態に即座のフィードバックを提供します。この哲学は、装飾的なアニメーションよりも、微細で反応的な変化を優先し、一体感のある感じのために一貫したイージングカーブを使用します。",
+      "ch8_intro": "声は直接的で、メリット重視、会話的であり、企業的な硬さを避け、明確で遊び心のあるコミュニケーションを優先します。このトーンは、密集した情報よりも明瞭さと豊かなspacingを優先するインターフェースにも反映されています。",
+      "ch8_outro": "システムは、特徴的な明るく、自信に満ち、親しみやすい特徴を維持するために、ダークモード、複雑なグラデーション、フォーマルなタイポグラフィを意図的に避けています。"
+    },
+    "ko": {
+      "ch1_intro": "Lemon Squeezy는 소프트웨어 기업을 위한 조용한 기계실과 같은 상점 기록자 역할을 합니다. 이 디자인 시스템은 그 기계의 깔끔하고 기능적인 외관이며, 자신감 있고 친근한 태도로 복잡성을 다루는 대시보드입니다.",
+      "ch2_intro": "팔레트는 생동감 있는 보라색과 깊은 잉크의 뚜렷하고 대비적인 토대 위에 구축되었으며, 장식이 아닌 주요 동작과 배경을 명확히 나타내는 지표로 사용됩니다. 따뜻한 노란색과 흐릿한 파란색은 강조 및 레이블링을 위한 보조 강조를 제공합니다.",
+      "ch2_outro": "핵심 원칙은 기능적 명확성입니다: 모든 색상 선택은 사용자의 시선을 안내하고 정보의 계층을 강화하는 데 기여합니다.",
+      "ch3_intro": "타이포그래피는 엄격한 기하학적 및 휴머니스트 산세리프 계층을 통해 직접적이고 친근한 어조를 확립합니다. 큰 디스플레이 텍스트의 타이트한 자간은 현대적인 자신감을 만들어내며, 명확한 굵기 구분은 모든 크기에서 가독성을 보장합니다.",
+      "ch4_intro": "일관된 4px 기본 격자가 전체 레이아웃을 뒷받침하며, 예측 가능한 리듬을 만듭니다.",
+      "ch5_intro": "깊이는 주요 컴포넌트에 부드러운 계층화된 그림자를 통해 암시되며, 단일 픽셀 테두리는 입력 필드에 필요한 정의를 제공합니다. 시스템은 주로 깔끔하고 개방된 느낌을 유지하기 위해 테두리 없는 카드를 선호합니다.",
+      "ch6_intro": "기본 레이아웃은 떠 있는 기기 목업이 있는 대담하고 비대칭적인 히어로 섹션을 제시하여 시각적 흥미와 핵심 메시지를 즉시 확립합니다. 이는 기능 소개를 위한 구조화된 다중 열 격자로 전환되며, 섹션 분리를 위한 넉넉한 패딩으로 프레임이 구성됩니다.",
+      "ch7_intro": "모션은 기능적인 마감 처리로 다루어지며, 부드럽고 표준화된 전환이 상호작용 상태에 대한 즉각적인 피드백을 제공합니다. 이 철학은 장식적인 애니메이션보다는 미묘하고 반응적인 변화를 우선시하며, 응집력 있는 느낌을 위해 일관된 이징 커브를 사용합니다.",
+      "ch8_intro": "어조는 직접적이고 이점 중심적이며 대화적입니다. 명확하고 장난스러운 소통을 위해 기업의 딱딱함을 피합니다. 이 톤은 인터페이스에도 반영되어, 밀도 높은 정보보다 명확성과 넉넉한 간격을 우선시합니다.",
+      "ch8_outro": "이 시스템은 특유의 밝고 자신감 넘치며 친근한 특성을 유지하기 위해 다크 모드, 복잡한 그라데이션, 그리고 공식적인 타이포그래피를 의도적으로 피합니다."
+    }
+  }
 }

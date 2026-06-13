@@ -8,6 +8,583 @@
     "ai",
     "agent"
   ],
-  "status": "pending",
-  "added_at": "2026-06-03"
+  "status": "completed",
+  "added_at": "2026-06-03",
+  "spec": {
+    "colors": {
+      "bg": "#FFFFFF",
+      "bgSoft": "#F3F4F6",
+      "bgQuiet": "#EEF2FF",
+      "ink": "#0D162F",
+      "inkSoft": "#6B7280",
+      "muted": "#9CA3AF",
+      "mutedSoft": "#D1D5DB",
+      "accent": "#6056FF",
+      "line": "rgba(229, 231, 235, 1)"
+    },
+    "typography": {
+      "display": "sans-serif",
+      "body": "sans-serif",
+      "mono": "monospace",
+      "scale": [
+        {
+          "token": "display",
+          "size": 56,
+          "lh": 1.0,
+          "weight": 500,
+          "ls": "-1px"
+        }
+      ]
+    },
+    "spacing": {
+      "base": 4,
+      "scale": [
+        4,
+        8,
+        16,
+        24,
+        32,
+        48,
+        64,
+        96
+      ]
+    },
+    "surfaces": {
+      "radius": {
+        "sm": 4,
+        "md": 8,
+        "lg": 12,
+        "pill": 9999
+      }
+    },
+    "layout": {
+      "container": 1280,
+      "paragraph": 680,
+      "columns": 12,
+      "gutter": 24,
+      "breakpoints": [
+        768,
+        1024
+      ]
+    },
+    "motion": {
+      "durations": {
+        "micro": 150,
+        "small": 220,
+        "medium": 300
+      },
+      "easing": "cubic-bezier(0.4, 0, 0.2, 1)"
+    }
+  },
+  "spec_i18n": {
+    "en": {
+      "identity": {
+        "keywords": [
+          "AI agents",
+          "enterprise",
+          "automation",
+          "collaboration",
+          "scale"
+        ],
+        "analogy": "A modern enterprise control tower",
+        "oneLiner": "AI agents that drive business impact, managed by your team"
+      },
+      "colors": {
+        "principle": "Clean white canvas with high-contrast dark text and vibrant purple accents for key actions and highlights."
+      },
+      "typography": {
+        "rules": [
+          "Display headings use a tight geometric sans-serif.",
+          "Body text uses a clean humanist sans-serif.",
+          "Monospace is used sparingly for technical elements.",
+          "Letter spacing is generally tight for headings and normal for body."
+        ],
+        "scaleUses": [
+          "Main hero headline"
+        ]
+      },
+      "spacing": {
+        "rhythm": "8px base grid with generous padding for sections."
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(0, 0, 0, 0.05) 0px 1px 2px 0px",
+          "rgba(59, 50, 249, 0.25) 0px 1.6px 6.4px 0px"
+        ],
+        "borders": "1px solid #E5E7EB"
+      },
+      "layout": {
+        "skeleton": "Centered hero with a multi-column logo grid below."
+      },
+      "components": {
+        "button": "Solid purple for primary actions, outline or ghost for secondary, pill-shaped.",
+        "card": "White background with subtle borders and optional light shadows.",
+        "chip": "Small, rounded badges for categorization.",
+        "input": "Clean borders with a focus ring matching the accent color.",
+        "hero": "Large, bold headline with accent color highlighting, secondary text, and dual CTAs."
+      },
+      "motion": {
+        "patterns": [
+          "Smooth color and background transitions on hover.",
+          "Opacity changes for interactive elements."
+        ]
+      },
+      "interaction": {
+        "hover": "Subtle color shift or background change.",
+        "click": "Immediate feedback with a slight scale or color change.",
+        "transition": "Smooth 150-300ms transitions on interactive states.",
+        "keyboard": "Standard focus rings for accessibility."
+      },
+      "voice": {
+        "tone": "Professional, authoritative, and forward-thinking.",
+        "headlineStyle": "Concise, bold, and impactful statements.",
+        "ctaStyle": "Direct and action-oriented.",
+        "avoid": [
+          "Jargon-heavy technical speak.",
+          "Passive or weak language.",
+          "Overly casual tone."
+        ]
+      },
+      "donts": [
+        "Don't use a dark theme — screenshot shows a predominantly white background.",
+        "Don't use serif fonts — screenshot shows clean sans-serif typography.",
+        "Don't use multi-color gradients — screenshot uses solid purple as the primary accent.",
+        "Don't use sharp corners — screenshot shows pill-shaped buttons and rounded cards.",
+        "Don't use dense layouts — screenshot shows generous white space and large headlines.",
+        "Don't use small, cramped text — screenshot features large, readable display sizes."
+      ],
+      "systemPrompt": "Relevance AI is an enterprise AI agent platform with a clean, professional SaaS aesthetic. The design uses a white background with deep navy text (#0D162F) and a vibrant purple accent (#6056FF) for key CTAs and highlights. Typography is modern sans-serif, with bold, large headlines that have tight tracking. Critical design principles include generous white space, a strict focus on readability, and a minimalist color palette. Do not use dark themes, serif fonts, or multi-colored gradients. Avoid cluttered layouts; maintain a high-end, enterprise feel with ample padding and clear visual hierarchy."
+    },
+    "zh-CN": {
+      "identity": {
+        "keywords": [
+          "AI 代理",
+          "企业级",
+          "自动化",
+          "协作",
+          "规模化"
+        ],
+        "analogy": "一个现代化的企业控制塔",
+        "oneLiner": "驱动商业影响力的 AI 代理，由您的团队管理"
+      },
+      "colors": {
+        "principle": "以干净的白色为底，搭配高对比度的深色文字，以及用于关键操作和高亮部分的活力紫色点缀。"
+      },
+      "typography": {
+        "rules": [
+          "展示标题使用紧凑的几何无衬线字体。",
+          "正文使用简洁的人文主义无衬线字体。",
+          "等宽字体谨慎用于技术元素。",
+          "标题字间距通常较紧，正文字间距为常规。"
+        ],
+        "scaleUses": [
+          "主英雄区标题"
+        ]
+      },
+      "spacing": {
+        "rhythm": "基于 8px 的网格，各区域采用充裕的内边距。"
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(0, 0, 0, 0.05) 0px 1px 2px 0px",
+          "rgba(59, 50, 249, 0.25) 0px 1.6px 6.4px 0px"
+        ],
+        "borders": "1px solid #E5E7EB"
+      },
+      "layout": {
+        "skeleton": "居中英雄区，下方是多列logo网格。"
+      },
+      "components": {
+        "button": "主操作为实心紫色，次要操作为描边或幽灵样式，按钮为胶囊形。",
+        "card": "白色背景，带有细微边框和可选的浅色阴影。",
+        "chip": "小型、圆角的徽章，用于分类。",
+        "input": "简洁的边框，聚焦环与点缀色匹配。",
+        "hero": "大型、粗体的标题，使用点缀色高亮，配有副文案和双行动号召。"
+      },
+      "motion": {
+        "patterns": [
+          "悬停时平滑的颜色和背景过渡。",
+          "交互元素的透明度变化。"
+        ]
+      },
+      "interaction": {
+        "hover": "微妙的颜色偏移或背景变化。",
+        "click": "通过轻微的缩放或颜色变化提供即时反馈。",
+        "transition": "交互状态上 150-300ms 的平滑过渡。",
+        "keyboard": "标准的聚焦环以保证可访问性。"
+      },
+      "voice": {
+        "tone": "专业、权威且富有前瞻性。",
+        "headlineStyle": "简洁、粗体且有冲击力的陈述。",
+        "ctaStyle": "直接且以行动为导向。",
+        "avoid": [
+          "过多行话的技术性表述。",
+          "被动或软弱的措辞。",
+          "过于随意的语气。"
+        ]
+      },
+      "donts": [
+        "不要使用深色主题——截图显示背景以白色为主。",
+        "不要使用衬线字体——截图显示的是简洁的无衬线字体。",
+        "不要使用多色渐变——截图使用纯紫色作为主要点缀色。",
+        "不要使用尖锐的圆角——截图显示的是胶囊形按钮和圆角卡片。",
+        "不要使用密集的布局——截图显示有充裕的留白和大型标题。",
+        "不要使用小而拥挤的文字——截图采用的是大型、易读的展示尺寸。"
+      ],
+      "systemPrompt": "Relevance AI 是一个企业级 AI 代理平台，具有简洁、专业的 SaaS 美学。设计采用白色背景，深海军蓝文字（#0D162F），以及用于关键行动号召和高亮部分的活力紫色（#6056FF）点缀。字体为现代无衬线体，标题粗大且字间距紧凑。关键设计原则包括：充裕的留白、严格聚焦可读性以及极简的调色板。不要使用深色主题、衬线字体或多彩渐变。避免杂乱的布局；通过充足的内边距和清晰的视觉层次，保持高端、企业级的感觉。"
+    },
+    "zh-TW": {
+      "identity": {
+        "keywords": [
+          "AI 代理",
+          "企業",
+          "自動化",
+          "協作",
+          "擴展"
+        ],
+        "analogy": "一座現代化的企業控制塔",
+        "oneLiner": "由您的團隊管理的 AI 代理，驅動商業影響力"
+      },
+      "colors": {
+        "principle": "以潔白為底，搭配高對比的深色文字與鮮明的紫色點綴，用於關鍵操作與高亮顯示。"
+      },
+      "typography": {
+        "rules": [
+          "展示標題使用緊湊的幾何無襯線字體。",
+          "內文使用乾淨的人文主義無襯線字體。",
+          "等寬字體僅謹慎用於技術性元素。",
+          "字間距通常標題較緊湊，內文則為正常。"
+        ],
+        "scaleUses": [
+          "主要首頁大標題"
+        ]
+      },
+      "spacing": {
+        "rhythm": "以 8px 為基礎網格，區塊之間保留寬裕的內距。"
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(0, 0, 0, 0.05) 0px 1px 2px 0px",
+          "rgba(59, 50, 249, 0.25) 0px 1.6px 6.4px 0px"
+        ],
+        "borders": "1px solid #E5E7EB"
+      },
+      "layout": {
+        "skeleton": "居中的首頁主視覺，下方是多欄的標誌網格。"
+      },
+      "components": {
+        "button": "主要操作使用實心紫色，次要操作使用外框或幽靈樣式，採膠囊形狀。",
+        "card": "白色背景，搭配細微邊框與可選的淡色陰影。",
+        "chip": "用於分類的圓角小徽章。",
+        "input": "乾淨的邊框，焦點環與點綴色一致。",
+        "hero": "搭配點綴色高亮、輔助文字與雙重行動呼籲的大型粗體標題。"
+      },
+      "motion": {
+        "patterns": [
+          "在 hover 時平滑變換顏色與背景。",
+          "互動元素的透明度變化。"
+        ]
+      },
+      "interaction": {
+        "hover": "細微的色彩偏移或背景變化。",
+        "click": "透過輕微的縮放或色彩變化提供即時反饋。",
+        "transition": "互動狀態下平滑的 150-300ms 過渡效果。",
+        "keyboard": "標準的焦點環，確保無障礙訪問。"
+      },
+      "voice": {
+        "tone": "專業、具權威感且前瞻性。",
+        "headlineStyle": "簡潔、粗體且具衝擊力的陳述。",
+        "ctaStyle": "直接且以行動為導向。",
+        "avoid": [
+          "術語密集的技術性用語。",
+          "被動或軟弱的語言。",
+          "過於隨意的語氣。"
+        ]
+      },
+      "donts": [
+        "不要使用深色主題——截圖顯示以白色為主的背景。",
+        "不要使用襯線字體——截圖顯示乾淨的無襯線字體排版。",
+        "不要使用多彩漸層——截圖使用純紫色作為主要點綴色。",
+        "不要使用銳利的角落——截圖顯示膠囊形按鈕與圓角卡片。",
+        "不要使用密集的佈局——截圖顯示寬裕的留白與大型標題。",
+        "不要使用小而擁擠的文字——截圖採用大型、易讀的展示尺寸。"
+      ],
+      "systemPrompt": "Relevance AI 是一個企業級 AI 代理平台，具有乾淨、專業的 SaaS 美學。設計使用白色背景，搭配深海軍藍文字（#0D162F）與鮮明的紫色點綴色（#6056FF）用於關鍵行動呼籲與高亮顯示。字體排版採用現代無襯線風格，擁有粗體、大標題且字間距緊湊。關鍵設計原則包括寬裕的留白、嚴格關注可讀性，以及極簡的調色板。請勿使用深色主題、襯線字體或多彩漸層。避免雜亂的佈局；透過充足的內距與清晰的視覺層次，保持高端、企業級的感覺。"
+    },
+    "ja": {
+      "identity": {
+        "keywords": [
+          "AIエージェント",
+          "エンタープライズ",
+          "自動化",
+          "コラボレーション",
+          "スケーラビリティ"
+        ],
+        "analogy": "近代的なエンタープライズ管制塔",
+        "oneLiner": "ビジネスにインパクトを与えるAIエージェント、チームが管理"
+      },
+      "colors": {
+        "principle": "クリーンなホワイトキャンバスに、ハイコントラストのダークテキストと、主要アクションやハイライト用の鮮やかな紫色アクセントを組み合わせ。"
+      },
+      "typography": {
+        "rules": [
+          "ディスプレイ見出しには、密なジオメトリックsans-serifを使用。",
+          "本文テキストには、クリーンなヒューマニストsans-serifを使用。",
+          "モノスペースは、技術的要素に控えめに使用。",
+          "文字間隔は、見出しは一般的に Tight、本文は Normal に設定。"
+        ],
+        "scaleUses": [
+          "メインヒーローヘッドライン"
+        ]
+      },
+      "spacing": {
+        "rhythm": "8pxのベースグリッドを使用し、セクションには十分な余白を確保。"
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(0, 0, 0, 0.05) 0px 1px 2px 0px",
+          "rgba(59, 50, 249, 0.25) 0px 1.6px 6.4px 0px"
+        ],
+        "borders": "1px solid #E5E7EB"
+      },
+      "layout": {
+        "skeleton": "中央にヒーロー、その下にマルチカラムのロゴグリッドを配置。"
+      },
+      "components": {
+        "button": "プライマリアクションにはソリッドパープル、セカンダリアクションにはアウトラインまたはゴースト、ピル形状。",
+        "card": "白い背景に微細なボーダーと、オプションのライトシャドウ。",
+        "chip": "分類用の小さな角丸バッジ。",
+        "input": "アクセントカラーに合わせたフォーカスリングを持つクリーンなボーダー。",
+        "hero": "アクセントカラーでハイライトされた、大きく太字のヘッドライン、セカンダリテキスト、およびデュアルCTA。"
+      },
+      "motion": {
+        "patterns": [
+          "ホバー時の滑らかな色と背景のトランジション。",
+          "インタラクティブ要素の不透明度変化。"
+        ]
+      },
+      "interaction": {
+        "hover": "微細な色の変化や背景の変更。",
+        "click": "軽微なスケールや色の変化による即時フィードバック。",
+        "transition": "インタラクティブな状態への150-300msの滑らかなトランジション。",
+        "keyboard": "アクセシビリティのための標準的なフォーカスリング。"
+      },
+      "voice": {
+        "tone": "プロフェッショナルで、権威があり、未来志向。",
+        "headlineStyle": "簡潔で、大胆かつインパクトのある文。",
+        "ctaStyle": "直接的でアクション指向。",
+        "avoid": [
+          "専門用語の多い技術的な表現。",
+          "受動的または弱い言葉。",
+          "あまりにカジュアルなトーン。"
+        ]
+      },
+      "donts": [
+        "ダークテーマを使用しない — スクリーンショットは主に白い背景。",
+        "セリフフォントを使用しない — スクリーンショットはクリーンなsans-serifタイポグラフィ。",
+        "多色グラデーションを使用しない — スクリーンショットはプライマリアクセントにソリッドパープルを使用。",
+        "シャープな角を使用しない — スクリーンショットはピル形状のボタンと角丸カード。",
+        "密集したレイアウトを使用しない — スクリーンショットは十分なホワイトスペースと大きな見出し。",
+        "小さく詰まったテキストを使用しない — スクリーンショットは大きく読みやすいディスプレイサイズ。"
+      ],
+      "systemPrompt": "Relevance AIは、クリーンでプロフェッショナルなSaaS美学を持つエンタープライズAIエージェントプラットフォーム。デザインは、白い背景に深いネイビーテキスト（#0D162F）と、主要なCTAやハイライト用の鮮やかな紫色アクセント（#6056FF）を使用。タイポグラフィはモダンなsans-serifで、太字で大きく、 Tightなトラッキングを持つ見出し。重要なデザイン原則には、十分なホワイトスペース、可読性への厳格な焦点、ミニマルなパレットが含まれる。ダークテーマ、セリフフォント、多色グラデーションは使用しない。雑然としたレイアウトは避け、十分なパディングと明確なビジュアル階層でハイエンドなエンタープライズ感を維持。"
+    },
+    "ko": {
+      "identity": {
+        "keywords": [
+          "AI 에이전트",
+          "기업용",
+          "자동화",
+          "협업",
+          "확장성"
+        ],
+        "analogy": "현대적인 기업 제어 타워",
+        "oneLiner": "팀이 관리하는, 비즈니스 영향력을 끄는 AI 에이전트"
+      },
+      "colors": {
+        "principle": "화이트 배경에 고대비의 어두운 텍스트와 주요 액션 및 강조를 위한 vibrant purple 포인트 컬러."
+      },
+      "typography": {
+        "rules": [
+          "디스플레이 제목에는 타이트한 기하학적 산세리프를 사용합니다.",
+          "본문 텍스트에는 깔끔한 휴머니스트 산세리프를 사용합니다.",
+          "기술 요소에는 모노스페이스를 절제하여 사용합니다.",
+          "자간은 제목에 일반적으로 타이트하고 본문에는 보통입니다."
+        ],
+        "scaleUses": [
+          "메인 히어로 헤드라인"
+        ]
+      },
+      "spacing": {
+        "rhythm": "기본 8px 그리드와 섹션별 넉넉한 padding을 사용합니다."
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(0, 0, 0, 0.05) 0px 1px 2px 0px",
+          "rgba(59, 50, 249, 0.25) 0px 1.6px 6.4px 0px"
+        ],
+        "borders": "1px solid #E5E7EB"
+      },
+      "layout": {
+        "skeleton": "중앙에 히어로 섹션을 배치하고 그 아래에 다중 컬럼 로고 그리드를 배치합니다."
+      },
+      "components": {
+        "button": "주요 액션에는 보라색 실버, 보조에는 아웃라인 또는 고스트 스타일을 사용하며, 필 형태입니다.",
+        "card": "미묘한 테두리와 선택적 은은한 그림자가 있는 흰색 배경입니다.",
+        "chip": "카테고리 분류를 위한 작고 둥근 뱃지입니다.",
+        "input": "포인트 컬러와 일치하는 focus ring과 함께 깔끔한 테두리를 가집니다.",
+        "hero": "대형 볼드 헤드라인에 포인트 컬러 하이라이트, 보조 텍스트, 그리고 이중 CTA를 배치합니다."
+      },
+      "motion": {
+        "patterns": [
+          "hover 시 부드러운 색상 및 배경 전환.",
+          "인터랙티브 요소의 불투명도 변경."
+        ]
+      },
+      "interaction": {
+        "hover": "미묘한 색상 변화 또는 배경 변경.",
+        "click": "약간의 스케일 또는 색상 변경으로 즉각적인 피드백.",
+        "transition": "인터랙티브 상태에서 부드러운 150-300ms 전환.",
+        "keyboard": "접근성을 위한 표준 focus ring."
+      },
+      "voice": {
+        "tone": "전문적이고, 권위 있으며, 미래 지향적인 어조.",
+        "headlineStyle": "간결하고, 볼드하며, 임팩트 있는 문장.",
+        "ctaStyle": "직설적이고 행동을 유도하는 스타일.",
+        "avoid": [
+          "전문 용어가 지나치게 많은 기술적 대화.",
+          "수동적이거나 약한 어휘.",
+          "지나치게 캐주얼한 어조."
+        ]
+      },
+      "donts": [
+        "다크 테마를 사용하지 마세요 — 스크린샷은 주로 흰색 배경을 보여줍니다.",
+        "세리프 폰트를 사용하지 마세요 — 스크린샷은 깔끔한 산세리프 타이포그래피를 보여줍니다.",
+        "다색 그래디언트를 사용하지 마세요 — 스크린샷은 주요 포인트 컬러로 단색 보라색을 사용합니다.",
+        "날카로운 코너를 사용하지 마세요 — 스크린샷은 필 형태의 버튼과 둥근 모서리 카드를 보여줍니다.",
+        "빽빽한 레이아웃을 사용하지 마세요 — 스크린샷은 넉넉한 여백과 큰 헤드라인을 보여줍니다.",
+        "작고 비좁은 텍스트를 사용하지 마세요 — 스크린샷은 크고 읽기 쉬운 디스플레이 크기를 특징으로 합니다."
+      ],
+      "systemPrompt": "Relevance AI는 깔끔하고 전문적인 SaaS 미학을 가진 기업용 AI 에이전트 플랫폼입니다. 디자인은 흰색 배경에 깊은 네이비 텍스트(#0D162F)와 주요 CTA 및 강조를 위한 vibrant purple(#6056FF)을 사용합니다. 타이포그래피는 현대적인 산세리프이며, 타이트한 자간의 크고 볼드한 헤드라인이 특징입니다. 핵심 디자인 원칙은 넉넉한 여백, 가독성에 대한 엄격한 초점, 그리고 미니멀한 팔레트입니다. 다크 테마, 세리프 폰트, 또는 다색 그래디언트를 사용하지 마세요. 빽빽한 레이아웃은 피하고, 넉넉한 padding과 명확한 시각적 계층 구조를 유지하여 고급스럽고 기업적인 느낌을 유지하세요."
+    }
+  },
+  "desc": {
+    "en": {
+      "palette": "A clean, high-contrast palette dominated by white and deep navy, with a signature vibrant purple for accents.",
+      "layout": "A centered, spacious layout that prioritizes a clear hero message and social proof through client logos.",
+      "interaction": "Smooth, subtle transitions on buttons and links maintain a professional and fluid user experience.",
+      "motion": "Motion is minimal and purposeful, focusing on quick, elegant transitions rather than complex animations.",
+      "notes": "The design effectively communicates enterprise readiness and technical sophistication through its restrained yet bold visual language."
+    },
+    "zh-CN": {
+      "palette": "一个简洁、高对比度的调色板，以白色和深海军蓝为主，搭配标志性的活力紫色作为点缀。",
+      "layout": "一个居中、宽敞的布局，优先展示清晰的主标题信息和通过客户logo呈现的社会认同。",
+      "interaction": "按钮和链接上平滑、微妙的过渡效果，维持专业且流畅的用户体验。",
+      "motion": "动效极简且有目的性，聚焦于快速、优雅的过渡，而非复杂的动画。",
+      "notes": "该设计通过克制而大胆的视觉语言，有效地传达了企业就绪性和技术成熟度。"
+    },
+    "zh-TW": {
+      "palette": "一套以白色和深海軍藍為主的乾淨、高對比調色板，並以鮮明的紫色作為標誌性的點綴色。",
+      "layout": "一個居中、寬敞的佈局，優先考慮清晰的首頁主視覺訊息，並透過客戶標誌提供社會證明。",
+      "interaction": "按鈕和連結上平滑、細微的過渡效果，維持專業且流暢的使用者體驗。",
+      "motion": "動態效果極簡且有目的性，專注於快速、優雅的過渡，而非複雜的動畫。",
+      "notes": "此設計透過其克制 yet 大膽的視覺語言，有效地傳達了企業級就緒與技術成熟度。"
+    },
+    "ja": {
+      "palette": "白と深いネイビーを基調とした、クリーンでハイコントラストなパレット。アクセントには特徴的な鮮やかな紫色を使用。",
+      "layout": "中央揃えの広々としたレイアウト。明確なヒーローメッセージとクライアントロゴによる社会的証明を優先。",
+      "interaction": "ボタンやリンクの滑らかで微細なトランジションが、プロフェッショナルで流動的なユーザー体験を維持。",
+      "motion": "モーションは最小限で意図的。複雑なアニメーションよりも、迅速でエレガントなトランジションに焦点。",
+      "notes": "このデザインは、抑制的でありながら大胆なビジュアル言語を通じて、エンタープライズ対応性と技術的洗練を効果的に伝達しています。"
+    },
+    "ko": {
+      "palette": "화이트와 네이비를 주로 사용하는 깔끔하고 고대비의 팔레트입니다. 포인트를 위한 시그니처 컬러로 vibrant purple이 사용됩니다.",
+      "layout": "명확한 히어로 메시지와 클라이언트 로고를 통한 사회적 증명을 우선시하는, 중앙 정렬된 넉넉한 레이아웃입니다.",
+      "interaction": "버튼과 링크의 부드럽고 미묘한 전환이 전문적이고 원활한 사용자 경험을 유지합니다.",
+      "motion": "모션은 최소한이며 의도적입니다. 복잡한 애니메이션보다는 빠르고 우아한 전환에 초점을 맞춥니다.",
+      "notes": "이 디자인은 절제되지만 대담한 시각적 언어를 통해 기업 수준의 준비성과 기술적 정교함을 효과적으로 전달합니다."
+    }
+  },
+  "_meta": {
+    "vision_model": "mimo-v2.5",
+    "vision_prompt_version": "0.3",
+    "vision_source": "playwright-extract:relevance",
+    "vision_grounded": true,
+    "vision_at": "2026-06-04T18:23:07+00:00",
+    "vision_tokens": 17016,
+    "vision_cost_usd": 0.1891,
+    "translation_model": "mimo-v2.5",
+    "translation_at": "2026-06-04T18:24:19+00:00",
+    "translation_tokens": 15756,
+    "translation_cost_usd": 0.0525,
+    "narrative_model": "mimo-v2.5",
+    "narrative_prompt_version": "0.3",
+    "narrative_at": "2026-06-04T18:24:28+00:00",
+    "narrative_tokens": 1926,
+    "narrative_cost_usd": 0.0128,
+    "narrative_status": "ok",
+    "total_cost_usd": 0.2544
+  },
+  "narrative": {
+    "en": {
+      "ch1_intro": "Like a modern enterprise control tower, this system is built on clarity, not complexity. Its identity is defined by the precise coordination of high-contrast elements and a single, authoritative accent, creating a platform feel that is both scalable and immediately recognizable.",
+      "ch2_intro": "The color system operates on a clean white canvas, establishing a foundation of high-contrast readability. Deep navy provides the grounding for text, while a signature vibrant purple is reserved exclusively as a directional signal for key actions and highlights.",
+      "ch2_outro": "The principle is restraint: a minimalist palette where every color serves a clear, functional purpose in the hierarchy.",
+      "ch3_intro": "Typographic voice is divided between a tight geometric sans-serif for authoritative display headings and a clean humanist sans-serif for legible body copy. This pairing establishes a modern, technical tone without sacrificing readability across the interface.",
+      "ch4_intro": "Spacing follows a strict 8px base grid, creating a consistent and predictable rhythm throughout the layout.",
+      "ch5_intro": "Surfaces are defined by depth through subtle, purposeful elevation. Borders are a faint, consistent gray, and shadows are soft, using a signature purple tint to tie interactive elements to the brand's accent color.",
+      "ch6_intro": "The layout skeleton is anchored by a centered, commanding hero section. Below it, a multi-column logo grid provides social proof, establishing a spacious, vertically-oriented structure that guides the user's focus downward.",
+      "ch7_intro": "Motion philosophy favors subtlety and purpose. Transitions are smooth, typically between 150-300ms, focusing on elegant state changes rather than decorative animation to maintain professional fluidity.",
+      "ch8_intro": "The editorial voice is professional, authoritative, and forward-thinking. Headlines are concise and bold, while calls to action are direct and action-oriented, avoiding jargon and passive language.",
+      "ch8_outro": "The system deliberately avoids dark themes, serif fonts, multi-color gradients, and dense layouts to maintain its core identity of clean, enterprise-ready sophistication."
+    },
+    "zh-CN": {
+      "ch1_intro": "如同一个现代企业的控制塔，该系统建立在清晰而非复杂之上。其身份由高对比度元素与单一主导色调的精确协调来定义，营造出既可扩展又极具辨识度的平台感。",
+      "ch2_intro": "色彩系统在纯净的白色画布上运作，奠定了高对比度可读性的基础。深海军蓝为文本提供了沉稳的基底，而标志性的亮紫色则专用于关键操作和高亮部分的引导性信号。",
+      "ch2_outro": "其原则是克制：一个极简的调色板，其中每种颜色在层级结构中都服务于明确的功能目的。",
+      "ch3_intro": "字体风格分为两种：用于权威展示标题的紧凑几何无衬线体，以及用于清晰易读正文的洁净人文主义无衬线体。这种组合确立了一种现代、技术的基调，同时兼顾了整个界面的可读性。",
+      "ch4_intro": "间距遵循严格的8像素基础网格，在整个布局中创造出一致且可预测的节奏。",
+      "ch5_intro": "界面表面通过微妙而有目的的高度来定义层次感。边框采用淡而一致的灰色，阴影则柔和，并使用标志性的紫色调将交互元素与品牌的主色调联系起来。",
+      "ch6_intro": "布局骨架由居中且占主导地位的主视觉区域锚定。其下方，一个多列徽标网格提供了社会认同，建立起宽敞的垂直结构，引导用户的视线向下流动。",
+      "ch7_intro": "动效理念偏重于微妙与目的性。过渡平滑，通常介于150-300毫秒之间，专注于优雅的状态变化而非装饰性动画，以维持专业的流畅感。",
+      "ch8_intro": "其编辑风格专业、权威且具有前瞻性。标题简洁有力，行动召唤则直接且注重行动，避免术语和被动语态。",
+      "ch8_outro": "该系统刻意避免深色主题、衬线字体、多彩渐变和密集布局，以保持其核心身份——洁净、就绪的企业级精致感。"
+    },
+    "zh-TW": {
+      "ch1_intro": "如同現代企業控制塔，此系統建立於清晰而非複雜之上。其特質由高對比元素的精確協調與單一權威性強調色定義，打造出具備擴展性且立即可辨識的平台感。",
+      "ch2_intro": "色彩系統運作於純淨白色基底上，確立高對比可讀性的基礎。深海軍藍提供文字的穩定根基，而標誌性的鮮豔紫色則專屬保留作為關鍵操作與重點的引導訊號。",
+      "ch2_outro": "原則在於克制：一個極簡調色盤，每種顏色在層級中皆服務清晰、功能性的目的。",
+      "ch3_intro": "排版語音分為兩部分：緊湊的幾何無襯線字體用於權威性標題展示，以及清晰的人文無襯線字體用於易讀的內文。此配對確立了現代技術語調，同時不犧牲介面各處的可讀性。",
+      "ch4_intro": "間距遵循嚴格的 8px 基礎網格，在佈局中創造一致且可預測的節奏。",
+      "ch5_intro": "表面透過細微、有意圖的 elevation 定義深度。邊框為細微、一致的灰色，陰影則柔和，使用標誌性的紫色調將互動元素與品牌的強調色連結。",
+      "ch6_intro": "佈局骨架以居中、具主導性的 hero 區塊為主軸。其下方，多欄位的標誌網格提供社會認同，建立一個寬敞、垂直導向的結構，引導使用者視線向下移動。",
+      "ch7_intro": "動態設計哲學偏好細微與目的性。過渡通常平滑，介於 150-300ms 之間，專注於優雅的狀態變化而非裝飾性動畫，以維持專業流暢度。",
+      "ch8_intro": "編輯語音專業、權威且具前瞻性。標題簡潔有力，而行動呼籲直接且以行動為導向，避免術語與被動語態。",
+      "ch8_outro": "此系統刻意避免深色主題、襯線字體、多色漸層與密集佈局，以維持其清晰、企業級精緻感的核心特質。"
+    },
+    "ja": {
+      "ch1_intro": "現代のエンタープライズ制御塔のように、このシステムは複雑さではなく明確さの上に構築されています。そのアイデンティティは、高コントラスト要素と単一の権威あるアクセントの正確な連携により定義され、スケーラブルかつ即座に認識できるプラットフォーム感を生み出します。",
+      "ch2_intro": "カラーシステムはクリーンなホワイトキャンバス上で機能し、高コントラストの可読性の基盤を確立します。深いネイビーがテキストの土台を提供し、特徴的な鮮やかなパープルは、主要なアクションとハイライトの方向指示としてのみ排他的に使用されます。",
+      "ch2_outro": "原則は節度です：ミニマルなパレットにおいて、すべての色が階層の中で明確で機能的な目的を果たすものです。",
+      "ch3_intro": "タイポグラフィの声は、権威あるディスプレイ見出しのための厳密な幾何学サンセリフと、可読性の高い本文のためのクリーンなヒューマニストサンセリフに分割されています。この組み合わせは、インターフェース全体の可読性を犠牲にすることなく、モダンで技術的なトーンを確立します。",
+      "ch4_intro": "間隔は厳格な8pxベースグリッドに従い、レイアウト全体に一貫した予測可能なリズムを作り出します。",
+      "ch5_intro": "サーフェスは、意図的で繊細なエレベーションによる深みで定義されます。ボーダーは淡く一貫したグレーで、シャドウは柔らかく、特徴的なパープルの色合いを使用してインタラクティブ要素をブランドのアクセントカラーに関連付けます。",
+      "ch6_intro": "レイアウトのスケルトンは、中心に据えられた支配的なヒーローセクションにアンカーを固定しています。その下に、複数カラムのロゴグリッドがソーシャルプルーフを提供し、ユーザーの注意を下方に導く、空間的で縦方向の構造を確立します。",
+      "ch7_intro": "モーション哲学は、繊細さと目的意識を重視します。トランジションは滑らかで、通常150〜300msの間で、装飾的なアニメーションではなく、洗練された状態変化に焦点を当て、プロフェッショナルな流動性を維持します。",
+      "ch8_intro": "エディトリアルの声は、プロフェッショナルで権威があり、未来的です。見出しは簡潔で大胆であり、コール・トゥ・アクションは直接的でアクション指向です。専門用語や受動態を避けています。",
+      "ch8_outro": "このシステムは、クリーンでエンタープライズ対応の洗練されたコアアイデンティティを維持するため、暗いテーマ、セリフフォント、マルチカラーグラデーション、以及は密集したレイアウトを意図的に避けています。"
+    },
+    "ko": {
+      "ch1_intro": "현대적인 기업 제어탑과 마찬가지로, 이 시스템은 복잡함이 아닌 명확함 위에 구축되었습니다. 고대비 요소와 단일하고 권위 있는 강조색의 정밀한 조화로 정체성을 규정하며, 확장 가능하면서도 즉시 인식 가능한 플랫폼 느낌을 만듭니다.",
+      "ch2_intro": "컬러 시스템은 깨끗한 화이트 캔버스 위에서 작동하여, 고대비 가독성을 위한 기반을 확립합니다. 깊은 네이비는 텍스트를 안정시키고, 시그니처 바이올렛은 주요 액션과 강조를 위한 지시 신호로 독점적으로 활용됩니다.",
+      "ch2_outro": "핵심 원칙은 절제입니다. 모든 색상이 계층 구조 안에서 명확하고 기능적인 목적을 수행하는 미니멀한 팔레트입니다.",
+      "ch3_intro": "타이포그래피 음성은 권위 있는 전시 제목을 위한 견고한 기하학적 sans-serif와 가독성 높은 본문을 위한 깔끔한 humanist sans-serif로 나뉩니다. 이 조합은 인터페이스 전반에 걸쳐 가독성을 희생하지 않으면서 현대적이고 기술적인 톤을 확립합니다.",
+      "ch4_intro": "간격은 엄격한 8px 기본 그리드를 따르며, 레이아웃 전체에 일관되고 예측 가능한 리듬을 만듭니다.",
+      "ch5_intro": "표면은 섬세하고 의도적인 엘리베이션을 통해 깊이감을 정의합니다. 테두리는 연한 균일한 그레이이며, 그림자는 부드럽게 시그니처 바이올렛 틴트를 사용하여 인터랙티브 요소를 브랜드 강조색에 연결합니다.",
+      "ch6_intro": "레이아웃 골격은 중앙에 위치하고 지배적인 히어로 섹션에 고정됩니다. 그 아래 다중 컬럼 로고 그리드가 사회적 증명을 제공하며, 사용자의 시선을 아래로 유도하는 수직 지향적이고 넉넉한 구조를 확립합니다.",
+      "ch7_intro": "모션 철학은 섬세함과 목적성을 중시합니다. 전환은 부드럽게, 일반적으로 150-300ms 사이이며, 장식적 애니메이션이 아닌 우아한 상태 변화에 초점을 맞추어 전문적인 유연성을 유지합니다.",
+      "ch8_intro": "에디토리얼 음성은 전문적이고 권위적이며 미래지향적입니다. 헤드라인은 간결하고 굵으며, 행동 유도는 직접적이고 실행 지향적이어 전문 용어와 수동적인 표현을 피합니다.",
+      "ch8_outro": "이 시스템은 깨끗하고 기업에 적합한 세련미라는 핵심 정체성을 유지하기 위해 다크 테마, 세리프 폰트, 다색 그라디언트, 밀집된 레이아웃을 의도적으로 지양합니다."
+    }
+  }
 }

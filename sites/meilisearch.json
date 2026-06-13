@@ -8,6 +8,619 @@
     "dev",
     "search"
   ],
-  "status": "pending",
-  "added_at": "2026-06-03"
+  "status": "completed",
+  "added_at": "2026-06-03",
+  "spec": {
+    "colors": {
+      "bg": "#0E0021",
+      "bgSoft": "rgba(255,255,255,0.05)",
+      "bgQuiet": "rgba(33,0,75,0.9)",
+      "ink": "#FFFFFF",
+      "inkSoft": "rgba(255,255,255,0.6)",
+      "muted": "rgba(208,208,208,1.0)",
+      "mutedSoft": "rgba(255,255,255,0.5)",
+      "accent": "#D00064",
+      "line": "rgba(255,255,255,0.1)"
+    },
+    "typography": {
+      "display": "geometric-sans",
+      "body": "humanist-sans",
+      "mono": "monospace",
+      "scale": [
+        {
+          "token": "display",
+          "size": 64,
+          "lh": 1.1,
+          "weight": 700,
+          "ls": "-0.5px"
+        },
+        {
+          "token": "h2",
+          "size": 32,
+          "lh": 1.2,
+          "weight": 600,
+          "ls": "-0.25px"
+        },
+        {
+          "token": "body",
+          "size": 16,
+          "lh": 1.5,
+          "weight": 400,
+          "ls": "0px"
+        },
+        {
+          "token": "small",
+          "size": 14,
+          "lh": 1.4,
+          "weight": 400,
+          "ls": "0px"
+        }
+      ]
+    },
+    "spacing": {
+      "base": 4,
+      "scale": [
+        4,
+        8,
+        16,
+        24,
+        32,
+        48,
+        64,
+        96
+      ]
+    },
+    "surfaces": {
+      "radius": {
+        "sm": 4,
+        "md": 8,
+        "lg": 16,
+        "pill": 999
+      }
+    },
+    "layout": {
+      "container": 1280,
+      "paragraph": 680,
+      "columns": 12,
+      "gutter": 24,
+      "breakpoints": [
+        768,
+        1024
+      ]
+    },
+    "motion": {
+      "durations": {
+        "micro": 150,
+        "small": 300,
+        "medium": 600
+      },
+      "easing": "cubic-bezier(0.4, 0, 0.2, 1)"
+    }
+  },
+  "spec_i18n": {
+    "en": {
+      "identity": {
+        "keywords": [
+          "Search",
+          "Developer",
+          "AI",
+          "Integration",
+          "Fast"
+        ],
+        "analogy": "A developer-friendly search engine infrastructure that feels as smooth and fast as a native feature.",
+        "oneLiner": "The open-source search engine for developers who want to build fast, relevant search experiences."
+      },
+      "colors": {
+        "principle": "Dark Mode with High-Chroma Accents"
+      },
+      "typography": {
+        "rules": [
+          "Use geometric-sans for display to maintain a bold, modern aesthetic.",
+          "Use humanist-sans for body text to ensure high readability at smaller sizes.",
+          "Use monospace for code blocks to clearly distinguish developer-focused content.",
+          "Maintain generous line-heights for readability against dark backgrounds."
+        ],
+        "scaleUses": [
+          "Main hero headlines and large section headers.",
+          "Section headers and secondary prominent titles.",
+          "Standard paragraph text and UI copy.",
+          "Secondary text, captions, and fine print."
+        ]
+      },
+      "spacing": {
+        "rhythm": "8px vertical rhythm with 24px gutters for standard content spacing, expanding to 96px for major section breaks."
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 32px 68px 0px rgba(0, 0, 0, 0.3)"
+        ],
+        "borders": "1px solid rgba(255, 255, 255, 0.1) for cards, with optional 2px accents."
+      },
+      "layout": {
+        "skeleton": "Standard centered single-column flow for marketing, expanding to multi-column for feature grids."
+      },
+      "components": {
+        "button": "Pill-shaped buttons with high contrast (solid white or pink), transitioning on hover.",
+        "card": "Frosted glass or semi-transparent dark surfaces with rounded corners (16px radius).",
+        "chip": "Small, rounded indicators for status or tags, using subtle borders or background shifts.",
+        "input": "Search inputs with large pill-radius, featuring a prominent search icon and placeholder text.",
+        "hero": "Full-width section with a dramatic gradient background, large typography, and a prominent interactive demo."
+      },
+      "motion": {
+        "patterns": [
+          "Smooth color and background-color transitions on interactive elements.",
+          "Subtle transforms (scale/translate) on hover for buttons and cards.",
+          "Fading transitions for content reveals and state changes."
+        ]
+      },
+      "interaction": {
+        "hover": "Smooth transition of color, background-color, and border-color.",
+        "click": "Subtle scale-down effect or immediate color shift for feedback.",
+        "transition": "Standard 0.15s to 0.3s cubic-bezier(0.4, 0, 0.2, 1) for all interactive properties.",
+        "keyboard": "Visible focus outlines using white or accent colors to maintain accessibility on dark backgrounds."
+      },
+      "voice": {
+        "tone": "Confident, developer-centric, and slightly playful.",
+        "headlineStyle": "Bold, direct, and benefit-driven, often using strong verbs.",
+        "ctaStyle": "Clear and action-oriented, like 'Get started' or 'Request a demo'.",
+        "avoid": [
+          "Corporate buzzwords",
+          "Overly formal or stiff language",
+          "Passive voice"
+        ]
+      },
+      "donts": [
+        "don't use bright neon greens — screenshot shows a deep purple and pink gradient palette instead",
+        "don't use serif fonts for headlines — screenshot shows bold geometric-sans for display text",
+        "don't use sharp, boxy corners — screenshot shows generously rounded corners (16px and pill) on all cards and buttons",
+        "don't use white backgrounds — screenshot shows a deep dark mode with subtle translucent overlays",
+        "don't use thin, delicate weights for emphasis — screenshot shows heavy weights (600-700) for all important text",
+        "don't use cramped spacing — screenshot shows wide padding (96px) and generous gaps (24px) between sections"
+      ],
+      "systemPrompt": "Design a SaaS landing page for a developer search tool. Use a dark mode aesthetic with a deep purple (#0E0021) base and vibrant pink (#D00064) accents. Typography should be bold geometric-sans for headlines and humanist-sans for body. Use pill-shaped buttons, generous rounded corners (16px+), and subtle translucent card backgrounds. Ensure high contrast for readability and smooth, 0.15s cubic-bezier transitions for all interactive states. Avoid sharp corners, light backgrounds, and thin font weights."
+    },
+    "zh-CN": {
+      "identity": {
+        "keywords": [
+          "搜索",
+          "开发者",
+          "AI",
+          "集成",
+          "快速"
+        ],
+        "analogy": "一个对开发者友好的搜索引擎基础设施，其流畅与快速程度堪比原生功能。",
+        "oneLiner": "为希望构建快速、相关搜索体验的开发者打造的开源搜索引擎。"
+      },
+      "colors": {
+        "principle": "暗色模式与高饱和度点缀色"
+      },
+      "typography": {
+        "rules": [
+          "使用几何无衬线字体用于标题，以保持大胆、现代的审美。",
+          "使用人文无衬线字体用于正文，确保在小字号下具有高可读性。",
+          "使用等宽字体用于代码块，以清晰区分开发者相关内容。",
+          "在深色背景上保持充裕的行高以提升可读性。"
+        ],
+        "scaleUses": [
+          "主视觉大标题与大型章节标题。",
+          "章节标题与次要突出标题。",
+          "标准段落文本与界面文案。",
+          "次要文本、说明文字与细则。"
+        ]
+      },
+      "spacing": {
+        "rhythm": "8px 垂直节奏，标准内容间距为 24px，主要章节分隔则扩展至 96px。"
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 32px 68px 0px rgba(0, 0, 0, 0.3)"
+        ],
+        "borders": "卡片使用 1px solid rgba(255, 255, 255, 0.1) 边框，可选 2px 点缀色边框。"
+      },
+      "layout": {
+        "skeleton": "营销页面采用标准的居中单栏流式布局，功能网格则扩展为多栏布局。"
+      },
+      "components": {
+        "button": "药丸形按钮，高对比度（实心白色或粉色），带有 hover 过渡效果。",
+        "card": "磨砂玻璃或半透明深色表面，圆角（16px 半径）。",
+        "chip": "小型圆润指示器，用于状态或标签，采用微妙边框或背景变化。",
+        "input": "搜索输入框采用大药丸圆角，配有突出的搜索图标和占位符文本。",
+        "hero": "全宽区块，配有戏剧性的渐变背景、大号字体和一个突出的交互式演示。"
+      },
+      "motion": {
+        "patterns": [
+          "交互元素上的平滑 color 和 background-color 过渡。",
+          "按钮和卡片在 hover 状态下的微妙 transform（scale/translate）。",
+          "内容显示与状态变化时的淡入淡出过渡。"
+        ]
+      },
+      "interaction": {
+        "hover": "color、background-color 和 border-color 的平滑过渡。",
+        "click": "微妙的缩放效果或即时的颜色变化以提供反馈。",
+        "transition": "所有交互属性使用标准的 0.15秒 到 0.3秒 cubic-bezier(0.4, 0, 0.2, 1) 过渡。",
+        "keyboard": "使用白色或点缀色显示清晰的 focus 轮廓，以在深色背景上保持可访问性。"
+      },
+      "voice": {
+        "tone": "自信、以开发者为中心，并略带趣味。",
+        "headlineStyle": "粗体、直接、以收益为导向，常使用强动词。",
+        "ctaStyle": "清晰且注重行动，例如「开始使用」或「申请演示」。",
+        "avoid": [
+          "企业流行语",
+          "过于正式或生硬的语言",
+          "被动语态"
+        ]
+      },
+      "donts": [
+        "不要使用亮霓虹绿——截图显示的是深紫与粉色渐变配色方案",
+        "不要使用衬线字体作为标题——截图显示标题使用的是粗体几何无衬线字体",
+        "不要使用尖锐、方正的圆角——截图显示所有卡片和按钮都采用大圆角（16px 和药丸形）",
+        "不要使用白色背景——截图显示的是带有微妙半透明覆盖层的深色模式",
+        "不要使用纤细、精致的字重进行强调——截图显示所有重要文本都使用粗体字重（600-700）",
+        "不要使用局促的间距——截图显示区块间有宽裕的内边距（96px）和充裕的间隙（24px）"
+      ],
+      "systemPrompt": "为一款开发者搜索工具设计 SaaS 落地页。采用暗色模式美学，以深紫色（#0E0021）为基底，活力粉（#D00064）为点缀。标题使用粗体几何无衬线字体，正文使用人文无衬线字体。采用药丸形按钮、大圆角（16px+）和微妙的半透明卡片背景。确保高对比度以保证可读性，所有交互状态使用平滑的 0.15秒 cubic-bezier 过渡。避免尖锐圆角、浅色背景和纤细字重。"
+    },
+    "zh-TW": {
+      "identity": {
+        "keywords": [
+          "搜尋",
+          "開發者",
+          "AI",
+          "整合",
+          "快速"
+        ],
+        "analogy": "一個對開發者友善的搜尋引擎基礎設施，其體驗如同原生功能般流暢快速。",
+        "oneLiner": "為希望打造快速、相關搜尋體驗的開發者所設計的開源搜尋引擎。"
+      },
+      "colors": {
+        "principle": "深色模式搭配高彩度強調色"
+      },
+      "typography": {
+        "rules": [
+          "使用幾何無襯線字體作為顯示字體，以維持粗獷、現代的美學。",
+          "使用人文無襯線字體作為內文字體，確保在小尺寸下具有高可讀性。",
+          "使用等寬字體作為程式碼區塊，以清晰區分開發者導向的內容。",
+          "在深色背景上維持寬裕的行高以提升可讀性。"
+        ],
+        "scaleUses": [
+          "主要主視覺標題與大型區段標題。",
+          "區段標題與次要醒目標題。",
+          "標準段落文字與使用者介面文案。",
+          "次要文字、圖說與細節說明。"
+        ]
+      },
+      "spacing": {
+        "rhythm": "垂直節奏為 8px，標準內容間距為 24px，主要區段分隔處則擴大至 96px。"
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 32px 68px 0px rgba(0, 0, 0, 0.3)"
+        ],
+        "borders": "卡片使用 1px solid rgba(255, 255, 255, 0.1) 邊框，可選用 2px 強調色邊框。"
+      },
+      "layout": {
+        "skeleton": "標準行銷用途的居中單欄流式佈局，功能格狀區域則擴展為多欄。"
+      },
+      "components": {
+        "button": "膠囊形按鈕，具備高對比度（實心白色或粉紅色），並帶有 hover 過渡效果。",
+        "card": "磨砂玻璃或半透明深色表面，搭配圓角（16px radius）。",
+        "chip": "用於狀態或標籤的小型圓角指示器，使用細微邊框或背景色變化。",
+        "input": "搜尋輸入欄，具備大圓角膠囊造型，帶有醒目的搜尋圖示與佔位符文字。",
+        "hero": "全寬區段，具戲劇性漸層背景、大型字體排印，以及醒目的互動式展示區。"
+      },
+      "motion": {
+        "patterns": [
+          "互動元素具備流暢的色彩與背景色過渡效果。",
+          "按鈕與卡片在 hover 時有細微的變換（縮放/平移）效果。",
+          "內容揭露與狀態切換時採用淡入淡出過渡效果。"
+        ]
+      },
+      "interaction": {
+        "hover": "色彩、背景色與邊框色的流暢過渡效果。",
+        "click": "細微的縮放效果或立即色彩變化以提供反饋。",
+        "transition": "所有互動屬性均採用標準 0.15秒 至 0.3秒 cubic-bezier(0.4, 0, 0.2, 1) 過渡。",
+        "keyboard": "使用白色或強調色的可見焦點外框，以在深色背景上維持無障礙性。"
+      },
+      "voice": {
+        "tone": "自信、以開發者為中心，並略帶俏皮。",
+        "headlineStyle": "粗獷、直接且以效益為導向，常使用強而有力的動詞。",
+        "ctaStyle": "清晰且具行動導向，例如「開始使用」或「申請展示」。",
+        "avoid": [
+          "企業行話",
+          "過度正式或僵化的語言",
+          "被動語態"
+        ]
+      },
+      "donts": [
+        "勿使用明亮的霓虹綠色——螢幕截圖顯示的是深紫與粉紅漸層色盤。",
+        "勿使用襯線字體作為標題——螢幕截圖顯示的是粗體幾何無襯線顯示字體。",
+        "勿使用尖銳的方角——螢幕截圖顯示所有卡片與按鈕均採用寬裕圓角（16px 與膠囊形）。",
+        "勿使用白色背景——螢幕截圖顯示的是深色模式，並帶有細微半透明覆蓋層。",
+        "勿使用細長字重來強調——螢幕截圖顯示所有重要文字均採用粗重字重（600-700）。",
+        "勿使用緊湊間距——螢幕截圖顯示區段間具備寬裕內距（96px）與間隙（24px）。"
+      ],
+      "systemPrompt": "設計一個開發者搜尋工具的 SaaS 落地頁。使用深色模式美學，以深紫色（#0E0021）為基底，搭配活力粉紅色（#D00064）強調色。字體排印方面，標題使用粗體幾何無襯線字體，內文使用人文無襯線字體。採用膠囊形按鈕、寬裕圓角（16px 以上），以及細微半透明卡片背景。確保高對比度以利閱讀，所有互動狀態均採用流暢的 0.15秒 cubic-bezier 過渡效果。避免使用尖角、淺色背景與細長字重。"
+    },
+    "ja": {
+      "identity": {
+        "keywords": [
+          "検索",
+          "開発者",
+          "AI",
+          "インテグレーション",
+          "高速"
+        ],
+        "analogy": "ネイティブ機能のようにスムーズで高速に動作する、開発者フレンドリーな検索エンジン基盤。",
+        "oneLiner": "高速で関連性の高い検索体験を構築したい開発者のためのオープンソース検索エンジン。"
+      },
+      "colors": {
+        "principle": "ハイクロマアクセントを用いたダークモード"
+      },
+      "typography": {
+        "rules": [
+          "ディスプレイ用にはジオメトリック・サンズを使用し、太字でモダンな美学を維持する。",
+          "本文にはヒューマニスト・サンズを使用し、小さなサイズでも高い可読性を確保する。",
+          "コードブロックにはモノスペースを使用し、開発者向けの内容を明確に区別する。",
+          "ダーク背景に対して可読性を高めるため、余裕のある行間を維持する。"
+        ],
+        "scaleUses": [
+          "メインのヒーローヘッドラインと大きなセクション見出し。",
+          "セクション見出しとサブの主要タイトル。",
+          "標準の段落テキストとUI コピー。",
+          "サブテキスト、キャプション、および細字注釈。"
+        ]
+      },
+      "spacing": {
+        "rhythm": "標準コンテンツ間隔には24pxのガターを持った8pxの縦リズムを採用し、主要なセクション区切りには96pxに拡張。"
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 32px 68px 0px rgba(0, 0, 0, 0.3)"
+        ],
+        "borders": "カードには1px solid rgba(255, 255, 255, 0.1)を使用し、オプションで2pxのアクセントを追加。"
+      },
+      "layout": {
+        "skeleton": "マーケティング用には標準の中央揃え単一カラムフローを使用し、機能グリッドには複数カラムに拡張。"
+      },
+      "components": {
+        "button": "高コントラスト（実白またはピンク）のピル形状ボタンで、ホバー時に遷移。",
+        "card": "角丸（16px radius）のフロストグラスまたは半透明の暗いサーフェス。",
+        "chip": "ステータスやタグを示す小さな丸みのあるインジケーターで、繊細なボーダーまたは背景の変化を使用。",
+        "input": "大きなピル形状のラジウスを持つ検索入力フィールドで、目立つ検索アイコンとプレースホルダーテキストを装備。",
+        "hero": "劇的なグラデーション背景、大きなタイポグラフィ、および目を引くインタラクティブなデモを備えたフルワイドセクション。"
+      },
+      "motion": {
+        "patterns": [
+          "インタラクティブ要素上の滑らかなカラーおよびbackground-colorの遷移。",
+          "ボタンやカードのホバー時における微妙なtransform（スケール/translate）。",
+          "コンテンツの表示や状態変化のためのフェード遷移。"
+        ]
+      },
+      "interaction": {
+        "hover": "color、background-color、およびborder-colorの滑らかな遷移。",
+        "click": "フィードバックのための微妙なスケールダウン効果または即座のカラー変化。",
+        "transition": "すべてのインタラクティブプロパティに標準の0.15秒〜0.3秒 cubic-bezier(0.4, 0, 0.2, 1) を使用。",
+        "keyboard": "ダーク背景でもアクセシビリティを維持するため、白またはアクセントカラーの目に見えるフォーカスアウトラインを設定。"
+      },
+      "voice": {
+        "tone": "自信に満ち、開発者中心で、やや遊び心がある。",
+        "headlineStyle": "太字で直接的、利益を駆動するもので、強力な動詞をよく使用。",
+        "ctaStyle": "「Get started」や「Request a demo」のように明確で行動を促すもの。",
+        "avoid": [
+          "企業の buzzwords",
+          "過度にフォーマルまたは硬い言葉",
+          "受動態"
+        ]
+      },
+      "donts": [
+        "明るいネオングリーンは使用しない — スクリーンショットでは代わりに深い紫とピンクのグラデーションパレットが示されている",
+        "見出しにセリフフォントは使用しない — スクリーンショットではディスプレイテキストに太字ジオメトリック・サンズが使われている",
+        "角が尖った箱型の角は使用しない — スクリーンショットではすべてのカードとボタンにゆったりとした角丸（16pxとピル）が使われている",
+        "白い背景は使用しない — スクリーンショットでは微妙な半透明オーバーレイを持つ深いダークモードが示されている",
+        "強調に細い繊細なウェイトは使用しない — スクリーンショットではすべての重要なテキストに太いウェイト（600-700）が使われている",
+        "詰まった間隔は使用しない — スクリーンショットではセクション間に広いパディング（96px）とゆったりとしたギャップ（24px）が示されている"
+      ],
+      "systemPrompt": "開発者向け検索ツールのSaaSランディングページをデザイン。ダークモード美学を採用し、ベースカラーは深い紫（#0E0021）、アクセントは鮮やかなピンク（#D00064）。見出しには太字ジオメトリック・サンズ、本文にはヒューマニスト・サンズを使用。ピル形状のボタン、ゆったりとした角丸（16px以上）、および微妙な半透明カード背景を採用。可読性を確保するための高いコントラストと、すべてのインタラクティブ状態にスムーズな0.15秒 cubic-bezier遷移を実現。角が尖ったもの、明るい背景、および細いフォントウェイトは避ける。"
+    },
+    "ko": {
+      "identity": {
+        "keywords": [
+          "검색",
+          "개발자",
+          "AI",
+          "통합",
+          "빠른"
+        ],
+        "analogy": "네이티브 기능처럼 부드럽고 빠르게 느껴지는, 개발자 친화적인 검색 엔진 인프라입니다.",
+        "oneLiner": "빠르고 관련성 높은 검색 경험을 구축하고 싶어하는 개발자를 위한 오픈소스 검색 엔진입니다."
+      },
+      "colors": {
+        "principle": "하이크로마 악센트가 있는 다크 모드"
+      },
+      "typography": {
+        "rules": [
+          "표시용으로 지오메트릭-산스를 사용하여 대담하고 현대적인 미학을 유지합니다.",
+          "본문 텍스트로 휴머니스트-산스를 사용하여 작은 크기에서도 높은 가독성을 보장합니다.",
+          "코드 블록용으로 모노스페이스를 사용하여 개발자 중심 콘텐츠를 명확히 구분합니다.",
+          "다크 배경에서의 가독성을 위해 넉넉한 행간을 유지합니다."
+        ],
+        "scaleUses": [
+          "메인 히어로 헤드라인 및 대형 섹션 헤더.",
+          "섹션 헤더 및 보조 주요 타이틀.",
+          "표준 단락 텍스트 및 UI 카피.",
+          "보조 텍스트, 캡션 및 세부 사항."
+        ]
+      },
+      "spacing": {
+        "rhythm": "표준 콘텐츠 간격을 위한 8px 수직 리듬과 24px 거터, 주요 섹션 구분을 위해 96px까지 확장합니다."
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 32px 68px 0px rgba(0, 0, 0, 0.3)"
+        ],
+        "borders": "카드용 1px solid rgba(255, 255, 255, 0.1), 선택적 2px 악센트 포함."
+      },
+      "layout": {
+        "skeleton": "마케팅용 표준 중앙 정렬 단일 콜럼 흐름, 기능 그리드를 위해 멀티 콜럼으로 확장합니다."
+      },
+      "components": {
+        "button": "높은 대비(솔리드 화이트 또는 핑크)의 필形状 버튼, hover 시 전환 효과 적용.",
+        "card": "둥근 모서리(16px 반경)의 프로스티드 글래스 또는 반투명 다크 표면.",
+        "chip": "상태 또는 태그를 위한 작고 둥근 표시기, 미세한 테두리 또는 배경 변화 사용.",
+        "input": "큰 필形状 반경의 검색 입력, 두드러진 검색 아이콘과 플레이스홀더 텍스트 포함.",
+        "hero": "드라마틱한 그라디언트 배경, 큰 타이포그래피, 두드러진 인터랙티브 데모를 갖춘 전체 너비 섹션."
+      },
+      "motion": {
+        "patterns": [
+          "인터랙티브 요소의 부드러운 색상 및 background-color 전환.",
+          "버튼과 카드의 hover 시 미세한 transforms(scale/translate).",
+          "콘텐츠 노출 및 상태 변화를 위한 페이딩 전환."
+        ]
+      },
+      "interaction": {
+        "hover": "색상, background-color, border-color의 부드러운 전환.",
+        "click": "피드백을 위한 미세한 scale-down 효과 또는 즉각적인 색상 변화.",
+        "transition": "모든 인터랙티브 속성에 표준 0.15s에서 0.3s cubic-bezier(0.4, 0, 0.2, 1) 적용.",
+        "keyboard": "다크 배경에서 접근성을 유지하기 위해 화이트 또는 악센트 색상을 사용하는 눈에 띄는 포커스 윤곽선."
+      },
+      "voice": {
+        "tone": "자신감 있고, 개발자 중심적이며, 약간 재치 있는 톤.",
+        "headlineStyle": "대담하고 직접적이며 혜택 중심적인, 종종 강력한 동사를 사용하는 스타일.",
+        "ctaStyle": "'Get started' 또는 'Request a demo'와 같이 명확하고 행동 지향적인 스타일.",
+        "avoid": [
+          "기업형 유행어",
+          "지나치게 공식적이거나僵硬한 언어",
+          "수동태"
+        ]
+      },
+      "donts": [
+        "bright neon greens를 사용하지 않습니다 — 스크린샷은 대신 딥 퍼플과 핑크 그라디언트 팔레트를 보여줍니다",
+        "헤드라인에 세리프 글꼴을 사용하지 않습니다 — 스크린샷은 표시용 텍스트에 대담한 지오메트릭-산스를 보여줍니다",
+        "날카롭고 각진 모서리를 사용하지 않습니다 — 스크린샷은 모든 카드와 버튼에 넉넉한 둥근 모서리(16px 및 필形状)를 보여줍니다",
+        "화이트 배경을 사용하지 않습니다 — 스크린샷은 미세한 반투명 오버레이가 있는 깊은 다크 모드를 보여줍니다",
+        "강조를 위해 얇고 섬세한 무게를 사용하지 않습니다 — 스크린샷은 모든 중요한 텍스트에 두꺼운 무게(600-700)를 보여줍니다",
+        "좁은 간격을 사용하지 않습니다 — 스크린샷은 넉넉한 패딩(96px)과 섹션 간 넉넉한 간격(24px)을 보여줍니다"
+      ],
+      "systemPrompt": "개발자 검색 도구를 위한 SaaS 랜딩 페이지를 디자인합니다. 딥 퍼플(#0E0021) 베이스와 비비드 핑크(#D00064) 악센트를 사용하는 다크 모드 미학을 적용합니다. 타이포그래피는 헤드라인용 대담한 지오메트릭-산스와 본문용 휴머니스트-산스를 사용합니다. 필形状 버튼, 넉넉한 둥근 모서리(16px 이상), 미세한 반투명 카드 배경을 사용합니다. 가독성을 위한 고대비와 모든 인터랙티브 상태에 부드러운 0.15s cubic-bezier 전환을 보장합니다. 날카로운 모서리, 밝은 배경, 얇은 글꼴 무게는 피합니다."
+    }
+  },
+  "desc": {
+    "en": {
+      "palette": "Deep purple and vibrant pink gradient with high-contrast white text, creating a premium dark mode feel.",
+      "layout": "Centered single-column marketing layout with generous vertical spacing and a prominent interactive demo.",
+      "interaction": "Smooth hover transitions on buttons and links with subtle scale feedback.",
+      "motion": "Fast, fluid transitions (0.15s-0.3s) using a standard ease-out curve for micro-interactions.",
+      "notes": "Exemplifies a modern developer-focused SaaS aesthetic with a strong balance of bold typography and sophisticated dark-mode color work."
+    },
+    "zh-CN": {
+      "palette": "深紫色与活力粉的渐变搭配高对比度白色文字，营造出高级的暗色模式质感。",
+      "layout": "居中的单栏营销布局，垂直间距充裕，并配有突出的交互式演示。",
+      "interaction": "按钮和链接在 hover 状态下有平滑的过渡动画，并带有微妙的缩放反馈。",
+      "motion": "快速、流畅的过渡（0.15秒-0.3秒），使用标准的 ease-out 曲线处理微交互。",
+      "notes": "展现了面向开发者的现代 SaaS 美学，将粗体排版与精致的暗色模式配色进行了出色的平衡。"
+    },
+    "zh-TW": {
+      "palette": "深紫與活力粉紅漸層，搭配高對比白色文字，營造出高質感的深色模式氛圍。",
+      "layout": "居中單欄行銷佈局，垂直間距寬裕，並設有醒目的互動式展示區。",
+      "interaction": "按鈕與連結具備流暢的 hover 過渡效果，並帶有細微的縮放反饋。",
+      "motion": "快速流暢的過渡效果（0.15秒-0.3秒），採用標準 ease-out 曲線實現微互動。",
+      "notes": "體現了現代開發者導向的 SaaS 美學，在粗獷字體排印與精緻深色模式色彩運用之間取得強烈平衡。"
+    },
+    "ja": {
+      "palette": "深い紫と鮮やかなピンクのグラデーションと、高コントラストの白いテキストを組み合わせ、プレミアムなダークモード感を演出。",
+      "layout": "縦方向にゆったりと配置された、中央揃えの単一カラムマーケティングレイアウトに、目を引くインタラクティブなデモを配置。",
+      "interaction": "ボタンやリンクに、繊細なスケールフィードバックを伴う、滑らかなホバー遷移を実装。",
+      "motion": "マイクロインタラクションに標準的な ease-out カーブを使用し、速く流れるような遷移（0.15秒〜0.3秒）を実現。",
+      "notes": "太字タイポグラフィと洗練されたダークモードカラーの巧みなバランスにより、モダンで開発者向けのSaaS美学を体現。"
+    },
+    "ko": {
+      "palette": "딥 퍼플과 비비드 핑크 그라디언트, 고대비 화이트 텍스트를 사용하여 프리미엄 다크 모드 분위기를 연출합니다.",
+      "layout": "풍부한 수직 간격과 두드러진 인터랙티브 데모를 갖춘 중앙 정렬 단일 콜럼 마케팅 레이아웃입니다.",
+      "interaction": "버튼과 링크에 부드러운 hover 전환과 미세한 scale 피드백을 제공합니다.",
+      "motion": "마이크로 인터랙션을 위해 표준 ease-out 커브를 사용한 빠르고 유동적인 전환(0.15s-0.3s)입니다.",
+      "notes": "대담한 타이포그래피와 정교한 다크 모드 컬러 작업의 강력한 균형을 갖춘, 현대적이고 개발자 중심적인 SaaS 미학의 예시입니다."
+    }
+  },
+  "_meta": {
+    "vision_model": "mimo-v2.5",
+    "vision_prompt_version": "0.3",
+    "vision_source": "playwright-extract:meilisearch",
+    "vision_grounded": true,
+    "vision_at": "2026-06-04T16:41:33+00:00",
+    "vision_tokens": 17263,
+    "vision_cost_usd": 0.1918,
+    "translation_model": "mimo-v2.5",
+    "translation_at": "2026-06-04T16:42:52+00:00",
+    "translation_tokens": 18104,
+    "translation_cost_usd": 0.0604,
+    "narrative_model": "mimo-v2.5",
+    "narrative_prompt_version": "0.3",
+    "narrative_at": "2026-06-04T16:43:00+00:00",
+    "narrative_tokens": 2171,
+    "narrative_cost_usd": 0.0145,
+    "narrative_status": "ok",
+    "total_cost_usd": 0.2667
+  },
+  "narrative": {
+    "en": {
+      "ch1_intro": "Meilisearch's visual system is engineered to feel less like an interface and more like infrastructure—something developers can integrate as smoothly as a native feature. The identity DNA is built on a foundation of speed, integration, and developer-centric clarity, mirroring the product's core promise.",
+      "ch2_intro": "The color system operates on a principle of **Dark Mode with High-Chroma Accents**, using a deep purple (#0E0021) as the foundational canvas. Vibrant pink (#D00064) and crisp white provide the high-contrast accents necessary for both readability and visual hierarchy against this nocturnal base.",
+      "ch2_outro": "This palette ensures that the interface recedes, allowing content and interactive elements to command attention through strategic luminance.",
+      "ch3_intro": "Typography is bifurcated for distinct roles: a **geometric-sans** for display headlines establishes a bold, modern aesthetic, while a **humanist-sans** for body text ensures high readability at smaller sizes. Monospace is reserved for code blocks, clearly marking developer-focused content.",
+      "ch4_intro": "Spacing follows an 8px vertical rhythm, creating a consistent and predictable grid for all content blocks.",
+      "ch5_intro": "Surfaces are defined by subtle depth and translucency. Cards and overlays use frosted, semi-transparent dark backgrounds with generous rounded corners (16px radius), bordered by a fine, low-opacity white line to delineate edges without harshness.",
+      "ch6_intro": "The layout skeleton is a centered, single-column flow for primary marketing narratives, expanding into multi-column grids for feature showcases. This structure prioritizes clear, linear storytelling before branching into detailed exploration.",
+      "ch7_intro": "Motion is treated as functional feedback, not decoration. The philosophy employs fast, fluid transitions (0.15s–0.3s) using a standard cubic-bezier curve to affirm interactions without lag.",
+      "ch8_intro": "The editorial voice is confident, developer-centric, and slightly playful, favoring bold, direct headlines and clear, action-oriented CTAs.",
+      "ch8_outro": "The system deliberately avoids sharp corners, light backgrounds, and thin font weights, rejecting visual tension in favor of smooth, approachable density."
+    },
+    "zh-CN": {
+      "ch1_intro": "Meilisearch 的视觉体系旨在弱化界面感，强化基础设施属性——如同一项开发者可像原生功能般无缝集成的底层能力。其设计DNA根植于速度、集成性与开发者友好的清晰度，映射产品核心承诺。",
+      "ch2_intro": "色彩系统基于**深色模式与高饱和度强调色**原则，以深紫（#0E0021）为基底画布。鲜亮粉红（#D00064）与纯净白色提供高对比度的视觉焦点，在夜间感基底上兼顾可读性与层次构建。",
+      "ch2_outro": "此配色确保界面退居次位，通过精准的亮度控制让内容与交互元素成为视觉焦点。",
+      "ch3_intro": "字体排版按功能分化：**几何无衬线体**用于标题展示，塑造大胆现代的视觉印象；**人文无衬线体**用于正文，在较小尺寸下保持卓越可读性。等宽字体专用于代码区块，明确标注开发者内容。",
+      "ch4_intro": "间距遵循8px垂直节奏网格，为所有内容区块创建一致且可预测的版式结构。",
+      "ch5_intro": "表面系统通过微妙深度与半透明性定义。卡片与浮层采用磨砂半透明深色背景，配以宽大圆角（16px半径），边缘以低透明度细白线勾勒，实现柔和边界界定。",
+      "ch6_intro": "版式骨架采用居中单栏流式布局承载核心营销叙事，在功能展示环节扩展为多栏网格。结构优先保障清晰的线性叙事体验，再引导用户进入深度探索。",
+      "ch7_intro": "动效视为功能性反馈而非装饰元素。采用快速流畅的过渡动画（0.15s–0.3s），以标准cubic-bezier曲线实现零延迟的交互确认。",
+      "ch8_intro": "编辑语气秉持自信、开发者导向且略带俏皮的特质，倾向于使用大胆直接的标题与清晰明确的行动召唤。",
+      "ch8_outro": "体系刻意规避尖锐边角、浅色背景与纤细字重，以柔和可亲的视觉密度取代紧张感。"
+    },
+    "zh-TW": {
+      "ch1_intro": "Meilisearch 的視覺系統被設計得感覺不像是一個介面，更像是一種基礎設施——開發者可以像整合原生功能一樣順暢地整合它。其識別 DNA 建立在速度、整合性與以開發者為中心的清晰度之上，反映了產品的核心承諾。",
+      "ch2_intro": "色彩系統基於**深色模式搭配高飽和度強調色**的原則運作，以深紫色（#0E0021）作為基礎底色。鮮豔的粉紅色（#D00064）與純白色提供了必要的高對比度強調色，以確保在此夜間底色上的可讀性與視覺層級。",
+      "ch2_outro": "這個色板確保介面退居次要，讓內容與互動元素透過策略性的亮度來主導注意力。",
+      "ch3_intro": "字體排印被區分為不同角色：用於展示標題的**幾何無襯線字體**建立了大膽、現代的美感，而用於內文的**人文無襯線字體**則確保在小尺寸下的高可讀性。等寬字體則保留給程式碼區塊，明確標示以開發者為導向的內容。",
+      "ch4_intro": "間距遵循 8px 的垂直節奏，為所有內容區塊創造出一致且可預測的網格。",
+      "ch5_intro": "表面以細微的深度與半透明度來定義。卡片與覆蓋層使用毛玻璃效果、半透明的深色背景，搭配寬大的圓角（16px radius），並由一條細微、低不透明度的白線勾勒邊緣，避免生硬感。",
+      "ch6_intro": "版面骨架是居中的單欄流動，用於主要的行銷敘事，並在功能展示時擴展為多欄格線結構。此結構優先考慮清晰、線性的說故事方式，然後再分支進入詳細的探索。",
+      "ch7_intro": "動效被視為功能性的回饋，而非裝飾。其理念採用快速、流暢的過渡動畫（0.15s–0.3s），使用標準 cubic-bezier 曲線，以確認互動而無延遲。",
+      "ch8_intro": "編輯語氣是自信、以開發者為中心且略帶趣味的，偏愛大膽、直接的標題與清晰、以行動為導向的 CTA。",
+      "ch8_outro": "此系統刻意避免了銳利的角落、淺色背景與細字體權重，拒絕視覺張力，以取而代之的是流暢、親切的密度。"
+    },
+    "ja": {
+      "ch1_intro": "Meilisearchのビジュアルシステムは、インターフェースというよりインフラストラクチャのように感じられるよう設計されています。開発者がネイティブ機能と同様にシームレスに統合できるものです。アイデンティティのDNAは、スピード、統合性、そして開発者中心の明瞭性の基盤の上に構築されており、製品の核心となる約束を反映しています。",
+      "ch2_intro": "カラーシステムは、**ダークモードと高彩度アクセント**の原則に基づいて動作します。深い紫（#0E0021）を基盤のキャンバスとして使用し、鮮やかなピンク（#D00064）とクリスマイトが、この夜間の背景に対して読みやすさとビジュアル階層に必要な高コントラストアクセントを提供します。",
+      "ch2_outro": "このパレットにより、インターフェースは後退し、コンテンツとインタラクティブな要素が戦略的な明度を通じて注目を集めることができます。",
+      "ch3_intro": "タイポグラフィは、それぞれの役割に応じて二分されています。**ジオメトリックサンセリフ**がディスプレイ見出しとして大胆でモダンな美学を確立し、本文には**ヒューマニストサンセリフ**が使用され、小さなサイズでも高い可読性を確保します。モノスペースはコードブロックに限られ、開発者向けコンテンツを明確に示します。",
+      "ch4_intro": "スペース設定は8pxの垂直リズムに従い、すべてのコンテンツブロックに対して一貫した予測可能なグリッドを創出します。",
+      "ch5_intro": "サーフェスは、微細な深度と半透明性によって定義されます。カードやオーバーレイには、磨りガラス状の半透明ダーク背景を使用し、ゆったりとした角丸（16px radius）と、境界線を強調しすぎずに区切るための細く低不透明度のホワイトラインが施されています。",
+      "ch6_intro": "レイアウトの骨格は、主要なマーケティングナラティブにはセンタリングされた単一カラムフローを採用し、機能のショーケースには複数カラムグリッドに展開します。この構造は、詳細な探索へと分岐する前に、明確で直線的なストーリーテリングを優先します。",
+      "ch7_intro": "モーションは装飾ではなく、機能的なフィードバックとして扱われます。この哲学では、標準的なcubic-bezierカーブを使用した高速で流動的なトランジション（0.15s〜0.3s）を採用し、遅延なくインタラクションを確認します。",
+      "ch8_intro": "エディトリアルな語り口は、自信に満ち、開発者中心で、少し遊び心を帯びています。大胆で直接的な見出しと、明確で行動を促すCTAを好む傾向があります。",
+      "ch8_outro": "このシステムは、鋭い角、明るい背景、細いフォントウェイトを意図的に避け、滑らかで親しみやすい密度のためにビジュアルな緊張感を排斥しています。"
+    },
+    "ko": {
+      "ch1_intro": "Meilisearch의 비주얼 시스템은 인터페이스보다는 인프라처럼 느껴지도록 설계되어 있습니다—개발자들이 네이티브 기능처럼 매끄럽게 통합할 수 있는 구조입니다. 정체성 DNA는 속도, 통합, 개발자 중심의 명확성이라는 토대 위에 구축되어 있으며, 제품의 핵심 약속을 반영합니다.",
+      "ch2_intro": "색상 시스템은 **하이 크로마 악센트가 포함된 다크 모드** 원칙으로 운영됩니다. 깊은 보라색(#0E0021)을 기본 캔버스로 사용하고, 활기 있는 핑크(#D00064)와 깨끗한 흰색이 야간 배경 위에서 가독성과 시각적 계층을 모두 위해 필요한 고대비 악센트를 제공합니다.",
+      "ch2_outro": "이 팔레트는 인터페이스가 물러나고, 콘텐츠와 인터랙티브 요소가 전략적인 휘도를 통해 주의를 집중시킬 수 있도록 보장합니다.",
+      "ch3_intro": "타이포그래피는 뚜렷한 역할을 위해 이중으로 구성됩니다: **지오메트릭-산세리프**는 디스플레이 헤드라인에 사용되어 강하고 현대적인 미학을 확립하고, **휴머니스트-산세리프**는 본문 텍스트에 사용되어 작은 크기에서도 높은 가독성을 보장합니다. 모노스페이스는 코드 블록을 위해 예약되어 개발자 중심 콘텐츠를 명확히 표시합니다.",
+      "ch4_intro": "간격은 8px 수직 리듬을 따르며, 모든 콘텐츠 블록을 위한 일관되고 예측 가능한 격자를 만듭니다.",
+      "ch5_intro": "표면은 미세한 깊이와 반투명함으로 정의됩니다. 카드와 오버레이는 부드럽게 둥근 모서리(16px 반경)를 가진 프로스트 처리된 반투명 다크 배경을 사용하고, 날카로움 없이 가장자리를 구분하기 위해 얇은 저불투명도 흰색 테두리로 경계를 표시합니다.",
+      "ch6_intro": "레이아웃 골격은 주요 마케팅 내러티브를 위한 중앙 정렬 단일 열 흐름으로 구성되며, 기능 쇼케이스를 위해 다중 열 격자로 확장됩니다. 이 구조는 상세한 탐색으로 분기하기 전에 명확하고 선형적인 스토리텔링을 우선시합니다.",
+      "ch7_intro": "모션은 장식이 아닌 기능적 피드백으로 취급됩니다. 이 철학은 지연 없이 상호작용을 확인하기 위해 표준 cubic-bezier 곡선을 사용한 빠르고 유연한 전환(0.15s–0.3s)을 사용합니다.",
+      "ch8_intro": "에디토리얼 어조는 자신감 있고, 개발자 중심적이며, 약간 재미있어서, 대담하고 직접적인 헤드라인과 명확하고 행동 지향적인 CTA를 선호합니다.",
+      "ch8_outro": "시스템은 의도적으로 날카로운 모서리, 밝은 배경, 그리고 얇은 폰트 두께를 피하며, 부드럽고 접근 가능한 밀도를 위해 시각적 긴장을 거부합니다."
+    }
+  }
 }

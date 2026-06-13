@@ -8,8 +8,633 @@
     "ai",
     "3d"
   ],
-  "status": "pending",
+  "status": "completed",
   "added_at": "2026-06-02",
   "added_by": "expand-200",
-  "_meta": {}
+  "_meta": {
+    "vision_model": "mimo-v2.5",
+    "vision_prompt_version": "0.3",
+    "vision_source": "playwright-extract:lumalabs",
+    "vision_grounded": true,
+    "vision_at": "2026-06-04T16:33:14+00:00",
+    "vision_tokens": 16831,
+    "vision_cost_usd": 0.187,
+    "translation_model": "mimo-v2.5",
+    "translation_at": "2026-06-04T16:34:27+00:00",
+    "translation_tokens": 17044,
+    "translation_cost_usd": 0.057,
+    "narrative_model": "mimo-v2.5",
+    "narrative_prompt_version": "0.3",
+    "narrative_at": "2026-06-04T16:34:35+00:00",
+    "narrative_tokens": 2073,
+    "narrative_cost_usd": 0.0138,
+    "narrative_status": "ok",
+    "total_cost_usd": 0.2578
+  },
+  "spec": {
+    "colors": {
+      "bg": "#000000",
+      "bgSoft": "#0a0a0a",
+      "bgQuiet": null,
+      "ink": "#ffffff",
+      "inkSoft": "#737373",
+      "muted": "#737373",
+      "mutedSoft": null,
+      "accent": null,
+      "line": "rgba(115,115,115,0.3)"
+    },
+    "typography": {
+      "display": "transitional-serif",
+      "body": "geometric-sans",
+      "mono": null,
+      "scale": [
+        {
+          "token": "display",
+          "size": 48,
+          "lh": 1.0,
+          "weight": 400,
+          "ls": "-1.28px"
+        },
+        {
+          "token": "headline",
+          "size": 32,
+          "lh": 1.2,
+          "weight": 400,
+          "ls": "-0.66px"
+        },
+        {
+          "token": "body",
+          "size": 16,
+          "lh": 1.5,
+          "weight": 400,
+          "ls": "-0.4px"
+        },
+        {
+          "token": "label",
+          "size": 14,
+          "lh": 1.0,
+          "weight": 500,
+          "ls": "-0.4px"
+        }
+      ]
+    },
+    "spacing": {
+      "base": 4,
+      "scale": [
+        4,
+        8,
+        12,
+        16,
+        20,
+        24,
+        32,
+        48,
+        64,
+        96,
+        160
+      ]
+    },
+    "surfaces": {
+      "radius": {
+        "sm": 8,
+        "md": 24,
+        "lg": 24,
+        "pill": 999
+      }
+    },
+    "layout": {
+      "container": 1280,
+      "paragraph": 680,
+      "columns": 12,
+      "gutter": 24,
+      "breakpoints": [
+        768,
+        1024
+      ]
+    },
+    "motion": {
+      "durations": {
+        "micro": 150,
+        "small": 300,
+        "medium": 800
+      },
+      "easing": "cubic-bezier(0.4, 0, 0.2, 1)"
+    }
+  },
+  "spec_i18n": {
+    "en": {
+      "identity": {
+        "keywords": [
+          "creative",
+          "AI",
+          "generative",
+          "physical",
+          "open-source",
+          "prolific"
+        ],
+        "analogy": "A cinematic studio for physical AI generation",
+        "oneLiner": "Creative agents that make you prolific."
+      },
+      "colors": {
+        "principle": "High-contrast cinematic dark mode with monochromatic UI to let generated media pop."
+      },
+      "typography": {
+        "rules": [
+          "Use tight negative letter-spacing on headlines for a cinematic feel.",
+          "Navigation links are uppercase and tracked out.",
+          "Body text is set in a clean, highly legible geometric sans."
+        ],
+        "scaleUses": [
+          "Primary hero headlines",
+          "Section headings",
+          "General text and descriptions",
+          "Navigation and UI labels"
+        ]
+      },
+      "spacing": {
+        "rhythm": "Consistent 4px base grid with generous section padding (160px)."
+      },
+      "surfaces": {
+        "shadows": [
+          "0 4px 24px rgba(0,0,0,0.5)"
+        ],
+        "borders": "1px solid rgba(115,115,115,0.3)"
+      },
+      "layout": {
+        "skeleton": "Edge-to-edge hero sections transitioning into centered content containers with a clear 12-column grid."
+      },
+      "components": {
+        "button": "Pill-shaped buttons with either solid white background and black text, or bordered transparent styles with white text.",
+        "card": "Image-forward cards with generous rounded corners (24px) and soft shadows.",
+        "chip": null,
+        "input": "Clean, minimal input fields with a subtle border and high-contrast text.",
+        "hero": "Full-viewport immersive video or image backgrounds with centered white typography."
+      },
+      "motion": {
+        "patterns": [
+          "Subtle opacity and transform transitions on interactive elements.",
+          "Immersive background media loops."
+        ]
+      },
+      "interaction": {
+        "hover": "Smooth opacity transitions on interactive elements (0.15s).",
+        "click": "Subtle transform scaling.",
+        "transition": "cubic-bezier(0.4, 0, 0.2, 1)",
+        "keyboard": "Standard focus ring behavior."
+      },
+      "voice": {
+        "tone": "Confident, visionary, and technically sophisticated.",
+        "headlineStyle": "Large, elegant serif headlines that feel premium and editorial.",
+        "ctaStyle": "Direct and action-oriented ('Try Luma', 'Learn more')",
+        "avoid": [
+          "Using overly playful or casual language.",
+          "Cluttering the UI with unnecessary decorative elements.",
+          "Using bright, neon colors that break the cinematic mood.",
+          "Using harsh, square corners for UI elements.",
+          "Creating dense, text-heavy layouts without breathing room.",
+          "Using complex gradients or busy backgrounds that distract from the media."
+        ]
+      },
+      "donts": [
+        "Don't use bright, saturated accent colors — screenshot shows a strictly monochromatic UI with no dominant accent.",
+        "Don't use decorative or script fonts for headlines — screenshot shows a clean, elegant serif.",
+        "Don't use sharp, 0px corners — screenshot shows rounded buttons (pill) and cards (24px radius).",
+        "Don't use light mode themes — screenshot shows a deep black background with white text.",
+        "Don't use centered, multi-line text blocks — screenshot shows centered, concise headlines.",
+        "Don't use busy, patterned backgrounds — screenshot shows either solid black or high-quality, blurred photography."
+      ],
+      "systemPrompt": "Luma AI is a premium, cinematic dark-mode web experience for an AI video generation platform. The identity is sophisticated and visionary, centered around a deep black background (#000000) and pure white text (#ffffff). The typography uses a clean geometric sans for body text and an elegant transitional serif for display headlines. Critical don'ts include: never use bright, saturated accent colors; never use sharp, square corners for UI elements; and never use light mode themes. The layout is spacious and immersive, prioritizing high-quality generated media over dense text. Interactive elements use subtle, smooth transitions (0.15s) to maintain a fluid, high-end feel."
+    },
+    "zh-CN": {
+      "identity": {
+        "keywords": [
+          "创意",
+          "AI",
+          "生成式",
+          "物理",
+          "开源",
+          "高产"
+        ],
+        "analogy": "用于物理AI生成的电影级工作室",
+        "oneLiner": "助你高效产出的创意智能体。"
+      },
+      "colors": {
+        "principle": "采用高对比度电影级深色模式与单色UI，让生成媒体脱颖而出。"
+      },
+      "typography": {
+        "rules": [
+          "标题使用紧凑的负字距，营造电影感。",
+          "导航链接采用大写字母并加大字间距。",
+          "正文采用清晰易读的几何无衬线字体。"
+        ],
+        "scaleUses": [
+          "首屏主标题",
+          "章节标题",
+          "正文与描述文字",
+          "导航与UI标签"
+        ]
+      },
+      "spacing": {
+        "rhythm": "采用统一的4px基础网格，章节内边距充裕（160px）。"
+      },
+      "surfaces": {
+        "shadows": [
+          "0 4px 24px rgba(0,0,0,0.5)"
+        ],
+        "borders": "1px solid rgba(115,115,115,0.3)"
+      },
+      "layout": {
+        "skeleton": "从全出血首屏章节过渡至带有清晰12列网格的居中内容容器。"
+      },
+      "components": {
+        "button": "采用药丸形状设计，可为纯白背景配黑色文字，或透明边框样式配白色文字。",
+        "card": "以图像为主导的卡片，圆角充裕（24px）并带有柔和阴影。",
+        "chip": null,
+        "input": "简洁极简的输入框，带细微边框与高对比度文本。",
+        "hero": "全视口沉浸式视频或图像背景，搭配居中的白色文字排版。"
+      },
+      "motion": {
+        "patterns": [
+          "交互元素上的细微透明度与形变过渡。",
+          "沉浸式背景媒体循环。"
+        ]
+      },
+      "interaction": {
+        "hover": "交互元素平滑的透明度过渡（0.15秒）。",
+        "click": "细微的形变缩放。",
+        "transition": "cubic-bezier(0.4, 0, 0.2, 1)",
+        "keyboard": "标准的聚焦环行为。"
+      },
+      "voice": {
+        "tone": "自信、富有远见且技术精湛。",
+        "headlineStyle": "大气、优雅的衬线体标题，兼具高端感与编辑感。",
+        "ctaStyle": "直接且注重行动（例如'尝试 Luma'、'了解更多'）",
+        "avoid": [
+          "使用过于活泼或随意的语言。",
+          "用不必要的装饰元素使UI显得杂乱。",
+          "使用破坏电影氛围的明亮霓虹色。",
+          "为UI元素使用生硬的直角。",
+          "创建缺乏呼吸空间的密集文字布局。",
+          "使用分散媒体注意力的复杂渐变或繁杂背景。"
+        ]
+      },
+      "donts": [
+        "不要使用明亮、高饱和度的强调色——截图显示的是严格单色的UI，没有主导强调色。",
+        "不要使用装饰性或手写风格字体作为标题——截图显示的是清晰、优雅的衬线体。",
+        "不要使用锐利的0像素直角——截图显示的是圆角按钮（药丸形）和卡片（24px圆角）。",
+        "不要使用浅色模式主题——截图显示的是深黑色背景配白色文字。",
+        "不要使用居中的多行文本块——截图显示的是居中的简洁标题。",
+        "不要使用繁杂、有图案的背景——截图显示的是纯黑色或高质量的模糊摄影图像。"
+      ],
+      "systemPrompt": "Luma AI 是一个为AI视频生成平台打造的高端电影级深色模式网页体验。其身份定位精致而富有远见，以深黑色背景（#000000）和纯白色文字（#ffffff）为核心。排版上，正文采用清晰的几何无衬线字体，展示标题则使用优雅的过渡衬线体。关键禁忌包括：绝不使用明亮、高饱和的强调色；绝不为UI元素使用锐利的直角；绝不使用浅色模式主题。布局宽敞而沉浸，优先呈现高质量的生成媒体而非密集文本。交互元素采用细微、流畅的过渡（0.15秒），以维持流畅的高端质感。"
+    },
+    "zh-TW": {
+      "identity": {
+        "keywords": [
+          "創意",
+          "AI",
+          "生成式",
+          "實體",
+          "開源",
+          "高產能"
+        ],
+        "analogy": "實體 AI 生成的電影級工作室",
+        "oneLiner": "讓你高產能的創意代理。"
+      },
+      "colors": {
+        "principle": "高對比電影級深色模式搭配單色調 UI，讓生成媒體脫穎而出。"
+      },
+      "typography": {
+        "rules": [
+          "標題使用緊湊負字距營造電影感。",
+          "導覽連結採全大寫並加寬字距。",
+          "內文採用清晰易讀的幾何無襯線字體。"
+        ],
+        "scaleUses": [
+          "首圖主標題",
+          "章節標題",
+          "一般文字與說明",
+          "導覽與 UI 標籤"
+        ]
+      },
+      "spacing": {
+        "rhythm": "一致的 4px 基礎網格搭配寬裕的區塊內距（160px）。"
+      },
+      "surfaces": {
+        "shadows": [
+          "0 4px 24px rgba(0,0,0,0.5)"
+        ],
+        "borders": "1px solid rgba(115,115,115,0.3)"
+      },
+      "layout": {
+        "skeleton": "全幅首圖區域過渡至居中內容容器，採清晰的 12 欄網格結構。"
+      },
+      "components": {
+        "button": "膠囊造型按鈕，提供實心白色背景搭配黑色文字，或透明邊框風格搭配白色文字。",
+        "card": "圖片優先的卡片，帶有寬裕圓角（24px）與柔和陰影。",
+        "chip": null,
+        "input": "簡潔的輸入欄位，帶有細微邊框與高對比文字。",
+        "hero": "全視口沉浸式影片或圖片背景，搭配居中白色排版。"
+      },
+      "motion": {
+        "patterns": [
+          "互動元素細微的透明度與變形過渡。",
+          "沉浸式背景媒體循環。"
+        ]
+      },
+      "interaction": {
+        "hover": "互動元素平滑的透明度過渡（0.15s）。",
+        "click": "細微的變形縮放效果。",
+        "transition": "cubic-bezier(0.4, 0, 0.2, 1)",
+        "keyboard": "標準焦點環行為。"
+      },
+      "voice": {
+        "tone": "自信、前瞻且技術精湛。",
+        "headlineStyle": "大氣優雅的襯線標題，展現高端編輯質感。",
+        "ctaStyle": "直接且行動導向（「試用 Luma」、「了解更多」）",
+        "avoid": [
+          "使用過於俏皮或隨意的語言。",
+          "在 UI 中堆砌不必要的裝飾元素。",
+          "使用破壞電影氛圍的亮色霓虹色彩。",
+          "使用生硬的直角 UI 元素。",
+          "建立缺乏呼吸空間的密集文字排版。",
+          "使用複雜漸層或繁雜背景分散媒體焦點。"
+        ]
+      },
+      "donts": [
+        "勿使用明亮飽和的強調色——截圖顯示嚴格單色調 UI 無主導色。",
+        "勿使用裝飾性或手寫字體作為標題——截圖顯示清晰優雅的襯線字體。",
+        "勿使用 0px 尖角——截圖顯示膠囊圓角按鈕與 24px 圓角卡片。",
+        "勿使用淺色模式主題——截圖顯示深黑背景搭配白色文字。",
+        "勿使用居中多行文字區塊——截圖顯示居中簡潔標題。",
+        "勿使用繁雜的圖案背景——截圖顯示純黑或高品質模糊攝影。"
+      ],
+      "systemPrompt": "Luma AI 是一款高端電影級深色模式網頁體驗，為 AI 影片生成平台而設。身份識別精緻前瞻，以深黑背景（#000000）與純白文字（#ffffff）為核心。排版採用幾何無襯線字體作為內文，優雅的過渡襯線字體作為展示標題。關鍵禁忌：永遠勿使用明亮飽和的強調色；永遠勿使用尖銳直角的 UI 元素；永遠勿使用淺色模式主題。佈局寬敞沉浸，優先呈現高品質生成媒體而非密集文字。互動元素使用細膩平滑的過渡（0.15s）維持流暢高端感受。"
+    },
+    "ja": {
+      "identity": {
+        "keywords": [
+          "creative",
+          "AI",
+          "generative",
+          "physical",
+          "open-source",
+          "prolific"
+        ],
+        "analogy": "物理的AI生成のためのシネマティックスタジオ",
+        "oneLiner": "あなたを豊かにさせるクリエイティブエージェント。"
+      },
+      "colors": {
+        "principle": "生成メディアを際立たせるための、モノクロームUIによるハイコントラストのシネマティックダークモード。"
+      },
+      "typography": {
+        "rules": [
+          "見出しにはタイトな負の文字間隔を使用し、シネマティックな雰囲気を演出します。",
+          "ナビゲーションリンクは大文字で、トラッキングを広めに設定します。",
+          "本文は、クリーンで読みやすいジオメトリックsansで設定します。"
+        ],
+        "scaleUses": [
+          "プライマリヒーロー見出し",
+          "セクション見出し",
+          "一般的なテキストと説明",
+          "ナビゲーションとUIラベル"
+        ]
+      },
+      "spacing": {
+        "rhythm": "一貫した4pxベースグリッドと、ゆとりのあるセクションpadding（160px）。"
+      },
+      "surfaces": {
+        "shadows": [
+          "0 4px 24px rgba(0,0,0,0.5)"
+        ],
+        "borders": "1px solid rgba(115,115,115,0.3)"
+      },
+      "layout": {
+        "skeleton": "エッジツーエッジのヒーローセクションから、明確な12カラムグリッドを持つ中央揃えコンテンツコンテナへの移行。"
+      },
+      "components": {
+        "button": "白色背景に黒色テキスト、またはボーダー付き透過スタイルに白色テキストの、ピル-shapedボタン。",
+        "card": "ゆとりのある角丸（24px）とソフトシャドウを持つ、画像を前面に出したカード。",
+        "chip": null,
+        "input": "微妙なボーダーとハイコントラストテキストを持つ、クリーンでミニマルな入力フィールド。",
+        "hero": "中央揃えの白色タイポグラフィを持つ、フルビューポートの没入感のある動画または画像背景。"
+      },
+      "motion": {
+        "patterns": [
+          "インタラクティブ要素上の、微妙なopacityとtransformトランジション。",
+          "没入感のある背景メディアループ。"
+        ]
+      },
+      "interaction": {
+        "hover": "インタラクティブ要素上の滑らかなopacityトランジション（0.15s）。",
+        "click": "微妙なtransformスケーリング。",
+        "transition": "cubic-bezier(0.4, 0, 0.2, 1)",
+        "keyboard": "標準のfocus ring動作。"
+      },
+      "voice": {
+        "tone": "自信に満ち、先見の明があり、技術的に洗練された印象。",
+        "headlineStyle": "高級感とエディトリアル感を感じさせる、大きくエレガントなセリフ調の見出し。",
+        "ctaStyle": "直接的で行動を促す（「試す」「詳しく見る」など）",
+        "avoid": [
+          "過度に遊び心のある、またはカジュアルな言葉遣いの使用。",
+          "不要な装飾要素でUIを雑踏にすること。",
+          "シネマティックな雰囲気を壊す明るいネオン色の使用。",
+          "UI要素にシャープな四角い角を使用すること。",
+          "息抜きのない、密集したテキスト多めのレイアウトを作成すること。",
+          "メディアから注意をそらす複雑なグラデーションや模様付きの背景の使用。"
+        ]
+      },
+      "donts": [
+        "明るく彩度の高いアクセントカラーを使用しない — スクリーンショットは主導するアクセントのない、厳密にモノクロームのUIを示しています。",
+        "見出しに装飾的またはスクリプトフォントを使用しない — スクリーンショットはクリーンでエレガントなセリフ調を示しています。",
+        "シャープな0pxの角を使用しない — スクリーンショットは丸みのあるボタン（ピル）とカード（24px半径）を示しています。",
+        "ライトモードテーマを使用しない — スクリーンショットは深い黒背景に白テキストを示しています。",
+        "中央揃えの複数行テキストブロックを使用しない — スクリーンショットは中央揃えの簡潔な見出しを示しています。",
+        "雑踏した模様付きの背景を使用しない — スクリーンショットは純黒か、高品質でぼかしの効いた写真を示しています。"
+      ],
+      "systemPrompt": "Luma AIは、AI動画生成プラットフォームのための、高級でシネマティックなダークモードのWeb体験です。アイデンティティは洗練され、先見の明があり、深い黒背景（#000000）と純白テキスト（#ffffff）を中心に構成されています。タイポグラフィは、本文にクリーンなジオメトリックsans、見出しにエレガントなトランジショナルセリフを使用します。重要な禁止事項には、明るく彩度の高いアクセントカラーの使用、UI要素にシャープで四角い角の使用、およびライトモードテーマの使用を絶対に避けること。レイアウトはゆとりがあり没入感があり、密集したテキストよりも高品質な生成メディアを優先します。インタラクティブ要素は流れるような高級感を維持するため、微妙で滑らかなトランジション（0.15s）を使用します。"
+    },
+    "ko": {
+      "identity": {
+        "keywords": [
+          "크리에이티브",
+          "AI",
+          "생성형",
+          "물리적",
+          "오픈소스",
+          "풍부한"
+        ],
+        "analogy": "물리적 AI 생성을 위한 시네마틱 스튜디오",
+        "oneLiner": "당신을 생산적으로 만들어주는 크리에이티브 에이전트."
+      },
+      "colors": {
+        "principle": "고대비 시네마틱 다크 모드와 단색 UI를 사용하여 생성된 미디어가 돋보이도록 합니다."
+      },
+      "typography": {
+        "rules": [
+          "시네마틱 느낌을 위해 제목에 좁은 음수 자간을 사용합니다.",
+          "네비게이션 링크는 대문자이며 넓은 자간으로 설정합니다.",
+          "본문 텍스트는 깔끔하고 가독성이 높은 기하학적 sans로 설정합니다."
+        ],
+        "scaleUses": [
+          "주 히어로 제목",
+          "섹션 제목",
+          "일반 텍스트 및 설명",
+          "네비게이션 및 UI 레이블"
+        ]
+      },
+      "spacing": {
+        "rhythm": "일관된 4px 기본 그리드와 넉넉한 섹션 패딩(160px)을 사용합니다."
+      },
+      "surfaces": {
+        "shadows": [
+          "0 4px 24px rgba(0,0,0,0.5)"
+        ],
+        "borders": "1px solid rgba(115,115,115,0.3)"
+      },
+      "layout": {
+        "skeleton": "엣지투엣지 히어로 섹션에서 명확한 12컬럼 그리드를 갖춘 중앙 정렬 콘텐츠 컨테이너로 전환됩니다."
+      },
+      "components": {
+        "button": "단색 화이트 배경에 블랙 텍스트, 또는 화이트 텍스트의 테두리가 있는 투명 스타일의 알약 모양 버튼.",
+        "card": "넉넉한 둥근 모서리(24px)와 부드러운 그림자를 가진 이미지 중심 카드.",
+        "chip": null,
+        "input": "미묘한 테두리와 고대비 텍스트를 가진 깔끔하고 미니멀한 입력 필드.",
+        "hero": "전체 뷰포트 몰입감 있는 비디오 또는 이미지 배경과 중앙 정렬된 화이트 타이포그래피."
+      },
+      "motion": {
+        "patterns": [
+          "인터랙티브 요소에 대한 미묘한 불투명도 및 변환 전환.",
+          "몰입감 있는 미디어 배경 루프."
+        ]
+      },
+      "interaction": {
+        "hover": "인터랙티브 요소에 대한 매끄러운 불투명도 전환(0.15s).",
+        "click": "미묘한 변환 스케일링.",
+        "transition": "cubic-bezier(0.4, 0, 0.2, 1)",
+        "keyboard": "표준 포커스 링 동작."
+      },
+      "voice": {
+        "tone": "자신감 있고 비전을 제시하며, 기술적으로 정교한 어조.",
+        "headlineStyle": "프리미엄하고 에디토리얼 느낌의 크고 우아한 세리프 제목.",
+        "ctaStyle": "직설적이고 행동 지향적인 문구('Try Luma', 'Learn more')",
+        "avoid": [
+          "지나치게 장난스럽거나 캐주얼한 언어 사용.",
+          "불필요한 장식 요소로 UI를 복잡하게 만들기.",
+          "시네마틱 분위기를 깨는 밝고 네온 색상 사용.",
+          "UI 요소에 날카롭고 각진 모서리 사용.",
+          "숨 쉴 틈 없이 텍스트로 가득 찬 밀집된 레이아웃.",
+          "미디어에서 주의를 분산시키는 복잡한 그래디언트 또는 바쁜 배경."
+        ]
+      },
+      "donts": [
+        "밝고 채도 높은 액센트 색상을 사용하지 마세요. 스크린샷은 주도적인 액센트 없이 엄격히 단색 UI를 보여줍니다.",
+        "제목에 장식적이거나 스크립트 폰트를 사용하지 마세요. 스크린샷은 깔끔하고 우아한 세리프를 보여줍니다.",
+        "날카롭고 0px 모서리를 사용하지 마세요. 스크린샷은 둥근 버튼(알약)과 카드(24px 반지름)를 보여줍니다.",
+        "라이트 모드 테마를 사용하지 마세요. 스크린샷은 화이트 텍스트와 깊은 블랙 배경을 보여줍니다.",
+        "중앙 정렬된 여러 줄의 텍스트 블록을 사용하지 마세요. 스크린샷은 중앙 정렬된 간결한 제목을 보여줍니다.",
+        "바쁘고 패턴화된 배경을 사용하지 마세요. 스크린샷은 단색 블랙 또는 고품질 블러 처리된 사진을 보여줍니다."
+      ],
+      "systemPrompt": "Luma AI는 AI 비디오 생성 플랫폼을 위한 프리미엄, 시네마틱 다크 모드 웹 경험입니다. 정체성은 정교하고 비전을 제시하며, 깊은 블랙 배경(#000000)과 순수한 화이트 텍스트(#ffffff)를 중심으로 합니다. 타이포그래피는 본문 텍스트에는 깔끔한 기하학적 sans를, 전시 제목에는 우아한 전환형 세리프를 사용합니다. 중요한 금지 사항으로는: 밝고 채도 높은 액센트 색상을 절대 사용하지 않을 것; UI 요소에 날카롭고 각진 모서리를 절대 사용하지 않을 것; 라이트 모드 테마를 절대 사용하지 않을 것. 레이아웃은 넓고 몰입감 있으며, 밀집된 텍스트보다 고품질 생성 미디어를 우선시합니다. 인터랙티브 요소는 유동적이고 하이엔드 느낌을 유지하기 위해 미묘하고 매끄러운 전환(0.15s)을 사용합니다."
+    }
+  },
+  "desc": {
+    "en": {
+      "palette": "A stark, high-contrast monochromatic palette centered on pure black and white, utilizing soft grays for secondary text to maintain a cinematic and premium aesthetic.",
+      "layout": "The layout features an immersive, full-bleed hero section that transitions into a spacious, centered 12-column grid, prioritizing large media and elegant typography.",
+      "interaction": "Interactions are characterized by smooth, subtle transitions on hover and click, primarily using opacity and transform changes to create a fluid, high-end feel.",
+      "motion": "Motion is restrained and elegant, focusing on subtle transitions for UI states and potentially immersive background video loops.",
+      "notes": "This site is a masterclass in using a restrained, dark-mode UI to let high-quality, AI-generated media take center stage."
+    },
+    "zh-CN": {
+      "palette": "以纯黑与纯白为核心的强烈高对比度单色方案，辅以柔和的灰色用于次级文本，营造出兼具电影感与高级质感的美学氛围。",
+      "layout": "采用沉浸式全出血首屏设计，过渡至宽敞的居中12列网格布局，优先呈现大型媒体内容与优雅排版。",
+      "interaction": "交互效果以流畅、克制的悬停与点击过渡为特色，主要运用透明度与形变变化，营造流畅的高端体验。",
+      "motion": "动效设计克制而优雅，聚焦于UI状态间的细微过渡，以及可能采用的沉浸式背景视频循环。",
+      "notes": "此站点堪称克制型深色UI的典范，通过设计让高质量的AI生成媒体成为绝对主角。"
+    },
+    "zh-TW": {
+      "palette": "以純黑與純白為核心，輔以柔和灰階作為次要文字的強烈單色調高對比色板，維持電影級的高端質感。",
+      "layout": "採用沉浸式全幅首圖區域，過渡至寬敞的居中 12 欄網格佈局，優先呈現大型媒體素材與優雅排版。",
+      "interaction": "互動效果以平滑細膩的 hover 與點擊狀態轉換為主，主要透過透明度與變形變化營造流暢的高端感受。",
+      "motion": "動態效果克制而優雅，聚焦於 UI 狀態的細微過渡，以及潛在的沉浸式背景影片循環。",
+      "notes": "此網站堪稱以節制的深色模式 UI 襯托高品質 AI 生成媒體的教科書級示範。"
+    },
+    "ja": {
+      "palette": "純黒と白を中心にした、強調されたハイコントラストのモノクロームパレット。二次テキストにはソフトグレーを使用し、シネマティックで高級感のある美観を維持します。",
+      "layout": "没入感のあるフルブリードヒーローセクションから、ゆとりのある中央揃え12カラムグリッドへの移行を特徴とし、大規模メディアとエレガントなタイポグラフィを優先します。",
+      "interaction": "インタラクションは、hoverやclick時の滑らかで微妙なトランジションが特徴です。主にopacityとtransformの変化を使用し、流れるような高級感を演出します。",
+      "motion": "動きは抑制され、エレガントです。UI状態の微妙なトランジションや、没入感のある背景動画ループに焦点を当てます。",
+      "notes": "このサイトは、抑制の効いたダークモードUIを使用し、高品質なAI生成メディアを主役にする、見事な実践です。"
+    },
+    "ko": {
+      "palette": "순수한 블랙과 화이트를 중심으로 한 고대비 단색 팔레트를 사용하며, 2차 텍스트에는 부드러운 그레이를 적용하여 시네마틱하고 프리미엄한 미학을 유지합니다.",
+      "layout": "몰입감 있는 풀블리드 히어로 섹션에서 넓은 중앙 정렬 12컬럼 그리드로 전환되는 레이아웃을 특징으로 하며, 대형 미디어와 우아한 타이포그래피를 우선시합니다.",
+      "interaction": "hover 및 클릭 시 매끄럽고 미묘한 전환을 특징으로 하며, 주로 불투명도와 변환 변화를 활용하여 유동적이고 하이엔드 느낌을 연출합니다.",
+      "motion": "움직임은 절제되고 우아하며, UI 상태에 대한 미묘한 전환 및 몰입감 있는 배경 비디오 루프에 초점을 맞춥니다.",
+      "notes": "이 사이트는 절제된 다크 모드 UI를 사용하여 고품질 AI 생성 미디어가 주도적인 역할을 하도록 하는 마스터클래스입니다."
+    }
+  },
+  "narrative": {
+    "en": {
+      "ch1_intro": "Luma AI's design system functions as a cinematic studio for physical AI generation. Like a professional soundstage with black walls and controlled lighting, its deep-black foundation is built to make the work itself—the generated media—the sole source of color and motion.",
+      "ch2_intro": "The palette is a study in high-contrast monochromatics, built on a stark foundation of pure black and white with soft grays for secondary text. This strict discipline ensures no UI color competes with the visual output it frames.",
+      "ch2_outro": "The core principle is absolute visual restraint, using contrast and value rather than hue to create hierarchy.",
+      "ch3_intro": "Typographic voice is split between a clean geometric sans-serif for body copy and an elegant transitional serif for display headlines. This pairing separates functional clarity from a premium, editorial tone.",
+      "ch4_intro": "A consistent 4px base grid establishes a foundational rhythm, with generous section padding of 160px creating deliberate, expansive breathing room.",
+      "ch5_intro": "Depth is communicated through soft, diffuse shadows on components, while subtle 1px borders in translucent gray define edges without harshness. Surfaces are minimal, letting content and shadow imply elevation.",
+      "ch6_intro": "The layout skeleton transitions from immersive, edge-to-edge hero sections into centered content containers organized by a clear 12-column grid. This structure prioritizes media immersion before guiding the eye into focused, readable sections.",
+      "ch7_intro": "Motion philosophy is one of subtle reinforcement rather than demonstration. Interactions use smooth, 0.15-second opacity and transform transitions, while immersive background media loops provide ambient energy.",
+      "ch8_intro": "Voice is confident, visionary, and technically sophisticated, matching the precision of the interface. Headlines are large, elegant, and concise; calls to action are direct and action-oriented.",
+      "ch8_outro": "The system deliberately excludes bright accents, sharp corners, busy backgrounds, and playful language to maintain its cinematic, premium discipline."
+    },
+    "zh-CN": {
+      "ch1_intro": "Luma AI 的设计系统如同物理 AI 生成的电影工作室。它以纯黑墙面与可控光照的专业摄影棚为灵感，深黑底色专为让生成媒体本身——成为唯一的色彩与动态来源。",
+      "ch2_intro": "色彩体系基于高对比度单色研究，以纯黑白为骨架，辅以柔和灰度呈现次级文本。这种严格规范确保界面色彩绝不与它所承载的视觉输出竞争。",
+      "ch2_outro": "核心原则是绝对的视觉克制，通过对比度与明度而非色相构建层次。",
+      "ch3_intro": "字体语言分为两重：正文采用简洁的几何无衬线体，展示标题则选用优雅的过渡衬线体。这种组合将功能清晰度与高级编辑气质分离开来。",
+      "ch4_intro": "基于 4px 的统一基础网格确立节奏，配合 160px 的宽裕段落间距，营造出刻意而开阔的呼吸空间。",
+      "ch5_intro": "深度通过组件上柔和的漫射阴影传达，而半透明灰色的 1px 细边勾勒出边缘，避免生硬感。界面元素保持极简，让内容与阴影共同暗示层次。",
+      "ch6_intro": "布局骨架从沉浸式的全屏首图过渡到居中内容区，后者遵循清晰的 12 栏网格组织。此结构优先保障媒体沉浸感，再引导视线进入聚焦、易读的版块。",
+      "ch7_intro": "动效哲学是微妙的强化而非炫技。交互采用 0.15 秒的流畅透明度与形变过渡，沉浸式背景媒体循环播放则提供环境能量。",
+      "ch8_intro": "文案风格自信、前瞻且富有技术精准度，与界面的精确性相匹配。标题大而优雅、言简意赅；行动号召直接且以行动为导向。",
+      "ch8_outro": "系统刻意排除明亮强调色、尖锐圆角、繁复背景与俏皮语言，以维持其电影般的高级质感与克制纪律。"
+    },
+    "zh-TW": {
+      "ch1_intro": "Luma AI 的設計系統就像一個為實體 AI 生成打造的電影工作室。如同擁有黑牆與受控照明的專業攝影棚，其深黑基底的設計，旨在讓作品本身——也就是生成的媒體——成為色彩與動態的唯一來源。",
+      "ch2_intro": "色彩調性是一場高對比單色調的實驗，建立在純黑與純白的鮮明基礎上，並以柔和的灰色作為輔助文字。這種嚴謹的紀律確保了任何介面色彩都不會與其框架的視覺輸出競爭。",
+      "ch2_outro": "核心原則是絕對的視覺克制，使用對比與明度而非色相來建立層次。",
+      "ch3_intro": "文字語氣分為兩部分：用於內文的簡潔幾何無襯線字體，以及用於展示標題的優雅過渡襯線字體。這種搭配將功能清晰度與高級、具編輯感的語調分離開來。",
+      "ch4_intro": "一致的 4px 基礎網格確立了基礎節奏，而 160px 的寬裕區塊間距則創造了刻意、寬廣的呼吸空間。",
+      "ch5_intro": "深度透過元件上柔和、擴散的陰影來傳達，而半透明灰色的細微 1px 邊框則在不顯生硬的情況下界定邊緣。表面極簡，讓內容與陰影來暗示高度。",
+      "ch6_intro": "佈局骨架從沉浸式、邊對邊的主視覺區塊，過渡到由清晰的 12 欄網格組織的置中內容容器。此結構優先考慮媒體的沉浸感，然後再引導視線進入專注、易讀的區段。",
+      "ch7_intro": "動態哲學是微妙的強化而非展示。互動使用流暢的 0.15 秒透明度與變形過渡，而沉浸式的背景媒體循環則提供環境氛圍。",
+      "ch8_intro": "語氣自信、具前瞻性且技術精湛，與介面的精準度相匹配。標題大、優雅且簡潔；行動呼籲直接且以行動為導向。",
+      "ch8_outro": "系統刻意排除了明亮的強調色、尖銳的邊角、繁複的背景以及俏皮的語言，以維持其電影般的高級紀律。"
+    },
+    "ja": {
+      "ch1_intro": "Luma AIのデザインシステムは、物理的なAI生成のためのシネマティック・スタジオとして機能します。黒い壁と制御された照明を持つプロフェッショナルなスタジオと同様に、その深いブラックの基盤は、作品自体――生成されたメディア――を唯一の色と動きの源とするために構築されています。",
+      "ch2_intro": "パレットは、黒と白という厳格な基盤と、セカンダリテキスト用のソフトグレーを組み合わせた、ハイコントラスト・モノクロマティクスの研究です。この厳格な規律により、UIの色が、それが枠としているビジュアル出力と競合しないことが保証されます。",
+      "ch2_outro": "コア原則は、相対的な色相ではなく、コントラストと明度を用いて階層性を生み出す、絶対的なビジュアル抑制です。",
+      "ch3_intro": "タイポグラフィの声は、本文用のクリーンな幾何学的サンセリフと、見出し用のエレガントなトランジショナル・セリフの2つに分かれています。このペアリングにより、機能的な明瞭さと、プレミアムでエディトリアルなトーンが分離されます。",
+      "ch4_intro": "一貫した4pxのベースグリッドが基盤となるリズムを確立し、160pxのゆったりとしたセクションpaddingが、意図的で広大な余白を生み出します。",
+      "ch5_intro": "深みはコンポーネントに施された柔らかく拡散したシャドウによって伝達され、半透明グレーの細い1pxボーダーが、硬さなくエッジを定義します。表面はミニマルで、コンテンツとシャドウが高まりを示唆するようにします。",
+      "ch6_intro": "レイアウトの骨格は、没入型のエッジ・トゥー・エッジのヒーローセクションから、明確な12カラムグリッドで組織化された中央揃えのコンテンツコンテナへと移行します。この構造は、ビジュアルへの没入を優先し、その後、集中して読みやすいセクションへと視線を導きます。",
+      "ch7_intro": "モーション哲学は、見せることよりも、補強することに重点を置いています。インタラクションには、滑らかな0.15秒のopacityとtransformトランジションが使用され、没入型のバックグラウンドメディアループがアンビエントなエネルギーを提供します。",
+      "ch8_intro": "声は、インターフェースの精度に合わせ、自信に満ち、ビジョナリーで、技術的に洗練されています。見出しは大きく、エレガントで、簡潔です。CTAは直接的で、アクション指向です。",
+      "ch8_outro": "このシステムは、シネマティックでプレミアムな規律を維持するため、明るいアクセント、鋭い角、雑然とした背景、以及は遊び心のある言葉遣意図的に排除しています。"
+    },
+    "ko": {
+      "ch1_intro": "Luma AI의 디자인 시스템은 물리적 AI 생성을 위한 시네마틱 스튜디오처럼 작동합니다. 검은 벽과 제어된 조명을 갖춘 전문적인 세트장처럼, 그 깊은 검은 기반은 작업 자체—생성된 미디어—만이 유일한 색상과 움직임의 원천이 되도록 설계되었습니다.",
+      "ch2_intro": "팔레트는 순수한 검정과 흰색을 기반으로 하고 보조 텍스트를 위해 부드러운 회색을 사용한 고대비 단색 체계를 연구한 것입니다. 이 엄격한 규율은 시각적 출력을 프레임하는 어떤 UI 색상도 경쟁하지 않도록 보장합니다.",
+      "ch2_outro": "핵심 원칙은 색상 대신 명암과 명도를 사용하여 계층을 만드는 절대적인 시각적 절제입니다.",
+      "ch3_intro": "타이포그래피 음성은 본문용 깔끔한 기하학적 sans-serif와 디스플레이 헤드라인용 우아한 전환적 serif로 나뉩니다. 이 조합은 기능적 명확성을 고급스럽고 편집적인 톤과 분리합니다.",
+      "ch4_intro": "일관된 4px 기본 그리드는 기본 리듬을 확립하며, 160px의 넉넉한 섹션 패딩은 의도적이고 넓은 호흡 공간을 만듭니다.",
+      "ch5_intro": "깊이는 컴포넌트에 부드럽고 확산된 그림자를 통해 전달되며, 불투명한 회색의 섬세한 1px 테두리는 가혹함 없이 가장자리를 정의합니다. 표면은 미니멀하여, 콘텐츠와 그림자가 높이를 암시하도록 합니다.",
+      "ch6_intro": "레이아웃 스켈레톤은 몰입형 엣지투엣지 히어로 섹션에서 명확한 12열 그리드로 구성된 중앙 정렬 콘텐츠 컨테이너로 전환됩니다. 이 구조는 집중적이고 읽기 쉬운 섹션으로 시선을 안내하기 전에 미디어 몰입도를 우선시합니다.",
+      "ch7_intro": "모션 철학은 시연보다는 미세한 강화입니다. 인터랙션은 부드러운 0.15초 opacity와 transform 전환을 사용하며, 몰입형 배경 미디어 루프는 환경적 에너지를 제공합니다.",
+      "ch8_intro": "음성은 인터페이스의 정밀함과 어울리는 자신감 있고 비전 지향적이며 기술적으로 정교합니다. 헤드라인은 크고, 우아하며, 간결합니다; 행동 유도 요소는 직접적이고 행동 지향적입니다.",
+      "ch8_outro": "시스템은 시네마틱하고 프리미엄인 규율을 유지하기 위해 밝은 강조, 날카로운 모서리, 복잡한 배경, 장난스러운 언어를 의도적으로 제외합니다."
+    }
+  }
 }

@@ -8,6 +8,620 @@
     "design",
     "gallery"
   ],
-  "status": "pending",
-  "added_at": "2026-06-02"
+  "status": "completed",
+  "added_at": "2026-06-02",
+  "spec": {
+    "colors": {
+      "bg": "#FFFFFF",
+      "bgSoft": null,
+      "bgQuiet": null,
+      "ink": "#000000",
+      "inkSoft": null,
+      "muted": null,
+      "mutedSoft": null,
+      "accent": null,
+      "line": "rgba(0, 0, 0, 0.05)"
+    },
+    "typography": {
+      "display": "humanist-sans",
+      "body": "humanist-sans",
+      "mono": null,
+      "scale": [
+        {
+          "token": "display",
+          "size": 56,
+          "lh": 1.0,
+          "weight": 500,
+          "ls": "-2px"
+        },
+        {
+          "token": "h2",
+          "size": 32,
+          "lh": 1.2,
+          "weight": 500,
+          "ls": "-0.64px"
+        },
+        {
+          "token": "body",
+          "size": 16,
+          "lh": 1.5,
+          "weight": 400,
+          "ls": "-0.32px"
+        },
+        {
+          "token": "caption",
+          "size": 14,
+          "lh": 1.4,
+          "weight": 400,
+          "ls": "-0.28px"
+        }
+      ]
+    },
+    "spacing": {
+      "base": 4,
+      "scale": [
+        4,
+        8,
+        12,
+        16,
+        24,
+        32,
+        48,
+        64,
+        96
+      ]
+    },
+    "surfaces": {
+      "radius": {
+        "sm": 6,
+        "md": 12,
+        "lg": 24,
+        "pill": 9999
+      }
+    },
+    "layout": {
+      "container": 1280,
+      "paragraph": 680,
+      "columns": 12,
+      "gutter": 24,
+      "breakpoints": [
+        768,
+        1024
+      ]
+    },
+    "motion": {
+      "durations": {
+        "micro": 150,
+        "small": 300,
+        "medium": 500
+      },
+      "easing": "cubic-bezier(0.4, 0, 0.2, 1)"
+    }
+  },
+  "spec_i18n": {
+    "en": {
+      "identity": {
+        "keywords": [
+          "inspiration",
+          "curation",
+          "minimalism",
+          "web design",
+          "gallery"
+        ],
+        "analogy": "A pristine, expansive gallery space where the artwork is the only thing that matters.",
+        "oneLiner": "A minimal, high-end curation gallery designed to showcase web design inspiration."
+      },
+      "colors": {
+        "principle": "Strict monochromatic palette that acts as a neutral frame for the diverse colors of the curated content."
+      },
+      "typography": {
+        "rules": [
+          "All text uses Inter font-family with slight negative letter-spacing.",
+          "Headlines use font-weight 500 for a semi-bold appearance.",
+          "Body text maintains a relaxed 1.5 line height for readability."
+        ],
+        "scaleUses": [
+          "Main hero headline",
+          "Section headings",
+          "Standard body text",
+          "Subtitles and descriptions"
+        ]
+      },
+      "spacing": {
+        "rhythm": "Generous white space and consistent padding create a clean, breathable rhythm."
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 10px 15px -3px rgba(0, 0, 0, 0.1)",
+          "0px 4px 6px -4px rgba(0, 0, 0, 0.1)"
+        ],
+        "borders": "1px solid rgba(0, 0, 0, 0.05)"
+      },
+      "layout": {
+        "skeleton": "A central, single-column layout for the hero section, transitioning into a dense, symmetrical masonry grid of content cards."
+      },
+      "components": {
+        "button": "Pill-shaped buttons with solid black backgrounds for primary actions, and subtle, borderless styles for secondary actions.",
+        "card": "Clean, borderless rectangular cards that prioritize large visual thumbnails with minimal text.",
+        "chip": "Small, pill-shaped text indicators used for navigation or metadata.",
+        "input": "Minimal, borderless input fields that blend into the background.",
+        "hero": "A massive, vertically-centered headline with a lightning bolt icon, accompanied by large, prominent pill-shaped call-to-action buttons."
+      },
+      "motion": {
+        "patterns": [
+          "Subtle opacity fades on hover",
+          "Smooth background-color transitions for interactive elements",
+          "Subtle scale transforms on buttons and cards"
+        ]
+      },
+      "interaction": {
+        "hover": "Subtle changes in opacity or background-color with a 150ms transition.",
+        "click": "Immediate visual feedback with a slight scale transform.",
+        "transition": "All interactive elements use a consistent 150ms cubic-bezier(0.4, 0, 0.2, 1) easing for smooth transitions.",
+        "keyboard": "Standard focus outlines, likely matching the subtle border-radius and color scheme."
+      },
+      "voice": {
+        "tone": "Confident, concise, and aspirational.",
+        "headlineStyle": "Short, punchy, and highly legible statements that emphasize quality and inspiration.",
+        "ctaStyle": "Direct and action-oriented, using simple verbs and symbols like 'Subscribe +'.",
+        "avoid": [
+          "Excessive exclamation points",
+          "Complex technical jargon",
+          "Long, dense paragraphs in primary areas"
+        ]
+      },
+      "donts": [
+        "Don't use drop shadows on cards — screenshot shows completely flat, borderless image cards.",
+        "Don't use serif fonts for headlines — screenshot shows a clean, humanist sans-serif throughout.",
+        "Don't use a complex, multi-color UI chrome — screenshot shows a strictly monochromatic black and white interface.",
+        "Don't use sharp, 90-degree corners on primary buttons — screenshot shows fully rounded, pill-shaped buttons.",
+        "Don't use excessive body padding or tight line spacing — screenshot shows generous white space and a relaxed 1.5 line height.",
+        "Don't use flashy gradients or decorative backgrounds — screenshot shows a solid white background that lets the content breathe."
+      ],
+      "systemPrompt": "You are designing a premium, minimalist web design inspiration gallery. The aesthetic is defined by a strict black-and-white color palette (#FFFFFF background, #000000 text) that acts as a neutral frame for curated content. The typography is exclusively a humanist sans-serif with tight, negative letter-spacing (-0.32px) and a moderate font-weight of 400 for body and 500 for headlines. The layout relies heavily on a symmetrical masonry grid with generous white space. Critical constraints: Do not use serif fonts. Do not apply drop shadows or borders to the main content cards. Do not introduce any chromatic accent colors into the UI chrome. Use pill-shaped buttons with solid fills for primary actions and subtle, borderless elements for secondary interactions."
+    },
+    "zh-CN": {
+      "identity": {
+        "keywords": [
+          "灵感",
+          "策展",
+          "极简主义",
+          "网页设计",
+          "画廊"
+        ],
+        "analogy": "一个纯净、广阔的艺术画廊空间，唯有艺术品本身是焦点。",
+        "oneLiner": "一个旨在展示网页设计灵感的极简、高端策展画廊。"
+      },
+      "colors": {
+        "principle": "严格的单色调色板，作为多样化策展内容的色彩中性框架。"
+      },
+      "typography": {
+        "rules": [
+          "所有文本使用 Inter 字体，辅以轻微的负字间距。",
+          "标题使用 500 字重，呈现半粗体效果。",
+          "正文保持宽松的 1.5 行高，确保可读性。"
+        ],
+        "scaleUses": [
+          "主英雄区标题",
+          "章节标题",
+          "标准正文文本",
+          "副标题与描述"
+        ]
+      },
+      "spacing": {
+        "rhythm": "充裕的留白与一致的内边距营造出整洁、透气的节奏感。"
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 10px 15px -3px rgba(0, 0, 0, 0.1)",
+          "0px 4px 6px -4px rgba(0, 0, 0, 0.1)"
+        ],
+        "borders": "1px solid rgba(0, 0, 0, 0.05)"
+      },
+      "layout": {
+        "skeleton": "英雄区域采用居中单栏布局，平滑过渡至密集、对称的马赛克式内容卡片网格。"
+      },
+      "components": {
+        "button": "主要操作按钮为纯黑背景的胶囊形；次要操作按钮采用细腻的无边框样式。",
+        "card": "简洁、无边框的矩形卡片，优先展示大幅视觉缩略图，搭配极简文本。",
+        "chip": "用于导航或元数据的小型胶囊形文本指示器。",
+        "input": "极简的无边框输入框，与背景融为一体。",
+        "hero": "巨大的垂直居中标题，配有闪电图标，搭配突出显眼的大型胶囊形行动号召按钮。"
+      },
+      "motion": {
+        "patterns": [
+          "悬停时细微的透明度渐变",
+          "交互元素的平滑背景色过渡",
+          "按钮与卡片的细微缩放变换"
+        ]
+      },
+      "interaction": {
+        "hover": "透明度或背景色的细微变化，过渡时长 150 毫秒。",
+        "click": "通过轻微的缩放变换提供即时视觉反馈。",
+        "transition": "所有交互元素使用一致的 150 毫秒 cubic-bezier(0.4, 0, 0.2, 1) 缓动函数，确保过渡流畅。",
+        "keyboard": "标准聚焦轮廓，可能匹配微妙的圆角与色彩方案。"
+      },
+      "voice": {
+        "tone": "自信、简洁且充满向往。",
+        "headlineStyle": "短小精悍、高度易读的陈述，强调品质与灵感。",
+        "ctaStyle": "直接且行动导向，使用简单动词和符号，如「订阅 +」。",
+        "avoid": [
+          "过多的感叹号",
+          "复杂的技术术语",
+          "主要区域中冗长密集的段落"
+        ]
+      },
+      "donts": [
+        "不要在卡片上使用投影 —— 截图显示的是完全扁平、无边框的图片卡片。",
+        "不要为标题使用衬线字体 —— 截图显示整体使用简洁的人文主义无衬线字体。",
+        "不要使用复杂、多色的 UI 界面元素 —— 截图显示的是严格的黑白单色界面。",
+        "不要为主要按钮使用尖锐的 90 度直角 —— 截图显示的是完全圆润的胶囊形按钮。",
+        "不要使用过多的正文内边距或过紧的行间距 —— 截图显示的是充裕的留白和宽松的 1.5 行高。",
+        "不要使用花哨的渐变或装饰性背景 —— 截图显示的是纯白背景，让内容自由呼吸。"
+      ],
+      "systemPrompt": "你正在设计一个高端、极简的网页设计灵感画廊。其美学由严格的黑白调色板（#FFFFFF 背景，#000000 文本）定义，该调色板作为精心策划内容的中性框架。字体严格使用人文主义无衬线字体，采用紧凑的负字间距（-0.32px），正文使用适中的 400 字重，标题使用 500 字重。布局大量依赖对称的马赛克网格，并辅以充裕的留白。关键约束：不要使用衬线字体。不要为主要内容卡片添加投影或边框。不要在 UI 界面元素中引入任何彩色强调色。主要操作按钮使用实心填充的胶囊形按钮，次要交互使用细腻的无边框元素。"
+    },
+    "zh-TW": {
+      "identity": {
+        "keywords": [
+          "靈感",
+          "策展",
+          "極簡主義",
+          "網頁設計",
+          "圖庫"
+        ],
+        "analogy": "一處純淨廣闊的畫廊空間，其中藝術品是唯一重要的存在。",
+        "oneLiner": "一座極簡高端的策展圖庫，專為展示網頁設計靈感而生。"
+      },
+      "colors": {
+        "principle": "嚴格的單色色盤，作為多元化策展內容的中性框架。"
+      },
+      "typography": {
+        "rules": [
+          "所有文字使用 Inter 字型家族，並帶有輕微負字距調整。",
+          "標題使用 font-weight 500 以呈現半粗體外觀。",
+          "內文保持寬鬆的 1.5 行高以確保可讀性。"
+        ],
+        "scaleUses": [
+          "主英雄區標題",
+          "區段標題",
+          "標準內文",
+          "副標題與描述"
+        ]
+      },
+      "spacing": {
+        "rhythm": "寬裕的留白與一致的內距創造出乾淨、舒適的節奏感。"
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 10px 15px -3px rgba(0, 0, 0, 0.1)",
+          "0px 4px 6px -4px rgba(0, 0, 0, 0.1)"
+        ],
+        "borders": "1px solid rgba(0, 0, 0, 0.05)"
+      },
+      "layout": {
+        "skeleton": "中央單欄版型用於英雄區段，過渡至密集對稱的內容卡片瀑布流網格。"
+      },
+      "components": {
+        "button": "藥丸形按鈕，主要操作採用純黑背景，次要操作採用細微無邊框樣式。",
+        "card": "乾淨無邊框的矩形卡片，優先呈現大型視覺縮圖與精簡文字。",
+        "chip": "小型藥丸形文字指標，用於導覽或中繼資料。",
+        "input": "極簡無邊框輸入欄位，與背景融為一體。",
+        "hero": "巨大的垂直置中標題搭配閃電圖示，伴隨大型醒目藥丸形行動呼籲按鈕。"
+      },
+      "motion": {
+        "patterns": [
+          "懸停時的細微透明度淡出",
+          "互動元素的流暢背景色過渡",
+          "按鈕與卡片的細微縮放變形"
+        ]
+      },
+      "interaction": {
+        "hover": "透明度或背景色的細微變化，採用 150ms 過渡。",
+        "click": "立即的視覺回饋，帶有輕微縮放變形。",
+        "transition": "所有互動元素使用一致的 150ms cubic-bezier(0.4, 0, 0.2, 1) 緩動以實現流暢過渡。",
+        "keyboard": "標準的焦點外框， likely 匹配細微的 border-radius 與色彩方案。"
+      },
+      "voice": {
+        "tone": "自信、簡潔且具啟發性。",
+        "headlineStyle": "簡短有力、高度易讀的陳述，強調品質與靈感。",
+        "ctaStyle": "直接且以行動為導向，使用簡單動詞與符號如「訂閱 +」。",
+        "avoid": [
+          "過多的驚嘆號",
+          "複雜的技術術語",
+          "主要區域中冗長密集的段落"
+        ]
+      },
+      "donts": [
+        "不要在卡片上使用陰影 — 畫面截圖顯示為完全扁平、無邊框的圖片卡片。",
+        "不要在標題中使用襯線字型 — 畫面截圖顯示全程使用乾淨的人文無襯線字型。",
+        "不要使用複雜、多彩的介面裝飾 — 畢面截圖顯示為嚴格的黑白單色介面。",
+        "不要在主要按鈕上使用尖銳的 90 度角 — 畢面截圖顯示為完全圓潤的藥丸形按鈕。",
+        "不要使用過多的內文內距或緊湊的行距 — 畢面截圖顯示寬裕的留白與寬鬆的 1.5 行高。",
+        "不要使用花俏的漸層或裝飾性背景 — 畢面截圖顯示為純白背景，讓內容得以呼吸。"
+      ],
+      "systemPrompt": "你正在設計一座高端、極簡的網頁設計靈感圖庫。美學由嚴格的黑白單色色盤定義（#FFFFFF 背景、#000000 文字），作為精心策展內容的中性框架。字型僅限人文無襯線字型，具緊密的負字距調整（-0.32px）與適中的 font-weight 400 用於內文、500 用於標題。版型 heavily 依賴對稱的瀑布流網格與寬裕的留白。關鍵限制：不要使用襯線字型。不要在主要內容卡片上套用陰影或邊框。不要在介面裝飾中引入任何彩色強調色。使用純色填充的藥丸形按鈕作為主要操作，次要互動則採用細微無邊框元素。"
+    },
+    "ja": {
+      "identity": {
+        "keywords": [
+          "インスピレーション",
+          "キュレーション",
+          "ミニマリズム",
+          "ウェブデザイン",
+          "ギャラリー"
+        ],
+        "analogy": "アートワークだけが重要となる、清らかで広大なギャラリースペース。",
+        "oneLiner": "ウェブデザインのインスピレーションを展示するためのミニマルでハイエンドなキュレーションギャラリー。"
+      },
+      "colors": {
+        "principle": "多様なコンテンツの色のための中立的なフレームとして機能する、厳格なモノクロパレット。"
+      },
+      "typography": {
+        "rules": [
+          "すべてのテキストにInterフォントファミリーを使用し、わずかな負の文字送りを適用。",
+          "見出しにはフォントウェイト500を使用し、セミボールドな外観を実現。",
+          "本文は読みやすさのために、ゆったりとした1.5の行間を維持。"
+        ],
+        "scaleUses": [
+          "メインヒーロー見出し",
+          "セクション見出し",
+          "標準本文テキスト",
+          "サブタイトルと説明文"
+        ]
+      },
+      "spacing": {
+        "rhythm": "寛容な余白と一貫したパディングが、クリーンで息が詰まらないリズムを生み出します。"
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 10px 15px -3px rgba(0, 0, 0, 0.1)",
+          "0px 4px 6px -4px rgba(0, 0, 0, 0.1)"
+        ],
+        "borders": "1px solid rgba(0, 0, 0, 0.05)"
+      },
+      "layout": {
+        "skeleton": "ヒーローセクションには中央の単列レイアウトを採用し、その後、コンテンツカードの稠密で対称的なマーソニーグリッドに移行します。"
+      },
+      "components": {
+        "button": "一次アクションには黒の塗りつぶしを持つピル型ボタンを、二次アクションには微細でボーダレスなスタイルを使用。",
+        "card": "最小限のテキストと大きなビジュアルサムネイルを優先した、クリーンでボーダレスな長方形カード。",
+        "chip": "ナビゲーションやメタデータに使用する、小さなピル型テキストインジケーター。",
+        "input": "背景に溶け込む、ミニマルでボーダレスな入力フィールド。",
+        "hero": "稲妻アイコンを伴う、垂直方向に中央揃えの巨大な見出しと、大きく目立つピル型コール・トゥ・アクションボタン。"
+      },
+      "motion": {
+        "patterns": [
+          "hover時の微細な不透明度フェード",
+          "インタラクティブ要素の滑らかな背景色トランジション",
+          "ボタンとカードの微細なスケールトランスフォーム"
+        ]
+      },
+      "interaction": {
+        "hover": "150msのトランジションによる、不透明度や背景色の微細な変化。",
+        "click": "わずかなスケールトランジションによる、即座の視覚フィードバック。",
+        "transition": "すべてのインタラクティブ要素は、滑らかなトランジションのために一貫した150ms cubic-bezier(0.4, 0, 0.2, 1)イージングを使用。",
+        "keyboard": "微細なボーダーラジアスやカラースキームに合致する可能性が高い、標準的なフォーカスアウトライン。"
+      },
+      "voice": {
+        "tone": "自信に満ち、簡潔で、志を高めるもの。",
+        "headlineStyle": "品質とインスピレーションを強調する、短く、インパクトがあり、非常に読みやすいステートメント。",
+        "ctaStyle": "単純な動詞や「Subscribe +」のようなシンボルを使用した、直接的でアクション指向のもの。",
+        "avoid": [
+          "過度な感嘆符の使用",
+          "複雑な専門用語",
+          "主要エリアでの長く密度の高い段落"
+        ]
+      },
+      "donts": [
+        "カードにドロップシャドウを使用しない — スクリーンショットは完全にフラットでボーダレスな画像カードを示している。",
+        "見出しにセリフフォントを使用しない — スクリーンショットは全体を通してクリーンなヒューマニストサンセリフを示している。",
+        "複雑で多色のUIクロームを使用しない — スクリーンショットは厳格にモノクロの黒と白のインターフェースを示している。",
+        "一次ボタンに鋭角の90度コーナーを使用しない — スクリーンショットは完全に丸みのあるピル型ボタンを示している。",
+        "過度な本文パディングや tightな行間を使用しない — スクリーンショットは寛容な余白とゆったりとした1.5の行間を示している。",
+        "派手なグラデーションや装飾的な背景を使用しない — スクリーンショットはコンテンツを呼吸させる単色の白い背景を示している。"
+      ],
+      "systemPrompt": "あなたは、プレミアムでミニマルなウェブデザインインスピレーションギャラリーをデザインしています。デザイン美学は、選定されたコンテンツの中立的なフレームとして機能する厳格な黒と白のカラーパレット（#FFFFFF背景、#000000テキスト）によって定義されます。タイポグラフィは、tightな負の文字送り（-0.32px）と、本文は中程度のフォントウェイト400、見出しは500を持つヒューマニストサンセリフのみです。レイアウトは、寛容な余白を持つ対称的なマーソニーグリッドに大きく依存しています。重要な制約：セリフフォントを使用しない。主要コンテンツカードにドロップシャドウやボーダーを適用しない。UIクロームにクロマチックアクセントカラーを導入しない。一次アクションには塗りつぶしを持つピル型ボタンを、二次インタラクションには微細でボーダレスな要素を使用する。"
+    },
+    "ko": {
+      "identity": {
+        "keywords": [
+          "영감",
+          "큐레이션",
+          "미니멀리즘",
+          "웹 디자인",
+          "갤러리"
+        ],
+        "analogy": "오직 작품만이 중요한 깨끗하고 넓은 갤러리 공간.",
+        "oneLiner": "웹 디자인 영감을 전시하도록 디자인된 미니멀하고 하이엔드 큐레이션 갤러리."
+      },
+      "colors": {
+        "principle": "큐레이션된 콘텐츠의 다양한 색상을 위한 중립적인 프레임 역할을 하는 엄격한 단색 팔레트."
+      },
+      "typography": {
+        "rules": [
+          "모든 텍스트는 약간의 음수 자간을 가진 Inter 폰트 패밀리를 사용합니다.",
+          "헤드라인은 반볼드 느낌을 위해 font-weight 500을 사용합니다.",
+          "본문 텍스트는 가독성을 위해 여유로운 1.5 줄 높이를 유지합니다."
+        ],
+        "scaleUses": [
+          "메인 히어로 헤드라인",
+          "섹션 제목",
+          "일반 본문 텍스트",
+          "부제목 및 설명"
+        ]
+      },
+      "spacing": {
+        "rhythm": "여유로운 여백과 일관된 padding이 깨끗하고 숨 쉬는 리듬을 만듭니다."
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 10px 15px -3px rgba(0, 0, 0, 0.1)",
+          "0px 4px 6px -4px rgba(0, 0, 0, 0.1)"
+        ],
+        "borders": "1px solid rgba(0, 0, 0, 0.05)"
+      },
+      "layout": {
+        "skeleton": "히어로 섹션을 위한 중앙 단일 열 레이아웃에서, 조밀하고 대칭적인 콘텐츠 카드 메이슨리 그리드로 전환됩니다."
+      },
+      "components": {
+        "button": "주요 작업을 위한 검정색 배경의 알약 모양 버튼과, 보조 작업을 위한 미세하고 테두리 없는 스타일.",
+        "card": "최소한의 텍스트와 함께 큰 시각적 썸네일을 우선시하는 깨끗하고 테두리가 없는 직사각형 카드.",
+        "chip": "탐색이나 메타데이터에 사용되는 작은 알약 모양의 텍스트 표시기.",
+        "input": "배경에 자연스럽게 녹아드는 미니멀하고 테두리 없는 입력 필드.",
+        "hero": "번개 아이콘과 함께 수직으로 중앙 정렬된 거대한 헤드라인과, 크고 두드러진 알약 모양 행동 유도 버튼."
+      },
+      "motion": {
+        "patterns": [
+          "hover 시 미세한 페이드 인아웃",
+          "인터랙티브 요소의 부드러운 배경색 트랜지션",
+          "버튼과 카드의 미세한 스케일 변환"
+        ]
+      },
+      "interaction": {
+        "hover": "150ms 트랜지션으로 투명도나 배경색의 미세한 변화.",
+        "click": "약간의 스케일 변환으로 즉각적인 시각적 피드백.",
+        "transition": "모든 인터랙티브 요소는 부드러운 트랜지션을 위해 150ms cubic-bezier(0.4, 0, 0.2, 1) 이징을 일관되게 사용합니다.",
+        "keyboard": "미세한 border-radius와 색상 체계와 일치하는 표준 focus 윤곽선."
+      },
+      "voice": {
+        "tone": "자신감 있고 간결하며 영감을 주는 어조.",
+        "headlineStyle": "품질과 영감을 강조하는 짧고 강렬하며 가독성이 높은 진술.",
+        "ctaStyle": "'구독 +'와 같은 단순한 동사와 기호를 사용하여 직접적이고 행동 지향적.",
+        "avoid": [
+          "과도한 느낌표 사용",
+          "복잡한 기술 전문 용어",
+          "주요 영역에서 길고 밀도 높은 문단"
+        ]
+      },
+      "donts": [
+        "카드에 드롭 섀도우를 사용하지 마세요. 스크린샷은 완전히 평면적이고 테두리가 없는 이미지 카드를 보여줍니다.",
+        "헤드라인에 세리프 폰트를 사용하지 마세요. 스크린샷은 전체적으로 깨끗한 휴머니스트 산세리프를 보여줍니다.",
+        "복잡하고 다채로운 UI 크롬을 사용하지 마세요. 스크린샷은 엄격한 흑백 인터페이스를 보여줍니다.",
+        "주요 버튼에 날카롭고 90도 모서리를 사용하지 마세요. 스크린샷은 완전히 둥글고 알약 모양의 버튼을 보여줍니다.",
+        "과도한 본문 padding이나 좁은 줄 간격을 사용하지 마세요. 스크린샷은 여유로운 여백과 1.5의 여유로운 줄 높이를 보여줍니다.",
+        "화려한 그라디언트나 장식적 배경을 사용하지 마세요. 스크린샷은 콘텐츠가 숨 쉴 수 있게 하는 단색 흰색 배경을 보여줍니다."
+      ],
+      "systemPrompt": "당신은 프리미엄, 미니멀리스트 웹 디자인 영감 갤러리를 디자인하고 있습니다. 미적 정체성은 큐레이션된 콘텐츠를 위한 중립적 프레임 역할을 하는 엄격한 흑백 팔레트(#FFFFFF 배경, #000000 텍스트)로 정의됩니다. 타이포그래피는 오직 휴머니스트 산세리프이며, 타이트한 음수 자간(-0.32px)과 본문 400, 헤드라인 500의 적당한 font-weight를 사용합니다. 레이아웃은 여유로운 여백과 함께 대칭적인 메이슨리 그리드에 크게 의존합니다. 핵심 제약: 세리프 폰트를 사용하지 마세요. 주요 콘텐츠 카드에 드롭 섀도우나 테두리를 적용하지 마세요. UI 크롬에 어떤 색조 악센트 색상도 도입하지 마세요. 주요 작업을 위한 단색 채우기의 알약 모양 버튼과 보조 인터랙션을 위한 미세하고 테두리 없는 요소를 사용하세요."
+    }
+  },
+  "desc": {
+    "en": {
+      "palette": "A strict, high-contrast monochromatic palette using pure black and white to create a neutral, distraction-free frame for the curated visual content.",
+      "layout": "A clean, single-column hero section that transitions into a dense, symmetrical masonry grid of content thumbnails, prioritizing visual exploration.",
+      "interaction": "Subtle, 150ms transitions on hover and click provide a smooth, premium feel without distracting from the primary content.",
+      "motion": "Motion is kept to a minimum, focusing on subtle opacity and background-color changes to enhance usability and provide a calm experience.",
+      "notes": "This site is an excellent example of how extreme restraint in UI design can elevate the perceived quality and focus of curated content, making it a perfect reference for editorial and gallery layouts."
+    },
+    "zh-CN": {
+      "palette": "采用纯黑与纯白构成的严格高对比度单色调色板，为精心策划的视觉内容打造一个中性、无干扰的框架。",
+      "layout": "简洁的单栏英雄区域，平滑过渡至密集、对称的马赛克式内容缩略图网格，优先考虑视觉探索体验。",
+      "interaction": "悬停与点击时提供 150 毫秒的微过渡，营造流畅、高端的感受，且不分散对主要内容的注意力。",
+      "motion": "动效保持极简，聚焦于细微的透明度和背景色变化，以提升可用性并提供平静的体验。",
+      "notes": "该网站是 UI 设计中极致克制如何提升精心策划内容之感知质量与聚焦度的绝佳范例，是编辑与画廊布局的完美参考。"
+    },
+    "zh-TW": {
+      "palette": "純黑與純白的嚴格單色高對比色盤，營造中性、無干擾的框架，以襯托精心策展的視覺內容。",
+      "layout": "乾淨的單欄英雄區段，過渡至密集對稱的瀑布流內容縮圖網格，優先考慮視覺探索。",
+      "interaction": "懸停與點擊時細微的 150ms 過渡動畫，提供流暢高級感，同時不干擾主要內容。",
+      "motion": "動態效果保持極簡，專注於細微的透明度與背景色變化，以提升可用性並提供沉靜體驗。",
+      "notes": "此網站極佳展現了介面設計中極度克制如何能提升精心策展內容的感知品質與聚焦度，是編輯與圖庫版型的完美參考。"
+    },
+    "ja": {
+      "palette": "純粋な黒と白を用いた厳格で高コントラストのモノクロパレット。選定されたビジュアルコンテンツのための、中立的で雑然としないフレームを創出します。",
+      "layout": "クリーンな単列のヒーローセクションから、視覚的な探索を優先した、稠密で対称的なコンテンツサムネイルのマーソニーグリッドへと移行するレイアウト。",
+      "interaction": "hoverおよびクリック時の150msの微細なトランジションが、主要コンテンツを損なうことなく、滑らかで高級感のあるフィードバックを提供します。",
+      "motion": "動きは最小限に抑え、操作性の向上と穏やかな体験のために、不透明度や背景色の微細な変化に焦点を当てます。",
+      "notes": "このサイトは、UIデザインにおける極度の克制が、選定されたコンテンツの知覚される品質と焦点をどのように高められるかを示す優れた例であり、エディトリアルやギャラリーレイアウトのための完全な参考資料となります。"
+    },
+    "ko": {
+      "palette": "순수한 흑백을 사용한 엄격하고 고대비의 단색 팔레트로, 큐레이션된 시각 콘텐츠를 위한 중립적이고 방해 없는 틀을 만듭니다.",
+      "layout": "깨끗한 단일 열 히어로 섹션에서, 시각적 탐색을 우선시하는 조밀하고 대칭적인 메이슨리 그리드의 콘텐츠 썸네일로 전환됩니다.",
+      "interaction": "hover와 클릭 시 150ms의 미세한 트랜지션이 주요 콘텐츠에 집중을 방해하지 않으면서도 부드럽고 프리미엄 느낌을 제공합니다.",
+      "motion": "모션은 최소화하며, 투명도와 배경색의 미세한 변화에 집중하여 사용성을 강화하고 차분한 경험을 제공합니다.",
+      "notes": "이 사이트는 UI 디자인의 극도의 절제가 큐레이션된 콘텐츠의 인식된 품질과 집중도를 어떻게 높일 수 있는지 보여주는 훌륭한 예시이며, 에디토리얼과 갤러리 레이아웃을 위한 완벽한 참고 자료입니다."
+    }
+  },
+  "_meta": {
+    "vision_model": "mimo-v2.5",
+    "vision_prompt_version": "0.3",
+    "vision_source": "playwright-extract:godly",
+    "vision_grounded": true,
+    "vision_at": "2026-06-04T15:31:31+00:00",
+    "vision_tokens": 17747,
+    "vision_cost_usd": 0.1972,
+    "translation_model": "mimo-v2.5",
+    "translation_at": "2026-06-04T15:32:55+00:00",
+    "translation_tokens": 18123,
+    "translation_cost_usd": 0.0604,
+    "narrative_model": "mimo-v2.5",
+    "narrative_prompt_version": "0.3",
+    "narrative_at": "2026-06-04T15:33:02+00:00",
+    "narrative_tokens": 2204,
+    "narrative_cost_usd": 0.0147,
+    "narrative_status": "ok",
+    "total_cost_usd": 0.2723
+  },
+  "narrative": {
+    "en": {
+      "ch1_intro": "The system operates like a pristine gallery space, where every element of the interface recedes to serve the curated content. Its strict monochromatic palette and generous white space create a neutral, expansive frame, making the diverse colors of each showcased design the sole point of visual interest.",
+      "ch2_intro": "The color system is defined by a strict, high-contrast monochromatic palette of pure black and white. This deliberate absence of chromatic UI accent ensures the interface acts as a neutral stage for the content it presents.",
+      "ch2_outro": "The principle is clear: the UI chrome is invisible, allowing the curation itself to be the only source of color and visual complexity.",
+      "ch3_intro": "Typography is handled exclusively through the humanist sans-serif Inter, establishing a consistent, clean voice. Headlines are set semi-bold at weight 500, while body copy maintains a relaxed line height for optimal readability.",
+      "ch4_intro": "Generous white space and consistent padding establish a clean, breathable rhythm throughout the layout.",
+      "ch5_intro": "Depth is suggested through subtle, low-opacity shadows that lift surfaces just enough to separate them from the background. Borders are kept to a near-invisible 1px solid line, providing minimal structural definition without visual weight.",
+      "ch6_intro": "The layout skeleton begins with a central, single-column hero section for initial focus. It then transitions into a dense, symmetrical masonry grid, prioritizing visual exploration and efficient use of space for the content cards.",
+      "ch7_intro": "Motion is applied with deliberate restraint, focusing purely on functional feedback. Subtle opacity fades and smooth background-color transitions at 150ms provide a calm, premium interaction feel without distracting from the content.",
+      "ch8_intro": "The editorial voice is confident, concise, and aspirational. It favors short, punchy headlines and direct calls to action, avoiding complex jargon and dense paragraphs in primary interface areas.",
+      "ch8_outro": "The system deliberately forgoes any chromatic accent, decorative gradients, or sharp corners in its primary UI, cementing its role as a purely functional frame."
+    },
+    "zh-CN": {
+      "ch1_intro": "系统运作如一间纯净的画廊空间，界面中每个元素都退居幕后，以衬托精心策划的内容。其严谨的单色配色与充裕的留白构筑出中性而开阔的框架，使每件展品的设计成为唯一的视觉焦点。",
+      "ch2_intro": "色彩体系由纯粹黑白构成的高对比度单色配色严格定义。这种对彩色界面强调色的刻意摒弃，确保界面能作为内容呈现的中性舞台。",
+      "ch2_outro": "原则清晰可见：界面本身隐于无形，唯策展内容成为色彩与视觉复杂性的唯一来源。",
+      "ch3_intro": "排版完全采用人文无衬线字体 Inter，建立统一而简洁的视觉语言。标题采用字重 500 的半粗体，正文则保持舒缓的行高以确保最佳可读性。",
+      "ch4_intro": "充裕的留白与统一的内边距为整个版面建立起清爽、透气的韵律节奏。",
+      "ch5_intro": "通过低透明度微阴影营造微妙层次，使表面适度浮起以区分背景层级。边框采用近乎隐形的 1px 实线，在不增加视觉重量的前提下提供最小化的结构定义。",
+      "ch6_intro": "版面骨架以中央单列首屏区块开启视觉焦点，随后过渡至密集的对称瀑布流网格，以视觉探索优先、空间高效利用为原则承载内容卡片。",
+      "ch7_intro": "动态效果运用极为克制，专注于功能性反馈。150ms 的透明度渐变与平滑背景色过渡带来沉静而精致的交互体验，避免分散对内容的注意力。",
+      "ch8_intro": "编辑语气自信、凝练且富有前瞻性。偏爱简短有力的标题与直接的行动指引，在核心界面区域避免复杂术语与冗长段落。",
+      "ch8_outro": "系统在主要界面中有意摒弃任何彩色强调、装饰性渐变或尖锐棱角，巩固其作为纯粹功能性框架的角色。"
+    },
+    "zh-TW": {
+      "ch1_intro": "系統運作如一座純淨的畫廊空間，介面中的每個元素都退居幕後，以服務策展的內容。其嚴格的單色調色板與大量的留白創造出中性、廣闊的框架，使每個展示設計的多樣色彩成為唯一的視覺焦點。",
+      "ch2_intro": "色彩系統由純黑與純白構成的嚴格高對比單色調色板定義。這種刻意捨棄色彩介面強調色的做法，確保了介面能作為內容呈現的中性舞台。",
+      "ch2_outro": "原則很明確：介面外觀隱而不彰，讓策展本身成為色彩與視覺複雜度的唯一來源。",
+      "ch3_intro": "字體排印完全採用人文無襯線體 Inter，確立一致、簡潔的語氣。標題以半粗體字重 500 設定，而內文則保持寬鬆的行高以達最佳可讀性。",
+      "ch4_intro": "大量的留白與一致的內距在版面中建立了清晰、舒適的節奏。",
+      "ch5_intro": "透過低不透明度的細微陰影暗示深度，將表面輕輕托起，使其與背景分離。邊框維持在近乎不可見的 1px 實線，提供最低限度的結構定義而不增加視覺重量。",
+      "ch6_intro": "版面骨架始於中央單欄主視覺區域以聚焦初始注意力，隨後過渡至密集、對稱的瀑布流格狀版面，優先考慮視覺探索並為內容卡片有效利用空間。",
+      "ch7_intro": "動態效果的應用極為克制，純粹專注於功能性回饋。細微的不透明度淡入與平滑的背景顏色過渡（150ms）帶來冷靜、優質的互動感受，且不分散對內容的注意力。",
+      "ch8_intro": "編輯語氣自信、簡潔且具啟發性。偏好簡短有力的標題與直接的行動號召，避免在主要介面區域使用複雜術語或密集段落。",
+      "ch8_outro": "系統刻意捨棄主要介面中的任何色彩強調、裝飾性漸層或銳利邊角，鞏固其作為純功能性框架的角色。"
+    },
+    "ja": {
+      "ch1_intro": "このシステムは、洗練されたギャラリースペースのように機能し、インターフェースのすべての要素が、キュレーションされたコンテンツを支えるために控えめに位置づけられます。厳格なモノクローマルパレットと贅沢なホワイトスペースが、中立的で広がりのあるフレームを創り出し、各デザインの多様な色を唯一の視覚的関心事として際立たせます。",
+      "ch2_intro": "カラーシステムは、純粋な黒と白による厳格でハイコントラストなモノクローマルパレットで定義されます。この意図的なクロマティックUIアクセントの不在は、インターフェースが提示するコンテンツの中立的な舞台として機能することを保証します。",
+      "ch2_outro": "原則は明確です。UIのクロームは見えなくなり、キュレーション自体が唯一の色と視覚的複雑性の源泉となります。",
+      "ch3_intro": "タイポグラフィは、ヒューマニストサンセリフのInterを通じて排他的に扱われ、一貫性のあるクリーンな声を確立します。見出しはウェイト500のセミボールドで設定され、本文は最適な可読性のためにリラックスした行間を維持します。",
+      "ch4_intro": "贅沢なホワイトスペースと一貫したパディングが、レイアウト全体に清潔で息がつくリズムを確立します。",
+      "ch5_intro": "奥行きは、表面を背景から分離するために十分な高さを持ち上げる、微細で低不透明度のシャドウを通じて示唆されます。ボーダーは、視覚的な重みを持たせずに最小限の構造的定義を提供する、ほぼ見えない1pxのソリッドラインに抑えられます。",
+      "ch6_intro": "レイアウトの骨格は、最初の焦点として中央の単一カラムのヒーローセクションから始まります。その後、コンテンツカードのために視覚的探索とスペースの効率的な使用を優先した、密集した対称的なメーソニリーグリッドに移行します。",
+      "ch7_intro": "モーションは慎重な抑制をもって適用され、純粋に機能的なフィードバックに焦点を当てます。150msの微細な不透明度フェードとスムーズな背景色トランジションが、コンテンツから注意をそらすことなく、落ち着いたプレミアムなインタラクション感覚を提供します。",
+      "ch8_intro": "エディトリアルボイスは、自信があり、簡潔で、志を高く掲げます。短くインパクトのある見出しと直接的な行動喚起を好み、プライマリインターフェース領域では複雑な専門用語や密度の高い段落を避けます。",
+      "ch8_outro": "このシステムは、プライマリUIにおいて、クロマティックアクセント、装飾的なグラデーション、角の鋭い角を意図的に排除し、純粋に機能的なフレームとしての役割を確固たるものにしています。"
+    },
+    "ko": {
+      "ch1_intro": "시스템은 깨끗한 갤러리 공간처럼 작동하며, 인터페이스의 모든 요소는 큐레이션된 콘텐츠를 위해 뒤로 물러납니다. 엄격한 단색 팔레트와 넉넉한 여백은 중립적이고 확장된 틀을 만들어, 전시된 각 디자인의 다양한 색상이 유일한 시각적 관심사가 되도록 합니다.",
+      "ch2_intro": "컬러 시스템은 순수한 흑백의 엄격하고 고대비 단색 팔레트로 정의됩니다. 이러한 의도적인 색상 강조 부재는 인터페이스가 제시하는 콘텐츠를 위한 중립적인 무대 역할을 보장합니다.",
+      "ch2_outro": "원칙은 명확합니다: UI 크롬은 보이지 않게 하여, 큐레이션 자체가 유일한 색상과 시각적 복잡성의 원천이 되도록 합니다.",
+      "ch3_intro": "타이포그래피는 humanist sans-serif Inter를 통해서만 처리되어, 일관되고 깔끔한 음성을 확립합니다. 제목은 세미볼드(가중치 500)로 설정되고, 본문은 최적의 가독성을 위해 여유로운 행간을 유지합니다.",
+      "ch4_intro": "넉넉한 여백과 일관된 padding은 레이아웃 전체에 깔끔하고 숨 쉬는 리듬을 확립합니다.",
+      "ch5_intro": "깊이는 미세한 저불투명도 그림자를 통해 암시되며, 표면을 배경과 분리하기 위해 적절히 띄웁니다. 테두리는 거의 보이지 않는 1px solid 라인으로 유지되어, 시각적 무게 없이 최소한의 구조적 정의를 제공합니다.",
+      "ch6_intro": "레이아웃 스켈레톤은 초기 집중을 위한 중앙 단일 열 히어로 섹션으로 시작됩니다. 그런 다음 밀도 높고 대칭적인 매서니 그리드로 전환하여, 콘텐츠 카드를 위한 시각적 탐색과 효율적인 공간 활용을 우선시합니다.",
+      "ch7_intro": "모션은 의도적인 절제를 적용하여 순수하게 기능적 피드백에 집중합니다. 미세한 불투명도 페이드와 150ms의 부드러운 배경색 전환은 콘텐츠에서 주의를 빼앗지 않으면서 차분하고 프리미엄한 상호작용 느낌을 제공합니다.",
+      "ch8_intro": "에디토리얼 음성은 자신감 있고 간결하며, 열망을 불러일으킵니다. 짧고 강렬한 제목과 직접적인 행동 유도를 선호하며, 주요 인터페이스 영역에서 복잡한 전문 용어와 긴 문단은 피합니다.",
+      "ch8_outro": "시스템은 주요 UI에서 의도적으로 색상 강조, 장식적 그라데이션, 또는 날카로운 모서리를 포기하여, 순수하게 기능적인 틀로서의 역할을 공고히 합니다."
+    }
+  }
 }

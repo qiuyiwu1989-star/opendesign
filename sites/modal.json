@@ -9,8 +9,603 @@
     "infra",
     "dark"
   ],
-  "status": "pending",
+  "status": "completed",
   "added_at": "2026-06-02",
   "added_by": "expand-200",
-  "_meta": {}
+  "_meta": {
+    "vision_model": "mimo-v2.5",
+    "vision_prompt_version": "0.3",
+    "vision_source": "playwright-extract:modal",
+    "vision_grounded": true,
+    "vision_at": "2026-06-04T16:54:12+00:00",
+    "vision_tokens": 17393,
+    "vision_cost_usd": 0.1933,
+    "translation_model": "mimo-v2.5",
+    "translation_at": "2026-06-04T16:55:36+00:00",
+    "translation_tokens": 17854,
+    "translation_cost_usd": 0.0595,
+    "narrative_model": "mimo-v2.5",
+    "narrative_prompt_version": "0.3",
+    "narrative_at": "2026-06-04T16:55:46+00:00",
+    "narrative_tokens": 2117,
+    "narrative_cost_usd": 0.0141,
+    "narrative_status": "ok",
+    "total_cost_usd": 0.2669
+  },
+  "spec": {
+    "colors": {
+      "bg": "#000000",
+      "bgSoft": null,
+      "bgQuiet": "#181818",
+      "ink": "#DDFFDC",
+      "inkSoft": null,
+      "muted": "#5B6D5C",
+      "mutedSoft": null,
+      "accent": "#7FEE64",
+      "line": "rgba(91, 109, 92, 0.4)"
+    },
+    "typography": {
+      "display": "geometric-sans",
+      "body": "humanist-sans",
+      "mono": "monospace",
+      "scale": [
+        {
+          "token": "display",
+          "size": 54,
+          "lh": 1.0,
+          "weight": 500,
+          "ls": "-0.36px"
+        },
+        {
+          "token": "body",
+          "size": 16,
+          "lh": 1.5,
+          "weight": 500,
+          "ls": "-0.36px"
+        },
+        {
+          "token": "caption",
+          "size": 14,
+          "lh": 1.4,
+          "weight": 500,
+          "ls": "0.16px"
+        }
+      ]
+    },
+    "spacing": {
+      "base": 4,
+      "scale": [
+        4,
+        8,
+        16,
+        24,
+        32,
+        48,
+        64,
+        96
+      ]
+    },
+    "surfaces": {
+      "radius": {
+        "sm": 4,
+        "md": 8,
+        "lg": 12,
+        "pill": 999
+      }
+    },
+    "layout": {
+      "container": 1280,
+      "paragraph": 680,
+      "columns": 12,
+      "gutter": 24,
+      "breakpoints": [
+        768,
+        1024
+      ]
+    },
+    "motion": {
+      "durations": {
+        "micro": 150,
+        "small": 300,
+        "medium": 400
+      },
+      "easing": "cubic-bezier(0.4, 0, 0.2, 1)"
+    }
+  },
+  "spec_i18n": {
+    "en": {
+      "identity": {
+        "keywords": [
+          "AI infrastructure",
+          "cloud compute",
+          "developer experience",
+          "sub-second"
+        ],
+        "analogy": "A developer-friendly cloud compute platform that feels local but scales globally.",
+        "oneLiner": "AI infrastructure that developers love."
+      },
+      "colors": {
+        "principle": "High contrast neon green accent on deep dark backgrounds for a technical, developer-focused aesthetic."
+      },
+      "typography": {
+        "rules": [
+          "Use geometric-sans for headlines to maintain a technical, modern feel.",
+          "Body text should use humanist-sans for readability on dark backgrounds.",
+          "Maintain tight letter-spacing for display text to enhance the premium aesthetic."
+        ],
+        "scaleUses": [
+          "Hero headlines and major section titles.",
+          "Primary body copy, navigation links, and UI text.",
+          "Small labels, secondary text, and metadata."
+        ]
+      },
+      "spacing": {
+        "rhythm": "A 4px base grid is used consistently for padding, gaps, and margins, ensuring a clean and structured layout."
+      },
+      "surfaces": {
+        "shadows": [
+          "0 10px 15px -3px rgba(0, 0, 0, 0.1)",
+          "0 4px 6px -4px rgba(0, 0, 0, 0.1)"
+        ],
+        "borders": "1px solid borders using muted green tones to separate sections without being overly harsh."
+      },
+      "layout": {
+        "skeleton": "A single-column centered layout for the hero, transitioning to multi-column feature sections."
+      },
+      "components": {
+        "button": "Pill-shaped buttons with solid neon green backgrounds for primary actions and transparent backgrounds with subtle borders for secondary actions.",
+        "card": "Dark, borderless cards that rely on spacing and typography to define content blocks.",
+        "chip": "Pill-shaped tags or chips used for categorizing information.",
+        "input": "Clean, minimalist input fields with subtle borders and clear focus states.",
+        "hero": "A massive, centered headline with a supporting subheadline and prominent call-to-action buttons, anchored by a large, abstract 3D visual."
+      },
+      "motion": {
+        "patterns": [
+          "Smooth color and background transitions on hover.",
+          "Subtle scaling and rotation transforms for interactive elements.",
+          "Fade-in effects for content appearing on scroll."
+        ]
+      },
+      "interaction": {
+        "hover": "Smooth color transitions and subtle scale transformations on buttons and interactive elements.",
+        "click": "Subtle scale-down feedback to indicate a press state.",
+        "transition": "Consistent 150ms to 300ms transitions for most UI state changes.",
+        "keyboard": "Standard tab navigation with clear focus indicators for accessibility."
+      },
+      "voice": {
+        "tone": "Confident, technical, and developer-focused.",
+        "headlineStyle": "Bold, direct, and benefit-oriented, emphasizing speed and ease of use.",
+        "ctaStyle": "Action-oriented verbs that encourage immediate engagement.",
+        "avoid": [
+          "Vague marketing jargon.",
+          "Overly complex technical explanations in primary headings.",
+          "Passive or hesitant language."
+        ]
+      },
+      "donts": [
+        "Don't use light mode or white backgrounds — screenshot shows a deep black background.",
+        "Don't use rounded rectangles for buttons — screenshot shows fully pill-shaped buttons.",
+        "Don't use multiple accent colors — screenshot shows a single dominant neon green accent.",
+        "Don't use heavy serif fonts for headlines — screenshot shows clean, geometric sans-serif typography.",
+        "Don't clutter the hero section with too much text — screenshot shows a clear, concise headline and subheadline.",
+        "Don't use bright, saturated colors for body text — screenshot shows muted greens and grays for secondary information."
+      ],
+      "systemPrompt": "Design a high-end developer tool website with a dark mode aesthetic. Use a deep black background (#000000) with a vibrant neon green accent (#7FEE64) for primary actions and highlights. Typography should be clean and modern, using geometric-sans for headlines and humanist-sans for body text. Maintain a strict 4px base grid for spacing. Critical don'ts: avoid light mode, don't use rectangular buttons (always use pills), and don't use multiple competing accent colors. The tone should be confident and technical, appealing directly to developers."
+    },
+    "zh-CN": {
+      "identity": {
+        "keywords": [
+          "AI基础设施",
+          "云计算",
+          "开发者体验",
+          "亚秒级"
+        ],
+        "analogy": "一个开发者友好、兼具本地流畅感与全球扩展能力的云计算平台。",
+        "oneLiner": "开发者喜爱的AI基础设施。"
+      },
+      "colors": {
+        "principle": "在深色背景上使用高对比度霓虹绿作为强调色，营造技术化、面向开发者的视觉美学。"
+      },
+      "typography": {
+        "rules": [
+          "标题使用几何无衬线体，以保持技术感和现代感。",
+          "正文使用人文主义无衬线体，以确保在深色背景上的可读性。",
+          "展示型文本保持紧凑的字距，以提升高级感。"
+        ],
+        "scaleUses": [
+          "主视觉标题和主要板块标题。",
+          "主要正文、导航链接和UI文本。",
+          "小标签、次要文本和元数据。"
+        ]
+      },
+      "spacing": {
+        "rhythm": "统一使用4px基础网格，规范内边距、间距和外边距，确保布局清晰且结构化。"
+      },
+      "surfaces": {
+        "shadows": [
+          "0 10px 15px -3px rgba(0, 0, 0, 0.1)",
+          "0 4px 6px -4px rgba(0, 0, 0, 0.1)"
+        ],
+        "borders": "使用柔和绿色调的1px实线边框分隔板块，避免视觉上过于生硬。"
+      },
+      "layout": {
+        "skeleton": "首页采用单栏居中布局，过渡到多栏的功能板块。"
+      },
+      "components": {
+        "button": "主要操作按钮为胶囊形，采用霓虹绿纯色背景；次要操作按钮为透明背景配以细微边框。",
+        "card": "无边框的深色卡片，依靠间距和排版来定义内容区块。",
+        "chip": "用于分类信息的胶囊形标签或芯片。",
+        "input": "简洁极简的输入框，配有细微边框和清晰的聚焦状态。",
+        "hero": "巨大的居中标题，辅以支持性副标题和突出的操作按钮，底部以大型抽象3D视觉元素为支撑。"
+      },
+      "motion": {
+        "patterns": [
+          "hover时的平滑颜色与背景过渡。",
+          "交互元素的细微缩放与旋转变换。",
+          "内容随滚动出现的淡入效果。"
+        ]
+      },
+      "interaction": {
+        "hover": "按钮和交互元素上的平滑颜色过渡与细微的缩放变换。",
+        "click": "细微的缩放缩小反馈以指示按压状态。",
+        "transition": "大多数UI状态变化采用一致的150ms至300ms过渡。",
+        "keyboard": "标准的tab导航，并配有清晰的焦点指示器以保证可访问性。"
+      },
+      "voice": {
+        "tone": "自信、技术化、面向开发者。",
+        "headlineStyle": "大胆、直接、以效益为导向，强调速度与易用性。",
+        "ctaStyle": "鼓励立即参与的行动导向动词。",
+        "avoid": [
+          "模糊的营销术语。",
+          "在主要标题中使用过于复杂的技术解释。",
+          "被动或犹豫的语言。"
+        ]
+      },
+      "donts": [
+        "不要使用浅色模式或白色背景——截图显示的是深黑色背景。",
+        "不要为按钮使用圆角矩形——截图显示的是完全的胶囊形按钮。",
+        "不要使用多种强调色——截图显示的是单一的霓虹绿主强调色。",
+        "不要为标题使用厚重的衬线字体——截图显示的是简洁的几何无衬线字体。",
+        "不要在首屏区域堆积过多文本——截图显示的是清晰简洁的标题和副标题。",
+        "不要为正文使用明亮、饱和的颜色——截图显示的是用于次要信息的柔和绿色和灰色。"
+      ],
+      "systemPrompt": "设计一个具有深色模式美学的高端开发者工具网站。使用深黑色背景（#000000），并搭配鲜亮的霓虹绿（#7FEE64）作为主要操作和高亮色。字体应简洁现代，标题使用几何无衬线体，正文使用人文主义无衬线体。严格遵循4px基础网格进行间距布局。关键禁忌：避免浅色模式、不要使用矩形按钮（始终使用胶囊形）、不要使用多种相互竞争的强调色。语气应自信且技术化，直接面向开发者。"
+    },
+    "zh-TW": {
+      "identity": {
+        "keywords": [
+          "AI基礎設施",
+          "雲端運算",
+          "開發者體驗",
+          "次秒級"
+        ],
+        "analogy": "一個對開發者友善的雲端運算平台，體感如同本地環境，卻能全球擴展。",
+        "oneLiner": "開發者喜愛的AI基礎設施。"
+      },
+      "colors": {
+        "principle": "在深色背景上使用高對比霓虹綠強調色，營造技術導向、以開發者為中心的美學。"
+      },
+      "typography": {
+        "rules": [
+          "標題使用幾何無襯線字體，維持技術感與現代感。",
+          "內文使用人文無襯線字體，確保在深色背景上的可讀性。",
+          "展示文字保持緊湊的字距，以增強高級質感。"
+        ],
+        "scaleUses": [
+          "首頁標題與主要區塊標題。",
+          "主要內文、導覽連結與介面文字。",
+          "小型標籤、次要文字與中繼資料。"
+        ]
+      },
+      "spacing": {
+        "rhythm": "一致採用4px基礎網格作為內距、間距與外距，確保佈局的整潔與結構化。"
+      },
+      "surfaces": {
+        "shadows": [
+          "0 10px 15px -3px rgba(0, 0, 0, 0.1)",
+          "0 4px 6px -4px rgba(0, 0, 0, 0.1)"
+        ],
+        "borders": "使用柔和綠色調的1px實心邊框分隔區塊，避免過於生硬。"
+      },
+      "layout": {
+        "skeleton": "首頁採用單欄居中佈局，過渡至多欄功能區塊。"
+      },
+      "components": {
+        "button": "主要操作使用實心霓虹綠背景的膠囊按鈕，次要操作使用透明背景搭配細微邊框的膠囊按鈕。",
+        "card": "深色、無邊框的卡片，依賴間距與字體排印來定義內容區塊。",
+        "chip": "用於資訊分類的膠囊標籤或元件。",
+        "input": "乾淨、極簡的輸入欄位，具有細微邊框與明確的focus狀態。",
+        "hero": "以巨大的居中標題、輔助副標題與顯眼的行動呼籲按鈕為主體，底部搭配大型抽象3D視覺元素。"
+      },
+      "motion": {
+        "patterns": [
+          "hover時平滑的顏色與背景過渡。",
+          "互動元素進行細微的縮放與旋轉變換。",
+          "內容在滾動時出現的淡入效果。"
+        ]
+      },
+      "interaction": {
+        "hover": "按鈕與互動元素提供平滑的顏色過渡與細微的縮放變換。",
+        "click": "提供細微的縮小回饋以指示按下狀態。",
+        "transition": "多數UI狀態變換採用一致的150ms至300ms過渡。",
+        "keyboard": "標準Tab鍵導覽，並提供明確的focus指示器以符合無障礙標準。"
+      },
+      "voice": {
+        "tone": "自信、技術導向且以開發者為中心。",
+        "headlineStyle": "大膽、直接且以效益為導向，強調速度與易用性。",
+        "ctaStyle": "使用行動導向的動詞鼓勵立即互動。",
+        "avoid": [
+          "模糊的行銷術語。",
+          "主要標題中過於複雜的技術解釋。",
+          "被動或猶豫的用語。"
+        ]
+      },
+      "donts": [
+        "不使用淺色模式或白色背景——截圖顯示深黑色背景。",
+        "按鈕不使用圓角矩形——截圖顯示全膠囊形按鈕。",
+        "不使用多種強調色——截圖顯示單一主導的霓虹綠強調色。",
+        "標題不使用厚重的襯線字體——截圖顯示乾淨的幾何無襯線字體排印。",
+        "首頁區塊不充斥過多文字——截圖顯示清晰簡潔的標題與副標題。",
+        "內文不使用明亮、高飽和度的顏色——截圖顯示柔和的綠色與灰色用於次要資訊。"
+      ],
+      "systemPrompt": "設計一個具有深色模式美學的高端開發者工具網站。使用深黑色背景(#000000)搭配鮮明的霓虹綠強調色(#7FEE64)作為主要操作與強調。字體排印需乾淨現代，標題使用幾何無襯線字體，內文使用人文無襯線字體。間格嚴格遵循4px基礎網格。關鍵禁忌：避免淺色模式、按鈕務必使用膠囊形狀、不使用多種競爭的強調色。語氣需自信且技術導向，直接訴求開發者。"
+    },
+    "ja": {
+      "identity": {
+        "keywords": [
+          "AI インフラ",
+          "クラウドコンピューティング",
+          "開発者体験",
+          "サブセカンド"
+        ],
+        "analogy": "ローカル環境のように使いやすく、グローバルにスケールする開発者フレンドリーなクラウドコンピューティングプラットフォーム。",
+        "oneLiner": "開発者が愛する AI インフラ。"
+      },
+      "colors": {
+        "principle": "技術的で開発者向けの美学を演出するため、深い暗色背景にハイコントラストのネオングリーンアクセントを配置。"
+      },
+      "typography": {
+        "rules": [
+          "ヘッドラインにはジオメトリック・サンスを使用し、テクニカルでモダンな印象を維持。",
+          "本文テキストにはヒューマニスト・サンスを使用し、暗い背景でも可読性を確保。",
+          "ディスプレイテキストには、高級感を高めるため、タイトな文字間隔を維持。"
+        ],
+        "scaleUses": [
+          "ヒーローヘッドラインと主要セクションタイトル。",
+          "本文、ナビゲーションリンク、UI テキスト。",
+          "小さなラベル、補助テキスト、メタデータ。"
+        ]
+      },
+      "spacing": {
+        "rhythm": "padding、gap、margin には、一貫して 4px ベースグリッドを使用し、クリーンで構造化されたレイアウトを確保。"
+      },
+      "surfaces": {
+        "shadows": [
+          "0 10px 15px -3px rgba(0, 0, 0, 0.1)",
+          "0 4px 6px -4px rgba(0, 0, 0, 0.1)"
+        ],
+        "borders": "セクションを区切るため、強調しすぎない落ち着いたグリーンのトーンで、1px 実線ボーダーを使用。"
+      },
+      "layout": {
+        "skeleton": "ヒーロー部分はシングルカラムで中央揃えとし、マルチカラムのフィーチャーセクションへと移行。"
+      },
+      "components": {
+        "button": "プライマリアクションにはソリッドなネオングリーン背景のピル形状ボタン、セカンダリアクションには透明背景の繊細なボーダー付きボタン。",
+        "card": "コンテンツブロックの定義に、余白とタイポグラフィを活用した、ダークでボーダーレスなカード。",
+        "chip": "情報を分類するためのピル形状のタグまたはチップ。",
+        "input": "クリーンでミニマルなインプットフィールド。繊細なボーダーと明確なフォーカス状態を備える。",
+        "hero": "大規模で抽象的な 3D ビジュアルを基盤に、巨大な中央揃えのヘッドライン、サポートサブヘッドライン、目立つ CTA ボタンを配置。"
+      },
+      "motion": {
+        "patterns": [
+          "hover 時の、滑らかなカラーとバックグラウンドのトランジション。",
+          "インタラクティブ要素への、繊細なスケーリングと回転トランスフォーム。",
+          "scroll 時にコンテンツが表示されるフェードインエフェクト。"
+        ]
+      },
+      "interaction": {
+        "hover": "ボタンやインタラクティブ要素への、滑らかなカラートランジションと繊細なスケールトランスフォーム。",
+        "click": "押下状態を示す、繊細なスケールダウンフィードバック。",
+        "transition": "ほとんどの UI 状態変化に対し、一貫した 150ms から 300ms のトランジション。",
+        "keyboard": "アクセシビリティのため、明確なフォーカスインジケーターを備えた標準的な Tab ナビゲーション。"
+      },
+      "voice": {
+        "tone": "自信に満ち、技術的で、開発者を意識したトーン。",
+        "headlineStyle": "大胆で直接的、スピードと使いやすさを強調した、ベネフィット志向のスタイル。",
+        "ctaStyle": "即座のエンゲージメントを促す、アクション志向の動詞。",
+        "avoid": [
+          "曖昧なマーケティング用語。",
+          "プライマリヘッドラインにおける、過度に複雑な技術的説明。",
+          "消極的またはためらいがちな言葉遣い。"
+        ]
+      },
+      "donts": [
+        "ライトモードや白い背景を使用しない — スクリーンショットでは深い黒の背景が示されています。",
+        "ボタンに角丸四角形を使用しない — スクリーンショットでは完全にピル形状のボタンが示されています。",
+        "複数のアクセントカラーを使用しない — スクリーンショットでは単一の支配的なネオングリーンアクセントが示されています。",
+        "ヘッドラインに重厚なセリフフォントを使用しない — スクリーンショットではクリーンで幾何学的なサンセリフタイポグラフィが示されています。",
+        "ヒーローセクションに過度なテキストを詰め込みしない — スクリーンショットでは明確で簡潔なヘッドラインとサブヘッドラインが示されています。",
+        "本文テキストに明るく彩度の高い色を使用しない — スクリーンショットでは補助情報に対して落ち着いたグリーンとグレーが示されています。"
+      ],
+      "systemPrompt": "ダークモードの美学を用いた、ハイエンドな開発者向けツールのウェブサイトをデザイン。背景は深い黒（#000000）、プライマリアクションとハイライトには鮮やかなネオングリーン（#7FEE64）を使用。タイポグラフィはクリーンでモダンにし、ヘッドラインにはジオメトリック・サンス、本文にはヒューマニスト・サンスを採用。余白には厳密な 4px ベースグリッドを維持。重要な禁止事項：ライトモードの回避、ボタンには角丸四角形を使用せず常にピル形状を使用、複数の競合するアクセントカラーの使用禁止。トーンは自信に満ち、技術的で、開発者に直接訴えかけるもの。"
+    },
+    "ko": {
+      "identity": {
+        "keywords": [
+          "AI 인프라",
+          "클라우드 컴퓨팅",
+          "개발자 경험",
+          "초 단위 미만"
+        ],
+        "analogy": "로컬처럼 느껴지지만 글로벌하게 확장되는, 개발자 친화적 클라우드 컴퓨팅 플랫폼.",
+        "oneLiner": "개발자들이 사랑하는 AI 인프라."
+      },
+      "colors": {
+        "principle": "기술적이고 개발자 중심의 미학을 위해 깊은 어두운 배경에 고대비 네온 그린 강조색을 사용합니다."
+      },
+      "typography": {
+        "rules": [
+          "헤드라인에는 기술적이고 현대적인 느낌을 유지하기 위해 geometric-sans를 사용합니다.",
+          "본문 텍스트는 어두운 배경에서의 가독성을 위해 humanist-sans를 사용합니다.",
+          "표시용 텍스트는 프리미엄 미학을 강화하기 위해 타이트한 자간을 유지합니다."
+        ],
+        "scaleUses": [
+          "히어로 헤드라인 및 주요 섹션 제목.",
+          "주요 본문, 내비게이션 링크 및 UI 텍스트.",
+          "작은 레이블, 보조 텍스트 및 메타데이터."
+        ]
+      },
+      "spacing": {
+        "rhythm": "패딩, 간격 및 여백에 일관되게 4px 기본 그리드를 사용하여 깔끔하고 구조화된 레이아웃을 보장합니다."
+      },
+      "surfaces": {
+        "shadows": [
+          "0 10px 15px -3px rgba(0, 0, 0, 0.1)",
+          "0 4px 6px -4px rgba(0, 0, 0, 0.1)"
+        ],
+        "borders": "섹션을 지나치게 날카롭지 않게 분리하기 위해 음소화된 그린 톤의 1px solid 테두리를 사용합니다."
+      },
+      "layout": {
+        "skeleton": "히어로에는 단일 열 중앙 정렬 레이아웃을 적용하고, 기능 섹션으로 전환 시 다열 레이아웃으로 구성합니다."
+      },
+      "components": {
+        "button": "주요 작업에는 단색 네온 그린 배경의 알약형 버튼을, 보조 작업에는 미묘한 테두리가 있는 투명 배경의 알약형 버튼을 사용합니다.",
+        "card": "간격과 타이포그래피로 콘텐츠 블록을 정의하는, 테두리가 없는 어두운 카드.",
+        "chip": "정보를 분류하기 위한 알약형 태그 또는 칩.",
+        "input": "미묘한 테두리와 명확한 focus 상태가 있는 깔끔하고 미니멀한 입력 필드.",
+        "hero": "대형 추상 3D 비주얼을 기반으로 하며, 지원하는 서브헤드라인과 두드러진 CTA 버튼이 있는 거대하고 중앙 정렬된 헤드라인."
+      },
+      "motion": {
+        "patterns": [
+          "hover 시 부드러운 색상 및 배경 전환.",
+          "인터랙티브 요소의 미묘한 스케일링 및 회전 변환.",
+          "scroll 시 콘텐츠가 나타날 때의 페이드인 효과."
+        ]
+      },
+      "interaction": {
+        "hover": "버튼 및 인터랙티브 요소에 부드러운 색상 전환과 미묘한 스케일 변환.",
+        "click": "클릭 상태를 나타내는 미묘한 축소 피드백.",
+        "transition": "대부분의 UI 상태 변경에 일관된 150ms에서 300ms 전환.",
+        "keyboard": "접근성을 위한 명확한 focus 표시기가 있는 표준 탭 내비게이션."
+      },
+      "voice": {
+        "tone": "자신감 있고 기술적이며 개발자 중심적.",
+        "headlineStyle": "대담하고 직접적이며 이점 지향적. 속도와 사용 편의성을 강조.",
+        "ctaStyle": "즉각적인 참여를 유도하는 행동 지향적 동사.",
+        "avoid": [
+          "模棱兩可한 마케팅 용어.",
+          "주요 제목에서 지나치게 복잡한 기술적 설명.",
+          "수동적이거나 주저하는 어조."
+        ]
+      },
+      "donts": [
+        "라이트 모드 또는 흰색 배경을 사용하지 않습니다 — 스크린샷은 깊은 검정 배경을 보여줍니다.",
+        "버튼에 둥근 사각형을 사용하지 않습니다 — 스크린샷은 완전히 알약형인 버튼을 보여줍니다.",
+        "여러 강조색을 사용하지 않습니다 — 스크린샷은 단일 주요 네온 그린 강조색을 보여줍니다.",
+        "헤드라인에 무거운 세리프 글꼴을 사용하지 않습니다 — 스크린샷은 깔끔한 geometric sans-serif 타이포그래피를 보여줍니다.",
+        "히어로 섹션을过多한 텍스트로 어지럽히지 않습니다 — 스크린샷은 명확하고 간결한 헤드라인과 서브헤드라인을 보여줍니다.",
+        "본문 텍스트에 밝고 채도 높은 색상을 사용하지 않습니다 — 스크린샷은 보조 정보에 음소화된 그린과 회색을 보여줍니다."
+      ],
+      "systemPrompt": "다크 모드 미학을 사용하여 하이엔드 개발자 도구 웹사이트를 설계합니다. 깊은 검정 배경(#000000)에 주요 작업 및 하이라이트를 위한 선명한 네온 그린(#7FEE64) 강조색을 사용합니다. 타이포그래피는 깔끔하고 현대적이어야 하며, 헤드라인에는 geometric-sans, 본문에는 humanist-sans를 사용합니다. 간격을 위해 엄격한 4px 기본 그리드를 유지합니다. 중요한 주의사항: 라이트 모드를 피하고, 직사각형 버튼을 사용하지 않으며(항상 알약형 사용), 여러 경쟁 강조색을 사용하지 않습니다. 어조는 자신감 있고 기술적이어야 하며, 개발자에게 직접적으로 호소해야 합니다."
+    }
+  },
+  "desc": {
+    "en": {
+      "palette": "A dark, high-contrast palette centered on deep blacks and vibrant neon greens, with muted green tones for secondary text and borders.",
+      "layout": "A clean, centered single-column layout for the hero that scales into structured feature sections, maintaining generous whitespace.",
+      "interaction": "Smooth, subtle transitions and transforms on interactive elements provide a polished and responsive feel.",
+      "motion": "Motion is used sparingly and purposefully, with smooth easing curves for UI state changes and content reveals.",
+      "notes": "This site is a prime example of modern developer tool branding, using a bold, minimalist aesthetic to communicate speed, reliability, and a superior developer experience."
+    },
+    "zh-CN": {
+      "palette": "以深黑与鲜亮霓虹绿为主的深色高对比度调色板，辅以柔和的绿色调用于次要文本和边框。",
+      "layout": "首页采用简洁居中的单栏布局，可扩展为结构化的功能板块，保持充裕的留白。",
+      "interaction": "交互元素上的平滑、细微的过渡与变换，营造出精致且响应迅速的体验。",
+      "motion": "动效运用克制而精准，UI状态变化与内容揭示采用平滑的缓动曲线。",
+      "notes": "该站点是现代开发者工具品牌的典范，运用大胆而极简的美学，传达速度、可靠性与卓越的开发者体验。"
+    },
+    "zh-TW": {
+      "palette": "以深黑色和鮮明霓虹綠為核心的高對比深色調色盤，輔以柔和的綠色調作為次要文字和邊框。",
+      "layout": "首頁採用乾淨、居中的單欄佈局，並擴展為結構化的功能區塊，保持寬敞的留白。",
+      "interaction": "互動元素提供流暢、細微的過渡與變換，營造精緻且即時回應的感受。",
+      "motion": "動態效果的使用精簡而有目的，UI狀態變換與內容呈現均採用流暢的緩動曲線。",
+      "notes": "此網站是現代開發者工具品牌的典範，運用大膽、極簡的美學來傳達速度、可靠性與卓越的開發者體驗。"
+    },
+    "ja": {
+      "palette": "深みのある黒と鮮やかなネオングリーンを基調とした、暗くハイコントラストなカラーパレット。補助的なテキストやボーダーには、落ち着いたグリーンのトーンを使用。",
+      "layout": "ヒーロー部分には、クリーンで中央揃えのシングルカラムレイアウトを採用し、構造化されたフィーチャーセクションへとスケールアップ。適切な余白を確保。",
+      "interaction": "インタラクティブ要素への、滑らかで繊細なトランジションとトランスフォームが、洗練され応答性の高い印象を提供。",
+      "motion": "モーションは控えめかつ意図的に使用。UIの状態変化やコンテンツの表示には、滑らかなイージングカーブを採用。",
+      "notes": "このサイトは、最新の開発者向けツールブランドの優れた例。大胆でミニマルな美学を用い、スピード、信頼性、優れた開発体験を伝達しています。"
+    },
+    "ko": {
+      "palette": "깊은 검정과 선명한 네온 그린을 중심으로 한 어둡고 고대비 팔레트. 보조 텍스트와 테두리에는 음소화된 그린 톤을 사용합니다.",
+      "layout": "히어로 섹션에는 깔끔하고 중앙 정렬된 단일 열 레이아웃을 적용하며, 구조화된 기능 섹션으로 확장됩니다. 넉넉한 여백을 유지합니다.",
+      "interaction": "인터랙티브 요소에 부드럽고 미묘한 전환 및 변환을 적용하여 세련되고 반응적인 느낌을 제공합니다.",
+      "motion": "모션은 절제되고 의도적으로 사용되며, UI 상태 변경 및 콘텐츠 표시에 부드러운 이징 곡선을 적용합니다.",
+      "notes": "이 사이트는 현대적인 개발자 도구 브랜딩의 대표적인 예로, 대담하고 미니멀한 미학을 사용하여 속도, 안정성, 그리고 탁월한 개발자 경험을 전달합니다."
+    }
+  },
+  "narrative": {
+    "en": {
+      "ch1_intro": "The Modal design system is built on a singular analogy: a developer-friendly cloud compute platform that feels local but scales globally. This duality—immediate intimacy paired with boundless capacity—shapes every decision from the neon green accent to the structured layout. The result is a visual language that communicates AI infrastructure with the confidence of a well-documented API.",
+      "ch2_intro": "A high-contrast palette anchors the interface in a deep black void, punctuated by a single, vibrant neon green accent. This scheme rejects the common gradient-heavy aesthetic of cloud platforms in favor of a stark, focused hierarchy where color is a functional signal, not decoration.",
+      "ch2_outro": "The principle is absolute: the neon green exists solely to direct attention and define interactive states within the dark environment.",
+      "ch3_intro": "Typography splits into two distinct roles: a geometric-sans for headlines to project a technical, modern feel, and a humanist-sans for body text to ensure legibility on dark backgrounds. The tight letter-spacing on display text enhances the premium, precision-engineered aesthetic.",
+      "ch4_intro": "All spatial relationships are governed by a strict 4px base grid, creating a rhythmic and predictable structure for padding, gaps, and margins.",
+      "ch5_intro": "Depth is communicated through shadow and border, not elevation. Dark, borderless content blocks rely on precise spacing and typographic contrast, while muted green borders provide subtle section separation.",
+      "ch6_intro": "The layout skeleton begins as a single, centered column for the hero, focusing attention on a massive headline and abstract 3D visual. It then transitions into structured, multi-column feature sections, maintaining generous whitespace throughout.",
+      "ch7_intro": "Motion is purposeful and restrained, used to affirm interaction rather than decorate. Smooth color transitions, subtle scaling transforms, and scroll-triggered fades provide a polished, responsive feel with consistent 150ms to 300ms durations.",
+      "ch8_intro": "The editorial voice is confident, technical, and developer-focused. Headlines are bold and direct, emphasizing speed and ease of use with action-oriented verbs that encourage immediate engagement.",
+      "ch8_outro": "The system deliberately avoids light mode, multiple competing accent colors, heavy serif typography, and cluttered messaging to preserve its focused, high-contrast identity."
+    },
+    "zh-CN": {
+      "ch1_intro": "Modal 设计系统基于一个核心类比构建：一个开发者友好、本地体验、却能全球扩展的云计算平台。这种二元性——即时的亲近感与无限的扩展能力——塑造了从霓虹绿强调色到结构化布局的每一个决策。最终形成了一种视觉语言，能以文档齐全的API般的自信，传递AI基础设施的信息。",
+      "ch2_intro": "高对比度调色板将界面锚定在深邃的黑色虚空中，仅以单一、鲜亮的霓虹绿作为点缀。这一方案摒弃了云平台常见的重渐变美学，转而采用一种强烈、聚焦的层次结构，其中色彩是功能信号，而非装饰。",
+      "ch2_outro": "原则是绝对的：霓虹绿的存在，仅仅是为了在深色环境中引导注意力和定义交互状态。",
+      "ch3_intro": "字体分为两个截然不同的角色：几何无衬线体用于标题，投射出技术感与现代感；人文无衬线体用于正文，确保在深色背景上的可读性。显示文本上紧凑的字间距，强化了高端、精密工程的审美。",
+      "ch4_intro": "所有空间关系都受严格的4px基础网格支配，为内边距、间距和外边距创建了有节奏且可预测的结构。",
+      "ch5_intro": "深度通过阴影和边框传达，而非层次高度。深色、无边框的内容块依靠精确的间距和字体对比来构建，而柔和的绿色边框则提供了微妙的区域分隔。",
+      "ch6_intro": "布局骨架始于一个用于首屏区域的居中单栏，将注意力聚焦于巨大的标题和抽象的3D视觉效果。随后过渡到结构化的多栏功能区，全程保持充足的留白。",
+      "ch7_intro": "动效是有目的且克制的，用于确认交互而非装饰。平滑的颜色过渡、细微的缩放变换以及滚动触发的淡入淡出，以一致的150毫秒至300毫秒时长，提供了精致、响应迅速的体验。",
+      "ch8_intro": "编辑语调自信、技术化且面向开发者。标题大胆直接，强调速度与易用性，并使用行动导向的动词，鼓励立即参与。",
+      "ch8_outro": "该系统刻意避免了浅色模式、多种竞争性强调色、厚重的衬线字体以及杂乱的信息，以保持其聚焦、高对比度的视觉身份。"
+    },
+    "zh-TW": {
+      "ch1_intro": "Modal 設計系統建立在一個獨特的類比上：一個對開發者友善的雲端運算平台，感受如同在地環境，卻能在全球範圍擴展。這種二元性——即時的親密感與無限的容量——塑造了從霓虹綠強調色到結構化佈局的每一個決策。其成果是一套視覺語言，以文檔完善的 API 所具備的自信，傳達 AI 基礎設施的訊息。",
+      "ch2_intro": "高對比調色盤將介面定錨在深邃的黑色虛空中，以單一、鮮豔的霓虹綠強調色點綴。此方案摒棄了雲端平台常見的漸層濃重美學，轉而採用一種鮮明、聚焦的層級結構，讓色彩作為功能性訊號，而非裝飾。",
+      "ch2_outro": "原則是絕對的：霓虹綠僅存在於在黑暗環境中引導注意力並定義互動狀態。",
+      "ch3_intro": "字體分工為兩個截然不同的角色：幾何無襯線體用於標題，投射技術、現代感；人文無襯線體用於內文，確保在深色背景上的可讀性。顯示文字的緊湊字距，增強了那種講究、精密工程的美學質感。",
+      "ch4_intro": "所有的空間關係皆由嚴格的 4px 基礎網格 governs，為內邊距、間隔和外邊距創造出富有節奏且可預測的結構。",
+      "ch5_intro": "深度透過陰影和邊框傳達，而非高度。深色、無邊框的內容區塊依賴精確的間距與字體對比，而柔和的綠色邊框則提供細微的區段分隔。",
+      "ch6_intro": "佈局骨架從單一、置中的主視覺欄位開始，將注意力集中於巨大的標題與抽象的 3D 視覺效果。隨後過渡到結構化的多欄位功能區段，全程保持寬敞的留白空間。",
+      "ch7_intro": "動態效果是出於目的且克制的，用於確認互動而非裝飾。平滑的色彩轉場、細微的縮放變換與滾動觸發的淡入淡出，提供了精緻、響應迅速的體驗，持續時間統一介於 150ms 至 300ms 之間。",
+      "ch8_intro": "編輯語氣自信、技術導向且以開發者為中心。標題大膽而直接，強調速度與易用性，使用鼓勵立即互動的行動導向動詞。",
+      "ch8_outro": "此系統刻意避免淺色模式、多重競爭的強調色、厚重的襯線字體與雜亂的訊息，以維護其專注、高對比度的識別度。"
+    },
+    "ja": {
+      "ch1_intro": "Modalデザインシステムは、一つのアナロジーに立脚しています：ローカルのような操作感でグローバルにスケールする、開発者フレンドリーなクラウドコンピューティングプラットフォーム。この二重性——即座の親密さと無限の容量の組み合わせ——が、ネオングリーンのアクセントから構造化されたレイアウトに至るまで、すべての意思決定を形作ります。その結果、文書化されたAPIの確信を持ってAIインフラストラクチャを伝える、ビジュアル言語が生まれました。",
+      "ch2_intro": "高コントラストパレットは、深淵のブラックボイドにインターフェースを位置づけ、1つの鮮やかなネオングリーンアクセントが点在します。このスキームは、クラウドプラットフォームに一般的なグラデーション多用の美学を退け、機能的シグナルとして色彩を使う、严峻で焦点を絞ったヒエラルキーを重視します。",
+      "ch2_outro": "原則は絶対です：ネオングリーンは、ダーク環境内で注意を導き、インタラクティブな状態を定義するためにのみ存在します。",
+      "ch3_intro": "タイポグラフィは、2つの明確な役割に分かれます：ヘッドラインには技術的で現代的な印象を投影するgeometric-sans、本文にはダーク背景でも可読性を確保するhumanist-sans。ディスプレイテキストの詰まった文字間隔が、高級で精巧に設計された美学を高めます。",
+      "ch4_intro": "すべての空間関係は厳格な4pxベースグリッドで管理され、padding、间隙、以及marginにリズミカルで予測可能な構造を生み出します。",
+      "ch5_intro": "奥行きは、影とボーダーによって表現され、高みによってではありません。ダークでボーダレスなコンテンツブロックは、正確な間隔とタイポグラフィの対比に依存し、柔らかなグリーンのボーダーが控えめなセクション分離を提供します。",
+      "ch6_intro": "レイアウトのスケルトンは、ヒーロー部分の単一の中央揃えカラムから始まり、巨大な見出しと抽象的な3Dビジュアルに注意を集中させます。その後、構造化されたマルチカラムのフィーチャーセクションに移行し、全編にわたって豊かな余白を維持します。",
+      "ch7_intro": "モーションは意図的かつ抑制的であり、装飾ではなくインタラクションの確認に使用されます。滑らかな色の遷移、微細なスケールトランスフォーム、スクロールトリガーのフェードが、一貫した150msから300msの期間で、磨き上げられた応答性を提供します。",
+      "ch8_intro": "エディトリアルな声は自信に満ち、技術的で、開発者に焦点を当てています。見出しなら、スピードと使いやすさを強調する、アクション指向の動詞を用いて大胆で直截にし、即座の関与を促します。",
+      "ch8_outro": "このシステムは、光モード、複数の競合するアクセントカラー、重厚なセリフタイポグラフィ、雑然としたメッセージを意図的に避け、焦点を絞り込まれた高コントラストのアイデンティティを維持します。"
+    },
+    "ko": {
+      "ch1_intro": "모달 디자인 시스템은 하나의 핵심 비유 위에 구축되었습니다: 로컬처럼 느껴지지만 글로벌하게 확장되는, 개발자 친화적인 클라우드 컴퓨팅 플랫폼. 이 이중성—즉각적인 친밀감과 무한한 용량의 결합—은 네온 그린 강조색부터 구조화된 레이아웃까지 모든 결정을 형성합니다. 그 결과, 잘 문서화된 API의 자신감으로 AI 인프라를 전달하는 비주얼 언어가 탄생했습니다.",
+      "ch2_intro": "고대비 팔레트는 깊은 검은색 공간에 인터페이스를 고정하며, 단일의 생생한 네온 그린 강조색으로 점멸합니다. 이 팔레트는 클라우드 플랫폼의 일반적인 그라디언트 중심 미학을 거부하고, 색상이 장식이 아닌 기능적 신호가 되는 명확하고 집중된 계층 구조를 선호합니다.",
+      "ch2_outro": "원칙은 절대적입니다: 네온 그린은 오직 어두운 환경 내에서 주의를 유도하고 인터랙티브 상태를 정의하기 위해 존재합니다.",
+      "ch3_intro": "타이포그래피는 두 가지 뚜렷한 역할로 분할됩니다: 기술적이고 현대적인 느낌을 전달하기 위한 헤드라인용 기하학적 산세리프와, 어두운 배경에서 가독성을 보장하기 위한 본문용 휴머니스틱 산세리프. 디스플레이 텍스트의 좁은 자간은 고급스럽고 정밀하게 설계된 미학을 강화합니다.",
+      "ch4_intro": "모든 공간 관계는 엄격한 4px 기본 그리드에 의해 제어되며, 패딩, 간격 및 마진에 리듬감 있고 예측 가능한 구조를 만듭니다.",
+      "ch5_intro": "깊이는 그림자와 테두리로 전달되며, 높이(elevation)가 아닙니다. 어둡고 테두리가 없는 콘텐츠 블록은 정확한 간격과 타이포그래피 대비에 의존하며, 은은한 녹색 테두리는 섹션 간의 미묘한 구분을 제공합니다.",
+      "ch6_intro": "레이아웃 골격은 히어로 섹션을 위한 단일 중앙 정렬 열로 시작하여, 대형 헤드라인과 추상적인 3D 비주얼에 주의를 집중시킵니다. 그런 다음 구조화된 다중 열 기능 섹션으로 전환되면서, 전체적으로 넉넉한 여백을 유지합니다.",
+      "ch7_intro": "모션은 의도적이고 절제되어, 장식이 아닌 상호작용을 확인하기 위해 사용됩니다. 부드러운 색상 전환, 미묘한 스케일링 변형 및 스크롤 트리거 페이드인은 일관된 150ms에서 300ms 지속 시간으로 세련되고 반응적인 느낌을 제공합니다.",
+      "ch8_intro": "에디토리얼 음성은 자신감 있고 기술적이며 개발자 중심입니다. 헤드라인은 대담하고 직접적이며, 즉각적인 참여를 유도하는 행동 지향 동사를 사용하여 속도와 사용 용이성을 강조합니다.",
+      "ch8_outro": "이 시스템은 의도적으로 라이트 모드, 여러 경쟁 강조 색상, 무거운 세리프 타이포그래피 및 지나치게 복잡한 메시지를 피하여 집중적이고 고대비의 정체성을 보존합니다."
+    }
+  }
 }

@@ -8,6 +8,623 @@
     "saas",
     "dev"
   ],
-  "status": "pending",
-  "added_at": "2026-06-02"
+  "status": "completed",
+  "added_at": "2026-06-02",
+  "spec": {
+    "colors": {
+      "bg": "#151515",
+      "bgSoft": "#242424",
+      "bgQuiet": "#8B867F",
+      "ink": "#E9EBDF",
+      "inkSoft": "#CBCC C4",
+      "muted": "#8B867F",
+      "mutedSoft": "rgba(233, 235, 223, 0.4)",
+      "accent": "#518DD2",
+      "line": "rgba(233, 235, 223, 0.12)"
+    },
+    "typography": {
+      "display": "grotesque-sans",
+      "body": "humanist-sans",
+      "mono": "monospace",
+      "scale": [
+        {
+          "token": "display",
+          "size": 72,
+          "lh": 1.0,
+          "weight": 380,
+          "ls": "-1px"
+        },
+        {
+          "token": "display-2",
+          "size": 48,
+          "lh": 1.1,
+          "weight": 380,
+          "ls": "-0.5px"
+        },
+        {
+          "token": "body",
+          "size": 24,
+          "lh": 1.2,
+          "weight": 400,
+          "ls": "-0.24px"
+        },
+        {
+          "token": "body-2",
+          "size": 16,
+          "lh": 1.5,
+          "weight": 400,
+          "ls": "0px"
+        },
+        {
+          "token": "mono",
+          "size": 14,
+          "lh": 1.2,
+          "weight": 400,
+          "ls": "0px"
+        }
+      ]
+    },
+    "spacing": {
+      "base": 4,
+      "scale": [
+        4,
+        8,
+        12,
+        16,
+        24,
+        32,
+        40,
+        48,
+        64,
+        96
+      ]
+    },
+    "surfaces": {
+      "radius": {
+        "sm": 4,
+        "md": 8,
+        "lg": 20,
+        "pill": 9999
+      }
+    },
+    "layout": {
+      "container": 1280,
+      "paragraph": 680,
+      "columns": 12,
+      "gutter": 24,
+      "breakpoints": [
+        768,
+        1024
+      ]
+    },
+    "motion": {
+      "durations": {
+        "micro": 220,
+        "small": 400,
+        "medium": 800
+      },
+      "easing": "cubic-bezier(0.72, 0, 0.12, 1)"
+    }
+  },
+  "spec_i18n": {
+    "en": {
+      "identity": {
+        "keywords": [
+          "operational",
+          "developer-first",
+          "trusted",
+          "high-performance"
+        ],
+        "analogy": "The internal tooling equivalent of an enterprise-grade IDE.",
+        "oneLiner": "A developer-first platform for building internal tools."
+      },
+      "colors": {
+        "principle": "High-contrast utility with warm, muted neutrals and cool blue accents."
+      },
+      "typography": {
+        "rules": [],
+        "scaleUses": [
+          "Hero headlines",
+          "Section headlines",
+          "Primary body text",
+          "Secondary body and UI text",
+          "Code snippets and data labels"
+        ]
+      },
+      "spacing": {
+        "rhythm": "Consistent 4px base with 24px gutters and generous vertical padding for breathing room."
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 1px 2px rgba(0, 0, 0, 0.12)",
+          "0px 68px 116px rgba(0, 0, 0, 0.35)"
+        ],
+        "borders": "1px solid rgba(233, 235, 223, 0.12) for subtle separators; 1px solid rgb(233, 235, 223) for active states."
+      },
+      "layout": {
+        "skeleton": "Full-width dark background with a centered, constrained content area."
+      },
+      "components": {
+        "button": "Pill-shaped buttons with a solid white/light background for primary actions (Start for free) and transparent bordered backgrounds for secondary actions (Book a demo).",
+        "card": "Clean, slightly rounded containers with subtle borders or background differentiation to showcase product interfaces.",
+        "chip": "Small, rounded tags or labels with minimal padding, often containing monospaced text for technical concepts.",
+        "input": "Rounded input fields with clean borders and light backgrounds for search or command inputs.",
+        "hero": "A massive, centered headline pair followed by a floating product UI demonstration over a subtle gradient background."
+      },
+      "motion": {
+        "patterns": [
+          "Smooth opacity and transform transitions on hover states.",
+          "Staggered entrance animations for text elements.",
+          "Subtle parallax or floating effects for UI components."
+        ]
+      },
+      "interaction": {
+        "hover": "Subtle background color shifts or slight upward translations for buttons and interactive elements.",
+        "click": "Immediate visual feedback with color or opacity changes, often followed by a navigation transition.",
+        "transition": "Consistent 0.4s ease for color, background-color, and border-color changes.",
+        "keyboard": "Standard focus-visible outlines with custom colors to maintain visibility on dark backgrounds."
+      },
+      "voice": {
+        "tone": "Direct, technical, and confident.",
+        "headlineStyle": "Short, punchy, and action-oriented (e.g., 'Build how you want. Ship on a platform you can trust.').",
+        "ctaStyle": "Clear and benefit-driven, emphasizing ease of entry or expert consultation.",
+        "avoid": [
+          "Fluff",
+          "Corporate buzzwords",
+          "Vague promises",
+          "Excessive exclamation points",
+          "Passive voice",
+          "Overly complex sentences"
+        ]
+      },
+      "donts": [
+        "Don't use high-saturation neon colors — screenshot shows a palette of warm grays, dark backgrounds, and a single cool blue accent.",
+        "Don't use decorative serif fonts for headlines — screenshot shows a clean, functional grotesque-sans for large display text.",
+        "Don't use sharp 90-degree corners for main containers — screenshot shows a preference for soft, large-radius rounding (pill shapes or 20px+ curves).",
+        "Don't use busy, textured backgrounds — screenshot shows smooth gradients and clean, solid dark surfaces.",
+        "Don't use tiny, cramped layouts — screenshot shows generous spacing and large typography for a clear hierarchy.",
+        "Don't use multiple competing accent colors — screenshot shows a restrained use of blue and warm orange/red only in specific graphic contexts."
+      ],
+      "systemPrompt": "A developer-focused SaaS platform for building internal tools. The design uses a dark mode palette with warm, muted grays (#151515, #E9EBDF) and a cool blue accent (#518DD2). Typography features a clean grotesque-sans for display and a humanist-sans for body text, with a heavy emphasis on large, thin-weight headlines. The layout is centered and spacious, with generous padding. Critical don'ts: never use high-saturation neon colors, avoid decorative serifs for headlines, and don't use sharp 90-degree corners for main UI containers. The tone is direct, technical, and confident."
+    },
+    "zh-CN": {
+      "identity": {
+        "keywords": [
+          "运营导向",
+          "开发者优先",
+          "值得信赖",
+          "高性能"
+        ],
+        "analogy": "企业级IDE的内部工具化等价物。",
+        "oneLiner": "一个用于构建内部工具的开发者优先平台。"
+      },
+      "colors": {
+        "principle": "采用温暖、柔和的中性色和冷蓝色强调色的高对比度实用主义配色。"
+      },
+      "typography": {
+        "rules": [],
+        "scaleUses": [
+          "主标题",
+          "章节标题",
+          "主要正文",
+          "次要正文与UI文本",
+          "代码片段与数据标签"
+        ]
+      },
+      "spacing": {
+        "rhythm": "以4px为基础单位，配合24px的栏间距和充足的垂直内边距，营造呼吸感。"
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 1px 2px rgba(0, 0, 0, 0.12)",
+          "0px 68px 116px rgba(0, 0, 0, 0.35)"
+        ],
+        "borders": "1px solid rgba(233, 235, 223, 0.12) 用于微妙的分割线；1px solid rgb(233, 235, 223) 用于激活状态。"
+      },
+      "layout": {
+        "skeleton": "全宽深色背景，搭配居中的、受约束的内容区域。"
+      },
+      "components": {
+        "button": "胶囊形按钮，主要操作（免费开始）采用实心白色/浅色背景，次要操作（预约演示）采用透明边框背景。",
+        "card": "简洁、略带圆角的容器，通过微妙的边框或背景差异来展示产品界面。",
+        "chip": "小巧、圆角的标签，内边距极小，常包含等宽字体文本以表示技术概念。",
+        "input": "圆角输入框，搭配简洁的边框和浅色背景，用于搜索或命令输入。",
+        "hero": "一个居中的巨大标题对，下方是悬浮的产品UI演示，背景为微妙的渐变。"
+      },
+      "motion": {
+        "patterns": [
+          "悬停状态下平滑的透明度和变换过渡。",
+          "文本元素交错入场动画。",
+          "UI组件的微妙视差或悬浮效果。"
+        ]
+      },
+      "interaction": {
+        "hover": "按钮和交互元素有微妙的背景色变化或轻微的向上位移。",
+        "click": "立即提供颜色或透明度变化的视觉反馈，通常随后进行导航过渡。",
+        "transition": "颜色、背景色和边框色变化统一使用0.4秒缓动。",
+        "keyboard": "标准的focus-visible轮廓线，使用自定义颜色以确保在深色背景上的可见性。"
+      },
+      "voice": {
+        "tone": "直接、技术性和自信。",
+        "headlineStyle": "简短、有力且行动导向（例如：‘按你的方式构建。在你信赖的平台上发布。’）。",
+        "ctaStyle": "清晰且以利益为导向，强调入门的便捷性或专家咨询。",
+        "avoid": [
+          "华而不实",
+          "企业流行语",
+          "模糊的承诺",
+          "过多的感叹号",
+          "被动语态",
+          "过于复杂的句子"
+        ]
+      },
+      "donts": [
+        "不要使用高饱和度的霓虹色——截图显示的调色板包含温暖的灰色、深色背景和单一的冷蓝色强调色。",
+        "不要为标题使用装饰性衬线字体——截图显示的是用于大号展示文本的简洁、功能性的无衬线字体。",
+        "不要为主容器使用尖锐的90度直角——截图显示偏爱柔和、大圆角（胶囊形或20px以上的弧度）。",
+        "不要使用繁杂、有纹理的背景——截图显示的是平滑的渐变和干净、纯色的深色表面。",
+        "不要使用狭小、拥挤的布局——截图显示的是充足的间距和大字体以建立清晰的层次结构。",
+        "不要使用多种竞争性的强调色——截图显示仅在特定图形场景中克制地使用蓝色和温暖的橙红色。"
+      ],
+      "systemPrompt": "一个用于构建内部工具的、面向开发者的SaaS平台。设计采用深色模式调色板，包含温暖的柔和灰色（#151515, #E9EBDF）和冷蓝色强调色（#518DD2）。字体采用简洁的无衬线字体用于展示，以及人文主义无衬线字体用于正文，高度强调大号、细字重的标题。布局居中且宽敞，内边距充足。关键禁忌：绝不使用高饱和度霓虹色，避免为标题使用装饰性衬线字体，不要为主UI容器使用尖锐的90度直角。语调直接、技术性和自信。"
+    },
+    "zh-TW": {
+      "identity": {
+        "keywords": [
+          "營運導向",
+          "開發者優先",
+          "值得信賴",
+          "高效能"
+        ],
+        "analogy": "相當於企業級 IDE 的內部工具。",
+        "oneLiner": "一個為打造內部工具而生的開發者優先平台。"
+      },
+      "colors": {
+        "principle": "以溫暖、柔和的中性色與冷靜的藍色強調色，構成高對比度的實用性配色。"
+      },
+      "typography": {
+        "rules": [],
+        "scaleUses": [
+          "主視覺標題",
+          "章節標題",
+          "主要內文字",
+          "次要內文與 UI 文字",
+          "程式碼片段與資料標籤"
+        ]
+      },
+      "spacing": {
+        "rhythm": "以 4px 為基準，搭配 24px 的欄間距與充足的垂直內距，創造呼吸空間。"
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 1px 2px rgba(0, 0, 0, 0.12)",
+          "0px 68px 116px rgba(0, 0, 0, 0.35)"
+        ],
+        "borders": "1px solid rgba(233, 235, 223, 0.12) 用於細微的分隔線；1px solid rgb(233, 235, 223) 用於啟用狀態。"
+      },
+      "layout": {
+        "skeleton": "全寬深色背景，搭配居中且受限的內容區域。"
+      },
+      "components": {
+        "button": "藥丸狀按鈕，主要操作（免費開始）使用實心白色/淺色背景，次要操作（預約演示）使用透明邊框背景。",
+        "card": "簡潔、略帶圓角的容器，透過細微邊框或背景差異化來展示產品介面。",
+        "chip": "小型、圓角的標籤或標示，內距極小，常包含等寬字體以顯示技術概念。",
+        "input": "圓角輸入欄位，具有簡潔邊框與淺色背景，用於搜尋或指令輸入。",
+        "hero": "一個巨大的、居中的標題對，下方是浮動的產品 UI 示範，背景為細微的漸層。"
+      },
+      "motion": {
+        "patterns": [
+          "hover 狀態下的流暢 opacity 與 transform 過渡效果。",
+          "文字元素的錯落入場動畫。",
+          "UI 元件的細微視差或浮動效果。"
+        ]
+      },
+      "interaction": {
+        "hover": "按鈕與互動元素有細微的背景色偏移或輕微向上平移。",
+        "click": "透過色彩或 opacity 變化提供即時視覺回饋，通常緊接著導覽過渡。",
+        "transition": "color、background-color 與 border-color 的變更，一致採用 0.4s ease。",
+        "keyboard": "標準的 focus-visible 外框，使用自訂顏色以確保在深色背景上的可見度。"
+      },
+      "voice": {
+        "tone": "直接、技術性且自信。",
+        "headlineStyle": "簡短、有力、以行動為導向（例如：「隨心所欲地打造，在你信賴的平台上發布。」）。",
+        "ctaStyle": "清晰且以效益為導向，強調入門的輕鬆或專家諮詢。",
+        "avoid": [
+          "空洞言辭",
+          "企業流行語",
+          "模糊的承諾",
+          "過多的驚嘆號",
+          "被動語態",
+          "過於複雜的句子"
+        ]
+      },
+      "donts": [
+        "不要使用高飽和度的霓虹色——截圖顯示的是一組溫暖的灰色、深色背景與單一冷靜藍色強調色的調色板。",
+        "不要使用裝飾性的襯線字體作為標題——截圖顯示的是乾淨、功能性的 grotesque-sans 作為大型展示文字。",
+        "不要在主要容器上使用尖銳的 90 度角——截圖顯示偏好柔和、大圓角的處理（藥丸形狀或 20px+ 的曲率）。",
+        "不要使用雜亂、有紋理的背景——截圖顯示的是平滑的漸層與乾淨的純色深色表面。",
+        "不要使用狹窄、擁擠的佈局——截圖顯示的是寬敞的間距與大型字體，以建立清晰的層級。",
+        "不要使用多種互相競爭的強調色——截圖顯示僅在特定圖形情境中克制地使用藍色與溫暖的橙紅色。"
+      ],
+      "systemPrompt": "一個面向開發者的 SaaS 平台，用於建構內部工具。設計採用深色模式調色板，使用溫暖、柔和的灰色（#151515、#E9EBDF）與冷靜的藍色強調色（#518DD2）。字體方面，展示文字使用乾淨的 grotesque-sans，內文使用 humanist-sans，並極度強調大型、輕字重的標題。佈局居中且寬敞，內距充足。關鍵禁忌：絕不高飽和度霓虹色、避免使用裝飾性襯線字體作為標題、不要在主要 UI 容器上使用尖銳的 90 度角。語氣直接、技術性且自信。"
+    },
+    "ja": {
+      "identity": {
+        "keywords": [
+          "オペレーショナル",
+          "開発者ファースト",
+          "信頼性",
+          "高パフォーマンス"
+        ],
+        "analogy": "エンタープライズグレードIDEに相当する社内ツール。",
+        "oneLiner": "社内ツール構築のための開発者ファーストプラットフォーム。"
+      },
+      "colors": {
+        "principle": "暖かみのある落ち着いたニュートラルとクールなブルーアクセントによる高コントラストユーティリティ。"
+      },
+      "typography": {
+        "rules": [],
+        "scaleUses": [
+          "ヒーローヘッドライン",
+          "セクションヘッドライン",
+          "プライマリ本文テキスト",
+          "セカンダリ本文およびUIテキスト",
+          "コードスニペットおよびデータラベル"
+        ]
+      },
+      "spacing": {
+        "rhythm": "4pxの統一ベース、24pxのグーター、呼吸空間を確保するための広めの垂直パディング。"
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 1px 2px rgba(0, 0, 0, 0.12)",
+          "0px 68px 116px rgba(0, 0, 0, 0.35)"
+        ],
+        "borders": "控えめな区切りには1px solid rgba(233, 235, 223, 0.12)、アクティブ状態には1px solid rgb(233, 235, 223)。"
+      },
+      "layout": {
+        "skeleton": "全幅のダーク背景に、中央揃えで制約のあるコンテンツ領域。"
+      },
+      "components": {
+        "button": "プライマリアクション（無料で始める）には白色/明るい背景のピルシェイプボタン、セカンダリアクション（デモ予約）には透明でボーダー付き背景。",
+        "card": "製品インターフェースを紹介するため、控えめなボーダーや背景の違いを用いたクリーンで角丸のコンテナ。",
+        "chip": "最小限のパディングを持つ小さな角丸タグまたはラベル。技術的概念には等幅テキストを含むことが多い。",
+        "input": "検索やコマンド入力用の、クリーンなボーダーと明るい背景を持つ角丸入力フィールド。",
+        "hero": "巨大な中央揃えのヘッドラインペアに続き、控えめなグラデーション背景の上に浮遊する製品UIデモンストレーション。"
+      },
+      "motion": {
+        "patterns": [
+          "hover状態における滑らかなopacityとtransformのトランジション。",
+          "テキスト要素の錯列入场アニメーション。",
+          "UIコンポーネントの控えめなparallaxまたはフローティング効果。"
+        ]
+      },
+      "interaction": {
+        "hover": "ボタンやインタラクティブ要素に対して、控えめな背景色の変化やわずかな上方への移動。",
+        "click": "色やopacityの変化による即座の視覚フィードバック。その後、ナビゲーショントランジションに続くことが多い。",
+        "transition": "color、background-color、border-colorの変更に0.4s easeの統一トランジション。",
+        "keyboard": "ダーク背景でも視認性を維持するカスタム色の標準focus-visibleアウトライン。"
+      },
+      "voice": {
+        "tone": "直接的で、技術的、かつ自信に満ちた語り口。",
+        "headlineStyle": "短く、インパクトがあり、アクション志向（例：「思い通りに構築。信頼できるプラットフォームでリリース。」）。",
+        "ctaStyle": "明確でメリット重視。参入障壁の低さや専門家への相談を強調。",
+        "avoid": [
+          "余計な言葉",
+          "企業用の Buzzword",
+          "曖昧な約束",
+          "過度な感嘆符",
+          "受動態",
+          "複雑すぎる文章"
+        ]
+      },
+      "donts": [
+        "高彩度のネオンカラーは使用しない — スクリーンショットでは暖かみのあるグレー、ダーク背景、クールなブルーアクセントのパレットが示されている。",
+        "ヘッドラインに装飾的なセリフフォントは使用しない — スクリーンショットでは大きく表示されるテキスト用のクリーンで機能的なグロテスクサンセリフが示されている。",
+        "メインコンテナに鋭い90度の角は使用しない — スクリーンショットではソフトで大きな角丸（ピルシェイプまたは20px以上のカーブ）が好まれている。",
+        "派手でテクスチャのある背景は使用しない — スクリーンショットでは滑らかなグラデーションとクリーンな塗りつぶしダークサーフェスが示されている。",
+        "小さく窮屈なレイアウトは使用しない — スクリーンショットでは明確な階層構造のためのゆとりある余白と大きなタイポグラフィが示されている。",
+        "複数の競合するアクセントカラーは使用しない — スクリーンショットではブルーと暖かいオレンジ/レッドが、特定のグラフィックコンテキストでのみ控えめに使用されている。"
+      ],
+      "systemPrompt": "社内ツール構築に特化した開発者向けSaaSプラットフォーム。デザインは暖かみのある落ち着いたグレー（#151515、#E9EBDF）とクールなブルーアクセント（#518DD2）を用いたダークモードパレットを使用。タイポグラフィは、大きな表示テキストにクリーンなグロテスクサンセリフ、本文にヒューマニストサンセリフを採用し、大きくウェイトの薄いヘッドラインを重視。レイアウトは中央揃えでゆとりがあり、広めのパディングを実装。重要な注意点：高彩度のネオンカラーは絶対に使用せず、ヘッドラインに装飾的なセリフフォントは避け、メインUIコンテナに鋭い90度の角は使用しない。語り口は直接的で、技術的、かつ自信に満ちたもの。"
+    },
+    "ko": {
+      "identity": {
+        "keywords": [
+          "운영 중심",
+          "개발자 우선",
+          "신뢰할 수 있는",
+          "고성능"
+        ],
+        "analogy": "엔터프라이즈급 IDE에 해당하는 내부 도구입니다.",
+        "oneLiner": "내부 도구 구축을 위한 개발자 중심 플랫폼입니다."
+      },
+      "colors": {
+        "principle": "따뜻한 무채색 중성색과 쿨 블루 액센트를 사용한 고대비 유틸리티 팔레트입니다."
+      },
+      "typography": {
+        "rules": [],
+        "scaleUses": [
+          "히어로 헤드라인",
+          "섹션 헤드라인",
+          "주 본문 텍스트",
+          "보조 본문 및 UI 텍스트",
+          "코드 스니펫 및 데이터 레이블"
+        ]
+      },
+      "spacing": {
+        "rhythm": "일관된 4px 기본 단위와 24px 거터, 그리고 여유를 위한 넉넉한 수직 패딩을 사용합니다."
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 1px 2px rgba(0, 0, 0, 0.12)",
+          "0px 68px 116px rgba(0, 0, 0, 0.35)"
+        ],
+        "borders": "미세한 구분선을 위한 1px solid rgba(233, 235, 223, 0.12); 활성 상태를 위한 1px solid rgb(233, 235, 223)."
+      },
+      "layout": {
+        "skeleton": "전체 너비의 다크 배경에 중앙 정렬된 제한된 콘텐츠 영역."
+      },
+      "components": {
+        "button": "주요 작업(무료로 시작하기)을 위한 단단한 화이트/라이트 배경과 보조 작업(데모 예약)을 위한 투명 테두리 배경을 사용한 알약 형태의 버튼.",
+        "card": "제품 인터페이스를 선보이기 위해 미세한 테두리나 배경 차이를 적용한 깔끔하고 약간 둥근 모서리의 컨테이너.",
+        "chip": "기술적 개념을 나타내는 모노스페이스 텍스트를 포함하는 경우가 많으며, 최소한의 패딩을 사용한 작고 둥근 태그 또는 레이블.",
+        "input": "검색이나 명령 입력을 위한 깔끔한 테두리와 라이트 배경을 가진 둥근 입력 필드.",
+        "hero": "미세한 그라디언트 배경 위에 떠 있는 제품 UI 데모와 함께 제공되는 거대한 중앙 정렬 헤드라인 쌍."
+      },
+      "motion": {
+        "patterns": [
+          "hover 상태에서의 부드러운 불투명도 및 transform 전환.",
+          "텍스트 요소를 위한 단계적 입장 애니메이션.",
+          "UI 컴포넌트를 위한 미세한 패럴랙스 또는 떠 있는 효과."
+        ]
+      },
+      "interaction": {
+        "hover": "버튼과 상호작용 요소를 위한 미세한 배경색 변화 또는 약간의 상향 이동.",
+        "click": "색상이나 불투명도 변화를 통한 즉각적인 시각적 피드백, 종종 내비게이션 전환으로 이어짐.",
+        "transition": "색상, 배경색, 테두리색 변화를 위한 일관된 0.4s ease.",
+        "keyboard": "다크 배경에서의 가시성을 유지하기 위해 사용자 정의 색상을 적용한 표준 focus-visible 윤곽선."
+      },
+      "voice": {
+        "tone": "직설적이고, 기술적이며, 자신감 있는.",
+        "headlineStyle": "짧고, 강렬하며, 행동을 유도하는 스타일 (예: '원하는 방식으로 구축. 믿을 수 있는 플랫폼으로 배포.')",
+        "ctaStyle": "접근 용이성이나 전문가 상담을 강조하는 명확하고 혜택 중심적인 문구.",
+        "avoid": [
+          "불필요한 수식어",
+          "기업형 유행어",
+          "불명확한 약속",
+          "과도한 감탄사",
+          "수동태",
+          "지나치게 복잡한 문장"
+        ]
+      },
+      "donts": [
+        "고채도 네온 색상을 사용하지 마세요 — 스크린샷은 따뜻한 그레이, 다크 배그, 단일한 쿨 블루 액센트로 구성된 팔레트를 보여줍니다.",
+        "장식용 세리프 폰트를 헤드라인에 사용하지 마세요 — 스크린샷은 큰 디스플레이 텍스트를 위해 깔끔하고 기능적인 grotesque-sans를 사용합니다.",
+        "메인 컨테이너에 날카로운 90도 모서리를 사용하지 마세요 — 스크린샷은 부드럽고 큰 둥글기(알약 형태 또는 20px 이상의 곡선)를 선호합니다.",
+        "바쁘고 질감 있는 배경을 사용하지 마세요 — 스크린샷은 매끄러운 그라디언트와 깔끔하고 단색의 다크 표면을 보여줍니다.",
+        "좁고 비좁은 레이아웃을 사용하지 마세요 — 스크린샷은 명확한 계층 구조를 위해 넉넉한 간격과 큰 타이포그래피를 보여줍니다.",
+        "경쟁하는 악센트 색상을 여러 개 사용하지 마세요 — 스크린샷은 특정 그래픽 컨텍스트에서만 절제된 블루와 따뜻한 오렌지/레드의 사용을 보여줍니다."
+      ],
+      "systemPrompt": "내부 도구 구축을 위한 개발자 중심 SaaS 플랫폼입니다. 디자인은 따뜻한 무채색 그레이(#151515, #E9EBDF)와 쿨 블루 액센트(#518DD2)를 사용한 다크 모드 팔레트를 사용합니다. 타이포그래피는 디스플레이용 깔끔한 grotesque-sans와 본문용 humanist-sans를 특징으로 하며, 크고 얇은 무게의 헤드라인에 중점을 둡니다. 레이아웃은 중앙 정렬되어 있으며 여유롭고, 넉넉한 패딩이 적용됩니다. 중요 지침: 고채도 널 네온 색상을 절대 사용하지 말고, 헤드라인에 장식용 세리프를 피하며, 메인 UI 컨테이너에 날카로운 90도 모서리를 사용하지 마세요. 어조는 직설적이고 기술적이며 자신감 있는 것입니다."
+    }
+  },
+  "desc": {
+    "en": {
+      "palette": "A sophisticated dark mode palette using warm, muted grays and off-whites for high contrast, with a single cool blue accent for interactive elements.",
+      "layout": "A centered, spacious layout that prioritizes clear hierarchy through large typography and generous vertical spacing within a constrained container.",
+      "interaction": "Clean and predictable interaction patterns with smooth 0.4s transitions on hover states, focusing on clarity and utility.",
+      "motion": "Refined and subtle motion, primarily used for entrance animations and smooth transitions between states, avoiding distracting or complex effects.",
+      "notes": "Worth including as a prime example of a high-end, developer-focused SaaS interface that balances technical utility with premium, clean design."
+    },
+    "zh-CN": {
+      "palette": "一个精致的深色模式调色板，采用温暖的柔和灰色和米白色以确保高对比度，并以一个冷色调蓝色作为交互元素的强调色。",
+      "layout": "居中、宽敞的布局，通过大字体和受约束容器内充足的垂直间距来建立清晰的视觉层次。",
+      "interaction": "简洁、可预测的交互模式，在悬停状态下使用平滑的0.4秒过渡，专注于清晰度和实用性。",
+      "motion": "精致而微妙的动效，主要用于入场动画和状态之间的平滑过渡，避免分散注意力或复杂的特效。",
+      "notes": "值得作为高端、面向开发者的SaaS界面范例，它平衡了技术实用性与优质、简洁的设计。"
+    },
+    "zh-TW": {
+      "palette": "精緻的深色模式調色板，使用溫暖、柔和的灰色與米白色以達成高對比，並以單一冷靜的藍色作為互動元素的強調色。",
+      "layout": "居中、寬敞的佈局，透過大型字體與充足的垂直間距，在受限的容器中建立清晰的層級。",
+      "interaction": "簡潔且可預測的互動模式，hover 狀態下帶有流暢的 0.4s 過渡效果，專注於清晰度與實用性。",
+      "motion": "精緻而細微的動畫，主要用於入場動畫與狀態間的流暢過渡，避免分散注意力或複雜的效果。",
+      "notes": "值得作為一個頂級、面向開發者的 SaaS 介面範例，它平衡了技術實用性與高端、簡潔的設計。"
+    },
+    "ja": {
+      "palette": "洗練されたダークモードパレット。暖かみのある落ち着いたグレーとオフホワイトを組み合わせ、高コントラストを実現。インタラクティブ要素にはクールなブルーをアクセントとして単色使用。",
+      "layout": "中央揃えでゆとりのあるレイアウト。大きなタイポグラフィと広めの垂直方向の余白により、制約のあるコンテナ内でも明確な階層構造を優先。",
+      "interaction": "クリーンで予測可能なインタラクションパターン。hover状態に0.4sの滑らかなトランジションを実装し、明確さと実用性に焦点。",
+      "motion": "洗練され控えめなモーション。主に入场アニメーションや状態間の滑らかなトランジションに使用し、分散を招く複雑な効果は回避。",
+      "notes": "技術的実用性とプレミアムでクリーンなデザインのバランスを両立した、高級志向で開発者向けのSaaSインターフェースの模範例として価値あり。"
+    },
+    "ko": {
+      "palette": "세련된 다크 모드 팔레트로 따뜻한 무채색 그레이와 오프화이트를 사용하여 높은 대비를 형성하며, 상호작용 요소에는 단일한 쿨 블루 액센트를 적용합니다.",
+      "layout": "제한된 컨테이너 내에서 큰 타이포그래피와 넉넉한 수직 간격을 통해 명확한 계층 구조를 우선시하는 중앙 정렬된 여유로운 레이아웃입니다.",
+      "interaction": "hover 상태에서 0.4s의 부드러운 전환을 적용하여 명확성과 유용성에 중점을 둔 깔끔하고 예측 가능한 상호작용 패턴입니다.",
+      "motion": "정교하고 미세한 모션으로, 주로 입장 애니메이션과 상태 간 부드러운 전환에 사용되며, 주의를 분산시키거나 복잡한 효과는 지양합니다.",
+      "notes": "기술적 유용성과 프리미엄하고 깔끔한 디자인을 균형 있게 결합한 고급 개발자 중심 SaaS 인터페이스의 대표적인 예시로 포함할 가치가 있습니다."
+    }
+  },
+  "_meta": {
+    "vision_model": "mimo-v2.5",
+    "vision_prompt_version": "0.3",
+    "vision_source": "playwright-extract:retool",
+    "vision_grounded": true,
+    "vision_at": "2026-06-04T18:31:36+00:00",
+    "vision_tokens": 17194,
+    "vision_cost_usd": 0.191,
+    "translation_model": "mimo-v2.5",
+    "translation_at": "2026-06-04T18:33:10+00:00",
+    "translation_tokens": 17901,
+    "translation_cost_usd": 0.0597,
+    "narrative_model": "mimo-v2.5",
+    "narrative_prompt_version": "0.3",
+    "narrative_at": "2026-06-04T18:33:18+00:00",
+    "narrative_tokens": 2151,
+    "narrative_cost_usd": 0.0143,
+    "narrative_status": "ok",
+    "total_cost_usd": 0.265
+  },
+  "narrative": {
+    "en": {
+      "ch1_intro": "Retool’s design system functions like an enterprise-grade IDE: a dense, high-performance environment where every component exists to accelerate work. The system is built on operational clarity, with each decision reinforcing a sense of trust and precision for the developer building with it.",
+      "ch2_intro": "The color system is a study in high-contrast utility, pairing warm, muted neutrals with a single cool blue accent. This creates a palette that is both readable on dark backgrounds and unmistakably technical.",
+      "ch2_outro": "The guiding principle is restraint; the palette serves the interface's function, never decorating it.",
+      "ch3_intro": "Typography is a dialogue between a clean grotesque-sans for display and a humanist-sans for body text. The scale prioritizes large, thin-weight headlines that command attention before giving way to dense, readable data and code.",
+      "ch4_intro": "The rhythm is built on a consistent 4px base unit, creating a predictable grid for all spatial relationships.",
+      "ch5_intro": "Depth is communicated through layered shadows and fine, semi-transparent borders rather than heavy elevation. This establishes a clear hierarchy of surfaces, from the deep background to floating UI components.",
+      "ch6_intro": "The layout skeleton is fundamentally centered: a dark, full-width field anchors a constrained content column. Within this column, generous vertical padding and large typography establish a clear, breathable hierarchy.",
+      "ch7_intro": "Motion is refined and strictly functional, used to guide focus and confirm interaction. Transitions are smooth and predictable, with staggered entrances for text that suggest careful assembly rather than flashy display.",
+      "ch8_intro": "The editorial voice is direct, technical, and confident—short, punchy, and action-oriented. It speaks to a practitioner, avoiding fluff, corporate buzzwords, and passive voice.",
+      "ch8_outro": "The system deliberately avoids high-saturation neon colors, decorative serif fonts, and sharp 90-degree corners, committing fully to its functional, warm-neutral aesthetic."
+    },
+    "zh-CN": {
+      "ch1_intro": "Retool 的设计系统如同一个企业级 IDE：一个密集、高性能的环境，其中每个组件的存在都是为了加速工作。该系统建立在操作清晰度之上，每个决策都强化着开发者的信任感与精确性。",
+      "ch2_intro": "色彩系统是对高对比度实用性的研究，将温暖、柔和的中性色与单个冷色调的蓝色点缀相结合。这创造了一个既能在深色背景下保持可读性，又明确具有技术感的调色板。",
+      "ch2_outro": "指导原则是克制；调色板服务于界面功能，而非装饰。",
+      "ch3_intro": "排版是干净的 grotesque-sans 显示字体与 humanist-sans 正文字体之间的对话。字体比例优先考虑大尺寸、细字重的标题，以吸引注意力，随后过渡到密集、可读的数据和代码。",
+      "ch4_intro": "节奏建立在一致的 4px 基础单元之上，为所有空间关系创建了一个可预测的网格。",
+      "ch5_intro": "深度通过层叠阴影和精细、半透明的边框而非厚重的立体感来传达。这建立了从深色背景到浮动 UI 组件的清晰表面层次结构。",
+      "ch6_intro": "布局骨架在根本上是居中的：一个深色、全宽的区域锚定着一个受限的内容列。在此列内，充足的垂直内边距和大型字体建立了清晰、透气的层次结构。",
+      "ch7_intro": "动效经过精炼且严格功能化，用于引导注意力并确认交互。过渡平滑且可预测，文本采用错落的进入效果，暗示精心的组装而非花哨的展示。",
+      "ch8_intro": "编辑风格直接、技术化且自信——简短、有力、以行动为导向。它面向实践者，避免空话、企业流行语和被动语态。",
+      "ch8_outro": "该系统刻意避免高饱和度的霓虹色、装饰性衬线字体以及尖锐的 90 度直角，完全致力于其功能性、温暖中性的美学。"
+    },
+    "zh-TW": {
+      "ch1_intro": "Retool 的設計系統運作方式如同企業級 IDE：一個密度高、效能強的工作環境，每個元件的存在都是為了加速工作流程。這套系統建立在 operational clarity 的基礎上，每個決策都強化了開發者在使用時所感受到的 trust 與 precision。",
+      "ch2_intro": "色彩系統是一項高對比 utility 的研究，將溫暖的柔和中性色與單一冷色調藍色強調色搭配。這種配色方案在深色背景上既易於閱讀，又帶有明確的 technical 氣息。",
+      "ch2_outro": "指導原則是克制；配色方案服務於介面的功能，而非裝飾它。",
+      "ch3_intro": "Typography 是一場對話：以簡潔的 grotesque-sans 呈現 display 字型，以 humanist-sans 呈現 body text。字體比例優先考慮大而 thin-weight 的標題，吸引注意力後再讓位於緊湊、易讀的 data 與 code。",
+      "ch4_intro": "節奏建立在一致的 4px base unit 上，為所有空間關係創造出可預測的 grid。",
+      "ch5_intro": "Depth 透過 layered shadows 與細緻的 semi-transparent borders 來傳達，而非依賴 heavy elevation。這確立了清晰的 surface 層級，從 deep background 到 floating UI 元件。",
+      "ch6_intro": "版面骨架以 center 為核心：一個 dark、full-width 的欄位 anchor 了一個 constrained 的 content column。在 column 內部，generous 的 vertical padding 與大型 typography 建立了清晰、易於呼吸的 hierarchy。",
+      "ch7_intro": "動態效果精緻且嚴格 functional，用於引導 focus 與確認 interaction。過渡效果 smooth 且 predictable，text 的 staggered entrances 暗示了 careful 的組裝過程，而非 flashy 的展示。",
+      "ch8_intro": "編輯語氣直接、技術性且自信——簡短、有力、以行動為導向。它對 practitioner 說話，避免了 fluff、corporate buzzwords 與被動語態。",
+      "ch8_outro": "系統刻意避開了高飽和度的霓虹色、裝飾性 serif 字型，以及尖銳的 90 度角，完全致力於其 functional、warm-neutral 的美學風格。"
+    },
+    "ja": {
+      "ch1_intro": "Retoolのデザインシステムは、エンタープライズ級のIDEのように機能します。すべてのコンポーネントが作業を加速するために存在する、密度が高く高性能な環境です。このシステムは運用上の明確さに基づいて構築されており、各意思決定が、それを使って構築する開発者に信頼感と正確さを強調します。",
+      "ch2_intro": "カラーシステムは、コントラストの高いユーティリティの研究です。暖かみのある、落ち着いたニュートラルカラーと、クールなブルーのアクセントを1つ組み合わせています。これにより、暗い背景でも視認性が高く、技術的であることが明白なパレットを作り出しています。",
+      "ch2_outro": "指針となる原則は自制です。パレットはインターフェースの機能に仕え、装飾することは決してありません。",
+      "ch3_intro": "タイポグラフィは、ディスプレイ用のクリーンなgrotesque-sansと、本文用のhumanist-sansの対話です。スケールは、注目を集める大型で細めのウェイトの見出しを優先し、その後に密度が高く視認性の高いデータとコードが続きます。",
+      "ch4_intro": "リズムは、一貫した4pxのベースユニットに基づいて構築されており、すべての空間関係に予測可能なグリッドを生み出します。",
+      "ch5_intro": "深度は、重い陰影ではなく、重なり合う影と細く半透明の境界線を通じて伝えられます。これにより、深い背景から浮遊するUIコンポーネントまで、表面の明確な階層が確立されます。",
+      "ch6_intro": "レイアウトの骨格は基本的に中央揃えです。ダークでフル幅のフィールドが、制限されたコンテンツカラムをアンカーします。このカラム内では、十分な垂直パディングと大きなタイポグラフィが、明確で息のできる階層を確立します。",
+      "ch7_intro": "モーションは洗練されており、厳密に機能的です。フォーカスを誘導し、インタラクションを確認するために使用されます。遷移は滑らかで予測可能であり、テキストの入場はオフセットされ、派手な見せかけよりも慎重な組み立てを示唆します。",
+      "ch8_intro": "エディトリアルボイスは直接的で、技術的、かつ自信に満ちています。短く、簡潔で、アクション指向です。実践者に語りかけ、ごちゃごちゃとした言葉、企業のバズワード、受動態を避けます。",
+      "ch8_outro": "このシステムは、高彩度のネオンカラー、装飾的なセリフフォント、鋭い90度の角を意図的に避け、機能的でウェームニュートラルな美学に完全に専念しています。"
+    },
+    "ko": {
+      "ch1_intro": "Retool의 디자인 시스템은 엔터프라이즈급 IDE처럼 작동합니다. 모든 컴포넌트가 작업을 가속화하기 위해 존재하는, 밀도 높고 고성능의 환경입니다. 이 시스템은 운영적 명확성 위에 구축되어 있으며, 각 결정은 이를 활용하는 개발자에게 신뢰감과 정밀함을 강화합니다.",
+      "ch2_outro": "지침이 되는 원칙은 절제입니다. 팔레트는 인터페이스의 기능에 종속되며, 결코 장식하지 않습니다.",
+      "ch2_intro": "컬러 시스템은 고대비 유틸리티의 연구입니다. 따뜻하고 부드러운 중성색에 단 하나의 쿨블루 악센트를 결합하여, 다크 배경에서도 가독성이 뛰어나면서 기술적인 느낌을 줄 수 있는 팔레트를 만듭니다.",
+      "ch3_intro": "타이포그래피는 디스플레이용 클린한 grotesque-sans와 본문용 humanist-sans 사이의 대화입니다. 스케일은 주의를 집중시키는 크고 가늘게-무게가-딘 헤드라인을 우선시하며, 이후 조밀하고 가독성 있는 데이터와 코드로 전환됩니다.",
+      "ch4_intro": "리듬은 일관된 4px 기본 단위 위에 구축되어, 모든 공간 관계를 위한 예측 가능한 격자를 만듭니다.",
+      "ch5_intro": "깊이는 무거운 엘리베이션 대신, 층을 이룬 그림자와 얇은 반투명 테두리를 통해 전달됩니다. 이를 통해 깊은 배경부터 떠 있는 UI 컴포넌트까지 명확한 표면 계층을 확립합니다.",
+      "ch6_intro": "레이아웃 스켈레톤은 본질적으로 중앙 정렬됩니다. 어둡고 전체 너비의 영역이 제한된 콘텐츠 열을 앵커링합니다. 이 열 내에서, 넉넉한 수직 패딩과 큰 타이포그래피가 명확하고 숨 쉬는 계층을 확립합니다.",
+      "ch7_intro": "모션은 정교하고 엄격하게 기능적이며, 초점을 안내하고 상호작용을 확인하는 데 사용됩니다. 전환은 매끄럽고 예측 가능하며, 화려한 전시보다는 신중한 조립을 암시하는 텍스트의 점진적 진입을 사용합니다.",
+      "ch8_outro": "이 시스템은 의도적으로 고채도 네온 컬러, 장식용 세리프 폰트, 날카로운 90도 모서리를 피하며, 기능적이고 따뜻한 중성 미학에 전적으로 헌신합니다.",
+      "ch8_intro": "에디토리얼 목소리는 직접적이고, 기술적이며, 자신감 있습니다—짧고, 강렬하며, 행동 지향적입니다. 실무자에게 말을 걸며, 수사적 표현, 기업 유행어, 수동태를 피합니다."
+    }
+  }
 }

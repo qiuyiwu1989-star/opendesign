@@ -8,6 +8,618 @@
     "design",
     "gallery"
   ],
-  "status": "pending",
-  "added_at": "2026-06-02"
+  "status": "completed",
+  "added_at": "2026-06-02",
+  "spec": {
+    "colors": {
+      "bg": "#F7F8FB",
+      "bgSoft": "#EEF0F6",
+      "bgQuiet": "#FFFFFF",
+      "ink": "#000000",
+      "inkSoft": "rgba(2,18,73,0.38)",
+      "muted": "#9FA5BA",
+      "mutedSoft": "rgba(247,248,251,1.0)",
+      "accent": null,
+      "line": "rgba(2,18,73,0.38)"
+    },
+    "typography": {
+      "display": "transitional-serif",
+      "body": "humanist-sans",
+      "mono": null,
+      "scale": [
+        {
+          "token": "display",
+          "size": 80,
+          "lh": 1.0,
+          "weight": 400,
+          "ls": "-1px"
+        },
+        {
+          "token": "body",
+          "size": 20,
+          "lh": 1.4,
+          "weight": 400,
+          "ls": "-0.45px"
+        },
+        {
+          "token": "label",
+          "size": 16,
+          "lh": 1.5,
+          "weight": 500,
+          "ls": "-0.32px"
+        }
+      ]
+    },
+    "spacing": {
+      "base": 4,
+      "scale": [
+        4,
+        8,
+        12,
+        16,
+        24,
+        32,
+        48,
+        64,
+        96
+      ]
+    },
+    "surfaces": {
+      "radius": {
+        "sm": 6,
+        "md": 8,
+        "lg": 20,
+        "pill": 999
+      }
+    },
+    "layout": {
+      "container": 1280,
+      "paragraph": 680,
+      "columns": 12,
+      "gutter": 24,
+      "breakpoints": [
+        768,
+        1024
+      ]
+    },
+    "motion": {
+      "durations": {
+        "micro": 150,
+        "small": 200,
+        "medium": 300
+      },
+      "easing": "cubic-bezier(0.4, 0, 0.2, 1)"
+    }
+  },
+  "spec_i18n": {
+    "en": {
+      "identity": {
+        "keywords": [
+          "design research",
+          "curation",
+          "AI agent",
+          "reference library",
+          "human-centric"
+        ],
+        "analogy": "A polished, airy design archive serving as a smart research assistant.",
+        "oneLiner": "A curated design library and search engine for product screens, flows, and patterns."
+      },
+      "colors": {
+        "principle": "High-contrast black typography on light, airy cool-gray backgrounds, with a multi-chromatic palette only in floating UI assets."
+      },
+      "typography": {
+        "rules": [
+          "Display type uses a transitional serif for elegant, authoritative headings.",
+          "Body and UI text use a clean humanist sans-serif.",
+          "Typography relies heavily on weight 500 for a modern, medium-weight feel."
+        ],
+        "scaleUses": [
+          "Main hero headline and page titles.",
+          "Subheadings and introductory paragraph text.",
+          "Body text, navigation items, tags, and UI labels."
+        ]
+      },
+      "spacing": {
+        "rhythm": "Generous whitespace defines the layout, creating a breathable, gallery-like rhythm."
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 0px 0px 2px #F7F8FB inset",
+          "0px 0px 0px 2px rgba(45, 49, 63, 0.2)",
+          "0px 1px 3px 0px rgba(12, 41, 126, 0.09)",
+          "0px 3px 8px 0px rgba(12, 41, 126, 0.09)",
+          "0px 8px 16px 0px rgba(12, 41, 126, 0.07)"
+        ],
+        "borders": "1px solid rgba(2,18,73,0.38)"
+      },
+      "layout": {
+        "skeleton": "Fluid, centered container with generous margins and a clean, airy grid structure."
+      },
+      "components": {
+        "button": "Pill-shaped primary buttons with solid black backgrounds and white text; secondary buttons with soft gray backgrounds.",
+        "card": "Light gray containers with soft shadows, often displaying UI assets or floating grid elements.",
+        "chip": "Small, rounded pill tags for categorizing UI elements and page types.",
+        "input": "Clean search bars with rounded corners and subtle gray borders.",
+        "hero": "Large, centered text area surrounded by floating, colorful UI asset previews."
+      },
+      "motion": {
+        "patterns": [
+          "Smooth transitions on hover states (box-shadow, opacity, border-radius)",
+          "Floating or scaling animations for decorative UI assets in the hero section."
+        ]
+      },
+      "interaction": {
+        "hover": "Subtle elevation changes via box-shadow and opacity adjustments.",
+        "click": "Immediate response with scale or color changes.",
+        "transition": "Smooth transitions applied via 'all' or specific properties (opacity, box-shadow) over 0.2s.",
+        "keyboard": "Standard focus states with clear visual outlines."
+      },
+      "voice": {
+        "tone": "Professional, helpful, and authoritative yet approachable.",
+        "headlineStyle": "Direct, action-oriented statements emphasizing human and AI collaboration.",
+        "ctaStyle": "Clear, action-oriented labels like 'Start Exploring' or 'Log In or Sign Up'.",
+        "avoid": [
+          "Jargon-heavy descriptions",
+          "Salesy or overly promotional language",
+          "Aggressive call-to-actions"
+        ]
+      },
+      "donts": [
+        "don't use flat, sans-serif headlines — screenshot shows elegant, high-contrast transitional-serif display type.",
+        "don't use a single, monochromatic brand color palette — screenshot shows a multi-chromatic array of floating colorful UI assets.",
+        "don't use heavy, dark containers or dark mode by default — screenshot shows a predominantly white and light gray airy background.",
+        "don't use sharp, 4px corners on all elements — screenshot shows a mix of 8px, 20px, and fully rounded pill shapes.",
+        "don't use dense, cluttered layouts — screenshot shows generous whitespace and a breathable gallery structure.",
+        "don't use harsh, bright accent colors for primary buttons — screenshot shows solid black pill buttons."
+      ],
+      "systemPrompt": "Refero is a design research tool and gallery providing curated product screens, flows, and patterns for both humans and AI. The design is characterized by a light, airy color palette with soft cool-grays (#F7F8FB, #EEF0F6), deep black (#000000) typography, and a diverse range of colorful accents only present in floating UI asset previews. Typography pairs a classic transitional-serif for display with a modern humanist-sans for body text. Critical design rules include: prioritize generous whitespace and a breathable layout; never use heavy, dense containers; ensure high contrast between the black text and light backgrounds. The interface relies on subtle elevation changes and smooth, micro-interactions for a polished, premium feel."
+    },
+    "zh-CN": {
+      "identity": {
+        "keywords": [
+          "设计研究",
+          "策展",
+          "AI 智能体",
+          "参考资料库",
+          "以人为本"
+        ],
+        "analogy": "一个精致、通透的设计档案库，同时也是智能的研究助手。",
+        "oneLiner": "一个为产品界面、流程和模式策展的设计库与搜索引擎。"
+      },
+      "colors": {
+        "principle": "浅色通透的冷灰背景上使用高对比度的黑色排版，多彩的调色板仅用于浮动 UI 资源。"
+      },
+      "typography": {
+        "rules": [
+          "展示性字体使用过渡衬线体，营造优雅、权威的标题效果。",
+          "正文和 UI 文本使用简洁的人文主义无衬线体。",
+          "排版大量依赖字重 500，营造现代、中等字重的观感。"
+        ],
+        "scaleUses": [
+          "主首屏标题和页面标题。",
+          "副标题和介绍性段落文本。",
+          "正文、导航项、标签和 UI 标签。"
+        ]
+      },
+      "spacing": {
+        "rhythm": "宽松的留白定义了布局，创造出通透、画廊般的韵律感。"
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 0px 0px 2px #F7F8FB inset",
+          "0px 0px 0px 2px rgba(45, 49, 63, 0.2)",
+          "0px 1px 3px 0px rgba(12, 41, 126, 0.09)",
+          "0px 3px 8px 0px rgba(12, 41, 126, 0.09)",
+          "0px 8px 16px 0px rgba(12, 41, 126, 0.07)"
+        ],
+        "borders": "1px solid rgba(2,18,73,0.38)"
+      },
+      "layout": {
+        "skeleton": "流动、居中的容器，具有宽松的边距和干净、通透的网格结构。"
+      },
+      "components": {
+        "button": "主按钮为药丸形状，纯黑背景配白色文字；次级按钮为柔和的灰色背景。",
+        "card": "浅灰色容器，带有柔和阴影，常用于展示 UI 资源或浮动网格元素。",
+        "chip": "小巧、圆润的药丸标签，用于分类 UI 元素和页面类型。",
+        "input": "简洁的搜索栏，带有圆角和微妙的灰色边框。",
+        "hero": "大面积的居中文字区域，周围环绕着浮动的彩色 UI 资源预览。"
+      },
+      "motion": {
+        "patterns": [
+          "hover 状态下的平滑过渡（box-shadow、opacity、border-radius）",
+          "首屏装饰性 UI 资源采用浮动或缩放动画。"
+        ]
+      },
+      "interaction": {
+        "hover": "通过 box-shadow 和 opacity 调整实现微妙的层次感变化。",
+        "click": "通过缩放或颜色变化提供即时响应。",
+        "transition": "通过 'all' 或特定属性（opacity、box-shadow）应用平滑过渡，时长 0.2 秒。",
+        "keyboard": "标准 focus 状态，具有清晰的视觉轮廓。"
+      },
+      "voice": {
+        "tone": "专业、有帮助、权威且平易近人。",
+        "headlineStyle": "直接、以行动为导向的陈述，强调人与 AI 的协作。",
+        "ctaStyle": "清晰、以行动为导向的标签，例如“开始探索”或“登录或注册”。",
+        "avoid": [
+          "术语堆砌的描述",
+          "销售或过度推广的语言",
+          "激进的行动号召"
+        ]
+      },
+      "donts": [
+        "不要使用扁平的无衬线标题 —— 截图显示的是优雅、高对比度的过渡衬线展示字体。",
+        "不要使用单一、单色的品牌配色方案 —— 截图显示的是一系列多彩的浮动 UI 资源。",
+        "不要默认使用厚重、深色的容器或深色模式 —— 截图显示的是以白色和浅灰色为主的通透背景。",
+        "不要对所有元素使用尖锐的 4px 圆角 —— 截图显示的是 8px、20px 和完全圆润的药丸形状的混合使用。",
+        "不要使用密集、杂乱的布局 —— 截图显示的是大量留白和透气的画廊结构。",
+        "不要对主按钮使用刺眼、明亮的强调色 —— 截图显示的是纯黑色的药丸按钮。"
+      ],
+      "systemPrompt": "Refero 是一个设计研究工具和画廊，为人类和 AI 提供策展的产品界面、流程和模式。其设计特点是轻盈、通透的配色，使用柔和的冷灰色（#F7F8FB、#EEF0F6）、深黑色（#000000）排版，以及仅存在于浮动 UI 资源预览中的多样化彩色点缀。字体搭配上，展示部分使用经典的过渡衬线体，正文使用现代的人文主义无衬线体。关键设计规则包括：优先考虑宽松的留白和透气的布局；绝不使用厚重、密集的容器；确保黑色文本与浅色背景之间的高对比度。界面依靠微妙的层次感变化和平滑的微交互，营造精致、高端的体验。"
+    },
+    "zh-TW": {
+      "identity": {
+        "keywords": [
+          "設計研究",
+          "策展",
+          "AI 代理",
+          "參考資料庫",
+          "以人為本"
+        ],
+        "analogy": "一個精緻、明亮的設計檔案庫，同時擔任智慧的研究助理。",
+        "oneLiner": "一個為產品畫面、流程和模式進行策展的設計圖書館與搜尋引擎。"
+      },
+      "colors": {
+        "principle": "在明亮、通透的冷灰色背景上使用高對比度的黑色字體，多色調色盤僅用於浮動 UI 資源。"
+      },
+      "typography": {
+        "rules": [
+          "展示型字體使用過渡襯線體，打造優雅、具權威感的標題。",
+          "內文與 UI 文字使用簡潔的人文主義無襯線體。",
+          "字體主要依賴 500 字重，營造現代、中等粗細的感覺。"
+        ],
+        "scaleUses": [
+          "主要主標題與頁面標題。",
+          "副標題與引言段落文字。",
+          "內文、導覽項目、標籤與 UI 標籤。"
+        ]
+      },
+      "spacing": {
+        "rhythm": "寬敞的留白定義了版面配置，創造出透氣、藝廊般的節奏。"
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 0px 0px 2px #F7F8FB inset",
+          "0px 0px 0px 2px rgba(45, 49, 63, 0.2)",
+          "0px 1px 3px 0px rgba(12, 41, 126, 0.09)",
+          "0px 3px 8px 0px rgba(12, 41, 126, 0.09)",
+          "0px 8px 16px 0px rgba(12, 41, 126, 0.07)"
+        ],
+        "borders": "1px solid rgba(2,18,73,0.38)"
+      },
+      "layout": {
+        "skeleton": "流動式、置中的容器，具有寬鬆邊距和簡潔、通透的網格結構。"
+      },
+      "components": {
+        "button": "藥丸形狀的主要按鈕，採用實心黑色背景與白色文字；次要按鈕則為柔和的灰色背景。",
+        "card": "淺灰色容器，帶有柔和陰影，常用於展示 UI 資源或浮動網格元素。",
+        "chip": "小型圓角藥丸標籤，用於分類 UI 元素與頁面類型。",
+        "input": "簡潔的搜尋欄位，具有圓角和細微的灰色邊框。",
+        "hero": "大型、置中的文字區域，周圍環繞著浮動、多彩的 UI 資源預覽。"
+      },
+      "motion": {
+        "patterns": [
+          "hover 狀態下的流暢轉場（box-shadow、opacity、border-radius）",
+          "主視覺區域中裝飾性 UI 資源的浮動或縮放動畫。"
+        ]
+      },
+      "interaction": {
+        "hover": "透過 box-shadow 和 opacity 調整實現細微的陰影變化。",
+        "click": "透過 scale 或顏色變化的即時回應。",
+        "transition": "透過 'all' 或特定屬性（opacity、box-shadow）在 0.2 秒內應用的流暢轉場。",
+        "keyboard": "標準的焦點狀態，具有清晰的視覺外框。"
+      },
+      "voice": {
+        "tone": "專業、實用且具權威感，同時平易近人。",
+        "headlineStyle": "直接、行動導向的陳述，強調人類與 AI 的協作。",
+        "ctaStyle": "清晰、行動導向的標籤，例如「開始探索」或「登入或註冊」。",
+        "avoid": [
+          "術語過多的描述",
+          "過於銷售或促銷的語言",
+          "強勢的行動號召"
+        ]
+      },
+      "donts": [
+        "不要使用扁平、無襯線體的標題——截圖顯示的是優雅、高對比度的過渡襯線展示型字體。",
+        "不要使用單一、單色的品牌調色盤——截圖顯示的是多彩的浮動 UI 資源陣列。",
+        "不要預設使用厚重、深色的容器或深色模式——截圖顯示的是以白色和淺灰色為主的明亮背景。",
+        "不要對所有元素使用銳利的 4px 圓角——截圖顯示的是 8px、20px 和完全圓角藥丸形狀的混合。",
+        "不要使用密集、雜亂的版面配置——截圖顯示的是寬敞的留白和透氣的藝廊結構。",
+        "不要對主要按鈕使用刺眼、明亮的強調色——截圖顯示的是實心黑色的藥丸形按鈕。"
+      ],
+      "systemPrompt": "Refero 是一個設計研究工具與藝廊，為人類和 AI 提供策展的產品畫面、流程和模式。其設計特點在於採用明亮、通透的色調盤，搭配柔和的冷灰色（#F7F8FB、#EEF0F6）、深黑色（#000000）字體，以及僅出現在浮動 UI 資源預覽中的多彩強調色。字體方面，展示型使用經典的過渡襯線體，內文則搭配現代的人文主義無襯線體。關鍵設計規則包括：優先考慮寬敞的留白與透氣的版面配置；切勿使用厚重、密集的容器；確保黑色文字與淺色背景之間的高對比度。介面依賴細微的陰影變化和流暢的微交互，營造精緻、高品質的感受。"
+    },
+    "ja": {
+      "identity": {
+        "keywords": [
+          "デザインリサーチ",
+          "キュレーション",
+          "AIエージェント",
+          "リファレンスライブラリ",
+          "ヒューマンセントリック"
+        ],
+        "analogy": "洗練された、空気感のあるデザインアーカイブであり、スマートなリサーチアシスタント。",
+        "oneLiner": "プロダクトのスクリーン、フロー、パターンのキュレーション型デザインライブラリ兼検索エンジン。"
+      },
+      "colors": {
+        "principle": "明るく空気感のあるクールグレーバックグラウンドに、高コントラストのタイポグラフィ（ブラック）を配置。多彩なカラーパレットは、浮遊するUIアセットにのみ使用。"
+      },
+      "typography": {
+        "rules": [
+          "ディスプレイ用書体にはトランジショナル・セリフ体を採用し、エレガントで権威ある見出しを実現。",
+          "本文およびUIテキストには、クリーンなヒューマンサン・セリフ体を使用。",
+          "タイポグラフィは、weight 500を多用し、モダンで中程度の重み感を表現。"
+        ],
+        "scaleUses": [
+          "メインのヒーローヘッドラインおよびページタイトル。",
+          "サブヘッドラインおよびイントロダクション段落テキスト。",
+          "本文、ナビゲーション項目、タグ、UIラベル。"
+        ]
+      },
+      "spacing": {
+        "rhythm": "十分な余白がレイアウトを定義し、息ののびるギャラリーのようなリズムを生み出す。"
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 0px 0px 2px #F7F8FB inset",
+          "0px 0px 0px 2px rgba(45, 49, 63, 0.2)",
+          "0px 1px 3px 0px rgba(12, 41, 126, 0.09)",
+          "0px 3px 8px 0px rgba(12, 41, 126, 0.09)",
+          "0px 8px 16px 0px rgba(12, 41, 126, 0.07)"
+        ],
+        "borders": "1px solid rgba(2,18,73,0.38)"
+      },
+      "layout": {
+        "skeleton": "十分なマージンを持つ、ゆったりとした中央揃えコンテナ。クリーンで空気感のあるグリッド構造。"
+      },
+      "components": {
+        "button": "ソリッドブラック背景にホワイトテキストのピル型プライマリボタン、およびソフトグレー背景のセカンダリボタン。",
+        "card": "ソフトシャドウを持つライトグレーコンテナ。UIアセットや浮遊するグリッドエレメントを表示。",
+        "chip": "UI要素やページタイプを分類するための、小さな丸みのあるピル型タグ。",
+        "input": "角丸でソフトなグレーボーダーを持つ、クリーンな検索バー。",
+        "hero": "浮遊する多彩なUIアセットプレビューに囲まれた、中央揃えの大きなテキストエリア。"
+      },
+      "motion": {
+        "patterns": [
+          "hover状態の滑らかなトランジション（box-shadow、opacity、border-radius）",
+          "ヒーローセクションの装飾用UIアセットに対する、浮遊またはスケールアニメーション。"
+        ]
+      },
+      "interaction": {
+        "hover": "box-shadowとopacityの調整による、控えめな高さの変化。",
+        "click": "スケールや色の変化による即座のレスポンス。",
+        "transition": "'all' または特定のプロパティ（opacity、box-shadow）を用いた、0.2秒の滑らかなトランジション。",
+        "keyboard": "明確な視覚的アウトラインを持つ、標準的なフォーカス状態。"
+      },
+      "voice": {
+        "tone": "プロフェッショナルで有益、かつ権威はあるが親しみやすい。",
+        "headlineStyle": "ヒューマンとAIの協働を強調する、直接的でアクション指向の文言。",
+        "ctaStyle": "'Start Exploring' や 'Log In or Sign Up' のような、明確でアクション指向のラベル。",
+        "avoid": [
+          "専門用語の多用",
+          "営業的または過度にプロモーショナルな言葉",
+          "攻撃的なCTA"
+        ]
+      },
+      "donts": [
+        "フラットなサンセリフ見出しを使用しない — スクリーンショットはエレガントな、高コントラストのトランジショナル・セリフ体のディスプレイ書体を示しています。",
+        "単一のモノクロマティックなブランドカラーパレットを使用しない — スクリーンショットは浮遊する多彩なUIアセットのアレイを示しています。",
+        "デフォルトで重く暗いコンテナやダークモードを使用しない — スクリーンショットは主にホワイトとライトグレーの空気感のあるバックグラウンドを示しています。",
+        "すべての要素にシャープな4px角丸を使用しない — スクリーンショットは8px、20px、完全な丸みのあるピル型の組み合わせを示しています。",
+        "密集したレイアウトを使用しない — スクリーンショットは十分な余白と息ののびるギャラリー構造を示しています。",
+        "プライマリボタンに不快なほど明るいアクセントカラーを使用しない — スクリーンショットはソリッドブラックのピル型ボタンを示しています。"
+      ],
+      "systemPrompt": "Referoは、ヒューマンとAIの両方に向けたキュレーションされたプロダクトスクリーン、フロー、パターンを提供するデザインリサーチツールおよびギャラリーです。デザインは、ソフトなクールグレー（#F7F8FB、#EEF0F6）、深いブラック（#000000）のタイポグラフィ、そして浮遊するUIアセットプレビューにのみ見られる多彩なアクセントカラーを特徴とする、明るく空気感のあるカラーパレットで構成されています。タイポグラフィは、ディスプレイ用にクラシックなトランジショナル・セリフ体を、本文用にモダンなヒューマンサン・セリフ体を組み合わせています。重要なデザインルールは以下の通りです：十分な余白と息ののびるレイアウトを優先すること；重く密集したコンテナは絶対に使用しないこと；ブラックテキストと明るいバックグラウンドの間に高いコントラストを確保すること。インターフェースは、控えめな高さの変化と滑らかなマイクロインタラクションに依存し、洗練されたプレミアム感を実現しています。"
+    },
+    "ko": {
+      "identity": {
+        "keywords": [
+          "디자인 리서치",
+          "큐레이션",
+          "AI 에이전트",
+          "레퍼런스 라이브러리",
+          "인간 중심적"
+        ],
+        "analogy": "스마트 리서치 어시스턴트 역할을 하는 세련되고 공기 같은 디자인 아카이브.",
+        "oneLiner": "제품 화면, 흐름, 패턴을 위한 큐레이션된 디자인 라이브러리 및 검색 엔진."
+      },
+      "colors": {
+        "principle": "가볍고 공기 같은 쿨 그레이 배경 위의 고대비 블랙 타이포그래피와, floating UI 자산에만 사용되는 다색 팔레트."
+      },
+      "typography": {
+        "rules": [
+          "디스플레이 타입은 우아하고 권위 있는 제목을 위해 전환형 세리프를 사용합니다.",
+          "본문 및 UI 텍스트는 깨끗한 휴머니스트 산세리프를 사용합니다.",
+          "타이포그래피는 현대적이고 중간 무게감의 느낌을 위해 weight 500에 크게 의존합니다."
+        ],
+        "scaleUses": [
+          "메인 히어로 헤드라인 및 페이지 제목.",
+          "부제목 및 도입부 단락 텍스트.",
+          "본문 텍스트, 네비게이션 항목, 태그 및 UI 라벨."
+        ]
+      },
+      "spacing": {
+        "rhythm": "넉넉한 여백이 레이아웃을 정의하여, 통기성 있는 갤러리 리듬을 만듭니다."
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 0px 0px 2px #F7F8FB inset",
+          "0px 0px 0px 2px rgba(45, 49, 63, 0.2)",
+          "0px 1px 3px 0px rgba(12, 41, 126, 0.09)",
+          "0px 3px 8px 0px rgba(12, 41, 126, 0.09)",
+          "0px 8px 16px 0px rgba(12, 41, 126, 0.07)"
+        ],
+        "borders": "1px solid rgba(2,18,73,0.38)"
+      },
+      "layout": {
+        "skeleton": "넉넉한 마진과 깨끗하고 공기 같은 그리드 구조를 가진 유동적이고 중앙 정렬된 컨테이너."
+      },
+      "components": {
+        "button": "단색 블랙 배경과 화이트 텍스트를 가진 알약 형태의 기본 버튼; 부드러운 그레이 배경의 보조 버튼.",
+        "card": "부드러운 그림자가 있는 밝은 그레이 컨테이너로, 주로 UI 자산이나 floating 그리드 요소를 표시합니다.",
+        "chip": "UI 요소 및 페이지 유형을 분류하기 위한 작은 둥근 알약 형태의 태그.",
+        "input": "둥근 모서리와 미묘한 그레이 테두리가 있는 깨끗한 검색 바.",
+        "hero": "floating된 다채로운 UI 자산 미리보기로 둘러싸인 크고 중앙 정렬된 텍스트 영역."
+      },
+      "motion": {
+        "patterns": [
+          "hover 상태에서의 부드러운 전환 (box-shadow, opacity, border-radius)",
+          "히어로 섹션의 장식용 UI 자산에 대한 floating 또는 scaling 애니메이션."
+        ]
+      },
+      "interaction": {
+        "hover": "box-shadow 및 opacity 조절을 통한 미세한 높이 변화.",
+        "click": "scale 또는 색상 변화로 즉시 반응.",
+        "transition": "'all' 또는 특정 속성(opacity, box-shadow)을 통해 0.2초 동안 적용되는 부드러운 전환.",
+        "keyboard": "명확한 시각적 윤곽선이 있는 표준 focus 상태."
+      },
+      "voice": {
+        "tone": "전문적이고, 도움이 되며, 권위적이면서도 친근한 어조.",
+        "headlineStyle": "인간과 AI의 협력을 강조하는 직접적이고 행동 지향적인 문장.",
+        "ctaStyle": "'탐색 시작' 또는 '로그인 또는 가입'과 같은 명확하고 행동 지향적인 라벨.",
+        "avoid": [
+          "전문 용어가 가득한 설명",
+          "과도한 판매적 또는 홍보성 언어",
+          "공격적인 콜투액션"
+        ]
+      },
+      "donts": [
+        "플랫한 산세리프 헤드라인을 사용하지 마세요 — 스크린샷은 우아하고 고대비의 전환형 세리프 디스플레이 타입을 보여줍니다.",
+        "단일적이고 단색인 브랜드 색상 팔레트를 사용하지 마세요 — 스크린샷은 floating된 다채로운 UI 자산의 다색 배열을 보여줍니다.",
+        "무겁고 어두운 컨테이너 또는 기본 다크 모드를 사용하지 마세요 — 스크린샷은 주로 화이트와 밝은 그레이의 공기 같은 배경을 보여줍니다.",
+        "모든 요소에 날카로운 4px 모서리를 사용하지 마세요 — 스크린샷은 8px, 20px, 완전히 둥근 알약 형태가 혼합되어 있음을 보여줍니다.",
+        "밀집되고 지저분한 레이아웃을 사용하지 마세요 — 스크린샷은 넉넉한 여백과 통기성 있는 갤러리 구조를 보여줍니다.",
+        "기본 버튼에 거칠고 밝은 강조색을 사용하지 마세요 — 스크린샷은 단색 블랙 알약 버튼을 보여줍니다."
+      ],
+      "systemPrompt": "Refero는 인간과 AI 모두를 위해 큐레이션된 제품 화면, 흐름 및 패턴을 제공하는 디자인 리서치 도구이자 갤러리입니다. 이 디자인은 부드러운 쿨 그레이(#F7F8FB, #EEF0F6), 깊은 블랙(#000000) 타이포그래피, 그리고 floating UI 자산 미리보기에만 존재하는 다양한 범위의 다채로운 강조색으로 특징지어지는 밝고 공기 같은 색상 팔레트가 특징입니다. 타이포그래피는 디스플레이용 클래식 전환형 세리프와 본문용 현대적 휴머니스트 산세리프를 페어링합니다. 핵심 디자인 규칙은 다음과 같습니다: 넉넉한 여백과 통기성 있는 레이아웃을 우선시하세요; 무겁고 밀집된 컨테이너를 절대 사용하지 마세요; 블랙 텍스트와 밝은 배경 사이의 높은 대비를 보장하세요. 인터페이스는 세련되고 프리미엄 느낌을 위해 미세한 높이 변화와 부드러운 마이크로 인터랙션에 의존합니다."
+    }
+  },
+  "desc": {
+    "en": {
+      "palette": "A light, airy palette of cool grays and whites, anchored by high-contrast black typography, with a multi-chromatic array of accents used exclusively for decorative UI asset previews.",
+      "layout": "A generous, breathable layout centered on a clean grid, utilizing ample whitespace to create a premium, gallery-like feel.",
+      "interaction": "Subtle micro-interactions via smooth opacity and box-shadow transitions on hover, providing a polished and modern feel without being distracting.",
+      "motion": "Gentle, smooth transitions over 0.2s, likely featuring floating or scaling animations for the decorative hero elements.",
+      "notes": "A prime example of a modern, premium SaaS gallery UI, effectively balancing high-density information with an elegant, uncluttered aesthetic."
+    },
+    "zh-CN": {
+      "palette": "一个轻盈、通透的配色方案，以冷灰色和白色为主，搭配高对比度的黑色排版作为主调，多彩的点缀色仅用于装饰性 UI 资源的预览。",
+      "layout": "采用干净网格的宽松、透气布局，利用大量留白营造高端、画廊般的质感。",
+      "interaction": "通过 hover 状态下平滑的 opacity 和 box-shadow 过渡实现微妙的微交互，提供精致现代的体验而不显干扰。",
+      "motion": "0.2 秒的轻柔平滑过渡，装饰性首屏元素可能采用浮动或缩放动画。",
+      "notes": "这是一个现代、高端 SaaS 画廊 UI 的典范，有效平衡了高密度信息与优雅、整洁的美学。"
+    },
+    "zh-TW": {
+      "palette": "採用清爽、明亮的冷色調灰色與白色調色盤，以高對比度的黑色字體為基調，並搭配多色系的裝飾性 UI 資源預覽專用強調色。",
+      "layout": "以簡潔網格為中心的寬敞、透氣版面配置，運用充足的留白營造出優質的藝廊般氛圍。",
+      "interaction": "透過 hover 時流暢的 opacity 和 box-shadow 轉場效果實現細膩的微交互，帶來精緻現代感且不顯突兀。",
+      "motion": "持續 0.2 秒的輕柔、流暢轉場，可能包含裝飾性主視覺元素的浮動或縮放動畫。",
+      "notes": "這是一個現代、高品質的 SaaS 藝廊式 UI 範例，有效平衡了高密度資訊與優雅、簡潔的美學。"
+    },
+    "ja": {
+      "palette": "クールグレーとホワイトを中心とした軽やかで空気感のあるパレットを、高コントラストのタイポグラフィ（ブラック）でまとめ、装飾用UIアセットのプレビューにのみ多彩なアクセントカラーを使用。",
+      "layout": "クリーンなグリッドを中心に、十分な余白を活用した息ののびるレイアウト。プレミアムでギャラリーのような印象を演出。",
+      "interaction": "hover時のopacityとbox-shadowの滑らかな遷移による、控えめなマイクロインタラクション。目を distract させずに洗練されたモダン感を実現。",
+      "motion": "0.2秒の穏やかな滑らかなトランジション。装飾用ヒーローエレメントに、浮遊感やスケールアニメーションを採用。",
+      "notes": "モダンでプレミアムなSaaSギャラリーUIの好例。高密度情報を、エレガントで整った美学と見事にバランスさせている。"
+    },
+    "ko": {
+      "palette": "차분한 그레이와 화이트의 가볍고 공기 같은 팔레트를 기반으로, 고대비의 블랙 타이포그래피가 중심을 잡고, 장식용 UI 자산 미리보기에만 사용되는 다색 강조색 배열이 포함되어 있습니다.",
+      "layout": "깨끗한 그리드를 중심으로 넉넉하고 통기성 있는 레이아웃으로, 풍부한 여백을 활용하여 프리미엄 갤러리 느낌을 연출합니다.",
+      "interaction": "hover 시 부드러운 opacity와 box-shadow 전환을 통한 미세한 인터랙션으로, 방해하지 않으면서도 세련되고 현대적인 느낌을 제공합니다.",
+      "motion": "0.2초에 걸친 부드럽고 완만한 전환으로, 장식용 히어로 요소에 floating 또는 scaling 애니메이션이 적용될 가능성이 높습니다.",
+      "notes": "고밀도 정보와 우아하고 깔끔한 미학을 효과적으로 균형 잡은, 현대적이고 프리미엄 SaaS 갤러리 UI의 대표적인 예시입니다."
+    }
+  },
+  "_meta": {
+    "vision_model": "mimo-v2.5",
+    "vision_prompt_version": "0.3",
+    "vision_source": "playwright-extract:refero",
+    "vision_grounded": true,
+    "vision_at": "2026-06-04T18:23:21+00:00",
+    "vision_tokens": 18734,
+    "vision_cost_usd": 0.2082,
+    "translation_model": "mimo-v2.5",
+    "translation_at": "2026-06-04T18:24:51+00:00",
+    "translation_tokens": 19449,
+    "translation_cost_usd": 0.0648,
+    "narrative_model": "mimo-v2.5",
+    "narrative_prompt_version": "0.3",
+    "narrative_at": "2026-06-04T18:25:01+00:00",
+    "narrative_tokens": 2302,
+    "narrative_cost_usd": 0.0153,
+    "narrative_status": "ok",
+    "total_cost_usd": 0.2883
+  },
+  "narrative": {
+    "en": {
+      "ch1_intro": "Refero functions as a polished, airy design archive, a reference library that operates with the quiet authority of a curated museum. Its system is built to serve both the human researcher and the AI agent, balancing elegant aesthetics with functional clarity. This is a space where curation meets computation, designed to feel less like a tool and more like a trusted assistant.",
+      "ch2_intro": "The palette is defined by a strict separation: a light, cool-gray field provides the canvas, while deep black typography commands absolute attention. Color itself is a reserved resource, appearing only as the vibrant, multi-chromatic accents of the floating UI assets under study.",
+      "ch2_outro": "The principle is clear: the system's own interface recedes, allowing the curated content to be the sole source of chromatic energy.",
+      "ch3_intro": "The typographic voice is a dialogue between tradition and modernity, pairing a transitional serif for authoritative display with a clean humanist sans-serif for body and UI. This combination establishes a tone that is both elegant and approachable, relying on a medium-weight baseline for a contemporary, readable feel.",
+      "ch4_intro": "Generous whitespace is the primary structural element, establishing a breathable, gallery-like rhythm that defines the layout's premium character.",
+      "ch5_intro": "Depth is communicated through a hierarchy of soft, cool-toned shadows and subtle borders, creating layers without visual weight. Surfaces feel like floating panes of glass over the airy background, never heavy or enclosing.",
+      "ch6_intro": "The skeleton is a fluid, centered container that breathes within generous margins. Its clean grid structure provides a flexible framework for displaying dense information without sacrificing clarity.",
+      "ch7_intro": "Motion philosophy favors subtlety and purpose, employing smooth transitions to signal interactivity rather than to decorate. Animations are functional cues, like gentle elevation changes on hover or the floating of decorative assets, applied over a consistent 0.2s duration.",
+      "ch8_intro": "The editorial voice is professional and helpful, delivering direct, action-oriented statements that frame human and AI collaboration. Language avoids jargon and promotion, opting instead for clear, authoritative guidance.",
+      "ch8_outro": "By design, the system deliberately refuses dense containers, dark modes, and aggressive accents, committing instead to an open, high-contrast, and breathable visual language."
+    },
+    "zh-CN": {
+      "ch1_intro": "Refero 是一个精致而通透的设计档案库，一个运作如策展博物馆般沉稳权威的参考资料库。其系统旨在同时服务于人类研究者与 AI 代理，在优雅美学与功能清晰度之间取得平衡。这是一个策展与计算交汇的空间，其设计意图是感觉不那么像工具，而更像一位值得信赖的助手。",
+      "ch2_intro": "调色板遵循严格的区分原则：以浅冷灰色域作为画布，而深邃的黑色排版则占据绝对视觉焦点。色彩本身是一种被克制运用的资源，仅作为被研究的浮动 UI 元素那充满活力的多彩点缀出现。",
+      "ch2_outro": "原则很明确：系统自身的界面退居次要位置，让被策展的内容成为色彩能量的唯一来源。",
+      "ch3_intro": "排版风格是传统与现代的对话，将用于权威展示的过渡衬线字体，与用于正文及 UI 的简洁人文无衬线字体相结合。这种组合确立了一种既优雅又平易近人的基调，依靠中等字重基线营造出当代且易读的质感。",
+      "ch4_intro": "充足的留白是主要的结构元素，它建立起一种通透、画廊般的韵律，定义了布局的高端特质。",
+      "ch5_intro": "层次感通过柔和冷色调的阴影与细微边框的层级来传达，在不增加视觉重量的情况下营造层次。表面感觉如同漂浮在通透气韵背景上的玻璃板，绝不厚重或封闭。",
+      "ch6_intro": "骨架是一个流动、居中的容器，在充裕的边距内自由呼吸。其清晰的网格结构为展示密集信息提供了灵活的框架，同时不牺牲清晰度。",
+      "ch7_intro": "动效理念偏重微妙与目的性，采用平滑过渡来标示交互性，而非用于装饰。动画是功能性提示，例如悬停时的轻微高度变化或装饰元素的漂浮，均基于统一的 0.2s 时长应用。",
+      "ch8_intro": "编辑语气专业且有益，提供直接、面向行动的陈述，以构建人类与 AI 的协作框架。语言避免术语和宣传，转而选择清晰、权威的指导。",
+      "ch8_outro": "设计上，系统刻意避免了密集容器、深色模式和强烈的强调色，转而致力于采用开放、高对比度且通透的视觉语言。"
+    },
+    "zh-TW": {
+      "ch1_intro": "Refero 是一個精緻、通透的設計典藏庫，其運作方式如同一座策展博物館般，兼具沉靜的權威感。它的系統設計同時服務人類研究者與 AI 代理，在優雅美學與功能清晰之間取得平衡。這裡是一個策展與運算相遇的空間，其設計目標並非像一個工具，而更像一位值得信賴的助手。",
+      "ch2_intro": "調色盤遵循嚴格的區隔原則：一片明亮、偏冷的灰色區域提供畫布，而深黑的字型則牢牢掌握所有視覺注意力。顏色本身是一種被保留的資源，僅在研究中那些浮動的 UI 素材上，以其鮮活、多色調的點綴形式出現。",
+      "ch2_outro": "原則很明確：系統自身的介面退居幕後，讓策展內容成為唯一的色彩能量來源。",
+      "ch3_intro": "字型語彙是一場傳統與現代的對話。它搭配一款具有過渡特性的襯線體來展現權威的標題，以及一款簡潔的人文無襯線體作為內文與 UI 用字。這種組合確立了一種既優雅又親切的基調，並以中等字重作為基底，營造出當代且易讀的感受。",
+      "ch4_intro": "充足的留白是主要的結構元素，確立了一種如畫廊般、可呼吸的節奏，定義了版面的高端特質。",
+      "ch5_intro": "層次感透過一系列柔和、偏冷的陰影與細微邊框來傳達，在不增加視覺重量的情況下創造出多個層次。介面表面感覺像是漂浮在通透背景上的玻璃片，從不顯得沉重或具有封閉感。",
+      "ch6_intro": "骨架是一個流動的、置中的容器，在寬裕的邊距內靈活伸展。其簡潔的網格結構提供了一個彈性的框架，用以展示密集資訊，同時不犧牲清晰度。",
+      "ch7_intro": "動態哲學傾向於微妙與目的性，採用流暢的過渡來標示互動性，而非純粹裝飾。動畫是功能性的提示，例如在 hover 時輕微的高度變化，或裝飾性素材的漂浮效果，均統一採用 0.2s 的持續時間。",
+      "ch8_intro": "編輯語調專業且樂於助人，提供直接、以行動為導向的陳述，以框架化人類與 AI 的協作。語言避免術語與宣傳，選擇清晰、具權威性的指導。",
+      "ch8_outro": "在設計上，系統刻意拒絕密集容器、深色模式與強烈的強調色，轉而致力於一種開闊、高對比且可呼吸的視覺語言。"
+    },
+    "ja": {
+      "ch1_intro": "Referoは、洗練された軽やかなデザインアーカイブとして機能し、厳選された博物館が持つ静かな権威で運営される参照ライブラリです。そのシステムは、人間の研究者とAIエージェントの双方に奉仕するように構築されており、エレガントな美学と機能的な明瞭さのバランスを保っています。ここはキュレーションと計算が出会う空間であり、ツールというよりは信頼できるアシスタントのように感じられるようデザインされています。",
+      "ch2_intro": "パレットは厳格な分離によって定義されています。明るく冷たいグレーのフィールドがキャンバスを提供し、深いブラックのタイポグラフィが絶対的な注目を集めます。カラー自体は Reserved なリソースであり、研究対象のフローティングUIアセットが持つ鮮やかで多色のアクセントとしてのみ登場します。",
+      "ch2_outro": "原則は明確です。システム自身のインターフェースは後退し、厳選されたコンテンツだけがクロマティックエネルギーの唯一の源となります。",
+      "ch3_intro": "タイポグラフィの声は、伝統と近代性の対話であり、権威あるディスプレイ用にトランジショナルセリフを、本文およびUI用にクリーンなヒューマニストサンセリフを組み合わせています。この組み合わせは、洗練されつつも親しみやすいトーンを確立し、中程度のウェイトのベースラインに基づいて、現代的で読みやすい感触を実現しています。",
+      "ch4_intro": "贅沢なホワイトスペースが主要な構造要素であり、息が吹き抜けるようなギャラリーのようなリズムを確立し、レイアウトのプレミアムな特性を定義しています。",
+      "ch5_intro": "深みは、柔らかく冷たいトーンの影と微妙なボーダーの階層によって伝達され、視覚的な重さなしにレイヤーを作り出します。表面は軽い背景の上に浮かぶガラスのパネルのように感じられ、重苦しくも閉じ込められるものでもありません。",
+      "ch6_intro": "骨格は、豊かなマージンの中で呼吸する流動的で中央揃えのコンテナです。そのクリーンなグリッド構造は、明瞭さを犠牲にすることなく、密集した情報を表示するための柔軟なフレームワークを提供します。",
+      "ch7_intro": "モーションの哲学は、繊細さと目的意識を重視し、装飾のためではなくインタラクティブ性を示すために滑らかなトランジションを採用しています。アニメーションは、hover時の穏やかな高さの変化や装飾アセットのフロートなど、一貫した0.2sの期間で適用される機能的な合図です。",
+      "ch8_intro": "編集の声はプロフェッショナルかつ協力的で、人間とAIの協働を枠付ける直接的で行動志向のステートメントを提供します。言葉は専門用語や宣伝を避け、代わりに明確で権威あるガイダンスを選びます。",
+      "ch8_outro": "デザインにより、システムは意図的に密集したコンテナ、ダークモード、およびアグレッシブなアクセントを拒否し、代わりにオープンで高コントラスト、かつ息が吹き抜けるようなビジュアル言語に捧げています。"
+    },
+    "ko": {
+      "ch1_intro": "Refero는 세련되고 개방적인 디자인 아카이브로 기능하며, 큐레이션된 박물관의 조용한 권위로 운영되는 참고 도서관입니다. 이 시스템은 인간 연구자와 AI 에이전트 모두를 위해 설계되어, 우아한 미학과 기능적 명확성 사이의 균형을 이룹니다. 이곳은 큐레이션과 컴퓨팅이 만나는 공간으로, 도구보다는 신뢰할 수 있는 어시스턴트처럼 느껴지도록 디자인되었습니다.",
+      "ch2_intro": "팔레트는 엄격한 구분으로 정의됩니다. 밝고 차가운 회색 배경이 캔버스를 제공하고, 깊은 검은색 타이포그래피가 절대적인 주목을 끕니다. 색상 자체는 절제된 자원으로, 연구 중인 플로팅 UI 자산의 생생하고 다색적인 강조점으로만 나타납니다.",
+      "ch2_outro": "원칙은 명확합니다. 시스템 자체의 인터페이스는 물러서서, 큐레이션된 콘텐츠가 색상 에너지의 유일한 원천이 되도록 합니다.",
+      "ch3_intro": "타이포그래피의 음성은 전통과 현대성 간의 대화입니다. 권위 있는 전시를 위해 전환형 세리프를, 본문과 UI를 위해 깔끔한 휴머니스트 산세리프를 결합합니다. 이 조합은 우아하면서도 친근한 톤을 확립하며, 현대적이고 가독성 있는 느낌을 위해 중간 두께의 기준선에 의존합니다.",
+      "ch4_intro": "풍부한 여백이 주요 구조 요소로, 레이아웃의 프리미엄 특성을 정의하는 숨 쉬는 갤러리 같은 리듬을 확립합니다.",
+      "ch5_intro": "깊이는 부드럽고 차가운 톤의 그림자와 미세한 테두리의 계층을 통해 전달됩니다. 시각적 무게 없이 층을 만들며, 표면은 개방적인 배경 위에 떠 있는 유리 패널처럼 느껴지며, 결코 무겁거나 둘러싸는 느낌이 없습니다.",
+      "ch6_intro": "골격은 풍부한 마진 안에서 숨 쉬는 유동적이고 중앙 정렬된 컨테이너입니다. 깔끔한 격자 구조는 명확성을 희생하지 않고 밀도 높은 정보를 표시하기 위한 유연한 프레임워크를 제공합니다.",
+      "ch7_intro": "모션 철학은 미묘함과 목적을 우선시하며, 장식이 아닌 상호작용성을 나타내기 위해 부드러운 전환을 사용합니다. 애니메이션은 기능적 큐이며, 예를 들어 hover 시 부드러운 높이 변화나 장식 자산의 부유 등, 일관된 0.2s 기간 동안 적용됩니다.",
+      "ch8_intro": "편집 음성은 전문적이고 도움이 되며, 인간과 AI 협업을 구조화하는 직접적이고 행동 지향적인 진술을 전달합니다. 언어는 전문 용어와 홍보를 피하고, 대신 명확하고 권위 있는 지침을 선택합니다.",
+      "ch8_outro": "설계에 의해, 이 시스템은 의도적으로 밀도 높은 컨테이너, 다크 모드, 공격적인 강조점을 거부하고, 대신 개방적이고 고대비이며 숨 쉬는 시각적 언어에 전념합니다."
+    }
+  }
 }

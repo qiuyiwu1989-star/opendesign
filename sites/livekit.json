@@ -8,6 +8,598 @@
     "dev",
     "rtc"
   ],
-  "status": "pending",
-  "added_at": "2026-06-03"
+  "status": "completed",
+  "added_at": "2026-06-03",
+  "spec": {
+    "colors": {
+      "bg": "#012A32",
+      "bgSoft": "#0A1416",
+      "bgQuiet": "#0D262B",
+      "ink": "#FFFFFF",
+      "inkSoft": "#A0ADB0",
+      "muted": "#3F4E51",
+      "mutedSoft": "#2A383B",
+      "accent": "#00E5FF",
+      "line": "rgba(255,255,255,0.1)"
+    },
+    "typography": {
+      "display": "grotesque-sans",
+      "body": "humanist-sans",
+      "mono": "ui-monospace",
+      "scale": [
+        {
+          "token": "display",
+          "size": 56,
+          "lh": 1.0,
+          "weight": 500,
+          "ls": "-1px"
+        },
+        {
+          "token": "body",
+          "size": 16,
+          "lh": 1.5,
+          "weight": 400,
+          "ls": "0px"
+        },
+        {
+          "token": "caption",
+          "size": 12,
+          "lh": 1.3,
+          "weight": 400,
+          "ls": "0.5px"
+        }
+      ]
+    },
+    "spacing": {
+      "base": 4,
+      "scale": [
+        4,
+        8,
+        12,
+        16,
+        20,
+        24,
+        32,
+        40,
+        48,
+        64
+      ]
+    },
+    "surfaces": {
+      "radius": {
+        "sm": 4,
+        "md": 8,
+        "lg": 10,
+        "pill": 9999
+      }
+    },
+    "layout": {
+      "container": 1280,
+      "paragraph": 680,
+      "columns": 12,
+      "gutter": 24,
+      "breakpoints": [
+        768,
+        1024
+      ]
+    },
+    "motion": {
+      "durations": {
+        "micro": 150,
+        "small": 300,
+        "medium": 800
+      },
+      "easing": "cubic-bezier(0.4, 0, 0.2, 1)"
+    }
+  },
+  "spec_i18n": {
+    "en": {
+      "identity": {
+        "keywords": [
+          "infrastructure",
+          "developer-first",
+          "open-source",
+          "real-time"
+        ],
+        "analogy": "A high-performance engine room for real-time communication.",
+        "oneLiner": "An open source developer platform for building real-time voice, video, and AI agents."
+      },
+      "colors": {
+        "principle": "High-contrast dark mode using a deep teal base, with a single bright cyan accent for primary actions."
+      },
+      "typography": {
+        "rules": [
+          "Display font uses -1px letter-spacing for a tight, impactful look.",
+          "Body text maintains a generous 1.5 line-height for readability.",
+          "Monospace font is reserved strictly for technical terms or code references."
+        ],
+        "scaleUses": [
+          "Hero headlines and primary callouts.",
+          "General body copy and descriptions.",
+          "Metadata, labels, and small UI text."
+        ]
+      },
+      "spacing": {
+        "rhythm": "A strict 4px base grid creates consistent and predictable vertical and horizontal spacing throughout the interface."
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 0px 8px 0px rgba(0,229,255,0.15)",
+          "0px 1px 3px 0px rgba(0,0,0,0)"
+        ],
+        "borders": "1px solid rgba(255,255,255,0.1)"
+      },
+      "layout": {
+        "skeleton": "A standard 12-column grid that centers content and maintains a maximum paragraph width of 680px for optimal reading."
+      },
+      "components": {
+        "button": "Pill-shaped primary buttons in bright cyan with dark text; secondary buttons are transparent with a subtle white border.",
+        "card": "Large, dark surface cards with a subtle 1px border and no drop shadows, used for feature explanations.",
+        "chip": "Small, rounded badges for technical labels or counts, often using a semi-transparent background.",
+        "input": "Dark input fields with a 1px border that highlights in the accent color upon focus.",
+        "hero": "A centered, full-width section with a massive display headline, supporting subtext, and stacked or inline action buttons."
+      },
+      "motion": {
+        "patterns": [
+          "Smooth fade-ins and slide-ups for content sections entering the viewport.",
+          "Button color and border transitions for immediate hover feedback."
+        ]
+      },
+      "interaction": {
+        "hover": "Buttons slightly change opacity or gain a subtle border glow; links underline or change color.",
+        "click": "Buttons show a brief press-state reduction in scale or brightness.",
+        "transition": "All interactive elements use a fast 0.3s ease-out transition for a responsive feel.",
+        "keyboard": "Standard logical tab order with visible focus rings on interactive elements."
+      },
+      "voice": {
+        "tone": "Technical, authoritative, and developer-focused.",
+        "headlineStyle": "Large, bold, and direct, often highlighting key technical capabilities or platform benefits.",
+        "ctaStyle": "Action-oriented and imperative, like 'Start building' or 'Contact sales'.",
+        "avoid": [
+          "Vague marketing speak",
+          "Overly casual slang",
+          "Unclear technical jargon"
+        ]
+      },
+      "donts": [
+        "Don't use a light theme — the screenshot shows a strict dark mode environment.",
+        "Don't use decorative or serif fonts for headers — the screenshot shows clean, technical sans-serifs.",
+        "Don't use a wide variety of colors — the screenshot shows a monochromatic palette with one strong accent.",
+        "Don't use large, heavy drop shadows — the screenshot shows mostly border-based surfaces.",
+        "Don't use rounded rectangles for primary CTAs — the screenshot shows pill-shaped buttons.",
+        "Don't use multi-column text layouts for hero sections — the screenshot shows centered, single-column messaging."
+      ],
+      "systemPrompt": "LiveKit is a high-performance developer platform for real-time communication and AI agents. The design uses a deep teal dark mode (#012A32) with a vibrant cyan accent (#00E5FF) for high-contrast interactions. Typography is strictly technical, utilizing grotesque and humanist sans-serif categories for clarity and a modern feel. Critical constraints: do not use light backgrounds, avoid decorative serif typography, and never use multi-colored palettes; the aesthetic is disciplined and monochromatic with a single high-chroma accent. The layout is clean, spacious, and developer-focused."
+    },
+    "zh-CN": {
+      "identity": {
+        "keywords": [
+          "基础设施",
+          "开发者优先",
+          "开源",
+          "实时"
+        ],
+        "analogy": "高性能实时通信引擎室。",
+        "oneLiner": "构建实时语音、视频与AI代理的开源开发者平台。"
+      },
+      "colors": {
+        "principle": "采用深青色基底的高对比度暗色模式，以单一亮青色强调色突出主要操作。"
+      },
+      "typography": {
+        "rules": [
+          "标题字体采用-1px字间距，呈现紧凑有力的视觉效果。",
+          "正文保持1.5倍行高以确保可读性。",
+          "等宽字体严格保留用于技术术语或代码引用。"
+        ],
+        "scaleUses": [
+          "主标题与核心提示。",
+          "常规正文与描述。",
+          "元数据、标签及界面小字。"
+        ]
+      },
+      "spacing": {
+        "rhythm": "基于严格4px网格构建界面，确保垂直与水平间距的一致性与可预测性。"
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 0px 8px 0px rgba(0,229,255,0.15)",
+          "0px 1px 3px 0px rgba(0,0,0,0)"
+        ],
+        "borders": "1px solid rgba(255,255,255,0.1)"
+      },
+      "layout": {
+        "skeleton": "采用标准12列网格居中内容，将段落最大宽度控制在680px以获得最佳阅读体验。"
+      },
+      "components": {
+        "button": "主要按钮为青色胶囊形态配深色文字；次要按钮为透明底色配细微白色边框。",
+        "card": "大型暗色表面卡片，采用1px细微边框且无投影阴影，用于功能说明。",
+        "chip": "用于技术标签或计数的小型圆角徽章，常采用半透明背景。",
+        "input": "暗色输入框带1px边框，聚焦时以强调色高亮显示。",
+        "hero": "居中全宽区域，包含大型标题、辅助文本及堆叠/内联操作按钮。"
+      },
+      "motion": {
+        "patterns": [
+          "内容区域进入视口时采用平滑淡入与上滑动效。",
+          "按钮通过颜色与边框过渡提供即时悬停反馈。"
+        ]
+      },
+      "interaction": {
+        "hover": "按钮通过改变透明度或添加细微边框光晕响应；链接通过下划线或变色提示。",
+        "click": "按钮通过短暂缩放或亮度变化呈现按压状态。",
+        "transition": "所有交互元素采用快速0.3秒缓出过渡，营造响应式体验。",
+        "keyboard": "遵循标准逻辑标签顺序，交互元素具有可见焦点环。"
+      },
+      "voice": {
+        "tone": "技术性、权威性，聚焦开发者需求。",
+        "headlineStyle": "大号加粗直述式，常突出关键技术能力或平台优势。",
+        "ctaStyle": "行动导向的祈使句式，如'开始构建'或'联系销售'。",
+        "avoid": [
+          "模糊的营销话术",
+          "过度随意的口语",
+          "模糊的技术术语"
+        ]
+      },
+      "donts": [
+        "请勿使用浅色主题——截图展示的是严格暗色模式环境。",
+        "请勿为标题使用装饰性或衬线字体——截图显示为简洁的技术无衬线字体。",
+        "请勿使用多样色彩——截图显示为单色系搭配单一强调色。",
+        "请勿使用大面积厚重投影——截图显示主要基于边框的表面设计。",
+        "请勿为重要操作按钮使用圆角矩形——截图显示为胶囊形态按钮。",
+        "请勿在主视觉区域使用多栏文本布局——截图显示居中单栏信息架构。"
+      ],
+      "systemPrompt": "LiveKit是专注于实时通信与AI代理的高性能开发者平台。设计采用深青色暗色模式(#012A32)搭配鲜艳青色强调色(#00E5FF)实现高对比度交互。排版严格遵循技术风格，运用怪诞与人文无衬线字体类别确保清晰度与现代感。关键约束：禁止使用浅色背景，避免装饰性衬线字体，永不使用多彩色板；美学呈现为严谨单色系搭配单一高饱和度强调色。布局简洁宽敞且聚焦开发者需求。"
+    },
+    "zh-TW": {
+      "identity": {
+        "keywords": [
+          "基礎架構",
+          "開發者優先",
+          "開源",
+          "即時"
+        ],
+        "analogy": "為即時通訊打造的高效能引擎室。",
+        "oneLiner": "一個用於建構即時語音、視訊與 AI 代理程式的開源開發者平台。"
+      },
+      "colors": {
+        "principle": "採用深青綠色基調的高對比暗色模式，搭配單一明亮的青藍色作為主要操作的強調色。"
+      },
+      "typography": {
+        "rules": [
+          "標題字體使用 -1px 的字間距，營造緊湊且具衝擊力的視覺效果。",
+          "內文保持 1.5 倍行高，確保良好的可讀性。",
+          "等寬字體僅保留用於技術術語或程式碼參照。"
+        ],
+        "scaleUses": [
+          "首頁大標題與主要標示。",
+          "一般內文與描述文字。",
+          "中繼資料、標籤及小型介面文字。"
+        ]
+      },
+      "spacing": {
+        "rhythm": "嚴格的 4px 基礎格線，在整個介面中創造一致且可預期的垂直與水平間距。"
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 0px 8px 0px rgba(0,229,255,0.15)",
+          "0px 1px 3px 0px rgba(0,0,0,0)"
+        ],
+        "borders": "1px solid rgba(255,255,255,0.1)"
+      },
+      "layout": {
+        "skeleton": "標準的 12 欄格線，將內容置中並維持段落最大寬度 680px，以達到最佳閱讀效果。"
+      },
+      "components": {
+        "button": "主要按鈕為青藍色的藥丸形狀，搭配深色文字；次要按鈕為透明背景，帶有細微的白色邊框。",
+        "card": "大型深色表面卡片，帶有細微的 1px 邊框，無陰影效果，用於功能說明。",
+        "chip": "小型圓角徽章，用於技術標籤或數量顯示，常使用半透明背景。",
+        "input": "深色輸入欄位，帶有 1px 邊框，聚焦時會以強調色高亮顯示。",
+        "hero": "一個置中、全寬的區塊，包含巨大的標題字體、輔助說明文字，以及堆疊或並排的操作按鈕。"
+      },
+      "motion": {
+        "patterns": [
+          "內容區塊進入視口時的流暢淡入與向上滑動效果。",
+          "按鈕顏色與邊框的轉場，提供即時的懸停回饋。"
+        ]
+      },
+      "interaction": {
+        "hover": "按鈕會輕微改變透明度或增加細微的邊框光暈；連結會加上底線或改變顏色。",
+        "click": "按鈕會顯示短暫的按下狀態，縮小比例或降低亮度。",
+        "transition": "所有互動元素使用快速的 0.3s ease-out 轉場，營造反應靈敏的感覺。",
+        "keyboard": "標準的邏輯標籤順序，互動元素上帶有清晰的聚焦環。"
+      },
+      "voice": {
+        "tone": "技術性、具權威感，並以開發者為中心。",
+        "headlineStyle": "大尺寸、粗體且直接，常凸顯關鍵技術能力或平台優勢。",
+        "ctaStyle": "以行動為導向且具指令性，例如「開始建構」或「聯繫銷售團隊」。",
+        "avoid": [
+          "模糊的行銷用語",
+          "過於隨意的俚語",
+          "不清晰的技術術語"
+        ]
+      },
+      "donts": [
+        "請勿使用亮色主題——截圖顯示的是嚴格的暗色模式環境。",
+        "請勿使用裝飾性或襯線字體作為標題——截圖顯示的是乾淨的技術性無襯線字體。",
+        "請勿使用多種顏色——截圖顯示的是單色調色盤搭配單一強烈的強調色。",
+        "請勿使用大型、厚重的陰影——截圖顯示的是主要基於邊框的表面處理。",
+        "請勿使用圓角矩形作為主要行動呼籲——截圖顯示的是藥丸形按鈕。",
+        "請勿在首頁區塊使用多欄文字佈局——截圖顯示的是置中的單欄訊息傳達。"
+      ],
+      "systemPrompt": "LiveKit 是一個用於即時通訊與 AI 代理程式的高效能開發者平台。設計採用深青綠色暗色模式（#012A32），搭配鮮豔的青藍色強調色（#00E5FF）以實現高對比互動。字體嚴格採用技術性風格，運用怪誕體與人文主義無襯線字體類別以確保清晰度與現代感。關鍵限制：請勿使用亮色背景，避免裝飾性襯線字體，且絕不使用多色調色盤；其美學是具紀律的單色調，搭配單一高飽和度強調色。佈局乾淨、寬敞，並以開發者為中心。"
+    },
+    "ja": {
+      "identity": {
+        "keywords": [
+          "インフラストラクチャ",
+          "開発者ファースト",
+          "オープンソース",
+          "リアルタイム"
+        ],
+        "analogy": "リアルタイムコミュニケーションのための高性能エンジンルーム。",
+        "oneLiner": "リアルタイムボイス、ビデオ、AIエージェントを構築するためのオープンソース開発者プラットフォーム。"
+      },
+      "colors": {
+        "principle": "深みのあるティール色をベースとし、プライマリアクションに単一の明るいシアンアクセントを使用する、ハイコントラストのダークモード。"
+      },
+      "typography": {
+        "rules": [
+          "ディスプレイフォントは、 Tight でインパクトのある外観のために -1px の文字間隔を使用します。",
+          "本文テキストは、読みやすさのために広めの 1.5 の行間を維持します。",
+          "モノスペースフォントは、技術用語やコード参照にのみ厳密に使用します。"
+        ],
+        "scaleUses": [
+          "ヒーローヘッドラインとプライマリコールアウト。",
+          "一般的な本文コピーと説明文。",
+          "メタデータ、ラベル、小さなUIテキスト。"
+        ]
+      },
+      "spacing": {
+        "rhythm": "厳格な 4px ベースグリッドにより、インターフェース全体で一貫し予測可能な垂直および水平方向の余白を作り出します。"
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 0px 8px 0px rgba(0,229,255,0.15)",
+          "0px 1px 3px 0px rgba(0,0,0,0)"
+        ],
+        "borders": "1px solid rgba(255,255,255,0.1)"
+      },
+      "layout": {
+        "skeleton": "コンテンツを中央に配置し、最適な読書のために最大段落幅を 680px に保つ、標準的な 12カラムグリッド。"
+      },
+      "components": {
+        "button": "明るいシアン色で暗いテキストを持つ、ピル形状のプライマリボタン。セカンダリボタンは透明で、微細なホワイトボーダー付き。",
+        "card": "機能説明に使用される、大きな暗いサーフェスカード。微細な 1px のボーダーがあり、ドロップシャドウはなし。",
+        "chip": "技術ラベルやカウントに使用される、小型の丸みのあるバッジ。半透明の背景色をよく使用。",
+        "input": "ダークな入力フィールド。フォーカス時にアクセントカラーでハイライトされる 1px のボーダー付き。",
+        "hero": "巨大なディスプレイヘッドライン、補足テキスト、および積み重ねまたはインラインのアクションボタンを持つ、中央揃えのフル幅セクション。"
+      },
+      "motion": {
+        "patterns": [
+          "ビューポートにコンテンツセクションが入る際の、滑らかなフェードインとスライドアップ。",
+          "即時のホバーフィードバックのためのボタンの色とボーダーのトランジション。"
+        ]
+      },
+      "interaction": {
+        "hover": "ボタンは不透明度をわずかに変更したり、微細なボーダーのグローを獲得したりします。リンクは下線を引いたり、色を変更したりします。",
+        "click": "ボタンは短い押状態として、スケールや明るさを減少させます。",
+        "transition": "すべてのインタラクティブ要素は、応答性のある感触のために、速い 0.3s の ease-out トランジションを使用します。",
+        "keyboard": "インタラクティブ要素に-visibleなフォーカスリングを持つ、標準的な論理的なタブ順序。"
+      },
+      "voice": {
+        "tone": "技術的で、権威があり、開発者に焦点を当てたもの。",
+        "headlineStyle": "大きく、太字で、直接的。しばしば主要な技術能力やプラットフォームのメリットを強調。",
+        "ctaStyle": "アクション指向で命令形。「ビルドを開始する」や「営業に連絡する」のようなもの。",
+        "avoid": [
+          "曖昧なマーケティング用語",
+          "過度にカジュアルなスラング",
+          "不明確な技術用語"
+        ]
+      },
+      "donts": [
+        "ライトテーマを使用しない — スクリーンショットは厳格なダークモード環境を示しています。",
+        "見出しにデコレーショナルなセリフフォントを使用しない — スクリーンショットはクリーンで技術的なサンセリフを示しています。",
+        "多様な色使いをしない — スクリーンショットは単一の強いアクセントを持つ単色パレットを示しています。",
+        "大きく重いドロップシャドウを使用しない — スクリーンショットは主にボーダーベースのサーフェスを示しています。",
+        "プライマリCTAに角丸長方形を使用しない — スクリーンショットはピル形状のボタンを示しています。",
+        "ヒーローセクションに複数カラムのテキストレイアウトを使用しない — スクリーンショットは中央揃えの単一カラムメッセージを示しています。"
+      ],
+      "systemPrompt": "LiveKitは、リアルタイムコミュニケーションとAIエージェントのための高性能開発者プラットフォームです。デザインは、ハイコントラストのインタラクションのために、深みのあるティール色ダークモード (#012A32) と鮮やかなシアンアクセント (#00E5FF) を使用しています。タイポグラフィは厳格に技術的で、明瞭さと現代的な感覚のためにグロテスクおよびヒューマニストサンセリフカテゴリを活用しています。重要な制約：ライト背景を使用せず、装飾的なセリフタイポグラフィを避け、決して複数色のパレットを使用しないこと。美学は規律正しく単色であり、単一の高彩度アクセントを持つ。レイアウトは清潔で、ゆとりがあり、開発者に焦点を当てている。"
+    },
+    "ko": {
+      "identity": {
+        "keywords": [
+          "인프라스트럭처",
+          "개발자 중심",
+          "오픈소스",
+          "실시간"
+        ],
+        "analogy": "실시간 커뮤니케이션을 위한 고성능 엔진룸입니다.",
+        "oneLiner": "실시간 음성, 비디오 및 AI 에이전트를 구축하기 위한 오픈소스 개발자 플랫폼입니다."
+      },
+      "colors": {
+        "principle": "깊은 티즈색 배경을 사용한 고contrast 다크 모드를 기본으로 하며, 주요 작업을 위한 단일의 밝은 시안 악센트를 사용합니다."
+      },
+      "typography": {
+        "rules": [
+          "디스플레이 폰트는 타이트하고 임팩트 있는 외관을 위해 -1px 자간을 사용합니다.",
+          "본문 텍스트는 가독성을 위해 여유로운 1.5 행간을 유지합니다.",
+          "모노스페이스 폰트는 기술 용어 또는 코드 참조에만 엄격하게 사용됩니다."
+        ],
+        "scaleUses": [
+          "히어로 헤드라인 및 주요 강조 문구.",
+          "일반 본문 및 설명.",
+          "메타데이터, 라벨 및 소규모 UI 텍스트."
+        ]
+      },
+      "spacing": {
+        "rhythm": "엄격한 4px 기본 그리드가 인터페이스 전체에서 일관되고 예측 가능한 수직 및 수평 간격을 만듭니다."
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 0px 8px 0px rgba(0,229,255,0.15)",
+          "0px 1px 3px 0px rgba(0,0,0,0)"
+        ],
+        "borders": "1px solid rgba(255,255,255,0.1)"
+      },
+      "layout": {
+        "skeleton": "콘텐츠를 중앙 정렬하고 최적의 읽기 경험을 위해 최대 단락 너비를 680px로 유지하는 표준 12컬럼 그리드입니다."
+      },
+      "components": {
+        "button": "밝은 시안색의 약간 둥근 형태의 주요 버튼은 어두운 텍스트를 사용하며, 보조 버튼은 투명 배경에 미세한 흰색 테두리를 사용합니다.",
+        "card": "기능 설명에 사용되는, 미세한 1px 테두리와 그림자 없는 크고 어두운 표면 카드입니다.",
+        "chip": "기술 라벨이나 개수를 위한 작고 둥근 배지로, 종종 반투명 배경을 사용합니다.",
+        "input": "포커스 시 악센트 색상으로 하이라이트되는 1px 테두리를 가진 어두운 입력 필드입니다.",
+        "hero": "거대한 디스플레이 헤드라인, 보조 텍스트 및 스택 또는 인라인 액션 버튼을 갖춘 중앙 정렬의 전체 너비 영역입니다."
+      },
+      "motion": {
+        "patterns": [
+          "뷰포트에 진입하는 콘텐츠 섹션을 위한 부드러운 페이드 인 및 슬라이드 업.",
+          "즉각적인 호버 피드백을 위한 버튼 색상 및 테두리 전환."
+        ]
+      },
+      "interaction": {
+        "hover": "버튼은 불투명도를 약간 변경하거나 미세한 테두리 글로우를 얻으며, 링크는 밑줄이 그어지거나 색상이 변경됩니다.",
+        "click": "버튼은 짧은 프레스 상태에서 스케일이나 밝기가 감소하는 것을 보여줍니다.",
+        "transition": "모든 인터랙티브 요소는 반응감을 위해 빠른 0.3s ease-out 전환을 사용합니다.",
+        "keyboard": "인랙티브 요소에 보이는 포커스 링을 갖춘 표준 논리적 탭 순서입니다."
+      },
+      "voice": {
+        "tone": "기술적이고 권위적이며, 개발자 중심적인 톤입니다.",
+        "headlineStyle": "크고 굵으며 직접적인 스타일로, 주요 기술적 기능이나 플랫폼 이점을 강조합니다.",
+        "ctaStyle": "행동 지향적이고 명령형으로, 'Build Now' 또는 'Contact Sales'와 같습니다.",
+        "avoid": [
+          "모호한 마케팅 표현",
+          "지나치게 캐주얼한 속어",
+          "불명확한 기술 전문 용어"
+        ]
+      },
+      "donts": [
+        "라이트 테마를 사용하지 마세요 — 스크린샷은 엄격한 다크 모드 환경을 보여줍니다.",
+        "헤더에 장식적이나 세리프 폰트를 사용하지 마세요 — 스크린샷은 깔끔한 기술적 산세리프를 보여줍니다.",
+        "다양한 색상을 사용하지 마세요 — 스크린샷은 단일의 강한 악센트를 가진 단색 팔레트를 보여줍니다.",
+        "크고 무거운 그림자를 사용하지 마세요 — 스크린샷은 주로 테두리 기반 표면을 보여줍니다.",
+        "주요 CTA에 둥근 사각형을 사용하지 마세요 — 스크린샷은 둥근 형태의 버튼을 보여줍니다.",
+        "히어로 섹션에 다컬럼 텍스트 레이아웃을 사용하지 마세요 — 스크린샷은 중앙 정렬된 단일 컬럼 메시지를 보여줍니다."
+      ],
+      "systemPrompt": "LiveKit은 실시간 커뮤니케이션 및 AI 에이전트를 위한 고성능 개발자 플랫폼입니다. 디자인은 깊은 티즈색 다크 모드(#012A32)와 밝은 시안 악센트(#00E5FF)를 사용하여 고효contrast 인터랙션을 구현합니다. 타이포그래피는 엄격하게 기술적이며, 명확함과 현대적 느낌을 위해 고딕 및 휴머니스트 산세리프 카테고리를 활용합니다. 핵심 제약 조건: 밝은 배경을 사용하지 않고, 장식적 세리프 타이포그래피를 피하며, 절대로 다채로운 팔레트를 사용하지 않습니다. 미학은 엄격하고 단색적이며, 단일의 고채도 악센트를 사용합니다. 레이아웃은 깔끔하고 여유로우며 개발자 중심적입니다."
+    }
+  },
+  "desc": {
+    "en": {
+      "palette": "A deep, dark teal base with a single, high-chroma cyan accent for maximum technical focus.",
+      "layout": "A clean, centered layout with generous spacing and a strict 12-column grid structure.",
+      "interaction": "Fast, subtle transitions that emphasize responsiveness and a developer-grade user experience.",
+      "motion": "Restrained but purposeful motion, using smooth fades and slides to guide the user through technical content.",
+      "notes": "This site is an excellent example of a high-contrast, developer-first UI that balances technical density with clean, accessible design."
+    },
+    "zh-CN": {
+      "palette": "以深邃暗青色为基底，搭配单一高饱和度青色强调色，以实现最佳技术聚焦。",
+      "layout": "简洁居中布局，留有充足间距，严格遵循12列网格结构。",
+      "interaction": "快速、微小的过渡效果，强调响应速度与开发者级用户体验。",
+      "motion": "克制而有目的的动效，采用平滑的淡入与滑动引导用户浏览技术内容。",
+      "notes": "该网站是高对比度、开发者优先界面的绝佳范例，在技术密度与简洁可访问设计间取得平衡。"
+    },
+    "zh-TW": {
+      "palette": "以深邃的深青綠色為基調，搭配單一高飽和度的青藍色作為強調色，營造極致的技術專注感。",
+      "layout": "採用乾淨的置中佈局，留有充裕間距，並嚴格遵循 12 欄格線結構。",
+      "interaction": "快速而細膩的轉場效果，強調反應速度與開發者等級的使用者體驗。",
+      "motion": "克制但具目的性的動態，運用流暢的淡入與滑動來引導使用者瀏覽技術內容。",
+      "notes": "此網站是高對比、開發者優先介面的絕佳範例，在技術資訊密度與乾淨、無障礙的設計之間取得了平衡。"
+    },
+    "ja": {
+      "palette": "深く暗いティール色をベースとし、最大限の技術的な焦点を当てるために、単一の高彩度シアンのアクセントを配置。",
+      "layout": "清潔で中央揃えのレイアウト、広めの余白と厳格な12カラムグリッド構造。",
+      "interaction": "応答性と開発者向けのユーザーエクスペリエンスを強調する、速く微細なトランジション。",
+      "motion": "抑制されながらも目的意識のあるモーション。滑らかなフェードインやスライドを使用し、ユーザーを技術コンテンツへと誘導。",
+      "notes": "このサイトは、技術的な密度と清潔でアクセシブルなデザインのバランスを保つ、高コントラストで開発者ファーストのUIの優れた例です。"
+    },
+    "ko": {
+      "palette": "깊고 어두운 티즈색 배경에 단일의 고채도 시안 악센트를 사용하여 최대한의 기술적 집중도를 달성합니다.",
+      "layout": "여유로운 간격과 엄격한 12컬럼 그리드 구조를 갖춘 깔끔하고 중앙 정렬된 레이아웃입니다.",
+      "interaction": "반응성과 개발자 수준의 사용자 경험을 강조하는 빠르고 미세한 전환 효과를 사용합니다.",
+      "motion": "절제되지만 목적 의식적인 모션을 사용하여, 부드러운 페이드 인/슬라이드 효과로 사용자를 기술 콘텐츠로 안내합니다.",
+      "notes": "이 사이트는 기술적 밀도와 깔끔하고 접근 가능한 디자인의 균형을 이루는 고효contrast, 개발자 중심 UI의 훌륭한 예시입니다."
+    }
+  },
+  "_meta": {
+    "vision_model": "mimo-v2.5",
+    "vision_prompt_version": "0.3",
+    "vision_source": "playwright-extract:livekit",
+    "vision_grounded": true,
+    "vision_at": "2026-06-04T16:22:08+00:00",
+    "vision_tokens": 17576,
+    "vision_cost_usd": 0.1953,
+    "translation_model": "mimo-v2.5",
+    "translation_at": "2026-06-04T16:23:28+00:00",
+    "translation_tokens": 17750,
+    "translation_cost_usd": 0.0592,
+    "narrative_model": "mimo-v2.5",
+    "narrative_prompt_version": "0.3",
+    "narrative_at": "2026-06-04T16:23:39+00:00",
+    "narrative_tokens": 2141,
+    "narrative_cost_usd": 0.0143,
+    "narrative_status": "ok",
+    "total_cost_usd": 0.2688
+  },
+  "narrative": {
+    "en": {
+      "ch1_intro": "The design system for LiveKit operates like a high-performance engine room for real-time communication: every component is stripped to its essential function, built for reliability under load, and presented with technical clarity. It is infrastructure made visible, where the aesthetic is a direct consequence of the platform's purpose.",
+      "ch2_intro": "The palette is a study in disciplined contrast, built on a deep teal base that provides a stable, low-light environment for focused development work. A single, high-chroma cyan acts as the sole navigational beacon, reserved exclusively for primary actions to ensure immediate visual hierarchy.",
+      "ch2_outro": "Color is never decorative; it is a functional signal within a monochromatic field.",
+      "ch3_intro": "Typography is strictly utilitarian, employing clean grotesque and humanist sans-serifs that prioritize legibility over personality. The scale is bifurcated: monumental display type for authoritative statements, and a generous body size with relaxed line-height for parsing technical documentation.",
+      "ch4_intro": "A strict 4px base grid underpins the entire layout, creating a predictable and consistent vertical and horizontal rhythm.",
+      "ch5_intro": "Surfaces are defined by precise, luminous borders rather than heavy drop shadows, establishing depth through contrast alone. The shadow values that do exist are faint and atmospheric, hinting at a subtle glow from the accent color rather than simulating physical light.",
+      "ch6_intro": "Content is organized on a standard 12-column grid that centers the main narrative, ensuring visual balance and focus. Paragraph widths are deliberately constrained to 680px, a decision that optimizes reading speed and reduces cognitive load for complex technical material.",
+      "ch7_intro": "Motion is restrained and functional, used to acknowledge user action and guide attention rather than to entertain. The philosophy is one of immediate, smooth feedback: content fades and slides into place to confirm state changes, while interactive elements transition swiftly to signal responsiveness.",
+      "ch8_intro": "The editorial voice is technical and authoritative, addressing developers as peers. Headlines are large, bold, and direct—stating platform capabilities without embellishment—while calls to action use imperative, task-oriented language like 'Start building'.",
+      "ch8_outro": "The system deliberately excludes light themes, decorative serif typography, and multi-color palettes, committing to an aesthetic that is purely functional and developer-first."
+    },
+    "zh-CN": {
+      "ch1_intro": "LiveKit 的设计系统如同一个高性能的实时通信引擎室：每个组件都精简至核心功能，为高负载下的可靠性而构建，并以技术清晰度呈现。这是可视化的基础设施，其美学直接源于平台的使命。",
+      "ch2_intro": "色彩方案是一次克制的对比研究，以深青色为基底，为专注的开发工作提供稳定、低光环境。单一的高饱和度青色作为唯一的导航信标，严格保留给主要操作，以确保即时的视觉层次。",
+      "ch2_outro": "色彩从不具装饰性；它是单色场域中的功能性信号。",
+      "ch3_intro": "字体排印严格遵循实用主义，采用简洁的 grotesque 和 humanist 无衬线字体，优先考虑可读性而非个性。字阶分为两级：用于权威声明的宏大展示字体，以及搭配宽松行高、适合阅读技术文档的宽大正文字号。",
+      "ch4_intro": "严格的 4px 基准网格支撑着整个布局，创造出可预测且一致的垂直与水平韵律。",
+      "ch5_intro": "界面通过精确、明亮的边框而非厚重的投影来定义，仅通过对比建立层次。已有的投影效果微弱而富有氛围感，暗示着来自强调色的微妙辉光，而非模拟物理光照。",
+      "ch6_intro": "内容按照标准的 12 列网格组织，以主叙事为中心，确保视觉平衡与焦点。段落宽度被刻意限制在 680px，这一决策优化了阅读速度，并降低了复杂技术材料的认知负荷。",
+      "ch7_intro": "动效克制且功能化，用于确认用户操作并引导注意力，而非娱乐。其理念是即时、流畅的反馈：内容通过淡入和滑动到位来确认状态变化，交互元素则通过快速过渡来传达响应性。",
+      "ch8_intro": "编辑语调技术而权威，将开发者视为同行。标题大而粗壮、直接——不加修饰地陈述平台能力——而行动号召则使用祈使句、任务导向的语言，如“开始构建”。",
+      "ch8_outro": "该系统刻意排除了浅色主题、装饰性衬线字体和多彩色盘，致力于一种纯粹功能化、开发者优先的美学。"
+    },
+    "zh-TW": {
+      "ch1_intro": "LiveKit 的設計系統如同即時通訊的高性能引擎室：每個元件都精簡至核心功能，為高負載下的可靠性而生，並以技術清晰度呈現。這是具象化的基礎設施，其美學直接源於平台的使命。",
+      "ch2_outro": "色彩從不具裝飾性；它是單色場域中的功能性信號。",
+      "ch3_intro": "字體排印嚴格遵循實用主義，選用簡潔的 grotesque 與 humanist 無襯線字體，以清晰度為優先於個性表達。字級分為兩層：用於權威聲明的巨型展示字型，以及為技術文獻解析提供舒適行距的寬裕內文字號。",
+      "ch4_intro": "嚴謹的 4px 基礎網格支撐整體版面，建立可預測且一致的垂直與水平節奏。",
+      "ch5_intro": "介面以精準、發光的邊框而非厚重陰影定義，僅透過對比建立深度。既存的陰影值微弱而富空氣感，暗示強調色帶來的細微光暈，而非模擬實體光源。",
+      "ch6_intro": "內容於標準 12 欄網格上組織，將主要敘事置中，確保視覺平衡與專注。段落寬度刻意限制為 680px，此舉優化閱讀速度並降低複雜技術內容的認知負荷。",
+      "ch7_intro": "動效節制且具功能性，用於回應使用者操作並引導注意力，而非娛樂目的。其哲學在於即時、流暢的回饋：內容透過淡入與滑動確認狀態轉換，互動元素則快速過渡以展現回應性。",
+      "ch8_intro": "編輯語氣具技術性與權威性，將開發者視為同儕。標題大膽、直接且未經修飾地陳述平台能力，而行動號召使用祈使句與任務導向語句，例如「開始建構」。",
+      "ch8_outro": "此系統刻意排除淺色主題、裝飾性襯線字體與多色調色盤， commitment 純粹功能優先、開發者導向的美學。"
+    },
+    "ja": {
+      "ch1_intro": "LiveKitのデザインシステムは、リアルタイム通信のための高性能エンジンルームのように機能します：すべてのコンポーネントは本質的な機能に剥ぎ取られ、負荷下でも信頼性を確保するために構築され、技術的な明快さをもって提示されます。これは可視化されたインフラストラクチャであり、美学はプラットフォームの目的から直接導かれるものである.",
+      "ch2_intro": "カラーパレットは、熟慮されたコントラストの研究であり、深みのあるティール色をベースとすることで、集中した開発作業のための安定した低照度環境を提供します。1つの高彩度シアンが唯一のナビゲーションビーコンとして機能し、主要なアクションのみに限定されることで、即座に視覚的な階層構造を確立します.",
+      "ch2_outro": "色は決して装飾的ではなく、単色フィールドにおける機能的なシグナルです.",
+      "ch3_intro": "タイポグラフィは厳格に道具的であり、個性よりも可読性を優先するクリーンなグロテスク Sans-serifおよびヒューマニスト Sans-serifが採用されています。スケールは二分されており、権威あるステートメントのための壮大なディスプレイタイプと、技術ドキュメントを効率的に解析するための緩やかな行間を備えた寛容な本文サイズが用意されています.",
+      "ch4_intro": "厳密な4pxベースグリッドがレイアウト全体を支え、予測可能で一貫した垂直および水平のリズムを生み出します.",
+      "ch5_intro": "サーフェスは、重いドロップシャドウではなく、正確で光り輝くボーダーによって定義され、コントラストのみによって奥行きを確立します。存在するシャドウ値は微かで雰囲気的であり、物理的な光源を模倣するのではなく、アクセントカラーからの微かな光沢を示唆しています.",
+      "ch6_intro": "コンテンツは標準的な12カラムグリッド上に組織化され、主要なナラティブを中心に配置することで、視覚的なバランスと焦点を確保します。段落幅は意図的に680pxに制限されており、これは複雑な技術資料の阅读速度を最適化し、認知負荷を軽減するための決定です.",
+      "ch7_intro": "モーションは抑制的で機能的であり、エンターテインメントではなく、ユーザーのアクションを確認し、注意を促すために使用されます。哲学は即座で滑らかなフィードバックです：コンテンツは状態変化を確認するためにフェードインしスライドし、インタラクティブ要素は応答性を示すために迅速に遷移します.",
+      "ch8_intro": "エディトリアルボイスは技術的かつ権威があり、開発者を対等として扱います。見出しは大きく、太字で、直接的であり—装飾なしにプラットフォームの能力を述べます—、一方、コール・トゥ・アクションは「Start building」のような命令的でタスク指向の言語を使用します.",
+      "ch8_outro": "このシステムは意図的にライトテーマ、装飾的なセリフタイポグラフィ、およびマルチカラーパレットを除外し、純粋に機能的で開発者ファーストの美学に専念しています."
+    },
+    "ko": {
+      "ch1_intro": "LiveKit의 디자인 시스템은 실시간 통신을 위한 고성능 엔진룸과 같습니다: 모든 컴포넌트는 본질적인 기능으로 정제되고, 부하 하에서도 신뢰할 수 있도록 구축되며, 기술적인 명확함으로 제시됩니다. 이는 가시화된 인프라로서, 미적 요소가 플랫폼의 목적에서 직접적으로 도출됩니다.",
+      "ch2_intro": "팔레트는 절제된 대비의 연구로, 깊은 틸 베이스 위에 구축되어 집중된 개발 작업을 위한 안정적이고 저조도 환경을 제공합니다. 단 하나의 고채도 시안이 유일한 내비게이션 비콘으로 사용되며, 주요 작업에만 독점적으로 예약되어 즉각적인 시각적 계층 구조를 보장합니다.",
+      "ch2_outro": "색상은 결코 장식적이지 않습니다; 이는 단색 영역 내에서의 기능적 신호입니다.",
+      "ch3_intro": "타이포그래피는 엄격하게 실용적이며, 개성보다 가독성을 우선시하는 깔끔한 그로테스크와 휴머니스트 산세리프를 사용합니다. 스케일은 이중적입니다: 권위 있는 진술을 위한 거대한 디스플레이 타입과, 기술 문서를 파싱하기 위한 완화된 행간의 넉넉한 본문 크기.",
+      "ch4_intro": "엄격한 4px 기반 그리드가 전체 레이아웃을 뒷받침하여, 예측 가능하고 일관된 수직 및 수평 리듬을 만듭니다.",
+      "ch5_intro": "표면은 묵직한 그림자 대신 정밀하고 빛나는 테두리로 정의되며, 대비를 통해서만 깊이를 확립합니다. 존재하는 그림자 값은 희미하고 분위기 있게 만들어, 실제 광원을 모방하기보다는 액센트 색상에서 은은한 빛을 암시합니다.",
+      "ch6_intro": "콘텐츠는 표준 12칼럼 그리드에 배치하여 주요 내러티브를 중앙에 정렬하고, 시각적 균형과 집중을 보장합니다. 단락 너비는 의도적으로 680px로 제한되어, 독서 속도를 최적화하고 복잡한 기술 자료의 인지 부하를 줄이는 결정입니다.",
+      "ch7_intro": "모션은 절제되고 기능적이며, 사용자 행동을 인정하고 주의를 안내하는 데 사용되지는 않습니다. 철학은 즉각적이고 부드러운 피드백입니다: 콘텐츠는 상태 변화를 확인하기 위해 서서히 사라지고 제자리로 미끄러지며, 인터랙티브 요소는 반응성을 알리기 위해 빠르게 전환됩니다.",
+      "ch8_intro": "에디토리얼 음성은 기술적이고 권위적이며, 개발자를 동등한 존재로 대우합니다. 헤드라인은 크고, 굵고, 직접적입니다—플랫폼 기능을 꾸밈없이 진술하며—반면 호출 작업은 'Start building'과 같이 명령적이고 작업 지향적인 언어를 사용합니다.",
+      "ch8_outro": "이 시스템은 의도적으로 라이트 테마, 장식용 세리프 타이포그래피, 다색 팔레트를 배제하며, 순수하게 기능적이고 개발자 우선의 미학에 전념합니다."
+    }
+  }
 }

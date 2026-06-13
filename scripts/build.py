@@ -50,6 +50,10 @@ try:
 except Exception:
     PACKS = {}
 
+# M-3: Pre-computed tag-based related sites map (slug → [{"id":…, "title":…}, …])
+# Populated once in __main__ after all sites are loaded; read by render_site_html.
+RELATED_SITES_MAP: dict = {}
+
 
 def card_image(site, w=768, h=480):
     """卡片/OG 图优先用我们抓的真·桌面首屏截图（经 wsrv.nl 缩成小 webp），
@@ -73,6 +77,15 @@ def load_all_sites() -> list[dict]:
             sites.append(json.loads(f.read_text(encoding="utf-8")))
         except Exception as e:
             print(f"  ✗ {f.name}: {e}")
+    # 按 rank_score 降序排列（adaptive-rank.py 每日更新）；
+    # 同分时按 added_at 降序（新站靠前），最后按 id 稳定排序。
+    sites.sort(
+        key=lambda s: (
+            -(s.get("rank_score") or 0),           # rank 高的靠前
+            -(int(s.get("added_at", "2020-01-01").replace("-", "")) if s.get("added_at") else 20200101),
+            s.get("id", ""),
+        )
+    )
     return sites
 
 
@@ -188,7 +201,7 @@ def build_legacy_specs_json(sites: list[dict]) -> dict:
 
 
 def build_legacy_i18n_json(sites: list[dict]) -> dict:
-    """重建 sites-i18n.json（5 语言 desc overlay）"""
+    """重建 sites-i18n.json（5 语言 desc overlay，全量版供按需降级）"""
     out = {
         "_meta": {
             "version": "0.3.1",
@@ -200,6 +213,22 @@ def build_legacy_i18n_json(sites: list[dict]) -> dict:
         if not s.get("desc"): continue
         out[s["id"]] = {lang: s["desc"].get(lang, {}) for lang in LANGS if s["desc"].get(lang)}
     return out
+
+
+def build_i18n_per_lang(sites: list[dict]) -> dict[str, dict]:
+    """
+    按语言拆分 i18n overlay，生成 sites-i18n.{lang}.json。
+    格式：{ site_id: { palette, layout, interaction, motion, notes, ... } }
+    扁平化——不含 lang 嵌套层，节省体积。
+    """
+    per_lang: dict[str, dict] = {lang: {} for lang in LANGS}
+    for s in sites:
+        desc = s.get("desc") or {}
+        for lang in LANGS:
+            fields = desc.get(lang, {})
+            if fields:
+                per_lang[lang][s["id"]] = fields
+    return per_lang
 
 
 # ============================================================
@@ -229,8 +258,11 @@ HTML_TEMPLATE = """<!doctype html>
 <meta property="og:title" content="{title} · OpenDesign" />
 <meta property="og:description" content="{meta_desc}" />
 <meta property="og:image" content="{og_image}" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
 <meta property="og:url" content="{canonical}" />
 <meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="{og_image}" />
 <style>
   body {{ font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif; max-width: 860px; margin: 72px auto; padding: 32px; color: #0a0a0a; line-height: 1.6; }}
   h1 {{ font-family: "Instrument Serif", Georgia, serif; font-size: 64px; font-weight: 400; letter-spacing: -1px; line-height: 1.05; margin: 0 0 8px; }}
@@ -253,6 +285,9 @@ HTML_TEMPLATE = """<!doctype html>
   .insight section {{ background: #fafafa; padding: 16px 20px; border-radius: 6px; }}
   .insight h3 {{ margin: 0 0 8px; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: #737373; font-weight: 600; }}
   .insight p {{ margin: 0; font-size: 14px; }}
+  .seo-breadcrumb {{ margin: -32px 0 40px; font-size: 13px; }}
+  .seo-breadcrumb a {{ color: #737373; text-decoration: none; }}
+  .seo-breadcrumb a:hover {{ color: #0a0a0a; text-decoration: underline; }}
   .cta {{ display: inline-block; background: #0a0a0a; color: #fff; padding: 14px 22px; border-radius: 999px; text-decoration: none; font-size: 14px; margin: 16px 12px 16px 0; }}
   .cta.ghost {{ background: transparent; color: #0a0a0a; border: 1px solid #0a0a0a; }}
   .langs {{ font-size: 12px; color: #737373; margin: 72px 0 16px; padding-top: 32px; border-top: 1px solid #e7e5e4; }}
@@ -313,6 +348,12 @@ HTML_TEMPLATE = """<!doctype html>
   .agent h3 {{ margin: 0 0 6px; font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: #b4451c; font-weight: 600; }}
   .agent p {{ margin: 0 0 12px; font-size: 14px; color: #1f1f1f; }}
   .agent a {{ color: #0a0a0a; font-size: 14px; margin-right: 18px; white-space: nowrap; }}
+  /* M-3: Related sites — static links for PageRank flow */
+  .related {{ margin: 48px 0 32px; padding-top: 32px; border-top: 1px solid #e7e5e4; }}
+  .related h2 {{ font-size: 14px; font-family: inherit; font-style: normal; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #737373; margin: 0 0 16px; }}
+  .related ul {{ list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 10px; }}
+  .related li a {{ display: inline-block; padding: 6px 14px; border: 1px solid #e7e5e4; border-radius: 999px; font-size: 13px; color: #0a0a0a; text-decoration: none; }}
+  .related li a:hover {{ background: #f5f5f4; }}
 </style>
 <script type="application/ld+json">
 {json_ld}
@@ -415,7 +456,12 @@ def render_site_html(site: dict, lang: str) -> str:
         size_mb = site["pack"].get("zip_size", 0) / 1024 / 1024
         download_block = f'<a class="cta" href="{site["pack"]["zip_url"]}">↓ {esc(L["download_pack"])} ({size_mb:.0f} MB)</a>'
         pack_html = f'<p>📦 <a href="{site["pack"]["folder_url"]}">{esc(L["browse_pack"])} →</a></p>'
-    B.append(f'<div class="actions">{download_block}<a class="cta ghost" href="{BASE_URL}/#/sites/{slug}">{esc(L["open_in_app"])}</a></div>')
+    # M-4: "在 OpenDesign 中打开" → 跳到 SPA 根路径并带 ?open=slug，SPA 会自动打开抽屉
+    spa_open_url = f"/{lang}/?open={slug}"
+    # 顶部返回首页面包屑（静态 SEO 页特有）
+    home_url = f"/{lang}/"
+    B.insert(0, f'<nav class="seo-breadcrumb"><a href="{home_url}">← OpenDesign</a></nav>')
+    B.append(f'<div class="actions">{download_block}<a class="cta ghost" href="{spa_open_url}">{esc(L["open_in_app"])}</a></div>')
     B.append(f'<div class="meta"><p>{esc(L["visit"])}: <a href="{esc(site["url"])}" target="_blank" rel="noreferrer">{esc(site["url"])}</a></p>{pack_html}</div>')
 
     # 01 设计气质 DNA
@@ -553,6 +599,22 @@ def render_site_html(site: dict, lang: str) -> str:
         f'<a href="/skill.md">{esc(L["agent_skill"])} ↗</a>{agent_pack_link}</div>'
     )
 
+    # M-3: Related sites — static internal links for PageRank flow + crawl depth
+    # (ALL_SITES_FOR_RELATED is injected as a closure variable by build_seo_pages)
+    related_sites = []
+    site_tags = set(site.get("tags", []))
+    if site_tags and "ALL_SITES_FOR_RELATED" in dir():
+        pass  # handled below in build_seo_pages via RELATED_SITES_MAP
+    if RELATED_SITES_MAP and slug in RELATED_SITES_MAP:
+        related_sites = RELATED_SITES_MAP[slug]
+    if related_sites:
+        related_label = {"en":"More from the library","zh-CN":"更多精选","zh-TW":"更多精選","ja":"ライブラリからもっと","ko":"더 보기"}.get(lang,"More from the library")
+        items = "".join(
+            f'<li><a href="/{lang}/sites/{r["id"]}">{esc(r["title"])}</a></li>'
+            for r in related_sites
+        )
+        B.append(f'<nav class="related"><h2>{esc(related_label)}</h2><ul>{items}</ul></nav>')
+
     B.append(f'<p class="langs">{lang_links}</p>')
     B.append(
         '<footer>'
@@ -563,16 +625,45 @@ def render_site_html(site: dict, lang: str) -> str:
 
     body = "\n\n".join(s for s in B if s)
 
-    og_image = hero or f"{BASE_URL}/og-cover.png"
+    # H-2: og_image must always be absolute (og:image requires full URL for social crawlers)
+    _img_raw = hero or ""
+    if _img_raw.startswith("/"):
+        og_image = f"{BASE_URL}{_img_raw}"
+    elif _img_raw.startswith("http"):
+        og_image = _img_raw
+    else:
+        og_image = f"{BASE_URL}/og-cover.png"
+
+    # H-4: JSON-LD with required fields (datePublished, dateModified, author) + BreadcrumbList
+    added_at = site.get("added_at", "2025-01-01")
     json_ld = json.dumps({
         "@context": "https://schema.org",
-        "@type": "Article",
-        "headline": f"{title} · OpenDesign",
-        "description": (lead or notes_text or palette)[:300],
-        "image": og_image,
-        "url": canonical,
-        "inLanguage": lang,
-        "publisher": {"@type": "Organization", "name": "OpenDesign", "url": BASE_URL}
+        "@graph": [
+            {
+                "@type": "WebPage",
+                "@id": f"{canonical}#webpage",
+                "url": canonical,
+                "name": f"{title} · Design DNA · OpenDesign",
+                "description": (lead or notes_text or palette)[:300],
+                "image": og_image,
+                "inLanguage": lang,
+                "datePublished": added_at,
+                "dateModified": added_at,
+                "author": {"@type": "Organization", "name": "OpenDesign", "url": BASE_URL},
+                "publisher": {"@type": "Organization", "name": "OpenDesign", "url": BASE_URL},
+                "breadcrumb": {"@id": f"{canonical}#breadcrumb"},
+                "isPartOf": {"@id": f"{BASE_URL}/#website"},
+            },
+            {
+                "@type": "BreadcrumbList",
+                "@id": f"{canonical}#breadcrumb",
+                "itemListElement": [
+                    {"@type": "ListItem", "position": 1, "name": "OpenDesign", "item": BASE_URL},
+                    {"@type": "ListItem", "position": 2, "name": "Catalog", "item": f"{BASE_URL}/{lang}/"},
+                    {"@type": "ListItem", "position": 3, "name": title, "item": canonical},
+                ]
+            }
+        ]
     }, ensure_ascii=False)
 
     return HTML_TEMPLATE.format(
@@ -1030,26 +1121,28 @@ def build_llms_txt(sites: list[dict], pidx: dict) -> str:
         "本站全部内容已静态化（每站 × 5 语言独立 HTML），无需执行 JS 即可抓取。",
         "",
     ]
+    # H-5: single section (removed duplicate 全部收录) — keeps llms.txt under 100 KB
     tier2 = [s for s in sites if s["id"] in pidx]
-    if tier2:
-        lines.append(f"## 完整包（Tier 2 · 含真截图 + 真 computed styles · {len(tier2)} 个）")
-        lines.append("")
-        lines.append("这些站除文档外还含 Playwright 抓取的真实页面证据 + 按频次聚合的真 computed styles：")
-        lines.append("")
-        for s in tier2:
-            lines.append(f"- [{s['title']}](https://opendesign.cc/packs/{s['id']}/) — "
-                         f"ZIP: https://opendesign.cc/packs/{s['id']}/{s['id']}-design-pack.zip")
-        lines.append("")
-    lines.append(f"## 全部收录（{len(sites)} 个）")
+    lines.append(f"## 完整包（{len(tier2)} 个 · Tier 2 · 含真截图 + 真 computed styles）")
     lines.append("")
-    for s in sites:
+    lines.append("每个 slug 有 5 个机器可读端点：")
+    lines.append("```")
+    lines.append("DESIGN_SPEC.en.md   → 11 层完整规范（英文）")
+    lines.append("DESIGN_SPEC.zh-CN.md → 中文规范")
+    lines.append("spec.json           → 结构化 tokens")
+    lines.append("DESIGN.md           → Google design.md 格式")
+    lines.append("<slug>-design-pack.zip → 完整包含截图的 ZIP")
+    lines.append("```")
+    lines.append("")
+    lines.append("路径格式：`https://opendesign.cc/packs/<slug>/<filename>`")
+    lines.append("")
+    for s in tier2:
         slug = s["id"]
         desc = (s.get("desc", {}).get("en") or {}).get("notes") \
             or (s.get("desc", {}).get("zh-CN") or {}).get("notes") or ""
-        tag = " · Tier-2 完整包" if slug in pidx else ""
         lines.append(f"- [{s['title']}](https://opendesign.cc/en/sites/{slug}) "
-                     f"→ 设计系统 https://opendesign.cc/packs/{slug}/{tag}"
-                     + (f" — {desc}" if desc else ""))
+                     f"· <https://opendesign.cc/packs/{slug}/DESIGN_SPEC.en.md>"
+                     + (f" — {desc[:80]}" if desc else ""))
     lines.append("")
     return "\n".join(lines)
 
@@ -1154,10 +1247,36 @@ def main():
             json.dumps(build_legacy_i18n_json(sites), ensure_ascii=False, indent=2),
             encoding="utf-8"
         )
-        print(f"  ✓ dist/legacy/* (sites.js + sites-specs.json + sites-i18n.json)")
+        # 按语言拆分（节省 ~70% 传输）：sites-i18n.zh-CN.json、sites-i18n.en.json 等
+        per_lang = build_i18n_per_lang(sites)
+        for lang, data in per_lang.items():
+            (legacy_dir / f"sites-i18n.{lang}.json").write_text(
+                json.dumps(data, ensure_ascii=False, indent=2),
+                encoding="utf-8"
+            )
+        print(f"  ✓ dist/legacy/* (sites.js + sites-specs.json + sites-i18n.json + per-lang splits)")
 
     # 3) SEO static HTML
     if not args.legacy_only:
+        # M-3: Pre-compute related sites map (tag-based) for static internal links + PageRank
+        global RELATED_SITES_MAP
+        _tag_buckets: dict = {}  # tag → list of (id, title)
+        for s in sites:
+            for t in s.get("tags", []):
+                _tag_buckets.setdefault(t, []).append({"id": s["id"], "title": s["title"]})
+        for s in sites:
+            _slug = s["id"]
+            _related: dict = {}
+            for t in s.get("tags", []):
+                for r in _tag_buckets.get(t, []):
+                    if r["id"] != _slug and r["id"] not in _related:
+                        _related[r["id"]] = r
+                        if len(_related) >= 6:
+                            break
+                if len(_related) >= 6:
+                    break
+            RELATED_SITES_MAP[_slug] = list(_related.values())[:6]
+
         seo_dir = DIST_DIR / "seo"
         for lang in LANGS:
             ld = seo_dir / lang / "sites"

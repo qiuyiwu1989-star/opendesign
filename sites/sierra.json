@@ -8,8 +8,638 @@
     "ai",
     "enterprise"
   ],
-  "status": "pending",
+  "status": "completed",
   "added_at": "2026-06-02",
   "added_by": "expand-200",
-  "_meta": {}
+  "_meta": {
+    "vision_model": "mimo-v2.5",
+    "vision_prompt_version": "0.3",
+    "vision_source": "playwright-extract:sierra",
+    "vision_grounded": true,
+    "vision_at": "2026-06-04T18:49:50+00:00",
+    "vision_tokens": 19902,
+    "vision_cost_usd": 0.2211,
+    "translation_model": "mimo-v2.5",
+    "translation_at": "2026-06-04T18:51:38+00:00",
+    "translation_tokens": 19927,
+    "translation_cost_usd": 0.0664,
+    "narrative_model": "mimo-v2.5",
+    "narrative_prompt_version": "0.3",
+    "narrative_at": "2026-06-04T18:51:47+00:00",
+    "narrative_tokens": 2379,
+    "narrative_cost_usd": 0.0159,
+    "narrative_status": "ok",
+    "total_cost_usd": 0.3034
+  },
+  "spec": {
+    "colors": {
+      "bg": "#FFFFFF",
+      "bgSoft": "#F6F5F3",
+      "bgQuiet": null,
+      "ink": "#302E2D",
+      "inkSoft": "#716F6C",
+      "muted": "#E4E0DC",
+      "mutedSoft": null,
+      "accent": null,
+      "line": "rgba(228, 224, 220, 1)"
+    },
+    "typography": {
+      "display": "grotesque-sans",
+      "body": "grotesque-sans",
+      "mono": "monospace",
+      "scale": [
+        {
+          "token": "display",
+          "size": 56,
+          "lh": 1.05,
+          "weight": 500,
+          "ls": "-1.3px"
+        },
+        {
+          "token": "headline",
+          "size": 44,
+          "lh": 1.05,
+          "weight": 400,
+          "ls": "-0.44px"
+        },
+        {
+          "token": "subhead",
+          "size": 24,
+          "lh": 1.33,
+          "weight": 400,
+          "ls": "-0.38px"
+        },
+        {
+          "token": "body",
+          "size": 16,
+          "lh": 1.5,
+          "weight": 400,
+          "ls": "0px"
+        },
+        {
+          "token": "caption",
+          "size": 14,
+          "lh": 1.42,
+          "weight": 400,
+          "ls": "0px"
+        }
+      ]
+    },
+    "spacing": {
+      "base": 4,
+      "scale": [
+        4,
+        8,
+        12,
+        16,
+        24,
+        32,
+        48,
+        64,
+        80
+      ]
+    },
+    "surfaces": {
+      "radius": {
+        "sm": 4,
+        "md": 8,
+        "lg": 16,
+        "pill": 999
+      }
+    },
+    "layout": {
+      "container": 1280,
+      "paragraph": 680,
+      "columns": 12,
+      "gutter": 24,
+      "breakpoints": [
+        768,
+        1024
+      ]
+    },
+    "motion": {
+      "durations": {
+        "micro": 220,
+        "small": 250,
+        "medium": 500
+      },
+      "easing": "cubic-bezier(0.4, 0, 0.2, 1)"
+    }
+  },
+  "spec_i18n": {
+    "en": {
+      "identity": {
+        "keywords": [
+          "AI",
+          "Customer Experience",
+          "Enterprise",
+          "Agent",
+          "Platform"
+        ],
+        "analogy": "A premium consultancy for AI agents, balancing technical depth with approachable, human-centric storytelling.",
+        "oneLiner": "A sophisticated AI agent platform that uses warm, editorial photography to make complex technology feel human and trustworthy."
+      },
+      "colors": {
+        "principle": "Warm Neutrals: A palette grounded in warm grays and earthy tones, relying on high-quality photography for visual interest rather than synthetic accents."
+      },
+      "typography": {
+        "rules": [
+          "Use tight tracking (-1.3px to -0.38px) for large display text to create a refined, editorial feel.",
+          "Maintain a strict 400 weight for almost all text; 500 is used very sparingly for specific emphasis.",
+          "Ensure generous line-height (1.4-1.5) for body text to maintain readability."
+        ],
+        "scaleUses": [
+          "Hero headlines",
+          "Section headlines",
+          "Subheadings",
+          "Body text",
+          "UI labels and captions"
+        ]
+      },
+      "spacing": {
+        "rhythm": "Generous and structured, using large padding (80px) for major sections and consistent 8/16/24px increments for internal spacing to create a clean, breathable layout."
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 28px 34px 0px rgba(15, 79, 138, 0.15)",
+          "0px 75px 63px 0px rgba(15, 79, 138, 0.15)"
+        ],
+        "borders": "1px solid rgb(228, 224, 220)"
+      },
+      "layout": {
+        "skeleton": "A centered, responsive layout with a max-width container, transitioning from a full-bleed editorial hero to a structured, multi-column UI for dashboards."
+      },
+      "components": {
+        "button": "Pill-shaped (999px radius) with white background and dark ink text, or subtle outline for secondary actions.",
+        "card": "Clean containers with 16px border-radius and subtle 1px borders on soft backgrounds.",
+        "chip": "Minimal, often using just text with subtle background or border treatments.",
+        "input": "Clean fields with subtle borders, often accompanied by small icons and 4px/8px internal padding.",
+        "hero": "Full-viewport, photographic backgrounds with large, left-aligned display typography and a single, high-contrast pill CTA."
+      },
+      "motion": {
+        "patterns": [
+          "Standard transitions for color, background-color, and opacity (0.25s)",
+          "Slightly longer transitions for complex properties like filter (0.5s)",
+          "Subtle transforms for interactive elements"
+        ]
+      },
+      "interaction": {
+        "hover": "Smooth color and background transitions on interactive elements like buttons and navigation links.",
+        "click": "Subtle transform (scale/translate) or opacity change on primary CTAs.",
+        "transition": "All interactive states use a consistent 0.25s cubic-bezier(0.4, 0, 0.2, 1) easing curve.",
+        "keyboard": "Focus states likely follow browser defaults, maintaining visibility for accessibility."
+      },
+      "voice": {
+        "tone": "Confident, clear, and approachable.",
+        "headlineStyle": "Short, impactful statements that clearly state the value proposition.",
+        "ctaStyle": "Direct and action-oriented, often using a single 'Learn more' or 'Sign in'.",
+        "avoid": [
+          "Jargon-heavy language without context",
+          "Aggressive or overly enthusiastic marketing speak",
+          "Cluttered UI that distracts from the core message",
+          "High-contrast neon or synthetic accent colors"
+        ]
+      },
+      "donts": [
+        "Don't use vibrant synthetic accents — screenshot shows a palette grounded in warm grays and earthy photographic tones.",
+        "Don't set large headlines with loose tracking — screenshot shows tight tracking (e.g., -1.3px) for a refined, editorial feel.",
+        "Don't use heavy font weights for body copy — screenshot shows almost exclusive use of weight 400.",
+        "Don't clutter the UI with heavy shadows or borders — screenshot shows subtle 1px borders and minimal shadow usage.",
+        "Don't use sharp, geometric border-radius on buttons — screenshot shows fully rounded pill shapes (999px).",
+        "Don't rely on color for primary emphasis in the UI — screenshot shows reliance on typography scale and spacing."
+      ],
+      "systemPrompt": "Sierra is a premium AI agent platform that positions itself through a human-centric, editorial lens. Its visual DNA is defined by a warm, neutral color palette (ink #302E2D, soft background #F6F5F3) that lets high-quality photography do the emotional heavy lifting. The typography is a refined grotesque-sans with tight tracking on large displays, creating a clean, sophisticated feel. The UI components are simple, using pill-shaped buttons and subtle borders. Critical donts: avoid synthetic accents, keep tracking tight for headlines, use light font weights for body text, and maintain generous, breathable spacing. The overall feel is trustworthy and professional, yet approachable."
+    },
+    "zh-CN": {
+      "identity": {
+        "keywords": [
+          "AI",
+          "客户体验",
+          "企业",
+          "智能体",
+          "平台"
+        ],
+        "analogy": "AI 智能体领域的高端咨询机构，在技术深度与平易近人的以人为本叙事间取得平衡。",
+        "oneLiner": "精致的 AI 智能体平台，运用温暖的编辑式摄影让复杂技术显得人性化且值得信赖。"
+      },
+      "colors": {
+        "principle": "温暖中性色系：以暖灰与大地色调为基底，依靠高品质摄影创造视觉吸引力，而非使用合成强调色。"
+      },
+      "typography": {
+        "rules": [
+          "大型展示文本采用紧凑字距（-1.3px 至 -0.38px）营造精致的编辑感。",
+          "几乎所有文本保持严格的 400 字重；仅在特殊强调处极少量使用 500 字重。",
+          "正文需保证充足的行高（1.4-1.5）以确保可读性。"
+        ],
+        "scaleUses": [
+          "首屏标题",
+          "区块标题",
+          "副标题",
+          "正文文本",
+          "界面标签与说明文字"
+        ]
+      },
+      "spacing": {
+        "rhythm": "宽松且结构化，主要区块使用大留白（80px），内部间距采用 8/16/24px 的一致增量，打造清爽通透的布局。"
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 28px 34px 0px rgba(15, 79, 138, 0.15)",
+          "0px 75px 63px 0px rgba(15, 79, 138, 0.15)"
+        ],
+        "borders": "1px solid rgb(228, 224, 220)"
+      },
+      "layout": {
+        "skeleton": "响应式居中布局，设有最大宽度容器，从全出血编辑式首屏过渡至仪表盘的多列结构化界面。"
+      },
+      "components": {
+        "button": "药丸形（999px 圆角），白色背景搭配深色墨褐文字，次要操作采用微妙描边样式。",
+        "card": "简洁容器，16px 圆角，柔和背景上带有 1px 细微边框。",
+        "chip": "极简化设计，通常仅使用文字配合微妙的背景或边框处理。",
+        "input": "简洁输入框，带细微边框，常搭配小型图标及 4px/8px 内边距。",
+        "hero": "全视口摄影背景，搭配左对齐的大号展示字体与单个高对比度药丸形行动按钮。"
+      },
+      "motion": {
+        "patterns": [
+          "颜色、背景色与透明度的标准过渡（0.25s）",
+          "滤镜等复杂属性使用稍长过渡（0.5s）",
+          "交互元素采用微妙变换效果"
+        ]
+      },
+      "interaction": {
+        "hover": "按钮、导航链接等交互元素实现平滑的颜色与背景过渡。",
+        "click": "主要行动按钮采用微妙的变换（缩放/位移）或透明度变化。",
+        "transition": "所有交互状态使用统一的 0.25s cubic-bezier(0.4, 0, 0.2, 1) 缓动曲线。",
+        "keyboard": "焦点状态遵循浏览器默认样式，保持可访问性可见度。"
+      },
+      "voice": {
+        "tone": "自信、清晰、平易近人。",
+        "headlineStyle": "简短有力的陈述，清晰传达价值主张。",
+        "ctaStyle": "直接且具行动导向，常使用“了解更多”或“登录”等单一表述。",
+        "avoid": [
+          "脱离上下文的术语堆砌",
+          "激进或过度热情的营销话术",
+          "干扰核心信息的拥挤界面",
+          "高对比度霓虹色或合成强调色"
+        ]
+      },
+      "donts": [
+        "避免使用鲜艳的合成强调色——设计系统基于暖灰与大地色摄影色调。",
+        "避免大标题使用松散字距——需采用紧凑字距（如 -1.3px）营造精致编辑感。",
+        "避免正文使用粗重字重——几乎全部采用 400 字重。",
+        "避免界面使用厚重阴影或边框——仅使用 1px 细微边框与极简阴影。",
+        "避免按钮使用尖锐几何圆角——应采用完全圆润的药丸形（999px）。",
+        "避免界面主要依靠色彩进行强调——应依赖字体比例与间距体系。"
+      ],
+      "systemPrompt": "Sierra 是一个高端 AI 智能体平台，通过以人为本的编辑视角定位自身。其视觉 DNA 体现为温暖的中性色系统（墨褐 #302E2D、柔和背景 #F6F5F3），让高质量摄影承担主要情感表达。字体采用精致的 grotesque-sans，在大号展示文本上使用紧凑字距，营造清爽高级的质感。界面组件简洁，采用药丸形按钮与细微边框。关键禁忌：避免合成强调色、标题保持紧凑字距、正文使用轻字重、保持宽松通透的间距。整体营造可信赖、专业且亲切的感受。"
+    },
+    "zh-TW": {
+      "identity": {
+        "keywords": [
+          "AI",
+          "客戶體驗",
+          "企業",
+          "代理人",
+          "平台"
+        ],
+        "analogy": "一個高端的 AI 代理人諮詢服務，在技術深度與平易近人、以人為本的敘事之間取得平衡。",
+        "oneLiner": "一個成熟的 AI 代理人平台，運用溫暖的編輯式攝影，讓複雜科技顯得人性化且值得信賴。"
+      },
+      "colors": {
+        "principle": "溫暖中性色：一個以暖灰色和大地色調為基礎的配色方案，依靠高品質攝影來創造視覺趣味，而非使用合成的強調色。"
+      },
+      "typography": {
+        "rules": [
+          "為大型展示文字使用緊湊的字距調整 (-1.3px 至 -0.38px)，以營造精緻的編輯感。",
+          "幾乎所有文字皆保持嚴格的 400 字重；僅在特定強調時非常謹慎地使用 500 字重。",
+          "確保內文有寬裕的行高 (1.4-1.5) 以維持可讀性。"
+        ],
+        "scaleUses": [
+          "首頁主標題",
+          "章節標題",
+          "子標題",
+          "內文",
+          "UI 標籤與說明文字"
+        ]
+      },
+      "spacing": {
+        "rhythm": "寬裕且結構化，主要區塊使用較大的 padding (80px)，內部間距則採用一致的 8/16/24px 遞增，以創造乾淨、有呼吸感的佈局。"
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 28px 34px 0px rgba(15, 79, 138, 0.15)",
+          "0px 75px 63px 0px rgba(15, 79, 138, 0.15)"
+        ],
+        "borders": "1px solid rgb(228, 224, 220)"
+      },
+      "layout": {
+        "skeleton": "一個置中、回應式的佈局，帶有最大寬度容器，從全版出血的編輯式首頁主視覺，過渡到結構化的多欄 UI，用於儀表板等。"
+      },
+      "components": {
+        "button": "藥丸形 (999px radius)，白色背景搭配深色墨色文字，或使用細微的外框表示次要操作。",
+        "card": "乾淨的容器，具有 16px border-radius 與柔和背景上的細微 1px 邊框。",
+        "chip": "簡約，通常僅使用文字搭配細微的背景或邊框處理。",
+        "input": "乾淨的輸入欄位，帶有細微邊框，常伴有小圖示及 4px/8px 的內部 padding。",
+        "hero": "全視口、攝影背景，搭配大型、靠左對齊的展示字型排印，以及一個高對比的藥丸形 CTA 按鈕。"
+      },
+      "motion": {
+        "patterns": [
+          "色彩、background-color 與 opacity 的標準過渡效果 (0.25s)",
+          "較複雜的屬性（如 filter）使用稍長的過渡時間 (0.5s)",
+          "互動元素使用細微的變換效果"
+        ]
+      },
+      "interaction": {
+        "hover": "互動元素（如按鈕與導覽連結）的色彩與背景平滑過渡。",
+        "click": "主要 CTA 進行細微的變換 (scale/translate) 或透明度變化。",
+        "transition": "所有互動狀態皆使用一致的 0.25s cubic-bezier(0.4, 0, 0.2, 1) 緩動曲線。",
+        "keyboard": "Focus 狀態 likely 遵循瀏覽器預設值，以維持無障礙的可見性。"
+      },
+      "voice": {
+        "tone": "自信、清晰且平易近人。",
+        "headlineStyle": "簡短、具衝擊力的陳述，清晰闡明價值主張。",
+        "ctaStyle": "直接且以行動為導向，通常使用單一的「進一步了解」或「登入」。",
+        "avoid": [
+          "缺乏脈絡的行話",
+          "侵略性或過度熱情的行銷用語",
+          "分散核心訊息的雜亂 UI",
+          "高對比的霓虹或合成強調色"
+        ]
+      },
+      "donts": [
+        "勿使用鮮豔的合成強調色——截圖顯示配色方案以暖灰色與大地攝影色調為基礎。",
+        "勿將大型標題設為寬鬆的字距——截圖顯示緊湊的字距調整 (例如 -1.3px) 以營造精緻的編輯感。",
+        "勿為內文字型使用厚重的字重——截圖顯示幾乎僅使用 400 字重。",
+        "勿在 UI 中使用厚重的陰影或邊框使其雜亂——截圖顯示細微的 1px 邊框與極簡的陰影使用。",
+        "勿在按鈕上使用銳利的幾何形 border-radius——截圖顯示完全圓潤的藥丸形 (999px)。",
+        "勿依賴顏色作為 UI 的主要強調方式——截圖顯示依賴字型層級與間距。"
+      ],
+      "systemPrompt": "Sierra 是一個高端的 AI 代理人平台，透過以人為本的編輯式視角定位自身。其視覺基因由溫暖的中性色調配色（墨色 #302E2D，柔和背景 #F6F5F3）定義，讓高品質攝影承擔主要的情感表達。字型排印是精緻的 grotesque-sans，在大型展示文字上採用緊湊的字距調整，營造乾淨、成熟的感受。UI 元件簡潔，使用藥丸形按鈕與細微邊框。關鍵禁忌：避免合成強調色、標題保持緊湊字距、內文使用輕字重，並維持寬裕、有呼吸感的間距。整體感受是值得信賴且專業的，同時平易近人。"
+    },
+    "ja": {
+      "identity": {
+        "keywords": [
+          "AI",
+          "カスタマーエクスペリエンス",
+          "エンタープライズ",
+          "エージェント",
+          "プラットフォーム"
+        ],
+        "analogy": "AIエージェントのためのプレミアムコンサルタント。技術的な深さと、親しみやすく人間中心的なストーリーテリングのバランスを取ります。",
+        "oneLiner": "温かみのあるエディトリアル写真を用い、複雑技術を人間らしく信頼できるものに変える、洗練されたAIエージェント・プラットフォーム。"
+      },
+      "colors": {
+        "principle": "ウォームニュートラル：ウォームグレーと大地色を基盤としたパレット。視覚的な興味は合成アクセントではなく、高品質な写真に依存します。"
+      },
+      "typography": {
+        "rules": [
+          "大きなディスプレイテキストには tighten tracking（-1.3px〜-0.38px）を適用し、洗練されたエディトリアル感を生み出します。",
+          "ほぼすべてのテキストで厳格にウエイト400を維持。強調のためのウエイト500は非常に限定的にのみ使用します。",
+          "本文テキストには十分な行の高さ（1.4-1.5）を確保し、可読性を維持します。"
+        ],
+        "scaleUses": [
+          "ヒーローヘッドライン",
+          "セクション見出し",
+          "サブヘッドリング",
+          "本文テキスト",
+          "UIラベルおよびキャプション"
+        ]
+      },
+      "spacing": {
+        "rhythm": "余裕のある構造化。主要セクションには大きなパディング（80px）を、内部間隔には一貫した8/16/24pxの刻みを使用し、クリーンで息がのまるレイアウトを実現します。"
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 28px 34px 0px rgba(15, 79, 138, 0.15)",
+          "0px 75px 63px 0px rgba(15, 79, 138, 0.15)"
+        ],
+        "borders": "1px solid rgb(228, 224, 220)"
+      },
+      "layout": {
+        "skeleton": "最大幅コンテナを備えたセンタリングされたレスポンシブレイアウト。フルブリードのエディトリアル・ヒーローから、ダッシュボード向けの構造化されたマルチカラムUIへと移行します。"
+      },
+      "components": {
+        "button": "ピルシェイプ（999px radius）。白背景にダークインクのテキスト、またはセカンダリアクション用に繊細なアウトライン。",
+        "card": "16pxのボーダー半径と、ソフトな背景の上に繊細な1pxボーダーを持つクリーンなコンテナ。",
+        "chip": "最小限。主にテキストのみで、繊細な背景やボーダー処理を施すことが多い。",
+        "input": "クリーンなフィールドに繊細なボーダー。小さなアイコンと4px/8pxの内部パディングを伴うことが多い。",
+        "hero": "フルビューポートの写真背景。大きな、左揃えのディスプレイ・タイポグラフィと、ハイコントラストのピル-shaped CTAを一つだけ配置。"
+      },
+      "motion": {
+        "patterns": [
+          "color、background-color、opacity の標準的なトランジション（0.25秒）",
+          "filter などの複雑なプロパティにはやや長いトランジション（0.5秒）",
+          "インタラクティブ要素に対する繊細な transform"
+        ]
+      },
+      "interaction": {
+        "hover": "ボタンやナビゲーションリンクなどのインタラクティブ要素上で、滑らかな color および background のトランジション。",
+        "click": "プライマリCTAに対する繊細な transform（scale/translate）や opacity の変化。",
+        "transition": "すべてのインタラクティブ状態で、一貫した0.25秒 cubic-bezier(0.4, 0, 0.2, 1) のイージングカーブを使用。",
+        "keyboard": "フォーカス状態はブラウザのデフォルトに従い、アクセシビリティのための可視性を維持。"
+      },
+      "voice": {
+        "tone": "自信に満ち、明瞭で、親しみやすい。",
+        "headlineStyle": "価値提案を明確に述べる、短くインパクトのあるステートメント。",
+        "ctaStyle": "直接的でアクション指向。しばしば単一の「詳細を見る」または「サインイン」。",
+        "avoid": [
+          "文脈のない専門用語の多用",
+          "攻撃的、または過度に熱狂的なマーケティング・スピーチ",
+          "コアメッセージから注意をそらす雑然としたUI",
+          "ハイコントラストなネオン色や合成アクセントカラー"
+        ]
+      },
+      "donts": [
+        "鮮やかな合成アクセントカラーを使用しない — スクリーンショットは、ウォームグレーと大地系の写真トーンを基盤としたパレットを示しています。",
+        "大きなヘッドラインにルーズなトラッキングを使用しない — スクリーンショットは、洗練されたエディトリアル感のためのタイトなトラッキング（例：-1.3px）を示しています。",
+        "本文コピーに太いフォントウエイトを使用しない — スクリーンショットは、ほぼ例外なくウエイト400が使用されていることを示しています。",
+        "太いシャドウやボーダーでUIを雑踏させない — スクリーンショットは、繊細な1pxボーダーと最小限のシャドウ使用を示しています。",
+        "ボタンに鋭く幾何学的なボーダー半径を使用しない — スクリーンショットは、完全に丸みのあるピルシェイプ（999px）を示しています。",
+        "UIの主たる強調にカラーに依存しない — スクリーンショットは、タイポグラフィのスケールと間隔に依存していることを示しています。"
+      ],
+      "systemPrompt": "Sierraは、人間中心的、エディトリアルな視点を通じて自らを位置づけるプレミアムAIエージェント・プラットフォームです。そのビジュアルDNAは、温かみのあるニュートラルなカラーパレット（インク #302E2D、ソフト背景 #F6F5F3）で定義され、高品質な写真に感情的な主役を任せます。タイポグラフィは、大きなディスプレイでタイトなトラッキングを施した洗練されたグロテスク・サンセリフで、クリーンで洗練された印象を生み出します。UIコンポーネントはシンプルで、ピル-shapedボタンと繊細なボーダーを使用します。重要な禁止事項：合成アクセントカラーの使用を避け、ヘッドラインのトラッキングはタイトに保ち、本文テキストには軽いフォントウエイトを使用し、余裕のある息のまる間隔を維持すること。全体的な印象は、信頼でき専門的でありながら、親しみやすいものです。"
+    },
+    "ko": {
+      "identity": {
+        "keywords": [
+          "AI",
+          "고객 경험",
+          "기업",
+          "에이전트",
+          "플랫폼"
+        ],
+        "analogy": "AI 에이전트를 위한 프리미엄 컨설팅으로, 기술적 깊이와 접근 가능하고 인간 중심적인 스토리텔링의 균형을 맞춥니다.",
+        "oneLiner": "따뜻하고 에디토리얼 사진을 사용하여 복잡한 기술을 인간적이고 신뢰할 수 있게 만드는 정교한 AI 에이전트 플랫폼입니다."
+      },
+      "colors": {
+        "principle": "따뜻한 중립색: 웜 그레이와 어스톤을 기반으로 한 팔레트로, 시각적 관심을 위해 합성 강조색보다는 고품질 사진에 의존합니다."
+      },
+      "typography": {
+        "rules": [
+          "큰 디스플레이 텍스트에는 좁은 트래킹(-1.3px에서 -0.38px)을 사용하여 세련된 에디토리얼 느낌을 만듭니다.",
+          "거의 모든 텍스트에 400 웨이트를 엄격히 유지합니다; 500은 특정 강조에 매우 드물게 사용합니다.",
+          "본문 텍스트에는 넉넉한 line-height(1.4-1.5)를 보장하여 가독성을 유지합니다."
+        ],
+        "scaleUses": [
+          "히어로 헤드라인",
+          "섹션 헤드라인",
+          "소제목",
+          "본문 텍스트",
+          "UI 라벨 및 캡션"
+        ]
+      },
+      "spacing": {
+        "rhythm": "넉넉하고 구조화되어, 주요 섹션에는 큰 padding(80px)을 사용하고 내부 간격에는 일관된 8/16/20px 단위를 사용하여 깔끔하고 숨 쉴 듯한 레이아웃을 만듭니다."
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 28px 34px 0px rgba(15, 79, 138, 0.15)",
+          "0px 75px 63px 0px rgba(15, 79, 138, 0.15)"
+        ],
+        "borders": "1px solid rgb(228, 224, 220)"
+      },
+      "layout": {
+        "skeleton": "최대 너비 컨테이너를 가진 중앙 정렬 반응형 레이아웃으로, 대시보드를 위한 구조화된 다중 컬럼 UI로 전환되는 풀블리드 에디토리얼 히어로."
+      },
+      "components": {
+        "button": "알약 형태(999px radius)로 흰색 배경에 어두운 잉크 텍스트, 또는 보조 작업을 위한 미세한 아웃라인을 사용합니다.",
+        "card": "부드러운 배경에 16px border-radius와 미세한 1px border가 있는 깔끔한 컨테이너.",
+        "chip": "최소한으로, 미세한 배경 또는 border 처리와 함께 텍스트만 사용하는 경우가 많습니다.",
+        "input": "미세한 border가 있는 깔끔한 필드로, 종종 작은 아이콘과 4px/8px 내부 padding이 동반됩니다.",
+        "hero": "전체 뷰포트 사진 배경에 큰 좌측 정렬 디스플레이 타이포그래피와 단일 고대비 알약 형태 CTA."
+      },
+      "motion": {
+        "patterns": [
+          "색상, 배경색, 불투명도에 대한 표준 전환(0.25초)",
+          "필터와 같은 복잡한 속성에 대한 약간 더 긴 전환(0.5초)",
+          "상호작용 요소에 대한 미세한 transform"
+        ]
+      },
+      "interaction": {
+        "hover": "버튼 및 내비게이션 링크와 같은 상호작용 요소에서 부드러운 색상 및 배경 전환.",
+        "click": "주요 CTA에 미세한 transform(스케일/이동) 또는 불투명도 변화.",
+        "transition": "모든 상호작용 상태는 일관된 0.25초 cubic-bezier(0.4, 0, 0.2, 1) easing 곡선을 사용합니다.",
+        "keyboard": "포커스 상태는 브라우저 기본값을 따르며 접근성을 위해 가시성을 유지합니다."
+      },
+      "voice": {
+        "tone": "자신감 있고 명확하며 접근 가능합니다.",
+        "headlineStyle": "가치 제안을 명확히 전달하는 짧고 강렬한 진술.",
+        "ctaStyle": "직설적이고 행동 지향적이며, 종종 '자세히 알아보기' 또는 '로그인' 하나를 사용합니다.",
+        "avoid": [
+          "맥락 없는 전문 용어 위주의 언어",
+          "공격적이거나 지나치게 열광적인 마케팅 말투",
+          "핵심 메시지를 산만하게 하는 지저분한 UI",
+          "고대비 네온 또는 합성 강조색"
+        ]
+      },
+      "donts": [
+        "선명한 합성 강조색을 사용하지 마세요 — 스크린샷은 웜 그레이와 어스톤 사진 톤을 기반으로 한 팔레트를 보여줍니다.",
+        "큰 헤드라인에 넓은 트래킹을 설정하지 마세요 — 스크린샷은 세련된 에디토리얼 느낌을 위해 좁은 트래킹(예: -1.3px)을 보여줍니다.",
+        "본문에 무거운 폰트 웨이트를 사용하지 마세요 — 스크린샷은 거의 전적으로 400 웨이트를 사용하는 것을 보여줍니다.",
+        "무거운 그림자나 border로 UI를 지저분하게 하지 마세요 — 스크린샷은 미세한 1px border와 최소한의 그림자 사용을 보여줍니다.",
+        "버튼에 날카롭고 기하학적인 border-radius를 사용하지 마세요 — 스크린샷은 완전히 둥근 알약 형태(999px)를 보여줍니다.",
+        "UI에서 주요 강조를 위해 색상에 의존하지 마세요 — 스크린샷은 타이포그래피 스케일과 간격에 의존하는 것을 보여줍니다."
+      ],
+      "systemPrompt": "시에라(Sierra)는 인간 중심적이고 에디토리얼한 관점을 통해 포지셔닝하는 프리미엄 AI 에이전트 플랫폼입니다. 그 시각적 DNA는 따뜻하고 중립적인 색조 팔레트(잉크 #302E2D, 부드러운 배경 #F6F5F3)로 정의되며, 이는 고품질 사진이 감정적 역할을 담당하도록 합니다. 타이포그래피는 큰 디스플레이에 좁은 트래킹을 사용한 세련된 고딕-산스로, 깔끔하고 정교한 느낌을 만듭니다. UI 컴포넌트는 간단하며, 알약 형태 버튼과 미세한 border를 사용합니다. 핵심 주의사항: 합성 강조색을 피하고, 헤드라인에는 좁은 트래킹을 유지하고, 본문에는 가벼운 폰트 웨이트를 사용하며, 넉넉하고 숨 쉴 듯한 간격을 유지합니다. 전체적인 느낌은 신뢰할 수 있고 전문적이면서도 접근 가능합니다."
+    }
+  },
+  "desc": {
+    "en": {
+      "palette": "A warm, neutral-driven palette featuring deep earthy ink (#302E2D) and soft warm grays (#F6F5F3, #E4E0DC), allowing rich photographic content to provide the primary color.",
+      "layout": "A responsive, centered layout that transitions from a full-bleed editorial hero with generous padding to a clean, structured UI with consistent 24px gutters.",
+      "interaction": "Smooth, standardized transitions (0.25s) across interactive elements, focusing on subtle color and opacity changes for a refined feel.",
+      "motion": "Minimal and purposeful, using standard cubic-bezier easing for all UI state changes, avoiding complex or distracting animations.",
+      "notes": "This site is an excellent example of how to balance a sophisticated, enterprise-focused AI product with a warm, human-centric visual language through the use of editorial photography and restrained typography."
+    },
+    "zh-CN": {
+      "palette": "温暖、中性为主的设计系统，以深沉的墨褐色 (#302E2D) 和柔和暖灰色 (#F6F5F3, #E4E0DC) 为基础，让丰富的摄影内容提供主要色彩。",
+      "layout": "响应式居中布局，从全出血的编辑式首屏过渡至带有 24px 一致间距的清晰结构化界面。",
+      "interaction": "交互元素采用统一流畅的过渡效果（0.25s），通过细微的色彩与透明度变化营造精致感。",
+      "motion": "极简且有目的性，所有界面状态变化均使用标准 cubic-bezier 缓动，避免复杂或分散注意力的动画。",
+      "notes": "该网站通过编辑式摄影与克制排版，完美展示了如何平衡面向企业的复杂 AI 产品与温暖、以人为本的视觉语言。"
+    },
+    "zh-TW": {
+      "palette": "一個溫暖、以中性色調為主的配色方案，採用深沉的大地墨色 (#302E2D) 與柔和的暖灰色 (#F6F5F3, #E4E0DC)，讓豐富的攝影內容提供主要的色彩。",
+      "layout": "一個回應式、置中的佈局，從全版出血、留有寬裕 padding 的編輯式首頁主視覺，過渡到乾淨、結構化的 UI，並保持一致的 24px 欄距。",
+      "interaction": "互動元素採用平滑、標準化的過渡效果 (0.25s)，著重於細微的色彩與透明度變化，以營造精緻感。",
+      "motion": "簡約而有目的性，所有 UI 狀態變化皆使用標準 cubic-bezier 緩動函數，避免複雜或干擾的動畫。",
+      "notes": "此網站是一個絕佳的範例，展示了如何透過編輯式攝影與內斂的字型排印，來平衡一個成熟、專注企業級的 AI 產品與一個溫暖、以人為本的視覺語言。"
+    },
+    "ja": {
+      "palette": "温かみのあるニュートラルを基調としたパレット。深みのある大地系インク（#302E2D）と柔らかいウォームグレー（#F6F5F3、#E4E0DC）を特徴とし、豊かな写真コンテンツが主たる色彩を提供します。",
+      "layout": "レスポンシブなセンタリングレイアウト。余裕のあるパディングを備えたフルブリードのエディトリアル・ヒーローから、一定の24pxガターを持つクリーンで構造化されたUIへと移行します。",
+      "interaction": "インタラクティブ要素全体にわたる滑らかで標準化されたトランジション（0.25秒）。繊細なカラーや不透明度の変化に焦点を当て、洗練された印象を実現します。",
+      "motion": "最小限で目的に沿ったもの。すべてのUI状態変化に標準的なcubic-bezierイージングを採用し、複雑で注意を散漫させるようなアニメーションは回避します。",
+      "notes": "このサイトは、エディトリアル写真と抑制されたタイポグラフィの使用を通じて、洗練されたエンタープライズ向けAI製品と、温かみのある人間中心のビジュアル言語をいかにバランスよく融合させるかの優れた例です。"
+    },
+    "ko": {
+      "palette": "따뜻하고 중립적인 색조의 팔레트로, 깊은 어스톤 잉크(#302E2D)와 부드러운 웜 그레이(#F6F5F3, #E4E0DC)를 사용하여, 풍부한 사진 콘텐츠가 주요 색상을 제공하도록 합니다.",
+      "layout": "반응형으로 중앙 정렬된 레이아웃으로, 넉넉한 padding이 있는 풀블리드 에디토리얼 히어로에서 일관된 24px gutter의 깔끔하고 구조화된 UI로 전환됩니다.",
+      "interaction": "상호작용 요소 전반에 걸쳐 부드럽고 표준화된 전환(0.25초)을 사용하며, 세련된 느낌을 위해 미묘한 색상과 불투명도 변화에 중점을 둡니다.",
+      "motion": "최소한이며 의도적으로, 모든 UI 상태 변경에 표준 cubic-bezier easing을 사용하여 복잡하거나 산만한 애니메이션을 피합니다.",
+      "notes": "이 사이트는 에디토리얼 사진과 절제된 타이포그래피를 활용하여 정교하고 기업 중심적인 AI 제품과 따뜻하고 인간 중심적인 시각 언어를 어떻게 균형 있게 표현할 수 있는지 보여주는 훌륭한 예시입니다."
+    }
+  },
+  "narrative": {
+    "en": {
+      "ch1_intro": "The system follows the analogy of a premium consultancy for AI agents, balancing technical depth with approachable, human-centric storytelling. Its visual DNA is built on a warm, neutral palette that allows photography to do the emotional work, while a refined type system and generous spacing create a sense of trusted expertise.",
+      "ch2_intro": "The color principle is one of restraint, relying on a warm neutral foundation to support content rather than compete with it. Earthy tones and soft grays provide the backdrop, ceding visual interest to the high-quality photography that defines the brand's character.",
+      "ch2_outro": "The core tenet is that color supports content, not the reverse.",
+      "ch3_intro": "The typographic voice is that of a refined grotesque-sans, set with tight tracking on display sizes for an editorial feel. A strict 400 weight for body text paired with generous line-height ensures readability and a light, confident presence on the page.",
+      "ch4_intro": "Spacing follows a generous, structured rhythm, with large paddings for major sections and consistent 8px-based increments for internal structure.",
+      "ch5_intro": "Surfaces are defined by subtlety, using a single 1px border to delineate containers. Depth, where needed, is applied through large, soft shadows with a distinct blue tint.",
+      "ch6_intro": "The layout skeleton begins as a centered, responsive container, transitioning from a full-bleed editorial hero to a structured, multi-column UI. This progression from expansive photography to organized dashboards defines the page architecture.",
+      "ch7_intro": "Motion is standardized and purposeful, with all interactive state changes governed by a single, consistent easing curve. The philosophy prioritizes subtlety—simple color, opacity, and transform shifts that acknowledge interaction without announcing it.",
+      "ch8_intro": "The editorial voice is confident, clear, and approachable, favoring short, impactful statements that state value directly. Language avoids jargon and marketing enthusiasm, trusting the product's substance and the system's refined presentation.",
+      "ch8_outro": "The system deliberately excludes vibrant synthetic accents and cluttered, heavy UI elements, trusting its typographic scale and spacing to provide emphasis."
+    },
+    "zh-CN": {
+      "ch1_intro": "该系统遵循高端AI代理商咨询的类比逻辑，在技术深度与平易近人、以人为本的叙事间取得平衡。其视觉基因建立在温暖中性的色调基础上，让摄影承担情感传递的核心角色，同时通过精炼的字体系统与宽裕的留白营造值得信赖的专业感。",
+      "ch2_intro": "色彩运用遵循克制原则，依赖温暖的中性底色来支撑内容而非争夺注意力。大地色系与柔和灰色构建背景层次，将视觉焦点让渡给塑造品牌特质的高质量影像。",
+      "ch2_outro": "核心准则是色彩服务于内容，而非喧宾夺主。",
+      "ch3_intro": "字体采用精致的无衬线体系，在标题尺寸采用紧密字距以营造编辑感。正文严格使用400字重，搭配充裕行高确保可读性，同时赋予页面轻盈自信的视觉存在感。",
+      "ch4_intro": "间距遵循宽裕且结构化的节奏，主要区块采用大面积内边距，内部结构统一基于8px的增量体系。",
+      "ch5_intro": "界面表面通过微妙手法定义，使用1px单线边框划分容器边界。需要体现层次时，采用带有明显蓝色调的大面积柔和阴影实现。",
+      "ch6_intro": "布局骨架始于居中的响应式容器，从全出血的编辑式首屏过渡至结构化多栏界面。这种从扩展式摄影到有序仪表盘的演进，构成了页面的整体架构逻辑。",
+      "ch7_intro": "动效设计遵循标准化且具有明确目的，所有交互状态变化均采用统一的缓动曲线。理念上强调克制——通过简单的颜色、透明度与位移变化响应交互，不刻意张扬。",
+      "ch8_intro": "编辑语言保持自信、清晰且平易近人，偏好用简短有力的陈述直接传递价值。文案规避术语与营销化表述，信赖产品本身的价值与系统精炼的呈现方式。",
+      "ch8_outro": "系统刻意排除鲜艳的合成强调色与繁杂厚重的UI元素，依靠字体层级与留白体系实现视觉重点的自然引导。"
+    },
+    "zh-TW": {
+      "ch1_intro": "此系統採用為 AI 代理提供高端諮詢服務的類比，在技術深度與親切、以人為本的敘事之間取得平衡。其視覺 DNA 建立在溫暖、中性的色調上，讓攝影圖像承擔情感傳達的角色；精緻的字型系統與寬裕的間距則營造出值得信賴的專業感。",
+      "ch2_outro": "核心原則是色彩服務於內容，而非反過來。",
+      "ch2_intro": "色彩原則是克制，依靠溫暖的中性基調來襯托內容而非與之競爭。大地色調與柔和灰色作為背景，將視覺焦點讓渡給定義品牌特質的高品質攝影。",
+      "ch3_intro": "字型採用精緻的 grotesque-sans 風格，標題尺寸使用緊湊的字距以營造編輯質感。正文嚴格使用 400 字重，搭配寬裕的行高，確保可讀性並在頁面上呈現輕盈而自信的存在感。",
+      "ch4_intro": "間距遵循寬裕而有結構的節奏，主要區塊使用較大內邊距，內部結構則維持一致的 8px 基準增量。",
+      "ch5_intro": "界面以細膩手法定義，使用單一 1px 邊框來區隔容器。需要時，透過帶有明顯藍色調的大型柔和陰影來營造深度。",
+      "ch6_intro": "版面架構從置中的響應式容器開始，從全出血的編輯式主視覺過渡到結構化的多欄 UI。這種從廣闊攝影圖像到有組織儀表板的演進，定義了頁面的架構層次。",
+      "ch7_intro": "動態效果標準化且具目的性，所有互動狀態變化均受單一、一致的緩動曲線控制。其哲學優先考慮細膩度——簡單的顏色、透明度和變換變化，既承認互動的存在，又不過度張揚。",
+      "ch8_intro": "編輯語氣自信、清晰且親切，偏好直接陳述價值的短促有力語句。語言避免行銷術語與誇張修辭，信賴產品本身的實質與系統精緻的呈現方式。",
+      "ch8_outro": "此系統刻意排除鮮豔的人工強調色與雜亂、厚重的 UI 元素，信賴其字型比例與間距來提供必要的視覺重點。"
+    },
+    "ja": {
+      "ch1_intro": "このシステムは、AIエージェント向けのハイエンドコンサルティングに見立て、技術的な深さと親しみやすく人間的なストーリーテリングのバランスを取っています。その視覚的DNAは、写真に感情的な役割を担わせるための、温かみのあるニュートラルなパレットを基盤とし、洗練されたタイポグラフィシステムとゆったりとした余白が、信頼できる専門性の感覚を生み出しています。",
+      "ch2_intro": "カラープリンシプルは「抑制」にあり、コンテンツと競合するのではなく、それを支えるための温かみのあるニュートラルな基盤に依存しています。アースカラーとソフトグレーが背景となり、ブランドの特質を定義する高品質の写真に視覚的な興味を委ねます。",
+      "ch2_outro": "中心となる原則は、カラーコンテンツを支え、その逆ではないということです。",
+      "ch3_intro": "タイポグラフィの声は、洗練されたグロテスクsans-serifによるもので、表示サイズではタイトなトラッキングが施され、雑誌のような雰囲気を醸し出しています。本文テキストには厳密な400のウェイトを、ゆったりとしたline-heightと組み合わせることで、ページ上での可読性と軽やかで自信に満ちた存在感を確保しています。",
+      "ch4_intro": "余白は、ゆったりとした構造的なリズムに従います。主要セクションには大きなパディングを、内部構造には一貫した8pxベースの段階的 increments を採用しています。",
+      "ch5_intro": "サーフェスは、微細さによって定義され、コンテナを区切るために1pxのボーダーを単独で使用します。必要に応じて、depth は明確な青みを帯びた大型のソフトシャドウを適用することで実現します。",
+      "ch6_intro": "レイアウトの骨格は、中央揃えのレスポンシブコンテナとして始まり、フルブリードのエディトリアルなヒーローから、構造化されたマルチカラムUIへと移行します。この、広大な写真から整理されたダッシュボードへの進化が、ページアーキテクチャを定義します。",
+      "ch7_intro": "モーションは標準化され、目的に沿ったものとなります。すべてのインタラクティブな状態変化は、単一で一貫したeasing曲線によって管理されます。哲学は「微細さ」を優先します。インタラクションを認識させるが、強調しすぎない、シンプルな色、opacity、およびtransformの変化です。",
+      "ch8_intro": "エディトリアルな声は、自信に満ち、明確で、親しみやすいものであり、価値を直接述べる短くインパクトのある表現を好んでいます。言葉は専門用語やマーケティングの熱狂を避け、製品の実質とシステムの洗練されたプレゼンテーションを信頼しています。",
+      "ch8_outro": "このシステムは、意図的に鮮やかな合成アクセントやごちゃつき、重厚なUI要素を排除し、強調を生み出すためにタイポグラフィスケールと余白を信頼しています。"
+    },
+    "ko": {
+      "ch1_intro": "이 시스템은 AI 에이전트를 위한 프리미엄 컨설팅이라는 비유를 따르며, 기술적 깊이와 친근하고 인간 중심적인 스토리텔링의 균형을 맞춥니다. 시각적 DNA는 따뜻하고 중립적인 팔레트 위에 구축되어 사진이 감정적인 역할을 수행하도록 하며, 정교한 타이포그래피 시스템과 넉넉한 간격이 신뢰할 수 있는 전문성을 느낌을 줍니다.",
+      "ch2_intro": "색상 원칙은 절제에 기반하며, 따뜻한 중립적 기반으로 콘텐츠를 지원하고 콘텐츠와 경쟁하지 않습니다. 대지의 톤과 부드러운 그레이가 배경을 제공하고, 브랜드의 성격을 정의하는 고품질 사진에 시각적 관심을 양보합니다.",
+      "ch2_outro": "핵심 원칙은 색상이 콘텐츠를 지원한다는 것입니다.",
+      "ch3_intro": "타이포그래피 음성은 정교한 grotesque-sans의 것이며, 에디토리얼 느낌을 위해 디스플레이 크기에서 타이트한 트래킹으로 설정됩니다. 본문 텍스트에는 엄격한 400 웨이트를 적용하고 넉넉한 행 높이를 결합하여 가독성과 페이지 위의 가볍고 자신감 있는 존재감을 보장합니다.",
+      "ch4_intro": "간격은 넉넉하고 체계적인 리듬을 따르며, 주요 섹션에는 큰 패딩을, 내부 구조에는 일관된 8px 기반 증분을 사용합니다.",
+      "ch5_intro": "표면은 미묘함으로 정의되며, 1px 보더를 사용하여 컨테이너를 구분합니다. 필요한 경우 깊이는 뚜렷한 블루 틴트가 있는 크고 부드러운 그림자를 통해 적용됩니다.",
+      "ch6_intro": "레이아웃 스켈레톤은 중앙 정렬된 반응형 컨테이너로 시작하여, 풀블리드 에디토리얼 히어로에서 구조화된 다중 컬럼 UI로 전환됩니다. 확장된 사진에서 정돈된 대시보드로의 이 진화가 페이지 구조를 정의합니다.",
+      "ch7_intro": "모션은 표준화되고 의도적이며, 모든 인터랙티브 상태 변경은 단일하고 일관된 이징 커브로 제어됩니다. 이 철학은 미묘함을 우선시합니다. 상호작용을 인식하되 과시하지 않는 단순한 색상, 불투명도, 변환 전환이 적용됩니다.",
+      "ch8_intro": "에디토리얼 음성은 자신감 있고 명확하며 친근하며, 가치를 직접적으로 전달하는 짧고 임팩트 있는 진술을 선호합니다. 언어는 전문 용어와 마케팅 열정을 피하며, 제품의 본질과 시스템의 정교한 프레젠테이션을 신뢰합니다.",
+      "ch8_outro": "이 시스템은 의도적으로 활기찬 합성 악센트와 복잡하고 무거운 UI 요소를 제외하며, 강조를 위해 타이포그래피 스케일과 간격에 의존합니다."
+    }
+  }
 }

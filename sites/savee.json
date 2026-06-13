@@ -8,6 +8,577 @@
     "design",
     "gallery"
   ],
-  "status": "pending",
-  "added_at": "2026-06-02"
+  "status": "completed",
+  "added_at": "2026-06-02",
+  "spec": {
+    "colors": {
+      "bg": "#050505",
+      "bgSoft": "#151515",
+      "bgQuiet": "#1e1e1e",
+      "ink": "#fdfdfd",
+      "inkSoft": "#a3a3a3",
+      "muted": "#737373",
+      "mutedSoft": "#404040",
+      "accent": "#1019ed",
+      "line": "rgba(64,64,64,0.5)"
+    },
+    "typography": {
+      "display": "geometric-sans",
+      "body": "geometric-sans",
+      "mono": "monospace",
+      "scale": [
+        {
+          "token": "display",
+          "size": 60,
+          "lh": 1.0,
+          "weight": 500,
+          "ls": "-1.44px"
+        },
+        {
+          "token": "h2",
+          "size": 36,
+          "lh": 1.11,
+          "weight": 500,
+          "ls": "-0.48px"
+        },
+        {
+          "token": "body",
+          "size": 16,
+          "lh": 1.375,
+          "weight": 400,
+          "ls": "-0.24px"
+        }
+      ]
+    },
+    "spacing": {
+      "base": 4,
+      "scale": [
+        4,
+        8,
+        16,
+        24,
+        32,
+        48,
+        64,
+        96
+      ]
+    },
+    "surfaces": {
+      "radius": {
+        "sm": 4,
+        "md": 12,
+        "lg": 20,
+        "pill": 9999
+      }
+    },
+    "layout": {
+      "container": 1280,
+      "paragraph": 680,
+      "columns": 12,
+      "gutter": 24,
+      "breakpoints": [
+        768,
+        1024
+      ]
+    },
+    "motion": {
+      "durations": {
+        "micro": 150,
+        "small": 400,
+        "medium": 680
+      },
+      "easing": "cubic-bezier(0.22, 0.86, 0, 1)"
+    }
+  },
+  "spec_i18n": {
+    "en": {
+      "identity": {
+        "keywords": [
+          "curation",
+          "visual inspiration",
+          "design reference",
+          "clean",
+          "premium"
+        ],
+        "analogy": "A digital mood board platform for creative professionals.",
+        "oneLiner": "A premium visual curation tool for designers built on a dark, minimal aesthetic."
+      },
+      "colors": {
+        "principle": "High-contrast dark mode using pure blacks and whites with a single vibrant blue accent."
+      },
+      "typography": {
+        "rules": [],
+        "scaleUses": [
+          "Hero headlines",
+          "Section headings",
+          "Paragraphs and UI text"
+        ]
+      },
+      "spacing": {
+        "rhythm": "4px base grid with generous vertical spacing for sections."
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 18px 70px rgba(0,0,0,0.35)"
+        ],
+        "borders": "1px solid rgb(64,64,64) for cards and inputs."
+      },
+      "layout": {
+        "skeleton": "Single column centered layout with large hero sections."
+      },
+      "components": {
+        "button": "Pill-shaped primary button with solid blue fill; ghost secondary button with border.",
+        "card": "Dark elevated surface with rounded corners and subtle borders.",
+        "chip": "Pill-shaped container for platform icons (iPhone App, Figma Plugin, etc.).",
+        "input": "Dark input fields with rounded corners and subtle border.",
+        "hero": "Large centered headline with subtext and prominent CTA button."
+      },
+      "motion": {
+        "patterns": [
+          "Fade-in and scale-up on page load",
+          "Smooth color transitions on hover"
+        ]
+      },
+      "interaction": {
+        "hover": "Subtle background color change or opacity shift.",
+        "click": "Immediate feedback with color transition.",
+        "transition": "0.15s cubic-bezier for colors, 0.68s for transforms.",
+        "keyboard": "Standard focus management with visible outlines."
+      },
+      "voice": {
+        "tone": "Professional, clean, and confident.",
+        "headlineStyle": "Direct and impactful, focusing on the value proposition.",
+        "ctaStyle": "Action-oriented and clear, like 'Build your library'.",
+        "avoid": [
+          "Playful or casual language",
+          "Visual clutter",
+          "Complex gradients"
+        ]
+      },
+      "donts": [
+        "Don't use light backgrounds — screenshot shows a pure black (#050505) background.",
+        "Don't use decorative fonts — screenshot shows clean, geometric sans-serif typography.",
+        "Don't use multiple accent colors — screenshot shows a single vibrant blue (#1019ed) accent.",
+        "Don't use sharp corners on buttons — screenshot shows full pill-shaped buttons (9999px radius).",
+        "Don't use thin, light fonts — screenshot shows medium-weight (500) headings for impact.",
+        "Don't use busy backgrounds or gradients — screenshot shows solid, flat dark surfaces."
+      ],
+      "systemPrompt": "This is a premium visual curation platform for designers, emphasizing a clean, minimal dark-mode aesthetic. The primary background is near-black (#050505), contrasted with pure white (#fdfdfd) text and muted gray (#a3a3a3) secondary text. The single vibrant blue accent (#1019ed) is used exclusively for primary calls to action like 'Build your library'. Typography uses a geometric sans-serif category with a large display scale (60px) for impact. Critical design constraints include avoiding light mode, avoiding multiple accent colors, using pill-shaped buttons instead of rectangular ones, avoiding decorative fonts, and maintaining generous white space to ensure visual focus remains on the curated content."
+    },
+    "zh-CN": {
+      "identity": {
+        "keywords": [
+          "策展",
+          "视觉灵感",
+          "设计参考",
+          "简洁",
+          "高端"
+        ],
+        "analogy": "面向创意专业人士的数字情绪板平台。",
+        "oneLiner": "一款为设计师打造的高端视觉策展工具，基于深邃、极简的美学理念构建。"
+      },
+      "colors": {
+        "principle": "采用纯黑与纯白，并搭配单一鲜明蓝色点缀的高对比度暗色模式。"
+      },
+      "typography": {
+        "rules": [],
+        "scaleUses": [
+          "英雄区域标题",
+          "版块标题",
+          "段落与界面文字"
+        ]
+      },
+      "spacing": {
+        "rhythm": "基于 4px 的基础网格，版块间采用充裕的垂直间距。"
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 18px 70px rgba(0,0,0,0.35)"
+        ],
+        "borders": "用于卡片和输入框的 1px 实线 rgb(64,64,64) 边框。"
+      },
+      "layout": {
+        "skeleton": "居中的单栏布局，配备大型英雄区域。"
+      },
+      "components": {
+        "button": "药丸形主按钮，采用纯蓝色填充；次要按钮为带边框的幽灵样式。",
+        "card": "深色凸起表面，圆角设计搭配细微边框。",
+        "chip": "用于平台图标（iPhone App、Figma 插件等）的药丸形容器。",
+        "input": "深色输入框，圆角设计搭配细微边框。",
+        "hero": "居中的大型标题，附带副标题和醒目的 CTA 按钮。"
+      },
+      "motion": {
+        "patterns": [
+          "页面加载时淡入并放大",
+          "悬停时平滑的颜色过渡"
+        ]
+      },
+      "interaction": {
+        "hover": "细微的背景色变化或透明度偏移。",
+        "click": "通过颜色过渡提供即时反馈。",
+        "transition": "颜色过渡 0.15s cubic-bezier，变换动画 0.68s。",
+        "keyboard": "标准的焦点管理，带有可见的轮廓线。"
+      },
+      "voice": {
+        "tone": "专业、简洁且自信。",
+        "headlineStyle": "直接且有冲击力，聚焦价值主张。",
+        "ctaStyle": "行动导向且清晰，例如「构建你的库」。",
+        "avoid": [
+          "俏皮或随意的语言",
+          "视觉杂乱",
+          "复杂的渐变"
+        ]
+      },
+      "donts": [
+        "不要使用浅色背景——截图显示为纯黑 (#050505) 背景。",
+        "不要使用装饰性字体——截图显示为简洁、几何感的无衬线字体。",
+        "不要使用多种强调色——截图显示为单一的鲜明蓝色 (#1019ed) 强调色。",
+        "不要使用尖角按钮——截图显示为完全的药丸形按钮（9999px 圆角）。",
+        "不要使用纤细、浅色的字体——截图显示为中等字重 (500) 的标题以增强冲击力。",
+        "不要使用杂乱的背景或渐变——截图显示为纯色、平坦的深色表面。"
+      ],
+      "systemPrompt": "这是一款面向设计师的高端视觉策展平台，强调简洁、极简的暗色模式美学。主要背景为深近黑色 (#050505)，与纯白色 (#fdfdfd) 文字和柔和的灰色 (#a3a3a3) 次要文字形成对比。单一的鲜明蓝色 (#1019ed) 仅用于主要的行动号召，例如「构建你的库」。字体使用几何无衬线字体类别，并采用大号展示比例 (60px) 以增强冲击力。关键设计约束包括：避免浅色模式、避免多种强调色、使用药丸形按钮而非矩形按钮、避免装饰性字体，以及保持充裕的留白，确保视觉焦点始终停留在策展内容上。"
+    },
+    "zh-TW": {
+      "identity": {
+        "keywords": [
+          "策展",
+          "視覺靈感",
+          "設計參考",
+          "簡潔",
+          "高端"
+        ],
+        "analogy": "面向創意專業人士的數位心情看板平台。",
+        "oneLiner": "一款為設計師打造的高端視覺策展工具，基於深色簡約美學。"
+      },
+      "colors": {
+        "principle": "採用純黑與純白的高對比深色模式，並搭配單一鮮明的藍色強調色。"
+      },
+      "typography": {
+        "rules": [],
+        "scaleUses": [
+          "主標題",
+          "章節標題",
+          "段落與 UI 文字"
+        ]
+      },
+      "spacing": {
+        "rhythm": "以 4px 為基礎網格，並為各區塊搭配寬裕的垂直間距。"
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 18px 70px rgba(0,0,0,0.35)"
+        ],
+        "borders": "卡片與輸入欄位採用 1px solid rgb(64,64,64) 邊框。"
+      },
+      "layout": {
+        "skeleton": "居中單欄式佈局，搭配大型主視覺區塊。"
+      },
+      "components": {
+        "button": "藥丸狀主要按鈕，採用實心藍色填充；次要按鈕為幽靈按鈕樣式，帶有邊框。",
+        "card": "深色凸起表面，具有圓角與細微邊框。",
+        "chip": "藥丸狀容器，用於展示平台圖示（iPhone App、Figma Plugin 等）。",
+        "input": "深色輸入欄位，具有圓角與細微邊框。",
+        "hero": "大型居中標題，搭配輔助文字與顯眼的 CTA 按鈕。"
+      },
+      "motion": {
+        "patterns": [
+          "頁面載入時淡入並縮放",
+          "hover 時平滑的顏色過渡"
+        ]
+      },
+      "interaction": {
+        "hover": "細微的背景顏色變化或透明度變動。",
+        "click": "透過顏色過渡提供即時回饋。",
+        "transition": "顏色過渡使用 0.15s cubic-bezier，變形過渡使用 0.68s。",
+        "keyboard": "標準的焦點管理，具有可見的外框。"
+      },
+      "voice": {
+        "tone": "專業、簡潔且自信。",
+        "headlineStyle": "直接且具衝擊力，聚焦於價值主張。",
+        "ctaStyle": "以行動為導向且清晰明確，例如「建立你的資料庫」。",
+        "avoid": [
+          "俏皮或隨意的語言",
+          "視覺雜亂",
+          "複雜的漸層"
+        ]
+      },
+      "donts": [
+        "避免使用淺色背景——截圖顯示為純黑（#050505）背景。",
+        "避免使用裝飾性字體——截圖顯示為簡潔的幾何無襯線字體。",
+        "避免使用多種強調色——截圖顯示僅使用單一鮮明的藍色（#1019ed）強調色。",
+        "避免按鈕使用尖銳的邊角——截圖顯示為全藥丸狀按鈕（9999px radius）。",
+        "避免使用細瘦、輕盈的字體——截圖顯示標題採用中等字重（500）以增強衝擊力。",
+        "避免使用繁雜的背景或漸層——截圖顯示為純色、平坦的深色表面。"
+      ],
+      "systemPrompt": "這是一款面向設計師的高端視覺策展平台，強調簡潔、極簡的深色模式美學。主要背景為近乎純黑（#050505），與純白（#fdfdfd）文字及柔和的灰色（#a3a3a3）輔助文字形成對比。單一鮮明的藍色強調色（#1019ed）僅用於主要的行動呼籲（如「建立你的資料庫」）。字體使用幾何無襯線字體類別，並採用大型展示尺度（60px）以增強衝擊力。關鍵設計限制包括：避免淺色模式、避免多種強調色、使用藥丸狀按鈕而非矩形按鈕、避免裝飾性字體，以及保持寬裕的留白，確保視覺焦點始終停留在策展內容上。"
+    },
+    "ja": {
+      "identity": {
+        "keywords": [
+          "キュレーション",
+          "ビジュアルインスピレーション",
+          "デザインリファレンス",
+          "クリーン",
+          "プレミアム"
+        ],
+        "analogy": "クリエイティブプロフェッショナルのためのデジタル・ムードボードプラットフォーム。",
+        "oneLiner": "ダークでミニマルな美学の上に構築された、デザイナーのためのプレミアムビジュアルキュレーションツール。"
+      },
+      "colors": {
+        "principle": "純粋なブラックとホワイトを用いたハイコントラストダークモード。単一の鮮やかなブルーアクセントを採用しています。"
+      },
+      "typography": {
+        "rules": [],
+        "scaleUses": [
+          "ヒーローヘッドライン",
+          "セクション見出し",
+          "本文およびUIテキスト"
+        ]
+      },
+      "spacing": {
+        "rhythm": "4pxのベースグリッドを採用し、セクション間にはゆったりとした縦方向の余白を設定しています。"
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 18px 70px rgba(0,0,0,0.35)"
+        ],
+        "borders": "カードや入力フィールドには `1px solid rgb(64,64,64)` のボーダーを使用しています。"
+      },
+      "layout": {
+        "skeleton": "中心に揃えた単一カラムレイアウト。大きなヒーローセクションを採用しています。"
+      },
+      "components": {
+        "button": "プライマリボタン：青の塗りつぶしを施したピル形状。セカンダリボタン：ボーダーのみのゴーストスタイル。",
+        "card": "角丸のダークな浮き上がりサーフェス。微細なボーダーを施しています。",
+        "chip": "プラットフォームアイコン（iPhone App、Figma Pluginなど）を格納するピル形状コンテナ。",
+        "input": "角丸のダークな入力フィールド。微細なボーダーを施しています。",
+        "hero": "中心に配置した大きな見出し、サブテキスト、および目立つCTAボタンで構成。"
+      },
+      "motion": {
+        "patterns": [
+          "ページ読み込み時のフェードインとスケールアップ",
+          "ホバー時の滑らかなカラートランジション"
+        ]
+      },
+      "interaction": {
+        "hover": "微細な背景色の変化や透明度のシフトを実装。",
+        "click": "即座にフィードバックを提供するカラートランジション。",
+        "transition": "カラー変化には0.15s cubic-bezier、トランスフォームには0.68s cubic-bezierを使用。",
+        "keyboard": "標準的なフォーカス管理を採用。明確なアウトラインを表示します。"
+      },
+      "voice": {
+        "tone": "プロフェッショナルでクリーン、かつ自信に満ちた口調。",
+        "headlineStyle": "直接的でインパクトのある表現。価値提案に焦点を当てます。",
+        "ctaStyle": "行動を促す明確な表現（例：「Build your library」など）。",
+        "avoid": [
+          "おちゃらけた、あるいはカジュアルな言葉遣い",
+          "視覚的な雑然さ",
+          "複雑なグラデーション"
+        ]
+      },
+      "donts": [
+        "明るい背景を使用しないこと — スクリーンショットでは純粋なブラック（#050505）の背景が示されています。",
+        "装飾的なフォントを使用しないこと — スクリーンショットではクリーンな幾何学的サンセリフタイポグラフィが示されています。",
+        "複数のアクセントカラーを使用しないこと — スクリーンショットでは単一の鮮やかなブルー（#1019ed）アクセントが示されています。",
+        "ボタンにシャープな角を使用しないこと — スクリーンショットでは完全なピル形状（radius 9999px）のボタンが示されています。",
+        "細く軽いフォントを使用しないこと — スクリーンショットではインパクトを重視したミディアムウェイト（500）の見出しが示されています。",
+        "賑やかな背景やグラデーションを使用しないこと — スクリーンショットでは平坦で滑らかなダークサーフェスが示されています。"
+      ],
+      "systemPrompt": "これはデザイナーのためのプレミアムビジュアルキュレーションプラットフォームであり、クリーンでミニマルなダークモード美学を重視しています。プライマリ背景はブラックに近い色（#050505）で、純白（#fdfdfd）のテキストと控えめなグレー（#a3a3a3）のセカンダリテキストとコントラストを形成しています。単一の鮮やかなブルーアクセント（#1019ed）は、「Build your library」のようなプライマリCTAにのみ使用されます。タイポグラフィは幾何学的サンセリフカテゴリを使用し、インパクトのために大きなディスプレイスケール（60px）を採用しています。重要なデザイン制約として、ライトモードの回避、複数アクセントカラーの回避、矩形ボタンではなくピル形状ボタンの使用、装飾フォントの回避、視覚的な焦点をキュレーションされたコンテンツに維持するための十分な余白の確保が挙げられます。"
+    },
+    "ko": {
+      "identity": {
+        "keywords": [
+          "큐레이션",
+          "비주얼 영감",
+          "디자인 레퍼런스",
+          "깔끔함",
+          "프리미엄"
+        ],
+        "analogy": "크리에이티브 전문가를 위한 디지털 무드 보드 플랫폼.",
+        "oneLiner": "다크하고 미니멀한 미학 위에 구축된 디자이너를 위한 프리미엄 비주얼 큐레이션 도구."
+      },
+      "colors": {
+        "principle": "순백색과 검은색을 사용한 고대비 다크 모드로, 단일의 선명한 블루 악센트를 사용합니다."
+      },
+      "typography": {
+        "rules": [],
+        "scaleUses": [
+          "히어로 헤드라인",
+          "섹션 제목",
+          "단락 및 UI 텍스트"
+        ]
+      },
+      "spacing": {
+        "rhythm": "섹션의 넉넉한 수직 간격을 위한 4px 기본 격자."
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 18px 70px rgba(0,0,0,0.35)"
+        ],
+        "borders": "카드 및 입력 필드용 1px solid rgb(64,64,64)."
+      },
+      "layout": {
+        "skeleton": "큰 히어로 섹션을 갖춘 단일 열 중앙 정렬 레이아웃."
+      },
+      "components": {
+        "button": "단색 블루 채우기가 적용된 알약 모양의 주요 버튼; 테두리가 있는 고스트 보조 버튼.",
+        "card": "둥근 모서리와 섬세한 테두리가 있는 어두운 상승된 표면.",
+        "chip": "플랫폼 아이콘용 알약 모양 컨테이너 (iPhone App, Figma Plugin 등).",
+        "input": "둥근 모서리와 섬세한 테두리가 있는 어두운 입력 필드.",
+        "hero": "부제목과 두드러진 CTA 버튼이 있는 큰 중앙 정렬 헤드라인."
+      },
+      "motion": {
+        "patterns": [
+          "페이지 로드 시 fade-in 및 scale-up",
+          "hover 시 부드러운 색상 전환"
+        ]
+      },
+      "interaction": {
+        "hover": "배경색 변경 또는 불투명도 변화를 통한 섬세한 피드백.",
+        "click": "색상 전환을 통한 즉각적인 피드백.",
+        "transition": "색상 전환 시 0.15s cubic-bezier, 변환 시 0.68s.",
+        "keyboard": "눈에 보이는 윤곽선을 갖춘 표준 초점 관리."
+      },
+      "voice": {
+        "tone": "전문적이고 깔끔하며 자신감 있는 어조.",
+        "headlineStyle": "가치 제안에 집중하는 직접적이고 강렬한 스타일.",
+        "ctaStyle": "'Build your library'와 같이 행동을 유도하고 명확한 스타일.",
+        "avoid": [
+          "장난스럽거나 캐주얼한 언어",
+          "시각적 혼잡",
+          "복잡한 그라데이션"
+        ]
+      },
+      "donts": [
+        "밝은 배경을 사용하지 마세요 — 스크린샷은 순수 블랙(#050505) 배경을 보여줍니다.",
+        "장식용 폰트를 사용하지 마세요 — 스크린샷은 깔끔하고 기하학적인 sans-serif 타이포그래피를 보여줍니다.",
+        "여러 악센트 색상을 사용하지 마세요 — 스크린샷은 단일의 선명한 블루(#1019ed) 악센트를 보여줍니다.",
+        "버튼에 날카로운 모서리를 사용하지 마세요 — 스크린샷은 알약 모양의 완전한 둥근 버튼(9999px 반경)을 보여줍니다.",
+        "얇고 가벼운 폰트를 사용하지 마세요 — 스크린샷은 영향력을 위해 중간 두께(500)의 제목을 보여줍니다.",
+        "바쁜 배경이나 그라데이션을 사용하지 마세요 — 스크린샷은 단색의 플랫한 어두운 표면을 보여줍니다."
+      ],
+      "systemPrompt": "이것은 깔끔하고 미니멀한 다크 모드 미학을 강조하는 디자이너를 위한 프리미엄 비주얼 큐레이션 플랫폼입니다. 주요 배경은 근_black(#050505)이며, 순백색(#fdfdfd) 텍스트와 둔한 회색(#a3a3a3) 보조 텍스트로 대비됩니다. 단일의 선명한 블루 악센트(#1019ed)는 'Build your library'와 같은 주요 CTA에만 독점적으로 사용됩니다. 타이포그래피는 영향력을 위한 큰 디스플레이 스케일(60px)의 기하학적 sans-serif 카테고리를 사용합니다. 주요 디자인 제약 사항으로는 라이트 모드 회피, 여러 악센트 색상 회피, 직사각형 버튼 대신 알약 모양 버튼 사용, 장식용 폰트 회피, 큐레이션된 콘텐츠에 시각적 초점을 유지하기 위한 넉넉한 여백 확보가 포함됩니다."
+    }
+  },
+  "desc": {
+    "en": {
+      "palette": "A high-contrast dark mode palette anchored by near-black backgrounds and pure white text, featuring a single vibrant blue accent.",
+      "layout": "A centered, single-column layout with generous vertical spacing and large hero sections designed to focus attention on the core value proposition.",
+      "interaction": "Smooth, subtle transitions on hover and click events using a fast cubic-bezier curve for an polished feel.",
+      "motion": "Elegant fade-in and scale-up animations on page load, with staggered delays for a refined entrance effect.",
+      "notes": "A textbook example of a premium dark-mode SaaS design that uses minimal color and large typography to convey a sense of professional quality."
+    },
+    "zh-CN": {
+      "palette": "以深近黑色背景和纯白色文字为主导的高对比度暗色模式配色方案，点缀一抹鲜明的蓝色。",
+      "layout": "居中单栏布局，拥有充裕的垂直间距和大型英雄区域，旨在聚焦核心价值主张。",
+      "interaction": "基于快速 cubic-bezier 曲线的平滑悬停与点击过渡，营造精致体验。",
+      "motion": "页面加载时优雅的淡入与放大动画，辅以交错延迟，呈现精致的入场效果。",
+      "notes": "这是一个教科书级的高端暗色模式 SaaS 设计范例，通过极简色彩与大号字体传达专业品质感。"
+    },
+    "zh-TW": {
+      "palette": "以純黑背景與純白文字為基調的高對比深色模式配色，並搭配單一鮮明的藍色作為強調色。",
+      "layout": "採用居中單欄式佈局，搭配寬裕的垂直間距與大型主視覺區塊，以聚焦於核心價值主張。",
+      "interaction": "在 hover 與點擊事件上運用快速的 cubic-bezier 曲線，實現流暢、細微的過渡效果，營造精緻質感。",
+      "motion": "頁面載入時運用優雅的淡入與縮放動畫，並透過錯落的延遲營造精緻的入場效果。",
+      "notes": "這是高端深色模式 SaaS 設計的教科書級範例，透過極簡色彩與大字體傳達專業品質感。"
+    },
+    "ja": {
+      "palette": "ブラックに近い背景と純白のテキストを中心とした、ハイコントラストのダークモードパレット。鮮やかなブルーのアクセントを単一で使用しています。",
+      "layout": "中心に揃えた単一カラムレイアウト。ゆったりとした縦方向の余白と、主要な価値提案に注意を集中させるための大きなヒーローセクションを採用しています。",
+      "interaction": "ホバーおよびクリックイベントに、高速な cubic-bezier カーブを用いた滑らかで微細なトランジションを実装し、洗練された操作感を実現します。",
+      "motion": "ページ読み込み時にフェードインとスケールアップのアニメーションを、スタッガーされたディレイで適用し、上品な出現効果を演出します。",
+      "notes": "プレミアムダークモードSaaSデザインの教科書的な例です。最小限のカラーリングと大きなタイポグラフィにより、プロフェッショナルな品質感を伝えています。"
+    },
+    "ko": {
+      "palette": "근_black_배경과 순백색 텍스트로 중심을 잡은 고대비 다크 모드 팔레트로, 단일의 선명한 블루 악센트를 특징으로 합니다.",
+      "layout": "여백이 넉넉한 수직 간격과 중심 가치 제안에 주목하도록 설계된 큰 히어로 섹션을 갖춘 중앙 정렬 단일 열 레이아웃입니다.",
+      "interaction": "빠른 cubic-bezier 커브를 사용하여 hover 및 click 이벤트 시 매끄럽고 섬세한 전환을 통해 세련된 느낌을 줍니다.",
+      "motion": "페이지 로드 시 우아한 fade-in 및 scale-up 애니메이션이 적용되며, 정교한 입 효과를 위해 교차된 딜레이가 적용됩니다.",
+      "notes": "최소한의 색상과 큰 타이포그래피를 사용하여 전문적인 품질감을 전달하는 프리미엄 다크 모드 SaaS 디자인의 전형적인 예시입니다."
+    }
+  },
+  "_meta": {
+    "vision_model": "mimo-v2.5",
+    "vision_prompt_version": "0.3",
+    "vision_source": "playwright-extract:savee",
+    "vision_grounded": true,
+    "vision_at": "2026-06-04T18:41:31+00:00",
+    "vision_tokens": 18293,
+    "vision_cost_usd": 0.2033,
+    "translation_model": "mimo-v2.5",
+    "translation_at": "2026-06-04T18:42:50+00:00",
+    "translation_tokens": 15705,
+    "translation_cost_usd": 0.0523,
+    "narrative_model": "mimo-v2.5",
+    "narrative_prompt_version": "0.3",
+    "narrative_at": "2026-06-04T18:42:58+00:00",
+    "narrative_tokens": 1898,
+    "narrative_cost_usd": 0.0127,
+    "narrative_status": "ok",
+    "total_cost_usd": 0.2683
+  },
+  "narrative": {
+    "en": {
+      "ch1_intro": "Savee functions as a digital mood board, a curated library of visual references for the working designer. The system is built on a strict dark-mode foundation where high contrast and minimal color keep the focus squarely on the content being collected.",
+      "ch2_intro": "The palette is a study in restraint, built on a near-black ground and pure white type. A single, vibrant blue accent is reserved exclusively for primary actions, ensuring its use is always intentional.",
+      "ch2_outro": "This is a system of maximum contrast, where every color choice serves clarity and hierarchy.",
+      "ch3_intro": "Typography employs a clean, geometric sans-serif for a neutral yet professional voice. A large display scale is used to make statements, while medium-weight text ensures impact without appearing heavy.",
+      "ch4_intro": "Spacing follows a strict 4px base grid, creating a consistent and predictable rhythm across all components.",
+      "ch5_intro": "Surfaces are defined by their elevation, using a specific deep shadow to lift cards and inputs from the background. Borders are subtle, 1px lines in a muted gray, providing just enough definition to separate content areas.",
+      "ch6_intro": "The layout is a centered, single-column skeleton that prioritizes focus over density. Generous vertical spacing and large hero sections frame the primary value proposition without distraction.",
+      "ch7_intro": "Motion is reserved for meaningful feedback, with smooth fade-in and scale-up animations that introduce elements with purpose. Transitions are quick and subtle, designed to feel polished rather than performative.",
+      "ch8_intro": "The editorial voice is direct, professional, and confident, matching the clean visual language. Copy is action-oriented, focusing on the core utility for the designer.",
+      "ch8_outro": "The system deliberately avoids playful language, visual clutter, and decorative flourishes, maintaining its role as a serious tool for creative professionals."
+    },
+    "zh-CN": {
+      "ch1_intro": "Savee 作为设计师的数字情绪板，为工作中的设计师提供精心策划的视觉参考库。系统建立在严格的暗色模式基础上，高对比度与极简色彩让焦点始终集中于正在收集的内容。",
+      "ch2_intro": "调色板是克制的体现，以近黑色为底、纯白色字体构建。单一鲜亮的蓝色点缀色专为主交互保留，确保其使用始终具有明确意图。",
+      "ch2_outro": "这是高对比度的系统，每种色彩选择都服务于清晰度与层次结构。",
+      "ch3_intro": "字体采用干净的几何无衬线体，呈现中性而专业的语气。大尺寸展示用于强调观点，中等字重则在保持视觉冲击力的同时避免沉重感。",
+      "ch4_intro": "间距遵循严格的4px基础网格，在所有组件间建立一致且可预测的韵律。",
+      "ch5_intro": "界面通过高度定义表面层次，使用特定深阴影使卡片与输入框从背景中浮现。边框采用柔和的1px灰色细线，恰到好处地区分内容区域。",
+      "ch6_intro": "布局采用居中单栏骨架结构，优先保障聚焦而非密度。充足的垂直间距与大型核心区块清晰呈现主要价值主张，避免视觉干扰。",
+      "ch7_intro": "动效仅用于有意义的反馈，通过流畅的淡入与缩放动画有目的地引入元素。过渡效果快速而微妙，设计追求精致感而非表演性。",
+      "ch8_intro": "编辑语气直接、专业且自信，与简洁的视觉语言相匹配。文案以行动为导向，聚焦于设计师的核心使用场景。",
+      "ch8_outro": "系统刻意避免俏皮语言、视觉杂乱与装饰性修饰，始终维持其作为创意专业人士严肃工具的定位。"
+    },
+    "zh-TW": {
+      "ch1_intro": "Savee 作為一個數位情緒板，是為設計工作者策劃的視覺參考資料庫。系統建立在嚴格的深色模式基礎上，透過高對比度和極簡的色彩，讓收集的內容成為唯一的焦點。",
+      "ch2_intro": "色彩組合體現了克制之道，以近乎黑色的背景搭配純白色文字。單一、鮮明的藍色僅用於主要操作按鈕，確保其使用始終出於明確目的。",
+      "ch2_outro": "這是一個極致對比的系統，每一項色彩選擇都服務於清晰度與層級架構。",
+      "ch3_intro": "字型採用乾淨的幾何無襯線體，營造中性而專業的語調。大尺寸的標題用於傳達核心訊息，而中等字重的內文則確保內容具有衝擊力而不顯得笨重。",
+      "ch4_intro": "間距遵循嚴格的 4px 基礎網格，在所有元件中建立一致且可預期的節奏。",
+      "ch5_intro": "介面層級透過其高度來定義，使用特定的深色陰影將卡片與輸入框從背景中提升出來。邊框採用細微的 1px 灰色線條，提供恰到好處的區隔，劃分出不同的內容區域。",
+      "ch6_intro": "版面採用居中的單欄骨架結構，優先考慮專注度而非資訊密度。寬裕的垂直間距與大型主視覺區塊，在無干擾的情況下呈現核心價值主張。",
+      "ch7_intro": "動效僅用於有意義的回饋，透過流暢的淡入與縮放動畫，有意圖地引入元素。過渡效果快速而細膩，旨在帶來精緻感，而非表演性質。",
+      "ch8_intro": "文案語氣直接、專業且充滿自信，與乾淨的視覺語言相得益彰。內容以行動為導向，聚焦於設計師的核心實用功能。",
+      "ch8_outro": "系統刻意避免俏皮的語言、視覺雜訊與裝飾性綴飾，維持其作為創意專業人士嚴肅工具的角色。"
+    },
+    "ja": {
+      "ch1_intro": "Saveeはデジタル・ムードボードとして機能し、勤務するデザイナーのためのビジュアル・リファレンスのキュレーション・ライブラリです。このシステムは、ハイコントラストとミニマルなカラーがコンテンツそのものに注目を集中させるという、厳密なダークモードの基盤の上に構築されています。",
+      "ch2_intro": "パレットは克制の哲学に基づき、ほぼ黒の背景と純白のタイポグラフィを基盤としています。鮮やかなブルーのアクセントは、プライマリアクションにのみ専用で割り当てられ、その使用が常に意図的なものであることを保証します。",
+      "ch2_outro": "これは最大限のコントラストを持つシステムであり、すべてのカラー選択が明瞭性と階層構造に奉仕しています。",
+      "ch3_intro": "タイポグラフィは、中立でありながら専門的な声を出すために、クリーンで幾何学的なサンセリフを採用しています。スケールの大きいディスプレイは主張を表すために使われ、中程度のウェイトのテキストは、重く見えることなくインパクトを確保します。",
+      "ch4_intro": "スペーシングは厳密な4pxベースグリッドに従い、すべてのコンポーネントにわたって一貫した予測可能なリズムを生み出しています。",
+      "ch5_intro": "サーフェスはその高さによって定義され、特定の深いシャドウを使用してカードやインプットを背景から浮き上がらせます。ボーダーは控えめで、くすんだグレーの1px線が使用され、コンテンツ領域を分けるための最低限の区切りを提供します。",
+      "ch6_intro": "レイアウトは、密度よりも集中を優先する中央揃えの単一カラムのスケルトンです。豊かな垂直方向のスペーシングと大きなヒーローセクションが、主要な価値提案を邪魔されることなくフレーミングします。",
+      "ch7_intro": "モーションは意味のあるフィードバックに限定され、要素を意図を持って導入する、滑らかなフェードインとスケールアップのアニメーションを用います。トランジションは迅速かつ微細で、演技的ではなく洗練された印象を与えるように設計されています。",
+      "ch8_intro": "エディトリアル・ボイスは、クリーンなビジュアル言語とマッチする、直接的で専門的、かつ自信に満ちたものです。コピーは行動を促すものであり、デザイナーにとっての核心的なユーティリティに焦点を当てています。",
+      "ch8_outro": "このシステムは、遊び心のある言葉、視覚的な雑踏、装飾的な余計なものを意図的に避け、クリエイティブ・プロフェッショナルのためのシリアスなツールとしての役割を維持しています。"
+    },
+    "ko": {
+      "ch1_intro": "Savee는 디지털 무드 보드로 기능하며, 실무 디자이너를 위한 시각적 참고 자료의 큐레이션된 라이브러리입니다. 이 시스템은 높은 대비와 최소한의 색상이 수집되는 콘텐츠에 완전히 집중할 수 있도록 하는 엄격한 다크 모드 기반 위에 구축되었습니다.",
+      "ch2_intro": "팔레트는 절제의 연구로, 거의 검은 배경과 순백 타이포그래피를 기반으로 합니다. 단 하나의 생생한 블루 액센트는 오직 주요 작업에만 전용으로 사용되어, 그 사용이 항상 의도적임을 보장합니다.",
+      "ch2_outro": "이것은 명확성과 계층 구조를 위해 모든 색상 선택이 의미를 갖는 최대 대비의 시스템입니다.",
+      "ch3_intro": "타이포그래피는 중립적이면서도 전문적인 목소리를 위해 깔끔한 기하학적 sans-serif를 사용합니다. 대규모 디스플레이 스케일은 진술을 위해 사용되며, 중간 무게의 텍스트는 무겁게 보이지 않으면서도 영향력을 보장합니다.",
+      "ch4_intro": "간격은 엄격한 4px 기본 그리드를 따르며, 모든 구성 요소에 걸쳐 일관되고 예측 가능한 리듬을 만듭니다.",
+      "ch5_intro": "표면은 높이에 의해 정의되며, 특정 깊은 그림자를 사용하여 카드와 입력 필드를 배경에서 들어 올립니다. 테두리는 미묘한 1px 회색 선으로, 콘텐츠 영역을 분리하기에 적절한 정도의 정의만을 제공합니다.",
+      "ch6_intro": "레이아웃은 밀도보다는 집중에 우선순위를 두는 중앙 정렬 단일 열 스켈레톤입니다. 넉넉한 수직 간격과 대규모 히어로 섹션이 주요 가치 제안을 방해 없이 프레임합니다.",
+      "ch7_intro": "모션은 의미 있는 피드백을 위해 예약되어 있으며, 요소들을 의도적으로 소개하기 위한 부드러운 페이드인 및 스케일업 애니메이션이 사용됩니다. 전환은 빠르고 미묘하며, 과시적이기보다는 세련되게 느껴지도록 설계되었습니다.",
+      "ch8_intro": "에디토리얼 톤은 직접적이고 전문적이며 자신감 있는 것으로, 깔끔한 시각 언어와 일치합니다. 카피는 행동 지향적이며, 디자이너를 위한 핵심 유용성에 초점을 맞춥니다.",
+      "ch8_outro": "이 시스템은 재미있는 언어, 시각적 혼란 및 장식적 장식을 의도적으로 피하며, 창의적 전문가를 위한 진지한 도구로서의 역할을 유지합니다."
+    }
+  }
 }

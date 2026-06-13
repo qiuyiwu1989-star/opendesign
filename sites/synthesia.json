@@ -8,6 +8,636 @@
     "ai",
     "video"
   ],
-  "status": "pending",
-  "added_at": "2026-06-02"
+  "status": "completed",
+  "added_at": "2026-06-02",
+  "spec": {
+    "colors": {
+      "bg": "#F5F8FF",
+      "bgSoft": "#FFFFFF",
+      "bgQuiet": "#EBF6DF",
+      "ink": "#0D0F2C",
+      "inkSoft": "#333B52",
+      "muted": "#656C86",
+      "mutedSoft": "#E6EAF4",
+      "accent": "#3E57DA",
+      "line": "rgba(230, 234, 244, 1)"
+    },
+    "typography": {
+      "display": "geometric-sans",
+      "body": "geometric-sans",
+      "mono": "monospace",
+      "scale": [
+        {
+          "token": "display",
+          "size": 56,
+          "lh": 1.1,
+          "weight": 500,
+          "ls": "-1px"
+        },
+        {
+          "token": "h2",
+          "size": 32,
+          "lh": 1.2,
+          "weight": 500,
+          "ls": "-0.5px"
+        },
+        {
+          "token": "body",
+          "size": 18,
+          "lh": 1.5,
+          "weight": 400,
+          "ls": "0px"
+        },
+        {
+          "token": "small",
+          "size": 14,
+          "lh": 1.6,
+          "weight": 400,
+          "ls": "0px"
+        },
+        {
+          "token": "label",
+          "size": 12,
+          "lh": 1.2,
+          "weight": 500,
+          "ls": "0.5px"
+        }
+      ]
+    },
+    "spacing": {
+      "base": 4,
+      "scale": [
+        4,
+        8,
+        16,
+        24,
+        32,
+        48,
+        64,
+        96
+      ]
+    },
+    "surfaces": {
+      "radius": {
+        "sm": 4,
+        "md": 8,
+        "lg": 12,
+        "pill": 999
+      }
+    },
+    "layout": {
+      "container": 1280,
+      "paragraph": 680,
+      "columns": 12,
+      "gutter": 24,
+      "breakpoints": [
+        768,
+        1024
+      ]
+    },
+    "motion": {
+      "durations": {
+        "micro": 220,
+        "small": 400,
+        "medium": 800
+      },
+      "easing": "cubic-bezier(0.4, 0, 0.2, 1)"
+    }
+  },
+  "spec_i18n": {
+    "en": {
+      "identity": {
+        "keywords": [
+          "AI",
+          "Video",
+          "Platform",
+          "Business",
+          "Enterprise"
+        ],
+        "analogy": "A clean, enterprise-grade tool that uses AI to streamline video production.",
+        "oneLiner": "An all-in-one AI video platform for business that simplifies studio-quality video creation with avatars and voiceovers."
+      },
+      "colors": {
+        "principle": "A high-contrast, accessible palette using a dominant blue accent against a soft cool-gray background."
+      },
+      "typography": {
+        "rules": [
+          "Use geometric-sans for all text (display, body, and UI elements).",
+          "Avoid using more than 2 font weights (400 and 500).",
+          "Headlines should have negative letter-spacing for a compact look."
+        ],
+        "scaleUses": [
+          "Hero headline",
+          "Section titles",
+          "Paragraphs",
+          "Captions and metadata",
+          "Uppercase tags and navigation"
+        ]
+      },
+      "spacing": {
+        "rhythm": "4px base grid with a consistent 24px gutter and 32px padding for cards."
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 6px 20px 0px rgba(16, 24, 40, 0.08)",
+          "0px 2px 16px 0px rgba(16, 24, 40, 0.08)",
+          "0px 0px 0px 1px rgb(230, 234, 244)"
+        ],
+        "borders": "1px solid rgb(230, 234, 244)"
+      },
+      "layout": {
+        "skeleton": "A centered, fixed-width container (1280px) with a 12-column grid and 24px gutters, adapting to mobile-first breakpoints."
+      },
+      "components": {
+        "button": "Solid blue (#3E57DA) with white text for primary actions, and outlined/ghost styles for secondary actions. Pill-shaped for smaller buttons, slightly rounded for larger ones.",
+        "card": "White background (#FFFFFF) with subtle shadows (0px 6px 20px rgba(16, 24, 40, 0.08)) and 12px border radius.",
+        "chip": "Pill-shaped elements with 1px borders and small padding, often used for tags or secondary filters.",
+        "input": "Clean, minimal inputs with a 1px border (rgb(230, 234, 244)) and subtle shadow on focus.",
+        "hero": "Large, centered headline (56px) with a soft cool background gradient, accompanied by a prominent CTA and product preview."
+      },
+      "motion": {
+        "patterns": [
+          "Simple color and transform transitions on hover and click.",
+          "Subtle opacity changes for loading states.",
+          "No complex or distracting animations."
+        ]
+      },
+      "interaction": {
+        "hover": "Color changes for text links and subtle background shifts for buttons.",
+        "click": "Scale or transform micro-interactions on interactive elements.",
+        "transition": "All transitions set to 0.2s for micro-interactions and 0.3s for larger color changes.",
+        "keyboard": "Standard focus rings and logical tab order throughout the interface."
+      },
+      "voice": {
+        "tone": "Professional, confident, and helpful, emphasizing ease of use and efficiency.",
+        "headlineStyle": "Direct and benefit-oriented, often using large, bold text to highlight key features.",
+        "ctaStyle": "Clear and action-oriented, using phrases like 'Get started' and 'Book a demo'.",
+        "avoid": [
+          "Vague or overly technical jargon.",
+          "Aggressive sales language.",
+          "Informal or playful slang."
+        ]
+      },
+      "donts": [
+        "Don't use a pure black (#000000) for text — screenshot shows a deep navy (#0D0F2C) for better readability.",
+        "Don't use a wide variety of font weights — screenshot shows only 400 and 500 weights consistently.",
+        "Don't use sharp, unrounded corners — screenshot shows 12px radius for cards and pill shapes for buttons.",
+        "Don't use heavy, dark backgrounds for the main layout — screenshot shows a light, cool-blue tinted background (#F5F8FF).",
+        "Don't use decorative or script fonts — screenshot shows a clean, geometric-sans font for all text.",
+        "Don't use complex, multi-color gradients — screenshot shows subtle, single-direction gradients or solid colors."
+      ],
+      "systemPrompt": "Synthesia is an enterprise-grade SaaS platform for AI-driven video creation. The design features a clean, professional aesthetic with a primary blue accent (#3E57DA) and a soft, cool-gray background (#F5F8FF). The typography is a consistent geometric-sans font (using weights 400 and 500) with large, tight headlines. Key interaction patterns include subtle shadows and 12px rounded corners. Critical don'ts: avoid pure black text, sharp corners, heavy dark backgrounds, complex gradients, and decorative fonts. The layout is centered and spacious, prioritizing clarity and ease of navigation for business users."
+    },
+    "zh-CN": {
+      "identity": {
+        "keywords": [
+          "AI",
+          "视频",
+          "平台",
+          "商务",
+          "企业"
+        ],
+        "analogy": "一款简洁的企业级工具，利用AI简化视频制作流程。",
+        "oneLiner": "一款一体化AI视频商务平台，通过数字人和配音简化专业级视频创作。"
+      },
+      "colors": {
+        "principle": "高对比度、无障碍的配色方案，以主导的蓝色强调色搭配柔和的冷灰色背景。"
+      },
+      "typography": {
+        "rules": [
+          "所有文本（标题、正文、UI元素）使用几何无衬线字体。",
+          "避免使用超过两种字体粗细（400和500）。",
+          "标题应使用负字距以营造紧凑感。"
+        ],
+        "scaleUses": [
+          "主视觉标题",
+          "章节标题",
+          "段落文本",
+          "说明文字与元数据",
+          "大写标签与导航"
+        ]
+      },
+      "spacing": {
+        "rhythm": "基于4px的网格系统，采用统一的24px栏间距和卡片32px内边距。"
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 6px 20px 0px rgba(16, 24, 40, 0.08)",
+          "0px 2px 16px 0px rgba(16, 24, 40, 0.08)",
+          "0px 0px 0px 1px rgb(230, 234, 244)"
+        ],
+        "borders": "1px solid rgb(230, 234, 244)"
+      },
+      "layout": {
+        "skeleton": "居中的固定宽度容器（1280px），采用12列网格和24px栏间距，遵循移动优先的断点进行适配。"
+      },
+      "components": {
+        "button": "主要操作使用实心蓝色（#3E57DA）配白色文字，次要操作使用描边或幽灵样式。较小按钮采用药丸形状，较大按钮采用轻微圆角。",
+        "card": "白色背景（#FFFFFF），配以微妙阴影（0px 6px 20px rgba(16, 24, 40, 0.08)）和12px圆角。",
+        "chip": "药丸形元素，带1px边框和小内边距，常用于标签或次级筛选器。",
+        "input": "简洁的输入框，带1px边框（rgb(230, 234, 244)），获得焦点时显示微妙阴影。",
+        "hero": "大号居中标题（56px），搭配柔和的冷色调背景渐变，辅以突出的CTA按钮和产品预览。"
+      },
+      "motion": {
+        "patterns": [
+          "悬停和点击时的简单颜色与变换过渡。",
+          "加载状态的微妙透明度变化。",
+          "无复杂或分散注意力的动画。"
+        ]
+      },
+      "interaction": {
+        "hover": "文本链接的颜色变化和按钮的微妙背景偏移。",
+        "click": "交互元素上的缩放或变换微交互。",
+        "transition": "所有微交互过渡时间设为0.2秒，较大的颜色变化为0.3秒。",
+        "keyboard": "整个界面采用标准焦点环和合理的Tab键顺序。"
+      },
+      "voice": {
+        "tone": "专业、自信且乐于助人，强调易用性和高效。",
+        "headlineStyle": "直接且以价值为导向，常使用大号加粗文字突出关键功能。",
+        "ctaStyle": "清晰且以行动为导向，使用‘开始使用’和‘预约演示’等短语。",
+        "avoid": [
+          "模糊或过于技术性的术语。",
+          "激进的销售语言。",
+          "非正式或俏皮的俚语。"
+        ]
+      },
+      "donts": [
+        "不要使用纯黑色（#000000）作为文本颜色——截图显示为深藏青色（#0D0F2C）以获得更好的可读性。",
+        "不要使用多种字体粗细——截图显示仅一致使用400和500两种粗细。",
+        "不要使用尖锐、未圆角的边角——截图显示卡片使用12px圆角，按钮使用药丸形状。",
+        "不要为主布局使用沉重、深色的背景——截图显示为浅色、带冷蓝色调的背景（#F5F8FF）。",
+        "不要使用装饰性或手写体字体——截图显示所有文本使用简洁的几何无衬线字体。",
+        "不要使用复杂的多彩渐变——截图显示为微妙的单向渐变或纯色。"
+      ],
+      "systemPrompt": "Synthesia 是一款企业级SaaS平台，专注于AI驱动的视频创作。其设计呈现简洁、专业的美学，以主蓝色强调色（#3E57DA）和柔和的冷灰色背景（#F5F8FF）为特色。字体采用统一的几何无衬线字体（使用400和500两种粗细），配以大号、紧凑的标题。关键交互模式包括微妙的阴影和12px圆角。重要禁忌：避免使用纯黑色文本、尖锐边角、沉重深色背景、复杂渐变和装饰性字体。布局居中且宽敞，为商务用户优先考虑清晰度和导航便捷性。"
+    },
+    "zh-TW": {
+      "identity": {
+        "keywords": [
+          "AI",
+          "影片",
+          "平台",
+          "商業",
+          "企業"
+        ],
+        "analogy": "一款簡潔的企業級工具，運用 AI 簡化影片製作流程。",
+        "oneLiner": "一款專為商業設計的全方位 AI 影片平台，透過虛擬形象與配音簡化工作室級別的影片創作。"
+      },
+      "colors": {
+        "principle": "採用高對比、無障礙的色盤，以主導的藍色強調色搭配柔和冷灰色背景。"
+      },
+      "typography": {
+        "rules": [
+          "所有文字（標題、內文及 UI 元素）使用幾何無襯線字體。",
+          "避免使用超過 2 種字重（400 和 500）。",
+          "標題應使用負字間距以營造緊湊感。"
+        ],
+        "scaleUses": [
+          "主標題",
+          "章節標題",
+          "段落內文",
+          "圖說與元資料",
+          "大寫標籤與導覽"
+        ]
+      },
+      "spacing": {
+        "rhythm": "以 4px 為基礎網格，保持一致的 24px 欄溝距，卡片內距為 32px。"
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 6px 20px 0px rgba(16, 24, 40, 0.08)",
+          "0px 2px 16px 0px rgba(16, 24, 40, 0.08)",
+          "0px 0px 0px 1px rgb(230, 234, 244)"
+        ],
+        "borders": "1px solid rgb(230, 234, 244)"
+      },
+      "layout": {
+        "skeleton": "居中、固定寬度（1280px）的容器，採用 12 欄網格與 24px 欄溝距，適應行動優先的斷點設計。"
+      },
+      "components": {
+        "button": "主要操作使用實心藍色（#3E57DA）搭配白色文字，次要操作使用外框/幽靈樣式。較小按鈕採用膠囊形狀，較大按鈕則略帶圓角。",
+        "card": "白色背景（#FFFFFF）搭配細膩陰影（0px 6px 20px rgba(16, 24, 40, 0.08）及 12px 邊框圓角。",
+        "chip": "膠囊形狀元素，帶有 1px 邊框與較小內距，通常用於標籤或次要篩選器。",
+        "input": "簡潔、極簡的輸入框，帶有 1px 邊框（rgb(230, 234, 244)），在 focus 狀態時添加細膩陰影。",
+        "hero": "大型居中標題（56px）搭配柔和的冷色背景漸層，並附有顯眼的 CTA 按鈕與產品預覽。"
+      },
+      "motion": {
+        "patterns": [
+          "在 hover 和點擊時，進行簡單的顏色與變形過渡。",
+          "載入狀態使用細膩的 opacity 變化。",
+          "避免複雜或分散注意力的動畫。"
+        ]
+      },
+      "interaction": {
+        "hover": "文字連結變色，按鈕產生細微背景色調變化。",
+        "click": "互動元素進行縮放或變形的微交互。",
+        "transition": "所有微交互過渡設為 0.2 秒，較大的顏色變化設為 0.3 秒。",
+        "keyboard": "整個介面採用標準的 focus ring 及合乎邏輯的 tab 順序。"
+      },
+      "voice": {
+        "tone": "專業、自信且樂於助人，強調易用性與效率。",
+        "headlineStyle": "直接且以效益為導向，常使用大號粗體文字來突顯關鍵功能。",
+        "ctaStyle": "清晰且具行動號召力，使用「立即開始」、「預約演示」等詞語。",
+        "avoid": [
+          "模糊或過度技術性的術語。",
+          "激進的銷售用語。",
+          "非正式或俏皮的俚語。"
+        ]
+      },
+      "donts": [
+        "勿使用純黑色（#000000）作為文字顏色——截圖顯示使用深海軍藍（#0D0F2C）以提升可讀性。",
+        "勿使用多種字重——截圖顯示一致使用 400 和 500 字重。",
+        "勿使用尖銳、無圓角的邊角——截圖顯示卡片使用 12px 圓角，按鈕採用膠囊形狀。",
+        "勿在主版面使用厚重、深色的背景——截圖顯示使用淺色、帶冷色調的背景（#F5F8FF）。",
+        "勿使用裝飾性或手寫體字型——截圖顯示所有文字使用簡潔的幾何無襯線字體。",
+        "勿使用複雜的多彩漸層——截圖顯示使用細膩的單向漸層或純色。"
+      ],
+      "systemPrompt": "Synthesia 是一個企業級的 SaaS 平台，專注於 AI 驅動的影片創作。其設計採用簡潔、專業的美學，以主要藍色強調色（#3E57DA）搭配柔和冷灰色背景（#F5F8FF）。字型統一使用幾何無襯線字體（字重 400 和 500），標題大而緊湊。關鍵互動模式包括細膩陰影與 12px 圓角。務必避免：使用純黑文字、尖銳邊角、厚重深色背景、複雜漸層及裝飾性字型。版面居中且寬敞，優先考慮商業用戶的清晰度與導覽便利性。"
+    },
+    "ja": {
+      "identity": {
+        "keywords": [
+          "AI",
+          "ビデオ",
+          "プラットフォーム",
+          "ビジネス",
+          "エンタープライズ"
+        ],
+        "analogy": "AIを活用してビデオ制作を効率化する、クリーンでエンタープライズグレードのツール。",
+        "oneLiner": "アバターと音声合成を使用して、スタジオ品質のビデオ制作を簡素化する、ビジネス向けオールインワンAIビデオプラットフォーム。"
+      },
+      "colors": {
+        "principle": "ソフトでクールなグレー背景に対して支配的なブルーアクセントを使用した、ハイコントラストでアクセシブルなパレット。"
+      },
+      "typography": {
+        "rules": [
+          "全テキスト（表示、本文、UI要素）にジオメトリックサンセリフを使用。",
+          "2種類以上のフォントウェイト（400と500）の使用は避ける。",
+          "見出しにはコンパクトな外観のためにネガティブな文字間隔を設定。"
+        ],
+        "scaleUses": [
+          "ヒーローヘッドライン",
+          "セクションタイトル",
+          "段落",
+          "キャプションとメタデータ",
+          "大文字のタグとナビゲーション"
+        ]
+      },
+      "spacing": {
+        "rhythm": "4pxベースグリッド、一貫した24pxのガター、およびカード用の32pxパディング。"
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 6px 20px 0px rgba(16, 24, 40, 0.08)",
+          "0px 2px 16px 0px rgba(16, 24, 40, 0.08)",
+          "0px 0px 0px 1px rgb(230, 234, 244)"
+        ],
+        "borders": "1px solid rgb(230, 234, 244)"
+      },
+      "layout": {
+        "skeleton": "12カラムグリッドと24pxガターを持つ、中央揃え固定幅コンテナ（1280px）。モバイルファーストのブレークポイントに適応。"
+      },
+      "components": {
+        "button": "プライマリアクションにはソリッドブルー（#3E57DA）にホワイトテキスト、セカンダリアクションにはアウライン/ゴーストスタイル。小さなボタンはピル型、より大きなものはわずかに角丸。",
+        "card": "ホワイト背景（#FFFFFF）、繊細なシャドウ（0px 6px 20px rgba(16, 24, 40, 0.08)）、12pxボーダーラディウス。",
+        "chip": "1pxボーダーと小さなパディングを持つピル型要素。タグやセカンダリフィルターとしてよく使用。",
+        "input": "1pxボーダー（rgb(230, 234, 244)）とフォーカス時の繊細なシャドウを持つ、クリーンでミニマルなインプット。",
+        "hero": "ソフトでクールな背景グラデーションを持つ、大きく中央揃えのヘッドライン（56px）。目立つCTAと製品プレビューを伴う。"
+      },
+      "motion": {
+        "patterns": [
+          "ホバーおよびクリック時のシンプルな色とトランスフォームのトランジション。",
+          "ローディング状態のための繊細な不透明度の変化。",
+          "複雑で気が散るようなアニメーションは使用しない。"
+        ]
+      },
+      "interaction": {
+        "hover": "テキストリンクの色の変化と、ボタンの背景の繊細なシフト。",
+        "click": "インタラクティブ要素のスケールまたはトランスフォームのマイクロインタラクション。",
+        "transition": "すべてのトランジションは、マイクロインタラクションで0.2秒、より大きな色の変化で0.3秒に設定。",
+        "keyboard": "インターフェース全体で標準のフォーカスリングと論理的なタブ順序。"
+      },
+      "voice": {
+        "tone": "プロフェッショナルで、自信があり、かつ役に立つ。使いやすさと効率性を強調。",
+        "headlineStyle": "直接的でメリット主導。主要機能を強調するために、大きな太字テキストをよく使用。",
+        "ctaStyle": "明確で行動を促す。「Get started」や「Book a demo」といったフレーズを使用。",
+        "avoid": [
+          "曖昧または過度に技術的な専門用語。",
+          "アグレッシブな営業言語。",
+          "インフォーマルまたは遊び心のあるスラング。"
+        ]
+      },
+      "donts": [
+        "テキストに純粋なブラック（#000000）を使用しない — スクリーンショットでは、より良い可読性のためにダークネイビー（#0D0F2C）が使用されている。",
+        "多様なフォントウェイトを使用しない — スクリーンショットでは、400と500のウェイトが一貫して使用されている。",
+        "鋭く角のないコーナーを使用しない — スクリーンショットでは、カードに12pxのラディウス、ボタンにピル型が使用されている。",
+        "メインレイアウトに重く暗い背景を使用しない — スクリーンショットでは、明るくクールなブルーの色調の背景（#F5F8FF）が使用されている。",
+        "装飾的またはスクリプトフォントを使用しない — スクリーンショットでは、全テキストにクリーンなジオメトリックサンセリフフォントが使用されている。",
+        "複雑なマルチカラーグラデーションを使用しない — スクリーンショットでは、繊細な単方向グラデーションまたはソリッドカラーが使用されている。"
+      ],
+      "systemPrompt": "Synthesiaは、AIを活用したビデオ制作のためのエンタープライズグレードのSaaSプラットフォームです。デザインは、プライマリブルーアクセント（#3E57DA）とソフトでクールなグレー背景（#F5F8FF）を特徴とする、クリーンでプロフェッショナルな美学を備えています。タイポグラフィは、一貫したジオメトリックサンセリフフォント（ウェイト400と500を使用）で、大きくコンパクトな見出しが特徴です。主要なインタラクションパターンには、繊細なシャドウと12pxの角丸が含まれます。重要な禁止事項：純粋なブラックテキスト、鋭いコーナー、重く暗い背景、複雑なグラデーション、装飾フォントの使用は避けること。レイアウトは中央揃えで空間に富んでおり、ビジネスユーザーのための明確さとナビゲーションのしやすさを優先しています。"
+    },
+    "ko": {
+      "identity": {
+        "keywords": [
+          "AI",
+          "Video",
+          "Platform",
+          "Business",
+          "Enterprise"
+        ],
+        "analogy": "AI를 사용하여 비디오 제작을 간소화하는 깨끗한 엔터프라이즈급 도구.",
+        "oneLiner": "아바타와 성우 더빙으로 스튜디오 품질의 비디오 제작을 간소화하는 비즈용 올인원 AI 비디오 플랫폼."
+      },
+      "colors": {
+        "principle": "부드러운 쿨 그레이 배경에 주요 블루 액센트를 사용하는 고대비, 접근 가능한 팔레트입니다."
+      },
+      "typography": {
+        "rules": [
+          "모든 텍스트에 기하학적 산세리프를 사용합니다(헤드라인, 본문, UI 요소).",
+          "2개 이상의 폰트 웨이트(400과 500)를 사용하지 않습니다.",
+          "헤드라인은 컴팩트한_look을 위해 네거티브 letter-spacing를 적용합니다."
+        ],
+        "scaleUses": [
+          "히어로 헤드라인",
+          "섹션 제목",
+          "단락",
+          "캡션 및 메타데이터",
+          "대문자 태그 및 네비게이션"
+        ]
+      },
+      "spacing": {
+        "rhythm": "4px 기본 그리드와 일관된 24px gutter, 카드용 32px padding을 사용합니다."
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 6px 20px 0px rgba(16, 24, 40, 0.08)",
+          "0px 2px 16px 0px rgba(16, 24, 40, 0.08)",
+          "0px 0px 0px 1px rgb(230, 234, 244)"
+        ],
+        "borders": "1px solid rgb(230, 234, 244)"
+      },
+      "layout": {
+        "skeleton": "12컬럼 그리드와 24px gutter를 갖춘 중앙 정렬 고정 폭 컨테이너(1280px)로, 모바일 우선 브레이크포인트에 적응합니다."
+      },
+      "components": {
+        "button": "주요 작업을 위한 단색 블루(#3E57DA)에 화이트 텍스트, 2차 작업을 위한 아웃라인/고스트 스타일을 사용합니다. 작은 버튼은 필形状, 큰 버튼은 약간 둥근 모양입니다.",
+        "card": "배경(#FFFFFF)에 미묘한 그림자(0px 6px 20px rgba(16, 24, 40, 0.08))와 12px border radius를 적용합니다.",
+        "chip": "1px 테두리와 작은 padding을 갖춘 필形状 요소로, 주로 태그나 2차 필터에 사용됩니다.",
+        "input": "1px 테두리(rgb(230, 234, 244))와 focus 시 미묘한 그림자를 갖춘 깨끗하고 미니멀한 입력란입니다.",
+        "hero": "부드러운 쿨 배경 그라데이션을 갖춘 크고 중앙 정렬된 헤드라인(56px)으로, 눈에 띄는 CTA와 제품 미리보기가 동반됩니다."
+      },
+      "motion": {
+        "patterns": [
+          "hover 및 click 시 단순한 색상과 transform 전환.",
+          "로딩 상태를 위한 미묘한 불투명도 변화.",
+          "복잡하거나 산만한 애니메이션 사용 금지."
+        ]
+      },
+      "interaction": {
+        "hover": "텍스트 링크의 색상 변화와 버튼의 미묘한 배경 변화.",
+        "click": "인터랙티브 요소에서 scale 또는 transform 마이크로 인터랙션.",
+        "transition": "모든 전환은 마이크로 인터랙션용 0.2s, 더 큰 색상 변화용 0.3s로 설정.",
+        "keyboard": "인터페이스 전반에 걸친 표준 focus ring과 논리적인 tab 순서."
+      },
+      "voice": {
+        "tone": "사용 편의성과 효율성을 강조하는 전문적이고 자신감 있으며 도움이 되는 어조.",
+        "headlineStyle": "주요 기능을 강조하기 위해 크고 볼드한 텍스트를 사용하는 직접적이고 혜택 지향적인 스타일.",
+        "ctaStyle": "'시작하기' 및 '데모 예약'과 같은 문구를 사용하는 명확하고 행동 지향적인 스타일.",
+        "avoid": [
+          "모호하거나 지나치게 기술적인 전문 용어.",
+          "공격적인 판매 언어.",
+          "비공식적이거나 장난스러운 말투."
+        ]
+      },
+      "donts": [
+        "텍스트에 순수 블랙(#000000)을 사용하지 않습니다 — 스크린샷에서는 더 나은 가독성을 위해 딥 네이비(#0D0F2C)를 보여줍니다.",
+        "다양한 폰트 웨이트를 사용하지 않습니다 — 스크린샷에서는 일관되게 400과 500 웨이트만 사용합니다.",
+        "날카롭고 둥글지 않은 모서리를 사용하지 않습니다 — 스크린샷에서는 카드에 12px radius와 버튼에 필形状을 보여줍니다.",
+        "메인 레이아웃에 무겁고 어두운 배경을 사용하지 않습니다 — 스크린샷에서는 밝고 쿨 블루 틴트 배경(#F5F8FF)을 보여줍니다.",
+        "장식적이거나 스크립트 폰트를 사용하지 않습니다 — 스크린샷에서는 모든 텍스트에 깨끗한 기하학적 산세리프 폰트를 보여줍니다.",
+        "복잡한 다색 그라데이션을 사용하지 않습니다 — 스크린샷에서는 미묘한 단방향 그라데이션 또는 단색을 보여줍니다."
+      ],
+      "systemPrompt": "Synthesia는 AI 기반 비디오 제작을 위한 엔터프라이즈급 SaaS 플랫폼입니다. 디자인은 primary blue accent(#3E57DA)와 부드러운 쿨 그레이 배경(#F5F8FF)을 특징으로 하는 깨끗하고 전문적인 미학을 가지고 있습니다. 타이포그래피는 일관된 기하학적 산세리프 폰트(웨이트 400과 500 사용)로 크고 컴팩트한 헤드라인을 특징으로 합니다. 주요 인터랙션 패턴은 미묘한 그림자와 12px 둥근 모서리를 포함합니다. 중요한 주의사항: 순수 블랙 텍스트, 날카로운 모서리, 무겁고 어두운 배경, 복잡한 그라데이션, 장식적 폰트를 피합니다. 레이아웃은 중앙 정렬되고 넓으며, 비즈니스 사용자를 위한 명확성과 탐색 용이성을 우선시합니다."
+    }
+  },
+  "desc": {
+    "en": {
+      "palette": "A clean, high-contrast palette centered around a primary blue accent (#3E57DA) and a soft, cool-tinted white background (#F5F8FF).",
+      "layout": "A centered, fixed-width container with a 12-column grid and generous spacing, adapting to mobile-first breakpoints.",
+      "interaction": "Subtle transitions (0.2s) for color and transform changes on hover and click, with a focus on clarity and ease of use.",
+      "motion": "Minimal and purposeful motion, with simple durations and smooth easing for micro-interactions.",
+      "notes": "This site is worth including as a prime example of modern, professional SaaS design that balances a clean aesthetic with clear, benefit-driven communication."
+    },
+    "zh-CN": {
+      "palette": "一套简洁、高对比度的配色方案，以主蓝色强调色（#3E57DA）和柔和的冷调白色背景（#F5F8FF）为核心。",
+      "layout": "居中的固定宽度容器，采用12列网格和宽敞间距，遵循移动优先的断点进行适配。",
+      "interaction": "悬停和点击时的颜色与变换变化采用微妙过渡（0.2秒），注重清晰度和易用性。",
+      "motion": "简约且有目的性的动效，微交互采用简单的时长和流畅的缓动曲线。",
+      "notes": "该网站是现代、专业SaaS设计的典范，完美平衡了简洁美学与清晰、基于价值的信息传达。"
+    },
+    "zh-TW": {
+      "palette": "以主要藍色強調色（#3E57DA）為核心，搭配柔和冷色調白色背景（#F5F8FF），打造乾淨且高對比的色盤。",
+      "layout": "居中、固定寬度的容器，採用 12 欄網格並保留充足間距，適應行動優先的斷點設計。",
+      "interaction": "在 hover 和點擊時，為顏色與變形變化提供細膩的過渡效果（0.2 秒），著重於清晰度與易用性。",
+      "motion": "極簡且有目的的動態設計，為微交互提供簡單的持續時間與流暢的緩動效果。",
+      "notes": "此網站是現代專業 SaaS 設計的绝佳範例，平衡了簡潔美學與清晰、以效益為導向的溝通方式，值得收錄。"
+    },
+    "ja": {
+      "palette": "プライマリブルーアクセント（#3E57DA）と、ソフトでクールな色調のホワイト背景（#F5F8FF）を中心とした、クリーンでハイコントラストのパレット。",
+      "layout": "12カラムグリッドと余裕のあるスペーシングを持つ、中央揃え固定幅コンテナ。モバイルファーストのブレークポイントに適応。",
+      "interaction": "ホバーおよびクリック時の色やトランスフォームの変化に対する、繊細なトランジション（0.2秒）。明確さと使いやすさを重視。",
+      "motion": "最小限で目的をもったモーション。マイクロインタラクション向けのシンプルなデュレーションとスムーズなイージング。",
+      "notes": "このサイトは、クリーンな美学と明確でメリット主導のコミュニケーションを両立させる、モダンでプロフェッショナルなSaaSデザインの好例として、掲載する価値があります。"
+    },
+    "ko": {
+      "palette": "primary blue accent (#3E57DA)를 중심으로 한 깨끗하고 고대비 팔레트와 부드러운 쿨 틴트 화이트 배경(#F5F8FF)을 사용합니다.",
+      "layout": "12컬럼 그리드와 넉넉한 간격을 갖춘 고정 폭의 중앙 정렬 컨테이너로, 모바일 우선 브레이크포인트에 적응합니다.",
+      "interaction": "hover 및 click 시 색상 및 transform 변화를 위한 미묘한 전환(0.2s)을 사용하며, 명확성과 사용 편의성에 중점을 둡니다.",
+      "motion": "최소한의 목적 있는 모션으로, 마이크로 인터랙션을 위해 간단한 지속 시간과 부드러운 easing을 사용합니다.",
+      "notes": "이 사이트는 깨끗한 미학과 명확한 혜택 중심 커뮤니케이션의 균형을 이루는 현대적이고 전문적인 SaaS 디자인의 대표적인 예로 포함할 가치가 있습니다."
+    }
+  },
+  "_meta": {
+    "vision_model": "mimo-v2.5",
+    "vision_prompt_version": "0.3",
+    "vision_source": "playwright-extract:synthesia",
+    "vision_grounded": true,
+    "vision_at": "2026-06-04T19:12:55+00:00",
+    "vision_tokens": 17179,
+    "vision_cost_usd": 0.1909,
+    "translation_model": "mimo-v2.5",
+    "translation_at": "2026-06-04T19:14:22+00:00",
+    "translation_tokens": 19937,
+    "translation_cost_usd": 0.0664,
+    "narrative_model": "mimo-v2.5",
+    "narrative_prompt_version": "0.3",
+    "narrative_at": "2026-06-04T19:14:31+00:00",
+    "narrative_tokens": 2407,
+    "narrative_cost_usd": 0.016,
+    "narrative_status": "ok",
+    "total_cost_usd": 0.2733
+  },
+  "narrative": {
+    "en": {
+      "ch1_intro": "Synthesia is an AI video platform built like a clean, well-lit studio—where the machinery is powerful but the interface remains calm. Its design system prioritizes clarity and efficiency, treating the complexity of AI video creation with the restrained precision of an enterprise tool. The visual language is direct, confident, and engineered for professional use, not decoration.",
+      "ch2_intro": "The palette is built on a single, dominant blue accent (#3E57DA) set against a soft, cool-tinted white background (#F5F8FF). This high-contrast pairing ensures accessibility and focus, making interactive elements unmistakably clear within a clean visual field.",
+      "ch2_outro": "The principle is restraint: a limited, functional palette that guides attention without competing with content.",
+      "ch3_intro": "Typography is handled with a single geometric-sans family, using only the 400 and 500 weights to maintain a consistent, clean texture. Headlines are set with negative letter-spacing for a compact, authoritative presence, while the scale moves logically from hero statements down to metadata.",
+      "ch4_intro": "Rhythm is established by a strict 4px base grid, ensuring proportional consistency across all spacing values.",
+      "ch5_intro": "Surface depth is communicated through subtle, layered shadows and a consistent 1px border (rgb(230, 234, 244)). Cards and interactive elements float gently above the background, creating a clear hierarchy without harsh visual weight.",
+      "ch6_intro": "The layout skeleton is a centered, fixed-width container (1280px) organized by a 12-column grid with 24px gutters. This structure adapts to mobile-first breakpoints, providing a spacious, orderly foundation that prioritizes content clarity and ease of navigation.",
+      "ch7_intro": "Motion is minimal and purposeful, limited to simple color and transform transitions on hover and click states. All animations use short durations (0.2s for micro-interactions) to reinforce actions without introducing distraction.",
+      "ch8_intro": "The editorial voice is professional, confident, and helpful, using direct, benefit-oriented headlines and clear calls-to-action like 'Get started.' It avoids vague jargon, aggressive sales language, and informal slang, focusing instead on clarity and ease of use.",
+      "ch8_outro": "The system deliberately avoids decorative fonts, sharp corners, heavy dark backgrounds, and complex gradients to maintain its clean, enterprise-grade professionalism."
+    },
+    "zh-CN": {
+      "ch1_intro": "Synthesia 是一个 AI 视频平台，其设计如同一个整洁、明亮的工作室——功能强大，但界面始终保持冷静。它的设计系统以清晰和高效为优先，以企业工具那种克制而精准的方式，处理着 AI 视频创作的复杂性。视觉语言直接、自信，专为专业用途而非装饰而打造。",
+      "ch2_intro": "其色彩方案基于一个主导性的蓝色强调色（#3E57DA），搭配柔和、偏冷的白色背景（#F5F8FF）。这种高对比度的配对确保了可访问性和焦点，使交互元素在简洁的视觉场中显得清晰无误。",
+      "ch2_outro": "其原则是克制：一个有限、功能性的调色板，用于引导注意力，而不与内容竞争。",
+      "ch3_intro": "字体处理上，采用单一的 geometric-sans 字族，仅使用 400 和 500 字重，以保持一致、干净的纹理。标题使用负字距（negative letter-spacing）设置，呈现紧凑、权威的视觉感，而字号则从主标题（hero statements）到元数据（metadata）进行逻辑性的缩放。",
+      "ch4_intro": "节奏由一个严格的 4px 基础网格建立，确保所有间距值的比例一致性。",
+      "ch5_intro": "界面层次感通过微妙、分层的阴影和一致的 1px 边框（rgb(230, 234, 244)）来传达。卡片和交互元素轻轻悬浮于背景之上，营造出清晰的层级关系，而不会带来生硬的视觉重量感。",
+      "ch6_intro": "布局骨架是一个居中的、固定宽度（1280px）的容器，由 12 列网格和 24px 间距（gutters）组织。该结构适配移动优先（mobile-first）的断点，提供一个宽敞、有序的基础，优先保证内容的清晰度和导航的便捷性。",
+      "ch7_intro": "动效极简且目的明确，仅限于在 hover 和点击状态下的简单颜色和 transform 过渡。所有动画都使用较短的持续时间（例如，微交互为 0.2s），以强化操作反馈，而不引入干扰。",
+      "ch8_intro": "其文案风格专业、自信且乐于助人，使用直接、以收益为导向的标题和清晰的行动号召（如「开始使用」）。它避免使用模糊的术语、激进的销售语言和非正式的俚语，专注于清晰度和易用性。",
+      "ch8_outro": "该系统有意避免使用装饰性字体、尖锐的圆角、深色的重背景以及复杂的渐变，以维持其整洁的企业级专业感。"
+    },
+    "zh-TW": {
+      "ch1_intro": "Synthesia 是一個 AI 影片平台，其設計如同整潔明亮的工作室——強大功能背後是極簡介面。設計系統以清晰與效率為核心，將 AI 影片創作的複雜性，以企業工具般的克制精準度呈現。視覺語言直接、自信，專為專業使用而設計，而非裝飾。",
+      "ch2_intro": "色彩系統以單一主導藍色強調色（#3E57DA）為基調，搭配柔和冷調白色背景（#F5F8FF）。這組高對比配色確保了無障礙性與專注度，使互動元素在乾淨視覺範圍內清晰可辨。",
+      "ch2_outro": "原則是克制：有限且功能性的調色盤，引導注意力而不與內容競爭。",
+      "ch3_intro": "字型採用單一幾何無襯線系列，僅使用 400 和 500 粗細以維持一致的簡潔質感。標題設定負字距以營造緊湊權威感，字級從主標題到元數據依邏輯層級遞減。",
+      "ch4_intro": "節奏透過嚴格的 4px 基礎網格建立，確保所有間距值的比例一致性。",
+      "ch5_intro": "表面層次透過細膩的層疊陰影與統一的 1px 邊框（rgb(230, 234, 244)）傳達。卡片與互動元素輕柔浮動於背景之上，在不產生沉重視覺壓力的情況下建立清晰層級。",
+      "ch6_intro": "版面骨架採用置中固定寬度容器（1280px），以 12 欄網格搭配 24px 欄間距組織。此結構適應行動裝置優先斷點，提供寬敞有序的基礎，優先考量內容清晰度與導覽便利性。",
+      "ch7_intro": "動態效果簡約且有意義，僅限於 hover 和點擊狀態的簡潔顏色與變形轉換。所有動畫皆使用短暫持續時間（微互動 0.2s）以強化操作，避免引入干擾。",
+      "ch8_intro": "編輯語調專業、自信且友善，採用直接、效益導向的標題與明確行動呼籲（如「立即開始」）。避免模糊術語、強勢銷售用語與非正式俚語，著重於清晰度與易用性。",
+      "k8_outro": "系統刻意避開裝飾性字型、銳角、厚重深色背景與複雜漸層，以維持其簡潔的企業級專業形象。"
+    },
+    "ja": {
+      "ch1_intro": "Synthesiaは、整理された明るいスタジオのように構築されたAI動画プラットフォームです。そのシステムは強力でありながら、インターフェースは冷静を保っています。デザインシステムは明瞭さと効率を優先し、AI動画作成の複雑さを、エンタープライズツールの抑制された精度で扱います。ビジュアル言語は直接的で自信に満ち、装飾ではなくプロフェッショナルな使用に向けて設計されています。",
+      "ch2_intro": "カラーパレットは、柔らかく冷たい色調の白い背景(#F5F8FF)に対し、単一の支配的なブルーアクセント(#3E57DA)を基盤に構築されています。この高コントラストな組み合わせはアクセシビリティと集中力を確保し、清潔なビジュアルフィールド内でインタラクティブ要素を明確にします。",
+      "ch2_outro": "原則は抑制です。コンテンツと競合することなく注目を導く、限定された機能的パレットです。",
+      "ch3_intro": "タイポグラフィは単一のジオメトリックサンスファミリーで扱われ、一貫した清潔な質感を維持するために400と500のウェイトのみが使用されています。見出しはコンパクトで権威のある存在感を出すため、ネガティブな文字間隔で設定され、スケールはヒーローステートメントからメタデータまで論理的に移行します。",
+      "ch4_intro": "リズムは厳密な4pxベースグリッドによって確立され、すべての間隔値の比率の一貫性を保証します。",
+      "ch5_intro": "表面の奥行きは、微細なレイヤードシャドウと一貫した1pxボーダー(rgb(230, 234, 244))によって表現されます。カードやインタラクティブ要素は背景の上で静かに浮遊し、視覚的な重みを加えることなく明確な階層を生み出します。",
+      "ch6_intro": "レイアウトのスケルトンは、24pxのガッターを持つ12カラムグリッドで構成された、中央揃えの固定幅コンテナ(1280px)です。この構造はモバイルファーストのブレークポイントに適応し、コンテンツの明瞭さとナビゲーションのしやすさを優先する、広々とした整然とした基盤を提供します。",
+      "ch7_intro": "モーションは最小限で目的に沿ったものであり、ホバーおよびクリック状態でのシンプルなカラーとトランスフォームのトランジションに限定されます。すべてのアニメーションは短い期間(微小インタラクションの場合は0.2s)を使用し、注意をそらすことなくアクションを補強します。",
+      "ch8_intro": "エディトリアルボイスは、プロフェッショナルで自信に満ち、親切です。「Get started.」のような直接的で利益を重視した見出しや明確なCTAを使用しています。曖昧な専門用語、攻撃的な販売言語、非公式なスラングを避け、代わりに明確さと使いやすさに焦点を当てています。",
+      "ch8_outro": "このシステムは、清潔でエンタープライズグレードのプロフェッショナリズムを維持するため、意図的に装飾的なフォント、鋭い角、重い暗い背景、複雑なグラデーションを避けています。"
+    },
+    "ko": {
+      "ch1_intro": "Synthesia는 깨끗하고 밝은 스튜디오처럼 구축된 AI 비디오 플랫폼입니다—강력한 기계 장치를 갖추면서도 인터페이스는 여전히 차분합니다. 그 디자인 시스템은 명확성과 효율성을 우선시하며, AI 비디오 제작의 복잡성을 엔터프라이즈 도구의 절제된 정밀함으로 다룹니다. 시각 언어는 직접적이고 자신감 있으며, 장식이 아닌 전문적인 사용을 위해 설계되었습니다.",
+      "ch2_intro": "팔레트는 부드럽고 쿨 톤의 흰색 배경(#F5F8FF) 위에 단일하고 지배적인 블루 액센트(#3E57DA)를 기반으로 구축되었습니다. 이 고대비 조합은 접근성과 집중력을 보장하여 깨끗한 시각적 영역 내에서 인터랙티브 요소를 분명하고 명확하게 만듭니다.",
+      "ch2_outro": "원리는 절제입니다: 제한적이고 기능적인 팔레트로 콘텐츠와 경쟁하지 않으면서도 주의를 안내합니다.",
+      "ch3_intro": "타이포그래피는 단일 geometric-sans 폰트 패미리를 사용하여 일관되고 깨끗한 질감을 유지하며, 400과 500 웨이트만 사용합니다. 헤드라인은 음수 자간을 사용하여 컴팩트하고 권위 있는 존재감을 나타내며, 스케일은 히어로 스테이트먼트에서 메타데이터까지 논리적으로 이동합니다.",
+      "ch4_intro": "리듬은 엄격한 4px 기본 그리드를 통해 확립되어, 모든 간격 값에서 비례적 일관성을 보장합니다.",
+      "ch5_intro": "표면 깊이는 미묘한 그림자 레이어링과 일관된 1px 테두리(rgb(230, 234, 244))를 통해 전달됩니다. 카드와 인터랙티브 요소는 배경 위에 부드럽게 떠 있어, 가시적 무게감 없이 명확한 계층 구조를 만듭니다.",
+      "ch6_intro": "레이아웃 스켈레톤은 12컬럼 그리드와 24px 거터로 구성된 중앙 정렬 고정 너비 컨테이너(1280px)입니다. 이 구조는 모바일 우선 브레이크포인트에 적응하여 콘텐츠 명확성과 탐색 용이성을 우선시하는 넓고 체계적인 기반을 제공합니다.",
+      "ch7_intro": "모션은 최소화되고 의도적이며, hover와 click 상태에서의 간단한 색상 및 transform 트랜지션으로 제한됩니다. 모든 애니메이션은 산만함을 도입하지 않고 작업을 강화하기 위해 짧은 지속 시간(마이크로 인터랙션의 경우 0.2s)을 사용합니다.",
+      "ch8_intro": "에디토리얼 어조는 전문적이고 자신감 있으며 유용하며, 직접적이고 혜택 중심적인 헤드라인과 'Get started.'와 같은 명확한 CTA를 사용합니다. 모호한 전문 용어, 공격적인 판매 언어, 비공식적인 은어를 피하고 대신 명확성과 사용 용이성에 중점을 둡니다.",
+      "ch8_outro": "이 시스템은 깨끗하고 엔터프라이즈 수준의 전문성을 유지하기 위해 장식적인 폰트, 날카로운 모서리, 무거운 다크 배경, 복잡한 그라디언트를 의도적으로 피합니다."
+    }
+  }
 }

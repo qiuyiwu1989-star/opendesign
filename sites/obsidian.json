@@ -8,6 +8,630 @@
     "productivity",
     "notes"
   ],
-  "status": "pending",
-  "added_at": "2026-06-02"
+  "status": "completed",
+  "added_at": "2026-06-02",
+  "spec": {
+    "colors": {
+      "bg": "#1f1f1f",
+      "bgSoft": "#262626",
+      "bgQuiet": "#0f0f0f",
+      "ink": "#eeeeee",
+      "inkSoft": "#b3b3b3",
+      "muted": "#666666",
+      "mutedSoft": "#404040",
+      "accent": "#8a5cf5",
+      "line": "rgba(64, 64, 64, 0.6)"
+    },
+    "typography": {
+      "display": "humanist-sans",
+      "body": "humanist-sans",
+      "mono": "monospace",
+      "scale": [
+        {
+          "token": "display",
+          "size": 56,
+          "lh": 1.0,
+          "weight": 600,
+          "ls": "-1.2px"
+        },
+        {
+          "token": "h2",
+          "size": 36,
+          "lh": 1.15,
+          "weight": 600,
+          "ls": "0"
+        },
+        {
+          "token": "body",
+          "size": 16,
+          "lh": 1.5,
+          "weight": 400,
+          "ls": "0"
+        },
+        {
+          "token": "caption",
+          "size": 14,
+          "lh": 1.4,
+          "weight": 400,
+          "ls": "0"
+        }
+      ]
+    },
+    "spacing": {
+      "base": 4,
+      "scale": [
+        4,
+        8,
+        12,
+        16,
+        24,
+        32,
+        48,
+        64,
+        96
+      ]
+    },
+    "surfaces": {
+      "radius": {
+        "sm": 4,
+        "md": 8,
+        "lg": 12,
+        "pill": 9999
+      }
+    },
+    "layout": {
+      "container": 1280,
+      "paragraph": 680,
+      "columns": 12,
+      "gutter": 24,
+      "breakpoints": [
+        768,
+        1024
+      ]
+    },
+    "motion": {
+      "durations": {
+        "micro": 150,
+        "small": 150,
+        "medium": 250
+      },
+      "easing": "cubic-bezier(0.4, 0, 0.2, 1)"
+    }
+  },
+  "spec_i18n": {
+    "en": {
+      "identity": {
+        "keywords": [
+          "knowledge",
+          "privacy",
+          "flexible",
+          "markdown",
+          "networked"
+        ],
+        "analogy": "A private, networked digital notebook that grows with your thoughts.",
+        "oneLiner": "A powerful, privacy-first knowledge base for linking ideas."
+      },
+      "colors": {
+        "principle": "High-contrast dark mode prioritizing deep focus and information hierarchy with a single high-chroma accent."
+      },
+      "typography": {
+        "rules": [
+          "Keep headings bold and tightly tracked.",
+          "Maintain clear vertical rhythm between headlines and body.",
+          "Use sentence case for all UI text."
+        ],
+        "scaleUses": [
+          "Main hero headline",
+          "Section headings",
+          "General body text and UI",
+          "Small text and navigation"
+        ]
+      },
+      "spacing": {
+        "rhythm": "An 8px base unit with generous padding for section containment."
+      },
+      "surfaces": {
+        "shadows": [
+          "0 1px 3px rgba(0,0,0,0.1)",
+          "0 20px 25px -5px rgba(0,0,0,0.1)",
+          "0 25px 50px -12px rgba(0,0,0,0.25)",
+          "inset 0 0 0 1px rgba(255,255,255,0.1)"
+        ],
+        "borders": "Subtle 1px solid borders in dark grays (#404040) to define surfaces without harsh contrast."
+      },
+      "layout": {
+        "skeleton": "Full-width dark background with a centered, constrained content column."
+      },
+      "components": {
+        "button": "Primary buttons use the solid accent color (#8a5cf5) with generous padding and rounded corners.",
+        "card": "Subtle dark surfaces with a soft inset border for highlighting app screenshots or content blocks.",
+        "chip": "Small, rounded pill elements for tags or status indicators.",
+        "input": "Dark background fields with a subtle 1px border and placeholder text in muted gray.",
+        "hero": "A massive, left-aligned text block paired with a large interactive product screenshot."
+      },
+      "motion": {
+        "patterns": [
+          "Smooth color and opacity transitions on hover.",
+          "Subtle fade-ins for content appearing on scroll."
+        ]
+      },
+      "interaction": {
+        "hover": "Subtle changes in text color or background opacity, often accompanied by a color transition.",
+        "click": "Immediate response with subtle visual feedback.",
+        "transition": "Uniform 150ms transition using a standard material easing curve.",
+        "keyboard": "Focus states are indicated by standard outlines, adhering to OS conventions."
+      },
+      "voice": {
+        "tone": "Confident, minimalist, and intellectual.",
+        "headlineStyle": "Short, punchy, and direct imperative statements.",
+        "ctaStyle": "Action-oriented and clear, often specifying the platform.",
+        "avoid": [
+          "Marketing fluff",
+          "Overly complex jargon",
+          "Loud or aggressive punctuation",
+          "Vague promises"
+        ]
+      },
+      "donts": [
+        "don't use a white or light background — screenshot shows a deep dark (#1f1f1f) theme.",
+        "don't use serif fonts for headlines — screenshot shows a clean sans-serif for display type.",
+        "don't use multiple competing accent colors — screenshot shows a single dominant purple (#8a5cf5).",
+        "don't use sharp, 0px border-radius — screenshot shows rounded corners (4px to 12px) on UI elements.",
+        "don't use dense, cluttered layouts — screenshot shows generous whitespace and clear hierarchy.",
+        "don't use all-caps for body text — screenshot shows sentence case or title case consistently."
+      ],
+      "systemPrompt": "Obsidian is a knowledge management app for developers and power users. Its website uses a deep dark theme (#1f1f1f) with a single vibrant purple accent (#8a5cf5) to highlight primary actions. Typography is a clean humanist-sans-serif with bold, tightly tracked display headings. The layout is spacious, centered, and highly structured. Critical constraints: avoid any white backgrounds, never use serif fonts for headlines, and maintain high contrast for readability. Focus on a minimalist, functional aesthetic that mirrors the app's privacy-focused and flexible nature."
+    },
+    "zh-CN": {
+      "identity": {
+        "keywords": [
+          "知识",
+          "隐私",
+          "灵活",
+          "Markdown",
+          "网络化"
+        ],
+        "analogy": "一本私密、网络化的数字笔记本，随您的思想共同成长。",
+        "oneLiner": "一款功能强大、隐私优先的知识库，用于连接各种想法。"
+      },
+      "colors": {
+        "principle": "高对比度暗色模式，优先保障深度专注与信息层级，并配以单一高饱和度强调色。"
+      },
+      "typography": {
+        "rules": [
+          "标题保持加粗，字距紧密。",
+          "标题与正文之间保持清晰的垂直韵律。",
+          "所有界面文本使用句首大写。"
+        ],
+        "scaleUses": [
+          "主视觉区标题",
+          "区块标题",
+          "通用正文与界面",
+          "小字与导航"
+        ]
+      },
+      "spacing": {
+        "rhythm": "基于8px的基础单位，为区块容器提供充足的 padding。"
+      },
+      "surfaces": {
+        "shadows": [
+          "0 1px 3px rgba(0,0,0,0.1)",
+          "0 20px 25px -5px rgba(0,0,0,0.1)",
+          "0 25px 50px -12px rgba(0,0,0,0.25)",
+          "inset 0 0 0 1px rgba(255,255,255,0.1)"
+        ],
+        "borders": "采用深灰色 (#404040) 的微妙1px实线边框，在不产生刺眼对比的前提下定义表面边界。"
+      },
+      "layout": {
+        "skeleton": "全宽深色背景，搭配居中、限宽的内容栏。"
+      },
+      "components": {
+        "button": "主按钮使用纯色强调色 (#8a5cf5)，并配有充足的 padding 与圆角。",
+        "card": "微妙的深色表面，带有柔和的内嵌边框，用于突出应用截图或内容块。",
+        "chip": "小型、圆润的药丸状元素，用作标签或状态指示器。",
+        "input": "深色背景字段，带有微妙的1px边框，占位符文本为柔和的灰色。",
+        "hero": "一个巨大的、左对齐的文本块，搭配大型交互式产品截图。"
+      },
+      "motion": {
+        "patterns": [
+          "悬停时平滑的色彩与透明度过渡。",
+          "内容在滚动时微妙的淡入效果。"
+        ]
+      },
+      "interaction": {
+        "hover": "文本颜色或背景透明度的微妙变化，通常伴随色彩过渡。",
+        "click": "即时响应，提供微妙的视觉反馈。",
+        "transition": "使用标准材质缓动曲线的统一150毫秒过渡。",
+        "keyboard": "聚焦状态通过标准轮廓线标示，遵循操作系统惯例。"
+      },
+      "voice": {
+        "tone": "自信、极简、富有知性。",
+        "headlineStyle": "简短、有力、直接的祈使句式。",
+        "ctaStyle": "行动导向且清晰，常明确指定平台。",
+        "avoid": [
+          "营销套话",
+          "过于复杂的专业术语",
+          "喧闹或激进的标点",
+          "模糊的承诺"
+        ]
+      },
+      "donts": [
+        "不要使用白色或浅色背景——截图显示的是深色主题 (#1f1f1f)。",
+        "不要为标题使用衬线字体——截图显示的是用于展示字体的干净无衬线字体。",
+        "不要使用多个相互竞争的强调色——截图显示的是单一主导紫色 (#8a5cf5)。",
+        "不要使用锐利的0px border-radius——截图显示的是UI元素的圆角（4px 至 12px）。",
+        "不要使用密集、杂乱的布局——截图显示的是充足的空白与清晰的层级。",
+        "不要为正文使用全大写——截图显示的是始终如一的句首大写或标题大写。"
+      ],
+      "systemPrompt": "Obsidian 是一款面向开发者和高级用户的知识管理应用。其网站采用深色主题 (#1f1f1f)，并配以单一鲜明的紫色 (#8a5cf5) 来突出主要操作。字体是干净的无衬线人文主义字体，标题加粗且字距紧密。布局宽敞、居中且高度结构化。关键约束：避免任何白色背景，绝不在标题使用衬线字体，并保持高对比度以确保可读性。专注于一种极简、功能性的美学，反映该应用注重隐私且灵活的特性。"
+    },
+    "zh-TW": {
+      "identity": {
+        "keywords": [
+          "知識",
+          "隱私",
+          "靈活",
+          "Markdown",
+          "網路化"
+        ],
+        "analogy": "一本隨著思緒成長的私人網路化數位筆記本。",
+        "oneLiner": "一款強大、隱私優先的知識庫，用於連結想法。"
+      },
+      "colors": {
+        "principle": "高對比深色模式，優先考量深度聚焦與資訊層級，採用單一高飽和度強調色。"
+      },
+      "typography": {
+        "rules": [
+          "標題保持粗體並緊縮字距。",
+          "維持標題與內文之間清晰的垂直節奏。",
+          "所有介面文字使用句子式大小寫。"
+        ],
+        "scaleUses": [
+          "主視覺標題",
+          "區塊標題",
+          "一般內文與介面",
+          "小字體與導覽"
+        ]
+      },
+      "spacing": {
+        "rhythm": "以8px為基礎單位，區塊容器保留充裕內距。"
+      },
+      "surfaces": {
+        "shadows": [
+          "0 1px 3px rgba(0,0,0,0.1)",
+          "0 20px 25px -5px rgba(0,0,0,0.1)",
+          "0 25px 50px -12px rgba(0,0,0,0.25)",
+          "inset 0 0 0 1px rgba(255,255,255,0.1)"
+        ],
+        "borders": "採用深灰色（#404040）的細微1px實心邊框來定義介面，避免過度強烈的對比。"
+      },
+      "layout": {
+        "skeleton": "全幅深色背景搭配置中且受限制的內容欄寬。"
+      },
+      "components": {
+        "button": "主要按鈕使用實色強調色（#8a5cf5），搭配充裕內距與圓角。",
+        "card": "細微深色表面搭配柔和的內嵌邊框，用於突顯應用程式截圖或內容區塊。",
+        "chip": "小型圓角膠囊元素，用於標籤或狀態指示器。",
+        "input": "深色背景欄位，配以細微的1px邊框與柔灰色佔位文字。",
+        "hero": "一個大規模、左對齊的文字區塊，搭配大型互動式產品截圖。"
+      },
+      "motion": {
+        "patterns": [
+          "懸停時平滑的色彩與透明度過渡。",
+          "內容在滾動時細微的淡入效果。"
+        ]
+      },
+      "interaction": {
+        "hover": "文字顏色或背景透明度的細微變化，通常伴隨色彩過渡效果。",
+        "click": "立即回饋，提供細微的視覺反饋。",
+        "transition": "統一使用150毫秒過渡，採用標準材質緩動曲線。",
+        "keyboard": "焦點狀態以標準外框指示，遵循作業系統慣例。"
+      },
+      "voice": {
+        "tone": "自信、極簡且具知性。",
+        "headlineStyle": "簡短、有力且直接的指令式語句。",
+        "ctaStyle": "以行動為導向且清晰，常指明平台。",
+        "avoid": [
+          "行銷用語",
+          "過度複雜的術語",
+          "吵雜或激進的標點符號",
+          "模糊的承諾"
+        ]
+      },
+      "donts": [
+        "不要使用白色或淺色背景——截圖顯示深色主題（#1f1f1f）。",
+        "不要使用襯線字體作為標題——截圖顯示展示型文字採用簡潔的無襯線字體。",
+        "不要使用多種相互競爭的強調色——截圖顯示單一主導紫色（#8a5cf5）。",
+        "不要使用尖銳的0px邊框半徑——截圖顯示介面元素採用圓角（4px至12px）。",
+        "不要使用擁擠、雜亂的版面——截圖顯示充裕的留白與清晰的層級結構。",
+        "不要在內文中使用全大寫——截圖顯示一致採用句子式大小寫或標題式大小寫。"
+      ],
+      "systemPrompt": "Obsidian是一款為開發者與進階使用者設計的知識管理應用程式。其網站採用深色主題（#1f1f1f），搭配單一鮮明的紫色強調色（#8a5cf5）來突顯主要操作。字體為簡潔的無襯線體，展示型標題粗體且字距緊縮。版面寬敞、置中且高度結構化。關鍵限制：避免任何白色背景，永遠不要使用襯線字體作為標題，並維持高對比以確保可讀性。專注於極簡、功能性的美學，反映應用程式隱私優先且靈活的特性。"
+    },
+    "ja": {
+      "identity": {
+        "keywords": [
+          "ナレッジ",
+          "プライバシー",
+          "柔軟性",
+          "Markdown",
+          "ネットワーク"
+        ],
+        "analogy": "あなたの思考とともに成長する、プライベートなネットワーク型デジタルノート。",
+        "oneLiner": "アイデアをリンクする、プライバシーを重視した強力なナレッジベース。"
+      },
+      "colors": {
+        "principle": "ハイコントラストダークモード。深い集中力と情報階層を優先し、高彩度のアクセントカラーを1色使用。"
+      },
+      "typography": {
+        "rules": [
+          "見出しは太字で、字詰めを詰める。",
+          "見出しと本文の間には明確な縦リズムを保つ。",
+          "すべてのUIテキストにセンテンスケースを使用する。"
+        ],
+        "scaleUses": [
+          "メインヒーローヘッドライン",
+          "セクション見出し",
+          "一般テキストおよびUI",
+          "小テキストおよびナビゲーション"
+        ]
+      },
+      "spacing": {
+        "rhythm": "8pxをベース単位とし、セクションの収まりには豊かなパディングを確保。"
+      },
+      "surfaces": {
+        "shadows": [
+          "0 1px 3px rgba(0,0,0,0.1)",
+          "0 20px 25px -5px rgba(0,0,0,0.1)",
+          "0 25px 50px -12px rgba(0,0,0,0.25)",
+          "inset 0 0 0 1px rgba(255,255,255,0.1)"
+        ],
+        "borders": "サーフェスの境界を明確にするため、強いコントラストを避けた繊細な1pxのダークグレー（#404040）のボーダー。"
+      },
+      "layout": {
+        "skeleton": "フルワイドのダーク背景に、中央揃えで幅を制限したコンテンツカラム。"
+      },
+      "components": {
+        "button": "プライマリボタンは、実体のあるアクセントカラー（#8a5cf5）を使用し、豊かなパディングと角丸を適用。",
+        "card": "アプリのスクリーンショットやコンテンツブロックを際立たせるための、繊細なダークサーフェスとソフトなインセットボーダー。",
+        "chip": "タグやステータスインジケーター用の、小さな角丸のピルエレメント。",
+        "input": "ダーク背景のフィールドに、微妙な1pxボーダーと、控えめなグレーのプレースホルダーテキスト。",
+        "hero": "大規模な左揃えテキストブロックと、大きなインタラクティブなプロダクトスクリーンショットの組み合わせ。"
+      },
+      "motion": {
+        "patterns": [
+          "hover時の滑らかな色と透明度のトランジション。",
+          "スクロール時のコンテンツ出現に対する、控えめなフェードイン。"
+        ]
+      },
+      "interaction": {
+        "hover": "テキスト色や背景の透明度の微細な変化、しばしば色のトランジションを伴う。",
+        "click": "即座に応答し、視覚的なフィードバックを微細に与える。",
+        "transition": "標準的なマテリアルイージングカーブを使用した、均一な150msトランジション。",
+        "keyboard": "フォーカス状態は標準のアウトラインで示し、OSの規約に準拠する。"
+      },
+      "voice": {
+        "tone": "自信に満ち、ミニマリストで知性的。",
+        "headlineStyle": "短く、力強く、直接的な命令形の文。",
+        "ctaStyle": "行動を促し、明確で、プラットフォームを指定することが多い。",
+        "avoid": [
+          "マーケティング文句",
+          "過度に複雑な専門用語",
+          "騒がしく攻撃的な句読点",
+          "曖昧な約束"
+        ]
+      },
+      "donts": [
+        "ホワイトやライトの背景を使用しない — スクリーンショットは深いダーク（#1f1f1f）テーマを示している。",
+        "見出しにセリフフォントを使用しない — スクリーンショットはディスプレイ用にクリーンなサンセリフを使用している。",
+        "複数の競合するアクセントカラーを使用しない — スクリーンショットは単一のメインカラー（#8a5cf5）を示している。",
+        "鋭い0pxのボーダーラジウスを使用しない — スクリーンショットはUIエレメントに角丸（4px〜12px）を使用している。",
+        "密集した複雑なレイアウトを使用しない — スクリーンショットは豊かなホワイトスペースと明確な階層を示している。",
+        "本文に全大文字を使用しない — スクリーンショットは一貫してセンテンスケースまたはタイトルケースを使用している。"
+      ],
+      "systemPrompt": "Obsidianは、開発者とパワーユーザー向けのナレッジ管理アプリです。ウェブサイトは、プライマリアクションを強調するために、深いダークテーマ（#1f1f1f）と鮮やかなアクセントカラー1色（#8a5cf5）を採用しています。タイポグラフィは、太字で字詰めの詰まったディスプレイ見出しを持つクリーンなヒューマニストサンセリフです。レイアウトは広々とし、中央揃えで、非常に構造化されています。重要な制約：ホワイト背景は一切使用せず、見出しに決してセリフフォントを使用せず、可読性のためにハイコントラストを維持すること。アプリのプライバシー重視で柔軟な性質を反映した、ミニマリストで機能的な美学に焦点を当てる。"
+    },
+    "ko": {
+      "identity": {
+        "keywords": [
+          "지식",
+          "프라이버시",
+          "유연한",
+          "마크다운",
+          "네트워크화"
+        ],
+        "analogy": "생각과 함께 성장하는 개인용 네트워크 디지털 노트.",
+        "oneLiner": "아이디어를 연결하는 강력한, 프라이버시 우선 지식 베이스."
+      },
+      "colors": {
+        "principle": "깊은 몰입과 정보 위계를 우선시하는 고대비 다크 모드로, 단일의 고채도 악센트를 적용합니다."
+      },
+      "typography": {
+        "rules": [
+          "제목은 볼드체로, 자간을 좁게 유지합니다.",
+          "헤드라인과 본문 간의 명확한 수직 리듬을 유지합니다.",
+          "모든 UI 텍스트에 문장 대소문자 표기법을 사용합니다."
+        ],
+        "scaleUses": [
+          "메인 히어로 헤드라인",
+          "섹션 제목",
+          "일반 본문 텍스트 및 UI",
+          "작은 텍스트 및 네비게이션"
+        ]
+      },
+      "spacing": {
+        "rhythm": "섹션 영역을 감싸는 여유로운 패딩을 갖춘 8px 기본 단위입니다."
+      },
+      "surfaces": {
+        "shadows": [
+          "0 1px 3px rgba(0,0,0,0.1)",
+          "0 20px 25px -5px rgba(0,0,0,0.1)",
+          "0 25px 50px -12px rgba(0,0,0,0.25)",
+          "inset 0 0 0 1px rgba(255,255,255,0.1)"
+        ],
+        "borders": "날카로운 대비 없이 영역을 구분하기 위한, 짙은 회색(#404040)의 미세한 1px 실선 테두리입니다."
+      },
+      "layout": {
+        "skeleton": "전체 너비의 어두운 배경에 중앙 정렬된, 너비가 제한된 콘텐츠 컬럼을 배치합니다."
+      },
+      "components": {
+        "button": "주요 버튼은 악센트 색상(#8a5cf5)의 단색을 사용하며, 여유로운 패딩과 둥근 모서리를 적용합니다.",
+        "card": "앱 스크린샷이나 콘텐츠 블록을 강조하기 위한, 미세한 삽입 테두리가 있는 어두운 표면입니다.",
+        "chip": "태그나 상태 표시를 위한 작은 둥근 둥근 알약 형태의 요소입니다.",
+        "input": "어두운 배경 필드에 미세한 1px 테두리와 옅은 회색의 플레이스홀더 텍스트를 적용합니다.",
+        "hero": "대규모의 좌측 정렬 텍스트 블록과 큰 규모의 인터랙티브 제품 스크린샷을 조합한 구조입니다."
+      },
+      "motion": {
+        "patterns": [
+          "hover 시 부드러운 색상 및 불투명도 전환.",
+          "scroll 시 콘텐츠가 나타날 때의 미세한 페이드 인 효과."
+        ]
+      },
+      "interaction": {
+        "hover": "텍스트 색상이나 배경 불투명도의 미세한 변화, 종종 색상 전환과 함께 적용됩니다.",
+        "click": "미세한 시각적 피드백과 함께 즉각적인 반응을 보입니다.",
+        "transition": "표준 머티리얼 이징 커브를 사용하는 균일한 150ms 전환 효과입니다.",
+        "keyboard": "포커스 상태는 OS 관례를 따르는 표준 윤곽선으로 표시됩니다."
+      },
+      "voice": {
+        "tone": "자신감 있고, 미니멀하며, 지적인 어조.",
+        "headlineStyle": "짧고 강렬하며 직접적인 명령형 문장.",
+        "ctaStyle": "행동 지향적이고 명확하며, 종종 플랫폼을 지정합니다.",
+        "avoid": [
+          "마케팅성 과장",
+          "지나치게 복잡한 전문 용어",
+          "크거나 공격적인 구두점",
+          "모호한 약속"
+        ]
+      },
+      "donts": [
+        "흰색이나 밝은 배경을 사용하지 않습니다 — 스크린샷은 깊은 어둠(#1f1f1f)의 테마를 보여줍니다.",
+        "제목에 세리프 폰트를 사용하지 않습니다 — 스크린샷은 디스플레이 타입용으로 깔끔한 산세리프를 보여줍니다.",
+        "여러 경쟁하는 악센트 색상을 사용하지 않습니다 — 스크린샷은 단일의 지배적인 보라색(#8a5cf5)을 보여줍니다.",
+        "날카로운 0px 테두리 반경을 사용하지 않습니다 — 스크린샷은 UI 요소에 둥근 모서리(4px~12px)를 보여줍니다.",
+        "밀집되고 지저분한 레이아웃을 사용하지 않습니다 — 스크린샷은 여유로운 여백과 명확한 위계를 보여줍니다.",
+        "본문 텍스트에 전체 대문자를 사용하지 않습니다 — 스크린샷은 문장 대소문자 또는 제목 대소문자를 일관되게 사용합니다."
+      ],
+      "systemPrompt": "Obsidian은 개발자와 파워 유저를 위한 지식 관리 앱입니다. 웹사이트는 깊은 어둠(#1f1f1f)의 테마에 단일의 선명한 보라색 악센트(#8a5cf5)를 사용하여 주요 작업을 강조합니다. 타이포그래피는 볼드하고 자간이 좁은 디스플레이 제목을 갖춘 깔끔한 휴머니스트 산세리프입니다. 레이아웃은 여유롭고, 중앙 정렬되며, 매우 구조화되어 있습니다. 핵심 제약 조건: 흰색 배경 사용을 피하고, 제목에 세리프 폰트를 절대 사용하지 않으며, 가독성을 위해 높은 대비를 유지합니다. 앱의 프라이버시 중심적이고 유연한 특성을 반영하는 미니멀하고 기능적인 미적 요소에 집중합니다."
+    }
+  },
+  "desc": {
+    "en": {
+      "palette": "A high-contrast dark theme built on deep grays and blacks, punctuated by a single vibrant purple accent.",
+      "layout": "Centered, spacious layout with generous vertical rhythm and a clear, two-column split for feature sections.",
+      "interaction": "Clean and subtle transitions focused on color and opacity changes within a 150ms timeframe.",
+      "motion": "Fast, responsive micro-interactions using standard cubic-bezier easing for a polished feel.",
+      "notes": "This site is a masterclass in focused, utility-driven dark mode design that prioritizes content readability and brand identity through a singular color strategy."
+    },
+    "zh-CN": {
+      "palette": "基于深灰与纯黑的高对比暗色主题，点缀单一鲜明的紫色作为强调色。",
+      "layout": "居中、宽敞的布局，具备充分的垂直韵律，并为功能区块设置清晰的双栏分割。",
+      "interaction": "干净、微妙的过渡效果，聚焦于150毫秒时间框架内的色彩与透明度变化。",
+      "motion": "快速、响应式的微交互，采用标准 cubic-bezier 缓动曲线以营造精致感。",
+      "notes": "该网站堪称聚焦、实用驱动的暗色模式设计典范，通过单一色彩策略优先保障内容可读性与品牌辨识度。"
+    },
+    "zh-TW": {
+      "palette": "以深灰與黑色為基調的高對比深色主題，單一鮮明的紫色點綴其中。",
+      "layout": "居中且寬敞的版面配置，擁有充裕的垂直節奏，並以清晰的雙欄分割呈現功能區塊。",
+      "interaction": "純淨而細膩的轉換效果，聚焦於150毫秒時間框架內的色彩與透明度變化。",
+      "motion": "快速且靈敏的微互動，採用標準cubic-bezier緩動曲線，營造精緻質感。",
+      "notes": "本站是專注、實用導向深色模式設計的經典範例，透過單一色彩策略優先考量內容可讀性與品牌識別。"
+    },
+    "ja": {
+      "palette": "深いグレーとブラックを基調とし、鮮やかなアクセントカラー1色で画龍点睛の効いた、ハイコントラストのダークテーマ。",
+      "layout": "中央揃えの広々としたレイアウト。縦方向のリズムを豊かに取り、フィーチャーセクションは明確な2カラム構成。",
+      "interaction": "色と透明度の変化に焦点を当てた、150ms以内のクリーンで繊細なトランジション。",
+      "motion": "標準的なcubic-bezierイージングを用いた、洗練された印象を与える高速かつレスポンシブなマイクロインタラクション。",
+      "notes": "本サイトは、集中型でユーティリティを重視したダークモードデザインの模範であり、一貫したカラーストラテジーを通じてコンテンツの可読性とブランドアイデンティティを優先しています。"
+    },
+    "ko": {
+      "palette": "깊은 회색과 검정을 기반으로 한 고대비 다크 테마에, 단일의 선명한 보라색 악센트를 포인트로 적용했습니다.",
+      "layout": "여유로운 수직 리듬을 갖춘 중앙 정렬의 넓은 레이아웃으로, 기능 섹션을 위한 명확한 2열 분할 구조를 취하고 있습니다.",
+      "interaction": "150ms 시간대 내에서 색상과 불투명도 변화에 집중한 깔끔하고 미세한 전환 효과입니다.",
+      "motion": "표준 cubic-bezier 이징을 활용한 빠르고 반응적인 마이크로 상호작용으로, 세련된 느낌을 연출합니다.",
+      "notes": "이 사이트는 단일 색상 전략을 통해 콘텐츠 가독성과 브랜드 아이덴티티를 우선시하는, 집중적이고 기능 지향적인 다크 모드 디자인의 모범 사례입니다."
+    }
+  },
+  "_meta": {
+    "vision_model": "mimo-v2.5",
+    "vision_prompt_version": "0.3",
+    "vision_source": "playwright-extract:obsidian",
+    "vision_grounded": true,
+    "vision_at": "2026-06-04T17:24:48+00:00",
+    "vision_tokens": 17408,
+    "vision_cost_usd": 0.1934,
+    "translation_model": "mimo-v2.5",
+    "translation_at": "2026-06-04T17:26:10+00:00",
+    "translation_tokens": 16989,
+    "translation_cost_usd": 0.0566,
+    "narrative_model": "mimo-v2.5",
+    "narrative_prompt_version": "0.3",
+    "narrative_at": "2026-06-04T17:26:20+00:00",
+    "narrative_tokens": 2066,
+    "narrative_cost_usd": 0.0138,
+    "narrative_status": "ok",
+    "total_cost_usd": 0.2638
+  },
+  "narrative": {
+    "en": {
+      "ch1_intro": "Obsidian's design system is built like a private, networked digital notebook—one that expands as your thoughts do. The identity is one of knowledge, privacy, and flexible connectivity, expressed through a functional, minimalist aesthetic that mirrors the app's core purpose.",
+      "ch2_intro": "The palette is a high-contrast dark mode built on deep grays and blacks, punctuated by a single vibrant purple accent. This singular color strategy prioritizes deep focus and information hierarchy.",
+      "ch2_outro": "The guiding principle is that the interface should recede, letting your content and a single, clear accent color direct attention.",
+      "ch3_intro": "Typography employs a clean humanist-sans-serif, with headings kept bold and tightly tracked. This creates a confident, minimalist voice that uses sentence case for all UI text, maintaining a clear vertical rhythm between headlines and body.",
+      "ch4_intro": "Spacing is governed by an 8px base unit, creating a consistent and generous rhythm throughout the interface.",
+      "ch5_intro": "Surfaces are defined by subtle 1px solid borders in dark grays and soft, layered shadows. This creates depth without harsh contrast, allowing content blocks and cards to be highlighted gently against the deep background.",
+      "ch6_intro": "The layout skeleton is a full-width dark field with a centered, constrained content column. It features generous whitespace and a clear hierarchy, often splitting into a two-column structure for feature sections.",
+      "ch7_intro": "Motion is treated as functional feedback, not decoration. The system uses smooth, uniform 150ms transitions for color and opacity changes, creating responsive micro-interactions that feel polished and immediate.",
+      "ch8_intro": "The editorial voice is confident, minimalist, and intellectual. It favors short, direct imperative statements for headlines and clear, action-oriented calls to action, deliberately avoiding marketing fluff and vague promises.",
+      "ch8_outro": "The system deliberately does not accommodate light backgrounds, competing accent colors, or dense, cluttered layouts."
+    },
+    "zh-CN": {
+      "ch1_intro": "Obsidian的设计系统构建得如同一本私密的、网络化的数字笔记本——它会随你思想的延伸而扩展。其核心是知识、隐私与灵活连接的融合，通过一种功能性、极简主义的美学来表达，映照着应用的核心宗旨。",
+      "ch2_intro": "配色方案基于深灰与黑色构建了高对比度的深色模式，点缀着单一的鲜明紫色强调色。这种单一色彩策略优先服务于深度专注与信息层级。",
+      "ch2_outro": "其指导原则是界面应当退居幕后，让内容和单一的、清晰的强调色来引导注意力。",
+      "ch3_intro": "字体排印采用清晰的人文主义无衬线字体，标题保持粗体并拥有紧凑的字间距。这营造出一种自信、极简的视觉语言，所有用户界面文本均使用首字母大写格式，维持标题与正文之间清晰的垂直节奏。",
+      "ch4_intro": "间距由8像素基础单位规范，在整个界面中创造出一致且宽松的节奏感。",
+      "ch5_intro": "表面由深灰色的微妙1像素实线边框以及柔和、层叠的阴影来定义。这创造了无需强烈对比的深度，使内容区块和卡片能在深色背景上被柔和地凸显出来。",
+      "ch6_intro": "布局骨架是一个全宽的深色区域，其中包含一个居中、受约束的内容列。它拥有充足的留白和清晰的层级结构，并常常在功能板块中采用两栏式布局。",
+      "ch7_intro": "动效被视为功能性反馈，而非装饰。系统为颜色和透明度变化使用平滑、统一的150毫秒过渡，创造出响应迅速、精致且即时的微交互体验。",
+      "ch8_intro": "其编辑语调自信、极简且富有思辨性。标题倾向于使用简短、直接的祈使句，行动号召则清晰、以行动为导向，刻意避免了营销套话和模糊承诺。",
+      "ch8_outro": "该系统有意不支持浅色背景、竞争性强调色或密集、杂乱的布局。"
+    },
+    "zh-TW": {
+      "ch1_intro": "Obsidian 的設計系統宛如一本私密的、互聯的數位筆記本——它會隨你的思緒一同擴展。其核心在於知識、隱私與靈活的連結性，透過一種功能性的極簡美學來表達，這也正呼應了應用程式的核心宗旨。",
+      "ch2_intro": "色盤建立在深灰與黑色的基礎上，採用高對比的深色模式，並點綴單一鮮明的紫色作為強調色。這種單一色彩策略優先考量深度的專注與資訊的層級。",
+      "ch2_outro": "指導原則是：介面應退居幕後，讓你的內容與單一、清晰的強調色來引導注意力。",
+      "ch3_intro": "字體採用簡潔的人文無襯線字體，標題保持粗體且字距緊湊。這營造出自信、極簡的語調，所有 UI 文字皆使用句首大寫，並在標題與內文之間維持清晰的垂直節奏。",
+      "ch4_intro": "間距由 8px 的基礎單位掌控，在整個介面中創造出一致且寬裕的節奏。",
+      "ch5_intro": "表面由深灰色調、細微的 1px 實心邊框以及柔和的階層陰影來定義。這創造了深度而不產生刺眼的對比，讓內容區塊和卡片能在深色背景上被溫和地突顯出來。",
+      "ch6_intro": "版面骨架是一個全寬的深色區域，搭配一個置中且受限的內容欄位。它具有寬裕的留白與清晰的層級，在功能區塊常會拆分成雙欄結構。",
+      "ch7_intro": "動態效果被視為功能性的回饋，而非裝飾。系統使用平滑、統一的 150ms 過渡效果來處理顏色與透明度的變化，創造出細緻、即時的互動回應。",
+      "ch8_intro": "編輯語調自信、簡潔且具知性。標題偏好使用簡短、直接的祈使句，而行動呼籲則清晰且以行動為導向，刻意避開行銷話術與模糊的承諾。",
+      "ch8_outro": "系統刻意不支援淺色背景、競爭性的強調色，或是密集、擁擠的版面佈局。"
+    },
+    "ja": {
+      "ch1_intro": "Obsidianのデザインシステムは、プライベートでネットワーク化されたデジタルノートのように構築されています。思考拡張に応じて成長するノートです。そのアイデンティティは、知識、プライバシー、柔軟な接続性を反映し、アプリの核心目的を映し出す機能的でミニマルな美学を通して表現されています。",
+      "ch2_intro": "パレットは、深いグレーとブラックを基調とした高コントラストのダークモードで、単一の鮮やかなアクセントカラーとして紫色が点缀されています。この単一カラー戦略は、深い集中と情報階層を優先します。",
+      "ch2_outro": "ガイド原則は、インターフェースが後退し、コンテンツと単一で明確なアクセントカラーが注意を導くべきということです。",
+      "ch3_intro": "タイポグラフィには、クリーンなヒューマニスト・サンセリフが採用され、見出しは太字で紧密なトラッキングが維持されます。これにより、すべてのUIテキストに文頭大文字を使用し、見出しと本文の間に明確な垂直リズムを保ちながら、自信に満ちたミニマルな声が生まれます。",
+      "ch4_intro": "余白は8pxの基本単位で管理され、インターフェース全体に一貫した豊かなリズムを生み出します。",
+      "ch5_intro": "サーフェスは、ダークグレーの微細な1px实線ボーダーと、柔らかくレイヤードされたシャドウで定義されます。これにより、不自然なコントラストなしに奥行きが生まれ、コンテンツブロックやカードが深い背景に対して優しく強調されます。",
+      "ch6_intro": "レイアウトの骨格は、幅全体のダークフィールドに、中央に配置された制限されたコンテンツカラムです。豊かな余白と明確な階層を特徴とし、機能セクションでは2カラム構造に分割されることもよくあります。",
+      "ch7_intro": "モーションは装飾ではなく、機能的なフィードバックとして扱われます。システムは、カラーと不透明度の変更に対して滑らかで均一な150msのトランジションを使用し、洗練され即応性のあるマイクロインタラクションを生み出します。",
+      "ch8_intro": "エディトリアルボイスは、自信に満ち、ミニマルで、知的です。見出しには短く直接的な命令文を好んだり、明確でアクション指向のCTAを使用し、マーケティングの綺言や曖昧な約束は意図的に避けています。",
+      "ch8_outro": "システムは意図的に、ライトな背景、競合するアクセントカラー、または密集した雑然としたレイアウトには対応しません。"
+    },
+    "ko": {
+      "ch1_intro": "Obsidian의 디자인 시스템은 사설 네트워크 디지털 노트처럼 구축되었습니다. 생각과 함께 확장되는 시스템입니다. 이 정체성은 지식, 프라이버시, 유연한 연결성을 바탕으로 하며, 앱의 핵심 목적을 반영하는 기능적이고 미니멀한 미학으로 표현됩니다.",
+      "ch2_intro": "팔레트는 깊은 회색과 검정을 기반으로 한 고대비 다크 모드이며, 단 하나의 선명한 보라색 강조색으로 포인트를 줍니다. 이 단일 색상 전략은 깊은 집중과 정보 계층 구조를 우선시합니다.",
+      "ch2_outro": "안내 원칙은 인터페이스가 물러나서 콘텐츠와 단 하나의 명확한 강조색이 주의를 이끌어야 한다는 것입니다.",
+      "ch3_intro": "타이포그래피는 깔끔한 humanist-sans-serif를 사용하며, 제목은 볼드체로 좁은 자간을 유지합니다. 이는 모든 UI 텍스트에 문장 대소문자를 사용하고, 제목과 본문 사이에 명확한 수직 리듬을 유지하여 자신감 있고 미니멀한 어조를 만듭니다.",
+      "ch4_intro": "간격은 8px 기본 단위로 제어되어 인터페이스 전반에 걸쳐 일관되고 여유로운 리듬을 만듭니다.",
+      "ch5_intro": "표면은 어두운 회색의 미세한 1px 실선 테두리와 부드럽고 겹쳐진 그림자로 정의됩니다. 이는 가혹한 대비 없이 깊이감을 만들어내어, 콘텐츠 블록과 카드가 깊은 배경에 대해 부드럽게 강조될 수 있게 합니다.",
+      "ch6_intro": "레이아웃 스켈레톤은 전체 너비의 어두운 배경에 중앙 정렬된 제한된 콘텐츠 열입니다. 넉넉한 여백과 명확한 계층 구조를 특징으로 하며, 기능 섹션의 경우 일반적으로 2열 구조로 나뉩니다.",
+      "ch7_intro": "모션은 장식이 아닌 기능적 피드백으로 다룹니다. 시스템은 색상 및 불투명도 변화를 위해 부드럽고 균일한 150ms 전환을 사용하여, 세련되고 즉각적인 느낌의 반응형 마이크로 인터랙션을 만듭니다.",
+      "ch8_intro": "에디토리얼 어조는 자신감 있고, 미니멀하며, 지적입니다. 제목에는 짧고 직접적인 명령형 문장을 선호하고, 명확하고 행동 지향적인 콜 투 액션을 사용하며, 마케팅 문구와 모호한 약속은 의도적으로 피합니다.",
+      "ch8_outro": "시스템은 밝은 배경, 경쟁하는 강조색, 또는 밀집되고 지저분한 레이아웃을 의도적으로 허용하지 않습니다."
+    }
+  }
 }

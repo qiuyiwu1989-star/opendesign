@@ -8,6 +8,617 @@
     "productivity",
     "saas"
   ],
-  "status": "pending",
-  "added_at": "2026-06-03"
+  "status": "completed",
+  "added_at": "2026-06-03",
+  "spec": {
+    "colors": {
+      "bg": "#FFFFFF",
+      "bgSoft": "#EBEFFF",
+      "bgQuiet": "#F5F7FA",
+      "ink": "#181D25",
+      "inkSoft": "#4A4A4A",
+      "muted": "#6B7280",
+      "mutedSoft": "#9CA3AF",
+      "accent": "#5562EB",
+      "line": "rgba(24, 29, 37, 0.1)"
+    },
+    "typography": {
+      "display": "geometric-sans",
+      "body": "humanist-sans",
+      "mono": "monospace",
+      "scale": [
+        {
+          "token": "display",
+          "size": 72,
+          "lh": 1.05,
+          "weight": 700,
+          "ls": "-2px"
+        },
+        {
+          "token": "headline",
+          "size": 40,
+          "lh": 1.15,
+          "weight": 600,
+          "ls": "-1px"
+        },
+        {
+          "token": "subhead",
+          "size": 24,
+          "lh": 1.4,
+          "weight": 500,
+          "ls": "0px"
+        },
+        {
+          "token": "body",
+          "size": 18,
+          "lh": 1.6,
+          "weight": 400,
+          "ls": "0px"
+        },
+        {
+          "token": "caption",
+          "size": 14,
+          "lh": 1.5,
+          "weight": 400,
+          "ls": "0px"
+        }
+      ]
+    },
+    "spacing": {
+      "base": 4,
+      "scale": [
+        4,
+        8,
+        16,
+        24,
+        32,
+        48,
+        64,
+        96,
+        128
+      ]
+    },
+    "surfaces": {
+      "radius": {
+        "sm": 4,
+        "md": 8,
+        "lg": 12,
+        "pill": 999
+      }
+    },
+    "layout": {
+      "container": 1280,
+      "paragraph": 680,
+      "columns": 12,
+      "gutter": 24,
+      "breakpoints": [
+        768,
+        1024,
+        1440
+      ]
+    },
+    "motion": {
+      "durations": {
+        "micro": 150,
+        "small": 250,
+        "medium": 500
+      },
+      "easing": "cubic-bezier(0.25, 0.1, 0.25, 1)"
+    }
+  },
+  "spec_i18n": {
+    "en": {
+      "identity": {
+        "keywords": [
+          "intelligent",
+          "automated",
+          "productivity",
+          "scheduling"
+        ],
+        "analogy": "Your AI-powered timekeeper that automatically organizes your work calendar.",
+        "oneLiner": "An AI-first calendar application designed to automate scheduling and reclaim work-life balance."
+      },
+      "colors": {
+        "principle": "Clean, high-contrast base with a vibrant primary blue accent and supportive green tones for focus."
+      },
+      "typography": {
+        "rules": [
+          "Use geometric-sans for bold, modern display type.",
+          "Use humanist-sans for readable body copy."
+        ],
+        "scaleUses": [
+          "Primary hero headline",
+          "Section headings",
+          "Subheadings and large UI text",
+          "Main body copy",
+          "Small text, labels, and metadata"
+        ]
+      },
+      "spacing": {
+        "rhythm": "Based on a 4px grid, with generous white space in hero sections and tighter spacing in UI components."
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 5px 40px 0px rgba(9, 14, 21, 0.16)",
+          "0px 20px 32px -8px rgba(9, 20, 66, 0.25)"
+        ],
+        "borders": "1px solid rgba(24, 29, 37, 0.1)"
+      },
+      "layout": {
+        "skeleton": "Responsive grid with a prominent center-aligned hero section followed by alternating content blocks."
+      },
+      "components": {
+        "button": "Rounded pill shape (999px radius) with high contrast; primary actions use solid blue background, secondary use outline.",
+        "card": "Subtle rounded corners (12px) with light background colors (blue, green, dark) and integrated imagery.",
+        "chip": "Small rounded tags or badges used for status or feature highlights.",
+        "input": "Standard rounded inputs with subtle borders, often used in forms or search interfaces.",
+        "hero": "Massive typography paired with a product mockup or lifestyle imagery, heavily utilizing white space."
+      },
+      "motion": {
+        "patterns": [
+          "Subtle fade-in and transform transitions for elements entering the viewport.",
+          "Color and stroke transitions for interactive elements on hover."
+        ]
+      },
+      "interaction": {
+        "hover": "Subtle color shifts or brightness changes on primary buttons; slight scaling or shadow lift on cards.",
+        "click": "Immediate visual feedback with scale or opacity changes.",
+        "transition": "Smooth transitions for most state changes, typically 0.2s to 0.5s.",
+        "keyboard": "Standard focus rings, typically matching the primary accent color."
+      },
+      "voice": {
+        "tone": "Professional, confident, and helpful.",
+        "headlineStyle": "Direct, benefit-driven, and emphasizes the 'AI' and 'automated' nature of the product.",
+        "ctaStyle": "Action-oriented and encouraging, often using 'Get started' or 'Book a demo'.",
+        "avoid": [
+          "Vague marketing jargon",
+          "Aggressive or salesy language",
+          "Excessive use of superlatives"
+        ]
+      },
+      "donts": [
+        "Don't use a dark mode as the primary interface — screenshot shows a predominantly light, white-based theme.",
+        "Don't use a single-color gradient for headlines — screenshot shows a multi-color gradient (blue to green) for the word 'calendar'.",
+        "Don't use sharp, square corners on primary elements — screenshot shows widely used pill shapes (999px radius) for buttons.",
+        "Don't use a crowded or dense layout — screenshot shows generous white space and large typography for clarity.",
+        "Don't use decorative or serif fonts for UI text — screenshot shows clean, modern sans-serif fonts throughout.",
+        "Don't use muted or low-contrast colors for primary actions — screenshot uses a high-vibrancy blue for main buttons."
+      ],
+      "systemPrompt": "Reclaim.ai is an AI-powered productivity SaaS tool focused on automated calendar management. The visual system uses a clean, light-themed aesthetic with a primary accent color of #5562EB (vibrant blue) and a secondary green of #7AC17B. Typography is a mix of geometric and humanist sans-serif fonts, creating a modern and highly readable interface. Key elements include massive, benefit-driven headlines and generous white space. Critical design rules: Do not use sharp square corners on buttons (use pill shapes); do not use dark mode as the primary UI; do not use complex gradients on non-headline text; ensure high contrast for all primary CTAs; maintain a generous amount of whitespace to avoid a cluttered feel."
+    },
+    "zh-CN": {
+      "identity": {
+        "keywords": [
+          "智能",
+          "自动化",
+          "生产力",
+          "日程安排"
+        ],
+        "analogy": "您的AI驱动的时间管理者，自动整理您的工作日历。",
+        "oneLiner": "一款AI优先的日历应用，旨在自动化日程安排并重获工作与生活的平衡。"
+      },
+      "colors": {
+        "principle": "以干净、高对比度为基础，搭配充满活力的主蓝色强调色和用于突出重点的辅助绿色调。"
+      },
+      "typography": {
+        "rules": [
+          "使用几何无衬线体作为醒目、现代的标题字体。",
+          "使用人文无衬线体作为易读的正文字体。"
+        ],
+        "scaleUses": [
+          "主视觉区大标题",
+          "区域标题",
+          "副标题和大号UI文本",
+          "正文",
+          "小号文本、标签和元数据"
+        ]
+      },
+      "spacing": {
+        "rhythm": "基于4px网格，主视觉区域留有大量空白，UI组件的间距则更为紧凑。"
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 5px 40px 0px rgba(9, 14, 21, 0.16)",
+          "0px 20px 32px -8px rgba(9, 20, 66, 0.25)"
+        ],
+        "borders": "1px solid rgba(24, 29, 37, 0.1)"
+      },
+      "layout": {
+        "skeleton": "响应式网格，包含一个醒目的居中主视觉区域，其后是交替排列的内容块。"
+      },
+      "components": {
+        "button": "圆润的药丸形状（999px圆角），高对比度；主要操作使用纯蓝色背景，次要操作使用描边样式。",
+        "card": "微妙的圆角（12px），采用浅色背景（蓝色、绿色、深色）并整合图像。",
+        "chip": "小型的圆角标签或徽章，用于状态或功能亮点。",
+        "input": "标准圆角输入框，带有微妙的边框，常用于表单或搜索界面。",
+        "hero": "宏大的排版搭配产品模型或生活场景图像，大量运用留白。"
+      },
+      "motion": {
+        "patterns": [
+          "元素进入视口时，采用微妙的淡入和变换过渡。",
+          "交互元素在hover状态下，进行颜色和描边过渡。"
+        ]
+      },
+      "interaction": {
+        "hover": "主要按钮上的颜色或亮度发生微妙变化；卡片略微放大或提升阴影。",
+        "click": "通过缩放或透明度变化提供即时视觉反馈。",
+        "transition": "大多数状态变化采用平滑过渡，通常为0.2秒到0.5秒。",
+        "keyboard": "标准的focus环，通常与主强调色匹配。"
+      },
+      "voice": {
+        "tone": "专业、自信且乐于助人。",
+        "headlineStyle": "直接、以收益为导向，并强调产品的“AI”和“自动化”特性。",
+        "ctaStyle": "以行动为导向且具有鼓励性，常使用“立即开始”或“预约演示”。",
+        "avoid": [
+          "模糊的营销术语",
+          "激进或推销式的语言",
+          "过度使用最高级形容词"
+        ]
+      },
+      "donts": [
+        "不要使用深色模式作为主要界面——截图显示的是一个以浅色、白色为主的主题。",
+        "不要为标题使用单色渐变——截图显示“calendar”一词使用了多色渐变（蓝色到绿色）。",
+        "不要为主要元素使用尖锐的方形边角——截图显示按钮广泛使用了药丸形状（999px圆角）。",
+        "不要使用拥挤或密集的布局——截图显示有大量留白和大号字体以保证清晰度。",
+        "不要为UI文本使用装饰性或衬线字体——截图显示整体使用了干净、现代的无衬线字体。",
+        "不要为主要操作使用柔和或低对比度的颜色——截图为主按钮使用了高饱和度的蓝色。"
+      ],
+      "systemPrompt": "Reclaim.ai 是一款专注于自动化日历管理的AI驱动生产力SaaS工具。其视觉系统采用干净、浅色为主的美学，主强调色为 #5562EB（充满活力的蓝色），辅助绿色为 #7AC17B。排版融合了几何和人文无衬线字体，营造出现代且高度可读的界面。关键元素包括以收益为导向的宏大标题和大量留白。关键设计规则：不要为按钮使用尖锐的方形边角（使用药丸形状）；不要将深色模式作为主要UI；不要在非标题文本上使用复杂渐变；确保所有主要CTA具有高对比度；保持充足的留白以避免杂乱感。"
+    },
+    "zh-TW": {
+      "identity": {
+        "keywords": [
+          "智慧",
+          "自動化",
+          "生產力",
+          "排程"
+        ],
+        "analogy": "您的 AI 驅動的時間管理者，自動組織您的工作日曆。",
+        "oneLiner": "一款以 AI 為優先的日曆應用程式，旨在自動化排程並重新奪回工作與生活的平衡。"
+      },
+      "colors": {
+        "principle": "乾淨、高對比度的基礎，搭配鮮活的主藍色強調色與輔助的綠色色調以引導視覺焦點。"
+      },
+      "typography": {
+        "rules": [
+          "使用幾何無襯線字體作為大膽、現代的標題字體。",
+          "使用人文無襯線字體作為易讀的內文字體。"
+        ],
+        "scaleUses": [
+          "主標題",
+          "區塊標題",
+          "副標題與大型介面文字",
+          "主要內文",
+          "小型文字、標籤與後設資料"
+        ]
+      },
+      "spacing": {
+        "rhythm": "基於 4px 的網格，在主視覺區塊使用寬裕的留白，在介面元件中則使用較緊湊的間距。"
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 5px 40px 0px rgba(9, 14, 21, 0.16)",
+          "0px 20px 32px -8px rgba(9, 20, 66, 0.25)"
+        ],
+        "border": "1px solid rgba(24, 29, 37, 0.1)"
+      },
+      "layout": {
+        "skeleton": "響應式網格，包含一個顯著的置中對齊主視覺區塊，後接交替的內容區塊。"
+      },
+      "components": {
+        "button": "圓潤的膠囊形狀（999px 圓角）並具備高對比度；主要操作使用實心藍色背景，次要操作使用外框線條。",
+        "card": "細微的圓角（12px），搭配淺色背景（藍色、綠色、深色）並整合圖片。",
+        "chip": "小型圓潤的標籤或徽章，用於狀態或功能亮點。",
+        "input": "標準的圓角輸入框，帶有細微邊框，常用於表單或搜尋介面。",
+        "hero": "大規模的字體排印，搭配產品模型或生活化圖片，大量運用留白。"
+      },
+      "motion": {
+        "patterns": [
+          "為進入視野的元素提供細微的淡入與變換過渡。",
+          "互動元素在懸停時的顏色與描邊過渡。"
+        ]
+      },
+      "interaction": {
+        "hover": "主要按鈕上細微的色彩變化或亮度調整；卡片上的輕微縮放或陰影提升。",
+        "click": "透過縮放或透明度變化提供即時的視覺反饋。",
+        "transition": "大多數狀態變換皆採用流暢的過渡，通常為 0.2 秒至 0.5 秒。",
+        "keyboard": "標準的聚焦環，通常與主要強調色相符。"
+      },
+      "voice": {
+        "tone": "專業、自信且具幫助性。",
+        "headlineStyle": "直接、強調效益，並突顯產品的「AI」與「自動化」特質。",
+        "ctaStyle": "以行動為導向且具鼓勵性，常使用「立即開始」或「預約演示」。",
+        "avoid": [
+          "模糊的行銷術語",
+          "具侵略性或過度推銷的語言",
+          "過度使用最高級形容詞"
+        ]
+      },
+      "donts": [
+        "不要將深色模式作為主要介面 — 截圖顯示的是以明亮、白色為主的主題。",
+        "不要為標題使用單色漸層 — 截圖顯示的是多色漸層（藍色到綠色）用於「calendar」一詞。",
+        "不要在主要元件上使用尖銳的方形圓角 — 截圖顯示廣泛使用膠囊形狀（999px 圓角）作為按鈕。",
+        "不要使用擁擠或密集的版面 — 截圖顯示寬裕的留白與大型字體排印以確保清晰度。",
+        "不要為介面文字使用裝飾性或襯線字體 — 截圖顯示整體採用乾淨、現代的無襯線字體。",
+        "不要為主要操作使用低飽和度或低對比度的顏色 — 截圖使用高飽和度的藍色作為主要按鈕。"
+      ],
+      "systemPrompt": "Reclaim.ai 是一款 AI 驅動的生產力 SaaS 工具，專注於自動化的日曆管理。視覺系統採用乾淨、明亮主題的美學，主要強調色為 #5562EB（鮮活的藍色），次要綠色為 #7AC17B。字體排印結合了幾何與人文無襯線字體，創造出一個現代且高度易讀的介面。關鍵元素包括大規模、強調效益的標題與寬裕的留白。關鍵設計規則：不要在按鈕上使用尖銳的方形圓角（使用膠囊形狀）；不要將深色模式作為主要 UI；不要在非標題文字上使用複雜的漸層；確保所有主要 CTA 具備高對比度；維持寬裕的留白以避免擁擠感。"
+    },
+    "ja": {
+      "identity": {
+        "keywords": [
+          "インテリジェント",
+          "自動化",
+          "生産性",
+          "スケジューリング"
+        ],
+        "analogy": "あなたのワークカレンダーを自動的に整理する、AI搭載のタイムキーパー。",
+        "oneLiner": "スケジューリングを自動化し、ワークライフバランスを取り戻すために設計された、AIファーストのカレンダーアプリケーション。"
+      },
+      "colors": {
+        "principle": "鮮やかなプライマリブルーアクセントと、集中力を高める補助的なグリーントーンを備えた、クリーンで高コントラストのベース。"
+      },
+      "typography": {
+        "rules": [
+          "大胆でモダンなディスプレイ用には、geometric-sansを使用。",
+          "可読性の高い本文には、humanist-sansを使用。"
+        ],
+        "scaleUses": [
+          "プライマリヒーローヘッドライン",
+          "セクション見出し",
+          "サブ見出しと大きなUIテキスト",
+          "メイン本文",
+          "小さなテキスト、ラベル、メタデータ"
+        ]
+      },
+      "spacing": {
+        "rhythm": "4pxグリッドに基づき、ヒーローセクションには広めのホワイトスペースを、UIコンポーネントにはより詰め込んだ間隔を設定。"
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 5px 40px 0px rgba(9, 14, 21, 0.16)",
+          "0px 20px 32px -8px rgba(9, 20, 66, 0.25)"
+        ],
+        "borders": "1px solid rgba(24, 29, 37, 0.1)"
+      },
+      "layout": {
+        "skeleton": "目立つ中央揃えのヒーローセクションを先頭に、交互に配置されたコンテンツブロックを備えるレスポンシブグリッド。"
+      },
+      "components": {
+        "button": "丸みを帯びたピル形状（999px radius）で高コントラスト。プライマリアクションはソリッドブルー背景、セカンダリアクションはアウトライン。",
+        "card": "控えめな角丸（12px）で、淡い背景色（青、緑、ダーク）と統合されたイメージを採用。",
+        "chip": "ステータスや機能のハイライトに使用される、小さな丸みを帯びたタグやバッジ。",
+        "input": "控えめなボーダーを持つ標準的な角丸入力フォーム。フォームや検索インターフェースでよく使用。",
+        "hero": "製品のモックアップやライフスタイルイメージと組み合わせた巨大なタイポグラフィ。ホワイトスペースを効果的に活用。"
+      },
+      "motion": {
+        "patterns": [
+          "ビューポートに进入する要素に対する、控えめなフェードインとトランスフォーム遷移。",
+          "hover時のインタラクティブ要素に対する、色とストロークの遷移。"
+        ]
+      },
+      "interaction": {
+        "hover": "プライマリボタンには控えめな色の変化や明度の変化。カードには軽いスケーリングやシャドウの浮き上がり。",
+        "click": "スケールや不透明度の変化による即座の視覚フィードバック。",
+        "transition": "ほとんどの状態変化に0.2秒から0.5秒の滑らかな遷移。",
+        "keyboard": "一般的なフォーカスリング。通常はプライマリアクセント色に合わせる。"
+      },
+      "voice": {
+        "tone": "プロフェッショナルで、自信に満ち、かつ有益的。",
+        "headlineStyle": "直接的で、メリットを促進し、製品の「AI」や「自動化」の性質を強調。",
+        "ctaStyle": "行動を促し、奨励するもの。「Get started」や「Book a demo」を使用。",
+        "avoid": [
+          "曖昧なマーケティング用語",
+          "攻撃的または強引な言葉",
+          "誇張表現の過剰な使用"
+        ]
+      },
+      "donts": [
+        "ダークモードをプライマリインターフェースとして使用しない — スクリーンショットは主に明るい、白をベースにしたテーマを示しています。",
+        "ヘッドラインに単色グラデーションを使用しない — スクリーンショットは「calendar」という言葉にマルチカラーグラデーション（ブルーからグリーン）を使用しています。",
+        "プライマリ要素に鋭い角を使用しない — スクリーンショットはボタンに広く使われるピル形状（999px radius）を示しています。",
+        "混雑または密集したレイアウトを使用しない — スクリーンショットは明瞭さのために広めのホワイトスペースと大きなタイポグラフィを示しています。",
+        "UIテキストに装飾的またはセリフフォントを使用しない — スクリーンショットは全体を通してクリーンでモダンなサンセリフフォントを使用しています。",
+        "プライマリアクションに控えめまたは低コントラストの色を使用しない — スクリーンショットはメインボタンに高鮮度のブルーを使用しています。"
+      ],
+      "systemPrompt": "Reclaim.aiは、自動カレンダー管理に焦点を当てた、AI搭載の生産性SaaSツールです。ビジュアルシステムは、クリーンで明るいテーマの美学を採用し、プライマリアクセントカラーに#5562EB（鮮やかなブルー）、セカンダリーグリーンに#7AC17Bを使用しています。タイポグラフィはgeometricとhumanistサンセリフフォントの混合で、モダンで非常に可読性の高いインターフェースを作り出しています。重要な要素には、大きな、メリットを促進するヘッドラインと広めのホワイトスペースが含まれます。重要なデザインルール：ボタンに鋭い角を使用しない（ピル形状を使用）；ダークモードをプライマリUIとして使用しない；非ヘッドラインテキストに複雑なグラデーションを使用しない；すべてのプライマリCTAに高コントラストを確保；雑然とした印象を避けるために十分なホワイトスペースを維持する。"
+    },
+    "ko": {
+      "identity": {
+        "keywords": [
+          "지능형",
+          "자동화",
+          "생산성",
+          "일정 관리"
+        ],
+        "analogy": "작업 캘린더를 자동으로 정리하는 AI 기반 시간 관리 도구입니다.",
+        "oneLiner": "일정 자동화와 워라밸 회복을 위해 설계된 AI 우선 캘린더 애플리케이션입니다."
+      },
+      "colors": {
+        "principle": "깔끔하고 고대비의 기본 톤에 활기찬 프라이머리 블루 액센트와 포인트를 위한 조화로운 그린 톤을 적용합니다."
+      },
+      "typography": {
+        "rules": [
+          "대담하고 현대적인 전시용 타이포그래피에는 기하학적 산세리프를 사용합니다.",
+          "가독성 있는 본문 카피에는 휴머니스트 산세리프를 사용합니다."
+        ],
+        "scaleUses": [
+          "주요 히어로 헤드라인",
+          "섹션 제목",
+          "소제목 및 큰 UI 텍스트",
+          "주요 본문 카피",
+          "작은 텍스트, 레이블 및 메타데이터"
+        ]
+      },
+      "spacing": {
+        "rhythm": "4px 그리드를 기반으로 하며, 히어로 섹션에는 넉넉한 여백을, UI 컴포넌트에는 더 빡빡한 간격을 적용합니다."
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 5px 40px 0px rgba(9, 14, 21, 0.16)",
+          "0px 20px 32px -8px rgba(9, 20, 66, 0.25)"
+        ],
+        "border": "1px solid rgba(24, 29, 37, 0.1)"
+      },
+      "layout": {
+        "skeleton": "주요 중앙 정렬 히어로 섹션과 교차하는 콘텐츠 블록이 특징인 반응형 그리드입니다."
+      },
+      "components": {
+        "button": "둥근 알약 형태(999px 반경)와 높은 대비를 적용합니다. 주요 작업은 솔리드 블루 배경을, 보조 작업은 아웃라인을 사용합니다.",
+        "card": "미세한 둥근 모서리(12px)와 밝은 배경색(블루, 그린, 다크)을 적용하며, 이미지를 통합적으로 활용합니다.",
+        "chip": "상태나 기능 하이라이트를 위해 사용되는 작은 둥근 태그 또는 배지입니다.",
+        "input": "미세한 테두리가 있는 표준 둥근 입력 필드로, 양식이나 검색 인터페이스에서 주로 사용됩니다.",
+        "hero": "제품 목업이나 라이프스타일 이미지와 함께 사용되는 웅장한 타이포그래피로, 여백을 적극적으로 활용합니다."
+      },
+      "motion": {
+        "patterns": [
+          "뷰포트에 진입하는 요소들을 위한 미세한 페이드인 및 트랜스폼 전환.",
+          "호버 시 인터랙티브 요소들의 색상 및 스트로크 전환."
+        ]
+      },
+      "interaction": {
+        "hover": "주요 버튼의 미세한 색상 변화나 밝기 변화; 카드의 약간의 스케일링이나 그림자 상승 효과.",
+        "click": "스케일 또는 불투명도 변화를 통한 즉각적인 시각적 피드백.",
+        "transition": "대부분의 상태 변화에 부드러운 전환을 적용하며, 일반적으로 0.2초에서 0.5초 사이입니다.",
+        "keyboard": "표준 포커스 링을 사용하며, 일반적으로 프라이머리 액센트 색상과 일치합니다."
+      },
+      "voice": {
+        "tone": "전문적이고 자신감 있으며 유용한 톤을 유지합니다.",
+        "headlineStyle": "직설적이고 혜택 중심적이며, 제품의 'AI'와 '자동화' 특성을 강조합니다.",
+        "ctaStyle": "행동을 유도하고 격려하는 방식으로, '시작하기' 또는 '데모 예약' 등을 사용합니다.",
+        "avoid": [
+          "모호한 마케팅 용어",
+          "공격적이거나 과도한 영업 언어",
+          "최상급 표현의 과도한 사용"
+        ]
+      },
+      "donts": [
+        "다크 모드를 주요 인터페이스로 사용하지 않습니다 — 스크린샷에서 주로 밝고 화이트 기반 테마를 보여줍니다.",
+        "헤드라인에 단일 색상 그라데이션을 사용하지 않습니다 — 스크린샷에서 'calendar' 단어에 다색 그라데이션(블루에서 그린)을 사용하는 것을 보여줍니다.",
+        "주요 요소에 날카롭고 사각형 모서리를 사용하지 않습니다 — 스크린샷에서 버튼에 널리 사용되는 알약 형태(999px 반경)를 보여줍니다.",
+        "혼잡하거나 밀도 높은 레이아웃을 사용하지 않습니다 — 스크린샷에서 명확성을 위해 넉넉한 여백과 큰 타이포그래피를 보여줍니다.",
+        "UI 텍스트에 장식적이거나 세리프 폰트를 사용하지 않습니다 — 스크린샷에서 전체적으로 깔끔하고 현대적인 산세리프 폰트를 보여줍니다.",
+        "주요 작업에 머트하거나 저대비 색상을 사용하지 않습니다 — 스크린샷에서 주요 버튼에 높은 채도의 블루를 사용하는 것을 보여줍니다."
+      ],
+      "systemPrompt": "Reclaim.ai는 자동화된 캘린더 관리에 초점을 맞춘 AI 기반 생산성 SaaS 도구입니다. 시스템은 깔끔한 밝은 테마의 미학을 사용하며, 프라이머리 액센트 색상은 #5562EB(활기찬 블루), 세컨더리 그린은 #7AC17B입니다. 타이포그래피는 기하학적 및 휴머니스트 산세리프 폰트의 조합으로, 현대적이고 가독성 높은 인터페이스를 만듭니다. 주요 요소로는 웅장하고 혜택 중심적인 헤드라인과 넉넉한 여백이 포함됩니다. 핵심 디자인 규칙: 버튼에 날카로운 사각형 모서리를 사용하지 않음(알약 형태 사용); 다크 모드를 주요 UI로 사용하지 않음; 비헤드라인 텍스트에 복잡한 그라데이션 사용하지 않음; 모든 주요 CTA에 높은 대비 보장; 혼잡한 느낌을 피하기 위해 넉넉한 여백 유지."
+    }
+  },
+  "desc": {
+    "en": {
+      "palette": "A clean, light-themed palette centered around a vibrant blue accent and supportive green tones, set against a white and soft-blue background.",
+      "layout": "A responsive, center-aligned layout featuring a massive hero section followed by structured content blocks and product showcases.",
+      "interaction": "Smooth, subtle transitions for hovers and focus states, with immediate visual feedback for primary actions.",
+      "motion": "Minimal but effective use of fade-in and transform animations to guide the user's attention as they scroll.",
+      "notes": "This site is a prime example of modern SaaS design, balancing bold, expressive typography with a functional, clean UI to communicate complex AI-driven features."
+    },
+    "zh-CN": {
+      "palette": "一套简洁、以浅色为主的设计系统，围绕一个充满活力的蓝色强调色和辅助的绿色调构建，背景采用白色和柔和的蓝色。",
+      "layout": "一个响应式、居中对齐的布局，包含一个宏大的主视觉区域，其后是结构化的内容块和产品展示。",
+      "interaction": "为hover和focus状态设计平滑、微妙的过渡效果，主要操作会提供即时的视觉反馈。",
+      "motion": "以最小化但有效的方式运用淡入和变换动画，在用户滚动时引导其注意力。",
+      "notes": "该网站是现代SaaS设计的典范，它在大胆、富有表现力的排版与功能性、简洁的UI之间取得了平衡，用以传达复杂的AI驱动功能。"
+    },
+    "zh-TW": {
+      "palette": "一個乾淨、明亮主題的色板，以鮮活的藍色強調色和輔助的綠色色調為核心，背景採用白色與柔和的藍色。",
+      "layout": "一個響應式、置中對齊的版面，包含一個顯著的主視覺區塊，後接結構化的內容區塊與產品展示。",
+      "interaction": "流暢且細膩的過渡效果，應用於懸停與聚焦狀態，並為主要操作提供即時的視覺反饋。",
+      "motion": "以極簡但有效的方式使用淡入與變換動畫，引導使用者在滾動時的注意力。",
+      "notes": "此網站是現代 SaaS 設計的典範，平衡了大膽、具表現力的字體排印與功能性、乾淨的使用者介面，以傳達複雜的 AI 驅動功能。"
+    },
+    "ja": {
+      "palette": "白と淡い青を背景に、鮮やかなブルーアクセントと補助的なグリーントーンを中心とした、クリーンで明るいカラーパレット。",
+      "layout": "巨大なヒーローセクションを中核に、構造化されたコンテンツブロックとプロダクトショーケースを備えた、レスポンシブで中央揃えのレイアウト。",
+      "interaction": "hoverやfocus状態のための、滑らかで控えめな遷移。主要なアクションには即座に視覚フィードバックを提供。",
+      "motion": "ユーザーがスクロールする際、注意力を誘導するために、フェードインやトランスフォームアニメーションを最小限ながら効果的に使用。",
+      "notes": "このサイトは、現代的なSaaSデザインの優れた例です。大胆で表現力豊かなタイポグラフィと、機能的でクリーンなUIをバランスよく融合させ、複雑なAI駆動機能を伝えています。"
+    },
+    "ko": {
+      "palette": "밝은 테마를 기반으로 한 깔끔한 팔레트로, 활기찬 블루 포인트와 조화로운 그린 톤이 특징이며, 화이트와 소프트 블루 배경 위에 구성되었습니다.",
+      "layout": "반응형 중앙 정렬 레이아웃으로, 웅장한 히어로 섹션과 구조화된 콘텐츠 블록, 제품 쇼케이스로 구성됩니다.",
+      "interaction": "호버 및 포커스 상태를 위한 부드럽고 섬세한 전환 효과를 적용하며, 주요 작업에 즉각적인 시각적 피드백을 제공합니다.",
+      "motion": "사용자의 주의를 유도하기 위해 스크롤 시 페이드인 및 트랜스폼 애니메이션을 최소하면서도 효과적으로 활용합니다.",
+      "notes": "이 사이트는 현대적인 SaaS 디자인의 대표적인 예시로, 대담하고 표현력 있는 타이포그래피와 기능적이고 깔끔한 UI의 균형을 통해 복잡한 AI 기반 기능을 전달합니다."
+    }
+  },
+  "_meta": {
+    "vision_model": "mimo-v2.5",
+    "vision_prompt_version": "0.3",
+    "vision_source": "playwright-extract:reclaim",
+    "vision_grounded": true,
+    "vision_at": "2026-06-04T18:19:37+00:00",
+    "vision_tokens": 17089,
+    "vision_cost_usd": 0.1899,
+    "translation_model": "mimo-v2.5",
+    "translation_at": "2026-06-04T18:21:05+00:00",
+    "translation_tokens": 17983,
+    "translation_cost_usd": 0.0599,
+    "narrative_model": "mimo-v2.5",
+    "narrative_prompt_version": "0.3",
+    "narrative_at": "2026-06-04T18:21:13+00:00",
+    "narrative_tokens": 2158,
+    "narrative_cost_usd": 0.0144,
+    "narrative_status": "ok",
+    "total_cost_usd": 0.2642
+  },
+  "narrative": {
+    "en": {
+      "ch1_intro": "Reclaim's design system is built for an AI-powered timekeeper, an automated assistant that reorganizes your work calendar. Its identity is rooted in the logic of intelligent scheduling: clean, structured, and purposeful, with just enough vibrancy to feel active rather than passive.",
+      "ch2_intro": "The color system establishes a clean, high-contrast base anchored by a vibrant primary blue. This is supported by a secondary green that reinforces focus and completion, creating a palette that feels both energetic and controlled.",
+      "ch2_outro": "The principle is clarity: every color choice serves to guide attention and delineate function.",
+      "ch3_intro": "Typography pairs a bold **geometric-sans** for expressive display headlines with a readable **humanist-sans** for body copy. This combination creates a voice that is simultaneously modern and confident in its announcements, yet approachable in its explanations.",
+      "ch4_intro": "Spacing follows a strict 4px grid, creating a consistent rhythm that scales from generous white space in hero sections to tighter, functional gaps in UI components.",
+      "ch5_intro": "Surfaces are defined by lightness and subtle depth. Elevation is achieved through carefully calibrated shadows and a consistent, thin border that separates elements without heavy visual weight.",
+      "ch6_intro": "The layout skeleton is a responsive grid that opens with a prominent, center-aligned hero section. This is followed by alternating content blocks that structure the product narrative with clear visual breaks.",
+      "ch7_intro": "Motion is functional and restrained, using subtle fade-in and transform transitions to reveal content as it enters the viewport. Interactive elements respond with immediate feedback, using color, scale, or shadow shifts to confirm user actions.",
+      "ch8_intro": "The editorial voice is professional, confident, and directly helpful, with headlines that are benefit-driven and emphasize the automated nature of the product. Copy avoids vague jargon and aggressive salesmanship.",
+      "ch8_outro": "By design, it does not use dark mode as a primary interface, sharp square corners on key elements, or low-contrast colors for primary actions."
+    },
+    "zh-CN": {
+      "ch1_intro": "Reclaim 的设计系统专为 AI 驱动的时间管理工具而构建，这是一个能够自动重新安排工作日程的助手。其设计身份根植于智能调度的逻辑：简洁、结构化且目标明确，同时通过恰到好处的活力感传递出主动而非被动的气质。",
+      "ch2_intro": "色彩系统以充满活力的主蓝色为基础，建立起清晰、高对比度的基调。辅以强化专注与完成感的辅助绿色，形成既充满能量又保持克制的调色板。",
+      "ch2_outro": "核心原则在于清晰性：每种色彩选择都服务于引导注意力与界定功能。",
+      "ch3_intro": "字体组合采用粗体**几何无衬线体**用于富有表现力的展示标题，搭配易读的**人文无衬线体**用于正文。这种组合创造出既现代自信、宣告清晰，又平易近人的叙事语调。",
+      "ch4_intro": "间距遵循严格的 4px 网格，从主视觉区的宽松留白到 UI 组件中紧凑的功能间距，形成统一且可扩展的节奏感。",
+      "ch5_intro": "界面表面以轻盈感与微妙层次感为定义特征。通过精细校准的阴影效果和统一的细边框实现层级区分，在保持视觉轻量化的同时清晰分隔各个元素。",
+      "ch6_intro": "布局骨架采用响应式网格，以居中对齐的突出主视觉区开篇。随后通过交替排列的内容区块构建产品叙事，配合清晰的视觉分隔形成节奏。",
+      "ch7_intro": "动效设计注重功能性与克制感，通过微妙的淡入与形变过渡在内容进入视口时逐步呈现。交互元素提供即时反馈，运用色彩、尺寸或阴影变化来确认用户操作。",
+      "ch8_intro": "文案语调专业、自信且提供直接帮助，标题以用户收益为导向，强调产品的自动化特性。内容避免使用模糊术语与过度推销的表述。",
+      "ch8_outro": "设计上不采用深色模式作为主要界面，关键元素避免使用尖锐的直角，主要操作不使用低对比度色彩。"
+    },
+    "zh-TW": {
+      "ch1_intro": "Reclaim 的設計系統專為 AI 驅動的時間管理工具打造，這是一款能自動重新安排工作日程的智慧助手。其設計根基植於智慧排程的邏輯：簡潔、結構化且具目的性，同時帶有適度的活力感，呈現主動而非被動的氣質。",
+      "ch2_intro": "色彩系統建立在一個清晰、高對比度的基礎上，以鮮活的主色調藍色為核心。輔以強化專注與完成感的輔助綠色，構成兼具活力與控制感的色彩組合。",
+      "ch2_outro": "核心原則是清晰度：每一項色彩選擇皆旨在引導視覺注意力，並明確區隔功能區塊。",
+      "ch3_intro": "字體搭配採用粗體 **幾何無襯線體** 作為富有表現力的標題字體，搭配易讀的 **人文無襯線體** 作為內文字體。這種組合創造出既現代自信，又在說明時顯得親切易懂的語調。",
+      "ch4_intro": "間距遵循嚴格的 4px 格線系統，建立一致的節奏感，從主視覺區塊的寬鬆留白，到介面元件中緊密而實用的間距，皆能靈活延伸。",
+      "ch5_intro": "介面表面以輕盈感與細微的層次定義。透過精心校準的陰影效果，以及一致的細邊框來實現視覺層次，邊框在不增加過多視覺負擔的情況下區隔各元素。",
+      "ch6_intro": "版面架構採用響應式格線系統，以醒目的置中主視覺區塊開場。隨後以交替排列的內容區塊建構產品敘事，並以清晰的視覺分隔區段。",
+      "ch7_intro": "動態效果以功能為導向且克制，運用細微的淡入與變形轉場，在內容進入視野時漸次呈現。互動元素提供即時回饋，透過色彩、縮放或陰影變化來確認使用者操作。",
+      "ch8_intro": "文案語調專業、自信且直接提供協助，標題以效益為導向，強調產品的自動化特質。內文避免模糊術語與強勢推銷語氣。",
+      "ch8_outro": "設計上並未將深色模式作為主要介面，關鍵元素不採用銳利的直角，主要操作功能亦不使用低對比度色彩。"
+    },
+    "ja": {
+      "ch1_intro": "Reclaimのデザインシステムは、AI駆動のタイムキーパー、すなわちワークカレンダーを自動的に再編成するアシスタントのために構築されています。そのアイデンティティは、インテリジェントなスケジューリングのロジックに基づいています：クリーンで、構造化され、目的指向であり、アクティブに感じさせるための適度な鮮やかさを備えています。",
+      "ch2_intro": "カラーシステムは、鮮やかなプライマリーブルーを基盤とした、クリーンでハイコントラストなベースを確立します。これにフォーカスと完了を強化するセカンダリーグリーンがサポートし、エネルギッシュでありながら制御されたパレットを生み出します。",
+      "ch2_outro": "原則は明瞭さです：すべての色の選択は、注意を誘導し、機能を区別するために役立ちます。",
+      "ch3_intro": "タイポグラフィは、表現力豊かな表示見出しに大胆な**geometric-sans**を、本文には読みやすい**humanist-sans**を組み合わせています。この組み合わせは、モダンで宣言に自信を持つと同時に、説明においては親しみやすい声を生み出します。",
+      "ch4_intro": "間隔は厳格な4pxグリッドに従い、ヒーローセクションの豊かな余白からUIコンポーネントのよりタイトで機能的なギャップまで、一貫したリズムをスケールさせます。",
+      "ch5_intro": "サーフェスは明るさと微細な深みで定義されます。高さは、慎重に調整されたシャドウと、要素を重い視覚的負担なしに分離する一貫した細いボーダーによって実現されます。",
+      "ch6_intro": "レイアウトの骨格は、目立つ中央揃えのヒーローセクションから始まるレスポンシブグリッドです。これに、明確な視覚的区切りで製品のナラティブを構造化する交互のコンテンツブロックが続きます。",
+      "ch7_intro": "モーションは機能的で控えめで、コンテンツがビューポートに入り次第、視界に入るための微細なフェードインやトランスフォームトランジションを使用します。インタラクティブな要素は、ユーザーのアクションを確認するために、色、スケール、シャドウの変化で即座にフィードバックを返します。",
+      "ch8_intro": "エディトリアルボイスは、プロフェッショナルで、自信に満ち、直接的かつ有用です。見出しは便益主導で、製品の自動化された性質を強調します。コピーは曖昧な業界用語や攻撃的な営業手法を避けます。",
+      "ch8_outro": "設計上、ダークモードをプライマリインターフェースとして使用したり、主要要素に鋭い角丸を使用したり、プライマリアクションに低コントラスト色を使用したりすることはありません。"
+    },
+    "ko": {
+      "ch1_intro": "Reclaim의 디자인 시스템은 AI 기반 타임키퍼, 즉 작업 캘린더를 자동으로 재구성하는 어시스턴트를 위해 구축되었습니다. 이 디자인은 지능형 일정 관리의 논리에 뿌리를 두고 있으며, 체계적이고 목적 의식이 있으면서도, 수동적이지 않고 활기차게 느껴질 만큼의 적절한 생동감을 갖추고 있습니다.",
+      "ch2_intro": "컬러 시스템은 밝은 프라이머리 블루를 중심으로 한 깨끗하고 고대비의 기반을 확립합니다. 이는 집중력과 완료를 강화하는 세컨더리 그린으로 보강되어, 에너지가 넘치면서도 통제된 느낌을 주는 팔레트를 완성합니다.",
+      "ch2_outro": "원칙은 명료함입니다: 모든 색상 선택은 주의를 안내하고 기능을 구분하는 데 기여합니다.",
+      "ch3_intro": "타이포그래피는 표현력 있는 디스플레이 헤드라인을 위해 굵은 **geometric-sans**를, 본문을 위해 읽기 쉬운 **humanist-sans**와 짝을 이룹니다. 이 조합은 현대적이고 자신감 있는 발표 목소리와, 설명에서는 친근한 느낌을 동시에 전달하는 데 성공합니다.",
+      "ch4_intro": "간격은 엄격한 4px 격자를 따르며, 히어로 섹션의 넉넉한 여백부터 UI 컴포넌트의 더 타이트하고 기능적인 간격까지 확장 가능한 일관된 리듬을 만듭니다.",
+      "ch5_intro": "표면은 가벼움과 미세한 깊이로 정의됩니다. 높낮이는 세심하게 조정된 그림자와 요소들을 무겁지 않게 시각적으로 분리하는 일관된 얇은 테두리를 통해 구현됩니다.",
+      "ch6_intro": "레이아웃 스켈레톤은 돋보이는 중앙 정렬 히어로 섹션으로 시작하는 반응형 격자입니다. 그 뒤로는 명확한 시각적 구간으로 제품 서사를 구조화하는 교차 콘텐츠 블록이 이어집니다.",
+      "ch7_intro": "모션은 기능적이고 절제되어, 콘텐츠가 뷰포트에 들어올 때 미세한 페이드인 및 변환 전환을 사용하여 표시합니다. 인터랙티브 요소는 즉각적인 피드백으로 반응하며, 사용자의 액션을 확인하기 위해 색상, 크기 또는 그림자 변화를 활용합니다.",
+      "ch8_outro": "설계상, 이 시스템은 다크 모드를 주요 인터페이스로 사용하지 않으며, 핵심 요소의 날카로운 직각 모서리나 주요 액션을 위한 저대비 색상도 사용하지 않습니다."
+    }
+  }
 }

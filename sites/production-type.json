@@ -8,6 +8,610 @@
     "type",
     "foundry"
   ],
-  "status": "pending",
-  "added_at": "2026-06-02"
+  "status": "completed",
+  "added_at": "2026-06-02",
+  "spec": {
+    "colors": {
+      "bg": "#FFFFFF",
+      "bgSoft": "#F2F2F2",
+      "bgQuiet": null,
+      "ink": "#000000",
+      "inkSoft": "#757575",
+      "muted": "#999999",
+      "mutedSoft": null,
+      "accent": "#ED0000",
+      "line": "rgba(0,0,0,0.1)"
+    },
+    "typography": {
+      "display": "grotesque-sans",
+      "body": "humanist-sans",
+      "mono": null,
+      "scale": [
+        {
+          "token": "display",
+          "size": 72,
+          "lh": 1.0,
+          "weight": 400,
+          "ls": "-2.9px"
+        },
+        {
+          "token": "h1",
+          "size": 40,
+          "lh": 1.1,
+          "weight": 400,
+          "ls": "-0.6px"
+        },
+        {
+          "token": "body",
+          "size": 15,
+          "lh": 1.5,
+          "weight": 400,
+          "ls": "0px"
+        },
+        {
+          "token": "small",
+          "size": 11,
+          "lh": 1.5,
+          "weight": 400,
+          "ls": "0px"
+        }
+      ]
+    },
+    "spacing": {
+      "base": 4,
+      "scale": [
+        4,
+        8,
+        16,
+        24,
+        32,
+        48,
+        64,
+        96
+      ]
+    },
+    "surfaces": {
+      "radius": {
+        "sm": 5,
+        "md": 6,
+        "lg": 12,
+        "pill": 9999
+      }
+    },
+    "layout": {
+      "container": 1400,
+      "paragraph": 680,
+      "columns": 12,
+      "gutter": 24,
+      "breakpoints": [
+        768,
+        1024
+      ]
+    },
+    "motion": {
+      "durations": {
+        "micro": 150,
+        "small": 250,
+        "medium": 500,
+        "large": 750
+      },
+      "easing": "cubic-bezier(0.26, 1.04, 0.54, 1) for smooth, slightly bouncy UI transitions; cubic-bezier(0.77, 0, 0.175, 1) for more dramatic entrances."
+    }
+  },
+  "spec_i18n": {
+    "en": {
+      "identity": {
+        "keywords": [
+          "Typography",
+          "Foundry",
+          "Curation",
+          "Type Design"
+        ],
+        "analogy": "A digital gallery for premium typefaces, blending editorial presentation with functional tooling.",
+        "oneLiner": "A refined, white-space-dominant type foundry site focused on large typographic showcases and curated font collections."
+      },
+      "colors": {
+        "principle": "High-contrast monochromatic base with a single, aggressive red accent for primary actions and branding."
+      },
+      "typography": {
+        "rules": [
+          "Display type uses tight negative tracking for visual impact.",
+          "Body text uses generous line-height for readability.",
+          "Primary brand type is a grotesque sans-serif, used consistently across all UI elements.",
+          "Special typeface showcases use the actual font being sold, often in display scale."
+        ],
+        "scaleUses": [
+          "Large typographic showcases and hero headlines.",
+          "Section titles and primary editorial headings.",
+          "General body text, labels, and descriptions.",
+          "Metadata, captions, and fine print."
+        ]
+      },
+      "spacing": {
+        "rhythm": "Generous, breathing rhythm with large vertical gaps between sections to emphasize content hierarchy."
+      },
+      "surfaces": {
+        "shadows": [],
+        "borders": "1px solid rgba(0,0,0,0.1) for subtle dividers; pill-shaped borders for buttons and tags."
+      },
+      "layout": {
+        "skeleton": "Asymmetric grid with a wide main content area for font showcases and a sidebar for navigation, using large image cards and tight typography blocks."
+      },
+      "components": {
+        "button": "Pill-shaped (9999px radius) with black fill and white text, or ghost buttons with borders.",
+        "card": "Clean white cards with large image headers and minimal text, used for font collections and playlists.",
+        "chip": "Small pill-shaped tags for font styles (e.g., 'P' for production) or categories.",
+        "input": "Minimal text input fields with thin bottom borders and subtle rounded corners.",
+        "hero": "Massive typographic hero sections showcasing a single font at display scale against a clean background."
+      },
+      "motion": {
+        "patterns": [
+          "Smooth opacity and transform transitions for page elements.",
+          "Subtle color transitions on interactive elements.",
+          "Longer, more cinematic transitions for major page changes."
+        ]
+      },
+      "interaction": {
+        "hover": "Subtle color shifts or opacity changes on interactive elements.",
+        "click": "Immediate visual feedback with slight scale or color changes.",
+        "transition": "All transitions use smooth cubic-bezier easing with durations between 150ms and 750ms.",
+        "keyboard": "Standard focus states with visible outlines or color shifts."
+      },
+      "voice": {
+        "tone": "Authoritative, expert, and slightly poetic in its presentation of typography.",
+        "headlineStyle": "Direct and descriptive, often naming the font or its use case.",
+        "ctaStyle": "Action-oriented with arrows, using direct language like 'Discover' or 'View All'.",
+        "avoid": [
+          "Overly casual language",
+          "Excessive exclamation points",
+          "Vague marketing speak",
+          "Colorful decorative elements"
+        ]
+      },
+      "donts": [
+        "don't use a dark background for the main UI — screenshot shows predominantly white backgrounds with black text.",
+        "don't use multiple accent colors — screenshot shows only red (#ED0000) as a consistent accent against black and white.",
+        "don't use rounded rectangles for primary buttons — screenshot shows pill-shaped (fully rounded) buttons instead.",
+        "don't use heavy drop shadows — screenshot shows flat design with minimal to no shadow usage.",
+        "don't use decorative or script fonts for UI elements — screenshot uses a consistent grotesque sans-serif for all interface text.",
+        "don't clutter the layout with many elements — screenshot shows generous white space and a clear, focused hierarchy."
+      ],
+      "systemPrompt": "This is a premium type foundry website focusing on font presentation and discovery. The design uses a high-contrast monochromatic base (white #FFFFFF, black #000000) with a single aggressive red accent (#ED0000) for branding and primary actions. Typography is paramount, featuring a grotesque sans-serif for UI and massive display type for font showcases. Critical don'ts: never use dark backgrounds for the main UI, never introduce multiple accent colors, and never use heavy shadows. The layout emphasizes generous white space and clean card-based organization for font collections and playlists. The voice is authoritative and expert, using direct, descriptive headlines."
+    },
+    "zh-CN": {
+      "identity": {
+        "keywords": [
+          "Typography",
+          "Foundry",
+          "Curation",
+          "Type Design"
+        ],
+        "analogy": "一个汇集高端字体的数字画廊，融合了编辑式呈现与功能性工具。",
+        "oneLiner": "一个精致、以留白为主导的字体铸造厂网站，专注于大型排版展示与精选字体集合。"
+      },
+      "colors": {
+        "principle": "以高对比度单色为基底，辅以一个极具侵略性的红色用于主要操作与品牌标识。"
+      },
+      "typography": {
+        "rules": [
+          "展示型文字采用紧凑的负字距以增强视觉冲击力。",
+          "正文采用充裕的行高以提升可读性。",
+          "主要品牌字体是一款无衬线怪诞体，在所有 UI 元素中保持统一使用。",
+          "特殊的字体展示会使用该字体本身进行实际呈现，通常以展示尺度呈现。"
+        ],
+        "scaleUses": [
+          "大型排版展示与首屏标题。",
+          "章节标题与主要编辑标题。",
+          "常规正文、标签与描述。",
+          "元数据、图注与小字说明。"
+        ]
+      },
+      "spacing": {
+        "rhythm": "充裕且富有呼吸感的节奏，章节间采用大间距垂直留白，以强调内容层级。"
+      },
+      "surfaces": {
+        "shadows": [],
+        "borders": "使用 1px solid rgba(0,0,0,0.1) 作为细微分隔线；按钮与标签采用药丸形边框。"
+      },
+      "layout": {
+        "skeleton": "采用不对称网格，包含一个用于字体展示的宽阔主内容区与一个导航侧边栏，运用大型图像卡片与紧凑的排版区块。"
+      },
+      "components": {
+        "button": "药丸形（9999px 圆角），采用黑色填充白色文字，或带边框的幽灵按钮。",
+        "card": "简洁的白色卡片，带有大型图像页眉和精简文字，用于字体集合与播放列表。",
+        "chip": "小型药丸形标签，用于字体风格（例如 'P' 代表生产环境）或类别。",
+        "input": "极简的文本输入框，带有细底边线与微圆角。",
+        "hero": "宏大的排版首屏区域，在纯净背景上以展示尺度呈现单款字体。"
+      },
+      "motion": {
+        "patterns": [
+          "页面元素采用流畅的透明度与 transform 过渡。",
+          "交互元素带有微妙的颜色过渡。",
+          "主要页面变化采用更长、更具电影感的转场。"
+        ]
+      },
+      "interaction": {
+        "hover": "交互元素上产生微妙的颜色偏移或透明度变化。",
+        "click": "通过轻微的缩放或颜色变化提供即时视觉反馈。",
+        "transition": "所有过渡均使用流畅的 cubic-bezier 缓动，持续时间在 150ms 至 750ms 之间。",
+        "keyboard": "采用标准焦点状态，伴有可见轮廓或颜色偏移。"
+      },
+      "voice": {
+        "tone": "权威、专业，其排版呈现略带诗意。",
+        "headlineStyle": "直接且具描述性，通常指明字体或其应用场景。",
+        "ctaStyle": "行动导向，带有箭头，使用诸如 '发现' 或 '查看全部' 等直接语言。",
+        "avoid": [
+          "过度随意的语言",
+          "过多的感叹号",
+          "模糊的营销话术",
+          "花哨的装饰性元素"
+        ]
+      },
+      "donts": [
+        "不要为主 UI 使用深色背景——截图显示为以白色背景配黑色文字为主。",
+        "不要使用多种点缀色——截图显示仅使用红色（#ED0000）作为黑白基底上的统一点缀。",
+        "不要为主按钮使用圆角矩形——截图显示的是药丸形（完全圆角）按钮。",
+        "不要使用厚重的投影——截图显示为平面设计，投影极少或无。",
+        "不要为 UI 元素使用装饰性或手写体字体——截图对所有界面文字使用统一的无衬线怪诞体。",
+        "不要用过多元素使布局拥挤——截图显示有充裕的留白和清晰、聚焦的层级结构。"
+      ],
+      "systemPrompt": "这是一个专注于字体呈现与探索的高端字体铸造厂网站。设计采用高对比度单色基底（白色 #FFFFFF，黑色 #000000），辅以一个极具侵略性的红色（#ED0000）用于品牌与主要操作。排版至高无上，UI 使用无衬线怪诞体，字体展示则采用巨大的展示型文字。关键禁忌：绝不为主 UI 使用深色背景，绝不引入多种点缀色，绝不使用厚重投影。布局强调充裕的留白与整洁的、基于卡片的组织方式，用于字体集合与播放列表。文案权威且专业，使用直接、具描述性的标题。"
+    },
+    "zh-TW": {
+      "identity": {
+        "keywords": [
+          "Typography",
+          "Foundry",
+          "Curation",
+          "Type Design"
+        ],
+        "analogy": "結合編輯式呈現與功能性工具的優質字型數位藝廊。",
+        "oneLiner": "一個精緻、以留白為主的字型鑄字廠網站，聚焦於大型排版展示與策展式字型收藏。"
+      },
+      "colors": {
+        "principle": "以高對比單色調為基底，搭配單一、強烈的紅色作為主要操作與品牌識別的強調色。"
+      },
+      "typography": {
+        "rules": [
+          "展示型字型採用緊湊的負字距以增強視覺衝擊力。",
+          "內文使用充足的行高以確保可讀性。",
+          "主要品牌字型為 grotesque sans-serif，於所有 UI 元素中保持一致。",
+          "特殊字型展示會使用該字型本身，通常以展示比例呈現。"
+        ],
+        "scaleUses": [
+          "大型排版展示與主視覺標題。",
+          "章節標題與主要編輯標題。",
+          "一般內文、標籤與描述文字。",
+          "詮釋資料、說明文字與細節文字。"
+        ]
+      },
+      "spacing": {
+        "rhythm": "寬鬆、具呼吸感的節奏，章節間留有較大垂直間距，以強化內容層次結構。"
+      },
+      "surfaces": {
+        "shadows": [],
+        "borders": "使用 1px solid rgba(0,0,0,0.1) 作為細緻的分隔線；按鈕與標籤採用膠囊形邊框。"
+      },
+      "layout": {
+        "skeleton": "不對稱網格，主要內容區域寬敞，用於字型展示，側邊導覽欄則採用大型圖片卡片與緊湊的排版區塊。"
+      },
+      "components": {
+        "button": "膠囊形（9999px 圓角），黑色填充搭配白色文字，或使用邊框的幽靈按鈕。",
+        "card": "簡潔的白色卡片，帶有大型圖片標題與極簡文字，用於字型收藏與播放清單。",
+        "chip": "小型膠囊形標籤，用於字型風格（例如：'P' 代表 Production）或類別。",
+        "input": "極簡的文字輸入欄位，僅有細薄的底部邊框與輕微的圓角。",
+        "hero": "大規模的排版主視覺區塊，以展示比例呈現單一字型，背景保持簡潔。"
+      },
+      "motion": {
+        "patterns": [
+          "頁面元素的流暢 opacity 與 transform 過渡效果。",
+          "互動元素上的細微顏色過渡。",
+          "主要頁面切換時較長、更具電影感的過渡效果。"
+        ]
+      },
+      "interaction": {
+        "hover": "互動元素上的細微顏色轉變或 opacity 變化。",
+        "click": "透過輕微的 scale 或顏色變化提供即時的視覺回饋。",
+        "transition": "所有過渡效果均使用流暢的 cubic-bezier 緩動，時長介於 150ms 至 750ms 之間。",
+        "keyboard": "標準的 focus 狀態，具有可見的外框或顏色轉變。"
+      },
+      "voice": {
+        "tone": "在排版呈現上具有權威、專業且略帶詩意的語氣。",
+        "headlineStyle": "直接且具描述性，常直接點名字型或其使用情境。",
+        "ctaStyle": "以行動為導向，搭配箭頭，使用如「探索」或「查看全部」等直接用語。",
+        "avoid": [
+          "過於隨意的語言",
+          "過多的驚嘆號",
+          "模糊的行銷術語",
+          "花俏的裝飾性元素"
+        ]
+      },
+      "donts": [
+        "勿使用深色背景作為主要介面——截圖顯示以白色背景搭配黑色文字為主。",
+        "勿使用多種強調色——截圖僅顯示紅色（#ED0000）作為單一一致的強調色，搭配黑白基調。",
+        "勿為主要按鈕使用圓角矩形——截圖顯示使用膠囊形（完全圓角）按鈕。",
+        "勿使用厚重的陰影效果——截圖顯示採用平面設計，陰影使用極少或無。",
+        "勿為 UI 元素使用裝飾性或手寫字體——截圖顯示所有介面文字使用一致的 grotesque sans-serif。",
+        "勿讓佈局充斥過多元素——截圖顯示留有大量留白，並具有清晰、聚焦的層次結構。"
+      ],
+      "systemPrompt": "這是一個專注於字型呈現與探索的優質字型鑄字廠網站。設計採用高對比單色調基底（白色 #FFFFFF、黑色 #000000），搭配單一強烈的紅色強調色（#ED0000）用於品牌識別與主要操作。排版至關重要，UI 使用 grotesque sans-serif，展示型字型則採用大規模展示比例。關鍵禁忌：永遠勿為主要介面使用深色背景，永遠勿引入多種強調色，永遠勿使用厚重陰影。佈局強調大量留白與簡潔的卡片式組織，用於字型收藏與播放清單。語氣權威且專業，使用直接、具描述性的標題。"
+    },
+    "ja": {
+      "identity": {
+        "keywords": [
+          "タイポグラフィ",
+          "活版鋳造所",
+          "キュレーション",
+          "書体デザイン"
+        ],
+        "analogy": "プレミアム書体のためのデジタルギャラリー。編集的なプレゼンテーションと機能的なツールを融合させています。",
+        "oneLiner": "余白を多用し、大規模なタイポグラフィショーケースとキュレーションされたフォントコレクションに焦点を当てた、洗練された活版鋳造所サイトです。"
+      },
+      "colors": {
+        "principle": "プライマリアクションとブランディングのため、単一の強烈な赤アクセントを持つ、ハイコントラストのモノクロベース。"
+      },
+      "typography": {
+        "rules": [
+          "表示用書体は視覚的なインパクトのため、タイトなネガティブトレッキングを使用します。",
+          "本文テキストは可読性のため、ゆったりとした行間を設定します。",
+          "プライマリブランド書体はグロテスク・サンセリフで、すべてのUI要素に一貫して使用します。",
+          "特別な書体ショーケースには、販売対象の実際のフォントが、しばしば表示サイズで使用されます。"
+        ],
+        "scaleUses": [
+          "大規模なタイポグラフィショーケースやヒーローヘッドライン。",
+          "セクションタイトルや主要な編集見出し。",
+          "一般的な本文テキスト、ラベル、説明文。",
+          "メタデータ、キャプション、小文字表記。"
+        ]
+      },
+      "spacing": {
+        "rhythm": "コンテンツの階層を強調するため、セクション間に大きな縦方向の間隔を設けた、ゆったりとした呼吸のあるリズム。"
+      },
+      "surfaces": {
+        "shadows": [],
+        "borders": "微細な区切り線には1px solid rgba(0,0,0,0.1)。ボタンやタグには丸みのある（ピル型）ボーダー。"
+      },
+      "layout": {
+        "skeleton": "フォントショーケース用の広いメインコンテンツエリアと、ナビゲーション用のサイドバーを持つ非対称グリッド。大きな画像カードとタイトなタイポグラフィブロックを使用します。"
+      },
+      "components": {
+        "button": "ピル型（9999px radius）で黒塗り白文字、またはボーダー付きのゴーストボタン。",
+        "card": "フォントコレクションやプレイリストに使用される、大きな画像ヘッダーと最小限のテキストを持つクリーンな白いカード。",
+        "chip": "フォントスタイル（例：生産用の「P」）やカテゴリを示す小さなピル型タグ。",
+        "input": "細いボトムボーダーと微細な角丸を持つ、最小限のテキスト入力フィールド。",
+        "hero": "クリーンな背景に対し、単一のフォントを表示サイズで見せる大規模なタイポグラフィヒーローセクション。"
+      },
+      "motion": {
+        "patterns": [
+          "ページ要素に対する、滑らかな不透明度とトランスフォームのトランジション。",
+          "インタラクティブ要素上の微細な色のトランジション。",
+          "主要なページ変更に対する、より長くシネマティックなトランジション。"
+        ]
+      },
+      "interaction": {
+        "hover": "インタラクティブ要素に対する微細な色の変化や不透明度の変化。",
+        "click": "微細なスケールや色の変化による、即座の視覚フィードバック。",
+        "transition": "すべてのトランジションは、150msから750msの持続時間を持つ滑らかなcubic-bezierイージングを使用します。",
+        "keyboard": "可见なアウトラインや色の変化を伴う標準的なフォーカス状態。"
+      },
+      "voice": {
+        "tone": "タイポグラフィのプレゼンテーションにおいて、権威があり、専門的で、少し詩的なトーン。",
+        "headlineStyle": "直接的で記述的。フォント名や使用用途を明示することが多い。",
+        "ctaStyle": "矢印を伴うアクション重視。「発見する」「すべて見る」のような直接的な言葉を使用。",
+        "avoid": [
+          "過度にカジュアルな言葉遣い",
+          "余分な感嘆符",
+          "曖昧なマーケティング用語",
+          "カラフルな装飾要素"
+        ]
+      },
+      "donts": [
+        "メインUIに暗い背景を使用しない — スクリーンショットは白を基調とした背景に黒文字が中心。",
+        "複数のアクセントカラーを使用しない — スクリーンショットでは黒白に対し赤（#ED0000）のみが一貫したアクセントとして使用されている。",
+        "プライマリボタンに角丸四角形を使用しない — スクリーンショットではピル型（完全に丸みのある）ボタンが使用されている。",
+        "重いドロップシャドウを使用しない — スクリーンショットではフラットデザインで、最小限からゼロのシャドウが使用されている。",
+        "UI要素にデコラティブやスクリプトフォントを使用しない — スクリーンショットではすべてのインターフェーステキストに一貫したグロテスク・サンセリフが使用されている。",
+        "要素を詰め込んだり、レイアウトを散らかしたりしない — スクリーンショットでは豊かな余白と明確に焦点を絞った階層が示されている。"
+      ],
+      "systemPrompt": "これはフォントのプレゼンテーションと発見に特化した、プレミアムな活版鋳造所ウェブサイトです。デザインはハイコントラストのモノクロベース（白#FFFFFF、黒#000000）に、ブランディングとプライマリアクションのための単一の強烈な赤アクセント（#ED0000）を使用しています。タイポグラフィが最重要であり、UIにはグロテスク・サンセリフを、フォントショーケースには巨大な表示書体を採用しています。重要な禁止事項：メインUIに暗い背景を決して使用せず、複数のアクセントカラーを導入せず、重いシャドウを決して使用しないこと。レイアウトは余白を活かし、フォントコレクションやプレイリストのためのクリーンなカードベースの構成を重視しています。声調は権威的で専門的であり、直接的で記述的な見出しが特徴です。"
+    },
+    "ko": {
+      "identity": {
+        "keywords": [
+          "타이포그래피",
+          "폰트 파운드리",
+          "큐레이션",
+          "타입 디자인"
+        ],
+        "analogy": "프리미엄 타입페이스를 위한 디지털 갤러리로, 에디토리얼 프레젠테이션과 기능적 도구를 결합합니다.",
+        "oneLiner": "대규모 타이포그래피 쇼케이스와 큐레이션된 폰트 컬렉션에 초점을 맞춘, 여백을 지배하는 정제된 폰트 파운드리 사이트입니다."
+      },
+      "colors": {
+        "principle": "강렬한 레드 액센트가 주요 액션과 브랜딩에 사용되는 고대비 단색 기반입니다."
+      },
+      "typography": {
+        "rules": [
+          "디스플레이 타입은 시각적 임팩트를 위해 타이트한 네거티브 트래킹을 사용합니다.",
+          "본문 텍스트는 가독성을 위해 넉넉한 행간을 적용합니다.",
+          "주요 브랜드 타입은 그루테스크 산세리프이며, 모든 UI 요소에 일관되게 사용됩니다.",
+          "특수 타입페이스 쇼케이스는 판매 중인 실제 폰트를 디스플레이 스케일로 자주 활용합니다."
+        ],
+        "scaleUses": [
+          "대규모 타이포그래피 쇼케이스 및 히어로 헤드라인.",
+          "섹션 제목 및 주요 에디토리얼 헤딩.",
+          "일반 본문 텍스트, 레이블 및 설명.",
+          "메타데이터, 캡션 및 세부 안내문."
+        ]
+      },
+      "spacing": {
+        "rhythm": "섹션 간 넓은 수직 간격을 두어 콘텐츠 계층을 강조하는, 호흡이 느껴지는 넉넉한 리듬입니다."
+      },
+      "surfaces": {
+        "shadows": [],
+        "borders": "미세한 구분선을 위해 1px solid rgba(0,0,0,0.1); 버튼과 태그에는 필모양 테두리 적용."
+      },
+      "layout": {
+        "skeleton": "폰트 쇼케이스를 위한 넓은 메인 콘텐츠 영역과 내비게이션을 위한 사이드바를 배치한 비대칭 격자. 대형 이미지 카드와 타이트한 타이포그래피 블록을 사용합니다."
+      },
+      "components": {
+        "button": "검정 채우기와 흰색 텍스트가 적용된 필모양(반지름 9999px), 또는 테두리가 있는 고스트 버튼.",
+        "card": "대형 이미지 헤더와 최소한의 텍스트로 구성된 깔끔한 화이트 카드. 폰트 컬렉션과 플레이리스트에 사용됩니다.",
+        "chip": "폰트 스타일(예: 'P' for production)이나 카테고리를 표시하는 작은 필모양 태그.",
+        "input": "얇은 하단 테두리와 미세한 둥근 모서리가 적용된 최소한의 텍스트 입력 필드.",
+        "hero": "깨끗한 배경 위에 단일 폰트를 디스플레이 스케일로 뽐내는 거대한 타이포그래피 히어로 섹션."
+      },
+      "motion": {
+        "patterns": [
+          "페이지 요소에 대한 부드러운 opacity와 transform 전환.",
+          "인터랙티브 요소에 대한 미세한 색상 전환.",
+          "주요 페이지 변경을 위한 더 길고 시네마틱한 전환."
+        ]
+      },
+      "interaction": {
+        "hover": "인터랙티브 요소에서의 미세한 색상 변화 또는 opacity 변경.",
+        "click": "약간의 스케일 또는 색상 변화로 즉각적인 시각적 피드백 제공.",
+        "transition": "모든 전환은 150ms에서 750ms 사이의 지속 시간으로 부드러운 cubic-bezier 이징을 사용합니다.",
+        "keyboard": "보이는 아웃라인 또는 색상 변화가 포함된 표준 focus 상태."
+      },
+      "voice": {
+        "tone": "타이포그래피를 프레젠테이션하는 데 있어 권위적이고 전문적이며 약간의 시적 느낌을 줍니다.",
+        "headlineStyle": "폰트 이름이나 사용 사례를 명시하는 직접적이고 묘사적인 스타일.",
+        "ctaStyle": "화살표를 포함한 액션 지향적 표현으로, 'Discover'나 'View All' 같은 직접적인 언어 사용.",
+        "avoid": [
+          "지나치게 캐주얼한 언어",
+          "과도한 느낌표 사용",
+          "모호한 마케팅 용어",
+          "화려한 장식 요소"
+        ]
+      },
+      "donts": [
+        "메인 UI에 어두운 배경을 사용하지 마세요 — 스크린샷은 흰색 배경과 검정 텍스트가 주를 이룹니다.",
+        "여러 액센트 색상을 사용하지 마세요 — 스크린샷은 흑백 배경에 대한 일관된 액센트로 레드(#ED0000)만 사용합니다.",
+        "주요 버튼에 둥근 사각형을 사용하지 마세요 — 스크린샷은 필모양(완전히 둥근) 버튼을 보여줍니다.",
+        "무거운 드롭 섀도우를 사용하지 마세요 — 스크린샷은 최소 또는 섀도우 없이 사용되는 플랫 디자인을 보여줍니다.",
+        "UI 요소에 장식적 또는 스크립트 폰트를 사용하지 마세요 — 스크린샷은 모든 인터페이스 텍스트에 일관된 그루테스크 산세리프를 사용합니다.",
+        "레이아웃을 많은 요소로 복잡하게 만들지 마세요 — 스크린샷은 넉넉한 여백과 명확하고 집중된 계층을 보여줍니다."
+      ],
+      "systemPrompt": "이것은 폰트 프레젠테이션과 발견에 초점을 맞춘 프리미엄 폰트 파운드리 웹사이트입니다. 디자인은 브랜딩과 주요 액션을 위한 단일의 강렬한 레드 액센트(#ED0000)가 더해진 고대비 단색 기반(흰색 #FFFFFF, 검정 #000000)을 사용합니다. 타이포그래피가 가장 중요하며, UI용 그루테스크 산세리프와 대규모 디스플레이 타입이 폰트 쇼케이스에 사용됩니다. 중요 금지 사항: 메인 UI에 절대 어두운 배경을 사용하지 마세요, 여러 액센트 색상을 도입하지 마세요, 무거운 섀도우를 사용하지 마세요. 레이아웃은 폰트 컬렉션과 플레이리스트를 위한 넉넉한 여백과 깔끔한 카드 기반 구조를 강조합니다. 톤은 권위적이고 전문적이며, 직접적이고 묘사적인 헤드라인을 사용합니다."
+    }
+  },
+  "desc": {
+    "en": {
+      "palette": "A stark, high-contrast monochromatic palette of pure white and black, punctuated by a single, vibrant red accent for key interactive elements.",
+      "layout": "A spacious, grid-based layout with generous white space that prioritizes large typographic showcases and clean card arrangements.",
+      "interaction": "Smooth, bouncy transitions using custom cubic-bezier easing, applied subtly to interactive elements and major page shifts.",
+      "motion": "A refined motion system with varying durations, from quick micro-interactions to longer, more cinematic page transitions.",
+      "notes": "The site exemplifies how typography can be the primary design element, using scale and negative space to create a premium, gallery-like experience for font discovery."
+    },
+    "zh-CN": {
+      "palette": "一种由纯白和纯黑构成的鲜明高对比度单色基底，仅用一个醒目的红色点缀来强调关键交互元素。",
+      "layout": "基于网格的宽敞布局，拥有大量留白，优先呈现大型排版展示与整洁的卡片排列。",
+      "interaction": "采用自定义 cubic-bezier 缓动的流畅、富有弹性的过渡效果，微妙地应用于交互元素与主要页面切换。",
+      "motion": "一套精致的动态系统，拥有从快速微交互到更长、更具电影感页面转场等不同持续时间。",
+      "notes": "该网站示范了排版如何能作为核心设计元素，通过尺度与负空间营造出一种高端、画廊般的字体探索体验。"
+    },
+    "zh-TW": {
+      "palette": "純白與純黑構成的強烈高對比單色調色盤，並以單一、鮮明的紅色作為關鍵互動元素的點綴。",
+      "layout": "寬敞的網格式佈局，留有大量留白，優先呈現大型排版展示與簡潔的卡片排列。",
+      "interaction": "使用自訂 cubic-bezier 緩動曲線的流暢、彈性過渡效果，細膩地應用於互動元素與主要頁面切換。",
+      "motion": "精緻的動效系統，涵蓋不同時長，從快速的微互動到較長、更具電影感的頁面過渡。",
+      "notes": "此網站體現了如何將排版作為主要設計元素，運用比例與負空間創造出宛如藝廊般的優質字型探索體驗。"
+    },
+    "ja": {
+      "palette": "純粋な白と黒による、強烈なコントラストのモノクロパレット。重要なインタラクティブ要素には、鮮やかな赤色アクセントが一点のみ使用されています。",
+      "layout": "大きなタイポグラフィのショーケースとクリーンなカード配置を重視する、余白を活かしたグリッドベースのレイアウトです。",
+      "interaction": "カスタムcubic-bezierイージングを用いた、滑らかで弾むようなトランジション。インタラクティブ要素や主要なページ切り替えに、繊細に適用されます。",
+      "motion": "クイックなマイクロインタラクションから、より長くシネマティックなページトランジションまで、多様な持続時間を用いた洗練されたモーションシステムです。",
+      "notes": "タイポグラフィが主要なデザイン要素となることを体現するサイトです。スケールとネガティブスペースを活用し、フォント発見のためのプレミアムでギャラリーのような体験を生み出しています。"
+    },
+    "ko": {
+      "palette": "순백과 순검의 강한 대비를 이룬 단색 팔레트에, 핵심 인터랙티브 요소를 강조하는 단일의 선명한 레드 액센트가 더해집니다.",
+      "layout": "넓은 여백을 확보한 격자 기반 레이아웃으로, 대규모 타이포그래피 쇼케이스와 깔끔한 카드 배치를 우선시합니다.",
+      "interaction": "커스텀 cubic-bezier 이징을 활용한 부드럽고 탄력 있는 전환을, 인터랙티브 요소와 주요 페이지 전환에 섬세하게 적용합니다.",
+      "motion": "빠른 마이크로 인터랙션부터 더 길고 시네마틱한 페이지 전환까지, 다양한 지속 시간을 가진 정교한 모션 시스템입니다.",
+      "notes": "본 사이트는 타이포그래피가 주요 디자인 요소가 될 수 있음을 보여주며, 스케일과 네거티브 공간을 활용하여 폰트 발견을 위한 프리미엄 갤러리 같은 경험을 창출합니다."
+    }
+  },
+  "_meta": {
+    "vision_model": "mimo-v2.5",
+    "vision_prompt_version": "0.3",
+    "vision_source": "playwright-extract:production-type",
+    "vision_grounded": true,
+    "vision_at": "2026-06-04T18:03:52+00:00",
+    "vision_tokens": 16792,
+    "vision_cost_usd": 0.1866,
+    "translation_model": "mimo-v2.5",
+    "translation_at": "2026-06-04T18:05:31+00:00",
+    "translation_tokens": 17978,
+    "translation_cost_usd": 0.0599,
+    "narrative_model": "mimo-v2.5",
+    "narrative_prompt_version": "0.3",
+    "narrative_at": "2026-06-04T18:05:43+00:00",
+    "narrative_tokens": 2130,
+    "narrative_cost_usd": 0.0142,
+    "narrative_status": "ok",
+    "total_cost_usd": 0.2607
+  },
+  "narrative": {
+    "en": {
+      "ch1_intro": "The system operates as a digital gallery, where typography is the primary exhibit and white space is the curated silence between pieces. Its construction is one of restraint: a high-contrast foundation built to showcase the nuanced forms of premium typefaces without distraction.",
+      "ch2_intro": "The palette is a study in stark contrast, built on a monochromatic base of pure white and black. A single, aggressive red accent is reserved exclusively for primary actions and critical branding moments.",
+      "ch2_outro": "This strict two-color-plus-accent discipline ensures that chromatic noise never competes with the typographic content.",
+      "ch3_intro": "A consistent grotesque sans-serif provides the unobtrusive voice of the interface, its neutral forms receding to let the featured display typefaces speak. Display specimens are given monumental scale, their tight tracking and large dimensions demanding focused attention.",
+      "ch4_intro": "Generous vertical rhythm governs the page, with ample gaps between sections that allow each typographic showcase to breathe.",
+      "ch5_intro": "Surfaces are defined by absence, relying on the background and spacing rather than heavy ornament. Borders are thin, precise dividers, while buttons and tags adopt a fully rounded, pill-shaped form.",
+      "ch6_intro": "The layout skeleton employs an asymmetric grid, dedicating a wide central column to expansive font showcases. A narrower sidebar provides consistent navigation, while large, clean cards organize collections into distinct, focused modules.",
+      "ch7_intro": "Motion is applied with cinematic restraint, using smooth transforms and opacity changes to guide attention through page transitions. Interactive elements receive subtle color shifts, with longer, more deliberate durations reserved for major navigational shifts.",
+      "ch8_intro": "The editorial voice is authoritative and expert, mirroring the precision of the type design it presents. Headlines are direct and descriptive, often naming the font or its intended use case without embellishment.",
+      "ch8_outro": "The system deliberately avoids decorative fonts, multiple accent colors, and dark UI backgrounds, committing instead to a focused, monochromatic clarity."
+    },
+    "zh-CN": {
+      "ch1_intro": "系统作为数字画廊运行，其中字体排印是主要展品，而留白则是作品间精心策划的静默。其构建体现了克制：一个高对比度的基础框架，旨在不受干扰地展示优质字体的微妙形态。",
+      "ch2_intro": "该调色板是对强烈对比的研究，建立在纯白与纯黑的单色基础之上。一个单一、醒目的红色强调色，专为首要操作和关键品牌时刻保留。",
+      "ch2_outro": "这种严格的双色加强调色纪律，确保了色彩噪音永远不会与字体排印内容竞争。",
+      "ch3_intro": "一种一致的 grotesque 无衬线体，作为界面的低调声音，其中性形式退居次席，让特色的展示字体得以发声。展示字体被赋予纪念碑般的尺度，其紧凑的字间距和巨大尺寸要求专注的注意力。",
+      "ch4_intro": "充足的垂直韵律主导页面，段落之间留有充足间隙，让每个字体排印展示都能自由呼吸。",
+      "ch5_intro": "表面由缺失来定义，依赖于背景和间距，而非繁复装饰。边框是纤细、精确的分隔线，而按钮和标签则采用完全圆润的药丸形状。",
+      "ch6_intro": "布局骨架采用不对称网格，将一个宽阔的中央列分配给广阔的字体展示。一个较窄的侧边栏提供一致的导航，而大型、简洁的卡片则将合集组织成独立、专注的模块。",
+      "ch7_intro": "动效以电影般的克制方式应用，使用平滑的变换和透明度变化，在页面转换中引导注意力。交互元素获得微妙的颜色变化，而更长、更刻意的持续时间则保留用于主要的导航切换。",
+      "ch8_intro": "编辑语气权威且专业，反映了其呈现的字体设计的精确性。标题直接且描述性强，通常不加修饰地命名字体或其预期用例。",
+      "ch8_outro": "系统刻意避免装饰性字体、多种强调色以及深色 UI 背景，转而致力于一种专注、单色的清晰度。"
+    },
+    "zh-TW": {
+      "ch1_intro": "系統以數位藝廊的形式運作，其中排版是主要展覽內容，而留白則是作品之間策展式的寂靜。其建構方式講求克制：以高對比基礎來襯托高品質字體的細膩形態，避免任何干擾。",
+      "ch2_intro": "色彩配置是一場強烈對比的研究，以純白與純黑的單色調為基底。唯一的強烈紅色強調色，僅保留用於主要操作與關鍵品牌時刻。",
+      "ch2_outro": "這種嚴格的雙色加強調色原則，確保色彩雜訊永遠不會與排版內容產生競爭。",
+      "ch3_intro": "一致的 grotesque sans-serif 提供了不顯眼的介面聲音，其中性形態退居幕後，讓展示的字體得以發聲。展示字體被賦予紀念性的規模，其緊湊的字距與巨大尺寸，要求集中的注意力。",
+      "ch4_intro": "慷慨的垂直節奏主宰著頁面，段落之間充足的間距，讓每個排版展示都能夠呼吸。",
+      "ch5_intro": "表面由空白所定義，依賴背景與間距而非繁複裝飾。邊框是細緻精確的分隔線，而按鈕與標籤則採用完全圓潤的膠囊形狀。",
+      "ch6_intro": "版面骨架採用不對稱網格，將寬闊的中央欄位用於廣闊的字體展示。較窄的側邊欄提供一致的導航，而大型簡潔的卡片則將收藏品組織成獨立、集中的模組。",
+      "ch7_intro": "動效以電影般的克制手法應用，使用流暢的變形與透明度變化來引導頁面過渡時的注意力。互動元素獲得細微的顏色變化，較長、更刻意的持續時間則保留給主要的導航轉換。",
+      "ch8_intro": "編輯語調權威且專業，反映了其呈現的字體設計的精確性。標題直接且具描述性，常不加修飾地命名字體或其預期用途。",
+      "ch8_outro": "系統刻意避免裝飾性字體、多種強調色以及深色介面背景，轉而專注於單色調的清晰度。"
+    },
+    "ja": {
+      "ch1_intro": "システムはデジタルギャラリーとして機能します。タイポグラフィが主要な展示物であり、余白は作品の間に置かれた、策展された静寂です。その構成は克制にあります。優れたタイプライ字体の微妙なフォームを、 distractions なしに見せることを目的とした、ハイコントラストの基盤です。",
+      "ch2_intro": "パレットは、純白と黒のモノクロームを基盤とした、鮮明なコントラストの研究です。単一の、攻撃的な赤のアクセントは、プライマリアクションと重要なブランディングの瞬間にのみ、排他的に使用されます。",
+      "ch2_outro": "この厳格な2色プラスアクセントの規律により、色彩的なノイズがタイポグラフィのコンテンツと競合することはありません。",
+      "ch3_intro": "一貫したゴーシックサンセリフが、インタフェースの控えめな声を提供します。其中立的なフォームは後退し、注目されるディスプレイタイプライ字体が語ることを許します。ディスプレイサンプルは纪念碑的なスケールで提供され、そのタイトなトラッキングと大きな寸法が、集中した注意を要求します。",
+      "ch4_intro": "豊かな垂直リズムがページを支配し、各タイポグラフィのショーケースが息を吹き込むことを許す、十分なセクション間のギャップがあります。",
+      "ch5_intro": "表面は欠如によって定義され、重い装飾ではなく、背景とスペーシングに依存します。ボーダーは細く、正確な区切りであり、ボタンとタグは完全に丸みを帯びた、ピル形のフォームを採用します。",
+      "ch6_intro": "レイアウトの骨格は非対称グリッドを採用し、広い中央カラムを広範なフォントショーケースに割り当てます。より狭いサイドバーが一貫したナビゲーションを提供し、大きく、クリーンなカードがコレクションを明確で、集中したモジュールに整理します。",
+      "ch7_intro": "モーションは映画的な抑制をもって適用され、スムーズなトランスフォームと不透明度の変化を使用して、ページ遷移を通じて注意を誘導します。インタラクティブな要素は微細な色のシフトを受け、より長く、より慎重な持続時間は、主要なナビゲーションのシフトに予約されます。",
+      "ch8_intro": "エディトリアルな声は権威的で専門的であり、提示するタイプライデザインの正確さを反映します。見出しは直接的で記述的であり、装飾なしにフォントまたはその意図された使用例を名称化することがよくあります。",
+      "ch8_outro": "システムは意図的に装飾的なフォント、複数のアクセントカラー、暗いUI背景を避け、代わりに、集中した、モノクロームの明瞭さに専念します。"
+    },
+    "ko": {
+      "ch1_intro": "이 시스템은 디지털 갤러리로 작동하며, 타이포그래피가 주요 전시물이고 여백은 각 작품 사이에 큐레이팅된 침묵입니다. 그 구축은 절제에 기반합니다: 프리미엄 서체의 섬세한 형태를 방해 없이 선보이기 위해 구축된 고대비 기반입니다.",
+      "ch2_intro": "팔레트는 순수한 흰색과 검은색의 단색 기반 위에 세운 뚜렷한 대비의 연구입니다. 단 하나의 공격적인 빨간색 강조는 주요 액션과 핵심 브랜딩 순간에만 독점적으로 사용됩니다.",
+      "ch2_outro": "이 엄격한 두 색상 더하기 강조 원칙은 색상의 소음이 타이포그래피 콘텐츠와 결코 경쟁하지 않도록 보장합니다.",
+      "ch3_intro": "일관된 고딕Sans-serif는 인터페이스의 눈에 띄지 않는 목소리를 제공하며, 그 중립적인 형태는 두드러진 전시용 서체가 말할 수 있도록 물러납니다. 전시용 서체 샘플들은 거대한 스케일로 주어지며, 그 타이트한 자간과 큰 치수는 집중적인 주목을 요구합니다.",
+      "ch4_intro": "관대한 수직 리듬이 페이지를 지배하며, 각 타이포그래피 쇼케이스가 숨 쉴 수 있도록 섹션 사이의 넉넉한 간격을 둡니다.",
+      "ch5_intro": "표면은 부재에 의해 정의되며, 무거운 장식보다는 배경과 간격에 의존합니다. 테두리는 얇고 정확한 구분선이며, 버튼과 태그는 완전히 둥근 알약 형태를 취합니다.",
+      "ch6_intro": "레이아웃 스켈레톤은 비대칭 그리드를 사용하여, 넓은 중앙 열을 확장된 폰트 쇼케이스에 할당합니다. 더 좁은 사이드바는 일관된 네비게이션을 제공하는 반면, 크고 깔끔한 카드는 컬렉션을 뚜렷하고 집중된 모듈로 조직합니다.",
+      "ch7_intro": "모션은 시각적 절제를 적용하여, 부드러운 변환과 불투명도 변화를 사용하여 페이지 전환을 통해 주목을 안내합니다. 인터랙티브 요소는 미묘한 색상 변화를 받으며, 더 길고 의도적인 기간은 주요 내비게이션 전환에 예약됩니다.",
+      "ch8_intro": "에디토리얼 보이스는 권위 있고 전문적이며, 이를 제시하는 타이프 디자인의 정밀함을 반영합니다. 헤드라인은 직접적이고 묘사적이며, 종종 장식 없이 폰트 또는 그 의도된 사용 사례를 명명합니다.",
+      "ch8_outro": "이 시스템은 의도적으로 장식용 폰트, 다수의 강조색, 다크 UI 배경을 피하며, 대신 집중적이고 단색의 명확성에 전념합니다."
+    }
+  }
 }

@@ -8,6 +8,614 @@
     "dev",
     "db"
   ],
-  "status": "pending",
-  "added_at": "2026-06-03"
+  "status": "completed",
+  "added_at": "2026-06-03",
+  "spec": {
+    "colors": {
+      "bg": "#0D212C",
+      "bgSoft": "#163341",
+      "bgQuiet": "#091A23",
+      "ink": "#FFFFFF",
+      "inkSoft": "#B9C2C6",
+      "muted": "#8A99A0",
+      "mutedSoft": "#5C707A",
+      "accent": "#FF4438",
+      "line": "rgba(255,255,255,0.15)"
+    },
+    "typography": {
+      "display": "condensed-sans",
+      "body": "geometric-sans",
+      "mono": "monospace",
+      "scale": [
+        {
+          "token": "display",
+          "size": 80,
+          "lh": 0.95,
+          "weight": 700,
+          "ls": "-1px"
+        },
+        {
+          "token": "headline",
+          "size": 40,
+          "lh": 1.1,
+          "weight": 600,
+          "ls": "-0.5px"
+        },
+        {
+          "token": "body",
+          "size": 16,
+          "lh": 1.5,
+          "weight": 400,
+          "ls": "0px"
+        },
+        {
+          "token": "caption",
+          "size": 14,
+          "lh": 1.4,
+          "weight": 500,
+          "ls": "1.5px"
+        }
+      ]
+    },
+    "spacing": {
+      "base": 4,
+      "scale": [
+        4,
+        8,
+        16,
+        24,
+        32,
+        48,
+        64,
+        96
+      ]
+    },
+    "surfaces": {
+      "radius": {
+        "sm": 4,
+        "md": 8,
+        "lg": 10,
+        "pill": 999
+      }
+    },
+    "layout": {
+      "container": 1280,
+      "paragraph": 680,
+      "columns": 12,
+      "gutter": 24,
+      "breakpoints": [
+        768,
+        1024
+      ]
+    },
+    "motion": {
+      "durations": {
+        "micro": 200,
+        "small": 300,
+        "medium": 500
+      },
+      "easing": "cubic-bezier(0.4, 0, 0.2, 1)"
+    }
+  },
+  "spec_i18n": {
+    "en": {
+      "identity": {
+        "keywords": [
+          "infrastructure",
+          "AI agents",
+          "context engine",
+          "performance",
+          "developer-first"
+        ],
+        "analogy": "A high-performance data backbone for modern AI applications",
+        "oneLiner": "Redis provides the real-time context layer for building reliable AI agents in production."
+      },
+      "colors": {
+        "principle": "Deep, dark backgrounds provide a high-contrast canvas for vibrant brand accents and clear, legible white text."
+      },
+      "typography": {
+        "rules": [
+          "Use condensed sans for high-impact, large-scale headlines.",
+          "Use geometric sans for body text and UI elements.",
+          "Use monospace for technical prompts and code snippets."
+        ],
+        "scaleUses": [
+          "Hero headlines",
+          "Section headers",
+          "General text",
+          "Labels and navigation"
+        ]
+      },
+      "spacing": {
+        "rhythm": "Consistent 4px grid with generous vertical padding for section separation."
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(0,0,0,0.1) 0px 0px 20px 0px"
+        ],
+        "borders": "1px solid rgba(255,255,255,0.15)"
+      },
+      "layout": {
+        "skeleton": "Centered layout with a prominent hero, followed by feature sections and technical diagrams."
+      },
+      "components": {
+        "button": "Primary buttons are filled with the accent color and white text; secondary buttons are outlined with white text.",
+        "card": "Dark cards with subtle borders and rounded corners, often containing technical prompts or feature descriptions.",
+        "chip": "Pill-shaped tags for categorization, using muted backgrounds and light text.",
+        "input": "Dark input fields with subtle borders, designed for high contrast with light text.",
+        "hero": "Large, bold condensed headline on a dark background, centered above a technical prompt display and call-to-action buttons."
+      },
+      "motion": {
+        "patterns": [
+          "Subtle fade-ins for content blocks.",
+          "Smooth color and opacity transitions on interactive elements.",
+          "Hover states that slightly brighten or elevate components."
+        ]
+      },
+      "interaction": {
+        "hover": "Subtle background color changes or brightness adjustments on buttons and links.",
+        "click": "Immediate feedback with a slight depression or opacity change.",
+        "transition": "Smooth 0.2s to 0.3s transitions for color and background properties.",
+        "keyboard": "Focusable elements should have visible outlines matching the accent color."
+      },
+      "voice": {
+        "tone": "Authoritative, technical, and direct.",
+        "headlineStyle": "Bold, condensed, and action-oriented, often framing problems or solutions.",
+        "ctaStyle": "Clear and direct, using verbs like 'Try', 'Get', and 'Book'.",
+        "avoid": [
+          "Avoid overly casual or playful language.",
+          "Avoid complex jargon that obscures the core technical value.",
+          "Avoid weak or hesitant phrasing."
+        ]
+      },
+      "donts": [
+        "Don't use a light background — the screenshot shows a deep dark theme for developer focus.",
+        "Don't use decorative or script fonts — the screenshot shows condensed and geometric sans-serifs.",
+        "Don't use subtle or pastel colors — the screenshot shows high-contrast white and vibrant red accents.",
+        "Don't use wide, extended typography — the screenshot shows tall, condensed headlines.",
+        "Don't use generic rounded buttons — the screenshot shows slightly rounded, pill-shaped, or squared buttons.",
+        "Don't use thin, low-contrast borders — the screenshot shows clear, visible borders for separation."
+      ],
+      "systemPrompt": "The Redis website is a developer-focused platform using a deep dark background (#0D212C) with high-contrast white text (#FFFFFF) and vibrant red accents (#FF4438). Typography combines condensed sans-serifs for bold, impactful headlines with geometric sans-serifs for clear body text and monospace for technical prompts. The layout is clean and centered, featuring large hero sections, technical diagrams, and clear call-to-action buttons. Critical design rules: never use light backgrounds, avoid decorative fonts, maintain high contrast, use condensed type for headlines, and ensure clear component separation with visible borders. This design effectively communicates technical authority and modern infrastructure for AI development."
+    },
+    "zh-CN": {
+      "identity": {
+        "keywords": [
+          "基础设施",
+          "AI 智能体",
+          "上下文引擎",
+          "性能",
+          "开发者优先"
+        ],
+        "analogy": "为现代 AI 应用打造的高性能数据骨干",
+        "oneLiner": "Redis 为构建可靠生产级 AI 智能体提供实时上下文层。"
+      },
+      "colors": {
+        "principle": "深邃的深色背景为鲜艳的品牌强调色和清晰易读的白色文本提供了高对比度的画布。"
+      },
+      "typography": {
+        "rules": [
+          "使用紧凑无衬线字体用于高冲击力的大标题。",
+          "使用几何无衬线字体用于正文和界面元素。",
+          "使用等宽字体用于技术提示和代码片段。"
+        ],
+        "scaleUses": [
+          "主视觉标题",
+          "区块标题",
+          "通用文本",
+          "标签与导航"
+        ]
+      },
+      "spacing": {
+        "rhythm": "一致的 4px 网格，区块间留有充足的垂直内边距。"
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(0,0,0,0.1) 0px 0px 20px 0px"
+        ],
+        "borders": "1px solid rgba(255,255,255,0.15)"
+      },
+      "layout": {
+        "skeleton": "居中布局，以突出的主视觉区为核心，随后是功能区块和技术图表。"
+      },
+      "components": {
+        "button": "主按钮使用强调色填充并配以白色文字；次按钮为描边样式，同样配以白色文字。",
+        "card": "深色卡片，带有细微边框和圆角，常用于承载技术提示或功能描述。",
+        "chip": "药丸形标签，用于分类，采用柔和背景和浅色文字。",
+        "input": "深色输入框，带有细微边框，设计为与浅色文字形成高对比度。",
+        "hero": "深色背景上的大号、加粗、紧凑的标题，居中位于技术提示展示和行动号召按钮上方。"
+      },
+      "motion": {
+        "patterns": [
+          "内容块采用微妙的淡入效果。",
+          "交互元素实现平滑的颜色和不透明度过渡。",
+          "悬停状态使组件略微提亮或产生提升效果。"
+        ]
+      },
+      "interaction": {
+        "hover": "按钮和链接上发生细微的背景色或亮度变化。",
+        "click": "通过轻微的凹陷或不透明度变化提供即时反馈。",
+        "transition": "颜色和背景属性的过渡平滑，时长 0.2s 至 0.3s。",
+        "keyboard": "可聚焦元素应具有与强调色匹配的可见轮廓。"
+      },
+      "voice": {
+        "tone": "权威、技术化、直接。",
+        "headlineStyle": "加粗、紧凑、以行动为导向，常用于框定问题或解决方案。",
+        "ctaStyle": "清晰直接，使用‘尝试’、‘获取’、‘预约’等动词。",
+        "avoid": [
+          "避免过于随意或俏皮的语言。",
+          "避免掩盖核心技术价值的复杂术语。",
+          "避免使用软弱或犹豫的措辞。"
+        ]
+      },
+      "donts": [
+        "不要使用浅色背景 — 截图显示的是为开发者专注设计的深邃暗色主题。",
+        "不要使用装饰性或手写体字体 — 截图显示的是紧凑和几何无衬线字体。",
+        "不要使用柔和或粉彩色 — 截图显示的是高对比度的白色和鲜艳的红色强调色。",
+        "不要使用宽大、扩展的字体排版 — 截图显示的是修长、紧凑的标题。",
+        "不要使用通用圆角按钮 — 截图显示的是略微圆角、药丸形或方形的按钮。",
+        "不要使用纤细、低对比度的边框 — 截图显示的是清晰、可见的边框用于分隔。"
+      ],
+      "systemPrompt": "Redis 网站是一个面向开发者的平台，采用深邃的深色背景（#0D212C），搭配高对比度的白色文本（#FFFFFF）和鲜艳的红色强调色（#FF4438）。字体排版结合了用于加粗、有冲击力标题的紧凑无衬线字体，用于清晰正文的几何无衬线字体，以及用于技术提示的等宽字体。布局简洁居中，包含大型主视觉区、技术图表和清晰的行动号召按钮。关键设计规则：永不使用浅色背景，避免装饰性字体，保持高对比度，标题使用紧凑字体，并通过清晰的可见边框确保组件间的清晰分隔。此设计有效地传达了 AI 开发领域的技术权威性和现代基础设施感。"
+    },
+    "zh-TW": {
+      "identity": {
+        "keywords": [
+          "基礎設施",
+          "AI 代理",
+          "情境引擎",
+          "效能",
+          "開發者優先"
+        ],
+        "analogy": "現代 AI 應用程式的高效能數據骨幹",
+        "oneLiner": "Redis 為建構可靠的生產環境 AI 代理提供即時情境層。"
+      },
+      "colors": {
+        "principle": "深色背景為鮮豔的品牌強調色與清晰易讀的白色文字提供高對比度的畫布。"
+      },
+      "typography": {
+        "rules": [
+          "使用窄體無襯線字體於具衝擊力的大標題。",
+          "使用幾何無襯線字體於內文與介面元素。",
+          "使用等寬字體於技術提示與程式碼片段。"
+        ],
+        "scaleUses": [
+          "首頁橫幅標題",
+          "區塊標題",
+          "一般文字",
+          "標籤與導覽"
+        ]
+      },
+      "spacing": {
+        "rhythm": "一致的 4px 格線，區塊間採用充足的垂直內距。"
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(0,0,0,0.1) 0px 0px 20px 0px"
+        ],
+        "borders": "1px solid rgba(255,255,255,0.15)"
+      },
+      "layout": {
+        "skeleton": "以醒目首頁橫幅為中心的佈局，後接功能區塊與技術圖表。"
+      },
+      "components": {
+        "button": "主按鈕使用強調色填充並搭配白色文字；次按鈕使用描邊並搭配白色文字。",
+        "card": "深色卡片帶有細微邊框與圓角，通常包含技術提示或功能說明。",
+        "chip": "用於分類的膠囊形標籤，使用柔和背景與淺色文字。",
+        "input": "深色輸入欄位帶有細微邊框，設計上與淺色文字形成高對比度。",
+        "hero": "深色背景上大而粗體的窄體標題，居中置於技術提示展示與行動呼籲按鈕之上。"
+      },
+      "motion": {
+        "patterns": [
+          "內容區塊的細微淡入效果。",
+          "互動元素平滑的顏色與透明度過渡。",
+          "懸停狀態下組件略微變亮或浮起的效果。"
+        ]
+      },
+      "interaction": {
+        "hover": "按鈕與連結上細微的背景色變化或亮度調整。",
+        "click": "提供立即反饋，帶有輕微下壓或透明度變化。",
+        "transition": "顏色與背景屬性採用 0.2 秒至 0.3 秒的平滑過渡。",
+        "keyboard": "可聚焦的元素應具備與強調色相符的可見輪廓。"
+      },
+      "voice": {
+        "tone": "具權威性、技術性且直接。",
+        "headlineStyle": "粗體、窄體且以行動為導向，常用於點出問題或解決方案。",
+        "ctaStyle": "清晰直接，使用如「試用」、「取得」、「預約」等動詞。",
+        "avoid": [
+          "避免過於隨意或俏皮的語言。",
+          "避免使用模糊核心技術價值的複雜行話。",
+          "避免使用軟弱或猶豫的措辭。"
+        ]
+      },
+      "donts": [
+        "不要使用淺色背景——截圖顯示為了讓開發者專注的深邃深色主題。",
+        "不要使用裝飾性或手寫字體——截圖顯示的是窄體與幾何無襯線字體。",
+        "不要使用柔和或粉蠟色——截圖顯示的是高對比度的白色與鮮豔的紅色點綴。",
+        "不要使用寬闊、延展的字體——截圖顯示的是高挑、窄體的標題。",
+        "不要使用通用的圓角按鈕——截圖顯示的是略帶圓角、膠囊形或方形的按鈕。",
+        "不要使用細線、低對比度的邊框——截圖顯示的是清晰可見的分隔邊框。"
+      ],
+      "systemPrompt": "Redis 網站是一個以開發者為中心的平台，使用深邃的深色背景 (#0D212C)、高對比度的白色文字 (#FFFFFF) 與鮮豔的紅色強調色 (#FF4438)。字體結合了用於粗體、具衝擊力標題的窄體無襯線字體、用於清晰內文的幾何無襯線字體，以及用於技術提示的等寬字體。佈局簡潔且居中，包含大型首頁橫幅區塊、技術圖表和清晰的行動呼籲按鈕。關鍵設計規則：絕不使用淺色背景、避免裝飾性字體、保持高對比度、標題使用窄體字，並透過可見邊框確保組件的清晰分隔。此設計有效地傳達了技術權威性與現代 AI 開發基礎設施。"
+    },
+    "ja": {
+      "identity": {
+        "keywords": [
+          "インフラストラクチャ",
+          "AIエージェント",
+          "コンテキストエンジン",
+          "パフォーマンス",
+          "デベロッパーファースト"
+        ],
+        "analogy": "モダンなAIアプリケーションのための高性能データバックボーン",
+        "oneLiner": "Redisは、本番環境で信頼性の高いAIエージェントを構築するためのリアルタイムコンテキストレイヤーを提供します。"
+      },
+      "colors": {
+        "principle": "深い暗い背景が、ビビッドなブランドアクセントと明確で読みやすい白いテキストのためのハイコントラストなキャンバスを提供します。"
+      },
+      "typography": {
+        "rules": [
+          "インパクトの大きい大きな見出しには、コンデンセッドサンセリフを使用します。",
+          "本文テキストとUI要素には、ジオメトリックサンセリフを使用します。",
+          "技術プロンプトとコードスニペットには、モノスペースを使用します。"
+        ],
+        "scaleUses": [
+          "ヒーロー見出し",
+          "セクション見出し",
+          "一般テキスト",
+          "ラベルとナビゲーション"
+        ]
+      },
+      "spacing": {
+        "rhythm": "一貫した4pxグリッドと、セクション区切りのためのゆったりとした垂直パディング。"
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(0,0,0,0.1) 0px 0px 20px 0px"
+        ],
+        "borders": "1px solid rgba(255,255,255,0.15)"
+      },
+      "layout": {
+        "skeleton": "目立つヒーロー、その後にフィーチャーセクションと技術図解が続く中心配置レイアウト。"
+      },
+      "components": {
+        "button": "プライマリボタンはアクセントカラーで塗りつぶし、テキストはホワイト；セカンダリボタンはアウトラインで、テキストはホワイト。",
+        "card": "控えめなボーダーと角丸を持つダークカード。技術プロンプトやフィーチャー説明を含むことが多い。",
+        "chip": "分類用のピル型タグ。抑制された背景色と明るいテキストを使用。",
+        "input": "控えめなボーダーを持つダークな入力フィールド。明るいテキストとのハイコントラストを想定して設計。",
+        "hero": "ダーク背景上に配置された、大きく太字のコンデンセッド見出し。技術プロンプトの表示とCTAボタンの上に中央配置。"
+      },
+      "motion": {
+        "patterns": [
+          "コンテンツブロックへの控えめなフェードイン。",
+          "インタラクティブ要素の滑らかなカラーと不透明度のトランジション。",
+          "ホバー状態でコンポーネントをわずかに明るくしたり、浮き上がらせたりする。"
+        ]
+      },
+      "interaction": {
+        "hover": "ボタンやリンクの控えめな背景色の変化や明度の調整。",
+        "click": "わずかな押し込みや不透明度の変化による即座のフィードバック。",
+        "transition": "カラーと背景プロパティに対する滑らかな0.2秒から0.3秒のトランジション。",
+        "keyboard": "フォーカス可能な要素には、アクセントカラーに合わせた視覚的なアウトラインが必要。"
+      },
+      "voice": {
+        "tone": "権威があり、技術的で、率直。",
+        "headlineStyle": "太字でコンデンセッド、アクション指向。問題や解決策を提示することが多い。",
+        "ctaStyle": "明確で率直。「試す」「取得する」「予約する」などの動詞を使用。",
+        "avoid": [
+          "極端にカジュアルで遊び心のある言葉を避ける。",
+          "核心となる技術的価値を曖昧にする複雑な専門用語を避ける。",
+          "弱い、あるいはためらいがちな表現を避ける。"
+        ]
+      },
+      "donts": [
+        "明るい背景を使用しない — スクリーンショットでは開発者に集中させるための深い暗いテーマが示されている。",
+        "装飾的またはスクリプトフォントを使用しない — スクリーンショットではコンデンセッドおよびジオメトリックサンセリフが示されている。",
+        "控えめまたはパステルカラーを使用しない — スクリーンショットではハイコントラストのホワイトとビビッドレッドアクセントが示されている。",
+        "幅広で拡張されたタイポグラフィを使用しない — スクリーンショットでは細身でコンデンセッドな見出しが示されている。",
+        "一般的な丸みのあるボタンを使用しない — スクリーンショットではわずかに丸みのある、ピル型、または角ばったボタンが示されている。",
+        "細く低コントラストのボーダーを使用しない — スクリーンショットでは区切りのための明確で視認性の高いボーダーが示されている。"
+      ],
+      "systemPrompt": "Redisウェブサイトは、深い暗い背景（#0D212C）、ハイコントラストの白いテキスト（#FFFFFF）、ビビッドなレッドアクセント（#FF4438）を使用した開発者向けプラットフォームです。タイポグラフィは、太字でインパクトの大きい見出しのためのコンデンセッドサンセリフと、明確な本文テキストのためのジオメトリックサンセリフ、技術プロンプトのためのモノスペースを組み合わせています。レイアウトはクリーンで中心配置であり、大きなヒーローセクション、技術図解、明確なCTAボタンを特徴としています。重要なデザインルール：明るい背景を絶対に使用しない、装飾フォントを避ける、ハイコントラストを維持する、見出しにはコンデンセッドタイプを使用する、明確なボーダーでコンポーネントを分離する。このデザインは、AI開発のための技術的権威と現代的なインフラストラクチャを効果的に伝えています。"
+    },
+    "ko": {
+      "identity": {
+        "keywords": [
+          "인프라",
+          "AI 에이전트",
+          "컨텍스트 엔진",
+          "성능",
+          "개발자 우선"
+        ],
+        "analogy": "현대 AI 애플리케이션을 위한 고성능 데이터 백본",
+        "oneLiner": "Redis는 프로덕션에서 신뢰할 수 있는 AI 에이전트를 구축하기 위한 실시간 컨텍스트 레이어를 제공합니다."
+      },
+      "colors": {
+        "principle": "깊고 어두운 배경은 밝은 브랜드 악센트와 명확하고 가독성 높은 흰색 텍스트를 위한 고대비 캔버스를 제공합니다."
+      },
+      "typography": {
+        "rules": [
+          "고임팩트 대형 헤드라인에는 콘덴스드 산스를 사용합니다.",
+          "본문 텍스트 및 UI 요소에는 기하학적 산스를 사용합니다.",
+          "기술 프롬프트 및 코드 스니펫에는 모노스페이스를 사용합니다."
+        ],
+        "scaleUses": [
+          "히어로 헤드라인",
+          "섹션 헤더",
+          "일반 텍스트",
+          "레이블 및 내비게이션"
+        ]
+      },
+      "spacing": {
+        "rhythm": "섹션 구분을 위한 넉넉한 수직 패딩을 갖춘 일관된 4px 그리드입니다."
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(0,0,0,0.1) 0px 0px 20px 0px"
+        ],
+        "borders": "1px solid rgba(255,255,255,0.15)"
+      },
+      "layout": {
+        "skeleton": "돋보이는 히어로 섹션과 기능 영역, 기술 다이어그램이 이어지는 중앙 정렬 레이아웃입니다."
+      },
+      "components": {
+        "button": "기본 버튼은 악센트 색상으로 채워지고 흰색 텍스트를 사용하며, 보조 버튼은 흰색 텍스트와 함께 외곽선으로 표시됩니다.",
+        "card": "기술 프롬프트나 기능 설명을 포함하는, 미세한 테두리와 둥근 모서리가 있는 다크 카드입니다.",
+        "chip": "분류용 알약형 태그로, 은은한 배경과 밝은 텍스트를 사용합니다.",
+        "input": "밝은 텍스트와 고대비를 위해 설계된, 미세한 테두리가 있는 다크 입력 필드입니다.",
+        "hero": "기술 프롬프트 디스플레이와 CTA 버튼 위에 중앙 정렬된, 다크 배경 위의 크고 굵은 콘덴스드 헤드라인입니다."
+      },
+      "motion": {
+        "patterns": [
+          "콘텐츠 블록의 섬세한 페이드인.",
+          "인터랙티브 요소의 부드러운 색상 및 불투명도 전환.",
+          "구성 요소를 약간 밝게 하거나 높이는 호버 상태."
+        ]
+      },
+      "interaction": {
+        "hover": "버튼과 링크에 배경색 변화나 밝기 조절.",
+        "click": "약간의 눌림이나 불투명도 변화로 즉각적인 피드백.",
+        "transition": "색상 및 배경 속성에 대한 부드러운 0.2초~0.3초 전환.",
+        "keyboard": "포커스 가능한 요소는 악센트 색상과 일치하는 눈에 띄는 윤곽선을 가져야 합니다."
+      },
+      "voice": {
+        "tone": "권위적이고 기술적이며 직설적입니다.",
+        "headlineStyle": "강하고 굵고 행동 지향적이며, 종종 문제나 솔루션을 설정합니다.",
+        "ctaStyle": "'시도', '가져오기', '예약'과 같은 동사를 사용하여 명확하고 직설적입니다.",
+        "avoid": [
+          "지나치게 캐주얼하거나 장난스러운 언어를 피합니다.",
+          "핵심 기술 가치를 흐리게 만드는 복잡한 전문 용어를 피합니다.",
+          "약하거나 주저하는 표현을 피합니다."
+        ]
+      },
+      "donts": [
+        "밝은 배경을 사용하지 않습니다 — 스크린샷은 개발자 집중을 위한 깊은 다크 테마를 보여줍니다.",
+        "장식적이거나 스크립트 폰트를 사용하지 않습니다 — 스크린샷은 콘덴스드 및 기하학적 산스를 보여줍니다.",
+        "은은하거나 파스텔 색상을 사용하지 않습니다 — 스크린샷은 고대비의 흰색과 밝은 레드 악센트를 보여줍니다.",
+        "넓고 펼쳐진 타이포그래피를 사용하지 않습니다 — 스크린샷은 높고 콘덴스드된 헤드라인을 보여줍니다.",
+        "일반적인 둥근 버튼을 사용하지 않습니다 — 스크린샷은 약간 둥근, 알약형, 또는 사각형 버튼을 보여줍니다.",
+        "얇고 저대비 테두리를 사용하지 않습니다 — 스크린샷은 구분을 위한 명확하고 눈에 띄는 테두리를 보여줍니다."
+      ],
+      "systemPrompt": "Redis 웹사이트는 깊은 다크 배경(#0D212C)에 고대비 흰색 텍스트(#FFFFFF)와 밝은 레드 악센트(#FF4438)를 사용하는 개발자 중심 플랫폼입니다. 타이포그래피는 강하고 임팩트 있는 헤드라인을 위해 콘덴스드 산스와 명확한 본문 텍스트를 위한 기하학적 산스, 기술 프롬프트를 위한 모노스페이스를 결합합니다. 레이아웃은 깔끔하고 중앙 정렬되어 있으며, 대형 히어로 섹션, 기술 다이어그램, 명확한 CTA 버튼을 특징으로 합니다. 핵심 디자인 규칙: 밝은 배경을 절대 사용하지 말고, 장식적 폰트를 피하며, 고대비를 유지하고, 헤드라인에 콘덴스드 타입을 사용하며, 눈에 띄는 테두리로 명확한 구성 요소 구분을 보장합니다. 이 디자인은 AI 개발을 위한 기술적 권위와 현대적 인프라를 효과적으로 전달합니다."
+    }
+  },
+  "desc": {
+    "en": {
+      "palette": "A high-contrast dark theme featuring deep teal-blacks, crisp whites, muted grays, and a signature vibrant red accent.",
+      "layout": "A centered, section-based layout with a dominant hero area, followed by feature descriptions and interactive technical elements.",
+      "interaction": "Standard web interactions with smooth transitions on buttons and links, providing subtle feedback without distracting from technical content.",
+      "motion": "Minimal and functional, focusing on smooth transitions for UI state changes rather than complex animations.",
+      "notes": "This site is an excellent example of a modern, developer-oriented dark mode design that balances technical authority with clear, high-impact visual communication."
+    },
+    "zh-CN": {
+      "palette": "高对比度的深色主题，以深青黑色、纯白色、柔和灰色为基底，点缀标志性的鲜艳红色。",
+      "layout": "居中的、基于区块的布局，以醒目的主视觉区域为核心，随后是功能描述与交互式技术元素。",
+      "interaction": "标准网页交互，按钮与链接拥有平滑的过渡效果，在不干扰技术内容的前提下提供细微反馈。",
+      "motion": "极简且注重功能性，专注于为界面状态变化提供平滑过渡，而非复杂的动画效果。",
+      "notes": "此网站是现代、面向开发者的深色模式设计的优秀范例，完美平衡了技术权威性与清晰、高冲击力的视觉传达。"
+    },
+    "zh-TW": {
+      "palette": "採用深邃的青黑色、純白色、柔和的灰色以及標誌性的鮮豔紅色點綴，構成高對比度的深色主題。",
+      "layout": "以區塊為中心的佈局，包含主導性的首頁橫幅區域，後接功能說明與互動式技術元素。",
+      "interaction": "標準的網頁互動，按鈕與連結具備流暢過渡效果，提供細微反饋而不干擾技術內容的呈現。",
+      "motion": "極簡且功能性導向，專注於使用者介面狀態切換的平穩過渡，而非複雜的動畫效果。",
+      "notes": "此網站是現代、面向開發者的深色模式設計的優秀範例，平衡了技術權威性與清晰、具衝擊力的視覺溝通。"
+    },
+    "ja": {
+      "palette": "深いティールブラック、クリスピーなホワイト、抑制されたグレー、そして特徴的なビビッドレッドアクセントを特徴とする、高コントラストのダークテーマ。",
+      "layout": "中心配置で、セクションベースのレイアウト。主要なヒーローエリア、その下にフィーチャーの説明、そしてインタラクティブな技術要素が続く。",
+      "interaction": "ボタンやリンクに滑らかなトランジションを備えた標準的なWebインタラクション。技術コンテンツから注意をそらすことなく、控えめなフィードバックを提供。",
+      "motion": "控えめで機能的。複雑なアニメーションよりも、UI状態変化のための滑らかなトランジションに焦点を当てる。",
+      "notes": "このサイトは、技術的な権威と明確でインパクトの高いビジュアルコミュニケーションのバランスをとる、現代的で開発者寄りのダークモードデザインの優れた例です。"
+    },
+    "ko": {
+      "palette": "깊은 청록 검정, 깨끗한 흰색, 은은한 회색, 그리고 시그니처 밝은 레드 악센트를 특징으로 하는 고대비 다크 테마입니다.",
+      "layout": "지배적인 히어로 영역, 기능 설명, 그리고 인터랙티브 기술 요소가 이어지는 중앙 정렬, 섹션 기반 레이아웃입니다.",
+      "interaction": "버튼과 링크에 부드러운 전환을 적용한 표준 웹 인터랙션으로, 기술적 내용에서 주의를 산만하게 하지 않으면서 섬세한 피드백을 제공합니다.",
+      "motion": "복잡한 애니메이션보다는 UI 상태 변화를 위한 부드러운 전환에 초점을 맞춘 최소 기능적 움직임입니다.",
+      "notes": "이 사이트는 기술적 권위와 명확한 고임팩트 시각적 커뮤니케이션의 균형을 맞추는 현대적이고 개발자 지향적인 다크 모드 디자인의 훌륭한 예시입니다."
+    }
+  },
+  "_meta": {
+    "vision_model": "mimo-v2.5",
+    "vision_prompt_version": "0.3",
+    "vision_source": "playwright-extract:redis",
+    "vision_grounded": true,
+    "vision_at": "2026-06-04T18:24:00+00:00",
+    "vision_tokens": 16564,
+    "vision_cost_usd": 0.184,
+    "translation_model": "mimo-v2.5",
+    "translation_at": "2026-06-04T18:25:27+00:00",
+    "translation_tokens": 17097,
+    "translation_cost_usd": 0.057,
+    "narrative_model": "mimo-v2.5",
+    "narrative_prompt_version": "0.3",
+    "narrative_at": "2026-06-04T18:25:37+00:00",
+    "narrative_tokens": 2023,
+    "narrative_cost_usd": 0.0135,
+    "narrative_status": "ok",
+    "total_cost_usd": 0.2545
+  },
+  "narrative": {
+    "en": {
+      "ch1_intro": "Redis operates as the high-performance data backbone for modern AI applications, and its design system reflects that architectural role with mechanical precision. The visual identity is built on the principle of a robust, dark foundation supporting vibrant, critical signals—a system where every element has a clear structural purpose.",
+      "ch2_intro": "The color palette is defined by its deep, dark backgrounds, which create a high-contrast canvas. Vibrant red accents and crisp white text are deployed strategically for maximum legibility and focal points.",
+      "ch2_outro": "The guiding principle is high-contrast function over decorative color, ensuring clarity for technical content.",
+      "ch3_intro": "The typographic voice is split between two distinct roles: condensed sans-serifs carry the bold, technical authority for headlines, while geometric sans-serifs provide clear, neutral body text. This division creates a hierarchy that is both impactful and immediately readable.",
+      "ch4_intro": "Spacing follows a strict 4px grid, creating a consistent and predictable rhythm throughout the interface.",
+      "ch5_intro": "Surfaces are defined by deep, dark tones and subtle, low-opacity borders that create clear separation without visual noise. The depth is implied through shadow and contrast, not heavy elevation.",
+      "ch6_intro": "The layout skeleton is centered and section-based, prioritizing a dominant hero area for immediate context. Subsequent sections for features and technical details follow in a clean, vertical progression.",
+      "ch7_intro": "Motion is minimal and strictly functional, applied only to clarify UI state changes. Smooth, quick transitions on buttons and links provide immediate feedback without interrupting the developer's focus.",
+      "ch8_intro": "The editorial voice is authoritative, technical, and direct, matching the system's performance-oriented nature. Language is clear and action-oriented, avoiding any ambiguity or casual flourish.",
+      "ch8_outro": "The system deliberately avoids decorative or playful elements that would compromise its focus on technical infrastructure."
+    },
+    "zh-CN": {
+      "ch1_intro": "Redis作为现代AI应用的高性能数据基石，其设计体系以机械般的精确性呼应了这一架构角色。视觉识别建立在稳固的深色基底承载醒目核心信号的原则之上——每个元素都承担着清晰的结构性职能。",
+      "ch2_intro": "色彩体系以深邃的暗色背景为核心，构建高对比度的视觉画布。鲜亮的红色强调与纯净的白色文本经过策略性部署，以实现最优可读性与视觉焦点。",
+      "ch2_outro": "核心准则是高对比功能性优先于装饰性色彩，确保技术内容的清晰传达。",
+      "ch3_intro": "字体声音分为两种职能：紧凑无衬线体承载标题的粗犷技术权威感，而几何无衬线体则提供清晰中性的正文阅读体验。这种分层既形成有力层级，又保持即时可读性。",
+      "ch4_intro": "间距遵循严格的4px网格体系，在界面中建立统一且可预测的节奏。",
+      "ch5_intro": "界面表面以深暗色调与低透明度边框定义，形成清晰的视觉区隔而无杂讯。纵深感通过阴影与对比暗示，而非依赖厚重的层级抬升。",
+      "ch6_intro": "布局骨架采用居中分块结构，以突出首屏的主导视觉区建立即时情境。功能区与技术细节区随后以清晰的垂直流依次呈现。",
+      "ch7_intro": "动效以极简且严格功能化为准则，仅用于界面状态转换的清晰提示。按钮与链接的平滑快速过渡提供即时反馈，且不干扰开发者的专注流程。",
+      "ch8_intro": "编辑声音兼具权威感、技术性与直接性，契合系统以性能为导向的本质。语言清晰且行动导向，避免任何歧义或随意修饰。",
+      "ch8_outro": "该体系刻意规避装饰性或趣味性元素，以保持对技术基础设施的核心专注。"
+    },
+    "zh-TW": {
+      "ch1_intro": "Redis 作為現代 AI 應用程式的高效能資料骨幹運作，其設計系統以機械般的精準度反映了這個架構角色。視覺識別建立在穩固的深色基礎支撐鮮明、關鍵訊號的原則上——這是一個每個元素都有清晰結構目的的系統。",
+      "ch2_intro": "色彩組合由其深沉的暗色背景定義，創造出高對比的畫布。鮮明的紅色點綴與清晰的白色文字被策略性地運用，以實現最大的可讀性與視覺焦點。",
+      "ch2_outro": "指導原則是高對比的功能性優先於裝飾性色彩，確保技術內容的清晰度。",
+      "ch3_intro": "排版語音分為兩個不同的角色：緊湊的無襯線字體承載標題大膽、技術性的權威感，而幾何無襯線字體則提供清晰、中性的內文。這種分工創造了既有衝擊力又立即可讀的層級結構。",
+      "ch4_intro": "間距遵循嚴格的 4px 網格，在整個介面中創造出一致且可預期的節奏。",
+      "ch5_intro": "介面表面由深沉的色調與低不透明度的細微邊框定義，在不產生視覺雜訊的情況下創造清晰的區隔。深度透過陰影與對比來暗示，而非依賴厚重的抬高效果。",
+      "ch6_intro": "版面結構以居中、分區的方式安排，優先考慮一個主導的英雄區域以提供即時情境。後續的功能與技術細節區塊則以乾淨的垂直 progression 依次呈現。",
+      "ch7_intro": "動態效果極簡且嚴格功能性，僅用於 clarifying UI 狀態變化。按鈕與連結上流暢、快速的轉場效果提供即時回饋，同時不打斷開發者的專注。",
+      "ch8_intro": "編輯語音具備權威性、技術性且直接，與系統以效能為導向的本質相符。語言清晰且注重行動導向，避免任何模糊或隨意的修飾。",
+      "ch8_outro": "系統刻意避免會影響其對技術基礎設施專注的裝飾性或趣味性元素。"
+    },
+    "ja": {
+      "ch1_intro": "Redisは、現代のAIアプリケーションにおける高性能データ基盤として機能し、そのデザインシステムは、このアーキテクチャ上の役割を機械的な精度をもって反映しています。視覚的アイデンティティは、堅牢で暗い基盤が鮮やかな重要なシグナルを支えるという原則の上に構築されています。すべての要素が明確な構造的目的を持つ、そのようなシステムです。",
+      "ch2_intro": "カラーパレットは、深い暗い背景で定義され、高コントラストのキャンバスを創出します。鮮やかな赤のアクセントと鮮明な白いテキストは、最大限の可読性と焦点を確保するために、戦略的に配置されます。",
+      "ch2_outro": "基本原則は、装飾的な色よりも高コントラストな機能を優先し、技術コンテンツに明瞭さを保証することです。",
+      "ch3_intro": "タイポグラフィの声は、2つの異なる役割に分かれています。コンデンス Sans-serif（角のない文字）が太字で技術的な権威を持つ見出しを担い、幾何学的な Sans-serif（角のない文字）が明確で中立な本文テキストを提供します。この分割は、インパクトと即時の可読性の両立する階層を生み出します。",
+      "ch4_intro": "間隔は厳格な4pxグリッドに従い、インターフェース全体に一貫し予測可能なリズムを生み出します。",
+      "ch5_intro": "サーフェスは、深い暗い色調と、視覚的なノイズなしに明確な分離を生む、微細で低不透明度のボーダーで定義されます。奥行きは、重い標高ではなく、シャドウとコントラストによって暗示されます。",
+      "ch6_intro": "レイアウトの骨格は中央揃えでセクションベースであり、直ちにコンテキストを把握できる主要なヒーローエリアを優先します。機能や技術詳細のための後続セクションは、清潔な垂直の進行に従います。",
+      "ch7_intro": "モーションは最小限で、厳密に機能的です。UIの状態変化を明確にするためにのみ適用されます。ボタンやリンクの滑らかで迅速なトランジションは、開発者の集中を中断することなく、即座にフィードバックを提供します。",
+      "ch8_intro": "エディトリアルな声は、権威的で技術的、かつ直接的であり、システムのパフォーマンス志向の性質に合致します。言葉は明確で行動を志向し、曖昧さやカジュアルな装飾を避けます。",
+      "ch8_outro": "システムは、技術インフラへの焦点を損なう装飾的、または遊び心のある要素を意図的に避けています。"
+    },
+    "ko": {
+      "ch1_intro": "Redis는 최신 AI 애플리케이션의 고성능 데이터 백본으로 작동하며, 그 설계 시스템은 기계적 정밀도로 그 아키텍처적 역할을 반영합니다. 시각적 아이덴티티는 강력한 어두운 기반 위에 생동감 있는 핵심 신호를 지탱하는 원칙 위에 구축되었습니다. 여기서 모든 요소는 명확한 구조적 목적을 지닙니다.",
+      "ch2_intro": "색상 팔레트는 깊고 어두운 배경으로 정의되어, 고대비 캔버스를 만듭니다. 생동감 있는 빨간색 포인트와 선명한 흰색 텍스트는 최대 가독성과 시선 집중을 위해 전략적으로 배치됩니다.",
+      "ch2_outro": "지배적인 원칙은 장식적 색상보다는 고대비 기능이며, 기술적 콘텐츠의 명확성을 보장합니다.",
+      "ch3_intro": "타이포그래피는 두 개의 뚜렷한 역할로 나뉩니다: 수축형 산세리프는 헤드라인에 굵고 기술적인 권위를 부여하고, 기하학적 산세리프는 명확하고 중립적인 본문 텍스트를 제공합니다. 이 구분은 즉각적으로 읽을 수 있으면서도 강렬한 계층 구조를 만듭니다.",
+      "ch4_intro": "간격은 엄격한 4px 그리드를 따르며, 인터페이스 전체에 일관되고 예측 가능한 리듬을 만듭니다.",
+      "ch5_intro": "표면은 깊은 어두운 톤과 미세하고 불투명도가 낮은 테두리로 정의되어, 시각적 잡음 없이 명확한 구분을 만듭니다. 깊이는 무거운 부양감이 아닌 그림자와 대비를 통해 암시됩니다.",
+      "ch6_intro": "레이아웃 골격은 중심 정렬 및 섹션 기반으로, 즉각적인 맥락을 위해 지배적인 히어로 영역을 우선시합니다. 기능 및 기술적 세부 사항을 위한 후속 섹션은 깔끔한 수직 흐름을 따릅니다.",
+      "ch7_intro": "모션은 최소화되어 있으며 엄격하게 기능적입니다. UI 상태 변경을 명확히 하기 위해서만 적용됩니다. 버튼과 링크에 대한 부드럽고 빠른 트랜지션은 개발자의 집중을 방해하지 않으면서 즉각적인 피드백을 제공합니다.",
+      "ch8_intro": "에디토리얼 목소리는 권위적이고 기술적이며 직설적이며, 시스템의 성능 지향적 특성과 일치합니다. 언어는 명확하고 행동 지향적이며, 모든 모호함이나 가벼운 멋을 피합니다.",
+      "ch8_outro": "시스템은 기술 인프라에 대한 초점을 해칠 수 있는 장식적이거나 장난스러운 요소를 의도적으로 피합니다."
+    }
+  }
 }

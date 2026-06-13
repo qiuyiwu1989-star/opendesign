@@ -8,6 +8,638 @@
     "ai",
     "dev"
   ],
-  "status": "pending",
-  "added_at": "2026-06-02"
+  "status": "completed",
+  "added_at": "2026-06-02",
+  "spec": {
+    "colors": {
+      "bg": "#FFFFFF",
+      "bgSoft": "#F8F8F8",
+      "bgQuiet": null,
+      "ink": "#191919",
+      "inkSoft": "rgba(0,0,0,0.4)",
+      "muted": "#A5A5A5",
+      "mutedSoft": "rgba(25,25,25,0.56)",
+      "accent": "#317CFF",
+      "line": "rgba(0,0,0,0.1)"
+    },
+    "typography": {
+      "display": "geometric-sans",
+      "body": "humanist-sans",
+      "mono": "monospace",
+      "scale": [
+        {
+          "token": "display",
+          "size": 56,
+          "lh": 1.0,
+          "weight": 500,
+          "ls": "-1.5px"
+        },
+        {
+          "token": "heading",
+          "size": 40,
+          "lh": 1.1,
+          "weight": 500,
+          "ls": "-0.96px"
+        },
+        {
+          "token": "body-lg",
+          "size": 20,
+          "lh": 1.5,
+          "weight": 400,
+          "ls": "-0.16px"
+        },
+        {
+          "token": "body",
+          "size": 16,
+          "lh": 1.5,
+          "weight": 400,
+          "ls": "normal"
+        },
+        {
+          "token": "caption",
+          "size": 13,
+          "lh": 1.4,
+          "weight": 400,
+          "ls": "normal"
+        }
+      ]
+    },
+    "spacing": {
+      "base": 4,
+      "scale": [
+        4,
+        8,
+        12,
+        16,
+        20,
+        24,
+        32,
+        48,
+        64,
+        96
+      ]
+    },
+    "surfaces": {
+      "radius": {
+        "sm": 4,
+        "md": 8,
+        "lg": 10,
+        "pill": 999
+      }
+    },
+    "layout": {
+      "container": 1280,
+      "paragraph": 680,
+      "columns": 12,
+      "gutter": 24,
+      "breakpoints": [
+        768,
+        1024
+      ]
+    },
+    "motion": {
+      "durations": {
+        "micro": 150,
+        "small": 250,
+        "medium": 400
+      },
+      "easing": "cubic-bezier(0.4, 0, 0.2, 1)"
+    }
+  },
+  "spec_i18n": {
+    "en": {
+      "identity": {
+        "keywords": [
+          "agent",
+          "desktop",
+          "workflow",
+          "developer",
+          "IDE"
+        ],
+        "analogy": "A command center for managing fleets of AI coding agents.",
+        "oneLiner": "Manage fleets of local and cloud agents from one surface."
+      },
+      "colors": {
+        "principle": "Clean white canvas with high-contrast ink and a single vibrant blue accent for primary actions."
+      },
+      "typography": {
+        "rules": [
+          "Use geometric sans for display and headings to convey modern technical precision.",
+          "Use humanist sans for body text to maintain high readability.",
+          "Use monospace for any technical terms, code snippets, or UI status indicators.",
+          "Maintain tight tracking (-1.5px) for large display text to create a strong visual block."
+        ],
+        "scaleUses": [
+          "Hero headlines",
+          "Section titles",
+          "Subheadings and lead paragraphs",
+          "General body text",
+          "UI labels, metadata, and secondary text"
+        ]
+      },
+      "spacing": {
+        "rhythm": "Consistent vertical rhythm based on a 4px grid, with generous whitespace in hero sections."
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(0,0,0,0.05) 0px 1px 2px 0px",
+          "rgba(0,0,0,0.1) 0px 2px 6px -2px",
+          "rgba(0,0,0,0.1) 0px 10px 15px -3px"
+        ],
+        "borders": "1px solid rgba(0,0,0,0.1)"
+      },
+      "layout": {
+        "skeleton": "Full-width hero sections followed by contained content blocks."
+      },
+      "components": {
+        "button": "Solid primary (blue bg, white text), secondary (white bg, black text, subtle border), ghost (text-only). All have slight border-radius.",
+        "card": "White background with subtle 1px border or soft shadow, containing structured data or testimonials.",
+        "chip": "Subtle gray background (rgba(0,0,0,0.06)) with 1px border, used for tags and filters.",
+        "input": "White background with 1px border, rounded corners, and clear placeholder text.",
+        "hero": "Large typography on a clean white background with a prominent CTA button."
+      },
+      "motion": {
+        "patterns": [
+          "Subtle opacity and background-color transitions on hover states.",
+          "Smooth transitions for opening and closing menus or drawers."
+        ]
+      },
+      "interaction": {
+        "hover": "Subtle background-color or opacity change for buttons and interactive elements.",
+        "click": "Immediate visual feedback with a slight scale or opacity reduction.",
+        "transition": "All interactive elements should have a 0.15s to 0.25s transition for a smooth feel.",
+        "keyboard": "Clear focus indicators for all interactive elements, typically a 2px blue outline."
+      },
+      "voice": {
+        "tone": "Professional, technical, and direct, focusing on efficiency and control.",
+        "headlineStyle": "Large, bold, and concise, often using monospace for technical terms.",
+        "ctaStyle": "Action-oriented and clear, such as 'Download for MacOS' or 'Try Devin'.",
+        "avoid": [
+          "Vague marketing jargon",
+          "Overly playful or casual language",
+          "Complicated sentences"
+        ]
+      },
+      "donts": [
+        "Don't use multiple competing bright colors — screenshot shows a restrained palette of white, black, and a single blue accent.",
+        "Don't use decorative serif fonts for display — screenshot shows a clean geometric sans for all headlines.",
+        "Don't use heavy box shadows or 3D effects — screenshot shows subtle, soft shadows that are almost imperceptible.",
+        "Don't use tight, cramped layouts — screenshot shows generous whitespace around all major content blocks.",
+        "Don't use small, hard-to-read text for metadata — screenshot shows 13-16px text with clear line heights.",
+        "Don't use rounded, pill-shaped containers for everything — screenshot shows mostly subtle 4-10px border radii."
+      ],
+      "systemPrompt": "The design is a clean, professional SaaS product page for a developer tool called Devin Desktop. It uses a minimalist white canvas with a single vibrant blue (#317CFF) accent for primary actions. Typography consists of geometric and humanist sans-serif fonts, with large, tight-tracked headlines for strong visual impact. Key design elements include generous whitespace, subtle 1px borders, and very soft shadows. Critical design constraints: avoid using multiple accent colors, never use decorative serifs, and maintain high contrast between ink and background for maximum readability. The tone is technical and efficient, targeting engineering teams."
+    },
+    "zh-CN": {
+      "identity": {
+        "keywords": [
+          "代理",
+          "桌面端",
+          "工作流",
+          "开发者",
+          "IDE"
+        ],
+        "analogy": "管理 AI 编程代理集群的指挥中心。",
+        "oneLiner": "在一个界面中管理本地和云端代理集群。"
+      },
+      "colors": {
+        "principle": "干净的白色画布，搭配高对比度的墨色，以及一个用于主要操作的鲜明蓝色强调色。"
+      },
+      "typography": {
+        "rules": [
+          "使用几何无衬线字体用于显示和标题，传达现代技术精确感。",
+          "使用人文无衬线字体用于正文，以保持高可读性。",
+          "为任何技术术语、代码片段或 UI 状态指示器使用等宽字体。",
+          "为大号显示文本保持紧凑的字间距（-1.5px），以形成强烈的视觉块。"
+        ],
+        "scaleUses": [
+          "首屏大标题",
+          "板块标题",
+          "副标题与导语段落",
+          "通用正文",
+          "UI标签、元数据和次要文本"
+        ]
+      },
+      "spacing": {
+        "rhythm": "基于 4px 网格的一致垂直节奏，首屏区域留有充足的空白。"
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(0,0,0,0.05) 0px 1px 2px 0px",
+          "rgba(0,0,0,0.1) 0px 2px 6px -2px",
+          "rgba(0,0,0,0.1) 0px 10px 15px -3px"
+        ],
+        "borders": "1px solid rgba(0,0,0,0.1)"
+      },
+      "layout": {
+        "skeleton": "全宽首屏区域后接内联内容块。"
+      },
+      "components": {
+        "button": "实心主按钮（蓝色背景，白色文字），次按钮（白色背景，黑色文字，细微边框），幽灵按钮（纯文字）。所有按钮均带有轻微的圆角。",
+        "card": "白色背景，带有细微的 1px 边框或柔和阴影，用于容纳结构化数据或用户评价。",
+        "chip": "细微的灰色背景（rgba(0,0,0,0.06)）加 1px 边框，用于标签和筛选器。",
+        "input": "白色背景，1px 边框，圆角，并带有清晰的占位符文本。",
+        "hero": "干净的白色背景上的大号字体，搭配醒目的行动号召按钮。"
+      },
+      "motion": {
+        "patterns": [
+          "hover 状态下细微的不透明度和背景色过渡。",
+          "菜单或抽屉打开与关闭时的平滑过渡。"
+        ]
+      },
+      "interaction": {
+        "hover": "按钮和交互元素采用细微的背景色或不透明度变化。",
+        "click": "通过轻微的缩放或不透明度降低提供即时视觉反馈。",
+        "transition": "所有交互元素应具有 0.15s 到 0.25s 的过渡时间，以获得流畅的感觉。",
+        "keyboard": "为所有交互元素提供清晰的焦点指示器，通常是一个 2px 的蓝色轮廓。"
+      },
+      "voice": {
+        "tone": "专业、技术化且直接，专注于效率与控制力。",
+        "headlineStyle": "大号、加粗且简洁，技术术语常使用等宽字体。",
+        "ctaStyle": "以行动为导向且清晰，例如“为 MacOS 下载”或“试用 Devin”。",
+        "avoid": [
+          "模糊的营销术语",
+          "过于活泼或随意的语言",
+          "复杂的句子"
+        ]
+      },
+      "donts": [
+        "不要使用多种相互竞争的鲜艳颜色——截图显示的是白色、黑色和单一蓝色强调色的克制配色。",
+        "不要在显示文本中使用装饰性衬线字体——截图显示所有标题都使用干净的几何无衬线字体。",
+        "不要使用厚重的盒状阴影或 3D 效果——截图显示的是细微、柔和的阴影，几乎难以察觉。",
+        "不要使用拥挤、局促的布局——截图显示所有主要内容块周围都有充足的空白。",
+        "不要为元数据使用小而难以阅读的文本——截图显示 13-16px 的文本，并带有清晰的行高。",
+        "不要将所有容器都做成圆角的药丸形状——截图显示大多使用细微的 4-10px 圆角。"
+      ],
+      "systemPrompt": "该设计是为名为 Devin Desktop 的开发者工具打造的干净、专业的产品页面。它采用极简的白色画布，点缀一个鲜明的蓝色（#317CFF）作为主要操作的强调色。字体由几何无衬线和人文无衬线构成，使用大号、紧凑字距的标题以获得强烈的视觉冲击力。关键设计元素包括充足的空白、细微的 1px 边框和非常柔和的阴影。关键设计约束：避免使用多种强调色，绝不使用装饰性衬线字体，并保持墨色与背景之间的高对比度以实现最大可读性。语调是技术性和高效的，目标受众是工程团队。"
+    },
+    "zh-TW": {
+      "identity": {
+        "keywords": [
+          "代理",
+          "桌面端",
+          "工作流程",
+          "開發者",
+          "IDE"
+        ],
+        "analogy": "管理多個 AI 程式碼代理機隊的指揮中心。",
+        "oneLiner": "從單一介面管理本地與雲端代理機隊。"
+      },
+      "colors": {
+        "principle": "以乾淨的白色畫布為基底，搭配高對比的墨色，並使用單一鮮明的藍色作為主要操作的強調色。"
+      },
+      "typography": {
+        "rules": [
+          "使用幾何無襯線字體作為標題，傳達現代技術精確感。",
+          "使用人文主義無襯線字體作為內文，以維持高度可讀性。",
+          "對於技術術語、程式碼片段或 UI 狀態指示器，使用等寬字體。",
+          "對大型標題文字保持緊湊的字距（-1.5px），以創造強烈的視覺區塊。"
+        ],
+        "scaleUses": [
+          "主視覺標題",
+          "章節標題",
+          "副標題與導言段落",
+          "一般內文",
+          "UI 標籤、詮釋資料與次要文字"
+        ]
+      },
+      "spacing": {
+        "rhythm": "基於 4px 網格的一致垂直節奏，主視覺區塊留有充裕的空白。"
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(0,0,0,0.05) 0px 1px 2px 0px",
+          "rgba(0,0,0,0.1) 0px 2px 6px -2px",
+          "rgba(0,0,0,0.1) 0px 10px 15px -3px"
+        ],
+        "borders": "1px solid rgba(0,0,0,0.1)"
+      },
+      "layout": {
+        "skeleton": "全寬的主視覺區塊，後接受控的內容區塊。"
+      },
+      "components": {
+        "button": "實心主按鈕（藍色背景、白色文字）、次要按鈕（白色背景、黑色文字、細微邊框）、幽靈按鈕（僅文字）。所有按鈕皆帶有輕微的 border-radius。",
+        "card": "白色背景搭配細微的 1px 邊框或柔和陰影，用於容納結構化資料或見證文字。",
+        "chip": "帶有 1px 邊框的淺灰色背景（rgba(0,0,0,0.06)），用於標籤與篩選器。",
+        "input": "白色背景搭配 1px 邊框、圓角，並有清晰的佔位符文字。",
+        "hero": "在乾淨的白色背景上使用大型字體，並搭配顯著的號召性用語按鈕。"
+      },
+      "motion": {
+        "patterns": [
+          "hover 狀態時細膩的 opacity 與 background-color 過渡效果。",
+          "選單或抽屜開啟與關閉時的平滑過渡。"
+        ]
+      },
+      "interaction": {
+        "hover": "按鈕與互動元素在 hover 時有細微的 background-color 或 opacity 變化。",
+        "click": "透過輕微的 scale 縮放或 opacity 降低提供即時的視覺回饋。",
+        "transition": "所有互動元素應具備 0.15s 至 0.25s 的過渡效果，以營造平滑感受。",
+        "keyboard": "所有互動元素皆需有清晰的焦點指示器，通常為 2px 的藍色外框。"
+      },
+      "voice": {
+        "tone": "專業、技術且直接，專注於效率與控制力。",
+        "headlineStyle": "大型、粗體且簡潔，技術術語常使用等寬字體。",
+        "ctaStyle": "以行動為導向且清晰，例如「Download for MacOS」或「Try Devin」。",
+        "avoid": [
+          "模糊的行銷術語",
+          "過於俏皮或隨意的語言",
+          "複雜的句子結構"
+        ]
+      },
+      "donts": [
+        "不要使用多種爭相突出的鮮豔色彩——截圖顯示的是以白色、黑色與單一藍色強調色組成的內斂色板。",
+        "不要使用裝飾性的襯線字體作為標題——截圖顯示所有標題皆採用乾淨的幾何無襯線字體。",
+        "不要使用厚重的 box-shadow 或 3D 效果——截圖顯示的是細微、柔和且幾乎難以察覺的陰影。",
+        "不要使用擁擠、緊湊的佈局——截圖顯示所有主要內容區塊周圍皆有充裕的空白。",
+        "不要使用小且難以閱讀的詮釋資料文字——截圖顯示的是 13-16px 大小且行高清晰的文字。",
+        "不要將所有容器都做成圓角膠囊形狀——截圖顯示主要是細微的 4-10px 圓角。"
+      ],
+      "systemPrompt": "此設計是一款名為 Devin Desktop 的開發者工具的乾淨、專業 SaaS 產品頁面。它採用極簡的白色畫布，並以單一鮮明的藍色（#317CFF）作為主要操作的強調色。字體由幾何與人文主義無襯線字體組成，大型且字距緊湊的標題帶來強烈的視覺衝擊。關鍵設計元素包括充裕的空白、細微的 1px 邊框以及非常柔和的陰影。重要的設計限制：避免使用多種強調色，切勿使用裝飾性襯線字體，並保持墨色與背景之間的高對比度以最大化可讀性。語調是技術性且有效率的，目標對象為工程團隊。"
+    },
+    "ja": {
+      "identity": {
+        "keywords": [
+          "エージェント",
+          "デスクトップ",
+          "ワークフロー",
+          "開発者",
+          "IDE"
+        ],
+        "analogy": "AIコーディングエージェントのフリートを管理するためのコマンドセンター。",
+        "oneLiner": "ローカルおよびクラウドのエージェントフリートを、単一のサーフェスから管理。"
+      },
+      "colors": {
+        "principle": "クリーンな白キャンバスにハイコントラストなインク、プライマリアクションには単一の鮮やかな青アクセントを配置。"
+      },
+      "typography": {
+        "rules": [
+          "表示や見出しには幾何学的サンセリフを使用し、現代的な技術的精度を表現。",
+          "本文にはヒューマニストサンセリフを使用し、高い可読性を維持。",
+          "技術用語、コードスニペット、UIステータスインジケーターには等幅フォントを使用。",
+          "大きな表示テキストにはタイトな字間（-1.5px）を維持し、視覚的なブロック感を生み出す。"
+        ],
+        "scaleUses": [
+          "ヒーローヘッドライン",
+          "セクションタイトル",
+          "サブヘッドラインおよびリード段落",
+          "一般本文テキスト",
+          "UIラベル、メタデータ、セカンダリテキスト"
+        ]
+      },
+      "spacing": {
+        "rhythm": "4pxグリッドベースの一定の垂直リズム。ヒーローセクションには十分な余白を設ける。"
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(0,0,0,0.05) 0px 1px 2px 0px",
+          "rgba(0,0,0,0.1) 0px 2px 6px -2px",
+          "rgba(0,0,0,0.1) 0px 10px 15px -3px"
+        ],
+        "borders": "1px solid rgba(0,0,0,0.1)"
+      },
+      "layout": {
+        "skeleton": "フルワイドのヒーローセクションの後に、コンテナ化されたコンテンツブロックを配置。"
+      },
+      "components": {
+        "button": "ソリッドプライマリ（青背景、白テキスト）、セカンダリ（白背景、黒テキスト、控えめなボーダー）、ゴースト（テキストのみ）。すべてに控えめなborder-radius。",
+        "card": "控えめな1pxボーダーまたは柔らかいシャドウを持つ白背景。構造化データや証言を含む。",
+        "chip": "控えめなグレー背景（rgba(0,0,0,0.06））に1pxボーダー。タグやフィルターに使用。",
+        "input": "白背景に1pxボーダー、角丸、明確なプレースホルダーテキスト。",
+        "hero": "クリーンな白背景に大きなタイポグラフィと、目立つCTAボタン。"
+      },
+      "motion": {
+        "patterns": [
+          "hover状態での控えめなopacityとbackground-colorのトランジション。",
+          "メニューまたはドロワーの開閉に対する滑らかなトランジション。"
+        ]
+      },
+      "interaction": {
+        "hover": "ボタンやインタラクティブ要素に対する、控えめなbackground-colorまたはopacityの変化。",
+        "click": "わずかなスケールまたはopacityの低下による、即座の視覚的フィードバック。",
+        "transition": "すべてのインタラクティブ要素に、滑らかな効果のために0.15sから0.25sのトランジションを適用。",
+        "keyboard": "すべてのインタラクティブ要素に対する明確なfocusインジケーター。通常は2pxの青アウトライン。"
+      },
+      "voice": {
+        "tone": "効率性と制御に焦点を当てた、プロフェッショナルで技術的、かつ直接的なトーン。",
+        "headlineStyle": "大きく、太字で、簡潔。技術用語には等幅フォントを使用することが多い。",
+        "ctaStyle": "アクション指向で明確。例：「MacOS用にダウンロード」や「Devinを試す」。",
+        "avoid": [
+          "曖昧なマーケティング用語",
+          "過度に遊び心のあるまたはカジュアルな言葉遣い",
+          "複雑な文章"
+        ]
+      },
+      "donts": [
+        "複数の競合する鮮やかな色を使用しない — スクリーンショットでは白、黒、単一の青アクセントという抑制されたパレットを示している。",
+        "表示用に装飾的なセリフフォントを使用しない — スクリーンショットではすべての見出しにクリーンな幾何学的サンセリフを使用している。",
+        "重いボックスシャドウや3D効果を使用しない — スクリーンショットではほとんど気づかないうまい柔らかいシャドウを使用している。",
+        "タイトで詰まったレイアウトを使用しない — スクリーンショットではすべての主要コンテンツブロックの周囲に十分な余白を確保している。",
+        "メタデータに小さく読みにくいテキストを使用しない — スクリーンショットでは13-16pxのテキストで明確な行間を使用している。",
+        "すべてに丸みのあるピル形状のコンテナを使用しない — スクリーンショットでは主に控えめな4-10pxのborder-radiusを使用している。"
+      ],
+      "systemPrompt": "このデザインは、Devin Desktopという開発者向けツールのためのクリーンでプロフェッショナルなSaaSプロダクトページです。プライマリアクションには単一の鮮やかな青（#317CFF）アクセントを用いた、ミニマルな白キャンバスを使用しています。タイポグラフィには幾何学的およびヒューマニストサンセリフフォントを使用し、強力な視覚的インパクトのために大きくタイトな字間の見出しが特徴です。主要なデザイン要素には、十分な余白、控えめな1pxボーダー、非常に柔らかいシャドウが含まれます。重要なデザイン制約：複数のアクセント色の使用を避け、装飾的なセリフを決して使用せず、最大限の可読性のためにインクと背景の間に高いコントラストを維持すること。トーンは技術的で効率的であり、エンジニアリングチームをターゲットとしています。"
+    },
+    "ko": {
+      "identity": {
+        "keywords": [
+          "에이전트",
+          "데스크톱",
+          "워크플로우",
+          "개발자",
+          "IDE"
+        ],
+        "analogy": "AI 코딩 에이전트 플릿을 관리하기 위한 명령 센터입니다.",
+        "oneLiner": "로컬 및 클라우드 에이전트 플릿을 하나의 환경에서 관리합니다."
+      },
+      "colors": {
+        "principle": "깨끗한 흰색 캔버스에 고대비 잉크와 주요 작업을 위한 단일 강렬한 블루 악센트를 사용합니다."
+      },
+      "typography": {
+        "rules": [
+          "현대적인 기술적 정밀함을 전달하기 위해 디스플레이 및 제목에는 기하학적 sans를 사용합니다.",
+          "본문 텍스트에는 높은 가독성을 유지하기 위해 인간주의적 sans를 사용합니다.",
+          "모든 기술 용어, 코드 스니펫 또는 UI 상태 표시기에는 모노스페이스를 사용합니다.",
+          "강력한 시각적 블록을 만들기 위해 큰 디스플레이 텍스트에는 타이트한 트래킹(-1.5px)을 유지합니다."
+        ],
+        "scaleUses": [
+          "히어로 헤드라인",
+          "섹션 제목",
+          "부제목 및 리드 단락",
+          "일반 본문 텍스트",
+          "UI 레이블, 메타데이터 및 보조 텍스트"
+        ]
+      },
+      "spacing": {
+        "rhythm": "4px 그리드를 기반으로 한 일관된 수직 리듬과, 히어로 섹션에 넉넉한 여백을 둡니다."
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(0,0,0,0.05) 0px 1px 2px 0px",
+          "rgba(0,0,0,0.1) 0px 2px 6px -2px",
+          "rgba(0,0,0,0.1) 0px 10px 15px -3px"
+        ],
+        "borders": "1px solid rgba(0,0,0,0.1)"
+      },
+      "layout": {
+        "skeleton": "전폭 히어로 섹션 뒤에 포함된 콘텐츠 블록이 옵니다."
+      },
+      "components": {
+        "button": "솔리드 프라이머리(블루 배경, 흰색 텍스트), 세컨더리(흰색 배경, 검정 텍스트, 섬세한 테두리), 고스트(텍스트 전용)입니다. 모두 약간의 border-radius를 가집니다.",
+        "card": "구조화된 데이터나 사용 후기를 포함하는, 섬세한 1px 테두리 또는 부드러운 그림자가 있는 흰색 배경입니다.",
+        "chip": "태그와 필터에 사용되는, 섬세한 회색 배경(rgba(0,0,0,0.06))과 1px 테두리입니다.",
+        "input": "흰색 배경, 1px 테두리, 둥근 모서리, 그리고 명확한 플레이스홀더 텍스트를 가집니다.",
+        "hero": "두드러진 CTA 버튼이 있는 깨끗한 흰색 배경 위의 큰 타이포그래피입니다."
+      },
+      "motion": {
+        "patterns": [
+          "hover 상태에서의 섬세한 불투명도 및 배경색 전환.",
+          "메뉴나 드로어를 열고 닫을 때의 부드러운 전환."
+        ]
+      },
+      "interaction": {
+        "hover": "버튼 및 인터랙티브 요소에 대한 섬세한 배경색 또는 불투명도 변경.",
+        "click": "약간의 스케일 또는 불투명도 감소를 통한 즉각적인 시각적 피드백.",
+        "transition": "모든 인터랙티브 요소는 부드러운 느낌을 위해 0.15초에서 0.25초의 전환을 가져야 합니다.",
+        "keyboard": "모든 인터랙티브 요소에 대한 명확한 focus 표시기, 일반적으로 2px 블루 윤곽선입니다."
+      },
+      "voice": {
+        "tone": "효율성과 통제에 초점을 맞춘 전문적이고 기술적이며 직접적인 어조입니다.",
+        "headlineStyle": "크고 굵으며 간결하며, 기술 용어에는 종종 모노스페이스를 사용합니다.",
+        "ctaStyle": "'MacOS용 다운로드' 또는 'Devin 체험'과 같이 행동 지향적이고 명확합니다.",
+        "avoid": [
+          "모호한 마케팅 용어",
+          "지나치게 장난스럽거나 캐주얼한 언어",
+          "복잡한 문장"
+        ]
+      },
+      "donts": [
+        "여러 경쟁 밝은 색상을 사용하지 마세요 — 스크린샷은 흰색, 검정, 단일 블루 악센트로 구성된 절제된 팔레트를 보여줍니다.",
+        "디스플레이에 장식용 세리프 글꼴을 사용하지 마세요 — 스크린샷은 모든 헤드라인에 깨끗한 기하학적 sans를 보여줍니다.",
+        "무거운 상자 그림자나 3D 효과를 사용하지 마세요 — 스크린샷은 거의 인식할 수 없을 정도로 섬세하고 부드러운 그림자를 보여줍니다.",
+        "빽빽하고 비좁은 레이아웃을 사용하지 마세요 — 스크린샷은 모든 주요 콘텐츠 블록 주변에 넉넉한 여백을 보여줍니다.",
+        "메타데이터에 작고 읽기 힘든 텍스트를 사용하지 마세요 — 스크린샷은 명확한 행 높이를 가진 13-16px 텍스트를 보여줍니다.",
+        "모든 것에 둥근 알약 모양 컨테이너를 사용하지 마세요 — 스크린샷은 주로 섬세한 4-10px border-radius를 보여줍니다."
+      ],
+      "systemPrompt": "이 디자인은 Devin Desktop이라는 개발자 도구를 위한 깨끗하고 전문적인 SaaS 제품 페이지입니다. 최소주의적 흰색 캔버스를 사용하며, 주요 작업을 위해 단일 강렬한 블루(#317CFF) 악센트를 사용합니다. 타이포그래피는 기하학적 및 인간주의적 sans-serif 글꼴로 구성되어 있으며, 강력한 시각적 임팩트를 위해 크고 타이트한 트래킹의 헤드라인을 사용합니다. 주요 디자인 요소로는 넉넉한 여백, 섬세한 1px 테두리, 그리고 매우 부드러운 그림자가 포함됩니다. 중요한 디자인 제약 조건은 다음과 같습니다: 여러 악센트 색상 사용을 피하고, 절대로 장식용 세리프를 사용하지 않으며, 최대 가독성을 위해 잉크와 배경 사이에 높은 대비를 유지합니다. 어조는 기술적이고 효율적이며, 엔지니어링 팀을 대상으로 합니다."
+    }
+  },
+  "desc": {
+    "en": {
+      "palette": "A clean, high-contrast palette dominated by white and near-black, with a single vibrant blue accent for primary CTAs and interactive elements.",
+      "layout": "A spacious, full-width layout with large hero sections and contained content blocks, using a clear hierarchy to guide the user's eye.",
+      "interaction": "Smooth and subtle transitions for hover and focus states, providing a polished and professional feel without distracting animations.",
+      "motion": "Minimal and functional motion, focused on quick, responsive transitions for UI state changes rather than decorative effects.",
+      "notes": "A strong example of a modern, professional developer tool landing page that prioritizes clarity, readability, and a focused user journey."
+    },
+    "zh-CN": {
+      "palette": "一套干净、高对比度的配色方案，以白色和近黑色为主，点缀一个鲜明的蓝色作为主要行动号召与交互元素的强调色。",
+      "layout": "采用宽敞、全宽的布局，设有大型首屏区域和内联内容块，通过清晰的层级引导用户视线。",
+      "interaction": "为 hover 和 focus 状态提供平滑、细微的过渡效果，营造精致、专业的感受，避免使用分散注意力的动画。",
+      "motion": "极简且功能化的动效，专注于UI状态变化的快速、响应式过渡，而非装饰性效果。",
+      "notes": "一个现代、专业开发者工具着陆页的优秀范例，优先考虑清晰度、可读性以及聚焦的用户旅程。"
+    },
+    "zh-TW": {
+      "palette": "以白色與近黑色為主的乾淨高對比色板，並以單一鮮明的藍色作為主要號召性用語與互動元素的強調色。",
+      "layout": "寬敞的全寬佈局，包含大型主視覺區塊與受控的內容區塊，使用清晰的層級結構引導使用者視線。",
+      "interaction": "提供平滑且細膩的 hover 與 focus 狀態過渡效果，營造精緻專業的感受，避免使用干擾性的動畫。",
+      "motion": "極簡且功能性的動效，專注於 UI 狀態變化的快速、靈敏過渡，而非裝飾性效果。",
+      "notes": "一個優秀的現代專業開發者工具登陸頁範例，優先考量清晰度、可讀性與聚焦的使用者旅程。"
+    },
+    "ja": {
+      "palette": "白とネアブラックを基調とした、クリーンでハイコントラストなカラーパレット。プライマリCTAとインタラクティブ要素には、鮮やかな青アクセントを単一色で使用。",
+      "layout": "余裕のあるフルワイドレイアウト。大規模なヒーローセクションとコンテンツブロックを配置し、明確な階層でユーザーの視線を導く。",
+      "interaction": "hoverやfocus状態に対する滑らかで控えめなトランジション。目を引くようなアニメーションは避けつつ、洗練されたプロフェッショナルな印象を与える。",
+      "motion": "装飾的な効果よりも、UI状態変化のための迅速で応答性の高いトランジションに焦点を当てた、最小限で機能的なモーション。",
+      "notes": "明瞭さ、可読性、集中したユーザージャーニーを優先した、モダンでプロフェッショナルな開発者向けツールランディングページの優れた例。"
+    },
+    "ko": {
+      "palette": "흰색과 근검은에 의해 지배되는 깨끗하고 대비가 높은 팔레트로, 주요 CTA와 인터랙티브 요소에 단일 강렬한 블루 악센트를 사용합니다.",
+      "layout": "넓은 전폭 레이아웃으로, 큰 히어로 섹션과 포함된 콘텐츠 블록을 사용하며, 명확한 계층 구조로 사용자의 시선을 유도합니다.",
+      "interaction": "hover 및 focus 상태에 대한 부드럽고 섬세한 전환을 통해, 방해가 되지 않는 애니메이션으로 세련되고 전문적인 느낌을 제공합니다.",
+      "motion": "장식적인 효과보다는 UI 상태 변경에 대한 빠르고 반응적인 전환에 초점을 맞춘 최소 기능적 모션입니다.",
+      "notes": "명확성, 가독성, 집중된 사용자 여정을 우선시하는 현대적이고 전문적인 개발자 도구 랜딩 페이지의 강력한 예시입니다."
+    }
+  },
+  "_meta": {
+    "vision_model": "mimo-v2.5",
+    "vision_prompt_version": "0.3",
+    "vision_source": "playwright-extract:windsurf",
+    "vision_grounded": true,
+    "vision_at": "2026-06-04T20:01:10+00:00",
+    "vision_tokens": 17161,
+    "vision_cost_usd": 0.1907,
+    "translation_model": "mimo-v2.5",
+    "translation_at": "2026-06-04T20:02:39+00:00",
+    "translation_tokens": 18186,
+    "translation_cost_usd": 0.0607,
+    "narrative_model": "mimo-v2.5",
+    "narrative_prompt_version": "0.3",
+    "narrative_at": "2026-06-04T20:02:47+00:00",
+    "narrative_tokens": 2155,
+    "narrative_cost_usd": 0.0144,
+    "narrative_status": "ok",
+    "total_cost_usd": 0.2658
+  },
+  "narrative": {
+    "en": {
+      "ch1_intro": "The design system for Windsurf is architected as a command center—a clean, functional interface for managing fleets of AI coding agents. Its visual language is one of operational clarity, built on a minimalist white canvas with a precise hierarchy. Every element serves the workflow, ensuring the developer remains in control.",
+      "ch2_intro": "The color system is deliberately restrained, using a high-contrast ink-and-paper palette to ensure maximum readability. A single vibrant blue accent is reserved exclusively for primary actions and interactive elements.",
+      "ch2_outro": "The governing principle is restraint: no competing bright colors are permitted, preserving the interface's focused, tool-like quality.",
+      "ch3_intro": "Typography employs a dual-sans-serif strategy for clarity and technical precision. Geometric sans-serif is used for display and headings, while a humanist sans-serif ensures comfortable readability in body text.",
+      "ch4_intro": "Spacing is governed by a consistent 4px vertical rhythm, creating a predictable and orderly visual grid.",
+      "ch5_intro": "Surfaces are defined by subtlety and near-flatness. Very soft, almost imperceptible shadows and consistent 1px borders provide just enough depth to separate content without adding visual noise.",
+      "ch6_intro": "The layout skeleton opens with expansive, full-width hero sections for strong initial statements. Subsequent content is organized into contained blocks, establishing a clear hierarchy from announcement to detail.",
+      "ch7_intro": "Motion philosophy is functional and minimal. All transitions are smooth, quick, and focused on providing immediate feedback for UI state changes, such as hover and menu interactions.",
+      "ch8_intro": "Voice and copy are professional, technical, and direct, focusing squarely on efficiency and control. Headlines are large and concise, often incorporating monospace for technical terms to maintain clarity.",
+      "ch8_outro": "The system deliberately avoids vague marketing jargon, overly playful language, and decorative visual effects that would compromise its professional, tool-first identity."
+    },
+    "zh-CN": {
+      "ch1_intro": "Windsurf的设计系统被构建为一个指挥中心——一个简洁、功能性的界面，用于管理AI编程智能体集群。其视觉语言体现操作上的清晰度，基于一个极简的白色画布和精确的层级构建。每个元素都服务于工作流，确保开发者始终掌控全局。",
+      "ch2_intro": "色彩系统经过精心克制，采用高对比度的墨纸配色方案，以确保最大的可读性。唯一的亮蓝色调仅专用于主要操作和交互元素。",
+      "ch2_outro": "其核心原则是克制：不允许使用任何可能相互竞争的鲜艳色彩，以保持界面专注、工具化的特质。",
+      "ch3_intro": "排版采用双重无衬线字体策略，以兼顾清晰度和技术精确性。几何无衬线字体用于展示和标题，而人文无衬线字体则确保正文具有舒适的可读性。",
+      "ch4_intro": "间距由一致的4px垂直节奏规范，创建可预测且有序的视觉网格。",
+      "ch5_intro": "界面表面通过微妙性和近似扁平感来定义。非常柔和、几乎难以察觉的阴影，以及统一的1px边框，提供了恰到好处的层次感来分隔内容，而不增加视觉噪音。",
+      "ch6_intro": "布局骨架以宽广、全宽度的核心区块开场，用于强有力的初始陈述。后续内容则组织在包含性区块内，建立起从公告到细节的清晰层级。",
+      "ch7_intro": "动态效果理念注重功能性且极简。所有过渡都平滑、迅速，专注于为UI状态变化（如hover和菜单交互）提供即时反馈。",
+      "ch8_intro": "语气和文案专业、技术化且直接，核心聚焦于效率和控制。标题通常大而简洁，并常将技术术语以等宽字体呈现，以保持清晰度。",
+      "ch8_outro": "该系统有意避免使用模糊的营销术语、过度俏皮的语言，以及可能损害其专业、工具优先身份的装饰性视觉效果。"
+    },
+    "zh-TW": {
+      "ch1_intro": "Windsurf 的設計系統被建構為一個指揮中心——一個簡潔、功能性的介面，用於管理 AI 程式碼代理團隊。其視覺語言強調操作清晰度，建立在一個極簡的白色畫布上，並具有精確的層級結構。每個元素都服務於工作流程，確保開發者保持控制權。",
+      "ch2_intro": "色彩系統經過刻意約束，採用高對比的墨色與紙色調色盤，以確保最大的可讀性。一個單一、鮮明的藍色點綴色，專門保留給主要動作與互動元素使用。",
+      "ch2_outro": "指導原則是節制：不允許使用任何會相互競爭的亮色，以維持介面專注、工具般的特質。",
+      "ch3_intro": "排版採用雙無襯線字體策略，以實現清晰度與技術精準度。幾何無襯線字體用於標題與展示文字，而人文無襯線字體則確保內文的舒適可讀性。",
+      "ch4_intro": "間距由一致的 4px 垂直節奏所 govern，創造出可預測且有序的視覺網格。",
+      "ch5_intro": "表面透過細微性與近乎平坦的質感來定義。非常柔和、幾乎難以察覺的陰影，以及一致的 1px 邊框，提供了足夠的深度來分隔內容，而不增加視覺雜訊。",
+      "ch6_intro": "版面骨架以寬廣、全寬的醒目區塊（Hero sections）作為開場，以傳達強烈的初始訊息。後續內容則組織在受限的區塊中，建立起從公告到細節的清晰層級。",
+      "ch7_intro": "動態哲學是功能性且極簡的。所有過渡都流暢、快速，並專注於為 UI 狀態變更（例如 hover 和選單互動）提供即時回饋。",
+      "ch8_intro": "語氣與文案專業、技術且直接，完全聚焦於效率與控制。標題大而簡潔，經常使用等寬字體處理技術術語以維持清晰度。",
+      "ch8_outro": "系統刻意避免模糊的行銷術語、過於俏皮的語言，以及任何會損害其專業、工具優先身份的裝飾性視覺效果。"
+    },
+    "ja": {
+      "ch1_intro": "Windsurfのデザインシステムは、コマンドセンターとして構築されています。AIコーディングエージェントのフリートを管理するための、クリーンで機能的なインターフェースです。そのビジュアル言語は運用上の明瞭さに基づいており、ミニマルな白いキャンバスと正確な階層構造の上に構築されています。すべての要素はワークフローに奉仕し、開発者がコントロールを維持できるよう保証します。",
+      "ch2_intro": "カラーシステムは意図的に抑制的で、最大限の可読性を確保するために高コントラストのインク・ペーパーパレットを使用しています。鮮やかなブルーアクセントは、プライマリアクションとインタラクティブな要素に専用として予約されています。",
+      "ch2_outro": "支配的な原則は「抑制」です。競合する鮮やかな色は許容されず、インターフェースの集中した、ツールとしての特性が保たれます。",
+      "ch3_intro": "タイポグラフィは、明確さと技術的な精度のためにデュアルサンセリフ戦略を採用しています。ジオメトリックサンセリフはディスプレイや見出しに使用され、ヒューマニストサンセリフは本文の快適な可読性を確保します。",
+      "ch4_intro": "スペーシングは、一貫した4pxの垂直リズムにより制御され、予測可能で整然としたビジュアルグリッドを生み出します。",
+      "ch5_intro": "サーフェスは、繊細さとフラットに近い定義付けによって形成されます。非常に柔らかく、ほぼ知覚できないシャドウと一貫した1pxのボーダーが、視覚的なノイズを加えずにコンテンツを分離するのに十分な深みを提供します。",
+      "ch6_intro": "レイアウトの骨格は、強い初期メッセージを伝えるための広がりのあるフルワイドヒーローセクションから始まります。 subsequentコンテンツは containmentされたブロックに組織化され、告知から詳細への明確な階層を確立します。",
+      "ch7_intro": "モーション哲学は機能的でミニマルです。すべてのトランジションは滑らかで迅速であり、hoverやメニューインタラクションなど、UIの状態変化に対する即座のフィードバックを提供することに焦点を当てています。",
+      "ch8_intro": "ボイスとコピーはプロフェッショナルで技術的かつ直接的です。効率性と制御に直結します。見出しは大きく簡潔で、技術用語には明確さを維持するためにモノスペースがよく使用されます。",
+      "ch8_outro": "このシステムは、曖昧なマーケティング用語、過度に遊び心のある言語、およびプロフェッショナルでツール優先のアイデンティティを損なう装飾的なビジュアルエフェクトを意図的に回避しています。"
+    },
+    "ko": {
+      "ch1_intro": "Windsurf를 위한 디자인 시스템은 AI 코딩 에이전트 플릿을 관리하기 위한 깔끔하고 기능적인 인터페이스인 '커맨드 센터'로 구축되었습니다. 그 비주얼 언어는 운영의 명확성을 추구하며, 정교한 계층 구조를 바탕으로 미니멀한 화이트 캔버스 위에 세워졌습니다. 모든 요소는 개발자가 주도권을 유지할 수 있도록 워크플로우를 지원합니다.",
+      "ch2_intro": "색상 체계는 고대비 잉크-인크 팔레트를 사용하여 최대의 가독성을 보장하도록 신중하게 절제되어 있습니다. 단 하나의 생동감 있는 블루 악센트는 주요 작업 및 인터랙티브 요소에만 엄격히 사용됩니다.",
+      "ch2_outro": "지배적인 원칙은 절제입니다: 인터페이스의 집중적이고 도구 같은 특성을 보존하기 위해 서로 경쟁하는 밝은 색상은 허용되지 않습니다.",
+      "ch3_intro": "타이포그래피는 명확성과 기술적 정밀도를 위해 듀얼 산세리프 전략을 채택합니다. 제목과 헤드라인에는 기하학적 산세리프를, 본문 텍스트에는 편안한 가독성을 보장하는 휴머니스트 산세리프를 사용합니다.",
+      "ch4_intro": "간격은 일관된 4px 세로 리듬을 따르며, 예측 가능하고 질서 정연한 비주얼 그리드를 만듭니다.",
+      "ch5_intro": "표면은 미묘함과 거의 평면적인 느낌으로 정의됩니다. 매우 부드럽고 거의 알아차릴 수 없는 그림자와 일관된 1px 테두리가 시각적 노이즈를 추가하지 않으면서 콘텐츠를 분리하기에 충분한 깊이감을 제공합니다.",
+      "ch6_intro": "레이아웃 골격은 강력한 첫인상을 위한 넓은 전체 너비의 히어로 섹션으로 시작합니다. 이후 콘텐츠는 포함된 블록으로 구성되어, 공지에서 세부 사항으로의 명확한 계층을 확립합니다.",
+      "ch7_intro": "모션 철학은 기능적이고 미니멀합니다. 모든 전환은 부드럽고 빠르며, hover 및 메뉴 인터랙션과 같은 UI 상태 변경에 대한 즉각적인 피드백을 제공하는 데 초점을 맞춥니다.",
+      "ch8_intro": "보이스와 카피는 효율성과 제어에 직관적으로 초점을 맞춘 전문적이고 기술적이며 직접적인 톤을 유지합니다. 헤드라인은 크고 간결하며, 명확성을 유지하기 위해 기술 용어에 모노스페이스를 자주 사용합니다.",
+      "ch8_outro": "이 시스템은 전문적이고 도구 우선의 정체성을 저해할 수 있는 모호한 마케팅 용어, 지나치게 장난스러운 언어, 그리고 장식적인 비주얼 효과를 의도적으로 피합니다."
+    }
+  }
 }

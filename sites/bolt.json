@@ -8,6 +8,594 @@
     "ai",
     "dev"
   ],
-  "status": "pending",
-  "added_at": "2026-06-02"
+  "status": "completed",
+  "added_at": "2026-06-02",
+  "spec": {
+    "colors": {
+      "bg": "#111114",
+      "bgSoft": "#1e1e21",
+      "bgQuiet": "#171719",
+      "ink": "#ffffff",
+      "inkSoft": "rgba(255,255,255,0.75)",
+      "muted": "rgba(255,255,255,0.6)",
+      "mutedSoft": "rgba(255,255,255,0.4)",
+      "accent": "#1488fc",
+      "line": "rgba(255,255,255,0.1)"
+    },
+    "typography": {
+      "display": "humanist-sans",
+      "body": "humanist-sans",
+      "mono": "monospace",
+      "scale": [
+        {
+          "token": "display",
+          "size": 56,
+          "lh": 1.0,
+          "weight": 700,
+          "ls": "-1.2px"
+        },
+        {
+          "token": "heading",
+          "size": 48,
+          "lh": 1.1,
+          "weight": 600,
+          "ls": "-0.9px"
+        },
+        {
+          "token": "body",
+          "size": 16,
+          "lh": 1.5,
+          "weight": 400,
+          "ls": "0px"
+        },
+        {
+          "token": "small",
+          "size": 14,
+          "lh": 1.4,
+          "weight": 400,
+          "ls": "0px"
+        }
+      ]
+    },
+    "spacing": {
+      "base": 4,
+      "scale": [
+        4,
+        8,
+        16,
+        24,
+        32,
+        48,
+        64,
+        96
+      ]
+    },
+    "surfaces": {
+      "radius": {
+        "sm": 4,
+        "md": 8,
+        "lg": 12,
+        "pill": 999
+      }
+    },
+    "layout": {
+      "container": 1280,
+      "paragraph": 680,
+      "columns": 12,
+      "gutter": 24,
+      "breakpoints": [
+        768,
+        1024
+      ]
+    },
+    "motion": {
+      "durations": {
+        "micro": 150,
+        "small": 200,
+        "medium": 400
+      },
+      "easing": "cubic-bezier(0.4, 0, 0.2, 1)"
+    }
+  },
+  "spec_i18n": {
+    "en": {
+      "identity": {
+        "keywords": [
+          "AI",
+          "Builder",
+          "Developer",
+          "Modern",
+          "Prompt"
+        ],
+        "analogy": "An AI-powered creative studio for developers.",
+        "oneLiner": "A modern dark-themed AI platform that allows users to create apps and websites through natural language."
+      },
+      "colors": {
+        "principle": "High-contrast dark mode with a single vibrant blue accent."
+      },
+      "typography": {
+        "rules": [],
+        "scaleUses": [
+          "Hero headline",
+          "Section headings",
+          "Body text",
+          "UI labels and navigation"
+        ]
+      },
+      "spacing": {
+        "rhythm": "Consistent use of 4px increments with 16px and 24px as primary gutters."
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 1px 2px 0px rgba(0, 0, 0, 0.05)",
+          "0px -15px 24.8px 0px rgba(17, 114, 226, 0.6)"
+        ],
+        "borders": "1px solid rgba(255, 255, 255, 0.1)"
+      },
+      "layout": {
+        "skeleton": "Centered content with a fixed maximum width."
+      },
+      "components": {
+        "button": "Solid blue primary action, ghost secondary actions with rounded pill or small radii.",
+        "card": "Dark surfaces with subtle borders and soft shadows.",
+        "chip": "Outlines or minimal backgrounds for tags and tools.",
+        "input": "Dark text areas with soft borders and subtle inner shadows.",
+        "hero": "Large centered typography with a glowing blue curved gradient background."
+      },
+      "motion": {
+        "patterns": [
+          "Color transitions on interactive elements",
+          "Opacity fades on hover and focus"
+        ]
+      },
+      "interaction": {
+        "hover": "Subtle color shifts or opacity changes.",
+        "click": "Immediate visual response.",
+        "transition": "Fast 0.15s to 0.2s cubic-bezier transitions.",
+        "keyboard": "Standard focus outlines."
+      },
+      "voice": {
+        "tone": "Direct, empowering, and modern.",
+        "headlineStyle": "Question-oriented and action-driven.",
+        "ctaStyle": "Clear and imperative.",
+        "avoid": [
+          "Technical jargon",
+          "Formal corporate language",
+          "Overly complex sentences"
+        ]
+      },
+      "donts": [
+        "don't use a light background — the screenshot shows a strictly dark mode interface",
+        "don't use a serif font — the screenshot shows a modern humanist sans-serif throughout",
+        "don't add heavy drop shadows — the screenshot shows subtle, soft shadows at most",
+        "don't use a wide variety of colors — the screenshot shows a strict palette of dark grays, white, and one vibrant blue",
+        "don't use sharp, square corners — the screenshot shows consistently rounded corners and pill shapes",
+        "don't use low-contrast text — the screenshot shows high-contrast white text on dark backgrounds"
+      ],
+      "systemPrompt": "Bolt.new is a modern AI-powered developer tool for building apps and websites through natural language. The design utilizes a deep, high-contrast dark mode palette with a vibrant electric blue (#1488fc) as the sole high-chroma accent. Typography relies on clean humanist-sans-serif families, including a specialized display face for bold, tight-tracked headlines. Critical constraints: do not introduce light backgrounds or secondary bright colors, avoid using serif fonts, and never apply harsh square corners to components. The overall layout is centered and spacious, emphasizing a clean, high-tech, and focused user experience."
+    },
+    "zh-CN": {
+      "identity": {
+        "keywords": [
+          "AI",
+          "Builder",
+          "Developer",
+          "Modern",
+          "Prompt"
+        ],
+        "analogy": "面向开发者的 AI 驱动创意工作室。",
+        "oneLiner": "一个现代深色主题 AI 平台，允许用户通过自然语言创建应用程序和网站。"
+      },
+      "colors": {
+        "principle": "高对比度深色模式，搭配一个鲜明的蓝色点缀色。"
+      },
+      "typography": {
+        "rules": [],
+        "scaleUses": [
+          "主标题",
+          "章节标题",
+          "正文",
+          "UI 标签和导航"
+        ]
+      },
+      "spacing": {
+        "rhythm": "统一使用 4px 增量，主要间距为 16px 和 24px。"
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 1px 2px 0px rgba(0, 0, 0, 0.05)",
+          "0px -15px 24.8px 0px rgba(17, 114, 226, 0.6)"
+        ],
+        "borders": "1px solid rgba(255, 255, 255, 0.1)"
+      },
+      "layout": {
+        "skeleton": "居中内容，固定最大宽度。"
+      },
+      "components": {
+        "button": "实心蓝色作为主要操作按钮，次要操作使用幽灵按钮，采用圆角药丸形或小圆角。",
+        "card": "深色表面，搭配细微边框和柔和阴影。",
+        "chip": "用于标签和工具的描边或最小背景样式。",
+        "input": "深色文本区域，搭配柔和边框和细微内阴影。",
+        "hero": "居中的大型排版，搭配发光的蓝色曲线渐变背景。"
+      },
+      "motion": {
+        "patterns": [
+          "交互元素上的颜色过渡",
+          "hover 和 focus 时的透明度淡出"
+        ]
+      },
+      "interaction": {
+        "hover": "细微的颜色偏移或透明度变化。",
+        "click": "即时视觉响应。",
+        "transition": "快速 0.15s 至 0.2s cubic-bezier 过渡。",
+        "keyboard": "标准焦点轮廓。"
+      },
+      "voice": {
+        "tone": "直接、赋能、现代。",
+        "headlineStyle": "问题导向，行动驱动。",
+        "ctaStyle": "清晰、祈使语气。",
+        "avoid": [
+          "技术术语",
+          "正式的企业语言",
+          "过于复杂的句子"
+        ]
+      },
+      "donts": [
+        "不要使用浅色背景——截图显示的是严格的深色模式界面",
+        "不要使用衬线字体——截图显示的是现代人文无衬线字体",
+        "不要添加浓重的投影——截图最多显示细微、柔和的阴影",
+        "不要使用多种颜色——截图显示的是深灰、白色和一种鲜明蓝色的严格配色",
+        "不要使用尖锐的直角——截图显示的是统一的圆角和药丸形状",
+        "不要使用低对比度文本——截图显示的是深色背景上的高对比度白色文本"
+      ],
+      "systemPrompt": "Bolt.new 是一个现代 AI 驱动开发者工具，用于通过自然语言构建应用程序和网站。设计采用深邃、高对比度的深色主题，使用鲜明的电光蓝 (#1488fc) 作为唯一的高饱和度点缀色。排版依赖干净的人文无衬线字体系列，包括用于粗体、紧凑字间距标题的专用展示字体。关键限制：不要引入浅色背景或次要亮色，避免使用衬线字体，绝不为组件应用生硬的直角。整体布局居中且宽敞，强调干净、高科技、专注的用户体验。"
+    },
+    "zh-TW": {
+      "identity": {
+        "keywords": [
+          "AI",
+          "建構工具",
+          "開發者",
+          "現代感",
+          "提示詞"
+        ],
+        "analogy": "為開發者打造的 AI 驅動創意工作室。",
+        "oneLiner": "一個現代深色主題的 AI 平台，讓使用者能透過自然語言建立應用程式與網站。"
+      },
+      "colors": {
+        "principle": "採用單一鮮明藍色強調色的高對比深色模式。"
+      },
+      "typography": {
+        "rules": [],
+        "scaleUses": [
+          "主視覺標題",
+          "章節標題",
+          "內文",
+          "介面標籤與導航"
+        ]
+      },
+      "spacing": {
+        "rhythm": "以 4px 為基準單位，主要間距採用 16px 與 24px。"
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 1px 2px 0px rgba(0, 0, 0, 0.05)",
+          "0px -15px 24.8px 0px rgba(17, 114, 226, 0.6)"
+        ],
+        "borders": "1px solid rgba(255, 255, 255, 0.1)"
+      },
+      "layout": {
+        "skeleton": "內容置中，具有固定最大寬度。"
+      },
+      "components": {
+        "button": "主要操作採用實心藍色，次要操作採用透明背景，圓角藥丸形或小圓角。",
+        "card": "深色表面搭配細微邊框與柔和陰影。",
+        "chip": "用於標籤與工具的描邊或極簡背景設計。",
+        "input": "深色文字區域，搭配柔和邊框與細微內陰影。",
+        "hero": "大型置中文字，搭配發光藍色弧形漸層背景。"
+      },
+      "motion": {
+        "patterns": [
+          "互動元素的色彩過渡",
+          "懸停與聚焦時的透明度淡出"
+        ]
+      },
+      "interaction": {
+        "hover": "細微的色彩或透明度變化。",
+        "click": "立即的視覺回應。",
+        "transition": "快速 0.15 秒至 0.2 秒的 cubic-bezier 過渡效果。",
+        "keyboard": "標準聚焦外框。"
+      },
+      "voice": {
+        "tone": "直接、賦予力量且具現代感。",
+        "headlineStyle": "以問題為導向，強調行動。",
+        "ctaStyle": "清晰且具指令性。",
+        "avoid": [
+          "技術術語",
+          "正式的企業語言",
+          "過於複雜的句子"
+        ]
+      },
+      "donts": [
+        "不要使用淺色背景——截圖顯示的是嚴格的深色模式介面",
+        "不要使用襯線字體——截圖顯示的是現代人文無襯線字體",
+        "不要添加厚重的陰影——截圖最多顯示細微柔和的陰影",
+        "不要使用多樣化的色彩——截圖顯示的是深灰、白色與單一鮮明藍色的嚴格配色",
+        "不要使用銳利的直角——截圖顯示的是持續一致的圓角與藥丸形狀",
+        "不要使用低對比文字——截圖顯示的是深色背景上的高對比白色文字"
+      ],
+      "systemPrompt": "Bolt.new 是一個現代化的 AI 驅動開發者工具，用於透過自然語言建構應用程式與網站。設計採用了深沉、高對比的深色模式配色，以鮮明的電光藍（#1488fc）作為唯一的高飽和度強調色。字體主要使用乾淨的人文無襯線字族，包含專用於大膽、緊湊標題的展示字型。關鍵限制：不可引入淺色背景或次要明亮色彩，避免使用襯線字體，永遠不對元件套用銳利的直角。整體佈局寬敞置中，強調乾淨、高科技且專注的使用者體驗。"
+    },
+    "ja": {
+      "identity": {
+        "keywords": [
+          "AI",
+          "Builder",
+          "Developer",
+          "Modern",
+          "Prompt"
+        ],
+        "analogy": "開発者向けのAIを活用したクリエイティブスタジオ。",
+        "oneLiner": "自然言語でアプリやウェブサイトを作成できる、モダンなダークテーマのAIプラットフォーム。"
+      },
+      "colors": {
+        "principle": "単一の鮮やかなブルーアクセントを用いた、ハイコントラストのダークモード。"
+      },
+      "typography": {
+        "rules": [],
+        "scaleUses": [
+          "ヒーローヘッドライン",
+          "セクション見出し",
+          "本文",
+          "UIラベルおよびナビゲーション"
+        ]
+      },
+      "spacing": {
+        "rhythm": "4pxの刻みを一貫して使用し、16pxおよび24pxをプライマリガターとして採用。"
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 1px 2px 0px rgba(0, 0, 0, 0.05)",
+          "0px -15px 24.8px 0px rgba(17, 114, 226, 0.6)"
+        ],
+        "borders": "1px solid rgba(255, 255, 255, 0.1)"
+      },
+      "layout": {
+        "skeleton": "固定された最大幅を持つ、中央揃えのコンテンツ。"
+      },
+      "components": {
+        "button": "プライマリアクションはソリッドブルー、セカンダリアクションはゴースト。角丸はピルまたは小半径。",
+        "card": "微細なボーダーとソフトシャドウを持つ、ダークサーフェス。",
+        "chip": "タグやツール用の、アウトラインまたは最小限の背景。",
+        "input": "ソフトボーダーと微細な内側シャドウを持つ、ダークテキストエリア。",
+        "hero": "発光するブルーのカーブグラデーション背景を用いた、中央揃えの大型タイポグラフィ。"
+      },
+      "motion": {
+        "patterns": [
+          "インタラクティブ要素のカラートランジション",
+          "ホバーおよびフォーカス時の不透明度フェード"
+        ]
+      },
+      "interaction": {
+        "hover": "微細なカラー変化または不透明度の変更。",
+        "click": "即座のビジュアルレスポンス。",
+        "transition": "0.15秒から0.2秒の高速cubic-bezierトランジション。",
+        "keyboard": "標準のフォーカスアウトライン。"
+      },
+      "voice": {
+        "tone": "直接的、賦権的、モダン。",
+        "headlineStyle": "質問志向でアクションドリブン。",
+        "ctaStyle": "明確かつ命令的。",
+        "avoid": [
+          "技術用語",
+          "フォーマルな企業言語",
+          "過度に複雑な文"
+        ]
+      },
+      "donts": [
+        "明るい背景を使用しないこと — スクリーンショットは厳格なダークモードインターフェースを示しています",
+        "セリフフォントを使用しないこと — スクリーンショットはモダンなヒューマンサンセリフを一貫して使用しています",
+        "重いドロップシャドウを追加しないこと — スクリーンショットは最大でも微細でソフトなシャドウを示しています",
+        "多様な色を使用しないこと — スクリーンショットはダークグレー、白、および単一の鮮やかなブルーからなる厳格なパレットを示しています",
+        "鋭角の角を使用しないこと — スクリーンショットは一貫して角丸およびピル形状を示しています",
+        "低コントラストのテキストを使用しないこと — スクリーンショットはダーク背景上のハイコントラストの白文字を示しています"
+      ],
+      "systemPrompt": "Bolt.newは、自然言語でアプリやウェブサイトを構築するためのモダンなAIを活用した開発者ツールです。デザインでは、深みのあるハイコントラストのダークモードパレットを採用し、単一の鮮やかなエレクトリックブルー（#1488fc）をハイクロマアクセントとして使用しています。タイポグラフィはクリーンなヒューマンサンセリフファミリーに依存し、太字で tight-tracked の見出し用に専用のディスプレイフォントも含みます。重要な制約として、明るい背景やセカンダリの明るい色を導入せず、セリフフォントを使用せず、コンポーネントに鋭角な角を適用しないこと。全体のレイアウトは中央揃えで余裕があり、クリーンでハイテク、フォーカスされたユーザー体験を重視しています。"
+    },
+    "ko": {
+      "identity": {
+        "keywords": [
+          "AI",
+          "Builder",
+          "Developer",
+          "Modern",
+          "Prompt"
+        ],
+        "analogy": "개발자를 위한 AI 기반 창작 스튜디오.",
+        "oneLiner": "사용자가 자연어를 통해 앱과 웹사이트를 만들 수 있는 현대적인 다크 테마 AI 플랫폼입니다."
+      },
+      "colors": {
+        "principle": "단 하나의 강렬한 블루 악센트를 사용하는 고대비 다크 모드."
+      },
+      "typography": {
+        "rules": [],
+        "scaleUses": [
+          "히어로 헤드라인",
+          "섹션 제목",
+          "본문 텍스트",
+          "UI 레이블 및 네비게이션"
+        ]
+      },
+      "spacing": {
+        "rhythm": "4px 증분을 일관되게 사용하며, 16px와 24px를 주요 gutter로 사용합니다."
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 1px 2px 0px rgba(0, 0, 0, 0.05)",
+          "0px -15px 24.8px 0px rgba(17, 114, 226, 0.6)"
+        ],
+        "borders": "1px solid rgba(255, 255, 255, 0.1)"
+      },
+      "layout": {
+        "skeleton": "고정 최대 너비로 중앙 정렬된 콘텐츠."
+      },
+      "components": {
+        "button": "단색 블루 주요 액션, 둥근 필 또는 작은 반경의 고스트 보조 액션.",
+        "card": "미세한 border와 부드러운 그림자가 적용된 어두운 표면.",
+        "chip": "태그와 도구를 위한 외곽선 또는 최소한의 배경.",
+        "input": "부드러운 border와 미세한 내부 그림자가 적용된 어두운 텍스트 영역.",
+        "hero": "발광하는 블루 곡선 그래디언트 배경을 배경으로 한 큰 중앙 정렬 타이포그래피."
+      },
+      "motion": {
+        "patterns": [
+          "상호작용 요소에서의 색상 전환",
+          "hover 및 focus 시 페이드 인/아웃"
+        ]
+      },
+      "interaction": {
+        "hover": "미세한 색상 변화 또는 투명도 변화.",
+        "click": "즉각적인 시각적 반응.",
+        "transition": "빠른 0.15s~0.2s cubic-bezier 전환.",
+        "keyboard": "표준 focus 윤곽선."
+      },
+      "voice": {
+        "tone": "직설적이고, 강력하며, 현대적인.",
+        "headlineStyle": "질문 지향적이고 행동을 유도하는.",
+        "ctaStyle": "명확하고 명령형.",
+        "avoid": [
+          "전문 용어",
+          "격식 있는 기업 언어",
+          "지나치게 복잡한 문장"
+        ]
+      },
+      "donts": [
+        "밝은 배경을 사용하지 마세요 — 스크린샷은 엄격한 다크 모드 인터페이스를 보여줍니다",
+        "세리프 폰트를 사용하지 마세요 — 스크린샷은 전체적으로 현대적인 휴머니스트 산세리프를 보여줍니다",
+        "무거운 그림자를 추가하지 마세요 — 스크린샷은 가장 심하게 해야 부드럽고 미세한 그림자를 보여줍니다",
+        "다양한 색상을 사용하지 마세요 — 스크린샷은 어두운 회색, 흰색, 그리고 단 하나의 강렬한 블루로 엄격한 팔레트를 보여줍니다",
+        "날카롭고 각진 모서리를 사용하지 마세요 — 스크린샷은 일관되게 둥근 모서리와 필 형태를 보여줍니다",
+        "저대비 텍스트를 사용하지 마세요 — 스크린샷은 어두운 배경에 고대비 흰색 텍스트를 보여줍니다"
+      ],
+      "systemPrompt": "Bolt.new는 자연어를 통해 앱과 웹사이트를 구축하는 현대적인 AI 기반 개발자 도구입니다. 디자인은 높은 채도의 일렉트릭 블루(#1488fc)를 단독 고채도 악센트로 사용하는 깊은 고대비 다크 모드 팔레트를 활용합니다. 타이포그래피는 깔끔한 휴머니스트 산세리프 패밀리에 의존하며, 대담하고 타이트한 자간의 헤드라인을 위한 특수 전시체도 포함합니다. 핵심 제약 조건: 밝은 배경이나 보조 밝은 색상을 도입하지 마세요, 세리프 폰트를 사용하지 마세요, 컴포넌트에 날카로운 각진 모서리를 적용하지 마세요. 전체 레이아웃은 중앙 정렬되어 있으며 넓은 공간감을 강조하여 깔끔하고, 하이테크적이며, 집중적인 사용자 경험을 제공합니다."
+    }
+  },
+  "desc": {
+    "en": {
+      "palette": "A high-contrast dark theme using deep grays and blacks with a single vibrant blue accent and crisp white text.",
+      "layout": "A centered, responsive layout with a maximum container width of 1280px and consistent 24px gutters.",
+      "interaction": "Fast, subtle transitions (0.15s) for color and opacity changes on interactive elements.",
+      "motion": "Minimal motion with quick, smooth easing for micro-interactions and hover states.",
+      "notes": "A clean, professional dark-mode interface for an AI developer tool that balances bold typography with a restrained color palette."
+    },
+    "zh-CN": {
+      "palette": "采用深灰与黑色构建的高对比度深色主题，搭配一个鲜明的蓝色点缀色和清晰的白色文字。",
+      "layout": "居中、响应式布局，最大容器宽度为 1280px，统一使用 24px 间距。",
+      "interaction": "交互元素的颜色和透明度变化采用快速、细微的过渡（0.15秒）。",
+      "motion": "微交互和 hover 状态采用快速、平滑的缓动，保持最小化的动效。",
+      "notes": "一个干净、专业的 AI 开发者工具深色模式界面，平衡了粗体排版与克制的配色方案。"
+    },
+    "zh-TW": {
+      "palette": "採用深灰與黑色為基礎的高對比深色主題，搭配單一鮮明的藍色強調色與純白文字。",
+      "layout": "置中響應式佈局，容器最大寬度為 1280px，並保持 24px 的固定間距。",
+      "interaction": "互動元素在色彩與透明度變化時，採用快速細膩的過渡效果（0.15秒）。",
+      "motion": "以簡約動作為主，微互動與懸停狀態採用快速流暢的緩動曲線。",
+      "notes": "為 AI 開發者工具設計的乾淨專業深色模式介面，平衡了大膽的排版與克制的配色方案。"
+    },
+    "ja": {
+      "palette": "深みのあるグレーと黒をベースに、単一の鮮やかなブルーアクセントとクリスピーな白文字を使用した、ハイコントラストのダークテーマです。",
+      "layout": "最大コンテナ幅1280px、一貫した24pxのガターを持つ、中央揃えのレスポンシブレイアウトです。",
+      "interaction": "インタラクティブ要素のカラーおよび不透明度変化に対して、高速で微細なトランジション（0.15秒）を適用します。",
+      "motion": "マイクロインタラクションおよびホバーステートに、素滑らかなイージングを用いた最小限のモーションを実現します。",
+      "notes": "太字のタイポグラフィと抑制されたカラーパレットのバランスを取った、クリーンでプロフェッショナルなダークモードインターフェースです。AI開発者ツール向けにデザインされています。"
+    },
+    "ko": {
+      "palette": "짙은 회색과 블랙을 사용한 고대비 다크 테마로, 단 하나의 강렬한 블루 악센트와 깔끔한 흰색 텍스트를 적용했습니다.",
+      "layout": "최대 컨테이너 너비 1280px로 중앙 정렬된 반응형 레이아웃이며, 일관된 24px gutter를 사용합니다.",
+      "interaction": "상호작용 요소의 색상 및 투명도 변화에 빠르고 섬세한 전환(0.15s)을 적용합니다.",
+      "motion": "최소한의 모션으로 마이크로 인터랙션과 hover 상태에 빠르고 부드러운 easing을 사용합니다.",
+      "notes": "대담한 타이포그래피와 절제된 색상 팔레트의 균형을 맞춘, AI 개발자 도구를 위한 깔끔하고 전문적인 다크 모드 인터페이스입니다."
+    }
+  },
+  "_meta": {
+    "vision_model": "mimo-v2.5",
+    "vision_prompt_version": "0.3",
+    "vision_source": "playwright-extract:bolt",
+    "vision_grounded": true,
+    "vision_at": "2026-06-04T14:09:35+00:00",
+    "vision_tokens": 17093,
+    "vision_cost_usd": 0.1899,
+    "translation_model": "mimo-v2.5",
+    "translation_at": "2026-06-04T14:10:58+00:00",
+    "translation_tokens": 15355,
+    "translation_cost_usd": 0.0511,
+    "narrative_model": "mimo-v2.5",
+    "narrative_prompt_version": "0.3",
+    "narrative_at": "2026-06-04T14:11:07+00:00",
+    "narrative_tokens": 1899,
+    "narrative_cost_usd": 0.0127,
+    "narrative_status": "ok",
+    "total_cost_usd": 0.2537
+  },
+  "narrative": {
+    "en": {
+      "ch1_intro": "Bolt operates like an AI-powered creative studio, a workshop where developers assemble applications through natural language. Its design language reflects this directness: a focused, high-contrast environment that prioritizes clarity over ornamentation.",
+      "ch2_intro": "The system's palette is disciplined, built on a foundation of deep, high-contrast dark grays and blacks. A single, vibrant blue accent cuts through the darkness for interactive elements, ensuring immediate visual hierarchy.",
+      "ch2_outro": "The core principle is restraint; every color choice is deliberate, maintaining a focused, high-technology atmosphere.",
+      "ch3_intro": "Typography relies on a clean, modern humanist sans-serif family, chosen for its clarity and approachability. A specialized display face is reserved for bold, tight-tracked headlines, establishing a voice that is both confident and technical.",
+      "ch4_intro": "Spacing follows a strict 4px base unit, creating a consistent vertical and horizontal rhythm throughout the interface.",
+      "ch5_intro": "Surfaces are defined by depth through subtlety, using soft, dark shadows and thin, semi-transparent white borders. The effect is one of layered information without visual noise.",
+      "ch6_intro": "The layout skeleton is a centered column with a fixed maximum width, providing a stable reading and interaction canvas. Generous gutters of 24px maintain breathing room between content blocks.",
+      "ch7_intro": "Motion philosophy is utilitarian; transitions are fast and smooth, serving to confirm interactions rather than decorate them. Micro-interactions like hover states and focus changes use quick opacity or color shifts.",
+      "ch8_intro": "The editorial voice is direct, empowering, and action-driven, speaking in clear questions and imperatives. It avoids technical jargon and formal corporate language in favor of clarity.",
+      "ch8_outro": "The system deliberately rejects light backgrounds, serif typography, heavy shadows, and color excess to maintain its focused, developer-oriented aesthetic."
+    },
+    "zh-CN": {
+      "ch1_intro": "Bolt 的运作方式如同一个由 AI 驱动的创意工作室，一个开发者通过自然语言组装应用程序的工作坊。其设计语言体现了这种直接性：一个专注、高对比度的环境，优先考虑清晰度而非装饰性。",
+      "ch2_intro": "系统的配色方案经过严格规制，建立在深沉、高对比度的深灰色和黑色基础之上。一个鲜明的蓝色强调色划破黑暗，用于交互元素，确保了即时的视觉层次感。",
+      "ch2_outro": "核心原则是克制；每一次色彩选择都经过深思熟虑，维持着专注、高科技的氛围。",
+      "ch3_intro": "排版依赖于一套干净、现代的人文主义无衬线字体家族，因其清晰度和亲和力而被选用。一个专门的展示字体保留用于粗体、紧凑字距的标题，建立起一种既自信又具技术感的语调。",
+      "ch4_intro": "间距遵循严格的 4px 基础单位，在整个界面中创造出一致的垂直和水平节奏。",
+      "ch5_intro": "界面层次通过微妙的深度来定义，使用柔和的深色阴影和纤细的半透明白色边框。效果是层叠的信息呈现，且没有视觉噪音。",
+      "ch6_intro": "布局骨架是一个固定最大宽度的居中列，提供了一个稳定阅读和交互的画布。24px 的宽大沟槽在内容块之间保持了呼吸空间。",
+      "ch7_intro": "动效理念是实用主义的；过渡快速而流畅，旨在确认交互行为，而非装饰它们。像悬停状态和焦点变化这样的微交互，使用快速的透明度或色彩变化。",
+      "ch8_intro": "文案风格直接、赋能且以行动为导向，使用清晰的提问和祈使句。它避免技术术语和正式的企业语言，转而追求清晰度。",
+      "ch8_outro": "该系统刻意摒弃浅色背景、衬线字体、厚重阴影和色彩过度使用，以维持其专注的、面向开发者的美学风格。"
+    },
+    "zh-TW": {
+      "ch1_intro": "Bolt 運作起來就像一個 AI 驅動的創意工作室，一個開發者透過自然語言組裝應用程式的工坊。它的設計語言反映了這種直接性：一個專注、高對比的環境，將清晰度置於裝飾性之上。",
+      "ch2_intro": "系統的調色盤極為克制，建立在深色、高對比的深灰與黑色基礎上。一抹鮮活的藍色強調色劃破黑暗，用於互動元素，確保立即的視覺層次。",
+      "ch2_outro": "核心原則是克制；每種色彩選擇都經過深思熟慮，維持一種專注、高科技的氛圍。",
+      "ch3_intro": "字體排印依賴一套簡潔、現代的人文無襯線字族，因其清晰度與親和力而被選用。一套特殊的展示字體保留用於粗體、緊密追蹤的標題，建立起既自信又具技術感的語調。",
+      "ch4_intro": "間距遵循嚴格的 4px 基礎單位，在整個介面中創造出一致的垂直與水平節奏。",
+      "ch5_intro": "表面透過細膩手法定義深度，使用柔和的深色陰影與細薄、半透明白色邊框。效果是層次化的資訊呈現，且無視覺雜訊。",
+      "ch6_intro": "版面結構是一個具有固定最大寬度的置中欄位，提供穩定的閱讀與互動畫布。24px 的寬裕欄溝維持了內容區塊間的呼吸空間。",
+      "ch7_intro": "動態哲學是實用導向的；過渡快速而流暢，用於確認互動而非裝飾。像 hover 狀態與 focus 變化等微互動，使用快速的透明度或色彩變換。",
+      "ch8_intro": "編輯語調直接、賦能且以行動為導向，使用清晰的問句與祈使句。它避免技術術語與正式企業用語，優先採用清晰的表達。",
+      "ch8_outro": "系統刻意拒絕淺色背景、襯線字體、厚重陰影與色彩過剩，以維持其專注、面向開發者的美學。"
+    },
+    "ja": {
+      "ch1_intro": "Boltは、AIを活用したクリエイティブスタジオのように機能します。開発者が自然言語でアプリケーションを組み立てられる作業場です。そのデザイン言語はこの直接性を反映しています：装飾よりも明瞭さを優先し、集中力の高い、ハイコントラストな環境です。",
+      "ch2_intro": "システムのカラーパレットは厳格で、深くハイコントラストなダークグレーとブラックを基盤として構築されています。インタラクティブ要素のために、単一の鮮やかな青色アクセントが暗闘を切り裂き、即座に視覚的な階層を確立します。",
+      "ch2_outro": "核心原則は抑制です。すべての色の選択は意図的であり、集中力の高い、ハイテクな雰囲気を維持します。",
+      "ch3_intro": "タイポグラフィは、明瞭さと親しみやすさのために選ばれた、クリーンでモダンなヒューマニスト・サンセリフファミリに依存しています。太くトラッキングを詰めた見出しには専用のディスプレイ書体が予約されており、自信と技術性を兼ね備えた声を確立します。",
+      "ch4_intro": "スペーシングは厳格な4pxの基本単位に従い、インターフェース全体で一貫した垂直および水平のリズムを生み出します。",
+      "ch5_intro": "サーフェスは、繊細な深みによって定義されます。柔らかく暗いシャドウと薄く半透明のホワイトボーダーを使用します。その効果は、視覚的ノイズなしに情報をレイヤー化することです。",
+      "ch6_intro": "レイアウトの骨格は、固定の最大幅を持つ中央揃えのカラムであり、安定した読み取りとインタラクションのキャンバスを提供します。24pxの広めのガターが、コンテンツブロック間に適切な余白を維持します。",
+      "ch7_intro": "モーション哲学は実用的です。トランジションは高速かつスムーズで、装飾ではなくインタラクションの確認を目的としています。ホバーステートやフォーカスの変化といったマイクロインタラクションには、速い不透明度や色の変化が使用されます。",
+      "ch8_intro": "エディトリアルボイスは直接的で、エンパワリングし、アクションドリブンです。明確な疑問文や命令形で語りかけます。明瞭さのために、技術用語やフォーマルな企業言語は避けます。",
+      "ch8_outro": "システムは、集中力の高い、開発者志向の美的感覚を維持するために、明るい背景、セリフ書体、重いシャドウ、色の過剰使用を意図的に拒否しています。"
+    },
+    "ko": {
+      "ch1_intro": "Bolt는 AI 기반 크리에이티브 스튜디오처럼 작동하며, 개발자들이 자연어를 통해 애플리케이션을 조립하는 워크숍입니다. 그 디자인 언어는 이 직접성을 반영합니다: 장식보다 명확성을 우선시하는 집중적이고 고대비의 환경입니다.",
+      "ch2_intro": "이 시스템의 팔레트는 절제되어 있으며, 깊은 고대비의 어두운 회색과 검정을 기반으로 구축되었습니다. 단일의 생동감 있는 블루 액센트가 대담하게 어둠을 관통하여 인터랙티브 요소를 강조하고, 즉각적인 시각적 계층 구조를 보장합니다.",
+      "ch2_outro": "핵심 원칙은 절제입니다; 모든 색상 선택은 의도적이며, 집중적이고 첨단 기술적인 분위기를 유지합니다.",
+      "ch3_intro": "타이포그래피는 명확성과 친근함을 위해 선택된 깨끗하고 현대적인 휴머니스트 산세리프 계열에 의존합니다. 특수한 디스플레이 서체는 굵고 조밀한 간격의 헤드라인을 위해 예약되어, 자신감 있으면서도 기술적인 톤을 확립합니다.",
+      "ch4_intro": "간격은 엄격한 4px 기본 단위를 따르며, 인터페이스 전체에 걸쳐 일관된 수직 및 수평 리듬을 만듭니다.",
+      "ch5_intro": "표면은 미묘한 깊이로 정의되며, 부드러운 어두운 그림자와 얇은 반투명 흰색 테두리를 사용합니다. 그 효과는 시각적 소음 없이 레이어링된 정보를 제공하는 것입니다.",
+      "ch6_intro": "레이아웃 스켈레톤은 고정된 최대 너비의 중앙 정렬 컬럼으로, 안정적인 읽기 및 인터랙션 캔버스를 제공합니다. 24px의 넉넉한 거터는 콘텐츠 블록 사이에 여유를 유지합니다.",
+      "ch7_intro": "모션 철학은 실용적입니다; 전환은 빠르고 부드러우며, 장식보다는 인터랙션을 확인하는 데 목적이 있습니다. hover 상태나 focus 변화와 같은 미세 인터랙션은 빠른 불투명도 또는 색상 변화를 사용합니다.",
+      "ch8_intro": "에디토리얼 톤은 직접적이고, 권한을 부여하며, 행동 중심적이며, 명확한 질문과 명령형으로 말합니다. 명확성을 위해 기술 용어와 공식적인 기업 언어를 피합니다.",
+      "ch8_outro": "이 시스템은 집중적이고 개발자 지향적인 미학을 유지하기 위해 의도적으로 밝은 배경, 세리프 타이포그래피, 무거운 그림자, 과도한 색상을 거부합니다."
+    }
+  }
 }

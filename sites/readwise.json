@@ -8,8 +8,589 @@
     "product",
     "reading"
   ],
-  "status": "pending",
+  "status": "completed",
   "added_at": "2026-06-02",
   "added_by": "expand-200",
-  "_meta": {}
+  "_meta": {
+    "vision_model": "mimo-v2.5",
+    "vision_prompt_version": "0.3",
+    "vision_source": "playwright-extract:readwise",
+    "vision_grounded": true,
+    "vision_at": "2026-06-07T06:26:27+00:00",
+    "vision_tokens": 16140,
+    "vision_cost_usd": 0.1793,
+    "translation_model": "mimo-v2.5",
+    "translation_at": "2026-06-07T06:27:41+00:00",
+    "translation_tokens": 16687,
+    "translation_cost_usd": 0.0557,
+    "narrative_model": "mimo-v2.5",
+    "narrative_prompt_version": "0.3",
+    "narrative_at": "2026-06-07T06:27:51+00:00",
+    "narrative_tokens": 2010,
+    "narrative_cost_usd": 0.0134,
+    "narrative_status": "ok",
+    "total_cost_usd": 0.2484
+  },
+  "spec": {
+    "colors": {
+      "bg": "#FFFFFF",
+      "bgSoft": "#F5F5F5",
+      "bgQuiet": null,
+      "ink": "#1F1F1F",
+      "inkSoft": null,
+      "muted": "#808080",
+      "mutedSoft": null,
+      "accent": "#478CD0",
+      "line": "rgba(0,0,0,0.1)"
+    },
+    "typography": {
+      "display": "transitional-serif",
+      "body": "humanist-sans",
+      "mono": "monospace",
+      "scale": [
+        {
+          "token": "display",
+          "size": 50,
+          "lh": 1.125,
+          "weight": 800,
+          "ls": "-0.22px"
+        },
+        {
+          "token": "h2",
+          "size": 28.8,
+          "lh": 1.25,
+          "weight": 700,
+          "ls": "0"
+        },
+        {
+          "token": "body",
+          "size": 16,
+          "lh": 1.5,
+          "weight": 400,
+          "ls": "0"
+        }
+      ]
+    },
+    "spacing": {
+      "base": 4,
+      "scale": [
+        4,
+        8,
+        12,
+        16,
+        24,
+        32,
+        48,
+        64,
+        96
+      ]
+    },
+    "surfaces": {
+      "radius": {
+        "sm": 4,
+        "md": 8,
+        "lg": 10,
+        "pill": 999
+      }
+    },
+    "layout": {
+      "container": 1280,
+      "paragraph": 680,
+      "columns": 12,
+      "gutter": 24,
+      "breakpoints": [
+        768,
+        1024
+      ]
+    },
+    "motion": {
+      "durations": {
+        "micro": 200,
+        "small": 400,
+        "medium": 800
+      },
+      "easing": "cubic-bezier(1, 0.3, 0.54, 1.39)"
+    }
+  },
+  "spec_i18n": {
+    "en": {
+      "identity": {
+        "keywords": [
+          "reading",
+          "knowledge",
+          "memory",
+          "spaced-repetition",
+          "highlights"
+        ],
+        "analogy": "A personal library assistant that reminds you of the best things you've read.",
+        "oneLiner": "A clean, typographically-driven platform for revisiting and learning from reading highlights."
+      },
+      "colors": {
+        "principle": "High-contrast monochrome base with a single functional blue for actions and links."
+      },
+      "typography": {
+        "rules": [
+          "Transitional serif for headlines to evoke a literary and educational feel.",
+          "Humanist sans for body text to maintain high readability and a modern aesthetic.",
+          "Generous line-height for comfortable reading of long-form content."
+        ],
+        "scaleUses": [
+          "Main hero headline",
+          "Section headings",
+          "Paragraph text and UI labels"
+        ]
+      },
+      "spacing": {
+        "rhythm": "Consistent 4px base grid with generous padding (24px-35px) for content blocks."
+      },
+      "surfaces": {
+        "shadows": [],
+        "borders": "Subtle 1px borders used primarily for navigation underlines and input states."
+      },
+      "layout": {
+        "skeleton": "Centered single-column layout with alternating image-text sections."
+      },
+      "components": {
+        "button": "Solid blue fill with white text, rounded corners, or outline style with dark borders.",
+        "card": "Used primarily within product screenshots to show nested interface elements.",
+        "chip": "Small rounded tags with distinct background colors for categorization.",
+        "input": "Standard form fields with subtle borders and clear focus states.",
+        "hero": "Large centered headline, supporting subtext, and a primary call-to-action button."
+      },
+      "motion": {
+        "patterns": [
+          "Simple background-color and color transitions on hover.",
+          "Smooth opacity and transform transitions for interactive elements."
+        ]
+      },
+      "interaction": {
+        "hover": "Change in background-color or color with a 0.2s transition.",
+        "click": "Immediate feedback via state change.",
+        "transition": "All elements use a 0.2s transition for smooth state changes.",
+        "keyboard": "Standard focus management for navigation and forms."
+      },
+      "voice": {
+        "tone": "Educational, encouraging, and focused on personal growth.",
+        "headlineStyle": "Clear, benefit-driven statements in a large serif font.",
+        "ctaStyle": "Direct and action-oriented, such as 'GET STARTED FOR FREE'.",
+        "avoid": [
+          "Jargon-heavy language",
+          "Overly corporate tone",
+          "Aggressive sales tactics"
+        ]
+      },
+      "donts": [
+        "don't use a dark background for the main interface — screenshot shows a predominantly white background.",
+        "don't use monospace fonts for body text — screenshot shows a humanist sans-serif for readability.",
+        "don't use neon or overly bright accent colors — screenshot shows a functional, muted blue (#478CD0).",
+        "don't use complex gradients on primary buttons — screenshot shows solid color fills.",
+        "don't use high-contrast drop shadows on cards — screenshot shows a clean, border-based or flat UI.",
+        "don't use condensed or decorative fonts for headlines — screenshot uses a clear transitional serif."
+      ],
+      "systemPrompt": "Readwise is a productivity tool for readers, focusing on memory and knowledge retention through spaced repetition. The design DNA is a clean, minimalist aesthetic that prioritizes readability. The core color palette is monochrome: white backgrounds (#FFFFFF) with near-black ink (#1F1F1F), accented by a functional blue (#478CD0). Typography is a refined mix of transitional-serif for headlines (evoking literature) and humanist-sans for body text (ensuring legibility). Critical design constraints: don't use dark mode or dark backgrounds, don't use neon or high-chroma accent colors, and don't use complex gradients or busy background patterns. The layout is spacious and centered, focusing the user's attention on the content and the value of their reading highlights."
+    },
+    "zh-CN": {
+      "identity": {
+        "keywords": [
+          "阅读",
+          "知识",
+          "记忆",
+          "间隔重复",
+          "高亮"
+        ],
+        "analogy": "一位私人图书馆助手，提醒你回顾读过的精华内容。",
+        "oneLiner": "一个简洁、以排版驱动的平台，用于重温并从阅读高亮中学习。"
+      },
+      "colors": {
+        "principle": "高对比度的单色基底，搭配单一的功能性蓝色用于操作和链接。"
+      },
+      "typography": {
+        "rules": [
+          "标题使用过渡衬线字体，唤起文学与教育感。",
+          "正文使用人文主义无衬线字体，确保高可读性与现代美感。",
+          "宽松的行高，使长篇内容阅读更舒适。"
+        ],
+        "scaleUses": [
+          "主标题",
+          "章节标题",
+          "段落文本与界面标签"
+        ]
+      },
+      "spacing": {
+        "rhythm": "基于一致的 4px 基础网格，内容区块使用充足的内边距（24px-35px）。"
+      },
+      "surfaces": {
+        "shadows": [],
+        "borders": "主要用于导航下划线和输入状态的细微 1px 边框。"
+      },
+      "layout": {
+        "skeleton": "居中的单栏布局，图文区域交替出现。"
+      },
+      "components": {
+        "button": "实心蓝色填充配白色文字、圆角，或采用深色边框的描边样式。",
+        "card": "主要用于产品截图中，展示嵌套的界面元素。",
+        "chip": "带有不同背景色的小型圆角标签，用于分类。",
+        "input": "标准表单字段，带有细微边框和清晰的聚焦状态。",
+        "hero": "大型居中标题、辅助副文本以及一个主要的行动召唤按钮。"
+      },
+      "motion": {
+        "patterns": [
+          "hover 时简单的背景色和颜色过渡。",
+          "交互元素平滑的透明度与变换过渡效果。"
+        ]
+      },
+      "interaction": {
+        "hover": "背景色或颜色变化，配合 0.2 秒过渡。",
+        "click": "通过状态变化提供即时反馈。",
+        "transition": "所有元素均使用 0.2 秒过渡，实现平滑的状态切换。",
+        "keyboard": "导航与表单采用标准的焦点管理。"
+      },
+      "voice": {
+        "tone": "教育性、鼓励性，并专注于个人成长。",
+        "headlineStyle": "清晰、以益处为导向的陈述，使用大号衬线字体。",
+        "ctaStyle": "直接且以行动为导向，例如“免费开始使用”。",
+        "avoid": [
+          "堆砌术语的语言",
+          "过于企业化的语调",
+          "激进的销售策略"
+        ]
+      },
+      "donts": [
+        "不要为使用界面设置深色背景——截图显示的是以白色为主的背景。",
+        "不要使用等宽字体作为正文——截图使用的是人文主义无衬线字体以保证可读性。",
+        "不要使用霓虹或过于鲜艳的强调色——截图显示的是一种功能性、柔和的蓝色（#478CD0）。",
+        "不要为主按钮使用复杂的渐变——截图显示的是纯色填充。",
+        "不要在卡片上使用高对比度的投影——截图显示的是简洁的、基于边框或扁平化的 UI。",
+        "不要为标题使用压缩或装饰性字体——截图使用的是清晰的过渡衬线字体。"
+      ],
+      "systemPrompt": "Readwise 是一款面向读者的生产力工具，专注于通过间隔重复来增强记忆和知识留存。其设计 DNA 是干净、简约的美学，优先考虑可读性。核心配色方案是单色：白色背景（#FFFFFF）搭配近黑色墨水（#1F1F1F），辅以功能性蓝色（#478CD0）点缀。字体采用精致的组合：标题使用过渡衬线字体（唤起文学感），正文使用人文主义无衬线字体（确保易读性）。关键设计约束：不要使用深色模式或深色背景，不要使用霓虹或高饱和度的强调色，不要使用复杂的渐变或繁杂的背景图案。布局宽敞居中，将用户的注意力集中在内容和他们阅读高亮的价值上。"
+    },
+    "zh-TW": {
+      "identity": {
+        "keywords": [
+          "閱讀",
+          "知識",
+          "記憶",
+          "間隔重複",
+          "重點標記"
+        ],
+        "analogy": "如同私人圖書館助理，提醒你曾讀過的精華內容。",
+        "oneLiner": "一個簡潔、以排版為核心的平台，用於重溫與學習閱讀重點。"
+      },
+      "colors": {
+        "principle": "以高對比單色調為基底，搭配單一功能藍用於操作與連結。"
+      },
+      "typography": {
+        "rules": [
+          "標題採用過渡襯線體，營造文學與教育氛圍。",
+          "內文使用人文主義無襯線體，維持高可讀性與現代美感。",
+          "設定寬鬆行高，以利長篇內容的舒適閱讀。"
+        ],
+        "scaleUses": [
+          "主要首頁標題",
+          "章節標題",
+          "段落文字與 UI 標籤"
+        ]
+      },
+      "spacing": {
+        "rhythm": "以 4px 為基礎的統一網格，內容區塊採用充裕內距（24px-35px）。"
+      },
+      "surfaces": {
+        "shadows": [],
+        "borders": "使用細微的 1px 邊框，主要作為導覽底線與輸入框狀態。"
+      },
+      "layout": {
+        "skeleton": "置中單欄佈局，交錯安排圖片與文字區塊。"
+      },
+      "components": {
+        "button": "實心藍色填充、白色文字、圓角，或採用深色邊框的輪廓樣式。",
+        "card": "主要用於產品截圖中，展示嵌套的介面元素。",
+        "chip": "小型圓角標籤，以不同背景色彩區分類別。",
+        "input": "標準表單欄位，帶有細微邊框與清晰的 focus 狀態。",
+        "hero": "大型置中標題、輔助說明文字，以及主要操作按鈕。"
+      },
+      "motion": {
+        "patterns": [
+          "hover 時進行簡約的背景色與色彩過渡。",
+          "互動元素採用流暢的 opacity 與 transform 過渡效果。"
+        ]
+      },
+      "interaction": {
+        "hover": "透過 0.2 秒過渡改變背景色或色彩。",
+        "click": "透過狀態變換提供即時反饋。",
+        "transition": "所有元素皆採用 0.2 秒過渡，實現平滑狀態變換。",
+        "keyboard": "導覽與表單遵循標準的 focus 管理機制。"
+      },
+      "voice": {
+        "tone": "具教育性、鼓勵性，並專注於個人成長。",
+        "headlineStyle": "清晰、強調效益的大型襯線字體陳述。",
+        "ctaStyle": "直接且行動導向，例如「免費開始使用」。",
+        "avoid": [
+          "過度專業術語",
+          "過於企業化的語氣",
+          "激進的銷售手法"
+        ]
+      },
+      "donts": [
+        "勿使用深色背景作為主介面 — 截圖顯示以白色為主的背景。",
+        "勿使用等寬字體作為內文 — 截圖顯示使用人文主義無襯線體以確保可讀性。",
+        "勿使用霓虹色或過度鮮豔的強調色 — 截圖顯示使用功能性的柔和藍（#478CD0）。",
+        "勿在主要按鈕上使用複雜漸層 — 截圖顯示採用實心填充。",
+        "勿在卡片上使用高對比陰影 — 截圖顯示採用簡潔的邊框式或平面 UI。",
+        "勿在標題上使用壓縮或裝飾性字體 — 截圖使用清晰的過渡襯線體。"
+      ],
+      "systemPrompt": "Readwise 是專為讀者設計的生產力工具，透過間隔重複著重於記憶與知識留存。其設計 DNA 為簡潔的極簡主義美學，以可讀性為優先。核心色調為單色調：白色背景（#FFFFFF）搭配近黑墨色（#1F1F1F），並以功能藍（#478CD0）作為點綴。排版採用精緻的混合風格：標題使用過渡襯線體（呼應文學性），內文使用人文主義無襯線體（確保可讀性）。關鍵設計限制：勿使用深色模式或深色背景，勿使用霓虹色或高飽和度強調色，勿使用複雜漸層或繁複背景圖案。佈局寬敞且置中，引導使用者專注於內容與其閱讀重點的價值。"
+    },
+    "ja": {
+      "identity": {
+        "keywords": [
+          "読書",
+          "知識",
+          "記憶",
+          "間隔反復",
+          "ハイライト"
+        ],
+        "analogy": "あなたが読んだ最高の内容を思い出させてくれる、個人的なライブラリアン。",
+        "oneLiner": "読書ハイライトを振り返り、学びを得るための、クリーンでタイポグラフィ重視のプラットフォーム。"
+      },
+      "colors": {
+        "principle": "ハイコントラストのモノクロームをベースとし、アクションやリンクには単一の機能的なブルーを使用。"
+      },
+      "typography": {
+        "rules": [
+          "見出しにはトランジショナルセリフ体を用い、文学的かつ教育的な印象を与えます。",
+          "本文にはヒューマニストサンセリフ体を用い、高い可読性とモダンな美学を維持します。",
+          "長文コンテンツを快適に読むための、適切な行の高さ。"
+        ],
+        "scaleUses": [
+          "メインヒーロー見出し",
+          "セクション見出し",
+          "段落テキストおよびUIラベル"
+        ]
+      },
+      "spacing": {
+        "rhythm": "一貫した4pxのベースグリッド。コンテンツブロックには24px〜35pxの豊かなpaddingを適用。"
+      },
+      "surfaces": {
+        "shadows": [],
+        "borders": "ナビゲーションの下線やインプットの状態表示に主に使用する、繊細な1pxボーダー。"
+      },
+      "layout": {
+        "skeleton": "画像とテキストセクションを交互に配置した、中央揃えのシングルカラムレイアウト。"
+      },
+      "components": {
+        "button": "角丸のある、ブルーの塗りつぶし背景にホワイトテキスト、またはダークボーダー付きのアウトラインスタイル。",
+        "card": "主にプロダクトスクリーンショット内で、ネストされたインタフェース要素を表示するために使用。",
+        "chip": "分類用の、明確な背景色を持つ小さな角丸タグ。",
+        "input": "繊細なボーダーと明確なフォーカス状態を持つ、標準フォームフィールド。",
+        "hero": "大きな中央揃えの見出し、補足テキスト、およびプライマリCTAボタン。"
+      },
+      "motion": {
+        "patterns": [
+          "ホバー時のシンプルなbackground-colorおよびcolorのトランジション。",
+          "インタラクティブ要素の、滑らかなopacityとtransformのトランジション。"
+        ]
+      },
+      "interaction": {
+        "hover": "0.2秒のトランジションで、background-colorまたはcolorを変更。",
+        "click": "状態変更による即時フィードバック。",
+        "transition": "すべての要素は、滑らかな状態変更のために0.2秒のトランジションを使用。",
+        "keyboard": "ナビゲーションとフォームの、標準的なフォーカス管理。"
+      },
+      "voice": {
+        "tone": "教育的で、励ますような、個人の成長に焦点を当てたトーン。",
+        "headlineStyle": "大きなセリフフォントを用いた、明確でメリットを訴求するステートメント。",
+        "ctaStyle": "「無料で始める」のように、直接的で行動を促す表現。",
+        "avoid": [
+          "専門用語が多すぎる言葉遣い",
+          "企業感が強すぎるトーン",
+          "攻撃的な営業テクニック"
+        ]
+      },
+      "donts": [
+        "メインインタフェースにダーク背景を使用しない — スクリーンショットは主にホワイト背景を示しています。",
+        "本文に等幅フォントを使用しない — スクリーンショットは可読性のためにヒューマニストサンセリフ体を示しています。",
+        "ネオン色や過度に明るいアクセントカラーを使用しない — スクリーンショットは機能的で控えめなブルー（#478CD0）を示しています。",
+        "プライマリボタンに複雑なグラデーションを使用しない — スクリーンショットは塗りつぶしの単色を示しています。",
+        "カードにハイコントラストのドロップシャドウを使用しない — スクリーンショットはクリーンでボーダーベースまたはフラットなUIを示しています。",
+        "見出しにコンデンスされたまたは装飾的なフォントを使用しない — スクリーンショットは明確なトランジショナルセリフ体を使用しています。"
+      ],
+      "systemPrompt": "Readwiseは、読者のための生産性ツールであり、間隔反復を通じた記憶と知識の定着に焦点を当てています。デザインDNAは、可読性を優先するクリーンでミニマルな美学です。コアカラーパレットはモノクロームで、ホワイト背景（#FFFFFF）にニアブラックのインク（#1F1F1F）、アクセントとして機能的なブルー（#478CD0）を用います。タイポグラフィは、見出しにトランジショナルセリフ体（文学的イメージを喚起）、本文にヒューマニストサンセリフ体（可読性確保）を用いた、洗練されたミックスです。重要なデザイン制約：ダークモードやダーク背景を使用せず、ネオン色や高クロマのアクセントカラーを使用せず、複雑なグラデーションや煩雑な背景パターンを使用しないこと。レイアウトは余裕があり、中央揃えで、ユーザーの注意をコンテンツとその読書ハイライトの価値に集中させます。"
+    },
+    "ko": {
+      "identity": {
+        "keywords": [
+          "독서",
+          "지식",
+          "기억",
+          "반복 학습",
+          "하이라이트"
+        ],
+        "analogy": "당신이 읽은 가장 좋은 것들을 상기시켜 주는 개인 도서관 어시스턴트입니다.",
+        "oneLiner": "독서 하이라이트를 다시 보고 학습하기 위한, 깔끔하고 타이포그래피 중심의 플랫폼입니다."
+      },
+      "colors": {
+        "principle": "액션과 링크를 위해 단일 기능성 파란색을 사용하는 고대비 단색 기반입니다."
+      },
+      "typography": {
+        "rules": [
+          "문학적이고 교육적인 느낌을 주기 위해 제목에 전환체 세리프를 사용합니다.",
+          "높은 가독성과 현대적인 미학을 유지하기 위해 본문에 휴머니스트 산세리프를 사용합니다.",
+          "긴 형식 콘텐츠의 편안한 독서를 위해 넉넉한 행간을 적용합니다."
+        ],
+        "scaleUses": [
+          "메인 히어로 제목",
+          "섹션 제목",
+          "단락 텍스트 및 UI 레이블"
+        ]
+      },
+      "spacing": {
+        "rhythm": "일관된 4px 기본 그리드와 콘텐츠 블록을 위한 넉넉한 패딩(24px-35px)을 사용합니다."
+      },
+      "surfaces": {
+        "shadows": [],
+        "borders": "주로 내비게이션 밑줄과 입력 상태를 위해 사용되는 미묘한 1px 테두리입니다."
+      },
+      "layout": {
+        "skeleton": "이미지-텍스트 섹션이 번갈아 배치된 중앙 정렬 단일 열 레이아웃입니다."
+      },
+      "components": {
+        "button": "흰색 텍스트가 있는 단색 파란색 채우기, 둥근 모서리 또는 다크 테두리가 있는 아웃라인 스타일입니다.",
+        "card": "주로 제품 스크린샷 내에서 중첩된 인터페이스 요소를 보여주기 위해 사용됩니다.",
+        "chip": "분류를 위해 뚜렷한 배경색을 가진 작은 둥근 태그입니다.",
+        "input": "미묘한 테두리와 명확한 포커스 상태를 가진 표준 양식 필드입니다.",
+        "hero": "크고 중앙 정렬된 제목, 보조 설명 텍스트, 그리고 주요 호출-투-액션 버튼입니다."
+      },
+      "motion": {
+        "patterns": [
+          "hover 시 단순한 background-color 및 color 트랜지션.",
+          "인터랙티브 요소를 위한 부드러운 opacity 및 transform 트랜지션."
+        ]
+      },
+      "interaction": {
+        "hover": "0.2초 트랜지션을 통한 background-color 또는 color 변화.",
+        "click": "상태 변화를 통한 즉각적인 피드백.",
+        "transition": "모든 요소에 부드러운 상태 변화를 위해 0.2초 트랜지션을 사용합니다.",
+        "keyboard": "내비게이션과 양식을 위한 표준 포커스 관리."
+      },
+      "voice": {
+        "tone": "교육적이며, 격려하는, 그리고 개인적 성장에 초점을 맞춘 톤입니다.",
+        "headlineStyle": "큰 세리프 폰트로 작성된 명확하고 혜택 중심적인 진술입니다.",
+        "ctaStyle": "'무료로 시작하기'와 같이 직접적이고 행동 지향적인 스타일입니다.",
+        "avoid": [
+          "전문 용어가 과도한 언어",
+          "지나치게 기업적인 어조",
+          "공격적인 판매 전술"
+        ]
+      },
+      "donts": [
+        "메인 인터페이스에 다크 배경을 사용하지 마세요 — 스크린샷은 주로 흰색 배경을 보여줍니다.",
+        "본문에 모노스페이스 폰트를 사용하지 마세요 — 스크린샷은 가독성을 위해 휴머니스트 산세리프를 보여줍니다.",
+        "네온이나 지나치게 밝은 악센트 색상을 사용하지 마세요 — 스크린샷은 기능적이고 은은한 파란색(#478CD0)을 보여줍니다.",
+        "주요 버튼에 복잡한 그라디언트를 사용하지 마세요 — 스크린샷은 단색 채우기를 보여줍니다.",
+        "카드에 고대비 드롭 섀도우를 사용하지 마세요 — 스크린샷은 깔끔한 테두리 기반 또는 플랫 UI를 보여줍니다.",
+        "제목에 축약형이나 장식 폰트를 사용하지 마세요 — 스크린샷은 명확한 전환체 세리프를 사용합니다."
+      ],
+      "systemPrompt": "Readwise는 독서를 위한 생산성 도구로, 반복 학습을 통해 기억과 지식 보존에 초점을 맞추고 있습니다. 설계 DNA는 가독성을 우선시하는 깔끔하고 미니멀한 미학입니다. 핵심 색상 팔레트는 단색입니다: 흰색 배경(#FFFFFF)에 거의 검은색 잉크(#1F1F1F), 그리고 기능적인 파란색(#478CD0)으로 강조합니다. 타이포그래피는 제목에 정교한 전환체 세리프(문학성을 불러일으킴)와 본문에 휴머니스트 산세리프(가독성 보장)의 세련된 혼합입니다. 핵심 설계 제약 조건: 다크 모드나 다크 배경을 사용하지 마세요, 네온이나 고채도 악센트 색상을 사용하지 마세요, 복잡한 그라디언트나 지저분한 배경 패턴을 사용하지 마세요. 레이아웃은 여유롭고 중앙 정렬되어 사용자의 주의를 콘텐츠와 독서 하이라이트의 가치에 집중시킵니다."
+    }
+  },
+  "desc": {
+    "en": {
+      "palette": "A clean monochrome palette of white and near-black, anchored by a single functional blue for interactive elements.",
+      "layout": "A spacious, centered single-column layout that uses large typography and generous whitespace to create an editorial feel.",
+      "interaction": "Subtle and refined interactions with smooth 0.2s transitions on color and background changes.",
+      "motion": "Minimal but effective motion using standard easing curves to provide smooth state changes for UI elements.",
+      "notes": "Worth including as a prime example of how to balance literary aesthetics with modern SaaS functional design."
+    },
+    "zh-CN": {
+      "palette": "干净的单色配色方案，以白色和近黑色为主，点缀一种用于交互元素的功能性蓝色。",
+      "layout": "宽敞、居中的单栏布局，运用大号排版和充足的留白，营造出编辑感。",
+      "interaction": "细腻精致的交互，颜色和背景变化采用平滑的 0.2 秒过渡效果。",
+      "motion": "简约而有效的动效，使用标准缓动曲线，为 UI 元素的状态切换提供流畅体验。",
+      "notes": "值得作为范例，展示了如何在文学美感与现代 SaaS 功能性设计之间取得平衡。"
+    },
+    "zh-TW": {
+      "palette": "以白色與近黑為主的簡潔單色調，輔以單一功能藍作為互動元素的色彩錨點。",
+      "layout": "寬敞、置中的單欄佈局，透過大型排版與充足留白營造編輯感。",
+      "interaction": "細膩精緻的互動，色彩與背景變換時帶有流暢的 0.2 秒過渡效果。",
+      "motion": "簡約有效的動態，採用標準緩動曲線，為 UI 元素提供平滑的狀態變換。",
+      "notes": "是平衡文學美學與現代 SaaS 功能設計的優良範例，值得納入參考。"
+    },
+    "ja": {
+      "palette": "ホワイトとニアブラックを用いた、清潔なモノクロームパレット。インタラクティブ要素には、単一の機能的なブルーがアクセントとして使用されています。",
+      "layout": "余裕のある、中央揃えのシングルカラムレイアウト。大きなタイポグラフィと豊かなホワイトスペースを活用し、エディトリアルな雰囲気を演出します。",
+      "interaction": "色や背景の変更に伴う、滑らかな0.2秒のトランジションを用いた、繊細で洗練されたインタラクション。",
+      "motion": "標準的な緩和カーブを用いた、最小限かつ効果的なモーション。UI要素の滑らかな状態変更を提供します。",
+      "notes": "文学的な美学と現代的なSaaS機能デザインのバランスを如何に取るべきかの、格好の例として参考に値します。"
+    },
+    "ko": {
+      "palette": "흰색과 거의 검은색으로 구성된 깔끔한 단색 팔레트입니다. 인터랙티브 요소를 위해 단일 기능성을 지닌 파란색이 기점을 제공합니다.",
+      "layout": "넓은 타이포그래피와 넉넉한 여백을 사용해 에디토리얼 느낌을 주는, 여유로운 중앙 정렬 단일 열 레이아웃입니다.",
+      "interaction": "색상과 배경 변화에 0.2초의 부드러운 트랜지션이 적용된, 미묘하고 정교한 인터랙션입니다.",
+      "motion": "UI 요소에 부드러운 상태 변화를 제공하기 위해 표준 이징 커브를 사용한, 미니멀하지만 효과적인 모션입니다.",
+      "notes": "문학적 미학과 현대적인 SaaS 기능적 디자인의 균형을 맞추는 방법의 대표적인 예로 포함할 가치가 있습니다."
+    }
+  },
+  "narrative": {
+    "en": {
+      "ch1_intro": "Readwise Reader operates as a personal library assistant, a system designed to surface and reinforce the most valuable fragments from a user's reading history. Its design DNA is therefore one of clarity and recollection: a typographically-driven interface that prioritizes content legibility and the quiet mechanics of memory.",
+      "ch2_intro": "The palette is a deliberate exercise in restraint, built on a high-contrast monochrome base of white and near-black. A single, functional blue is reserved exclusively for actionable elements, creating an unambiguous visual hierarchy that guides the reader without ornament.",
+      "ch2_outro": "The core principle is clarity through contrast, using a minimal palette to ensure content remains the primary visual actor.",
+      "ch3_intro": "The typographic system pairs a transitional serif for headlines, evoking the authority of print, with a humanist sans-serif for body text to ensure sustained reading comfort. This duality speaks directly to the application's dual purpose: the literary curation of highlights and the modern, functional tool for review.",
+      "ch4_intro": "A consistent 4px base grid establishes a measured rhythm throughout the interface, creating a sense of order and predictability.",
+      "ch5_intro": "Depth is communicated sparingly, eschewing drop shadows for a primarily flat, content-first presentation. Borders are subtle and functional, appearing as thin rules for navigation underlines and clear state indicators for form inputs.",
+      "ch6_intro": "The layout is a centered single-column structure, focusing user attention on a linear content flow. Alternating image and text sections create visual pacing within this focused skeleton, maintaining engagement without structural complexity.",
+      "ch7_intro": "Motion is employed as subtle feedback, not decoration. All interactions use smooth, standardized transitions on background-color and opacity to acknowledge user input with quiet, consistent feedback.",
+      "ch8_intro": "The editorial voice is educational and encouraging, framed around personal growth and knowledge retention. Headlines make clear, benefit-driven statements, while calls to action are direct and action-oriented, avoiding corporate jargon and aggressive sales rhetoric.",
+      "ch8_outro": "The system deliberately avoids dark-mode interfaces, neon accents, and complex gradients to preserve its clean, typographic core."
+    },
+    "zh-CN": {
+      "ch1_intro": "Readwise Reader 充当个人图书馆助理的角色，它是一个系统，旨在从用户的阅读历史中提炼并强化最有价值的片段。因此，其设计基因在于清晰与记忆：一个由字体排印驱动的界面，优先考虑内容易读性与记忆的静默机制。",
+      "ch2_intro": "色彩运用是刻意克制的体现，以白色和近黑色的高对比度单色基调为基础。唯一具有功能性的蓝色被严格保留给可操作元素，从而创建出清晰无误的视觉层次，在无装饰的情况下引导读者。",
+      "ch2_outro": "核心原则是通过对比实现清晰，使用极简的调色板确保内容始终保持为首要的视觉主体。",
+      "ch3_intro": "字体排印系统将用于标题的过渡型衬线字体（唤起印刷品的权威感）与用于正文的无衬线人文字体（确保持续的阅读舒适度）相结合。这种二元性直接呼应了应用程序的双重目的：文学性的高亮摘录策划，以及用于复习的现代功能工具。",
+      "ch4_intro": "一致的 4px 基础网格在整个界面中建立起一种有度的韵律，营造出秩序感和可预测性。",
+      "ch5_intro": "深度传达极为克制，摒弃了投影，主要采用扁平、内容优先的呈现方式。边框微妙且具有功能性，作为导航下划线的细线或表单输入的状态清晰指示器出现。",
+      "ch6_intro": "布局采用居中的单栏结构，将用户注意力集中于线性的内容流。交替出现的图文部分在这个聚焦的骨架内创造了视觉节奏，在不增加结构复杂性的情况下维持用户的参与感。",
+      "ch7_intro": "动效被用作微妙的反馈，而非装饰。所有交互都使用 background-color 和 opacity 上平滑、标准化的过渡效果，以安静、一致的方式确认用户输入。",
+      "ch8_intro": "编辑语调具有教育性和鼓励性，围绕个人成长与知识留存展开。标题做出清晰、利益驱动的陈述，而行动号召则直接且注重行动，避免了企业术语和激进的销售话术。",
+      "ch8_outro": "该系统刻意避免深色模式界面、霓虹色强调和复杂的渐变，以保持其简洁、以字体排印为核心的设计。"
+    },
+    "zh-TW": {
+      "ch1_intro": "Readwise Reader 作為個人圖書館助理運作，是一個旨在突顯並強化使用者閱讀歷史中最有價值片段的系統。因此，其設計 DNA 是清晰與回憶：一個以排版為主的介面，優先考量內容的可讀性與記憶的靜默機制。",
+      "ch2_intro": "色彩配置是經過深思熟慮的克制練習，建立在白色與近乎黑色的高對比單色基底上。單一、功能性的藍色僅保留給可操作的元素，創造出明確的視覺層次，在無裝飾的情況下引導閱讀者。",
+      "ch2_outro": "核心原則是透過對比實現清晰，使用最小化的色彩配置以確保內容保持為主要的視覺主角。",
+      "ch3_intro": "排版系統將用於標題的過渡襯線體（呼應印刷的權威感）與用於正文的人文無襯線體配對，以確保長時間閱讀的舒適度。這種二元性直接反映了應用程式的雙重目的：精選摘要的文學策劃，以及現代化的複習功能工具。",
+      "ch4_intro": "一致的 4px 基礎格線在介面中建立了有節奏的規律，創造出秩序感與可預測性。",
+      "ch5_intro": "深度以極簡方式傳達，摒棄陰影，採用 primarily flat、內容優先的呈現方式。邊框微妙且功能性強，以細線形式用於導覽底線，以及作為表單輸入的明確狀態指示器。",
+      "ch6_intro": "佈局採用置中的單欄結構，將使用者的注意力集中於線性的內容流。交替出現的圖片與文字區段在此集中的骨架內創造了視覺節奏，在維持吸引力的同時避免結構複雜化。",
+      "ch7_intro": "動態效果作為細微的回饋而非裝飾。所有互動都使用平滑、標準化的過渡效果，針對背景色與透明度進行處理，以安靜、一致的方式確認使用者輸入。",
+      "ch8_intro": "編輯語調具教育性且鼓舞人心，圍繞個人成長與知識留存來建構。標題做出清晰、以效益為導向的陳述，而行動呼籲則直接且注重行動，避免使用企業術語與強勢的銷售修辭。",
+      "ch8_outro": "此系統刻意避免深色模式介面、霓虹燈效果與複雜的漸層，以保持其簡潔、以排版為核心的本質。"
+    },
+    "ja": {
+      "ch1_intro": "Readwise Reader は、個人のライブラリアシスタントとして機能し、ユーザーの読書履歴から最も価値のある断片を抽出し、強化するように設計されたシステムです。したがって、そのデザインのDNAは明瞭さと想起にあります。コンテンツの可読性と、記憶の静かな仕組みを優先する、タイポグラフィ駆動のインターフェースです。",
+      "ch2_intro": "パレットは意図的な抑制の実践であり、白とほぼ黒のハイコントラストなモノクロームを基盤に構築されています。単一の機能的な青は、操作可能な要素にのみ限定的に使用され、装飾なしでリーダーを導く、曖昧さのないビジュアルヒエラルキーを生み出しています。",
+      "ch2_outro": "コア原则は、対比を通じた明瞭さであり、最小限のパレットを使用して、コンテンツが主役であり続けることを保証します。",
+      "ch3_intro": "タイポグラフィシステムは、印刷の権威を喚起するトランジショナル・セリフを見出しに、持続的な読書の快適さを確保するヒューマニスト・サンセリフを本文に組み合わせています。この二重性は、アプリケーションの二重の目的——ハイライトの文学的キュレーションと、レビューのためのモダンで機能的なツール——に直接語りかけます。",
+      "ch4_intro": "一貫した4pxのベースグリッドが、インターフェース全体に計りれたリズムを確立し、秩序と予測可能性の感覚を創り出します。",
+      "ch5_intro": "深みは控えめに表現され、ドロップシャドウを避け、主にフラットでコンテンツファーストのプレゼンテーションに徹します。ボーダーは微妙で機能的であり、ナビゲーションの下線として細いルールや、フォーム入力の明確な状態インジケーターとして現れます。",
+      "ch6_intro": "レイアウトは中央揃えの単一カラム構造で、ユーザーの注意をリニアなコンテンツフローに集中させます。画像とテキストセクションを交互に配置することで、この焦点を絞った骨格内にビジュアルなペーシングを生み出し、構造的な複雑さなしにエンゲージメントを維持します。",
+      "ch7_intro": "モーションは装飾ではなく、控えめなフィードバックとして採用されています。すべてのインタラクションは、ユーザーの入力に対して静かで一貫したフィードバックを伝えるために、background-colorとopacityの滑らかで標準化されたトランジションを使用します。",
+      "ch8_intro": "エディトリアルな声は教育的で励ましに満ちており、個人の成長と知識の定着を中心に構成されています。見出しは明確で利益を説明するステートメントを示し、コール・トゥ・アクションは直接的で行動志向であり、企業用語や攻撃的な喫業リトリックは避けます。",
+      "ch8_outro": "システムは、クリーンでタイポグラフィ中心の核心を保つために、ダークモードインターフェース、ネオンアクセント、複雑なグラデーションを意図的に回避しています。"
+    },
+    "ko": {
+      "ch1_intro": "Readwise Reader는 개인 라이브러리 어시스턴트로 작동하며, 사용자의 읽기 기록에서 가장 가치 있는 조각들을 발굴하고 강화하도록 설계된 시스템입니다. 따라서 그 디자인 DNA는 명확성과 기억 회상에 있습니다: 콘텐츠 가독성과 기억의 정적 메커니즘을 우선시하는, 타이포그래피 주도의 인터페이스입니다.",
+      "ch2_intro": "팔레트는 의도적인 절제의 연습이며, 흰색과 근.black의 고대비 단색 기반 위에 구축되었습니다. 단 하나의 기능적인 blue는 오직 실행 가능한 요소에만 예약되어, 장식 없이 독자를 안내하는 명확한 시각적 계층을 만듭니다.",
+      "ch2_outro": "핵심 원칙은 대비를 통한 명확성이며, 최소한의 팔레트를 사용하여 콘텐츠가 주요 시각적 주체로 남도록 보장합니다.",
+      "ch3_intro": "타이포그래피 시스템은 인쇄물의 권위를 연상시키는 전환형 세리프를 제목에, 지속적인 읽기 편의성을 보장하는 인문학적 산세리프를 본문에 결합합니다. 이 이중성은 애플리케이션의 이중 목적에 직접적으로 대응합니다: 강조구의 문학적 큐레이션과 검토를 위한 현대적이고 기능적인 도구.",
+      "ch4_intro": "일관된 4px 기본 그리드는 인터페이스 전체에 계산된 리듬을 확립하여, 질서와 예측 가능한 감각을 만듭니다.",
+      "ch5_intro": "깊이는 절제되게 전달되며, 그림자 효과를 피하고 주로 평면적이고 콘텐츠 우선적인 프레젠테이션을 추구합니다. 테두리는 미묘하고 기능적이며, 내비게이션 밑줄을 위한 얇은 규칙과 양식 입력을 위한 명확한 상태 표시기로 나타납니다.",
+      "ch6_intro": "레이아웃은 사용자의 주의를 선형적인 콘텐츠 흐름에 집중시키는 중앙 정렬 단일 열 구조입니다. 교차하는 이미지와 텍스트 섹션은 이 집중된 골격 내에서 시각적 템포를 만들어내어, 구조적 복잡성 없이 몰입도를 유지합니다.",
+      "ch7_intro": "모션은 장식이 아닌 미묘한 피드백으로 활용됩니다. 모든 상호작용은 배경색과 opacity에 부드럽고 표준화된 전환을 사용하여, 사용자 입력을 정적이고 일관된 피드백으로 인식합니다.",
+      "ch8_intro": "에디토리얼 톤은 교육적이고 격려적이며, 개인 성장과 지식 보존을 중심으로 프레이밍됩니다. 헤드라인은 명확하고 이점을 강조하는 진술을 하며, 호출 행동은 직접적이고 행동 지향적이며, 기업 용어와 공격적인 판매 수사학을 피합니다.",
+      "ch8_outro": "시스템은 의도적으로 다크 모드 인터페이스, 네온 강조, 복잡한 그라데이션을 피하여 깨끗하고 타이포그래피 중심의 본질을 보존합니다."
+    }
+  }
 }

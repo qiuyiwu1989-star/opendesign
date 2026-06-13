@@ -40,8 +40,16 @@
     <meta name="apple-mobile-web-app-title" content="OpenDesign" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&display=swap" />
+    <!-- 字体异步加载：media=print 让浏览器不阻塞渲染；onload 切回 all 激活字体 -->
+    <link rel="stylesheet" media="print" onload="this.media='all'"
+          href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&display=swap" />
+    <noscript>
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&display=swap" />
+    </noscript>
     <link rel="stylesheet" href="/styles.css" />
+    <!-- Agent / LLM discovery: machine-readable alternatives to this JS SPA -->
+    <link rel="alternate" type="text/plain" href="/llms.txt" title="OpenDesign — full site index for LLMs" />
+    <link rel="alternate" type="text/markdown" href="/skill.md" title="OpenDesign — agent skill protocol" />
 
     <!-- JSON-LD 结构化数据：WebSite + Organization + ItemList -->
     <script type="application/ld+json">
@@ -147,33 +155,38 @@
     <noscript>
       <div style="max-width: 800px; margin: 96px auto; padding: 32px; font-family: system-ui, sans-serif; line-height: 1.6;">
         <h1 style="font-family: 'Instrument Serif', 'Source Han Serif SC', 'Songti SC', serif; font-size: 56px; margin: 0 0 16px;">OpenDesign</h1>
-        <p style="font-size: 18px; color: #444; margin-bottom: 32px;">把值得反复回看的网页设计沉淀成可被 AI 学习复用的 Markdown 设计系统规范。</p>
-        <p style="color: #666; margin-bottom: 24px;">本站需要 JavaScript 才能完整浏览（拖拽画布 / 详情抽屉 / 收藏功能）。下方是纯文本版的全部精选列表 —— 也欢迎 LLM 抓取者直接读
-          <a href="/llms.txt" style="color: #b4451c;">/llms.txt</a> 或
-          <a href="/sites.js" style="color: #b4451c;">/sites.js</a> 获取结构化数据。</p>
+        <p style="font-size: 18px; color: #444; margin-bottom: 32px;">A curated library of 495 real design systems — every site ships a machine-readable design pack (colors, type scale, spacing, radii, motion, components) extracted from the live browser.</p>
+
+        <!-- ── For AI agents / LLMs ──────────────────────────────── -->
+        <div style="background:#fdf8f4; border:1px solid #e8d5c2; border-radius:8px; padding:20px 24px; margin-bottom:32px;">
+          <p style="margin:0 0 12px; font-weight:600; color:#b4451c;">For AI agents &amp; LLMs</p>
+          <p style="margin:0 0 8px; color:#555; font-size:14px;">This page requires JavaScript. Use these static endpoints instead:</p>
+          <ul style="list-style:none; padding:0; margin:0; font-size:14px;">
+            <li style="padding:4px 0;"><a href="/skill.md" style="color:#b4451c; font-weight:500;">https://opendesign.cc/skill.md</a> — agent skill protocol (start here)</li>
+            <li style="padding:4px 0;"><a href="/llms.txt" style="color:#b4451c; font-weight:500;">https://opendesign.cc/llms.txt</a> — full index of 495 sites + pack URLs</li>
+            <li style="padding:4px 0;"><a href="/catalog.json" style="color:#b4451c; font-weight:500;">https://opendesign.cc/catalog.json</a> — structured catalog (JSON)</li>
+            <li style="padding:4px 0;"><span style="color:#555;">https://opendesign.cc/packs/{slug}/DESIGN_SPEC.en.md</span> — per-site 11-layer spec</li>
+            <li style="padding:4px 0;"><span style="color:#555;">https://opendesign.cc/en/sites/{slug}</span> — human-readable design detail pages</li>
+          </ul>
+        </div>
+
+        <p style="color: #666; margin-bottom: 24px;">本站需要 JavaScript 才能完整浏览（拖拽画布 / 详情抽屉 / 收藏功能）。下方是部分精选站点。</p>
         <h2 style="font-family: 'Source Han Serif SC', 'Songti SC', 'STSong', serif; font-size: 32px; margin: 48px 0 16px;">精选网页设计资源</h2>
         <ul style="list-style: none; padding: 0;">
-          <li style="padding: 12px 0; border-bottom: 1px solid #eee;"><a href="/#/sites/linear" style="color: #0a0a0a; font-weight: 500;">Linear</a> · <span style="color: #666;">SaaS 项目管理设计天花板</span></li>
-          <li style="padding: 12px 0; border-bottom: 1px solid #eee;"><a href="/#/sites/stripe" style="color: #0a0a0a; font-weight: 500;">Stripe</a> · <span style="color: #666;">Fintech 站设计的金标准</span></li>
-          <li style="padding: 12px 0; border-bottom: 1px solid #eee;"><a href="/#/sites/vercel" style="color: #0a0a0a; font-weight: 500;">Vercel</a> · <span style="color: #666;">开发者世界的 Apple.com</span></li>
-          <li style="padding: 12px 0; border-bottom: 1px solid #eee;"><a href="/#/sites/framer" style="color: #0a0a0a; font-weight: 500;">Framer</a> · <span style="color: #666;">用产品本身的动效当 marketing</span></li>
-          <li style="padding: 12px 0; border-bottom: 1px solid #eee;"><a href="/#/sites/arc" style="color: #0a0a0a; font-weight: 500;">Arc Browser</a> · <span style="color: #666;">浏览器做出消费品的温度感</span></li>
-          <li style="padding: 12px 0; border-bottom: 1px solid #eee;"><a href="/#/sites/raycast" style="color: #0a0a0a; font-weight: 500;">Raycast</a> · <span style="color: #666;">Mac 工具站当代代表</span></li>
-          <li style="padding: 12px 0; border-bottom: 1px solid #eee;"><a href="/#/sites/stripe-press" style="color: #0a0a0a; font-weight: 500;">Stripe Press</a> · <span style="color: #666;">出版物设计语言迁到网页</span></li>
-          <li style="padding: 12px 0; border-bottom: 1px solid #eee;"><a href="/#/sites/cosmos" style="color: #0a0a0a; font-weight: 500;">Cosmos</a> · <span style="color: #666;">灵感采集类天花板</span></li>
-          <li style="padding: 12px 0; border-bottom: 1px solid #eee;"><a href="/#/sites/brittany-chiang" style="color: #0a0a0a; font-weight: 500;">Brittany Chiang</a> · <span style="color: #666;">开发者作品集事实模板</span></li>
-          <li style="padding: 12px 0; border-bottom: 1px solid #eee;"><a href="/#/sites/mobbin" style="color: #0a0a0a; font-weight: 500;">Mobbin</a> · <span style="color: #666;">Mobile UI 参考库标杆</span></li>
-          <li style="padding: 12px 0; border-bottom: 1px solid #eee;"><a href="/#/sites/apple" style="color: #0a0a0a; font-weight: 500;">Apple</a> · <span style="color: #666;">硬件产品页的母语</span></li>
-          <li style="padding: 12px 0; border-bottom: 1px solid #eee;"><a href="/#/sites/pitch" style="color: #0a0a0a; font-weight: 500;">Pitch</a> · <span style="color: #666;">SaaS 可以不像 SaaS</span></li>
-          <li style="padding: 12px 0; border-bottom: 1px solid #eee;"><a href="/#/sites/opal-camera" style="color: #0a0a0a; font-weight: 500;">Opal Camera</a> · <span style="color: #666;">把硬件当作奢侈品来讲</span></li>
-          <li style="padding: 12px 0; border-bottom: 1px solid #eee;"><a href="/#/sites/atlas" style="color: #0a0a0a; font-weight: 500;">Atlas</a> · <span style="color: #666;">Fintech 不落俗套</span></li>
-          <li style="padding: 12px 0; border-bottom: 1px solid #eee;"><a href="/#/sites/lusion" style="color: #0a0a0a; font-weight: 500;">Lusion</a> · <span style="color: #666;">Portfolio 用交互本身做证明</span></li>
-          <li style="padding: 12px 0; border-bottom: 1px solid #eee;"><a href="/#/sites/metalab" style="color: #0a0a0a; font-weight: 500;">Metalab</a> · <span style="color: #666;">项目集合做成决策友好的浏览</span></li>
-          <li style="padding: 12px 0; border-bottom: 1px solid #eee;"><a href="/#/sites/height" style="color: #0a0a0a; font-weight: 500;">Height</a> · <span style="color: #666;">App 页教好产品模型</span></li>
-          <li style="padding: 12px 0; border-bottom: 1px solid #eee;"><a href="/#/sites/amie" style="color: #0a0a0a; font-weight: 500;">Amie</a> · <span style="color: #666;">app 个性化又仍然功能性</span></li>
-          <li style="padding: 12px 0; border-bottom: 1px solid #eee;"><a href="/#/sites/diagram" style="color: #0a0a0a; font-weight: 500;">Diagram</a> · <span style="color: #666;">AI 工具如何解释魔法</span></li>
-          <li style="padding: 12px 0; border-bottom: 1px solid #eee;"><a href="/#/sites/reflect" style="color: #0a0a0a; font-weight: 500;">Reflect</a> · <span style="color: #666;">效率工具感觉深思熟虑</span></li>
+          <li style="padding: 12px 0; border-bottom: 1px solid #eee;"><a href="/en/sites/linear" style="color: #0a0a0a; font-weight: 500;">Linear</a> · <span style="color: #666;">SaaS 项目管理设计天花板</span></li>
+          <li style="padding: 12px 0; border-bottom: 1px solid #eee;"><a href="/en/sites/stripe" style="color: #0a0a0a; font-weight: 500;">Stripe</a> · <span style="color: #666;">Fintech 站设计的金标准</span></li>
+          <li style="padding: 12px 0; border-bottom: 1px solid #eee;"><a href="/en/sites/vercel" style="color: #0a0a0a; font-weight: 500;">Vercel</a> · <span style="color: #666;">开发者世界的 Apple.com</span></li>
+          <li style="padding: 12px 0; border-bottom: 1px solid #eee;"><a href="/en/sites/apple" style="color: #0a0a0a; font-weight: 500;">Apple</a> · <span style="color: #666;">硬件产品页的母语</span></li>
+          <li style="padding: 12px 0; border-bottom: 1px solid #eee;"><a href="/en/sites/framer" style="color: #0a0a0a; font-weight: 500;">Framer</a> · <span style="color: #666;">用产品本身的动效当 marketing</span></li>
+          <li style="padding: 12px 0; border-bottom: 1px solid #eee;"><a href="/en/sites/arc" style="color: #0a0a0a; font-weight: 500;">Arc Browser</a> · <span style="color: #666;">浏览器做出消费品的温度感</span></li>
+          <li style="padding: 12px 0; border-bottom: 1px solid #eee;"><a href="/en/sites/raycast" style="color: #0a0a0a; font-weight: 500;">Raycast</a> · <span style="color: #666;">Mac 工具站当代代表</span></li>
+          <li style="padding: 12px 0; border-bottom: 1px solid #eee;"><a href="/en/sites/stripe-press" style="color: #0a0a0a; font-weight: 500;">Stripe Press</a> · <span style="color: #666;">出版物设计语言迁到网页</span></li>
+          <li style="padding: 12px 0; border-bottom: 1px solid #eee;"><a href="/en/sites/lusion" style="color: #0a0a0a; font-weight: 500;">Lusion</a> · <span style="color: #666;">Portfolio 用交互本身做证明</span></li>
+          <li style="padding: 12px 0; border-bottom: 1px solid #eee;"><a href="/en/sites/mercury" style="color: #0a0a0a; font-weight: 500;">Mercury</a> · <span style="color: #666;">新一代 Fintech 品牌语言</span></li>
+          <li style="padding: 12px 0; border-bottom: 1px solid #eee;"><a href="/en/sites/supabase" style="color: #0a0a0a; font-weight: 500;">Supabase</a> · <span style="color: #666;">开发者工具开源美学</span></li>
+          <li style="padding: 12px 0; border-bottom: 1px solid #eee;"><a href="/en/sites/perplexity" style="color: #0a0a0a; font-weight: 500;">Perplexity</a> · <span style="color: #666;">AI 搜索产品如何设计信任感</span></li>
         </ul>
+        <p style="margin-top: 24px; color: #999; font-size: 14px;">View all 495 sites: <a href="/llms.txt" style="color: #b4451c;">llms.txt</a></p>
       </div>
     </noscript>
 
@@ -484,6 +497,27 @@
             </div>
           </section>
 
+          <!-- 截图画廊（tier-2 站点：自动从 packs-index 的 COS URLs 加载）-->
+          <section class="pack-gallery" id="packGallery" hidden>
+            <div class="gallery-header">
+              <div class="gallery-tabs" id="galleryTabs">
+                <button class="gallery-tab active" data-gt="desktop">🖥 桌面</button>
+                <button class="gallery-tab" data-gt="mobile">📱 移动</button>
+              </div>
+              <span class="gallery-count" id="galleryCount"></span>
+            </div>
+            <div class="gallery-strip" id="galleryStrip"></div>
+          </section>
+
+          <!-- 设计文档内联预览（DESIGN.md） -->
+          <section class="pack-docs" id="packDocs" hidden>
+            <div class="pack-docs-header">
+              <span class="eyebrow">设计分析 / DESIGN ANALYSIS</span>
+              <a class="pack-docs-link" id="packDocsLink" target="_blank" rel="noreferrer">↗ 打开原文</a>
+            </div>
+            <div class="pack-docs-body" id="packDocsBody"></div>
+          </section>
+
           <!-- 设计素材包 manifest 区（按 packsIndex 数据动态显示/隐藏）-->
           <section class="pack-manifest" id="packManifest" hidden>
             <div class="pack-head">
@@ -678,9 +712,9 @@
     </aside>
 
     <div class="toast" id="toast" role="status" aria-live="polite"></div>
-    <script src="https://cdn.jsdelivr.net/npm/marked@11.2.0/marked.min.js"></script>
+    <!-- marked.min.js 仅资产预览用，改为动态按需加载（节省 60KB 同步传输）-->
     <script src="/i18n.js"></script>
-    <script src="/sites.js"></script>
+    <!-- sites.js (3.4 MB) 已改为按需异步加载；仅 OWNER_MODE 且需要完整数据时才动态注入 -->
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
     <script src="/supabase-config.js"></script>
     <script src="/app.js"></script>

@@ -8,8 +8,593 @@
     "editorial",
     "dataviz"
   ],
-  "status": "pending",
+  "status": "completed",
   "added_at": "2026-06-02",
   "added_by": "expand-200",
-  "_meta": {}
+  "_meta": {
+    "vision_model": "mimo-v2.5",
+    "vision_prompt_version": "0.3",
+    "vision_source": "playwright-extract:pudding",
+    "vision_grounded": true,
+    "vision_at": "2026-06-04T18:06:48+00:00",
+    "vision_tokens": 16086,
+    "vision_cost_usd": 0.1787,
+    "translation_model": "mimo-v2.5",
+    "translation_at": "2026-06-04T18:08:07+00:00",
+    "translation_tokens": 17381,
+    "translation_cost_usd": 0.0578,
+    "narrative_model": "mimo-v2.5",
+    "narrative_prompt_version": "0.3",
+    "narrative_at": "2026-06-04T18:08:21+00:00",
+    "narrative_tokens": 2086,
+    "narrative_cost_usd": 0.0139,
+    "narrative_status": "ok",
+    "total_cost_usd": 0.2504
+  },
+  "spec": {
+    "colors": {
+      "bg": "#FFFFFF",
+      "bgSoft": "#F2F2F2",
+      "bgQuiet": null,
+      "ink": "#262626",
+      "inkSoft": "#6D6D6D",
+      "muted": "#6D6D6D",
+      "mutedSoft": null,
+      "accent": null,
+      "line": "rgba(38,38,38,0.15)"
+    },
+    "typography": {
+      "display": "slab-serif",
+      "body": "grotesque-sans",
+      "mono": "monospace",
+      "scale": [
+        {
+          "token": "display",
+          "size": 32,
+          "lh": 1.0,
+          "weight": 700,
+          "ls": "-0.8px"
+        },
+        {
+          "token": "body",
+          "size": 16,
+          "lh": 1.4,
+          "weight": 400,
+          "ls": "0px"
+        },
+        {
+          "token": "small",
+          "size": 14,
+          "lh": 1.4,
+          "weight": 400,
+          "ls": "0px"
+        }
+      ]
+    },
+    "spacing": {
+      "base": 4,
+      "scale": [
+        4,
+        8,
+        16,
+        24,
+        32,
+        48,
+        64,
+        96
+      ]
+    },
+    "surfaces": {
+      "radius": {
+        "sm": 2,
+        "md": 4,
+        "lg": 6,
+        "pill": 28
+      }
+    },
+    "layout": {
+      "container": 1280,
+      "paragraph": 680,
+      "columns": 12,
+      "gutter": 24,
+      "breakpoints": [
+        768,
+        1024
+      ]
+    },
+    "motion": {
+      "durations": {
+        "micro": 100,
+        "small": 250,
+        "medium": 400
+      },
+      "easing": "cubic-bezier(0.4, 0, 0.2, 1)"
+    }
+  },
+  "spec_i18n": {
+    "en": {
+      "identity": {
+        "keywords": [
+          "data storytelling",
+          "digital publication",
+          "interactive",
+          "bold",
+          "curated"
+        ],
+        "analogy": "A playful yet intellectually rigorous digital magazine for data-driven narratives.",
+        "oneLiner": "A digital publication that makes awesome stories with data."
+      },
+      "colors": {
+        "principle": "Monochromatic base with vibrant, illustrative card backgrounds."
+      },
+      "typography": {
+        "rules": [
+          "Use tight negative tracking (-0.8px) for large slab-serif display text.",
+          "Reserve monospace for technical data, dates, or issue numbers.",
+          "Uppercase navigation labels for clarity."
+        ],
+        "scaleUses": [
+          "Article titles and major headings.",
+          "Body text and descriptions.",
+          "Navigation and secondary labels."
+        ]
+      },
+      "spacing": {
+        "rhythm": "Consistent 4px base with generous vertical padding (32px) in cards."
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(0, 0, 0, 0.3) 0px 2px 1px 0px"
+        ],
+        "borders": "1px solid #262626"
+      },
+      "layout": {
+        "skeleton": "3-column grid of story cards, with a flexible top navigation."
+      },
+      "components": {
+        "button": "Pill-shaped with 1px solid black border and bold text.",
+        "card": "Image-forward with vibrant solid-color backgrounds and slab-serif titles.",
+        "chip": "Small pill-shaped tags or issue numbers with 1px borders.",
+        "input": "Rounded corners with a subtle drop shadow, placeholder 'Find a story...'.",
+        "hero": "Full-width introductory area with large stylized logo and tagline."
+      },
+      "motion": {
+        "patterns": [
+          "Subtle transform and opacity transitions on hover for cards and links."
+        ]
+      },
+      "interaction": {
+        "hover": "Subtle scale or opacity shift on card hover.",
+        "click": "Immediate visual feedback on interactive elements.",
+        "transition": "All transitions set to 0.25s for smooth state changes.",
+        "keyboard": "Standard tab focus for navigation and search."
+      },
+      "voice": {
+        "tone": "Playful, intelligent, and irreverent.",
+        "headlineStyle": "Bold slab-serif, often lowercase or mixed case, with tight tracking.",
+        "ctaStyle": "Hand-drawn or bubbly aesthetic, often outlined.",
+        "avoid": [
+          "Stiff corporate language",
+          "Serious or dry data presentation",
+          "Heavy gradients"
+        ]
+      },
+      "donts": [
+        "Don't use complex gradients — screenshot shows flat, vibrant solid-color backgrounds.",
+        "Don't use sans-serif for headlines — screenshot shows heavy slab-serif for titles.",
+        "Don't use thin, elegant fonts — screenshot shows bold, weighted type throughout.",
+        "Don't use rounded corners on cards — screenshot shows sharp or very small radii.",
+        "Don't hide data — screenshot shows explicit issue numbers and dates prominently.",
+        "Don't use a single accent color — screenshot shows a diverse, multi-colored card palette."
+      ],
+      "systemPrompt": "The Pudding is a playful yet intellectual digital publication for data-driven stories. Its identity centers on bold, expressive typography and vibrant, illustrative content. Key colors include a monochrome base of #262626 ink on #FFFFFF background, with cards featuring varied solid backgrounds like #BB80EF, #41B8BE, and #F0D0D3. Typography categories are slab-serif (display), grotesque-sans (body), and monospace (data/labels). Critical donts: avoid complex gradients, do not use sans-serif for headlines, and never hide key metadata like dates or issue numbers. The layout is a clean 12-column grid with generous whitespace and interactive cards that invite exploration."
+    },
+    "zh-CN": {
+      "identity": {
+        "keywords": [
+          "数据叙事",
+          "数字出版物",
+          "交互式",
+          "大胆",
+          "精选"
+        ],
+        "analogy": "一本趣味盎然却又思想严谨的数字杂志，专注于数据驱动的叙事。",
+        "oneLiner": "一份用数据讲述精彩故事的数字出版物。"
+      },
+      "colors": {
+        "principle": "单色系基底，搭配鲜活、插画风格的卡片背景。"
+      },
+      "typography": {
+        "rules": [
+          "大型粗衬线展示文本使用紧凑的负字距（-0.8px）。",
+          "等宽字体仅用于技术数据、日期或期刊编号。",
+          "导航标签使用大写字母以增强清晰度。"
+        ],
+        "scaleUses": [
+          "文章标题与主标题。",
+          "正文与描述文字。",
+          "导航与次级标签。"
+        ]
+      },
+      "spacing": {
+        "rhythm": "以4px为基础，保持一致节奏，卡片内采用充足的垂直内边距（32px）。"
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(0, 0, 0, 0.3) 0px 2px 1px 0px"
+        ],
+        "borders": "1px solid #262626"
+      },
+      "layout": {
+        "skeleton": "采用3列网格布局展示故事卡片，顶部设有灵活的导航栏。"
+      },
+      "components": {
+        "button": "胶囊形状，1px实线黑色边框与加粗文字。",
+        "card": "图像主导，采用鲜活纯色背景与粗衬线标题。",
+        "chip": "小型胶囊形标签或期刊编号，带有1px边框。",
+        "input": "圆角设计，带有微妙投影，占位符为‘查找故事...’。",
+        "hero": "全宽介绍区域，包含大型风格化标志与标语。"
+      },
+      "motion": {
+        "patterns": [
+          "卡片与链接在 hover 时采用微妙的 transform 与 opacity 过渡。"
+        ]
+      },
+      "interaction": {
+        "hover": "卡片在 hover 时产生微妙的缩放或透明度变化。",
+        "click": "交互元素提供即时视觉反馈。",
+        "transition": "所有过渡设置为0.25s，确保状态变化平滑。",
+        "keyboard": "导航与搜索遵循标准的 tab 焦点顺序。"
+      },
+      "voice": {
+        "tone": "趣味盎然、充满智慧且不拘一格。",
+        "headlineStyle": "大胆的粗衬线字体，常为小写或混合大小写，采用紧凑字距。",
+        "ctaStyle": "手绘或气泡美学风格，常为描边效果。",
+        "avoid": [
+          "生硬的企业语言",
+          "严肃或枯燥的数据呈现",
+          "厚重渐变"
+        ]
+      },
+      "donts": [
+        "避免使用复杂渐变——截图显示为平坦、鲜活的纯色背景。",
+        "避免标题使用无衬线字体——截图显示标题采用厚重的粗衬线字体。",
+        "避免使用纤细、优雅的字体——截图显示全文采用加粗、有字重的字体。",
+        "避免卡片使用圆角——截图显示卡片为尖角或极小半径。",
+        "避免隐藏数据——截图明确突出了期刊编号和日期等元数据。",
+        "避免使用单一强调色——截图显示了多样化、多色彩的卡片调色板。"
+      ],
+      "systemPrompt": "The Pudding 是一本趣味盎然却又思想严谨的数字出版物，专注于数据驱动的故事。其标识以大胆、富有表现力的排版和鲜活、插画风格的内容为核心。关键色彩包括 #262626 墨色于 #FFFFFF 背景上的单色基底，卡片采用如 #BB80EF、#41B8BE 和 #F0D0D3 等多样纯色背景。字体类别为粗衬线（展示）、无衬线（正文）和等宽（数据/标签）。关键禁忌：避免复杂渐变，标题不使用无衬线字体，切勿隐藏日期或期刊编号等关键元数据。布局采用清晰的12列网格，拥有充足留白和鼓励探索的交互式卡片。"
+    },
+    "zh-TW": {
+      "identity": {
+        "keywords": [
+          "數據敘事",
+          "數位出版",
+          "互動式",
+          "大膽",
+          "精選策展"
+        ],
+        "analogy": "一本趣味盎然且具智識嚴謹性的數據驅動敘事數位雜誌。",
+        "oneLiner": "一個運用數據創造精彩故事的數位出版品。"
+      },
+      "colors": {
+        "principle": "單色基底搭配鮮豔、具插畫感的卡片背景。"
+      },
+      "typography": {
+        "rules": [
+          "大型粗襯線展示文字使用緊湊的負向字距調整（-0.8px）。",
+          "等寬字體保留用於技術數據、日期或期號。",
+          "導航標籤使用大寫字母以提升清晰度。"
+        ],
+        "scaleUses": [
+          "文章標題與主要標題。",
+          "內文與說明文字。",
+          "導航與次要標籤。"
+        ]
+      },
+      "spacing": {
+        "rhythm": "以 4px 為一致的基準間距，卡片內使用寬裕的垂直內距（32px）。"
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(0, 0, 0, 0.3) 0px 2px 1px 0px"
+        ],
+        "borders": "1px solid #262626"
+      },
+      "layout": {
+        "skeleton": "3 欄的故事卡片格線，搭配靈活的頂部導航。"
+      },
+      "components": {
+        "button": "膠囊形狀，帶有 1px 實心黑色邊框與粗體文字。",
+        "card": "影像優先，搭配鮮豔的純色背景與粗襯線標題。",
+        "chip": "小型膠囊形標籤或期號，帶有 1px 邊框。",
+        "input": "圓角設計，帶有細微的陰影，佔位符文字為「尋找故事...」。",
+        "hero": "全寬的介紹區域，包含大型風格化標誌與標語。"
+      },
+      "motion": {
+        "patterns": [
+          "卡片與連結在 hover 時帶有細微的變形與透明度轉場。"
+        ]
+      },
+      "interaction": {
+        "hover": "卡片在 hover 時有細微的縮放或透明度變化。",
+        "click": "互動元素提供即時的視覺回饋。",
+        "transition": "所有轉場均設為 0.25 秒，確保狀態變換流暢。",
+        "keyboard": "導航與搜尋採用標準的 tab 鍵焦點。"
+      },
+      "voice": {
+        "tone": "趣味、聰慧且不拘一格。",
+        "headlineStyle": "粗體粗襯線字體，多為小寫或大小寫混合，帶有緊湊字距。",
+        "ctaStyle": "手繪或圓潤的美學風格，常為空心設計。",
+        "avoid": [
+          "生硬的企業語言",
+          "嚴肅或枯燥的數據呈現",
+          "厚重的漸層效果"
+        ]
+      },
+      "donts": [
+        "避免使用複雜的漸層——截圖顯示為平坦、鮮豔的純色背景。",
+        "標題勿使用無襯線體——截圖顯示標題使用厚重的粗襯線體。",
+        "避免使用纖細、優雅的字體——截圖顯示整體使用粗體、有份量的字型。",
+        "卡片勿使用圓角——截圖顯示為銳利或非常小的圓角半徑。",
+        "勿隱藏數據——截圖顯示明確的期號與日期被顯著標示。",
+        "避免使用單一強調色——截圖顯示多樣、多彩的卡片調色盤。"
+      ],
+      "systemPrompt": "The Pudding 是一本趣味盎然且具智識深度的數據驅動故事數位出版品。其識別核心在於大膽、具表現力的字型排印與鮮豔、插畫風格的內容。關鍵色彩包括 #262626 墨色基底搭配 #FFFFFF 背景，卡片則採用如 #BB80EF、#41B8BE 和 #F0D0D3 等多樣純色背景。字型類別包括粗襯線（展示用）、無襯線（內文用）與等寬字體（數據/標籤用）。重要禁忌：避免複雜漸層、標題勿用無襯線體、切勿隱藏如日期或期號等關鍵元數據。佈局採用簡潔的 12 欄格線系統，搭配寬裕的留白與邀請探索的互動卡片。"
+    },
+    "ja": {
+      "identity": {
+        "keywords": [
+          "データストーリーテリング",
+          "デジタル出版",
+          "インタラクティブ",
+          "大胆",
+          "キュレーション"
+        ],
+        "analogy": "データドリブンなナラティブのための、遊び心がありながらも知的に厳密なデジタルマガジン。",
+        "oneLiner": "データで素晴らしいストーリーを生み出すデジタル出版物。"
+      },
+      "colors": {
+        "principle": "モノクロームのベースに、鮮やかなイラスト風カード背景。"
+      },
+      "typography": {
+        "rules": [
+          "大きなスラブセリフディスプレイテキストには、タイトなネガティブトラッキング（-0.8px）を使用。",
+          "技術データ、日付、号数にはモノスペースを限定。",
+          "ナビゲーションラベルは明確さのため大文字表記。"
+        ],
+        "scaleUses": [
+          "記事タイトルと主要見出し。",
+          "本文テキストと説明文。",
+          "ナビゲーションとセカンダリーラベル。"
+        ]
+      },
+      "spacing": {
+        "rhythm": "一貫した4pxをベースとし、カード内には手の届く縦方向のパディング（32px）を設定。"
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(0, 0, 0, 0.3) 0px 2px 1px 0px"
+        ],
+        "borders": "1px solid #262626"
+      },
+      "layout": {
+        "skeleton": "フレキシブルなトップナビゲーションを持つ、3カラムのストーリーカードグリッド。"
+      },
+      "components": {
+        "button": "1pxの黒いボーダーを持つピル型で、太字テキスト。",
+        "card": "鮮やかな単色背景とスラブセリフタイトルを持つ、画像フォワードなデザイン。",
+        "chip": "1pxのボーダーを持つ、小さなピル型タグまたは号数。",
+        "input": "角丸にし微細なドロップシャドウをかけ、プレースホルダーに「Find a story...」。",
+        "hero": "大きなスタイリッシュなロゴとタグラインを含む、フルワイドの導入エリア。"
+      },
+      "motion": {
+        "patterns": [
+          "カードやリンクのホバー時、微細なtransformとopacityのトランジション。"
+        ]
+      },
+      "interaction": {
+        "hover": "カードホバー時に微細なスケールまたはopacityの変化。",
+        "click": "インタラクティブ要素への即座の視覚的フィードバック。",
+        "transition": "すべてのトランジションを0.25sに設定し、滑らかな状態変化を実現。",
+        "keyboard": "ナビゲーションと検索には標準的なタブフォーカス。"
+      },
+      "voice": {
+        "tone": "遊び心があり、知的で、気取らない。",
+        "headlineStyle": "大胆なスラブセリフ、小文字や混合ケースで、タイトなトラッキング。",
+        "ctaStyle": "手描きまたはバブル感のある美学で、しばしばアウトライン使用。",
+        "avoid": [
+          "硬い企業言語",
+          "シリアスまたは堅苦しいデータ提示",
+          "重いグラデーション"
+        ]
+      },
+      "donts": [
+        "複雑なグラデーションは使用しない — スクリーンショットはフラットで鮮やかな単色背景を示しています。",
+        "見出しにサンセリフを使用しない — スクリーンショットはタイトルに太いスラブセリフを使用しています。",
+        "細くエレガントなフォントは使用しない — スクリーンショット全体に太くウェイトのあるタイポグラフィが使用されています。",
+        "カードに角丸は使用しない — スクリーンショットはシャープまたは非常に小さな角を示しています。",
+        "データを隠さない — スクリーンショットは日付や号数などの主要メタデータを明確に表示しています。",
+        "単一のアクセントカラーは使用しない — スクリーンショットは多様でカラフルなカードパレットを示しています。"
+      ],
+      "systemPrompt": "The Puddingは、データドリブンなストーリーのための遊び心がありながらも知的なデジタル出版物です。そのアイデンティティは、大胆で表現力豊かなタイポグラフィと、鮮やかでイラスト風のコンテンツを中心に構成されています。主なカラーは、#FFFFFF背景に#262626のインクというモノクロームベースで、カードには#BB80EF、#41B8BE、#F0D0D3などのさまざまな単色背景が使用されています。タイポグラフィカテゴリは、スラブセリフ（ディスプレイ用）、グロテスクサンセリフ（本文用）、モノスペース（データ・ラベル用）です。重要な禁止事項：複雑なグラデーションは避けること、見出しにサンセリフを使用しないこと、日付や号数などの主要なメタデータを決して隠さないこと。レイアウトは、たっぷりのホワイトスペースと探索を促すインタラクティブカードを持つ、クリーンな12カラムグリッドです。"
+    },
+    "ko": {
+      "identity": {
+        "keywords": [
+          "데이터 스토리텔링",
+          "디지털 출판",
+          "인터랙티브",
+          "대담한",
+          "큐레이션된"
+        ],
+        "analogy": "데이터 기반 내러티브를 위한 장난기 있으면서도 지적으로 엄밀한 디지털 매거진입니다.",
+        "oneLiner": "데이터로 멋진 이야기를 만드는 디지털 출판물입니다."
+      },
+      "colors": {
+        "principle": "밝고 선명한 일러스트레이션적 카드 배경을 가진 모노크롬 기반입니다."
+      },
+      "typography": {
+        "rules": [
+          "대형 슬래브 세리프 디스플레이 텍스트에는 타이트한 네거티브 트래킹(-0.8px)을 사용합니다.",
+          "기술 데이터, 날짜, 또는 호 번호에는 모노스페이스를 전용으로 사용합니다.",
+          "명확성을 위해 내비게이션 레이블은 대문자로 표시합니다."
+        ],
+        "scaleUses": [
+          "기사 제목 및 주요 제목.",
+          "본문 텍스트 및 설명.",
+          "내비게이션 및 보조 레이블."
+        ]
+      },
+      "spacing": {
+        "rhythm": "일관된 4px 기반에 카드 내 넉넉한 수직 패딩(32px)을 적용합니다."
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(0, 0, 0, 0.3) 0px 2px 1px 0px"
+        ],
+        "borders": "1px solid #262626"
+      },
+      "layout": {
+        "skeleton": "유연한 상단 내비게이션을 갖춘 스토리 카드의 3열 그리드입니다."
+      },
+      "components": {
+        "button": "1px solid 검정 테두리와 굵은 텍스트를 가진 알약 모양입니다.",
+        "card": "밝고 선명한 단색 배경과 슬래브 세리프 제목을 가진 이미지 중심 카드입니다.",
+        "chip": "1px 테두리를 가진 작은 알약 모양 태그 또는 호 번호입니다.",
+        "input": "미묘한 drop shadow가 있는 둥근 모서리와 플레이스홀더 'Find a story...'입니다.",
+        "hero": "대형 스타일화된 로고와 태그라인을 가진 전체 폭의 소개 영역입니다."
+      },
+      "motion": {
+        "patterns": [
+          "카드 및 링크에 대한 hover 시 미묘한 transform 및 opacity 전환 효과입니다."
+        ]
+      },
+      "interaction": {
+        "hover": "카드 hover 시 미묘한 크기 또는 opacity 변화입니다.",
+        "click": "인터랙티브 요소에 대한 즉각적인 시각적 피드백입니다.",
+        "transition": "모든 전환은 부드러운 상태 변화를 위해 0.25s로 설정됩니다.",
+        "keyboard": "내비게이션 및 검색을 위한 표준 탭 포커스입니다."
+      },
+      "voice": {
+        "tone": "장난기 있고, 지능적이며, 격식 없는 말투입니다.",
+        "headlineStyle": "대담한 슬래브 세리프, 종종 소문자 또는 혼합 대소문자, 타이트한 트래킹.",
+        "ctaStyle": "수제 또는 통통한 미적 감각, 종종 아웃라인 처리.",
+        "avoid": [
+          "딱딱한 기업 언어",
+          "진지하거나 건조한 데이터 표현",
+          "무거운 그라데이션"
+        ]
+      },
+      "donts": [
+        "복잡한 그라데이션을 사용하지 마세요 — 스크린샷은 플랫하고 밝은 단색 카드 배경을 보여줍니다.",
+        "제목에 산세리프를 사용하지 마세요 — 스크린샷은 제목에 무거운 슬래브 세리프를 보여줍니다.",
+        "얇고 우아한 폰트를 사용하지 마세요 — 스크린샷은 전체적으로 굵은 무게감 있는 타이포그래피를 보여줍니다.",
+        "카드에 둥근 모서리를 사용하지 마세요 — 스크린샷은 날카롭거나 매우 작은 반경을 보여줍니다.",
+        "데이터를 숨기지 마세요 — 스크린샷은 명확한 호 번호와 날짜를 두드러지게 보여줍니다.",
+        "단일 악센트 컬러를 사용하지 마세요 — 스크린샷은 다양하고 다채로운 카드 팔레트를 보여줍니다."
+      ],
+      "systemPrompt": "The Pudding은 데이터 기반 스토리를 위한 장난기 있으면서도 지적인 디지털 출판물입니다. 그 정체성은 대담하고 표현력 있는 타이포그래피와 밝고 일러스트레이션적인 콘텐츠에 중점을 둡니다. 주요 색상에는 #FFFFFF 배경에 #262626 잉크의 모노크롬 기반, 그리고 #BB80EF, #41B8BE, #F0D0D3와 같은 다양한 단색 배경을 가진 카드가 포함됩니다. 타이포그래피 카테고리는 슬래브 세리프(디스플레이), 기로스크-산스(본문), 모노스페이스(데이터/레이블)입니다. 핵심 주의사항: 복잡한 그라데이션을 피하고, 제목에 산세리프를 사용하지 않으며, 날짜나 호 번호와 같은 주요 메타데이터를 절대 숨기지 않습니다. 레이스아웃은 넉넉한 여백과 탐험을 유도하는 인터랙티브 카드를 갖춘 깔끔한 12열 그리드입니다."
+    }
+  },
+  "desc": {
+    "en": {
+      "palette": "A monochromatic base (#262626 on #FFFFFF) punctuated by vibrant, solid-color card backgrounds.",
+      "layout": "A clean 12-column grid that prioritizes large, image-driven cards for each data story.",
+      "interaction": "Subtle hover effects on interactive elements, with a focus on clarity and easy navigation.",
+      "motion": "Smooth, short-duration transitions (0.25s) for a polished, responsive feel.",
+      "notes": "This site is a premier example of how to blend editorial rigor with playful, accessible data visualization."
+    },
+    "zh-CN": {
+      "palette": "以单色系（#262626 于 #FFFFFF 之上）为基底，点缀以鲜活、纯色的卡片背景。",
+      "layout": "采用清晰的12列网格，优先展示以图像为驱动的大型卡片，呈现每个数据故事。",
+      "interaction": "交互元素上采用微妙的 hover 效果，专注于清晰度与便捷导航。",
+      "motion": "平滑、短时长的过渡（0.25s），营造精致、响应迅速的体验。",
+      "notes": "本站是融合编辑严谨性与趣味、易访问数据可视化的典范。"
+    },
+    "zh-TW": {
+      "palette": "單色基底（#262626 搭配 #FFFFFF）搭配鮮豔、純色的卡片背景作為點綴。",
+      "layout": "簡潔的 12 欄格線系統，優先呈現以大型影像驅動的資料故事卡片。",
+      "interaction": "互動元素帶有細膩的 hover 效果，強調清晰度與易於導航。",
+      "motion": "流暢、短時長（0.25 秒）的轉場動畫，營造精緻且靈敏的體驗。",
+      "notes": "此網站是展現如何將編輯嚴謹性與趣味、易於存取的數據視覺化結合的卓越範例。"
+    },
+    "ja": {
+      "palette": "モノクロームのベース（#262626 on #FFFFFF）に、鮮やかな単色カード背景を配した構成。",
+      "layout": "データストーリーごとに、大きな画像を前面に出したカードを優先する、クリーンな12カラムグリッド。",
+      "interaction": "インタラクティブ要素には微細なホバーエフェクトを適用し、明瞭さと簡単なナビゲーションを重視。",
+      "motion": "滑らかで短い持続時間のトランジション（0.25s）により、洗練され応答性の高い印象を実現。",
+      "notes": "このサイトは、エディトリアルの厳格さと遊び心あるアクセシブルなデータビジュアライゼーションの融合における、一流の例です。"
+    },
+    "ko": {
+      "palette": "모노크롬 기반(#FFFFFF 배경에 #262626)에 밝고 선명한 단색 카드 배경을 포인트로 사용합니다.",
+      "layout": "각 데이터 스토리를 위한 대형 이미지 중심 카드를 우선으로 하는 깔끔한 12열 그리드입니다.",
+      "interaction": "명확성과 쉬운 탐색에 중점을 둔, 인터랙티브 요소의 섬세한 hover 효과입니다.",
+      "motion": "세련되고 반응감 있는 느낌을 위한 부드럽고 짧은 시간(0.25s)의 전환 효과입니다.",
+      "notes": "이 사이트는 편집적 엄밀함과 재치 있고 접근 가능한 데이터 시각화를 어떻게 결합하는지 보여주는 최고의 예시입니다."
+    }
+  },
+  "narrative": {
+    "en": {
+      "ch1_intro": "The Pudding operates as a digital publication for data-driven narratives, balancing intellectual rigor with a playful, curated sensibility. Its design system is built to support bold storytelling, where vibrant color and expressive typography serve as the primary instruments of engagement. The result is a publication that feels both substantial and inviting, like a well-organized exhibition of interactive ideas.",
+      "ch2_intro": "The color system establishes a monochromatic foundation of deep ink (#262626) against a clean white canvas, creating a high-contrast stage. This neutral base is then punctuated by a diverse palette of vibrant, solid-color backgrounds for story cards, ensuring each piece of content has its own distinct visual territory.",
+      "ch2_outro": "The core principle is functional contrast: the monochrome base ensures readability and hierarchy, while the vibrant card colors provide personality and visual differentiation for the content itself.",
+      "ch3_intro": "The typographic voice is defined by a confident slab-serif for display, a neutral grotesque-sans for body copy, and a utilitarian monospace for technical data. This categorical separation creates clear visual lanes, where the headline type can be bold and expressive while the reading text remains quietly supportive.",
+      "ch4_intro": "Spatial rhythm is governed by a consistent 4px base unit, applied with generous vertical padding in key containers like cards to let content breathe.",
+      "ch5_intro": "Depth is articulated through minimal, precise shadows and crisp 1px borders, defining surface elevation without visual weight. The system favors sharp corners over rounded forms, maintaining a clean, editorial edge to its components.",
+      "ch6_intro": "The layout is structured around a flexible 3-column grid for story cards, creating a rhythmic, scrollable gallery of content. Above this grid, a top navigation provides clear orientation, all built upon a foundational 12-column system that ensures consistent alignment and proportional whitespace.",
+      "ch7_intro": "Interaction is refined through subtle, immediate feedback. Short-duration transitions of 0.25s govern state changes, applying smooth opacity and transform shifts on hover to guide focus without disrupting the reading flow.",
+      "ch8_intro": "The editorial voice is playful, intelligent, and deliberately irreverent, matched by headline typography that often favors bold, lowercase slab-serif. The system explicitly avoids stiff corporate language and overly serious data presentation, opting instead for a tone that is accessible and engaging.",
+      "ch8_outro": "Crucially, the system delimits its aesthetic by avoiding complex gradients, rounded card corners, and thin, elegant typefaces—choices that would dilute its signature blend of bold clarity and playful rigor."
+    },
+    "zh-CN": {
+      "ch1_intro": "The Pudding 作为一家以数据驱动叙事为核心的数字出版物，在学术严谨性与俏皮、策展感之间取得了平衡。其设计系统旨在支撑大胆的叙事表达，其中鲜明的色彩与富有表现力的排版成为吸引读者的主要工具。最终呈现的出版物既充实又引人入胜，宛如一场精心策划的互动理念展览。",
+      "ch2_intro": "色彩系统以深邃墨色 (#262626) 构成单色基调，搭配纯净的白色画布，营造出高对比度的舞台感。这一中性基底随后被故事卡片所采用的多样化、纯色鲜艳背景所点缀，确保每篇内容都拥有独特的视觉领地。",
+      "ch2_outro": "其核心原则是功能性对比：单色基底确保了可读性与层次感，而鲜艳的卡片色彩则为内容本身赋予了个性与视觉区分度。",
+      "ch3_intro": "排版风格由用于标题的自信粗衬线字体、用于正文的中性无衬线字体，以及用于技术数据的实用等宽字体共同界定。这种明确的分类创造了清晰的视觉通道，使得标题字体可以大胆而富有表现力，同时阅读文本则保持低调的辅助性。",
+      "ch4_intro": "空间节奏由统一的 4px 基准单元控制，并在卡片等关键容器中应用宽松的垂直内边距，让内容得以呼吸。",
+      "ch5_intro": "纵深感通过极简、精确的阴影与清晰的 1px 边框来体现，在不增加视觉重量的情况下定义表面层级。该系统偏爱直角而非圆角，使其组件保持干净、利落的编辑质感。",
+      "ch6_intro": "布局围绕灵活的三列网格构建故事卡片，形成有节奏、可滚动的内容画廊。在此网格上方，顶部导航提供了清晰的导向。所有设计都建立在基础的 12 列系统之上，确保了统一的对齐与比例恰当的留白。",
+      "ch7_intro": "交互通过细微、即时的反馈得以优化。0.25 秒的短时过渡控制着状态变化，在悬停时应用平滑的透明度与位移变换，以引导焦点而不打断阅读流程。",
+      "ch8_intro": "编辑语调俏皮、睿智且刻意带点不羁，与之匹配的是标题排版常选用加粗、小写的粗衬线字体。该系统明确避免僵化的公司化语言与过于严肃的数据呈现，转而选择一种易于理解且引人入胜的基调。",
+      "ch8_outro": "至关重要的是，该系统通过规避复杂的渐变、圆角卡片以及纤细优雅的字体来界定其美学边界——这些选择会削弱其标志性的大胆清晰与俏皮严谨的融合。"
+    },
+    "zh-TW": {
+      "ch1_intro": "The Pudding 是一個以數據驅動敘事的數位出版物，在知性嚴謹與趣味策展之間取得平衡。其設計系統旨在支持大膽的敘事，鮮明的色彩與富有表現力的字體成為吸引讀者的主要工具。最終呈現的出版物既具份量又引人入勝，宛如一場精心策劃的互動創意展覽。",
+      "ch2_intro": "色彩系統以深墨色（#262626）搭配純白背景，建立單色調基礎，創造高對比的舞台。這個中性基底再以多樣、鮮明的純色背景點綴於故事卡片上，確保每篇內容都擁有獨特的視覺領域。",
+      "ch2_outro": "核心原則在於功能性對比：單色基底確保可讀性與層次感，而鮮明的卡片色彩則賦予內容個性與視覺區分。",
+      "ch3_intro": "字體語調由自信的 slab-serif 用於標題、中性的 grotesque-sans 用於內文，以及實用的 monospace 用於技術數據所定義。這種分類創造出清晰的視覺通道，讓標題字體可以大膽而富有表現力，而閱讀文字則保持安靜的支持性。",
+      "ch4_intro": "空間節奏由一致的 4px 基礎單位掌控，並在關鍵容器（如卡片）中應用寬裕的垂直 padding，讓內容得以呼吸。",
+      "ch5_intro": "深度透過極簡、精準的陰影與清晰的 1px 邊框來表達，定義表面層次而不增加視覺重量。系統偏好銳利的邊角而非圓角形式，保持其組件的整潔、編輯風格。",
+      "ch6_intro": "版面結構圍繞靈活的 3 欄網格用於故事卡片，創造出節奏分明、可滾動的內容廊道。網格上方設有頂部導航，提供清晰的定位方向，所有這些都建立在基礎的 12 欄系統之上，確保一致的對齊與比例留白。",
+      "ch7_intro": "互動透過細微、即時的反饋進行優化。0.25 秒的短暫 transition 控制狀態變化，並在 hover 時套用平滑的 opacity 與 transform 變化，引導焦點而不打斷閱讀流程。",
+      "ch8_intro": "編輯語調是有趣、聰慧且刻意不羈的，與經常使用粗體、小寫 slab-serif 的標題字體相得益彰。系統明確避免僵硬的企業語言與過於嚴肅的數據呈現，選擇以平易近人且引人入勝的語氣進行表達。",
+      "8_outro": "關鍵在於，系統透過避免複雜漸層、圓角卡片與細瘦優雅的字體來界定其美學——這些選擇會削弱其標誌性的大膽清晰與趣味嚴謹之融合。"
+    },
+    "ja": {
+      "ch1_intro": "The Puddingは、データ駆動型の物語を扱うデジタル出版物として機能しています。知的な厳密さと、遊び心あるキュレーション感覚のバランスを保っています。そのデザインシステムは、大胆なストーリーテリングを支えるために構築されており、鮮やかな色と表現豊かなタイポグラフィが主要なエンゲージメントの手段として機能します。その結果、実質的でありながらも親しみやすい、まるでインタラクティブなアイデアの整然とした展覧会のような出版物が生まれています。",
+      "ch2_intro": "カラーシステムは、深いインク（#262626）をモノクロームの基盤とし、清潔な白のキャンバスとの間にハイコントラストのステージを確立します。このニュートラルなベースに、ストーリーカード用の多様で鮮やかなソリッドカラーのパレットを配置することで、各コンテンツが独自の視覚領域を持つことを保証します。",
+      "ch2_outro": "中心原則は機能的なコントラストです。モノクロームのベースが可読性と階層性を確保し、鮮やかなカードカラーがコンテンツそのものに個性と視覚的な区別を提供します。",
+      "ch3_intro": "タイポグラフィの声は、ディスプレイ用の自信に満ちたスラブセリフ、本文用の中立的なグロテスク・サンス、技術データ用の実用的なモノスペースで定義されます。この类别の分離は明確な視覚的なレーンを生み出し、見出しのフォントは大胆で表現力豊かでありながら、本文テキストは静かに支える役割を保ちます。",
+      "ch4_intro": "空間のリズムは、一貫した4pxのベースユニットによって支配されます。カードなどの主要コンテナには、コンテンツが息を吹き込めるように、十分な垂直方向のパディングが適用されます。",
+      "ch5_intro": "奥行きは、最小限で正確なシャドウと鮮明な1pxのボーダーによって表現され、視覚的な重さを持たずに表面の高さを定義します。このシステムは丸みを帯びた形よりもシャープな角を好んで使用し、コンポーネントに清潔なエディトリアルなエッジを維持します。",
+      "ch6_intro": "レイアウトは、ストーリーカード用の柔軟な3カラムグリッドを中心に構成され、リズミカルでスクロール可能なコンテンツギャラリーを生み出します。このグリッドの上には、明確な方向性を提供するトップナビゲーションが配置され、一貫した配置とプロポーショナルなホワイトスペースを保証する基盤となる12カラムシステムの上に構築されています。",
+      "ch7_intro": "インタラクションは、微妙で即座のフィードバックを通じて洗練されています。0.25秒の短い期間のトランジションが状態変化を支配し、ホバー時にスムーズな不透明度とトランスフォームの変化を適用することで、リーディングフローを乱すことなくフォーカスを誘導します。",
+      "ch8_intro": "エディトリアルな声は遊び心があり、知的で、意図的に無粋です。見出しのタイポグラフィは、しばしば大胆で小文字のスラブセリフを採用しています。このシステムは明確に、堅苦しい企業語や厳しすぎるデータ提示を避け、代わりにアクセシブルで引き込まれるトーンを選びます。",
+      "8_outro": "極めて重要なことに、このシステムは、複雑なグラデーション、丸みのあるカードの角、細くエレガントなタイポグラフィを避けることで、独自の美的境界を画しています。これらは、大胆な明瞭さと遊び心ある厳密さという独自の調和を希薄にする可能性があったからです。"
+    },
+    "ko": {
+      "ch1_intro": "더 푸딩은 데이터 기반 내러티브를 위한 디지털 매체로 운영되며, 지적 엄밀함과 재치 있는 큐레이션 감각을 균형 있게 조화시킵니다. 그 디자인 시스템은 대담한 스토리텔링을 지원하도록 구축되었으며, 선명한 색상과 표현력 있는 타이포그래피가 주된 참여 도구로 활용됩니다. 그 결과, 상호작용하는 아이디어의 잘 정리된 전시처럼 느껴지는, 무게감 있으면서도 친근한 매체가 탄생했습니다.",
+      "ch2_intro": "색상 시스템은 깊은 잉크(#262626)를 바탕으로 한 단색 기반과 깨끗한 흰색 캔버스를 설정하여 고대비 무대를 만듭니다. 이 중립적인 기반 위에 스토리 카드용으로 다양한 밝은 단색 배경 팔레트를 적용하여, 각 콘텐츠 조각이 고유한 시각적 영역을 갖도록 보장합니다.",
+      "ch2_outro": "핵심 원칙은 기능적 대비입니다: 단색 기반은 가독성과 계층 구조를 보장하고, 선명한 카드 색상은 콘텐츠 자체에 개성과 시각적 차별화를 제공합니다.",
+      "ch3_intro": "타이포그래피의 목소리는 디스플레이를 위한 자신감 있는 슬라브 세리프, 본문을 위한 중립적 고트로스크-산스, 기술 데이터를 위한 실용적 모노스페이스로 정의됩니다. 이 카테고리별 분리는 명확한 시각적 차선을 만들어, 헤드라인 타입은 대담하고 표현력 있게, 읽기 텍스트는 조용히 지지적인 역할을 수행합니다.",
+      "ch4_intro": "공간 리듬은 일관된 4px 기본 단위로 제어되며, 카드와 같은 핵심 컨테이너에 넉넉한 수직 패딩을 적용하여 콘텐츠가 숨 쉴 수 있도록 합니다.",
+      "ch5_intro": "깊이는 최소한으로 정확한 그림자와 선명한 1px 테두리를 통해 나타나며, 시각적 무게 없이 표면의 높낮이를 정의합니다. 이 시스템은 둥근 모양보다 날카로운 모서리를 선호하여, 구성 요소에 깔끔하고 편집적인 가장자리를 유지합니다.",
+      "ch6_intro": "레이아웃은 스토리 카드를 위한 유연한 3열 그리드를 중심으로 구조화되어, 리듬감 있고 스크롤 가능한 콘텐츠 갤러리를 만듭니다. 이 그리드 상단에는 명확한 방향을 제공하는 상단 내비게이션이 있으며, 모든 것은 일관된 정렬과 비례적 여백을 보장하는 기본 12열 시스템 위에 구축됩니다.",
+      "ch7_intro": "상호작용은 미묘하고 즉각적인 피드백을 통해 세련되게 처리됩니다. 0.25초의 짧은 시간 전환이 상태 변화를 제어하며, 읽기 흐름을 방해하지 않으면서 포커스를 유도하기 위해 hover 시 부드러운 불투명도와 변환 이동을 적용합니다.",
+      "ch8_intro": "편집 목소리는 장난스럽고 지적이며 의도적으로 경쾌하며, 이는 종종 대담하고 소문자 슬라브 세리프를 선호하는 헤드라인 타이포그래피와 맞닿아 있습니다. 이 시스템은 딱딱한 기업용 언어와 지나치게 진지한 데이터 표현을 명백히 피하고, 대신 접근 가능하고 매력적인 어조를 선택합니다.",
+      "ch8_outro": "무엇보다 중요한 것은, 이 시스템이 복잡한 그래디언트, 둥근 카드 모서리, 가늘고 우아한 서체를 피함으로써 그 미학의 경계를 설정한다는 점입니다—이러한 선택들은 대담한 명료함과 재치 있는 엄밀함의 독특한 조합을 희석시킬 수 있기 때문입니다."
+    }
+  }
 }

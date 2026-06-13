@@ -8,6 +8,587 @@
     "ai",
     "infra"
   ],
-  "status": "pending",
-  "added_at": "2026-06-03"
+  "status": "completed",
+  "added_at": "2026-06-03",
+  "spec": {
+    "colors": {
+      "bg": "#FFFFFF",
+      "bgSoft": null,
+      "bgQuiet": "#F5F8F4",
+      "ink": "#000000",
+      "inkSoft": null,
+      "muted": "#B3B3B3",
+      "mutedSoft": null,
+      "accent": "#19E76E",
+      "line": "rgba(0,0,0,0.05)"
+    },
+    "typography": {
+      "display": "grotesque-sans",
+      "body": "ui-sans-serif",
+      "mono": "monospace",
+      "scale": [
+        {
+          "token": "display",
+          "size": 64,
+          "lh": 1.0,
+          "weight": 400,
+          "ls": "-1.92px"
+        },
+        {
+          "token": "body",
+          "size": 16,
+          "lh": 1.5,
+          "weight": 400,
+          "ls": "-0.28px"
+        },
+        {
+          "token": "mono",
+          "size": 14,
+          "lh": 1.28,
+          "weight": 400,
+          "ls": "normal"
+        }
+      ]
+    },
+    "spacing": {
+      "base": 4,
+      "scale": [
+        4,
+        8,
+        16,
+        24,
+        32,
+        48,
+        64,
+        96
+      ]
+    },
+    "surfaces": {
+      "radius": {
+        "sm": 4,
+        "md": 8,
+        "lg": 12,
+        "pill": 9999
+      }
+    },
+    "layout": {
+      "container": 1280,
+      "paragraph": 680,
+      "columns": 12,
+      "gutter": 24,
+      "breakpoints": [
+        768,
+        1024
+      ]
+    },
+    "motion": {
+      "durations": {
+        "micro": 75,
+        "small": 236,
+        "medium": 500
+      },
+      "easing": "cubic-bezier(0.4, 0, 0.2, 1)"
+    }
+  },
+  "spec_i18n": {
+    "en": {
+      "identity": {
+        "keywords": [
+          "inference",
+          "developer",
+          "cloud",
+          "runtime",
+          "scale"
+        ],
+        "analogy": "A technical blueprint for cloud-native model inference",
+        "oneLiner": "A developer-first infrastructure platform for deploying and scaling AI models with clean, authoritative typography."
+      },
+      "colors": {
+        "principle": "High-contrast monochrome base with a single vibrant green accent for high-chroma highlights."
+      },
+      "typography": {
+        "rules": [
+          "Headlines use tight negative letter-spacing for impact",
+          "Buttons and navigation use monospace uppercase for technical feel",
+          "Body text remains highly readable with standard line heights"
+        ],
+        "scaleUses": [
+          "Hero headline",
+          "Body text",
+          "Buttons and labels"
+        ]
+      },
+      "spacing": {
+        "rhythm": "4px base with consistent multiples for padding and gaps"
+      },
+      "surfaces": {
+        "shadows": [],
+        "borders": "Subtle 1px borders in rgba(0,0,0,0.05) for dividers and dashed lines for structural grids."
+      },
+      "layout": {
+        "skeleton": "Strict 12-column grid with visible dashed lines in some sections to emphasize the underlying structure."
+      },
+      "components": {
+        "button": "Monospace uppercase text, pill-shaped or sharp borders, high contrast black or white fills.",
+        "card": "Minimal or invisible, relying on the underlying grid lines for structure.",
+        "chip": "Pill-shaped accent containers with monospace text.",
+        "input": "Standard form fields with subtle borders.",
+        "hero": "Split layout with large bold typography on the left and technical illustrations on the right."
+      },
+      "motion": {
+        "patterns": [
+          "Smooth color and background transitions on interactive elements",
+          "Fade transitions for content loading"
+        ]
+      },
+      "interaction": {
+        "hover": "Subtle color shifts or background changes with fast easing.",
+        "click": "Immediate visual feedback.",
+        "transition": "Consistent 0.075s transitions across color, background, and border properties.",
+        "keyboard": "Standard focus states with visible outlines."
+      },
+      "voice": {
+        "tone": "Authoritative, technical, and direct.",
+        "headlineStyle": "Bold, declarative statements with tight tracking.",
+        "ctaStyle": "Action-oriented, uppercase monospace buttons with clear directional arrows.",
+        "avoid": [
+          "Playful language",
+          "Excessive exclamation marks",
+          "Vague marketing speak"
+        ]
+      },
+      "donts": [
+        "Don't use decorative serif fonts — screenshot shows clean grotesque sans-serif headlines and monospace labels.",
+        "Don't use rounded, soft UI patterns — screenshot shows sharp edges, pill buttons, and geometric diagrams.",
+        "Don't use heavy drop shadows — screenshot shows completely flat, borderless or subtly bordered surfaces.",
+        "Don't use a multi-colored rainbow palette — screenshot shows a strict black/white/green scheme.",
+        "Don't use casual sentence case for UI elements — screenshot shows uppercase monospace for buttons and labels.",
+        "Don't hide the grid structure — screenshot uses visible dashed lines to emphasize the technical layout."
+      ],
+      "systemPrompt": "Baseten is a developer infrastructure platform for AI model inference, characterized by a clean, technical aesthetic that emphasizes precision and scale. The visual system uses a high-contrast black and white palette, punctuated by a single vibrant green accent (#19E76E) for highlights. Typography relies on a bold grotesque-sans for impactful headlines and monospace fonts for technical labels and buttons. The layout is a strict 12-column grid, often exposed via visible dashed lines to reinforce the engineering-focused positioning. Critical donts include avoiding decorative serifs, soft rounded UI patterns, heavy shadows, or playful language, as the design prioritizes a professional, blueprint-like clarity over warmth."
+    },
+    "zh-CN": {
+      "identity": {
+        "keywords": [
+          "推理",
+          "开发者",
+          "云",
+          "运行时",
+          "规模"
+        ],
+        "analogy": "云原生模型推理的技术蓝图",
+        "oneLiner": "一个面向开发者的首要基础设施平台，用于部署和扩展AI模型，并具备干净、权威的排版。"
+      },
+      "colors": {
+        "principle": "高对比度单色基底，搭配单一鲜亮的绿色作为高饱和度点缀色。"
+      },
+      "typography": {
+        "rules": [
+          "标题使用紧凑的负字距以增强冲击力",
+          "按钮与导航栏采用等宽大写字母以体现技术感",
+          "正文保持高度可读性，使用标准行高"
+        ],
+        "scaleUses": [
+          "主标题",
+          "正文",
+          "按钮与标签"
+        ]
+      },
+      "spacing": {
+        "rhythm": "以4px为基础单位，padding与间距使用一致的倍数"
+      },
+      "surfaces": {
+        "shadows": [],
+        "borders": "使用rgba(0,0,0,0.05)的1px细微边框作为分隔线，以及虚线作为结构网格线。"
+      },
+      "layout": {
+        "skeleton": "严格的12栏网格，部分区域使用可见虚线以强调底层结构。"
+      },
+      "components": {
+        "button": "等宽大写文本，药丸形或直角边框，高对比度黑色或白色填充。",
+        "card": "极简或不可见，依赖底层网格线构建结构。",
+        "chip": "药丸形点缀容器，内含等宽文本。",
+        "input": "标准表单字段，带有细微边框。",
+        "hero": "分栏布局，左侧为粗体大字排版，右侧为技术图示。"
+      },
+      "motion": {
+        "patterns": [
+          "交互元素的平滑颜色与背景过渡",
+          "内容加载的淡入过渡"
+        ]
+      },
+      "interaction": {
+        "hover": "通过快速缓动实现细微的颜色或背景变化。",
+        "click": "即时视觉反馈。",
+        "transition": "所有颜色、背景与边框属性的过渡统一为0.075秒。",
+        "keyboard": "标准的聚焦状态，带有可见轮廓。"
+      },
+      "voice": {
+        "tone": "权威、技术、直接。",
+        "headlineStyle": "加粗的陈述性语句，字距紧凑。",
+        "ctaStyle": "行动导向，大写等宽按钮，配有清晰的方向箭头。",
+        "avoid": [
+          "戏谑的语言",
+          "过多的感叹号",
+          "模糊的营销话术"
+        ]
+      },
+      "donts": [
+        "勿使用装饰性衬线字体 — 截图显示的是干净的无衬线标题和等宽标签。",
+        "勿使用圆润、柔和的UI模式 — 截图显示的是直角边缘、药丸形按钮和几何图表。",
+        "勿使用厚重的投影 — 截图显示的是完全扁平、无边框或仅有细微边框的表面。",
+        "勿使用多彩的彩虹调色板 — 截图显示的是严格的黑/白/绿配色方案。",
+        "勿对UI元素使用随意的句首大写 — 截图显示按钮和标签均为大写等宽字体。",
+        "勿隐藏网格结构 — 截图使用可见虚线以强调技术布局。"
+      ],
+      "systemPrompt": "Baseten是一个用于AI模型推理的开发者基础设施平台，其特点是干净、技术化的美学，强调精确性与可扩展性。视觉系统采用高对比度的黑白调色板，并以单一鲜亮的绿色（#19E76E）作为高亮点缀。排版上，标题使用粗体无衬线字体以增强冲击力，技术标签与按钮则采用等宽字体。布局采用严格的12栏网格，常通过可见的虚线显露以强化工程导向的定位。关键注意事项包括：避免使用装饰性衬线字体、柔和的圆角UI模式、厚重的阴影或戏谑的语言，因为该设计优先考虑专业、蓝图般的清晰度而非亲和力。"
+    },
+    "zh-TW": {
+      "identity": {
+        "keywords": [
+          "推論",
+          "開發者",
+          "雲端",
+          "運行環境",
+          "擴展"
+        ],
+        "analogy": "雲端原生模型推論的技術藍圖",
+        "oneLiner": "以開發者為先的基礎設施平台，用於部署與擴展 AI 模型，具備乾淨且權威的字型排印。"
+      },
+      "colors": {
+        "principle": "高對比單色基底搭配單一鮮明綠色作為高飽和度強調色。"
+      },
+      "typography": {
+        "rules": [
+          "標題使用緊湊負字母間距以增強視覺衝擊",
+          "按鈕與導覽採用等寬大寫字型營造技術感",
+          "內文字型保持高度可讀性，使用標準行高"
+        ],
+        "scaleUses": [
+          "主標題",
+          "內文",
+          "按鈕與標籤"
+        ]
+      },
+      "spacing": {
+        "rhythm": "以 4px 為基準，間距與留白採用一致倍數"
+      },
+      "surfaces": {
+        "shadows": [],
+        "borders": "分隔線使用 rgba(0,0,0,0.05) 的細微 1px 邊框，結構網格則採用虛線。"
+      },
+      "layout": {
+        "skeleton": "嚴格的 12 欄網格，部分區域透過可見虛線強調底層結構。"
+      },
+      "components": {
+        "button": "等寬大寫字型，膠囊形或銳角邊框，高對比黑色或白色填充。",
+        "card": "極簡或無邊框設計，依賴底層網格線構建結構。",
+        "chip": "膠囊形強調容器搭配等寬字型。",
+        "input": "標準表單欄位，具備細微邊框。",
+        "hero": "分割式佈局，左側為粗體大字標題，右側為技術圖示。"
+      },
+      "motion": {
+        "patterns": [
+          "互動元素的顏色與背景平滑過渡",
+          "內容載入時的淡入淡出過渡"
+        ]
+      },
+      "interaction": {
+        "hover": "細微的顏色偏移或背景變化，搭配快速緩動。",
+        "click": "立即的視覺反饋。",
+        "transition": "顏色、背景與邊框屬性皆採用一致的 0.075s 過渡時間。",
+        "keyboard": "標準 focus 狀態，具有可見外框。"
+      },
+      "voice": {
+        "tone": "權威、技術、直接。",
+        "headlineStyle": "粗體、肯定語句，字母緊湊排列。",
+        "ctaStyle": "行動導向、大寫等寬按鈕，搭配明確方向箭頭。",
+        "avoid": [
+          "俏皮用語",
+          "過度使用驚嘆號",
+          "模糊的行銷用語"
+        ]
+      },
+      "donts": [
+        "勿使用裝飾性襯線字型 — 截圖顯示乾淨的 grotesque-sans 標題與等寬字型標籤。",
+        "勿使用圓潤、柔和的 UI 模式 — 截圖顯示銳角邊緣、膠囊形按鈕與幾何圖表。",
+        "勿使用厚重陰影 — 截圖顯示完全平坦、無邊框或細微邊框的介面。",
+        "勿使用多彩彩虹調色盤 — 截圖顯示嚴格的黑白綠配色方案。",
+        "勿對 UI 元素使用隨意的句首大寫 — 截圖顯示按鈕與標籤採用大寫等寬字型。",
+        "勿隱藏網格結構 — 截圖使用可見虛線強調技術性佈局。"
+      ],
+      "systemPrompt": "Baseten 是一個用於 AI 模型推論的開發者基礎設施平台，其特點在於乾淨、技術導向的美學，強調精確度與擴展性。視覺系統採用高對比黑白調色盤，以單一鮮明綠色（#19E76E）作為強調色。字型排印倚賴粗體 grotesque-sans 作為具衝擊力的標題，以及等寬字型用於技術標籤與按鈕。佈局採用嚴格的 12 欄網格，常透過可見虛線顯露結構，以強化工程導向定位。關鍵避免事項包括：勿使用裝飾性襯線、柔軟圓潤的 UI 模式、厚重陰影或俏皮用語，因為此設計優先考慮專業、藍圖般的清晰度而非親和感。"
+    },
+    "ja": {
+      "identity": {
+        "keywords": [
+          "推論",
+          "開発者",
+          "クラウド",
+          "ランタイム",
+          "スケール"
+        ],
+        "analogy": "クラウドネイティブなモデル推論のための技術設計図",
+        "oneLiner": "クリーンで権威あるタイポグラフィにより、AIモデルのデプロイとスケーリングを行うための、開発者中心のインフラストラクチャプラットフォーム。"
+      },
+      "colors": {
+        "principle": "ハイコントラストのモノクロームベースに、ハイクロマのハイライト用に鮮やかなグリーンアクセントを単色で使用する。"
+      },
+      "typography": {
+        "rules": [
+          "見出しは、インパクトのためにタイトなネガティブレタースペーシングを使用する",
+          "ボタンとナビゲーションは、技術的な雰囲気のために等幅フォントの大文字を使用する",
+          "本文は、標準的な行間で高い可読性を維持する"
+        ],
+        "scaleUses": [
+          "ヒーロー見出し",
+          "本文テキスト",
+          "ボタンとラベル"
+        ]
+      },
+      "spacing": {
+        "rhythm": "4pxをベースとし、パディングとギャップには一貫した倍数を使用する"
+      },
+      "surfaces": {
+        "shadows": [],
+        "borders": "区切り線にはrgba(0,0,0,0.05)の繊細な1pxボーダーを、構造的なグリッドには点線を使用する。"
+      },
+      "layout": {
+        "skeleton": "厳密な12カラムグリッド。一部のセクションでは、 underlyingな構造を強調するために点線を可視化する。"
+      },
+      "components": {
+        "button": "等幅フォントの大文字テキスト。ピル型またはシャープなボーダー、ハイコントラストの黒または白の塗りつぶし。",
+        "card": "ミニマルまたは不可視。 underlyingなグリッドラインに構造を依存する。",
+        "chip": "等幅フォントテキストを持つピル型のアクセントコンテナ。",
+        "input": "繊細なボーダーを持つ標準フォームフィールド。",
+        "hero": "左側に大きく太字のタイポグラフィ、右側に技術的なイラストレーションを持つ分割レイアウト。"
+      },
+      "motion": {
+        "patterns": [
+          "インタラクティブ要素のスムーズな色と背景トランジション",
+          "コンテンツ読み込み時のフェードトランジション"
+        ]
+      },
+      "interaction": {
+        "hover": "速いイージングによる繊細な色の変化や背景の変化。",
+        "click": "即時の視覚的フィードバック。",
+        "transition": "色、背景、ボーダープロパティ全体で一貫した0.075sのトランジション。",
+        "keyboard": "可視化されたアウトラインを持つ標準のfocus状態。"
+      },
+      "voice": {
+        "tone": "権威があり、技術的で、直接的。",
+        "headlineStyle": "タイトなトラッキングを持つ太字で宣言的なステートメント。",
+        "ctaStyle": "アクション指向、大文字の等幅フォントボタン、明確な矢印付き。",
+        "avoid": [
+          "遊び心のある言葉遣い",
+          "過度な感嘆符",
+          "曖昧なマーケティング用語"
+        ]
+      },
+      "donts": [
+        "装飾的なセリフフォントを使用しない — スクリーンショットではクリーンなグロテスクサンセリフ見出しと等幅フォントのラベルが使用されている。",
+        "丸みのある、ソフトなUIパターンを使用しない — スクリーンショットではシャープなエッジ、ピル型ボタン、幾何学的な図表が使用されている。",
+        "重いドロップシャドウを使用しない — スクリーンショットでは完全にフラットで、ボーダーレスまたは微細なボーダーを持つサーフェスが使用されている。",
+        "多色のレインボーパレットを使用しない — スクリーンショットでは厳密な黒/白/緑の配色が使用されている。",
+        "UI要素にカジュアルなセンテンスケースを使用しない — スクリーンショットではボタンとラベルに大文字の等幅フォントが使用されている。",
+        "グリッド構造を隠さない — スクリーンショットでは技術的なレイアウトを強調するために可視化された点線が使用されている。"
+      ],
+      "systemPrompt": "Basetenは、AIモデル推論のための開発者インフラストラクチャプラットフォームであり、精密さとスケールを強調するクリーンで技術的な美学が特徴。ビジュアルシステムは、ハイコントラストの黒と白のパレットをベースとし、ハイライト用に単一の鮮やかなグリーンアクセント（#19E76E）を配置。タイポグラフィは、インパクトのある見出しに太字のグロテスクサンセリフを、技術的なラベルとボタンに等幅フォントを使用。レイアウトは厳密な12カラムグリッドであり、エンジニアリング重視のポジショニングを強調するために可視化された点線で露出させることが多い。重要な禁止事項は、装飾的なセリフ、ソフトな丸みのあるUIパターン、重いシャドウ、または遊び心のある言葉遣いの使用を避けること。デザインは温かさよりも、プロフェッショナルで設計図のような明瞭さを優先している。"
+    },
+    "ko": {
+      "identity": {
+        "keywords": [
+          "추론",
+          "개발자",
+          "클라우드",
+          "런타임",
+          "확장"
+        ],
+        "analogy": "클라우드 네이티브 모델 추론을 위한 기술 설계도",
+        "oneLiner": "깔끔하고 권위 있는 타이포그래피로 AI 모델을 배포하고 확장하기 위한, 개발자 중심 인프라 플랫폼입니다."
+      },
+      "colors": {
+        "principle": "고대비 단색 베이스와 고채도 하이라이트를 위한 단일의 생동감 있는 그린 악센트."
+      },
+      "typography": {
+        "rules": [
+          "제목은 임팩트를 위해 타이트한 마이너스 자간을 사용합니다.",
+          "버튼과 내비게이션은 기술적 느낌을 위해 모노스페이스 대문자를 사용합니다.",
+          "본문 텍스트는 표준 행 높이를 유지하여 높은 가독성을 유지합니다."
+        ],
+        "scaleUses": [
+          "히어로 제목",
+          "본문 텍스트",
+          "버튼 및 레이블"
+        ]
+      },
+      "spacing": {
+        "rhythm": "패딩과 간격을 위해 일관된 배수를 사용하는 4px 기본값"
+      },
+      "surfaces": {
+        "shadows": [],
+        "borders": "구분선을 위한 미세한 1px rgba(0,0,0,0.05) 테두리와 구조적 그리드를 위한 점선."
+      },
+      "layout": {
+        "skeleton": "일부 섹션에서 기본 구조를 강조하기 위해 보이는 점선이 포함된 엄격한 12열 그리드."
+      },
+      "components": {
+        "button": "모노스페이스 대문자 텍스트, 둥근 모양 또는 날카로운 테두리, 고대비 흰색 또는 검은색 채우기.",
+        "card": "최소화 또는 보이지 않게 하여, 구조를 위해 기본 그리드 라인에 의존합니다.",
+        "chip": "모노스페이스 텍스트가 포함된 둥근 모양의 악센트 컨테이너.",
+        "input": "미세한 테두리가 있는 표준 양식 필드.",
+        "hero": "왼쪽에 크고 굵은 타이포그래피, 오른쪽에 기술 일러스트레이션이 있는 분할 레이아웃."
+      },
+      "motion": {
+        "patterns": [
+          "인터랙티브 요소에서 부드러운 색상 및 배경 트랜지션",
+          "콘텐츠 로딩을 위한 페이드 트랜지션"
+        ]
+      },
+      "interaction": {
+        "hover": "빠른 이징으로 미세한 색상 변화 또는 배경 변경.",
+        "click": "즉각적인 시각적 피드백.",
+        "transition": "색상, 배경 및 테두리 속성 전반에 걸쳐 일관된 0.075s 트랜지션.",
+        "keyboard": "보이는 윤곽선이 포함된 표준 focus 상태."
+      },
+      "voice": {
+        "tone": "권위 있고, 기술적이며, 직접적입니다.",
+        "headlineStyle": "타이트한 자간을 가진 굵고 선언적인 문장.",
+        "ctaStyle": "명확한 방향 화살표를 가진, 행동 지향적 대문자 모노스페이스 버튼.",
+        "avoid": [
+          "장난스러운 언어",
+          "과도한 느낌표",
+          "모호한 마케팅 용어"
+        ]
+      },
+      "donts": [
+        "장식용 세리프 폰트를 사용하지 마세요 — 스크린샷은 깔끔한 기교지체Sans-serif 제목과 모노스페이스 레이블을 보여줍니다.",
+        "둥글고 부드러운 UI 패턴을 사용하지 마세요 — 스크린샷은 날카로운 모서리, 둥근 모양 버튼 및 기하학적 다이어그램을 보여줍니다.",
+        "무거운 드롭 섀도우를 사용하지 마세요 — 스크린샷은 완전히 평면적이고, 테두리가 없거나 미세한 테두리가 있는 표면을 보여줍니다.",
+        "다색 무지개 팔레트를 사용하지 마세요 — 스크린샷은 엄격한 흑백/그린 체계를 보여줍니다.",
+        "UI 요소에 캐주얼한 문장 대소문자를 사용하지 마세요 — 스크린샷은 버튼과 레이블에 대문자 모노스페이스를 사용합니다.",
+        "그리드 구조를 숨기지 마세요 — 스크린샷은 기술적 레이아웃을 강조하기 위해 보이는 점선을 사용합니다."
+      ],
+      "systemPrompt": "Baseten은 AI 모델 추론을 위한 개발자 인프라 플랫폼으로, 정밀함과 규모를 강조하는 깔끔하고 기술적인 미학이 특징입니다. 비주얼 시스템은 고대비 흑백 팔레트를 사용하며, 하이라이트를 위해 단일의 생동감 있는 그린 악센트(#19E76E)로 포인트를 줍니다. 타이포그래피는 임팩트 있는 제목을 위해 굵은 grotesque-sans를, 기술적 레이블과 버튼을 위해 모노스페이크 폰트에 의존합니다. 레이아웃은 엄격한 12열 그리드로, 엔지니어링 중심 포지셔닝을 강화하기 위해 때때로 보이는 점선으로 노출됩니다. 중요한 주의사항으로는 장식용 세리프, 부드러운 둥근 UI 패턴, 무거운 섀도우 또는 장난스러운 언어를 피하는 것이 포함되며, 디자인은 따뜻함보다는 전문적이고 설계도와 같은 명확성을 우선시합니다."
+    }
+  },
+  "desc": {
+    "en": {
+      "palette": "A strictly monochromatic black and white base with a single high-chroma neon green accent for highlights and diagrams.",
+      "layout": "A 12-column grid system with wide gutters, occasionally exposed through dashed lines to emphasize technical precision.",
+      "interaction": "Fast, subtle transitions on interactive elements using standard easing curves, focusing on immediate feedback.",
+      "motion": "Minimal and functional, primarily used for hover states and content loading fades.",
+      "notes": "This site perfectly embodies the modern 'technical blueprint' aesthetic, balancing clean editorial typography with exposed grid structures to convey engineering authority."
+    },
+    "zh-CN": {
+      "palette": "严格的单色黑白基底，搭配单一高饱和度霓虹绿作为高亮与图表的点缀色。",
+      "layout": "采用12栏网格系统，配有宽间距，偶尔通过虚线显露以强调技术精确性。",
+      "interaction": "交互元素采用基于标准缓动曲线的快速、细微过渡，注重即时反馈。",
+      "motion": "极简且功能导向，主要用于悬停状态与内容加载的淡入淡出。",
+      "notes": "该网站完美体现了现代‘技术蓝图’美学，在干净的编辑排版与显露的网格结构之间取得平衡，以传达工程权威感。"
+    },
+    "zh-TW": {
+      "palette": "以純粹單色黑白為基底，搭配單一高飽和度霓虹綠作為強調色，用於高亮區塊與圖表。",
+      "layout": "採用 12 欄網格系統，間距寬敞，部分區域透過虛線顯露網格結構，強調技術精確感。",
+      "interaction": "互動元素採用標準緩動曲線進行快速、細膩的過渡動畫，著重即時反饋。",
+      "motion": "極簡且功能導向，主要用於 hover 狀態與內容載入的淡入淡出效果。",
+      "notes": "此網站完美體現現代「技術藍圖」美學，在乾淨的編輯式字型與外露網格結構之間取得平衡，傳達工程權威感。"
+    },
+    "ja": {
+      "palette": "严格にモノクロの黒と白をベースとし、ハイクロマのネオングリーンをアクセントとしてハイライトや図表に単色で使用する。",
+      "layout": "幅の広いガッターを持つ12カラムグリッドシステム。点線で露出させることで、技術的な精密さを強調する場合がある。",
+      "interaction": "インタラクティブな要素に標準的なイージングカーブを使用した、速く、繊細なトランジション。即時フィードバックに焦点を当てる。",
+      "motion": "最小限かつ機能的。主にhover状態やコンテンツ読み込み時のフェードインに使用される。",
+      "notes": "このサイトは、現代的な「技術的な設計図」の美学を完璧に体現し、クリーンなエディトリアルタイポグラフィと露出したグリッド構造をバランスよく配置し、エンジニアリングの権威を伝えている。"
+    },
+    "ko": {
+      "palette": "엄격하게 단색의 흑백 베이스를 기반으로, 하이라이트와 다이어그램을 위해 단일의 고채도 네온 그린 악센트를 사용합니다.",
+      "layout": "넓은 거터를 가진 12열 그리드 시스템을 사용하며, 기술적 정밀함을 강조하기 위해 때때로 점선으로 드러납니다.",
+      "interaction": "표준 이징 곡선을 사용하여 인터랙티브 요소에 빠르고 섬세한 트랜지션을 적용하며, 즉각적인 피드백에 초점을 맞춥니다.",
+      "motion": "최소 기능적 용도로, 주로 hover 상태와 콘텐츠 로딩 페이드에 사용됩니다.",
+      "notes": "이 사이트는 현대적인 '기술 설계도' 미학을 완벽하게 구현하여, 깔끔한 에디토리얼 타이포그래피와 노출된 그리드 구조를 조화시켜 엔지니어링 권위를 전달합니다."
+    }
+  },
+  "_meta": {
+    "vision_model": "mimo-v2.5",
+    "vision_prompt_version": "0.3",
+    "vision_source": "playwright-extract:baseten",
+    "vision_grounded": true,
+    "vision_at": "2026-06-04T14:02:18+00:00",
+    "vision_tokens": 16667,
+    "vision_cost_usd": 0.1852,
+    "translation_model": "mimo-v2.5",
+    "translation_at": "2026-06-04T14:03:41+00:00",
+    "translation_tokens": 15839,
+    "translation_cost_usd": 0.0529,
+    "narrative_model": "mimo-v2.5",
+    "narrative_prompt_version": "0.3",
+    "narrative_at": "2026-06-04T14:03:51+00:00",
+    "narrative_tokens": 1900,
+    "narrative_cost_usd": 0.0127,
+    "narrative_status": "ok",
+    "total_cost_usd": 0.2508
+  },
+  "narrative": {
+    "en": {
+      "ch1_intro": "Baseten's design system is a technical blueprint for cloud-native model inference, where every component serves the architecture of precision. The system prioritizes the structural logic of a building's scaffolding over decorative finishes.",
+      "ch2_intro": "A high-contrast monochrome base forms the foundation, punctuated by a single vibrant green accent for high-chroma highlights. This strict palette focuses attention on functional differentiation rather than decorative color.",
+      "ch2_outro": "The single accent is a functional highlight, not a decorative flourish.",
+      "ch3_intro": "Typography pairs a bold grotesque-sans for impactful headlines with monospace fonts for technical labels and buttons. This dual-voice system establishes both authoritative presence and developer-oriented precision.",
+      "ch4_intro": "A 4px base unit establishes a consistent spatial rhythm, scaled in multiples for all padding and gaps to maintain architectural regularity.",
+      "ch5_intro": "Surfaces are flat and borderless, defined by subtle 1px dividers rather than shadows or elevation. Dashed lines occasionally expose the underlying structural grid, making the layout's logic visible.",
+      "ch6_intro": "A strict 12-column grid with wide gutters forms the layout skeleton, occasionally exposed through dashed lines to emphasize technical precision. The hero section splits the canvas, placing bold typography against technical illustrations.",
+      "ch7_intro": "Motion is minimal and functional, reserved for essential feedback like hover states and content loading. Transitions are fast and consistent, prioritizing immediate response over animation.",
+      "ch8_intro": "The editorial voice is authoritative, technical, and direct, using bold declarative statements for headlines and action-oriented language for CTAs. It operates within clear constraints to maintain professional clarity.",
+      "ch8_outro": "The system deliberately avoids playful language, excessive exclamation, and vague marketing speak to preserve its technical authority."
+    },
+    "zh-CN": {
+      "ch1_intro": "Baseten 的设计系统是云原生模型推理的技术蓝图，每个组件都服务于精准架构。该系统更重视建筑脚手架的结构逻辑，而非装饰性修饰。",
+      "ch2_intro": "高对比度的单色基底构成基础，辅以单一鲜亮绿色作为高饱和度点缀。这一严谨配色方案将注意力集中于功能区分，而非装饰性色彩。",
+      "ch2_outro": "这一单一点缀色是功能高亮，而非装饰性修饰。",
+      "ch3_intro": "字体系统将粗体 grotesque-sans 用于醒目标题，搭配 monospace 字体用于技术标签与按钮。这种双语调体系同时建立权威感与开发者所需的精准性。",
+      "ch4_intro": "4px 基础单位构建了统一的空间节奏，所有 padding 与间距均以此倍数缩放，保持架构的规整性。",
+      "ch5_intro": "界面平面且无边框，通过微妙的 1px 分割线而非阴影或层级来区分。虚线偶尔显露底层结构网格，使布局逻辑可视化。",
+      "ch6_intro": "12 列宽间距网格构成布局骨架，通过虚线强调技术精确性。首屏区域分割画布，将粗体排版与技术插图并置。",
+      "ch7_intro": "动效简约且功能化，仅用于 hover 状态和内容加载等必要反馈。过渡快速统一，优先保证即时响应而非动画表现。",
+      "ch8_intro": "文案风格权威、技术且直接，标题采用粗体陈述句，CTA 使用行动导向语言。在明确约束内运作以保持专业清晰度。",
+      "ch8_outro": "系统刻意避免俏皮用语、过度感叹和模糊营销话术，以维护其技术权威性。"
+    },
+    "zh-TW": {
+      "ch1_intro": "Baseten 的設計系統是雲端原生模型推論的技術藍圖，其中每個元件都服務於精確的架構。此系統優先考慮建築腳手架的結構邏輯，而非裝飾性的表面處理。",
+      "ch2_intro": "高對比的單色基底構成基礎，並以單一鮮豔綠色點綴作為高彩度高亮。此嚴格的配色專注於功能性區分，而非裝飾性色彩。",
+      "ch2_outro": "單一強調色是功能性高亮，而非裝飾性綴飾。",
+      "ch3_intro": "字型搭配以粗體 grotesque-sans 作為醒目標題，與 monospace 字體用於技術標籤和按鈕。這種雙重語音系統同時確立了權威性的存在感和面向開發者的精確性。",
+      "ch4_intro": "4px 基礎單位建立一致的空間節奏，所有內邊距和間距均以此為倍數縮放，以維持架構的規律性。",
+      "ch5_intro": "介面為平面且無邊框，由細微的 1px 分隔線定義，而非陰影或層次。虛線偶爾顯露底層的結構格線，使版面邏輯可見。",
+      "ch6_intro": "嚴格的 12 欄格線與寬間距構成佈局骨架，偶爾透過虛線顯露以強調技術精確性。首頁區域分割畫布，將粗體字型與技術插圖並置。",
+      "ch7_intro": "動態效果極簡且功能導向，僅保留基本回饋如 hover 狀態和內容載入。過渡快速且一致，優先考慮即時回饋而非動畫。",
+      "ch8_intro": "編輯語調權威、技術且直接，使用粗體陳述句作為標題，以及行動導向的語言作為 CTA。其運作於清晰的限制內，以維持專業的清晰度。",
+      "ch8_outro": "此系統刻意避免俏皮的語言、過度的驚嘆號和模糊的行銷用語，以維護其技術權威性。"
+    },
+    "ja": {
+      "ch1_intro": "Basetenのデザインシステムは、クラウドネイティブなモデル推論のための技術青写真であり、各コンポーネントは精度のアーキテクチャに貢献します。このシステムは、装飾的な仕上げよりも、建築の足場のような構造的ロジックを優先します。",
+      "ch2_intro": "高コントラストのモノクローム基盤が土台となり、ハイクロマのハイライトとして鮮やかなグリーンのアクセントが単一配置されます。この厳格なパレットは、装飾色よりも機能的な区別に焦点を当てます。",
+      "ch2_outro": "単一のアクセントは、装飾的な飾りではなく、機能的なハイライトです。",
+      "ch3_intro": "タイポグラフィは、インパクトのある見出しに太字のgrotesque-sansを、技術的なラベルやボタンにモノスペースフォントを組み合わせます。この二重の声のシステムは、権威ある存在感と開発者指向の精度の両確立します。",
+      "ch4_intro": "4pxの基本単位が一貫した空間リズムを確立し、すべてのpaddingとgapはこの倍数でスケーリングされ、建築的な規則性を維持します。",
+      "ch5_intro": "サーフェスはフラットでボーダーレスであり、影や高さではなく、微細な1pxの区切り線で定義されます。破線が時折、基礎となる構造グリッドを露出させ、レイアウトのロジックを可視化します。",
+      "ch6_intro": "広いガターを持つ厳格な12カラムグリッドがレイアウトの骨格を形成し、破線によって時折露出させることで、技術的な精度を強調します。ヒーローセクションはキャンバスを分割し、太字のタイポグラフィを技術的なイラストレーションと対置させます。",
+      "ch7_intro": "モーションは最小限かつ機能的で、hover状態やコンテンツ読み込みなど、必須のフィードバックに限定されます。トランジションは高速かつ一貫しており、アニメーションよりも即時の応答を優先します。",
+      "ch8_intro": "エディトリアルボイスは権威的、技術的、直接的であり、見出しには太字の宣言的なステートメントを、CTAには行動を促す言葉を使用します。明確な制約の中で運用され、専門的な明瞭さを維持します。",
+      "ch8_outro": "このシステムは、技術的な権威を維持するために、遊び心のある言葉、過度な感嘆符、曖昧なマーケティング表現を意図的に避けています。"
+    },
+    "ko": {
+      "ch1_intro": "Baseten의 디자인 시스템은 클라우드 네이티브 모델 추론을 위한 기술 설계도로, 모든 구성 요소가 정밀한 아키텍처를 위해 작동합니다. 이 시스템은 장식적 마감보다 건물 비계의 구조적 논리를 우선시합니다.",
+      "ch2_intro": "고대비 단색 베이스가 토대를 이루며, 선명한 그린 강조색 하나로 고채도 하이라이트를 표시합니다. 이 엄격한 팔레트는 장식적 색상보다 기능적 구분에 주의를 집중시킵니다.",
+      "ch2_outro": "단일 강조색은 기능적 하이라이트이지, 장식적 꾸밈이 아닙니다.",
+      "ch3_intro": "타이포그래피는 임팩트 있는 헤드라인을 위한 굵은 grotesque-sans와 기술 라벨 및 버튼용 모노스페이스 폰트를 페어링합니다. 이 이중 음성 시스템은 권위 있는 존재감과 개발자 중심의 정밀함을 동시에 확립합니다.",
+      "ch4_intro": "4px 베이스 유닛이 일관된 공간 리듬을 확립하며, 모든 padding과 gap을 위해 배수로 스케일링하여 아키텍처적 규율을 유지합니다.",
+      "ch5_intro": "표면은 평면적이고 테두리가 없으며, 그림자나 높이감 대신 미세한 1px 구분선으로 정의됩니다. 점선은 때때로 기본 구조 격자를 노출시켜 레이아웃의 논리를 시각화합니다.",
+      "ch6_intro": "넓은 거터가 있는 엄격한 12열 격자가 레이아웃 골격을 형성하며, 때때로 점선을 통해 노출되어 기술적 정밀함을 강조합니다. 히어로 섹션은 캔버스를 분할하여 굵은 타이포그래피를 기술 일러스트레이션과 대조시킵니다.",
+      "ch7_intro": "모션은 최소화되어 기능적이며, hover 상태 및 콘텐츠 로딩 같은 필수 피드백에만 사용됩니다. 전환은 빠르고 일관되어 애니메이션보다 즉각적인 응답을 우선시합니다.",
+      "ch8_intro": "에디토리얼 어조는 권위적, 기술적, 직설적이며, 헤드라인에는 굵은 선언문을, CTA에는 행동 지향적 언어를 사용합니다. 전문적 명확성을 유지하기 위해 명확한 제약 내에서 작동합니다.",
+      "ch8_outro": "시스템은 기술적 권위를 보존하기 위해 장난스러운 언어, 과도한 감탄사, 모호한 마케팅 표현을 의도적으로 피합니다."
+    }
+  }
 }

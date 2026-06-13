@@ -8,8 +8,601 @@
     "type",
     "foundry"
   ],
-  "status": "pending",
+  "status": "completed",
   "added_at": "2026-06-02",
   "added_by": "expand-200",
-  "_meta": {}
+  "_meta": {
+    "vision_model": "mimo-v2.5",
+    "vision_prompt_version": "0.3",
+    "vision_source": "playwright-extract:pangram",
+    "vision_grounded": true,
+    "vision_at": "2026-06-04T17:42:50+00:00",
+    "vision_tokens": 16407,
+    "vision_cost_usd": 0.1823,
+    "translation_model": "mimo-v2.5",
+    "translation_at": "2026-06-04T17:44:10+00:00",
+    "translation_tokens": 17401,
+    "translation_cost_usd": 0.058,
+    "narrative_model": "mimo-v2.5",
+    "narrative_prompt_version": "0.3",
+    "narrative_at": "2026-06-04T17:44:19+00:00",
+    "narrative_tokens": 2092,
+    "narrative_cost_usd": 0.0139,
+    "narrative_status": "ok",
+    "total_cost_usd": 0.2542
+  },
+  "spec": {
+    "colors": {
+      "bg": "#FFFFFF",
+      "bgSoft": "#F5F5F5",
+      "bgQuiet": "#FAFAFA",
+      "ink": "#000000",
+      "inkSoft": "#666666",
+      "muted": "#666666",
+      "mutedSoft": "#999999",
+      "accent": "#FF2F00",
+      "line": "rgba(0, 0, 0, 0.1)"
+    },
+    "typography": {
+      "display": "grotesque-sans",
+      "body": "humanist-sans",
+      "mono": "monospace",
+      "scale": [
+        {
+          "token": "display",
+          "size": 102,
+          "lh": 1.0,
+          "weight": 800,
+          "ls": "-1px"
+        },
+        {
+          "token": "heading",
+          "size": 36,
+          "lh": 1.2,
+          "weight": 600,
+          "ls": "-0.5px"
+        },
+        {
+          "token": "body",
+          "size": 14,
+          "lh": 1.3,
+          "weight": 400,
+          "ls": "0"
+        },
+        {
+          "token": "small",
+          "size": 12,
+          "lh": 1.2,
+          "weight": 500,
+          "ls": "0.5px"
+        }
+      ]
+    },
+    "spacing": {
+      "base": 4,
+      "scale": [
+        4,
+        8,
+        12,
+        16,
+        24,
+        32,
+        48,
+        64,
+        96
+      ]
+    },
+    "surfaces": {
+      "radius": {
+        "sm": 4,
+        "md": 8,
+        "lg": 20,
+        "pill": 999
+      }
+    },
+    "layout": {
+      "container": 1280,
+      "paragraph": 680,
+      "columns": 12,
+      "gutter": 24,
+      "breakpoints": [
+        768,
+        1024
+      ]
+    },
+    "motion": {
+      "durations": {
+        "micro": 200,
+        "small": 500,
+        "medium": 800
+      },
+      "easing": "cubic-bezier(0.22, 1, 0.36, 1)"
+    }
+  },
+  "spec_i18n": {
+    "en": {
+      "identity": {
+        "keywords": [
+          "typography",
+          "foundry",
+          "typefaces",
+          "creative",
+          "minimal"
+        ],
+        "analogy": "A high-end boutique gallery showcasing typographic art.",
+        "oneLiner": "A minimalist, image-forward font foundry platform that prioritizes typography as the primary visual asset."
+      },
+      "colors": {
+        "principle": "Stark, high-contrast monochrome canvas with a single high-chroma orange accent to draw attention to status and CTAs."
+      },
+      "typography": {
+        "rules": [
+          "Headlines use extremely tight line-heights to create dense typographic blocks.",
+          "Body text remains highly legible with generous line-height.",
+          "Font weights are used strategically to differentiate hierarchy without relying solely on size."
+        ],
+        "scaleUses": [
+          "Hero font names and main value proposition headlines",
+          "Section headings and sub-hero text",
+          "Navigation, descriptions, and standard UI text",
+          "Badges, tags, and micro-copy"
+        ]
+      },
+      "spacing": {
+        "rhythm": "Consistent 4px base grid with generous padding inside cards and tight spacing between adjacent elements."
+      },
+      "surfaces": {
+        "shadows": [],
+        "borders": "Extremely minimal; relies on background contrast and generous padding rather than strokes."
+      },
+      "layout": {
+        "skeleton": "Full-width image hero cards stacked vertically, followed by a centered content block and a horizontal scrolling brand row."
+      },
+      "components": {
+        "button": "Pill-shaped ghost buttons with 1px borders, minimal padding, and hover transitions.",
+        "card": "Large, full-width rounded cards (border-radius: 20px) featuring photography with overlaid typography.",
+        "chip": "Small, solid pill badges (e.g., 'New', 'Update') used for status indicators.",
+        "input": "Minimal, borderless search and text inputs that blend into the background.",
+        "hero": "Immersive, photography-driven hero sections where the font itself is the focal point."
+      },
+      "motion": {
+        "patterns": [
+          "Smooth background-color and color transitions on buttons.",
+          "Standard transform and opacity changes on interactive elements."
+        ]
+      },
+      "interaction": {
+        "hover": "Subtle color or background-color shifts on interactive elements with smooth easing.",
+        "click": "Standard cursor states with pointer feedback.",
+        "transition": "All properties typically transition over 200ms to 500ms.",
+        "keyboard": "Standard focus rings for accessibility."
+      },
+      "voice": {
+        "tone": "Confident, direct, and authoritative with a creative edge.",
+        "headlineStyle": "Short, punchy, and highly visual, using massive typographic scale.",
+        "ctaStyle": "Clear and action-oriented, often framed as a choice between exploring or trying.",
+        "avoid": [
+          "Avoid overly formal or corporate language.",
+          "Avoid cluttering the UI with unnecessary borders or decorative elements.",
+          "Avoid using generic stock imagery that competes with the typography."
+        ]
+      },
+      "donts": [
+        "Don't use heavy drop shadows on cards — screenshot shows flat, background-driven depth.",
+        "Don't apply busy background patterns — screenshot shows clean white or solid black backgrounds.",
+        "Don't use traditional rectangular buttons — screenshot shows pill-shaped ghost buttons.",
+        "Don't use small, cramped typography — screenshot shows massive display text.",
+        "Don't use a wide variety of accent colors — screenshot shows a single dominant orange accent.",
+        "Don't use sharp, square corners on primary containers — screenshot shows a consistent 20px border-radius."
+      ],
+      "systemPrompt": "This is a premium, typography-centric font foundry website. The design relies on massive grotesque-sans display text (up to 102px) over immersive photography. The primary palette is a stark monochrome (ink #000000 on #FFFFFF or #FAFAFA) with a single high-chroma orange accent (#FF2F00) for 'New' badges and highlights. Key font categories are grotesque-sans for headings and humanist-sans for body text. Critical design rules: never use heavy drop shadows; avoid busy background patterns; do not use small, cramped typography; do not use traditional rectangular buttons; avoid sharp, square corners on primary containers; and do not use a wide variety of accent colors."
+    },
+    "zh-CN": {
+      "identity": {
+        "keywords": [
+          "排版",
+          "字体铸造厂",
+          "字型",
+          "创意",
+          "极简"
+        ],
+        "analogy": "一家展示字体艺术的高端精品画廊。",
+        "oneLiner": "一个极简、图像先行的字体铸造厂平台，将排版作为核心视觉资产。"
+      },
+      "colors": {
+        "principle": "使用鲜明、高对比度的单色画布，配合单一高饱和度橙色点缀，以吸引对状态和行动号召的注意力。"
+      },
+      "typography": {
+        "rules": [
+          "标题使用极窄的行高，以形成致密的排版块。",
+          "正文保持高度可读性，采用宽松的行高。",
+          "字体粗细被策略性地用于区分层级，而不仅仅依赖字号大小。"
+        ],
+        "scaleUses": [
+          "主视觉字体名称和核心价值主张标题",
+          "章节标题和次级视觉文本",
+          "导航、描述和标准界面文本",
+          "徽章、标签和微文案"
+        ]
+      },
+      "spacing": {
+        "rhythm": "基于一致的4px网格，卡片内部使用宽松的内边距，相邻元素之间则采用紧凑的间距。"
+      },
+      "surfaces": {
+        "shadows": [],
+        "borders": "极简处理；主要依赖背景对比和宽松的内边距，而非描边。"
+      },
+      "layout": {
+        "skeleton": "全宽的图像主视觉卡片垂直堆叠，其后是居中的内容块和一个水平滚动的品牌展示行。"
+      },
+      "components": {
+        "button": "药丸形的幽灵按钮，带有1px边框、最小内边距和悬停过渡效果。",
+        "card": "大型、全宽的圆角卡片（border-radius: 20px），展示摄影图像并叠加排版文字。",
+        "chip": "小型、实心药丸形徽章（例如“New”、“Update”），用作状态指示器。",
+        "input": "极简的无边框搜索和文本输入框，与背景融为一体。",
+        "hero": "沉浸式的、以摄影为驱动的主视觉区域，字体本身即是焦点。"
+      },
+      "motion": {
+        "patterns": [
+          "按钮上平滑的背景色和颜色过渡。",
+          "交互元素上标准的变换和不透明度变化。"
+        ]
+      },
+      "interaction": {
+        "hover": "交互元素上细微的颜色或背景色变化，并采用平滑的缓动效果。",
+        "click": "标准的光标状态并提供指针反馈。",
+        "transition": "所有属性通常在200ms至500ms内完成过渡。",
+        "keyboard": "标准的焦点环，以确保可访问性。"
+      },
+      "voice": {
+        "tone": "自信、直接、权威，并富有创意锋芒。",
+        "headlineStyle": "简短、有力、高度视觉化，使用巨大的排版尺度。",
+        "ctaStyle": "清晰且以行动为导向，通常以探索或试用的选择形式呈现。",
+        "avoid": [
+          "避免使用过于正式或企业化的语言。",
+          "避免在界面上添加不必要的边框或装饰元素。",
+          "避免使用会与排版竞争的通用图库图片。"
+        ]
+      },
+      "donts": [
+        "不要在卡片上使用厚重的投影——截图显示的是扁平、由背景营造的深度感。",
+        "不要应用繁杂的背景图案——截图显示的是干净的白色或纯黑色背景。",
+        "不要使用传统的矩形按钮——截图显示的是药丸形的幽灵按钮。",
+        "不要使用小而拥挤的字体排版——截图显示的是巨大的展示文字。",
+        "不要使用多种多样的点缀色——截图显示的是单一的、占主导的橙色点缀。",
+        "不要在主要容器上使用尖锐的方形圆角——截图显示的是统一的20px圆角。"
+      ],
+      "systemPrompt": "这是一个以排版为核心的高端字体铸造厂网站。设计依赖于巨大的 grotesque-sans 展示文字（最大可达102px），覆盖在沉浸式的摄影图像上。主色调是鲜明的单色（墨黑 #000000 搭配纯白 #FFFFFF 或 #FAFAFA），并使用单一高饱和度橙色（#FF2F00）作为“New”徽章和高亮的点缀色。标题使用 grotesque-sans 字体类别，正文使用 humanist-sans。关键设计规则：切勿使用厚重的投影；避免繁杂的背景图案；不要使用小而拥挤的字体排版；不要使用传统的矩形按钮；避免在主要容器上使用尖锐的方形圆角；以及不要使用多种多样的点缀色。"
+    },
+    "zh-TW": {
+      "identity": {
+        "keywords": [
+          "排版",
+          "鑄字",
+          "字體",
+          "創意",
+          "極簡"
+        ],
+        "analogy": "一座展示排版藝術的高端精品畫廊。",
+        "oneLiner": "一個極簡、以圖片為先的字型鑄字平台，將排版視為首要的視覺資產。"
+      },
+      "colors": {
+        "principle": "以極簡、高對比的單色調畫布為基底，搭配單一高彩度橘色強調色，用於引導注意力至狀態與行動呼籲。"
+      },
+      "typography": {
+        "rules": [
+          "標題使用極緊湊的行高，創造密集的排版區塊。",
+          "內文保持高度可讀性，採用寬裕的行高。",
+          "策略性地運用字重來區分層級，而非僅依賴字號大小。"
+        ],
+        "scaleUses": [
+          "主標題字型名稱與核心價值主張標題",
+          "章節標題與副標題文字",
+          "導覽列、描述文字與標準使用者介面文字",
+          "徽章、標籤與微小複製文字"
+        ]
+      },
+      "spacing": {
+        "rhythm": "採用一致的 4px 基礎網格，卡片內部留有寬裕的內邊距，相鄰元素之間則保持緊湊的間距。"
+      },
+      "surfaces": {
+        "shadows": [],
+        "borders": "極簡處理；依靠背景對比與寬裕內邊距，而非實線邊框。"
+      },
+      "layout": {
+        "skeleton": "全寬的圖片主視覺卡片垂直堆疊，後接一個置中的內容區塊，以及一個水平捲動的品牌行。"
+      },
+      "components": {
+        "button": "藥丸形狀的幽靈按鈕，帶有 1px 邊框、極簡內邊距與懸停過渡效果。",
+        "card": "大型全寬圓角卡片（border-radius: 20px），採用攝影圖片並疊加排版文字。",
+        "chip": "小型實心藥丸狀徽章（例如「新增」、「更新」），用於狀態指示。",
+        "input": "極簡、無邊框的搜尋與文字輸入框，與背景融為一體。",
+        "hero": "沉浸式、以攝影為驅動的主視覺區塊，字體本身即是視覺焦點。"
+      },
+      "motion": {
+        "patterns": [
+          "按鈕上流暢的 background-color 與色彩過渡。",
+          "互動元素上標準的 transform 與 opacity 變化。"
+        ]
+      },
+      "interaction": {
+        "hover": "互動元素在懸停時產生細膩的色彩或背景色變化，並採用平滑緩動。",
+        "click": "標準游標狀態與指標回饋。",
+        "transition": "所有屬性的過渡時間通常為 200ms 至 500ms。",
+        "keyboard": "標準的焦點環，符合無障礙規範。"
+      },
+      "voice": {
+        "tone": "自信、直接、具權威感，並帶有創意鋒芒。",
+        "headlineStyle": "簡短、有力且高度視覺化，運用巨大的排版比例。",
+        "ctaStyle": "清晰且以行動為導向，常以探索或嘗試的選擇形式呈現。",
+        "avoid": [
+          "避免使用過於正式或企業化的語言。",
+          "避免在使用者介面上堆砌不必要的邊框或裝飾元素。",
+          "避免使用會與排版文字競爭的通用圖庫圖片。"
+        ]
+      },
+      "donts": [
+        "不要在卡片上使用厚重的陰影——截圖顯示的是平面化、依賴背景的深度效果。",
+        "不要使用繁複的背景圖案——截圖顯示的是乾淨的白色或純黑色背景。",
+        "不要使用傳統的矩形按鈕——截圖顯示的是藥丸形狀的幽靈按鈕。",
+        "不要使用狹小、緊湊的排版——截圖顯示的是巨大的展示文字。",
+        "不要使用多種多樣的強調色——截圖顯示的是單一主導的橘色強調色。",
+        "不要在主要容器上使用銳利的方形邊角——截圖顯示的是一致的 20px border-radius。"
+      ],
+      "systemPrompt": "這是一個高端、以排版為核心的字型鑄字網站。設計依賴巨大的 grotesque-sans 展示文字（最大至 102px），置於沉浸式攝影圖片之上。主色調為極簡的單色調（墨黑 #000000 搭配 #FFFFFF 或 #FAFAFA），並使用單一高彩度橘色強調色（#FF2F00）作為「新增」徽章與亮點。關鍵字體分類為 grotesque-sans 用於標題，humanist-sans 用於內文。重要設計規則：切勿使用厚重陰影；避免繁複背景圖案；不要使用狹小、緊湊的排版；不要使用傳統矩形按鈕；避免在主要容器上使用銳利的方形邊角；不要使用多種多樣的強調色。"
+    },
+    "ja": {
+      "identity": {
+        "keywords": [
+          "タイポグラフィ",
+          "フォundry",
+          "書体",
+          "クリエイティブ",
+          "ミニマル"
+        ],
+        "analogy": "タイポグラフィアートを展示するハイエンドなブティックギャラリー。",
+        "oneLiner": "タイポグラフィを主要なビジュアル資産として優先する、ミニマルで画像主体のフォントファウンドリープラットフォーム。"
+      },
+      "colors": {
+        "principle": "ステータスとCTAの注目を集める単一の高彩度オレンジアクセントを備えた、無機質でハイコントラストのモノクロームキャンバス。"
+      },
+      "typography": {
+        "rules": [
+          "見出しは極めて Tight な line-height を使用し、高密度なタイポグラフィブロックを生み出す。",
+          "本文は豊かな line-height を用い、高い可読性を維持する。",
+          "フォントウェイトは、サイズにのみ依存せずに階層を区別するために戦略的に使用される。"
+        ],
+        "scaleUses": [
+          "ヒーローフォント名と主要バリュープロポジション見出し",
+          "セクション見出しとサブヒーローテキスト",
+          "ナビゲーション、説明文、標準UIテキスト",
+          "バッジ、タグ、マイクロコピー"
+        ]
+      },
+      "spacing": {
+        "rhythm": "一貫した4pxベースグリッドで、カード内部は広めのパディング、隣接する要素間は tight な間隔を設ける。"
+      },
+      "surfaces": {
+        "shadows": [],
+        "borders": "極めて最小限。ストロークではなく、背景のコントラストと広めのパディングに依存。"
+      },
+      "layout": {
+        "skeleton": "縦に積み上げられたフルワイドの画像ヒーローカード、その下に中央揃えのコンテンツブロック、そして水平スクロールのブランドロウが続く。"
+      },
+      "components": {
+        "button": "1pxボーダー、最小限のパディング、ホバートランジションを持つ、ピル形状のゴーストボタン。",
+        "card": "写真にタイポグラフィを重ねた、大サイズのフルワイド角丸カード（border-radius: 20px）。",
+        "chip": "ステータスインジケーターとして使用される、小さなソリッドピルバッジ（例：「New」「Update」）。",
+        "input": "背景に溶け込む、ボーダーレスのミニマルな検索およびテキスト入力。",
+        "hero": "フォント自体が焦点となる、没入感のある写真ドリブンのヒーローセクション。"
+      },
+      "motion": {
+        "patterns": [
+          "ボタンの滑らかなbackground-colorおよびcolorトランジション。",
+          "インタラクティブ要素の標準的なtransformおよびopacityの変化。"
+        ]
+      },
+      "interaction": {
+        "hover": "滑らかなイージングを用いた、インタラクティブ要素の微妙なcolorまたはbackground-colorのシフト。",
+        "click": "ポインターフィードバック付きの標準カーソル状態。",
+        "transition": "すべてのプロパティは通常、200msから500msの間でトランジションする。",
+        "keyboard": "アクセシビリティのための標準的なフォーカスリング。"
+      },
+      "voice": {
+        "tone": "自信に満ち、直接的で、クリエイティブなエッジを持つ権威あるトーン。",
+        "headlineStyle": "短く、パンチがあり、非常にビジュアル。巨大なタイポグラフィスケールを使用。",
+        "ctaStyle": "明確でアクション志向。「探索する」または「試す」の選択として提示されることが多い。",
+        "avoid": [
+          "過度にフォーマルまたは企業的な言葉遣いは避ける。",
+          "不要なボーダーや装飾要素でUIを雑然とさせるのは避ける。",
+          "タイポグラフィと競合する汎用的なストック画像の使用は避ける。"
+        ]
+      },
+      "donts": [
+        "カードに重いドロップシャドウを使用しない — スクリーンショットはフラットで背景による深度を示している。",
+        "忙しい背景パターンを適用しない — スクリーンショットはクリーンな白またはソリッドブラックの背景を示している。",
+        "従来の長方形ボタンを使用しない — スクリーンショットはピル形状のゴーストボタンを示している。",
+        "小さく詰まったタイポグラフィを使用しない — スクリーンショットは巨大なディスプレイテキストを示している。",
+        "多様なアクセントカラーを使用しない — スクリーンショットは単一の支配的なオレンジアクセントを示している。",
+        "プライマリコンテナに鋭い角付きの角を使用しない — スクリーンショットは一貫した20pxのborder-radiusを示している。"
+      ],
+      "systemPrompt": "これはプレミアムでタイポグラフィ中心のフォントファウンドリーウェブサイトです。デザインは、没入感のある写真の上に巨大な grotesque-sans ディスプレイテキスト（最大102px）に依存しています。プライマリパレットは、墨色（#000000 on #FFFFFF or #FAFAFA）の無機質なモノクロームで、単一の高彩度オレンジアクセント（#FF2F00）が「New」バッジやハイライトに使用されます。主要なフォントカテゴリは、見出し用の grotesque-sans と本文用の humanist-sans です。重要なデザインルール：重いドロップシャドウは決して使用しない；忙しい背景パターンは避ける；小さく詰まったタイポグラフィは使用しない；従来の長方形ボタンは使用しない；プライマリコンテナに鋭い角付きの角は避ける；そして、多様なアクセントカラーは使用しない。"
+    },
+    "ko": {
+      "identity": {
+        "keywords": [
+          "타이포그래피",
+          "폰트 공방",
+          "서체",
+          "크리에이티브",
+          "미니멀"
+        ],
+        "analogy": "타이포그래피 예술을 선보이는 하이엔드 부티크 갤러리.",
+        "oneLiner": "타이포그래피를 주요 시각 자산으로 우선시하는 미니멀하고 이미지 중심의 폰트 파운드리 플랫폼입니다."
+      },
+      "colors": {
+        "principle": "뚜렷하고 대비가 강조된 단색 캔버스에, 상태와 CTA를 강조하기 위한 단일의 고채도 오렌지 강조색을 사용합니다."
+      },
+      "typography": {
+        "rules": [
+          "헤드라인은 매우 타이트한 행간으로 밀도 높은 타이포그래피 블록을 만듭니다.",
+          "본문 텍스트는 넉넉한 행간으로 높은 가독성을 유지합니다.",
+          "폰트 두께는 크기에만 의존하지 않고 계층을 구분하기 위해 전략적으로 사용됩니다."
+        ],
+        "scaleUses": [
+          "히어로 폰트 이름 및 주요 가치 제안 헤드라인",
+          "섹션 제목 및 서브히어로 텍스트",
+          "내비게이션, 설명 및 일반 UI 텍스트",
+          "배지, 태그 및 마이크로 카피"
+        ]
+      },
+      "spacing": {
+        "rhythm": "일관된 4px 기본 그리드에 카드 내부의 넉넉한 패딩과 인접 요소 간의 타이트한 간격을 적용합니다."
+      },
+      "surfaces": {
+        "shadows": [],
+        "borders": "극도로 미니멀하며, 스트로크보다는 배경 대비와 넉넉한 패딩에 의존합니다."
+      },
+      "layout": {
+        "skeleton": "전체 너비의 이미지 히어로 카드가 수직으로 쌓이고, 그 다음 중앙 정렬된 콘텐츠 블록과 수평 스크롤 브랜드 행이 이어집니다."
+      },
+      "components": {
+        "button": "1px 테두리, 최소 패딩, hover 트랜지션을 가진 필形状 고스트 버튼입니다.",
+        "card": "사진 위에 타이포ografi가 겹쳐진大型의 전체 너비 둥근 카드 (border-radius: 20px)입니다.",
+        "chip": "상태 표시에 사용되는小型의 솔리드 필形状 배지 (예: 'New', 'Update')입니다.",
+        "input": "배경에 자연스럽게 녹아드는 최소한의 테두리 없는 검색 및 텍스트 입력 필드입니다.",
+        "hero": "폰트 자체가 초점이 되는 몰입형 사진 중심의 히어로 섹션입니다."
+      },
+      "motion": {
+        "patterns": [
+          "버튼의 부드러운 배경색 및 색상 전환.",
+          "인터랙티브 요소의 표준 transform 및 opacity 변화."
+        ]
+      },
+      "interaction": {
+        "hover": "부드러운 easing으로 인터랙티브 요소의 미묘한 색상 또는 배경색 변화.",
+        "click": "포인터 피드백을 포함한 표준 커서 상태.",
+        "transition": "모든 속성은 일반적으로 200ms에서 500ms 사이에 전환됩니다.",
+        "keyboard": "접근성을 위한 표준 포커스 링."
+      },
+      "voice": {
+        "tone": "자신감 있고 직접적이며 권위 있지만, 크리에이티브한 면모도 갖춘 어조.",
+        "headlineStyle": "거대한 타이포그래피 스케일을 사용하여 짧고 임팩트 있으며, 시각적으로 강조된 스타일.",
+        "ctaStyle": "명확하고 행동 지향적이며, 탐색하거나 시도해 보는 것 중 선택을 제안하는 형태로 구성됩니다.",
+        "avoid": [
+          "지나치게 공식적이거나 기업적인 언어를 피합니다.",
+          "불필요한 테두리나 장식 요소로 UI를 복잡하게 하지 않습니다.",
+          "타이포그래피와 경쟁하는 일반적인 스톡 이미지를 사용하지 않습니다."
+        ]
+      },
+      "donts": [
+        "카드에 무거운 드롭 섀도우를 사용하지 않습니다 — 스크린샷은 배경 기반의 플랫한 깊이감을 보여줍니다.",
+        "복잡한 배경 패턴을 적용하지 않습니다 — 스크린샷은 깨끗한 흰색 또는 단색 검정 배경을 보여줍니다.",
+        "전통적인 직사각형 버튼을 사용하지 않습니다 — 스크린샷은 필形状 고스트 버튼을 보여줍니다.",
+        "작고 비좁은 타이포그래피를 사용하지 않습니다 — 스크린샷은 거대한 전시용 텍스트를 보여줍니다.",
+        "다양한 종류의 강조색을 사용하지 않습니다 — 스크린샷은 단일의 지배적인 오렌지 강조색을 보여줍니다.",
+        "주요 컨테이너에 날카롭고 모서리가 각진 형태를 사용하지 않습니다 — 스크린샷은 일관된 20px border-radius를 보여줍니다."
+      ],
+      "systemPrompt": "이것은 타이포그래피 중심의 프리미엄 폰트 파운드리 웹사이트입니다. 디자인은 몰입형 사진 위에 거대한 grotesque-sans 디스플레이 텍스트 (최대 102px)에 의존합니다. 주요 팔레트는 '#FFFFFF' 또는 '#FAFAFA' 위의 '#000000' 흑백의 뚜렷한 단색이며, 'New' 배지와 강조를 위해 '#FF2F00' 단일의 고채도 오렌지 강조색을 사용합니다. 핵심 폰트 카테고리는 헤드라인용 grotesque-sans와 본문용 humanist-sans입니다. 중요한 디자인 규칙: 절대 무거운 드롭 섀도우를 사용하지 말 것; 복잡한 배경 패턴을 피할 것; 작고 비좁은 타이포그래피를 사용하지 말 것; 전통적인 직사각형 버튼을 사용하지 말 것; 주요 컨테이너에 날카롭고 모서리가 각진 형태를 피할 것; 다양한 종류의 강조색을 사용하지 말 것."
+    }
+  },
+  "desc": {
+    "en": {
+      "palette": "A high-contrast, minimalist palette consisting of stark black and white, light grays, and a single vibrant orange accent.",
+      "layout": "The layout is structured as a series of full-width, rounded image cards and centered typography blocks.",
+      "interaction": "Interactions are subtle, relying on smooth color transitions and ghost-button states to guide the user.",
+      "motion": "Motion is restrained, focusing on functional transitions for buttons and hover states.",
+      "notes": "This site is a masterclass in using typography as the primary visual asset, making it an essential reference for minimalist, type-forward design."
+    },
+    "zh-CN": {
+      "palette": "一个高对比度的极简配色方案，由纯黑纯白、浅灰色以及单一鲜明的橙色点缀构成。",
+      "layout": "布局结构由一系列全宽、圆角的图像卡片和居中的文本块组成。",
+      "interaction": "交互设计较为克制，依赖平滑的颜色过渡和幽灵按钮状态来引导用户。",
+      "motion": "动效设计保持克制，聚焦于按钮和悬停状态的功能性过渡。",
+      "notes": "该网站堪称将排版作为核心视觉资产的典范，对于研究极简、以字体为先的设计而言，是不可或缺的参考。"
+    },
+    "zh-TW": {
+      "palette": "由純黑、純白、淺灰組成的高對比極簡調色盤，並搭配單一鮮亮的橘色作為強調色。",
+      "layout": "版面以一系列全寬圓角圖片卡片與置中的排版區塊構成。",
+      "interaction": "互動設計細膩，透過流暢的色彩過渡與幽靈按鈕狀態來引導使用者。",
+      "motion": "動態效果克制，聚焦於按鈕與懸停狀態的功能性過渡。",
+      "notes": "此網站是將排版作為主要視覺資產的典範之作，是極簡與字型導向設計的必備參考。"
+    },
+    "ja": {
+      "palette": "無機質な黒と白、明るいグレー、そして単一の鮮やかなオレンジ色のアクセントからなる、ハイコントラストでミニマルなパレット。",
+      "layout": "フルワイドの角丸画像カードと中央揃えのタイポグラフィブロックの系列として構造化されたレイアウト。",
+      "interaction": "インタラクションは控えめで、ユーザーを導くために滑らかなカラートランジションとゴーストボタンのステートに依存。",
+      "motion": "モーションは抑制的で、ボタンやホバー状態のための機能的なトランジションに焦点を当てている。",
+      "notes": "このサイトは、タイポグラフィを主要なビジュアル資産として使用する見本であり、ミニマルでタイポグラフィ主体のデザインに不可欠な参照資料となる。"
+    },
+    "ko": {
+      "palette": "대비가 강조된 미니멀리스트 팔레트로, 뚜렷한 흰색과 검정색, 연한 회색, 그리고 단일의 밝은 오렌지 강조색으로 구성됩니다.",
+      "layout": "전체 너비의 둥근 이미지 카드와 중앙 정렬된 타이포그래피 블록 시리즈로 구조화된 레이아웃입니다.",
+      "interaction": "교감은 미묘하며, 부드러운 색상 전환과 고스트 버튼 상태를 통해 사용자를 안내합니다.",
+      "motion": "모션은 절제되어 있으며, 버튼과 hover 상태를 위한 기능적인 전환에 집중합니다.",
+      "notes": "이 사이트는 타이포그래피를 주요 시각 자산으로 활용하는 뛰어난 예시이며, 미니멀하고 타이포그래피를 중심으로 한 디자인의 필수적인 참고 자료입니다."
+    }
+  },
+  "narrative": {
+    "en": {
+      "ch1_intro": "The Pangram Pangram website operates as a high-end boutique gallery where typography is the art on display. Every design decision exists to frame the typefaces themselves, making the product the primary visual asset rather than a secondary element to be decorated.",
+      "ch2_intro": "The color system is a study in deliberate restraint: a stark monochrome canvas of ink black, pure white, and light grays creates a neutral stage. A single high-chroma orange accent functions as a precise spotlight, used exclusively for status badges and calls to action.",
+      "ch2_outro": "The principle is singular focus—one accent color cannot be diluted by competing hues, ensuring it always signals importance.",
+      "ch3_intro": "Typographic voice is established through a clear hierarchy of categories: massive grotesque-sans headlines create dense, impactful blocks, while humanist-sans body text maintains generous line-height for legibility. The system uses extreme scale contrast and strategic weight variation to differentiate elements without clutter.",
+      "ch4_intro": "A consistent 4px base grid establishes a steady visual rhythm across all components.",
+      "ch5_intro": "Depth is conveyed through background contrast and generous internal padding rather than decorative shadows or borders. The surface language is minimal, relying on the stark interplay of light and dark fields to create separation.",
+      "ch6_intro": "The layout skeleton begins with full-width, rounded image cards stacked vertically, each acting as an immersive canvas for a typeface. This flow transitions to a centered content block for detailed information, concluding with a horizontal scrolling row of brand marks.",
+      "ch7_intro": "Motion philosophy is functional and restrained, applied only to enhance interface state changes. Transitions on buttons and interactive elements are smooth and predictable, occurring within a defined 200ms to 500ms window to guide attention without distraction.",
+      "ch8_intro": "The editorial voice is confident, direct, and authoritative, matching the precision of the design. Language is punchy and visual, framed as a clear choice between exploration and action, and deliberately avoids formal corporate tone.",
+      "ch8_outro": "The system deliberately refrains from decorative borders, busy backgrounds, and a multi-accent palette, preserving the unbroken focus on typographic form."
+    },
+    "zh-CN": {
+      "ch1_intro": "Pangram Pangram 网站扮演着高端精品画廊的角色，字体设计是其中展示的艺术品。每一个设计决策都旨在突出字体本身，使产品成为主要的视觉资产，而非用于装饰的次要元素。",
+      "ch2_intro": "色彩体系体现了刻意的克制：由墨黑、纯白及浅灰色构成的极简单色画布，营造出中性舞台。单一的高饱和度橙色强调色如同精确的聚光灯，仅用于状态标识和行动号召。",
+      "ch2_outro": "原则在于专注：一种强调色不应被竞争色彩稀释，以确保其始终传递重要性。",
+      "ch3_intro": "排版风格通过清晰的分类层级来确立：巨大的 grotesque-sans 标题形成密集而富有冲击力的文本块，而 humanist-sans 正文则保持充足的行高以确保可读性。该系统运用极端的尺度对比和策略性的字重变化来区分元素，避免视觉杂乱。",
+      "ch4_intro": "统一的 4px 基础网格为所有组件建立了稳定的视觉韵律。",
+      "ch5_intro": "深度感通过背景对比和充裕的内部间距来传达，而非装饰性阴影或边框。界面表面语言极简，依靠明暗区域的鲜明对比来创造层次分隔。",
+      "ch6_intro": "布局骨架始于垂直堆叠的全宽圆角图片卡片，每张卡片都是字体的沉浸式画布。这种流程过渡到居中的内容区块展示详细信息，最后以水平滚动的品牌标识行收尾。",
+      "ch7_intro": "动效理念注重功能性与克制，仅用于强化界面状态变化。按钮和交互元素的过渡平滑可预测，在 200 毫秒至 500 毫秒的限定时间内完成，引导注意力而不造成干扰。",
+      "ch8_intro": "编辑风格自信、直接且具权威性，与设计的精准度相匹配。语言简洁有力且富有视觉感，框定为探索与行动之间的明确选择，刻意避免正式的企业语调。",
+      "ch8_outro": "该系统刻意避免装饰性边框、繁复背景和多色强调调色板，以保持对字体形态的不间断专注。"
+    },
+    "zh-TW": {
+      "ch1_intro": "Pangram Pangram 網站運作模式如同一個頂級精品藝廊，以字型作為主要展示的藝術。每項設計決策皆在襯托字型本身，讓產品成為核心視覺資產，而非僅供裝飾的次要元素。",
+      "ch2_outro": "其核心原則在於單一焦點——強調色不應被競合色相稀釋，確保其永遠傳遞重要訊號。",
+      "ch2_intro": "色彩系統展現刻意的克制美學：以墨黑、純白與淺灰構成單色基調，營造中性舞台。單一高飽和度橘色強調色則如精準聚光燈，僅專用於狀態標記與行動召喚。",
+      "ch3_intro": "字型語調透過清晰的類別層級建立：大型 grotesque-sans 標題構成密實而具衝擊力的塊體，humanist-sans 正文則維持寬鬆行距以確保可讀性。系統運用極端的尺度對比與策略性字重變化，在不雜亂的前提下區分各元件。",
+      "ch4_intro": "一致的 4px 基礎網格在所有元件間建立穩定的視覺節奏。",
+      "ch5_intro": "深度感透過背景對比與充裕的內部 padding 傳達，而非裝飾性陰影或邊框。介面語彙極簡，仰賴明暗區域的鮮明交織來創造層次區隔。",
+      "ch6_intro": "版面骨架始於全寬圓角圖片卡片垂直堆疊，每張卡片皆作為字型的沉浸式畫布。此流動配置過渡至置中的內容區塊以承載詳細資訊，最後以水平滾動的品牌標誌列收尾。",
+      "ch7_intro": "動態設計哲學以功能性和克制為原則，僅在強化介面狀態轉換時應用。按鈕與互動元件的過渡效果平滑且可預測，於 200ms 至 500ms 的定義時窗內完成，引導注意力而不造成干擾。",
+      "ch8_outro": "系統刻意避免裝飾性邊框、繁複背景與多重強調色盤，以維繫對字型形式的不間斷專注。",
+      "ch8_intro": "編輯語調自信、直接且具權威感，與設計的精確度相互呼應。語言簡練而具視覺性，框架為探索與行動之間的明確選擇，並刻意避開正式的企業語氣。"
+    },
+    "ja": {
+      "ch1_intro": "Pangram Pangramのウェブサイトは、タイポグラフィを展示するハイエンドのブティックギャラリーとして機能します。あらゆるデザインの決定は、書体自体を際立たせるために存在し、製品を装飾対象の二次要素ではなく、主要なビジュアルアセットとしています。",
+      "ch2_intro": "カラーシステムは、意図的な抑制の研究です：インクブラック、純白、ライトグレーからなる鮮明なモノクロームのキャンバスが、中立的な舞台を創出します。単一の高彩度オレンジアクセントは、正確なスポットライトとして機能し、ステータスバッジやコール・トゥ・アクションにのみ使用されます。",
+      "ch2_outro": "原則は単一の焦点です：1つのアクセントカラーが競合する色によって薄めされることなく、常に重要性を示すことが保証されます。",
+      "ch3_intro": "タイポグラフィカルな声は、カテゴリの明確な階層を通じて確立されます：巨大なgrotesque-sansの見出しは密でインパクトのあるブロックを創出し、一方humanist-sansの本文テキストは読みやすさのために十分な行間を維持します。このシステムは、極端なスケールの対比と戦略的なウェイトの変化を用いて、雑然とせず、要素を区別します。",
+      "ch4_intro": "一貫した4pxのベースグリッドが、すべてのコンポーネントにわたって安定したビジュアルリズムを確立します。",
+      "ch5_intro": "奥行きは、装飾的な影やボーダーではなく、背景の対比と豊かな内部paddingによって表現されます。サーフェスの言語はミニマルで、明暗の領域の鮮明な相互作用によって分離感を創出することに依存します。",
+      "ch6_intro": "レイアウトの骨格は、全幅で角丸の画像カードを垂直に積み重ねることから始まり、それぞれが書体のための没入型キャンバスとして機能します。この流れは、詳細情報のための中央揃えのコンテンツブロックに移行し、最後にブランドマークの水平スクロール行で締めくくられます。",
+      "ch7_intro": "モーション哲学は機能的かつ抑制的で、インターフェースの状態変化を高めるためにのみ適用されます。ボタンやインタラクティブ要素のトランジションは滑らかで予測可能であり、注意を散らすことなく誘導するために、定義された200msから500msのウィンドウ内で発生します。",
+      "ch8_intro": "エディトリアルな声は、デザインの精度に合わせ、自信に満ち、率直で権威があります。言語は的確で視覚的であり、探求と行動の明確な選択として構成され、意図的にフォーマルな企業のトーンを避けます。",
+      "ch8_outro": "システムは、装飾的なボーダー、雑多な背景、および複数アクセントのパレットを意図的に控え、タイポグラフィカルなフォームへの途切れない焦点を保全します。"
+    },
+    "ko": {
+      "ch1_intro": "팡그람 팡그람 웹사이트는 타이포그래피가 전시 예술인 하이엔드 부티크 갤러리로 운영됩니다. 모든 디자인 결정은 폰트 자체를 조명하는 데 존재하며, 제품을 장식의 대상이 아닌 주요 시각 자산으로 만듭니다.",
+      "ch2_intro": "색상 시스템은 의도된 절제의 연구입니다: 잉크 블랙, 순백, 밝은 그레이의 차분한 단색 캔버스가 중립적인 무대를 만듭니다. 단일 고채도 오렌지 강조색은 정확한 스포트라이트 역할을 하며, 상태 배지와 행동 유도 요소에만 엄격히 사용됩니다.",
+      "ch2_outro": "원칙은 단일 초점입니다: 하나의 강조색은 경쟁 색상으로 희석될 수 없으며, 항상 중요성을 신호하도록 보장합니다.",
+      "ch3_intro": "타이포그래피 음성은 명확한 카테고리 계층을 통해 확립됩니다: 거대한 grotesque-sans 제목은 밀도 높고 임팩트 있는 블록을 만들고, humanist-sans 본문은 가독성을 위해 넉넉한 line-height를 유지합니다. 이 시스템은 극적인 스케일 대비와 전략적 굵기 변화를 사용하여 혼잡 없이 요소를 구별합니다.",
+      "ch4_intro": "일관된 4px 기본 그리드는 모든 컴포넌트에 걸쳐 안정적인 시각 리듬을 확립합니다.",
+      "ch5_intro": "깊이는 장식적 그림자나 테두리가 아닌 배경 대비와 넉넉한 내부 padding을 통해 전달됩니다. 표면 언어는 미니멀하며, 분리를 만들기 위해 빛과 어두운 영역의 대담한 상호작용에 의존합니다.",
+      "ch6_intro": "레이아웃 골격은 전체 폭의 둥근 이미지 카드가 수직으로 쌓이는 것으로 시작하며, 각 카드는 폰트를 위한 몰입형 캔버스 역할을 합니다. 이 흐름은 상세 정보를 위한 중앙 정렬 콘텐츠 블록으로 전환되고, 브랜드 마크의 가로 스크롤 행으로 마무리됩니다.",
+      "ch7_intro": "모션 철학은 기능적이고 절제되어 있으며, 인터페이스 상태 변화를 향상시키는 데만 적용됩니다. 버튼과 인터랙티브 요소의 전환은 부드럽고 예측 가능하며, 주의를 산만하게 하지 않으면서 안내하기 위해 정의된 200ms~500ms 윈도우 내에서 발생합니다.",
+      "ch8_intro": "에디토리얼 음성은 자신감 있고 직접적이며 권위가 있어, 디자인의 정밀함과 일치합니다. 언어는 간결하고 시각적이며, 탐색과 행동 사이의 명확한 선택으로 구성되며, 의도적으로 공식적인 기업 어조를 피합니다.",
+      "ch8_outro": "시스템은 의도적으로 장식적 테두리, 지나치게 바쁜 배경, 다중 강조색 팔레트를 삼가며, 타이포그래피 형태에 대한 끊김 없는 초점을 보존합니다."
+    }
+  }
 }

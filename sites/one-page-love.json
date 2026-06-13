@@ -8,6 +8,587 @@
     "design",
     "gallery"
   ],
-  "status": "pending",
-  "added_at": "2026-06-02"
+  "status": "completed",
+  "added_at": "2026-06-02",
+  "spec": {
+    "colors": {
+      "bg": "#EEEAE7",
+      "bgSoft": "#F7F4F3",
+      "bgQuiet": "#FFFFFF",
+      "ink": "#2D251F",
+      "inkSoft": "#7E6858",
+      "muted": "#9B816F",
+      "mutedSoft": "#B09B8D",
+      "accent": "#D94F5C",
+      "line": "rgba(222, 213, 207, 1)"
+    },
+    "typography": {
+      "display": "geometric-sans",
+      "body": "system-sans",
+      "mono": "ui-monospace",
+      "scale": [
+        {
+          "token": "display",
+          "size": 40,
+          "lh": 1.1,
+          "weight": 400,
+          "ls": "-1px"
+        },
+        {
+          "token": "body",
+          "size": 17,
+          "lh": 1.5,
+          "weight": 400,
+          "ls": "0px"
+        },
+        {
+          "token": "caption",
+          "size": 12.75,
+          "lh": 1.0,
+          "weight": 400,
+          "ls": "-0.3px"
+        }
+      ]
+    },
+    "spacing": {
+      "base": 4,
+      "scale": [
+        4,
+        8,
+        16,
+        24,
+        32,
+        48,
+        64,
+        96
+      ]
+    },
+    "surfaces": {
+      "radius": {
+        "sm": 4,
+        "md": 8,
+        "lg": 12,
+        "pill": 999
+      }
+    },
+    "layout": {
+      "container": 1280,
+      "paragraph": 680,
+      "columns": 3,
+      "gutter": 24,
+      "breakpoints": [
+        768,
+        1024
+      ]
+    },
+    "motion": {
+      "durations": {
+        "micro": 220,
+        "small": 400,
+        "medium": 800
+      },
+      "easing": "cubic-bezier(0.4, 0, 0.2, 1)"
+    }
+  },
+  "spec_i18n": {
+    "en": {
+      "identity": {
+        "keywords": [
+          "curated",
+          "minimal",
+          "editorial",
+          "reference",
+          "archive"
+        ],
+        "analogy": "A meticulously organized design library with a warm, paper-like aesthetic.",
+        "oneLiner": "A warm, minimalist gallery for curated one-page websites."
+      },
+      "colors": {
+        "principle": "Warm neutrals with a single coral accent and dark brown ink for high contrast and a paper-like feel."
+      },
+      "typography": {
+        "rules": [
+          "Use Geist for display headlines.",
+          "Use system-ui for body text.",
+          "Use Geist Mono for category tags and metadata.",
+          "Strict 400 font weight for primary text."
+        ],
+        "scaleUses": [
+          "hero headline",
+          "paragraph text",
+          "category tags and metadata"
+        ]
+      },
+      "spacing": {
+        "rhythm": "Consistent 4px grid with generous padding around content cards."
+      },
+      "surfaces": {
+        "shadows": [],
+        "borders": "Subtle 1px borders in light taupe."
+      },
+      "layout": {
+        "skeleton": "Three-column masonry-style grid for gallery cards."
+      },
+      "components": {
+        "button": "Minimal text buttons with subtle underlines or outlines.",
+        "card": "Clean, white-background cards with subtle rounded corners and thin borders.",
+        "chip": "Mono-font tags with thin borders.",
+        "input": "Minimal search input with a thin border.",
+        "hero": "Center-aligned text hero with generous whitespace."
+      },
+      "motion": {
+        "patterns": [
+          "Smooth transitions on hover states for buttons and links."
+        ]
+      },
+      "interaction": {
+        "hover": "Subtle color transitions on links and buttons.",
+        "click": "Standard pointer cursor.",
+        "transition": "1s color and background-color transitions.",
+        "keyboard": "Standard focusable elements."
+      },
+      "voice": {
+        "tone": "Professional, informative, and understated.",
+        "headlineStyle": "Concise and descriptive.",
+        "ctaStyle": "Minimal and action-oriented.",
+        "avoid": [
+          "Loud colors",
+          "aggressive animations",
+          "overly playful language"
+        ]
+      },
+      "donts": [
+        "Don't use stark white backgrounds — screenshot shows warm, textured beige and off-white surfaces.",
+        "Don't use a heavy sans-serif for body text — screenshot shows system fonts or monospaced text for tags.",
+        "Don't use deep black for text — screenshot shows a warm, dark brown ink color.",
+        "Don't use vibrant or neon colors — screenshot shows a single muted coral accent.",
+        "Don't use complex drop shadows — screenshot shows flat, clean surfaces.",
+        "Don't use a dense, cluttered layout — screenshot shows generous whitespace around elements."
+      ],
+      "systemPrompt": "One Page Love is a minimalist, warm-toned website gallery featuring curated one-page sites. It uses a palette of beige and off-white backgrounds with dark brown ink and a single coral accent. Typography relies on Geist and Geist Mono with system font fallbacks, prioritizing readability. The layout is a clean three-column grid. Critical donts: Never use stark white backgrounds, never use vibrant or neon colors, and never use complex drop shadows. The tone is professional, editorial, and understated."
+    },
+    "zh-CN": {
+      "identity": {
+        "keywords": [
+          "精选",
+          "极简",
+          "编辑",
+          "参考",
+          "存档"
+        ],
+        "analogy": "一个精心组织的设计图书馆，具有温暖、类纸质的美感。",
+        "oneLiner": "一个温暖、极简的画廊，用于展示精选的单页网站。"
+      },
+      "colors": {
+        "principle": "温暖的中性色，搭配单一珊瑚色点缀和深棕色墨水，以实现高对比度和类纸质质感。"
+      },
+      "typography": {
+        "rules": [
+          "使用 Geist 作为展示标题字体。",
+          "使用 system-ui 作为正文文本。",
+          "使用 Geist Mono 作为类别标签和元数据。",
+          "主要文本严格使用 400 字重。"
+        ],
+        "scaleUses": [
+          "主标题",
+          "段落文本",
+          "类别标签和元数据"
+        ]
+      },
+      "spacing": {
+        "rhythm": "一致的 4px 网格，内容卡片周围有宽敞的内边距。"
+      },
+      "surfaces": {
+        "shadows": [],
+        "borders": "浅灰褐色 1px 细边框。"
+      },
+      "layout": {
+        "skeleton": "用于画廊卡片的三栏瀑布流网格。"
+      },
+      "components": {
+        "button": "极简的文本按钮，带有细微的下划线或轮廓。",
+        "card": "干净、白色背景的卡片，带有细微的圆角和细边框。",
+        "chip": "使用等宽字体的标签，带有细边框。",
+        "input": "极简的搜索输入框，带有细边框。",
+        "hero": "居中文本的主视觉区，留有充足的空白。"
+      },
+      "motion": {
+        "patterns": [
+          "按钮和链接在悬停状态下的流畅过渡。"
+        ]
+      },
+      "interaction": {
+        "hover": "链接和按钮上的细微颜色过渡。",
+        "click": "标准指针光标。",
+        "transition": "1秒的颜色和背景色过渡。",
+        "keyboard": "标准可聚焦元素。"
+      },
+      "voice": {
+        "tone": "专业、信息丰富且内敛。",
+        "headlineStyle": "简洁且具有描述性。",
+        "ctaStyle": "极简且以行动为导向。",
+        "avoid": [
+          "刺眼的颜色",
+          "侵略性的动画",
+          "过于俏皮的语言"
+        ]
+      },
+      "donts": [
+        "不要使用纯白色背景——截图显示温暖、有纹理的米色和灰白色表面。",
+        "不要为正文使用粗重的无衬线字体——截图显示使用系统字体或用于标签的等宽文本。",
+        "不要使用深黑色文本——截图显示温暖的深棕色墨水颜色。",
+        "不要使用鲜艳或霓虹色——截图显示单一的柔和珊瑚色点缀。",
+        "不要使用复杂的投影——截图显示扁平、干净的表面。",
+        "不要使用密集、杂乱的布局——截图显示元素周围有充足的空白。"
+      ],
+      "systemPrompt": "One Page Love 是一个极简、暖色调的网站画廊，展示精选的单页网站。它使用米色和灰白色背景，搭配深棕色墨水和单一珊瑚色点缀。字体依赖 Geist 和 Geist Mono，并有系统字体作为后备，优先考虑可读性。布局是一个简洁的三栏网格。关键禁忌：绝不使用纯白色背景，绝不使用鲜艳或霓虹色，绝不使用复杂的投影。语调专业、编辑风格且内敛。"
+    },
+    "zh-TW": {
+      "identity": {
+        "keywords": [
+          "精選策展",
+          "極簡",
+          "編輯風格",
+          "參考資源",
+          "典藏庫"
+        ],
+        "analogy": "一個組織嚴謹的設計圖書館，具有溫暖、類似紙張的美學。",
+        "oneLiner": "一個溫暖、極簡的圖庫，專門精選單頁網站。"
+      },
+      "colors": {
+        "principle": "溫暖的中性色調，搭配單一珊瑚色強調色與深棕色墨水，實現高對比度與類似紙張的質感。"
+      },
+      "typography": {
+        "rules": [
+          "使用 Geist 作為顯示標題。",
+          "使用 system-ui 作為內文。",
+          "使用 Geist Mono 作為分類標籤與中繼資料。",
+          "主要文字嚴格使用 400 字重。"
+        ],
+        "scaleUses": [
+          "主標題",
+          "段落文字",
+          "分類標籤與中繼資料"
+        ]
+      },
+      "spacing": {
+        "rhythm": "一致的 4px 格線，內容卡片周圍留有寬裕的內距。"
+      },
+      "surfaces": {
+        "shadows": [],
+        "borders": "淺灰褐色的細緻 1px 邊框。"
+      },
+      "layout": {
+        "skeleton": "三欄瀑布流式格線，用於圖庫卡片。"
+      },
+      "components": {
+        "button": "極簡的文字按鈕，帶有細微的底線或外框。",
+        "card": "簡潔的白色背景卡片，帶有細微圓角與細邊框。",
+        "chip": "等寬字體標籤，帶有細邊框。",
+        "input": "極簡的搜尋輸入框，帶有細邊框。",
+        "hero": "置中的文字主視覺，留有寬裕的留白。"
+      },
+      "motion": {
+        "patterns": [
+          "按鈕與連結在懸停狀態下平滑過渡。"
+        ]
+      },
+      "interaction": {
+        "hover": "連結與按鈕的細膩色彩過渡。",
+        "click": "標準指標游標。",
+        "transition": "1秒的顏色與背景色過渡。",
+        "keyboard": "標準可聚焦元素。"
+      },
+      "voice": {
+        "tone": "專業、資訊性且低調。",
+        "headlineStyle": "簡潔且具描述性。",
+        "ctaStyle": "極簡且以行動為導向。",
+        "avoid": [
+          "刺眼的顏色",
+          "強烈的動畫",
+          "過於俏皮的語言"
+        ]
+      },
+      "donts": [
+        "不要使用純白色背景——截圖顯示的是溫暖、有紋理的米色與非純白表面。",
+        "不要為內文使用粗壯的無襯線字體——截圖顯示的是系統字體或等寬字體標籤。",
+        "不要使用純黑色作為文字——截圖顯示的是溫暖的深棕色墨水色。",
+        "不要使用鮮豔或霓虹色調——截圖顯示的是一個柔和的珊瑚色強調色。",
+        "不要使用複雜的陰影——截圖顯示的是平坦、簡潔的表面。",
+        "不要使用密集、雜亂的版面——截圖顯示的是元素周圍寬裕的留白。"
+      ],
+      "systemPrompt": "One Page Love 是一個極簡、暖色調的網站圖庫，專門精選單頁式網站。它使用米色與非純白背景，搭配深棕色墨水與單一珊瑚色強調色。字體方面主要採用 Geist 與 Geist Mono，並搭配系統字體作為備用方案，優先考量可讀性。版面採用簡潔的三欄格線。關鍵禁忌：切勿使用純白色背景，切勿使用鮮豔或霓虹色調，切勿使用複雜的陰影。整體語氣專業、編輯風格且低調。"
+    },
+    "ja": {
+      "identity": {
+        "keywords": [
+          "キュレーション",
+          "ミニマル",
+          "エディトリアル",
+          "リファレンス",
+          "アーカイブ"
+        ],
+        "analogy": "暖かみのある紙のような質感を持つ、入念に整理されたデザインライブラリ。",
+        "oneLiner": "キュレーションされたワンページウェブサイトのための、温かみのあるミニマルなギャラリー。"
+      },
+      "colors": {
+        "principle": "暖かみのあるニュートラルにコーラルのアクセントを一点、ダークブラインクを加え、高コントラストと紙のような質感を実現。"
+      },
+      "typography": {
+        "rules": [
+          "ディスプレイ見出しにはGeistを使用。",
+          "本文にはsystem-uiを使用。",
+          "カテゴリータグとメタデータにはGeist Monoを使用。",
+          "プライマリテキストには厳守400のフォントウェイト。"
+        ],
+        "scaleUses": [
+          "ヒーローヘッドライン",
+          "段落テキスト",
+          "カテゴリータグとメタデータ"
+        ]
+      },
+      "spacing": {
+        "rhythm": "コンテンツカード周囲にゆとりのあるパディングを備えた、一定の4pxグリッド。"
+      },
+      "surfaces": {
+        "shadows": [],
+        "borders": "ライトタウプの微細な1pxボーダー。"
+      },
+      "layout": {
+        "skeleton": "ギャラリーカード用の3カラムメソンリースタイルグリッド。"
+      },
+      "components": {
+        "button": "微細なアンダーラインまたはアウトラインを持つミニマルなテキストボタン。",
+        "card": "清潔な白背景のカードで、角は微細に丸みを持ち、ボーダーは細め。",
+        "chip": "モノスペースフォントで、細いボーダーを持つタグ。",
+        "input": "細いボーダーを持つミニマルな検索インプット。",
+        "hero": "中央揃えテキストのヒーローで、ゆとりのあるホワイトスペース。"
+      },
+      "motion": {
+        "patterns": [
+          "ボタンやリンクのホバー状態におけるスムーズなトランジション。"
+        ]
+      },
+      "interaction": {
+        "hover": "リンクやボタンにおける微細な色のトランジション。",
+        "click": "標準のポインターカーソル。",
+        "transition": "1秒のcolorおよびbackground-colorトランジション。",
+        "keyboard": "標準のフォーカス可能要素。"
+      },
+      "voice": {
+        "tone": "プロフェッショナルで、情報を伝え、控えめなトーン。",
+        "headlineStyle": "簡潔で記述的。",
+        "ctaStyle": "ミニマルでアクション指向。",
+        "avoid": [
+          "派手な色",
+          "攻撃的なアニメーション",
+          "余計に遊び心のある言葉遣い"
+        ]
+      },
+      "donts": [
+        "極端に白い背景を使用しない — スクリーンショットは暖かみのあるテクスチャー付きベージュやオフホワイトのサーフェスを示しています。",
+        "本文に太めのサンセリフを使用しない — スクリーンショットはシステムフォントやモノスペーステキストをタグに使用しています。",
+        "テキストに深い黒色を使用しない — スクリーンショットは暖かみのあるダークブラウンインクの色を示しています。",
+        "鮮やかまたはネオンカラーを使用しない — スクリーンショットは微細にトーンダウンしたコーラルのアクセントを一点だけ使用しています。",
+        "複雑なドロップシャドウを使用しない — スクリーンショットはフラットでクリーンなサーフェスを示しています。",
+        "密集したごちゃごちゃしたレイアウトを使用しない — スクリーンショットは要素の周囲にゆとりのあるホワイトスペースを示しています。"
+      ],
+      "systemPrompt": "One Page Loveは、キュレーションされたワンページサイトをフィーチャーする、ミニマルで温かみのあるウェブサイトギャラリーです。ベージュとオフホワイトの背景にダークブラウンインク、そしてアクセントにコーラルを一点だけ使用したカラーパレットを採用しています。タイポグラフィはGeistとGeist Monoを基にし、システムフォントにフォールバック、可読性を優先しています。レイアウトは清潔な3カラムグリッドです。重要な禁止事項：決して極端に白い背景を使用せず、決して鮮やかまたはネオンカラーを使用せず、決して複雑なドロップシャドウを使用しないこと。トーンはプロフェッショナル、エディトリアル、控えめです。"
+    },
+    "ko": {
+      "identity": {
+        "keywords": [
+          "큐레이션된",
+          "미니멀",
+          "에디토리얼",
+          "레퍼런스",
+          "아카이브"
+        ],
+        "analogy": "따뜻하고 종이 질감의 미학을 갖추어 꼼꼼하게 정리된 디자인 라이브러리입니다.",
+        "oneLiner": "큐레이션된 원페이지 웹사이트를 위한 따뜻한 미니멀 갤러리입니다."
+      },
+      "colors": {
+        "principle": "따뜻한 뉴트RAL 톤을 사용하되, 코랄 포인트 컬러를 하나 사용하고 다크 브라운 잉크를 적용하여 높은 대비와 종이 질감의 느낌을 냅니다."
+      },
+      "typography": {
+        "rules": [
+          "디스플레이 헤드라인에는 Geist를 사용합니다.",
+          "본문 텍스트에는 system-ui를 사용합니다.",
+          "카테고리 태그와 메타데이터에는 Geist Mono를 사용합니다.",
+          "기본 텍스트에는 엄격하게 400 font weight를 사용합니다."
+        ],
+        "scaleUses": [
+          "히어로 헤드라인",
+          "단락 텍스트",
+          "카테고리 태그 및 메타데이터"
+        ]
+      },
+      "spacing": {
+        "rhythm": "일관된 4px 그리드를 사용하고, 콘텐츠 카드 주변에 여유로운 padding을 둡니다."
+      },
+      "surfaces": {
+        "shadows": [],
+        "borders": "라이트 토피 컬러의 미묘한 1px 테두리를 사용합니다."
+      },
+      "layout": {
+        "skeleton": "갤러리 카드를 위한 3칼럼 메이슨리 스타일 그리드입니다."
+      },
+      "components": {
+        "button": "미묘한 밑줄이나 테두리가 있는 미니멀 텍스트 버튼입니다.",
+        "card": "깔끔한 화이트 배경 카드로, 미묘한 둥근 모서리와 얇은 테두리를 가집니다.",
+        "chip": "얇은 테두리가 있는 모노 폰트 태그입니다.",
+        "input": "얇은 테두리가 있는 미니멀 검색 입력란입니다.",
+        "hero": "여유로운 여백을 두어 중앙 정렬된 텍스트 히어로입니다."
+      },
+      "motion": {
+        "patterns": [
+          "버튼과 링크의 hover 상태에서 부드러운 전환 효과를 적용합니다."
+        ]
+      },
+      "interaction": {
+        "hover": "링크와 버튼에 미묘한 컬러 전환 효과를 적용합니다.",
+        "click": "기본 포인터 커서입니다.",
+        "transition": "1초의 color 및 background-color 전환 효과입니다.",
+        "keyboard": "기본 포커스 가능한 요소입니다."
+      },
+      "voice": {
+        "tone": "전문적이고 정보를 전달하며, 절제된 톤입니다.",
+        "headlineStyle": "간결하고 서술적인 스타일입니다.",
+        "ctaStyle": "미니멀하고 행동을 유도하는 스타일입니다.",
+        "avoid": [
+          "강렬한 컬러",
+          "공격적인 애니메이션",
+          "지나치게 장난스러운 언어"
+        ]
+      },
+      "donts": [
+        "순백 배경을 사용하지 않습니다 — 스크린샷은 따뜻하고 질감이 있는 베이지 및 오프화이트 표면을 보여줍니다.",
+        "본문 텍스트에 무거운 산세리프를 사용하지 않습니다 — 스크린샷은 시스템 폰트 또는 모노스페이스 텍스트를 태그에 사용하는 것을 보여줍니다.",
+        "텍스트에 진한 블랙을 사용하지 않습니다 — 스크린샷은 따뜻한 다크 브라운 잉크 컬러를 보여줍니다.",
+        "선명하거나 네온 컬러를 사용하지 않습니다 — 스크린샷은 단일한 음화된 코랄 포인트 컬러를 보여줍니다.",
+        "복잡한 드롭 섀도우를 사용하지 않습니다 — 스크린샷은 평면적이고 깔끔한 표면을 보여줍니다.",
+        "빽빽하고 지저분한 레이아웃을 사용하지 않습니다 — 스크린샷은 요소 주변에 여유로운 여백을 보여줍니다."
+      ],
+      "systemPrompt": "One Page Love는 큐레이션된 원페이지 사이트를 특징으로 하는 미니멀하고 따뜻한 톤의 웹사이트 갤러리입니다. 베이지 및 오프화이트 배경과 다크 브라운 잉크, 그리고 단일한 코랄 포인트 컬러로 구성된 팔레트를 사용합니다. 타이포그래피는 Geist 및 Geist Mono를 기반으로 하며 시스템 폰트를 대체로 사용하여 가독성을 우선시합니다. 레이아웃은 깔끔한 3칼럼 그리드입니다. 중요한 주의사항: 순백 배경, 선명하거나 네온 컬러, 복잡한 드롭 섀도우는 절대 사용하지 않습니다. 톤은 전문적이고 에디토리얼적이며 절제된 것입니다."
+    }
+  },
+  "desc": {
+    "en": {
+      "palette": "Warm neutrals and dark brown ink with a single coral accent.",
+      "layout": "A clean, generous three-column grid for browsing curated website cards.",
+      "interaction": "Subtle, smooth transitions on hover states for a refined feel.",
+      "motion": "Slow, deliberate transitions for a calm browsing experience.",
+      "notes": "A perfect example of a refined, editorial-style gallery with a warm, paper-like aesthetic."
+    },
+    "zh-CN": {
+      "palette": "温暖的中性色与深棕色墨水，搭配单一珊瑚色点缀。",
+      "layout": "简洁、宽敞的三栏网格，用于浏览精选网站卡片。",
+      "interaction": "悬停状态下的细腻、流畅过渡，营造精致感。",
+      "motion": "缓慢、从容的过渡，带来平静的浏览体验。",
+      "notes": "一个精致、编辑风格的画廊典范，具有温暖、类纸质的美感。"
+    },
+    "zh-TW": {
+      "palette": "溫暖的中性色調，搭配深棕色墨水，並點綴一個珊瑚色強調色。",
+      "layout": "簡潔、寬裕的三欄格線，用於瀏覽精心策展的網站卡片。",
+      "interaction": "懸停狀態下細膩、流暢的過渡效果，帶來精緻的感受。",
+      "motion": "緩慢、沉穩的過渡，營造寧靜的瀏覽體驗。",
+      "notes": "一個精緻、編輯風格圖庫的完美範例，具有溫暖、類似紙張的美學。"
+    },
+    "ja": {
+      "palette": "暖かみのあるニュートラルとダークブラウンインク、アクセントにはコーラルを一点だけ使用。",
+      "layout": "キュレーションされたウェブサイトカードを閲覧するための、清潔でゆとりのある3カラムグリッド。",
+      "interaction": "ホバー状態における微細でスムーズなトランジションが、洗練された印象を演出します。",
+      "motion": "落ち着いた閲覧体験のための、ゆっくりとした意図的なトランジション。",
+      "notes": "暖かみのある紙のような質感を備えた、洗練されたエディトリアルスタイルのギャラリーの完璧な例です。"
+    },
+    "ko": {
+      "palette": "따뜻한 뉴트RAL 톤과 다크 브라운 잉크를 사용하고, 코랄 포인트 컬러를 하나 사용합니다.",
+      "layout": "큐레이션된 웹사이트 카드를 브라우징하기 위한 깔끔하고 여유로운 3칼럼 그리드입니다.",
+      "interaction": "정교한 느낌을 위해 hover 상태에서 미묘하고 부드러운 전환 효과를 적용합니다.",
+      "motion": "차분한 브라우징 경험을 위해 느리고 신중한 전환 효과를 사용합니다.",
+      "notes": "따뜻하고 종이 질감의 미학을 가진 정교한 에디토리얼 스타일 갤러리의 완벽한 예시입니다."
+    }
+  },
+  "_meta": {
+    "vision_model": "mimo-v2.5",
+    "vision_prompt_version": "0.3",
+    "vision_source": "playwright-extract:one-page-love",
+    "vision_grounded": true,
+    "vision_at": "2026-06-04T17:34:14+00:00",
+    "vision_tokens": 15843,
+    "vision_cost_usd": 0.176,
+    "translation_model": "mimo-v2.5",
+    "translation_at": "2026-06-04T17:35:17+00:00",
+    "translation_tokens": 14610,
+    "translation_cost_usd": 0.0486,
+    "narrative_model": "mimo-v2.5",
+    "narrative_prompt_version": "0.3",
+    "narrative_at": "2026-06-04T17:35:24+00:00",
+    "narrative_tokens": 1789,
+    "narrative_cost_usd": 0.0119,
+    "narrative_status": "ok",
+    "total_cost_usd": 0.2365
+  },
+  "narrative": {
+    "en": {
+      "ch1_intro": "One Page Love functions as a meticulously organized design library, its warm, paper-like aesthetic serving as both backdrop and content. The system's identity is built on a curated, minimal, and editorial sensibility, treating each gallery entry as a reference work in an ever-growing archive.",
+      "ch2_intro": "The palette establishes a tactile, paper-like foundation using warm neutrals and a dark brown ink for high contrast. A single coral accent provides a controlled point of emphasis against the beige and off-white surfaces.",
+      "ch2_outro": "Color is used with restraint to maintain the site's calm, reference-book character.",
+      "ch3_intro": "Typography differentiates function through clear category choices: Geist for display headlines, system-ui for body text, and Geist Mono for metadata. This hierarchy supports a clean, editorial voice where readability is paramount.",
+      "ch4_intro": "A consistent 4px grid governs all spacing, creating a predictable rhythmic foundation.",
+      "ch5_intro": "Surfaces are defined by subtle 1px borders in light taupe, with an absence of complex drop shadows. The design favors flat, clean planes that reinforce the site's minimalist and organized feel.",
+      "ch6_intro": "The layout is structured around a three-column masonry-style grid for gallery cards, ensuring a generous and browsable presentation. Content cards feature clean, white backgrounds with subtle rounded corners, framed by ample whitespace.",
+      "ch7_intro": "Motion philosophy prioritizes calm and refinement, employing smooth, one-second color transitions on hover states. The interactions are deliberate and slow, contributing to a focused browsing experience rather than drawing attention to themselves.",
+      "ch8_intro": "The editorial voice is professional, informative, and understated, with concise, descriptive headlines and minimal, action-oriented calls to action. Language avoids the overly playful, aligning with the site's serious, curatorial purpose.",
+      "ch8_outro": "The system deliberately avoids loud colors, aggressive animations, and vibrant neon accents, committing instead to a quiet, paper-like authority."
+    },
+    "zh-CN": {
+      "ch1_intro": "One Page Love 扮演着精心组织的设计库角色，其温暖、类似纸张的美学既是背景也是内容。系统身份建立在精选、极简和编辑式的感知之上，将每个画廊条目视为不断扩展的档案中的参考作品。",
+      "ch2_intro": "色彩方案使用温暖的中性色和深棕色墨水构建触觉般的纸张基础，形成高对比度。单一点缀的珊瑚色在米色和灰白色表面上提供了受控的强调点。",
+      "ch2_outro": "色彩运用克制，以维持网站平静、参考书般的特质。",
+      "ch3_intro": "字体通过清晰的类别选择区分功能：Geist 用于展示标题，system-ui 用于正文，Geist Mono 用于元数据。这种层次结构支持清晰、编辑式的声音，其中可读性至关重要。",
+      "ch4_intro": "一致的 4px 网格控制所有间距，创建可预测的韵律基础。",
+      "ch5_intro": "表面由浅褐色 1px 细边框定义，没有复杂的阴影效果。设计偏好平整、干净的平面，强化网站的极简和有序感。",
+      "ch6_intro": "布局围绕画廊卡片的三列瀑布流网格构建，确保宽松且可浏览的展示。内容卡片采用干净的白色背景，带有微妙的圆角，并由充足的留白衬托。",
+      "ch7_intro": "动效理念优先考虑平静与精致，在悬停状态使用平滑、一秒的颜色过渡。交互设计从容缓慢，旨在营造专注的浏览体验，而非吸引自身注意力。",
+      "ch8_intro": "编辑声音专业、信息性强且内敛，采用简洁、描述性的标题和最少、以行动为导向的号召性用语。语言避免过度活泼，与网站严肃、策展性质保持一致。",
+      "h8_outro": "系统刻意避免鲜艳色彩、激进动画和炫目霓虹效果，转而追求安静、纸张般的权威感。"
+    },
+    "zh-TW": {
+      "ch1_intro": "One Page Love 作為一個精心組織的設計資料庫，其溫暖、紙質般的美學既是背景也是內容。系統的識別建立在策展、極簡與編輯的感知上，將每個畫廊條目視為不斷擴展的典藏中的參考作品。",
+      "ch2_intro": "色盤以溫暖的中性色調與深棕色墨水建立觸覺般的紙質基礎，營造高對比。單一的珊瑚色點綴在米色與灰白色表面上，提供受控的視覺強調。",
+      "ch2_outro": "顏色運用以克制為原則，以維持網站冷靜的參考書特質。",
+      "ch3_intro": "排版透過清晰的字體分類區分功能：展示標題使用 Geist，內文使用 system-ui，詮釋資料使用 Geist Mono。此階層支持乾淨的編輯語調，其中可讀性至關重要。",
+      "ch4_intro": "一致的 4px 網格規範所有間距，創造出可預期的節奏基礎。",
+      "ch5_intro": "表面由淺灰褐色的細微 1px 邊框定義，無複雜的陰影效果。設計偏好平坦、乾淨的平面，以強化網站的極簡與有序感受。",
+      "ch6_intro": "版面以三欄瀑布流網格為基礎，用於展示畫廊卡片，確保寬鬆且易於瀏覽的呈現。內容卡片採用乾淨的白色背景與細微圓角，並以充足的留白作為框架。",
+      "ch7_intro": "動態理念優先考量寧靜與精緻，採用滑鼠懸停時一秒鐘的平滑色彩過渡。互動刻意且緩慢，著重於專注的瀏覽體驗，而非吸引注意力。",
+      "ch8_intro": "編輯語調專業、具資訊性且內斂，標題簡潔具描述性，行動呼籲簡約且以行動為導向。語言避免過度 playful，與網站嚴肅的策展目的保持一致。",
+      "ch8_outro": "系統刻意避免刺眼的色彩、激烈的動畫與鮮豔的霓虹色調，轉而致力於靜謐、紙質般的權威感。"
+    },
+    "ja": {
+      "ch1_intro": "One Page Loveは、精緻に組織されたデザインライブラリとして機能し、その温かみのある紙のような美感は背景とコンテンツの両方を兼ね備えています。このシステムのアイデンティティは、厳選された、ミニマルでエディトリアルな感覚に基づいて構築されており、各ギャラリーエントリーを、成長し続けるアーカイブにおける参考作品として扱います。",
+      "ch2_intro": "パレットは、温かみのあるニュートラルカラーと、高いコントラストを実現するダークブラウンのインクを使用し、触感のある紙のような基盤を確立しています。单一のコーラルアクセントが、ベージュやオフホワイトのサーフェスに対して、制御された強調ポイントを提供します。",
+      "ch2_outro": "色は、サイトの落ち着いた参考書的な性格を維持するために、控えめに使用されています。",
+      "ch3_intro": "タイポグラフィは、明確なカテゴリ選択によって機能を区別します。表示見出しにはGeist、本文テキストにはsystem-ui、メタデータにはGeist Monoを使用します。この階層構造は、可読性が最優先されるクリーンなエディトリアルな声を支えています。",
+      "ch4_intro": "一貫した4pxグリッドがすべてのスペーシングを統制し、予測可能なリズミカルな基盤を生み出します。",
+      "ch5_intro": "サーフェスは、薄いタウパーの微妙な1pxボーダーで定義され、複雑なドロップシャドウは排除されています。デザインは、サイトのミニマルで組織的な感覚を強化するフラットでクリーンな平面を採用しています。",
+      "ch6_intro": "レイアウトは、ギャラリーカードの3カラムメーソンリーグリッドを中心に構成され、手厚く閲覧しやすいプレゼンテーションを確保します。コンテンツカードは、十分な余白に囲まれたクリーンな白い背景と、微かに丸みのある角を特徴とします。",
+      "ch7_intro": "モーションの哲学は、落ち着きと洗練を重視し、hover状態でスムーズな1秒間のカラー遷移を採用しています。インタラクションは意図的でゆっくりとしており、自分自身に注意を引くのではなく、集中した閲覧体験に寄与します。",
+      "ch8_intro": "エディトリアルな声は、専門的で、情報豊かで、控えめであり、簡潔で記述的な見出しと、最小限の、行動を促すCTAを備えています。言語は過度に遊び心のあるものを避け、サイトの真面目でキュレーション目的に即しています。",
+      "ch8_outro": "このシステムは、派手な色、攻撃的なアニメーション、鮮やかなネオンアクセントを意図的に避け、代わりに静かで紙のような権威に専念しています。"
+    },
+    "ko": {
+      "ch1_intro": "One Page Love는 세심하게 정리된 디자인 라이브러리로 기능하며, 그 따뜻하고 종이 같은 미감은 배경이자 콘텐츠 역할을 합니다. 이 시스템의 정체성은 큐레이션된, 미니멀하고 에디토리얼한 감각 위에 구축되어, 끊임없이 확장되는 아카이브의 각 갤리TRIES를 참고작품으로 대우합니다.",
+      "ch2_intro": "팔레트는 따뜻한 중립색과 진한 갈색 잉크를 사용하여 고대비의 촉각적이고 종이 같은 기반을 확립합니다. 단 하나의 산호색 강조점은 베이지와 오프화이트 표면 위에서 절제된 초점 역할을 합니다.",
+      "ch2_outro": "색상은 사이트의 차분하고 참고서 같은 특성을 유지하기 위해 절제적으로 사용됩니다.",
+      "ch3_intro": "타이포그래피는 명확한 카테고리 선택을 통해 기능을 차별화합니다: Geist는 디스플레이 헤드라인용, system-ui는 본문용, Geist Mono는 메타데이터용입니다. 이 계층 구조는 가독성을 최우선으로 하는 깔끔하고 에디토리얼한 어조를 지원합니다.",
+      "ch4_intro": "일관된 4px 그리드가 모든 간격을 관리하여 예측 가능한 리듬감 있는 기반을 만듭니다.",
+      "ch5_intro": "표면은 밝은 토프색의 섬세한 1px 테두리로 정의되며, 복잡한 그림자는 사용하지 않습니다. 디자인은 사이트의 미니멀하고 정돈된 느낌을 강화하는 평면적이고 깔끔한 면을 선호합니다.",
+      "ch6_intro": "레이아웃은 갤러리 카드를 위한 3열 메이슨리 스타일 그리드를 중심으로 구성되어, 넉넉하고 탐색하기 쉬운 표현을 보장합니다. 콘텐츠 카드는 깔끔한 흰색 배경과 미세한 둥근 모서리를 특징으로 하며, 충분한 여백으로 둘러싸여 있습니다.",
+      "ch7_intro": "모션 철학은 차분함과 세련됨을 우선시하며, hover 상태에서 부드러운 1초 색상 전환을 사용합니다. 인터랙션은 의도적이고 느리게 설계되어, 자체에 주목하기보다는 집중된 브라우징 경험에 기여합니다.",
+      "ch8_intro": "에디토리얼 어조는 전문적이고 정보적이며 절제되어 있으며, 간결하고 설명적인 헤드라인과 최소한의, 행동 지향적인 콜 투 액션을 사용합니다. 언어는 지나치게 장난스러운 표현을 피하며, 사이트의 진지하고 큐레이션된 목적에 부합합니다.",
+      "ch8_outro": "시스템은 의도적으로 화려한 색상, 공격적인 애니메이션, 강렬한 네온 강조점을 피하고, 대신 조용하고 종이 같은 권위에 전념합니다."
+    }
+  }
 }

@@ -9,8 +9,609 @@
     "fashion",
     "editorial"
   ],
-  "status": "pending",
+  "status": "completed",
   "added_at": "2026-06-02",
   "added_by": "expand-200",
-  "_meta": {}
+  "_meta": {
+    "vision_model": "mimo-v2.5",
+    "vision_prompt_version": "0.3",
+    "vision_source": "playwright-extract:ssense",
+    "vision_grounded": true,
+    "vision_at": "2026-06-04T18:58:08+00:00",
+    "vision_tokens": 16044,
+    "vision_cost_usd": 0.1783,
+    "translation_model": "mimo-v2.5",
+    "translation_at": "2026-06-04T18:59:34+00:00",
+    "translation_tokens": 18056,
+    "translation_cost_usd": 0.0601,
+    "narrative_model": "mimo-v2.5",
+    "narrative_prompt_version": "0.3",
+    "narrative_at": "2026-06-04T18:59:43+00:00",
+    "narrative_tokens": 2131,
+    "narrative_cost_usd": 0.0142,
+    "narrative_status": "ok",
+    "total_cost_usd": 0.2526
+  },
+  "spec": {
+    "colors": {
+      "bg": "#F4F4F4",
+      "bgSoft": null,
+      "bgQuiet": "#FFFFFF",
+      "ink": "#333333",
+      "inkSoft": "#888888",
+      "muted": "#979797",
+      "mutedSoft": null,
+      "accent": null,
+      "line": "rgba(51, 51, 51, 0.2)"
+    },
+    "typography": {
+      "display": "transitional-serif",
+      "body": "transitional-serif",
+      "mono": null,
+      "scale": [
+        {
+          "token": "display",
+          "size": 66,
+          "lh": 1.0,
+          "weight": 400,
+          "ls": "-3.75px"
+        },
+        {
+          "token": "heading",
+          "size": 20,
+          "lh": 1.3,
+          "weight": 400,
+          "ls": "-0.25px"
+        },
+        {
+          "token": "body",
+          "size": 15,
+          "lh": 1.73,
+          "weight": 400,
+          "ls": "-0.25px"
+        },
+        {
+          "token": "caption",
+          "size": 11,
+          "lh": 1.36,
+          "weight": 400,
+          "ls": "0px"
+        }
+      ]
+    },
+    "spacing": {
+      "base": 4,
+      "scale": [
+        4,
+        8,
+        16,
+        20,
+        30,
+        48,
+        80
+      ]
+    },
+    "surfaces": {
+      "radius": {
+        "sm": 0,
+        "md": 0,
+        "lg": 0,
+        "pill": 999
+      }
+    },
+    "layout": {
+      "container": 1280,
+      "paragraph": 680,
+      "columns": 12,
+      "gutter": 20,
+      "breakpoints": [
+        768,
+        1024
+      ]
+    },
+    "motion": {
+      "durations": {
+        "micro": 220,
+        "small": 350,
+        "medium": 500
+      },
+      "easing": "cubic-bezier(0.25, 0.1, 0.25, 1)"
+    }
+  },
+  "spec_i18n": {
+    "en": {
+      "identity": {
+        "keywords": [
+          "fashion",
+          "editorial",
+          "minimal",
+          "luxury",
+          "curated"
+        ],
+        "analogy": "A high-fashion magazine that also sells clothes, where photography drives the narrative and typography serves as quiet infrastructure.",
+        "oneLiner": "A premium fashion e-commerce platform that fuses editorial storytelling with a stark, type-driven minimal aesthetic."
+      },
+      "colors": {
+        "principle": "Strict monochrome palette using varying weights of black and gray to maintain a clean, gallery-like focus on photography."
+      },
+      "typography": {
+        "rules": [
+          "Use a geometric sans-serif for navigation and utility links, uppercase with tracking.",
+          "Use JHA Times Now (transitional-serif) for all editorial headings and body text.",
+          "Maintain extremely tight leading on large display text.",
+          "Utilize subtle negative letter-spacing for display and heading typography."
+        ],
+        "scaleUses": [
+          "Primary display type for hero banners",
+          "Article titles and section headers",
+          "Body copy for editorial content",
+          "Navigation and metadata labels"
+        ]
+      },
+      "spacing": {
+        "rhythm": "Generous padding surrounds content blocks to maintain a spacious, breathable editorial feel, often utilizing 80px vertical margins."
+      },
+      "surfaces": {
+        "shadows": [],
+        "borders": "Subtle 1px horizontal lines used to separate sections and define article card boundaries."
+      },
+      "layout": {
+        "skeleton": "Asymmetric editorial grid with large hero imagery followed by mixed layouts combining wide images, stacked text blocks, and horizontal lists."
+      },
+      "components": {
+        "button": "Text-based links, often uppercase sans-serif for utility navigation, relying on hover states rather than filled backgrounds.",
+        "card": "Borderless photographic cards with typography positioned below, or split cards with a 1px border on the top or bottom.",
+        "chip": "None",
+        "input": "None visible",
+        "hero": "Full-width photographic layout anchored by massive, custom typography with tight tracking."
+      },
+      "motion": {
+        "patterns": [
+          "Smooth hover transitions on interactive elements",
+          "Subtle scaling or panning on image hover",
+          "Seamless page transitions"
+        ]
+      },
+      "interaction": {
+        "hover": "Subtle underline appearance or color inversion for text links",
+        "click": "Immediate navigation without heavy animation",
+        "transition": "Smooth transform and opacity changes on hover states",
+        "keyboard": "Standard browser focus rings for accessibility"
+      },
+      "voice": {
+        "tone": "Objective, cool, and editorially detached.",
+        "headlineStyle": "All-caps, tight-tracked, sans-serif or strong transitional serif for impact.",
+        "ctaStyle": "Understated uppercase text links with generous spacing.",
+        "avoid": [
+          "Overly enthusiastic marketing language",
+          "Bright, high-chroma colors",
+          "Rounded UI elements or soft shadows"
+        ]
+      },
+      "donts": [
+        "Don't use drop shadows — the site relies on flat imagery and subtle borders for depth.",
+        "Don't introduce bright accent colors — the site enforces a strict monochrome palette of black, white, and gray.",
+        "Don't use heavily rounded corners — the site maintains sharp, square edges on all layout elements and images.",
+        "Don't use overly thick or bold typography — the site utilizes delicate font weights (100-400) for a refined aesthetic.",
+        "Don't clutter the interface — the site uses vast amounts of white space to create a premium, gallery-like experience.",
+        "Don't use decorative or playful icons — the interface relies purely on clean typography and high-quality photography."
+      ],
+      "systemPrompt": "This is a premium fashion e-commerce platform that blends a stark, monochrome digital experience with rich editorial photography. The aesthetic is minimalist and gallery-like, using a primary palette of off-white (#F4F4F4) and deep gray (#333333) with no high-chroma accents. Typography relies heavily on a delicate transitional serif (JHA Times Now) for editorial content, paired with a geometric sans-serif for UI, using tight negative letter-spacing on massive, uppercase display text. Key critical don'ts: do not introduce drop shadows or decorative UI elements; never use brightly colored accents; avoid rounded corners or soft UI patterns; maintain delicate font weights rather than heavy boldestyles; use generous whitespace to preserve the editorial breathing room; rely purely on typography and photography rather than UI ornamentation."
+    },
+    "zh-CN": {
+      "identity": {
+        "keywords": [
+          "时尚",
+          "编辑",
+          "极简",
+          "奢华",
+          "策展"
+        ],
+        "analogy": "一本也售卖服装的高级时尚杂志，其中摄影驱动叙事，字体排印则作为安静的支撑结构。",
+        "oneLiner": "一个将编辑叙事与冷峻、以字体排印驱动的极简美学相融合的高端时尚电商平台。"
+      },
+      "colors": {
+        "principle": "严格单色系调色板，运用不同深浅的黑色和灰色，以保持一种干净、如画廊般聚焦于摄影的视觉体验。"
+      },
+      "typography": {
+        "rules": [
+          "用于导航和功能链接的几何无衬线字体，大写并增加字间距。",
+          "所有编辑标题和正文均使用 JHA Times Now（过渡衬线字体）。",
+          "大型展示文字保持极紧凑的行高。",
+          "展示标题和标题排版使用微妙的负字间距。"
+        ],
+        "scaleUses": [
+          "主视觉横幅的首要展示字体",
+          "文章标题和板块标题",
+          "编辑内容正文",
+          "导航和元数据标签"
+        ]
+      },
+      "spacing": {
+        "rhythm": "内容块周围环绕着充裕的内边距，以维持一种宽敞、可呼吸的编辑感，常使用 80px 的垂直边距。"
+      },
+      "surfaces": {
+        "shadows": [],
+        "borders": "微妙的 1px 水平线条，用于分隔版块并界定文章卡片边界。"
+      },
+      "layout": {
+        "skeleton": "不对称编辑网格，以大型主视觉图像开始，随后是结合宽幅图像、堆叠文本块和水平列表的混合布局。"
+      },
+      "components": {
+        "button": "基于文字的链接，常为功能导航的大写无衬线字体，依靠悬停状态而非填充背景。",
+        "card": "无边框的摄影卡片，字体位于下方；或采用顶部或底部带 1px 边框的分割式卡片。",
+        "chip": "无",
+        "input": "不可见",
+        "hero": "全宽摄影布局，以巨大、定制且字间距紧凑的排版为锚点。"
+      },
+      "motion": {
+        "patterns": [
+          "交互元素上的平滑悬停过渡",
+          "图像悬停时的微妙缩放或平移",
+          "无缝的页面过渡"
+        ]
+      },
+      "interaction": {
+        "hover": "文字链接的微妙下划线出现或颜色反转",
+        "click": "立即导航，无重动画",
+        "transition": "悬停状态下的平滑变换和透明度变化",
+        "keyboard": "标准浏览器焦点环以实现无障碍访问"
+      },
+      "voice": {
+        "tone": "客观、冷静、且带有编辑距离感。",
+        "headlineStyle": "全大写、紧凑字间距、无衬线或强有力的过渡衬线字体以增强冲击力。",
+        "ctaStyle": "克制的大写文字链接，配合充裕间距。",
+        "avoid": [
+          "过于热情的营销语言",
+          "明亮、高饱和度的颜色",
+          "圆角 UI 元素或柔和阴影"
+        ]
+      },
+      "donts": [
+        "不要使用投影——网站依靠平面图像和微妙边框来营造纵深感。",
+        "不要引入亮色强调色——网站严格执行黑、白、灰的单色系调色板。",
+        "不要使用重度圆角——网站在所有布局元素和图像上保持尖锐的方形边缘。",
+        "不要使用过于粗重或加粗的字体——网站使用纤细的字重（100-400）以营造精致的美感。",
+        "不要让界面显得杂乱——网站使用大量的白色空间来打造一种高端、画廊般的体验。",
+        "不要使用装饰性或俏皮的图标——界面完全依赖干净的字体排印和高质量摄影。"
+      ],
+      "systemPrompt": "这是一个高端时尚电商平台，将冷峻的单色数字体验与丰富的编辑摄影相融合。美学是极简主义和画廊式的，主要调色板为米白（#F4F4F4）和深灰（#333333），不使用任何高饱和度强调色。字体排印大量依赖精致的过渡衬线字体（JHA Times Now）处理编辑内容，搭配几何无衬线字体用于 UI，并在巨大的全大写展示文字上使用紧凑的负字间距。关键禁忌：不要引入投影或装饰性 UI 元素；切勿使用明亮颜色的强调色；避免圆角或柔和的 UI 模式；保持纤细的字重而非粗重加粗样式；使用充裕的白色空间以保持编辑呼吸感；完全依赖字体排印和摄影而非 UI 装饰。"
+    },
+    "zh-TW": {
+      "identity": {
+        "keywords": [
+          "時尚",
+          "社論",
+          "極簡",
+          "奢華",
+          "精選"
+        ],
+        "analogy": "一本也販售服裝的高級時尚雜誌，其中攝影主導敘事，而排版則作為靜謐的基礎架構。",
+        "oneLiner": "一個融合社論式敘事與簡潔、以字型為導向的極簡美學的高端時尚電子商務平台。"
+      },
+      "colors": {
+        "principle": "嚴謹的單色調色板，運用不同粗細的黑色與灰色，以維持類似畫廊般、專注於攝影的乾淨視覺。"
+      },
+      "typography": {
+        "rules": [
+          "導覽與功能性連結使用幾何無襯線字型，採用大寫字母與字距調整。",
+          "所有社論標題與內文使用 JHA Times Now（過渡襯線字型）。",
+          "大型展示文字需保持極緊的行距。",
+          "展示與標題排版使用細微的負字距調整。"
+        ],
+        "scaleUses": [
+          "主視覺橫幅的主要展示字型",
+          "文章標題與區段標頭",
+          "社論內容的內文",
+          "導覽與中繼資料標籤"
+        ]
+      },
+      "spacing": {
+        "rhythm": "內容區塊周圍有大量內邊距，以維持寬敞、可呼吸的社論感，經常使用 80px 的垂直邊距。"
+      },
+      "surfaces": {
+        "shadows": [],
+        "borders": "使用細微的 1px 水平線來分隔區段並界定文章卡片邊界。"
+      },
+      "layout": {
+        "skeleton": "不對稱的社論式網格，包含大型主視覺影像，後接混合佈局，結合寬幅影像、堆疊的文字區塊與水平列表。"
+      },
+      "components": {
+        "button": "基於文字的連結，功能性導覽常用大寫無襯線字型，依賴懸停狀態而非填充背景。",
+        "card": "無邊框的攝影卡片，字型置於下方；或分割卡片，在頂部或底部帶有 1px 邊框。",
+        "chip": "無",
+        "input": "無可見元素",
+        "hero": "全寬攝影佈局，以帶有緊湊字距的大型自訂字型為主。"
+      },
+      "motion": {
+        "patterns": [
+          "互動元素的流暢懸停過渡效果",
+          "影像懸停時的細微縮放或平移",
+          "無縫的頁面過渡效果"
+        ]
+      },
+      "interaction": {
+        "hover": "文字連結出現細微底線或色彩反轉",
+        "click": "立即導覽，無沉重動畫",
+        "transition": "懸停狀態下的流暢變換與透明度變化",
+        "keyboard": "標準瀏覽器焦點環，以確保無障礙性"
+      },
+      "voice": {
+        "tone": "客觀、冷靜且帶有社論式的抽離感。",
+        "headlineStyle": "全大寫、字距緊湊的無襯線字型或強烈的過渡襯線字型，以製造衝擊力。",
+        "ctaStyle": "低調的大寫文字連結，帶有寬裕的字距。",
+        "avoid": [
+          "過度熱情的行銷用語",
+          "明亮、高飽和度的色彩",
+          "圓潤的 UI 元素或柔和陰影"
+        ]
+      },
+      "donts": [
+        "不要使用投影陰影——此網站依賴平面影像與細微邊框來營造深度感。",
+        "不要引入明亮的強調色——此網站嚴格執行黑、白、灰的單色調色板。",
+        "不要使用過度圓潤的角落——此網站在所有佈局元素與影像上維持銳利、方正的邊緣。",
+        "不要使用過於粗體或醒目的字型——此網站使用精緻的字重（100-400）以營造優雅美學。",
+        "不要使介面雜亂——此網站使用大量留白來創造高端、類似畫廊的體驗。",
+        "不要使用裝飾性或俏皮的圖示——介面完全依賴乾淨的排版與高品質攝影。"
+      ],
+      "systemPrompt": "這是一個高端時尚電子商務平台，將簡潔的單色調數位體驗與豐富的社論式攝影相結合。其美學風格為極簡主義且類似畫廊，主要採用米白色（#F4F4F4）與深灰色（#333333）的調色板，不使用任何高飽和度的強調色。排版高度依賴精緻的過渡襯線字型（JHA Times Now）呈現社論內容，並搭配幾何無襯線字型用於 UI，在大寫、巨大的展示文字上使用緊湊的負字距調整。關鍵禁忌事項：不要引入投影陰影或裝飾性 UI 元素；切勿使用明亮彩色強調色；避免圓角或柔和的 UI 模式；保持精緻的字重而非粗重字型；使用大量留白以維持社論的呼吸空間；完全依賴排版與攝影，而非 UI 裝飾。"
+    },
+    "ja": {
+      "identity": {
+        "keywords": [
+          "ファッション",
+          "エディトリアル",
+          "ミニマル",
+          "ラグジュアリー",
+          "キュレーション"
+        ],
+        "analogy": "服も販売するハイファッション誌。写真が物語を推進し、タイポグラフィは静かなインフラとして機能する。",
+        "oneLiner": "エディトリアルなストーリーテリングと、端的でタイポグラフィ駆動のミニマルな美学を融合させた、プレミアムファッションeコマースプラットフォーム。"
+      },
+      "colors": {
+        "principle": "ブラックとグレーの様々なウェイトを使用した厳格なモノクロパレットで、写真に焦点を当てたクリーンなギャラリーのような雰囲気を維持。"
+      },
+      "typography": {
+        "rules": [
+          "ナビゲーションとユーティリティリンクには幾何学的サンセリフを使用。大文字でトラッキングを設定。",
+          "すべてのエディトリアル見出しと本文には JHA Times Now（トランジショナルセリフ）を使用。",
+          "大きなディスプレイテキストには極めて tightened リーディングを維持。",
+          "ディスプレイおよび見出しタイポグラフィには、繊細なネガティブ文字間隔を使用。"
+        ],
+        "scaleUses": [
+          "ヒーローバナーのプライマリディスプレイタイプ",
+          "記事タイトルとセクション見出し",
+          "エディトリアルコンテンツの本文",
+          "ナビゲーションとメタデータラベル"
+        ]
+      },
+      "spacing": {
+        "rhythm": "コンテンツブロックを囲む十分なパディングで、スペースのある、息の通りの良いエディトリアルな雰囲気を維持。よく80pxの垂直マージンを使用。"
+      },
+      "surfaces": {
+        "shadows": [],
+        "borders": "セクションを区切り、記事カードの境界を定義するために使用する、繊細な1pxの水平線。"
+      },
+      "layout": {
+        "skeleton": "大きなヒーロー画像に続き、広い画像、積み重ねられたテキストブロック、水平リストを組み合わせた混合レイアウトを含む、非対称なエディトリアルグリッド。"
+      },
+      "components": {
+        "button": "テキストベースのリンク。ユーティリティナビゲーションには大文字サンセリフを使用することが多く、塗りつぶしの背景ではなく、hoverステートに依存。",
+        "card": "タイポグラフィを下に配置したボーダーレスの写真カード、または上または下に1pxのボーダーを持つ分割カード。",
+        "chip": "なし",
+        "input": "視覚的に存在せず",
+        "hero": "タイトなトラッキングを備えた巨大なカスタムタイポグラフィを基軸とする、全幅写真レイアウト。"
+      },
+      "motion": {
+        "patterns": [
+          "インタラクティブ要素のスムーズなhover遷移",
+          "画像hover時の繊細なスケーリングまたはパンニング",
+          "シームレスなページ遷移"
+        ]
+      },
+      "interaction": {
+        "hover": "テキストリンクの繊細なアンダーラインの表示、または色の反転",
+        "click": "重いアニメーションなしの即時ナビゲーション",
+        "transition": "hoverステート時のスムーズなトランスフォームと透明度の変化",
+        "keyboard": "アクセシビリティのための標準的なブラウザフォーカスリング"
+      },
+      "voice": {
+        "tone": "客観的でクール、エディトリアル的に距離を置いた雰囲気。",
+        "headlineStyle": "インパクトのための、タイトにトラッキングされた、サンセリフまたは強力なトランジショナルセリフの全角大文字。",
+        "ctaStyle": "十分な間隔を設けた、控えめな大文字テキストリンク。",
+        "avoid": [
+          "過度に熱狂的なマーケティング言語",
+          "明るく高彩度のカラー",
+          "丸みのあるUI要素やソフトシャドウ"
+        ]
+      },
+      "donts": [
+        "ドロップシャドウを使用しない — サイトはフラットな画像と繊細なボーダーで奥行きを表現している。",
+        "明るいアクセントカラーを導入しない — サイトは黒、白、グレーの厳格なモノクロパレットを適用している。",
+        "過度に丸みのある角を使用しない — サイトはすべてのレイアウト要素と画像に鋭く四角いエッジを維持している。",
+        "過度に太く-boldなタイポグラフィを使用しない — サイトは洗練された美学のために繊細なフォントウェイト（100-400）を使用している。",
+        "インターフェースを雑然とさせない — サイトは広大な量の余白を使用して、プレミアムでギャラリーのような体験を生み出している。",
+        "装飾的または遊び心のあるアイコンを使用しない — インターフェースはクリーンなタイポグラフィと高品質な写真のみに依存している。"
+      ],
+      "systemPrompt": "これは、スターシップでモノクロなデジタル体験とリッチなエディトリアル写真を融合させた、プレミアムファッションeコマースプラットフォーム。美学はミニマルでギャラリーのようであり、主なパレットはオフホワイト（#F4F4F4）とダークグレー（#333333）で、高彩度のアクセントは使用しない。タイポグラフィはエディトリアルコンテンツに繊細なトランジショナルセリフ（JHA Times Now）を重視し、UIには幾何学的サンセリフを組み合わせ、巨大な大文字ディスプレイテキストにはタイトなネガティブ文字間隔を使用。重要な禁止事項：ドロップシャドウや装飾的なUI要素を導入しない；明るい色のアクセントは決して使用しない；丸みのある角やソフトなUIパターンを避ける；太いboldスタイルではなく繊細なフォントウェイトを維持；余白を十分に使い、エディトリアルな呼吸空間を保つ；UI装飾ではなく、タイポグラフィと写真のみに依存する。"
+    },
+    "ko": {
+      "identity": {
+        "keywords": [
+          "패션",
+          "편집",
+          "미니멀",
+          "럭셔리",
+          "큐레이션"
+        ],
+        "analogy": "의류도 판매하는 고급 패션 매거진으로, 사진이 서사를 이끌고 타이포그래피는 조용한 인프라 역할을 합니다.",
+        "oneLiner": "편집적 스토리텔링과 극도의 타이포그래피 중심 미니멀 미학을 결합한 프리미엄 패션 전자상거래 플랫폼입니다."
+      },
+      "colors": {
+        "principle": "흑백과 그레이의 다양한 굵기를 활용한 엄격한 단색 팔레트로 사진에 대한 깔끔하고 갤러리 같은 집중을 유지합니다."
+      },
+      "typography": {
+        "rules": [
+          "네비게이션과 유틸리티 링크에는 기하학적 산세리프를 사용하며, 대문자와 자간 조정을 적용합니다.",
+          "모든 편집 제목과 본문 텍스트에는 JHA Times Now (트랜지셔널 세리프)를 사용합니다.",
+          "대형 디스플레이 텍스트에는 극도로 좁은 행간을 유지합니다.",
+          "디스플레이 및 제목 타이포그래피에는 미세한 음수 자간을 활용합니다."
+        ],
+        "scaleUses": [
+          "히어로 배너용 기본 디스플레이 타입",
+          "기사 제목 및 섹션 헤더",
+          "편집 콘텐츠 본문",
+          "네비게이션 및 메타데이터 레이블"
+        ]
+      },
+      "spacing": {
+        "rhythm": "콘텐츠 블록 주변에 넉넉한 패딩을 두어 공간감 있고 숨 쉬는 편집 느낌을 유지하며, 주로 80px 세로 마진을 활용합니다."
+      },
+      "surfaces": {
+        "shadows": [],
+        "borders": "섹션을 구분하고 기사 카드 경계를 정의하는 데 사용되는 미세한 1px 수평선."
+      },
+      "layout": {
+        "skeleton": "대형 히어로 이미지가 먼저 오고, 넓은 이미지, 적층된 텍스트 블록, 수평 목록을 조합한 레이아웃이 이어지는 비대칭 편집 그리드입니다."
+      },
+      "components": {
+        "button": "텍스트 기반 링크로, 유틸리티 네비게이션용으로 자주 사용되는 대문자 산세리프이며, 채워진 배경 대신 호버 상태에 의존합니다.",
+        "card": "테두리 없는 사진 카드로 타이포그래피가 아래에 위치하거나, 상단이나 하단에 1px 테두리가 있는 분할 카드입니다.",
+        "chip": "없음",
+        "input": "보이는 것 없음",
+        "hero": "넓은 자간을 적용한 거대하고 맞춤형 타이포그래피로 고정된 전체 폭 사진 레이아웃입니다."
+      },
+      "motion": {
+        "patterns": [
+          "인터랙티브 요소의 매끄러운 호버 전환",
+          "이미지 호버 시 미세한 스케일링 또는 패닝",
+          "매끄러운 페이지 전환"
+        ]
+      },
+      "interaction": {
+        "hover": "텍스트 링크에 미세한 밑줄 표시 또는 색상 반전",
+        "click": "무거운 애니메이션 없이 즉각적인 네비게이션",
+        "transition": "호버 상태에서 매끄러운 트랜스폼과 불투명도 변화",
+        "keyboard": "접근성을 위한 표준 브라우저 포커스 링"
+      },
+      "voice": {
+        "tone": "객관적이고 쿨하며, 편집적으로 거리감을 둡니다.",
+        "headlineStyle": "임팩트를 위해 좁은 자간의 대문자 산세리프 또는 강한 트랜지셔널 세리프를 사용합니다.",
+        "ctaStyle": "넉넉한 간격의 절제된 대문자 텍스트 링크.",
+        "avoid": [
+          "지나치게 열정적인 마케팅 언어",
+          "밝고 높은 채도의 색상",
+          "둥근 UI 요소 또는 부드러운 그림자"
+        ]
+      },
+      "donts": [
+        "드롭 섀도우를 사용하지 마세요 — 사이트는 플랫 이미지와 미세한 테두리에 의존하여 깊이를 만듭니다.",
+        "밝은 악센트 색상을 도입하지 마세요 — 사이트는 검정, 흰색, 그레이의 엄격한 단색 팔레트를 적용합니다.",
+        "지나치게 둥근 모서리를 사용하지 마세요 — 사이트는 모든 레이아웃 요소와 이미지에 날카롭고 네모난 가장자리를 유지합니다.",
+        "지나치게 두껍거나 볼드한 타이포그래피를 사용하지 마세요 — 사이트는 세련된 미학을 위해 가벼운 폰트 굵기(100-400)를 활용합니다.",
+        "인터페이스를 어지럽히지 마세요 — 사이트는 방대한 양의 여백을 사용하여 프리미엄 갤러리 같은 경험을 만듭니다.",
+        "장식적이거나 장난스러운 아이콘을 사용하지 마세요 — 인터페이스는 깔끔한 타이포그래피와 고품질 사진에 순전히 의존합니다."
+      ],
+      "systemPrompt": "이것은 극도의 단색 디지털 경험과 풍부한 편집 사진을 혼합한 프리미엄 패션 전자상거래 플랫폼입니다. 미학은 미니멀리스트이며 갤러리 같으며, 오프화이트(#F4F4F4)와 딥 그레이(#333333)의 기본 팔레트를 사용하고 밝은 채도의 악센트는 없습니다. 타이포그래피는 편집 콘텐츠를 위해 가벼운 트랜지셔널 세리프(JHA Times Now)에 크게 의존하며, UI용 기하학적 산세리프와 쌍을 이루며, 거대한 대문자 디스플레이 텍스트에는 좁은 음수 자간을 사용합니다. 핵심 주의 사항: 드롭 섀도우나 장식적인 UI 요소를 도입하지 마세요; 밝게 칠해진 악센트를 절대 사용하지 마세요; 둥근 모서리나 부드러운 UI 패턴을 피하세요; 두꺼운 볼드 스타일보다 가벼운 폰트 굵기를 유지하세요; 편집적 숨 쉬는 공간을 보존하기 위해 넉넉한 여백을 사용하세요; UI 장식보다 순전히 타이포그래피와 사진에 의존하세요."
+    }
+  },
+  "desc": {
+    "en": {
+      "palette": "A strict monochrome palette utilizing off-white backgrounds, deep gray text, and subtle medium grays for secondary elements.",
+      "layout": "An asymmetric editorial grid structure that prioritizes large photographic imagery interspersed with generous whitespace and structural horizontal lines.",
+      "interaction": "Minimalist hover states relying primarily on subtle text underlines or opacity changes, with clean cursor transitions.",
+      "motion": "Understated and functional micro-interactions with smooth transforms, prioritizing fast, seamless navigation over flashy animations.",
+      "notes": "This site is an excellent study in how to build a high-end luxury e-commerce experience by treating a digital interface exactly like a premium print editorial."
+    },
+    "zh-CN": {
+      "palette": "严格单色系调色板，采用米白背景、深灰文字，以及用于次要元素的微妙中灰。",
+      "layout": "不对称的编辑式网格结构，优先展示大型摄影图像，辅以充裕的留白与结构性水平线条。",
+      "interaction": "极简悬停状态，主要依赖微妙的文字下划线或透明度变化，并配合流畅的光标过渡。",
+      "motion": "克制且功能性的微交互，使用平滑变换，优先实现快速、无缝的导航，而非炫目动画。",
+      "notes": "这个网站是研究如何通过将数字界面视为高端印刷编辑物，来构建奢华电商体验的绝佳案例。"
+    },
+    "zh-TW": {
+      "palette": "嚴謹的單色調色板，採用米白色背景、深灰色文字，以及用於次要元素的柔和中灰色。",
+      "layout": "不對稱的社論式網格結構，優先呈現大型攝影影像，穿插大量留白與結構性水平線條。",
+      "interaction": "極簡的懸停狀態，主要依賴細微的文字底線或透明度變化，並搭配乾淨的游標過渡效果。",
+      "motion": "低調且實用的微互動，採用流暢的變換效果，優先確保快速、無縫的導覽，而非炫目的動畫。",
+      "notes": "這個網站是研究如何打造高端奢侈品電子商務體驗的絕佳案例，它將數位介面完全視為高級印刷社論來處理。"
+    },
+    "ja": {
+      "palette": "オフホワイトの背景、濃いグレーのテキスト、セカンダリ要素のための繊細なミドルグレーを使用した、厳格なモノクロパレット。",
+      "layout": "大きな写真画像を優先し、広々とした余白と構造的な水平線を散りばめた、非対称なエディトリアルグリッド構造。",
+      "interaction": "主に繊細なテキストアンダーラインや透明度の変化に依存したミニマリストなhoverステート。クリーンなカーソル遷移。",
+      "motion": "スムーズなトランスフォームを備えた、控えめで機能的なマイクロインタラクション。派手なアニメーションよりも、高速でシームレスなナビゲーションを優先。",
+      "notes": "このサイトは、デジタルインターフェースをプレミアムな印刷エディトリアルと完全に同じように扄ることで、如何にハイエンドなラグジュアリーなeコマース体験を構築できるかを示す優れた研究です。"
+    },
+    "ko": {
+      "palette": "오프화이트 배경, 깊은 그레이 텍스트, 보조 요소를 위한 은은한 중간 그레이를 활용한 엄격한 단색 팔레트입니다.",
+      "layout": "풍부한 여백과 구조적인 수평선이 어우러진, 대형 사진 이미지를 우선시하는 비대칭 편집 그리드 구조입니다.",
+      "interaction": "미니멀리스트 호버 상태로, 주로 미세한 텍스트 밑줄이나 불투명도 변화에 의존하며 깔끔한 커서 전환을 사용합니다.",
+      "motion": "화려한 애니메이션보다는 빠르고 매끄러운 네비게이션을 우선시하는, 절제되고 기능적인 마이크로 인터랙션과 매끄러운 트랜스폼을 사용합니다.",
+      "notes": "이 사이트는 디지털 인터페이스를 프리미엄 프린트 편집물과 동일하게 취급함으로써如何如何高端 럭셔리 전자상거래 경험을 구축하는지에 대한 훌륭한 사례입니다."
+    }
+  },
+  "narrative": {
+    "en": {
+      "ch1_intro": "SSENSE operates as a high-fashion publication that happens to sell clothing, where photography drives the narrative and typography serves as quiet infrastructure. The design system treats the digital interface like a premium print editorial—stark, curated, and deliberately restrained.",
+      "ch2_intro": "The color system is deliberately austere: a strict monochrome palette of off-white backgrounds and deep gray text that eliminates chromatic distraction entirely. Every color decision defers to the photography, which carries the full visual weight of each page.",
+      "ch2_outro": "The principle is simple: color exists only to recede, never to compete with the image.",
+      "ch3_intro": "Typography operates in two distinct registers—a geometric sans-serif for navigation and utility, and JHA Times Now, a transitional serif, for all editorial content. The pairing establishes a clear hierarchy where functional text is neutral and editorial text carries quiet authority.",
+      "ch4_intro": "Spacing follows an editorial rhythm of generous padding and 80px vertical margins, creating the breathing room of a magazine spread.",
+      "ch5_intro": "Depth is achieved through absence rather than addition—there are no drop shadows, no gradients, no layered surfaces. The single structural element is a subtle 1px horizontal line used to separate sections and define card boundaries.",
+      "ch6_intro": "The layout skeleton is an asymmetric editorial grid that opens with large hero imagery before cascading into mixed arrangements of wide photographs, stacked text blocks, and horizontal lists. White space is structural, not decorative—it defines the reading path as clearly as any border would.",
+      "ch7_intro": "Motion is understated and functional, favoring smooth transforms and opacity changes over spectacle. Hover states produce subtle underlines or slight image scaling; page transitions are seamless; the cursor never announces itself with unnecessary flourish.",
+      "ch8_intro": "The editorial voice is objective, cool, and deliberately detached—headlines are all-caps and tight-tracked, CTAs are understated uppercase text links with generous spacing. Enthusiasm is conspicuously absent from the interface.",
+      "ch8_outro": "What SSENSE deliberately omits is the point: no bright accents, no rounded corners, no decorative icons, no heavy typography—only photography and type doing the work."
+    },
+    "zh-CN": {
+      "ch1_intro": "SSENSE 的运作方式更像一个碰巧售卖服装的高端时尚出版物，其中摄影驱动叙事，排版则作为静默的底层支撑。该设计系统将数字界面视为高端印刷刊物——极简、精选且刻意克制。",
+      "ch2_intro": "色彩系统刻意保持简洁：采用严格的单色调，以灰白色背景搭配深灰色文字，完全消除色彩干扰。所有色彩决策都服务于摄影，由后者承载每一页的全部视觉重量。",
+      "ch2_outro": "原则很简单：色彩只为衬托而存在，绝不与图像竞争。",
+      "ch3_intro": "排版分为两种截然不同的风格——导航和功能区域使用几何无衬线字体，所有编辑内容则采用过渡衬线字体 JHA Times Now。这种搭配建立了清晰的层级关系：功能性文字保持中立，而编辑性文字则传递出沉静的权威感。",
+      "ch4_intro": "间距遵循编辑节奏，采用宽裕的内边距和 80px 的垂直边距，营造出杂志跨页般的呼吸空间。",
+      "ch5_intro": "深度通过减法而非加法实现——没有阴影，没有渐变，没有层叠表面。唯一的结构元素是一条细微的 1px 水平线，用于分隔区域并界定卡片边界。",
+      "ch6_intro": "布局骨架是一个非对称编辑网格，以大幅主视觉图像开场，随后过渡到宽幅照片、堆叠文本块和水平列表的混合排列。留白是结构性的，而非装饰性的——它与任何边框一样清晰地定义阅读路径。",
+      "ch7_intro": "动效克制且注重功能性，倾向于平滑的变换和透明度变化，而非炫目效果。悬停状态产生细微下划线或轻微图像缩放；页面过渡无缝衔接；光标从不会以不必要的华丽特效宣告自身存在。",
+      "ch8_intro": "编辑语调客观、冷静且刻意疏离——标题全大写且字距紧凑，行动召唤则采用内敛的大写文本链接，配以宽裕间距。热情在界面中明显缺席。",
+      "ch8_outro": "SSENSE 刻意省略的部分正是其核心：没有鲜艳强调色，没有圆角，没有装饰性图标，没有厚重排版——仅靠摄影与字体完成工作。"
+    },
+    "zh-TW": {
+      "ch1_intro": "SSENSE 作為一家高端時尚媒體運作，其本質在於販售服飾，而攝影主導了敘事，字體則作為靜默的基礎設施。設計系統將數位介面視為頂級印刷編輯作品——極簡、精心策劃且刻意克制。",
+      "ch2_intro": "色彩系統刻意保持素淨：採用嚴格的單色調色板，包含灰白色背景與深灰色文字，完全排除色彩干擾。每項色彩決定皆服從於攝影，後者承擔了每頁全部的視覺重量。",
+      "ch2_outro": "原則很簡單：色彩僅用於退讓，從不與影像競爭。",
+      "ch3_intro": "字體運作分為兩種明確範疇——幾何無襯線體用於導覽與實用功能，JHA Times Now 衅線體則用於所有編輯內容。這種搭配建立了清晰的層級結構，功能性文字保持中性，編輯性文字則蘊含靜默的權威感。",
+      "ch4_intro": "間距遵循編輯節奏，採用寬裕的 padding 與 80px 垂直邊距，創造出如同雜誌跨頁般的呼吸空間。",
+      "ch5_intro": "深度透過減法而非加法達成——沒有陰影、沒有漸層、沒有疊加表面。唯一的結構元素是極細的 1px 水平線，用於分隔區塊與界定卡片邊界。",
+      "ch6_intro": "版面骨架採用不對稱編輯網格，以大型主視覺影像開場，隨後層疊交錯排列寬幅照片、垂直堆疊文字區塊與水平列表。留白是結構性的而非裝飾性——它如同任何邊框般清晰地定義了閱讀路徑。",
+      "ch7_intro": "動效低調且具功能性，偏好流暢的變形與透明度變化而非視覺奇觀。hover 狀態產生細微底線或輕微影像縮放；頁面過渡無縫銜接；游標從不以不必要的花俏方式自我宣告。",
+      "ch8_intro": "編輯語氣客觀、冷靜且刻意疏離——標題採用全大寫緊縮字距，CTA 則是低調的大寫文字連結搭配寬裕間距。熱情從介面中被刻意剔除。",
+      "ch8_outro": "SSENSE 刻意省略的才是重點：沒有鮮明強調色、沒有圓角、沒有裝飾性圖示、沒有厚重字體——僅讓攝影與字體承擔一切。"
+    },
+    "ja": {
+      "ch1_intro": "SSENSEは、偶然にも衣料を販売するハイファッションの出版物として運営されています。写真がストーリーを駆動し、タイポグラフィは静かなインフラストラクチャーとして機能します。このデザインシステムは、デジタルインターフェースをプレミアムな印刷エディトリアルのように扱います—厳格に、選りすぐりで、意図的に抑制的です。",
+      "ch2_intro": "カラーシステムは意図的に厳格です：オフホワイトの背景とダークグレーのテキストという厳格なモノクロームパレットが、色彩的な干渉を完全に排除します。すべての色の決定は写真に譲られ、各ページの完全な視覚的重みを担います。",
+      "ch2_outro": "原則はシンプルです：色は退くことのみに存在し、決して画像と競合しません。",
+      "ch3_intro": "タイポグラフィは二つの異なるレジスターで機能します：ナビゲーションやユーティリティには幾何学的なサンセリフ、すべてのエディトリアルコンテンツにはJHA Times Nowというトランジショナルセリフを採用しています。このペアリングにより、機能的なテキストが中立的で、エディトリアルなテキストが静かな権威を持つ明確な階層構造が確立されます。",
+      "ch4_intro": "スペーシングは、マガジンの見開きのような余白を生み出す、豊かなパディングと80pxの垂直マージンによるエディトリアルリズムに従います。",
+      "ch5_intro": "深度は付加ではなく欠如によって達成されます：ドロップシャドウ、グラデーション、レイヤードされたサーフェスは存在しません。唯一の構造要素は、セクションを分離し、カードの境界を定義するために使用される、微かな1pxの水平線です。",
+      "ch6_intro": "レイアウトの骨格は非対称なエディトリアルグリッドです。大きなヒーローイメージで始まり、広い写真、積み上げられたテキストブロック、水平リストの混在した配列へと Cascade していきます。ホワイトスペースは装飾的ではなく構造的です—境界線と同様に明確にリーディングパスを定義します。",
+      "ch7_intro": "モーションは控えめかつ機能的です。奇観よりも滑らかなトランスフォームと不透明度の変化を重視します。ホバーステートは微かなアンダーラインや軽微な画像スケーリングを生成し、ページトランジションはシームレスで、カーソルは不必要な華やかさで自らを告げることはありません。",
+      "ch8_intro": "エディトリアルボイスは客観的で、クールで、意図的に距離を置いたものです：見出しは全て大文字で狭いトラッキング、CTAは豊かなスペーシングを持つ控えめな大文字テキストリンクです。熱意は、このインターフェースから故意に排除されています。",
+      "ch8_outro": "SSENSEが意図的に省略していることが、この要点です：明るいアクセント、角丸、装飾的なアイコン、重いタイポグラフィはなく—写真と活字のみがその役割を担います。"
+    },
+    "ko": {
+      "ch1_intro": "SSENSE는 의류를 판매하는 하이패션 매체로 운영되며, 사진이 서사를 주도하고 타이포그래피는 조용한 기반으로 기능합니다. 디자인 시스템은 디지털 인터페이스를 프리미엄 인쇄 편집물처럼 취급합니다—날것 그대로, 큐레이션되었으며, 의도적으로 절제되어 있습니다.",
+      "ch2_intro": "컬러 시스템은 의도적으로 청렴합니다: 오프화이트 배경과 딥그레이 텍스트로 구성된 엄격한 모노크롬 팔레트는 색채적 산만함을 완전히 제거합니다. 모든 색상 결정은 사진에 자리를 양보하며, 각 페이지의 전체적 시각적 무게를 담당합니다.",
+      "ch2_outro": "원칙은 간단합니다: 색상은 오직 배경으로 존재하며, 이미지와 결코 경쟁하지 않습니다.",
+      "ch3_intro": "타이포그래피는 두 가지 뚜렷한 레지스터로 작동합니다—내비게이션 및 유틸리티를 위한 기하학적 sans-serif, 그리고 모든 편집 콘텐츠를 위한 JHA Times Now 트랜지셔널 세리프. 이 조합은 기능적 텍스트가 중립적이고 편집 텍스트가 조용한 권위를 지니는 명확한 위계를 확립합니다.",
+      "ch4_intro": "_spacing은 충분한 padding과 80px 수직 마진의 편집적 리듬을 따르며, 매거진 스프레드의 호흡 공간을 만듭니다.",
+      "ch5_intro": "깊이는 추가가 아닌 부재를 통해 달성됩니다—드롭 섀도우도, 그라디언트도, 레이어드 표면도 없습니다. 유일한 구조적 요소는 섹션을 분리하고 카드 경계를 정의하는 데 사용되는 미묘한 1px 수평선입니다.",
+      "ch6_intro": "레이아웃 스켈레톤은 비대칭 편집 격자로, 대형 히어로 이미지로 시작하여 넓은 사진, 스택된 텍스트 블록, 수평 목록의 혼합 배열로 전개됩니다. 여백은 장식적이 아닌 구조적입니다—어떤 테두리만큼이나 명확하게 읽기 경로를 정의합니다.",
+      "ch7_intro": "모션은 절제되고 기능적이며, 화려함보다 부드러운 변환과 불투명도 변화를 선호합니다. hover 상태는 미묘한 줄이나 약간의 이미지 스케일링을 생성하며; 페이지 전환은 매끄럽고; 커서는 불필요한 장식으로 스스로를 알리지 않습니다.",
+      "ch8_intro": "편집 음성은 객관적이고, 차갑고, 의도적으로 초연합니다—헤드라인은 전부 대문자로 좁은 자간을 사용하고, CTA는 넉넉한 간격의 절제된 대문자 텍스트 링크입니다. 열정은 인터페이스에서 현저하게 결여되어 있습니다.",
+      "ch8_outro": "SSENSE가 의도적으로 생략하는 것이 핵심입니다: 밝은 악센트도, 둥근 모서리도, 장식적 아이콘도, 무거운 타이포그래피도 없으며—오직 사진과 타입이 작업을 수행합니다."
+    }
+  }
 }

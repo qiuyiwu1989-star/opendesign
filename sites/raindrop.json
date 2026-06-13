@@ -8,6 +8,619 @@
     "productivity",
     "bookmarks"
   ],
-  "status": "pending",
-  "added_at": "2026-06-03"
+  "status": "completed",
+  "added_at": "2026-06-03",
+  "spec": {
+    "colors": {
+      "bg": "#FFFFFF",
+      "bgSoft": "#EFFAF7",
+      "bgQuiet": "#FEF1F0",
+      "ink": "#1A1A1A",
+      "inkSoft": "#333333",
+      "muted": "#808080",
+      "mutedSoft": null,
+      "accent": "#0B7ED0",
+      "line": "rgba(0,0,0,0.1)"
+    },
+    "typography": {
+      "display": "system-ui",
+      "body": "system-ui",
+      "mono": "monospace",
+      "scale": [
+        {
+          "token": "display",
+          "size": 50,
+          "lh": 1.0,
+          "weight": 500,
+          "ls": "-1px"
+        },
+        {
+          "token": "h2",
+          "size": 36,
+          "lh": 1.4,
+          "weight": 600,
+          "ls": "-0.5px"
+        },
+        {
+          "token": "body",
+          "size": 18,
+          "lh": 1.45,
+          "weight": 400,
+          "ls": "0"
+        },
+        {
+          "token": "small",
+          "size": 16,
+          "lh": 1.25,
+          "weight": 400,
+          "ls": "0"
+        }
+      ]
+    },
+    "spacing": {
+      "base": 4,
+      "scale": [
+        4,
+        8,
+        16,
+        24,
+        32,
+        48,
+        64,
+        96
+      ]
+    },
+    "surfaces": {
+      "radius": {
+        "sm": 4,
+        "md": 8,
+        "lg": 12,
+        "pill": 999
+      }
+    },
+    "layout": {
+      "container": 1280,
+      "paragraph": 680,
+      "columns": 12,
+      "gutter": 24,
+      "breakpoints": [
+        768,
+        1024
+      ]
+    },
+    "motion": {
+      "durations": {
+        "micro": 150,
+        "small": 200,
+        "medium": 400
+      },
+      "easing": "ease-in-out"
+    }
+  },
+  "spec_i18n": {
+    "en": {
+      "identity": {
+        "keywords": [
+          "bookmark",
+          "organize",
+          "library",
+          "creative",
+          "cross-platform"
+        ],
+        "analogy": "A digital filing cabinet for the modern web",
+        "oneLiner": "An all-in-one bookmark manager designed for creatives and built for coders"
+      },
+      "colors": {
+        "principle": "Clean white surfaces with a primary blue accent and muted dark text"
+      },
+      "typography": {
+        "rules": [
+          "Use system-ui or Segoe UI for a native, clean look",
+          "Headlines are tight, clean, and slightly bold",
+          "Maintain high contrast for readability against white backgrounds"
+        ],
+        "scaleUses": [
+          "Main hero headlines",
+          "Section headlines",
+          "Subheadings and body text",
+          "UI labels and standard text"
+        ]
+      },
+      "spacing": {
+        "rhythm": "Generous vertical padding (50px) in hero sections, with a consistent 30px horizontal padding"
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 12px 24px rgba(0, 0, 0, 0.1)",
+          "0px 2px 4px rgba(0, 0, 0, 0.1)",
+          "0px 0px 0px 0.5px rgba(0, 0, 0, 0.15)"
+        ],
+        "borders": "1px solid rgba(0,0,0,0.1) for containers and inputs"
+      },
+      "layout": {
+        "skeleton": "Split hero layout with copy on the left and overlapping product screenshots on the right, using organic background blobs for visual interest"
+      },
+      "components": {
+        "button": "Primary buttons are filled with a bright blue and rounded with a small radius; secondary buttons are transparent text links",
+        "card": "Soft shadow and light border for containers and feature cards",
+        "chip": "Rounded pill-shaped tags with a soft background (like the 'New: AI Assistant' pill)",
+        "input": "Clean, minimal inputs with subtle borders and 4px radius",
+        "hero": "Large bold display text on the left, multi-layered product screenshots on the right, set against a white background with colorful abstract organic shapes"
+      },
+      "motion": {
+        "patterns": [
+          "Smooth opacity and transform transitions for hover states",
+          "Subtle background-color shifts on interactive elements"
+        ]
+      },
+      "interaction": {
+        "hover": "Subtle background color changes or opacity shifts",
+        "click": "Minimal physical feedback, relying on state changes",
+        "transition": "0.2s ease-in-out for colors, backgrounds, and box-shadows",
+        "keyboard": "Standard focus outlines"
+      },
+      "voice": {
+        "tone": "Professional, helpful, and straightforward",
+        "headlineStyle": "Short, declarative, and benefit-oriented",
+        "ctaStyle": "Direct and action-focused (Sign up, Download app)",
+        "avoid": [
+          "Overly casual slang",
+          "Aggressive or hyperbolic marketing language",
+          "Complex technical jargon without context"
+        ]
+      },
+      "donts": [
+        "Don't use dark mode as the primary background — screenshot shows a predominantly white background",
+        "Don't use harsh neon accents — screenshot uses a clean, bright blue (#0B7ED0)",
+        "Don't use heavy, ornate serif fonts — screenshot uses clean, native system fonts",
+        "Don't make the layout rigidly boxy — screenshot incorporates organic, soft background blobs",
+        "Don't clutter the interface with too many borders — screenshot uses whitespace and subtle shadows",
+        "Don't use a dark primary text color — screenshot uses a softer, slightly less harsh dark gray (#1A1A1A)"
+      ],
+      "systemPrompt": "Raindrop.io is a professional, intuitive bookmark manager with a clean, spacious layout. Its design DNA relies on a white background, soft organic background shapes, and a primary blue accent (#0B7ED0) to guide the user's eye. Typography uses native system fonts for maximum performance and readability. Key donts include: avoiding dark mode as the default, avoiding harsh neon colors, and keeping the layout breathable rather than cluttered. The overall feel is calm, refined, and highly functional."
+    },
+    "zh-CN": {
+      "identity": {
+        "keywords": [
+          "书签",
+          "整理",
+          "资料库",
+          "创意",
+          "跨平台"
+        ],
+        "analogy": "一个为现代网络设计的数字文件柜",
+        "oneLiner": "一款为创意人士设计、为代码开发者打造的一体化书签管理器"
+      },
+      "colors": {
+        "principle": "干净的白色表面，搭配主蓝色强调色和柔和的深色文本"
+      },
+      "typography": {
+        "rules": [
+          "使用 system-ui 或 Segoe UI 以获得原生、干净的外观",
+          "标题紧凑、干净，并略微加粗",
+          "在白色背景上保持高对比度以确保可读性"
+        ],
+        "scaleUses": [
+          "主视觉大标题",
+          "章节标题",
+          "副标题和正文",
+          "界面标签和标准文本"
+        ]
+      },
+      "spacing": {
+        "rhythm": "主视觉区域使用充足的垂直内边距（50px），水平方向则保持一致的 30px 内边距"
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 12px 24px rgba(0, 0, 0, 0.1)",
+          "0px 2px 4px rgba(0, 0, 0, 0.1)",
+          "0px 0px 0px 0.5px rgba(0, 0, 0, 0.15)"
+        ],
+        "borders": "容器和输入框使用 1px solid rgba(0,0,0,0.1) 边框"
+      },
+      "layout": {
+        "skeleton": "分屏主视觉布局，左侧放置文案，右侧放置重叠的产品截图，并利用有机背景色块增加视觉趣味"
+      },
+      "components": {
+        "button": "主按钮为填充的明亮蓝色，带有小圆角；次要按钮为透明的文本链接",
+        "card": "容器和功能卡片使用柔和阴影和浅色边框",
+        "chip": "圆角胶囊形标签，带有柔和背景色（例如 'New: AI Assistant' 标签）",
+        "input": "简洁、极简的输入框，带有微妙边框和 4px 圆角",
+        "hero": "左侧为大号加粗的展示文本，右侧为多层产品截图，背景为白色并配有彩色的抽象有机形状"
+      },
+      "motion": {
+        "patterns": [
+          "hover 状态使用平滑的透明度和 transform 过渡",
+          "交互元素使用微妙的背景颜色变化"
+        ]
+      },
+      "interaction": {
+        "hover": "微妙的背景颜色变化或透明度调整",
+        "click": "最小化的物理反馈，依赖状态变化",
+        "transition": "颜色、背景和 box-shadow 使用 0.2s ease-in-out 过渡",
+        "keyboard": "标准 focus 轮廓"
+      },
+      "voice": {
+        "tone": "专业、乐于助人且直截了当",
+        "headlineStyle": "简短、陈述性，并聚焦于收益",
+        "ctaStyle": "直接且以行动为导向（注册、下载应用）",
+        "avoid": [
+          "过于随意的俚语",
+          "激进或夸张的营销语言",
+          "缺乏上下文的复杂技术术语"
+        ]
+      },
+      "donts": [
+        "不要使用深色模式作为主要背景——截图显示以白色背景为主",
+        "不要使用刺眼的霓虹强调色——截图使用了干净、明亮的蓝色（#0B7ED0）",
+        "不要使用厚重、华丽的衬线字体——截图使用了干净的原生系统字体",
+        "不要让布局显得僵硬刻板——截图融入了有机、柔和的背景色块",
+        "不要用过多的边框使界面显得杂乱——截图利用了留白和微妙阴影",
+        "不要使用深色的主文本颜色——截图使用了更柔和、略浅的深灰色（#1A1A1A）"
+      ],
+      "systemPrompt": "Raindrop.io 是一款专业、直观的书签管理器，拥有干净、宽敞的布局。其设计基因依赖于白色背景、柔和的有机背景形状，以及主蓝色强调色（#0B7ED0）来引导用户视线。排版使用原生系统字体以获得最佳性能和可读性。关键避免事项包括：避免将深色模式设为默认，避免使用刺眼的霓虹色，以及保持布局通透而非杂乱。整体感觉是平静、精致且高度功能性的。"
+    },
+    "zh-TW": {
+      "identity": {
+        "keywords": [
+          "書籤",
+          "整理",
+          "資料庫",
+          "創意",
+          "跨平台"
+        ],
+        "analogy": "現代網路的數位文件櫃",
+        "oneLiner": "一款為創意工作者設計、專為程式碼打造的全方位書籤管理工具"
+      },
+      "colors": {
+        "principle": "乾淨的白色表面，搭配主要藍色強調色與柔和的深色文字"
+      },
+      "typography": {
+        "rules": [
+          "使用 system-ui 或 Segoe UI 以達到原生、簡潔的視覺效果",
+          "標題排版緊湊、簡潔且略為粗體",
+          "在白色背景上保持高對比度以確保可讀性"
+        ],
+        "scaleUses": [
+          "主視覺大標題",
+          "章節標題",
+          "副標題與內文",
+          "介面標籤與標準文字"
+        ]
+      },
+      "spacing": {
+        "rhythm": "主視覺區塊採用充裕的垂直內距 (50px)，水平內距則統一為 30px"
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 12px 24px rgba(0, 0, 0, 0.1)",
+          "0px 2px 4px rgba(0, 0, 0, 0.1)",
+          "0px 0px 0px 0.5px rgba(0, 0, 0, 0.15)"
+        ],
+        "borders": "容器與輸入欄位使用 1px solid rgba(0,0,0,0.1) 邊框"
+      },
+      "layout": {
+        "skeleton": "分割式主視覺版面，左側放置文案，右側是重疊的產品截圖，並使用有機的背景斑點來增添視覺趣味"
+      },
+      "components": {
+        "button": "主要按鈕採用明亮的藍色填充並帶有小圓角；次要按鈕則是透明的文字連結",
+        "card": "容器與功能卡片使用柔和陰影與淺色邊框",
+        "chip": "圓角膠囊狀標籤，帶有柔和背景色（例如「新增：AI 助理」膠囊）",
+        "input": "簡潔的輸入框，帶有細微邊框與 4px 圓角",
+        "hero": "左側為大型粗體展示文字，右側為多層次的產品截圖，背景為白色並搭配彩色抽象有機形狀"
+      },
+      "motion": {
+        "patterns": [
+          "hover 狀態採用平滑的 opacity 與 transform 過渡動畫",
+          "互動元素上帶有細微的 background-color 變化"
+        ]
+      },
+      "interaction": {
+        "hover": "細微的背景顏色變化或 opacity 轉變",
+        "click": "極簡的物理回饋，依賴狀態改變來呈現",
+        "transition": "顏色、背景與 box-shadows 使用 0.2s ease-in-out 過渡",
+        "keyboard": "標準的 focus 輪廓"
+      },
+      "voice": {
+        "tone": "專業、有幫助且直接明瞭",
+        "headlineStyle": "簡短、陳述式且聚焦於效益",
+        "ctaStyle": "直接且以行動為導向（立即註冊、下載應用程式）",
+        "avoid": [
+          "過度隨意的俚語",
+          "具攻擊性或誇張的行銷語言",
+          "未經解釋的複雜技術術語"
+        ]
+      },
+      "donts": [
+        "勿使用深色模式作為主要背景——截圖顯示以白色為主的背景",
+        "勿使用刺眼的霓虹強調色——截圖使用乾淨的明亮藍色 (#0B7ED0)",
+        "勿使用厚重、裝飾性的襯線字體——截圖使用簡潔的原生系統字體",
+        "勿讓版面過於僵硬方正——截圖融合了有機、柔和的背景斑點",
+        "勿使用過多邊框使介面顯得雜亂——截圖運用留白與細微陰影",
+        "勿使用深色主文字顏色——截圖使用較柔和、稍淺的深灰色 (#1A1A1A)"
+      ],
+      "systemPrompt": "Raindrop.io 是一款專業、直覺的書籤管理工具，具有簡潔寬敞的版面設計。其設計基因依賴於白色背景、柔和的有機背景形狀，以及主要藍色強調色 (#0B7ED0) 來引導使用者視線。排版使用原生系統字體以確保最佳效能與可讀性。關鍵的「不要」包括：避免使用深色模式作為預設、避免使用刺眼的霓虹顏色，並保持版面寬敞而非雜亂。整體感覺平靜、精緻且高度功能化。"
+    },
+    "ja": {
+      "identity": {
+        "keywords": [
+          "ブックマーク",
+          "整理",
+          "ライブラリ",
+          "クリエイティブ",
+          "クロスプラットフォーム"
+        ],
+        "analogy": "モダンウェブのためのデジタルファイルキャビネット",
+        "oneLiner": "クリエイティブ向けに設計され、コーダーのために構築されたオールインワンブックマークマネージャー"
+      },
+      "colors": {
+        "principle": "プライマリブルーアクセントと穏やかなダークテキストを持つクリーンな白色サーフェス"
+      },
+      "typography": {
+        "rules": [
+          "system-ui または Segoe UI を使用し、ネイティブでクリーンな外観を実現",
+          "見出しはタイトでクリーン、やや太字",
+          "白背景に対して高コントラストを維持し、可読性を確保"
+        ],
+        "scaleUses": [
+          "メインヒーロー見出し",
+          "セクション見出し",
+          "小見出しと本文テキスト",
+          "UIラベルと標準テキスト"
+        ]
+      },
+      "spacing": {
+        "rhythm": "ヒーローセクションにはゆったりとした垂直パディング（50px）、一貫した30pxの水平パディング"
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 12px 24px rgba(0, 0, 0, 0.1)",
+          "0px 2px 4px rgba(0, 0, 0, 0.1)",
+          "0px 0px 0px 0.5px rgba(0, 0, 0, 0.15)"
+        ],
+        "borders": "コンテナと入力欄には1px solid rgba(0,0,0,0.1)"
+      },
+      "layout": {
+        "skeleton": "左側にコピー、右側に重なる製品スクリーンショットを持つ分割ヒーローレイアウト。視覚的な趣味のために有機的な背景 blobs を使用"
+      },
+      "components": {
+        "button": "プライマリボタンは鮮やかな青で塗りつぶされ、小さな radius で角丸に。セカンダリボタンは透明なテキストリンク",
+        "card": "コンテナとフィーチャーカードには柔らかなシャドウと軽いボーダー",
+        "chip": "柔らかな背景を持つ丸薬形タグ（例：「New: AI Assistant」のピル）",
+        "input": "微細なボーダーと4px radiusを持つクリーンで最小限の入力欄",
+        "hero": "左側に大きく太字のディスプレイテキスト、右側に多層的な製品スクリーンショット。白背景にカラフルな抽象的な有機シェイプを設定"
+      },
+      "motion": {
+        "patterns": [
+          "ホバー状態のための滑らかな不透明度とトランスフォームトランジション",
+          "インタラクティブ要素の微細な背景色シフト"
+        ]
+      },
+      "interaction": {
+        "hover": "微細な背景色の変化や不透明度のシフト",
+        "click": "最小限のフィジカルフィードバック。状態変化に依存",
+        "transition": "色、背景、ボックスシャドウには0.2s ease-in-out",
+        "keyboard": "標準的なフォーカスアウトライン"
+      },
+      "voice": {
+        "tone": "プロフェッショナルで、親切、かつ率直",
+        "headlineStyle": "短く、断定的、ベネフィット重視",
+        "ctaStyle": "直接的でアクション重視（サインアップ、アプリをダウンロード）",
+        "avoid": [
+          "過度にカジュアルなスラング",
+          "アグレッシブまたは誇張されたマーケティング言語",
+          "文脈のない複雑な技術用語"
+        ]
+      },
+      "donts": [
+        "ダークモードをプライマリ背景として使用しない — スクリーンショットは主に白背景",
+        "刺激的なネオンアクセントを使用しない — スクリーンショットはクリーンで鮮やかな青（#0B7ED0）を使用",
+        "重厚で飾り気のあるセリフフォントを使用しない — スクリーンショットはクリーンでネイティブのシステムフォントを使用",
+        "レイアウトを硬いボックス状にしない — スクリーンショットは有機的で柔らかい背景 blobs を採用",
+        "ボーダーでインタフェースを clutter しない — スクリーンショットはホワイトスペースと微細なシャドウを使用",
+        "ダークなプライマリテキスト色を使用しない — スクリーンショットはより柔らかく、やや刺激の弱いダークグレー（#1A1A1A）を使用"
+      ],
+      "systemPrompt": "Raindrop.io は、クリーンで広々としたレイアウトを持つプロフェッショナルで直感的なブックマークマネージャーです。そのデザインDNAは、白背景、柔らかい有機的な背景シェイプ、およびユーザーの目を導くためのプライマリブルーアクセント（#0B7ED0）に依存しています。タイポグラフィは最大限のパフォーマンスと可読性のためにネイティブのシステムフォントを使用します。主要な禁止事項には、ダークモードをデフォルトとしないこと、刺激的なネオンカラーを避けること、レイアウトをクラッターではなく息が通うように保つことが含まれます。全体的な印象は落ち着いた、洗練された、そして非常に機能的なものです。"
+    },
+    "ko": {
+      "identity": {
+        "keywords": [
+          "북마크",
+          "정리",
+          "라이브러리",
+          "크리에이티브",
+          "크로스 플랫폼"
+        ],
+        "analogy": "현대 웹을 위한 디지털 서랍",
+        "oneLiner": "크리에이티브를 위해 설계되고 코더를 위해 만들어진 올인원 북마크 매니저"
+      },
+      "colors": {
+        "principle": "깨끗한 흰색 표면에 프라이머리 블루 강조색과 은은한 짙은 텍스트"
+      },
+      "typography": {
+        "rules": [
+          "네이티브하고 깨끗한 느낌을 위해 system-ui 또는 Segoe UI를 사용합니다",
+          "헤드라인은 타이트하고 깨끗하며 약간 굵게 설정합니다",
+          "흰색 배경에서의 가독성을 위해 높은 대비를 유지합니다"
+        ],
+        "scaleUses": [
+          "메인 히어로 헤드라인",
+          "섹션 헤드라인",
+          "소제목과 본문 텍스트",
+          "UI 레이블과 표준 텍스트"
+        ]
+      },
+      "spacing": {
+        "rhythm": "히어로 섹션에는 넉넉한 수직 패딩(50px), 일관된 30px 수평 패딩을 사용합니다"
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 12px 24px rgba(0, 0, 0, 0.1)",
+          "0px 2px 4px rgba(0, 0, 0, 0.1)",
+          "0px 0px 0px 0.5px rgba(0, 0, 0, 0.15)"
+        ],
+        "borders": "컨테이너와 입력 필드에는 1px solid rgba(0,0,0,0.1)를 사용합니다"
+      },
+      "layout": {
+        "skeleton": "왼쪽에 카피, 오른쪽에 겹쳐진 제품 스크린샷을 배치한 분할 히어로 레이아웃으로, 시각적 흥미를 위해 유기적인 배경 블롭을 활용합니다"
+      },
+      "components": {
+        "button": "프라이머리 버튼은 밝은 블루로 채워지며 작은 radius로 둥글게 설정됩니다; 세컨더리 버튼은 투명한 텍스트 링크입니다",
+        "card": "컨테이너와 기능 카드에는 부드러운 그림자와 가벼운 테두리를 사용합니다",
+        "chip": "부드러운 배경을 가진 둥근 알약 모양 태그(예: 'New: AI Assistant' 필)",
+        "input": "미묘한 테두리와 4px radius를 가진 깨끗하고 미니멀한 입력 필드",
+        "hero": "왼쪽에 크고 굵은 디스플레이 텍스트, 오른쪽에 다층화된 제품 스크린샷을 배치하며, 흰색 배경에 다채로운 추상적 유기적 형태를 사용합니다"
+      },
+      "motion": {
+        "patterns": [
+          "hover 상태를 위한 부드러운 불투명도와 transform 전환",
+          "인터랙티브 요소의 미묘한 배경색 변화"
+        ]
+      },
+      "interaction": {
+        "hover": "미묘한 배경색 변화 또는 불투명도 변화",
+        "click": "최소한의 물리적 피드백, 상태 변화에 의존",
+        "transition": "색상, 배경, box-shadow에 0.2s ease-in-out",
+        "keyboard": "표준 focus 아웃라인"
+      },
+      "voice": {
+        "tone": "전문적이고, 유용하며, 직관적인",
+        "headlineStyle": "짧고, 선언적이며, 혜택 중심적인",
+        "ctaStyle": "직접적이고 행동 중심적인 (가입하기, 앱 다운로드)",
+        "avoid": [
+          "지나치게 캐주얼한 은어",
+          "공격적이거나 과장된 마케팅 언어",
+          "맥락 없는 복잡한 기술 용어"
+        ]
+      },
+      "donts": [
+        "어두운 모드를 기본 배경으로 사용하지 마세요 — 스크린샷은 주로 흰색 배경을 보여줍니다",
+        "강렬한 네온 강조색을 사용하지 마세요 — 스크린샷은 깨끗하고 밝은 블루(#0B7ED0)를 사용합니다",
+        "무거운 장식적 세리프 폰트를 사용하지 마세요 — 스크린샷은 깨끗한 네이티브 시스템 폰트를 사용합니다",
+        "레이아웃을 엄격한 박스 형태로 만들지 마세요 — 스크린샷은 유기적이고 부드러운 배경 블롭을 포함합니다",
+        "인터페이스를 과도한 테두리로 복잡하게 만들지 마세요 — 스크린샷은 여백과 미묘한 그림자를 사용합니다",
+        "어두운 프라이머리 텍스트 색상을 사용하지 마세요 — 스크린샷은 부드럽고 약간 덜 강렬한 짙은 회색(#1A1A1A)을 사용합니다"
+      ],
+      "systemPrompt": "Raindrop.io는 깨끗하고 넓은 레이아웃을 가진 전문적이고 직관적인 북마크 매니저입니다. 이 디자인의 DNA는 흰색 배경, 부드러운 유기적 배경 형태, 그리고 사용자의 시선을 이끄는 프라이머리 블루 강조색(#0B7ED0)에 의존합니다. 타이포그래피는 최대 성능과 가독성을 위해 네이티브 시스템 폰트를 사용합니다. 주요 주의사항은 다음과 같습니다: 기본으로 어두운 모드 사용 피하기, 강렬한 네온색 피하기, 레이아웃을 복잡하지 않고 통풍이 잘되게 유지하기. 전반적인 분위기는 차분하고, 세련되며, 매우 기능적입니다."
+    }
+  },
+  "desc": {
+    "en": {
+      "palette": "The palette is bright and clean, featuring a white background, dark charcoal text, a bright blue primary accent, and soft, organic background shapes in pink, green, and blue.",
+      "layout": "The layout is spacious and split, with large, bold typography on the left and overlapping product screenshots on the right.",
+      "interaction": "Interaction relies on subtle, smooth transitions for hover states and standard focus outlines, maintaining a calm user experience.",
+      "motion": "Motion is minimal and functional, focusing on gentle opacity and background-color shifts to provide feedback.",
+      "notes": "This site is an excellent example of a clean, modern SaaS landing page that effectively uses whitespace and subtle visual cues to convey trust and usability."
+    },
+    "zh-CN": {
+      "palette": "调色板明亮而干净，以白色背景、深炭灰色文本、明亮的蓝色主强调色，以及粉色、绿色和蓝色的柔和有机背景形状为特色。",
+      "layout": "布局宽敞且分隔，左侧为大号、加粗的排版，右侧为重叠的产品截图。",
+      "interaction": "交互依赖于微妙、平滑的过渡效果，用于 hover 状态和标准 focus 轮廓，以维持平静的用户体验。",
+      "motion": "动效极简且注重功能，聚焦于柔和的透明度和背景颜色变化以提供反馈。",
+      "notes": "此网站是简洁、现代的 SaaS 落地页的优秀范例，有效利用了留白和微妙的视觉提示来传达可信度和可用性。"
+    },
+    "zh-TW": {
+      "palette": "色調明亮而清新，以白色背景為基底，搭配深炭灰色文字、明亮的藍色主色調，以及柔和有機的粉色、綠色和藍色背景形狀。",
+      "layout": "版面寬敞且採分割式設計，左側是大型粗體排版文字，右側則是重疊的產品截圖。",
+      "interaction": "互動效果依賴於細膩平滑的 hover 狀態過渡動畫與標準的 focus 輪廓，以維持平靜的使用者體驗。",
+      "motion": "動態效果極簡且功能導向，著重於溫和的 opacity 與 background-color 變化來提供回饋。",
+      "notes": "此網站是現代化、簡潔的 SaaS 登陸頁面優秀範例，有效運用了留白與細微的視覺提示來傳達可信度與易用性。"
+    },
+    "ja": {
+      "palette": "パレットは明るくクリーンで、白背景、濃いチャコール色のテキスト、鮮やかな青のプライマリアクセント、そしてピンク、グリーン、青の柔らかで有機的な背景シェイプを特徴としています。",
+      "layout": "レイアウトはスペーシアスで分割されており、左側に大きく太字のタイポグラフィ、右側に重なる製品スクリーンショットが配置されています。",
+      "interaction": "インタラクションは、ホバー状態の微細で滑らかなトランジションと標準的なフォーカスアウトラインに依存し、落ち着いたユーザーエクスペリエンスを維持します。",
+      "motion": "モーションは最小限で機能的であり、フィードバックを提供するための穏やかな不透明度と背景色のシフトに焦点を当てています。",
+      "notes": "このサイトは、ホワイトスペースと微細なビジュアルヒントを効果的に使用して信頼性と使いやすさを伝える、クリーンでモダンなSaaSランディングページの優れた例です。"
+    },
+    "ko": {
+      "palette": "팔레트는 밝고 깨끗하며, 흰색 배경, 짙은 차콜 텍스트, 밝은 블루 프라이머리 강조색, 그리고 핑크, 그린, 블루의 부드럽고 유기적인 배경 형태로 구성됩니다.",
+      "layout": "레이아웃은 넓고 분할되어 있으며, 왼쪽에 크고 굵은 타이포그래피, 오른쪽에 겹쳐진 제품 스크린샷이 위치합니다.",
+      "interaction": "인터랙션은 hover 상태와 표준 focus 아웃라인을 위한 미묘하고 부드러운 전환에 의존하며, 차분한 사용자 경험을 유지합니다.",
+      "motion": "모션은 최소한이며 기능적이어서, 피드백을 제공하기 위한 부드러운 불투명도와 배경색 변화에 집중합니다.",
+      "notes": "이 사이트는 여백과 미묘한 시각적 단서를 효과적으로 활용하여 신뢰와 사용 편의성을 전달하는 깨끗하고 현대적인 SaaS 랜딩 페이지의 훌륭한 예시입니다."
+    }
+  },
+  "_meta": {
+    "vision_model": "mimo-v2.5",
+    "vision_prompt_version": "0.3",
+    "vision_source": "playwright-extract:raindrop",
+    "vision_grounded": true,
+    "vision_at": "2026-06-04T18:11:19+00:00",
+    "vision_tokens": 16465,
+    "vision_cost_usd": 0.1829,
+    "translation_model": "mimo-v2.5",
+    "translation_at": "2026-06-04T18:12:50+00:00",
+    "translation_tokens": 17365,
+    "translation_cost_usd": 0.0578,
+    "narrative_model": "mimo-v2.5",
+    "narrative_prompt_version": "0.3",
+    "narrative_at": "2026-06-04T18:12:58+00:00",
+    "narrative_tokens": 2092,
+    "narrative_cost_usd": 0.0139,
+    "narrative_status": "ok",
+    "total_cost_usd": 0.2546
+  },
+  "narrative": {
+    "en": {
+      "ch1_intro": "Raindrop.io operates as a digital filing cabinet for the modern web, a system built to bookmark, organize, and curate a personal library of online resources. Its design identity is one of calm, refined utility, prioritizing clean organization over ornamental flair. This is a tool whose value is measured in the effortless retrieval of information.",
+      "ch2_intro": "The color system is bright and clean, built upon a foundation of white surfaces with a primary blue accent (#0B7ED0) for guidance. Muted dark text ensures high contrast and readability without harshness.",
+      "ch2_outro": "The palette remains deliberately restrained, using white space and a single strong accent to direct focus and convey trust.",
+      "ch3_intro": "The typographic voice is professional and native, using system-ui or Segoe UI to maintain a clean, platform-agnostic look. Headlines are tight and slightly bold, creating a clear hierarchy without introducing foreign visual noise.",
+      "ch4_intro": "Rhythm is established through generous vertical padding and consistent horizontal spacing, creating a spacious, breathable interface.",
+      "ch5_intro": "Depth is communicated through a layered system of soft shadows and a single, light border weight. Containers and inputs use a consistent 1px solid border in a low-opacity black to define edges without visual clutter.",
+      "ch6_intro": "The layout skeleton is a spacious split hero, with bold, declarative copy anchoring the left side and overlapping product screenshots occupying the right. Organic background blobs soften the composition, preventing a rigid, boxy feel while adding subtle visual interest.",
+      "ch7_intro": "Motion philosophy is minimal and functional, serving primarily as state-change feedback. Smooth opacity and transform transitions provide subtle cues for interaction, never demanding attention for its own sake.",
+      "ch8_intro": "The editorial voice is professional, helpful, and straightforward, using short, declarative headlines and direct calls to action. Language is benefit-oriented, avoiding hyperbole, slang, and unnecessary technical complexity.",
+      "ch8_outro": "The system deliberately does not employ dark mode as a primary background, harsh neon accents, or heavy ornate fonts, rejecting those choices in favor of its calm, functional clarity."
+    },
+    "zh-CN": {
+      "ch1_intro": "Raindrop.io 作为现代网络的数字文件柜运作，这是一个为书签、整理和策划个人在线资源库而构建的系统。其设计标识是平静、精致的实用性，优先考虑清晰的组织而非装饰性的华丽。这是一个其价值体现在信息轻松检索上的工具。",
+      "ch2_intro": "色彩系统明亮而干净，建立在白色表面的基础之上，并以主蓝色 (#0B7ED0) 作为引导强调色。柔和的深色文本确保了高对比度和可读性，同时避免刺眼。",
+      "ch2_outro": "调色板刻意保持克制，使用留白和单一的强烈强调色来引导焦点并传达信任感。",
+      "ch3_intro": "排版风格专业且原生，使用 system-ui 或 Segoe UI 以保持干净、跨平台的外观。标题紧凑且略带粗体，在不引入外来视觉噪音的情况下建立清晰的层级。",
+      "ch4_intro": "通过充足的垂直填充和一致的水平间距建立节奏感，营造出宽敞、可呼吸的界面。",
+      "ch5_intro": "深度通过柔和阴影的分层系统和单一、轻量的边框宽度来传达。容器和输入框使用一致的 1px solid 边框（低不透明度黑色）来定义边缘，避免视觉杂乱。",
+      "ch6_intro": "布局骨架是一个宽敞的分裂英雄区域，左侧以粗体、宣言式的文案锚定，右侧则占据着重叠的产品截图。有机的背景色块柔化了构图，防止了生硬、方块化的感觉，同时增添了微妙的视觉趣味。",
+      "ch7_intro": "动效理念极简且功能化，主要作为状态变化的反馈。流畅的 opacity 和 transform 过渡为交互提供了微妙的提示，从不为了自身而要求关注。",
+      "ch8_intro": "编辑风格专业、有帮助且直接，使用简短、宣言式的标题和直接的行动号召。语言以利益为导向，避免夸张、行话和不必要的技术复杂性。",
+      "ch8_outro": "该系统刻意不采用深色模式作为主要背景、刺眼的霓虹强调色或华丽的重型字体，而是拒绝这些选择，以换取其平静、功能性的清晰度。"
+    },
+    "zh-TW": {
+      "ch1_intro": "Raindrop.io 作為現代網路的數位檔案櫃，是一個用來 bookmark、整理與 curate 個人線上資源圖書館的系統。其設計識別以沉靜、精煉的實用性為核心，優先考量整潔的組織結構，而非裝飾性花紋。這是一個工具，其價值體現在資訊擷取的毫不費力。",
+      "ch2_outro": "色調保持刻意的節制，運用留白與單一強烈的強調色來引導視覺焦點，並傳遞信任感。",
+      "ch2_intro": "色彩系統明亮而清晰，以白色介面為基底，搭配主要的藍色 (#0B7ED0) 作為引導。柔和的深色文字確保了高對比度與可讀性，同時避免生硬刺眼。",
+      "ch3_intro": "字體展現專業且原生的語調，使用 system-ui 或 Segoe UI 以維持乾淨、跨平台的外觀。標題緊湊且略微加粗，在不引入 foreign visual noise 的情況下，建立清晰的層級結構。",
+      "ch4_intro": "透過寬裕的垂直 padding 與一致的水平間距來建立節奏，創造出寬敞、可呼吸的介面。",
+      "ch5_intro": "深度透過柔和的陰影層級系統與單一、輕量的 border 來傳達。容器與輸入框使用一致的 1px solid border，搭配低不透明度的黑色來定義邊緣，避免視覺雜亂。",
+      "ch6_intro": "版面骨架採用寬敞的 split hero 佈局，左側以大膽、宣告式的 copy 為主軸，右側則是重疊的產品截圖。有機的背景色塊柔化了構圖，避免生硬方正的感覺，同時增添細膩的視覺趣味。",
+      "ch7_intro": "動態哲學以極簡與功能為主，主要作為狀態變化的回饋。流暢的 opacity 與 transform 過渡效果提供細微的互動提示，從不為了動態而動態。",
+      "ch8_intro": "編輯語調專業、 helpful 且直截了當，使用簡短、宣告式的標題與直接的行動呼籲。語言著重於 benefit 面向，避免誇飾、俚語與不必要的技術複雜度。",
+      "ch8_outro": "此系統刻意不採用深色模式作為主要背景、刺眼的霓虹強調色或厚重華麗的字體，摒棄這些選擇，轉而擁抱其沉靜、功能性的清晰感。"
+    },
+    "ja": {
+      "ch1_intro": "Raindrop.ioは、現代のウェブにおけるデジタル・ファイルキャビネットとして機能します。ブックマーク、整理、オンラインリソースのパーソナル・ライブラリをカレーションするために構築されたシステムです。そのデザイン・アイデンティティは、落ち着きと洗練された実用性にあり、装飾的な華やかさよりもクリーンな組織化を優先します。これは、情報への容易なアクセスがその価値を測るツールです。",
+      "ch2_intro": "カラーシステムは明るくクリーンで、白を基調としたサーフェスと、ガイダンスのためのプライマリー・ブルーアクセント（#0B7ED0）を基盤としています。落ち着いたダークテキストは、強すぎることなく高コントラストと可読性を確保します。",
+      "ch2_outro": "パレットは意図的に抑制されており、ホワイトスペースと単一の強いアクセントを使用して、フォーカスを誘導し、信頼感を伝えます。",
+      "ch3_intro": "タイポグラフィの声は専門的でネイティブなもので、クリーンでプラットフォームに依存しない外観を維持するために、system-uiまたはSegoe UIを使用します。見出しはタイトでやや太めに設定し、外来の視覚的ノイズを導入せずに明確な階層を構築します。",
+      "ch4_intro": "リズムは、寛大な垂直パディングと一貫した水平間隔によって確立され、広々として息が届くインターフェースを生み出します。",
+      "ch5_intro": "深度は、柔らかなシャドウの階層システムと、単一の細いボーダーウェイトによって伝達されます。コンテナと入力欄は、視覚的な雑然とした感覚を避けながらエッジを定義するために、低透過率の黒色で一貫した1px solidボーダーを使用します。",
+      "ch6_intro": "レイアウトの骨格は、広々としたスプリット・ヒーローで、左側には太字で宣言的なコピーがアンカーとなり、右側にはオーバーラップするプロダクトスクリーンショットが配置されます。有機的な背景の斑点が構図を和らげ、igidで箱のような印象を防ぎつつ、微かな視覚的兴趣を加えます。",
+      "ch7_intro": "モーション・フィロソフィーは最小限で機能的であり、主に状態変化のフィードバックとして機能します。滑らかなopacityとtransformのトランジションは、インタラクションのための微かなヒントを提供し、決してモーション自体に注意を引き寄せることはありません。",
+      "ch8_intro": "エディトリアルな声は専門的で、親切かつ率直です。短く宣言的な見出しと直接的なアクションコールを使用します。言語は利益志向で、誇大広告、スラング、不要な技術的複雑さを避けています。",
+      "ch8_outro": "このシステムは意図的に、ダークモードをプライマリー背景として使用したり、強いネオンアクセントや重厚な装飾的フォントを使用することを避け、それらの選択肢を、その落ち着いた機能的な明瞭さを優先して排除しています。"
+    },
+    "ko": {
+      "ch1_intro": "Raindrop.io는 현대 웹을 위한 디지털 서랍장으로 작동하며, 온라인 리소스의 개인 라이브러리를 북마크하고, 정리하고, 큐레이션하기 위해 구축된 시스템입니다. 그 디자인 정체성은 조용하고 정교한 유용성으로, 장식적인 화려함보다는 깔끔한 조직을 우선시합니다. 이 도구의 가치는 정보를 수월하게 검색하는 데서 측정됩니다.",
+      "ch2_intro": "컬러 시스템은 밝고 깨끗하며, 안내를 위한 기본 블루 악센트(#0B7ED0)를 기반으로 한 흰색 배경 위에 구축되었습니다. 은은한 어두운 텍스트는 가독성과 높은 대비를 보장하면서도 강하지 않게 유지합니다.",
+      "ch2_outro": "팔레트는 의도적으로 절제되어 사용되며, 여백과 단 하나의 강한 악센트를 통해 집중을 유도하고 신뢰를 전달합니다.",
+      "ch3_intro": "타이포그래피 음성은 전문적이며 네이티브한 느낌을 주며, system-ui 또는 Segoe UI를 사용하여 깔끔하고 플랫폼에 구애받지 않는 모양새를 유지합니다. 제목은 좁고 약간 굵게 설정되어, 외래 시각적 잡음을 도입하지 않으면서 명확한 계층 구조를 만듭니다.",
+      "ch4_intro": "리듬은 넉넉한 수직 패딩과 일관된 수평 간격을 통해 확립되어, 공간감 있고 숨 쉬는 인터페이스를 만듭니다.",
+      "ch5_intro": "깊이는 부드러운 그림자의 계층화된 시스템과 단일한 가벼운 테두리 두께를 통해 전달됩니다. 컨테이너와 입력 필드는 시각적 혼잡 없이 가장자리를 정의하기 위해 불투명도가 낮은 검정색의 일관된 1px solid border를 사용합니다.",
+      "ch6_intro": "레이아웃 골격은 넓게 나뉘어진 히어로 영역으로, 왼쪽에는 굵고 단정한 카피가 중심을 잡고, 오른쪽에는 겹쳐진 제품 스크린샷이 배치됩니다. 자연스러운 배경 블롭은 조성을 부드럽게 만들어 딱딱하고 박스 같은 느낌을 방지하면서 미묘한 시각적 재미를 더합니다.",
+      "ch7_intro": "모션 철학은 최소화되어 기능적이며, 주로 상태 변화 피드백으로 역할을 합니다. 부드러운 불투명도와 transform 전환은 상호작용에 대한 미묘한 단서를 제공하며, 결코 자체적으로 주목을 요구하지 않습니다.",
+      "ch8_intro": "에디토리얼 음성은 전문적이고, 도움이 되며, 간결합니다. 짧고 단정한 제목과 직접적인 행동 유도문을 사용합니다. 언어는 혜택 중심적이며, 과장, 은어, 불필요한 기술적 복잡성을 피합니다.",
+      "ch8_outro": "시스템은 의도적으로 다크 모드를 주요 배경으로 사용하지 않으며, 강렬한 네온 악센트나 무거운 화려한 서체를 사용하지 않습니다. 이러한 선택들을 배제하고 그 차분하고 기능적인 명확성을 선택합니다."
+    }
+  }
 }

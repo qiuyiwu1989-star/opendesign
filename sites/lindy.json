@@ -8,6 +8,626 @@
     "ai",
     "agent"
   ],
-  "status": "pending",
-  "added_at": "2026-06-03"
+  "status": "completed",
+  "added_at": "2026-06-03",
+  "spec": {
+    "colors": {
+      "bg": "#FCF9F8",
+      "bgSoft": null,
+      "bgQuiet": null,
+      "ink": "#0F1E2E",
+      "inkSoft": null,
+      "muted": "#474A55",
+      "mutedSoft": null,
+      "accent": "#2A66FF",
+      "line": "rgba(0, 0, 0, 0.08)"
+    },
+    "typography": {
+      "display": "grotesque-sans",
+      "body": "humanist-sans",
+      "mono": null,
+      "scale": [
+        {
+          "token": "display",
+          "size": 72,
+          "lh": 1.0,
+          "weight": 500,
+          "ls": "-1.44px"
+        },
+        {
+          "token": "h2",
+          "size": 48,
+          "lh": 1.05,
+          "weight": 500,
+          "ls": "-0.96px"
+        },
+        {
+          "token": "body",
+          "size": 16,
+          "lh": 1.5,
+          "weight": 500,
+          "ls": "-0.16px"
+        },
+        {
+          "token": "body-lg",
+          "size": 20,
+          "lh": 1.5,
+          "weight": 500,
+          "ls": "-0.2px"
+        }
+      ]
+    },
+    "spacing": {
+      "base": 4,
+      "scale": [
+        4,
+        8,
+        12,
+        16,
+        20,
+        24,
+        32,
+        48,
+        64,
+        96
+      ]
+    },
+    "surfaces": {
+      "radius": {
+        "sm": 8,
+        "md": 12,
+        "lg": 24,
+        "pill": 1440
+      }
+    },
+    "layout": {
+      "container": 1280,
+      "paragraph": 680,
+      "columns": 12,
+      "gutter": 24,
+      "breakpoints": [
+        768,
+        1024
+      ]
+    },
+    "motion": {
+      "durations": {
+        "micro": 220,
+        "small": 300,
+        "medium": 450
+      },
+      "easing": "cubic-bezier(0.22, 1, 0.36, 1)"
+    }
+  },
+  "spec_i18n": {
+    "en": {
+      "identity": {
+        "keywords": [
+          "professional",
+          "efficient",
+          "assistant",
+          "automated",
+          "trustworthy"
+        ],
+        "analogy": "A world-class executive assistant that handles your daily tasks so you can focus on what matters.",
+        "oneLiner": "An AI-powered note-taking and scheduling assistant for busy professionals."
+      },
+      "colors": {
+        "principle": "Professional clarity with a warm off-white canvas and strategic blue/gold accents."
+      },
+      "typography": {
+        "rules": [
+          "Headlines use tight tracking and sentence-case capitalization.",
+          "Body text maintains a consistent 1.5 line-height for readability.",
+          "Bold weight (500) is standard for most text, with 700 reserved for accents."
+        ],
+        "scaleUses": [
+          "Hero headline",
+          "Section headings",
+          "General body text and UI labels",
+          "Subheadings and feature descriptions"
+        ]
+      },
+      "spacing": {
+        "rhythm": "Consistent 64px vertical rhythm for major sections, with 24px gutters for grid elements."
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(0, 0, 0, 0.15) 0px 1px 10px 0px",
+          "rgba(20, 21, 26, 0.05) 0px 1px 2px 0px"
+        ],
+        "borders": "Thin 1px borders using a subtle rgba(0, 0, 0, 0.08) for card separation."
+      },
+      "layout": {
+        "skeleton": "Centered single-column hero flowing into a 12-column grid for features."
+      },
+      "components": {
+        "button": "Rounded pill shapes with solid fill (blue) or text-only styling.",
+        "card": "Clean white cards with subtle shadows and 12px border radius.",
+        "chip": "Small rounded badges (like 'Trusted by 400,000+') with solid background.",
+        "input": "Standard form fields with clean borders and rounded corners.",
+        "hero": "Large-scale typography with a single-line colored accent and centered layout."
+      },
+      "motion": {
+        "patterns": [
+          "Smooth transitions for hover states on buttons and links (0.2s).",
+          "Transform-based movement for interactive elements (0.45s).",
+          "Subtle opacity fades for content reveals (0.3s)."
+        ]
+      },
+      "interaction": {
+        "hover": "Subtle background color changes or shadow elevations on interactive elements.",
+        "click": "Immediate feedback with slight scale or color shifts.",
+        "transition": "Standardized 0.2s for color and background-color transitions.",
+        "keyboard": "Logical tab order following the visual flow of the page."
+      },
+      "voice": {
+        "tone": "Professional, helpful, and efficient.",
+        "headlineStyle": "Direct and benefit-oriented, using sentence-case with a touch of color for emphasis.",
+        "ctaStyle": "Clear and action-oriented, like 'Try for free'.",
+        "avoid": [
+          "Jargon",
+          "Aggressive sales language",
+          "Vague promises",
+          "Overly casual slang"
+        ]
+      },
+      "donts": [
+        "Don't use a pure white (#FFFFFF) background — screenshot shows a warm off-white (#FCF9F8) instead.",
+        "Don't use heavy black (#000000) for text — screenshot uses a deep navy (#0F1E2E) instead.",
+        "Don't use sharp corners on all elements — screenshot uses rounded rectangles and pill shapes (up to 1440px radius) instead.",
+        "Don't use thin, light-weight typography for headlines — screenshot uses bold (500-700 weight) grotesque-sans fonts instead.",
+        "Don't use a multi-colored or busy background pattern — screenshot maintains a clean, mostly monochromatic background with a single accent color instead.",
+        "Don't use small, cramped spacing — screenshot utilizes generous 64px section padding and clear 24px gutters instead."
+      ],
+      "systemPrompt": "Lindy is a premium AI productivity tool for professionals, presented on a warm off-white (#FCF9F8) canvas. The design DNA centers on a deep navy (#0F1E2E) for primary text and a vibrant blue (#2A66FF) as the dominant accent, with secondary gold highlights. Typography relies on a clean, modern humanist-sans (Manrope) for body text and a slightly more structured grotesque-sans for headlines, with heavy use of 500-700 weight. The layout is spacious and centered, prioritizing clarity. Key critical donts: never use pure white for the main background, avoid sharp corners on primary UI elements, and never use thin or low-contrast text for headlines. The voice is professional and helpful, focusing on the core value proposition of saving time through automation."
+    },
+    "zh-CN": {
+      "identity": {
+        "keywords": [
+          "专业",
+          "高效",
+          "助手",
+          "自动化",
+          "可信"
+        ],
+        "analogy": "一位世界级的行政助理，为您处理日常事务，让您能专注于重要事项。",
+        "oneLiner": "一款面向忙碌专业人士的 AI 驱动笔记与日程助手。"
+      },
+      "colors": {
+        "principle": "专业清晰度，采用暖调米白画布和战略性的蓝/金强调色。"
+      },
+      "typography": {
+        "rules": [
+          "标题使用紧凑的字距和句首大写。",
+          "正文保持一致的 1.5 行高以保证可读性。",
+          "标准文本使用粗细（500），700 粗细保留用于强调。"
+        ],
+        "scaleUses": [
+          "首屏标题",
+          "章节标题",
+          "通用正文与 UI 标签",
+          "副标题与功能描述"
+        ]
+      },
+      "spacing": {
+        "rhythm": "主要章节采用一致的 64px 垂直节奏，网格元素间距为 24px。"
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(0, 0, 0, 0.15) 0px 1px 10px 0px",
+          "rgba(20, 21, 26, 0.05) 0px 1px 2px 0px"
+        ],
+        "borders": "使用细微的 rgba(0, 0, 0, 0.08) 1px 细边框进行卡片分隔。"
+      },
+      "layout": {
+        "skeleton": "居中的单栏首屏区域，过渡到用于功能的 12 列网格。"
+      },
+      "components": {
+        "button": "圆角药丸形状，采用纯色填充（蓝色）或纯文本样式。",
+        "card": "简洁的白色卡片，带有细微阴影和 12px 圆角。",
+        "chip": "小型圆角徽章（如“受到 400,000+ 用户信赖”），带有纯色背景。",
+        "input": "标准表单字段，带有简洁边框和圆角。",
+        "hero": "大号排版，搭配单行彩色强调色和居中布局。"
+      },
+      "motion": {
+        "patterns": [
+          "按钮和链接悬停状态的平滑过渡（0.2 秒）。",
+          "交互元素的基于 Transform 的移动（0.45 秒）。",
+          "内容展示的细微透明度渐变（0.3 秒）。"
+        ]
+      },
+      "interaction": {
+        "hover": "交互元素上的细微背景色变化或阴影提升。",
+        "click": "即时反馈，带有轻微的缩放或颜色变化。",
+        "transition": "颜色和背景色过渡采用标准化的 0.2 秒。",
+        "keyboard": "遵循页面视觉流的逻辑制表符顺序。"
+      },
+      "voice": {
+        "tone": "专业、乐于助人、高效。",
+        "headlineStyle": "直接且注重益处，使用句首大写，并辅以少量色彩强调。",
+        "ctaStyle": "清晰且以行动为导向，例如“免费试用”。",
+        "avoid": [
+          "行话",
+          "激进的销售语言",
+          "模糊的承诺",
+          "过于随意的俚语"
+        ]
+      },
+      "donts": [
+        "不要使用纯白色（#FFFFFF）背景——截图显示的是暖调米白色（#FCF9F8）。",
+        "不要使用浓重的黑色（#000000）作为文本颜色——截图使用的是深海军蓝（#0F1E2E）。",
+        "不要对所有元素使用尖锐的直角——截图使用的是圆角矩形和药丸形状（圆角最大可达 1440px）。",
+        "不要对标题使用纤细、轻薄的字体——截图使用的是粗细（500-700）的 grotesque-sans 字体。",
+        "不要使用多彩或杂乱的背景图案——截图保持了干净、基本单色的背景，仅带有一种强调色。",
+        "不要使用狭小、拥挤的间距——截图使用了宽裕的 64px 章节内边距和清晰的 24px 间距。"
+      ],
+      "systemPrompt": "Lindy 是一款面向专业人士的高端 AI 生产力工具，展示在暖调米白色（#FCF9F8）画布上。其设计 DNA 以深海军蓝（#0F1E2E）作为主要文本颜色，以活力蓝（#2A66FF）作为主导强调色，并辅以次要的金色高光。排版依赖于简洁、现代的 humanist-sans（Manrope）用于正文，以及结构感稍强的 grotesque-sans 用于标题，并大量使用 500-700 的粗细。布局宽敞且居中，优先考虑清晰度。关键禁忌：切勿使用纯白色作为主要背景，避免在主要 UI 元素上使用尖锐直角，切勿对标题使用纤细或低对比度的文本。其声音是专业且乐于助人的，专注于通过自动化节省时间的核心价值主张。"
+    },
+    "zh-TW": {
+      "identity": {
+        "keywords": [
+          "專業",
+          "高效",
+          "助理",
+          "自動化",
+          "值得信賴"
+        ],
+        "analogy": "一位世界級的行政助理，能處理您的日常事務，讓您專注於真正重要的事。",
+        "oneLiner": "一款專為忙碌的專業人士打造的 AI 驅動筆記與行程管理助理。"
+      },
+      "colors": {
+        "principle": "以溫暖米白色為基調，搭配策略性的藍色/金色點綴，實現專業的清晰感。"
+      },
+      "typography": {
+        "rules": [
+          "標題採用緊湊的字間距與句首大寫。",
+          "內文維持一致的 1.5 行高以確保可讀性。",
+          "粗體字重（500）為標準，700 字重則保留用於強調。"
+        ],
+        "scaleUses": [
+          "主標題",
+          "章節標題",
+          "一般內文與介面標籤",
+          "副標題與功能描述"
+        ]
+      },
+      "spacing": {
+        "rhythm": "主要章節採用一致的 64px 垂直節奏，網格元素則保留 24px 的間距。"
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(0, 0, 0, 0.15) 0px 1px 10px 0px",
+          "rgba(20, 21, 26, 0.05) 0px 1px 2px 0px"
+        ],
+        "borders": "使用細微的 rgba(0, 0, 0, 0.08) 1px 邊框來分隔卡片。"
+      },
+      "layout": {
+        "skeleton": "置中的單欄首頁區塊，平順過渡至 12 欄網格以展示功能。"
+      },
+      "components": {
+        "button": "圓潤的藥丸形狀，採用實心填充（藍色）或純文字樣式。",
+        "card": "簡潔的白色卡片，帶有細微陰影與 12px 的圓角半徑。",
+        "chip": "小型圓潤徽章（如「深受超過 400,000+ 用戶信賴」），採用實心背景。",
+        "input": "標準表單欄位，具有簡潔的邊框與圓角。",
+        "hero": "大尺度字排版，搭配單行彩色強調線與置中佈局。"
+      },
+      "motion": {
+        "patterns": [
+          "按鈕與連結的懸停狀態採用平滑過渡（0.2s）。",
+          "互動元素採用基於變形的移動效果（0.45s）。",
+          "內容顯現採用細微的透明度漸變（0.3s）。"
+        ]
+      },
+      "interaction": {
+        "hover": "互動元素在懸停時有細微的背景色變化或陰影提升。",
+        "click": "點擊時提供即時回饋，包含輕微的縮放或色彩變化。",
+        "transition": "顏色與背景色過渡效果標準化為 0.2s。",
+        "keyboard": "鍵盤 Tab 鍵順序遵循頁面的視覺流動邏輯。"
+      },
+      "voice": {
+        "tone": "專業、 helpful、高效。",
+        "headlineStyle": "直接且以效益為導向，採用句首大寫並以色彩稍作強調。",
+        "ctaStyle": "清晰且具行動導向，例如「免費試用」。",
+        "avoid": [
+          "術語",
+          "激進的銷售語言",
+          "含糊的承諾",
+          "過於隨意的俚語"
+        ]
+      },
+      "donts": [
+        "勿使用純白（#FFFFFF）背景 — 截圖顯示為溫暖的米白色（#FCF9F8）。",
+        "勿使用厚重的黑色（#000000）作為文字 — 截圖使用的是深邃的墨藍色（#0F1E2E）。",
+        "勿在所有元素上使用銳利的圓角 — 截圖使用的是圓角矩形與藥丸形狀（圓角半徑最高可達 1440px）。",
+        "勿在標題上使用細瘦、輕字重的字體 — 截圖使用的是粗體（500-700 字重）的 grotesque-sans 字體。",
+        "勿使用多彩或雜亂的背景圖樣 — 截圖維持簡潔、近乎單色調的背景，僅使用單一強調色。",
+        "勿使用狹小擁擠的間距 — 截圖運用寬裕的 64px 章節內距與清晰的 24px 間距。"
+      ],
+      "systemPrompt": "Lindy 是一款為專業人士打造的高階 AI 生產力工具，呈現於溫暖的米白色（#FCF9F8）畫布上。其設計核心在於使用深邃的墨藍色（#0F1E2E）作為主要文字色，並以鮮明的藍色（#2A66FF）作為主導強調色，輔以次要的金色高光。字型方面，內文採用簡潔現代的 humanist-sans（Manrope），標題則使用結構感稍強的 grotesque-sans，並大量運用 500-700 的粗體字重。佈局寬敞且置中，優先考慮清晰度。關鍵禁忌：切勿將純白色用於主要背景，避免在主要介面元素上使用銳利的圓角，並切勿在標題上使用細瘦或低對比度的文字。其語氣專業且樂於助人，核心價值主張在於透過自動化節省時間。"
+    },
+    "ja": {
+      "identity": {
+        "keywords": [
+          "プロフェッショナル",
+          "効率的",
+          "アシスタント",
+          "自動化",
+          "信頼できる"
+        ],
+        "analogy": "あなたが重要なことに集中できるよう、日々のタスクを処理する、一流のエグゼクティブアシスタント。",
+        "oneLiner": "多忙なプロフェッショナルのための、AI搭載ノートテイキング＆スケジューリングアシスタント。"
+      },
+      "colors": {
+        "principle": "温かみのあるオフホワイトのキャンバスと戦略的なブルー／ゴールドのアクセントによる、プロフェッショナルな明瞭さ。"
+      },
+      "typography": {
+        "rules": [
+          "見出しにはタイトなトラッキングとセンテンスケースキャピタライゼーションを採用。",
+          "本文は可読性を保つため、一定の1.5の行間を維持。",
+          "太字ウェイト（500）を本文の標準とし、700はアクセントに限定。"
+        ],
+        "scaleUses": [
+          "ヒーローヘッドライン",
+          "セクション見出し",
+          "本文テキストとUIラベル",
+          "サブヘッドラインと機能説明"
+        ]
+      },
+      "spacing": {
+        "rhythm": "主要セクションには一定の64pxの垂直リズムを、グリッド要素には24pxのガターを採用。"
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(0, 0, 0, 0.15) 0px 1px 10px 0px",
+          "rgba(20, 21, 26, 0.05) 0px 1px 2px 0px"
+        ],
+        "borders": "カードの区切りとして、微妙な rgba(0, 0, 0, 0.08) を使用した、薄い1pxのボーダーを採用。"
+      },
+      "layout": {
+        "skeleton": "中央揃えの単一カラムヒーローから、機能用の12カラムグリッドへと流れる構成。"
+      },
+      "components": {
+        "button": "角丸ピル形状で、塗りつぶし（ブルー）またはテキストのみのスタイル。",
+        "card": "微妙なシャドウと12pxのボーダーラディウスを持つ、クリーンな白いカード。",
+        "chip": "塗りつぶし背景の小さな角丸バッジ（例：「Trusted by 400,000+」）。",
+        "input": "クリーンなボーダーと角丸を持つ、標準フォームフィールド。",
+        "hero": "単一行のカラーアクセントと中央揃えのレイアウトを用いた、大規模なタイポグラフィ。"
+      },
+      "motion": {
+        "patterns": [
+          "ボタンやリンクのホバーステートに対する、滑らかなトランジション（0.2s）。",
+          "インタラクティブ要素の、トランスフォームベースの動き（0.45s）。",
+          "コンテンツの表示に対する、微妙な不透明度のフェードイン（0.3s）。"
+        ]
+      },
+      "interaction": {
+        "hover": "インタラクティブ要素の、微妙な背景色の変化またはシャドウの高まり。",
+        "click": "軽微なスケールやカラーシフトによる、即時フィードバック。",
+        "transition": "color および background-color のトランジションを、標準の0.2sに統一。",
+        "keyboard": "ページのビジュアルフローに沿った、論理的なタブ順序。"
+      },
+      "voice": {
+        "tone": "プロフェッショナルで、親切かつ効率的。",
+        "headlineStyle": "メリットを直接伝える、センテンスケースのスタイル。強調にはカラーアクセントを少し使用。",
+        "ctaStyle": "「無料で試す」のような、明確で行動を促すスタイル。",
+        "avoid": [
+          "専門用語",
+          "攻撃的なセールスコピー",
+          "曖昧な約束",
+          "過度にカジュアルなスラング"
+        ]
+      },
+      "donts": [
+        "純粋なホワイト（#FFFFFF）の背景を使用しない — スクリーンショットでは温かみのあるオフホワイト（#FCF9F8）を使用。",
+        "テキストに濃い黒（#000000）を使用しない — スクリーンショットでは深いネイビー（#0F1E2E）を使用。",
+        "すべての要素に鋭い角を使用しない — スクリーンショットでは角丸長方形やピル形状（最大1440px radius）を使用。",
+        "見出しに細い、軽いウェイトのタイポグラフィを使用しない — スクリーンショットでは太字（500-700 weight）のゴシック体フォントを使用。",
+        "カラフルで忙しない背景パターンを使用しない — スクリーンショットでは単色調を基調とし、アクセントカラーを1色だけ配置した、クリーンな背景を維持。",
+        "狭く詰まったスペーシングを使用しない — スクリーンショットでは、広めの64pxセクションパディングと明確な24pxガターを活用。"
+      ],
+      "systemPrompt": "Lindy は、プロフェッショナル向けのプレミアムAI生産性ツールであり、温かみのあるオフホワイト（#FCF9F8）のキャンバス上にプレゼンされています。デザインDNAは、プライマリテキストに深いネイビー（#0F1E2E）を、メインアクセントに鮮やかなブルー（#2A66FF）を採用し、セカンダリとしてゴールドのハイライトを配置しています。タイポグラフィは、本文用にクリーンでモダンなヒューマニストサンセリフ（Manrope）、見出し用にやや構造化されたゴシック体を採用し、500-700のウェイトを多用しています。レイアウトは広々としており、明瞭さを優先しています。重要な注意点：メイン背景に純粋なホワイトを使用せず、プライマリUI要素に鋭い角を使用せず、見出しに細い、またはコントラストの低いテキストを使用しないこと。声はプロフェッショナルかつ親切で、自動化による時間節約という核心的バリュープロポジションに焦点を当てています。"
+    },
+    "ko": {
+      "identity": {
+        "keywords": [
+          "전문적",
+          "효율적",
+          "어시스턴트",
+          "자동화된",
+          "신뢰할 수 있는"
+        ],
+        "analogy": "일상적인 업무를 처리하여 중요한 일에 집중할 수 있게 해주는 세계적인 수준의 임원 비서입니다.",
+        "oneLiner": "바쁜 전문가를 위한 AI 기반 노트 작성 및 일정 관리 어시스턴트입니다."
+      },
+      "colors": {
+        "principle": "따뜻한 오프화이트 캔버스와 전략적인 블루/골드 액센트가 어우러진 전문적인 명료함."
+      },
+      "typography": {
+        "rules": [
+          "제목은 좁은 자간과 문장형 대문자를 사용합니다.",
+          "본문 텍스트는 가독성을 위해 일관된 1.5 줄 높이를 유지합니다.",
+          "대부분의 텍스트에는 굵기 500의 볼드체를 표준으로 사용하며, 700은 액센트용으로 예약합니다."
+        ],
+        "scaleUses": [
+          "히어로 제목",
+          "섹션 제목",
+          "일반 본문 텍스트 및 UI 레이블",
+          "소제목 및 기능 설명"
+        ]
+      },
+      "spacing": {
+        "rhythm": "주요 섹션을 위한 일관된 64px 세로 리듬, 그리드 요소를 위한 24px 거터."
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(0, 0, 0, 0.15) 0px 1px 10px 0px",
+          "rgba(20, 21, 26, 0.05) 0px 1px 2px 0px"
+        ],
+        "borders": "카드 분리를 위해 미세한 rgba(0, 0, 0, 0.08)를 사용하는 1px 얇은 테두리."
+      },
+      "layout": {
+        "skeleton": "중앙 정렬 단일 열 히어로에서 기능을 위한 12열 그리드로 이어지는 구조."
+      },
+      "components": {
+        "button": "단색 채우기(블루) 또는 텍스트 전용 스타일이 적용된 둥근 알약 형태.",
+        "card": "미세한 그림자와 12px 테두리 반경이 있는 깔끔한 화이트 카드.",
+        "chip": "단색 배경이 있는 작은 둥근 배지(예: 'Trusted by 400,000+').",
+        "input": "깔끔한 테두리와 둥근 모서리가 있는 표준 양식 필드.",
+        "hero": "단일 라인 색상 액센트와 중앙 정렬 레이아웃이 있는 대규모 타이포그래피."
+      },
+      "motion": {
+        "patterns": [
+          "버튼과 링크의 hover 상태에 대한 부드러운 전환 (0.2s).",
+          "인터랙티브 요소의 변형 기반 움직임 (0.45s).",
+          "콘텐츠 표시를 위한 미세한 투명도 페이드 (0.3s)."
+        ]
+      },
+      "interaction": {
+        "hover": "인터랙티브 요소의 배경색 변화 또는 그림자 높이 변화.",
+        "click": "미세한 크기 또는 색상 변화를 통한 즉각적인 피드백.",
+        "transition": "색상 및 배경색 전환을 위한 표준화된 0.2s.",
+        "keyboard": "페이지의 시각적 흐름을 따르는 논리적인 탭 순서."
+      },
+      "voice": {
+        "tone": "전문적이고 도움이 되며 효율적.",
+        "headlineStyle": "혜택 중심의 직접적인 문장형 대문자 스타일, 강조를 위해 약간의 색상 사용.",
+        "ctaStyle": "'무료로 시작하기'와 같이 명확하고 행동 지향적인 문구.",
+        "avoid": [
+          "전문 용어",
+          "공격적인 판매 언어",
+          "모호한 약속",
+          "지나치게 캐주얼한 비속어"
+        ]
+      },
+      "donts": [
+        "순백(#FFFFFF) 배경 사용 금지 — 스크린샷에는 따뜻한 오프화이트(#FCF9F8)가 사용됨.",
+        "텍스트에 진한 검정(#000000) 사용 금지 — 스크린샷에는 깊은 네이비(#0F1E2E)가 사용됨.",
+        "모든 요소에 날카로운 모서리 사용 금지 — 스크린샷에는 둥근 사각형과 알약 형태(최대 1440px 반경)가 사용됨.",
+        "제목에 얇고 가벼운 두께의 타이포그래피 사용 금지 — 스크린샷에는 굵기 500-700의 grotesque-sans 폰트가 사용됨.",
+        "다색 또는 지나치게 바쁜 배경 패턴 사용 금지 — 스크린샷에는 단일 액센트 색상을 가진 깔끔하고 주로 단색의 배경이 유지됨.",
+        "좁고 빡빡한 간격 사용 금지 — 스크린샷에는 넉넉한 64px 섹션 패딩과 명확한 24px 거터가 사용됨."
+      ],
+      "systemPrompt": "Lindy는 따뜻한 오프화이트(#FCF9F8) 캔버스 위에 선보이는 프로 전문가용 프리미엄 AI 생산성 도구입니다. 디자인 DNA는 기본 텍스트를 위한 깊은 네이비(#0F1E2E)와 주요 액센트인 선명한 블루(#2A66FF), 그리고 보조 골드 하이라이트를 중심으로 합니다. 타이포그래피는 본문 텍스트를 위한 깔끔하고 현대적인 humanist-sans(Manrope)와 제목을 위한 약간 더 구조적인 grotesque-sans를 사용하며, 굵기 500-700을 적극 활용합니다. 레이아웃은 넓고 중앙 정렬되어 명료함을 우선시합니다. 핵심 주의 사항: 메인 배경에 순백을 절대 사용하지 말 것, 주요 UI 요소에 날카로운 모서리를 사용하지 말 것, 제목에 얇거나 대비가 낮은 텍스트를 절대 사용하지 말 것. 톤은 전문적이고 도움이 되며, 자동화를 통한 시간 절약이라는 핵심 가치 제안에 초점을 맞춥니다."
+    }
+  },
+  "desc": {
+    "en": {
+      "palette": "A professional palette anchored by warm off-white backgrounds, deep navy ink, and a striking blue accent.",
+      "layout": "A clean, centered single-column layout that transitions into a spacious grid for feature highlights.",
+      "interaction": "Subtle, fast transitions on buttons and links maintain a smooth, professional feel.",
+      "motion": "Efficient and purposeful motion, using cubic-bezier easing for a modern, responsive feel.",
+      "notes": "This site is an excellent example of a modern SaaS landing page that balances professional restraint with clear, bold typography and strategic color accents to build trust and drive conversion."
+    },
+    "zh-CN": {
+      "palette": "以暖调米白色背景、深海军蓝墨水和醒目蓝色强调色构成的专业调色板。",
+      "layout": "干净、居中的单栏布局，过渡为宽敞的网格用于功能亮点展示。",
+      "interaction": "按钮和链接上的细微、快速过渡，保持流畅专业的感受。",
+      "motion": "高效且有目的性的动效，使用 cubic-bezier 缓动营造现代、响应迅速的感觉。",
+      "notes": "该网站是现代 SaaS 落地页的绝佳范例，它在专业克制与清晰、大胆的排版及战略性色彩点缀之间取得了平衡，以建立信任并推动转化。"
+    },
+    "zh-TW": {
+      "palette": "專業調色盤以溫暖的米白色背景為基調，搭配深邃的墨藍與醒目的藍色作為點綴。",
+      "layout": "簡潔、置中的單欄佈局，平順過渡至寬敞的網格系統以突顯功能亮點。",
+      "interaction": "按鈕與連結採用細膩而迅速的過渡效果，維持流暢且專業的使用感受。",
+      "motion": "有效且具目的性的動態設計，運用 cubic-bezier 緩動曲線營造現代且即時的回應感。",
+      "notes": "此網站是現代 SaaS 落地頁的絕佳範例，在專業克制的風格中，透過清晰大膽的字排版與策略性的色彩運用，成功建立信任並引導轉換。"
+    },
+    "ja": {
+      "palette": "温かみのあるオフホワイトの背景、深いネイビー、そして鮮やかなブルーアクセントを基調とした、プロフェッショナルなカラーパレット。",
+      "layout": "クリーンで中央揃えの単一カラムレイアウトを採用し、機能ハイライト部分では広々としたグリッドへと移行します。",
+      "interaction": "ボタンやリンクの上に、洗練された、かつ高速なトランジションを適用し、滑らかでプロフェッショナルなフィールを維持します。",
+      "motion": "cubic-bezierイージングを用いた、効率的かつ目的意識の高いモーション。モダンでレスポンシブな感覚を演出します。",
+      "notes": "このサイトは、プロフェッショナルな抑制と明確で大胆なタイポグラフィ、戦略的なアクセントカラーの配置をバランスよく融合させ、信頼構築とコンバージョン促進を実現した、モダンなSaaSランディングページの優れた例です。"
+    },
+    "ko": {
+      "palette": "따뜻한 오프화이트 배경, 깊은 네이비 잉크, 그리고 눈에 띄는 블루 액센트가 기반이 되는 전문적인 팔레트입니다.",
+      "layout": "깔끔하고 중앙 정렬된 단일 열 레이아웃이 기능 하이라이트를 위한 넓은 그리드로 자연스럽게 전환됩니다.",
+      "interaction": "버튼과 링크의 미세하고 빠른 전환은 부드럽고 전문적인 느낌을 유지합니다.",
+      "motion": "현대적이고 반응적인 느낌을 위해 cubic-bezier 이징을 사용하여 효율적이고 목적 있는 모션을 구현합니다.",
+      "notes": "이 사이트는 전문적인 절제함과 명확하고 대담한 타이포그래피, 그리고 전략적인 색상 액센트를 조화시켜 신뢰를 구축하고 전환을 유도하는 현대적인 SaaS 랜딩 페이지의 훌륭한 예시입니다."
+    }
+  },
+  "_meta": {
+    "vision_model": "mimo-v2.5",
+    "vision_prompt_version": "0.3",
+    "vision_source": "playwright-extract:lindy",
+    "vision_grounded": true,
+    "vision_at": "2026-06-07T06:12:47+00:00",
+    "vision_tokens": 16891,
+    "vision_cost_usd": 0.1877,
+    "translation_model": "mimo-v2.5",
+    "translation_at": "2026-06-07T06:14:11+00:00",
+    "translation_tokens": 18285,
+    "translation_cost_usd": 0.0609,
+    "narrative_model": "mimo-v2.5",
+    "narrative_prompt_version": "0.3",
+    "narrative_at": "2026-06-07T06:14:22+00:00",
+    "narrative_tokens": 2207,
+    "narrative_cost_usd": 0.0147,
+    "narrative_status": "ok",
+    "total_cost_usd": 0.2633
+  },
+  "narrative": {
+    "en": {
+      "ch1_intro": "The design system for Lindy is built to embody its core analogy: a world-class executive assistant that handles your daily tasks. Every visual decision serves a function of professional clarity and efficient support, creating a system that works so you don't have to. It is a digital architecture of trust and automation.",
+      "ch2_intro": "The color system establishes professional clarity with a warm off-white canvas that provides a softer, more approachable foundation than stark white. Strategic use of deep navy and a vibrant blue accent creates a hierarchy that guides the eye without shouting.",
+      "ch2_outro": "The principle is one of restrained contrast, where every color serves a clear, functional purpose in the interface.",
+      "ch3_intro": "Typographic choices balance modern authority with approachable warmth. Headlines use a structured grotesque-sans in bold weights for decisive statements, while body text relies on the clean humanist forms of Manrope for sustained readability.",
+      "ch4_intro": "The layout breathes with a consistent 64px vertical rhythm that organizes major content sections, establishing a calm, measured pace for the user's journey.",
+      "ch5_intro": "Surfaces are defined by subtle depth and precise separation. Thin borders and carefully calibrated shadows lift interactive cards from the canvas, creating a layered but orderly space.",
+      "ch6_intro": "The layout skeleton begins with a centered, single-column hero for focused messaging, which then opens into a spacious 12-column grid to present features and information in an organized, digestible format.",
+      "ch7_intro": "Motion is employed as a tool for feedback and spatial awareness, not decoration. Transitions are fast and smooth, providing immediate confirmation of interaction while maintaining a professional, efficient cadence.",
+      "ch8_intro": "The editorial voice is professional, helpful, and efficient, mirroring the persona of the AI assistant itself. Headlines are direct and benefit-oriented, while calls to action are clear and action-focused.",
+      "ch8_outro": "The system deliberately avoids jargon, aggressive sales language, and vague promises, grounding its communication in tangible utility."
+    },
+    "zh-CN": {
+      "ch1_intro": "Lindy 的设计系统旨在体现其核心理念：一位世界级的行政助理，为你处理日常事务。每一处视觉决策都服务于专业清晰度与高效支持，构建一个无需你费心的系统。这是一个建立在信任与自动化之上的数字架构。",
+      "ch2_intro": "色彩系统以专业的清晰度为构建核心，采用温暖的灰白色调画布，提供比纯白更柔和、更亲切的基底。深海军蓝与鲜明蓝色点缀的战略性运用，构建出引导视线而不喧宾夺主的视觉层次。",
+      "ch2_outro": "其原则是克制的对比，让每种颜色在界面中都服务于明确的功能目的。",
+      "ch3_intro": "字体选择平衡了现代权威感与平易近人的温暖感。标题采用结构化的 grotesque-sans 粗体字，传递果断的陈述；正文则依赖 Manrope 干净的人文主义字形，确保持续的可读性。",
+      "ch4_intro": "布局通过一致的 64px 垂直节奏来呼吸，组织主要的内容板块，为用户的旅程确立平静、有序的节奏。",
+      "ch5_intro": "界面表面由微妙的层次与精确的分隔定义。纤细的边框与精心校准的阴影将交互卡片从画布上提起，创造出分层但有序的空间。",
+      "ch6_intro": "布局骨架从居中的单列核心区域开始，用于聚焦的讯息传递，随后展开为宽敞的 12 列网格，以组织化、易于消化的形式呈现功能与信息。",
+      "ch7_intro": "动效被用作反馈与空间感知的工具，而非装饰。过渡快速而流畅，在提供交互即时确认的同时，保持专业、高效的节奏。",
+      "ch8_intro": "编辑文案风格专业、乐于助人且高效，映射出 AI 助手本身的人格特质。标题直接并聚焦于收益，行动号召则清晰且以行动为导向。",
+      "ch8_outro": "系统刻意避免了专业术语、激进的销售语言和模糊的承诺，将其沟通建立在切实可用的功能之上。"
+    },
+    "zh-TW": {
+      "ch1_intro": "Lindy 的設計系統建構於其核心比喻之上：一位世界級的行政助理，為您處理日常事務。每一個視覺決策都服務於專業清晰與高效支援的功能，創造一個能自主運作、讓您無需費心的系統。這是一個建立在信任與自動化之上的數位架構。",
+      "ch2_intro": "色彩系統以溫暖的米白畫布確立專業清晰度，提供比純白更柔和、更親切的基底。策略性地運用深海軍藍與鮮活的藍色強調色，建立了引導視線而不喧賓奪主的層級關係。",
+      "ch2_outro": "其原則在於克制的對比，讓每一種顏色在介面中都扮演清晰、功能性明確的角色。",
+      "ch3_intro": "字體選擇在現代權威感與親和力之間取得平衡。標題使用結構分明的 grotesque-sans 字體以粗體呈現果斷的聲明，而內文則依賴 Manrope 清晰的 humanist 字形，確保持久的可讀性。",
+      "ch4_intro": "版面佈局透過一致的 64px 垂直節奏得以呼吸，組織起主要內容區塊，為使用者旅程設定沉著、有條不紊的步調。",
+      "ch5_intro": "介面元素由細微的深度與精準的分隔來定義。細邊框與精心校準的陰影將互動式卡片從畫布中抬起，創造出一個有層次但井然有序的空間。",
+      "ch6_intro": "版面骨架始於一個聚焦的、單欄式首頁橫幅，用於傳遞核心訊息，隨後展開為寬裕的 12 欄格線系統，以有組織、易於理解的形式呈現功能與資訊。",
+      "ch7_intro": "動態效果被用作提供回饋與空間感知的工具，而非裝飾。過渡效果快速而流暢，在提供互動即時確認的同時，維持著專業、高效的節奏。",
+      "ch8_intro": "編輯語調專業、 helpful 且高效，映照了 AI 助理本身的特質。標題直接並以效益為導向，而行動呼籲則清晰且聚焦於行動。",
+      "ch8_outro": "該系統刻意避免行話、激進的銷售語言和模糊的承諾，將溝通建立在具體的實用性之上。"
+    },
+    "ja": {
+      "ch1_intro": "Lindyのデザインシステムは、その核心的なアナロジーを体現するために構築されています。つまり、日々の業務を処理する世界クラスのエグゼクティブアシスタントです。すべての視覚的な判断は、プロフェッショナルな明瞭さと効率的なサポートという機能に仕え、あなたがしなくても済むように仕事をするシステムを生み出します。これは信頼と自動化のデジタルアーキテクチャです。",
+      "ch2_intro": "カラーシステムは、プロフェッショナルな明確さを確立します。温かみのあるオフホワイトのキャンバスは、真っ白な白よりも柔らかく、親しみやすい土台を提供します。深みのあるネイビーと鮮やかなブルーアクセントの戦略的な使用は、目を引くことなく視線を導く階層を作り出します。",
+      "ch2_outro": "この原則は抑制されたコントラストであり、すべての色がインターフェース内で明確で機能的な目的を果たします。",
+      "ch3_intro": "タイポグラフィの選択は、現代的な権威と親しみやすさの温かみのバランスを取っています。見出しには、毅然とした声明のために構造化されたグロテスク・サンセリフの太字を使用し、本文テキストは持続的な可読性のためにManropeのクリーンなヒューマニストフォームに依存しています。",
+      "ch4_intro": "レイアウトは、主要なコンテンツセクションを整理する一貫した64pxの垂直リズムで息づいており、ユーザーの旅程に落ち着いた、計画的なペースを確立します。",
+      "ch5_intro": "サーフェスは、繊細な深みと正確な区別によって定義されます。細いボーダーと注意深く調整されたシャドウは、インタラクティブなカードをキャンバスから浮き立たせ、レイヤードでありながら整然とした空間を作り出します。",
+      "ch6_intro": "レイアウトの骨格は、集中したメッセージングのための中央揃え、単一カラムのヒーローから始まり、その後、機能や情報を組織的で消化しやすい形式で提示する広々とした12カラムグリッドに展開されます。",
+      "ch7_intro": "モーションは、装飾ではなく、フィードバックと空間的認識のためのツールとして使用されます。遷移は速くスムーズで、プロフェッショナルで効率的なリズムを維持しながら、インタラクションの即座の確認を提供します。",
+      "ch8_intro": "エディトリアルボイスは、AIアシスタントそのもののペルソナを反映し、プロフェッショナルで有用かつ効率的です。見出しは直接的でメリット重視であり、コール・トゥ・アクションは明確でアクション重視です。",
+      "ch8_outro": "このシステムは、専門用語、攻撃的な販売言語、曖昧な約束を意図的に避け、実質的な実用性に基づいてコミュニケーションを構築しています。"
+    },
+    "ko": {
+      "ch1_intro": "Lindy의 디자인 시스템은 그 핵심 비유를 구현하도록 구축되었습니다: 일상적인 업무를 처리하는 세계적 수준의 경영 비서. 모든 시각적 결정은 전문적인 명확성과 효율적인 지원이라는 기능을 수행하며, 당신이 일을 할 필요가 없도록 작동하는 시스템을 만듭니다. 이는 신뢰와 자동화의 디지털 아키텍처입니다.",
+      "ch2_intro": "색상 시스템은 따뜻한 오프화이트 캔버스로 전문적인 명확성을 확립합니다. 이 캔버스는 순백보다 더 부드럽고 친근한 기반을 제공합니다. 짙은 네이비와 생동감 있는 블루 악센트의 전략적 사용은 시선을 이끌되 눈에 띄지 않는 계층 구조를 만듭니다.",
+      "ch2_outro": "원칙은 절제된 대비이며, 각 색상이 인터페이스에서 명확하고 기능적인 목적으로 사용됩니다.",
+      "ch3_intro": "타이포그래피 선택은 현대적인 권위와 친근한 온 사이의 균형을 이룹니다. 헤드라인은 결단력 있는 진술을 위해 굵은 두께의 구조화된 grotesque-sans를 사용하고, 본문 텍스트는 지속적인 가독성을 위해 Manrope의 깔끔한 humanist 형태에 의존합니다.",
+      "ch4_intro": "레이아웃은 주요 콘텐츠 섹션을 구성하는 일관된 64px의 수직 리듬으로 숨을 쉬며, 사용자의 여정에 차분하고 계산된 페이스를 확립합니다.",
+      "ch5_intro": "표면은 미묘한 깊이와 정확한 분리로 정의됩니다. 얇은 테두리와 세심하게 조정된 그림자는 인터랙티브 카드를 캔버스에서 들어 올려, 계층적이지만 질서 있는 공간을 만듭니다.",
+      "ch6_intro": "레이아웃 스켈레톤은 집중적인 메시징을 위한 중앙 정렬 단일 열 히어로로 시작하여, 기능과 정보를 체계적이고 소화하기 쉬운 형식으로 제시하기 위해 넓은 12열 그리드로 열립니다.",
+      "ch7_intro": "모션은 장식이 아니라 피드백과 공간 인식을 위한 도구로 활용됩니다. 전환은 빠르고 매끄러워, 상호작용에 즉각적인 확인을 제공하면서 전문적이고 효율적인 리듬을 유지합니다.",
+      "ch8_intro": "에디토리얼 목소리는 전문적이고, 도움이 되며, 효율적인데, 이는 AI 비서 자체의 페르소나를 반영합니다. 헤드라인은 직접적이고 혜택 지향적이며, 호출 동작은 명확하고 행동 중심적입니다.",
+      "ch8_outro": "시스템은 의도적으로 전문 용어, 공격적인 판매 언어, 그리고 모호한 약속을 피하며, 소통을 실제적인 유용성에 기반합니다."
+    }
+  }
 }

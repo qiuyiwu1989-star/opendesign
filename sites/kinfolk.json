@@ -8,6 +8,619 @@
     "editorial",
     "magazine"
   ],
-  "status": "pending",
-  "added_at": "2026-06-02"
+  "status": "completed",
+  "added_at": "2026-06-02",
+  "spec": {
+    "colors": {
+      "bg": "#FFFFFF",
+      "bgSoft": null,
+      "bgQuiet": "#DBDED5",
+      "ink": "#000000",
+      "inkSoft": "#212121",
+      "muted": "#333333",
+      "mutedSoft": null,
+      "accent": null,
+      "line": "rgba(0,0,0,1)"
+    },
+    "typography": {
+      "display": "didone-serif",
+      "body": "humanist-sans",
+      "mono": null,
+      "scale": [
+        {
+          "token": "display",
+          "size": 56,
+          "lh": 1.0,
+          "weight": 400,
+          "ls": "-0.5px"
+        },
+        {
+          "token": "heading",
+          "size": 32,
+          "lh": 1.18,
+          "weight": 400,
+          "ls": "-0.16px"
+        },
+        {
+          "token": "body",
+          "size": 20,
+          "lh": 1.5,
+          "weight": 400,
+          "ls": "0.15px"
+        },
+        {
+          "token": "small",
+          "size": 13,
+          "lh": 1.3,
+          "weight": 400,
+          "ls": "0.15px"
+        }
+      ]
+    },
+    "spacing": {
+      "base": 4,
+      "scale": [
+        4,
+        8,
+        16,
+        20,
+        24,
+        32,
+        60,
+        170
+      ]
+    },
+    "surfaces": {
+      "radius": {
+        "sm": 2,
+        "md": 6,
+        "lg": 0,
+        "pill": 50
+      }
+    },
+    "layout": {
+      "container": 1280,
+      "paragraph": 680,
+      "columns": 12,
+      "gutter": 20,
+      "breakpoints": [
+        768,
+        1024
+      ]
+    },
+    "motion": {
+      "durations": {
+        "micro": 220,
+        "small": 400,
+        "medium": 800
+      },
+      "easing": "cubic-bezier(0.25, 1, 0.5, 1)"
+    }
+  },
+  "spec_i18n": {
+    "en": {
+      "identity": {
+        "keywords": [
+          "editorial",
+          "minimalist",
+          "lifestyle",
+          "magazine",
+          "refined"
+        ],
+        "analogy": "A premium lifestyle magazine translating its sophisticated print aesthetic to the web.",
+        "oneLiner": "A refined, minimalist editorial site for a lifestyle magazine, prioritizing clean typography and high-quality photography."
+      },
+      "colors": {
+        "principle": "A restrained, almost monochromatic palette with black text on white, using a muted sage green (#DBDED5) as a subtle background accent."
+      },
+      "typography": {
+        "rules": [
+          "Primary display and heading typography uses a didone-serif family.",
+          "UI elements, navigation, and captions use a clean humanist-sans family.",
+          "Text is frequently transformed to uppercase for navigation and labels.",
+          "Letter spacing is subtly adjusted for better readability at different scales."
+        ],
+        "scaleUses": [
+          "Issue title headlines",
+          "Section headings",
+          "Primary body text and article cards",
+          "Metadata and small UI labels"
+        ]
+      },
+      "spacing": {
+        "rhythm": "A strict vertical rhythm is maintained, with generous whitespace, especially large vertical padding (e.g., 170px) to create a sense of airiness and focus."
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(0,0,0,0.3) 0px 32px 68px 0px"
+        ],
+        "borders": "1px solid black for dividers and some button states."
+      },
+      "layout": {
+        "skeleton": "A centered, single-column layout for hero and reading sections, transitioning to a 4-column grid for article listings."
+      },
+      "components": {
+        "button": "Minimalist text-based or simple bordered buttons, often using uppercase sans-serif typography.",
+        "card": "Image-centric cards with muted gray-green backgrounds for placeholders, paired with small, left-aligned sans-serif metadata and serif titles.",
+        "chip": null,
+        "input": null,
+        "hero": "A large, centered composition featuring a magazine cover image, prominent serif headlines, and clear calls-to-action."
+      },
+      "motion": {
+        "patterns": [
+          "Smooth opacity transitions for content reveals and image loads.",
+          "Transform-based animations for subtle interactive feedback.",
+          "Delayed animation sequences for staggered element appearances."
+        ]
+      },
+      "interaction": {
+        "hover": "Subtle color or opacity changes on interactive elements, maintaining the minimalist feel.",
+        "click": "No overt click feedback; interaction is focused on navigation and content flow.",
+        "transition": "Smooth, 0.4s to 0.5s transitions with a custom cubic-bezier easing for opacity and transform changes.",
+        "keyboard": "Standard focus management for navigation and interactive elements."
+      },
+      "voice": {
+        "tone": "Sophisticated, calm, and refined.",
+        "headlineStyle": "Prominent, elegant didone-serif headlines, often set in uppercase with tight tracking.",
+        "ctaStyle": "Understated, uppercase sans-serif text links or minimal bordered buttons.",
+        "avoid": [
+          "Avoid loud, saturated colors.",
+          "Avoid decorative or playful typography.",
+          "Avoid heavy borders or complex drop shadows."
+        ]
+      },
+      "donts": [
+        "Don't use a bright accent color — the screenshot shows a palette restricted to black, white, and muted grays/greens.",
+        "Don't use a bold, sans-serif for headlines — the screenshot shows headlines are always in a refined didone-serif.",
+        "Don't pack content tightly — the screenshot shows ample whitespace and generous vertical padding between sections.",
+        "Don't use decorative, playful icons — the screenshot uses a minimalist two-line hamburger menu.",
+        "Don't use complex, multi-colored backgrounds — the screenshot uses solid white or a single muted sage green.",
+        "Don't use heavy, visible drop shadows on most elements — the screenshot relies on a single deep shadow for a specific image."
+      ],
+      "systemPrompt": "Kinfolk is a premium lifestyle magazine site with a refined, minimalist editorial aesthetic. The design DNA is built on a stark, monochromatic palette using black (#000000) on white (#FFFFFF) backgrounds, with a subtle muted sage green (#DBDED5) as a quiet accent. Typography is a key differentiator, featuring a didone-serif for display headlines and a clean humanist-sans for UI and body text. The layout is spacious and centered, prioritizing large imagery and generous whitespace (e.g., 170px vertical padding). Critical donts: Do not introduce bold, saturated accent colors; do not use sans-serif fonts for primary headlines; do not crowd the layout with tight spacing or complex borders. Interactions are subtle, relying on smooth opacity and transform transitions with a custom cubic-bezier easing."
+    },
+    "zh-CN": {
+      "identity": {
+        "keywords": [
+          "编辑型",
+          "极简主义",
+          "生活方式",
+          "杂志",
+          "精致"
+        ],
+        "analogy": "一本高端生活方式杂志将其精致的印刷美学转化为网络体验。",
+        "oneLiner": "一个为生活方式杂志打造的精致、极简的编辑型网站，优先考虑干净的字体排印和高质量的摄影。"
+      },
+      "colors": {
+        "principle": "一个克制的、近乎单色的调色板，黑色文字配白色背景，使用柔和的鼠尾草绿（#DBDED5）作为微妙的背景点缀。"
+      },
+      "typography": {
+        "rules": [
+          "主要的展示和标题字体使用一款 didone-serif 字族。",
+          "UI元素、导航和说明文字使用一款干净的 humanist-sans 字族。",
+          "文本经常被转换为大写，用于导航和标签。",
+          "字间距经过微妙调整，以在不同尺寸下提升可读性。"
+        ],
+        "scaleUses": [
+          "期刊标题",
+          "章节标题",
+          "正文和文章卡片",
+          "元数据和小型UI标签"
+        ]
+      },
+      "spacing": {
+        "rhythm": "保持严格的垂直节奏，留白充裕，特别是使用了较大的垂直内边距（例如170px），以营造通透感和焦点。"
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(0,0,0,0.3) 0px 32px 68px 0px"
+        ],
+        "borders": "1px solid black，用于分隔线和部分按钮状态。"
+      },
+      "layout": {
+        "skeleton": "一个居中的单栏布局，用于主视觉和阅读部分，过渡到用于文章列表的四栏网格。"
+      },
+      "components": {
+        "button": "极简的纯文本或简单带边框的按钮，通常使用大写的无衬线字体。",
+        "card": "以图像为中心的卡片，使用柔和的灰绿色背景作为占位符，搭配小号、左对齐的无衬线元数据和衬线标题。",
+        "chip": null,
+        "input": null,
+        "hero": "一个大型、居中的构图，以杂志封面图像、醒目的衬线标题和清晰的行动号召为特色。"
+      },
+      "motion": {
+        "patterns": [
+          "用于内容揭示和图像加载的平滑透明度过渡。",
+          "基于变换的动画，提供微妙的交互反馈。",
+          "交错元素出现时的延迟动画序列。"
+        ]
+      },
+      "interaction": {
+        "hover": "在交互元素上采用微妙的颜色或透明度变化，保持极简感。",
+        "click": "没有明显的点击反馈；交互专注于导航和内容流。",
+        "transition": "平滑的0.4秒至0.5秒过渡，使用自定义的 cubic-bezier 缓动函数处理透明度和变换变化。",
+        "keyboard": "标准的焦点管理，用于导航和交互元素。"
+      },
+      "voice": {
+        "tone": "精致、沉稳且优雅。",
+        "headlineStyle": "醒目、优雅的 didone-serif 标题，通常以大写形式设置，字间距紧凑。",
+        "ctaStyle": "内敛的、大写的无衬线文本链接或极简的带边框按钮。",
+        "avoid": [
+          "避免使用鲜艳、饱和的颜色。",
+          "避免使用装饰性或 playful 的字体排印。",
+          "避免使用粗重的边框或复杂的投影。"
+        ]
+      },
+      "donts": [
+        "不要使用亮色强调色——截图显示调色板仅限于黑色、白色和柔和的灰绿色。",
+        "不要为标题使用粗体无衬线字体——截图显示标题始终使用精致的 didone-serif 字体。",
+        "不要紧凑地堆砌内容——截图显示章节之间有充足的留白和宽松的垂直内边距。",
+        "不要使用装饰性、 playful 的图标——截图使用极简的双线汉堡菜单。",
+        "不要使用复杂、多色的背景——截图使用纯白色或单一的柔和鼠尾草绿。",
+        "不要在大多数元素上使用粗重、可见的投影——截图仅对特定图像使用了单一的深色投影。"
+      ],
+      "systemPrompt": "Kinfolk 是一个高端生活方式杂志网站，具有精致、极简的编辑美学。其设计基因建立在以黑色（#000000）在白色（#FFFFFF）背景上形成的鲜明单色调色板上，并以柔和的鼠尾草绿（#DBDED5）作为安静的点缀。字体排印是关键区别因素，展示标题使用 didone-serif，UI和正文使用干净的 humanist-sans。布局宽敞且居中，优先考虑大型图像和充裕的留白（例如170px垂直内边距）。关键禁忌：不要引入粗体、饱和的强调色；不要为一级标题使用无衬线字体；不要用紧凑的间距或复杂的边框挤满布局。交互是微妙的，依赖平滑的透明度和变换过渡，并使用自定义 cubic-bezier 缓动函数。"
+    },
+    "zh-TW": {
+      "identity": {
+        "keywords": [
+          "編輯風格",
+          "極簡主義",
+          "生活方式",
+          "雜誌",
+          "精緻"
+        ],
+        "analogy": "一本高端生活方式雜誌，將其精緻的紙本美學轉化至網路。",
+        "oneLiner": "一個精緻、極簡的編輯網站，專為生活方式雜誌設計，強調簡潔的字型排版與高品質攝影。"
+      },
+      "colors": {
+        "principle": "克制、近乎單色的調色盤，以黑色文字搭配白色背景，並使用柔和的灰綠色（#DBDED5）作為細微的背景強調色。"
+      },
+      "typography": {
+        "rules": [
+          "主要的展示與標題字型使用 Didone 衬線字族。",
+          "介面元素、導覽與圖說使用簡潔的人文無襯線字族。",
+          "文字常用於導覽與標籤的全大寫轉換。",
+          "字間距在不同尺度下會微調以提升可讀性。"
+        ],
+        "scaleUses": [
+          "期數標題",
+          "章節標題",
+          "主要內文與文章卡片",
+          "元資料與小型介面標籤"
+        ]
+      },
+      "spacing": {
+        "rhythm": "維持嚴格的垂直節奏，採用寬裕的留白，特別是大段的垂直內距（例如 170px），以營造空氣感與聚焦感。"
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(0,0,0,0.3) 0px 32px 68px 0px"
+        ],
+        "borders": "用於分隔線與部分按鈕狀態的 1px 實線黑色邊框。"
+      },
+      "layout": {
+        "skeleton": "置中的單欄版面用於主視覺與閱讀區段，過渡至用於文章列表的 4 欄網格。"
+      },
+      "components": {
+        "button": "極簡的文字型或簡約的有框按鈕，常使用全大寫無襯線字型。",
+        "card": "以影像為主的卡片，使用柔和的灰綠色背景作為佔位符，搭配小型、左對齊的無襯線元資料與衬線標題。",
+        "chip": null,
+        "input": null,
+        "hero": "大型、置中的構圖，包含雜誌封面影像、突出的衬線標題與明確的行動呼籲。"
+      },
+      "motion": {
+        "patterns": [
+          "用於內容揭示與影像載入的流暢透明度過渡。",
+          "基於 transform 的動畫，提供細膩的互動回饋。",
+          "延遲的動畫序列，用於元素錯落出現。"
+        ]
+      },
+      "interaction": {
+        "hover": "互動元素上的細微色彩或透明度變化，維持極簡風格。",
+        "click": "無明顯的點擊回饋；互動專注於導覽與內容流動。",
+        "transition": "流暢的 0.4s 至 0.5s 過渡，搭配自訂的 cubic-bezier 緩動曲線，用於透明度與 transform 變化。",
+        "keyboard": "標準的焦點管理，用於導覽與互動元素。"
+      },
+      "voice": {
+        "tone": "精緻、沉穩且優雅。",
+        "headlineStyle": "突出、優雅的 Didone 衬線標題，常以全大寫並緊縮字間距呈現。",
+        "ctaStyle": "內斂的全大寫無襯線文字連結或極簡的有框按鈕。",
+        "avoid": [
+          "避免使用鮮豔、飽和的色彩。",
+          "避免裝飾性或俏皮的字型。",
+          "避免厚重的邊框或複雜的陰影效果。"
+        ]
+      },
+      "donts": [
+        "不要使用亮色的強調色——截圖顯示的調色盤僅限於黑色、白色與柔和的灰色/綠色。",
+        "不要使用粗體無襯線字型作為標題——截圖顯示標題一律使用精緻的 Didone 衬線字型。",
+        "不要緊密堆疊內容——截圖顯示充足的留白與段落間寬裕的垂直內距。",
+        "不要使用裝飾性、俏皮的圖示——截圖使用極簡的雙線漢堡選單。",
+        "不要使用複雜、多色的背景——截圖使用純白色或單一柔和的灰綠色。",
+        "不要對大多數元素使用厚重、明顯的陰影——截圖僅對特定影像使用單一深陰影。"
+      ],
+      "systemPrompt": "Kinfolk 是一個高端生活方式雜誌網站，具備精緻、極簡的編輯美學。其設計 DNA 建立在使用黑色（#000000）搭配白色（#FFFFFF）背景的單色調色盤上，並以柔和的灰綠色（#DBDED5）作為細微強調色。字型是關鍵差異化因素，展示標題使用 Didone 衬線字型，介面與內文則使用簡潔的人文無襯線字型。版面寬敞且置中，強調大型影像與寬裕的留白（例如 170px 垂直內距）。關鍵禁令：不要引入粗體、飽和的強調色；不要使用無襯線字型作為主要標題；不要使用緊湊的間距或複雜的邊框使版面擁擠。互動效果細膩，依賴流暢的透明度與 transform 過渡，搭配自訂的 cubic-bezier 緩動曲線。"
+    },
+    "ja": {
+      "identity": {
+        "keywords": [
+          "editorial",
+          "minimalist",
+          "lifestyle",
+          "magazine",
+          "refined"
+        ],
+        "analogy": "洗練された印刷美学をウェブに翻訳する、プレミアム・ライフスタイル・マガジン。",
+        "oneLiner": "ライフスタイル・マガジンのための、洗練されたミニマリストなエディトリアル・サイト。クリーンなタイポグラフィと高品質な写真を優先。"
+      },
+      "colors": {
+        "principle": "黒字白地に近いモノクローム・パレット。控えめな鼠尾草グリーン（#DBDED5）を微細なアクセントとして使用。"
+      },
+      "typography": {
+        "rules": [
+          "主要なディスプレイおよび見出しタイポグラフィには、ディドーン・セリフ系フォントを使用。",
+          "UI要素、ナビゲーション、キャプションにはクリーンなヒューマニスト・サンス系フォントを使用。",
+          "ナビゲーションやラベルには、テキストを頻繁に大文字に変換。",
+          "段階的に異なるサイズで可読性を高めるため、文字間隔を微調整。"
+        ],
+        "scaleUses": [
+          "号タイトルの見出し",
+          "セクション見出し",
+          "本文テキストおよび記事カード",
+          "メタデータおよび小さなUIラベル"
+        ]
+      },
+      "spacing": {
+        "rhythm": "厳格な垂直リズムを維持。特に大きな垂直パディング（例：170px）による、ゆとりのあるホワイトスペースを確保し、空気感と焦点を生み出す。"
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(0,0,0,0.3) 0px 32px 68px 0px"
+        ],
+        "borders": "仕切り線および一部のボタン状態には、1px solid black。"
+      },
+      "layout": {
+        "skeleton": "ヒーローおよび読書セクションには中央揃えの単一カラム・レイアウト。記事一覧には4カラム・グリッドへと移行。"
+      },
+      "components": {
+        "button": "ミニマリストなテキストベース、またはシンプルな境界線付きボタン。大文字サンス系タイポグラフィを使用することが多い。",
+        "card": "イメージ中心のカード。プレースホルダーには落ち着いたグレー・グリーン系の背景。小型で左寄せのサンス系メタデータとセリフ系タイトルを組み合わせる。",
+        "chip": null,
+        "input": null,
+        "hero": "雑誌の表紙画像、目立つセリフ系見出し、明確なCTAを備えた、大きく中央揃えの構図。"
+      },
+      "motion": {
+        "patterns": [
+          "コンテンツの表示や画像の読み込みにおける、滑らかなopacity遷移。",
+          "微細なインタラクティブ・フィードバックのための、transformベースのアニメーション。",
+          "要素の段階的な表示のための、遅延アニメーションシーケンス。"
+        ]
+      },
+      "interaction": {
+        "hover": "インタラクティブ要素の、控えめな色やopacityの変化。ミニマリストな感覚を維持。",
+        "click": "目立ったクリックフィードバックはなし。インタラクションはナビゲーションとコンテンツフローに焦点を当てる。",
+        "transition": "opacityおよびtransformの変化に、カスタムcubicベジェ緩和を使用した、0.4秒から0.5秒の滑らかな遷移。",
+        "keyboard": "ナビゲーションおよびインタラクティブ要素の、標準的なフォーカス管理。"
+      },
+      "voice": {
+        "tone": "洗練され、冷静で、上品。",
+        "headlineStyle": "目立つ、エレガントなディドーン・セリフ系見出し。 tighteningされた文字間隔で大文字設定されることが多い。",
+        "ctaStyle": "控えめな、大文字サンス系のテキストリンク、または最小限の境界線付きボタン。",
+        "avoid": [
+          "明るく彩度の高い色の使用を避ける。",
+          "装飾的または遊び心のあるタイポグラフィの使用を避ける。",
+          "重い境界線や複雑なドロップシャドウの使用を避ける。"
+        ]
+      },
+      "donts": [
+        "明るいアクセントカラーを使用しない — スクリーンショットでは、黒、白、落ち着いたグレー/グリーンに限定されたパレットが示されている。",
+        "見出しに太字のサンス系フォントを使用しない — スクリーンショットでは、見出しは常に洗練されたディドーン・セリフ系である。",
+        "コンテンツを詰め込みすぎない — スクリーンショットでは、十分なホワイトスペースとセクション間のゆとりのある垂直パディングが示されている。",
+        "装飾的で遊び心のあるアイコンを使用しない — スクリーンショットでは、ミニマリストな2線ハンバーガーメニューが使用されている。",
+        "複雑で色分けされた背景を使用しない — スクリーンショットでは、ソリッドホワイトまたは単一の落ち着いた鼠尾草グリーンが使用されている。",
+        "ほとんどの要素に重く目立つドロップシャドウを使用しない — スクリーンショットでは、特定の画像に単一の深いシャドウが使用されている。"
+      ],
+      "systemPrompt": "Kinfolkは、洗練されたミニマリストなエディトリアル美学を持つプレミアム・ライフスタイル・マガジンのサイトです。デザインDNAは、白背景（#FFFFFF）に黒（#000000）を使用した、厳格なモノクローム・パレットと、控えめな鼠尾草グリーン（#DBDED5）の微細なアクセントに基づいています。タイポグラフィは主要な差別化要因であり、ディスプレイ見出しにはディドーン・セリフ系、UIおよび本文テキストにはクリーンなヒューマニスト・サンス系が特徴です。レイアウトはゆとりがあり中央揃えで、大きなイメージとゆとりのあるホワイトスペース（例：170pxの垂直パディング）を優先。重要な禁止事項：明るく彩度の高いアクセントカラーの導入は不可；主要な見出しにサンス系フォントを使用しない；tightな間隔や複雑な境界線でレイアウトを詰め込みすぎない。インタラクションは控えめで、カスタムcubicベジェ緩和による滑らかなopacityとtransform遷移に依存します。"
+    },
+    "ko": {
+      "identity": {
+        "keywords": [
+          "에디토리얼",
+          "미니멀리즘",
+          "라이프스타일",
+          "매거진",
+          "세련된"
+        ],
+        "analogy": "세련된 인쇄물 미학을 웹로 옮긴 프리미엄 라이프스타일 매거진입니다.",
+        "oneLiner": "깔끔한 타이포그래피와 고품질 사진에 우선점을 둔 라이프스타일 매거진을 위한 세련된 미니멀리즘 에디토리얼 사이트입니다."
+      },
+      "colors": {
+        "principle": "흰색 바탕에 검은색 텍스트를 사용하는 절제된 거의 단색 팔레트로, 무채색 세이지 그린(#DBDED5)을 은은한 배경 악센트로 사용합니다."
+      },
+      "typography": {
+        "rules": [
+          "주요 디스플레이 및 제목 타이포그래피에는 디도네 세리프 계열을 사용합니다.",
+          "UI 요소, 내비게이션, 캡션에는 깔끔한 휴머니스트산스 계열을 사용합니다.",
+          "텍스트는 내비게이션과 레이블을 위해 자주 대문자로 변환됩니다.",
+          "다양한 크기에서의 가독성을 위해 자간이 미세하게 조정됩니다."
+        ],
+        "scaleUses": [
+          "호재 제목 헤드라인",
+          "섹션 헤딩",
+          "본문 텍스트 및 아티클 카드",
+          "메타데이터 및 소형 UI 레이블"
+        ]
+      },
+      "spacing": {
+        "rhythm": "엄격한 수직 리듬을 유지하며, 특히 공기감과 집중감을 만들기 위해 (예: 170px) 넉넉한 수직 패딩을 포함한 넓은 여백을 둡니다."
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(0,0,0,0.3) 0px 32px 68px 0px"
+        ],
+        "borders": "구분선 및 일부 버튼 상태에 사용되는 1px solid black."
+      },
+      "layout": {
+        "skeleton": "히어로 및 리딩 섹션을 위한 중앙 정렬 싱글 카olumn 레이아웃으로, 아티클 목록을 위한 4단계 그리드로 전환됩니다."
+      },
+      "components": {
+        "button": "미니멀리즘 텍스트 기반 또는 간단한 테두리 버튼으로, 자주 대문자 산스세리프 타이포그래피를 사용합니다.",
+        "card": "플레이스홀더를 위한 무채색 그레이-그린 배경의 이미지 중심 카드로, 왼쪽 정렬된 소형 산스세리프 메타데이터 및 세리프 제목이 결합됩니다.",
+        "chip": null,
+        "input": null,
+        "hero": "매거진 커버 이미지, 두드러진 세리프 헤드라인, 명확한 행동 유도 버튼이 포함된 큰 중앙 정렬 구성을 특징으로 합니다."
+      },
+      "motion": {
+        "patterns": [
+          "콘텐츠 노출 및 이미지 로드를 위한 매끄러운 불투명도 트랜지션.",
+          "미묘한 인터랙티브 피드백을 위한 변환 기반 애니메이션.",
+          "요소들의 지연된 등장을 위한 지연된 애니메이션 시퀀스."
+        ]
+      },
+      "interaction": {
+        "hover": "인터랙티브 요소의 미묘한 색상 또는 불투명도 변화로 미니멀리즘 느낌을 유지합니다.",
+        "click": "과도한 클릭 피드백 없음; 인터랙션은 내비게이션과 콘텐츠 흐름에 집중됩니다.",
+        "transition": "불투명도 및 변환 변화를 위한 매끄러운 0.4초~0.5초 트랜지션으로, 커스텀 cubic-bezier 이징을 사용합니다.",
+        "keyboard": "내비게이션 및 인터랙티브 요소를 위한 표준 포커스 관리."
+      },
+      "voice": {
+        "tone": "세련되고 차분하며 우아합니다.",
+        "headlineStyle": "두드러진 우아한 디도네 세리프 헤드라인으로, 자주 좁은 자간으로 대문자 설정됩니다.",
+        "ctaStyle": "절제된 대문자 산스세리프 텍스트 링크 또는 미니멀리즘 테두리 버튼.",
+        "avoid": [
+          "화려하고 채도 높은 색상을 피합니다.",
+          "장식적이거나 장난스러운 타이포그래피를 피합니다.",
+          "두꺼운 테두리나 복잡한 그림자를 피합니다."
+        ]
+      },
+      "donts": [
+        "밝은 악센트 색상을 사용하지 마세요 — 스크린샷에는 흑백과 무채색 그레이/그린으로 제한된 팔레트가 보입니다.",
+        "제목에 굵은 산스세리프를 사용하지 마세요 — 스크린샷에는 제목이 항상 세련된 디도네 세리프로 표시됩니다.",
+        "콘텐츠를 빽빽이 배치하지 마세요 — 스크린샷에는 충분한 여백과 섹션 사이의 넉넉한 수직 패딩이 보입니다.",
+        "장식적이고 장난스러운 아이콘을 사용하지 마세요 — 스크린샷에는 미니멀리즘 2줄 햄버거 메뉴가 사용됩니다.",
+        "복잡하고 다채로운 배경을 사용하지 마세요 — 스크린샷에는 단색 흰색 또는 단일 무채색 세이지 그린이 사용됩니다.",
+        "대부분의 요소에 두드러지고 눈에 띄는 그림자를 사용하지 마세요 — 스크린샷에는 특정 이미지를 위한 단일 깊은 그림자에 의존합니다."
+      ],
+      "systemPrompt": "Kinfolk는 세련된 미니멀리즘 에디토리얼 미학을 가진 프리미엄 라이프스타일 매거진 사이트입니다. 디자인 DNA는 흰색(#FFFFFF) 배경에 검은색(#000000)을 사용하는 강렬한 단색 팔레트, 그리고 은은한 무채색 세이지 그린(#DBDED5)을 조용한 악센트로 사용하는 것으로 구축됩니다. 타이포그래피는 핵심 차별화 요소로, 디스플레이 헤드라인에는 디도네 세리프를, UI 및 본문 텍스트에는 깔끔한 휴머니스트산스를 사용합니다. 레이아웃은 넓고 중앙 정렬되어 있으며, 큰 이미지와 넉넉한 여백(예: 170px 수직 패딩)에 우선점을 둡니다. 중요 금지 사항: 굵고 채도 높은 악센트 색상을 도입하지 마세요; 주요 제목에 산스세리프 폰트를 사용하지 마세요; 좁은 간격이나 복잡한 테두리로 레이아웃을 빽빽이 채우지 마세요. 인터랙션은 미묘하며, 커스텀 cubic-bezier 이징을 사용한 매끄러운 불투명도 및 변환 트랜지션에 의존합니다."
+    }
+  },
+  "desc": {
+    "en": {
+      "palette": "A strictly restrained, monochromatic palette of black, white, and a muted sage green, prioritizing typography and imagery over color.",
+      "layout": "A clean, centered, and spacious layout that transitions from a single-column hero to a structured four-column grid for article cards.",
+      "interaction": "Subtle and refined, with smooth opacity-based transitions and minimal visual feedback on hover and click states.",
+      "motion": "Understated motion design using smooth opacity and transform animations with a custom cubic-bezier easing to enhance the refined feel.",
+      "notes": "This site is an excellent example of a digital magazine translating a premium print aesthetic to the web, using typography and whitespace as primary design tools."
+    },
+    "zh-CN": {
+      "palette": "一个极度克制、由黑色、白色和柔和的鼠尾草绿组成的单色调色板，优先考虑字体排印和图像，而非色彩。",
+      "layout": "一个干净、居中且宽敞的布局，从单栏主视觉过渡到用于文章卡片的结构化四栏网格。",
+      "interaction": "微妙而精致，采用平滑的基于透明度的过渡效果，并在悬停和点击状态上提供最小的视觉反馈。",
+      "motion": "内敛的动效设计，使用平滑的透明度和变换动画，配合自定义的 cubic-bezier 缓动函数，以增强精致感。",
+      "notes": "该网站是数字杂志将高级印刷美学转化为网络体验的绝佳范例，使用字体排印和留白作为主要的设计工具。"
+    },
+    "zh-TW": {
+      "palette": "嚴格克制、單色調的調色盤，包含黑色、白色與柔和的灰綠色，讓版型與影像優先於色彩。",
+      "layout": "乾淨、置中且寬敞的版面，從單欄主視覺過渡至結構化的四欄文章卡片網格。",
+      "interaction": "細膩且精緻，使用流暢的透明度過渡效果，以及在 hover 與點擊狀態下極簡的視覺回饋。",
+      "motion": "內斂的動態設計，運用流暢的透明度與 transform 動畫，搭配自訂的 cubic-bezier 緩動曲線，以提升精緻感。",
+      "notes": "此網站是數位雜誌將高級紙本美學轉化至網路的絕佳範例，運用字型與留白作為主要設計工具。"
+    },
+    "ja": {
+      "palette": "黒、白、落ち着いた鼠尾草グリーンによる、厳格に抑制されたモノクローム・パレット。カラーよりもタイポグラフィとイメージを優先。",
+      "layout": "清潔で中央揃え、ゆとりのあるレイアウト。単一カラムのヒーローセクションから、記事カード用の整然とした4カラムグリッドへと移行。",
+      "interaction": "洗練され、控えめ。opacityベースの滑らかな遷移と、hoverおよびクリック状態における最小限の視覚フィードバック。",
+      "motion": "控えめなモーションデザイン。滑らかなopacityとtransformアニメーションを使用し、カスタムcubicベジェ緩和で洗練された感覚を高める。",
+      "notes": "このサイトは、デジタル・マガジンがプレミアムな印刷美学をウェブへ翻訳した優れた例であり、タイポグラフィとホワイトスペースを主要なデザインツールとして使用しています。"
+    },
+    "ko": {
+      "palette": "흑백과 무채색의 세이지 그린으로 구성된 엄격히 절제된 단색 팔레트로, 색상보다 타이포그래피와 이미지에 우선점을 둡니다.",
+      "layout": "싱글 카olumn 히어로에서 아티클 카드를 위한 4단계 그리드로 전환되는 깔끔하고 중앙 정렬된 넓은 레이아웃입니다.",
+      "interaction": "미묘하고 세련된 인터랙션으로, 매끄러운 불투명도 기반 트랜지션과 hover, 클릭 상태의 최소한의 시각적 피드백을 제공합니다.",
+      "motion": "세련된 느낌을 강화하기 위해 매끄러운 불투명도 및 변환 애니메이션과 커스텀 cubic-bezier 이징을 사용한 절제된 모션 디자인입니다.",
+      "notes": "이 사이트는 타이포그래피와 여백을 주요 디자인 도구로 활용하여 프리미엄 인쇄물의 미학을 웹에 성공적으로 옮긴 디지털 매거진의 훌륭한 예시입니다."
+    }
+  },
+  "_meta": {
+    "vision_model": "mimo-v2.5",
+    "vision_prompt_version": "0.3",
+    "vision_source": "playwright-extract:kinfolk",
+    "vision_grounded": true,
+    "vision_at": "2026-06-04T16:07:35+00:00",
+    "vision_tokens": 18217,
+    "vision_cost_usd": 0.2024,
+    "translation_model": "mimo-v2.5",
+    "translation_at": "2026-06-04T16:08:55+00:00",
+    "translation_tokens": 18923,
+    "translation_cost_usd": 0.0631,
+    "narrative_model": "mimo-v2.5",
+    "narrative_prompt_version": "0.3",
+    "narrative_at": "2026-06-04T16:09:04+00:00",
+    "narrative_tokens": 2222,
+    "narrative_cost_usd": 0.0148,
+    "narrative_status": "ok",
+    "total_cost_usd": 0.2803
+  },
+  "narrative": {
+    "en": {
+      "ch1_intro": "Kinfolk’s design system is a direct translation of a premium print magazine’s editorial rigor into a digital framework. Its identity DNA is built on the same principles that define high-end lifestyle publishing: typographic hierarchy, restrained color, and generous negative space as the primary structural elements.",
+      "ch2_intro": "The palette is a study in deliberate restraint, functioning more as a typographic amplifier than a color system. Black text on white provides maximum contrast and legibility, while a single muted sage green acts as a quiet background accent, never competing with the imagery or headlines.",
+      "ch2_outro": "The guiding principle is that color should provide context and calm, never distraction.",
+      "ch3_intro": "Typography establishes the editorial voice. A refined didone-serif family commands all display and headline settings, evoking traditional print mastheads. For UI elements and captions, a clean humanist-sans provides functional clarity, frequently set in uppercase for labels and navigation to create a distinct, structured tone.",
+      "ch4_intro": "Vertical rhythm is the architecture of the layout, maintained through strict mathematical scaling and exceptionally generous vertical padding.",
+      "ch5_intro": "Depth is communicated with extreme economy. Surfaces are predominantly flat, relying on a single, deep, diffuse shadow for specific focal imagery. Dividers and interactive states are defined by thin, crisp black borders rather than color or gradient changes.",
+      "ch6_intro": "The structural skeleton begins with a centered, single-column composition for hero sections and article reading, prioritizing focus. This transitions into a disciplined four-column grid for listing content, creating a clear hierarchy between consumption and browsing modes.",
+      "ch7_intro": "Motion philosophy is one of subtle enhancement rather than demonstration. All transitions—opacity fades, transform-based animations, and staggered reveals—are executed with a smooth, deliberate pace (0.4s–0.5s) using a custom cubic-bezier easing curve to maintain the refined feel.",
+      "ch8_intro": "The editorial voice is sophisticated, calm, and refined, mirroring the visual tone. Headlines are set prominently in uppercase serif type with tight tracking, while calls to action use understated, uppercase sans-serif text links.",
+      "ch8_outro": "The system deliberately excludes loud accent colors, playful decorative elements, and tight, crowded compositions in favor of sustained clarity and focus."
+    },
+    "zh-CN": {
+      "ch1_intro": "Kinfolk的设计体系是将高端印刷杂志的编辑严谨性直接转化为数字框架。其身份DNA建立在定义高端生活方式出版的相同原则之上：排版层级、克制的色彩，以及作为主要结构元素的充裕负空间。",
+      "ch2_intro": "该色板是对刻意克制的研究，其功能更像是排版放大器而非色彩系统。白底黑字提供最大对比度和可读性，而单一柔和的灰绿色则作为安静的背景点缀，绝不与图像或标题竞争。",
+      "ch2_outro": "指导原则是：色彩应提供语境与宁静，而非干扰。",
+      "ch3_intro": "排版确立了编辑语调。精致的迪多内衬线字体家族主导所有展示和标题设置，唤起传统印刷报头。对于界面元素和说明文字，清晰的人文主义无衬线字体提供功能性清晰度，常以大写形式用于标签和导航，以营造独特而结构化的语调。",
+      "ch4_intro": "垂直韵律是版面布局的骨架，通过严格的数学缩放和极其充裕的垂直内边距来维持。",
+      "ch5_intro": "深度以极度经济的方式传达。表面以平面为主，仅对特定焦点图像使用单一、深沉、弥散的阴影。分隔线和交互状态由纤细、清晰的黑色边框定义，而非色彩或渐变变化。",
+      "ch6_intro": "结构骨架始于居中的单列构图，用于主视觉区域和文章阅读，优先保证专注度。这过渡到为列表内容设置的严谨四栏网格，在消费与浏览模式之间建立清晰的层级关系。",
+      "ch7_intro": "动效哲学是微妙的增强而非炫耀。所有过渡——透明度渐变、基于变换的动画和错开显现——都以平缓、刻意的节奏（0.4s–0.5s）执行，并使用自定义cubic-bezier缓动曲线以保持精致感。",
+      "ch8_intro": "编辑语调是精致、平静而典雅的，呼应视觉基调。标题以显眼的宽间距大写衬线字体设置，而行动号召则使用低调的、大写的无衬线文本链接。",
+      "ch8_outro": "该体系刻意排除了醒目的强调色、俏皮的装饰元素和拥挤紧凑的构图，以换取持久的清晰度和专注度。"
+    },
+    "zh-TW": {
+      "ch1_intro": "Kinfolk 的設計系統，是將頂級印刷雜誌的編輯嚴謹性，直接轉化為數位架構的體現。其識別 DNA 建立在定義高端生活風格出版物的相同原則之上：以排版層級、節制的色彩，以及作為主要結構元素的充裕負空間。",
+      "ch2_intro": "色盤是對刻意節制的研究，其功能更像排版的放大器，而非色彩系統。白底黑字提供最大對比度與可讀性，而單一柔和的灰綠色則作為低調的背景點綴，從不與影像或標題爭奪視線。",
+      "ch2_outro": "指導原則是，色彩應提供情境與寧靜，而非造成分心。",
+      "ch3_intro": "排版確立了編輯的語氣。精緻的 Didone 衬線體系列主導所有展示與標題設定，喚起傳統印刷刊頭的意象。對於使用者介面元素與說明文字，則採用清晰的人文無襯線體以提供功能性清晰度，標籤與導覽常以全大寫呈現，以營造獨特、結構化的調性。",
+      "ch4_intro": "垂直節奏是版面的架構，透過嚴格的數學比例縮放與異常充裕的垂直 padding 得以維持。",
+      "ch5_intro": "深度以極度簡約的方式傳達。表面主要為平面，僅依靠單一、深沉且擴散的陰影來突顯特定焦點影像。分隔線與互動狀態由細、銳利的黑色邊框定義，而非色彩或漸層變化。",
+      "ch6_intro": "結構骨架始於以居中、單欄構圖作為主視覺區段與文章閱讀的基礎，優先考慮專注度。此構圖過渡至紀律嚴明的四欄網格，用於列示內容，在消費與瀏覽模式之間建立清晰的層級關係。",
+      "ch7_intro": "動態哲學是 subtly 增強而非炫技。所有過渡效果——opacity 淡入淡出、基於 transform 的動畫，以及交錯式揭示——皆以平滑、從容的節奏（0.4s–0.5s）執行，並使用自訂 cubic-bezier 緩動曲線以維持精緻的感覺。",
+      "ch8_intro": "編輯語氣是精緻、冷靜而洗練的，反映視覺基調。標題以緊湊字距的全大寫衬線體突出設定，而行動呼籲則使用低調的全大寫無襯線文字連結。",
+      "ch8_outro": "該系統刻意排除了響亮的強調色、俏皮的裝飾元素，以及擁擠的構圖，以 favor 持續的清晰度與專注力。"
+    },
+    "ja": {
+      "ch1_intro": "Kinfolkのデザインシステムは、高級雑誌のエディトリアルな厳格さを、そのままデジタルフレームワークに翻訳したものです。そのアイデンティティDNAは、高級ライフスタイル出版の定義と同じ原則の上に構築されています：タイポグラフィの階層構造、抑制されたカラー、そして主要な構造要素としての豊かな余白です。",
+      "ch2_intro": "パレットは意図的な抑制の研究であり、カラーシステムというよりは、タイポグラフィの増幅器として機能します。白地の黒テキストは最大のコントラストと可読性を提供し、一方で、控えめなセージグリーンが静かな背景アクセントとして、イメージや見出しと競合することなく使用されます。",
+      "ch2_outro": "ガイドラインとなる原則は、カラーがコンテキストと calm（穏やかさ）を提供し、決して注意力を散漫にしないことです。",
+      "ch3_intro": "タイポグラフィがエディトリアルな声を確立します。洗練されたディドンセリフファミリーがすべてのディスプレイおよび見出しセッティングを支配し、伝統的な印刷物の見出しを彷彿とさせます。UI要素やキャプションには、クリーンなヒューマニストサンセリフが機能的な明瞭さを提供し、ラベルやナビゲーションには頻繁に大文字で設定され、明確で構造化されたトーンを生み出します。",
+      "ch4_intro": "垂直リズムはレイアウトの建築であり、厳密な数学的スケーリングとexceptionally generous（非常に豊かな）垂直パディングによって維持されます。",
+      "ch5_intro": "奥行きは極めて経済的に表現されます。表面は主にフラットで、特定の焦点となるイメージに単一の、深く、拡散されたシャドウに依存します。区切り線やインタラクティブな状態は、カラーまたはグラデーションの変化ではなく、細く、鮮明な黒い境界線で定義されます。",
+      "ch6_intro": "構造的な骨格は、フォーカスを優先し、ヒーローセクションや記事の閲覧のためのセンタリングされた単一カラム構成から始まります。これは、コンテンツ一覧のための厳格な4カラムグリッドに移行し、閲覧モードと閲覧モードの間に明確な階層構造を生み出します。",
+      "ch7_intro": "モーション哲学は、デモンストレーションよりも、洗練された向上にあります。すべてのトランジション——透明度のフェード、transform（変形）ベースのアニメーション、およびスタガー付きのレビール——は、滑らかで意図的なペース（0.4s–0.5s）で、洗練された感覚を維持するためにカスタムcubic-bezierイージングカーブを使用して実行されます。",
+      "ch8_intro": "エディトリアルな声は、ビジュアルトーンを反映し、洗練され、落ち着きがあり、優雅です。見出しは、 tighten（tight tracking）された大文字のセリフ体で目立つように設定され、一方で、コール・トゥ・アクションは控えめな、大文字のサンセリフテキストリンクを使用します。",
+      "ch8_outro": "システムは、持続的な明瞭さとフォーカスのために、目立つアクセントカラー、遊び心のある装飾要素、そしてtight（狭く）、crowded（混雑した）構成を意図的に除外しています。"
+    },
+    "ko": {
+      "ch1_intro": "킨폴크의 디자인 시스템은 고급 인쇄 잡지의 편집 엄격함을 디지털 프레임워크로 직접 번역한 것입니다. 그 정체성 DNA는 하이엔드 라이프스타일 출판을 정의하는 동일한 원칙 위에 구축되어 있습니다: 타이포그래피 계층, 절제된 색상, 그리고 주요 구조 요소로서의 넉넉한 여백.",
+      "ch2_intro": "팔레트는 의도적인 절제의 연구로, 색상 시스템보다는 타이포그래피 증폭기 역할을 더 많이 합니다. 흰색 바탕의 검은색 텍스트는 최대 대비와 가독성을 제공하며, 단 하나의 무딘 세이지 그린이 조용한 배경 강조색으로 기능하여 이미지나 헤드라인과 절대 경쟁하지 않습니다.",
+      "ch2_outro": "지배적인 원칙은 색상이 맥락과 차분함을 제공해야 하며, 결코 주의를 분산시켜서는 안 된다는 것입니다.",
+      "ch3_intro": "타이포그래피는 편집 음성을 확립합니다. 정제된 디도네 세리프 패밀리가 모든 디스플레이 및 헤드라인 설정을 주도하며, 전통적인 인쇄 사설진을 연상시킵니다. UI 요소와 캡션에는 깔끔한 휴머니스트 산세리프가 기능적 명확성을 제공하며, 라벨과 내비게이션에는 대문자로 설정되어 독립적이고 구조화된 톤을 만들어냅니다.",
+      "ch4_intro": "수직 리듬은 레이아웃의 골격이며, 엄격한 수학적 스케일링과 특별히 넉넉한 수직 패딩을 통해 유지됩니다.",
+      "ch5_intro": "깊이는 극도의 경제성으로 전달됩니다. 표면은 주로 플랫하며, 특정 초점 이미지에 단 하나의 깊고 확산된 그림자에 의존합니다. 구분선과 인터랙티브 상태는 색상이나 그라디언트 변화보다는 가늘고 명료한 검은색 테두리로 정의됩니다.",
+      "ch6_intro": "구조적 골격은 히어로 섹션과 기사 읽기를 위한 중앙 정렬 단일 열 구성으로 시작하여, 초점에 우선순위를 둡니다. 이것은 나열 콘텐츠를 위해 규율 있는 4열 그리드로 전환되며, 소비 모드와 탐색 모드 사이에 명확한 계층을 만듭니다.",
+      "ch7_intro": "모션 철학은 시연보다는 미묘한 향상에 관한 것입니다. 모든 전환—투명도 페이드, transform 기반 애니메이션, 교차 드러내기—는 정제된 느낌을 유지하기 위해 매끄럽고 의도적인 속도(0.4초~0.5초)로 커스텀 cubic-bezier 이징 커브를 사용하여 실행됩니다.",
+      "ch8_intro": "편집 음성은 시각적 톤을 반영하여 세련되고 차분하며 정제되어 있습니다. 헤드라인은 타이트한 자간의 대문자 세리프 활자로 두드러지게 설정되며, 행동 촉구는 절제된 대문자 산세리프 텍스트 링크를 사용합니다.",
+      "ch8_outro": "이 시스템은 지속적인 명확성과 초점을 위해 소리 높은 강조색, 장난스러운 장식 요소, 그리고 타이트하고 복잡한 구성을 의도적으로 배제합니다."
+    }
+  }
 }

@@ -8,6 +8,638 @@
     "beauty",
     "haircare"
   ],
-  "status": "pending",
-  "added_at": "2026-06-02"
+  "status": "completed",
+  "added_at": "2026-06-02",
+  "spec": {
+    "colors": {
+      "bg": "#FFFFFF",
+      "bgSoft": "#F9F7F2",
+      "bgQuiet": null,
+      "ink": "#000000",
+      "inkSoft": "#323429",
+      "muted": "#4D523C",
+      "mutedSoft": null,
+      "accent": "#F49674",
+      "line": "rgba(0,0,0,0.1)"
+    },
+    "typography": {
+      "display": "transitional-serif",
+      "body": "humanist-sans",
+      "mono": "geometric-mono",
+      "scale": [
+        {
+          "token": "display",
+          "size": 40,
+          "lh": 1.3,
+          "weight": 400,
+          "ls": "-0.5px"
+        },
+        {
+          "token": "headline",
+          "size": 32,
+          "lh": 1.25,
+          "weight": 400,
+          "ls": "-0.2px"
+        },
+        {
+          "token": "body",
+          "size": 16,
+          "lh": 1.5,
+          "weight": 400,
+          "ls": "0.3px"
+        },
+        {
+          "token": "caption",
+          "size": 12,
+          "lh": 1.5,
+          "weight": 400,
+          "ls": "0.5px"
+        },
+        {
+          "token": "button",
+          "size": 14,
+          "lh": 1,
+          "weight": 400,
+          "ls": "1px"
+        }
+      ]
+    },
+    "spacing": {
+      "base": 4,
+      "scale": [
+        4,
+        8,
+        12,
+        16,
+        20,
+        24,
+        32,
+        48,
+        60,
+        96
+      ]
+    },
+    "surfaces": {
+      "radius": {
+        "sm": 4,
+        "md": 8,
+        "lg": 12,
+        "pill": 60
+      }
+    },
+    "layout": {
+      "container": 1280,
+      "paragraph": 680,
+      "columns": 12,
+      "gutter": 24,
+      "breakpoints": [
+        768,
+        1024
+      ]
+    },
+    "motion": {
+      "durations": {
+        "micro": 200,
+        "small": 250,
+        "medium": 560
+      },
+      "easing": "cubic-bezier(0.52, 0.16, 0.24, 1)"
+    }
+  },
+  "spec_i18n": {
+    "en": {
+      "identity": {
+        "keywords": [
+          "custom beauty",
+          "science-backed",
+          "clean ingredients",
+          "personalized",
+          "premium skincare"
+        ],
+        "analogy": "A boutique apothecary meets a high-end design studio",
+        "oneLiner": "A premium custom beauty brand blending clinical precision with warm, approachable aesthetics"
+      },
+      "colors": {
+        "principle": "A restrained, natural palette where deep olive-greens ground the design, crisp whites provide breathing room, and a singular coral accent draws the eye to primary actions."
+      },
+      "typography": {
+        "rules": [
+          "Serifs are reserved exclusively for high-impact headlines to convey elegance.",
+          "Sans-serif is used for all functional navigation and body copy for maximum legibility.",
+          "Monospaced type is used exclusively for small uppercase overlines and labels.",
+          "All-caps treatment is applied consistently to secondary labels and buttons with wide tracking."
+        ],
+        "scaleUses": [
+          "Main hero headlines",
+          "Section titles",
+          "Primary reading text",
+          "Overlines and fine print",
+          "All-caps button labels"
+        ]
+      },
+      "spacing": {
+        "rhythm": "A consistent 4px baseline grid ensures rhythmic vertical spacing and predictable alignment throughout the layout."
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(0, 0, 0, 0.04) 0px 10px 14px -10px",
+          "rgba(0, 0, 0, 0.25) 0px 4px 4px 0px"
+        ],
+        "borders": "1px solid rgba(0,0,0,0.1)"
+      },
+      "layout": {
+        "skeleton": "A wide, 12-column centered grid that transitions to a single-column stacked layout on mobile devices."
+      },
+      "components": {
+        "button": "Pill-shaped buttons for primary CTAs and standard rectangular buttons with subtle corners for secondary actions.",
+        "card": "Minimalist horizontal ingredient cards with light borders and generous internal whitespace.",
+        "chip": "N/A - Not visibly used as a standalone component.",
+        "input": "N/A - Not visible in the provided screenshots.",
+        "hero": "Full-width cinematic background video or image with a clean text overlay and centered primary action buttons."
+      },
+      "motion": {
+        "patterns": [
+          "Standard background-color and transform transitions for interactive states.",
+          "A specific cubic-bezier timing function used for smoother height and bottom property animations."
+        ]
+      },
+      "interaction": {
+        "hover": "Subtle opacity changes or background color transitions.",
+        "click": "Immediate visual feedback via standard browser states.",
+        "transition": "All properties transition smoothly over 200ms by default.",
+        "keyboard": "Standard tab navigation with focus states."
+      },
+      "voice": {
+        "tone": "Confident, clean, and reassuringly scientific but approachable.",
+        "headlineStyle": "Elegant and concise, often using a mix of serif headlines and wide-tracked monospaced overlines.",
+        "ctaStyle": "Direct and action-oriented, using all-caps monospaced or sans-serif type.",
+        "avoid": [
+          "Slang or overly casual language",
+          "Loud, saturated colors or aggressive visual noise",
+          "Complex, cluttered multi-column layouts",
+          "Heavy drop shadows or skeuomorphic design elements"
+        ]
+      },
+      "donts": [
+        "Don't use loud, neon, or highly saturated colors — the palette is strictly muted earth tones and whites.",
+        "Don't use playful or decorative scripts for headlines — typography remains strictly serif, sans, or mono.",
+        "Don't add heavy borders, drop shadows, or strong background colors to every card — elements are kept highly minimal.",
+        "Don't clutter the layout with too many competing elements — the design relies on large amounts of whitespace.",
+        "Don't use lowercase for primary button text — the site consistently uses all-caps with wide letter-spacing for labels.",
+        "Don't use a standard grid of square product shots in the hero — the brand prefers cinematic, full-bleed lifestyle imagery."
+      ],
+      "systemPrompt": "Design a premium, clean beauty or consumer product brand interface that balances scientific precision with warm, approachable aesthetics. Use a neutral palette of white, soft beige, and deep olive-green, with a singular coral accent for primary calls to action. Typography should pair elegant transitional-serif for display headlines with highly legible humanist-sans for body copy, and use a geometric-mono for small uppercase overlines. Ensure layouts are spacious, airy, and minimalist, avoiding cluttered grids or heavy UI elements. Do not use playful fonts, neon colors, or aggressive drop shadows. Keep interactions smooth and subtle, focusing on high-quality cinematic photography and clean typography."
+    },
+    "zh-CN": {
+      "identity": {
+        "keywords": [
+          "定制美妆",
+          "科学支撑",
+          "纯净成分",
+          "个性化",
+          "高端护肤"
+        ],
+        "analogy": "一家精品药剂店与高端设计工作室的结合",
+        "oneLiner": "一个将临床精准与温暖、平易近人美学相融合的高端定制美妆品牌"
+      },
+      "colors": {
+        "principle": "一个克制的自然调色板，深橄榄绿奠定设计基调，纯净的白色提供呼吸空间，而独特的珊瑚色点缀则吸引目光至主要操作区域。"
+      },
+      "typography": {
+        "rules": [
+          "衬线体专门用于高影响力标题，以传达优雅感。",
+          "无衬线体用于所有功能性导航和正文，以确保最大可读性。",
+          "等宽字体专门用于小型大写上标和标签。",
+          "次级标签和按钮始终采用大写字母处理，并应用较宽的字间距。"
+        ],
+        "scaleUses": [
+          "主视觉区标题",
+          "章节标题",
+          "主要阅读文本",
+          "上标和小字说明",
+          "大写按钮标签"
+        ]
+      },
+      "spacing": {
+        "rhythm": "一致的4px基线网格确保整个布局在垂直方向上的节奏感和可预测的对齐。"
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(0, 0, 0, 0.04) 0px 10px 14px -10px",
+          "rgba(0, 0, 0, 0.25) 0px 4px 4px 0px"
+        ],
+        "borders": "1px solid rgba(0,0,0,0.1)"
+      },
+      "layout": {
+        "skeleton": "一个宽阔的、居中的12列网格，在移动设备上转换为单列堆叠布局。"
+      },
+      "components": {
+        "button": "用于主要号召性用语的药丸形按钮，以及用于次要操作的、带有微妙圆角的标准矩形按钮。",
+        "card": "极简的水平成分卡片，带有浅色边框和充足的内部留白。",
+        "chip": "不适用 - 在提供的截图中未作为独立组件明显使用。",
+        "input": "不适用 - 在提供的截图中不可见。",
+        "hero": "全宽电影感背景视频或图像，配有简洁的文字叠加层和居中的主要操作按钮。"
+      },
+      "motion": {
+        "patterns": [
+          "交互状态下的标准背景色和变换过渡。",
+          "用于更平滑的 height 和 bottom 属性动画的特定 cubic-bezier 时间函数。"
+        ]
+      },
+      "interaction": {
+        "hover": "微妙的透明度变化或背景色过渡。",
+        "click": "通过标准浏览器状态提供即时视觉反馈。",
+        "transition": "默认情况下，所有属性在 200ms 内平滑过渡。",
+        "keyboard": "标准 Tab 键导航，带焦点状态。"
+      },
+      "voice": {
+        "tone": "自信、干净、令人安心的科学感，同时平易近人。",
+        "headlineStyle": "优雅而简洁，常结合衬线标题和宽字间距的等宽字体上标。",
+        "ctaStyle": "直接且以行动为导向，使用大写的等宽或无衬线字体。",
+        "avoid": [
+          "俚语或过于随意的语言",
+          "响亮、饱和的颜色或具有侵略性的视觉噪点",
+          "复杂、杂乱的多列布局",
+          "厚重的投影或拟物化设计元素"
+        ]
+      },
+      "donts": [
+        "不要使用响亮、霓虹或高度饱和的颜色——调色板严格限于柔和的土色调和白色。",
+        "不要使用花哨或装饰性的手写体作为标题——排版严格使用衬线体、无衬线体或等宽体。",
+        "不要为每个卡片添加厚重的边框、投影或强烈的背景色——元素保持高度极简。",
+        "不要用太多相互竞争的元素使布局显得拥挤——设计依赖于大量的留白。",
+        "不要将主要按钮文本设为小写——网站一致使用大写字母并带有较宽的字间距作为标签。",
+        "不要在主视觉区使用标准方形产品网格——品牌更倾向于电影感、全出血的生活方式图像。"
+      ],
+      "systemPrompt": "设计一个高端、洁净的美容或消费品品牌界面，在科学精准与温暖、平易近人的美学之间取得平衡。使用由白色、柔和米色和深橄榄绿组成的中性调色板，并以一个独特的珊瑚色点缀作为主要号召性用语。排版应将优雅的过渡衬线体用于展示标题，与高度可读的人文主义无衬线体用于正文，并使用几何等宽字体作为小型大写上标。确保布局宽敞、通透、极简，避免杂乱的网格或厚重的UI元素。不要使用花哨的字体、霓虹色或具有侵略性的投影。保持交互流畅而微妙，专注于高品质的电影感摄影和简洁的排版。"
+    },
+    "zh-TW": {
+      "identity": {
+        "keywords": [
+          "客製化美妝",
+          "科學實證",
+          "純淨成分",
+          "個人化",
+          "高階保養"
+        ],
+        "analogy": "精品藥劑師與高端設計工作室的結合",
+        "oneLiner": "結合臨床精準度與溫暖親和美學的高階客製化美妝品牌"
+      },
+      "colors": {
+        "principle": "一套克制、自然的色調，以深橄欖綠穩定設計基調，純淨白色提供呼吸空間，單一珊瑚色吸引視線至主要操作。"
+      },
+      "typography": {
+        "rules": [
+          "襯線字體僅專用於高衝擊力標題，以傳達優雅感。",
+          "無襯線字體用於所有功能性導覽與內文，確保最佳可讀性。",
+          "等寬字體僅專用於小型大寫上標與標籤。",
+          "全大寫處理方式統一應用於次要標籤與按鈕，並搭配寬鬆字距。"
+        ],
+        "scaleUses": [
+          "主視覺標題",
+          "章節標題",
+          "主要閱讀內文",
+          "上標與細節文字",
+          "全大寫按鈕標籤"
+        ]
+      },
+      "spacing": {
+        "rhythm": "一致的 4px 基線網格，確保垂直間距的節奏感與佈局的可預測對齊。"
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(0, 0, 0, 0.04) 0px 10px 14px -10px",
+          "rgba(0, 0, 0, 0.25) 0px 4px 4px 0px"
+        ],
+        "borders": "1px solid rgba(0,0,0,0.1)"
+      },
+      "layout": {
+        "skeleton": "寬幅、12 欄置中網格，在行動裝置上轉換為單欄堆疊佈局。"
+      },
+      "components": {
+        "button": "主要 CTA 採用藥丸形按鈕，次要操作則使用帶有微小圓角的標準矩形按鈕。",
+        "card": "極簡水平成分卡片，搭配淺色邊框與寬敞內部留白。",
+        "chip": "N/A - 未作為獨立元件可見使用。",
+        "input": "N/A - 在提供的截圖中未可見。",
+        "hero": "全寬度電影感背景影片或圖片，搭配簡潔文字覆蓋層與置中的主要操作按鈕。"
+      },
+      "motion": {
+        "patterns": [
+          "互動狀態採用標準 background-color 與 transform 過渡效果。",
+          "使用特定的 cubic-bezier 時間函數，讓高度與 bottom 屬性動畫更為流暢。"
+        ]
+      },
+      "interaction": {
+        "hover": "細膹的透明度變化或背景顏色過渡。",
+        "click": "透過標準瀏覽器狀態提供即時視覺回饋。",
+        "transition": "所有屬性預設在 200ms 內平滑過渡。",
+        "keyboard": "標準 tab 導覽與焦點狀態。"
+      },
+      "voice": {
+        "tone": "自信、乾淨、具科學可信度且親和。",
+        "headlineStyle": "優雅簡潔，常結合襯線標題與寬鬆字距的等寬上標。",
+        "ctaStyle": "直接且注重行動，使用全大寫的等寬或無襯線字體。",
+        "avoid": [
+          "俚語或過度隨意的語言",
+          "鮮豔飽和色彩或強烈的視覺雜訊",
+          "複雜、雜亂的多欄佈局",
+          "厚重的陰影或擬物化設計元素"
+        ]
+      },
+      "donts": [
+        "勿使用鮮豔、霓虹或高度飽和的顏色——色調嚴格限定為柔和大地色與白色。",
+        "勿使用俏皮或裝飾性手寫字體於標題——排版嚴格限定為襯線、無襯線或等寬字體。",
+        "勿為每個卡片添加厚重邊框、陰影或強烈背景色——元件保持高度極簡。",
+        "勿在佈局中堆砌過多競爭元素——設計依賴大量留白。",
+        "勿使用小寫字母於主要按鈕文字——網站統一使用全大寫並搭配寬鬆字距的標籤。",
+        "勿在主視覺使用標準方形產品圖片網格——品牌偏好電影感、全幅的生活風格影像。"
+      ],
+      "systemPrompt": "設計一個高階、潔淨的美妝或消費品牌介面，平衡科學精準度與溫暖親和的美學。使用白色、柔和米色與深橄欖綠的中性色調，搭配單一珊瑚色作為主要操作的點綴。排版應將優雅的過渡襯線字體用於展示標題，高可讀性的人文無襯線字體用於內文，並使用幾何等寬字體於小型大寫上標。確保佈局寬敞、通透且極簡，避免雜亂網格或厚重 UI 元素。勿使用俏皮字體、霓虹色彩或強烈陰影。保持互動流暢細膩，著重於高品質電影感攝影與乾淨排版。"
+    },
+    "ja": {
+      "identity": {
+        "keywords": [
+          "カスタムビューティー",
+          "科学的根拠",
+          "クリーン成分",
+          "パーソナライズ",
+          "プレミアムスキンケア"
+        ],
+        "analogy": "ブティックアポテカリーとハイエンドデザインスタジオの融合",
+        "oneLiner": "臨床的な精度と温かみのあるアプローチableな美学を融合したプレミアムカスタムビューティーブランド"
+      },
+      "colors": {
+        "principle": "抑制された自然なパレット。深いオリーブグリーンがデザインを支え、鮮やかな白が息の場を作り、一点のコーラルアクセントがプライマリアクションへ視線を誘導します。"
+      },
+      "typography": {
+        "rules": [
+          "セリフは、エレガンスを伝えるための高インパクトな見出しにのみ使用。",
+          "サンセリフは、最大限の可読性のために、すべての機能的なナビゲーションと本文に使用。",
+          "モノスペース文字は、小文字の大文字表記のオーバーラインとラベルにのみ使用。",
+          "全大文字処理は、広いトラッキングを伴うセカンダリーラベルとボタンに一貫して適用。"
+        ],
+        "scaleUses": [
+          "メインヒーロー見出し",
+          "セクションタイトル",
+          "プライマリリーディングテキスト",
+          "オーバーラインと細かい注釈",
+          "全大文字ボタンラベル"
+        ]
+      },
+      "spacing": {
+        "rhythm": "一貫した4pxベースライングリッドにより、レイアウト全体でリズムのある垂直方向のスペーシングと予測可能なアライメントを確保。"
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(0, 0, 0, 0.04) 0px 10px 14px -10px",
+          "rgba(0, 0, 0, 0.25) 0px 4px 4px 0px"
+        ],
+        "borders": "1px solid rgba(0,0,0,0.1)"
+      },
+      "layout": {
+        "skeleton": "広い12カラム中央揃えグリッドで、モバイルデバイスでは単一カラムのスタッキングレイアウトに切り替わります。"
+      },
+      "components": {
+        "button": "プライマリCTAにはピルシェイプボタン、セカンダリアクションには微妙な角丸の標準的な矩形ボタン。",
+        "card": "ライトなボーダーと豊かな内部余白を備えた、ミニマルな水平方向の成分カード。",
+        "chip": "N/A - 単体コンポーネントとして明確には使用されていません。",
+        "input": "N/A - 提供されたスクリーンショットには見当たりません。",
+        "hero": "クリーンなテキストオーバーレイと中央揃えのプライマリアクションボタンを備えた、フルワイドのシネマティックなバックグラウンドビデオまたは画像。"
+      },
+      "motion": {
+        "patterns": [
+          "インタラクティブステート用の標準的なbackground-colorとtransformトランジション。",
+          "より滑らかなheightおよびbottomプロパティアニメーションに使用される特定のcubic-bezierタイミング関数。"
+        ]
+      },
+      "interaction": {
+        "hover": "微妙なopacity変化または背景色トランジション。",
+        "click": "標準的なブラウザステートによる即座のビジュアルフィードバック。",
+        "transition": "デフォルトで200msにわたり、すべてのプロパティがスムーズにトランジション。",
+        "keyboard": "フォーカスステートを備えた標準的なタブナビゲーション。"
+      },
+      "voice": {
+        "tone": "自信に満ち、クリーンで、安心感を与える科学的だがアプローチable。",
+        "headlineStyle": "エレガントで簡潔。しばしばセリフ見出しと広いトラッキングのモノスペースオーバーラインのミックスを使用。",
+        "ctaStyle": "直接的でアクション志向。全大文字のモノスペースまたはサンセリフ字体を使用。",
+        "avoid": [
+          "スラングや過度にカジュアルな言葉遣い",
+          "派手で彩度の高い色や攻撃的な視覚的ノイズ",
+          "複雑で雑然とした複数カラムレイアウト",
+          "重いドロップシャドウやスキューモーフィックなデザイン要素"
+        ]
+      },
+      "donts": [
+        "派手なネオン色や彩度の高い色を使用しない — パレットは厳格に控えめなアーストーンと白に限定。",
+        "遊び心のある装飾的なスクリプトを見出しに使用しない — タイポグラフィは厳格にセリフ、サン、またはモノに留める。",
+        "すべてのカードに重いボーダー、ドロップシャドウ、または強い背景色を追加しない — 要素は極めてミニマルに保つ。",
+        "多くの競合する要素でレイアウトを雑然とさせない — デザインは大量の余白に依存。",
+        "プライマリボタンテキストに小文字を使用しない — サイトは一貫してラベルに広い文字間隔を伴う全大文字を使用。",
+        "ヒーローに標準的な正方形の製品ショットグリッドを使用しない — ブランドはシネマティックでフルブリードのライフスタイルイメージを好む。"
+      ],
+      "systemPrompt": "科学的な精度と温かみのあるアプローチableな美学のバランスをとった、プレミアムでクリーンなビューティーまたは消費者製品ブランドのインターフェースをデザイン。白、柔らかなベージュ、深いオリーブグリーンのニュートラルパレットを使用し、プライマリーコール・トゥ・アクションには一点のコーラルアクセントを加える。タイポグラフィは、ディスプレイ見出しにエレガントなトランジショナルセリフ、本文に高可読性のヒューマニストサンを組み合わせ、小文字の大文字表記のオーバーラインにはジオメトリックモノを使用。レイアウトは広々とし、空気感があり、ミニマルに。雑然としたグリッドや重いUI要素は避ける。遊び心のあるフォント、ネオン色、攻撃的なドロップシャドウは使用しない。インタラクションは滑らかで繊細に保ち、高品質なシネマティックな写真とクリーンなタイポグラフィに焦点を当てる。"
+    },
+    "ko": {
+      "identity": {
+        "keywords": [
+          "맞춤형 뷰티",
+          "과학적 근거 기반",
+          "클린 성분",
+          "맞춤 제작",
+          "프리미엄 스킨케어"
+        ],
+        "analogy": "부티크 약국과 하이엔드 디자인 스튜디오의 만남",
+        "oneLiner": "임상적 정밀함과 따뜻하고 접근 가능한 미학을 결합한 프리미엄 맞춤형 뷰티 브랜드"
+      },
+      "colors": {
+        "principle": "딥 올리브 그린이 디자인을 안정시키고, 크리스피 화이트가 공간감을 제공하며, 단 하나의 코랄 악센트가 주요 액션으로 시선을 유도하는 절제된 자연 팔레트입니다."
+      },
+      "typography": {
+        "rules": [
+          "세리프는 우아함을 전달하기 위해 고impact 헤드라인에만 엄격히 사용됩니다.",
+          "산세리프는 최대한의 가독성을 위해 모든 기능적 내비게이션과 본문에 사용됩니다.",
+          "모노스페이스 타입은 소문자 오버라인과 라벨에만 엄격히 사용됩니다.",
+          "세컨더리 라벨과 버튼에는 일관되게 전면 대문자 처리와 넓은 트래킹을 적용합니다."
+        ],
+        "scaleUses": [
+          "메인 히어로 헤드라인",
+          "섹션 제목",
+          "주요 본문 텍스트",
+          "오버라인 및 작은 글씨",
+          "전면 대문자 버튼 라벨"
+        ]
+      },
+      "spacing": {
+        "rhythm": "일관된 4px 기반 그리드를 사용하여 전체 레이아웃에 걸쳐 리듬감 있는 수직 간격과 예측 가능한 정렬을 보장합니다."
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(0, 0, 0, 0.04) 0px 10px 14px -10px",
+          "rgba(0, 0, 0, 0.25) 0px 4px 4px 0px"
+        ],
+        "borders": "1px solid rgba(0,0,0,0.1)"
+      },
+      "layout": {
+        "skeleton": "넓은 12컬럼 중앙 정렬 그리드를 사용하며, 모바일 기기에서는 단일 컬럼 스택 레이아웃으로 전환됩니다."
+      },
+      "components": {
+        "button": "메인 CTA에는 필 모양 버튼을, 세컨더리 액션에는 미묘한 모서리가 있는 표준 직사각형 버튼을 사용합니다.",
+        "card": "가벼운 보더와 풍부한 내부 여백을 가진 미니멀리스트 수평 성분 카드입니다.",
+        "chip": "해당 없음 - 독립 컴포넌트로 눈에 띄게 사용되지 않습니다.",
+        "input": "해당 없음 - 제공된 스크린샷에 보이지 않습니다.",
+        "hero": "전체 너비 시네마틱 배경 비디오 또는 이미지에 깔끔한 텍스트 오버레이와 중앙 정렬된 메인 액션 버튼을 배치합니다."
+      },
+      "motion": {
+        "patterns": [
+          "인터랙티브 상태를 위한 표준 background-color 및 transform 전환 효과.",
+          "높이와 bottom 속성 애니메이션을 더 부드럽게 만들기 위해 사용되는 특정 cubic-bezier timing function."
+        ]
+      },
+      "interaction": {
+        "hover": "미묘한 투명도 변화 또는 배경색 전환 효과.",
+        "click": "표준 브라우저 상태를 통한 즉각적인 시각적 피드백.",
+        "transition": "모든 속성은 기본적으로 200ms 동안 부드럽게 전환됩니다.",
+        "keyboard": "포커스 상태가 포함된 표준 탭 내비게이션."
+      },
+      "voice": {
+        "tone": "자신감 있고 깔끔하며, 과학적이면서도 접근 가능한 어조입니다.",
+        "headlineStyle": "우아하고 간결하며, 세리프 헤드라인과 넓은 트래킹의 모노스페이드 오버라인을 혼합하여 사용하는 경우가 많습니다.",
+        "ctaStyle": "직설적이고 액션 지향적이며, 전면 대문자 모노스페이스 또는 산세리프 타입을 사용합니다.",
+        "avoid": [
+          "비속어나 지나치게 캐주얼한 언어",
+          "화려하고 포화된 색상 또는 공격적인 시각적 노이즈",
+          "복잡하고 지저분한 다중 컬럼 레이아웃",
+          "무거운 드롭 섀도우 또는 스케우모피즘 디자인 요소"
+        ]
+      },
+      "donts": [
+        "화려한 네온이나 highly saturated 색상을 사용하지 마세요 — 팔레트는 엄격히 무톤의 어스 톤과 화이트입니다.",
+        "장난스럽거나 장식적인 스크립트를 헤드라인에 사용하지 마세요 — 타이포그래피는 엄격히 세리프, 산세리프 또는 모노스페이스입니다.",
+        "모든 카드에 무거운 보더, 드롭 섀도우 또는 강한 배경색을 추가하지 마세요 — 요소들은 최소한으로 유지됩니다.",
+        "레이아웃을 너무 많은 경쟁 요소로 지저분하게 만들지 마세요 — 디자인은大量的 여백에 의존합니다.",
+        "메인 버튼 텍스트에 소문자를 사용하지 마세요 — 사이트는 라벨에 일관되게 전면 대문자와 넓은 글자 간격을 사용합니다.",
+        "히어로에 표준 정방형 제품 촬영 그리드를 사용하지 마세요 — 브랜드는 시네마틱하고 풀브리드 라이프스타일 이미지를 선호합니다."
+      ],
+      "systemPrompt": "과학적 정밀함과 따뜻하고 접근 가능한 미학의 균형을 맞춘 프리미엄 클린 뷰티 또는 소비재 제품 브랜드 인터페이스를 디자인하세요. 화이트, 소프트 베이지, 딥 올리브 그린의 중립적 팔레트를 사용하고, 메인 CTA를 위한 단 하나의 코랄 악센트를 포함하세요. 타이포그래피는 디스플레이 헤드라인에는 우아한 전환형 세리프를, 본문에는 highly legible한 humanist-sans를 결합하고, 작은 대문자 오버라인에는 기하학적 모노스페이스를 사용하세요. 레이아웃은 여유롭고 개방적이며 미니멀리스틱하게 하되, 지저분한 그리드나 무거운 UI 요소는 피하세요. 장난스러운 폰트, 네온 색상, 공격적인 드롭 섀도우는 사용하지 마세요. 인터랙션은 부드럽고 미묘하게 유지하되, 고품질 시네마틱 사진과 깔끔한 타이포그래피에 중점을 두세요."
+    }
+  },
+  "desc": {
+    "en": {
+      "palette": "A restrained, natural palette of crisp white, soft beige, deep olive-green, and a singular warm coral accent.",
+      "layout": "A clean, centered, highly spacious layout using a 12-column grid with generous whitespace and minimal borders.",
+      "interaction": "Subtle, smooth transitions on interactive elements, prioritizing clarity and a frictionless user experience.",
+      "motion": "Minimal and refined, utilizing specific cubic-bezier easing for fluid, non-jarring animations.",
+      "notes": "This site is an excellent example of a modern, premium Direct-to-Consumer brand that uses high-quality photography and refined typography to elevate a clean, functional interface."
+    },
+    "zh-CN": {
+      "palette": "克制的自然配色，包含纯净的白色、柔和的米色、深橄榄绿，以及一个独特的暖珊瑚色作为点缀。",
+      "layout": "采用12列网格的简洁、居中、宽敞布局，拥有充足的留白和极简的边框。",
+      "interaction": "交互元素上采用微妙、平滑的过渡效果，优先考虑清晰度和无摩擦的用户体验。",
+      "motion": "极简而精致，使用特定的 cubic-bezier 缓动函数实现流畅、不突兀的动画。",
+      "notes": "这个网站是一个现代、高端的直接面向消费者品牌的绝佳范例，它利用高品质的摄影和精致的排版来提升一个简洁、功能性界面的格调。"
+    },
+    "zh-TW": {
+      "palette": "一套克制、自然的色調，包含純淨白色、柔和米色、深橄欖綠，以及單一溫暖的珊瑚色作為點綴。",
+      "layout": "採用 12 欄網格的乾淨、置中、高度寬敞佈局，搭配充足留白與極簡邊框。",
+      "interaction": "互動元素使用細膩、流暢的過渡效果，優先確保清晰度與無摩擦的使用者體驗。",
+      "motion": "極簡且精緻，運用特定的 cubic-bezier 緩動函數實現流暢、不突兀的動畫。",
+      "notes": "此網站是現代、高階 DTC（直接面對消費者）品牌的絕佳範例，透過高品質攝影與精緻排版，提升簡潔功能性介面的質感。"
+    },
+    "ja": {
+      "palette": "抑制された、自然なパレット。鮮やかな白、柔らかなベージュ、深いオリーブグリーン、そして一点の温かなコーラルアクセント。",
+      "layout": "クリーンで中央揃え、非常に広々としたレイアウト。12カラムグリッドを使用し、豊かな余白と最小限のボーダーを採用。",
+      "interaction": "インタラクティブ要素に繊細でスムーズなトランジション。明確さと、摩擦のないユーザー体験を優先。",
+      "motion": "最小限で洗練された動き。滑らかで不快感のないアニメーションのため、特定の cubic-bezier イージングを活用。",
+      "notes": "このサイトは、高品質なフォトグラフィと洗練されたタイポグラフィを駆使し、クリーンで機能的なインターフェースを昇華させる、モダンでプレミアムなD2Cブランドの優れた例です。"
+    },
+    "ko": {
+      "palette": "크리스피 화이트, 소프트 베이지, 딥 올리브 그린, 그리고 단 하나의 웜 코랄 악센트로 구성된 절제되고 자연스러운 팔레트입니다.",
+      "layout": "풍부한 여백과 최소한의 보더를 사용하는 12컬럼 그리드 기반의 깔끔하고 중앙 정렬된, 매우 여유로운 레이아웃입니다.",
+      "interaction": "명확성과 원활한 사용자 경험을 우선시하여, 인터랙티브 요소에 미묘하고 부드러운 전환 효과를 적용합니다.",
+      "motion": "최소한이면서도 정제된 모션을 구현하며, 특정 cubic-bezier 이징을 활용하여 자연스럽고 불쾌하지 않은 애니메이션을 구현합니다.",
+      "notes": "이 사이트는 고품질 사진과 정제된 타이포그래피를 활용하여 깔끔하고 기능적인 인터페이스를 향상시키는, 현대적이고 프리미엄한 D2C 브랜드의 훌륭한 예시입니다."
+    }
+  },
+  "_meta": {
+    "vision_model": "mimo-v2.5",
+    "vision_prompt_version": "0.3",
+    "vision_source": "playwright-extract:prose",
+    "vision_grounded": true,
+    "vision_at": "2026-06-04T18:05:14+00:00",
+    "vision_tokens": 16565,
+    "vision_cost_usd": 0.1841,
+    "translation_model": "mimo-v2.5",
+    "translation_at": "2026-06-04T18:06:51+00:00",
+    "translation_tokens": 18264,
+    "translation_cost_usd": 0.0609,
+    "narrative_model": "mimo-v2.5",
+    "narrative_prompt_version": "0.3",
+    "narrative_at": "2026-06-04T18:07:01+00:00",
+    "narrative_tokens": 2175,
+    "narrative_cost_usd": 0.0145,
+    "narrative_status": "ok",
+    "total_cost_usd": 0.2595
+  },
+  "narrative": {
+    "en": {
+      "ch1_intro": "This design system is built on a central tension: the precision of a science lab combined with the warmth of a personal consultation. It’s the interface of a boutique apothecary meeting a high-end design studio, where clinical trust is established through meticulous detail, not sterile aesthetics.",
+      "ch2_intro": "Color is used with deliberate restraint. A neutral canvas of whites and soft beiges provides the field for deep olive-greens to anchor the composition, leaving a single coral accent to signal interaction.",
+      "ch2_outro": "The principle is subtraction—every hue must earn its place, and none are decorative.",
+      "ch3_intro": "The typographic hierarchy is strict and functional. Elegant serifs are reserved for high-impact headlines to convey a sense of legacy, while a highly legible sans-serif carries all body and navigation. Monospaced type appears only as structured, uppercase overlines, creating a clear visual rhythm.",
+      "ch4_intro": "Every vertical relationship is governed by a consistent 4px baseline grid, creating a predictable rhythm that structures the generous whitespace.",
+      "ch5_intro": "Depth is communicated through light and boundary, not weight. Subtle, nearly imperceptible shadows lift elements from the background, while fine, translucent borders define cards without creating visual clutter.",
+      "ch6_intro": "The structural foundation is a centered, 12-column grid designed for expansive, spacious compositions. This framework gracefully collapses into a single-column, stacked layout for mobile viewports, maintaining clarity across all devices.",
+      "ch7_intro": "Motion is minimal and refined, existing to confirm actions rather than to decorate. Standard transitions are capped at a brisk 200ms, with a specific cubic-bezier function reserved for smoother, more deliberate height and position animations.",
+      "ch8_intro": "The editorial voice is confident, clean, and reassuringly scientific. It avoids slang and casual tone, preferring elegant concision in headlines and direct, action-oriented language in calls to action.",
+      "ch8_outro": "The system deliberately avoids loud neon colors, decorative scripts, and heavy skeuomorphic elements, committing instead to a quiet, functional minimalism."
+    },
+    "zh-CN": {
+      "ch1_intro": "该设计系统建立在一个核心张力之上：科学实验室般的精准与个性化咨询般的温度相结合。它宛如一家精品药剂店与高端设计工作室的界面，通过细腻的细节而非冰冷的美学建立临床般的信任感。",
+      "ch2_intro": "色彩运用极为克制。以白色与柔和米色构成的中性画布，为深橄榄绿提供了锚定画面的基调，仅留一抹珊瑚色点缀以指示交互元素。",
+      "ch2_outro": "其核心原则是减法——每种色调都必须证明其存在的必要性，拒绝任何装饰性用色。",
+      "ch3_intro": "字体层级清晰而实用。优雅的衬线字体专用于高冲击力的标题，传递经典传承感；而高可读性的无衬线字体则承载所有正文与导航内容。等宽字体仅以结构化的全大写上标形式出现，营造出清晰的视觉韵律。",
+      "ch4_intro": "所有垂直关系均遵循一致的4px基线网格，形成可预测的韵律，以此结构化充裕的留白空间。",
+      "ch5_intro": "层次感通过光影与边界而非重量来传达。细微到近乎无形的阴影使元素从背景中轻盈浮现，而纤细的半透明边框则勾勒出卡片轮廓，避免造成视觉杂乱。",
+      "ch6_intro": "结构基础采用居中的12列网格，专为开阔舒展的版式而设计。该框架在移动端优雅地折叠为单列堆叠布局，在所有设备上均保持清晰的视觉逻辑。",
+      "ch7_intro": "动效设计精简而克制，仅用于确认操作而非装饰。标准过渡动画控制在迅捷的200毫秒内，特定的cubic-bezier函数专用于更流畅、更从容的高度与位置变化动画。",
+      "ch8_intro": "编辑语态自信、简洁且具有科学可靠的质感。摒弃俚语与随意语气，标题追求优雅凝练，行动号召则采用直接有力的操作性语言。",
+      "ch8_outro": "该系统刻意回避喧闹的霓虹色、装饰性字体及厚重的拟物化元素，转而拥抱静谧、实用的极简主义。"
+    },
+    "zh-TW": {
+      "ch1_intro": "這套設計系統建立在一個核心張力上：科學實驗室的精準結合了個人諮詢的溫暖。它是精品藥局與高端設計工作室的介面交匯，透過精緻細節而非冰冷美學來建立臨床信任感。",
+      "ch2_intro": "色彩運用刻意克制。由白色與柔軟米色構成的中性畫布，為深橄欖綠提供鋪陳以錨定整體構圖，僅保留一個珊瑚色作為互動提示的亮點。",
+      "ch2_outro": "原則是減法——每一種色調都必須贏得其存在的理由，沒有任何裝飾性色彩。",
+      "ch3_intro": "字型階層嚴謹且功能明確。優雅的襯線字體專用於高衝擊力標題，傳達傳承感；而高可讀性的無線條字體則承載所有內文與導覽。等寬字體僅以結構化的大寫形式出現在標題上方，創造清晰的視覺節奏。",
+      "ch4_intro": "所有垂直關係都遵循一致的 4px 基線網格，建立可預測的節奏，以結構化寬裕的留白空間。",
+      "ch5_intro": "透過光線與邊界傳達深度，而非依靠重量感。細微、幾乎難以察覺的陰影將元素從背景中浮現，而精細的半透明邊框則定義卡片區域，不會造成視覺雜亂。",
+      "ch6_intro": "結構基礎是一個居中的 12 欄網格，專為寬敞、開闊的構圖而設計。此框架優雅地坍縮為單欄、堆疊式佈局以適應行動裝置視窗，在所有裝置上維持清晰度。",
+      "ch7_intro": "動態效果簡約而精緻，旨在確認操作而非裝飾。標準過渡效果上限為明快的 200ms，並保留特定 cubic-bezier 函數用於更流暢、更刻意的高度與位置動畫。",
+      "ch8_intro": "編輯語氣自信、簡潔且具科學可信度。避免俚語與隨意語調，標題偏好優雅簡潔，行動呼籲則使用直接、導向行動的語言。",
+      "ch8_outro": "此系統刻意避開喧囂的霓虹色彩、裝飾性字體與厚重的擬物化元素，轉而致力於安靜、功能性的極簡主義。"
+    },
+    "ja": {
+      "ch1_intro": "このデザインシステムは、科学实验室の精密さと、個人的なコンサルテーションの温かみという中心的な緊張感に基づいています。これは、高級デザインスタジオと融合した専門の薬局のようなインターフェースであり、臨床的な信頼は無機質な美学ではなく、細部へのこだわりによって確立されます。",
+      "ch2_intro": "色は意図的な抑制をもって使用されます。白と柔らかなベージュの中立的なキャンバスが、深いオリーブグリーンが構図を支えるためのフィールドとなり、対話の合図としてコーラル色のアクセントが一つだけ残されます。",
+      "ch2_outro": "原則は「引き算」です。すべての色はその存在を自ら証明しなければならず、装飾的な色はありません。",
+      "ch3_intro": "タイポグラフィの階層は厳格で機能的です。優雅なセリフ体は、遺産や伝統感を伝えるための高インパクトの見出しに限定され、bodyとナビゲーションには高い可読性を持つサンセリフ体が使用されます。モノスペース体は、明確な視覚的リズムを生み出すための、構造化された大文字のオーバーラインとしてのみ登場します。",
+      "ch4_intro": "すべての垂直方向の関係は、一貫した4pxのベースライングリッドによって管理されており、十分なホワイトスペースを構造化する予測可能なリズムを生み出しています。",
+      "ch5_intro": "奥行きは、ウェイトではなく光と境界によって表現されます。微細でほぼ認識できない影が、要素を背景から浮かび上がらせ、繊細で半透明のボーダーがビジュアルな雑然とさを生むことなくカードを定義します。",
+      "ch6_intro": "構造的基盤は、広大でゆったりとした構図のために設計された、中央揃えの12カラムグリッドです。このフレームワークは、すべてのデバイスで明瞭さを維持しながら、モバイルビューポートではシングルカラムのスタッキングレイアウトにシームレスに変化します。",
+      "ch7_intro": "モーションは最小限かつ洗練されており、装飾ではなくアクションを確認するために存在します。標準的なトランジションは、速やかな200msに制限され、よりスムーズで意図的な高さや位置のアニメーションには特定のcubic-bezier関数が割り当てられます。",
+      "ch8_intro": "エディトリアルな声は、自信に満ち、クリーンで、安心感を与える科学的です。スラングやカジュアルな口調は避け、見出しには洗練された簡潔さを、CTAには直接的で行動を促す言葉を好んで使用します。",
+      "ch8_outro": "システムは意図的に派手なネオンカラー、装飾的なスクリプト、重いスクネオモフィックな要素を避け、代わりに静かで機能的なミニマリズムに拘束しています。"
+    },
+    "ko": {
+      "ch1_intro": "이 디자인 시스템은 핵심적인 긴장 위에 구축되었습니다: 과학 실험실의 정밀함과 개인 상담의 따뜻함을 결합한 것입니다. 이는 부티크 약국과 하이엔드 디자인 스튜디오가 만나는 인터페이스이며, 냉기 있는 미학이 아니라 꼼꼼한 세부 사항을 통해 임상적인 신뢰를 구축합니다.",
+      "ch2_intro": "색상은 신중한 절제를 가지고 사용됩니다. 흰색과 부드러운 베이지의 중성 캔버스가 깊은 올리브 그린이 구도를 고정할 수 있는 공간을 제공하고, 단 하나의 산호색 강조만이 상호작용을 신호로 보냅니다.",
+      "ch2_outro": "원칙은 감소입니다—모든 색조는 그 자리를 위해 노력해야 하며, 어떤 것도 장식적이어서는 안 됩니다.",
+      "ch3_intro": "타이포그래피 계층은 엄격하고 기능적입니다. 우아한 세리프는 유산의 느낌을 전달하기 위해 강렬한 헤드라인에만 사용되며, 매우 가독성 높은 산세리프가 모든 본문과 내비게이션을 담당합니다. 모노스페이스 서체는 구조화된 대문자 상단선으로만 나타나, 명확한 시각적 리듬을 만듭니다.",
+      "ch4_intro": "모든 수직 관계는 일관된 4px 기준선 그리드에 의해 지배되며, 넉넉한 여백을 구조화하는 예측 가능한 리듬을 만듭니다.",
+      "ch5_intro": "깊이는 무게가 아닌 빛과 경계를 통해 전달됩니다. 미세하고 거의 감지할 수 없는 그림자가 배경에서 요소를 들어 올리는 반면, 얇고 반투명한 테두리는 시각적 혼란을 만들지 않으면서 카드를 정의합니다.",
+      "ch6_intro": "구조적 기반은 확장적이고 넓은 구성을 위해 설계된 중앙 정렬 12열 그리드입니다. 이 프레임워크는 모바일 뷰포트를 위해 우아하게 단일 열 스택 레이아웃으로 축소되며, 모든 기기에서 명확성을 유지합니다.",
+      "ch7_intro": "모션은 미니멀하고 정제되어 있으며, 장식하기보다는 행동을 확인하기 위해 존재합니다. 표준 전환은 빠른 200ms로 제한되며, 더 부드럽고 신중한 높이 및 위치 애니메이션을 위해 특정 cubic-bezier 함수가 예약되어 있습니다.",
+      "ch8_intro": "에디토리얼 어조는 자신감 있고 깨끗하며 안심시키는 과학적입니다. 속어와 캐주얼한 톤을 피하며, 헤드라인에서는 우아한 간결함을, 호출_to_행동에서는 직접적이고 행동 지향적인 언어를 선호합니다.",
+      "ch8_outro": "이 시스템은 시끄러운 네온색, 장식용 서체, 무거운 스케우어모픽 요소를 의도적으로 피하며, 대신 조용하고 기능적인 미니멀리즘에 전념합니다."
+    }
+  }
 }

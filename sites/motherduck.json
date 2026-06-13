@@ -8,6 +8,597 @@
     "data",
     "db"
   ],
-  "status": "pending",
-  "added_at": "2026-06-03"
+  "status": "completed",
+  "added_at": "2026-06-03",
+  "spec": {
+    "colors": {
+      "bg": "#F4EFEA",
+      "bgSoft": null,
+      "bgQuiet": null,
+      "ink": "#383838",
+      "inkSoft": null,
+      "muted": "#666666",
+      "mutedSoft": null,
+      "accent": "#FFDE00",
+      "line": "rgba(56,56,56,1)"
+    },
+    "typography": {
+      "display": "monospaced",
+      "body": "humanist-sans",
+      "mono": "monospaced",
+      "scale": [
+        {
+          "token": "display",
+          "size": 40,
+          "lh": 1.2,
+          "weight": 400,
+          "ls": "1px"
+        },
+        {
+          "token": "body",
+          "size": 16,
+          "lh": 1.4,
+          "weight": 400,
+          "ls": "normal"
+        },
+        {
+          "token": "small",
+          "size": 14,
+          "lh": 1.4,
+          "weight": 400,
+          "ls": "normal"
+        }
+      ]
+    },
+    "spacing": {
+      "base": 4,
+      "scale": [
+        4,
+        8,
+        16,
+        24,
+        32,
+        48,
+        64,
+        96
+      ]
+    },
+    "surfaces": {
+      "radius": {
+        "sm": 2,
+        "md": 2,
+        "lg": 2,
+        "pill": 999
+      }
+    },
+    "layout": {
+      "container": 1280,
+      "paragraph": 680,
+      "columns": 12,
+      "gutter": 24,
+      "breakpoints": [
+        768,
+        1024
+      ]
+    },
+    "motion": {
+      "durations": {
+        "micro": 120,
+        "small": 200,
+        "medium": 400
+      },
+      "easing": "cubic-bezier(0.34, 0, 0.12, 1)"
+    }
+  },
+  "spec_i18n": {
+    "en": {
+      "identity": {
+        "keywords": [
+          "Data Warehouse",
+          "Analytics",
+          "SQL",
+          "DuckDB",
+          "Cloud"
+        ],
+        "analogy": "A friendly, approachable utility for complex data infrastructure.",
+        "oneLiner": "Infrastructure for answers."
+      },
+      "colors": {
+        "principle": "High-contrast, warm neutral base with energetic yellow accents and sharp 2px black outlines for a distinct, illustrative feel."
+      },
+      "typography": {
+        "rules": [
+          "All headings are uppercase and set in a monospaced font.",
+          "Body text uses a clean humanist sans-serif for readability."
+        ],
+        "scaleUses": [
+          "Hero headings",
+          "Body text",
+          "Metadata and small labels"
+        ]
+      },
+      "spacing": {
+        "rhythm": "Standard 4px base grid with generous padding around major sections."
+      },
+      "surfaces": {
+        "shadows": [
+          "rgb(56, 56, 56) -8px 8px 0px 0px",
+          "rgb(255, 222, 0) -6px 6px 0px 0px"
+        ],
+        "borders": "2px solid rgb(56, 56, 56)"
+      },
+      "layout": {
+        "skeleton": "Centered hero section with stacked content, followed by a multi-column logo grid."
+      },
+      "components": {
+        "button": "Solid light blue (#6FC2FF) or outline style with sharp 2px black borders and subtle hard offsets.",
+        "card": "Illustrative elements with hard shadows.",
+        "chip": null,
+        "input": "Simple bordered inputs with rounded corners.",
+        "hero": "Large monospaced uppercase headline, brief description, and prominent dual-action CTA buttons."
+      },
+      "motion": {
+        "patterns": [
+          "Subtle transforms on hover",
+          "Ease-in-out transitions for smooth state changes"
+        ]
+      },
+      "interaction": {
+        "hover": "Subtle transforms and potential shadow shifts.",
+        "click": "Standard pointer cursor.",
+        "transition": "All 1584 instances use CSS transitions for smooth interactions.",
+        "keyboard": "Standard web accessibility."
+      },
+      "voice": {
+        "tone": "Professional yet approachable and slightly playful.",
+        "headlineStyle": "Direct, uppercase, and monospaced to convey technical precision.",
+        "ctaStyle": "Clear, action-oriented, and encouraging.",
+        "avoid": [
+          "Overly complex jargon without context",
+          "Dull or strictly corporate phrasing",
+          "Visual clutter or excessive decoration"
+        ]
+      },
+      "donts": [
+        "don't use rounded or soft corners — screenshot shows sharp 2px borders",
+        "don't use a white background for the main body — screenshot shows a warm beige (#F4EFEA) instead",
+        "don't use soft drop shadows — screenshot shows hard, solid color offsets",
+        "don't use a dark mode by default — screenshot shows a light, high-contrast theme",
+        "don't use playful or handwritten fonts — screenshot shows a clean monospaced and humanist sans-serif",
+        "don't use subtle pastel accents — screenshot uses a bold, high-chroma yellow and bright blue"
+      ],
+      "systemPrompt": "MotherDuck is a cloud data warehouse platform for developers and data teams, characterized by a friendly but precise technical aesthetic. The design utilizes a warm beige background (#F4EFEA), deep gray ink (#383838), and a vibrant yellow accent (#FFDE00), accented by a bright light blue (#6FC2FF) for primary buttons. Typography heavily features a monospaced font (Aeonik Mono) for headlines in uppercase, paired with a clean humanist-sans for body text. Critical design rules include: maintaining sharp 2px black borders and hard offset shadows instead of soft glows, strictly using uppercase for display type, and avoiding generic rounded or 'soft' UI patterns. The overall feel is illustrative, structured, and approachable."
+    },
+    "zh-CN": {
+      "identity": {
+        "keywords": [
+          "数据仓库",
+          "数据分析",
+          "SQL",
+          "DuckDB",
+          "云平台"
+        ],
+        "analogy": "一个友好、易于上手的复杂数据基础设施实用工具。",
+        "oneLiner": "驱动答案的基础设施。"
+      },
+      "colors": {
+        "principle": "高对比度、温暖的中性基底，搭配活力黄色点缀和锐利的2像素黑色描边，营造独特的插画感。"
+      },
+      "typography": {
+        "rules": [
+          "所有标题均为大写，并使用等宽字体。",
+          "正文采用清晰的人文主义无衬线字体以确保可读性。"
+        ],
+        "scaleUses": [
+          "主视觉标题",
+          "正文文本",
+          "元数据与小型标签"
+        ]
+      },
+      "spacing": {
+        "rhythm": "标准4像素基础网格，主要区域周围留有充足内边距。"
+      },
+      "surfaces": {
+        "shadows": [
+          "rgb(56, 56, 56) -8px 8px 0px 0px",
+          "rgb(255, 222, 0) -6px 6px 0px 0px"
+        ],
+        "borders": "2px solid rgb(56, 56, 56)"
+      },
+      "layout": {
+        "skeleton": "居中的主视觉区域，采用堆叠内容，下方是多列Logo网格。"
+      },
+      "components": {
+        "button": "实心浅蓝色（#6FC2FF）或带锐利2像素黑色描边的线框样式，并带有微妙的硬偏移阴影。",
+        "card": "带有硬阴影的插画元素。",
+        "chip": null,
+        "input": "带圆角的简洁边框输入框。",
+        "hero": "大号等宽大写标题、简短描述和醒目的双操作CTA按钮。"
+      },
+      "motion": {
+        "patterns": [
+          "悬停时的微妙变换效果",
+          "实现平滑状态切换的缓入缓出过渡"
+        ]
+      },
+      "interaction": {
+        "hover": "微妙的变换和可能的阴影偏移。",
+        "click": "标准指针光标。",
+        "transition": "所有1584个实例均使用CSS过渡实现流畅交互。",
+        "keyboard": "标准网页无障碍支持。"
+      },
+      "voice": {
+        "tone": "专业但平易近人，略带俏皮感。",
+        "headlineStyle": "直接、大写、等宽字体，传达技术精确性。",
+        "ctaStyle": "清晰、行动导向且具有鼓励性。",
+        "avoid": [
+          "缺乏上下文的过度复杂术语",
+          "枯燥或过于企业化的措辞",
+          "视觉混乱或过度装饰"
+        ]
+      },
+      "donts": [
+        "不要使用圆角或柔和边角——截图显示的是锐利的2像素边框",
+        "不要为正文主体使用白色背景——截图显示的是温暖的米色（#F4EFEA）",
+        "不要使用柔和的投影——截图显示的是硬朗的纯色偏移阴影",
+        "不要默认使用深色模式——截图显示的是浅色高对比度主题",
+        "不要使用活泼或手写风格字体——截图显示的是简洁的等宽字体和人文主义无衬线字体",
+        "不要使用微妙的柔和色调点缀——截图使用的是大胆、高饱和度的黄色和亮蓝色"
+      ],
+      "systemPrompt": "MotherDuck是一个面向开发者和数据团队的云数据仓库平台，其特征在于友好而精确的技术美学。设计采用温暖的米色背景（#F4EFEA）、深灰色墨迹（#383838）和活力黄色点缀（#FFDE00），并以亮浅蓝色（#6FC2FF）用于主按钮。排版大量使用等宽字体（Aeonik Mono）的大写标题，搭配清晰的人文主义无衬线字体用于正文。关键设计规则包括：保持锐利的2像素黑色边框和硬偏移阴影而非柔和光晕，严格使用大写字体用于展示文字，避免通用圆角或“柔和”UI模式。整体感觉是插画风、结构化且平易近人的。"
+    },
+    "zh-TW": {
+      "identity": {
+        "keywords": [
+          "資料倉儲",
+          "分析",
+          "SQL",
+          "DuckDB",
+          "Cloud"
+        ],
+        "analogy": "一個友善、易於使用的複雜資料基礎架構實用工具。",
+        "oneLiner": "為答案而生的基礎架構。"
+      },
+      "colors": {
+        "principle": "高對比、溫潤的中性基底色，搭配充滿活力的黃色點綴，以及銳利的 2px 黑色邊框，營造獨特的插圖感。"
+      },
+      "typography": {
+        "rules": [
+          "所有標題均為大寫，並使用等寬字體。",
+          "內文採用清晰的 humanist-sans 字體以提升可讀性。"
+        ],
+        "scaleUses": [
+          "主視覺標題",
+          "內文",
+          "元資料與小型標籤"
+        ]
+      },
+      "spacing": {
+        "rhythm": "標準的 4px 基本格線，主要區塊周圍有充裕的 padding。"
+      },
+      "surfaces": {
+        "shadows": [
+          "rgb(56, 56, 56) -8px 8px 0px 0px",
+          "rgb(255, 222, 0) -6px 6px 0px 0px"
+        ],
+        "borders": "2px solid rgb(56, 56, 56)"
+      },
+      "layout": {
+        "skeleton": "置中的主視覺區塊採用堆疊內容，接著是多欄的商標網格。"
+      },
+      "components": {
+        "button": "實心淺藍色 (#6FC2FF) 或輪廓樣式，具有銳利的 2px 黑色邊框和細微的硬偏移陰影。",
+        "card": "帶有硬陰影的插圖元素。",
+        "chip": null,
+        "input": "帶有圓角的簡潔邊框輸入框。",
+        "hero": "大型等寬大寫標題、簡短描述，以及顯眼的雙重互動 CTA 按鈕。"
+      },
+      "motion": {
+        "patterns": [
+          "hover 時的細微 transforms",
+          "用於平滑狀態變換的 ease-in-out 過渡效果"
+        ]
+      },
+      "interaction": {
+        "hover": "細微的 transforms 和可能的陰影位移。",
+        "click": "標準的指標游標。",
+        "transition": "所有 1584 個實例均使用 CSS transitions 以實現流暢互動。",
+        "keyboard": "標準的網頁無障礙設計。"
+      },
+      "voice": {
+        "tone": "專業但親切，略帶俏皮感。",
+        "headlineStyle": "直接、大寫且採用等寬字體，以傳達技術精準度。",
+        "ctaStyle": "清晰、以行動為導向且具鼓勵性。",
+        "avoid": [
+          "缺乏脈絡的過度複雜術語",
+          "枯燥或過於嚴肅的企業用語",
+          "視覺混亂或過度裝飾"
+        ]
+      },
+      "donts": [
+        "避免使用圓角或柔軟的角落——截圖顯示為銳利的 2px 邊框",
+        "避免為主要內文使用白色背景——截圖顯示為溫暖的米色 (#F4EFEA)",
+        "避免使用柔和的投影——截圖顯示為硬朗、實色偏移陰影",
+        "避免預設使用深色模式——截圖顯示為明亮、高對比度主題",
+        "避免使用俏皮或手寫字體——截圖顯示為簡潔的等寬字體與 humanist-sans",
+        "避免使用細膩的柔和色調點綴——截圖使用大膽、高飽和度的黃色與明亮藍色"
+      ],
+      "systemPrompt": "MotherDuck 是一個面向開發者和資料團隊的雲端資料倉儲平台，其特色在於友善但精準的技術美學。設計採用溫暖的米色背景 (#F4EFEA)、深灰色墨水 (#383838) 和鮮明的黃色點綴 (#FFDE00)，並以明亮的淺藍色 (#6FC2FF) 作為主要按鈕。字體大量使用等寬字體 (Aeonik Mono) 作為大寫標題，搭配簡潔的 humanist-sans 作為內文。關鍵設計規則包括：保持銳利的 2px 黑色邊框和硬偏移陰影，而非柔和光暈；嚴格使用大寫字體作為展示型文字；避免通用的圓角或「柔軟」UI 模式。整體感覺是插圖化的、結構化的且平易近人的。"
+    },
+    "ja": {
+      "identity": {
+        "keywords": [
+          "Data Warehouse",
+          "Analytics",
+          "SQL",
+          "DuckDB",
+          "Cloud"
+        ],
+        "analogy": "複雑なデータインフラのための、親しみやすく利用しやすいユーティリティ。",
+        "oneLiner": "Infrastructure for answers."
+      },
+      "colors": {
+        "principle": "高コントラスト、暖色系のニュートラルベース。エネルギッシュな黄のアクセントと、明確なillustrative感を出す2pxの黒アウトライン。"
+      },
+      "typography": {
+        "rules": [
+          "見出しはすべて大文字で、等幅フォントで設定。",
+          "本文テキストは読みやすさのため、クリーンなhumanist-sansを使用。"
+        ],
+        "scaleUses": [
+          "ヒーローヘッディング",
+          "本文テキスト",
+          "メタデータと小さなラベル"
+        ]
+      },
+      "spacing": {
+        "rhythm": "標準の4pxベースグリッド。主要セクションの周りに余裕のあるpadding。"
+      },
+      "surfaces": {
+        "shadows": [
+          "rgb(56, 56, 56) -8px 8px 0px 0px",
+          "rgb(255, 222, 0) -6px 6px 0px 0px"
+        ],
+        "borders": "2px solid rgb(56, 56, 56)"
+      },
+      "layout": {
+        "skeleton": "中央揃いのヒーローセクション。コンテンツが縦に並び、その後にマルチカラムのロゴグリッド。"
+      },
+      "components": {
+        "button": "ソリッドライトブルー（#6FC2FF）またはアウトラインスタイル。鋭い2pxの黒ボーダーと控えめなハードオフセット。",
+        "card": "ハードシャドウを用いたillustrativeな要素。",
+        "chip": null,
+        "input": "角丸のシンプルなボーダー付きインプット。",
+        "hero": "大きな等幅大文字の見出し、簡潔な説明、目立つデュアルアクションCTAボタン。"
+      },
+      "motion": {
+        "patterns": [
+          "hover時の精巧なtransform",
+          "滑らかな状態変化のためのease-in-outトランジション"
+        ]
+      },
+      "interaction": {
+        "hover": "精巧なtransformと可能性としてのシャドウの変化。",
+        "click": "標準のポインターカーソル。",
+        "transition": "すべての1584インスタンスは、滑らかなインタラクションのためにCSSトランジションを使用。",
+        "keyboard": "標準のWebアクセシビリティ。"
+      },
+      "voice": {
+        "tone": "プロフェッショナルでありながら親しみやすく、少し遊び心がある。",
+        "headlineStyle": "直接的、大文字、等幅。技術的な精密さを伝える。",
+        "ctaStyle": "明確、行動志向、そして鼓舞する。",
+        "avoid": [
+          "文脈なしの過度に複雑な専門用語",
+          "退屈または厳格に企業的な表現",
+          "視覚的な雑然さや過度な装飾"
+        ]
+      },
+      "donts": [
+        "角丸やソフトなコーナーを使用しない — スクリーンショットは鋭い2pxボーダーを示している",
+        "本文の背景に白を使用しない — スクリーンショットは暖かいベージュ（#F4EFEA）を示している",
+        "ソフトなドロップシャドウを使用しない — スクリーンショットはハードで固体色のオフセットを示している",
+        "デフォルトでダークモードを使用しない — スクリーンショットは明るく高コントラストなテーマを示している",
+        "遊び心のあるまたは手書きフォントを使用しない — スクリーンショットはクリーンな等幅フォントとhumanist-sansを示している",
+        "控えめなパステルアクセントを使用しない — スクリーンショットは大胆で高彩度の黄と明るい青を使用"
+      ],
+      "systemPrompt": "MotherDuckは、開発者およびデータチーム向けのクラウドData Warehouseプラットフォーム。親しみやすさと正確な技術的美学が特徴。デザインでは、暖かいベージュ背景（#F4EFEA）、濃いグレーインク（#383838）、鮮やかな黄アクセント（#FFDE00）、プライマリボタン用の明るいライトブルー（#6FC2FF）を使用。タイポグラフィは、見出しに等幅フォント（Aeonik Mono）を大文字で多用し、本文テキストにはクリーンなhumanist-sansと組み合わせ。重要なデザインルール：ソフトなグローではなく鋭い2px黒ボーダーとハードオフセットシャドウを維持、ディスプレイテキストは厳密に大文字を使用、一般的な丸みのあるまたは「ソフト」なUIパターンを避ける。全体的な雰囲気はillustrative、構造化、親しみやすいもの。"
+    },
+    "ko": {
+      "identity": {
+        "keywords": [
+          "데이터 웨어하우스",
+          "분석",
+          "SQL",
+          "DuckDB",
+          "클라우드"
+        ],
+        "analogy": "복잡한 데이터 인프라를 위한 친근하고 접근 가능한 유틸리티.",
+        "oneLiner": "답을 위한 인프라."
+      },
+      "colors": {
+        "principle": "고대비의 따뜻한 중립적 베이스에 활기찬 노란색 강조와 날카로운 2px 검정 테두리를 적용하여 독특한 일러스트레이션 느낌을 줍니다."
+      },
+      "typography": {
+        "rules": [
+          "모든 제목은 대문자로 표기되며 고정폭 글꼴로 설정됩니다.",
+          "본문 텍스트는 가독성을 위해 깔끔한 휴머니스트산세리프체를 사용합니다."
+        ],
+        "scaleUses": [
+          "히어로 제목",
+          "본문 텍스트",
+          "메타데이터 및 작은 레이블"
+        ]
+      },
+      "spacing": {
+        "rhythm": "기본 4px 그리드를 기반으로 하며, 주요 섹션 주위에 넉넉한 padding을 적용합니다."
+      },
+      "surfaces": {
+        "shadows": [
+          "rgb(56, 56, 56) -8px 8px 0px 0px",
+          "rgb(255, 222, 0) -6px 6px 0px 0px"
+        ],
+        "borders": "2px solid rgb(56, 56, 56)"
+      },
+      "layout": {
+        "skeleton": "스택된 콘텐츠를 갖춘 중앙 정렬된 히어로 섹션과 다중 열 로고 그리드로 구성됩니다."
+      },
+      "components": {
+        "button": "단색 밝은 파란색(#6FC2FF) 또는 날카로운 2px 검정 테두리와 미묘한 하드 오프셋을 사용한 아웃라인 스타일.",
+        "card": "하드 그림자를 사용한 일러스트레이션 요소.",
+        "chip": null,
+        "input": "둥근 모서리의 간단한 테두리 입력 필드.",
+        "hero": "큰 고정폭 대문자 헤드라인, 간결한 설명, 그리고 두드러진 이중 액션 CTA 버튼."
+      },
+      "motion": {
+        "patterns": [
+          "hover 시 미묘한 transform 효과",
+          "부드러운 상태 변화를 위한 ease-in-out 전환"
+        ]
+      },
+      "interaction": {
+        "hover": "미묘한 transform과 그림자 위치 변화.",
+        "click": "기본 포인터 커서.",
+        "transition": "모든 1584개 인스턴스에서 부드러운 상호작용을 위해 CSS 전환을 사용합니다.",
+        "keyboard": "표준 웹 접근성."
+      },
+      "voice": {
+        "tone": "전문적이면서도 접근 가능하고 약간의 장난기가 있는 어조.",
+        "headlineStyle": "기술적 정교함을 전달하기 위해 직접적이고, 대문자이며, 고정폭.",
+        "ctaStyle": "명확하고, 행동 지향적이며, 격려하는 말투.",
+        "avoid": [
+          "맥락 없는 지나치게 복잡한 전문 용어",
+          "지루하거나 지나치게 기업적인 표현",
+          "시각적 혼잡이나 과도한 장식"
+        ]
+      },
+      "donts": [
+        "둥글거나 부드러운 모서리를 사용하지 마세요 — 스크린샷에서 2px의 날카로운 테두리를 보여줍니다",
+        "본문에 흰색 배경을 사용하지 마세요 — 스크린샷에서 따뜻한 베이지(#F4EFEA)를 보여줍니다",
+        "부드러운 그림자를 사용하지 마세요 — 스크린샷에서 단단하고 단색의 오프셋을 보여줍니다",
+        "기본 다크 모드를 사용하지 마세요 — 스크린샷에서 밝고 고대비 테마를 보여줍니다",
+        "장난스럽거나 손글씨체를 사용하지 마세요 — 스크린샷에서 깔끔한 고정폭 및 휴머니스트산세리프체를 보여줍니다",
+        "미묘한 파스텔 강조를 사용하지 마세요 — 스크린샷에서 대담하고 고채도의 노란색과 밝은 파란색을 사용합니다"
+      ],
+      "systemPrompt": "MotherDuck은 개발자와 데이터 팀을 위한 클라우드 데이터 웨어하우스 플랫폼으로, 친근하면서도 정확한 기술적 미학이 특징입니다. 디자인은 따뜻한 베이지 배경(#F4EFEA), 짙은 잉크 그레이(#383838), 생동감 있는 노란색 강조(#FFDE00), 그리고 주요 버튼을 위한 밝은 라이트 블루(#6FC2FF)를 활용합니다. 타이포그래피는 제목용 고정폭 글꼴(Aeonik Mono)을 대문자로 크게 사용하고, 본문용 깔끔한 휴머니스트산세리프체와 결합합니다. 핵심 디자인 규칙은 다음과 같습니다: 부드러운 글로우 대신 날카로운 2px 검정 테두리와 하드 오프셋 그림자를 유지하고, 전시 텍스트는 철저히 대문자를 사용하며, 일반적인 둥글거나 '부드러운' UI 패턴을 피합니다. 전체적인 느낌은 일러스트레이션적이고 구조적이며 접근 가능합니다."
+    }
+  },
+  "desc": {
+    "en": {
+      "palette": "A high-contrast, warm palette featuring a beige background, deep gray ink, vibrant yellow accents, and bright blue primary actions.",
+      "layout": "A centered, content-focused layout with generous spacing and a structured 12-column grid.",
+      "interaction": "Subtle CSS transitions on hover states, primarily using transforms and smooth easing curves.",
+      "motion": "Smooth, understated motion focused on ease-in-out transitions for UI state changes.",
+      "notes": "The site stands out by combining technical precision with a friendly, illustrative UI, making complex infrastructure feel accessible."
+    },
+    "zh-CN": {
+      "palette": "高对比度暖色调，以米色背景、深灰色墨迹、明亮的黄色点缀和鲜亮的蓝色主操作为特征。",
+      "layout": "以内容为中心、居中对齐的布局，拥有充足间距和结构化的12列网格系统。",
+      "interaction": "悬停状态下使用微妙的CSS过渡效果，主要运用变换和平滑缓动曲线。",
+      "motion": "流畅而克制的动效，专注于界面状态切换时的缓入缓出过渡。",
+      "notes": "该网站通过将技术精确性与友好、插画风格的界面相结合而脱颖而出，使复杂的基础设施显得触手可及。"
+    },
+    "zh-TW": {
+      "palette": "高對比、溫暖的配色，以米色背景、深灰色墨水、鮮明的黃色點綴和明亮的藍色主要互動色組成。",
+      "layout": "以內容為中心、留白充裕的版面，採用結構化的 12 欄格線系統。",
+      "interaction": "在 hover 狀態下使用細膩的 CSS 過渡效果，主要運用 transforms 和平滑的 easing curves。",
+      "motion": "平滑、內斂的動畫，專注於 UI 狀態變換時的 ease-in-out 過渡。",
+      "notes": "本網站透過結合技術精準度與友善、具插圖感的 UI 設計而脫穎而出，讓複雜的基礎架構感覺平易近人。"
+    },
+    "ja": {
+      "palette": "高コントラストで暖色系のパレット。ベージュの背景、濃いグレーのインク、鮮やかな黄のアクセント、明るい青のプライマリアクション。",
+      "layout": "コンテンツ中心の中央揃いレイアウト。余裕のあるスペーシングと構造化された12カラムグリッド。",
+      "interaction": "hover状態での精巧なCSSトランジション。主にtransformと滑らかなイージングカーブを使用。",
+      "motion": "UI状態変化のための、滑らかで控えめなモーション。ease-in-outトランジションに焦点。",
+      "notes": "技術的な精密さと親しみやすいillustrativeなUIを組み合わせることで、複雑なインフラを親しみやすく感じさせるサイト。"
+    },
+    "ko": {
+      "palette": "베이지 배경, 짙은 잉크 그레이, 생동감 있는 노란색 강조, 밝은 파란색 주요 액션이 특징인 고대비의 따뜻한 팔레트입니다.",
+      "layout": "풍부한 여백과 구조화된 12열 그리드를 갖춘, 중앙 정렬된 콘텐츠 중심 레이아웃입니다.",
+      "interaction": "hover 상태에서의 미묘한 CSS 전환을 주로 사용하며, transform과 부드러운 ease-in-out 커브를 활용합니다.",
+      "motion": "UI 상태 변화를 위한 ease-in-out 전환에 초점을 맞춘, 부드럽고 절제된 모션입니다.",
+      "notes": "이 사이트는 기술적 정교함과 친근하고 일러스트레이션적인 UI를 결합하여 복잡한 인프라를 접근 가능하게 만드는 것이 특징입니다."
+    }
+  },
+  "_meta": {
+    "vision_model": "mimo-v2.5",
+    "vision_prompt_version": "0.3",
+    "vision_source": "playwright-extract:motherduck",
+    "vision_grounded": true,
+    "vision_at": "2026-06-04T17:02:34+00:00",
+    "vision_tokens": 16401,
+    "vision_cost_usd": 0.1822,
+    "translation_model": "mimo-v2.5",
+    "translation_at": "2026-06-04T17:03:52+00:00",
+    "translation_tokens": 16171,
+    "translation_cost_usd": 0.0538,
+    "narrative_model": "mimo-v2.5",
+    "narrative_prompt_version": "0.3",
+    "narrative_at": "2026-06-04T17:04:00+00:00",
+    "narrative_tokens": 1974,
+    "narrative_cost_usd": 0.0132,
+    "narrative_status": "ok",
+    "total_cost_usd": 0.2492
+  },
+  "narrative": {
+    "en": {
+      "ch1_intro": "MotherDuck's design system is an architecture of contrasts: a warm, approachable base that structures complex data infrastructure with illustrative clarity. It uses a friendly utility as its guiding analogy, translating the power of a cloud data warehouse into a visual language that feels both precise and inviting.",
+      "ch2_intro": "The color system establishes a high-contrast foundation with a warm neutral base, deep ink for structure, and energetic yellow accents that inject personality. A bright blue is reserved specifically for primary actions, ensuring a clear visual hierarchy.",
+      "ch2_outro": "The principle is clarity through contrast, avoiding ambiguity with a distinct, illustrative palette.",
+      "ch3_intro": "Typographic voice is defined by a sharp dichotomy: monospaced type for headlines and a humanist sans-serif for body text. This pairing directly communicates technical precision while maintaining editorial readability.",
+      "ch4_intro": "Spacing follows a strict 4px base grid, creating a predictable rhythm that balances generous padding for content focus with tight alignment for interface elements.",
+      "ch5_intro": "Surfaces are defined by sharp, 2px black borders and hard-offset solid-color shadows, rejecting soft depth in favor of an illustrative, paper-cut aesthetic.",
+      "ch6_intro": "The layout skeleton centers a bold hero section, followed by structured, multi-column content areas. A 12-column grid underpins the system, providing a consistent framework for information hierarchy.",
+      "ch7_intro": "Motion philosophy is one of subtle reinforcement, using smooth CSS transitions for state changes. Hover effects employ understated transforms, focusing on tactile feedback rather than spectacle.",
+      "ch8_intro": "Editorial voice is professional yet approachable, with a slightly playful tone that avoids corporate dullness. Headlines are direct and technical, while calls to action are clear and encouraging.",
+      "ch8_outro": "The system deliberately avoids decorative softness, refusing rounded corners, soft shadows, and pastel accents in favor of its sharp, illustrative structure."
+    },
+    "zh-CN": {
+      "ch1_intro": "MotherDuck的设计系统是一种对比的架构：它以一个温暖、亲切的基础，用插画般的清晰度来构建复杂的数据基础设施。它采用一个友好的工具作为核心类比，将云数据仓库的强大功能转化为一种既精确又吸引人的视觉语言。",
+      "ch2_intro": "色彩系统建立在高对比度的基础上，采用温暖的中性底色、深邃的墨色作为结构色，以及充满活力的黄色作为点缀色，以此注入个性。一种明亮的蓝色被专门保留用于主要操作，确保清晰的视觉层次。",
+      "ch2_outro": "其原则是通过对比实现清晰，避免使用一个独特、插画风格的调色板所带来的模糊性。",
+      "ch3_intro": "字体风格由一种鲜明的二元性定义：标题使用等宽字体，正文则使用人文主义无衬线字体。这种搭配直接传达了技术上的精确性，同时保持了编辑内容的可读性。",
+      "ch4_intro": "间距遵循严格的4px基础网格，创造出一种可预测的节奏，在为内容焦点留出充足padding与为界面元素提供紧密对齐之间取得平衡。",
+      "ch5_intro": "界面表面由锐利的2px黑色边框和硬偏移的纯色阴影来定义，它摒弃了柔和的纵深感，转而追求一种插画般的、剪纸般的美学。",
+      "ch6_intro": "布局骨架以一个醒目的英雄区域为中心，随后是结构化的多列内容区域。一个12列网格构成了整个系统的基础，为信息层次提供了一致的框架。",
+      "ch7_intro": "动效哲学是微妙的强化，使用平滑的CSS transitions来实现状态变化。hover效果采用低调的transform，专注于触感反馈而非视觉奇观。",
+      "ch8_intro": "编辑文案专业而平易近人，带有一种略带俏皮的基调，避免了企业式的沉闷。标题直接且技术性强，而行动号召则清晰且令人鼓舞。",
+      "ch8_outro": "该系统刻意避免装饰性的柔和感，拒绝使用圆角、柔和阴影和柔和的强调色，转而采用其锐利的、插画式的结构。"
+    },
+    "zh-TW": {
+      "ch1_intro": "MotherDuck 的設計系統是一個對比的架構：一個溫暖、平易近人的基礎，以清晰的圖示性來建構複雜的資料基礎設施。它採用一個友善的實用工具作為主要類比，將雲端資料倉儲的強大功能轉化為一種既精確又引人入勝的視覺語言。",
+      "ch2_intro": "色彩系統建立了一個高對比度的基礎，以溫暖的中性色為底，深墨色作為結構，並注入充滿活力的黃色強調色來增添個性。鮮亮的藍色則專門保留給主要操作，確保清晰的視覺層級。",
+      "ch2_outro": "其原則是通過對比實現清晰，使用獨特的、具圖示性的調色板來避免模糊不清。",
+      "ch3_intro": "排版的聲音由一個鮮明的對比所定義：標題使用等寬字體，而內文則使用人文主義無襯線字體。這種搭配直接傳達了技術上的精確性，同時保持了編輯上的可讀性。",
+      "ch4_intro": "間距遵循嚴格的 4px 基礎網格，創造出可預期的節奏，在內容聚焦的寬鬆內邊距與介面元素的緊密對齊之間取得平衡。",
+      "ch5_intro": "表面以銳利的 2px 黑色邊框和硬偏移的實心色陰影來定義，拒絕柔和的深度感，轉而追求一種具圖示性的、剪紙般的美學。",
+      "ch6_intro": "佈局骨架以一個大膽的首圖區域為中心，後跟結構化的多欄內容區域。一個 12 欄網格支撐著整個系統，為資訊層級提供一致的框架。",
+      "ch7_intro": "動效哲學是細微的強化，使用流暢的 CSS 過渡效果來處理狀態變化。懸停效果採用低調的變換，專注於觸覺反饋而非視覺奇觀。",
+      "ch8_intro": "編輯的聲音專業而平易近人，帶有一點俏皮的語氣，避免了企業的沉悶感。標題直接且具技術性，而行動呼籲則清晰且具鼓勵性。",
+      "ch8_outro": "該系統刻意避免裝飾性的柔軟感，拒絕圓角、柔和陰影和柔和的強調色，而採用其銳利的、具圖示性的結構。"
+    },
+    "ja": {
+      "ch1_intro": "MotherDuckのデザインシステムは対比の建築です：親しみやすく温かみのある基盤が、複雑なデータインフラをイラストのような明確さで構造化しています。フレンドリーなユーティリティを指南として使い、クラウドデータウェアハウスの力を、正確かつ魅力的なビジュアル言語に翻訳しています。",
+      "ch2_intro": "カラーシステムは、温かみのあるニュートラルを基盤に、構造を成すインク色、そして個性を注入するエネルギッシュなイエローのアクセントによる、高コントラストの基礎を確立します。明るいブルーは主要なアクションに専用に割り当てられ、明確なビジュアル階層を保証します。",
+      "ch2_outro": "原則は、コントラストによる明確さです。際立った、イラストのようなパレットで曖昧さを避けます。",
+      "ch3_intro": "タイポグラフィの声は、鋭い二重性で定義されます：見出しには等幅フォント、本文にはヒューマニストサンセリフです。この組み合わせは、技術的な正確さを直接伝えつつ、エディトリアルな読みやすさを維持しています。",
+      "ch4_intro": "余白は厳格な4pxのベースグリッドに従い、コンテンツの焦点に適した十分なpaddingと、インターフェース要素の tight な配置のバランスを取る、予測可能なリズムを生み出します。",
+      "ch5_intro": "サーフェスは鋭い2pxの黒いボーダーと、ハードオフセットのソリッドカラーのシャドウで定義され、ソフトな奥行きを排し、イラストのような、ペーパーカットの美学を志向します。",
+      "ch6_intro": "レイアウトの骨格は、大胆なヒーローセクションを中心に構成され、その後に構造化された複数カラムのコンテンツエリアが続きます。12カラムグリッドがシステムの基盤となり、情報階層のための一貫したフレームワークを提供します。",
+      "ch7_intro": "モーション哲学は、穏やかな強調です。状態変化にはスムーズなCSS transitionを使用します。hover効果は控えめなtransformを用い、 spectacle よりもフィードバックに焦点を当てます。",
+      "ch8_intro": "エディトリアルな声は、プロフェッショナルでありながらも親しみやすく、企業的な退屈さを避けた、少し遊び心のあるトーンです。見出しは直接的で技術的であり、コール・トゥ・アクションは明確で鼓舞するものです。",
+      "ch8_outro": "システムは意図的に装飾的な柔らかさを避け、角丸、ソフトシャドウ、パステルアクセントを拒否し、自身の鋭い、イラストのような構造を優先しています。"
+    },
+    "ko": {
+      "ch1_intro": "MotherDuck의 디자인 시스템은 대비의 건축입니다: 복잡한 데이터 인프라를 명확한 일러스트레이션으로 구조화하는, 따뜻하고 접근하기 쉬운 기반을 갖추고 있습니다. 이 시스템은 친근한 유틸리티를 안내 비유로 사용하여, 클라우드 데이터 웨어하우스의 강점을 정확하면서도 친근한 느낌의 시각 언어로 번역합니다.",
+      "ch2_intro": "색상 시스템은 따뜻한 중립적인 기반, 구조를 잡는 깊은 잉크, 그리고 개성을 불어넣는 활기찬 노란색 강조로 고대비의 기반을 확립합니다. 밝은 파란색은 주요 액션을 위해 특별히 예약되어, 명확한 시각적 계층을 보장합니다.",
+      "ch2_outro": "원칙은 대비를 통한 명확성으로, 뚜렷하고 일러스트레이션 팔레트를 통해 모호함을 피합니다.",
+      "ch3_intro": "타이포그래피는 날카로운 이중성으로 정의됩니다: 헤드라인을 위한 모노스페이스 글꼴과 본문을 위한 휴머니스트 세리프체입니다. 이 조합은 기술적 정밀함을 직접 전달하면서 편집적 가독성을 유지합니다.",
+      "ch4_intro": "간격은 4px 기본 격자를 엄격히 따르며, 콘텐츠 집중을 위한 넉넉한 padding과 인터페이스 요소를 위한 타이트한 정렬의 균형을 맞추는 예측 가능한 리듬을 만듭니다.",
+      "ch5_intro": "표면은 날카로운 2px 검정 테두리와 하드 오프셋 단색 그림자로 정의됩니다. 부드러운 깊이감 대신 일러스트레이션, 컷아웃 종이 같은 미학을 선호합니다.",
+      "ch6_intro": "레이아웃 스켈레톤은 강렬한 히어로 섹션을 중심으로 하며, 그 뒤에 구조화된 다단계 콘텐츠 영역이 이어집니다. 12열 격자가 시스템의 토대가 되어, 정보 계층을 위한 일관된 프레임워크를 제공합니다.",
+      "ch7_intro": "모션 철학은 미세한 강화에 초점을 맞추며, 상태 변화를 위한 부드러운 CSS 전환을 사용합니다. hover 효과는 절제된 transform을 적용하여, 화려함보다는 촉각적 피드백에 중점을 둡니다.",
+      "ch8_intro": "편집 음성은 전문적이면서도 친근하며, 기업적인 무미건조함을 피하는 약간의 장난기 있는 톤을 유지합니다. 헤드라인은 직접적이고 기술적이며, 행동 유도(CTA)는 명확하고 격려하는 어조입니다.",
+      "ch8_outro": "이 시스템은 의도적으로 장식적인 부드러움을 피하며, 둥근 모서리, 부드러운 그림자, 파스텔 강조 대신 뚜렷하고 일러스트레이션 같은 구조를 고수합니다."
+    }
+  }
 }

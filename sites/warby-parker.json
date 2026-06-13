@@ -8,8 +8,621 @@
     "ecommerce",
     "eyewear"
   ],
-  "status": "pending",
+  "status": "completed",
   "added_at": "2026-06-02",
   "added_by": "expand-200",
-  "_meta": {}
+  "_meta": {
+    "vision_model": "mimo-v2.5",
+    "vision_prompt_version": "0.3",
+    "vision_source": "playwright-extract:warby-parker",
+    "vision_grounded": true,
+    "vision_at": "2026-06-04T19:54:46+00:00",
+    "vision_tokens": 16948,
+    "vision_cost_usd": 0.1883,
+    "translation_model": "mimo-v2.5",
+    "translation_at": "2026-06-04T19:56:06+00:00",
+    "translation_tokens": 17419,
+    "translation_cost_usd": 0.058,
+    "narrative_model": "mimo-v2.5",
+    "narrative_prompt_version": "0.3",
+    "narrative_at": "2026-06-04T19:56:15+00:00",
+    "narrative_tokens": 2132,
+    "narrative_cost_usd": 0.0142,
+    "narrative_status": "ok",
+    "total_cost_usd": 0.2605
+  },
+  "spec": {
+    "colors": {
+      "bg": "#FCFBF9",
+      "bgSoft": "#FFFFFF",
+      "bgQuiet": "#E1E5E6",
+      "ink": "#121212",
+      "inkSoft": "#3A434C",
+      "muted": "#072369",
+      "mutedSoft": null,
+      "accent": "#1050D0",
+      "line": "rgba(18,18,18,0.12)"
+    },
+    "typography": {
+      "display": "transitional-serif",
+      "body": "geometric-sans",
+      "mono": null,
+      "scale": [
+        {
+          "token": "display-lg",
+          "size": 56,
+          "lh": 1.0,
+          "weight": 400,
+          "ls": "-1px"
+        },
+        {
+          "token": "display-sm",
+          "size": 40,
+          "lh": 1.1,
+          "weight": 400,
+          "ls": "-0.4px"
+        },
+        {
+          "token": "body-lg",
+          "size": 18,
+          "lh": 1.5,
+          "weight": 400,
+          "ls": "0.36px"
+        },
+        {
+          "token": "body",
+          "size": 16,
+          "lh": 1.5,
+          "weight": 400,
+          "ls": "0.32px"
+        }
+      ]
+    },
+    "spacing": {
+      "base": 4,
+      "scale": [
+        4,
+        8,
+        12,
+        16,
+        24,
+        32,
+        48,
+        64,
+        96
+      ]
+    },
+    "surfaces": {
+      "radius": {
+        "sm": 4,
+        "md": 12,
+        "lg": 16,
+        "pill": 100
+      }
+    },
+    "layout": {
+      "container": 1280,
+      "paragraph": 680,
+      "columns": 12,
+      "gutter": 24,
+      "breakpoints": [
+        768,
+        1024
+      ]
+    },
+    "motion": {
+      "durations": {
+        "micro": 200,
+        "small": 350,
+        "medium": 800
+      },
+      "easing": "cubic-bezier(0.25, 0, 0.35, 0.95)"
+    }
+  },
+  "spec_i18n": {
+    "en": {
+      "identity": {
+        "keywords": [
+          "Premium",
+          "Approachable",
+          "Stylish",
+          "Direct-to-consumer",
+          "Eyewear"
+        ],
+        "analogy": "A refined, accessible boutique for modern essentials.",
+        "oneLiner": "A clean, premium e-commerce interface for eyewear that balances large photography with crisp, minimal typography."
+      },
+      "colors": {
+        "principle": "High-contrast base palette with deep navy and bright blue accents to guide actions."
+      },
+      "typography": {
+        "rules": [
+          "Use sans-serif for all functional text, navigation, and buttons.",
+          "Use serif only for primary editorial headlines.",
+          "Maintain generous line-height for readability."
+        ],
+        "scaleUses": [
+          "Hero headlines",
+          "Section headlines",
+          "Subheadings and navigation",
+          "General body text and buttons"
+        ]
+      },
+      "spacing": {
+        "rhythm": "Consistent 4px base grid with generous padding on interactive elements (13px 24px)."
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(0, 0, 0, 0.04) 0px 1px 4px 0px",
+          "rgba(0, 0, 0, 0.02) 0px 4px 12px 0px",
+          "rgba(18, 18, 18, 0.12) 0px 8px 12px 0px"
+        ],
+        "borders": "Thin 1px solid borders used for outlines and dividers."
+      },
+      "layout": {
+        "skeleton": "12-column grid with wide gutters and max-width containers for content and products."
+      },
+      "components": {
+        "button": "Pill-shaped with bold sans-serif text, using primary blue or dark navy fills.",
+        "card": "Clean containers with subtle or no shadows, often featuring large imagery.",
+        "chip": "Pill-shaped labels with thin outlines or subtle backgrounds.",
+        "input": "Clean bordered fields with generous padding.",
+        "hero": "Full-width immersive photography with overlaid bold typography and CTAs."
+      },
+      "motion": {
+        "patterns": [
+          "Smooth opacity and box-shadow transitions on hover.",
+          "Color transitions for text and interactive elements."
+        ]
+      },
+      "interaction": {
+        "hover": "Subtle opacity changes and box-shadow elevations.",
+        "click": "Immediate response with no complex animations.",
+        "transition": "Standardized 0.2s ease-out for most state changes.",
+        "keyboard": "Focus states indicated by clear outlines (white/black rings)."
+      },
+      "voice": {
+        "tone": "Confident, direct, and helpful.",
+        "headlineStyle": "Bold, concise, and often punchy all-caps for impact.",
+        "ctaStyle": "Action-oriented and clear, using short phrases like 'Start with a quiz'.",
+        "avoid": [
+          "Jargon",
+          "Aggressive sales language",
+          "Cluttered layouts"
+        ]
+      },
+      "donts": [
+        "don't use complex gradients — screenshot shows flat color blocks and clean photography instead",
+        "don't use drop shadows on text — screenshot shows crisp text directly on images or solid backgrounds",
+        "don't use highly rounded cards — screenshot shows mostly flat surfaces or subtly rounded elements",
+        "don't use a cluttered header — screenshot shows a spacious, well-organized navigation bar",
+        "don't use decorative fonts for body text — screenshot uses clean sans-serif for all functional text",
+        "don't use neon or highly saturated accent colors — screenshot uses controlled blues and deep navys"
+      ],
+      "systemPrompt": "Warby Parker is a premium, direct-to-consumer eyewear brand with a clean, editorial, and approachable e-commerce interface. The design DNA is built on a palette of soft whites (#FCFBF9, #FFFFFF), light grays (#E1E5E6), deep ink (#121212), and deep navy (#072369) with a primary action blue (#1050D0). Typography features a humanist/geometric sans-serif for body and a transitional serif for display headlines. Key constraints: maintain generous white space and a 12-column grid; use large, high-quality photography; keep buttons pill-shaped and highly legible; avoid cluttered layouts and unnecessary decorative elements; and ensure high contrast for accessibility."
+    },
+    "zh-CN": {
+      "identity": {
+        "keywords": [
+          "高端",
+          "亲切",
+          "时尚",
+          "直面消费者",
+          "眼镜"
+        ],
+        "analogy": "一个精致、亲切的现代必需品精品店。",
+        "oneLiner": "一个干净、高端的眼镜电商界面，平衡大幅摄影与简洁、极简的字体排印。"
+      },
+      "colors": {
+        "principle": "高对比度基础调色板，搭配深海军蓝和亮蓝色点缀以引导操作。"
+      },
+      "typography": {
+        "rules": [
+          "所有功能文本、导航和按钮均使用无衬线字体。",
+          "仅主要编辑标题使用衬线字体。",
+          "保持宽松的行高以提升可读性。"
+        ],
+        "scaleUses": [
+          "主标题",
+          "章节标题",
+          "副标题和导航",
+          "通用正文和按钮"
+        ]
+      },
+      "spacing": {
+        "rhythm": "基于4px的一致网格，交互元素采用宽松内边距（13px 24px）。"
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(0, 0, 0, 0.04) 0px 1px 4px 0px",
+          "rgba(0, 0, 0, 0.02) 0px 4px 12px 0px",
+          "rgba(18, 18, 18, 0.12) 0px 8px 12px 0px"
+        ],
+        "borders": "使用细长的1px实线边框作为轮廓和分隔线。"
+      },
+      "layout": {
+        "skeleton": "12列网格布局，拥有宽大的间距和最大宽度容器，用于内容和产品展示。"
+      },
+      "components": {
+        "button": "药丸形状，搭配粗体无衬线文字，使用主蓝色或深海军蓝填充。",
+        "card": "干净的容器，具有微弱或无阴影，常展示大幅图像。",
+        "chip": "药丸形状的标签，搭配细线轮廓或微弱背景。",
+        "input": "干净的带边框字段，内边距宽松。",
+        "hero": "全宽沉浸式摄影，叠加粗体字体和号召性用语。"
+      },
+      "motion": {
+        "patterns": [
+          "悬停时平滑的透明度和box-shadow过渡。",
+          "文本和交互元素的颜色过渡。"
+        ]
+      },
+      "interaction": {
+        "hover": "微妙的透明度变化和box-shadow提升效果。",
+        "click": "即时响应，无复杂动画。",
+        "transition": "大多数状态变化使用标准化的0.2s ease-out。",
+        "keyboard": "焦点状态通过清晰的轮廓（白色/黑色环）指示。"
+      },
+      "voice": {
+        "tone": "自信、直接、有帮助。",
+        "headlineStyle": "粗体、简洁，常用全大写以增强冲击力。",
+        "ctaStyle": "以行动为导向且清晰，使用短语如'开始测验'。",
+        "avoid": [
+          "术语",
+          "激进的销售语言",
+          "杂乱的布局"
+        ]
+      },
+      "donts": [
+        "不要使用复杂的渐变——截图显示的是纯色块和干净摄影",
+        "不要在文本上使用投影——截图显示的是直接在图像或纯色背景上的清晰文本",
+        "不要使用高度圆角的卡片——截图显示的大多是平坦表面或微圆角元素",
+        "不要使用杂乱的页眉——截图显示的是宽敞、组织有序的导航栏",
+        "不要在正文中使用装饰性字体——截图对所有功能文本都使用干净的无衬线字体",
+        "不要使用霓虹色或高度饱和的点缀色——截图使用的是受控的蓝色和深海军蓝"
+      ],
+      "systemPrompt": "Warby Parker是一个高端、直面消费者的眼镜品牌，拥有干净、编辑感和亲切的电商界面。其设计基因建立在柔和的白色(#FCFBF9, #FFFFFF)、浅灰色(#E1E5E6)、深墨色(#121212)和深海军蓝(#072369)的调色板上，并以主操作蓝色(#1050D0)点缀。字体排印采用人文主义/几何无衬线字体作为正文，过渡衬线字体作为展示标题。关键约束：保持宽松的留白和12列网格；使用大型、高质量摄影；按钮保持药丸形状和高度易读性；避免杂乱布局和不必要的装饰元素；并确保高对比度以实现无障碍访问。"
+    },
+    "zh-TW": {
+      "identity": {
+        "keywords": [
+          "頂級",
+          "平易近人",
+          "時尚",
+          "直接面對消費者",
+          "眼鏡"
+        ],
+        "analogy": "一個精緻、平易近人的現代必需品精品店。",
+        "oneLiner": "一個簡潔、高級的眼鏡電商介面，平衡了大幅攝影與清晰、極簡的排版。"
+      },
+      "colors": {
+        "principle": "以深海軍藍與亮藍色為高對比基礎調色板，引導使用者操作。"
+      },
+      "typography": {
+        "rules": [
+          "所有功能文字、導航與按鈕皆使用無襯線字體。",
+          "僅在主要的編輯標題使用襯線字體。",
+          "保持寬裕的行高以利閱讀。"
+        ],
+        "scaleUses": [
+          "主視覺標題",
+          "章節標題",
+          "副標題與導航",
+          "一般內文與按鈕"
+        ]
+      },
+      "spacing": {
+        "rhythm": "以 4px 為基礎的穩定網格，互動元素擁有寬裕的內距（13px 24px）。"
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(0, 0, 0, 0.04) 0px 1px 4px 0px",
+          "rgba(0, 0, 0, 0.02) 0px 4px 12px 0px",
+          "rgba(18, 18, 18, 0.12) 0px 8px 12px 0px"
+        ],
+        "borders": "使用細的 1px 實線邊框作為輪廓與分隔線。"
+      },
+      "layout": {
+        "skeleton": "12 欄網格，搭配寬間距與最大寬度容器，用於內容與產品展示。"
+      },
+      "components": {
+        "button": "藥丸形狀，搭配粗體無襯線字體，使用主藍色或深海軍藍填充。",
+        "card": "簡潔的容器，陰影效果細膩或無陰影，通常展示大型影像。",
+        "chip": "藥丸形狀的標籤，帶有細邊框或細緻背景色。",
+        "input": "邊框簡潔的輸入欄位，內距寬裕。",
+        "hero": "全寬沉浸式攝影，疊加粗體排版與行動呼籲（CTA）。"
+      },
+      "motion": {
+        "patterns": [
+          "hover 時，opacity 與 box-shadow 的平滑過渡。",
+          "文字與互動元素的顏色過渡。"
+        ]
+      },
+      "interaction": {
+        "hover": "細微的 opacity 變化與 box-shadow 擡升效果。",
+        "click": "立即回應，無複雜動畫。",
+        "transition": "大多數狀態變化使用標準的 0.2s ease-out。",
+        "keyboard": "以清晰的輪廓（白色/黑色圓環）標示 focus 狀態。"
+      },
+      "voice": {
+        "tone": "自信、直接且樂於助人。",
+        "headlineStyle": "粗體、簡潔，常用全大寫以增強衝擊力。",
+        "ctaStyle": "以行動為導向且清晰，使用簡短語句如「從測驗開始」。",
+        "avoid": [
+          "術語",
+          "強勢的銷售語言",
+          "雜亂的佈局"
+        ]
+      },
+      "donts": [
+        "避免使用複雜的漸層——截圖顯示的是純色區塊與乾淨的攝影",
+        "避免在文字上使用陰影——截圖顯示文字直接置於影像或純色背景上，保持清晰",
+        "避免使用過度圓潤的卡片——截圖顯示多為平面表面或微圓角元素",
+        "避免使用雜亂的頁首——截圖顯示寬敞且組織良好的導航欄",
+        "避免在內文使用裝飾性字體——截圖在所有功能文字上使用乾淨的無襯線字體",
+        "避免使用霓虹色或高度飽和的強調色——截圖使用受控的藍色與深海軍藍"
+      ],
+      "systemPrompt": "Warby Parker 是一個頂級的直接面對消費者眼鏡品牌，擁有簡潔、編輯風格且平易近人的電商介面。設計 DNA 建立於柔和白色（#FCFBF9, #FFFFFF）、淺灰色（#E1E5E6）、深墨色（#121212）與深海軍藍（#072369）的調色板上，搭配主要的行動藍色（#1050D0）。排版採用人文主義/幾何無襯線字體作為內文，並以過渡襯線字體作為展示標題。關鍵約束：保持寬裕的留白與 12 欄網格；使用大尺寸、高品質的攝影；保持按鈕為藥丸形狀且高度易讀；避免雜亂佈局與不必要的裝飾元素；並確保高對比以符合無障礙標準。"
+    },
+    "ja": {
+      "identity": {
+        "keywords": [
+          "プレミアム",
+          "親しみやすい",
+          "スタイリッシュ",
+          "D2C（直接販売）",
+          "アイウェア"
+        ],
+        "analogy": "モダンな必需品を扱う、洗練された、/accessibilityに配慮したブティック。",
+        "oneLiner": "大きなフォトグラフィとクリーンでミニマルなタイポグラフィのバランスを取った、アイウェアのためのクリーンでプレミアムなeコマースインターフェース。"
+      },
+      "colors": {
+        "principle": "深いネイビーと明るいブルーのアクセントによる、アクションを誘導する高コントラストのベースパレット。"
+      },
+      "typography": {
+        "rules": [
+          "機能的なテキスト、ナビゲーション、ボタンにはすべてサンセリフを使用。",
+          "プライマリーエディトリアル見出しにはのみセリフを使用。",
+          "可読性のために十分な行間を維持。"
+        ],
+        "scaleUses": [
+          "ヒーロー見出し",
+          "セクション見出し",
+          "小見出しとナビゲーション",
+          "一般的な本文とボタン"
+        ]
+      },
+      "spacing": {
+        "rhythm": "インタラクティブ要素に十分なパディング（13px 24px）を持つ、一貫した4pxベースグリッド。"
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(0, 0, 0, 0.04) 0px 1px 4px 0px",
+          "rgba(0, 0, 0, 0.02) 0px 4px 12px 0px",
+          "rgba(18, 18, 18, 0.12) 0px 8px 12px 0px"
+        ],
+        "borders": "アウトラインと区切りに使用される、薄い1pxの実線ボーダー。"
+      },
+      "layout": {
+        "skeleton": "コンテンツと製品のための、幅広いガターと最大幅コンテナを持つ12カラムグリッド。"
+      },
+      "components": {
+        "button": "太字のサンセリフテキストを持つ、薬莢（ピル）型。プライマリーブルーまたはダークネイビーの塗りつぶしを使用。",
+        "card": "繊細なまたはないシャドウを持つクリーンなコンテナ。大きな画像を特徴とすることが多い。",
+        "chip": "薄いアウトラインまたは繊細な背景を持つ、薬莢（ピル）型のラベル。",
+        "input": "十分なパディングを持つ、クリーンなボーダーフィールド。",
+        "hero": "オーバーレイされた太字のタイポグラフィとCTAを持つ、全幅の没入感のあるフォトグラフィ。"
+      },
+      "motion": {
+        "patterns": [
+          "ホバー時の滑らかなopacityとbox-shadowのトランジション。",
+          "テキストとインタラクティブ要素のためのカラートランジション。"
+        ]
+      },
+      "interaction": {
+        "hover": "繊細なopacityの変化とbox-shadowによる浮き上がり効果。",
+        "click": "複雑なアニメーションなしの即座のレスポンス。",
+        "transition": "ほとんどの状態変更には標準的な0.2sのease-out。",
+        "keyboard": "明確なアウトライン（白/黒のリング）で示されるフォーカス状態。"
+      },
+      "voice": {
+        "tone": "自信に満ち、率直で、かつ親切。",
+        "headlineStyle": "大胆で簡潔、インパクトを与えるための強調された全角英字（all-caps）。",
+        "ctaStyle": "「クイズから始める」のような短いフレーズを使用する、アクション重視で明確な表現。",
+        "avoid": [
+          "専門用語",
+          "攻撃的な営業言葉",
+          "雑然としたレイアウト"
+        ]
+      },
+      "donts": [
+        "複雑なグラデーションを使用しない — スクリーンショットにはフラットなカラーブロックとクリーンなフォトグラフィが示されている",
+        "テキストにドロップシャドウを使用しない — スクリーンショットには画像や単色背景に直接配置されたクリスピーなテキストが示されている",
+        "角丸の大きいカードを使用しない — スクリーンショットには主にフラットなサーフェスまたは微かに角丸の要素が示されている",
+        "雑然としたヘッダーを使用しない — スクリーンショットには広々とした、整理されたナビゲーションバーが示されている",
+        "本文に装飾的なフォントを使用しない — スクリーンショットではすべての機能的なテキストにクリーンなサンセリフが使用されている",
+        "ネオンや Highly saturated なアクセントカラーを使用しない — スクリーンショットではコントロールされたブルーと深いネイビーが使用されている"
+      ],
+      "systemPrompt": "Warby Parker は、クリーンでエディトリアルかつ親しみやすいeコマースインターフェースを持つ、プレミアムなD2C（直接販売）アイウェアブランドです。デザインDNAは、柔らかいホワイト（#FCFBF9、#FFFFFF）、ライトグレー（#E1E5E6）、深いインク（#121212）、深いネイビー（#072369）にプライマリアクションブルー（#1050D0）を加えたパレットに基づいています。タイポグラフィは、本文にヒューマニスト/ジオメトリックサンセリフを、ディスプレイ见出しにトランジショナルセリフを特徴としています。主要な制約：十分なホワイトスペースと12カラムグリッドを維持；大きく高品質なフォトグラフィを使用；ボタンを薬莢（ピル）型で高度に可読に；雑然としたレイアウトと不必要な装飾要素を回避；アクセシビリティのために高いコントラストを維持。"
+    },
+    "ko": {
+      "identity": {
+        "keywords": [
+          "프리미엄",
+          "친근한",
+          "세련된",
+          "D2C(소비자 직접 판매)",
+          "아이웨어"
+        ],
+        "analogy": "현대 필수품을 위한 세련되고 접근성 높은 부티크.",
+        "oneLiner": "대형 사진과 깔끔한 미니멀 타이포그래피의 균형을 맞춘 깨끗하고 프리미엄한 아이웨어 전자상거래 인터페이스입니다."
+      },
+      "colors": {
+        "principle": "행동을 유도하기 위해 딥 네이비와 블루 포인트를 사용한 고대비 기반 팔레트입니다."
+      },
+      "typography": {
+        "rules": [
+          "모든 기능적 텍스트, 네비게이션 및 버튼에 세리프를 사용합니다.",
+          "에디토리얼 메인 제목에만 세리프를 사용합니다.",
+          "가독성을 위해 넉넉한 행간을 유지합니다."
+        ],
+        "scaleUses": [
+          "히어로 제목",
+          "섹션 제목",
+          "부제목 및 네비게이션",
+          "일반 본문 텍스트 및 버튼"
+        ]
+      },
+      "spacing": {
+        "rhythm": "일관된 4px 기반 그리드와 인터랙티브 요소에 넉넉한 패딩(13px 24px)을 사용합니다."
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(0, 0, 0, 0.04) 0px 1px 4px 0px",
+          "rgba(0, 0, 0, 0.02) 0px 4px 12px 0px",
+          "rgba(18, 18, 18, 0.12) 0px 8px 12px 0px"
+        ],
+        "borders": "외곽선과 구분선에 사용되는 1px solid 얇은 테두리입니다."
+      },
+      "layout": {
+        "skeleton": "콘텐츠와 제품을 위한 넓은 거터와 최대 너비 컨테이너를 가진 12칼럼 그리드입니다."
+      },
+      "components": {
+        "button": "볼드한 세리프 텍스트를 사용한 알약 형태로, 프라이머리 블루 또는 다크 네이비 채우기를 사용합니다.",
+        "card": "가볍거나 없는 그림자를 사용한 깨끗한 컨테이너로, 주로 대형 이미지를 특징으로 합니다.",
+        "chip": "얇은 외곽선이나 부드러운 배경을 가진 알약 형태 라벨입니다.",
+        "input": "넉넉한 패딩을 가진 깨끗한 테두리 필드입니다.",
+        "hero": "전체 너비의 몰입감 있는 사진과 그 위에 겹친 볼드한 타이포그래피 및 CTA입니다."
+      },
+      "motion": {
+        "patterns": [
+          "호버 시 부드러운 opacity 및 box-shadow 전환.",
+          "텍스트 및 인터랙티브 요소의 색상 전환."
+        ]
+      },
+      "interaction": {
+        "hover": "미묘한 opacity 변화와 box-shadow 엘리베이션.",
+        "click": "복잡한 애니메이션 없이 즉각적인 반응.",
+        "transition": "대부분의 상태 변화에 표준화된 0.2s ease-out.",
+        "keyboard": "명확한 외곽선(화이트/블랙 링)으로 표시되는 포커스 상태."
+      },
+      "voice": {
+        "tone": "자신감 있고 직접적이며 도움이 되는 어조.",
+        "headlineStyle": "대담하고 간결하며, 종종 인상을 주기 위해 볼드체의 대문자를 사용합니다.",
+        "ctaStyle": "행동을 유도하고 명확한, '퀴즈부터 시작하기'와 같은 짧은 문구를 사용합니다.",
+        "avoid": [
+          "전문 용어",
+          "공격적인 영업 언어",
+          "지저분한 레이아웃"
+        ]
+      },
+      "donts": [
+        "복잡한 그래디언트를 사용하지 않습니다 - 스크린샷은 플랫한 색상 블록과 깨끗한 사진을 보여줍니다.",
+        "텍스트에 그림자를 사용하지 않습니다 - 스크린샷은 이미지나 단색 배경 위에 선명한 텍스트를 보여줍니다.",
+        "매우 둥근 카드를 사용하지 않습니다 - 스크린샷은 주로 플랫한 표면이나 미묘하게 둥근 요소를 보여줍니다.",
+        "지저분한 헤더를 사용하지 않습니다 - 스크린샷은 넓고 잘 정리된 네비게이션 바를 보여줍니다.",
+        "본문 텍스트에 장식용 폰트를 사용하지 않습니다 - 스크린샷은 모든 기능적 텍스트에 깨끗한 세리프를 사용합니다.",
+        "네온이나 매우 채도가 높은 강조색을 사용하지 않습니다 - 스크린샷은 통제된 블루와 딥 네이비를 사용합니다."
+      ],
+      "systemPrompt": "Warby Parker는 깨끗하고 에디토리얼하며 친근한 전자상거래 인터페이스를 갖춘 프리미엄 D2C 아이웨어 브랜드입니다. 디자인 DNA는 부드러운 화이트(#FCFBF9, #FFFFFF), 라이트 그레이(#E1E5E6), 딥 인크(#121212), 딥 네이비(#072369)와 프라이머리 액션 블루(#1050D0)로 구성된 팔레트에 기반합니다. 타이포그래피는 본문용 휴머니스트/기하학적 세리프와 디스플레이 제목용 트랜지셔널 세리프를 특징으로 합니다. 핵심 제약 조건: 넉넉한 여백과 12칼럼 그리드를 유지; 대형 고품질 사진 사용; 버튼은 알약 형태와 높은 가독성을 유지; 지저분한 레이아웃과 불필요한 장식 요소를 피하며; 접근성을 위한 고대비 보장."
+    }
+  },
+  "desc": {
+    "en": {
+      "palette": "A clean, high-contrast palette of soft off-whites, light grays, deep ink, and navy, accented with a vibrant primary blue for interactive elements.",
+      "layout": "A spacious 12-column grid with generous gutters and max-width containers that prioritize large, immersive imagery and clear content hierarchy.",
+      "interaction": "Subtle and refined interactions with smooth transitions for hovers and focus states, maintaining a premium feel.",
+      "motion": "Minimal but polished motion, using consistent easing and durations to guide the user through the experience.",
+      "notes": "This site is a masterclass in modern e-commerce design, balancing premium editorial aesthetics with a highly functional and accessible shopping experience."
+    },
+    "zh-CN": {
+      "palette": "一个干净、高对比度的调色板，包含柔和的灰白色、浅灰色、深墨色和海军蓝，并以充满活力的主蓝色作为交互元素的点缀。",
+      "layout": "一个宽敞的12列网格布局，拥有宽大的间距和最大宽度容器，优先展示大型、沉浸式图像和清晰的内容层级。",
+      "interaction": "微妙而精致的交互，为悬停和焦点状态提供平滑过渡，维持高级质感。",
+      "motion": "简约而精良的动效，使用一致的缓动和时长来引导用户体验流程。",
+      "notes": "这个网站是现代电商设计的典范，平衡了高端的编辑美学与高度实用、无障碍的购物体验。"
+    },
+    "zh-TW": {
+      "palette": "一套簡潔、高對比的調色板，包含柔和的米白、淺灰、深墨色與海軍藍，並以鮮明的主藍色作為互動元素的點綴。",
+      "layout": "採用寬敞的 12 欄網格，搭配寬大的間距與最大寬度容器，優先呈現大尺寸、沉浸式的影像與清晰的內容層次。",
+      "interaction": "細膩且精緻的互動效果，hover 與 focus 狀態擁有平滑的過渡動畫，維持高級質感。",
+      "motion": "簡約但精緻的動態效果，使用一致的緩動曲線與時長，引導使用者流暢地體驗。",
+      "notes": "此網站是現代電商設計的典範，完美平衡了頂級的編輯美學與高度實用且無障礙的購物體驗。"
+    },
+    "ja": {
+      "palette": "柔らかいオフホワイト、ライトグレー、深いインク、ネイビーによる、クリーンで高コントラストなパレット。インタラクティブ要素には鮮やかなプライマリーブルーをアクセントとして使用。",
+      "layout": "広々とした12カラムグリッド。十分なガターと最大幅コンテナにより、大きな没入感のある画像と明確なコンテンツの階層を優先。",
+      "interaction": "ホバーおよびフォーカス状態に滑らかなトランジションを備えた、繊細で洗練されたインタラクション。プレミアムな質感を維持。",
+      "motion": "一貫したイージングとデュレーションを使用し、ユーザーを体験に導く、最小限だが洗練されたモーション。",
+      "notes": "このサイトはモダンなeコマースデザインの教科書であり、プレミアムなエディトリアル美学と、高度に機能的でアクセシブルなショッピング体験を両立させています。"
+    },
+    "ko": {
+      "palette": "부드러운 오프 화이트, 라이트 그레이, 딥 인크, 네이비로 구성된 깨끗하고 고대비 팔레트에, 인터랙티브 요소를 위한 생동감 있는 프라이머리 블루를 포인트로 사용합니다.",
+      "layout": "넓은 12칼럼 그리드와 넉넉한 거터, 최대 너비 컨테이너로 구성되어 몰입감 있는 대형 이미지와 명확한 콘텐츠 계층 구조를 우선시합니다.",
+      "interaction": "호버 및 포커스 상태에서 부드러운 전환을 사용하여 섬세하고 정교한 인터랙션을 구현하며, 프리미엄 감각을 유지합니다.",
+      "motion": "일관된 ease 및 지속 시간을 사용하여 최소화되지만 정교한 모션으로 사용자를 경험으로 안내합니다.",
+      "notes": "이 사이트는 프리미엄 에디토리얼 미학과 기능적이며 접근성 높은 쇼핑 경험의 균형을 맞춘 현대 전자상거래 디자인의 모범 사례입니다."
+    }
+  },
+  "narrative": {
+    "en": {
+      "ch1_intro": "Warby Parker's design system is built like a refined, accessible boutique for modern essentials. It balances the polish of a premium brand with the directness of a direct-to-consumer interface, creating an environment that feels both stylish and unpretentious.",
+      "ch2_intro": "The color system operates on a principle of high contrast and clear hierarchy. A base of soft off-whites and deep ink establishes a clean, readable foundation, while a vibrant primary blue serves as the decisive accent for calls to action.",
+      "ch2_outro": "The palette's restraint ensures that product photography remains the focal point, with color used sparingly to guide rather than decorate.",
+      "ch3_intro": "Typographic voice is split for clarity: a humanist sans-serif handles all functional text with confident legibility, while a transitional serif is reserved for primary editorial headlines. This pairing separates utility from narrative, allowing large product imagery to breathe against crisp, minimal type.",
+      "ch4_intro": "A consistent 4px base grid underpins the entire layout, establishing a steady rhythm. Spacing is deliberate and generous, particularly around interactive elements, to create clarity and reduce visual noise.",
+      "ch5_intro": "Surfaces are defined by depth and clarity. Subtle, layered shadows lift cards and interactive elements just enough to suggest hierarchy, while thin 1px borders provide clean delineation without heaviness.",
+      "ch6_intro": "The layout skeleton is a spacious 12-column grid with wide gutters, designed to host large, immersive photography alongside clear content blocks. Max-width containers ensure a controlled reading line and a focused shopping experience on any screen.",
+      "ch7_intro": "Motion is treated as functional polish rather than embellishment. The system uses smooth, consistent transitions—primarily opacity and shadow shifts—to acknowledge interaction and guide focus without disrupting the user's task.",
+      "ch8_intro": "The editorial voice is confident, direct, and helpful, mirroring the brand's approachable premium position. Headlines are bold and concise, often punchy in all-caps, while calls to action use clear, action-oriented phrases.",
+      "ch8_outro": "The system deliberately avoids jargon, aggressive sales language, and cluttered layouts in favor of clean, purposeful communication."
+    },
+    "zh-CN": {
+      "ch1_intro": "Warby Parker 的设计系统构建如一个精致、易用的现代精品店。它平衡了高端品牌的精致感与直接面向消费者的界面直白，营造出一个既时尚又毫不造作的环境。",
+      "ch2_intro": "色彩系统基于高对比度和清晰层级的原则运作。柔和的米白与深墨色奠定了干净、易读的基础，而充满活力的主蓝色则作为行动号召的关键点缀。",
+      "ch2_outro": "色彩的克制确保了产品摄影始终是视觉焦点，颜色仅被审慎用于引导而非装饰。",
+      "ch3_intro": "字体声音被明确区分：人文主义无衬线字体以其自信的可读性处理所有功能文本，而过渡衬线字体则专用于主要的编辑标题。这种组合将实用性与叙事性分离，让大幅产品图像在简洁、极简的字体旁得以充分展现。",
+      "ch4_intro": "统一的 4px 基础网格支撑着整个布局，建立起稳定的节奏。间距经过精心考量且颇为宽裕，尤其是在交互元素周围，以创造清晰度并减少视觉噪音。",
+      "ch5_intro": "界面通过深度与清晰度来定义。微妙的、分层的阴影将卡片和交互元素轻轻抬起，足以暗示层级关系，而纤细的 1px 边框则提供了干净的界限，不会带来沉重感。",
+      "ch6_intro": "布局骨架是一个宽敞的 12 栏网格，带有宽间距，旨在容纳大型、沉浸式的摄影内容与清晰的内容区块。最大宽度容器确保了受控的阅读行宽和在任何屏幕上专注的购物体验。",
+      "ch7_intro": "动效被视为功能性的优化而非装饰。系统使用平滑、一致的过渡——主要是透明度和阴影变化——来确认交互并引导焦点，而不会干扰用户的任务。",
+      "ch8_intro": "编辑语气自信、直接且乐于助人，反映了品牌平易近人的高端定位。标题粗体且简洁，常用有力的大写字母，而行动号召则使用清晰、面向行动的短语。",
+      "ch8_outro": "该系统刻意避免使用行话、激进的销售语言和杂乱的布局，转而追求干净、有目的性的沟通。"
+    },
+    "zh-TW": {
+      "ch1_intro": "Warby Parker 的設計系統，宛如一間精心打造、平易近人的精品店，專為現代生活必需品而生。它巧妙平衡了高端品牌的精緻感與直銷介面的直接性，營造出一個既時髦又不矯揉造作的氛圍。",
+      "ch2_intro": "色彩系統建立在高對比與清晰層級的原則上。柔軟的米白與深邃的墨色基底，確立了乾淨、易讀的基礎；而鮮明的主藍色則作為行動召喚的決定性強調色。",
+      "ch2_outro": "色盤的節制確保了產品攝影仍是視覺焦點，色彩僅謹慎用於引導而非裝飾。",
+      "ch3_intro": "字體語氣為了清晰度而一分為二：一款人文無襯線字體以自信的可讀性處理所有功能性文字，而一款過渡襯線字體則保留用於主要的編輯標題。這種搭配區分了實用性與敘事性，讓大型產品影像能在乾淨、簡約的字體旁自由呼吸。",
+      "ch4_intro": "一致的 4px 基礎網格支撐著整個版面，建立了穩定的節奏。間距經過精心設計且寬裕，尤其在互動元素周圍，以創造清晰度並減少視覺雜訊。",
+      "ch5_intro": "表面以深度與清晰度定義。細微的層疊陰影將卡片與互動元素適度抬高，以暗示層級；而纖細的 1px 邊框則在不增加沉重感的情況下，提供乾淨的分隔。",
+      "ch6_intro": "版面骨架是一個寬敞的 12 欄網格，配有寬大的溝槽，旨在容納大型、沉浸式的攝影圖像與清晰的內容區塊。最大寬度容器確保了在任何螢幕上，都能提供受控的閱讀行長與專注的購物體驗。",
+      "ch7_intro": "動態效果被視為功能性的修飾，而非裝飾。系統使用流暢、一致的過渡——主要透過不透明度與陰影變化——來確認互動並引導焦點，同時不干擾使用者的任務。",
+      "ch8_intro": "編輯語氣自信、直接且樂於助人，反映了品牌親切的高端定位。標題大膽而簡潔，常以全大寫形式呈現有力表達，而行動召喚則使用清晰、以行動為導向的短語。",
+      "ch8_outro": "此系統刻意避免行話、侵略性的銷售語言與雜亂的版面，轉而追求乾淨、有目的的溝通。"
+    },
+    "ja": {
+      "ch1_intro": "Warby Parker's design system is built like a refined, accessible boutique for modern essentials. It balances the polish of a premium brand with the directness of a direct-to-consumer interface, creating an environment that feels both stylish and unpretentious.",
+      "ch2_intro": "The color system operates on a principle of high contrast and clear hierarchy. A base of soft off-whites and deep ink establishes a clean, readable foundation, while a vibrant primary blue serves as the decisive accent for calls to action.",
+      "ch2_outro": "The palette's restraint ensures that product photography remains the focal point, with color used sparingly to guide rather than decorate.",
+      "ch3_intro": "Typographic voice is split for clarity: a humanist sans-serif handles all functional text with confident legibility, while a transitional serif is reserved for primary editorial headlines. This pairing separates utility from narrative, allowing large product imagery to breathe against crisp, minimal type.",
+      "ch4_intro": "A consistent 4px base grid underpins the entire layout, establishing a steady rhythm. Spacing is deliberate and generous, particularly around interactive elements, to create clarity and reduce visual noise.",
+      "ch5_intro": "Surfaces are defined by depth and clarity. Subtle, layered shadows lift cards and interactive elements just enough to suggest hierarchy, while thin 1px borders provide clean delineation without heaviness.",
+      "ch6_intro": "The layout skeleton is a spacious 12-column grid with wide gutters, designed to host large, immersive photography alongside clear content blocks. Max-width containers ensure a controlled reading line and a focused shopping experience on any screen.",
+      "ch7_intro": "Motion is treated as functional polish rather than embellishment. The system uses smooth, consistent transitions—primarily opacity and shadow shifts—to acknowledge interaction and guide focus without disrupting the user's task.",
+      "ch8_intro": "The editorial voice is confident, direct, and helpful, mirroring the brand's approachable premium position. Headlines are bold and concise, often punchy in all-caps, while calls to action use clear, action-oriented phrases.",
+      "ch8_outro": "The system deliberately avoids jargon, aggressive sales language, and cluttered layouts in favor of clean, purposeful communication."
+    },
+    "ko": {
+      "ch1_intro": "워비 파커의 디자인 시스템은 현대적인 필수품을 위한 정제되고 접근 가능한 부티크처럼 구축되었습니다. 프리미엄 브랜드의 격려와 직접 판매 인터페이스의 직관성을 균형 있게 결합하여, 세련되면서도 거침없는 분위기를 자아냅니다.",
+      "ch2_intro": "컬러 시스템은 높은 대비와 명확한 위계 원칙에 기반합니다. 부드러운 오프화이트와 깊은 잉크 톤이 깔끔하고 가독성 있는 기반을 형성하며, 생동감 있는 메인 블루가 행동 유도 요소에 결정적인 강조색 역할을 합니다.",
+      "ch2_outro": "팔레트의 절제는 제품 사진이 여전히 주요 초점이 되도록 보장하며, 컬러는 장식보다는 안내를 위해 절제적으로 사용됩니다.",
+      "ch3_intro": "타이포그래피는 명확성을 위해 이중으로 구성됩니다: 휴머니스트 산세리프는 확신 있는 가독성으로 모든 기능 텍스트를 다루고, 트랜지셔널 세리프는 주요 에디토리얼 헤드라인에만 사용됩니다. 이 조합은实用性와 서사를 분리하여, 대규모 제품 이미지가 깔끔하고 미니멀한 타이포와 대비되도록 여백을 줍니다.",
+      "ch4_intro": "일관된 4px 기본 그리드가 전체 레이아웃을 뒷받침하며 안정적인 리듬을 설정합니다. 간격은 특히 상호작용 요소 주변에서 의도적이고 넉넉하게 설정되어 명확성을 높이고 시각적 노이즈를 줄입니다.",
+      "ch5_intro": "표면은 깊이와 명확성으로 정의됩니다. 은은하고 층을 이룬 그림자는 카드와 상호작용 요소를 위계를 암시할 정도로 살짝 띄워주며, 얇은 1px 테두리는 무게감 없이 깔끔한 구분을 제공합니다.",
+      "ch6_intro": "레이아웃 골격은 넓은 거터를 가진 12열 그리드로, 몰입감 있는 대형 사진과 명확한 콘텐츠 블록을 수용하도록 설계되었습니다. 최대폭 컨테이너는 어떤 화면에서도 제어된 읽기 줄과 집중된 쇼핑 경험을 보장합니다.",
+      "ch7_intro": "모션은 장식이 아닌 기능적 폴리시로 다뤄집니다. 시스템은 매끄럽고 일관된 전환—주로 불투명도와 그림자 변화—를 사용하여 상호작용을 인지하고 사용자의 작업을 방해하지 않으면서 초점을 안내합니다.",
+      "ch8_intro": "에디토리얼 음성은 확신 있고 직접적이며 도움이 되며, 브랜드의 친근한 프리미엄 포지셔닝을 반영합니다. 헤드라인은 대담하고 간결하며, 종종 대문자로 강렬하게 표현되고, 행동 유도 요소는 명확하고 행동 지향적인 구문을 사용합니다.",
+      "ch8_outro": "시스템은 의도적으로 전문 용어, 공격적인 판매 언어, 지나치게 복잡한 레이아웃을 피하고 대신 깔끔하고 목적에 충실한 커뮤니케이션을 지향합니다."
+    }
+  }
 }

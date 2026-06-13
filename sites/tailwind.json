@@ -8,8 +8,678 @@
     "devtools",
     "css"
   ],
-  "status": "pending",
+  "status": "completed",
   "added_at": "2026-06-02",
   "added_by": "expand-200",
-  "_meta": {}
+  "_meta": {
+    "vision_model": "mimo-v2.5",
+    "vision_prompt_version": "0.3",
+    "vision_source": "playwright-extract:tailwind",
+    "vision_grounded": true,
+    "vision_at": "2026-06-04T19:15:40+00:00",
+    "vision_tokens": 19592,
+    "vision_cost_usd": 0.2177,
+    "translation_model": "mimo-v2.5",
+    "translation_at": "2026-06-04T19:17:13+00:00",
+    "translation_tokens": 19344,
+    "translation_cost_usd": 0.0645,
+    "narrative_model": "mimo-v2.5",
+    "narrative_prompt_version": "0.3",
+    "narrative_at": "2026-06-04T19:17:23+00:00",
+    "narrative_tokens": 2293,
+    "narrative_cost_usd": 0.0153,
+    "narrative_status": "ok",
+    "total_cost_usd": 0.2975
+  },
+  "spec": {
+    "colors": {
+      "bg": "#ffffff",
+      "bgSoft": "#f9fafb",
+      "bgQuiet": "#f3f4f6",
+      "ink": "#111827",
+      "inkSoft": "#374151",
+      "muted": "#6b7280",
+      "mutedSoft": "#9ca3af",
+      "accent": "#0ea5e9",
+      "line": "rgba(0, 0, 0, 0.05)"
+    },
+    "typography": {
+      "display": "humanist-sans",
+      "body": "humanist-sans",
+      "mono": "monospace",
+      "scale": [
+        {
+          "token": "display",
+          "size": 72,
+          "lh": 1.0,
+          "weight": 700,
+          "ls": "-2px"
+        },
+        {
+          "token": "h1",
+          "size": 48,
+          "lh": 1.1,
+          "weight": 600,
+          "ls": "-1.5px"
+        },
+        {
+          "token": "h2",
+          "size": 32,
+          "lh": 1.2,
+          "weight": 600,
+          "ls": "-1px"
+        },
+        {
+          "token": "body-lg",
+          "size": 20,
+          "lh": 1.5,
+          "weight": 400,
+          "ls": "normal"
+        },
+        {
+          "token": "body",
+          "size": 16,
+          "lh": 1.5,
+          "weight": 400,
+          "ls": "normal"
+        },
+        {
+          "token": "code",
+          "size": 14,
+          "lh": 1.6,
+          "weight": 400,
+          "ls": "0"
+        },
+        {
+          "token": "caption",
+          "size": 13,
+          "lh": 1.5,
+          "weight": 500,
+          "ls": "0.2px"
+        }
+      ]
+    },
+    "spacing": {
+      "base": 4,
+      "scale": [
+        4,
+        8,
+        12,
+        16,
+        20,
+        24,
+        32,
+        40,
+        48,
+        64,
+        80,
+        96
+      ]
+    },
+    "surfaces": {
+      "radius": {
+        "sm": 4,
+        "md": 8,
+        "lg": 12,
+        "xl": 16,
+        "pill": 999
+      }
+    },
+    "layout": {
+      "container": 1280,
+      "paragraph": 680,
+      "columns": 12,
+      "gutter": 24,
+      "breakpoints": [
+        640,
+        768,
+        1024,
+        1280
+      ]
+    },
+    "motion": {
+      "durations": {
+        "micro": 150,
+        "small": 300,
+        "medium": 350
+      },
+      "easing": "cubic-bezier(0.4, 0, 0.2, 1)"
+    }
+  },
+  "spec_i18n": {
+    "en": {
+      "identity": {
+        "keywords": [
+          "utility-first",
+          "modern",
+          "developer-focused",
+          "clean",
+          "efficient"
+        ],
+        "analogy": "A precision toolset for web developers that feels both powerful and approachable.",
+        "oneLiner": "A utility-first CSS framework for rapidly building modern websites."
+      },
+      "colors": {
+        "principle": "High-contrast, monochromatic base with a single vibrant sky-blue accent for code and interactive elements."
+      },
+      "typography": {
+        "rules": [
+          "Headlines use tight letter-spacing (-2px to -1px) for a modern, dense feel.",
+          "Body text maintains a comfortable 1.5 line-height for readability.",
+          "Code blocks use a distinct monospace font for clear differentiation."
+        ],
+        "scaleUses": [
+          "Hero headlines",
+          "Section titles",
+          "Card titles",
+          "Lead paragraphs",
+          "General text",
+          "Code blocks",
+          "UI labels and captions"
+        ]
+      },
+      "spacing": {
+        "rhythm": "Consistent 4px grid with generous padding in feature cards and clear separation between sections."
+      },
+      "surfaces": {
+        "shadows": [
+          "0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1)",
+          "inset 0 0 0 1px rgba(0, 0, 0, 0.1)",
+          "inset 0 0 0 1px rgba(255, 255, 255, 0.1)",
+          "inset 0 0 0 1px rgba(0, 0, 0, 0.05)"
+        ],
+        "borders": "1px solid rgba(0, 0, 0, 0.05) for containers, with subtle inset borders for interactive elements."
+      },
+      "layout": {
+        "skeleton": "Centered, single-column hero flowing into a responsive grid for feature cards."
+      },
+      "components": {
+        "button": "Solid black 'Get started' button with white text and rounded pill shape.",
+        "card": "White cards with subtle rounded corners (12-16px) and very light inset or drop shadows, containing code snippets and feature descriptions.",
+        "chip": "Inline code tags with light gray background, blue text, and small rounded corners.",
+        "input": "Search bar with light border, rounded corners, and a subtle keyboard shortcut indicator.",
+        "hero": "Massive left-aligned typography with a clear hierarchy, followed by two action buttons."
+      },
+      "motion": {
+        "patterns": [
+          "Smooth transitions for color, background-color, and opacity on hover states.",
+          "Subtle transform animations for interactive elements like buttons and links.",
+          "Consistent easing curves across all transitions for a cohesive feel."
+        ]
+      },
+      "interaction": {
+        "hover": "Subtle color shifts for links (text to accent blue) and background changes for buttons.",
+        "click": "Immediate visual feedback through opacity or subtle transform changes.",
+        "transition": "Smooth 150ms to 300ms transitions for all interactive properties.",
+        "keyboard": "Full keyboard navigation with visible focus rings for accessibility."
+      },
+      "voice": {
+        "tone": "Confident, direct, and developer-focused without being overly technical or jargon-heavy.",
+        "headlineStyle": "Large, bold, and tightly tracked statements that emphasize speed and simplicity.",
+        "ctaStyle": "Clear, action-oriented buttons like 'Get started' that guide the user to the next step.",
+        "avoid": [
+          "Marketing fluff",
+          "Unnecessary adjectives",
+          "Complex sentences",
+          "Passive voice"
+        ]
+      },
+      "donts": [
+        "don't use gradient backgrounds — screenshot shows a clean, solid white background with no gradients.",
+        "don't use serif typography — screenshot shows humanist-sans fonts for all display and body text.",
+        "don't use heavy drop shadows — screenshot shows very subtle, light shadows for depth.",
+        "don't use multiple accent colors — screenshot shows a single sky-blue accent (#0ea5e9) for interactive code elements.",
+        "don't use complex decorative borders — screenshot shows simple, light 1px borders or no borders at all.",
+        "don't use centered hero text — screenshot shows a strong left-aligned headline and body copy."
+      ],
+      "systemPrompt": "This is the website for Tailwind CSS, a utility-first CSS framework. It positions itself as a modern, efficient tool for developers to build websites rapidly. The visual design is clean, professional, and content-focused. Key colors include a crisp white background (#ffffff), near-black text (#111827), and a vibrant sky-blue accent (#0ea5e9) for code highlights. Typography uses humanist-sans fonts for clarity, with a bold display style featuring tight letter-spacing. Critical design constraints include: never use centered headlines (the layout is strongly left-aligned), avoid multiple accent colors (stick to the single blue), and maintain generous whitespace. The site uses a 12-column grid with a 24px gutter and features cards with subtle rounded corners (12-16px) and minimal shadows."
+    },
+    "zh-CN": {
+      "identity": {
+        "keywords": [
+          "实用优先",
+          "现代",
+          "面向开发者",
+          "简洁",
+          "高效"
+        ],
+        "analogy": "一套为网页开发者打造的精密工具集，兼具强大功能与亲和力。",
+        "oneLiner": "一个用于快速构建现代网站的实用优先 CSS 框架。"
+      },
+      "colors": {
+        "principle": "高对比度的单色基底，搭配一个用于代码和交互元素的活力天空蓝点缀色。"
+      },
+      "typography": {
+        "rules": [
+          "标题使用紧凑的字间距（-2px 至 -1px），营造现代、紧凑的感觉。",
+          "正文保持舒适的1.5行高以确保可读性。",
+          "代码块使用独特的等宽字体以清晰区分。"
+        ],
+        "scaleUses": [
+          "主标题",
+          "章节标题",
+          "卡片标题",
+          "导语段落",
+          "通用文本",
+          "代码块",
+          "UI标签和说明文字"
+        ]
+      },
+      "spacing": {
+        "rhythm": "基于一致的4px网格，功能卡片内使用充足的内边距，章节之间有清晰的分隔。"
+      },
+      "surfaces": {
+        "shadows": [
+          "0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1)",
+          "inset 0 0 0 1px rgba(0, 0, 0, 0.1)",
+          "inset 0 0 0 1px rgba(255, 255, 255, 0.1)",
+          "inset 0 0 0 1px rgba(0, 0, 0, 0.05)"
+        ],
+        "borders": "容器使用1px solid rgba(0, 0, 0, 0.05)边框，交互元素则采用细微的内嵌边框。"
+      },
+      "layout": {
+        "skeleton": "居中的单列主视觉区域，延伸至响应式功能卡片网格。"
+      },
+      "components": {
+        "button": "纯黑色的'Get started'按钮，白色文字，圆角药丸形状。",
+        "card": "白色卡片，带有细微圆角（12-16px）和极浅的内嵌或投影阴影，包含代码片段和功能描述。",
+        "chip": "内联代码标签，浅灰色背景，蓝色文字，带小圆角。",
+        "input": "搜索栏，浅色边框，圆角，带有细微的键盘快捷键提示。",
+        "hero": "巨大的左对齐排版，具有清晰的层次结构，下方是两个操作按钮。"
+      },
+      "motion": {
+        "patterns": [
+          "悬停状态下颜色、背景色和不透明度的平滑过渡。",
+          "按钮和链接等交互元素的细微变换动画。",
+          "所有过渡效果使用一致的缓动曲线，营造统一感。"
+        ]
+      },
+      "interaction": {
+        "hover": "链接颜色微妙变化（文字变为点缀蓝色），按钮背景变化。",
+        "click": "通过不透明度或细微变换变化提供即时视觉反馈。",
+        "transition": "所有交互属性采用平滑的150ms至300ms过渡。",
+        "keyboard": "完全支持键盘导航，带有可见的焦点环以确保可访问性。"
+      },
+      "voice": {
+        "tone": "自信、直接、面向开发者，不过于技术化或充斥术语。",
+        "headlineStyle": "大号、加粗、字距紧凑的陈述，强调速度和简洁性。",
+        "ctaStyle": "清晰、行动导向的按钮，如'Get started'，引导用户进入下一步。",
+        "avoid": [
+          "营销套话",
+          "不必要的形容词",
+          "复杂句式",
+          "被动语态"
+        ]
+      },
+      "donts": [
+        "不要使用渐变背景——截图显示的是干净、纯白的背景，没有渐变。",
+        "不要使用衬线字体——截图显示所有展示和正文文本均使用人文无衬线字体。",
+        "不要使用厚重的投影——截图显示用于营造深度的投影非常细微、浅淡。",
+        "不要使用多种点缀色——截图显示仅使用单一的天空蓝（#0ea5e9）作为交互式代码元素的点缀色。",
+        "不要使用复杂的装饰性边框——截图显示的是简单、浅色的1px边框或完全没有边框。",
+        "不要使用居中的主标题文本——截图显示的是强烈左对齐的标题和正文。"
+      ],
+      "systemPrompt": "这是 Tailwind CSS 的网站，一个实用优先的 CSS 框架。它将自身定位为开发者快速构建网站的现代、高效工具。视觉设计简洁、专业、以内容为中心。关键颜色包括干净的白色背景（#ffffff）、近黑色文字（#111827）和用于代码高亮的活力天空蓝点缀色（#0ea5e9）。排版使用人文无衬线字体以确保清晰度，展示风格为加粗且字间距紧凑。关键设计约束包括：绝不使用居中标题（布局为强烈左对齐），避免使用多种点缀色（仅使用单一蓝色），并保持充足的留白。网站采用12列网格，间距为24px，功能卡片带有细微圆角（12-16px）和极简阴影。"
+    },
+    "zh-TW": {
+      "identity": {
+        "keywords": [
+          "工具優先",
+          "現代",
+          "專為開發者設計",
+          "乾淨",
+          "高效"
+        ],
+        "analogy": "一套專為網路開發者打造的精密工具組，感覺既強大又親切。",
+        "oneLiner": "一個工具優先的 CSS 框架，能快速構建現代網站。"
+      },
+      "colors": {
+        "principle": "採用高對比的單色調作為基礎，並以單一鮮明的天空藍作為強調色，用於程式碼與互動元素。"
+      },
+      "typography": {
+        "rules": [
+          "標題使用緊湊的字間距（-2px 至 -1px），營造現代、緊密的感覺。",
+          "內文維持舒適的 1.5 行高，確保可讀性。",
+          "程式碼區塊使用獨特的等寬字體，以清晰區分。"
+        ],
+        "scaleUses": [
+          "首頁標題",
+          "區塊標題",
+          "卡片標題",
+          "導言段落",
+          "一般文字",
+          "程式碼區塊",
+          "介面標籤與圖說"
+        ]
+      },
+      "spacing": {
+        "rhythm": "採用一致的 4px 格線，功能卡片內有寬裕的 padding，區塊之間有清晰的間隔。"
+      },
+      "surfaces": {
+        "shadows": [
+          "0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1)",
+          "inset 0 0 0 1px rgba(0, 0, 0, 0.1)",
+          "inset 0 0 0 1px rgba(255, 255, 255, 0.1)",
+          "inset 0 0 0 1px rgba(0, 0, 0, 0.05)"
+        ],
+        "borders": "容器使用 1px solid rgba(0, 0, 0, 0.05) 邊框，互動元素則使用細微的內嵌邊框。"
+      },
+      "layout": {
+        "skeleton": "置中的單欄首頁區塊，流暢地銜接到響應式的功能卡片格線系統。"
+      },
+      "components": {
+        "button": "實心黑色的「Get started」按鈕，配備白色文字與圓潤的膠囊造型。",
+        "card": "白色卡片，帶有細微的圓角（12-16px）與非常輕的內嵌或投影陰影，內含程式碼片段與功能描述。",
+        "chip": "內聯程式碼標籤，淺灰色背景、藍色文字與小圓角。",
+        "input": "搜尋欄，淺色邊框、圓角，並有一個細微的鍵盤快捷鍵提示。",
+        "hero": "大尺寸、左對齊的排版，具有清晰的層次結構，下方伴隨兩個操作按鈕。"
+      },
+      "motion": {
+        "patterns": [
+          "在 hover 狀態下，提供顏色、背景顏色與透明度的平滑過渡。",
+          "為按鈕和連結等互動元素提供細微的變形動畫。",
+          "所有過渡效果均使用一致的緩動曲線，以營造連貫的視覺感受。"
+        ]
+      },
+      "interaction": {
+        "hover": "連結（文字到強調藍）與按鈕（背景變換）的細微顏色變化。",
+        "click": "透過透明度或細微的變形變化，提供立即的視覺回饋。",
+        "transition": "所有互動屬性均採用 150ms 至 300ms 的平滑過渡效果。",
+        "keyboard": "完整的鍵盤導覽功能，並配有可見的 focus ring 以確保可及性。"
+      },
+      "voice": {
+        "tone": "自信、直接，專為開發者設計，避免過度技術化或術語堆砌。",
+        "headlineStyle": "大尺寸、粗體且字間距緊湊的聲明式標題，強調速度與簡潔。",
+        "ctaStyle": "清晰、導向行動的按鈕，如「Get started」，引導使用者進入下一步。",
+        "avoid": [
+          "行銷用語",
+          "不必要的形容詞",
+          "複雜的句子",
+          "被動語態"
+        ]
+      },
+      "donts": [
+        "不要使用漸層背景 —— 截圖顯示的是一個乾淨、純白的背景，沒有任何漸層。",
+        "不要使用襯線體字型 —— 截圖顯示所有展示與內文文字均使用人文主義無襯線體（humanist-sans）。",
+        "不要使用厚重的投影陰影 —— 截圖顯示用於營造深度的是非常細微、輕盈的陰影。",
+        "不要使用多個強調色 —— 截圖顯示僅使用單一天空藍（#0ea5e9）作為互動程式碼元素的強調色。",
+        "不要使用複雜的裝飾性邊框 —— 截圖顯示的是簡單的、輕量的 1px 邊框，或完全沒有邊框。",
+        "不要使用置中的首頁文字 —— 截圖顯示的是強烈的左對齊標題與內文。"
+      ],
+      "systemPrompt": "這是 Tailwind CSS 的官方網站，一個工具優先的 CSS 框架。它將自己定位為一個現代、高效的工具，讓開發者能快速建構網站。視覺設計乾淨、專業，並以內容為核心。關鍵色彩包括純白背景（#ffffff）、接近黑色的文字（#111827），以及一個鮮明的天空藍（#0ea5e9）作為強調色，用於程式碼高亮。字型排印使用人文主義無襯線體（humanist-sans）以求清晰，展示標題則採用粗體風格並搭配緊湊的字間距。關鍵的設計限制包括：永不使用置中的標題（佈局為強烈的左對齊）、避免使用多個強調色（堅持單一藍色），以及保持寬裕的留白。網站使用一個 12 欄格線系統，欄間距為 24px，功能卡片具有細微的圓角（12-16px）與極簡的陰影。"
+    },
+    "ja": {
+      "identity": {
+        "keywords": [
+          "ユーティリティファースト",
+          "モダン",
+          "開発者向け",
+          "クリーン",
+          "効率的"
+        ],
+        "analogy": "Web開発者のための、パワフルでありながら使いやすい精密なツールセット。",
+        "oneLiner": "モダンなWebサイトを素早く構築するためのユーティリティファーストCSSフレームワーク。"
+      },
+      "colors": {
+        "principle": "高コントラストの単色ベースに、コードやインタラクティブ要素用の鮮やかなスカイブルーアクセントを1色使用。"
+      },
+      "typography": {
+        "rules": [
+          "見出しは、モダンで密度の高い印象のために、字間を詰めて使用（-2px～-1px）。",
+          "本文は、読みやすさのために快適な行高1.5を維持。",
+          "コードブロックは、明確な区別のため、特徴的なモノスペースフォントを使用。"
+        ],
+        "scaleUses": [
+          "ヒーロー見出し",
+          "セクションタイトル",
+          "カードタイトル",
+          "リード段落",
+          "本文テキスト",
+          "コードブロック",
+          "UIラベル・キャプション"
+        ]
+      },
+      "spacing": {
+        "rhythm": "一貫した4pxグリッド。フィーチャーカードには十分なパディングを設定し、セクション間には明確な区切りを配置。"
+      },
+      "surfaces": {
+        "shadows": [
+          "0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1)",
+          "inset 0 0 0 1px rgba(0, 0, 0, 0.1)",
+          "inset 0 0 0 1px rgba(255, 255, 255, 0.1)",
+          "inset 0 0 0 1px rgba(0, 0, 0, 0.05)"
+        ],
+        "borders": "コンテナには1px solid rgba(0, 0, 0, 0.05)を使用し、インタラクティブ要素には控えめなインセットボーダーを適用。"
+      },
+      "layout": {
+        "skeleton": "中央揃えの単一カラムヒーローから、フィーチャーカード用のレスポンシブグリッドへと展開。"
+      },
+      "components": {
+        "button": "白テキストの堅実な黒の「Get started」ボタン。角丸のピル型。",
+        "card": "角丸（12-16px）と極めて控えめなインセットまたはドロップシャドウを持つ白いカード。コードスニペットとフィーチャーの説明を含む。",
+        "chip": "ライトグレーの背景、青いテキスト、小さな角丸を持つインラインコードタグ。",
+        "input": "ライトボーダー、角丸、控えめなキーボードショートカットインジケーターを持つ検索バー。",
+        "hero": "明確な階層構造を持つ、巨大な左揃えのタイポグラフィ。その下に2つのアクションボタンを配置。"
+      },
+      "motion": {
+        "patterns": [
+          "ホバーステートでのcolor、background-color、opacityの滑らかなトランジション。",
+          "ボタンやリンクなどのインタラクティブ要素に対する、控えめなtransformアニメーション。",
+          "一貫した印象のために、すべてのトランジションで一貫したイージングカーブを使用。"
+        ]
+      },
+      "interaction": {
+        "hover": "リンク（テキストからアクセントブルーへ）やボタンの背景変更に対する、控えめな色の変化。",
+        "click": "opacityや控えめなtransformの変化による、即座の視覚フィードバック。",
+        "transition": "すべてのインタラクティブプロパティに対し、150msから300msの滑らかなトランジション。",
+        "keyboard": "アクセシビリティのため、フォーカスリングを明確に表示した完全なキーボードナビゲーション。"
+      },
+      "voice": {
+        "tone": "開発者に焦点を当て、技術過多や専門用語の過多にならないよう、自信を持ち直接的。",
+        "headlineStyle": "スピードとシンプルさを強調する、太字で字間を詰めた大きなステートメント。",
+        "ctaStyle": "ユーザーを次のステップへ導く明確で行動を促すボタン（例: 「Get started」）。",
+        "avoid": [
+          "マーケティング的な表現",
+          "不必要な形容詞",
+          "複雑な文",
+          "受動態"
+        ]
+      },
+      "donts": [
+        "グラデーション背景は使用しない — スクリーンショットではグラデーションのないクリーンな白背景が使用されている。",
+        "セリフ系のタイポグラフィは使用しない — スクリーンショットでは表示テキストと本文テキストの両方でサンセリフ（humanist-sans）フォントが使用されている。",
+        "重いドロップシャドウは使用しない — スクリーンショットでは奥行きのための非常に控えめで明るいシャドウが使用されている。",
+        "複数のアクセントカラーは使用しない — スクリーンショットではインタラクティブなコード要素に単一のスカイブルーアクセント（#0ea5e9）が使用されている。",
+        "複雑な装飾ボーダーは使用しない — スクリーンショットではシンプルで明るい1pxのボーダー、またはボーダー自体が使用されていない。",
+        "中央揃えのヒーローテキストは使用しない — スクリーンショットでは強力な左揃えの見出しと本文コピーが使用されている。"
+      ],
+      "systemPrompt": "これは、ユーティリティファーストCSSフレームワークであるTailwind CSSのWebサイトです。開発者がWebサイトを迅速に構築するためのモダンで効率的なツールとしてポジショニング。ビジュアルデザインはクリーンでプロフェッショナル、コンテンツに焦点を当てている。主要カラーには、鮮やかな白背景（#ffffff）、ほぼ黒のテキスト（#111827）、コードハイライト用の鮮やかなスカイブルーアクセント（#0ea5e9）が含まれる。タイポグラフィは明瞭さのためにサンセリフ（humanist-sans）フォントを使用し、太字で字間を詰めた表示スタイルを採用。重要なデザイン制約には、見出しを決して中央揃えにしないこと（レイアウトは強力に左揃えであること）、複数のアクセントカラーを使用しないこと（単一の青色に留めること）、適切な余白を維持することなどが挙げられる。サイトは24pxのガターを持つ12カラムグリッドを使用し、控えめな角丸（12-16px）と最小限のシャドウを持つカードを特徴としている。"
+    },
+    "ko": {
+      "identity": {
+        "keywords": [
+          "유틸리티-퍼스트",
+          "모던",
+          "개발자 중심",
+          "깔끔",
+          "효율적"
+        ],
+        "analogy": "강력하면서도 친숙하게 느껴지는 웹 개발자를 위한 정밀 도구 모음입니다.",
+        "oneLiner": "현대적인 웹사이트를 빠르게 구축하기 위한 유틸리티-퍼스트 CSS 프레임워크입니다."
+      },
+      "colors": {
+        "principle": "고대비 모노크로𝑚 베이스에 코드와 인터랙티브 요소를 위한 생동감 있는 스카이블루 악센트를 하나 사용합니다."
+      },
+      "typography": {
+        "rules": [
+          "제목은 모던하고 밀도 높은 느낌을 위해 타이트한 자간(-2px에서 -1px)을 사용합니다.",
+          "본문은 가독성을 위해 편안한 1.5줄 높이를 유지합니다.",
+          "코드 블록은 명확한 구분을 위해 별도의 모노스페이스 폰트를 사용합니다."
+        ],
+        "scaleUses": [
+          "히어로 제목",
+          "섹션 제목",
+          "카드 제목",
+          "도입단락",
+          "일반 텍스트",
+          "코드 블록",
+          "UI 레이블 및 설명"
+        ]
+      },
+      "spacing": {
+        "rhythm": "일관된 4px 그리드를 기반으로, 기능 카드에는 넉넉한 패딩을, 섹션 간에는 명확한 간격을 둡니다."
+      },
+      "surfaces": {
+        "shadows": [
+          "0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1)",
+          "inset 0 0 0 1px rgba(0, 0, 0, 0.1)",
+          "inset 0 0 0 1px rgba(255, 255, 255, 0.1)",
+          "inset 0 0 0 1px rgba(0, 0, 0, 0.05)"
+        ],
+        "borders": "컨테이너에는 1px solid rgba(0, 0, 0, 0.05)의 테두리를, 인터랙티브 요소에는 미묘한 삽입 테두리를 사용합니다."
+      },
+      "layout": {
+        "skeleton": "중앙 정렬, 단일 컬럼 히어로 영역이 기능 카드용 반응형 그리드로 이어집니다."
+      },
+      "components": {
+        "button": "흰색 텍스트의 둥근 필 모양, 검은색 'Get started' 버튼입니다.",
+        "card": "코드 스니펫과 기능 설명을 담고 있으며, 미묘하게 둥근 모서리(12-16px)와 매우 옅은 삽입 또는 드롭 그림자가 적용된 흰색 카드입니다.",
+        "chip": "밝은 회색 배경, 파란색 텍스트, 작은 둥근 모서리가 적용된 인라인 코드 태그입니다.",
+        "input": "밝은 테두리, 둥근 모서리, 그리고 미묘한 키보드 단축키 표시가 있는 검색 바입니다.",
+        "hero": "명확한 계층 구조의 대형 좌측 정렬 타이포그래피와 두 개의 액션 버튼이 이어집니다."
+      },
+      "motion": {
+        "patterns": [
+          "hover 상태에서의 색상, 배경색, 불투명도에 대한 부드러운 전환.",
+          "버튼과 링크와 같은 인터랙티브 요소에 대한 미묘한 transform 애니메이션.",
+          "모든 전환에서 일관된 이징 곡선을 사용하여 통일된 느낌을 줍니다."
+        ]
+      },
+      "interaction": {
+        "hover": "링크(텍스트에서 악센트 블루로)와 버튼의 배경 변경에 대한 미묘한 색상 변화.",
+        "click": "불투명도나 미묘한 transform 변화를 통한 즉각적인 시각적 피드백.",
+        "transition": "모든 인터랙티브 속성에 대해 부드러운 150ms에서 300ms의 전환.",
+        "keyboard": "접근성을 위한 눈에 보이는 초점 링과 함께하는 전체 키보드 탐색."
+      },
+      "voice": {
+        "tone": "지나치게 기술적이거나 전문 용어가 많지 않은, 자신감 있고 직접적이며 개발자 중심적인 어조.",
+        "headlineStyle": "속도와 단순함을 강조하는 크고 굵은, 타이트한 자간의 문장들.",
+        "ctaStyle": "'Get started'와 같이 다음 단계로 사용자를 안내하는 명확하고 행동 지향적인 버튼.",
+        "avoid": [
+          "마케팅성 과장",
+          "불필요한 형용사",
+          "복잡한 문장",
+          "수동태"
+        ]
+      },
+      "donts": [
+        "그라데이션 배경 사용 금지 — 스크린샷에는 그라데이션이 없는 깔끔하고 단색의 흰색 배경이 보입니다.",
+        "세리프 타이포그래피 사용 금지 — 스크린샷에는 모든 디스플레이 및 본문 텍스트에 humanist-sans 폰트가 사용되었습니다.",
+        "무거운 드롭 그도미 사용 금지 — 스크린샷에는 깊이감을 위해 매우 미묘하고 밝은 그림자가 사용되었습니다.",
+        "여러 악센트 색상 사용 금지 — 스크린샷에는 인터랙티브 코드 요소를 위한 단일 스카이블루 악센트(#0ea5e9)가 사용되었습니다.",
+        "복잡한 장식 테두리 사용 금지 — 스크린샷에는 단순하고 밝은 1px 테두리나 테두리 자체가 없습니다.",
+        "중앙 정렬 히어로 텍스트 사용 금지 — 스크린샷에는 강한 좌측 정렬 제목과 본문 텍스트가 있습니다."
+      ],
+      "systemPrompt": "이것은 유틸리티-퍼스트 CSS 프레임워크인 Tailwind CSS의 웹사이트입니다. 개발자가 웹사이트를 빠르게 구축할 수 있는 현대적이고 효율적인 도구로 자리매김합니다. 비주얼 디자인은 깔끔하고 전문적이며 콘텐츠 중심적입니다. 주요 색상으로는 깨끗한 흰색 배경(#ffffff), 거의 검은색 텍스트(#111827), 그리고 코드 하이라이트를 위한 생동감 있는 스카이블루 악센트(#0ea5e9)가 포함됩니다. 타이포그래피는 명확성을 위해 humanist-sans 폰트를 사용하며, 타이트한 자간의 굵은 디스플레이 스타일을 적용합니다. 핵심 디자인 제약 조건은 다음과 같습니다: 절대 중앙 정렬 제목 사용 금지(레이아웃은 강한 좌측 정렬), 여러 악센트 색상 사용 금지(단일 블루 유지), 그리고 넉넉한 여백 유지. 사이트는 24px 거터가 있는 12컬럼 그리드를 사용하며, 미묘하게 둥근 모서리(12-16px)와 최소한의 그림자가 적용된 카드를 특징으로 합니다."
+    }
+  },
+  "desc": {
+    "en": {
+      "palette": "A clean, high-contrast monochromatic palette with a single vibrant sky-blue accent.",
+      "layout": "Centered container with a strong left-aligned hero flowing into a responsive 12-column grid for feature cards.",
+      "interaction": "Smooth, consistent transitions for interactive elements, prioritizing clarity and accessibility.",
+      "motion": "Subtle, purposeful animations with consistent easing curves for a polished feel.",
+      "notes": "A masterclass in developer-focused design that balances power with approachability through clean typography and generous spacing."
+    },
+    "zh-CN": {
+      "palette": "干净、高对比度的单色系调色板，配以一个活力十足的天空蓝作为点缀色。",
+      "layout": "居中容器，左侧对齐的强大主视觉区域，延伸至响应式12列网格用于功能卡片。",
+      "interaction": "交互元素采用平滑、一致的过渡效果，优先考虑清晰度和可访问性。",
+      "motion": "细微而富有目的的动画，配合一致的缓动曲线，营造精致感。",
+      "notes": "堪称开发者导向设计的典范，通过简洁的排版和充足的留白，在强大功能与易用性之间取得平衡。"
+    },
+    "zh-TW": {
+      "palette": "一個乾淨、高對比的單色調色板，搭配一個鮮明的天空藍作為強調色。",
+      "layout": "以置中的容器為核心，搭配一個強烈的左對齊首頁區塊，並流暢地銜接到一個響應式的 12 欄格線系統，用於功能卡片。",
+      "interaction": "為互動元素提供流暢、一致的過渡效果，優先考慮清晰度與可及性。",
+      "motion": "細微且有目的的動畫，搭配一致的緩動曲線，營造出精緻的感受。",
+      "notes": "一場專為開發者設計的範例，透過乾淨的字體排印與寬裕的留白，在強大功能與易用性之間取得平衡。"
+    },
+    "ja": {
+      "palette": "クリーンで高コントラストの単色パレットに、鮮やかなスカイブルーのアクセントを1色のみ使用。",
+      "layout": "中央揃えのコンテナに、強力な左揃えヒーローから、フィーチャーカード用のレスポンシブ12カラムグリッドへと展開。",
+      "interaction": "インタラクティブ要素には、明瞭さとアクセシビリティを優先した滑らかで一貫したトランジション。",
+      "motion": "洗練された印象のために、一貫したイージングカーブを使用した、意図的で控えめなアニメーション。",
+      "notes": "クリーンなタイポグラフィと適切な余白を活用し、パワフルさと親しみやすさのバランスを取った、開発者向けデザインの教科書的な一例。"
+    },
+    "ko": {
+      "palette": "고대비 모노크로𝑚 팔레트에 생동감 있는 스카이블루 악센트를 하나 사용한 깔끔한 구성입니다.",
+      "layout": "강한 좌측 정렬 히어로 영역이 반응형 12컬럼 그리드로 자연스럽게 이어지는 중앙 정렬 컨테이너입니다.",
+      "interaction": "명확성과 접근성을 우선시하여, 인터랙티브 요소들에 부드럽고 일관된 전환 효과를 적용합니다.",
+      "motion": "일관된 이징 곡선을 사용한 미묘하고 목적 지향적인 애니메이션으로, 세련된 느낌을 연출합니다.",
+      "notes": "깔끔한 타이포그래피와 넉넉한 여백을 통해 강력함과 접근성의 균형을 맞춘, 개발자 중심 디자인의 레슨과 같습니다."
+    }
+  },
+  "narrative": {
+    "en": {
+      "ch1_intro": "The Tailwind CSS site is designed as a precision toolset for web developers, balancing power with approachability through clean geometry and generous whitespace. Its identity is built on the principles of being **utility-first**, modern, and efficient, resulting in a visual system that feels both sharp and immediately useful.",
+      "ch2_intro": "The color system is built on a high-contrast, monochromatic base of near-black text against a crisp white background, creating a clean canvas. A single vibrant sky-blue accent is reserved for interactive and code elements, providing a clear focal point without visual clutter.",
+      "ch2_outro": "The guiding principle is restraint, using color functionally to denote action rather than for decorative flourish.",
+      "ch3_intro": "Typography employs a humanist-sans family for clarity and approachability across all text. Headlines use a tight, modern letter-spacing to create dense, impactful statements, while body text maintains a comfortable 1.5 line-height for sustained reading.",
+      "ch4_intro": "The layout is governed by a consistent 4px grid rhythm, creating predictable vertical and horizontal spacing throughout the interface.",
+      "ch5_intro": "Surface depth is achieved through subtlety, using very light inset borders and minimal drop shadows to differentiate containers. This approach creates a layered hierarchy without heavy visual weight, keeping the focus on the content within.",
+      "ch6_intro": "The layout skeleton is anchored by a centered, single-column hero with strong left-aligned typography. This flows into a responsive 12-column grid that organizes feature cards with generous gutters, creating a clear content hierarchy from broad statements to specific details.",
+      "ch7_intro": "Motion is applied with purpose and consistency, using smooth transitions for interactive states like hover and focus. Subtle transform animations and consistent easing curves provide feedback without distraction, reinforcing the system's clean and efficient character.",
+      "ch8_intro": "The editorial voice is confident, direct, and developer-focused, avoiding marketing fluff and passive constructions. It communicates with large, bold headlines and clear, action-oriented calls-to-action that guide the user forward.",
+      "ch8_outro": "The system deliberately avoids gradients, serif typography, heavy shadows, multiple accent colors, complex borders, and centered hero text to maintain its focused, utilitarian clarity."
+    },
+    "zh-CN": {
+      "ch1_intro": "Tailwind CSS 网站被设计为面向网页开发者的精密工具集，通过简洁的几何形态与充裕的留白，在功能强大与易于上手之间取得平衡。其设计内核建立在 **utility-first**、现代与高效的原则之上，最终呈现出一个既锐利又即时可用的视觉系统。",
+      "ch2_intro": "色彩体系建立于高对比度的单色基底之上，近黑色的文字与洁净的白色背景形成清晰的画布。单一的明亮天蓝色仅用于交互元素与代码，为页面提供明确的视觉焦点，且不造成视觉杂乱。",
+      "ch2_outro": "其指导原则是克制，色彩运用功能化，用于指示操作而非装饰性点缀。",
+      "ch3_intro": "排版采用人文无衬线字体，确保所有文本清晰易读。标题使用紧凑的现代字间距，营造密集、有力的视觉陈述；正文则保持舒适的 1.5 倍行高，便于持续阅读。",
+      "ch4_intro": "布局遵循一致的 4px 网格节奏，为整个界面创造可预测的垂直与水平间距。",
+      "ch5_intro": "界面层次感通过细微之处实现，运用极轻的内边框与最小化的投影来区分容器。这种方法在不增加视觉重量的前提下构建了清晰的层级关系，将焦点保持在内容本身。",
+      "ch6_intro": "页面骨架以居中的单栏核心区域为基础，搭配强而有力的左对齐排版。随后自然过渡到响应式的 12 栏网格，通过充裕的间距组织功能卡片，形成从宏观陈述到具体细节的清晰内容层级。",
+      "ch7_intro": "动效的运用兼具目的性与一致性，为 hover、focus 等交互状态提供平滑的过渡。细微的变换动画与统一的缓动曲线在不造成干扰的前提下给予用户反馈，强化了系统整洁高效的特质。",
+      "ch8_intro": "编辑风格自信、直接、以开发者为中心，避免营销话术与被动语态。通过大号加粗标题与清晰、行动导向的引导性文案，推动用户向前探索。",
+      "ch8_outro": "该系统刻意规避渐变、衬线字体、厚重阴影、多种强调色、复杂边框以及居中的核心区域文字，以保持其专注、实用的清晰特质。"
+    },
+    "zh-TW": {
+      "ch1_intro": "Tailwind CSS 網站被設計為網頁開發人員的精密工具組，透過簡潔的幾何圖形與充足的留白，在強大功能與易用性之間取得平衡。其設計基於**工具優先**、現代且高效的原則，構建出一套既銳利又立即實用的視覺系統。",
+      "ch2_intro": "色彩系統建立於近乎黑色的文字與純白背景所構成的高對比單色基調，打造乾淨的畫布。單一鮮明的天空藍色僅用於互動與程式碼元素，在不造成視覺雜亂的前提下，提供清晰的視覺焦點。",
+      "ch2_outro": "核心原則是克制，以功能性方式運用色彩來標示操作，而非純粹裝飾。",
+      "ch3_intro": "字體採用 humanist-sans 字族，在所有文字中兼具清晰度與親和力。標題使用緊湊的現代字距，營造密集且具衝擊力的語句，而內文則維持舒適的 1.5 行高以利長時間閱讀。",
+      "ch4_intro": "版面配置遵循一致的 4px 網格節奏，在整個介面中創造可預期的垂直與水平間距。",
+      "ch5_intro": "介面層次透過細膩手法實現，利用極細的內凹邊框與最小化的陰影來區分容器。此方式在不增加視覺重量的前提下建立層級結構，將焦點保持於內部內容。",
+      "ch6_intro": "版面骨架以置中的單欄英雄區為核心，搭配強烈的左對齊文字排版。此配置延伸至響應式 12 欄網格，透過充裕的欄溝組織功能卡片，從廣泛陳述到具體細節建立清晰的內容層次。",
+      "ch7_intro": "動效運用兼具目的性與一致性，針對 hover、focus 等互動狀態採用流暢的過渡效果。細微的變換動畫與一致的緩動曲線提供回饋而不造成干擾，強化系統乾淨高效的特質。",
+      "ch8_intro": "編輯語氣自信、直接且以開發人員為核心，避免行銷用語與被動語態。透過大而醒目的標題與明確、行動導向的引導按鈕，清晰引導使用者前進。",
+      "ch8_outro": "系統刻意避免漸層、襯線字體、厚重陰影、多色調強調、複雜邊框及置中英雄文字，以維持其聚焦、實用的清晰度。"
+    },
+    "ja": {
+      "ch1_intro": "Tailwind CSSのサイトは、Web開発者向けの精密なツールセットとして設計されています。クリーンなジオメトリと豊かなwhitespaceを用いて、力強さと親しみやすさのバランスを実現しています。そのアイデンティティは、**ユーティリティファースト**、モダン、そして効率性という原則の上に構築されており、鋲でありながら即座に有用に感じられるビジュアルシステムを生み出しています。",
+      "ch2_intro": "カラーシステムは、近黒テキストと鮮やかな白い背景という高コントラストの単色ベースに構築されています。これによりクリーンなキャンバスが作られます。鮮やかなスカイブルーのアクセント色は、インタラクティブ要素とコード要素にのみ使用され、視覚的な雑踏なしに明確な焦点を提供します。",
+      "ch2_outro": "導入原則は抑制にあります。装飾的な華やかさのためではなく、アクションを示すための機能的にカラーを使用します。",
+      "ch3_intro": "タイポグラフィは、すべてのテキストにおいて明瞭さと親しみやすさのためにhumanist-sansフォントファミリーを採用しています。見出しは、密度が高くインパクトのあるステートメントを生み出すために、タイトでモダンな文字間隔を使用します。一方、本文は持続的な読書のために快適な1.5のline-heightを維持しています。",
+      "ch4_intro": "レイアウトは、一貫した4pxグリッドリズムによって制御され、インターフェース全体で予測可能な垂直および水平のスペーシングを生み出しています。",
+      "ch5_intro": "サーフェスの奥行きは、微細な手法で実現しています。非常に薄いインセットボーダーと最小限のドロップシャドウを使用してコンテナを区別します。このアプローチは、重い視覚的重みなしに階層的なレイヤリングを生み出し、コンテンツ自体への集中を維持します。",
+      "ch6_intro": "レイアウトの骨格は、強い左揃えタイポグラフィを持つセンタリングされたシングルカラムのヒーローセクションに固定されています。これは、幅広いギターで機能カードを整理するレスポンシブな12カラムグリッドへと流れ込み、広範なステートメントから具体的な詳細まで、明確なコンテンツ階層を生み出しています。",
+      "ch7_intro": "モーションは、目的と一貫性を持って適用されます。hoverやfocusといったインタラクティブ状態には、滑らかなトランジションを使用します。微細なトランスフォームアニメーションと一貫したイージングカーブは、気を散らすことなくフィードバックを提供し、システムのクリーンで効率的な特性を強化します。",
+      "ch8_intro": "エディトリアルボイスは自信に満ち、率直で、開発者に焦点を当てています。マーケティングの冗長さや受動態を避けます。 largeでboldな見出しと、ユーザーを導く明確でアクション指向のCTAを通じて、明確にコミュニケーションします。",
+      "ch8_outro": "システムは意図的にグラデーション、セリフタイポグラフィ、重いシャドウ、複数のアクセントカラー、複雑なボーダー、およびセンタリングされたヒーローテキストを避けることで、焦点を絞った、実用的な明瞭さを維持しています。"
+    },
+    "ko": {
+      "ch1_intro": "Tailwind CSS 사이트는 웹 개발자를 위한 정밀 도구 모음으로 설계되었으며, 깔끔한 기하학과 넉넉한 여백을 통해 강력함과 접근성 사이의 균형을 맞추고 있습니다. 이 사이트의 정체성은 **utility-first**, 현대적, 효율적인 원칙을 기반으로 구축되어, 예리하면서도 즉시 유용한 느낌의 시각 시스템을 만들어냅니다.",
+      "ch2_intro": "색상 시스템은 거의 검은색 텍스트와 선명한 흰색 배경의 고대비 단색 기반 위에 구축되어 깨끗한 캔버스를 만듭니다. 한 가지 강렬한 스카이블루 강조색은 인터랙티브 요소와 코드 요소에만 사용되어, 시각적 혼잡함 없이 명확한 초점을 제공합니다.",
+      "ch2_outro": "지침 원칙은 절제이며, 색상은 장식적인 장식이 아닌 기능적으로 행동을 나타내기 위해 사용됩니다.",
+      "ch3_intro": "타이포그래피는 모든 텍스트에서 명확성과 접근성을 위해 humanist-sans 서체 계열을 사용합니다. 제목은 밀집되고 영향력 있는 구문을 만들기 위해 타이트하고 현대적인 자간을 사용하며, 본문 텍스트는 지속적인 독서를 위해 편안한 1.5 행간을 유지합니다.",
+      "ch4_intro": "레이아웃은 일관된 4px 그리드 리듬에 의해 규율을 받으며, 인터페이스 전체에 예측 가능한 수직 및 수평 간격을 만듭니다.",
+      "ch5_intro": "표면 깊이감은 미묘함을 통해 달성되며, 매우 연한 내부 테두리와 최소한의 그림자를 사용하여 컨테이너를 구별합니다. 이 접근 방식은 무거운 시각적 무게 없이 계층적 구조를 만들어 콘텐츠에 초점을 유지합니다.",
+      "ch6_intro": "레이아웃 골격은 강한 왼쪽 정렬 타이포그래피를 가진 중앙 정렬 단일 열 영웅 영역을 중심으로 자리 잡고 있습니다. 이것은 넉넉한 간격을 둔 기능 카드를 정리하는 반응형 12열 그리드로 이어져, 광범위한 구체적 세부 사항까지 명확한 콘텐츠 계층 구조를 만듭니다.",
+      "ch7_intro": "모션은 목적과 일관성을 가지고 적용되며, hover와 같은 인터랙티브 상태에 대해 부드러운 전환을 사용합니다. 미묘한 transform 애니메이션과 일관된 easing 커브는 방해 없이 피드백을 제공하여 시스템의 깔끔하고 효율적인 특성을 강화합니다.",
+      "ch8_intro": "에디토리얼 톤은 자신감 있고 직설적이며, 개발자 중심적이며 마케팅 문구와 수동적 구조를 피합니다. 큰 굵은 제목과 명확하고 행동 지향적인 CTA를 통해 사용자를 안내하며 소통합니다.",
+      "ch8_outro": "시스템은 초점이 맞춰진 실용적인 명확성을 유지하기 위해 의도적으로 gradient, 세리프 타이포그래피, 무거운 그림자, 다수의 강조색, 복잡한 테두리, 중앙 정렬된 영웅 영역 텍스트를 피합니다."
+    }
+  }
 }

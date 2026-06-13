@@ -8,6 +8,634 @@
     "productivity",
     "notes"
   ],
-  "status": "pending",
-  "added_at": "2026-06-02"
+  "status": "completed",
+  "added_at": "2026-06-02",
+  "spec": {
+    "colors": {
+      "bg": "#FBFBFA",
+      "bgSoft": "#FFF9EB",
+      "bgQuiet": "#F5F4F2",
+      "ink": "#1C1917",
+      "inkSoft": "#57534E",
+      "muted": "#A8A29E",
+      "mutedSoft": "#E7E5E4",
+      "accent": "#F59E0B",
+      "line": "rgba(0,0,0,0.06)"
+    },
+    "typography": {
+      "display": "geometric-sans",
+      "body": "humanist-sans",
+      "mono": "monospace",
+      "scale": [
+        {
+          "token": "display",
+          "size": 64,
+          "lh": 1.05,
+          "weight": 700,
+          "ls": "-2px"
+        },
+        {
+          "token": "h2",
+          "size": 40,
+          "lh": 1.15,
+          "weight": 700,
+          "ls": "-1px"
+        },
+        {
+          "token": "h3",
+          "size": 24,
+          "lh": 1.3,
+          "weight": 600,
+          "ls": "-0.5px"
+        },
+        {
+          "token": "body",
+          "size": 16,
+          "lh": 1.6,
+          "weight": 400,
+          "ls": "0"
+        },
+        {
+          "token": "small",
+          "size": 14,
+          "lh": 1.5,
+          "weight": 400,
+          "ls": "0"
+        }
+      ]
+    },
+    "spacing": {
+      "base": 4,
+      "scale": [
+        4,
+        8,
+        12,
+        16,
+        20,
+        24,
+        32,
+        48,
+        64,
+        96,
+        128
+      ]
+    },
+    "surfaces": {
+      "radius": {
+        "sm": 6,
+        "md": 8,
+        "lg": 12,
+        "pill": 999
+      }
+    },
+    "layout": {
+      "container": 1200,
+      "paragraph": 680,
+      "columns": 12,
+      "gutter": 24,
+      "breakpoints": [
+        768,
+        1024
+      ]
+    },
+    "motion": {
+      "durations": {
+        "micro": 150,
+        "small": 200,
+        "medium": 400
+      },
+      "easing": "cubic-bezier(0.4, 0, 0.2, 1)"
+    }
+  },
+  "spec_i18n": {
+    "en": {
+      "identity": {
+        "keywords": [
+          "knowledge management",
+          "object-based",
+          "connected notes",
+          "studio for your mind"
+        ],
+        "analogy": "A minimalist design studio where ideas are treated as tangible objects.",
+        "oneLiner": "A home for everything you think, learn, and create."
+      },
+      "colors": {
+        "principle": "Warm, earthy neutrals grounded in near-black, with a single warm gold accent."
+      },
+      "typography": {
+        "rules": [
+          "Display headlines use tight negative tracking",
+          "Body text maintains a comfortable 1.6 line-height for readability",
+          "Mono font is reserved exclusively for code blocks and technical snippets"
+        ],
+        "scaleUses": [
+          "Hero headline",
+          "Section headline",
+          "Sub-section headline",
+          "Body text",
+          "Captions and metadata"
+        ]
+      },
+      "spacing": {
+        "rhythm": "Consistent 4px grid with generous section padding (128px) to create breathing room."
+      },
+      "surfaces": {
+        "shadows": [
+          "0 1px 2px rgba(0,0,0,0.04)",
+          "0 4px 12px rgba(0,0,0,0.08)",
+          "0 20px 40px -4px rgba(0,0,0,0.12)"
+        ],
+        "borders": "Very subtle, 1px solid borders in a warm light gray."
+      },
+      "layout": {
+        "skeleton": "Single column centered hero transitioning into a multi-column feature grid."
+      },
+      "components": {
+        "button": "High-contrast black primary with white text; transparent secondary with black text and icon.",
+        "card": "White, slightly rounded rectangles with very soft drop shadows for floating UI previews.",
+        "chip": "Rounded-pill tags with light pastel backgrounds (peach, blue, green, purple) and muted text.",
+        "input": "Clean, single-line inputs with rounded corners and subtle borders.",
+        "hero": "Large centered typography with floating illustrative UI cards and a warm radial gradient overlay."
+      },
+      "motion": {
+        "patterns": [
+          "Subtle hover transitions on interactive elements",
+          "Opacity fades for modal or overlay appearances"
+        ]
+      },
+      "interaction": {
+        "hover": "Subtle background color change or opacity shift.",
+        "click": "Immediate visual feedback via color darkening or slight scale reduction.",
+        "transition": "Smooth, 0.15s to 0.2s ease-out transitions for most state changes.",
+        "keyboard": "Standard focus rings following OS defaults."
+      },
+      "voice": {
+        "tone": "Calm, intellectual, and confident.",
+        "headlineStyle": "Direct, benefit-driven statements that are easy to scan.",
+        "ctaStyle": "Action-oriented and clear, using simple verbs like 'Start Free' or 'Discover Product'.",
+        "avoid": [
+          "Overly technical jargon",
+          "Aggressive sales language",
+          "Excessive punctuation",
+          "Vague or buzzword-heavy descriptions"
+        ]
+      },
+      "donts": [
+        "Don't use a pure cold white — the screenshot shows a warm, off-white background (#FBFBFA).",
+        "Don't use sharp corners — the cards and buttons in the screenshot have distinct rounding (8px-12px).",
+        "Don't use bright, neon accents — the screenshot uses a warm, muted gold (#F59E0B) as the primary accent.",
+        "Don't use dense, cramped layouts — the screenshot shows generous whitespace and padding (128px).",
+        "Don't use decorative serifs for headlines — the screenshot shows a clean, geometric sans-serif display font.",
+        "Don't use heavy drop shadows — the screenshot uses very soft, diffused shadows for depth."
+      ],
+      "systemPrompt": "Capacities is a clean, refined productivity tool designed as a 'studio for your mind.' It uses a warm, off-white background (#FBFBFA) paired with near-black ink (#1C1917) and a single gold accent (#F59E0B) for highlights. The typography features a geometric sans for display and a humanist sans for body text, creating a calm and intellectual tone. The layout is spacious, with a 1280px container, 128px section padding, and generous use of whitespace. Cards are soft and elevated with subtle shadows. Critical donts: never use a cold, clinical white; never use sharp corners on cards; never use aggressive or neon colors; avoid dense, cramped layouts; never use decorative serifs for headlines; and never use heavy, harsh drop shadows."
+    },
+    "zh-CN": {
+      "identity": {
+        "keywords": [
+          "知识管理",
+          "基于对象",
+          "关联笔记",
+          "思维工作室"
+        ],
+        "analogy": "一个极简的设计工作室，将想法视为有形的对象。",
+        "oneLiner": "你所有思考、学习和创造内容的归宿。"
+      },
+      "colors": {
+        "principle": "温暖、质朴的中性色，以近黑色为基调，搭配一个温暖的金色强调色。"
+      },
+      "typography": {
+        "rules": [
+          "展示标题使用紧凑的负字距",
+          "正文保持舒适的 1.6 行高以确保可读性",
+          "等宽字体仅用于代码块和技术片段"
+        ],
+        "scaleUses": [
+          "主标题",
+          "章节标题",
+          "子章节标题",
+          "正文",
+          "说明文字和元数据"
+        ]
+      },
+      "spacing": {
+        "rhythm": "遵循一致的 4px 网格，章节内边距宽松（128px）以创造呼吸空间。"
+      },
+      "surfaces": {
+        "shadows": [
+          "0 1px 2px rgba(0,0,0,0.04)",
+          "0 4px 12px rgba(0,0,0,0.08)",
+          "0 20px 40px -4px rgba(0,0,0,0.12)"
+        ],
+        "borders": "非常细微的 1px 实线边框，采用温暖的浅灰色。"
+      },
+      "layout": {
+        "skeleton": "从单栏居中的主视觉区域，过渡到多栏功能网格。"
+      },
+      "components": {
+        "button": "高对比度的黑色主按钮，配白色文字；透明次级按钮，配黑色文字和图标。",
+        "card": "白色、略带圆角的矩形，带有非常柔和的投影，用于浮动的 UI 预览。",
+        "chip": "圆角药丸标签，带有柔和的淡彩背景（桃色、蓝色、绿色、紫色）和低饱和度的文字。",
+        "input": "简洁的单行输入框，带有圆角和细微边框。",
+        "hero": "居中的大号字体排版，搭配浮动的示意性 UI 卡片和温暖的径向渐变覆盖层。"
+      },
+      "motion": {
+        "patterns": [
+          "交互元素上的细微悬停过渡",
+          "模态框或覆盖层出现时的透明度淡入"
+        ]
+      },
+      "interaction": {
+        "hover": "细微的背景色变化或透明度偏移。",
+        "click": "通过颜色加深或轻微缩放提供即时视觉反馈。",
+        "transition": "大多数状态变化采用 0.15s 到 0.2s 的流畅 ease-out 过渡。",
+        "keyboard": "遵循操作系统默认设置的标准聚焦环。"
+      },
+      "voice": {
+        "tone": "冷静、理性且自信。",
+        "headlineStyle": "直接、以效益为导向的陈述，易于快速浏览。",
+        "ctaStyle": "行动导向且清晰，使用简单的动词，如'免费开始'或'发现产品'。",
+        "avoid": [
+          "过于专业的术语",
+          "侵略性的销售语言",
+          "过多的标点符号",
+          "模糊或充满流行词的描述"
+        ]
+      },
+      "donts": [
+        "不要使用纯冷白色——截图显示的是温暖的米白色背景（#FBFBFA）。",
+        "不要使用尖锐的直角——截图中的卡片和按钮有明显的圆角（8px-12px）。",
+        "不要使用明亮的霓虹色强调——截图使用温暖、柔和的金色（#F59E0B）作为主强调色。",
+        "不要使用密集、拥挤的布局——截图显示出宽敞的留白和内边距（128px）。",
+        "不要在标题中使用装饰性衬线字体——截图显示的是简洁、几何感的无衬线展示字体。",
+        "不要使用厚重的投影——截图使用非常柔和、弥散的阴影来营造纵深感。"
+      ],
+      "systemPrompt": "Capacities 是一款简洁、精致的生产力工具，被设计为'思维工作室'。它使用温暖的米白色背景（#FBFBFA），搭配近黑色的墨迹色（#1C1917）和一个用于强调的金色（#F59E0B）。字体方面，展示部分使用几何无衬线体，正文使用人文主义无衬线体，营造出冷静、理性的基调。布局宽敞，采用 1280px 容器，章节内边距为 128px，并充分利用留白。卡片柔和且富有立体感，带有细微阴影。关键禁忌：绝不要使用冰冷、临床感的白色；绝不要在卡片上使用尖锐的直角；绝不要使用侵略性或霓虹色；避免密集、拥挤的布局；绝不要在标题中使用装饰性衬线体；绝不要使用厚重、生硬的投影。"
+    },
+    "zh-TW": {
+      "identity": {
+        "keywords": [
+          "知識管理",
+          "物件導向",
+          "關聯式筆記",
+          "心靈的工作室"
+        ],
+        "analogy": "一個極簡的設計工作室，將想法視為有形的物件。",
+        "oneLiner": "存放你所有思考、學習與創造事物的家。"
+      },
+      "colors": {
+        "principle": "以近黑色為基底的溫暖大地色中性色調，搭配單一溫暖的金色作為點綴。"
+      },
+      "typography": {
+        "rules": [
+          "展示標題使用緊湊的負 tracking",
+          "內文維持舒適的 1.6 行高以利閱讀",
+          "等寬字體僅保留用於程式碼區塊與技術片段"
+        ],
+        "scaleUses": [
+          "主標題",
+          "章節標題",
+          "子章節標題",
+          "內文",
+          "說明文字與元資料"
+        ]
+      },
+      "spacing": {
+        "rhythm": "一致的 4px 網格，搭配充裕的章節 padding（128px），創造呼吸空間。"
+      },
+      "surfaces": {
+        "shadows": [
+          "0 1px 2px rgba(0,0,0,0.04)",
+          "0 4px 12px rgba(0,0,0,0.08)",
+          "0 20px 40px -4px rgba(0,0,0,0.12)"
+        ],
+        "borders": "非常細微的 1px 實線邊框，採用溫暖的淺灰色。"
+      },
+      "layout": {
+        "skeleton": "單欄居中的主視覺區域，過渡至多欄的功能區塊網格。"
+      },
+      "components": {
+        "button": "高對比的黑色主要按鈕搭配白色文字；透明的次要按鈕搭配黑色文字與圖示。",
+        "card": "白色、略帶圓角的矩形卡片，配有非常柔和的陰影，用於浮動的 UI 預覽。",
+        "chip": "圓角膠囊式標籤，採用柔和的淺色背景（桃色、藍色、綠色、紫色）與低飽和度的文字。",
+        "input": "簡潔的單行輸入框，帶有圓角與細微的邊框。",
+        "hero": "大型居中的字體排版，搭配浮動的說明性 UI 卡片與溫暖的徑向漸層覆蓋。"
+      },
+      "motion": {
+        "patterns": [
+          "互動元素的細微 hover 轉場",
+          "視窗或覆蓋層出現時的透明度淡入效果"
+        ]
+      },
+      "interaction": {
+        "hover": "細微的背景色變化或透明度轉移。",
+        "click": "透過顏色加深或輕微縮放來提供即時的視覺回饋。",
+        "transition": "大多數狀態變換採用流暢的 0.15 秒至 0.2 秒 ease-out 轉場。",
+        "keyboard": "遵循作業系統預設的標準 focus rings。"
+      },
+      "voice": {
+        "tone": "冷靜、知性且自信。",
+        "headlineStyle": "直接、以效益為導向且易於瀏覽的陳述。",
+        "ctaStyle": "以行動為導向且清晰，使用如「免費開始」或「探索產品」等簡潔動詞。",
+        "avoid": [
+          "過度專業的術語",
+          "強勢的銷售用語",
+          "過多的標點符號",
+          "模糊或充斥流行詞的描述"
+        ]
+      },
+      "donts": [
+        "勿使用純粹的冷白色 — 螢幕截圖顯示的是溫暖的米白色背景（#FBFBFA）。",
+        "勿使用尖銳的直角 — 螢幕截圖中的卡片和按鈕具有明顯的圓角（8px-12px）。",
+        "勿使用明亮、霓虹感的點綴色 — 螢幕截圖使用溫暖、柔和的金色（#F59E0B）作為主要強調色。",
+        "勿使用擁擠、密集的版面 — 螢幕截圖顯示了充裕的留白和 padding（128px）。",
+        "勿在標題中使用裝飾性襯線體 — 螢幕截圖使用乾淨、幾何風格的無襯線展示字體。",
+        "勿使用厚重的投影效果 — 螢幕截圖使用非常柔和、擴散的陰影來創造深度。"
+      ],
+      "systemPrompt": "Capacities 是一個簡潔、精緻的生產力工具，被設計為「心靈的工作室」。它採用溫暖的米白色背景（#FBFBFA），搭配近黑色的墨色（#1C1917）和單一的金色點綴（#F59E0B）作為強調。字型排版使用幾何無襯線體作為展示字體，並搭配人文無襯線體作為內文字體，營造出冷靜且知性的氛圍。版面寬敞，使用 1280px 容器、128px 的章節 padding，並大量運用留白。卡片質地柔和並帶有細微的陰影。關鍵禁忌：絕不使用冰冷、臨床感的白色；絕不在卡片上使用尖銳的直角；絕不使用強勢或霓虹色調；避免擁擠密集的版面；絕不在標題中使用裝飾性襯線體；也絕不使用厚重、生硬的投影效果。"
+    },
+    "ja": {
+      "identity": {
+        "keywords": [
+          "ナレッジ管理",
+          "オブジェクトベース",
+          "接続されたノート",
+          "あなたの心のスタジオ"
+        ],
+        "analogy": "アイデアを有形のオブジェクトとして扱う、ミニマルなデザインスタジオ。",
+        "oneLiner": "考え、学び、創り出すすべてのための拠り所。"
+      },
+      "colors": {
+        "principle": "ブラックに近い色を基盤とした、温かみのある自然なニュートラル。単一のウォームゴールドアクセントを配します。"
+      },
+      "typography": {
+        "rules": [
+          "ディスプレイ见出しにはタイトなネガティブトラッキングを使用",
+          "本文は可読性を考慮し、快適な1.6の行間を維持",
+          "モノフォントはコードブロックや技術的なスニペットにのみ使用"
+        ],
+        "scaleUses": [
+          "ヒーロー見出し",
+          "セクション见出し",
+          "サブセクション见出し",
+          "本文",
+          "キャプションとメタデータ"
+        ]
+      },
+      "spacing": {
+        "rhythm": "一定の4pxグリッドと、呼吸を活かすための余裕のあるセクションパディング（128px）を採用。"
+      },
+      "surfaces": {
+        "shadows": [
+          "0 1px 2px rgba(0,0,0,0.04)",
+          "0 4px 12px rgba(0,0,0,0.08)",
+          "0 20px 40px -4px rgba(0,0,0,0.12)"
+        ],
+        "borders": "非常に控えめな1pxの実線ボーダー。暖かいライトグレーを使用。"
+      },
+      "layout": {
+        "skeleton": "センタリングされたヒーローセクションから、マルチカラムの機能グリッドへと展開するシングルカラムレイアウト。"
+      },
+      "components": {
+        "button": "白文字のハイコントラストなブラックプライマリ。テキストとアイコンはブラックのセカンダリは透明。",
+        "card": "フローティングUIプレビューのための、非常に柔らかいドロップシャドウを持つ、角丸の白色長方形。",
+        "chip": "明るいパステル背景（ピーチ、ブルー、グリーン、パープル）と抑制されたテキストを持つ、角丸のタグ。",
+        "input": "角丸と控えめなボーダーを持つ、クリーンな単一ライン入力フィールド。",
+        "hero": "フローティングするイラスト的なUIカードと、ウォームなラジアルグラデーションオーバーレイを伴う、大きなセンタリングタイポグラフィ。"
+      },
+      "motion": {
+        "patterns": [
+          "インタラクティブ要素の微妙なhoverトランジション",
+          "モーダルやオーバーレイ表示時のフェードイン/フェードアウト"
+        ]
+      },
+      "interaction": {
+        "hover": "微妙な背景色の変化、またはopacityの変化。",
+        "click": "色の暗転や微細なスケール縮小による即時的な視覚フィードバック。",
+        "transition": "ほとんどの状態変化に対し、スムーズな0.15秒から0.2秒のease-outトランジション。",
+        "keyboard": "OSのデフォルトに準拠した標準的なフォーカスリング。"
+      },
+      "voice": {
+        "tone": "落ち着いた、知的で自信のあるトーン。",
+        "headlineStyle": "スキャンしやすい、直接的で便益を示すステートメント。",
+        "ctaStyle": "「無料で始める」や「製品を見る」など、シンプルな動詞を用いた、行動を促す明確な表現。",
+        "avoid": [
+          "過度に技術的な専門用語",
+          "攻撃的なセールスコピー",
+          "過剰な句読点",
+          "曖昧、またはバズワード多用の記述"
+        ]
+      },
+      "donts": [
+        "純粋な寒色のホワイトを使用しない — スクリーンショットでは温かみのあるオフホワイト背景（#FBFBFA）が使用されている。",
+        "角を鋭くしない — スクリーンショットのカードやボタンには明確な角丸（8px-12px）が適用されている。",
+        "明るくネオンのようなアクセントを使用しない — スクリーンショットでは温かみのあるマットなゴールド（#F59E0B）がプライマリアクセントとして使用されている。",
+        "密度が高く、窮屈なレイアウトを作らない — スクリーンショットでは余裕のあるホワイトスペースとパディング（128px）が活用されている。",
+        "装飾的なセリフ体を見出しに使用しない — スクリーンショットではクリーンで幾何学的なサンセリフのディスプレイフォントが使用されている。",
+        "重いドロップシャドウを使用しない — スクリーンショットでは奥行きを出すために非常に柔らかく拡散されたシャドウが使用されている。"
+      ],
+      "systemPrompt": "Capacitiesは、「あなたの心のスタジオ」としてデザインされた、クリーンで洗練された生産性ツールです。温かみのあるオフホワイト背景（#FBFBFA）に、ブラックに近いインク（#1C1917）と、要点を強調する単一のゴールドアクセント（#F59E0B）を組み合わせています。タイポグラフィには、ディスプレイ用の幾何学的サンセリフと、本文用のヒューマニストサンセリフを採用し、落ち着いた知的なトーンを生み出しています。レイアウトは1280pxコンテナ、128pxのセクションパディング、豊富なホワイトスペースを活用した、余裕のあるもの。カードは柔らかく、微妙なシャドウで浮き上がり効果。重要な禁止事項：寒く臨床的なホワイトは絶対に使用しない；カードには決して角を丸くしない；攻撃的、またはネオンのような色は使用しない；密度が高く窮屈なレイアウトは回避する；装飾的なセリフ体を見出しに使用しない；重く攻撃的なドロップシャドウは絶対に使用しない。"
+    },
+    "ko": {
+      "identity": {
+        "keywords": [
+          "지식 관리",
+          "객체 기반",
+          "연결된 노트",
+          "마음의 스튜디오"
+        ],
+        "analogy": "아이디어를 유형의 객체로 대우하는 미니멀리스트 디자인 스튜디오입니다.",
+        "oneLiner": "생각하고, 배우고, 만드는 모든 것의 집."
+      },
+      "colors": {
+        "principle": "블랙에 가까운 색상으로 기반을 잡은 따뜻하고 지구적인 중성색에 단 하나의 따뜻한 골드 악센트."
+      },
+      "typography": {
+        "rules": [
+          "디스플레이 헤드라인은 타이트한 음수 트래킹을 사용합니다",
+          "본문 텍스트는 가독성을 위해 편안한 1.6 줄 높이를 유지합니다",
+          "모노 폰트는 코드 블록 및 기술 스니펫에만 엄격히 사용합니다"
+        ],
+        "scaleUses": [
+          "히어로 헤드라인",
+          "섹션 헤드라인",
+          "하위 섹션 헤드라인",
+          "본문 텍스트",
+          "캡션 및 메타데이터"
+        ]
+      },
+      "spacing": {
+        "rhythm": "일관된 4px 그리드에 여유로운 섹션 패딩(128px)을 사용하여 숨 쉴 공간을 만듭니다."
+      },
+      "surfaces": {
+        "shadows": [
+          "0 1px 2px rgba(0,0,0,0.04)",
+          "0 4px 12px rgba(0,0,0,0.08)",
+          "0 20px 40px -4px rgba(0,0,0,0.12)"
+        ],
+        "border": "따뜻한 밝은 회색의 매우 미세한 1px 실선 테두리입니다."
+      },
+      "layout": {
+        "skeleton": "중앙 정렬된 싱글 칼럼 히어로에서 다중 칼럼 기능 그리드로 전환됩니다."
+      },
+      "components": {
+        "button": "흰색 텍스트의 고대비 블랙 기본 버튼; 검정 텍스트와 아이콘이 있는 투명한 보조 버튼.",
+        "card": "부유하는 UI 미리보기를 위한 매우 부드러운 드롭 섀도우가 적용된 약간 둥근 흰색 직사각형.",
+        "chip": "연한 파스텔 배경(피치, 블루, 그린, 퍼플)과 무드 있는 텍스트가 적용된 둥근 알약 모양 태그.",
+        "input": "둥근 모서리와 미세한 테두리가 있는 깔끔한 단일 라인 입력 필드.",
+        "hero": "부유하는 일러스트레이티브 UI 카드와 따뜻한 방사형 그래디언트 오버레이가 있는 대형 중앙 정렬 타이포그래피."
+      },
+      "motion": {
+        "patterns": [
+          "인터랙티브 요소의 미세한 호버 전환",
+          "모달 또는 오버레이 등장 시 불투명도 페이드"
+        ]
+      },
+      "interaction": {
+        "hover": "미세한 배경색 변경 또는 불투명도 변화.",
+        "click": "색상 어둡게 하거나 약간 축소를 통해 즉각적인 시각적 피드백 제공.",
+        "transition": "대부분의 상태 변경에 0.15초에서 0.2초의 부드러운 ease-out 전환.",
+        "keyboard": "OS 기본값을 따르는 표준 포커스 링."
+      },
+      "voice": {
+        "tone": "차분하고 지적하며 자신감 있는 어조.",
+        "headlineStyle": "스캔하기 쉬운 직접적이고 혜택 중심적인 진술.",
+        "ctaStyle": "'무료로 시작하기' 또는 '제품 알아보기'와 같은 간단한 동사를 사용한 행동 지향적이고 명확한 문구.",
+        "avoid": [
+          "지나치게 기술적인 전문 용어",
+          "공격적인 판매 언어",
+          "과도한 구두점",
+          "모호하거나 유행어가 많이 사용된 설명"
+        ]
+      },
+      "donts": [
+        "순수한 쌀쌀한 화이트를 사용하지 마세요 — 스크린샷은 따뜻한 오프화이트 배경(#FBFBFA)을 보여줍니다.",
+        "날카로운 모서리를 사용하지 마세요 — 스크린샷의 카드와 버튼은 뚜렷한 둥근 처리(8px-12px)를 보여줍니다.",
+        "화려한 네온 악센트를 사용하지 마세요 — 스크린샷은 주요 악센트로 따뜻하고 무드 있는 골드(#F59E0B)를 사용합니다.",
+        "밀도 높고 비좁은 레이아웃을 사용하지 마세요 — 스크린샷은 여유로운 여백과 패딩(128px)을 보여줍니다.",
+        "장식용 세리프를 헤드라인에 사용하지 마세요 — 스크린샷은 깔끔하고 기하학적인 고딕체 디스플레이 폰트를 보여줍니다.",
+        "무거운 드롭 섀도우를 사용하지 마세요 — 스크린샷은 깊이감을 위해 매우 부드럽고 확산된 섀도우를 사용합니다."
+      ],
+      "systemPrompt": "Capacities는 '마음의 스튜디오'로 설계된 깔끔하고 세련된 생산성 도구입니다. 따뜻한 오프화이트 배경(#FBFBFA)과 블랙 잉크(#1C1917) 및 강조를 위한 단 하나의 골드 악센트(#F59E0B)를 사용합니다. 타이포그래피는 디스플레이용 기하학적 고딕체와 본문용 휴머니스트 고딕체를 특징으로 하여 차분하고 지적인 어조를 만듭니다. 레이아웃은 1280px 컨테이너, 128px 섹션 패딩, 그리고 여유로운 여백 사용으로 넓습니다. 카드는 부드럽고 섬세한 섀도우로 높이감을 줍니다. 핵심 주의사항: 쌀쌀하고 임상적인 화이트를 절대 사용하지 마세요; 카드의 날카로운 모서리를 절대 사용하지 마세요; 공격적이거나 네온 색상을 절대 사용하지 마세요; 밀도 높고 비좁은 레이아웃을 피하세요; 헤드라인에 장식용 세리프를 절대 사용하지 마세요; 그리고 무겁고 날카로운 드롭 섀도우를 절대 사용하지 마세요."
+    }
+  },
+  "desc": {
+    "en": {
+      "palette": "A warm, earthy neutral palette centered on off-white and near-black, featuring a single, sophisticated gold accent for key highlights.",
+      "layout": "The design follows a spacious, centered-column layout with generous padding, using floating card elements to provide visual depth and product context.",
+      "interaction": "Interactions are understated and professional, relying on subtle background shifts and smooth, quick transitions to guide the user without distraction.",
+      "motion": "Motion is minimal and functional, primarily consisting of quick ease-out transitions for hover states and opacity changes for appearing elements.",
+      "notes": "Worth including as a premier example of 'Calm Tech' design, successfully blending the spatial logic of a productivity tool with the refined aesthetics of an editorial or studio site."
+    },
+    "zh-CN": {
+      "palette": "一种温暖、质朴的中性色板，以米白和近黑色为主，配以一个精致的金色作为关键强调色。",
+      "layout": "设计采用宽敞的居中单栏布局，拥有充裕的内边距，并运用浮动卡片元素来营造视觉纵深感和产品语境。",
+      "interaction": "交互效果含蓄而专业，依靠细微的背景变化和流畅、快速的过渡来引导用户，避免干扰。",
+      "motion": "动效简约且实用，主要包括悬停状态的快速 ease-out 过渡，以及元素出现时的透明度变化。",
+      "notes": "值得作为'宁静科技'设计的典范收录，它成功地将生产力工具的空间逻辑与编辑或工作室网站的精致美学融为一体。"
+    },
+    "zh-TW": {
+      "palette": "一個溫暖、大地色調的中性色板，以米白色和近黑色為基調，並以單一、精緻的金色作為關鍵亮點。",
+      "layout": "設計採用寬敞的中央欄位列版式，搭配充裕的 padding，運用浮動卡片元素來提供視覺深度與產品情境。",
+      "interaction": "互動設計低調而專業，依賴細微的背景變化與流暢、快速的轉場來引導使用者，不造成干擾。",
+      "motion": "動態效果簡約且具功能性，主要包含用於 hover 狀態的快速 ease-out 轉場，以及元素出現時的透明度變化。",
+      "notes": "值得作為「寧靜科技」設計的首要範例，成功結合了生產力工具的空間邏輯與編輯或工作室網站的精緻美學。"
+    },
+    "ja": {
+      "palette": "オフホワイトとブラックに近い色を基調とした、温かみのある自然なニュートラルパレット。要点を強調するための、洗練されたゴールドのアクセントが特徴です。",
+      "layout": "余裕のあるセンターカラムレイアウトを採用し、十分なパディングを確保。フローティングカード要素により、視覚的な奥行きと製品のコンテキストを提供します。",
+      "interaction": "控えめでプロフェッショナルなインタラクションを心がけ、微妙な背景の変化とスムーズで迅速なトランジションを駆使し、ユーザーを誘導します。",
+      "motion": "モーションは最小限で機能的です。主にhover状態のための迅速なease-outトランジションと、表示される要素のopacity変化で構成されます。",
+      "notes": "「Calm Tech」デザインの第一級の例として inclusion に値します。生産性ツールの空間的なロジックと、エディトリアルやスタジオサイトの洗練された美学を巧みに融合させています。"
+    },
+    "ko": {
+      "palette": "오프화이트와 블랙에 가까운 색상을 중심으로 한 따뜻하고 지구적인 중성 팔레트로, 핵심 강조를 위해 단 하나의 세련된 골드 악센트를 사용합니다.",
+      "layout": "여유로운 패딩을 사용한 넓은 중앙 열 레이아웃을 따르며, 부유하는 카드 요소를 통해 시각적 깊이와 제품 컨텍스트를 제공합니다.",
+      "interaction": "간결하고 전문적인 인터랙션으로, 사용자를 방해하지 않으면서도 미세한 배경 변화와 부드럽고 빠른 전환을 통해 사용자를 안내합니다.",
+      "motion": "기능적이고 최소화된 모션으로, 주로 호버 상태를 위한 빠른 ease-out 전환과 요소 등장 시 불투명도 변경으로 구성됩니다.",
+      "notes": "'차분한 기술(Calm Tech)' 디자인의 대표적인 예로 포함할 가치가 있습니다. 생산성 도구의 공간적 논리와 에디토리얼 또는 스튜디오 사이트의 세련된 미학을 성공적으로 조화시킵니다."
+    }
+  },
+  "_meta": {
+    "vision_model": "mimo-v2.5",
+    "vision_prompt_version": "0.3",
+    "vision_source": "playwright-extract:capacities",
+    "vision_grounded": true,
+    "vision_at": "2026-06-04T14:23:42+00:00",
+    "vision_tokens": 18299,
+    "vision_cost_usd": 0.2033,
+    "translation_model": "mimo-v2.5",
+    "translation_at": "2026-06-04T14:25:20+00:00",
+    "translation_tokens": 18020,
+    "translation_cost_usd": 0.0601,
+    "narrative_model": "mimo-v2.5",
+    "narrative_prompt_version": "0.3",
+    "narrative_at": "2026-06-04T14:25:29+00:00",
+    "narrative_tokens": 2150,
+    "narrative_cost_usd": 0.0143,
+    "narrative_status": "ok",
+    "total_cost_usd": 0.2777
+  },
+  "narrative": {
+    "en": {
+      "ch1_intro": "Capacities is conceived as a minimalist design studio where ideas are treated as tangible objects. The system is built for a single, clear purpose: to be a home for everything you think, learn, and create.",
+      "ch2_intro": "The color system is built on a foundation of warm, earthy neutrals—a near-black ink paired with a soft, off-white background—and punctuated by a single, sophisticated gold accent for key highlights.",
+      "ch2_outro": "The principle is one of restrained contrast, where warmth grounds the interface and a single metallic note draws the eye to primary actions.",
+      "ch3_intro": "The typographic voice is calm and intellectual, pairing a geometric sans-serif for commanding display headlines with a humanist sans-serif for comfortable, readable body text. This hierarchy ensures a clear distinction between headline impact and textual flow.",
+      "ch4_intro": "All elements align to a consistent 4px grid, establishing a precise rhythm that is balanced by exceptionally generous section padding.",
+      "ch5_intro": "Depth is achieved not through heavy ornamentation, but through a vocabulary of very soft, diffused drop shadows and subtle, warm-gray borders. These elements gently lift cards and floating UI previews from the warm background.",
+      "ch6_intro": "The layout begins with a singular, centered column for the hero statement, then expands into a structured, multi-column feature grid. This skeleton provides focus before revealing the product's breadth.",
+      "ch7_intro": "Motion is functional and discreet, philosophy is one of minimal, purposeful animation. Subtle hover transitions and quick opacity fades for overlays provide feedback without diverting attention.",
+      "ch8_intro": "The editorial voice is direct, benefit-driven, and confident, avoiding technical jargon and aggressive sales language in favor of clear, action-oriented statements. It communicates with the calm authority of a well-crafted tool.",
+      "ch8_outro": "The system deliberately omits decorative serifs, clinical cold whites, neon accents, and dense, cramped layouts to preserve its refined, studio-like atmosphere."
+    },
+    "zh-CN": {
+      "ch1_intro": "Capacities 被构想为一个极简设计工作室，其中想法被视为有形的实体。这个系统为单一而清晰的目的而构建：成为你所有思考、学习与创作的归属之地。",
+      "ch2_intro": "色彩体系建立在温暖、大地色系的中性色调之上——近乎纯黑的墨色搭配柔和的米白背景——并辅以一个精致的金色强调色，用于关键的高光点缀。",
+      "ch2_outro": "其原则在于克制的对比，温暖的色调奠定界面基调，而单一的金属色则引导视线聚焦于主要操作。",
+      "ch3_intro": "排版风格沉静而富有知性。几何无衬线字体用于具有主导性的展示标题，人文无衬线字体则用于舒适易读的正文。这种层级关系确保了标题冲击力与文本流畅性之间的清晰区分。",
+      "ch4_intro": "所有元素均对齐于统一的4px网格，建立起精确的节奏感，并通过极其宽裕的区块内边距取得平衡。",
+      "ch5_intro": "深度感并非通过厚重的装饰实现，而是依靠一系列非常柔和、弥散的投影和微妙的暖灰色边框。这些元素将卡片与浮动的界面预览从温暖的背景中轻盈地托起。",
+      "ch6_intro": "布局始于一个居中的单栏区域，用于呈现核心宣言，随后扩展为结构化的多栏功能网格。这一骨架在展现产品广度之前，先提供了聚焦感。",
+      "ch7_intro": "动效是功能性且低调的，其哲学在于极简、有目的性的动画。细微的hover过渡和用于覆盖层的快速透明度渐变，在不分散注意力的前提下提供反馈。",
+      "ch8_intro": "编辑风格直接、以利益为导向且充满自信，避免使用技术术语和激进的销售语言，转而采用清晰、行动导向的陈述。它传达出一种如精心打造的工具般沉静的权威感。",
+      "ch8_outro": "该体系有意省略了装饰性衬线、临床式的冷白色、霓虹强调色以及密集拥挤的布局，以保持其精致、如工作室般的氛围。"
+    },
+    "zh-TW": {
+      "ch1_intro": "Capacities 被構想為一個極簡主義的設計工作室，其中想法被視為具體物件而對待。這個系統建立於單一、清晰的目的之上：成為你所有思考、學習與創作的家。",
+      "ch2_intro": "色彩系統建立在溫暖、質樸的中性色調基礎上——近乎黑色的墨色搭配柔和的米白色背景——並以單一、精緻的金色點綴作為關鍵高光。",
+      "ch2_outro": "原則是克制的對比，溫暖感作為界面的基調，而單一的金屬色調則將視覺焦點引導至主要操作。",
+      "ch3_intro": "排版語氣平靜而知性，將幾何無襯線字體用於具統御力的展示標題，搭配人文主義無襯線字體以創造舒適、易讀的內文。此層級確保了標題衝擊力與文字流動之間的清晰區分。",
+      "ch4_intro": "所有元素都對齊至一致的 4px 格線，建立起精確的節奏，並由異常寬裕的段落間距（padding）來取得平衡。",
+      "ch5_intro": "深度並非透過厚重的裝飾達成，而是透過一套非常柔和、散射的陰影與細微、暖灰色的邊框詞彙。這些元素輕柔地將卡片與浮動的 UI 預覽從溫暖的背景中提升出來。",
+      "ch6_intro": "佈局始於單一、置中的欄位以陳述核心宣言，隨後擴展為結構化的多欄位功能網格。此骨架提供了專注，之後才展現產品的廣度。",
+      "ch7_intro": "動態效果是功能性的且不張揚，哲學在於極簡、具目的性的動畫。細微的 hover 轉場與快速的 opacity 淡入淡出用於覆蓋層，在不轉移注意力的情況下提供回饋。",
+      "ch8_intro": "編輯語氣直接、以效益為導向且自信，避免技術術語與激進的銷售語言，偏好清晰、具行動力的陳述。它以精心打造工具的沉穩權威感進行溝通。",
+      "ch8_outro": "系統刻意省略了裝飾性襯線、臨床感的冷白色、霓虹色調以及擁擠密集的佈局，以維持其精緻、工作室般的氛圍。"
+    },
+    "ja": {
+      "ch1_intro": "Capacitiesは、アイデアを tangible な対象として扱うミニマルデザインスタジオとして構想されました。このシステムは、一つの明確な目的のために構築されています。それは、あなたが考え、学び、創造するすべてのための場所となることです。",
+      "ch2_intro": "カラーシステムは、温かみのあるアーストーンの中性色（ほぼブラックのインクと柔らかなオフホワイトの背景）を基盤とし、重要なハイライトのために洗練されたゴールドのアクセントを一本加えています。",
+      "ch2_outro": "原則は、抑制されたコントラストです。温かみがインターフェースを支え、一本の金属的なアクセントが主要なアクションへと視線を導きます。",
+      "ch3_intro": "タイポグラフィの声は落ち着きと知性を備え、命令的なディスプレイ見出しにはジオメトリック・サンセリフを、読みやすく快適な本文にはヒューマニスト・サンセリフを組み合わせています。この階層構造により、見出しのインパクトとテキストの流れの明確な区別が保証されます。",
+      "ch4_intro": "すべての要素は、一貫した4pxグリッドに揃えられ、正確なリズムを確立します。これは、.exceptionally generous section padding（非常に広いセクションのパディング）によってバランスが取られています。",
+      "ch5_intro": "深みは、重い装飾ではなく、非常に柔らかく拡散されたドロップシャドウと、微妙なウォームグレーのボーダーという語彙によって達成されます。これらの要素は、カードやフローティングするUIプレビューを温かみのある背景から静かに浮かび上がらせます。",
+      "ch6_intro": "レイアウトは、ヒーローのステートメントのために単一の中央揃えのカラムから始まり、その後、構造化されたマルチカラムのフィーチャーグリッドに展開します。このスケルトンは、製品の幅広さを明らかにする前に、焦点を提供します。",
+      "ch7_intro": "モーションは機能的で控えめです。哲学は、最小限の、目的指向のアニメーションです。微妙なhover transitionsとオーバーレイの早めのopacity fadesは、注意をそらすことなくフィードバックを提供します。",
+      "ch8_intro": "エディトリアルな声は、直接的で、メリットを重視し、自信に満ちています。技術用語やアグレッシブな販売言語を避け、明確でアクション指向のステートメントを好んで使用します。それは、手の行き届いたツールの落ち着いた権威を持ってコミュニケーションします。",
+      "8_outro": "システムは、洗練されたスタジオのような雰囲気を保つために、装飾的なセリフ、臨床的な冷たいホワイト、ネオンのアクセント、そして密集した窮屈なレイアウトを意図的に省いています。"
+    },
+    "ko": {
+      "ch1_intro": "Capacities는 아이디어를 유형의 물체로 대우하는 미니멀 디자인 스튜디오로 구상되었습니다. 이 시스템은 단 하나의 명확한 목적을 위해 구축되었습니다. 당신이 생각하고, 배우고, 창조하는 모든 것의 집이 되는 것입니다.",
+      "ch2_intro": "컬러 시스템은 따뜻하고 자연스러운 중성색을 기반으로 구축됩니다. 거의 검정에 가까운 잉크와 부드러운 오프화이트 배경의 조합을 중심으로, 핵심 하이라이트를 위해 하나의 세련된 골드 악센트로 마무리됩니다.",
+      "ch2_outro": "원칙은 절제된 대비입니다. 따뜻함이 인터페이스를 안정시키고, 하나의 금속성 톤이 주요 액션으로 시선을 끕니다.",
+      "ch3_intro": "타이포그래피 음성은 차분하고 지적입니다. 지배적인 전시 헤드라인에는 기하학적 산세리프를, 편안하고 읽기 쉬운 본문에는 휴머니스틱 산세리프를 결합합니다. 이러한 계층 구조는 헤드라인의 임팩트와 텍스트 흐름의 명확한 구분을 보장합니다.",
+      "ch4_intro": "모든 요소는 일관된 4px 그리드에 맞춰 정렬되어 정확한 리듬을 형성하며, 이는 특히 관대한 섹션 패딩으로 균형을 이룹니다.",
+      "ch5_intro": "깊이는 무거운 장식이 아닌, 매우 부드럽고 확산된 드롭 섀도우와 미묘한 따뜻한 회색 테두리의 어휘를 통해 달성됩니다. 이러한 요소들은 카드와 플로팅 UI 미리보기를 따뜻한 배경에서 부드럽게 들어 올립니다.",
+      "ch6_intro": "레이아웃은 히어로 구문을 위한 단일 중앙 정렬 열로 시작하여, 구조화된 다중 열 기능 그리드로 확장됩니다. 이 골격은 제품의 범위를 드러내기 전에 초점을 제공합니다.",
+      "ch7_intro": "모션은 기능적이고 조용합니다. 철학은 최소한의, 목적 지향적인 애니메이션입니다. 미묘한 hover 전환과 오버레이를 위한 빠른 opacity 페이드는 주의를 산만하게 하지 않으면서 피드백을 제공합니다.",
+      "ch8_intro": "에디토리얼 음성은 직접적이고 혜택 중심적이며 자신감 있습니다. 기술적 전문 용어와 공격적인 판매 언어를 피하고 명확하고 행동 지향적인 진술을 선호합니다. 잘 만들어진 도구의 차분한 권위로 소통합니다.",
+      "ch8_outro": "시스템은 세련된 스튜디오 분위기를 보존하기 위해 장식적인 세리프, 차가운 클리닉 화이트, 네온 악센트, 그리고 밀집되고 비좁은 레이아웃을 의도적으로 배제합니다."
+    }
+  }
 }

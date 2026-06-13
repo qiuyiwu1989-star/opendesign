@@ -8,6 +8,616 @@
     "dev",
     "observability"
   ],
-  "status": "pending",
-  "added_at": "2026-06-03"
+  "status": "completed",
+  "added_at": "2026-06-03",
+  "spec": {
+    "colors": {
+      "bg": "#FFFFFF",
+      "bgSoft": "#F4F4F6",
+      "bgQuiet": "#F9F9FA",
+      "ink": "#000000",
+      "inkSoft": "#67677E",
+      "muted": "#454554",
+      "mutedSoft": "#67677E",
+      "accent": "#1B55F5",
+      "line": "rgba(174,174,188,1)"
+    },
+    "typography": {
+      "display": "geometric-sans",
+      "body": "humanist-sans",
+      "mono": "monospace",
+      "scale": [
+        {
+          "token": "display",
+          "size": 56,
+          "lh": 1.05,
+          "weight": 500,
+          "ls": "-1.5px"
+        },
+        {
+          "token": "h2",
+          "size": 40,
+          "lh": 1.15,
+          "weight": 500,
+          "ls": "-0.5px"
+        },
+        {
+          "token": "body",
+          "size": 16,
+          "lh": 1.5,
+          "weight": 400,
+          "ls": "0px"
+        },
+        {
+          "token": "small",
+          "size": 14,
+          "lh": 1.375,
+          "weight": 400,
+          "ls": "0px"
+        }
+      ]
+    },
+    "spacing": {
+      "base": 4,
+      "scale": [
+        4,
+        8,
+        12,
+        16,
+        20,
+        24,
+        32,
+        48,
+        64,
+        96
+      ]
+    },
+    "surfaces": {
+      "radius": {
+        "sm": 4,
+        "md": 8,
+        "lg": 12,
+        "pill": 999
+      }
+    },
+    "layout": {
+      "container": 1280,
+      "paragraph": 680,
+      "columns": 12,
+      "gutter": 24,
+      "breakpoints": [
+        768,
+        1024
+      ]
+    },
+    "motion": {
+      "durations": {
+        "micro": 150,
+        "small": 300,
+        "medium": 400
+      },
+      "easing": "cubic-bezier(0.4, 0, 0.2, 1)"
+    }
+  },
+  "spec_i18n": {
+    "en": {
+      "identity": {
+        "keywords": [
+          "observability",
+          "open-source",
+          "monitoring",
+          "cloud-platform"
+        ],
+        "analogy": "A precise engineering instrument for modern infrastructure",
+        "oneLiner": "Full-stack observability platform combining open-source heritage with AI-driven cloud capabilities."
+      },
+      "colors": {
+        "principle": "High-contrast neutral base punctuated by a vibrant primary blue for action, with subtle warm-to-cool gradients for depth."
+      },
+      "typography": {
+        "rules": [
+          "Use Poppins for prominent display text to establish brand identity.",
+          "Use Inter for body copy and UI elements for optimal readability.",
+          "Keep body text at 16px base size with a line height of 1.5.",
+          "Use negative letter spacing for large headings to create a tighter, more modern feel."
+        ],
+        "scaleUses": [
+          "Hero headlines",
+          "Section headings",
+          "General text",
+          "Captions and nav links"
+        ]
+      },
+      "spacing": {
+        "rhythm": "Consistent 4px base grid with generous white space to maintain a clean, airy layout."
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 1px 2px rgba(0,0,0,0.05)"
+        ],
+        "borders": "1px solid #AEAEBC"
+      },
+      "layout": {
+        "skeleton": "Centered single-column layout for the hero, transitioning to a multi-column grid for feature cards."
+      },
+      "components": {
+        "button": "Solid primary blue (#1B55F5) for main CTAs, outlined/ghost styles for secondary actions, with rounded corners.",
+        "card": "White background with subtle border and 8px border-radius, using minimal shadows.",
+        "chip": "Pill-shaped elements with subtle borders, typically containing text labels.",
+        "input": "Clean bordered fields with subtle background transitions on focus.",
+        "hero": "Large centered headline over a multi-color gradient background, featuring an AI search input bar."
+      },
+      "motion": {
+        "patterns": [
+          "Smooth color and background transitions on interactive elements.",
+          "Subtle opacity changes for hover states.",
+          "CSS-based gradient animations for the hero background."
+        ]
+      },
+      "interaction": {
+        "hover": "Color shifts for links and subtle background changes for buttons.",
+        "click": "Immediate visual feedback through background color changes or scale.",
+        "transition": "Smooth 150ms to 300ms transitions for most UI state changes.",
+        "keyboard": "Standard focus-visible outlines for accessibility."
+      },
+      "voice": {
+        "tone": "Professional, direct, and technically authoritative.",
+        "headlineStyle": "Concise, benefit-driven, and bold, often using active verbs.",
+        "ctaStyle": "Clear and action-oriented, emphasizing ease of use (e.g., 'Get started free').",
+        "avoid": [
+          "Jargon-heavy sentences",
+          "Excessive exclamation points",
+          "Vague marketing speak"
+        ]
+      },
+      "donts": [
+        "Don't use excessive drop shadows — screenshot shows very subtle, almost non-existent shadows.",
+        "Don't use decorative or script fonts — screenshot relies strictly on geometric and humanist sans-serifs.",
+        "Don't use heavy background textures — screenshot uses clean solid colors and smooth gradients.",
+        "Don't use cluttered layouts — screenshot shows generous white space and a clear visual hierarchy.",
+        "Don't use aggressive, pulsing animations — screenshot relies on smooth, standard CSS transitions.",
+        "Don't use low-contrast text — screenshot maintains high readability with black on white or white on blue."
+      ],
+      "systemPrompt": "Grafana Labs' homepage is a masterclass in clean, developer-focused SaaS design. The layout is centered and airy, anchored by a white (#FFFFFF) base and a soft grey (#F4F4F6) background. The primary accent is a vibrant blue (#1B55F5) used for key CTAs, while a multi-color gradient (warm orange to cool teal) adds a modern, AI-forward feel to the hero. Typography mixes geometric and humanist sans-serifs (Poppins for display, Inter for body), maintaining high legibility. Critical design constraints: avoid heavy shadows, never use decorative fonts, and ensure generous white space to prevent visual clutter. Use the vibrant blue sparingly for maximum impact on primary actions, and maintain a professional, technical voice throughout all copy."
+    },
+    "zh-CN": {
+      "identity": {
+        "keywords": [
+          "可观测性",
+          "开源",
+          "监控",
+          "云平台"
+        ],
+        "analogy": "为现代基础设施而生的精密工程仪器",
+        "oneLiner": "融合开源底蕴与AI驱动云能力的全栈可观测性平台。"
+      },
+      "colors": {
+        "principle": "高对比度的中性基底，以鲜艳的主蓝色用于行动号召，并辅以微妙的冷暖渐变增添层次。"
+      },
+      "typography": {
+        "rules": [
+          "使用Poppins作为醒目的展示文本，以建立品牌识别度。",
+          "使用Inter作为正文和UI元素，确保最佳可读性。",
+          "正文基础字号保持16px，行高为1.5。",
+          "为大标题使用负字间距，营造更紧凑、现代的视觉感受。"
+        ],
+        "scaleUses": [
+          "主标题",
+          "章节标题",
+          "通用文本",
+          "说明文字与导航链接"
+        ]
+      },
+      "spacing": {
+        "rhythm": "基于一致的4px网格，搭配充足的留白，保持布局干净、通透。"
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 1px 2px rgba(0,0,0,0.05)"
+        ],
+        "borders": "1px solid #AEAEBC"
+      },
+      "layout": {
+        "skeleton": "主区域采用居中单列布局，过渡至多列网格用于功能卡片。"
+      },
+      "components": {
+        "button": "主CTA使用实心主蓝色（#1B55F5），次要操作使用描边/幽灵样式，采用圆角设计。",
+        "card": "白色背景，带微妙边框与8px圆角，使用极简阴影。",
+        "chip": "药丸形元素，带微妙边框，通常包含文本标签。",
+        "input": "简洁的带框输入框，focus时带有微妙的背景过渡效果。",
+        "hero": "居中的大标题置于多彩渐变背景上，并包含一个AI搜索输入栏。"
+      },
+      "motion": {
+        "patterns": [
+          "交互元素上平滑的颜色与背景过渡。",
+          "hover状态下的微妙透明度变化。",
+          "基于CSS的hero背景渐变动画。"
+        ]
+      },
+      "interaction": {
+        "hover": "链接的颜色变化，按钮的微妙背景变化。",
+        "click": "通过背景颜色变化或缩放提供即时视觉反馈。",
+        "transition": "大多数UI状态变化采用150ms至300ms的平滑过渡。",
+        "keyboard": "标准的focus-visible轮廓线，确保无障碍访问。"
+      },
+      "voice": {
+        "tone": "专业、直接，具有技术权威性。",
+        "headlineStyle": "简洁、以效益为导向、加粗，常使用主动动词。",
+        "ctaStyle": "清晰、行动导向，强调易用性（例如，“免费开始”）。",
+        "avoid": [
+          "术语堆砌的句子",
+          "过多的感叹号",
+          "模糊的营销话术"
+        ]
+      },
+      "donts": [
+        "避免使用过多投影——截图中显示的是非常微妙、近乎不存在的阴影。",
+        "避免使用装饰性或手写字体——截图严格使用几何与人文主义无衬线字体。",
+        "避免使用厚重的背景纹理——截图使用干净的纯色和平滑渐变。",
+        "避免使用杂乱的布局——截图展示了充足的留白和清晰的视觉层级。",
+        "避免使用激进、脉冲式的动画——截图依赖平滑的标准CSS过渡。",
+        "避免使用低对比度文本——截图通过白底黑字或蓝底白字保持高可读性。"
+      ],
+      "systemPrompt": "Grafana Labs的主页是简洁、面向开发者的SaaS设计的典范。布局居中且通透，以白色（#FFFFFF）为基底，搭配柔和的灰色（#F4F4F6）背景。主色调是用于关键CTA的鲜艳蓝色（#1B55F5），而多彩渐变（暖橙到冷青）则为hero区域增添了现代感和AI前沿气息。排版混合了几何与人文主义无衬线字体（Poppins用于展示，Inter用于正文），保持了极高的可读性。关键设计约束：避免厚重阴影，绝不使用装饰字体，并确保充足的留白以防止视觉杂乱。将鲜艳蓝色谨慎地用于主要操作以达到最大影响力，并在所有文案中保持专业、技术的语调。"
+    },
+    "zh-TW": {
+      "identity": {
+        "keywords": [
+          "可觀測性",
+          "開源",
+          "監控",
+          "雲端平台"
+        ],
+        "analogy": "現代基礎設施的精密工程儀器",
+        "oneLiner": "結合開源傳承與 AI 驅動雲端能力的全端可觀測性平台。"
+      },
+      "colors": {
+        "principle": "以高對比中性基底為主，搭配鮮明的主色調藍作為行動召喚，並運用細膩的暖色至冷色漸層增添深度。"
+      },
+      "typography": {
+        "rules": [
+          "使用 Poppins 作為顯眼的展示文字，以建立品牌識別。",
+          "使用 Inter 作為內文與 UI 元素，以優化可讀性。",
+          "內文維持 16px 基本尺寸，行高 1.5。",
+          "大型標題使用負字距，以營造更緊湊、現代的感受。"
+        ],
+        "scaleUses": [
+          "首頁大標題",
+          "章節標題",
+          "一般文字",
+          "圖片說明與導覽連結"
+        ]
+      },
+      "spacing": {
+        "rhythm": "採用一致的 4px 基本网格，搭配充足留白，維持乾淨、通透的佈局。"
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 1px 2px rgba(0,0,0,0.05)"
+        ],
+        "borders": "1px solid #AEAEBC"
+      },
+      "layout": {
+        "skeleton": "首頁採用置中單欄佈局，過渡至多欄網格以展示功能卡片。"
+      },
+      "components": {
+        "button": "主要行動召喚採用實心主色調藍 (#1B55F5)，次要動作使用外框/幽靈樣式，並搭配圓角。",
+        "card": "白色背景，搭配細膩邊框與 8px 圓角，使用最小化陰影。",
+        "chip": "藥丸形元素，帶有細膩邊框，通常包含文字標籤。",
+        "input": "乾淨的邊框欄位，focus 時搭配細膩的背景過渡效果。",
+        "hero": "大型置中標題，背景為多色漸層，並設有 AI 搜尋輸入列。"
+      },
+      "motion": {
+        "patterns": [
+          "互動元素採用流暢的色彩與背景過渡效果。",
+          "hover 狀態搭配細膩的透明度變化。",
+          "首頁背景採用基於 CSS 的漸層動畫。"
+        ]
+      },
+      "interaction": {
+        "hover": "連結採用色彩變化，按鈕搭配細膩的背景變化。",
+        "click": "透過背景色彩變化或縮放提供即時視覺回饋。",
+        "transition": "大多數 UI 狀態變化採用流暢的 150ms 至 300ms 過渡效果。",
+        "keyboard": "標準的 focus-visible 外框以支援無障礙功能。"
+      },
+      "voice": {
+        "tone": "專業、直接，且具技術權威性。",
+        "headlineStyle": "簡潔、強調效益、大膽，常使用主動語態動詞。",
+        "ctaStyle": "清晰且著重行動，強調易於使用（例如：「免費開始」）。",
+        "avoid": [
+          "充滿術語的句子",
+          "過多的驚嘆號",
+          "模糊的行銷用語"
+        ]
+      },
+      "donts": [
+        "勿使用過多陰影效果——截圖顯示陰影極為細膩，幾乎不可見。",
+        "勿使用裝飾性或手寫字體——截圖嚴格使用幾何與人文無襯線字體。",
+        "勿使用厚重的背景紋理——截圖使用乾淨的純色與流暢的漸層。",
+        "勿使用擁擠的佈局——截圖展示充足的留白與清晰的視覺層次。",
+        "勿使用具侵略性的脈動動畫——截圖依賴流暢的標準 CSS 過渡效果。",
+        "勿使用低對比文字——截圖透過黑底白字或白底藍字維持高度可讀性。"
+      ],
+      "systemPrompt": "Grafana Labs 首頁是簡潔、開發者導向的 SaaS 設計典范。佈局採用置中且通透的設計，以白色 (#FFFFFF) 基底與柔和灰色 (#F4F4F6) 背景為主。主要強調色為鮮明的藍色 (#1B55F5)，用於關鍵行動召喚，而多色漸層（暖橙至冷青）則為首頁增添現代、AI 導向的感受。排版融合幾何與人文無襯線字體（Poppins 用於展示文字，Inter 用於內文），保持高度可讀性。關鍵設計限制：避免厚重陰影，切勿使用裝飾性字體，並確保充足留白以防止視覺雜亂。鮮明的藍色應謹慎使用，以對主要行動產生最大影響，所有文案維持專業、技術性的語調。"
+    },
+    "ja": {
+      "identity": {
+        "keywords": [
+          "可観測性",
+          "オープンソース",
+          "モニタリング",
+          "クラウドプラットフォーム"
+        ],
+        "analogy": "モダンインフラのための精密な工学機器",
+        "oneLiner": "オープンソースの伝統とAI駆動のクラウド機能を融合したフルスタックの可観測性プラットフォーム。"
+      },
+      "colors": {
+        "principle": "ハイコントラストの中立的なベースに、アクション用の明るいプライマリーブルーを配置。深みを加えるために、控えめなウォームからクールへのグラデーションを使用。"
+      },
+      "typography": {
+        "rules": [
+          "ブランドアイデンティティを確立するために、目立つディスプレイテキストにはPoppinsを使用。",
+          "最適な可読性のために、本文コピーおよびUI要素にはInterを使用。",
+          "本文テキストはベースサイズ16px、行間1.5を維持。",
+          "大きな見出しにはネガティブな文字間隔を使用し、よりタイトでモダンな印象を演出。"
+        ],
+        "scaleUses": [
+          "ヒーロー見出し",
+          "セクション見出し",
+          "一般テキスト",
+          "キャプションおよびナビリンク"
+        ]
+      },
+      "spacing": {
+        "rhythm": "一貫した4pxベースグリッドに十分なホワイトスペースを設け、クリーンで air なレイアウトを維持。"
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 1px 2px rgba(0,0,0,0.05)"
+        ],
+        "borders": "1px solid #AEAEBC"
+      },
+      "layout": {
+        "skeleton": "ヒーロー部分はセンタルなシングルカラムレイアウト、機能カード部分はマルチカラムグリッドに移行。"
+      },
+      "components": {
+        "button": "メインCTAにはソリッドなプライマリーブルー（#1B55F5）、セカンダリアクションにはアウトライン／ゴーストスタイル。角は丸みを帯びる。",
+        "card": "ホワイト背景に控えめなボーダーと8pxのborder-radius。最小限のシャドウを使用。",
+        "chip": "丸みを帯びた形態の要素に控えめなボーダー。通常、テキストラベルを含む。",
+        "input": "クリーンなボーダー付きフィールド。focus時に控えめな背景トランジション。",
+        "hero": "マルチカラーグラデーション背景の上に配置された大きなセンタル見出し。AI検索入力バーを特徴とする。"
+      },
+      "motion": {
+        "patterns": [
+          "インタラクティブ要素の滑らかなカラーおよび背景トランジション。",
+          "hover状態のための控えめな不透明度変化。",
+          "ヒーローバックグラデーションのためのCSSベースのグラデーションアニメーション。"
+        ]
+      },
+      "interaction": {
+        "hover": "リンクのカラーシフトと、ボタンの控えめな背景変化。",
+        "click": "背景カラーの変化やスケールによる即座のビジュアルフィードバック。",
+        "transition": "ほとんどのUI状態変化に対し、滑らかな150msから300msのトランジション。",
+        "keyboard": "アクセシビリティのための標準的なfocus-visibleアウトライン。"
+      },
+      "voice": {
+        "tone": "プロフェッショナルで、率直かつ技術的に権威がある。",
+        "headlineStyle": "簡潔で、メリットを強調し、大胆。能動態の動詞をよく使用。",
+        "ctaStyle": "明確で、行動を促す。使いやすさを強調（例：'Get started free'）。",
+        "avoid": [
+          "専門用語を多用した文",
+          "過度な感嘆符",
+          "曖昧なマーケティング表現"
+        ]
+      },
+      "donts": [
+        "過度なドロップシャドウを使用しない — スクリーンショットは非常に控えめで、ほぼ存在しないシャドウを示している。",
+        "装飾的なまたは筆記体フォントを使用しない — スクリーンショットは幾何学的およびヒューマニストサンセリフに厳密に依存。",
+        "重い背景テクスチャを使用しない — スクリーンショットはクリーンなソリッドカラーと滑らかなグラデーションを使用。",
+        "ごちゃごちゃしたレイアウトを使用しない — スクリーンショットは十分なホワイトスペースと明確なビジュアル階層を示している。",
+        "アグレッシブでパルスするアニメーションを使用しない — スクリーンショットは滑らかで標準的なCSSトランジションに依存。",
+        "低コントラストのテキストを使用しない — スクリーンショットは白地に黒または青地に白で高い可読性を維持。"
+      ],
+      "systemPrompt": "Grafana Labsのホームページは、クリーンで開発者向けのSaaSデザインの模範。レイアウトはセンタルでairがあり、ホワイト（#FFFFFF）ベースと薄いグレー（#F4F4F6）の背景で構成。プライマリアクセントは明るいブルー（#1B55F5）を主要CTAに使用し、ヒーローにはAI感を加えるためのマルチカラーグラデーション（オレンジからティール）を追加。タイポグラフィは幾何学的およびヒューマニストサンセリフを混合（Poppinsをディスプレイ、Interを本文に使用）し、高い可読性を維持。重要なデザイン制約：重いシャドウを避け、装飾フォントは決して使用せず、ビジュアルの雑然さを防ぐために十分なホワイトスペースを確保。鮮やかなブルーは primaries のアクションに最大限のインパクトを与えるために控えめに使用し、すべてのコピーにわたりプロフェッショナルで技術的なトーンを維持。"
+    },
+    "ko": {
+      "identity": {
+        "keywords": [
+          "가시성",
+          "오픈소스",
+          "모니터링",
+          "클라우드-플랫폼"
+        ],
+        "analogy": "현대 인프라를 위한 정밀한 엔지니어링 도구",
+        "oneLiner": "오픈소스 유산과 AI 기반 클라우드 기능을 결합한 풀스택 가시성 플랫폼."
+      },
+      "colors": {
+        "principle": "높은 대비의 중립적인 베이스에 작업을 위한 선명한 주요 파란색을 배치하고, 깊이감을 위해 미세한 따뜻한 색에서 차가운 색으로의 그라데이션을 사용합니다."
+      },
+      "typography": {
+        "rules": [
+          "브랜드 아이덴티티를 구축하기 위해 두드러진 디스플레이 텍스트에는 Poppins를 사용합니다.",
+          "본문 텍스트와 UI 요소에는 최적의 가독성을 위해 Inter를 사용합니다.",
+          "본문 텍스트는 기본 크기 16px와 줄 간격 1.5를 유지합니다.",
+          "큰 제목에는 더 타이트하고 현대적인 느낌을 위해 음수 자간을 적용합니다."
+        ],
+        "scaleUses": [
+          "히어로 헤드라인",
+          "섹션 제목",
+          "일반 텍스트",
+          "캡션 및 내비게이션 링크"
+        ]
+      },
+      "spacing": {
+        "rhythm": "일관된 4px 기본 그리드와 충분한 여백을 사용하여 깔끔하고 통풍이 잘 되는 레이아웃을 유지합니다."
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 1px 2px rgba(0,0,0,0.05)"
+        ],
+        "borders": "1px solid #AEAEBC"
+      },
+      "layout": {
+        "skeleton": "히어로를 위한 중심 단일 열 레이아웃에서 기능 카드를 위한 다중 열 그리드로 전환합니다."
+      },
+      "components": {
+        "button": "메인 CTA에는 단색 주요 파란색(#1B55F5)을 사용하고, 보조 작업에는 아웃라인/고스트 스타일을 사용하며, 둥근 모서리를 적용합니다.",
+        "card": "미세한 테두리와 8px border-radius가 적용된 흰색 배경을 사용하며, 최소한의 그림자를 적용합니다.",
+        "chip": "미세한 테두리가 있는 알약 모양의 요소로, 일반적으로 텍스트 레이블을 포함합니다.",
+        "input": "focus 시 미세한 배경 전환이 적용된 깔끔한 테두리 필드입니다.",
+        "hero": "다채로운 그라데이션 배경 위에 크게 배치된 중심 제목과 AI 검색 입력 바를 특징으로 합니다."
+      },
+      "motion": {
+        "patterns": [
+          "인터랙티브 요소에서 부드러운 색상 및 배경 전환.",
+          "hover 상태를 위한 미세한 불투명도 변화.",
+          "히어로 배경을 위한 CSS 기반 그라데이션 애니메이션."
+        ]
+      },
+      "interaction": {
+        "hover": "링크에 대한 색상 변화와 버튼에 대한 미세한 배경 변화.",
+        "click": "배경색 변화 또는 스케일을 통한 즉각적인 시각적 피드백.",
+        "transition": "대부분의 UI 상태 변경에 대한 부드러운 150ms에서 300ms 전환.",
+        "keyboard": "접근성을 위한 표준 focus-visible 윤곽선."
+      },
+      "voice": {
+        "tone": "전문적이고 직접적이며 기술적으로 권위 있는 어조.",
+        "headlineStyle": "간결하고 이점 중심적이며 대담하며, 종종 능동 동사를 사용합니다.",
+        "ctaStyle": "명확하고 행동 지향적이며 사용 용이성을 강조합니다 (예: '무료로 시작하기').",
+        "avoid": [
+          "전문 용어가 과도한 문장",
+          "지나친 느낌표 사용",
+          "모호한 마케팅 표현"
+        ]
+      },
+      "donts": [
+        "과도한 드롭 그림자를 사용하지 마세요 — 스크린샷은 매우 미세하고 거의 존재하지 않는 그림자를 보여줍니다.",
+        "장식적이거나 필기체 폰트를 사용하지 마세요 — 스크린샷은 기하학적 및 휴머니스트 산세리프에 엄격히 의존합니다.",
+        "무거운 배경 텍스처를 사용하지 마세요 — 스크린샷은 깔끔한 단색과 부드러운 그라데이션을 사용합니다.",
+        "복잡한 레이아웃을 사용하지 마세요 — 스크린샷은 충분한 여백과 명확한 시각적 계층을 보여줍니다.",
+        "공격적이고 맥박이 뛰는 애니메이션을 사용하지 마세요 — 스크린샷은 부드러운 표준 CSS 전환에 의존합니다.",
+        "저대비 텍스트를 사용하지 마세요 — 스크린샷은 흰색 배경에 검은색 또는 파란색 배경에 흰색으로 높은 가독성을 유지합니다."
+      ],
+      "systemPrompt": "Grafana Labs' 홈페이지는 깔끔하고 개발자 중심적인 SaaS 디자인의 교과서입니다. 레이아웃은 중심에 맞춰져 있고 통풍이 잘 되며, 흰색(#FFFFFF) 베이스와 부드러운 회색(#F4F4F6) 배경을 기반으로 합니다. 주요 강조색은 핵심 CTA에 사용되는 선명한 파란색(#1B55F5)이며, 히어로에는 modern하고 AI 지향적인 느낌을 더하는 다채로운 그라데이션(따뜻한 오렌지에서 차가운 청록색)이 적용됩니다. 타이포그래피는 기하학적 및 휴머니스트 산세리프(Poppins用于显示, Inter用于正文)를 혼합하여 높은 가독성을 유지합니다. 핵심 디자인 제약 조건: 무거운 그림자를 피하고, 절대로 장식적인 폰트를 사용하지 않으며, 시각적 혼란을 방지하기 위해 충분한 여백을 확보합니다. 선명한 파란색은 주요 작업에 최대한의 효과를 위해 절제하여 사용하고, 모든 카피에 걸쳐 전문적이고 기술적인 어조를 유지합니다."
+    }
+  },
+  "desc": {
+    "en": {
+      "palette": "A clean, professional palette anchored in white and light grey, using a vibrant blue as a primary accent and a soft multi-color gradient for modern depth.",
+      "layout": "A centered, single-column hero layout that transitions into structured grids, emphasizing generous white space and a clear typographic hierarchy.",
+      "interaction": "Subtle, standard CSS transitions for hover and focus states, prioritizing clarity and speed over decorative animation.",
+      "motion": "Minimalist motion with smooth, functional transitions that provide immediate but unobtrusive feedback.",
+      "notes": "A strong example of how a technical platform can use clean design and subtle gradients to appear modern and accessible without sacrificing authority."
+    },
+    "zh-CN": {
+      "palette": "以白色和浅灰色为基底，搭配鲜艳的蓝色作为主色调，并辅以柔和的多彩渐变，营造现代感与深度。",
+      "layout": "居中的单列主布局，过渡至结构化的网格，强调充足的留白与清晰的排版层级。",
+      "interaction": "采用微妙的标准CSS过渡效果处理hover和focus状态，优先确保清晰度与速度，而非装饰性动画。",
+      "motion": "极简动效，通过平滑、功能性的过渡提供即时但不显眼的反馈。",
+      "notes": "这是一个极佳的范例，展示了技术平台如何通过简洁的设计和微妙的渐变，既呈现现代感与易用性，又不失专业权威。"
+    },
+    "zh-TW": {
+      "palette": "以白色與淺灰為基調的乾淨專業色盤，搭配鮮明的藍色作為主要強調色，並運用柔和的多色漸層營造現代深度。",
+      "layout": "採用置中單欄首頁佈局，過渡至結構化網格，強調充足的留白與清晰的排版層次。",
+      "interaction": "採用細膩、標準的 CSS hover 與 focus 狀態轉場，優先考量清晰度與速度，而非裝飾性動畫。",
+      "motion": "極簡動態效果，搭配流暢、功能性的轉場，提供即時且不突兀的回饋。",
+      "notes": "強力範例，展示技術平台如何運用簡潔設計與細膩漸層，在維持專業權威的同時，呈現現代且易於存取的形象。"
+    },
+    "ja": {
+      "palette": "白色と薄灰色を基調とした、クリーンでプロフェッショナルなカラーパレット。明るいブルーをアクセントカラーとし、モダンな深みを加えるための柔らかなマルチカラーグラデーションを使用。",
+      "layout": "センタルなシングルカラムのヒーローレイアウトから、構造化されたグリッドへと移行。十分なホワイトスペースと明確なタイポグラフィ階層を重視。",
+      "interaction": "hoverおよびfocus状態のための、控えめで標準的なCSSトランジション。装飾的なアニメーションよりも、明瞭さと速さを優先。",
+      "motion": "滑らかで機能的なトランジションを用いたミニマリストなモーション。即座だが目立たないフィードバックを提供。",
+      "notes": "技術プラットフォームが、クリーンなデザインと控えめなグラデーションを駆使して、権威を損なうことなくモダンでアクセシブルに見せる優れた例。"
+    },
+    "ko": {
+      "palette": "흰색과 밝은 회색을 기반으로 한 깔끔하고 전문적인 팔레트이며, 주요 강조색으로 선명한 파란색을 사용하고 modern한 깊이감을 위해 부드러운 다채로운 그라데이션을 적용했습니다.",
+      "layout": "중심에 맞춰진 단일 열 히어로 레이아웃에서 구조화된 그리드로 전환되며, 충분한 여백과 명확한 타이포그래피 계층을 강조합니다.",
+      "interaction": "hover 및 focus 상태를 위한 미세하고 표준 CSS 전환 효과를 사용하며, 장식적인 애니메이션보다는 명확성과 속도를 우선시합니다.",
+      "motion": "미니멀리스틱한 모션과 함께 즉각적이면서도 눈에 거슬리지 않는 피드백을 제공하는 부드럽고 기능적인 전환 효과를 사용합니다.",
+      "notes": "기술 플랫폼이 깔끔한 디자인과 섬세한 그라데이션을 활용하여 권위를 손상시키지 않으면서도 현대적이고 접근 가능한 모습을 보여주는 강력한 예시입니다."
+    }
+  },
+  "_meta": {
+    "vision_model": "mimo-v2.5",
+    "vision_prompt_version": "0.3",
+    "vision_source": "playwright-extract:grafana",
+    "vision_grounded": true,
+    "vision_at": "2026-06-07T06:06:12+00:00",
+    "vision_tokens": 17592,
+    "vision_cost_usd": 0.1955,
+    "translation_model": "mimo-v2.5",
+    "translation_at": "2026-06-07T06:07:34+00:00",
+    "translation_tokens": 17438,
+    "translation_cost_usd": 0.0582,
+    "narrative_model": "mimo-v2.5",
+    "narrative_prompt_version": "0.3",
+    "narrative_at": "2026-06-07T06:07:42+00:00",
+    "narrative_tokens": 2105,
+    "narrative_cost_usd": 0.014,
+    "narrative_status": "ok",
+    "total_cost_usd": 0.2677
+  },
+  "narrative": {
+    "en": {
+      "ch1_intro": "Grafana's design language functions as a precise engineering instrument for modern infrastructure, translating the complexity of observability into a clear, structured interface. Its identity is built on the foundational principles of open-source transparency and cloud-native precision, where every visual element serves a diagnostic purpose rather than a decorative one.",
+      "ch2_intro": "The color system is built upon a high-contrast neutral base, using white and soft grey to establish a clean operational field. This neutrality is punctuated by a vibrant primary blue that commands attention for key actions, while subtle gradients introduce a modern, layered depth.",
+      "ch2_outro": "The principle is clarity through restraint, using color not for decoration but to direct focus and signify functional states within the interface.",
+      "ch3_intro": "Typographic voice is established through a deliberate pairing: Poppins for prominent display text provides a geometric, brand-defining presence, while Inter handles body copy and UI elements with optimal humanist readability.",
+      "ch4_intro": "All spacing adheres to a consistent 4px base grid, creating a predictable and harmonious rhythm that allows generous white space to maintain layout clarity.",
+      "ch5_intro": "Surfaces are defined by minimal depth, relying on thin borders and the faintest of shadows to separate elements without visual weight. This approach keeps the interface flat and functional, prioritizing content over container.",
+      "ch6_intro": "The layout skeleton begins as a centered, single-column column for the hero section, focusing user attention on a single message. It then transitions to a structured, multi-column grid for feature cards, organizing complex information into digestible modules.",
+      "ch7_intro": "Motion philosophy is strictly functional, employing smooth CSS transitions to provide immediate feedback on interactive elements. Animations are unobtrusive, existing only to confirm user actions or signal state changes, never to draw attention to themselves.",
+      "ch8_intro": "The editorial voice is professional, direct, and technically authoritative, using concise, benefit-driven headlines and clear, action-oriented calls to action.",
+      "ch8_outro": "The system deliberately avoids decorative flair, jargon-heavy language, and aggressive animations, maintaining a tone of focused, technical utility."
+    },
+    "zh-CN": {
+      "ch1_intro": "Grafana的设计语言如同一件精密的工程仪器，专为现代基础设施打造，将可观察性的复杂性转化为清晰、结构化的界面。其身份建立在开源透明与云原生精准的基础原则之上，每一个视觉元素都服务于诊断目的，而非装饰用途。",
+      "ch2_intro": "色彩系统基于高对比度的中性基底构建，采用白色与柔和的灰色建立一个洁净的操作域。这种中性被充满活力的主蓝色所强调，用以引导关键操作的注意力，而微妙的渐变则引入了现代感与层次深度。",
+      "ch2_outro": "其原则是通过克制实现清晰，使用色彩并非为了装饰，而是为了引导焦点并标示界面内的功能状态。",
+      "ch3_intro": "排版风格通过精心配对得以确立：用于醒目展示文本的Poppins提供了几何感、定义品牌特征的存在感，而Inter则以最优的人文可读性处理正文内容与UI元素。",
+      "ch4_intro": "所有间距均遵循一致的4px基础网格，创造出可预测且和谐的节奏，使充裕的留白得以保持布局的清晰度。",
+      "ch5_intro": "界面表面通过极简的深度定义，依靠细薄边框和最微弱的阴影来分隔元素，避免视觉重量。这种方法保持了界面的扁平与功能性，将内容置于容器之上。",
+      "ch6_intro": "布局骨架始于居中的单栏结构用于核心展示区，将用户注意力聚焦于单一信息。随后过渡至结构化的多栏网格用于功能卡片，将复杂信息组织成易于消化的模块。",
+      "ch7_intro": "动效理念严格遵循功能性，采用平滑的CSS transitions为交互元素提供即时反馈。动画效果力求不突兀，仅用于确认用户操作或标示状态变化，绝不喧宾夺主。",
+      "ch8_intro": "编辑风格专业、直接且具有技术权威性，使用简洁、以效益为导向的标题和清晰、可操作的号召性用语。",
+      "ch8_outro": "该系统刻意避免装饰性修饰、术语堆砌和激进动画，始终保持一种专注、技术实用的语调。"
+    },
+    "zh-TW": {
+      "ch1_intro": "Grafana 的設計語言扮演著現代基礎設施的精密工程儀器，將監控的複雜性轉譯為清晰、結構化的介面。其識別系統建立於開源透明度與雲端原生精確性的基礎原則之上，每個視覺元素皆服務於診斷目的，而非裝飾用途。",
+      "ch2_intro": "色彩系統建立在高對比的中性基調上，運用白色與柔和灰色建立乾淨的操作場域。此中性基調點綴著鮮明的主色藍，用以引導關鍵操作的注意力，而細微的漸層則賦予現代、具層次的深度感。",
+      "ch2_outro": "原則在於透過節制達成清晰，色彩的運用並非為了裝飾，而是用以引導焦點並在介面中標示功能狀態。",
+      "ch3_intro": "字體語調透過精心配對確立：Poppins 用於顯著的展示文字，提供幾何感且具品牌定義性的存在；Inter 則處理內文與介面元件，兼具最佳的人文可讀性。",
+      "ch4_intro": "所有間距遵循一致的 4px 基礎網格，創造可預期且和諧的節奏，讓充足的留白維持版面的清晰度。",
+      "ch5_intro": "介面表面以極簡深度定義，依賴細薄邊框與最輕微的陰影來區隔元素，不增加視覺重量。此手法使介面保持平坦且功能性，優先考量內容而非容器。",
+      "ch6_intro": "版面骨架始於中央對齊的單欄版型，用於英雄區域，將使用者注意力集中於單一訊息。隨後轉為結構化的多欄網格，用於功能卡片，將複雜資訊組織成易於消化的模組。",
+      "ch7_intro": "動效哲學嚴格遵循功能性，採用流暢的 CSS transitions 為互動元件提供即時反饋。動畫保持低調，僅存在於確認使用者操作或標示狀態變化，從不吸引自身為焦點。",
+      "ch8_intro": "編輯語調專業、直接且具技術權威性，運用簡潔、效益導向的標題與清晰、行動導向的呼籲行動。",
+      "ch8_outro": "此系統刻意避免裝飾性華麗、術語堆砌的語言與強勢動畫，維持一種專注、技術實用的語調。"
+    },
+    "ja": {
+      "ch1_intro": "Grafana のデザイン言語は、現代のインフラに対する精密な工学的道具として機能し、オブザーバビリティの複雑さを明確で構造化されたインターフェースに変換します。そのアイデンティティは、オープンソースの透明性とクラウドネイティブの正確さという基本原則に基づいて構築されており、すべてのビジュアル要素が装飾的ではなく、診断的目的を果たします。",
+      "ch2_intro": "カラーシステムは、高コントラストの中性色をベースに構築されており、白と柔らかいグレーを使用して清潔な操作フィールドを確立します。この中性色を、主要なアクションに注目を集める鮮やかなプライマリブルーが強調し、微妙なグラデーションがモダンで多層的な深みを導入します。",
+      "ch2_outro": "原則は、節制を通じた明瞭さです。色は装飾のためにではなく、フォーカスを導き、インターフェース内の機能状態を示すために使用されます。",
+      "ch3_intro": "タイポグラフィの声は、意図的なペアリングによって確立されます。目立つ表示テキストには幾何学的でブランドを定義する存在感をもつ Poppins を使用し、本文や UI 要素には最適なヒューマニストの可読性をもつ Inter を採用します。",
+      "ch4_intro": "すべてのスペーシングは一貫した 4px ベースグリッドに準拠し、予測可能で調和のとれたリズムを生み出し、豊かなホワイトスペースがレイアウトの明瞭さを維持できるようにします。",
+      "ch5_intro": "サーフェスは最小限の深みで定義され、薄いボーダーとごくわずかなシャドウに依存して、視覚的な重みなしに要素を分離します。このアプローチにより、インターフェースはフラットで機能的であり、コンテナよりもコンテンツを優先します。",
+      "ch6_intro": "レイアウトのスケルトンは、ヒーローセクションのためのセンター寄せの単一カラムとして始まり、ユーザーの注意を単一のメッセージに集中させます。その後、フィーチャーカード用の構造化された複数カラムグリッドに移行し、複雑な情報を消化可能なモジュールに組織します。",
+      "ch7_intro": "モーション哲学は厳密に機能的であり、インタラクティブな要素への即時のフィードバックを提供するためにスムーズな CSS transition を採用します。アニメーションは控えめであり、ユーザーアクションの確認や状態変化の通知のみに存在し、決して自身に注意を引き寄せることはありません。",
+      "ch8_intro": "エディトリアルの声は、プロフェッショナルで直接的、かつ技術的に権威があり、簡潔で利点を強調した見出しと明確で行動を促す CT A を使用します。",
+      "ch8_outro": "このシステムは意図的に装飾的な魅力、専門用語を多用した言語、およびアグレッシブなアニメーションを避け、焦点を絞った技術的実用性のトーンを維持しています。"
+    },
+    "ko": {
+      "ch1_intro": "Grafana의 디자인 언어는 현대 인프라를 위한 정밀한 공학 도구로 기능하며, 관찰 가능성의 복잡성을 명확하고 구조화된 인터페이스로 변환합니다. Its identity is built on the foundational principles of open-source transparency and cloud-native precision, where every visual element serves a diagnostic purpose rather than a decorative one.",
+      "ch2_intro": "색상 시스템은 고대비 중립 베이스를 기반으로 하며, 흰색과 부드러운 회색을 사용하여 깨끗한 운영 영역을 설정합니다. This neutrality is punctuated by a vibrant primary blue that commands attention for key actions, while subtle gradients introduce a modern, layered depth.",
+      "ch2_outro": "원칙은 절제를 통한 명확성이며, 색상을 장식이 아닌 인터페이스 내에서 초점을 유도하고 기능적 상태를 나타내는 데 사용합니다.",
+      "ch3_intro": "서체는 의도적인 조합을 통해 음색을 확립합니다: 두드러진 디스플레이 텍스트용 Poppins은 기하학적이고 브랜드를 정의하는 존재감을 제공하며, 본문과 UI 요소는 최적의 휴머니스트 가독성으로 Inter를 사용합니다.",
+      "ch4_intro": "모든 간격은 일관된 4px 기본 그리드를 준수하며, 예측 가능하고 조화로운 리듬을 만들어 넉넉한 여백으로 레이아웃의 명확성을 유지합니다.",
+      "ch5_intro": "표면은 최소한의 깊이로 정의되며, 시각적 무게 없이 요소를 분리하기 위해 얇은 테두리와 가장 흐릿한 그림자에 의존합니다. This approach keeps the interface flat and functional, prioritizing content over container.",
+      "ch6_intro": "레이아웃 스켈레톤은 히어로 섹션을 위한 중앙 정렬 단일 컬럼으로 시작하여 사용자의 주의를 단일 메시기에 집중시킵니다. Then it transitions to a structured, multi-column grid for feature cards, organizing complex information into digestible modules.",
+      "ch7_intro": "모션 철학은 엄격하게 기능적이며, 인터랙티브 요소에 대한 즉각적인 피드백을 제공하기 위해 부드러운 CSS 전환을 사용합니다. Animations are unobtrusive, existing only to confirm user actions or signal state changes, never to draw attention to themselves.",
+      "ch8_intro": "에디토리얼 음색은 전문적이고 직접적이며 기술적으로 권위가 있으며, 간결하고 이점 중심적인 헤드라인과 명확하고 행동 지향적인 콜 투 액션을 사용합니다.",
+      "ch8_outro": "시스템은 의도적으로 장식적인 기교, 전문 용어가 많은 언어, 공격적인 애니메이션을 피하며, 집중적이고 기술적인 유용성의 톤을 유지합니다."
+    }
+  }
 }

@@ -8,6 +8,647 @@
     "data",
     "bi"
   ],
-  "status": "pending",
-  "added_at": "2026-06-03"
+  "status": "completed",
+  "added_at": "2026-06-03",
+  "spec": {
+    "colors": {
+      "bg": "#FFFFFF",
+      "bgSoft": "#F9FAFB",
+      "bgQuiet": "#F3F4F6",
+      "ink": "#111827",
+      "inkSoft": "#4B5563",
+      "muted": "#6B7280",
+      "mutedSoft": null,
+      "accent": "#1D4ED8",
+      "line": "rgba(229, 231, 235, 1)"
+    },
+    "typography": {
+      "display": "transitional-serif",
+      "body": "humanist-sans",
+      "mono": "geometric-sans",
+      "scale": [
+        {
+          "token": "display",
+          "size": 56,
+          "lh": 1.05,
+          "weight": 500,
+          "ls": "-1.5px"
+        },
+        {
+          "token": "heading",
+          "size": 36,
+          "lh": 1.1,
+          "weight": 500,
+          "ls": "-0.9px"
+        },
+        {
+          "token": "body",
+          "size": 16,
+          "lh": 1.5,
+          "weight": 400,
+          "ls": "0px"
+        },
+        {
+          "token": "caption",
+          "size": 14,
+          "lh": 1.4,
+          "weight": 400,
+          "ls": "0px"
+        },
+        {
+          "token": "micro",
+          "size": 12,
+          "lh": 1.3,
+          "weight": 500,
+          "ls": "0.4px"
+        }
+      ]
+    },
+    "spacing": {
+      "base": 4,
+      "scale": [
+        4,
+        8,
+        12,
+        16,
+        20,
+        24,
+        32,
+        48,
+        64
+      ]
+    },
+    "surfaces": {
+      "radius": {
+        "sm": 4,
+        "md": 6,
+        "lg": 8,
+        "pill": 9999
+      }
+    },
+    "layout": {
+      "container": 1280,
+      "paragraph": 680,
+      "columns": 12,
+      "gutter": 24,
+      "breakpoints": [
+        768,
+        1024
+      ]
+    },
+    "motion": {
+      "durations": {
+        "micro": 200,
+        "small": 300,
+        "medium": 700
+      },
+      "easing": "cubic-bezier(0.4, 0, 0.2, 1)"
+    }
+  },
+  "spec_i18n": {
+    "en": {
+      "identity": {
+        "keywords": [
+          "analytics",
+          "developer",
+          "version control",
+          "data products"
+        ],
+        "analogy": "A modern documentation site for a developer-focused analytics tool",
+        "oneLiner": "Business intelligence platform that treats data dashboards as code, combining developer workflows with clean, professional UI."
+      },
+      "colors": {
+        "principle": "Neutral grays with a single blue accent for technical precision"
+      },
+      "typography": {
+        "rules": [
+          "Use letter-spacing 0.4px for uppercase micro text",
+          "Use letter-spacing -1.5px for large display headlines",
+          "Maintain 1.5 line-height for body text at 16px",
+          "Use weight 600 for emphasis within body text",
+          "Use weight 500 for interactive elements"
+        ],
+        "scaleUses": [
+          "Hero headlines",
+          "Section headings",
+          "Main body text",
+          "Secondary text and UI labels",
+          "Badge and navigation text"
+        ]
+      },
+      "spacing": {
+        "rhythm": "Consistent 4px base grid with generous vertical spacing between sections"
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 1px 2px 0px rgba(0, 0, 0, 0.05)",
+          "0px 4px 6px -1px rgba(0, 0, 0, 0.1)",
+          "0px 10px 15px -3px rgba(0, 0, 0, 0.1)"
+        ],
+        "borders": "1px solid #E5E7EB"
+      },
+      "layout": {
+        "skeleton": "Centered content with generous horizontal padding and clear visual hierarchy"
+      },
+      "components": {
+        "button": "Rounded pill shapes with high contrast; black filled primary, white bordered secondary",
+        "card": "White backgrounds with subtle shadows and 1px borders",
+        "chip": "Small pill-shaped tags with uppercase micro text",
+        "input": "Clean bordered fields with subtle shadows",
+        "hero": "Large centered headline with secondary subtitle and dual CTA buttons"
+      },
+      "motion": {
+        "patterns": [
+          "Smooth color and opacity transitions on hover states",
+          "Subtle fade-in for modal and dropdown appearances"
+        ]
+      },
+      "interaction": {
+        "hover": "Smooth 200ms color transitions with opacity changes",
+        "click": "Immediate visual feedback with standard button press states",
+        "transition": "All CSS transitions use 0.3s duration with standard easing curve",
+        "keyboard": "Standard focus ring visibility on interactive elements"
+      },
+      "voice": {
+        "tone": "Professional, technical, and confident",
+        "headlineStyle": "Clear, concise, and action-oriented with strong typographic hierarchy",
+        "ctaStyle": "Direct and imperative using verbs like 'Get started' and 'Book a demo'",
+        "avoid": [
+          "Overly casual or conversational language",
+          "Technical jargon without context",
+          "Excessive exclamation marks",
+          "Vague or abstract value propositions"
+        ]
+      },
+      "donts": [
+        "Don't use dark mode — screenshot shows light background with dark text (#FFFFFF bg, #111827 ink)",
+        "Don't use heavy drop shadows — screenshot shows subtle 1px borders and minimal elevation",
+        "Don't use decorative serif fonts for body — screenshot uses sans-serif for all readable text",
+        "Don't use multi-color accents — screenshot shows single blue accent (#1D4ED8) with neutral grays",
+        "Don't use rounded rectangles for buttons — screenshot uses pill-shaped buttons with full radius",
+        "Don't use uppercase text everywhere — screenshot reserves uppercase for micro labels only",
+        "Don't use gradient backgrounds on primary content — screenshot shows flat white surfaces"
+      ],
+      "systemPrompt": "Evidence.dev is a developer-focused analytics platform presenting business intelligence as code. The design uses a clean white background (#FFFFFF) with primary black text (#111827) and a single blue accent (#1D4ED8). Typography combines a transitional serif for hero headlines with a humanist sans for body text, using Geist as the primary font family. The layout features generous whitespace, centered content, and subtle card elevation through light borders. Key critical donts: never use dark mode, avoid heavy shadows or gradients on content areas, and never use decorative fonts for technical content. The interface prioritizes readability and professional credibility for a technical audience building data products."
+    },
+    "zh-CN": {
+      "identity": {
+        "keywords": [
+          "数据分析",
+          "开发者",
+          "版本控制",
+          "数据产品"
+        ],
+        "analogy": "一款面向开发者的现代分析工具文档站点",
+        "oneLiner": "将数据仪表盘视为代码的商业智能平台，结合开发者工作流与干净专业的用户界面。"
+      },
+      "colors": {
+        "principle": "以中性灰为基底，单一蓝色强调色体现技术精准性"
+      },
+      "typography": {
+        "rules": [
+          "大写微文本使用0.4px字间距",
+          "大型展示标题使用-1.5px字间距",
+          "16px正文保持1.5倍行高",
+          "正文内强调内容使用600字重",
+          "交互元素使用500字重"
+        ],
+        "scaleUses": [
+          "主视觉标题",
+          "版块标题",
+          "正文主体",
+          "辅助文本与界面标签",
+          "徽章与导航文字"
+        ]
+      },
+      "spacing": {
+        "rhythm": "基于统一的4px网格系统，版块间保持充裕的垂直间距"
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 1px 2px 0px rgba(0, 0, 0, 0.05)",
+          "0px 4px 6px -1px rgba(0, 0, 0, 0.1)",
+          "0px 10px 15px -3px rgba(0, 0, 0, 0.1)"
+        ],
+        "borders": "1px solid #E5E7EB"
+      },
+      "layout": {
+        "skeleton": "居中内容区域配以充足水平边距，建立清晰的视觉层次"
+      },
+      "components": {
+        "button": "高对比度的圆角胶囊形态；主按钮为黑底填充，次按钮为白底描边",
+        "card": "白色背景搭配微弱阴影与1px边框",
+        "chip": "采用大写微文本的小型胶囊标签",
+        "input": "带有微弱阴影的简洁描边输入框",
+        "hero": "居中大标题搭配副标题与双行动按钮"
+      },
+      "motion": {
+        "patterns": [
+          "悬停状态下的颜色与透明度平滑过渡",
+          "模态框与下拉菜单的微妙淡入效果"
+        ]
+      },
+      "interaction": {
+        "hover": "200ms的颜色过渡配合透明度变化",
+        "click": "提供即时的视觉反馈与标准按钮按压状态",
+        "transition": "所有CSS过渡采用0.3秒时长与标准缓动曲线",
+        "keyboard": "交互元素具有标准的焦点环可见性"
+      },
+      "voice": {
+        "tone": "专业、技术化且充满自信",
+        "headlineStyle": "清晰简洁、富有行动号召力，具备强烈的排版层次",
+        "ctaStyle": "使用「开始使用」「预约演示」等祈使动词，表达直接明确",
+        "avoid": [
+          "过度随意或口语化的表达",
+          "缺乏语境的技术术语",
+          "过多的感叹号",
+          "模糊或抽象的价值主张"
+        ]
+      },
+      "donts": [
+        "禁用深色模式——截图显示为浅色背景配深色文字（#FFFFFF背景，#111827墨色文字）",
+        "避免使用厚重的投影——截图显示采用微弱的1px边框与最小化高度提升",
+        "不要为正文使用装饰性衬线字体——截图中所有可读文本均采用无衬线字体",
+        "避免使用多色强调——截图显示仅用单一蓝色强调色（#1D4ED8）搭配中性灰",
+        "不要为按钮使用圆角矩形——截图显示采用全圆角的胶囊形按钮",
+        "避免在所有地方使用大写文本——截图中仅微标签保留大写形式",
+        "不要在主要内容区域使用渐变背景——截图显示为纯白平面"
+      ],
+      "systemPrompt": "Evidence.dev 是一个面向开发者的分析平台，将商业智能呈现为代码形式。设计采用纯白背景（#FFFFFF）搭配主黑色文字（#111827）与单一蓝色强调色（#1D4ED8）。字体组合采用过渡衬线体作为主视觉标题字体，搭配人文主义无衬线体作为正文字体，主字体家族为Geist。布局注重充足的留白、居中内容以及通过浅色边框营造的微妙卡片层次感。关键禁忌：永远不要使用深色模式，避免在内容区域使用厚重阴影或渐变，绝不使用装饰性字体呈现技术内容。界面优先考虑可读性与专业可信度，面向构建数据产品的技术受众。"
+    },
+    "zh-TW": {
+      "identity": {
+        "keywords": [
+          "分析",
+          "開發者",
+          "版本控制",
+          "資料產品"
+        ],
+        "analogy": "一個為開發者導向的分析工具打造的現代化文件網站",
+        "oneLiner": "將資料儀表板視為程式碼的商業智慧平台，結合開發者工作流程與乾淨、專業的使用者介面。"
+      },
+      "colors": {
+        "principle": "以中性灰為基調，搭配單一藍色強調，體現技術精確感"
+      },
+      "typography": {
+        "rules": [
+          "大寫微文字使用 letter-spacing 0.4px",
+          "大型展示標題使用 letter-spacing -1.5px",
+          "16px 正文維持 1.5 行高",
+          "正文中的強調文字使用 weight 600",
+          "互動元素使用 weight 500"
+        ],
+        "scaleUses": [
+          "英雄區標題",
+          "章節標題",
+          "主要內文",
+          "次要文字與介面標籤",
+          "徽章與導覽文字"
+        ]
+      },
+      "spacing": {
+        "rhythm": "以一致的 4px 基礎格線為基礎，章節間採用寬裕的垂直間距"
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 1px 2px 0px rgba(0, 0, 0, 0.05)",
+          "0px 4px 6px -1px rgba(0, 0, 0, 0.1)",
+          "0px 10px 15px -3px rgba(0, 0, 0, 0.1)"
+        ],
+        "borders": "1px solid #E5E7EB"
+      },
+      "layout": {
+        "skeleton": "內容置中，搭配寬裕的水平內距與清晰的視覺層級"
+      },
+      "components": {
+        "button": "圓角膠囊造型，具高對比；主要按鈕為黑色實心，次要按鈕為白色邊框",
+        "card": "白色背景，搭配細微陰影與 1px 邊框",
+        "chip": "小型膠囊造型標籤，採用大寫微文字",
+        "input": "簡潔的邊框欄位，帶有細微陰影",
+        "hero": "大型置中標題，搭配次要副標題與雙重行動呼籲按鈕"
+      },
+      "motion": {
+        "patterns": [
+          "懸停狀態的顏色與透明度流暢轉場",
+          "彈出視窗與下拉選單出現時的細膩淡入效果"
+        ]
+      },
+      "interaction": {
+        "hover": "200 毫秒的流暢顏色轉場與透明度變化",
+        "click": "提供即時視覺回饋，採用標準按鈕按下狀態",
+        "transition": "所有 CSS 轉場使用 0.3 秒時長與標準緩動曲線",
+        "keyboard": "互動元素在 focus 狀態下顯示標準的焦點環"
+      },
+      "voice": {
+        "tone": "專業、技術性、充滿自信",
+        "headlineStyle": "清晰、簡潔、以行動為導向，並具強烈的字體層級",
+        "ctaStyle": "直接且帶指令性，使用如「立即開始」與「預約演示」等動詞",
+        "avoid": [
+          "過度口語或非正式的語言",
+          "缺乏脈絡的技術術語",
+          "過多的驚嘆號",
+          "模糊或抽象的價值主張"
+        ]
+      },
+      "donts": [
+        "不使用深色模式 — 螢幕截圖顯示深色文字 (#111827) 搭配淺色背景 (#FFFFFF)",
+        "不使用厚重陰影 — 螢幕截圖顯示細微的 1px 邊框與最小化浮凸效果",
+        "不使用裝飾性襯線字體作為內文 — 螢幕截圖中所有可讀文字均採用無襯線字體",
+        "不使用多色強調 — 螢幕截圖僅顯示單一藍色強調 (#1D4ED8) 搭配中性灰色調",
+        "不使用圓角矩形按鈕 — 螢幕截圖顯示全圓角的膠囊形按鈕",
+        "不隨處使用大寫文字 — 螢幕截圖僅在微文字標籤保留大寫",
+        "不在主要內容區使用漸層背景 — 螢幕截圖顯示純白平面"
+      ],
+      "systemPrompt": "Evidence.dev 是一個開發者導向的分析平台，將商業智慧呈現為程式碼。設計採用乾淨的白色背景 (#FFFFFF) 搭配主要黑色文字 (#111827) 與單一藍色強調 (#1D4ED8)。字體結合了用於英雄標題的過渡襯線字體，以及用於內文的人文無襯線字體，主要字族使用 Geist。佈局採用寬裕的留白、置中內容，並透過淺色邊框營造細微的卡片浮凸感。關鍵禁忌：切勿使用深色模式，避免在內容區域使用厚重陰影或漸層，切勿使用裝飾性字體處理技術內容。此介面優先考慮可讀性與專業可信度，以服務建構資料產品的技術受眾。"
+    },
+    "ja": {
+      "identity": {
+        "keywords": [
+          "分析",
+          "開発者",
+          "バージョン管理",
+          "データプロダクト"
+        ],
+        "analogy": "開発者向け分析ツールのモダンなドキュメントサイト",
+        "oneLiner": "データダッシュボードをコードとして扱い、開発者ワークフローとクリーンでプロフェッショナルなUIを組み合わせるビジネスインテリジェンスプラットフォーム。"
+      },
+      "colors": {
+        "principle": "技術的な精密さのための、単一のブルーアクセントを持つニュートラルグレー"
+      },
+      "typography": {
+        "rules": [
+          "大文字のマイクロテキストには letter-spacing 0.4px を使用",
+          "大きなディスプレイ見出しには letter-spacing -1.5px を使用",
+          "16pxの本文テキストには line-height 1.5 を維持",
+          "本文中の強調には weight 600 を使用",
+          "インタラクティブ要素には weight 500 を使用"
+        ],
+        "scaleUses": [
+          "ヒーロー見出し",
+          "セクション見出し",
+          "メイン本文テキスト",
+          "セカンダリテキストとUIラベル",
+          "バッジとナビゲーションテキスト"
+        ]
+      },
+      "spacing": {
+        "rhythm": "一貫した4pxのベースグリッドと、セクション間の十分な垂直スペース"
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 1px 2px 0px rgba(0, 0, 0, 0.05)",
+          "0px 4px 6px -1px rgba(0, 0, 0, 0.1)",
+          "0px 10px 15px -3px rgba(0, 0, 0, 0.1)"
+        ],
+        "borders": "1px solid #E5E7EB"
+      },
+      "layout": {
+        "skeleton": "十分な水平パディングと明確なビジュアルヒエラルキーを持つ中央揃えコンテンツ"
+      },
+      "components": {
+        "button": "角丸のピル形状で高いコントラスト。黒塗りのプライマリ、白枠のセカンダリ",
+        "card": "控えめな影と1pxボーダーを持つ白い背景",
+        "chip": "大文字のマイクロテキストを持つ小型のピル-shapedタグ",
+        "input": "控えめな影を持つクリーンなボーダーフィールド",
+        "hero": "セカンダリサブタイトルと2つのCTAボタンを持つ、中央揃えの大きな見出し"
+      },
+      "motion": {
+        "patterns": [
+          "hover状態での滑らかな色と透明度のトランジション",
+          "モーダルやドロップダウンの出現時の控えめなフェードイン"
+        ]
+      },
+      "interaction": {
+        "hover": "透明度の変化を伴う滑らかな200msの色のトランジション",
+        "click": "標準的なボタン押下状態による即座の視覚的フィードバック",
+        "transition": "すべてのCSSトランジションは、標準的なイージングカーブで0.3sの継続時間を使用",
+        "keyboard": "インタラクティブ要素上での標準的なフォーカスリングの可視性"
+      },
+      "voice": {
+        "tone": "プロフェッショナルで、技術的で、自信に満ちた",
+        "headlineStyle": "明確で簡潔、行動を促す。強いタイポグラフィヒエラルキー",
+        "ctaStyle": "直接的で命令的。「Get started」や「Book a demo」のような動詞を使用",
+        "avoid": [
+          "過度にカジュアルまたは会話的な言葉遣い",
+          "文脈のない技術用語",
+          "過度の感嘆符",
+          "曖昧または抽象的な価値提案"
+        ]
+      },
+      "donts": [
+        "ダークモードを使用しない — スクリーンショットはダークテキスト (#FFFFFF背景、#111827インク) の明るい背景を示している",
+        "重いドロップシャドウを使用しない — スクリーンショットは控えめな1pxボーダーと最小限の高さを示している",
+        "本文に装飾的なセリフフォントを使用しない — スクリーンショットはすべての読み可能なテキストにサンセリフを使用",
+        "マルチカラーアクセントを使用しない — スクリーンショットは単一のブルーアクセント (#1D4ED8) とニュートラルグレーを示している",
+        "ボタンに角丸長方形を使用しない — スクリーンショットはフルラウンドのピル-shapedボタンを使用",
+        "すべてのテキストに大文字を使用しない — スクリーンショットはマイクロラベルのみに大文字を予約",
+        "プライマリコンテンツにグラデーション背景を使用しない — スクリーンショットはフラットな白いサーフェスを示している"
+      ],
+      "systemPrompt": "Evidence.devは、ビジネスインテリジェンスをコードとして提示する開発者向け分析プラットフォーム。デザインはクリーンな白い背景 (#FFFFFF) とプライマリの黒いテキスト (#111827)、単一のブルーアクセント (#1D4ED8) を使用。タイポグラフィは、ヒーロー見出しにはトランジショナルセリフ、本文にはヒューマニストサンスを組み合わせ、プライマリフォントファミリーとしてGeistを使用。レイアウトは十分なホワイトスペース、中央揃えコンテンツ、控えめなカードの高さ（軽いボーダーによる）を特徴とする。重要な禁止事項：ダークモードは絶対に使用せず、コンテンツ領域に重い影やグラデーションを避け、技術コンテンツに装飾フォントは使用しない。インターフェースは、データプロダクトを構築する技術者オーディエンスのための読みやすさとプロフェッショナルな信頼性を優先する。"
+    },
+    "ko": {
+      "identity": {
+        "keywords": [
+          "분석",
+          "개발자",
+          "버전 관리",
+          "데이터 제품"
+        ],
+        "analogy": "개발자 중심 분석 도구를 위한 현대적인 문서 사이트",
+        "oneLiner": "데이터 대시보드를 코드로 취급하며, 개발자 워크플로우와 깔끔하고 전문적인 UI를 결합하는 비즈니스 인텔리전스 플랫폼입니다."
+      },
+      "colors": {
+        "principle": "기술적 정밀함을 위한 단일 블루 액센트를 사용한 중성 그레이"
+      },
+      "typography": {
+        "rules": [
+          "대문자 마이크로 텍스트에 letter-spacing 0.4px를 사용합니다",
+          "큰 디스플레이 헤드라인에 letter-spacing -1.5px를 사용합니다",
+          "16px 본문 텍스트는 line-height 1.5를 유지합니다",
+          "본문 내 강조에 weight 600를 사용합니다",
+          "인터랙티브 요소에 weight 500를 사용합니다"
+        ],
+        "scaleUses": [
+          "히어로 헤드라인",
+          "섹션 제목",
+          "본문 텍스트",
+          "보조 텍스트 및 UI 라벨",
+          "배지 및 내비게이션 텍스트"
+        ]
+      },
+      "spacing": {
+        "rhythm": "일관된 4px 기본 그리드와 섹션 간 넉넉한 수직 spacing"
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 1px 2px 0px rgba(0, 0, 0, 0.05)",
+          "0px 4px 6px -1px rgba(0, 0, 0, 0.1)",
+          "0px 10px 15px -3px rgba(0, 0, 0, 0.1)"
+        ],
+        "borders": "1px solid #E5E7EB"
+      },
+      "layout": {
+        "skeleton": "넉넉한 수평 padding과 명확한 시각적 계층을 갖춘 중앙 정렬 콘텐츠"
+      },
+      "components": {
+        "button": "높은 대비를 갖춘 둥근 알약 형태; 검정색 채워진 1차, 테두리가 있는 흰색 2차 버튼",
+        "card": "미세한 그림자와 1px 테두리가 있는 흰색 배경",
+        "chip": "대문자 마이크로 텍스트를 사용하는 작은 알약 형태 태그",
+        "input": "미세한 그림자가 있는 깔끔한 테두리 필드",
+        "hero": "보조 부제목과 2개의 CTA 버튼을 갖춘 큰 중앙 정렬 헤드라인"
+      },
+      "motion": {
+        "patterns": [
+          "hover 상태에서 부드러운 색상 및 opacity 전환",
+          "모달 및 드롭다운 등장 시 미세한 페이드인"
+        ]
+      },
+      "interaction": {
+        "hover": "opacity 변화를 통한 매끄러운 200ms 색상 전환",
+        "click": "표준 버튼 눌림 상태로 즉각적인 시각적 피드백",
+        "transition": "모든 CSS 전환은 표준 easing 곡선을 사용하는 0.3s 지속 시간 적용",
+        "keyboard": "인터랙티브 요소에서 표준 focus ring 가시성 유지"
+      },
+      "voice": {
+        "tone": "전문적이고 기술적이며 자신감 있는",
+        "headlineStyle": "강력한 타이포그래피 계층을 갖춘 명확하고 간결하며 행동 지향적인",
+        "ctaStyle": "'Get started' 및 'Book a demo'와 같은 동사를 사용하는 직접적이고 명령적인",
+        "avoid": [
+          "지나치게 캐주얼하거나 대화체인 언어",
+          "컨텍스트 없는 기술 용어",
+          "과도한 느낌표",
+          "모호하거나 추상적인 가치 제안"
+        ]
+      },
+      "donts": [
+        "다크 모드를 사용하지 않습니다 — 스크린샷은 어두운 텍스트(#FFFFFF 배경, #111827 잉크)가 있는 밝은 배경을 보여줍니다",
+        "무거운 그림자를 사용하지 않습니다 — 스크린샷은 미세한 1px 테두리와 최소한의 상승 효과를 보여줍니다",
+        "본문에 장식용 세리프 글꼴을 사용하지 않습니다 — 스크린샷은 읽을 수 있는 모든 텍스트에 산세리프를 사용합니다",
+        "다색 액센트를 사용하지 않습니다 — 스크린샷은 중성 그레이와 함께 단일 블루 액센트(#1D4ED8)를 보여줍니다",
+        "버튼에 둥근 사각형을 사용하지 않습니다 — 스크린샷은 완전한 radius를 갖춘 알약 형태 버튼을 사용합니다",
+        "모든 곳에 대문자 텍스트를 사용하지 않습니다 — 스크린샷은 대문자를 마이크로 라벨에만 예약합니다",
+        "주요 콘텐츠에 그라데이션 배경을 사용하지 않습니다 — 스크린샷은 평면 흰색 표면을 보여줍니다"
+      ],
+      "systemPrompt": "Evidence.dev는 비즈니스 인텔리전스를 코드로 제시하는 개발자 중심 분석 플랫폼입니다. 디자인은 깔끔한 흰색 배경(#FFFFFF)을 기본 검정 텍스트(#111827)와 단일 블루 액센트(#1D4ED8)와 함께 사용합니다. 타이포그래피는 본문 텍스트에는 humanist sans를, 메인 폰트 패밀리로는 Geist를 사용하며, 히어로 헤드라인에는 transitional serif를 결합합니다. 레이아웃은 넉넉한 여백, 중앙 정렬 콘텐츠, 그리고 가벼운 테두리를 통한 미세한 카드 상승 효과를 특징으로 합니다. 핵심 주의 사항: 다크 모드를 절대 사용하지 않으며, 콘텐츠 영역에 무거운 그림자나 그라데이션을 피하며, 기술 콘텐츠에 장식용 글꼴을 절대 사용하지 않습니다. 인터페이스는 데이터 제품을 구축하는 기술 대상을 위해 가독성과 전문적 신뢰성을 우선시합니다."
+    }
+  },
+  "desc": {
+    "en": {
+      "palette": "Clean neutral grays with white backgrounds, dark charcoal text, and a single blue accent for interactive elements.",
+      "layout": "Centered single-column hero transitioning to multi-column feature grids with generous padding and clear visual hierarchy.",
+      "interaction": "Standard SaaS interaction patterns with smooth hover transitions, pill-shaped buttons, and clear primary/secondary button hierarchy.",
+      "motion": "Subtle 200-300ms transitions for hover states and opacity changes, avoiding flashy animations to maintain professional tone.",
+      "notes": "Worth including as an excellent example of developer-focused SaaS design that balances technical credibility with approachable, clean UI that appeals to both technical and business stakeholders."
+    },
+    "zh-CN": {
+      "palette": "以白色背景、深炭灰文字搭配单一蓝色强调色，营造干净的中性灰色调。",
+      "layout": "采用居中单列主视觉区过渡至多列功能网格，配以充裕的间距与清晰的视觉层次。",
+      "interaction": "遵循标准的SaaS交互模式，包含流畅的hover过渡、胶囊形按钮及明确的主次按钮层级。",
+      "motion": "悬停状态与透明度变化采用200-300ms的微妙过渡，避免花哨动画以保持专业基调。",
+      "notes": "堪称开发者导向型SaaS设计的典范案例，在技术可信度与平易近人的简洁UI间取得平衡，同时吸引技术与商业决策者。"
+    },
+    "zh-TW": {
+      "palette": "乾淨的中性灰色調，搭配白色背景、深炭灰色文字，以及單一藍色作為互動元素的強調色。",
+      "layout": "以中央單欄英雄區為開端，過渡至多欄功能網格，採用寬裕的內距與清晰的視覺層級。",
+      "interaction": "標準的 SaaS 互動模式，包含流暢的 hover 轉場、膠囊形按鈕，以及明確的主要與次要按鈕層級。",
+      "motion": "懸停狀態與透明度變更採用細膩的 200-300 毫秒轉場，避免浮誇動畫以維持專業調性。",
+      "notes": "作為開發者導向的 SaaS 設計典範，其平衡技術可信度與平易近人、乾淨的 UI，能同時吸引技術與商業決策者，值得參考。"
+    },
+    "ja": {
+      "palette": "クリーンなニュートラルグレーをベースに、白い背景、ダークチャコールのテキスト、インタラクティブ要素には単一のブルーアクセントを採用。",
+      "layout": "中央揃えのシングルカラムヒーローから、十分なパディングと明確なビジュアルヒエラルキーを持つマルチカラム機能グリッドへと展開。",
+      "interaction": "標準的なSaaSのインタラクションパターンを採用。スムーズなhoverトランジション、ピル-shapedボタン、明確なプライマリ/セカンダリボタンのヒエラルキー。",
+      "motion": "hover状態や透明度の変化に対して、控えめな200-300msのトランジションを採用。派手なアニメーションは避け、プロフェッショナルなトーンを維持。",
+      "notes": "技術的な信頼性と親しみやすさのあるクリーンなUIを兼ね備え、技術者とビジネス関係者の両方を惹きつける、開発者向けSaaSデザインの優れた例として Including する価値がある。"
+    },
+    "ko": {
+      "palette": "흰색 배경과 함께 깔끔한 중성 그레이를 사용하고, 어두운 차콜 텍스트를 적용하며, 인터랙티브 요소를 위한 단일 블루 액센트를 사용합니다.",
+      "layout": "중앙 정렬된 싱글컬럼 히어로에서 넉넉한 padding과 명확한 시각적 계층을 갖춘 멀티컬럼 기능 그리드로 전환됩니다.",
+      "interaction": "매끄러운 hover 전환, 알약 형태의 버튼, 명확한 1차/2차 버튼 계층을 갖춘 표준 SaaS 인터랙션 패턴을 따릅니다.",
+      "motion": "hover 상태와 opacity 변화를 위한 미세한 200-300ms 전환을 사용하며, 전문적인 톤을 유지하기 위해 화려한 애니메이션은 피합니다.",
+      "notes": "기술적 신뢰성과 접근 가능하고 깔끔한 UI의 균형을 이루며, 기술 및 비즈니스 이해관계자 모두에게 어필하는 개발자 중심 SaaS 디자인의 훌륭한 예시로 포함할 가치가 있습니다."
+    }
+  },
+  "_meta": {
+    "vision_model": "mimo-v2.5",
+    "vision_prompt_version": "0.3",
+    "vision_source": "playwright-extract:evidence",
+    "vision_grounded": true,
+    "vision_at": "2026-06-04T15:01:34+00:00",
+    "vision_tokens": 17802,
+    "vision_cost_usd": 0.1978,
+    "translation_model": "mimo-v2.5",
+    "translation_at": "2026-06-04T15:03:01+00:00",
+    "translation_tokens": 17635,
+    "translation_cost_usd": 0.0588,
+    "narrative_model": "mimo-v2.5",
+    "narrative_prompt_version": "0.3",
+    "narrative_at": "2026-06-04T15:03:10+00:00",
+    "narrative_tokens": 2115,
+    "narrative_cost_usd": 0.0141,
+    "narrative_status": "ok",
+    "total_cost_usd": 0.2707
+  },
+  "narrative": {
+    "en": {
+      "ch1_intro": "Evidence is built for developers who build with data, treating dashboards not as finished artifacts but as living code. The design system is a modern documentation site for an analytics tool, where technical credibility and professional clarity are the same thing.",
+      "ch2_intro": "The palette is a study in restraint, built on a foundation of clean neutral grays and white surfaces. A single, precise blue accent emerges from this quiet field to mark interactive elements, a chromatic anchor for the entire interface.",
+      "ch2_outro": "The principle is technical precision: color is used sparingly and purposefully, never for decoration.",
+      "ch3_intro": "Typography carries the system's voice, pairing a transitional serif for hero headlines with a humanist sans-serif for all other reading. This combination balances the gravitas of a report with the clarity of a terminal, using Geist as the primary family.",
+      "ch4_intro": "A consistent 4px base grid establishes the foundational rhythm, creating order that is felt rather than seen.",
+      "ch5_intro": "Depth is communicated through restraint, using subtle 1px borders and a triptych of minimal shadows rather than dramatic elevation. White card surfaces are defined more by their containment than by heavy effects.",
+      "ch6_intro": "The layout skeleton is a centered column of generous whitespace, beginning with a large, focused hero. This primary column then unfolds into multi-column feature grids, maintaining clear visual hierarchy through padding and alignment.",
+      "ch7_intro": "Motion is understated, serving as functional punctuation rather than spectacle. Smooth 200-300ms transitions for hover states and opacity changes maintain a professional tone while providing essential feedback.",
+      "ch8_intro": "The voice is that of a confident technical partner: professional, direct, and devoid of marketing abstraction. It uses clear, action-oriented headlines and imperative CTAs, avoiding casual language and unframed jargon.",
+      "ch8_outro": "This system deliberately forgoes dark mode, decorative serifs, and gradient backgrounds, committing fully to a light, legible, and professional core."
+    },
+    "zh-CN": {
+      "ch1_intro": "这套系统为开发者构建，服务于数据驱动的应用场景，将仪表盘视为持续演进的代码，而非静态成品。设计系统是一个现代分析工具的文档站点，技术可信度与专业清晰度在此合二为一。",
+      "ch2_intro": "色彩方案体现了克制美学，以纯净的中性灰与白色界面为基石。一抹精准的蓝色从中性场域中浮现，用于标记交互元素，成为整个界面的色彩锚点。",
+      "ch2_outro": "核心原则是技术精确性：色彩的使用必须克制且有意义，绝不为装饰而存在。",
+      "ch3_intro": "字体承载着系统的语调，将过渡型衬线字体用于主标题，与人文主义无衬线字体搭配处理所有正文内容。这种组合平衡了报告的厚重感与终端界面的清晰度，以 Geist 字体族为主体。",
+      "ch4_intro": "统一的 4px 基础网格奠定了界面的基础韵律，创造出可感知而非直视的秩序。",
+      "ch5_intro": "深度通过克制来传达，运用微妙的 1px 边框与三层极简阴影替代夸张的立体效果。白色卡片界面通过其承载性而非厚重效果来定义存在感。",
+      "ch6_intro": "布局骨架采用居中单栏结构，以充裕留白构建，从大型聚焦式主视觉开始。主栏向下延展为多栏功能网格，通过内边距与对齐方式维持清晰的视觉层级。",
+      "ch7_intro": "动效保持内敛，作为功能性标点而非视觉奇观。200-300 毫秒的平滑过渡用于悬停状态与透明度变化，在保持专业基调的同时提供必要反馈。",
+      "ch8_intro": "文案语调如自信的技术伙伴：专业、直接，摒弃营销话术。使用清晰明确的行动导向标题与命令式行动号召，避免随意用语与未定义的专业术语。",
+      "ch8_outro": "该系统有意舍弃暗黑模式、装饰性衬线字体与渐变背景，完全聚焦于明亮、可读、专业的核心体验。"
+    },
+    "zh-TW": {
+      "ch1_intro": "證據為用數據構建的開發者而生，他們不將儀表板視為完成的成品，而是視為活的程式碼。這套設計系統是分析工具的現代化文件網站，技術可信度與專業清晰度在此合而為一。",
+      "ch2_intro": "色彩配置是一場關於克制的研究，以乾淨的中性灰色與白色介面為基礎。單一、精準的藍色強調色從這片靜謐中浮現，用以標示互動元素，成為整個介面的色彩錨點。",
+      "ch2_outro": "原則是技術精確：色彩被謹慎且有意識地運用，從不作為裝飾。",
+      "ch3_intro": "字體系統承載著系統的聲音，將過渡型襯線字體用於主視覺標題，搭配人文無襯線字體用於所有其他閱讀內容。這種組合平衡了報告的份量感與終端機的清晰度，並以 Geist 作為主要字體系列。",
+      "ch4_intro": "一致的 4px 基礎網格確立了基本節奏，創造出一種能被感受而非看見的秩序。",
+      "ch5_intro": "深度透過克制來傳達，使用細微的 1px 邊框與極簡陰影的三重奏，而非戲劇性的立體效果。白色卡片介面更多是由其容器邊界所定義，而非厚重的效果。",
+      "ch6_intro": "版面骨架是一個以充足留白為核心的居中欄位，從一個大型、專注的主視覺開始。此主欄位隨後展開為多欄位的功能網格，透過 padding 與對齊維持清晰的視覺層級。",
+      "ch7_intro": "動態效果低調，作為功能性標點而非 spectacle。hover 狀態與 opacity 變化的 200-300ms 平滑過渡，在提供必要回饋的同時，維持了專業的基調。",
+      "ch8_intro": "語調來自一位自信的技術夥伴：專業、直接，且不帶行銷抽象。它使用清晰、行動導向的標題與命令式 CTA，避免隨意用語與未經框架的行話。",
+      "ch8_outro": "此系統刻意捨棄了暗色模式、裝飾性襯線字體與漸層背景，完全投入於明亮、易讀且專業的核心。"
+    },
+    "ja": {
+      "ch1_intro": "エビデンスは、データを扱いながら構築する開発者のために作られています。ダッシュボードを完成品としてではなく、生きたコードとして扱います。このデザインシステムは、分析ツールのための現代的なドキュメントサイトであり、技術的な信頼性とプロフェッショナルな明瞭さが同義となる場所です。",
+      "ch2_intro": "パレットは抑制の研究であり、クリーンなニュートラルグレーとホワイトサーフェスを基盤として構築されています。静かな背景から、単一の正確なブルーアクセントが浮かび上がり、インタラクティブな要素を示します。これは、インターフェース全体のクロマティックアンカーとなります。",
+      "ch2_outro": "原則は技術的な正確性です。色は控えめに、目的を持って使用され、装飾として使用されることはありません。",
+      "ch3_intro": "タイポグラフィはシステムの声を担い、ヒーローヘッドラインにはトランジショナルセリフ、それ以外のすべてのテキストにはヒューマニストサンセリフを組み合わせます。この組み合わせは、レポートの重厚感とターミナルの明瞭さをバランスよく保ち、主要フォントファミリーとしてGeistを使用します。",
+      "ch4_intro": "一貫した4pxベースグリッドが基盤となるリズムを確立し、目に見えるというよりは感じられる秩序を生み出します。",
+      "ch5_intro": "奥行きは抑制を通じて伝えられ、劇的な浮き出しではなく、繊細な1pxボーダーと最小限の影の三連画を使用します。ホワイトカードサーフェスは、重い効果よりも、その内包性によって定義されます。",
+      "ch6_intro": "レイアウトの骨格は、豊かな余白を有する中央揃えのカラムであり、大きくフォーカスされたヒーローから始まります。このプライマリカラムは、パディングとアラインメントを通じて明確な視覚的階層を維持しながら、マルチカラムのフィーチャーグリッドへと展開されます。",
+      "ch7_intro": "モーションは控えめで、壮观さよりも機能的な句読点として機能します。hover状態やopacity変化のための滑らかな200-300msトランジションは、 essentialなフィードバックを提供しながら、プロフェッショナルなトーンを維持します。",
+      "ch8_intro": "声は、自信ある技術パートナーのものです：プロフェッショナルで、率直で、マーケティングの抽象概念を欠いています。明確でアクション志向の見出しと命令形のCTAを使用し、カジュアルな言葉や未整理の専門用語を避けます。",
+      "ch8_outro": "このシステムは、ダークモード、装飾的なセリフ、グラデーション背景を意図的に排除し、明るく、読みやすく、プロフェッショナルなコアに完全にコミットしています。"
+    },
+    "ko": {
+      "ch1_intro": "증거는 데이터를 기반으로 구축하는 개발자를 위해 쌓아갑니다. 대시보드를 완성된 결과물이 아닌 살아있는 코드로 취급합니다. 이 디자인 시스템은 분석 도구를 위한 현대적인 문서 사이트로, 기술적 신뢰성과 전문적 명확함이 동일한 가치입니다.",
+      "ch2_intro": "팔레트는 절제에 대한 연구로, 깨끗한 중립 그레이와 화이트 서피스를 기반으로 구축됩니다. 이 정적인 배경에서 단 하나의 정확한 블루 악센트가 나타나 상호작용 요소를 표시하며, 전체 인터페이스의 색조적 안정점이 됩니다.",
+      "ch2_outro": "원칙은 기술적 정밀함입니다: 색상은 장식이 아닌 목적을 위해 절제되고 의도적으로 사용됩니다.",
+      "ch3_intro": "타이포그래피는 시스템의 목소리를 담당하며, 영웅 헤드라인에는 트랜지셔널 세리프를, 그 외 모든 본문에는 휴머니스트 산세리프를 매칭합니다. 이 조합은 보고서의 무게감과 터미널의 명확함을 균형 있게 유지하며, Geist를 주요 패밀리로 사용합니다.",
+      "ch4_intro": "일관된 4px 기본 그리드가 기초 리듬을 확립하여, 눈에 보이지 않지만 느껴지는 질서를 만들어냅니다.",
+      "ch5_intro": "깊이는 절제를 통해 전달됩니다. 과장된 고도 효과 대신 미세한 1px 테두리와 최소한의 그림자 세 가지를 사용합니다. 화이트 카드 서피스는 무거운 효과보다는 그 안에 담긴 내용을 통해 정의됩니다.",
+      "ch6_intro": "레이아웃 골격은 넉넉한 여백의 중앙 정렬 컬럼으로, 크고 집중된 영웅 영역에서 시작됩니다. 이 주요 컬럼은 이후 멀티컬럼 기능 그리드로 전개되며, 패딩과 정렬을 통해 명확한 시각적 계층을 유지합니다.",
+      "ch7_intro": "모션은 절제되어 기능적인 구두점 역할을 하며, 화려한 연출이 아닙니다. hover 상태와 투명도 변화를 위한 부드러운 200-300ms 트랜지션은 전문적인 톤을 유지하면서 필수적인 피드백을 제공합니다.",
+      "ch8_intro": "어조는 자신감 있는 기술 파트너의 목소리입니다: 전문적이고 직접적이며 마케팅적 추상이 배제됩니다. 명확하고 행동 지향적인 헤드라인과 명령형 CTA를 사용하며, 일상적인 언어와 맥락 없는 전문 용어를 피합니다.",
+      "ch8_outro": "이 시스템은 의도적으로 다크 모드, 장식용 세리프, 그리고 그라데이션 배경을 포기하며, 가볍고 읽기 쉬우며 전문적인 코어에 전적으로 헌신합니다."
+    }
+  }
 }

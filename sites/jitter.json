@@ -8,6 +8,585 @@
     "design",
     "motion"
   ],
-  "status": "pending",
-  "added_at": "2026-06-03"
+  "status": "completed",
+  "added_at": "2026-06-03",
+  "spec": {
+    "colors": {
+      "bg": "#FFFFFF",
+      "bgSoft": "#F2F1F3",
+      "bgQuiet": "#E5E4E7",
+      "ink": "#19171C",
+      "inkSoft": "#6E6E73",
+      "muted": "#97979B",
+      "mutedSoft": "#D7D7DB",
+      "accent": "#A481FF",
+      "line": "rgba(215, 215, 219, 1)"
+    },
+    "typography": {
+      "display": "grotesque-sans",
+      "body": "humanist-sans",
+      "mono": "monospace",
+      "scale": [
+        {
+          "token": "display",
+          "size": 72,
+          "lh": 1.0,
+          "weight": 800,
+          "ls": "-2px"
+        },
+        {
+          "token": "body",
+          "size": 18,
+          "lh": 1.33,
+          "weight": 400,
+          "ls": "-0.36px"
+        }
+      ]
+    },
+    "spacing": {
+      "base": 4,
+      "scale": [
+        4,
+        8,
+        16,
+        24,
+        32,
+        48,
+        64,
+        96
+      ]
+    },
+    "surfaces": {
+      "radius": {
+        "sm": 4,
+        "md": 8,
+        "lg": 12,
+        "pill": 999
+      }
+    },
+    "layout": {
+      "container": 1280,
+      "paragraph": 680,
+      "columns": 12,
+      "gutter": 24,
+      "breakpoints": [
+        768,
+        1024
+      ]
+    },
+    "motion": {
+      "durations": {
+        "micro": 220,
+        "small": 400,
+        "medium": 800
+      },
+      "easing": "cubic-bezier(0.25, 0.46, 0.45, 0.94)"
+    }
+  },
+  "spec_i18n": {
+    "en": {
+      "identity": {
+        "keywords": [
+          "motion",
+          "animation",
+          "speed",
+          "collaboration",
+          "teams"
+        ],
+        "analogy": "A digital animation studio for the browser",
+        "oneLiner": "Super fast motion for every team"
+      },
+      "colors": {
+        "principle": "Monochromatic scale with a single soft purple accent"
+      },
+      "typography": {
+        "rules": [],
+        "scaleUses": [
+          "hero headlines",
+          "body copy"
+        ]
+      },
+      "spacing": {
+        "rhythm": "consistent 4px baseline grid with 40px section padding"
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 9px 21px 0px rgba(25, 23, 28, 0.1)",
+          "0px 38px 38px 0px rgba(25, 23, 28, 0.09)",
+          "0px 85px 51px 0px rgba(25, 23, 28, 0.05)"
+        ],
+        "borders": "none or subtle 1px solid"
+      },
+      "layout": {
+        "skeleton": "centered single-column hero, full-width logo band"
+      },
+      "components": {
+        "button": "pill-shaped with soft purple background and dark text, or dark background with white text",
+        "card": "white background with subtle shadow and rounded corners",
+        "chip": "pill-shaped tag with light gray background",
+        "input": "standard form fields with rounded corners",
+        "hero": "centered large typography with prominent CTA button"
+      },
+      "motion": {
+        "patterns": [
+          "scroll-triggered fade-in",
+          "complex spring-based linear transforms",
+          "opacity transitions"
+        ]
+      },
+      "interaction": {
+        "hover": "cursor pointer with smooth transitions",
+        "click": "subtle scale or opacity feedback",
+        "transition": "all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94)",
+        "keyboard": "standard focus states"
+      },
+      "voice": {
+        "tone": "confident, direct, and empowering",
+        "headlineStyle": "short, punchy, and action-oriented",
+        "ctaStyle": "clear, low-friction, and encouraging",
+        "avoid": [
+          "jargon",
+          "complex sentences",
+          "formal corporate language",
+          "vague promises"
+        ]
+      },
+      "donts": [
+        "don't use a busy background — screenshot shows clean white or soft gray backgrounds",
+        "don't use decorative serif fonts — screenshot shows only clean sans-serif typography",
+        "don't use a wide variety of accent colors — screenshot shows a single dominant purple accent",
+        "don't use sharp corners on primary buttons — screenshot shows fully rounded pill buttons",
+        "don't use dense, multi-column layouts — screenshot shows a clear, single-column hero section",
+        "don't use small, crowded headlines — screenshot shows large, bold, high-impact display type"
+      ],
+      "systemPrompt": "Jitter is a fast, collaborative motion design tool. The design uses a clean white background with a single soft purple accent color for calls to action. Typography is bold and clean, using grotesque-sans for display and humanist-sans for body text. Key design elements include large, impactful headlines, pill-shaped buttons, and generous spacing. Avoid using dark modes, complex color palettes, or serif typography. Critical don'ts: avoid busy backgrounds, don't use wide color variety, and avoid sharp corners on buttons."
+    },
+    "zh-CN": {
+      "identity": {
+        "keywords": [
+          "动效",
+          "动画",
+          "速度",
+          "协作",
+          "团队"
+        ],
+        "analogy": "面向浏览器的数字动画工作室",
+        "oneLiner": "为每个团队带来超快速的动效"
+      },
+      "colors": {
+        "principle": "单色比例，搭配单一柔和的紫色点缀"
+      },
+      "typography": {
+        "rules": [],
+        "scaleUses": [
+          "主标题",
+          "正文"
+        ]
+      },
+      "spacing": {
+        "rhythm": "一致的 4px 基线网格，搭配 40px 的区域间距"
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 9px 21px 0px rgba(25, 23, 28, 0.1)",
+          "0px 38px 38px 0px rgba(25, 23, 28, 0.09)",
+          "0px 85px 51px 0px rgba(25, 23, 28, 0.05)"
+        ],
+        "borders": "无边框或使用微弱的 1px solid 边框"
+      },
+      "layout": {
+        "skeleton": "居中的单栏主视觉区域，全宽 Logo 展示带"
+      },
+      "components": {
+        "button": "药丸形按钮，采用柔和的紫色背景与深色文字，或深色背景与白色文字",
+        "card": "白色背景，带有微弱阴影和圆角",
+        "chip": "药丸形标签，浅灰色背景",
+        "input": "标准表单输入框，带有圆角",
+        "hero": "居中的大字体排版，配有醒目的 CTA 按钮"
+      },
+      "motion": {
+        "patterns": [
+          "滚动触发的淡入效果",
+          "基于弹簧的复杂线性变换",
+          "透明度过渡"
+        ]
+      },
+      "interaction": {
+        "hover": "鼠标指针样式为指针，并伴有平滑过渡",
+        "click": "微弱的缩放或透明度反馈",
+        "transition": "所有过渡效果：0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94)",
+        "keyboard": "标准的聚焦状态"
+      },
+      "voice": {
+        "tone": "自信、直接、赋能",
+        "headlineStyle": "简短、有力、以行动为导向",
+        "ctaStyle": "清晰、低摩擦、富有鼓励性",
+        "avoid": [
+          "行话术语",
+          "复杂长句",
+          "正式企业语言",
+          "模糊的承诺"
+        ]
+      },
+      "donts": [
+        "不要使用繁杂的背景——截图显示为干净的白色或柔和灰色背景",
+        "不要使用装饰性衬线字体——截图仅显示干净的无衬线字体排版",
+        "不要使用多种多样的点缀色——截图显示为单一主导的紫色点缀",
+        "不要为主要按钮使用尖锐的直角——截图显示为完全圆润的药丸形按钮",
+        "不要使用密集的多栏布局——截图显示为清晰的单栏主视觉区域",
+        "不要使用小而拥挤的标题——截图显示为大号、粗体、高冲击力的展示字体"
+      ],
+      "systemPrompt": "Jitter 是一款快速、协作的动效设计工具。该设计采用简洁的白色背景，并以单一柔和的紫色作为行动号召的点缀色。字体排版粗犷而干净，展示字体使用 grotesque-sans，正文使用 humanist-sans。关键设计元素包括大号、富有冲击力的标题、药丸形按钮以及充裕的间距。避免使用深色模式、复杂的调色板或衬线字体。关键禁忌：避免繁杂的背景，不要使用多种颜色，避免按钮上的尖锐直角。"
+    },
+    "zh-TW": {
+      "identity": {
+        "keywords": [
+          "動態",
+          "動畫",
+          "速度",
+          "協作",
+          "團隊"
+        ],
+        "analogy": "專為瀏覽器打造的數位動畫工作室",
+        "oneLiner": "為每個團隊提供超快速的動態效果"
+      },
+      "colors": {
+        "principle": "單色階調搭配單一柔和的紫色強調色"
+      },
+      "typography": {
+        "rules": [],
+        "scaleUses": [
+          "主標題",
+          "內文"
+        ]
+      },
+      "spacing": {
+        "rhythm": "一致的 4px 基線網格，區塊內距為 40px"
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 9px 21px 0px rgba(25, 23, 28, 0.1)",
+          "0px 38px 38px 0px rgba(25, 23, 28, 0.09)",
+          "0px 85px 51px 0px rgba(25, 23, 28, 0.05)"
+        ],
+        "borders": "無邊框或細微的 1px solid 邊框"
+      },
+      "layout": {
+        "skeleton": "置中單欄主視覺區，全寬 logo 列"
+      },
+      "components": {
+        "button": "藥丸狀，柔和紫色背景搭配深色文字，或深色背景搭配白色文字",
+        "card": "白色背景，帶有細微陰影與圓角",
+        "chip": "藥丸狀標籤，淺灰色背景",
+        "input": "標準表單欄位，帶有圓角",
+        "hero": "置中大字體排版，搭配醒目的 CTA 按鈕"
+      },
+      "motion": {
+        "patterns": [
+          "捲動觸發的淡入效果",
+          "複雜的彈簧式線性變換",
+          "透明度過渡"
+        ]
+      },
+      "interaction": {
+        "hover": "游標變為手型，並有流暢過渡",
+        "click": "細微的縮放或透明度回饋",
+        "transition": "all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94)",
+        "keyboard": "標準的 focus 狀態"
+      },
+      "voice": {
+        "tone": "自信、直接且賦能",
+        "headlineStyle": "簡短、有力且以行動為導向",
+        "ctaStyle": "清晰、低門檻且具鼓勵性",
+        "avoid": [
+          "術語",
+          "複雜的句子",
+          "正式的企業語言",
+          "模糊的承諾"
+        ]
+      },
+      "donts": [
+        "避免使用雜亂的背景 — 畫面截圖顯示為乾淨的白色或柔和灰色背景",
+        "避免使用裝飾性襯線字體 — 畫面截圖僅顯示乾淨的無襯線字體",
+        "避免使用多樣的強調色 — 畫面截圖顯示單一主導的紫色強調色",
+        "避免在主要按鈕上使用銳角 — 畢面截圖顯示完全圓角的藥丸狀按鈕",
+        "避免使用擁擠的多欄佈局 — 畫面截圖顯示清晰的單欄主視覺區",
+        "避免使用小而擁擠的標題 — 畫面截圖顯示大膽、高影響力的醒目字體"
+      ],
+      "systemPrompt": "Jitter 是一款快速、協作的動態設計工具。設計採用乾淨的白色背景，並以單一柔和的紫色作為行動呼籲的強調色。字體粗壯且乾淨，標題使用 grotesque-sans，內文使用 humanist-sans。關鍵設計元素包括大而具影響力的標題、藥丸狀按鈕以及充足的間距。避免使用深色模式、複雜的色盤或襯線字體。關鍵禁忌：避免雜亂的背景、避免使用多樣的色彩、避免按鈕使用銳角。"
+    },
+    "ja": {
+      "identity": {
+        "keywords": [
+          "モーション",
+          "アニメーション",
+          "スピード",
+          "コラボレーション",
+          "チーム"
+        ],
+        "analogy": "ブラウザのためのデジタルアニメーションスタジオ",
+        "oneLiner": "すべてのチームのための超高速モーション"
+      },
+      "colors": {
+        "principle": "柔らかい紫色のアクセントを1色加えたモノクロマティックなスケール"
+      },
+      "typography": {
+        "rules": [],
+        "scaleUses": [
+          "ヒーローヘッドライン",
+          "本文"
+        ]
+      },
+      "spacing": {
+        "rhythm": "4pxのベースライングリッドと40pxのセクションパディングによる一貫したリズム"
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 9px 21px 0px rgba(25, 23, 28, 0.1)",
+          "0px 38px 38px 0px rgba(25, 23, 28, 0.09)",
+          "0px 85px 51px 0px rgba(25, 23, 28, 0.05)"
+        ],
+        "borders": "なし、または1px solidの微細なボーダー"
+      },
+      "layout": {
+        "skeleton": "中央寄せの単一カラムヒーロー、フル幅のロゴバンド"
+      },
+      "components": {
+        "button": "柔らかい紫色の背景に暗いテキスト、または暗い背景に白いテキストを持つピル-shaped（丸みのある）ボタン",
+        "card": "微細なシャドウと角丸を持つ白い背景",
+        "chip": "明るいグレーの背景を持つピル-shaped（丸みのある）タグ",
+        "input": "角丸を持つ標準フォームフィールド",
+        "hero": "目立つCTAボタン付きの中央寄せの大きなタイポグラフィ"
+      },
+      "motion": {
+        "patterns": [
+          "スクロールトリガーによるフェードイン",
+          "複雑なスプリングベースのリニアトランスフォーム",
+          "opacityトランジション"
+        ]
+      },
+      "interaction": {
+        "hover": "カーソルをpointerにし、滑らかなトランジション",
+        "click": "微細なscaleまたはopacityのフィードバック",
+        "transition": "all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94)",
+        "keyboard": "標準的なfocus状態"
+      },
+      "voice": {
+        "tone": "自信に満ち、率直で、力を与える",
+        "headlineStyle": "短く、パワフルで、アクション导向",
+        "ctaStyle": "明確で、摩擦が少なく、励むような",
+        "avoid": [
+          "専門用語",
+          "複雑な文",
+          "硬い企業言語",
+          "曖昧な約束"
+        ]
+      },
+      "donts": [
+        "雑然とした背景を使用しない — スクリーンショットではクリーンな白や柔らかいグレーの背景を使用",
+        "装飾的なセリフフォントを使用しない — スクリーンショットではクリーンなサンセリフタイポグラフィのみを使用",
+        "多様なアクセントカラーを使用しない — スクリーンショットでは単一の支配的な紫色のアクセントを使用",
+        "プライマリボタンにシャープな角を使用しない — スクリーンショットでは完全に丸みのあるピルボタンを使用",
+        "密で、複数カラムのレイアウトを使用しない — スクリーンショットでは明確な単一カラムのヒーローセクションを使用",
+        "小さく、雑然としたヘッドラインを使用しない — スクリーンショットでは大きく、太字で、インパクトのあるディスプレイタイプを使用"
+      ],
+      "systemPrompt": "Jitterは、高速でコラボレーティブなモーションデザインツールです。デザインでは、CTA（行動喚起）に単一の柔らかい紫色のアクセントカラーを使用したクリーンな白い背景を採用しています。タイポグラフィは太字でクリーンで、ディスプレイ用にはgrotesque-sans、本文用にはhumanist-sansを使用。主要なデザイン要素には、大きくインパクトのあるヘッドライン、ピル-shaped（丸みのある）ボタン、十分な余白が含まれます。ダークモード、複雑なカラーパレット、セリフタイポグラフィは避けてください。重要な禁止事項：雑然とした背景、多様なカラー、ボタンのシャープな角を避けてください。"
+    },
+    "ko": {
+      "identity": {
+        "keywords": [
+          "모션",
+          "애니메이션",
+          "속도",
+          "협업",
+          "팀"
+        ],
+        "analogy": "브라우저용 디지털 애니메이션 스튜디오",
+        "oneLiner": "모든 팀을 위한 초고속 모션"
+      },
+      "colors": {
+        "principle": "단일 부드러운 보라색 강조가 적용된 단색 스케일"
+      },
+      "typography": {
+        "rules": [],
+        "scaleUses": [
+          "히어로 헤드라인",
+          "본문 텍스트"
+        ]
+      },
+      "spacing": {
+        "rhythm": "40px 섹션 패딩과 일관된 4px 기준 격자"
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 9px 21px 0px rgba(25, 23, 28, 0.1)",
+          "0px 38px 38px 0px rgba(25, 23, 28, 0.09)",
+          "0px 85px 51px 0px rgba(25, 23, 28, 0.05)"
+        ],
+        "borders": "없음 또는 미묘한 1px solid"
+      },
+      "layout": {
+        "skeleton": "중앙 정렬 단일 칼럼 히어로, 전체 폭 로고 밴드"
+      },
+      "components": {
+        "button": "부드러운 보라색 배경에 어두운 텍스트 또는 어두운 배경에 흰색 텍스트가 적용된 알약 형태",
+        "card": "미묘한 그림자와 둥근 모서리가 있는 흰색 배경",
+        "chip": "연한 회색 배경이 적용된 알약 형태 태그",
+        "input": "둥근 모서리가 있는 표준 폼 필드",
+        "hero": "돋보이는 CTA 버튼이 포함된 중앙 정렬 대형 타이포그래피"
+      },
+      "motion": {
+        "patterns": [
+          "스크롤 트리거 페이드인",
+          "복잡한 스프링 기반 선형 transform",
+          "불투명도 전환"
+        ]
+      },
+      "interaction": {
+        "hover": "부드러운 전환이 적용된 포인터 커서",
+        "click": "미묘한 scale 또는 불투명도 피드백",
+        "transition": "all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94)",
+        "keyboard": "표준 focus 상태"
+      },
+      "voice": {
+        "tone": "자신감 있고 직접적이며 강력한",
+        "headlineStyle": "짧고 강렬하며 행동 지향적인",
+        "ctaStyle": "명확하고 마찰이 적으며 고무적인",
+        "avoid": [
+          "전문 용어",
+          "복잡한 문장",
+          "격식 있는 기업 언어",
+          "모호한 약속"
+        ]
+      },
+      "donts": [
+        "복잡한 배경을 사용하지 마세요 — 스크린샷은 깨끗한 흰색 또는 부드러운 회색 배경을 보여줍니다",
+        "장식용 세리프 서체를 사용하지 마세요 — 스크린샷은 깨끗한 고딕체 타이포그래피만 보여줍니다",
+        "다양한 강조 색상을 사용하지 마세요 — 스크린샷은 단일 지배적인 보라색 강조만 보여줍니다",
+        "기본 버튼에 날카로운 모서리를 사용하지 마세요 — 스크린샷은 완전히 둥근 알약 버튼을 보여줍니다",
+        "밀집된 다중 칼럼 레이아웃을 사용하지 마세요 — 스크린샷은 명확한 단일 칼럼 힠로 섹션을 보여줍니다",
+        "작고 밀집된 헤드라인을 사용하지 마세요 — 스크린샷은 크고 굵은 고impact 디스플레이 타입을 보여줍니다"
+      ],
+      "systemPrompt": "Jitter는 빠르고 협업적인 모션 디자인 도구입니다. 디자인은 깨끗한 흰색 배경과 CTA에 사용되는 단일 부드러운 보라색 강조 색상을 사용합니다. 타이포그래피는 굵고 깨끗하며, 디스플레이용 grotesque-sans와 본문용 humanist-sans를 사용합니다. 핵심 디자인 요소로는 크고 임팩트 있는 헤드라인, 알약 형태 버튼, 넉넉한 여백이 포함됩니다. 다크 모드, 복잡한 팔레트, 또는 세리프 타이포그래피는 사용하지 마세요. 중요 금지 사항: 복잡한 배경, 다양한 색상, 버튼의 날카로운 모서리를 피하세요."
+    }
+  },
+  "desc": {
+    "en": {
+      "palette": "A clean, minimal palette dominated by white and dark gray, with a single soft purple accent color.",
+      "layout": "A centered, single-column layout with generous whitespace and clear visual hierarchy.",
+      "interaction": "Smooth, subtle transitions and hover states using standard cubic-bezier easing curves.",
+      "motion": "A focus on performance and smoothness, using complex spring-like transforms for a fluid feel.",
+      "notes": "This site is a great example of a clean, modern SaaS landing page that prioritizes clarity and speed."
+    },
+    "zh-CN": {
+      "palette": "一套以白色和深灰为主导的简洁、极简配色方案，辅以单一柔和的紫色作为点缀色。",
+      "layout": "居中的单栏布局，拥有充裕的留白和清晰的视觉层级。",
+      "interaction": "流畅、细微的过渡效果与悬停状态，采用标准 cubic-bezier 缓动曲线。",
+      "motion": "注重性能与流畅性，运用类似弹簧的复杂变换以实现流畅的动态效果。",
+      "notes": "该网站是简洁、现代的 SaaS 落地页的绝佳范例，优先体现了清晰度与速度。"
+    },
+    "zh-TW": {
+      "palette": "以白色和深灰色為主的簡潔調色盤，搭配單一柔和的紫色作為強調色。",
+      "layout": "置中單欄佈局，留有充足的空白並確保清晰的視覺層級。",
+      "interaction": "使用標準 cubic-bezier 緩動曲線的流暢、細微的過渡與 hover 狀態。",
+      "motion": "專注於效能與流暢度，運用複雜的彈簧式變換來營造動態感受。",
+      "notes": "此網站是簡潔、現代 SaaS 落地頁的絕佳範例，優先考量清晰度與速度。"
+    },
+    "ja": {
+      "palette": "白とダークグレーを基調とした、クリーンでミニマルなパレット。アクセントカラーとして、柔らかい紫色を1色使用。",
+      "layout": "中央寄せの単一カラムレイアウト。十分な余白と明確なビジュアルヒエラルキー。",
+      "interaction": "標準的なcubic-bezierイージングカーブを使用した、滑らかで微細なトランジションとhover状態。",
+      "motion": "パフォーマンスと滑らかさを重視。流れるようなフィールのために、複雑なスプリングのようなトランスフォームを採用。",
+      "notes": "このサイトは、明瞭さとスピードを優先した、クリーンでモダンなSaaSランディングページの良い例です。"
+    },
+    "ko": {
+      "palette": "흰색과 다크 그레이를 기본으로 한 깔끔하고 미니멀한 팔레트에, 부드러운 보라색 강조 색상을 단일로 적용합니다.",
+      "layout": "여백을 넉넉히 두고 명확한 시각적 계층을 갖춘 중앙 정렬 단일 칼럼 레이아웃입니다.",
+      "interaction": "표준 cubic-bezier 이징 커브를 사용한 부드럽고 미묘한 전환 및 hover 상태입니다.",
+      "motion": "성능과 부드러움에 초점을 맞추어 유동적인 느낌을 위해 복잡한 스프링 기반 transform을 사용합니다.",
+      "notes": "이 사이트는 명확성과 속도를 우선시하는 깔끔하고 현대적인 SaaS 랜딩 페이지의 훌륭한 예시입니다."
+    }
+  },
+  "_meta": {
+    "vision_model": "mimo-v2.5",
+    "vision_prompt_version": "0.3",
+    "vision_source": "playwright-extract:jitter",
+    "vision_grounded": true,
+    "vision_at": "2026-06-04T16:02:06+00:00",
+    "vision_tokens": 19290,
+    "vision_cost_usd": 0.2143,
+    "translation_model": "mimo-v2.5",
+    "translation_at": "2026-06-04T16:03:11+00:00",
+    "translation_tokens": 15083,
+    "translation_cost_usd": 0.0503,
+    "narrative_model": "mimo-v2.5",
+    "narrative_prompt_version": "0.3",
+    "narrative_at": "2026-06-04T16:03:18+00:00",
+    "narrative_tokens": 1883,
+    "narrative_cost_usd": 0.0126,
+    "narrative_status": "ok",
+    "total_cost_usd": 0.2772
+  },
+  "narrative": {
+    "en": {
+      "ch1_intro": "Jitter positions itself as a digital animation studio for the browser, its identity rooted in motion, speed, and collaboration. The system is engineered for teams, where clarity and performance are the structural foundations for creative work.",
+      "ch2_intro": "The color system operates on a strict monochromatic principle, using a clean white and dark gray foundation. A single soft purple accent is reserved exclusively for calls to action, creating a clear and immediate visual hierarchy.",
+      "ch2_outro": "The discipline lies in using that accent sparingly, ensuring it always signifies a point of interaction.",
+      "ch3_intro": "Typography speaks with two distinct voices: a bold grotesque-sans for high-impact display headlines, and a clean humanist-sans for readable body copy. The contrast establishes a clear hierarchy between attention-grabbing statements and supporting information.",
+      "ch4_intro": "A consistent 4px baseline grid establishes a steady, invisible rhythm, with 40px section padding providing generous breathing room.",
+      "ch5_intro": "Depth is conveyed through layered, soft shadows and an absence of hard borders. Surfaces feel buoyant, defined by their relationship to the space around them rather than by contained edges.",
+      "ch6_intro": "The layout skeleton is built on a centered, single-column hero to focus attention on the core message and call to action. This is anchored by a full-width logo band, establishing scope and partnership.",
+      "ch7_intro": "Motion is treated as a functional language, not decoration. Performance and smoothness are paramount, using spring-based linear transforms and scroll-triggered fades to guide focus and confirm interaction.",
+      "ch8_intro": "The voice is confident, direct, and empowering, using short, action-oriented headlines and clear, low-friction calls to action. It avoids corporate formality and vague promises in favor of straightforward communication.",
+      "ch8_outro": "The system deliberately avoids dark modes, complex color palettes, and serif typography to maintain its clean, high-performance character."
+    },
+    "zh-CN": {
+      "ch1_intro": "Jitter将自身定位为面向浏览器的数字动画工作室，其身份根植于动态、速度与协作。该系统为团队而生，清晰度与性能是创意工作的结构性基础。",
+      "ch2_intro": "色彩体系基于严格的单色原则，以纯净的白色与深灰色为基底。柔和的紫色仅被保留用于行动召唤，建立起清晰且即时的视觉层级。",
+      "ch2_outro": "其严谨性体现在对点缀色的克制使用，确保它始终标示着交互触点。",
+      "ch3_intro": "字体系统以两种鲜明风格呈现：粗犷的grotesque-sans用于高冲击力的展示标题，而清新的humanist-sans则用于可读性强的正文。这种对比在引人注目的陈述与支撑信息之间建立了清晰的层级关系。",
+      "ch4_intro": "统一的4px基线网格建立起稳定、隐性的节奏，40px的区域间距则提供了充裕的呼吸空间。",
+      "ch5_intro": "深度通过层叠的柔和阴影与无硬边框来传递。表面感觉轻盈，其定义源于与周围空间的关系，而非封闭的边界。",
+      "ch6_intro": "布局骨架以居中的单列核心区域构建，旨在将注意力集中于核心信息与行动召唤。全宽标识条带锚定了整体，确立了范围与合作关系。",
+      "ch7_intro": "动效被视为功能性语言，而非装饰。性能与流畅性至关重要，采用基于弹簧的线性变换与滚动触发的渐显，以引导注意力并确认交互。",
+      "ch8_intro": "语调自信、直接且具有赋能性，运用简短、行动导向的标题与清晰、低阻力的行动召唤。它摒弃了企业化的正式感与模糊承诺，追求直截了当的沟通。",
+      "ch8_outro": "该系统有意避免深色模式、复杂色彩组合与衬线字体，以维持其清新、高性能的特质。"
+    },
+    "zh-TW": {
+      "ch1_intro": "Jitter 定位為一款專為瀏覽器打造的數位動畫工作室，其識別核心植根於動態、速度與協作。系統專為團隊設計，清晰度與效能是支撐創意工作的結構基礎。",
+      "ch2_intro": "色彩系統遵循嚴格的單色調原則，以純淨的白色與深灰色為基底。唯一的柔和紫色調專屬於行動呼籲，建立清晰且即時的視覺層級。",
+      "ch2_outro": "其紀律在於節制地使用該強調色，確保它永遠代表一個互動點。",
+      "ch3_intro": "字體呈現兩種截然不同的語氣：以粗壯的 grotesque-sans 打造高衝擊力的展示標題，以簡潔的 humanist-sans 提供易讀的內文。這種對比在引人注目的聲明與輔助資訊之間建立了明確的層級關係。",
+      "ch4_intro": "一致的 4px 基線網格建立了穩定、隱形的節奏，40px 的區塊內距則提供了充裕的呼吸空間。",
+      "ch5_intro": "深度透過層疊的柔和陰影與硬邊框的缺席來傳達。表面感覺輕盈浮動，其定義來自與周圍空間的關係，而非封閉的邊緣。",
+      "ch6_intro": "版面架構建立在一個置中的單欄主視覺上，將注意力集中於核心訊息與行動呼籲。全寬的標誌帶則作為錨點，確立範疇與合作關係。",
+      "ch7_intro": "動態被視為一種功能性語言，而非裝飾。效能與流暢度至關重要，使用基於彈簧的線性變換與捲動觸發的淡入淡出，以引導注意力並確認互動。",
+      "ch8_intro": "語氣自信、直接且賦予力量，使用簡短、行動導向的標題與清晰、低阻力的行動呼籲。它避免企業式的正式用語與模糊承諾，偏好直接的溝通方式。",
+      "ch8_outro": "系統刻意避免深色模式、複雜的色彩調色盤與襯線字體，以維持其簡潔、高效能的特質。"
+    },
+    "ja": {
+      "ch1_intro": "Jitterは、ブラウザ向けのデジタルアニメーションスタジオとして位置づけられています。そのアイデンティティは、モーション、スピード、そしてコラボレーションに根ざしています。システムはチーム向けに設計されており、クリアさとパフォーマンスがクリエイティブワークの構造的基盤となります。",
+      "ch2_intro": "カラーシステムは、厳格なモノクローム原理に基づき、クリーンなホワイトとダークグレーを基盤としています。ソフトなパープルのアクセントは、コール・トゥ・アクションにのみ排他的に使用され、明確で即座に判別可能なビジュアルヒエラルキーを生み出します。",
+      "ch2_outro": "その厳格さは、このアクセントを控えめに使用し、それが常にインタラクションのポイントを示すように確保することにあります。",
+      "ch3_intro": "タイポグラフィは、二つの異なる声で語ります。高インパクトのディスプレイ見出しには太めのグロテスク-sans、そして読みやすい本文にはクリーンなヒューマニスト-sansを使用します。このコントラストにより、注目を集めるステートメントとそれを支える情報の間にはっきりしたヒエラルキーが確立されます。",
+      "ch4_intro": "一貫した4pxのベースライングリッドが、安定した見えないリズムを確立し、40pxのセクションパディングがゆとりのある余白を提供します。",
+      "ch5_intro": "奥行きは、レイヤードされたソフトなシャドウとハードボーダーの欠如によって表現されます。サーフェスは浮遊感を持ち、周囲の空間との関係によって定義され、境界線によって区切られるものではありません。",
+      "ch6_intro": "レイアウトのスケルトンは、中心に置かれた単一カラムのヒーローを基盤とし、コアメッセージとコール・トゥ・アクションに注目を集めます。これはフルワイドのロゴバンドによって支えられ、スコープとパートナーシップを確立します。",
+      "ch7_intro": "モーションは装飾ではなく、機能的な言語として扱われます。パフォーマンスと滑らかさが最優先であり、スプリングベースのリニアトランスフォームやスクロールトリガーのフェードを使用して、フォーカスを誘導し、インタラクションを確認します。",
+      "ch8_intro": "ボイスは自信に満ち、直接的で、エンパワリングです。短くアクション指向の見出しと、クリーンで摩擦の少ないコール・トゥ・アクションを使用します。企業的なフォーマリティや曖昧な約束は避け、率直なコミュニケーションに徹します。",
+      "ch8_outro": "システムは、そのクリーンで高性能な性質を維持するため、意図的にダークモード、複雑なカラーパレット、およびセリフ系タイポグラフィを避けています。"
+    },
+    "ko": {
+      "ch1_intro": "Jitter는 브라우저를 위한 디지털 애니메이션 스튜디오로 자리매김하며, 정체성은 모션, 속도, 그리고 협업에 뿌리를 두고 있습니다. 이 시스템은 팀을 위해 설계되었으며, 명확성과 성능이 창작 작업의 구조적 토대를 이룹니다.",
+      "ch2_intro": "색상 시스템은 엄격한 단색 원칙을 따르며, 깨끗한 흰색과 어두운 회색을 기반으로 합니다. 단 하나의 부드러운 보라색 강조색은 행동 유도 요소에만 독점적으로 사용되어, 명확하고 즉각적인 시각적 위계를 만듭니다.",
+      "ch2_outro": "핵심은 그 강조색을 절제하여 사용하는 것이며, 항상 상호작용 지점을 나타내도록 보장합니다.",
+      "ch3_intro": "타이포그래피는 두 가지 뚜렷한 목소리로 말합니다. 높은 임팩트의 전시 헤드라인을 위한 굵은 grotesque-sans와, 읽기 좋은 본문을 위한 깨끗한 humanist-sans입니다. 이 대비는 주의를 끄는 진술과 보조 정보 간의 명확한 위계를 확립합니다.",
+      "ch4_intro": "일관된 4px 기준선 그리드는 안정적이고 보이지 않는 리듬을 설정하며, 40px 섹션 패딩은 넉넉한 숨 공간을 제공합니다.",
+      "ch5_intro": "깊이는 층을 이룬 부드러운 그림자와 단단한 테두리의 부재를 통해 전달됩니다. 표면은 주변 공간과의 관계에 의해 정의되며 떠 있는 듯한 느낌을 줍니다.",
+      "ch6_intro": "레이아웃 골격은 중심의 단일 열 히어로 구조를 기반으로 하여, 핵심 메시지와 행동 유도 요소에 주의를 집중시킵니다. 이는 전폭 로고 밴드로 고정되어 범위와 파트너십을 확립합니다.",
+      "ch7_intro": "모션은 장식이 아닌 기능적 언어로 다루어집니다. 성능과 부드러움이 최우선이며, 스프링 기반 선형 변환과 스크롤 트리거 페이드를 사용하여 초점을 유도하고 상호작용을 확인합니다.",
+      "ch8_intro": "어조는 자신감 있고 직접적이며, 사용자를 힘 있게 만듭니다. 짧고 행동 지향적인 헤드라인과 명확하고 마찰이 적은 행동 유도 요소를 사용합니다. 기업적 격식이나 모호한 약속 대신 직설적 소통을 지향합니다.",
+      "ch8_outro": "이 시스템은 깨끗하고 고성능적인 특성을 유지하기 위해 다크 모드, 복잡한 색상 팔레트, 세리프 타이포그래피를 의도적으로 사용하지 않습니다."
+    }
+  }
 }

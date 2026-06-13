@@ -8,6 +8,581 @@
     "design",
     "nocode"
   ],
-  "status": "pending",
-  "added_at": "2026-06-03"
+  "status": "completed",
+  "added_at": "2026-06-03",
+  "spec": {
+    "colors": {
+      "bg": "#11181C",
+      "bgSoft": "#1A1D1E",
+      "bgQuiet": "rgba(255,255,255,0.05)",
+      "ink": "#E6E7E9",
+      "inkSoft": "#D0D3D4",
+      "muted": "#A6A9AB",
+      "mutedSoft": "rgba(208,211,212,0.6)",
+      "accent": "linear-gradient(135deg, #92FDDC 0%, #7D7FFB 31.94%, #ED72FE 64.24%, #FDD791 100%)",
+      "line": "rgba(208,211,212,0.19)"
+    },
+    "typography": {
+      "display": "humanist-sans",
+      "body": "humanist-sans",
+      "mono": "monospace",
+      "scale": [
+        {
+          "token": "display",
+          "size": 36,
+          "lh": 1.2,
+          "weight": 600,
+          "ls": "-1.5px"
+        }
+      ]
+    },
+    "spacing": {
+      "base": 4.5,
+      "scale": [
+        4.5,
+        9,
+        18,
+        27,
+        36,
+        72,
+        144
+      ]
+    },
+    "surfaces": {
+      "radius": {
+        "sm": 4.5,
+        "md": 9,
+        "lg": 18,
+        "pill": 100000
+      }
+    },
+    "layout": {
+      "container": 1200,
+      "paragraph": 600,
+      "columns": 12,
+      "gutter": 27,
+      "breakpoints": [
+        768,
+        1024
+      ]
+    },
+    "motion": {
+      "durations": {
+        "micro": 150,
+        "small": 250,
+        "medium": 1500
+      },
+      "easing": "cubic-bezier(0.33, 1, 0.68, 1)"
+    }
+  },
+  "spec_i18n": {
+    "en": {
+      "identity": {
+        "keywords": [
+          "web development",
+          "no-code",
+          "performance",
+          "hosting",
+          "builder"
+        ],
+        "analogy": "A modern developer-focused IDE interface",
+        "oneLiner": "A sleek, dark-themed developer tool platform focusing on speed and dynamic rendering."
+      },
+      "colors": {
+        "principle": "High contrast ink on dark backgrounds with subtle borders"
+      },
+      "typography": {
+        "rules": [
+          "Use 400 weight for body text",
+          "Use 600 weight for emphasis and UI elements",
+          "Apply tight letter spacing (-1.5px) to large display text"
+        ],
+        "scaleUses": [
+          "Hero headlines and section titles"
+        ]
+      },
+      "spacing": {
+        "rhythm": "4.5px base unit with vertical rhythm multiples"
+      },
+      "surfaces": {
+        "shadows": [
+          "0 2px 3px rgba(0,0,0,0.13)",
+          "0 0 32px rgba(74,78,250,0.5)"
+        ],
+        "borders": "1px solid rgba(208,211,212,0.19)"
+      },
+      "layout": {
+        "skeleton": "Centered content with generous vertical padding"
+      },
+      "components": {
+        "button": "Rounded pill buttons with subtle borders or gradient backgrounds",
+        "card": "Dark cards with subtle borders and rounded corners (9px)",
+        "chip": "Small rounded tags with subtle borders",
+        "input": "Dark inputs with subtle borders and rounded corners",
+        "hero": "Large centered headline with gradient accents and floating UI elements"
+      },
+      "motion": {
+        "patterns": [
+          "Smooth color and scale transitions on hover",
+          "Linear slide animations for continuous motion",
+          "Spring-like bounce for playful interactions"
+        ]
+      },
+      "interaction": {
+        "hover": "Scale up slightly and change color with smooth transition",
+        "click": "Subtle scale down effect",
+        "transition": "All properties with 150ms ease-out",
+        "keyboard": "Focus ring with accent color glow"
+      },
+      "voice": {
+        "tone": "Professional yet approachable",
+        "headlineStyle": "Bold, concise statements about performance",
+        "ctaStyle": "Direct action-oriented with gradient backgrounds",
+        "avoid": [
+          "Marketing jargon",
+          "Overly technical language without explanation",
+          "Aggressive urgency"
+        ]
+      },
+      "donts": [
+        "Don't use light backgrounds — screenshot shows dark mode primary",
+        "Don't use serif fonts — screenshot shows humanist sans-serif exclusively",
+        "Don't use high-saturation solid accent colors — screenshot uses gradients",
+        "Don't use sharp corners — screenshot shows rounded elements (9px+)",
+        "Don't use heavy box shadows — screenshot uses subtle elevation or glow",
+        "Don't use all caps for body text — screenshot uses sentence case"
+      ],
+      "systemPrompt": "A developer-focused web application builder platform with dark theme. Primary background is deep charcoal (#11181C) with lighter dark surfaces (#1A1D1E). Text is light gray (#E6E7E9) on dark. Accent is a vibrant multi-color gradient (teal to purple to pink to gold). Typography uses Manrope (humanist-sans) with tight letter spacing for headlines. Key elements include rounded buttons (100px radius), subtle borders (rgba(208,211,212,0.19)), and card-based layouts. Critical don'ts: don't use light mode, don't use serif fonts, don't use sharp corners, don't use solid accent colors, don't use heavy shadows, don't use all caps for body text. Focus on performance messaging and developer experience."
+    },
+    "zh-CN": {
+      "identity": {
+        "keywords": [
+          "Web开发",
+          "无代码",
+          "性能",
+          "托管",
+          "构建器"
+        ],
+        "analogy": "一个面向现代开发者的IDE界面",
+        "oneLiner": "一个专注于速度与动态渲染、采用深色主题的开发者工具平台。"
+      },
+      "colors": {
+        "principle": "深色背景上的高对比度墨色文字，辅以微妙的边框"
+      },
+      "typography": {
+        "rules": [
+          "正文使用400字重",
+          "强调部分和UI元素使用600字重",
+          "大号展示型文字应用紧凑的字间距（-1.5px）"
+        ],
+        "scaleUses": [
+          "主标题和章节标题"
+        ]
+      },
+      "spacing": {
+        "rhythm": "以4.5px为基础单位，垂直节奏按其倍数递增"
+      },
+      "surfaces": {
+        "shadows": [
+          "0 2px 3px rgba(0,0,0,0.13)",
+          "0 0 32px rgba(74,78,250,0.5)"
+        ],
+        "borders": "1px solid rgba(208,211,212,0.19)"
+      },
+      "layout": {
+        "skeleton": "内容居中，垂直内边距充裕"
+      },
+      "components": {
+        "button": "圆角胶囊形按钮，带有微妙边框或渐变背景",
+        "card": "深色卡片，边框细腻，圆角（9px）",
+        "chip": "小巧的圆角标签，带有微妙边框",
+        "input": "深色输入框，边框细腻，圆角",
+        "hero": "居中的大号标题，配有渐变点缀和浮动的UI元素"
+      },
+      "motion": {
+        "patterns": [
+          "悬停时平滑的颜色和缩放过渡",
+          "连续运动采用线性滑动动画",
+          "趣味交互采用弹簧式回弹"
+        ]
+      },
+      "interaction": {
+        "hover": "轻微放大并平滑变色",
+        "click": "细微的缩放效果",
+        "transition": "所有属性，150ms ease-out",
+        "keyboard": "带强调色光晕的焦点环"
+      },
+      "voice": {
+        "tone": "专业而亲切",
+        "headlineStyle": "关于性能的简洁有力陈述",
+        "ctaStyle": "直接的行动号召，搭配渐变背景",
+        "avoid": [
+          "营销术语",
+          "未经解释的过于技术化的语言",
+          "侵略性的紧迫感"
+        ]
+      },
+      "donts": [
+        "不要使用浅色背景——截图主要展示深色模式",
+        "不要使用衬线字体——截图中仅使用人文无衬线体",
+        "不要使用高饱和度的纯色强调色——截图使用渐变",
+        "不要使用尖锐的直角——截图中显示的是圆角元素（9px+）",
+        "不要使用厚重的盒子阴影——截图使用微妙的层次感或光晕",
+        "不要在正文中使用全大写——截图中使用句子首字母大写"
+      ],
+      "systemPrompt": "一个面向开发者的深色主题Web应用构建平台。主背景为深炭色（#11181C），层次较浅的深色表面（#1A1D1E）。文字在深色背景上呈现浅灰色（#E6E7E9）。强调色是鲜艳的多色渐变（青绿、紫、粉、金）。字体使用Manrope（人文无衬线体），标题字间距紧凑。关键元素包括圆角按钮（100px半径）、微妙的边框（rgba(208,211,212,0.19)）和卡片式布局。关键禁忌：不要使用浅色模式，不要使用衬线字体，不要使用尖锐直角，不要使用纯色强调色，不要使用厚重阴影，不要在正文中使用全大写。聚焦于性能信息传递和开发者体验。"
+    },
+    "zh-TW": {
+      "identity": {
+        "keywords": [
+          "網頁開發",
+          "無程式碼",
+          "效能",
+          "託管",
+          "建構工具"
+        ],
+        "analogy": "現代開發者導向的 IDE 介面",
+        "oneLiner": "簡潔深色主題的開發者工具平台，專注於速度與動態渲染。"
+      },
+      "colors": {
+        "principle": "深色背景上的高對比墨色調，搭配細微邊框"
+      },
+      "typography": {
+        "rules": [
+          "內文使用 400 字重",
+          "強調與 UI 元素使用 600 字重",
+          "大型展示文字套用緊湊字距 (-1.5px)"
+        ],
+        "scaleUses": [
+          "首頁主標題與區塊標題"
+        ]
+      },
+      "spacing": {
+        "rhythm": "4.5px 基礎單位，垂直節奏倍數"
+      },
+      "surfaces": {
+        "shadows": [
+          "0 2px 3px rgba(0,0,0,0.13)",
+          "0 0 32px rgba(74,78,250,0.5)"
+        ],
+        "borders": "1px solid rgba(208,211,212,0.19)"
+      },
+      "layout": {
+        "skeleton": "置中內容配置，搭配寬裕垂直內距"
+      },
+      "components": {
+        "button": "圓角藥丸型按鈕，帶有細微邊框或漸層背景",
+        "card": "深色卡片，帶有細微邊框與圓角 (9px)",
+        "chip": "小型圓角標籤，帶有細微邊框",
+        "input": "深色輸入欄位，帶有細微邊框與圓角",
+        "hero": "大型置中標題，搭配漸層強調色與浮動 UI 元素"
+      },
+      "motion": {
+        "patterns": [
+          "hover 時平滑色彩與縮放過渡",
+          "連續動態採用線性滑動動畫",
+          "趣味互動帶有彈簧式回彈"
+        ]
+      },
+      "interaction": {
+        "hover": "輕微放大並改變顏色，搭配平滑過渡",
+        "click": "細微縮小效果",
+        "transition": "所有屬性，150ms ease-out",
+        "keyboard": "Focus 環帶有強調色光暈"
+      },
+      "voice": {
+        "tone": "專業且易於親近",
+        "headlineStyle": "關於效能的粗體簡潔陳述",
+        "ctaStyle": "直接行動導向，搭配漸層背景",
+        "avoid": [
+          "行銷術語",
+          "未經解釋的過度技術語言",
+          "強迫性緊迫感"
+        ]
+      },
+      "donts": [
+        "不要使用淺色背景 — 螢幕截圖顯示深色模式為主",
+        "不要使用襯線字體 — 螢幕截圖僅使用人文無襯線字體",
+        "不要使用高飽和度實色強調色 — 螢幕截圖使用漸層",
+        "不要使用尖銳角 — 螢幕截圖顯示圓角元素 (9px+)",
+        "不要使用厚重盒子陰影 — 螢幕截圖使用細微高度差異或光暈",
+        "不要在內文中使用全大寫 — 螢幕截圖使用句首大寫"
+      ],
+      "systemPrompt": "以開發者為中心的深色主題網頁應用程式建構平台。主要背景為深炭灰色 (#11181C)，較淺的深色表面為 (#1A1D1E)。深色背景上文字為淺灰色 (#E6E7E9)。強調色為活潑多彩漸層（從 teal 到 purple 到 pink 到 gold）。字體使用 Manrope（人文無襯線字體），標題採用緊湊字距。關鍵元素包括圓角按鈕 (100px 半徑)、細微邊框 (rgba(208,211,212,0.19)) 及卡片式佈局。重要禁忌：不要使用淺色模式、不要使用襯線字體、不要使用尖銳角、不要使用實色強調色、不要使用厚重陰影、不要在內文中使用全大寫。專注於效能訊息與開發者體驗。"
+    },
+    "ja": {
+      "identity": {
+        "keywords": [
+          "ウェブ開発",
+          "ノーコード",
+          "パフォーマンス",
+          "ホスティング",
+          "ビルダー"
+        ],
+        "analogy": "現代的な開発者向けIDEインターフェース",
+        "oneLiner": "スピードと動的レンダリングに焦点を当てた、スタイリッシュでダークテーマの開発ツールプラットフォーム。"
+      },
+      "colors": {
+        "principle": "ダーク背景上的の高コントラストインク色と、繊細なボーダー"
+      },
+      "typography": {
+        "rules": [
+          "本文には400ウェイトを使用",
+          "強調やUI要素には600ウェイトを使用",
+          "大きなディスプレイテキストにはtightな文字間隔（-1.5px）を適用"
+        ],
+        "scaleUses": [
+          "ヒーローヘッドラインとセクションタイトル"
+        ]
+      },
+      "spacing": {
+        "rhythm": "4.5pxの基本単位と縦リズムの倍数"
+      },
+      "surfaces": {
+        "shadows": [
+          "0 2px 3px rgba(0,0,0,0.13)",
+          "0 0 32px rgba(74,78,250,0.5)"
+        ],
+        "borders": "1px solid rgba(208,211,212,0.19)"
+      },
+      "layout": {
+        "skeleton": "縦方向にゆとりのあるパディングを持つ中央揃えコンテンツ"
+      },
+      "components": {
+        "button": "繊細なボーダーまたはグラデーション背景を持つ、角丸のピルボタン",
+        "card": "繊細なボーダーと角丸（9px）を持つダークカード",
+        "chip": "繊細なボーダーを持つ角丸の小さなタグ",
+        "input": "繊細なボーダーと角丸を持つダークインプット",
+        "hero": "グラデーションアクセントとフローティングUI要素を持つ、中央揃えの大きな見出し"
+      },
+      "motion": {
+        "patterns": [
+          "ホバー時の滑らかなカラーとスケールの遷移",
+          "連続する動きのためのリニアスライドアニメーション",
+          "遊び心のあるインタラクションのためのバネのようなバウンス"
+        ]
+      },
+      "interaction": {
+        "hover": "滑らかな遷移で少しスケールアップし、カラーを変化させる",
+        "click": "繊細なスケールダウン効果",
+        "transition": "すべてのプロパティに150msのease-out",
+        "keyboard": "アクセントカラーのグローを持つフォーカスリング"
+      },
+      "voice": {
+        "tone": "プロフェッショナルでありながらも親しみやすい",
+        "headlineStyle": "パフォーマンスについての大胆で簡潔な声明",
+        "ctaStyle": "グラデーション背景を持つ、直接的でアクション重視の表現",
+        "avoid": [
+          "マーケティング用語",
+          "説明のない過度に技術的な言葉",
+          "攻撃的な緊急性"
+        ]
+      },
+      "donts": [
+        "ライトバックグラウンドを使用しない — スクリーンショットはダークモードがプライマリ",
+        "セリフフォントを使用しない — スクリーンショットはヒューマニストサンセリフのみ",
+        "高彩度の単色アクセントカラーを使用しない — スクリーンショットはグラデーションを使用",
+        "鋭い角を使用しない — スクリーンショットは角丸要素（9px以上）を使用",
+        "重いボックスシャドウを使用しない — スクリーンショットは繊細なエレベーションまたはグローを使用",
+        "本文にキャピタルレタース（全て大文字）を使用しない — スクリーンショットはセンテンスケースを使用"
+      ],
+      "systemPrompt": "ダークテーマを持つ、開発者向けWebアプリケーションビルダープラットフォーム。プライマリ背景はダークチャコール（#11181C）で、より明るいダークサーフェス（#1A1D1E）。テキストはダーク背景上的のライトグレー（#E6E7E9）。アクセントは鮮やかなマルチカラーグラデーション（ティールからパープルへ、ピンクへ、ゴールドへ）。タイポグラフィはManrope（ヒューマニストサンセリフ）を使用し、見出しにはtightな文字間隔。主要要素には角丸ボタン（100px radius）、繊細なボーダー（rgba(208,211,212,0.19)）、カードベースのレイアウトが含まれます。重要な注意点：ライトモードを使用しない、セリフフォントを使用しない、鋭い角を使用しない、単色アクセントカラーを使用しない、重いシャドウを使用しない、本文にキャピタルレタースを使用しない。パフォーマンスのメッセージと開発者体験に焦点を当てる。"
+    },
+    "ko": {
+      "identity": {
+        "keywords": [
+          "웹 개발",
+          "노코드",
+          "성능",
+          "호스팅",
+          "빌더"
+        ],
+        "analogy": "개발자 중심의 현대적인 IDE 인터페이스",
+        "oneLiner": "속도와 동적 렌더링에 중점을 둔 매끄러운 다크 테마 개발자 도구 플랫폼."
+      },
+      "colors": {
+        "principle": "미세한 테두리가 있는 어두운 배경 위의 고대비 잉크"
+      },
+      "typography": {
+        "rules": [
+          "본문 텍스트에 400 굵기 사용",
+          "강조 및 UI 요소에 600 굵기 사용",
+          "큰 디스플레이 텍스트에 좁은 자간 (-1.5px) 적용"
+        ],
+        "scaleUses": [
+          "히어로 헤드라인 및 섹션 제목"
+        ]
+      },
+      "spacing": {
+        "rhythm": "수직 리듬 배수를 적용한 4.5px 기본 단위"
+      },
+      "surfaces": {
+        "shadows": [
+          "0 2px 3px rgba(0,0,0,0.13)",
+          "0 0 32px rgba(74,78,250,0.5)"
+        ],
+        "borders": "1px solid rgba(208,211,212,0.19)"
+      },
+      "layout": {
+        "skeleton": "수직 패딩을 넉넉히 둔 중앙 정렬 콘텐츠"
+      },
+      "components": {
+        "button": "미세한 테두리 또는 그래디언트 배경을 사용한 둥근 알약 모양 버튼",
+        "card": "미세한 테두리와 둥근 모서리(9px)를 적용한 다크 카드",
+        "chip": "미세한 테두리가 있는 작은 둥근 태그",
+        "input": "미세한 테두리와 둥근 모서리가 있는 다크 입력 필드",
+        "hero": "그래디언트 액센트와 부유하는 UI 요소가 적용된 중앙 정렬 대형 헤드라인"
+      },
+      "motion": {
+        "patterns": [
+          "호버 시 부드러운 색상 및 스케일 전환",
+          "연속 동작을 위한 선형 슬라이드 애니메이션",
+          "장난스러운 상호작용을 위한 스프링 같은 바운스"
+        ]
+      },
+      "interaction": {
+        "hover": "약간 확대되고 부드러운 전환으로 색상 변경",
+        "click": "미세한 축소 효과",
+        "transition": "모든 속성에 150ms ease-out",
+        "keyboard": "액센트 색상 글로우가 적용된 포커스 링"
+      },
+      "voice": {
+        "tone": "전문적이면서도 접근 가능한",
+        "headlineStyle": "성능에 대한 대담하고 간결한 진술",
+        "ctaStyle": "그래디언트 배경을 사용한 직접적이고 행동 지향적인",
+        "avoid": [
+          "마케팅 용어",
+          "설명 없는 지나치게 기술적인 언어",
+          "공격적인 긴박감"
+        ]
+      },
+      "donts": [
+        "밝은 배경을 사용하지 마세요 — 스크린샷은 다크 모드가 주를 보여줍니다",
+        "세리프 폰트를 사용하지 마세요 — 스크린샷은 휴머니스트산세리프만 사용합니다",
+        "고채도 단색 액센트 색상을 사용하지 마세요 — 스크린샷은 그래디언트를 사용합니다",
+        "날카로운 모서리를 사용하지 마세요 — 스크린샷은 둥근 요소(9px 이상)를 보여줍니다",
+        "무거운 박스 섀도우를 사용하지 마세요 — 스크린샷은 미세한 엘리베이션 또는 글로우를 사용합니다",
+        "본문 텍스트에 전부 대문자를 사용하지 마세요 — 스크린샷은 문장 대문자를 사용합니다"
+      ],
+      "systemPrompt": "다크 테마를 적용한 개발자 중심 웹 애플리케이션 빌더 플랫폼. 주 배경은 깊은 차콜(#11181C)이며 밝은 다크 표면(#1A1D1E)을 사용합니다. 텍스트는 어두운 배경 위의 밝은 회색(#E6E7E9)입니다. 액센트는 청록색에서 보라색, 분홍색, 금색으로 이어지는 선명한 다색 그래디언트입니다. 타이포그래피는 휴머니스트산세리프인 Manrope를 사용하며 헤드라인에 좁은 자간을 적용합니다. 주요 요소에는 둥근 버튼(100px radius), 미세한 테두리(rgba(208,211,212,0.19)), 카드 기반 레이아웃이 포함됩니다. 중요 금지 사항: 라이트 모드 사용 금지, 세리프 폰트 사용 금지, 날카로운 모서리 사용 금지, 단색 액센트 색상 사용 금지, 무거운 섀도우 사용 금지, 본문 텍스트에 전부 대문자 사용 금지. 성능 메시징과 개발자 경험에 초점을 맞추세요."
+    }
+  },
+  "desc": {
+    "en": {
+      "palette": "Dark charcoal background with light gray text and vibrant multi-color gradient accents",
+      "layout": "Centered content with generous vertical spacing and card-based feature sections",
+      "interaction": "Smooth micro-interactions with scale and color transitions on hover states",
+      "motion": "Subtle animations with spring-like bounce for playful elements and linear slides for continuous motion",
+      "notes": "This site showcases modern dark UI patterns with thoughtful use of gradients and subtle elevation, making it excellent for developer tool design inspiration"
+    },
+    "zh-CN": {
+      "palette": "深炭色背景搭配浅灰色文字，并辅以鲜艳的多色渐变作为点缀",
+      "layout": "内容居中，垂直间距充裕，功能区块采用卡片式布局",
+      "interaction": "流畅的微交互，在悬停状态下进行缩放和颜色过渡",
+      "motion": "细腻的动画效果，趣味元素采用弹簧式回弹，连续运动则使用线性滑动",
+      "notes": "本站展示了现代暗色UI模式，并巧妙运用了渐变和微妙的层次感，非常适合作为开发者工具设计的灵感来源"
+    },
+    "zh-TW": {
+      "palette": "深炭灰色背景搭配淺灰色文字與活潑多彩漸層強調色",
+      "layout": "置中內容配置，搭配寬裕垂直間距與卡片式功能區塊",
+      "interaction": "流暢微互動，在 hover 狀態下有縮放與色彩過渡效果",
+      "motion": "細膩動畫，趣味元素帶有彈簧式回彈，連續動態則採用線性滑動",
+      "notes": "本網站展示現代深色 UI 模式，善用漸層與細微高度差異，非常適合作為開發者工具設計的靈感參考"
+    },
+    "ja": {
+      "palette": "ダークチャコールの背景に、ライトグレーのテキストと鮮やかなマルチカラーグラデーションアクセント",
+      "layout": "縦方向にゆとりのある余白と、カードベースの機能セクションを持つ中央揃えコンテンツ",
+      "interaction": "ホバーステートでスケールとカラーの変化を伴う、滑らかなマイクロインタラクション",
+      "motion": "遊び心のある要素にはバネのようなバウンス、連続する動きにはリニアなスライドを備えた、繊細なアニメーション",
+      "notes": "このサイトは、グラデーションと繊細なエレベーションの思慮深い使用による、現代的なダークUIパターンを紹介しています。開発ツールのデザインインスピレーションに適しています"
+    },
+    "ko": {
+      "palette": "어두운 차콜 배경에 밝은 회색 텍스트와 선명한 다색 그래디언트 액센트",
+      "layout": "수직 간격을 넉넉히 두고 중앙 정렬된 콘텐츠와 카드 기반 기능 섹션",
+      "interaction": "호버 상태에서 스케일과 색상 전환이 적용된 부드러운 미시 상호작용",
+      "motion": "장난스러운 요소에 대한 스프링 같은 바운스와 연속 움직임을 위한 선형 슬라이드를 사용한 섬세한 애니메이션",
+      "notes": "이 사이트는 그래디언트와 미세한 엘리베이션의 정교한 사용을 보여주는 현대적인 다크 UI 패턴을 선보이며, 개발자 도구 디자인 영감에 탁월합니다"
+    }
+  },
+  "_meta": {
+    "vision_model": "mimo-v2.5",
+    "vision_prompt_version": "0.3",
+    "vision_source": "playwright-extract:webstudio",
+    "vision_grounded": true,
+    "vision_at": "2026-06-04T19:58:09+00:00",
+    "vision_tokens": 17168,
+    "vision_cost_usd": 0.1908,
+    "translation_model": "mimo-v2.5",
+    "translation_at": "2026-06-04T19:59:13+00:00",
+    "translation_tokens": 16508,
+    "translation_cost_usd": 0.0551,
+    "narrative_model": "mimo-v2.5",
+    "narrative_prompt_version": "0.3",
+    "narrative_at": "2026-06-04T19:59:23+00:00",
+    "narrative_tokens": 2009,
+    "narrative_cost_usd": 0.0134,
+    "narrative_status": "ok",
+    "total_cost_usd": 0.2593
+  },
+  "narrative": {
+    "en": {
+      "ch1_intro": "Webstudio's design system draws a direct analogy to a modern developer-focused IDE: a precise, tool-oriented interface built for speed and performance. Every component is an instrument, calibrated to the needs of builders working in a no-code environment. The result is a system that feels both technical and approachable, a professional workspace rendered in dark, high-contrast tones.",
+      "ch2_intro": "The color system operates on a principle of high-contrast ink on dark backgrounds, creating a visual field where light text and subtle borders define form. Vibrant multi-color gradients provide the sole accent, used sparingly to guide attention without solid, high-saturation blocks.",
+      "ch2_outro": "The guiding principle is functional contrast over decorative color, ensuring every element remains legible and purposeful within the dark interface.",
+      "ch3_intro": "Typographic voice is carried by a humanist sans-serif, set in two core weights: 400 for body text and 600 for emphasis and interactive elements. The scale is engineered for impact, with tight letter spacing applied to large display headlines to create dense, authoritative statements.",
+      "ch4_intro": "Spacing follows a strict 4.5px base unit, establishing a consistent vertical rhythm that governs padding, margins, and component intervals.",
+      "ch5_intro": "Surfaces are defined by depth through minimal means: a 1px subtle border provides definition, while shadows are restricted to either a faint, dark elevation or a distinctive colored glow. This approach creates a layered interface that feels integrated rather than lifted.",
+      "ch6_intro": "The layout skeleton centers content within a generous vertical padding structure, creating a focused, columnar reading flow. Feature sections are organized into card-based layouts with consistent rounding and subtle borders, maintaining visual order while accommodating dynamic content.",
+      "ch7_intro": "Motion philosophy treats animation as a functional feedback layer, not a decorative overlay. Interactions employ smooth color and scale transitions for hover states, linear slides for continuous motion, and a distinct spring-like bounce for playful, affirming moments.",
+      "ch8_intro": "The editorial voice is professional yet approachable, delivering bold, concise statements about performance and developer experience. It avoids marketing jargon and overly technical language, opting instead for direct, action-oriented calls to action.",
+      "ch8_outro": "The system deliberately does not implement light mode, serif typography, sharp corners, solid accent colors, heavy shadows, or all-caps body text."
+    },
+    "zh-CN": {
+      "ch1_intro": "Webstudio 的设计系统直接类比现代面向开发者的 IDE：一个为速度与性能构建的精确、工具导向型界面。每个组件都是一件利器，为在无代码环境中工作的构建者需求量身校准。其成果是一套既具技术感又易于理解的系统，一个以深色高对比度色调呈现的专业工作空间。",
+      "ch2_intro": "色彩系统基于深色背景上的高对比度墨色原则运作，创建出浅色文本与微妙边框定义形态的视觉领域。鲜艳的多色渐变提供唯一的强调色，仅用于引导注意力，而非大块高饱和度色块。",
+      "ch2_outro": "核心原则是功能性对比优先于装饰性色彩，确保每个元素在深色界面中保持清晰可辨且目的明确。",
+      "ch3_intro": "字体风格由一款人文主义无衬线字体承载，设置两种核心字重：400 用于正文，600 用于强调和交互元素。字体比例经过精心设计以增强冲击力，对大型展示标题应用紧凑的字间距，形成密集、权威的表述。",
+      "ch4_intro": "间距遵循严格的 4.5px 基准单位，建立起一致的垂直韵律，统一控制内边距、外边距与组件间隔。",
+      "ch5_intro": "界面深度通过极简手段定义：1px 的微妙边框提供轮廓，而阴影仅限于微弱的深色抬升或独特的彩色光晕。这种方法创造出层叠式界面，感觉是集成一体而非浮于表面。",
+      "ch6_intro": "布局骨架将内容置于充裕的垂直内边距结构中，形成专注的列式阅读流。功能区域采用基于卡片的布局组织，保持一致的圆角与微妙边框，在容纳动态内容的同时维持视觉秩序。",
+      "ch7_intro": "动态理念将动画视为功能反馈层，而非装饰性覆盖。交互采用平滑的颜色与缩放过渡实现悬停状态，线性滑动用于持续运动，以及独特的弹性跳动用于营造趣味、肯定的瞬间。",
+      "ch8_intro": "编辑风格专业而亲切，就性能与开发者体验传递大胆、简洁的表述。避免营销术语和过度技术化的语言，转而采用直接、行动导向的号召性用语。",
+      "ch8_outro": "该系统刻意未采用浅色模式、衬线字体、尖锐圆角、实心强调色、厚重阴影或全大写正文文本。"
+    },
+    "zh-TW": {
+      "ch1_intro": "Webstudio 的設計系統直接類比於現代開發者導向的 IDE：一個為速度和效能而建、精確且工具導向的介面。每個元件都是一件工具，針對無程式碼環境中建造者的需求進行校準。其成果是一個兼具技術感與親和力的系統，一個以深色、高對比色調呈現的專業工作空間。",
+      "ch2_intro": "色彩系統基於深色背景上的高對比墨色原理運作，創造出一個以淺色文字和細微邊框定義形態的視覺場域。鮮明的多彩漸層是唯一的強調元素，謹慎使用以引導注意力，避免使用實心、高飽和度的色塊。",
+      "ch2_outro": "指導原則是功能性對比優先於裝飾性色彩，確保在深色介面中，每個元素都保持清晰可辨且目的明確。",
+      "ch3_intro": "排版語調由人文主義無襯線字體承載，設定兩種核心字重：400 用於內文，600 用於強調和互動元素。字級設計力求衝擊力，在大型展示標題上套用緊湊的字距，以創造密集、具權威感的陳述。",
+      "ch4_intro": "間距遵循嚴格的 4.5px 基礎單位，建立一致的垂直節奏，支配著內邊距、外邊距和元件間距。",
+      "ch5_intro": "表面透過簡約手段定義深度：1px 的細微邊框提供清晰度，而陰影僅限於微弱、深色的 elevation 或獨特的彩色光暈。這種方法創造出整合而非懸浮的層次化介面。",
+      "ch6_intro": "佈局骨架將內容置於寬裕的垂直內邊距結構中，創造專注的、 columnar 的閱讀流。功能區塊採用卡片式佈局組織，搭配一致的圓角和細微邊框，在維持視覺秩序的同時容納動態內容。",
+      "ch7_intro": "動效哲學將動畫視為功能性回饋層，而非裝飾性覆蓋。互動採用平滑的色彩與縮放過渡實現 hover 狀態，使用線性滑動實現持續運動，並以獨特的彈簧式彈跳呈現趣味且肯定的時刻。",
+      "ch8_intro": "編輯語調專業而親切，就效能和開發者體驗提出大膽、簡潔的陳述。它避免行銷術語和過度技術性的語言，選擇直接、行動導向的呼籲。",
+      "ch8_outro": "此系統特意不實作淺色模式、襯線字體、銳角、實心強調色、厚重陰影或全大寫的內文。"
+    },
+    "ja": {
+      "ch1_intro": "Webstudioのデザインシステムは、モダンな開発者向けIDEと直接的なアナロジーを描きます。スピードとパフォーマンスのために構築された、正確でツール指向のインターフェースです。全てのコンポーネントは、ノーコード環境で作業するビルダーのニーズに合わせて較正された道具です。その結果、技術的でありながらも親しみやすい、ダークでハイコントラストのトーンで描かれたプロフェッショナルなワークスペースとなるシステムが生まれています。",
+      "ch2_intro": "カラーシステムは、ダーク背景上のハイコントラストなインクという原則に基づいて運営され、明るいテキストと精妙なボーダーがフォームを定義する視覚フィールドを生み出します。鮮やかなマルチカラーグラデーションが唯一のアクセントとして機能し、ソリッドで彩度の高いブロックを用いず、注意を導くために控えめに使用されます。",
+      "ch2_outro": "指針となる原則は、装飾的なカラーではなく機能的なコントラストであり、全ての要素がダークインターフェース内で読みやすく、目的にかなったものであることを保証します。",
+      "ch3_intro": "タイポグラフィの声はヒューマニストサンセリフによって担われ、本文用の400と強調およびインタラクティブ要素用の600という2つのコアウェイトで設定されます。スケールはインパクトを考慮して設計されており、大きなディスプレイ見出しには Tight な文字間隔が適用され、密度が高く、権威ある声明を生み出します。",
+      "ch4_intro": "スペーシングは厳格な4.5pxのベースユニットに従い、padding、margin、コンポーネント間隔を支配する一貫した垂直リズムを確立します。",
+      "ch5_intro": "サーフェスは最小限の手段による深みで定義されます。1pxの精妙なボーダーが輪郭を与え、シャドウは薄いダークのlevationか、特徴的なカラーのグローのいずれかに限定されます。このアプローチにより、持ち上げられた感じではなく、統合されたレイヤードインターフェースが作られます。",
+      "ch6_intro": "レイアウトの骨格は、豊かなvertical padding構造の中にコンテンツを配置し、集中力のある-columnarな読み取りフローを生み出します。フィーチャーセクションは、一貫した角の丸みと精妙なボーダーを備えたカードベースのレイアウトに整理され、動的コンテンツに対応しながら視覚的な秩序を維持します。",
+      "ch7_intro": "モーション哲学は、アニメーションを装飾的なオーバーレイではなく、機能的なフィードバック層として扱います。インタラクションには、hover状態のためのスムーズなカラーとスケールの遷移、連続的な動きのための線形スライド、そして遊び心があり、肯定的な瞬間のための独特のスプリングのようなバウンスが採用されます。",
+      "ch8_intro": "エディトリアルな声はプロフェッショナルでありながらも親しみやすく、パフォーマンスと開発者体験について大胆で簡潔な声明を伝えます。マーケティング用語や過度に技術的な言語を避け、代わりに直接的でアクション指向のCTAを重視します。",
+      "ch8_outro": "システムは、ライトモード、セリフタイポグラフィ、シャープな角、ソリッドなアクセントカラー、重いシャドウ、または本文の全大文字を意図的に実装しません。"
+    },
+    "ko": {
+      "ch1_intro": "Webstudio의 디자인 시스템은 현대적인 개발자 중심 IDE에 직접적인 비유를 그립니다: 속도와 성능을 위해 구축된 정밀하고 도구 지향적인 인터페이스입니다. 모든 구성 요소는 노코드 환경에서 작업하는 구축자의 요구에 맞춰 조율된 도구입니다. 그 결과는 기술적이면서도 접근하기 쉬운 느낌을 주는 시스템이며, 어둡고 대비가 높은 톤으로 표현된 전문적인 작업 공간입니다.",
+      "ch2_intro": "색상 시스템은 어두운 배경 위의 고대비 잉크라는 원칙으로 작동하며, 밝은 텍스트와 미세한 테두리가 형태를 정의하는 시각적 영역을 만듭니다. 화려한 다색 그라디언트는 유일한 강조 요소로 사용되며, 단색의 고채도 블록 없이 절제된 방식으로 주의를 유도합니다.",
+      "ch2_outro": "핵심 원칙은 장식적인 색상보다 기능적인 대비이며, 모든 요소가 어두운 인터페이스 내에서 가독성과 목적을 유지하도록 보장합니다.",
+      "ch3_intro": "타이포그래피의 음성은 휴머니스트산세리프가 담당하며, 본문용 400과 강조 및 인터랙티브 요소용 600이라는 두 가지 핵심 웨이트로 설정됩니다. 스케일은 임팩트를 위해 설계되었으며, 대형 디스플레이 헤드라인에는 촘촘한 자간을 적용하여 밀도 높고 권위 있는 문장을 만듭니다.",
+      "ch4_intro": "간격은 4.5px 기본 단위를 엄격히 따르며, 패딩, 마진 및 구성 요소 간격을 지배하는 일관된 수직 리듬을 확립합니다.",
+      "ch5_intro": "표면은 최소한의 수단으로 깊이를 통해 정의됩니다: 1px의 미세한 테두리가 윤곽을 제공하며, 그림자는 은은하고 어두운 상승 효과 또는 독특한 컬러 글로우 중 하나로 제한됩니다. 이 접근 방식은 떠오른 느낌보다는 통합된 느낌을 주는 레이어드 인터페이스를 만듭니다.",
+      "ch6_intro": "레이아웃 스켈레톤은 넉넉한 수직 패딩 구조 내에서 콘텐츠를 중앙에 배치하여 집중적이고 칼럼 형식의 읽기 흐름을 만듭니다. 기능 섹션은 일관된 모서리 둥글림과 미세한 테두리를 갖춘 카드 기반 레이아웃으로 구성되어, 동적인 콘텐츠를 수용하면서도 시각적 질서를 유지합니다.",
+      "ch7_intro": "모션 철학은 애니메이션을 장식적인 오버레이가 아닌 기능적인 피드백 계층으로 취급합니다. 인터랙션에는 hover 상태의 부드러운 색상 및 스케일 전환, 연속적인 움직임을 위한 선형 슬라이드, 그리고 장난스럽고 확신을 주는 순간을 위한 독특한 스프링 같은 바운스가 사용됩니다.",
+      "ch8_outro": "이 시스템은 의도적으로 라이트 모드, 세리프 타이포그래피, 날카로운 모서리, 단색 강조 색상, 무거운 그림자 또는 전면 대문자 본문 텍스트를 구현하지 않습니다."
+    }
+  }
 }

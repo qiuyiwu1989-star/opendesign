@@ -8,6 +8,641 @@
     "fintech",
     "saas"
   ],
-  "status": "pending",
-  "added_at": "2026-06-03"
+  "status": "completed",
+  "added_at": "2026-06-03",
+  "spec": {
+    "colors": {
+      "bg": "#7A005D",
+      "bgSoft": "#E1D8D2",
+      "bgQuiet": "#FFFFFF",
+      "ink": "#000000",
+      "inkSoft": "rgba(0,0,0,0.7)",
+      "muted": "#383838",
+      "mutedSoft": "rgba(255,255,255,0.7)",
+      "accent": "#FFA81D",
+      "line": "rgba(255,255,255,0.15)"
+    },
+    "typography": {
+      "display": "geometric-sans",
+      "body": "humanist-sans",
+      "mono": "monospace",
+      "scale": [
+        {
+          "token": "display",
+          "size": 48,
+          "lh": 1.08,
+          "weight": 500,
+          "ls": "-1px"
+        },
+        {
+          "token": "heading",
+          "size": 32,
+          "lh": 1.2,
+          "weight": 500,
+          "ls": "0"
+        },
+        {
+          "token": "body",
+          "size": 16,
+          "lh": 1.5,
+          "weight": 400,
+          "ls": "0"
+        },
+        {
+          "token": "small",
+          "size": 14,
+          "lh": 1.4,
+          "weight": 400,
+          "ls": "0.2px"
+        },
+        {
+          "token": "micro",
+          "size": 12,
+          "lh": 1.3,
+          "weight": 400,
+          "ls": "0.25px"
+        }
+      ]
+    },
+    "spacing": {
+      "base": 4,
+      "scale": [
+        4,
+        8,
+        12,
+        16,
+        24,
+        32,
+        48,
+        64,
+        96
+      ]
+    },
+    "surfaces": {
+      "radius": {
+        "sm": 4,
+        "md": 8,
+        "lg": 12,
+        "pill": 9999
+      }
+    },
+    "layout": {
+      "container": 1280,
+      "paragraph": 680,
+      "columns": 12,
+      "gutter": 24,
+      "breakpoints": [
+        768,
+        1024
+      ]
+    },
+    "motion": {
+      "durations": {
+        "micro": 150,
+        "small": 200,
+        "medium": 300
+      },
+      "easing": "cubic-bezier(0.4, 0, 0.2, 1)"
+    }
+  },
+  "spec_i18n": {
+    "en": {
+      "identity": {
+        "keywords": [
+          "unified platform",
+          "business operations",
+          "AI-driven",
+          "efficiency",
+          "integrated"
+        ],
+        "analogy": "A single nervous system for a company, replacing dozens of fragmented tools.",
+        "oneLiner": "An integrated platform that uses AI to connect HR, IT, Finance, and Payroll into one seamless system."
+      },
+      "colors": {
+        "principle": "High contrast between a deep, saturated purple hero and a clean, white content area, anchored by a vibrant orange accent."
+      },
+      "typography": {
+        "rules": [
+          "Use tight tracking for large display headlines.",
+          "Use slightly loose tracking (0.25px) for small UI text.",
+          "Maintain a clear weight hierarchy between headings (500) and body (400)."
+        ],
+        "scaleUses": [
+          "Hero headlines",
+          "Section headings",
+          "Body text",
+          "Captions and UI labels",
+          "Fine print"
+        ]
+      },
+      "spacing": {
+        "rhythm": "Consistent vertical rhythm based on 4px increments, with generous whitespace (40px-64px) between major content sections."
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 6px 6px 0px rgba(0, 0, 0, 0.06)",
+          "0px 96px 160px 48px rgba(27, 16, 20, 0.6)"
+        ],
+        "borders": "Minimal use of borders; separation is achieved through spacing and subtle color shifts. The primary border color is rgb(229, 231, 235)."
+      },
+      "layout": {
+        "skeleton": "A centered, max-width container with a clear two-column structure in the hero (content left, visual right) and a full-width centered column for content sections."
+      },
+      "components": {
+        "button": "Solid orange (accent) buttons with rounded corners (pill) for primary actions; text links with underline for secondary actions.",
+        "card": "Light beige/gray (bgSoft) cards with subtle shadows and rounded corners (md).",
+        "chip": "Used for navigation and categorization, often with a light background and subtle border.",
+        "input": "White background input fields with subtle borders and rounded corners (md), often stacked vertically.",
+        "hero": "Full-width section with deep purple background, large display headline, and a prominent email capture form."
+      },
+      "motion": {
+        "patterns": [
+          "Subtle fade and color transitions for interactive elements.",
+          "Smooth background-color and opacity changes on hover."
+        ]
+      },
+      "interaction": {
+        "hover": "Subtle color transitions (0.15s) on text and background-color for interactive elements.",
+        "click": "Immediate visual feedback, often a subtle scale or color shift.",
+        "transition": "Smooth, ease-in-out transitions for all interactive state changes.",
+        "keyboard": "Standard focus rings for accessibility, likely matching the accent color."
+      },
+      "voice": {
+        "tone": "Confident, authoritative, and benefit-driven.",
+        "headlineStyle": "Short, bold, and declarative, focusing on the core value proposition.",
+        "ctaStyle": "Direct and action-oriented, using a bright, high-contrast button.",
+        "avoid": [
+          "Jargon without context",
+          "Vague promises",
+          "Passive voice",
+          "Cluttered layouts",
+          "Inconsistent typography",
+          "Low-contrast text"
+        ]
+      },
+      "donts": [
+        "Don't use a low-contrast color for primary text on the purple background — screenshot shows high-contrast white and black text.",
+        "Don't use a wide variety of font weights — screenshot shows a strict hierarchy between weight 400 and 500.",
+        "Don't use sharp, square corners on buttons or cards — screenshot shows rounded corners (8px, 12px, or pill).",
+        "Don't use a busy, multi-color palette — screenshot shows a focused palette of deep purple, orange, black, white, and beige.",
+        "Don't use dense, compact layouts — screenshot shows generous spacing (24px-64px) between elements.",
+        "Don't use decorative serif fonts — screenshot shows clean, geometric and humanist sans-serif categories."
+      ],
+      "systemPrompt": "This is Rippling, a B2B SaaS platform. Its design DNA is premium, clean, and authoritative, focusing on unifying complex business operations. The primary colors are a deep purple (#7A005D) for hero sections, a vibrant orange (#FFA81D) for accents and calls-to-action, and a clean white/beige for content areas. Typography uses geometric and humanist sans-serif categories with a clear weight hierarchy (500 for headlines, 400 for body). Critical donts: avoid low-contrast text on the purple background, do not use a wide variety of font weights, and avoid sharp corners on UI elements. The layout is spacious and centered, using a 12-column grid with a maximum width of 1280px."
+    },
+    "zh-CN": {
+      "identity": {
+        "keywords": [
+          "统一平台",
+          "业务运营",
+          "AI驱动",
+          "高效",
+          "集成化"
+        ],
+        "analogy": "如同企业神经中枢，替代数十个零散工具。",
+        "oneLiner": "通过AI将人力资源、IT、财务与薪酬管理无缝集成的智能化平台。"
+      },
+      "colors": {
+        "principle": "深邃饱和紫色主视觉区与纯净白色内容区形成高对比度，活力橙色作为强调色贯穿全局。"
+      },
+      "typography": {
+        "rules": [
+          "大尺寸展示标题采用紧凑字间距。",
+          "小型界面文字使用略松字间距（0.25px）。",
+          "建立清晰的字重层级：标题500/正文400。"
+        ],
+        "scaleUses": [
+          "主视觉标题",
+          "板块标题",
+          "正文文本",
+          "图注与界面标签",
+          "辅助说明文字"
+        ]
+      },
+      "spacing": {
+        "rhythm": "基于4px增量的统一纵向节奏，主要板块间保留充足留白（40px-64px）。"
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 6px 6px 0px rgba(0, 0, 0, 0.06)",
+          "0px 96px 160px 48px rgba(27, 16, 20, 0.6)"
+        ],
+        "borders": "极简边框应用，主要通过间距与色彩差异分隔内容。主边框色值为rgb(229, 231, 235)。"
+      },
+      "layout": {
+        "skeleton": "居中最大宽度容器，主视觉区采用双栏结构（内容左侧/视觉右侧），内容板块使用全宽居中单栏。"
+      },
+      "components": {
+        "button": "主操作按钮为橙色（强调色）圆角药丸样式；次级操作采用带下划线的文字链接。",
+        "card": "浅米灰（bgSoft）卡片配柔和阴影与中圆角（md）。",
+        "chip": "用于导航与分类标识，通常采用浅色背景与微边框。",
+        "input": "白色背景输入框配微边框与中圆角（md），常纵向排列。",
+        "hero": "全宽深紫色背景板块，搭配大型展示标题与醒目邮箱订阅表单。"
+      },
+      "motion": {
+        "patterns": [
+          "交互元素采用微妙的透明度与色彩过渡。",
+          "悬停时平滑改变背景色与透明度。"
+        ]
+      },
+      "interaction": {
+        "hover": "文字与背景色在0.15秒内完成微妙色彩过渡。",
+        "click": "即时视觉反馈，常表现为细微缩放或色彩偏移。",
+        "transition": "所有交互状态变化采用平滑ease-in-out过渡。",
+        "keyboard": "遵循可访问性标准的焦点环，采用强调色呈现。"
+      },
+      "voice": {
+        "tone": "自信权威，以效益为导向。",
+        "headlineStyle": "简短有力，聚焦核心价值主张。",
+        "ctaStyle": "直接行动导向，使用高对比度亮色按钮。",
+        "avoid": [
+          "脱离语境的行业术语",
+          "模糊承诺",
+          "被动语态",
+          "拥挤布局",
+          "不一致的字体排印",
+          "低对比度文本"
+        ]
+      },
+      "donts": [
+        "避免在紫色背景上使用低对比度主文本——截图显示采用高对比度黑白文字。",
+        "避免使用过多字重——截图显示严格限定400/500两级字重。",
+        "避免按钮与卡片使用尖锐直角——截图显示采用圆角（8px/12px/药丸形）。",
+        "避免使用杂乱多彩配色——截图显示聚焦于深紫、橙、黑、白、米色系。",
+        "避免使用密集紧凑布局——截图显示元素间保留充足间距（24px-64px）。",
+        "避免使用装饰性衬线字体——截图显示采用简洁的几何无衬线与人文无衬线字体类别。"
+      ],
+      "systemPrompt": "这是Rippling，一个B2B SaaS平台。其设计基因是高端、简洁且权威的，专注于整合复杂业务运营。主色调为深紫色（#7A005D）用于主视觉区，活力橙色（#FFA81D）用于强调与行动号召，纯净白色/米色用于内容区域。字体采用几何无衬线与人文无衬线类别，建立清晰字重层级（标题500/正文400）。关键禁忌：避免紫色背景上的低对比度文字，不使用多种字重，避免界面元素的尖锐边角。布局宽敞居中，采用12列网格，最大宽度1280px。"
+    },
+    "zh-TW": {
+      "identity": {
+        "keywords": [
+          "統一平台",
+          "業務營運",
+          "AI 驅動",
+          "效率",
+          "整合"
+        ],
+        "analogy": "一家企業的單一神經系統，取代數十個零散的工具。",
+        "oneLiner": "一個整合式平台，運用 AI 將人力資源、IT、財務與薪資管理無縫連接成一個完整的系統。"
+      },
+      "colors": {
+        "principle": "深邃飽滿的紫色首頁主視覺與純淨白色內容區之間形成強烈對比，並以鮮豔的橙色作為點綴。"
+      },
+      "typography": {
+        "rules": [
+          "大型展示標題使用緊湊的字距調整。",
+          "小型 UI 文字使用略寬鬆的字距調整 (0.25px)。",
+          "標題 (500) 與內文 (400) 之間需維持清晰的字重層次。"
+        ],
+        "scaleUses": [
+          "首頁主標題",
+          "區塊標題",
+          "內文",
+          "說明文字與 UI 標籤",
+          "小字備註"
+        ]
+      },
+      "spacing": {
+        "rhythm": "基於 4px 增量的垂直節奏，主要內容區塊之間留有充裕的空白 (40px-64px)。"
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 6px 6px 0px rgba(0, 0, 0, 0.06)",
+          "0px 96px 160px 48px rgba(27, 16, 20, 0.6)"
+        ],
+        "borders": "極少使用邊框；主要透過間距與細微的色彩變化來區隔內容。主要邊框顏色為 rgb(229, 231, 235)。"
+      },
+      "layout": {
+        "skeleton": "採用置中的最大寬度容器，首頁主視覺具有清晰的雙欄結構 (內容在左，視覺元素在右)，內容區塊則為全寬置中的單欄。"
+      },
+      "components": {
+        "button": "主要操作使用實心的橙色 (點綴色) 圓角 (膠囊) 按鈕；次要操作使用帶有底線的文字連結。",
+        "card": "淺米色/灰色 (bgSoft) 卡片，帶有細微陰影與圓角 (md)。",
+        "chip": "用於導覽與分類，通常具有淺色背景與細微邊框。",
+        "input": "白色背景的輸入欄位，帶有細微邊框與圓角 (md)，通常垂直堆疊。",
+        "hero": "全寬區塊，採用深紫色背景，搭配大型展示標題與顯眼的電子郵件訂閱表單。"
+      },
+      "motion": {
+        "patterns": [
+          "互動元素採用細膩的淡入淡出與色彩過渡效果。",
+          "懸停時背景色與透明度的平滑變化。"
+        ]
+      },
+      "interaction": {
+        "hover": "互動元素的文字與背景色在 0.15 秒內進行細膩的色彩過渡。",
+        "click": "立即的視覺反饋，通常為細微的縮放或色彩變化。",
+        "transition": "所有互動狀態的變化均採用平滑的 ease-in-out 過渡效果。",
+        "keyboard": "標準的焦點外框以確保無障礙性，其顏色很可能與點綴色相同。"
+      },
+      "voice": {
+        "tone": "自信、具權威性且以效益為導向。",
+        "headlineStyle": "簡短、大膽且具宣告性，聚焦於核心價值主張。",
+        "ctaStyle": "直接且以行動為導向，使用明亮、高對比度的按鈕。",
+        "avoid": [
+          "未經脈絡的術語",
+          "模糊的承諾",
+          "被動語態",
+          "雜亂的佈局",
+          "不一致的字體排印",
+          "低對比度的文字"
+        ]
+      },
+      "donts": [
+        "避免在紫色背景上使用低對比度的顏色作為主要文字——截圖顯示應使用高對比度的白色與黑色文字。",
+        "避免使用過多種字重——截圖顯示字重 400 與 500 之間有嚴格的層次區分。",
+        "避免在按鈕或卡片上使用尖銳的直角——截圖顯示使用圓角 (8px, 12px, 或膠囊型)。",
+        "避免使用繁複、多色的色板——截圖顯示使用專注於深紫、橙、黑、白與米色的色板。",
+        "避免使用緊密、擁擠的佈局——截圖顯示元素之間有充裕的間距 (24px-64px)。",
+        "避免使用裝飾性的襯線字體——截圖顯示使用乾淨的幾何與人文無襯線字體類別。"
+      ],
+      "systemPrompt": "這是 Rippling，一個 B2B SaaS 平台。其設計 DNA 是高端、簡潔且具權威性，專注於統一複雜的業務營運。主要顏色是用於首頁主視覺的深紫色 (#7A005D)，用於點綴與行動呼籲的鮮豔橙色 (#FFA81D)，以及用於內容區域的純淨白色/米色。字體排印採用幾何與人文無襯線字體類別，並具有清晰的字重層次 (標題 500，內文 400)。關鍵的禁止事項：避免在紫色背景上使用低對比度的文字，不要使用過多種字重，並避免在 UI 元素上使用尖銳的直角。佈局寬敞且置中，採用 12 欄網格系統，最大寬度為 1280px。"
+    },
+    "ja": {
+      "identity": {
+        "keywords": [
+          "統合プラットフォーム",
+          "ビジネスオペレーション",
+          "AI駆動",
+          "効率性",
+          "統合"
+        ],
+        "analogy": "企業の単一神経系。数十の断片化されたツールを置き換える存在。",
+        "oneLiner": "AIを活用し、人事、IT、経理、給与計算をシームレスなシステムに統合するプラットフォーム。"
+      },
+      "colors": {
+        "principle": "深く彩度の高い紫色のヒーローとクリーンなホワイトのコンテンツエリアの間に高いコントラストを実現し、鮮やかなオレンジのアクセントで安定感を与えます。"
+      },
+      "typography": {
+        "rules": [
+          "大きなディスプレイ見出しには、きめ細かなトラッキングを使用します。",
+          "小さなUIテキストには、やや緩めのトラッキング（0.25px）を使用します。",
+          "見出し（500）と本文（400）の間には、明確なウェイト階層を維持します。"
+        ],
+        "scaleUses": [
+          "ヒーロー見出し",
+          "セクション見出し",
+          "本文テキスト",
+          "キャプションおよびUIラベル",
+          " Fine print"
+        ]
+      },
+      "spacing": {
+        "rhythm": "4pxの刻みに基づく一貫した垂直リズム。主要なコンテンツセクション間には十分な余白（40px-64px）を確保しています。"
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 6px 6px 0px rgba(0, 0, 0, 0.06)",
+          "0px 96px 160px 48px rgba(27, 16, 20, 0.6)"
+        ],
+        "borders": "ボーダーは最小限に使用。分離は余白と微細な色の変化で実現します。プライマリボーダーカラーはrgb(229, 231, 235)です。"
+      },
+      "layout": {
+        "skeleton": "最大幅のコンテナを中央揃えにし、ヒーローには明確な2カラム構造（コンテンツ左、ビジュアル右）を、コンテンツセクションにはフルワイドの中央揃えカラムを採用。"
+      },
+      "components": {
+        "button": "プライマリアクションには、角丸（ピル型）のカラフルなオレンジ（アクセント）ソリッドボタン。セカンダリアクションには、アンダーライン付きのテキストリンク。",
+        "card": "ライトなベージュ/グレー（bgSoft）のカード。微細なシャドウと角丸（md）を施しています。",
+        "chip": "ナビゲーションやカテゴリ分類に使用。軽い背景色と微細なボーダーが特徴です。",
+        "input": "ホワイト背景の入力フィールド。微細なボーダーと角丸（md）を備え、垂直に積み重ねられることが多いです。",
+        "hero": "深い紫色の背景を備えたフルワイドセクション。大きなディスプレイ見出しと、目立つメールアドレスキャプチャフォームが特徴。"
+      },
+      "motion": {
+        "patterns": [
+          "インタラクティブ要素に対する微細なフェードとカラートランジション。",
+          "ホバー時の滑らかなbackground-colorとopacityの変化。"
+        ]
+      },
+      "interaction": {
+        "hover": "インタラクティブ要素のテキストと背景色に対する、微細なカラートランジション（0.15s）。",
+        "click": "即座のビジュアルフィードバック。通常は微細なスケールまたはカラーシフト。",
+        "transition": "すべてのインタラクティブ状態変化に対して、滑らかなease-in-outトランジション。",
+        "keyboard": "アクセシビリティのための標準的なフォーカスリング。アクセントカラーと一致する可能性が高いです。"
+      },
+      "voice": {
+        "tone": "自信に満ち、権威があり、ベネフィットを重視。",
+        "headlineStyle": "短く、太字で、断定的なスタイル。コアバリュー・プロポジションに焦点を当てる。",
+        "ctaStyle": "直接的でアクション指向。明るくハイコントラストのボタンを使用。",
+        "avoid": [
+          "文脈のない専門用語",
+          "曖昧な約束",
+          "受動態",
+          "雑然としたレイアウト",
+          "一貫性のないタイポグラフィ",
+          "低コントラストのテキスト"
+        ]
+      },
+      "donts": [
+        "紫色の背景に低コントラストのカラープライマリテキストを使用しない — スクリーンショットではハイコントラストのホワイトとブラックテキストが示されています。",
+        "幅広い種類のフォントウェイトを使用しない — スクリーンショットではウェイト400と500の間の厳格な階層が示されています。",
+        "ボタンやカードに角张った鋭い角を使用しない — スクリーンショットでは角丸（8px、12px、またはピル型）が示されています。",
+        "忙しない、多色のパレットを使用しない — スクリーンショットでは深い紫、オレンジ、ブラック、ホワイト、ベージュに焦点を当てたパレットが示されています。",
+        "密集した、コンパクトなレイアウトを使用しない — スクリーンショットでは要素間にゆとりのある余白（24px-64px）が示されています。",
+        "装飾的なセリフフォントを使用しない — スクリーンショットではクリーンな幾何学的およびヒューマニストサンセリフ系フォントが示されています。"
+      ],
+      "systemPrompt": "これはRipplingというB2B SaaSプラットフォームです。そのデザインDNAは、プレミアム、クリーン、権威があり、複雑なビジネスオペレーションの統合に焦点を当てています。プライマリカラーは、ヒーローセクション用の深い紫（#7A005D）、アクセントおよびCTA用の鮮やかなオレンジ（#FFA81D）、コンテンツエリア用のクリーンなホワイト/ベージュです。タイポグラフィは幾何学的およびヒューマニストサンセリフ系フォントを使用し、明確なウェイト階層（見出し用500、本文用400）を維持します。重要な禁止事項：紫色の背景に低コントラストのテキストを使用しない、幅広い種類のフォントウェイトを使用しない、UI要素に鋭い角を使用しない。レイアウトはゆとりがあり、センタード。12カラムグリッドを使用し、最大幅は1280pxです。"
+    },
+    "ko": {
+      "identity": {
+        "keywords": [
+          "통합 플랫폼",
+          "비즈니스 운영",
+          "AI 기반",
+          "효율성",
+          "통합된"
+        ],
+        "analogy": "회사의 단일 신경계로, 수십 개의 파편화된 도구를 대체합니다.",
+        "oneLiner": "AI를 활용하여 HR, IT, 재무, 급여를 하나의 매끄러운 시스템으로 연결하는 통합 플랫폼입니다."
+      },
+      "colors": {
+        "principle": "깊고 채도 높은 보라색 히어로와 깨끗한 화이트 콘텐츠 영역 사이의 높은 대비를, 밝은 오렌지 악센트로 기준을 잡습니다."
+      },
+      "typography": {
+        "rules": [
+          "대형 디스플레이 헤드라인에는 타이트한 트래킹을 사용합니다.",
+          "소형 UI 텍스트에는 약간 느슨한 트래킹 (0.25px)을 사용합니다.",
+          "헤드라인 (500)과 본문 (400) 사이에 명확한 굵기 계층을 유지합니다."
+        ],
+        "scaleUses": [
+          "히어로 헤드라인",
+          "섹션 제목",
+          "본문 텍스트",
+          "캡션 및 UI 레이블",
+          "_FINE PRINT"
+        ]
+      },
+      "spacing": {
+        "rhythm": "4px 단위를 기반으로 한 일관된 수직 리듬이며, 주요 콘텐츠 섹션 사이에 풍부한 여백 (40px-64px)을 둡니다."
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 6px 6px 0px rgba(0, 0, 0, 0.06)",
+          "0px 96px 160px 48px rgba(27, 16, 20, 0.6)"
+        ],
+        "borders": "테두리는 최소한으로 사용하며, 구분은 간격과 미묘한 색상 변화로 구현합니다. 주요 테두리 색상은 rgb(229, 231, 235)입니다."
+      },
+      "layout": {
+        "skeleton": "히어로 섹션에 명확한 2칼럼 구조 (콘텐츠는 왼쪽, 비주얼은 오른쪽)를 가진 중앙 정렬 최대 폭 컨테이너와, 콘텐츠 섹션용 풀위스 중앙 정렬 칼럼으로 구성됩니다."
+      },
+      "components": {
+        "button": "주요 작업을 위한 단색 오렌지 (악센트) 버튼으로 둥근 모서리 (pill)를 사용하고, 보조 작업에는 밑줄이 있는 텍스트 링크를 사용합니다.",
+        "card": "미묘한 그림자와 둥근 모서리 (md)를 가진 밝은 베이지/회색 (bgSoft) 카드입니다.",
+        "chip": "네비게이션 및 분류에 사용되며, 보통 밝은 배경과 미묘한 테두리를 사용합니다.",
+        "input": "미묘한 테두리와 둥근 모서리 (md)를 가진 화이트 배경 입력 필드로, 보통 수직으로 쌓여 있습니다.",
+        "hero": "깊은 보라색 배경, 대형 디스플레이 헤드라인, 그리고 눈에 띄는 이메일 수집 폼을 가진 풀위스 섹션입니다."
+      },
+      "motion": {
+        "patterns": [
+          "인터랙티브 요소에 미묘한 페이드 및 색상 전환.",
+          "hover 시 매끄러운 배경색 및 불투명도 변화."
+        ]
+      },
+      "interaction": {
+        "hover": "인터랙티브 요소의 텍스트 및 배경색에 미묘한 색상 전환 (0.15s)을 적용합니다.",
+        "click": "즉각적인 시각적 피드백을 제공하며, 보통 미묘한 스케일이나 색상 변화를 줍니다.",
+        "transition": "모든 인터랙티브 상태 변경에 매끄러운 ease-in-out 전환을 적용합니다.",
+        "keyboard": "접근성을 위한 표준 포커스 링을 사용하며, 아마도 악센트 색상과 일치할 것입니다."
+      },
+      "voice": {
+        "tone": "자신감 있고 권위적이며, 이익 중심적입니다.",
+        "headlineStyle": "짧고 굵고 단정적인 어조로, 핵심 가치 제안에 집중합니다.",
+        "ctaStyle": "직접적이고 행동 지향적이며, 밝고 고대비 버튼을 사용합니다.",
+        "avoid": [
+          "맥락 없는 전문 용어",
+          "모호한 약속",
+          "수동태",
+          "지나치게 복잡한 레이아웃",
+          "일관성 없는 타이포그래피",
+          "저대비 텍스트"
+        ]
+      },
+      "donts": [
+        "보라색 배경에 저대비 색상을 주요 텍스트로 사용하지 마세요 — 스크린샷은 고대비 화이트 및 블랙 텍스트를 보여줍니다.",
+        "다양한 폰트 굵기를 사용하지 마세요 — 스크린샷은 400과 500 굵기 사이의 엄격한 계층을 보여줍니다.",
+        "버튼이나 카드에 날카롭고 네모난 모서리를 사용하지 마세요 — 스크린샷은 둥근 모서리 (8px, 12px 또는 pill)를 보여줍니다.",
+        "바쁘고 다채로운 팔레트를 사용하지 마세요 — 스크린샷은 깊은 보라색, 오렌지, 블랙, 화이트, 베이지에 집중된 팔레트를 보여줍니다.",
+        "밀집하고 컴팩트한 레이아웃을 사용하지 마세요 — 스크린샷은 요소 사이의 풍부한 간격 (24px-64px)을 보여줍니다.",
+        "장식용 세리프 폰트를 사용하지 마세요 — 스크린샷은 깨끗한 기하학적 및 휴머니스트산스세리프 계열을 보여줍니다."
+      ],
+      "systemPrompt": "이것은 Rippling, B2B SaaS 플랫폼입니다. Its design DNA is premium, clean, and authoritative, focusing on unifying complex business operations. The primary colors are a deep purple (#7A005D) for hero sections, a vibrant orange (#FFA81D) for accents and calls-to-action, and a clean white/beige for content areas. Typography uses geometric and humanist sans-serif categories with a clear weight hierarchy (500 for headlines, 400 for body). Critical donts: avoid low-contrast text on the purple background, do not use a wide variety of font weights, and avoid sharp corners on UI elements. The layout is spacious and centered, using a 12-column grid with a maximum width of 1280px."
+    }
+  },
+  "desc": {
+    "en": {
+      "palette": "A high-contrast, dual-tone palette anchored by a deep, saturated purple and a vibrant orange, balanced with clean white and warm beige for content readability.",
+      "layout": "A spacious, centered layout using a 12-column grid with generous vertical spacing, featuring a full-width hero and centered content sections.",
+      "interaction": "Smooth, subtle transitions for hover and click states, using a consistent cubic-bezier easing for a polished feel.",
+      "motion": "Minimal and purposeful motion, focusing on micro-interactions like color fades and subtle background shifts.",
+      "notes": "The site effectively balances a bold, premium brand identity with a clean, functional interface, making it an excellent reference for modern B2B SaaS design."
+    },
+    "zh-CN": {
+      "palette": "高对比度双色调色板，以深邃饱和的紫色和活力橙色为主，搭配纯净白色与温暖米色，确保内容可读性。",
+      "layout": "宽敞的居中布局，采用12列网格系统，纵向间距充裕，包含全宽主视觉区与居中内容板块。",
+      "interaction": "平滑微过渡效果应用于悬停与点击状态，统一使用cubic-bezier缓动函数营造精致质感。",
+      "motion": "极简且有目的性的动效，聚焦于色彩渐变、背景微妙变化等微交互。",
+      "notes": "该设计在强烈的品牌调性与简洁功能界面间取得平衡，是现代B2B SaaS设计的优秀范本。"
+    },
+    "zh-TW": {
+      "palette": "一套高對比度的雙色調色板，以深邃飽滿的紫色與鮮豔的橙色為主軸，輔以純淨的白色與溫暖的米色，以確保內容的可讀性。",
+      "layout": "寬敞的置中佈局，採用 12 欄網格系統，並留有充裕的垂直間距。包含一個全寬的首頁主視覺區域，以及置中的內容區塊。",
+      "interaction": "平滑且細膩的互動過渡效果，應用於懸停與點擊狀態，並使用一致的 cubic-bezier 緩動函數以營造精緻質感。",
+      "motion": "極簡且具目的性的動態效果，專注於如色彩漸變與背景微調等微互動。",
+      "notes": "該網站有效地平衡了大膽、高端的品牌形象與簡潔、功能性的介面，是現代 B2B SaaS 設計的絕佳參考範例。"
+    },
+    "ja": {
+      "palette": "深い紫色と鮮やかなオレンジを基調とした、ハイコントラストのデュアルトーンパレット。クリーンなホワイトとウォームなベージュを加え、コンテンツの可読性を確保しています。",
+      "layout": "12カラムグリッドを採用し、十分な縦方向の余白を確保した、ゆとりのあるセンタードレイアウト。フルワイドのヒーローセクションと、中央揃えのコンテンツセクションを特徴としています。",
+      "interaction": "ホバーおよびクリック状態に対し、滑らかで微細なトランジションを実現。一貫したcubic-bezierイージングを用い、洗練されたフィールを演出します。",
+      "motion": "最小限で目的に即した動きを重視し、カラーフェードや微細な背景シフトなどのマイクロインタラクションに焦点を当てています。",
+      "notes": "このサイトは、大胆でプレミアムなブランドアイデンティティと、クリーンで機能的なインターフェースを効果的にバランスさせています。現代的なB2B SaaSデザインの優れた参考事例と言えるでしょう。"
+    },
+    "ko": {
+      "palette": "깊고 채도 높은 보라색과 밝은 오렌지를 기반으로 한 고대비 듀얼톤 팔레트입니다. 깨끗한 화이트와 따뜻한 베이지로 내용 가독성을 균형 있게 맞추고 있습니다.",
+      "layout": "풍부한 수직 간격을 사용하는 12칼럼 그리드 기반의 여유로운 중앙 정렬 레이아웃입니다. 풀위스 히어로 섹션과 중앙 정렬된 콘텐츠 섹션을 특징으로 합니다.",
+      "interaction": "매끄럽고 미묘한 전환 효과를 hover 및 클릭 상태에 적용하며, 일관된 cubic-bezier easing으로 폴리시된 느낌을 줍니다.",
+      "motion": "최소한이고 목적에 맞는 모션으로, 색상 페이드와 미묘한 배경 변화 같은 마이크로 인터랙션에 집중합니다.",
+      "notes": "이 사이트는 대담하고 프리미엄한 브랜드 아이덴티티와 깔끔하고 기능적인 인터페이스를 효과적으로 균형 잡고 있어, 현대적인 B2B SaaS 디자인의 훌륭한 레퍼런스가 됩니다."
+    }
+  },
+  "_meta": {
+    "vision_model": "mimo-v2.5",
+    "vision_prompt_version": "0.3",
+    "vision_source": "playwright-extract:rippling",
+    "vision_grounded": true,
+    "vision_at": "2026-06-04T18:35:27+00:00",
+    "vision_tokens": 16906,
+    "vision_cost_usd": 0.1878,
+    "translation_model": "mimo-v2.5",
+    "translation_at": "2026-06-04T18:37:06+00:00",
+    "translation_tokens": 19277,
+    "translation_cost_usd": 0.0641,
+    "narrative_model": "mimo-v2.5",
+    "narrative_prompt_version": "0.3",
+    "narrative_at": "2026-06-04T18:37:16+00:00",
+    "narrative_tokens": 2327,
+    "narrative_cost_usd": 0.0155,
+    "narrative_status": "ok",
+    "total_cost_usd": 0.2674
+  },
+  "narrative": {
+    "en": {
+      "ch1_intro": "Rippling's design system is built as a single, unified nervous system for a company's operations, reflecting its core proposition of integrating HR, IT, Finance, and Payroll. The visual language is premium, clean, and authoritative, designed to convey clarity over the complexity it replaces.",
+      "ch2_intro": "The color system is a study in high-contrast hierarchy, using a deep, saturated purple to establish a commanding presence in hero sections, while a vibrant orange serves as the accent for primary actions. A clean, white content area ensures readability and functional clarity.",
+      "ch2_outro": "The principle is clear separation: brand presence is concentrated in the hero, while the content area prioritizes legibility and task completion.",
+      "ch3_intro": "Typographic voice is delivered through geometric and humanist sans-serif categories, chosen for their modern clarity and efficiency. The system enforces a strict weight hierarchy, using **500 for headlines** and **400 for body text** to maintain clear visual order without decorative flourish.",
+      "ch4_intro": "Spacing is governed by a consistent 4px vertical rhythm, creating a measured and orderly flow between elements.",
+      "ch5_intro": "Surface treatment relies on depth through carefully crafted shadows rather than heavy borders. Separation between components is achieved through generous whitespace and subtle shifts in background color, with borders used sparingly as a last resort.",
+      "ch6_intro": "The layout skeleton is centered within a 1280px max-width container, beginning with a full-width, two-column hero. Subsequent content sections transition to a full-width, centered single column, establishing a clear, spacious, and scannable document flow.",
+      "ch7_intro": "Motion is minimal and purposeful, acting as functional feedback rather than decoration. Interactions use smooth, consistent transitions for color fades and background shifts, creating a polished but unobtrusive sense of responsiveness.",
+      "ch8_intro": "The editorial voice is confident, authoritative, and benefit-driven, with short, declarative headlines that cut to the core value proposition. Clarity is paramount, actively avoiding jargon without context, vague promises, and passive voice.",
+      "ch8_outro": "The system deliberately avoids dense, compact layouts, a multi-color palette, and decorative serifs in favor of spaciousness, a focused color scheme, and clean sans-serif typography."
+    },
+    "zh-CN": {
+      "ch1_intro": "Rippling 的设计系统被构建为公司运营的单一、统一的神经系统，反映了其整合人力资源、IT、财务和薪资的核心主张。视觉语言高级、简洁且权威，旨在传达清晰性以取代其替代的复杂性。",
+      "ch2_intro": "色彩体系是高对比度层级的研究，使用深邃、饱和的紫色在首屏区域建立主导视觉，而充满活力的橙色则作为主要操作的点缀色。简洁的白色内容区域确保了可读性和功能清晰度。",
+      "ch2_outro": "原则很明确：清晰分离。品牌存在感集中于首屏，而内容区域优先考虑易读性和任务完成。",
+      "ch3_intro": "字体风格通过几何无衬线和人文无衬线类别来体现，因其现代清晰度和高效性而被选用。系统严格执行严格的字重层级，使用 **500 用于标题**，**400 用于正文**，以在无装饰性修饰的情况下维持清晰的视觉秩序。",
+      "ch4_intro": "间距由一致的 4px 垂直节奏管控，在元素间创造出有度、有序的流动。",
+      "ch5_intro": "表面处理依赖于通过精心制作的阴影而非粗重边框来营造纵深感。组件间的分离通过充足的留白和背景颜色的微妙变化来实现，边框仅在必要时作为最后手段谨慎使用。",
+      "ch6_intro": "布局骨架居中于 1280px 最大宽度容器内，以全宽双栏首屏开始。后续内容部分过渡为全宽、居中的单栏，建立了清晰、宽敞且易于浏览的文档流。",
+      "ch7_intro": "动效极简且有目的性，作为功能性反馈而非装饰。交互使用平滑、一致的过渡来实现颜色淡入淡出和背景变化，营造出精致但不突兀的响应感。",
+      "ch8_intro": "编辑风格自信、权威且以效益为导向，采用简短、陈述性的标题直击核心价值主张。清晰至上，主动避免无上下文的术语、模糊的承诺和被动语态。",
+      "ch8_outro": "该系统刻意避免密集、紧凑的布局、多色板和装饰性衬线字体，转而追求空间感、聚焦的配色方案和简洁的无衬线字体排印。"
+    },
+    "zh-TW": {
+      "ch1_intro": "Rippling 的設計系統被構建為一個單一、統一的神經系統，用於公司的運營，反映了其整合人力資源、資訊科技、財務與薪資的核心主張。視覺語言是高端、簡潔且具權威性的，旨在傳達清晰性，以取代其原本的複雜性。",
+      "ch2_outro": "原則很明確：分離。品牌存在感集中於主要區域，而內容區域則優先考慮易讀性與任務完成度。",
+      "ch3_intro": "透過幾何與人文無襯線字體類別來傳達排版語氣，因其現代感、清晰度與效率而被選用。此系統強制執行嚴格的字重層級，使用 **500 用於標題** 和 **400 用於內文**，以在沒有裝飾性花紋的情況下維持清晰的視覺秩序。",
+      "ch4_intro": "間距由一致的 4px 垂直節奏所 govern，在元素之間創造出有度量且有序的流動。",
+      "ch5_intro": "表面處理依賴精心設計的陰影而非厚重邊框所帶來的深度感。組件之間的分隔是透過寬敞的空白與背景顏色的細微變化來實現，邊框僅在必要時作為最後手段使用。",
+      "ch6_intro": "佈局骨架置於 1280px 最大寬度容器內居中，從一個全寬度的雙欄主要區域開始。後續的內容部分過渡到全寬度、居中的單欄，建立起一個清晰、寬敞且易於掃描的文件流程。",
+      "ch7_intro": "動態效果極簡且有目的性，作為功能性反饋而非裝飾。互動使用平滑、一致的轉場來實現顏色淡入淡出與背景切換，創造出精緻但不引人注目的回應感。",
+      "ch8_intro": "編輯語氣自信、權威且以利益為導向，標題簡短而有力，直擊核心價值主張。清晰度至關重要，主動避免缺乏脈絡的術語、模糊的承諾以及被動語態。",
+      "ch8_outro": "此系統刻意避免擁擠緊湊的佈局、多色調色盤以及裝飾性襯線體，轉而選擇寬敞的空間感、聚焦的配色方案以及簡潔的無襯線排版。"
+    },
+    "ja": {
+      "ch1_intro": "Ripplingのデザインシステムは、企業の運用における単一で統合された神経系として構築されており、HR、IT、経理、給与計算の統合という中核的価値を反映しています。ビジュアルランゲージはプレミアムで洗練され、権威を帯びており、複雑な状況に代わる明瞭さを伝えるように設計されています。",
+      "ch2_intro": "カラーシステムは、ハイコントラストな階層構造を追求したものであり、ヒーローセクションでは深みのある鮮やかな紫を用いて存在感を確立的同时に、プライマリアクションのアクセントには鮮やかなオレンジが使用されています。クリーンな白色のコンテンツエリアは、可読性と機能的な明瞭さを確保しています。",
+      "ch2_outro": "原則は明確な分離です。ブランドの存在感はヒーローに集中し、コンテンツエリアは可読性とタスク完了を優先しています。",
+      "ch3_intro": "タイポグラフィカルボイスは、幾何学的およびヒューマニストsans-serifカテゴリーを通じて提供されており、モダンな明瞭さと効率性が選定基準です。システムは厳格なウェイト階層を適用し、**見出しには500**、**本文には400**を使用することで、装飾的な技巧なしに明確なビジュアルオーダーを維持しています。",
+      "ch4_intro": "スペースは一定の4px垂直リズムに従い、要素間の計画的で秩序ある流れを生み出しています。",
+      "ch5_intro": "サーフェストリートメントは、重いボーダーではなく、丁寧に作成されたシャドウによるディプスに依存しています。コンポーネント間の分離は、十分なホワイトスペースとバックグラウンドカラーの微細な変化によって実現され、ボーダーはあくまで最後の手段として控えめに使用されます。",
+      "ch6_intro": "レイアウトスケルトンは1280px最大幅のコンテナ内に中央揃えで配置され、フル幅の2カラムヒーローから開始します。その後のコンテンツセクションは、フル幅の中央揃え単一カラムに移行し、明確で広々とした、スキャンしやすいドキュメントフローを確立しています。",
+      "ch7_intro": "モーションは最小限かつ意図的であり、装飾ではなく機能的なフィードバックとして機能します。インタラクションでは、カラーフェードやバックグラウンドシフトに対して滑らかで一貫したトランジションを使用し、洗練されながらも目立たない応答性の感覚を生み出しています。",
+      "ch8_intro": "エディトリアルボイスは、自信に満ち、権威があり、メリット主導です。短く断定的な見出しが中核的価値提案を直截に伝えます。明瞭さが最優先され、文脈のない専門用語、曖昧な約束、受動態を積極的に避けています。",
+      "ch8_outro": "システムは、広々としたスペース、焦点を絞ったカラースキーム、クリーンなsans-serifタイポグラフィを好むため、密集したコンパクトなレイアウト、マルチカラーパレット、装飾的なセリフを意図的に避けています。"
+    },
+    "ko": {
+      "ch1_intro": "Rippling의 디자인 시스템은 기업의 운영을 하나의 통합된 신경계처럼 구축하여, HR, IT, 재무 및 급여를 통합한다는 핵심 가치를 반영합니다. 프리미엄하고 깔끔하며 권위 있는 시각 언어는 대체하는 복잡성보다 명확함을 전달하도록 설계되었습니다.",
+      "ch2_intro": "컬러 시스템은 고대비 위계 연구로, 깊고 포화된 보라색을 사용하여 히어로 섹션에 강력한 존재감을 부여하고, 밝은 오라지는 주요 액센트로 사용됩니다. 깔끔한 흰색 콘텐츠 영역은 가독성과 기능적 명확성을 보장합니다.",
+      "ch2_outro": "원칙은 명확한 분리입니다: 브랜드 존재감은 히어로에 집중되고, 콘텐츠 영역은 가독성과 작업 완료를 우선시합니다.",
+      "ch3_intro": "타이포그래피 보이스는 기하학적 및 휴머니스트 sans-serif 카테고리를 통해 전달되며, 현대적인 명확성과 효율성을 위해 선택되었습니다. 이 시스템은 **헤드라인에 500**과 **본문에 400**을 사용하여 장식적 수식 없이 명확한 시각적 순서를 유지하도록 엄격한 무게 위계를 적용합니다.",
+      "ch4_intro": "간격은 일관된 4px 수직 리듬으로 관리되어 요소 사이에 절제되고 질서 있는 흐름을 만듭니다.",
+      "ch5_intro": "표면 처리는 무거운 테두리 대신 정교하게 제작된 그림자를 통한 깊이에 의존합니다. 컴포넌트 간의 분리는 넉넉한 여백과 배경색의 미세한 변화로 달성되며, 테두리는 마지막 수단으로 절제되게 사용됩니다.",
+      "ch6_intro": "레이아웃 골격은 1280px 최대 폭 컨테이너 내에서 중앙 정렬되며, 전체 폭의 2열 히어로로 시작합니다. 이후 콘텐츠 섹션은 전체 폭의 중앙 정렬 단일 열로 전환되어 명확하고 넓은, 스캔 가능한 문서 흐름을 확립합니다.",
+      "ch7_intro": "모션은 기능적 피드백으로서 장식이 아닌 의도적이고 최소화되어 사용됩니다. 인터랙션은 컬러 페이드와 배경 변화를 위해 부드럽고 일관된 트랜지션을 사용하여 세련되지만 방해가 되지 않는 반응성을 만듭니다.",
+      "ch8_intro": "에디토리얼 보이스는 자신감 있고 권위적이며 이점 중심적이며, 핵심 가치 제안을 명확히 전달하는 짧고 단정적인 헤드라인을 사용합니다. 명확성이 최우선이며, 맥락 없는 전문 용어, 모호한 약속, 수동태를 적극적으로 피합니다.",
+      "ch8_outro": "이 시스템은 빈틈없고 컴팩트한 레이아웃, 다색 팔레트, 장식적 세리프를 의도적으로 피하고, 공간감, 집중된 색상 구성, 깔끔한 sans-serif 타이포그래피를 선호합니다."
+    }
+  }
 }

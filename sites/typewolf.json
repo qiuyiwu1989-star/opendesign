@@ -8,6 +8,631 @@
     "editorial",
     "type"
   ],
-  "status": "pending",
-  "added_at": "2026-06-02"
+  "status": "completed",
+  "added_at": "2026-06-02",
+  "spec": {
+    "colors": {
+      "bg": "#e6ddde",
+      "bgSoft": "#f8f5f5",
+      "bgQuiet": null,
+      "ink": "#2e2c2c",
+      "inkSoft": "#443235",
+      "muted": "#654a4e",
+      "mutedSoft": "#916a70",
+      "accent": null,
+      "line": "rgba(101, 74, 78, 0.3)"
+    },
+    "typography": {
+      "display": "transitional-serif",
+      "body": "humanist-sans",
+      "mono": null,
+      "scale": [
+        {
+          "token": "display",
+          "size": 72,
+          "lh": 1.0,
+          "weight": 700,
+          "ls": "-2px"
+        },
+        {
+          "token": "heading-1",
+          "size": 32,
+          "lh": 1.2,
+          "weight": 400,
+          "ls": "-0.5px"
+        },
+        {
+          "token": "heading-2",
+          "size": 28,
+          "lh": 1.2,
+          "weight": 400,
+          "ls": "-0.5px"
+        },
+        {
+          "token": "body",
+          "size": 16,
+          "lh": 1.5,
+          "weight": 400,
+          "ls": "0px"
+        },
+        {
+          "token": "label",
+          "size": 13,
+          "lh": 1.3,
+          "weight": 900,
+          "ls": "-0.4px"
+        }
+      ]
+    },
+    "spacing": {
+      "base": 4,
+      "scale": [
+        4,
+        8,
+        16,
+        24,
+        32,
+        48,
+        64,
+        96
+      ]
+    },
+    "surfaces": {
+      "radius": {
+        "sm": 4,
+        "md": 0,
+        "lg": 0,
+        "pill": 999
+      }
+    },
+    "layout": {
+      "container": 1280,
+      "paragraph": 680,
+      "columns": 12,
+      "gutter": 24,
+      "breakpoints": [
+        768,
+        1024
+      ]
+    },
+    "motion": {
+      "durations": {
+        "micro": 220,
+        "small": 400,
+        "medium": 800
+      },
+      "easing": "cubic-bezier(0.25, 0.1, 0.25, 1.0)"
+    }
+  },
+  "spec_i18n": {
+    "en": {
+      "identity": {
+        "keywords": [
+          "Typography",
+          "Curation",
+          "Reference",
+          "Editorial",
+          "Typography"
+        ],
+        "analogy": "A refined, well-curated library for typography enthusiasts.",
+        "oneLiner": "A refined editorial platform for discovering and curating modern typography."
+      },
+      "colors": {
+        "principle": "Warm, muted earthy palette anchored by deep brownish-ink, using white cards and subtle shadows for layered depth."
+      },
+      "typography": {
+        "rules": [
+          "Use transitional-serif for all major display and heading text to maintain the refined editorial aesthetic.",
+          "Use humanist-sans for navigation labels, small meta text, and uppercase UI elements.",
+          "Maintain tight negative letter-spacing for large display text and navigation labels."
+        ],
+        "scaleUses": [
+          "Main logo 'Typewolf' heading",
+          "Section headings like 'Alternative Lists'",
+          "Card titles like 'By the Numbers'",
+          "General body text and descriptions",
+          "Navigation links and category labels in uppercase"
+        ]
+      },
+      "spacing": {
+        "rhythm": "Consistent spacing based on a 4px grid, providing ample breathing room between sections and within components."
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(145, 106, 112, 0.15) 0px 6px 24px 0px"
+        ],
+        "borders": "1px solid rgba(101, 74, 78, 0.3)"
+      },
+      "layout": {
+        "skeleton": "A centered, single-column layout with a prominent header, followed by a responsive 2-column grid of content cards."
+      },
+      "components": {
+        "button": "Typically uppercase humanist-sans text links with bold weight and tight letter-spacing, often separated by horizontal rules.",
+        "card": "Clean white rectangular cards containing an image at the top and typography/meta information below, elevated by subtle warm shadows.",
+        "chip": "Simple, uppercase sans-serif text labels separated by a long dash.",
+        "input": "Not prominently featured, but implied text inputs would follow the minimalist aesthetic.",
+        "hero": "A large, centered typographic logo in a transitional-serif font on a warm, muted background, paired with a concise tagline."
+      },
+      "motion": {
+        "patterns": [
+          "Smooth background and color transitions on hover states.",
+          "Subtle elevation changes via box-shadow transitions."
+        ]
+      },
+      "interaction": {
+        "hover": "Subtle changes in background color or text color to indicate interactivity.",
+        "click": "Immediate visual feedback with smooth transitions.",
+        "transition": "Standardized 0.3s ease-out transitions for background, color, and box-shadow properties.",
+        "keyboard": "Standard browser default focus outlines, as no custom focus states are visually prominent."
+      },
+      "voice": {
+        "tone": "Knowledgeable, refined, and authoritative, speaking directly to a design-literate audience.",
+        "headlineStyle": "Elegant, often using transitional-serif fonts with tight letter-spacing.",
+        "ctaStyle": "Understated, using bold, uppercase sans-serif text links rather than prominent buttons.",
+        "avoid": [
+          "Flashy animations",
+          "Vibrant neon colors",
+          "Overly dense layouts",
+          "Technical jargon",
+          "Playful or cartoonish elements"
+        ]
+      },
+      "donts": [
+        "Don't use vibrant, high-saturation colors — the palette relies on warm, muted, desaturated earth tones.",
+        "Don't use geometric sans-serif for all text — the primary display font is a transitional serif.",
+        "Don't use heavy drop shadows or 3D effects — elevation is achieved through very subtle, warm box-shadows.",
+        "Don't use a strictly strict, rigid grid — the layout feels editorial and slightly organic despite the underlying structure.",
+        "Don't use uppercase for body copy — uppercase is reserved strictly for small navigation labels and meta tags.",
+        "Don't center all text alignment — while the hero is centered, much of the subsequent content uses left or mixed alignment."
+      ],
+      "systemPrompt": "This is a refined editorial platform focused on typography curation and discovery. The design DNA is anchored by a warm, muted, desaturated earthy palette, using a soft grayish-pink background and deep brownish-ink for text. The primary typography relies heavily on a transitional serif for elegant display headings, contrasted with a bold humanist sans for uppercase navigation and metadata. White card components with subtle warm shadows create layered depth without harsh borders. Key critical donts: do not use vibrant neon colors, do not use geometric sans-serifs for primary display text, do not use heavy 3D effects, do not use uppercase for body copy, do not create overly dense layouts. The overall aesthetic is sophisticated, quiet, and highly focused on readability and typographic excellence."
+    },
+    "zh-CN": {
+      "identity": {
+        "keywords": [
+          "排版",
+          "策展",
+          "参考",
+          "编辑",
+          "排版"
+        ],
+        "analogy": "一个为排版爱好者精心策划的精致图书馆。",
+        "oneLiner": "一个用于发现和策展现代排版的精致编辑平台。"
+      },
+      "colors": {
+        "principle": "温暖、柔和的大地色系，以深棕墨色为基底，使用白色卡片和微妙阴影创造层次感。"
+      },
+      "typography": {
+        "rules": [
+          "所有主要的展示和标题文字使用过渡衬线字体，以保持精致的编辑美学。",
+          "导航标签、小号元数据和全大写UI元素使用人文无衬线字体。",
+          "大型展示文字和导航标签保持紧凑的负字间距。"
+        ],
+        "scaleUses": [
+          "主Logo 'Typewolf' 标题",
+          "如“替代列表”等的章节标题",
+          "如“数据解读”等的卡片标题",
+          "正文和描述文字",
+          "导航链接和全大写分类标签"
+        ]
+      },
+      "spacing": {
+        "rhythm": "基于4px网格的统一间距，为章节之间和组件内部提供充足的呼吸空间。"
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(145, 106, 112, 0.15) 0px 6px 24px 0px"
+        ],
+        "borders": "1px solid rgba(101, 74, 78, 0.3)"
+      },
+      "layout": {
+        "skeleton": "居中的单列布局，拥有醒目的页头，随后是响应式的2列内容卡片网格。"
+      },
+      "components": {
+        "button": "通常是加粗、紧凑字间距的全大写人文无衬线文字链接，常以水平分割线分隔。",
+        "card": "简洁的白色矩形卡片，顶部包含图片，下方为排版/元数据信息，通过微妙的暖色阴影提升层次。",
+        "chip": "简单、全大写的无衬线文字标签，以长破折号分隔。",
+        "input": "未突出展示，但隐含的文本输入会遵循极简美学。",
+        "hero": "一个大型、居中的过渡衬线字体排版Logo，置于温暖、柔和的背景上，搭配简洁的标语。"
+      },
+      "motion": {
+        "patterns": [
+          "悬停状态下平滑的背景和颜色过渡。",
+          "通过box-shadow过渡实现的微妙高度变化。"
+        ]
+      },
+      "interaction": {
+        "hover": "通过背景色或文字色的细微变化指示可交互性。",
+        "click": "立即的视觉反馈，伴随平滑过渡。",
+        "transition": "背景、颜色和box-shadow属性使用标准化的0.3秒ease-out过渡。",
+        "keyboard": "使用浏览器默认的焦点轮廓，因为没有视觉上突出的自定义焦点状态。"
+      },
+      "voice": {
+        "tone": "专业、精致且权威，直接面向有设计素养的受众。",
+        "headlineStyle": "优雅，常使用过渡衬线字体，字间距紧凑。",
+        "ctaStyle": "低调，使用加粗、全大写的无衬线文字链接，而非醒目的按钮。",
+        "avoid": [
+          "花哨的动画",
+          "鲜艳的霓虹色",
+          "过于密集的布局",
+          "技术术语",
+          "俏皮或卡通化的元素"
+        ]
+      },
+      "donts": [
+        "不要使用鲜艳、高饱和度的颜色——配色方案依赖于温暖、柔和、低饱和度的大地色。",
+        "不要对所有文字使用几何无衬线字体——主要的展示字体是过渡衬线字体。",
+        "不要使用厚重的阴影或3D效果——层次感通过非常微妙、温暖的box-shadow实现。",
+        "不要使用严格、死板的网格——尽管底层结构存在，但布局感觉具有编辑感和略微有机性。",
+        "不要对正文使用全大写——全大写仅限于小导航标签和元数据标签。",
+        "不要将所有文本居中对齐——虽然hero部分居中，但后续的大部分内容使用左对齐或混合对齐。"
+      ],
+      "systemPrompt": "这是一个专注于排版策展和发现的精致编辑平台。设计DNA以温暖、柔和、低饱和度的大地色系为基底，使用柔和的灰粉色背景和深棕墨色文字。主要排版严重依赖过渡衬线字体以实现优雅的展示标题，并与用于全大写导航和元数据的加粗人文无衬线字体形成对比。带有微妙暖色阴影的白色卡片组件创造了层次深度，没有刺眼的边框。关键禁忌：不要使用鲜艳的霓虹色，不要对主要展示文字使用几何无衬线字体，不要使用厚重的3D效果，不要对正文使用全大写，不要创建过于密集的布局。整体美学是精致、宁静的，并高度专注于可读性和排版卓越性。"
+    },
+    "zh-TW": {
+      "identity": {
+        "keywords": [
+          "排版",
+          "策展",
+          "參考",
+          "編輯",
+          "排版"
+        ],
+        "analogy": "一個為排版愛好者打造的精緻、精心策劃的圖書館。",
+        "oneLiner": "一個精緻的編輯平台，用於探索和策劃現代排版。"
+      },
+      "colors": {
+        "principle": "溫暖、柔和的大地色調調色盤，以深棕色墨水色為基調，並使用白色卡片與細微陰影創造層次感。"
+      },
+      "typography": {
+        "rules": [
+          "所有主要的展示與標題文字均使用過渡襯線體，以維持精緻的編輯美學。",
+          "導覽標籤、小型元數據文字及大寫的 UI 元素，則使用人文主義無襯線體。",
+          "大型展示文字與導覽標籤應保持緊湊的負字距。"
+        ],
+        "scaleUses": [
+          "主標誌 'Typewolf' 標題",
+          "如「替代清單」等章節標題",
+          "如「數據一覽」等卡片標題",
+          "一般內文與描述",
+          "導覽連結與分類標籤（大寫）"
+        ]
+      },
+      "spacing": {
+        "rhythm": "基於 4px 網格的一致間距，為區塊之間與元件內部提供充足的呼吸空間。"
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(145, 106, 112, 0.15) 0px 6px 24px 0px"
+        ],
+        "borders": "1px solid rgba(101, 74, 78, 0.3)"
+      },
+      "layout": {
+        "skeleton": "一個置中的單欄版面，帶有顯著的標頭，接著是響應式的雙欄內容卡片網格。"
+      },
+      "components": {
+        "button": "通常是大寫的人文主義無襯線文字連結，具有粗體字重與緊湊的字距，常以水平線分隔。",
+        "card": "潔淨的白色矩形卡片，頂部包含圖片，下方則是排版與元數據資訊，透過細微的暖色陰影營造立體感。",
+        "chip": "簡單的大寫無襯線文字標籤，以長破折號分隔。",
+        "input": "未特別強調，但隱含的文字輸入框應遵循極簡主義美學。",
+        "hero": "在溫暖、柔和的背景上，置中的大型過渡襯線字體排版標誌，並搭配簡潔的標語。"
+      },
+      "motion": {
+        "patterns": [
+          "hover 狀態時的平滑背景與色彩過渡。",
+          "透過 box-shadow 遷移實現的細微高度變化。"
+        ]
+      },
+      "interaction": {
+        "hover": "透過背景色或文字顏色的細微變化來指示可互動性。",
+        "click": "即時的視覺反饋，並帶有平滑的過渡效果。",
+        "transition": "針對背景、色彩與 box-shadow 屬性，採用標準化的 0.3s ease-out 過渡效果。",
+        "keyboard": "採用標準瀏覽器預設的聚焦外框，因無視覺上突出的自訂聚焦狀態。"
+      },
+      "voice": {
+        "tone": "專業、精緻且具權威感，直接對具設計素養的受眾發言。",
+        "headlineStyle": "優雅，常使用過渡襯線字體並搭配緊湊的字距。",
+        "ctaStyle": "低調，使用粗體、大寫的無襯線文字連結，而非顯著的按鈕。",
+        "avoid": [
+          "炫目的動畫",
+          "鮮豔的霓虹色彩",
+          "過於密集的版面",
+          "技術術語",
+          "俏皮或卡通化的元素"
+        ]
+      },
+      "donts": [
+        "不要使用鮮豔、高飽和度的顏色——調色盤依賴溫暖、柔和、低飽和度的大地色調。",
+        "不要在所有文字上使用幾何無襯線體——主要的展示字體是過渡襯線體。",
+        "不要使用厚重的投影或 3D 效果——高度感是透過非常細微、溫暖的 box-shadow 來實現。",
+        "不要使用嚴格、僵硬的網格——儘管底層結構存在，版面感覺仍是編輯式且略帶有機感的。",
+        "不要在內文中使用大寫字母——大寫嚴格保留給小型導覽標籤與元數據標籤。",
+        "不要將所有文字置中對齊——雖然主視覺是置中的，但後續內容多數採用左對齊或混合對齊。"
+      ],
+      "systemPrompt": "這是一個專注於排版策展與探索的精緻編輯平台。其設計 DNA 以溫暖、柔和、低飽和度的大地色調調色盤為基調，使用柔軟的灰粉色背景與深棕色墨水色作為文字。主要排版大量依賴過渡襯線體來呈現優雅的展示標題，並與用於大寫導覽與元數據的粗體人文主義無襯線體形成對比。白色卡片元件搭配細微的暖色陰影，創造了無需刺眼邊框的層次深度。關鍵的禁忌：不要使用鮮豔的霓虹色彩，不要在主要展示文字上使用幾何無襯線體，不要使用厚重的 3D 效果，不要在內文中使用大寫字母，不要創造過於密集的版面。整體美學是精緻、寧靜，並高度專注於可讀性與排版卓越性。"
+    },
+    "ja": {
+      "identity": {
+        "keywords": [
+          "タイポグラフィ",
+          "キュレーション",
+          "リファレンス",
+          "エディトリアル",
+          "タイポグラフィ"
+        ],
+        "analogy": "タイポグラフィ愛好家のための、洗練されたキュレーション済みのライブラリ。",
+        "oneLiner": "モダンなタイポグラフィを発見しキュレーションするための、洗練されたエディトリアルプラットフォーム。"
+      },
+      "colors": {
+        "principle": "深いブラウン系インクを基調とした、温かみのあるマットなアースカラーパレット。白いカードと繊細なシャドウを用いて、レイヤードな奥行きを演出します。"
+      },
+      "typography": {
+        "rules": [
+          "洗練されたエディトリアルの美学を維持するため、すべての主要な表示および見出しテキストにトランジショナル・セリフを使用します。",
+          "ナビゲーションラベル、小さなメタテキスト、および大文字のUI要素にはヒューマニスト・サンスを使用します。",
+          "大きな表示テキストとナビゲーションラベルには、タイトな文字間隔（ネガティブレタースペーシング）を維持します。"
+        ],
+        "scaleUses": [
+          "メインロゴ「Typewolf」见出し",
+          "「Alternative Lists」のようなセクション见出し",
+          "「By the Numbers」のようなカードタイトル",
+          "一般的な本文テキストと説明",
+          "ナビゲーションリンクとカテゴリラベル（大文字）"
+        ]
+      },
+      "spacing": {
+        "rhythm": "4pxグリッドに基づく一貫したスペーシング。セクション間およびコンポーネント内に十分な余白を確保します。"
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(145, 106, 112, 0.15) 0px 6px 24px 0px"
+        ],
+        "border": "1px solid rgba(101, 74, 78, 0.3)"
+      },
+      "layout": {
+        "skeleton": "目立つヘッダーを持つ中央揃えの単一カラムレイアウト。その後に、レスポンシブな2カラムグリッドのコンテンツカードが続きます。"
+      },
+      "components": {
+        "button": "通常、太字のウェイトとタイトなレタースペーシングを持つ大文字のヒューマニスト・サンスのテキストリンク。水平線で区切られることが多いです。",
+        "card": "上部に画像、下部にタイポグラフィ/メタ情報を含むクリーンな白い長方形カード。繊細なウォームシャドウによって浮き上がらせます。",
+        "chip": "ダッシュ（—）で区切られたシンプルな大文字サンスセリフのテキストラベル。",
+        "input": "目立つには使用されませんが、暗示されるテキスト入力もミニマルな美学に従います。",
+        "hero": "温かみのあるマットな背景に、トランジショナル・セリフフォントの大きな中央揃えのタイポグラフィロゴ。簡潔なタグラインを添えます。"
+      },
+      "motion": {
+        "patterns": [
+          "hover状態でのスムーズな背景とカラーのトランジション。",
+          "box-shadowトランジションによる繊細な高さの変化。"
+        ]
+      },
+      "interaction": {
+        "hover": "インタラクティブ性を示すために、背景色や文字色に繊細な変化を与えます。",
+        "click": "スムーズなトランジションによる即時的な視覚フィードバック。",
+        "transition": "background、color、box-shadowプロパティに対する標準化された0.3s ease-outトランジション。",
+        "keyboard": "カスタムフォーカス状態が視覚的に目立たないため、標準のブラウザデフォルトのフォーカスアウトラインを使用。"
+      },
+      "voice": {
+        "tone": "知識豊富で洗練された、権威のあるトーン。デザインリテラシーのある読者に直接語りかけます。",
+        "headlineStyle": "エレガント。タイトなレタースペーシングを持つトランジショナル・セリフフォントを多用します。",
+        "ctaStyle": "控えめ。目立つボタンではなく、太字の大文字サンスセリフのテキストリンクを使用します。",
+        "avoid": [
+          "派手なアニメーション",
+          "鮮やかなネオンカラー",
+          "過度に密集したレイアウト",
+          "技術的な専門用語",
+          "遊び心のあるまたはカートゥーン的な要素"
+        ]
+      },
+      "donts": [
+        "鮮やかで彩度の高いカラーを使用しないこと — パレットは温かみのあるマットでデサチュレーションされたアーストーンに依存します。",
+        "すべてのテキストにジオメトリック・サンスを使用しないこと — 主要な表示フォントはトランジショナル・セリフです。",
+        "重いドロップシャドウや3D効果を使用しないこと — 高さは非常に繊細で温かみのあるbox-shadowで実現します。",
+        "厳格すぎる堅いグリッドを使用しないこと — レイアウトはエディトリアルで、基盤構造にもかかわらず有機的な印象を与えます。",
+        "本文テキストに大文字を使用しないこと — 大文字は小さいナビゲーションラベルとメタタグに限定して使用します。",
+        "すべてのテキスト配置を中央揃えにしないこと — ヒーローセクションは中央揃えですが、その後のコンテンツの多くは左揃えまたは混合配置を使用します。"
+      ],
+      "systemPrompt": "これは、タイポグラフィキュレーションと発見に焦点を当てた洗練されたエディトリアルプラットフォームです。デザインのDNAは、温かみのあるマットでデサチュレーションされたアースカラーパレットを基調とし、ソフトなグレーがかったピンクの背景と深いブラウン系インクのテキストを使用します。主要なタイポグラフィは、エレガントな表示見出しにトランジショナル・セリフを大きく依存し、太字のヒューマニスト・サンスによる大文字のナビゲーションおよびメタデータと対比させます。白いカードコンポーネントと繊細なウォームシャドウが、鋭い境界線なしにレイヤードな奥気を生み出します。重要な禁止事項: 鮮やかなネオンカラーを使用しない、主要な表示テキストにジオメトリック・サンスを使用しない、重い3D効果を使用しない、本文テキストに大文字を使用しない、過度に密集したレイアウトを作成しない。全体的な美学は洗練され、静寂であり、可読性とタイポグラフィの卓越性に非常に焦点を当てています。"
+    },
+    "ko": {
+      "identity": {
+        "keywords": [
+          "타이포그래피",
+          " 큐레이션",
+          " 레퍼런스",
+          " 에디토리얼",
+          " 타이포그래피"
+        ],
+        "analogy": "타이포그래피 애호가를 위한 정교하게 큐레이션된 도서관.",
+        "oneLiner": "현대 타이포그래피를 발견하고 큐레이션하는 정교한 에디토리얼 플랫폼."
+      },
+      "colors": {
+        "principle": "깊은 갈색 잉크를 기조로 한 따뜻하고 은은한 어스 팔레트. 흰색 카드와 은은한 쉐도우를 사용하여 레이어감을 형성합니다."
+      },
+      "typography": {
+        "rules": [
+          "모든 주요 전시 및 제목 텍스트에 트랜지션 세리프를 사용하여 정제된 에디토리얼 미학을 유지합니다.",
+          "내비게이션 레이블, 작은 메타 텍스트, 대문자 UI 요소에 휴머니스트 산스를 사용합니다.",
+          "대형 전시 텍스트와 내비게이션 레이블에는 타이트한 네거티브 자간을 유지합니다."
+        ],
+        "scaleUses": [
+          "메인 로고 'Typewolf' 제목",
+          "'Alternative Lists'와 같은 섹션 제목",
+          "'By the Numbers'와 같은 카드 제목",
+          "일반 본문 텍스트 및 설명",
+          "대문자 내비게이션 링크 및 카테고리 레이블"
+        ]
+      },
+      "spacing": {
+        "rhythm": "4px 그리드를 기반으로 한 일관된 간격. 섹션 간 및 컴포넌트 내에 충분한 여유 공간을 제공합니다."
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(145, 106, 112, 0.15) 0px 6px 24px 0px"
+        ],
+        "borders": "1px solid rgba(101, 74, 78, 0.3)"
+      },
+      "layout": {
+        "skeleton": "두드러진 헤더가 있는 중앙 정렬 단일 컬럼 레이아웃. 그 뒤에 반응형 2컬럼 그리드의 콘텐츠 카드가 배치됩니다."
+      },
+      "components": {
+        "button": "일반적으로 대문자 휴머니스트 산스 텍스트 링크로, 볼드 웨이트와 타이트한 자간을 가지며, 수평선으로 분리되는 경우가 많습니다.",
+        "card": "상단에 이미지, 하단에 타이포그래피/메타 정보가 있는 깔끔한 흰색 직사각형 카드. 은은한 따뜻한 쉐도우로 입체감을 줍니다.",
+        "chip": "긴 대시로 분리된 단순한 대문자 산세리프 텍스트 레이블.",
+        "input": "두드러지게 사용되지 않지만, 암시되는 텍스트 입력 필드는 미니멀 미학을 따릅니다.",
+        "hero": "따뜻하고 은은한 배경에 트랜지션 세리프 폰트로 중앙 정렬된 대형 타이포그래피 로고. 간결한 태그라인과 함께 제공됩니다."
+      },
+      "motion": {
+        "patterns": [
+          "호버 상태에서 부드러운 배경 및 색상 전환.",
+          "박스 쉐도우 전환을 통한 은은한 높이 변화."
+        ]
+      },
+      "interaction": {
+        "hover": "상호작용을 나타내기 위한 배경색 또는 텍스트색의 은은한 변화.",
+        "click": "부드러운 전환과 즉각적인 시각적 피드백.",
+        "transition": "배경, 색상, 박스 쉐도우 속성에 대한 표준화된 0.3s ease-out 전환.",
+        "keyboard": "시각적으로 두드러지는 커스텀 포커스 상태가 없으므로 표준 브라우저 기본 포커스 윤곽선을 사용합니다."
+      },
+      "voice": {
+        "tone": "지식이 풍부하고 정제된 권위 있는 어조. 디자인 리터러시가 있는 독자에게 직접 말을 겁니다.",
+        "headlineStyle": "우아하며, 종종 타이트한 자간의 트랜지션 세리프 폰트를 사용합니다.",
+        "ctaStyle": "절제되어 있으며, 두드러진 버튼 대신 볼드한 대문자 산세리프 텍스트 링크를 사용합니다.",
+        "avoid": [
+          "화려한 애니메이션",
+          "선명한 네온 컬러",
+          "지나치게 밀집된 레이아웃",
+          "기술 전문 용어",
+          "장난스럽거나 만화적인 요소"
+        ]
+      },
+      "donts": [
+        "선명하고 채도가 높은 색상을 사용하지 마세요 — 팔레트는 따뜻하고 은은하며 채도가 낮은 어스톤에 의존합니다.",
+        "모든 텍스트에 기하학적 산스세리프를 사용하지 마세요 — 주요 전시 폰트는 트랜지션 세리프입니다.",
+        "무거운 드롭 쉐도우나 3D 효과를 사용하지 마세요 — 입체감은 매우 은은하고 따뜻한 박스 쉐도우로 구현됩니다.",
+        "엄격하고 경직된 그리드를 사용하지 마세요 — 레이아웃은 기본 구조에도 불구하고 에디토리얼하고 약간 오가닉하게 느껴집니다.",
+        "본문에 대문자를 사용하지 마세요 — 대문자는 소형 내비게이션 레이블과 메타 태그에 엄격히 제한됩니다.",
+        "모든 텍스트 정렬을 중앙으로 하지 마세요 — 히어로는 중앙 정렬이지만, 후속 콘텐츠의 상당 부분은 왼쪽 또는 혼합 정렬을 사용합니다."
+      ],
+      "systemPrompt": "これはタイポグラフィのキュレーションとディスカバリーに焦点を当てた、洗練されたエディトリアルプラットフォームです。デザインDNAは、温かみのある、マットでデサチュレーションされたアースカラーのパレットに根ざしており、柔らかいグレーピンクの背景と深いブラウンインクのテキストが使用されています。プライマリタイポグラフィは、エレガントな見出しの主要フォントとしてトランジションセリフに大きく依存し、大文字のナビゲーションやメタデータには太字のヒューマニストサンスが対照的に使用されています。白いカードコンポーネントは、強調された影を避け、微細な暖色の影によって階層的な深みを生み出しています。重要な禁止事項: 鮮やかなネオンカラーの使用、プライマリ表示テキストに几何学的サンセリフの使用、重い3D効果の使用、本文に大文字の使用、過度に密集したレイアウトの作成は避けてください。全体的な美学は洗練されており、静かで、可読性とタイポグラフィの卓越性に高い重点を置いています。"
+    }
+  },
+  "desc": {
+    "en": {
+      "palette": "A warm, muted, desaturated palette anchored by soft grayish-pink backgrounds and deep brownish-ink text, creating a refined and quiet atmosphere.",
+      "layout": "A clean, editorial layout centered around a 12-column grid, featuring prominent typographic headers and a responsive card-based content structure.",
+      "interaction": "Minimal and refined, relying on subtle background and color transitions with a consistent 0.3s ease-out timing.",
+      "motion": "Restrained, focusing primarily on smooth background, color, and box-shadow transitions to maintain the site's calm aesthetic.",
+      "notes": "An excellent reference for how to build a sophisticated, typography-first editorial site using a highly restrained color palette and elegant serif fonts."
+    },
+    "zh-CN": {
+      "palette": "温暖、柔和、低饱和度的配色方案，以柔和的灰粉色背景和深棕墨色文字为基础，营造出精致而宁静的氛围。",
+      "layout": "简洁、编辑式的布局，围绕12列网格展开，突出排版标题和响应式卡片式内容结构。",
+      "interaction": "极简而精致，依赖于细微的背景和色彩过渡，统一使用0.3秒的ease-out时间函数。",
+      "motion": "克制为主，主要聚焦于平滑的背景、颜色和box-shadow过渡，以保持网站的宁静美学。",
+      "notes": "如何构建一个精致、以排版为核心的编辑型网站的绝佳参考，采用高度克制的配色方案和优雅的衬线字体。"
+    },
+    "zh-TW": {
+      "palette": "一個溫暖、柔和、低飽和度的調色盤，以柔軟的灰粉色背景和深棕色墨水文字為基調，營造出精緻而寧靜的氛圍。",
+      "layout": "一個簡潔的編輯式版面，以 12 欄網格為核心，突出排版標題，並採用響應式的卡片內容結構。",
+      "interaction": "極簡且精緻，依賴細微的背景與色彩過渡，並保持一致的 0.3s ease-out 時間設定。",
+      "motion": "內斂，主要著重於平滑的背景、色彩與 box-shadow 遷移，以維持網站的冷靜美學。",
+      "notes": "這是建構一個精緻、排版優先的編輯網站的絕佳參考，運用了高度克制的調色盤和優雅的襯線字體。"
+    },
+    "ja": {
+      "palette": "ソフトなグレーがかったピンクの背景と深いブラウン系インクのテキストを基調とした、温かみのあるマットでデサチュレーションされたカラーパレット。洗練された静寂な雰囲気を醸し出します。",
+      "layout": "12カラムグリッドを中心としたクリーンなエディトリアルレイアウト。目を引くタイポグラフィヘッダーと、レスポンシブなカード型コンテンツ構造を特徴としています。",
+      "interaction": "控えめで洗練されたデザイン。繊細な背景とカラーのトランジションを活用し、一貫した0.3s ease-outのタイミングで統一されています。",
+      "motion": "抑制された動き。主にスムーズな背景、カラー、box-shadowのトランジションに焦点を当て、サイトの落ち着いた美学を維持します。",
+      "notes": "高度に抑制されたカラーパレットとエレガントなセリフフォントを使用した、洗練されたタイポグラフィ重視のエディトリアルサイトの構築方法の優れた参考例です。"
+    },
+    "ko": {
+      "palette": "따뜻하고 은은하며 채도가 낮은 팔레트로, 부드러운 회색빛 분홍 배경과 깊은 갈색 잉크 텍스트가 기조를 이루어 세련되고 고요한 분위기를 자아냅니다.",
+      "layout": "12컬럼 그리드를 중심으로 한 깔끔한 에디토리얼 레이아웃으로, 두드러진 타이포그래피 헤더와 반응형 카드 기반 콘텐츠 구조가 특징입니다.",
+      "interaction": "미니멀하고 정제되어 있으며, 일관된 0.3s ease-out 타이밍으로 섬세한 배경 및 색상 전환에 의존합니다.",
+      "motion": "절제되어 있으며, 주로 부드러운 배경, 색상, 박스 쉐도우 전환에 초점을 맞춰 사이트의 차분한 미학을 유지합니다.",
+      "notes": "매우 절제된 색상 팔레트와 우아한 세리프 폰트를 사용하여 정교한 타이포그래피 중심의 에디토리얼 사이트를 구축하는 방법에 대한 훌륭한 참고 자료입니다."
+    }
+  },
+  "_meta": {
+    "vision_model": "mimo-v2.5",
+    "vision_prompt_version": "0.3",
+    "vision_source": "playwright-extract:typewolf",
+    "vision_grounded": true,
+    "vision_at": "2026-06-04T19:34:13+00:00",
+    "vision_tokens": 16438,
+    "vision_cost_usd": 0.1826,
+    "translation_model": "mimo-v2.5",
+    "translation_at": "2026-06-04T19:35:41+00:00",
+    "translation_tokens": 18482,
+    "translation_cost_usd": 0.0616,
+    "narrative_model": "mimo-v2.5",
+    "narrative_prompt_version": "0.3",
+    "narrative_at": "2026-06-04T19:35:49+00:00",
+    "narrative_tokens": 2198,
+    "narrative_cost_usd": 0.0147,
+    "narrative_status": "ok",
+    "total_cost_usd": 0.2589
+  },
+  "narrative": {
+    "en": {
+      "ch1_intro": "The design system for Typewolf functions like a refined, well-curated library for typography enthusiasts. It is built on a foundation of restrained elegance, where every element serves to support the discovery and appreciation of type.",
+      "ch2_intro": "The color system is a warm, muted, desaturated palette anchored by soft grayish-pink backgrounds and deep brownish-ink text. This creates a refined and quiet atmosphere, using white cards and subtle shadows for layered depth.",
+      "ch2_outro": "The guiding principle is to maintain warmth and subtlety, allowing typographic content to remain the primary focus.",
+      "ch3_intro": "The typographic voice is established by a transitional-serif for major display and heading text, maintaining a refined editorial aesthetic. This is contrasted with a humanist-sans for navigation labels, small meta text, and uppercase UI elements.",
+      "ch4_intro": "Spacing is governed by a consistent 4px grid rhythm, providing ample breathing room between sections and within components.",
+      "ch5_intro": "Surfaces achieve depth through clean white cards elevated by a single, subtle, warm box-shadow. Borders are used sparingly, defined by a thin, semi-transparent rule that does not compete with the soft shadows.",
+      "ch6_intro": "The layout skeleton is a centered, single-column arrangement anchored by a prominent header. This flows into a responsive 2-column grid of content cards, creating an editorial and slightly organic structure despite its underlying order.",
+      "ch7_intro": "The motion philosophy is one of restraint, using only smooth background and color transitions on hover states. Subtle elevation changes via box-shadow transitions provide feedback without visual noise, all standardized to a 0.3s ease-out timing.",
+      "ch8_intro": "The editorial voice is knowledgeable, refined, and authoritative, speaking directly to a design-literate audience. It uses elegant, serif headlines with tight letter-spacing and understated, uppercase sans-serif text links for calls-to-action.",
+      "ch8_outro": "The system deliberately avoids flashy animations, vibrant neon colors, overly dense layouts, and playful or cartoonish elements."
+    },
+    "zh-CN": {
+      "ch1_intro": "Typewolf 的设计系统如同一个为字体爱好者精心策划的精致图书馆。它建立在克制优雅的基础上，每个元素都旨在支持对字体的探索与欣赏。",
+      "ch2_intro": "色彩系统采用温暖、柔和、低饱和度的配色方案，以浅灰粉色背景和深棕墨色文字为基础。通过白色卡片和微妙阴影营造层次感，构建出精致而宁静的氛围。",
+      "ch2_outro": "核心原则是保持温度与细腻，让排版内容始终作为视觉焦点。",
+      "ch3_intro": "排版风格通过用于主要展示与标题文本的过渡衬线字体确立，保持精致的编辑美学。这与用于导航标签、小型元数据文本和全大写界面元素的人文主义无衬线字体形成对比。",
+      "ch4_intro": "间距遵循统一的 4px 网格韵律，在版块之间和组件内部提供充足的呼吸空间。",
+      "ch5_intro": "界面层次通过简洁的白色卡片实现，仅用单层柔和的暖色投影提升高度。边框的使用极为克制，采用纤细半透明的线条，不与柔和阴影产生竞争。",
+      "ch6_intro": "布局骨架采用居中单列结构，以醒目的页头为锚点。随后过渡到响应式双列内容卡片网格，在底层秩序中构建出编辑式且略带有机感的结构。",
+      "ch7_intro": "动态理念强调克制，仅在悬停状态使用平滑的背景与色彩过渡。通过投影过渡实现的高度微调提供反馈，避免视觉干扰，所有动态均标准化为 0.3s ease-out 时序。",
+      "ch8_intro": "编辑风格体现专业、精致与权威，直接面向具有设计素养的受众。使用字距紧凑的优雅衬线标题，搭配低调的大写无衬线文本作为行动号召链接。",
+      "ch8_outro": "该系统刻意避免炫目动画、鲜艳霓虹色、过度密集的布局以及游戏化或卡通化的元素。"
+    },
+    "zh-TW": {
+      "ch1_intro": "Typewolf 的設計系統如同一座精緻、經過細心策展的圖書館，專為字體愛好者而設。它建立在克制優雅的基礎上，每個元素都旨在支持對字體的探索與欣賞。",
+      "ch2_intro": "色彩系統是一個溫暖、柔和、低飽和度的調色板，以柔軟的灰粉色背景和深棕色墨水般的文字為基調。這營造出精緻而寧靜的氛圍，利用白色卡片和微妙陰影創造層次深度。",
+      "ch2_outro": "指導原則是保持溫暖與微妙，讓排版內容 remain 始終是焦點。",
+      "ch3_intro": "排版語調由一個過渡型襯線體確立，用於主要展示和標題文字，維持精緻的編輯美學。與之形成對比的是，導航標籤、小型元資料文字和大寫 UI 元素使用一個人文主義無襯線體。",
+      "ch4_intro": "間距由一致的 4px 網格節奏控制，在區塊之間和元件內部提供充足的呼吸空間。",
+      "ch5_intro": "表面透過乾淨的白色卡片實現深度，卡片由單一、微妙、溫暖的 box-shadow 提升。邊框使用節制，由一條細微、半透明的線條定義，不會與柔和的陰影競爭。",
+      "ch6_intro": "版面骨架是一個居中的單欄佈局，以顯著的標題為基準。這流入一個響應式的雙欄內容卡片網格，創造出一種編輯風格且略帶有機感的結構，儘管其底層具有秩序。",
+      "ch7_intro": "動效哲學是克制，僅在 hover 狀態下使用流暢的背景和顏色過渡。透過 box-shadow 過渡實現的微妙高度變化提供回饋，且不產生視覺雜訊，所有效果統一標準化為 0.3s ease-out 時序。",
+      "ch8_intro": "編輯語調是博學、精緻且具權威性的，直接對設計素養的受眾發言。它使用優雅的襯線標題，字距緊湊，並搭配低調、大寫的無襯線文字連結作為行動呼籲。",
+      "ch8_outro": "該系統刻意避免浮誇的動畫、鮮豔的霓虹色、過度密集的佈局，以及 playful 或卡通化的元素。"
+    },
+    "ja": {
+      "ch1_intro": "Typewolfのデザインシステムは、タイポグラフィ愛好家にとって、洗練された、よく整えられた図書館のように機能します。それは、すべての要素がタイプの発見と評価をサポートするために存在する、抑制されたエレガンスを基盤として構築されています。",
+      "ch2_intro": "カラーシステムは、柔らかいグレーがかったピンクの背景と深いブラウンがかったインクのテキストで構成される、暖かく、抑制された、デサチュレーションされたパレットです。これにより、白いカードと微細なシャドウを使用して層構造の深度を作り出す、洗練された静かな雰囲気が生まれています。",
+      "ch2_outro": "指針となる原則は、暖かさと繊細さを維持し、タイポグラフィのコンテンツが主たる焦点であり続けることです。",
+      "ch3_intro": "タイポグラフィの声は、主要なディスプレイおよび見出しテキストにトランジショナル・セリフ体を使用して確立され、洗練された編集美学を維持します。これは、ナビゲーションラベル、小さなメタテキスト、および大文字のUI要素にヒューマニスト・サンセリフ体を使用することで対比されています。",
+      "ch4_intro": "間隔は、一貫した4pxグリッドリズムによって管理され、セクション間およびコンポーネント内に十分な呼吸空間を提供します。",
+      "ch5_intro": "サーフェスは、単一の、微細な、暖かいbox-shadowで浮き上がらされたクリーンな白いカードを通じて深度を実現します。境界線は控えめに使用され、柔らかいシャドウと競合しない薄く半透明のルールで定義されます。",
+      "ch6_intro": "レイアウトの骨格は、目立つヘッダーで固定された、中央揃えの単一カラム配置です。これは、コンテンツカードのレスポンシブな2カラムグリッドに流れ込み、基礎となる順序にもかかわらず、編集的でやや有機的な構造を生み出します。",
+      "ch7_intro": "モーション哲学は抑制にあり、hover状態でのスムーズな背景およびカラー遷移のみを使用します。box-shadow遷移による微細な高さの変化が、視覚的なノイズなしにフィードバックを提供し、すべては0.3s ease-outのタイミングで標準化されています。",
+      "ch8_intro": "編集の声は、知識豊富で、洗練され、権威があり、デザインに精通した読者に直接語りかけます。これは、 Tightな文字間隔の洗練されたセリフ見出しと、控えめな、大文字のサンセリフテキストリンク（アクション用）を使用します。",
+      "ch8_outro": "このシステムは、華やかなアニメーション、鮮やかなネオンカラー、過密なレイアウト、遊び心のあるまたはカートゥーン的な要素を意図的に避けています。"
+    },
+    "ko": {
+      "ch1_intro": "Typewolf의 디자인 시스템은 타이포그래피 애호가들을 위한 정교하고 잘 정리된 도서관과 같습니다. 절제된 우아함을 바탕으로 구축되어 있으며, 모든 요소가 타입의 발견과 감상을 지원합니다.",
+      "ch2_intro": "색상 시스템은 부드러운 회색빛 배경과 깊은 갈색 텍스트를 중심으로 한 따뜻하고 차분하며 채도가 낮은 팔레트입니다. 흰색 카드와 미묘한 그림자를 사용하여 층층감을 주어 세련되고 고요한 분위기를 만듭니다.",
+      "ch2_outro": "핵심 원칙은 따뜻함과 미묘함을 유지하여 타이포그래피 콘텐츠가 주된 초점으로 남도록 하는 것입니다.",
+      "ch3_intro": "타이포그래피의 목소리는 주요 디스플레이 및 제목 텍스트에 사용되는 중용 세리프로 확립되어, 세련된 편집 미학을 유지합니다. 이는 내비게이션 라벨, 작은 메타 텍스트, 대문자 UI 요소에 사용되는 휴머니스트 산스와 대조를 이룹니다.",
+      "ch4_intro": "간격은 일관된 4px 그리드 리듬에 의해 제어되어, 섹션 간 및 컴포넌트 내에 충분한 여유 공간을 제공합니다.",
+      "ch5_intro": "표면은 단일이고 미묘한 따뜻한 box-shadow로 높아진 깨끗한 흰색 카드를 통해 깊이감을 얻습니다. 테두리는 부드러운 그림자와 경쟁하지 않는 가늘고 반투명한 선으로 정의되어 절제되게 사용됩니다.",
+      "ch6_intro": "레이아웃 골격은 두드러진 헤더를 중심으로 하는 중앙 정렬 단일 열 구성입니다. 이것은 반응형 2열 콘텐츠 카드 그리드로 이어지며, 기본적인 질서에도 불구하고 편집적이고 약간 자연스러운 구조를 만듭니다.",
+      "ch7_intro": "모션 철학은 절제에 관한 것이며, hover 상태에서 부드러운 배경 및 색상 전환만을 사용합니다. box-shadow 전환을 통한 미묘한 높이 변화는 시각적 잡음 없이 피드백을 제공하며, 모두 0.3s ease-out 타이밍으로 표준화되어 있습니다.",
+      "ch8_intro": "편집적 목소리는 지식이 풍부하고 세련되며 권위적이며, 디자인에 정통한 독자에게 직접 말합니다. 타이트한 자간의 우아한 세리프 제목과 절제된 대문자 산스 세리프 텍스트 링크를 사용하여 행동을 유도합니다.",
+      "ch8_outro": "이 시스템은 화려한 애니메이션, 선명한 네온 색상, 지나치게 밀집된 레이아웃, 장난스럽거나 만화적인 요소를 의도적으로 피합니다."
+    }
+  }
 }

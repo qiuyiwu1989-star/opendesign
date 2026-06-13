@@ -8,6 +8,572 @@
     "design",
     "gallery"
   ],
-  "status": "pending",
-  "added_at": "2026-06-02"
+  "status": "completed",
+  "added_at": "2026-06-02",
+  "spec": {
+    "colors": {
+      "bg": "#FFFFFF",
+      "bgSoft": "#F2F2F2",
+      "bgQuiet": null,
+      "ink": "#242424",
+      "inkSoft": "rgba(36,36,36,0.64)",
+      "muted": "#737373",
+      "mutedSoft": null,
+      "accent": null,
+      "line": "rgba(36,36,36,0.12)"
+    },
+    "typography": {
+      "display": "grotesque-sans",
+      "body": "humanist-sans",
+      "mono": null,
+      "scale": [
+        {
+          "token": "display",
+          "size": 32,
+          "lh": 1.0,
+          "weight": 600,
+          "ls": "-1.28px"
+        }
+      ]
+    },
+    "spacing": {
+      "base": 4,
+      "scale": [
+        4,
+        8,
+        12,
+        16,
+        24,
+        40,
+        60
+      ]
+    },
+    "surfaces": {
+      "radius": {
+        "sm": 4,
+        "md": 8,
+        "lg": 1600,
+        "pill": 1600
+      }
+    },
+    "layout": {
+      "container": 1280,
+      "paragraph": 680,
+      "columns": 12,
+      "gutter": 24,
+      "breakpoints": [
+        768,
+        1024
+      ]
+    },
+    "motion": {
+      "durations": {
+        "micro": 150,
+        "small": 400,
+        "medium": 800
+      },
+      "easing": "cubic-bezier(0.4, 0, 0.2, 1)"
+    }
+  },
+  "spec_i18n": {
+    "en": {
+      "identity": {
+        "keywords": [
+          "Curation",
+          "Editorial",
+          "Footer",
+          "Design Gallery",
+          "Minimal"
+        ],
+        "analogy": "A clean, typographic gallery curation platform",
+        "oneLiner": "A curated design gallery focusing on bold typography and editorial presentation."
+      },
+      "colors": {
+        "principle": "Strictly monochromatic with high contrast between white space and dark text"
+      },
+      "typography": {
+        "rules": [
+          "Primary text uses 18px with -0.54px tracking",
+          "Secondary text uses 14px with -0.42px tracking",
+          "Headings use 600 weight",
+          "Body text uses 400 weight"
+        ],
+        "scaleUses": [
+          "Headings"
+        ]
+      },
+      "spacing": {
+        "rhythm": "Consistent spacing increments of 4, 8, 12, 16, 24, 40, 60"
+      },
+      "surfaces": {
+        "shadows": [],
+        "borders": "1px solid rgba(36,36,36,0.12) on cards and buttons"
+      },
+      "layout": {
+        "skeleton": "Multi-column grid layout for gallery cards"
+      },
+      "components": {
+        "button": "Pill-shaped with 1600px border radius, black or white fill",
+        "card": "Image-heavy with minimal borders and clear typography",
+        "chip": "Small rounded tags for filtering",
+        "input": null,
+        "hero": "Large typographic introduction with subtle animations"
+      },
+      "motion": {
+        "patterns": [
+          "Subtle fade transitions on hover",
+          "Smooth color and background-color changes",
+          "Opacity transitions for state changes"
+        ]
+      },
+      "interaction": {
+        "hover": "Color and background-color transitions over 0.15s",
+        "click": "Standard pointer cursor",
+        "transition": "All properties transition smoothly",
+        "keyboard": "Standard focus management"
+      },
+      "voice": {
+        "tone": "Professional, clean, and curated",
+        "headlineStyle": "Bold, tightly tracked, uppercase or large case",
+        "ctaStyle": "Direct and action-oriented with pill-shaped buttons",
+        "avoid": [
+          "Cluttered interfaces",
+          "Excessive decorative elements",
+          "Vague language"
+        ]
+      },
+      "donts": [
+        "Don't use vibrant accent colors — screenshot shows strictly monochromatic palette",
+        "Don't use rounded corners except for pill buttons — screenshot shows sharp corners on cards",
+        "Don't use drop shadows — screenshot shows flat, border-defined surfaces",
+        "Don't use decorative fonts — screenshot uses clean grotesque and humanist sans-serifs",
+        "Don't create dense layouts — screenshot uses generous white space and clear hierarchy",
+        "Don't use multiple font families — screenshot relies primarily on Inter with varying weights"
+      ],
+      "systemPrompt": "A minimalist design curation gallery focusing on editorial presentation of web design work. The palette is strictly monochromatic using #FFFFFF backgrounds, #F2F2F2 soft backgrounds, #242424 primary ink, and rgba(36,36,36,0.64) secondary text. Typography uses Inter (humanist-sans for body, grotesque-sans for display) with tight letter spacing. Critical don'ts: avoid vibrant accent colors, avoid rounded corners except on pill buttons, avoid drop shadows, avoid decorative fonts, avoid dense layouts, avoid multiple font families. The design emphasizes clean lines, generous spacing, and clear typographic hierarchy for showcasing curated design work."
+    },
+    "zh-CN": {
+      "identity": {
+        "keywords": [
+          "策展",
+          "编辑式",
+          "页脚",
+          "设计画廊",
+          "极简"
+        ],
+        "analogy": "一个简洁的、以排版为主的设计画廊策展平台",
+        "oneLiner": "一个专注于大胆排版和编辑式呈现的精选设计画廊。"
+      },
+      "colors": {
+        "principle": "严格单色系，白色留白与深色文字间保持高对比度"
+      },
+      "typography": {
+        "rules": [
+          "主文本使用18px，字间距-0.54px",
+          "次级文本使用14px，字间距-0.42px",
+          "标题使用600字重",
+          "正文使用400字重"
+        ],
+        "scaleUses": [
+          "标题"
+        ]
+      },
+      "spacing": {
+        "rhythm": "一致的间距递增：4, 8, 12, 16, 24, 40, 60"
+      },
+      "surfaces": {
+        "shadows": [],
+        "borders": "卡片和按钮使用1px solid rgba(36,36,36,0.12)边框"
+      },
+      "layout": {
+        "skeleton": "用于画廊卡片的多列网格布局"
+      },
+      "components": {
+        "button": "胶囊形状，1600px border radius，黑色或白色填充",
+        "card": "以图片为主，边框极简，排版清晰",
+        "chip": "用于筛选的小型圆角标签",
+        "input": null,
+        "hero": "大型排版引言，伴有细微动画"
+      },
+      "motion": {
+        "patterns": [
+          "hover时细微的淡入淡出过渡",
+          "平滑的颜色和背景色变化",
+          "状态变化时的不透明度过渡"
+        ]
+      },
+      "interaction": {
+        "hover": "颜色和背景色在0.15秒内过渡",
+        "click": "标准指针光标",
+        "transition": "所有属性平滑过渡",
+        "keyboard": "标准焦点管理"
+      },
+      "voice": {
+        "tone": "专业、简洁、策展感",
+        "headlineStyle": "粗体，紧凑字间距，大写或首字母大写",
+        "ctaStyle": "直接且以行动为导向，使用胶囊形状按钮",
+        "avoid": [
+          "杂乱的界面",
+          "过多的装饰性元素",
+          "模糊的措辞"
+        ]
+      },
+      "donts": [
+        "不要使用鲜艳的点缀色——截图显示为严格单色系调色板",
+        "除胶囊按钮外，不要使用圆角——截图显示卡片为直角",
+        "不要使用投影——截图显示为平面、边框定义的界面",
+        "不要使用装饰性字体——截图使用简洁的 grotesque-sans 和 humanist-sans 无衬线字体",
+        "不要创建密集的布局——截图使用大量留白和清晰的层级",
+        "不要使用多种字体族——截图主要依赖 Inter 字体，并使用不同字重"
+      ],
+      "systemPrompt": "一个极简的设计策展画廊，专注于网页设计作品的编辑式呈现。调色板严格单色，使用 #FFFFFF 背景、#F2F2F2 柔和背景、#242424 主要文字和 rgba(36,36,36,0.64) 次级文字。排版使用 Inter（humanist-sans 用于正文，grotesque-sans 用于展示），字间距紧凑。关键禁忌：避免鲜艳的点缀色，避免圆角（胶囊按钮除外），避免投影，避免装饰性字体，避免密集布局，避免多种字体族。设计强调简洁的线条、充足的间距和清晰的排版层级，以展示精选的设计作品。"
+    },
+    "zh-TW": {
+      "identity": {
+        "keywords": [
+          "策展",
+          "編輯式",
+          "頁尾",
+          "設計藝廊",
+          "極簡"
+        ],
+        "analogy": "一個簡潔、以字型為主的藝廊策展平台",
+        "oneLiner": "專注於大膽字型與編輯式呈現的策展設計藝廊。"
+      },
+      "colors": {
+        "principle": "嚴格單色調，白色留白與深色文字之間具有高對比"
+      },
+      "typography": {
+        "rules": [
+          "主要文字使用 18px，字距為 -0.54px",
+          "次要文字使用 14px，字距為 -0.42px",
+          "標題使用 600 字重",
+          "內文使用 400 字重"
+        ],
+        "scaleUses": [
+          "標題"
+        ]
+      },
+      "spacing": {
+        "rhythm": "一致的間距增量：4, 8, 12, 16, 24, 40, 60"
+      },
+      "surfaces": {
+        "shadows": [],
+        "borders": "卡片與按鈕採用 1px solid rgba(36,36,36,0.12) 邊框"
+      },
+      "layout": {
+        "skeleton": "藝廊卡片採用多欄格狀佈局"
+      },
+      "components": {
+        "button": "藥丸造型，具 1600px 圓角，填色為黑色或白色",
+        "card": "以圖片為主，邊框極簡，字型清晰",
+        "chip": "小型圓角標籤，用於篩選",
+        "input": null,
+        "hero": "大型字型引言，搭配細微動畫"
+      },
+      "motion": {
+        "patterns": [
+          "懸停時的細微淡入淡出過渡",
+          "色彩與背景色的平滑變化",
+          "狀態轉換的透明度過渡"
+        ]
+      },
+      "interaction": {
+        "hover": "色彩與背景色過渡時間為 0.15 秒",
+        "click": "標準指標游標",
+        "transition": "所有屬性平滑過渡",
+        "keyboard": "標準焦點管理"
+      },
+      "voice": {
+        "tone": "專業、簡潔、經過策展",
+        "headlineStyle": "粗體、緊湊字距、大寫或大型大小寫",
+        "ctaStyle": "直接、以行動為導向，採用藥丸造型按鈕",
+        "avoid": [
+          "雜亂的介面",
+          "過多的裝飾元素",
+          "模糊的語言"
+        ]
+      },
+      "donts": [
+        "勿使用鮮豔的強調色——截圖顯示嚴格的單色調色盤",
+        "除藥丸按鈕外，勿使用圓角——截圖顯示卡片具有銳角",
+        "勿使用陰影——截圖顯示平面、以邊框定義的表面",
+        "勿使用裝飾性字型——截圖使用簡潔的 grotesque 與 humanist 無襯線字型",
+        "勿建立密集的佈局——截圖使用寬裕的留白與清晰的層級",
+        "勿使用多種字型族——截圖主要依賴 Inter，搭配不同字重"
+      ],
+      "systemPrompt": "一個極簡的設計策展藝廊，專注於網頁設計作品的編輯式呈現。色調嚴格採用單色調，背景使用 #FFFFFF，軟性背景使用 #F2F2F2，主要墨色使用 #242424，次要文字使用 rgba(36,36,36,0.64)。字型使用 Inter（humanist-sans 用於內文，grotesque-sans 用於展示），字距緊湊。關鍵禁忌：避免鮮豔的強調色，除藥丸按鈕外避免圓角，避免陰影，避免裝飾性字型，避免密集佈局，避免多種字型族。設計強調簡潔的線條、寬裕的間距與清晰的字型層級，以展示策展的設計作品。"
+    },
+    "ja": {
+      "identity": {
+        "keywords": [
+          "キュレーション",
+          "エディトリアル",
+          "フッター",
+          "デザイン・ギャラリー",
+          "ミニマル"
+        ],
+        "analogy": "クリーンでタイポグラフィ重視のギャラリー・キュレーション・プラットフォーム",
+        "oneLiner": "太字のタイポグラフィとエディトリアルなプレゼンテーションに焦点を当てたキュレーション・デザイン・ギャラリー。"
+      },
+      "colors": {
+        "principle": "白とダークテキストの高いコントラストを実現する、厳密なモノクロマチック構成"
+      },
+      "typography": {
+        "rules": [
+          "プライマリ・テキスト：18px、トラッキング -0.54px",
+          "セカンダリ・テキスト：14px、トラッキング -0.42px",
+          "見出し：600ウェイト",
+          "本文：400ウェイト"
+        ],
+        "scaleUses": [
+          "見出し"
+        ]
+      },
+      "spacing": {
+        "rhythm": "4、8、12、16、24、40、60の一定のインクリメントによる间距"
+      },
+      "surfaces": {
+        "shadows": [],
+        "borders": "カードやボタンに1px solid rgba(36,36,36,0.12)のボーダー"
+      },
+      "layout": {
+        "skeleton": "ギャラリーカード用のマルチカラムグリッド・レイアウト"
+      },
+      "components": {
+        "button": "ピル-shaped、ボーダー・ラディウス 1600px、黒または白のフィル",
+        "card": "画像を重視したデザイン。ボーダーは最小限で、タイポグラフィは明確に。",
+        "chip": "フィルタリング用の小さな丸みのあるタグ",
+        "input": null,
+        "hero": "控えめなアニメーション付きの大型タイポグラフィック・イントロダクション"
+      },
+      "motion": {
+        "patterns": [
+          "hover時の控えめなフェード・トランジション",
+          "色および背景色の滑らかな変化",
+          "状態変化のための不透明度トランジション"
+        ]
+      },
+      "interaction": {
+        "hover": "色および背景色のトランジション（0.15秒）",
+        "click": "標準のポインターカーソル",
+        "transition": "全プロパティが滑らかにトランジション",
+        "keyboard": "標準のフォーカス管理"
+      },
+      "voice": {
+        "tone": "プロフェッショナルで、クリーンかつキュレーションされた",
+        "headlineStyle": "太字、狭いトラッキング、大文字または大きなケース",
+        "ctaStyle": "直接的でアクション志向。ピル-shapedボタンを使用",
+        "avoid": [
+          "雑然としたインターフェース",
+          "過度な装飾要素",
+          "曖昧な表現"
+        ]
+      },
+      "donts": [
+        "鮮やかなアクセント色は使用しない — スクリーンショットは厳格なモノクロマチック・パレットを示しています",
+        "ピルボタン以外の角丸は使用しない — スクリーンショットはカードにシャープな角を示しています",
+        "ドロップ・シャドウは使用しない — スクリーンショットはフラットでボーダー定義されたサーフェスを示しています",
+        "装飾的なフォントは使用しない — スクリーンショットはクリーンなgrotesque-sansおよびhumanist-sansを使用しています",
+        "密集したレイアウトは作成しない — スクリーンショットはたっぷりした余白と明確なヒエラルキーを使用しています",
+        "複数のフォントファミリーは使用しない — スクリーンショットは主にInterを異なるウェイトで使用しています"
+      ],
+      "systemPrompt": "ミニマルなデザイン・キュレーション・ギャラリー。Webデザイン作品のエディトリアル・プレゼンテーションに焦点を当てています。パレットは#FFFFFFの背景、#F2F2F2のソフト背景、#242424のプライマリ・インク、rgba(36,36,36,0.64)のセカンダリ・テキストを使用した厳格なモノクロマチック構成です。タイポグラフィにはInter（本文にはhumanist-sans、ディスプレイにはgrotesque-sans）を使用し、狭い文字间距を実現。重要な禁忌：鮮やかなアクセント色を避け、ピルボタン以外の角丸を避け、ドロップ・シャドウを避け、装飾的なフォントを避け、密集したレイアウトを避け、複数のフォントファミリーを避けます。デザインはクリーンなライン、たっぷりとしたspacing、明確なタイポグラフィック・ヒエラルキーを重視し、キュレーションされたデザイン作品をショーケースします。"
+    },
+    "ko": {
+      "identity": {
+        "keywords": [
+          "큐레이션",
+          "에디토리얼",
+          "푸터",
+          "디자인 갤러리",
+          "미니멀"
+        ],
+        "analogy": "깔끔한 타이포그래피 갤러리 큐레이션 플랫폼",
+        "oneLiner": "대담한 타이포그래피와 에디토리얼 표현에 집중하는 큐레이션 디자인 갤러리입니다."
+      },
+      "colors": {
+        "principle": "화이트스페이스와 다크 텍스트 간의 고대비를 갖춘 순수한 단색 톤"
+      },
+      "typography": {
+        "rules": [
+          "본문 텍스트는 18px 크기와 -0.54px 트래킹을 사용합니다",
+          "보조 텍스트는 14px 크기와 -0.42px 트래킹을 사용합니다",
+          "제목은 600 웨이트를 사용합니다",
+          "본문 텍스트는 400 웨이트를 사용합니다"
+        ],
+        "scaleUses": [
+          "제목"
+        ]
+      },
+      "spacing": {
+        "rhythm": "4, 8, 12, 16, 24, 40, 60의 일관된 간격 증가폭"
+      },
+      "surfaces": {
+        "shadows": [],
+        "borders": "카드와 버튼에 1px solid rgba(36,36,36,0.12) 테두리 적용"
+      },
+      "layout": {
+        "skeleton": "갤러리 카드를 위한 다중 열 격자 레이아웃"
+      },
+      "components": {
+        "button": "1600px border-radius를 가진 알약 형태로, 블랙 또는 화이트 채움색 적용",
+        "card": "최소한의 테두리와 명확한 타이포그래피를 갖춘 이미지 중심 디자인",
+        "chip": "필터링을 위한 작은 둥근 태그",
+        "input": null,
+        "hero": "미세한 애니메이션이 적용된 대형 타이포그래피 소개 섹션"
+      },
+      "motion": {
+        "patterns": [
+          "hover 시 은은한 페이드 전환",
+          "부드러운 색상 및 background-color 변화",
+          "상태 변화를 위한 opacity 전환"
+        ]
+      },
+      "interaction": {
+        "hover": "0.15초 동안의 색상 및 background-color 전환",
+        "click": "표준 포인터 커서",
+        "transition": "모든 속성의 부드러운 전환",
+        "keyboard": "표준 focus 관리"
+      },
+      "voice": {
+        "tone": "전문적이고 깔끔하며 큐레이션된",
+        "headlineStyle": "볼드하고 트래킹이 좁은, 대문자 또는 큰 글꼴 스타일",
+        "ctaStyle": "알약 형태 버튼을 사용한 직접적이고 행동 지향적인 스타일",
+        "avoid": [
+          "어지러운 인터페이스",
+          "과도한 장식 요소",
+          "모호한 표현"
+        ]
+      },
+      "donts": [
+        "화려한 악센트 컬러를 사용하지 마세요 — 스크린샷은 순수한 단색 팔레트를 보여줍니다",
+        "알약 버튼 외에는 둥근 모서리를 사용하지 마세요 — 스크린샷은 카드의 날카로운 모서리를 보여줍니다",
+        "드롭 섀도우를 사용하지 마세요 — 스크린샷은 평평하고 테두리로 정의된 표면을 보여줍니다",
+        "장식용 폰트를 사용하지 마세요 — 스크린샷은 깔끔한 grotesque-sans와 humanist-sans를 사용합니다",
+        "밀도 높은 레이아웃을 만들지 마세요 — 스크린샷은 충분한 여백과 명확한 계층을 사용합니다",
+        "여러 폰트 패밀리를 사용하지 마세요 — 스크린샷은 주로 Inter를 다양한 웨이트로 활용합니다"
+      ],
+      "systemPrompt": "웹 디자인 작업의 에디토리얼 표현에 집중하는 미니멀리스트 디자인 큐레이션 갤러리입니다. 팔레트는 #FFFFFF 배경, #F2F2F2 소프트 배경, #242424 기본 잉크, rgba(36,36,36,0.64) 보조 텍스트를 사용한 순수한 단색입니다. 타이포그래피는 본문용 humanist-sans와 디스플레이용 grotesque-sans로 Inter를 사용하며, 좁은 글자 간격을 적용합니다. 중요 주의사항: 화려한 악센트 컬러 피하기, 알약 버튼 외 둥근 모서리 피하기, 드롭 섀도우 피하기, 장식용 폰트 피하기, 밀도 높은 레이아웃 피하기, 여러 폰트 패밀리 사용 피하기. 디자인은 큐레이션된 디자인 작업을 선보이기 위해 깔끔한 라인, 충분한 간격, 명확한 타이포그래피 계층을 강조합니다."
+    }
+  },
+  "desc": {
+    "en": {
+      "palette": "Strictly monochromatic with white, light gray, and near-black text, avoiding any chromatic accents.",
+      "layout": "Multi-column grid gallery with generous white space and clear typographic hierarchy.",
+      "interaction": "Smooth, subtle transitions on hover with 0.15s duration for color and background changes.",
+      "motion": "Minimal motion with smooth transitions for state changes and subtle fade effects.",
+      "notes": "A refined curation platform that demonstrates how strict restraint in color and typography can create a sophisticated editorial presentation."
+    },
+    "zh-CN": {
+      "palette": "严格单色系，使用白色、浅灰和近黑色文字，避免任何彩色点缀。",
+      "layout": "多列网格画廊，大量留白，清晰的排版层级。",
+      "interaction": "hover时平滑、细微的过渡，颜色和背景变化的持续时间为0.15秒。",
+      "motion": "极简动效，状态变化时平滑过渡，伴有细微的淡入淡出效果。",
+      "notes": "一个精致的策展平台，展示了如何通过色彩和排版的严格克制来营造出高级的编辑式呈现。"
+    },
+    "zh-TW": {
+      "palette": "嚴格單色調，採用白色、淺灰與近黑文字，避免任何色彩強調。",
+      "layout": "多欄格狀藝廊佈局，留白寬裕，具備清晰的字型層級。",
+      "interaction": "懸停時提供平滑、細微的過渡效果，色彩與背景變化持續時間為 0.15 秒。",
+      "motion": "最小化動態效果，狀態轉換採用平滑過渡，並搭配細微淡入淡出效果。",
+      "notes": "一個精緻的策展平台，展現如何透過色彩與字型的嚴格節制，創造出高級的編輯式呈現。"
+    },
+    "ja": {
+      "palette": "白、明るいグレー、準黒のテキストによる厳密なモノクロマチック構成。彩度の高いアクセント色は一切使用しません。",
+      "layout": "余白をたっぷり確保したマルチカラムグリッドギャラリー。明確なタイポグラフィック・ヒエラルキーを備えます。",
+      "interaction": "hover時、色や背景の変化に0.15秒のdurationで滑らかで控えめなトランジション。",
+      "motion": "状態変化のための滑らかなトランジションと控えめなフェード効果を用いた、最小限のモーション。",
+      "notes": "色彩とタイポグラフィに厳格な抑制を課すことで、洗練されたエディトリアルなプレゼンテーションを実現する、洗練されたキュレーション・プラットフォーム。"
+    },
+    "ko": {
+      "palette": "순수한 단색 톤으로 화이트, 라이트 그레이, 거의 블랙 텍스트를 사용하며, 모든 색조 강조를 배제합니다.",
+      "layout": "여백을 충분히 확보한 다중 열 격자 갤러리로, 명확한 타이포그래피 계층을 갖춥니다.",
+      "interaction": "hover 상태에서 0.15초 지속 시간의 부드럽고 미세한 전환 효과를 적용합니다.",
+      "motion": "상태 변화 시 부드러운 전환과 은은한 페이드 효과를 사용한 최소한의 모션을 지향합니다.",
+      "notes": "색상과 타이포그래피의 엄격한 절제가 어떻게 세련된 에디토리얼 표현을 만들어낼 수 있는지를 보여주는 정교한 큐레이션 플랫폼입니다."
+    }
+  },
+  "_meta": {
+    "vision_model": "mimo-v2.5",
+    "vision_prompt_version": "0.3",
+    "vision_source": "playwright-extract:footer-design",
+    "vision_grounded": true,
+    "vision_at": "2026-06-04T15:15:20+00:00",
+    "vision_tokens": 15670,
+    "vision_cost_usd": 0.1741,
+    "translation_model": "mimo-v2.5",
+    "translation_at": "2026-06-04T15:16:21+00:00",
+    "translation_tokens": 15720,
+    "translation_cost_usd": 0.0524,
+    "narrative_model": "mimo-v2.5",
+    "narrative_prompt_version": "0.3",
+    "narrative_at": "2026-06-04T15:16:32+00:00",
+    "narrative_tokens": 1930,
+    "narrative_cost_usd": 0.0129,
+    "narrative_status": "ok",
+    "total_cost_usd": 0.2394
+  },
+  "narrative": {
+    "en": {
+      "ch1_intro": "Like a gallery designed by a meticulous curator, every element in Footer's system exists to showcase the work, not the frame. The identity is built on a strict editorial discipline: a monochromatic palette, generous white space, and a typographic voice that speaks with clarity and authority.",
+      "ch2_intro": "The color system is an exercise in subtraction, defined entirely by its refusal to introduce chromatic accent. A strict monochromatic scale of white, light gray, and near-black ink creates high contrast, ensuring the curated design work remains the sole source of visual interest.",
+      "ch2_outro": "The governing principle is one of absolute restraint, where the absence of color becomes the defining aesthetic choice.",
+      "ch3_intro": "The typographic voice is singular and disciplined, relying on the humanist and grotesque qualities of Inter to serve both body text and display headings. This unified approach, with distinct weights and tight tracking, creates a professional, editorial tone without decorative flourish.",
+      "ch4_intro": "A consistent 4-pixel-based rhythm governs all spacing, from fine details to large structural gaps, creating a quiet but perceptible order beneath the curated content.",
+      "ch5_intro": "Surfaces are defined not by depth effects but by clean lines and minimal borders. The system avoids drop shadows entirely, relying on a thin, semi-transparent border to delineate cards and buttons against the generous white space.",
+      "ch6_intro": "The foundational skeleton is a multi-column grid designed to present gallery cards in a clear, organized layout. This structure prioritizes visual hierarchy and ample breathing room between items, facilitating effortless browsing.",
+      "ch7_intro": "Motion philosophy here is one of functional subtlety, applied only to communicate state changes. Transitions for hover, focus, and opacity are smooth and brief, serving the interface's clarity rather than adding decorative animation.",
+      "ch8_intro": "The editorial voice is professional and clean, with headlines that are bold and tightly tracked, and calls-to-action that are direct. This tone extends to the system's deliberate avoidance of clutter, decorative elements, and vague language.",
+      "ch8_outro": "The system explicitly rejects vibrant accent colors, excessive rounding, drop shadows, decorative fonts, dense layouts, and multiple font families."
+    },
+    "zh-CN": {
+      "ch1_intro": "如同一位细致策展人设计的画廊，页脚系统中的每一个元素都旨在展示作品本身，而非框架。其设计建立在严格的编辑规范之上：单色系调色板、充足的留白，以及清晰、权威的字体表达。",
+      "ch2_intro": "色彩系统是一场减法练习，完全通过拒绝引入彩色点缀来定义。由白色、浅灰和近墨黑组成的严格单色渐变营造出高对比度，确保精心策划的设计作品成为唯一的视觉焦点。",
+      "ch2_outro": "核心原则是绝对克制，色彩的缺席本身即成为决定性的美学选择。",
+      "ch3_intro": "字体表达独特而严谨，依赖 Inter 字体的人文主义与怪诞特质，同时服务于正文与标题。这种统一处理方式，配合鲜明的字重与紧密的字距，营造出专业、编辑性的语调，无需装饰性修饰。",
+      "ch4_intro": "所有间距——从微小细节到大型结构间隙——都遵循一致的 4 像素基准节奏，在精心策划的内容之下构建出安静而可感知的秩序。",
+      "ch5_intro": "界面表面并非通过深度效果来定义，而是依靠简洁线条与极简边框。系统完全避免使用投影，仅依赖纤细的半透明边框在充足留白中勾勒出卡片与按钮的轮廓。",
+      "ch6_intro": "基础骨架是为清晰、有序展示画廊卡片而设计的多栏网格结构。该结构优先考虑视觉层级与项目间充足的呼吸空间，实现轻松浏览。",
+      "ch7_intro": "动效哲学在于功能性的微妙性，仅用于传达状态变化。hover、focus 及透明度的过渡平滑而短暂，服务于界面的清晰度，而非增添装饰性动画。",
+      "ch8_intro": "编辑语调专业而干净：标题采用粗体与紧密字距，行动召唤则直接明了。这种语调延伸至系统对杂乱、装饰元素及模糊语言的刻意回避。",
+      "ch8_outro": "系统明确拒绝使用鲜艳的点缀色、过度圆角、投影、装饰性字体、密集布局以及多重字体组合。"
+    },
+    "zh-TW": {
+      "ch1_intro": "如同精心策展的美術館，頁尾系統中的每個元素都是為了展示作品，而非框架本身。設計識別建立在嚴格的編輯紀律之上：單色調色盤、慷慨的留白，以及清晰而具權威性的排版語調。",
+      "ch2_intro": "色彩系統是一場減法的實踐，完全透過拒絕引入彩色強調來定義。純白、淺灰與近黑墨色的嚴格單色階度創造了高對比度，確保被策展的設計作品始終是唯一的視覺焦點。",
+      "ch2_outro": "核心原則是絕對的克制，色彩的缺席成為了決定性的美學選擇。",
+      "ch3_intro": "排版語調獨特且自律，倚靠 Inter 字體的人文主義與 grotesque 特質，同時服務內文與標題顯示。這種統一的方法，搭配不同的字重與緊湊的字距，創造出專業、具編輯感的語調，無需裝飾性修飾。",
+      "ch4_intro": "所有間距皆由一致的 4 像素基準節奏所支配，從細微細節到大型結構間隙皆然，為策展內容之下創造了寧靜但可感知的秩序。",
+      "ch5_intro": "介面表面並非透過深度效果來定義，而是透過乾淨的線條與極簡的邊框。系統完全避免使用陰影，倚靠一條細長、半透明的邊框來區分卡片與按鈕，使其在慷慨的留白中脫穎而出。",
+      "ch6_intro": "基礎骨架是一個多欄格線系統，旨在以清晰、有組織的版面呈現畫廊卡片。此結構優先考量視覺層級與項目間充裕的呼吸空間，使瀏覽過程輕鬆不費力。",
+      "ch7_intro": "這裡的動態理念是功能性的細膩，僅用於傳達狀態變化。針對 hover、focus 與透明度的過渡效果平滑且短暫，旨在服務介面的清晰度，而非增添裝飾性動畫。",
+      "ch8_intro": "編輯語調專業且簡潔，標題粗體且字距緊湊，行動號召（CTA）則直接明確。此語調延伸至系統對雜亂、裝飾元素與模糊語言的刻意迴避。",
+      "ch8_outro": "該系統明確地排斥鮮豔的強調色、過度的圓角、陰影、裝飾性字體、擁擠的版面配置，以及多重字體家族的使用。"
+    },
+    "ja": {
+      "ch1_intro": "細心のcuraが設計したギャラリーのように、Footerシステムのすべての要素は、フレームではなく作品を際立たせるために存在しています。アイデンティティは厳格なエディトリアル紀律に基づいて構築されています。モノクロマティックなパレット、豊かな白空間、そして明瞭さと権威を持って語るタイポグラフィの声です。",
+      "ch2_intro": "カラーシステムは減法の実践であり、クロマティックアクセントを導入することを完全に拒絶することで定義されています。白、薄いグレー、そして濃いインクの近黒による厳格なモノクロマティックスケールが高コントラストを生み、厳選されたデザインワークだけが唯一の視覚的関心の源泉となることを保証します。",
+      "ch2_outro": "支配的な原則は絶対的な抑制であり、色彩の不在が決定的な美学の選択となります。",
+      "ch3_intro": "タイポグラフィの声は単一かつ規律正しく、本文とディスプレイ見出しの両方にInterのヒューマニストおよびグロテスクな性質に依存しています。明確なウェイトと tight tracking を持つこの統一されたアプローチは、装飾的な飾りなく、プロフェッショナルでエディトリアルなトーンを生み出します。",
+      "ch4_intro": "一貫した4ピクセルベースのリズムが、細部から大きな構造的な隙間まで、すべてのスペーシングを支配し、厳選されたコンテンツの下に静かだが感知可能な秩序を生み出しています。",
+      "ch5_intro": "サーフェスは効果ではなく、クリーンなラインと最小限のボーダーで定義されています。システムはドロップシャドウを完全に避け、薄く半透明のボーダーに依存して、豊かな白空間に対してカードやボタンを区切ります。",
+      "ch6_intro": "基盤となるスケルトンは、ギャラリーカードを明確で組織化されたレイアウトで提示するために設計されたマルチカラムグリッドです。この構造は、視覚的な階層性とアイテム間の十分な余白を優先し、轻松なブラウジングを促進します。",
+      "ch7_intro": "ここでのモーション哲学は機能的な微妙さであり、状態変化を伝えるためにのみ適用されます。hover、focus、opacityのトランジションは滑らかで短く、装飾的なアニメーションを追加するのではなく、インターフェースの明瞭さに貢献します。",
+      "ch8_intro": "エディトリアルボイスはプロフェッショナルでクリーンです。見出しは大胆で tight tracking が特徴で、CTAは直接的です。このトーンは、雑然としたもの、装飾的な要素、曖昧な言葉を意図的に避けるシステム全体にまで及びます。",
+      "ch8_outro": "システムは、鮮やかなアクセントカラー、過度の角丸、ドロップシャドウ、装飾的なフォント、密なレイアウト、複数のフォントファミリーを明確に拒絶しています。"
+    },
+    "ko": {
+      "ch1_intro": "엄선된 큐레이터가 설계한 갤러리처럼, Footer 시스템의 모든 요소는 프레임이 아닌 작업물을 뽐내기 위해 존재합니다. 이 아이덴티티는 엄격한 편집 규율 위에 구축되었습니다: 단색 팔레트, 넉넉한 여백, 그리고 명확함과 권위로 말하는 타이포그래피입니다.",
+      "ch2_intro": "색상 시스템은 색조 액센트를 의도적으로 배제함으로써 정의되는 절제의 실천입니다. 흰색, 밝은 회색, 그리고 거의 검은색 잉크의 엄격한 단색 스케일이 높은 대비를 만들어, 큐레이션된 디자인 작업이 시각적 흥미의 유일한 원천이 되도록 보장합니다.",
+      "ch2_outro": "지배적인 원칙은 색의 부재가 결정적인 미적 선택이 되는 절대적 절제입니다.",
+      "ch3_intro": "타이포그래피는 단 하나이며 규율을 따르며, 본문과 전시 제목 모두를 위해 인터의 휴머니스트 및 그로테스크 특성에 의존합니다. 이 통합된 접근 방식은 뚜렷한 웨이트와 타이트한 트래킹으로 전문적이면서도 편집적인 어조를 꾸밈없이 만들어냅니다.",
+      "ch4_intro": "모든 간격은 세밀한 디테일부터 큰 구조적 간격까지 일관된 4픽셀 기반 리듬을 따르며, 큐레이션된 콘텐츠 아래에 조용하지만 인식 가능한 질서를 만듭니다.",
+      "ch5_intro": "표면은 깊이 효과가 아닌 깔끔한 라인과 최소한의 테두리로 정의됩니다. 이 시스템은 드롭 섀도우를 완전히 피하고, 넉넉한 여백 위에 카드와 버튼을 구분하기 위해 가볍고 반투명한 테두리에 의존합니다.",
+      "ch6_intro": "기반 스켈레톤은 갤러리 카드를 명확하고 체계적인 레이아웃으로 선보이도록 설계된 다중 열 그리드입니다. 이 구조는 시각적 계층과 항목 사이의 넉넉한 공간을 우선시하여 Effortless한 브라우징을 가능하게 합니다.",
+      "ch7_intro": "모션 철학은 기능적인 절제이며, 오직 상태 변화를 전달하기 위해서만 적용됩니다. hover, focus, 그리고 opacity에 대한 트랜지션은 부드럽고 간결하며, 장식적인 애니메이션을 추가하기보다 인터페이스의 명확성을 위해 봉사합니다.",
+      "ch8_intro": "편집적 어조는 전문적이고 깨끗하며, 헤드라인은 볼드하고 타이트하게 트래킹되어 있고, 행동 유도는 직접적입니다. 이 어조는 시스템의 의도적인 혼잡함, 장식적 요소, 그리고 모호한 언어의 회피로까지 이어집니다.",
+      "ch8_outro": "시스템은 선명한 액센트 색상, 과도한 둥글림, 드롭 섀도우, 장식적 글꼴, 밀집된 레이아웃, 그리고 다수의 글꼴 패밀리를 명백히 거부합니다."
+    }
+  }
 }

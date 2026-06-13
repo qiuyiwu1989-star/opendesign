@@ -8,6 +8,625 @@
     "dev",
     "ops"
   ],
-  "status": "pending",
-  "added_at": "2026-06-03"
+  "status": "completed",
+  "added_at": "2026-06-03",
+  "spec": {
+    "colors": {
+      "bg": "#FFFFFF",
+      "bgSoft": "#F8F5F0",
+      "bgQuiet": "#F5F5F5",
+      "ink": "#161618",
+      "inkSoft": "rgba(22,22,24,0.66)",
+      "muted": "rgba(22,22,24,0.4)",
+      "mutedSoft": "rgba(22,22,24,0.1)",
+      "accent": "#F25533",
+      "line": "rgba(22,22,24,0.08)"
+    },
+    "typography": {
+      "display": "transitional-serif",
+      "body": "geometric-sans",
+      "mono": "monospace",
+      "scale": [
+        {
+          "token": "display",
+          "size": 80,
+          "lh": 1.0,
+          "weight": 400,
+          "ls": "-2px"
+        },
+        {
+          "token": "h2",
+          "size": 44,
+          "lh": 1.1,
+          "weight": 400,
+          "ls": "-1px"
+        },
+        {
+          "token": "body-lg",
+          "size": 18,
+          "lh": 1.4,
+          "weight": 400,
+          "ls": "-0.18px"
+        },
+        {
+          "token": "body",
+          "size": 16,
+          "lh": 1.5,
+          "weight": 400,
+          "ls": "0"
+        }
+      ]
+    },
+    "spacing": {
+      "base": 4,
+      "scale": [
+        4,
+        8,
+        12,
+        16,
+        24,
+        32,
+        48,
+        64,
+        80,
+        96
+      ]
+    },
+    "surfaces": {
+      "radius": {
+        "sm": 4,
+        "md": 8,
+        "lg": 12,
+        "pill": 9999
+      }
+    },
+    "layout": {
+      "container": 1200,
+      "paragraph": 680,
+      "columns": 12,
+      "gutter": 24,
+      "breakpoints": [
+        768,
+        1024
+      ]
+    },
+    "motion": {
+      "durations": {
+        "micro": 150,
+        "small": 300,
+        "medium": 500
+      },
+      "easing": "cubic-bezier(0.4, 0, 0.2, 1)"
+    }
+  },
+  "spec_i18n": {
+    "en": {
+      "identity": {
+        "keywords": [
+          "incident response",
+          "SRE",
+          "AI",
+          "reliability",
+          "operations"
+        ],
+        "analogy": "A refined control room for engineering teams, blending serious operational focus with approachable clarity.",
+        "oneLiner": "The modern, all-in-one AI platform for incident management and on-call, designed for fast-moving engineering teams."
+      },
+      "colors": {
+        "principle": "A primarily monochrome base of deep ink and warm whites, anchored by a single high-chroma brand orange used strictly for primary actions and critical highlights."
+      },
+      "typography": {
+        "rules": [
+          "Use STKBureauSerif or similar transitional-serif for large display and editorial headlines.",
+          "Use STKBureauSans or similar geometric-sans for all UI elements, navigation, and body copy.",
+          "Ensure tight letter-spacing and high contrast for maximum readability against the warm backgrounds."
+        ],
+        "scaleUses": [
+          "Hero headline",
+          "Section headlines",
+          "Subheadings and lead paragraphs",
+          "General body text"
+        ]
+      },
+      "spacing": {
+        "rhythm": "Generous whitespace and vertical padding (often 80px+) create a calm, editorial rhythm that separates distinct content blocks."
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 4px 6px rgba(22, 22, 24, 0.04)",
+          "0px 8px 15px -3px rgba(22, 22, 24, 0.06)",
+          "0px 20px 50px -12px rgba(22, 22, 24, 0.16)"
+        ],
+        "borders": "1px solid rgba(22, 22, 24, 0.08)"
+      },
+      "layout": {
+        "skeleton": "A standard 12-column centered grid with wide margins, providing an open, spacious canvas for the product showcase."
+      },
+      "components": {
+        "button": "A highly differentiated system featuring a bold, pill-shaped orange primary button for 'Get a demo' and a contrasting dark or outlined secondary button for 'Start a free trial'.",
+        "card": "Clean, rounded cards (typically 12px radius) with subtle shadows or thin borders, often used to frame product UI screenshots or customer quotes.",
+        "chip": "Small, pill-shaped badges (often with a colored dot) used for categorizing content, such as the 'AI SRE' feature tag.",
+        "input": "Minimalist input fields with thin borders, relying on standard system styling but maintaining the overall geometric aesthetic.",
+        "hero": "A massive, centered layout anchored by a large serif headline, a concise sub-headline, prominent dual CTA buttons, and overlapping product interface mockups."
+      },
+      "motion": {
+        "patterns": [
+          "Smooth 150ms transitions for standard UI interactions like color, opacity, and transform.",
+          "The headline word 'fast' features a subtle horizontal glitch/echo effect to dynamically represent velocity and breaking things."
+        ]
+      },
+      "interaction": {
+        "hover": "Standard 150ms transitions for color and opacity changes on interactive elements, maintaining a fluid feel without distracting from the content.",
+        "click": "Immediate visual feedback via standard button states, relying on subtle opacity or shadow shifts.",
+        "transition": "All transitions utilize a standard 0.15s cubic-bezier(0.4, 0, 0.2, 1) curve for consistent, modern easing.",
+        "keyboard": "Standard focus management and tab order for accessibility, visually indicated by browser-default or subtle custom outlines."
+      },
+      "voice": {
+        "tone": "Confident, direct, and technically authoritative, yet approachable and clearly designed for fast-moving engineering teams.",
+        "headlineStyle": "Punchy, action-oriented headlines, sometimes featuring expressive typography (like the 'fast' glitch) to emphasize the core value proposition.",
+        "ctaStyle": "Highly contrasting and action-oriented. 'Get a demo' is the primary, high-chroma call to action, while 'Start a free trial' is a more subdued secondary option.",
+        "avoid": [
+          "Corporate jargon",
+          "Overly complex technical jargon",
+          "Passive or hesitant language",
+          "Decorative fonts outside of display text"
+        ]
+      },
+      "donts": [
+        "Don't use generic sans-serif headlines — screenshot shows a prominent transitional-serif font for display text.",
+        "Don't use muted, desaturated accent colors — screenshot shows a bold, high-chroma orange as the primary action color.",
+        "Don't use sharp, 0px border-radius on interactive elements — screenshot shows a mix of 8px, 12px, and pill shapes.",
+        "Don't use dense, cramped layouts — screenshot shows generous whitespace and an editorial rhythm.",
+        "Don't use multiple competing high-chroma colors — screenshot shows a primarily monochrome palette with a single dominant orange accent.",
+        "Don't rely solely on static text for emphasis — screenshot shows expressive typography effects (glitch) to convey meaning."
+      ],
+      "systemPrompt": "incident.io is a developer-focused SaaS platform for incident management, positioned as a modern, all-in-one solution. The design DNA is defined by a primary white (#FFFFFF) and warm off-white (#F8F5F0) background paired with a deep ink (#161618) for text, anchored by a single, bold, high-chroma orange (#F25533) used strictly for primary actions and critical highlights. Typography is a sophisticated mix, utilizing a transitional-serif for large display/headline text and a clean geometric-sans for all body copy and UI elements. Critical design rules include maintaining generous whitespace and editorial rhythm, ensuring strict color discipline (monochrome base + one accent), and using a distinct component shape system. Never use generic sans-serif headlines, use multiple competing high-chroma accent colors, or create dense, cramped layouts. Always frame the product with a confident, technically authoritative, yet approachable voice."
+    },
+    "zh-CN": {
+      "identity": {
+        "keywords": [
+          "事件响应",
+          "SRE",
+          "AI",
+          "可靠性",
+          "运维"
+        ],
+        "analogy": "为工程团队打造的精致控制室，将严肃的运维焦点与亲切的清晰度融为一体。",
+        "oneLiner": "面向快速迭代工程团队的现代化、一体化AI事件管理与值班平台。"
+      },
+      "colors": {
+        "principle": "以深墨色和温暖米白色为基础的单色系，以单一的高饱和度品牌橙色作为锚点，严格用于主要操作和关键强调。"
+      },
+      "typography": {
+        "rules": [
+          "对于大号展示和编辑类标题，使用STKBureauSerif或类似的过渡衬线体。",
+          "对于所有UI元素、导航和正文，使用STKBureauSans或类似的几何无衬线体。",
+          "确保字间距紧凑、对比度高，以在温暖背景上获得最佳可读性。"
+        ],
+        "scaleUses": [
+          "首屏主标题",
+          "章节标题",
+          "副标题和导语文本",
+          "通用正文"
+        ]
+      },
+      "spacing": {
+        "rhythm": "宽裕的留白和垂直内边距（通常为80px以上）营造出一种平静、富有编辑感的节奏，将不同的内容区块清晰分隔。"
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 4px 6px rgba(22, 22, 24, 0.04)",
+          "0px 8px 15px -3px rgba(22, 22, 24, 0.06)",
+          "0px 20px 50px -12px rgba(22, 22, 24, 0.16)"
+        ],
+        "borders": "1px solid rgba(22, 22, 24, 0.08)"
+      },
+      "layout": {
+        "skeleton": "采用标准的12列居中网格，带有宽边距，为产品展示提供开阔、宽敞的画布。"
+      },
+      "components": {
+        "button": "一个高度差异化的系统，采用大胆的药丸形橙色主按钮用于‘获取演示’，以及对比强烈的深色或描边次级按钮用于‘开始免费试用’。",
+        "card": "简洁、圆角的卡片（通常为12px圆角），带有细微阴影或细边框，常用于展示产品界面截图或客户引言。",
+        "chip": "小型的药丸形徽章（常带有一个彩色圆点），用于对内容进行分类，例如‘AI SRE’功能标签。",
+        "input": "极简的输入框，带有细边框，遵循标准系统样式，但保持整体的几何美学。",
+        "hero": "一个巨大的、居中的布局，以一个大号衬线体标题、简洁的副标题、突出的双CTA按钮以及重叠的产品界面模型图为核心。"
+      },
+      "motion": {
+        "patterns": [
+          "标准UI交互（如颜色、透明度和变换）使用平滑的150毫秒过渡。",
+          "标题中的‘fast’一词带有微妙的水平故障/回声效果，动态地表现其速度感和突破性。"
+        ]
+      },
+      "interaction": {
+        "hover": "交互元素在颜色和透明度变化时采用标准的150毫秒过渡，保持流畅感而不分散对内容的注意力。",
+        "click": "通过标准按钮状态提供即时视觉反馈，依赖于细微的透明度或阴影变化。",
+        "transition": "所有过渡均使用标准的0.15秒 cubic-bezier(0.4, 0, 0.2, 1) 曲线，以实现一致、现代的缓动效果。",
+        "keyboard": "标准的焦点管理和标签顺序以确保可访问性，通过浏览器默认或细微的自定义轮廓进行视觉指示。"
+      },
+      "voice": {
+        "tone": "自信、直接且技术权威，同时亲切易懂，专为快速迭代的工程团队设计。",
+        "headlineStyle": "有力、行动导向的标题，有时采用富有表现力的排版（如‘fast’的故障效果）来强调核心价值主张。",
+        "ctaStyle": "高对比度且行动导向。‘获取演示’是主要的、高饱和度的行动号召，而‘开始免费试用’则是更克制的次级选项。",
+        "avoid": [
+          "企业套话",
+          "过于复杂的技术术语",
+          "被动或犹豫的语言",
+          "装饰性字体（仅限展示文本）"
+        ]
+      },
+      "donts": [
+        "不要使用通用的无衬线体标题——截图显示展示文本使用了醒目的过渡衬线字体。",
+        "不要使用柔和、低饱和度的强调色——截图显示使用了大胆、高饱和度的橙色作为主要操作色。",
+        "不要在交互元素上使用尖锐的0px边框圆角——截图显示了8px、12px和药丸形的混合使用。",
+        "不要使用密集、拥挤的布局——截图显示了宽裕的留白和编辑感节奏。",
+        "不要使用多个相互竞争的高饱和度颜色——截图显示了以单色为主的设计体系，仅有一个主导的橙色强调色。",
+        "不要仅依靠静态文本进行强调——截图显示使用了富有表现力的排版效果（故障动画）来传达含义。"
+      ],
+      "systemPrompt": "incident.io是一个面向开发者的SaaS事件管理平台，定位为现代化的、一体化的解决方案。其设计DNA定义为以白色（#FFFFFF）和温暖米白色（#F8F5F0）为主的背景，搭配深墨色（#161618）的文字，并以单一、大胆、高饱和度的橙色（#F25533）作为锚点，严格用于主要操作和关键强调。排版是复杂的混合体，大号展示/标题文本使用过渡衬线体，所有正文和UI元素使用简洁的几何无衬线体。关键设计规则包括保持宽裕的留白和编辑节奏，遵循严格的色彩规范（单色基底+一个强调色），以及使用独特的组件形状系统。切勿使用通用的无衬线体标题，使用多个相互竞争的高饱和度强调色，或创建密集、拥挤的布局。始终以自信、技术权威且亲切的语调来呈现产品。"
+    },
+    "zh-TW": {
+      "identity": {
+        "keywords": [
+          "事件回應",
+          "SRE",
+          "AI",
+          "可靠性",
+          "營運"
+        ],
+        "analogy": "一個為工程團隊打造的精煉控制室，融合嚴肅的營運專注與平易近人的清晰度。",
+        "oneLiner": "現代、全方位的 AI 平台，用於事件管理與值勤，專為節奏快速的工程團隊設計。"
+      },
+      "colors": {
+        "principle": "以深邃墨黑與溫潤米白為主的單色系基調，輔以單一、高飽和度的品牌橘，嚴格用於主要操作與關鍵提示。"
+      },
+      "typography": {
+        "rules": [
+          "使用 STKBureauSerif 或類似的過渡襯線體作為大型展示與編輯標題。",
+          "使用 STKBureauSans 或類似的幾何無襯線體作為所有介面元素、導覽與內文。",
+          "確保緊湊的字距與高對比度，以在溫潤的背景上達到最佳可讀性。"
+        ],
+        "scaleUses": [
+          "首頁大標題",
+          "章節標題",
+          "子標題與導言段落",
+          "一般內文"
+        ]
+      },
+      "spacing": {
+        "rhythm": "寬裕的留白與垂直間距（通常為 80px 以上）營造沉靜、有如編輯設計的節氣，分隔不同的內容區塊。"
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 4px 6px rgba(22, 22, 24, 0.04)",
+          "0px 8px 15px -3px rgba(22, 22, 24, 0.06)",
+          "0px 20px 50px -12px rgba(22, 22, 24, 0.16)"
+        ],
+        "borders": "1px solid rgba(22, 22, 24, 0.08)"
+      },
+      "layout": {
+        "skeleton": "標準的 12 欄置中網格，帶有寬邊距，提供開闊、寬敞的畫布用於產品展示。"
+      },
+      "components": {
+        "button": "高度差異化的按鈕系統，主要採用大膽、藥丸狀的橘色按鈕用於「取得展示」，對比的深色或描邊次要按鈕用於「開始免費試用」。",
+        "card": "簡潔、圓角的卡片（通常為 12px 圓角），搭配細微陰影或細邊框，常用於框住產品介面截圖或客戶引言。",
+        "chip": "小型、藥丸狀的標籤（通常帶有彩色圓點），用於內容分類，例如「AI SRE」功能標籤。",
+        "input": "極簡的輸入欄位，採用細邊框，依賴標準系統樣式但維持整體的幾何美學。",
+        "hero": "大尺寸、置中的佈局，以大型襯線標題、簡潔副標題、顯眼的雙重號召按鈕，以及重疊的產品介面模型為核心。"
+      },
+      "motion": {
+        "patterns": [
+          "標準介面互動（如顏色、透明度、變形）採用流暢的 150ms 過渡效果。",
+          "標題文字「fast」帶有細微的水平 glitch/回音效果，動態地表現速度與突破性。"
+        ]
+      },
+      "interaction": {
+        "hover": "互動元素的顏色與透明度變化採用標準的 150ms 過渡效果，維持流暢感而不分散內容注意力。",
+        "click": "透過標準按鈕狀態提供即時視覺回饋，依賴細微的透明度或陰影變化。",
+        "transition": "所有過渡效果均使用標準的 0.15s cubic-bezier(0.4, 0, 0.2, 1) 曲線，以達成一致、現代的緩動效果。",
+        "keyboard": "標準的焦點管理與 Tab 順序以利無障礙訪問，視覺上由瀏覽器預設或細微的自訂外框標示。"
+      },
+      "voice": {
+        "tone": "自信、直接且具技術權威性，同時平易近人，明顯為節奏快速的工程團隊所設計。",
+        "headlineStyle": "強而有力、以行動為導向的標題，有時會使用富有表現力的排版（如「fast」的 glitch 效果）來強調核心價值主張。",
+        "ctaStyle": "高度對比且以行動為導向。「取得展示」是主要的、高飽和度的號召行動，而「開始免費試用」則是較為含蓄的次要選項。",
+        "avoid": [
+          "企業行話",
+          "過於複雜的技術術語",
+          "被動或猶豫的語言",
+          "用於展示文字之外的裝飾性字體"
+        ]
+      },
+      "donts": [
+        "不要使用通用的無襯線體標題 —— 截圖顯示展示文字使用了顯著的過渡襯線體。",
+        "不要使用柔和、低飽和度的強調色 —— 截圖顯示使用大膽、高飽和度的橘色作為主要操作色彩。",
+        "不要在互動元素上使用尖銳的 0px border-radius —— 截圖顯示混用了 8px、12px 與藥丸狀造型。",
+        "不要使用擁擠、密集的佈局 —— 截圖顯示寬裕的留白與編輯設計的節奏。",
+        "不要使用多個相互競爭的高飽和度色彩 —— 截圖顯示以單一主導的橘色強調色搭配單色系調色盤。",
+        "不要僅依賴靜態文字來強調 —— 截圖顯示使用了富有表現力的排版效果（glitch）來傳達意義。"
+      ],
+      "systemPrompt": "incident.io 是一個以開發者為中心的 SaaS 平台，用於事件管理，定位為現代、全方位的解決方案。其設計 DNA 以白色（#FFFFFF）與溫潤米白（#F8F5F0）為主要背景，搭配深邃墨黑（#161618）作為文字，輔以單一、大膽、高飽和度的橘色（#F25533），嚴格用於主要操作與關鍵提示。排版採用精緻的混合方式，大型展示/標題文字使用過渡襯線體，所有內文與介面元素則使用簡潔的幾何無襯線體。關鍵設計規則包括：維持寬裕的留白與編輯設計的節奏、嚴格遵守色彩規範（單色基調 + 單一強調色），以及使用獨特的元件形狀系統。切勿使用通用的無襯線體標題、使用多個相互競爭的高飽和度強調色，或創造擁擠、密集的佈局。始終以自信、具技術權威性但平易近人的語氣來框架產品。"
+    },
+    "ja": {
+      "identity": {
+        "keywords": [
+          "インシデント対応",
+          "SRE",
+          "AI",
+          "信頼性",
+          "運用"
+        ],
+        "analogy": "エンジニアリングチームのための洗練された制御室。真剣な運用への焦点と、親しみやすさのある明瞭さを融合させています。",
+        "oneLiner": "インシデント管理とオンコールのための、最新のオールインワンAIプラットフォーム。スピードの速いエンジニアリングチームのために設計されています。"
+      },
+      "colors": {
+        "principle": "インクの深い色と暖かいホワイトを基調としたモノクロ中心のベース。プライマリアクションと重要なハイライトにのみ使用される、単一の高彩度ブランドオレンジでアクセントを加えています。"
+      },
+      "typography": {
+        "rules": [
+          "STKBureauSerifまたは類似のトランジショナルセリフを、大きなディスプレイ用やエディトリアルな見出しに使用します。",
+          "STKBureauSansまたは類似のジオメトリックサンセリフを、すべてのUI要素、ナビゲーション、および本文に使用します。",
+          "暖かい背景に対して最大限の可読性を確保するため、文字間隔をタイトにし、コントラストを高くします。"
+        ],
+        "scaleUses": [
+          "ヒーロー見出し",
+          "セクション見出し",
+          "サブヘッドラインとリード段落",
+          "一般本文"
+        ]
+      },
+      "spacing": {
+        "rhythm": "たっぷりとした余白と縦方向のパディング（しばしば80px以上）が、異なるコンテンツブロックを分離する、落ち着いたエディトリアルなリズムを生み出します。"
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 4px 6px rgba(22, 22, 24, 0.04)",
+          "0px 8px 15px -3px rgba(22, 22, 24, 0.06)",
+          "0px 20px 50px -12px rgba(22, 22, 24, 0.16)"
+        ],
+        "borders": "1px solid rgba(22, 22, 24, 0.08)"
+      },
+      "layout": {
+        "skeleton": "幅広いマージンを備えた標準の12カラムセンターグリッド。製品紹介のための開放的で広々としたキャンバスを提供します。"
+      },
+      "components": {
+        "button": "「デモを依頼」のための大胆なピル型オレンジプライマリボタンと、「無料トライアルを開始」のためのコントラストの効いたダークまたはアウトラインセカンダリボタンを備えた、高度に差別化されたシステム。",
+        "card": "製品UIのスクリーンショットや顧客の引用をフレームによく使われる、クリーンで角丸（一般的に12px半径）のカード。繊細なシャドウや細いボーダーが特徴です。",
+        "chip": "「AI SRE」機能タグなど、コンテンツを分類するために使用される、小さなピル型バッジ（しばしば色付きドット付き）。",
+        "input": "標準のシステムスタイルに依存しつつ、全体的なジオメトリックな美学を維持する、細いボーダーのミニマリストな入力フィールド。",
+        "hero": "大きなセリフ見出し、簡潔なサブヘッドライン、目立つデュアルCTAボタン、および重なった製品インターフェースのモックアップを基盤とする、巨大なセンターレイアウト。"
+      },
+      "motion": {
+        "patterns": [
+          "色、不透明度、トランスフォームなどの標準的なUIインタラクションのための、滑らかな150ミリ秒のトランジション。",
+          "見出しの単語「fast」には、速度や破壊的な変化を動的に表現するための、繊細な水平グリッチ/エコー効果が施されています。"
+        ]
+      },
+      "interaction": {
+        "hover": "インタラクティブ要素の色や不透明度の変更のための標準的な150ミリ秒のトランジション。コンテンツから注意をそらさずに、流れるような感覚を維持します。",
+        "click": "標準的なボタン状態による即座の視覚フィードバック。繊細な不透明度やシャドウの変化に依存します。",
+        "transition": "すべてのトランジションは、一貫したモダンなイージングのための標準的な0.15s cubic-bezier(0.4, 0, 0.2, 1)カーブを使用します。",
+        "keyboard": "アクセシビリティのための標準的なフォーカス管理とタブ順序。ブラウザデフォルトまたは繊細なカスタムアウトラインで視覚的に示されます。"
+      },
+      "voice": {
+        "tone": "自信があり、直接的で、技術的に権威がありながらも親しみやすく、明確にスピードの速いエンジニアリングチーム向けに設計されています。",
+        "headlineStyle": "力強く、行動を促す見出し。コアバリュー・プロポジションを強調するために、（「fast」グリッチのような）表現力豊かなタイポグラフィを特徴とすることがあります。",
+        "ctaStyle": "コントラストが高く、行動を志向しています。「デモを依頼」がプライマリで高彩度のCTA、「無料トライアルを開始」がより控えめなセカンダリオプションです。",
+        "avoid": [
+          "企業スラング",
+          "過度に複雑な技術用語",
+          "受動的またはためらうような言葉",
+          "ディスプレイテキスト以外の装飾的フォント"
+        ]
+      },
+      "donts": [
+        "一般的なサンセリフ見出しを使用しないでください — スクリーンショットにはディスプレイテキスト用の目立つトランジショナルセリフフォントが示されています。",
+        "くすんだ、彩度の低いアクセントカラーを使用しないでください — スクリーンショットには、プライマリアクションカラーとして大胆で高彩度のオレンジが示されています。",
+        "インタラクティブ要素に鋭い、0pxのボーダー半径を使用しないでください — スクリーンショットには8px、12px、ピル型の混在が示されています。",
+        "密度が高く、ぎゅうぎゅう詰めのレイアウトを使用しないでください — スクリーンショットにはたっぷりとした余白とエディトリアルなリズムが示されています。",
+        "複数の競合する高彩度カラーを使用しないでください — スクリーンショットには、単一の支配的なオレンジアクセントを備えた、ほぼモノクロのカラーパレットが示されています。",
+        "強調のために静的なテキストのみに依存しないでください — スクリーンショットには、意味を伝えるための表現力豊かなタイポグラフィエフェクト（グリッチ）が示されています。"
+      ],
+      "systemPrompt": "incident.ioはインシデント管理のための開発者向けSaaSプラットフォームで、最新のオールインワンソリューションとしてポジショニングされています。デザインのDNAは、プライマリホワイト（#FFFFFF）と暖かいオフホワイト（#F8F5F0）の背景、テキスト用のインクの深い色（#161618）で定義され、プライマリアクションと重要なハイライトにのみ使用される、大胆で高彩度のオレンジ（#F25533）でアクセントを加えています。タイポグラフィは洗練されたミックスで、大きなディスプレイ/見出しテキストにトランジショナルセリフ、本文コピーとすべてのUI要素にクリーンなジオメトリックサンセリフを使用しています。重要なデザインルールには、たっぷりとした余白とエディトリアルなリズムの維持、厳密なカラーディシプリン（モノクロベース＋単一アクセント）の確保、そして独自のコンポーネント形状システムの使用が含まれます。一般的なサンセリフ見出しの使用、複数の競合する高彩度アクセントカラーの使用、密度の高くぎゅうぎゅう詰めのレイアウトの作成は絶対に避けてください。常に、自信があり技術的に権威がありながらも親しみやすい声で製品をフレーミングしてください。"
+    },
+    "ko": {
+      "identity": {
+        "keywords": [
+          "사고 대응",
+          "SRE",
+          "AI",
+          "신뢰성",
+          "운영"
+        ],
+        "analogy": "심각한 운영적 초점과 접근 가능한 명확함을 조화시킨, 엔지니어링 팀을 위한 정제된 제어실입니다.",
+        "oneLiner": "빠르게 움직이는 엔지니어링 팀을 위해 설계된, 사고 관리 및 온콜을 위한 현대적인 올인원 AI 플랫폼입니다."
+      },
+      "colors": {
+        "principle": "깊은 잉크와 따뜻한 화이트를 기반으로 한 단색, 엄격히 주요 액션과 중요 하이라이트에만 사용되는 고채도의 단일 브랜드 오렌지로 중심을 잡고 있습니다."
+      },
+      "typography": {
+        "rules": [
+          "대형 디스플레이 및 편집 헤드라인에는 STKBureauSerif 또는 유사한 전환형 세리프를 사용합니다.",
+          "모든 UI 요소, 내비게이션, 본문 텍스트에는 STKBureauSans 또는 유사한 기하학적 산세리프를 사용합니다.",
+          "따뜻한 배경에 대한 최대 가독성을 위해 타이트한 자간과 높은 대비를 유지합니다."
+        ],
+        "scaleUses": [
+          "히어로 헤드라인",
+          "섹션 헤드라인",
+          "소제목 및 도입부 단락",
+          "일반 본문 텍스트"
+        ]
+      },
+      "spacing": {
+        "rhythm": "풍부한 여백과 수직 패딩(보통 80px+)이 차분한 편집 리듬을 만들어 뚜렷한 콘텐츠 블록을 분리합니다."
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 4px 6px rgba(22, 22, 24, 0.04)",
+          "0px 8px 15px -3px rgba(22, 22, 24, 0.06)",
+          "0px 20px 50px -12px rgba(22, 22, 24, 0.16)"
+        ],
+        "borders": "1px solid rgba(22, 22, 24, 0.08)"
+      },
+      "layout": {
+        "skeleton": "넓은 마진을 둔 표준 12열 중앙 정렬 그리드로, 제품 쇼케이스를 위한 개방적이고 넉넉한 캔버스를 제공합니다."
+      },
+      "components": {
+        "button": "'데모 신청'을 위한 굵은 타원형 오렌지 주요 버튼과 '무료 체험 시작'을 위한 대비되는 다크 또는 아웃라인 보조 버튼으로 구성된高度差別화된 시스템입니다.",
+        "card": "미세한 그림자나 얇은 테두리가 있는 깔끔하고 둥근 카드(보통 12px radius)로, 주로 제품 UI 스크린샷이나 고객 인용문을 프레임하는 데 사용됩니다.",
+        "chip": "'AI SRE' 기능 태그와 같이 콘텐츠를 분류하는 데 사용되는 작은 타원형 뱃지(보통 색상 점 포함)입니다.",
+        "input": "얇은 테두리를 가진 미니멀리스트 입력 필드로, 표준 시스템 스타일을 따르되 전체적인 기하학적 미학을 유지합니다.",
+        "hero": "큰 세리프 헤드라인, 간결한 서브 헤드라인, 두드러진 이중 CTA 버튼, 그리고 겹쳐진 제품 인터페이스 모형으로 중심을 잡은 거대한 중앙 정렬 레이아웃입니다."
+      },
+      "motion": {
+        "patterns": [
+          "색상, 불투명도, 변환과 같은 표준 UI 상호작용을 위한 매끄러운 150ms 전환.",
+          "헤드라인 단어 'fast'에는 속도와 파괴적 혁신을 역동적으로 표현하기 위한 미세한 수평 글리치/에코 효과가 적용됩니다."
+        ]
+      },
+      "interaction": {
+        "hover": "인터랙티브 요소의 색상과 불투명도 변화를 위한 표준 150ms 전환으로, 콘텐츠에서 주의를 분산시키지 않으면서 유동적인 느낌을 유지합니다.",
+        "click": "미세한 불투명도나 그림자 변화에 의존하는 표준 버튼 상태를 통한 즉각적인 시각적 피드백입니다.",
+        "transition": "모든 전환은 일관되고 현대적인 완충을 위해 표준 0.15s cubic-bezier(0.4, 0, 0.2, 1) 커브를 사용합니다.",
+        "keyboard": "접근성을 위한 표준 포커스 관리와 탭 순서로, 브라우저 기본값 또는 미세한 커스텀 윤곽선으로 시각적으로 표시됩니다."
+      },
+      "voice": {
+        "tone": "자신감 있고 직접적이며 기술적으로 권위 있지만, 접근 가능하며 명확하게 빠르게 움직이는 엔지니어링 팀을 위해 설계되었습니다.",
+        "headlineStyle": "강력하고 행동 지향적인 헤드라인으로, 때로는 핵심 가치 제안을 강조하기 위해 표현적 타이포그래피('fast' 글리치 등)를 사용합니다.",
+        "ctaStyle": "높은 대비와 행동 지향적입니다. '데모 신청'이 주요 고채도 CTA이고, '무료 체험 시작'은 더 절제된 보조 옵션입니다.",
+        "avoid": [
+          "기업 관용어",
+          "지나치게 복잡한 기술 용어",
+          "수동적이거나 망설이는 어조",
+          "디스플레이 텍스트 외의 장식적 폰트"
+        ]
+      },
+      "donts": [
+        "일반적인 산세리프 헤드라인을 사용하지 마세요 — 스크린샷은 디스플레이 텍스트에 두드러진 전환형 세리프 폰트를 보여줍니다.",
+        "은은하고 채도 낮은 강조 색상을 사용하지 마세요 — 스크린샷은 주요 액션 색상으로 굵고 고채도의 오렌지를 보여줍니다.",
+        "인터랙티브 요소에 날카로운 0px 테두리 반경을 사용하지 마세요 — 스크린샷은 8px, 12px, 타원형이 혼합된 것을 보여줍니다.",
+        "밀집하고 비좁은 레이아웃을 사용하지 마세요 — 스크린샷은 풍부한 여백과 편집 리듬을 보여줍니다.",
+        "경쟁하는 고채도 색상을 여러 개 사용하지 마세요 — 스크린샷은 단일 지배적 오렌지 강조색을 가진 주로 단색 팔레트를 보여줍니다.",
+        "강조를 위해 정적 텍스트에만 의존하지 마세요 — 스크린샷은 의미를 전달하기 위한 표현적 타이포그래피 효과(글리치)를 보여줍니다."
+      ],
+      "systemPrompt": "incident.io는 사고 관리를 위한 개발자 중심 SaaS 플랫폼으로, 현대적인 올인원 솔루션으로 포지셔닝하고 있습니다. 디자인 DNA는 주요 흰색(#FFFFFF)과 따뜻한 오프 화이트(#F8F5F0) 배경, 본문을 위한 깊은 잉크(#161618), 그리고 엄격히 주요 액션과 중요 하이라이트에만 사용되는 단 하나의 굵고 고채도의 오렌지(#F25533)로 정의됩니다. 타이포그래피는 정교한 혼합으로, 대형 디스플레이/헤드라인 텍스트에는 전환형 세리프를, 모든 본문 텍스트와 UI 요소에는 깔끔한 기하학적 산세리프를 사용합니다. 핵심 디자인 규칙으로는 풍부한 여백과 편집 리듬 유지, 엄격한 색상 규율(단색 기반 + 단일 강조색) 준수, 그리고 뚜렷한 컴포넌트 모양 시스템 사용이 포함됩니다. 절대로 일반적인 산세리프 헤드라인을 사용하지 말고, 여러 경쟁하는 고채도 강조 색상을 사용하거나 밀집하고 비좁은 레이아웃을 만들지 마세요. 항상 자신감 있고 기술적으로 권위적이지만 접근 가능한 어조로 제품을 프레이밍하세요."
+    }
+  },
+  "desc": {
+    "en": {
+      "palette": "A refined, primarily monochrome palette of deep ink and warm off-whites, anchored by a single, bold, high-chroma brand orange used strictly for primary actions and highlights.",
+      "layout": "A standard 12-column centered grid with generous whitespace, creating a calm, editorial rhythm that allows large typography and product UI to breathe.",
+      "interaction": "Standard, fluid 150ms transitions for UI elements, supplemented by expressive typographic effects like the 'fast' glitch to emphasize dynamic product value.",
+      "motion": "Subtle, fast transitions (150ms) maintain a responsive feel, while larger, expressive animations are reserved for key editorial elements in the hero section.",
+      "notes": "The site is worth including for its masterful blend of editorial typography (transitional-serif) and clean, modern SaaS UI patterns, creating a distinctive and authoritative brand identity."
+    },
+    "zh-CN": {
+      "palette": "一个精致的、以单色为主的设计体系，由深墨色和温暖的米白色构成，以一个大胆、高饱和度的品牌橙色作为锚点，严格用于主要操作和强调。",
+      "layout": "采用标准的12列居中网格，搭配宽裕的留白，营造出一种平静、富有编辑感的节奏，让大号排版和产品界面得以充分呼吸。",
+      "interaction": "为UI元素提供标准的、流畅的150毫秒过渡效果，并辅以富有表现力的排版效果（如‘fast’一词的故障动画），以突出产品的动态价值。",
+      "motion": "细微、快速的过渡（150毫秒）保持响应感，而更大、更具表现力的动画则保留给首屏的关键编辑元素。",
+      "notes": "该网站值得参考，因为它巧妙地融合了编辑排版（过渡衬线体）和简洁、现代的SaaS界面模式，创造了一个独特且权威的品牌形象。"
+    },
+    "zh-TW": {
+      "palette": "精煉的單色系調色盤，以深邃墨黑與溫潤米白為主，輔以單一、大膽、高飽和度的品牌橘，僅用於主要操作與重點提示。",
+      "layout": "標準的 12 欄置中網格，搭配寬裕的留白，營造沉靜、有如編輯設計的節奏，讓大字體與產品介面得以呼吸。",
+      "interaction": "流暢的 150ms 標準過渡效果用於介面元素，輔以富有表現力的排版特效，如「fast」一詞的 glitch 效果，以強調動態的產品價值。",
+      "motion": "細微、快速的過渡（150ms）維持回應感，而較大、富有表現力的動畫則保留給首頁區域的關鍵編輯元素。",
+      "notes": "此網站值得參照，因其將編輯排版（過渡襯線體）與簡潔、現代的 SaaS 介面模式巧妙融合，塑造出獨特且具權威性的品牌識別。"
+    },
+    "ja": {
+      "palette": "インクの深い色と暖かいオフホワイトを基調とした、洗練されたモノクロ中心のカラーパレット。プライマリアクションとハイライトにのみ使用される、大胆で高彩度のブランドオレンジでアクセントを加えています。",
+      "layout": "余白をたっぷりと確保した、標準の12カラムセンターグリッド。落ち着いたエディトリアルなリズムを生み出し、大きなタイポグラフィや製品UIが息を吹き込める空間を提供します。",
+      "interaction": "UI要素のための標準的で流れるような150ミリ秒のトランジション。製品の動的な価値を強調するために、「fast」グリッチのような表現力豊かなタイポグラフィエフェクトで補完されます。",
+      "motion": "繊細で高速なトランジション（150ミリ秒）が応答性を維持し、より大きく表現力のあるアニメーションは、ヒーローセクションの主要なエディトリアル要素にのみ使用されます。",
+      "notes": "このサイトは、エディトリアルなタイポグラフィ（トランジショナルセリフ）とクリーンでモダンなSaaS UIパターンの見事な融合により、独自で権威のあるブランドアイデンティティを生み出しているため、取り入れる価値があります。"
+    },
+    "ko": {
+      "palette": "깊은 잉크와 따뜻한 오프 화이트를 주로 사용한 정제된 단색 팔레트입니다. 엄격히 주요 액션과 하이라이트에만 사용되는 단 하나의 굵고 고채도의 브랜드 오렌지로 중심을 잡고 있습니다.",
+      "layout": "풍부한 여백을 둔 표준 12열 중앙 정렬 그리드로, 차분한 편집 리듬을 만들어 대형 타이포그래피와 제품 UI에 숨 쉴 틈을 제공합니다.",
+      "interaction": "UI 요소를 위한 표준적이고 유동적인 150ms 전환, 그리고 역동적인 제품 가치를 강조하기 위한 'fast' 글리치와 같은 표현적인 타이포그래피 효과로 보완됩니다.",
+      "motion": "미세하고 빠른 전환(150ms)이 반응감을 유지하는 반면, 더 크고 표현적인 애니메이션은 히어로 섹션의 핵심 편집 요소에만 사용됩니다.",
+      "notes": "이 사이트는 전환형 세리프(transitional-serif) 편집 타이포그래피와 깔끔한 현대적 SaaS UI 패턴의 탁월한 조화를 통해 독특하고 권위 있는 브랜드 아이덴티티를 만들어내어 포함할 가치가 있습니다."
+    }
+  },
+  "_meta": {
+    "vision_model": "mimo-v2.5",
+    "vision_prompt_version": "0.3",
+    "vision_source": "playwright-extract:incident",
+    "vision_grounded": true,
+    "vision_at": "2026-06-04T15:57:49+00:00",
+    "vision_tokens": 17694,
+    "vision_cost_usd": 0.1966,
+    "translation_model": "mimo-v2.5",
+    "translation_at": "2026-06-04T15:59:29+00:00",
+    "translation_tokens": 21410,
+    "translation_cost_usd": 0.0714,
+    "narrative_model": "mimo-v2.5",
+    "narrative_prompt_version": "0.3",
+    "narrative_at": "2026-06-04T15:59:37+00:00",
+    "narrative_tokens": 2496,
+    "narrative_cost_usd": 0.0166,
+    "narrative_status": "ok",
+    "total_cost_usd": 0.2846
+  },
+  "narrative": {
+    "en": {
+      "ch1_intro": "The system's identity is that of a refined control room for engineering teams, where serious operational focus meets approachable clarity. It's built on the analogy of a calm, authoritative interface for managing chaos—much like a well-designed cockpit or command center.",
+      "ch2_intro": "The color system is one of disciplined restraint. A primarily monochrome base of deep ink and warm whites establishes a serious, editorial canvas, anchored by a single, high-chroma brand orange.",
+      "ch2_outro": "The principle is absolute color discipline: monochrome foundation, one deliberate accent for primary actions and critical highlights.",
+      "ch3_intro": "The typographic voice is defined by a deliberate contrast between voices: a transitional-serif, like STKBureauSerif, commands large editorial display, while a geometric-sans, like STKBureauSans, handles all functional UI. This pairing creates a hierarchy that is both authoritative and clean.",
+      "ch4_intro": "The vertical rhythm is built on generous whitespace, with padding often exceeding 80px to create distinct, calm separations between content blocks.",
+      "ch5_intro": "Depth is communicated through a system of soft, graduated shadows and a singular, thin border style. Surfaces appear to float subtly, defined by low-contrast borders and layered shadows rather than heavy outlines.",
+      "ch6_intro": "The layout skeleton is a standard 12-column centered grid with wide margins. This provides an open, spacious canvas designed to frame product showcases and editorial content without crowding.",
+      "ch7_intro": "Motion philosophy prioritizes fluid, immediate feedback for standard interactions, reserving expressive animation for key editorial moments. All UI transitions use a consistent, fast 150ms curve for a responsive, modern feel.",
+      "ch8_intro": "The editorial voice is confident, direct, and technically authoritative, tailored for fast-moving engineering teams. It avoids corporate jargon and passive language in favor of punchy, action-oriented headlines.",
+      "ch8_outro": "What the system deliberately omits is as defining as its inclusions: it forgoes decorative fonts outside display text, competing accent colors, and dense layouts."
+    },
+    "zh-CN": {
+      "ch1_intro": "该系统的身份定位是为工程团队打造的精致控制室，兼具严肃的操作专注度与易于理解的清晰度。它基于一个类比：一个用于管理复杂性的冷静、权威的界面——宛如设计精良的驾驶舱或指挥中心。",
+      "ch2_intro": "色彩体系体现着克制的纪律性。以深墨色和暖白色为主的单色基调，奠定严肃、编辑感的视觉画布，并由一个高饱和度的品牌橙色作为唯一锚点。",
+      "ch2_outro": "其原则是绝对的色彩纪律：单色基础，为首要操作和关键强调色保留一个刻意的选择。",
+      "ch3_intro": "字体风格通过两种字体的刻意对比来定义：一种过渡衬线体（如 STKBureauSerif）主导大型编辑展示，而一种几何无衬线体（如 STKBureauSans）则用于所有功能性界面。这种组合建立了既权威又清爽的层次结构。",
+      "ch4_intro": "垂直韵律建立在充足的留白之上，内边距通常超过 80px，以在内容块之间营造出清晰、宁静的分隔。",
+      "ch5_intro": "深度感通过一套柔和、渐变的阴影系统以及一种纤细、统一的边框样式来传达。界面表面呈现出微妙的浮动感，由低对比度的边框和层叠阴影，而非厚重的轮廓来定义。",
+      "ch6_intro": "布局骨架是一个标准的 12 列居中网格，带有宽边距。这提供了一个开放、宽敞的画布，旨在为产品展示和编辑内容提供框架，而不显拥挤。",
+      "ch7_intro": "动效理念优先考虑标准交互的流畅、即时反馈，将富有表现力的动画保留给关键的编辑时刻。所有界面过渡均使用一致、快速的 150ms 曲线，以营造响应迅速的现代感。",
+      "ch8_intro": "编辑风格自信、直接且具有技术权威性，专为快节奏的工程团队定制。它避免使用企业术语和被动语言，转而采用有力、行动导向的标题。",
+      "ch8_outro": "系统刻意省略的内容与其包含的内容同样具有定义性：它摒弃了展示文本之外的装饰性字体、相互冲突的强调色以及密集的布局。"
+    },
+    "zh-TW": {
+      "ch1_intro": "這套系統的識別特質，如同為工程團隊打造的精緻控制室，將嚴肅的營運專注與親切的清晰度完美結合。其設計基礎源自管理混沌的冷靜權威感介面——宛如精心設計的駕駛艙或指揮中心。",
+      "ch2_intro": "色彩系統體現了克制的紀律。以深墨色與暖白色為主的單色基調，構建出嚴謹的編輯畫布，並以單一高飽和度品牌橙色作為視覺錨點。",
+      "ch2_outro": "核心原則是絕對的色彩紀律：建立單色基調，僅使用一個經過深思熟慮的強調色處理主要操作與關鍵標示。",
+      "ch3_intro": "排版語氣透過字體對比來定義：過渡襯線體（如 STKBureauSerif）主導大型編輯展示，而幾何無襯線體（如 STKBureauSans）則處理所有功能性介面。這種組合建立了兼具權威感與簡潔性的層次結構。",
+      "ch4_intro": "垂直節奏建立在寬裕的留白基礎上，padding 常超過 80px，營造出內容區塊之間清晰而寧靜的間隔。",
+      "ch5_intro": "深度感透過柔和漸進的陰影系統與單一細邊框樣式來傳達。介面元素以低對比邊框與層疊陰影 subtly 浮現，而非依賴粗重的外框線條。",
+      "ch6_intro": "佈局骨架採用標準 12 欄置中格線搭配寬距邊距，提供開闊且寬敞的畫布，用於框顯產品展示與編輯內容而不顯擁擠。",
+      "ch7_intro": "動態設計哲學優先考慮流暢、即時的標準互動回饋，將表現性動畫保留給關鍵編輯時刻。所有介面過渡皆採用一致的快速 150ms 曲線，塑造靈敏且現代的體驗。",
+      "ch8_intro": "編輯語氣自信、直接且具技術權威感，專為高速運作的工程團隊量身打造。避免使用企業術語與被動語態，採用強而有力、行動導向的標題風格。",
+      "ch8_outro": "系統刻意排除的元素與納入的元素同等重要：省略展示文字以外的裝飾性字體、避免競爭性的強調色，並摒棄過度密集的佈局結構。"
+    },
+    "ja": {
+      "ch1_intro": "このシステムのアイデンティティは、エンジニアリングチームのための精緻な制御室であり、真剣な運用の焦点と親しみやすさが共存します。混沌を管理するための落ち着いた、権威あるインターフェースというアナロジーに基づいて構築されています—デザインの行き届いたコックピットやコマンドセンターに近いものです。",
+      "ch2_outro": "原理は絶対的な色の規律です：モノクロームを基盤とし、プライマリアクションと重要なハイライトには意図的なアクセントを1つだけ。",
+      "ch3_intro": "タイポグラフィの声は、異なる声の意図的な対比によって定義されます：STKBureauSerifのようなトランジショナルセリフ体が大きなエディトリアルディスプレイを支配し、STKBureauSansようなジオメトリックサンセリフ体がすべての機能的なUIを担当します。この組み合わせは、権威と明快さの両立する階層を生み出します。",
+      "ch4_intro": "縦のリズムは、豊かなホワイトスペースに基づいており、コンテンツブロック間に明確で落ち着いた区切りを作るために、paddingは80pxを超えることが多いです。",
+      "ch5_intro": "奥行きは、柔らかなグラデーションシャドウと単一の細いボーダースタイルのシステムによって伝えられます。サーフェスは微かに浮かび上がり、重いアウトラインではなく、低コントラストのボーダーと重ねられたシャドウによって定義されます。",
+      "ch6_intro": "レイアウトのスケルトンは、広いマージンを持つ標準的な12カラムセンタードグリッドです。これは、製品ショーケースやエディトリアルコンテンツを余裕を持ってフレーミングするために設計された、オープンで広々としたキャンバスを提供します。",
+      "ch7_intro": "モーション哲学は、標準的なインタラクションに対する流動的で即座のフィードバックを優先し、表現豊かなアニメーションは重要なエディトリアルの瞬間にのみ留めています。すべてのUI遷移は、レスポンシブでモダンな感覚のために、一貫した高速150msカーブを使用します。",
+      "ch8_intro": "エディトリアルの声は、自信に満ち、直接的で、技術的に権威があり、スピード感のあるエンジニアリングチームに合わせて調整されています。コーポレートジャargonや受動的な言語を避け、力強く行動指向の見出しを採用しています。",
+      "ch8_outro": "システムが意図的に省略ものは、その包括と同様に定義的です：ディスプレイテキスト以外の装飾的なフォント、競合するアクセントカラー、そして密集したレイアウトは採用しません。"
+    },
+    "ko": {
+      "ch1_intro": "시스템의 정체성은 엔지니어링 팀을 위한 정교한 제어실에 있습니다. 여기서 진지한 운영 집중과 친근한 명료함이 만납니다. 이는 혼란을 관리하기 위한 차분하고 권위 있는 인터페이스의 비유 위에 구축되었습니다. 잘 설계된 조종석이나 지휘 센터와 유사합니다.",
+      "ch2_intro": "색상 시스템은 절제된 규율의 시스템입니다. 깊은 잉크와 따뜻한 화이트 위주의 단색 기반은 진지한 에디토리얼 캔버스를 구축하며, 하나의 고채도 브랜드 오렌지로 고정됩니다.",
+      "ch2_outro": "원칙은 절대적인 색상 규율입니다: 단색 기반, 주요 작업과 중요한 강조를 위한 하나의 의도적인 악센트.",
+      "ch3_intro": "타이포그래피 보이스는 목소리 간의 의도적인 대비로 정의됩니다. STKBureauSerif와 같은 트랜지셔널 세리프가 대형 에디토리얼 디스플레이를 주도하고, STKBureauSans와 같은 기하학산스는 모든 기능적 UI를 처리합니다. 이 조합은 권위 있으면서도 깔끔한 계층 구조를 만듭니다.",
+      "ch4_intro": "세로 리듬은 넉넉한 여백 위에 구축됩니다. 패딩은 종종 80px를 초과하여 콘텐츠 블록 간에 명확하고 차분한 구분을 만듭니다.",
+      "ch5_intro": "깊이는 부드럽고 계단식인 그림자의 시스템과 하나의 얇은 테두리 스타일을 통해 전달됩니다. 표면은 미묘하게 떠 있는 듯 보이며, 묵직한 윤곽선보다는 저대비 테두리와 레이어드된 그림자로 정의됩니다.",
+      "ch6_intro": "레이아웃 골격은 넓은 여백을 가진 표준 12컬럼 중앙 정렬 그리드입니다. 이는 제품 쇼케이스와 에디토리얼 콘텐츠를 복잡하지 않게 프레이밍하도록 설계된 개방적이고 넓은 캔버스를 제공합니다.",
+      "ch7_intro": "모션 철학은 일반적인 상호작용에 대한 유연하고 즉각적인 피드백을 우선시하며, 표현적인 애니메이션은 핵심 에디토리얼 순간에만 예약합니다. 모든 UI 전환은 반응적이고 현대적인 느낌을 위해 일관된 빠른 150ms 커브를 사용합니다.",
+      "ch8_intro": "에디토리얼 보이스는 자신감 있고 직접적이며 기술적으로 권위 있습니다. 빠르게 움직이는 엔지니어링 팀을 위해 맞춤화되었습니다. 기업용 전문 용어와 수동적인 언어를 피하고 강렬하고 행동 지향적인 헤드라인을 선호합니다.",
+      "ch8_outro": "시스템이 의도적으로 생략하는 것은 포함된 것만큼이나 정의적입니다: 디스플레이 텍스트 외의 장식적 폰트, 경쟁적인 악센트 색상, 그리고 빽빽한 레이아웃을 포기합니다."
+    }
+  }
 }

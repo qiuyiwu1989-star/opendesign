@@ -8,6 +8,636 @@
     "dev",
     "saas"
   ],
-  "status": "pending",
-  "added_at": "2026-06-02"
+  "status": "completed",
+  "added_at": "2026-06-02",
+  "spec": {
+    "colors": {
+      "bg": "#F9F9FB",
+      "bgSoft": null,
+      "bgQuiet": null,
+      "ink": "#000000",
+      "inkSoft": "#222222",
+      "muted": "#60646C",
+      "mutedSoft": "#80838D",
+      "accent": "#E8673C",
+      "line": "rgba(200, 206, 213, 1)"
+    },
+    "typography": {
+      "display": "geometric-sans",
+      "body": "humanist-sans",
+      "mono": "monospace",
+      "scale": [
+        {
+          "token": "display",
+          "size": 56,
+          "lh": 1.0,
+          "weight": 500,
+          "ls": "-1px"
+        },
+        {
+          "token": "headline",
+          "size": 40,
+          "lh": 1.1,
+          "weight": 500,
+          "ls": "-0.5px"
+        },
+        {
+          "token": "subtitle",
+          "size": 24,
+          "lh": 1.33,
+          "weight": 400,
+          "ls": "-0.5px"
+        },
+        {
+          "token": "body",
+          "size": 16,
+          "lh": 1.5,
+          "weight": 400,
+          "ls": "0px"
+        },
+        {
+          "token": "label",
+          "size": 14,
+          "lh": 1.43,
+          "weight": 500,
+          "ls": "0px"
+        }
+      ]
+    },
+    "spacing": {
+      "base": 4,
+      "scale": [
+        4,
+        8,
+        16,
+        24,
+        32,
+        48,
+        64,
+        96
+      ]
+    },
+    "surfaces": {
+      "radius": {
+        "sm": 4,
+        "md": 8,
+        "lg": 12,
+        "pill": 9999
+      }
+    },
+    "layout": {
+      "container": 1280,
+      "paragraph": 680,
+      "columns": 12,
+      "gutter": 24,
+      "breakpoints": [
+        768,
+        1024
+      ]
+    },
+    "motion": {
+      "durations": {
+        "micro": 150,
+        "small": 200,
+        "medium": 300
+      },
+      "easing": "cubic-bezier(0.4, 0, 0.2, 1)"
+    }
+  },
+  "spec_i18n": {
+    "en": {
+      "identity": {
+        "keywords": [
+          "Developer-first",
+          "Messaging infrastructure",
+          "AI-native",
+          "Composable",
+          "Operational"
+        ],
+        "analogy": "A precision instrument for building complex communication systems, where clarity and control are paramount.",
+        "oneLiner": "A clean, functional, and developer-focused design system that prioritizes clarity and information hierarchy for complex product messaging."
+      },
+      "colors": {
+        "principle": "A restrained palette uses deep neutrals for readability and a single, vibrant warm accent to signal primary actions."
+      },
+      "typography": {
+        "rules": [
+          "Use geometric-sans for headlines to convey precision and modernity.",
+          "Use humanist-sans for body text for optimal readability.",
+          "Use monospace for code snippets and technical data.",
+          "Maintain strict typographic hierarchy using size and weight, not color."
+        ],
+        "scaleUses": [
+          "Hero headlines",
+          "Section headings",
+          "Section lead text",
+          "Paragraphs, UI text",
+          "Navigation, small UI"
+        ]
+      },
+      "spacing": {
+        "rhythm": "Consistent 4px base grid with generous whitespace to separate sections and focus attention."
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(0, 0, 0, 0.06) 0px 1px 6px 0px",
+          "rgba(0, 0, 0, 0.16) 0px 2px 32px 0px"
+        ],
+        "borders": "1px solid #C8CED5"
+      },
+      "layout": {
+        "skeleton": "A structured, column-based layout with generous padding and a clear content hierarchy."
+      },
+      "components": {
+        "button": "Solid primary (coral) and outlined secondary buttons with 4px radius. Clean, functional, and high-contrast.",
+        "card": "White cards with subtle 1px borders and rounded corners, used to group related information.",
+        "chip": "A rounded pill-shaped badge used for status indicators like 'New'.",
+        "input": "Clean text inputs with subtle borders, focusing on function over decoration.",
+        "hero": "A centered, spacious hero section with a large headline, clear subtext, and two prominent call-to-action buttons."
+      },
+      "motion": {
+        "patterns": [
+          "Smooth transitions on interactive elements for feedback.",
+          "Subtle fade-in animations for content appearance.",
+          "Transformations for hover states."
+        ]
+      },
+      "interaction": {
+        "hover": "Color or background changes on interactive elements, with a standard cubic-bezier transition.",
+        "click": "Immediate visual feedback, often through subtle transform or color shifts.",
+        "transition": "Consistent 0.2s - 0.3s transitions for color, background, and transform properties.",
+        "keyboard": "Standard focus rings and logical tab order for accessibility."
+      },
+      "voice": {
+        "tone": "Authoritative, clear, and technically proficient. It speaks directly to developers.",
+        "headlineStyle": "Direct, declarative, and benefit-oriented. Uses active verbs.",
+        "ctaStyle": "Action-oriented and specific, using clear commands like 'Get started' or 'Read our docs'.",
+        "avoid": [
+          "Marketing fluff",
+          "Jargon without explanation",
+          "Overly casual tone"
+        ]
+      },
+      "donts": [
+        "Don't use bright, competing accent colors — the screenshot shows one primary coral accent against a neutral palette.",
+        "Don't use decorative serif fonts — the typography is strictly geometric and humanist sans-serif.",
+        "Don't use heavy drop shadows — shadows are minimal and functional, used for subtle elevation.",
+        "Don't use rounded corners larger than 12px on cards — the design uses tight, precise radii.",
+        "Don't clutter the layout — the screenshot shows ample whitespace and a clear visual hierarchy.",
+        "Don't use a dark background for the primary interface — the design is predominantly light, with high contrast text."
+      ],
+      "systemPrompt": "Knock is a developer-focused SaaS platform for customer engagement, positioned as a clean, precise, and powerful tool. The design DNA is characterized by a restrained light neutral palette (#F9F9FB background, #000000 ink) with a single, high-chroma coral accent (#E8673C) for primary actions. Typography mixes geometric-sans for headlines and humanist-sans for body, all rendered with excellent readability. Key critical donts: never use decorative serifs, avoid competing accent colors, and don't clutter the generous, whitespace-rich layout. The design prioritizes clarity, hierarchy, and functional elegance for technical audiences."
+    },
+    "zh-CN": {
+      "identity": {
+        "keywords": [
+          "开发者优先",
+          "消息基础设施",
+          "AI 原生",
+          "可组合",
+          "可运维"
+        ],
+        "analogy": "用于构建复杂通信系统的精密仪器，其中清晰度和控制力至关重要。",
+        "oneLiner": "一个简洁、功能性强、面向开发者的设计系统，为复杂的产品消息传递优先考虑清晰度和信息层次。"
+      },
+      "colors": {
+        "principle": "克制的调色板使用深中性色以保证可读性，并搭配单一、醒目的暖色强调色来指示主要操作。"
+      },
+      "typography": {
+        "rules": [
+          "标题使用几何无衬线字体，以传达精确感和现代感。",
+          "正文使用人文无衬线字体，以获得最佳可读性。",
+          "代码片段和技术数据使用等宽字体。",
+          "通过大小和字重，而非颜色，来维持严格的排版层次。"
+        ],
+        "scaleUses": [
+          "主标题",
+          "章节标题",
+          "章节引导文本",
+          "段落、UI 文本",
+          "导航、小型 UI"
+        ]
+      },
+      "spacing": {
+        "rhythm": "基于 4px 的一致网格，配以充足的空白，用于分隔区块并聚焦注意力。"
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(0, 0, 0, 0.06) 0px 1px 6px 0px",
+          "rgba(0, 0, 0, 0.16) 0px 2px 32px 0px"
+        ],
+        "borders": "1px solid #C8CED5"
+      },
+      "layout": {
+        "skeleton": "结构化的、基于列的布局，具有充足的内边距和清晰的内容层次。"
+      },
+      "components": {
+        "button": "实心的主要按钮（珊瑚色）和描边的次要按钮，4px 圆角。简洁、功能性强且高对比度。",
+        "card": "带有微妙 1px 边框和圆角的白色卡片，用于组合相关信息。",
+        "chip": "圆角的药丸状徽章，用于状态指示，例如“New”。",
+        "input": "带有微妙边框的简洁文本输入框，功能优先于装饰。",
+        "hero": "居中、宽敞的主视觉区域，包含大标题、清晰的副文本和两个醒目的行动号召按钮。"
+      },
+      "motion": {
+        "patterns": [
+          "交互元素上的平滑过渡以提供反馈。",
+          "内容出现时的微妙淡入动画。",
+          "hover 状态的变换效果。"
+        ]
+      },
+      "interaction": {
+        "hover": "交互元素上的颜色或背景变化，采用标准的 cubic-bezier 过渡。",
+        "click": "即时的视觉反馈，通常通过微妙的变换或颜色变化实现。",
+        "transition": "针对颜色、背景和变换属性，采用一致的 0.2s - 0.3s 过渡。",
+        "keyboard": "标准的焦点环和逻辑化的 tab 顺序，以保证可访问性。"
+      },
+      "voice": {
+        "tone": "权威、清晰且技术娴熟。直接面向开发者。",
+        "headlineStyle": "直接、陈述性、面向效益。使用主动动词。",
+        "ctaStyle": "面向行动且具体，使用明确的指令，如“Get started”或“Read our docs”。",
+        "avoid": [
+          "营销套话",
+          "未经解释的行话",
+          "过于随意的语气"
+        ]
+      },
+      "donts": [
+        "不要使用明亮、相互竞争的强调色——截图显示的是单一的主要珊瑚色强调色，搭配中性调色板。",
+        "不要使用装饰性的衬线字体——排版严格使用几何和人文无衬线字体。",
+        "不要使用厚重的投影——阴影是最小化的且功能性的，用于微妙的层级提升。",
+        "不要在卡片上使用大于 12px 的圆角——设计使用紧凑、精确的圆角。",
+        "不要让布局显得杂乱——截图显示有充足的空白和清晰的视觉层次。",
+        "不要为主要界面使用深色背景——设计以浅色为主，搭配高对比度文本。"
+      ],
+      "systemPrompt": "Knock 是一个面向开发者的客户参与 SaaS 平台，定位为简洁、精准且强大的工具。其设计 DNA 特点为克制的浅色中性调色板（#F9F9FB 背景，#000000 墨色），并搭配单一、高饱和度的珊瑚色强调色（#E8673C）用于主要操作。排版混合了几何无衬线标题和人文无衬线正文，所有文本都具有出色的可读性。关键禁止事项：绝不使用装饰性衬线，避免使用相互竞争的强调色，不要让充足、留白丰富的布局显得杂乱。设计优先考虑清晰度、层次结构和功能优雅，面向技术受众。"
+    },
+    "zh-TW": {
+      "identity": {
+        "keywords": [
+          "開發者優先",
+          "訊息基礎架構",
+          "AI 原生",
+          "可組合",
+          "營運導向"
+        ],
+        "analogy": "一個用於建構複雜通訊系統的精密儀器，其中清晰度與控制力至關重要。",
+        "oneLiner": "一個乾淨、功能導向、以開發者為核心的設計系統，優先考慮複雜產品訊息的清晰度與資訊層級。"
+      },
+      "colors": {
+        "principle": "克制的調色板使用深中性色以確保可讀性，並以單一、鮮明的暖色強調色來標示主要操作。"
+      },
+      "typography": {
+        "rules": [
+          "使用幾何無襯線字體作為標題，以傳達精確性與現代感。",
+          "使用人文無襯線字體作為內文，以獲得最佳可讀性。",
+          "使用等寬字體作為程式碼片段與技術資料。",
+          "透過大小與粗細（而非顏色）來維持嚴格的排版層級。"
+        ],
+        "scaleUses": [
+          "主標題",
+          "章節標題",
+          "章節導言文字",
+          "段落、介面文字",
+          "導覽列、小型介面元素"
+        ]
+      },
+      "spacing": {
+        "rhythm": "一致的 4px 基礎格線，搭配充裕的留白以分隔區塊並引導注意力。"
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(0, 0, 0, 0.06) 0px 1px 6px 0px",
+          "rgba(0, 0, 0, 0.16) 0px 2px 32px 0px"
+        ],
+        "borders": "1px solid #C8CED5"
+      },
+      "layout": {
+        "skeleton": "一個結構化、基於欄位的佈局，具有充裕的內邊距與清晰的內容層級。"
+      },
+      "components": {
+        "button": "實心主按鈕（珊瑚色）與描邊次按鈕，具有 4px 圓角。乾淨、功能導向且高對比。",
+        "card": "白色卡片，帶有細緻的 1px 邊框與圓角，用於分組相關資訊。",
+        "chip": "圓形膠囊狀標籤，用於狀態指示（例如「新功能」）。",
+        "input": "乾淨的文字輸入框，帶有細微邊框，專注功能而非裝飾。",
+        "hero": "一個置中、寬敞的主視覺區塊，具有大型標題、清晰副標題與兩個醒目的行動呼籲按鈕。"
+      },
+      "motion": {
+        "patterns": [
+          "互動元素上的流暢過渡以提供回饋。",
+          "內容出現時的細膩淡入動畫。",
+          "hover 狀態的變形效果。"
+        ]
+      },
+      "interaction": {
+        "hover": "互動元素上的顏色或背景變化，搭配標準的 cubic-bezier 過渡。",
+        "click": "立即的視覺回饋，通常透過細微的變形或色彩偏移實現。",
+        "transition": "一致的 0.2s - 0.3s 過渡，用於顏色、背景與變形屬性。",
+        "keyboard": "標準的焦點環與合乎邏輯的 Tab 鍵順序以確保可及性。"
+      },
+      "voice": {
+        "tone": "權威、清晰且技術熟練。它直接與開發者對話。",
+        "headlineStyle": "直接、陳述式且以效益為導向。使用主動動詞。",
+        "ctaStyle": "以行動為導向且具體，使用清晰的指令如「開始使用」或「閱讀我們的文件」。",
+        "avoid": [
+          "行銷話術",
+          "未經解釋的行話",
+          "過度隨意的語氣"
+        ]
+      },
+      "donts": [
+        "不要使用明亮、互相競爭的強調色——截圖顯示在一個中性調色板上只有一個主要的珊瑚色強調色。",
+        "不要使用裝飾性襯線字體——排版嚴格使用幾何與人文無襯線字體。",
+        "不要使用厚重的投影——陰影是極簡且功能性的，用於微妙的層次感。",
+        "不要在卡片上使用超過 12px 的圓角——設計使用緊湊、精確的圓角半徑。",
+        "不要雜亂佈局——截圖顯示充足的留白與清晰的視覺層級。",
+        "不要在主要介面上使用深色背景——設計以淺色為主，搭配高對比文字。"
+      ],
+      "systemPrompt": "Knock 是一個以開發者為核心的 SaaS 客戶互動平台，定位為一個乾淨、精確且強大的工具。設計 DNA 以克制的淺中性調色板（#F9F9FB 背景，#000000 墨色）為特徵，搭配一個單一、高彩度的珊瑚色強調色（#E8673C）用於主要操作。排版混合了幾何無襯線字體作為標題與人文無襯線字體作為內文，所有字體都具有優異的可讀性。關鍵禁止事項：切勿使用裝飾性襯線字體、避免使用競爭性的強調色，並勿雜亂佈局中寬敞、富含留白的特性。設計優先考慮技術受眾的清晰度、層級與功能優雅。"
+    },
+    "ja": {
+      "identity": {
+        "keywords": [
+          "開発者ファースト",
+          "メッセージングインフラ",
+          "AIネイティブ",
+          "コンポーザブル",
+          "運用"
+        ],
+        "analogy": "複雑なコミュニケーションシステムを構築するための精密な儀器。明確性と制御が何より重要。",
+        "oneLiner": "複雑な製品メッセージングのための明確性と情報階層を優先する、清潔で機能的、そして開発者中心のデザインシステム。"
+      },
+      "colors": {
+        "principle": "抑制されたパレットは、可読性のために深みのあるニュートラルを、プライマリアクションの合図として単一の鮮やかなウォームアクセントを使用します。"
+      },
+      "typography": {
+        "rules": [
+          "見出しには幾何学サンセリフを使用し、正確さと近代性を伝える。",
+          "本文テキストにはヒューマニストサンセリフを使用し、最適な可読性を実現する。",
+          "コードスニペットや技術データにはモノスペースを使用する。",
+          "サイズとウェイトを使用し、色ではなく厳密なタイポグラフィ階層を維持する。"
+        ],
+        "scaleUses": [
+          "ヒーロー見出し",
+          "セクション見出し",
+          "セクションリードテキスト",
+          "段落、UIテキスト",
+          "ナビゲーション、小型UI"
+        ]
+      },
+      "spacing": {
+        "rhythm": "セクションを区切り、注意を集中させるための余裕のあるホワイトスペースを持つ、一貫した4pxベースグリッド。"
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(0, 0, 0, 0.06) 0px 1px 6px 0px",
+          "rgba(0, 0, 0, 0.16) 0px 2px 32px 0px"
+        ],
+        "borders": "1px solid #C8CED5"
+      },
+      "layout": {
+        "skeleton": "余裕のあるパディングと明確なコンテンツ階層を持つ、構造化されたカラムベースレイアウト。"
+      },
+      "components": {
+        "button": "4pxの角丸を持つ、ソリッドなプライマリ（コーラル）およびアウトラインのセカンダリボタン。清潔で機能的、かつ高コントラスト。",
+        "card": "関連情報をグループ化するために使用される、微細な1pxボーダーと角丸を持つ白いカード。",
+        "chip": "「新着」などのステータスインジケーターに使用される、角丸のピル-shapedバッジ。",
+        "input": "装飾より機能に焦点を当てた、微細なボーダーを持つクリーンなテキスト入力。",
+        "hero": "大きな見出し、明確なサブテキスト、2つの目立つアクションボタンを持つ、中央揃えの広々としたヒーローセクション。"
+      },
+      "motion": {
+        "patterns": [
+          "フィードバックのためのインタラクティブ要素上の滑らかな遷移。",
+          "コンテンツ出現のための微細なフェードインアニメーション。",
+          "ホバー状態のための変形。"
+        ]
+      },
+      "interaction": {
+        "hover": "インタラクティブ要素上の色または背景の変化。標準のcubic-bezier遷移。",
+        "click": "微細な変形や色の変化を通じた、即座のビジュアルフィードバック。",
+        "transition": "色、背景、変形プロパティに対する、一貫した0.2秒 - 0.3秒の遷移。",
+        "keyboard": "アクセシビリティのための標準的なフォーカスリングと論理的なタブ順序。"
+      },
+      "voice": {
+        "tone": "権威があり、明確で、技術的に熟達している。開発者に直接語りかける。",
+        "headlineStyle": "直接的で宣言的、かつ利益を志向。能動態の動詞を使用。",
+        "ctaStyle": "アクション志向で具体的。「Get started」や「Read our docs」のような明確な命令を使用。",
+        "avoid": [
+          "マーケティングのフリップ",
+          "説明のない業界用語",
+          "過度にカジュアルなトーン"
+        ]
+      },
+      "donts": [
+        "明るく競合するアクセントカラーを使用しない — スクリーンショットでは、ニュートラルパレットに対して単一のプライマリコーラルアクセントが示されている。",
+        "装飾的なセリフフォントを使用しない — タイポグラフィは厳密に幾何学サンセリフおよびヒューマニストサンセリフ。",
+        "重いドロップシャドウを使用しない — シャドウは最小限で機能的、微細な浮き上がりに使用。",
+        "カードに12px以上の大きな角丸を使用しない — デザインはタイトで正確な半径を使用。",
+        "レイアウトを雑然とさせない — スクリーンショットには十分なホワイトスペースと明確なビジュアル階層が示されている。",
+        "プライマリインターフェースにダーク背景を使用しない — デザインは主にライトで、高コントラストのテキスト。"
+      ],
+      "systemPrompt": "Knockは顧客エンゲージメントのための開発者中心のSaaSプラットフォームで、清潔で正確、かつ強力なツールとしてポジショニングされています。デザインDNAは、抑制の効いたライトニュートラルパレット（#F9F9FB背景、#000000インク）と、プライマリアクションのための単一の高彩度コーラルアクセント（#E8673C）が特徴です。タイポグラフィは、見出しに幾何学サンセリフ、本文にヒューマニストサンセリフを混在させ、すべて優れた可読性でレンダリングされます。重要な注意点：装飾的なセリフは決して使用せず、競合するアクセントカラーを避け、余裕のあるホワイトスペースを活かしたレイアウトを雑然とさせないこと。デザインは、技術的な聴衆向けに、明確性、階層、機能的な優雅さを優先します。"
+    },
+    "ko": {
+      "identity": {
+        "keywords": [
+          "개발자 중심",
+          "메시징 인프라",
+          "AI 네이티브",
+          "컴포저블",
+          "운영"
+        ],
+        "analogy": "명확성과 제어가 가장 중요한 복잡한 통신 시스템 구축을 위한 정밀 도구.",
+        "oneLiner": "복잡한 제품 메시징을 위한 명확성과 정보 계층 구조를 우선시하는 깔끔하고 기능적이며 개발자 중심적인 디자인 시스템."
+      },
+      "colors": {
+        "principle": "단정한 팔레트는 가독성을 위해 깊은 중립색을 사용하고, 주요 작업을 알리기 위해 단일의 선명한 따뜻한 강조색을 사용합니다."
+      },
+      "typography": {
+        "rules": [
+          "헤드라인에는 정밀함과 현대성을 전달하기 위해 geometric-sans를 사용합니다.",
+          "본문 텍스트에는 최적의 가독성을 위해 humanist-sans를 사용합니다.",
+          "코드 조각과 기술 데이터에는 monospace를 사용합니다.",
+          "색상이 아닌 크기와 두께를 사용하여 엄격한 타이포그래피 계층 구조를 유지합니다."
+        ],
+        "scaleUses": [
+          "히어로 헤드라인",
+          "섹션 제목",
+          "섹션 리드 텍스트",
+          "단락, UI 텍스트",
+          "탐색, 작은 UI"
+        ]
+      },
+      "spacing": {
+        "rhythm": "일관된 4px 기본 격자와 섹션을 구분하고 주의를 집중시키기 위한 넉넉한 여백."
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(0, 0, 0, 0.06) 0px 1px 6px 0px",
+          "rgba(0, 0, 0, 0.16) 0px 2px 32px 0px"
+        ],
+        "borders": "1px solid #C8CED5"
+      },
+      "layout": {
+        "skeleton": "풍부한 padding과 명확한 콘텐츠 계층 구조를 갖춘 구조화된 열 기반 레이아웃."
+      },
+      "components": {
+        "button": "모서리 4px의 단색 주요(산호색) 및 테두리형 보조 버튼. 깔끔하고 기능적이며 고대비.",
+        "card": "관련 정보를 그룹화하는 데 사용되는, 미세한 1px 테두리와 둥근 모서리가 있는 흰색 카드.",
+        "chip": "'New'와 같은 상태 표시기로 사용되는 둥근 캡슐형 배지.",
+        "input": "장식보다 기능에 중점을 둔, 미세한 테두리가 있는 깔끔한 텍스트 입력 필드.",
+        "hero": "큰 헤드라인, 명확한 부제목, 두 개의 두드러진 행동 유도 버튼이 있는 중앙 정렬된 넉넉한 히어로 섹션."
+      },
+      "motion": {
+        "patterns": [
+          "피드백을 위한 인터랙티브 요소의 부드러운 전환.",
+          "콘텐ços 출현을 위한 미세한 페이드인 애니메이션.",
+          "hover 상태를 위한 변환 효과."
+        ]
+      },
+      "interaction": {
+        "hover": "표준 cubic-bezier 전환을 적용한 인터랙티브 요소의 색상 또는 배경 변경.",
+        "click": "미세한 변환 또는 색상 변화를 통해 즉각적인 시각적 피드백 제공.",
+        "transition": "색상, 배경, 변환 속성을 위한 일관된 0.2s - 0.3s 전환.",
+        "keyboard": "접근성을 위한 표준 focus ring과 논리적인 tab 순서."
+      },
+      "voice": {
+        "tone": "권위 있고, 명확하며, 기술적으로 능숙합니다. 개발자에게 직접적으로 말합니다.",
+        "headlineStyle": "직설적이고 선언적이며, 이점에 초점을 맞춥니다. 능동 동사를 사용합니다.",
+        "ctaStyle": "행동 지향적이고 구체적이며, 'Get started' 또는 'Read our docs'와 같은 명확한 명령어를 사용합니다.",
+        "avoid": [
+          "마케팅성 표현",
+          "설명 없는 전문 용어",
+          "지나치게 캐주얼한 어조"
+        ]
+      },
+      "donts": [
+        "밝고 경쟁적인 강조색을 사용하지 마세요 — 스크린샷은 중립 팔레트를 배경으로 단일의 주요 산호색 강조색을 보여줍니다.",
+        "장식적인 세리프 폰트를 사용하지 마세요 — 타이포그래피는 엄격히 geometric-sans와 humanist-sans입니다.",
+        "무거운 drop shadow를 사용하지 마세요 — 그림자는 최소화되어 기능적이며 미세한 입체감을 위해 사용됩니다.",
+        "카드의 둥근 모서리를 12px보다 크게 사용하지 마세요 — 디자인은 작고 정확한 반경을 사용합니다.",
+        "레이이아웃을 복잡하게 하지 마세요 — 스크린샷은 넉넉한 여백과 명확한 시각적 계층 구조를 보여줍니다.",
+        "주요 인터페이스에 어두운 배경을 사용하지 마세요 — 디자인은 주로 밝으며, 고대비 텍스트를 사용합니다."
+      ],
+      "systemPrompt": "Knock은 고객 참여를 위한 개발자 중심 SaaS 플랫폼으로, 깔끔하고 정밀하며 강력한 도구로 자리매김하고 있습니다. 디자인 DNA는 단일의 고채도 산호색(#E8673C) 강조색을 사용한 단정한 밝은 중립 팔레트(#F9F9FB 배경, #000000 잉크)로 특징지어집니다. 타이포그래피는 헤드라인용 geometric-sans와 본문용 humanist-sans를 혼합하여 모두 뛰어난 가독성으로 렌더링됩니다. 핵심 주의 사항: 장식용 세리프를 절대 사용하지 말고, 경쟁적인 강조색을 피하며, 넉넉하고 여백이 풍부한 레이아웃을 복잡하게 만들지 마세요. 디자인은 기술 대상을 위한 명확성, 계층 구조, 기능적 우아함을 우선시합니다."
+    }
+  },
+  "desc": {
+    "en": {
+      "palette": "A restrained light neutral palette with deep black text and a single, vibrant coral accent for primary actions.",
+      "layout": "A spacious, column-based layout with generous padding and clear separation between content sections.",
+      "interaction": "Clean, standard interactions with subtle transitions for hover and click states, prioritizing functionality.",
+      "motion": "Minimal, purposeful motion focused on smooth transitions for UI feedback and content appearance.",
+      "notes": "A textbook example of a modern, developer-focused SaaS design that balances professionalism with approachability through a clean, functional aesthetic."
+    },
+    "zh-CN": {
+      "palette": "克制的浅色中性调色板，搭配深黑色文本，以及单一、醒目的珊瑚色用于主要操作。",
+      "layout": "宽敞的、基于列的布局，具有充足的内边距，内容区块之间有清晰的分隔。",
+      "interaction": "简洁、标准的交互，为 hover 和 click 状态提供微妙的过渡效果，优先考虑功能性。",
+      "motion": "最小化、有目的性的动效，专注于为 UI 反馈和内容呈现提供平滑的过渡。",
+      "notes": "一个教科书式的、面向开发者的现代 SaaS 设计范例，通过简洁、功能性的美学平衡了专业性与亲和力。"
+    },
+    "zh-TW": {
+      "palette": "一個克制的淺中性調色板，搭配深黑色文字與一個鮮明的珊瑚色強調色用於主要操作。",
+      "layout": "一個寬敞、基於欄位的佈局，具有充裕的內邊距與清晰的內容區塊分隔。",
+      "interaction": "乾淨、標準的互動方式，搭配 hover 與點擊狀態的細膩過渡，優先考慮功能性。",
+      "motion": "極簡、有目的的動態效果，專注於為介面回饋與內容出現提供流暢的過渡。",
+      "notes": "一個教科書等級的現代、開發者導向的 SaaS 設計範例，透過乾淨、功能性的美學平衡專業感與親和力。"
+    },
+    "ja": {
+      "palette": "深みのある黒テキストと、プライマリアクションに用いる単一の鮮やかなコーラルアクセントを持つ、抑制の効いたライトニュートラルパレット。",
+      "layout": "余裕のあるパディングとコンテンツセクション間の明確な区切りを持つ、空間を活かしたカラムベースレイアウト。",
+      "interaction": "ホバーおよびクリック状態のための微細な遷移を備えた、清潔で標準的なインタラクション。機能性を優先。",
+      "motion": "UIフィードバックとコンテンツ出現のための滑らかな遷移に焦点を当てた、最小限で目的にかなった動き。",
+      "notes": "清潔で機能的な美学を通じて、プロフェッショナリズムと親しみやすさを両立させる、現代的で開発者中心のSaaSデザインの教科書的な例。"
+    },
+    "ko": {
+      "palette": "단정한 밝은 중립 팔레트에 깊은 검정 텍스트와 주요 작업을 위한 단일의 선명한 산호색 강조색을 사용합니다.",
+      "layout": "풍부한 padding과 콘텐츠 섹션 간 명확한 구분을 갖춘, 넓은 기반 열 레이아웃입니다.",
+      "interaction": "기능성을 우선시하며, hover 및 클릭 상태를 위한 미세한 전환을 적용한 깔끔하고 표준적인 인터랙션입니다.",
+      "motion": "UI 피드백과 콘텐츠 출현을 위한 부드러운 전환에 집중하는, 최소한의 의도적인 모션입니다.",
+      "notes": "개념적으로 명확하고 기능적인 미학을 통해 전문성과 접근성의 균형을 이루는 현대적이고 개발자 중심적인 SaaS 디자인의 전형적인 예시입니다."
+    }
+  },
+  "_meta": {
+    "vision_model": "mimo-v2.5",
+    "vision_prompt_version": "0.3",
+    "vision_source": "playwright-extract:knock",
+    "vision_grounded": true,
+    "vision_at": "2026-06-04T16:09:16+00:00",
+    "vision_tokens": 17125,
+    "vision_cost_usd": 0.1903,
+    "translation_model": "mimo-v2.5",
+    "translation_at": "2026-06-04T16:10:33+00:00",
+    "translation_tokens": 17793,
+    "translation_cost_usd": 0.0593,
+    "narrative_model": "mimo-v2.5",
+    "narrative_prompt_version": "0.3",
+    "narrative_at": "2026-06-04T16:10:43+00:00",
+    "narrative_tokens": 2129,
+    "narrative_cost_usd": 0.0142,
+    "narrative_status": "ok",
+    "total_cost_usd": 0.2638
+  },
+  "narrative": {
+    "en": {
+      "ch1_intro": "The Knock design system is a precision instrument for building complex communication systems, where clarity and control are paramount. It treats interface design like engineering a reliable tool, prioritizing functional elegance over decorative flourish. This is a system built for developers who need to see the logic in every pixel.",
+      "ch2_intro": "A restrained palette uses deep neutrals for optimal readability, anchoring the interface in a clear hierarchy. A single, vibrant warm accent is reserved for primary actions, creating a precise visual signal without competing colors.",
+      "ch2_outro": "The principle is restraint: one accent serves as the singular call-to-action against a field of functional neutrals.",
+      "ch3_intro": "Typography is split between geometric-sans for headlines, conveying precision, and humanist-sans for body text, ensuring optimal readability at length. Hierarchy is maintained strictly through size and weight, not color, keeping the information structure clear and consistent.",
+      "ch4_intro": "A consistent 4px base grid establishes a reliable rhythm, with generous whitespace used to separate sections and focus attention.",
+      "ch5_intro": "Surfaces are defined by minimal, functional depth through subtle shadows and crisp, 1px borders. The aesthetic is one of precise elevation, where every element has a clear, logical position in the spatial hierarchy.",
+      "ch6_intro": "The layout skeleton is a structured, column-based system with generous padding that enforces a clear content hierarchy. It provides a stable framework for complex product messaging, ensuring information is grouped and separated with deliberate, whitespace-rich clarity.",
+      "ch7_intro": "Motion is minimal and purposeful, focused solely on providing clear UI feedback through smooth transitions. Animations are subtle fades for content appearance and functional transformations for hover states, never serving as decoration.",
+      "ch8_intro": "The editorial voice is authoritative, clear, and technically proficient, speaking directly to developers with declarative, benefit-oriented copy. It uses active verbs and specific commands, avoiding marketing fluff and unexplained jargon.",
+      "ch8_outro": "This system deliberately avoids decorative serifs, competing accent colors, and heavy shadows to preserve its functional, developer-focused clarity."
+    },
+    "zh-CN": {
+      "ch1_intro": "Knock 设计系统是一个用于构建复杂通信系统的精密工具，清晰度与掌控力至关重要。它将界面设计视为打造可靠工具的工程过程，优先考虑功能优雅而非装饰性点缀。这是一个为需要理解每个像素背后逻辑的开发者而构建的系统。",
+      "ch2_intro": "克制的调色板采用深沉的中性色以获得最佳可读性，将界面锚定在清晰的层级结构中。单一、醒目的暖色调被保留用于主要操作，创造出精确的视觉信号，而不会与其他颜色竞争。",
+      "ch2_outro": "其原则是克制：一个强调色作为功能中性色背景下的唯一行动号召。",
+      "ch3_intro": "字体在几何无衬线体（用于标题，传达精确性）和人文无衬线体（用于正文，确保长文的最佳可读性）之间分配。层级结构严格通过字号和字重维持，而非颜色，使信息结构保持清晰一致。",
+      "ch4_intro": "一致的 4px 基础网格建立了可靠的节奏，辅以充足的留白用于分隔区块和引导注意力。",
+      "ch5_intro": "界面表面通过微妙的阴影和清晰的 1px 边框来定义最小化的功能性深度。其美学是精确的层级提升，每个元素在空间层级中都有清晰、合乎逻辑的位置。",
+      "ch6_intro": "布局骨架是一个结构化的、基于列的系统，拥有充足的内边距，强制执行清晰的内容层级。它为复杂的产品信息传递提供了稳定的框架，确保信息通过深思熟虑、留白充足的清晰方式被分组和分隔。",
+      "ch7_intro": "动效极简且目的明确，专注于通过平滑过渡提供清晰的 UI 反馈。动画是用于内容出现的微妙淡入和用于 hover 状态的功能性变换，绝不作为装饰。",
+      "ch8_intro": "其编辑风格权威、清晰且技术娴熟，直接面向开发者，使用陈述性、以收益为导向的文案。它使用主动语态和明确指令，避免营销套话和未经解释的术语。",
+      "ch8_outro": "该系统刻意避免装饰性衬线、竞争性的强调色和厚重的阴影，以保持其面向开发者的功能性清晰。"
+    },
+    "zh-TW": {
+      "ch1_intro": "Knock 設計系統是建構複雜通訊系統的精密工具，其中清晰度與控制力至關重要。它將介面設計視為工程打造可靠工具的過程，優先考量功能優雅性，而非裝飾性的綴飾。這是一套為需要理解每個像素背後邏輯的開發者所打造的系統。",
+      "ch2_intro": "一個克制的調色盤使用深沉的中性色調以達成最佳可讀性，將介面錨定於清晰的階層結構中。單一、充滿活力的暖色調強調色保留給主要操作，創造精準的視覺訊號，避免色彩競爭。",
+      "ch2_outro": "原則在於克制：單一強調色作為功能中性色調中的唯一行動號召。",
+      "ch3_intro": "字體配置分為用於標題的幾何無線體，傳達精準感，以及用於內文的人文無線體，確保長篇內容的最佳可讀性。階層結構嚴格透過尺寸與字重來維持，而非顏色，保持資訊結構清晰一致。",
+      "ch4_intro": "一致的 4px 基礎網格確立了穩定的節奏，並運用充裕的留白來分隔區塊並引導注意力。",
+      "ch5_intro": "介面表面透過微妙的陰影與清晰的 1px 邊框，定義出極簡、功能性的深度。其美學是一種精準的層次感，每個元素在空間階層中都有明確、合乎邏輯的位置。",
+      "ch6_intro": "版面架構是一個結構化的、基於欄位的系統，擁有寬裕的 padding 以強制實踐清晰的內容階層。它為複雜的產品訊息提供了穩定的框架，確保資訊以深思熟慮、留白豐富的清晰方式進行分組與分隔。",
+      "ch7_intro": "動態效果極簡且具目的性，專注於透過流暢過渡提供清晰的使用者介面回饋。動畫是用於內容出現的細微淡入淡出，以及用於 hover 狀態的功能性變換，從不作為裝飾用途。",
+      "ch8_intro": "編輯語調權威、清晰且技術嫻熟，直接對開發者訴說，使用陳述式、著重效益的文案。它運用主動動詞與具體指令，避免行銷術語與未解釋的行話。",
+      "ch8_outro": "此系統刻意避開裝飾性的襯線、競爭性的強調色以及厚重的陰影，以保持其功能性的、以開發者為中心的清晰度。"
+    },
+    "ja": {
+      "ch1_intro": "ノック・デザインシステムは、複雑なコミュニケーションシステムを構築するための精密なツールです。明確さと制御が最重要視され、信頼できるツールを設計するようにインターフェースを設計します。装飾的な華美さよりも機能的なエレガンスを優先し、すべてのピクセルに論理を見出したい開発者向けに構築されたシステムです。",
+      "ch2_intro": "控えめなカラーパレットは、最適な可読性のために深いニュートRALを使用し、明確な階層構造をもってインターフェースを支えます。鮮やかなウォームカラーのアクセントはプライマリアクションに限定され、競合する色なしに正確な視覚信号を生み出します。",
+      "ch2_outro": "原則は「抑制」です。一つのアクセントが、機能的なニュートラルの背景に対する唯一のコール・トゥ・アクションとして機能します。",
+      "ch3_intro": "タイポグラフィは、正確さを伝えるヘッドライン用のジオメトリック・サンセリフと、長文でも最適な可読性を確保する本文用のヒューマニスト・サンセリフに分かれています。階層は色ではなく、サイズとウェイトのみで厳密に維持され、情報構造を明確かつ一貫して保ちます。",
+      "ch4_intro": "一定の4pxベースグリッドが確かなリズムを確立し、豊富なホワイトスペースでセクションを区切り、注意を集中させます。",
+      "ch5_intro": "サーフェスは、微細なシャドウと鮮明な1pxボーダーによる最小限の機能的な深みで定義されます。美意識は正確な段階性にあり、すべての要素が空間階層において明確で論理的な位置を占めています。",
+      "ch6_intro": "レイアウトの骨格は、豊富なパディングを備えた構造化されたカラムベースシステムで、明確なコンテンツ階層を強制します。複雑な製品メッセージリングのための安定したフレームワークを提供し、情報を意図的でホワイトスペースに富んだ明確さで-grouping and separation ensures clarity.",
+      "ch7_intro": "モーションは最小限で目的志向であり、滑らかなトランジションを通じて明確なUIフィードバックを提供することのみに焦点を当てます。アニメーションはコンテンツの表示時の微妙なフェードと、hover状態の機能的な変換で、決して装飾にはなりません。",
+      "ch8_intro": "エディトリアルな声は、権威があり、明確で、技術的に習熟しています。開発者に直接語りかけ、宣言的でメリット指向のコピーを用います。能動態の動詞と具体的な指示を使い、マーケティング用の曖昧な表現や説明のない専門用語を避けます。",
+      "k8_outro": "このシステムは、装飾的なセリフ、競合するアクセントカラー、重いシャドウを意図的に避け、機能的で開発者に焦点を当てた明確さを保全しています。"
+    },
+    "ko": {
+      "ch1_intro": "Knock 디자인 시스템은 복잡한 커뮤니케이션 시스템 구축을 위한 정밀 도구로, 명확성과 제어가 가장 중요합니다. 인터페이스 디자인을 신뢰할 수 있는 도구를 설계하는 것으로 보아 기능적 우아함을 장식적 화려함보다 우선시합니다. 이 시스템은 모든 픽셀 속에서 논리를 파악해야 하는 개발자를 위해 구축되었습니다.",
+      "ch2_intro": "절제된 팔레트는 최적의 가독성을 위해 깊은 중성색을 사용하여 인터페이스를 명확한 계층 구조에 고정합니다. 단일한 활기찬 따뜻한 강조색은 주요 작업에만 사용되어, 경쟁하는 색상 없이 정확한 시각적 신호를 만듭니다.",
+      "ch2_outro": "원리는 절제입니다: 하나의 강조색이 기능적인 중성색 영역을 배경으로 단일한 행동 유도 요소 역할을 합니다.",
+      "ch3_intro": "타이포그래피는 정밀함을 전달하는 헤드라인용 기하학적 산세리프와 긴 텍스트에서도 최적의 가독성을 보장하는 본문용 휴머니스틱 산세리프로 나뉩니다. 계층 구조는 색상이 아닌 크기와 두께를 통해서만 엄격하게 유지하여 정보 구조를 명확하고 일관되게 유지합니다.",
+      "ch4_intro": "일관된 4px 기본 그리드는 신뢰할 수 있는 리듬을 확립하고, 넉넉한 여백은 섹션을 분리하고 주의를 집중하는 데 사용됩니다.",
+      "ch5_intro": "표면은 미묘한 그림자와 선명한 1px 테두리를 통해 최소한의 기능적 깊이로 정의됩니다. 미학은 모든 요소가 공간 계층에서 명확하고 논리적인 위치를 가지는 정확한 높이감을 특징으로 합니다.",
+      "ch6_intro": "레이아웃 골격은 명확한 콘텐츠 계층 구조를 강제하는 넉넉한 패딩을 갖춘 구조화된 열 기반 시스템입니다. 복잡한 제품 메시지를 위한 안정적인 프레임워크를 제공하여 정보를 의도적이고 여백이 풍부한 명확성으로 그룹화하고 분리합니다.",
+      "ch7_intro": "모션은 최소한이면서 의도적이며, 부드러운 전환을 통해 명확한 UI 피드백을 제공하는 데만 집중합니다. 애니메이션은 콘텐츠 표시를 위한 미묘한 페이드와 hover 상태를 위한 기능적 변환으로, 결코 장식으로 사용되지 않습니다.",
+      "ch8_intro": "편집 톤은 권위 있고 명확하며 기술적으로 능숙하여, 선언적이고 이점 지향적인 카피로 개발자에게 직접 말합니다. 활동 동사와 구체적인 지시를 사용하며, 마케팅성 과장과 설명 없는 전문용어를 피합니다.",
+      "ch8_outro": "이 시스템은 기능적이고 개발자 중심의 명확성을 보존하기 위해 의도적으로 장식용 세리프, 경쟁 강조색, 두꺼운 그림자를 피합니다."
+    }
+  }
 }

@@ -9,6 +9,575 @@
     "3d",
     "tool"
   ],
-  "status": "pending",
-  "added_at": "2026-06-02"
+  "status": "completed",
+  "added_at": "2026-06-02",
+  "spec": {
+    "colors": {
+      "bg": "#000000",
+      "bgSoft": "#1e1e23",
+      "bgQuiet": "rgba(255,255,255,0.05)",
+      "ink": "#ffffff",
+      "inkSoft": "rgba(255,255,255,0.6)",
+      "muted": "#888888",
+      "mutedSoft": "rgba(255,255,255,0.1)",
+      "accent": "#0062FF",
+      "line": "rgba(255,255,255,0.1)"
+    },
+    "typography": {
+      "display": "humanist-sans",
+      "body": "humanist-sans",
+      "mono": "monospace",
+      "scale": [
+        {
+          "token": "display",
+          "size": 40,
+          "lh": 1.35,
+          "weight": 400,
+          "ls": "-0.5px"
+        }
+      ]
+    },
+    "spacing": {
+      "base": 4,
+      "scale": [
+        4,
+        8,
+        12,
+        16,
+        24,
+        32,
+        48,
+        64,
+        96,
+        150
+      ]
+    },
+    "surfaces": {
+      "radius": {
+        "sm": 4,
+        "md": 12,
+        "lg": 16,
+        "pill": 999
+      }
+    },
+    "layout": {
+      "container": 1280,
+      "paragraph": 680,
+      "columns": 12,
+      "gutter": 24,
+      "breakpoints": [
+        768,
+        1024
+      ]
+    },
+    "motion": {
+      "durations": {
+        "micro": 220,
+        "small": 400,
+        "medium": 800
+      },
+      "easing": "cubic-bezier(0.25, 0.1, 0.25, 1.0)"
+    }
+  },
+  "spec_i18n": {
+    "en": {
+      "identity": {
+        "keywords": [
+          "interactive",
+          "3D",
+          "design",
+          "platform",
+          "collaborative"
+        ],
+        "analogy": "A digital playground for building 3D worlds",
+        "oneLiner": "An all-in-one platform for creating and collaborating on interactive 3D and design experiences."
+      },
+      "colors": {
+        "principle": "High-contrast dark mode with a vibrant blue accent and multi-colored 3D elements for visual impact."
+      },
+      "typography": {
+        "rules": [
+          "Use system-ui fallbacks for reliability",
+          "Maintain tight letter spacing for large display text",
+          "Use 16px as the standard body size"
+        ],
+        "scaleUses": [
+          "Main hero headline"
+        ]
+      },
+      "spacing": {
+        "rhythm": "Standard 4px grid system with generous vertical spacing for major sections"
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 4px 12px rgba(0,0,0,0.5)"
+        ],
+        "borders": "Subtle 1px borders using rgba(255,255,255,0.1)"
+      },
+      "layout": {
+        "skeleton": "Centered layout with a dominant hero section followed by content blocks"
+      },
+      "components": {
+        "button": "Pill-shaped primary buttons with solid blue background and white text, secondary buttons with dark background",
+        "card": "Dark, slightly elevated surfaces with subtle borders",
+        "chip": "Small rounded tags with icons",
+        "input": "Minimalist with subtle borders",
+        "hero": "Large centered headline over an interactive 3D canvas background"
+      },
+      "motion": {
+        "patterns": [
+          "Subtle color transitions on hover",
+          "Smooth background color changes"
+        ]
+      },
+      "interaction": {
+        "hover": "Subtle color shifts and cursor pointer",
+        "click": "Immediate feedback with standard button press states",
+        "transition": "Smooth 0.2s ease-in-out for color and background changes",
+        "keyboard": "Standard focus outlines for accessibility"
+      },
+      "voice": {
+        "tone": "Professional yet approachable",
+        "headlineStyle": "Direct and benefit-oriented",
+        "ctaStyle": "Encouraging and action-focused with clear value proposition",
+        "avoid": [
+          "Jargon-heavy technical language",
+          "Aggressive sales pitches",
+          "Passive or hesitant phrasing"
+        ]
+      },
+      "donts": [
+        "Don't use light backgrounds — screenshot shows a deep black background as the primary canvas",
+        "Don't use red or orange as primary accents — screenshot uses a specific vibrant blue",
+        "Don't use serif fonts for headlines — screenshot uses a clean humanist sans-serif",
+        "Don't use sharp rectangular buttons — screenshot shows pill-shaped and rounded buttons",
+        "Don't clutter the hero section — screenshot maintains a clean, centered layout with ample whitespace",
+        "Don't use flat, static elements — screenshot features interactive 3D objects and a grid floor"
+      ],
+      "systemPrompt": "This is a design system for Spline, a 3D and interactive design platform. The visual identity is built on a high-contrast dark mode aesthetic (#000000 background) with a primary accent of vibrant blue (#0062FF). Typography uses a clean humanist-sans-serif (Spline Sans) at a standard 16px base size. Critical constraints: never use light or white backgrounds as the primary canvas, avoid using red or orange as the dominant accent color, and always use pill-shaped or rounded buttons instead of sharp rectangles. The layout is centered and spacious, with a focus on showcasing 3D content. Interactions should be smooth and subtle, using 0.2s transitions for most color changes."
+    },
+    "zh-CN": {
+      "identity": {
+        "keywords": [
+          "交互式",
+          "3D",
+          "设计",
+          "平台",
+          "协作"
+        ],
+        "analogy": "构建3D世界的数字乐园",
+        "oneLiner": "一个用于创建和协作交互式3D及设计体验的一体化平台。"
+      },
+      "colors": {
+        "principle": "高对比度的暗色模式，搭配鲜明的蓝色强调色和多彩的3D元素，以增强视觉冲击力。"
+      },
+      "typography": {
+        "rules": [
+          "使用 system-ui 回退字体以确保可靠性",
+          "大型显示文本保持紧凑的字间距",
+          "使用 16px 作为标准正文字号"
+        ],
+        "scaleUses": [
+          "主标题"
+        ]
+      },
+      "spacing": {
+        "rhythm": "标准的 4px 网格系统，主要区块采用充裕的垂直间距"
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 4px 12px rgba(0,0,0,0.5)"
+        ],
+        "borders": "使用 rgba(255,255,255,0.1) 的 1px 微妙边框"
+      },
+      "layout": {
+        "skeleton": "居中布局，一个大型主视觉区域后接内容区块"
+      },
+      "components": {
+        "button": "药丸形主按钮，采用纯色蓝色背景和白色文字；次级按钮采用深色背景",
+        "card": "深色、略微抬升的表面，带微妙边框",
+        "chip": "带有图标的圆角小标签",
+        "input": "极简设计，带微妙边框",
+        "hero": "大型居中标题，叠加在交互式3D画布背景上"
+      },
+      "motion": {
+        "patterns": [
+          "悬停时的微妙色彩过渡",
+          "平滑的背景颜色变化"
+        ]
+      },
+      "interaction": {
+        "hover": "微妙的颜色变化和指针光标",
+        "click": "通过标准按钮按压状态提供即时反馈",
+        "transition": "颜色和背景变化采用平滑的 0.2s ease-in-out 过渡",
+        "keyboard": "标准焦点轮廓以提升可访问性"
+      },
+      "voice": {
+        "tone": "专业且平易近人",
+        "headlineStyle": "直接且以利益为导向",
+        "ctaStyle": "具有鼓励性且聚焦行动，提供清晰的价值主张",
+        "avoid": [
+          "充斥术语的技术性语言",
+          "激进的销售话术",
+          "被动或犹豫的措辞"
+        ]
+      },
+      "donts": [
+        "不要使用浅色背景——截图显示深黑色背景是主要画布",
+        "不要使用红色或橙色作为主强调色——截图使用特定的鲜明蓝色",
+        "不要在标题中使用衬线字体——截图使用简洁的人文主义无衬线字体",
+        "不要使用棱角分明的矩形按钮——截图显示的是药丸形和圆角按钮",
+        "不要让主视觉区域显得杂乱——截图保持了简洁的居中布局和充裕的留白",
+        "不要使用扁平、静态的元素——截图展示了交互式3D对象和网格地面"
+      ],
+      "systemPrompt": "这是 Spline 的设计系统，一个3D和交互式设计平台。其视觉身份建立在高对比度的暗色模式美学之上（#000000 背景），主强调色为鲜明的蓝色（#0062FF）。字体使用简洁的人文主义无衬线字体（Spline Sans），标准基础字号为16px。关键约束：切勿使用浅色或白色背景作为主要画布，避免使用红色或橙色作为主导强调色，并始终使用药丸形或圆角按钮而非棱角分明的矩形按钮。布局居中且宽敞，专注于展示3D内容。交互应平滑且微妙，大多数颜色变化使用0.2秒过渡。"
+    },
+    "zh-TW": {
+      "identity": {
+        "keywords": [
+          "互動式",
+          "3D",
+          "設計",
+          "平台",
+          "協作"
+        ],
+        "analogy": "一個用於建構 3D 世界的數位遊樂場",
+        "oneLiner": "一個用於建立和協作互動式 3D 與設計體驗的全方位平台。"
+      },
+      "colors": {
+        "principle": "高對比度的深色模式，搭配鮮活的藍色強調色與多彩的 3D 元素以創造視覺衝擊。"
+      },
+      "typography": {
+        "rules": [
+          "使用 system-ui 作為後備字體以確保可靠性",
+          "大型展示文字保持緊湊的字間距",
+          "使用 16px 作為標準內文大小"
+        ],
+        "scaleUses": [
+          "主要主視覺標題"
+        ]
+      },
+      "spacing": {
+        "rhythm": "標準 4px 格線系統，主要區塊之間使用寬裕的垂直間距"
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 4px 12px rgba(0,0,0,0.5)"
+        ],
+        "borders": "使用 rgba(255,255,255,0.1) 的細微 1px 邊框"
+      },
+      "layout": {
+        "skeleton": "居中佈局，以一個顯著的主視覺區域開始，後接內容區塊"
+      },
+      "components": {
+        "button": "藥丸形狀的主按鈕，實心藍色背景與白色文字；次按鈕使用深色背景",
+        "card": "深色、略微凸起的表面，帶有細微邊框",
+        "chip": "帶有圖示的圓角小標籤",
+        "input": "極簡風格，帶有細微邊框",
+        "hero": "大型居中標題，置於互動式 3D 畫布背景之上"
+      },
+      "motion": {
+        "patterns": [
+          "懸停時細微的色彩過渡",
+          "平滑的背景色變化"
+        ]
+      },
+      "interaction": {
+        "hover": "細微的色彩變化與游標變為 pointer",
+        "click": "提供即時回饋，使用標準按鈕按壓狀態",
+        "transition": "色彩與背景變化使用平滑的 0.2s ease-in-out",
+        "keyboard": "使用標準的焦點輪廓以確保無障礙性"
+      },
+      "voice": {
+        "tone": "專業且平易近人",
+        "headlineStyle": "直接且以效益為導向",
+        "ctaStyle": "鼓勵性且以行動為焦點，並提出清晰的價值主張",
+        "avoid": [
+          "術語過多的技術語言",
+          "激進的銷售手法",
+          "被動或猶豫的措辭"
+        ]
+      },
+      "donts": [
+        "請勿使用淺色背景——截圖顯示深黑色背景作為主要畫布",
+        "請勿使用紅色或橙色作為主要強調色——截圖使用特定的鮮活藍色",
+        "請勿在標題中使用襯線字體——截圖使用簡潔的 humanist-sans-serif",
+        "請勿使用尖角矩形按鈕——截圖顯示藥丸形狀與圓角按鈕",
+        "請勿讓主視覺區域顯得擁擠——截圖保持簡潔、居中的佈局並留有充足空白",
+        "請勿使用扁平、靜態的元素——截圖特色是互動式 3D 物體與格線地板"
+      ],
+      "systemPrompt": "這是一個針對 Spline（一個 3D 與互動式設計平台）的設計系統。視覺識別建立在高對比度的深色模式美學（#000000 背景）上，並以鮮活的藍色（#0062FF）作為主要強調色。字體使用簡潔的 humanist-sans-serif（Spline Sans），標準基礎大小為 16px。關鍵限制：絕不使用淺色或白色背景作為主要畫布，避免使用紅色或橙色作為主要強調色，並始終使用藥丸形或圓角按鈕而非尖角矩形。佈局居中且寬敞，專注於展示 3D 內容。互動效果應平滑且細微，大多數色彩變化使用 0.2s 過渡。"
+    },
+    "ja": {
+      "identity": {
+        "keywords": [
+          "インタラクティブ",
+          "3D",
+          "デザイン",
+          "プラットフォーム",
+          "コラボレーション"
+        ],
+        "analogy": "3Dの世界を構築するためのデジタルプレイグラウンド",
+        "oneLiner": "インタラクティブな3Dとデザイン体験を創造・コラボレーションするためのオールインワンプラットフォーム。"
+      },
+      "colors": {
+        "principle": "鮮やかなブルーアクセントと多色の3D要素を用いた、視覚的インパクトのあるハイコントラストダークモード。"
+      },
+      "typography": {
+        "rules": [
+          "信頼性を確保するため、system-uiフォールバックを使用",
+          "大きなディスプレイテキストには、文字間隔をタイトに保つ",
+          "標準ボディサイズとして16pxを使用"
+        ],
+        "scaleUses": [
+          "メインヒーローヘッドライン"
+        ]
+      },
+      "spacing": {
+        "rhythm": "主要セクションにはゆったりとした垂直方向の余白を確保した、標準の4pxグリッドシステム"
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 4px 12px rgba(0,0,0,0.5)"
+        ],
+        "borders": "rgba(255,255,255,0.1)を使用した繊細な1pxボーダー"
+      },
+      "layout": {
+        "skeleton": "中心に据えたレイアウト。支配的なヒーローセクションに続き、コンテンツブロックが配置される"
+      },
+      "components": {
+        "button": "ソリッドブルー背景と白テキストのピル型プライマリボタン、およびダーク背景のセカンダリボタン",
+        "card": "繊細なボーダーを持つ、やや浮き上がったダークサーフェス",
+        "chip": "アイコン付きの小さな角丸タグ",
+        "input": "繊細なボーダーを持つミニマリストデザイン",
+        "hero": "インタラクティブな3Dキャンバス背景の上に配置された、大きなセンタリングヘッドライン"
+      },
+      "motion": {
+        "patterns": [
+          "hover時の微細な色の変化",
+          "滑らかな背景色の変化"
+        ]
+      },
+      "interaction": {
+        "hover": "微細な色のシフトとカーソルポインタ",
+        "click": "標準的なボタンの押下状態による即時フィードバック",
+        "transition": "色や背景の変化に、0.2秒の滑らかなease-in-outを適用",
+        "keyboard": "アクセシビリティのための標準フォーカスアウトライン"
+      },
+      "voice": {
+        "tone": "プロフェッショナルでありながら、親しみやすい",
+        "headlineStyle": "直接的で、利益を明確にするスタイル",
+        "ctaStyle": "明確な価値提案を含む、促進的でアクション重視のスタイル",
+        "avoid": [
+          "専門用語を多用した技術的な言葉遣�",
+          "強引な営業トーク",
+          "受動的またはためらいがちな表現"
+        ]
+      },
+      "donts": [
+        "明るい背景を使用しない — スクリーンショットでは、プライマリキャンバスとして深い黒の背景が使用されています",
+        "赤やオレンジをプライマリアクセントに使用しない — スクリーンショットでは、特定の鮮やかなブルーが使用されています",
+        "ヘッドラインにセリフフォントを使用しない — スクリーンショットでは、クリーンなヒューマニストサンセリフが使用されています",
+        "鋭い長方形のボタンを使用しない — スクリーンショットでは、ピル型や角丸のボタンが使用されています",
+        "ヒーローセクションを雑然とさせない — スクリーンショットでは、十分な余白を持つクリーンでセンタリングされたレイアウトが維持されています",
+        "平面的で静的な要素を使用しない — スクリーンショットには、インタラクティブな3Dオブジェクトとグリッドフロアが特徴です"
+      ],
+      "systemPrompt": "これは、3D・インタラクティブデザインプラットフォーム「Spline」のデザインシステムです。ビジュアルアイデンティティは、ハイコントラストダークモード美学（背景色 #000000）と、プライマリアクセントとしての鮮やかなブルー（#0062FF）に基づいています。タイポグラフィは、クリーンなヒューマニストサンセリフ（Spline Sans）を標準の16pxベースサイズで使用しています。重要な制約として、プライマリキャンバスに明るい色や白の背景を使用せず、主なアクセントカラーとして赤やオレンジを使用せず、常に鋭い長方形ではなくピル型または角丸のボタンを使用します。レイアウトは中心に据えられ、ゆったりとしており、3Dコンテンツのショーケースに焦点を当てます。インタラクションは滑らかで微細なものとし、ほとんどの色の変更には0.2秒のトランジションを使用します。"
+    },
+    "ko": {
+      "identity": {
+        "keywords": [
+          "interactive",
+          "3D",
+          "design",
+          "platform",
+          "collaborative"
+        ],
+        "analogy": "3D 월드를 구축하기 위한 디지털 놀이터",
+        "oneLiner": "인터랙티브 3D 및 디자인 경험을 창작하고 협업할 수 있는 올인원 플랫폼입니다."
+      },
+      "colors": {
+        "principle": "높은 대비의 다크 모드에 생동감 있는 블루 악센트와 다채로운 3D 요소를 사용하여 시각적 임팩트를 냅니다."
+      },
+      "typography": {
+        "rules": [
+          "안정적인 사용을 위해 system-ui 폴백을 사용합니다",
+          "대형 디스플레이 텍스트에는 타이트한 자간을 유지합니다",
+          "표준 본문 크기로 16px를 사용합니다"
+        ],
+        "scaleUses": [
+          "메인 히어로 헤드라인"
+        ]
+      },
+      "spacing": {
+        "rhythm": "기본 4px 그리드 시스템을 사용하며, 주요 섹션에는 넉넉한 수직 간격을 둡니다"
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 4px 12px rgba(0,0,0,0.5)"
+        ],
+        "borders": "rgba(255,255,255,0.1)를 사용한 미묘한 1px 테두리"
+      },
+      "layout": {
+        "skeleton": "중심 정렬 레이아웃으로, 주도적인 히어로 섹션 다음에 콘텐츠 블록이 배치됩니다"
+      },
+      "components": {
+        "button": "단색 블루 배경의 화이트 텍스트를 사용한 둥근 형태의 기본 버튼과, 다크 배경의 보조 버튼",
+        "card": "미묘한 테두리가 있는 다크색 약간 높인 표면",
+        "chip": "아이콘이 있는 작은 둥근 태그",
+        "input": "미묘한 테두리를 사용한 미니멀리스트 스타일",
+        "hero": "인터랙티브 3D 캔버스 배경 위의 큰 중심 정렬 헤드라인"
+      },
+      "motion": {
+        "patterns": [
+          "hover 시 미묘한 색상 전환",
+          "부드러운 배경색 변화"
+        ]
+      },
+      "interaction": {
+        "hover": "미묘한 색상 변화와 커서 포인터",
+        "click": "표준 버튼 누름 상태로 즉각적인 피드백",
+        "transition": "색상 및 배경 변화를 위한 부드러운 0.2s ease-in-out",
+        "keyboard": "접근성을 위한 표준 포커스 윤곽선"
+      },
+      "voice": {
+        "tone": "전문적이면서도 친근한",
+        "headlineStyle": "직설적이며 이점 중심의",
+        "ctaStyle": "명확한 가치 제안으로 격려하고 행동에 초점을 맞춘",
+        "avoid": [
+          "전문 용어가 지나치게 많은 기술적 언어",
+          "공격적인 판매 피치",
+          "수동적이거나 망설이는 표현"
+        ]
+      },
+      "donts": [
+        "밝은 배경을 사용하지 않습니다 — 스크린샷은 기본 캔버스로 깊은 검정 배경을 보여줍니다",
+        "빨간색 또는 주황색을 기본 악센트로 사용하지 않습니다 — 스크린샷은 특정한 생동감 있는 블루를 사용합니다",
+        "헤드라인에 세리프 폰트를 사용하지 않습니다 — 스크린샷은 깔끔한 휴머니스트 산세리프를 사용합니다",
+        "날카로운 직사각형 버튼을 사용하지 않습니다 — 스크린샷은 둥근 형태와 둥근 버튼을 보여줍니다",
+        "히어로 섹션을 어지럽히지 않습니다 — 스크린샷은 넉넉한 여백을 가진 깔끔한 중심 정렬 레이아웃을 유지합니다",
+        "평평하고 정적인 요소를 사용하지 않습니다 — 스크린샷은 인터랙티브 3D 객체와 그리드 바닥을 특징으로 합니다"
+      ],
+      "systemPrompt": "이것은 3D 및 인터랙티브 디자인 플랫폼인 Spline을 위한 디자인 시스템입니다. 시각적 아이덴티티는 높은 대비의 다크 모드 미학(#000000 배경)과 기본 악센트인 생동감 있는 블루(#0062FF)를 기반으로 구축됩니다. 타이포그래피는 기본 16px 크기의 깔끔한 휴머니스트 산세리프(Spline Sans)를 사용합니다. 중요 제약 사항: 밝거나 흰색 배경을 기본 캔버스로 절대 사용하지 않고, 빨간색이나 주황색을 주요 악센트 색상으로 사용하지 않으며, 항상 둥근 형태나 직사각형 대신 둥근 버튼을 사용합니다. 레이아웃은 중심 정렬되고 넉넉하며, 3D 콘텐츠를 선보이는 데 집중합니다. 인터랙션은 부드럽고 미묘해야 하며, 대부분의 색상 변화에 0.2s 전환을 사용합니다."
+    }
+  },
+  "desc": {
+    "en": {
+      "palette": "Deep black background with a vibrant blue accent and multi-colored 3D geometric shapes for visual interest.",
+      "layout": "Centered, spacious layout with a dominant hero section featuring interactive 3D content.",
+      "interaction": "Subtle color transitions on hover with smooth 0.2s easing for most interactive elements.",
+      "motion": "Minimal motion, primarily through hover states and smooth transitions between states.",
+      "notes": "This site is worth including as a prime example of a modern, dark-mode design system for a 3D creative tool."
+    },
+    "zh-CN": {
+      "palette": "深黑色背景搭配鲜明的蓝色强调色，以及多彩的3D几何图形以增强视觉趣味。",
+      "layout": "居中、宽敞的布局，以一个包含交互式3D内容的大型主视觉区域为主导。",
+      "interaction": "悬停时呈现微妙的色彩过渡，大多数交互元素使用0.2秒的平滑缓动。",
+      "motion": "极简的动态效果，主要通过悬停状态和状态之间的平滑过渡实现。",
+      "notes": "该网站是现代暗色模式设计系统的典范案例，适用于3D创意工具。"
+    },
+    "zh-TW": {
+      "palette": "深黑色背景搭配鮮活的藍色強調色與多彩的 3D 幾何圖形，增添視覺趣味。",
+      "layout": "居中、寬敞的佈局，以一個包含互動 3D 內容的顯著主視覺區域為主。",
+      "interaction": "互動元素在懸停時有細微的色彩過渡，並使用平滑的 0.2s 緩動效果。",
+      "motion": "動態效果最小化，主要透過懸停狀態與狀態間的平滑過渡來實現。",
+      "notes": "這個網站值得作為一個現代化、深色模式設計系統的優秀範例，專為 3D 創意工具而設計。"
+    },
+    "ja": {
+      "palette": "深い黒を背景に、鮮やかなブルーのアクセントと多色の3Dジオメトリックシェイプを配置し、視覚的な魅力を生み出しています。",
+      "layout": "インタラクティブな3Dコンテンツを特徴とするヒーローセクションが支配的な、中心に据えたゆったりとしたレイアウトです。",
+      "interaction": "ほとんどのインタラクティブ要素において、滑らかな0.2秒のイージングを用いた、hover時の微細な色の変化を実現しています。",
+      "motion": "最小限のモーション。主にhover状態と状態間の滑らかな遷移を通じて表現されます。",
+      "notes": "このサイトは、3Dクリエイティブツールのモダンなダークモードデザインシステムの良例として、掲載する価値があります。"
+    },
+    "ko": {
+      "palette": "깊은 검정 배경에 생동감 있는 블루 악센트와 시각적 재미를 더해주는 다채로운 3D 기하학적 도형을 사용합니다.",
+      "layout": "중심 정렬되고 넉넉한 레이아웃으로, 인터랙티브 3D 콘텐츠가 주도하는 히어로 섹션이 특징입니다.",
+      "interaction": "대부분의 인터랙티브 요소에서 부드러운 0.2s ease를 적용한 미묘한 색상 전환 효과를 사용합니다.",
+      "motion": "모션은 최소화하며, 주로 hover 상태와 상태 간의 부드러운 전환으로 구현합니다.",
+      "notes": "이 사이트는 3D 크리에이티브 툴을 위한 현대적 다크 모드 디자인 시스템의 대표적인 예로 포함할 가치가 있습니다."
+    }
+  },
+  "_meta": {
+    "vision_model": "mimo-v2.5",
+    "vision_prompt_version": "0.3",
+    "vision_source": "playwright-extract:spline",
+    "vision_grounded": true,
+    "vision_at": "2026-06-04T18:57:45+00:00",
+    "vision_tokens": 15847,
+    "vision_cost_usd": 0.1761,
+    "translation_model": "mimo-v2.5",
+    "translation_at": "2026-06-04T18:58:55+00:00",
+    "translation_tokens": 15733,
+    "translation_cost_usd": 0.0524,
+    "narrative_model": "mimo-v2.5",
+    "narrative_prompt_version": "0.3",
+    "narrative_at": "2026-06-04T18:59:06+00:00",
+    "narrative_tokens": 1927,
+    "narrative_cost_usd": 0.0128,
+    "narrative_status": "ok",
+    "total_cost_usd": 0.2413
+  },
+  "narrative": {
+    "en": {
+      "ch1_intro": "Spline's design system is a digital playground for building 3D worlds, where a high-contrast dark mode serves as the foundational stage. Its identity is built on a deliberate tension between a vast, deep black canvas and the sharp, vibrant blue accent that acts as the primary call to action and focal point.",
+      "ch2_intro": "The palette is anchored by a deep black background, creating a sense of infinite depth for 3D content. A single, vibrant blue (#0062FF) cuts through the darkness, used strategically for interactive elements and to guide the eye.",
+      "ch2_outro": "The system enforces a strict high-contrast principle, using subtle white-based borders and multi-colored 3D elements only as supplementary visual interest.",
+      "ch3_intro": "Typography is handled with a clean humanist sans-serif, Spline Sans, chosen for its clarity and modern character. The system maintains tight letter spacing for large display text while establishing a reliable 16px standard for body copy.",
+      "ch4_intro": "A standard 4px grid provides the underlying rhythm for all spacing decisions.",
+      "ch5_intro": "Surfaces are defined by depth through subtle shadows and a single-pixel border treatment. This creates a clear visual hierarchy, elevating interactive components slightly above the primary dark canvas.",
+      "ch6_intro": "The layout skeleton is centered and spacious, designed to frame and showcase 3D content. A dominant hero section commands initial attention, followed by content blocks that maintain generous vertical spacing.",
+      "ch7_intro": "Motion philosophy favors subtlety and feedback over decoration. Transitions are smooth and consistent, primarily using a 0.2s ease-in-out for color and background changes.",
+      "ch8_intro": "The editorial voice is professional yet approachable, with direct, benefit-oriented headlines. Calls to action are encouraging and action-focused, always communicating a clear value proposition.",
+      "ch8_outro": "The system deliberately avoids cluttered layouts, serif typography for headlines, and the use of red or orange as dominant accent colors."
+    },
+    "zh-CN": {
+      "ch1_intro": "Spline 的设计系统是一个构建 3D 世界的数字游乐场，其中高对比度的深色模式构成了基础舞台。其身份建立在广阔深邃的黑色画布与鲜明、充满活力的蓝色强调色之间一种精心营造的张力之上，后者充当主要的操作号召和视觉焦点。",
+      "ch2_intro": "调色板以深邃的黑色背景为基础，为 3D 内容营造出无限深邃的感觉。一抹鲜亮的蓝色（#0062FF）划破黑暗，被策略性地用于交互元素，以引导视线。",
+      "ch2_outro": "该系统遵循严格的高对比度原则，仅使用基于白色的细微边框和多彩的 3D 元素作为补充的视觉趣味。",
+      "ch3_intro": "排版采用简洁的 Spline Sans 人文无衬线字体，因其清晰度和现代感而被选用。该系统为大型展示文字保持紧凑的字距，同时为正文确立可靠的 16px 标准。",
+      "ch4_intro": "一个标准的 4px 网格为所有间距决策提供了基础节奏。",
+      "ch5_intro": "界面通过细微的阴影和单像素边框处理来定义深度。这创造了清晰的视觉层次，将交互组件略微抬高到主要深色画布之上。",
+      "ch6_intro": "布局骨架居中且宽敞，旨在框定和展示 3D 内容。一个占主导地位的主视觉区域吸引初始注意力，随后是保持充足垂直间距的内容块。",
+      "ch7_intro": "动效理念偏向于微妙和反馈，而非装饰。过渡平滑且一致，主要使用 0.2s 的 ease-in-out 进行颜色和背景变化。",
+      "ch8_intro": "编辑语调专业而平易近人，标题直接且以利益为导向。操作号召鼓励性强且聚焦行动，始终传达明确的价值主张。",
+      "ch8_outro": "该系统刻意避免杂乱的布局、用于标题的衬线字体，以及使用红色或橙色作为主导强调色。"
+    },
+    "zh-TW": {
+      "ch1_intro": "Spline 的設計系統是建構 3D 世界的數位遊樂場，高對比的深色模式作為基礎舞台。其識別度建立在廣闊深邃的黑色畫布與鮮明、充滿活力的藍色強調色之間的刻意張力上，後者作為主要的操作呼籲與視覺焦點。",
+      "ch2_intro": "色調以深邃的黑色背景為基準，為 3D 內容創造無限深度的感覺。單一、鮮活的藍色 (#0062FF) 划破黑暗，策略性地用於互動元素並引導視覺動線。",
+      "ch2_outro": "系統嚴守高對比原則，使用細微的白色基底邊框與多彩 3D 元素僅作為輔助的視覺趣味。",
+      "ch3_intro": "字型採用簡潔的人文無襯線體 Spline Sans，因其清晰度與現代特質而被選用。系統對大型展示文字保持緊湊的字間距，同時為內文建立可靠的 16px 標準。",
+      "ch4_intro": "標準的 4px 網格為所有間距決策提供基礎節奏。",
+      "ch5_intro": "介面透過細微陰影與單像素邊框處理來定義深度。這創造了清晰的視覺層次，將互動元件輕微提升於主要的深色畫布之上。",
+      "ch6_intro": "版面骨架以居中且寬敞的方式設計，用以框顯並展示 3D 內容。主導的首屏區域吸引初始注意力，接著是內容區塊，維持著充裕的垂直間距。",
+      "ch7_intro": "動態哲學傾向於細膩與回饋，而非裝飾性。過渡效果流暢且一致，主要使用 0.2s ease-in-out 處理色彩與背景變化。",
+      "ch8_intro": "敘事語調專業而平易近人，標題直接且著重效益。操作呼籲具鼓勵性並聚焦行動，始終傳達清晰的價值主張。",
+      "ch8_outro": "系統刻意避免擁擠的版面、用於標題的襯線字型，以及使用紅色或橙色作為主導的強調色彩。"
+    },
+    "ja": {
+      "ch1_intro": "Splineのデザインシステムは、3D世界を構築するためのデジタルプレイグラウンドです。高コントラストのダークモードが基盤となるステージとして機能します。そのアイデンティティは、広大で深い黒のキャンバスと、.primary call to actionおよび焦点となる鮮やかな青のアクセントの間に生じる、意図的な緊張関係の上に構築されています。",
+      "ch2_intro": "カラーパレットは深い黒の背景に锚を定め、3Dコンテンツに無限の深みを提供します。1つの鮮やかな青（#0062FF）が闇を切り裂き、インタラクティブな要素には戦略的に使用され、視線を誘導します。",
+      "ch2_outro": "このシステムは厳格な高コントラストの原則を適用し、補足的な視覚的興味としてのみ、微細な白ベースのボーダーや多色の3D要素を用います。",
+      "ch3_intro": "タイポグラフィは、明瞭さと現代的な特徴が選ばれた、クリーンなhumanist sans-serifのSpline Sansで処理されます。このシステムは、大きなディスプレイテキストにはtightな文字間隔を維持しながら、本文には信頼性の高い16pxの標準を確立します。",
+      "ch4_intro": "標準的な4pxグリッドが、すべてのスペーシング決定の基盤となるリズムを提供します。",
+      "ch5_intro": "サーフェスは、微細なシャドウと1ピクセルのボーダー処理によって深みで定義されます。これにより、インタラクティブなコンポーネントをメインのダークキャンバスからわずかに上方に浮かび上がらせ、明確な視覚的階層が生まれます。",
+      "ch6_intro": "レイアウトの骨格は中心に寄り、ゆったりとしており、3Dコンテンツをフレームし、見せるために設計されています。主役となるヒーローセクションが最初の注目を集め、その後に、十分な縦方向の余白を保つコンテンツブロックが続きます。",
+      "ch7_intro": "モーションの哲学は、装飾よりも微細さとフィードバックを優先します。トランジションは滑らかかつ一貫しており、色や背景の変更には主に0.2sのease-in-outを使用します。",
+      "ch8_intro": "エディトリアルな声はプロフェッショナルでありながら親しみやすく、直接的で利益を志向した見出しが特徴です。呼びかけ（Call to action）は励ましの意を含み、アクションに焦点を当て、常に明確な価値提案を伝えるものです。",
+      "ch8_outro": "このシステムは、雑然としたレイアウト、見出しのserifタイポグラフィ、および赤やオレンジを主要なアクセントカラーとして使用することを意図的に避けています。"
+    },
+    "ko": {
+      "ch1_intro": "Spline의 디자인 시스템은 3D 세계를 구축하기 위한 디지털 놀이터이며, 고대비 다크 모드가 기본 무대로 작용합니다. 광활하고 깊은 검은 캔버스와 선명하고 생동감 있는 블루 악센트 사이의 의도적인 긴장감 위에 정체성이 구축되어 있습니다. 블루는 주요 행동 유도 요소이자 시각적 초점으로 사용됩니다.",
+      "ch2_intro": "팔레트는 깊은 검은색 배경을 중심으로 하여, 3D 콘텐츠에 무한한 깊이감을 부여합니다. 생동감 있는 블루(#0062FF)가 어둠을 가로지르며, 인터랙티브 요소에 전략적으로 사용되어 시선을 안내합니다.",
+      "ch2_outro": "이 시스템은 엄격한 고대비 원칙을 적용하며, 은은한 화이트 기반 테두리와 다채로운 3D 요소는 보조적 시각적 흥미를 위해만 사용됩니다.",
+      "ch3_intro": "타이포그래피는 명료함과 현대적 특징을 갖춘 클린한 휴머니스트 산세리프, Spline Sans로 처리됩니다. 시스템은 큰 디스플레이 텍스트에는 타이트한 자간을 유지하면서, 본문에는 신뢰할 수 있는 16px 표준을 설정합니다.",
+      "ch4_intro": "표준 4px 그리드가 모든 간격 결정의 기본 리듬을 제공합니다.",
+      "ch5_intro": "표면은 은은한 그림자와 1px 테두리 처리를 통해 깊이로 정의됩니다. 이는 명확한 시각적 계층을 만들어 인터랙티브 구성 요소를 기본 다크 캔버스 위로 약간 끌어올립니다.",
+      "ch6_intro": "레이아웃 골격은 중앙 정렬되어 있으며 공간감이 있도록 설계되어 3D 콘텐츠를 프레임하고 전시합니다. 지배적인 히어로 섹션이 초기 주목을 이끌고, 그 뒤에 충분한 수직 간격을 유지하는 콘텐츠 블록이 이어집니다.",
+      "ch7_intro": "모션 철학은 장식보다는 섬세함과 피드백을 선호합니다. 전환은 부드럽고 일관적이며, 주로 색상과 배경 변경에 0.2s ease-in-out을 사용합니다.",
+      "ch8_intro": "에디토리얼 음성은 전문적이면서도 친근하며, 직접적이고 혜택 지향적인 헤드라인을 사용합니다. 행동 유도 요소는 격려적이고 행동 중심적이며, 항상 명확한 가치 제안을 전달합니다.",
+      "ch8_outro": "이 시스템은 복잡한 레이아웃, 헤드라인용 세리프 타이포그래피, 또는 주요 악센트 색상으로 빨간색 또는 주황색 사용을 의도적으로 피합니다."
+    }
+  }
 }

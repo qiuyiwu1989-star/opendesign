@@ -8,6 +8,565 @@
     "editorial",
     "design"
   ],
-  "status": "pending",
-  "added_at": "2026-06-02"
+  "status": "completed",
+  "added_at": "2026-06-02",
+  "spec": {
+    "colors": {
+      "bg": "#FFFFFF",
+      "bgSoft": null,
+      "bgQuiet": "#ECE2E2",
+      "ink": "#000000",
+      "inkSoft": "#524B48",
+      "muted": "#524B48",
+      "mutedSoft": null,
+      "accent": "#FF8C8C",
+      "line": "rgba(0,0,0,1.0)"
+    },
+    "typography": {
+      "display": "grotesque-sans",
+      "body": "humanist-sans",
+      "mono": null,
+      "scale": [
+        {
+          "token": "display",
+          "size": 44,
+          "lh": 1.0,
+          "weight": 700,
+          "ls": "1px"
+        },
+        {
+          "token": "body",
+          "size": 16,
+          "lh": 1.5,
+          "weight": 400,
+          "ls": "0.5px"
+        }
+      ]
+    },
+    "spacing": {
+      "base": 4,
+      "scale": [
+        4,
+        8,
+        16,
+        24,
+        32,
+        48,
+        64,
+        96
+      ]
+    },
+    "surfaces": {
+      "radius": {
+        "sm": 4,
+        "md": 4,
+        "lg": 4,
+        "pill": 999
+      }
+    },
+    "layout": {
+      "container": 1280,
+      "paragraph": 680,
+      "columns": 3,
+      "gutter": 24,
+      "breakpoints": [
+        768,
+        1024
+      ]
+    },
+    "motion": {
+      "durations": {
+        "micro": 150,
+        "small": 300,
+        "medium": 300
+      },
+      "easing": "ease-in-out"
+    }
+  },
+  "spec_i18n": {
+    "en": {
+      "identity": {
+        "keywords": [
+          "design",
+          "publication",
+          "curation",
+          "visual culture"
+        ],
+        "analogy": "A premium digital design magazine with a clean, editorial layout.",
+        "oneLiner": "An editorial design blog featuring curated articles with a distinctive pink and green color palette."
+      },
+      "colors": {
+        "principle": "Clean white canvas with a dominant pink accent and high-contrast black typography."
+      },
+      "typography": {
+        "rules": [
+          "Headings use a bold grotesque sans-serif",
+          "Body text uses a clean humanist sans-serif",
+          "Uppercase labels with increased letter spacing"
+        ],
+        "scaleUses": [
+          "Main headings and titles",
+          "Article body text and descriptions"
+        ]
+      },
+      "spacing": {
+        "rhythm": "Consistent vertical rhythm with generous whitespace between sections."
+      },
+      "surfaces": {
+        "shadows": [],
+        "borders": "Solid 2px black for featured elements, minimal elsewhere."
+      },
+      "layout": {
+        "skeleton": "3-column grid for article cards, single column for main content."
+      },
+      "components": {
+        "button": "Simple text links or small uppercase labels.",
+        "card": "Image, category label, headline, and short excerpt.",
+        "chip": "Uppercase category labels in pink.",
+        "input": "Search functionality integrated into navigation.",
+        "hero": "Large featured article with bold headline and image."
+      },
+      "motion": {
+        "patterns": [
+          "Smooth transitions for interactive elements"
+        ]
+      },
+      "interaction": {
+        "hover": "Color transitions on links and buttons.",
+        "click": "Immediate response.",
+        "transition": "0.3s ease-in-out for most transitions.",
+        "keyboard": "Standard browser focus states."
+      },
+      "voice": {
+        "tone": "Professional, authoritative, yet approachable and engaging.",
+        "headlineStyle": "Direct, informative, and bold.",
+        "ctaStyle": "Understated and functional.",
+        "avoid": [
+          "Overly casual language",
+          "Decorative elements that distract from content",
+          "Cluttered layouts"
+        ]
+      },
+      "donts": [
+        "don't use a cluttered layout — screenshot shows clean, generous whitespace between elements",
+        "don't use decorative fonts — screenshot shows clean, functional grotesque and humanist sans-serifs",
+        "don't use a dark background — screenshot shows predominantly white backgrounds",
+        "don't use subtle gradients — screenshot shows flat, solid color blocks like the pink accent",
+        "don't use low-contrast text — screenshot shows high-contrast black text on white backgrounds",
+        "don't hide navigation — screenshot shows persistent, clear navigation elements"
+      ],
+      "systemPrompt": "This is an editorial design publication website. It uses a clean, 3-column grid layout with generous whitespace and high-contrast typography. The primary color is a vibrant pink (#FF8C8C) used for accents and category labels, paired with black (#000000) for headings and white (#FFFFFF) for backgrounds. The typography relies on grotesque and humanist sans-serif categories. Critical design constraints: avoid cluttered layouts, decorative fonts, and low-contrast text. Maintain a professional, authoritative tone while keeping the visual presentation clean and focused on the content."
+    },
+    "zh-CN": {
+      "identity": {
+        "keywords": [
+          "设计",
+          "出版",
+          "策展",
+          "视觉文化"
+        ],
+        "analogy": "一本高端数字设计杂志，拥有简洁的编辑式布局。",
+        "oneLiner": "一个编辑设计博客，以独特的粉绿配色方案呈现精选文章。"
+      },
+      "colors": {
+        "principle": "以洁净的白色画布为基础，突出粉色强调色，搭配高对比度的黑色字体。"
+      },
+      "typography": {
+        "rules": [
+          "标题使用粗体 grotesque-sans",
+          "正文使用简洁的 humanist-sans",
+          "标签采用大写字母并增加字间距"
+        ],
+        "scaleUses": [
+          "主标题与文章标题",
+          "文章正文与描述文本"
+        ]
+      },
+      "spacing": {
+        "rhythm": "保持一致的垂直韵律，各区块间留有充足间距。"
+      },
+      "surfaces": {
+        "shadows": [],
+        "borders": "特色元素使用 2px 实线黑色边框，其余元素尽量简化。"
+      },
+      "layout": {
+        "skeleton": "文章卡片采用三列网格，主要内容区域为单列布局。"
+      },
+      "components": {
+        "button": "简洁的文本链接或小号大写标签。",
+        "card": "包含图片、分类标签、标题和简短摘要。",
+        "chip": "粉色的大写分类标签。",
+        "input": "搜索功能集成于导航栏中。",
+        "hero": "采用粗体标题和图片的大型特色文章展示区。"
+      },
+      "motion": {
+        "patterns": [
+          "交互元素采用平滑过渡效果"
+        ]
+      },
+      "interaction": {
+        "hover": "链接与按钮的颜色过渡。",
+        "click": "即时响应。",
+        "transition": "大多数过渡效果采用 0.3s ease-in-out。",
+        "keyboard": "遵循标准浏览器的焦点状态。"
+      },
+      "voice": {
+        "tone": "专业、权威，同时平易近人且引人入胜。",
+        "headlineStyle": "直接、信息明确且有力。",
+        "ctaStyle": "低调且功能性强。",
+        "avoid": [
+          "过于随意的语言",
+          "分散内容注意力的装饰性元素",
+          "拥挤的布局"
+        ]
+      },
+      "donts": [
+        "避免使用拥挤的布局——截图显示元素间留有充足、洁净的间距",
+        "避免使用装饰性字体——截图显示使用了简洁、功能性的 grotesque 与 humanist 无衬线字体",
+        "避免使用深色背景——截图显示以白色背景为主",
+        "避免使用微妙的渐变——截图显示采用纯色色块（如粉色强调色）",
+        "避免使用低对比度文本——截图显示在白色背景上使用高对比度的黑色文本",
+        "避免隐藏导航——截图显示导航元素持久且清晰"
+      ],
+      "systemPrompt": "这是一个编辑设计出版网站。采用简洁的三列网格布局，留有充足间距，并使用高对比度排版。主色调为鲜亮的粉色（#FF8C8C），用于强调和分类标签，搭配黑色（#000000）标题和白色（#FFFFFF）背景。字体依赖于 grotesque-sans 和 humanist-sans 类别。关键设计约束：避免拥挤的布局、装饰性字体和低对比度文本。保持专业、权威的语调，同时确保视觉呈现简洁并聚焦于内容。"
+    },
+    "zh-TW": {
+      "identity": {
+        "keywords": [
+          "設計",
+          "出版",
+          "策展",
+          "視覺文化"
+        ],
+        "analogy": "一本採用簡潔編輯式佈局的優質數位設計雜誌。",
+        "oneLiner": "一個編輯設計部落格，收錄精選文章，並擁有獨特的粉綠配色。"
+      },
+      "colors": {
+        "principle": "以純白畫布為基底，主色調為鮮明的粉紅色強調色，並搭配高對比的黑色字體。"
+      },
+      "typography": {
+        "rules": [
+          "標題使用粗體 grotesque-sans 字體",
+          "內文使用簡潔的 humanist-sans 字體",
+          "大寫標籤搭配加寬的字距"
+        ],
+        "scaleUses": [
+          "主要標題與標語",
+          "文章內文與描述文字"
+        ]
+      },
+      "spacing": {
+        "rhythm": "具備一致的垂直節奏，並在區塊間留有寬裕的留白。"
+      },
+      "surfaces": {
+        "shadows": [],
+        "borders": "精選元素使用 2px 實心黑色邊框，其餘區域則盡量簡化。"
+      },
+      "layout": {
+        "skeleton": "文章卡片採用三欄式網格，主內容區則為單欄式。"
+      },
+      "components": {
+        "button": "簡約的文字連結或小型大寫標籤。",
+        "card": "包含圖片、分類標籤、標題與簡短摘要。",
+        "chip": "粉紅色的大寫分類標籤。",
+        "input": "搜尋功能整合於導覽列中。",
+        "hero": "大型精選文章，搭配粗體標題與圖片。"
+      },
+      "motion": {
+        "patterns": [
+          "互動元素具備流暢的過渡效果"
+        ]
+      },
+      "interaction": {
+        "hover": "連結與按鈕具備顏色過渡效果。",
+        "click": "即時回應。",
+        "transition": "大部分過渡效果採用 0.3s ease-in-out。",
+        "keyboard": "採用標準的瀏覽器 focus 狀態。"
+      },
+      "voice": {
+        "tone": "專業、具權威感，同時平易近人且引人入勝。",
+        "headlineStyle": "直接、資訊性強且粗體。",
+        "ctaStyle": "內斂且實用。",
+        "avoid": [
+          "過於隨意的語言",
+          "分散內容注意力的裝飾性元素",
+          "雜亂的佈局"
+        ]
+      },
+      "donts": [
+        "避免使用雜亂的佈局 — 截圖顯示元素間留有乾淨、寬裕的空白",
+        "避免使用裝飾性字體 — 截圖顯示簡潔、實用的 grotesque-sans 與 humanist-sans 字體",
+        "避免使用深色背景 — 截圖顯示以白色為主的背景",
+        "避免使用細微的漸層效果 — 截圖顯示如粉紅強調色般扁平、實心的色塊",
+        "避免使用低對比度文字 — 截圖顯示白底上的高對比度黑色文字",
+        "避免隱藏導覽功能 — 截圖顯示持續且清晰的導覽元素"
+      ],
+      "systemPrompt": "這是一個編輯設計出版網站。採用簡潔的三欄式網格佈局，具備寬裕的留白與高對比度字體。主色調為鮮明的粉紅色（#FF8C8C），用於強調與分類標籤，搭配黑色（#000000）的標題與白色（#FFFFFF）的背景。字體系統主要採用 grotesque-sans 與 humanist-sans 類別。關鍵設計原則：避免雜亂佈局、裝飾性字體與低對比度文字。保持專業、具權威感的語氣，同時維持視覺呈現的簡潔性，並聚焦於內容本身。"
+    },
+    "ja": {
+      "identity": {
+        "keywords": [
+          "デザイン",
+          "出版",
+          "キュレーション",
+          "ビジュカルカルチャー"
+        ],
+        "analogy": "クリーンでエディトリアルなレイアウトを備えた、プレミアムデジタルデザインマガジン。",
+        "oneLiner": "独自のピンクとグリーンのカラーパレットが特徴の、キュレーションされた記事を掲載するエディトリアルデザインブログ。"
+      },
+      "colors": {
+        "principle": "クリーンな白のキャンバスに、支配的なピンクのアクセントとハイコントラストなブラックのタイポグラフィを配色。"
+      },
+      "typography": {
+        "rules": [
+          "見出しにはボールドなゴロテスクサンセリフを使用",
+          "本文にはクリーンなヒューマニストサンセリフを使用",
+          "大文字のラベルには文字間隔を広めに設定"
+        ],
+        "scaleUses": [
+          "メインの見出しとタイトル",
+          "記事の本文テキストと説明文"
+        ]
+      },
+      "spacing": {
+        "rhythm": "セクション間に十分な余白を設けた、一定の垂直リズム。"
+      },
+      "surfaces": {
+        "shadows": [],
+        "borders": "注目度の高い要素には2pxの实线黑色、その他の箇所は最小限。"
+      },
+      "layout": {
+        "skeleton": "記事カードには3カラムグリッド、メインコンテンツには1カラム。"
+      },
+      "components": {
+        "button": "シンプルなテキストリンクまたは小さな大文字ラベル。",
+        "card": "画像、カテゴリラベル、見出し、短い抜粋。",
+        "chip": "ピンク色の大文字カテゴリラベル。",
+        "input": "ナビゲーションに統合された検索機能。",
+        "hero": "ボールドな見出しと画像を持つ大型の注目記事。"
+      },
+      "motion": {
+        "patterns": [
+          "インタラクティブ要素に対する滑らかなトランジション"
+        ]
+      },
+      "interaction": {
+        "hover": "リンクやボタンのカラー変化。",
+        "click": "即座のレスポンス。",
+        "transition": "ほとんどのトランジションには0.3s ease-in-out。",
+        "keyboard": "標準的なブラウザのフォーカス状態。"
+      },
+      "voice": {
+        "tone": "プロフェッショナルで権威がありつつも、親しみやすく引き込むトーン。",
+        "headlineStyle": "直接的で、情報豊かかつ大胆。",
+        "ctaStyle": "控えめで機能的。",
+        "avoid": [
+          "過度にカジュアルな言葉遣い",
+          "コンテンツから注意をそらす装飾的な要素",
+          "ごちゃごちゃしたレイアウト"
+        ]
+      },
+      "donts": [
+        "ごちゃごちゃしたレイアウトを使用しない — スクリーンショットには要素間のクリーンで豊かな余白が示されています",
+        "装飾的なフォントを使用しない — スクリーンショットにはクリーンで機能的なゴロテスクおよびヒューマニストサンセリフが示されています",
+        "暗い背景を使用しない — スクリーンショットには主に白い背景が示されています",
+        "繊細なグラデーションを使用しない — スクリーンショットにはピンクのアクセントのようなフラットで均一なカラーブロックが示されています",
+        "低コントラストのテキストを使用しない — スクリーンショットには白い背景に対するハイコントラストの黒いテキストが示されています",
+        "ナビゲーションを隠さない — スクリーンショットには永続的で明確なナビゲーション要素が示されています"
+      ],
+      "systemPrompt": "これはエディトリアルデザインの出版物ウェブサイトです。クリーンな3カラムグリッドレイアウト、豊かな余白、ハイコントラストなタイポグラフィを採用しています。プライマリカラーはアクセントやカテゴリラベルに使用される鮮やかなピンク（#FF8C8C）、見出しにはブラック（#000000）、背景にはホワイト（#FFFFFF）です。タイポグラフィはゴロテスクおよびヒューマニストサンセリフに依存します。重要なデザイン制約：ごちゃごちゃしたレイアウト、装飾的なフォント、低コントラストのテキストは避けてください。プロフェッショナルで権威あるトーンを維持しながら、ビジュアル表現はクリーンでコンテンツに焦点を当ててください。"
+    },
+    "ko": {
+      "identity": {
+        "keywords": [
+          "디자인",
+          "출판",
+          "큐레이션",
+          "비주얼 컬처"
+        ],
+        "analogy": "깔끔한 에디토리얼 레이아웃을 갖춘 프리미엄 디지털 디자인 매거진입니다.",
+        "oneLiner": "독특한 핑크와 그린 컬러 팔레트를 적용하여 큐레이팅된 기사를 특징으로 하는 에디토리얼 디자인 블로그입니다."
+      },
+      "colors": {
+        "principle": "지배적인 핑크 강조색과 고대비 블랙 타이포그래피를 사용한 깔끔한 화이트 캔버스입니다."
+      },
+      "typography": {
+        "rules": [
+          "제목은 볼드한 고로테크산 세리프를 사용합니다",
+          "본문은 깔끔한 휴매니스트 산세리프를 사용합니다",
+          "대문자 레이블은 자간을 넓게 설정합니다"
+        ],
+        "scaleUses": [
+          "주요 제목 및 타이틀",
+          "기사 본문 텍스트 및 설명"
+        ]
+      },
+      "spacing": {
+        "rhythm": "섹션 사이에 넉넉한 여백을 두어 일관된 수직 리듬을 만듭니다."
+      },
+      "surfaces": {
+        "shadows": [],
+        "borders": "강조 요소에는 2px 실선 블랙을 사용하고, 나머지는 최소화합니다."
+      },
+      "layout": {
+        "skeleton": "기사 카드용 3열 그리드, 본문 콘텐츠용 1열 레이아웃입니다."
+      },
+      "components": {
+        "button": "단순한 텍스트 링크 또는 작은 대문자 레이블입니다.",
+        "card": "이미지, 카테고리 레이블, 제목, 짧은 요약으로 구성됩니다.",
+        "chip": "핑크색 대문자 카테고리 레이블입니다.",
+        "input": "탐색에 통합된 검색 기능입니다.",
+        "hero": "볼드한 제목과 이미지를 갖춘 큰 강조 기사입니다."
+      },
+      "motion": {
+        "patterns": [
+          "대화형 요소를 위한 부드러운 전환"
+        ]
+      },
+      "interaction": {
+        "hover": "링크와 버튼에 색상 전환을 적용합니다.",
+        "click": "즉각적인 반응을 제공합니다.",
+        "transition": "대부분의 전환에 0.3s ease-in-out을 사용합니다.",
+        "keyboard": "표준 브라우저 focus 상태를 유지합니다."
+      },
+      "voice": {
+        "tone": "전문적이고 권위적이면서도 접근 가능하고 몰입감 있는 톤입니다.",
+        "headlineStyle": "직설적이고 정보적이며 볼드합니다.",
+        "ctaStyle": "절제되고 기능적입니다.",
+        "avoid": [
+          "지나치게 캐주얼한 언어",
+          "콘텐츠에서 주의를 분산시키는 장식적 요소",
+          "지저분한 레이아웃"
+        ]
+      },
+      "donts": [
+        "지저분한 레이아웃을 사용하지 않습니다 — 스크린샷은 요소 사이의 깔끔하고 넉넉한 여백을 보여줍니다",
+        "장식용 폰트를 사용하지 않습니다 — 스크린샷은 깔끔하고 기능적인 고로테크 및 휴매니스트 산세리프를 보여줍니다",
+        "어두운 배경을 사용하지 않습니다 — 스크린샷은 주로 화이트 배경을 보여줍니다",
+        "미세한 그라디언트를 사용하지 않습니다 — 스크린샷은 핑크 강조색과 같은 평면적인 단색 블록을 보여줍니다",
+        "저대비 텍스트를 사용하지 않습니다 — 스크린샷은 화이트 배경 위의 고대비 블랙 텍스트를 보여줍니다",
+        "탐색을 숨기지 않습니다 — 스크린샷은 지속적이고 명확한 탐색 요소를 보여줍니다"
+      ],
+      "systemPrompt": "이것은 에디토리얼 디자인 출판물 웹사이트입니다. 넉넉한 여백과 고대비 타이포그래피를 사용한 깔끔한 3열 그리드 레이아웃을 사용합니다. 주요 색상은 강조 및 카테고리 레이블에 사용되는 생동감 있는 핑크(#FF8C8C)이며, 제목용 블랙(#000000)과 배경용 화이트(#FFFFFF)와 쌍을 이룹니다. 타이포그래피는 고로테크 및 휴매니스트 산세리프 카테고리에 의존합니다. 핵심 디자인 제약 조건: 지저분한 레이아웃, 장식용 폰트, 저대비 텍스트를 피합니다. 전문적이고 권위적인 톤을 유지하면서도 비주얼 프레젠테이션은 깔끔하게 유지하고 콘텐츠에 집중합니다."
+    }
+  },
+  "desc": {
+    "en": {
+      "palette": "A high-contrast palette centered on a white canvas with vibrant pink accents and deep black typography.",
+      "layout": "A responsive grid layout that transitions from a 3-column desktop view to a single-column mobile view.",
+      "interaction": "Smooth, subtle transitions on interactive elements with clear, functional navigation.",
+      "motion": "Minimal and purposeful motion focused on smooth transitions rather than elaborate animations.",
+      "notes": "A strong example of editorial design principles applied to a digital medium, balancing content with distinctive branding."
+    },
+    "zh-CN": {
+      "palette": "以白色画布为中心的高对比度配色方案，辅以鲜亮的粉色强调与深沉的黑色字体。",
+      "layout": "响应式网格布局，从桌面端的三列视图平滑过渡至移动端的单列视图。",
+      "interaction": "交互元素采用平滑、微妙的过渡效果，导航清晰且功能明确。",
+      "motion": "以平滑过渡为核心，追求极简且有目的性的动态效果，避免繁复动画。",
+      "notes": "这是将编辑设计原则应用于数字媒介的典范，在内容呈现与独特品牌识别间取得了良好平衡。"
+    },
+    "zh-TW": {
+      "palette": "以白色畫布為主的高對比色調，搭配鮮明的粉紅色強調色與深邃的黑色字體。",
+      "layout": "響應式網格佈局，從桌面端的三欄式過渡至行動端的單欄式。",
+      "interaction": "互動元素具備流暢、細膩的過渡效果，並搭配清晰、實用的導覽功能。",
+      "motion": "極簡且具目的性的動態效果，專注於流暢過渡而非繁複動畫。",
+      "notes": "一個將編輯設計原則成功應用於數位媒介的絕佳範例，在內容與獨特品牌識別間取得平衡。"
+    },
+    "ja": {
+      "palette": "白を基調としたキャンバスに、鮮やかなピンクのアクセントと深みのあるブラックのタイポグラフィを用いた、ハイコントラストなカラーパレット。",
+      "layout": "デスクトップの3カラム表示から、スマートフォンの1カラム表示へシームレスに切り替わるレスポンシブグリッドレイアウト。",
+      "interaction": "インタラクティブな要素に対する滑らかで繊細なトランジション、明確で機能的なナビゲーション。",
+      "motion": "凝ったアニメーションよりも、滑らかなトランジションに重点を置いた、最小限で目的に即した動き。",
+      "notes": "コンテンツと独自のブランドをバランスよく融合させた、デジタルメディアに応用されたエディトリアルデザインの原則の良例。"
+    },
+    "ko": {
+      "palette": "화이트 캔버스를 중심으로 한 고대비 팔레트로, 생동감 있는 핑크 강조색과 깊은 블랙 타이포그래피를 사용합니다.",
+      "layout": "데스크톱 3열 뷰에서 모바일 1열 뷰로 전환되는 반응형 그리드 레이아웃입니다.",
+      "interaction": "대화형 요소에 부드럽고 섬세한 전환을 적용하며, 명확하고 기능적인 탐색을 제공합니다.",
+      "motion": "화려한 애니메이션보다는 부드러운 전환에 초점을 맞춘 최소한의 목적 있는 모션을 사용합니다.",
+      "notes": "콘텐츠와 독특한 브랜딩의 균형을 맞춘, 디지털 매체에 적용된 에디토리얼 디자인 원칙의 강력한 사례입니다."
+    }
+  },
+  "_meta": {
+    "vision_model": "mimo-v2.5",
+    "vision_prompt_version": "0.3",
+    "vision_source": "playwright-extract:eye-on-design",
+    "vision_grounded": true,
+    "vision_at": "2026-06-04T15:05:37+00:00",
+    "vision_tokens": 15989,
+    "vision_cost_usd": 0.1777,
+    "translation_model": "mimo-v2.5",
+    "translation_at": "2026-06-04T15:06:43+00:00",
+    "translation_tokens": 15012,
+    "translation_cost_usd": 0.0501,
+    "narrative_model": "mimo-v2.5",
+    "narrative_prompt_version": "0.3",
+    "narrative_at": "2026-06-04T15:06:53+00:00",
+    "narrative_tokens": 1837,
+    "narrative_cost_usd": 0.0122,
+    "narrative_status": "ok",
+    "total_cost_usd": 0.24
+  },
+  "narrative": {
+    "en": {
+      "ch1_intro": "Eye on Design operates like a well-architected gallery: its structure is intentionally sparse to let the curated work speak. The system’s core is a white canvas, a deliberate ground that pushes content forward through high-contrast typography and a signature pink accent.",
+      "ch2_intro": "The color system is reductive, built on a high-contrast palette of white, black, and a single vibrant pink. This restraint ensures the accent serves a clear functional purpose, marking interactive elements and category labels without visual noise.",
+      "ch2_outro": "Every color choice is dictated by legibility and hierarchy, using contrast as its primary tool.",
+      "ch3_intro": "Typography follows a clear voice: headings in a bold grotesque sans-serif assert presence, while body copy in a clean humanist sans-serif ensures readability. Uppercase labels with increased letter spacing act as quiet, structural signposts within the content flow.",
+      "ch4_intro": "Spacing establishes a consistent vertical rhythm, with generous whitespace between sections to prevent visual crowding and give each element room to breathe.",
+      "ch5_intro": "Surfaces are flat and unadorned, relying on solid borders and stark color blocks rather than shadows for definition. A solid 2px black border is reserved for featured elements, creating a sharp, graphic distinction.",
+      "ch6_intro": "The layout skeleton is a responsive framework, beginning with a 3-column grid for article cards on larger screens. This structure collapses to a single, focused column for main content, maintaining clarity across devices.",
+      "ch7_intro": "Motion is treated as a functional polish rather than a decorative feature. All transitions are smooth and purposeful, serving to confirm interactions and guide focus with a consistent 0.3s ease-in-out cadence.",
+      "ch8_intro": "The editorial voice is professional and authoritative, yet approachable—headlines are direct and bold, while calls to action remain understated. This tone is mirrored in the visual system, which avoids clutter and decorative flourish.",
+      "ch8_outro": "The system deliberately forgoes dark backgrounds, decorative typography, and low-contrast text, committing fully to its clean, content-first foundation."
+    },
+    "zh-CN": {
+      "ch1_intro": "Eye on Design 的运作方式如同一个精心构建的画廊：其结构刻意保持简约，让精心策展的作品自行发声。系统的核心是一块白色画布，一个有意识的基底，通过高对比度的排版和标志性的粉色强调色将内容向前推。",
+      "ch2_intro": "色彩体系是精简的，建立在黑、白与单一鲜亮粉色的高对比度调色板之上。这种克制确保了强调色服务于明确的功能目的，用于标记交互元素和分类标签，而不引入视觉噪音。",
+      "ch2_outro": "每一种色彩选择都由可读性和层次结构决定，以对比度作为其主要工具。",
+      "ch3_intro": "排版遵循清晰的语调：标题采用粗体无衬线字体以彰显存在感，而正文则使用清晰的人文主义无衬线字体以确保可读性。采用大写字母并增加字间距的标签，作为内容流中安静、结构性的路标。",
+      "ch4_intro": "间距建立了稳定的垂直节奏，章节间留有充足的空白以避免视觉拥挤，为每个元素提供呼吸空间。",
+      "ch5_intro": "界面平面且无装饰，依靠实线边框和鲜明的色块而非阴影来定义边界。一条2px的黑色实线边框专用于特色元素，营造出鲜明、图形化的区分。",
+      "ch6_intro": "布局骨架是一个响应式框架，从大屏幕上的文章卡片3列网格开始。这种结构会折叠为单一、聚焦的主内容列，确保在不同设备上保持清晰度。",
+      "ch7_intro": "动效被视为一种功能性的润色，而非装饰性特性。所有过渡都平滑且目的明确，用于确认交互并以一致的0.3秒 ease-in-out 节奏引导焦点。",
+      "ch8_intro": "编辑语调专业、权威且平易近人——标题直接有力，而行动号召则保持克制。这种基调也反映在视觉系统中，避免杂乱和装饰性修饰。",
+      "ch8_outro": "该系统有意放弃了深色背景、装饰性字体和低对比度文本，完全致力于其干净、内容为先的基础。"
+    },
+    "zh-TW": {
+      "ch1_intro": "Eye on Design 的運作方式如同精心架構的畫廊：其結構刻意保持簡潔，讓策展作品得以發聲。系統核心是一塊白色畫布，這個刻意的底色透過高對比度的排版與標誌性的粉色強調，將內容向前推進。",
+      "ch2_intro": "色彩系統採用簡約手法，建立在白、黑與單一鮮豔粉色的高對比色盤上。這種克制確保強調色具備明確功能目的，用於標示互動元素與分類標籤，避免視覺干擾。",
+      "ch2_outro": "每個色彩選擇皆由可讀性與層次結構決定，以對比度作為主要工具。",
+      "ch3_intro": "排版遵循清晰的語調：標題採用粗體 grotesque-sans 無襯線字體展現存在感，內文則使用簡潔的 humanist-sans 無襯線字體確保可讀性。大寫標籤搭配增加的字母間距，在內容流中擔任低調的結構指示標記。",
+      "ch4_intro": "間距建立了穩定的垂直節奏，段落間留有充足空白，避免視覺擁擠，讓每個元素都有呼吸空間。",
+      "ch5_intro": "介面表面平整無裝飾，依賴實線邊框與純色色塊而非陰影來定義層次。專屬的 2px 黑色實線邊框保留給特色元素，創造銳利的圖形化區隔。",
+      "ch6_intro": "版面骨架採用響應式框架，大型螢幕上的文章卡片以 3 欄網格呈現。此結構在主要內容區會收斂為單一專注欄位，確保跨裝置的清晰度。",
+      "ch7_intro": "動態效果被視為功能性修飾而非裝飾特性。所有過渡動畫皆流暢且有目的性，用於確認互動並引導視覺焦點，維持一致的 0.3s ease-in-out 節奏。",
+      "ch8_intro": "編輯語調專業且具權威感，同時平易近人——標題直接大膽，而行動呼籲則保持低調。這種基調也反映在視覺系統中，避免雜亂與裝飾性修飾。",
+      "ch8_outro": "系統刻意捨棄深色背景、裝飾性字體與低對比度文字，全心投入其簡潔、內容優先的設計基礎。"
+    },
+    "ja": {
+      "ch1_intro": "Eye on Designは、整然と設計されたギャラリーのように機能します。その構造は意図的にシンプルに保たれ、キュレーションされた作品が自らを語れるようにしています。システムの基盤はホワイトキャンバスであり、高コントラストなタイポグラフィと特徴的なピンクアクセントを通じてコンテンツを前面に押し出す意図的な背景です。",
+      "ch2_intro": "カラーシステムは還元的であり、ホワイト、ブラック、単一の鮮やかなピンクという高コントラストなパレットに基づいて構築されています。この抑制によって、アクセントは視覚的なノイズを加えずに、インタラクティブ要素やカテゴリラベルを明確に機能的に区切る役割を果たすことが保証されます。",
+      "ch2_outro": "すべての色の選択は、可読性と階層性によって規定され、対比を主要なツールとして利用します。",
+      "ch3_intro": "タイポグラフィは明確な声に従います。見出しは太字のグロテスク・サンセリフで存在感を主張し、本文はクリーンなヒューマニスト・サンセリフで可読性を確保します。文字間隔を広くした大文字ラベルは、コンテンツの流れの中で静かな構造的な道標として機能します。",
+      "ch4_intro": "間隔は一貫した垂直リズムを確立し、セクション間には豊かな余白を設けて視覚的な雑踏を防ぎ、各要素に十分な呼吸の余地を与えます。",
+      "ch5_intro": "サーフェスはフラットで飾りがなく、影ではなく実線のボーダーや鮮明なカラーブロックによって輪郭を定義します。特集要素には太さ2pxの黒い実線ボーダーが予約されており、鋭くグラフィック的な区別を生み出します。",
+      "ch6_intro": "レイアウトの骨格はレスポンシブフレームワークであり、大きな画面向けに3カラムグリッドで記事カードを配置するところから始まります。この構造は、メインコンテンツに対して単一の、集中したカラムに崩れ、デバイス間で明瞭さを維持します。",
+      "ch7_intro": "モーションは装飾的な特徴ではなく、機能的な磨きとして扱われます。すべての遷移は滑らかで目的指向であり、0.3秒のease-in-outという一貫したリズムで、インタラクションの確認とフォーカスの誘導を実現します。",
+      "ch8_intro": "エディトリアルの声はプロフェッショナルで権威がありつつも、親しみやすいものです。見出しは直接的で大胆であり、コール・トゥ・アクションは控えめに保たれています。このトーンは、雑踏や装飾的な余分なものを避け、クリーンでコンテンツファーストの基盤に完全にこだわるビジュアルシステムにも反映されています。",
+      "ch8_outro": "システムは、暗い背景、装飾的なタイポグラフィ、低コントラストなテキストを意図的に避け、クリーンでコンテンツファーストの基盤に完全にこだわっています。"
+    },
+    "ko": {
+      "ch1_intro": "Eye on Design는 잘 설계된 갤러리처럼 작동합니다: 그 구조는 의도적으로 간결하여 선별된 작품이 제 목소리를 낼 수 있도록 합니다. 시스템의 핵심은 흰 캔버스이며, 이는 의도적인 배경으로 고대비 타이포그래피와 시그니처 핑크 액센트를 통해 콘텐츠를 전면으로 밀어냅니다.",
+      "ch2_intro": "색상 시스템은 축약적입니다. 흰색, 검정색, 그리고 단일한 활기찬 핑크의 고대비 팔레트 위에 구축됩니다. 이러한 절제는 액센트가 시각적 잡음 없이 인터랙티브 요소와 카테고리 라벨을 명확한 기능적 목적으로 표시하도록 보장합니다.",
+      "ch2_outro": "모든 색상 선택은 가독성과 계층 구조에 의해 결정되며, 대비를 주요 도구로 활용합니다.",
+      "ch3_intro": "타이포그래피는 명확한 목소리를 따릅니다: 굵은 그로테스크산스체 제목은 존재감을 주장하며, 깔끔한 휴머니스트산스체 본문은 가독성을 보장합니다. 자간을 넓힌 대문자 라벨은 콘텐츠 흐름 내에서 조용한 구조적 이정표 역할을 합니다.",
+      "ch4_intro": "간격은 일관된 수직 리듬을 확립하며, 섹션 사이에 넉넉한 여백을 두어 시각적 혼잡을 방지하고 각 요소에 숨 쉴 공간을 제공합니다.",
+      "ch5_intro": "표면은 평면적이고 장식이 없으며, 그림자가 아닌 단색 테두리와 선명한 색상 블록에 의해 형태가 결정됩니다. 두꺼운 2px 검정 테두리는 특집 요소에 사용되며, 날카롭고 그래픽적인 구별을 만듭니다.",
+      "ch6_intro": "레이아웃 골격은 반응형 프레임워크로, 더 큰 화면의 기사 카드용 3열 그리드로 시작됩니다. 이 구조는 주요 콘텐츠에 대해 단일한 집중 열로 축소되며, 기기 전반에 걸쳐 명확성을 유지합니다.",
+      "ch7_intro": "모션은 장식적 기능보다는 기능적 마감으로 다뤄집니다. 모든 트랜지션은 부드럽고 의도적이며, 일관된 0.3초 ease-in-out 리듬으로 인터랙션을 확인하고 초점을 안내합니다.",
+      "ch8_intro": "에디토리얼 목소리는 전문적이고 권위 있지만, 접근 가능한 어조를 띠습니다—헤드라인은 직접적이고 굵으며, 행동 유도 문구는 절제됩니다. 이 톤은 시각 시스템에도 반영되어, 잔여물과 장식적 격식을 피합니다.",
+      "ch8_outro": "시스템은 의도적으로 어두운 배경, 장식적 타이포그래피, 저대비 텍스트를 포기하고, 깨끗하고 콘텐츠 우선이라는 기반에 완전히 전념합니다."
+    }
+  }
 }

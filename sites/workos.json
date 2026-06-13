@@ -8,6 +8,658 @@
     "saas",
     "dev"
   ],
-  "status": "pending",
-  "added_at": "2026-06-02"
+  "status": "completed",
+  "added_at": "2026-06-02",
+  "spec": {
+    "colors": {
+      "bg": "#FFFFFF",
+      "bgSoft": "#F9F9FB",
+      "bgQuiet": "#F2F2F8",
+      "ink": "#29363D",
+      "inkSoft": "#65678A",
+      "muted": "#AEB2CC",
+      "mutedSoft": "#8F96BD",
+      "accent": "#6363F1",
+      "line": "rgba(41, 56, 78, 0.08)"
+    },
+    "typography": {
+      "display": "geometric-sans",
+      "body": "humanist-sans",
+      "mono": "monospace",
+      "scale": [
+        {
+          "token": "display",
+          "size": 72,
+          "lh": 1.0,
+          "weight": 500,
+          "ls": "-1.28px"
+        },
+        {
+          "token": "h2",
+          "size": 40,
+          "lh": 1.2,
+          "weight": 500,
+          "ls": "-0.5px"
+        },
+        {
+          "token": "body",
+          "size": 20,
+          "lh": 1.6,
+          "weight": 400,
+          "ls": "0"
+        },
+        {
+          "token": "small",
+          "size": 16,
+          "lh": 1.5,
+          "weight": 400,
+          "ls": "0"
+        },
+        {
+          "token": "caption",
+          "size": 14,
+          "lh": 1.4,
+          "weight": 400,
+          "ls": "-0.12px"
+        },
+        {
+          "token": "overline",
+          "size": 12,
+          "lh": 1.6,
+          "weight": 500,
+          "ls": "0.05em"
+        }
+      ]
+    },
+    "spacing": {
+      "base": 4,
+      "scale": [
+        4,
+        8,
+        16,
+        24,
+        32,
+        48,
+        64,
+        96
+      ]
+    },
+    "surfaces": {
+      "radius": {
+        "sm": 4,
+        "md": 8,
+        "lg": 12,
+        "pill": 999
+      }
+    },
+    "layout": {
+      "container": 1280,
+      "paragraph": 680,
+      "columns": 12,
+      "gutter": 24,
+      "breakpoints": [
+        768,
+        1024
+      ]
+    },
+    "motion": {
+      "durations": {
+        "micro": 150,
+        "small": 300,
+        "medium": 600
+      },
+      "easing": "cubic-bezier(0.4, 0, 0.2, 1)"
+    }
+  },
+  "spec_i18n": {
+    "en": {
+      "identity": {
+        "keywords": [
+          "Enterprise",
+          "Developer",
+          "API",
+          "Integration",
+          "Infrastructure"
+        ],
+        "analogy": "The invisible scaffolding that turns a startup into an enterprise-ready platform",
+        "oneLiner": "WorkOS empowers developers to ship enterprise features like SSO and directory sync in minutes instead of months."
+      },
+      "colors": {
+        "principle": "High-contrast text on clean white/light-gray surfaces with a single distinctive blue-purple accent for primary actions."
+      },
+      "typography": {
+        "rules": [
+          "Headlines use tight negative letter-spacing (-1px to -2px)",
+          "Body text uses standard letter-spacing (0) for readability",
+          "Mono font used strictly for code snippets and technical values",
+          "Font weights are restricted to 400 and 500 for a clean hierarchy",
+          "Uppercase transform used exclusively for overlines"
+        ],
+        "scaleUses": [
+          "Hero headlines",
+          "Section titles",
+          "Lead paragraphs",
+          "Body text and UI labels",
+          "Metadata and helper text",
+          "Section labels"
+        ]
+      },
+      "spacing": {
+        "rhythm": "Vertical spacing follows a strict 4px grid, with section padding consistently at 64px to create a rhythmic, breathing layout."
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 1px 0px 0px inset for subtle inset borders",
+          "0px 2px 5px 0px rgba(0, 0, 0, 0.17) for elevated cards",
+          "0px 5px 10px -4px rgba(0, 0, 0, 0.17) for modals/popovers"
+        ],
+        "borders": "Subtle 1px borders using rgba(41, 56, 78, 0.08) or solid white for inset effects."
+      },
+      "layout": {
+        "skeleton": "Standard 12-column grid with centered content containers, generous white space between sections."
+      },
+      "components": {
+        "button": "Pill-shaped (border-radius: 100px) primary buttons with solid accent color and white text, secondary buttons are transparent with dark text.",
+        "card": "Softly rounded cards (border-radius: 12px) with subtle inset shadows and light borders, used for feature lists and integration tiles.",
+        "chip": "Small pill badges (border-radius: 4px) for status indicators like 'Enabled' or 'Ready'.",
+        "input": "Standard form fields with subtle inset shadows and 1px borders.",
+        "hero": "Large, bold headline with gradient text effect ('Enterprise Ready') paired with a stylized UI mockup on the right."
+      },
+      "motion": {
+        "patterns": [
+          "Hover states trigger background color changes",
+          "Transformations (0.4s) on interactive elements",
+          "Subtle fade-ins on scroll"
+        ]
+      },
+      "interaction": {
+        "hover": "Background color shift for buttons, subtle color transition for text links.",
+        "click": "Immediate visual feedback, often a slight transform scale or shadow change.",
+        "transition": "All properties transition smoothly (0.15s - 0.4s) for a polished feel.",
+        "keyboard": "Focus outlines are likely present but invisible in the screenshot."
+      },
+      "voice": {
+        "tone": "Professional, direct, and developer-focused.",
+        "headlineStyle": "Bold, concise, and benefit-oriented (e.g., 'Your app, Enterprise Ready').",
+        "ctaStyle": "Action-oriented and clear ('Get started', 'Talk to an expert').",
+        "avoid": [
+          "Avoid overly casual or slang-heavy language",
+          "Avoid complex jargon that isn't industry standard",
+          "Avoid long, dense paragraphs in the hero sections"
+        ]
+      },
+      "donts": [
+        "Don't use a dark mode or dark backgrounds — screenshot shows a light-dominant theme with white and soft gray surfaces.",
+        "Don't use a wide variety of bright, competing colors — screenshot shows a restrained palette of white, gray, and one dominant blue-purple accent.",
+        "Don't use decorative or handwritten fonts — screenshot shows a clean, geometric sans-serif for headlines and a humanist sans-serif for body.",
+        "Don't use harsh, sharp corners on primary buttons — screenshot shows pill-shaped buttons with full 100px border-radius.",
+        "Don't use heavy, solid borders for layout dividers — screenshot shows subtle inset shadows and very light 1px borders.",
+        "Don't use center-aligned body text — screenshot shows left-aligned text for better readability in long copy."
+      ],
+      "systemPrompt": "This is a SaaS and Developer Tools website for WorkOS. The design is clean, professional, and highly structured, focusing on clarity and enterprise-readiness. Key colors are white (#FFFFFF) and soft gray (#F9F9FB) backgrounds, dark ink text (#29363D), and a single dominant blue-purple accent (#6363F1). The typography features a geometric sans-serif for bold display headlines with tight negative letter-spacing, and a humanist sans-serif for legible body text. Critical donts: avoid dark mode, avoid multiple competing accent colors, and avoid using decorative fonts. The layout uses a 12-column grid with generous white space and subtle inset shadows on cards to create depth without heaviness."
+    },
+    "zh-CN": {
+      "identity": {
+        "keywords": [
+          "企业",
+          "开发者",
+          "API",
+          "集成",
+          "基础设施"
+        ],
+        "analogy": "将初创公司转变为具备企业级就绪能力平台的无形脚手架",
+        "oneLiner": "WorkOS 使开发者能够在几分钟而非几个月内交付企业级功能，如 SSO 和目录同步。"
+      },
+      "colors": {
+        "principle": "在干净的白色/浅灰色表面上使用高对比度文本，辅以一个独特的蓝紫色强调色用于主要操作。"
+      },
+      "typography": {
+        "rules": [
+          "标题使用紧凑的负字间距（-1px 至 -2px）",
+          "正文使用标准字间距（0）以保证可读性",
+          "等宽字体仅严格用于代码片段和技术值",
+          "字重限制为 400 和 500 以建立清晰的层级",
+          "大写转换仅用于上标线"
+        ],
+        "scaleUses": [
+          "主标题",
+          "章节标题",
+          "引导段落",
+          "正文和界面标签",
+          "元数据和辅助文本",
+          "区域标签"
+        ]
+      },
+      "spacing": {
+        "rhythm": "垂直间距遵循严格的 4px 网格，区域填充始终为 64px，以营造富有节奏感、透气的布局。"
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 1px 0px 0px inset 用于微妙的内嵌边框",
+          "0px 2px 5px 0px rgba(0, 0, 0, 0.17) 用于凸起的卡片",
+          "0px 5px 10px -4px rgba(0, 0, 0, 0.17) 用于模态框/弹出框"
+        ],
+        "borders": "使用 rgba(41, 56, 78, 0.08) 或纯白色的微妙 1px 边框营造内嵌效果。"
+      },
+      "layout": {
+        "skeleton": "标准的 12 列网格，配有居中的内容容器，区域之间留有充裕的空白。"
+      },
+      "components": {
+        "button": "药丸形（border-radius: 100px）主要按钮，采用实心强调色和白色文本；次要按钮为透明背景，配深色文本。",
+        "card": "柔和圆角（border-radius: 12px）卡片，带有微妙的内嵌阴影和浅色边框，用于功能列表和集成模块。",
+        "chip": "小型药丸徽章（border-radius: 4px），用于状态指示，如“已启用”或“就绪”。",
+        "input": "标准表单字段，带有微妙的内嵌阴影和 1px 边框。",
+        "hero": "大型、粗体的标题，采用渐变文本效果（“企业就绪”），右侧搭配风格化的界面模型。"
+      },
+      "motion": {
+        "patterns": [
+          "悬停状态触发背景颜色变化",
+          "交互元素上的变换（0.4s）",
+          "滚动时的微妙淡入效果"
+        ]
+      },
+      "interaction": {
+        "hover": "按钮的背景颜色变化，文本链接的微妙颜色过渡。",
+        "click": "即时视觉反馈，通常是轻微的缩放变换或阴影变化。",
+        "transition": "所有属性平滑过渡（0.15s - 0.4s），营造精致感。",
+        "keyboard": "焦点轮廓可能存在，但在截图中不可见。"
+      },
+      "voice": {
+        "tone": "专业、直接、面向开发者。",
+        "headlineStyle": "粗体、简洁、以效益为导向（例如“您的应用，企业就绪”）。",
+        "ctaStyle": "行动导向且清晰（“开始使用”、“咨询专家”）。",
+        "avoid": [
+          "避免过于随意或俚语过多的语言",
+          "避免非行业标准的复杂术语",
+          "避免在主区域使用冗长、密集的段落"
+        ]
+      },
+      "donts": [
+        "不要使用深色模式或深色背景——截图显示的是以白色和柔和灰色表面为主的浅色主题。",
+        "不要使用多种鲜艳、相互竞争的颜色——截图显示的是白色、灰色和一种主导的蓝紫色强调色组成的克制调色板。",
+        "不要使用装饰性或手写体——截图显示的是干净的几何无衬线字体用于标题，以及人文主义无衬线字体用于正文。",
+        "不要在主要按钮上使用生硬、尖锐的角——截图显示的是完全 100px 边框半径的药丸形按钮。",
+        "不要使用粗重的实心边框作为布局分隔线——截图显示的是微妙的内嵌阴影和非常浅的 1px 边框。",
+        "不要使用居中对齐的正文文本——截图显示的是左对齐文本，以提高长文本的可读性。"
+      ],
+      "systemPrompt": "这是一个用于 WorkOS 的 SaaS 和开发者工具网站。设计干净、专业、结构高度清晰，专注于清晰度和企业就绪性。关键颜色是白色（#FFFFFF）和柔和灰色（#F9F9FB）背景、深色文本（#29363D）以及一个主导的蓝紫色强调色（#6363F1）。字体特征为：用于粗体展示标题的几何无衬线字体（带有紧凑的负字间距），以及用于清晰正文的人文主义无衬线字体。关键禁忌：避免深色模式，避免多种相互竞争的强调色，避免使用装饰性字体。布局使用 12 列网格，留有充裕的空白，并在卡片上使用微妙的内嵌阴影来营造深度而不显沉重。"
+    },
+    "zh-TW": {
+      "identity": {
+        "keywords": [
+          "企業級",
+          "開發者",
+          "API",
+          "整合",
+          "基礎架構"
+        ],
+        "analogy": "將新創公司轉變為企業級平台的隱形腳手架",
+        "oneLiner": "WorkOS 賦能開發者，在數分鐘而非數月內交付 SSO 和目錄同步等企業級功能。"
+      },
+      "colors": {
+        "principle": "在乾淨的白色/淺灰色表面上使用高對比度文字，並搭配單一獨特的藍紫色作為主要互動的強調色。"
+      },
+      "typography": {
+        "rules": [
+          "標題使用緊湊的負字距（-1px 至 -2px）",
+          "內文使用標準字距（0）以確保可讀性",
+          "等寬字體僅嚴格用於程式碼片段與技術數值",
+          "字體粗細僅限 400 與 500，以保持乾淨的層次感",
+          "大寫轉換僅專用於上標題"
+        ],
+        "scaleUses": [
+          "首頁標題",
+          "段落標題",
+          "導言段落",
+          "內文與 UI 標籤",
+          "後設資料與輔助文字",
+          "段落標記"
+        ]
+      },
+      "spacing": {
+        "rhythm": "垂直間距遵循嚴格的 4px 格線，段落內距始終為 64px，以創造有節奏感、具呼吸性的佈局。"
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 1px 0px 0px inset 用於細微的內嵌邊框",
+          "0px 2px 5px 0px rgba(0, 0, 0, 0.17) 用於浮凸卡片",
+          "0px 5px 10px -4px rgba(0, 0, 0, 0.17) 用於彈出視窗/浮動面板"
+        ],
+        "borders": "使用 rgba(41, 56, 78, 0.08) 或實心白色的細微 1px 邊框，以營造內嵌效果。"
+      },
+      "layout": {
+        "skeleton": "標準的 12 欄格線，搭配置中的內容容器，段落之間保留寬裕的留白。"
+      },
+      "components": {
+        "button": "膠囊形狀（border-radius: 100px）的主要按鈕，採用實心強調色與白色文字；次要按鈕為透明底色搭配深色文字。",
+        "card": "柔邊圓角卡片（border-radius: 12px），帶有細微內嵌陰影與淺色邊框，用於功能列表與整合模組。",
+        "chip": "小型膠囊標籤（border-radius: 4px），用於狀態指示，如「已啟用」或「就緒」。",
+        "input": "標準表單欄位，帶有細微內嵌陰影與 1px 邊框。",
+        "hero": "大型、粗體標題，搭配漸層文字效果（「Enterprise Ready」），並於右側展示風格化的 UI 模型。"
+      },
+      "motion": {
+        "patterns": [
+          "hover 狀態觸發背景色彩變化",
+          "互動元素具有變換效果（0.4 秒）",
+          "滾動時有細微的淡入效果"
+        ]
+      },
+      "interaction": {
+        "hover": "按鈕的背景色彩偏移，文字連結的細微色彩轉換。",
+        "click": "立即的視覺回饋，通常伴隨輕微的縮放變換或陰影變化。",
+        "transition": "所有屬性平滑過渡（0.15 秒 - 0.4 秒），營造精緻質感。",
+        "keyboard": "焦點外框可能存在，但在畫面截圖中不可見。"
+      },
+      "voice": {
+        "tone": "專業、直接，且以開發者為核心。",
+        "headlineStyle": "粗體、簡潔、以效益為導向（例如：「Your app, Enterprise Ready」）。",
+        "ctaStyle": "以行動為導向且清晰明確（「Get started」、「Talk to an expert」）。",
+        "avoid": [
+          "避免過於口語化或俚語密集的語言",
+          "避免使用非產業標準的複雜術語",
+          "避免在首頁區域使用冗長、密集的段落"
+        ]
+      },
+      "donts": [
+        "勿使用深色模式或深色背景——畫面截圖顯示以白色與柔和灰色表面為主的淺色主題。",
+        "勿使用多種鮮豔且互相競爭的顏色——畫面截圖顯示克制的調色板，包含白色、灰色，以及單一主導的藍紫色強調色。",
+        "勿使用裝飾性或手寫字體——畫面截圖顯示標題使用乾淨的幾何無襯線體，內文使用人文主義無襯線體。",
+        "勿在主要按鈕上使用粗糙、尖銳的圓角——畫面截圖顯示膠囊形狀按鈕，具有完整的 100px border-radius。",
+        "勿使用厚重的實心邊框作為佈局分隔線——畫面截圖顯示細微的內嵌陰影與極淺的 1px 邊框。",
+        "勿使用置中的內文——畫面截圖顯示左對齊文字，以提升長文的可讀性。"
+      ],
+      "systemPrompt": "這是一個關於 WorkOS 的 SaaS 與開發者工具網站。設計乾淨、專業且高度結構化，專注於清晰度與企業級準備。主要顏色為白色（#FFFFFF）與柔和灰色（#F9F9FB）背景、深墨色文字（#29363D），以及單一主導的藍紫色強調色（#6363F1）。字體方面，粗體展示標題使用幾何無襯線體，並採用緊湊的負字距；內文則使用易讀的人文主義無襯線體。關鍵禁忌：避免深色模式、避免使用多種競爭的強調色、避免使用裝飾性字體。佈局採用 12 欄格線，保留寬裕的留白，卡片使用細微的內嵌陰影以創造深度而不顯沉重。"
+    },
+    "ja": {
+      "identity": {
+        "keywords": [
+          "Enterprise",
+          "Developer",
+          "API",
+          "Integration",
+          "Infrastructure"
+        ],
+        "analogy": "スタートアップをエンタープライズ対応プラットフォームに変える不可視の足場",
+        "oneLiner": "WorkOSは、開発者がSSOやディレクトリ同期などのエンタープライズ機能を、数ヶ月ではなく数分で出荷できるように支援します。"
+      },
+      "colors": {
+        "principle": "クリーンなホワイト/ライトグレーのサーフェスに高コントラストのテキスト、プライマリアクション用の1つの特徴的なブルーパープルアクセント。"
+      },
+      "typography": {
+        "rules": [
+          "見出しはtight negative letter-spacing（-1pxから-2px）を使用",
+          "本文は読みやすさのため標準的なletter-spacing（0）を使用",
+          "モノフォントはコードスニペットと技術値に厳密に使用",
+          "フォントウェイトはクリーンなヒエラルキーのために400と500に限定",
+          "大文字変換はオーバーラインに限定して使用"
+        ],
+        "scaleUses": [
+          "ヒーロー見出し",
+          "セクションタイトル",
+          "導入段落",
+          "本文とUIラベル",
+          "メタデータとヘルパーテキスト",
+          "セクションラベル"
+        ]
+      },
+      "spacing": {
+        "rhythm": "縦間隔は厳密な4pxグリッドに従い、セクションパディングは一貫して64pxで、リズミカルで呼吸できるレイアウトを生み出します。"
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 1px 0px 0px inset：微妙なインセットボーダー用",
+          "0px 2px 5px 0px rgba(0, 0, 0, 0.17)：浮き上がったカード用",
+          "0px 5px 10px -4px rgba(0, 0, 0, 0.17)：モーダル/ポップオーバー用"
+        ],
+        "borders": "rgba(41, 56, 78, 0.08)またはソリッドホワイトを使用した微妙な1pxボーダーでインセット効果を実現。"
+      },
+      "layout": {
+        "skeleton": "標準的な12カラムグリッドにセンタリングされたコンテンツコンテナ、セクション間の適切なホワイトスペース。"
+      },
+      "components": {
+        "button": "ピル型（border-radius: 100px）のプライマリボタンはソリッドアクセントカラーとホワイトテキスト、セカンダリボタンは透過でダークテキスト。",
+        "card": "ソフトに角丸のカード（border-radius: 12px）、微妙なインセットシャドウとライトボーダー、機能リストやインテグレーションタイルに使用。",
+        "chip": "「Enabled」や「Ready」などのステータスインジケーター用の小さなピルバッジ（border-radius: 4px）。",
+        "input": "微妙なインセットシャドウと1pxボーダーを持つ標準フォームフィールド。",
+        "hero": "大型の太字見出しにグラデーションテキスト効果（'Enterprise Ready'）、右側にスタイリッシュなUIモックアップを配置。"
+      },
+      "motion": {
+        "patterns": [
+          "hover状態で背景色が変化",
+          "インタラクティブ要素のトランスフォーム（0.4s）",
+          "scroll時の微妙なフェードイン"
+        ]
+      },
+      "interaction": {
+        "hover": "ボタンの背景色シフト、テキストリンクの微妙なカラートランジション。",
+        "click": "即座の視覚フィードバック、しばしば軽微なトランスフォームスケールやシャドウの変化。",
+        "transition": "すべてのプロパティがスムーズにトランジション（0.15s - 0.4s）し、洗練された印象を実現。",
+        "keyboard": "フォーカスアウトラインは存在する可能性がありますが、スクリーンショットでは不可視です。"
+      },
+      "voice": {
+        "tone": "プロフェッショナルで、直接的、開発者中心。",
+        "headlineStyle": "太字で簡潔、利益指向（例：'Your app, Enterprise Ready'）。",
+        "ctaStyle": "アクション指向で明確（'Get started'、'Talk to an expert'）。",
+        "avoid": [
+          "過度にカジュアルまたはスラングの多い言葉を避ける",
+          "業界標準ではない複雑なジargonを避ける",
+          "ヒーローセクションで長く密度の高い段落を避ける"
+        ]
+      },
+      "donts": [
+        "ダークモードやダーク背景を使用しない — スクリーンショットではホワイトとソフトグレーのサーフェスを主体とした明るいテーマが示されています。",
+        "多様で明るく競合するカラーを使用しない — スクリーンショットではホワイト、グレー、1つの支配的なブルーパープルアクセントの抑制されたパレットが示されています。",
+        "装飾的または手書きフォントを使用しない — スクリーンショットでは見出し用のクリーンな幾何学サンセリフ、本文用のヒューマニストサンセリフが示されています。",
+        "プライマリボタンに鋭い角を使用しない — スクリーンショットでは完全な100pxのborder-radiusを持つピル型ボタンが示されています。",
+        "レイアウト区切りに重いソリッドボーダーを使用しない — スクリーンショットでは微妙なインセットシャドウと非常に軽い1pxボーダーが示されています。",
+        "本文をセンタリングしない — スクリーンショットでは長文の読みやすさのために左寄せテキストが示されています。"
+      ],
+      "systemPrompt": "これはWorkOSのSaaSおよび開発者ツールウェブサイトです。デザインはクリーンでプロフェッショナル、かつ非常に構造化されており、明確さとエンタープライズ対応に焦点を当てています。主要カラーはホワイト（#FFFFFF）とソフトグレー（#F9F9FB）背景、ダークインクテキスト（#29363D）、1つの支配的なブルーパープルアクセント（#6363F1）です。タイポグラフィはtight negative letter-spacingの太字表示見出し用の幾何学サンセリフと、読みやすい本文用のヒューマニストサンセリフを特徴としています。重要な注意点：ダークモードを避ける、複数の競合するアクセントカラーを避ける、装飾フォントの使用を避けること。レイアウトは12カラムグリッドを使用し、適切なホワイトスペースとカードの微妙なインセットシャドウで、重さなしにディープスを生み出しています。"
+    },
+    "ko": {
+      "identity": {
+        "keywords": [
+          "엔터프라이즈",
+          "개발자",
+          "API",
+          "통합",
+          "인프라"
+        ],
+        "analogy": "스타트업을 엔터프라이즈 준비 플랫폼으로 만드는 보이지 없는 골조",
+        "oneLiner": "WorkOS는 개발자들이 SSO 및 디렉토리 동기화와 같은 엔터프라이즈 기능을 몇 달이 아닌 몇 분 만에 배포할 수 있도록 지원합니다."
+      },
+      "colors": {
+        "principle": "깨끗한 흰색/밝은 회색 표면 위의 고대비 텍스트와 기본 작업을 위한 단일하고 독특한 블루-퍼플 악센트."
+      },
+      "typography": {
+        "rules": [
+          "제목은 타이트한 네거티브 자간(-1px에서 -2px)을 사용합니다",
+          "본문 텍스트는 가독성을 위해 표준 자간(0)을 사용합니다",
+          "모노 폰트는 코드 스니펫 및 기술 값에만 엄격히 사용됩니다",
+          "글꼴 두께는 깔끔한 계층 구조를 위해 400과 500으로 제한됩니다",
+          "대문자 변환은 오버라인에만 독점적으로 사용됩니다"
+        ],
+        "scaleUses": [
+          "히어로 제목",
+          "섹션 제목",
+          "리드 단락",
+          "본문 텍스트 및 UI 레이블",
+          "메타데이터 및 도움말 텍스트",
+          "섹션 레이블"
+        ]
+      },
+      "spacing": {
+        "rhythm": "수직 간격은 엄격한 4px 그리드를 따르며, 섹션 패딩은 리듬감 있고 숨쉬는 레이아웃을 만들기 위해 일관되게 64px입니다."
+      },
+      "surfaces": {
+        "shadows": [
+          "미묘한 인셋 테두리를 위한 0px 1px 0px 0px inset",
+          "올려진 카드를 위한 0px 2px 5px 0px rgba(0, 0, 0, 0.17)",
+          "모달/팝오버를 위한 0px 5px 10px -4px rgba(0, 0, 0, 0.17)"
+        ],
+        "borders": "인셋 효과를 위한 rgba(41, 56, 78, 0.08) 또는 솔리드 화이트를 사용한 미묘한 1px 테두리."
+      },
+      "layout": {
+        "skeleton": "중앙 정렬된 콘텐츠 컨테이너와 섹션 간 넉넉한 여백을 갖춘 표준 12열 그리드."
+      },
+      "components": {
+        "button": "솔리드 악센트 색상과 화이트 텍스트를 갖춘 알약 모양(border-radius: 100px)의 기본 버튼, 보조 버튼은 어두운 텍스트의 투명 버튼입니다.",
+        "card": "기능 목록과 통합 타일에 사용되는 부드러운 둥근 카드(border-radius: 12px)로, 미묘한 인셋 그림자와 밝은 테두리가 있습니다.",
+        "chip": "'활성화됨' 또는 '준비됨'과 같은 상태 표시기를 위한 작은 알약 뱃지(border-radius: 4px).",
+        "input": "미묘한 인셋 그림자와 1px 테두리를 갖춘 표준 양식 필드.",
+        "hero": "오른쪽의 스타일리시한 UI 모의 화면과 짝을 이룬 그라데이션 텍스트 효과('Enterprise Ready')의 크고 굵은 제목."
+      },
+      "motion": {
+        "patterns": [
+          "hover 상태에서 배경색 변경 트리거",
+          "인터랙티브 요소에서의 transform(0.4s)",
+          "scroll 시 미묘한 페이드 인"
+        ]
+      },
+      "interaction": {
+        "hover": "버튼의 배경색 변화, 텍스트 링크의 미묘한 색상 전환.",
+        "click": "즉각적인 시각적 피드백, 일반적으로 약간의 transform scale 또는 그림자 변화.",
+        "transition": "모든 속성이 부드럽게 전환(0.15s - 0.4s)되어 정교한 느낌을 줍니다.",
+        "keyboard": "포커스 윤곽선은 존재할 수 있지만 스크린샷에서는 보이지 않습니다."
+      },
+      "voice": {
+        "tone": "전문적이고 직접적이며, 개발자 중심적입니다.",
+        "headlineStyle": "굵고 간결하며, 이점 지향적입니다(예: 'Your app, Enterprise Ready').",
+        "ctaStyle": "행동 지향적이고 명확합니다('Get started', 'Talk to an expert').",
+        "avoid": [
+          "과도하게 캐주얼하거나 은어가 많은 언어를 피합니다",
+          "업계 표준이 아닌 복잡한 전문 용어를 피합니다",
+          "히어로 섹션에서 길고 밀집된 단락을 피합니다"
+        ]
+      },
+      "donts": [
+        "다크 모드나 어두운 배경을 사용하지 마세요 — 스크린샷은 흰색과 부드러운 회색 표면의 밝은 테마를 보여줍니다.",
+        "다양하고 밝으며 경쟁적인 색상을 사용하지 마세요 — 스크린샷은 흰색, 회색, 그리고 단일 지배적인 블루-퍼플 악센트의 절제된 팔레트를 보여줍니다.",
+        "장식적이거나 필기체 글꼴을 사용하지 마세요 — 스크린샷은 제목에 깔끔한 기하학적 고딕체와 본문에 휴머니스트 고딕체를 보여줍니다.",
+        "기본 버튼에 날카롭고 거친 모서리를 사용하지 마세요 — 스크린샷은 100px의 완전한 border-radius를 가진 알약 모양 버튼을 보여줍니다.",
+        "레이아웃 구분선에 무겁고 솔리드한 테두리를 사용하지 마세요 — 스크린샷은 미묘한 인셋 그림자와 매우 가벼운 1px 테두리를 보여줍니다.",
+        "본문 텍스트를 중앙 정렬하지 마세요 — 스크린샷은 긴 문장의 가독성을 위해 왼쪽 정렬된 텍스트를 보여줍니다."
+      ],
+      "systemPrompt": "이것은 WorkOS를 위한 SaaS 및 개발자 도구 웹사이트입니다. 디자인은 깔끔하고 전문적이며 매우 구조화되어 있으며, 명확성과 엔터프라이즈 준비성에 중점을 둡니다. 주요 색상은 흰색(#FFFFFF)과 부드러운 회색(#F9F9FB) 배경, 잉크 같은 어두운 텍스트(#29363D), 그리고 단일 지배적인 블루-퍼플 악센트(#6363F1)입니다. 타이포그래피는 타이트한 네거티브 자간을 가진 굵은 디스플레이 제목의 기하학적 고딕체와 읽기 쉬운 본문 텍스트의 휴머니스트 고딕체를 특징으로 합니다. 중요한 지침: 다크 모드 피하기, 여러 경쟁 악센트 색상 피하기, 장식적 글꼴 사용 피하기. 레이아웃은 넉넉한 여백과 카드의 미묘한 인셋 그림자를 사용하여 무게감 없이 깊이감을 만드는 12열 그리드를 사용합니다."
+    }
+  },
+  "desc": {
+    "en": {
+      "palette": "The palette is restrained and professional, utilizing a clean white background with soft gray accents and a single, distinctive blue-purple brand color for primary actions.",
+      "layout": "The layout is a classic, high-density SaaS structure with a centered container, generous vertical section padding, and a clear 12-column grid system.",
+      "interaction": "Interactions are subtle and polished, featuring smooth color transitions on buttons and subtle transform effects on hover and click.",
+      "motion": "Motion is minimal and purposeful, used primarily for smooth transitions on hover states and subtle fade-ins to enhance the premium feel.",
+      "notes": "This site is an excellent example of modern, enterprise-focused SaaS design that balances developer utility with high-end professional aesthetics."
+    },
+    "zh-CN": {
+      "palette": "调色板克制而专业，采用干净的白色背景搭配柔和的灰色点缀，以及一个独特的蓝紫色品牌色用于主要操作。",
+      "layout": "布局是经典、高密度的 SaaS 结构，采用居中容器、充裕的垂直区域填充和清晰的 12 列网格系统。",
+      "interaction": "交互精致而细腻，按钮具有平滑的颜色过渡，悬停和点击时具有微妙的变换效果。",
+      "motion": "动效极简且富有目的性，主要用于悬停状态下的平滑过渡和微妙的淡入效果，以提升高端质感。",
+      "notes": "这个网站是现代、面向企业的 SaaS 设计的优秀范例，它在开发者实用性与高端专业美学之间取得了平衡。"
+    },
+    "zh-TW": {
+      "palette": "色調克制且專業，採用乾淨的白色背景搭配柔和的灰色調，並以單一、獨特的藍紫色品牌色調作為主要互動色。",
+      "layout": "佈局採用經典、高密度的 SaaS 結構，包含置中的容器、寬裕的垂直段落內距，以及清晰的 12 欄格線系統。",
+      "interaction": "互動效果細膩而精緻，按鈕具有平滑的色彩轉換，hover 及點擊時有微幅的變換效果。",
+      "motion": "動效極簡且目的明確，主要用於 hover 狀態的平滑過渡與細微的淡入效果，以提升高級質感。",
+      "notes": "此網站是現代、專注企業級的 SaaS 設計範例，在開發者實用性與高端專業美學之間取得了良好平衡。"
+    },
+    "ja": {
+      "palette": "パレットは抑制的かつプロフェッショナルで、クリーンなホワイト背景にソフトグレーのアクセント、プライマリアクション用の1つの特徴的なブルーパープルブランドカラーを使用しています。",
+      "layout": "レイアウトはクラシックな高密度SaaS構造で、センタリングされたコンテナ、適切なセクション縦パディング、明確な12カラムグリッドシステムを備えています。",
+      "interaction": "インタラクションは微妙で洗練されており、ボタンのスムーズなカラートランジションや、hoverおよびクリック時の微妙なトランスフォーム効果が特徴です。",
+      "motion": "モーションは最小限かつ目的を持って使用され、主にhover状態のスムーズなトランジションや、プレミアム感を高めるための微妙なフェードインに利用されます。",
+      "notes": "このサイトは、開発者の利便性と高レベルのプロフェッショナル美学をバランスよく融合させた、モダンでエンタープライズ志向のSaaSデザインの優れた例です。"
+    },
+    "ko": {
+      "palette": "팔레트는 절제되고 전문적이며, 깨끗한 흰색 배경에 부드러운 그레이 악센트와 기본 작업을 위한 단일하고 독특한 블루-퍼플 브랜드 색상을 활용합니다.",
+      "layout": "레이아웃은 중앙 정렬된 컨테이너, 넉넉한 수직 섹션 패딩, 명확한 12열 그리드 시스템을 갖춘 클래식하고 고밀도 SaaS 구조입니다.",
+      "interaction": "인터랙션은 미묘하고 정교하며, 버튼의 부드러운 색상 전환과 hover, 클릭 시의 미묘한 transform 효과를 특징으로 합니다.",
+      "motion": "모션은 최소적이고 의도적이며, 주로 hover 상태에서의 부드러운 전환과 프리미엄 느낌을 강화하기 위한 미묘한 페이드 인에 사용됩니다.",
+      "notes": "이 사이트는 개발자 유틸리티와 고급 전문적 미학의 균형을 맞춘 현대적이고 엔터프라이즈 중심의 SaaS 디자인의 훌륭한 예시입니다."
+    }
+  },
+  "_meta": {
+    "vision_model": "mimo-v2.5",
+    "vision_prompt_version": "0.3",
+    "vision_source": "playwright-extract:workos",
+    "vision_grounded": true,
+    "vision_at": "2026-06-04T20:03:29+00:00",
+    "vision_tokens": 17953,
+    "vision_cost_usd": 0.1995,
+    "translation_model": "mimo-v2.5",
+    "translation_at": "2026-06-04T20:05:03+00:00",
+    "translation_tokens": 19616,
+    "translation_cost_usd": 0.0654,
+    "narrative_model": "mimo-v2.5",
+    "narrative_prompt_version": "0.3",
+    "narrative_at": "2026-06-04T20:05:11+00:00",
+    "narrative_tokens": 2344,
+    "narrative_cost_usd": 0.0156,
+    "narrative_status": "ok",
+    "total_cost_usd": 0.2805
+  },
+  "narrative": {
+    "en": {
+      "ch1_intro": "WorkOS functions as the invisible scaffolding that transforms a startup into an enterprise-ready platform. Its design system embodies this role: a clean, professional framework built not for decoration, but for reliable, scalable infrastructure. The visual language is direct and confident, mirroring the developer-focused utility it provides.",
+      "ch2_intro": "The color system is intentionally restrained, built on high-contrast text against clean white and soft gray surfaces. A single, distinctive blue-purple accent reserves its use for primary actions, creating a clear hierarchy of interaction.",
+      "ch2_outro": "This disciplined approach ensures the interface remains a neutral, trustworthy foundation, with the accent color serving as a precise signal for the next step.",
+      "ch3_intro": "The typographic voice is split between a geometric sans-serif for authoritative headlines and a humanist sans-serif for legible body text. Weights are restricted to 400 and 500, establishing a clean hierarchy through scale and spacing rather than weight variation.",
+      "ch4_intro": "Spacing follows a strict 4px grid, creating a consistent rhythm that gives the layout its breathable, structured feel.",
+      "ch5_intro": "Depth is communicated through a system of subtle shadows and borders, not heavy decoration. Inset shadows and 1px lines using rgba(41, 56, 78, 0.08) create soft, layered surfaces for cards and inputs.",
+      "ch6_intro": "The skeleton is a standard 12-column grid with centered content containers. Generous white space between sections establishes a clear, high-density structure for presenting complex integration information.",
+      "ch7_intro": "Motion is minimal and purposeful, used to confirm interaction rather than entertain. Smooth 0.4-second transformations and subtle color shifts on hover provide immediate feedback with a polished feel.",
+      "ch8_intro": "The editorial voice is professional, direct, and benefit-oriented, speaking in the concise, action-focused language developers expect. It avoids casual slang and complex jargon, sticking to clear statements of value.",
+      "ch8_outro": "The system deliberately rejects dark mode, competing accent colors, and decorative fonts in favor of a light-dominant, functional clarity."
+    },
+    "zh-CN": {
+      "ch1_intro": "WorkOS 是将初创公司转变为企业级平台的无形脚手架。其设计系统体现了这一角色：一个简洁、专业的框架，专为可靠、可扩展的基础设施而构建，而非用于装饰。视觉语言直接而自信，映射出它所聚焦开发者提供的实用工具。",
+      "ch2_intro": "色彩系统刻意保持克制，基于高对比度文本与洁净的白色及柔和灰色表面构建。一个独特、醒目的蓝紫色强调色保留用于主要操作，建立了清晰的交互层次结构。",
+      "ch2_outro": "这种严谨的方法确保界面保持为中立、可信赖的基础，而强调色则作为下一步的精确信号。",
+      "ch3_intro": "字体声音在几何无衬线字体用于权威性标题和人文主义无衬线字体用于可读性正文之间分配。字重限制在 400 和 500，通过字号和间距而非字重变化建立清晰的层次结构。",
+      "ch4_intro": "间距遵循严格的 4px 网格，营造出一致的节奏，赋予布局通透、有结构的感觉。",
+      "ch5_intro": "深度通过微妙的阴影和边框系统传达，而非厚重的装饰。使用 rgba(41, 56, 78, 0.08) 的内阴影和 1px 线条为卡片和输入框创造了柔和、分层的表面。",
+      "ch6_intro": "骨架是一个标准的 12 列网格，内容容器居中。各部分之间留有充足的空白，建立了清晰、高密度的结构，用于呈现复杂的集成信息。",
+      "ch7_intro": "动效简约且有针对性，用于确认交互而非娱乐。平滑的 0.4 秒过渡效果和悬停时的微妙色彩变化，提供了即时反馈，并带来精致感。",
+      "ch8_intro": "编辑语气专业、直接、以效益为导向，使用开发者所期望的简洁、聚焦行动的语言。它避免随意的行话和复杂的术语，坚持清晰的价值陈述。",
+      "ch8_outro": "该系统刻意摒弃了深色模式、竞争性的强调色和装饰性字体，转而采用以浅色为主、功能性的清晰风格。"
+    },
+    "zh-TW": {
+      "ch1_intro": "WorkOS 充當無形的腳手架，將新創轉變為企業級平台。其設計系統體現了此角色：一個整潔、專業的框架，並非為了裝飾而建，而是為了打造可靠、可擴展的基礎架構。視覺語言直接且自信，反映了它為開發者提供的實用工具。",
+      "ch2_intro": "色彩系統刻意保持克制，建立在乾淨白色和柔和灰色背景上的高對比文字之上。單一、獨特的藍紫色強調色僅保留給主要操作使用，創造出清晰的互動層級。",
+      "ch2_outro": "這種嚴謹的方法確保了介面保持為一個中立、可信賴的基礎，而強調色則作為指示下一步的精確信號。",
+      "ch3_intro": "排版語氣分為兩部分：用於權威標題的幾何無襯線字體，以及用於清晰內文的人文無襯線字體。字重限制在 400 和 500，透過比例和間距（而非字重變化）建立整潔的層級關係。",
+      "ch4_intro": "間距遵循嚴格的 4px 網格，創造出一致的節奏感，賦予版面呼吸感和結構感。",
+      "ch5_intro": "深度透過微妙陰影和邊框的系統來傳達，而非厚重的裝飾。內凹陰影和使用 rgba(41, 56, 78, 0.08) 的 1px 線條，為卡片和輸入框創造出柔和、層次分明的表面。",
+      "ch6_intro": "骨架結構是標準的 12 欄網格，配有置中的內容容器。區塊之間充足的留白，為呈現複雜的整合資訊建立了清晰、高密度的結構。",
+      "ch7_intro": "動態效果簡潔且有目的性，用於確認互動而非娛樂。流暢的 0.4 秒變換和 hover 時微妙的色彩變化，提供了即時反饋並帶有精緻感。",
+      "ch8_intro": "編輯語氣專業、直接且以效益為導向，使用開發者所期望的簡潔、行動導向的語言。它避免了隨意術語和複雜行話，堅持清晰的價值陳述。",
+      "ch8_outro": "該系統刻意捨棄了深色模式、競爭性的強調色和裝飾性字體，轉而採用光線主導、功能清晰的風格。"
+    },
+    "ja": {
+      "ch1_intro": "WorkOSは、スタートアップをエンタープライズ対応のプラットフォームに変える、見えない脚手架として機能します。そのデザインシステムはこの役割を体現しています：装飾のためではなく、信頼性の高いスケーラブルなインフラ構築のために作られた、クリーンでプロフェッショナルなフレームワークです。ビジュアル言語は直接的かつ確信に満ちており、開発者中心の実用性を反映しています。",
+      "ch2_intro": "カラーシステムは意図的に抑制的で、クリーンな白やソフトグレーのサーフェスに対してハイコントラストなテキストを基盤として構築されています。特徴的な青紫色のアクセントはプライマリアクションにのみ使い、明確なインタラクション階層を生み出します。",
+      "ch2_outro": "この厳格なアプローチにより、インターフェースは中立的で信頼できる基盤を保ち、アクセントカラーは次のステップへの正確なシグナルとして機能します。",
+      "ch3_intro": "タイポグラフィの声は、権威ある見出し用のジオメトリック・サンセリフと、読みやすい本文用のヒューマニスト・サンセリフに分割されています。ウェイトは400と500に限定し、ウェイトの変化ではなくスケールと间距によってクリーンな階層を確立しています。",
+      "ch4_intro": "间距は厳格な4pxグリッドに従い、一貫したリズムを生み出し、レイアウトに息の通った構造的な感覚を与えます。",
+      "ch5_intro": "奥行きは重い装飾ではなく、微細なシャドウとボーダーのシステムで伝えられます。rgba(41, 56, 78, 0.08)を使用した1px線とインセットシャドウが、カードや入力フィールド用のソフトで層のあるサーフェスを生み出します。",
+      "ch6_intro": "スケルトンは標準的な12カラムグリッドで、コンテンツコンテナを中央寄せにしています。セクション間の適切なホワイトスペースが、複合的な統合情報を提示するための明確で高密度な構造を確立します。",
+      "ch7_intro": "モーションは最小限で目的が明確で、娯楽のためではなくインタラクションの確認に使用されます。0.4秒の滑らかなトランスフォーメーションと、hover時の微細な色の変化が、洗練されたフィードバックを即座に提供します。",
+      "ch8_intro": "エディトリアルボイスはプロフェッショナルで直接的、利益を志向しており、開発者が期待する簡潔で行動焦点の言語で語ります。カジュアルなスラングや複雑な専門用語を避け、明確な価値の提示に徹しています。",
+      "ch8_outro": "このシステムは、ダークモード、競合するアクセントカラー、装飾的なフォントを意図的に排除し、ライト主体の機能的明瞭さを優先しています。"
+    },
+    "ko": {
+      "ch1_intro": "WorkOS는 스타트업을 엔터프라이즈급 플랫폼으로 전환하는 보이지 않는 골격으로 기능합니다. 그 디자인 시스템은 이 역할을 구현합니다: 장식을 위해 만들어진 것이 아니라 신뢰할 수 있고 확장 가능한 인프라를 위한 깔끔하고 전문적인 프레임워크입니다. 비주얼 언어는 직접적이고 자신감 넘치며, 제공하는 개발자 중심의 유틸리티를 반영합니다.",
+      "ch2_intro": "색상 시스템은 의도적으로 절제되어 있으며, 깨끗한 흰색과 부드러운 회색 배경 위의 고대비 텍스트를 기반으로 구축됩니다. 단일하고 독특한 블루-퍼플 악센트는 주요 작업에만 사용하도록 예약되어 명확한 상호작용 계층을 만듭니다.",
+      "ch2_outro": "이 절제된 접근 방식은 인터페이스가 중립적이고 신뢰할 수 있는 기반으로 남도록 보장하며, 악센트 색상은 다음 단계를 위한 정확한 신호로 기능합니다.",
+      "ch3_intro": "타이포그래피는 권위 있는 헤드라인을 위한 기하학적 sans-serif와 가독성 높은 본문 텍스트를 위한 인간론적 sans-serif 사이에 나뉩니다. 무게는 400과 500으로 제한되어, 무게 변화보다는 크기와 간격을 통해 깔끔한 계층을 확립합니다.",
+      "ch4_intro": "간격은 엄격한 4px 격자를 따르며, 레이아웃에 숨 쉬는 듯하고 구조적인 느낌을 주는 일관된 리듬을 만듭니다.",
+      "ch5_intro": "깊이는 묵장한 장식이 아닌 미세한 그림자와 테두리 시스템을 통해 전달됩니다. inset 그림자와 rgba(41, 56, 78, 0.08)를 사용한 1px 라인은 카드와 입력 필드를 위한 부드럽고 레이어링된 표면을 만듭니다.",
+      "ch6_intro": "골격은 콘텐츠 컨테이너를 중앙에 배치한 표준 12열 격자입니다. 섹션 사이의 넉넉한 여백은 복잡한 통합 정보를 제시하기 위한 명확하고 고밀도의 구조를 확립합니다.",
+      "ch7_intro": "모션은 최소한이고 의도적이며, 즐거움보다는 상호작용을 확인하기 위해 사용됩니다. 매끄러운 0.4초 전환과 hover 시 미세한 색상 변화는 세련된 느낌으로 즉각적인 피드백을 제공합니다.",
+      "ch8_intro": "에디토리얼 톤은 전문적이고 직접적이며 이점 중심이며, 개발자들이 기대하는 간결하고 행동 지향적인 언어로 말합니다. 격식 없는 구어와 복잡한 전문 용어를 피하고 명확한 가치 진술에 집중합니다.",
+      "ch8_outro": "이 시스템은 다크 모드, 경쟁 악센트 색상, 장식 폰트를 의도적으로 배제하고, 밝기 중심의 기능적 명확성을 지향합니다."
+    }
+  }
 }

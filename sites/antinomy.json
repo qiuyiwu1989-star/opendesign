@@ -8,6 +8,597 @@
     "studio",
     "webgl"
   ],
-  "status": "pending",
-  "added_at": "2026-06-02"
+  "status": "completed",
+  "added_at": "2026-06-02",
+  "spec": {
+    "colors": {
+      "bg": "#FFFFFF",
+      "bgSoft": null,
+      "bgQuiet": null,
+      "ink": "#000000",
+      "inkSoft": null,
+      "muted": "#000000",
+      "mutedSoft": null,
+      "accent": null,
+      "line": "rgba(0,0,0,0.1)"
+    },
+    "typography": {
+      "display": "geometric-sans",
+      "body": "geometric-sans",
+      "mono": null,
+      "scale": [
+        {
+          "token": "display",
+          "size": 54,
+          "lh": 1.05,
+          "weight": 400,
+          "ls": "-1px"
+        },
+        {
+          "token": "body",
+          "size": 24,
+          "lh": 1.2,
+          "weight": 400,
+          "ls": "-0.8px"
+        },
+        {
+          "token": "caption",
+          "size": 12,
+          "lh": 1.2,
+          "weight": 400,
+          "ls": "0px"
+        }
+      ]
+    },
+    "spacing": {
+      "base": 4,
+      "scale": [
+        4,
+        8,
+        16,
+        24,
+        32,
+        48,
+        64,
+        96
+      ]
+    },
+    "surfaces": {
+      "radius": {
+        "sm": 0,
+        "md": 0,
+        "lg": 0,
+        "pill": 0
+      }
+    },
+    "layout": {
+      "container": 1440,
+      "paragraph": 680,
+      "columns": 12,
+      "gutter": 24,
+      "breakpoints": [
+        768,
+        1024
+      ]
+    },
+    "motion": {
+      "durations": {
+        "micro": 300,
+        "small": 400,
+        "medium": 800
+      },
+      "easing": "cubic-bezier(0.19, 1, 0.22, 1)"
+    }
+  },
+  "spec_i18n": {
+    "en": {
+      "identity": {
+        "keywords": [
+          "Creative Studio",
+          "Global",
+          "Contemporary",
+          "Design Agency",
+          "Premium"
+        ],
+        "analogy": "A refined digital gallery for a high-end creative studio.",
+        "oneLiner": "A minimalist, typography-forward portfolio site for a global creative studio."
+      },
+      "colors": {
+        "principle": "Absolute monochrome baseline with high-contrast text and photography-driven color."
+      },
+      "typography": {
+        "rules": [
+          "All text uses ABC Diatype (geometric-sans)",
+          "Uppercase for navigation and small labels",
+          "Heavy negative letter-spacing for display sizes"
+        ],
+        "scaleUses": [
+          "Hero text and major statements",
+          "Secondary text and UI elements",
+          "Small labels and navigation"
+        ]
+      },
+      "spacing": {
+        "rhythm": "Generous whitespace between sections to let photography and typography breathe."
+      },
+      "surfaces": {
+        "shadows": [],
+        "borders": "No visible borders or rounded corners; purely flat, edge-to-edge imagery."
+      },
+      "layout": {
+        "skeleton": "Full-width hero with centered text, followed by a two-column project grid."
+      },
+      "components": {
+        "button": "Minimal or absent; interactions are primarily link-based.",
+        "card": "Edge-to-edge project images with centered uppercase text below.",
+        "chip": null,
+        "input": null,
+        "hero": "Large, centered typography on white background, transitioning into a full-width hero image."
+      },
+      "motion": {
+        "patterns": [
+          "Fade-in opacity",
+          "Smooth transform transitions",
+          "Image reveals"
+        ]
+      },
+      "interaction": {
+        "hover": "Subtle opacity changes or cursor updates.",
+        "click": "Immediate navigation to project pages.",
+        "transition": "0.4s to 0.6s ease-out for most state changes.",
+        "keyboard": "Standard tab navigation for links."
+      },
+      "voice": {
+        "tone": "Authoritative, professional, and understated.",
+        "headlineStyle": "Large, centered, sentence-case statements.",
+        "ctaStyle": "Invisible or plain text links.",
+        "avoid": [
+          "Visual clutter",
+          "Rounded UI elements",
+          "Complex gradients",
+          "Loud color palettes"
+        ]
+      },
+      "donts": [
+        "Don't use rounded corners — the site uses sharp, 0px radius edges.",
+        "Don't use drop shadows — the UI is entirely flat with no depth effects.",
+        "Don't use complex background colors — the site relies almost exclusively on solid white.",
+        "Don't use decorative fonts — the system uses a single geometric sans-serif family.",
+        "Don't clutter the layout — the design prioritizes massive amounts of negative space.",
+        "Don't use multi-colored buttons — there are no visible high-chroma UI components."
+      ],
+      "systemPrompt": "This is a portfolio site for Antinomy, a global creative studio. It uses a highly refined, minimalist aesthetic centered on a single geometric sans-serif font (ABC Diatype) and a strict black-and-white color palette (#000000 ink on #FFFFFF background). The layout is characterized by massive negative space, centered display typography with heavy negative letter-spacing, and full-bleed project photography. Key critical donts: never use rounded corners, never add drop shadows, and never introduce complex background colors. The site is a masterclass in restraint and typography-led design."
+    },
+    "zh-CN": {
+      "identity": {
+        "keywords": [
+          "创意工作室",
+          "全球",
+          "当代",
+          "设计机构",
+          "高端"
+        ],
+        "analogy": "高端创意工作室的精致数字画廊。",
+        "oneLiner": "一个为全球创意工作室设计的、以排版为核心的极简作品集网站。"
+      },
+      "colors": {
+        "principle": "绝对的单色基底，搭配高对比度文本和由摄影驱动的色彩。"
+      },
+      "typography": {
+        "rules": [
+          "所有文本使用 ABC Diatype (几何无衬线体)",
+          "导航和小标签使用大写",
+          "展示尺寸使用较重的负字距"
+        ],
+        "scaleUses": [
+          "主视觉文本和主要陈述",
+          "次要文本和界面元素",
+          "小标签和导航"
+        ]
+      },
+      "spacing": {
+        "rhythm": "各部分之间留有充足的留白，让摄影和排版得以呼吸。"
+      },
+      "surfaces": {
+        "shadows": [],
+        "borders": "无可见边框或圆角；纯粹的平面、满屏图像。"
+      },
+      "layout": {
+        "skeleton": "全宽主视觉区包含居中文本，随后是两列项目网格。"
+      },
+      "components": {
+        "button": "极简或不存在；交互主要基于链接。",
+        "card": "满屏项目图像，下方配以居中的大写文本。",
+        "chip": null,
+        "input": null,
+        "hero": "白色背景上的大型居中排版，过渡到全宽主视觉图像。"
+      },
+      "motion": {
+        "patterns": [
+          "淡入透明度",
+          "平滑的变换过渡",
+          "图像揭示"
+        ]
+      },
+      "interaction": {
+        "hover": "微妙的透明度变化或光标状态更新。",
+        "click": "立即导航至项目页面。",
+        "transition": "大多数状态变化使用 0.4s 到 0.6s 的缓出过渡。",
+        "keyboard": "链接使用标准 Tab 键导航。"
+      },
+      "voice": {
+        "tone": "权威、专业、内敛。",
+        "headlineStyle": "大型、居中、句首大写的陈述。",
+        "ctaStyle": "隐形或纯文本链接。",
+        "avoid": [
+          "视觉杂乱",
+          "圆角界面元素",
+          "复杂渐变",
+          "鲜艳的色板"
+        ]
+      },
+      "donts": [
+        "不要使用圆角——网站使用的是锐利的 0px 半径边缘。",
+        "不要使用投影——界面完全是平面的，没有深度效果。",
+        "不要使用复杂的背景色——网站几乎完全依赖纯白色。",
+        "不要使用装饰性字体——系统使用单一的几何无衬线字体家族。",
+        "不要让布局杂乱——设计优先考虑大量的负空间。",
+        "不要使用多色按钮——没有可见的高饱和度界面组件。"
+      ],
+      "systemPrompt": "这是一个名为 Antinomy 的全球创意工作室的作品集网站。它采用高度精致、极简的美学，以单一的几何无衬线字体 (ABC Diatype) 和严格的黑白调色板 (#000000 墨色在 #FFFFFF 背景上) 为核心。布局特点是大量的负空间、使用较重负字距居中展示的排版，以及全出血的项目摄影。关键注意事项：绝不使用圆角，绝不添加投影，绝不引入复杂的背景色。该网站是克制与排版主导设计的典范。"
+    },
+    "zh-TW": {
+      "identity": {
+        "keywords": [
+          "創意工作室",
+          "全球",
+          "當代",
+          "設計機構",
+          "高級"
+        ],
+        "analogy": "一座為高端創意工作室打造的精緻數位美術館。",
+        "oneLiner": "一個極簡、以排版為先的全球創意工作室作品集網站。"
+      },
+      "colors": {
+        "principle": "絕對的單色基底，搭配高對比度文字與以攝影為主的色彩。"
+      },
+      "typography": {
+        "rules": [
+          "所有文字使用 ABC Diatype (幾何無襯線字體)",
+          "導覽與小標籤使用大寫字母",
+          "展示級字號使用大量的負字距"
+        ],
+        "scaleUses": [
+          "主視覺文字與主要語句",
+          "次要文字與 UI 元素",
+          "小標籤與導覽"
+        ]
+      },
+      "spacing": {
+        "rhythm": "各區段之間保留充裕的留白，讓攝影與排版得以呼吸。"
+      },
+      "surfaces": {
+        "shadows": [],
+        "borders": "無可見邊框或圓角；純粹的平面、無邊際影像。"
+      },
+      "layout": {
+        "skeleton": "全寬主視覺區域搭配居中文字，隨後是雙欄式項目網格。"
+      },
+      "components": {
+        "button": "極簡或不存在；互動主要基於連結。",
+        "card": "無邊際的項目影像，下方搭配居中的大寫文字。",
+        "chip": null,
+        "input": null,
+        "hero": "白底上的大型居中排版，過渡為全寬的主視覺影像。"
+      },
+      "motion": {
+        "patterns": [
+          "淡入 opacity",
+          "流暢的 transform 過渡",
+          "影像揭示"
+        ]
+      },
+      "interaction": {
+        "hover": "細微的 opacity 變化或游標更新。",
+        "click": "立即導覽至項目頁面。",
+        "transition": "大多數狀態變更使用 0.4s 至 0.6s ease-out。",
+        "keyboard": "使用標準 tab 鍵導覽連結。"
+      },
+      "voice": {
+        "tone": "權威、專業且含蓄。",
+        "headlineStyle": "大型、居中、句式大小寫的陳述。",
+        "ctaStyle": "隱形或純文字連結。",
+        "avoid": [
+          "視覺雜亂",
+          "圓角 UI 元素",
+          "複雜漸層",
+          "鮮豔的調色盤"
+        ]
+      },
+      "donts": [
+        "不要使用圓角——網站使用銳利的、0px 圓角邊緣。",
+        "不要使用陰影——UI 完全平面，無任何深度效果。",
+        "不要使用複雜的背景色——網站幾乎完全依賴純白色。",
+        "不要使用裝飾性字體——系統僅使用單一幾何無襯線字族。",
+        "不要讓佈局顯得擁擠——設計優先保留大量的負空間。",
+        "不要使用多彩按鈕——沒有任何可見的高飽和度 UI 元素。"
+      ],
+      "systemPrompt": "這是一個名為 Antinomy 的全球創意工作室的作品集網站。它採用高度精緻的極簡美學，以單一幾何無襯線字體 (ABC Diatype) 與嚴格的黑白調色盤 (#000000 墨色於 #FFFFFF 背景) 為核心。其佈局特點是大量的負空間、帶有重負字距的居中展示級排版，以及全出血的項目攝影。關鍵的禁忌：絕對不要使用圓角、絕對不要添加陰影，也絕對不要引入複雜的背景顏色。此網站是克制與排版主導設計的範本。"
+    },
+    "ja": {
+      "identity": {
+        "keywords": [
+          "クリエイティブスタジオ",
+          "グローバル",
+          "コンテンポラリー",
+          "デザインエージェンシー",
+          "プレミアム"
+        ],
+        "analogy": "ハイエンドのクリエイティブスタジオのための、洗練されたデジタルギャラリー。",
+        "oneLiner": "グローバルなクリエイティブスタジオのための、ミニマルでタイポグラフィ重視のポートフォリオサイト。"
+      },
+      "colors": {
+        "principle": "絶対的なモノクロームベースに、ハイコントラストのテキストと写真主導のカラー。"
+      },
+      "typography": {
+        "rules": [
+          "すべてのテキストにABC Diatype（geometric-sans）を使用",
+          "ナビゲーションと小さなラベルには大文字",
+          "ディスプレイサイズには強い負の字間を設定"
+        ],
+        "scaleUses": [
+          "ヒーローテキストと主要なステートメント",
+          "セカンダリテキストとUI要素",
+          "小さなラベルとナビゲーション"
+        ]
+      },
+      "spacing": {
+        "rhythm": "セクション間にたっぷりのホワイトスペースを設け、写真とタイポグラフィが息づける空間を確保。"
+      },
+      "surfaces": {
+        "shadows": [],
+        "borders": "目立つボーダーや角丸はなし。純粋なフラットデザインで、端から端まで画像を表示。"
+      },
+      "layout": {
+        "skeleton": "中央にテキストを持つフルワイドヒーローに続き、2カラムのプロジェクトグリッド。"
+      },
+      "components": {
+        "button": "ミニマル、あるいは不在。インタラクションは主にリンクベース。",
+        "card": "端から端まで延びるプロジェクト画像の下に、中央揃えの大文字テキスト。",
+        "chip": null,
+        "input": null,
+        "hero": "白背景上の大きな中央テキストから、フルワイドヒーロー画像へとトランジション。"
+      },
+      "motion": {
+        "patterns": [
+          "フェードインのopacity",
+          "滑らかなtransformトランジション",
+          "画像の露出"
+        ]
+      },
+      "interaction": {
+        "hover": "繊細なopacity変化やカーソル更新。",
+        "click": "プロジェクトページへの即時ナビゲーション。",
+        "transition": "ほとんどの状態変更に0.4秒〜0.6秒のease-out。",
+        "keyboard": "リンクの標準的なタブナビゲーション。"
+      },
+      "voice": {
+        "tone": "権威があり、プロフェッショナルで控えめ。",
+        "headlineStyle": "大きな中央配置の文頭大文字ステートメント。",
+        "ctaStyle": "見えないかプレーンテキストのリンク。",
+        "avoid": [
+          "視覚的な雑然とした印象",
+          "角丸のUI要素",
+          "複雑なグラデーション",
+          "派手なカラーパレット"
+        ]
+      },
+      "donts": [
+        "角丸を使わない — サイトは鋭く0pxの角を使用しています。",
+        "ドロップシャドウを使わない — UIは奥行き効果のない完全フラットです。",
+        "複雑な背景色を使わない — サイトはほぼ完全にソリッドホワイトに依存しています。",
+        "装飾的なフォントを使わない — システムは単一の幾何学的サンセリフフォントファミリーを使用します。",
+        "レイアウトを雑踏させない — デザインは膨大なネガティブスペースを優先します。",
+        "多色のボタンを使わない — 目立つ高彩度のUIコンポーネントは存在しません。"
+      ],
+      "systemPrompt": "これはグローバルクリエイティブスタジオ「Antinomy」のポートフォリオサイトです。単一の幾何学的サンセリフフォント（ABC Diatype）と厳格なブラック＆ホワイトのカラーパレット（#000000のインク on #FFFFFFの背景）に焦点を当てた、非常に洗練されたミニマル美学を採用しています。レイアウトは、膨大なネガティブスペース、強い負の字間を持つ中央配置のディスプレイタイポグラフィ、フルブリードのプロジェクト写真が特徴です。重要な禁止事項：決して角丸を使わず、ドロップシャドウを追加せず、複雑な背景色を導入しないこと。このサイトは、抑制とタイポグラフィ主導のデザインにおける模範です。"
+    },
+    "ko": {
+      "identity": {
+        "keywords": [
+          "크리에이티브 스튜디오",
+          "글로벌",
+          "현대적인",
+          "디자인 에이전시",
+          "프리미엄"
+        ],
+        "analogy": "하이엔드 크리에이티브 스튜디오를 위한 세련된 디지털 갤러리.",
+        "oneLiner": "글로벌 크리에이티브 스튜디오를 위한 미니멀하고 타이포그래피 중심의 포트폴리오 사이트."
+      },
+      "colors": {
+        "principle": "고대비 텍스트와 사진 중심의 색상을 위한 절대적 단색 기반."
+      },
+      "typography": {
+        "rules": [
+          "모든 텍스트에 ABC Diatype(기하학적 산세리프) 사용",
+          "네비게이션과 작은 레이블에는 대문자 사용",
+          "디스플레이 크기에는 강한 네거티브 자간 사용"
+        ],
+        "scaleUses": [
+          "히어로 텍스트와 주요 성명",
+          "보조 텍스트와 UI 요소",
+          "작은 레이블과 네비게이션"
+        ]
+      },
+      "spacing": {
+        "rhythm": "섹션 간 넉넉한 여백을 두어 사진과 타이포그래피가 숨쉴 수 있게 합니다."
+      },
+      "surfaces": {
+        "shadows": [],
+        "borders": "보이는 테두리나 둥근 모서리 없음; 순수하게 플랫하고 가장자리까지 이어지는 이미지."
+      },
+      "layout": {
+        "skeleton": "중앙 정렬 텍스트가 있는 전체 폭 히어로 다음에 이어지는 두 열 프로젝트 그리드."
+      },
+      "components": {
+        "button": "최소화하거나 부재; 상호작용은 주로 링크 기반.",
+        "card": "가장자리까지 이어지는 프로젝트 이미지와 그 아래 중앙 정렬된 대문자 텍스트.",
+        "chip": null,
+        "input": null,
+        "hero": "화이트 배경 위의 대형 중앙 정렬 타이포그래피, 전체 폭 히어로 이미지로 전환."
+      },
+      "motion": {
+        "patterns": [
+          "페이드인 투명도",
+          "부드러운 변환 전환",
+          "이미지 공개"
+        ]
+      },
+      "interaction": {
+        "hover": "미세한 투명도 변화 또는 커서 업데이트.",
+        "click": "프로젝트 페이지로의 즉각적인 네비게이션.",
+        "transition": "대부분의 상태 변화에 0.4s에서 0.6s ease-out.",
+        "keyboard": "링크를 위한 표준 탭 네비게이션."
+      },
+      "voice": {
+        "tone": "권위 있고, 전문적이며, 절제된.",
+        "headlineStyle": "크고, 중앙 정렬된, 문장 대소문자 성명.",
+        "ctaStyle": "보이지 않거나 평범한 텍스트 링크.",
+        "avoid": [
+          "시각적 혼란",
+          "둥근 UI 요소",
+          "복잡한 그라데이션",
+          "화려한 팔레트"
+        ]
+      },
+      "donts": [
+        "둥근 모서리를 사용하지 마세요 — 사이트는 날카롭고 0px 반경의 가장자리를 사용합니다.",
+        "드롭 그림자를 사용하지 마세요 — UI는 완전히 플랫하며 깊이 효과가 없습니다.",
+        "복잡한 배경색을 사용하지 마세요 — 사이트는 거의 독점적으로 단색 화이트에 의존합니다.",
+        "장식용 글꼴을 사용하지 마세요 — 시스템은 단일 기하학적 산세리프 패밀리를 사용합니다.",
+        "레이아웃을 복잡하게 하지 마세요 — 디자인은 막대한 양의 네거티브 공간을 우선시합니다.",
+        "다색 버튼을 사용하지 마세요 — 보이는 고채도 UI 컴포넌트가 없습니다."
+      ],
+      "systemPrompt": "이것은 글로벌 크리에이티브 스튜디오 Antinomy의 포트폴리오 사이트입니다. 단일 기하학적 산세리프 글꼴(ABC Diatype)과 엄격한 흑백 팔레트(#000000 잉크, #FFFFFF 배경)를 중심으로 한 매우 세련된 미니멀 미학을 사용합니다. 레이아웃은 막대한 네거티브 공간, 강한 네거티브 자간이 적용된 중앙 정렬 디스플레이 타이포그래피, 그리고 전체 여백 프로젝트 사진이 특징입니다. 핵심 중요한 주의사항: 둥근 모서리를 절대 사용하지 말고, 드롭 그림자를 절대 추가하지 말며, 복잡한 배경색을 절대 도입하지 마세요. 이 사이트는 절제와 타이포그래피 중심 디자인의 교과서입니다."
+    }
+  },
+  "desc": {
+    "en": {
+      "palette": "A strictly monochrome palette of pure black (#000000) and white (#FFFFFF) used to create maximum contrast and let photography provide all visual interest.",
+      "layout": "A spacious, vertically-scrolling layout that alternates between massive centered typographic statements and full-width, edge-to-edge project imagery.",
+      "interaction": "Minimalist and subtle, relying on smooth opacity and transform transitions (cubic-bezier 0.19, 1, 0.22, 1) to provide a premium feel without distraction.",
+      "motion": "Refined and understated, using linear and ease-out transitions (300ms-800ms) primarily for fades and smooth image reveals.",
+      "notes": "This site is worth including as a premier example of 'restrained' agency portfolio design, where typography and whitespace are the primary tools for establishing authority and a premium brand identity."
+    },
+    "zh-CN": {
+      "palette": "严格采用纯黑 (#000000) 和纯白 (#FFFFFF) 的单色板，以创造最大对比度，并让摄影图像提供全部视觉趣味。",
+      "layout": "宽敞的垂直滚动布局，交替呈现居中的巨型排版陈述与全幅、满屏的项目图像。",
+      "interaction": "极简且微妙，依赖平滑的透明度和变换过渡 (cubic-bezier 0.19, 1, 0.22, 1) 以提供高端质感，避免干扰。",
+      "motion": "精致而内敛，主要使用线性与缓出过渡 (300ms-800ms) 进行淡入淡出和平滑的图像揭示。",
+      "notes": "该网站是“克制型”创意代理作品集设计的典范案例，其中排版与留白是建立权威感和高端品牌身份的主要工具。"
+    },
+    "zh-TW": {
+      "palette": "嚴格的單色調色盤，僅使用純黑 (#000000) 與純白 (#FFFFFF)，以創造最大對比度，讓攝影圖像提供所有視覺趣味。",
+      "layout": "寬敞的垂直滾動佈局，在巨大的居中排版語句與全寬、無邊際的項目影像之間交替呈現。",
+      "interaction": "極簡而細膩，依賴流暢的 opacity 與 transform 過渡效果 (cubic-bezier 0.19, 1, 0.22, 1)，在不分散注意力的情況下提供高級感。",
+      "motion": "精緻而含蓄，主要使用 linear 與 ease-out 過渡效果 (300ms-800ms) 進行淡入與流暢的影像揭示。",
+      "notes": "此網站是「克制型」設計機構作品集設計的典範，其中排版與留白是建立權威感與高級品牌形象的主要工具。"
+    },
+    "ja": {
+      "palette": "純粋な黒（#000000）と白（#FFFFFF）による厳格なモノクロームパレット。最大限のコントラストを生み出し、写真にすべてのビジュアルな興味を委ねます。",
+      "layout": "大規模な中央配置のタイポグラフィステートメントと、フルワイドで端から端まで延びるプロジェクト画像が交互に現れる、ゆとりのある垂直スクロールレイアウト。",
+      "interaction": "ミニマルかつ繊細で、滑らかなopacityとtransformのトランジション（cubic-bezier 0.19, 1, 0.22, 1）を活用し、邪魔にならないプレミアム感を演出。",
+      "motion": "洗練され控えめな、linearおよびease-outトランジション（300ms〜800ms）を主にフェードインや画像の滑らかな露出に使用。",
+      "notes": "このサイトは、「抑制された」エージェンシーポートフォリオデザインの最高の例として掲載する価値があります。タイポグラフィとホワイトスペースが、権威とプレミアムブランドアイデンティティを確立する主要なツールとなっているのです。"
+    },
+    "ko": {
+      "palette": "순수한 블랙(#000000)과 화이트(#FFFFFF)로 구성된 엄격한 단색 팔레트로 최대 대비를 만들고, 모든 시각적 관심을 사진에 맡깁니다.",
+      "layout": "수직 스크롤을 기반으로 한 넓은 레이아웃으로, 대형 중앙 정렬 타이포그래피 성명과 전체 폭, 가장자리까지 이어지는 프로젝트 이미지가 교차합니다.",
+      "interaction": "미니멀하고 섬세하며, 부드러운 투명도와 변환 전환(cubic-bezier 0.19, 1, 0.22, 1)을 통해 산만함 없이 프리미엄 느낌을 제공합니다.",
+      "motion": "세련되고 절제된 느낌으로, 주로 페이드와 부드러운 이미지 공개를 위해 선형 및 ease-out 전환(300ms-800ms)을 사용합니다.",
+      "notes": "이 사이트는 타이포그래피와 여백이 권위와 프리미엄 브랜드 아이덴티티를 확립하는 주요 도구인 '절제된' 에이전시 포트폴리오 디자인의 우수한 예시로 포함할 가치가 있습니다."
+    }
+  },
+  "_meta": {
+    "vision_model": "mimo-v2.5",
+    "vision_prompt_version": "0.3",
+    "vision_source": "playwright-extract:antinomy",
+    "vision_grounded": true,
+    "vision_at": "2026-06-04T13:39:52+00:00",
+    "vision_tokens": 16209,
+    "vision_cost_usd": 0.1801,
+    "translation_model": "mimo-v2.5",
+    "translation_at": "2026-06-04T13:41:04+00:00",
+    "translation_tokens": 15992,
+    "translation_cost_usd": 0.0533,
+    "narrative_model": "mimo-v2.5",
+    "narrative_prompt_version": "0.3",
+    "narrative_at": "2026-06-04T13:41:15+00:00",
+    "narrative_tokens": 1980,
+    "narrative_cost_usd": 0.0132,
+    "narrative_status": "ok",
+    "total_cost_usd": 0.2466
+  },
+  "narrative": {
+    "en": {
+      "ch1_intro": "Antinomy Studio presents itself as a refined digital gallery for a high-end creative studio, where the design system functions not as decoration but as the very architecture of the space. The system is built on the principle of absolute restraint, using typography and negative space as the primary materials to construct a premium, global identity.",
+      "ch2_intro": "The color system is a strict monochrome baseline of pure black and white, engineered to create maximum contrast. This deliberate absence of color shifts the entire visual burden onto the quality of photography, which provides all chromatic interest.",
+      "ch2_outro": "The principle is that color is the exception, not the rule, derived solely from the project imagery presented within the framework.",
+      "ch3_intro": "Typography is the singular voice of the system, handled exclusively by the geometric sans-serif ABC Diatype. Its application follows strict rules: uppercase for navigational elements and small labels, with heavy negative letter-spacing applied to display sizes to create commanding, sculptural statements.",
+      "ch4_intro": "Spacing is defined by a generous, rhythmic whitespace that operates as a material in its own right.",
+      "ch5_intro": "Surfaces are conceived as purely flat planes; there is no simulated depth through shadows or borders. The design rejects any element that would suggest a layered, three-dimensional UI, favoring a clean, edge-to-edge presentation of content.",
+      "ch6_intro": "The layout skeleton begins with a full-width hero anchored by centered text, establishing an immediate typographic focal point. This flows seamlessly into a two-column project grid where full-bleed imagery is paired with centered uppercase labels below.",
+      "ch7_intro": "Motion philosophy is one of refined understatement, using smooth opacity fades and transform transitions to guide the viewer. These movements are linear or ease-out in nature, lasting between 300ms and 800ms, to provide a premium feel without creating distraction or spectacle.",
+      "ch8_intro": "The editorial voice is authoritative, professional, and understated, matched by a headline style of large, centered sentence-case statements. The system deliberately avoids visible calls-to-action, preferring to let interactions exist as plain text links that maintain the composition's purity.",
+      "ch8_outro": "The system deliberately refuses to introduce visual clutter, complex gradients, or any high-chroma UI components."
+    },
+    "zh-CN": {
+      "ch1_intro": "Antinomy Studio 自我定位为一个高端创意工作室的精致数字展厅，其设计系统并非装饰，而是空间本身的建筑结构。系统构建于绝对克制的原则之上，以排版与负空间为主要材料，塑造一个高端、全球化的品牌形象。",
+      "ch2_intro": "色彩系统以纯黑与纯白为严格基准，通过最大对比度精心构建。这种刻意的色彩缺席，将全部视觉重心转移至摄影质量，由后者提供所有色彩趣味。",
+      "ch2_outro": "其原则是：色彩是例外而非规则，完全源自框架内呈现的项目图像。",
+      "ch3_intro": "排版是系统的唯一声音，完全由几何无衬线字体 ABC Diatype 承担。应用遵循严格规则：导航元素与小标签采用全大写，展示尺寸则施加沉重的负字距，以创造出具有雕塑感的权威陈述。",
+      "ch4_intro": "间距由慷慨而富有节奏的空白定义，其本身即作为一种材质存在。",
+      "ch5_intro": "界面被构想为纯粹的平面；没有通过阴影或边框模拟深度。设计拒绝任何暗示分层、三维用户界面的元素，倾向于内容干净、无缝的通栏呈现。",
+      "ch6_intro": "布局骨架始于全宽英雄区域，中心化文本锚定其中，确立即时的排版焦点。这流畅地衔接至双列项目网格，全出血图像与下方居中全大写标签相配对。",
+      "ch7_intro": "动效哲学是精致的内敛，运用平滑的透明度渐变与变换过渡引导观者。这些运动本质上是线性或缓出的，持续时间介于300毫秒与800毫秒之间，旨在提供高端质感而不造成干扰或炫技。",
+      "ch8_intro": "编辑语调是权威、专业且克制的，与大号、居中的句首大写标题风格相匹配。系统刻意避免显眼的行动号召，更倾向于让交互以纯文本链接形式存在，以保持构图的纯净性。",
+      "ch8_outro": "系统刻意拒绝引入视觉杂乱、复杂渐变或任何高饱和度的界面组件。"
+    },
+    "zh-TW": {
+      "ch1_intro": "Antinomy Studio 展現自身為高階創意工作室的精緻數位展廊，其中設計系統並非裝飾，而是空間本身的架構。此系統建立在絕對克制的原則上，以排版與負空間為主要材料，建構出高端、具全球識別性的形象。",
+      "ch2_intro": "色彩系統是純粹的單色基調，由純黑與純白構成，旨在創造最大對比度。這種刻意的色彩缺席，將整體的視覺負擔轉移至攝影品質，由後者提供所有的色彩趣味。",
+      "ch2_outro": "其原則在於：色彩是例外，而非規則，它僅源自於框架內所呈現的專案影像。",
+      "ch3_intro": "排版是此系統的單一聲音，由幾何無襯線字體 ABC Diatype 獨佔處理。其應用遵循嚴格規則：導覽元素與小型標籤使用全大寫，而展示級尺寸則採用厚重的負字距，以創造具主導性、如雕塑般的聲明。",
+      "ch4_intro": "間距由寬裕、具節奏感的留白定義，其本身即作為一種材料來運作。",
+      "ch5_intro": "表面被構想為純粹的平面；沒有透過陰影或邊框來模擬深度。設計拒絕任何會暗示分層、三維介面的元素，偏好內容以乾淨、滿版的方式呈現。",
+      "ch6_intro": "版面骨架始於一個全寬的主視覺，並以置中的文字為錨點，立即建立排版焦點。此設計無縫銜接至雙欄的專案網格，其中滿版影像下方搭配置中的全大寫標籤。",
+      "ch7_intro": "動態哲學是精緻而含蓄的，運用平滑的透明度漸變與變換過渡來引導觀者。這些動畫本質上為線性或 ease-out，持續時間介於 300ms 至 800ms 之間，旨在提供高端感受，而不造成干擾或炫技。",
+      "ch8_intro": "編輯語氣是權威、專業且低調的，搭配以大型、置中、句首字母大寫的標題風格。此系統刻意避開明顯的行動號召，偏好讓互動以純文字連結的形式存在，以維持構圖的純粹性。",
+      "ch8_outro": "系統刻意拒絕引入視覺雜訊、複雜漸層或任何高彩度的介面元件。"
+    },
+    "ja": {
+      "ch1_intro": "Antinomy Studioは、ハイエンドなクリエイティブスタジオのための精緻なデジタルギャラリーとして提示されます。そこでは、デザインシステムが装飾としてではなく、空間のそのものを構成するアーキテクチャとして機能します。システムは絶対的な抑制の原則に基づき、タイポグラフィと余白を主要な素材として使用し、プレミアムでグローバルなアイデンティティを構築しています。",
+      "ch2_intro": "カラーシステムは、純粋な黒と白による厳格なモノクロームベースで、最大のコントラストを生み出すように設計されています。この意図的な色の不在は、視覚的な負担をすべて写真の品質に移し、それがすべての色彩的な趣味を提供します。",
+      "ch2_outro": "その原則とは、色は例外であり、ルールではないということです。色はフレームワーク内で提示されるプロジェクト画像からのみ派生します。",
+      "ch3_intro": "タイポグラフィはシステムの唯一の声であり、幾何学サンセリフABC Diatypeによって専属で処理されます。その適用は厳格なルールに従います：ナビゲーション要素と小さなラベルには大文字を、ディスプレイサイズには重い字間を負に設定し、威厳のある、スクリプチャルな statement を作ります。",
+      "ch4_intro": "スペースは、リズミカルな余白として定義され、それ自体が素材として機能します。",
+      "ch5_intro": "サーフェスは純粋なフラットな平面として構想されます。影やボーダーによるシミュレーションされた深みはありません。デザインは、レイヤードで三次元的なUIを示唆する要素をすべて拒否し、コンテンツのクリーンで端から端までの中身を提示することを好みます。",
+      "ch6_intro": "レイアウトの骨格は、中央揃えのテキストを備えたフルワイドのヒーローから始まり、即座にタイポグラフィカルな焦点を確立します。これは、フルブリードの画像とその下の中央揃えの大文字ラベルを組み合わせた2カラムのプロジェクトグリッドにシームレスに流れ込みます。",
+      "ch7_intro": "モーションの哲学は、洗練された控えめさにあり、滑らかなopacityフェードとtransform遷移を使用して視聴者を導きます。これらの動きは、リニアまたはease-outで、300msから800msの間持続し、気を散らす spectacle を作らずにプレミアム感を提供します。",
+      "ch8_intro": "エディトリアルボイスは、権威的で、プロフェッショナルで、控えめであり、大規模な中央揃えのセンテンスケースのステートメントという見出しスタイルと一致します。システムは意図的に視覚的な呼び出しを避け、代わりにコンポジションの純粋さを保つプレーンテキストリンクとしてインタラクションを存在させることを好みます。",
+      "ch8_outro": "システムは意図的に視覚的な雑踏、複雑なグラデーション、または任何の高彩度UIコンポーネントを導入することを拒否します。"
+    },
+    "ko": {
+      "ch1_intro": "Antinomy Studio는 고급 크리에이티브 스튜디오를 위한 세련된 디지털 갤러리로 자리매김하며, 디자인 시스템은 장식이 아닌 공간 자체의 건축으로 기능합니다. 이 시스템은 절대적인 절제의 원칙 위에 세워졌으며, 타이포그래피와 여백을 주요 소재로 활용하여 프리미엄 글로벌 아이덴티티를 구축합니다.",
+      "ch2_intro": "컬러 시스템은 순수한 흑백의 엄격한 모노크롬 기반으로, 최대한의 대비를 만들어내도록 설계되었습니다. 이 의도적인 색상의 부재는 전체적인 시각적 부담을 오직 포토그래피의 품질에 전가하며, 모든 색채적 관심사를 제공합니다.",
+      "ch2_outro": "원칙은 색상이 예외일 뿐 규칙이 아니며, 이는 프레임워크 내에서 제시되는 프로젝트 이미지에서만 도출됩니다.",
+      "ch3_intro": "타이포그래피는 시스템의 유일한 목소리이며, 기하학적 고딕체인 ABC Diatype으로 독점적으로 다루어집니다. 그 적용은 엄격한 규칙을 따릅니다: 내비게이션 요소와 작은 라벨에는 대문자를 사용하고, 디스플레이 크기에는 강한 음수 자간을 적용하여 지배적이고 조각적인 구절을 만듭니다.",
+      "ch4_intro": "간격은 자체적으로 하나의 소재로 작용하는 넉넉하고 리듬감 있는 여백으로 정의됩니다.",
+      "ch5_intro": "표면은 순수하게 평면적인 것으로 구상됩니다; 그림자나 테두리를 통한 모의 깊이는 없습니다. 이 디자인은 계층화된 3차원 UI를 시사할 수 있는 모든 요소를 거부하고, 콘텐츠의 깔끔하고 엣지 투 엣지 프레젠테이션을 선호합니다.",
+      "ch6_intro": "레이아웃 스켈레톤은 중앙 정렬된 텍스트로 앵커링된 풀폭 히어로로 시작하여 즉각적인 타이포그래피 초점을 설정합니다. 이는 풀블리드 이미지와 그 아래 중앙 정렬된 대문자 라벨이 결합된 2열 프로젝트 그리드로 자연스럽게 흘러갑니다.",
+      "ch7_intro": "모션 철학은 세련된 절제이며, 관객을 안내하기 위해 부드러운 투명도 페이드와 트랜스포머 전환을 사용합니다. 이러한 움직임은 리니어 또는 ease-out 성격을 가지며, 300ms에서 800ms 사이 지속되어 주의를 산만하게 하거나 과시하지 않으면서 프리미엄 느낌을 제공합니다.",
+      "ch8_intro": "에디토리얼 보이스는 권위적이고 전문적이며 절제되어 있으며, 큰 중앙 정렬 문장 형식 헤드라인 스타일과 일치합니다. 이 시스템은 의도적으로 눈에 띄는 호출-투-액션을 피하고, 구도의 순수성을 유지하는 평문 링크로 상호작용이 존재하도록 선호합니다.",
+      "ch8_outro": "이 시스템은 의도적으로 시각적 혼란, 복잡한 그라디언트 또는 하이크로마 UI 컴포넌트의 도입을 거부합니다."
+    }
+  }
 }

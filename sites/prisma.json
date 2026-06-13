@@ -8,8 +8,633 @@
     "devtools",
     "orm"
   ],
-  "status": "pending",
+  "status": "completed",
   "added_at": "2026-06-02",
   "added_by": "expand-200",
-  "_meta": {}
+  "_meta": {
+    "vision_model": "mimo-v2.5",
+    "vision_prompt_version": "0.3",
+    "vision_source": "playwright-extract:prisma",
+    "vision_grounded": true,
+    "vision_at": "2026-06-04T18:03:04+00:00",
+    "vision_tokens": 18000,
+    "vision_cost_usd": 0.2,
+    "translation_model": "mimo-v2.5",
+    "translation_at": "2026-06-04T18:04:35+00:00",
+    "translation_tokens": 17782,
+    "translation_cost_usd": 0.0594,
+    "narrative_model": "mimo-v2.5",
+    "narrative_prompt_version": "0.3",
+    "narrative_at": "2026-06-04T18:04:47+00:00",
+    "narrative_tokens": 2154,
+    "narrative_cost_usd": 0.0144,
+    "narrative_status": "ok",
+    "total_cost_usd": 0.2738
+  },
+  "spec": {
+    "colors": {
+      "bg": "#FFFFFF",
+      "bgSoft": "#F3F4F6",
+      "bgQuiet": "#F0FDFB",
+      "ink": "#1D242F",
+      "inkSoft": "#111827",
+      "muted": "#6B7280",
+      "mutedSoft": "#717D96",
+      "accent": "#0D9488",
+      "line": "rgba(226, 232, 240, 1)"
+    },
+    "typography": {
+      "display": "geometric-sans",
+      "body": "humanist-sans",
+      "mono": "ui-monospace",
+      "scale": [
+        {
+          "token": "display",
+          "size": 72,
+          "lh": 1.0,
+          "weight": 700,
+          "ls": "-2px"
+        },
+        {
+          "token": "h2",
+          "size": 40,
+          "lh": 1.2,
+          "weight": 700,
+          "ls": "-0.5px"
+        },
+        {
+          "token": "h3",
+          "size": 20,
+          "lh": 1.4,
+          "weight": 600,
+          "ls": "0px"
+        },
+        {
+          "token": "body",
+          "size": 16,
+          "lh": 1.5,
+          "weight": 400,
+          "ls": "0.36px"
+        },
+        {
+          "token": "caption",
+          "size": 12,
+          "lh": 1.3,
+          "weight": 400,
+          "ls": "0.36px"
+        }
+      ]
+    },
+    "spacing": {
+      "base": 4,
+      "scale": [
+        4,
+        8,
+        12,
+        16,
+        24,
+        32,
+        48,
+        64,
+        96
+      ]
+    },
+    "surfaces": {
+      "radius": {
+        "sm": 4,
+        "md": 8,
+        "lg": 12,
+        "pill": 999
+      }
+    },
+    "layout": {
+      "container": 1280,
+      "paragraph": 680,
+      "columns": 12,
+      "gutter": 24,
+      "breakpoints": [
+        768,
+        1024
+      ]
+    },
+    "motion": {
+      "durations": {
+        "micro": 150,
+        "small": 300,
+        "medium": 500
+      },
+      "easing": "cubic-bezier(0.4, 0, 0.2, 1)"
+    }
+  },
+  "spec_i18n": {
+    "en": {
+      "identity": {
+        "keywords": [
+          "database",
+          "developer",
+          "ORM",
+          "Postgres",
+          "tooling"
+        ],
+        "analogy": "A clean, professional developer utility with a friendly, approachable aesthetic.",
+        "oneLiner": "A modern developer tool landing page emphasizing clarity, bold typography, and a mint-teal accent."
+      },
+      "colors": {
+        "principle": "High-contrast ink on clean white backgrounds, with teal used strictly for calls-to-action and interactive accents."
+      },
+      "typography": {
+        "rules": [
+          "Use geometric-sans for all high-impact headlines.",
+          "Body text uses a humanist-sans for readability.",
+          "Monospace is strictly for code snippets and commands."
+        ],
+        "scaleUses": [
+          "Hero headline",
+          "Section headline",
+          "Card title",
+          "Body text",
+          "Metadata and labels"
+        ]
+      },
+      "spacing": {
+        "rhythm": "Vertical rhythm is consistent with 4px increments, ensuring aligned gutters and padding."
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 1px 2px 0px rgba(0, 0, 0, 0.04)",
+          "0px 8px 16px -4px rgba(0, 0, 0, 0.04)",
+          "0px 10px 25px -5px rgba(0, 0, 0, 0.1)"
+        ],
+        "borders": "1px solid #E2E8F0"
+      },
+      "layout": {
+        "skeleton": "Standard centered container with 3-column grid for feature cards."
+      },
+      "components": {
+        "button": "Rounded pill shape with solid teal background and white text, or ghost style with border.",
+        "card": "White background, 1px light gray border, 8px to 12px border radius, subtle box shadow.",
+        "chip": "Not prominently visible; badges are simple text or small rounded containers.",
+        "input": "Simple monospace command line block with light background and 6px border radius.",
+        "hero": "Massive bold headline, centered layout, subtle mint background gradient with floating particles."
+      },
+      "motion": {
+        "patterns": [
+          "Smooth color and background-color transitions on hover.",
+          "Transform and opacity transitions for interactive reveals."
+        ]
+      },
+      "interaction": {
+        "hover": "Subtle background color shift for ghost buttons and links; standard pointer cursor.",
+        "click": "Immediate visual feedback with reduced scale or opacity change.",
+        "transition": "0.15s to 0.3s cubic-bezier(0.4, 0, 0.2, 1) for standard UI state changes.",
+        "keyboard": "Standard browser focus outlines visible on interactive elements."
+      },
+      "voice": {
+        "tone": "Professional, confident, and developer-focused.",
+        "headlineStyle": "Bold, punchy, and direct, often using large geometric type.",
+        "ctaStyle": "Action-oriented verbs like 'Create', 'Get started', 'Login'.",
+        "avoid": [
+          "Jargon without context",
+          "Overly playful or whimsical language",
+          "Dense, unformatted text blocks"
+        ]
+      },
+      "donts": [
+        "Don't use a dark primary background — screenshot shows predominantly white and light mint backgrounds.",
+        "Don't use serif fonts for headlines — screenshot shows bold, geometric sans-serif headings.",
+        "Don't use a chaotic or multi-colored palette — screenshot uses a strict white/gray/black scheme with a single teal accent.",
+        "Don't use heavy drop shadows on cards — screenshot shows very subtle, almost flat borders and light shadows.",
+        "Don't use complex, busy illustrations in the hero — screenshot shows clean typography with minimal abstract particle effects.",
+        "Don't use small, cramped spacing — screenshot shows generous padding and clear visual hierarchy."
+      ],
+      "systemPrompt": "This is a modern SaaS developer tool landing page (Prisma) characterized by a clean, professional aesthetic. The layout uses a 12-column grid with generous whitespace and centered containers. Key colors are a white background (#FFFFFF), dark ink text (#1D242F), muted gray metadata (#6B7280), and a dominant teal accent (#0D9488) for all primary actions. Typography relies heavily on a geometric-sans display font for bold, large headlines and a humanist-sans for body copy. Critical constraints: always use white or light mint (#F0FDFB) for backgrounds; never use serif fonts; ensure the teal accent is only used for interactive elements like buttons; maintain generous padding (12-24px) and use subtle, nearly flat borders instead of heavy shadows."
+    },
+    "zh-CN": {
+      "identity": {
+        "keywords": [
+          "数据库",
+          "开发者",
+          "ORM",
+          "Postgres",
+          "工具"
+        ],
+        "analogy": "一款干净、专业的开发者工具，具有友好、易上手的美学风格。",
+        "oneLiner": "一个现代开发者工具落地页，强调清晰性、大胆的字体排印和蓝绿色点睛效果。"
+      },
+      "colors": {
+        "principle": "在干净的白色背景上使用高对比度的深色文字，蓝绿色严格用于行动号召和交互点睛元素。"
+      },
+      "typography": {
+        "rules": [
+          "所有高冲击力标题使用几何无衬线字体。",
+          "正文使用人文主义无衬线字体以保证可读性。",
+          "等宽字体严格用于代码片段和命令行。"
+        ],
+        "scaleUses": [
+          "主标题",
+          "章节标题",
+          "卡片标题",
+          "正文文本",
+          "元数据和标签"
+        ]
+      },
+      "spacing": {
+        "rhythm": "垂直节奏保持一致，以4px为增量，确保对齐的栏间距和内边距。"
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 1px 2px 0px rgba(0, 0, 0, 0.04)",
+          "0px 8px 16px -4px rgba(0, 0, 0, 0.04)",
+          "0px 10px 25px -5px rgba(0, 0, 0, 0.1)"
+        ],
+        "borders": "1px solid #E2E8F0"
+      },
+      "layout": {
+        "skeleton": "标准居中容器，使用3列网格布局来展示功能卡片。"
+      },
+      "components": {
+        "button": "圆角胶囊形状，实心蓝绿色背景配白色文字，或带边框的幽灵样式。",
+        "card": "白色背景，1px浅灰色边框，8px至12px圆角，带有微妙的盒阴影。",
+        "chip": "不突出显示；徽章采用简单的文字或小型圆角容器形式。",
+        "input": "简单的等宽命令行代码块，浅色背景，6px圆角。",
+        "hero": "超大加粗标题，居中布局，带有微妙的薄荷绿背景渐变和浮动粒子效果。"
+      },
+      "motion": {
+        "patterns": [
+          "悬停时平滑的颜色和背景颜色过渡。",
+          "用于交互性显示的变换和透明度过渡。"
+        ]
+      },
+      "interaction": {
+        "hover": "幽灵按钮和链接在悬停时有微妙的背景颜色变化；使用标准指针光标。",
+        "click": "通过缩放或透明度变化提供即时的视觉反馈。",
+        "transition": "标准UI状态变化使用0.15秒至0.3秒的 cubic-bezier(0.4, 0, 0.2, 1) 过渡。",
+        "keyboard": "交互元素上显示标准的浏览器焦点轮廓。"
+      },
+      "voice": {
+        "tone": "专业、自信，并以开发者为中心。",
+        "headlineStyle": "大胆、有力且直接，常使用大型几何字体。",
+        "ctaStyle": "使用行动导向的动词，如“创建”、“开始”、“登录”。",
+        "avoid": [
+          "缺乏上下文的行话",
+          "过于俏皮或异想天开的语言",
+          "密集、未格式化的文本块"
+        ]
+      },
+      "donts": [
+        "不要使用深色主背景——截图显示以白色和浅薄荷绿背景为主。",
+        "不要使用衬线字体作为标题——截图显示为加粗、几何无衬线标题。",
+        "不要使用混乱或多彩的配色方案——截图使用严格的白/灰/黑方案，仅配以单一蓝绿色点睛。",
+        "不要在卡片上使用厚重的投影——截图显示为非常微妙、近乎扁平的边框和轻微阴影。",
+        "不要在主视觉区使用复杂、繁杂的插图——截图显示为简洁的字体排印配合极简的抽象粒子效果。",
+        "不要使用狭小、局促的间距——截图显示有充裕的内边距和清晰的视觉层次。"
+      ],
+      "systemPrompt": "这是一个现代SaaS开发者工具落地页（Prisma），其特点是干净、专业的美学风格。布局使用12列网格，配合充足的留白和居中容器。主要颜色包括白色背景（#FFFFFF）、深色墨水文字（#1D242F）、柔和的灰色元数据（#6B7280），以及作为所有主要操作强调色的蓝绿色（#0D9488）。字体排印严重依赖几何无衬线展示字体来制作加粗、大型标题，以及人文主义无衬线字体用于正文。关键约束：始终使用白色或浅薄荷绿（#F0FDFB）作为背景；绝不使用衬线字体；确保蓝绿色仅用于交互元素（如按钮）；保持充裕的内边距（12-24px）并使用微妙的、近乎扁平的边框代替厚重阴影。"
+    },
+    "zh-TW": {
+      "identity": {
+        "keywords": [
+          "資料庫",
+          "開發者",
+          "ORM",
+          "Postgres",
+          "工具"
+        ],
+        "analogy": "一款外觀簡潔、專業的開發者實用工具，具備友善且易於親近的美感。",
+        "oneLiner": "一款強調清晰度、粗體排版與薄荷青綠色點綴的現代開發者工具落地頁面。"
+      },
+      "colors": {
+        "principle": "在純淨的白色背景上使用高對比度墨色文字，青綠色則嚴格用於號召性用語與互動性點綴。"
+      },
+      "typography": {
+        "rules": [
+          "所有高視覺衝擊力的標題皆使用幾何無襯線字體。",
+          "內文使用人文無襯線字體以確保可讀性。",
+          "等寬字體嚴格僅用於程式碼片段與命令。"
+        ],
+        "scaleUses": [
+          "主視覺標題",
+          "章節標題",
+          "卡片標題",
+          "內文",
+          "中繼資料與標籤"
+        ]
+      },
+      "spacing": {
+        "rhythm": "垂直節奏採用 4px 增量，保持一致的欄溝與內距。"
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 1px 2px 0px rgba(0, 0, 0, 0.04)",
+          "0px 8px 16px -4px rgba(0, 0, 0, 0.04)",
+          "0px 10px 25px -5px rgba(0, 0, 0, 0.1)"
+        ],
+        "borders": "1px solid #E2E8F0"
+      },
+      "layout": {
+        "skeleton": "標準的置中容器，採用 3 欄網格佈局呈現功能卡片。"
+      },
+      "components": {
+        "button": "圓潤的膠囊形狀，實心青綠色背景搭配白色文字，或採用帶有邊框的鬼魂樣式。",
+        "card": "白色背景，1px 淺灰色邊框，8px 至 12px 的圓角，並帶有細微的陰影效果。",
+        "chip": "非主要視覺元素；徽章為純文字或小型圓角容器。",
+        "input": "簡潔的等寬字體命令列區塊，淺色背景，6px 圓角。",
+        "hero": "巨大粗體標題，置中佈局，帶有細微薄荷色背景漸層與浮動粒子效果。"
+      },
+      "motion": {
+        "patterns": [
+          "hover 時，色彩與背景色進行平滑轉換。",
+          "互動性內容的顯示，使用 transform 與 opacity 轉換。"
+        ]
+      },
+      "interaction": {
+        "hover": "鬼魂按鈕與連結帶有細微的背景色調變化；標準指標游標。",
+        "click": "透過縮小比例或改變透明度，提供即時的視覺回饋。",
+        "transition": "標準 UI 狀態變化採用 0.15s 至 0.3s 的 cubic-bezier(0.4, 0, 0.2, 1) 轉換。",
+        "keyboard": "互動元素上顯示標準的瀏覽器 focus 輪廓。"
+      },
+      "voice": {
+        "tone": "專業、自信，並以開發者為導向。",
+        "headlineStyle": "粗體、有力且直接，常使用大型幾何字體。",
+        "ctaStyle": "以行動為導向的動詞，如「建立」、「開始使用」、「登入」。",
+        "avoid": [
+          "缺乏上下文的專業術語",
+          "過於俏皮或天馬行空的用語",
+          "密集、未格式化的文字段落"
+        ]
+      },
+      "donts": [
+        "請勿使用深色主背景——截圖顯示以白色與淺薄荷色背景為主。",
+        "請勿使用襯線字體作為標題——截圖顯示為粗體、幾何無襯線字體的標題。",
+        "請勿使用混亂或多彩的色板——截圖採用嚴格的白/灰/黑配色方案，並以單一青綠色點綴。",
+        "請勿在卡片上使用厚重的陰影——截圖顯示非常細微、近乎扁平的邊框與淺陰影。",
+        "請勿在主視覺區域使用複雜、繁雜的插圖——截圖顯示為簡潔的排版搭配極簡的抽象粒子效果。",
+        "請勿使用狹窄、擁擠的間距——截圖顯示寬裕的內距與清晰的視覺層次。"
+      ],
+      "systemPrompt": "這是一款現代 SaaS 開發者工具的落地頁面（Prisma），其特色在於簡潔、專業的美感。佈局採用 12 欄網格，搭配寬裕的留白與置中容器。主要色彩包括白色背景 (#FFFFFF)、深墨色文字 (#1D242F)、柔和的灰色中繼資料 (#6B7280)，以及用於所有主要操作的醒目青綠色點綴 (#0D9488)。排版上大量依賴幾何無襯線顯示字體作為粗體、大型標題，並使用人文無襯線字體作為內文。關鍵限制：務必使用白色或淺薄荷色 (#F0FDFB) 作為背景；絕不使用襯線字體；確保青綠色僅用於按鈕等互動元素；保持寬裕的內距 (12-24px)，並使用細微、近乎扁平的邊框而非厚重陰影。"
+    },
+    "ja": {
+      "identity": {
+        "keywords": [
+          "データベース",
+          "開発者",
+          "ORM",
+          "Postgres",
+          "ツール"
+        ],
+        "analogy": "フレンドリーで親しみやすい美学を持つ、クリーンでプロフェッショナルな開発者ユーティリティ。",
+        "oneLiner": "明瞭さ、大胆なタイポグラフィ、ミントティールアクセントを重視した、モダンな開発者ツールのランディングページ。"
+      },
+      "colors": {
+        "principle": "クリーンな白背景に高コントラストのインクを使用。ティールはCTAとインタラクティブなアクセントに限定して使用。"
+      },
+      "typography": {
+        "rules": [
+          "すべてのインパクトの強い見出しにはgeometric-sansを使用。",
+          "本文テキストには可読性を重視したhumanist-sansを使用。",
+          "モノスペースはコードスニペットとコマンドに限定。"
+        ],
+        "scaleUses": [
+          "ヒーロー見出し",
+          "セクション見出し",
+          "カードタイトル",
+          "本文テキスト",
+          "メタデータとラベル"
+        ]
+      },
+      "spacing": {
+        "rhythm": "4px刻みの垂直リズムを統一し、ガターとパディングの揃えを確保。"
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 1px 2px 0px rgba(0, 0, 0, 0.04)",
+          "0px 8px 16px -4px rgba(0, 0, 0, 0.04)",
+          "0px 10px 25px -5px rgba(0, 0, 0, 0.1)"
+        ],
+        "borders": "1px solid #E2E8F0"
+      },
+      "layout": {
+        "skeleton": "フィーチャーカード用の3カラムグリッドを備えた標準的なセンタリングコンテナ。"
+      },
+      "components": {
+        "button": "ソリッドなティール背景と白文字の角丸ピル形状、またはボーダー付きゴーストスタイル。",
+        "card": "白背景、1pxのライトグレーボーダー、8pxから12pxのボーダー半径、控えめなボックスシャドウ。",
+        "chip": "目立っては表示されない。バッジはシンプルなテキストまたは小さな角丸コンテナ。",
+        "input": "ライト背景と6pxボーダー半径のシンプルなモノスペースコマンドラインブロック。",
+        "hero": "巨大な太字見出し、センタリングレイアウト、浮遊パーティクルを伴う控えめなミント背景グラデーション。"
+      },
+      "motion": {
+        "patterns": [
+          "hover時のスムーズなカラーおよびbackground-color遷移。",
+          "インタラクティブな表示時のtransformおよびopacity遷移。"
+        ]
+      },
+      "interaction": {
+        "hover": "ゴーストボタンとリンクの控えめな背景色変化。標準のポインターカーソル。",
+        "click": "縮小または不透明度変化による即座のビジュアルフィードバック。",
+        "transition": "標準的なUI状態変化には0.15秒から0.3秒のcubic-bezier(0.4, 0, 0.2, 1)。",
+        "keyboard": "インタラクティブ要素に標準的なブラウザのfocus outlinesを表示。"
+      },
+      "voice": {
+        "tone": "プロフェッショナルで自信があり、開発者目線。",
+        "headlineStyle": "大胆で簡潔、直接的。大きなgeometric-sansよく使用。",
+        "ctaStyle": "「作成する」「始める」「ログイン」など、アクション指向の動詞。",
+        "avoid": [
+          "文脈のない業界用語",
+          "過度に遊び心のある、または気まぐれな言葉",
+          "詰まった、フォーマットされていないテキストブロック"
+        ]
+      },
+      "donts": [
+        "ダークなプライマリ背景を使用しない — スクリーンショットは主に白とライトミントの背景を示している。",
+        "見出しにセリフフォントを使用しない — スクリーンショットは大胆なgeometric-sans-serifの見出しを示している。",
+        "カオス或多色のカラーパレットを使用しない — スクリーンショットは白/グレー/黒の厳格な配色に単一のティールアクセントを使用している。",
+        "カードに重いドロップシャドウを使用しない — スクリーンショットは非常に控えめ、ほぼフラットなボーダーとライトシャドウを示している。",
+        "ヒーローに複雑で忙しいイラストを使用しない — スクリーンショットは最小限の抽象パーティクル効果によるクリーンなタイポグラフィを示している。",
+        "狭く窮屈なスペーシングを使用しない — スクリーンショットは豊かなパディングと明確なビジュアル階層を示している。"
+      ],
+      "systemPrompt": "これはPrismaに見られる、クリーンでプロフェッショナルな美学が特徴の、モダンなSaaS開発者ツールのランディングページ。レイアウトは豊かな余白とセンタリングされたコンテナを備えた12カラムグリッドを使用。主要カラーは白背景（#FFFFFF）、ダークインクテキスト（#1D242F）、ミュートグレーメタデータ（#6B7280）、主要なアクションに使用されるメインティールアクセント（#0D9488）。タイポグラフィは大胆で大きな見出しにgeometric-sansのディスプレイフォント、本文にはhumanist-sansを多用。重要な制約：背景には常に白またはライトミント（#F0FDFB）を使用；セリフフォントは決して使用しない；ティールアクセントはボタンなどのインタラクティブ要素に限定して使用；豊かなパディング（12-24px）を確保し、重いシャドウの代わりに控えめでほぼフラットなボーダーを使用。"
+    },
+    "ko": {
+      "identity": {
+        "keywords": [
+          "database",
+          "developer",
+          "ORM",
+          "Postgres",
+          "tooling"
+        ],
+        "analogy": "친근하고 접근하기 쉬운 미학을 갖춘 깨끗하고 전문적인 개발자 유틸리티.",
+        "oneLiner": "명확성, 대담한 타이포그래피, 그리고 민트 틸 악센트를 강조하는 현대적인 개발자 도구 랜딩 페이지입니다."
+      },
+      "colors": {
+        "principle": "깨끗한 흰색 배경 위의 고대비 잉크, 틸은 CTA 및 인터랙티브 악센트로만 엄격하게 사용합니다."
+      },
+      "typography": {
+        "rules": [
+          "모든 하이 임팩트 헤드라인에는 geometric-sans를 사용합니다.",
+          "본문은 가독성을 위해 humanist-sans를 사용합니다.",
+          "Monospace는 코드 스니펫과 명령어에만 엄격하게 사용합니다."
+        ],
+        "scaleUses": [
+          "히어로 헤드라인",
+          "섹션 헤드라인",
+          "카드 제목",
+          "본문",
+          "메타데이터 및 레이블"
+        ]
+      },
+      "spacing": {
+        "rhythm": "수직 리듬은 4px 단위로 일관되게 유지하며, 정렬된 거터와 패딩을 보장합니다."
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 1px 2px 0px rgba(0, 0, 0, 0.04)",
+          "0px 8px 16px -4px rgba(0, 0, 0, 0.04)",
+          "0px 10px 25px -5px rgba(0, 0, 0, 0.1)"
+        ],
+        "borders": "1px solid #E2E8F0"
+      },
+      "layout": {
+        "skeleton": "기능 카드를 위한 3열 그리드가 포함된 표준 중앙 정렬 컨테이너입니다."
+      },
+      "components": {
+        "button": "단색 틸 배경과 흰색 텍스트가 적용된 둥근 알약 형태, 또는 테두리가 있는 고스트 스타일입니다.",
+        "card": "흰색 배경, 1px 밝은 회색 테두리, 8px에서 12px 테두리 반경, 은은한 box shadow.",
+        "chip": "두드러지게 보이지 않으며, 뱃지는 단순한 텍스트 또는 작은 둥근 컨테이너입니다.",
+        "input": "밝은 배경과 6px 테두리 반경을 가진 단순한 monospace 명령줄 블록입니다.",
+        "hero": "거대하고 대담한 헤드라인, 중앙 정렬 레이아웃, 부유하는 파티클이 있는 은은한 민트 배경 그라디언트."
+      },
+      "motion": {
+        "patterns": [
+          "hover 시 부드러운 색상 및 background-color 트랜지션.",
+          "인터랙티브 리빌을 위한 transform 및 opacity 트랜지션."
+        ]
+      },
+      "interaction": {
+        "hover": "고스트 버튼과 링크에 대한 은은한 배경색 변화; 표준 포인터 커서.",
+        "click": "축소된 스케일 또는 opacity 변화로 즉각적인 시각적 피드백.",
+        "transition": "표준 UI 상태 변경을 위한 0.15초에서 0.3초 cubic-bezier(0.4, 0, 0.2, 1).",
+        "keyboard": "인터랙티브 요소에 표시되는 표준 브라우저 focus 아웃라인."
+      },
+      "voice": {
+        "tone": "전문적이고 자신감 있으며, 개발자 중심적입니다.",
+        "headlineStyle": "대담하고 간결하며 직접적이며, 종종 큰 geometric 타입을 사용합니다.",
+        "ctaStyle": "'Create', 'Get started', 'Login'과 같은 행동 지향적인 동사.",
+        "avoid": [
+          "맥락 없는 전문 용어",
+          "지나치게 장난스럽거나 환상적인 언어",
+          "밀집하고 서식이 없는 텍스트 블록"
+        ]
+      },
+      "donts": [
+        "다크 주요 배경을 사용하지 마세요 — 스크린샷은 주로 흰색과 밝은 민트 배경을 보여줍니다.",
+        "헤드라인에 세리프 서체를 사용하지 마세요 — 스크린샷은 대담한 geometric sans-serif 제목을 보여줍니다.",
+        "혼란스럽거나 다채로운 팔레트를 사용하지 마세요 — 스크린샷은 단일 틸 악센트가 포함된 엄격한 흰색/회색/검정 체계를 사용합니다.",
+        "카드에 무거운 drop shadow를 사용하지 마세요 — 스크린샷은 매우 은은하고 거의 평평한 테두리와 가벼운 그림자를 보여줍니다.",
+        "히어로에 복잡하고 바쁜 일러스트레이션을 사용하지 마세요 — 스크린샷은 최소한의 추상적 파티클 효과와 함께 깨끗한 타이포그래피를 보여줍니다.",
+        "좁고 빡빡한 간격을 사용하지 마세요 — 스크린샷은 넉넉한 패딩과 명확한 시각적 위계를 보여줍니다."
+      ],
+      "systemPrompt": "이것은 깨끗하고 전문적인 미학이 특징인 현대적인 SaaS 개발자 도구 랜딩 페이지(Prisma)입니다. 레이아웃은 넉넉한 여백과 중앙 정렬 컨테이너를 사용하는 12열 그리드를 사용합니다. 주요 색상은 흰색 배경(#FFFFFF), 다크 잉크 텍스트(#1D242F), 은은한 회색 메타데이터(#6B7280), 그리고 모든 주요 액션을 위한 주요 틸 악센트(#0D9488)입니다. 타이포그래피는 대담하고 큰 헤드라인을 위한 geometric-sans 디스플레이 폰트와 본문을 위한 humanist-sans에 크게 의존합니다. 중요한 제약 조건: 배경에는 항상 흰색 또는 밝은 민트(#F0FDFB)를 사용; 세리프 폰트를 절대 사용하지 않음; 틸 악센트는 버튼과 같은 인터랙티브 요소에만 사용; 넉넉한 패딩(12-24px)을 유지하고 무거운 그림자 대신 은은하고 거의 평평한 테두리를 사용."
+    }
+  },
+  "desc": {
+    "en": {
+      "palette": "A clean, high-contrast palette dominated by white and dark charcoal, anchored by a single vibrant teal accent.",
+      "layout": "A standard centered, responsive container layout utilizing a 12-column grid for feature cards.",
+      "interaction": "Standard hover and transition states with a 0.15s to 0.3s duration, focusing on smooth background and color shifts.",
+      "motion": "Minimal, utilizing smooth cubic-bezier transitions for UI state changes rather than complex animations.",
+      "notes": "A textbook example of a high-quality, professional developer tool landing page that balances bold typography with clean, uncluttered UI."
+    },
+    "zh-CN": {
+      "palette": "以白色和深炭灰为主导的干净、高对比度配色方案，辅以单一鲜明的蓝绿色作为点睛之笔。",
+      "layout": "采用标准居中响应式容器布局，使用12列网格系统来组织功能卡片。",
+      "interaction": "标准的悬停和过渡状态，持续时间在0.15秒至0.3秒之间，专注于平滑的背景和颜色变化。",
+      "motion": "极简风格，利用平滑的 cubic-bezier 过渡来处理UI状态变化，而非复杂的动画效果。",
+      "notes": "一个教科书级别的高质量、专业开发者工具落地页范例，完美平衡了大胆的字体排印与简洁、整洁的界面设计。"
+    },
+    "zh-TW": {
+      "palette": "以白色與深炭灰色為主調的純淨、高對比色板，並以單一鮮明的青綠色作為點綴。",
+      "layout": "採用標準的置中響應式容器佈局，並運用 12 欄網格來呈現功能卡片。",
+      "interaction": "標準的 hover 與 transition 狀態，持續時間為 0.15s 至 0.3s，著重於流暢的背景與色彩轉換。",
+      "motion": "極簡風格，運用流暢的 cubic-bezier 轉換處理 UI 狀態變化，而非複雜的動畫效果。",
+      "notes": "一份高品質、專業級開發者工具落地頁面的教科書範例，完美平衡了粗體排版與簡潔、無雜訊的介面。"
+    },
+    "ja": {
+      "palette": "白とダークチャコールを基調とし、1つの鮮やかなティールアクセントで引き締める、クリーンで高コントラストなカラーパレット。",
+      "layout": "12カラムグリッドを採用した標準的なセンタリング・レスポンシブコンテナレイアウト。フィーチャーカードに使用。",
+      "interaction": "0.15秒から0.3秒の標準的なhoverとtransition状態。スムーズな背景とカラー変化に焦点を当てる。",
+      "motion": "複雑なアニメーションではなく、UI状態変化にスムーズなcubic-bezier遷移を用いた、ミニマルな動き。",
+      "notes": "大胆なタイポグラフィとクリーンで無駄のないUIのバランスを取る、高品質でプロフェッショナルな開発者ツールランディングページの教科書的な例。"
+    },
+    "ko": {
+      "palette": "흰색과 다크 차콜이 지배하는 깨끗하고 고대비 팔레트에, 단 하나의 강렬한 틸 악센트가 기점을 잡아줍니다.",
+      "layout": "기능 카드를 위한 12열 그리드를 활용하는 표준 중앙 정렬 반응형 컨테이너 레이아웃입니다.",
+      "interaction": "배경과 색상 변화에 집중하여, 부드러운 전환을 위한 0.15초에서 0.3초 사이의 표준 hover 및 transition 상태입니다.",
+      "motion": "복잡한 애니메이션 대신, UI 상태 변경을 위한 부드러운 cubic-bezier 트랜지션을 활용하는 미니멀한 방식입니다.",
+      "notes": "대담한 타이포그래피와 깨끗하고 정돈된 UI의 균형을 맞춘 고품질 전문 개발자 도구 랜딩 페이지의 교과서적인 예시입니다."
+    }
+  },
+  "narrative": {
+    "en": {
+      "ch1_intro": "Prisma’s visual system operates as a precision instrument for the developer, much like a well-crafted toolkit. Its identity is defined by a deliberate clarity—high-contrast ink on pristine surfaces, with a single teal accent serving as the conductor for all interactive signals.",
+      "ch2_intro": "The palette is a study in controlled contrast: a dominant white field for readability, dark charcoal for authority, and muted gray for secondary information. Teal is the sole vibrant accent, reserved exclusively to guide user action and denote interactivity.",
+      "ch2_outro": "The principle is restriction; color is a functional tool, not a decorative element.",
+      "ch3_intro": "Typography communicates with dual voices: a bold, geometric-sans for authoritative headlines and a softer humanist-sans for approachable body copy. A monospace face is employed strictly as a technical lexicon for code and commands, never for prose.",
+      "ch4_intro": "A consistent 4px vertical rhythm underpins the entire composition, creating predictable alignment and measured breathing room between elements.",
+      "ch5_intro": "Depth is communicated through minimal means, relying on a single, precise border rule and a triad of subtle, almost imperceptible shadows. Surfaces are flat by default, with elevation reserved for key interactive moments.",
+      "ch6_intro": "The layout skeleton is a disciplined centered container, providing a stable viewport for content. Within this frame, a three-column grid organizes feature cards, ensuring structured information hierarchy.",
+      "ch7_intro": "Motion is a subtle, functional language rather than a spectacle. Transitions are confined to smooth color and opacity shifts on interactive states, using a consistent cubic-bezier curve to communicate feedback without distraction.",
+      "ch8_intro": "The editorial voice is professional and direct, mirroring the confidence of a well-documented API. It favors action-oriented, punchy copy in bold type, while deliberately avoiding jargon and dense text blocks.",
+      "ch8_outro": "The system deliberately excludes dark themes, serif type, and chromatic complexity to preserve its core promise of clarity and utility."
+    },
+    "zh-CN": {
+      "ch1_intro": "Prisma的视觉系统如同为开发者精心打造的精密工具，其身份由刻意的清晰度定义——在纯净的表面上使用高对比度墨色，单一的青色点缀作为所有交互信号的引导者。",
+      "ch2_intro": "调色板是对受控对比的研究：大面积白色保障可读性，深炭灰赋予权威感，柔和灰色承载次要信息。青色是唯一的鲜明强调色，专用于引导用户操作并标识交互性。",
+      "ch2_outro": "核心原则是克制；色彩是功能工具，而非装饰元素。",
+      "ch3_intro": "字体通过双重语态进行沟通：粗体几何无衬线字体用于权威标题，柔和人文主义无衬线字体用于亲切的正文。等宽字体严格用作代码与命令的技术词典，绝不用于文案。",
+      "ch4_intro": "统一的4px垂直韵律贯穿整个版面，创造可预测的对齐与元素间克制的呼吸空间。",
+      "ch5_intro": "深度通过极简方式传达，仅依赖单一精确边框与三层近乎不可察觉的微妙阴影。默认使用平面化表面，立体效果仅保留给关键交互时刻。",
+      "ch6_intro": "版面骨架是严谨的居中容器，为内容提供稳定视口。在此框架内，三列网格组织功能卡片，确保结构化信息层级。",
+      "ch7_intro": "动效是微妙的功能性语言而非视觉奇观。过渡效果仅限于交互状态下的平滑色彩与透明度变化，采用统一cubic-bezier曲线传递反馈而不造成干扰。",
+      "ch8_intro": "编辑语调专业而直接，映射出文档完备API的自信。偏好采用加粗的动作导向型精炼文案，刻意避免专业术语与密集文本段落。",
+      "ch8_outro": "系统刻意排除暗色主题、衬线字体与色彩复杂度，以坚守其清晰与实用的核心承诺。"
+    },
+    "zh-TW": {
+      "ch1_intro": "Prisma 的視覺系統是為開發者打造的精密儀器，宛如一套精心設計的工具套件。其識別度源於刻意的清晰感——純淨表面上的高對比墨色，搭配單一的 teal 強調色，作為所有互動訊號的引導。",
+      "ch2_intro": "色盤是受控對比的研究：以白色為主體確保可讀性，深炭灰色傳達權威感，柔和灰色則用於次要資訊。Teal 是唯一的鮮明強調色，專門保留以引導用戶操作並標示互動性。",
+      "ch2_outro": "原則在於節制；色彩是功能性工具，而非裝飾元素。",
+      "ch3_intro": "字型傳遞雙重語調：幾何無襯線體以粗體呈現權威標題，較柔和的人文無襯線體則用於親切的內文。等寬字型嚴格作為技術詞彙使用於程式碼與指令，絕不用於散文。",
+      "ch4_intro": "一致的 4px 垂直節奏構成整體排版基礎，創造可預測的對齊與元素間的有度留白。",
+      "ch5_intro": "深度以極簡方式傳達，依賴單一精確邊框線條與三種細膩、近乎難以察覺的陰影。表面預設為平面，高度僅保留給關鍵互動時刻。",
+      "ch6_intro": "版面骨架是自律的居中容器，為內容提供穩定視窗。在此框架內，三欄網格組織功能卡片，確保結構化的資訊層級。",
+      "ch7_intro": "動態是細膩、功能性的語言，而非 spectacle。過渡效果僅限於互動狀態下平滑的色彩與透明度變化，使用一致的 cubic-bezier 曲線傳達回饋，避免干擾。",
+      "ch8_intro": "編輯語調專業而直接，映現良好文獻化 API 的自信。偏好以粗體字型呈現行動導向、簡潔有力的文案，並刻意避免術語與密集文字段落。",
+      "ch8_outro": "此系統刻意排除深色主題、襯線字型與色彩複雜度，以維護清晰與實用性的核心承諾。"
+    },
+    "ja": {
+      "ch1_intro": "Prismaのビジュアルシステムは、開発者にとっての精密な器具として機能します。そのアイデンティティは、意図的な明瞭性によって定義されています——清廉な表面に置かれたハイコントラストなインク、そしてすべてのインタラクティブなシグナルを束ねる唯一のティールのアクセントです。",
+      "ch2_intro": "パレットは抑制されたコントラストの研究です：読みやすさを重視した支配的な白のフィールド、権威を示すダークチャコール、そして二次情報のための控えめなグレー。ティールは唯一の鮮やかなアクセントであり、ユーザーのアクションを誘導し、インタラクティビティを示すためにのみ使用されます。",
+      "ch2_outro": "原則は制限です。色は装飾的な要素ではなく、機能的なツールです。",
+      "ch3_intro": "タイポグラフィは二重の声で語りかけます：権威ある見出しには太字で幾何学的なsans-serif、読みやすく親しみやすい本文にはより柔らかなhumanist-sans。モノスペースフォントは、コードやコマンドのための技術的な語彙として厳格に使用され、散文には使用されません。",
+      "ch4_intro": "一貫した4pxの垂直リズムが全体の構図を支え、予測可能なアライメントと要素間の計画された余白を生み出します。",
+      "ch5_intro": "奥行きは最小限の手段で伝えられ、単一で正確なボーダールールと、ほぼ知覚不可能な3つの微細なシャドウのトリオに依存します。デフォルトでは表面はフラットで、標高は主要なインタラクティブな瞬間にのみ保留されます。",
+      "ch6_intro": "レイアウトの骨格は規律あるセンタリングコンテナであり、コンテンツのための安定したビューポートを提供します。このフレーム内では、3カラムグリッドがフィーチャーカードを組織し、構造化された情報のヒエラルキーを確保します。",
+      "ch7_intro": "モーションは、見せ物ではなく、微妙で機能的な言語です。トランジションはインタラクティブな状態における滑らかな色と不透明度の変化に限定され、一貫したcubic-bezierカーブを使用して、注意をそらすことなくフィードバックを伝えます。",
+      "ch8_intro": "エディトリカルボイスはプロフェッショナルで率直であり、十分に文書化されたAPIの自信を反映しています。太字のタイプでアクション志向の、パンチのあるコピーを好む一方で、専門用語や密集したテキストブロックは意図的に避けています。",
+      "ch8_outro": "このシステムは、明瞭性と実用性という核心的な約束を守るために、ダークテーマ、セリフ体、そして色彩の複雑さを意図的に排除しています。"
+    },
+    "ko": {
+      "ch1_intro": "Prisma의 비주얼 시스템은 정밀한 도구 키트와 같이, 개발자를 위한 정밀한 도구로 작동합니다. 그 정체성은 의도적인 명료성으로 정의됩니다—깨끗한 표면 위의 고대비 잉크와 모든 상호작용 신호를 조율하는 단일한 teal 강조색입니다.",
+      "ch2_intro": "팔레트는 통제된 대비의 연구입니다: 가독성을 위한 지배적인 흰색 영역, 권위를 위한 짙은 차콜, 그리고 보조 정보를 위한 무난한 회색. Teal은 유일한 생생한 강조색으로, 사용자 행동을 안내하고 상호작용성을 나타내는 데 독점적으로 사용됩니다.",
+      "ch2_outro": "원칙은 제약입니다; 색상은 기능적인 도구이지, 장식적인 요소가 아닙니다.",
+      "ch3_intro": "타이포그래피는 이중적인 목소리로 소통합니다: 권위적인 헤드라인을 위한 굵고 기하학적인 sans-serif과, 친근한 본문 텍스트를 위한 부드러운 humanist-sans. 모노스페이스 서체는 코드와 명령어를 위한 기술 전문 용어로만 엄격하게 사용되며, 산문에는 절대 사용되지 않습니다.",
+      "ch4_intro": "일관된 4px 수직 리듬이 전체 구성을 뒷받침하여, 예측 가능한 정렬과 요소들 사이에 조화로운 여백을 만듭니다.",
+      "ch5_intro": "깊이감은 최소한의 수단으로 전달되며, 단일하고 정확한 테이블 규칙과 미묘하고 거의 알아차리기 힘든 세 가지 음영에 의존합니다. 표면은 기본적으로 평면적이며, 고도감은 핵심적인 상호작용 순간에만 예약됩니다.",
+      "ch6_intro": "레이아웃 스켈레톤은 엄격한 중앙 정렬 컨테이너로, 콘텐츠를 위한 안정적인 뷰포트를 제공합니다. 이 프레임 내에서, 3열 그리드는 기능 카드를 구성하여 구조화된 정보 계층을 보장합니다.",
+      "ch7_intro": "모션은 기능적이면서 미묘한 언어이며, 쇼케이스가 아닙니다. 트랜지션은 상호작용 상태에서 부드러운 색상과 불투명도 변화로 제한되며, 일관된 cubic-bezier 곡선을 사용하여 방해 없이 피드백을 전달합니다.",
+      "ch8_intro": "에디토리얼 톤은 전문적이고 직접적이며, 잘 문서화된 API의 자신감을 반영합니다. 굵은 서체를 사용한 행동 지향적이고 간결한 카피를 선호하며, 의도적으로 전문 용어와 밀도 높은 텍스트 블록을 피합니다.",
+      "ch8_outro": "이 시스템은 명료성과 유용성이라는 핵심 약속을 유지하기 위해, 다크 테마, 세리프 서체, 그리고 복잡한 색채 구성을 의도적으로 제외합니다."
+    }
+  }
 }
