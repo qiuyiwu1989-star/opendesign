@@ -93,7 +93,12 @@ echo "  ✓ ${ZIP} ($(ls -lh "$ZIP" | awk '{print $5}'))"
 
 echo "▸ [5/6] 写 packs-index.json 条目（让前端显示「下载完整包」）+ 重新 build manifest"
 python3 scripts/pack_index_entry.py "$SLUG" "$EXDIR" "$ZIP"
-python3 scripts/build.py >/dev/null
+# SKIP_PUBLISH=1（批量收录）：跳过整站重建，由独立 publisher 定时统一 build+deploy，省服务器负载
+if [[ -z "${SKIP_PUBLISH:-}" ]]; then
+  python3 scripts/build.py >/dev/null
+else
+  echo "  ⏭ SKIP_PUBLISH：跳过 build.py（publisher 定时统一发布）"
+fi
 
 echo "▸ [6/6] 部署：ZIP → /packs/${SLUG}/ + 解压单文件 + 推 grounded 文档/SEO"
 if [[ -n "${LOCAL_DEPLOY:-}" ]]; then
@@ -116,7 +121,13 @@ else
        -d /var/www/opendesign.cc/packs/${SLUG}/ 2>/dev/null || true && \
      sudo chown -R www-data:www-data /var/www/opendesign.cc/packs/${SLUG}/"
 fi
-SKIP_SEO=1 bash scripts/deploy.sh >/dev/null
+# 包文件已就位（可直接下载）。整站发布（sites-index/SEO/catalog）：
+# SKIP_PUBLISH=1 时交给 publisher 定时统一做，避免每站全量重建压垮服务器。
+if [[ -z "${SKIP_PUBLISH:-}" ]]; then
+  SKIP_SEO=1 bash scripts/deploy.sh >/dev/null
+else
+  echo "  ⏭ SKIP_PUBLISH：包已上线，整站发布交给 publisher"
+fi
 
 echo ""
 echo "✓ 完成。${SLUG} 现在是 Tier-2 grounded 完整包："

@@ -42,7 +42,10 @@ def rpc(name: str, params: dict):
 def run_upgrade(slug: str, url: str) -> tuple[bool, str]:
     # LOCAL_DEPLOY 由环境决定：服务器上设 1（本机 cp）；本地 drain 时不设（走 scp 部署到服务器，
     # 且本地仓库保持 canonical，不分叉）。
+    # SKIP_PUBLISH=1：每站只出包+cp，不做整站重建/部署 —— 由 cron-publisher 定时统一发布，
+    # 避免每个任务都全量 build（2700+ 文件）压垮 web 服务器。
     env = dict(os.environ)
+    env["SKIP_PUBLISH"] = "1"
     try:
         p = subprocess.run(["bash", "scripts/upgrade-pack.sh", slug, url],
                            cwd=str(ROOT), env=env, capture_output=True, text=True,
