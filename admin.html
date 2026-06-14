@@ -45,6 +45,9 @@
     a { color: inherit; }
     code { background: var(--line2); padding: 1px 6px; border-radius: 4px; font-size: 12px; }
 
+    /* [hidden] 必须真隐藏：.gate/.app 用了 display:flex 会盖过属性，加 !important 兜底 */
+    [hidden] { display: none !important; }
+
     /* ── 口令门 ───────────────────────────────────────────────── */
     .gate {
       min-height: 100vh; display: flex; align-items: center; justify-content: center;
