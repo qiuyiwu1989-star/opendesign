@@ -1104,12 +1104,19 @@ def build_llms_txt(sites: list[dict], pidx: dict) -> str:
         "**正式站点**: https://opendesign.cc/",
         "**sitemap**: https://opendesign.cc/sitemap.xml",
         "",
-        "## 给 AI / Agent：怎么用",
+        "## ⭐ AI / Agent 从这里开始",
         "",
-        "每个作品都有一个稳定的 **folder URL**，GET 它即得该站的设计系统：",
+        "**先 GET `https://opendesign.cc/skill.md`** —— 它会把你变成一位「设计总监」："
+        "理解需求 → 给专业意见 → 从 545+ 真实设计系统里推荐合适的作品 → 拆解成 grounded 落地方案。"
+        "这是用本库的正确姿势；下面的端点是它会用到的原料。",
+        "",
+        "## 给 AI / Agent：原料端点",
+        "",
+        "先 `GET https://opendesign.cc/catalog.json` 按需求搜索（字段：slug / title / tags / summary）。"
+        "再用 slug 取该站的设计系统：",
         "",
         "```",
-        "https://opendesign.cc/packs/<slug>/                  → manifest.json 列出全部文件",
+        "https://opendesign.cc/packs/<slug>/                  → DESIGN.md（folder 默认页）",
         "https://opendesign.cc/packs/<slug>/DESIGN.md          → Google design.md 兼容格式（YAML + 8 段）",
         "https://opendesign.cc/packs/<slug>/DESIGN_SPEC.en.md  → OpenDesign 11 层规范（en/zh-CN/zh-TW/ja/ko）",
         "https://opendesign.cc/packs/<slug>/spec.json          → 11 层设计 tokens（机器可读）",
