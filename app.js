@@ -3095,9 +3095,9 @@ document.querySelector("#drawerLikeButton").addEventListener("click", () => {
 });
 document.querySelector("#packCopyAgentUrl").addEventListener("click", () => {
   if (!activeSite) return;
-  const pack = packsIndex[activeSite.id];
-  if (!pack || !pack.agentUrl) return;
-  const fullUrl = new URL(pack.agentUrl, location.origin).toString();
+  // 始终复制本站 nginx 路径（serve DESIGN.md，agent 可直接抓）。
+  // 不用 pack.agentUrl —— 老数据里它是 COS 文件夹 URL，对象存储没有目录索引 → 404，agent 抓不到。
+  const fullUrl = `${location.origin}/packs/${activeSite.id}/`;
   navigator.clipboard.writeText(fullUrl).then(() => {
     showToast(t("pack.copied"));
   }).catch(() => {
