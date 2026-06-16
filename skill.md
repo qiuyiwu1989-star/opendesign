@@ -192,8 +192,10 @@ signature, not slop.
 - design.md writeup: `https://opendesign.cc/packs/<slug>/DESIGN.md`
 - Full pack (spec + tokens + real screenshots): `https://opendesign.cc/packs/<slug>/<slug>-design-pack.zip`
 
-**MCP tools** (if the `opendesign` server is connected): `search_designs(query, tags)` ·
-`get_design_system(slug)` · `fetch_design_spec_markdown(slug)`.
+**MCP tools** (if the `opendesign` server is connected — the most reliable path in
+sandboxed/restricted agents where raw fetch is blocked): `search_designs(query, tags)` ·
+`get_design_system(slug)` · `fetch_design_spec_markdown(slug)` · `get_director_protocol()`.
+Install: a zero-dependency Node server — see the repo's `mcp/` (`mcp/opendesign-mcp.mjs`).
 
 `<slug>` is the catalog `slug` field (e.g. `linear`, `stripe`, `mercury`, `teenage-engineering`).
 
