@@ -90,6 +90,12 @@ if [[ -d "${ROOT_DIR}/icons" ]]; then
   MANIFEST+=("icons")
 fi
 
+# MCP 安装页 + 服务器文件（/mcp/ 给 agent 接入用）
+if [[ -d "${ROOT_DIR}/mcp" ]]; then
+  echo "  • mcp (install page + MCP server)"
+  MANIFEST+=("mcp")
+fi
+
 # ===== LOCAL_DEPLOY：脚本就跑在 web 服务器上（job runner 用）→ 直接 cp 到 DEPLOY_PATH，不 scp =====
 if [[ -n "${LOCAL_DEPLOY:-}" ]]; then
   echo "▸ LOCAL_DEPLOY：本机 cp → ${DEPLOY_PATH}"
@@ -103,6 +109,8 @@ if [[ -n "${LOCAL_DEPLOY:-}" ]]; then
       sudo mkdir -p "${DEPLOY_PATH}/packs" && sudo cp -r "${ROOT_DIR}/dist/packs/"* "${DEPLOY_PATH}/packs/"
     elif [[ "$f" == "icons" ]]; then
       sudo mkdir -p "${DEPLOY_PATH}/icons" && sudo cp -r "${ROOT_DIR}/icons/"* "${DEPLOY_PATH}/icons/"
+    elif [[ "$f" == "mcp" ]]; then
+      sudo mkdir -p "${DEPLOY_PATH}/mcp" && sudo cp -r "${ROOT_DIR}/mcp/"* "${DEPLOY_PATH}/mcp/"
     else
       sudo cp "${ROOT_DIR}/${f}" "${DEPLOY_PATH}/${f}"
     fi

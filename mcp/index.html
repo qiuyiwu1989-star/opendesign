@@ -1,0 +1,96 @@
+<!doctype html>
+<!--
+  AI agents & LLMs: this is the OpenDesign MCP install page. To USE the library,
+  GET https://opendesign.cc/skill.md (the design-director protocol). To connect
+  OpenDesign as a tool, see the config below. Server source: /mcp/opendesign-mcp.mjs
+-->
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>OpenDesign MCP — connect 560+ real design systems to your agent</title>
+<meta name="description" content="An MCP server that gives any AI agent (Cursor / Claude / Windsurf) OpenDesign's 560+ real, grounded design systems as tools — works even where raw web fetch is blocked." />
+<link rel="canonical" href="https://opendesign.cc/mcp/" />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="alternate" type="text/markdown" href="/skill.md" title="OpenDesign — design-director protocol" />
+<link rel="stylesheet" media="print" onload="this.media='all'" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&display=swap" />
+<style>
+  :root { --ink:#0a0a0a; --muted:#666; --line:#e8e6e2; --bg:#fff; --soft:#faf8f5; --accent:#b4451c; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink); font:16px/1.65 Inter,-apple-system,system-ui,sans-serif; }
+  .wrap { max-width:760px; margin:0 auto; padding:72px 24px 120px; }
+  a { color:var(--accent); }
+  .eyebrow { font-size:12px; letter-spacing:.16em; text-transform:uppercase; color:var(--muted); margin:0 0 14px; }
+  h1 { font-family:'Instrument Serif',Georgia,serif; font-weight:400; font-size:54px; line-height:1.04; letter-spacing:-.5px; margin:0 0 18px; }
+  h1 em { font-style:italic; color:var(--accent); }
+  .lead { font-size:19px; color:#1f1f1f; margin:0 0 14px; }
+  h2 { font-family:'Instrument Serif',Georgia,serif; font-style:italic; font-weight:400; font-size:30px; margin:56px 0 10px; }
+  p { margin:0 0 14px; }
+  .note { background:var(--soft); border:1px solid var(--line); border-radius:10px; padding:18px 22px; font-size:15px; color:#333; margin:24px 0; }
+  pre { background:#0a0a0a; color:#f2f2f2; border-radius:12px; padding:20px 22px; overflow-x:auto; font:13px/1.6 ui-monospace,SFMono-Regular,Menlo,monospace; position:relative; }
+  pre .k { color:#e0a07a; } pre .s { color:#9ece9e; }
+  .copy { position:absolute; top:12px; right:12px; background:rgba(255,255,255,.12); color:#fff; border:none; border-radius:6px; padding:5px 11px; font-size:12px; cursor:pointer; font-family:Inter,sans-serif; }
+  .copy:hover { background:rgba(255,255,255,.25); }
+  table { width:100%; border-collapse:collapse; margin:14px 0; font-size:14px; }
+  td,th { text-align:left; padding:9px 10px; border-bottom:1px solid var(--line); vertical-align:top; }
+  th { font-size:12px; letter-spacing:.04em; text-transform:uppercase; color:var(--muted); font-weight:600; }
+  code { background:#f2efea; padding:1px 6px; border-radius:4px; font:13px ui-monospace,Menlo,monospace; }
+  .steps { counter-reset:s; list-style:none; padding:0; }
+  .steps li { counter-increment:s; position:relative; padding:6px 0 6px 38px; }
+  .steps li::before { content:counter(s); position:absolute; left:0; top:6px; width:24px; height:24px; background:var(--ink); color:#fff; border-radius:50%; font-size:13px; display:flex; align-items:center; justify-content:center; }
+  footer { margin-top:72px; padding-top:24px; border-top:1px solid var(--line); font-size:14px; color:var(--muted); }
+  footer a { margin-right:18px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <p class="eyebrow">OpenDesign · Model Context Protocol</p>
+  <h1>Give your agent <em>real</em> design taste.</h1>
+  <p class="lead">Connect <a href="/">OpenDesign</a>'s 560+ curated, grounded design systems to Cursor, Claude, Windsurf — any MCP client. Your agent searches the library, pulls a reference's <strong>actual</strong> tokens (color, type scale, spacing, layout, motion), and builds from those — not from memory.</p>
+
+  <div class="note">
+    <strong>Why MCP, not "just paste a link"?</strong> Many agent runtimes block or sandbox raw web fetches (URL allowlists, browser CORS). An MCP tool is <em>connected by you</em>, so it works where a bare fetch is refused — the network calls run from the local MCP process, with no CORS and no URL policy.
+  </div>
+
+  <h2>Install — Node, zero dependencies</h2>
+  <p>Needs <strong>Node ≥ 18</strong>. Grab the one file, point your client at it:</p>
+  <pre><button class="copy" data-c="curl -o opendesign-mcp.mjs https://opendesign.cc/mcp/opendesign-mcp.mjs">copy</button>curl -o opendesign-mcp.mjs https://opendesign.cc/mcp/opendesign-mcp.mjs</pre>
+
+  <p>Then add to your MCP config (<strong>Claude Desktop</strong>: <code>claude_desktop_config.json</code> · <strong>Cursor</strong>: <code>~/.cursor/mcp.json</code>):</p>
+  <pre><button class="copy" data-c='{ "mcpServers": { "opendesign": { "command": "node", "args": ["/ABSOLUTE/PATH/opendesign-mcp.mjs"] } } }'>copy</button>{
+  <span class="k">"mcpServers"</span>: {
+    <span class="k">"opendesign"</span>: {
+      <span class="k">"command"</span>: <span class="s">"node"</span>,
+      <span class="k">"args"</span>: [<span class="s">"/ABSOLUTE/PATH/opendesign-mcp.mjs"</span>]
+    }
+  }
+}</pre>
+  <p style="font-size:14px; color:var(--muted);">Restart the client — <code>opendesign</code> appears in the tool list. Source &amp; a Python version: <a href="https://github.com/qiuyiwu1989-star/opendesign/tree/main/mcp">github.com/qiuyiwu1989-star/opendesign</a>.</p>
+
+  <h2>What your agent gets</h2>
+  <table>
+    <tr><th>Tool</th><th>Does</th></tr>
+    <tr><td><code>search_designs</code></td><td>Find references by need — score-ranked. <code>"fintech trust"</code>, <code>tags:["ai"]</code></td></tr>
+    <tr><td><code>get_design_system</code></td><td>A site's real grounded tokens (colors, typography, spacing, surfaces, layout, motion)</td></tr>
+    <tr><td><code>fetch_design_spec_markdown</code></td><td>The full 11-layer spec as Markdown — drop into a prompt</td></tr>
+    <tr><td><code>list_designs</code></td><td>Browse the catalog</td></tr>
+    <tr><td><code>get_director_protocol</code></td><td>The design-director protocol — diagnose → recommend → decompose</td></tr>
+  </table>
+
+  <h2>Try it in one line</h2>
+  <pre><button class="copy" data-c='printf %s\n &apos;{"jsonrpc":"2.0","id":1,"method":"initialize","params":{"protocolVersion":"2024-11-05","capabilities":{},"clientInfo":{"name":"t","version":"1"}}}&apos; &apos;{"jsonrpc":"2.0","id":2,"method":"tools/call","params":{"name":"search_designs","arguments":{"query":"fintech trust"}}}&apos; | node opendesign-mcp.mjs'>copy</button>npx @modelcontextprotocol/inspector node opendesign-mcp.mjs</pre>
+
+  <footer>
+    <a href="/">← OpenDesign</a>
+    <a href="/skill.md">skill.md (director protocol)</a>
+    <a href="/catalog.json">catalog.json</a>
+    <a href="https://github.com/qiuyiwu1989-star/opendesign/tree/main/mcp">GitHub</a>
+  </footer>
+</div>
+<script>
+  document.querySelectorAll('.copy').forEach(b => b.addEventListener('click', () => {
+    navigator.clipboard.writeText(b.dataset.c).then(() => { const t=b.textContent; b.textContent='copied ✓'; setTimeout(()=>b.textContent=t,1400); });
+  }));
+</script>
+</body>
+</html>
