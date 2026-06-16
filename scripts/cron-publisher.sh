@@ -21,23 +21,22 @@ _TMP=$(mktemp /tmp/od-publisher-XXXXXX.log)
 
 echo "===== ${_STARTED} publisher 开始 =====" >> "$LOG"
 
-set +e
+# 整个尾段都关掉 errexit/pipefail —— 心跳上报绝不能因为某行非零退出被跳过
+set +e +o pipefail
 flock -n /tmp/od-publisher.lock bash -c '
   python3 scripts/build.py && bash scripts/deploy.sh
 ' > "$_TMP" 2>&1
 _CODE=$?
-set -e 2>/dev/null || true
 
-tail -c 1500 "$_TMP" >> "$LOG"
-if [[ $_CODE -ne 0 ]]; then
-  echo "  (publisher 退出码 $_CODE 或被 flock 跳过)" >> "$LOG"
-fi
+tail -c 1500 "$_TMP" >> "$LOG" 2>/dev/null
+[[ $_CODE -ne 0 ]] && echo "  (publisher 退出码 $_CODE 或被 flock 跳过)" >> "$LOG"
 echo "" >> "$LOG"
 
-# 上报 Supabase run_logs（迁移应用后生效；没有则静默失败不影响主流程）
-_SUM=$(grep -E "live:|站$|Done|sites-index" "$_TMP" 2>/dev/null | tail -1 || true)
-python3 scripts/log_run.py "$_STARTED" "publisher" \
-  "$([[ $_CODE -eq 0 ]] && echo done || echo error)" \
-  "${_SUM:-publish run}" "$(tail -c 2000 "$_TMP")" 2>/dev/null || true
+# 心跳上报到 Supabase run_logs（预算好变量，避免内联 $() 在严格模式下踩坑）
+_STATUS=done; [[ $_CODE -ne 0 ]] && _STATUS=error
+_SUM=$(grep -E "live:|站$|Done|sites-index" "$_TMP" 2>/dev/null | tail -1)
+[[ -z "$_SUM" ]] && _SUM="publish run"
+_DETAIL=$(tail -c 2000 "$_TMP" 2>/dev/null)
+python3 scripts/log_run.py "$_STARTED" "publisher" "$_STATUS" "$_SUM" "$_DETAIL" >/dev/null 2>&1
 
 rm -f "$_TMP"

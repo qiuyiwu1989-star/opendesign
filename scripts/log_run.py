@@ -11,7 +11,7 @@
   summary         一行摘要（< 400 字符）
   details         末尾日志正文（可选，< 3000 字符）
 """
-import json, os, sys, urllib.request
+import json, os, sys, time, urllib.request
 from pathlib import Path
 
 # 加载环境变量
@@ -30,11 +30,17 @@ TOKEN   = os.environ.get("RUNNER_TOKEN", "")
 if len(sys.argv) < 4 or not SB_URL or not TOKEN:
     sys.exit(0)                     # 静默退出，不影响 cron 主流程
 
+def _clean(s):
+    # argv 以 surrogateescape 解码进来；调用方常用 `tail -c N` 截断日志，会在多字节
+    # UTF-8 字符中间切断 → 残字节变成 surrogate，json.dumps 编码时会抛 UnicodeEncodeError
+    # （在 try 之前抛 → 整个脚本崩溃、心跳丢失）。这里重组字节并丢掉非法 UTF-8，彻底清干净。
+    return s.encode("utf-8", "surrogateescape").decode("utf-8", "ignore")
+
 started_at = sys.argv[1]
 kind       = sys.argv[2]
 status     = sys.argv[3]
-summary    = (sys.argv[4] if len(sys.argv) > 4 else "")[:400]
-details    = (sys.argv[5] if len(sys.argv) > 5 else "")[:3000]
+summary    = _clean(sys.argv[4] if len(sys.argv) > 4 else "")[:400]
+details    = _clean(sys.argv[5] if len(sys.argv) > 5 else "")[:3000]
 
 payload = json.dumps({
     "p_token":      TOKEN,
@@ -55,8 +61,13 @@ req = urllib.request.Request(
         "Authorization": f"Bearer {SB_KEY}",
     },
 )
-try:
-    with urllib.request.urlopen(req, timeout=10):
-        pass
-except Exception:
-    pass    # fire-and-forget：网络/RPC 失败不重试，不报错
+# 重试 3 次（带退避）：publisher 在重型 build+deploy 之后立刻打点，那一刻服务器
+# 网络/CPU 常被占满 → 单次 urlopen 容易瞬时失败。不重试就会静默丢心跳（曾踩过）。
+for _attempt in range(3):
+    try:
+        with urllib.request.urlopen(req, timeout=15):
+            break
+    except Exception:
+        if _attempt < 2:
+            time.sleep(2)
+        # 最后一次仍失败 → fire-and-forget，静默放弃，不影响 cron 主流程
