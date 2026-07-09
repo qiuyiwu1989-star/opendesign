@@ -3554,6 +3554,7 @@ if (!applyPathRoute()) applyHash();
   renderCanvas();
   renderLibraryCount();
   renderSaved();
+  healPackImages();   // 二次渲染后再兜一遍：任何仍落在境外图床/失败的卡图换成 COS 截图
   // renderSpecExample() 移到 switchView("about") 时懒触发（mergeExternalSpecs 完成后）
   // library 里已渲染的卡片：只原地刷新收藏数小标，不整体重建
   _libRefreshSaveCounts();
@@ -3677,9 +3678,39 @@ async function loadPacksIndex() {
     const res = await fetch("/packs-index.json", { cache: "default" }); // 日更一次，用浏览器缓存
     if (!res.ok) return;
     packsIndex = await res.json();
+    healPackImages();   // 索引到手后，把「加载期落到境外兜底/已失败」的卡图统一换成 COS 真截图
   } catch (err) {
     // 没索引也没关系，按钮就藏着
   }
+}
+
+/**
+ * packs-index.json ~2MB，加载要几秒。在它到手前，缺 /thumbs 的卡片会先 404 → onerror，
+ * 此刻 packsIndex 还空、取不到 COS 截图，于是链条落到 thum.io / wsrv / microlink——
+ * 这几个境外图床在国内被墙/极慢，卡图就一直空白。索引到手后在这里补救一次：
+ * 凡当前 src 还落在境外图床、或已判失败的卡图，一律换成 COS 实拍截图（国内可达）。
+ */
+function healPackImages() {
+  if (!packsIndex || !Object.keys(packsIndex).length) return;
+  const FOREIGN = /thum\.io|wsrv\.nl|microlink\.io/;
+  document.querySelectorAll(".card-thumb img, .library-thumb img").forEach((img) => {
+    const card = img.closest("[data-id]");
+    const sid = card && card.dataset.id;
+    if (!sid) return;
+    const ps = packHeroShot(sid, 640);
+    if (!ps) return;
+    const src = img.currentSrc || img.src || "";
+    if (src.indexOf(ps) !== -1) return;                       // 已经是这张 COS 图
+    const box = img.closest(".card-thumb, .library-thumb");
+    const failed = box?.classList.contains("img-failed")
+      || (img.complete && img.naturalWidth === 0);
+    if (!FOREIGN.test(src) && !failed) return;                // 只修境外兜底 / 已失败的
+    box?.classList.remove("img-failed");
+    delete img.dataset.packTried;
+    img.dataset.fallbackIdx = "0";
+    img.onerror = function () { window.__imgFallback && window.__imgFallback(img); };
+    img.src = ps;
+  });
 }
 
 function formatBytes(n) {

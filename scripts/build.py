@@ -620,6 +620,7 @@ def render_site_html(site: dict, lang: str) -> str:
         '<footer>'
         f'<p>OpenDesign · curated web aesthetics for AI-readable design DNA · <a href="{BASE_URL}/">opendesign.cc</a></p>'
         f'<p>{esc(L["notes_label"])}: {esc(notes_text or palette or "—")}</p>'
+        '<p><a href="https://beian.miit.gov.cn/" target="_blank" rel="noreferrer">浙ICP备2021038972号</a></p>'
         '</footer>'
     )
 

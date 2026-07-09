@@ -703,6 +703,27 @@ input:focus-visible {
   gap: 10px;
 }
 
+/* ICP 备案条：首页画布左下角常驻（合规，链到工信部备案系统）*/
+.canvas-beian {
+  position: absolute;
+  left: 24px;
+  bottom: 24px;
+  z-index: 6;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  letter-spacing: .02em;
+  color: var(--muted-soft, #9a9a9a);
+  opacity: .72;
+}
+.canvas-beian a {
+  color: inherit;
+  text-decoration: none;
+}
+.canvas-beian:hover { opacity: 1; }
+.canvas-beian a:hover { text-decoration: underline; color: var(--ink); }
+
 /* 浮动按钮：偏离原点时高亮 */
 .canvas-recenter {
   display: inline-flex;
@@ -1094,6 +1115,19 @@ input:focus-visible {
 
 .footer-domain {
   color: var(--ink);
+}
+
+/* ICP 备案号（合规，链到工信部备案系统）*/
+.footer-beian {
+  color: var(--ink-soft, #999);
+  text-decoration: none;
+  font-size: 12px;
+  letter-spacing: .02em;
+}
+.footer-beian:hover,
+.footer-beian:focus-visible {
+  color: var(--ink);
+  text-decoration: underline;
 }
 
 .footer-github {
@@ -3868,6 +3902,16 @@ body.drawer-open {
     font-size: 12.5px;
     opacity: 0.92;
   }
+
+  /* 窄屏：备案条留左下角、只保留合规必需的备案号；把画布提示上移避免三者挤在一起 */
+  .canvas-beian {
+    left: 12px;
+    bottom: calc(14px + env(safe-area-inset-bottom));
+    font-size: 11px;
+    opacity: 0.85;
+  }
+  .canvas-beian span { display: none; }
+  .canvas-footnote { bottom: calc(44px + env(safe-area-inset-bottom)); }
 
   /* ───── Panel views：留白收紧但不压扁 ───── */
   .panel-view {
