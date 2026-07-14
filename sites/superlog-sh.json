@@ -1,0 +1,649 @@
+{
+  "id": "superlog-sh",
+  "schema_version": "0.3",
+  "url": "https://superlog.sh/",
+  "title": "Superlog Sh",
+  "image": "https://image.thum.io/get/width/1440/noanimate/https://superlog.sh/",
+  "tags": [
+    "Developer Tools",
+    "AI",
+    "SaaS",
+    "Dark Mode",
+    "Productivity"
+  ],
+  "status": "completed",
+  "added_at": "2026-06-14",
+  "added_by": "discover",
+  "_meta": {
+    "vision_model": "mimo-v2.5",
+    "vision_prompt_version": "0.3",
+    "vision_source": "playwright-extract:superlog-sh",
+    "vision_grounded": true,
+    "vision_at": "2026-06-14T04:08:29+00:00",
+    "vision_tokens": 17908,
+    "vision_cost_usd": 0.199,
+    "translation_model": "mimo-v2.5",
+    "translation_at": "2026-06-14T04:09:58+00:00",
+    "translation_tokens": 19031,
+    "translation_cost_usd": 0.0633,
+    "narrative_model": "mimo-v2.5",
+    "narrative_prompt_version": "0.3",
+    "narrative_at": "2026-06-14T04:10:07+00:00",
+    "narrative_tokens": 2281,
+    "narrative_cost_usd": 0.0152,
+    "narrative_status": "ok",
+    "total_cost_usd": 0.2775,
+    "no_preview_reason": "网站存活(HTTP 200)但无头浏览器反复拿到空白/近黑帧，疑似反爬拦截；2026-07-14 确认"
+  },
+  "spec": {
+    "colors": {
+      "bg": "#141415",
+      "bgSoft": "#232325",
+      "bgQuiet": null,
+      "ink": "#F5F5F6",
+      "inkSoft": "#8A8A8F",
+      "muted": "#5A5A60",
+      "mutedSoft": null,
+      "accent": "#485AE2",
+      "line": "rgba(255,255,255,0.07)"
+    },
+    "typography": {
+      "display": "humanist-sans",
+      "body": "humanist-sans",
+      "mono": "geometric-mono",
+      "scale": [
+        {
+          "token": "display",
+          "size": 64,
+          "lh": 1.1,
+          "weight": 500,
+          "ls": "-1.5px"
+        },
+        {
+          "token": "h1",
+          "size": 48,
+          "lh": 1.1,
+          "weight": 500,
+          "ls": "-0.54px"
+        },
+        {
+          "token": "h2",
+          "size": 36,
+          "lh": 1.2,
+          "weight": 600,
+          "ls": "-0.24px"
+        },
+        {
+          "token": "body",
+          "size": 16,
+          "lh": 1.5,
+          "weight": 400,
+          "ls": "0px"
+        },
+        {
+          "token": "small",
+          "size": 13,
+          "lh": 1.5,
+          "weight": 400,
+          "ls": "0px"
+        },
+        {
+          "token": "mono",
+          "size": 14,
+          "lh": 1.6,
+          "weight": 400,
+          "ls": "0px"
+        },
+        {
+          "token": "label",
+          "size": 12,
+          "lh": 1.5,
+          "weight": 500,
+          "ls": "2px"
+        }
+      ]
+    },
+    "spacing": {
+      "base": 4,
+      "scale": [
+        4,
+        8,
+        12,
+        16,
+        20,
+        24,
+        32,
+        48,
+        64,
+        96
+      ]
+    },
+    "surfaces": {
+      "radius": {
+        "sm": 2,
+        "md": 8,
+        "lg": 12,
+        "pill": 9999
+      }
+    },
+    "layout": {
+      "container": 1280,
+      "paragraph": 680,
+      "columns": 12,
+      "gutter": 24,
+      "breakpoints": [
+        768,
+        1024
+      ]
+    },
+    "motion": {
+      "durations": {
+        "micro": 150,
+        "small": 150,
+        "medium": 400
+      },
+      "easing": "cubic-bezier(0.4, 0, 0.2, 1)"
+    }
+  },
+  "spec_i18n": {
+    "en": {
+      "identity": {
+        "keywords": [
+          "observability",
+          "bug-fixing",
+          "coding-agent",
+          "engineering"
+        ],
+        "analogy": "A tireless senior engineer that detects, analyzes, and autonomously fixes production bugs.",
+        "oneLiner": "AI-powered observability that automatically generates resolution PRs for production incidents."
+      },
+      "colors": {
+        "principle": "High-contrast dark mode using deep blacks and near-whites, with a single electric blue accent for primary actions."
+      },
+      "typography": {
+        "rules": [],
+        "scaleUses": [
+          "Hero headline",
+          "Section titles",
+          "Card headings",
+          "Body text",
+          "Secondary text",
+          "Code blocks and terminal UI",
+          "Uppercase labels and badges"
+        ]
+      },
+      "spacing": {
+        "rhythm": "Generous vertical padding (32px-64px) separates major sections, while a base 8px grid governs component spacing."
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 12px 30px rgba(0,0,0,0.24)",
+          "0px 28px 100px rgba(0,0,0,0.65)",
+          "0px 6px 14px -6px rgba(72,90,226,0.55)"
+        ],
+        "borders": "1px solid rgba(255,255,255,0.07)"
+      },
+      "layout": {
+        "skeleton": "Centered single-column layout with generous margins, transitioning to a multi-column grid for feature showcases."
+      },
+      "components": {
+        "button": "Primary buttons use a vibrant blue background with white text and rounded pill corners, featuring a subtle glow shadow on hover.",
+        "card": "Cards are semi-transparent dark panels with thin white borders and large border radii, housing floating UI elements or code previews.",
+        "chip": "Badges and status indicators use small, uppercase text with thin borders or subtle color backgrounds.",
+        "input": "The terminal prompt UI is a dark, rounded container with a blinking blue cursor and a 'COPY' action button.",
+        "hero": "A dark, expansive top section featuring a large headline, a subtle rocket launch background image, and a floating coding agent terminal interface."
+      },
+      "motion": {
+        "patterns": [
+          "Smooth color and background-color transitions on interactive elements",
+          "Scale and transform effects on hover states"
+        ]
+      },
+      "interaction": {
+        "hover": "Smooth color shifts and subtle elevation changes via box-shadow.",
+        "click": "Subtle scale transforms or immediate visual feedback.",
+        "transition": "Standard 0.15s cubic-bezier transition for colors, fills, and strokes.",
+        "keyboard": "Focus rings appear as subtle outlines on interactive elements."
+      },
+      "voice": {
+        "tone": "Confident, direct, and highly technical, speaking directly to developers about solving complex engineering problems.",
+        "headlineStyle": "Short, punchy, and declarative phrases (e.g., 'We fix bugs', 'No alert fatigue').",
+        "ctaStyle": "Action-oriented and straightforward (e.g., 'Get started').",
+        "avoid": [
+          "Vague marketing jargon",
+          "Overly complex sentences",
+          "Passive voice",
+          "Excessive exclamation points"
+        ]
+      },
+      "donts": [
+        "Don't use bright, saturated gradients — screenshot shows a monochromatic dark theme with a single blue accent.",
+        "Don't use playful, rounded sans-serifs — screenshot uses a structured humanist sans-serif (Inter).",
+        "Don't use light mode interfaces — screenshot shows a dedicated dark mode design.",
+        "Don't use thin, low-contrast borders — screenshot uses subtle but visible 0.07 opacity white borders.",
+        "Don't use centered text for everything — screenshot uses left-aligned text for feature descriptions and center-aligned for hero sections.",
+        "Don't use complex, multi-colored badges — screenshot uses simple, muted uppercase labels with thin borders."
+      ],
+      "systemPrompt": "A modern developer tool landing page for Superlog, an AI-powered observability platform. The design is built on a deep, near-black dark mode (#141415) with high-contrast white text (#F5F5F6) and a single vibrant electric blue accent (#485AE2) for primary actions. Typography utilizes a clean humanist sans-serif for body and display text, paired with a geometric monospace font for terminal and code elements. The layout is spacious and centered, relying on generous vertical rhythm to separate sections. Key critical design constraints include avoiding light mode interfaces, rejecting playful or overly decorative typography, and maintaining high contrast between text and dark backgrounds. The aesthetic is refined, technical, and professional, emphasizing clarity and efficiency over visual flair, making it a perfect example of modern SaaS developer tooling design."
+    },
+    "zh-CN": {
+      "identity": {
+        "keywords": [
+          "可观测性",
+          "缺陷修复",
+          "编码代理",
+          "工程"
+        ],
+        "analogy": "一位不知疲倦的高级工程师，能够检测、分析并自主修复生产环境缺陷。",
+        "oneLiner": "AI 驱动的可观测性平台，可为生产事件自动生成修复 PR。"
+      },
+      "colors": {
+        "principle": "使用深黑与近白色实现高对比度深色模式，单一电光蓝用于主要操作强调。"
+      },
+      "typography": {
+        "rules": [],
+        "scaleUses": [
+          "主标题",
+          "章节标题",
+          "卡片标题",
+          "正文文本",
+          "辅助文本",
+          "代码块与终端界面",
+          "大写标签与徽章"
+        ]
+      },
+      "spacing": {
+        "rhythm": "主要章节间采用充足的垂直内边距（32px-64px），而基础 8px 网格控制组件间距。"
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 12px 30px rgba(0,0,0,0.24)",
+          "0px 28px 100px rgba(0,0,0,0.65)",
+          "0px 6px 14px -6px rgba(72,90,226,0.55)"
+        ],
+        "borders": "1px solid rgba(255,255,255,0.07)"
+      },
+      "layout": {
+        "skeleton": "居中单栏布局，配有充足外边距，在功能展示区过渡至多栏网格。"
+      },
+      "components": {
+        "button": "主要按钮采用鲜艳蓝色背景、白色文字及圆角胶囊造型，悬停时带有微妙的辉光阴影。",
+        "card": "卡片为半透明深色面板，配有纤细的白色边框和大圆角，用于容纳浮动的 UI 元素或代码预览。",
+        "chip": "徽章与状态指示器使用小号大写文字，配以细边框或微妙的彩色背景。",
+        "input": "终端提示界面为深色圆角容器，配有闪烁的蓝色光标和“COPY”操作按钮。",
+        "hero": "宽阔的深色顶部区域，展示大型标题、微妙的火箭发射背景图以及浮动的编码代理终端界面。"
+      },
+      "motion": {
+        "patterns": [
+          "交互元素上平滑的颜色与背景色过渡",
+          "悬停状态下的缩放与变换效果"
+        ]
+      },
+      "interaction": {
+        "hover": "平滑的颜色变化及通过 box-shadow 实现的微妙高度变化。",
+        "click": "微妙的缩放变换或即时视觉反馈。",
+        "transition": "标准 0.15 秒 cubic-bezier 过渡，用于颜色、填充和描边。",
+        "keyboard": "聚焦环以微妙的轮廓形式出现在交互元素上。"
+      },
+      "voice": {
+        "tone": "自信、直接且高度技术化，直接与开发者对话，解决复杂的工程问题。",
+        "headlineStyle": "简短、有力、陈述性的短语（例如“我们修复缺陷”、“告别警报疲劳”）。",
+        "ctaStyle": "以行动为导向且直截了当（例如“立即开始”）。",
+        "avoid": [
+          "模糊的营销术语",
+          "过于复杂的句子",
+          "被动语态",
+          "过多的感叹号"
+        ]
+      },
+      "donts": [
+        "不要使用明亮、饱和的渐变——截图显示的是单色深色主题搭配单一蓝色强调。",
+        "不要使用俏皮的圆角无衬线字体——截图使用的是结构化的人文主义无衬线字体（Inter）。",
+        "不要使用浅色模式界面——截图展示的是专用的深色模式设计。",
+        "不要使用纤细、低对比度的边框——截图使用微妙但可见的 0.07 不透明度白色边框。",
+        "不要所有文本都居中——截图对功能描述使用左对齐文本，对主标题区域使用居中文本。",
+        "不要使用复杂、多彩的徽章——截图使用简单的、柔和的大写标签配以细边框。"
+      ],
+      "systemPrompt": "Superlog 的现代开发者工具落地页，这是一个 AI 驱动的可观测性平台。设计基于深色、近黑色的深色模式（#141415），搭配高对比度白色文本（#F5F5F6）和单一的鲜艳电光蓝强调色（#485AE2）用于主要操作。字体排版采用简洁的人文主义无衬线字体用于正文和展示文本，搭配几何等宽字体用于终端和代码元素。布局宽敞居中，依靠充足的垂直节奏分隔章节。关键的设计约束包括：避免浅色模式界面、拒绝俏皮或过度装饰的字体、保持文本与深色背景之间的高对比度。整体美学精致、技术化且专业，强调清晰与效率而非视觉华丽，是现代 SaaS 开发者工具设计的完美范例。"
+    },
+    "zh-TW": {
+      "identity": {
+        "keywords": [
+          "observability",
+          "bug-fixing",
+          "coding-agent",
+          "engineering"
+        ],
+        "analogy": "一位不知疲倦的資深工程師，能偵測、分析並自主修復生產環境中的錯誤。",
+        "oneLiner": "AI 驅動的 observability，能自動為生產環境事件生成修復 PR。"
+      },
+      "colors": {
+        "principle": "使用深黑色與近白色的高對比度深色模式，並以單一電光藍色作為主要動作的強調色。"
+      },
+      "typography": {
+        "rules": [],
+        "scaleUses": [
+          "Hero 標題",
+          "章節標題",
+          "卡片標題",
+          "內文",
+          "次要文字",
+          "程式碼區塊與終端機介面",
+          "大寫標籤與徽章"
+        ]
+      },
+      "spacing": {
+        "rhythm": "寬裕的垂直內邊距（32px-64px）分隔主要章節，而基礎的 8px 網格則管理元件間距。"
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 12px 30px rgba(0,0,0,0.24)",
+          "0px 28px 100px rgba(0,0,0,0.65)",
+          "0px 6px 14px -6px rgba(72,90,226,0.55)"
+        ],
+        "borders": "1px solid rgba(255,255,255,0.07)"
+      },
+      "layout": {
+        "skeleton": "居中的單欄佈局，配有充裕的邊距，並過渡至多欄網格以展示功能。"
+      },
+      "components": {
+        "button": "主要按鈕使用鮮明的藍色背景、白色文字和圓角藥丸形狀，hover 時帶有細微的光暈陰影。",
+        "card": "卡片為半透明的深色面板，帶有細白色邊框和大圓角，用於容納浮動的 UI 元素或程式碼預覽。",
+        "chip": "徽章與狀態指示器使用小型、大寫的文字，搭配細邊框或細微的色彩背景。",
+        "input": "終端機提示介面是一個深色的圓角容器，帶有閃爍的藍色游標和一個「COPY」動作按鈕。",
+        "hero": "一個深色、寬闊的頂部區域，包含大型標題、細微的火箭發射背景圖片，以及一個浮動的 coding agent 終端機介面。"
+      },
+      "motion": {
+        "patterns": [
+          "互動元素上流暢的顏色與背景顏色過渡",
+          "hover 狀態的縮放與變換效果"
+        ]
+      },
+      "interaction": {
+        "hover": "流暢的顏色轉換與透過 box-shadow 實現的細微高度變化。",
+        "click": "細微的縮放變換或即時的視覺反饋。",
+        "transition": "標準的 0.15s cubic-bezier 過渡，用於顏色、填色與描邊。",
+        "keyboard": "Focus 環在互動元素上以細微的外框形式出現。"
+      },
+      "voice": {
+        "tone": "自信、直接且高度技術性，直接向開發者談論如何解決複雜的工程問題。",
+        "headlineStyle": "簡短、有力且具陳述性的短語（例如：「我們修復錯誤」、「無警報疲勞」）。",
+        "ctaStyle": "以行動為導向且直接（例如：「開始使用」）。",
+        "avoid": [
+          "模糊的行銷術語",
+          "過度複雜的句子",
+          "被動語態",
+          "過多的驚嘆號"
+        ]
+      },
+      "donts": [
+        "不要使用明亮、高飽和度的漸層——截圖顯示的是單色調深色主題，僅有一個藍色強調色。",
+        "不要使用俏皮、圓潤的無襯線字體——截圖使用了結構化的人文無襯線字體（Inter）。",
+        "不要使用淺色模式介面——截圖顯示的是專屬的深色模式設計。",
+        "不要使用細、低對比度的邊框——截圖使用了細微但可見的 0.07 透明度白色邊框。",
+        "不要所有文字都置中對齊——截圖對功能描述使用左對齊，對 Hero 區域使用置中對齊。",
+        "不要使用複雜、多色的徽章——截圖使用了簡單、柔和的 uppercase 標籤，帶有細邊框。"
+      ],
+      "systemPrompt": "A modern developer tool landing page for Superlog, an AI-powered observability platform. The design is built on a deep, near-black dark mode (#141415) with high-contrast white text (#F5F5F6) and a single vibrant electric blue accent (#485AE2) for primary actions. Typography utilizes a clean humanist sans-serif for body and display text, paired with a geometric monospace font for terminal and code elements. The layout is spacious and centered, relying on generous vertical rhythm to separate sections. Key critical design constraints include avoiding light mode interfaces, rejecting playful or overly decorative typography, and maintaining high contrast between text and dark backgrounds. The aesthetic is refined, technical, and professional, emphasizing clarity and efficiency over visual flair, making it a perfect example of modern SaaS developer tooling design."
+    },
+    "ja": {
+      "identity": {
+        "keywords": [
+          "可観測性",
+          "バグ修正",
+          "コーディングエージェント",
+          "エンジニアリング"
+        ],
+        "analogy": "本番環境のバグを検出し、分析し、自律的に修正する、休むことのないシニアエンジニア。",
+        "oneLiner": "本番環境インシデントに対して解決PRを自動生成する、AI駆動の可観測性。"
+      },
+      "colors": {
+        "principle": "深いブラックとネアホワイトを使用した高コントラストのダークモード。プライマリアクションには単色のエレクトリックブルーアクセントを採用。"
+      },
+      "typography": {
+        "rules": [],
+        "scaleUses": [
+          "ヒーローヘッドライン",
+          "セクションタイトル",
+          "カード見出し",
+          "本文テキスト",
+          "セカンダリテキスト",
+          "コードブロックとターミナルUI",
+          "大文字ラベルとバッジ"
+        ]
+      },
+      "spacing": {
+        "rhythm": "主要セクション間には十分な垂直パディング（32px-66px）を設け、コンポーネント間の間隔は基本となる8pxグリッドで管理。"
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 12px 30px rgba(0,0,0,0.24)",
+          "0px 28px 100px rgba(0,0,0,0.65)",
+          "0px 6px 14px -6px rgba(72,90,226,0.55)"
+        ],
+        "borders": "1px solid rgba(255,255,255,0.07)"
+      },
+      "layout": {
+        "skeleton": "ゆったりとしたマージンを持つ中央揃えの単一カラムレイアウト。フィーチャーのショーケースではマルチカラムグリッドへ移行。"
+      },
+      "components": {
+        "button": "プライマリボタンは鮮やかなブルーの背景に白いテキスト、丸みのあるピル型角を持つ。ホバー時に微かなグローシャドウを表示。",
+        "card": "カードは半透明のダークパネルで、細いホワイトボーダーと大きなボーダー半径を持ち、フローティングUI要素やコードプレビューを格納。",
+        "chip": "バッジやステータスインジケーターは、細いボーダーや控えめな色の背景を持つ、小さな大文字テキストを使用。",
+        "input": "ターミナルプロンプトUIは、点滅するブルーカーソルと「COPY」アクションボタンを持つ、ダークで丸みのあるコンテナ。",
+        "hero": "ダークで広がりのあるトップセクション。大きな見出し、控えめなロケット発射の背景画像、およびフローティングするコーディングエージェントのターミナルインターフェースを配置。"
+      },
+      "motion": {
+        "patterns": [
+          "インタラクティブ要素における滑らかな色と背景色のトランジション",
+          "ホバーステートにおけるスケールとトランスフォーム効果"
+        ]
+      },
+      "interaction": {
+        "hover": "滑らかな色の変化とボックスシャドウによる微妙な高さの変化。",
+        "click": "微妙なスケールトランスフォーム、または即座のビジュアルフィードバック。",
+        "transition": "色、塗り、ストロークには標準の0.15s cubic-bezierトランジションを採用。",
+        "keyboard": "フォーカスリングはインタラクティブ要素に微かなアウトラインとして表示。"
+      },
+      "voice": {
+        "tone": "自信に満ち、率直で、技術的に高度。開発者に対して、複雑なエンジニアリング問題の解決について直接語りかける。",
+        "headlineStyle": "短く、インパクトがあり、宣言的なフレーズ（例：「We fix bugs」「No alert fatigue」）。",
+        "ctaStyle": "アクション重視で分かりやすい（例：「Get started」）。",
+        "avoid": [
+          "曖昧なマーケティング用語",
+          "過度に複雑な文",
+          "受動態",
+          "過度の感嘆符"
+        ]
+      },
+      "donts": [
+        "明るく彩度の高いグラデーションは使用しない — スクリーンショットはブルーアクセントを単色に持つモノクロームダークテーマを示している。",
+        "遊び心のある丸みsans-serifは使用しない — スクリーンショットは構造化されたhumanist sans-serif（Inter）を使用している。",
+        "ライトモードのインターフェースは使用しない — スクリーンショットは専用のダークモードデザインを示している。",
+        "細くコントラストの低いボーダーは使用しない — スクリーンショットは微かだが視認できる0.07透明度のホワイトボーダーを使用している。",
+        "すべてを中央揃えテキストにしない — スクリーンショットはフィーチャーの説明には左揃えテキスト、ヒーローセクションには中央揃えテキストを使用している。",
+        "複雑でカラフルなバッジは使用しない — スクリーンショットはシンプルで控えめな大文字ラベルに細いボーダーを使用している。"
+      ],
+      "systemPrompt": "Superlogのためのモダンな開発者ツールランディングページ。AI駆動の可観測性プラットフォーム。デザインは深く、ほぼ黒に近いダークモード（#141415）をベースに、高コントラストのホワイトテキスト（#F5F5F6）と、プライマリアクションの単一の鮮やかなエレクトリックブルーアクセント（#485AE2）で構成。タイポグラフィは本文とディスプレイテキストにクリーンなhumanist sans-serifを、ターミナルとコード要素には幾何学的な等幅フォントを採用。レイアウトはゆったりとして中央揃えで、セクションの区切りには十分な垂直リズムに依存。重要なデザイン制約として、ライトモードインターフェースの回避、遊び心のある装飾的すぎるタイポグラフィの排除、テキストとダーク背景の高いコントラスト維持が挙げられる。美学は洗練されており、技術的でプロフェッショナル。ビジュアルな華やかさよりも明瞭さと効率性を重視し、モダンなSaaS開発者ツールデザインの完璧な例となっている。"
+    },
+    "ko": {
+      "identity": {
+        "keywords": [
+          "관찰 가능성",
+          "버그 수정",
+          "코딩 에이전트",
+          "엔지니어링"
+        ],
+        "analogy": "프로덕션 버그를 감지, 분석 및 자율적으로 수정하는 끊임없는 시니어 엔지니어.",
+        "oneLiner": "프로덕션 사건에 대한 해결 PR을 자동으로 생성하는 AI 기반 관찰 가능성 플랫폼."
+      },
+      "colors": {
+        "principle": "깊은 블랙과 거의 흰색을 사용한 높은 명도의 다크 모드와, 주요 작업을 위한 단일 일렉트릭 블루 악센트."
+      },
+      "typography": {
+        "rules": [],
+        "scaleUses": [
+          "히어로 헤드라인",
+          "섹션 제목",
+          "카드 제목",
+          "본문 텍스트",
+          "보조 텍스트",
+          "코드 블록 및 터미널 UI",
+          "대문자 레이블 및 뱃지"
+        ]
+      },
+      "spacing": {
+        "rhythm": "여유로운 수직 패딩(32px-64px)이 주요 섹션을 분리하며, 기본 8px 그리드가 컴포넌트 간격을 조율합니다."
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 12px 30px rgba(0,0,0,0.24)",
+          "0px 28px 100px rgba(0,0,0,0.65)",
+          "0px 6px 14px -6px rgba(72,90,226,0.55)"
+        ],
+        "borders": "1px solid rgba(255,255,255,0.07)"
+      },
+      "layout": {
+        "skeleton": "여유로운 마진을 가진 중앙 정렬 단일 열 레이아웃으로, 기능 쇼케이스를 위해 다중 열 그리드로 전환됩니다."
+      },
+      "components": {
+        "button": "주요 버튼은 화이트 텍스트와 둥근 필렛 모서리를 가진 생생한 블루 배경을 사용하며, hover 시 미묘한 글로우 그림자가 나타납니다.",
+        "card": "카드는 얇은 흰색 테두리와 큰 border-radius를 가진 반투명 다크 패널로, 플로팅 UI 요소 또는 코드 미리보기를 담습니다.",
+        "chip": "뱃지와 상태 표시기는 얇은 테두리 또는 미묘한 색상 배경을 가진 작은 대문자 텍스트를 사용합니다.",
+        "input": "터미널 프롬프트 UI는 깜빡이는 블루 커서와 '복사' 작업 버튼을 가진 어두운 둥근 컨테이너입니다.",
+        "hero": "크고 미묘한 로켓 발사 배경 이미지와 플로팅 코딩 에이전트 터미널 인터페이스를 특징으로 하는 넓은 어두운 상단 섹션입니다."
+      },
+      "motion": {
+        "patterns": [
+          "인터랙티브 요소에서 부드러운 색상 및 배경색 전환",
+          "hover 상태에서의 스케일 및 변환 효과"
+        ]
+      },
+      "interaction": {
+        "hover": "부드러운 색상 변화와 box-shadow를 통한 미묘한 높이 변화.",
+        "click": "미묘한 스케일 변환 또는 즉각적인 시각적 피드백.",
+        "transition": "색상, 채움 및 스트로크에 대한 표준 0.15s cubic-bezier 전환.",
+        "keyboard": "포커스 링이 인터랙티브 요소에 미묘한 윤곽선으로 나타납니다."
+      },
+      "voice": {
+        "tone": "자신감 있고 직접적이며 기술적이어서, 복잡한 엔지니어링 문제를 해결하는 것에 대해 개발자에게 직접 말합니다.",
+        "headlineStyle": "짧고 강렬하며 선언적인 문구 (예: '버그를 수정합니다', '알림 피로는 없습니다').",
+        "ctaStyle": "행동 지향적이고 간결합니다 (예: '시작하기').",
+        "avoid": [
+          "모호한 마케팅 용어",
+          "지나치게 복잡한 문장",
+          "수동태",
+          "과도한 느낌표"
+        ]
+      },
+      "donts": [
+        "밝고 채도 높은 그라디언트를 사용하지 마세요 — 스크린샷은 단일 블루 악센트를 가진 단색 다크 테마를 보여줍니다.",
+        "장난스럽고 둥근 산세리프를 사용하지 마세요 — 스크린샷은 구조화된 휴머니스틱 산세리프(Inter)를 사용합니다.",
+        "라이트 모드 인터페이스를 사용하지 마세요 — 스크린샷은 전용 다크 모드 디자인을 보여줍니다.",
+        "얇고 낮은 명도의 테두리를 사용하지 마세요 — 스크린샷은 미묘하지만 눈에 띄는 0.07 불투명도의 흰색 테두리를 사용합니다.",
+        "모든 것을 중앙 정렬 텍스트로 사용하지 마세요 — 스크린샷은 기능 설명에 왼쪽 정렬 텍스트를, 히어로 섹션에는 중앙 정렬 텍스트를 사용합니다.",
+        "복잡하고 다채로운 뱃지를 사용하지 마세요 — 스크린샷은 얇은 테두리를 가진 단순하고 무채색 대문자 레이블을 사용합니다."
+      ],
+      "systemPrompt": "Superlog, AI 기반 관찰 가능성 플랫폼을 위한 현대적인 개발자 도구 랜딩 페이지입니다. 디자인은 깊은 근접 블랙 다크 모드(#141415)를 기반으로 높은 명도의 흰색 텍스트(#F5F5F6)와 주요 작업을 위한 단일 강렬한 일렉트릭 블루 악센트(#485AE2)를 사용합니다. 타이포그래피는 본문 및 전시 텍스트를 위한 깔끔한 휴머니스틱 산세리프와 터미널 및 코드 요소를 위한 기하학적 모노스페이스 폰트를 사용합니다. 레이아웃은 넓고 중앙 정렬되어 있으며, 섹션을 분리하기 위해 여유로운 수직 리듬에 의존합니다. 주요 핵심 디자인 제약 사항으로는 라이트 모드 인터페이스 사용 회피, 장난스럽거나 지나치게 장식적인 타이포그래피 거부, 그리고 텍스트와 어두운 배경 사이의 높은 명도 유지가 있습니다. 미학은 정교하고 기술적이며 전문적이어서, 시각적 화려함보다 명확성과 효율성을 강조하며, 현대적인 SaaS 개발자 도구 디자인의 완벽한 예시입니다."
+    }
+  },
+  "desc": {
+    "en": {
+      "palette": "A deep monochromatic dark theme built on near-black backgrounds with high-contrast white and gray text, anchored by a single vibrant electric blue accent for primary actions.",
+      "layout": "A spacious, centered single-column layout with generous vertical padding that transitions into structured multi-column grids for feature presentations.",
+      "interaction": "Smooth, subtle transitions on hover states, primarily affecting colors, background fills, and slight elevation changes via box-shadows.",
+      "motion": "Minimal and purposeful motion, focusing on fast 150ms transitions for interactive states to maintain a snappy, professional feel.",
+      "notes": "This site is an excellent example of a modern, developer-focused SaaS landing page, effectively balancing a dark, technical aesthetic with clear, confident typography and a highly functional user interface."
+    },
+    "zh-CN": {
+      "palette": "一种基于近黑色背景、搭配高对比度白灰文字的深色单色主题，以单一鲜艳的电光蓝作为主要操作的核心强调色。",
+      "layout": "采用宽敞、居中的单栏布局，配合充足的垂直内边距，在展示功能时过渡至结构化的多栏网格。",
+      "interaction": "在悬停状态下进行平滑、微妙的过渡，主要影响颜色、背景填充以及通过 box-shadow 实现的轻微高度变化。",
+      "motion": "极简且目标明确的动效，聚焦于交互状态下快速的 150 毫秒过渡，以保持灵敏、专业的感受。",
+      "notes": "该网站是现代、面向开发者的 SaaS 落地页的优秀范例，有效平衡了深色、技术感的美学与清晰、自信的排版及高度功能化的用户界面。"
+    },
+    "zh-TW": {
+      "palette": "以近黑色背景為基礎的深色單色調主題，搭配高對比度的白色與灰色文字，並以單一鮮明的電光藍色作為主要動作的強調色。",
+      "layout": "寬敞的居中單欄佈局，配有充裕的垂直內邊距，並過渡至結構化的多欄網格以呈現功能介紹。",
+      "interaction": "在 hover 狀態上流暢、細膩的過渡效果，主要影響顏色、背景填色與透過 box-shadows 實現的輕微高度變化。",
+      "motion": "簡約且有意圖的動態效果，聚焦於互動狀態的快速 150ms 過渡，以維持流暢、專業的感覺。",
+      "notes": "此網站是現代、以開發者為中心的 SaaS 登陸頁面的絕佳範例，有效地在深色、技術感的美學與清晰、自信的排版以及高度功能性的使用者介面之間取得平衡。"
+    },
+    "ja": {
+      "palette": "ほぼ黒に近い背景に、コントラストの高い白とグレーのテキストを置いた、深いモノクロームのダークテーマ。プライマリアクションには鮮やかなエレクトリックブルーを単色アクセントとして使用。",
+      "layout": "ゆったりとした垂直パディングを持つ、中央揃えの単一カラムレイアウト。フィーチャーのプレゼンテーションでは、構造化されたマルチカラムグリッドへと移行。",
+      "interaction": "ホバーステートにおいて、主に色、背景塗り、ボックスシャドウによる微妙な高さの変化を伴う、滑らかで控えめなトランジション。",
+      "motion": "最小限で目的の明確なモーション。インタラクティブステートには高速な150msトランジションを採用し、素早くプロフェッショナルな印象を維持。",
+      "notes": "このサイトは、モダンで開発者向けのSaaSランディングページの優れた例です。ダークで技術的な美学と、明確で自信に満ちたタイポグラフィ、および高度に機能的なユーザーインターフェースを効果的にバランスさせています。"
+    },
+    "ko": {
+      "palette": "근접 블랙 배경에 높은 명도의 흰색과 회색 텍스트를 사용한 깊은 단일색 다크 테마입니다. 주요 작업을 위한 단일 강렬한 일렉트릭 블루 악센트로 구성됩니다.",
+      "layout": "여유로운 수직 패딩을 가진 넓고 중앙 정렬된 단일 열 레이아웃으로, 기능 프레젠테이션을 위해 구조화된 다중 열 그리드로 전환됩니다.",
+      "interaction": "hover 상태에서 부드럽고 미묘한 전환 효과를 제공하며, 주로 색상, 배경 채움 및 box-shadows를 통한 약간의 높이 변화를 적용합니다.",
+      "motion": "최소한의 목적 있는 모션으로, 빠르고 전문적인 느낌을 유지하기 위해 인터랙티브 상태에 대한 빠른 150ms 전환에 집중합니다.",
+      "notes": "이 사이트는 현대적이고 개발자 중심인 SaaS 랜딩 페이지의 훌륭한 예시로, 어두운 기술적 미학과 명확하고 자신감 있는 타이포그래피, 그리고 매우 기능적인 사용자 인터페이스를 효과적으로 균형 있게 보여줍니다."
+    }
+  },
+  "narrative": {
+    "en": {
+      "ch1_intro": "The identity of Superlog is framed as a tireless senior engineer that detects, analyzes, and autonomously fixes production bugs. Its design system translates this role into a visual language of focused utility and dark-mode clarity, built for observability and engineering rigor. Every element is chosen to signal reliable, autonomous operation in a high-stakes environment.",
+      "ch2_intro": "The color system is a high-contrast dark mode built on deep blacks and near-whites, using a single electric blue accent to direct attention to primary actions. This restrained palette ensures code, diagnostics, and critical alerts remain the focal point without chromatic competition.",
+      "ch2_outro": "The principle is functional contrast: the interface recedes into the background, allowing the data and the tool's responses to take precedence.",
+      "ch3_intro": "Typography employs a clean humanist sans-serif for its authoritative yet approachable voice, paired with a geometric monospace for terminal and code contexts. This combination directly mirrors the duality of the product—presenting complex engineering data in a structured, readable format.",
+      "ch4_intro": "Spacing follows a generous, rhythmic structure governed by a base 8px grid and substantial vertical padding to separate major sections.",
+      "ch5_intro": "Surfaces are defined by depth and transparency, using layered shadows and thin, low-opacity white borders to create a sense of floating panels. This approach establishes a clear visual hierarchy within the dark mode without introducing harsh divisions.",
+      "ch6_intro": "The layout begins as a spacious, centered single-column structure, providing a clear narrative path for the primary value proposition. It then transitions into structured multi-column grids to present feature showcases and technical details with organized density.",
+      "ch7_intro": "Motion is minimal and purposeful, philosophy is to affirm interactivity without distracting from the tool's core function. Smooth, fast transitions on colors and elevation provide immediate, professional feedback for user actions.",
+      "ch8_intro": "The voice is confident, direct, and technical, speaking to developers in short, declarative phrases that cut through complexity. It avoids vague marketing jargon and passive constructions, mirroring the product's promise of clarity and autonomous resolution.",
+      "ch8_outro": "The system deliberately rejects playful typography, light mode interfaces, and multi-colored badges, committing fully to a monochromatic, high-contrast technical aesthetic."
+    },
+    "zh-CN": {
+      "ch1_intro": "Superlog 的身份被定位为一位不知疲倦的高级工程师，能够探测、分析并自主修复生产环境中的缺陷。其设计系统将这一角色转化为一种聚焦实用性与深色模式清晰度的视觉语言，专为可观察性与工程严谨性而构建。每个元素的选择都旨在传达在高风险环境中可靠、自主的运作。",
+      "ch2_intro": "色彩系统基于深邃的黑色与近白色，构建了高对比度的深色模式，仅使用单一的电光蓝作为强调色，以引导用户关注核心操作。这一克制的配色方案确保代码、诊断信息与关键警报成为视觉焦点，避免色彩竞争。",
+      "ch2_outro": "其原则是功能性对比：界面退居背景，让数据与工具的响应占据主导地位。",
+      "ch3_intro": "字体采用清晰的人文无衬线体，传递权威而不失亲和的语气，并搭配几何等宽字体用于终端与代码环境。这种组合直接呼应了产品的双重特性——以结构化、易读的格式呈现复杂的工程数据。",
+      "ch4_intro": "间距遵循基于 8px 基础网格的充裕、富有节奏感的结构，并通过大量的垂直内边距来分隔主要区块。",
+      "ch5_intro": "界面表面通过深度与透明度来定义，运用分层阴影与细窄、低透明度的白色边框，营造出悬浮面板的视觉感受。这种方式在深色模式中建立了清晰的视觉层次，而不会引入生硬的分割感。",
+      "ch6_intro": "布局始于宽敞、居中的单栏结构，为价值主张提供清晰的叙事路径。随后过渡到结构化的多栏网格，以有序的密度展示功能亮点与技术细节。",
+      "ch7_intro": "动效极简且具有明确目的，其理念在于确认交互性，而不干扰工具的核心功能。色彩与层级的平滑、快速过渡，为用户操作提供即时、专业的反馈。",
+      "ch8_intro": "文案风格自信、直接且技术性强，以简短、陈述性的短语与开发者沟通，直击复杂性的核心。它避免使用模糊的营销术语与被动语态，呼应了产品对清晰度与自主解决的承诺。",
+      "ch8_outro": "该系统明确摒弃了活泼的字体风格、浅色模式界面以及多彩徽章，完全致力于单色、高对比度的技术美学。"
+    },
+    "zh-TW": {
+      "ch1_intro": "Superlog 的身分定位為一位不知疲倦的資深工程師，能偵測、分析並自主修復 production bugs。其設計系統將此角色轉化為專注於功能實用性與深色模式清晰度的視覺語言，為可觀測性與工程嚴謹性而構建。每個元素的選用，都旨在傳達在高風險環境中可靠且自主運作的意象。",
+      "ch2_outro": "其原則是功能性對比：介面退居背景，讓資料與工具的回應取得優先權。",
+      "ch3_intro": "字型採用清晰的 humanist sans-serif，兼具權威感與親和力，並搭配用於終端機與程式碼情境的幾何 monospace 字型。這種組合直接呼應了產品的雙重特質——以結構化且易讀的格式，呈現複雜的工程數據。",
+      "ch4_intro": "間距遵循慷慨且有節奏的結構，以 8px 基礎格線為準繩，並以大量的垂直 padding 來分隔主要區塊。",
+      "ch5_intro": "表面由深度與透明度定義，運用層疊陰影與細薄、低不透明度的白色邊框，營造浮動面板的視覺感。此方法在深色模式中建立了清晰的視覺層級，同時避免了生硬的分割。",
+      "ch6_intro": "版面從寬敞、置中的單欄結構開始，為主要價值主張提供清晰的敘事路徑。隨後過渡至結構化的多欄網格，以有組織的密度呈現功能展示與技術細節。",
+      "ch7_intro": "動態效果極簡且目的明確，其哲學在於確認互動性，同時不分散對工具核心功能的注意力。顏色與高度的平滑、快速轉換，為使用者操作提供即時且專業的回饋。",
+      "ch8_intro": "語氣自信、直接且具技術性，以簡短、陳述式的短語與開發者溝通，直切複雜問題核心。它避免了模糊的行銷術語與被動語態，呼應了產品在清晰度與自主解決方面的承諾。",
+      "ch8_outro": "此系統刻意摒棄俏皮的字型、淺色模式介面與多彩徽章，完全致力於單色、高對比的技術美學。"
+    },
+    "ja": {
+      "ch1_intro": "Superlogのアイデンティティは、本番環境のバグを検出し、分析し、自律的に修正する休むことのないシニアエンジニアとして構築されています。そのデザインシステムは、この役割を、観測可能性とエンジニアリングの厳密さのために構築された、集中した有用性とダークモードの明瞭性の視覚言語に翻訳します。すべての要素は、高リスク環境における信頼性の高い自律的な運用を示すために選択されています。",
+      "ch2_intro": "カラーシステムは、深い黒と近い白を基調とし、単一のエレクトリックブルーアクセントを使って主要なアクションへの注意を向ける、高コントラストのダークモードです。この抑制されたパレットにより、コード、診断、重要なアラートが、色の競合なしに焦点を保つことができます。",
+      "ch2_outro": "原則は機能的なコントラストです。インターフェースは背景に退き、データとツールの応答が優先されるようにします。",
+      "ch3_intro": "タイポグラフィは、権威がありながらも親しみやすい声のためにクリーンなヒューマニストサンセリフを採用し、ターミナルやコードのコンテキストにはジオメトリックなモノスペースを組み合わせています。この組み合わせは、製品の二重性を直接反映し、複雑なエンジニアリングデータを構造化された読みやすいフォーマットで提示します。",
+      "ch4_intro": "スペーシングは、ベースの8pxグリッドと主要セクションを分離する十分な垂直パディングによって支配される、豊かでリズミカルな構造に従います。",
+      "ch5_intro": "サーフェスは、深度と透明性によって定義され、レイヤードシャドウと薄く低不透明度のホワイトボーダーを使用して、浮遊パネルの感覚を創出します。このアプローチは、 harshな区切りを導入せずに、ダークモード内に明確な視覚的階層を確立します。",
+      "ch6_intro": "レイアウトは、主要な価値提案に対する明確なナラティブパスを提供する、広々とした中心配置の単一カラム構造から始まります。その後、特徴のショーケースや技術詳細を組織化された密度で提示するために、構造化されたマルチカラムグリッドに移行します。",
+      "ch7_intro": "モーションは最小限で意図的です。哲学は、ツールの主要機能から注意力をそらすことなく、インタラクティビティを確認することです。色と高さの滑らかで高速なトランジションは、ユーザーのアクションに対して即座に、プロフェッショナルなフィードバックを提供します。",
+      "ch8_intro": "声は自信に満ち、直接的で技術的であり、複雑さを切り抜ける短い宣言的なフレーズで開発者に語りかけます。曖昧なマーケティング用語や受動的な構造を避け、明瞭性と自律的な解決の製品の約束を反映しています。",
+      "ch8_outro": "システムは意図的に遊び心のあるタイポグラフィ、ライトモードのインターフェース、多色のバッジを排斥し、モノクロームで高コントラストの技術的な美的感覚に完全にコミットしています。"
+    },
+    "ko": {
+      "ch1_intro": "Superlog의 정체성은 프로덕션 버그를 탐지, 분석, 자율적으로 수정하는 끊임없는 시니어 엔지니어로 설정됩니다. 이 디자인 시스템은 관찰 가능성과 엔지니어링 엄밀성을 위해 구축된, 집중된 유틸리티와 다크 모드 명료성의 시각 언어로 이 역할을 번역합니다. 모든 요소는 고위험 환경에서 신뢰할 수 있는 자율적 운영을 신호로 전달하도록 선택되었습니다.",
+      "ch2_intro": "색상 시스템은 깊은 검은색과 거의 흰색을 기반으로 한 고대비 다크 모드이며, 단일 일렉트릭 블루 강조색을 사용하여 주요 작업으로 시선을 유도합니다. 이 절제된 팔레트는 코드, 진단 및 중요한 알림이 색상 경쟁 없이 초점으로 남도록 보장합니다.",
+      "ch2_outro": "원칙은 기능적 대비입니다: 인터페이스는 배경으로 물러나 데이터와 도구의 응답이 우선시되도록 합니다.",
+      "ch3_intro": "타이포그래피는 권위 있으면서도 친근한 음성을 위해 깔끔한 휴머니스틱 산세리프를 사용하며, 터미널 및 코드 환경용 기하학적 모노스페이스와 페어링됩니다. 이 조합은 복잡한 엔지니어링 데이터를 구조화된 읽기 쉬운 형식으로 제시하는 제품의 이중성을 직접 반영합니다.",
+      "ch4_intro": "간격은 기본 8px 그리드와 주요 섹션을 분리하기 위한 상당한 수직 패딩에 의해 지배되는 넉넉하고 리드미컬한 구조를 따릅니다.",
+      "ch5_intro": "표면은 깊이와 투명성으로 정의되며, 떠 있는 패널감을 만들기 위해 레이어링된 그림자와 얇은 저불투명도 흰색 테두리를 사용합니다. 이 접근 방식은 가혹한 구분을 도입하지 않고 다크 모드 내에 명확한 시각적 위계를 수립합니다.",
+      "ch6_intro": "레이아웃은 넓고 중앙 정렬된 단일 열 구조로 시작하여 주요 가치 제안에 대한 명확한 내러티브 경로를 제공합니다. 그런 다음 기능 쇼케이스와 기술적 세부 사항을 조직된 밀도로 제시하기 위해 구조화된 다중 열 그리드로 전환됩니다.",
+      "ch7_intro": "모션은 최소화되고 의도적이며, 철학은 도구의 핵심 기능에서 산만해지지 않으면서 상호작용을 확인하는 것입니다. 색상과 높이의 부드럽고 빠른 전환은 사용자 작업에 즉각적이고 전문적인 피드백을 제공합니다.",
+      "ch8_intro": "어조는 자신감 있고直接적입니다. 복잡성을 뚫고 개발자에게 간결하고 선언적인 구문으로 말합니다. 모호한 마케팅 용어와 수동적인 구문을 피하며 명료성과 자율적 해결이라는 제품의 약속을 반영합니다.",
+      "ch8_outro": "이 시스템은 의도적으로 장난스러운 타이포그래피, 라이트 모드 인터페이스 및 다색 배지를 거부하며, 완전히 단색, 고대비 기술적 미학에 전념합니다."
+    }
+  },
+  "no_preview": true
+}

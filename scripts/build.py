@@ -106,6 +106,7 @@ def build_sites_index(sites: list[dict]) -> dict:
             "status": s.get("status", "pending"),
             "has_spec": bool(s.get("spec")),
             "has_pack": bool(s.get("pack", {}).get("available")),
+            **({"no_preview": True} if s.get("no_preview") else {}),
         })
     return {
         "_meta": {

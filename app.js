@@ -562,12 +562,24 @@ function imageFallbackChain(site) {
   return [...new Set(chain)];
 }
 
-/** 生成 <img> 标签的 src + onerror fallback 属性串 */
+const BLANK_PX = "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBTAA7";
+
+/** 生成 <img> 标签的 src + onerror fallback 属性串
+ *  site.no_preview（人工确认：反爬拦截/持续白屏，重试也没用）→ 直接给空占位，
+ *  不发一个注定失败的网络请求，卡片直接走 .img-failed 占位态。 */
 function imgAttrs(site, { lazy = true, chain = null } = {}) {
+  if (site.no_preview) {
+    return `src="${BLANK_PX}" data-no-preview="1"`;
+  }
   const ch = chain || imageFallbackChain(site);
   const chainAttr = encodeURIComponent(JSON.stringify(ch));
   const loading = lazy ? ' loading="lazy"' : "";
   return `src="${ch[0]}" data-fallback="${chainAttr}" data-fallback-idx="0" onerror="window.__imgFallback&&window.__imgFallback(this)"${loading}`;
+}
+
+/** site.no_preview 时卡片容器直接带上失败态 class，配合上面的空 src 一步到位出占位，不用等 onerror */
+function thumbClass(site) {
+  return site.no_preview ? " img-failed" : "";
 }
 
 /**
@@ -607,7 +619,7 @@ window.__imgFallback = function (img) {
     } else {
       // 全失败 → 标记 + 移除 onerror 防死循环
       img.onerror = null;
-      img.closest(".card-thumb, .library-thumb")?.classList.add("img-failed");
+      img.closest(".card-thumb, .library-thumb, .related-site-thumb, #drawerMedia")?.classList.add("img-failed");
     }
   } catch {
     img.onerror = null;
@@ -1121,7 +1133,7 @@ function siteNodeHTML(site, x, y) {
   return `
     <div class="site-node" data-node="${site.id}" style="transform: translate3d(${x}px, ${y}px, 0);">
       <article class="site-card" data-id="${site.id}"${saved ? ' data-saved="true"' : ""}>
-        <div class="card-thumb">
+        <div class="card-thumb${thumbClass(site)}">
           <img ${imgAttrs(site)} alt="${t("img.alt.screenshot", { title: site.title })}" draggable="false" />
           <a class="card-hit" href="${siteDetailHref(site.id)}" aria-label="${t("card.open.aria", { title: site.title })}"></a>
           <a class="card-visit" href="${site.url}" target="_blank" rel="noreferrer" aria-label="${t("card.visit.aria", { title: site.title })}">
@@ -1350,7 +1362,7 @@ function libraryCardHTML(site, index) {
   return `
     <article class="library-card" data-id="${site.id}"${saved ? ' data-saved="true"' : ""}>
       <a class="library-hit" href="${siteDetailHref(site.id)}" aria-label="${t("card.open.aria", { title: site.title })}"></a>
-      <div class="library-thumb">
+      <div class="library-thumb${thumbClass(site)}">
         <img ${imgAttrs(site)} alt="${t("img.alt.screenshot", { title: site.title })}" />
         <button class="card-save library-save" type="button" data-save="${site.id}" aria-label="${t(saved ? "drawer.save.done" : "drawer.save")}" aria-pressed="${saved}">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-4.5-9.3-9A5.4 5.4 0 0 1 12 6a5.4 5.4 0 0 1 9.3 6c-2.3 4.5-9.3 9-9.3 9Z" /></svg>
@@ -1461,7 +1473,9 @@ function openDetail(siteId) {
     ...(shotOverride ? [shotOverride] : []),
     ...imageFallbackChain(activeSite),
   ])];
-  document.querySelector("#drawerMedia").innerHTML = `
+  const drawerMedia = document.querySelector("#drawerMedia");
+  drawerMedia.classList.toggle("img-failed", !!activeSite.no_preview);
+  drawerMedia.innerHTML = `
     <a href="${safeHref(activeSite.url)}" target="_blank" rel="noreferrer" aria-label="${t("drawer.visit.aria")}">
       <img id="drawerHeroImg" ${imgAttrs(activeSite, { lazy: false, chain: heroChain })} alt="${activeSite.title} screenshot" />
       <span class="media-visit-badge">
@@ -1603,8 +1617,8 @@ function renderRelatedSites(site) {
 
   grid.innerHTML = rel.map(({ site: s, sharedTags }) => `
     <a class="related-site-card" data-related="${s.id}" href="#/sites/${s.id}">
-      <div class="related-site-thumb">
-        <img src="${s.image}" alt="${s.title}" loading="lazy" />
+      <div class="related-site-thumb${thumbClass(s)}">
+        <img ${imgAttrs(s)} alt="${s.title}" />
       </div>
       <div class="related-site-meta">
         <span class="related-site-name">${s.title}</span>
@@ -3693,7 +3707,8 @@ async function loadPacksIndex() {
 function healPackImages() {
   if (!packsIndex || !Object.keys(packsIndex).length) return;
   const FOREIGN = /thum\.io|wsrv\.nl|microlink\.io/;
-  document.querySelectorAll(".card-thumb img, .library-thumb img").forEach((img) => {
+  document.querySelectorAll(".card-thumb img, .library-thumb img, .related-site-thumb img").forEach((img) => {
+    if (img.dataset.noPreview) return;                         // 人工确认拿不到有效截图，别再拿 COS 那张同样空白的图去"治愈"它
     const card = img.closest("[data-id]");
     const sid = card && card.dataset.id;
     if (!sid) return;
@@ -3701,7 +3716,7 @@ function healPackImages() {
     if (!ps) return;
     const src = img.currentSrc || img.src || "";
     if (src.indexOf(ps) !== -1) return;                       // 已经是这张 COS 图
-    const box = img.closest(".card-thumb, .library-thumb");
+    const box = img.closest(".card-thumb, .library-thumb, .related-site-thumb");
     const failed = box?.classList.contains("img-failed")
       || (img.complete && img.naturalWidth === 0);
     if (!FOREIGN.test(src) && !failed) return;                // 只修境外兜底 / 已失败的
