@@ -41,6 +41,52 @@ function slim(e) {
   return { slug: e.slug, title: e.title, url: e.url, tags: e.tags || [], summary: e.summary || "", has_pack: !!e.has_pack };
 }
 
+/* ── Aesthetic families (skill.md §3 "route to real references") ─────────
+ * skill.md's routing rule — 1 primary + 2 alternates from DIFFERENT families,
+ * "never 3 from one family" — is easy to state and hard for a model to reliably
+ * self-enforce from a prose instruction alone. This makes it deterministic:
+ * classify every candidate by tag overlap, then pick across buckets in code.
+ * Tag signals below are grounded in the catalog's actual current tag vocabulary
+ * (checked against a live frequency count, not guessed) — heuristic, not exact;
+ * same spirit as skill.md's own framing: "a starting point for what to search". */
+const FAMILIES = [
+  {
+    key: "restraint",
+    label: "Restraint / trust (Swiss, editorial)",
+    tags: ["clean", "premium", "calm", "refined", "restraint", "minimal", "monochrome", "fintech", "refinement"],
+  },
+  {
+    key: "dev-tool",
+    label: "Dev-tool / dense",
+    tags: ["dev", "saas", "developer tools", "devtools", "dark mode", "productivity", "tooling", "infra", "tool", "design tools", "developer"],
+  },
+  {
+    key: "bold-brand",
+    label: "Bold brand / high-energy",
+    tags: ["bold typography", "playful", "expressive", "consumer", "warm", "friendly"],
+  },
+  {
+    key: "motion",
+    label: "Motion / experimental (WebGL, studio)",
+    tags: ["experimental", "geometric", "ai", "hardware"],
+  },
+  {
+    key: "type-craft",
+    label: "Type-driven / quiet-craft",
+    tags: ["editorial", "typography", "portfolio", "photographic", "studio", "gallery", "type", "foundry", "museum", "reference", "fashion", "beauty"],
+  },
+];
+
+function classifyFamily(tags) {
+  const t = new Set((tags || []).map((x) => String(x).toLowerCase()));
+  let best = null, bestScore = 0;
+  for (const fam of FAMILIES) {
+    const score = fam.tags.reduce((n, tag) => n + (t.has(tag) ? 1 : 0), 0);
+    if (score > bestScore) { best = fam; bestScore = score; }
+  }
+  return best || FAMILIES[0]; // no tag signal at all → arbitrary bucket rather than null (still usable for diversity)
+}
+
 /* ── Tools ─────────────────────────────────────────────────────────────── */
 export const TOOLS = [
   {
@@ -79,6 +125,24 @@ export const TOOLS = [
   {
     name: "get_director_protocol",
     description: "Read the OpenDesign design-director protocol (skill.md) — how to diagnose the need, give a professional point of view, route to the right references, and decompose them into a grounded build. Read this first to act as a design director.",
+    inputSchema: { type: "object", properties: {} },
+  },
+  {
+    name: "recommend_references",
+    description:
+      "Task-oriented routing (skill.md step 3): given a brief, return 1 primary + 2 alternates picked from DIFFERENT aesthetic families on purpose — the classic safe/bold/unexpected spread — instead of 3 near-duplicates. Family diversity is enforced in code, not left to chance. Use this instead of search_designs when you want a director-style recommendation set, not a raw result list. Then call get_design_system on the one the user picks.",
+    inputSchema: {
+      type: "object",
+      properties: {
+        query: { type: "string", description: "the need in free text, e.g. 'crypto trading dashboard, trustworthy not flashy'" },
+        tags: { type: "array", items: { type: "string" }, description: "optional hard tag filter (any-match), same semantics as search_designs" },
+      },
+    },
+  },
+  {
+    name: "get_critique_rubric",
+    description:
+      "The OpenDesign 5-dimension critique rubric (skill.md 'when asked to review a design'): reference fidelity, visual hierarchy, craft, function, originality — each scored 0-10, plus the Keep/Fix/Quick-wins output shape. Fetch this and apply it yourself when the user asks to review/score a design — this tool hands you the rubric structure, it doesn't look at anything (no vision call happens server-side).",
     inputSchema: { type: "object", properties: {} },
   },
 ];
@@ -159,6 +223,84 @@ export async function callTool(name, args = {}) {
 
   if (name === "get_director_protocol") {
     return await httpGet("/skill.md");
+  }
+
+  if (name === "recommend_references") {
+    const items = await catalog();
+    const q = String(args.query || "").toLowerCase().trim();
+    const want = new Set((args.tags || []).map((t) => String(t).toLowerCase()));
+    const words = q ? q.split(/\s+/) : [];
+
+    // same relevance scoring as search_designs, plus a family tag per candidate
+    const scored = [];
+    for (const e of items) {
+      const s = slim(e);
+      const tagset = new Set(s.tags.map((t) => String(t).toLowerCase()));
+      if (want.size && ![...want].some((w) => tagset.has(w))) continue;
+      let score = want.size ? 2 : 0;
+      const hay = `${s.slug} ${s.title} ${s.tags.join(" ")} ${s.summary}`.toLowerCase();
+      for (const w of words) {
+        if (tagset.has(w)) score += 3;
+        else if (hay.includes(w)) score += 1;
+      }
+      if (words.length && score === (want.size ? 2 : 0)) continue;
+      scored.push({ s, score, family: classifyFamily(s.tags) });
+    }
+    scored.sort((a, b) => b.score - a.score);
+
+    if (!scored.length) {
+      return { query: args.query || "", tags: args.tags || [], picks: [], note: "No matches — try broader terms or fewer tag filters (this mirrors search_designs' matching, so the same query works there too)." };
+    }
+
+    const why = (c) =>
+      `${c.s.title} reads ${c.family.label.toLowerCase()} — tagged ${c.s.tags.slice(0, 3).join(", ") || "n/a"}. ${c.s.summary || ""}`.trim();
+
+    const primary = scored[0];
+    const usedFamilies = new Set([primary.family.key]);
+    const alternates = [];
+    for (const c of scored.slice(1)) {
+      if (alternates.length >= 2) break;
+      if (usedFamilies.has(c.family.key)) continue; // enforce: never 2 picks from the same family
+      alternates.push(c);
+      usedFamilies.add(c.family.key);
+    }
+    // not enough family spread in the result set (small/narrow query) — fill remaining slots
+    // with next-best regardless of family, rather than returning fewer than 3 picks.
+    if (alternates.length < 2) {
+      for (const c of scored.slice(1)) {
+        if (alternates.length >= 2) break;
+        if (alternates.includes(c) || c === primary) continue;
+        alternates.push(c);
+      }
+    }
+
+    const label = (c, role) => ({ role, slug: c.s.slug, title: c.s.title, url: c.s.url, tags: c.s.tags, summary: c.s.summary, family: c.family.label, why: why(c) });
+    return {
+      query: args.query || "",
+      tags: args.tags || [],
+      picks: [label(primary, "primary"), ...alternates.map((c) => label(c, "alternate"))],
+      next_step: "Call get_design_system(slug) on whichever the user picks to get its actual grounded tokens — never build from these summaries alone.",
+    };
+  }
+
+  if (name === "get_critique_rubric") {
+    return {
+      instructions: "Apply this yourself against the design in front of you — this tool returns the rubric, it does not see or judge anything server-side. Score each dimension 0-10, then output Keep / Fix / Quick-wins.",
+      dimensions: [
+        { key: "reference_fidelity", question: "Does it honor a real system, or is it generic?", check: "squint test — blur your eyes, is the hierarchy still legible?" },
+        { key: "visual_hierarchy", question: "Does the eye flow where intended?", check: "title:body contrast ≥ 2.5×" },
+        { key: "craft", question: "Alignment, spacing rhythm, restraint.", check: "one grid, ≤3-4 colors, ≤2 type families" },
+        { key: "function", question: "Would removing any element make it worse?", check: "if not, it's filler — cut it" },
+        { key: "originality", question: "A signature move, or template clichés?", check: "e.g. a gradient orb defaulting to \"AI\" is a cliché, not a choice" },
+      ],
+      output_shape: {
+        total: "sum of the 5 scores, out of 50",
+        keep: "what's actually working — be specific, not generic praise",
+        fix: "tag each issue ⚠️ fatal / ⚡ important / 💡 polish",
+        quick_wins: "top 3 five-minute fixes, ordered by impact",
+      },
+      note: "Critique the design, not the designer.",
+    };
   }
 
   throw new Error(`unknown tool: ${name}`);
