@@ -353,6 +353,22 @@ def _fetch_url_bytes(url: str, timeout: int = 60) -> tuple[bytes, str]:
     return data, media
 
 
+_IMAGE_MAGIC = (
+    (b"\x89PNG\r\n\x1a\n", ),
+    (b"\xff\xd8\xff", ),          # JPEG
+    (b"GIF87a", b"GIF89a"),
+    (b"RIFF", ),                   # WebP (RIFF....WEBP — checked loosely below)
+    (b"BM", ),                     # BMP
+)
+
+def _looks_like_image(data: bytes) -> bool:
+    """真图片校验：常见格式 magic bytes + 最小体积。比只挡 HTML 错误页靠谱——
+    空响应/JSON错误体/半途截断都会被这个挡住，不会伪装成合法图片发去 mimo。"""
+    if len(data) < 500:  # 真截图至少几 KB；错误页/占位响应通常几十到几百字节
+        return False
+    return any(data.startswith(sig) for sigs in _IMAGE_MAGIC for sig in sigs)
+
+
 def fetch_image_base64(url: str, timeout: int = 60, original_url: str | None = None) -> tuple[str, str]:
     """
     返回 (base64_str, media_type).
@@ -393,8 +409,12 @@ def fetch_image_base64(url: str, timeout: int = 60, original_url: str | None = N
                     b64 = shot.split(",", 1)[1]
                     return b64, media
                 continue
-            if data.startswith(b"<!"):  # HTML error page
-                last_err = f"got HTML from {src[:60]}"; continue
+            if not _looks_like_image(data):
+                # 不只 HTML 错误页会漏网——空响应/JSON错误体/半途截断的数据都会通过旧的
+                # "startswith(b'<!')" 检查，base64 编码永远不会报错，于是把垃圾字节当图
+                # 发给 mimo，对方拿真正的图片校验拒收（"base64 data is not valid"），
+                # 白打一次 API 调用。改成认真检查常见图片格式的 magic bytes + 最小体积。
+                last_err = f"not a valid image ({len(data)}B) from {src[:60]}"; continue
             return base64.b64encode(data).decode("ascii"), media
         except Exception as e:
             last_err = f"{type(e).__name__}: {str(e)[:120]}"
@@ -1147,10 +1167,23 @@ def main():
         try:
             site = run_pipeline(site, only=args.only, dry_run=args.dry_run, extract_dir=extract_dir)
         except Exception as e:
-            site.setdefault("_meta", {})["last_error"] = str(e)[:500]
-            site["status"] = f"failed:{type(e).__name__}"
+            meta = site.setdefault("_meta", {})
+            meta["last_error"] = str(e)[:500]
+            # 连续失败太多次的站(比如域名彻底不通)会被 --all-incomplete/--input 每轮
+            # 反复重试，白占批次名额还可能撞上"人工标 broken 后又被这轮的失败结果覆盖回去"
+            # 的竞态。数够次数就直接认输标 broken，别再排队——真恢复了 self-optimize.py
+            # 的探活会捞回来。
+            retries = meta.get("retry_count", 0) + 1
+            meta["retry_count"] = retries
+            if retries >= 3:
+                site["status"] = "broken"
+                site["broken_at"] = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+                meta["broken_reason"] = f"gave up after {retries} ingest attempts, last: {type(e).__name__}: {str(e)[:200]}"
+                print(f"  {ANSI['r']}✗ {type(e).__name__}: {e} — {retries} 次失败，标 broken 不再重试{ANSI['x']}")
+            else:
+                site["status"] = f"failed:{type(e).__name__}"
+                print(f"  {ANSI['r']}✗ {type(e).__name__}: {e} ({retries}/3){ANSI['x']}")
             save_site(site)
-            print(f"  {ANSI['r']}✗ {type(e).__name__}: {e}{ANSI['x']}")
             summary["failed"] += 1
             continue
 
