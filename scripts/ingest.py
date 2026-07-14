@@ -692,7 +692,14 @@ def normalize_surfaces(site: dict) -> None:
     """修复 mimo 偶发的 shape 偏差，让输出过 schema：
     - surfaces.shadows: {token,value} 对象 → 'token: value' 字符串
     - 几个 schema 要 array 的字段（motion.patterns / motion.principles / donts …）若给成 string → 包成单元素 list
+    - voice.ctaStyle 偶尔给 null（schema 要字符串）→ 兜底成 "default"
+    - typography.scale[].token 偶尔给 camelCase（schema 要 kebab-case）→ 转换
+    - typography.scale[].weight 偶尔给 >900（CSS font-weight 上限）→ clamp
+    这几条踩过坑：批量收录时一个站过不了 schema 会挡住整批发布（run_auto_publish
+    现在把有问题的站单独摘出去重置成 pending，但源头顺手清理掉更省事，不用等下一轮）。
     """
+    import re as _re
+
     LIST_FIELDS = {
         "motion": ["patterns", "principles"],
         "interaction": ["patterns"],
@@ -720,6 +727,22 @@ def normalize_surfaces(site: dict) -> None:
         # 顶层 donts 若给成 string
         if isinstance(b.get("donts"), str) and b["donts"].strip():
             b["donts"] = [b["donts"].strip()]
+        # voice.ctaStyle null → "default"（schema 要字符串，值本身不影响视觉，只是 voice 描述）
+        voice = b.get("voice")
+        if isinstance(voice, dict) and voice.get("ctaStyle") is None and "ctaStyle" in voice:
+            voice["ctaStyle"] = "default"
+
+    # typography.scale 只存在 neutral spec（split_spec 没按语言拆它）
+    scale = (site.get("spec") or {}).get("typography", {}).get("scale", [])
+    for entry in scale:
+        if not isinstance(entry, dict):
+            continue
+        tok = entry.get("token")
+        if isinstance(tok, str) and not _re.match(r"^[a-z][a-z0-9-]*$", tok):
+            entry["token"] = _re.sub(r"([a-z0-9])([A-Z])", r"\1-\2", tok).lower()
+        w = entry.get("weight")
+        if isinstance(w, (int, float)) and w > 900:
+            entry["weight"] = 900
 
 
 def finalize(site: dict) -> dict:
@@ -759,7 +782,14 @@ def split_spec(spec: dict) -> tuple[dict, dict]:
         ty = dict(spec["typography"])
         rules = ty.pop("rules", [])
         scale = ty.pop("scale", [])
-        clean_scale = [{k: v for k, v in s.items() if k != "use"} for s in scale]
+        # mimo 有时对"没有显式 letter-spacing"的字号给 ls: null——schema 要求 ls 是字符串
+        # （这是个真实 design token，得能直接引用），null 会在 --auto-publish 时炸 schema
+        # 校验，且是全批一起炸（一个站的坏数据挡住同批其它站发布）。CSS 的 "normal" 就是
+        # letter-spacing 未显式设置时的实际语义，比空字符串更诚实。
+        clean_scale = [
+            {k: (v if k != "ls" or isinstance(v, str) else "normal") for k, v in s.items() if k != "use"}
+            for s in scale
+        ]
         ty["scale"] = clean_scale
         neutral["typography"] = ty
         relative["typography"] = {"rules": rules, "scaleUses": [s.get("use", "") for s in scale]}
@@ -955,8 +985,38 @@ def run_auto_publish(processed_slugs: list[str]):
             return False
         return True
 
-    if not run(["python3", "scripts/validate-sites.py", "--strict"], "validate schema"):
-        print(f"  {ANSI['r']}Stopped: fix schema errors then re-run with --auto-publish.{ANSI['x']}")
+    # 只查这批刚处理的 slug，不查全库——sites/ 里几百个 pending/failed 桩条目本来就不完整，
+    # 不该因为它们的历史错误挡住这批新处理站的发布（quality-check.py 下面已经这么做了，这里是漏了）。
+    #
+    # 一个站 schema 有错不该拖累整批——build.py 是按全库 status=completed 发布的，不是按
+    # processed_slugs，所以真正需要的只是：把有 schema 错的站排除出这批、退回 pending 等下次
+    # 修好再进（不留一个"completed 但从没验证通过"的悬空态），剩下干净的站正常发布。
+    print(f"  · validate schema")
+    vr = subprocess.run(
+        ["python3", "scripts/validate-sites.py", "--strict", "--json", *processed_slugs],
+        cwd=str(ROOT), capture_output=True, text=True
+    )
+    try:
+        vdata = json.loads(vr.stdout)
+        bad_slugs = {r["slug"] for r in vdata.get("results", []) if r.get("errors")}
+    except Exception:
+        bad_slugs = set(processed_slugs)  # 解析不出来就保守地当全批有问题
+
+    if bad_slugs:
+        print(f"    {ANSI['y']}⚠ {len(bad_slugs)} site(s) failed schema, excluded + reset to pending: {sorted(bad_slugs)}{ANSI['x']}")
+        for slug in bad_slugs:
+            fp = SITES_DIR / f"{slug}.json"
+            try:
+                s = json.loads(fp.read_text(encoding="utf-8"))
+                s["status"] = "pending"
+                s.setdefault("_meta", {})["schema_error_at"] = datetime.now(timezone.utc).isoformat(timespec="seconds")
+                fp.write_text(json.dumps(s, ensure_ascii=False, indent=2))
+            except Exception as e:
+                print(f"    {ANSI['r']}✗ couldn't reset {slug}: {e}{ANSI['x']}")
+        processed_slugs = [s for s in processed_slugs if s not in bad_slugs]
+
+    if not processed_slugs:
+        print(f"  {ANSI['r']}Stopped: every site in this batch failed schema — nothing left to publish.{ANSI['x']}")
         return False
 
     # 质量门 —— 比 schema 严：颜色 / donts / 字体类别 / 5 lang 齐 等

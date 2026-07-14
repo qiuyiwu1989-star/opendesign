@@ -43,7 +43,7 @@
     },
     "status": {
       "type": "string",
-      "pattern": "^(pending|screenshot|vision_done|translated|narrated|completed|failed(:[A-Za-z0-9_]+)?)$",
+      "pattern": "^(pending|screenshot|vision_done|translated|narrated|completed|broken|archived|failed(:[A-Za-z0-9_]+)?)$",
       "description": "Ingest pipeline state. Failure tracked as 'failed' or 'failed:<ExceptionName>' with last_error in _meta."
     },
     "added_at": {
@@ -55,6 +55,24 @@
       "type": "string",
       "description": "'curator' or 'community:<github-handle>'.",
       "default": "curator"
+    },
+    "broken_detected": {
+      "type": "string",
+      "format": "date",
+      "description": "self-optimize.py: first date URL was seen unreachable (two-pass confirm before status flips to broken)."
+    },
+    "broken_at": {
+      "type": "string",
+      "format": "date",
+      "description": "self-optimize.py: date status was confirmed broken (second consecutive failed probe)."
+    },
+    "rank_score": {
+      "type": "number",
+      "description": "adaptive-rank.py: likes*3 + saves*5 + freshness/pack bonuses. Drives homepage ordering."
+    },
+    "no_preview": {
+      "type": "boolean",
+      "description": "Site is reachable but automated screenshot capture reliably returns blank (bot-blocking headless browsers etc.) — frontend renders a placeholder instead of retrying a doomed image load."
     },
 
     "_meta": {
