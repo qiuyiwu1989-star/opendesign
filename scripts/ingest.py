@@ -712,7 +712,7 @@ def normalize_surfaces(site: dict) -> None:
     """修复 mimo 偶发的 shape 偏差，让输出过 schema：
     - surfaces.shadows: {token,value} 对象 → 'token: value' 字符串
     - 几个 schema 要 array 的字段（motion.patterns / motion.principles / donts …）若给成 string → 包成单元素 list
-    - voice.ctaStyle 偶尔给 null（schema 要字符串）→ 兜底成 "default"
+    - voice.{tone,headlineStyle,ctaStyle} 偶尔给 null（schema 要字符串）→ 兜底成 "default"
     - typography.scale[].token 偶尔给 camelCase（schema 要 kebab-case）→ 转换
     - typography.scale[].weight 偶尔给 >900（CSS font-weight 上限）→ clamp
     这几条踩过坑：批量收录时一个站过不了 schema 会挡住整批发布（run_auto_publish
@@ -747,10 +747,13 @@ def normalize_surfaces(site: dict) -> None:
         # 顶层 donts 若给成 string
         if isinstance(b.get("donts"), str) and b["donts"].strip():
             b["donts"] = [b["donts"].strip()]
-        # voice.ctaStyle null → "default"（schema 要字符串，值本身不影响视觉，只是 voice 描述）
+        # voice.{tone,headlineStyle,ctaStyle} null → "default"（schema 要字符串，
+        # 这几个都是纯描述性字段，值本身不影响视觉，兜底不掉质量）
         voice = b.get("voice")
-        if isinstance(voice, dict) and voice.get("ctaStyle") is None and "ctaStyle" in voice:
-            voice["ctaStyle"] = "default"
+        if isinstance(voice, dict):
+            for f in ("tone", "headlineStyle", "ctaStyle"):
+                if f in voice and voice.get(f) is None:
+                    voice[f] = "default"
 
     # typography.scale 只存在 neutral spec（split_spec 没按语言拆它）
     scale = (site.get("spec") or {}).get("typography", {}).get("scale", [])
@@ -765,9 +768,55 @@ def normalize_surfaces(site: dict) -> None:
             entry["weight"] = 900
 
 
+_SCHEMA_CACHE = None
+
+def _load_schema():
+    global _SCHEMA_CACHE
+    if _SCHEMA_CACHE is None:
+        _SCHEMA_CACHE = json.loads((ROOT / "docs" / "site-schema.json").read_text(encoding="utf-8"))
+    return _SCHEMA_CACHE
+
+
+def _resolve_ref(ref: str, root_schema: dict) -> dict:
+    # 只处理本文件用到的简单形式：本地 "#/$defs/Xxx"
+    name = ref.split("/")[-1]
+    return root_schema.get("$defs", {}).get(name, {})
+
+
+def prune_to_schema(data, schema, root_schema=None):
+    """按 schema 递归砍掉 additionalProperties:false 处不认识的 key。
+
+    mimo 偶尔往这类对象里塞进翻译串味的中文键名(把 'donts'/'layout' 这种结构性
+    字段名也当值翻译了，比如 layout 对象里混进 '骨架' 键)、打错字的键名
+    (analogogy/borners/browsers)、带冒号的畸形键(donts:)。这类错误花样太多，
+    没法一个个枚举字段名去修——按 schema 白名单过滤，不在允许列表里的 key
+    直接丢，比一个个猜漏网之鱼靠谱。丢弃的数据本来就是格式错的，没法用。
+    """
+    if root_schema is None:
+        root_schema = schema
+    if "$ref" in schema:
+        schema = _resolve_ref(schema["$ref"], root_schema)
+
+    if isinstance(data, dict) and schema.get("type") == "object":
+        props = schema.get("properties", {})
+        if schema.get("additionalProperties") is False and props:
+            data = {k: v for k, v in data.items() if k in props}
+        for k in list(data.keys()):
+            if k in props:
+                data[k] = prune_to_schema(data[k], props[k], root_schema)
+        return data
+    if isinstance(data, list) and schema.get("type") == "array":
+        item_schema = schema.get("items")
+        if isinstance(item_schema, dict):
+            return [prune_to_schema(x, item_schema, root_schema) for x in data]
+        return data
+    return data
+
+
 def finalize(site: dict) -> dict:
     """所有步骤都完成 → status=completed，汇总 total_cost。"""
     normalize_surfaces(site)
+    site = prune_to_schema(site, _load_schema())
     meta = site.setdefault("_meta", {})
     total = (meta.get("vision_cost_usd", 0.0)
              + meta.get("translation_cost_usd", 0.0)
