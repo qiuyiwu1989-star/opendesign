@@ -124,7 +124,7 @@ def ai_score(url: str, title: str, description: str) -> tuple[int, str]:
     try:
         body = json.dumps({
             "model":      AI_MODEL,
-            "max_tokens": 120,
+            "max_tokens": 512, "thinking": {"type": "disabled"},
             "messages":   [{"role": "user", "content": prompt}],
         }).encode()
         req = urllib.request.Request(

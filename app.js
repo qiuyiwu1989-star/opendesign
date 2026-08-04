@@ -1,3 +1,11 @@
+/* localStorage 安全壳：Safari 隐私模式 / 存储被禁时 localStorage 会直接 throw，
+ * 裸调会让整站白屏。全文件统一走 safeStorage，失败静默降级（功能少一点，站不能挂）。 */
+const safeStorage = {
+  get(k) { try { return localStorage.getItem(k); } catch { return null; } },
+  set(k, v) { try { localStorage.setItem(k, v); } catch {} },
+  remove(k) { try { localStorage.removeItem(k); } catch {} }
+};
+
 const STORAGE_KEY = "style-atlas-drafts";
 const OWNER_MODE = new URLSearchParams(location.search).has("owner");
 const curatedSites = []; // 由 initSitesData() 异步填充（从 sites-index.json 14 KB 而非 sites.js 3.4 MB）
@@ -104,7 +112,7 @@ const toast = document.querySelector("#toast");
 
 function loadSites() {
   if (!OWNER_MODE) return curatedSites;
-  const stored = localStorage.getItem(STORAGE_KEY);
+  const stored = safeStorage.get(STORAGE_KEY);
   if (!stored) return curatedSites;
   try {
     const drafts = JSON.parse(stored);
@@ -121,7 +129,7 @@ function saveSites() {
   if (!OWNER_MODE) return;
   const curatedIds = new Set(curatedSites.map((site) => site.id));
   const drafts = sites.filter((site) => !curatedIds.has(site.id));
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(drafts));
+  safeStorage.set(STORAGE_KEY, JSON.stringify(drafts));
 }
 
 /* ========== 异步数据加载：sites-index.json（14 KB）替代阻塞性 sites.js（3.4 MB） ========== */
@@ -130,10 +138,18 @@ function saveSites() {
  * 从 sites-index.json 异步拉取精简站点列表，填充 curatedSites。
  * 若 sites.js 已预先加载（OWNER_MODE 手动注入场景），直接复用。
  */
+/** 防御兜底：管线偶发产出脏数据（缺 tags/title/url）时不让 renderAll 全崩 */
+function normalizeSiteRecord(s) {
+  s.tags = Array.isArray(s.tags) ? s.tags : [];
+  s.title = s.title || s.id || "";
+  s.url = s.url || "";
+  return s;
+}
+
 async function initSitesData() {
   // 兜底：若 sites.js 已被手动注入（OWNER_MODE 调试），直接用
   if (Array.isArray(window.STYLE_ATLAS_SITES) && window.STYLE_ATLAS_SITES.length) {
-    curatedSites.push(...window.STYLE_ATLAS_SITES);
+    curatedSites.push(...window.STYLE_ATLAS_SITES.map(normalizeSiteRecord));
     return;
   }
   try {
@@ -142,8 +158,8 @@ async function initSitesData() {
     const data = await res.json();
     const items = Array.isArray(data.sites) ? data.sites : Array.isArray(data) ? data : [];
     // 只收录已完成的站点（过滤 pending/failed）
-    const published = items.filter((s) => !s.status || s.status === "completed");
-    curatedSites.push(...published);
+    const published = items.filter((s) => s && (!s.status || s.status === "completed"));
+    curatedSites.push(...published.map(normalizeSiteRecord));
   } catch (err) {
     console.warn("[init] sites-index.json 加载失败，回退空列表:", err);
   }
@@ -200,7 +216,7 @@ const SAVE_COUNTS_KEY = "style-atlas-save-counts";
 
 function readIdSet(key) {
   try {
-    const raw = JSON.parse(localStorage.getItem(key) || "[]");
+    const raw = JSON.parse(safeStorage.get(key) || "[]");
     return new Set(Array.isArray(raw) ? raw : []);
   } catch {
     return new Set();
@@ -208,12 +224,12 @@ function readIdSet(key) {
 }
 
 function writeIdSet(key, set) {
-  localStorage.setItem(key, JSON.stringify([...set]));
+  safeStorage.set(key, JSON.stringify([...set]));
 }
 
 function readLikeCounts() {
   try {
-    const obj = JSON.parse(localStorage.getItem(LIKE_COUNTS_KEY) || "{}");
+    const obj = JSON.parse(safeStorage.get(LIKE_COUNTS_KEY) || "{}");
     return new Map(Object.entries(obj));
   } catch {
     return new Map();
@@ -221,12 +237,12 @@ function readLikeCounts() {
 }
 
 function writeLikeCounts(map) {
-  localStorage.setItem(LIKE_COUNTS_KEY, JSON.stringify(Object.fromEntries(map)));
+  safeStorage.set(LIKE_COUNTS_KEY, JSON.stringify(Object.fromEntries(map)));
 }
 
 function readSaveCounts() {
   try {
-    const obj = JSON.parse(localStorage.getItem(SAVE_COUNTS_KEY) || "{}");
+    const obj = JSON.parse(safeStorage.get(SAVE_COUNTS_KEY) || "{}");
     return new Map(Object.entries(obj));
   } catch {
     return new Map();
@@ -234,7 +250,7 @@ function readSaveCounts() {
 }
 
 function writeSaveCounts(map) {
-  localStorage.setItem(SAVE_COUNTS_KEY, JSON.stringify(Object.fromEntries(map)));
+  safeStorage.set(SAVE_COUNTS_KEY, JSON.stringify(Object.fromEntries(map)));
 }
 
 /* ====== 我请求的收录（本地视图） ======
@@ -244,7 +260,7 @@ const REQUESTS_KEY = "od-requests";
 
 function readRequests() {
   try {
-    const arr = JSON.parse(localStorage.getItem(REQUESTS_KEY) || "[]");
+    const arr = JSON.parse(safeStorage.get(REQUESTS_KEY) || "[]");
     return Array.isArray(arr) ? arr : [];
   } catch {
     return [];
@@ -252,7 +268,7 @@ function readRequests() {
 }
 
 function writeRequests(arr) {
-  localStorage.setItem(REQUESTS_KEY, JSON.stringify(arr.slice(0, 100)));
+  safeStorage.set(REQUESTS_KEY, JSON.stringify(arr.slice(0, 100)));
 }
 
 function addRequestLocal(rec) {
@@ -268,12 +284,12 @@ function addRequestLocal(rec) {
 }
 
 function getVisitorId() {
-  let id = localStorage.getItem(VISITOR_KEY);
+  let id = safeStorage.get(VISITOR_KEY);
   if (!id) {
     id = (window.crypto && crypto.randomUUID)
       ? crypto.randomUUID()
       : `v-${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 10)}`;
-    localStorage.setItem(VISITOR_KEY, id);
+    safeStorage.set(VISITOR_KEY, id);
   }
   return id;
 }
@@ -357,8 +373,11 @@ const store = {
   async _push(table, siteId, wasOn) {
     try {
       if (wasOn) {
-        await supabaseClient.from(table).delete()
-          .match({ visitor_id: visitorId, site_id: siteId });
+        // 0009 迁移后 anon 不再有裸 DELETE 权限 —— 删除走 security definer RPC，
+        // 只能删自己 visitor_id 名下的记录（remove_save / remove_like）
+        const fn = table === "saves" ? "remove_save" : "remove_like";
+        const { error } = await supabaseClient.rpc(fn, { p_visitor_id: visitorId, p_site_id: siteId });
+        if (error) throw error;
       } else {
         await supabaseClient.from(table)
           .upsert({ visitor_id: visitorId, site_id: siteId }, { onConflict: "visitor_id,site_id" });
@@ -459,7 +478,7 @@ async function getMySyncCode(maxRetries = 5) {
   if (!supabaseClient) throw new Error("SUPABASE_REQUIRED");
 
   // 1) localStorage 缓存
-  const cached = localStorage.getItem(MY_SYNC_CODE_KEY);
+  const cached = safeStorage.get(MY_SYNC_CODE_KEY);
   if (cached) return cached;
 
   // 2) 查 DB
@@ -470,7 +489,7 @@ async function getMySyncCode(maxRetries = 5) {
     .maybeSingle();
   if (selErr) throw selErr;
   if (existing && existing.code) {
-    localStorage.setItem(MY_SYNC_CODE_KEY, existing.code);
+    safeStorage.set(MY_SYNC_CODE_KEY, existing.code);
     return existing.code;
   }
 
@@ -481,7 +500,7 @@ async function getMySyncCode(maxRetries = 5) {
       .from("sync_codes")
       .insert({ visitor_id: visitorId, code });
     if (!error) {
-      localStorage.setItem(MY_SYNC_CODE_KEY, code);
+      safeStorage.set(MY_SYNC_CODE_KEY, code);
       return code;
     }
     // 23505 = unique_violation。可能 visitor_id 撞 PK（并发竞态）或 code 撞 unique。
@@ -493,7 +512,7 @@ async function getMySyncCode(maxRetries = 5) {
       .eq("visitor_id", visitorId)
       .maybeSingle();
     if (again && again.code) {
-      localStorage.setItem(MY_SYNC_CODE_KEY, again.code);
+      safeStorage.set(MY_SYNC_CODE_KEY, again.code);
       return again.code;
     }
     // 否则是 code 撞了 unique，下一轮换个 code 重试
@@ -501,32 +520,31 @@ async function getMySyncCode(maxRetries = 5) {
   throw new Error("CODE_GENERATION_FAILED");
 }
 
-/** 用 code 查回原 visitor_id。返回 { visitorId } 或抛 NOT_FOUND。 */
+/** 用 code 查回原 visitor_id。返回 { visitorId } 或抛 NOT_FOUND。
+ *  0009 迁移后 anon 不能再直接 SELECT/UPDATE sync_codes 表 ——
+ *  查询走 lookup_sync_code RPC（只按精确 code 返回单条），心跳走 touch_sync_code RPC。 */
 async function lookupSyncCode(rawCode) {
   if (!supabaseClient) throw new Error("SUPABASE_REQUIRED");
   const code = (rawCode || "").trim().toLowerCase();
   if (!code) throw new Error("EMPTY_CODE");
-  const { data, error } = await supabaseClient
-    .from("sync_codes")
-    .select("code, visitor_id, created_at")
-    .eq("code", code)
-    .maybeSingle();
+  const { data, error } = await supabaseClient.rpc("lookup_sync_code", { p_code: code });
   if (error) throw error;
-  if (!data) throw new Error("NOT_FOUND");
+  const row = Array.isArray(data) ? data[0] : data;  // RPC 返回数组，空数组 = 码不存在
+  if (!row || !row.visitor_id) throw new Error("NOT_FOUND");
   // best-effort 心跳，失败忽略
-  supabaseClient.from("sync_codes").update({ last_used_at: new Date().toISOString() }).eq("code", code).then(() => {}, () => {});
-  return { visitorId: data.visitor_id, createdAt: data.created_at };
+  supabaseClient.rpc("touch_sync_code", { p_code: code }).then(() => {}, () => {});
+  return { visitorId: row.visitor_id };
 }
 
 /** 绑定后切换 localStorage 的 visitor_id 并清掉本地缓存。调用方应在成功后 reload。 */
 function applySyncedVisitorId(newVisitorId) {
-  localStorage.setItem(VISITOR_KEY, newVisitorId);
+  safeStorage.set(VISITOR_KEY, newVisitorId);
   // 清掉本地 saves/likes/sync-code 缓存，让 reload 后从云端拉新的
-  localStorage.removeItem(SAVED_KEY);
-  localStorage.removeItem(LIKED_KEY);
-  localStorage.removeItem(LIKE_COUNTS_KEY);
-  localStorage.removeItem(SAVE_COUNTS_KEY);
-  localStorage.removeItem(MY_SYNC_CODE_KEY);
+  safeStorage.remove(SAVED_KEY);
+  safeStorage.remove(LIKED_KEY);
+  safeStorage.remove(LIKE_COUNTS_KEY);
+  safeStorage.remove(SAVE_COUNTS_KEY);
+  safeStorage.remove(MY_SYNC_CODE_KEY);
 }
 
 function domainFromUrl(url) {
@@ -574,7 +592,8 @@ function imgAttrs(site, { lazy = true, chain = null } = {}) {
   const ch = chain || imageFallbackChain(site);
   const chainAttr = encodeURIComponent(JSON.stringify(ch));
   const loading = lazy ? ' loading="lazy"' : "";
-  return `src="${ch[0]}" data-fallback="${chainAttr}" data-fallback-idx="0" onerror="window.__imgFallback&&window.__imgFallback(this)"${loading}`;
+  // ch[0] 源自远程 JSON（site.image / pack 文件名），必须转义防属性逃逸
+  return `src="${escapeHtml(ch[0])}" data-fallback="${chainAttr}" data-fallback-idx="0" onerror="window.__imgFallback&&window.__imgFallback(this)"${loading}`;
 }
 
 /** site.no_preview 时卡片容器直接带上失败态 class，配合上面的空 src 一步到位出占位，不用等 onerror */
@@ -1126,26 +1145,29 @@ function renderRelatedTags() {
     ).join("");
 }
 
-/** 单个画布节点的 HTML（虚拟化时按需创建）。 */
+/** 单个画布节点的 HTML（虚拟化时按需创建）。
+ *  site.* 全部来自 mimo 管线生成的远程 JSON —— 文本/属性一律 escapeHtml，href 走 safeHref。 */
 function siteNodeHTML(site, x, y) {
-  const tagText = site.tags.slice(0, 3).map((tg) => window.i18n.tag(tg)).join(" · ");
+  const safeId = escapeHtml(site.id);
+  const safeTitle = escapeHtml(site.title);
+  const tagText = escapeHtml(site.tags.slice(0, 3).map((tg) => window.i18n.tag(tg)).join(" · "));
   const saved = store.isSaved(site.id);
   return `
-    <div class="site-node" data-node="${site.id}" style="transform: translate3d(${x}px, ${y}px, 0);">
-      <article class="site-card" data-id="${site.id}"${saved ? ' data-saved="true"' : ""}>
+    <div class="site-node" data-node="${safeId}" style="transform: translate3d(${x}px, ${y}px, 0);">
+      <article class="site-card" data-id="${safeId}"${saved ? ' data-saved="true"' : ""}>
         <div class="card-thumb${thumbClass(site)}">
-          <img ${imgAttrs(site)} alt="${t("img.alt.screenshot", { title: site.title })}" draggable="false" />
-          <a class="card-hit" href="${siteDetailHref(site.id)}" aria-label="${t("card.open.aria", { title: site.title })}"></a>
-          <a class="card-visit" href="${site.url}" target="_blank" rel="noreferrer" aria-label="${t("card.visit.aria", { title: site.title })}">
+          <img ${imgAttrs(site)} alt="${t("img.alt.screenshot", { title: safeTitle })}" draggable="false" />
+          <a class="card-hit" href="${escapeHtml(siteDetailHref(site.id))}" aria-label="${t("card.open.aria", { title: safeTitle })}"></a>
+          <a class="card-visit" href="${safeHref(site.url)}" target="_blank" rel="noreferrer" aria-label="${t("card.visit.aria", { title: safeTitle })}">
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8" /></svg>
           </a>
         </div>
         <div class="card-meta">
-          <span class="card-title">${site.title}</span>
+          <span class="card-title">${safeTitle}</span>
           <span class="card-meta-right">
             <span class="card-tags">${tagText}</span>
             ${saveCountChip(site.id)}
-            <button class="card-save" type="button" data-save="${site.id}" aria-label="${t(saved ? "drawer.save.done" : "drawer.save")}" aria-pressed="${saved}">
+            <button class="card-save" type="button" data-save="${safeId}" aria-label="${t(saved ? "drawer.save.done" : "drawer.save")}" aria-pressed="${saved}">
               <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-4.5-9.3-9A5.4 5.4 0 0 1 12 6a5.4 5.4 0 0 1 9.3 6c-2.3 4.5-9.3 9-9.3 9Z" /></svg>
             </button>
           </span>
@@ -1359,20 +1381,23 @@ function renderLibrary() {
 function libraryCardHTML(site, index) {
   const saved = store.isSaved(site.id);
   const count = store.saveCount(site.id);
+  // 远程数据（title/url/tags/id）一律转义再进 innerHTML
+  const safeId = escapeHtml(site.id);
+  const safeTitle = escapeHtml(site.title);
   return `
-    <article class="library-card" data-id="${site.id}"${saved ? ' data-saved="true"' : ""}>
-      <a class="library-hit" href="${siteDetailHref(site.id)}" aria-label="${t("card.open.aria", { title: site.title })}"></a>
+    <article class="library-card" data-id="${safeId}"${saved ? ' data-saved="true"' : ""}>
+      <a class="library-hit" href="${escapeHtml(siteDetailHref(site.id))}" aria-label="${t("card.open.aria", { title: safeTitle })}"></a>
       <div class="library-thumb${thumbClass(site)}">
-        <img ${imgAttrs(site)} alt="${t("img.alt.screenshot", { title: site.title })}" />
-        <button class="card-save library-save" type="button" data-save="${site.id}" aria-label="${t(saved ? "drawer.save.done" : "drawer.save")}" aria-pressed="${saved}">
+        <img ${imgAttrs(site)} alt="${t("img.alt.screenshot", { title: safeTitle })}" />
+        <button class="card-save library-save" type="button" data-save="${safeId}" aria-label="${t(saved ? "drawer.save.done" : "drawer.save")}" aria-pressed="${saved}">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-4.5-9.3-9A5.4 5.4 0 0 1 12 6a5.4 5.4 0 0 1 9.3 6c-2.3 4.5-9.3 9-9.3 9Z" /></svg>
         </button>
       </div>
       <div class="library-meta">
-        <h3 class="library-title">${site.title}</h3>
+        <h3 class="library-title">${safeTitle}</h3>
         <span class="library-num">${t("library.num", { n: String(index + 1).padStart(2, "0") })}</span>
-        <p class="library-domain">${domainFromUrl(site.url)}</p>
-        <p class="library-tags">${site.tags.map((tg) => window.i18n.tag(tg)).join(" · ")}</p>
+        <p class="library-domain">${escapeHtml(domainFromUrl(site.url))}</p>
+        <p class="library-tags">${escapeHtml(site.tags.map((tg) => window.i18n.tag(tg)).join(" · "))}</p>
         ${count > 0 ? `<p class="library-save-count" aria-label="${t("count.saves.aria", { n: count })}"><svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M12 21s-7-4.5-9.3-9A5.4 5.4 0 0 1 12 6a5.4 5.4 0 0 1 9.3 6c-2.3 4.5-9.3 9-9.3 9Z"/></svg> ${t("count.saves", { n: count })}</p>` : ""}
       </div>
     </article>
@@ -1453,8 +1478,10 @@ function applyTransform() {
 function openDetail(siteId) {
   activeSite = sites.find((site) => site.id === siteId) || sites[0];
   track("card_view", { category: "card", slug: activeSite.id, name: activeSite.title });
-  // Lazy-load specs: 首次开抽屉时触发；加载完后若当前站缺 spec 则补渲染 markdown + 相关推荐
-  if (!_specsLoadP) {
+  // Lazy-load specs: 开抽屉时触发（mergeExternalSpecs 幂等，重复调用共享同一 promise）；
+  // 无条件挂回调 —— 之前包在 if(!_specsLoadP) 里，第二次及以后开抽屉时 spec 已在加载中/已加载
+  // 的站拿不到补渲染，markdown / 相关推荐停留在旧内容
+  {
     const capId = activeSite.id;
     mergeExternalSpecs().then(() => {
       if (activeSite && activeSite.id === capId && activeSite.spec) {
@@ -1467,7 +1494,7 @@ function openDetail(siteId) {
   // 主图来源优先级：素材包真截图（Playwright 实拍，最可靠）→ 用户刷新版 → site.image → thum.io 链
   // 解决「深色/重 JS 的站 thum.io 返回黑图」问题：有素材包的站直接用包内首屏截图当主图。
   const packShot = packHeroShot(activeSite.id);
-  const shotOverride = localStorage.getItem(`shot-override:${activeSite.id}`);
+  const shotOverride = safeStorage.get(`shot-override:${activeSite.id}`);
   const heroChain = [...new Set([
     ...(packShot ? [packShot] : []),
     ...(shotOverride ? [shotOverride] : []),
@@ -1477,7 +1504,7 @@ function openDetail(siteId) {
   drawerMedia.classList.toggle("img-failed", !!activeSite.no_preview);
   drawerMedia.innerHTML = `
     <a href="${safeHref(activeSite.url)}" target="_blank" rel="noreferrer" aria-label="${t("drawer.visit.aria")}">
-      <img id="drawerHeroImg" ${imgAttrs(activeSite, { lazy: false, chain: heroChain })} alt="${activeSite.title} screenshot" />
+      <img id="drawerHeroImg" ${imgAttrs(activeSite, { lazy: false, chain: heroChain })} alt="${escapeHtml(activeSite.title)} screenshot" />
       <span class="media-visit-badge">
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8" /></svg>
         ${t("drawer.media.visit")}
@@ -1489,15 +1516,16 @@ function openDetail(siteId) {
   `;
   document.querySelector("#drawerDomain").textContent = domainFromUrl(activeSite.url);
   document.querySelector("#drawerTitle").textContent = activeSite.title;
-  document.querySelector("#drawerUrl").href = activeSite.url;
-  document.querySelector("#drawerTags").innerHTML = activeSite.tags.map((tag) => `<span>${window.i18n.tag(tag)}</span>`).join("");
+  document.querySelector("#drawerUrl").href = /^https?:\/\//i.test(activeSite.url || "") ? activeSite.url : "#";
+  // tags / localizedField 内容均来自远程 JSON —— 转义后再进 innerHTML
+  document.querySelector("#drawerTags").innerHTML = activeSite.tags.map((tag) => `<span>${escapeHtml(window.i18n.tag(tag))}</span>`).join("");
   document.querySelector("#insightGrid").innerHTML = [
     [t("drawer.insight.color"),       localizedField(activeSite, "palette")],
     [t("drawer.insight.layout"),      localizedField(activeSite, "layout")],
     [t("drawer.insight.interaction"), localizedField(activeSite, "interaction")],
     [t("drawer.insight.motion"),      localizedField(activeSite, "motion")]
   ]
-    .map(([title, body]) => `<section class="insight-card"><h3>${title}</h3><p>${body}</p></section>`)
+    .map(([title, body]) => `<section class="insight-card"><h3>${title}</h3><p>${escapeHtml(body)}</p></section>`)
     .join("");
   document.querySelector("#markdownOutput").textContent = createMarkdown(activeSite);
   renderAgentBlock(activeSite);
@@ -1616,13 +1644,13 @@ function renderRelatedSites(site) {
   section.hidden = false;
 
   grid.innerHTML = rel.map(({ site: s, sharedTags }) => `
-    <a class="related-site-card" data-related="${s.id}" href="#/sites/${s.id}">
+    <a class="related-site-card" data-related="${escapeHtml(s.id)}" href="#/sites/${escapeHtml(s.id)}">
       <div class="related-site-thumb${thumbClass(s)}">
-        <img ${imgAttrs(s)} alt="${s.title}" />
+        <img ${imgAttrs(s)} alt="${escapeHtml(s.title)}" />
       </div>
       <div class="related-site-meta">
-        <span class="related-site-name">${s.title}</span>
-        <span class="related-site-tags">${(s.tags || []).slice(0, 2).map((tg) => window.i18n.tag(tg)).join(" · ")}</span>
+        <span class="related-site-name">${escapeHtml(s.title)}</span>
+        <span class="related-site-tags">${escapeHtml((s.tags || []).slice(0, 2).map((tg) => window.i18n.tag(tg)).join(" · "))}</span>
         <span class="related-site-shared">${t("drawer.related.shared", { n: sharedTags })}</span>
       </div>
     </a>
@@ -1705,7 +1733,7 @@ function setupGenerate(site) {
   if (!btn || !requested) return;
   if (view) view.href = `/packs/${site.id}/`;   // 文件夹 URL：nginx 以 DESIGN.md 为 index
   btn.disabled = false;
-  const already = localStorage.getItem(`packreq:${site.id}`) === "1";
+  const already = safeStorage.get(`packreq:${site.id}`) === "1";
   btn.hidden = already;
   requested.hidden = !already;
 }
@@ -1718,7 +1746,7 @@ async function requestPackGeneration(site) {
   let host = site.url;
   try { host = new URL(normalizeUrl(site.url)).hostname.replace(/^www\./, ""); } catch {}
   // 本地立刻标记 + 切到「已请求」
-  localStorage.setItem(`packreq:${site.id}`, "1");
+  safeStorage.set(`packreq:${site.id}`, "1");
   const btn = document.querySelector("#genRequestButton");
   const requested = document.querySelector("#genRequested");
   if (btn) btn.hidden = true;
@@ -1769,16 +1797,19 @@ function packFileRowHTML(f, slug) {
   const sizeText = formatBytes(f.size);
   const displayName = f._displayName || f.name;
   // 单文件直接链接（优先用 COS URL）；group 链接到 folder
-  const href = f._isGroup
+  // f.name / f.url / f.desc 来自 packs-index.json（管线产物）—— 转义防属性逃逸；
+  // 绝对 URL 走 safeHref（http(s) 白名单），本地相对路径 escapeHtml 即可
+  const rawHref = f._isGroup
     ? `/packs/${slug}/`
     : (f.url || `/packs/${slug}/${f.name}`);
+  const href = /^[a-zA-Z][a-zA-Z0-9+.-]*:/.test(rawHref) ? safeHref(rawHref) : escapeHtml(rawHref);
   const isImage = /\.png$|\.jpe?g$|\.webp$|\.svg$/i.test(f.name);
   const target = isImage || f._isGroup ? "_blank" : "_self";
   return `
-    <li class="pack-file" data-category="${f.category}">
+    <li class="pack-file" data-category="${escapeHtml(f.category)}">
       <span class="pack-file-icon">${icon}</span>
-      <a class="pack-file-name" href="${href}" target="${target}" rel="noreferrer">${displayName}</a>
-      <span class="pack-file-desc">${window.i18n.packDesc(f.desc) || ""}</span>
+      <a class="pack-file-name" href="${href}" target="${target}" rel="noreferrer">${escapeHtml(displayName)}</a>
+      <span class="pack-file-desc">${escapeHtml(window.i18n.packDesc(f.desc) || "")}</span>
       <span class="pack-file-size">${sizeText}</span>
     </li>
   `;
@@ -1848,9 +1879,10 @@ function packFileRowHTML(f, slug) {
     if (countEl) countEl.textContent = visible.length ? `${visible.length} 张` : "";
 
     strip.innerHTML = visible.map((f, i) => {
-      const label = _shotLabel(f.name);
+      // f.name / f.url 来自 packs-index.json（管线产物）—— label / url 转义再进模板
+      const label = escapeHtml(_shotLabel(f.name));
       const cls   = _shotClass(f.name);
-      const url   = f.url || `/packs/${activeSite.id}/${f.name}`;
+      const url   = escapeHtml(f.url || `/packs/${activeSite.id}/${f.name}`);
       return `<div class="gallery-img-wrap ${cls}" data-idx="${i}" role="button" tabindex="0" aria-label="${label}">
         <img src="${url}" alt="${label}" loading="lazy" decoding="async" />
         <span class="gallery-img-label">${label}</span>
@@ -1955,25 +1987,29 @@ function packFileRowHTML(f, slug) {
 /* ══════════════════════════════════════════════════════
    设计文档内联预览（DESIGN.md → Markdown 渲染）
    ══════════════════════════════════════════════════════ */
+let _docsToken = 0;   // generation token：防快速切站时旧站文档的慢响应覆盖新站
 async function renderPackDocs() {
   const section  = document.querySelector("#packDocs");
   const body     = document.querySelector("#packDocsBody");
   const linkEl   = document.querySelector("#packDocsLink");
   if (!section || !body || !activeSite) return;
+  const token = ++_docsToken;
 
   const slug = activeSite.id;
   // 依次尝试当前语言 spec → en spec → DESIGN.md
-  const lang = (document.documentElement.lang || "en").replace("zh", "zh-CN").split("-")[0];
-  const candidates = [
-    `/packs/${slug}/DESIGN_SPEC.${lang === "zh" ? "zh-CN" : lang}.md`,
+  // 直接用 i18n 规范化语言码（en/zh-CN/zh-TW/ja/ko）—— 旧写法会把 zh-TW 压成 zh-CN
+  const lang = (window.i18n && window.i18n.current) || "en";
+  const candidates = [...new Set([
+    `/packs/${slug}/DESIGN_SPEC.${lang}.md`,
     `/packs/${slug}/DESIGN_SPEC.en.md`,
     `/packs/${slug}/DESIGN.md`,
-  ];
+  ])];
 
   let mdText = null;
   let srcUrl = null;
   for (const url of candidates) {
     const txt = await fetchTextSafe(url);
+    if (token !== _docsToken) return;   // 已切到别的站，放弃本次渲染
     if (txt && txt.trim().length > 80) { mdText = txt; srcUrl = url; break; }
   }
 
@@ -2000,13 +2036,16 @@ async function renderPackDocs() {
   }
 }
 
-/** 极简 Markdown → HTML（仅用于 DESIGN.md 场景，不需要完整规范） */
+/** 极简 Markdown → HTML（仅用于 DESIGN.md 场景，不需要完整规范）
+ *  安全：先对整段输入做 HTML 转义（& < > " '），再做 markdown 语法替换 ——
+ *  远程 md 里的任何标签/属性都会变成纯文本，输出只含本函数生成的白名单标签。
+ *  代码块/行内代码不再单独转义（整段已转义，避免双重转义）。 */
 function simpleMd(md) {
-  return md
+  return escapeHtml(md)
     // 代码块
-    .replace(/```[\w]*\n([\s\S]*?)```/g, (_, c) => `<pre><code>${esc(c)}</code></pre>`)
+    .replace(/```[\w]*\n([\s\S]*?)```/g, (_, c) => `<pre><code>${c}</code></pre>`)
     // 行内代码
-    .replace(/`([^`]+)`/g, (_, c) => `<code>${esc(c)}</code>`)
+    .replace(/`([^`]+)`/g, (_, c) => `<code>${c}</code>`)
     // 标题
     .replace(/^### (.+)$/gm, "<h3>$1</h3>")
     .replace(/^## (.+)$/gm, "<h2>$1</h2>")
@@ -2029,15 +2068,17 @@ function simpleMd(md) {
     })
     .join("\n");
 }
-function esc(s) { return s.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;"); }
 
 function closeDetail() {
   detailDrawer.classList.remove("open");
   detailDrawer.setAttribute("aria-hidden", "true");
   document.body.classList.remove("drawer-open");
   // 如果当前 URL 是 /{lang}/sites/{slug} 详情页路径，退回到列表/画布根
+  // 保留语言前缀（en 回 "/"，其它语言回 "/{lang}/"），否则关抽屉后语言上下文丢失
   if (/^\/[a-zA-Z-]+\/sites\//.test(location.pathname)) {
-    history.pushState({}, "", "/" + (location.hash || ""));
+    const lang = (window.i18n && window.i18n.current) || "en";
+    const root = lang === "en" ? "/" : `/${lang}/`;
+    history.pushState({}, "", root + (location.hash || ""));
   }
 }
 
@@ -3141,7 +3182,7 @@ document.querySelector("#drawerMedia")?.addEventListener("click", (e) => {
     img.dataset.fallbackIdx = "0";
     img.onload = () => { btn.classList.remove("spinning"); };
     img.src = packShot;
-    localStorage.setItem(`shot-override:${activeSite.id}`, packShot);
+    safeStorage.set(`shot-override:${activeSite.id}`, packShot);
     showToast(t("drawer.refreshShot.done"));
   } else {
     img.onerror = () => window.__imgFallback && window.__imgFallback(img);
@@ -3150,7 +3191,7 @@ document.querySelector("#drawerMedia")?.addEventListener("click", (e) => {
     img.dataset.fallbackIdx = "0";
     img.onload = () => { btn.classList.remove("spinning"); };
     img.src = fresh;
-    localStorage.setItem(`shot-override:${activeSite.id}`, fresh);
+    safeStorage.set(`shot-override:${activeSite.id}`, fresh);
     showToast(t("drawer.refreshShot.done"));
   }
 });
@@ -3226,8 +3267,8 @@ async function openAssetPreview(url, name) {
 
   try {
     if (isImage) {
-      // lightbox 模式
-      previewBody.innerHTML = `<div class="preview-image-wrap"><img src="${url}" alt="${name}" /></div>`;
+      // lightbox 模式（url/name 来自 pack 清单 —— 转义防属性逃逸）
+      previewBody.innerHTML = `<div class="preview-image-wrap"><img src="${escapeHtml(url)}" alt="${escapeHtml(name)}" /></div>`;
       // 等图加载完再设大小
       const img = previewBody.querySelector("img");
       img.onload = () => {
@@ -3240,23 +3281,9 @@ async function openAssetPreview(url, name) {
       if (!res.ok) throw new Error(`HTTP ${res.status}`);
       const text = await res.text();
       sizeEl.textContent = formatBytes(new Blob([text]).size);
-      // 渲染 markdown：按需动态加载 marked（首次打开 MD 预览时才下载）
-      let html;
-      try {
-        if (!window.marked) {
-          await new Promise((resolve, reject) => {
-            const s = document.createElement("script");
-            s.src = "https://cdn.jsdelivr.net/npm/marked@11.2.0/marked.min.js";
-            s.onload = resolve; s.onerror = reject;
-            document.head.appendChild(s);
-          });
-        }
-        window.marked.setOptions({ gfm: true, breaks: false, headerIds: false, mangle: false });
-        html = window.marked.parse(text);
-      } catch {
-        html = `<pre>${escapeHtml(text)}</pre>`;
-      }
-      previewBody.innerHTML = `<div class="preview-md">${html}</div>`;
+      // 统一走 simpleMd（先整段 HTML 转义再做语法替换）——
+      // 不再动态加载 marked：其 parse 结果未净化，远程 md 里的标签会原样进 innerHTML
+      previewBody.innerHTML = `<div class="preview-md">${simpleMd(text)}</div>`;
       return;
     }
     if (isJson) {
@@ -3270,7 +3297,7 @@ async function openAssetPreview(url, name) {
       return;
     }
     // 其他类型：放个链接让用户新窗口打开
-    previewBody.innerHTML = `<p class="preview-status"><a href="${url}" target="_blank" rel="noreferrer">${t("preview.openRaw")} ↗</a></p>`;
+    previewBody.innerHTML = `<p class="preview-status"><a href="${escapeHtml(url)}" target="_blank" rel="noreferrer">${t("preview.openRaw")} ↗</a></p>`;
   } catch (err) {
     previewBody.innerHTML = `<p class="preview-status">${t("preview.error")}：${err.message}</p>`;
   }
@@ -3345,7 +3372,7 @@ document.querySelectorAll(".nav-item").forEach((button) => {
 collectUrlInput.addEventListener("input", () => {
   // 不在打字时拉远端；只是把"分析中"残留状态清掉，回到 idle。
   if (collectState !== "running") {
-    autoCollectButton.textContent = "开始分析";
+    autoCollectButton.textContent = t("modal.button.start");
     autoCollectButton.disabled = false;
   }
 });
@@ -3468,8 +3495,11 @@ if (langTrigger && langDropdown) {
 }
 syncLangToggle();
 
-window.addEventListener("i18n:change", () => {
+window.addEventListener("i18n:change", async () => {
   syncLangToggle();
+  // 先按新语言把站点 i18n overlay 拉下来，再整体重渲染 ——
+  // 否则切语言后站点描述（palette/layout/notes…）仍是旧语言
+  await loadSitesI18n();
   // 重渲染所有 JS 动态生成的内容（卡片、抽屉、模态、计数、日期等）
   renderAll();
   if (activeSite && detailDrawer.classList.contains("open")) {
@@ -3483,7 +3513,8 @@ window.addEventListener("i18n:change", () => {
 
 window.addEventListener("keydown", (event) => {
   if (event.key === "Escape") {
-    closeDetail();
+    // 只有抽屉真开着才走 closeDetail（它会 pushState 改 URL，抽屉没开时白改历史记录）
+    if (detailDrawer.classList.contains("open")) closeDetail();
     closeModal();
   }
 });

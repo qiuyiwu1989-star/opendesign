@@ -127,12 +127,13 @@ fi
 tar --no-xattrs --disable-copyfile -czf "${ARCHIVE}" -C "${ROOT_DIR}" "${MANIFEST[@]}"
 
 echo "▸ Uploading to ${DEPLOY_USER}@${DEPLOY_HOST}"
-scp "${SSH_OPTS[@]}" "${ARCHIVE}" "${DEPLOY_USER}@${DEPLOY_HOST}:/tmp/opendesign-deploy.tar.gz"
+REMOTE_ARCHIVE="/tmp/opendesign-deploy-$$.tar.gz"   # 带 PID：并发部署不互相覆盖
+scp "${SSH_OPTS[@]}" "${ARCHIVE}" "${DEPLOY_USER}@${DEPLOY_HOST}:${REMOTE_ARCHIVE}"
 
 echo "▸ Extracting on server"
 ssh "${SSH_OPTS[@]}" "${DEPLOY_USER}@${DEPLOY_HOST}" "
   sudo mkdir -p '${DEPLOY_PATH}' &&
-  sudo tar -xzf /tmp/opendesign-deploy.tar.gz -C '${DEPLOY_PATH}' &&
+  sudo tar -xzf ${REMOTE_ARCHIVE} -C '${DEPLOY_PATH}' &&
   if [[ -d '${DEPLOY_PATH}/dist/seo' ]]; then
     # 把 dist/seo/<lang>/ 内容铺到 <DEPLOY_PATH>/<lang>/ 让 nginx 直接 serve
     for lang in en zh-CN zh-TW ja ko; do
@@ -157,7 +158,7 @@ ssh "${SSH_OPTS[@]}" "${DEPLOY_USER}@${DEPLOY_HOST}" "
   fi &&
   sudo chown -R www-data:www-data '${DEPLOY_PATH}' &&
   sudo find '${DEPLOY_PATH}' -name '._*' -delete &&
-  rm /tmp/opendesign-deploy.tar.gz
+  rm ${REMOTE_ARCHIVE}
 "
 
 rm "${ARCHIVE}"

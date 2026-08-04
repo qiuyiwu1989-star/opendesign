@@ -15,6 +15,14 @@ set -euo pipefail
 SLUG="${1:-}"
 URL="${2:-}"
 EXNAME="${3:-$SLUG}"          # extract 目录名，默认 = slug
+# ingest 前先快照 sites/<slug>.json——失败回滚用它,不用 git checkout
+# (git checkout 回退到最后一次 commit;服务器管线从不 commit,会连带抹掉
+#  几周积累的 rank_score/broken_detected 等未提交数据;对新建文件又会失败)
+_SITE_BAK="/tmp/od-site-bak-${SLUG}.json"
+if [[ -f "sites/${SLUG}.json" ]]; then cp "sites/${SLUG}.json" "$_SITE_BAK"; else rm -f "$_SITE_BAK"; fi
+_restore_site() {
+  if [[ -f "$_SITE_BAK" ]]; then cp "$_SITE_BAK" "sites/${SLUG}.json"; else rm -f "sites/${SLUG}.json"; fi
+}
 if [[ -z "$SLUG" || -z "$URL" ]]; then
   echo "用法: bash scripts/upgrade-pack.sh <slug> <url> [extract_dirname]"; exit 1
 fi
@@ -45,7 +53,7 @@ if [[ -z "${SKIP_MIMO:-}" ]]; then
   if [[ "${VIS:-0}" -lt 50 ]]; then
     echo "  ✗ ${SLUG} 没渲染出来（仅 ${VIS} 个可见元素，疑似空白/反爬/离线）。删 extract + 跳过，绝不发布废包。"
     rm -rf "${EXDIR}"
-    git checkout "sites/${SLUG}.json" 2>/dev/null || true
+    _restore_site
     exit 4
   fi
 
@@ -55,7 +63,7 @@ if [[ -z "${SKIP_MIMO:-}" ]]; then
   STATUS=$(python3 -c "import json;print(json.load(open('sites/${SLUG}.json')).get('status',''))")
   if [[ "$STATUS" != "completed" ]]; then
     echo "  ✗ mimo 未完成（status=${STATUS}）。还原 sites/${SLUG}.json，跳过此站。"
-    git checkout "sites/${SLUG}.json" 2>/dev/null || true
+    _restore_site
     exit 2
   fi
 else
@@ -66,7 +74,7 @@ echo "▸ [3/6] 校验（只校本站，避免被其它坏站连累）+ build"
 # mimo 完成但产出 schema 不合法 → 还原该站、干净退出，绝不留坏数据
 if ! python3 scripts/validate-sites.py --strict "$SLUG"; then
   echo "  ✗ ${SLUG} schema 校验失败。还原 sites/${SLUG}.json，跳过此站。"
-  git checkout "sites/${SLUG}.json" 2>/dev/null || true
+  _restore_site
   exit 3
 fi
 python3 scripts/build.py >/dev/null

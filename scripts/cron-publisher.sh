@@ -23,7 +23,7 @@ echo "===== ${_STARTED} publisher 开始 =====" >> "$LOG"
 
 # 整个尾段都关掉 errexit/pipefail —— 心跳上报绝不能因为某行非零退出被跳过
 set +e +o pipefail
-flock -n /tmp/od-publisher.lock bash -c '
+flock -n -E 99 /tmp/od-publisher.lock bash -c '
   python3 scripts/build.py && bash scripts/deploy.sh
 ' > "$_TMP" 2>&1
 _CODE=$?
@@ -33,7 +33,7 @@ tail -c 1500 "$_TMP" >> "$LOG" 2>/dev/null
 echo "" >> "$LOG"
 
 # 心跳上报到 Supabase run_logs（预算好变量，避免内联 $() 在严格模式下踩坑）
-_STATUS=done; [[ $_CODE -ne 0 ]] && _STATUS=error
+_STATUS=done; [[ $_CODE -eq 99 ]] && _STATUS=skipped; [[ $_CODE -ne 0 && $_CODE -ne 99 ]] && _STATUS=error
 _SUM=$(grep -E "live:|站$|Done|sites-index" "$_TMP" 2>/dev/null | tail -1)
 [[ -z "$_SUM" ]] && _SUM="publish run"
 _DETAIL=$(tail -c 2000 "$_TMP" 2>/dev/null)

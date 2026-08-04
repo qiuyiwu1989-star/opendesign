@@ -202,7 +202,7 @@ function renderActivityFeed(logs) {
   }
   el.innerHTML = logs.slice(0, 8).map((r) => {
     const icon = LOG_STATUS_ICON[r.status] || "•";
-    const kl = LOG_KIND_LABEL[r.kind] || r.kind;
+    const kl = LOG_KIND_LABEL[r.kind] || esc(r.kind);
     const kindTag = `<span class="log-kind lk-${esc(r.kind)}">${kl}</span>`;
     const sum = esc(r.summary || "（无摘要）");
     return `<div class="activity-row">
@@ -388,7 +388,7 @@ async function renderJobs() {
 
   tbody.innerHTML = jobs.slice(0,60).map((j) => {
     const st = String(j.status||"pending").replace(/[^a-z]/g,"");
-    const kl = JOB_KIND[j.kind] || j.kind;
+    const kl = JOB_KIND[j.kind] || esc(j.kind);
     const res = j.result ? esc(String(j.result).slice(0,80)) : "—";
     return `<tr>
       <td><span class="badge ${j.kind==="upgrade"?"pack":j.kind==="collect"?"collect":"pack"}">${kl}</span></td>
@@ -456,17 +456,20 @@ async function renderSiteMgr() {
 
 /* ── 收录请求 ─────────────────────────────────────────────────── */
 function hostOf(u) { try { return new URL(u).hostname.replace(/^www\./,""); } catch { return ""; } }
+// shell 单参数安全引用：单引号包裹，内部 ' 转成 '\''。
+// submissions 表匿名可写，row.url / row.note 都是攻击面，绝不能裸拼进命令。
+function shQuote(s) { return "'" + String(s == null ? "" : s).replace(/'/g, "'\\''") + "'"; }
 function ingestCmd(row) {
-  const title = (row.note||"").replace(/"/g,"'");
+  const title = (row.note||"").replace(/[\r\n]+/g, " ");  // 注释行 / 参数里都不允许换行
   if (row.kind==="pack") {
     const slug = (row.slug||"").replace(/[^a-z0-9-]/g,"");
     return [`# 完整设计系统包 · ${title||slug}`,
-      `python3 extract/extract.py --url "${row.url}" --out extract/extracts/${slug}`,
+      `python3 extract/extract.py --url ${shQuote(row.url)} --out extract/extracts/${slug}`,
       `python3 scripts/ingest.py --from-extract extract/extracts/${slug} --slug ${slug} --auto-publish`,
       `cp dist/packs/${slug}/DESIGN_SPEC.en.md extract/extracts/${slug}/DESIGN_SPEC.md && bash extract/pack.sh extract/extracts/${slug}`,
     ].join("\n");
   }
-  return `python3 scripts/ingest.py "${row.url}" --auto-publish${title ? ` --title "${title}"` : ""}`;
+  return `python3 scripts/ingest.py ${shQuote(row.url)} --auto-publish${title ? ` --title ${shQuote(title)}` : ""}`;
 }
 
 function renderSubmissions() {

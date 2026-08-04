@@ -27,7 +27,7 @@ echo "===== ${_STARTED} self-optimize 开始 =====" >> "$LOG"
 
 # 整段关掉 errexit —— 心跳上报绝不能因为某一步非零退出被跳过
 set +e +o pipefail
-flock -n /tmp/od-self-optimize.lock bash -c '
+flock -n -E 99 /tmp/od-sites.lock bash -c '
   python3 scripts/self-optimize.py &&
   python3 scripts/build.py &&
   bash scripts/deploy.sh
@@ -38,7 +38,7 @@ tail -c 2000 "$_TMP" >> "$LOG" 2>/dev/null
 [[ $_CODE -ne 0 ]] && echo "  (self-optimize 退出码 $_CODE 或被 flock 跳过)" >> "$LOG"
 echo "" >> "$LOG"
 
-_STATUS=done; [[ $_CODE -ne 0 ]] && _STATUS=error
+_STATUS=done; [[ $_CODE -eq 99 ]] && _STATUS=skipped; [[ $_CODE -ne 0 && $_CODE -ne 99 ]] && _STATUS=error
 _SUM=$(grep -E "新增失效|恢复在线|超期排队" "$_TMP" 2>/dev/null | tr '\n' ' ')
 [[ -z "$_SUM" ]] && _SUM="self-optimize run"
 _DETAIL=$(tail -c 2000 "$_TMP" 2>/dev/null)

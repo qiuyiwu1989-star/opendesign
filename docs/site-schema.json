@@ -43,7 +43,7 @@
     },
     "status": {
       "type": "string",
-      "pattern": "^(pending|screenshot|vision_done|translated|narrated|completed|broken|archived|failed(:[A-Za-z0-9_]+)?)$",
+      "pattern": "^(pending|screenshot|vision_done|translated|narrated|completed|broken|archived|needs_review|failed(:[A-Za-z0-9_]+)?)$",
       "description": "Ingest pipeline state. Failure tracked as 'failed' or 'failed:<ExceptionName>' with last_error in _meta."
     },
     "added_at": {
@@ -69,6 +69,20 @@
     "rank_score": {
       "type": "number",
       "description": "adaptive-rank.py: likes*3 + saves*5 + freshness/pack bonuses. Drives homepage ordering."
+    },
+    "origin_dead": {
+      "type": "string",
+      "format": "date",
+      "description": "self-optimize.py: origin domain no longer resolves but the extracted design-system archive is kept published (Wayback Machine logic)."
+    },
+    "archived_at": {
+      "type": "string",
+      "format": "date",
+      "description": "adaptive-rank.py: date the site was soft-archived for zero engagement."
+    },
+    "archived_reason": {
+      "type": "string",
+      "description": "adaptive-rank.py: why it was archived."
     },
     "no_preview": {
       "type": "boolean",

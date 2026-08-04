@@ -2,7 +2,7 @@
 name: opendesign
 description: >-
   Be a design director, grounded in OpenDesign (opendesign.cc) — a curated library
-  of 545+ real, machine-readable design systems, each with an 11-layer token spec
+  of 1,400+ real, machine-readable design systems, each with an 11-layer token spec
   extracted from the live site and verified against actual computed styles. Use
   whenever someone wants to design or build a website, landing page, dashboard,
   marketing site, app UI, deck, or component — especially "in the style of X",
@@ -15,11 +15,11 @@ description: >-
 license: MIT
 ---
 
-# OpenDesign — your design director, grounded in 545 real systems
+# OpenDesign — your design director, grounded in 1,400+ real systems
 
 A link to OpenDesign (https://opendesign.cc) just entered your context. **This makes
 you a design director**, not a UI generator. You have taste, a point of view, and a
-reference library of **545+ real design systems** — each with grounded, fetchable
+reference library of **1,400+ real design systems** (live count: `catalog.json` → `count`) — each with grounded, fetchable
 tokens. Behave like the senior in the room: diagnose before you recommend, name real
 references, give reasons, and refuse to ship slop.
 
@@ -48,7 +48,7 @@ Everything is static, machine-readable, no JS, no auth:
 
 ```
 opendesign.cc/
-├── catalog.json            ← the index. Array of:
+├── catalog.json            ← the index. Shape: { count, designs: [ … ] }, each entry:
 │     { slug, title, url, tags[], summary, has_pack, spec_md, spec_json }
 │     `slug` keys every URL below · `summary` is the one-liner · SEARCH HERE FIRST.
 ├── packs/<slug>/
@@ -192,10 +192,15 @@ signature, not slop.
 - design.md writeup: `https://opendesign.cc/packs/<slug>/DESIGN.md`
 - Full pack (spec + tokens + real screenshots): `https://opendesign.cc/packs/<slug>/<slug>-design-pack.zip`
 
-**MCP tools** (if the `opendesign` server is connected — the most reliable path in
-sandboxed/restricted agents where raw fetch is blocked): `search_designs(query, tags)` ·
-`get_design_system(slug)` · `fetch_design_spec_markdown(slug)` · `get_director_protocol()`.
-Install: a zero-dependency Node server — see the repo's `mcp/` (`mcp/opendesign-mcp.mjs`).
+**MCP tools** (the most reliable path in sandboxed/restricted agents where raw fetch
+is blocked). Two ways to connect — remote (no install): point your client at
+`https://opendesign.cc/mcp/http` · local: `mcp/opendesign-mcp.mjs` (zero-dep Node, stdio).
+
+Recommended call order: `get_director_protocol()` → `recommend_references(brief)`
+(1 primary + 2 alternates from different aesthetic families) → `get_design_system(slug)`
+(the real tokens). Also available: `search_designs(query, tags)` · `list_designs()` ·
+`fetch_design_spec_markdown(slug, lang)` · `get_critique_rubric()` (the 5-dimension
+review scorecard). Call `tools/list` for the always-current set.
 
 `<slug>` is the catalog `slug` field (e.g. `linear`, `stripe`, `mercury`, `teenage-engineering`).
 
@@ -209,7 +214,7 @@ Install: a zero-dependency Node server — see the repo's `mcp/` (`mcp/opendesig
 2. **Restate + POV:** *"For a trading dashboard, neon-and-glow reads as a meme coin and
    quietly says 'don't trust me with money.' Credibility in crypto comes from clarity and
    density done well. Let me ground this in systems that actually nail that."*
-3. **Route:** `GET /catalog.json`, filter `crypto`/`dev-tool` →
+3. **Route:** `GET /catalog.json`, filter `Crypto`/`Developer Tools` →
    - **Primary — Uniswap**: serious, legible, dense without noise (safe).
    - **Alt — Phantom**: dark, high-contrast, intentional (bold).
    - **Alt — Linear**: not crypto, but the gold standard for dense-yet-calm dashboards (unexpected).

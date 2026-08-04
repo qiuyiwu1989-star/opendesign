@@ -25,6 +25,7 @@ import sys
 import time
 import urllib.request
 import urllib.error
+import urllib.parse
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -49,18 +50,43 @@ def rpc(name: str, params: dict):
     return json.loads(raw) if raw.strip() else None
 
 
-def check_url(url: str) -> tuple[bool, int]:
-    """HTTP HEAD 检查。返回 (可达, HTTP状态码)。"""
+import socket
+
+_BROWSER_UA = ("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
+               "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126 Safari/537.36")
+
+def check_url(url: str) -> tuple[bool, int, bool]:
+    """探活。返回 (可达, HTTP状态码, DNS已死)。
+
+    教训（2026-08 踩过的大坑）：这台服务器在国内，大量境外站从这里访问
+    超时/被墙——用「从本机连不上」当死亡信号，曾一周内误杀 363 个活站
+    （zapier/zed/zora 都被标了 broken）。所以：
+      - 连接失败/超时 = 弱信号，永远不足以判死（可能只是 GFW/慢）
+      - 只有 DNS 解析失败（域名本身没了）才算强死亡信号
+      - HEAD 被很多站 405/403，退化到 GET 再试；bot UA 会被 Cloudflare
+        拦，用浏览器 UA
+    """
+    host = urllib.parse.urlparse(url).netloc
     try:
-        req = urllib.request.Request(
-            url, method="HEAD",
-            headers={"User-Agent": "Mozilla/5.0 (compatible; OpenDesignBot/1.0)"})
-        with urllib.request.urlopen(req, timeout=TIMEOUT) as r:
-            return r.status < 400, r.status
-    except urllib.error.HTTPError as e:
-        return e.code < 400, e.code
+        socket.getaddrinfo(host, None)
+    except socket.gaierror:
+        return False, 0, True          # DNS 解析失败 → 域名真没了
     except Exception:
-        return False, 0
+        pass                            # DNS 查询本身抖动 → 不下结论
+
+    for method in ("HEAD", "GET"):
+        try:
+            req = urllib.request.Request(
+                url, method=method, headers={"User-Agent": _BROWSER_UA})
+            with urllib.request.urlopen(req, timeout=TIMEOUT) as r:
+                return r.status < 400, r.status, False
+        except urllib.error.HTTPError as e:
+            if e.code in (403, 405) and method == "HEAD":
+                continue                # 很多站拒 HEAD/拦 bot，GET 再试
+            return e.code < 400, e.code, False
+        except Exception:
+            continue
+    return False, 0, False              # 连不上，但 DNS 活着 → 弱信号
 
 
 def main():
@@ -77,13 +103,23 @@ def main():
     stale_queue  = []
 
     all_files = sorted(SITES_DIR.glob("*.json"))
-    completed = [f for f in all_files
-                 if json.loads(f.read_text(encoding="utf-8")).get("status") == "completed"]
+    # 带 try 逐个读：一个坏 JSON 文件不能炸掉整轮探活（打印文件名跳过即可）。
+    # 探活范围 = completed + broken：broken 站必须参与探活，否则「恢复在线」分支
+    # 永远走不到，被误标 broken 的站没有任何恢复路径。
+    check_files = []
+    for f in all_files:
+        try:
+            st = json.loads(f.read_text(encoding="utf-8")).get("status")
+        except Exception as e:
+            print(f"  ⚠ 坏 JSON 跳过: {f.name} ({e})")
+            continue
+        if st in ("completed", "broken"):
+            check_files.append(f)
 
-    print(f"▸ 自检 {len(completed)} 个 completed 站")
+    print(f"▸ 自检 {len(check_files)} 个 completed/broken 站")
     print(f"  超期阈值: {STALE_DAYS}d  |  本周升级上限: {REFRESH_CAP}  |  HTTP 超时: {TIMEOUT}s\n")
 
-    for jf in completed:
+    for jf in check_files:
         try:
             site = json.loads(jf.read_text(encoding="utf-8"))
         except Exception:
@@ -91,41 +127,58 @@ def main():
 
         slug    = site.get("id", jf.stem)
         url     = site.get("url", "")
-        was_broken = site.get("status") == "broken"   # 不会命中（已被 filter 排除），保留逻辑
+        was_broken = site.get("status") == "broken"   # broken 站现在也在探活范围内，可命中恢复分支
 
         if not url:
             continue
 
         # ── 1. URL 可达性检查 ─────────────────────────────────────────────
-        reachable, code = check_url(url)
+        # 下架策略（2026-08 重写，血泪版）：
+        #   · 库的资产是「已抽取的设计系统」（spec + 截图都在我们自己的 COS 上），
+        #     不是外链。原站挂了，档案反而更珍贵（Wayback Machine 逻辑）——
+        #     所以【有 pack 的站永不因不可达而下架】，只记 origin_dead 供前端展示。
+        #   · 没 pack 的站，也只有 DNS 连续两周解析失败（域名真没了）才下架；
+        #     「从本机连不上」在国内服务器上毫无证明力。
+        reachable, code, dns_dead = check_url(url)
         time.sleep(0.2)   # 礼貌爬取
 
-        if not reachable:
-            if not site.get("broken_detected"):
-                # 首次检测到失效，记录日期但不立即归档（等下次再确认）
-                site["broken_detected"] = today_str
-                jf.write_text(json.dumps(site, ensure_ascii=False, indent=2))
-                print(f"  ⚠ 疑似失效: {slug:<30} HTTP {code}")
-            else:
-                # 第二次确认失效 → 标记 broken
-                site["status"]         = "broken"
-                site["broken_at"]      = today_str
-                jf.write_text(json.dumps(site, ensure_ascii=False, indent=2))
-                broken_new.append(slug)
-                print(f"  💀 确认失效: {slug:<30} HTTP {code}，已标记 broken")
-            continue
-        else:
-            # 站点恢复可达 → 清除失效标记
-            if site.get("broken_detected") or site.get("broken_at"):
+        has_pack = bool(site.get("pack", {}).get("available")) or bool(site.get("spec"))
+
+        if reachable:
+            # 站点可达 → 清除一切失效痕迹
+            if site.get("broken_detected") or site.get("broken_at") or site.get("origin_dead"):
                 site.pop("broken_detected", None)
                 site.pop("broken_at", None)
+                site.pop("origin_dead", None)
                 if site.get("status") == "broken":
                     site["status"] = "completed"
                     broken_fixed.append(slug)
                     print(f"  ✓ 恢复: {slug}")
                 jf.write_text(json.dumps(site, ensure_ascii=False, indent=2))
+        elif dns_dead:
+            if not site.get("broken_detected"):
+                site["broken_detected"] = today_str
+                jf.write_text(json.dumps(site, ensure_ascii=False, indent=2))
+                print(f"  ⚠ DNS 疑似失效: {slug:<30}（下周复核）")
+            elif has_pack:
+                # 域名真没了，但设计系统档案还在 → 保留展示，标注原站已死
+                if not site.get("origin_dead"):
+                    site["origin_dead"] = today_str
+                    jf.write_text(json.dumps(site, ensure_ascii=False, indent=2))
+                    print(f"  🪦 原站已死(档案保留): {slug}")
+            else:
+                # 没档案 + 域名没了 → 这条记录才真的没价值
+                site["status"]    = "broken"
+                site["broken_at"] = today_str
+                jf.write_text(json.dumps(site, ensure_ascii=False, indent=2))
+                broken_new.append(slug)
+                print(f"  💀 确认失效(无档案): {slug:<30}")
+        # else: 连不上但 DNS 活着 → 弱信号，什么都不做（大概率是 GFW/慢）
 
         # ── 2. 超期 spec 检测 ────────────────────────────────────────────
+        # 只有（本轮探活后仍是）completed 的站才排队升级——broken 站排升级是白烧 mimo
+        if site.get("status") != "completed":
+            continue
         if len(stale_queue) >= REFRESH_CAP:
             continue
 

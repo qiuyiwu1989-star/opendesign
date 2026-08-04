@@ -25,7 +25,7 @@ echo "===== $(date '+%Y-%m-%d %H:%M:%S') jobrunner 开始 =====" >> "$LOG"
 
 # 用 set +e 安全捕获 flock 跳过时的退出码
 set +e
-flock -n /tmp/od-jobrunner.lock \
+flock -n -E 99 /tmp/od-sites.lock \
   python3 scripts/job_runner.py > "$_TMP" 2>&1
 _CODE=$?
 set -e

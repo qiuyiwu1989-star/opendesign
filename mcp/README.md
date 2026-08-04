@@ -1,6 +1,6 @@
 # OpenDesign MCP
 
-Turn [opendesign.cc](https://opendesign.cc) — **545+ real, grounded design systems** —
+Turn [opendesign.cc](https://opendesign.cc) — **1,400+ real, grounded design systems** —
 into a connected tool for **Cursor / Claude / Windsurf / any MCP client**.
 
 > Say to your agent *"build a Linear-style landing page"* and it can call

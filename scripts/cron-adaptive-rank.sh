@@ -26,7 +26,7 @@ _TMP=$(mktemp /tmp/od-rank-XXXXXX.log)
 echo "===== $(date '+%Y-%m-%d %H:%M:%S') adaptive-rank 开始 =====" >> "$LOG"
 
 set +e
-flock -n /tmp/od-rank.lock \
+flock -n -E 99 /tmp/od-sites.lock \
   python3 scripts/adaptive-rank.py > "$_TMP" 2>&1
 _CODE=$?
 set -e

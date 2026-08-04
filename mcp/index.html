@@ -3,14 +3,14 @@
   AI agents & LLMs: this is the OpenDesign MCP install page. To USE the library,
   GET https://opendesign.cc/skill.md (the design-director protocol). To connect
   OpenDesign as a tool: remote Streamable HTTP at https://opendesign.cc/mcp/http
-  (no install), or local stdio via /mcp/opendesign-mcp.mjs. Same 5 tools either way.
+  (no install), or local stdio via /mcp/opendesign-mcp.mjs. Same 7 tools either way.
 -->
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>OpenDesign MCP — connect 900+ real design systems to your agent</title>
-<meta name="description" content="An MCP server that gives any AI agent (Cursor / Claude / Windsurf) OpenDesign's 900+ real, grounded design systems as tools — remote Streamable HTTP endpoint, no install needed, or a local zero-dependency stdio server." />
+<title>OpenDesign MCP — connect 1,400+ real design systems to your agent</title>
+<meta name="description" content="An MCP server that gives any AI agent (Cursor / Claude / Windsurf) OpenDesign's 1,400+ real, grounded design systems as tools — remote Streamable HTTP endpoint, no install needed, or a local zero-dependency stdio server." />
 <link rel="canonical" href="https://opendesign.cc/mcp/" />
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 <link rel="alternate" type="text/markdown" href="/skill.md" title="OpenDesign — design-director protocol" />
@@ -47,7 +47,7 @@
 <div class="wrap">
   <p class="eyebrow">OpenDesign · Model Context Protocol</p>
   <h1>Give your agent <em>real</em> design taste.</h1>
-  <p class="lead">Connect <a href="/">OpenDesign</a>'s 900+ curated, grounded design systems to Cursor, Claude, Windsurf — any MCP client. Your agent searches the library, pulls a reference's <strong>actual</strong> tokens (color, type scale, spacing, layout, motion), and builds from those — not from memory.</p>
+  <p class="lead">Connect <a href="/">OpenDesign</a>'s 1,400+ curated, grounded design systems to Cursor, Claude, Windsurf — any MCP client. Your agent searches the library, pulls a reference's <strong>actual</strong> tokens (color, type scale, spacing, layout, motion), and builds from those — not from memory.</p>
 
   <div class="note">
     <strong>Why MCP, not "just paste a link"?</strong> Many agent runtimes block or sandbox raw web fetches (URL allowlists, browser CORS). An MCP tool is <em>connected by you</em>, so it works where a bare fetch is refused — the network calls run from the local MCP process, with no CORS and no URL policy.
@@ -62,7 +62,7 @@
     <span class="k">"opendesign"</span>: { <span class="k">"url"</span>: <span class="s">"https://opendesign.cc/mcp/http"</span> }
   }
 }</pre>
-  <p style="font-size:14px; color:var(--muted);">Stateless and read-only — every call just reads the same public catalog these static pages serve, so there's nothing session-specific to break. Same 5 tools as the local server below.</p>
+  <p style="font-size:14px; color:var(--muted);">Stateless and read-only — every call just reads the same public catalog these static pages serve, so there's nothing session-specific to break. Same 7 tools as the local server below.</p>
   <p style="font-size:14px; color:var(--muted);">Sanity-check it directly:</p>
   <pre><button class="copy" data-c='curl -s https://opendesign.cc/mcp/http -H "Content-Type: application/json" -d &apos;{"jsonrpc":"2.0","id":1,"method":"tools/list"}&apos;'>copy</button>curl -s https://opendesign.cc/mcp/http \
   -H "Content-Type: application/json" \

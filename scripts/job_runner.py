@@ -81,7 +81,10 @@ def run_refresh(slug: str) -> tuple[bool, str]:
         return False, f"no sites/{slug}.json"
     d = json.loads(sp.read_text(encoding="utf-8"))
     site_url = d.get("url", "")
-    d["image"] = f"https://image.thum.io/get/width/1440/noanimate/?_cb={int(time.time())}/{site_url}"
+    if not site_url:
+        return False, f"sites/{slug}.json 缺 url，跳过刷图"
+    # cache-bust 参数必须挂在目标 URL 后面——插在前面生成的 thum.io URL 根本不含目标站
+    d["image"] = f"https://image.thum.io/get/width/1440/noanimate/{site_url}?_cb={int(time.time())}"
     sp.write_text(json.dumps(d, ensure_ascii=False, indent=2), encoding="utf-8")
     env = {**os.environ, "SKIP_SEO": "1"}  # LOCAL_DEPLOY 同上：由环境决定
     try:
@@ -118,8 +121,18 @@ def main():
                 ok, msg = False, f"unknown kind {kind}"
         except Exception as e:
             ok, msg = False, f"{type(e).__name__}: {e}"[:300]
-        rpc("runner_finish_job", {"p_token": TOKEN, "p_id": jid,
-                                  "p_status": "done" if ok else "failed", "p_result": msg})
+        # 交活上报不能裸调：网络抖动会炸掉整个 runner（任务其实已经跑完了）。
+        # 重试 3 次，最终失败只打印不 raise —— 该 job 会超时后被队列回收重派。
+        for attempt in range(3):
+            try:
+                rpc("runner_finish_job", {"p_token": TOKEN, "p_id": jid,
+                                          "p_status": "done" if ok else "failed", "p_result": msg})
+                break
+            except Exception as e:
+                if attempt < 2:
+                    time.sleep(2)
+                else:
+                    print(f"  ✗ runner_finish_job 上报失败（重试 3 次放弃）: {type(e).__name__}: {e}")
         print(f"  {'✓' if ok else '✗'} {msg[:120]}")
         done += 1
 

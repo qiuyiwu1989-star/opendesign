@@ -48,6 +48,8 @@ from pathlib import Path
 from typing import Any, Optional
 
 ROOT = Path(__file__).parent.parent.resolve()
+sys.path.insert(0, str(Path(__file__).parent))
+from tag_canon import canon_list  # tag 词表归一化（大小写/变体统一，检索精准度地基）
 SITES_DIR = ROOT / "sites"
 SCHEMA_PATH = ROOT / "docs" / "site-schema.json"
 
@@ -455,7 +457,7 @@ def step_vision(site: dict, *, dry_run: bool = False) -> dict:
 
     # mimo 建议的 tags（curator 可后续编辑），仅在 site.tags 为空时填
     if not site.get("tags") and isinstance(parsed.get("tags"), list):
-        site["tags"] = [t for t in parsed["tags"] if isinstance(t, str) and t.strip()][:5]
+        site["tags"] = canon_list([t for t in parsed["tags"] if isinstance(t, str) and t.strip()][:5])
 
     meta = site.setdefault("_meta", {})
     meta["vision_model"] = os.environ.get("ANTHROPIC_MODEL", "mimo-v2.5")
@@ -589,7 +591,7 @@ def step_vision_from_extract(site: dict, extract_dir: Path, *, dry_run: bool = F
     site.setdefault("spec_i18n", {})["en"] = relative
     site.setdefault("desc", {})["en"] = parsed["desc"]
     if not site.get("tags") and isinstance(parsed.get("tags"), list):
-        site["tags"] = [t for t in parsed["tags"] if isinstance(t, str) and t.strip()][:5]
+        site["tags"] = canon_list([t for t in parsed["tags"] if isinstance(t, str) and t.strip()][:5])
 
     meta = site.setdefault("_meta", {})
     meta["vision_model"] = os.environ.get("ANTHROPIC_MODEL", "mimo-v2.5")
@@ -829,7 +831,9 @@ def finalize(site: dict) -> dict:
         and all(site.get("spec_i18n", {}).get(l) for l in ["en"] + LANGS)
         and all(site.get("narrative", {}).get(l) for l in ["en"] + LANGS)
     )
-    if done:
+    # 只看数据齐不齐会把 broken/archived/needs_review 的站复活上架——
+    # 这些状态是探活/归档/质量隔离特意标的，数据齐全不代表该重新发布。
+    if done and site.get("status") not in ("broken", "archived", "needs_review"):
         site["status"] = "completed"
     return site
 
@@ -930,6 +934,16 @@ def estimate_cost(step: str, result: dict) -> float:
     return baseline * (actual_total / nominal_total)
 
 
+def site_cost_snapshot(site: dict) -> float:
+    """当前 _meta 里已记录的成本合计（vision + translation + narrative）。
+    用它做本轮 delta 记账：_meta.total_cost_usd 是终身累计且只在 finalize 更新
+    （失败中断时是旧值），直接拿它计入 --budget 会重复计费/漏计费。"""
+    m = site.get("_meta", {}) or {}
+    return ((m.get("vision_cost_usd") or 0.0)
+            + (m.get("translation_cost_usd") or 0.0)
+            + (m.get("narrative_cost_usd") or 0.0))
+
+
 # ============================================================
 # Site I/O
 # ============================================================
@@ -1004,10 +1018,23 @@ def run_pipeline(site: dict, *, only: str | None = None, dry_run: bool = False,
     if only in (None, "vision"):
         if extract_dir:
             # 用真实 Playwright 提取（多截图 + 真 computed styles）走 mimo
+            # 先备份旧 spec/spec_i18n：step_vision_from_extract 抛异常时 main 的兜底
+            # 会把 site 落盘，若不恢复就把 spec=None 写进文件，毁掉已有数据。
+            import copy
+            backup = {"spec": copy.deepcopy(site.get("spec")),
+                      "spec_i18n": copy.deepcopy(site.get("spec_i18n"))}
             if not dry_run:
                 site["spec"] = None  # 强制重跑 vision（覆盖旧模板/旧 spec）
                 site.pop("spec_i18n", None)
-            site = step_vision_from_extract(site, extract_dir, dry_run=dry_run)
+            try:
+                site = step_vision_from_extract(site, extract_dir, dry_run=dry_run)
+            except Exception:
+                site["spec"] = backup["spec"]
+                if backup["spec_i18n"] is not None:
+                    site["spec_i18n"] = backup["spec_i18n"]
+                else:
+                    site.pop("spec_i18n", None)
+                raise  # 恢复完旧数据后继续走 main 原有的失败处理
         else:
             site = step_vision(site, dry_run=dry_run)
         if not dry_run:
@@ -1178,7 +1205,11 @@ def main():
         for p in sorted(SITES_DIR.glob("*.json")):
             site = json.loads(p.read_text(encoding="utf-8"))
             status = site.get("status", "")
-            if args.retry_failed and not status.startswith("failed:") and status == "completed":
+            # broken 是死站（重跑白烧钱），needs_review 是质量隔离区（等人工处理）——
+            # 两个分支都不该自动重跑它们。
+            if status in ("broken", "needs_review"):
+                continue
+            if args.retry_failed and not status.startswith("failed:"):
                 continue
             if args.all_incomplete and status == "completed":
                 continue
@@ -1208,10 +1239,14 @@ def main():
         if args.title and (not site.get("title") or site.get("title") == slug.replace("-", " ").title()):
             site["title"] = args.title
         if args.tags:
-            site["tags"] = [t.strip() for t in args.tags.split(",") if t.strip()]
+            site["tags"] = canon_list([t.strip() for t in args.tags.split(",") if t.strip()])
 
         prev_status = site.get("status", "pending")
         print(f"\n{ANSI['b']}[{i}/{len(targets)}] {slug}{ANSI['x']} ({prev_status}) → {site['url']}")
+
+        # --budget 记账基线：只计本轮新增花费（delta），不能拿终身累计 total_cost_usd
+        # 直接累加（重跑老站会把历史花费重复计入预算）。
+        before_cost = site_cost_snapshot(site)
 
         try:
             site = run_pipeline(site, only=args.only, dry_run=args.dry_run, extract_dir=extract_dir)
@@ -1234,9 +1269,16 @@ def main():
                 print(f"  {ANSI['r']}✗ {type(e).__name__}: {e} ({retries}/3){ANSI['x']}")
             save_site(site)
             summary["failed"] += 1
+            # 失败路径同样计入本轮已发生的花费（_meta 里已累计了失败前调用的费用），
+            # 否则一批全失败的站可以无限烧钱而 --budget 永远不触发。
+            cost = max(0.0, site_cost_snapshot(site) - before_cost)
+            cumulative_cost += cost
+            if cumulative_cost >= args.budget:
+                print(f"\n{ANSI['y']}⚠ budget ${args.budget:.2f} reached, stopping.{ANSI['x']}")
+                break
             continue
 
-        cost = site.get("_meta", {}).get("total_cost_usd", 0.0)
+        cost = max(0.0, site_cost_snapshot(site) - before_cost)
         cumulative_cost += cost
         st = site.get("status", "?")
         summary[st] = summary.get(st, 0) + 1

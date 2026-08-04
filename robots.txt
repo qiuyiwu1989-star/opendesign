@@ -1,5 +1,9 @@
 # OpenDesign — 欢迎搜索引擎和 LLM 抓取
 # 全部内容静态化，无需执行 JS
+#
+# 注：不要给具名 UA 单开 "Allow: /" 组——robots 语义是具名组完全取代 * 组，
+# 之前那样写等于把 admin/scripts 的 Disallow 对全部 LLM 爬虫豁免了（已踩坑）。
+# Allow: / 本来就是默认行为，具名组零收益纯风险。
 
 User-agent: *
 Allow: /
@@ -7,50 +11,14 @@ Disallow: /supabase/
 Disallow: /extract/
 Disallow: /scripts/
 Disallow: /deploy/
+Disallow: /dist/
 Disallow: /admin.html
 Disallow: /admin
 
-# 明确允许主流 LLM 抓取
-User-agent: GPTBot
-Allow: /
-
-User-agent: ChatGPT-User
-Allow: /
-
-User-agent: OAI-SearchBot
-Allow: /
-
-User-agent: anthropic-ai
-Allow: /
-
-User-agent: ClaudeBot
-Allow: /
-
-User-agent: PerplexityBot
-Allow: /
-
-User-agent: Google-Extended
-Allow: /
-
-User-agent: Bingbot
-Allow: /
-
-User-agent: Baiduspider
-Allow: /
-
-User-agent: YandexBot
-Allow: /
-
-User-agent: Applebot
-Allow: /
-
-User-agent: Bytespider
-Allow: /
-
-User-agent: Amazonbot
-Allow: /
-
-User-agent: DuckDuckBot
-Allow: /
+# For AI agents: start here →
+#   https://opendesign.cc/skill.md      (design-director protocol)
+#   https://opendesign.cc/catalog.json  (searchable index: {count, designs:[...]})
+#   https://opendesign.cc/llms.txt      (full agent map)
+#   https://opendesign.cc/mcp/          (MCP server — remote endpoint, no install)
 
 Sitemap: https://opendesign.cc/sitemap.xml

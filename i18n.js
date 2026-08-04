@@ -15,6 +15,12 @@
   const LANG_KEY = "opendesign-lang";
   const FALLBACK = "en";
 
+  // localStorage 安全壳：隐私模式 / 存储被禁时裸调会 throw → 整站白屏。失败静默降级。
+  const safeStorage = {
+    get(k) { try { return localStorage.getItem(k); } catch { return null; } },
+    set(k, v) { try { localStorage.setItem(k, v); } catch {} }
+  };
+
   // 8 种受支持的语言（顺序 = 下拉菜单显示顺序）
   // 联合国 6 大官方语言：en / zh-CN / fr / es / ru / (ar - 待 v0.4 RTL 支持)
   // + zh-TW (繁体) + ja + ko（亚太常用）
@@ -2212,11 +2218,11 @@
     const urlLang = normalizeLang(new URLSearchParams(location.search).get("lang"));
     if (urlLang) return urlLang;
     // 2) localStorage 次之（含老 "zh" 自动迁移）
-    const stored = localStorage.getItem(LANG_KEY);
+    const stored = safeStorage.get(LANG_KEY);
     const storedNorm = normalizeLang(stored);
     if (storedNorm) {
       // 顺手把老的 "zh" 写回成 "zh-CN"
-      if (stored !== storedNorm) localStorage.setItem(LANG_KEY, storedNorm);
+      if (stored !== storedNorm) safeStorage.set(LANG_KEY, storedNorm);
       return storedNorm;
     }
     // 3) navigator.languages 链（按用户偏好排序）
@@ -2275,7 +2281,7 @@
     const normalized = normalizeLang(rawLang);
     if (!normalized || normalized === currentLang) return;
     currentLang = normalized;
-    localStorage.setItem(LANG_KEY, normalized);
+    safeStorage.set(LANG_KEY, normalized);
     applyI18n();
     window.dispatchEvent(new CustomEvent("i18n:change", { detail: { lang: normalized } }));
   }

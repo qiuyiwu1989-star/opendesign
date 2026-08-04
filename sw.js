@@ -6,7 +6,7 @@
  *   - 跨域(图片代理 wsrv / thum.io / 字体 / Supabase)：不拦，直接走网络
  *   - 非 GET（Supabase RPC POST）：不碰
  * 改了壳文件就把 VER 加一，旧缓存自动清。 */
-const VER = "od-v4"; // 2026-06-09 强制刷新：sites-specs.json 懒加载
+const VER = "od-v5-20260804"; // 发版必须 bump——SHELL 走 SWR 时用户会拿到新 HTML + 旧 JS(踩过:用户用 6/13 的 JS 跑 7/14 的 HTML)
 const SHELL = [
   "/", "/index.html", "/styles.css", "/app.js", "/i18n.js",
   "/favicon.svg", "/manifest.json",

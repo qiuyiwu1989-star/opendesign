@@ -12,6 +12,8 @@ export const VERSION = "1.0.0";
 export const PROTOCOL = "2024-11-05";
 
 let _catalog = null; // cache
+let _catalogAt = 0;
+const CATALOG_TTL_MS = 10 * 60 * 1000; // stdio 进程短命无所谓；HTTP 常驻进程没 TTL 会永远用旧库（踩过：重启前一直 serve 着少 368 站的旧目录）
 
 async function httpGet(path, { json = false } = {}) {
   const ctrl = new AbortController();
@@ -29,13 +31,38 @@ async function httpGet(path, { json = false } = {}) {
 }
 
 async function catalog() {
-  if (!_catalog) {
-    const d = await httpGet("/catalog.json", { json: true });
-    // catalog.json shape: { count, designs: [...] }
-    _catalog = Array.isArray(d) ? d : d.designs || d.sites || d.entries || [];
+  const now = Date.now();
+  if (!_catalog || now - _catalogAt > CATALOG_TTL_MS) {
+    try {
+      const d = await httpGet("/catalog.json", { json: true });
+      // catalog.json shape: { count, designs: [...] }
+      _catalog = Array.isArray(d) ? d : d.designs || d.sites || d.entries || [];
+      _catalogAt = now;
+    } catch (err) {
+      if (!_catalog) throw err; // 有旧数据就先用着，刷新失败不至于把服务打挂
+    }
   }
   return _catalog;
 }
+
+/* 轻量同义词层：把 query 词扩展到 catalog 实际用的词汇。
+ * 不搞语义搜索（保持零依赖），只覆盖高频真实差距——
+ * 例如用户搜 "japanese"，日本站的 tag/summary 里写的是 japan/tokyo/jp。 */
+const SYNONYMS = {
+  japanese: ["japan", "tokyo", "jp"],
+  finance: ["fintech", "bank", "banking"],
+  banking: ["fintech", "bank", "finance"],
+  shop: ["e-commerce", "ecommerce", "store"],
+  store: ["e-commerce", "ecommerce", "shop"],
+  webgl: ["3d", "three.js", "immersive"],
+  "3d": ["webgl", "immersive"],
+  developer: ["dev", "developer tools", "devtools"],
+  minimalist: ["minimal", "clean"],
+  type: ["typography", "foundry"],
+  motion: ["animation", "kinetic"],
+  crypto: ["web3", "blockchain", "nft"],
+  dashboard: ["app ui", "product", "saas"],
+};
 
 function slim(e) {
   return { slug: e.slug, title: e.title, url: e.url, tags: e.tags || [], summary: e.summary || "", has_pack: !!e.has_pack };
@@ -92,7 +119,7 @@ export const TOOLS = [
   {
     name: "search_designs",
     description:
-      "Search the OpenDesign library (900+ real design systems) by need. `query` matches title/slug/tags/summary (case-insensitive, all words must hit); `tags` requires any tag to match. Returns slim matches — then call get_design_system for the real tokens. e.g. search_designs('fintech trust restrained') or search_designs('', ['ai','minimal']).",
+      "Search the OpenDesign library by need. `query` words are score-ranked (tag hit strongest; any word may match — NOT strict AND; check `unmatched_terms` in the result for query words that hit nothing); `tags` is the only hard filter. Returns slim matches — then call get_design_system for the real tokens. e.g. search_designs('fintech trust restrained') or search_designs('', ['ai','minimal']).",
     inputSchema: {
       type: "object",
       properties: {
@@ -152,9 +179,9 @@ export async function callTool(name, args = {}) {
     const items = await catalog();
     const q = String(args.query || "").toLowerCase().trim();
     const want = new Set((args.tags || []).map((t) => String(t).toLowerCase()));
-    const limit = args.limit || 20;
+    const limit = Math.min(Math.max(Number(args.limit) || 20, 1), 100);
     const words = q ? q.split(/\s+/) : [];
-    // score-ranked (not strict AND): exact tag hit = strong, substring = weak; sort by relevance.
+    const matchedTerms = new Set(); // 记录每个 query 词有没有真的命中过任何站
     const scored = [];
     for (const e of items) {
       const s = slim(e);
@@ -163,22 +190,37 @@ export async function callTool(name, args = {}) {
       let score = want.size ? 2 : 0;
       const hay = `${s.slug} ${s.title} ${s.tags.join(" ")} ${s.summary}`.toLowerCase();
       for (const w of words) {
-        if (tagset.has(w)) score += 3;
-        else if (hay.includes(w)) score += 1;
+        if (tagset.has(w)) { score += 3; matchedTerms.add(w); }
+        else if (hay.includes(w)) { score += 1; matchedTerms.add(w); }
+        else {
+          // 同义词降级匹配（权重低于直接命中，避免同义词喧宾夺主）
+          for (const syn of SYNONYMS[w] || []) {
+            if (tagset.has(syn) || hay.includes(syn)) { score += 2; matchedTerms.add(w); break; }
+          }
+        }
       }
       if (words.length && score === (want.size ? 2 : 0)) continue; // query had zero hits
       scored.push({ s, score });
     }
     scored.sort((a, b) => b.score - a.score);
     const out = scored.slice(0, limit).map((x) => x.s);
-    return { query: args.query || "", tags: args.tags || [], count: out.length, designs: out };
+    // 关键的诚实信号：哪些词一个站都没命中。没有这个，调用方会把
+    // "japanese minimal" 返回一堆法国极简站当成正确答案（真踩过）。
+    const unmatched = words.filter((w) => !matchedTerms.has(w));
+    const res = { query: args.query || "", tags: args.tags || [], count: out.length, designs: out };
+    if (unmatched.length) {
+      res.unmatched_terms = unmatched;
+      res.warning = `These query terms matched nothing in the catalog: ${unmatched.join(", ")}. Results only reflect the remaining terms — do not present them as covering the full query. Consider different terms, or browse tags via list_designs.`;
+    }
+    return res;
   }
 
   if (name === "list_designs") {
     const items = await catalog();
-    const limit = args.limit || 40, offset = args.offset || 0;
-    const rows = items.map(slim);
-    return { total: rows.length, offset, limit, designs: rows.slice(offset, offset + limit) };
+    const limit = Math.min(Math.max(Number(args.limit) || 40, 1), 100);   // 钳制:曾实测 99999 一次吐 640KB
+    const offset = Math.max(0, Number(args.offset) || 0);
+    const rows = items.slice(offset, offset + limit).map(slim);
+    return { total: items.length, offset, limit, has_more: offset + limit < items.length, designs: rows };
   }
 
   if (name === "get_design_system") {
@@ -192,9 +234,9 @@ export async function callTool(name, args = {}) {
     }
     const folder = `${BASE}/packs/${slug}/`;
     let spec = null;
-    if (e.has_pack) {
-      try { spec = await httpGet(`/packs/${slug}/spec.json`, { json: true }); } catch { /* tier-1, no pack */ }
-    }
+    // 无条件试取:has_pack 只代表「有完整截图包」,而 spec.json 对任何有 spec 的站都存在。
+    // 之前用 has_pack 当门禁,33% 的站被谎称"没有 tokens"→ Agent 回去凭记忆编颜色。
+    try { spec = await httpGet(`/packs/${slug}/spec.json`, { json: true }); } catch { /* 真没有才 null */ }
     return {
       slug, title: e.title, url: e.url, tags: e.tags || [], summary: e.summary || "",
       tokens: spec, // colors, typography, spacing, surfaces, layout, motion (null for tier-1 without a pack)
@@ -211,13 +253,16 @@ export async function callTool(name, args = {}) {
   }
 
   if (name === "fetch_design_spec_markdown") {
-    const slug = args.slug;
-    if (!slug) throw new Error("slug required");
+    const slug = String(args.slug || "");
+    if (!/^[a-z0-9][a-z0-9-]*$/.test(slug)) throw new Error("invalid slug (expected kebab-case, e.g. 'linear')");
+    const LANGS = ["en", "zh-CN", "zh-TW", "ja", "ko"];
     const lang = (args.lang || "en").replace(/^zh$/, "zh-CN");
+    if (!LANGS.includes(lang)) throw new Error(`invalid lang '${args.lang}' — use one of ${LANGS.join("/")}`);
     try {
       return await httpGet(`/packs/${slug}/DESIGN_SPEC.${lang}.md`);
     } catch {
-      return await httpGet(`/packs/${slug}/DESIGN_SPEC.en.md`); // fallback to en
+      const md = await httpGet(`/packs/${slug}/DESIGN_SPEC.en.md`);
+      return lang === "en" ? md : `> (requested ${lang}, served en — no ${lang} spec for this pack)\n\n${md}`;
     }
   }
 
@@ -231,7 +276,8 @@ export async function callTool(name, args = {}) {
     const want = new Set((args.tags || []).map((t) => String(t).toLowerCase()));
     const words = q ? q.split(/\s+/) : [];
 
-    // same relevance scoring as search_designs, plus a family tag per candidate
+    // same relevance scoring as search_designs (incl. synonym fallback), plus a family tag per candidate
+    const matchedTerms = new Set();
     const scored = [];
     for (const e of items) {
       const s = slim(e);
@@ -240,8 +286,13 @@ export async function callTool(name, args = {}) {
       let score = want.size ? 2 : 0;
       const hay = `${s.slug} ${s.title} ${s.tags.join(" ")} ${s.summary}`.toLowerCase();
       for (const w of words) {
-        if (tagset.has(w)) score += 3;
-        else if (hay.includes(w)) score += 1;
+        if (tagset.has(w)) { score += 3; matchedTerms.add(w); }
+        else if (hay.includes(w)) { score += 1; matchedTerms.add(w); }
+        else {
+          for (const syn of SYNONYMS[w] || []) {
+            if (tagset.has(syn) || hay.includes(syn)) { score += 2; matchedTerms.add(w); break; }
+          }
+        }
       }
       if (words.length && score === (want.size ? 2 : 0)) continue;
       scored.push({ s, score, family: classifyFamily(s.tags) });
@@ -251,6 +302,7 @@ export async function callTool(name, args = {}) {
     if (!scored.length) {
       return { query: args.query || "", tags: args.tags || [], picks: [], note: "No matches — try broader terms or fewer tag filters (this mirrors search_designs' matching, so the same query works there too)." };
     }
+    const unmatchedRec = words.filter((w) => !matchedTerms.has(w));
 
     const why = (c) =>
       `${c.s.title} reads ${c.family.label.toLowerCase()} — tagged ${c.s.tags.slice(0, 3).join(", ") || "n/a"}. ${c.s.summary || ""}`.trim();
@@ -275,12 +327,17 @@ export async function callTool(name, args = {}) {
     }
 
     const label = (c, role) => ({ role, slug: c.s.slug, title: c.s.title, url: c.s.url, tags: c.s.tags, summary: c.s.summary, family: c.family.label, why: why(c) });
-    return {
+    const recRes = {
       query: args.query || "",
       tags: args.tags || [],
       picks: [label(primary, "primary"), ...alternates.map((c) => label(c, "alternate"))],
       next_step: "Call get_design_system(slug) on whichever the user picks to get its actual grounded tokens — never build from these summaries alone.",
     };
+    if (unmatchedRec.length) {
+      recRes.unmatched_terms = unmatchedRec;
+      recRes.warning = `These query terms matched nothing: ${unmatchedRec.join(", ")}. The picks reflect only the remaining terms — tell the user which part of their brief the library couldn't cover.`;
+    }
+    return recRes;
   }
 
   if (name === "get_critique_rubric") {
@@ -309,6 +366,7 @@ export async function callTool(name, args = {}) {
 /** 处理单条 JSON-RPC 消息，两种传输（stdio / http）共用。
  *  通知（无 id）返回 null——两边都不回。 */
 export async function handleMessage(req, { protocolVersion } = {}) {
+  if (!req || typeof req !== "object") return null;  // null/畸形消息直接忽略——曾被 4 字节 'null' 打挂常驻进程
   const { id, method, params } = req;
   if (id === undefined || id === null) return null;
 

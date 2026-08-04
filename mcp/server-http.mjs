@@ -55,9 +55,14 @@ function jsonRpcError(id, code, message) {
 const server = http.createServer(async (req, res) => {
   res.setHeader("Access-Control-Allow-Origin", "*");
   res.setHeader("Access-Control-Allow-Methods", "POST, OPTIONS");
-  res.setHeader("Access-Control-Allow-Headers", "Content-Type, Accept, Mcp-Session-Id");
+  res.setHeader("Access-Control-Allow-Headers", "Content-Type, Accept, Mcp-Session-Id, MCP-Protocol-Version, Authorization, Last-Event-ID");
 
   const url = new URL(req.url, `http://${req.headers.host || "localhost"}`);
+  if (url.pathname === "/health" || url.pathname === "/mcp/http/health") {
+    res.writeHead(200, { "Content-Type": "application/json" });
+    res.end(JSON.stringify({ ok: true, name: "opendesign-mcp", uptime_s: Math.floor(process.uptime()) }));
+    return;
+  }
   if (url.pathname !== "/" && url.pathname !== "/mcp/http" && url.pathname !== "/mcp/http/") {
     res.writeHead(404, { "Content-Type": "application/json" });
     res.end(JSON.stringify(jsonRpcError(null, -32601, "not found — POST JSON-RPC to this path")));
@@ -99,10 +104,20 @@ const server = http.createServer(async (req, res) => {
   }
 
   const batch = Array.isArray(payload) ? payload : [payload];
+  if (batch.length > 10) {
+    res.writeHead(400, { "Content-Type": "application/json" });
+    res.end(JSON.stringify(jsonRpcError(null, -32600, "batch too large (max 10)")));
+    return;
+  }
   const results = [];
   for (const msg of batch) {
-    const r = await handleMessage(msg);
-    if (r) results.push(r);
+    try {
+      const r = await handleMessage(msg);
+      if (r) results.push(r);
+    } catch (err) {
+      // 单条消息的失败绝不能拖垮进程/批次(曾被 4 字节 'null' 打挂过服务)
+      results.push(jsonRpcError(msg && msg.id !== undefined ? msg.id : null, -32603, "internal error"));
+    }
   }
 
   if (results.length === 0) {
@@ -120,5 +135,7 @@ server.listen(PORT, "127.0.0.1", () => {
   console.log(`OpenDesign MCP (Streamable HTTP) listening on http://127.0.0.1:${PORT}`);
 });
 
+process.on("uncaughtException", (err) => console.error("[uncaught]", err));
+process.on("unhandledRejection", (err) => console.error("[unhandled]", err));
 process.on("SIGTERM", () => server.close(() => process.exit(0)));
 process.on("SIGINT", () => server.close(() => process.exit(0)));

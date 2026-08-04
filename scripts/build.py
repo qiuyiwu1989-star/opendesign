@@ -936,10 +936,12 @@ def render_google_design_md(site: dict, lang: str = "en") -> str:
     spacing = spec.get("spacing", {}) or {}
 
     # ---- YAML front matter ----
+    # 值一律用 json.dumps 输出（JSON 字符串是合法 YAML 标量）：裸拼会让 &Tradition
+    # 变 YAML 锚点、含双引号的 description 直接崩格式。
     lines = ["---"]
-    lines.append(f"name: {title}")
+    lines.append(f"name: {json.dumps(title, ensure_ascii=False)}")
     desc = (site.get("desc", {}).get(lang) or {}).get("notes", "")
-    if desc: lines.append(f"description: \"{desc[:200]}\"")
+    if desc: lines.append(f"description: {json.dumps(desc[:200], ensure_ascii=False)}")
     lines.append("version: alpha")
     lines.append("")
 
@@ -1179,14 +1181,17 @@ def build_sitemap(sites: list[dict]) -> str:
     # 每个站
     for s in sites:
         slug = s["id"]
+        # lastmod 用每站真实的内容更新时间（vision_at 的日期部分，退化到 added_at）。
+        # 之前用当天日期，每次 build 全体条目一起跳动，Google 会直接忽略 lastmod。
+        raw_mod = (s.get("_meta", {}) or {}).get("vision_at") or s.get("added_at") or ""
+        lastmod_line = f"    <lastmod>{str(raw_mod)[:10]}</lastmod>\n" if raw_mod else ""
         for lang in LANGS:
             alternates = "".join(
                 f'    <xhtml:link rel="alternate" hreflang="{l}" href="{BASE_URL}/{l}/sites/{slug}" />\n' for l in LANGS
             ) + f'    <xhtml:link rel="alternate" hreflang="x-default" href="{BASE_URL}/en/sites/{slug}" />'
             entries.append(f'''  <url>
     <loc>{BASE_URL}/{lang}/sites/{slug}</loc>
-    <lastmod>{today}</lastmod>
-    <changefreq>monthly</changefreq>
+{lastmod_line}    <changefreq>monthly</changefreq>
     <priority>0.7</priority>
 {alternates}
   </url>''')
@@ -1232,10 +1237,15 @@ def main():
     print(f"Loaded {len(all_sites)} sites · publishing {len(sites)} completed · skipping {skipped} (pending/failed/review)")
 
     # 1) Index + per-site detail
+    # --slug 模式只写 dist/seo 和 dist/packs 的对应站——所有全局产物（index/legacy/
+    # sitemap/llms.txt/catalog.json）都跳过，否则会按过滤后的 1 条重写、清空全站数据。
     if not args.seo_only:
-        index = build_sites_index(sites)
-        (DIST_DIR / "sites-index.json").write_text(json.dumps(index, ensure_ascii=False, indent=2), encoding="utf-8")
-        print(f"  ✓ dist/sites-index.json ({len(sites)} sites)")
+        if args.slug:
+            print(f"  ⚠ --slug 模式：跳过 dist/sites-index.json（全局产物，避免被过滤后的 {len(sites)} 条覆盖）")
+        else:
+            index = build_sites_index(sites)
+            (DIST_DIR / "sites-index.json").write_text(json.dumps(index, ensure_ascii=False, indent=2), encoding="utf-8")
+            print(f"  ✓ dist/sites-index.json ({len(sites)} sites)")
 
         (DIST_DIR / "sites").mkdir(exist_ok=True)
         for s in sites:
@@ -1245,25 +1255,28 @@ def main():
         print(f"  ✓ dist/sites/*.json ({len(sites)} files)")
 
         # 2) Legacy compat (lets current app.js run unchanged)
-        legacy_dir = DIST_DIR / "legacy"
-        legacy_dir.mkdir(exist_ok=True)
-        (legacy_dir / "sites.js").write_text(build_legacy_sites_js(sites), encoding="utf-8")
-        (legacy_dir / "sites-specs.json").write_text(
-            json.dumps(build_legacy_specs_json(sites), ensure_ascii=False, indent=2),
-            encoding="utf-8"
-        )
-        (legacy_dir / "sites-i18n.json").write_text(
-            json.dumps(build_legacy_i18n_json(sites), ensure_ascii=False, indent=2),
-            encoding="utf-8"
-        )
-        # 按语言拆分（节省 ~70% 传输）：sites-i18n.zh-CN.json、sites-i18n.en.json 等
-        per_lang = build_i18n_per_lang(sites)
-        for lang, data in per_lang.items():
-            (legacy_dir / f"sites-i18n.{lang}.json").write_text(
-                json.dumps(data, ensure_ascii=False, indent=2),
+        if args.slug:
+            print(f"  ⚠ --slug 模式：跳过 dist/legacy/*（全局产物，会被 deploy 同步到根目录，不能按 1 条重写）")
+        else:
+            legacy_dir = DIST_DIR / "legacy"
+            legacy_dir.mkdir(exist_ok=True)
+            (legacy_dir / "sites.js").write_text(build_legacy_sites_js(sites), encoding="utf-8")
+            (legacy_dir / "sites-specs.json").write_text(
+                json.dumps(build_legacy_specs_json(sites), ensure_ascii=False, indent=2),
                 encoding="utf-8"
             )
-        print(f"  ✓ dist/legacy/* (sites.js + sites-specs.json + sites-i18n.json + per-lang splits)")
+            (legacy_dir / "sites-i18n.json").write_text(
+                json.dumps(build_legacy_i18n_json(sites), ensure_ascii=False, indent=2),
+                encoding="utf-8"
+            )
+            # 按语言拆分（节省 ~70% 传输）：sites-i18n.zh-CN.json、sites-i18n.en.json 等
+            per_lang = build_i18n_per_lang(sites)
+            for lang, data in per_lang.items():
+                (legacy_dir / f"sites-i18n.{lang}.json").write_text(
+                    json.dumps(data, ensure_ascii=False, indent=2),
+                    encoding="utf-8"
+                )
+            print(f"  ✓ dist/legacy/* (sites.js + sites-specs.json + sites-i18n.json + per-lang splits)")
 
     # 3) SEO static HTML
     if not args.legacy_only:
@@ -1348,34 +1361,49 @@ def main():
 
     # 5) Sitemap
     if not args.legacy_only:
-        sitemap = build_sitemap(sites)
-        (DIST_DIR / "sitemap.xml").write_text(sitemap, encoding="utf-8")
-        print(f"  ✓ dist/sitemap.xml ({len(sites)} sites × {len(LANGS)} langs)")
+        if args.slug:
+            print(f"  ⚠ --slug 模式：跳过 dist/sitemap.xml（全局产物，避免被过滤后的 {len(sites)} 条覆盖）")
+        else:
+            sitemap = build_sitemap(sites)
+            (DIST_DIR / "sitemap.xml").write_text(sitemap, encoding="utf-8")
+            print(f"  ✓ dist/sitemap.xml ({len(sites)} sites × {len(LANGS)} langs)")
 
     # 5b) llms.txt（GEO：暴露 /packs/ 协议给 LLM/Agent）→ 写到根（部署直接 serve）
     if not args.legacy_only:
-        llms = build_llms_txt(sites, pidx)
-        (ROOT / "llms.txt").write_text(llms, encoding="utf-8")
-        print(f"  ✓ llms.txt ({len(sites)} sites · 暴露 /packs/ agent 协议)")
+        if args.slug:
+            print(f"  ⚠ --slug 模式：跳过 llms.txt（全局产物，避免被过滤后的 {len(sites)} 条覆盖）")
+        else:
+            llms = build_llms_txt(sites, pidx)
+            (ROOT / "llms.txt").write_text(llms, encoding="utf-8")
+            print(f"  ✓ llms.txt ({len(sites)} sites · 暴露 /packs/ agent 协议)")
 
     # 5c) catalog.json（给 agent skill 的干净目录：slug/标题/标签/一句话/资源 URL）
     if not args.legacy_only:
-        cat = []
-        for s in sites:
-            sp = s.get("spec") or {}
-            slug = s["id"]
-            cat.append({
-                "slug": slug, "title": s.get("title"), "url": s.get("url"),
-                "tags": s.get("tags", []),
-                "summary": (sp.get("identity", {}) or {}).get("essence")
-                or (s.get("desc", {}) or {}).get("en", {}).get("notes") or "",
-                "has_pack": slug in PACKS,
-                "spec_md": f"{BASE_URL}/packs/{slug}/DESIGN_SPEC.en.md",
-                "spec_json": f"{BASE_URL}/packs/{slug}/spec.json",
-            })
-        (ROOT / "catalog.json").write_text(
-            json.dumps({"count": len(cat), "designs": cat}, ensure_ascii=False, indent=2), encoding="utf-8")
-        print(f"  ✓ catalog.json（agent skill 目录 · {len(cat)} 站）")
+        if args.slug:
+            print(f"  ⚠ --slug 模式：跳过 catalog.json（全局产物，避免被过滤后的 {len(sites)} 条覆盖）")
+        else:
+            cat = []
+            for s in sites:
+                sp = s.get("spec") or {}
+                slug = s["id"]
+                si_en = (s.get("spec_i18n", {}) or {}).get("en", {}) or {}
+                cat.append({
+                    "slug": slug, "title": s.get("title"), "url": s.get("url"),
+                    "tags": s.get("tags", []),
+                    # summary 是 MCP search 的主要匹配文本：优先用 oneLiner（真正的一句话
+                    # 设计定性，534 站都有）；essence 全库从未出现（保留兼容）；desc.en.notes
+                    # 是策展理由套话，只做兜底。
+                    "summary": (si_en.get("identity") or {}).get("oneLiner")
+                    or (sp.get("identity", {}) or {}).get("essence")
+                    or (s.get("desc", {}) or {}).get("en", {}).get("notes") or "",
+                    "keywords": (si_en.get("identity") or {}).get("keywords") or [],
+                    "has_pack": slug in PACKS,
+                    "spec_md": f"{BASE_URL}/packs/{slug}/DESIGN_SPEC.en.md",
+                    "spec_json": f"{BASE_URL}/packs/{slug}/spec.json",
+                })
+            (ROOT / "catalog.json").write_text(
+                json.dumps({"count": len(cat), "designs": cat}, ensure_ascii=False, indent=2), encoding="utf-8")
+            print(f"  ✓ catalog.json（agent skill 目录 · {len(cat)} 站）")
 
     # 5d) skill.md（agent 安装清单：复制 URL 给 agent，它读完就会按品味匹配 + 取真 tokens）
     skill_src = ROOT / "skill" / "SKILL.md"

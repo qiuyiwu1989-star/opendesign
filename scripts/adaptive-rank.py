@@ -34,6 +34,7 @@ SB_URL       = os.environ.get("SB_URL", "").rstrip("/")
 SB_KEY       = os.environ.get("SB_ANON_KEY", "")
 LOCAL_DEPLOY = os.environ.get("LOCAL_DEPLOY", "") == "1"
 ARCHIVE_DAYS = int(os.environ.get("RANK_ARCHIVE_DAYS", "90"))
+ARCHIVE_MAX  = int(os.environ.get("RANK_ARCHIVE_MAX", "10"))   # 单轮归档上限，防第一次真跑把几百个老站一次性全下架
 
 
 def sb_select(table: str, select: str = "*"):
@@ -68,6 +69,7 @@ def main():
     now     = datetime.now(timezone.utc)
     changed = 0
     archived = 0
+    archive_capped = False   # 达到 RANK_ARCHIVE_MAX 后只告警一次
     top10 = []
 
     for jf in sorted(SITES_DIR.glob("*.json")):
@@ -101,18 +103,31 @@ def main():
 
         rank_score = like_n * 3 + save_n * 5 + recency_bonus + pack_bonus
 
+        # status 变化或分数变化都要落盘——之前只按分数判断写盘，导致「归档了但没写盘、
+        # archived 计数却 +1」，每天空转 build+deploy。
+        site_changed = False
+
         # ── 自动归档（软下架）──────────────────────────────────────────────
         if status == "completed" and like_n == 0 and save_n == 0 and age_days > ARCHIVE_DAYS:
-            site["status"]          = "archived"
-            site["archived_reason"] = f"0 engagement after {age_days}d"
-            site["archived_at"]     = now.strftime("%Y-%m-%d")
-            archived += 1
-            print(f"  📦 归档: {slug:<30} (上新 {age_days}d，0 互动)")
+            if archived >= ARCHIVE_MAX:
+                if not archive_capped:
+                    print(f"  ⚠ 本轮归档已达上限 RANK_ARCHIVE_MAX={ARCHIVE_MAX}，其余待归档站留到下一轮")
+                    archive_capped = True
+            else:
+                site["status"]          = "archived"
+                site["archived_reason"] = f"0 engagement after {age_days}d"
+                site["archived_at"]     = now.strftime("%Y-%m-%d")
+                archived += 1
+                site_changed = True
+                print(f"  📦 归档: {slug:<30} (上新 {age_days}d，0 互动)")
 
         # ── 更新 rank_score ──────────────────────────────────────────────────
         old_score = site.get("rank_score", -999)
         if old_score != rank_score or "rank_score" not in site:
             site["rank_score"] = rank_score
+            site_changed = True
+
+        if site_changed:
             jf.write_text(
                 json.dumps(site, ensure_ascii=False, indent=2),
                 encoding="utf-8")

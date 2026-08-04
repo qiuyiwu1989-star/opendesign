@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * OpenDesign MCP server — turn https://opendesign.cc (900+ real, grounded design
+ * OpenDesign MCP server — turn https://opendesign.cc (1,400+ real, grounded design
  * systems) into a connected tool for any MCP client (Cursor / Claude / Windsurf / …).
  *
  * Why an MCP server instead of "just fetch the URL": many agent runtimes block or
