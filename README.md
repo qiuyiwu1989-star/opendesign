@@ -1,218 +1,160 @@
 <div align="center">
 
-<img src="og-cover.png" alt="OpenDesign · 优质网页设计资源库" width="640" />
+<img src="og-cover.png" alt="OpenDesign" width="640" />
 
 # OpenDesign
 
-**第一个把网页美学拆成可被 AI 学习复用的开源标准。**
+### The taste layer for AI-built software.
 
-✦ 11 层 Tokens · 真 computed styles · AI-ready · 全开源
+**1,486 real design systems. Grounded tokens, not vibes. One line to connect.**
 
-[![Code: MIT](https://img.shields.io/badge/code-MIT-1f1f1f?style=flat-square)](LICENSE)
-[![Specs: CC BY 4.0](https://img.shields.io/badge/specs-CC%20BY%204.0-1f1f1f?style=flat-square)](LICENSE)
-[![Live](https://img.shields.io/badge/demo-opendesign.cc-b4451c?style=flat-square)](https://opendesign.cc)
-[![Issues](https://img.shields.io/badge/contribute-propose%20a%20site-1f1f1f?style=flat-square)](.github/ISSUE_TEMPLATE/propose-site.yml)
+[![MIT](https://img.shields.io/badge/code-MIT-1f1f1f?style=flat-square)](LICENSE)
+[![Specs CC BY 4.0](https://img.shields.io/badge/specs-CC%20BY%204.0-1f1f1f?style=flat-square)](LICENSE)
+[![Live](https://img.shields.io/badge/live-opendesign.cc-b4451c?style=flat-square)](https://opendesign.cc)
+[![MCP](https://img.shields.io/badge/MCP-ready-b4451c?style=flat-square)](https://opendesign.cc/mcp/)
 
-[Demo](https://opendesign.cc) · [11-layer Spec 标准](docs/11-layer-spec.md) · [AI Agent 集成](docs/ai-agent-integration.md) · [部署你自己的](docs/deployment.md)
+[Live site](https://opendesign.cc) · [MCP setup](https://opendesign.cc/mcp/) · [Agent protocol](https://opendesign.cc/skill.md) · [中文说明](README.zh-CN.md)
 
 </div>
 
 ---
 
-## 这是什么
+## The problem
 
-别的网页美学站只让你**看截图**。OpenDesign 让你**下载到代码 + 数据 + 证据**：
+Ask any AI to build you a landing page. You get Inter, a blue-violet gradient hero, `rounded-2xl` on everything, a soft shadow on every card.
 
-| 别的站给你的 | OpenDesign 给你的 |
+That's not a bug. **It's the mathematical average of the training data** — and an average has no brand. Every AI-built page ends up looking like every other AI-built page.
+
+You can't prompt your way out of it. "Make it look premium" isn't executable. Pasting a screenshot isn't verifiable. The model still falls back to the mean.
+
+## The fix
+
+Give the agent **one real design system's actual values** at the moment of generation.
+
+```
+"Build a fintech dashboard that feels trustworthy"
+        ↓
+  recommend_references()    → 1 primary + 2 alternates, deliberately different aesthetics
+        ↓
+  get_design_system("...")  → the REAL tokens from that site
+        ↓
+  { bg: "#08090A", ink: "#F7F8F8", muted: "#62666D",
+    line: "rgba(255,255,255,0.08)", scale: [...], motion: {...} }
+        ↓
+  Every value traces to a design real humans shipped.
+```
+
+Not "Stripe-ish blue." The hex Stripe actually ships.
+
+## Connect it
+
+**Remote — nothing to install:**
+
+```json
+{ "mcpServers": { "opendesign": { "url": "https://opendesign.cc/mcp/http" } } }
+```
+
+**Local — zero-dependency Node:**
+
+```json
+{ "mcpServers": { "opendesign": { "command": "npx", "args": ["-y", "opendesign-mcp"] } } }
+```
+
+Works with Claude Desktop, Claude Code, Cursor, Windsurf — any MCP client. No account, no API key, no rate card.
+
+**No MCP?** Everything is static and public. `GET https://opendesign.cc/skill.md` turns any agent into a design director; `catalog.json`, `packs/<slug>/spec.json` and `llms.txt` are plain fetches.
+
+## The 7 tools
+
+| Tool | What it does |
 |---|---|
-| 一张截图 | 17+ 张截图（全页 + 13 段滚动 + 移动）|
-| 一句模糊描述 | 8 章 magazine 风格 MD 设计规范 |
-| 凭感觉模仿 | 真 `getComputedStyle` 出来的 hex / px / 字体名 |
-| 你看完了走了 | 一个 URL 给 AI，自动生成同气质新页面 |
+| `get_director_protocol` | **Read first.** The protocol: diagnose → form a POV → route → decompose |
+| `recommend_references` | A brief in, 1 primary + 2 alternates from *different* aesthetic families — safe / bold / unexpected, enforced in code |
+| `get_design_system` | **The core one.** A site's real grounded tokens |
+| `search_designs` | Score-ranked search. Tells you which of your terms matched *nothing* instead of silently returning noise |
+| `list_designs` | Browse the catalog |
+| `fetch_design_spec_markdown` | Full 11-layer spec as Markdown, 5 languages — drop straight into a prompt |
+| `get_critique_rubric` | The 5-dimension review scorecard for "is this design any good?" |
 
-每个收录都附带一个**可下载的设计素材包**：
+## Why the tokens are trustworthy
 
-```
-apple-design-pack.zip (38.8 MB)
-├── 📄 DESIGN_SPEC.md           8 章规范 · :root CSS 变量可直接粘
-├── 🔢 sites-entry.json          11 层 Tokens spec
-├── 🔢 summary.json              真 token 频次数据（按出现次数排序）
-├── 🔢 fonts.json                实际加载的字体清单 + fallback chain
-├── 🖼 01_desktop_full.png      1440 桌面全页 (@2x retina)
-├── 🖼 02_desktop_hero.png      桌面首屏
-├── 🖼 03_section_00 ~ _12      13 张滚动分段（视觉证据）
-├── 🖼 04_mobile_full.png       390 移动全页 (@3x retina)
-└── 🖼 05_mobile_hero.png       移动首屏
-```
+Every entry is extracted by driving a real browser (Playwright), reading `getComputedStyle` off the actual DOM, aggregating by frequency, and grounding a vision model's read against those measurements. **The numbers are measured, not remembered.**
 
----
-
-## ⚡ For AI agents — 一个 URL = 完整设计上下文
-
-把任意 pack 文件夹 URL 粘进 Claude / Cursor / v0：
-
-```
-https://opendesign.cc/packs/apple/
-```
-
-AI 自动 fetch → 拿到完整规范 + 截图 + 字体清单**作为一个上下文**，立刻就能按这套气质生成新页面。
-
-```text
-你跟 Cursor 说：
-   "Build me a landing page following this spec:
-    https://opendesign.cc/packs/apple/"
-
-Cursor fetch URL → 看到 :root 变量 / 字体 / 间距 / donts → 直接生成代码
-```
-
-→ 详见 [AI Agent 集成文档](docs/ai-agent-integration.md)
-
----
-
-## 11 层 Tokens：OpenDesign 提倡的开放标准
-
-每个 spec 按相同 11 层组织，AI 学起来稳：
-
-| 层 | 内容 | 例 |
+| | Typical inspiration gallery | OpenDesign |
 |---|---|---|
-| 1. Identity | 一句话定位 + 关键词 + 类比 | "用纯黑剧场让硬件自己演戏" |
-| 2. Colors | bg / ink / accent token + 用色原则 | `--bg: #F5F5F7` |
-| 3. Typography | 字体类别 + 字号阶 + 规则 | `humanist-sans · 56/44/40/24/21/17/14` |
-| 4. Spacing | 基础单位 + 间距阶 + 节奏 | `4px base · 4/8/16/24/32/48/64/96` |
-| 5. Surfaces | 圆角 + 阴影 + 边线策略 | "几乎不用阴影，靠 hairline" |
-| 6. Layout | 容器宽度 + 栏数 + 骨架 | "1280 max · 12 column" |
-| 7. Components | button/card/chip/input/hero 配方 | "按钮黑底白字 pill 48px" |
-| 8. Motion | 时长桶 + 缓动 + 模式 | `220/400/800 · cubic-bezier(0.2,0.6,0.2,1)` |
-| 9. Interaction | hover / click / focus 规则 | "hover translateY -4px + 阴影" |
-| 10. Voice | 语气 + 标题写法 + CTA 风格 | "Order / Reserve · 1 词动词" |
-| 11. Don'ts | 反向定义的禁用清单 | "不用 emoji · 不放 carousel" |
+| What you get | A screenshot | 11-layer machine-readable spec |
+| Colors | You eyedrop them | Actual hex, frequency-ranked |
+| Type | "looks like a grotesk" | Real scale: size / line-height / weight / tracking |
+| Motion | — | Duration buckets + easing curves |
+| Anti-patterns | — | An explicit **don'ts** list per site |
+| For an agent | Unusable | One fetch = full design context |
 
-加 12. **System Prompt** —— 把整套压成 250 字内可直接喂 AI 的指令。
+**1,486 sites** · **920** with full Playwright screenshot packs · **5 languages** · **~$0.10** marginal cost per site
 
-→ 完整标准定义：[docs/11-layer-spec.md](docs/11-layer-spec.md)
+## The 11 layers
 
----
+`identity · color · typography · spacing · surfaces · layout · components · interaction · motion · voice · anti-patterns`
 
-## 三个使用方式
+Every site, same shape — so an agent that learns to read one has learned to read all 1,486. → [full spec](docs/11-layer-spec.md)
 
-### 🎨 设计师 / 前端开发：浏览 + 下载
-访问 **[opendesign.cc](https://opendesign.cc)**，挑一个网站，点「↓ 下载素材包」拿走全套素材。
+```jsonc
+// GET https://opendesign.cc/packs/linear/spec.json
+{
+  "colors": { "bg": "#08090A", "ink": "#F7F8F8", "muted": "#62666D",
+              "line": "rgba(255,255,255,0.08)",
+              "principle": "Extreme contrast for focus, subtle noise and semi-transparent layers for depth." },
+  "typography": { "display": "grotesque-sans", "scale": [ /* size / lh / weight / ls */ ] },
+  "spacing": { "base": 4, "scale": [4, 8, 16, 24, 32, 48, 64, 96] },
+  "motion": { /* durations + easing */ },
+  "surfaces": { /* radii, elevation strategy */ }
+}
+```
 
-### 🛠 Curator：抽取自己的网站
+## Also usable by humans
+
+Browse [opendesign.cc](https://opendesign.cc) — infinite canvas, 5-language detail pages, downloadable design packs (spec + tokens + real screenshots as a ZIP).
+
+## Run your own
+
 ```bash
 git clone https://github.com/qiuyiwu1989-star/opendesign
-cd opendesign/extract
-./setup.sh
-python3 extract.py https://your-site.com
-python3 synthesize.py extracts/your-site-com
-./pack.sh extracts/your-site-com
+cd opendesign/extract && ./setup.sh
+python3 extract.py https://your-site.com          # drive the browser, measure the DOM
+python3 synthesize.py extracts/your-site-com      # → 11-layer spec
+./pack.sh extracts/your-site-com                  # → downloadable pack
 ```
 
-输出：完整设计素材 ZIP，结构同 OpenDesign 公开 pack。
+Full pipeline, self-hostable: [architecture](docs/architecture.md) · [deployment](docs/deployment.md) · [data pipeline](docs/data-pipeline.md)
 
-### 🤖 AI 工具构建者：基于 packs/ URL 协议
-任何 LLM 工具都可以约定：
-- 用户输入 `https://opendesign.cc/packs/<slug>/` 当作 "design context input"
-- 工具自动 fetch 该目录的 DESIGN_SPEC.md + 关键文件
-- 按照规范生成代码
+## Docs
 
-→ [AI Agent 集成文档](docs/ai-agent-integration.md) 含完整 Cursor / Claude / v0 调用范例
+**Concepts** — [positioning & first principles](docs/positioning.md) · [11-layer spec](docs/11-layer-spec.md) · [design pack standard](docs/design-pack-standard.md)
 
----
+**Agent integration** — [MCP setup](https://opendesign.cc/mcp/) · [agent integration](docs/ai-agent-integration.md) · [the director protocol](skill/SKILL.md)
 
-## Quick links
+**Operating it** — [curator workflow](docs/curator-workflow.md) · [quality gate](docs/quality-gate.md) · [lessons learned](docs/lessons-2026-08.md)
 
-- 🌐 **[opendesign.cc](https://opendesign.cc)** — 20+ 精选 + 5 个 pack 就绪
-- 📚 [11-layer Tokens 开放标准](docs/11-layer-spec.md)
-- 🤖 [AI Agent 集成指南](docs/ai-agent-integration.md)
-- ⚙️ [架构总览](docs/architecture.md)
-- 🚀 [部署你自己的实例](docs/deployment.md)
-- 🗄️ [Supabase 配置](docs/supabase.md)
-- 🛠 [Extract CLI 工具](extract/README.md)
-- 🤝 [提名一个网站](.github/ISSUE_TEMPLATE/propose-site.yml)（推荐你认为值得收录的）
+## Contributing
 
----
+1. **Propose a site** — [open an issue](.github/ISSUE_TEMPLATE/propose-site.yml), takes a minute
+2. **Fix a spec** — spot a wrong color or a weak don'ts list? PR the entry
+3. **Anything else** — tools, docs, translations
 
-## 当前状态（v0.3）
+Selection bar: a clear design DNA you can grasp in three pages, decomposable into tokens, with an opinion about what it *refuses* to do. Not: content farms, template SaaS, component-library soup. → [CONTRIBUTING.md](CONTRIBUTING.md)
 
-### 数据
-- ✅ **80+ 收录站**（VoltAgent 65 + 自有 20+，持续扩张）
-- ✅ **每个 spec ×5 语言**（zh-CN / zh-TW / en / ja / ko）—— 600+ desc 块、800+ 叙事段
-- ✅ **每个 site 双格式输出** —— `DESIGN_SPEC.<lang>.md`（我们的 5 语言 magazine）+ `DESIGN.md`（Google Stitch 兼容）
-- ✅ **5000+ 静态 SEO 页**（5 lang × N sites）含 hreflang × x-default
+## License
 
-### 前端
-- ✅ **8 语言 UI**：zh-CN / zh-TW / en / ja / ko / **fr / es / ru**（UN 大语种）+ navigator.language 自动识别
-- ✅ **Tag 智能化**：按频次排序 + 计数 badge + 同现 tag 关联推荐
-- ✅ **同气质推荐**：基于 tag Jaccard + 颜色相似度，详情抽屉自动推 4 个相似站
-- ✅ **收藏 / 点赞 / sync code** 跨设备携带（无账号，无 PII）
-
-### 流水线
-- ✅ **一键 `ingest.py --auto-publish`** —— URL → live URL 一条命令 90 秒
-- ✅ **质量门** —— 颜色 / 字体类别 / donts / 5 lang coverage 全自动校验，过不了的标 `needs_review`
-- ✅ **截图 3 级 fallback** —— thum.io → microlink → Google Pagespeed
-- ✅ **Token 经济** —— 每站 ~$0.10，1000 站 ~$100
-
-### Roadmap
-- 🚧 1000 站规模（预算 $100，~24 小时跑完）
-- 🚧 Arabic (ar) + RTL 支持（v0.4）
-- 🚧 VS Code / Cursor 插件 + npm `@opendesign/fetch-spec`
-- 🚧 现存站 fr/es/ru 内容翻译 backfill（~$3）
-
-→ [ROADMAP.md](ROADMAP.md) · [收录手册](docs/curator-workflow.md) · [质量门规则](docs/quality-gate.md)
-
----
-
-## 技术栈
-
-- **前端**：原生 HTML + CSS + JS（零依赖，零构建步骤）
-- **字体**：Instrument Serif italic + Inter
-- **后端**：Supabase（Postgres + Edge Function）
-- **抓取**：Playwright + Python 统计聚合
-- **AI Vision**：mimo-v2.5（也兼容 Claude Sonnet / OpenAI vision via Anthropic-format proxy）
-- **部署**：Nginx + Let's Encrypt + 腾讯云
-
-→ 架构详解：[docs/architecture.md](docs/architecture.md)
-
----
-
-## 贡献
-
-OpenDesign 接受三种贡献：
-
-1. **提名新网站** —— [开 issue 用模板](.github/ISSUE_TEMPLATE/propose-site.yml) · 1 分钟搞定
-2. **改进现有 spec** —— 直接 PR 改 `sites.js` 或 `sites-specs.json` 对应条目
-3. **完善文档 / 工具 / 翻译** —— 任何 PR
-
-详情：[CONTRIBUTING.md](CONTRIBUTING.md)
-
----
-
-## 引用
-
-如果你用了 OpenDesign 的 spec / pack / 工具，欢迎告诉我们。学术引用：
+**Code** MIT · **Curated specs** CC BY 4.0 (commercial use fine, keep attribution) · **Original sites' assets** © respective owners
 
 ```bibtex
 @misc{opendesign2026,
-  title  = {OpenDesign: an open standard for extracting reusable web
-           design tokens via Playwright + Vision LLM},
+  title  = {OpenDesign: an open standard for extracting reusable web design
+            tokens via browser instrumentation and vision models},
   author = {Qiu, Yiwu and OpenDesign contributors},
   year   = {2026},
   url    = {https://opendesign.cc}
 }
 ```
-
----
-
-## License
-
-- **Code**: MIT
-- **Curated specs**: CC BY 4.0（自由复用、可商用、保留署名）
-- **Original sites' assets**: © respective owners
-
-详见 [LICENSE](LICENSE)
-
----
 
 <div align="center">
 

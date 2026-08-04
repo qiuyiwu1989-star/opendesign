@@ -1,0 +1,53 @@
+# Smithery registry manifest — https://smithery.ai
+# 提交方式见 mcp/DIRECTORY-SUBMISSIONS.md
+name: opendesign
+displayName: OpenDesign — real design systems
+description: >-
+  Give your AI agent real design taste. 1,400+ curated websites, each with
+  grounded design tokens (color, type scale, spacing, surfaces, layout, motion)
+  extracted from the live site and verified against actual computed styles.
+  Your agent picks a real reference and builds from its ACTUAL values —
+  not from the training-data average that makes every AI page look the same.
+homepage: https://opendesign.cc
+repository: https://github.com/qiuyiwu1989-star/opendesign
+license: MIT
+icon: https://opendesign.cc/favicon.svg
+
+tags:
+  - design
+  - design-systems
+  - design-tokens
+  - frontend
+  - ui
+  - css
+  - creative
+
+startCommand:
+  type: stdio
+  configSchema:
+    type: object
+    properties: {}
+    # 无需任何配置:库是公开的,不需要 API key、账号或环境变量
+  commandFunction: |-
+    () => ({ command: 'npx', args: ['-y', 'opendesign-mcp'] })
+
+# 也提供远程端点(零安装)
+remote:
+  transport: streamable-http
+  url: https://opendesign.cc/mcp/http
+
+tools:
+  - name: get_director_protocol
+    description: The design-director protocol — read this first. Diagnose the need, form a point of view, route to real references, decompose into a grounded build.
+  - name: recommend_references
+    description: Given a brief, return 1 primary + 2 alternates from deliberately DIFFERENT aesthetic families (safe / bold / unexpected), instead of 3 near-duplicates.
+  - name: get_design_system
+    description: THE core tool. A site's real grounded tokens — actual colors, type scale, spacing, surfaces, layout, motion. Build with these values, not from memory.
+  - name: search_designs
+    description: Search the library by need. Score-ranked; tells you which query terms matched nothing instead of silently returning noise.
+  - name: list_designs
+    description: Browse the catalog (paginated).
+  - name: fetch_design_spec_markdown
+    description: A site's full 11-layer spec as Markdown (incl. voice + anti-patterns) — drop straight into a prompt. 5 languages.
+  - name: get_critique_rubric
+    description: The 5-dimension design review scorecard (reference fidelity, hierarchy, craft, function, originality).
