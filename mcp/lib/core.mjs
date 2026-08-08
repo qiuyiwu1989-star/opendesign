@@ -65,7 +65,13 @@ const SYNONYMS = {
 };
 
 function slim(e) {
-  return { slug: e.slug, title: e.title, url: e.url, tags: e.tags || [], summary: e.summary || "", has_pack: !!e.has_pack };
+  return {
+    slug: e.slug, title: e.title, url: e.url, tags: e.tags || [],
+    summary: e.summary || "", has_pack: !!e.has_pack,
+    // 完整度：让调用方在检索阶段就能判断"这条参照够不够拿来开工"，
+    // 而不是 fetch 完才发现只有黑白两色（那时它只会回去凭记忆编）
+    spec_completeness: typeof e.spec_completeness === "number" ? e.spec_completeness : null,
+  };
 }
 
 /* ── Aesthetic families (skill.md §3 "route to real references") ─────────
@@ -200,6 +206,8 @@ export async function callTool(name, args = {}) {
         }
       }
       if (words.length && score === (want.size ? 2 : 0)) continue; // query had zero hits
+      // 相关度相同时，tokens 更完整的排前面——同样相关的两条，能直接开工的那条更有用
+      score += (typeof e.spec_completeness === "number" ? e.spec_completeness : 0.5) * 0.5;
       scored.push({ s, score });
     }
     scored.sort((a, b) => b.score - a.score);
@@ -295,6 +303,7 @@ export async function callTool(name, args = {}) {
         }
       }
       if (words.length && score === (want.size ? 2 : 0)) continue;
+      score += (typeof e.spec_completeness === "number" ? e.spec_completeness : 0.5) * 0.5;
       scored.push({ s, score, family: classifyFamily(s.tags) });
     }
     scored.sort((a, b) => b.score - a.score);

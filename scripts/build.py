@@ -93,6 +93,46 @@ def load_all_sites() -> list[dict]:
 # Build target #1: dist/sites-index.json  (列表瘦数据)
 # ============================================================
 
+def _token_coverage(spec: dict) -> dict:
+    """算一条 spec 的 tokens 实际填充度。
+
+    为什么需要：catalog 里原本只有 has_pack(有没有截图 ZIP)，而 Agent 真正
+    关心的是"这套 tokens 够不够我拿来做设计"。两者完全不是一回事——有的条目
+    has_pack=true 但 colors 只有黑白两色、typography.scale 空，Agent 拉下来
+    才发现用不了，只能回去凭记忆编颜色(正是 skill.md Principle #0 要防的)。
+    暴露 coverage 让检索阶段就能把"完整的参照"排在前面。
+    """
+    sp = spec or {}
+
+    colors = sp.get("colors") or {}
+    color_keys = ["bg", "bgSoft", "bgQuiet", "ink", "inkSoft", "muted", "mutedSoft", "accent", "line"]
+    n_colors = sum(1 for k in color_keys if colors.get(k))
+
+    ty = sp.get("typography") or {}
+    n_scale = len(ty.get("scale") or [])
+    has_fams = sum(1 for k in ("display", "body", "mono") if ty.get(k))
+
+    n_spacing = len((sp.get("spacing") or {}).get("scale") or [])
+    surfaces = sp.get("surfaces") or {}
+    n_radius = sum(1 for v in ((surfaces.get("radius") or {}).values()) if v is not None)
+    has_layout = bool(sp.get("layout"))
+    has_motion = bool(sp.get("motion"))
+
+    # 每层 0-1，取"够用"的阈值而不是"齐全"：能配色需要 ~4 个色、字阶 ~5 级
+    cov = {
+        "colors": round(min(n_colors / 4.0, 1.0), 2),
+        "typography": round(min((n_scale / 5.0) * 0.7 + (has_fams / 3.0) * 0.3, 1.0), 2),
+        "spacing": round(min(n_spacing / 6.0, 1.0), 2),
+        "surfaces": round(min(n_radius / 3.0, 1.0), 2),
+        "layout": 1.0 if has_layout else 0.0,
+        "motion": 1.0 if has_motion else 0.0,
+    }
+    # 加权：配色和字体是"能不能开工"的前提，权重最高
+    score = (cov["colors"] * 0.35 + cov["typography"] * 0.30 + cov["spacing"] * 0.15
+             + cov["surfaces"] * 0.08 + cov["layout"] * 0.06 + cov["motion"] * 0.06)
+    return {"spec_completeness": round(score, 2), "token_coverage": cov}
+
+
 def build_sites_index(sites: list[dict]) -> dict:
     """前端列表页 / 画布只需要这一份。"""
     rows = []
@@ -1398,6 +1438,11 @@ def main():
                     or (s.get("desc", {}) or {}).get("en", {}).get("notes") or "",
                     "keywords": (si_en.get("identity") or {}).get("keywords") or [],
                     "has_pack": slug in PACKS,
+                    # tokens 完整度：让 Agent 在【检索阶段】就知道这条参照能不能真的拿来用。
+                    # 之前只有 has_pack(有没有截图 ZIP)这个布尔，跟"配色能不能抄"根本不是
+                    # 一回事——有的条目只有黑白两色 + 空字体，Agent fetch 完才发现没法用，
+                    # 只好回去凭记忆编。coverage 按层给出实际填充度，score 是加权总分。
+                    **_token_coverage(sp),
                     "spec_md": f"{BASE_URL}/packs/{slug}/DESIGN_SPEC.en.md",
                     "spec_json": f"{BASE_URL}/packs/{slug}/spec.json",
                 })
