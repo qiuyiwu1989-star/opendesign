@@ -1,0 +1,40 @@
+# PostgREST 配置模板 —— 部署到 /etc/postgrest/opendesign.conf
+#
+# 这是 Supabase 底层用的同一个组件。它把 PostgreSQL 的表/视图/函数
+# 直接暴露成 REST API,权限完全由数据库的 GRANT + RLS 决定——
+# 也就是说安全边界在库里,不在这个进程里(这正是我们要的:
+# 前端就算被改也越不过 RLS)。
+#
+# 真实值从 ~/.opendesign-db.env 注入,不写死在这里。
+
+## 连库:用 authenticator 角色(NOINHERIT、无实权,只能 SET ROLE 切到 anon)
+db-uri = "$(PGRST_DB_URI)"
+
+## 暴露哪个 schema
+db-schemas = "public"
+
+## 未带 JWT 的请求以什么身份执行 —— 匿名访客
+## 所有 RLS policy 都是针对 anon 写的,所以这里就是整个前端的实际身份
+db-anon-role = "anon"
+
+## 连接池:同机还跑着其它 5 个项目的库,别开太大
+db-pool = 8
+db-pool-acquisition-timeout = 10
+
+## 只监听本机 —— 对外由 nginx 反代,进程本身永不直面公网
+server-host = "127.0.0.1"
+server-port = 3011   # 3000-3003/3010 都被同机其它项目占着，选空闲的
+
+## JWT 密钥(留给将来加管理员登录用;现在全站走 anon,不影响)
+jwt-secret = "$(PGRST_JWT_SECRET)"
+jwt-secret-is-base64 = false
+
+## 单次请求最多返回多少行 —— 防止 ?select=* 拖走整表
+max-rows = 1000
+
+## 关掉 OpenAPI 自省(默认会把整个 schema 结构暴露出去)
+openapi-mode = "disabled"
+
+## schema 变更后自动重载(收到 SIGUSR1 或 NOTIFY 时)
+db-channel-enabled = true
+db-channel = "pgrst"

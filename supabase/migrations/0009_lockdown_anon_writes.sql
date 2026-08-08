@@ -9,19 +9,27 @@
 -- 修法:破坏性操作全部收回,只留 security-definer RPC 按 visitor_id 精确匹配。
 -- 在 Supabase Dashboard → SQL Editor 整段粘贴 Run。重复执行安全。
 
+-- 返回类型可能与旧版不同 → create or replace 会报 cannot change return type，先 drop
+drop function if exists public.remove_save(text, text);
+drop function if exists public.remove_like(text, text);
+drop function if exists public.lookup_sync_code(text);
+drop function if exists public.touch_sync_code(text);
+
 -- ── 1. 收回 saves/likes 的裸 DELETE ───────────────────────────────
 drop policy if exists "anyone can unsave" on public.saves;
 drop policy if exists "anyone can unlike" on public.likes;
 
 -- 删除改走 RPC:只能删自己 visitor_id 名下的记录
+-- 入参用 text（前端传字符串），列是 uuid → 必须显式 ::uuid，
+-- 否则 PG 直接报 operator does not exist: uuid = text（踩过）
 create or replace function public.remove_save(p_visitor_id text, p_site_id text)
 returns void language sql security definer set search_path = public as $$
-  delete from public.saves where visitor_id = p_visitor_id and site_id = p_site_id;
+  delete from public.saves where visitor_id = p_visitor_id::uuid and site_id = p_site_id;
 $$;
 
 create or replace function public.remove_like(p_visitor_id text, p_site_id text)
 returns void language sql security definer set search_path = public as $$
-  delete from public.likes where visitor_id = p_visitor_id and site_id = p_site_id;
+  delete from public.likes where visitor_id = p_visitor_id::uuid and site_id = p_site_id;
 $$;
 
 grant execute on function public.remove_save(text, text) to anon;
@@ -34,7 +42,7 @@ drop policy if exists "anon can touch sync code" on public.sync_codes;
 -- 查询改走 RPC:只按精确 code 匹配返回单条,不暴露全表
 create or replace function public.lookup_sync_code(p_code text)
 returns table (visitor_id text) language sql security definer set search_path = public as $$
-  select s.visitor_id from public.sync_codes s where s.code = p_code limit 1;
+  select s.visitor_id::text from public.sync_codes s where s.code = p_code limit 1;
 $$;
 
 -- touch(续期)改走 RPC:同样只按精确 code

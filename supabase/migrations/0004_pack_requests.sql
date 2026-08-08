@@ -12,6 +12,10 @@ alter table public.submissions add column if not exists slug text;   -- pack 请
 create index if not exists submissions_kind_idx on public.submissions (kind);
 
 -- ============ 重建 admin_list_submissions：带 kind + slug ============
+-- 返回类型和旧版不同 → 必须先 drop，否则 create or replace 报
+-- cannot change return type of existing function
+drop function if exists public.admin_list_submissions(text);
+
 create or replace function public.admin_list_submissions(p_pass text)
 returns table (
   id          uuid,

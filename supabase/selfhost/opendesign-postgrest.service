@@ -1,0 +1,34 @@
+[Unit]
+Description=PostgREST for OpenDesign (self-hosted replacement for Supabase Data API)
+Documentation=https://postgrest.org
+After=network-online.target postgresql.service
+Wants=network-online.target
+Requires=postgresql.service
+
+[Service]
+Type=exec
+User=ubuntu
+# 凭据从 600 权限的 env 文件读，绝不写进 unit 或配置文件
+EnvironmentFile=/home/ubuntu/.opendesign-db.env
+ExecStart=/usr/local/bin/postgrest /etc/postgrest/opendesign.conf
+ExecReload=/bin/kill -SIGUSR1 $MAINPID
+Restart=always
+RestartSec=3
+# 和内容管线一样保持温柔：这台机器还跑着 nginx + 5 个其它项目的库
+Nice=5
+
+# 加固：这个进程只需要连本机 PG 和监听 127.0.0.1，其余能力全砍掉
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=read-only
+ProtectKernelTunables=true
+ProtectKernelModules=true
+ProtectControlGroups=true
+RestrictAddressFamilies=AF_INET AF_INET6 AF_UNIX
+RestrictNamespaces=true
+LockPersonality=true
+MemoryDenyWriteExecute=true
+
+[Install]
+WantedBy=multi-user.target
