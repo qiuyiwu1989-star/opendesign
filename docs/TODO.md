@@ -46,6 +46,9 @@ cd mcp && npm login && npm publish --access public
 - 现状:队列已清空,不开也不会有积压
 - 开了会怎样:`discover.py` 每天爬新候选 → `auto-evaluate` 自动评分 → 高分自动收录(每天上限 10 站,约 $1/天)
 - 这轮修完的东西:预算记账、死站重试、schema 剪枝、探活误杀、锁竞争,都是为了让它开着不出事
+- **2026-08-05 补**:顺带发现服务器上整个 `extract/` 目录缺失(迁移时 rsync 漏了),
+  意味着 Tier-2 出完整包链路(`upgrade-pack.sh` → `extract/extract.py`)本来是断的
+  ——管线暂停着所以没暴露,你一旦重开,upgrade 任务会全部失败。**已补回并验证。**
 
 要开的话告诉我,我来 `systemctl enable --now`。
 
