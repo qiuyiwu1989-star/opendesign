@@ -1,0 +1,579 @@
+{
+  "id": "vouchatlas",
+  "schema_version": "0.3",
+  "url": "https://vouchatlas.com",
+  "title": "Vouchatlas",
+  "image": "https://image.thum.io/get/width/1440/noanimate/https://vouchatlas.com",
+  "tags": [
+    "Geographic Data",
+    "Consumer",
+    "Editorial",
+    "Tooling",
+    "Clean"
+  ],
+  "status": "completed",
+  "added_at": "2026-06-14",
+  "added_by": "discover",
+  "_meta": {
+    "vision_model": "mimo-v2.5",
+    "vision_prompt_version": "0.3",
+    "vision_source": "playwright-extract:vouchatlas",
+    "vision_grounded": true,
+    "vision_at": "2026-06-14T04:02:44+00:00",
+    "vision_tokens": 17069,
+    "vision_cost_usd": 0.1897,
+    "translation_model": "mimo-v2.5",
+    "translation_at": "2026-06-14T04:03:48+00:00",
+    "translation_tokens": 15272,
+    "translation_cost_usd": 0.0509,
+    "narrative_model": "mimo-v2.5",
+    "narrative_prompt_version": "0.3",
+    "narrative_at": "2026-06-14T04:03:56+00:00",
+    "narrative_tokens": 1888,
+    "narrative_cost_usd": 0.0126,
+    "narrative_status": "ok",
+    "total_cost_usd": 0.2532
+  },
+  "spec": {
+    "colors": {
+      "bg": "#FFFFFF",
+      "bgSoft": "#F4F4F5",
+      "bgQuiet": null,
+      "ink": "#18181B",
+      "inkSoft": "#71717A",
+      "muted": "#E4E4E7",
+      "mutedSoft": null,
+      "accent": "#DC2626",
+      "line": "rgba(0,0,0,0.1)"
+    },
+    "typography": {
+      "display": "humanist-sans",
+      "body": "humanist-sans",
+      "mono": null,
+      "scale": [
+        {
+          "token": "display",
+          "size": 24,
+          "lh": 1.3,
+          "weight": 500,
+          "ls": "-0.4px"
+        },
+        {
+          "token": "body",
+          "size": 16,
+          "lh": 1.5,
+          "weight": 400,
+          "ls": "0"
+        },
+        {
+          "token": "caption",
+          "size": 12,
+          "lh": 1.3,
+          "weight": 400,
+          "ls": "0"
+        }
+      ]
+    },
+    "spacing": {
+      "base": 4,
+      "scale": [
+        4,
+        8,
+        12,
+        16,
+        24,
+        32,
+        48,
+        64,
+        96
+      ]
+    },
+    "surfaces": {
+      "radius": {
+        "sm": 4,
+        "md": 6,
+        "lg": 8,
+        "pill": 999
+      }
+    },
+    "layout": {
+      "container": 1280,
+      "paragraph": 680,
+      "columns": 12,
+      "gutter": 24,
+      "breakpoints": [
+        768,
+        1024
+      ]
+    },
+    "motion": {
+      "durations": {
+        "micro": 150,
+        "small": 300,
+        "medium": 600
+      },
+      "easing": "cubic-bezier(0.4, 0, 0.2, 1)"
+    }
+  },
+  "spec_i18n": {
+    "en": {
+      "identity": {
+        "keywords": [
+          "Crowdsourced Safety",
+          "Travel Data",
+          "Interactive Map"
+        ],
+        "analogy": "A crowdsourced travel safety atlas for digital nomads.",
+        "oneLiner": "An interactive map visualizing crowdsourced travel safety and infrastructure data."
+      },
+      "colors": {
+        "principle": "Neutral foundation with data-driven color highlights."
+      },
+      "typography": {
+        "rules": [],
+        "scaleUses": [
+          "Page headlines and main questions",
+          "General body text",
+          "Metadata, counts, and small labels"
+        ]
+      },
+      "spacing": {
+        "rhythm": "Consistent 4px base system."
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(0,0,0,0.1) 0px 1px 3px 0px",
+          "rgba(0,0,0,0.1) 0px 1px 2px -1px"
+        ],
+        "borders": "Subtle 1px borders and soft shadows define boundaries."
+      },
+      "layout": {
+        "skeleton": "Split layout with a dominant map visualization on the left and a data sidebar on the right."
+      },
+      "components": {
+        "button": "Minimal pill-shaped buttons with subtle borders and hover transitions.",
+        "card": "Clean cards with subtle shadows and tight padding.",
+        "chip": "Small tag-like elements for data status.",
+        "input": "Standard text inputs with rounded borders.",
+        "hero": "Full-width section centered around an interactive map visualization."
+      },
+      "motion": {
+        "patterns": [
+          "Smooth background-color and border-color transitions on interactive elements."
+        ]
+      },
+      "interaction": {
+        "hover": "Subtle color transitions on buttons and interactive map elements.",
+        "click": "Triggers data updates in the sidebar.",
+        "transition": "Smooth 150ms cubic-bezier transitions across UI elements.",
+        "keyboard": "Standard web accessibility."
+      },
+      "voice": {
+        "tone": "Objective and informative.",
+        "headlineStyle": "Direct, question-based headlines.",
+        "ctaStyle": "Minimal and functional.",
+        "avoid": [
+          "Emotional language",
+          "Marketing hype",
+          "Complex jargon"
+        ]
+      },
+      "donts": [
+        "Don't use decorative fonts — screenshot shows clean, legible sans-serif typography.",
+        "Don't add heavy drop shadows — screenshot shows subtle, soft box-shadows.",
+        "Don't use bright, unvalidated accent colors — screenshot shows functional reds and oranges for data.",
+        "Don't use complex gradients — screenshot shows flat colors and simple linear scales.",
+        "Don't overcrowd the UI — screenshot shows generous white space and a focused layout.",
+        "Don't use rounded corners excessively — screenshot shows mostly sharp or slightly rounded edges."
+      ],
+      "systemPrompt": "VouchAtlas is a crowdsourced travel safety and infrastructure visualization tool. Its design relies on a clean, neutral palette of white (#FFFFFF) and light grays (#F4F4F5, #E4E4E7) with dark text (#18181B). Data is communicated through functional colors like red (#DC2626) and orange (#EA580C), rather than decorative accents. The typography is a clean humanist-sans-serif, optimized for legibility across different data densities. The layout is dominated by an interactive map, with a supporting sidebar for detailed data. Critical constraints include avoiding decorative elements, maintaining high data-to-ink ratio, and ensuring clear color contrast for data visualization. Do not use rounded corners excessively, do not add heavy shadows, and do not use complex gradients."
+    },
+    "zh-CN": {
+      "identity": {
+        "keywords": [
+          "众包安全",
+          "旅行数据",
+          "交互式地图"
+        ],
+        "analogy": "一本为数字游民打造的众包旅行安全地图集。",
+        "oneLiner": "一款可视化众包旅行安全与基础设施数据的交互式地图。"
+      },
+      "colors": {
+        "principle": "中性基底搭配数据驱动的色彩高亮。"
+      },
+      "typography": {
+        "rules": [],
+        "scaleUses": [
+          "页面标题与核心问题",
+          "通用正文文本",
+          "元数据、计数与小标签"
+        ]
+      },
+      "spacing": {
+        "rhythm": "基于一致的 4px 基础系统。"
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(0,0,0,0.1) 0px 1px 3px 0px",
+          "rgba(0,0,0,0.1) 0px 1px 2px -1px"
+        ],
+        "borders": "使用细微的 1px 边框和柔和阴影来界定边界。"
+      },
+      "layout": {
+        "skeleton": "左右分割布局，左侧为主导的地图可视化，右侧为数据边栏。"
+      },
+      "components": {
+        "button": "极简的胶囊形按钮，带有细微边框和悬停过渡效果。",
+        "card": "干净的卡片，带有柔和阴影和紧凑的内边距。",
+        "chip": "用于显示数据状态的小型标签式元素。",
+        "input": "标准圆角文本输入框。",
+        "hero": "以交互式地图可视化为核心的全宽区块。"
+      },
+      "motion": {
+        "patterns": [
+          "交互元素上平滑的背景色与边框色过渡。"
+        ]
+      },
+      "interaction": {
+        "hover": "按钮和交互式地图元素上微妙的色彩过渡。",
+        "click": "触发边栏中的数据更新。",
+        "transition": "UI 元素均采用流畅的 150 毫秒 cubic-bezier 过渡效果。",
+        "keyboard": "遵循标准的 Web 无障碍访问规范。"
+      },
+      "voice": {
+        "tone": "客观且信息丰富。",
+        "headlineStyle": "直接、以问题为导向的标题。",
+        "ctaStyle": "极简且功能性强。",
+        "avoid": [
+          "情感化语言",
+          "营销式夸张",
+          "复杂术语"
+        ]
+      },
+      "donts": [
+        "避免使用装饰性字体——截图显示的是干净、易读的无衬线字体排版。",
+        "避免添加厚重的阴影——截图显示的是细微、柔和的 box-shadow。",
+        "避免使用未经验证的亮色强调色——截图显示的是用于数据的功能性红色和橙色。",
+        "避免使用复杂渐变——截图显示的是纯色和简单的线性色阶。",
+        "避免界面拥挤——截图显示的是充足的留白和聚焦的布局。",
+        "避免过度使用圆角——截图显示的大多是直角或轻微圆角的边缘。"
+      ],
+      "systemPrompt": "VouchAtlas 是一款众包旅行安全与基础设施可视化工具。其设计依赖干净、中性的色板，包括白色（#FFFFFF）和浅灰色（#F4F4F5、#E4E4E7），搭配深色文字（#18181B）。数据通过红色（#DC2626）和橙色（#EA580C）等功能性色彩传达，而非装饰性强调色。字体采用干净的人文主义无衬线字体，针对不同数据密度下的可读性进行了优化。布局以交互式地图为主导，配有支持详细数据的边栏。关键约束包括：避免装饰元素、保持高数据墨水比、确保数据可视化色彩对比清晰。请勿过度使用圆角，勿添加厚重阴影，勿使用复杂渐变。"
+    },
+    "zh-TW": {
+      "identity": {
+        "keywords": [
+          "群眾外包安全",
+          "旅行資料",
+          "互動式地圖"
+        ],
+        "analogy": "專為數位遊牧者打造的群眾外包旅行安全地圖集。",
+        "oneLiner": "一個視覺化群眾外包旅行安全與基礎設施資料的互動式地圖。"
+      },
+      "colors": {
+        "principle": "以中性基底搭配資料驅動的色彩強調。"
+      },
+      "typography": {
+        "rules": [],
+        "scaleUses": [
+          "頁面標題與主要問題",
+          "一般內文",
+          "後設資料、計數與小型標籤"
+        ]
+      },
+      "spacing": {
+        "rhythm": "一致的 4px 基礎系統。"
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(0,0,0,0.1) 0px 1px 3px 0px",
+          "rgba(0,0,0,0.1) 0px 1px 2px -1px"
+        ],
+        "borders": "使用細緻的 1px 邊框與柔和陰影來界定區塊邊界。"
+      },
+      "layout": {
+        "skeleton": "分割版面，左側為主導的互動式地圖視覺化，右側為資料側邊欄。"
+      },
+      "components": {
+        "button": "極簡的藥丸形按鈕，帶有細緻邊框與 hover 過渡效果。",
+        "card": "簡潔的卡片，帶有柔和陰影與緊湊的內邊距。",
+        "chip": "用於資料狀態的小型標籤式元素。",
+        "input": "帶有圓角邊框的標準文字輸入框。",
+        "hero": "全寬區塊，中心聚焦於互動式地圖視覺化。"
+      },
+      "motion": {
+        "patterns": [
+          "互動元素的背景色與邊框色平滑過渡。"
+        ]
+      },
+      "interaction": {
+        "hover": "按鈕與互動式地圖元素上的細膩色彩過渡。",
+        "click": "觸發側邊欄的資料更新。",
+        "transition": "跨 UI 元素的 150ms cubic-bezier 平滑過渡。",
+        "keyboard": "標準的網頁無障礙支持。"
+      },
+      "voice": {
+        "tone": "客觀且具資訊性。",
+        "headlineStyle": "直接、提問式的標題風格。",
+        "ctaStyle": "極簡且具功能性。",
+        "avoid": [
+          "情感性語言",
+          "行銷誇飾",
+          "複雜術語"
+        ]
+      },
+      "donts": [
+        "勿使用裝飾性字體 — 截圖顯示清晰、易讀的無襯線字體。",
+        "勿添加厚重陰影 — 截圖顯示細緻、柔和的 box-shadow。",
+        "勿使用未經驗證的鮮豔強調色 — 截圖顯示用於資料的功能性紅色與橙色。",
+        "勿使用複雜漸層 — 截圖顯示平面色彩與簡單線性刻度。",
+        "勿使 UI 過於擁擠 — 截圖顯示充足的留白與專注的版面佈局。",
+        "勿過度使用圓角 — 截圖顯示大多為直角或輕微圓角的邊緣。"
+      ],
+      "systemPrompt": "VouchAtlas 是一個群眾外包旅行安全與基礎設施的視覺化工具。其設計依賴於白色 (#FFFFFF) 與淺灰色 (#F4F4F5, #E4E4E7) 的乾淨中性色板，搭配深色文字 (#18181B)。資料透過功能性色彩如紅色 (#DC2626) 與橙色 (#EA580C) 來傳達，而非裝飾性強調色。字體採用清晰的 humanist-sans-serif，針對不同資料密度下的可讀性進行優化。版面以互動式地圖為主導，輔以詳細資料的側邊欄。關鍵限制包括避免裝飾性元素、維持高資料墨水比，並確保資料視覺化具有清晰的色彩對比。請勿過度使用圓角，勿添加厚重陰影，也勿使用複雜漸層。"
+    },
+    "ja": {
+      "identity": {
+        "keywords": [
+          "クラウドソース型安全情報",
+          "旅行データ",
+          "インタラクティブマップ"
+        ],
+        "analogy": "デジタルノマドのためのクラウドソース型旅行安全アトラス。",
+        "oneLiner": "クラウドソース型の旅行安全・インフラデータを可視化するインタラクティブマップ。"
+      },
+      "colors": {
+        "principle": "データ駆動型のカラーハイライトを用いた中立的な基盤。"
+      },
+      "typography": {
+        "rules": [],
+        "scaleUses": [
+          "ページ見出しおよび主要な質問",
+          "一般本文テキスト",
+          "メタデータ、数値、小見出しラベル"
+        ]
+      },
+      "spacing": {
+        "rhythm": "一貫した4pxベースシステム。"
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(0,0,0,0.1) 0px 1px 3px 0px",
+          "rgba(0,0,0,0.1) 0px 1px 2px -1px"
+        ],
+        "borders": "控えめな1pxボーダーと柔らかいシャドウで境界を定義。"
+      },
+      "layout": {
+        "skeleton": "左側にメインのマップビジュアライゼーション、右側にデータサイドバーを配置した分割レイアウト。"
+      },
+      "components": {
+        "button": "控えめなボーダーとホバートランジションを備えた、ミニマルなピル形状ボタン。",
+        "card": "控えめなシャドウと緊密なパディングを備えたクリーンなカード。",
+        "chip": "データステータスを表す、小さなタグ状要素。",
+        "input": "丸みのあるボーダーを持つ標準テキストインプット。",
+        "hero": "インタラクティブマップビジュアライゼーションを中心とした、フル幅セクション。"
+      },
+      "motion": {
+        "patterns": [
+          "インタラクティブ要素における滑らかな背景色・ボーダー色トランジション。"
+        ]
+      },
+      "interaction": {
+        "hover": "ボタンやインタラクティブマップ要素における控えめな色のトランジション。",
+        "click": "サイドバーのデータ更新をトリガー。",
+        "transition": "UI要素全体にわたる、滑らかな150ms cubic-bezierトランジション。",
+        "keyboard": "標準的なウェブアクセシビリティ準拠。"
+      },
+      "voice": {
+        "tone": "客観的で情報を提供する。",
+        "headlineStyle": "直接的で、質問ベースの見出し。",
+        "ctaStyle": "ミニマルで機能的。",
+        "avoid": [
+          "感情的な言葉",
+          "マーケティング誇張",
+          "複雑な専門用語"
+        ]
+      },
+      "donts": [
+        "装飾的なフォントを使用しない — スクリーンショットではクリーンで可読性の高いサンセリフタイポグラフィが示されています。",
+        "重いドロップシャドウを追加しない — スクリーンショットでは控えめで柔らかいボックスシャドウが示されています。",
+        "検証されていない明るいアクセントカラーを使用しない — スクリーンショットではデータに機能的な赤やオレンジが使われています。",
+        "複雑なグラデーションを使用しない — スクリーンショットではフラットカラーとシンプルなリニアスケールが示されています。",
+        "UIを過剰に詰め込まない — スクリーンショットでは十分なホワイトスペースと焦点を絞ったレイアウトが示されています。",
+        "角丸を過剰に使用しない — スクリーンショットでは主にシャープまたはわずかに丸みのあるエッジが示されています。"
+      ],
+      "systemPrompt": "VouchAtlasはクラウドソース型の旅行安全・インフラ可視化ツールです。デザインは白（#FFFFFF）と淡いグレー（#F4F4F5、#E4E4E7）を基調とした清潔で中立的なパレットに、暗いテキスト（#18181B）を採用しています。データは装飾的なアクセントではなく、赤（#DC2626）やオレンジ（#EA580C）などの機能的な色で传达されます。タイポグラフィはクリーンなヒューマニストサンセリフで、異なるデータ密度において可読性が最適化されています。レイアウトはインタラクティブマップが主役で、詳細なデータ用のサイドバーがサポートします。重要な制約として、装飾要素の回避、高いデータインク比の維持、データビジュアライゼーションの明確なコントラスト確保が挙げられます。角丸を過剰に使用せず、重いシャドウを追加せず、複雑なグラデーションを使用しないでください。"
+    },
+    "ko": {
+      "identity": {
+        "keywords": [
+          "크라우드소싱 안전 정보",
+          "여행 데이터",
+          "인터랙티브 지도"
+        ],
+        "analogy": "디지털 노마드를 위한 크라우드소싱 여행 안전 지도집.",
+        "oneLiner": "크라우드소싱된 여행 안전 및 인프라 데이터를 시각화하는 인터랙티브 지도."
+      },
+      "colors": {
+        "principle": "데이터 기반의 색상 강조를 사용한 중립적 기반."
+      },
+      "typography": {
+        "rules": [],
+        "scaleUses": [
+          "페이지 제목 및 주요 질문",
+          "일반 본문 텍스트",
+          "메타데이터, 수치 및 소형 레이블"
+        ]
+      },
+      "spacing": {
+        "rhythm": "일관된 4px 베이스 시스템."
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(0,0,0,0.1) 0px 1px 3px 0px",
+          "rgba(0,0,0,0.1) 0px 1px 2px -1px"
+        ],
+        "borders": "미세한 1px 테두리와 부드러운 그림자로 경계를 정의합니다."
+      },
+      "layout": {
+        "skeleton": "왼쪽의 지도 시각화를 주도하고, 오른쪽에 데이터 사이드바를 배치한 분할 레이아웃."
+      },
+      "components": {
+        "button": "미세한 테두리와 hover 트랜지션이 적용된 미니멀한 알약 모양 버튼.",
+        "card": "미세한 그림자와 좁은 padding이 적용된 깔끔한 카드.",
+        "chip": "데이터 상태를 표시하는 소형 태그 형태 요소.",
+        "input": "둥근 테두리가 있는 표준 텍스트 입력 필드.",
+        "hero": "인터랙티브 지도 시각화를 중심으로 한 전체 너비 섹션."
+      },
+      "motion": {
+        "patterns": [
+          "인터랙티브 요소의 부드러운 background-color 및 border-color 트랜지션."
+        ]
+      },
+      "interaction": {
+        "hover": "버튼 및 인터랙티브 지도 요소에 미세한 색상 전환.",
+        "click": "사이드바의 데이터 업데이트를 트리거합니다.",
+        "transition": "UI 요소 전반에 걸친 부드러운 150ms cubic-bezier 트랜지션.",
+        "keyboard": "표준 웹 접근성 준수."
+      },
+      "voice": {
+        "tone": "객관적이고 정보 전달적.",
+        "headlineStyle": "직접적이고 질문 기반의 제목.",
+        "ctaStyle": "미니멀하고 기능적.",
+        "avoid": [
+          "감정적 언어",
+          "마케팅 과장",
+          "복잡한 전문 용어"
+        ]
+      },
+      "donts": [
+        "장식적 폰트를 사용하지 마세요 — 스크린샷은 깔끔하고 가독성 높은 산세리프 타이포그래피를 보여줍니다.",
+        "무거운 드롭 그림자를 추가하지 마세요 — 스크린샷은 미세하고 부드러운 box-shadow를 보여줍니다.",
+        "미검증된 밝은 강조 색상을 사용하지 마세요 — 스크린샷은 데이터용 기능적 빨강과 주황을 보여줍니다.",
+        "복잡한 그라디언트를 사용하지 마세요 — 스크린샷은 단색과 단순한 선형 스케일을 보여줍니다.",
+        "UI를 과도하게 채우지 마세요 — 스크린샷은 넉넉한 여백과 집중된 레이아웃을 보여줍니다.",
+        "너무 많이 둥근 모서리를 사용하지 마세요 — 스크린샷은 대부분 날카롭거나 약간 둥근 가장자리를 보여줍니다."
+      ],
+      "systemPrompt": "VouchAtlas는 크라우드소싱된 여행 안전 및 인프라 시각화 도구입니다. 디자인은 흰색(#FFFFFF)과 밝은 회색(#F4F4F5, #E4E4E7)의 깔끔하고 중립적인 팔레트와 어두운 텍스트(#18181B)를 기반으로 합니다. 데이터는 장식적 악센트가 아닌, 빨강(#DC2626) 및 주황(#EA580C)과 같은 기능적 색상을 통해 전달됩니다. 타이포그래피는 다양한 데이터 밀도에서 가독성을 최적화한 깔끔한 휴머니스트산세리프입니다. 레이아웃은 인터랙티브 지도를 주축으로 하며, 상세 데이터를 위한 사이드바가 이를 보완합니다. 주요 제약 조건으로는 장식적 요소 회피, 높은 데이터-잉크 비율 유지, 데이터 시각화를 위한 명확한 색상 대비 확보가 있습니다. 너무 많이 둥근 모서리를 사용하지 말고, 무거운 그림자를 추가하지 말며, 복잡한 그라디언트를 사용하지 마세요."
+    }
+  },
+  "desc": {
+    "en": {
+      "palette": "A clean, neutral foundation of white and light gray, punctuated by functional data-driven colors like red, orange, and green to convey safety and risk levels.",
+      "layout": "A split-layout dominated by a large interactive map on the left, supported by a data-rich sidebar on the right for detailed country information.",
+      "interaction": "Clean, minimal interactions with smooth 150ms transitions on buttons and map elements, designed to keep focus on the data exploration.",
+      "motion": "Subtle and functional, focusing on smooth background-color and border-color transitions for interactive elements.",
+      "notes": "Worth including as an excellent example of a clean, functional data visualization interface that prioritizes legibility and information density over decorative aesthetics."
+    },
+    "zh-CN": {
+      "palette": "以白色和浅灰色为主的干净中性基底，辅以红色、橙色和绿色等功能性数据驱动色彩，用以传达安全与风险等级。",
+      "layout": "采用左右分割布局，左侧为主导的大型交互式地图，右侧为数据丰富的边栏，用于显示详细的国家信息。",
+      "interaction": "简洁、最小化的交互，按钮和地图元素均采用流畅的 150 毫秒过渡动画，旨在将注意力集中在数据探索上。",
+      "motion": "微妙且注重功能，聚焦于交互元素的背景色与边框色平滑过渡。",
+      "notes": "作为一个优秀示例，展示了干净、功能性的数据可视化界面，优先考虑可读性和信息密度，而非装饰性美学。"
+    },
+    "zh-TW": {
+      "palette": "以白色與淺灰色構成乾淨中性的基底，並以功能性資料驅動色彩如紅、橙、綠作為點綴，用以傳達安全與風險等級。",
+      "layout": "採用分割版面，左側以大型互動式地圖為主視覺，右側則輔以資訊豐富的側邊欄，用於呈現詳細的國家資訊。",
+      "interaction": "簡潔而極簡的互動設計，按鈕與地圖元素均採用流暢的 150ms 過渡動效，旨在讓使用者專注於資料探索。",
+      "motion": "細膩而具功能性，聚焦於互動元素的背景色與邊框色平滑過渡。",
+      "notes": "值得收錄，作為一個優秀範例，展現了清晰、功能性的資料視覺化介面，其設計優先考量可讀性與資訊密度，而非裝飾性美學。"
+    },
+    "ja": {
+      "palette": "白と淡いグレーを基調とした清潔で中立的な基盤に、安全性とリスクレベルを伝えるため、赤・オレンジ・緑などの機能的データ駆動色を配置しています。",
+      "layout": "左側に大きなインタラクティブマップを配置し、右側には詳細な国別情報を表示するデータリッチなサイドバーを設けた、分割レイアウトを採用しています。",
+      "interaction": "ボタンやマップ要素に滑らかな150msトランジションを備えた、クリーンでミニマルなインタラクションを実現。データ探索に集中できるよう設計されています。",
+      "motion": "インタラクティブ要素の背景色やボーダー色の滑らかなトランジションに焦点を当てた、控えめで機能的な動きを採用しています。",
+      "notes": "装飾的な美学よりも可読性と情報密度を優先した、クリーンで機能的なデータビジュアライゼーションインターフェースの優れた例として、掲載する価値があります。"
+    },
+    "ko": {
+      "palette": "흰색과 밝은 회색의 깔끔하고 중립적인 기반 위에, 안전 및 위험 수준을 전달하기 위한 데이터 기반의 기능적 색상(빨강, 주황, 초록)을 포인트로 사용합니다.",
+      "layout": "왼쪽의 대형 인터랙티브 지도를 주축으로, 오른쪽에 상세 국가 정보를 담은 데이터 풍부한 사이드바를 배치한 분할 레이아웃입니다.",
+      "interaction": "버튼과 지도 요소에 부드러운 150ms 트랜지션을 적용한 깔끔하고 미니멀한 인터랙션으로, 데이터 탐색에 집중할 수 있도록 설계되었습니다.",
+      "motion": "미니멀하고 기능적이며, 인터랙티브 요소의 부드러운 background-color 및 border-color 트랜지션에 초점을 맞춥니다.",
+      "notes": "장식적 미학보다 가독성과 정보 밀도를 우선시하는 깔끔하고 기능적인 데이터 시각화 인터페이스의 우수한 사례로 포함할 가치가 있습니다."
+    }
+  },
+  "narrative": {
+    "en": {
+      "ch1_intro": "VouchAtlas functions as a crowdsourced travel safety atlas for the digital age. It is a tool built to provide clear, objective infrastructure and risk data, much like a reference atlas provides verified geographical information.",
+      "ch2_intro": "The system employs a neutral foundation of white and light gray, allowing functional data-driven colors to communicate critical information. Red and orange are reserved for risk and safety metrics, ensuring their meaning is immediate and unambiguous.",
+      "ch2_outro": "Color is applied as a direct indicator of data, not for decorative or emotional emphasis.",
+      "ch3_intro": "Typography is a clean humanist sans-serif, chosen for maximum legibility across varying data densities. Its role is to present information clearly, from page headlines to metadata counts.",
+      "ch4_intro": "A consistent 4px base system establishes a predictable vertical and horizontal rhythm across all interface elements.",
+      "ch5_intro": "Surface depth is communicated through subtle, soft shadows and minimal 1px borders. This creates clear layer separation without distracting from the primary map and data.",
+      "ch6_intro": "The layout skeleton is a split configuration, with a dominant interactive map visualization occupying the left portion. A supporting data sidebar on the right provides detailed country information, maintaining a clear hierarchy.",
+      "ch7_intro": "Motion is subtle and purely functional, serving to confirm user actions without drawing attention to itself. Interactive elements use smooth 150ms transitions for background and border colors, keeping focus on data exploration.",
+      "ch8_intro": "The editorial voice is objective and informative, with direct, question-based headlines guiding the user. Language is minimal and functional, avoiding emotional resonance or complex jargon.",
+      "ch8_outro": "The system deliberately avoids decorative typography, heavy drop shadows, excessive rounded corners, and complex gradients, maintaining a high data-to-ink ratio."
+    },
+    "zh-CN": {
+      "ch1_intro": "VouchAtlas 作为数字时代的众包旅行安全地图集而存在。它是一个旨在提供清晰、客观的基础设施与风险数据的工具，正如参考地图集提供经核实的地理信息一般。",
+      "ch2_intro": "该系统采用中性的白色与浅灰色基底，让基于功能数据的颜色来传达关键信息。红色与橙色专用于风险与安全指标，确保其含义即时且无歧义。",
+      "ch2_outro": "色彩被用作数据的直接指示器，而非用于装饰性或情感性强调。",
+      "ch3_intro": "字体选用清晰的人文主义无衬线体，旨在不同数据密度下实现最佳可读性。其作用在于清晰呈现信息，从页面标题到元数据计数。",
+      "ch4_intro": "统一的 4px 基准系统为所有界面元素建立了可预测的垂直与水平节奏。",
+      "ch5_intro": "界面层次深度通过细微柔和的阴影与极简的 1px 边框来传达。这创造了清晰的层次分离，同时不干扰主要地图与数据。",
+      "ch6_intro": "布局骨架采用分屏配置，左侧为主导性的交互式地图可视化区域。右侧的辅助数据侧边栏提供详细的国家信息，维持清晰的视觉层级。",
+      "ch7_intro": "动效设计微妙且纯粹出于功能目的，用于确认用户操作而不吸引过多注意力。交互元素使用平滑的 150ms 过渡效果处理背景与边框颜色，保持对数据探索的聚焦。",
+      "ch8_intro": "编辑语调客观且富有信息性，通过直接、提问式的标题引导用户。语言精简实用，避免情感共鸣或复杂术语。",
+      "ch8_outro": "该系统有意避免装饰性字体、厚重的投影、过多的圆角以及复杂的渐变，以维持高数据墨水比。"
+    },
+    "zh-TW": {
+      "ch1_intro": "VouchAtlas 的功能是數位時代的群眾外包旅行安全地圖集。它是一個旨在提供清晰、客觀的基礎設施和風險資料的工具，就像一本參考地圖集提供驗證過的地理資訊一樣。",
+      "ch2_intro": "系統採用白色和淺灰色的中性基底，讓功能性的資料驅動色彩用於傳達關鍵資訊。紅色和橙色保留給風險與安全指標使用，確保其意義立即且明確無誤。",
+      "ch2_outro": "色彩的應用是作為資料的直接指標，而非用於裝飾或情感強調。",
+      "ch3_intro": "字體採用簡潔的 humanist-sans，選擇它是在不同資料密度下都能達到最佳可讀性。它的角色是清晰地呈現資訊，從頁面標題到元資料計數。",
+      "ch4_intro": "一致的 4px 基底系統在所有介面元素間建立了可預測的垂直和水平節奏。",
+      "ch5_intro": "表面深度透過細微、柔和的陰影和極簡的 1px 邊框來傳達。這創造了清晰的圖層分隔，而不會從主要的地圖和資料上分散注意力。",
+      "ch6_intro": "版面配置骨架採用分割式佈局，一個佔據左側主要部分的互動式地圖視覺化。右側的輔助資料側邊欄提供詳細的國家資訊，維持清晰的層級結構。",
+      "ch7_intro": "動態效果細微且純粹功能性的，用於確認使用者操作，而不會讓自身成為焦點。互動元素使用流暢的 150ms 轉場來處理背景和邊框顏色，將焦點保持在資料探索上。",
+      "ch8_intro": "編輯語氣是客觀且資訊性的，以直接、提問式的標題引導使用者。語言簡潔且功能導向，避免情感共鳴或複雜術語。",
+      "ch8_outro": "系統刻意避免裝飾性字體、厚重的陰影、過多的圓角和複雜的漸層，維持高的資料墨水比。"
+    },
+    "ja": {
+      "ch1_intro": "VouchAtlasは、デジタル時代のクラウドソーシング型旅行安全地図として機能します。これは、検証済みの地理情報を提供する参考地図のように、明確で客観的なインフラおよびリスクデータを提供するために構築されたツールです。",
+      "ch2_intro": "システムは、白と薄いグレーの中立的な基盤を採用し、機能的なデータドリブンの色が重要な情報を伝達できるようにします。赤とオレンジは、リスクおよび安全性の指標に専用とされ、その意味が即座に明確になるようにしています。",
+      "ch2_outro": "色は、装飾的または感情的な強調としてではなく、データの直接的な指標として適用されます。",
+      "ch3_intro": "タイポグラフィは、クリーンなヒューマニストサンセリフで、異なるデータ密度において最大限の可読性を実現するために選定されています。その役割は、ページ見出しからメタデータカウントまで、情報を明確に提示することです。",
+      "ch4_intro": "一貫した4pxベースシステムにより、すべてのインターフェース要素において、予測可能な垂直および水平のリズムが確立されます。",
+      "ch5_intro": "表面の深度は、微細で柔らかなシャドウと最小限の1pxボーダーで伝達されます。これにより、プライマリマップおよびデータから注意をそらすことなく、明確なレイヤー分離が実現されます。",
+      "ch6_intro": "レイアウトのスケルトンは分割構成で、左側に主要なインタラクティブなマップ可視化が配置されます。右側のサポーティングデータサイドバーは、詳細な国情報を提供し、明確な階層を維持します。",
+      "ch7_intro": "モーションは微細で純粋に機能的であり、ユーザーのアクションを確認するためだけに使用され、自分自身に注意を引くことはありません。インタラクティブ要素は、背景およびボーダーの色に対して滑らかな150msトランジションを使用し、データ探索に焦点を維持します。",
+      "ch8_intro": "エディトリアルボイスは客観的で情報提供に基づき、直接的で質問ベースの見出しがユーザーを導きます。言語は最小限で機能的であり、感情的な共鳴や複雑な専門用語を回避します。",
+      "ch8_outro": "システムは意図的に装飾的なタイポグラフィ、重いドロップシャドウ、過度の丸みを帯びた角、複雑なグラデーションを回避し、高いデータ対インク比を維持しています。"
+    },
+    "ko": {
+      "ch1_intro": "VouchAtlas는 디지털 시대를 위한 크라우드소싱 여행 안전 지도 역할을 합니다. 검증된 지리 정보를 제공하는 참고 지도처럼, 명확하고 객관적인 인프라 및 위험 데이터를 제공하도록 구축된 도구입니다.",
+      "ch2_intro": "시스템은 흰색과 밝은 회색의 중립적인 기반을 채택하여, 기능적인 데이터 기반 색상이 핵심 정보를 전달하도록 합니다. 빨간색과 주황색은 위험 및 안전 지표를 위해 예약되어 있으며, 그 의미가 즉각적이고 명확하도록 보장합니다.",
+      "ch2_outro": "색상은 장식적이나 감정적 강조를 위해 사용되지 않고, 데이터의 직접적인 지표로 적용됩니다.",
+      "ch3_intro": "타이포그래피는 다양한 데이터 밀도에서 최대 가독성을 위해 선택된 깔끔한 휴머니스트 산세리프입니다. 페이지 헤드라인부터 메타데이터 수까지, 정보를 명확하게 제시하는 것이 그 역할입니다.",
+      "ch4_intro": "일관된 4px 기본 시스템은 모든 인터페이스 요소 전반에 걸쳐 예측 가능한 수직 및 수평 리듬을 확립합니다.",
+      "ch5_intro": "표면 깊이는 미세하고 부드러운 그림자와 최소한의 1px 테두리를 통해 전달됩니다. 이는 주요 지도와 데이터에서 주의를 산만하게 하지 않으면서 명확한 층 분리를 만듭니다.",
+      "ch6_intro": "레이아웃 스켈레톤은 왼쪽 부분을 지배하는 대화형 지도 시각화가 차지하는 분할 구성입니다. 오른쪽의 보조 데이터 사이드바는 명확한 계층 구조를 유지하면서 상세한 국가 정보를 제공합니다.",
+      "ch7_intro": "모션은 미세하고 순수하게 기능적이며, 자체에 주목을 끌지 않으면서 사용자 작업을 확인하는 역할을 합니다. 대화형 요소는 배경 및 테두리 색상을 위해 부드러운 150ms 전환을 사용하여 데이터 탐색에 초점을 맞춥니다.",
+      "ch8_intro": "에디토리얼 톤은 객관적이고 정보 전달적이며, 질문 기반 헤드라인이 사용자를 안내합니다. 언어는 최소한이며 기능적이며, 감정적 공감이나 복잡한 전문 용어를 피합니다.",
+      "ch8_outro": "시스템은 의도적으로 장식적 타이포그래피, 무거운 드롭 섀도우, 과도한 둥근 모서리, 복잡한 그라데이션을 피하며, 높은 데이터-잉크 비율을 유지합니다."
+    }
+  }
+}

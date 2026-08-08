@@ -7,12 +7,16 @@
 **正式站点**: https://opendesign.cc/
 **sitemap**: https://opendesign.cc/sitemap.xml
 
-## 给 AI / Agent：怎么用
+## ⭐ AI / Agent 从这里开始
 
-每个作品都有一个稳定的 **folder URL**，GET 它即得该站的设计系统：
+**先 GET `https://opendesign.cc/skill.md`** —— 它会把你变成一位「设计总监」：理解需求 → 给专业意见 → 从 545+ 真实设计系统里推荐合适的作品 → 拆解成 grounded 落地方案。这是用本库的正确姿势；下面的端点是它会用到的原料。
+
+## 给 AI / Agent：原料端点
+
+先 `GET https://opendesign.cc/catalog.json` 按需求搜索（字段：slug / title / tags / summary）。再用 slug 取该站的设计系统：
 
 ```
-https://opendesign.cc/packs/<slug>/                  → manifest.json 列出全部文件
+https://opendesign.cc/packs/<slug>/                  → DESIGN.md（folder 默认页）
 https://opendesign.cc/packs/<slug>/DESIGN.md          → Google design.md 兼容格式（YAML + 8 段）
 https://opendesign.cc/packs/<slug>/DESIGN_SPEC.en.md  → OpenDesign 11 层规范（en/zh-CN/zh-TW/ja/ko）
 https://opendesign.cc/packs/<slug>/spec.json          → 11 层设计 tokens（机器可读）
@@ -22,7 +26,7 @@ https://opendesign.cc/packs/<slug>/spec.json          → 11 层设计 tokens（
 
 本站全部内容已静态化（每站 × 5 语言独立 HTML），无需执行 JS 即可抓取。
 
-## 完整包（527 个 · Tier 2 · 含真截图 + 真 computed styles）
+## 完整包（920 个 · Tier 2 · 含真截图 + 真 computed styles）
 
 每个 slug 有 5 个机器可读端点：
 ```
@@ -35,6 +39,399 @@ DESIGN.md           → Google design.md 格式
 
 路径格式：`https://opendesign.cc/packs/<slug>/<filename>`
 
+- [Antoniouve](https://opendesign.cc/en/sites/antoniouve) · <https://opendesign.cc/packs/antoniouve/DESIGN_SPEC.en.md> — An excellent example of expressive, playful web design that prioritizes personal
+- [Atmos Leeroy Ca](https://opendesign.cc/en/sites/atmos-leeroy-ca) · <https://opendesign.cc/packs/atmos-leeroy-ca/DESIGN_SPEC.en.md> — This site exemplifies premium editorial design with its bold use of scale (200px
+- [Bernerkuhl](https://opendesign.cc/en/sites/bernerkuhl) · <https://opendesign.cc/packs/bernerkuhl/DESIGN_SPEC.en.md> — This site is a perfect example of a 'less is more' editorial approach where the 
+- [Bridget Pictures](https://opendesign.cc/en/sites/bridget-pictures) · <https://opendesign.cc/packs/bridget-pictures/DESIGN_SPEC.en.md> — This site is a perfect example of radical minimalism in portfolio design, removi
+- [Cash](https://opendesign.cc/en/sites/cash) · <https://opendesign.cc/packs/cash/DESIGN_SPEC.en.md> — This site is an excellent example of a modern fintech brand using a dark, high-c
+- [Co Projects](https://opendesign.cc/en/sites/co-projects) · <https://opendesign.cc/packs/co-projects/DESIGN_SPEC.en.md> — This site is worth including as an example of brutalist/minimalist web design th
+- [Cydstumpel Nl](https://opendesign.cc/en/sites/cydstumpel-nl) · <https://opendesign.cc/packs/cydstumpel-nl/DESIGN_SPEC.en.md> — A strong example of an expressive, developer-focused portfolio that successfully
+- [Daniellelevitt](https://opendesign.cc/en/sites/daniellelevitt) · <https://opendesign.cc/packs/daniellelevitt/DESIGN_SPEC.en.md> — This site is an excellent example of a bold, expressive portfolio that uses extr
+- [David Hckh](https://opendesign.cc/en/sites/david-hckh) · <https://opendesign.cc/packs/david-hckh/DESIGN_SPEC.en.md> — Excellent example of using 3D illustration and warm tones to humanize a develope
+- [Eindhovendesigndistrict](https://opendesign.cc/en/sites/eindhovendesigndistrict) · <https://opendesign.cc/packs/eindhovendesigndistrict/DESIGN_SPEC.en.md> — This site is an excellent example of typographic-led editorial design where mass
+- [Fallengrape](https://opendesign.cc/en/sites/fallengrape) · <https://opendesign.cc/packs/fallengrape/DESIGN_SPEC.en.md> — This site is a great example of using warm, muted earth tones to convey a premiu
+- [Forner Studio](https://opendesign.cc/en/sites/forner-studio) · <https://opendesign.cc/packs/forner-studio/DESIGN_SPEC.en.md> — Excellent example of refined, premium studio portfolio design that prioritizes v
+- [Garden Eight](https://opendesign.cc/en/sites/garden-eight) · <https://opendesign.cc/packs/garden-eight/DESIGN_SPEC.en.md> — An exceptional example of typographic-led design that proves a minimal palette c
+- [Getcoco](https://opendesign.cc/en/sites/getcoco) · <https://opendesign.cc/packs/getcoco/DESIGN_SPEC.en.md> — A great example of a modern, playful SaaS landing page that uses bold typography
+- [Gleap](https://opendesign.cc/en/sites/gleap) · <https://opendesign.cc/packs/gleap/DESIGN_SPEC.en.md> — Excellent example of restrained, professional SaaS design that prioritizes clari
+- [Glow](https://opendesign.cc/en/sites/glow) · <https://opendesign.cc/packs/glow/DESIGN_SPEC.en.md> — This site exemplifies premium fintech design with its clean aesthetic, bold typo
+- [Headspace](https://opendesign.cc/en/sites/headspace) · <https://opendesign.cc/packs/headspace/DESIGN_SPEC.en.md> — Worth including as a benchmark for how consumer wellness brands use warm, playfu
+- [Hle](https://opendesign.cc/en/sites/hle) · <https://opendesign.cc/packs/hle/DESIGN_SPEC.en.md> — This design is worth including for its masterful use of monochrome typography an
+- [Kaleidografik](https://opendesign.cc/en/sites/kaleidografik) · <https://opendesign.cc/packs/kaleidografik/DESIGN_SPEC.en.md> — This site exemplifies extreme design restraint as a portfolio strategy - by usin
+- [Kippo](https://opendesign.cc/en/sites/kippo) · <https://opendesign.cc/packs/kippo/DESIGN_SPEC.en.md> — A strong example of niche-targeted app UI, effectively using gamer-aesthetic cue
+- [Leifproducts](https://opendesign.cc/en/sites/leifproducts) · <https://opendesign.cc/packs/leifproducts/DESIGN_SPEC.en.md> — This site is worth including as a perfect example of using restrained typography
+- [Light](https://opendesign.cc/en/sites/light) · <https://opendesign.cc/packs/light/DESIGN_SPEC.en.md> — A strong example of a modern, developer-focused SaaS interface that balances bol
+- [Magnetism Fr](https://opendesign.cc/en/sites/magnetism-fr) · <https://opendesign.cc/packs/magnetism-fr/DESIGN_SPEC.en.md> — This site is a textbook example of a luxury agency aesthetic, utilizing extreme 
+- [Odins Crow](https://opendesign.cc/en/sites/odins-crow) · <https://opendesign.cc/packs/odins-crow/DESIGN_SPEC.en.md> — The site is a strong example of modern editorial design for a professional servi
+- [Ozero](https://opendesign.cc/en/sites/ozero) · <https://opendesign.cc/packs/ozero/DESIGN_SPEC.en.md> — Worth including as a prime example of a minimalist, image-first design studio po
+- [Redis Agency](https://opendesign.cc/en/sites/redis-agency) · <https://opendesign.cc/packs/redis-agency/DESIGN_SPEC.en.md> — This site is a masterclass in using extreme typography and limited color to crea
+- [Regrocery](https://opendesign.cc/en/sites/regrocery) · <https://opendesign.cc/packs/regrocery/DESIGN_SPEC.en.md> — This site is a perfect example of how to elevate a functional e-commerce platfor
+- [Ryanstephen](https://opendesign.cc/en/sites/ryanstephen) · <https://opendesign.cc/packs/ryanstephen/DESIGN_SPEC.en.md> — This site is worth including as an excellent example of a portfolio that uses mi
+- [Stellar Work](https://opendesign.cc/en/sites/stellar-work) · <https://opendesign.cc/packs/stellar-work/DESIGN_SPEC.en.md> — This site is an excellent example of premium, dark-themed agency design that use
+- [Verse Sh](https://opendesign.cc/en/sites/verse-sh) · <https://opendesign.cc/packs/verse-sh/DESIGN_SPEC.en.md> — This site is a prime example of a 'code-first' portfolio, using a strictly monos
+- [Vividand](https://opendesign.cc/en/sites/vividand) · <https://opendesign.cc/packs/vividand/DESIGN_SPEC.en.md> — This site is a masterclass in restrained, high-end agency design, using bold typ
+- [Wrdlss Club](https://opendesign.cc/en/sites/wrdlss-club) · <https://opendesign.cc/packs/wrdlss-club/DESIGN_SPEC.en.md> — A unique intersection of brutalist web design and generative ASCII art, demonstr
+- [Yuga](https://opendesign.cc/en/sites/yuga) · <https://opendesign.cc/packs/yuga/DESIGN_SPEC.en.md> — A masterclass in brutalist digital design, using scale and contrast to create a 
+- [Alecbabala](https://opendesign.cc/en/sites/alecbabala) · <https://opendesign.cc/packs/alecbabala/DESIGN_SPEC.en.md> — A strong example of how a restricted color palette and minimal typography can cr
+- [Aletagency](https://opendesign.cc/en/sites/aletagency) · <https://opendesign.cc/packs/aletagency/DESIGN_SPEC.en.md> — This site is a perfect example of a refined, high-end agency portfolio that uses
+- [Anacuna](https://opendesign.cc/en/sites/anacuna) · <https://opendesign.cc/packs/anacuna/DESIGN_SPEC.en.md> — This site is an excellent example of extreme typographic minimalism, where text 
+- [Atlason](https://opendesign.cc/en/sites/atlason) · <https://opendesign.cc/packs/atlason/DESIGN_SPEC.en.md> — A masterclass in using typography and whitespace to create a premium, gallery-li
+- [Bpowell](https://opendesign.cc/en/sites/bpowell) · <https://opendesign.cc/packs/bpowell/DESIGN_SPEC.en.md> — A perfect example of the 'Swiss-style' portfolio, demonstrating how extreme rest
+- [Cowboy](https://opendesign.cc/en/sites/cowboy) · <https://opendesign.cc/packs/cowboy/DESIGN_SPEC.en.md> — This site is a prime example of a premium hardware brand using minimalism, high-
+- [Create Video](https://opendesign.cc/en/sites/create-video) · <https://opendesign.cc/packs/create-video/DESIGN_SPEC.en.md> — The site exemplifies a mature, scalable design system for a high-traffic social 
+- [Cubitts](https://opendesign.cc/en/sites/cubitts) · <https://opendesign.cc/packs/cubitts/DESIGN_SPEC.en.md> — This site is an excellent example of modern editorial e-commerce, proving that a
+- [Custo](https://opendesign.cc/en/sites/custo) · <https://opendesign.cc/packs/custo/DESIGN_SPEC.en.md> — This site is an excellent example of restrained, product-focused design that use
+- [Datalands](https://opendesign.cc/en/sites/datalands) · <https://opendesign.cc/packs/datalands/DESIGN_SPEC.en.md> — Worth including for its masterful execution of high-contrast monochrome design a
+- [Drawhistory](https://opendesign.cc/en/sites/drawhistory) · <https://opendesign.cc/packs/drawhistory/DESIGN_SPEC.en.md> — This site demonstrates a highly restrained, typography-focused editorial design 
+- [Drepute](https://opendesign.cc/en/sites/drepute) · <https://opendesign.cc/packs/drepute/DESIGN_SPEC.en.md> — This site is a great example of a clean, effective pre-launch page that uses a p
+- [Dyotanya](https://opendesign.cc/en/sites/dyotanya) · <https://opendesign.cc/packs/dyotanya/DESIGN_SPEC.en.md> — This site is an excellent example of a personal portfolio that uses typography a
+- [Fableandmane](https://opendesign.cc/en/sites/fableandmane) · <https://opendesign.cc/packs/fableandmane/DESIGN_SPEC.en.md> — A strong example of a premium, consumer-focused e-commerce design that balances 
+- [Fillingpieces](https://opendesign.cc/en/sites/fillingpieces) · <https://opendesign.cc/packs/fillingpieces/DESIGN_SPEC.en.md> — The site's strength lies in its restraint and focus on premium photography, maki
+- [Flecto](https://opendesign.cc/en/sites/flecto) · <https://opendesign.cc/packs/flecto/DESIGN_SPEC.en.md> — This site is a strong example of a modern, dark-mode B2B SaaS landing page that 
+- [Foundry Basement Studio](https://opendesign.cc/en/sites/foundry-basement-studio) · <https://opendesign.cc/packs/foundry-basement-studio/DESIGN_SPEC.en.md> — Worth including as a prime example of brutalist, typography-first design where t
+- [Getdooapp](https://opendesign.cc/en/sites/getdooapp) · <https://opendesign.cc/packs/getdooapp/DESIGN_SPEC.en.md> — A textbook example of clean, modern product landing page design that prioritizes
+- [Getuntil](https://opendesign.cc/en/sites/getuntil) · <https://opendesign.cc/packs/getuntil/DESIGN_SPEC.en.md> — The site is worth including because it masterfully balances a clean, simple layo
+- [Heartaerospace](https://opendesign.cc/en/sites/heartaerospace) · <https://opendesign.cc/packs/heartaerospace/DESIGN_SPEC.en.md> — The site effectively uses restraint and high-quality imagery to convey a premium
+- [Henryheffernan](https://opendesign.cc/en/sites/henryheffernan) · <https://opendesign.cc/packs/henryheffernan/DESIGN_SPEC.en.md> — This site is an excellent example of brutalist web design, using extreme minimal
+- [Icam Inox](https://opendesign.cc/en/sites/icam-inox) · <https://opendesign.cc/packs/icam-inox/DESIGN_SPEC.en.md> — A masterclass in using extreme scale and high contrast to create a premium indus
+- [Ijpowell](https://opendesign.cc/en/sites/ijpowell) · <https://opendesign.cc/packs/ijpowell/DESIGN_SPEC.en.md> — This site is a perfect example of a refined, gallery-style portfolio that uses e
+- [Jams Basicagency](https://opendesign.cc/en/sites/jams-basicagency) · <https://opendesign.cc/packs/jams-basicagency/DESIGN_SPEC.en.md> — An excellent example of using large typography and layered photography to create
+- [Joinlava](https://opendesign.cc/en/sites/joinlava) · <https://opendesign.cc/packs/joinlava/DESIGN_SPEC.en.md> — The site is an excellent example of a modern, expressive dark-mode design that u
+- [Kirschberg Co Nz](https://opendesign.cc/en/sites/kirschberg-co-nz) · <https://opendesign.cc/packs/kirschberg-co-nz/DESIGN_SPEC.en.md> — Worth including as a prime example of a modern, minimalist design portfolio that
+- [Leonidkostetskyi](https://opendesign.cc/en/sites/leonidkostetskyi) · <https://opendesign.cc/packs/leonidkostetskyi/DESIGN_SPEC.en.md> — An excellent example of typographic minimalism, demonstrating how scale and whit
+- [Majacerar](https://opendesign.cc/en/sites/majacerar) · <https://opendesign.cc/packs/majacerar/DESIGN_SPEC.en.md> — Exceptional example of restrained portfolio design that lets work speak through 
+- [Mapbox](https://opendesign.cc/en/sites/mapbox) · <https://opendesign.cc/packs/mapbox/DESIGN_SPEC.en.md> — Mapbox provides a definitive example of a high-end developer tool aesthetic, bal
+- [Markaware Jp](https://opendesign.cc/en/sites/markaware-jp) · <https://opendesign.cc/packs/markaware-jp/DESIGN_SPEC.en.md> — This site is worth including as a masterclass in restrained, premium fashion e-c
+- [Nestig](https://opendesign.cc/en/sites/nestig) · <https://opendesign.cc/packs/nestig/DESIGN_SPEC.en.md> — A strong example of modern, warm-toned e-commerce design that uses typography, s
+- [Nordebrink](https://opendesign.cc/en/sites/nordebrink) · <https://opendesign.cc/packs/nordebrink/DESIGN_SPEC.en.md> — This site is an excellent example of high-end, restrained editorial design where
+- [Onroadmap](https://opendesign.cc/en/sites/onroadmap) · <https://opendesign.cc/packs/onroadmap/DESIGN_SPEC.en.md> — This site is a great example of how a vibrant, multi-colored accent system can w
+- [Ouraring](https://opendesign.cc/en/sites/ouraring) · <https://opendesign.cc/packs/ouraring/DESIGN_SPEC.en.md> — Excellent example of premium product branding using restraint, high-quality phot
+- [Pad Dotincorp](https://opendesign.cc/en/sites/pad-dotincorp) · <https://opendesign.cc/packs/pad-dotincorp/DESIGN_SPEC.en.md> — A great example of a clean, accessible hardware product page that prioritizes cl
+- [Periodaisle](https://opendesign.cc/en/sites/periodaisle) · <https://opendesign.cc/packs/periodaisle/DESIGN_SPEC.en.md> — A strong example of a modern, empathetic DTC brand that uses design to normalize
+- [Quentinhocde](https://opendesign.cc/en/sites/quentinhocde) · <https://opendesign.cc/packs/quentinhocde/DESIGN_SPEC.en.md> — This site is a perfect example of brutalist, typography-driven design where the 
+- [Rainbowkit](https://opendesign.cc/en/sites/rainbowkit) · <https://opendesign.cc/packs/rainbowkit/DESIGN_SPEC.en.md> — This site is a prime example of modern developer tooling aesthetics, combining a
+- [Simonesniekers](https://opendesign.cc/en/sites/simonesniekers) · <https://opendesign.cc/packs/simonesniekers/DESIGN_SPEC.en.md> — This site is worth including as a masterclass in extreme minimalist portfolio de
+- [Sirup Online](https://opendesign.cc/en/sites/sirup-online) · <https://opendesign.cc/packs/sirup-online/DESIGN_SPEC.en.md> — This site is a strong example of a premium, editorial design language applied to
+- [Sketch](https://opendesign.cc/en/sites/sketch) · <https://opendesign.cc/packs/sketch/DESIGN_SPEC.en.md> — This site is a prime example of a modern, professional SaaS product that uses ty
+- [Socialclubparis](https://opendesign.cc/en/sites/socialclubparis) · <https://opendesign.cc/packs/socialclubparis/DESIGN_SPEC.en.md> — Worth including for its masterful use of extreme typographic scale and a strictl
+- [Spacelab](https://opendesign.cc/en/sites/spacelab) · <https://opendesign.cc/packs/spacelab/DESIGN_SPEC.en.md> — A strong example of how extreme restraint and massive typography can create a pr
+- [Squadeasy](https://opendesign.cc/en/sites/squadeasy) · <https://opendesign.cc/packs/squadeasy/DESIGN_SPEC.en.md> — This site effectively demonstrates how to create a warm, approachable brand pers
+- [Swoosh Nike](https://opendesign.cc/en/sites/swoosh-nike) · <https://opendesign.cc/packs/swoosh-nike/DESIGN_SPEC.en.md> — Excellent example of premium e-commerce design where restraint and negative spac
+- [Thoughtlab](https://opendesign.cc/en/sites/thoughtlab) · <https://opendesign.cc/packs/thoughtlab/DESIGN_SPEC.en.md> — Worth including as a masterclass in high-end agency branding, demonstrating how 
+- [Tomorrow Happens Studio](https://opendesign.cc/en/sites/tomorrow-happens-studio) · <https://opendesign.cc/packs/tomorrow-happens-studio/DESIGN_SPEC.en.md> — Worth including for its exceptionally restrained, poetic approach to web design,
+- [Viture](https://opendesign.cc/en/sites/viture) · <https://opendesign.cc/packs/viture/DESIGN_SPEC.en.md> — This site is an excellent example of a premium hardware product page, using bold
+- [19 86 Fr](https://opendesign.cc/en/sites/19-86-fr) · <https://opendesign.cc/packs/19-86-fr/DESIGN_SPEC.en.md> — This site is an excellent reference for bold typographic scale and the use of ma
+- [A Ware At](https://opendesign.cc/en/sites/a-ware-at) · <https://opendesign.cc/packs/a-ware-at/DESIGN_SPEC.en.md> — This site is a prime example of a premium, photography-driven brand that uses cl
+- [Aaply](https://opendesign.cc/en/sites/aaply) · <https://opendesign.cc/packs/aaply/DESIGN_SPEC.en.md> — The site's playful integration of emojis into typography and its bold, high-cont
+- [Aather](https://opendesign.cc/en/sites/aather) · <https://opendesign.cc/packs/aather/DESIGN_SPEC.en.md> — This site is a prime example of minimalist premium e-commerce, relying heavily o
+- [Aikawakenichi](https://opendesign.cc/en/sites/aikawakenichi) · <https://opendesign.cc/packs/aikawakenichi/DESIGN_SPEC.en.md> — This site serves as an excellent example of extreme editorial restraint, proving
+- [Al Murphy](https://opendesign.cc/en/sites/al-murphy) · <https://opendesign.cc/packs/al-murphy/DESIGN_SPEC.en.md> — This site is a prime example of a portfolio that prioritizes expressive, illustr
+- [Albacondos](https://opendesign.cc/en/sites/albacondos) · <https://opendesign.cc/packs/albacondos/DESIGN_SPEC.en.md> — This site is an excellent example of high-end real estate web design, using extr
+- [Auros Global](https://opendesign.cc/en/sites/auros-global) · <https://opendesign.cc/packs/auros-global/DESIGN_SPEC.en.md> — Worth including for its masterful use of gradient-based depth and premium, insti
+- [Balsa](https://opendesign.cc/en/sites/balsa) · <https://opendesign.cc/packs/balsa/DESIGN_SPEC.en.md> — This site is a great example of a clean, focused SaaS design that uses a minimal
+- [Bou](https://opendesign.cc/en/sites/bou) · <https://opendesign.cc/packs/bou/DESIGN_SPEC.en.md> — This site is a masterclass in using a monochromatic palette and light typography
+- [Channel Studio](https://opendesign.cc/en/sites/channel-studio) · <https://opendesign.cc/packs/channel-studio/DESIGN_SPEC.en.md> — This site is a masterclass in restrained, high-end design studio branding that p
+- [Chirpley](https://opendesign.cc/en/sites/chirpley) · <https://opendesign.cc/packs/chirpley/DESIGN_SPEC.en.md> — Worth including as a prime example of utilitarian error state design that priori
+- [Config Figma](https://opendesign.cc/en/sites/config-figma) · <https://opendesign.cc/packs/config-figma/DESIGN_SPEC.en.md> — Worth including for its strong, confident use of experimental graphic design pai
+- [Coricorinne](https://opendesign.cc/en/sites/coricorinne) · <https://opendesign.cc/packs/coricorinne/DESIGN_SPEC.en.md> — This site is an excellent example of typography-driven minimalism, proving that 
+- [Cosmos Network](https://opendesign.cc/en/sites/cosmos-network) · <https://opendesign.cc/packs/cosmos-network/DESIGN_SPEC.en.md> — This site is worth including as a prime example of a premium, enterprise-focused
+- [Dialitdown Co Nz](https://opendesign.cc/en/sites/dialitdown-co-nz) · <https://opendesign.cc/packs/dialitdown-co-nz/DESIGN_SPEC.en.md> — This site is a great example of using custom character illustrations and warm co
+- [Goodfit Us](https://opendesign.cc/en/sites/goodfit-us) · <https://opendesign.cc/packs/goodfit-us/DESIGN_SPEC.en.md> — This site is a strong example of a refined, minimalist design system with a clea
+- [Guillaumetomasi](https://opendesign.cc/en/sites/guillaumetomasi) · <https://opendesign.cc/packs/guillaumetomasi/DESIGN_SPEC.en.md> — This site is a strong example of experimental web design that treats the browser
+- [Gumroad](https://opendesign.cc/en/sites/gumroad) · <https://opendesign.cc/packs/gumroad/DESIGN_SPEC.en.md> — An excellent example of a clean, modern, and friendly SaaS platform design.
+- [Guste](https://opendesign.cc/en/sites/guste) · <https://opendesign.cc/packs/guste/DESIGN_SPEC.en.md> — This site is a strong example of a bold, minimalist studio portfolio that uses s
+- [Hartzlerdairy](https://opendesign.cc/en/sites/hartzlerdairy) · <https://opendesign.cc/packs/hartzlerdairy/DESIGN_SPEC.en.md> — Excellent example of product-focused design with bold typography that lets premi
+- [Hugoferradas](https://opendesign.cc/en/sites/hugoferradas) · <https://opendesign.cc/packs/hugoferradas/DESIGN_SPEC.en.md> — This site is an excellent example of a restrained, typography-focused portfolio 
+- [Ino Jewelry](https://opendesign.cc/en/sites/ino-jewelry) · <https://opendesign.cc/packs/ino-jewelry/DESIGN_SPEC.en.md> — This site is an excellent example of how to use high-end photography and minimal
+- [Iveeapp](https://opendesign.cc/en/sites/iveeapp) · <https://opendesign.cc/packs/iveeapp/DESIGN_SPEC.en.md> — The site effectively balances a clinical medical feel with a premium lifestyle b
+- [July Fund](https://opendesign.cc/en/sites/july-fund) · <https://opendesign.cc/packs/july-fund/DESIGN_SPEC.en.md> — This site serves as a strong example of blending classic editorial typography wi
+- [Lamalama Nl](https://opendesign.cc/en/sites/lamalama-nl) · <https://opendesign.cc/packs/lamalama-nl/DESIGN_SPEC.en.md> — This site is a prime example of modern agency design, using extreme typographic 
+- [Lilnasx Jeanpaulgaultier](https://opendesign.cc/en/sites/lilnasx-jeanpaulgaultier) · <https://opendesign.cc/packs/lilnasx-jeanpaulgaultier/DESIGN_SPEC.en.md> — This site is a perfect example of a luxury editorial e-commerce experience where
+- [Loveseen](https://opendesign.cc/en/sites/loveseen) · <https://opendesign.cc/packs/loveseen/DESIGN_SPEC.en.md> — A strong example of how photography-first design can create a luxurious and incl
+- [Lpalo](https://opendesign.cc/en/sites/lpalo) · <https://opendesign.cc/packs/lpalo/DESIGN_SPEC.en.md> — This site is a masterclass in using extreme typography and bold, flat illustrati
+- [Matteroffact Fr](https://opendesign.cc/en/sites/matteroffact-fr) · <https://opendesign.cc/packs/matteroffact-fr/DESIGN_SPEC.en.md> — This site is a masterclass in anti-design, using extreme typography and raw HTML
+- [Mono Frm Fm](https://opendesign.cc/en/sites/mono-frm-fm) · <https://opendesign.cc/packs/mono-frm-fm/DESIGN_SPEC.en.md> — The site is a masterclass in using strict grids, solid borders, and typography h
+- [Myafterglo](https://opendesign.cc/en/sites/myafterglo) · <https://opendesign.cc/packs/myafterglo/DESIGN_SPEC.en.md> — This site is a great example of how to elevate e-commerce through artistic photo
+- [Parker Studio](https://opendesign.cc/en/sites/parker-studio) · <https://opendesign.cc/packs/parker-studio/DESIGN_SPEC.en.md> — This site is an excellent example of a high-end creative portfolio, demonstratin
+- [Petertarka](https://opendesign.cc/en/sites/petertarka) · <https://opendesign.cc/packs/petertarka/DESIGN_SPEC.en.md> — This site is worth including as a prime example of a minimalist, high-end creati
+- [Philosophicalfoxes](https://opendesign.cc/en/sites/philosophicalfoxes) · <https://opendesign.cc/packs/philosophicalfoxes/DESIGN_SPEC.en.md> — This site is worth including as a prime example of how retro-gaming aesthetics (
+- [Raus Life](https://opendesign.cc/en/sites/raus-life) · <https://opendesign.cc/packs/raus-life/DESIGN_SPEC.en.md> — This site is an excellent example of a premium, consumer-facing brand that balan
+- [Redbrick Coffee](https://opendesign.cc/en/sites/redbrick-coffee) · <https://opendesign.cc/packs/redbrick-coffee/DESIGN_SPEC.en.md> — This site is an excellent example of how to blend traditional typography with mo
+- [Relief](https://opendesign.cc/en/sites/relief) · <https://opendesign.cc/packs/relief/DESIGN_SPEC.en.md> — A strong example of a modern fintech UI that balances playful 3D illustrations w
+- [Richardekwonye](https://opendesign.cc/en/sites/richardekwonye) · <https://opendesign.cc/packs/richardekwonye/DESIGN_SPEC.en.md> — Excellent example of typographic-driven portfolio design that prioritizes clarit
+- [Simulate](https://opendesign.cc/en/sites/simulate) · <https://opendesign.cc/packs/simulate/DESIGN_SPEC.en.md> — A clean, professional example of a premium digital asset marketplace listing pag
+- [Slite](https://opendesign.cc/en/sites/slite) · <https://opendesign.cc/packs/slite/DESIGN_SPEC.en.md> — This site is a strong example of modern B2B SaaS design, balancing professionali
+- [Sprout Place](https://opendesign.cc/en/sites/sprout-place) · <https://opendesign.cc/packs/sprout-place/DESIGN_SPEC.en.md> — Worth including for its unique, warm personality and effective use of high-contr
+- [Tofucollective](https://opendesign.cc/en/sites/tofucollective) · <https://opendesign.cc/packs/tofucollective/DESIGN_SPEC.en.md> — Worth including as a masterclass in typographic-led editorial design and the eff
+- [Touchycoffee](https://opendesign.cc/en/sites/touchycoffee) · <https://opendesign.cc/packs/touchycoffee/DESIGN_SPEC.en.md> — This site is a perfect example of an expressive, anti-corporate design language 
+- [Ujjo](https://opendesign.cc/en/sites/ujjo) · <https://opendesign.cc/packs/ujjo/DESIGN_SPEC.en.md> — The site is worth including for its unapologetic use of high-contrast color and 
+- [Valohealth](https://opendesign.cc/en/sites/valohealth) · <https://opendesign.cc/packs/valohealth/DESIGN_SPEC.en.md> — This site is an excellent reference for high-end dark-mode design that uses mass
+- [Vibrants](https://opendesign.cc/en/sites/vibrants) · <https://opendesign.cc/packs/vibrants/DESIGN_SPEC.en.md> — This site is a great example of a playful, consumer-focused wellness UI with a s
+- [Victoiredouy](https://opendesign.cc/en/sites/victoiredouy) · <https://opendesign.cc/packs/victoiredouy/DESIGN_SPEC.en.md> — This site serves as an excellent example of extreme typographic scale and restra
+- [Walden Us](https://opendesign.cc/en/sites/walden-us) · <https://opendesign.cc/packs/walden-us/DESIGN_SPEC.en.md> — Excellent example of premium wellness branding that balances luxury aesthetics w
+- [Xn  Smon Vpa](https://opendesign.cc/en/sites/xn--smon-vpa) · <https://opendesign.cc/packs/xn--smon-vpa/DESIGN_SPEC.en.md> — A prime example of restrained, typography-driven design where scale and whitespa
+- [Angelvaliente](https://opendesign.cc/en/sites/angelvaliente) · <https://opendesign.cc/packs/angelvaliente/DESIGN_SPEC.en.md> — This site is a perfect example of 'less is more' in design studio portfolios, us
+- [Artisansdidees](https://opendesign.cc/en/sites/artisansdidees) · <https://opendesign.cc/packs/artisansdidees/DESIGN_SPEC.en.md> — Worth including as a prime example of extreme typographic minimalism and premium
+- [Automator Community](https://opendesign.cc/en/sites/automator-community) · <https://opendesign.cc/packs/automator-community/DESIGN_SPEC.en.md> — A solid example of a modern, data-rich professional tool interface that balances
+- [Bareis Nicolaus](https://opendesign.cc/en/sites/bareis-nicolaus) · <https://opendesign.cc/packs/bareis-nicolaus/DESIGN_SPEC.en.md> — This site is a perfect example of a modern, curated agency portfolio that relies
+- [Basedesign](https://opendesign.cc/en/sites/basedesign) · <https://opendesign.cc/packs/basedesign/DESIGN_SPEC.en.md> — This site is an excellent example of a bold, type-driven agency portfolio that u
+- [Beseda Chat](https://opendesign.cc/en/sites/beseda-chat) · <https://opendesign.cc/packs/beseda-chat/DESIGN_SPEC.en.md> — The site effectively combines a dark, premium aesthetic with vibrant accents to 
+- [Bitofdenim](https://opendesign.cc/en/sites/bitofdenim) · <https://opendesign.cc/packs/bitofdenim/DESIGN_SPEC.en.md> — A strong example of restraint and editorial design in an e-commerce context.
+- [Block](https://opendesign.cc/en/sites/block) · <https://opendesign.cc/packs/block/DESIGN_SPEC.en.md> — Worth including as a masterclass in corporate minimalism and high-contrast, low-
+- [Cassandratang Me](https://opendesign.cc/en/sites/cassandratang-me) · <https://opendesign.cc/packs/cassandratang-me/DESIGN_SPEC.en.md> — This site is a strong example of a high-energy, consumer-facing promotional desi
+- [Copilot Money](https://opendesign.cc/en/sites/copilot-money) · <https://opendesign.cc/packs/copilot-money/DESIGN_SPEC.en.md> — Exemplary dark mode design that balances premium aesthetics with functional clar
+- [Danny Garcia](https://opendesign.cc/en/sites/danny-garcia) · <https://opendesign.cc/packs/danny-garcia/DESIGN_SPEC.en.md> — This portfolio demonstrates how a developer can showcase technical skill through
+- [Davejreid](https://opendesign.cc/en/sites/davejreid) · <https://opendesign.cc/packs/davejreid/DESIGN_SPEC.en.md> — This site is a strong example of a refined, editorial portfolio that uses typogr
+- [Dovetail No](https://opendesign.cc/en/sites/dovetail-no) · <https://opendesign.cc/packs/dovetail-no/DESIGN_SPEC.en.md> — This site is a great example of how a limited color palette and strong typograph
+- [Everafter](https://opendesign.cc/en/sites/everafter) · <https://opendesign.cc/packs/everafter/DESIGN_SPEC.en.md> — Worth including as a strong example of modern premium B2B SaaS design, combining
+- [Evm Elektramontreal Ca](https://opendesign.cc/en/sites/evm-elektramontreal-ca) · <https://opendesign.cc/packs/evm-elektramontreal-ca/DESIGN_SPEC.en.md> — This site is worth including as a prime example of a clear, accessible, and well
+- [Flowen Me](https://opendesign.cc/en/sites/flowen-me) · <https://opendesign.cc/packs/flowen-me/DESIGN_SPEC.en.md> — This site is a prime example of brutalist web design, using extreme typographic 
+- [Glob Land](https://opendesign.cc/en/sites/glob-land) · <https://opendesign.cc/packs/glob-land/DESIGN_SPEC.en.md> — This site is worth including as a prime example of a premium, accessible e-comme
+- [Hourly App](https://opendesign.cc/en/sites/hourly-app) · <https://opendesign.cc/packs/hourly-app/DESIGN_SPEC.en.md> — Worth including as a masterclass in using extreme typography and a restricted pa
+- [Ingmarcoenen](https://opendesign.cc/en/sites/ingmarcoenen) · <https://opendesign.cc/packs/ingmarcoenen/DESIGN_SPEC.en.md> — A masterclass in minimalist portfolio design, using extreme scale and strict mon
+- [Josephmark Studio](https://opendesign.cc/en/sites/josephmark-studio) · <https://opendesign.cc/packs/josephmark-studio/DESIGN_SPEC.en.md> — An excellent reference for bold, minimalist agency portfolios that rely on typog
+- [Joshuakaplan](https://opendesign.cc/en/sites/joshuakaplan) · <https://opendesign.cc/packs/joshuakaplan/DESIGN_SPEC.en.md> — This site is a perfect example of a data-driven, typographic portfolio where the
+- [Ka Ra Studio](https://opendesign.cc/en/sites/ka-ra-studio) · <https://opendesign.cc/packs/ka-ra-studio/DESIGN_SPEC.en.md> — Worth including as a strong example of a refined, typography-forward portfolio t
+- [Kevinbrenkman](https://opendesign.cc/en/sites/kevinbrenkman) · <https://opendesign.cc/packs/kevinbrenkman/DESIGN_SPEC.en.md> — A masterclass in restrained, typography-driven portfolio design where the framew
+- [Launchdarkly](https://opendesign.cc/en/sites/launchdarkly) · <https://opendesign.cc/packs/launchdarkly/DESIGN_SPEC.en.md> — This site exemplifies a modern, premium developer tool aesthetic, balancing tech
+- [Leonatsume](https://opendesign.cc/en/sites/leonatsume) · <https://opendesign.cc/packs/leonatsume/DESIGN_SPEC.en.md> — An excellent reference for how to balance massive 3D character artwork with ultr
+- [Letter](https://opendesign.cc/en/sites/letter) · <https://opendesign.cc/packs/letter/DESIGN_SPEC.en.md> — The design masterfully blends cinematic photography with clinical layout precisi
+- [Limonoslo No](https://opendesign.cc/en/sites/limonoslo-no) · <https://opendesign.cc/packs/limonoslo-no/DESIGN_SPEC.en.md> — This site is an excellent example of bold, expressive restaurant branding that s
+- [Manifesto Endel](https://opendesign.cc/en/sites/manifesto-endel) · <https://opendesign.cc/packs/manifesto-endel/DESIGN_SPEC.en.md> — This site is worth including as a masterclass in minimalist, high-contrast dark 
+- [Marxdesign Co Nz](https://opendesign.cc/en/sites/marxdesign-co-nz) · <https://opendesign.cc/packs/marxdesign-co-nz/DESIGN_SPEC.en.md> — The site is worth including as a prime example of minimalist, typography-led por
+- [Maximilianberndt](https://opendesign.cc/en/sites/maximilianberndt) · <https://opendesign.cc/packs/maximilianberndt/DESIGN_SPEC.en.md> — This site is a masterclass in minimalist portfolio design, using extreme typogra
+- [Ncda Biz](https://opendesign.cc/en/sites/ncda-biz) · <https://opendesign.cc/packs/ncda-biz/DESIGN_SPEC.en.md> — An excellent example of high-end architectural studio typography and whitespace 
+- [Reveal](https://opendesign.cc/en/sites/reveal) · <https://opendesign.cc/packs/reveal/DESIGN_SPEC.en.md> — This design is a perfect example of a functional, utility-focused UI where aesth
+- [Sandlandsleep](https://opendesign.cc/en/sites/sandlandsleep) · <https://opendesign.cc/packs/sandlandsleep/DESIGN_SPEC.en.md> — A great example of a focused, minimalist consumer interface that uses a single h
+- [Seint Store](https://opendesign.cc/en/sites/seint-store) · <https://opendesign.cc/packs/seint-store/DESIGN_SPEC.en.md> — Worth including as an example of a completely unstyled, utilitarian, and content
+- [Sneakinpeace](https://opendesign.cc/en/sites/sneakinpeace) · <https://opendesign.cc/packs/sneakinpeace/DESIGN_SPEC.en.md> — This site is a strong example of editorial luxury UI, where the interface intent
+- [Sometimesalways Com Au](https://opendesign.cc/en/sites/sometimesalways-com-au) · <https://opendesign.cc/packs/sometimesalways-com-au/DESIGN_SPEC.en.md> — This site is worth including as a prime example of a warm, playful, and curated 
+- [Startupblowup](https://opendesign.cc/en/sites/startupblowup) · <https://opendesign.cc/packs/startupblowup/DESIGN_SPEC.en.md> — This site is worth including as a prime example of expressive, non-corporate sta
+- [Studiofew](https://opendesign.cc/en/sites/studiofew) · <https://opendesign.cc/packs/studiofew/DESIGN_SPEC.en.md> — A masterclass in restrained design where the typography itself serves as the pri
+- [Stykka](https://opendesign.cc/en/sites/stykka) · <https://opendesign.cc/packs/stykka/DESIGN_SPEC.en.md> — A great example of how a minimal UI can let high-quality architectural photograp
+- [Theseawebreathe](https://opendesign.cc/en/sites/theseawebreathe) · <https://opendesign.cc/packs/theseawebreathe/DESIGN_SPEC.en.md> — Worth including as a prime example of how to combine cinematic photography with 
+- [Vacation Inc](https://opendesign.cc/en/sites/vacation-inc) · <https://opendesign.cc/packs/vacation-inc/DESIGN_SPEC.en.md> — The site stands out for its highly specific, cohesive retro aesthetic that avoid
+- [Wallpaperprojects](https://opendesign.cc/en/sites/wallpaperprojects) · <https://opendesign.cc/packs/wallpaperprojects/DESIGN_SPEC.en.md> — This site is a masterclass in using restraint and typography to create a premium
+- [Wandelmaier](https://opendesign.cc/en/sites/wandelmaier) · <https://opendesign.cc/packs/wandelmaier/DESIGN_SPEC.en.md> — This site is an excellent example of refined, typographic portfolio design, usin
+- [Winamp](https://opendesign.cc/en/sites/winamp) · <https://opendesign.cc/packs/winamp/DESIGN_SPEC.en.md> — Worth including for its successful modernization of a classic brand, blending ex
+- [Bbastudio Eu](https://opendesign.cc/en/sites/bbastudio-eu) · <https://opendesign.cc/packs/bbastudio-eu/DESIGN_SPEC.en.md> — A prime example of a high-end design studio portfolio that uses extreme restrain
+- [Cinderbloc](https://opendesign.cc/en/sites/cinderbloc) · <https://opendesign.cc/packs/cinderbloc/DESIGN_SPEC.en.md> — A powerful example of how bold typography and a strict monochrome palette can cr
+- [Cthdrl](https://opendesign.cc/en/sites/cthdrl) · <https://opendesign.cc/packs/cthdrl/DESIGN_SPEC.en.md> — This site is an excellent reference for aggressive, high-impact typography and t
+- [Cupofcouple](https://opendesign.cc/en/sites/cupofcouple) · <https://opendesign.cc/packs/cupofcouple/DESIGN_SPEC.en.md> — A sophisticated example of how strict geometry and monochrome typography can ele
+- [Dovetailapp](https://opendesign.cc/en/sites/dovetailapp) · <https://opendesign.cc/packs/dovetailapp/DESIGN_SPEC.en.md> — A strong example of a premium B2B dark-mode UI that balances technical authority
+- [Empower Me](https://opendesign.cc/en/sites/empower-me) · <https://opendesign.cc/packs/empower-me/DESIGN_SPEC.en.md> — This site is a strong example of bold typography and minimalist color usage in m
+- [Fablepets](https://opendesign.cc/en/sites/fablepets) · <https://opendesign.cc/packs/fablepets/DESIGN_SPEC.en.md> — This site is worth including as a prime example of modern, premium e-commerce de
+- [Fictional Typeface](https://opendesign.cc/en/sites/fictional-typeface) · <https://opendesign.cc/packs/fictional-typeface/DESIGN_SPEC.en.md> — This site stands out as a masterclass in expressive typography-focused design, u
+- [Giganticcandy](https://opendesign.cc/en/sites/giganticcandy) · <https://opendesign.cc/packs/giganticcandy/DESIGN_SPEC.en.md> — This site is worth including for its strong, consistent voice achieved through b
+- [Giopandone](https://opendesign.cc/en/sites/giopandone) · <https://opendesign.cc/packs/giopandone/DESIGN_SPEC.en.md> — An excellent example of a restrained, Swiss-inspired design portfolio where typo
+- [Glein Wien](https://opendesign.cc/en/sites/glein-wien) · <https://opendesign.cc/packs/glein-wien/DESIGN_SPEC.en.md> — Worth including as a masterclass in using restraint, typography, and high-qualit
+- [Haleys](https://opendesign.cc/en/sites/haleys) · <https://opendesign.cc/packs/haleys/DESIGN_SPEC.en.md> — This site is worth including as an excellent example of how to execute a highly 
+- [Ilovecreatives](https://opendesign.cc/en/sites/ilovecreatives) · <https://opendesign.cc/packs/ilovecreatives/DESIGN_SPEC.en.md> — This site is an excellent example of a premium editorial layout that uses bold t
+- [Informed](https://opendesign.cc/en/sites/informed) · <https://opendesign.cc/packs/informed/DESIGN_SPEC.en.md> — This site is a great example of a modern, clean SaaS aesthetic, using a single b
+- [Isla Beauty](https://opendesign.cc/en/sites/isla-beauty) · <https://opendesign.cc/packs/isla-beauty/DESIGN_SPEC.en.md> — The site is a great example of using a strong, singular accent color and express
+- [Jeen Yuhs](https://opendesign.cc/en/sites/jeen-yuhs) · <https://opendesign.cc/packs/jeen-yuhs/DESIGN_SPEC.en.md> — This site is worth including as a prime example of brutalist, experimental web d
+- [Jonasmosesson Se](https://opendesign.cc/en/sites/jonasmosesson-se) · <https://opendesign.cc/packs/jonasmosesson-se/DESIGN_SPEC.en.md> — A strong example of using a minimalist palette and playful hand-drawn elements t
+- [Joyntcbd](https://opendesign.cc/en/sites/joyntcbd) · <https://opendesign.cc/packs/joyntcbd/DESIGN_SPEC.en.md> — A strong example of a dark-mode e-commerce UI that balances a heavy, expressive 
+- [Kevin Tw](https://opendesign.cc/en/sites/kevin-tw) · <https://opendesign.cc/packs/kevin-tw/DESIGN_SPEC.en.md> — This site is worth including as a prime example of a skeuomorphic, hand-drawn UI
+- [Knickey](https://opendesign.cc/en/sites/knickey) · <https://opendesign.cc/packs/knickey/DESIGN_SPEC.en.md> — Worth including for its masterful use of typography and photography to create a 
+- [Koox](https://opendesign.cc/en/sites/koox) · <https://opendesign.cc/packs/koox/DESIGN_SPEC.en.md> — This site is an excellent example of how to combine bold typography and clean ph
+- [Lauramonin](https://opendesign.cc/en/sites/lauramonin) · <https://opendesign.cc/packs/lauramonin/DESIGN_SPEC.en.md> — A strong example of editorial portfolio design where typography and photography 
+- [Makr](https://opendesign.cc/en/sites/makr) · <https://opendesign.cc/packs/makr/DESIGN_SPEC.en.md> — This site is a masterclass in restrained, high-end e-commerce design, where the 
+- [Maryloufaure](https://opendesign.cc/en/sites/maryloufaure) · <https://opendesign.cc/packs/maryloufaure/DESIGN_SPEC.en.md> — An excellent example of restraint in portfolio design, where the UI intentionall
+- [Minimalissimo](https://opendesign.cc/en/sites/minimalissimo) · <https://opendesign.cc/packs/minimalissimo/DESIGN_SPEC.en.md> — A perfect example of minimalist editorial design that demonstrates how restraint
+- [Minymon](https://opendesign.cc/en/sites/minymon) · <https://opendesign.cc/packs/minymon/DESIGN_SPEC.en.md> — This site is worth including as a prime example of a playful, character-driven c
+- [Mybrentano Ch](https://opendesign.cc/en/sites/mybrentano-ch) · <https://opendesign.cc/packs/mybrentano-ch/DESIGN_SPEC.en.md> — This site is an excellent example of a modern, editorial approach to e-commerce,
+- [Neutra Vdl](https://opendesign.cc/en/sites/neutra-vdl) · <https://opendesign.cc/packs/neutra-vdl/DESIGN_SPEC.en.md> — This site is an excellent example of how a refined, minimalist editorial design 
+- [Norm Store](https://opendesign.cc/en/sites/norm-store) · <https://opendesign.cc/packs/norm-store/DESIGN_SPEC.en.md> — This site is an excellent example of premium, restrained hardware branding that 
+- [Notreal Tv](https://opendesign.cc/en/sites/notreal-tv) · <https://opendesign.cc/packs/notreal-tv/DESIGN_SPEC.en.md> — A prime example of a high-end agency portfolio that uses typography and layout t
+- [Perkybros](https://opendesign.cc/en/sites/perkybros) · <https://opendesign.cc/packs/perkybros/DESIGN_SPEC.en.md> — This site is a perfect example of a modern, typography-focused agency portfolio 
+- [Petfinn](https://opendesign.cc/en/sites/petfinn) · <https://opendesign.cc/packs/petfinn/DESIGN_SPEC.en.md> — A strong example of a modern, friendly consumer brand that balances playful imag
+- [Rekki](https://opendesign.cc/en/sites/rekki) · <https://opendesign.cc/packs/rekki/DESIGN_SPEC.en.md> — This site is a strong example of a high-contrast dark mode SaaS aesthetic, using
+- [Simonfosters Website](https://opendesign.cc/en/sites/simonfosters-website) · <https://opendesign.cc/packs/simonfosters-website/DESIGN_SPEC.en.md> — A masterclass in restraint—this portfolio proves that confident typography and g
+- [Soulwire](https://opendesign.cc/en/sites/soulwire) · <https://opendesign.cc/packs/soulwire/DESIGN_SPEC.en.md> — A perfect example of a 'developer-centric' aesthetic that uses a single typeface
+- [Taiki Murayama](https://opendesign.cc/en/sites/taiki-murayama) · <https://opendesign.cc/packs/taiki-murayama/DESIGN_SPEC.en.md> — This site is worth including as a prime example of a bold, typographic portfolio
+- [Thebeamslondon](https://opendesign.cc/en/sites/thebeamslondon) · <https://opendesign.cc/packs/thebeamslondon/DESIGN_SPEC.en.md> — This site is worth including as a masterclass in using typography as a structura
+- [Thebrowser Company](https://opendesign.cc/en/sites/thebrowser-company) · <https://opendesign.cc/packs/thebrowser-company/DESIGN_SPEC.en.md> — This site is an excellent example of rejecting modern SaaS tropes in favor of a 
+- [Theroger](https://opendesign.cc/en/sites/theroger) · <https://opendesign.cc/packs/theroger/DESIGN_SPEC.en.md> — This site is a masterclass in using restraint and whitespace to elevate a produc
+- [Thomasmonavon](https://opendesign.cc/en/sites/thomasmonavon) · <https://opendesign.cc/packs/thomasmonavon/DESIGN_SPEC.en.md> — This site exemplifies minimalist portfolio design where restraint and whitespace
+- [Tomoseattle](https://opendesign.cc/en/sites/tomoseattle) · <https://opendesign.cc/packs/tomoseattle/DESIGN_SPEC.en.md> — This site is a strong example of an experimental, interactive web experience tha
+- [Usedrop](https://opendesign.cc/en/sites/usedrop) · <https://opendesign.cc/packs/usedrop/DESIGN_SPEC.en.md> — Worth including for its bold use of typography and high-contrast, modern SaaS ae
+- [Varierfurniture](https://opendesign.cc/en/sites/varierfurniture) · <https://opendesign.cc/packs/varierfurniture/DESIGN_SPEC.en.md> — This site is a masterclass in 'less is more', providing a perfect example of hig
+- [Virtual Plus Ex](https://opendesign.cc/en/sites/virtual-plus-ex) · <https://opendesign.cc/packs/virtual-plus-ex/DESIGN_SPEC.en.md> — A bold example of using extreme minimalism and typography to create an immersive
+- [Wgsn](https://opendesign.cc/en/sites/wgsn) · <https://opendesign.cc/packs/wgsn/DESIGN_SPEC.en.md> — WGSN is a perfect reference for premium editorial SaaS design, demonstrating how
+- [Yannickgregoire Nl](https://opendesign.cc/en/sites/yannickgregoire-nl) · <https://opendesign.cc/packs/yannickgregoire-nl/DESIGN_SPEC.en.md> — A unique example of brutalist web design that successfully merges terminal aesth
+- [About Instagram](https://opendesign.cc/en/sites/about-instagram) · <https://opendesign.cc/packs/about-instagram/DESIGN_SPEC.en.md> — Excellent example of typography-as-hero design where the typeface specimen itsel
+- [Aliciamoore](https://opendesign.cc/en/sites/aliciamoore) · <https://opendesign.cc/packs/aliciamoore/DESIGN_SPEC.en.md> — This site is a masterclass in luxury e-commerce design, using extreme restraint 
+- [Allcapstype](https://opendesign.cc/en/sites/allcapstype) · <https://opendesign.cc/packs/allcapstype/DESIGN_SPEC.en.md> — This site is an excellent example of restrained, premium design where typography
+- [Aplos](https://opendesign.cc/en/sites/aplos) · <https://opendesign.cc/packs/aplos/DESIGN_SPEC.en.md> — This site is a strong example of using a limited color palette and high-quality 
+- [Atlantistech](https://opendesign.cc/en/sites/atlantistech) · <https://opendesign.cc/packs/atlantistech/DESIGN_SPEC.en.md> — This site is a perfect example of modern, premium SaaS design that balances tech
+- [Baggu](https://opendesign.cc/en/sites/baggu) · <https://opendesign.cc/packs/baggu/DESIGN_SPEC.en.md> — Worth including as an excellent example of a 'gallery-style' e-commerce layout w
+- [Bastienallard](https://opendesign.cc/en/sites/bastienallard) · <https://opendesign.cc/packs/bastienallard/DESIGN_SPEC.en.md> — This site is worth including as a prime example of a minimalist, typography-driv
+- [Brunoarizio](https://opendesign.cc/en/sites/brunoarizio) · <https://opendesign.cc/packs/brunoarizio/DESIGN_SPEC.en.md> — Worth including as a benchmark for extreme minimalist portfolio design that reli
+- [Bunsa Studio](https://opendesign.cc/en/sites/bunsa-studio) · <https://opendesign.cc/packs/bunsa-studio/DESIGN_SPEC.en.md> — The site is a strong example of a 'less is more' design approach, where the qual
+- [Climatecatastrophepack](https://opendesign.cc/en/sites/climatecatastrophepack) · <https://opendesign.cc/packs/climatecatastrophepack/DESIGN_SPEC.en.md> — A prime example of using extreme typography and high contrast to convey a satiri
+- [Contract Mdfitalia](https://opendesign.cc/en/sites/contract-mdfitalia) · <https://opendesign.cc/packs/contract-mdfitalia/DESIGN_SPEC.en.md> — This site is a masterclass in restrained, high-end editorial design, using extre
+- [Danilorodrigues](https://opendesign.cc/en/sites/danilorodrigues) · <https://opendesign.cc/packs/danilorodrigues/DESIGN_SPEC.en.md> — This site is worth including as a strong example of a bold, modern design portfo
+- [Driesbos](https://opendesign.cc/en/sites/driesbos) · <https://opendesign.cc/packs/driesbos/DESIGN_SPEC.en.md> — A masterclass in minimalism, using a unique 3D wireframe aesthetic to create a m
+- [Drink818](https://opendesign.cc/en/sites/drink818) · <https://opendesign.cc/packs/drink818/DESIGN_SPEC.en.md> — The site is a strong example of a premium consumer brand using a restricted, sop
+- [Egstad](https://opendesign.cc/en/sites/egstad) · <https://opendesign.cc/packs/egstad/DESIGN_SPEC.en.md> — Worth including for its masterful use of extreme typographic scale and restraint
+- [Exhibition Magazine](https://opendesign.cc/en/sites/exhibition-magazine) · <https://opendesign.cc/packs/exhibition-magazine/DESIGN_SPEC.en.md> — This site is an excellent example of how extreme restraint and high-quality typo
+- [Felt](https://opendesign.cc/en/sites/felt) · <https://opendesign.cc/packs/felt/DESIGN_SPEC.en.md> — Worth including for its successful blend of professional, earthy colors with a m
+- [Folkert Link](https://opendesign.cc/en/sites/folkert-link) · <https://opendesign.cc/packs/folkert-link/DESIGN_SPEC.en.md> — This site is an excellent example of expressive editorial typography used within
+- [Getstark](https://opendesign.cc/en/sites/getstark) · <https://opendesign.cc/packs/getstark/DESIGN_SPEC.en.md> — A bold example of using a saturated, single-color hero to create a strong brand 
+- [Gt Planar](https://opendesign.cc/en/sites/gt-planar) · <https://opendesign.cc/packs/gt-planar/DESIGN_SPEC.en.md> — This site is a masterclass in thematic UI design, transforming a standard type s
+- [Heylow](https://opendesign.cc/en/sites/heylow) · <https://opendesign.cc/packs/heylow/DESIGN_SPEC.en.md> — This site is worth including as a prime example of a restrained, premium design 
+- [Holographik](https://opendesign.cc/en/sites/holographik) · <https://opendesign.cc/packs/holographik/DESIGN_SPEC.en.md> — The site is a prime example of using massive typography and 3D imagery to create
+- [Julienrenau](https://opendesign.cc/en/sites/julienrenau) · <https://opendesign.cc/packs/julienrenau/DESIGN_SPEC.en.md> — This site is a perfect example of minimalist portfolio design, using typography 
+- [Lamannabakery](https://opendesign.cc/en/sites/lamannabakery) · <https://opendesign.cc/packs/lamannabakery/DESIGN_SPEC.en.md> — This site is a fantastic example of a loud, expressive, and playful consumer bra
+- [Landofride](https://opendesign.cc/en/sites/landofride) · <https://opendesign.cc/packs/landofride/DESIGN_SPEC.en.md> — This site is a great example of using bold typography and immersive photography 
+- [Letsbehonest Eu](https://opendesign.cc/en/sites/letsbehonest-eu) · <https://opendesign.cc/packs/letsbehonest-eu/DESIGN_SPEC.en.md> — Worth including as an example of a clean, editorial-style fashion site that uses
+- [Lunchconcept](https://opendesign.cc/en/sites/lunchconcept) · <https://opendesign.cc/packs/lunchconcept/DESIGN_SPEC.en.md> — This site is worth including for its masterful use of massive, 3D metallic typog
+- [Maisonnue](https://opendesign.cc/en/sites/maisonnue) · <https://opendesign.cc/packs/maisonnue/DESIGN_SPEC.en.md> — This site is a strong example of a utilitarian, high-contrast dark UI optimized 
+- [Martin Laxenaire Fr](https://opendesign.cc/en/sites/martin-laxenaire-fr) · <https://opendesign.cc/packs/martin-laxenaire-fr/DESIGN_SPEC.en.md> — This site is a prime example of a creative, experimental portfolio that breaks t
+- [Mire Studio](https://opendesign.cc/en/sites/mire-studio) · <https://opendesign.cc/packs/mire-studio/DESIGN_SPEC.en.md> — A visually striking example of expressive, gallery-style portfolio design using 
+- [Munropartners Com Au](https://opendesign.cc/en/sites/munropartners-com-au) · <https://opendesign.cc/packs/munropartners-com-au/DESIGN_SPEC.en.md> — The site successfully bridges premium editorial aesthetics with complex financia
+- [Nofilter](https://opendesign.cc/en/sites/nofilter) · <https://opendesign.cc/packs/nofilter/DESIGN_SPEC.en.md> — A strong example of minimalist editorial design, focusing on content and typogra
+- [Norgram](https://opendesign.cc/en/sites/norgram) · <https://opendesign.cc/packs/norgram/DESIGN_SPEC.en.md> — This site is an excellent example of a high-end studio portfolio that derives it
+- [Numbered Studio](https://opendesign.cc/en/sites/numbered-studio) · <https://opendesign.cc/packs/numbered-studio/DESIGN_SPEC.en.md> — This site is a masterclass in editorial restraint, proving how powerful large ty
+- [Ohdada De](https://opendesign.cc/en/sites/ohdada-de) · <https://opendesign.cc/packs/ohdada-de/DESIGN_SPEC.en.md> — This site is a perfect example of how restraint and typography can create a prem
+- [Oudolf](https://opendesign.cc/en/sites/oudolf) · <https://opendesign.cc/packs/oudolf/DESIGN_SPEC.en.md> — This site is worth including for its innovative use of typography as a visual co
+- [Pierrerousseau Info](https://opendesign.cc/en/sites/pierrerousseau-info) · <https://opendesign.cc/packs/pierrerousseau-info/DESIGN_SPEC.en.md> — This site is a perfect example of brutalist web design, using extreme typographi
+- [Pietrastudio](https://opendesign.cc/en/sites/pietrastudio) · <https://opendesign.cc/packs/pietrastudio/DESIGN_SPEC.en.md> — Excellent example of a modern SaaS landing page balancing bold typography with c
+- [Platformart](https://opendesign.cc/en/sites/platformart) · <https://opendesign.cc/packs/platformart/DESIGN_SPEC.en.md> — A sophisticated example of a premium art gallery site, using a restrained visual
+- [Playful Software](https://opendesign.cc/en/sites/playful-software) · <https://opendesign.cc/packs/playful-software/DESIGN_SPEC.en.md> — Worth including as a prime example of a warm, friendly, and high-impact consumer
+- [Postfamiliar](https://opendesign.cc/en/sites/postfamiliar) · <https://opendesign.cc/packs/postfamiliar/DESIGN_SPEC.en.md> — This design is a strong example of a bold, editorial dark mode aesthetic that us
+- [Promlyapp](https://opendesign.cc/en/sites/promlyapp) · <https://opendesign.cc/packs/promlyapp/DESIGN_SPEC.en.md> — The site effectively uses high-contrast photography to convey its mission of you
+- [Robertaspizza](https://opendesign.cc/en/sites/robertaspizza) · <https://opendesign.cc/packs/robertaspizza/DESIGN_SPEC.en.md> — Worth including for its successful execution of a bold, photography-driven edito
+- [Schulhaus Tirol](https://opendesign.cc/en/sites/schulhaus-tirol) · <https://opendesign.cc/packs/schulhaus-tirol/DESIGN_SPEC.en.md> — This site is a masterclass in editorial web design, using a restricted palette a
+- [Sick Agency](https://opendesign.cc/en/sites/sick-agency) · <https://opendesign.cc/packs/sick-agency/DESIGN_SPEC.en.md> — This site is a masterclass in using extreme typography and bold color to create 
+- [Simonrogers Info](https://opendesign.cc/en/sites/simonrogers-info) · <https://opendesign.cc/packs/simonrogers-info/DESIGN_SPEC.en.md> — Worth including for its experimental approach to typographic layout and rotation
+- [Smilingwolf](https://opendesign.cc/en/sites/smilingwolf) · <https://opendesign.cc/packs/smilingwolf/DESIGN_SPEC.en.md> — This site is a perfect example of a high-end, photography-driven portfolio that 
+- [Soussfurniture](https://opendesign.cc/en/sites/soussfurniture) · <https://opendesign.cc/packs/soussfurniture/DESIGN_SPEC.en.md> — Exemplary minimalism that demonstrates how extreme restraint in color and typogr
+- [Stinkstudios](https://opendesign.cc/en/sites/stinkstudios) · <https://opendesign.cc/packs/stinkstudios/DESIGN_SPEC.en.md> — The site is worth including as a prime example of a minimalist, photography-driv
+- [Studiolathe](https://opendesign.cc/en/sites/studiolathe) · <https://opendesign.cc/packs/studiolathe/DESIGN_SPEC.en.md> — This site exemplifies extreme design restraint and rational grid systems, servin
+- [Svz](https://opendesign.cc/en/sites/svz) · <https://opendesign.cc/packs/svz/DESIGN_SPEC.en.md> — Excellent example of premium agency design with bold typography and sophisticate
+- [Tparkes](https://opendesign.cc/en/sites/tparkes) · <https://opendesign.cc/packs/tparkes/DESIGN_SPEC.en.md> — This site is a great example of how to use typography and whitespace to create a
+- [Urbanwoodsystems](https://opendesign.cc/en/sites/urbanwoodsystems) · <https://opendesign.cc/packs/urbanwoodsystems/DESIGN_SPEC.en.md> — Worth including as a masterclass in typographic hierarchy and how to achieve a p
+- [Wovenwhisky](https://opendesign.cc/en/sites/wovenwhisky) · <https://opendesign.cc/packs/wovenwhisky/DESIGN_SPEC.en.md> — An excellent example of a modern craft brand using restraint and high-quality im
+- [Xxxi Studio](https://opendesign.cc/en/sites/xxxi-studio) · <https://opendesign.cc/packs/xxxi-studio/DESIGN_SPEC.en.md> — Worth including as a prime example of a premium portfolio that uses absolute res
+- [Artindumbo](https://opendesign.cc/en/sites/artindumbo) · <https://opendesign.cc/packs/artindumbo/DESIGN_SPEC.en.md> — This site is a great example of how to use a limited, high-contrast palette and 
+- [Ayakaito](https://opendesign.cc/en/sites/ayakaito) · <https://opendesign.cc/packs/ayakaito/DESIGN_SPEC.en.md> — This site is a masterclass in blending high-end photography with refined typogra
+- [Buzzusborne](https://opendesign.cc/en/sites/buzzusborne) · <https://opendesign.cc/packs/buzzusborne/DESIGN_SPEC.en.md> — This site is a great example of how personal branding can be conveyed through ty
+- [Cardsagainsthumanity](https://opendesign.cc/en/sites/cardsagainsthumanity) · <https://opendesign.cc/packs/cardsagainsthumanity/DESIGN_SPEC.en.md> — The site perfectly translates the physical, irreverent identity of the product i
+- [Charlielemaignan](https://opendesign.cc/en/sites/charlielemaignan) · <https://opendesign.cc/packs/charlielemaignan/DESIGN_SPEC.en.md> — This site is worth including as a prime example of an expressive, typography-dri
+- [Counter Print](https://opendesign.cc/en/sites/counter-print) · <https://opendesign.cc/packs/counter-print/DESIGN_SPEC.en.md> — This site is an excellent example of restrained, image-first e-commerce design w
+- [Diogoakio Com Br](https://opendesign.cc/en/sites/diogoakio-com-br) · <https://opendesign.cc/packs/diogoakio-com-br/DESIGN_SPEC.en.md> — This site is a strong example of using extreme restraint and high contrast to cr
+- [Dmitrkutsenko](https://opendesign.cc/en/sites/dmitrkutsenko) · <https://opendesign.cc/packs/dmitrkutsenko/DESIGN_SPEC.en.md> — An excellent example of using extreme typographic scale and negative space to cr
+- [Dougalves Work](https://opendesign.cc/en/sites/dougalves-work) · <https://opendesign.cc/packs/dougalves-work/DESIGN_SPEC.en.md> — This site is an excellent example of using extreme typographic scale and a restr
+- [Earlydog](https://opendesign.cc/en/sites/earlydog) · <https://opendesign.cc/packs/earlydog/DESIGN_SPEC.en.md> — Strong example of how Bauhaus-inspired geometric design can humanize enterprise 
+- [Embacy](https://opendesign.cc/en/sites/embacy) · <https://opendesign.cc/packs/embacy/DESIGN_SPEC.en.md> — The site is worth including as a prime example of a clean, sophisticated agency 
+- [Enter Support De](https://opendesign.cc/en/sites/enter-support-de) · <https://opendesign.cc/packs/enter-support-de/DESIGN_SPEC.en.md> — This site is a strong example of restrained, professional corporate design that 
+- [Erno Works](https://opendesign.cc/en/sites/erno-works) · <https://opendesign.cc/packs/erno-works/DESIGN_SPEC.en.md> — This site is a prime example of a minimalist portfolio that uses typography and 
+- [Favorit Studio](https://opendesign.cc/en/sites/favorit-studio) · <https://opendesign.cc/packs/favorit-studio/DESIGN_SPEC.en.md> — An excellent reference for extreme minimalism, demonstrating how massive typogra
+- [Films53 12](https://opendesign.cc/en/sites/films53-12) · <https://opendesign.cc/packs/films53-12/DESIGN_SPEC.en.md> — A masterclass in using extreme scale and light font weights to create a powerful
+- [Firstandforemost](https://opendesign.cc/en/sites/firstandforemost) · <https://opendesign.cc/packs/firstandforemost/DESIGN_SPEC.en.md> — This site is a great example of using a single, high-chroma color and massive ty
+- [Friendsofthenew](https://opendesign.cc/en/sites/friendsofthenew) · <https://opendesign.cc/packs/friendsofthenew/DESIGN_SPEC.en.md> — Worth including for its bold, uncompromising use of typography and photographic 
+- [Georgehatton](https://opendesign.cc/en/sites/georgehatton) · <https://opendesign.cc/packs/georgehatton/DESIGN_SPEC.en.md> — This site is an excellent example of extreme typographic restraint and brutalist
+- [Gt Maru](https://opendesign.cc/en/sites/gt-maru) · <https://opendesign.cc/packs/gt-maru/DESIGN_SPEC.en.md> — This site is an excellent example of a playful, typographic-driven design that u
+- [Henry Codes](https://opendesign.cc/en/sites/henry-codes) · <https://opendesign.cc/packs/henry-codes/DESIGN_SPEC.en.md> — This site is a prime example of bold, typographic-driven portfolio design that p
+- [Josephinelochen](https://opendesign.cc/en/sites/josephinelochen) · <https://opendesign.cc/packs/josephinelochen/DESIGN_SPEC.en.md> — This site is a prime example of restraint-driven design where the interface inte
+- [Jun Works](https://opendesign.cc/en/sites/jun-works) · <https://opendesign.cc/packs/jun-works/DESIGN_SPEC.en.md> — Worth including as an excellent example of restrained, typography-focused design
+- [Korkodilosathens](https://opendesign.cc/en/sites/korkodilosathens) · <https://opendesign.cc/packs/korkodilosathens/DESIGN_SPEC.en.md> — This casino platform demonstrates how dark themes with metallic accents can crea
+- [Lironmoran Interiors](https://opendesign.cc/en/sites/lironmoran-interiors) · <https://opendesign.cc/packs/lironmoran-interiors/DESIGN_SPEC.en.md> — This site is an excellent reference for minimalist luxury and high-end portfolio
+- [Littletroop](https://opendesign.cc/en/sites/littletroop) · <https://opendesign.cc/packs/littletroop/DESIGN_SPEC.en.md> — Excellent example of a studio portfolio that uses experimental 3D WebGL elements
+- [Look Inc](https://opendesign.cc/en/sites/look-inc) · <https://opendesign.cc/packs/look-inc/DESIGN_SPEC.en.md> — Worth including as a masterclass in how a restrictive, monochrome palette and ed
+- [Microwaver59](https://opendesign.cc/en/sites/microwaver59) · <https://opendesign.cc/packs/microwaver59/DESIGN_SPEC.en.md> — This site is a masterclass in restrained, brutalist web design, proving that a l
+- [Minimalcollective Digital](https://opendesign.cc/en/sites/minimalcollective-digital) · <https://opendesign.cc/packs/minimalcollective-digital/DESIGN_SPEC.en.md> — The site is a perfect example of restrained, high-end editorial design that prio
+- [Movingparts](https://opendesign.cc/en/sites/movingparts) · <https://opendesign.cc/packs/movingparts/DESIGN_SPEC.en.md> — A great example of a clean, developer-focused landing page that balances profess
+- [Nan](https://opendesign.cc/en/sites/nan) · <https://opendesign.cc/packs/nan/DESIGN_SPEC.en.md> — A standout example of how typography can define an entire brand identity and use
+- [Patrickmiller Se](https://opendesign.cc/en/sites/patrickmiller-se) · <https://opendesign.cc/packs/patrickmiller-se/DESIGN_SPEC.en.md> — This site is a strong example of extreme typography-driven portfolio design, whe
+- [Public Image](https://opendesign.cc/en/sites/public-image) · <https://opendesign.cc/packs/public-image/DESIGN_SPEC.en.md> — A masterclass in luxury minimalism, using photography as the primary design elem
+- [Rebeccaatwood](https://opendesign.cc/en/sites/rebeccaatwood) · <https://opendesign.cc/packs/rebeccaatwood/DESIGN_SPEC.en.md> — An excellent example of how to blend premium, artisanal branding with clean e-co
+- [Schema Figma](https://opendesign.cc/en/sites/schema-figma) · <https://opendesign.cc/packs/schema-figma/DESIGN_SPEC.en.md> — This site serves as a great example of a modern event landing page that successf
+- [Socio Type](https://opendesign.cc/en/sites/socio-type) · <https://opendesign.cc/packs/socio-type/DESIGN_SPEC.en.md> — This site is a masterclass in minimalist typography presentation, using extreme 
+- [Transformfestival](https://opendesign.cc/en/sites/transformfestival) · <https://opendesign.cc/packs/transformfestival/DESIGN_SPEC.en.md> — This site is an excellent example of using bold typography and high-quality phot
+- [Typelist Upstatement](https://opendesign.cc/en/sites/typelist-upstatement) · <https://opendesign.cc/packs/typelist-upstatement/DESIGN_SPEC.en.md> — An excellent example of how extreme restraint, bold geometry, and generous typog
+- [Unknown Untitled](https://opendesign.cc/en/sites/unknown-untitled) · <https://opendesign.cc/packs/unknown-untitled/DESIGN_SPEC.en.md> — This site is a perfect example of extreme restraint in modern portfolio design, 
+- [Variable Fonts](https://opendesign.cc/en/sites/variable-fonts) · <https://opendesign.cc/packs/variable-fonts/DESIGN_SPEC.en.md> — This site is a great example of a clean, typography-focused design system that p
+- [Xihestudio](https://opendesign.cc/en/sites/xihestudio) · <https://opendesign.cc/packs/xihestudio/DESIGN_SPEC.en.md> — This site is an excellent example of a premium design portfolio that uses extrem
+- [Airstudios](https://opendesign.cc/en/sites/airstudios) · <https://opendesign.cc/packs/airstudios/DESIGN_SPEC.en.md> — This site is worth including as an excellent example of how high-end creative st
+- [Artworld Agency](https://opendesign.cc/en/sites/artworld-agency) · <https://opendesign.cc/packs/artworld-agency/DESIGN_SPEC.en.md> — This site is an excellent example of restraint and how typography alone can crea
+- [Ashleyandco](https://opendesign.cc/en/sites/ashleyandco) · <https://opendesign.cc/packs/ashleyandco/DESIGN_SPEC.en.md> — A textbook example of modern minimalism for luxury consumer goods, proving that 
+- [Benlongdendesign](https://opendesign.cc/en/sites/benlongdendesign) · <https://opendesign.cc/packs/benlongdendesign/DESIGN_SPEC.en.md> — This site is a masterclass in restraint, using minimalist design principles to e
+- [Biron](https://opendesign.cc/en/sites/biron) · <https://opendesign.cc/packs/biron/DESIGN_SPEC.en.md> — A refined example of minimalist portfolio design that uses typography and whites
+- [Bizar Ro](https://opendesign.cc/en/sites/bizar-ro) · <https://opendesign.cc/packs/bizar-ro/DESIGN_SPEC.en.md> — This site exemplifies how bold typography and stark contrast can create a powerf
+- [Consumedinkey](https://opendesign.cc/en/sites/consumedinkey) · <https://opendesign.cc/packs/consumedinkey/DESIGN_SPEC.en.md> — A striking example of minimalist editorial design that uses extreme restraint an
+- [Danielaandmoe](https://opendesign.cc/en/sites/danielaandmoe) · <https://opendesign.cc/packs/danielaandmoe/DESIGN_SPEC.en.md> — This site is worth including as a prime example of blending editorial typography
+- [Def Studio](https://opendesign.cc/en/sites/def-studio) · <https://opendesign.cc/packs/def-studio/DESIGN_SPEC.en.md> — This site is an excellent example of 'type-as-interface' design, where the typog
+- [Dropmark](https://opendesign.cc/en/sites/dropmark) · <https://opendesign.cc/packs/dropmark/DESIGN_SPEC.en.md> — This site is a great example of a calm, approachable SaaS aesthetic that balance
+- [Editbrandstudio](https://opendesign.cc/en/sites/editbrandstudio) · <https://opendesign.cc/packs/editbrandstudio/DESIGN_SPEC.en.md> — A great example of a friendly, illustrated error page that turns a negative user
+- [Evermade Fi](https://opendesign.cc/en/sites/evermade-fi) · <https://opendesign.cc/packs/evermade-fi/DESIGN_SPEC.en.md> — The site is a perfect example of modern editorial web design, blending classic h
+- [Fluidtouch Biz](https://opendesign.cc/en/sites/fluidtouch-biz) · <https://opendesign.cc/packs/fluidtouch-biz/DESIGN_SPEC.en.md> — This site is a great example of a clean, modern dark-themed UI for a software pr
+- [Flutterwave](https://opendesign.cc/en/sites/flutterwave) · <https://opendesign.cc/packs/flutterwave/DESIGN_SPEC.en.md> — A clean, typographically-driven editorial layout that uses curated imagery rathe
+- [Gus Biz](https://opendesign.cc/en/sites/gus-biz) · <https://opendesign.cc/packs/gus-biz/DESIGN_SPEC.en.md> — This site is a great example of how to break design conventions thoughtfully to 
+- [Handsomefrank](https://opendesign.cc/en/sites/handsomefrank) · <https://opendesign.cc/packs/handsomefrank/DESIGN_SPEC.en.md> — Worth including as an example of bold, illustration-focused agency portfolio des
+- [Hocradio Eu](https://opendesign.cc/en/sites/hocradio-eu) · <https://opendesign.cc/packs/hocradio-eu/DESIGN_SPEC.en.md> — This site is a perfect example of a brutalist, utility-first design that strips 
+- [Howmanyplants](https://opendesign.cc/en/sites/howmanyplants) · <https://opendesign.cc/packs/howmanyplants/DESIGN_SPEC.en.md> — A highly distinctive, characterful editorial design that perfectly balances bold
+- [Kikk Be](https://opendesign.cc/en/sites/kikk-be) · <https://opendesign.cc/packs/kikk-be/DESIGN_SPEC.en.md> — An excellent example of a bold, non-corporate, maximalist design system that use
+- [Madebyon](https://opendesign.cc/en/sites/madebyon) · <https://opendesign.cc/packs/madebyon/DESIGN_SPEC.en.md> — This site exemplifies modern premium agency design with its confident typography
+- [Magdareyman](https://opendesign.cc/en/sites/magdareyman) · <https://opendesign.cc/packs/magdareyman/DESIGN_SPEC.en.md> — This site exemplifies a premium, restrained portfolio design that uses typograph
+- [Michaelspeichert](https://opendesign.cc/en/sites/michaelspeichert) · <https://opendesign.cc/packs/michaelspeichert/DESIGN_SPEC.en.md> — This site is a perfect example of how extreme scale and contrast can create a po
+- [Moderne St](https://opendesign.cc/en/sites/moderne-st) · <https://opendesign.cc/packs/moderne-st/DESIGN_SPEC.en.md> — This site effectively uses bold typography and a unique color palette to create 
+- [Nuxtlabs](https://opendesign.cc/en/sites/nuxtlabs) · <https://opendesign.cc/packs/nuxtlabs/DESIGN_SPEC.en.md> — A prime example of a developer-focused, content-first design that prioritizes re
+- [Oker](https://opendesign.cc/en/sites/oker) · <https://opendesign.cc/packs/oker/DESIGN_SPEC.en.md> — This site is a great example of minimalist editorial design, effectively using s
+- [One Is](https://opendesign.cc/en/sites/one-is) · <https://opendesign.cc/packs/one-is/DESIGN_SPEC.en.md> — The site is a strong example of a modern, speculative design studio portfolio th
+- [Palazzomonti](https://opendesign.cc/en/sites/palazzomonti) · <https://opendesign.cc/packs/palazzomonti/DESIGN_SPEC.en.md> — This site is a great example of a refined, minimalist editorial design that reli
+- [Phippscharlie](https://opendesign.cc/en/sites/phippscharlie) · <https://opendesign.cc/packs/phippscharlie/DESIGN_SPEC.en.md> — Excellent example of a portfolio that lets work speak through bold typography an
+- [Qatalog](https://opendesign.cc/en/sites/qatalog) · <https://opendesign.cc/packs/qatalog/DESIGN_SPEC.en.md> — This site is a strong example of a modern, AI-driven SaaS landing page that bala
+- [Snogproductions](https://opendesign.cc/en/sites/snogproductions) · <https://opendesign.cc/packs/snogproductions/DESIGN_SPEC.en.md> — Worth including as a prime example of a 'gallery' studio portfolio that uses ext
+- [Somethingspecialstudios](https://opendesign.cc/en/sites/somethingspecialstudios) · <https://opendesign.cc/packs/somethingspecialstudios/DESIGN_SPEC.en.md> — This site is a perfect example of a 'less is more' agency portfolio that uses ty
+- [Sreda V A C](https://opendesign.cc/en/sites/sreda-v-a-c) · <https://opendesign.cc/packs/sreda-v-a-c/DESIGN_SPEC.en.md> — Worth including for its unique 'editorial diagram' approach, blending traditiona
+- [Standards](https://opendesign.cc/en/sites/standards) · <https://opendesign.cc/packs/standards/DESIGN_SPEC.en.md> — This site is a perfect example of a modern, typography-driven SaaS interface tha
+- [Stephaniespecht](https://opendesign.cc/en/sites/stephaniespecht) · <https://opendesign.cc/packs/stephaniespecht/DESIGN_SPEC.en.md> — This site is a great example of a 'work-first' portfolio where the interface int
+- [Studio Otto](https://opendesign.cc/en/sites/studio-otto) · <https://opendesign.cc/packs/studio-otto/DESIGN_SPEC.en.md> — A masterclass in minimal typography and negative space, making it an ideal refer
+- [Studiothomas](https://opendesign.cc/en/sites/studiothomas) · <https://opendesign.cc/packs/studiothomas/DESIGN_SPEC.en.md> — Excellent example of typography-driven minimalism with a bold, confident signatu
+- [Thegreenspace](https://opendesign.cc/en/sites/thegreenspace) · <https://opendesign.cc/packs/thegreenspace/DESIGN_SPEC.en.md> — This site exemplifies brutalist-minimalist design with its bold typography and s
+- [Thesummerdrive](https://opendesign.cc/en/sites/thesummerdrive) · <https://opendesign.cc/packs/thesummerdrive/DESIGN_SPEC.en.md> — This site is a great example of how to create a high-impact, memorable event lan
+- [Tokyo Uk](https://opendesign.cc/en/sites/tokyo-uk) · <https://opendesign.cc/packs/tokyo-uk/DESIGN_SPEC.en.md> — A strong example of agency portfolio design using bold typography and photograph
+- [Unlirice Ooo](https://opendesign.cc/en/sites/unlirice-ooo) · <https://opendesign.cc/packs/unlirice-ooo/DESIGN_SPEC.en.md> — This site is worth including as a prime example of experimental web design that 
+- [V A C](https://opendesign.cc/en/sites/v-a-c) · <https://opendesign.cc/packs/v-a-c/DESIGN_SPEC.en.md> — This site is a prime example of a modern digital catalog design, balancing bold 
+- [Vitaarchitecture](https://opendesign.cc/en/sites/vitaarchitecture) · <https://opendesign.cc/packs/vitaarchitecture/DESIGN_SPEC.en.md> — This site is an excellent example of ultra-refined, high-end minimalist design, 
+- [Vol](https://opendesign.cc/en/sites/vol) · <https://opendesign.cc/packs/vol/DESIGN_SPEC.en.md> — A masterclass in editorial minimalism, using extreme typography lightness and ge
+- [Wakawaka](https://opendesign.cc/en/sites/wakawaka) · <https://opendesign.cc/packs/wakawaka/DESIGN_SPEC.en.md> — This site is an excellent example of how extreme typographic scale and rigorous 
+- [Wearechaiboy](https://opendesign.cc/en/sites/wearechaiboy) · <https://opendesign.cc/packs/wearechaiboy/DESIGN_SPEC.en.md> — This site is a strong example of how a restricted color palette and clean typogr
+- [Beau To](https://opendesign.cc/en/sites/beau-to) · <https://opendesign.cc/packs/beau-to/DESIGN_SPEC.en.md> — The site is worth including for its sophisticated use of UI mockups to demonstra
+- [Dokument Studio](https://opendesign.cc/en/sites/dokument-studio) · <https://opendesign.cc/packs/dokument-studio/DESIGN_SPEC.en.md> — This site is a masterclass in typography-driven minimalism, using extreme restra
+- [Giuliatonon It](https://opendesign.cc/en/sites/giuliatonon-it) · <https://opendesign.cc/packs/giuliatonon-it/DESIGN_SPEC.en.md> — This page is worth including as a prime example of functional, system-level UI d
+- [Jonaspelzer](https://opendesign.cc/en/sites/jonaspelzer) · <https://opendesign.cc/packs/jonaspelzer/DESIGN_SPEC.en.md> — An excellent example of a refined, typography-forward portfolio that prioritizes
+- [Mad Ac](https://opendesign.cc/en/sites/mad-ac) · <https://opendesign.cc/packs/mad-ac/DESIGN_SPEC.en.md> — Worth including for its radical commitment to typography and custom iconography,
+- [Manetatoulian](https://opendesign.cc/en/sites/manetatoulian) · <https://opendesign.cc/packs/manetatoulian/DESIGN_SPEC.en.md> — This site serves as a clear example of automated domain parking UI, using a high
+- [Maquilts](https://opendesign.cc/en/sites/maquilts) · <https://opendesign.cc/packs/maquilts/DESIGN_SPEC.en.md> — This site is an excellent example of how to combine expressive, high-chroma colo
+- [Opx Studio](https://opendesign.cc/en/sites/opx-studio) · <https://opendesign.cc/packs/opx-studio/DESIGN_SPEC.en.md> — Worth including as an example of minimalist, typography-driven agency portfolio 
+- [Rog Ie](https://opendesign.cc/en/sites/rog-ie) · <https://opendesign.cc/packs/rog-ie/DESIGN_SPEC.en.md> — An excellent example of how restrained, high-quality typography and spacing can 
+- [Schemasofuncertainty](https://opendesign.cc/en/sites/schemasofuncertainty) · <https://opendesign.cc/packs/schemasofuncertainty/DESIGN_SPEC.en.md> — Worth including as an example of extreme typographic minimalism in academic publ
+- [Thefascination](https://opendesign.cc/en/sites/thefascination) · <https://opendesign.cc/packs/thefascination/DESIGN_SPEC.en.md> — This site is a strong example of a modern, curated editorial platform that balan
+- [Tripolis Park](https://opendesign.cc/en/sites/tripolis-park) · <https://opendesign.cc/packs/tripolis-park/DESIGN_SPEC.en.md> — Worth including as a prime example of how a premium architectural brand can use 
+- [Wemakethings De](https://opendesign.cc/en/sites/wemakethings-de) · <https://opendesign.cc/packs/wemakethings-de/DESIGN_SPEC.en.md> — A masterclass in typographic-driven design where massive, outlined background te
+- [6Am Glass](https://opendesign.cc/en/sites/6am-glass) · <https://opendesign.cc/packs/6am-glass/DESIGN_SPEC.en.md> — This site is a masterclass in using typography as the primary structural and exp
+- [Campsite](https://opendesign.cc/en/sites/campsite) · <https://opendesign.cc/packs/campsite/DESIGN_SPEC.en.md> — The site exemplifies a modern, restrained SaaS landing page design, using typogr
+- [Christopherireland](https://opendesign.cc/en/sites/christopherireland) · <https://opendesign.cc/packs/christopherireland/DESIGN_SPEC.en.md> — A masterclass in typographic hierarchy and editorial restraint, demonstrating ho
+- [Hausotto](https://opendesign.cc/en/sites/hausotto) · <https://opendesign.cc/packs/hausotto/DESIGN_SPEC.en.md> — The site is worth including as a masterclass in extreme minimalist, typography-f
+- [Idheal Fr](https://opendesign.cc/en/sites/idheal-fr) · <https://opendesign.cc/packs/idheal-fr/DESIGN_SPEC.en.md> — This site is a masterclass in using typography as a primary structural element, 
+- [Lorenzodaldosso It](https://opendesign.cc/en/sites/lorenzodaldosso-it) · <https://opendesign.cc/packs/lorenzodaldosso-it/DESIGN_SPEC.en.md> — The site is worth including as a prime example of typography-driven portfolio de
+- [Misuko Be](https://opendesign.cc/en/sites/misuko-be) · <https://opendesign.cc/packs/misuko-be/DESIGN_SPEC.en.md> — This site is a strong example of a restrained, high-end service portfolio that u
+- [Nathansmith](https://opendesign.cc/en/sites/nathansmith) · <https://opendesign.cc/packs/nathansmith/DESIGN_SPEC.en.md> — An exceptional example of using extreme negative space and typographic scale to 
+- [Nevflynn](https://opendesign.cc/en/sites/nevflynn) · <https://opendesign.cc/packs/nevflynn/DESIGN_SPEC.en.md> — A great example of a modern, personality-driven developer portfolio that balance
+- [Reboot Studio](https://opendesign.cc/en/sites/reboot-studio) · <https://opendesign.cc/packs/reboot-studio/DESIGN_SPEC.en.md> — Worth including as a prime example of a modern, high-end agency portfolio that u
+- [099 Supply](https://opendesign.cc/en/sites/099-supply) · <https://opendesign.cc/packs/099-supply/DESIGN_SPEC.en.md> — Worth including as a masterclass in how a monospaced font can create a highly di
+- [10Xdesigners](https://opendesign.cc/en/sites/10xdesigners) · <https://opendesign.cc/packs/10xdesigners/DESIGN_SPEC.en.md> — This site serves as an excellent reference for high-contrast, typography-driven 
+- [Augen Pro](https://opendesign.cc/en/sites/augen-pro) · <https://opendesign.cc/packs/augen-pro/DESIGN_SPEC.en.md> — A great example of a premium tech brand using minimalist design to convey sophis
+- [Danielsun](https://opendesign.cc/en/sites/danielsun) · <https://opendesign.cc/packs/danielsun/DESIGN_SPEC.en.md> — This site is a strong example of expressive portfolio design, using massive typo
+- [Savoirfaire Nyc](https://opendesign.cc/en/sites/savoirfaire-nyc) · <https://opendesign.cc/packs/savoirfaire-nyc/DESIGN_SPEC.en.md> — This site is a masterclass in minimalist editorial design, using extreme typogra
+- [Superhi](https://opendesign.cc/en/sites/superhi) · <https://opendesign.cc/packs/superhi/DESIGN_SPEC.en.md> — This site is a strong example of how a playful, colorful, and bold design system
+- [Threads](https://opendesign.cc/en/sites/threads) · <https://opendesign.cc/packs/threads/DESIGN_SPEC.en.md> — A masterclass in minimalist social UI that strips away visual noise to focus on 
+- [Unveil Fr](https://opendesign.cc/en/sites/unveil-fr) · <https://opendesign.cc/packs/unveil-fr/DESIGN_SPEC.en.md> — A masterclass in restraint and typographic purity, demonstrating how minimal ele
+- [Wearemotto](https://opendesign.cc/en/sites/wearemotto) · <https://opendesign.cc/packs/wearemotto/DESIGN_SPEC.en.md> — This site is an excellent study in the power of extreme typographic scale and re
 - [Ably](https://opendesign.cc/en/sites/ably) · <https://opendesign.cc/packs/ably/DESIGN_SPEC.en.md> — This site is a prime example of a modern, developer-focused SaaS design that eff
 - [Algolia](https://opendesign.cc/en/sites/algolia) · <https://opendesign.cc/packs/algolia/DESIGN_SPEC.en.md> — This site is worth including as a prime example of a 'Dark Mode First' SaaS deve
 - [Anytype](https://opendesign.cc/en/sites/anytype) · <https://opendesign.cc/packs/anytype/DESIGN_SPEC.en.md> — This design is an excellent example of a premium, trustworthy aesthetic for a Sa
@@ -482,7 +879,7 @@ DESIGN.md           → Google design.md 格式
 - [Zed](https://opendesign.cc/en/sites/zed) · <https://opendesign.cc/packs/zed/DESIGN_SPEC.en.md> — This site exemplifies how restraint and precision in design can create a premium
 - [Zora](https://opendesign.cc/en/sites/zora) · <https://opendesign.cc/packs/zora/DESIGN_SPEC.en.md> — This site exemplifies the 'less is more' philosophy, using extreme restraint in 
 - [About Meta](https://opendesign.cc/en/sites/about-meta) · <https://opendesign.cc/packs/about-meta/DESIGN_SPEC.en.md> — The site is worth including for its sophisticated blend of corporate branding an
-- [Airbnb](https://opendesign.cc/en/sites/airbnb) · <https://opendesign.cc/packs/airbnb/DESIGN_SPEC.en.md> — A classic example of a modern, consumer-focused SaaS interface that balances hig
+- [Airbnb](https://opendesign.cc/en/sites/airbnb) · <https://opendesign.cc/packs/airbnb/DESIGN_SPEC.en.md> — A prime example of a trusted, scalable marketplace UI that balances density of i
 - [Airtable](https://opendesign.cc/en/sites/airtable) · <https://opendesign.cc/packs/airtable/DESIGN_SPEC.en.md> — Airtable exemplifies a refined, trustworthy enterprise SaaS design that prioriti
 - [Binance](https://opendesign.cc/en/sites/binance) · <https://opendesign.cc/packs/binance/DESIGN_SPEC.en.md> — This site is a prime example of a high-performance dark-mode interface for compl
 - [Bmw](https://opendesign.cc/en/sites/bmw) · <https://opendesign.cc/packs/bmw/DESIGN_SPEC.en.md> — Worth including as a benchmark for premium automotive brand digital presence—dem
@@ -541,7 +938,7 @@ DESIGN.md           → Google design.md 格式
 - [Warp](https://opendesign.cc/en/sites/warp) · <https://opendesign.cc/packs/warp/DESIGN_SPEC.en.md> — This site is a prime example of a modern, high-end developer tool that uses a da
 - [Webflow](https://opendesign.cc/en/sites/webflow) · <https://opendesign.cc/packs/webflow/DESIGN_SPEC.en.md> — A perfect example of a modern, clean SaaS aesthetic that balances professional r
 - [Wired](https://opendesign.cc/en/sites/wired) · <https://opendesign.cc/packs/wired/DESIGN_SPEC.en.md> — A classic example of high-end editorial design that uses typography as the prima
-- [Wise](https://opendesign.cc/en/sites/wise) · <https://opendesign.cc/packs/wise/DESIGN_SPEC.en.md> — Wise's design is a masterclass in using bold color and typography to make a comp
+- [Wise](https://opendesign.cc/en/sites/wise) · <https://opendesign.cc/packs/wise/DESIGN_SPEC.en.md> — A textbook example of modern fintech branding, utilizing a bold single-color acc
 - [xAI](https://opendesign.cc/en/sites/xai) · <https://opendesign.cc/packs/xai/DESIGN_SPEC.en.md> — A strong example of a premium, developer-focused SaaS landing page that balances
 - [Zapier](https://opendesign.cc/en/sites/zapier) · <https://opendesign.cc/packs/zapier/DESIGN_SPEC.en.md> — A masterclass in clean, enterprise SaaS design that balances approachable warmth
 - [Amie](https://opendesign.cc/en/sites/amie) · <https://opendesign.cc/packs/amie/DESIGN_SPEC.en.md> — A prime example of a modern, human-centric SaaS design that balances professiona

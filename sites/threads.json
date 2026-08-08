@@ -1,0 +1,608 @@
+{
+  "id": "threads",
+  "schema_version": "0.3",
+  "url": "https://threads.net",
+  "title": "Threads",
+  "image": "https://image.thum.io/get/width/1440/noanimate/https://threads.net",
+  "tags": [
+    "Social Media",
+    "Mobile UI",
+    "Clean",
+    "Minimal",
+    "App UI"
+  ],
+  "status": "completed",
+  "added_at": "2026-06-14",
+  "added_by": "discover",
+  "_meta": {
+    "vision_model": "mimo-v2.5",
+    "vision_prompt_version": "0.3",
+    "vision_source": "playwright-extract:threads",
+    "vision_grounded": true,
+    "vision_at": "2026-06-14T12:50:01+00:00",
+    "vision_tokens": 17907,
+    "vision_cost_usd": 0.199,
+    "translation_model": "mimo-v2.5",
+    "translation_at": "2026-06-14T12:51:05+00:00",
+    "translation_tokens": 15719,
+    "translation_cost_usd": 0.0523,
+    "narrative_model": "mimo-v2.5",
+    "narrative_prompt_version": "0.3",
+    "narrative_at": "2026-06-14T12:51:14+00:00",
+    "narrative_tokens": 1955,
+    "narrative_cost_usd": 0.013,
+    "narrative_status": "ok",
+    "total_cost_usd": 0.2643
+  },
+  "spec": {
+    "colors": {
+      "bg": "#fafafa",
+      "bgSoft": "#efefef",
+      "bgQuiet": null,
+      "ink": "#000000",
+      "inkSoft": "#424242",
+      "muted": "#999999",
+      "mutedSoft": null,
+      "accent": null,
+      "line": "rgba(0,0,0,0.15)"
+    },
+    "typography": {
+      "display": "system-ui",
+      "body": "system-ui",
+      "mono": null,
+      "scale": [
+        {
+          "token": "display",
+          "size": 32,
+          "lh": 1.4,
+          "weight": 700,
+          "ls": "0px"
+        },
+        {
+          "token": "body",
+          "size": 15,
+          "lh": 1.4,
+          "weight": 400,
+          "ls": "0px"
+        },
+        {
+          "token": "caption",
+          "size": 13,
+          "lh": 1.4,
+          "weight": 400,
+          "ls": "0px"
+        }
+      ]
+    },
+    "spacing": {
+      "base": 4,
+      "scale": [
+        4,
+        8,
+        12,
+        16,
+        24,
+        32,
+        48,
+        64
+      ]
+    },
+    "surfaces": {
+      "radius": {
+        "sm": 8,
+        "md": 18,
+        "lg": 18,
+        "pill": 999
+      }
+    },
+    "layout": {
+      "container": 1280,
+      "paragraph": 680,
+      "columns": 3,
+      "gutter": 24,
+      "breakpoints": [
+        768,
+        1024
+      ]
+    },
+    "motion": {
+      "durations": {
+        "micro": 150,
+        "small": 200,
+        "medium": 300
+      },
+      "easing": "cubic-bezier(0.4, 0, 0.2, 1)"
+    }
+  },
+  "spec_i18n": {
+    "en": {
+      "identity": {
+        "keywords": [
+          "social",
+          "thread",
+          "conversation",
+          "minimalist",
+          "meta"
+        ],
+        "analogy": "A clean, stripped-back social feed that prioritizes text conversation over visual noise.",
+        "oneLiner": "A minimalist social platform focused on text-based conversations with a clean, monochrome interface."
+      },
+      "colors": {
+        "principle": "Monochrome palette with subtle grays for depth, black for primary elements, and white for cards and modals."
+      },
+      "typography": {
+        "rules": [
+          "Use system font stack for consistent rendering across platforms",
+          "Maintain tight line heights for compact text blocks",
+          "Use weight 600 for usernames and emphasis"
+        ],
+        "scaleUses": [
+          "Modal headlines",
+          "Post content",
+          "Timestamps and secondary text"
+        ]
+      },
+      "spacing": {
+        "rhythm": "4px base grid with consistent padding multiples"
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 0px 12px rgba(0,0,0,0.04)"
+        ],
+        "borders": "1px solid rgba(0,0,0,0.15)"
+      },
+      "layout": {
+        "skeleton": "Three-column layout with left navigation, central feed, and right sidebar"
+      },
+      "components": {
+        "button": "Pill-shaped buttons with black background and white text, or ghost buttons with rounded borders",
+        "card": "White cards with 18px border radius and subtle shadows for modals and login prompts",
+        "chip": "Pill-shaped badges for usernames and tags",
+        "input": "Minimal inputs with subtle borders",
+        "hero": "Large bold text centered in modal overlays with descriptive subtext"
+      },
+      "motion": {
+        "patterns": [
+          "Quick fade transitions for modal appearance",
+          "Smooth color transitions for interactive elements"
+        ]
+      },
+      "interaction": {
+        "hover": "Subtle opacity or color change",
+        "click": "Immediate response with micro-transition",
+        "transition": "150ms ease for most interactive elements",
+        "keyboard": "Standard focus management for accessibility"
+      },
+      "voice": {
+        "tone": "Friendly and inviting, conversational",
+        "headlineStyle": "Direct and action-oriented, using bold weight",
+        "ctaStyle": "Clear call-to-action with strong contrast",
+        "avoid": [
+          "Corporate jargon",
+          "Dense paragraphs",
+          "Decorative language"
+        ]
+      },
+      "donts": [
+        "Don't use bright accent colors — screenshot shows monochrome palette with black, white, and gray only",
+        "Don't use decorative fonts — screenshot shows system-ui stack throughout",
+        "Don't use heavy shadows — screenshot shows very subtle or no box-shadows",
+        "Don't use complex gradients — screenshot shows flat, solid color fills",
+        "Don't use sharp corners on primary elements — screenshot shows 18px radius on cards and 999px on buttons",
+        "Don't use small touch targets — screenshot shows generous padding on interactive elements"
+      ],
+      "systemPrompt": "This is Threads, a minimalist social platform focused on text conversations. The design uses a monochrome palette of #fafafa background, #000000 ink, and #999999 muted tones. Typography relies on the system-ui font stack with bold weights for headlines and regular for body text. The layout features a three-column structure with generous spacing. Critical design rules: avoid any bright accent colors, use only rounded corners (18px for cards, 999px for buttons), maintain subtle shadows, keep text concise and friendly in tone, use system fonts exclusively, and ensure touch targets are large enough for mobile interaction. The interface prioritizes content readability and clean visual hierarchy."
+    },
+    "zh-CN": {
+      "identity": {
+        "keywords": [
+          "社交",
+          "话题",
+          "对话",
+          "极简",
+          "元"
+        ],
+        "analogy": "一个清爽、精简的社交信息流，优先呈现文本对话，而非视觉噪音。",
+        "oneLiner": "一个专注于文本对话的极简社交平台，拥有干净的单色界面。"
+      },
+      "colors": {
+        "principle": "单色系调色板，用柔和的灰色营造层次感，黑色用于主要元素，白色用于卡片和模态窗口。"
+      },
+      "typography": {
+        "rules": [
+          "使用系统字体栈以确保跨平台渲染一致性",
+          "保持紧凑的行高以呈现紧凑的文本块",
+          "用户名和强调文本使用字重 600"
+        ],
+        "scaleUses": [
+          "模态窗口标题",
+          "帖子内容",
+          "时间戳和次要文本"
+        ]
+      },
+      "spacing": {
+        "rhythm": "基于 4px 的网格，配合一致的 padding 倍数"
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 0px 12px rgba(0,0,0,0.04)"
+        ],
+        "borders": "1px solid rgba(0,0,0,0.15)"
+      },
+      "layout": {
+        "skeleton": "三栏布局：左侧导航栏、中央信息流、右侧边栏"
+      },
+      "components": {
+        "button": "药丸形按钮，黑色背景配白色文字；或带圆角的幽灵按钮",
+        "card": "白色卡片，18px 圆角，用于模态窗口和登录提示的柔和阴影",
+        "chip": "用于用户名和标签的药丸形徽章",
+        "input": "带细微边框的极简输入框",
+        "hero": "模态窗口叠加层中的大号加粗居中文字，附带描述性副文本"
+      },
+      "motion": {
+        "patterns": [
+          "模态窗口出现时的快速淡入过渡",
+          "交互元素的平滑颜色过渡"
+        ]
+      },
+      "interaction": {
+        "hover": "细微的不透明度或颜色变化",
+        "click": "带有微交互的即时响应",
+        "transition": "大多数交互元素使用 150ms ease 过渡",
+        "keyboard": "遵循标准的焦点管理规范以确保可访问性"
+      },
+      "voice": {
+        "tone": "友好、有亲和力的对话风格",
+        "headlineStyle": "直接且具有行动导向，使用加粗字重",
+        "ctaStyle": "对比强烈的清晰行动号召",
+        "avoid": [
+          "企业术语",
+          "密集段落",
+          "装饰性语言"
+        ]
+      },
+      "donts": [
+        "不要使用鲜艳的强调色——截图显示仅使用黑、白、灰的单色系调色板",
+        "不要使用装饰性字体——截图显示全局使用系统字体栈",
+        "不要使用厚重的阴影——截图显示阴影非常细微或没有",
+        "不要使用复杂的渐变——截图显示为纯色填充",
+        "不要在主要元素上使用尖锐的圆角——截图显示卡片为 18px 圆角，按钮为 999px 圆角",
+        "不要使用过小的触摸目标——截图显示交互元素有充足的 padding"
+      ],
+      "systemPrompt": "这是 Threads，一个专注于文本对话的极简社交平台。设计采用 #fafafa 背景、#000000 墨色和 #999999 柔和色调的单色系调色板。排版依赖于系统字体栈，标题使用加粗字重，正文使用常规字重。布局采用三栏结构，间距宽松。关键设计规则：避免任何鲜艳的强调色，仅使用圆角（卡片 18px，按钮 999px），保持阴影细微，文本简洁友好，仅使用系统字体，并确保触摸目标足够大以适应移动交互。界面优先考虑内容可读性和清晰的视觉层次。"
+    },
+    "zh-TW": {
+      "identity": {
+        "keywords": [
+          "社交",
+          "串",
+          "對話",
+          "極簡",
+          "元"
+        ],
+        "analogy": "一個簡潔、回歸本質的社交資訊流，優先呈現文字對話，而非視覺雜訊。",
+        "oneLiner": "一個專注於文字對話的極簡社交平台，擁有簡潔的單色調介面。"
+      },
+      "colors": {
+        "principle": "單色調色盤，以細微灰色營造深度，黑色用於主要元素，白色用於卡片與彈出視窗。"
+      },
+      "typography": {
+        "rules": [
+          "使用系統字型堆疊，確保各平台渲染一致性",
+          "維持緊湊的行高，用於緊湊的文字區塊",
+          "使用 600 字重於使用者名稱與強調"
+        ],
+        "scaleUses": [
+          "彈出視窗標題",
+          "貼文內容",
+          "時間戳記與次要文字"
+        ]
+      },
+      "spacing": {
+        "rhythm": "以 4px 為基礎網格，並使用一致的 padding 倍數"
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 0px 12px rgba(0,0,0,0.04)"
+        ],
+        "borders": "1px solid rgba(0,0,0,0.15)"
+      },
+      "layout": {
+        "skeleton": "三欄式佈局，包含左側導覽、中央資訊流與右側邊欄"
+      },
+      "components": {
+        "button": "膠囊形按鈕，採用黑色背景與白色文字，或帶有圓角邊框的幽靈按鈕",
+        "card": "白色卡片，帶有 18px 圓角與細微陰影，用於彈出視窗與登入提示",
+        "chip": "膠囊形徽章，用於使用者名稱與標籤",
+        "input": "極簡輸入框，帶有細微邊框",
+        "hero": "大型粗體文字，置中於彈出視窗覆蓋層，並配有描述性副標題"
+      },
+      "motion": {
+        "patterns": [
+          "彈出視窗出現時的快速淡入淡出過渡",
+          "互動元素的平滑顏色過渡"
+        ]
+      },
+      "interaction": {
+        "hover": "細微的透明度或顏色變化",
+        "click": "立即回應並帶有微過渡",
+        "transition": "多數互動元素使用 150ms ease",
+        "keyboard": "標準焦點管理，以符合無障礙規範"
+      },
+      "voice": {
+        "tone": "友善且具邀請性，對話式風格",
+        "headlineStyle": "直接且具行動導向，使用粗體字重",
+        "ctaStyle": "清晰的行動號召，具有強烈對比",
+        "avoid": [
+          "企業術語",
+          "冗長段落",
+          "裝飾性語言"
+        ]
+      },
+      "donts": [
+        "勿使用明亮的強調色——截圖顯示僅使用黑色、白色與灰色的單色調色盤",
+        "勿使用裝飾性字型——截圖顯示全面使用 system-ui 字型堆疊",
+        "勿使用厚重的陰影——截圖顯示極其細微或無 box-shadow",
+        "勿使用複雜的漸層——截圖顯示平面、單色填充",
+        "勿在主要元素上使用銳利邊角——截圖顯示卡片使用 18px 圓角，按鈕使用 999px 圓角",
+        "勿使用過小的觸控目標——截圖顯示互動元素具有寬裕的 padding"
+      ],
+      "systemPrompt": "這是 Threads，一個專注於文字對話的極簡社交平台。設計採用 #fafafa 背景、#000000 墨色與 #999999 柔和色調的單色調色盤。字型採用系統字型堆疊，標題使用粗體，內文使用一般字重。佈局採用三欄式結構，具有寬裕的間距。關鍵設計規則：避免使用任何明亮的強調色、僅使用圓角（卡片 18px，按鈕 999px）、維持細微陰影、文字保持簡潔且語調友善、僅使用系統字型，並確保觸控目標足夠大以適合行動裝置互動。介面優先考慮內容的可讀性與清晰的視覺層級。"
+    },
+    "ja": {
+      "identity": {
+        "keywords": [
+          "ソーシャル",
+          "スレッド",
+          "会話",
+          "ミニマリスト",
+          "メタ"
+        ],
+        "analogy": "ビジュアルノイズよりテキスト会話を優先する、クリーンで簡素化されたソーシャルフィード。",
+        "oneLiner": "テキストベースの会話に焦点を当て、クリーンなモノクロームインターフェースを持つミニマリスト・ソーシャルプラットフォーム。"
+      },
+      "colors": {
+        "principle": "深度を出すための微妙なグレー、プライマリ要素にはブラック、カードやモーダルにはホワイトを使用するモノクロームパレット。"
+      },
+      "typography": {
+        "rules": [
+          "プラットフォーム間で一貫したレンダリングのためにシステムフォントスタックを使用",
+          "コンパクトなテキストブロックのためにタイトな行の高さを維持",
+          "ユーザー名と強調にはウェイト600を使用"
+        ],
+        "scaleUses": [
+          "モーダルの見出し",
+          "投稿コンテンツ",
+          "タイムスタンプとセカンダリテキスト"
+        ]
+      },
+      "spacing": {
+        "rhythm": "4pxをベースグリッドとし、一貫したpaddingの倍数を維持"
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 0px 12px rgba(0,0,0,0.04)"
+        ],
+        "borders": "1px solid rgba(0,0,0,0.15)"
+      },
+      "layout": {
+        "skeleton": "左にナビゲーション、中央にフィード、右にサイドバーを配置した3カラムレイアウト"
+      },
+      "components": {
+        "button": "黒背景に白テキストのピル型ボタン、または角丸のゴーストボタン",
+        "card": "18pxのボーダー-radiusと微妙なシャドウを持つ、モーダルやログインプロンプト用の白いカード",
+        "chip": "ユーザー名とタグ用のピル型バッジ",
+        "input": "微妙なボーダーを持つミニマルな入力欄",
+        "hero": "モーダルオーバーレイの中央に配置され、説明的なサブテキストを伴う太字の大きなテキスト"
+      },
+      "motion": {
+        "patterns": [
+          "モーダル表示のための速いフェードトランジション",
+          "インタラクティブ要素のためのスムーズなカラートランジション"
+        ]
+      },
+      "interaction": {
+        "hover": "微妙なopacityまたはカラー変化",
+        "click": "マイクロトランジションによる即時レスポンス",
+        "transition": "ほとんどのインタラクティブ要素に対して150ms ease",
+        "keyboard": "アクセシビリティのための標準的なフォーカス管理"
+      },
+      "voice": {
+        "tone": "フレンドリーで親しみやすい、会話調",
+        "headlineStyle": "直接的で行動を促す、太字ウェイトの使用",
+        "ctaStyle": "強いコントラストを持つ明確な行動喚起",
+        "avoid": [
+          "企業用語",
+          "密度の高い段落",
+          "装飾的な言葉"
+        ]
+      },
+      "donts": [
+        "明るいアクセントカラーを使用しない — スクリーンショットはブラック、ホワイト、グレーのみのモノクロームパレットを示している",
+        "装飾的なフォントを使用しない — スクリーンショットはsystem-uiスタック全体を使用している",
+        "重いシャドウを使用しない — スクリーンショットは非常に微妙またはないボックスシャドウを示している",
+        "複雑なグラデーションを使用しない — スクリーンショットはフラットで単色の塗りつぶしを示している",
+        "プライマリ要素に鋭い角を使用しない — スクリーンショットはカードに18px、ボタンに999pxの半径を示している",
+        "小さなタッチターゲットを使用しない — スクリーンショットはインタラクティブ要素に十分なpaddingを示している"
+      ],
+      "systemPrompt": "これはThreadsであり、テキスト会話に焦点を当てたミニマリスト・ソーシャルプラットフォームです。デザインでは#fafafa背景、#000000インク、#999999ミュートトーンのモノクロームパレットを使用しています。タイポグラフィはsystem-uiフォントスタックに依存し、見出しには太字、本文には通常ウェイトを使用。レイアウトは3カラム構造で、十分なスペーシングを特徴としています。重要なデザインルール：明るいアクセントカラーは使用せず、角丸のみ（カード18px、ボタン999px）を使用し、シャドウは控えめに保ち、テキストは簡潔かつフレンドリーなトーンで書き、システムフォントのみ使用し、モバイルインタラクションに十分なサイズのタッチターゲットを確保すること。インターフェースはコンテンツの可読性とクリーンなビジュアル階層を優先します。"
+    },
+    "ko": {
+      "identity": {
+        "keywords": [
+          "소셜",
+          "스레드",
+          "대화",
+          "미니멀리스트",
+          "메타"
+        ],
+        "analogy": "시각적 노이즈보다 텍스트 대화를 우선시하는 깔끔하고 절제된 소셜 피드.",
+        "oneLiner": "깔끔한 모노크롬 인터페이스로 텍스트 기반 대화에 집중하는 미니멀리스트 소셜 플랫폼."
+      },
+      "colors": {
+        "principle": "깊이감을 위한 은은한 회색, 주요 요소를 위한 검정, 카드 및 모달을 위한 흰색으로 구성된 모노크롬 팔레트."
+      },
+      "typography": {
+        "rules": [
+          "플랫폼 전반에 걸친 일관된 렌더링을 위해 시스템 폰트 스택 사용",
+          "_compact_ 텍스트 블록을 위해 타이트한 행간 유지",
+          "사용자 이름 및 강조에 weight 600 사용"
+        ],
+        "scaleUses": [
+          "모달 헤드라인",
+          "게시물 본문",
+          "타임스탬프 및 보조 텍스트"
+        ]
+      },
+      "spacing": {
+        "rhythm": "일관된 padding 배수를 위한 4px 기본 격자"
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 0px 12px rgba(0,0,0,0.04)"
+        ],
+        "borders": "1px solid rgba(0,0,0,0.15)"
+      },
+      "layout": {
+        "skeleton": "왼쪽 내비게이션, 중앙 피드, 오른쪽 사이드바가 있는 3열 레이아웃"
+      },
+      "components": {
+        "button": "검정 배경에 흰색 텍스트가 적용된 알약 모양 버튼 또는 둥근 테두리가 있는 고스트 버튼",
+        "card": "모달 및 로그인 프롬프트를 위한 18px border radius와 미묘한 그림자가 적용된 흰색 카드",
+        "chip": "사용자 이름 및 태그를 위한 알약 모양 배지",
+        "input": "미묘한 테두리가 있는 미니멀 입력 필드",
+        "hero": "모달 오버레이 중앙에 배치된 설명 하위 텍스트가 있는 굵은 대형 텍스트"
+      },
+      "motion": {
+        "patterns": [
+          "모달 등장을 위한 빠른 페이드 전환",
+          "인터랙티브 요소를 위한 부드러운 색상 전환"
+        ]
+      },
+      "interaction": {
+        "hover": "미묘한 불투명도 또는 색상 변화",
+        "click": "마이크로 전환을 통한 즉각적인 반응",
+        "transition": "대부분의 인터랙티브 요소에 150ms ease",
+        "keyboard": "접근성을 위한 표준 포커스 관리"
+      },
+      "voice": {
+        "tone": "친근하고 초대하는, 대화체",
+        "headlineStyle": "직접적이고 행동 지향적이며 굵은 weight 사용",
+        "ctaStyle": "높은 대비를 가진 명확한 행동 유도(CTA)",
+        "avoid": [
+          "기업 전문 용어",
+          "빈약한 단락",
+          "장식적 언어"
+        ]
+      },
+      "donts": [
+        "밝은 강조 색상 사용 금지 — 스크린샷은 흑백 및 회색만으로 구성된 모노크롬 팔레트를 보여줌",
+        "장식적 폰트 사용 금지 — 스크린샷은 시스템 폰트 스택(system-ui)을 일관되게 사용함",
+        "무거운 그림자 사용 금지 — 스크린샷은 매우 미묘하거나 없는 box-shadow를 보여줌",
+        "복잡한 그라데이션 사용 금지 — 스크린샷은 플랫하고 단색 채움을 보여줌",
+        "주요 요소에 날카로운 모서리 사용 금지 — 스크린샷은 카드에 18px radius, 버튼에 999px radius를 보여줌",
+        "작은 터치 타겟 사용 금지 — 스크린샷은 인터랙티브 요소에 넉넉한 padding을 보여줌"
+      ],
+      "systemPrompt": "This is Threads, a minimalist social platform focused on text conversations. The design uses a monochrome palette of #fafafa background, #000000 ink, and #999999 muted tones. Typography relies on the system-ui font stack with bold weights for headlines and regular for body text. The layout features a three-column structure with generous spacing. Critical design rules: avoid any bright accent colors, use only rounded corners (18px for cards, 999px for buttons), maintain subtle shadows, keep text concise and friendly in tone, use system fonts exclusively, and ensure touch targets are large enough for mobile interaction. The interface prioritizes content readability and clean visual hierarchy."
+    }
+  },
+  "desc": {
+    "en": {
+      "palette": "Monochrome palette using black, white, and subtle grays with no accent colors.",
+      "layout": "Three-column desktop layout with centered feed and sidebars, transitioning to single-column mobile.",
+      "interaction": "Subtle transitions on hover/click states with 150-300ms durations.",
+      "motion": "Minimal, purposeful motion focused on modal transitions and hover feedback.",
+      "notes": "A masterclass in minimalist social UI that strips away visual noise to focus on text-based conversation."
+    },
+    "zh-CN": {
+      "palette": "采用黑、白及柔和灰阶的单色系调色板，无强调色。",
+      "layout": "桌面端三栏布局，居中信息流搭配侧边栏；移动端切换为单栏。",
+      "interaction": "在 hover/click 状态下提供细微过渡效果，持续时间 150-300ms。",
+      "motion": "以模态窗口转场和 hover 反馈为主，运动效果克制且目的明确。",
+      "notes": "这是极简社交界面的典范，通过剥离视觉噪音，聚焦于基于文本的对话。"
+    },
+    "zh-TW": {
+      "palette": "單色調色盤，使用黑色、白色與細微灰色，無任何強調色。",
+      "layout": "桌面端採三欄式佈局，中央為資訊流，兩側為邊欄，行動裝置則轉換為單欄式。",
+      "interaction": "hover/click 狀態下帶有細微過渡效果，持續時間為 150-300 毫秒。",
+      "motion": "極簡且具目的性的動態，聚焦於彈出視窗過渡與 hover 回饋。",
+      "notes": "這是極簡社交介面的典範，去除視覺雜訊，專注於基於文字的對話。"
+    },
+    "ja": {
+      "palette": "ブラック、白、微妙なグレーのみを使用するモノクロームパレット。アクセントカラーは使用しません。",
+      "layout": "フィードを中央に、サイドバーを両側に配置した3カラムのデスクトップレイアウト。モバイルでは単一カラムに変化します。",
+      "interaction": "ホバー/クリック状態に150〜300msの持続時間をかけた、微細なトランジション。",
+      "motion": "モーダルのトランジションやホーバーフィードバックに焦点を当てた、最小限で目的に沿った動き。",
+      "notes": "ビジュアルノイズを除去し、テキストベースの会話に集中させる、ミニマリスト社会性UIの優れた実践例です。"
+    },
+    "ko": {
+      "palette": "흑백 및 은은한 회색만 사용하는 모노크롬 팔레트. 강조 색상 없음.",
+      "layout": "중앙 피드와 사이드바가 있는 3열 데스크톱 레이아웃. 모바일에서는 단일 열로 전환.",
+      "interaction": "hover/클릭 상태에서 150-300ms 기간의 미묘한 전환 효과.",
+      "motion": "모달 전환 및 hover 피드백에 초점을 둔 최소한의 목적 있는 모션.",
+      "notes": "시각적 노이즈를 걷어내고 텍스트 기반 대화에 집중하는 미니멀리스트 소셜 UI의 마스터클래스."
+    }
+  },
+  "narrative": {
+    "en": {
+      "ch1_intro": "Threads treats its interface like a well-lit reading room, stripping away ornamentation to foreground the conversation itself. The design system is a monochrome study in restraint, where every decision serves legibility and the thread of dialogue.",
+      "ch2_intro": "The palette is a disciplined monochrome: **black** for primary ink, **white** for interactive surfaces, and subtle grays for depth and hierarchy. This absence of accent color forces the content to carry all visual interest.",
+      "ch2_outro": "The principle is absolute: no hue should compete with the user's own words or the shared images in their feed.",
+      "ch3_intro": "Type is set in the system font stack, a pragmatic choice that ensures native rendering speed and platform familiarity across devices. The voice is maintained through compact line heights and a bold weight reserved for usernames, creating a clear hierarchy within the dense flow of posts.",
+      "ch4_intro": "All spatial relationships are governed by a **4px base grid**, producing a consistent and rhythmic cadence for padding and margins.",
+      "ch5_intro": "Depth is communicated through a single, faint shadow: `0px 0px 12px rgba(0,0,0,0.04)`. Interfaces feel lifted but never heavy, defined more by their clean, rounded corners than by dramatic elevation.",
+      "ch6_intro": "On desktop, the skeleton is a classic three-column framework: navigation to the left, the central feed to the right, and a complementary sidebar on the far right. On mobile, this compresses to a focused single-column stream, prioritizing vertical scrolling and content immersion.",
+      "ch7_intro": "Motion is minimal and functional, never decorative. Transitions are brief—typically 150 milliseconds—and exist solely to confirm an action or gently reveal a new layer of the interface.",
+      "ch8_intro": "The editorial voice is **conversational and direct**, matching the platform's purpose. It avoids corporate jargon and dense paragraphs, favoring clear, action-oriented headlines and plain language.",
+      "ch8_outro": "The system deliberately forgoes decorative fonts, bright accent colors, and complex gradients, trusting that the conversation is the design."
+    },
+    "zh-CN": {
+      "ch1_intro": "Threads 将界面视作一间光线充足的阅读室，剔除一切装饰，让对话本身成为焦点。设计系统是一场克制的单色演绎，每个决策都服务于易读性与对话的连贯性。",
+      "ch2_intro": "色板是严谨的单色体系：**黑色**作为主要墨色，**白色**用于交互表面，辅以微妙的灰色营造深度与层级。这种无强调色的设定，迫使内容自行承载所有视觉吸引力。",
+      "ch2_outro": "原则是绝对的：任何色调都不应与用户自己的文字或其动态流中的共享图像竞争。",
+      "ch3_intro": "字体采用系统字体栈，这一务实选择确保了跨设备的原生渲染速度与平台熟悉感。通过紧凑的行高和专用于用户名的粗体字重，在密集的帖子流中建立起清晰的层级，从而保持统一的语调。",
+      "ch4_intro": "所有空间关系均由 **4px 基础网格** 统管，为内边距和外边距赋予一致而富有韵律的节奏。",
+      "ch5_intro": "深度通过一道微弱的阴影传达：`0px 0px 12px rgba(0,0,0,0.04)`。界面显得轻盈而非沉重，其定义更多来自洁净的圆角，而非戏剧性的高差。",
+      "ch6_intro": "在桌面端，骨架是经典的三栏框架：左侧为导航，中间为信息流，最右侧为辅助侧边栏。在移动端，这会压缩为专注的单栏流，优先考虑垂直滚动与内容沉浸感。",
+      "ch7_intro": "动效极简且功能性明确，从不用于装饰。过渡效果简短——通常为 150 毫秒——仅用于确认操作或温和地揭示界面的新层次。",
+      "ch8_intro": "编辑语调是 **对话式且直接的**，与平台的用途相匹配。它避免企业行话和冗长段落，倾向于清晰、以行动为导向的标题和朴素语言。",
+      "ch8_outro": "该系统特意舍弃了装饰性字体、鲜亮的强调色和复杂的渐变，坚信对话本身即是设计。"
+    },
+    "zh-TW": {
+      "ch1_intro": "Threads 將其介面視為一間燈光明亮的閱讀室，剝離裝飾以突出對話本身。設計系統是單色調的克制研究，每個決策都服務於易讀性與對話的脈絡。",
+      "ch2_intro": "色彩規範是嚴謹的單色調：**黑色**作為主要墨色，**白色**用於互動介面，以及細微的灰色以營造深度與層次。這種刻意缺席的強調色，迫使內容承擔所有視覺趣味。",
+      "ch2_outro": "原則是絕對的：不應有任何色調與用戶自己的文字或動態消息中的共享圖片競爭。",
+      "ch3_intro": "字型採用系統字型堆疊，務實地確保原生渲染速度與跨裝置的平台熟悉度。透過緊湊的行高與僅保留給使用者名稱的粗體字重來維持語氣，在密集的文章流中建立清晰的層次。",
+      "ch4_intro": "所有空間關係均受 **4px 基礎格線** 管理，為內距與外距帶來一致且富有節奏的韻律。",
+      "ch5_intro": "深度透過一道微弱的陰影傳達：`0px 0px 12px rgba(0,,0,0,0.04)`。介面感覺輕盈但不沉重，與其說是由戲劇性的抬高效果定義，不如說是由其乾淨、圓潤的邊角所界定。",
+      "ch6_intro": "在桌面端，骨架採用經典的三欄式框架：左側是導航，中央是動態消息，最右側是輔助側邊欄。在移動端，則壓縮為專注的單欄資訊流，優先考量垂直滾動與內容沉浸感。",
+      "ch7_intro": "動效是極簡且功能性的，從不裝飾。轉換簡短——通常為 150 毫秒——僅存在於確認操作或輕柔揭示介面新層次之時。",
+      "ch8_intro": "編輯語氣是**對話式且直接的**，與平台目的相符。它避免企業術語與冗長段落，偏好清晰、以行動為導向的標題與平實語言。",
+      "ch8_outro": "此系統刻意捨棄裝飾性字體、鮮明的強調色與複雜的漸層，相信對話本身就是設計。"
+    },
+    "ja": {
+      "ch1_intro": "Threadsは、そのインターフェースを整然とした読書室のように扱い、装飾を削ぎ落として会話そのものを前面に押し出しています。デザインシステムは、克制のモノクローム研究であり、あらゆる判断が可読性と会話の流れに奉仕するものです。",
+      "ch2_intro": "パレットは規律あるモノクロームです：**黒**をプライマリインクに、**白**をインタラクティブサーフェスに、そして微妙なグレーを深度と階層付けに使用します。アクセントカラーの不在は、コンテンツにすべての視覚的興味を担わせます。",
+      "ch2_outro": "原則は絶対です。いかなる色相も、ユーザー自身の言葉やフィード内の共有画像と競合してはなりません。",
+      "ch3_intro": "書体はシステムフォントスタックで設定され、デバイス間でネイティブなレンダリング速度とプラットフォームの親しみやすさを確実にする実践的な選択です。声は、コンパクトな行高と、ユーザー名にのみ用いられる太いウェイトを通じて維持され、投稿の密集した流れの中に明確な階層を生み出します。",
+      "ch4_intro": "すべての空間関係は**4pxのベースグリッド**によって支配され、パディングとマージンに一貫したリズミカルな韻律を生み出します。",
+      "ch5_intro": "深度は、単一の淡いシャドウ：`0px 0px 12px rgba(0,0,0,0.04)`によって伝達されます。インターフェースは浮遊感を覚えつつ重くはならず、ドラマチックな高揚感よりも、クリーンな丸みのある角によって定義されます。",
+      "ch6_intro": "デスクトップでは、スケルトンはクラシックな3カラムフレームワークです：左側にナビゲーション、中央フィードの右側に、さらに右端に補助サイドバーが配置されます。モバイルでは、この構成は垂直スクロールとコンテンツ没入を優先した、焦点を絞った1カラムのストリームに圧縮されます。",
+      "ch7_intro": "モーションは最小限かつ機能的であり、決して装飾ではありません。遷移は短く—通常150ミリ秒—、アクションを確認するか、インターフェースの新しいレイヤーを丁寧に露呈するためにのみ存在します。",
+      "ch8_intro": "エディトリアルボイスは**会話的で率直**であり、プラットフォームの目的に合致します。企業用語や密度の高い段落を避け、明確で行動指向の見出しと平易な言葉を好んで使用します。",
+      "ch8_outro": "システムは意図的に装飾的なフォント、明るいアクセントカラー、複雑なグラデーションを放棄し、会話こそがデザインであると信頼しています。"
+    },
+    "ko": {
+      "ch1_intro": "스레드는 인터페이스를 잘 불리된 독서실로 대우하며, 장식을 걷어내고 대화 자체를 전면에 배치합니다. 디자인 시스템은 절제의 흑백 실험이며, 모든 결정은 가독성과 대화의 흐름을 위해 존재합니다.",
+      "ch2_intro": "팔레트는 절제된 흑백입니다: 주요 텍스트에는 **검정**, 인터랙티브 표면에는 **흰색**, 깊이와 위계를 위해 은은한 회색을 사용합니다. 악센트 색상의 부재는 콘텐츠가 모든 시각적 관심을 끌게 만듭니다.",
+      "ch2_outro": "원칙은 절대적입니다: 어떤 색조도 사용자의 말이나 피드에 공유된 이미지와 경쟁해서는 안 됩니다.",
+      "ch3_intro": "타이포그래피는 시스템 폰트 스택으로 설정되며, 이는 네이티브 렌더링 속도와 기기 간 플랫폼 익숙함을 보장하는 실용적인 선택입니다. 음성은 타이트한 행간과 사용자 이름에만 사용되는 굵은 글꼴을 통해 유지되며, 밀도 높은 게시물 흐름 내에 명확한 위계를 만듭니다.",
+      "ch4_intro": "모든 공간 관계는 **4px 기본 그리드**에 의해 지배되며, 패딩과 마진에 일관되고 리드미컬한 박자감을 생성합니다.",
+      "ch5_intro": "깊이는 은은한 단일 그림자로 전달됩니다: `0px 0px 12px rgba(0,0,0,0.04)`. 인터페이스는 가볍게 떠 있는 듯하지만 결코 무겁지 않으며, 극적인 고도감보다는 깔끔하고 둥근 모서리에 의해 정의됩니다.",
+      "ch6_intro": "데스크톱에서 스켈레톤은 고전적인 3열 프레임워크입니다: 왼쪽에 네비게이션, 중앙에 피드, 가장 오른쪽에 보조 사이드바. 모바일에서는 수직 스크롤과 콘텐츠 몰입을 우선시하는 집중된 단일 열 스트림으로 압축됩니다.",
+      "ch7_intro": "모션은 기능적이며 최소한입니다. 결코 장식적이지 않습니다. 트랜지션은 일반적으로 150밀리초로 짧으며, 오직 작업을 확인하거나 인터페이스의 새로운 레이어를 부드럽게 나타내기 위해서만 존재합니다.",
+      "ch8_intro": "에디토리얼 음성은 플랫폼의 목적에 맞춰 **대화적이고 직설적**입니다. 기업 용어와 밀도 높은 단락을 피하고, 명확하고 행동 지향적인 헤드라인과 평이한 언어를 선호합니다.",
+      "ch8_outro": "시스템은 의도적으로 장식 폰트, 밝은 악센트 색상, 복잡한 그래디언트를 포기하며, 대화 자체가 곧 디자인이라고 믿습니다."
+    }
+  }
+}

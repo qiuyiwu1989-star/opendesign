@@ -1,0 +1,652 @@
+{
+  "id": "headspace",
+  "schema_version": "0.3",
+  "url": "https://www.headspace.com",
+  "title": "Headspace",
+  "image": "https://image.thum.io/get/width/1440/noanimate/https://www.headspace.com",
+  "tags": [
+    "Calm",
+    "Friendly",
+    "Consumer",
+    "Playful",
+    "Mobile UI"
+  ],
+  "status": "completed",
+  "added_at": "2026-06-24",
+  "added_by": "discover",
+  "_meta": {
+    "vision_model": "mimo-v2.5",
+    "vision_prompt_version": "0.3",
+    "vision_source": "playwright-extract:headspace",
+    "vision_grounded": true,
+    "vision_at": "2026-06-23T17:10:07+00:00",
+    "vision_tokens": 17437,
+    "vision_cost_usd": 0.1937,
+    "translation_model": "mimo-v2.5",
+    "translation_at": "2026-06-23T17:11:55+00:00",
+    "translation_tokens": 21376,
+    "translation_cost_usd": 0.0713,
+    "narrative_model": "mimo-v2.5",
+    "narrative_prompt_version": "0.3",
+    "narrative_at": "2026-06-23T17:12:05+00:00",
+    "narrative_tokens": 2515,
+    "narrative_cost_usd": 0.0168,
+    "narrative_status": "ok",
+    "total_cost_usd": 0.2818
+  },
+  "spec": {
+    "colors": {
+      "bg": "#F9F4F2",
+      "bgSoft": null,
+      "bgQuiet": null,
+      "ink": "#2D2C2B",
+      "inkSoft": "#4B4C4D",
+      "muted": "#44433F",
+      "mutedSoft": null,
+      "accent": "#FFCE00",
+      "line": "rgba(75,76,77,0.3)"
+    },
+    "typography": {
+      "display": "humanist-sans",
+      "body": "humanist-sans",
+      "mono": "geometric-mono",
+      "scale": [
+        {
+          "token": "display",
+          "size": 56,
+          "lh": 1.05,
+          "weight": 700,
+          "ls": "-1.2px"
+        },
+        {
+          "token": "h1",
+          "size": 48,
+          "lh": 1.1,
+          "weight": 700,
+          "ls": "-0.96px"
+        },
+        {
+          "token": "h2",
+          "size": 32,
+          "lh": 1.2,
+          "weight": 700,
+          "ls": "-0.54px"
+        },
+        {
+          "token": "body",
+          "size": 16,
+          "lh": 1.15,
+          "weight": 400,
+          "ls": "0"
+        },
+        {
+          "token": "caption",
+          "size": 12,
+          "lh": 1.15,
+          "weight": 400,
+          "ls": "0"
+        }
+      ]
+    },
+    "spacing": {
+      "base": 4,
+      "scale": [
+        4,
+        8,
+        16,
+        24,
+        32,
+        48,
+        64,
+        96
+      ]
+    },
+    "surfaces": {
+      "radius": {
+        "sm": 8,
+        "md": 16,
+        "lg": 32,
+        "pill": 999
+      }
+    },
+    "layout": {
+      "container": 1280,
+      "paragraph": 680,
+      "columns": 12,
+      "gutter": 24,
+      "breakpoints": [
+        768,
+        1024
+      ]
+    },
+    "motion": {
+      "durations": {
+        "micro": 150,
+        "small": 300,
+        "medium": 400
+      },
+      "easing": "cubic-bezier(0.32, 0.94, 0.6, 1)"
+    }
+  },
+  "spec_i18n": {
+    "en": {
+      "identity": {
+        "keywords": [
+          "mental health",
+          "meditation",
+          "therapy",
+          "wellness",
+          "accessible"
+        ],
+        "analogy": "A friendly, approachable wellness companion that uses warm, inviting design to make mental health feel less intimidating and more accessible to everyone.",
+        "oneLiner": "A warm, playful consumer wellness platform combining meditation, sleep, and therapy with friendly illustrations and approachable typography."
+      },
+      "colors": {
+        "principle": "Warm off-white base with high-chroma yellow and orange accents paired with deep charcoal text for maximum readability and warmth."
+      },
+      "typography": {
+        "rules": [
+          "Use tight line-heights (1.0-1.2) for headlines to maintain compact, modern feel",
+          "Use negative letter-spacing on larger text for tighter typographic presence",
+          "Body text uses standard 16px base with slightly tighter leading than default"
+        ],
+        "scaleUses": [
+          "hero headline",
+          "section titles",
+          "card headings",
+          "body text",
+          "labels and fine print"
+        ]
+      },
+      "spacing": {
+        "rhythm": "Consistent 4px base grid with generous section spacing (48-64px) and comfortable inner padding (24-32px) creating breathable layouts"
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 1px 8px 0px rgba(20,19,19,0.2)",
+          "0px 2px 0px 0px rgba(65,61,69,0.2)"
+        ],
+        "borders": "Minimal borders; cards use subtle shadows instead. When present, borders use 2px solid with muted charcoal tones."
+      },
+      "layout": {
+        "skeleton": "Centered single-column hero with large typography, followed by two-column card layout, then full-width scrolling banner and grid sections"
+      },
+      "components": {
+        "button": "Pill-shaped buttons with generous padding (16-24px). Primary: bright blue (#0061EF) with white text. Secondary: dark charcoal (#2D2C2B) with white text. High border-radius (32px+).",
+        "card": "Large rounded cards (16-32px radius) with soft off-white background, subtle shadow, containing mixed media (illustrations, photos, UI mockups) in playful compositions.",
+        "chip": "Pill-shaped filter chips with rounded borders, light background, and small emoji icons. Active state uses darker fill.",
+        "input": "Form inputs implied through clean, minimal styling consistent with the overall restrained aesthetic.",
+        "hero": "Full-width centered layout with oversized display type (56px+), supporting checkmark list, and large illustration/card showcase below."
+      },
+      "motion": {
+        "patterns": [
+          "Color and background transitions on interactive elements",
+          "Transform transitions for hover states",
+          "Opacity fades for content reveals"
+        ]
+      },
+      "interaction": {
+        "hover": "Subtle background-color and color shifts with 0.15s ease timing",
+        "click": "Immediate visual feedback through transform and color changes",
+        "transition": "Smooth 0.15s transitions on all interactive properties with custom cubic-bezier easing",
+        "keyboard": "Standard focus management with pointer cursor on interactive elements"
+      },
+      "voice": {
+        "tone": "Warm, encouraging, and approachable without being clinical or preachy",
+        "headlineStyle": "Conversational, benefit-focused statements with large friendly type",
+        "ctaStyle": "Direct action phrases like 'Try for free', 'Check your coverage', and 'Try for $0' emphasizing low barrier to entry",
+        "avoid": [
+          "Clinical or medical terminology",
+          "Aggressive sales language",
+          "Complex jargon",
+          "Dark or somber messaging"
+        ]
+      },
+      "donts": [
+        "Don't use sharp, angular shapes — screenshot shows rounded corners (16-32px radius) on all cards and buttons",
+        "Don't use cold blue-gray backgrounds — screenshot shows warm off-white (#F9F4F2) as primary background",
+        "Don't use serif or decorative fonts — screenshot shows clean humanist sans-serif throughout",
+        "Don't create dense, cramped layouts — screenshot shows generous whitespace (48-64px gaps) between sections",
+        "Don't use harsh, saturated accent colors everywhere — screenshot limits high-chroma colors to specific CTAs and illustrations",
+        "Don't use thin, subtle text weights for headlines — screenshot uses bold (700) weight consistently for all headings",
+        "Don't avoid illustration — screenshot shows playful character illustrations and abstract shapes as core visual elements"
+      ],
+      "systemPrompt": "Headspace is a consumer mental health app positioned as a friendly, accessible wellness companion. The design uses a warm off-white background (#F9F4F2) with charcoal text (#2D2C2B) and bright yellow (#FFCE00) and blue (#0061EF) accents. Typography is humanist sans-serif with bold, tight-set headlines and generous body text. Layouts are centered with large display type and playful illustration compositions. Critical don'ts: never use cold grays or blues as backgrounds, avoid clinical/medical visual language, don't create cramped or dense layouts, avoid thin font weights for headlines, don't skip illustrations in favor of plain UI, and never use aggressive or dark color schemes. The overall feel should be warm, inviting, and psychologically safe."
+    },
+    "zh-CN": {
+      "identity": {
+        "keywords": [
+          "心理健康",
+          "冥想",
+          "心理治疗",
+          "健康",
+          "易获取"
+        ],
+        "analogy": "一位友好、平易近人的健康伙伴，运用温暖、吸引人的设计，让心理健康对每个人来说更少畏惧、更易获取。",
+        "oneLiner": "一个温暖、活泼的消费者健康平台，结合冥想、睡眠和心理治疗，配有友好插画和易读字体。"
+      },
+      "colors": {
+        "principle": "温暖米白色基底，搭配高饱和度的黄色和橙色点缀，辅以深炭灰色文字，确保最佳可读性和温暖感。"
+      },
+      "typography": {
+        "rules": [
+          "标题使用紧凑行高（1.0-1.2），以保持紧凑、现代感",
+          "较大文本使用负字间距，增强字体视觉密度",
+          "正文使用标准16px基底，行距比默认值稍紧"
+        ],
+        "scaleUses": [
+          "主标题",
+          "章节标题",
+          "卡片标题",
+          "正文",
+          "标签和注释"
+        ]
+      },
+      "spacing": {
+        "rhythm": "基于4px一致网格，章节间距充足（48-64px），内边距舒适（24-32px），营造透气布局"
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 1px 8px 0px rgba(20,19,19,0.2)",
+          "0px 2px 0px 0px rgba(65,61,69,0.2)"
+        ],
+        "border": "极简边框；卡片多用微妙阴影。如出现，边框使用2px实线，搭配柔和炭灰色调。"
+      },
+      "layout": {
+        "skeleton": "居中单栏主视觉区，配大字体，后接两栏卡片布局，然后是全宽滚动横幅和网格区"
+      },
+      "components": {
+        "button": "药丸形按钮，内边距充足（16-24px）。主按钮：亮蓝色（#0061EF）配白色文字。次按钮：深炭灰色（#2D2C2B）配白色文字。圆角大（32px+）。",
+        "card": "大圆角卡片（16-32px半径），柔和米白背景，微妙阴影，内含混合媒体（插画、照片、UI模型），采用活泼构图。",
+        "chip": "药丸形筛选标签，圆角边框，浅色背景，配小型emoji图标。激活状态使用更深填充色。",
+        "input": "表单输入通过简洁、极简的样式呈现，与整体克制的美学一致。",
+        "hero": "全宽居中布局，超大展示字体（56px+），下方支持勾选列表和大型插画/卡片展示。"
+      },
+      "motion": {
+        "patterns": [
+          "交互元素的色彩和背景过渡",
+          "悬停状态的变换过渡",
+          "内容显现时的透明度渐变"
+        ]
+      },
+      "interaction": {
+        "hover": "微妙的背景色和文字色变化，0.15秒缓动计时",
+        "click": "通过变换和色彩变化提供即时视觉反馈",
+        "transition": "所有交互属性的平滑0.15秒过渡，使用自定义cubic-bezier缓动",
+        "keyboard": "标准焦点管理，交互元素显示指针光标"
+      },
+      "voice": {
+        "tone": "温暖、鼓励、平易近人，避免临床化或说教感",
+        "headlineStyle": "对话式、侧重益处的陈述，搭配大号友好字体",
+        "ctaStyle": "直接行动短语，如“免费试用”、“查看覆盖范围”、“$0 试用”，强调低门槛",
+        "avoid": [
+          "临床或医学术语",
+          "激进的销售语言",
+          "复杂行话",
+          "黑暗或忧郁的信息"
+        ]
+      },
+      "donts": [
+        "避免使用尖锐、有棱角的形状——截图显示所有卡片和按钮均为圆角（16-32px半径）",
+        "避免使用冷蓝灰色背景——截图显示温暖米白色（#F9F4F2）为主背景",
+        "避免使用衬线或装饰字体——截图显示全程使用简洁人文无衬线体",
+        "避免创建密集、拥挤的布局——截图显示章节间留有充足空白（48-64px间距）",
+        "避免到处使用刺眼、高饱和的点缀色——截图将高饱和色限定于特定行动号召和插画",
+        "避免标题使用纤细、微妙的字重——截图标题统一使用粗体（700）",
+        "避免省略插画——截图显示活泼的角色插画和抽象图形是核心视觉元素"
+      ],
+      "systemPrompt": "Headspace 是一款消费者心理健康应用，定位为友好、易获取的健康伙伴。设计采用温暖米白色背景（#F9F4F2），搭配炭灰色文字（#2D2C2B）和亮黄色（#FFCE00）及蓝色（#0061EF）点缀。字体采用人文无衬线体，标题粗体紧凑，正文间距充足。布局居中，使用大号展示字体和活泼插画构图。关键禁忌：绝不使用冷灰或蓝色作为背景，避免临床/医学视觉语言，不创建拥挤或密集布局，避免标题使用纤细字重，不因纯UI而忽略插画，绝不使用激进或暗色调配色。整体感觉应温暖、吸引人且心理安全。"
+    },
+    "zh-TW": {
+      "identity": {
+        "keywords": [
+          "心理健康",
+          "冥想",
+          "治療",
+          "健康",
+          "可及性"
+        ],
+        "analogy": "一位友善、平易近人的健康夥伴，運用溫暖、引人入勝的設計，讓心理健康減少威脅感，使每個人都更容易親近。",
+        "oneLiner": "溫暖活潑的消費型健康平台，結合冥想、睡眠與治療，搭配友善插圖與親和字體。"
+      },
+      "colors": {
+        "principle": "溫暖米白色基底搭配高彩度黃色與橘色強調色，再以深炭灰色文字確保最佳可讀性與溫暖感。"
+      },
+      "typography": {
+        "rules": [
+          "標題使用緊湊行高（1.0-1.2）以維持緊湊、現代的感覺",
+          "較大文字使用負字距以創造更緊密的字體呈現",
+          "內文使用標準 16px 基底，行距略緊於預設值"
+        ],
+        "scaleUses": [
+          "英雄標題",
+          "區段標題",
+          "卡片標題",
+          "內文",
+          "標籤與小字"
+        ]
+      },
+      "spacing": {
+        "rhythm": "一致的 4px 基礎網格，搭配寬裕的區段間距（48-64px）與舒適的內邊距（24-32px），創造通透的佈局。"
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 1px 8px 0px rgba(20,19,19,0.2)",
+          "0px 2px 0px 0px rgba(65,61,69,0.2)"
+        ],
+        "border": "極簡邊框；卡片改用細微陰影。必要時，邊框使用 2px 實線搭配柔和炭灰色調。"
+      },
+      "layout": {
+        "skeleton": "居中單欄英雄區段搭配大型字體，接著是雙欄卡片佈局，然後是全寬滾動橫幅與網格區段。"
+      },
+      "components": {
+        "button": "膠囊形按鈕，搭配寬裕內邊距（16-24px）。主要按鈕：亮藍色（#0061EF）配白字。次要按鈕：深炭灰色（#2D2C2B）配白字。高圓角半徑（32px+）。",
+        "card": "大型圓角卡片（16-32px 圓角），柔軟的米白色背景搭配細微陰影，內含混合媒體（插圖、照片、UI 模型），以活潑構圖呈現。",
+        "chip": "膠囊形篩選標籤，搭配圓角邊框、淺色背景與小型 emoji 圖示。啟用狀態使用較深填充色。",
+        "input": "表單輸入欄位以簡潔、極簡的樣式暗示，與整體克制的美學保持一致。",
+        "hero": "全寬居中佈局，搭配超大展示字型（56px+），輔助清單與下方大型插圖/卡片展示。"
+      },
+      "motion": {
+        "patterns": [
+          "互動元素的色彩與背景過渡",
+          "hover 狀態的變形過渡",
+          "內容揭示的透明度淡化"
+        ]
+      },
+      "interaction": {
+        "hover": "細微的 background-color 與 color 變化，搭配 0.15s ease 時間設定",
+        "click": "透過變形與色彩變化提供立即視覺回饋",
+        "transition": "所有互動屬性採用 0.15s 平滑過渡，搭配自訂 cubic-bezier 緩動",
+        "keyboard": "標準焦點管理，互動元素使用指標游標"
+      },
+      "voice": {
+        "tone": "溫暖、鼓舞人心且平易近人，不顯臨床或說教",
+        "headlineStyle": "對話式、聚焦利益的陳述，搭配大型親和字體",
+        "ctaStyle": "直接行動詞彙，如「免費試用」、「查看涵蓋範圍」與「0 元體驗」，強調低進入門檻",
+        "avoid": [
+          "臨床或醫療術語",
+          "激進的銷售語言",
+          "複雜的行話",
+          "陰暗或沉鬱的訊息"
+        ]
+      },
+      "donts": [
+        "避免使用尖銳、有角度的形狀——截圖顯示所有卡片與按鈕皆採用圓角（16-32px 圓角半徑）",
+        "避免使用冷色調灰藍背景——截圖顯示溫暖米白色（#F9F4F2）作為主要背景",
+        "避免使用襯線或裝飾性字體——截圖顯示整體採用簡潔人文無襯線字體",
+        "避免創造密集、擁擠的佈局——截圖顯示區段間採用寬裕的留白（48-64px 間距）",
+        "避免在所有地方使用刺眼、飽和的強調色——截圖將高彩度色彩限制於特定 CTA 與插圖",
+        "避免使用細、微妙的字重作為標題——截圖所有標題一致使用粗體（700）字重",
+        "避免省略插圖——截圖顯示活潑的角色插圖與抽象形狀作為核心視覺元素"
+      ],
+      "systemPrompt": "Headspace 是一款消費型心理健康應用程式，定位為友善、平易近人的健康夥伴。設計採用溫暖米白色背景（#F9F4F2），搭配炭灰色文字（#2D2C2B）與亮黃色（#FFCE00）及藍色（#0061EF）強調色。字體使用人文無襯線字體，標題為粗體、緊湊設定，內文寬鬆。佈局居中，搭配大型展示字體與活潑的插圖構圖。關鍵禁忌：切勿使用冷色調灰或藍作為背景，避免臨床/醫療視覺語言，勿創造擁擠或密集的佈局，避免標題使用細字重，勿為追求簡潔 UI 而省略插圖，且永遠不要使用激進或陰暗的配色方案。整體感覺應溫暖、引人入勝且心理安全。"
+    },
+    "ja": {
+      "identity": {
+        "keywords": [
+          "メンタルヘルス",
+          "瞑想",
+          "セラピー",
+          "ウェルネス",
+          "アクセシブル"
+        ],
+        "analogy": "温かく魅力的なデザインで、メンタルヘルスをより身近で、より多くの人にとってaccessibilityの高いものにする、フレンドリーで親しみやすいウェルネスパートナー。",
+        "oneLiner": "フレンドリーなイラストと親しみやすいタイポグラフィで、瞑想、睡眠、セラジーを組み合わせた、温かく遊び心のある消費者向けウェルネスプラットフォーム。"
+      },
+      "colors": {
+        "principle": "最大限の可読性と温かみのために、高彩度の黄色とオレンジのアクセントを備えた、温かみのあるオフホワイトベースと、深いcharcoalのテキストを組み合わせます。"
+      },
+      "typography": {
+        "rules": [
+          "見出しには tightenした行間（1.0-1.2）を使用し、現代的でコンパクトな感覚を維持します",
+          "大きなテキストには負の文字間隔を使用し、より緊密なタイポグラフィの存在感を実現します",
+          "本文テキストは標準の16pxをベースとし、デフォルトよりわずかに tightenしたリーディングを採用します"
+        ],
+        "scaleUses": [
+          "ヒーローヘッドライン",
+          "セクションタイトル",
+          "カード見出し",
+          "本文テキスト",
+          "ラベルとファインプリント"
+        ]
+      },
+      "spacing": {
+        "rhythm": "一貫した4pxのベースグリッドに、寛げのセクション間隔（48-64px）と快適な内部パディング（24-32px）を組み合わせ、息のできるレイアウトを実現します。"
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 1px 8px 0px rgba(20,19,19,0.2)",
+          "0px 2px 0px 0px rgba(65,61,69,0.2)"
+        ],
+        "borders": "最小限のボーダー。カードは代わりに微細なシャドウを使用します。必要に応じて、2px solidのミュートされたcharcoalトーンのボーダーを使用します。"
+      },
+      "layout": {
+        "skeleton": "大きなタイポグラフィによる中央揃えのシングルカラムヒーロー、次に2カラムカードレイアウト、そしてフルワイドのスクロールバナーとグリッドセクション。"
+      },
+      "components": {
+        "button": "パッドがゆったりとした（16-24px）ピル型ボタン。プライマリ：明るい青（#0061EF）に白文字。セカンダリ：ダークcharcoal（#2D2C2B）に白文字。高いborder-radius（32px以上）。",
+        "card": "ソフトなオフホワイト背景、微細なシャドウを備えた、大きな丸みのあるカード（16-32px radius）。イラスト、写真、UIモックアップなどのミックスメディアを、遊び心のある構成で収容します。",
+        "chip": "丸みのあるボーダー、明るい背景、小さな絵文字アイコンを持つ、ピル型フィルターチップ。アクティブ状態はより濃い塗りつぶしを使用します。",
+        "input": "フォーム入力は、全体の抑制された美学に沿った、クリーンでミニマルなスタイリングで表現されます。",
+        "hero": "過剰なディスプレイタイプ（56px以上）を備えたフルワイド中央レイアウト。チェックマークリストをサポートし、その下に大きなイラスト/カードショーを配置します。"
+      },
+      "motion": {
+        "patterns": [
+          "インタラクティブ要素の色と背景のトランジション",
+          "ホバー状態のtransformトランジション",
+          "コンテンツ表示の不透明度フェード"
+        ]
+      },
+      "interaction": {
+        "hover": "背景色と色の微妙な変化を、0.15s easeタイミングで実現",
+        "click": "transformと色の変化による即座の視覚フィードバック",
+        "transition": "すべてのインタラクティブプロパティに、カスタムcubic-bezier easingを用いた滑らかな0.15sトランジション",
+        "keyboard": "インタラクティブ要素にポインターカーソルを表示する、標準的なフォーカス管理"
+      },
+      "voice": {
+        "tone": "臨床的あるいは説教じみた印象にならず、温かく励ますような、親しみやすいトーン",
+        "headlineStyle": "フレンドリーな大型タイプによる、会話的でメリット重視の記述",
+        "ctaStyle": "「無料で試す」、「補償の確認」、「0ドルで試す」など、参入障壁の低さを強調する直接的な行動フレーズ",
+        "avoid": [
+          "臨床的または医療用語",
+          "アグレッシブな営業言語",
+          "複雑な専門用語",
+          "ダークあるいは重苦しいメッセージ"
+        ]
+      },
+      "donts": [
+        "シャープで角張った形状を使わない — スクリーンショットでは、すべてのカードとボタンに丸みのある角（16-32px radius）が示されています",
+        "冷たいブルーグレーの背景を使わない — スクリーンショットでは、温かみのあるオフホワイト（#F9F4F2）がプライマリ背景として使用されています",
+        "セリフ体あるいは装飾的なフォントを使わない — スクリーンショットでは、一貫してクリーンなヒューマンサンセリフが使用されています",
+        "密集した、窮屈なレイアウトを作らない — スクリーンショットでは、セクション間に寛げのホワイトスペース（48-64pxのギャップ）が示されています",
+        "激しく彩度の高いアクセントカラーを至る所で使わない — スクリーンショットでは、高彩度カラーを特定のCTAとイラストに限定しています",
+        "見出しに細く微細なフォントウェイトを使わない — スクリーンショットでは、すべての見出しに一貫して太字（700）のウェイトが使用されています",
+        "イラストを避ける — スクリーンショットでは、遊び心のあるキャラクターや抽象的な形状が主要なビジュアル要素として示されています"
+      ],
+      "systemPrompt": "Headspaceは、フレンドリーでaccessibilityの高いウェルネスパートナーとしてポジショニングされた消費者向けメンタルヘルスアプリです。デザインは、charcoalのテキスト（#2D2C2B）と明るい黄色（#FFCE00）および青（#0061EF）のアクセントを備えた、温かみのあるオフホワイト背景（#F9F4F2）を使用します。タイポグラフィはヒューマンサンセリフで、太くtightに設定された見出しと寛げの本文テキスト。レイアウトは中央揃えで、大きなディスプレイタイプと遊び心のあるイラスト構成。重要な禁止事項：決して寒いグレーまたはブルーを背景として使用せず、臨床的/医療的なビジュアル言語を避け、窮屈あるいは密集したレイアウトを作らず、見出しに細いフォントウェイトを避け、プレーンUIのためにイラストをスキップせず、決してアグレッシブまたはダークなカラースキームを使用しない。全体的な印象は、温かく、魅力的で、心理的に安全なものでなければなりません。"
+    },
+    "ko": {
+      "identity": {
+        "keywords": [
+          "정신건강",
+          "명상",
+          "치료",
+          "웰니스",
+          "접근성"
+        ],
+        "analogy": "따뜻하고 매력적인 디자인을 사용하여 정신건강을 덜 위협적이고 모두에게 더 접근 가능하게 만드는, 친근하고 접근성 높은 웰니스 동반자.",
+        "oneLiner": "명상, 수면, 치료를 친근한 일러스트레이션과 접근성 높은 타이포그래피로 결합한 따뜻하고 장난스러운 소비자 웰니스 플랫폼."
+      },
+      "colors": {
+        "principle": "따뜻한 오프화이트 베이스에 고채도의 노랑과 주황 강조색을 적용하고, 깊은 차콜 텍스트를 사용하여 최대한의 가독성과 따뜻함을 확보합니다."
+      },
+      "typography": {
+        "rules": [
+          "타이트한 행간(1.0-1.2)을 사용하여 헤드라인의 컴팩트하고 현대적인 느낌을 유지합니다",
+          "큰 텍스트에는 네거티브 letterSpacing을 사용하여 타이포그래피 존재감을 강조합니다",
+          "본문 텍스트는 기본 16px를 사용하되, 기본값보다 약간 더 타이트한 leading을 적용합니다"
+        ],
+        "scaleUses": [
+          "히어로 헤드라인",
+          "섹션 제목",
+          "카드 제목",
+          "본문 텍스트",
+          "라벨 및 주석"
+        ]
+      },
+      "spacing": {
+        "rhythm": "일관된 4px 기본 그리드를 사용하고, 넉넉한 섹션 간격(48-64px)과 편안한 내부 패딩(24-32px)을 적용하여 호흡이 가능한 레이아웃을 만듭니다."
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 1px 8px 0px rgba(20,19,19,0.2)",
+          "0px 2px 0px 0px rgba(65,61,69,0.2)"
+        ],
+        "borders": "최소한의 테두리를 사용합니다. 카드에는 미묘한 그림자를 사용합니다. 테두리가 필요할 경우, 2px solid를 차콜 음영으로 사용합니다."
+      },
+      "layout": {
+        "skeleton": "큰 타이포그래피를 사용한 중앙 정렬 단일 열 히어로, 두 열 카드 레이아웃, 그 다음 전체 폭 스크롤 배너와 그리드 섹션으로 구성됩니다."
+      },
+      "components": {
+        "button": "넉넉한 패딩(16-24px)을 가진 필 형태 버튼입니다. 프라이머리: 밝은 파랑(#0061EF)에 흰색 텍스트. 세컨더리: 어두운 차콜(#2D2C2B)에 흰색 텍스트. 높은 border-radius(32px 이상)를 적용합니다.",
+        "card": "soft 오프화이트 배경, 미묘한 그림자를 가진 큰 둥근 카드(16-32px radius)로, 장난스러운 구성에 미디어 혼합(일러스트레이션, 사진, UI 목업)을 포함합니다.",
+        "chip": "둥근 테두리, 밝은 배경, 그리고 작은 이모지 아이콘을 가진 필 형태 필터 칩입니다. 활성 상태는 더 어두운 채우기를 사용합니다.",
+        "input": "전체적인 절제된 미학과 일관된 깨끗하고 미니멀한 스타일을 통해 폼 입력 필드를 암시합니다.",
+        "hero": "과장된 디스플레이 타이포그래피(56px 이상), 지원 체크리스트, 그리고 그 아래 큰 일러스트레이션/카드 쇼케이스를 포함한 전체 폭 중앙 정렬 레이아웃입니다."
+      },
+      "motion": {
+        "patterns": [
+          "인터랙티브 요소의 색상 및 배경 전환",
+          "호버 상태의 transform 전환",
+          "콘텐츠 노출을 위한 불투명도 페이드"
+        ]
+      },
+      "interaction": {
+        "hover": "0.15초 ease 타이밍으로 미묘한 backgroundColor 및 color 변화",
+        "click": "transform과 color 변경을 통한 즉각적인 시각적 피드백",
+        "transition": "맞춤형 cubic-bezier easing으로 모든 인터랙티브 속성에서의 부드러운 0.15초 전환",
+        "keyboard": "인터랙티브 요소에 포인터 커서를 사용하는 표준 포커스 관리"
+      },
+      "voice": {
+        "tone": "임상적이거나 도덕적으로 가르치는 듯하지 않으면서, 따뜻하고 격려적이며 접근 가능한 어조",
+        "headlineStyle": "대화체, 혜택 중심의 진술과 큰 친근한 타이포그래피 사용",
+        "ctaStyle": "진입 장벽이 낮음을 강조하는 '무료로 체험하기', 'coverage 확인하기', '$0로 체험하기'와 같은 직접적인 행동 문구",
+        "avoid": [
+          "임상적이거나 의학적 전문 용어",
+          "공격적인 판매 언어",
+          "복잡한 전문 용어",
+          "어둡거나 침울한 메시징"
+        ]
+      },
+      "donts": [
+        "날카롭고 각진 형태를 사용하지 마세요 — 스크린샷은 모든 카드와 버튼에 둥근 모서리(16-32px radius)를 보여줍니다",
+        "차가운 청회색 배경을 사용하지 마세요 — 스크린샷은 따뜻한 오프화이트(#F9F4F2)를 주 배경으로 보여줍니다",
+        "세리프 또는 장식용 글꼴을 사용하지 마세요 — 스크린샷은 전체적으로 깨끗한 휴머니스트 산세리프를 보여줍니다",
+        "빈틈없고 비좁은 레이아웃을 만들지 마세요 — 스크린샷은 섹션 간 넉넉한 여백(48-64px gap)을 보여줍니다",
+        "모든 곳에 강하고 채도 높은 강조색을 사용하지 마세요 — 스크린샷은 고채도 색상을 특정 CTA와 일러스트레이션으로 제한합니다",
+        "헤드라인에 얇고 미묘한 글꼴 두께를 사용하지 마세요 — 스크린샷은 모든 제목에 일관되게 볼드(700) 두께를 사용합니다",
+        "일러스트레이션을 사용하지 않으려 하지 마세요 — 스크린샷은 장난스러운 캐릭터 일러스트레이션과 추상적 형태를 핵심 시각 요소로 보여줍니다"
+      ],
+      "systemPrompt": "Headspace는 친근하고 접근성 높은 웰니스 동반자로 포지셔닝된 소비자 정신건강 앱입니다. 디자인은 따뜻한 오프화이트 배경(#F9F4F2)과 차콜 텍스트(#2D2C2B), 밝은 노랑(#FFCE00)과 파랑(#0061EF) 강조색을 사용합니다. 타이포그래피는 볼드하고 타이트하게 세팅된 헤드라인과 넉넉한 본문 텍스트를 가진 휴머니스트 산세리프입니다. 레이아웃은 큰 디스플레이 타이포그래피와 장난스러운 일러스트레이션 구성을 사용한 중앙 정렬입니다. 중요한 '하지 말 것': 배경으로 차가운 그레이 또는 블루를 절대 사용하지 마세요, 임상적/의학적 시각 언어를 피하세요, 비좁거나 빈틈없는 레이아웃을 만들지 마세요, 헤드라인에 얇은 글꼴 두께를 피하세요, 단순한 UI를 위해 일러스트레이션을 건너뛰지 마세요, 그리고 공격적이거나 어두운 색상 구성을 절대 사용하지 마세요. 전체적인 느낌은 따뜻하고 초대하며 심리적으로 안전해야 합니다."
+    }
+  },
+  "desc": {
+    "en": {
+      "palette": "Warm off-white base (#F9F4F2) with charcoal text hierarchy (#2D2C2B, #4B4C4D, #44433F) and vibrant yellow (#FFCE00) and blue (#0061EF) accent pops.",
+      "layout": "Centered single-column hero with oversized display typography, transitioning to two-column card layouts and full-width content sections with generous spacing.",
+      "interaction": "Smooth 0.15s transitions on hover states with custom cubic-bezier easing, subtle color shifts, and transform effects on interactive elements.",
+      "motion": "Minimal, purposeful animations focused on micro-interactions: color transitions, subtle transforms, and opacity fades for content reveals.",
+      "notes": "Worth including as a benchmark for how consumer wellness brands use warm, playful design (illustrations, rounded shapes, friendly typography) to make mental health feel approachable and non-clinical."
+    },
+    "zh-CN": {
+      "palette": "温暖米白色基底（#F9F4F2），搭配炭灰色文字层级（#2D2C2B、#4B4C4D、#44433F），以及明黄色（#FFCE00）和蓝色（#0061EF）的亮色点缀。",
+      "layout": "居中单栏主视觉区，采用超大展示字体，过渡到两栏卡片布局和全宽内容区，间距充足。",
+      "interaction": "悬停状态下0.15秒平滑过渡，使用自定义cubic-bezier缓动，配合细微色彩变化和交互元素的变换效果。",
+      "motion": "极简、有目的性的动画，聚焦于微交互：色彩过渡、细微变换和内容显现时的透明度渐变。",
+      "notes": "可作为消费者健康品牌如何运用温暖、活泼的设计（插画、圆润形状、友好字体）让心理健康显得平易近人、非临床化的基准参考。"
+    },
+    "zh-TW": {
+      "palette": "溫暖米白色基底（#F9F4F2）搭配炭灰色文字層級（#2D2C2B、#4B4C4D、#44433F），並以鮮黃色（#FFCE00）與藍色（#0061EF）作為強調色點綴。",
+      "layout": "以居中單欄英雄區段搭配超大展示字體，過渡至雙欄卡片佈局與全寬內容區段，採用寬裕的間距。",
+      "interaction": "hover 狀態下以 0.15 秒平滑過渡，搭配自訂 cubic-bezier 緩動、細微色彩變化與互動元素的變形效果。",
+      "motion": "簡約且具目的性的動畫，專注於微互動：色彩過渡、細微變形與內容揭示的透明度淡化。",
+      "notes": "適合作為參考基準，觀察消費型健康品牌如何運用溫暖、活潑的設計（插圖、圓潤形狀、親和字體）讓心理健康顯得平易近人、去醫療化。"
+    },
+    "ja": {
+      "palette": "温かみのあるオフホワイトベース（#F9F4F2）に、 charcoalテキスト階層（#2D2C2B、#4B4C4D、#44433F）を配し、鮮やかな黄色（#FFCE00）と青（#0061EF）のアクセントが効きます。",
+      "layout": "過剰なディスプレイタイポグラフィによる中央揃えのシングルカラムヒーローから、2カラムカードレイアウト、そして寛げのスペーシングを備えたフルワイドコンテンツセクションへと展開します。",
+      "interaction": "カスタムcubic-bezier easingを用いた、ホバー状態での滑らかな0.15秒のトランジション、微妙な色の変化、インタラクティブ要素のtransform効果。",
+      "motion": "最小限で目的にかなったアニメーション。マイクロインタラクションに焦点を当て、コンテンツの表示時に色の変化、微妙なtransform、不透明度のフェードを使用します。",
+      "notes": "消費者向けウェルネスブランドが、温かく遊び心のあるデザイン（イラスト、丸みのある形状、親しみやすいタイポグラフィ）をいかに利用し、メンタルヘルスを身近で非臨床的なものにしているかのベンチマークとして、含める価値があります。"
+    },
+    "ko": {
+      "palette": "따뜻한 오프화이트 베이스(#F9F4F2)에 차콜 텍스트 계층(#2D2C2B, #4B4C4D, #44433F)을 적용하고, 밝은 노랑(#FFCE00)과 파랑(#0061EF)으로 강조 효과를 더했습니다.",
+      "layout": "과장된 디스플레이 타이포그래피를 사용한 중앙 정렬 단일 열 히어로 섹션으로 시작하여, 넉넉한 간격의 2열 카드 레이아웃과 전체 폭 콘텐츠 섹션으로 전환됩니다.",
+      "interaction": "호버 상태에서 0.15초의 부드러운 전환, 맞춤형 cubic-bezier easing, 미묘한 색상 변화, 그리고 인터랙티브 요소의 transform 효과가 적용됩니다.",
+      "motion": "미세 인터랙션에 초점을 맞춘 최소한의, 목적 지향적인 애니메이션입니다. 색상 전환, 미묘한 transform, 그리고 콘텐츠 노출을 위한 불투명도 페이드가 포함됩니다.",
+      "notes": "소비자 웰니스 브랜드가 따뜻하고 장난스러운 디자인(일러스트레이션, 둥근 형태, 친근한 타이포그래피)을 통해 정신건강을 친근하고 비임상적으로 만드는 벤치마크로 포함할 가치가 있습니다."
+    }
+  },
+  "narrative": {
+    "en": {
+      "ch1_intro": "Headspace's design system is built like a welcoming room in a well-considered home—warm, uncluttered, and softly lit, designed to put a visitor at ease from the moment they step inside. The system translates the complex, often clinical world of mental health into a language of playful shapes, warm tones, and conversational type, making wellness feel like a friendly invitation rather than a daunting prescription.",
+      "ch2_intro": "The palette is grounded in a warm off-white base, #F9F4F2, which serves as a non-sterile canvas. Text hierarchy is established through deep charcoal tones, while high-chroma yellow (#FFCE00) and blue (#0061EF) are reserved as vibrant accents for calls to action and illustrative highlights.",
+      "ch2_outro": "The core principle is maximum readability and warmth, deliberately avoiding cold, clinical grays in favor of an inviting, sunlit atmosphere.",
+      "ch3_intro": "Typography employs a clean humanist sans-serif, selected for its approachable, organic qualities. Headlines are set bold and tight, using compact line-heights and negative letter-spacing to create a strong, friendly presence that contrasts with the relaxed, comfortable setting of the body text.",
+      "ch4_intro": "Layout rhythm follows a consistent 4px base grid, with generous section gaps (48-64px) and comfortable inner padding that creates a breathable, uncluttered flow between content areas.",
+      "ch5_intro": "Surfaces are defined by soft, low-contrast shadows rather than hard borders, contributing to a sense of gentle depth. The minimal use of borders keeps the interface feeling light and open, with any necessary divisions rendered in muted charcoal.",
+      "ch6_intro": "The page skeleton begins with a centered, single-column hero section dominated by oversized display type and a key visual. This transitions into a two-column card layout for content discovery, followed by full-width scrolling banners and grid sections that maintain generous whitespace.",
+      "ch7_intro": "Motion is minimal and purposeful, focused on confirming interaction rather than decoration. All changes—color shifts, transforms, opacity fades—use smooth 0.15-second transitions with a custom easing curve for a consistently polished feel.",
+      "ch8_intro": "The editorial voice is warm, encouraging, and benefit-focused, speaking in direct, conversational phrases that lower the barrier to entry. It avoids clinical jargon, aggressive sales language, and somber messaging in favor of a psychologically safe tone.",
+      "ch8_outro": "The system deliberately excludes cold color schemes, sharp angles, dense layouts, and the omission of illustration in favor of plain UI."
+    },
+    "zh-CN": {
+      "ch1_intro": "Headspace 的设计系统构建得如同一个精心设计的家中会客厅——温暖、整洁、光线柔和，旨在让访客从踏入的第一刻便感到放松。该系统将复杂、时常显得冰冷的医疗健康世界，转化为一种由趣味形状、温暖色调和对话式字体构成的语言，让身心康健感觉像是一次友好的邀请，而非一纸令人生畏的处方。",
+      "ch2_intro": "调色板以温暖的灰白色 #F9F4F2 为基底，形成一个非无菌的画布。文本层级通过深木炭色调建立，而高饱和度的黄色 (#FFCE00) 和蓝色 (#0061EF) 则作为充满活力的强调色，专用于行动号召和插图高光。",
+      "ch2_outro": "核心原则是最大化可读性和温暖感，刻意避免冰冷、临床的灰色，转而营造一种阳光普照的邀请式氛围。",
+      "ch3_intro": "字体采用简洁的 humanist-sans，因其平易近人、有机的特质而被选中。标题采用粗体、紧凑的排版，运用紧缩的行高和负字间距，创造出一种强烈而亲切的存在感，与正文文本轻松舒适的设定形成对比。",
+      "ch4_intro": "布局节奏遵循统一的 4px 基础网格，搭配充足的区块间距 (48-64px) 与舒适的内边距，从而在内容区域之间营造出流畅、透气的无杂乱感。",
+      "ch5_intro": "界面表面通过柔和、低对比度的阴影来定义，而非硬边框，以此贡献一种温和的纵深感。边框的极简使用保持了界面的轻盈与开阔感，任何必要的分割线都以柔和的木炭色渲染。",
+      "ch6_intro": "页面骨架以居中的单栏主视觉区段开始，由超大展示字体和核心视觉主导。随后过渡到用于内容探索的双栏卡片布局，接着是全宽滚动横幅和网格区段，这些都保持着充裕的留白。",
+      "ch7_intro": "动效简约且有目的性，专注于确认交互而非装饰。所有变化——颜色转换、变换、透明度渐变——均使用平滑的 0.15 秒过渡，配合自定义缓动曲线，以获得始终如一的精致质感。",
+      "ch8_intro": "编辑声音温暖、鼓舞人心且以收益为中心，使用直接、对话式的短语，降低准入门槛。它避免使用临床术语、激进的销售语言和沉郁的传递，转而采用一种心理安全的语调。",
+      "ch8_outro": "该设计系统刻意排除了冷色调方案、尖锐角度、密集布局，并避免依赖无插图的纯用户界面。"
+    },
+    "zh-TW": {
+      "ch1_intro": "Headspace 的設計系統如同精心規劃的住宅中一個溫馨的房間——溫暖、簡潔、光線柔和，旨在讓訪客從踏入的那一刻起就感到放鬆。這個系統將複雜、往往帶有臨床感的心理健康世界，轉化為一種由俏皮形狀、溫暖色調和對話式字型構成的語言，使健康感覺像是一個友善的邀請，而非令人畏懼的處方。",
+      "ch2_intro": "色彩配置以溫暖的米白色底色 #F9F4F2 為基礎，提供一個非冰冷的畫布。文字層級透過深炭灰色調建立，而高飽和度的黃色 (#FFCE00) 與藍色 (#0061EF) 則保留作為行動呼籲和插圖亮點的鮮明強調色。",
+      "ch2_outro": "核心原則是最大化可讀性與溫暖感，刻意避免冰冷、臨床感的灰色，轉而營造一個引人入勝、陽光普照的氛圍。",
+      "ch3_intro": "字型採用簡潔的人文主義無襯線體，因其親和、有機的特質而入選。標題使用粗體並緊密排列，透過緊湊的行高與負字距，創造出強大而友善的存在感，與內文放鬆、舒適的設定形成對比。",
+      "ch4_intro": "版面節奏遵循一致的 4px 基礎網格，搭配寬裕的區塊間距（48-64px）與舒適的內邊距，在內容區域之間營造出有呼吸感、不擁擠的流動。",
+      "ch5_intro": "介面表層由柔和、低對比的陰影而非硬邊框定義，帶來溫和的深度感。邊框的極簡使用使介面感覺輕盈開闊，必要的分隔線則以柔和的炭灰色呈現。",
+      "ch6_intro": "頁面骨架從一個置中的單欄 Hero 區塊開始，由超大展示字型與關鍵視覺主導。接著過渡到用於內容探索的雙欄卡片佈局，最後是全寬滾動橫幅與網格區塊，維持寬裕的留白空間。",
+      "ch7_intro": "動效簡約且有目的性，專注於確認互動而非裝飾。所有變更——顏色轉換、變形、透明度淡入淡出——皆使用平滑的 0.15 秒過渡，搭配自訂緩動曲線，帶來始終如一的精緻感。",
+      "ch8_intro": "編輯語調溫暖、鼓勵且注重效益，以直接、對話式的短語降低入門門檻。它避免臨床術語、激進的銷售語言與沉重的訊息，轉而採用心理上安全的語氣。",
+      "ch8_outro": "這個系統刻意排除冰冷的配色方案、尖銳的角度、密集的佈局，以及省略插圖而採用純粹 UI 的做法。"
+    },
+    "ja": {
+      "ch1_intro": "Headspaceのデザインシステムは、よく考えられた家の居心地の良い部屋のように構築されています——暖かく、散らかっておらず、柔らかい照明が施され、訪問者が足を踏み入れた瞬間からリラックスできるように設計されています。このシステムは、複雑で時にクリニカルなメンタルヘルスの世界を、遊び心のある形状、暖色、会話的なタイポグラフィの言語に翻訳し、ウェルネスを恐ろしい処方箋ではなく、友好的な招待のように感じさせます。",
+      "ch2_intro": "カラーパレットは、暖かいオフホワイトのベース、#F9F4F2を基盤とし、無菌的ではないキャンバスを提供します。テキストの階層は深いチャコールトーンで確立され、高彩度のイエロー（#FFCE00）とブルー（#0061EF）は、アクションへの呼びかけやイラストのハイライトのための鮮やかなアクセントとして予約されています。",
+      "ch2_outro": "核となる原則は最大限の可読性と温かさであり、意図的に冷たくクリニカルなグレーを避け、日当たりの良い、お招きするような雰囲気を重視しています。",
+      "ch3_intro": "タイポグラフィは、親しみやすくオーガニックな特性から選ばれた、クリーンなヒューマニストサンセリフを採用しています。見出しは太字でタイトに設定され、コンパクトな行間と負の字間を使用して、本文のリラックスした快適な設定と対照的な、力強く友好的な存在感を生み出します。",
+      "ch4_intro": "レイアウトのリズムは、一貫した4pxベースグリッドに従い、十分なセクション間隔（48-64px）と快適な内側パディングを備え、コンテンツ領域間の息抜きのできる、散らかっていないフローを生み出します。",
+      "ch5_intro": "サーフェスは、硬い境界線ではなく、柔らかく低コントラストのシャドウで定義され、優しい深みの感覚を高めます。境界線の最小限の使用により、インターフェースは軽くオープンな Feel を維持し、必要な区切りはすべて、控えめなチャコール色で描かれます。",
+      "ch6_intro": "ページのスケルトンは、オーバーサイズのディスプレイタイポと主要なビジュアルが支配的な、中央揃えの単一カラムのヒーローセクションから始まります。これは、コンテンツ発見のための2カラムカードレイアウトに移行し、その後、十分な余白を維持するフル幅のスクロールバナーとグリッドセクションが続きます。",
+      "ch7_intro": "モーションは最小限で目的が明確であり、装飾ではなくインタラクションの確認に焦点を当てています。すべての変更——カラーシフト、トランスフォーム、透明度のフェード——は、一貫して洗練された感覚のために、カスタムイージングカーブを使用した滑らかな0.15秒のトランジションを使用します。",
+      "ch8_intro": "エディトリアルボイスは温かく、励ましの効いた、メリットに焦点を当てたものであり、参入障壁を下げる直接的で会話的なフレーズで語ります。クリニカルな専門用語、攻撃的な営業言語、深刻なメッセージを避け、心理的に安全なトーンを優先します。",
+      "ch8_outro": "このシステムは、冷たいカラースキーム、鋭い角度、密なレイアウト、そしてプレーンなUIに代わるイラストの欠如を意図的に除外しています。"
+    },
+    "ko": {
+      "ch1_intro": "Headspace의 디자인 시스템은 잘 고려된 집의 따뜻한 방처럼 구축되어 있습니다—따뜻하고, 정돈되지 않으며, 부드럽게 조명되어, 방문자가 들어서는 순간 편안함을 느끼도록 설계되었습니다. 이 시스템은 정신건강의 복잡하고 때로는 임상적인 세계를 장난스러운 형태, 따뜻한 톤, 대화체 타이포그래피의 언어로 번역하여, 웰빙을 두려운 처방전이 아닌 친근한 초대처럼 느끼게 합니다.",
+      "ch2_intro": "팔레트는 비무균성 캔버스 역할을 하는 따뜻한 오프화이트 베이스 #F9F4F2를 기반으로 합니다. 텍스트 계층은 짙은 차콜 톤으로 설정되며, 고채도 노란색 (#FFCE00)과 파란색 (#0061EF)은 행동 유도 및 일러스트레이션 하이라이트를 위한 생동감 있는 강조색으로 사용됩니다.",
+      "ch2_outro": "핵심 원칙은 최대의 가독성과 따뜻함이며, 차갑고 임상적인 회색 대신 초대받는 듯한 햇살 가득한 분위기를 의도적으로 지향합니다.",
+      "ch3_intro": "타이포그래피는 접근 가능하고 유기적인 특성을 위해 선정된 깔끔한 휴머니스트 산세리프를 사용합니다. 헤드라인은 볼드하고 타이트하게 설정되어, 본문 텍스트의 편안하고 여유로운 설정과 대비되는 강하고 친근한 존재감을 만들기 위해 컴팩트한 행간과 마이너스 자간을 사용합니다.",
+      "ch4_intro": "레이아웃 리듬은 일관된 4px 기본 그리드를 따르며, 넉넉한 섹션 간격 (48-64px)과 콘텐츠 영역 사이에 숨 쉬는 듯하고 정돈된 흐름을 만드는 편안한 내부 패딩을 사용합니다.",
+      "ch5_intro": "표면은 딱딱한 테두리 대신 부드럽고 저대비 그림자로 정의되어 부드러운 깊이감을 줍니다. 테두리의 최소 사용은 인터페이스를 가볍고 열린 느낌으로 유지하며, 필요한 모든 구분은 은은한 차콜색으로 표현됩니다.",
+      "ch6_intro": "페이지 스켈레톤은 과도하게 큰 디스플레이 타입과 핵심 비주얼이主导하는 중앙 정렬 단일 열 히어로 섹션으로 시작합니다. 이어 콘텐츠 탐색을 위한 이중 열 카드 레이아웃, 그리고 넉넉한 여백을 유지하는 전체 폭 스크롤 배너 및 그리드 섹션이_follow_합니다.",
+      "ch7_intro": "모션은 장식보다 상호작용 확인에 초점을 맞춘 최소한이고 의도적입니다. 모든 변화—색상 전환, 변환, 불투명도 페이드—is 일관된 세련된 느낌을 위해 사용자 정의 완화 곡선과 함께 부드러운 0.15초 전환을 사용합니다.",
+      "ch8_intro": "편집 음성은 따뜻하고, 격려하며, 이점에 집중적이며, 진입 장벽을 낮추는 직접적이고 대화적인 문구로 말합니다. 임상 용어, 공격적인 판매 언어, 음울한 메시지 대신 심리적으로 안전한 톤을 지향합니다.",
+      "ch8_outro": "시스템은 차가운 색상 팔레트, 날카로운 각도, 밀집된 레이아웃, 그리고 일반 UI 대신 일러스트레이션을 포함한 것을 의도적으로 제외합니다."
+    }
+  }
+}

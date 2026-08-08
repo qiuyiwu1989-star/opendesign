@@ -1,0 +1,571 @@
+{
+  "id": "counter-print",
+  "schema_version": "0.3",
+  "url": "https://www.counter-print.co.uk",
+  "title": "Counter Print",
+  "image": "https://image.thum.io/get/width/1440/noanimate/https://www.counter-print.co.uk",
+  "tags": [
+    "Editorial",
+    "Curation",
+    "Typography",
+    "Books",
+    "Premium"
+  ],
+  "status": "completed",
+  "added_at": "2026-06-18",
+  "added_by": "discover",
+  "_meta": {
+    "vision_model": "mimo-v2.5",
+    "vision_prompt_version": "0.3",
+    "vision_source": "playwright-extract:counter-print",
+    "vision_grounded": true,
+    "vision_at": "2026-06-17T22:24:05+00:00",
+    "vision_tokens": 17272,
+    "vision_cost_usd": 0.1919,
+    "translation_model": "mimo-v2.5",
+    "translation_at": "2026-06-17T22:25:05+00:00",
+    "translation_tokens": 16070,
+    "translation_cost_usd": 0.0536,
+    "narrative_model": "mimo-v2.5",
+    "narrative_prompt_version": "0.3",
+    "narrative_at": "2026-06-17T22:25:13+00:00",
+    "narrative_tokens": 1960,
+    "narrative_cost_usd": 0.0131,
+    "narrative_status": "ok",
+    "total_cost_usd": 0.2586
+  },
+  "spec": {
+    "colors": {
+      "bg": "#FFFFFF",
+      "bgSoft": null,
+      "bgQuiet": null,
+      "ink": "#1C1C1C",
+      "inkSoft": null,
+      "muted": "#1C1C1C",
+      "mutedSoft": null,
+      "accent": null,
+      "line": "rgba(229,231,235,1.0)"
+    },
+    "typography": {
+      "display": "grotesque-sans",
+      "body": "grotesque-sans",
+      "mono": null,
+      "scale": [
+        {
+          "token": "display",
+          "size": 63.135,
+          "lh": 1.0,
+          "weight": 700,
+          "ls": "-1.578px"
+        },
+        {
+          "token": "body",
+          "size": 15,
+          "lh": 1.2,
+          "weight": 400,
+          "ls": "-0.5px"
+        }
+      ]
+    },
+    "spacing": {
+      "base": 4,
+      "scale": [
+        4,
+        8,
+        16,
+        24,
+        32,
+        48,
+        64,
+        96
+      ]
+    },
+    "surfaces": {
+      "radius": {
+        "sm": 4,
+        "md": 8,
+        "lg": 12,
+        "pill": 999
+      }
+    },
+    "layout": {
+      "container": 1280,
+      "paragraph": 680,
+      "columns": 12,
+      "gutter": 24,
+      "breakpoints": [
+        768,
+        1024
+      ]
+    },
+    "motion": {
+      "durations": {
+        "micro": 220,
+        "small": 400,
+        "medium": 800
+      },
+      "easing": "cubic-bezier(0.4, 0, 0.2, 1)"
+    }
+  },
+  "spec_i18n": {
+    "en": {
+      "identity": {
+        "keywords": [
+          "curated",
+          "design books",
+          "graphic design",
+          "references"
+        ],
+        "analogy": "A digital gallery for graphic design literature",
+        "oneLiner": "A minimalist, image-first curated bookstore for design professionals."
+      },
+      "colors": {
+        "principle": "Strict monochrome canvas to let the colorful book covers serve as the primary visual interest."
+      },
+      "typography": {
+        "rules": [
+          "Use tight negative letter-spacing for display sizes to increase impact.",
+          "Maintain a strict visual hierarchy using only weight and size, not color."
+        ],
+        "scaleUses": [
+          "Section Headers",
+          "Body Text & Pricing"
+        ]
+      },
+      "spacing": {
+        "rhythm": "Generous vertical padding separates distinct content blocks while tight horizontal gaps group related items."
+      },
+      "surfaces": {
+        "shadows": [],
+        "borders": "1px solid rgb(229,231,235)"
+      },
+      "layout": {
+        "skeleton": "A simple grid-based layout that relies on large, high-quality photography to fill the canvas."
+      },
+      "components": {
+        "button": "Ghost/Outline button with pill-shaped border-radius, used for secondary actions like 'View all'.",
+        "card": "Edge-to-edge image cards that sit flush within their grid columns, emphasizing the product photography.",
+        "chip": null,
+        "input": null,
+        "hero": "A two-column split layout featuring large product photography and bold, minimal text categorization."
+      },
+      "motion": {
+        "patterns": [
+          "Smooth opacity and transform transitions on interactive elements."
+        ]
+      },
+      "interaction": {
+        "hover": "Subtle visual changes, likely opacity or transform, indicated by the transition properties.",
+        "click": "Immediate response with standard cursor pointer feedback.",
+        "transition": "Consistent cubic-bezier easing applied across all transitions.",
+        "keyboard": "Standard accessible focus management."
+      },
+      "voice": {
+        "tone": "Professional, minimalist, and highly curated.",
+        "headlineStyle": "Bold, tightly tracked, and descriptive.",
+        "ctaStyle": "Understated, using clear, functional language and pill-shaped outline buttons.",
+        "avoid": [
+          "Overly promotional language",
+          "Cluttered layouts",
+          "Decorative fonts"
+        ]
+      },
+      "donts": [
+        "Don't use decorative or serif fonts for UI elements — screenshot shows a strict geometric/grotesque sans-serif system.",
+        "Don't use bright accent colors for buttons or highlights — screenshot shows a strictly monochrome UI with no dominant accent.",
+        "Don't apply heavy drop shadows or soft glows — screenshot shows completely flat surfaces with no shadow usage.",
+        "Don't use rounded corners on primary content cards — screenshot shows sharp corners on product images and layout blocks.",
+        "Don't use justified text or dense blocks of copy — screenshot shows left-aligned text with generous vertical spacing.",
+        "Don't add unnecessary borders or dividers — screenshot uses white space and grid alignment to separate sections."
+      ],
+      "systemPrompt": "A minimalist, premium e-commerce design for a curated graphic design bookstore. The UI uses a strict monochrome palette (#FFFFFF background, #1C1C1C ink) to ensure the colorful book covers remain the focal point. Typography relies on a clean, tight-tracked grotesque-sans (Helvetica/Arial) with bold, large-scale headers. Critical donts: never use decorative fonts, never apply heavy shadows, and never introduce a bright accent color that competes with the products. The layout is grid-based with generous padding, using ghost/pill buttons for secondary actions. Interaction patterns are subtle, relying on smooth opacity and transform transitions."
+    },
+    "zh-CN": {
+      "identity": {
+        "keywords": [
+          "精选",
+          "设计书籍",
+          "平面设计",
+          "参考资料"
+        ],
+        "analogy": "平面设计文献的数字画廊",
+        "oneLiner": "面向设计专业人士的极简主义、图像优先精选书店。"
+      },
+      "colors": {
+        "principle": "严格的单色画布，让多彩的书籍封面成为主要视觉焦点。"
+      },
+      "typography": {
+        "rules": [
+          "对标题尺寸使用紧凑的负字距以增强视觉冲击力。",
+          "仅通过字重和字号（而非颜色）建立严格的视觉层级。"
+        ],
+        "scaleUses": [
+          "章节标题",
+          "正文与定价"
+        ]
+      },
+      "spacing": {
+        "rhythm": "充裕的垂直内边距分隔内容区块，紧密的水平间距将相关项目分组。"
+      },
+      "surfaces": {
+        "shadows": [],
+        "borders": "1px solid rgb(229,231,235)"
+      },
+      "layout": {
+        "skeleton": "简洁的网格布局，依靠大尺寸高质量摄影填充画布。"
+      },
+      "components": {
+        "button": "用于“查看全部”等次级操作的幽灵/描边按钮，采用胶囊形圆角。",
+        "card": "边缘到边缘的图像卡片，紧密嵌入网格列中，强调产品摄影。",
+        "chip": null,
+        "input": null,
+        "hero": "采用双栏分割布局，展示大型产品摄影与醒目、简洁的文本分类。"
+      },
+      "motion": {
+        "patterns": [
+          "交互元素上的平滑透明度与变换过渡。"
+        ]
+      },
+      "interaction": {
+        "hover": "通过过渡属性实现的微妙视觉变化，可能是透明度或变换。",
+        "click": "即时响应，配合标准手形光标反馈。",
+        "transition": "所有过渡均应用一致的 cubic-bezier 缓动。",
+        "keyboard": "标准的可访问性焦点管理。"
+      },
+      "voice": {
+        "tone": "专业、极简且高度策展化。",
+        "headlineStyle": "加粗、字距紧凑、描述性强。",
+        "ctaStyle": "低调，使用清晰的功能性语言与胶囊形描边按钮。",
+        "avoid": [
+          "过度营销语言",
+          "杂乱的布局",
+          "装饰性字体"
+        ]
+      },
+      "donts": [
+        "勿为 UI 元素使用装饰性或衬线字体——截图显示严格的几何/无衬线字体体系。",
+        "勿为按钮或高亮使用明亮的强调色——截图显示严格的单色 UI，无主导性强调色。",
+        "勿应用厚重的投影或柔和的光晕——截图显示完全扁平的表面，无阴影使用。",
+        "勿为主要内容卡片使用圆角——截图显示产品图像与布局区块均为直角。",
+        "勿使用两端对齐或密集的大段文本——截图显示左对齐文本与充裕的垂直间距。",
+        "勿添加不必要的边框或分隔线——截图使用留白和网格对齐分隔区域。"
+      ],
+      "systemPrompt": "为精选平面设计书店设计的极简主义高端电商设计。UI 采用严格的单色调色板（#FFFFFF 背景，#1C1C1C 墨色），确保多彩书籍封面保持视觉焦点。排版依赖清晰、字距紧凑的无衬线字体（Helvetica/Arial），使用加粗、大尺寸标题。关键禁忌：绝不使用装饰性字体，绝不应用厚重阴影，绝不引入与产品竞争的明亮强调色。布局为网格制，内边距充裕，次级操作使用幽灵/胶囊按钮。交互模式微妙，依赖平滑的透明度与变换过渡。"
+    },
+    "zh-TW": {
+      "identity": {
+        "keywords": [
+          "精選",
+          "設計書籍",
+          "平面設計",
+          "參考書籍"
+        ],
+        "analogy": "平面設計文獻的數位展廊",
+        "oneLiner": "為設計專業人士打造的極簡、圖像優先精選書店。"
+      },
+      "colors": {
+        "principle": "嚴格的單色畫布，讓色彩豐富的書籍封面成為主要的視覺焦點。"
+      },
+      "typography": {
+        "rules": [
+          "展示型標題使用緊密的負 letter-spacing 以增強衝擊力。",
+          "僅透過字重與尺寸，而非顏色，來維持嚴格的視覺層級。"
+        ],
+        "scaleUses": [
+          "章節標題",
+          "內文與定價"
+        ]
+      },
+      "spacing": {
+        "rhythm": "寬裕的垂直 padding 用於分隔不同的內容區塊，而緊密的水平間隙則用於群組化相關項目。"
+      },
+      "surfaces": {
+        "shadows": [],
+        "borders": "1px solid rgb(229,231,235)"
+      },
+      "layout": {
+        "skeleton": "依賴大型高品質攝影來填滿畫布的簡單網格佈局。"
+      },
+      "components": {
+        "button": "藥丸形 border-radius 的幽靈/描邊按鈕，用於「查看全部」等次要操作。",
+        "card": "邊對邊的圖片卡片，與其網格欄位齊平，強調產品攝影。",
+        "chip": null,
+        "input": null,
+        "hero": "雙欄分割佈局，展示大型產品攝影與粗體、簡潔的文字分類。"
+      },
+      "motion": {
+        "patterns": [
+          "互動元素上平滑的 opacity 與 transform 過渡效果。"
+        ]
+      },
+      "interaction": {
+        "hover": "細微的視覺變化，可能是 opacity 或 transform，由 transition 屬性指示。",
+        "click": "立即回應，帶有標準的 cursor pointer 回饋。",
+        "transition": "所有過渡效果套用一致的 cubic-bezier 緩動。",
+        "keyboard": "標準的無障礙 focus 管理。"
+      },
+      "voice": {
+        "tone": "專業、極簡且高度精選。",
+        "headlineStyle": "粗體、緊密字距且具描述性。",
+        "ctaStyle": "低調，使用清晰、功能性的語言與藥丸形描邊按鈕。",
+        "avoid": [
+          "過度促銷的語言",
+          "雜亂的佈局",
+          "裝飾性字體"
+        ]
+      },
+      "donts": [
+        "不要使用裝飾性或襯線字體作為 UI 元素——截圖顯示使用嚴格的幾何/無襯線系統。",
+        "不要為按鈕或高亮使用鮮豔的強調色——截圖顯示嚴格的單色 UI，無主導的強調色。",
+        "不要套用厚重的陰影或柔和的光暈——截圖顯示完全平面的表面，無陰影使用。",
+        "不要為主要內容卡片使用圓角——截圖顯示產品圖片與佈局區塊為銳利的直角。",
+        "不要使用左右對齊的文字或密集的文字區塊——截圖顯示左對齊文字，並有寬裕的垂直間距。",
+        "不要添加不必要的邊框或分隔線——截圖使用留白與網格對齊來分隔各區塊。"
+      ],
+      "systemPrompt": "一個精選平面設計書店的極簡、高級電子商務設計。UI 使用嚴格的單色調色盤（#FFFFFF 背景，#1C1C1C 墨色），以確保色彩豐富的書籍封面 remain 成為焦點。排版依賴乾淨、緊密字距的無襯線字體（Helvetica/Arial），搭配粗體、大尺寸的標題。關鍵禁忌：切勿使用裝飾性字體，切勿套用厚重陰影，切勿引入與產品競爭的鮮豔強調色。佈局為網格基礎，帶有寬裕的 padding，次要操作使用幽靈/藥丸按鈕。互動模式細膩，依賴平滑的 opacity 與 transform 過渡效果。"
+    },
+    "ja": {
+      "identity": {
+        "keywords": [
+          "選りすぐり",
+          "デザインブック",
+          "グラフィックデザイン",
+          "リファレンス"
+        ],
+        "analogy": "グラフィックデザイン文献のためのデジタルギャラリー",
+        "oneLiner": "デザインプロフェッショナルのための、ミニマリストで画像優先の選りすぐり書店です。"
+      },
+      "colors": {
+        "principle": "カラフルな書籍カバーを主な視覚的関心事とするための、厳格なモノクロームキャンバスです。"
+      },
+      "typography": {
+        "rules": [
+          "表示サイズではインパクトを高めるために、狭いネガティブ文字間隔を使用します。",
+          "色ではなくウェイトとサイズのみを使用して、厳格な視覚的階層を維持します。"
+        ],
+        "scaleUses": [
+          "セクション見出し",
+          "本文テキストおよび価格"
+        ]
+      },
+      "spacing": {
+        "rhythm": "関連アイテムをグループ化する水平方向の狭いギャップと、個々のコンテンツブロックを分離する垂直方向の広いパディングを実現しています。"
+      },
+      "surfaces": {
+        "shadows": [],
+        "borders": "1px solid rgb(229,231,235)"
+      },
+      "layout": {
+        "skeleton": "キャンバスを埋めるために大型で高品質な写真に依存する、シンプルなグリッドベースのレイアウトです。"
+      },
+      "components": {
+        "button": "「すべて表示」のようなセカンダリアクションに使用される、ピル型のボーダーラディウスを持つゴースト/アウトラインボタンです。",
+        "card": "グリッドカラム内にフラッシュに配置され、プロダクト写真を強調する、エッジツーエッジの画像カードです。",
+        "chip": null,
+        "input": null,
+        "hero": "大型のプロダクト写真と太字でミニマルなテキスト分類を特徴とする、2カラムの分割レイアウトです。"
+      },
+      "motion": {
+        "patterns": [
+          "インタラクティブ要素に対する滑らかなopacityとtransformトランジション。"
+        ]
+      },
+      "interaction": {
+        "hover": "トランジションプロパティで示される、opacityやtransformのような微妙な視覚的変化。",
+        "click": "標準的なカーソルポインターフィードバックによる即時応答。",
+        "transition": "すべてのトランジションに適用される一貫したcubic-bezier緩和。",
+        "keyboard": "標準的なアクセシブルなフォーカス管理。"
+      },
+      "voice": {
+        "tone": "プロフェッショナル、ミニマリスト、そして非常に厳選された。",
+        "headlineStyle": "太字で狭い追跡、かつ記述的な。",
+        "ctaStyle": "控えめで、明確で機能的な言葉とピル型アウトラインボタンを使用する。",
+        "avoid": [
+          "過度にプロモーショナルな言葉",
+          "散らかったレイアウト",
+          "装飾的なフォント"
+        ]
+      },
+      "donts": [
+        "UI要素に装飾的またはセリフフォントを使用しない — スクリーンショットは厳格な幾何学的/グロテスクサンセリフシステムを示しています。",
+        "ボタンやハイライトに明るいアクセントカラーを使用しない — スクリーンショットは主導的なアクセントのない厳格なモノクロームUIを示しています。",
+        "重いドロップシャドウやソフトグローを適用しない — スクリーンショットはシャドウ使用のない完全にフラットなサーフェスを示しています。",
+        "主要なコンテンツカードに角丸を使用しない — スクリーンショットはプロダクト画像やレイアウトブロックにシャープな角を示しています。",
+        "両揃えテキストや密なコピーの塊を使用しない — スクリーンショットは広い垂直方向の間隔を持つ左揃えテキストを示しています。",
+        "不要なボーダーや区切り線を追加しない — スクリーンショットはセクションを分離するために余白とグリッドのアライメントを使用しています。"
+      ],
+      "systemPrompt": "選りすぐりのグラフィックデザイン書店のための、ミニマリストでプレミアムなeコマースデザイン。UIは厳格なモノクロームパレット（#FFFFFF背景、#1C1C1Cインク）を使用し、カラフルな書籍カバーを注目の的としています。タイポグラフィは、太字で大規模なヘッダーを持つ、清潔で狭い追跡のグロテスクサンセリフ（Helvetica/Arial）に依存します。重要な禁止事項：装飾フォントは決して使用せず、重いシャドウを適用せず、製品と競合する明るいアクセントカラーを導入しないこと。レイアウトは広いパディングを持つグリッドベースで、セカンダリアクションにはゴースト/ピルボタンを使用します。インタラクションパターンは微妙で、滑らかなopacityとtransformトランジションに依存しています。"
+    },
+    "ko": {
+      "identity": {
+        "keywords": [
+          "큐레이션",
+          "디자인 서적",
+          "그래픽 디자인",
+          "레퍼런스"
+        ],
+        "analogy": "그래픽 디자인 문학을 위한 디지털 갤러리",
+        "oneLiner": "디자인 전문가를 위한 미니멀리스트, 이미지 우선의 큐레이션 서점입니다."
+      },
+      "colors": {
+        "principle": "다채로운 도서 표지가 주요 시각적 관심사가 될 수 있도록 엄격한 단색 캔버스를 사용합니다."
+      },
+      "typography": {
+        "rules": [
+          "디스플레이 크기에서는 임팩트를 높이기 위해 좌우 자간을 타이트하게 조정합니다.",
+          "색상이 아닌 굵기와 크기만으로 엄격한 시각적 위계를 유지합니다."
+        ],
+        "scaleUses": [
+          "섹션 헤더",
+          "본문 및 가격 정보"
+        ]
+      },
+      "spacing": {
+        "rhythm": "넓은 수직 패딩으로 콘텐츠 블록을 분리하고, 좁은 수평 간격으로 관련 항목을 그룹화합니다."
+      },
+      "surfaces": {
+        "shadows": [],
+        "borders": "1px solid rgb(229,231,235)"
+      },
+      "layout": {
+        "skeleton": "대형 고품질 사진으로 캔버스를 채우는 간단한 격자 기반 레이아웃입니다."
+      },
+      "components": {
+        "button": "'전체 보기'와 같은 보조 작업에 사용되는, 필 모양의 border-radius를 가진 고스트/아웃라인 버튼입니다.",
+        "card": "격자 열 내에서 제품 사진을 강조하기 위해 가장자리까지 확장된 이미지 카드입니다.",
+        "chip": null,
+        "input": null,
+        "hero": "대형 제품 사진과 대담하고 미니멀한 텍스트 분류를 특징으로 하는 이중 열 분할 레이아웃입니다."
+      },
+      "motion": {
+        "patterns": [
+          "인터랙티브 요소에서 부드러운 불투명도 및 변환 트랜지션."
+        ]
+      },
+      "interaction": {
+        "hover": "트랜지션 속성으로 표시되는, 불투명도나 변환에서의 미세한 시각적 변화입니다.",
+        "click": "표준 커서 포인터 피드백으로 즉각적인 반응을 제공합니다.",
+        "transition": "모든 트랜지션에 일관된 cubic-bezier 이징이 적용됩니다.",
+        "keyboard": "표준 접근성 포커스 관리입니다."
+      },
+      "voice": {
+        "tone": "전문적이고 미니멀리스트적이며, 높은 수준으로 큐레이션된 톤입니다.",
+        "headlineStyle": "대담하고, 자간이 타이트하며, 설명적입니다.",
+        "ctaStyle": "과장되지 않으며, 명확하고 기능적인 언어와 필 모양의 아웃라인 버튼을 사용합니다.",
+        "avoid": [
+          "지나치게 과장된 홍보성 언어",
+          "복잡하고 지저분한 레이아웃",
+          "장식용 폰트"
+        ]
+      },
+      "donts": [
+        "UI 요소에 장식용 또는 세리프 폰트를 사용하지 마세요 — 스크린샷은 엄격한 기하학적/고트릭스 산세리프 체계를 보여줍니다.",
+        "버튼이나 강조에 밝은 강조색을 사용하지 마세요 — 스크린샷은 지배적인 강조색이 없는 엄격한 단색 UI를 보여줍니다.",
+        "무거운 드롭 섀도우나 부드러운 글로우를 적용하지 마세요 — 스크린샷은 그림자 사용이 없는 완전히 평평한 표면을 보여줍니다.",
+        "주요 콘텐츠 카드에 둥근 모서리를 사용하지 마세요 — 스크린샷은 제품 이미지와 레이아웃 블록에 날카로운 모서리를 보여줍니다.",
+        "양쪽 정렬 텍스트나 밀도 높은 문단을 사용하지 마세요 — 스크린샷은 충분한 수직 간격을 가진 왼쪽 정렬 텍스트를 보여줍니다.",
+        "불필요한 테두리나 구분선을 추가하지 마세요 — 스크린샷은 섹션을 분리하기 위해 여백과 격자 정렬을 사용합니다."
+      ],
+      "systemPrompt": "큐레이션 그래픽 디자인 서점을 위한 미니멀리스트, 프리미엄 이커머스 디자인입니다. UI는 엄격한 단색 팔레트(#FFFFFF 배경, #1C1C1C 잉크)를 사용하여 다채로운 도서 표지가 초점이 되도록 합니다. 타이포그래피는 깔끔하고 자간이 타이트한 고트릭스 산세리프(Helvetica/Arial)에 대담하고 대형 헤더를 사용합니다. 핵심 주의사항: 장식용 폰트를 절대 사용하지 말 것, 무거운 그림자를 절대 적용하지 말 것, 제품과 경쟁하는 밝은 강조색을 절대 도입하지 말 것. 레이아웃은 넓은 패딩을 사용한 격자 기반이며, 보조 작업에는 고스트/필 버튼을 사용합니다. 인터랙션 패턴은 부드러운 불투명도 및 변환 트랜지션에 의존하는 미세한 수준입니다."
+    }
+  },
+  "desc": {
+    "en": {
+      "palette": "A strict monochrome foundation of pure white and near-black, designed to serve as a neutral gallery for vibrant product photography.",
+      "layout": "A clean, grid-based layout that uses generous vertical white space to separate distinct content blocks while maintaining tight horizontal groupings.",
+      "interaction": "Subtle, professional interactions relying on smooth opacity and transform transitions defined by a standard cubic-bezier easing curve.",
+      "motion": "Minimalist motion design that prioritizes smooth, functional transitions over flashy animations, maintaining a premium feel.",
+      "notes": "This site is an excellent example of restrained, image-first e-commerce design where the typography and layout serve only to frame the curated content."
+    },
+    "zh-CN": {
+      "palette": "以纯白与近黑构成的严谨单色基底，旨在为鲜活的产品摄影提供中性展示空间。",
+      "layout": "简洁的网格布局，运用充裕的垂直留白分隔内容区块，同时保持紧密的水平分组。",
+      "interaction": "基于标准 cubic-bezier 缓动曲线的微妙专业交互，依赖平滑的透明度与变换过渡。",
+      "motion": "极简动态设计，优先确保平滑的功能性过渡而非炫目动画，维持高级质感。",
+      "notes": "该网站是克制的、以图像为核心的电商设计典范，排版与布局仅用于框定精选内容。"
+    },
+    "zh-TW": {
+      "palette": "純白與近黑的嚴格單色基礎，旨在作為鮮豔產品攝影的中性展廊。",
+      "layout": "乾淨的網格佈局，利用寬裕的垂直留白分隔不同內容區塊，同時保持緊密的水平群組。",
+      "interaction": "細膩、專業的互動，依賴平滑的 opacity 與 transform 過渡效果，並使用標準的 cubic-bezier 緩動曲線定義。",
+      "motion": "極簡動態設計，優先考慮流暢、功能性的過渡效果，而非華麗的動畫，以維持高級質感。",
+      "notes": "此網站是克制、圖像優先的電子商務設計絕佳範例，其排版與佈局僅用於襯托精選內容。"
+    },
+    "ja": {
+      "palette": "純白とネアブラックを基調とした厳格なモノクローム基盤を、鮮やかなプロダクト写真を映し出す中立的なギャラリーとして設計しています。",
+      "layout": "水平方向の密なグループ化を維持しながら、垂直方向の広い余白を活用して個々のコンテンツブロックを分離する、清潔なグリッドベースのレイアウトです。",
+      "interaction": "標準的なcubic-bezier緩和カーブで定義された、滑らかなopacityとtransformトランジションに依存した、微妙でプロフェッショナルなインタラクションです。",
+      "motion": "派手なアニメーションよりも、滑らかで機能的なトランジションを優先するミニマリストなモーションデザインで、プレミアム感を維持します。",
+      "notes": "このサイトは、タイポグラフィとレイアウトが選りすぐりのコンテンツを枠付ける役割のみを担う、抑制された画像優先のeコマースデザインの優れた例です。"
+    },
+    "ko": {
+      "palette": "순백과 근접 블랙으로 구성된 엄격한 단색 팔레트는 활기찬 제품 사진을 위한 중립적인 갤러리 역할을 합니다.",
+      "layout": "넓은 수직 여백으로 개별 콘텐츠 블록을 분리하되, 수평 방향으로는 긴밀한 그룹화를 유지하는 깔끔한 격자 기반 레이아웃입니다.",
+      "interaction": "표준 cubic-bezier 이징 곡선으로 정의된 부드러운 불투명도 및 변환 트랜지션을 활용한 미세하고 전문적인 인터랙션입니다.",
+      "motion": "화려한 애니메이션보다는 부드럽고 기능적인 트랜지션을 우선시하는 미니멀리스트 모션 디자인으로, 프리미엄 느낌을 유지합니다.",
+      "notes": "이 사이트는 절제되고 이미지 우선의 이커머스 디자인의 훌륭한 예시로, 타이포그래피와 레이아웃은 큐레이션된 콘텐츠를 프레임하는 역할에 그칩니다."
+    }
+  },
+  "narrative": {
+    "en": {
+      "ch1_intro": "Counter Print functions as a digital gallery for graphic design literature, where the interface recedes to let the curated collection speak. The system is built on a strict monochrome foundation, establishing a neutral architectural frame for the vibrant book covers that constitute the primary visual interest. This is a design of deliberate absence, where every decision serves the product.",
+      "ch2_intro": "The palette is a binary of pure white and near-black, a strict monochrome canvas engineered to prevent any UI color from competing with the product photography. This chromatic restraint ensures the colorful spines and covers are the sole points of visual saturation.",
+      "ch2_outro": "The principle is absolute: the interface is a gallery wall, and the books are the art.",
+      "ch3_intro": "Typography operates as a structural element rather than a decorative one, employing a clean, grotesque sans-serif like Helvetica. A strict hierarchy is maintained through weight and size alone, with tight negative letter-spacing on display text to increase its graphic impact.",
+      "ch4_intro": "Rhythm is established through asymmetric spacing: generous vertical padding separates distinct content blocks, while tight horizontal gaps group related items within a grid.",
+      "ch5_intro": "Surfaces are flat and absolute, with no drop shadows or soft glows to imply depth. Borders are minimal and functional, using a thin, light-gray rule only where necessary to define an edge.",
+      "ch6_intro": "The layout is a straightforward grid-based skeleton designed to be filled by large, high-quality photography. Content cards sit flush and edge-to-edge within their columns, making the product image the dominant spatial element.",
+      "ch7_intro": "Motion is purely functional, consisting of smooth opacity and transform transitions on interactive elements. The philosophy prioritizes professional subtlety over animation, using a consistent cubic-bezier easing to maintain a premium, responsive feel.",
+      "ch8_intro": "The editorial voice is professional, minimalist, and highly curated, mirroring the visual system's restraint. Headlines are bold and tightly tracked, while calls-to-action use understated, functional language in ghost or outline pill buttons.",
+      "ch8_outro": "The system deliberately excludes decorative fonts, bright accent colors, heavy shadows, and cluttered layouts."
+    },
+    "zh-CN": {
+      "ch1_intro": "Counter Print 作为平面设计文献的数字画廊，其界面退居幕后，让精心策划的藏品成为主角。系统建立在严格的黑白基调上，为色彩鲜艳的书籍封面构建中性的建筑框架——这些封面是视觉关注的核心所在。这是一次有意的留白设计，每一个决策都服务于产品本身。",
+      "ch2_intro": "色板采用纯白与近黑的二元组合，严格的单色画布旨在防止任何界面色彩与产品摄影竞争。这种色彩的克制确保了彩色的书脊和封面成为唯一的视觉饱和点。",
+      "ch2_outro": "原则是绝对的：界面是画廊的墙面，书籍则是艺术。",
+      "ch3_intro": "排版作为结构性元素而非装饰性元素，采用如 Helvetica 般干净的 grotesque-sans 字体。仅通过字重和字号维持严格的层级，展示文本采用紧凑的负字间距以增强图形冲击力。",
+      "ch4_intro": "节奏通过非对称间距建立：宽松的垂直内边距分隔不同内容块，而紧凑的水平间距则在网格内组合相关项目。",
+      "ch5_intro": "界面表面平整而绝对，没有投影或柔光来暗示深度。边框极简且功能化，仅在必要处使用细而浅的灰线来定义边缘。",
+      "ch6_intro": "布局是基于网格的骨架结构，专为容纳大尺寸高质量摄影而设计。内容卡片在其栏内紧密贴合，边缘对齐，使产品图像成为空间主导元素。",
+      "ch7_intro": "动效纯粹功能化，仅在交互元素上使用平滑的透明度和变换过渡。设计哲学优先考虑专业性的细微表现而非动画效果，采用一致的 cubic-bezier 缓动以维持高端响应感。",
+      "ch8_intro": "编辑语调专业、极简且高度策展，与视觉系统的克制相呼应。标题采用粗体并收紧字间距，行动按钮则使用低调、功能化的语言，以幽灵或轮廓药丸按钮呈现。",
+      "8_outro": "系统刻意排除装饰性字体、亮色强调色、厚重阴影和杂乱布局。"
+    },
+    "zh-TW": {
+      "ch1_intro": "Counter Print 作為平面設計書籍的數位畫廊，介面退居幕後，讓精心策劃的收藏自行發聲。系統建構於嚴格的單色基底之上，為構成主要視覺焦點的鮮豔書封，建立一個中性的建築框架。這是一種刻意缺席的設計，每個決策皆服務於產品。",
+      "ch2_intro": "色調是純白與近乎漆黑的二元對比，一塊嚴格的單色畫布，其設計旨在防止任何介面色彩與產品攝影產生競爭。這種色彩的克制，確保了繽紛的書脊與封面成為唯一的視覺飽和點。",
+      "ch2_outro": "原則是絕對的：介面即畫廊牆面，書籍即藝術。",
+      "ch3_intro": "字體作為結構性元素而非裝飾性元素運作，採用如 Helvetica 這類乾淨的 grotesque 無襯線體。嚴格的階層僅透過字重與大小來維持，展示文字則使用緊湊的負字距，以增強其圖形衝擊力。",
+      "ch4_intro": "節奏透過不對稱的間距建立：寬裕的垂直留白分隔出不同的內容區塊，而緊密的水平間隙則將相關項目分組於網格內。",
+      "ch5_intro": "表面是平面且絕對的，沒有任何陰影或柔和光暈來暗示深度。邊框極簡且功能性十足，僅在必要時使用細薄、淺灰的線條來界定邊緣。",
+      "ch6_intro": "版面是直接的網格骨架，專為容納大型高品質攝影而設計。內容卡片緊密相連、滿版排列於各自的欄位中，使產品影像成為主導的空間元素。",
+      "ch7_intro": "動態效果純粹功能導向，由互動元素的流暢透明度與變形過渡組成。其設計理念優先考慮專業的微妙性而非動畫，使用一致的 cubic-bezier 緩動函數來維持高端、靈敏的感覺。",
+      "ch8_intro": "編輯語調專業、極簡且高度精煉，呼應了視覺系統的克制。標題粗體且字距緊湊，而行動呼應則使用低調、功能性的語言，置於幽靈或外框藥丸按鈕中。",
+      "ch8_outro": "系統刻意排除了裝飾性字體、鮮豔的強調色、厚重的陰影以及雜亂的佈局。"
+    },
+    "ja": {
+      "ch1_intro": "Counter Printは、グラフィックデザインの書籍をデジタルギャラリーとして機能させ、インターフェースは後退し、厳選されたコレクションが語ることを優先します。このシステムは、厳格なモノクロームの基盤の上に構築されており、主な視覚的関心事である鮮やかな書籍の表紙に対して、中立的な建築的フレームを確立します。これは意図的な不在のデザインであり、すべての意思決定が製品に奉仕しています。",
+      "ch2_intro": "パレットは純白とネアブラックの二項構成であり、製品写真と競合するいかなるUIカラーも排除するために設計された厳格なモノクロームのキャンバスです。この色彩の抑制により、カラフルな背表紙と表紙が唯一の視覚的飽和点となります。",
+      "ch2_outro": "原則は絶対的です。インターフェースはギャラリーの壁であり、書籍が芸術です。",
+      "ch3_intro": "タイポグラフィは装飾的要素ではなく構造的要素として機能し、Helveticaのようなクリーンなゴロテスクサンセリフを採用しています。厳格な階層構造は、ウェイトとサイズのみを用いて維持され、ディスプレイテキストには緊密なネガティブ文字間隔を設定し、そのグラフィックインパクトを高めています。",
+      "ch4_intro": "リズムは非対称な間隔によって確立されます。十分な垂直方向のパディングが異なるコンテンツブロックを分離し、緊密な水平方向のギャップがグリッド内の関連アイテムをグループ化します。",
+      "ch5_intro": "表面はフラットで絶対的であり、奥行きを示唆するドロップシャドウや柔らかなグローは一切ありません。ボーダーは最小限かつ機能的で、必要に応じてエッジを定義するためにのみ、細いライトグレーのルールを使用します。",
+      "ch6_intro": "レイアウトは、大規模で高品質な写真で埋め込まれるよう設計された、シンプルなグリッドベースの骨格です。コンテンツカードはカラム内で端から端へとフラットに配置され、製品画像を支配的な空間要素とします。",
+      "ch7_intro": "モーションは純粋に機能的で、インタラクティブ要素における滑らかなopacityとtransformのトランジションで構成されます。この哲学は、アニメーションよりもプロフェッショナルな微妙さを優先し、一貫したcubic-bezierイージングを使用して、高級でレスポンシブな感覚を維持します。",
+      "ch8_intro": "エディトリアルボイスは、ビジュアルシステムの抑制を反映し、プロフェッショナルでミニマルかつ高度に厳選されています。見出しはボールドで緊密なトラッキングが施され、コール・トゥ・アクションは、ゴーストやアウトラインのピルボタンで控えめかつ機能的な言語を使用します。",
+      "ch8_outro": "このシステムは意図的に、装飾的なフォント、明るいアクセントカラー、濃いシャドウ、および雑然としたレイアウトを排除しています。"
+    },
+    "ko": {
+      "ch1_intro": "Counter Print는 그래픽 디자인 문헌을 위한 디지털 갤러리로 기능하며, 인터페이스는 큐레이션된 컬렉션이 스스로 말할 수 있도록 물러납니다. 시스템은 엄격한 단색 톤을 기반으로 구축되어, 주요 시각적 관심을 구성하는 생생한 책 표지를 위한 중립적인 건축적 틀을 마련합니다. 이는 모든 결정이 제품을 위해 존재하는, 의도적인 부재의 디자인입니다.",
+      "ch2_intro": "팔레트는 순수한 흰색과 거의 검은색의 이진법으로, 제품 사진과 어떤 UI 색상도 경쟁하지 않도록 고안된 엄격한 단색 캔버스입니다. 이 색채적 절제는 다채로운 책등과 표지가 시각적 채도의 유일한 지점이 되도록 보장합니다.",
+      "ch2_outro": "원칙은 절대적입니다: 인터페이스는 갤러리 벽이고, 책은 예술 작품입니다.",
+      "ch3_intro": "타이포그래피는 장식적 요소가 아닌 구조적 요소로 작용하며, 헬vetica와 같은 깔끔한 그루테스크 산세리프체를 사용합니다. 엄격한 계층 구조는 굵기와 크기만으로 유지되며, 디스플레이 텍스트에는 그래픽적 임팩트를 높이기 위해 타이트한 마이너스 자간이 적용됩니다.",
+      "ch4_intro": "리듬은 비대칭 간격을 통해 확립됩니다: 충분한 수직 여백은 별도의 콘텐츠 블록을 분리하고, 타이트한 수평 간격은 그리드 내 관련 항목을 그룹화합니다.",
+      "ch5_intro": "표면은 플랫하고 절대적이며, 깊이를 암시하는 그림자나 부드러운 빛 Glow는 없습니다. 테두리는 최소화되어 기능적이며, 가장자리를 정의하는 데 필요한 경우에만 얇고 밝은 회색 선을 사용합니다.",
+      "ch6_intro": "레이아웃은 대형 고품질 사진으로 채워지도록 설계된 간단한 그리드 기반 골격입니다. 콘텐츠 카드는 컬럼 내에서 가장자리까지 꽉 차게 위치하여 제품 이미지가 주도적인 공간 요소가 되도록 만듭니다.",
+      "ch7_intro": "모션은 순전히 기능적이며, 인터랙티브 요소에서 부드러운 불투명도와 변환 트랜지션으로 구성됩니다. 이 철학은 애니메이션보다는 전문적인 절제를 우선시하며, 프리미엄 반응 느낌을 유지하기 위해 일관된 cubic-bezier 이징을 사용합니다.",
+      "ch8_intro": "에디토리얼 톤은 전문적이고 미니멀하며, 시각 시스템의 절제를 반영합니다. 헤드라인은 볼드하고 타이트하게 트래킹되며, 호출-to-行动计划은 고스트 또는 아웃라인 필 버튼에서 절제된 기능적 언어를 사용합니다.",
+      "8_outro": "시스템은 의도적으로 장식 폰트, 밝은 강조 색상, 무거운 그림자, 그리고 지저분한 레이아웃을 제외합니다."
+    }
+  }
+}

@@ -1,0 +1,580 @@
+{
+  "id": "reveal",
+  "schema_version": "0.3",
+  "url": "https://reveal.co",
+  "title": "Reveal",
+  "image": "https://image.thum.io/get/width/1440/noanimate/https://reveal.co",
+  "tags": [
+    "Developer Tools",
+    "Reference",
+    "Clean",
+    "Utility",
+    "System UI"
+  ],
+  "status": "completed",
+  "added_at": "2026-06-21",
+  "added_by": "discover",
+  "_meta": {
+    "vision_model": "mimo-v2.5",
+    "vision_prompt_version": "0.3",
+    "vision_source": "playwright-extract:reveal",
+    "vision_grounded": true,
+    "vision_at": "2026-06-21T02:42:26+00:00",
+    "vision_tokens": 15771,
+    "vision_cost_usd": 0.1752,
+    "translation_model": "mimo-v2.5",
+    "translation_at": "2026-06-21T02:43:15+00:00",
+    "translation_tokens": 14831,
+    "translation_cost_usd": 0.0494,
+    "narrative_model": "mimo-v2.5",
+    "narrative_prompt_version": "0.3",
+    "narrative_at": "2026-06-21T02:43:23+00:00",
+    "narrative_tokens": 1856,
+    "narrative_cost_usd": 0.0124,
+    "narrative_status": "ok",
+    "total_cost_usd": 0.237
+  },
+  "spec": {
+    "colors": {
+      "bg": "#FFFFFF",
+      "bgSoft": "#EBEBEB",
+      "bgQuiet": "#D9D9D9",
+      "ink": "#2F2F2F",
+      "inkSoft": "#404040",
+      "muted": "#999999",
+      "mutedSoft": null,
+      "accent": "#2F7BBF",
+      "line": "rgba(64,64,64,1)"
+    },
+    "typography": {
+      "display": "system-ui",
+      "body": "system-ui",
+      "mono": "system-ui",
+      "scale": [
+        {
+          "token": "display",
+          "size": 60,
+          "lh": 1.25,
+          "weight": 300,
+          "ls": "-0.5px"
+        },
+        {
+          "token": "h1",
+          "size": 30,
+          "lh": 1.3,
+          "weight": 400,
+          "ls": "0"
+        },
+        {
+          "token": "body",
+          "size": 16,
+          "lh": 1.625,
+          "weight": 400,
+          "ls": "0"
+        },
+        {
+          "token": "caption",
+          "size": 13,
+          "lh": 1.87,
+          "weight": 400,
+          "ls": "0"
+        }
+      ]
+    },
+    "spacing": {
+      "base": 4,
+      "scale": [
+        4,
+        8,
+        16,
+        24,
+        32,
+        48,
+        64,
+        96
+      ]
+    },
+    "surfaces": {
+      "radius": {
+        "sm": 0,
+        "md": 0,
+        "lg": 0,
+        "pill": 20
+      }
+    },
+    "layout": {
+      "container": 960,
+      "paragraph": 680,
+      "columns": 12,
+      "gutter": 24,
+      "breakpoints": [
+        768,
+        1024
+      ]
+    },
+    "motion": {
+      "durations": {
+        "micro": 150,
+        "small": 150,
+        "medium": 150
+      },
+      "easing": "cubic-bezier(0, 0, 0.2, 1)"
+    }
+  },
+  "spec_i18n": {
+    "en": {
+      "identity": {
+        "keywords": [
+          "Error",
+          "Status",
+          "Diagnostic",
+          "Utility",
+          "Infrastructure"
+        ],
+        "analogy": "A system diagnostic dashboard displaying connection health.",
+        "oneLiner": "A functional error state UI for diagnosing connection timeouts."
+      },
+      "colors": {
+        "principle": "Utilitarian color coding for system states (Green for success, Red for error, Blue for links)."
+      },
+      "typography": {
+        "rules": [],
+        "scaleUses": [
+          "Main error heading",
+          "Section headings",
+          "General content and descriptions",
+          "Metadata and timestamps"
+        ]
+      },
+      "spacing": {
+        "rhythm": "Vertical spacing is driven by padding on sections rather than strict typographic rhythm."
+      },
+      "surfaces": {
+        "shadows": [],
+        "borders": "None visible except for a subtle 1px divider above the footer."
+      },
+      "layout": {
+        "skeleton": "Three-column grid for status icons, two-column grid for explanatory text."
+      },
+      "components": {
+        "button": "None visible in this error state.",
+        "card": "None visible.",
+        "chip": "Error code badge with a pill shape.",
+        "input": "None visible.",
+        "hero": "Status display with three icons showing the connection path and state."
+      },
+      "motion": {
+        "patterns": [
+          "Transitions on hoverable elements (links, icons)."
+        ]
+      },
+      "interaction": {
+        "hover": "Links change color to a darker shade of blue.",
+        "click": "Cursor changes to pointer on interactive elements.",
+        "transition": "Color transitions over 150ms.",
+        "keyboard": "Standard browser focus states."
+      },
+      "voice": {
+        "tone": "Technical, objective, and helpful.",
+        "headlineStyle": "Large, light-weight system font.",
+        "ctaStyle": "Standard blue text links for troubleshooting.",
+        "avoid": [
+          "Emotional language",
+          "Complex jargon beyond technical necessity"
+        ]
+      },
+      "donts": [
+        "don't use decorative borders — screenshot shows clean, borderless layout",
+        "don't use high-contrast shadows — screenshot shows flat, shadowless UI",
+        "don't use custom serif or display fonts — screenshot shows system-ui throughout",
+        "don't use a dark background — screenshot shows a light, high-key design",
+        "don't use complex animations — screenshot shows a static, functional page",
+        "don't use rounded corners on containers — screenshot shows square edges on the status section"
+      ],
+      "systemPrompt": "This is a functional system error page (Cloudflare 522) for reveal.co, using a standard system-ui font stack for maximum clarity. The palette is utilitarian: white background, light grey status areas, and high-chroma status colors (green for success, red for error, blue for links). The layout is a simple, responsive grid with centered content. Key design constraints: avoid decorative elements, use a system font stack, keep status colors distinct for quick diagnosis, and maintain a clean, borderless aesthetic. The primary focus is communicating a connection failure clearly and providing actionable steps for both visitors and site owners."
+    },
+    "zh-CN": {
+      "identity": {
+        "keywords": [
+          "错误",
+          "状态",
+          "诊断",
+          "实用工具",
+          "基础设施"
+        ],
+        "analogy": "一个显示连接健康状况的系统诊断仪表板。",
+        "oneLiner": "一个用于诊断连接超时的功能型错误状态 UI。"
+      },
+      "colors": {
+        "principle": "系统状态的实用主义色彩编码（绿色代表成功，红色代表错误，蓝色代表链接）。"
+      },
+      "typography": {
+        "rules": [],
+        "scaleUses": [
+          "主错误标题",
+          "章节标题",
+          "一般内容和描述",
+          "元数据和时间戳"
+        ]
+      },
+      "spacing": {
+        "rhythm": "垂直间距由各区块的 padding 驱动，而非严格的字体排印节奏。"
+      },
+      "surfaces": {
+        "shadows": [],
+        "borders": "无可见边框，仅在页脚上方有一个细微的 1px 分割线。"
+      },
+      "layout": {
+        "skeleton": "三列网格用于状态图标，两列网格用于说明文字。"
+      },
+      "components": {
+        "button": "此错误状态中无可见按钮。",
+        "card": "无可见卡片。",
+        "chip": "错误代码徽章，药丸形状。",
+        "input": "无可见输入框。",
+        "hero": "状态展示，包含三个图标，显示连接路径和状态。"
+      },
+      "motion": {
+        "patterns": [
+          "hover 可交互元素（链接、图标）上的过渡效果。"
+        ]
+      },
+      "interaction": {
+        "hover": "链接颜色变为更深的蓝色。",
+        "click": "交互元素上光标变为指针。",
+        "transition": "颜色过渡时长 150ms。",
+        "keyboard": "标准浏览器焦点状态。"
+      },
+      "voice": {
+        "tone": "技术性、客观且乐于助人。",
+        "headlineStyle": "大号、轻量级系统字体。",
+        "ctaStyle": "用于故障排除的标准蓝色文本链接。",
+        "avoid": [
+          "情感化语言",
+          "超出技术必要性的复杂术语"
+        ]
+      },
+      "donts": [
+        "不要使用装饰性边框——截图显示的是干净、无边框的布局",
+        "不要使用高对比度阴影——截图显示的是扁平、无阴影的 UI",
+        "不要使用自定义衬线体或展示字体——截图显示全程使用 system-ui",
+        "不要使用深色背景——截图显示的是明亮、高调的设计",
+        "不要使用复杂动画——截图显示的是静态、功能性的页面",
+        "不要在容器上使用圆角——截图显示状态区域为直角边缘"
+      ],
+      "systemPrompt": "这是一个用于 reveal.co 的功能型系统错误页面（Cloudflare 522），使用标准的 system-ui 字体栈以实现最大清晰度。色板是实用主义的：白色背景、浅灰色状态区域，以及高饱和度的状态色（绿色代表成功，红色代表错误，蓝色代表链接）。布局是一个简单的响应式网格，内容居中。关键设计约束：避免装饰性元素，使用系统字体栈，保持状态色以快速诊断，并维持干净、无边框的美学。主要目标是清晰地传达连接失败，并为访客和网站所有者提供可操作的步骤。"
+    },
+    "zh-TW": {
+      "identity": {
+        "keywords": [
+          "錯誤",
+          "狀態",
+          "診斷",
+          "效用",
+          "基礎架構"
+        ],
+        "analogy": "顯示連線健康狀態的系統診斷儀表板。",
+        "oneLiner": "用於診斷連線逾時的功能性錯誤狀態介面。"
+      },
+      "colors": {
+        "principle": "以實用主義色彩編碼表示系統狀態（綠色代表成功、紅色代表錯誤、藍色代表連結）。"
+      },
+      "typography": {
+        "rules": [],
+        "scaleUses": [
+          "主要錯誤標題",
+          "章節標題",
+          "一般內容與描述",
+          "元資料與時間戳記"
+        ]
+      },
+      "spacing": {
+        "rhythm": "垂直間距由區塊的 padding 驅動，而非嚴格的排版節奏。"
+      },
+      "surfaces": {
+        "shadows": [],
+        "borders": "除頁尾上方的細微 1px 分隔線外，無可見邊框。"
+      },
+      "layout": {
+        "skeleton": "狀態圖示採用三欄網格，說明文字採用兩欄網格。"
+      },
+      "components": {
+        "button": "此錯誤狀態中無可見按鈕。",
+        "card": "無可見卡片。",
+        "chip": "藥丸形狀的錯誤代碼徽章。",
+        "input": "無可見輸入框。",
+        "hero": "狀態顯示區，含三個圖示，呈現連線路徑與狀態。"
+      },
+      "motion": {
+        "patterns": [
+          "可懸停元素（連結、圖示）的過渡效果。"
+        ]
+      },
+      "interaction": {
+        "hover": "連結懸停時顏色變為較深的藍色。",
+        "click": "互動元素上的游標變為指標。",
+        "transition": "顏色過渡時長為 150ms。",
+        "keyboard": "標準瀏覽器聚焦狀態。"
+      },
+      "voice": {
+        "tone": "技術性、客觀且實用。",
+        "headlineStyle": "大號、輕字重的系統字體。",
+        "ctaStyle": "用於故障排除的標準藍色文字連結。",
+        "avoid": [
+          "情緒化用語",
+          "超出技術必要性的複雜術語"
+        ]
+      },
+      "donts": [
+        "勿使用裝飾性邊框 —— 截圖顯示簡潔、無邊框的版面",
+        "勿使用高對比陰影 —— 截圖顯示扁平、無陰影的介面",
+        "勿使用自訂襯線或展示字型 —— 截圖顯示全面使用 system-ui",
+        "勿使用深色背景 —— 截圖顯示明亮、高明度的設計",
+        "勿使用複雜動畫 —— 截圖顯示靜態的功能性頁面",
+        "勿在容器上使用圓角 —— 截圖顯示狀態區塊為方形邊緣"
+      ],
+      "systemPrompt": "這是 reveal.co 的功能性系統錯誤頁面（Cloudflare 522），採用標準 system-ui 字型堆疊以實現最大清晰度。色盤具實用性：白色背景、淺灰色狀態區域，以及高飽和度的狀態色（綠色代表成功、紅色代表錯誤、藍色代表連結）。版面為簡單的響應式網格，內容置中。主要設計限制：避免裝飾性元素、使用系統字型堆疊、保持狀態色清晰以便快速診斷，並維持簡潔、無邊框的美學。首要目標是清晰傳達連線失敗，並為訪客與網站擁有者提供可操作的步驟。"
+    },
+    "ja": {
+      "identity": {
+        "keywords": [
+          "エラー",
+          "ステータス",
+          "診断",
+          "ユーティリティ",
+          "インフラ"
+        ],
+        "analogy": "接続の健全性を表示するシステム診断ダッシュボード。",
+        "oneLiner": "接続タイムアウトを診断するための、機能的なエラー状態UI。"
+      },
+      "colors": {
+        "principle": "システム状態のための実用的なカラーコーディング（緑：成功、赤：エラー、青：リンク）。"
+      },
+      "typography": {
+        "rules": [],
+        "scaleUses": [
+          "メインエラーヘッディング",
+          "セクション見出し",
+          "一般的なコンテンツと説明",
+          "メタデータとタイムスタンプ"
+        ]
+      },
+      "spacing": {
+        "rhythm": "垂直方向の間隔は、厳密なタイポグラフィカルリズムではなく、セクションのパディングによって制御されます。"
+      },
+      "surfaces": {
+        "shadows": [],
+        "borders": "フッターの上の微妙な1px区切り線を除き、目立つ境界線はありません。"
+      },
+      "layout": {
+        "skeleton": "ステータスアイコン用の3カラムグリッド、説明テキスト用の2カラムグリッド。"
+      },
+      "components": {
+        "button": "このエラー状態では見られません。",
+        "card": "見られません。",
+        "chip": "ピルシェイプのエラーコードバッジ。",
+        "input": "見られません。",
+        "hero": "接続経路と状態を示す3つのアイコンを備えたステータス表示。"
+      },
+      "motion": {
+        "patterns": [
+          "ホバー可能な要素（リンク、アイコン）の遷移。"
+        ]
+      },
+      "interaction": {
+        "hover": "リンクがより暗い shades of blue に色を変化させます。",
+        "click": "インタラクティブ要素でカーソルがポインタに変わります。",
+        "transition": "150msにわたる色の遷移。",
+        "keyboard": "標準のブラウザフォーカス状態。"
+      },
+      "voice": {
+        "tone": "技術的、客観的、かつ有用的。",
+        "headlineStyle": "大きく、軽量のシステムフォント。",
+        "ctaStyle": "トラブルシューティング用の標準的な青のテキストリンク。",
+        "avoid": [
+          "感情的な言葉",
+          "技術的必要性を超えた複雑な専門用語"
+        ]
+      },
+      "donts": [
+        "装飾的な境界線を使用しない — スクリーンショットはクリーンで境界線のないレイアウトを示しています",
+        "高コントラストのシャドウを使用しない — スクリーンショットはフラットでシャドウのないUIを示しています",
+        "カスタムセリフフォントやディスプレイフォントを使用しない — スクリーンショットは全体的にsystem-uiを使用しています",
+        "ダーク背景を使用しない — スクリーンショットは明るいハイキーデザインを示しています",
+        "複雑なアニメーションを使用しない — スクリーンショットは静的で機能的なページを示しています",
+        "コンテナに角丸を使用しない — スクリーンショットはステータスセクションの直角のエッジを示しています"
+      ],
+      "systemPrompt": "これは、最大限の明確さのために標準的なsystem-uiフォントスタックを使用した、reveal.coのための機能的なシステムエラーページ（Cloudflare 522）です。パレットは実用的です：白い背景、薄いグレーのステータス領域、およびハイクロマのステータスカラー（緑：成功、赤：エラー、青：リンク）。レイアウトは、コンテンツを中央に配置したシンプルでレスポンシブなグリッドです。主要なデザイン制約：装飾的な要素を避け、システムフォントスタックを使用し、迅速な診断のためにステータスカラーを明確に区別し、クリーンで境界線のない審美性を維持します。主な焦点は、接続の失敗を明確に伝え、訪問者とサイトオーナーの両方に対して実行可能なステップを提供することです。"
+    },
+    "ko": {
+      "identity": {
+        "keywords": [
+          "오류",
+          "상태",
+          "진단",
+          "유틸리티",
+          "인프라"
+        ],
+        "analogy": "연결 상태를 표시하는 시스템 진단 대시보드와 같습니다.",
+        "oneLiner": "연결 시간 초과를 진단하기 위한 기능적 오류 상태 UI입니다."
+      },
+      "colors": {
+        "principle": "시스템 상태를 위한 실용적 색상 코딩(초록은 성공, 빨강은 오류, 파랑은 링크)."
+      },
+      "typography": {
+        "rules": [],
+        "scaleUses": [
+          "주요 오류 제목",
+          "섹션 제목",
+          "일반 콘텐츠 및 설명",
+          "메타데이터 및 타임스탬프"
+        ]
+      },
+      "spacing": {
+        "rhythm": "수직 간격은 엄격한 타이포그래피 리듬보다는 섹션의 padding에 의해 결정됩니다."
+      },
+      "surfaces": {
+        "shadows": [],
+        "borders": "푸터 위의 미세한 1px 구분선을 제외하고는 보이는 테두리가 없습니다."
+      },
+      "layout": {
+        "skeleton": "상태 아이콘용 3열 그리드, 설명 텍스트용 2열 그리드."
+      },
+      "components": {
+        "button": "이 오류 상태에서는 보이는 버튼이 없습니다.",
+        "card": "보이는 카드가 없습니다.",
+        "chip": "알약 모양의 오류 코드 배지.",
+        "input": "보이는 입력 필드가 없습니다.",
+        "hero": "연결 경로와 상태를 보여주는 세 가지 아이콘이 있는 상태 표시 영역."
+      },
+      "motion": {
+        "patterns": [
+          "hover 가능한 요소(링크, 아이콘)의 전환 효과."
+        ]
+      },
+      "interaction": {
+        "hover": "링크가 더 진한 파랑색으로 변합니다.",
+        "click": "인터랙티브 요소에서 커서가 포인터로 변경됩니다.",
+        "transition": "150ms 동안 색상 전환.",
+        "keyboard": "표준 브라우저 focus 상태."
+      },
+      "voice": {
+        "tone": "기술적이고, 객관적이며, 도움이 되는 어조.",
+        "headlineStyle": "크고 가벼운 두께의 시스템 폰트.",
+        "ctaStyle": "문제 해결을 위한 표준 파랑색 텍스트 링크.",
+        "avoid": [
+          "감정적인 언어",
+          "기술적 필요성을 넘어선 복잡한 전문 용어"
+        ]
+      },
+      "donts": [
+        "장식적인 테두리를 사용하지 마세요 — 스크린샷은 깔끔하고 테두리 없는 레이아웃을 보여줍니다",
+        "높은 대비의 그림자를 사용하지 마세요 — 스크린샷은 플랫하고 그림자 없는 UI를 보여줍니다",
+        "커스텀 세리프 또는 디스플레이 폰트를 사용하지 마세요 — 스크린샷은 시스템-ui를 일관되게 사용합니다",
+        "다크 배경을 사용하지 마세요 — 스크린샷은 밝은 하이키 디자인을 보여줍니다",
+        "복잡한 애니메이션을 사용하지 마세요 — 스크린샷은 정적이고 기능적인 페이지를 보여줍니다",
+        "컨테이너에 둥근 모서리를 사용하지 마세요 — 스크린샷은 상태 섹션에 사각형 가장자리를 보여줍니다"
+      ],
+      "systemPrompt": "이것은 reveal.co를 위한 기능적 시스템 오류 페이지(Cloudflare 522)로, 최대한의 명확성을 위해 표준 시스템-ui 폰트 스택을 사용합니다. 팔레트는 실용적입니다: 흰색 배경, 밝은 회색 상태 영역, 그리고 높은 채도의 상태 색상(초록은 성공, 빨강은 오류, 파랑은 링크). 레이아웃은 중앙 정렬된 콘텐츠를 가진 간단한 반응형 그리드입니다. 주요 디자인 제약 조건: 장식 요소 피하기, 시스템 폰트 스택 사용, 빠른 진단을 위해 상태 색상 구별 유지, 깔끔하고 테두리 없는 미학 유지. 주요 초점은 연결 실패를 명확하게 전달하고 방문자와 사이트 소유자 모두에게 실행 가능한 단계를 제공하는 것입니다."
+    }
+  },
+  "desc": {
+    "en": {
+      "palette": "A minimal, high-key palette using system greys and standard status colors (green, red, blue) for diagnostic clarity.",
+      "layout": "A responsive, centered layout that shifts from a three-column status grid on desktop to a vertical list on mobile.",
+      "interaction": "Basic text link hover transitions using a standard cubic-bezier curve.",
+      "motion": "Minimal motion, limited to simple color transitions on interactive elements.",
+      "notes": "This design is a perfect example of a functional, utility-focused UI where aesthetics serve the single purpose of clear, rapid communication of system status."
+    },
+    "zh-CN": {
+      "palette": "一个极简、高调的色板，使用系统灰和标准状态色（绿色、红色、蓝色）以实现诊断清晰度。",
+      "layout": "一个响应式、居中的布局，在桌面端呈现三列状态网格，在移动端转变为垂直列表。",
+      "interaction": "基础文本链接 hover 过渡，使用标准 cubic-bezier 曲线。",
+      "motion": "极简动效，仅限于交互元素上的简单颜色过渡。",
+      "notes": "此设计是功能型、实用优先 UI 的完美范例，其中美学服务于清晰、快速传达系统状态的单一目的。"
+    },
+    "zh-TW": {
+      "palette": "極簡、高明度色盤，採用系統灰階與標準狀態色（綠、紅、藍），以確保診斷時的清晰度。",
+      "layout": "響應式、置中版面，在桌面端呈現三欄狀態網格，於行動端轉為垂直列表。",
+      "interaction": "基礎文字連結的懸停過渡效果，使用標準 cubic-bezier 曲線。",
+      "motion": "極簡動效，僅限於互動元素上的簡單顏色過渡。",
+      "notes": "此設計是功能導向介面的完美範例，美學服務於清晰、快速傳達系統狀態的單一目的。"
+    },
+    "ja": {
+      "palette": "システムグレーと標準的なステータスカラー（緑、赤、青）を使用した、診断の明確さを重視したミニマルでハイキーなパレット。",
+      "layout": "デスクトップでは3カラムのステータスグリッド、モバイルでは縦型リストに切り替わる、レスポンシブなセンタリングレイアウト。",
+      "interaction": "標準的なcubic-bezierカーブを使用した、基本的なテキストリンクのホバー遷移。",
+      "motion": "インタラクティブ要素のシンプルな色の遷移に限定した、最小限のモーション。",
+      "notes": "このデザインは、審美性がシステムステータスの明確かつ迅速な伝達という単一の目的に奉仕する、機能的でユーティリティ重視のUIの完璧な例です。"
+    },
+    "ko": {
+      "palette": "미니멀한 하이키 팔레트로, 시스템 그레이와 표준 상태 색상(초록, 빨강, 파랑)을 사용하여 진단의 명확성을 높였습니다.",
+      "layout": "반응형으로 구성된 중앙 정렬 레이아웃으로, 데스크톱에서는 3열 상태 그리드를, 모바일에서는 세로 리스트로 전환됩니다.",
+      "interaction": "표준 cubic-bezier 곡선을 사용한 기본 텍스트 링크 hover 전환 효과입니다.",
+      "motion": "최소한의 모션을 사용하며, 인터랙티브 요소의 간단한 색상 전환으로 제한됩니다.",
+      "notes": "이 디자인은 기능적이고 유틸리티 중심의 UI의 완벽한 예시로, 미학이 시스템 상태의 명확하고 빠른 전달이라는 단일 목적에 복종합니다."
+    }
+  },
+  "narrative": {
+    "en": {
+      "ch1_intro": "Reveal is the diagnostic readout of a system under stress, not a marketing surface. Its design language is that of a system diagnostic dashboard displaying connection health, built to communicate failure with the same clarity a status page provides. Every decision serves the single purpose of making a complex infrastructure problem immediately legible.",
+      "ch2_intro": "The palette is strictly utilitarian, defined by a high-key background and the universal semiotics of system status colors. Green, red, and blue are not decorative choices but a functional shorthand for success, error, and navigation, applied with clinical precision to accelerate diagnosis.",
+      "ch2_outro": "Color here is a direct conduit for information, stripped of any aesthetic consideration that might obscure the signal.",
+      "ch3_intro": "The typographic voice is purely informational, delivered through the system-ui font stack for maximum cross-platform clarity. The scale is hierarchical but austere, designed to differentiate the primary error heading, section titles, and explanatory metadata without introducing any stylistic flourish.",
+      "ch4_intro": "Vertical rhythm is governed by generous padding around distinct content sections, creating clear zones for the status display, explanatory text, and troubleshooting links.",
+      "ch5_intro": "The interface is defined by its near-total absence of depth cues. There are no shadows, no rounded corners on containers, and borders are reserved solely for a minimal footer divider, resulting in a completely flat, functional plane.",
+      "ch6_intro": "The layout skeleton is a responsive grid that prioritizes informational density over white space. On larger viewports, a three-column arrangement efficiently presents the connection path via status icons, while explanatory text flows in a clear two-column format.",
+      "ch7_intro": "Motion is employed with extreme restraint, limited to simple color transitions on interactive elements. The philosophy is purely responsive feedback: a 150ms transition on a link hover confirms interactivity without drawing attention to the animation itself.",
+      "ch8_intro": "The editorial voice is technical, objective, and helpful, using language that is precise without being unnecessarily complex. Headlines adopt a large, light-weight system font for authority, while calls to action are presented as standard blue text links for troubleshooting steps.",
+      "ch8_outro": "This design deliberately forgoes dark modes, custom fonts, decorative elements, and any complex animation to maintain absolute focus on diagnostic clarity."
+    },
+    "zh-CN": {
+      "ch1_intro": "Reveal 是系统在压力下的诊断读数，而非营销界面。其设计语言如同一个显示连接健康状态的系统诊断仪表盘，旨在以状态页面般的清晰度传达故障信息。每一项设计决策都服务于一个核心目标：让复杂的基础设施问题立即变得清晰可读。",
+      "ch2_intro": "色彩搭配严格遵循实用主义原则，由高调背景与通用的系统状态颜色符号体系定义。绿色、红色和蓝色并非装饰性选择，而是分别代表成功、错误和导航的功能性速记符号，它们被以临床般的精确度应用，以加速诊断过程。",
+      "ch2_outro": "这里的色彩是信息的直接载体，剥离了任何可能干扰信号传达的美学考量。",
+      "ch3_intro": "排版风格纯粹以信息为导向，通过 system-ui 字体栈呈现，以确保跨平台的最大清晰度。字号层级分明但克制，旨在区分主要错误标题、章节标题和解释性元数据，而不引入任何装饰性修饰。",
+      "ch4_intro": "垂直节奏通过内容分区周围的充足留白来控制，为状态显示、说明文字和故障排除链接创建了清晰的区域。",
+      "ch5_intro": "界面以近乎完全缺失深度线索为特征。没有阴影，容器没有圆角，边框仅用于最简约的页脚分隔线，从而形成一个完全扁平、功能性的平面。",
+      "ch6_intro": "布局骨架是一个响应式网格，优先考虑信息密度而非留白。在较大视口上，三栏排列通过状态图标高效呈现连接路径，而说明文字则以清晰的双栏格式流动。",
+      "ch7_intro": "动效被极其克制地使用，仅限于交互元素上的简单颜色过渡。其理念纯粹是响应式反馈：链接 hover 上 150ms 的过渡确认了交互性，而不会将注意力吸引到动画本身。",
+      "ch8_intro": "编辑风格技术、客观且实用，使用的语言精确但不过于复杂。标题采用大号、轻量的系统字体以体现权威性，而行动号召则以标准蓝色文本链接形式呈现，用于故障排除步骤。",
+      "ch8_outro": "此设计刻意放弃了暗模式、自定义字体、装饰性元素以及任何复杂动画，以绝对专注于诊断清晰度。"
+    },
+    "zh-TW": {
+      "ch1_intro": "Reveal 是壓力下系統的診斷讀數，而非行銷表面。其設計語言源自顯示連線健康狀態的系統診斷面板，旨在以狀態頁面提供的同等清晰度傳達故障訊息。每個決策都服務於單一目標：讓複雜的基礎設施問題即刻變得可讀。",
+      "ch2_intro": "色盤嚴格遵循實用主義，由高亮度背景與系統狀態色彩的通用符號學所定義。綠、紅、藍並非裝飾性選擇，而是成功、錯誤與導覽的功能性簡碼，以臨床般的精準度應用以加速診斷。",
+      "ch2_outro": "色彩在此是資訊的直接導管，剝離任何可能遮蔽訊號的美學考量。",
+      "ch3_intro": "排版語氣純粹為資訊導向，透過 system-ui 字體堆疊呈現以實現跨平台的最大清晰度。比例層級分明但極簡，旨在區分主要錯誤標題、章節標題與說明性中繼資料，不引入任何風格性裝飾。",
+      "ch4_intro": "垂直節奏由各內容區塊周圍的充裕 padding 所支配，為狀態顯示、說明文字與故障排除連結創造清晰的區域。",
+      "ch5_intro": "介面以其近乎完全缺乏深度提示為定義。沒有陰影、容器無圓角，邊框僅保留給最小化的頁尾分隔線，形成完全平坦的功能性平面。",
+      "ch6_intro": "佈局骨架是響應式網格，優先考慮資訊密度而非留白。在較大視口上，三欄佈局透過狀態圖標有效呈現連線路徑，而說明文字則以清晰的雙欄格式流動。",
+      "ch7_intro": "動效以極度克制的方式使用，僅限於互動元素上的簡單顏色過渡。其哲學純粹為回應式回饋：連結 hover 時 150ms 的過渡確認了互動性，而不會將注意力吸引至動畫本身。",
+      "ch8_intro": "編輯語氣技術性、客觀且實用，使用精確但不無謂複雜的語言。標題採用大號、輕量的系統字體以建立權威感，而行動呼籲則以標準藍色文字連結呈現故障排除步驟。",
+      "ch8_outro": "此設計刻意捨棄暗色模式、自訂字體、裝飾性元素與任何複雜動效，以維持對診斷清晰度的絕對聚焦。"
+    },
+    "ja": {
+      "ch1_intro": "Revealは、ストレス下のシステムの診断リードアウトであり、マーケティングの表面ではありません。そのデザイン言語は、接続の健全性を表示するシステム診断ダッシュボードのものであり、ステータスページと同じ明確さで障害を伝えるために構築されています。すべての意思決定は、複雑なインフラ問題を即座に理解可能にするという単一の目的に奉仕しています。",
+      "ch2_intro": "パレットは厳密に実用的であり、ハイキーの背景とシステムステータスカラーの普遍的な意味論によって定義されます。緑、赤、青は装飾的な選択ではなく、成功、エラー、ナビゲーションのための機能的な略語であり、診断を加速するために臨床的な精度で適用されています。",
+      "ch2_outro": "ここで色は情報への直接的な伝導路であり、シグナルを曖伏せる可能性のあるあらゆる美学的考慮から切り離されています。",
+      "ch3_intro": "タイポグラフィの声は完全に情報的であり、最大限のクロスプラットフォームの明確さのためにsystem-uiフォントスタックを通じて提供されます。スケールは階層的ですが厳格であり、主要なエラーヘッディング、セクションタイトル、説明的なメタデータを区別するために設計されていますが、いかなる様式的な装飾も導入していません。",
+      "ch4_intro": "垂直リズムは、個別のコンテンツセクション周囲のゆったりとしたパディングによって支配され、ステータス表示、説明テキスト、トラブルシューティングリンクのための明確なゾーンを作り出します。",
+      "ch5_intro": "インターフェースは、そのほぼ完全な奥行きの手がかりの欠如によって定義されます。シャドウも、コンテナの角丸も、ボーダーは最小限のフッター区切りのみに限定されており、完全にフラットで機能的な平面を生み出します。",
+      "ch6_intro": "レイアウトの骨格は、ホワイトスペースよりも情報密度を優先するレスポンシブグリッドです。より大きなビューポートでは、3カラム構成がステータスアイコンを通じて接続パスを効率的に提示し、説明テキストは明確な2カラム形式で流れます。",
+      "ch7_intro": "モーションは極度の抑制をもって使用され、インタラクティブ要素のシンプルな色の遷移に限定されます。その哲学は純粋にレスポンシブフィードバックです。リンクホバー時の150msの遷移は、アニメーション自体に注意を引くことなく、インタラクティビティを確認します。",
+      "ch8_intro": "編集の声は技術的で客観的かつ有益であり、不必要に複雑ではない正確な言語を使用します。見出しは権威をもって大型の軽量システムフォントを採用し、コール・トゥ・アクションはトラブルシューティングステップのための標準的な青色テキストリンクとして提示されます。",
+      "ch8_outro": "このデザインは、診断の明確さに完全に焦点を保つために、ダークモード、カスタムフォント、装飾要素、および複雑なアニメーションを意図的に避けています。"
+    },
+    "ko": {
+      "ch1_intro": "Reveal은 마케팅 표면이 아닌, 스트레스를 받는 시스템의 진단 읽기 장치입니다. 그 디자인 언어는 연결 상태를 표시하는 시스템 진단 대시보드의 언어이며, 상태 페이지가 제공하는 것과 동일한 명확성으로 실패를 전달하도록 구축되었습니다. 모든 결정은 복잡한 인프라 문제를 즉시 이해 가능하게 하는 단일 목적을 위해 존재합니다.",
+      "ch2_intro": "팔레트는 철저히 실용적이며, 밝은 배경과 시스템 상태 색상의 보편적인 기호학으로 정의됩니다. 녹색, 빨간색, 파란색은 장식적 선택이 아니라 성공, 오류, 내비게이션을 위한 기능적 약어로, 진단을 가속화하기 위해 임상적인 정밀함으로 적용됩니다.",
+      "ch2_outro": "여기서 색상은 정보를 위한 직접적인 통로이며, 신호를 흐리게 할 수 있는任何的美学考虑에서 벗겨져 있습니다.",
+      "ch3_intro": "타이포그래피 음성은 순수하게 정보 전달적이며, 최대 크로스 플랫폼 명확성을 위해 system-ui 폰트 스택을 통해 전달됩니다. 스케일은 계층적이지만 검소하며, 주요 오류 제목, 섹션 제목 및 설명 메타데이터를 어떤 스타일적 장식 없이 구별하도록 설계되었습니다.",
+      "ch4_intro": "수직 리듬은 명확한 콘텐츠 섹션 주위의 넉넉한 padding에 의해 지배되며, 상태 표시, 설명 텍스트 및 문제 해결 링크를 위한 명확한 영역을 만듭니다.",
+      "ch5_intro": "인터페이스는 깊이 단서의 거의 완전한 부재로 정의됩니다. 그림자도 없고, 컨테이너의 둥근 모서리도 없으며, 테두리는 최소한의 하단 구분선을 위해 예약되어 있어 완전히 평면적이고 기능적인 평면을 만듭니다.",
+      "ch6_intro": "레이아웃 골격은 여백보다 정보 밀도를 우선시하는 반응형 그리드입니다. 더 큰 뷰포트에서는 3열 배치가 상태 아이콘을 통해 연결 경로를 효율적으로 제시하는 반면, 설명 텍스트는 명확한 2열 형식으로 흐릅니다.",
+      "ch7_intro": "모션은 극도의 절제로 사용되며, 인터랙티브 요소의 단순한 색상 전환으로 제한됩니다. 철학은 순수하게 반응 피드백입니다: 링크 hover 시의 150ms 전환은 인터랙티브를 확인하되 애니메이션 자체에 주의를 끌지 않습니다.",
+      "ch8_intro": "에디토리얼 음성은 기술적이고 객관적이며 도움이 되며, 불필요하게 복잡하지 않으면서도 정확한 언어를 사용합니다. 헤드라인은 권위를 위해 큰, 가벼운 두께의 시스템 폰트를 채택하는 반면, 호출 작업은 문제 해결 단계를 위한 표준 파란색 텍스트 링크로 제시됩니다.",
+      "ch8_outro": "이 디자인은 진단 명확성에 대한 절대적인 초점을 유지하기 위해 다크 모드, 커스텀 폰트, 장식 요소 및 어떤 복잡한 애니메이션도 의도적으로 포기합니다."
+    }
+  }
+}

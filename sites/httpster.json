@@ -3,11 +3,583 @@
   "schema_version": "0.3",
   "url": "https://httpster.net",
   "title": "Httpster",
-  "image": "",
+  "image": "https://image.thum.io/get/width/1440/https://httpster.net",
   "tags": [
-    "design",
-    "gallery"
+    "Design",
+    "Gallery"
   ],
-  "status": "pending",
-  "added_at": "2026-06-02"
+  "status": "completed",
+  "added_at": "2026-06-02",
+  "spec": {
+    "colors": {
+      "bg": "#FFFFFF",
+      "bgSoft": null,
+      "bgQuiet": null,
+      "ink": "#000000",
+      "inkSoft": null,
+      "muted": "#666666",
+      "mutedSoft": null,
+      "accent": null,
+      "line": "rgba(0, 0, 0, 0.1)"
+    },
+    "typography": {
+      "display": "transitional-serif",
+      "body": "humanist-sans",
+      "mono": null,
+      "scale": [
+        {
+          "token": "display",
+          "size": 64,
+          "lh": 1.0,
+          "weight": 700,
+          "ls": "-1px"
+        },
+        {
+          "token": "body",
+          "size": 14,
+          "lh": 1.5,
+          "weight": 400,
+          "ls": "0px"
+        }
+      ]
+    },
+    "spacing": {
+      "base": 4,
+      "scale": [
+        4,
+        8,
+        16,
+        24,
+        32,
+        48,
+        64,
+        96
+      ]
+    },
+    "surfaces": {
+      "radius": {
+        "sm": 4,
+        "md": 8,
+        "lg": 12,
+        "pill": 999
+      }
+    },
+    "layout": {
+      "container": 1200,
+      "paragraph": 680,
+      "columns": 12,
+      "gutter": 24,
+      "breakpoints": [
+        768,
+        1024
+      ]
+    },
+    "motion": {
+      "durations": {
+        "micro": 220,
+        "small": 400,
+        "medium": 800
+      },
+      "easing": "cubic-bezier(0.25, 0.1, 0.25, 1.0)"
+    }
+  },
+  "spec_i18n": {
+    "en": {
+      "identity": {
+        "keywords": [
+          "curation",
+          "inspiration",
+          "gallery",
+          "clean",
+          "reference"
+        ],
+        "analogy": "A curated gallery of web design excellence.",
+        "oneLiner": "A minimal, gallery-style directory showcasing curated website design inspiration."
+      },
+      "colors": {
+        "principle": "High-contrast monochrome with neutral backgrounds to let screenshots breathe."
+      },
+      "typography": {
+        "rules": [
+          "Large serif headline for primary impact",
+          "Small sans-serif for UI elements",
+          "Orange accent used sparingly for counters"
+        ],
+        "scaleUses": [
+          "Main hero headline",
+          "Navigation and metadata"
+        ]
+      },
+      "spacing": {
+        "rhythm": "8px vertical spacing unit"
+      },
+      "surfaces": {
+        "shadows": [
+          "none"
+        ],
+        "borders": "1px solid rgba(0, 0, 0, 0.05)"
+      },
+      "layout": {
+        "skeleton": "2-column grid of screenshots with titles below"
+      },
+      "components": {
+        "button": "Minimal text links or small bordered buttons",
+        "card": "Screenshot image with title below, no visible container border",
+        "chip": "None",
+        "input": "None visible",
+        "hero": "Large centered serif headline with small orange counter below"
+      },
+      "motion": {
+        "patterns": [
+          "Subtle hover effects on gallery items"
+        ]
+      },
+      "interaction": {
+        "hover": "Subtle image scaling or brightness change on gallery items",
+        "click": "Navigate to detail page",
+        "transition": "Smooth opacity or transform on hover",
+        "keyboard": "Standard tab navigation through gallery items"
+      },
+      "voice": {
+        "tone": "Authoritative yet understated",
+        "headlineStyle": "Direct, large, and clear",
+        "ctaStyle": "Understated text links",
+        "avoid": [
+          "Flashy animations",
+          "Loud colors",
+          "Cluttered interfaces"
+        ]
+      },
+      "donts": [
+        "Don't use bright backgrounds — screenshot shows pure white.",
+        "Don't use heavy drop shadows — screenshot shows flat, borderless cards.",
+        "Don't use colorful UI elements — screenshot shows strictly monochrome UI.",
+        "Don't use sans-serif for main headlines — screenshot uses a transitional serif.",
+        "Don't use complex grids — screenshot shows a simple 2-column grid.",
+        "Don't use decorative icons — screenshot relies on typography and spacing."
+      ],
+      "systemPrompt": "Httpster is a minimalist, gallery-style website design inspiration directory. It uses a clean monochrome palette with a pure white background (#FFFFFF) and black typography (#000000), accented only by a small orange (#E66A20) text counter. The primary typeface category for headlines is a transitional serif, while UI elements use a humanist sans-serif. Critical design rules: never add visible borders to gallery cards, avoid cluttered layouts or decorative elements, and maintain generous whitespace to let the featured screenshots remain the visual focus."
+    },
+    "zh-CN": {
+      "identity": {
+        "keywords": [
+          "策展",
+          "灵感",
+          "图库",
+          "简洁",
+          "参考"
+        ],
+        "analogy": "一个精选的网页设计杰作画廊。",
+        "oneLiner": "一个展示精选网站设计灵感的极简图库式目录。"
+      },
+      "colors": {
+        "principle": "高对比度单色方案，使用中性背景让截图得以充分展现。"
+      },
+      "typography": {
+        "rules": [
+          "大型衬线标题用于核心视觉冲击",
+          "小型无衬线字体用于界面元素",
+          "橙色强调色仅用于计数器"
+        ],
+        "scaleUses": [
+          "主标题",
+          "导航与元数据"
+        ]
+      },
+      "spacing": {
+        "rhythm": "8px 垂直间距单位"
+      },
+      "surfaces": {
+        "shadows": [
+          "无"
+        ],
+        "borders": "1px solid rgba(0, 0, 0, 0.05)"
+      },
+      "layout": {
+        "skeleton": "双列网格展示截图，标题位于下方"
+      },
+      "components": {
+        "button": "简约的文字链接或带边框的小按钮",
+        "card": "截图图片配以下方标题，无可见容器边框",
+        "chip": "无",
+        "input": "无可见元素",
+        "hero": "大型居中衬线标题，下方有小号橙色计数器"
+      },
+      "motion": {
+        "patterns": [
+          "图库项目上的微妙 hover 效果"
+        ]
+      },
+      "interaction": {
+        "hover": "图库项目上的细微图像缩放或亮度变化",
+        "click": "导航至详情页面",
+        "transition": "hover 时平滑的透明度或变换效果",
+        "keyboard": "通过 Tab 键标准导航图库项目"
+      },
+      "voice": {
+        "tone": "权威而含蓄",
+        "headlineStyle": "直接、大而清晰",
+        "ctaStyle": "含蓄的文字链接",
+        "avoid": [
+          "炫目的动画",
+          "刺眼的色彩",
+          "杂乱的界面"
+        ]
+      },
+      "donts": [
+        "避免使用亮色背景——截图显示为纯白。",
+        "避免使用厚重的投影——截图显示为无边框的扁平卡片。",
+        "避免使用彩色界面元素——截图显示为严格单色的界面。",
+        "避免为标题使用无衬线字体——截图使用的是过渡型衬线字体。",
+        "避免使用复杂的网格——截图显示为简单的双列网格。",
+        "避免使用装饰性图标——截图依赖字体排印和间距。"
+      ],
+      "systemPrompt": "Httpster 是一个极简的图库式网站设计灵感目录。它采用简洁的单色配色，纯白背景（#FFFFFF）搭配黑色排版（#000000），仅用小面积橙色（#E66A20）作为文字计数器的强调色。标题的主要字体类别是过渡型衬线字体，而界面元素则使用人文主义无衬线字体。关键设计规则：绝不为图库卡片添加可见边框，避免杂乱布局或装饰元素，并保持充足的留白，让展示的截图成为视觉焦点。"
+    },
+    "zh-TW": {
+      "identity": {
+        "keywords": [
+          "策展",
+          "靈感",
+          "畫廊",
+          "簡潔",
+          "參考"
+        ],
+        "analogy": "一個策展的網頁設計優質畫廊。",
+        "oneLiner": "一個展示精選網站設計靈感的極簡畫廊風格目錄。"
+      },
+      "colors": {
+        "principle": "高對比單色調，搭配中性背景，讓截圖得以呼吸。"
+      },
+      "typography": {
+        "rules": [
+          "大型襯線字體標題營造主要視覺衝擊",
+          "小型無襯線字體用於介面元素",
+          "橘色點綴僅謹慎用於計數器"
+        ],
+        "scaleUses": [
+          "主視覺標題",
+          "導覽列與中繼資料"
+        ]
+      },
+      "spacing": {
+        "rhythm": "8px 垂直間距單位"
+      },
+      "surfaces": {
+        "shadows": [
+          "無"
+        ],
+        "borders": "1px solid rgba(0, 0, 0, 0.05)"
+      },
+      "layout": {
+        "skeleton": "兩欄式截圖格網，標題置於下方"
+      },
+      "components": {
+        "button": "極簡的文字連結或帶細邊框的小按鈕",
+        "card": "截圖圖片搭配下方標題，無可見的容器邊框",
+        "chip": "無",
+        "input": "無可見元素",
+        "hero": "大型置中襯線字體標題，下方帶有小型橘色計數器"
+      },
+      "motion": {
+        "patterns": [
+          "畫廊項目上的細微 hover 效果"
+        ]
+      },
+      "interaction": {
+        "hover": "畫廊項目上的細微圖片縮放或亮度變化",
+        "click": "導覽至詳細頁面",
+        "transition": "hover 時的透明度或變形平滑過渡",
+        "keyboard": "標準 Tab 鍵在畫廊項目間導覽"
+      },
+      "voice": {
+        "tone": "具權威性但內斂",
+        "headlineStyle": "直接、大型且清晰",
+        "ctaStyle": "內斂的文字連結",
+        "avoid": [
+          "炫目的動畫",
+          "鮮豔的色彩",
+          "雜亂的介面"
+        ]
+      },
+      "donts": [
+        "勿使用鮮豔背景——截圖顯示純白背景。",
+        "勿使用厚重的陰影效果——截圖顯示平面、無邊框的卡片。",
+        "勿使用彩色介面元素——截圖顯示嚴格的單色調介面。",
+        "勿使用無襯線字體作為主要標題——截圖使用過渡襯線字體。",
+        "勿使用複雜格網——截圖顯示簡單的兩欄式格網。",
+        "勿使用裝飾性圖標——截圖僅依靠字體排印與間距。"
+      ],
+      "systemPrompt": "Httpster 是一個極簡的畫廊風格網站設計靈感目錄。它採用乾淨的單色調色板，以純白背景（#FFFFFF）和黑色字型（#000000）為基礎，僅以小面積的橘色（#E66A20）文字計數器點綴。標題的主要字體類別為過渡襯線字體，而介面元素則使用人文主義無襯線字體。關鍵設計規則：永遠不要為畫廊卡片添加可見邊框，避免雜亂的佈局或裝飾元素，並保持寬裕的留白，讓被展示的截圖成為視覺焦點。"
+    },
+    "ja": {
+      "identity": {
+        "keywords": [
+          "キュレーション",
+          "インスピレーション",
+          "ギャラリー",
+          "クリーン",
+          "リファレンス"
+        ],
+        "analogy": "ウェブデザインの卓越性をキュレーションしたギャラリー。",
+        "oneLiner": "キュレーションされたウェブサイトデザインインスピレーションを展示する、ミニマルでギャラリースタイルのディレクトリ。"
+      },
+      "colors": {
+        "principle": "スクリーンショットが息を吹き込めるよう、ニュートラルな背景色でハイコントラストなモノクロームを採用。"
+      },
+      "typography": {
+        "rules": [
+          "主要なインパクトのために大きなセリフ見出し",
+          "UI要素には小さなサンセリフ",
+          "カウンター用に控えめにオレンジアクセントを使用"
+        ],
+        "scaleUses": [
+          "メインヒーローヘッドライン",
+          "ナビゲーションとメタデータ"
+        ]
+      },
+      "spacing": {
+        "rhythm": "8pxの縦方向のスペーシングユニット"
+      },
+      "surfaces": {
+        "shadows": [
+          "なし"
+        ],
+        "borders": "1px solid rgba(0, 0, 0, 0.05)"
+      },
+      "layout": {
+        "skeleton": "スクリーンショットの2カラムグリッド、下部にタイトル付き"
+      },
+      "components": {
+        "button": "ミニマルなテキストリンクまたは小さなボーダーボタン",
+        "card": "スクリーンショット画像の下にタイトルを配置、目に見えるコンテナボーダーなし",
+        "chip": "なし",
+        "input": "目に見えるものなし",
+        "hero": "大きな中央揃えセリフ見出しの下に小さなオレンジカウンター"
+      },
+      "motion": {
+        "patterns": [
+          "ギャラリーアイテムの微細なホバーエフェクト"
+        ]
+      },
+      "interaction": {
+        "hover": "ギャラリーアイテムの微細な画像スケーリングまたは明るさの変化",
+        "click": "詳細ページへナビゲート",
+        "transition": "ホバー時の滑らかな透明度またはトランスフォーム",
+        "keyboard": "ギャラリーアイテムを標準タブナビゲーションで操作"
+      },
+      "voice": {
+        "tone": "権威がありながら控えめ",
+        "headlineStyle": "直接的で大きく、明確",
+        "ctaStyle": "控えめなテキストリンク",
+        "avoid": [
+          "派手なアニメーション",
+          "鮮やかな色",
+          "雑然としたインターフェース"
+        ]
+      },
+      "donts": [
+        "明るい背景色を使わない — スクリーンショットは純白を示しています。",
+        "太いドロップシャドウを使わない — スクリーンショットはフラットでボーダレスなカードを示しています。",
+        "カラフルなUI要素を使わない — スクリーンショットは厳密にモノクロームのUIを示しています。",
+        "メイン見出しにサンセリフを使わない — スクリーンショットはトランジショナルセリフを使用しています。",
+        "複雑なグリッドを使わない — スクリーンショットはシンプルな2カラムグリッドを示しています。",
+        "装飾的なアイコンを使わない — スクリーンショットはタイポグラフィとスペーシングに依存しています。"
+      ],
+      "systemPrompt": "Httpsterはミニマルでギャラリースタイルのウェブサイトデザインインスピレーションディレクトリです。純白の背景（#FFFFFF）と黒のタイポグラフィ（#000000）を採用したクリーンなモノクロームパレットを使用し、数値カウンター用に小さなオレンジ色（#E66A20）のアクセントを配置しています。見出しの主フォントカテゴリーはトランジショナルセリフで、UI要素にはヒューマニストサンセリフを使用しています。重要なデザインルール：ギャラリーカードに目に見えるボーダーを追加しない、雑然としたレイアウトや装飾要素を避ける、また、特集スクリーンショットがビジュアルの焦点のままできるよう、十分なホワイトスペースを確保すること。"
+    },
+    "ko": {
+      "identity": {
+        "keywords": [
+          "큐레이션",
+          "영감",
+          "갤러리",
+          "깔끔한",
+          "레퍼런스"
+        ],
+        "analogy": "웹 디자인의 탁월함을 모아놓은 큐레이션 갤러리.",
+        "oneLiner": "큐레이션된 웹사이트 디자인 영감을 선보이는 미니멀한 갤러리 스타일 디렉토리."
+      },
+      "colors": {
+        "principle": "스크린샷이 숨 쉴 수 있도록 중립적인 배경을 사용한 고대비 모노크롬."
+      },
+      "typography": {
+        "rules": [
+          "주요 인상을 위한 large serif headline",
+          "UI 요소용 small sans-serif",
+          "카운터에 절제된 orange accent 사용"
+        ],
+        "scaleUses": [
+          "메인 히어로 헤드라인",
+          "탐색 및 메타데이터"
+        ]
+      },
+      "spacing": {
+        "rhythm": "8px 수직 간격 단위"
+      },
+      "surfaces": {
+        "shadows": [
+          "none"
+        ],
+        "borders": "1px solid rgba(0, 0, 0, 0.05)"
+      },
+      "layout": {
+        "skeleton": "제목이 아래에 표시되는 2열 스크린샷 그리드"
+      },
+      "components": {
+        "button": "미니멀한 텍스트 링크 또는 작은 테두리 버튼",
+        "card": "아래에 제목이 있는 스크린샷 이미지, 눈에 띄는 컨테이너 테두리 없음",
+        "chip": "없음",
+        "input": "보이지 않음",
+        "hero": "아래에 작은 오렌지 카운터가 있는 large centered serif headline"
+      },
+      "motion": {
+        "patterns": [
+          "갤러리 항목에 미세한 hover 효과"
+        ]
+      },
+      "interaction": {
+        "hover": "갤러리 항목에서 미세한 이미지 확대 또는 밝기 변화",
+        "click": "상세 페이지로 이동",
+        "transition": "hover 시 부드러운 opacity 또는 transform",
+        "keyboard": "갤러리 항목을 통한 표준 tab 탐색"
+      },
+      "voice": {
+        "tone": "권위 있으면서도 절제된",
+        "headlineStyle": "직설적이고, 크며, 명확한",
+        "ctaStyle": "절제된 텍스트 링크",
+        "avoid": [
+          "화려한 애니메이션",
+          "눈에 띄는 색상",
+          "복잡한 인터페이스"
+        ]
+      },
+      "donts": [
+        "밝은 배경을 사용하지 마세요 — 스크린샷은 순백색을 보여줍니다.",
+        "무거운 드롭 섀도우를 사용하지 마세요 — 스크린샷은 평면적이고 테두리 없는 카드를 보여줍니다.",
+        "화려한 UI 요소를 사용하지 마세요 — 스크린샷은 엄격한 모노크롬 UI를 보여줍니다.",
+        "주 헤드라인에 sans-serif를 사용하지 마세요 — 스크린샷은 전환체 세리프를 사용합니다.",
+        "복잡한 그리드를 사용하지 마세요 — 스크린샷은 단순한 2열 그리드를 보여줍니다.",
+        "장식 아이콘을 사용하지 마세요 — 스크린샷은 타이포그래피와 간격에 의존합니다."
+      ],
+      "systemPrompt": "Httpster는 미니멀한 갤러리 스타일 웹사이트 디자인 영감 디렉토리입니다. 순백색 배경(#FFFFFF)과 흑색 타이포그래피(#000000)를 사용하는 깔끔한 모노크롬 팔레트를 사용하며, 작은 오렌지(#E66A20) 텍스트 카운터로만 악센트를 줍니다. 헤드라인의 주요 타이포그래피 카테고리는 전환체 세리프이며, UI 요소는 humanist sans-serif를 사용합니다. 중요한 디자인 규칙: 갤러리 카드에 눈에 띄는 테두리를 절대 추가하지 말 것, 복잡한 레이아웃이나 장식 요소를 피할 것, 그리고 스크린샷이 시각적 초점으로 남도록 넉넉한 여백을 유지할 것."
+    }
+  },
+  "desc": {
+    "en": {
+      "palette": "Strict monochrome (black and white) with a single small orange accent for numerical counters.",
+      "layout": "A clean, centered layout featuring a massive serif headline followed by a 2-column grid of website screenshots.",
+      "interaction": "Simple, pointer-based navigation with subtle hover states on gallery thumbnails.",
+      "motion": "Minimal to none, prioritizing rapid content scanning over flashy transitions.",
+      "notes": "Its extreme restraint and focus on content make it a perfect reference for curation-based and gallery-style layouts."
+    },
+    "zh-CN": {
+      "palette": "严格单色（黑白）配色，仅使用小面积橙色作为数字计数器的强调色。",
+      "layout": "简洁的居中布局，以巨大的衬线标题为主导，下方是网站截图的双列网格。",
+      "interaction": "基于指针的简洁导航，图库缩略图带有微妙的 hover 状态。",
+      "motion": "极少或无动态效果，优先保证内容快速浏览，而非炫目的过渡动画。",
+      "notes": "其极致的克制与对内容的聚焦，使其成为策展型和图库式布局的绝佳参考。"
+    },
+    "zh-TW": {
+      "palette": "嚴格單色（黑白），僅以小面積橘色作為數字計數器的點綴。",
+      "layout": "乾淨的置中佈局，以大型襯線字體標題開頭，下方則是兩欄式網站截圖格網。",
+      "interaction": "以游標為基礎的簡潔導覽，畫廊縮圖帶有細微的 hover 狀態。",
+      "motion": "極簡或無動效，優先考慮內容快速瀏覽而非炫目的轉場效果。",
+      "notes": "其極致的克制與對內容的專注，使其成為策展式與畫廊風格佈局的完美參考。"
+    },
+    "ja": {
+      "palette": "厳格なモノクローム（黒と白）に、数値カウンター用の小さなオレンジ色のアクセントを1つ配置。",
+      "layout": "巨大なセリフ見出しが先頭に、ウェブサイトスクリーンショットの2カラムグリッドが続く、清潔で中央揃えのレイアウト。",
+      "interaction": "シンプルなポインターベースのナビゲーションで、ギャラリーサムネイルには微細なホバー状態を実装。",
+      "motion": "最小限、または無し。派手なトランジションよりも、コンテンツの高速なスキャンを優先。",
+      "notes": "その極度の抑制とコンテンツへの集中は、キュレーション型やギャラリースタイルのレイアウトに最適な参照資料です。"
+    },
+    "ko": {
+      "palette": "엄격한 모노크롬(흑백)에 숫자 카운터용으로 작은 오렌지 악센트 하나를 사용합니다.",
+      "layout": "대형 세리프 헤드라인 뒤에 2열 그리드의 웹사이트 스크린샷이 이어지는 깔끔하고 중앙 정렬된 레이아웃입니다.",
+      "interaction": "포인터 기반의 간단한 탐색과 갤러리 썸네일에 미세한 hover 상태를 적용합니다.",
+      "motion": "화려한 전환 효과보다 빠른 콘텐츠 스캔을 우선시하여 최소한으로 설정하거나 사용하지 않습니다.",
+      "notes": "극도의 절제와 콘텐츠 집중은 큐레이션 기반 및 갤러리 스타일 레이아웃에 완벽한 레퍼런스를 제공합니다."
+    }
+  },
+  "_meta": {
+    "vision_model": "mimo-v2.5",
+    "vision_prompt_version": "0.3",
+    "vision_at": "2026-07-14T22:24:10+00:00",
+    "vision_tokens": 3190,
+    "vision_cost_usd": 0.0354,
+    "translation_model": "mimo-v2.5",
+    "translation_at": "2026-07-14T22:24:49+00:00",
+    "translation_tokens": 14609,
+    "translation_cost_usd": 0.0487,
+    "narrative_model": "mimo-v2.5",
+    "narrative_prompt_version": "0.3",
+    "narrative_at": "2026-07-14T22:24:54+00:00",
+    "narrative_tokens": 1792,
+    "narrative_cost_usd": 0.0119,
+    "narrative_status": "ok",
+    "total_cost_usd": 0.096
+  },
+  "narrative": {
+    "en": {
+      "ch1_intro": "Httpster functions as a curated gallery of web design excellence, where the interface itself dissolves to let the collected works command full attention. Its design DNA is built on rigorous restraint, treating the site as a neutral exhibition space rather than a competing voice.",
+      "ch2_intro": "The color system is a strict monochrome of black and white, with a single small orange accent reserved exclusively for numerical counters. This high-contrast approach ensures the showcased screenshots remain the primary visual elements.",
+      "ch2_outro": "The guiding principle is clarity through contrast, using the stark palette to frame and elevate the curated content without interference.",
+      "ch3_intro": "Typography establishes a clear hierarchy: a large transitional serif makes the primary headline statement, while a humanist sans-serif handles UI elements like navigation and metadata. This pairing creates a distinct voice—authoritative for the main call, understated for the supporting structure.",
+      "ch4_intro": "An 8px vertical spacing unit creates a consistent, measured rhythm across all content areas, providing breathing room that prevents visual clutter.",
+      "ch5_intro": "Surfaces are intentionally flat and borderless, with no drop shadows applied to gallery cards. The only border present is a faint 1px solid rgba(0, 0, 0, 0.05) rule, acting as a minimal delineator rather than a visual container.",
+      "ch6_intro": "The layout skeleton is a centered, two-column grid that presents website screenshots with their titles positioned cleanly below. This structure is straightforward, prioritizing rapid scanning and visual comparison over complex compositional arrangements.",
+      "ch7_intro": "Motion is minimal, limited to subtle hover effects like scaling or brightness changes on gallery thumbnails. The philosophy prioritizes swift content navigation over decorative animation, ensuring interactions feel responsive but never distracting.",
+      "ch8_intro": "The editorial voice is authoritative yet understated, using direct, large, clear headlines paired with minimal text links as calls to action. The system deliberately avoids flashy animations, loud colors, and cluttered interfaces.",
+      "ch8_outro": "They deliberately do not use bright backgrounds, heavy drop shadows, colorful UI elements, or complex grids, maintaining a focus on pure content presentation."
+    },
+    "zh-CN": {
+      "ch1_intro": "Httpster 作为一个精心策划的网页设计精选画廊，其界面本身会隐去，让收录的作品成为绝对主角。它的设计DNA基于严谨的克制，将网站视为一个中立的展示空间，而非另一个竞争性的声音。",
+      "ch2_intro": "色彩体系是严格的黑白单色，仅用一个微小的橙色点缀专用于数字计数。这种高对比度方法确保了展示的截图始终是核心视觉元素。",
+      "ch2_outro": "指导原则是通过对比实现清晰，使用纯粹的色调来框定和提升精选内容，避免任何干扰。",
+      "ch3_intro": "字体排印建立了清晰的层级：大型过渡衬线字体用于主要标题的陈述，而人文主义无衬线字体则处理导航和元数据等UI元素。这种搭配创造了独特的声音——主要信息具有权威性，辅助结构则低调。",
+      "ch4_intro": "8px的垂直间距单元在所有内容区域创造了连贯、有度的节奏，提供了呼吸空间，防止了视觉上的拥挤。",
+      "ch5_intro": "界面表面有意保持扁平、无边框，画廊卡片不应用任何投影。唯一存在的边框是微弱的1px实线 rgba(0, 0, 0, 0.05)，它作为最小的分隔符，而非视觉容器。",
+      "ch6_intro": "布局骨架是一个居中的双栏网格，展示网站截图及其清晰置于下方的标题。这种结构直截了当，优先考虑快速浏览和视觉比较，而非复杂的构图安排。",
+      "ch7_intro": "动效极为克制，仅限于画廊缩略图上微妙的悬停效果，如缩放或亮度变化。其理念优先考虑内容的快速导航，而非装饰性动画，确保交互感觉灵敏但从不分散注意力。",
+      "ch8_intro": "编辑语调权威而低调，使用直接、大而清晰的标题，搭配作为行动召唤的最小文本链接。该系统刻意避免花哨的动画、张扬的色彩和杂乱的界面。",
+      "ch8_outro": "他们刻意不使用明亮的背景、厚重的投影、多彩的UI元素或复杂的网格，将焦点保持在纯粹的内容呈现上。"
+    },
+    "zh-TW": {
+      "ch1_intro": "Httpster 作為一個策展型的網頁設計精選廊，其介面本身會退讓，讓收錄的作品成為唯一的焦點。它的設計基因建立在嚴謹的節制之上，將網站視為一個中性的展覽空間，而非另一個競爭的聲音。",
+      "ch2_outro": "其核心原則是透過對比實現清晰，使用極簡的調色盤來框顯並提升策展內容，且不加干擾。",
+      "ch3_intro": "字體排印確立了清晰的層級：大型過渡式襯線字體用於主要標題的陳述，而人文主義無襯線字體則處理導覽與詮釋資料等介面元素。這種配對創造出一種獨特的語調——主體訴求具權威感，輔助結構則顯得低調。",
+      "ch4_intro": "一個 8px 的垂直間距單位，在所有內容區域中創造出一致且規律的節奏，提供呼吸的空間，避免視覺上的雜亂。",
+      "ch5_intro": "表面刻意採用平坦且無邊框的設計，廊道卡片不施加任何陰影。僅有的邊框是一條極淡的 1px solid rgba(0, 0, 0, 0.05) 線條，作為最小限度的區隔，而非一個視覺容器。",
+      "ch6_intro": "佈局骨架是一個置中的雙欄網格，展示網站截圖並將其標題整潔地置於下方。這種結構直截了當，優先考量快速掃視與視覺比較，而非複雜的構圖安排。",
+      "ch7_intro": "動態效果極為節制，僅限於懸停時的細微變化，例如廊道縮圖的縮放或亮度調整。其哲學優先考慮快速的內容瀏覽，而非裝飾性動畫，確保互動感到靈敏但從不分散注意力。",
+      "ch8_intro": "編輯語調權威 yet 低調，使用直接、大型、清晰的標題，搭配最小化的文字連結作為行動呼籲。此系統刻意避免炫目的動畫、吵雜的色彩以及雜亂的介面。",
+      "ch8_outro": "他們刻意不使用明亮的背景、厚重的陰影、彩色的介面元素或複雜的網格，以維持對純粹內容呈現的專注。",
+      "ch2_intro": "色彩系統是嚴格的黑白單色調，僅為數字計數器保留一小處橙色強調。這種高對比的做法確保了展示的截圖始終是主要的視覺元素。"
+    },
+    "ja": {
+      "ch1_intro": "Httpsterは、ウェブデザインの優れた作品を厳選して展示するギャラリーとして機能します。インターフェース自体が消えることで、集められた作品がすべての注目を集めるようになっています。そのデザインDNAは厳格な抑制にあり、サイトを競合する声ではなく、中立的な展示空間として扱っています。",
+      "ch2_intro": "カラーシステムは黒白の厳密なモノクロームで、唯一的な小さなオレンジのアクセントは数値カウンターに限定して使用されます。このハイコントラストのアプローチにより、紹介されているスクリーンショットが主要なビジュアル要素であり続けることが保証されます。",
+      "ch2_outro": "導きの原理は、コントラストによる明瞭さです。鮮明なパレットを用いて、干渉なしに厳選されたコンテンツを枠組みに嵌め、高揚させます。",
+      "ch3_intro": "タイポグラフィは明確な階層を確立します。大きなトランジショナル・セリフが主要な見出しの役割を担い、ヒューマニスト・サンセリフはナビゲーションやメタデータなどのUI要素を扱います。この組み合わせは、主要な呼びかけには権威を、支援する構造には控えめさを与える、明確な声を生み出しています。",
+      "ch4_intro": "8pxの垂直スペーシングユニットは、すべてのコンテンツ領域にわたって一貫した、測り直されたリズムを作り出し、視覚的な雑然とした感覚を防ぐための呼吸の余地を提供します。",
+      "ch5_intro": "サーフェスは意図的にフラットでボーダーレスです。ギャラリーカードにドロップシャドウは適用されません。存在する唯一のボーダーは、淡い1px solid rgba(0, 0, 0, 0.05)のラインであり、ビジュアルコンテナではなく、最小限の境界線としての役割を果たします。",
+      "ch6_intro": "レイアウトの骨格は中央揃えの2カラムグリッドであり、ウェブサイトのスクリーンショットを、そのタイトルを其々の下に綺麗に配置して提示します。この構造は単純明快であり、複雑な構図上の配置よりも、素早いスキャンとビジュアル比較を優先しています。",
+      "ch7_intro": "モーションは最小限に抑えられ、ギャラリーサムネイルのスケール変更や明るさの変化などの微かなhover効果に限定されます。この哲学は、装飾的なアニメーションよりも迅速なコンテンツナビゲーションを優先し、インタラクションが応答性を感じさせるが、決して気を散らすものではないことを保証します。",
+      "ch8_intro": "編集の声は権威的ですが控えめで、直接的で大きく明確な見出しを、最小限のテキストリンクをCTAとして使用しています。このシステムは、派手なアニメーション、派手な色、雑然としたインターフェースを意図的に避けます。",
+      "ch8_outro": "彼らは意図的に明るい背景、重いドロップシャドウ、カラフルなUI要素、複雑なグリッドを使用せず、純粋なコンテンツの提示に焦点を当てることを維持しています。"
+    },
+    "ko": {
+      "ch1_intro": "Httpster는 웹 디자인 우수성을 큐레이션한 갤러리로 기능하며, 인터페이스 자체는 사라져 수집된 작품들이 온전한 주목을 받게 합니다. 이 사이트는 엄격한 절제에 기반한 설계 DNA를 갖추고 있으며, 경쟁적인 목소리가 아닌 중립적인 전시 공간으로서의 역할을 부여합니다.",
+      "ch2_intro": "컬러 시스템은 검정과 흰색의 엄격한 단색 체계를 따르며, 주황색 강조는 숫자 카운터에만 독점적으로 사용됩니다. 이 고대비 접근 방식은 선보이는 스크린샷이 주요 시각 요소로 남도록 보장합니다.",
+      "ch2_outro": "지침이 되는 원칙은 대비를 통한 명확성으로, 강렬한 팔레트를 활용하여 큐레이션된 콘텐츠를 간섭 없이 프레임하고 격상시킵니다.",
+      "ch3_intro": "타이포그래피는 명확한 계층 구조를 확립합니다. 큰 전환형 세리프가 주요 헤드라인 스테이트먼트를 담당하고, 휴머니스트 산세리프는 탐색 메타데이터 같은 UI 요소를 다룹니다. 이 페어링은 고유한 목소리를 만들어내며, 주요 호출에는 권위 있고, 지지 구조에는 절제된 느낌을 줍니다.",
+      "ch4_intro": "8px 수직 간격 단위는 모든 콘텐츠 영역에 걸쳐 일관되고 측정 가능한 리듬을 만들어내며, 시각적 혼잡을 방지하는 공간감을 제공합니다.",
+      "ch5_intro": "표면은 의도적으로 평평하고 경계선이 없으며, 갤러리 카드에는 드롭 섀도우가 적용되지 않습니다. 존재하는 유일한 경계는 최소한의 구분자 역할을 하는, 희미한 1px solid rgba(0, 0, 0, 0.05) 규칙입니다.",
+      "ch6_intro": "레이아웃 골격은 중앙 정렬된 2열 그리드로, 웹사이트 스크린샷을 제목과 함께 깔끔하게 배치합니다. 이 구조는 단순하며, 복잡한 구성을 우선시하기보다 빠른 스캔과 시각적 비교를 우선으로 합니다.",
+      "ch7_intro": "모션은 최소화되어 있으며, 갤러리 썸네일의 스케일링이나 밝기 변화 같은 미묘한 hover 효과로 제한됩니다. 이 철학은 장식적인 애니메이션보다 빠른 콘텐츠 탐색을 우선시하여, 인터랙션이 반응적이면서도 결코 방해가 되지 않도록 합니다.",
+      "ch8_intro": "에디토리얼 목소리는 권위적이면서도 절제되어 있으며, 직접적이고 큰 명확한 헤드라인과 최소한의 텍스트 링크를 콜 투 액션으로 사용합니다. 시스템은 화려한 애니메이션, 강렬한 색상, 복잡한 인터페이스를 의도적으로 피합니다.",
+      "ch8_outro": "그들은 의도적으로 밝은 배경, 무거운 드롭 섀도우, 다채로운 UI 요소, 복잡한 그리드를 사용하지 않으며, 순수한 콘텐츠 프레젠테이션에 초점을 유지합니다."
+    }
+  }
 }

@@ -1,0 +1,587 @@
+{
+  "id": "tangled",
+  "schema_version": "0.3",
+  "url": "https://tangled.org/rocksky.app/rocksky",
+  "title": "Tangled",
+  "image": "https://image.thum.io/get/width/1440/noanimate/https://tangled.org/rocksky.app/rocksky",
+  "tags": [
+    "Developer Tools",
+    "Clean",
+    "Tooling",
+    "Grid"
+  ],
+  "status": "completed",
+  "added_at": "2026-06-07",
+  "added_by": "discover",
+  "_meta": {
+    "vision_model": "mimo-v2.5",
+    "vision_prompt_version": "0.3",
+    "vision_at": "2026-07-15T09:30:15+00:00",
+    "vision_tokens": 4063,
+    "vision_cost_usd": 0.0451,
+    "last_error": "Invalid control character at: line 73 column 14 (char 2238)",
+    "retry_count": 1,
+    "translation_model": "mimo-v2.5",
+    "translation_at": "2026-07-15T09:33:10+00:00",
+    "translation_tokens": 9652,
+    "translation_cost_usd": 0.0322,
+    "narrative_model": "mimo-v2.5",
+    "narrative_prompt_version": "0.3",
+    "narrative_at": "2026-07-15T09:34:20+00:00",
+    "narrative_tokens": 1935,
+    "narrative_cost_usd": 0.0129,
+    "narrative_status": "ok",
+    "total_cost_usd": 0.0902
+  },
+  "spec": {
+    "colors": {
+      "bg": "#FFFFFF",
+      "bgSoft": "#F6F8FA",
+      "bgQuiet": "#F6F8FA",
+      "ink": "#24292F",
+      "inkSoft": "#57606A",
+      "muted": "#57606A",
+      "mutedSoft": "#8C959F",
+      "accent": "#2EA44F",
+      "line": "rgba(31,35,40,0.15)"
+    },
+    "typography": {
+      "display": "system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif",
+      "body": "system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif",
+      "mono": "'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace",
+      "scale": [
+        {
+          "token": "display",
+          "size": 20,
+          "lh": 1.25,
+          "weight": 600,
+          "ls": "normal"
+        },
+        {
+          "token": "body",
+          "size": 14,
+          "lh": 1.5,
+          "weight": 400,
+          "ls": "normal"
+        },
+        {
+          "token": "mono",
+          "size": 12,
+          "lh": 1.4,
+          "weight": 400,
+          "ls": "normal"
+        }
+      ]
+    },
+    "spacing": {
+      "base": 4,
+      "scale": [
+        4,
+        8,
+        16,
+        24,
+        32,
+        48,
+        64,
+        96
+      ]
+    },
+    "surfaces": {
+      "radius": {
+        "sm": 4,
+        "md": 6,
+        "lg": 8,
+        "pill": 999
+      }
+    },
+    "layout": {
+      "container": 1280,
+      "paragraph": 800,
+      "columns": 12,
+      "gutter": 24,
+      "breakpoints": [
+        768,
+        1024
+      ]
+    },
+    "motion": {
+      "durations": {
+        "micro": 150,
+        "small": 300,
+        "medium": 500
+      },
+      "easing": "cubic-bezier(0.4, 0, 0.2, 1)"
+    }
+  },
+  "spec_i18n": {
+    "en": {
+      "identity": {
+        "keywords": [
+          "developer",
+          "repository",
+          "code",
+          "version-control",
+          "technical"
+        ],
+        "analogy": "A developer-focused GitHub clone for AT Protocol repositories.",
+        "oneLiner": "A clean, functional code repository viewer for the decentralized web."
+      },
+      "colors": {
+        "principle": "High-contrast neutral base with a single green accent for primary actions."
+      },
+      "typography": {
+        "rules": [
+          "Use system font stack for performance and familiarity.",
+          "Apply monospace only to code-related data like commit hashes."
+        ],
+        "scaleUses": [
+          "repository name and primary headings",
+          "file list items and metadata",
+          "commit hashes and technical details"
+        ]
+      },
+      "spacing": {
+        "rhythm": "Consistent 4px grid with standard spacing tokens for alignment."
+      },
+      "surfaces": {
+        "shadows": [],
+        "borders": "1px solid rgba(31,35,40,0.15)"
+      },
+      "layout": {
+        "skeleton": "Two-column layout with file tree on left and commit history on right."
+      },
+      "components": {
+        "button": "Primary: green background (#2EA44F), white text. Secondary: white background, gray border, gray text.",
+        "card": "White background, subtle border, no shadow. Used for file list items and commit entries.",
+        "chip": "Small rounded badges for status like 'main', '2/2', '0/2'.",
+        "input": "White background, gray border, rounded corners. Search field in header.",
+        "hero": "Repository title and description with action buttons (Star, Fork, Atom)."
+      },
+      "motion": {
+        "patterns": [
+          "Simple fade-in for UI state changes, no complex animations visible."
+        ]
+      },
+      "interaction": {
+        "hover": "Subtle background color change on interactive elements like file rows.",
+        "click": "Immediate response, no visual feedback beyond navigation.",
+        "transition": "Minimal transitions, mostly instant state changes.",
+        "keyboard": "Standard tab navigation through interactive elements."
+      },
+      "voice": {
+        "tone": "Technical, functional, and direct.",
+        "headlineStyle": "Clear, descriptive, and keyword-focused (e.g., 'feat(scrabble):...').",
+        "ctaStyle": "Action-oriented verbs like 'Star', 'Fork', 'Join now'.",
+        "avoid": [
+          "Marketing fluff",
+          "Casual language",
+          "Excessive decoration"
+        ]
+      },
+      "donts": [
+        "Don't use vibrant gradients — screenshot shows a flat white background with minimal color.",
+        "Don't apply heavy shadows — screenshot shows no drop shadows on any elements.",
+        "Don't use decorative serif fonts — screenshot shows a sans-serif system font stack.",
+        "Don't add rounded corners to file list items — screenshot shows sharp corners.",
+        "Don't use a dark theme — screenshot shows a predominantly white and light gray interface.",
+        "Don't implement complex animations — screenshot shows a static, functional interface."
+      ],
+      "systemPrompt": "This is a developer-focused repository viewer for the decentralized web, similar to GitHub. The design prioritizes functionality and readability over decoration. Key colors include a white background (#FFFFFF), dark gray text (#24292F), and a single green accent (#2EA44F) for primary actions. The typography uses a system sans-serif font stack for body and display text, with a monospace font for technical data. Critical constraints: avoid decorative elements like gradients or shadows, maintain the clean two-column layout, and preserve the functional, code-first aesthetic. The interface must remain fast, scannable, and technically precise."
+    },
+    "zh-CN": {
+      "identity": {
+        "keywords": [
+          "开发者",
+          "代码仓库",
+          "代码",
+          "版本控制",
+          "技术"
+        ],
+        "analogy": "一个面向AT Protocol代码仓库的开发者专属GitHub克隆体。",
+        "oneLiner": "一个为去中心化网络打造的、简洁且功能性的代码仓库浏览器。"
+      },
+      "colors": {
+        "principle": "以高对比度的中性色为基底，使用单一的绿色作为主要操作的强调色。"
+      },
+      "typography": {
+        "rules": [
+          "为性能和熟悉度使用系统字体栈。",
+          "仅对代码相关数据（如提交哈希值）使用等宽字体。"
+        ],
+        "scaleUses": [
+          "仓库名称与主标题",
+          "文件列表项与元数据",
+          "提交哈希与技术细节"
+        ]
+      },
+      "spacing": {
+        "rhythm": "采用统一的4px网格，并使用标准间距令牌以实现对齐。"
+      },
+      "surfaces": {
+        "shadows": [],
+        "borders": "1px solid rgba(31,35,40,0.15)"
+      },
+      "layout": {
+        "skeleton": "两栏布局，左侧为文件树，右侧为提交历史。"
+      },
+      "components": {
+        "button": "主要按钮：绿色背景（#2EA44F），白色文字。次要按钮：白色背景，灰色边框，灰色文字。",
+        "card": "白色背景，细微边框，无阴影。用于文件列表项和提交条目。",
+        "chip": "小型圆角徽章，用于显示状态，如 'main'、'2/2'、'0/2'。",
+        "input": "白色背景，灰色边框，圆角。用于顶部栏的搜索字段。",
+        "hero": "包含仓库标题、描述及操作按钮（Star、Fork、Atom）的区域。"
+      },
+      "motion": {
+        "patterns": [
+          "为UI状态变化使用简单的淡入效果，无可见的复杂动画。"
+        ]
+      },
+      "interaction": {
+        "hover": "交互元素（如文件行）在hover时背景色发生细微变化。",
+        "click": "即时响应，除导航外无额外视觉反馈。",
+        "transition": "过渡效果极小，多为即时状态切换。",
+        "keyboard": "通过Tab键在交互元素间进行标准导航。"
+      },
+      "voice": {
+        "tone": "技术性、功能性、直接。",
+        "headlineStyle": "清晰、描述性强且聚焦关键词（例如：'feat(scrabble):...'）。",
+        "ctaStyle": "使用行动导向的动词，如 'Star'、'Fork'、'立即加入'。",
+        "avoid": [
+          "营销话术",
+          "随意用语",
+          "过度装饰"
+        ]
+      },
+      "donts": [
+        "勿使用鲜艳渐变色——截图显示为平坦的白色背景，色彩极少。",
+        "勿应用厚重的阴影——截图显示所有元素均无投影。",
+        "勿使用装饰性衬线字体——截图显示为无衬线系统字体栈。",
+        "勿为文件列表项添加圆角——截图显示为直角。",
+        "勿使用深色主题——截图显示为以白色和浅灰色为主的界面。",
+        "勿实现复杂动画——截图显示为静态、功能性的界面。"
+      ],
+      "systemPrompt": "这是一个面向去中心化网络的开发者专属代码仓库浏览器，类似于GitHub。设计优先考虑功能性与可读性，而非装饰。关键色彩包括白色背景（#FFFFFF）、深灰色文字（#24292F），以及用于主要操作的单一绿色强调色（#2EA44F）。排版方面，正文和标题使用系统无衬线字体栈，技术数据使用等宽字体。关键约束：避免渐变或阴影等装饰性元素，保持简洁的两栏布局，并维护功能性的、代码优先的审美。界面必须保持快速、可扫描性且技术精确。"
+    },
+    "zh-TW": {
+      "identity": {
+        "keywords": [
+          "開發者",
+          "儲存庫",
+          "程式碼",
+          "版本控制",
+          "技術性"
+        ],
+        "analogy": "一個專注於開發者的 GitHub 類比，用於 AT Protocol 儲存庫。",
+        "oneLiner": "一個乾淨、功能性的程式碼儲存庫檢視器，適用於去中心化網路。"
+      },
+      "colors": {
+        "principle": "高對比度的中性基底，搭配單一綠色作為主要操作的強調色。"
+      },
+      "typography": {
+        "rules": [
+          "使用系統字型堆疊以兼顧效能與熟悉度。",
+          "僅將等寬字型應用於提交雜湊值等與程式碼相關的資料。"
+        ],
+        "scaleUses": [
+          "儲存庫名稱與主要標題",
+          "檔案列表項目與中繼資料",
+          "提交雜湊值與技術細節"
+        ]
+      },
+      "spacing": {
+        "rhythm": "一致的 4px 格線，搭配標準間距 tokens 以進行對齊。"
+      },
+      "surfaces": {
+        "shadows": [],
+        "borders": "1px solid rgba(31,35,40,0.15)"
+      },
+      "layout": {
+        "skeleton": "雙欄式佈局，左側為檔案樹狀結構，右側為提交歷程。"
+      },
+      "components": {
+        "button": "主要按鈕：綠色背景 (#2EA44F)，白色文字。次要按鈕：白色背景，灰色邊框，灰色文字。",
+        "card": "白色背景，細微邊框，無陰影。用於檔案列表項目與提交條目。",
+        "chip": "小型圓角徽章，用於狀態標示，如 'main'、'2/2'、'0/2'。",
+        "input": "白色背景，灰色邊框，圓角。位於頁首的搜尋欄位。",
+        "hero": "儲存庫標題與說明，搭配操作按鈕 (Star、Fork、Atom)。"
+      },
+      "motion": {
+        "patterns": [
+          "UI 狀態變更時使用簡單的淡入效果，無複雜的動畫。"
+        ]
+      },
+      "interaction": {
+        "hover": "互動元素（如檔案列）具有細微的背景顏色變化。",
+        "click": "立即回應，除了導覽外無其他視覺回饋。",
+        "transition": "極簡的過渡效果，大多為即時狀態變更。",
+        "keyboard": "使用標準 Tab 鍵導覽互動元素。"
+      },
+      "voice": {
+        "tone": "技術性、功能性且直接。",
+        "headlineStyle": "清晰、具描述性且以關鍵詞為導向（例如 'feat(scrabble):...'）。",
+        "ctaStyle": "以動作為導向的動詞，如 'Star'、'Fork'、'Join now'。",
+        "avoid": [
+          "行銷用語",
+          "隨意的語言",
+          "過度裝飾"
+        ]
+      },
+      "donts": [
+        "不要使用鮮豔的漸層色——截圖顯示的是平坦的白色背景與極少的色彩。",
+        "不要套用厚重的陰影——截圖顯示任何元素均無陰影。",
+        "不要使用裝飾性的襯線字型——截圖顯示的是無襯線系統字型堆疊。",
+        "不要在檔案列表項目上添加圓角——截圖顯示的是銳角。",
+        "不要使用深色主題——截圖顯示的是以白色與淺灰色為主的介面。",
+        "不要實現複雜的動畫——截圖顯示的是一個靜態、功能性的介面。"
+      ],
+      "systemPrompt": "這是一個專注於開發者的去中心化網路儲存庫檢視器，類似於 GitHub。其設計優先考量功能性與可讀性，而非裝飾性。關鍵顏色包括白色背景 (#FFFFFF)、深灰色文字 (#24292F)，以及單一的綠色強調色 (#2EA44F) 用於主要操作。字型方面，使用系統無襯線字型堆疊作為內文與顯示文字，並使用等寬字型處理技術性資料。關鍵限制：避免使用漸層或陰影等裝飾性元素，保持乾淨的雙欄式佈局，並維護其功能性、程式碼優先的美感。介面必須保持快速、易於掃視且技術精確。"
+    },
+    "ja": {
+      "identity": {
+        "keywords": [
+          "開発者",
+          "リポジトリ",
+          "コード",
+          "バージョン管理",
+          "技術"
+        ],
+        "analogy": "AT Protocolリポジトリ向けの、デベロッパー中心のGitHubクローン。",
+        "oneLiner": "分散型ウェブ向けの、クリーンで機能的なコードリポジトリビューア。"
+      },
+      "colors": {
+        "principle": "ハイコントラートの中立的なベースに、プライマリアクションの単一のグリーンアクセントを配置。"
+      },
+      "typography": {
+        "rules": [
+          "パフォーマンスと親しみやすさのため、システムフォントスタックを使用。",
+          "コミットハッシュなどのコード関連データにのみモノスペースフォントを適用。"
+        ],
+        "scaleUses": [
+          "リポジトリ名とプライマリヘッディング",
+          "ファイルリストアイテムとメタデータ",
+          "コミットハッシュと技術詳細"
+        ]
+      },
+      "spacing": {
+        "rhythm": "アライメントのための標準的なスペーシングトークンを用いた、一貫した4pxグリッド。"
+      },
+      "surfaces": {
+        "shadows": [],
+        "borders": "1px solid rgba(31,35,40,0.15)"
+      },
+      "layout": {
+        "skeleton": "左側にファイルツリー、右側にコミット履歴を配置した2カラムレイアウト。"
+      },
+      "components": {
+        "button": "プライマリー：グリーン背景（#2EA44F）、白文字。セカンダリー：白背景、グレー枠線、グレー文字。",
+        "card": "白背景、微妙な枠線、シャドウなし。ファイルリストアイテムやコミットエントリに使用。",
+        "chip": "「main」、「2/2」、「0/2」などのステータスを表す、小さな角丸バッジ。",
+        "input": "白背景、グレー枠線、角丸。ヘッダー内の検索フィールド。",
+        "hero": "リポジトリタイトルと説明文に、アクションボタン（Star, Fork, Atom）を配置。"
+      },
+      "motion": {
+        "patterns": [
+          "UI状態変化に対するシンプルなフェードイン。複雑なアニメーションは見られません。"
+        ]
+      },
+      "interaction": {
+        "hover": "ファイル行などのインタラクティブ要素に対する、微妙な背景色の変化。",
+        "click": "ナビゲーション以外の視覚的フィードバックなしで、即座に応答。",
+        "transition": "最小限のトランジション。主に即時的な状態変化。",
+        "keyboard": "インタラクティブ要素を介した標準的なtabナビゲーション。"
+      },
+      "voice": {
+        "tone": "技術的、機能的、かつ直接的。",
+        "headlineStyle": "明確で、記述的、キーワード中心のスタイル（例：「feat(scrabble):...」）。",
+        "ctaStyle": "「Star」「Fork」「Join now」などの、アクション指向の動詞。",
+        "avoid": [
+          "マーケティング調の冗長な表現",
+          "カジュアルな言葉遣い",
+          "過度な装飾"
+        ]
+      },
+      "donts": [
+        "鮮やかなグラデーションを使用しない — スクリーンショットは、最小限のカラーでフラットな白背景を示しています。",
+        "強いシャドウを適用しない — スクリーンショットは、すべての要素にドロップシャドウがないことを示しています。",
+        "装飾的なセリフフォントを使用しない — スクリーンショットは、サンセリフのシステムフォントスタックを示しています。",
+        "ファイルリストアイテムに角丸を追加しない — スクリーンショットは、シャープな角を示しています。",
+        "ダークテーマを使用しない — スクリーンショットは、主に白とライトグレーのインターフェースを示しています。",
+        "複雑なアニメーションを実装しない — スクリーンショットは、静的で機能的なインターフェースを示しています。"
+      ],
+      "systemPrompt": "これは、GitHubに似た、分散型ウェブ向けのデベロッパー中心のリポジトリビューアです。デザインは装飾よりも機能性と可読性を優先しています。主要カラーには、白背景（#FFFFFF）、ダークグレーテキスト（#24292F）、プライマリアクションの単一のグリーンアクセント（#2EA44F）が含まれます。タイポグラフィは、本文および表示テキストにシステムサンセリフフォントスタックを、技術データにはモノスペースフォントを使用します。重要な制約として、グラデーションやシャドウなどの装飾要素を避け、クリーンな2カラムレイアウトを維持し、機能的でコードファーストの美学を保つことが必須です。インターフェースは高速でスキャンしやすく、技術的に正確でなければなりません。"
+    },
+    "ko": {
+      "identity": {
+        "keywords": [
+          "개발자",
+          "저장소",
+          "코드",
+          "버전 관리",
+          "기술적"
+        ],
+        "analogy": "AT 프로토콜 저장소를 위한 개발자 중심 GitHub 클론입니다.",
+        "oneLiner": "탈중앙화 웹을 위한 깔끔하고 기능적인 코드 저장소 뷰어입니다."
+      },
+      "colors": {
+        "principle": "주요 작업을 위한 단일 녹색 포인트가 있는 고대비 중성 베이스."
+      },
+      "typography": {
+        "rules": [
+          "성능과 친숙성을 위해 시스템 폰트 스택을 사용합니다.",
+          "커밋 해시와 같은 코드 관련 데이터에만 모노스페이스를 적용합니다."
+        ],
+        "scaleUses": [
+          "저장소 이름 및 주요 제목",
+          "파일 목록 항목 및 메타데이터",
+          "커밋 해시 및 기술적 상세 정보"
+        ]
+      },
+      "spacing": {
+        "rhythm": "정렬을 위한 표준 간격 토큰을 사용하는 일관된 4px 격자."
+      },
+      "surfaces": {
+        "shadows": [],
+        "borders": "1px solid rgba(31,35,40,0.15)"
+      },
+      "layout": {
+        "skeleton": "왼쪽 파일 트리와 오른쪽 커밋 기록으로 구성된 2컬럼 레이아웃."
+      },
+      "components": {
+        "button": "주요: 녹색 배경(#2EA44F), 흰색 텍스트. 보조: 흰색 배경, 회색 테두리, 회색 텍스트.",
+        "card": "흰색 배경, 미세한 테두리, 그림자 없음. 파일 목록 항목 및 커밋 항목에 사용.",
+        "chip": "'main', '2/2', '0/2'와 같은 상태를 위한 작은 둥근 배지.",
+        "input": "흰색 배경, 회색 테두리, 둥근 모서리. 헤더의 검색 필드.",
+        "hero": "저장소 제목과 설명, 그리고 작업 버튼(Star, Fork, Atom)이 포함된 영역."
+      },
+      "motion": {
+        "patterns": [
+          "UI 상태 변경 시 간단한 fade-in, 복잡한 애니메이션은 보이지 않음."
+        ]
+      },
+      "interaction": {
+        "hover": "파일 행과 같은 대화형 요소의 미세한 배경색 변경.",
+        "click": "내비게이션 외 시각적 피드백 없이 즉각적인 응답.",
+        "transition": "최소한의 전환, 주로 즉각적인 상태 변경.",
+        "keyboard": "대화형 요소를 통한 표준 tab 내비게이션."
+      },
+      "voice": {
+        "tone": "기술적, 기능적, 그리고 직접적.",
+        "headlineStyle": "명확하고 설명적이며 키워드 중심 (예: 'feat(scrabble):...').",
+        "ctaStyle": "'Star', 'Fork', 'Join now'와 같은 행동 지향적 동사.",
+        "avoid": [
+          "마케팅성 문구",
+          "캐주얼한 언어",
+          "과도한 장식"
+        ]
+      },
+      "donts": [
+        "선명한 그라디언트를 사용하지 마세요 — 스크린샷은 최소한의 색상으로 된 평면적인 흰색 배경을 보여줍니다.",
+        "무거운 그림자를 적용하지 마세요 — 스크린샷은 어떤 요소에도 드롭 섀도우가 없음을 보여줍니다.",
+        "장식용 세리프 폰트를 사용하지 마세요 — 스크린샷은 세리프가 없는 시스템 폰트 스택을 보여줍니다.",
+        "파일 목록 항목에 둥근 모서리를 추가하지 마세요 — 스크린샷은 날카로운 모서리를 보여줍니다.",
+        "다크 테마를 사용하지 마세요 — 스크린샷은 흰색과 밝은 회색이 주를 이루는 인터페이스를 보여줍니다.",
+        "복잡한 애니메이션을 구현하지 마세요 — 스크린샷은 정적이고 기능적인 인터페이스를 보여줍니다."
+      ],
+      "systemPrompt": "이것은 GitHub와 유사한 탈중앙화 웹을 위한 개발자 중심 저장소 뷰어입니다. 디자인은 장식보다 기능성과 가독성을 우선시합니다. 주요 색상은 흰색 배경(#FFFFFF), 짙은 회색 텍스트(#24292F), 그리고 주요 작업을 위한 단일 녹색 포인트(#2EA44F)입니다. 타이포그래피는 본문 및 디스플레이 텍스트에 시스템 세리프가 없는 폰트 스택을, 기술 데이터에 모노스페이스 폰트를 사용합니다. 핵심 제약 조건: 그라디언트나 그림자와 같은 장식 요소를 피하고, 깔끔한 2컬럼 레이아웃을 유지하며, 기능적이고 코드 우선적인 미학을 보존해야 합니다. 인터페이스는 빠르고, 스캔 가능하며, 기술적으로 정확해야 합니다."
+    }
+  },
+  "desc": {
+    "en": {
+      "palette": "A high-contrast neutral palette with white backgrounds and dark gray text, accented by a single green (#2EA44F) for primary actions.",
+      "layout": "A two-column grid layout with a file tree on the left and commit history on the right, contained within a max-width container.",
+      "interaction": "Minimal interactions with subtle hover states and immediate navigation, prioritizing speed and functionality.",
+      "motion": "Nearly motionless interface with only essential state transitions, reflecting a developer tool's performance focus.",
+      "notes": "This site is a prime example of a functional, developer-first interface that prioritizes utility and readability over visual flair, making it a useful reference for tool-focused design systems."
+    },
+    "zh-CN": {
+      "palette": "采用高对比度的中性色板，白色背景搭配深灰色文字，并以单一的绿色（#2EA44F）作为主要操作的强调色。",
+      "layout": "两栏网格布局，左侧为文件树，右侧为提交历史，整体置于一个最大宽度容器内。",
+      "interaction": "交互极简，采用微妙的hover状态和即时导航，优先考虑速度与功能性。",
+      "motion": "界面几乎无动态效果，仅包含必要的状态切换，体现了开发者工具对性能的专注。",
+      "notes": "该网站是一个功能性开发者优先界面的典范，将实用性和可读性置于视觉装饰之上，是工具型设计系统的有效参考案例。"
+    },
+    "zh-TW": {
+      "palette": "高對比度的中性色調，以白色背景搭配深灰色文字，並以單一綠色 (#2EA44F) 作為主要操作的強調色。",
+      "layout": "採用雙欄式格線佈局，左側為檔案樹狀結構，右側為提交歷程，並限制於最大寬度容器內。",
+      "interaction": "極簡的互動設計，具備細微的 hover 狀態與即時導覽，優先考量速度與功能性。",
+      "motion": "近乎無動態的介面，僅保留必要的狀態轉換，反映開發者工具對效能的重視。",
+      "notes": "此網站是功能性開發者優先介面的典范，其設計優先考量實用性與可讀性，而非視覺裝飾，可作為工具導向設計系統的有用參考。"
+    },
+    "ja": {
+      "palette": "白をベースとし、ダークグレーのテキストを配置した、ハイコントラートの中立的なカラーパレット。プライマリアクションには単一のグリーン（#2EA44F）をアクセントとして使用。",
+      "layout": "左側にファイルツリー、右側にコミット履歴を配置した2カラムグリッドレイアウト。最大幅のコンテナ内に収容。",
+      "interaction": "最小限のインタラクション。微妙なhover状態と即座のナビゲーションを採用し、スピードと機能性を優先。",
+      "motion": "デベロッパーツールのパフォーマンスへの重点を反映し、必須の状態遷移のみで、ほぼ動きのないインターフェース。",
+      "notes": "このサイトは、ビジュアルな装飾よりもユーティリティと可読性を優先する、機能的でデベロッパー優先のインターフェースの好例であり、ツール系デザインシステムの有用なリファレンスとなります。"
+    },
+    "ko": {
+      "palette": "흰색 배경과 짙은 회색 텍스트로 구성된 고대비 중성 팔레트에, 주요 작업을 위한 단일 녹색(#2EA44F)을 포인트로 사용합니다.",
+      "layout": "왼쪽 파일 트리와 오른쪽 커밋 기록으로 구성된 2컬럼 격자 레이아웃을 최대 너비 컨테이너 안에 배치합니다.",
+      "interaction": "미세한 hover 상태와 즉각적인 내비게이션으로 최소한의 상호작용을 구현하며, 속도와 기능성을 최우선으로 합니다.",
+      "motion": "개발자 도구의 성능 중점을 반영하여 필수적인 상태 전환만으로 거의 움직임 없는 인터페이스를 구현합니다.",
+      "notes": "이 사이트는 시각적 장식보다 기능성과 가독성을 우선시하는 기능적, 개발자 중심 인터페이스의 대표적인 예로, 도구 중심 디자인 시스템에 유용한 참고 자료가 됩니다."
+    }
+  },
+  "narrative": {
+    "en": {
+      "ch1_intro": "Tangled operates as a functional code repository viewer for the decentralized web, built with the precision of a well-organized workshop. Its identity is defined by technical utility and direct communication, serving as a clean, focused tool for developers navigating AT Protocol repositories.",
+      "ch2_intro": "The color system establishes a high-contrast neutral base with white backgrounds and dark gray text, using a single green accent to signal primary actions. This restrained palette ensures code and content remain the focal point.",
+      "ch2_outro": "The guiding principle is functional clarity: color serves action, not decoration.",
+      "ch3_intro": "Typography employs a system sans-serif font stack for maximum performance and platform familiarity, reserving a monospace font exclusively for technical data like commit hashes. This hierarchy ensures repository names and file metadata are immediately scannable.",
+      "ch4_intro": "Spacing follows a consistent 4px grid, creating a reliable rhythm that brings order to dense information displays.",
+      "ch5_intro": "Surfaces are defined by minimal, functional boundaries: a 1px solid border in semi-transparent gray provides necessary separation without visual weight. The interface deliberately avoids shadows, maintaining a flat, focused depth.",
+      "ch6_intro": "The layout is a straightforward two-column grid, with a file tree on the left and commit history on the right contained within a max-width container. This skeleton provides immediate orientation and efficient access to both code structure and change history.",
+      "ch7_intro": "Motion philosophy is one of restraint; interactions are immediate with only essential state transitions. Complex animations are absent, reflecting a performance-focused tool where navigation speed is paramount.",
+      "ch8_intro": "The editorial voice is technical, functional, and direct, using clear, keyword-focused headlines and action-oriented verbs. It operates with the precision of a commit message, avoiding marketing fluff and casual language.",
+      "ch8_outro": "The system deliberately avoids vibrant gradients, heavy shadows, decorative fonts, and rounded corners on functional elements to preserve its code-first aesthetic."
+    },
+    "zh-CN": {
+      "ch1_intro": "Tangled 作为去中心化网络的实用型代码仓库查看器运行，其构建精度如同一个井然有序的工坊。其身份由技术效用和直接沟通定义，为开发者浏览 AT Protocol 仓库提供一个简洁、专注的工具。",
+      "ch2_intro": "色彩系统建立在高对比度的中性基底上，采用白色背景与深灰色文本，并使用单一的绿色来标识主要操作。这种克制的配色方案确保了代码和内容始终是视觉焦点。",
+      "ch2_outro": "指导原则是功能清晰：色彩服务于行动，而非装饰。",
+      "ch3_intro": "排版采用系统无衬线字体栈，以实现最佳性能和平台熟悉度，同时保留等宽字体专用于提交哈希等技术数据。这种层次结构确保仓库名称和文件元数据能够被快速扫视。",
+      "ch4_intro": "间距遵循一致的 4px 网格，创造出可靠的节奏，为密集的信息显示带来秩序。",
+      "ch5_intro": "界面表面由极简的功能性边界定义：半透明灰色的 1px 实线边框提供了必要的分隔，而不增加视觉重量。界面刻意避免阴影，保持平面化、专注的视觉深度。",
+      "ch6_intro": "布局采用直截了当的双栏网格，左侧为文件树，右侧为提交历史，两者均容纳在最大宽度容器内。这一骨架结构提供了即时的方向感，并能高效访问代码结构和变更历史。",
+      "ch7_intro": "动效理念是克制的；交互即时，仅包含必要的状态转换。没有复杂的动画，体现了一个以性能为先的工具，其中导航速度至关重要。",
+      "ch8_intro": "编辑语调是技术性的、功能性的、直接的，使用清晰、聚焦关键词的标题和面向行动的动词。它以提交信息般的精准度运作，避免营销浮夸和随意语言。",
+      "ch8_outro": "该系统刻意避免使用醒目的渐变、厚重的阴影、装饰性字体以及功能元素上的圆角，以保持其代码优先的美学。"
+    },
+    "zh-TW": {
+      "ch1_intro": "Tangled 作為一個功能性程式碼儲存庫檢視器，專為去中心化網路而建，如同整潔工作坊般精準。其識別度建立在技術實用性與直接溝通上，為開發者提供一個簡潔、專注的工具，用以瀏覽 AT Protocol 儲存庫。",
+      "ch2_intro": "色彩系統建立高對比中性基調，以白色背景搭配深灰色文字，並使用單一綠色作為強調色，標示主要操作。這種克制的配色方案確保程式碼與內容成為視覺焦點。",
+      "ch2_outro": "指導原則是功能性清晰：色彩用於服務操作，而非裝飾。",
+      "ch3_intro": "字型採用系統無襯線字型堆疊，以達到最佳效能與平台熟悉度，並保留等寬字型專門用於技術資料如提交雜湊值。這種層級結構確保儲存庫名稱與檔案中繼資料能立即被掃描辨識。",
+      "ch4_intro": "間距遵循一致的 4px 格線，創造出可靠的節奏，為密集資訊顯示帶來秩序。",
+      "ch5_intro": "介面表面由最小化、功能性的邊界定義：半透明灰色的 1px 實線邊框提供必要分隔，而不增加視覺重量。介面刻意避免陰影，保持扁平且專注的深度感。",
+      "ch6_intro": "佈局是直接的雙欄格線，左側為檔案樹，右側為提交歷史記錄，兩者皆包含於最大寬度容器內。此骨架結構提供即時導向，並有效存取程式碼結構與變更歷史。",
+      "ch7_intro": "動效哲學是克制；互動反應立即，僅包含必要的狀態轉換。沒有複雜動畫，反映這是一個以效能為導向的工具，導航速度至關重要。",
+      "ch8_intro": "編輯語調是技術性、功能化且直接的，使用清晰、聚焦關鍵詞的標題與行動導向的動詞。如同提交訊息般精準運作，避免行銷用語與隨意語言。",
+      "ch8_outro": "系統刻意避免鮮豔漸層、厚重陰影、裝飾性字型，以及在功能性元素上使用圓角，以維持其程式碼優先的美學。"
+    },
+    "ja": {
+      "ch1_intro": "Tangledは、分散型ウェブ向けの機能的なコードリポジトリビューアとして動作します。それは、整然と整備されたワークショップのような精度をもって構築されています。そのアイデンティティは、技術的な実用性と直接的なコミュニケーションによって定義され、AT Protocolリポジトリをナビゲートする開発者にとって、清潔で焦点の絞られたツールとして機能します。",
+      "ch2_intro": "カラーシステムは、白い背景とダークグレーのテキストによる高コントラクトの中立的なベースを確立し、単一のグリーンアクセントをプライマリアクションの合図として使用します。この抑制されたパレットにより、コードとコンテンツが焦点の中心に留まることが保証されます。",
+      "ch2_outro": "導きの原則は、機能的な明瞭さです：色は装飾のためではなく、アクションに仕えます。",
+      "ch3_intro": "タイポグラフィは、最大限のパフォーマンスとプラットフォームの親しみやすさのためにシステムサンセリフフォントスタックを採用し、コミットハッシュなどの技術データ専用にモノスペースフォントを予約しています。この階層構造により、リポジトリ名とファイルメタデータが即座にスキャン可能になります。",
+      "ch4_intro": "スペーシングは一貫した4pxグリッドに従い、密な情報表示に秩序をもたらす信頼性の高いリズムを生み出します。",
+      "ch5_intro": "サーフェスは、最小限の機能的な境界によって定義されます：半透明のグレーによる1pxの実線ボーダーが、視覚的な重さなしに必要な分離を提供します。インターフェースは意図的にシャドウを避け、フラットで焦点の絞られたディープネスを維持します。",
+      "ch6_intro": "レイアウトは、左側にファイルツリー、右側にコミット履歴を含むシンプルな2カラムグリッドで、最大幅コンテナ内に配置されます。この構造により、コード構造と変更履歴の両方への即時の方向感覚と効率的なアクセスが提供されます。",
+      "ch7_intro": "モーションの哲学は抑制にあり、インタラクションは必須の状態遷移のみで即座に行われます。複雑なアニメーションはなく、ナビゲーション速度が最優先されるパフォーマンス重視のツールであることを反映しています。",
+      "ch8_intro": "エディトリアルボイスは技術的で機能的かつ直接的であり、明確でキーワードに焦点を当てた見出しとアクション指向の動詞を使用します。コミットメッセージの精度をもって動作し、マーケティングの冗言やカジュアルな言葉遣いを避けます。",
+      "ch8_outro": "システムは、コードファーストの美的感覚を保つために、鮮やかなグラデーション、重いシャドウ、装飾的なフォント、および機能要素の角丸を意図的に避けています。"
+    },
+    "ko": {
+      "ch1_intro": "Tangled는 분산 웹을 위한 기능적인 코드 저장소 뷰어로 운영되며, 잘 정리된 작업장의 정밀함으로 구축되었습니다. 그 정체성은 기술적 유용성과 직접적인 커뮤니케이션으로 정의되며, AT Protocol 저장소를 탐색하는 개발자들을 위한 깔끔하고 집중된 도구 역할을 합니다.",
+      "ch2_intro": "색상 시스템은 흰색 배경과 짙은 회색 텍스트를 사용하여 고대비 중립 기반을 확립하며, 단일 그린 악센트로 주요 작업을 표시합니다. 이 절제된 팔레트는 코드와 콘텐츠가 초점으로 유지되도록 보장합니다.",
+      "ch2_outro": "지침 원칙은 기능적 명확성: 색상은 장식이 아닌 행동을 위해 존재합니다.",
+      "ch3_intro": "타이포그래피는 최대 성능과 플랫폼 친화성을 위해 시스템 산세리프 폰트 스택을 사용하며, 커밋 해시와 같은 기술 데이터에는 전용 모노스페이스 폰트를 예약합니다. 이 계층 구조는 저장소 이름과 파일 메타데이터가 즉시 스캔 가능하도록 보장합니다.",
+      "ch4_intro": "간격은 일관된 4px 그리드를 따르며, 밀집된 정보 표시에 질서를 가져다주는 안정적인 리듬을 만듭니다.",
+      "ch5_intro": "표면은 최소적이고 기능적인 경계로 정의됩니다: 반투명 회색의 1px solid border는 시각적 무게감 없이 필요한 구분을 제공합니다. 인터페이스는 의도적으로 그림자를 피하고 평면적이고 집중된 깊이를 유지합니다.",
+      "ch6_intro": "레이아웃은 왼쪽에 파일 트리, 오른쪽에 커밋 기록을 포함하는 간단한 2열 그리드이며, max-width 컨테이너 내에 있습니다. 이 골격은 즉각적인 방향성과 코드 구조 및 변경 기록 모두에 대한 효율적인 접근을 제공합니다.",
+      "ch7_intro": "모션 철학은 절제입니다; 상호작용은 필수적인 상태 전환만으로 즉시 이루어집니다. 복잡한 애니메이션은 부재하며, 이는 탐색 속도가 가장 중요한 성능 중심 도구를 반영합니다.",
+      "ch8_intro": "에디토리얼 톤은 기술적이고 기능적이며 직접적이며, 명확하고 키워드 중심의 헤드라인과 행동 지향적인 동사를 사용합니다. 커밋 메시지의 정밀함으로 운영되며, 마케팅 문구와 일상적인 언어를 피합니다.",
+      "ch8_outro": "이 시스템은 코드 우선 미학을 보존하기 위해 기능적 요소에서 의도적으로 화려한 그라디언트, 무거운 그림자, 장식적 폰트, 그리고 둥근 모서리를 피합니다."
+    }
+  }
+}

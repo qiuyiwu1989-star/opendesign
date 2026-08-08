@@ -1,0 +1,605 @@
+{
+  "id": "informed",
+  "schema_version": "0.3",
+  "url": "https://www.informed.so",
+  "title": "Informed",
+  "image": "https://image.thum.io/get/width/1440/noanimate/https://www.informed.so",
+  "tags": [
+    "AI",
+    "SaaS",
+    "Productivity",
+    "Editorial",
+    "Clean"
+  ],
+  "status": "completed",
+  "added_at": "2026-06-20",
+  "added_by": "discover",
+  "_meta": {
+    "vision_model": "mimo-v2.5",
+    "vision_prompt_version": "0.3",
+    "vision_source": "playwright-extract:informed",
+    "vision_grounded": true,
+    "vision_at": "2026-06-20T09:14:39+00:00",
+    "vision_tokens": 16558,
+    "vision_cost_usd": 0.184,
+    "translation_model": "mimo-v2.5",
+    "translation_at": "2026-06-20T09:16:02+00:00",
+    "translation_tokens": 18847,
+    "translation_cost_usd": 0.0628,
+    "narrative_model": "mimo-v2.5",
+    "narrative_prompt_version": "0.3",
+    "narrative_at": "2026-06-20T09:16:10+00:00",
+    "narrative_tokens": 2283,
+    "narrative_cost_usd": 0.0152,
+    "narrative_status": "ok",
+    "total_cost_usd": 0.262
+  },
+  "spec": {
+    "colors": {
+      "bg": "#FFFFFF",
+      "bgSoft": "#F8F8F7",
+      "bgQuiet": null,
+      "ink": "#000000",
+      "inkSoft": "#31343B",
+      "muted": "#7E838F",
+      "mutedSoft": null,
+      "accent": "#08C474",
+      "line": "rgba(0, 0, 0, 0.08)"
+    },
+    "typography": {
+      "display": "humanist-sans",
+      "body": "humanist-sans",
+      "mono": null,
+      "scale": [
+        {
+          "token": "display",
+          "size": 69,
+          "lh": 1.0,
+          "weight": 400,
+          "ls": "-4.33px"
+        },
+        {
+          "token": "display-sm",
+          "size": 28,
+          "lh": 1.2,
+          "weight": 400,
+          "ls": "0px"
+        },
+        {
+          "token": "body",
+          "size": 17,
+          "lh": 1.0,
+          "weight": 400,
+          "ls": "0px"
+        },
+        {
+          "token": "body-sm",
+          "size": 20,
+          "lh": 1.0,
+          "weight": 400,
+          "ls": "0px"
+        }
+      ]
+    },
+    "spacing": {
+      "base": 4,
+      "scale": [
+        4,
+        8,
+        16,
+        24,
+        32,
+        48,
+        64,
+        96
+      ]
+    },
+    "surfaces": {
+      "radius": {
+        "sm": 8,
+        "md": 12,
+        "lg": 43,
+        "pill": 100
+      }
+    },
+    "layout": {
+      "container": 1280,
+      "paragraph": 680,
+      "columns": 12,
+      "gutter": 24,
+      "breakpoints": [
+        768,
+        1024
+      ]
+    },
+    "motion": {
+      "durations": {
+        "micro": 250,
+        "small": 250,
+        "medium": 500
+      },
+      "easing": "cubic-bezier(0.25, 0.1, 0.25, 1)"
+    }
+  },
+  "spec_i18n": {
+    "en": {
+      "identity": {
+        "keywords": [
+          "content automation",
+          "editorial",
+          "PR",
+          "marketing",
+          "AI"
+        ],
+        "analogy": "A friendly yet efficient AI content intern that handles the heavy lifting.",
+        "oneLiner": "An AI content pilot that automates content production for editorial, PR, and marketing teams."
+      },
+      "colors": {
+        "principle": "A clean, white-based palette driven by a vibrant, high-chroma green accent for emphasis and action."
+      },
+      "typography": {
+        "rules": [],
+        "scaleUses": [
+          "Main hero headlines",
+          "Section headlines",
+          "Main body copy",
+          "Secondary descriptions"
+        ]
+      },
+      "spacing": {
+        "rhythm": "Generous vertical padding separates distinct content blocks, centered on a single column."
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 8.67px 26px 0px rgba(0, 0, 0, 0.08)",
+          "0px 26px 52px 0px rgba(0, 0, 0, 0.08)"
+        ],
+        "borders": "1px solid rgb(0, 0, 0)"
+      },
+      "layout": {
+        "skeleton": "Single-column centered layout with generous whitespace and distinct full-width background sections."
+      },
+      "components": {
+        "button": "Pill-shaped solid buttons with white text on a vibrant green background, featuring soft drop shadows.",
+        "card": "Rounded containers with subtle shadows, sometimes featuring a prominent 4px solid green border to indicate selection.",
+        "chip": "Pill-shaped tags with solid green backgrounds and white text, used for categorization.",
+        "input": "Simple bordered text fields (implied by standard UI conventions).",
+        "hero": "Large, tightly tracked headline centered over a subheadline and a prominent call-to-action button."
+      },
+      "motion": {
+        "patterns": [
+          "Smooth 0.25s transitions for color, background-color, and border-color on interactive elements.",
+          "Subtle 0.5s transform transitions for layout shifts."
+        ]
+      },
+      "interaction": {
+        "hover": "Subtle background-color or opacity changes with a smooth 0.25s transition.",
+        "click": "Immediate visual feedback through standard active states.",
+        "transition": "Consistent 0.25s transitions applied across all interactive color and transform properties.",
+        "keyboard": "Standard focus states with clear outlines (inferred from accessibility defaults)."
+      },
+      "voice": {
+        "tone": "Professional, encouraging, and straightforward.",
+        "headlineStyle": "Bold, tightly tracked, lowercase or sentence-case statements focused on value proposition.",
+        "ctaStyle": "Direct, action-oriented phrases like 'Try it out yourself' or 'Choose a plan'.",
+        "avoid": [
+          "Overly complex jargon",
+          "Aggressive sales language",
+          "Dense paragraphs"
+        ]
+      },
+      "donts": [
+        "Don't use serif typography — the screenshot exclusively employs clean humanist-sans-serif fonts for all text elements.",
+        "Don't use a dark mode or dark backgrounds — the screenshot features a predominantly white and light gray background.",
+        "Don't use a wide array of colors — the palette is strictly limited to white, black, gray, and a single vibrant green accent.",
+        "Don't use sharp, 90-degree corners — the screenshot consistently applies large border-radius values (up to 43px) for a softer look.",
+        "Don't use dense, multi-column layouts — the screenshot shows a strictly single-column, vertically stacked, centered layout.",
+        "Don't use heavy drop shadows — the screenshot relies on very subtle, light drop-shadows for depth."
+      ],
+      "systemPrompt": "Design a clean, centered SaaS landing page for an AI content automation tool. The layout should be a single column with generous vertical whitespace. Use a predominantly white background (#FFFFFF) with a secondary light gray (#F8F8F7) for subtle surface differentiation. The primary accent color is a vibrant, high-chroma green (#08C474), used for call-to-action buttons, interactive tags, and selected card borders. Typography should be humanist-sans-serif for both display and body text, with display headlines being very large (69px) and tightly letter-spaced (-4.33px). Body text should be a dark gray (#31343B) or black (#000000), with muted text in a medium gray (#7E838F). Buttons must be pill-shaped with white text on the green background, accompanied by subtle drop-shadows (e.g., 0px 8.67px 26px 0px rgba(0,0,0,0.08)). Avoid dark mode, avoid serif fonts, avoid sharp corners, and avoid using more than one or two primary colors."
+    },
+    "zh-CN": {
+      "identity": {
+        "keywords": [
+          "内容自动化",
+          "编辑",
+          "公关",
+          "市场营销",
+          "AI"
+        ],
+        "analogy": "一个友好而高效的AI内容实习生，负责繁重的工作。",
+        "oneLiner": "一个为编辑、公关和市场营销团队自动化内容生产的AI内容领航员。"
+      },
+      "colors": {
+        "principle": "一个干净的、以白色为基础的配色方案，由一个鲜艳的高饱和度绿色强调色驱动，用于重点和行动。"
+      },
+      "typography": {
+        "rules": [],
+        "scaleUses": [
+          "主标题",
+          "章节标题",
+          "正文",
+          "次要描述"
+        ]
+      },
+      "spacing": {
+        "rhythm": "充足的垂直间距分隔不同的内容块，集中在一个单列中。"
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 8.67px 26px 0px rgba(0, 0, 0, 0.08)",
+          "0px 26px 52px 0px rgba(0, 0, 0, 0.08)"
+        ],
+        "borders": "1px solid rgb(0, 0, 0)"
+      },
+      "layout": {
+        "skeleton": "单列居中布局，拥有充足的留白和清晰的全宽背景区域。"
+      },
+      "components": {
+        "button": "药丸形实心按钮，绿色背景上的白色文字，带有柔和的投影。",
+        "card": "带圆角的容器，有微妙阴影，有时带有醒目的4px实心绿色边框以指示选中状态。",
+        "chip": "药丸形标签，实心绿色背景和白色文字，用于分类。",
+        "input": "简单的带边框文本框（根据标准UI惯例推断）。",
+        "hero": "大型、字间距紧凑的标题，居中位于副标题和醒目的行动号召按钮之上。"
+      },
+      "motion": {
+        "patterns": [
+          "交互元素的颜色、背景色和边框颜色使用平滑的0.25秒过渡。",
+          "布局变化使用微妙的0.5秒变换过渡。"
+        ]
+      },
+      "interaction": {
+        "hover": "微妙的背景色或透明度变化，带有平滑的0.25秒过渡。",
+        "click": "通过标准的激活状态提供即时视觉反馈。",
+        "transition": "所有交互颜色和变换属性上应用一致的0.25秒过渡。",
+        "keyboard": "带有清晰轮廓的标准焦点状态（根据无障碍性默认值推断）。"
+      },
+      "voice": {
+        "tone": "专业、鼓励且直接。",
+        "headlineStyle": "粗体、字间距紧凑、小写或句首大写的陈述句，专注于价值主张。",
+        "ctaStyle": "直接、面向行动的短语，例如“亲自试试看”或“选择一个方案”。",
+        "avoid": [
+          "过于复杂的术语",
+          "咄咄逼人的销售语言",
+          "密集的段落"
+        ]
+      },
+      "donts": [
+        "不要使用衬线字体——截图中的所有文本元素都完全使用干净的人文主义无衬线字体。",
+        "不要使用深色模式或深色背景——截图以白色和浅灰色背景为主。",
+        "不要使用多种颜色——调色板严格限定为白色、黑色、灰色和一个鲜明的绿色强调色。",
+        "不要使用尖锐的90度角——截图始终应用大圆角值（最大43px）以营造柔和外观。",
+        "不要使用密集的多列布局——截图显示的是严格的单列、垂直堆叠、居中布局。",
+        "不要使用厚重的投影——截图依赖非常微妙、轻盈的投影来创造深度感。"
+      ],
+      "systemPrompt": "为一个AI内容自动化工具设计一个干净、居中的SaaS着陆页。布局应为单列，拥有充足的垂直留白。使用以白色（#FFFFFF）为主的背景，并用次级浅灰色（#F8F8F7）进行微妙的表面区分。主强调色是鲜艳的高饱和度绿色（#08C474），用于行动号召按钮、交互标签和选中的卡片边框。排版应使用人文主义无衬线字体，同时用于展示和正文文本，展示标题非常大（69px）且字间距紧凑（-4.33px）。正文文本应为深灰色（#31343B）或黑色（#000000），次要文本使用中灰色（#7E838F）。按钮必须是药丸形，绿色背景上的白色文字，并附有微妙的投影（例如 0px 8.67px 26px 0px rgba(0,0,0,0.08)）。避免深色模式，避免衬线字体，避免尖锐角，避免使用超过一到两种主色调。"
+    },
+    "zh-TW": {
+      "identity": {
+        "keywords": [
+          "內容自動化",
+          "編輯",
+          "公關",
+          "行銷",
+          "AI"
+        ],
+        "analogy": "一位友善且高效、能處理繁重工作的 AI 內容實習生。",
+        "oneLiner": "一款能為編輯、公關與行銷團隊自動化內容製作的 AI 內容駕駛。"
+      },
+      "colors": {
+        "principle": "以白色為基底的簡潔調色盤，並以鮮明、高飽和度的綠色強調色驅動，用於強調與行動呼籲。"
+      },
+      "typography": {
+        "rules": [],
+        "scaleUses": [
+          "主標題",
+          "區塊標題",
+          "內文",
+          "次要說明文字"
+        ]
+      },
+      "spacing": {
+        "rhythm": "寬裕的垂直留白用於分隔不同的內容區塊，並置中於單一欄位。"
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 8.67px 26px 0px rgba(0, 0, 0, 0.08)",
+          "0px 26px 52px 0px rgba(0, 0, 0, 0.08)"
+        ],
+        "borders": "1px solid rgb(0, 0, 0)"
+      },
+      "layout": {
+        "skeleton": "採用單欄置中版面，留有寬裕的留白，並設有明顯的全寬背景區塊。"
+      },
+      "components": {
+        "button": "膠囊形實心按鈕，鮮明綠色背景搭配白色文字，帶有柔和陰影。",
+        "card": "圓角容器帶有細微陰影，有時會加上明顯的 4px 綠色實線邊框以表示選取狀態。",
+        "chip": "膠囊形標籤，綠色實底搭配白色文字，用於分類。",
+        "input": "簡潔的有框線文字輸入欄位（依標準 UI 慣例）。",
+        "hero": "大型、字距緊湊的標題，置中於副標題與醒目的行動呼籲按鈕之上。"
+      },
+      "motion": {
+        "patterns": [
+          "互動元件的顏色、背景顏色與邊框顏色採用流暢的 0.25 秒過渡效果。",
+          "版面位移採用細微的 0.5 秒變形過渡效果。"
+        ]
+      },
+      "interaction": {
+        "hover": "細微的背景顏色或透明度變化，搭配流暢的 0.25 秒過渡。",
+        "click": "透過標準的互動狀態提供即時視覺回饋。",
+        "transition": "所有互動顏色與變形屬性均採用一致的 0.25 秒過渡。",
+        "keyboard": "標準的焦點狀態搭配清晰的外框（基於無障礙預設值推斷）。"
+      },
+      "voice": {
+        "tone": "專業、鼓勵且直接。",
+        "headlineStyle": "粗體、字距緊湊，採用小寫或句首大寫的陳述句，聚焦於價值主張。",
+        "ctaStyle": "直接、以行動為導向的詞句，例如「親自體驗」或「選擇方案」。",
+        "avoid": [
+          "過於複雜的術語",
+          "強勢的銷售語言",
+          "冗長的段落"
+        ]
+      },
+      "donts": [
+        "請勿使用襯線字體——截圖中所有文字元素均採用簡潔的人文無襯線字體。",
+        "請勿使用深色模式或深色背景——截圖以白色與淺灰色背景為主。",
+        "請勿使用多種顏色——調色盤嚴格限定為白色、黑色、灰色與單一鮮明綠色。",
+        "請勿使用尖銳的 90 度直角——截圖一致採用較大的 border-radius 值（最高達 43px），以營造柔和視感。",
+        "請勿使用密集的多欄版面——截圖顯示為嚴格的單欄、垂直堆疊、置中版面。",
+        "請勿使用厚重的陰影——截圖依靠非常細微、輕盈的陰影來營造層次感。"
+      ],
+      "systemPrompt": "Design a clean, centered SaaS landing page for an AI content automation tool. The layout should be a single column with generous vertical whitespace. Use a predominantly white background (#FFFFFF) with a secondary light gray (#F8F8F7) for subtle surface differentiation. The primary accent color is a vibrant, high-chroma green (#08C474), used for call-to-action buttons, interactive tags, and selected card borders. Typography should be humanist-sans-serif for both display and body text, with display headlines being very large (69px) and tightly letter-spaced (-4.33px). Body text should be a dark gray (#31343B) or black (#000000), with muted text in a medium gray (#7E838F). Buttons must be pill-shaped with white text on the green background, accompanied by subtle drop-shadows (e.g., 0px 8.67px 26px 0px rgba(0,0,0,0.08)). Avoid dark mode, avoid serif fonts, avoid sharp corners, and avoid using more than one or two primary colors."
+    },
+    "ja": {
+      "identity": {
+        "keywords": [
+          "コンテンツ自動化",
+          "エディトリアル",
+          "PR",
+          "マーケティング",
+          "AI"
+        ],
+        "analogy": "重労働を処理する、フレンドリーでありながら効率的なAIコンテンツインターン。",
+        "oneLiner": "エディトリアル、PR、およびマーケティングチームのコンテンツ制作を自動化するAIコンテンツパイロット。"
+      },
+      "colors": {
+        "principle": "強調とアクションのために、鮮やかで高彩度のグリーンアクセントを採用したクリーンなホワイトベースのパレット。"
+      },
+      "typography": {
+        "rules": [],
+        "scaleUses": [
+          "メインヒーローヘッドライン",
+          "セクション見出し",
+          "本文",
+          "補足説明"
+        ]
+      },
+      "spacing": {
+        "rhythm": "単一カラムを中心に、異なるコンテンツブロックを分ける豊かな垂直パディング。"
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 8.67px 26px 0px rgba(0, 0, 0, 0.08)",
+          "0px 26px 52px 0px rgba(0, 0, 0, 0.08)"
+        ],
+        "borders": "1px solid rgb(0, 0, 0)"
+      },
+      "layout": {
+        "skeleton": "豊かなホワイトスペースと明確なフルワイド背景セクションを備えた、センタリングされた単一カラムレイアウト。"
+      },
+      "components": {
+        "button": "鮮やかなグリーン背景に白文字のピル型ソリッドボタン、柔らかいドロップシャドウ付き。",
+        "card": "微妙なシャドウを備えた角丸コンテナ。選択を示すために、目立つ4pxのソリッドグリーンボーダーが付く場合がある。",
+        "chip": "分類に使用される、ソリッドグリーン背景と白文字のピル型タグ。",
+        "input": "標準的なUI規則に基づき、ボーダー付きのシンプルなテキストフィールド（暗示）。",
+        "hero": "サブヘッドラインと顕著なコール・トゥ・アクションボタンの上に、センタリングされた大きくタイトな字間の見出し。"
+      },
+      "motion": {
+        "patterns": [
+          "インタラクティブ要素のカラー、background-color、border-colorのためのスムーズな0.25秒トランジション。",
+          "レイアウトシフトのための微妙な0.5秒トランスフォームトランジション。"
+        ]
+      },
+      "interaction": {
+        "hover": "スムーズな0.25秒トランジションによる、微妙なbackground-colorまたはopacityの変化。",
+        "click": "標準的なアクティブステートによる即座のビジュアルフィードバック。",
+        "transition": "すべてのインタラクティブカラーおよびトランスフォームプロパティに適用される一貫した0.25秒トランジション。",
+        "keyboard": "明確なアウトラインを備えた標準フォーカスステート（アクセシビリティのデフォルトから推測）。"
+      },
+      "voice": {
+        "tone": "プロフェッショナルで、前向きかつ率直。",
+        "headlineStyle": "価値提案に焦点を当てた、-bold、-tight-tracking、lowercaseまたはsentence-caseのステートメント。",
+        "ctaStyle": "「試してみる」「プランを選択」のような直接的でアクション指向のフレーズ。",
+        "avoid": [
+          "過度に複雑な専門用語",
+          "アグレッシブな販売言語",
+          "密度の高い段落"
+        ]
+      },
+      "donts": [
+        "セリフ書体を使用しない — スクリーンショットでは、すべてのテキスト要素にクリーンなhumanist-sans-serifフォントが排他的に使用されています。",
+        "ダークモードや暗い背景を使用しない — スクリーンショットでは、主にホワイトとライトグレーの背景が使用されています。",
+        "多彩なカラーパレットを使用しない — パレットは厳密にホワイト、ブラック、グレー、および1つの鮮やかなグリーンアクセントに限定されています。",
+        "鋭利な90度のコーナーを使用しない — スクリーンショットでは、より柔らかな見た目のために、大きなborder-radius値（最大43px）が一貫して適用されています。",
+        "密度の高いマルチカラムレイアウトを使用しない — スクリーンショットでは、厳密に単一カラムで、垂直にスタックされ、センタリングされたレイアウトが示されています。",
+        "重いドロップシャドウを使用しない — スクリーンショットでは、深度のための非常に微妙で軽いドロップシャドウが使用されています。"
+      ],
+      "systemPrompt": "AIコンテンツ自動化ツールのための、クリーンでセンタリングされたSaaSランディングページをデザインしてください。レイアウトは、豊かな垂直ホワイトスペースを備えた単一カラムにしてください。主にホワイト背景（#FFFFFF）を使用し、微妙なサーフェス区別のためのセカンダリーライトグレー（#F8F8F7）を採用してください。プライマリアクセントカラーは、コール・トゥ・アクションボタン、インタラクティブタグ、選択されたカードボーダーに使用される、鮮やかで高彩度のグリーン（#08C474）です。タイポグラフィは、ディスプレイおよび本文の両方にhumanist-sans-serifを使用し、ディスプレイ見出しは非常に大きく（69px）、字間をタイトに（-4.33px）してください。本文はダークグレー（#31343B）またはブラック（#000000）とし、ミュートテキストはミディアムグレー（#7E838F）にしてください。ボタンは、グリーン背景に白文字のピル型とし、微妙なドロップシャドウ（例：0px 8.67px 26px 0px rgba(0,0,0,0.08)）を伴うようにしてください。ダークモード、セリフ書体、鋭利なコーナー、1つまたは2つのプライマリカラー以上の使用は避けてください。"
+    },
+    "ko": {
+      "identity": {
+        "keywords": [
+          "콘텐츠 자동화",
+          "에디토리얼",
+          "PR",
+          "마케팅",
+          "AI"
+        ],
+        "analogy": "친절하면서도 효율적인 AI 콘텐츠 인턴이 무거운 작업을 처리합니다.",
+        "oneLiner": "에디토리얼, PR, 마케팅 팀을 위한 콘텐츠 생산을 자동화하는 AI 콘텐츠 파일럿입니다."
+      },
+      "colors": {
+        "principle": "강조 및 행동을 위한 생생하고 고채도의 녹색 악센트로 주도되는 깨끗한 흰색 기반 팔레트."
+      },
+      "typography": {
+        "rules": [],
+        "scaleUses": [
+          "메인 히어로 헤드라인",
+          "섹션 헤드라인",
+          "메인 본문",
+          "보조 설명"
+        ]
+      },
+      "spacing": {
+        "rhythm": "단일 열을 중심으로, 뚜렷한 콘텐츠 블록 사이를 넉넉한 수직 패딩이 분리합니다."
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 8.67px 26px 0px rgba(0, 0, 0, 0.08)",
+          "0px 26px 52px 0px rgba(0, 0, 0, 0.08)"
+        ],
+        "borders": "1px solid rgb(0, 0, 0)"
+      },
+      "layout": {
+        "skeleton": "넉넉한 여백과 뚜렷한 전체 폭 배경 섹션을 가진 중앙 정렬 단일 열 레이아웃."
+      },
+      "components": {
+        "button": "생생한 녹색 배경에 흰색 텍스트를 가진 pill 형태의 솔리드 버튼으로, 부드러운 drop-shadow가 적용되어 있습니다.",
+        "card": "은은한 그림자가 있는 둥근 모서리 컨테이너로, 때로는 선택 상태를 나타내기 위해 두드러진 4px solid 녹색 테두리가 적용됩니다.",
+        "chip": "카테고리 분류에 사용되는 솔리드 녹색 배경과 흰색 텍스트를 가진 pill 형태의 태그.",
+        "input": "표준 UI 관례에 의해 암시되는 간단한 테두리가 있는 텍스트 필드.",
+        "hero": "서브 헤드라인과 두드러진 call-to-action 버튼 위에 중앙 정렬된 큰, 타이트한 자간의 헤드라인."
+      },
+      "motion": {
+        "patterns": [
+          "인터랙티브 요소의 색상, background-color, border-color에 대한 부드러운 0.25초 트랜지션.",
+          "레이아웃 변화를 위한 은은한 0.5초 transform 트랜지션."
+        ]
+      },
+      "interaction": {
+        "hover": "부드러운 0.25초 트랜지션과 함께 background-color 또는 opacity의 은은한 변화.",
+        "click": "표준 active 상태를 통한 즉각적인 시각적 피드백.",
+        "transition": "모든 인터랙티브 색상 및 transform 속성에 일관된 0.25초 트랜지션 적용.",
+        "keyboard": "명확한 윤곽선이 있는 표준 focus 상태 (접근성 기본값에서 추론)."
+      },
+      "voice": {
+        "tone": "전문적이고, 격려하며, 명확한 톤.",
+        "headlineStyle": "가치 제안에 중점을 둔 굵은, 타이트한 자간의 소문자 또는 문장 첫 글자 대문자 statements.",
+        "ctaStyle": "'직접 사용해 보세요' 또는 '플랜 선택'과 같은 직접적이고 행동 지향적인 구절.",
+        "avoid": [
+          "지나치게 복잡한 전문 용어",
+          "공격적인 판매 언어",
+          "빽빽한 문단"
+        ]
+      },
+      "donts": [
+        "세리프 타이포그래피를 사용하지 마세요 — 스크린샷은 모든 텍스트 요소에 깨끗한 humanist-sans-serif 폰트를 독점적으로 사용합니다.",
+        "다크 모드나 어두운 배경을 사용하지 마세요 — 스크린샷은 주로 흰색과 밝은 회색 배경을 특징으로 합니다.",
+        "다양한 색상을 사용하지 마세요 — 팔레트는 엄격하게 흰색, 검정, 회색, 그리고 단일의 생생한 녹색 악센트로 제한됩니다.",
+        "날카로운 90도 모서리를 사용하지 마세요 — 스크린샷은 부드러운_look을 위해 큰 border-radius 값을 일관되게 적용합니다 (최대 43px).",
+        "빽빽한 다중 열 레이아웃을 사용하지 마세요 — 스크린샷은 엄격하게 단일 열, 수직 적층, 중앙 정렬 레이아웃을 보여줍니다.",
+        "무거운 drop-shadow를 사용하지 마세요 — 스크린샷은 깊이감을 위해 매우 미세하고 가벼운 drop-shadow에 의존합니다."
+      ],
+      "systemPrompt": "AI 콘텐츠 자동화 도구를 위한 깨끗하고 중앙 정렬된 SaaS 랜딩 페이지를 디자인하세요. 레이아웃은 넉넉한 수직 여백이 있는 단일 열이어야 합니다. 주된 배경은 흰색(#FFFFFF)이고, 미세한 표면 차별화를 위해 보조 밝은 회색(#F8F8F7)을 사용하세요. 주요 악센트 컬러는 call-to-action 버튼, 인터랙티브 태그, 그리고 선택된 카드 테두리에 사용되는 생생하고 고채도의 녹색(#08C474)입니다. 타이포그래피는 display 및 본문 텍스트 모두 humanist-sans-serif를 사용해야 하며, display 헤드라인은 매우 크고(69px) 타이트한 자간(-4.33px)을 가져야 합니다. 본문 텍스트는 어두운 회색(#31343B) 또는 검정(#000000)이어야 하며, muted 텍스트는 중간 회색(#7E838F)을 사용하세요. 버튼은 녹색 배경에 흰색 텍스트가 있는 pill 형태여야 하며, 미세한 drop-shadow(예: 0px 8.67px 26px 0px rgba(0,0,0,0.08))가 동반되어야 합니다. 다크 모드, 세리프 폰트, 날카로운 모서리, 그리고 둘 이상의 주요 컬러 사용을 피하세요."
+    }
+  },
+  "desc": {
+    "en": {
+      "palette": "The palette is a clean, high-contrast scheme built on a white base, neutral grays, and a single vibrant green accent for all primary interactions.",
+      "layout": "The layout is a strictly centered, single-column structure with generous vertical padding and a narrow content width to focus attention.",
+      "interaction": "Interactions are characterized by smooth 0.25s color and transform transitions, subtle drop-shadows on interactive elements, and pill-shaped interactive components.",
+      "motion": "Motion is minimal and smooth, primarily utilizing subtle 0.25s transitions for state changes and slightly longer 0.5s transitions for layout adjustments.",
+      "notes": "This site is a great example of a modern, clean SaaS aesthetic, using a single bold accent color and tight typography to create a focused and professional feel."
+    },
+    "zh-CN": {
+      "palette": "调色板是基于白色、中性灰和一个鲜明绿色强调色构建的干净、高对比度配色方案，绿色用于所有主要交互。",
+      "layout": "布局采用严格的居中单列结构，拥有充足的垂直间距和较窄的内容宽度，以集中注意力。",
+      "interaction": "交互的特点是平滑的0.25秒颜色和变换过渡、交互元素上微妙的投影，以及药丸形的交互组件。",
+      "motion": "动效简洁流畅，主要利用0.25秒的微妙过渡进行状态变化，以及稍长的0.5秒过渡用于布局调整。",
+      "notes": "这个网站是现代、简洁的SaaS美学的绝佳范例，它使用一个醒目的强调色和紧凑的排版，营造出专注而专业的感受。"
+    },
+    "zh-TW": {
+      "palette": "調色盤以白色為基底，搭配中性灰色，並以單一鮮明綠色作為所有主要互動的強調色，整體呈現簡潔、高對比的視覺風格。",
+      "layout": "版面採用嚴格置中、單欄結構，搭配寬裕的垂直留白與較窄的內容寬度，以集中使用者注意力。",
+      "interaction": "互動體驗以流暢的 0.25 秒顏色與變形過渡效果為特色，互動元件帶有細微陰影，並採用膠囊形設計。",
+      "motion": "動態效果簡潔流暢，主要運用 0.25 秒的過渡效果處理狀態變化，版面調整則採用稍長的 0.5 秒過渡。",
+      "notes": "此網站是現代簡潔 SaaS 美學的優良範例，運用單一醒目強調色與緊湊字體排印，營造出專注且專業的氛圍。"
+    },
+    "ja": {
+      "palette": "パレットは、ホワイトベース、ニュートラルグレー、およびすべての主要インタラクションに使用される1つの鮮やかなグリーンアクセントで構成される、クリーンでハイコントラストなスキームです。",
+      "layout": "レイアウトは、焦点を集中させるために豊かな垂直パディングと狭いコンテンツ幅を備えた、厳密にセンタリングされた単一カラム構造です。",
+      "interaction": "インタラクションは、スムーズな0.25秒のカラーおよびトランスフォームトランジション、インタラクティブ要素の微妙なドロップシャドウ、およびピル型インタラクティブコンポーネントが特徴です。",
+      "motion": "モーションは最小限でスムーズで、主にステート変更のための微妙な0.25秒のトランジションと、レイアウト調整のための少し長めの0.5秒のトランジションを利用しています。",
+      "notes": "このサイトは、現代的でクリーンなSaaS美学の優れた例であり、1つの大胆なアクセントカラーと Tight typography を使用して、集中したプロフェッショナルな印象を生み出しています。"
+    },
+    "ko": {
+      "palette": "팔레트는 흰색을 기반으로, 중성적인 회색과 모든 주요 인터랙션에 사용되는 단일의 생생한 녹색 악센트로 구성된 깨끗하고 고대비입니다.",
+      "layout": "레이아웃은 넉넉한 수직 패딩과 좁은 콘텐츠 폭으로 주목도를 높이는, 엄격하게 중앙 정렬된 단일 열 구조입니다.",
+      "interaction": "인터랙션은 부드러운 0.25초의 색상 및 변환 트랜지션, 인터랙티브 요소의 은은한 drop-shadow, 그리고 pill 형태의 인터랙티브 컴포넌트가 특징입니다.",
+      "motion": "모션은 최소화되어 있으며 부드럽게 동작합니다. 주로 상태 변경 시 0.25초 트랜지션을, 레이아웃 조정 시 slightly longer 0.5초 트랜지션을 사용합니다.",
+      "notes": "이 사이트는 현대적이고 깨끗한 SaaS 미학의 훌륭한 예시로, 단일의 굵은 악센트 컬러와 타이트한 타이포그래피를 사용하여 몰입감 있고 전문적인 느낌을 만듭니다."
+    }
+  },
+  "narrative": {
+    "en": {
+      "ch1_intro": "Informed operates on the principle of the capable assistant: a system designed to absorb the mechanical labor of content production so the human team can focus on direction and strategy. Its design language reflects this role—clean, direct, and functionally optimistic. It is the visual embodiment of a friendly, efficient AI content intern.",
+      "ch2_intro": "The color system is disciplined, built upon a pristine white foundation to maximize clarity and focus. A single, vibrant green accent (#08C474) is reserved exclusively for primary actions and interactive highlights, creating a strong, unambiguous visual hierarchy.",
+      "ch2_outro": "The palette's restraint is its core principle: a clean, high-contrast environment where a solitary accent color carries all communicative weight.",
+      "ch3_intro": "Typography is handled with a single, clean humanist-sans-serif for all text levels, creating a unified and professional voice. Display headlines are set large and tightly tracked to make bold, declarative statements, while body copy maintains high legibility in dark gray.",
+      "ch4_intro": "Vertical rhythm is established through generous, deliberate padding that isolates content blocks and guides the eye downward in a measured flow.",
+      "ch5_intro": "Surfaces are defined by subtle depth and soft edges, not heavy ornamentation. Delicate drop-shadows lift elements slightly off the page, and a consistent 1px solid border grounds certain components, with rounded corners applied liberally to soften the entire composition.",
+      "ch6_intro": "The layout skeleton is a single, centered column of controlled width, a deliberate funnel for attention. Generous vertical whitespace and occasional full-width background sections create distinct, readable blocks within this vertical stack.",
+      "ch7_intro": "Motion is applied with purpose and restraint, serving to clarify interaction rather than decorate it. Smooth 0.25-second transitions govern all color and background changes on interactive elements, with slightly longer durations reserved for layout shifts.",
+      "ch8_intro": "The editorial voice is professional, encouraging, and straightforward, mirroring the system's efficient ethos. Copy favors bold, tightly tracked value propositions and direct calls to action, avoiding complex jargon and aggressive sales language.",
+      "ch8_outro": "The system deliberately rejects dark mode, serif typography, sharp corners, and dense layouts, maintaining its focused and approachable character through consistent omission."
+    },
+    "zh-CN": {
+      "ch1_intro": "Informed 遵循得力助手的原则运作：这套系统旨在承担内容生产的机械性工作，让人类团队得以专注于方向与策略。其设计语言映照着这一角色——简洁、直接且功能上充满乐观。它是一位友好、高效的 AI 内容实习生的视觉化身。",
+      "ch2_intro": "色彩体系严谨有序，以纯净的白色为基础，最大化清晰度与专注度。一个鲜明的绿色强调色（#08C474）被专门保留用于主要操作与交互高亮，营造出强烈而明确的视觉层级。",
+      "ch2_outro": "色彩的克制是其核心原则：一个干净、高对比度的环境，其中单一的强调色承载了所有的传达重量。",
+      "ch3_intro": "排版统一采用一种干净的人文主义无衬线字体处理所有文本层级，营造出统一且专业的声音。展示标题字号较大且字距紧凑，以做出大胆、宣言式的陈述，而正文则以深灰色保持高度的可读性。",
+      "ch4_intro": "通过充裕、精心安排的留白建立垂直节奏，这些留白隔离了内容区块，并引导视线以平稳的节奏向下流动。",
+      "ch5_intro": "界面表面通过微妙的层次感和柔和的边缘来定义，而非厚重的装饰。精致的投影将元素轻微地抬离页面，一个一致的 1px 实线边框锚定了某些组件，而圆角则被广泛运用以柔化整个构图。",
+      "ch6_intro": "布局骨架是一个居中的、宽度受控的单栏结构，这是一个经过深思熟虑的注意力漏斗。充裕的垂直留白与偶尔的全宽背景区域，在这个垂直堆叠中创造出清晰、易读的区块。",
+      "ch7_intro": "动效的运用带有目的性和克制感，旨在阐明交互而非装饰。平滑的 0.25 秒过渡统一应用于交互元素的所有颜色和背景变化，而布局移动则使用稍长的持续时间。",
+      "ch8_intro": "编辑语调专业、鼓舞人心且直截了当，反映了系统高效的理念。文案偏爱大胆、字距紧凑的价值主张和直接的行动号召，避免复杂的术语和激进的销售语言。",
+      "ch8_outro": "该系统刻意拒绝暗色模式、衬线字体、尖锐的边角和密集的布局，通过一致的排除来维持其专注且平易近人的特质。"
+    },
+    "zh-TW": {
+      "ch1_intro": "Informed 的設計理念，源於稱職的助理角色：一個旨在吸收內容製作機械性勞動的系統，讓團隊能專注於方向與策略。其設計語言反映了這個角色——簡潔、直接，且在功能上保持樂觀。它是一位友善、高效的 AI 內容實習生的視覺化身。",
+      "ch2_intro": "色彩系統嚴謹有序，以純淨的白色為基礎，以最大化清晰度與專注力。單一、鮮活的綠色強調色（#08C474）專門保留給主要操作與互動高光，創造出強烈、明確的視覺層級。",
+      "ch2_outro": "調色盤的克制是其核心原則：一個乾淨、高對比的環境，讓單一的強調色承擔所有的溝通重量。",
+      "ch3_intro": "排版採用單一、簡潔的人文無襯線字體處理所有文字層級，營造統一且專業的語調。展示標題以大尺寸、緊密字距設定，做出大膽、宣言式的陳述，而內文則以深灰色保持高度可讀性。",
+      "ch4_intro": "透過寬裕且刻意的內距建立垂直節奏，隔離內容區塊並引導視線以沉穩的節奏向下流動。",
+      "ch5_intro": "表面以細微的深度與柔和的邊緣定義，而非繁複的裝飾。精緻的陰影將元素輕微抬離頁面，一致的 1px 實心邊框為某些元件提供基底，圓角則被廣泛應用以軟化整體構圖。",
+      "ch6_intro": "版面骨架是單一、置中且寬度受控的欄位，作為引導注意力的刻意漏斗。寬裕的垂直留白與偶爾出現的全寬背景區段，在這個垂直堆疊中創造出清晰、易讀的區塊。",
+      "ch7_intro": "動效的應用旨在目的與克制，用以釐清互動而非裝飾。所有互動元素的顏色與背景變化，皆受平順的 0.25 秒過渡效果統御，版面轉換則保留稍長的時長。",
+      "ch8_intro": "編輯語調專業、鼓勵且直接，映照系統高效的核心精神。文案偏愛大膽、緊湊字距的價值主張與直接的行動呼籲，避免複雜術語與強勢的銷售語言。",
+      "ch8_outro": "系統刻意排斥暗黑模式、襯線字體、尖銳邊角與密集版面，透過一致的排除，維持其專注且親切的特質。"
+    },
+    "ja": {
+      "ch1_intro": "Informedは、有能なアシスタントの原則に基づいて動作します。コンテンツ制作における機械的な労作を吸収し、人間のチームが方向性と戦略に集中できるように設計されたシステムです。そのデザイン言語は、この役割を反映しています。洗練され、直感的で、機能的に楽観的です。親しみやすく効率的なAIコンテンツインターンの、視覚的な体現です。",
+      "ch2_intro": "カラーシステムは規律正しく、明瞭さと集中を最大化するために、純白の基盤の上に構築されています。鮮やかな緑色のアクセント（#08C474）は、プライマリアクションとインタラクティブなハイライトにのみ専用に使用され、明確で曖昧さのない視覚的階層を創出しています。",
+      "ch2_outro": "パレットの抑制がその核心原則です。清潔で高コントラストの環境において、単独のアクセントカラーがすべての伝達的重みを担います。",
+      "ch3_intro": "タイポグラフィは、すべてのテキストレベルにおいて単一で清潔なhumanist-sans-serifで扱われ、統一的でプロフェッショナルな声を生み出しています。見出しは大きく、文字間隔を詰めて設定され、大胆で宣言的なstatementを作り出します。本文はダークグレーで高い可読性を維持します。",
+      "ch4_intro": "縦のリズムは、コンテンツブロックを分離し、目の流れを測られた順序で下方へと誘導する、意図的で手厚いpaddingによって確立されます。",
+      "ch5_intro": "サーフェスは、重い装飾ではなく、微細な奥行きと柔らかいエッジで定義されます。繊細なドロップシャドウが要素をページからわずかに浮かせ、一貫した1px solidボーダーコンポーネントの土台とし、全体の構図を柔らかくするために角丸が広く適用されます。",
+      "ch6_intro": "レイアウトの骨格は、注意を向けための意図的な漏斗としての、制御された幅の単一の中央揃えカラムです。手厚い垂直方向の余白と、時折のフル幅背景セクションが、この縦のスタック内で個別で読みやすいブロックを生み出します。",
+      "ch7_intro": "モーションは、装飾ではなくインタラクションの明確化を目的として、目的意識と抑制を持って適用されます。滑らかな0.25秒のtransitionが、インタラクティブな要素上のすべてのカラーおよび背景の変化を支配し、レイアウトのシフトにはやや長い期間が割り当てられます。",
+      "ch8_intro": "エディトリアルボイスは、システムの効率的なエトスを反映し、プロフェッショナルで励ましの効いた、率直なものです。コピーは、大胆で文字間隔を詰めたバリュープロポジションと直接的なCTAを好み、複雑な専門用語や攻撃的な営業言語は避けています。",
+      "ch8_outro": "このシステムは、意図的にダークモード、セリフ字体、鋭い角、そして密なレイアウトを拒否し、一貫した省略を通じて、焦点を絞り親しみやすい性格を維持しています。"
+    },
+    "ko": {
+      "ch1_intro": "Informed는 유능한 어시스턴트의 원칙으로 운영됩니다: 콘텐츠 생산의 기계적 노력을 흡수하도록 설계된 시스템으로, 인간 팀이 방향성과 전략에 집중할 수 있게 합니다. 그 디자인 언어는 이 역할을 반영합니다—깔끔하고, 직관적이며, 기능적으로 낙관적입니다. 이는 친절하고 효율적인 AI 콘텐츠 인턴의 시각적 구현체입니다.",
+      "ch2_intro": "색상 체계는 엄격하며, 명확성과 집중을 극대화하기 위해 순백의 바탕 위에 구축됩니다. 단 하나의 생생한 그린 악센트(#08C474)는 주요 작업과 인터랙티브 하이라이트에만 전적으로 사용되어 강력하고 명확한 시각적 계층을 만듭니다.",
+      "ch2_outro": "팔레트의 절제가 핵심 원칙입니다: 깔끔하고 고대비의 환경에서 단 하나의 악센트 색상이 모든 전달의 무게를 담당합니다.",
+      "ch3_intro": "타이포그래피는 모든 텍스트 레벨에 단일하고 깔끔한 휴머니스트산세리프를 사용하여 통일되고 전문적인 목소리를 만들어냅니다. 디스플레이 헤드라인은 굵고 선언적인 메시지를 전달하기 위해 크고 자간을 좁게 설정하고, 본문은 진한 회색으로 높은 가독성을 유지합니다.",
+      "ch4_intro": "수직 리듬은 콘텐츠 블록을 분리하고 시선을 아래로 단계적으로 안내하는 넉넉하고 의도적인 패딩을 통해 확립됩니다.",
+      "ch5_intro": "표면은 무거운 장식이 아닌 미세한 깊이와 부드러운 모서리로 정의됩니다. 섬세한 드롭 섀도우가 요소를 페이지에서 살짝 띄우고, 일관된 1px solid border가 특정 컴포넌트를 고정하며, 둥근 모서리가 전체 구성을 부드럽게 하기 위해 널리 적용됩니다.",
+      "ch6_intro": "레이아웃 골격은 집중을 위한 의도적인 정화조인 제어된 너비의 단일 중앙 열입니다. 넉넉한 수직 여백과 간헐적인 전체 너비 배경 섹션은 이 수직 스택 내에서 명확하고 읽기 쉬운 블록을 만들어냅니다.",
+      "ch7_intro": "모션은 목적이 있고 절제되어 적용되며, 장식보다는 인터랙션을 명확히 하는 데 기여합니다. 매끄러운 0.25초 전환이 인터랙티브 요소의 모든 색상과 배경 변경을 제어하며, 레이아웃 전환에는 약간 더 긴 지속 시간이 할당됩니다.",
+      "ch8_intro": "에디토리얼 목소리는 전문적이고 격려적이며 직설적이며, 시스템의 효율적인 정신을 반영합니다. 카피는 복잡한 전문 용어와 공격적인 판매 언어를 피하고 굵고 자간을 좁힌 가치 제안과 직접적인 행동 촉구를 선호합니다.",
+      "ch8_outro": "이 시스템은 의도적으로 다크 모드, 세리프 타이포그래피, 날카로운 모서리, 밀집된 레이아웃을 거부하며, 일관된 생략을 통해 집중적이고 접근 가능한 특성을 유지합니다."
+    }
+  }
+}

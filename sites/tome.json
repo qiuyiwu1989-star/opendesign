@@ -3,11 +3,567 @@
   "schema_version": "0.3",
   "url": "https://tome.app",
   "title": "Tome",
-  "image": "",
+  "image": "https://image.thum.io/get/width/1440/https://tome.app",
   "tags": [
-    "productivity",
-    "ai"
+    "Productivity",
+    "AI"
   ],
-  "status": "pending",
-  "added_at": "2026-06-02"
+  "status": "completed",
+  "added_at": "2026-06-02",
+  "spec": {
+    "colors": {
+      "bg": "#FFFFFF",
+      "bgSoft": null,
+      "bgQuiet": null,
+      "ink": "#000000",
+      "inkSoft": null,
+      "muted": "#666666",
+      "mutedSoft": null,
+      "accent": null,
+      "line": "rgba(0, 0, 0, 0.12)"
+    },
+    "typography": {
+      "display": "system-sans",
+      "body": "system-sans",
+      "mono": "system-mono",
+      "scale": [
+        {
+          "token": "display",
+          "size": 16,
+          "lh": 1.5,
+          "weight": 700,
+          "ls": "normal"
+        },
+        {
+          "token": "body",
+          "size": 14,
+          "lh": 1.5,
+          "weight": 400,
+          "ls": "normal"
+        }
+      ]
+    },
+    "spacing": {
+      "base": 4,
+      "scale": [
+        4,
+        8,
+        16,
+        24,
+        32,
+        48,
+        64,
+        96
+      ]
+    },
+    "surfaces": {
+      "radius": {
+        "sm": 2,
+        "md": 4,
+        "lg": 6,
+        "pill": 999
+      }
+    },
+    "layout": {
+      "container": 600,
+      "paragraph": 560,
+      "columns": 1,
+      "gutter": 16,
+      "breakpoints": [
+        768
+      ]
+    },
+    "motion": {
+      "durations": {
+        "micro": 0,
+        "small": 0,
+        "medium": 0
+      },
+      "easing": "ease"
+    }
+  },
+  "spec_i18n": {
+    "en": {
+      "identity": {
+        "keywords": [
+          "developer",
+          "error",
+          "technical",
+          "minimal",
+          "clean"
+        ],
+        "analogy": "A system-level error page or default 404 state.",
+        "oneLiner": "A bare-bones, technical error page for developers."
+      },
+      "colors": {
+        "principle": "Strict utility with minimal chroma, relying on black, white, and a single blue for action."
+      },
+      "typography": {
+        "rules": [
+          "Use monospace font for technical codes and IDs",
+          "Ensure high contrast for error messages"
+        ],
+        "scaleUses": [
+          "Primary error heading",
+          "Standard error text"
+        ]
+      },
+      "spacing": {
+        "rhythm": "generous whitespace around central content block"
+      },
+      "surfaces": {
+        "shadows": [],
+        "borders": "1px solid #e0e0e0"
+      },
+      "layout": {
+        "skeleton": "Single centered column with a vertical stack of elements."
+      },
+      "components": {
+        "button": "Simple text link with no visible container or background.",
+        "card": "Thin border box for main error content.",
+        "chip": "None visible.",
+        "input": "None visible.",
+        "hero": "None visible; the entire page is a functional error state."
+      },
+      "motion": {
+        "patterns": [
+          "None visible on static error page."
+        ]
+      },
+      "interaction": {
+        "hover": "Text link changes color on hover.",
+        "click": "Standard browser link behavior.",
+        "transition": "None visible.",
+        "keyboard": "Standard browser focus rings."
+      },
+      "voice": {
+        "tone": "Technical, direct, and helpful.",
+        "headlineStyle": "Bold, uppercase-coded error label.",
+        "ctaStyle": "Plain text link for documentation.",
+        "avoid": [
+          "Playful language",
+          "Complex visuals",
+          "Distractions"
+        ]
+      },
+      "donts": [
+        "Don't add complex backgrounds — screenshot shows plain white.",
+        "Don't use decorative typography — screenshot shows standard system fonts.",
+        "Don't add shadows to cards — screenshot shows flat borders only.",
+        "Don't use a high-chroma accent for the main heading — screenshot uses black.",
+        "Don't clutter the layout — screenshot shows a single centered block with generous whitespace.",
+        "Don't use rounded corners on the main error card — screenshot shows sharp, rectangular edges."
+      ],
+      "systemPrompt": "This is a functional error page for a developer-focused product. The design is intentionally minimal and utilitarian, featuring a plain white background, standard black system text, and a subtle border around the main error content. The typography is strictly system-based, using monospace for technical identifiers. Key hex colors include #FFFFFF for the background, #000000 for ink, and a blue for the documentation link. The layout is a single, centered column with a vertical stack. Critical donts include: do not add decorative elements or complex backgrounds, do not use branded or expressive typography, and do not add shadows or rounded corners to the main content container."
+    },
+    "zh-CN": {
+      "identity": {
+        "keywords": [
+          "开发者",
+          "错误",
+          "技术",
+          "极简",
+          "简洁"
+        ],
+        "analogy": "系统级错误页面或默认的 404 状态。",
+        "oneLiner": "面向开发者的极简技术错误页面。"
+      },
+      "colors": {
+        "principle": "严格的实用性，色彩极少，依赖黑色、白色和单一的蓝色作为操作色。"
+      },
+      "typography": {
+        "rules": [
+          "对技术代码和标识符使用等宽字体",
+          "确保错误信息具有高对比度"
+        ],
+        "scaleUses": [
+          "主要错误标题",
+          "标准错误文本"
+        ]
+      },
+      "spacing": {
+        "rhythm": "中央内容块周围留有充足的留白"
+      },
+      "surfaces": {
+        "shadows": [],
+        "borders": "1px solid #e0e0e0"
+      },
+      "layout": {
+        "skeleton": "单一居中列，包含元素的垂直堆栈。"
+      },
+      "components": {
+        "button": "简单的文本链接，无可见容器或背景。",
+        "card": "用于主要错误内容的细边框框体。",
+        "chip": "无可见。",
+        "input": "无可见。",
+        "hero": "无可见；整个页面即为功能性的错误状态。"
+      },
+      "motion": {
+        "patterns": [
+          "静态错误页面上无可见动效。"
+        ]
+      },
+      "interaction": {
+        "hover": "文本链接在 hover 时变色。",
+        "click": "标准浏览器链接行为。",
+        "transition": "无可见过渡。",
+        "keyboard": "标准浏览器 focus 环。"
+      },
+      "voice": {
+        "tone": "技术性、直接且 helpful。",
+        "headlineStyle": "加粗、全大写的错误标签。",
+        "ctaStyle": "用于文档的纯文本链接。",
+        "avoid": [
+          "俏皮语言",
+          "复杂视觉",
+          "视觉干扰"
+        ]
+      },
+      "donts": [
+        "不要添加复杂背景——截图显示为纯白色。",
+        "不要使用装饰性字体——截图显示为标准系统字体。",
+        "不要为卡片添加阴影——截图仅显示平面边框。",
+        "不要为主要标题使用高饱和度强调色——截图使用黑色。",
+        "不要使布局显得拥挤——截图显示为单一的居中块，带有充足的留白。",
+        "不要为主要错误卡片使用圆角——截图显示为尖锐的矩形边角。"
+      ],
+      "systemPrompt": "这是一个面向开发者产品的功能性错误页面。设计刻意保持极简和实用主义，采用纯白背景、标准的黑色系统文本，以及围绕主要错误内容的细微边框。字体严格基于系统，对技术标识符使用等宽字体。关键的十六进制颜色包括：背景的 #FFFFFF，正文的 #000000，以及用于文档链接的蓝色。布局为单一的居中列，垂直堆栈。关键注意事项包括：不要添加装饰性元素或复杂背景，不要使用品牌化或表现力强的字体，不要为主要内容容器添加阴影或圆角。"
+    },
+    "zh-TW": {
+      "identity": {
+        "keywords": [
+          "開發者",
+          "錯誤",
+          "技術",
+          "極簡",
+          "簡潔"
+        ],
+        "analogy": "系統層級錯誤頁面或預設 404 狀態。",
+        "oneLiner": "為開發者設計的基礎技術錯誤頁面。"
+      },
+      "colors": {
+        "principle": "嚴格實用，最小化色彩，僅依靠黑白及單一藍色作為操作指示。"
+      },
+      "typography": {
+        "rules": [
+          "技術代碼與 ID 使用 monospace 字體",
+          "確保錯誤訊息具有高對比度"
+        ],
+        "scaleUses": [
+          "主要錯誤標題",
+          "標準錯誤文字"
+        ]
+      },
+      "spacing": {
+        "rhythm": "中央內容區塊周圍保留充足留白"
+      },
+      "surfaces": {
+        "shadows": [],
+        "borders": "1px solid #e0e0e0"
+      },
+      "layout": {
+        "skeleton": "單一置中欄位，垂直堆疊各元素。"
+      },
+      "components": {
+        "button": "純文字連結，無可見容器或背景。",
+        "card": "用於主要錯誤內容的細邊框容器。",
+        "chip": "無可見元件。",
+        "input": "無可見元件。",
+        "hero": "無可見元件；整個頁面即為功能性錯誤狀態。"
+      },
+      "motion": {
+        "patterns": [
+          "靜態錯誤頁面無可見動態。"
+        ]
+      },
+      "interaction": {
+        "hover": "文字連結在 hover 時變色。",
+        "click": "標準瀏覽器連結行為。",
+        "transition": "無可見過渡效果。",
+        "keyboard": "標準瀏覽器焦點環。"
+      },
+      "voice": {
+        "tone": "技術性、直接且具幫助性。",
+        "headlineStyle": "粗體、大寫編碼的錯誤標籤。",
+        "ctaStyle": "純文字文件連結。",
+        "avoid": [
+          " playful 語言",
+          "複雜視覺效果",
+          "干擾元素"
+        ]
+      },
+      "donts": [
+        "不添加複雜背景——截圖顯示純白背景。",
+        "不使用裝飾性字體——截圖顯示標準系統字體。",
+        "不為卡片添加陰影——截圖僅顯示純色邊框。",
+        "不使用高彩度強調色作為主要標題——截圖使用黑色。",
+        "不雜亂佈局——截圖顯示單一置中區塊與充足留白。",
+        "不為主要錯誤卡片使用圓角——截圖顯示銳利矩形邊緣。"
+      ],
+      "systemPrompt": "這是一個面向開發者產品的功能性錯誤頁面。設計刻意採用極簡實用風格，使用純白背景、標準黑色系統文字，以及主要錯誤內容周圍的細微邊框。字體嚴格使用系統字體，技術識別碼採用 monospace。關鍵十六進位色碼包含背景色 #FFFFFF、墨色 #000000，以及文件連結的藍色。佈局為單一置中欄位垂直堆疊。關鍵避免事項包括：不添加裝飾元素或複雜背景、不使用品牌化或表現性字體、不為主要內容容器添加陰影或圓角。"
+    },
+    "ja": {
+      "identity": {
+        "keywords": [
+          "開発者",
+          "エラー",
+          "技術的",
+          "ミニマル",
+          "クリーン"
+        ],
+        "analogy": "システムレベルのエラーページ、またはデフォルトの404ページ。",
+        "oneLiner": "開発者向けの、最低限の技術的なエラーページ。"
+      },
+      "colors": {
+        "principle": "黒、白、およびアクションのための単一の青に依存した、最小限の色度による厳格な実用性。"
+      },
+      "typography": {
+        "rules": [
+          "技術的なコードやIDにはモノスペースフォントを使用",
+          "エラーメッセージには高いコントラストを確保"
+        ],
+        "scaleUses": [
+          "プライマリエラーヘッディング",
+          "標準エラーテキスト"
+        ]
+      },
+      "spacing": {
+        "rhythm": "中央コンテンツブロックの周囲に十分な余白"
+      },
+      "surfaces": {
+        "shadows": [],
+        "borders": "1px solid #e0e0e0"
+      },
+      "layout": {
+        "skeleton": "単一の中央揃えカラムに、要素を縦方向にスタック。"
+      },
+      "components": {
+        "button": "目立つコンテナや背景のない、シンプルなテキストリンク。",
+        "card": "メインのエラー内容を囲む、薄いボーダーボックス。",
+        "chip": "目視不可。",
+        "input": "目視不可。",
+        "hero": "目視不可。ページ全体が機能的なエラー状態です。"
+      },
+      "motion": {
+        "patterns": [
+          "静的なエラーページ上では、目に見えるものはありません。"
+        ]
+      },
+      "interaction": {
+        "hover": "テキストリンクはhover時に色が変わります。",
+        "click": "標準のブラウザリンク挙動。",
+        "transition": "目に見えるものはありません。",
+        "keyboard": "標準のブラウザフォーカスリング。"
+      },
+      "voice": {
+        "tone": "技術的、直接的、かつ有用。",
+        "headlineStyle": "太字で、大文字コード化されたエラーラベル。",
+        "ctaStyle": "ドキュメントへのプレーンテキストリンク。",
+        "avoid": [
+          "遊び心のある言葉遣い",
+          "複雑なビジュアル",
+          "気を散らす要素"
+        ]
+      },
+      "donts": [
+        "複雑な背景を追加しない — スクリーンショットはプレーンな白を示しています。",
+        "装飾的なタイポグラフィを使用しない — スクリーンショットは標準のシステムフォントを示しています。",
+        "カードに影を追加しない — スクリーンショットはフラットなボーダーのみを示しています。",
+        "メインヘッディングに彩度の高いアクセントカラーを使用しない — スクリーンショットは黒を使用しています。",
+        "レイアウトを散らかさない — スクリーンショットは十分な余白を持つ、単一の中央ブロックを示しています。",
+        "メインのエラーカードに角丸を使用しない — スクリーンショットは鋭い長方形のエッジを示しています。"
+      ],
+      "systemPrompt": "これは開発者向け製品のための機能的なエラーページです。デザインは意図的にミニマルで実用的であり、プレーンな白の背景、標準の黒のシステムテキスト、およびメインのエラー内容を囲む微妙なボーダーが特徴です。タイポグラフィは厳格にシステムベースで、技術的な識別子にはモノスペースを使用します。主要な16進数カラーには、背景の#FFFFFF、インクの#000000、およびドキュメントリンク用の青が含まれます。レイアウトは単一の中央揃えカラムで、要素を縦方向にスタックします。重要な禁止事項には、装飾的な要素や複雑な背景を追加しないこと、ブランド表現や個性を出すタイポグラフィを使用しないこと、メインコンテンツコンテナに影や角丸を追加しないことが含まれます。"
+    },
+    "ko": {
+      "identity": {
+        "keywords": [
+          "개발자",
+          "오류",
+          "기술적",
+          "미니멀",
+          "깔끔한"
+        ],
+        "analogy": "시스템 레벨의 오류 페이지 또는 기본 404 상태입니다.",
+        "oneLiner": "개발자를 위한 기본적이고 기술적인 오류 페이지입니다."
+      },
+      "colors": {
+        "principle": "검정, 흰색, 그리고 단일 블루에 의존하여 최소한의 색상으로 엄격한 실용성을 추구합니다."
+      },
+      "typography": {
+        "rules": [
+          "기술 코드 및 ID에는 모노스페이스 폰트를 사용합니다.",
+          "오류 메시지의 높은 대비를 보장합니다."
+        ],
+        "scaleUses": [
+          "주요 오류 제목",
+          "표준 오류 텍스트"
+        ]
+      },
+      "spacing": {
+        "rhythm": "중앙 콘텐츠 블록 주변의 넉넉한 여백"
+      },
+      "surfaces": {
+        "shadows": [],
+        "borders": "1px solid #e0e0e0"
+      },
+      "layout": {
+        "skeleton": "요소들의 수직 슃�으로 구성된 단일 중앙 정렬 열."
+      },
+      "components": {
+        "button": "보이는 컨테이너나 배경 없이 단순한 텍스트 링크.",
+        "card": "주요 오류 콘텐츠를 위한 얇은 테두리 상자.",
+        "chip": "보이는 요소 없음.",
+        "input": "보이는 요소 없음.",
+        "hero": "보이는 요소 없음; 전체 페이지가 기능적인 오류 상태입니다."
+      },
+      "motion": {
+        "patterns": [
+          "정적 오류 페이지에서는 눈에 띄는 패턴 없음."
+        ]
+      },
+      "interaction": {
+        "hover": "텍스트 링크가 hover 시 색상이 변경됩니다.",
+        "click": "표준 브라우저 링크 동작.",
+        "transition": "눈에 띄는 전환 없음.",
+        "keyboard": "표준 브라우저 포커스 링."
+      },
+      "voice": {
+        "tone": "기술적이고 직접적이며 도움이 되는 어조.",
+        "headlineStyle": "대문자로 코딩된 굵은 오류 레이블.",
+        "ctaStyle": "문서를 위한 단순한 텍스트 링크.",
+        "avoid": [
+          "장난스러운 언어",
+          "복잡한 비주얼",
+          "방해 요소"
+        ]
+      },
+      "donts": [
+        "복잡한 배경을 추가하지 마세요 — 스크린샷은 단순한 흰색을 보여줍니다.",
+        "장식적인 타이포그래피를 사용하지 마세요 — 스크린샷은 표준 시스템 폰트를 보여줍니다.",
+        "카드에 그림자를 추가하지 마세요 — 스크린샷은 플랫한 테두리만 보여줍니다.",
+        "주요 제목에 고채도 강조 색상을 사용하지 마세요 — 스크린샷은 검정을 사용합니다.",
+        "레이아웃을 복잡하게 만들지 마세요 — 스크린샷은 넉넉한 여백을 둔 단일 중앙 블록을 보여줍니다.",
+        "주요 오류 카드에 둥근 모서리를 사용하지 마세요 — 스크린샷은 날카롭고 직사각형 모서리를 보여줍니다."
+      ],
+      "systemPrompt": "이것은 개발자 중심 제품을 위한 기능적인 오류 페이지입니다. 의도적으로 미니멀하고 실용적인 디자인으로, 단순한 흰색 배경, 표준 검정 시스템 텍스트, 그리고 주요 오류 콘텐츠 주변의 미묘한 테두리를 특징으로 합니다. 타이포그래피는 엄격히 시스템 기반이며, 기술 식별자에 모노스페이스를 사용합니다. 핵심 헥스 색상에는 배경을 위한 #FFFFFF, 잉크를 위한 #000000, 그리고 문서 링크를 위한 블루가 포함됩니다. 레이아웃은 수직 스택으로 구성된 단일 중앙 열입니다. 핵심 지침은 다음과 같습니다: 장식 요소나 복잡한 배경을 추가하지 마세요, 브랜드화되거나 표현적인 타이포그래피를 사용하지 마세요, 그리고 주요 콘텐츠 컨테이너에 그림자나 둥근 모서리를 추가하지 마세요."
+    }
+  },
+  "desc": {
+    "en": {
+      "palette": "A strictly utilitarian palette of pure white, black, and a single blue for the functional link.",
+      "layout": "A single, centered vertical stack with a generous amount of surrounding whitespace.",
+      "interaction": "Minimal; only the documentation link provides a standard hover interaction.",
+      "motion": "No visible motion or animation on this static error state.",
+      "notes": "This is a prime example of a high-utility, low-design error state, demonstrating restraint and clarity for technical communication."
+    },
+    "zh-CN": {
+      "palette": "一套严格的实用主义色板，包含纯白、黑色，以及用于功能链接的单一蓝色。",
+      "layout": "单一的居中垂直堆栈，四周留有充足的留白。",
+      "interaction": "极简交互；仅文档链接提供标准的 hover 交互。",
+      "motion": "此静态错误状态无可见的运动或动画。",
+      "notes": "这是高实用性、低设计感错误状态的典范，展现了技术沟通中的克制与清晰。"
+    },
+    "zh-TW": {
+      "palette": "純白、純黑及單一藍色功能連結的嚴格實用色調。",
+      "layout": "單一置中的垂直堆疊，周圍保留充足留白空間。",
+      "interaction": "極簡設計；僅文件連結提供標準的 hover 互動。",
+      "motion": "在此靜態錯誤狀態中無可見動態或動畫。",
+      "notes": "這是一個高度實用、低設計感的錯誤狀態範例，展現了技術溝通所需的克制與清晰度。"
+    },
+    "ja": {
+      "palette": "純白、黒、そしてリンク機能のための1色の青という、厳格に実用主義的なカラーパレット。",
+      "layout": "中央に配置された単一の縦方向スタックで、周囲に十分な余白を確保しています。",
+      "interaction": "最小限。ドキュメントリンクのみが標準のhoverインタラクションを提供します。",
+      "motion": "この静的なエラー状態に、目に見える動きやアニメーションはありません。",
+      "notes": "これは、技術コミュニケーションにおける抑制と明瞭さを示す、高機能・低デザインのエラー状態の代表的な例です。"
+    },
+    "ko": {
+      "palette": "기능적인 링크를 위한 순백, 검정, 그리고 단일 블루로 구성된 엄격히 실용적인 팔레트입니다.",
+      "layout": "중심에 정렬된 단일 수직 스택과 주변에 넉넉한 여백을 두는 구성입니다.",
+      "interaction": "최소화; 문서 링크만이 표준 hover 상호작용을 제공합니다.",
+      "motion": "이 정적 오류 상태에서는 눈에 띄는 모션이나 애니메이션이 없습니다.",
+      "notes": "이것은 기술적 소통을 위한 절제와 명확성을 보여주는, 높은 유틸리티와 낮은 디자인 요소를 갖춘 오류 상태의 대표적인 예입니다."
+    }
+  },
+  "_meta": {
+    "vision_model": "mimo-v2.5",
+    "vision_prompt_version": "0.3",
+    "vision_at": "2026-07-15T10:50:20+00:00",
+    "vision_tokens": 3147,
+    "vision_cost_usd": 0.035,
+    "translation_model": "mimo-v2.5",
+    "translation_at": "2026-07-15T10:51:03+00:00",
+    "translation_tokens": 13750,
+    "translation_cost_usd": 0.0458,
+    "narrative_model": "mimo-v2.5",
+    "narrative_prompt_version": "0.3",
+    "narrative_at": "2026-07-15T10:51:10+00:00",
+    "narrative_tokens": 1758,
+    "narrative_cost_usd": 0.0117,
+    "narrative_status": "ok",
+    "total_cost_usd": 0.0925
+  },
+  "narrative": {
+    "en": {
+      "ch1_intro": "The design language for Tome's error state is built with the logic of a system-level diagnostic tool. It operates as a clean, technical interface for developers, prioritizing clarity and function over decorative elements. This is a bare-bones, technical error page for developers, where every component serves a direct communicative purpose.",
+      "ch2_intro": "The color system is one of strict utility, built on a foundation of pure white, black, and a single functional blue. This minimal chroma ensures the palette never competes with the technical information it presents.",
+      "ch2_outro": "The principle is absolute restraint, using color only to denote actionable links, not to establish mood or brand emotion.",
+      "ch3_intro": "Typography is set with a focus on function and hierarchy. Standard system fonts are used for body text, while a monospace font is reserved for technical codes and identifiers, clearly separating system data from human-readable messages.",
+      "ch4_intro": "Spacing rhythm is defined by generous whitespace that isolates the central error content block, creating a clear focal point and preventing visual clutter.",
+      "ch5_intro": "Surfaces are flat and defined only by thin, 1px solid borders. There are no shadows or rounded corners, maintaining a sharp, technical aesthetic that rejects visual softening.",
+      "ch6_intro": "The layout is a single, centered column that vertically stacks all elements. This skeleton ensures a direct, linear reading path, from error heading to explanatory text to the actionable documentation link.",
+      "ch7_intro": "Motion is absent from this static error state. The interaction model is minimal and relies on standard browser behaviors, with no custom animations to distract from the core message.",
+      "ch8_intro": "The editorial voice is technical, direct, and helpful. It avoids playful language and complex visuals, focusing instead on delivering a clear error label and a straightforward path to documentation.",
+      "ch8_outro": "The system deliberately does not add decorative elements, complex backgrounds, or expressive typography, adhering to a philosophy of utilitarian minimalism."
+    },
+    "zh-CN": {
+      "ch1_intro": "Tome的错误状态设计语言建立在系统级诊断工具的逻辑之上。它作为面向开发者的干净技术界面运行，优先考虑清晰度和功能性，而非装饰元素。这是一个面向开发者的精简技术错误页面，每个组件都服务于直接的沟通目的。",
+      "ch2_intro": "色彩系统严格遵循实用主义，建立在纯白、纯黑和单一功能蓝色的基础上。这种极简的色彩运用确保调色板永远不会与其呈现的技术信息产生视觉竞争。",
+      "ch2_outro": "其原则是绝对克制，仅使用颜色来标识可操作链接，而非营造氛围或品牌情感。",
+      "ch3_intro": "字体设置专注于功能与层级。正文使用标准系统字体，而等宽字体则专用于技术代码和标识符，清晰区分系统数据与人类可读信息。",
+      "ch4_intro": "间距节奏由充足的留白定义，留白将中央错误内容块隔离出来，创造清晰的视觉焦点并防止视觉杂乱。",
+      "ch5_intro": "表面保持平坦，仅由细薄的1像素实线边框定义。没有阴影或圆角，保持锐利的技术美学，拒绝视觉软化处理。",
+      "ch6_intro": "布局采用单一居中列，垂直堆叠所有元素。这种骨架结构确保从错误标题、说明文本到可操作文档链接的直接线性阅读路径。",
+      "ch7_intro": "这个静态错误状态没有动态效果。交互模型极简，依赖标准浏览器行为，没有任何自定义动画分散对核心信息的注意力。",
+      "ch8_intro": "编辑语言技术化、直接且具有帮助性。它避免使用俏皮语言和复杂视觉效果，专注于提供清晰的错误标签和通往文档的直接路径。",
+      "ch8_outro": "该系统刻意不添加装饰元素、复杂背景或表现性字体，遵循实用主义极简主义的设计理念。"
+    },
+    "zh-TW": {
+      "ch1_intro": "Tome 的錯誤狀態設計語言，其邏輯建立於系統級診斷工具之上。它作為開發者的乾淨技術介面運作，優先考量清晰度與功能性，而非裝飾元素。這是一個面向開發者、極簡技術性的錯誤頁面，每個元件都直接服務於溝通目的。",
+      "ch2_intro": "色彩系統採用純粹的功能實用主義，基於純白、純黑與單一功能性藍色構建。這種極簡的色彩運用，確保色盤永遠不會與其呈現的技術資訊相互競爭。",
+      "ch2_outro": "原則是絕對的克制：僅使用色彩來標示可操作連結，而非營造情緒或品牌感受。",
+      "ch3_intro": "字體排印聚焦於功能與層級。內文使用標準系統字體，而等寬字體則專用於技術代碼與識別碼，清晰區隔系統資料與人類可讀訊息。",
+      "ch4_intro": "間距節奏由充裕的留白定義，將中央錯誤內容區塊孤立出來，創造清晰的視覺焦點，並防止視覺雜亂。",
+      "ch5_intro": "介面平面且僅由細薄、1px 實線邊框界定。沒有陰影或圓角，維持銳利的技術美感，拒絕視覺柔化處理。",
+      "ch6_intro": "版面配置為單一置中欄位，垂直堆疊所有元素。此骨架確保從錯誤標題、說明文字到可操作文件連結，形成直接、線性的閱讀路徑。",
+      "ch7_intro": "此靜態錯誤狀態中不存在動態效果。互動模型極簡，依賴標準瀏覽器行為，無任何自訂動畫干擾核心訊息。",
+      "ch8_intro": "編輯語氣技術化、直接且具實用性。避免俏皮語言與複雜視覺，專注於提供清晰的錯誤標籤與通往文件的直接路徑。",
+      "ch8_outro": "系統刻意不添加裝飾元素、複雜背景或表現性字體排印，堅持實用主義的極簡哲學。"
+    },
+    "ja": {
+      "ch1_intro": "Tomeのエラーステートのデザイン言語は、システムレベルの診断ツールの論理に基づいて構築されています。開発者向けのクリーンで技術的なインターフェースとして機能し、装飾要素よりも明瞭さと機能を優先します。これは開発者向けの簡潔で技術的なエラーページであり、すべてのコンポーネントが直接的なコミュニケーション目的を果たします。",
+      "ch2_intro": "カラーシステムは厳格な実用性に基づいており、純粋な白、黒、および単一の機能的な青を基盤として構築されています。この最小限のクロマにより、パレットが提示する技術情報と競合しないことが保証されます。",
+      "ch2_outro": "原則は絶対的な自制にあり、色はアクション可能なリンクを示す場合にのみ使用し、ムードやブランドの感情を確立するために使用しません。",
+      "ch3_intro": "タイポグラフィは機能と階層に焦点を当てて設定されています。本文には標準システムフォントが使用され、技術コードや識別子にはモノスペースフォントが割り当てられ、システムデータと人間が読めるメッセージを明確に区別します。",
+      "ch4_intro": "スペーシングリズムは、中央のエラーコンテンツブロックを分離する十分なホワイトスペースによって定義され、明確な焦点を作り出し、視覚的な雑然さを防ぎます。",
+      "ch5_intro": "サーフェスはフラットで、細い1pxの実線ボーダーのみで定義されます。シャドウや角丸はなく、視覚的な柔らかさを拒否する鋭い技術的美学を維持します。",
+      "ch6_intro": "レイアウトは、すべての要素を垂直に積み重ねる単一の中央揃えカラムです。この骨格により、エラーヘッダーから説明テキスト、アクション可能なドキュメントリンクへの直接的でリニアな読解パスが確保されます。",
+      "ch7_intro": "この静的なエラーステートにモーションは存在しません。インタラクションモデルは最小限であり、標準的なブラウザ動作に依存し、コアメッセージから注意をそらすカスタムアニメーションはありません。",
+      "ch8_intro": "エディトリアルボイスは技術的で直接的、かつ有用です。遊び心のある言語や複雑なビジュアルを避け、代わりに明確なエラーラベルとドキュメントへの明白なパスの提供に焦点を当てます。",
+      "ch8_outro": "システムは意図的に装飾要素、複雑な背景、または表現的なタイポグラフィを追加せず、功利主義的ミニマリズムの哲学に忠実です。"
+    },
+    "ko": {
+      "ch1_intro": "Tome의 오류 상태를 위한 디자인 언어는 시스템 수준 진단 도구의 논리로 구축되었습니다. 장식적 요소보다 명확성과 기능을 우선시하여 개발자를 위한 깔끔하고 기술적인 인터페이스로 작동합니다. 이는 개발자를 위한 미니멀한 기술 오류 페이지로, 모든 구성 요소가 직접적인 의사소통 목적을 가집니다.",
+      "ch2_intro": "색상 시스템은 순수한 흰색, 검은색, 단일 기능성 파란색을 기반으로 한 엄격한 유틸리티성을 지닙니다. 이 최소한의 색채는 팔레트가 제공하는 기술 정보와 결코 경쟁하지 않도록 보장합니다.",
+      "ch2_outro": "원칙은 절대적인 절제이며, 색상을 분위기나 브랜드 감정을 형성하기 위해서가 아니라 작동 가능한 링크를 표시하는 데만 사용합니다.",
+      "ch3_intro": "타이포그래피는 기능과 계층에 중점을 두고 설정됩니다. 본문 텍스트에는 표준 시스템 폰트가 사용되며, 모노스페이스 폰트는 기술 코드와 식별자를 위해 예약되어 시스템 데이터와 사람이 읽을 수 있는 메시지를 명확히 구분합니다.",
+      "ch4_intro": "간격 리듬은 중앙 오류 내용 블록을 격리하는 넉넉한 여백에 의해 정의되어 명확한 초점을 만들고 시각적 혼란을 방지합니다.",
+      "ch5_intro": "표면은 평평하며 1px solid 테두리로만 정의됩니다. 그림자나 둥근 모서리는 없으며, 시각적 부드러움을 거부하는 날카롭고 기술적인 미학을 유지합니다.",
+      "ch6_intro": "레이아웃은 모든 요소를 수직으로 쌓는 단일 중앙 정렬 열입니다. 이 골격은 오류 제목에서 설명 텍스트, 작동 가능한 문서화 링크에 이르기까지 직접적이고 선형적인 읽기 경로를 보장합니다.",
+      "ch7_intro": "이 정적 오류 상태에서는 모션이 사용되지 않습니다. 상호작용 모델은 미니멀하며 표준 브라우저 동작에 의존하며, 핵심 메시지에서 산만해지는 사용자 정의 애니메이션이 없습니다.",
+      "ch8_intro": "에디토리얼 목소리는 기술적이고 직접적이며 유용합니다. 장난스러운 언어와 복잡한 시각 요소를 피하고, 대신 명확한 오류 레이블과 문서화로의 간단한 경로를 전달하는 데 집중합니다.",
+      "ch8_outro": "시스템은 의도적으로 장식 요소, 복잡한 배경 또는 표현적 타이포그래피를 추가하지 않으며, 실용적 미니멀리즘의 철학을 준수합니다."
+    }
+  }
 }

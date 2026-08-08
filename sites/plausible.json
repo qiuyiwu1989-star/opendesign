@@ -3,11 +3,545 @@
   "schema_version": "0.3",
   "url": "https://plausible.io",
   "title": "Plausible",
-  "image": "",
+  "image": "https://image.thum.io/get/width/1440/https://plausible.io",
   "tags": [
-    "analytics",
-    "dev"
+    "Analytics",
+    "Developer Tools"
   ],
-  "status": "pending",
-  "added_at": "2026-06-03"
+  "status": "completed",
+  "added_at": "2026-06-03",
+  "spec": {
+    "colors": {
+      "bg": "#FFFFFF",
+      "bgSoft": "#F9FAFB",
+      "bgQuiet": "#F3F4F6",
+      "ink": "#1F2937",
+      "inkSoft": "#4B5563",
+      "muted": "#9CA3AF",
+      "mutedSoft": "#D1D5DB",
+      "accent": "#5850EC",
+      "line": "rgba(0,0,0,0.05)"
+    },
+    "typography": {
+      "display": "humanist-sans",
+      "body": "humanist-sans",
+      "mono": "monospace",
+      "scale": [
+        {
+          "token": "display",
+          "size": 48,
+          "lh": 1.1,
+          "weight": 700,
+          "ls": "-0.5px"
+        },
+        {
+          "token": "h2",
+          "size": 32,
+          "lh": 1.2,
+          "weight": 700,
+          "ls": "-0.25px"
+        },
+        {
+          "token": "body",
+          "size": 16,
+          "lh": 1.6,
+          "weight": 400,
+          "ls": "0"
+        }
+      ]
+    },
+    "spacing": {
+      "base": 4,
+      "scale": [
+        4,
+        8,
+        16,
+        24,
+        32,
+        48,
+        64,
+        96
+      ]
+    },
+    "surfaces": {
+      "radius": {
+        "sm": 4,
+        "md": 8,
+        "lg": 12,
+        "pill": 999
+      }
+    },
+    "layout": {
+      "container": 1200,
+      "paragraph": 680,
+      "columns": 12,
+      "gutter": 24,
+      "breakpoints": [
+        768,
+        1024
+      ]
+    },
+    "motion": {
+      "durations": {
+        "micro": 200,
+        "small": 350,
+        "medium": 600
+      },
+      "easing": "cubic-bezier(0.4, 0.0, 0.2, 1)"
+    }
+  },
+  "spec_i18n": {
+    "en": {
+      "identity": {
+        "keywords": [
+          "privacy",
+          "analytics",
+          "simplicity",
+          "European"
+        ],
+        "analogy": "A clean, transparent alternative to complex data tools.",
+        "oneLiner": "A privacy-friendly, lightweight Google Analytics alternative."
+      },
+      "colors": {
+        "principle": "High contrast dark text on white background, with a single vibrant purple for primary actions and highlights."
+      },
+      "typography": {
+        "rules": [],
+        "scaleUses": [
+          "Main headline",
+          "Section headlines",
+          "Primary text"
+        ]
+      },
+      "spacing": {
+        "rhythm": "Generous vertical spacing between sections, tight grouping within components."
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 4px 20px rgba(0, 0, 0, 0.05)"
+        ],
+        "borders": "1px solid #E5E7EB"
+      },
+      "layout": {
+        "skeleton": "Centered single-column landing page with a full-width hero section followed by a detailed application preview."
+      },
+      "components": {
+        "button": "Solid purple primary button, white text, rounded corners. Secondary button with white background, grey border.",
+        "card": "Dashboard preview uses a white card with subtle shadow and grey borders for data sections.",
+        "chip": "None visible in the screenshot.",
+        "input": "None visible in the screenshot.",
+        "hero": "Large bold headline centered, subtext, two side-by-side CTA buttons, and a detailed application screenshot below."
+      },
+      "interaction": {
+        "hover": "Subtle background color change on buttons.",
+        "click": "Immediate visual feedback.",
+        "transition": "Smooth color transitions on interactive elements.",
+        "keyboard": "Standard focusable elements with visible focus states."
+      },
+      "voice": {
+        "tone": "Direct, confident, and reassuring.",
+        "headlineStyle": "Short, punchy, benefit-driven.",
+        "ctaStyle": "Clear and action-oriented ('Start free trial', 'View live demo').",
+        "avoid": [
+          "Technical jargon",
+          "Vague marketing fluff",
+          "Aggressive sales language"
+        ]
+      },
+      "donts": [
+        "Don't use complex gradients — screenshot shows flat, solid color backgrounds.",
+        "Don't use multiple accent colors — screenshot shows a single dominant purple (#5850EC).",
+        "Don't use decorative scripts or serif display fonts — screenshot uses a clean humanist sans-serif.",
+        "Don't crowd the layout — screenshot shows generous whitespace and centered content.",
+        "Don't use dark mode or heavy shadows — screenshot shows a light, airy interface with subtle shadows.",
+        "Don't use complex iconography — screenshot uses minimal, simple UI icons."
+      ],
+      "systemPrompt": "This is a clean, professional SaaS landing page for a privacy-focused analytics tool. The design relies on a white background with a single vibrant purple (#5850EC) accent color for primary actions. Typography is a clean humanist sans-serif, prioritizing readability. Layout is centered and spacious, using a large hero section to introduce the product and a detailed app screenshot to build trust. The tone is direct and benefit-oriented. Critical donts: avoid dark mode, avoid multiple accent colors, avoid complex gradients, avoid cluttered layouts, avoid decorative fonts, avoid aggressive sales language."
+    },
+    "zh-CN": {
+      "identity": {
+        "keywords": [
+          "隐私",
+          "分析",
+          "简洁",
+          "欧洲"
+        ],
+        "analogy": "一个比复杂数据工具更清晰、透明的替代方案。",
+        "oneLiner": "一个注重隐私、轻量级的Google Analytics替代方案。"
+      },
+      "colors": {
+        "principle": "白色背景上的高对比度深色文字，使用单一亮紫色作为主要操作和高亮的颜色。"
+      },
+      "typography": {
+        "rules": [],
+        "scaleUses": [
+          "主标题",
+          "章节标题",
+          "正文文本"
+        ]
+      },
+      "spacing": {
+        "rhythm": "章节间垂直间距宽松，组件内部间距紧凑。"
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 4px 20px rgba(0, 0, 0, 0.05)"
+        ],
+        "borders": "1px solid #E5E7EB"
+      },
+      "layout": {
+        "skeleton": "居中的单栏着陆页，包含全屏首屏，其后是详细的应用程序预览。"
+      },
+      "components": {
+        "button": "实心紫色主按钮，白色文字，圆角。次级按钮为白色背景，灰色边框。",
+        "card": "仪表盘预览使用带有细微阴影和灰色边框的白色卡片来划分数据区域。",
+        "chip": "截图中未显示。",
+        "input": "截图中未显示。",
+        "hero": "居中的大号粗体标题、副标题、两个并排的CTA按钮，下方是详细的应用程序截图。"
+      },
+      "interaction": {
+        "hover": "按钮的背景颜色发生细微变化。",
+        "click": "提供即时的视觉反馈。",
+        "transition": "交互元素的颜色过渡平滑。",
+        "keyboard": "标准的可聚焦元素，具有可见的focus状态。"
+      },
+      "voice": {
+        "tone": "直接、自信且令人安心。",
+        "headlineStyle": "简短有力，以利益为导向。",
+        "ctaStyle": "清晰且以行动为导向（如“开始免费试用”、“查看实时演示”）。",
+        "avoid": [
+          "技术术语",
+          "模糊的营销套话",
+          "激进的销售语言"
+        ]
+      },
+      "donts": [
+        "不要使用复杂的渐变——截图显示的是平面、纯色背景。",
+        "不要使用多种强调色——截图显示单一的主色调紫色（#5850EC）。",
+        "不要使用装饰性手写体或衬线展示字体——截图使用的是简洁的人文无衬线字体。",
+        "不要使布局拥挤——截图显示有充足的留白和居中内容。",
+        "不要使用深色模式或厚重的阴影——截图显示的是带有细微阴影的明亮、通透的界面。",
+        "不要使用复杂的图标——截图使用的是极简、简洁的UI图标。"
+      ],
+      "systemPrompt": "这是一个为注重隐私的分析工具设计的干净、专业的SaaS着陆页。设计采用白色背景，以单一的亮紫色（#5850EC）作为主要操作的强调色。字体是简洁的人文无衬线字体，优先保证可读性。布局居中且宽敞，使用大型首屏介绍产品，并用详细的应用截图来建立信任。语气直接且以利益为导向。关键禁忌：避免深色模式，避免多种强调色，避免复杂的渐变，避免拥挤的布局，避免装饰性字体，避免激进的销售语言。"
+    },
+    "zh-TW": {
+      "identity": {
+        "keywords": [
+          "隱私",
+          "分析",
+          "簡潔",
+          "歐洲"
+        ],
+        "analogy": "相較於複雜的數據工具，這是一個乾淨、透明的替代方案。",
+        "oneLiner": "一個注重隱私、輕量化的 Google Analytics 替代方案。"
+      },
+      "colors": {
+        "principle": "白色背景搭配高對比的深色文字，並使用單一鮮豔的紫色作為主要操作與強調用途。"
+      },
+      "typography": {
+        "rules": [],
+        "scaleUses": [
+          "主標題",
+          "章節標題",
+          "內文"
+        ]
+      },
+      "spacing": {
+        "rhythm": "章節之間採用寬裕的垂直間距，組件內部則保持緊湊的群組關係。"
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 4px 20px rgba(0, 0, 0, 0.05)"
+        ],
+        "borders": "1px solid #E5E7EB"
+      },
+      "layout": {
+        "skeleton": "置中的單欄著陸頁，頂部為全寬首圖區域，下方則是詳細的應用程式預覽。"
+      },
+      "components": {
+        "button": "實心紫色主按鈕，白色文字，圓角。次要按鈕為白色背景、灰色邊框。",
+        "card": "儀表板預覽採用白色卡片，搭配細微陰影與灰色邊框作為資料區塊。",
+        "chip": "截圖中未見。",
+        "input": "截圖中未見。",
+        "hero": "大型粗體標題置中，附有副標題、兩個並列的 CTA 按鈕，以及下方詳細的應用程式截圖。"
+      },
+      "interaction": {
+        "hover": "按鈕背景顏色的細微變化。",
+        "click": "立即的視覺回饋。",
+        "transition": "互動元素的平滑顏色過渡效果。",
+        "keyboard": "標準可聚焦元素，帶有清晰的焦點狀態。"
+      },
+      "voice": {
+        "tone": "直接、自信且令人安心。",
+        "headlineStyle": "簡短、有力、以效益為導向。",
+        "ctaStyle": "清晰且具行動號召性（例如「免費開始試用」、「查看即時示範」）。",
+        "avoid": [
+          "技術術語",
+          "模糊的行銷用語",
+          "強勢的銷售語言"
+        ]
+      },
+      "donts": [
+        "勿使用複雜漸層——截圖顯示為扁平、純色的背景。",
+        "勿使用多種強調色——截圖僅使用單一主導的紫色（#5850EC）。",
+        "勿使用裝飾性手寫體或襯線展示字體——截圖使用乾淨的人文無襯線體。",
+        "勿使版面過於擁擠——截圖顯示寬裕的留白與置中的內容。",
+        "勿使用深色模式或厚重陰影——截圖顯示為明亮、輕盈的介面，搭配細微陰影。",
+        "勿使用複雜的圖標——截圖使用極簡、簡單的 UI 圖示。"
+      ],
+      "systemPrompt": "這是一個乾淨、專業的 SaaS 著陸頁，用於一款注重隱私的分析工具。設計依賴白色背景，並以單一鮮豔的紫色（#5850EC）作為主要操作的強調色。字型採用乾淨的人文無襯線體，優先考量可讀性。版面置中且寬敞，運用大型首圖區介紹產品，並以詳細的應用程式截圖建立信任。語氣直接且以效益為導向。關鍵禁止事項：避免深色模式、避免多種強調色、避免複雜漸層、避免擁擠的版面、避免裝飾性字體、避免強勢的銷售語言。"
+    },
+    "ja": {
+      "identity": {
+        "keywords": [
+          "プライバシー",
+          "分析",
+          "シンプルさ",
+          "ヨーロッパ"
+        ],
+        "analogy": "複雑なデータツールに対する、清潔で透明性のある代替策。",
+        "oneLiner": "プライバシーに配軽した軽量なGoogle Analytics代替ツール。"
+      },
+      "colors": {
+        "principle": "白背景に高コントラストのダークテキスト。プライマリアクションとハイライトには単一の鮮やかなパープルを採用。"
+      },
+      "typography": {
+        "rules": [],
+        "scaleUses": [
+          "メイン見出し",
+          "セクション見出し",
+          "本文テキスト"
+        ]
+      },
+      "spacing": {
+        "rhythm": "セクション間は豊かな垂直方向のスペーシング、コンポーネント内は密接に配置。"
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 4px 20px rgba(0, 0, 0, 0.05)"
+        ],
+        "borders": "1px solid #E5E7EB"
+      },
+      "layout": {
+        "skeleton": "中央揃えの单一カラムランディングページ。フルワイドのヒーローセクションに続き、詳細なアプリケーションプレビューを配置。"
+      },
+      "components": {
+        "button": "ソリッドパープルのプライマリボタン、白文字、角丸。セカンダリボタンは白背景にグレーボーダー。",
+        "card": "ダッシュボードプレビューには、微細なシャドウとグレーボーダーを備えた白いカードを使用。データセクションを表現。",
+        "chip": "スクリーンショットには確認できない。",
+        "input": "スクリーンショットには確認できない。",
+        "hero": "中央揃えの大きく太字の見出し、サブテキスト、2つの並列CTAボタン、その下に詳細なアプリケーションスクリーンショットを配置。"
+      },
+      "interaction": {
+        "hover": "ボタンの背景色に微細な変化を加える。",
+        "click": "即座に視覚的なフィードバックを提供。",
+        "transition": "インタラクティブ要素にスムーズなカラー遷移を適用。",
+        "keyboard": "標準的なフォーカス可能な要素に、明確なフォーカス状態を表示。"
+      },
+      "voice": {
+        "tone": "直接的、自信があり、安心感を与える。",
+        "headlineStyle": "短く、力強く、ベネフィットを強調。",
+        "ctaStyle": "明確でアクション重視（「無料トライアルを開始」「ライブデモを見る」など）。",
+        "avoid": [
+          "技術用語",
+          "曖昧なマーケティング表現",
+          "攻撃的なセールス言葉"
+        ]
+      },
+      "donts": [
+        "複雑なグラデーションを使用しない — スクリーンショットではフラットでソリッドな背景色を使用。",
+        "複数のアクセントカラーを使用しない — スクリーンショットでは単一の支配的なパープル（#5850EC）のみを使用。",
+        "装飾的なスクリプトやセリフ表示フォントを使用しない — スクリーンショットではクリーンなヒューマンサンスを使用。",
+        "レイアウトを詰め込みすぎない — スクリーンショットでは豊かな余白と中央揃えのコンテンツを確認。",
+        "ダークモードや重いシャドウを使用しない — スクリーンショットでは軽くエアリーなインターフェース、微細なシャドウを確認。",
+        "複雑なアイコノグラフィを使用しない — スクリーンショットではミニマルでシンプルなUIアイコンを使用。"
+      ],
+      "systemPrompt": "これはプライバシー重視の分析ツールのための、清潔でプロフェッショナルなSaaSランディングページ。デザインは白背景に単一の鮮やかなパープル（#5850EC）をアクセントカラーとしてプライマリアクションに使用。タイポグラフィはクリーンなヒューマンサンスで、可読性を優先。レイアウトは中央揃えで空間を活かし、大きなヒーローセクションで製品を紹介し、詳細なアプリスクリーンショットで信頼を構築。トーンは直接的でベネフィット重視。重要な禁止事項：ダークモード、複数のアクセントカラー、複雑なグラデーション、雑然としたレイアウト、装飾的フォント、攻撃的なセールス言葉を使用しないこと。"
+    },
+    "ko": {
+      "identity": {
+        "keywords": [
+          "프라이버시",
+          "분석",
+          "심플함",
+          "유럽풍"
+        ],
+        "analogy": "복잡한 데이터 도구에 대한 깨끗하고 투명한 대안입니다.",
+        "oneLiner": "프라이버시를 존중하는 경량 Google Analytics 대안입니다."
+      },
+      "colors": {
+        "principle": "흰색 배경 위의 고대비 어두운 텍스트와, 주요 액션 및 하이라이트를 위한 단일의 생동감 있는 보라색입니다."
+      },
+      "typography": {
+        "rules": [],
+        "scaleUses": [
+          "메인 헤드라인",
+          "섹션 헤드라인",
+          "본문 텍스트"
+        ]
+      },
+      "spacing": {
+        "rhythm": "섹션 간에는 넉넉한 수직 간격을, 컴포넌트 내부에는 좁은 간격을 적용합니다."
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 4px 20px rgba(0, 0, 0, 0.05)"
+        ],
+        "borders": "1px solid #E5E7EB"
+      },
+      "layout": {
+        "skeleton": "전폭의 히어로 섹션과 그 뒤에 상세한 앱 미리보기가 오는, 정중앙 단일 컬럼 랜딩 페이지입니다."
+      },
+      "components": {
+        "button": "보라색 배경에 흰색 텍스트의 둥근 모서리 메인 버튼과, 흰색 배경에 회색 테두리의 세컨더리 버튼입니다.",
+        "card": "대시보드 미리보기에는 은은한 그림자와 회색 테두리를 사용한 흰색 카드로 데이터 영역을 표시합니다.",
+        "chip": "스크린샷에 보이는 것이 없습니다.",
+        "input": "스크린샷에 보이는 것이 없습니다.",
+        "hero": "정중앙에 굵고 큰 헤드라인, 부제, 나란히 배치된 두 개의 CTA 버튼, 그리고 그 아래에 상세한 앱 스크린샷이 있습니다."
+      },
+      "interaction": {
+        "hover": "버튼의 배경색이 미묘하게 변합니다.",
+        "click": "즉각적인 시각적 피드백을 제공합니다.",
+        "transition": "인터랙티브 요소들에서 부드러운 색상 전환이 적용됩니다.",
+        "keyboard": "표준적으로 포커스 가능한 요소와 명확한 포커스 상태를 지원합니다."
+      },
+      "voice": {
+        "tone": "직설적이고, 자신감 넘치며, 신뢰감을 줍니다.",
+        "headlineStyle": "짧고 강렬하며, 혜택 중심적입니다.",
+        "ctaStyle": "명확하고 행동을 유도하는 방식('무료 체험 시작', '라이브 데모 보기' 등)입니다.",
+        "avoid": [
+          "기술 용어",
+          "애매한 마케팅 문구",
+          "공격적인 영업 언어"
+        ]
+      },
+      "donts": [
+        "복잡한 그라디언트를 사용하지 마세요 — 스크린샷은 평면적이고 단색 배경을 보여줍니다.",
+        "여러 포인트 색상을 사용하지 마세요 — 스크린샷은 단일 주요 보라색(#5850EC)만 사용합니다.",
+        "장식용 폰트나 세리프 디스플레이 폰트를 사용하지 마세요 — 스크린샷은 깔끔한 휴머니스트 산세리프를 사용합니다.",
+        "레이아웃을 복잡하게 만들지 마세요 — 스크린샷은 넉넉한 여백과 정렬된 콘텐츠를 보여줍니다.",
+        "다크 모드나 과도한 그림자를 사용하지 마세요 — 스크린샷은 은은한 그림자가 있는 밝고 가벼운 인터페이스를 보여줍니다.",
+        "복잡한 아이콘ography를 사용하지 마세요 — 스크린샷은 미니멀하고 단순한 UI 아이콘을 사용합니다."
+      ],
+      "systemPrompt": "이것은 프라이버시 중심 분석 도구를 위한 깨끗하고 전문적인 SaaS 랜딩 페이지입니다. 디자인은 흰색 배경과 주요 액션을 위한 단일의 생동감 있는 보라색(#5850EC) 포인트 색상에 의존합니다. 타이포그래피는 가독성을 우선시하는 깔끔한 휴머니스트 산세리프입니다. 레이아웃은 중앙 정렬되어 넓으며, 제품을 소개하기 위해 큰 히어로 섹션을 사용하고 신뢰를 구축하기 위해 상세한 앱 스크린샷을 사용합니다. 어조는 직설적이고 혜택 중심적입니다. 가장 중요한 주의사항: 다크 모드 사용 금지, 여러 포인트 색상 사용 금지, 복잡한 그라디언트 사용 금지, 지저분한 레이아웃 사용 금지, 장식용 폰트 사용 금지, 공격적인 영업 언어 사용 금지."
+    }
+  },
+  "desc": {
+    "en": {
+      "palette": "A minimalist palette of white, light grays, and dark charcoal text, anchored by a single vibrant purple accent.",
+      "layout": "A centered, single-column landing page structure with generous whitespace and a full-width hero.",
+      "interaction": "Standard, predictable hover and click states on buttons and links, emphasizing clarity over flashiness.",
+      "motion": "Minimalist motion design, likely focused on subtle fades or slides for page transitions.",
+      "notes": "A perfect example of a clean, trustworthy SaaS landing page that uses restraint to build confidence."
+    },
+    "zh-CN": {
+      "palette": "极简主义配色：白色、浅灰色背景，搭配深炭灰色文字，以单一亮紫色作为点缀色。",
+      "layout": "居中的单栏着陆页结构，拥有充足的留白和全屏首屏。",
+      "interaction": "按钮和链接采用标准、可预测的hover和点击状态，强调清晰而非炫技。",
+      "motion": "极简动效设计，可能专注于页面转场时的细微淡入淡出或滑动效果。",
+      "notes": "这是一个干净、值得信赖的SaaS着陆页的完美范例，通过克制的设计来建立用户信心。"
+    },
+    "zh-TW": {
+      "palette": "極簡調色盤，由白色、淺灰色與深炭灰色文字組成，並以單一鮮豔的紫色作為強調色。",
+      "layout": "置中的單欄著陸頁結構，搭配寬裕的留白與全寬首圖。",
+      "interaction": "按鈕與連結採用標準、可預測的 hover 和 click 狀態，強調清晰度而非炫技。",
+      "motion": "極簡的動態設計，著重於頁面轉換時的細微淡入淡出或滑動效果。",
+      "notes": "一個完美的範例，展現了如何透過克制來建立信任感，打造乾淨、值得信賴的 SaaS 著陸頁。"
+    },
+    "ja": {
+      "palette": "白、明るいグレー、ダークチャコールのテキストからなるミニマルなパレット、1つの鮮やかなアクセントカラー（パープル）を基調とする。",
+      "layout": "中央揃えの单一カラム構成。豊かな余白とフルワイドのヒーローセクションを備えたランディングページ。",
+      "interaction": "ボタンやリンクには標準的で予測可能なhoverおよびclick状態を採用。派手さよりも明瞭さを重視。",
+      "motion": "ミニマルなモーションデザイン。ページ遷移には微細なフェードやスライドを採用する可能性が高い。",
+      "notes": "清潔感と信頼性を重視したSaaSランディングページの完璧な例。抑制されたデザインで信頼を構築している。"
+    },
+    "ko": {
+      "palette": "흰색, 밝은 회색, 그리고 어두운 차콜 텍스트로 구성된 미니멀리스트 팔레트에, 단일의 생동감 있는 보라색 포인트가 중심을 잡아줍니다.",
+      "layout": "풍부한 여백과 전폭의 히어로 섹션을 갖춘, 정중앙 단일 컬럼 랜딩 페이지 구조입니다.",
+      "interaction": "버튼과 링크의 표준적이고 예측 가능한 hover 및 클릭 상태를 적용하며, 화려함보다는 명확함을 강조합니다.",
+      "motion": "페이지 전환 시 은은한 페이드 인/아웃이나 슬라이드에 집중하는 미니멀리스트 모션 디자인입니다.",
+      "notes": "절제된 디자인을 통해 신뢰감을 구축하는 깨끗하고 믿음직한 SaaS 랜딩 페이지의 완벽한 예시입니다."
+    }
+  },
+  "_meta": {
+    "vision_model": "mimo-v2.5",
+    "vision_prompt_version": "0.3",
+    "vision_at": "2026-07-15T05:05:19+00:00",
+    "vision_tokens": 3337,
+    "vision_cost_usd": 0.0371,
+    "translation_model": "mimo-v2.5",
+    "translation_at": "2026-07-15T05:06:07+00:00",
+    "translation_tokens": 15625,
+    "translation_cost_usd": 0.0521,
+    "narrative_model": "mimo-v2.5",
+    "narrative_prompt_version": "0.3",
+    "narrative_at": "2026-07-15T05:06:14+00:00",
+    "narrative_tokens": 1956,
+    "narrative_cost_usd": 0.013,
+    "narrative_status": "ok",
+    "total_cost_usd": 0.1022
+  },
+  "narrative": {
+    "en": {
+      "ch1_intro": "Plausible's design system is built on the principle of radical transparency, much like the software itself. The visual language is a direct reflection of its core mission: to provide **privacy-focused analytics** without the complexity or opacity of traditional tools. Every decision, from the single accent color to the open spacing, serves to make the data clear and the user's path straightforward.",
+      "ch2_intro": "The color system is defined by a deliberate, high-contrast simplicity. A field of white and light gray is anchored by dark charcoal text, with a single vibrant purple used exclusively to signal primary actions and key highlights.",
+      "ch2_outro": "The system's discipline is its strength: one accent color carries all interactive and emphatic weight, preventing visual noise.",
+      "ch3_intro": "Typography employs a clean humanist sans-serif, chosen for its legibility and approachable character. The type scale is minimal and functional, establishing a clear hierarchy for headlines and primary text without decorative flourish.",
+      "ch4_intro": "The spacing rhythm operates on a macro and micro scale: generous vertical separation between major content blocks, with tight, logical grouping within individual components to create clear visual relationships.",
+      "ch5_intro": "Surfaces are treated with understated depth, using soft, diffuse shadows and a consistent, light border weight to gently delineate sections. The approach avoids heavy, skeuomorphic elements in favor of a clean, airy interface.",
+      "ch6_intro": "The layout skeleton is a centered, single-column structure that guides the user through a linear narrative. A full-width hero section establishes the proposition, followed by a detailed application preview that grounds the promise in a tangible interface.",
+      "ch7_intro": "Motion is minimal and purposeful, focused on subtle, smooth transitions that confirm interaction rather than distract from it. Durations are calibrated for clarity, from instantaneous micro-feedback to gentle, medium-paced fades for larger contextual shifts.",
+      "ch8_intro": "The editorial voice is direct, confident, and reassuring, mirroring the system's visual clarity. Headlines are short and benefit-driven, while calls to action are clear and action-oriented, deliberately avoiding technical jargon and aggressive sales language.",
+      "ch8_outro": "The system's defining characteristic is what it consciously omits: complex gradients, multiple accents, dark mode, and decorative typography are all ruled out to preserve its trustworthy, transparent character."
+    },
+    "zh-CN": {
+      "ch1_intro": "Plausible的设计系统建立在彻底透明的原则之上，与其软件本身如出一辙。这种视觉语言直接反映了其核心使命：在不增加传统工具的复杂性和不透明度的前提下，提供**以隐私为重的数据分析**。从单一的强调色到开放的间距，每一个决策都服务于让数据更清晰、让用户路径更直接。",
+      "ch2_intro": "色彩系统以一种刻意为之的高对比度简洁性来定义。白色和浅灰色的主基调由深炭灰色文字锚定，仅使用一种鲜艳的紫色来专门标识主要操作和关键信息。",
+      "ch2_outro": "这套系统的纪律性正是其优势所在：单一的强调色承载了所有的交互和强调功能，从而避免了视觉噪音。",
+      "ch3_intro": "字体采用了清晰的人文主义无衬线字体，因其易读性和亲和特质而被选用。字体比例极简而实用，在不依赖装饰性修饰的情况下，为标题和正文建立了清晰的层级关系。",
+      "ch4_intro": "间距韵律在宏观和微观尺度上运作：主要的内容区块之间采用充裕的垂直分隔，而单个组件内部则采用紧凑、合乎逻辑的分组，以创造清晰的视觉关联。",
+      "ch5_intro": "界面表面通过柔和、扩散的阴影以及一致、轻薄的边框来营造含蓄的纵深感，温和地勾勒出区域划分。这种方法避免了厚重、拟物化的元素，转而追求一种干净、通透的界面感。",
+      "ch6_intro": "布局骨架采用居中的单栏结构，引导用户沿着线性的叙事路径浏览。一个全宽的首屏区域确立了价值主张，随后是详细的应用预览，将承诺落实到有形的界面中。",
+      "ch7_intro": "动效克制而富有目的性，专注于确认交互而非分散注意力的微妙、流畅的过渡。时长经过精确校准以确保清晰性，从即时的微反馈，到用于较大场景切换的、轻柔中速的淡入淡出效果。",
+      "ch8_intro": "编辑口吻直接、自信且令人安心，映射出系统的视觉清晰度。标题简短且聚焦于利益点，行动号召则清晰、以行动为导向，刻意避免使用技术术语和咄咄逼人的销售语言。",
+      "ch8_outro": "这套系统最具定义性的特征在于其有意为之的克制：复杂的渐变、多种强调色、暗黑模式以及装饰性字体均被排除在外，以维护其值得信赖、透明的特质。"
+    },
+    "zh-TW": {
+      "ch1_intro": "Plausible 的設計系統建立在根本透明的原則上，與軟體本身的精神如出一轍。視覺語言直接反映了其核心使命：提供**注重隱私的分析**，而不具備傳統工具的複雜性或不透明感。每一個決策，從單一強調色到開放的間距，都旨在讓數據清晰易懂，使用者路徑直截了當。",
+      "ch2_intro": "色彩系統以刻意、高對比的簡潔性定義。以白色與淺灰色構成的基調，由深炭灰色文字加以穩定，單一鮮明的紫色僅用於標示主要行動與關鍵亮點。",
+      "ch2_outro": "此系統的紀律即是其力量：單一強調色承載了所有互動與強調的份量，避免了視覺上的雜訊。",
+      "ch3_intro": "字型採用簡潔的人文主義無襯線字體，因其易讀性與親切特質而入選。字型比例極簡且實用，為標題與主要文字建立了清晰的層級，無任何裝飾性綴飾。",
+      "ch4_intro": "間距節奏在宏觀與微觀尺度上運作：主要內容區塊之間有寬裕的垂直分隔，而單一元件內部則採用緊密、合乎邏輯的群組，以建立清晰的視覺關係。",
+      "ch5_intro": "介面表面以低調的深度處理，使用柔和、漫射的陰影以及一致、輕薄的邊框粗細，溫和地劃分區塊。此方法避免了厚重、擬物化的元素， favoring a clean, airy interface。",
+      "ch6_intro": "版面架構採用置中、單欄結構，引導使用者經歷一個線性的敘事流程。全寬的首屏區塊確立了價值主張，緊接著是詳細的應用程式預覽，將承諾落實於具體的介面中。",
+      "ch7_intro": "動態效果極簡且具目的性，專注於細膩、流暢的過渡，旨在確認互動而非使人分心。時長經過校準以確保清晰度，從即時的微小反饋，到用於較大情境轉換的、平穩中等速度的淡入淡出。",
+      "ch8_intro": "編輯語氣直接、自信且令人安心，反映了系統的視覺清晰度。標題簡短並著重效益，而行動呼籲則清晰且以行動為導向，刻意避開技術術語與侵略性的銷售用語。",
+      "ch8_outro": "此系統的定義特徵在於其有意的省略：複雜的漸層、多重強調色、深色模式以及裝飾性字型都被排除在外，以維持其值得信賴、透明的特質。"
+    },
+    "ja": {
+      "ch1_intro": "Plausibleのデザインシステムは、ソフトウェア自体と同様に、極めて透明性が高いという原則の上に構築されています。ビジュアルランゲージは、その核心使命を直接反映するものです。それは、従来のツールが持つ複雑さや不透明さなしに、**プライバシー重視の分析**を提供することです。単一のアクセントカラーから、オープンなスペーシングに至るまで、すべての意思決定は、データを明確にし、ユーザーの導線をシンプルなものにするために役立っています。",
+      "ch2_intro": "カラーシステムは、意図的で高コントラストなシンプルさによって定義されています。白と明るいグレーのフィールドを、ダークチャーコールのテキストが支え、鮮やかなパープルがプライマリアクションや重要なハイライトの表示にのみ使われます。",
+      "ch2_outro": "このシステムの規律がその強みです。単一のアクセントカラーがすべてのインタラクティブおよび強調の役割を担うことで、視覚的なノイズを防ぎます。",
+      "ch3_intro": "タイポグラフィには、可読性と親しみやすい性格を考慮して選ばれた、クリーンなヒューマニストサンセリフが採用されています。タイポスケールは最小限かつ機能的で、ヘッドラインと本文に対して明確な階層を確立しつつ、装飾的な装いは排除されています。",
+      "ch4_intro": "スペーシングのリズムは、マクロとミクロのスケールで操作されます。主要コンテンツブロック間の十分な垂直方向の余白と、個々のコンポーネント内での緊密で論理的なグループ化により、明確な視覚的関係性を生み出しています。",
+      "ch5_intro": "サーフェスには控えめなディープスが与えられ、柔らかく拡散したシャドウと、一貫した軽量なボーダーを使用して、セクションをやわらかく区切ります。このアプローチは、重厚なスキューーモーフィックな要素を避け、クリーンで開放的なインターフェースを優先しています。",
+      "ch6_intro": "レイアウトのスケルトンは、ユーザーをリニアなナラティブへと導く、センタリングされたシングルカラム構造です。フルワイドのヒーローセクションが価値提案を確立し、続いて詳細なアプリケーションプレビューが、その約束を実体あるインターフェースに基づかせます。",
+      "ch7_intro": "モーションは最小限で目的に即したもので、インタラクションを確認するための、気を散らさない滑らかなトランジションに焦点を当てています。即座のマイクロフィードバックから、大きなコンテキストの変化に対する穏やかな中程度のフェードまで、持続時間は明確さのために調整されています。",
+      "ch8_intro": "エディトリアルボイスは、システムの視覚的な明確さを反映し、直接的で自信に満ち、安心感を提供するものです。見出しは短く、メリット主導であり、コール・トゥ・アクションは明確で行動を促すもので、技術用語や攻撃的な販売表現は意図的に避けています。",
+      "ch8_outro": "このシステムを決定づける特徴は、意識的に省略されたものです。複雑なグラデーション、複数のアクセントカラー、ダークモード、装飾的なタイポグラフィはすべて、その信頼できる透明性の高い特性を保つために排除されています。"
+    },
+    "ko": {
+      "ch1_intro": "Plausible의 디자인 시스템은 소프트웨어 자체와 마찬가지로 극단적인 투명성의 원칙 위에 구축되었습니다. 시각적 언어는 핵심 사명을 직접적으로 반영합니다. 전통적인 도구의 복잡성이나 불투명함 없이 **프라이버시 중심 분석**을 제공하는 것. 단일 액센트 색상에서 개방적인 간격에 이르기까지, 모든 결정은 데이터를 명확하게 하고 사용자의 경로를 단순하게 만드는 데 기여합니다.",
+      "ch2_intro": "색상 시스템은 의도적이고 높은 대비의 단순함으로 정의됩니다. 흰색과 밝은 회색의 배경 위에 짙은 차콜 텍스트가 중심을 잡으며, 단 하나의 생동감 있는 보라색이 주요 행동과 핵심 하이라이트를 신호로 사용하는 데만 전적으로 사용됩니다.",
+      "ch2_outro": "시스템의 절제는 힘이 됩니다. 단 하나의 액센트 색상이 모든 상호작용과 강조의 무게를 감당하며 시각적 소음을 방지합니다.",
+      "ch3_intro": "타이포그래피는 깔끔한 휴머니스트 산세리프를 채택하며, 가독성과 접근 가능한 특성을 위해 선택되었습니다. 타입 스케일은 최소적이고 기능적이며, 장식적인 기교 없이 헤드라인과 본문 텍스트에 대한 명확한 계층을 확립합니다.",
+      "ch4_intro": "간격 리듬은 거시적, 미시적 규모로 운영됩니다. 주요 콘텐츠 블록 사이에는 넉넉한 수직 분리가 있고, 개별 컴포넌트 내부에는 타이트하고 논리적인 그룹화를 통해 명확한 시각적 관계를 만듭니다.",
+      "ch5_intro": "표면은 절제된 깊이감을 사용하여 처리되며, 부드럽고 확산된 그림자와 일관된 가벼운 테두리 무게를 사용하여 섹션을 부드럽게 구분합니다. 이 접근 방식은 무거운 스케우모픽 요소를 피하고 깔끔하고 개방적인 인터페이스를 선호합니다.",
+      "ch6_intro": "레이아웃 골격은 사용자를 선형 내러티브를 통해 안내하는 중앙 정렬 단일 열 구조입니다. 전폭의 히어로 섹션이 제안을 확립하고, 그 뒤를 따르는 상세한 애플리케이션 미리보기가 구체적인 인터페이스에서 그 약속을 현실화합니다.",
+      "ch7_intro": "모션은 최소적이면서 목적을 가지며, 상호작용을 방해하지 않고 확인하는 미묘하고 부드러운 전환에 집중합니다. 지속 시간은 명확성을 위해 조정됩니다. 즉각적인 미세 피드백에서부터 더 큰 맥락 전환을 위한 부드럽고 중간 속도의 페이드까지.",
+      "ch8_intro": "에디토리얼 목소리는 시각적 명확성을 반영하며 직접적이고 자신감 있으며 안심을 줍니다. 헤드라인은 짧고 이점 중심적이며, 행동 유도 문구는 명확하고 행동 지향적입니다. 기술 용어와 공격적인 판매 언어를 의도적으로 피합니다.",
+      "k8_outro": "시스템의 정의 특징은 의식적으로 생략한 것입니다. 복잡한 그라디언트, 여러 액센트, 다크 모드, 장식적 타이포그래피 모두 신뢰할 수 있고 투명한 특성을 보존하기 위해 제외됩니다."
+    }
+  }
 }

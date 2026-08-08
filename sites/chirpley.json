@@ -1,0 +1,596 @@
+{
+  "id": "chirpley",
+  "schema_version": "0.3",
+  "url": "https://chirpley.ai",
+  "title": "Chirpley",
+  "image": "https://image.thum.io/get/width/1440/noanimate/https://chirpley.ai",
+  "tags": [
+    "Developer Tools",
+    "Clean",
+    "Tooling"
+  ],
+  "status": "completed",
+  "added_at": "2026-06-22",
+  "added_by": "discover",
+  "_meta": {
+    "vision_model": "mimo-v2.5",
+    "vision_prompt_version": "0.3",
+    "vision_source": "playwright-extract:chirpley",
+    "vision_grounded": true,
+    "vision_at": "2026-06-22T05:15:23+00:00",
+    "vision_tokens": 15712,
+    "vision_cost_usd": 0.1746,
+    "translation_model": "mimo-v2.5",
+    "translation_at": "2026-06-22T05:16:28+00:00",
+    "translation_tokens": 13868,
+    "translation_cost_usd": 0.0462,
+    "narrative_model": "mimo-v2.5",
+    "narrative_prompt_version": "0.3",
+    "narrative_at": "2026-06-22T05:16:39+00:00",
+    "narrative_tokens": 1758,
+    "narrative_cost_usd": 0.0117,
+    "narrative_status": "ok",
+    "total_cost_usd": 0.2325
+  },
+  "spec": {
+    "colors": {
+      "bg": "#FFFFFF",
+      "bgSoft": "#D9D9D9",
+      "bgQuiet": "#EBEBEB",
+      "ink": "#404040",
+      "inkSoft": "#313131",
+      "muted": "#999999",
+      "mutedSoft": null,
+      "accent": null,
+      "line": "rgba(64,64,64,1)"
+    },
+    "typography": {
+      "display": "system-sans",
+      "body": "system-sans",
+      "mono": "system-sans",
+      "scale": [
+        {
+          "token": "display",
+          "size": 60,
+          "lh": 1.0,
+          "weight": 400,
+          "ls": "0"
+        },
+        {
+          "token": "heading",
+          "size": 30,
+          "lh": 1.3,
+          "weight": 400,
+          "ls": "0"
+        },
+        {
+          "token": "body",
+          "size": 16,
+          "lh": 1.5,
+          "weight": 400,
+          "ls": "0"
+        }
+      ]
+    },
+    "spacing": {
+      "base": 4,
+      "scale": [
+        4,
+        8,
+        16,
+        24,
+        32,
+        48,
+        64,
+        96
+      ]
+    },
+    "surfaces": {
+      "radius": {
+        "sm": 0,
+        "md": 0,
+        "lg": 20,
+        "pill": 999
+      }
+    },
+    "layout": {
+      "container": 1280,
+      "paragraph": 680,
+      "columns": 12,
+      "gutter": 24,
+      "breakpoints": [
+        768,
+        1024
+      ]
+    },
+    "motion": {
+      "durations": {
+        "micro": 150,
+        "small": 400,
+        "medium": 800
+      },
+      "easing": "cubic-bezier(0, 0, 0.2, 1)"
+    }
+  },
+  "spec_i18n": {
+    "en": {
+      "identity": {
+        "keywords": [
+          "error",
+          "technical",
+          "informative",
+          "diagnostic"
+        ],
+        "analogy": "A technical support desk status page.",
+        "oneLiner": "A standard Cloudflare connection timeout error page providing diagnostic information."
+      },
+      "colors": {
+        "principle": "Utilitarian palette with functional colors for status."
+      },
+      "typography": {
+        "rules": [
+          "Use system font stack for broad compatibility.",
+          "Use standard font weights (400, 600) for clear hierarchy.",
+          "Maintain consistent line-height for readability."
+        ],
+        "scaleUses": [
+          "Error title",
+          "Section headings",
+          "Standard text"
+        ]
+      },
+      "spacing": {
+        "rhythm": "Standard 4px grid based on base 16px size."
+      },
+      "surfaces": {
+        "shadows": [
+          "none"
+        ],
+        "borders": "1px solid #404040"
+      },
+      "layout": {
+        "skeleton": "Simple single-column layout for error state."
+      },
+      "components": {
+        "button": "Not present.",
+        "card": "Status icon row with labels and status indicators.",
+        "chip": "Error code badge.",
+        "input": "Not present.",
+        "hero": "Large error title with timestamp."
+      },
+      "motion": {
+        "patterns": [
+          "Standard hover transition on interactive elements."
+        ]
+      },
+      "interaction": {
+        "hover": "Cursor changes to pointer on links.",
+        "click": "Standard browser behavior.",
+        "transition": "0.15s cubic-bezier(0, 0, 0.2, 1) for interactive elements.",
+        "keyboard": "Standard browser accessibility."
+      },
+      "voice": {
+        "tone": "Technical and direct.",
+        "headlineStyle": "Clear error message.",
+        "ctaStyle": "Informational links.",
+        "avoid": [
+          "Marketing language",
+          "Emotional tone",
+          "Unclear error codes"
+        ]
+      },
+      "donts": [
+        "Don't use custom fonts — screenshot shows system font stack.",
+        "Don't use complex gradients — screenshot shows flat colors.",
+        "Don't use decorative shadows — screenshot shows minimal UI.",
+        "Don't use a wide color palette — screenshot shows limited functional colors.",
+        "Don't use rounded corners everywhere — screenshot shows mostly sharp edges.",
+        "Don't use decorative icons — screenshot shows standard functional icons."
+      ],
+      "systemPrompt": "This is a standard Cloudflare error page with a utilitarian design focused on clear communication. The layout is simple, single-column, and responsive. Key colors are neutral (#404040, #999999, #D9D9D9) with functional accents (#2F7BBF for links, #99CA3E for success, #BD2426 for error). Typography relies on the system font stack with standard weights for hierarchy. Critical donts: do not introduce decorative elements, avoid custom typography, and do not use a wide color palette. The design prioritizes readability and diagnostic clarity over brand expression."
+    },
+    "zh-CN": {
+      "identity": {
+        "keywords": [
+          "错误",
+          "技术性",
+          "信息性",
+          "诊断性"
+        ],
+        "analogy": "技术支持台的状态页面。",
+        "oneLiner": "标准 Cloudflare 连接超时错误页面，提供诊断信息。"
+      },
+      "colors": {
+        "principle": "实用主义调色板，采用功能色表示状态。"
+      },
+      "typography": {
+        "rules": [
+          "使用系统字体栈以确保广泛兼容性。",
+          "使用标准字重（400、600）以建立清晰的层次结构。",
+          "保持一致的行高以提升可读性。"
+        ],
+        "scaleUses": [
+          "错误标题",
+          "章节标题",
+          "标准文本"
+        ]
+      },
+      "spacing": {
+        "rhythm": "基于 16px 基准尺寸的标准 4px 网格。"
+      },
+      "surfaces": {
+        "shadows": [
+          "无"
+        ],
+        "borders": "1px solid #404040"
+      },
+      "layout": {
+        "skeleton": "用于错误状态的简约单列布局。"
+      },
+      "components": {
+        "button": "不适用。",
+        "card": "带有标签和状态指示器的状态图标行。",
+        "chip": "错误代码徽章。",
+        "input": "不适用。",
+        "hero": "包含时间戳的大型错误标题。"
+      },
+      "motion": {
+        "patterns": [
+          "交互元素上的标准 hover 过渡效果。"
+        ]
+      },
+      "interaction": {
+        "hover": "链接上光标变为指针。",
+        "click": "标准浏览器行为。",
+        "transition": "交互元素采用 0.15s cubic-bezier(0, 0, 0.2, 1) 过渡。",
+        "keyboard": "标准浏览器可访问性支持。"
+      },
+      "voice": {
+        "tone": "技术性且直接。",
+        "headlineStyle": "清晰的错误信息。",
+        "ctaStyle": "信息性链接。",
+        "avoid": [
+          "营销用语",
+          "情感化语气",
+          "模糊的错误代码"
+        ]
+      },
+      "donts": [
+        "勿使用自定义字体 —— 截图显示使用系统字体栈。",
+        "勿使用复杂渐变 —— 截图显示使用纯色。",
+        "勿使用装饰性阴影 —— 截图显示为极简界面。",
+        "勿使用宽色谱 —— 截图显示为有限的功能性色彩。",
+        "勿到处使用圆角 —— 截图显示多为直角。",
+        "勿使用装饰性图标 —— 截图显示为标准功能图标。"
+      ],
+      "systemPrompt": "这是一个标准 Cloudflare 错误页面，采用实用主义设计，专注于清晰沟通。布局为简单、单列的响应式设计。关键色彩为中性色（#404040, #999999, #D9D9D9），辅以功能强调色（链接用 #2F7BBF，成功状态用 #99CA3E，错误状态用 #BD2426）。字体依赖系统字体栈，并使用标准字重建立层次。关键禁忌：不引入装饰元素，避免自定义字体，不使用宽色谱。设计优先考虑可读性和诊断清晰度，而非品牌表达。"
+    },
+    "zh-TW": {
+      "identity": {
+        "keywords": [
+          "錯誤",
+          "技術性",
+          "資訊性",
+          "診斷"
+        ],
+        "analogy": "技術支援中心的狀態頁面。",
+        "oneLiner": "一個標準的 Cloudflare 連線逾時錯誤頁面，提供診斷資訊。"
+      },
+      "colors": {
+        "principle": "實用主義色盤，使用功能性顏色表示狀態。"
+      },
+      "typography": {
+        "rules": [
+          "使用系統字型堆疊以確保廣泛相容性。",
+          "使用標準字重（400、600）以建立清晰的層次結構。",
+          "維持一致的行高以利閱讀。"
+        ],
+        "scaleUses": [
+          "錯誤標題",
+          "章節標題",
+          "標準文字"
+        ]
+      },
+      "spacing": {
+        "rhythm": "基於 16px 基礎尺寸的標準 4px 格線。"
+      },
+      "surfaces": {
+        "shadows": [
+          "無"
+        ],
+        "borders": "1px solid #404040"
+      },
+      "layout": {
+        "skeleton": "錯誤狀態的簡潔單欄佈局。"
+      },
+      "components": {
+        "button": "未使用。",
+        "card": "包含標籤與狀態指示器的狀態圖示列。",
+        "chip": "錯誤代碼徽章。",
+        "input": "未使用。",
+        "hero": "帶有時間戳的大型錯誤標題。"
+      },
+      "motion": {
+        "patterns": [
+          "互動元素上的標準 hover 轉換。"
+        ]
+      },
+      "interaction": {
+        "hover": "連結上游標變為指標。",
+        "click": "標準瀏覽器行為。",
+        "transition": "互動元素的轉換時間為 0.15s cubic-bezier(0, 0, 0.2, 1)。",
+        "keyboard": "標準瀏覽器無障礙支援。"
+      },
+      "voice": {
+        "tone": "技術性且直接。",
+        "headlineStyle": "清晰的錯誤訊息。",
+        "ctaStyle": "資訊性連結。",
+        "avoid": [
+          "行銷用語",
+          "情緒性語調",
+          "模糊的錯誤代碼"
+        ]
+      },
+      "donts": [
+        "不使用自訂字型——截圖顯示的是系統字型堆疊。",
+        "不使用複雜漸層——截圖顯示的是平面色彩。",
+        "不使用裝飾性陰影——截圖顯示的是最小化 UI。",
+        "不使用寬廣的色盤——截圖顯示的是有限的功能性顏色。",
+        "不隨處使用圓角——截圖顯示的大多是銳利邊緣。",
+        "不使用裝飾性圖示——截圖顯示的是標準功能性圖示。"
+      ],
+      "systemPrompt": "這是一個標準的 Cloudflare 錯誤頁面，採用實用主義設計，專注於清晰的通訊。佈局簡潔，為單欄響應式。關鍵顏色為中性色（#404040、#999999、#D9D9D9），並搭配功能性強調色（#2F7BBF 用於連結，#99CA3E 表示成功，#BD2426 表示錯誤）。字型依賴系統字型堆疊，並使用標準字重建立層次。關鍵禁忌：不要引入裝飾性元素，避免自訂字型，不要使用寬廣的色盤。此設計優先考量閱讀性與診斷清晰度，而非品牌表達。"
+    },
+    "ja": {
+      "identity": {
+        "keywords": [
+          "エラー",
+          "テクニカル",
+          "情報提供",
+          "診断"
+        ],
+        "analogy": "テクニカルサポートデスクのステータスページ。",
+        "oneLiner": "診断情報を提供する、標準的なCloudflareの接続タイムアウトエラーページ。"
+      },
+      "colors": {
+        "principle": "ステータスのための機能的な色を持つ、実用的なパレット。"
+      },
+      "typography": {
+        "rules": [
+          "広範な互換性のためにシステムフォントスタックを使用。",
+          "明確な階層構造のために、標準的なフォントウェイト（400, 600）を使用。",
+          "可読性のために、一貫した行の高さを維持。"
+        ],
+        "scaleUses": [
+          "エラータイトル",
+          "セクション見出し",
+          "標準テキスト"
+        ]
+      },
+      "spacing": {
+        "rhythm": "ベース16pxサイズに基づく、標準の4pxグリッド。"
+      },
+      "surfaces": {
+        "shadows": [
+          "なし"
+        ],
+        "borders": "1px solid #404040"
+      },
+      "layout": {
+        "skeleton": "エラーステートのための、シンプルな単一カラムレイアウト。"
+      },
+      "components": {
+        "button": "存在しない。",
+        "card": "ラベルとステータスインジケーターを持つ、ステータスアイコンの行。",
+        "chip": "エラーコードのバッジ。",
+        "input": "存在しない。",
+        "hero": "タイムスタンプ付きの大きなエラータイトル。"
+      },
+      "motion": {
+        "patterns": [
+          "インタラクティブ要素の標準的なhoverトランジション。"
+        ]
+      },
+      "interaction": {
+        "hover": "リンクでカーソルがポインタに変化。",
+        "click": "標準的なブラウザ動作。",
+        "transition": "インタラクティブ要素への0.15s cubic-bezier(0, 0, 0.2, 1)。",
+        "keyboard": "標準的なブラウザアクセシビリティ。"
+      },
+      "voice": {
+        "tone": "テクニカルで直接的。",
+        "headlineStyle": "明確なエラーメッセージ。",
+        "ctaStyle": "情報提供リンク。",
+        "avoid": [
+          "マーケティング言語",
+          "感情的なトーン",
+          "不明確なエラーコード"
+        ]
+      },
+      "donts": [
+        "カスタムフォントを使用しない — スクリーンショットにはシステムフォントスタックが表示されている。",
+        "複雑なグラデーションを使用しない — スクリーンショットにはフラットカラーが表示されている。",
+        "装飾的な影を使用しない — スクリーンショットにはミニマルなUIが表示されている。",
+        "広範なカラーパレットを使用しない — スクリーンショットには限定的な機能的カラーが表示されている。",
+        "すべての角を丸めない — スクリーンショットには主にシャープなエッジが表示されている。",
+        "装飾的なアイコンを使用しない — スクリーンショットには標準的な機能的アイコンが表示されている。"
+      ],
+      "systemPrompt": "これは標準的なCloudflareエラーページであり、明確なコミュニケーションに焦点を当てた実用的なデザインが特徴です。レイアウトはシンプルな単一カラムで、レスポンシブです。主要カラーは中立的（#404040、#999999、#D9D9D9）で、機能的なアクセントカラー（リンクには#2F7BBF、成功には#99CA3E、エラーには#BD2426）があります。タイポグラフィはシステムフォントスタックに依存し、階層構造のために標準的なウェイトを使用します。重要な注意点：装飾的要素を導入せず、カスタムタイポグラフィを避け、広範なカラーパレットを使用しないこと。デザインはブランド表現よりも可読性と診断の明確さを優先しています。"
+    },
+    "ko": {
+      "identity": {
+        "keywords": [
+          "오류",
+          "기술적",
+          "정보성",
+          "진단"
+        ],
+        "analogy": "기술 지원 데스크 상태 페이지입니다.",
+        "oneLiner": "진단 정보를 제공하는 표준 Cloudflare 연결 시간 초과 오류 페이지입니다."
+      },
+      "colors": {
+        "principle": "상태 표시를 위한 기능적 색상이 포함된 실용적인 팔레트입니다."
+      },
+      "typography": {
+        "rules": [
+          "광범위한 호환성을 위해 시스템 폰트 스택을 사용합니다.",
+          "명확한 계층 구조를 위해 표준 폰트 굵기(400, 600)를 사용합니다.",
+          "가독성을 위해 일관된 행 간격을 유지합니다."
+        ],
+        "scaleUses": [
+          "오류 제목",
+          "섹션 제목",
+          "일반 텍스트"
+        ]
+      },
+      "spacing": {
+        "rhythm": "기본 16px 크기를 기준으로 한 표준 4px 그리드입니다."
+      },
+      "surfaces": {
+        "shadows": [
+          "none"
+        ],
+        "borders": "1px solid #404040"
+      },
+      "layout": {
+        "skeleton": "오류 상태를 위한 간단한 단일 열 레이아웃입니다."
+      },
+      "components": {
+        "button": "존재하지 않습니다.",
+        "card": "레이블과 상태 표시기가 있는 상태 아이콘 행입니다.",
+        "chip": "오류 코드 배지입니다.",
+        "input": "존재하지 않습니다.",
+        "hero": "타임스탬프가 포함된 큰 오류 제목입니다."
+      },
+      "motion": {
+        "patterns": [
+          "인터랙티브 요소에 대한 표준 hover 전환 효과."
+        ]
+      },
+      "interaction": {
+        "hover": "링크에서 커서가 포인터로 변경됩니다.",
+        "click": "표준 브라우저 동작입니다.",
+        "transition": "인터랙티브 요소에 대한 0.15s cubic-bezier(0, 0, 0.2, 1) 전환입니다.",
+        "keyboard": "표준 브라우저 접근성입니다."
+      },
+      "voice": {
+        "tone": "기술적이고 직접적인 어조입니다.",
+        "headlineStyle": "명확한 오류 메시지입니다.",
+        "ctaStyle": "정보성 링크입니다.",
+        "avoid": [
+          "마케팅 언어",
+          "감정적 어조",
+          "불분명한 오류 코드"
+        ]
+      },
+      "donts": [
+        "커스텀 폰트를 사용하지 마세요 — 스크린샷은 시스템 폰트 스택을 보여줍니다.",
+        "복잡한 그라디언트를 사용하지 마세요 — 스크린샷은 단색을 보여줍니다.",
+        "장식적 그림자를 사용하지 마세요 — 스크린샷은 미니멀한 UI를 보여줍니다.",
+        "폭넓은 색상 팔레트를 사용하지 마세요 — 스크린샷은 제한적인 기능적 색상을 보여줍니다.",
+        "모서리를 모두 둥글게 하지 마세요 — 스크린샷은 주로 직선 모서리를 보여줍니다.",
+        "장식적 아이콘을 사용하지 마세요 — 스크린샷은 표준 기능적 아이콘을 보여줍니다."
+      ],
+      "systemPrompt": "이것은 명확한 커뮤니케이션을 위해 실용적인 디자인을 적용한 표준 Cloudflare 오류 페이지입니다. 레이아웃은 간단한 단일 열 반응형입니다. 주요 색상은 중립적인(#404040, #999999, #D9D9D9)이며, 기능적 강조색(#2F7BBF 링크, #99CA3E 성공, #BD2426 오류)이 사용됩니다. 타이포그래피는 계층 구조를 위해 표준 굵기를 적용한 시스템 폰트 스택에 의존합니다. 중요한 주의사항: 장식적 요소를 도입하지 말고, 커스텀 타이포그래피를 피하며, 폭넓은 색상 팔레트를 사용하지 마세요. 이 디자인은 브랜드 표현보다 가독성과 진단 명확성을 우선시합니다."
+    }
+  },
+  "desc": {
+    "en": {
+      "palette": "Neutral and functional palette with primary dark gray, secondary light grays, and specific colors for status indicators.",
+      "layout": "Simple single-column responsive layout optimized for error state communication.",
+      "interaction": "Minimal interactive elements with standard cursor changes and smooth transitions on hover.",
+      "motion": "Subtle, fast transitions for interactive elements to maintain technical feel.",
+      "notes": "Worth including as a prime example of utilitarian error state design that prioritizes clarity and diagnostics over brand expression."
+    },
+    "zh-CN": {
+      "palette": "中性功能调色板，主色为深灰，辅色为浅灰，并为状态指示器配置特定颜色。",
+      "layout": "简约单列响应式布局，专为错误状态信息传达而优化。",
+      "interaction": "极简交互元素，采用标准光标变化与 hover 时平滑过渡。",
+      "motion": "为保持技术感，交互元素采用细微、快速的过渡效果。",
+      "notes": "作为实用主义错误状态设计的典范，此案例值得收录。它优先确保清晰度和诊断性，而非品牌表达。"
+    },
+    "zh-TW": {
+      "palette": "中性且功能性的色盤，主要使用深灰色，輔以淺灰色，並針對狀態指示器使用特定顏色。",
+      "layout": "簡潔的單欄響應式佈局，針對錯誤狀態的通訊進行優化。",
+      "interaction": "極簡的互動元素，搭配標準游標變化及 hover 時的平滑轉換。",
+      "motion": "互動元素使用細微、快速的轉換，以維持技術感。",
+      "notes": "值得收錄為實用主義錯誤狀態設計的典範範例，其設計優先考量清晰度與診斷功能，而非品牌表達。"
+    },
+    "ja": {
+      "palette": "中立で機能的なカラーパレット。プライマリはダークグレー、セカンダリはライトグレーで、ステータスインジケーターには特定の色を使用。",
+      "layout": "エラーステートのコミュニケーションに最適化された、シンプルな単一カラムのレスポンシブレイアウト。",
+      "interaction": "最小限のインタラクティブ要素。標準的なカーソル変化と、hover時のスムーズなトランジション。",
+      "motion": "インタラクティブ要素のための、微細で高速なトランジション。テクニカルな印象を維持。",
+      "notes": "ブランド表現よりも明瞭さと診断性を優先した、実用的なエラーステートデザインの好例として価値あり。"
+    },
+    "ko": {
+      "palette": "기능적이고 중립적인 팔레트로, 주요 색상은 짙은 회색, 보조 색상은 밝은 회색이며, 상태 표시를 위한 특정 색상이 포함되어 있습니다.",
+      "layout": "오류 상태 전달에 최적화된 간단한 단일 열 반응형 레이아웃입니다.",
+      "interaction": "최소한의 인터랙티브 요소로, 표준 커서 변화와 hover 시 부드러운 전환을 적용합니다.",
+      "motion": "기술적인 느낌을 유지하기 위해 인터랙티브 요소에 미세하고 빠른 전환 효과를 사용합니다.",
+      "notes": "브랜드 표현보다 명확성과 진단을 우선시하는 실용적인 오류 상태 디자인의 대표적인 예시로 포함할 가치가 있습니다."
+    }
+  },
+  "narrative": {
+    "en": {
+      "ch1_intro": "This design system operates like a technical support desk status page: its architecture is built for clear communication under stress. Every element serves a diagnostic purpose, stripping away decoration to leave only the information required to understand and resolve an issue.",
+      "ch2_intro": "The palette is utilitarian, anchored in a primary dark gray with secondary light grays providing functional contrast. Specific, unambiguous colors are reserved for status—link blue, success green, and error red—ensuring instant recognition of state.",
+      "ch2_outro": "Color here is purely functional, a direct signal system rather than a brand expression.",
+      "ch3_intro": "Typography defaults to the system font stack, a pragmatic choice prioritizing compatibility and immediate readability over stylistic distinction. A strict hierarchy is established using only standard weights, creating clear visual signposts without complexity.",
+      "ch4_intro": "Spacing follows a strict 4px grid, a rhythmic foundation that brings order and predictability to the layout.",
+      "ch5_intro": "Surfaces are defined by their boundaries, not their depth. The absence of shadows and the use of a consistent 1px solid border create a flat, structured interface where content is contained but not decorated.",
+      "ch6_intro": "The layout is a simple, single-column skeleton, a proven structure for error-state communication. This narrow, focused column eliminates distraction and guides the eye directly to the necessary diagnostic information.",
+      "ch7_intro": "Motion is minimal and purposeful, limited to a single, fast transition on interactive elements. This approach maintains the system's technical feel, providing feedback without interrupting the user's primary task of gathering information.",
+      "ch8_intro": "The voice is technical and direct, delivering clear error messages and informational links without editorial flourish. It avoids marketing language and emotional tone, adhering to a strict principle of diagnostic clarity.",
+      "ch8_outro": "This system deliberately avoids brand expression, custom typography, and decorative elements to prioritize utility above all else."
+    },
+    "zh-CN": {
+      "ch1_intro": "此设计系统如同技术支持状态页：其架构专为高压下的清晰沟通而构建。每个元素都服务于诊断目的，剥离装饰，仅保留理解与解决问题所必需的信息。",
+      "ch2_intro": "色彩方案实用主义，以深灰为主色，浅灰为辅色提供功能性对比。特定、无歧义的色彩专用于状态指示——链接蓝、成功绿与错误红——确保状态能被即时识别。",
+      "ch2_outro": "此处的色彩纯粹是功能性的，它是一套直接的信号系统，而非品牌表达。",
+      "ch3_intro": "排版默认采用系统字体栈，这一务实选择优先考虑兼容性与即时可读性，而非风格化区别。仅使用标准字重建立严格的层级体系，无需复杂设计即可创建清晰的视觉指引。",
+      "ch4_intro": "间距遵循严格的4像素网格，这一节奏性基础为布局带来秩序与可预测性。",
+      "ch5_intro": "表面由其边界而非深度定义。无阴影设计与统一的1像素实线边框共同构建了一个扁平化、结构化的界面，内容被规整容纳而不加修饰。",
+      "ch6_intro": "布局采用简洁的单栏骨架，这是经过验证的错误状态沟通结构。这条窄而专注的栏位消除干扰，引导视线直接聚焦于必要的诊断信息。",
+      "ch7_intro": "动效极简且富有目的性，仅限于交互元素上一个快速的过渡效果。这种处理方式维持了系统的技术感，在提供反馈的同时不打断用户收集信息的主要任务。",
+      "ch8_intro": "文案技术化且直接，传递清晰的错误信息与信息链接，无修饰性辞藻。它避免营销语言与情感化语气，严格遵循诊断清晰性原则。",
+      "ch8_outro": "此系统刻意规避品牌表达、定制字体与装饰元素，以将实用性置于最高优先级。"
+    },
+    "zh-TW": {
+      "ch1_intro": "這套設計系統運作如同技術支援狀態頁面：其架構專為壓力下的清晰溝通而建構。每個元素皆具診斷用途，剝除裝飾僅留下理解與解決問題所需資訊。",
+      "ch2_intro": "色盤具實用性，以深灰為主色調，淺灰輔助色提供功能性對比。特定、明確的色彩保留予狀態指示——連結藍、成功綠與錯誤紅——確保狀態能被即時辨識。",
+      "ch2_outro": "此處色彩純屬功能，為直接的訊號系統而非品牌表達。",
+      "ch3_intro": "字型預設採用系統字型堆疊，此務實選擇優先考量相容性與即時可讀性，而非風格區隔。透過僅使用標準字重建立嚴格階層，不藉由複雜度即創造清晰視覺路標。",
+      "ch4_intro": "間距遵循嚴格的 4px 格線，此節奏基礎為版面帶來秩序與可預測性。",
+      "ch5_intro": "表面由其邊界而非深度定義。陰影的缺位與一致的 1px 實線邊框運用，創造出平面、結構化的介面，內容被容納而非裝飾。",
+      "ch6_intro": "版面為簡潔的單欄骨架，是經實證的錯誤狀態溝通結構。此狹窄、聚焦的欄位消除干擾，直接引導視線至必要的診斷資訊。",
+      "ch7_intro": "動態效果極簡且具目的性，僅限於互動元素上單一快速的過渡。此方法維持系統的技術感，提供回饋而不中斷使用者收集資訊的主要任務。",
+      "ch8_intro": "語調技術且直接，傳遞清晰的錯誤訊息與資訊連結，無編輯修飾。它避免行銷語言與情感語調，嚴守診斷清晰度原則。",
+      "ch8_outro": "此系統刻意避免品牌表達、自訂字型與裝飾元素，以將實用性置於一切之上。"
+    },
+    "ja": {
+      "ch1_intro": "このデザインシステムは、技術サポートデスクのステータスページのように機能します。そのアーキテクチャは、ストレス下でも明確なコミュニケーションを実現するために構築されています。すべての要素は診断目的を果たし、装飾を削ぎ落とし、問題を理解し解決するために必要な情報のみを残します。",
+      "ch2_intro": "パレットは実用的で、プライマリのダークグレーを基調とし、セカンダリのライトグレーが機能的なコントラストを提供します。特定の、曖昧さのない色はステータスに割り当てられています（リンクの青、成功の緑、エラーの赤）。これにより、状態を即座に認識できます。",
+      "ch2_outro": "ここでのカラーは純粋に機能的であり、ブランド表現ではなく、直接的なシグナルシステムです。",
+      "ch3_intro": "タイポグラフィはシステムフォントスタックをデフォルトとし、様式的な区別よりも互換性と即座の可読性を優先する実用的な選択です。標準的なウェイトのみを使用して厳格な階層構造を確立し、複雑さなく明確な視覚的な道標を作り出します。",
+      "ch4_intro": "スペーシングは厳密な4pxグリッドに従います。このリズミカルな基盤が、レイアウトに秩序と予測可能性をもたらします。",
+      "ch5_intro": "サーフェスは、その深みではなく、境界によって定義されます。影の欠如と一貫した1px実線ボーダーの使用が、フラットで構造化されたインターフェースを生み出し、コンテンツは包含されるが装飾はされません。",
+      "ch6_intro": "レイアウトは、シンプルな単一カラムの骨格であり、エラーステータスのコミュニケーションに効果が実証されている構造です。この狭く、集中度の高いカラムは注意をそらす要素を排除し、必要不可欠な診断情報へと目を直接誘導します。",
+      "ch7_intro": "モーションは最小限で意図的であり、インタラクティブ要素上の単一の高速なトランジションに限定されます。このアプローチはシステムのテクニカルな感覚を維持し、ユーザーの情報収集という主要なタスクを中断することなくフィードバックを提供します。",
+      "ch8_intro": "ボイスはテクニカルで直接的であり、編集的な装飾なしに、明確なエラーメッセージと情報リンクを提供します。マーケティング言語や感情的なトーンを避け、診断の明確さという厳格な原則に準拠します。",
+      "ch8_outro": "このシステムは、何よりも実用性を優先するために、ブランド表現、カスタムタイポグラフィ、装飾的な要素を意図的に避けています。"
+    },
+    "ko": {
+      "ch1_intro": "이 디자인 시스템은 기술 지원 데스크 상태 페이지처럼 작동합니다: 그 아키텍처는 스트레스 상황에서도 명확한 커뮤니케이션을 위해 구축되었습니다. 모든 요소는 진단 목적을 수행하며, 장식을 제거하고 문제를 이해하고 해결하는 데 필요한 정보만 남깁니다.",
+      "ch2_intro": "팔레트는 실용적이며, 주요 다크 그레이를 기반으로 기능적인 대비를 제공하는 보조 라이트 그레이로 구성됩니다. 구체적이고 모호하지 않은 색상은 상태를 위해预留되어 있습니다—링크 블루, 성공 그린, 오류 레드—상태의 즉각적인 인식을 보장합니다.",
+      "ch2_outro": "여기서 색상은 순수하게 기능적이며, 브랜드 표현이 아닌 직접적인 신호 시스템입니다.",
+      "ch3_intro": "타이포그래피는 기본적으로 시스템 폰트 스택을 사용하며, 스타일적 차별화보다 호환성과 즉각적인 가독성을 우선시하는 실용적인 선택입니다. 엄격한 위계가 표준 굵기만 사용하여 확립되어, 복잡성 없이 명확한 시각적 표지판을 만듭니다.",
+      "ch4_intro": "간격은 엄격한 4px 그리드를 따르며, 레이아웃에 질서와 예측성을 가져오는 리듬감 있는 기반입니다.",
+      "ch5_intro": "표면은 깊이가 아닌 경계에 의해 정의됩니다. 그림자의 부재와 일관된 1px 실선 테두리의 사용은 콘텐츠가 포함되지만 장식되지 않는 평면적이고 구조화된 인터페이스를 만듭니다.",
+      "ch6_intro": "레이아웃은 간단한 단일 칼럼 스켈레톤으로, 오류 상태 커뮤니케이션에 검증된 구조입니다. 이 좁고 집중된 칼럼은 주의를 산만하게 하지 않고 시선을 필요한 진단 정보로 직접 안내합니다.",
+      "ch7_intro": "모션은 최소한이면서 목적에 부합하며, 인터랙티브 요소에서 단일이고 빠른 전환으로 제한됩니다. 이 접근 방식은 시스템의 기술적 느낌을 유지하며, 사용자가 정보를 수집하는 주요 작업을 방해하지 않으면서 피드백을 제공합니다.",
+      "ch8_intro": "어조는 기술적이고 직접적이며, 편집적 수식어 없이 명확한 오류 메시지와 정보 링크를 전달합니다. 마케팅 언어와 감정적 톤을 피하고, 진단적 명확성이라는 엄격한 원칙을 준수합니다.",
+      "ch8_outro": "이 시스템은 모든 것보다 기능성을 우선시하기 위해 의도적으로 브랜드 표현, 맞춤 타이포그래피 및 장식 요소를 피합니다."
+    }
+  }
+}

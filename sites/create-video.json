@@ -1,0 +1,603 @@
+{
+  "id": "create-video",
+  "schema_version": "0.3",
+  "url": "https://create.video",
+  "title": "Create Video",
+  "image": "https://image.thum.io/get/width/1440/noanimate/https://create.video",
+  "tags": [
+    "Social",
+    "Clean",
+    "Consumer",
+    "Mobile UI",
+    "Typography"
+  ],
+  "status": "completed",
+  "added_at": "2026-06-23",
+  "added_by": "discover",
+  "_meta": {
+    "vision_model": "mimo-v2.5",
+    "vision_prompt_version": "0.3",
+    "vision_source": "playwright-extract:create-video",
+    "vision_grounded": true,
+    "vision_at": "2026-06-23T12:05:24+00:00",
+    "vision_tokens": 17825,
+    "vision_cost_usd": 0.1981,
+    "translation_model": "mimo-v2.5",
+    "translation_at": "2026-06-23T12:06:50+00:00",
+    "translation_tokens": 16594,
+    "translation_cost_usd": 0.0554,
+    "narrative_model": "mimo-v2.5",
+    "narrative_prompt_version": "0.3",
+    "narrative_at": "2026-06-23T12:07:00+00:00",
+    "narrative_tokens": 2063,
+    "narrative_cost_usd": 0.0138,
+    "narrative_status": "ok",
+    "total_cost_usd": 0.2673
+  },
+  "spec": {
+    "colors": {
+      "bg": "#FFFFFF",
+      "bgSoft": "#BACBD4",
+      "bgQuiet": null,
+      "ink": "#0F141A",
+      "inkSoft": "#52636F",
+      "muted": "#BACBD4",
+      "mutedSoft": null,
+      "accent": "#1D9BF0",
+      "line": "rgba(228, 234, 236, 1)"
+    },
+    "typography": {
+      "display": "grotesque-sans",
+      "body": "grotesque-sans",
+      "mono": null,
+      "scale": [
+        {
+          "token": "display",
+          "size": 20,
+          "lh": 1.2,
+          "weight": 700,
+          "ls": "normal"
+        },
+        {
+          "token": "body",
+          "size": 15,
+          "lh": 1.33,
+          "weight": 400,
+          "ls": "normal"
+        },
+        {
+          "token": "caption",
+          "size": 13,
+          "lh": 1.23,
+          "weight": 400,
+          "ls": "normal"
+        }
+      ]
+    },
+    "spacing": {
+      "base": 4,
+      "scale": [
+        4,
+        8,
+        12,
+        16,
+        24,
+        32,
+        48,
+        64,
+        96
+      ]
+    },
+    "surfaces": {
+      "radius": {
+        "sm": 4,
+        "md": 14,
+        "lg": 16,
+        "pill": 9999
+      }
+    },
+    "layout": {
+      "container": 1265,
+      "paragraph": null,
+      "columns": 3,
+      "gutter": 30,
+      "breakpoints": [
+        768,
+        1024
+      ]
+    },
+    "motion": {
+      "durations": {
+        "micro": 150,
+        "small": 200,
+        "medium": 400
+      },
+      "easing": "cubic-bezier(0.4, 0, 0.2, 1)"
+    }
+  },
+  "spec_i18n": {
+    "en": {
+      "identity": {
+        "keywords": [
+          "Social",
+          "Timeline",
+          "Profile",
+          "Feed"
+        ],
+        "analogy": "A digital public square for sharing short-form content and updates.",
+        "oneLiner": "A microblogging social platform designed for rapid information exchange and public discourse."
+      },
+      "colors": {
+        "principle": "A high-contrast, content-first palette prioritizing readability with a single vibrant blue accent for interactive elements."
+      },
+      "typography": {
+        "rules": [
+          "Use a consistent grotesque-sans family (TwitterChirp) for all text.",
+          "Maintain a 15px base size for readability.",
+          "Use 700 weight for emphasis on names and titles."
+        ],
+        "scaleUses": [
+          "Profile names and primary headings",
+          "Post content and primary text",
+          "Secondary information like usernames and timestamps"
+        ]
+      },
+      "spacing": {
+        "rhythm": "Standard vertical rhythm based on a 4px grid, with 16px and 24px being primary gutters."
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 4px 12px 0px rgba(0, 0, 0, 0.08)"
+        ],
+        "borders": "1px solid #E4EAEC"
+      },
+      "layout": {
+        "skeleton": "Three-column layout: Left sidebar for navigation, center column for the main feed, and a right column for suggestions and links."
+      },
+      "components": {
+        "button": "Pill-shaped buttons with full border-radius (9999px). Primary action is solid black text on white; secondary actions are outlined.",
+        "card": "No distinct card containers; content is separated by horizontal lines and padding.",
+        "chip": "Inline elements with pill-shaped backgrounds, often used for buttons or tags.",
+        "input": "Clean, single-line text inputs with minimal borders, often used for composing posts.",
+        "hero": "A full-width header image (banner) followed by a large circular profile image that overlaps the banner."
+      },
+      "motion": {
+        "patterns": [
+          "Smooth color and background-color transitions on hover and focus.",
+          "Subtle opacity changes for interactive elements."
+        ]
+      },
+      "interaction": {
+        "hover": "Background color changes slightly (e.g., to #F7F9F9) and text color transitions.",
+        "click": "Immediate visual feedback through color change.",
+        "transition": "All transitions are set to 0.15s with a smooth cubic-bezier easing.",
+        "keyboard": "Standard focus outlines are applied for accessibility."
+      },
+      "voice": {
+        "tone": "Direct, informational, and public-facing.",
+        "headlineStyle": "Bold, concise, and often action-oriented.",
+        "ctaStyle": "Clear, imperative verbs (e.g., 'Sign up', 'Create account') on high-contrast buttons.",
+        "avoid": [
+          "Formal or overly corporate language.",
+          "Decorative or flowery prose.",
+          "Ambiguous calls to action."
+        ]
+      },
+      "donts": [
+        "Don't use serif fonts — screenshot shows a consistent grotesque-sans typography system.",
+        "Don't use heavy drop shadows — screenshot shows minimal or no shadows on most elements, with one subtle example on cards.",
+        "Don't use a complex grid with many gutters — screenshot shows a clean, three-column layout with consistent spacing.",
+        "Don't use a dark mode theme — screenshot shows a primarily white background with black text.",
+        "Don't use multiple accent colors — screenshot shows a single, dominant blue accent color for links and actions.",
+        "Don't use square corners on buttons — screenshot shows fully rounded, pill-shaped buttons."
+      ],
+      "systemPrompt": "A microblogging social platform for real-time public conversation. The design is clean and functional, prioritizing content with a white background (#FFFFFF), deep ink (#0F141A) for text, and a single vibrant blue accent (#1D9BF0) for interactive elements. Typography is a consistent grotesque-sans family at a 15px base size. Critical donts: Never use serif fonts or heavy drop shadows, avoid a dark mode aesthetic, and never use multiple accent colors. The layout is a structured three-column grid, and interactions are characterized by smooth, subtle color transitions on hover."
+    },
+    "zh-CN": {
+      "identity": {
+        "keywords": [
+          "社交",
+          "时间线",
+          "个人主页",
+          "信息流"
+        ],
+        "analogy": "一个用于分享短内容和动态的数字公共广场。",
+        "oneLiner": "一个为快速信息交换和公共讨论而设计的微博社交平台。"
+      },
+      "colors": {
+        "principle": "一个高对比度、以内容为中心的配色方案，优先考虑可读性，并使用单一的亮蓝色作为交互元素的强调色。"
+      },
+      "typography": {
+        "rules": [
+          "所有文本使用统一的 grotesque-sans 字体族（TwitterChirp）。",
+          "基础字号为15px以确保可读性。",
+          "名称和标题使用700字重以示强调。"
+        ],
+        "scaleUses": [
+          "个人主页名称和主要标题",
+          "帖子内容和主要文本",
+          "次要信息，如用户名和时间戳"
+        ]
+      },
+      "spacing": {
+        "rhythm": "基于4px网格的标准垂直节奏，16px和24px为主要栏间距。"
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 4px 12px 0px rgba(0, 0, 0, 0.08)"
+        ],
+        "borders": "1px solid #E4EAEC"
+      },
+      "layout": {
+        "skeleton": "三栏布局：左侧边栏用于导航，中间栏用于主信息流，右侧栏用于推荐和链接。"
+      },
+      "components": {
+        "button": "药丸形按钮，具有完全圆角（9999px）。主要操作为白底黑色实心文字；次要操作为描边样式。",
+        "card": "无明显的卡片容器；内容通过水平线和内边距分隔。",
+        "chip": "内联元素，具有药丸形背景，常用于按钮或标签。",
+        "input": "简洁的单行文本输入框，边框极简，常用于撰写帖子。",
+        "hero": "一个全宽的顶部横幅图像，后跟一个大型圆形个人主页头像，头像部分覆盖横幅。"
+      },
+      "motion": {
+        "patterns": [
+          "悬停和聚焦时颜色和背景色平滑过渡。",
+          "交互元素有细微的不透明度变化。"
+        ]
+      },
+      "interaction": {
+        "hover": "背景色轻微变化（例如变为#F7F9F9），文字颜色平滑过渡。",
+        "click": "通过颜色变化提供即时视觉反馈。",
+        "transition": "所有过渡时间设置为0.15秒，采用平滑的 cubic-bezier 缓动。",
+        "keyboard": "为无障碍访问，应用标准的焦点轮廓。"
+      },
+      "voice": {
+        "tone": "直接、信息丰富且面向公众。",
+        "headlineStyle": "加粗、简洁，且常以行动为导向。",
+        "ctaStyle": "清晰、祈使性的动词（例如‘注册’、‘创建账号’）置于高对比度按钮上。",
+        "avoid": [
+          "正式或过于企业化的语言。",
+          "装饰性或华丽的散文。",
+          "模糊的行动号召。"
+        ]
+      },
+      "donts": [
+        "不要使用衬线字体——截图显示了一个统一的 grotesque-sans 字体系统。",
+        "不要使用浓重的投影——截图显示大多数元素无投影或投影极简，仅在卡片上有一个细微示例。",
+        "不要使用带有许多栏间距的复杂网格——截图显示了一个干净的三栏布局，间距一致。",
+        "不要使用深色模式主题——截图显示主要为白色背景和黑色文字。",
+        "不要使用多种强调色——截图显示链接和操作仅使用一种主要的蓝色强调色。",
+        "不要在按钮上使用直角——截图显示按钮为完全圆角的药丸形。"
+      ],
+      "systemPrompt": "一个用于实时公共对话的微博社交平台。设计简洁且功能性强，以白色背景（#FFFFFF）、深墨色（#0F141A）文字和单一的亮蓝色强调色（#1D9BF0）用于交互元素，优先考虑内容。字体为统一的 grotesque-sans 字体族，基础字号为15px。关键禁忌：切勿使用衬线字体或浓重的投影，避免深色模式美学，并且绝不要使用多种强调色。布局为结构化的三栏网格，交互特征为悬停时平滑、细微的颜色过渡。"
+    },
+    "zh-TW": {
+      "identity": {
+        "keywords": [
+          "社群",
+          "時間軸",
+          "個人頁",
+          "動態"
+        ],
+        "analogy": "一個用於分享短內容與更新的數位公共廣場。",
+        "oneLiner": "一個為快速資訊交流與公共討論設計的微型部落格網站平台。"
+      },
+      "colors": {
+        "principle": "高對比度、內容優先的配色方案，優先考慮可讀性，並使用單一亮藍色作為互動元素的強調色。"
+      },
+      "typography": {
+        "rules": [
+          "所有文字使用一致的 grotesque-sans 字體系列 (TwitterChirp)。",
+          "保持 15px 基礎字號以確保可讀性。",
+          "名稱和標題使用 700 字重來強調。"
+        ],
+        "scaleUses": [
+          "個人頁名稱與主要標題",
+          "貼文內容與主要文字",
+          "次要資訊如使用者名稱與時間戳記"
+        ]
+      },
+      "spacing": {
+        "rhythm": "基於 4px 網格的標準垂直節奏，主要間距為 16px 和 24px。"
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 4px 12px 0px rgba(0, 0, 0, 0.08)"
+        ],
+        "borders": "1px solid #E4EAEC"
+      },
+      "layout": {
+        "skeleton": "三欄佈局：左側邊欄用於導航，中間欄為主要動態，右側欄顯示建議內容與連結。"
+      },
+      "components": {
+        "button": "膠囊形按鈕，圓角為 9999px。主要操作為白底黑字；次要操作為描邊樣式。",
+        "card": "無獨立的卡片容器；內容透過水平線與留白分隔。",
+        "chip": "行內元素，帶有膠囊形背景，常用於按鈕或標籤。",
+        "input": "簡潔的單行文字輸入框，邊框極簡，常用於撰寫貼文。",
+        "hero": "全寬的頂部橫幅圖像，下方是一個大型圓形個人頁面頭像，與橫幅重疊。"
+      },
+      "motion": {
+        "patterns": [
+          "懸停和聚焦時，顏色與背景色進行平滑過渡。",
+          "互動元素有細微的透明度變化。"
+        ]
+      },
+      "interaction": {
+        "hover": "背景色輕微變化（例如變為 #F7F9F9），文字顏色平滑過渡。",
+        "click": "透過顏色變化提供即時視覺反饋。",
+        "transition": "所有過渡時間設為 0.15s，使用平滑的 cubic-bezier 緩動函數。",
+        "keyboard": "應用標準的焦點外框以符合無障礙標準。"
+      },
+      "voice": {
+        "tone": "直接、具資訊性、面向公眾。",
+        "headlineStyle": "粗體、簡潔，常帶有行動導向。",
+        "ctaStyle": "在強對比按鈕上使用清晰的祈使動詞（例如「註冊」、「建立帳號」）。",
+        "avoid": [
+          "正式或過於企業化的語言。",
+          "裝飾性或華麗的文辭。",
+          "模棱兩可的行動呼籲。"
+        ]
+      },
+      "donts": [
+        "不要使用襯線字體——截圖顯示了統一的 grotesque-sans 字體系統。",
+        "不要使用厚重的陰影——截圖顯示大多數元素沒有或只有極簡的陰影，僅在卡片上有細微範例。",
+        "不要使用帶有多個間距的複雜網格——截圖顯示了乾淨的三欄佈局與一致的間距。",
+        "不要使用深色模式主題——截圖顯示以白色背景為主，搭配黑色文字。",
+        "不要使用多種強調色——截圖顯示僅使用單一、主導的藍色強調色用於連結與操作。",
+        "不要在按鈕上使用方形角——截圖顯示完全圓角的膠囊形按鈕。"
+      ],
+      "systemPrompt": "一個用於即時公共對話的微型部落格網站平台。設計簡潔且功能導向，以白色背景 (#FFFFFF) 優先呈現內容，深墨色 (#0F141A) 用於文字，並使用單一亮藍色 (#1D9BF0) 作為互動元素的強調色。字體為統一的 grotesque-sans 系列，基礎字號為 15px。關鍵禁忌：絕不使用襯線字體或厚重陰影，避免深色模式美學，且絕不使用多種強調色。佈局為結構化的三欄網格，互動特徵為懸停時平滑、細微的顏色過渡。"
+    },
+    "ja": {
+      "identity": {
+        "keywords": [
+          "ソーシャル",
+          "タイムライン",
+          "プロフィール",
+          "フィード"
+        ],
+        "analogy": "短いコンテンツや更新情報を共有するためのデジタルの公共広場です。",
+        "oneLiner": "高速な情報交換とパブリック・ディスコースのために設計された、マイクロブログ型ソーシャルプラットフォームです。"
+      },
+      "colors": {
+        "principle": "可読性を優先するハイコントラストのコンテンツファーストパレット。インタラクティブ要素には鮮やかな青のアクセントカラーを1色使用します。"
+      },
+      "typography": {
+        "rules": [
+          "すべてのテキストに一貫した grotesque-sans ファミリー（TwitterChirp）を使用します。",
+          "可読性のために基本サイズを15pxに設定します。",
+          "名前や見出しには700のウェイトを使用して強調します。"
+        ],
+        "scaleUses": [
+          "プロフィール名と主要な見出し",
+          "投稿コンテンツと主要テキスト",
+          "ユーザー名やタイムスタンプなどの補足情報"
+        ]
+      },
+      "spacing": {
+        "rhythm": "4pxグリッドに基づく標準的な垂直リズム。16pxと24pxが主要な gutter として使用されます。"
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 4px 12px 0px rgba(0, 0, 0, 0.08)"
+        ],
+        "borders": "1px solid #E4EAEC"
+      },
+      "layout": {
+        "skeleton": "3カラムレイアウト。左サイドバーにナビゲーション、中央カラムにメインフィード、右カラムに提案やリンクを配置します。"
+      },
+      "components": {
+        "button": "完全な border-radius（9999px）を持つピル型ボタン。プライマリアクションは白地に黒文字の実線、セカンダリアクションはアウトライン付きです。",
+        "card": "明確なカードコンテナは使用せず、コンテンツは水平線とパディングで区切ります。",
+        "chip": "ピル型の背景を持つインライン要素。ボタンやタグとしてよく使用されます。",
+        "input": "最小限のボーダーを持つクリーンな単一行テキスト入力。投稿作成に使用されることが多いです。",
+        "hero": "全幅のヘッダー画像（バナー）と、バナーに重なる大きな円形プロフィール画像を配置します。"
+      },
+      "motion": {
+        "patterns": [
+          "ホバーおよびフォーカス時の滑らかな color および background-color トランジション。",
+          "インタラクティブ要素の微細な opacity 変化。"
+        ]
+      },
+      "interaction": {
+        "hover": "背景色が微かに変化（例：#F7F9F9）し、テキスト色がトランジションします。",
+        "click": "色の変化による即座の視覚フィードバック。",
+        "transition": "すべてのトランジションは0.15sで設定し、滑らかな cubic-bezier イージングを使用します。",
+        "keyboard": "アクセシビリティのために、標準的なフォーカスアウトラインを適用します。"
+      },
+      "voice": {
+        "tone": "直接的で情報的、かつ公衆向けです。",
+        "headlineStyle": "太字で簡潔、かつ行動を促すスタイルです。",
+        "ctaStyle": "ハイコントラストボタンに明確で命令的な動詞（例：「登録」「アカウント作成」）を使用します。",
+        "avoid": [
+          "フォーマルまたは過度に企業的な言葉遣い。",
+          "装飾的または華美な文章。",
+          "曖昧な行動喚起。"
+        ]
+      },
+      "donts": [
+        "セリフフォントを使用しない — スクリーンショットでは一貫した grotesque-sans タイポグラフィシステムが示されています。",
+        "重いドロップシャドウを使用しない — スクリーンショットではほとんどの要素に最小限またはシャドウがなく、カードにのみ微細な例が示されています。",
+        "多くの gutter を持つ複雑なグリッドを使用しない — スクリーンショットでは一貫した間隔を持つクリーンな3カラムレイアウトが示されています。",
+        "ダークモードテーマを使用しない — スクリーンショットでは主に白背景に黒テキストが示されています。",
+        "複数のアクセントカラーを使用しない — スクリーンショットではリンクやアクションに単一の支配的な青のアクセントカラーが示されています。",
+        "ボタンに角丸を使用しない — スクリーンショットでは完全に丸みを帯びたピル型ボタンが示されています。"
+      ],
+      "systemPrompt": "リアルタイムのパブリック・ディスコースのためのマイクロブログ型ソーシャルプラットフォーム。デザインはクリーンで機能的。コンテンツファースト。白背景（#FFFFFF）、深いインク色のテキスト（#0F141A）、インタラクティブ要素には単一の鮮やかな青のアクセントカラー（#1D9BF0）を使用。タイポグラフィは15pxの基本サイズを持つ一貫した grotesque-sans ファミリー。重要な禁止事項：セリフフォントや重いドロップシャドウは絶対に使用せず、ダークモードの美学を避け、複数のアクセントカラーは絶対に使用しない。レイアウトは構造化された3カラムグリッド。インタラクションはホバー時の滑らかで微細な色の変化が特徴。"
+    },
+    "ko": {
+      "identity": {
+        "keywords": [
+          "소셜",
+          "타임라인",
+          "프로필",
+          "피드"
+        ],
+        "analogy": "짧은 콘텐츠와 업데이트를 공유하는 디지털 공공 광장입니다.",
+        "oneLiner": "신속한 정보 교환과 공적 담론을 위해 설계된 마이크로블로깅 소셜 플랫폼입니다."
+      },
+      "colors": {
+        "principle": "가독성을 우선시하는 고대비 팔레트입니다. 인터랙티브 요소에는 단일한 강렬한 블루 악센트를 사용합니다."
+      },
+      "typography": {
+        "rules": [
+          "모든 텍스트에 일관된 grotesque-sans 패밀리(TwitterChirp)를 사용합니다.",
+          "가독성을 위해 기본 크기를 15px로 유지합니다.",
+          "이름과 제목에는 700 웨이트를 사용하여 강조합니다."
+        ],
+        "scaleUses": [
+          "프로필 이름 및 주요 제목",
+          "게시물 내용 및 주요 텍스트",
+          "사용자 이름과 타임스탬프와 같은 보조 정보"
+        ]
+      },
+      "spacing": {
+        "rhythm": "4px 그리드를 기반으로 한 표준 수직 리듬이며, 16px와 24px가 주요 간격입니다."
+      },
+      "surfaces": {
+        "shadows": [
+          "0px 4px 12px 0px rgba(0, 0, 0, 0.08)"
+        ],
+        "border": "1px solid #E4EAEC"
+      },
+      "layout": {
+        "skeleton": "3단 레이아웃입니다. 왼쪽 사이드바에 탐색 영역, 중앙 열에 메인 피드, 오른쪽 열에 추천 및 링크가 배치됩니다."
+      },
+      "components": {
+        "button": "전체 border-radius(9999px)를 적용한 알약 모양 버튼입니다. 주요 액션은 흰색 배경에 검정색 텍스트로 표시하고, 보요 액션은 아웃라인 스타일입니다.",
+        "card": "별도의 카드 컨테이너는 없으며, 콘텐츠는 수평선과 패딩으로 구분합니다.",
+        "chip": "알약 모양 배경을 가진 인라인 요소로, 주로 버튼이나 태그에 사용됩니다.",
+        "input": "미니멀한 테두리를 가진 깔끔한 단일 라인 텍스트 입력 필드로, 주로 게시물 작성에 사용됩니다.",
+        "hero": "전체 폭의 헤더 이미지(배너)와 그 위에 겹쳐지는 큰 원형 프로필 이미지로 구성됩니다."
+      },
+      "motion": {
+        "patterns": [
+          "호버 및 포커스 시 부드러운 색상 및 background-color 트랜지션.",
+          "인터랙티브 요소의 미묘한 투명도 변화."
+        ]
+      },
+      "interaction": {
+        "hover": "배경색이 약간 변하고(예: #F7F9F9로) 텍스트 색상이 트랜지션됩니다.",
+        "click": "색상 변화를 통한 즉각적인 시각적 피드백을 제공합니다.",
+        "transition": "모든 트랜지션은 0.15s로 설정되며 부드러운 cubic-bezier 이징을 사용합니다.",
+        "keyboard": "접근성을 위해 표준 포커스 윤곽선이 적용됩니다."
+      },
+      "voice": {
+        "tone": "직설적이고 정보 지향적이며, 공적입니다.",
+        "headlineStyle": "대담하고 간결하며, 종종 행동을 유도하는 스타일입니다.",
+        "ctaStyle": "고대비 버튼에 명확하고 명령적인 동사(예: '가입하기', '계정 만들기')를 사용합니다.",
+        "avoid": [
+          "공식적이거나 지나치게 기업적인 언어.",
+          "장식적이거나 화려한 문체.",
+          "애매한 행동 유도(CTA)."
+        ]
+      },
+      "donts": [
+        "세리프 서체를 사용하지 마세요 — 일관된 grotesque-sans 타이포그래피 시스템이 보여집니다.",
+        "무거운 드롭 섀도우를 사용하지 마세요 — 대부분의 요소에는 미니멀하거나 섀도우가 없으며, 카드에만 미묘한 예시가 보입니다.",
+        "많은 간격이 있는 복잡한 그리드를 사용하지 마세요 — 일관된 간격을 가진 깔끔한 3단 레이아웃이 보입니다.",
+        "다크 모드 테마를 사용하지 마세요 — 주로 흰색 배경에 검정색 텍스트가 보입니다.",
+        "여러 악센트 색상을 사용하지 마세요 — 링크와 액션에 단일한 주요 블루 악센트 색상이 보입니다.",
+        "버튼에 사각형 모서리를 사용하지 마세요 — 완전히 둥글고 알약 모양의 버튼이 보입니다."
+      ],
+      "systemPrompt": "실시간 공적 대화를 위한 마이크로블로깅 소셜 플랫폼입니다. 디자인은 깔끔하고 기능적이며, 흰색 배경(#FFFFFF), 텍스트용 짙은 잉크색(#0F141A), 인터랙티브 요소용 단일 강렬한 블루 악센트(#1D9BF0)를 우선시합니다. 타이포그래피는 15px 기본 크기의 일관된 grotesque-sans 패밀리입니다. 중요 금지 사항: 절대로 세리프 서체나 무거운 드롭 섀도우를 사용하지 말고, 다크 모드 미적 요소를 피하며, 여러 악센트 색상을 사용하지 마세요. 레이아웃은 구조화된 3단 그리드이며, 인터랙션은 호버 시 부드럽고 미묘한 색상 트랜지션이 특징입니다."
+    }
+  },
+  "desc": {
+    "en": {
+      "palette": "A high-contrast, content-first palette with a white background, deep ink for text, and a single vibrant blue accent for links.",
+      "layout": "A classic three-column structure: navigation on the left, a scrollable main feed in the center, and a secondary information panel on the right.",
+      "interaction": "Subtle background color shifts on hover with smooth, fast transitions for a responsive feel.",
+      "motion": "Minimal, functional motion focused on micro-interactions for hover and focus states.",
+      "notes": "The site exemplifies a mature, scalable design system for a high-traffic social platform, balancing readability with functional density."
+    },
+    "zh-CN": {
+      "palette": "一个高对比度、以内容为中心的配色方案，采用白色背景、深墨色文字，以及单一的亮蓝色作为链接的强调色。",
+      "layout": "经典的三栏结构：左侧是导航栏，中间是可滚动的主信息流，右侧是次要信息面板。",
+      "interaction": "悬停时背景色有细微变化，配合流畅、快速的过渡效果，以营造响应式体验。",
+      "motion": "最小化、功能性的动效，聚焦于悬停和聚焦状态的微交互。",
+      "notes": "该网站展示了一个成熟、可扩展的高流量社交平台设计系统，在可读性与功能密度之间取得了平衡。"
+    },
+    "zh-TW": {
+      "palette": "高對比度、內容優先的配色方案，白色背景，深墨色文字，搭配單一亮藍色作為連結的強調色。",
+      "layout": "經典的三欄結構：左側導航欄，中間可滾動的主內容動態，右側次要資訊面板。",
+      "interaction": "懸停時背景色有細微變化，配合快速平滑的過渡效果，營造靈敏的互動感。",
+      "motion": "極簡的功能性動效，專注於懸停與聚焦狀態的微交互。",
+      "notes": "該網站展現了一個成熟、可擴展的設計系統範例，適用於高流量社群平台，在可讀性與功能密度之間取得平衡。"
+    },
+    "ja": {
+      "palette": "コンテンツファーストのハイコントラストパレット。白背景、深いインク色のテキスト、インタラクティブ要素には鮮やかな青のアクセントカラーを1色使用します。",
+      "layout": "クラシックな3カラム構造。左にナビゲーション、中央にスクロール可能なメインフィード、右に補足情報パネルを配置します。",
+      "interaction": "ホバー時に背景色が微細に変化し、滑らかで高速なトランジションでレスポンシブな感触を実現します。",
+      "motion": "最小限で機能的なモーション。ホバーおよびフォーカス状態のためのマイクロインタラクションに焦点を当てます。",
+      "notes": "このサイトは、高トラフィックのソーシャルプラットフォーム向けの、成熟しスケーラブルなデザインシステムを示しています。可読性と機能的な情報密度のバランスを取っています。"
+    },
+    "ko": {
+      "palette": "콘텐츠를 우선시하는 고대비 팔레트입니다. 배경은 흰색, 텍스트는 짙은 잉크색, 링크에는 단일한 강렬한 블루 악센트를 사용합니다.",
+      "layout": "고전적인 3단 구조입니다. 왼쪽에는 탐색 영역, 중앙에는 스크롤 가능한 메인 피드, 오른쪽에는 보조 정보 패널이 위치합니다.",
+      "interaction": "호버 시 미묘한 배경색 변화와 부드럽고 빠른 트랜지션으로 반응감을 느끼게 합니다.",
+      "motion": "호버 및 포커스 상태를 위한 마이크로 인터랙션에 집중하는 미니멀하고 기능적인 모션입니다.",
+      "notes": "이 사이트는 트래픽이 높은 소셜 플랫폼을 위한 성숙하고 확장 가능한 디자인 시스템의 예시로, 가독성과 기능적 밀도를 균형 있게 조화시킵니다."
+    }
+  },
+  "narrative": {
+    "en": {
+      "ch1_intro": "The design system for Create Video is engineered as a digital public square: an open, structured environment where content is the citizen. Its architecture prioritizes clarity and rapid exchange, using a disciplined visual language to organize the constant flow of public discourse.",
+      "ch2_intro": "The palette is a study in high-contrast readability, built on a foundation of pure white and deep ink. A single vibrant blue accent is reserved with strict intentionality, serving as the sole beacon for interactive elements across the interface.",
+      "ch2_outro": "The underlying principle is content-first, where color serves function, never decoration.",
+      "ch3_intro": "Typographic voice is uniform and unambiguous, delivered entirely through a single grotesque-sans family, TwitterChirp. The scale is calibrated for digital clarity, with a 15px base size and bold weights used sparingly to establish hierarchy on names and headings.",
+      "ch4_intro": "Rhythm is established through a strict 4px grid, creating a predictable and orderly vertical cadence.",
+      "ch5_intro": "Depth is communicated with exceptional subtlety, using a single, faint shadow definition to lift elements from the surface. Borders are consistently rendered as a hairline rule, providing separation without visual weight.",
+      "ch6_intro": "The layout is a classic three-column skeleton: a narrow left sidebar for persistent navigation, a dominant center column for the primary content feed, and a right column for supplementary information and suggestions.",
+      "ch7_intro": "Motion is treated as functional feedback, not embellishment. Transitions are swift and consistent at 0.15 seconds, providing immediate yet unobtrusive confirmation of user action through color and opacity shifts.",
+      "ch8_intro": "The editorial voice is direct, informational, and built for the public sphere. Language is concise and imperative, avoiding ambiguity and corporate formality in favor of clear, action-oriented communication.",
+      "ch8_outro": "The system deliberately forgoes dark mode, serif typography, and decorative flourishes to maintain its focus on functional clarity."
+    },
+    "zh-CN": {
+      "ch1_intro": "Create Video 的设计体系被构建为一个数字公共广场：一个开放、结构化的环境，内容即是公民。其架构优先考虑清晰度与快速交流，运用一套严谨的视觉语言来组织持续流动的公共讨论。",
+      "ch2_intro": "调色板是高对比度可读性的一次研究，建立在纯白与深墨色的基础之上。单一、充满活力的蓝色被极其克制地使用，作为整个界面中交互元素的唯一信标。",
+      "ch2_outro": "其底层原则是内容优先，色彩服务于功能，而非装饰。",
+      "ch3_intro": "排版风格统一且明确，完全通过单一的 grotesque-sans 字体家族——TwitterChirp 来呈现。其比例专为数字清晰度校准，以 15px 为基础字号，粗体字重仅被谨慎地用于建立名称与标题的层级。",
+      "ch4_intro": "节奏通过严格的 4px 网格确立，营造出可预测且有序的垂直韵律。",
+      "ch5_intro": "深度以极其微妙的方式传达，使用单一、微弱的阴影定义来使元素从表面提升。边框始终被渲染为发丝般的细线，提供分隔而不增加视觉重量。",
+      "ch6_intro": "布局是经典的三栏骨架结构：一个狭窄的左侧边栏用于持久导航，一个主导的中心栏用于主要信息流，以及一个右侧栏用于补充信息和建议。",
+      "ch7_intro": "动效被视为功能性反馈，而非装饰。过渡效果迅速且统一，时长为 0.15 秒，通过颜色和不透明度变化，提供即时且不打扰的用户操作确认。",
+      "ch8_intro": "编辑风格直接、信息丰富，并为公共领域而构建。语言简洁且具有指令性，避免歧义和企业化的正式感，以支持清晰、面向行动的沟通。",
+      "ch8_outro": "该系统刻意舍弃了深色模式、衬线字体和装饰性元素，以保持其对功能清晰度的专注。"
+    },
+    "zh-TW": {
+      "ch1_intro": "Create Video 的設計系統被構建為一個數位公共廣場：一個開放、有結構的環境，其中內容就是公民。其架構優先考慮清晰度和快速交流，使用有紀律的視覺語言來組織不斷流動的公共論述。",
+      "ch2_intro": "色盤是對高對比可讀性的研究，建立在純白和深墨色的基礎之上。一個充滿活力的藍色強調色被嚴格有意地保留，作為介面上互動元素的唯一信標。",
+      "ch2_outro": "底層原則是內容優先，顏色服務於功能，而非裝飾。",
+      "ch3_intro": "排版的聲音統一且明確，完全透過單一 grotesque-sans 字體系列 TwitterChirp 傳達。其字階針對數位清晰度進行校準，以 15px 為基礎尺寸，粗體字重僅謹慎用於在名稱和標題上建立層級。",
+      "ch4_intro": "節奏透過嚴格的 4px 網格建立，創造出可預測且有序的垂直律動。",
+      "ch5_intro": "深度以極其微妙的方式傳達，使用單一、微弱的陰影定義將元素從表面抬起。邊框始終渲染為髮絲線規則，提供區隔而不增加視覺重量。",
+      "ch6_intro": "佈局是經典的三欄骨架：一個狹窄的左側邊欄用於持續導航，一個主導的中央欄位用於主要內容資訊流，以及一個右側欄位用於補充資訊和建議。",
+      "ch7_intro": "動態被視為功能性回饋，而非裝飾。過渡快速且一致，為 0.15 秒，透過顏色和透明度變化，提供即時但不引人注意的使用者動作確認。",
+      "ch8_intro": "編輯的聲音是直接、資訊性的，並為公共領域而打造。語言簡潔且具指令性，避免歧義和企業式的正式，以清晰、行動導向的溝通取而代之。",
+      "ch8_outro": "該系統刻意捨棄深色模式、襯線排版和裝飾性花紋，以維持對功能性清晰度的專注。"
+    },
+    "ja": {
+      "ch1_intro": "Create Videoのデザインシステムは、デジタルの公共広場として構築されています。コンテンツが市民である、開かれた、構造化された環境です。そのアーキテクチャは明瞭さと迅速な交流を優先し、 disciplinédなビジュアル言語を用いて、常時流れる公共の議論を組織します。",
+      "ch2_intro": "カラーパレットは、ハイコントラストな読みやすさを追求するもので、純白と深いインクを基盤としています。鮮やかな青のアクセントは、厳密な意図をもってReservedされ、インタラクティブ要素の唯一の灯台として、インターフェース全体で機能します。",
+      "ch2_outro": "根底にある原則はコンテンツファーストであり、色彩は装飾ではなく、機能に仕えます。",
+      "ch3_intro": "タイポグラフィの声は均一で曖昧さがなく、すべて単一の grotesque-sans ファミリー、TwitterChirpを通じて提示されます。スケールはデジタルでの明瞭さのために較正され、15pxのベースサイズと、太字ウェイトが控えめに使用され、名前や見出しに階層性を確立します。",
+      "ch4_intro": "リズムは厳格な4pxグリッドを通じて確立され、予測可能で整然とした垂直のリズムを生み出します。",
+      "ch5_intro": "奥行きは、例外的な繊細さをもって伝達され、単一の微かな影の定義が要素を表面から浮かび上がらせるために使用されます。ボーダーは一貫してヘアラインルールとして描かれ、視覚的な重さを与えずに分離を提供します。",
+      "ch6_intro": "レイアウトはクラシックな3カラムのスケルトンです。永続的なナビゲーション用の狭い左サイドバー、プライマリコンテンツフィード用の中心の主要カラム、補足情報と提案用の右カラムです。",
+      "ch7_intro": "モーションは装飾ではなく、機能的なフィードバックとして扱われます。トランジションは0.15秒で素早く一貫しており、色と不透明度の変化を通じて、ユーザー操作に対して即座に、しかし邪魔にならない確認を提供します。",
+      "ch8_intro": "エディトリアルな声は直接的で情報的、公共の場のために構築されています。言語は簡潔で命令的であり、曖昧さや企業的な格式を避け、明確で行動指向のコミュニケーションを優先します。",
+      "ch8_outro": "このシステムは、機能的な明瞭さへの焦点を維持するため、ダークモード、セリフタイポグラフィ、装飾的な飾りを意図的に排除しています。"
+    },
+    "ko": {
+      "ch1_intro": "Create Video의 디자인 시스템은 디지털 공공광장으로서 설계되었습니다: 콘텐츠가 시민인, 개방적이고 구조화된 환경입니다. 그 구조는 명확성과 빠른 교환을 우선시하며, 규율 잡힌 시각 언어를 사용하여 끊임없이 흐르는 공공 담론을 체계적으로 정리합니다.",
+      "ch2_outro": "바탕이 되는 원칙은 콘텐츠 우선이며, 색상은 기능에 이바지하지, 장식을 위한 것은 아닙니다.",
+      "ch3_intro": "서체의 목소리는 일관되고 명확하며, 단일 고딕트체 패밀리인 TwitterChirp를 통해 완전히 전달됩니다. 축척은 디지털 명확성을 위해 조정되었으며, 15px 기본 크기를 기반으로 하여 이름과 제목에 계층 구조를 설정하기 위해 굵은 글꼴은 절제되게 사용됩니다.",
+      "ch4_intro": "리듬은 엄격한 4px 격자를 통해 확립되어, 예측 가능하고 질서 정연한 수직 리듬을 만듭니다.",
+      "ch5_intro": "깊이는 매우 미묘하게 전달되며, 요소를 표면 위로 띄우기 위해 하나의 은은한 그림자 효과만 사용합니다. 테두리는 일관되게 아주 가느다란 선으로 렌더링되어, 시각적 무게감 없이 분리를 제공합니다.",
+      "ch6_intro": "레이아웃은 고전적인 3열 스켈레톤입니다: 영구 내비게이션을 위한 좁은 왼쪽 사이드바, 기본 콘텐츠 피드를 위한 지배적인 중앙 열, 보충 정보와 제안을 위한 오른쪽 열로 구성됩니다.",
+      "ch7_intro": "모션은 장식이 아닌 기능적 피드백으로 다루어집니다. 전환은 0.15초로 빠르고 일관적이며, 색상과 불투명도 변화를 통해 사용자 작업에 즉각적이면서도 거슬리지 않는 확인을 제공합니다.",
+      "ch8_intro": "에디토리얼 목소리는 직접적이고 정보 지향적이며, 공공 영역을 위해 구축되었습니다. 언어는 간결하고 지시적이며, 모호성과 기업적 격식을 피하고 명확하고 행동 지향적인 커뮤니케이션을 선호합니다.",
+      "ch8_outro": "이 시스템은 기능적 명확성에 대한 초점을 유지하기 위해 의도적으로 다크 모드, 세리프 서체, 장식적 요소를 포기합니다."
+    }
+  }
+}

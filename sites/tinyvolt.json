@@ -1,0 +1,593 @@
+{
+  "id": "tinyvolt",
+  "schema_version": "0.3",
+  "url": "https://www.tinyvolt.com/geomatic",
+  "title": "Tinyvolt",
+  "image": "https://image.thum.io/get/width/1440/noanimate/https://www.tinyvolt.com/geomatic",
+  "tags": [
+    "Developer Tools",
+    "Dark Mode",
+    "Geometric",
+    "Tooling",
+    "Calm"
+  ],
+  "status": "completed",
+  "added_at": "2026-06-14",
+  "added_by": "discover",
+  "_meta": {
+    "vision_model": "mimo-v2.5",
+    "vision_prompt_version": "0.3",
+    "vision_source": "playwright-extract:tinyvolt",
+    "vision_grounded": true,
+    "vision_at": "2026-06-14T04:05:20+00:00",
+    "vision_tokens": 15998,
+    "vision_cost_usd": 0.1778,
+    "translation_model": "mimo-v2.5",
+    "translation_at": "2026-07-15T10:47:33+00:00",
+    "translation_tokens": 14994,
+    "translation_cost_usd": 0.05,
+    "narrative_model": "mimo-v2.5",
+    "narrative_prompt_version": "0.3",
+    "narrative_at": "2026-07-15T10:47:39+00:00",
+    "narrative_tokens": 1855,
+    "narrative_cost_usd": 0.0124,
+    "narrative_status": "ok",
+    "total_cost_usd": 0.2402
+  },
+  "spec": {
+    "colors": {
+      "bg": "#1e1e1e",
+      "bgSoft": "#2a2a2e",
+      "bgQuiet": "#252526",
+      "ink": "#d4d4d4",
+      "inkSoft": "#8a8d94",
+      "muted": "#858585",
+      "mutedSoft": "#b6b7c2",
+      "accent": "#2dd4bf",
+      "line": "rgba(133, 133, 133, 0.2)"
+    },
+    "typography": {
+      "display": "geometric-sans",
+      "body": "system-sans",
+      "mono": "monospace",
+      "scale": [
+        {
+          "token": "body",
+          "size": 16,
+          "lh": 1.6,
+          "weight": 400,
+          "ls": "0px"
+        },
+        {
+          "token": "body-small",
+          "size": 12.8,
+          "lh": 1.6,
+          "weight": 400,
+          "ls": "0.256px"
+        },
+        {
+          "token": "nav",
+          "size": 13.33,
+          "lh": 1.36,
+          "weight": 500,
+          "ls": "0.144px"
+        }
+      ]
+    },
+    "spacing": {
+      "base": 4,
+      "scale": [
+        4,
+        8,
+        16,
+        24,
+        32,
+        48,
+        64,
+        96
+      ]
+    },
+    "surfaces": {
+      "radius": {
+        "sm": 3,
+        "md": 6,
+        "lg": 10,
+        "pill": 999
+      }
+    },
+    "layout": {
+      "container": 1280,
+      "paragraph": 680,
+      "columns": 12,
+      "gutter": 24,
+      "breakpoints": [
+        768,
+        1024
+      ]
+    },
+    "motion": {
+      "durations": {
+        "micro": 200,
+        "small": 200,
+        "medium": 300
+      },
+      "easing": "cubic-bezier(0.4, 0, 0.2, 1)"
+    }
+  },
+  "spec_i18n": {
+    "en": {
+      "identity": {
+        "keywords": [
+          "geometric",
+          "tool",
+          "canvas",
+          "command",
+          "dark"
+        ],
+        "analogy": "A precision geometry editor with a terminal-like command interface.",
+        "oneLiner": "A dark-mode geometric tool with a grid canvas and command-line input."
+      },
+      "colors": {
+        "principle": "Dark neutral base with a single bright teal accent for interactive highlights."
+      },
+      "typography": {
+        "rules": [
+          "Use system sans-serif for UI elements and Space Grotesk for branding.",
+          "Maintain a base font size of 16px with slightly tracked small text."
+        ],
+        "scaleUses": [
+          "default text",
+          "secondary text",
+          "navigation links"
+        ]
+      },
+      "spacing": {
+        "rhythm": "4px base unit with tight spacing for compact UI elements."
+      },
+      "surfaces": {
+        "shadows": [],
+        "borders": "1px solid #858585"
+      },
+      "layout": {
+        "skeleton": "Grid-based canvas with a collapsible right sidebar and a bottom command bar."
+      },
+      "components": {
+        "button": "Simple text-based button with subtle border or outline, no heavy background.",
+        "card": "Flat panels with thin borders.",
+        "chip": "Small rounded label, like the 'Tour · 1/5' indicator.",
+        "input": "Command-line style input with a prompt prefix.",
+        "hero": "Full-screen dark grid canvas."
+      },
+      "motion": {
+        "patterns": [
+          "Subtle fade-in for tooltip and tour elements.",
+          "Width transitions for collapsible panels."
+        ]
+      },
+      "interaction": {
+        "hover": "Subtle color shift on interactive text links.",
+        "click": "Immediate feedback with no heavy scale transforms.",
+        "transition": "Color and opacity transitions at 0.2s.",
+        "keyboard": "Supports command input via a terminal-like bar."
+      },
+      "voice": {
+        "tone": "Technical, direct, and minimalist.",
+        "headlineStyle": "Short, capitalized menu items and command descriptions.",
+        "ctaStyle": "Simple text link or subtle bordered button.",
+        "avoid": [
+          "Marketing fluff",
+          "Loud colors",
+          "Decorative elements"
+        ]
+      },
+      "donts": [
+        "don't use white backgrounds — screenshot shows a deep dark gray (#1e1e1e) palette",
+        "don't use decorative drop shadows — screenshot shows flat surfaces defined by thin borders",
+        "don't use multi-color palettes — screenshot shows a monochromatic scheme with a single teal accent",
+        "don't use large, heavy typography — screenshot shows compact, highly legible UI text",
+        "don't use complex gradients — screenshot shows solid color fills and a simple grid pattern",
+        "don't use rounded corners on all elements — screenshot shows mostly sharp or very slightly rounded corners"
+      ],
+      "systemPrompt": "Tiny Volt is a dark-mode geometric tool interface focused on precision and utility. The visual language is defined by a deep gray canvas (#1e1e1e) with a single teal accent (#2dd4bf) and a monochromatic gray scale. Typography relies on clean system sans-serif fonts for the UI and a geometric sans for branding. The layout is dominated by a grid-based workspace with a right sidebar and bottom command bar. Critical constraints: never use white backgrounds, avoid decorative shadows, and do not introduce multiple accent colors. Keep interactions subtle and the interface dense but legible."
+    },
+    "zh-CN": {
+      "identity": {
+        "keywords": [
+          "几何",
+          "工具",
+          "画布",
+          "命令",
+          "深色"
+        ],
+        "analogy": "一款具备终端式命令界面的精密几何编辑器。",
+        "oneLiner": "采用网格画布与命令行输入的深色模式几何工具。"
+      },
+      "colors": {
+        "principle": "深色中性底色搭配单一亮青色作为交互高光。"
+      },
+      "typography": {
+        "rules": [
+          "UI元素使用系统无衬线字体，品牌标识使用 Space Grotesk。",
+          "基础字号16px，小号文字采用略增的字间距。"
+        ],
+        "scaleUses": [
+          "默认文本",
+          "辅助文本",
+          "导航链接"
+        ]
+      },
+      "spacing": {
+        "rhythm": "4px基础单位，紧凑间距以适配紧凑型UI元素。"
+      },
+      "surfaces": {
+        "shadows": [],
+        "borders": "1px solid #858585"
+      },
+      "layout": {
+        "skeleton": "基于网格的画布布局，含可折叠右侧边栏与底部命令栏。"
+      },
+      "components": {
+        "button": "简约文字按钮，配以细微边框或轮廓，无厚重背景。",
+        "card": "带细边框的扁平面板。",
+        "chip": "小型圆角标签，如 'Tour · 1/5' 指示器。",
+        "input": "命令行风格输入框，带提示符前缀。",
+        "hero": "全屏深色网格画布。"
+      },
+      "motion": {
+        "patterns": [
+          "工具提示与导览元素采用细微淡入效果。",
+          "可折叠面板采用宽度过渡动画。"
+        ]
+      },
+      "interaction": {
+        "hover": "交互文本链接产生细微色彩变化。",
+        "click": "即时反馈，不使用大幅缩放变换。",
+        "transition": "颜色与透明度过渡时长0.2秒。",
+        "keyboard": "通过终端式命令栏支持命令输入。"
+      },
+      "voice": {
+        "tone": "技术性、直接且极简。",
+        "headlineStyle": "简短的首字母大写菜单项与命令描述。",
+        "ctaStyle": "纯文本链接或带细微边框的按钮。",
+        "avoid": [
+          "营销话术",
+          "喧闹色彩",
+          "装饰性元素"
+        ]
+      },
+      "donts": [
+        "勿使用白色背景 — 截图显示深灰色（#1e1e1e）调色板",
+        "勿使用装饰性投影 — 截图显示由细边框定义的扁平面板",
+        "勿使用多色方案 — 截图显示单色方案搭配单一青色点缀",
+        "勿使用厚重的大号字体 — 截图显示紧凑、高可读性的UI文本",
+        "勿使用复杂渐变 — 截图显示纯色填充与简单网格图案",
+        "勿为所有元素添加圆角 — 截图显示基本为直角或极微圆角"
+      ],
+      "systemPrompt": "Tiny Volt 是一款专注于精度与实用性的深色模式几何工具界面。其视觉语言由深灰色画布（#1e1e1e）、单一青色点缀（#2dd4bf）及单色灰度系统定义。UI字体采用简洁的系统无衬线字体，品牌标识使用几何无衬线字体。布局以网格工作区为主，辅以右侧边栏与底部命令栏。关键约束：禁用白色背景，避免装饰性投影，不引入多种点缀色。保持交互微妙，界面密集但可读。"
+    },
+    "zh-TW": {
+      "identity": {
+        "keywords": [
+          "幾何",
+          "工具",
+          "畫布",
+          "命令",
+          "深色"
+        ],
+        "analogy": "一個具有終端機式命令介面的精密幾何編輯器。",
+        "oneLiner": "一個具備網格畫布與命令列輸入的深色模式幾何工具。"
+      },
+      "colors": {
+        "principle": "深色中性基調，搭配單一亮色 teal 強調色用於互動高亮。"
+      },
+      "typography": {
+        "rules": [
+          "UI 元素使用系統無襯線字體，品牌識別使用 Space Grotesk。",
+          "基礎字體大小為 16px，小型文字略增字間距。"
+        ],
+        "scaleUses": [
+          "預設文字",
+          "次要文字",
+          "導覽連結"
+        ]
+      },
+      "spacing": {
+        "rhythm": "以 4px 為基礎單位，緊湊間距適用於緊湊型 UI 元素。"
+      },
+      "surfaces": {
+        "shadows": [],
+        "borders": "1px solid #858585"
+      },
+      "layout": {
+        "skeleton": "基於網格的畫布，搭配可收合的右側側欄與底部命令列。"
+      },
+      "components": {
+        "button": "簡單的文字式按鈕，搭配細微邊框或外框，無厚重背景。",
+        "card": "帶有細邊框的平面面板。",
+        "chip": "小型圓角標籤，例如「導覽 · 1/5」指示器。",
+        "input": "終端機風格的輸入欄位，帶有提示前綴。",
+        "hero": "全螢幕深色網格畫布。"
+      },
+      "motion": {
+        "patterns": [
+          "工具提示與導覽元素使用細微淡入效果。",
+          "可收合面板使用寬度過渡動畫。"
+        ]
+      },
+      "interaction": {
+        "hover": "互動文字連結在 hover 時產生細微色彩變化。",
+        "click": "立即回饋，無厚重的縮放變換。",
+        "transition": "色彩與透明度過渡時間為 0.2 秒。",
+        "keyboard": "支援透過終端機式欄位進行命令輸入。"
+      },
+      "voice": {
+        "tone": "技術性、直接且極簡。",
+        "headlineStyle": "簡短、首字母大寫的選單項目與命令描述。",
+        "ctaStyle": "簡單的文字連結或帶有細微邊框的按鈕。",
+        "avoid": [
+          "行銷用語",
+          "刺眼色彩",
+          "裝飾性元素"
+        ]
+      },
+      "donts": [
+        "避免使用白色背景 — 螢幕截圖顯示的是深灰色（#1e1e1e）調色盤",
+        "避免使用裝飾性陰影 — 螢幕截圖顯示的是由細邊框定義的平面表面",
+        "避免使用多色彩調色盤 — 螢幕截圖顯示的是單色調搭配單一 teal 強調色的方案",
+        "避免使用大型、厚重的字體 — 螢幕截圖顯示的是緊湊、高可讀性的 UI 文字",
+        "避免使用複雜漸層 — 螢幕截圖顯示的是實色填充與簡單的網格圖案",
+        "避免所有元素都使用圓角 — 螢幕截圖顯示的是大多為銳角或極輕微圓角的設計"
+      ],
+      "systemPrompt": "Tiny Volt 是一個注重精準度與實用性的深色模式幾何工具介面。視覺語言以深灰色畫布（#1e1e1e）搭配單一 teal 強調色（#2dd4bf）與單色灰色階定義。字體方面，UI 依賴簡潔的系統無襯線字體，品牌識別則使用幾何無襯線字體。佈局以網格工作區為主，搭配右側側欄與底部命令列。關鍵限制：切勿使用白色背景、避免裝飾性陰影，且不引入多種強調色。保持互動細微，介面緊湊但易讀。"
+    },
+    "ja": {
+      "identity": {
+        "keywords": [
+          "幾何学的",
+          "ツール",
+          "キャンバス",
+          "コマンド",
+          "ダーク"
+        ],
+        "analogy": "ターミナル風のコマンドインターフェースを備えた高精度幾何学エディタ。",
+        "oneLiner": "グリッドキャンバスとコマンドライン入力を備えたダークモードの幾何学ツール。"
+      },
+      "colors": {
+        "principle": "インタラクティブなハイライト用に単一の鮮やかなティールアクセントを持つダークニュートラルベース。"
+      },
+      "typography": {
+        "rules": [
+          "UI要素にはシステムサンセリフを、ブランドロゴにはSpace Groteskを使用。",
+          "16pxの基本フォントサイズを維持し、小文字にはわずかな字間调整を施す。"
+        ],
+        "scaleUses": [
+          "デフォルトテキスト",
+          "セカンダリテキスト",
+          "ナビゲーションリンク"
+        ]
+      },
+      "spacing": {
+        "rhythm": "4pxをベースユニットとし、コンパクトなUI要素用に狭いスペーシングを採用。"
+      },
+      "surfaces": {
+        "shadows": [],
+        "borders": "1px solid #858585"
+      },
+      "layout": {
+        "skeleton": "折りたたみ可能な右サイドバーとボトムコマンドバーを備えた、グリッドベースのキャンバス。"
+      },
+      "components": {
+        "button": "重厚な背景を持たず、微妙なボーダーまたはアウトラインを備えたシンプルなテキストベースボタン。",
+        "card": "細いボーダーを持つフラットパネル。",
+        "chip": "「Tour · 1/5」インジケーターのような、小さく角丸のラベル。",
+        "input": "プロンプトプレフィックスを持つコマンドラインスタイルの入力。",
+        "hero": "フルスクリーンのダークグリッドキャンバス。"
+      },
+      "motion": {
+        "patterns": [
+          "ツールチップやツアー要素のための微妙なフェードイン。",
+          "折りたたみ可能なパネルの幅トランジション。"
+        ]
+      },
+      "interaction": {
+        "hover": "インタラクティブなテキストリンク上の微妙な色の変化。",
+        "click": "重いスケールトランスフォームを用いない即座のフィードバック。",
+        "transition": "0.2秒での色と不透明度のトランジション。",
+        "keyboard": "ターミナル風バーを通じたコマンド入力をサポート。"
+      },
+      "voice": {
+        "tone": "テクニカルで、率直かつミニマル。",
+        "headlineStyle": "短く大文字のメニュー項目とコマンド説明。",
+        "ctaStyle": "シンプルなテキストリンク、または微妙なボーダー付きボタン。",
+        "avoid": [
+          "マーケティング的な誇張表現",
+          "派手な色",
+          "装飾的な要素"
+        ]
+      },
+      "donts": [
+        "ホワイト背景を使用しない — スクリーンショットは深いダークグレー（#1e1e1e）のパレットを示している",
+        "装飾的なドロップシャドウを使用しない — スクリーンショットは細いボーダーで定義されたフラットなサーフェスを示している",
+        "マルチカラーパレットを使用しない — スクリーンショットは単一のティールアクセントを備えたモノクロの配色を示している",
+        "大きく重厚なタイポグラフィを使用しない — スクリーンショットはコンパクトで非常に可読性の高いUIテキストを示している",
+        "複雑なグラデーションを使用しない — スクリーンショットは塗りつぶしの単色とシンプルなグリッドパターンを示している",
+        "すべての要素に角丸を使用しない — スクリーンショットは主にシャープまたはごくわずかに角丸の角を示している"
+      ],
+      "systemPrompt": "Tiny Voltは、精度と実用性に焦点を当てたダークモードの幾何学ツールインターフェースです。ビジュアル言語は、深いグレーのキャンバス（#1e1e1e）と単一のティールアクセント（#2dd4bf）、およびモノクロのグレースケールで定義されます。タイポグラフィは、UIにクリーンなシステムサンセリフフォントを、ブランドロゴに幾何学的なサンセリフを採用しています。レイアウトは、グリッドベースのワークスペース、右サイドバー、ボトムコマンドバーが支配的です。重要な制約事項：ホワイト背景は絶対に使用せず、装飾的なシャドウは避け、複数のアクセントカラーを導入しないこと。インタラクションは控えめにし、インターフェースは密度が高くても可読性を保つこと。"
+    },
+    "ko": {
+      "identity": {
+        "keywords": [
+          "기하학적",
+          "도구",
+          "캔버스",
+          "명령",
+          "다크"
+        ],
+        "analogy": "터미널과 같은 명령 인터페이스를 갖춘 정밀한 기하학 편집기입니다.",
+        "oneLiner": "격자 캔버스와 명령줄 입력을 갖춘 다크 모드 기하학 도구입니다."
+      },
+      "colors": {
+        "principle": "상호작용 하이라이트를 위한 단일 밝은 틸 악센트가 적용된 다크 중립 기반입니다."
+      },
+      "typography": {
+        "rules": [
+          "UI 요소에는 시스템 sans-serif를, 브랜딩에는 Space Grotesk를 사용합니다.",
+          "기본 글꼴 크기 16px를 유지하고, 소문자 텍스트에는 약간의 자간을 적용합니다."
+        ],
+        "scaleUses": [
+          "기본 텍스트",
+          "보조 텍스트",
+          "내비게이션 링크"
+        ]
+      },
+      "spacing": {
+        "rhythm": "4px 기본 단위로, 컴팩트한 UI 요소를 위한 좁은 간격입니다."
+      },
+      "surfaces": {
+        "shadows": [],
+        "borders": "1px solid #858585"
+      },
+      "layout": {
+        "skeleton": "접을 수 있는 오른쪽 사이드바와 하단 명령 바를 갖춘 격자 기반 캔버스입니다."
+      },
+      "components": {
+        "button": "무거운 배경 없이 미묘한 테두리나 아웃라인을 사용한 단순한 텍스트 기반 버튼입니다.",
+        "card": "얇은 테두리로 정의된 평평한 패널입니다.",
+        "chip": "'Tour · 1/5' 표시기와 같은 작은 둥근 라벨입니다.",
+        "input": "프롬프트 접두사가 있는 명령줄 스타일 입력입니다.",
+        "hero": "전체 화면 다크 격자 캔버스입니다."
+      },
+      "motion": {
+        "patterns": [
+          "툴팁 및 투어 요소의 미묘한 fade-in.",
+          "접을 수 있는 패널의 너비 전환."
+        ]
+      },
+      "interaction": {
+        "hover": "상호작용 텍스트 링크의 미묘한 색상 변화.",
+        "click": "무거운 스케일 변환 없이 즉각적인 피드백.",
+        "transition": "0.2초 동안의 색상 및 불투명도 전환.",
+        "keyboard": "터미널과 같은 바를 통한 명령 입력을 지원합니다."
+      },
+      "voice": {
+        "tone": "기술적이고 직접적이며 최소주의적입니다.",
+        "headlineStyle": "짧고 대문자로 된 메뉴 항목과 명령 설명.",
+        "ctaStyle": "단순한 텍스트 링크 또는 미묘하게 테두리가 있는 버튼.",
+        "avoid": [
+          "마케팅성 문구",
+          "강렬한 색상",
+          "장식적 요소"
+        ]
+      },
+      "donts": [
+        "화이트 배경을 사용하지 마세요 — 스크린샷은 딥 다크 그레이(#1e1e1e) 팔레트를 보여줍니다.",
+        "장식적 드롭 섀도우를 사용하지 마세요 — 스크린샷은 얇은 테두리로 정의된 평평한 표면을 보여줍니다.",
+        "다색 팔레트를 사용하지 마세요 — 스크린샷은 단일 틸 악센트가 있는 단색 체계를 보여줍니다.",
+        "크고 무거운 타이포그래피를 사용하지 마세요 — 스크린샷은 컴팩트하고 매우 읽기 쉬운 UI 텍스트를 보여줍니다.",
+        "복잡한 그래디언트를 사용하지 마세요 — 스크린샷은 단색 채우기와 간단한 격자 패턴을 보여줍니다.",
+        "모든 요소에 둥근 모서리를 사용하지 마세요 — 스크린샷은 주로 각지거나 매우 약간 둥근 모서리를 보여줍니다."
+      ],
+      "systemPrompt": "Tiny Volt는 정밀함과 유용성에 초점을 맞춘 다크 모드 기하학 도구 인터페이스입니다. 비전 언어는 딥 그레이 캔버스(#1e1e1e)에 단일 틸 악센트(#2dd4bf)와 단색 그레이 스케일로 정의됩니다. 타이포그래피는 UI를 위한 깔끔한 시스템 sans-serif 폰트와 브랜딩을 위한 기하학 sans에 의존합니다. 레이아웃은 오른쪽 사이드바와 하단 명령 바를 갖춘 격자 기반 작업 공간이 지배합니다. 핵심 제약 사항: 화이트 배경을 절대 사용하지 말고, 장식적 섀도우를 피하며, 여러 악센트 색상을 도입하지 마세요. 상호작용을 미묘하게 유지하고 인터페이스를 밀도 높으면서도 읽기 쉽게 유지하세요."
+    }
+  },
+  "desc": {
+    "en": {
+      "palette": "A monochromatic dark gray palette anchored by a deep canvas and highlighted by a single bright teal accent.",
+      "layout": "A functional tool interface with a full-screen grid workspace, a right sidebar for properties/commands, and a bottom command prompt bar.",
+      "interaction": "Minimalist and keyboard-focused, relying on command input and subtle hover states for interactivity.",
+      "motion": "Reserved and functional, with quick transitions for UI state changes like toggling sidebars or showing tooltips.",
+      "notes": "An excellent example of a developer-focused dark mode tool UI that prioritizes workspace real estate and functional clarity."
+    },
+    "zh-CN": {
+      "palette": "基于深邃画布的单色深灰色调，辅以单一亮青色点缀。",
+      "layout": "功能性工具界面，包含全屏网格工作区、右侧属性/命令侧边栏，以及底部命令提示栏。",
+      "interaction": "极简且注重键盘操作，依赖命令输入与细微的悬停状态实现交互。",
+      "motion": "克制且实用，侧边栏切换或工具提示显示等UI状态变化采用快速过渡。",
+      "notes": "一个出色的开发者向深色模式工具界面范例，优先保证工作区空间与功能清晰度。"
+    },
+    "zh-TW": {
+      "palette": "單色深灰色調，以深色畫布為基底，搭配單一亮色 teal 強調色。",
+      "layout": "功能性工具介面，包含全螢幕網格工作區、右側屬性/命令側欄，以及底部命令提示列。",
+      "interaction": "極簡且以鍵盤為主，依賴命令輸入與細微的 hover 狀態實現互動。",
+      "motion": "內斂且功能導向，為 UI 狀態變更（如切換側欄或顯示工具提示）提供快速過渡動畫。",
+      "notes": "一個優異的開發者導向深色模式工具 UI 範例，優先考量工作區空間與功能清晰度。"
+    },
+    "ja": {
+      "palette": "深みのあるキャンバスを基調とし、単一の鮮やかなティールアクセントで差をつけるモノクロのダークグレーパレット。",
+      "layout": "フルスクリーンのグリッドワークスペース、プロパティ/コマンド用の右サイドバー、ボトムのコマンドプロンプトバーを備えた、機能的なツールインターフェース。",
+      "interaction": "ミニマリストでキーボード中心。コマンド入力と微妙なhover状態でインタラクティビティを実現。",
+      "motion": "控えめで機能的。サイドバーのトグルやツールチップの表示など、UI状態変化に対する高速なトランジション。",
+      "notes": "ワークスペースの確保と機能的な明瞭さを優先した、開発者向けダークモードツールUIの優れた例。"
+    },
+    "ko": {
+      "palette": "딥 캔버스를 기반으로 한 단색 다크 그레이 팔레트에 단일 밝은 틸 악센트가 적용되어 있습니다.",
+      "layout": "전체 화면 격자 작업 공간, 속성/명령을 위한 오른쪽 사이드바, 그리고 하단 명령 프롬프트 바를 갖춘 기능적 도구 인터페이스입니다.",
+      "interaction": "최소주의적이고 키보드 중심으로, 명령 입력과 미묘한 hover 상태에 의존하여 상호작용을 구현합니다.",
+      "motion": "절제되고 기능적이며, 사이드바 토글이나 툴팁 표시와 같은 UI 상태 변경을 위한 빠른 전환을 사용합니다.",
+      "notes": "작업 공간의 실용성과 기능적 명확성을 우선시하는 개발자 중심 다크 모드 도구 UI의 훌륭한 예시입니다."
+    }
+  },
+  "narrative": {
+    "en": {
+      "ch1_intro": "Tinyvolt treats its interface as a precision geometry editor, where every element exists for function. The system is a dark-mode canvas built around command-line interaction, defined by geometric clarity and tool-like utility.",
+      "ch2_intro": "The color system is a monochromatic dark gray palette, anchored by a deep canvas and highlighted by a single bright teal accent for interactive highlights. This minimal scheme ensures the workspace remains neutral and focused, reserving color for functional purpose.",
+      "ch2_outro": "The single accent serves as a functional highlight, never a decorative element.",
+      "ch3_intro": "The typographic voice is technical and direct, pairing the clean legibility of a system sans-serif for UI elements with the geometric character of Space Grotesk for branding. This combination supports a dense, information-rich interface without sacrificing clarity.",
+      "ch4_intro": "The spatial rhythm is established on a strict 4px base unit, creating a tight, compact structure for dense tool interfaces.",
+      "ch5_intro": "Depth is communicated through minimal, functional borders rather than decorative shadows. Surfaces are flat panels defined by a thin, neutral border, maintaining a sharp, tool-like appearance.",
+      "ch6_intro": "The layout skeleton is a grid-based canvas designed for focused work, flanked by a collapsible right sidebar for properties and commands. A persistent bottom command bar anchors the interface, emphasizing its command-line-driven nature.",
+      "ch7_intro": "Motion philosophy is reserved and strictly functional, providing feedback for state changes rather than ornament. Transitions are quick, confined to width changes for collapsible panels and subtle fades for tooltips.",
+      "ch8_intro": "The editorial voice is technical, direct, and minimalist, mirroring the tool's purpose. Language is concise, using short, capitalized menu items and command descriptions.",
+      "ch8_outro": "The system deliberately avoids marketing fluff, loud colors, and decorative elements."
+    },
+    "zh-CN": {
+      "ch1_intro": "Tinyvolt 将其界面视为一个精确的几何编辑器，每个元素都服务于功能。该系统是一个围绕命令行交互构建的深色模式画布，其定义特征在于几何清晰度与工具般的实用性。",
+      "ch2_intro": "色彩系统采用单色深灰色板，以深邃画布为基底，并以单一的明亮青色作为交互高光点缀。这种极简配色确保了工作区保持中性与专注，将色彩保留给功能性用途。",
+      "ch2_outro": "单一强调色用作功能性高光，而非装饰性元素。",
+      "ch3_intro": "排版风格技术化且直接，将系统无衬线字体用于界面元素的清晰易读性，并与 Space Grotesk 的几何特性用于品牌标识相结合。这种组合支持信息密集型界面，同时不牺牲清晰度。",
+      "ch4_intro": "空间节奏基于严格的 4px 基础单位建立，为密集的工具界面创建出紧凑、精密的结构。",
+      "ch5_intro": "深度通过最小化、功能性的边框而非装饰性阴影来传达。界面由薄而中性的边框定义的平面面板构成，保持其锐利、工具般的外观。",
+      "ch6_intro": "布局骨架是一个专为专注工作设计的网格画布，其右侧配有一个可折叠的属性与命令侧边栏。底部的持久命令栏锚定了界面，强调其命令行驱动的本质。",
+      "ch7_intro": "动效理念克制且严格功能化，旨在为状态变化提供反馈而非装饰。过渡效果快速，限于可折叠面板的宽度变化和工具提示的细微淡入淡出。",
+      "ch8_intro": "编辑语调技术化、直接且极简，与工具的目的相符。语言简洁，使用大写的短菜单项和命令描述。",
+      "ch8_outro": "系统刻意避免营销套话、喧闹色彩与装饰性元素。"
+    },
+    "zh-TW": {
+      "ch1_intro": "Tinyvolt 將其介面視為精準的幾何編輯器，每個元素皆為功能而存在。這套系統是以指令列互動為核心的深色模式畫布，以幾何的清晰度與工具般的實用性為定義。",
+      "ch2_intro": "色彩系統採用單色深灰色調，以深邃的畫布為基底，並以單一鮮明的青綠色作為互動高亮強調。此極簡配色方案確保工作區保持中立且專注，將色彩保留給功能性用途。",
+      "ch2_outro": "單一的強調色僅作為功能性高亮，從不作為裝飾元素。",
+      "ch3_intro": "字型風格技術且直接，UI 元素採用清晰易讀的系統無襯線字型，而品牌識別則搭配具有幾何特性的 Space Grotesk。此組合支援資訊密集的介面，同時不犧牲清晰度。",
+      "ch4_intro": "空間節奏建立在嚴格的 4px 基礎單位上，為密集的工具介面創造緊湊、緊密的結構。",
+      "ch5_intro": "深度透過極簡的功能性邊框而非裝飾性陰影來傳達。表面是平坦的面板，由細薄的中性邊框界定，維持銳利、工具般的外觀。",
+      "ch6_intro": "版面骨架是專為專注工作設計的網格畫布，兩側配有可收合的右側邊欄，用於顯示屬性與指令。底部的持續性指令列則為介面提供錨點，強調其以指令列驅動的特性。",
+      "ch7_intro": "動態哲學內斂且嚴格功能化，提供狀態變化的回饋而非裝飾。過渡動畫快速，範圍限於可收合面板的寬度變化與工具提示的細微淡入淡出。",
+      "ch8_intro": "編輯風格技術、直接且極簡，反映工具的本質。語言簡潔，使用簡短、大寫的選單項目與指令描述。",
+      "ch8_outro": "系統刻意避免行銷術語、鮮豔色彩與裝飾性元素。"
+    },
+    "ja": {
+      "ch1_intro": "Tinyvoltは、インターフェースを精密なジオメトリーエディターとして扱い、すべての要素は機能のために存在します。コマンドライン操作を中心に構築されたダークモードのキャンバスシステムであり、幾何学的な明瞭さとツールとしての実用性で定義されています。",
+      "ch2_intro": "カラーシステムは、深いキャンバスを基盤とし、対話的なハイライトに単一の明るいティールアクセントを使用した、モノクロのダークグレーパレットです。この最小限のスキームは、ワークスペースを中立的かつ集中力の保たれた状態に保ち、色彩を機能的目的のみに限定します。",
+      "ch2_outro": "単一のアクセントは、装飾的な要素ではなく、機能的なハイライトとして機能します。",
+      "ch3_intro": "タイポグラフィのトーンは技術的かつ直接的で、UI要素にはシステムサンセリフの清潔な可読性を、ブランドリングにはSpace Groteskの幾何学的特質を組み合わせています。この組み合わせは、明瞭さを損なうことなく、情報密度の高いインターフェースを支えます。",
+      "ch4_intro": "空間のリズムは厳格な4pxの基本単位に基づいており、密集したツールインターフェース用の緊密でコンパクトな構造を生み出します。",
+      "ch5_intro": "奥行きは、装飾的なシャドウではなく、最小限の機能的なボーダーを通じて伝達されます。サーフェスは、細く中立的なボーダーで定義されたフラットパネルであり、鋭くツールらしい外観を維持します。",
+      "ch6_intro": "レイアウトのスケルトンは、集中した作業のために設計されたグリッドベースのキャンバスで、プロパティとコマンド用の折りたたみ可能な右サイドバーが両側に配置されています。永続的なボトムコマンドバーがインターフェースを固定し、コマンドライン駆動の本質を強調します。",
+      "ch7_intro": "モーションのフィロソフィーは控えめで厳密に機能的であり、装飾のためではなく、状態変化のフィードバックを提供します。トランジションは速く、折りたたみ可能なパネルの幅の変更とツールチップの微妙なフェードに限定されています。",
+      "ch8_intro": "エディトリアルのトーンは技術的、直接的、ミニマリストであり、ツールの目的を反映しています。言語は簡潔で、短く大文字のメニュー項目とコマンドの説明を使用します。",
+      "ch8_outro": "システムは、マーケティングの冗長表現、派手な色、装飾的な要素を意図的に避けています。"
+    },
+    "ko": {
+      "ch1_intro": "Tinyvolt는 인터페이스를 정밀 기하학 편집기로 취급하며, 모든 요소는 기능을 위해 존재합니다. 이 시스템은 명령줄 상호작용을 중심으로 구축된 다크모드 캔버스로, 기하학적 명확성과 도구적 효용성으로 정의됩니다.",
+      "ch2_intro": "컬러 시스템은 단색 다크 그레이 팔레트로, 깊은 캔버스를 기반으로 대화형 하이라이트를 위한 단일 밝은 틸 악센트로 강조됩니다. 이 미니멀한 색상 구성은 작업 공간이 중립적이고 집중적으로 유지되도록 보장하며, 색상을 기능적 목적에만 사용합니다.",
+      "ch2_outro": "단일 악센트는 장식적 요소가 아닌 기능적 하이라이트로 사용됩니다.",
+      "ch3_intro": "타이포그래피 음성은 기술적이고 직접적이며, UI 요소를 위한 시스템 고딕의 깔끔한 가독성과 브랜딩을 위한 Space Grotesk의 기하학적 특성을 결합합니다. 이 조합은 명확성을 희생하지 않으면서 밀도 높고 정보가 풍부한 인터페이스를 지원합니다.",
+      "ch4_intro": "공간 리듬은 엄격한 4px 기본 단위를 기반으로 확립되어, 밀도 높은 도구 인터페이스를 위한 타이트하고 컴팩트한 구조를 만듭니다.",
+      "ch5_intro": "깊이는 장식적인 그림자보다는 미니멀하고 기능적인 테두리를 통해 전달됩니다. 표면은 가늘고 중립적인 테두리로 정의된 평면 패널로, 날렵하고 도구 같은 외관을 유지합니다.",
+      "ch6_intro": "레이아웃 스켈레톤은 집중 작업을 위해 설계된 그리드 기반 캔버스로, 속성과 명령을 위한 접을 수 있는 오른쪽 사이드바가 양쪽에 배치됩니다. 하단의 지속적인 명령줄은 인터페이스를 고정하며, 명령줄 중심의 특성을 강조합니다.",
+      "ch7_intro": "모션 철학은 절제되고 엄격하게 기능적이어서, 장식이 아닌 상태 변경에 대한 피드백을 제공합니다. 전환은 빠르며, 접을 수 있는 패널의 너비 변화와 툴팁의 미세한 페이드인에 국한됩니다.",
+      "ch8_intro": "에디토리얼 음성은 기술적이고 직접적이며 미니멀하여 도구의 목적을 반영합니다. 언어는 간결하며, 짧고 대문자화된 메뉴 항목과 명령 설명을 사용합니다.",
+      "ch8_outro": "시스템은 의도적으로 마케팅 허세, 화려한 색상 및 장식적 요소를 피합니다."
+    }
+  }
+}

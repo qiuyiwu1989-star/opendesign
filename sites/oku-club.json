@@ -1,0 +1,642 @@
+{
+  "id": "oku-club",
+  "schema_version": "0.3",
+  "url": "https://oku.club",
+  "title": "Oku Club",
+  "image": "https://image.thum.io/get/width/1440/noanimate/https://oku.club",
+  "tags": [
+    "Books",
+    "Mobile UI",
+    "Clean",
+    "Editorial",
+    "Calm"
+  ],
+  "status": "completed",
+  "added_at": "2026-06-21",
+  "added_by": "discover",
+  "_meta": {
+    "vision_model": "mimo-v2.5",
+    "vision_prompt_version": "0.3",
+    "vision_source": "playwright-extract:oku-club",
+    "vision_grounded": true,
+    "vision_at": "2026-06-21T04:27:51+00:00",
+    "vision_tokens": 16928,
+    "vision_cost_usd": 0.1881,
+    "last_error": "Expecting ',' delimiter: line 90 column 5 (char 2643)",
+    "translation_model": "mimo-v2.5",
+    "translation_at": "2026-07-15T04:06:18+00:00",
+    "translation_tokens": 17036,
+    "translation_cost_usd": 0.0567,
+    "narrative_model": "mimo-v2.5",
+    "narrative_prompt_version": "0.3",
+    "narrative_at": "2026-07-15T04:06:25+00:00",
+    "narrative_tokens": 2404,
+    "narrative_cost_usd": 0.016,
+    "narrative_status": "ok",
+    "total_cost_usd": 0.2608
+  },
+  "spec": {
+    "colors": {
+      "bg": "#FFFFFF",
+      "bgSoft": "#FAFAFB",
+      "bgQuiet": "#E8E8E9",
+      "ink": "#131314",
+      "inkSoft": "#46474E",
+      "muted": "#8C8C90",
+      "mutedSoft": null,
+      "accent": null,
+      "line": "rgba(19,19,20,0.22)"
+    },
+    "typography": {
+      "display": "transitional-serif",
+      "body": "humanist-sans",
+      "mono": null,
+      "scale": [
+        {
+          "token": "display",
+          "size": 56,
+          "lh": 1.05,
+          "weight": 400,
+          "ls": "-0.5px"
+        },
+        {
+          "token": "h2",
+          "size": 36,
+          "lh": 1.2,
+          "weight": 400,
+          "ls": "0"
+        },
+        {
+          "token": "body",
+          "size": 16,
+          "lh": 1.6,
+          "weight": 400,
+          "ls": "0"
+        },
+        {
+          "token": "caption",
+          "size": 12,
+          "lh": 1.5,
+          "weight": 400,
+          "ls": "0"
+        }
+      ]
+    },
+    "spacing": {
+      "base": 4,
+      "scale": [
+        4,
+        8,
+        12,
+        16,
+        24,
+        32,
+        48,
+        64,
+        96
+      ]
+    },
+    "surfaces": {
+      "radius": {
+        "sm": 3,
+        "md": 8,
+        "lg": 12,
+        "pill": 999
+      }
+    },
+    "layout": {
+      "container": 1280,
+      "paragraph": 680,
+      "columns": 12,
+      "gutter": 24,
+      "breakpoints": [
+        768,
+        1024
+      ]
+    },
+    "motion": {
+      "durations": {
+        "micro": 150,
+        "small": 300,
+        "medium": 600
+      },
+      "easing": "cubic-bezier(0.23, 1, 0.32, 1)"
+    }
+  },
+  "spec_i18n": {
+    "en": {
+      "identity": {
+        "keywords": [
+          "books",
+          "reading",
+          "library",
+          "minimal",
+          "companion"
+        ],
+        "analogy": "A serene, scholarly library with a modern, digital edge.",
+        "oneLiner": "A clean, minimal companion app for tracking and organizing your reading life."
+      },
+      "colors": {
+        "principle": "High-contrast monochromatic palette using black and white for clarity, with a soft neutral background for subtle depth."
+      },
+      "typography": {
+        "rules": [
+          "Use transitional serif for major headlines to convey a literary, refined tone.",
+          "Use humanist sans-serif for body text and UI elements to ensure readability and approachability.",
+          "Maintain a clear typographic hierarchy with generous spacing between headlines and body text."
+        ],
+        "scaleUses": [
+          "Hero headlines",
+          "Section headlines",
+          "Body text",
+          "Small labels and metadata"
+        ]
+      },
+      "spacing": {
+        "rhythm": "A consistent 4px base grid with generous vertical and horizontal spacing to create an open, breathable layout."
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(0, 0, 0, 0.08) 0px 6px 8px 0px",
+          "rgba(0, 0, 0, 0.06) 0px 12px 16px 0px",
+          "rgba(0, 0, 0, 0.04) 0px 33px 45px 0px"
+        ],
+        "borders": "1px solid rgba(19,19,20,0.22)"
+      },
+      "layout": {
+        "skeleton": "A centered, single-column layout for content with generous horizontal padding and a max-width container to control line lengths."
+      },
+      "components": {
+        "button": "Black filled buttons with white text and small rounded corners (3px), or white outlined buttons with black text.",
+        "card": "Clean cards with subtle shadows and small rounded corners (8px), often displaying content like book lists or tweets.",
+        "chip": "Small, outlined chips with rounded corners (3px) used for tags like 'Easy to read' or 'Funny'.",
+        "input": "Minimal text inputs with a bottom border or subtle outline.",
+        "hero": "A split layout with a large serif headline and call-to-action on the left, and a whimsical black-and-white illustration on the right."
+      },
+      "motion": {
+        "patterns": [
+          "Smooth, ease-out transitions for hover and focus states on buttons and links.",
+          "Subtle fade-in or slide-up animations for content sections as they enter the viewport."
+        ]
+      },
+      "interaction": {
+        "hover": "Subtle color change or opacity shift on interactive elements like buttons and links.",
+        "click": "A slight scale-down or immediate feedback upon clicking primary action buttons.",
+        "transition": "All interactive states use a consistent 0.3s cubic-bezier(0.23, 1, 0.32, 1) transition for a smooth, refined feel.",
+        "keyboard": "Standard focus ring or outline for keyboard navigation accessibility."
+      },
+      "voice": {
+        "tone": "Calm, inviting, and literate, positioning the app as a helpful companion for a personal journey.",
+        "headlineStyle": "Short, evocative, and personal phrases that speak directly to the reader's experience.",
+        "ctaStyle": "Direct and benefit-oriented, such as 'Join for free'.",
+        "avoid": [
+          "Avoid overly casual slang or jargon that detracts from the refined, scholarly tone.",
+          "Avoid aggressive or high-pressure sales language.",
+          "Avoid cluttering the interface with unnecessary text or complex instructions.",
+          "Avoid bright, saturated, or neon colors that clash with the serene, monochromatic palette.",
+          "Avoid overly complex animations or transitions that distract from the reading focus."
+        ]
+      },
+      "donts": [
+        "Don't use a bright, saturated accent color — the screenshot shows a strictly monochromatic black, white, and gray palette.",
+        "Don't use a geometric sans-serif for headlines — the screenshot uses a transitional serif for major headlines.",
+        "Don't use heavy drop shadows or 3D effects — the screenshot shows only subtle, soft box shadows for elevation.",
+        "Don't use rounded corners on everything — the screenshot shows small radius (3px) on buttons and chips, not large or pill shapes everywhere.",
+        "Don't use a dark mode interface — the screenshot shows a predominantly light, white-based design.",
+        "Don't use complex, multi-column grids for the hero section — the screenshot shows a simple two-column split."
+      ],
+      "systemPrompt": "Oku is a minimalist companion app for book lovers, designed with a calm, editorial aesthetic. The design language is refined and literary, relying on a high-contrast, monochromatic palette of black (#131314) and white (#FFFFFF) with soft neutral grays (#E8E8E9, #FAFAFB) for subtle background separation. Typography uses a clear hierarchy: a transitional serif font for headlines to evoke a classic bookish feel, paired with a clean humanist sans-serif for body text to ensure readability and modern UI clarity. Layouts are spacious, centered, and breathe with generous white space, prioritizing focus on content. Critical design constraints: never use bright or saturated accent colors, avoid geometric sans-serif fonts for headlines, and ensure all UI elements like buttons and chips use small, consistent border-radius (3px-8px) rather than large rounded shapes. The voice is personal, inviting, and literate, avoiding jargon and high-pressure language."
+    },
+    "zh-CN": {
+      "identity": {
+        "keywords": [
+          "书籍",
+          "阅读",
+          "图书馆",
+          "极简",
+          "伴侣"
+        ],
+        "analogy": "一座宁静的学术图书馆，兼具现代数字气质。",
+        "oneLiner": "一款简洁、极简的阅读伴侣应用，用于追踪与管理你的阅读生活。"
+      },
+      "colors": {
+        "principle": "采用黑白高对比度单色系配色以确保清晰度，搭配柔和的中性背景色以营造微妙的层次感。"
+      },
+      "typography": {
+        "rules": [
+          "主要标题使用过渡衬线字体，传达文学、精致的语调。",
+          "正文与界面元素使用人文主义无衬线字体，确保可读性与亲和力。",
+          "通过标题与正文间充足的间距，建立清晰的排版层级。"
+        ],
+        "scaleUses": [
+          "首屏大标题",
+          "章节标题",
+          "正文",
+          "小标签与元数据"
+        ]
+      },
+      "spacing": {
+        "rhythm": "采用一致的 4px 基础网格，搭配充足的垂直与水平间距，打造开阔、通透的布局。"
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(0, 0, 0, 0.08) 0px 6px 8px 0px",
+          "rgba(0, 0, 0, 0.06) 0px 12px 16px 0px",
+          "rgba(0, 0, 0, 0.04) 0px 33px 45px 0px"
+        ],
+        "borders": "1px solid rgba(19,19,20,0.22)"
+      },
+      "layout": {
+        "skeleton": "采用居中单列布局用于内容展示，搭配充足的水平内边距与最大宽度容器以控制文本行宽。"
+      },
+      "components": {
+        "button": "黑色填充按钮配白色文字与小圆角（3px），或白色描边按钮配黑色文字。",
+        "card": "简洁的卡片，带有柔和阴影与小圆角（8px），常用于展示书单或推文等内容。",
+        "chip": "小型描边标签，带有圆角（3px），用于“轻松阅读”或“有趣”等分类标签。",
+        "input": "极简的文本输入框，采用底部边框或柔和描边样式。",
+        "hero": "采用分割布局：左侧为大型衬线标题与行动号召，右侧为趣味性黑白插图。"
+      },
+      "motion": {
+        "patterns": [
+          "按钮与链接的 hover 和 focus 状态采用平滑的 ease-out 过渡。",
+          "内容区块进入视口时采用柔和的淡入或上滑动画。"
+        ]
+      },
+      "interaction": {
+        "hover": "按钮、链接等交互元素在 hover 时发生细微的颜色或透明度变化。",
+        "click": "主要操作按钮点击时略微缩小或提供即时反馈。",
+        "transition": "所有交互状态统一采用 0.3s cubic-bezier(0.23, 1, 0.32, 1) 过渡，营造流畅精致的体验。",
+        "keyboard": "为键盘导航的可访问性提供标准的聚焦环或轮廓。"
+      },
+      "voice": {
+        "tone": "平静、亲切且富有文采，将应用定位为个人阅读旅程的得力伴侣。",
+        "headlineStyle": "使用简短、唤起共鸣且个人化的短语，直接与读者体验对话。",
+        "ctaStyle": "直接且注重利益点，例如“免费加入”。",
+        "avoid": [
+          "避免使用过于随意的俚语或行话，以免削弱精致、学术的语调。",
+          "避免使用激进或高压的推销语言。",
+          "避免在界面上堆砌不必要的文字或复杂的说明。",
+          "避免使用与宁静单色调相冲突的明亮、饱和或霓虹色。",
+          "避免使用过于复杂或分散阅读注意力的动画与过渡效果。"
+        ]
+      },
+      "donts": [
+        "不要使用明亮、饱和的强调色——截图显示的是严格的黑白灰单色配色。",
+        "不要使用几何无衬线字体作为标题——截图中主要标题使用的是过渡衬线字体。",
+        "不要使用厚重的投影或 3D 效果——截图中仅使用了用于体现层次感的柔和、轻微阴影。",
+        "不要在所有元素上都使用大圆角——截图中按钮和标签使用小半径（3px），而非普遍的大圆角或药丸形状。",
+        "不要使用深色模式界面——截图显示的是以浅色、白色为主的设计。",
+        "不要在首屏区域使用复杂的多栏网格——截图中采用的是简单的双栏分割布局。"
+      ],
+      "systemPrompt": "Oku 是一款为书籍爱好者设计的极简主义伴侣应用，采用平静、具有编辑感的美学风格。设计语言精致且富有文学气息，采用黑白高对比度单色系配色（黑色 #131314，白色 #FFFFFF），搭配柔和的中性灰（#E8E8E9，#FAFAFB）以实现微妙的背景层次。排版层级清晰：标题使用过渡衬线字体以唤起经典书卷气，搭配简洁的人文主义无衬线字体用于正文，确保可读性与现代界面清晰度。布局开阔、居中，通过充足的留白营造呼吸感，优先聚焦于内容。关键设计约束：切勿使用明亮或饱和的强调色，避免标题使用几何无衬线字体，所有按钮、标签等界面元素应采用小而一致的圆角（3px-8px），而非普遍的大圆角造型。语气个人化、亲切且富有文采，避免使用行话和高压推销语言。"
+    },
+    "zh-TW": {
+      "identity": {
+        "keywords": [
+          "書籍",
+          "閱讀",
+          "圖書館",
+          "極簡",
+          "伴侶"
+        ],
+        "analogy": "一座寧靜、充滿學術氣息的圖書館，並帶有現代、數位的邊緣。",
+        "oneLiner": "一款簡潔、極簡的伴侶應用程式，用於追蹤與整理您的閱讀生活。"
+      },
+      "colors": {
+        "principle": "高對比的單色調色盤，運用黑與白以達成清晰度，並搭配柔和的中性背景以增添細微的深度感。"
+      },
+      "typography": {
+        "rules": [
+          "主要標題使用過渡襯線字體，以傳達文學、精緻的語調。",
+          "內文與 UI 元素使用人文無襯線字體，以確保可讀性與親和力。",
+          "維持清晰的排版層級，並在標題與內文之間保留充足的間距。"
+        ],
+        "scaleUses": [
+          "主視覺標題",
+          "段落標題",
+          "內文",
+          "小型標籤與後設資料"
+        ]
+      },
+      "spacing": {
+        "rhythm": "一致的 4px 基礎網格，搭配寬裕的垂直與水平間距，創造開放、透氣的版面。"
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(0, 0, 0, 0.08) 0px 6px 8px 0px",
+          "rgba(0, 0, 0, 0.06) 0px 12px 16px 0px",
+          "rgba(0, 0, 0, 0.04) 0px 33px 45px 0px"
+        ],
+        "borders": "1px solid rgba(19,19,20,0.22)"
+      },
+      "layout": {
+        "skeleton": "內容採用置中的單欄版面，搭配寬裕的水平內邊距與最大寬度容器，以控制行長。"
+      },
+      "components": {
+        "button": "黑色填充按鈕搭配白色文字與小型圓角（3px），或白色外框按鈕搭配黑色文字。",
+        "card": "簡潔的卡片，帶有細微陰影與小型圓角（8px），常用於顯示如書單或推文等內容。",
+        "chip": "小型、外框的標籤，帶有圓角（3px），用於標記如「易讀」或「有趣」等標籤。",
+        "input": "極簡的文字輸入框，帶有底邊框或細微外框。",
+        "hero": "分割版面，左側為大型襯線標題與行動呼籲，右側為一幅奇思妙想的黑白插圖。"
+      },
+      "motion": {
+        "patterns": [
+          "按鈕與連結在 hover 與 focus 狀態時，採用流暢的 ease-out 過渡效果。",
+          "內容區段進入視野時，採用細微的淡入或向上滑動動畫。"
+        ]
+      },
+      "interaction": {
+        "hover": "互動元素如按鈕與連結在 hover 時，會有細微的色彩變化或透明度轉移。",
+        "click": "點擊主要行動按鈕時，會有輕微的縮小或即時回饋。",
+        "transition": "所有互動狀態均使用一致的 0.3s cubic-bezier(0.23, 1, 0.32, 1) 過渡效果，以營造流暢、精緻的感受。",
+        "keyboard": "標準的焦點環或外框，用於鍵盤導覽的無障礙功能。"
+      },
+      "voice": {
+        "tone": "平靜、友善且富有學識氣息，將應用程式定位為個人旅程中的得力夥伴。",
+        "headlineStyle": "簡短、引人共鳴且個人化的短語，直接與讀者的體驗對話。",
+        "ctaStyle": "直接且以利益為導向，例如「免費加入」。",
+        "avoid": [
+          "避免使用過於隨意的俚語或術語，以免削弱精緻、學術的語調。",
+          "避免使用具侵略性或高壓的銷售語言。",
+          "避免在介面上堆砌不必要的文字或複雜說明。",
+          "避免使用與寧靜、單色調色盤衝突的明亮、飽和或霓虹色彩。",
+          "避免使用過於複雜的動畫或過渡效果，以免分散閱讀的專注力。"
+        ]
+      },
+      "donts": [
+        "不要使用明亮、飽和的強調色——截圖中顯示的是嚴格的黑、白、灰單色調色盤。",
+        "不要在標題中使用幾何無襯線字體——截圖中在主要標題使用了過渡襯線字體。",
+        "不要使用厚重的陰影或 3D 效果——截圖中僅顯示細微、柔和的盒狀陰影以營造層次。",
+        "不要在所有地方都使用圓角——截圖中在按鈕與標籤上使用小圓角（3px），而非到處使用大型或膠囊形狀。",
+        "不要使用深色模式介面——截圖中顯示的是以淺色、白色為主的設計。",
+        "不要在主視覺區域使用複雜、多欄的網格——截圖中顯示的是簡單的雙欄分割。"
+      ],
+      "systemPrompt": "Oku 是一款為書籍愛好者設計的極簡主義伴侶應用程式，採用平靜、編輯風格的美學。其設計語言精緻且具文學氣息，依賴高對比的單色調色盤，包含黑色（#131314）與白色（#FFFFFF），並搭配柔和的中性灰色（#E8E8E9、#FAFAFB）以創造細微的背景層次。排版運用清晰的層級：主要標題使用過渡襯線字體以喚起經典的書卷氣息，內文則搭配簡潔的人文無襯線字體以確保可讀性與現代 UI 的清晰度。版面寬敞、置中，並透過寬裕的留白讓內容得以呼吸，優先聚焦於內容。關鍵設計限制：絕不使用明亮或飽和的強調色，避免在標題中使用幾何無襯線字體，並確保所有 UI 元素如按鈕與標籤均使用小而一致的邊框圓角（3px-8px），而非大型圓形。其語調個人化、友善且富有學識氣息，避免使用術語與高壓語言。"
+    },
+    "ja": {
+      "identity": {
+        "keywords": [
+          "本",
+          "読書",
+          "図書館",
+          "ミニマル",
+          "コンパニオン"
+        ],
+        "analogy": "モダンでデジタルな要素を備えた、静謐な学術図書館。",
+        "oneLiner": "読書ライフを追跡・整理するための、クリーンでミニマルなコンパニオンアプリ。"
+      },
+      "colors": {
+        "principle": "明確さのために黒と白を使用した高コントラストの単色パレットと、微細な奥行きを出すための柔らかい中性色の背景を採用します。"
+      },
+      "typography": {
+        "rules": [
+          "主要見出しにはトランジショナルセリフを採用し、文学的で洗練されたトーンを伝えます。",
+          "本文テキストとUI要素にはヒューマニストサンセリフを採用し、可読性と親しみやすさを確保します。",
+          "見出しと本文テキストの間には十分なスペースを設け、明確なタイポグラフィ階層を維持します。"
+        ],
+        "scaleUses": [
+          "ヒーロー見出し",
+          "セクション見出し",
+          "本文テキスト",
+          "小ラベルとメタデータ"
+        ]
+      },
+      "spacing": {
+        "rhythm": "一貫した4pxベースグリッドと、縦横にたっぷりとした余白を設け、開放的で呼吸のできるレイアウトを実現します。"
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(0, 0, 0, 0.08) 0px 6px 8px 0px",
+          "rgba(0, 0, 0, 0.06) 0px 12px 16px 0px",
+          "rgba(0, 0, 0, 0.04) 0px 33px 45px 0px"
+        ],
+        "borders": "1px solid rgba(19,19,20,0.22)"
+      },
+      "layout": {
+        "skeleton": "コンテンツには中央揃えの単一カラムレイアウトを採用し、十分な横パディングと行長を制御する最大幅コンテナを設けます。"
+      },
+      "components": {
+        "button": "白文字で角丸(3px)の黒塗りボタン、または黒文字の白縁ボタン。",
+        "card": "微細なシャドウと角丸(8px)を持つクリーンなカード。書籍リストやツイートなど、コンテンツを表示します。",
+        "chip": "角丸(3px)の縁取り付きの小さなチップ。「読みやすい」「面白い」などのタグに使用します。",
+        "input": "下ボーダーまたは微細な縁取りを持つ、ミニマルなテキスト入力フィールド。",
+        "hero": "左側に大きなセリフ見出しとCTA、右側に風変わりな白黒イラストを配置した分割レイアウト。"
+      },
+      "motion": {
+        "patterns": [
+          "ボタンやリンクのhover・focus状態における、滑らかなease-outトランジション。",
+          "ビューポートに入った際の、コンテンツセクションの微細なフェードインまたはスライドアップアニメーション。"
+        ]
+      },
+      "interaction": {
+        "hover": "ボタンやリンクなどのインタラクティブ要素における、微細な色の変化や透明度の変化。",
+        "click": "プライマリアクションボタンをクリックした際の、わずかなスケールダウンや即座のフィードバック。",
+        "transition": "すべてのインタラクティブ状態で、滑らかで洗練された印象のための統一された0.3s cubic-bezier(0.23, 1, 0.32, 1)トランジションを採用します。",
+        "keyboard": "キーボードナビゲーションのアクセシビリティのための、標準的なフォーカスリングまたはアウトライン。"
+      },
+      "voice": {
+        "tone": "落ち着いた、歓迎する、学識のあるトーンで、アプリを個人の旅路を支える有益なコンパニオンとして位置付けます。",
+        "headlineStyle": "読者自身の経験に直接語りかける、簡潔で想起を喚起する、パーソナルなフレーズ。",
+        "ctaStyle": "「無料で参加」など、直接的でメリット重視の表現。",
+        "avoid": [
+          "洗練された学術的なトーンを損なう、過度にカジュアルなスラングや専門用語を避ける。",
+          "攻撃的またはハイプレッシャーな販売言語を避ける。",
+          "不必要なテキストや複雑な指示でインタフェースを雑然とさせるのを避ける。",
+          "落ち着いた単色パレットにそぐわない、明るく鮮やかまたはネオン色を避ける。",
+          "読書への集中力を損なう、過度に複雑なアニメーションやトランジションを避ける。"
+        ]
+      },
+      "donts": [
+        "明るく鮮やかなアクセントカラーを使用しない — スクリーンショットは厳格に黒、白、グレーの単色パレットのみを示しています。",
+        "主要見出しにジオメトリックサンセリフを使用しない — スクリーンショットは主要見出しにトランジショナルセリフを使用しています。",
+        "重いドロップシャドウや3D効果を使用しない — スクリーンショットは隆起感を出すために微細で柔らかいボックスシャドウのみを示しています。",
+        "すべての要素に角丸を使用しない — スクリーンショットはボタンやチップに小半径(3px)を使用し、 everywhere large 丸みを帯びた形状ではありません。",
+        "ダークモードインタフェースを使用しない — スクリーンショットは主に明るく白を基調としたデザインを示しています。",
+        "ヒーローセクションに複雑な複数カラムグリッドを使用しない — スクリーンショットはシンプルな二カラム分割を示しています。"
+      ],
+      "systemPrompt": "奥は読書家向けのミニマルなコンパニオンアプリであり、落ち着いたエディトリアルな美学をもってデザインされています。デザイン言語は洗練され文学的であり、黒(#131314)と白(#FFFFFF)の高コントラストな単色パレットと、微細な背景分離のための柔らかい中性色グレー(#E8E8E9, #FAFAFB)に依拠します。タイポグラフィは明確な階層を使用します。古典的な書物っぽい雰囲気を喚起するトランジショナルセリフフォントを見出しに、可読性とモダンなUIの明瞭さを確保するクリーンなヒューマニストサンセリフフォントを本文に採用します。レイアウトはゆったりとし、中央揃えで、余白をたっぷりと確保し、コンテンツへの集中を優先します。重要なデザイン制約：明るく鮮やかなアクセントカラーは絶対に使用せず、見出しにジオメトリックサンセリフフォントは使用せず、ボタンやチップなどのすべてのUI要素には、大きい丸みを帯びた形状ではなく、小一貫したボーダーラジウス(3px-8px)を採用します。声は個人的で歓迎的で学識があり、専門用語やハイプレッシャーな言語を避けています。"
+    },
+    "ko": {
+      "identity": {
+        "keywords": [
+          "도서",
+          "독서",
+          "도서관",
+          "미니멀",
+          "동반자"
+        ],
+        "analogy": "현대적이고 디지털적인 감각이 더해진 고요한 학술적 도서관.",
+        "oneLiner": "독서 생활을 추적하고 정리하는 데 사용하는 깔끔하고 미니멀한 동반자 앱입니다."
+      },
+      "colors": {
+        "principle": "흑백을 사용하여 명확성을 확보하는 고대비 단색 팔레트를 사용하며, 부드러운 중립적 배경으로 미묘한 깊이감을 더합니다."
+      },
+      "typography": {
+        "rules": [
+          "주요 헤드라인에는 문학적이고 세련된 톤을 전달하기 위해 트랜지셔널 세리프를 사용합니다.",
+          "본문 텍스트와 UI 요소에는 가독성과 접근성을 보장하기 위해 휴머니스트 산세리프를 사용합니다.",
+          "헤드라인과 본문 텍스트 사이에 충분한 간격을 두어 명확한 타이포그래피 계층을 유지합니다."
+        ],
+        "scaleUses": [
+          "히어로 헤드라인",
+          "섹션 헤드라인",
+          "본문 텍스트",
+          "작은 레이블 및 메타데이터"
+        ]
+      },
+      "spacing": {
+        "rhythm": "일관된 4px 기본 그리드를 사용하며, 수직 및 수평 방향으로 충분한 간격을 두어 개방적이고 숨통이 트이는 레이아웃을 만듭니다."
+      },
+      "surfaces": {
+        "shadows": [
+          "rgba(0, 0, 0, 0.08) 0px 6px 8px 0px",
+          "rgba(0, 0, 0, 0.06) 0px 12px 16px 0px",
+          "rgba(0, 0, 0, 0.04) 0px 33px 45px 0px"
+        ],
+        "borders": "1px solid rgba(19,19,20,0.22)"
+      },
+      "layout": {
+        "skeleton": "콘텐츠용 중앙 정렬 단일 컬럼 레이아웃으로, 충분한 수평 패딩과 최대 너비 컨테이너를 사용하여 줄 길이를 제어합니다."
+      },
+      "components": {
+        "button": "흰색 텍스트와 작은 둥근 모서리(3px)가 있는 검정색 채우기 버튼, 또는 검정색 텍스트가 있는 흰색 테두리 버튼입니다.",
+        "card": "미묘한 그림자와 작은 둥근 모서리(8px)가 있는 깔끔한 카드로, 도서 목록이나 트윗과 같은 콘텐츠를 표시합니다.",
+        "chip": "'읽기 쉬움'이나 '재미있음'과 같은 태그에 사용되는, 작은 둥근 모서리(3px)의 아웃라인 칩입니다.",
+        "input": "하단 테두리 또는 미묘한 윤곽선이 있는 미니멀한 텍스트 입력 필드입니다.",
+        "hero": "왼쪽에는 큰 세리프 헤드라인과 행동 유도 요소(CTA), 오른쪽에는 환상적인 흑백 일러스트가 있는 분리형 레이아웃입니다."
+      },
+      "motion": {
+        "patterns": [
+          "버튼과 링크의 호버 및 포커스 상태에 대한 부드러운 ease-out 전환.",
+          "콘텐츠 섹션이 뷰포트에 진입할 때의 미묘한 페이드인 또는 슬라이드업 애니메이션."
+        ]
+      },
+      "interaction": {
+        "hover": "버튼이나 링크와 같은 대화형 요소에 대한 미묘한 색상 변화 또는 불투명도 변화.",
+        "click": "주요 행동 버튼을 클릭할 때 약간의 축소 또는 즉각적인 피드백.",
+        "transition": "모든 대화형 상태는 매끄럽고 세련된 느낌을 위해 일관된 0.3s cubic-bezier(0.23, 1, 0.32, 1) 전환을 사용합니다.",
+        "keyboard": "키보드 네비게이션 접근성을 위한 표준 포커스 링 또는 윤곽선."
+      },
+      "voice": {
+        "tone": "차분하고 초대하며 문학적인 어조로, 이 앱을 개인적인 여정에 도움이 되는 동반자로 포지셔닝합니다.",
+        "headlineStyle": "독자의 경험에 직접적으로 말을 건네는 짧고 감각적이며 개인적인 구절.",
+        "ctaStyle": "예: '무료로 가입하세요'와 같이 직접적이고 이점을 강조하는 스타일.",
+        "avoid": [
+          "세련되고 학술적인 톤을 해치는 지나치게 캐주얼한 은어나 전문 용어를 피합니다.",
+          "공격적이거나 고압적인 판매 언어를 피합니다.",
+          "불필요한 텍스트나 복잡한 지침으로 인터페이스를 어지럽히지 않습니다.",
+          "고요한 단색 팔레트와 맞지 않는 밝고 채도 높거나 네온 색상을 피합니다.",
+          "독서에 집중하는 것을 방해하는 지나치게 복잡한 애니메이션이나 전환 효과를 피합니다."
+        ]
+      },
+      "donts": [
+        "밝고 채도 높은 강조색을 사용하지 마세요 — 스크린샷은 철저한 단색 흑백 및 회색 팔레트를 보여줍니다.",
+        "헤드라인에 기하학적 산세리프를 사용하지 마세요 — 스크린샷은 주요 헤드라인에 트랜지셔널 세리프를 사용합니다.",
+        "무거운 드롭 섀도우나 3D 효과를 사용하지 마세요 — 스크린샷은 높이감을 위해 미묘하고 부드러운 상자 그림자만 보여줍니다.",
+        "모든 곳에 둥근 모서리를 사용하지 마세요 — 스크린샷은 모든 곳에서 크거나 약 모양이 아닌 버튼과 칩에 작은 반경(3px)을 보여줍니다.",
+        "다크 모드 인터페이스를 사용하지 마세요 — 스크린샷은 주로 밝고 흰색 기반의 디자인을 보여줍니다.",
+        "히어로 섹션에 복잡한 다중 컬럼 그리드를 사용하지 마세요 — 스크린샷은 간단한 2단 분리형을 보여줍니다."
+      ],
+      "systemPrompt": "Oku는 독서를 사랑하는 사람들을 위한 미니멀한 동반자 앱으로, 차분하고 편집적인 미학으로 설계되었습니다. 디자인 언어는 세련되고 문학적이며, 배경 분리를 위해 부드러운 중립적 회색(#E8E8E9, #FAFAFB)을 사용한 고대비 단색 팔레트, 즉 검정(#131314)과 흰색(#FFFFFF)에 크게 의존합니다. 타이포그래피는 명확한 계층을 사용합니다. 클래식한 책 느낌을 불러일으키는 트랜지셔널 세리프 폰트를 헤드라인에, 가독성과 현대적인 UI 명확성을 보장하는 깔끔한 휴머니스트 산세리프를 본문에 사용합니다. 레이아웃은 넓고 중앙 정렬되어 있으며 풍부한 여백으로 숨을 쉬게 하여 콘텐츠에 대한 집중을 우선시합니다. 핵심 디자인 제약 조건: 밝거나 채도 높은 강조색을 절대 사용하지 마세요; 헤드라인에 기하학적 산세리프 폰트를 사용하지 마세요; 버튼과 칩을 포함한 모든 UI 요소는 크고 둥근 모양이 아닌 작은 일관된 border-radius(3px-8px)를 사용하도록 하세요. 어조는 개인적이며 초대적이고 문학적이어야 하며, 전문 용어와 고압적인 언어를 피합니다."
+    }
+  },
+  "desc": {
+    "en": {
+      "palette": "A strictly monochromatic palette using black, white, and soft grays to create a refined, high-contrast, and literary feel.",
+      "layout": "A clean, single-column, centered layout with generous white space and a two-column split hero to balance text and illustration.",
+      "interaction": "Subtle, smooth transitions on interactive elements using a custom cubic-bezier easing for a refined, polished feel.",
+      "motion": "Gentle fade and slide animations for content entry, maintaining a calm and unhurried user experience.",
+      "notes": "This site is a perfect example of a minimalist, editorial design system that uses typography and illustration to create a distinct, calm brand identity."
+    },
+    "zh-CN": {
+      "palette": "严格采用黑、白及柔和灰度的单色系配色，营造精致、高对比度且富有文学气息的视觉感受。",
+      "layout": "采用简洁的单列居中布局，搭配充足的留白，并通过双栏分割的首屏区域来平衡文本与插图。",
+      "interaction": "为交互元素提供细腻平滑的过渡效果，使用定制的 cubic-bezier 缓动曲线，营造精致考究的质感。",
+      "motion": "内容入场时采用轻柔的淡入与滑动动画，保持平静从容的用户体验。",
+      "notes": "该网站是极简主义编辑设计系统的典范，通过排版与插图塑造出独特而沉稳的品牌形象。"
+    },
+    "zh-TW": {
+      "palette": "嚴格的單色調色盤，運用黑、白與柔和的灰色，營造精緻、高對比且具文學感的氛圍。",
+      "layout": "簡潔的單欄、置中版面，搭配寬裕的留白與雙欄分割的主視覺區域，以平衡文字與插圖。",
+      "interaction": "運用自訂 cubic-bezier 緩動曲線，在互動元素上呈現細膩、流暢的過渡效果，帶來精緻、 polished 的感受。",
+      "motion": "溫和的淡入與滑動動畫用於內容進入，維持平靜、從容的使用者體驗。",
+      "notes": "此網站是極簡主義編輯設計系統的完美範例，透過排版與插圖創造出獨特、沉穩的品牌識別。"
+    },
+    "ja": {
+      "palette": "黒、白、柔らかいグレーのみを使用した厳格な単色パレットで、洗練された、高コントラストの、文学的な雰囲気を演出します。",
+      "layout": "余白をたっぷりと設けた、クリーンな中央揃えの単一カラムレイアウトと、テキストとイラストのバランスを取るための二カラム分割ヒーローセクションを採用します。",
+      "interaction": "カスタムcubic-bezierイージングを用いた、インタラクティブ要素上の繊細で滑らかなトランジションで、洗練された、完成度の高い印象を実現します。",
+      "motion": "コンテンツ表示時のやわらかなフェード・スライドアニメーションにより、落ち着いた、急がれないユーザーエクスペリエンスを維持します。",
+      "notes": "このサイトは、タイポグラフィとイラストを活用して、独自の落ち着いたブランドアイデンティティを構築する、ミニマルでエディトリアルなデザインシステムの完璧な例です。"
+    },
+    "ko": {
+      "palette": "흑백과 부드러운 회색만 사용하는 철저한 단색 팔레트로, 고급스럽고 고대비이며 문학적인 느낌을 연출합니다.",
+      "layout": "풍부한 여백을 둔 깔끔한 단일 컬럼 중앙 정렬 레이아웃과, 텍스트와 일러스트의 균형을 맞춘 2단 분리형 히어로 영역을 구성합니다.",
+      "interaction": "대화형 요소에 부드럽고 매끄러운 전환 효과를 적용하며, 맞춤형 cubic-bezier 이징을 사용하여 세련되고 완성도 높은 느낌을 줍니다.",
+      "motion": "콘텐츠 진입 시 부드러운 페이드와 슬라이드 애니메이션을 사용하여 차분하고 여유로운 사용자 경험을 유지합니다.",
+      "notes": "이 사이트는 타이포그래피와 일러스트레이션을 활용하여 독특하고 차분한 브랜드 아이덴티티를 만드는 미니멀하고 편집적인 디자인 시스템의 완벽한 예시입니다."
+    }
+  },
+  "narrative": {
+    "en": {
+      "ch1_intro": "Oku Club's design system is built like a well-ordered private library: every element has its place, and the architecture serves the act of reading itself. The identity is defined by a high-contrast, monochromatic clarity and a transitional serif typography that gives the digital space a scholarly, refined character.",
+      "ch2_intro": "The color system is strictly monochromatic, relying on black and white for maximum clarity and legibility. This palette is a deliberate choice for an editorial interface, where the content—text and illustration—provides all necessary visual variation.",
+      "ch2_outro": "The principle is restraint: color is structural, not decorative.",
+      "ch3_intro": "Typography carries the brand's voice through a clear pairing: a transitional serif for headlines to signal a literary tone, and a humanist sans-serif for body text to ensure modern, approachable readability. This hierarchy is maintained with generous vertical spacing, allowing each element to breathe.",
+      "ch4_intro": "Spacing follows a consistent 4px base grid, applied generously to create an open, breathable layout that prioritizes focus and reduces cognitive load.",
+      "ch5_intro": "Surface depth is communicated through a carefully graded system of soft shadows, creating a sense of layered space without visual noise. Borders are minimal and semi-transparent, providing subtle containment rather than harsh division.",
+      "ch6_intro": "The layout skeleton is a centered, single-column structure for content, controlled by a max-width container to maintain ideal line lengths. A two-column split is reserved for the hero section, creating a balanced dialogue between typography and illustration.",
+      "ch7_intro": "Motion philosophy treats animation as a tool for calm guidance, not spectacle. Transitions are smooth and purposeful, using a custom cubic-bezier easing to provide refined feedback without disrupting the reading rhythm.",
+      "ch8_intro": "The editorial voice is calm, literate, and invitational, addressing the user as a fellow reader on a personal journey. Headlines are short and evocative, while calls-to-action are direct and benefit-focused, avoiding any hint of pressure or clutter.",
+      "ch8_outro": "The system deliberately omits vibrant color, geometric sans-serifs, and heavy ornamentation to preserve its serene, scholarly focus."
+    },
+    "zh-CN": {
+      "ch1_intro": "Oku Club的设计系统如同一个井然有序的私人图书馆：每个元素都有其归位，架构本身服务于阅读这一行为。其视觉识别以高对比度、单色清晰度和过渡衬线字体为特征，为数字空间赋予了学术而精致的气质。",
+      "ch2_intro": "色彩系统严格遵循单色原则，依靠黑白实现最大的清晰度与可读性。这一调色板是编辑界面的刻意选择——内容本身，即文字与插图，提供了所有必要的视觉变化。",
+      "ch2_outro": "其原则在于克制：色彩是结构性的，而非装饰性的。",
+      "ch3_intro": "字体通过清晰的搭配传递品牌的声音：用于标题的过渡衬线字体暗示文学基调，而用于正文的人文主义无衬线字体则确保了现代、亲切的可读性。这一层级通过充裕的垂直间距得以维持，让每个元素都拥有呼吸空间。",
+      "ch4_intro": "间距基于一致的4px基础网格，以慷慨的留白构建开放、透气的版面，优先考虑专注度并降低认知负荷。",
+      "ch5_intro": "表面深度通过精心分级的柔和阴影系统来传达，在不产生视觉噪音的情况下营造出层叠的空间感。边框简约且半透明，提供的是微妙的界定而非生硬的分割。",
+      "ch6_intro": "版式骨架采用居中的单栏内容结构，由最大宽度容器控制以保持理想的行宽。双栏分割则专用于核心视觉区域，于字体与插图之间建立平衡的对话。",
+      "ch7_intro": "动效理念将动画视为平静引导的工具，而非炫技的奇观。过渡平滑且目的明确，使用自定义cubic-bezier缓动函数，在不打断阅读节奏的前提下提供精致的反馈。",
+      "ch8_intro": "编辑语调平静、博学且带有邀请意味，将用户视为共同探索的读者。标题简短而富有意蕴，行动号召则直接并聚焦于价值，避免任何压力或冗杂之感。",
+      "ch8_outro": "该系统刻意摒弃了鲜艳色彩、几何无衬线字体及繁复装饰，以维系其宁静、学术的专注内核。"
+    },
+    "zh-TW": {
+      "ch1_intro": "Oku Club 的設計系統如同一座井然有序的私人圖書館：每個元素都有其位置，架構服務於閱讀本身的行為。品牌識別以高對比、單色調的清晰度，以及過渡襯線體字體為核心，賦予數位空間一種學術、精煉的特質。",
+      "ch2_intro": "色彩系統嚴格採用單色調，依靠黑白來達到最大的清晰度與可讀性。這種配色方案是針對編輯介面的刻意選擇，讓內容——文字與插畫——提供所有必要的視覺變化。",
+      "ch2_outro": "核心原則是克制：色彩是結構性的，而非裝飾性的。",
+      "ch3_intro": "字體透過明確的配對傳達品牌語調：標題使用過渡襯線體以彰顯文學氣息，內文則採用人文無襯線體，確保現代且易讀的親和力。這種層次結構透過寬裕的垂直間距得以維持，讓每個元素都能舒適呼吸。",
+      "ch4_intro": "間距遵循一致的 4px 基礎網格，以寬鬆的尺度應用，創造開放、透气的佈局，優先考慮專注力並降低認知負荷。",
+      "ch5_intro": "表面深度透過精心分級的柔和陰影系統來傳達，營造出層次空間感，同時避免視覺雜訊。邊框極簡且半透明，提供微妙的 containment 而非生硬的劃分。",
+      "ch6_intro": "佈局骨架採用居中的單欄內容結構，由 max-width 容器控制，以維持理想的行長。兩欄式分割保留給首頁主視覺區域，創造字體與插畫之間的平衡對話。",
+      "ch7_intro": "動態設計哲學將動畫視為平靜引導的工具，而非 spectacle。過渡效果流暢且有目的性，使用自訂 cubic-bezier easing 提供精緻反饋，不打斷閱讀節奏。",
+      "ch8_intro": "編輯語調沉穩、具學養且充滿邀請感，將使用者視為共同閱讀的旅伴。標題簡短而富意境，行動呼籲直接且強調效益，避免任何壓力或雜亂感。",
+      "ch8_outro": "此系統刻意省略鮮豔色彩、幾何無襯線字體與繁複裝飾，以維持其寧靜、學術的專注本質。"
+    },
+    "ja": {
+      "ch1_intro": "奥倶楽部のデザインシステムは、整然とした私的図書館のように構築されています。すべての要素にはその場所があり、建築自体が読書という行為に奉仕しています。視認性は高コントラストの単色的明瞭さと、デジタル空間に学術的で洗練された性格を与えるトランジショナルセリフ書体によって定義されています。",
+      "ch2_intro": "カラーシステムは厳格な単色であり、最大限の明瞭さと可読性のために黒と白に依存しています。このパレットは、コンテンツ（テキストとイラスト）がすべての視覚的変化を提供する、エディトリアルインターフェースに対する意図的な選択です。",
+      "ch2_outro": "原則は抑制です。カラーは装飾的ではなく、構造的です。",
+      "ch3_intro": "タイポグラフィは、明確なペアリングを通じてブランドの声を担います。リテラリーなトーンを示すために見出しにはトランジショナルセリフを、現代的で親しみやすい可読性を確保するために本文にはヒューマニストサンセリフを採用しています。この階層構造は、各要素に余裕を持たせるための十分な垂直方向の間隔を維持しています。",
+      "ch4_intro": "間隔は一貫した4pxベースグリッドに従い、焦点を優先し認知的負荷を軽減する、開放的で息がのこるレイアウトを生み出すために多めに配分されています。",
+      "ch5_intro": "表面の奥行きは、慎重に段階づけられたソフトシャドウシステムによって伝達され、視覚的ノイズなしにレイヤードな空間感を創出します。ボーダーは最小限で半透明であり、厳格な区切りよりも微細な境界を提供します。",
+      "ch6_intro": "レイアウトの骨格は、コンテンツに対する中央揃えの単一カラム構造であり、最適な行長を維持するために最大幅コンテナで制御されます。2カラム分割はヒーローセクションに限って使用され、タイポグラフィとイラストの間のバランスの取れた対話を生み出します。",
+      "ch7_intro": "モーション哲学では、アニメーションを spectacle（奇観）ではなく、穏やかな導きのためのツールとして扱います。トランジションは滑らかで目的志向であり、読書のリズムを乱すことなく洗練されたフィードバックを提供するために、カスタムcubic-bezierイージングを使用しています。",
+      "ch8_intro": "エディトリアルな声は穏やかで学識豊か、かつ歓迎的であり、ユーザーを個人的な旅路上の共に読書を行う者として語りかけます。見出しは短く暗示的であり、CTA（行動喚起）は直接的で利益重視であり、圧迫感や雑然とした印象は避けられています。",
+      "ch8_outro": "このシステムは、その穏やかで学術的な焦点を維持するために、鮮やかなカラー、幾何学的なサンセリフ、以及は重厚な装飾を意図的に排除しています。"
+    },
+    "ko": {
+      "ch1_intro": "오쿠 클럽의 디자인 시스템은 잘 정리된 사립 도서관처럼 구축되었습니다: 모든 요소가 제자리를 가지고 있으며, 아키텍처는 독서 행위 자체를 지원합니다. 정체성은 고대비 흑백의 선명함과 전환체 세리프 타이포그래피로 정의되어 디지털 공간에 학구적이고 세련된 성격을 부여합니다.",
+      "ch2_intro": "색상 시스템은 엄격한 흑백 체계로, 최대 선명도와 가독성을 위해 블랙과 화이트에 의존합니다. 이 팔레트는 텍스트와 일러스트레이션이 모든 필수적 시각적 변이를 제공하는 에디토리얼 인터페이스를 위한 의도적 선택입니다.",
+      "ch2_outro": "원칙은 절제입니다: 색상은 구조적이지, 장식적이지 않습니다.",
+      "ch3_intro": "타이포그래피는 명확한 페어링을 통해 브랜드의 목소리를 전달합니다: 헤드라인에 문학적 톤을 암시하는 전환체 세리프, 본문에 현대적이고 접근 가능한 가독성을 보장하는 휴머니트 산세리프. 이 계층 구조는 넉넉한 수직 간격을 통해 유지되어 각 요소가 숨 쉴 수 있게 합니다.",
+      "ch4_intro": "간격은 일관된 4px 기본 격자를 따르며, 집중력을 우선시하고 인지 부하를 줄이는 개방적이고 통풍이 잘 되는 레이아웃을 만들기 위해 넉넉하게 적용됩니다.",
+      "ch5_intro": "표면 깊이는 부드러운 그림자의 신중하게 단계화된 시스템을 통해 전달되어, 시각적 소음 없이 층위 공간감을 만듭니다. 테두리는 최소화되고 반투명하여 가혹한 구분 대신 미묘한 경계를 제공합니다.",
+      "ch6_intro": "레이아웃 스켈레톤은 콘텐츠를 위한 중앙 정렬 단일 칼럼 구조이며, 최적의 행 길이를 유지하기 위해 최대 폭 컨테이너로 제어됩니다. 2칼럼 분할은 히어로 섹션에만 적용되어 타이포그래피와 일러스트레이션 간의 균형 잡힌 대화를 만듭니다.",
+      "ch7_intro": "모션 철학은 애니메이션을 장기적 안내 도구로 취급하며, 화려함이 아닙니다. 트랜지션은 매끄럽고 목적 지향적이며, 맞춤형 cubic-bezier 이징을 사용하여 독서 리듬을 방해하지 않으면서 세련된 피드백을 제공합니다.",
+      "ch8_intro": "에디토리얼 목소리는 차분하고 문학적이며 초대적인 것으로, 사용자를 개인 여정의 동료 독자로 대우합니다. 헤드라인은 짧고 암시적이며, 행동 유도는 직접적이고 이점에 초점을 맞추어 압박이나 혼잡함을 암시하지 않습니다.",
+      "ch8_outro": "시스템은 생생한 색상, 기하학적 산세리프, 무거운 장식을 의도적으로 생략하여 고요하고 학구적인 초점을 유지합니다."
+    }
+  }
+}
