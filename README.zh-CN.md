@@ -93,21 +93,21 @@ Claude Desktop / Claude Code / Cursor / Windsurf,任何 MCP 客户端都能用�
 
 ## 一份规范里到底有什么
 
-两种产物、两种形状——下面的数字是你打开文件真能数出来的，不是路线图。
+两档，下面的数字都是你打开文件真能数出来的——随便下一个包就能验。
 
-**`spec.json` —— 全部 1,486 个站，6 层实测 token：**
+**全部 1,486 个站 —— 6 层实测 token**（`spec.json`，也内联在 `catalog.json` 里）：
 
 `colors · typography · spacing · surfaces · layout · motion`
 
-每个值都由 Playwright + `getComputedStyle` 从真实页面读出，再对着测量值校准。这里没有一项是模型对这个网站的"印象"。
+每个值都由 Playwright + `getComputedStyle` 从真实页面读出，再对着测量值校准。这一档里没有一项是模型对这个网站的"印象"。
 
-**`DESIGN.md` —— 有完整素材包的 920 个站，9 个章节：**
+**有完整素材包的 920 个站 —— 完整 11 层 + 可直接粘贴的 system prompt**（`sites-entry.json`）：
 
-`Overview · Colors · Typography · Layout · Elevation & Depth · Shapes · Components · Do's and Don'ts · System Prompt`
+`identity · colors · typography · spacing · surfaces · layout · components · motion · interaction · voice · don'ts` `+ systemPrompt`
 
-多出来的是需要解读的部分——组件配方、禁用清单、可直接粘贴的 system prompt——它们依赖素材包管线产出的截图。
+抽 158 个包实测，每一层的填充率都在 98–100%。多出的五层是需要解读的部分——组件配方、交互规则、文案语气、禁用清单——它们依赖素材包管线产出的截图。同样的内容还渲染成 `DESIGN.md`（9 章），可直接粘进 prompt。
 
-所有站同一套结构，Agent 学会读一个就等于学会读全部。→ [各层定义](docs/11-layer-spec.md)
+同一档内所有站结构一致，Agent 学会读一个就等于学会读全部。开工前看 `catalog.json` 里的 `spec_completeness` 就知道这条属于哪一档。→ [各层定义 + 逐层落地状态](docs/11-layer-spec.md)
 
 ```jsonc
 // GET https://opendesign.cc/packs/linear/spec.json
@@ -136,11 +136,11 @@ python3 synthesize.py extracts/your-site-com      # → spec.json + DESIGN.md
 ./pack.sh extracts/your-site-com                  # → 可下载素材包
 ```
 
-完整管线可自托管:[架构](docs/architecture.md) · [部署](docs/deployment.md) · [数据管线](docs/data-pipeline.md)
+完整管线可自托管:[架构](docs/architecture.md) · [部署](docs/deployment.md) · [数据管线](docs/data-pipeline.md) · [自建数据层](docs/self-hosted-db.md)
 
 ## 文档
 
-**概念** — [定位与第一性原理](docs/positioning.md) · [各层定义](docs/11-layer-spec.md) · [素材包标准](docs/design-pack-standard.md)
+**概念** — [定位与第一性原理](docs/positioning.md) · [各层定义](docs/11-layer-spec.md) · [素材包标准](docs/design-pack-standard.md) · [踩过的坑](docs/lessons-2026-08.md)
 
 **Agent 接入** — [MCP 配置](https://opendesign.cc/mcp/) · [Agent 集成](docs/ai-agent-integration.md) · [总监协议](skill/SKILL.md)
 

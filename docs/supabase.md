@@ -1,5 +1,9 @@
 # Supabase 接入指南
 
+> **⚠️ 历史文档。** OpenDesign 的数据层已于 2026-08 迁到自建 PostgreSQL + PostgREST，
+> 当前架构见 [self-hosted-db.md](self-hosted-db.md)。这份保留作为回滚参考——
+> 把 `supabase-config.js` 的 `url` / `anonKey` 改回 Supabase 的值即可切回去。
+
 整个流程约 **5 分钟**。完成后访客的收藏 / 点赞会真持久化 + 跨设备同步 + 点赞数全局聚合。
 
 代码已经全部写好；你只需要做 4 件事：建项目、跑 SQL、复制凭据、填配置。

@@ -93,21 +93,21 @@ Every entry is extracted by driving a real browser (Playwright), reading `getCom
 
 ## What's actually in a spec
 
-Two artifacts, two shapes — and the counts below are what you will literally find in the files, not a roadmap.
+Two tiers, and the numbers below are what you will literally find in the files — verify any of them by downloading one pack.
 
-**`spec.json` — all 1,486 sites, 6 measured token layers:**
+**All 1,486 sites — 6 measured token layers** (`spec.json`, also inlined in `catalog.json`):
 
 `colors · typography · spacing · surfaces · layout · motion`
 
-Every value is read off the live page with Playwright + `getComputedStyle`, then grounded against the measurements. Nothing here is a model's impression of the site.
+Every value is read off the live page with Playwright + `getComputedStyle`, then grounded against those measurements. Nothing in this tier is a model's impression of the site.
 
-**`DESIGN.md` — the 920 sites with full packs, 9 sections:**
+**The 920 sites with full packs — all 11 layers + a paste-ready system prompt** (`sites-entry.json`):
 
-`Overview · Colors · Typography · Layout · Elevation & Depth · Shapes · Components · Do's and Don'ts · System Prompt`
+`identity · colors · typography · spacing · surfaces · layout · components · motion · interaction · voice · don'ts` `+ systemPrompt`
 
-The extra sections are the interpretive ones — component recipes, the anti-pattern list, and a paste-ready system prompt — which need the screenshots the pack pipeline produces.
+Measured across a 158-pack sample, every one of these layers is populated in 98–100% of packs. The five extra layers are the interpretive ones — component recipes, interaction rules, copy voice, and the anti-pattern list — which need the screenshots the pack pipeline produces. The same content is rendered as `DESIGN.md` (9 sections) for dropping straight into a prompt.
 
-Same shape across every site, so an agent that learns to read one has learned to read all of them. → [layer definitions](docs/11-layer-spec.md)
+Same shape across every site in a tier, so an agent that learns to read one has learned to read all of them. Check `spec_completeness` in `catalog.json` to know which tier a site is in before you commit to it. → [layer definitions + per-layer status](docs/11-layer-spec.md)
 
 ```jsonc
 // GET https://opendesign.cc/packs/linear/spec.json
@@ -136,11 +136,11 @@ python3 synthesize.py extracts/your-site-com      # → spec.json + DESIGN.md
 ./pack.sh extracts/your-site-com                  # → downloadable pack
 ```
 
-Full pipeline, self-hostable: [architecture](docs/architecture.md) · [deployment](docs/deployment.md) · [data pipeline](docs/data-pipeline.md)
+Full pipeline, self-hostable: [architecture](docs/architecture.md) · [deployment](docs/deployment.md) · [data pipeline](docs/data-pipeline.md) · [self-hosted data layer](docs/self-hosted-db.md)
 
 ## Docs
 
-**Concepts** — [positioning & first principles](docs/positioning.md) · [layer definitions](docs/11-layer-spec.md) · [design pack standard](docs/design-pack-standard.md)
+**Concepts** — [positioning & first principles](docs/positioning.md) · [layer definitions](docs/11-layer-spec.md) · [design pack standard](docs/design-pack-standard.md) · [lessons learned](docs/lessons-2026-08.md)
 
 **Agent integration** — [MCP setup](https://opendesign.cc/mcp/) · [agent integration](docs/ai-agent-integration.md) · [the director protocol](skill/SKILL.md)
 

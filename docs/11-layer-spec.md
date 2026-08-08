@@ -27,29 +27,30 @@ OpenDesign 提倡的是：
 一个卖"可机读、可核验"的项目，如果自己的层数都对不上文件里数出来的，
 那所有别的精确性声明也一起不可信了。
 
-下表按 2026-08 的真实数据统计（`sites/*.json` 1,517 个站 + 线上 pack）：
+下表按 2026-08 的真实数据统计（`sites/*.json` 1,517 个站；pack 侧抽 158 个包实测填充率）：
 
-| # | 层 | `spec.json`（全部 1,486 站） | `DESIGN.md`（920 个有包站） |
+| # | 层 | `spec.json` / catalog（全部 1,486 站） | `sites-entry.json`（920 个有包站） |
 |---|---|---|---|
-| 1 | Identity | ✗ schema 里有，实际 0 个站有值 | ✓ Overview |
-| 2 | Colors | ✓ 1,517/1,517 | ✓ Colors |
-| 3 | Typography | ✓ 1,517/1,517 | ✓ Typography |
-| 4 | Spacing | ✓ 1,517/1,517 | —（并入 Layout） |
-| 5 | Surfaces | ✓ 1,517/1,517 | ✓ Elevation & Depth / Shapes |
-| 6 | Layout | ✓ 1,517/1,517 | ✓ Layout |
-| 7 | Components | ✗ | ✓ Components |
-| 8 | Motion | ✓ 1,517/1,517 | —（并入 Overview） |
-| 9 | Interaction | ✗ | —（散在 Components） |
-| 10 | Voice | ✗ | ✗ |
-| 11 | Don'ts | ✗ | ✓ Do's and Don'ts |
-| 12 | System Prompt | ✗ | ✓ System Prompt |
+| 1 | Identity | ✗ schema 里有，实际 0 个站有值 | ✓ 100% |
+| 2 | Colors | ✓ 1,517/1,517 | ✓ 100% |
+| 3 | Typography | ✓ 1,517/1,517 | ✓ 100% |
+| 4 | Spacing | ✓ 1,517/1,517 | ✓ 98% |
+| 5 | Surfaces | ✓ 1,517/1,517 | ✓ 100% |
+| 6 | Layout | ✓ 1,517/1,517 | ✓ 100% |
+| 7 | Components | ✗ | ✓ 98% |
+| 8 | Motion | ✓ 1,517/1,517 | ✓ 100% |
+| 9 | Interaction | ✗ | ✓ 98% |
+| 10 | Voice | ✗ | ✓ 98% |
+| 11 | Don'ts | ✗ | ✓ 98% |
+| 12 | System Prompt | ✗ | ✓ 98% |
 
-**一句话**：JSON 侧目前落地 **6 层实测 token**（colors / typography / spacing /
-surfaces / layout / motion，全部由 Playwright + `getComputedStyle` 读出并对测量值校准）；
-素材包侧的 `DESIGN.md` 落地 **9 个章节**，多出的组件配方、禁用清单、System Prompt
-依赖截图才能生成，所以只有 920 个有完整包的站才有。
+**一句话**：标准的 11 层在**有完整素材包的 920 个站**上是全部落地的（`sites-entry.json`，
+每层填充率 98–100%，另有 `DESIGN.md` 把同样内容渲染成 9 个可读章节）。
+另外那 ~566 个站只跑到了轻量抽取，只有 **6 层实测 token**——因为 Components /
+Interaction / Voice / Don'ts 这几层需要 Playwright 截图才能生成。
 
-未落地的 Identity / Voice / Interaction 属于标准的开放部分——欢迎按本文档实现。
+调用方在检索阶段就能区分：`catalog.json` 里每条带 `spec_completeness`，
+不必 fetch 完才发现这条只有半份。
 
 ---
 

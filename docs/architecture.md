@@ -1,6 +1,8 @@
 # OpenDesign 架构
 
-> 一张图看懂"双轨制收录 + Supabase 后端 + 静态前端 + AI vision"
+> 一张图看懂"双轨制收录 + 自建 Postgres 后端 + 静态前端 + AI vision"
+>
+> 数据层 2026-08 已从 Supabase 迁到自己的服务器，细节见 [self-hosted-db.md](self-hosted-db.md)。
 
 ```
 ┌──────────────────────────────────────────────────────────────────┐
@@ -26,10 +28,10 @@
                   │ saves/likes 写            │ Curator 部署
                   ▼                           │
         ┌─────────────────────────┐           │
-        │  Supabase (Postgres+    │           │
-        │  Edge Function)         │           │
+        │  自建 Postgres 18.4 +   │           │
+        │  PostgREST（同机）      │           │
         │  · saves, likes tables  │           │
-        │  · analyze-site fn      │           │
+        │  · 边界=GRANT+RLS       │           │
         └─────────────────────────┘           │
                                               │
         ┌─────────────────────────────────────┴─────────────────┐
@@ -61,17 +63,19 @@
 | `sites.js` | 20 个精选网站基础数据 |
 | `sites-specs.json` | AI 生成的 16 个 11 层 spec（旁路文件，启动时 merge）|
 | `packs-index.json` | Pack 文件清单 + agentUrl |
-| `supabase-config.js` | Supabase 公开 anon key |
+| `supabase-config.js` | 数据层地址（指向自建 `/db`；key 是占位，nginx 会剥掉认证头）|
 
 ### 后端 / 持久化
 
 | 项 | 在哪 |
 |---|---|
-| Postgres | Supabase 项目 `nlsvjigoltvyfpqsbygh` |
+| Postgres | 自建 18.4 · 146.56.239.22 · 库 `opendesign` · 只监听 127.0.0.1 |
 | 表 | `saves(visitor_id, site_id)`, `likes(visitor_id, site_id)` |
 | 视图 | `site_like_counts` (按 site_id 聚合 like_count) |
 | RLS | 允许 anon select/insert/delete 自己 visitor_id 的行 |
-| Edge Function | `analyze-site` (Deno) → 调 mimo-v2.5 vision |
+| ~~Edge Function~~ | 已随 Supabase 下线；前端 `aiEndpoint` 留空即走本地骨架 |
+| REST 层 | PostgREST 16.0 · 127.0.0.1:3011 · nginx 反代 `/db/` |
+| 备份 | `scripts/backup-db.sh` 每日 03:40（自建后是我们自己的责任）|
 
 ### Curator 工具
 
@@ -164,7 +168,7 @@ server {
 
 ## 部署
 
-完整步骤见 [deployment.md](deployment.md) 和 [supabase.md](supabase.md)。
+完整步骤见 [deployment.md](deployment.md) 和 [self-hosted-db.md](self-hosted-db.md)。
 
 ## 反馈
 

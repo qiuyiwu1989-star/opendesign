@@ -21,10 +21,12 @@ https://opendesign.cc/packs/<slug>/
 
 | 访问方式 | 返回 |
 |---|---|
-| GET `/packs/apple/` | `DESIGN_SPEC.md` 内容（8 章规范，含 `:root` CSS 变量）|
-| GET `/packs/apple/sites-entry.json` | 11 层 spec JSON |
+| GET `/packs/apple/` | `DESIGN.md` 内容（9 章规范，含 `:root` CSS 变量）|
+| GET `/packs/apple/sites-entry.json` | 完整 11 层 spec + systemPrompt（JSON）|
 | GET `/packs/apple/fonts.json` | 实际字体清单 |
 | GET `/packs/apple/summary.json` | 真 token 频次数据 |
+| GET `/packs/apple/spec.json` | 6 层实测 token（轻量档，全部 1,486 站都有）|
+| GET `/packs/apple/manifest.json` | 包内文件清单 + 校验信息 |
 | GET `/packs/apple/01_desktop_full.png` | 桌面全页截图 |
 | GET `/packs/apple/<any-file>` | 直接 serve |
 | GET `/packs/apple/` (no index 时) | autoindex 列出全部文件 |
