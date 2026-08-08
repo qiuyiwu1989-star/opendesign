@@ -13,21 +13,21 @@ cd "$ROOT"
 FAIL=0
 section() { echo ""; echo "▸ $1"; }
 
-section "[1/4] schema 校验（sites/*.json）"
+section "[1/5] schema 校验（sites/*.json）"
 if python3 scripts/validate-sites.py; then
   echo "  ✓ schema OK"
 else
   echo "  ✗ schema 校验失败"; FAIL=1
 fi
 
-section "[2/4] 包渲染质量（extract 的 totalElementsVisible，揪空白/反爬/离线废包）"
+section "[2/5] 包渲染质量（extract 的 totalElementsVisible，揪空白/反爬/离线废包）"
 if python3 scripts/audit-packs.py; then
   echo "  ✓ 无渲染失败的已发布包"
 else
   echo "  ✗ 存在渲染失败的废包"; FAIL=1
 fi
 
-section "[3/4] packs-index ↔ sites 一致性 + SEO 落地页渲染健全性"
+section "[3/5] packs-index ↔ sites 一致性 + SEO 落地页渲染健全性"
 if python3 - <<'PY'
 import json, glob, importlib.util, re, sys
 from pathlib import Path
@@ -82,7 +82,7 @@ PY
 then :; else FAIL=1; fi
 
 if [[ "${1:-}" == "--remote" ]]; then
-  section "[4/4] 线上抽查：随机若干 pack ZIP 真能下载且非空"
+  section "[4/5] 线上抽查：随机若干 pack ZIP 真能下载且非空"
   BASE="${SMOKE_BASE:-https://opendesign.cc}"
   # 取 packs-index 前若干 slug + 其 zipFile，逐个 curl -sI 看 HTTP 200 + Content-Length 够大
   mapfile -t SAMPLE < <(python3 -c "
@@ -103,6 +103,12 @@ for slug in list(p)[:6]:
       echo "  ✗ ${slug}  HTTP ${code:-?}  len=${len:-?}（应 200 且 >100KB）"; FAIL=1
     fi
   done
+
+  section "[5/5] 线上健康检查（站点 / Agent 接口 / 数据 API 权限边界 / MCP）"
+  # smoke 前四项验的是"要发布的东西对不对"；这一项验的是"已经在线上的还活着吗"。
+  # 两件事，都要看：部署成功不等于线上是好的（曾经发布过一次残缺构建，
+  # 每一步都"成功"，线上却从 1,486 站掉到 527 站）。
+  if BASE="${SMOKE_BASE:-https://opendesign.cc}" python3 "${ROOT}/scripts/healthcheck.py"; then :; else FAIL=1; fi
 fi
 
 echo ""
