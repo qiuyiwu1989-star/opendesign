@@ -11,5 +11,10 @@
 // 请求一律以数据库的 anon 角色执行。要换回 Supabase 只需把 url/anonKey 改回去。
 window.SUPABASE_CONFIG = {
   url: "https://opendesign.cc/db",
-  anonKey: "anon-not-used-auth-stripped-at-nginx"
+  anonKey: "anon-not-used-auth-stripped-at-nginx",
+
+  // AI 视觉解读服务地址。Supabase Edge Function 已随迁库下线，这里留空
+  // 表示"没接通"——前端会直接走本地骨架，不再去打一个必然 404 的端点。
+  // 将来自建分析服务后，填上完整 URL 即可，app.js 无需改动。
+  aiEndpoint: null
 };

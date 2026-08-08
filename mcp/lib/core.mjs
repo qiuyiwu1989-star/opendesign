@@ -64,6 +64,117 @@ const SYNONYMS = {
   dashboard: ["app ui", "product", "saas"],
 };
 
+/* ── 中文检索 ────────────────────────────────────────────────────────────
+ * catalog 的 tag/summary 全是英文，而站点本身是中文界面、用户和 Agent 都会
+ * 用中文提问。实测 "极简 深色 开发者工具" 命中 0 条——不是排序不准，是整个
+ * 中文入口是死的。两个原因叠加：
+ *   1) 分词：原来只按空白切，中文不带空格，"极简深色" 会被当成一个词；
+ *   2) 词汇：就算切对了，"极简" 和 catalog 里的 "Minimal" 也对不上。
+ *
+ * 解法保持零依赖：一张中→英词表 + 最长优先扫描（不引分词器）。
+ * 右侧的英文词都对着 catalog 真实存在的 tag 写，不是凭空造的同义词。 */
+const CN_TERMS = {
+  // 风格
+  极简: ["minimal", "minimalist", "clean"], 简约: ["minimal", "clean"], 干净: ["clean"],
+  克制: ["restraint", "calm"], 冷静: ["calm"], 高级: ["premium", "refined"],
+  精致: ["refined", "refinement"], 奢侈: ["luxury"], 轻奢: ["luxury", "premium"],
+  大胆: ["bold", "expressive"], 张扬: ["expressive", "bold"], 实验: ["experimental"],
+  实验性: ["experimental"], 前卫: ["experimental", "bold"], 有趣: ["playful"],
+  活泼: ["playful", "friendly"], 温暖: ["warm"], 友好: ["friendly"],
+  几何: ["geometric"], 网格: ["grid"], 渐变: ["gradient"],
+  黑白: ["monochrome"], 单色: ["monochrome"], 深色: ["dark mode", "dark"],
+  暗色: ["dark mode", "dark"], 夜间模式: ["dark mode"], 编辑风: ["editorial"],
+  杂志风: ["editorial", "publishing"], 排版: ["typography"], 字体: ["typography", "foundry"],
+  大字: ["bold typography"], 摄影: ["photographic"], 图片: ["photographic", "gallery"],
+  动效: ["motion", "animation"], 动画: ["motion", "animation"], 沉浸: ["webgl", "3d"],
+  // 品类
+  作品集: ["portfolio"], 个人网站: ["portfolio"], 工作室: ["studio"],
+  设计工作室: ["studio", "design"], 代理商: ["agency"], 机构: ["agency"],
+  开发者工具: ["developer tools", "developer", "tooling"], 开发工具: ["developer tools", "tooling"],
+  程序员: ["developer", "developer tools"], 设计工具: ["design tools"],
+  产品: ["product"], 效率: ["productivity"], 生产力: ["productivity"],
+  笔记: ["notes"], 协作: ["collaboration"], 仪表盘: ["app ui", "product"],
+  后台: ["app ui", "saas"], 移动端: ["mobile ui"], 电商: ["e-commerce", "dtc"],
+  购物: ["e-commerce"], 商店: ["e-commerce"], 金融: ["fintech", "finance"],
+  理财: ["fintech"], 支付: ["fintech"], 区块链: ["web3", "crypto", "blockchain"],
+  加密货币: ["crypto", "web3"], 人工智能: ["ai"], 智能: ["ai"],
+  数据: ["data", "analytics"], 分析: ["analytics", "data"], 搜索: ["search"],
+  时尚: ["fashion"], 服装: ["fashion", "streetwear"], 潮牌: ["streetwear"],
+  美妆: ["beauty"], 家具: ["furniture"], 建筑: ["architecture"],
+  博物馆: ["museum"], 艺术: ["art", "gallery"], 画廊: ["gallery"],
+  展览: ["gallery", "museum"], 音乐: ["music"], 视频: ["video"],
+  食品: ["food"], 饮料: ["beverage"], 咖啡: ["beverage", "food"],
+  汽车: ["automotive"], 硬件: ["hardware"], 出版: ["publishing"],
+  社区: ["community"], 品牌: ["brand"], 创意: ["creative"],
+  精选: ["curation"], 案例: ["case study", "reference"], 参考: ["reference"],
+  基础设施: ["infra"], 语音: ["voice"], 聊天: ["chat"],
+  // 地域（catalog 里写在 summary/title 而非 tag）
+  日本: ["japan", "tokyo", "jp"], 日式: ["japan", "tokyo"], 东京: ["tokyo"],
+  瑞士: ["swiss"], 北欧: ["nordic", "scandinavian"], 德国: ["german"],
+};
+// 最长优先：先匹配"开发者工具"再匹配"工具"，否则长词永远被短词切碎
+const CN_KEYS = Object.keys(CN_TERMS).sort((a, b) => b.length - a.length);
+const HAS_CJK = /[一-鿿]/;
+
+/** 扫一段中文，按词表最长优先切出已知词；没扫到就原样返回整段
+ *  （原样那份仍会走 hay.includes，中文 summary 将来加进索引时能直接命中）。*/
+function scanCJK(s) {
+  const found = [];
+  let i = 0;
+  outer: while (i < s.length) {
+    for (const k of CN_KEYS) {
+      if (k.length <= s.length - i && s.startsWith(k, i)) { found.push(k); i += k.length; continue outer; }
+    }
+    i += 1;
+  }
+  return found.length ? found : [s];
+}
+
+/** 分词：英文按空白，中文按词表扫描，混排两者都要 */
+function tokenize(q) {
+  const out = [];
+  for (const part of String(q || "").toLowerCase().split(/\s+/).filter(Boolean)) {
+    if (HAS_CJK.test(part)) out.push(...scanCJK(part));
+    else out.push(part);
+  }
+  return out;
+}
+
+/** 一个 query 词要拿去比对的候选串。中文词展开成对应英文，
+ *  英文词就是它自己——两边后续走同一套匹配，不再分叉。*/
+function probesFor(w) {
+  return CN_TERMS[w] || [w];
+}
+
+/** search_designs 和 recommend_references 共用的打分。
+ *  原来这段在两处各抄了一份，中文支持要改两遍、迟早改漏一处。
+ *  返回 0 表示"query 一个词都没命中"，调用方据此丢弃该条。 */
+function scoreEntry(s, words, want, matchedTerms) {
+  const tagset = new Set(s.tags.map((t) => String(t).toLowerCase()));
+  if (want.size && ![...want].some((w) => tagset.has(w))) return null; // hard tag filter
+  const base = want.size ? 2 : 0;
+  let score = base;
+  const hay = `${s.slug} ${s.title} ${s.tags.join(" ")} ${s.summary}`.toLowerCase();
+  for (const w of words) {
+    let hit = 0;
+    for (const p of probesFor(w)) {
+      if (tagset.has(p)) { hit = Math.max(hit, 3); }
+      else if (hay.includes(p)) { hit = Math.max(hit, 1); }
+      else {
+        // 同义词降级匹配（权重低于直接命中，避免同义词喧宾夺主）
+        for (const syn of SYNONYMS[p] || []) {
+          if (tagset.has(syn) || hay.includes(syn)) { hit = Math.max(hit, 2); break; }
+        }
+      }
+    }
+    // matchedTerms 记的是【原始 query 词】，所以 unmatched_terms 回报时
+    // 用户看到的是自己输的"极简"，而不是内部展开出来的 "minimal"
+    if (hit) { score += hit; matchedTerms.add(w); }
+  }
+  if (words.length && score === base) return null; // query had zero hits
+  return score;
+}
+
 function slim(e) {
   return {
     slug: e.slug, title: e.title, url: e.url, tags: e.tags || [],
@@ -186,26 +297,13 @@ export async function callTool(name, args = {}) {
     const q = String(args.query || "").toLowerCase().trim();
     const want = new Set((args.tags || []).map((t) => String(t).toLowerCase()));
     const limit = Math.min(Math.max(Number(args.limit) || 20, 1), 100);
-    const words = q ? q.split(/\s+/) : [];
+    const words = tokenize(q);
     const matchedTerms = new Set(); // 记录每个 query 词有没有真的命中过任何站
     const scored = [];
     for (const e of items) {
       const s = slim(e);
-      const tagset = new Set(s.tags.map((t) => String(t).toLowerCase()));
-      if (want.size && ![...want].some((w) => tagset.has(w))) continue; // hard tag filter
-      let score = want.size ? 2 : 0;
-      const hay = `${s.slug} ${s.title} ${s.tags.join(" ")} ${s.summary}`.toLowerCase();
-      for (const w of words) {
-        if (tagset.has(w)) { score += 3; matchedTerms.add(w); }
-        else if (hay.includes(w)) { score += 1; matchedTerms.add(w); }
-        else {
-          // 同义词降级匹配（权重低于直接命中，避免同义词喧宾夺主）
-          for (const syn of SYNONYMS[w] || []) {
-            if (tagset.has(syn) || hay.includes(syn)) { score += 2; matchedTerms.add(w); break; }
-          }
-        }
-      }
-      if (words.length && score === (want.size ? 2 : 0)) continue; // query had zero hits
+      let score = scoreEntry(s, words, want, matchedTerms);
+      if (score === null) continue;
       // 相关度相同时，tokens 更完整的排前面——同样相关的两条，能直接开工的那条更有用
       score += (typeof e.spec_completeness === "number" ? e.spec_completeness : 0.5) * 0.5;
       scored.push({ s, score });
@@ -282,27 +380,16 @@ export async function callTool(name, args = {}) {
     const items = await catalog();
     const q = String(args.query || "").toLowerCase().trim();
     const want = new Set((args.tags || []).map((t) => String(t).toLowerCase()));
-    const words = q ? q.split(/\s+/) : [];
+    const words = tokenize(q);
 
-    // same relevance scoring as search_designs (incl. synonym fallback), plus a family tag per candidate
+    // 打分和 search_designs 完全同一套（scoreEntry），额外给每条打上 family，
+    // 保证"在 search 里能搜到的，在这里也推得出来"——两处逻辑漂移过一次，不再重复
     const matchedTerms = new Set();
     const scored = [];
     for (const e of items) {
       const s = slim(e);
-      const tagset = new Set(s.tags.map((t) => String(t).toLowerCase()));
-      if (want.size && ![...want].some((w) => tagset.has(w))) continue;
-      let score = want.size ? 2 : 0;
-      const hay = `${s.slug} ${s.title} ${s.tags.join(" ")} ${s.summary}`.toLowerCase();
-      for (const w of words) {
-        if (tagset.has(w)) { score += 3; matchedTerms.add(w); }
-        else if (hay.includes(w)) { score += 1; matchedTerms.add(w); }
-        else {
-          for (const syn of SYNONYMS[w] || []) {
-            if (tagset.has(syn) || hay.includes(syn)) { score += 2; matchedTerms.add(w); break; }
-          }
-        }
-      }
-      if (words.length && score === (want.size ? 2 : 0)) continue;
+      let score = scoreEntry(s, words, want, matchedTerms);
+      if (score === null) continue;
       score += (typeof e.spec_completeness === "number" ? e.spec_completeness : 0.5) * 0.5;
       scored.push({ s, score, family: classifyFamily(s.tags) });
     }

@@ -5,7 +5,9 @@
 ## 配置
 
 - **主域名**: `opendesign.cc`
-- 服务器: `43.159.171.3`
+- 服务器: `146.56.239.22`（2026-08 从 43.159.171.3 迁来，旧机器已下线）
+- 部署目标的唯一事实来源：`scripts/deploy-target.env` —— 换机器只改那一个文件，
+  五个部署脚本都 source 它（以前各自硬编码，迁完漏改过一轮）
 - SSH 账户: `ubuntu`
 - Web 根目录: `/var/www/opendesign.cc`
 - TLS: Let's Encrypt 自动续期
@@ -20,15 +22,15 @@
 进 opendesign.cc 的 DNS 提供商，加：
 
 ```
-类型: A     主机: @      值: 43.159.171.3
-类型: A     主机: www    值: 43.159.171.3
+类型: A     主机: @      值: 146.56.239.22
+类型: A     主机: www    值: 146.56.239.22
 ```
 
 等 DNS 生效：
 
 ```bash
-dig +short opendesign.cc        # 应返回 43.159.171.3
-dig +short www.opendesign.cc    # 应返回 43.159.171.3
+dig +short opendesign.cc        # 应返回 146.56.239.22
+dig +short www.opendesign.cc    # 应返回 146.56.239.22
 ```
 
 ### 2. 一次性服务器初始化
@@ -42,7 +44,7 @@ dig +short www.opendesign.cc    # 应返回 43.159.171.3
 ### 3. 申请 HTTPS（DNS 生效后）
 
 ```bash
-ssh ubuntu@43.159.171.3 'sudo certbot --nginx -d opendesign.cc -d www.opendesign.cc --non-interactive --agree-tos -m hi@opendesign.cc --redirect'
+ssh ubuntu@146.56.239.22 'sudo certbot --nginx -d opendesign.cc -d www.opendesign.cc --non-interactive --agree-tos -m hi@opendesign.cc --redirect'
 ```
 
 ### 4. 首次推送
@@ -103,7 +105,7 @@ supabase functions deploy analyze-site --no-verify-jwt
 ## 故障排查
 
 ### `./scripts/deploy.sh` 报 `Permission denied (publickey,password)`
-- 检查 SSH_OPTS 里 `publickey` 是否在最前；`ssh -v ubuntu@43.159.171.3` 看握手
+- 检查 SSH_OPTS 里 `publickey` 是否在最前；`ssh -v ubuntu@146.56.239.22` 看握手
 
 ### 部署完打开是 404 或空白
 - SSH 上去看 `/var/www/opendesign.cc/` 里有没有文件

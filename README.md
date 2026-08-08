@@ -73,7 +73,7 @@ Works with Claude Desktop, Claude Code, Cursor, Windsurf — any MCP client. No 
 | `get_design_system` | **The core one.** A site's real grounded tokens |
 | `search_designs` | Score-ranked search. Tells you which of your terms matched *nothing* instead of silently returning noise |
 | `list_designs` | Browse the catalog |
-| `fetch_design_spec_markdown` | Full 11-layer spec as Markdown, 5 languages — drop straight into a prompt |
+| `fetch_design_spec_markdown` | The full spec as Markdown, 5 languages — drop straight into a prompt |
 | `get_critique_rubric` | The 5-dimension review scorecard for "is this design any good?" |
 
 ## Why the tokens are trustworthy
@@ -82,7 +82,7 @@ Every entry is extracted by driving a real browser (Playwright), reading `getCom
 
 | | Typical inspiration gallery | OpenDesign |
 |---|---|---|
-| What you get | A screenshot | 11-layer machine-readable spec |
+| What you get | A screenshot | Machine-readable token spec |
 | Colors | You eyedrop them | Actual hex, frequency-ranked |
 | Type | "looks like a grotesk" | Real scale: size / line-height / weight / tracking |
 | Motion | — | Duration buckets + easing curves |
@@ -91,11 +91,23 @@ Every entry is extracted by driving a real browser (Playwright), reading `getCom
 
 **1,486 sites** · **920** with full Playwright screenshot packs · **5 languages** · **~$0.10** marginal cost per site
 
-## The 11 layers
+## What's actually in a spec
 
-`identity · color · typography · spacing · surfaces · layout · components · interaction · motion · voice · anti-patterns`
+Two artifacts, two shapes — and the counts below are what you will literally find in the files, not a roadmap.
 
-Every site, same shape — so an agent that learns to read one has learned to read all 1,486. → [full spec](docs/11-layer-spec.md)
+**`spec.json` — all 1,486 sites, 6 measured token layers:**
+
+`colors · typography · spacing · surfaces · layout · motion`
+
+Every value is read off the live page with Playwright + `getComputedStyle`, then grounded against the measurements. Nothing here is a model's impression of the site.
+
+**`DESIGN.md` — the 920 sites with full packs, 9 sections:**
+
+`Overview · Colors · Typography · Layout · Elevation & Depth · Shapes · Components · Do's and Don'ts · System Prompt`
+
+The extra sections are the interpretive ones — component recipes, the anti-pattern list, and a paste-ready system prompt — which need the screenshots the pack pipeline produces.
+
+Same shape across every site, so an agent that learns to read one has learned to read all of them. → [layer definitions](docs/11-layer-spec.md)
 
 ```jsonc
 // GET https://opendesign.cc/packs/linear/spec.json
@@ -120,7 +132,7 @@ Browse [opendesign.cc](https://opendesign.cc) — infinite canvas, 5-language de
 git clone https://github.com/qiuyiwu1989-star/opendesign
 cd opendesign/extract && ./setup.sh
 python3 extract.py https://your-site.com          # drive the browser, measure the DOM
-python3 synthesize.py extracts/your-site-com      # → 11-layer spec
+python3 synthesize.py extracts/your-site-com      # → spec.json + DESIGN.md
 ./pack.sh extracts/your-site-com                  # → downloadable pack
 ```
 
@@ -128,7 +140,7 @@ Full pipeline, self-hostable: [architecture](docs/architecture.md) · [deploymen
 
 ## Docs
 
-**Concepts** — [positioning & first principles](docs/positioning.md) · [11-layer spec](docs/11-layer-spec.md) · [design pack standard](docs/design-pack-standard.md)
+**Concepts** — [positioning & first principles](docs/positioning.md) · [layer definitions](docs/11-layer-spec.md) · [design pack standard](docs/design-pack-standard.md)
 
 **Agent integration** — [MCP setup](https://opendesign.cc/mcp/) · [agent integration](docs/ai-agent-integration.md) · [the director protocol](skill/SKILL.md)
 

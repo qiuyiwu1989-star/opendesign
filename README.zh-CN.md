@@ -73,7 +73,7 @@ Claude Desktop / Claude Code / Cursor / Windsurf,任何 MCP 客户端都能用�
 | `get_design_system` | **核心工具。** 某个站的真实 grounded tokens |
 | `search_designs` | 打分排序检索。**会明确告诉你哪些查询词一个都没命中**,而不是默默返回噪声 |
 | `list_designs` | 浏览目录 |
-| `fetch_design_spec_markdown` | 完整 11 层规范的 Markdown,5 语言——可直接粘进 prompt |
+| `fetch_design_spec_markdown` | 完整规范的 Markdown,5 语言——可直接粘进 prompt |
 | `get_critique_rubric` | 5 维设计评审量表,回答「这设计到底行不行」 |
 
 ## 为什么这些 tokens 可信
@@ -82,7 +82,7 @@ Claude Desktop / Claude Code / Cursor / Windsurf,任何 MCP 客户端都能用�
 
 | | 一般的灵感画廊 | OpenDesign |
 |---|---|---|
-| 你拿到什么 | 一张截图 | 11 层机器可读规范 |
+| 你拿到什么 | 一张截图 | 机器可读的 token 规范 |
 | 颜色 | 自己用取色器吸 | 真实 hex,按出现频次排序 |
 | 字体 | 「看着像个无衬线」 | 真实字阶:字号/行高/字重/字距 |
 | 动效 | — | 时长分档 + 缓动曲线 |
@@ -91,11 +91,23 @@ Claude Desktop / Claude Code / Cursor / Windsurf,任何 MCP 客户端都能用�
 
 **1,486 站** · **920** 个带完整 Playwright 截图包 · **5 语言** · 每站边际成本 **~$0.10**
 
-## 11 层
+## 一份规范里到底有什么
 
-`身份 · 色彩 · 字体 · 间距 · 表面 · 布局 · 组件 · 交互 · 动效 · 语气 · 反面清单`
+两种产物、两种形状——下面的数字是你打开文件真能数出来的，不是路线图。
 
-所有站同一套结构——Agent 学会读一个就等于学会读全部 1,486 个。→ [完整标准](docs/11-layer-spec.md)
+**`spec.json` —— 全部 1,486 个站，6 层实测 token：**
+
+`colors · typography · spacing · surfaces · layout · motion`
+
+每个值都由 Playwright + `getComputedStyle` 从真实页面读出，再对着测量值校准。这里没有一项是模型对这个网站的"印象"。
+
+**`DESIGN.md` —— 有完整素材包的 920 个站，9 个章节：**
+
+`Overview · Colors · Typography · Layout · Elevation & Depth · Shapes · Components · Do's and Don'ts · System Prompt`
+
+多出来的是需要解读的部分——组件配方、禁用清单、可直接粘贴的 system prompt——它们依赖素材包管线产出的截图。
+
+所有站同一套结构，Agent 学会读一个就等于学会读全部。→ [各层定义](docs/11-layer-spec.md)
 
 ```jsonc
 // GET https://opendesign.cc/packs/linear/spec.json
@@ -120,7 +132,7 @@ Claude Desktop / Claude Code / Cursor / Windsurf,任何 MCP 客户端都能用�
 git clone https://github.com/qiuyiwu1989-star/opendesign
 cd opendesign/extract && ./setup.sh
 python3 extract.py https://your-site.com          # 驱动浏览器,实测 DOM
-python3 synthesize.py extracts/your-site-com      # → 11 层规范
+python3 synthesize.py extracts/your-site-com      # → spec.json + DESIGN.md
 ./pack.sh extracts/your-site-com                  # → 可下载素材包
 ```
 
@@ -128,7 +140,7 @@ python3 synthesize.py extracts/your-site-com      # → 11 层规范
 
 ## 文档
 
-**概念** — [定位与第一性原理](docs/positioning.md) · [11 层标准](docs/11-layer-spec.md) · [素材包标准](docs/design-pack-standard.md)
+**概念** — [定位与第一性原理](docs/positioning.md) · [各层定义](docs/11-layer-spec.md) · [素材包标准](docs/design-pack-standard.md)
 
 **Agent 接入** — [MCP 配置](https://opendesign.cc/mcp/) · [Agent 集成](docs/ai-agent-integration.md) · [总监协议](skill/SKILL.md)
 

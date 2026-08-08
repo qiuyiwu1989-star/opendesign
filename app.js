@@ -816,20 +816,20 @@ function paletteToTokens(palette) {
   };
 }
 
-/** AI 视觉解读 —— 当前是 stub，留有真实 Edge Function 调用入口。
- *  接通 Anthropic API 后，整段函数只换里面的 try 分支，不动调用方。*/
+/** AI 视觉解读 —— 当前是 stub，留有真实分析服务的调用入口。
+ *
+ *  2026-08 迁库后改了这里：原来无条件去打 Supabase Edge Function
+ *  `${cfg.url}/functions/v1/analyze-site`。Supabase 已经下线，那个路径现在
+ *  落到 PostgREST 上必然 404（PGRST125 Invalid path），等于每次提交都白扔
+ *  一个来回、还往控制台刷错。改成显式的 aiEndpoint 开关：没配就直接走 stub，
+ *  将来接通真实服务时只需在 supabase-config.js 里填上地址，调用方不用动。*/
 async function analyzeWithAI({ url, screenshotUrl, palette, meta }) {
-  const cfg = window.SUPABASE_CONFIG;
-  // 真实路径：调用 Supabase Edge Function `analyze-site`
-  if (cfg && cfg.url && cfg.anonKey) {
+  const endpoint = window.SUPABASE_CONFIG && window.SUPABASE_CONFIG.aiEndpoint;
+  if (endpoint) {
     try {
-      const res = await fetch(`${cfg.url}/functions/v1/analyze-site`, {
+      const res = await fetch(endpoint, {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          apikey: cfg.anonKey,
-          Authorization: `Bearer ${cfg.anonKey}`
-        },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ url, screenshotUrl, palette, meta })
       });
       if (res.ok) {
@@ -837,7 +837,7 @@ async function analyzeWithAI({ url, screenshotUrl, palette, meta }) {
         if (data && data.spec) return { spec: data.spec, source: "ai" };
       }
     } catch (err) {
-      console.info("[ai] edge function unavailable, falling back to stub", err.message);
+      console.info("[ai] 分析服务不可用，退回骨架", err.message);
     }
   }
   // 占位：未接通 AI 时返回结构化骨架，靠调色板填颜色层
@@ -1011,7 +1011,10 @@ function buildSiteFromUrl(rawUrl) {
 }
 
 function filteredSites() {
-  const query = searchQuery.trim().toLowerCase();
+  // 按空白拆词后逐词 AND —— 原来是整串 includes，用户一打空格就必然 0 条
+  // （「极简 深色」不会作为一整串出现在任何一条 notes 里）。拆词后两个词
+  // 分别命中即可，这才是搜索框里打多个词时的预期行为。
+  const terms = searchQuery.trim().toLowerCase().split(/\s+/).filter(Boolean);
   const list = sites.filter((site) => {
     const tagMatch = activeTag === "All" || site.tags.includes(activeTag);
     // 搜索覆盖多语言 notes + 多语言 tags —— 日语用户搜「ブラウザ」/「フィンテック」也能命中
@@ -1019,7 +1022,7 @@ function filteredSites() {
     const allNotes = Object.values(overlay).map((o) => o && o.notes).filter(Boolean);
     const localizedTags = site.tags.map((tg) => window.i18n.tag(tg));
     const text = [site.title, site.url, site.notes, ...allNotes, ...site.tags, ...localizedTags].join(" ").toLowerCase();
-    return tagMatch && (!query || text.includes(query));
+    return tagMatch && terms.every((t) => text.includes(t));
   });
   if (sortMode === "popular") {
     // 按全站累计收藏 DESC，相同时按 curator 原顺序作 stable tie-breaker

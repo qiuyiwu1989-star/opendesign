@@ -3,8 +3,9 @@
 # 用法: ./scripts/configure-redirect.sh
 set -euo pipefail
 
-DEPLOY_USER="${DEPLOY_USER:-ubuntu}"
-DEPLOY_HOST="${DEPLOY_HOST:-43.159.171.3}"
+# 部署目标从 scripts/deploy-target.env 统一读取（改机器只改那一个文件）
+# shellcheck source=./deploy-target.env
+source "$(dirname "${BASH_SOURCE[0]}")/deploy-target.env"
 CONF_LOCAL="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)/deploy/nginx-style.qiuyiwu.com-redirect.conf"
 SSH_OPTS=(-o StrictHostKeyChecking=accept-new -o PreferredAuthentications=publickey,keyboard-interactive,password)
 

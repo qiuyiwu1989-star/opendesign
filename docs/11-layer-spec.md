@@ -21,6 +21,38 @@ OpenDesign 提倡的是：
 
 ---
 
+## 落地状态（标准 ≠ 已实现）
+
+这份文档是**标准**，不是当前产物的说明书。两者对不上的地方必须写清楚——
+一个卖"可机读、可核验"的项目，如果自己的层数都对不上文件里数出来的，
+那所有别的精确性声明也一起不可信了。
+
+下表按 2026-08 的真实数据统计（`sites/*.json` 1,517 个站 + 线上 pack）：
+
+| # | 层 | `spec.json`（全部 1,486 站） | `DESIGN.md`（920 个有包站） |
+|---|---|---|---|
+| 1 | Identity | ✗ schema 里有，实际 0 个站有值 | ✓ Overview |
+| 2 | Colors | ✓ 1,517/1,517 | ✓ Colors |
+| 3 | Typography | ✓ 1,517/1,517 | ✓ Typography |
+| 4 | Spacing | ✓ 1,517/1,517 | —（并入 Layout） |
+| 5 | Surfaces | ✓ 1,517/1,517 | ✓ Elevation & Depth / Shapes |
+| 6 | Layout | ✓ 1,517/1,517 | ✓ Layout |
+| 7 | Components | ✗ | ✓ Components |
+| 8 | Motion | ✓ 1,517/1,517 | —（并入 Overview） |
+| 9 | Interaction | ✗ | —（散在 Components） |
+| 10 | Voice | ✗ | ✗ |
+| 11 | Don'ts | ✗ | ✓ Do's and Don'ts |
+| 12 | System Prompt | ✗ | ✓ System Prompt |
+
+**一句话**：JSON 侧目前落地 **6 层实测 token**（colors / typography / spacing /
+surfaces / layout / motion，全部由 Playwright + `getComputedStyle` 读出并对测量值校准）；
+素材包侧的 `DESIGN.md` 落地 **9 个章节**，多出的组件配方、禁用清单、System Prompt
+依赖截图才能生成，所以只有 920 个有完整包的站才有。
+
+未落地的 Identity / Voice / Interaction 属于标准的开放部分——欢迎按本文档实现。
+
+---
+
 ## Schema 形式
 
 完整 JSON Schema 见 [11-layer-schema.json](11-layer-schema.json)（即将提供）。
@@ -202,7 +234,7 @@ interface DesignSpec {
 
 **目标**：hover / click / transition / keyboard 四种状态的统一规则。
 
-10. Voice · 文案语气
+### 10. Voice · 文案语气
 
 **目标**：让 AI 写出**同气质的文案**，而不是"什么内容都行"。
 

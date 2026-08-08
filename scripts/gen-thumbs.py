@@ -19,6 +19,7 @@ import io
 import json
 import os
 import sys
+import urllib.request
 import zipfile
 
 try:
@@ -33,6 +34,10 @@ ap.add_argument("--out", default="/var/www/opendesign.cc/thumbs", help="缩略�
 ap.add_argument("--qc", default=os.path.join(os.path.dirname(__file__), "..", "thumbs", "_qc.json"),
                 help="qc-thumbs.py 的选帧决策 _qc.json；存在则按 {slug:{frame}} 用选中的帧")
 ap.add_argument("--force", action="store_true")
+ap.add_argument("--from-cos", metavar="PACKS_INDEX", nargs="?", const="auto",
+                help="本地没有源图的 slug，改从 COS 拉首屏图生成（走 packs-index.json 里的 URL，"
+                     "并用 imageMogr2 让 COS 先缩到 768 宽，省带宽）。默认找 <repo>/packs-index.json")
+ap.add_argument("--cos-limit", type=int, default=0, help="--from-cos 时最多处理多少个（0=不限，调试用）")
 a = ap.parse_args()
 PACKS_DIR, THUMBS, FORCE = a.packs, a.out, a.force
 os.makedirs(THUMBS, exist_ok=True)
@@ -55,6 +60,48 @@ for d in glob.glob(os.path.join(PACKS_DIR, "*")):
     if os.path.isdir(d):
         slugs.add(os.path.basename(d))
 
+# 源图不在本机时干脆不跑。
+#
+# 背景：pack 素材早就迁到 COS 了，只有服务器上还留着本地副本。从 Mac 跑
+# deploy.sh 时 PACKS_DIR 是空的（或只有目录壳），于是每个 slug 都走到
+# "无 ZIP 帧也无松散 PNG"，一次刷 1490 行 ✗，末尾还写 "目录共 0 张"——
+# 看着像缩略图全没了，实际上服务器上好好的 943 张一张没动。
+#
+# 这种"每次都报一大片假失败"和长期红着的 CI 是同一种病：真出问题时
+# 没人会再多看一眼。没有源图就说清楚"这台机器上没有源图"，然后退出。
+if not a.from_cos and not any(
+        os.path.isdir(os.path.join(PACKS_DIR, s)) and os.listdir(os.path.join(PACKS_DIR, s))
+        for s in list(slugs)[:50]):
+    have = len(glob.glob(os.path.join(THUMBS, "*.webp")))
+    print(f"thumbs: 本机 {PACKS_DIR} 没有 pack 源图（素材在 COS / 服务器上），跳过生成。"
+          f"本地已有 {have} 张。需要重生成请到服务器上跑。")
+    raise SystemExit(0)
+
+# ── --from-cos：本地没源图的走 COS ──────────────────────────────────
+# 素材包早就迁到 COS 了，服务器上只留了 943 个 slug 的本地副本，另外 545 个
+# 只有 COS 上有。这批站因此没有 /thumbs/<slug>.webp，前端每次都要先吃一个
+# 404、再去 COS 拉原图兜底——能看，但每张卡都白跑一趟。
+# 这里直接从 COS 把首屏图取回来生成本地缩略图，把那 545 个 404 消掉。
+COS_URLS = {}
+if a.from_cos:
+    idx_path = a.from_cos
+    if idx_path == "auto":
+        idx_path = os.path.join(os.path.dirname(__file__), "..", "packs-index.json")
+    try:
+        pidx = json.load(open(idx_path, encoding="utf-8"))
+    except Exception as e:
+        print(f"✗ 读不到 packs-index.json（{idx_path}）: {e}"); raise SystemExit(0)
+    PREF = ("02_desktop_hero", "01_desktop_full", "03_desktop_section", "05_mobile_hero")
+    for slug, e in pidx.items():
+        shots = [f for f in (e.get("files") or []) if f.get("category") == "shot" and f.get("url")]
+        pick = next((f for p in PREF for f in shots if f.get("name", "").startswith(p)), None)
+        if pick:
+            # 让 COS 先缩到 768 宽再传：原图常有 258KB+，缩完 ~20KB，
+            # 545 张的差别是 140MB vs 11MB
+            COS_URLS[slug] = pick["url"] + "?imageMogr2/thumbnail/768x"
+    slugs |= set(COS_URLS)
+    print(f"  ⓘ --from-cos：packs-index 提供了 {len(COS_URLS)} 个可回源的 slug")
+
 def load_frame(slug, want):
     """优先从 ZIP 抽选中帧；ZIP 没有就用目录里的松散 PNG。返回 RGB Image 或 None。"""
     pack_dir = os.path.join(PACKS_DIR, slug)
@@ -76,10 +123,20 @@ def load_frame(slug, want):
         lp = os.path.join(pack_dir, c)
         if os.path.exists(lp):
             return Image.open(lp).convert("RGB")
+    # 3) COS 回源（仅 --from-cos）。放在最后：本地有就绝不走网络
+    url = COS_URLS.get(slug)
+    if url:
+        req = urllib.request.Request(url, headers={"User-Agent": "opendesign-thumbs/1.0"})
+        with urllib.request.urlopen(req, timeout=20) as r:
+            return Image.open(io.BytesIO(r.read())).convert("RGB")
     return None
 
 ok = skip = fail = 0
-for slug in sorted(slugs):
+nosrc = []      # 无素材包的 slug:正常状态,汇总一行,不逐条刷屏
+todo = sorted(slugs)
+if a.from_cos and a.cos_limit:
+    todo = [s for s in todo if not os.path.exists(os.path.join(THUMBS, f"{s}.webp"))][:a.cos_limit]
+for slug in todo:
     out = os.path.join(THUMBS, f"{slug}.webp")
     if os.path.exists(out) and not FORCE:
         skip += 1
@@ -88,8 +145,11 @@ for slug in sorted(slugs):
         want = (QC.get(slug) or {}).get("frame", "02_desktop_hero.png")  # AI 选中的帧，没有就首屏
         img = load_frame(slug, want)
         if img is None:
-            fail += 1
-            print(f"  ✗ {slug}: 无 ZIP 帧也无松散 PNG")
+            # "这个站压根没有素材包"是常态,不是故障:1,486 个站里约 560 个
+            # 没跑过 Playwright 抓取,自然没有可抽的帧。以前每个都打一行 ✗,
+            # 一次部署刷近千行——真正的失败(解码错、网络挂)就淹没在里面了。
+            # 所以这类归到 nosrc 只计数,末尾汇总一行;✗ 只留给真异常。
+            nosrc.append(slug)
             continue
         img = ImageOps.fit(img, (W, H), method=Image.LANCZOS, centering=(0.5, 0.0))
         img.save(out, "WEBP", quality=Q, method=6)
@@ -99,4 +159,10 @@ for slug in sorted(slugs):
         fail += 1
         print(f"  ✗ {slug}: {type(e).__name__}: {e}")
 
-print(f"thumbs: 生成 {ok} · 跳过 {skip} · 失败 {fail} · 目录共 {len(glob.glob(os.path.join(THUMBS, '*.webp')))} 张")
+total = len(glob.glob(os.path.join(THUMBS, "*.webp")))
+line = f"thumbs: 生成 {ok} · 跳过 {skip} · 目录共 {total} 张"
+if nosrc:
+    line += f" · {len(nosrc)} 个站无素材包(正常,这些站没跑过 Playwright 抓取)"
+if fail:
+    line += f" · ✗ {fail} 个真失败"
+print(line)

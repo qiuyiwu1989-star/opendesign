@@ -5,10 +5,9 @@
 #       SKIP_SEO=1 ./scripts/deploy.sh      # 跳过 SEO 静态页（debug 用）
 set -euo pipefail
 
-DEPLOY_USER="${DEPLOY_USER:-ubuntu}"
-DEPLOY_HOST="${DEPLOY_HOST:-43.159.171.3}"
-DEPLOY_PATH="${DEPLOY_PATH:-/var/www/opendesign.cc}"
-DEPLOY_URL="${DEPLOY_URL:-https://opendesign.cc}"
+# 部署目标从 scripts/deploy-target.env 统一读取（改机器只改那一个文件）
+# shellcheck source=./deploy-target.env
+source "$(dirname "${BASH_SOURCE[0]}")/deploy-target.env"
 SSH_OPTS=(-o StrictHostKeyChecking=accept-new -o PreferredAuthentications=publickey,keyboard-interactive,password)
 
 ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
@@ -19,6 +18,42 @@ if [[ -z "${SKIP_BUILD:-}" ]]; then
   echo "▸ Building dist/"
   python3 "${ROOT_DIR}/scripts/build.py"
 fi
+
+# Step 2 前置闸门：dist/ 必须跟 sites/ 对得上，才允许覆盖根目录产物。
+#
+# 2026-08-08 的事故：SKIP_BUILD=1 部署时，dist/ 里留着一次 --slug 局部构建的
+# 残留（只有 527 条），Step 2 照样把它拷进根目录、Step 3 照样推上线——
+# 全程零报错，线上 1,486 个站直接变成 527 个，是隔了很久才靠数条目数发现的。
+#
+# 所以这里改成硬闸门：dist 条目数少于 sites/ 里可发布数的 95% 就中止。
+# 宁可拦一次正常部署，也不要再静默发布一个残缺的库。
+echo "▸ Gate: dist/ 完整性"
+python3 - "$ROOT_DIR" <<'GATE' || { echo "✗ 完整性闸门未通过 —— 已中止部署（重跑一次不带 SKIP_BUILD 的完整构建）"; exit 1; }
+import json, glob, os, sys
+root = sys.argv[1]
+# sites/ 里"能出现在前端"的口径：非 broken / archived / failed*
+publishable = 0
+for f in glob.glob(os.path.join(root, "sites", "*.json")):
+    try:
+        st = (json.load(open(f, encoding="utf-8")).get("status") or "")
+    except Exception:
+        continue
+    if not st.startswith(("broken", "archived", "failed")):
+        publishable += 1
+
+idx_path = os.path.join(root, "dist", "sites-index.json")
+if not os.path.exists(idx_path):
+    print(f"  ✗ 缺 {idx_path} —— dist/ 没构建过"); sys.exit(1)
+d = json.load(open(idx_path, encoding="utf-8"))
+rows = d if isinstance(d, list) else (d.get("sites") or list(d.values()))
+
+floor = int(publishable * 0.95)
+if len(rows) < floor:
+    print(f"  ✗ dist/sites-index.json 只有 {len(rows)} 条，sites/ 里可发布 {publishable} 条"
+          f"（下限 {floor}）——dist/ 是陈旧或局部构建的残留")
+    sys.exit(1)
+print(f"  ✓ dist/sites-index.json {len(rows)} 条 vs sites/ 可发布 {publishable} 条")
+GATE
 
 # Step 2: build.py 出的产物同步回根目录（前端从根目录读）
 echo "▸ Sync built files → root"
@@ -116,8 +151,14 @@ if [[ -n "${LOCAL_DEPLOY:-}" ]]; then
     fi
   done
   if [[ -f "${ROOT_DIR}/scripts/gen-thumbs.py" ]]; then
-    python3 "${ROOT_DIR}/scripts/gen-thumbs.py" --packs "${DEPLOY_PATH}/packs" --out /tmp/od-thumbs || true
-    sudo mkdir -p "${DEPLOY_PATH}/thumbs" && sudo cp /tmp/od-thumbs/*.webp "${DEPLOY_PATH}/thumbs/" 2>/dev/null || true
+    # --out 用【持久】缓存目录而不是每次都空的 /tmp：空目录会让"已存在就跳过"
+    # 完全失效，于是每次部署都把 1490 个 slug 全试一遍、刷出近千行 ✗。
+    # --from-cos：素材只在 COS 上的包也能回源生成缩略图。
+    THUMB_CACHE="${HOME}/.cache/opendesign-thumbs"
+    mkdir -p "$THUMB_CACHE"
+    python3 "${ROOT_DIR}/scripts/gen-thumbs.py" --packs "${DEPLOY_PATH}/packs" \
+      --out "$THUMB_CACHE" --from-cos "${ROOT_DIR}/packs-index.json" 2>&1 | tail -3 || true
+    sudo mkdir -p "${DEPLOY_PATH}/thumbs" && sudo cp -n "$THUMB_CACHE"/*.webp "${DEPLOY_PATH}/thumbs/" 2>/dev/null || true
   fi
   sudo chown -R www-data:www-data "${DEPLOY_PATH}"
   echo "✓ LOCAL_DEPLOY done"
@@ -152,9 +193,11 @@ ssh "${SSH_OPTS[@]}" "${DEPLOY_USER}@${DEPLOY_HOST}" "
   if [[ -f /home/ubuntu/opendesign/scripts/gen-thumbs.py ]]; then
     # 从每个完整包 ZIP 抽真桌面首屏截图缩成 webp → /thumbs/<slug>.webp（卡片图源，甩开 thum.io 截垃圾页）
     # 以 ubuntu 跑（有 Pillow）读公开 ZIP、写 /tmp，再 sudo cp 进 /thumbs（幂等，缺啥补啥）
-    python3 /home/ubuntu/opendesign/scripts/gen-thumbs.py --packs '${DEPLOY_PATH}/packs' --out /tmp/od-thumbs || true;
+    # --out 是持久缓存（不是每次都空的 /tmp），否则"已存在就跳过"失效、每次刷近千行 ✗
+    mkdir -p /home/ubuntu/.cache/opendesign-thumbs;
+    python3 /home/ubuntu/opendesign/scripts/gen-thumbs.py --packs '${DEPLOY_PATH}/packs' --out /home/ubuntu/.cache/opendesign-thumbs --from-cos /home/ubuntu/opendesign/packs-index.json 2>&1 | tail -3 || true;
     sudo mkdir -p '${DEPLOY_PATH}/thumbs';
-    sudo cp /tmp/od-thumbs/*.webp '${DEPLOY_PATH}/thumbs/' 2>/dev/null || true;
+    sudo cp -n /home/ubuntu/.cache/opendesign-thumbs/*.webp '${DEPLOY_PATH}/thumbs/' 2>/dev/null || true;
   fi &&
   sudo chown -R www-data:www-data '${DEPLOY_PATH}' &&
   sudo find '${DEPLOY_PATH}' -name '._*' -delete &&

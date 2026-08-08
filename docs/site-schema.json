@@ -4,7 +4,15 @@
   "title": "OpenDesign Site Entry",
   "description": "Single curated site file at sites/<slug>.json. Locked at schema_version 0.3.",
   "type": "object",
-  "required": ["id", "schema_version", "url", "title", "tags", "status", "added_at"],
+  "required": [
+    "id",
+    "schema_version",
+    "url",
+    "title",
+    "tags",
+    "status",
+    "added_at"
+  ],
   "additionalProperties": false,
   "properties": {
     "id": {
@@ -14,7 +22,9 @@
     },
     "schema_version": {
       "type": "string",
-      "enum": ["0.3"],
+      "enum": [
+        "0.3"
+      ],
       "description": "Bump only via RFC. Used by migration scripts."
     },
     "url": {
@@ -34,12 +44,11 @@
     },
     "tags": {
       "type": "array",
-      "minItems": 1,
       "items": {
         "type": "string",
         "minLength": 1
       },
-      "description": "Canonical English tags (e.g. 'SaaS', 'Editorial'). Translation handled by i18n.tag() in app.js."
+      "description": "Canonical English tags (e.g. 'SaaS', 'Editorial'). Translation handled by i18n.tag() in app.js. Non-empty is REQUIRED for any status that can be published; delisted entries (broken/archived/failed) may be empty."
     },
     "status": {
       "type": "string",
@@ -88,34 +97,92 @@
       "type": "boolean",
       "description": "Site is reachable but automated screenshot capture reliably returns blank (bot-blocking headless browsers etc.) — frontend renders a placeholder instead of retrying a doomed image load."
     },
-
     "_meta": {
       "type": "object",
       "additionalProperties": true,
       "properties": {
-        "vision_model": { "type": "string", "description": "e.g. 'mimo-v2.5'" },
-        "vision_prompt_version": { "type": "string", "description": "e.g. '0.3' — see docs/prompts.md" },
-        "vision_at": { "type": "string", "format": "date-time" },
-        "vision_tokens": { "type": "integer", "minimum": 0 },
-        "vision_cost_usd": { "type": "number", "minimum": 0 },
-        "translation_model": { "type": "string" },
-        "translation_at": { "type": "string", "format": "date-time" },
-        "translation_tokens": { "type": "integer", "minimum": 0 },
-        "translation_cost_usd": { "type": "number", "minimum": 0 },
-        "narrative_model": { "type": "string" },
-        "narrative_prompt_version": { "type": "string", "description": "e.g. '0.3' — see docs/prompts.md Prompt #3" },
-        "narrative_at": { "type": "string", "format": "date-time" },
-        "narrative_tokens": { "type": "integer", "minimum": 0 },
-        "narrative_cost_usd": { "type": "number", "minimum": 0 },
-        "narrative_status": { "type": ["string", "null"], "description": "ok | failed:json_parse | failed:rate_limit ..." },
-        "total_cost_usd": { "type": "number", "minimum": 0 },
-        "last_error": { "type": ["string", "null"] },
-        "retries": { "type": "integer", "minimum": 0 }
+        "vision_model": {
+          "type": "string",
+          "description": "e.g. 'mimo-v2.5'"
+        },
+        "vision_prompt_version": {
+          "type": "string",
+          "description": "e.g. '0.3' — see docs/prompts.md"
+        },
+        "vision_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "vision_tokens": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "vision_cost_usd": {
+          "type": "number",
+          "minimum": 0
+        },
+        "translation_model": {
+          "type": "string"
+        },
+        "translation_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "translation_tokens": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "translation_cost_usd": {
+          "type": "number",
+          "minimum": 0
+        },
+        "narrative_model": {
+          "type": "string"
+        },
+        "narrative_prompt_version": {
+          "type": "string",
+          "description": "e.g. '0.3' — see docs/prompts.md Prompt #3"
+        },
+        "narrative_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "narrative_tokens": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "narrative_cost_usd": {
+          "type": "number",
+          "minimum": 0
+        },
+        "narrative_status": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "ok | failed:json_parse | failed:rate_limit ..."
+        },
+        "total_cost_usd": {
+          "type": "number",
+          "minimum": 0
+        },
+        "last_error": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "retries": {
+          "type": "integer",
+          "minimum": 0
+        }
       }
     },
-
     "spec": {
-      "type": "object",
+      "type": [
+        "object",
+        "null"
+      ],
       "description": "11-layer Tokens spec. Numeric / categorical fields are language-independent.",
       "additionalProperties": false,
       "properties": {
@@ -134,36 +201,118 @@
           "description": "All values are language-independent hex / rgba strings.",
           "additionalProperties": false,
           "properties": {
-            "bg":         { "type": ["string", "null"] },
-            "bgSoft":     { "type": ["string", "null"] },
-            "bgQuiet":    { "type": ["string", "null"] },
-            "ink":        { "type": ["string", "null"] },
-            "inkSoft":    { "type": ["string", "null"] },
-            "muted":      { "type": ["string", "null"] },
-            "mutedSoft":  { "type": ["string", "null"] },
-            "accent":     { "type": ["string", "null"] },
-            "line":       { "type": ["string", "null"] }
+            "bg": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "bgSoft": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "bgQuiet": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "ink": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "inkSoft": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "muted": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "mutedSoft": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "accent": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "line": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
           }
         },
         "typography": {
           "type": "object",
           "additionalProperties": false,
           "properties": {
-            "display": { "type": ["string", "null"], "description": "Font category, e.g. humanist-sans (NOT a brand name)." },
-            "body":    { "type": ["string", "null"] },
-            "mono":    { "type": ["string", "null"] },
+            "display": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "description": "Font category, e.g. humanist-sans (NOT a brand name)."
+            },
+            "body": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "mono": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
             "scale": {
               "type": "array",
               "items": {
                 "type": "object",
-                "required": ["token", "size"],
+                "required": [
+                  "token",
+                  "size"
+                ],
                 "properties": {
-                  "token":  { "type": "string", "pattern": "^[a-z][a-z0-9-]*$", "description": "kebab-case token name. Common: display/h1/h2/h3/body/small/caption, but display-lg, body-lg etc. also accepted." },
-                  "size":   { "type": "number", "minimum": 8 },
-                  "lh":     { "type": "number" },
-                  "weight": { "type": "integer", "minimum": 100, "maximum": 900 },
-                  "ls":     { "type": "string" },
-                  "use":    { "type": "string", "description": "Language-relative — duplicated in spec_i18n." }
+                  "token": {
+                    "type": "string",
+                    "pattern": "^[a-z][a-z0-9-]*$",
+                    "description": "kebab-case token name. Common: display/h1/h2/h3/body/small/caption, but display-lg, body-lg etc. also accepted."
+                  },
+                  "size": {
+                    "type": "number",
+                    "minimum": 8
+                  },
+                  "lh": {
+                    "type": "number"
+                  },
+                  "weight": {
+                    "type": "integer",
+                    "minimum": 100,
+                    "maximum": 900
+                  },
+                  "ls": {
+                    "type": "string"
+                  },
+                  "use": {
+                    "type": "string",
+                    "description": "Language-relative — duplicated in spec_i18n."
+                  }
                 }
               }
             }
@@ -173,8 +322,15 @@
           "type": "object",
           "additionalProperties": false,
           "properties": {
-            "base":  { "type": "number" },
-            "scale": { "type": "array", "items": { "type": "number" } }
+            "base": {
+              "type": "number"
+            },
+            "scale": {
+              "type": "array",
+              "items": {
+                "type": "number"
+              }
+            }
           }
         },
         "surfaces": {
@@ -184,10 +340,30 @@
             "radius": {
               "type": "object",
               "properties": {
-                "sm":   { "type": ["number", "null"] },
-                "md":   { "type": ["number", "null"] },
-                "lg":   { "type": ["number", "null"] },
-                "pill": { "type": ["number", "null"] }
+                "sm": {
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                },
+                "md": {
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                },
+                "lg": {
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                },
+                "pill": {
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                }
               }
             }
           }
@@ -196,11 +372,36 @@
           "type": "object",
           "additionalProperties": false,
           "properties": {
-            "container":   { "type": ["number", "null"] },
-            "paragraph":   { "type": ["number", "null"] },
-            "columns":     { "type": ["number", "null"] },
-            "gutter":      { "type": ["number", "null"] },
-            "breakpoints": { "type": "array", "items": { "type": "number" } }
+            "container": {
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "paragraph": {
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "columns": {
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "gutter": {
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "breakpoints": {
+              "type": "array",
+              "items": {
+                "type": "number"
+              }
+            }
           }
         },
         "motion": {
@@ -210,82 +411,166 @@
             "durations": {
               "type": "object",
               "properties": {
-                "micro":  { "type": ["number", "null"] },
-                "small":  { "type": ["number", "null"] },
-                "medium": { "type": ["number", "null"] }
+                "micro": {
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                },
+                "small": {
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                },
+                "medium": {
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                }
               }
             },
-            "easing": { "type": ["string", "null"], "description": "cubic-bezier(...) or keyword." }
+            "easing": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "description": "cubic-bezier(...) or keyword."
+            }
           }
         }
       }
     },
-
     "desc": {
       "type": "object",
       "description": "5-lang display descriptions, shown in drawer insight grid and library cards.",
-      "required": ["en"],
+      "required": [
+        "en"
+      ],
       "additionalProperties": false,
       "properties": {
-        "en":    { "$ref": "#/$defs/DescBlock" },
-        "zh-CN": { "$ref": "#/$defs/DescBlock" },
-        "zh-TW": { "$ref": "#/$defs/DescBlock" },
-        "ja":    { "$ref": "#/$defs/DescBlock" },
-        "ko":    { "$ref": "#/$defs/DescBlock" }
+        "en": {
+          "$ref": "#/$defs/DescBlock"
+        },
+        "zh-CN": {
+          "$ref": "#/$defs/DescBlock"
+        },
+        "zh-TW": {
+          "$ref": "#/$defs/DescBlock"
+        },
+        "ja": {
+          "$ref": "#/$defs/DescBlock"
+        },
+        "ko": {
+          "$ref": "#/$defs/DescBlock"
+        }
       }
     },
-
     "spec_i18n": {
       "type": "object",
       "description": "Language-relative parts of the 11-layer spec, fed into the AI System Prompt.",
-      "required": ["en"],
+      "required": [
+        "en"
+      ],
       "additionalProperties": false,
       "properties": {
-        "en":    { "$ref": "#/$defs/SpecI18nBlock" },
-        "zh-CN": { "$ref": "#/$defs/SpecI18nBlock" },
-        "zh-TW": { "$ref": "#/$defs/SpecI18nBlock" },
-        "ja":    { "$ref": "#/$defs/SpecI18nBlock" },
-        "ko":    { "$ref": "#/$defs/SpecI18nBlock" }
+        "en": {
+          "$ref": "#/$defs/SpecI18nBlock"
+        },
+        "zh-CN": {
+          "$ref": "#/$defs/SpecI18nBlock"
+        },
+        "zh-TW": {
+          "$ref": "#/$defs/SpecI18nBlock"
+        },
+        "ja": {
+          "$ref": "#/$defs/SpecI18nBlock"
+        },
+        "ko": {
+          "$ref": "#/$defs/SpecI18nBlock"
+        }
       }
     },
-
     "narrative": {
       "type": "object",
       "description": "Magazine-style narrative slots produced by Prompt #3, woven into DESIGN_SPEC.md at build time. Each language has 10 slot strings.",
       "additionalProperties": false,
       "properties": {
-        "en":    { "$ref": "#/$defs/NarrativeBlock" },
-        "zh-CN": { "$ref": "#/$defs/NarrativeBlock" },
-        "zh-TW": { "$ref": "#/$defs/NarrativeBlock" },
-        "ja":    { "$ref": "#/$defs/NarrativeBlock" },
-        "ko":    { "$ref": "#/$defs/NarrativeBlock" }
+        "en": {
+          "$ref": "#/$defs/NarrativeBlock"
+        },
+        "zh-CN": {
+          "$ref": "#/$defs/NarrativeBlock"
+        },
+        "zh-TW": {
+          "$ref": "#/$defs/NarrativeBlock"
+        },
+        "ja": {
+          "$ref": "#/$defs/NarrativeBlock"
+        },
+        "ko": {
+          "$ref": "#/$defs/NarrativeBlock"
+        }
       }
     },
-
     "pack": {
       "type": "object",
       "additionalProperties": false,
       "properties": {
-        "available":  { "type": "boolean" },
-        "zip_url":    { "type": "string", "format": "uri-reference" },
-        "zip_size":   { "type": "integer", "minimum": 0 },
-        "folder_url": { "type": "string", "format": "uri-reference" },
-        "file_count": { "type": "integer", "minimum": 0 }
+        "available": {
+          "type": "boolean"
+        },
+        "zip_url": {
+          "type": "string",
+          "format": "uri-reference"
+        },
+        "zip_size": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "folder_url": {
+          "type": "string",
+          "format": "uri-reference"
+        },
+        "file_count": {
+          "type": "integer",
+          "minimum": 0
+        }
       }
     }
   },
-
   "$defs": {
     "DescBlock": {
       "type": "object",
       "description": "Five descriptive fields per language — rendered in detail drawer.",
       "additionalProperties": false,
       "properties": {
-        "palette":     { "type": "string", "minLength": 1, "maxLength": 500 },
-        "layout":      { "type": "string", "minLength": 1, "maxLength": 500 },
-        "interaction": { "type": "string", "minLength": 1, "maxLength": 500 },
-        "motion":      { "type": "string", "minLength": 1, "maxLength": 500 },
-        "notes":       { "type": "string", "minLength": 1, "maxLength": 500 }
+        "palette": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 500
+        },
+        "layout": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 500
+        },
+        "interaction": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 500
+        },
+        "motion": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 500
+        },
+        "notes": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 500
+        }
       }
     },
     "NarrativeBlock": {
@@ -293,16 +578,56 @@
       "description": "Magazine-style narrative slots produced by Prompt #3. Composed with templated tables to render DESIGN_SPEC.<lang>.md at build time. Per-slot upper bound is generous; mimo tends to be more thorough than the docs' word-count guidance.",
       "additionalProperties": true,
       "properties": {
-        "ch1_intro": { "type": "string", "minLength": 20, "maxLength": 1200 },
-        "ch2_intro": { "type": "string", "minLength": 20, "maxLength": 800 },
-        "ch2_outro": { "type": "string", "minLength": 10, "maxLength": 600 },
-        "ch3_intro": { "type": "string", "minLength": 20, "maxLength": 800 },
-        "ch4_intro": { "type": "string", "minLength": 10, "maxLength": 600 },
-        "ch5_intro": { "type": "string", "minLength": 20, "maxLength": 800 },
-        "ch6_intro": { "type": "string", "minLength": 20, "maxLength": 1200 },
-        "ch7_intro": { "type": "string", "minLength": 20, "maxLength": 1200 },
-        "ch8_intro": { "type": "string", "minLength": 20, "maxLength": 800 },
-        "ch8_outro": { "type": "string", "minLength": 10, "maxLength": 600 }
+        "ch1_intro": {
+          "type": "string",
+          "minLength": 20,
+          "maxLength": 1200
+        },
+        "ch2_intro": {
+          "type": "string",
+          "minLength": 20,
+          "maxLength": 800
+        },
+        "ch2_outro": {
+          "type": "string",
+          "minLength": 10,
+          "maxLength": 600
+        },
+        "ch3_intro": {
+          "type": "string",
+          "minLength": 20,
+          "maxLength": 800
+        },
+        "ch4_intro": {
+          "type": "string",
+          "minLength": 10,
+          "maxLength": 600
+        },
+        "ch5_intro": {
+          "type": "string",
+          "minLength": 20,
+          "maxLength": 800
+        },
+        "ch6_intro": {
+          "type": "string",
+          "minLength": 20,
+          "maxLength": 1200
+        },
+        "ch7_intro": {
+          "type": "string",
+          "minLength": 20,
+          "maxLength": 1200
+        },
+        "ch8_intro": {
+          "type": "string",
+          "minLength": 20,
+          "maxLength": 800
+        },
+        "ch8_outro": {
+          "type": "string",
+          "minLength": 10,
+          "maxLength": 600
+        }
       }
     },
     "SpecI18nBlock": {
@@ -314,26 +639,44 @@
           "type": "object",
           "additionalProperties": false,
           "properties": {
-            "keywords": { "type": "array", "items": { "type": "string" } },
-            "analogy":  { "type": "string" },
-            "oneLiner": { "type": "string" }
+            "keywords": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "analogy": {
+              "type": "string"
+            },
+            "oneLiner": {
+              "type": "string"
+            }
           }
         },
         "colors": {
           "type": "object",
           "additionalProperties": false,
           "properties": {
-            "principle": { "type": "string" }
+            "principle": {
+              "type": "string"
+            }
           }
         },
         "typography": {
           "type": "object",
           "additionalProperties": false,
           "properties": {
-            "rules": { "type": "array", "items": { "type": "string" } },
+            "rules": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
             "scaleUses": {
               "type": "array",
-              "items": { "type": "string" },
+              "items": {
+                "type": "string"
+              },
               "description": "use string per scale entry, parallel index."
             }
           }
@@ -342,65 +685,174 @@
           "type": "object",
           "additionalProperties": false,
           "properties": {
-            "rhythm": { "type": "string" }
+            "rhythm": {
+              "type": "string"
+            }
           }
         },
         "surfaces": {
           "type": "object",
           "additionalProperties": true,
           "properties": {
-            "shadows": { "type": "array", "items": { "type": "string" } },
-            "borders": { "type": "string" }
+            "shadows": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "borders": {
+              "type": "string"
+            }
           }
         },
         "layout": {
           "type": "object",
           "additionalProperties": false,
           "properties": {
-            "skeleton": { "type": "string" }
+            "skeleton": {
+              "type": "string"
+            }
           }
         },
         "components": {
           "type": "object",
           "additionalProperties": false,
           "properties": {
-            "button": { "type": ["string", "null"] },
-            "card":   { "type": ["string", "null"] },
-            "chip":   { "type": ["string", "null"] },
-            "input":  { "type": ["string", "null"] },
-            "hero":   { "type": ["string", "null"] }
+            "button": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "card": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "chip": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "input": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "hero": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
           }
         },
         "motion": {
           "type": "object",
           "additionalProperties": false,
           "properties": {
-            "patterns": { "type": "array", "items": { "type": "string" } }
+            "patterns": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
           }
         },
         "interaction": {
           "type": "object",
           "additionalProperties": false,
           "properties": {
-            "hover":      { "type": ["string", "null"] },
-            "click":      { "type": ["string", "null"] },
-            "transition": { "type": ["string", "null"] },
-            "keyboard":   { "type": ["string", "null"] }
+            "hover": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "click": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "transition": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "keyboard": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
           }
         },
         "voice": {
           "type": "object",
           "additionalProperties": false,
           "properties": {
-            "tone":          { "type": "string" },
-            "headlineStyle": { "type": "string" },
-            "ctaStyle":      { "type": "string" },
-            "avoid":         { "type": "array", "items": { "type": "string" } }
+            "tone": {
+              "type": "string"
+            },
+            "headlineStyle": {
+              "type": "string"
+            },
+            "ctaStyle": {
+              "type": "string"
+            },
+            "avoid": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
           }
         },
-        "donts":        { "type": "array", "items": { "type": "string", "minLength": 1 }, "minItems": 4 },
-        "systemPrompt": { "type": "string", "minLength": 50, "maxLength": 1200 }
+        "donts": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 4
+        },
+        "systemPrompt": {
+          "type": "string",
+          "minLength": 50,
+          "maxLength": 1200
+        }
       }
     }
-  }
+  },
+  "allOf": [
+    {
+      "title": "Publishable entries must be complete",
+      "description": "Entries in a live-facing state carry the full contract: at least one canonical tag, and a spec object if the key is present. Delisted entries (broken/archived/failed*) are exempt — they are never rendered or indexed.",
+      "if": {
+        "required": [
+          "status"
+        ],
+        "properties": {
+          "status": {
+            "pattern": "^(pending|screenshot|vision_done|translated|narrated|completed|needs_review)$"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "tags": {
+            "minItems": 1
+          },
+          "spec": {
+            "type": "object"
+          }
+        }
+      }
+    }
+  ]
 }
