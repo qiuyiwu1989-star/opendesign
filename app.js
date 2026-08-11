@@ -556,49 +556,74 @@ function domainFromUrl(url) {
 }
 
 /* ====== 截图加载容错 ======
- * thum.io 偶尔返回占位 / 限速 / 还在生成。给每张 site 图建一条 fallback 链：
- *   原图 → thum.io?重试 → wsrv.nl 代理 → microlink
- * 用 data-fallback-idx 记录已重试到第几级，onerror 时前进一级。
+ * 2026-08 教训：thum.io / wsrv.nl / microlink 这三个境外截图代理，
+ * 不只是"国内被墙"——thum.io 现在对相当一部分请求直接返回 HTTP 200 的
+ * "Access Denied"（目标站反爬拦截页）或"Image not authorized, please
+ * sign-up for a paid account"（thum.io 自己的限额/收费提示），两种都是
+ * 合法图片字节，浏览器判定"加载成功"，onerror 永远不触发——于是这张
+ * 垃圾图会永久停在卡片上，没有任何机制能把它换掉。566 个站就是这样
+ * 卡死在首页上的（用户截图实测）。
+ *
+ * 结论：这三家不能再当"自动兜底源"用。默认渲染路径只信本地 /thumbs/
+ * 和 COS 素材包真截图；两者都没有的站，直接给"预览不可用"占位，
+ * 不发一个大概率带来垃圾内容的网络请求——这既是正确性修复，也是性能
+ * 修复（免了 566 张卡片每张最多 3 次串行境外请求）。
+ *
+ * 详情抽屉的"刷新截图"按钮是例外：用户主动点击、明确知情，仍允许
+ * 现抓 thum.io 一次（见下方 #drawerRefreshShot 的点击处理）。
  */
+const FOREIGN_SHOT = /thum\.io|wsrv\.nl|microlink\.io/;
+
+/** 这个站有没有一个「不依赖境外代理」的可靠图源：本地缩略图，或素材包真截图 */
+function hasReliableImage(site) {
+  if (site.image && !FOREIGN_SHOT.test(site.image)) return true;
+  return !!packHeroShot(site.id, 640);
+}
+
 function imageFallbackChain(site) {
-  const target = site.url;
-  const enc = encodeURIComponent(target);
   const chain = [];
-  // 1) 原始 image（优化版 /thumbs/<slug>.webp，最快）
-  if (site.image) chain.push(site.image);
-  // 1.5) 素材包真截图（Playwright 实拍，COS 缩放到 640px ~20KB）—— 缩略图缺失/404 时优先回退到它，
-  //      而不是落到 thum.io（深色站常返回黑图、且"加载成功"不触发 onerror）
+  // 1) 原始 image（优化版 /thumbs/<slug>.webp，最快；若仍是境外代理 URL 则跳过，
+  //    交由上面 hasReliableImage 在渲染前就拦掉，这里不再把它当候选）
+  if (site.image && !FOREIGN_SHOT.test(site.image)) chain.push(site.image);
+  // 2) 素材包真截图（Playwright 实拍，COS 缩放到 640px ~20KB）——本地缩略图 404 时的兜底
   const packShot = packHeroShot(site.id, 640);
   if (packShot) chain.push(packShot);
-  // 2) thum.io 带 noanimate + 更小宽度（更快返回真图）
-  chain.push(`https://image.thum.io/get/width/1200/noanimate/${target}`);
-  // 3) wsrv.nl 代理（缓存 + 重新取）
-  chain.push(`https://wsrv.nl/?url=${enc}&w=1200&output=jpg`);
-  // 4) microlink 实时截图
-  chain.push(`https://api.microlink.io/?url=${enc}&screenshot=true&embed=screenshot.url`);
-  // 去重
   return [...new Set(chain)];
 }
 
 const BLANK_PX = "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBTAA7";
 
 /** 生成 <img> 标签的 src + onerror fallback 属性串
- *  site.no_preview（人工确认：反爬拦截/持续白屏，重试也没用）→ 直接给空占位，
- *  不发一个注定失败的网络请求，卡片直接走 .img-failed 占位态。 */
+ *  site.no_preview（人工确认：反爬拦截/持续白屏，重试也没用）
+ *  或解出的候选链为空（唯一图源是境外代理，等于没有可靠源）
+ *  → 直接给空占位，不发一个大概率失败/返回垃圾内容的网络请求，
+ *  卡片直接走 .img-failed 占位态。
+ *  两者用不同 data 标记区分：no-preview 是永久结论；pending-preview
+ *  只是"现在没有"，素材包送到后 healPackImages() 会把它接回真图。
+ *
+ *  注意：空链判定必须用【实际会用的链】(chain 覆盖优先于默认链)，不能单独
+ *  用 hasReliableImage(site) 判——详情抽屉主图会显式传入包含 packShot /
+ *  用户手动刷新覆盖图的 chain，这些来源 hasReliableImage 并不知道，
+ *  提前用它拦截会把这些合法图源也一起挡掉。 */
 function imgAttrs(site, { lazy = true, chain = null } = {}) {
   if (site.no_preview) {
     return `src="${BLANK_PX}" data-no-preview="1"`;
   }
   const ch = chain || imageFallbackChain(site);
+  if (!ch.length) {
+    return `src="${BLANK_PX}" data-pending-preview="1"`;
+  }
   const chainAttr = encodeURIComponent(JSON.stringify(ch));
   const loading = lazy ? ' loading="lazy"' : "";
   // ch[0] 源自远程 JSON（site.image / pack 文件名），必须转义防属性逃逸
   return `src="${escapeHtml(ch[0])}" data-fallback="${chainAttr}" data-fallback-idx="0" onerror="window.__imgFallback&&window.__imgFallback(this)"${loading}`;
 }
 
-/** site.no_preview 时卡片容器直接带上失败态 class，配合上面的空 src 一步到位出占位，不用等 onerror */
+/** site.no_preview 或没有可靠图源时，卡片容器直接带上失败态 class，
+ *  配合上面的空 src 一步到位出占位，不用等 onerror（境外代理返回垃圾时
+ *  onerror 本来就不会触发，必须在渲染前就判定，不能指望事后补救）。 */
 function thumbClass(site) {
-  return site.no_preview ? " img-failed" : "";
+  return (site.no_preview || !hasReliableImage(site)) ? " img-failed" : "";
 }
 
 /**
@@ -1504,7 +1529,9 @@ function openDetail(siteId) {
     ...imageFallbackChain(activeSite),
   ])];
   const drawerMedia = document.querySelector("#drawerMedia");
-  drawerMedia.classList.toggle("img-failed", !!activeSite.no_preview);
+  // 用 heroChain 的实际长度判空，不能只看 no_preview——否则 packShot/覆盖图都
+  // 没有时，占位态和 imgAttrs() 判的不一致（一个显示失败态，一个还在等一张不存在的图）
+  drawerMedia.classList.toggle("img-failed", !!activeSite.no_preview || !heroChain.length);
   drawerMedia.innerHTML = `
     <a href="${safeHref(activeSite.url)}" target="_blank" rel="noreferrer" aria-label="${t("drawer.visit.aria")}">
       <img id="drawerHeroImg" ${imgAttrs(activeSite, { lazy: false, chain: heroChain })} alt="${escapeHtml(activeSite.title)} screenshot" />
@@ -3733,14 +3760,16 @@ async function loadPacksIndex() {
 }
 
 /**
- * packs-index.json ~2MB，加载要几秒。在它到手前，缺 /thumbs 的卡片会先 404 → onerror，
- * 此刻 packsIndex 还空、取不到 COS 截图，于是链条落到 thum.io / wsrv / microlink——
- * 这几个境外图床在国内被墙/极慢，卡图就一直空白。索引到手后在这里补救一次：
- * 凡当前 src 还落在境外图床、或已判失败的卡图，一律换成 COS 实拍截图（国内可达）。
+ * packs-index.json ~2MB，加载要几秒，首屏渲染时通常还没到手。这期间没有本地
+ * /thumbs/ 的站会先按 imgAttrs() 的判定渲成占位（data-pending-preview，见上），
+ * 因为那一刻还不知道它有没有素材包。索引到手后在这里补一次：凡是占位态、但
+ * 现在查出确实有素材包真截图的，换成 COS 图并摘掉占位标记。
+ *
+ * 也顺手兜一个真失败的情况：本地缩略图文件意外 404（数据和文件不同步）。
+ * 不处理 data-no-preview——那是人工确认过的永久结论，COS 未必有更好的图。
  */
 function healPackImages() {
   if (!packsIndex || !Object.keys(packsIndex).length) return;
-  const FOREIGN = /thum\.io|wsrv\.nl|microlink\.io/;
   document.querySelectorAll(".card-thumb img, .library-thumb img, .related-site-thumb img").forEach((img) => {
     if (img.dataset.noPreview) return;                         // 人工确认拿不到有效截图，别再拿 COS 那张同样空白的图去"治愈"它
     const card = img.closest("[data-id]");
@@ -3751,11 +3780,13 @@ function healPackImages() {
     const src = img.currentSrc || img.src || "";
     if (src.indexOf(ps) !== -1) return;                       // 已经是这张 COS 图
     const box = img.closest(".card-thumb, .library-thumb, .related-site-thumb");
+    const pending = img.dataset.pendingPreview === "1";
     const failed = box?.classList.contains("img-failed")
       || (img.complete && img.naturalWidth === 0);
-    if (!FOREIGN.test(src) && !failed) return;                // 只修境外兜底 / 已失败的
+    if (!pending && !failed) return;                          // 只修占位 / 已失败的，正常在用的图别碰
     box?.classList.remove("img-failed");
     delete img.dataset.packTried;
+    delete img.dataset.pendingPreview;
     img.dataset.fallbackIdx = "0";
     img.onerror = function () { window.__imgFallback && window.__imgFallback(img); };
     img.src = ps;
