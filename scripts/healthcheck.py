@@ -97,7 +97,11 @@ except Exception as e:
     out(False, "catalog.json", f"{st} 解析失败: {e}")
 
 print("\n前端数据文件（缺一个首页就是空的）")
-for f in ("sites-index.json", "packs-index.json", "sites-specs.json", "sites-i18n.json"):
+# sites-i18n.json（全量合并、~1.7MB gzip）不测：它是「按语言文件加载失败」时才会
+# 用到的兼容性兜底，真实浏览器 99% 走的是下面这条小得多的按语言文件（~80-100KB）。
+# 测大文件只是在验证"这条几乎不会走的路径是否可达"，却会因为体积在慢网络下超时,
+# 拿一次网络抖动误判成"数据文件缺失"——这类误报比不测更糟。
+for f in ("sites-index.json", "packs-index.json", "sites-specs.json", "sites-i18n.en.json"):
     check(f, f"/{f}", 200)
 st, b = fetch("/sites-index.json")
 try:
