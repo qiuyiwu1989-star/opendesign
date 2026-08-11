@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://opendesign.cc/schemas/studio/issue-0.1.0.json",
+  "title": "OpenDesign Studio Issue",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["issueId", "sceneId", "elementIds", "category", "severity", "message", "status", "safeAutoFix"],
+  "properties": {
+    "issueId": { "$ref": "#/$defs/id" },
+    "sceneId": { "$ref": "#/$defs/id" },
+    "elementIds": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": { "$ref": "#/$defs/id" }
+    },
+    "category": {
+      "enum": [
+        "layout.overflow",
+        "layout.collision",
+        "layout.out_of_bounds",
+        "readability.font_size",
+        "readability.contrast",
+        "export.font_missing",
+        "export.raster_fallback"
+      ]
+    },
+    "severity": { "enum": ["blocker", "error", "warning", "note"] },
+    "message": { "type": "string", "minLength": 1 },
+    "status": { "enum": ["open", "fixing", "fixed", "accepted", "dismissed"] },
+    "safeAutoFix": { "type": "boolean" }
+  },
+  "$defs": {
+    "id": { "type": "string", "pattern": "^[a-z][a-z0-9_-]{2,63}$" }
+  }
+}

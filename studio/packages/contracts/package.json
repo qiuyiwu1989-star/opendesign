@@ -6,11 +6,17 @@
   "exports": {
     ".": "./src/index.ts",
     "./schema": "./scene-ir.schema.json",
+    "./revision-schema": "./revision.schema.json",
+    "./issue-schema": "./issue.schema.json",
     "./fixtures/proposal-v0": "./fixtures/proposal-v0.json"
   },
   "scripts": {
     "typecheck": "tsc --noEmit",
-    "test": "node --test"
+    "test": "node --test src/*.test.ts"
+  },
+  "dependencies": {
+    "ajv": "^8.17.1",
+    "ajv-formats": "^3.0.1"
   },
   "devDependencies": {
     "@types/node": "^24.2.1"

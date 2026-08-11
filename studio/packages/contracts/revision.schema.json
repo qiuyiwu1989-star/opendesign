@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://opendesign.cc/schemas/studio/revision-0.1.0.json",
+  "title": "OpenDesign Studio Revision",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["revisionId", "parentRevisionId", "createdAt", "reason", "patches"],
+  "properties": {
+    "revisionId": { "$ref": "#/$defs/id" },
+    "parentRevisionId": {
+      "oneOf": [
+        { "$ref": "#/$defs/id" },
+        { "type": "null" }
+      ]
+    },
+    "createdAt": { "type": "string", "format": "date-time" },
+    "reason": { "enum": ["initial", "edit", "qa-fix", "regenerate"] },
+    "patches": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/patch" }
+    }
+  },
+  "$defs": {
+    "id": { "type": "string", "pattern": "^[a-z][a-z0-9_-]{2,63}$" },
+    "patch": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["elementId", "field", "value"],
+      "properties": {
+        "elementId": { "$ref": "#/$defs/id" },
+        "field": { "enum": ["content", "assetSrc", "alt"] },
+        "value": { "type": "string" }
+      }
+    }
+  }
+}

@@ -88,6 +88,15 @@ export type Revision = {
   patches: ScenePatch[];
 };
 
+export type RevisionInput = Omit<Revision, "patches"> & {
+  patches: readonly ScenePatch[];
+};
+
+export type RevisionResult = {
+  document: SceneDocument;
+  revision: Revision;
+};
+
 export type IssueSeverity = "blocker" | "error" | "warning" | "note";
 export type IssueStatus = "open" | "fixing" | "fixed" | "accepted" | "dismissed";
 
@@ -108,3 +117,22 @@ export type StudioIssue = {
   status: IssueStatus;
   safeAutoFix: boolean;
 };
+
+export {
+  SceneContractError,
+  assertSceneDocument,
+  validateSceneDocument,
+  validateStudioIssue,
+  validateRevision,
+  type ContractIssue,
+  type ValidationFailure,
+  type ValidationResult,
+  type ValidationSuccess,
+} from "./validation.ts";
+
+export {
+  PatchApplicationError,
+  RevisionContractError,
+  applyPatch,
+  createRevision,
+} from "./revision.ts";
