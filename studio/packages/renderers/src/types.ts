@@ -26,7 +26,8 @@ export type EditabilityReport = {
   elements: ElementEditability[];
 };
 
-export type AssetInput = { path: string } | { data: string };
+export type SafePptxImageMime = "image/png" | "image/jpeg";
+export type AssetInput = ({ path: string } | { data: string }) & { mimeType: SafePptxImageMime };
 export type AssetResolver = (
   source: string,
   context: { document: SceneDocument; sceneId: string; element: SceneElement },

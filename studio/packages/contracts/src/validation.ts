@@ -4,7 +4,7 @@ import addFormats from "ajv-formats";
 import issueSchema from "../issue.schema.json" with { type: "json" };
 import revisionSchema from "../revision.schema.json" with { type: "json" };
 import sceneIrSchema from "../scene-ir.schema.json" with { type: "json" };
-import type { Revision, SceneDocument, StudioIssue } from "./index.ts";
+import type { Revision, SceneDocument, StudioIssue } from "./index.js";
 
 export type ContractIssue = {
   source: "schema" | "semantic";

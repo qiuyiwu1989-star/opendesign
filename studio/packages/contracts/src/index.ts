@@ -74,11 +74,9 @@ export type SceneDocument = {
   scenes: Scene[];
 };
 
-export type ScenePatch = {
-  elementId: string;
-  field: "content" | "assetSrc" | "alt";
-  value: string;
-};
+export type ScenePatch =
+  | { elementId: string; field: "content" | "assetSrc" | "alt" | "color"; value: string }
+  | { elementId: string; field: "fontSize"; value: number };
 
 export type Revision = {
   revisionId: string;
@@ -128,11 +126,11 @@ export {
   type ValidationFailure,
   type ValidationResult,
   type ValidationSuccess,
-} from "./validation.ts";
+} from "./validation.js";
 
 export {
   PatchApplicationError,
   RevisionContractError,
   applyPatch,
   createRevision,
-} from "./revision.ts";
+} from "./revision.js";

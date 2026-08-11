@@ -5,7 +5,7 @@ import { join } from "node:path";
 import { test } from "node:test";
 import proposal from "../../contracts/fixtures/proposal-v0.json" with { type: "json" };
 import type { SceneDocument } from "@opendesign/studio-contracts";
-import { exportDocumentToPng, exportDocumentToPptx, renderDocumentToHtml } from "./index.js";
+import { assertSafePptxAsset, exportDocumentToPng, exportDocumentToPptx, renderDocumentToHtml } from "./index.js";
 
 const document = proposal as SceneDocument;
 
@@ -55,4 +55,19 @@ test("PPTX exporter creates native editable objects and no page raster fallback"
   } finally {
     await rm(directory, { recursive: true, force: true });
   }
+});
+
+test("PPTX exporter rejects image formats affected by the image-size denial-of-service advisories", () => {
+  assert.throws(
+    () => assertSafePptxAsset({ path: "/tmp/untrusted.icns", mimeType: "image/png" }),
+    /PNG or JPEG/,
+  );
+  assert.throws(
+    () => assertSafePptxAsset({ data: "data:image/jxl;base64,AAAA", mimeType: "image/png" }),
+    /PNG or JPEG/,
+  );
+  assert.deepEqual(
+    assertSafePptxAsset({ path: "/tmp/safe.png", mimeType: "image/png" }),
+    { path: "/tmp/safe.png", mimeType: "image/png" },
+  );
 });

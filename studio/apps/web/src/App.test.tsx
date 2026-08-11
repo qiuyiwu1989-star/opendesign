@@ -42,6 +42,7 @@ describe("OpenDesign Studio workspace", () => {
 
     fireEvent.click(screen.getByRole("button", { name: "安全修复" }));
     expect(screen.getByText("2 项需要确认")).toBeInTheDocument();
+    expect(screen.getByText("1 个 IR patch")).toBeInTheDocument();
   });
 
   it("runs the local export mock without uploading", async () => {

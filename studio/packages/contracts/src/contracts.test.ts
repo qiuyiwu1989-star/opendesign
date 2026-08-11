@@ -12,7 +12,7 @@ import {
   validateSceneDocument,
   validateStudioIssue,
   type SceneDocument,
-} from "./index.ts";
+} from "./index.js";
 
 const fixtureUrl = new URL("../fixtures/proposal-v0.json", import.meta.url);
 const fixture = JSON.parse(readFileSync(fixtureUrl, "utf8")) as SceneDocument;
@@ -204,6 +204,19 @@ test("applyPatch supports image source and alt edits", () => {
   assert.equal(withAlt.scenes[0]!.elements[3]!.alt, "After");
   assert.equal(image.assetSrc, "asset-before.png");
   assert.equal(image.alt, "Before");
+});
+
+test("applyPatch supports deterministic QA style fixes", () => {
+  const document = copyFixture();
+  const recolored = applyPatch(document, { elementId: "system_html", field: "color", value: "text" });
+  const resized = applyPatch(recolored, { elementId: "system_html", field: "fontSize", value: 36 });
+  const element = resized.scenes.flatMap((scene) => scene.elements).find((item) => item.id === "system_html");
+  assert.equal(element?.color, "text");
+  assert.equal(element?.fontSize, 36);
+  assert.throws(
+    () => applyPatch(document, { elementId: "system_html", field: "fontSize", value: 6 }),
+    PatchApplicationError,
+  );
 });
 
 test("createRevision applies ordered patches and copies revision input", () => {

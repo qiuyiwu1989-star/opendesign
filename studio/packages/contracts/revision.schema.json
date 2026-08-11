@@ -28,9 +28,23 @@
       "required": ["elementId", "field", "value"],
       "properties": {
         "elementId": { "$ref": "#/$defs/id" },
-        "field": { "enum": ["content", "assetSrc", "alt"] },
-        "value": { "type": "string" }
-      }
+        "field": { "enum": ["content", "assetSrc", "alt", "color", "fontSize"] },
+        "value": { "oneOf": [{ "type": "string" }, { "type": "number" }] }
+      },
+      "oneOf": [
+        {
+          "properties": {
+            "field": { "enum": ["content", "assetSrc", "alt", "color"] },
+            "value": { "type": "string" }
+          }
+        },
+        {
+          "properties": {
+            "field": { "const": "fontSize" },
+            "value": { "type": "number", "minimum": 8, "maximum": 240 }
+          }
+        }
+      ]
     }
   }
 }

@@ -5,12 +5,12 @@ import type {
   SceneDocument,
   SceneElement,
   ScenePatch,
-} from "./index.ts";
+} from "./index.js";
 import {
   assertSceneDocument,
   validateRevision,
   type ContractIssue,
-} from "./validation.ts";
+} from "./validation.js";
 
 export class PatchApplicationError extends Error {
   readonly patch: ScenePatch;
@@ -42,6 +42,12 @@ function patchElement(element: SceneElement, patch: ScenePatch): SceneElement {
   }
   if ((patch.field === "assetSrc" || patch.field === "alt") && element.type !== "image") {
     throw new PatchApplicationError(`Field \"${patch.field}\" can only be patched on image elements`, patch);
+  }
+  if ((patch.field === "color" || patch.field === "fontSize") && !["text", "metric", "quote"].includes(element.type)) {
+    throw new PatchApplicationError(`Field \"${patch.field}\" can only be patched on text-like elements`, patch);
+  }
+  if (patch.field === "fontSize" && (!Number.isFinite(patch.value) || patch.value < 8 || patch.value > 240)) {
+    throw new PatchApplicationError("fontSize patches must stay between 8 and 240", patch);
   }
 
   return { ...element, [patch.field]: patch.value };

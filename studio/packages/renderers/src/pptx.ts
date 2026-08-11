@@ -3,7 +3,7 @@ import { mkdir } from "node:fs/promises";
 import PptxGenJS from "pptxgenjs";
 import type { DesignDirection, SceneDocument, SceneElement } from "@opendesign/studio-contracts";
 import { resolveColor } from "./colors.js";
-import type { EditabilityReport, ElementEditability, PptxExportOptions, PptxExportResult } from "./types.js";
+import type { AssetInput, EditabilityReport, ElementEditability, PptxExportOptions, PptxExportResult } from "./types.js";
 
 const PX_PER_INCH = 120;
 const PX_TO_POINT = 0.75;
@@ -20,6 +20,19 @@ function firstFont(stack: string): string {
 
 function inches(value: number): number {
   return value / PX_PER_INCH;
+}
+
+const SAFE_IMAGE_PATH = /\.(?:png|jpe?g)$/i;
+const SAFE_IMAGE_DATA = /^data:image\/(?:png|jpeg);base64,/i;
+
+export function assertSafePptxAsset(asset: AssetInput): AssetInput {
+  if ("path" in asset && !SAFE_IMAGE_PATH.test(asset.path)) {
+    throw new Error("PPTX assets must be PNG or JPEG files");
+  }
+  if ("data" in asset && !SAFE_IMAGE_DATA.test(asset.data)) {
+    throw new Error("PPTX data assets must be PNG or JPEG base64 data URLs");
+  }
+  return asset;
 }
 
 function imagePlaceholder(pptx: PptxGenJS, slide: PptxGenJS.Slide, element: SceneElement, direction: DesignDirection): void {
@@ -86,7 +99,9 @@ export async function exportDocumentToPptx(document: SceneDocument, options: Ppt
           ? await options.assetResolver(element.assetSrc, { document, sceneId: scene.id, element })
           : null;
         if (asset) {
-          slide.addImage({ ...position, ...asset });
+          const safeAsset = assertSafePptxAsset(asset);
+          const { mimeType: _mimeType, ...pptxAsset } = safeAsset;
+          slide.addImage({ ...position, ...pptxAsset });
           elements.push({ sceneId: scene.id, elementId: element.id, declaredEditable: element.editable, outputMode: "native", nativeObjectKind: "image" });
         } else {
           imagePlaceholder(pptx, slide, element, direction);

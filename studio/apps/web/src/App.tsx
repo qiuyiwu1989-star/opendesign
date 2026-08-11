@@ -224,6 +224,14 @@ export function App() {
   }
 
   function fixIssue(issueId: string) {
+    const issue = issues.find((candidate) => candidate.issueId === issueId);
+    if (!issue?.safeAutoFix) return;
+    const targetElementId = issue.elementIds[0];
+    if (issue.category === "readability.contrast" && targetElementId) {
+      const patch: ScenePatch = { elementId: targetElementId, field: "color", value: "text" };
+      setDocument((current) => patchElement(current, patch));
+      setPatches((current) => [...current, patch]);
+    }
     setIssues((current) => current.map((issue) => issue.issueId === issueId ? { ...issue, status: "fixed" } : issue));
   }
 
