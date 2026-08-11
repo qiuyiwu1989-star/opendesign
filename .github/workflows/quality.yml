@@ -1,0 +1,68 @@
+name: OpenDesign quality
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+      - "maintenance/**"
+  schedule:
+    - cron: "17 2 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: quality-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  repository:
+    name: Repository contracts
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Compile Python and validate shell
+        run: |
+          python -m py_compile scripts/build.py scripts/healthcheck.py scripts/check-public-contract.py
+          bash -n scripts/smoke.sh
+
+      - name: Check public facts and interfaces
+        run: python scripts/check-public-contract.py
+
+      - name: Run offline release gate
+        run: bash scripts/smoke.sh
+
+      - name: Reject credential-shaped strings
+        shell: bash
+        run: |
+          if git grep -nE 'ghp_[[:alnum:]]{30,}|AKID[[:alnum:]]{20,}' -- .; then
+            echo "Credential-shaped string found in tracked files."
+            exit 1
+          fi
+
+  public-readonly:
+    name: Public read-only health
+    if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Check public production endpoints without writes
+        run: python scripts/healthcheck.py --quiet
