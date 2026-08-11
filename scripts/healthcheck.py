@@ -6,14 +6,15 @@
 切状态码。catalog.json 1.2MB、sitemap.xml 2.7MB，超时截断后这套字符串手术会给出
 **假失败**——而一个会假报警的检查脚本，比没有更糟(见 docs/lessons-2026-08.md 第 11 条)。
 
-全部只读或幂等。唯一的写入是往 likes 插一条 site_id=__healthcheck__ 的假数据，
-用来验证"能写"这条链路；anon 没有 DELETE 权限(这正是我们要的)，所以清理需要在
-服务器上执行，脚本会在末尾把命令打出来。
+默认模式严格只读，适合 CI、cron 和日常巡检。写链路验证必须显式加
+--write-probe；它会插入一条唯一的测试 like，随后调用现有 remove_like RPC
+立即删除并再次查询确认，不在生产库留下测试数据。
 
 用法：
   python3 scripts/healthcheck.py
   BASE=http://localhost:4173 python3 scripts/healthcheck.py
-  python3 scripts/healthcheck.py --quiet     # 只在失败时输出，适合挂 cron
+  python3 scripts/healthcheck.py --quiet       # 只在失败时输出，适合挂 cron
+  python3 scripts/healthcheck.py --write-probe # 显式验证写入并自动清理
 """
 import json
 import os
@@ -25,6 +26,7 @@ import uuid
 
 BASE = os.environ.get("BASE", "https://opendesign.cc").rstrip("/")
 QUIET = "--quiet" in sys.argv
+WRITE_PROBE = "--write-probe" in sys.argv
 TIMEOUT = 60          # 大文件走慢网络时 25s 会截断,给足
 results = []          # (ok, 名称, 详情)
 
@@ -114,9 +116,40 @@ except Exception as e:
 print("\n数据 API（自建 PostgREST）")
 JSON_H = {"Content-Type": "application/json", "Prefer": "return=minimal"}
 check("读 likes", "/db/rest/v1/likes?select=site_id&limit=1", 200)
-vid = str(uuid.uuid4())
-check("写 likes", "/db/rest/v1/likes", 201, method="POST", headers=JSON_H,
-      body=json.dumps({"visitor_id": vid, "site_id": "__healthcheck__"}))
+if WRITE_PROBE:
+    vid = str(uuid.uuid4())
+    probe_site = "__healthcheck__"
+    st, b = fetch(
+        "/db/rest/v1/likes", method="POST", headers=JSON_H,
+        body=json.dumps({"visitor_id": vid, "site_id": probe_site}),
+    )
+    wrote = st == 201
+    out(wrote, "写 likes", f"{st}" if wrote else f"got={st} want=201 {b[:90].decode('utf-8','replace')}")
+
+    if wrote:
+        cleanup_body = json.dumps({"p_visitor_id": vid, "p_site_id": probe_site})
+        cst, cb = fetch(
+            "/db/rest/v1/rpc/remove_like", method="POST", headers=JSON_H,
+            body=cleanup_body,
+        )
+        cleanup_called = cst in (200, 204)
+        out(
+            cleanup_called, "清理写探针",
+            f"{cst}" if cleanup_called else f"got={cst} want=200/204 {cb[:90].decode('utf-8','replace')}",
+        )
+
+        vst, vb = fetch(
+            f"/db/rest/v1/likes?select=site_id&visitor_id=eq.{vid}&site_id=eq.{probe_site}"
+        )
+        try:
+            remaining = json.loads(vb) if vst == 200 else None
+        except Exception:
+            remaining = None
+        cleaned = vst == 200 and remaining == []
+        out(cleaned, "确认写探针已清理", f"{vst} remaining={remaining!r}")
+elif not QUIET:
+    print("  — 写链路探针已跳过（需要显式 --write-probe）")
+
 # 权限边界:这几条【必须】被数据库拒掉。42501 是 PostgreSQL 自己的权限拒绝码,
 # 说明拦截发生在库里,而不是某段可以被绕过的应用逻辑。
 check("拒 DELETE likes", "/db/rest/v1/likes?site_id=eq.__nope__", 401, "42501", method="DELETE")
@@ -193,6 +226,5 @@ if bad:
     print(f"  通过 {len(results) - len(bad)} · ✗ 失败 {len(bad)}: {', '.join(bad)}")
     sys.exit(1)
 print(f"  ✓ 全部通过（{len(results)} 项）")
-print("\n  提示：本次往 likes 插了一条 site_id=__healthcheck__ 的假数据（anon 无删除权限，"
-      "\n        这正是权限边界生效的证明）。要清理，在服务器上执行："
-      "\n        sudo -u postgres psql -d opendesign -c \"delete from likes where site_id='__healthcheck__'\"")
+if WRITE_PROBE:
+    print("\n  ✓ 写链路探针已通过 remove_like RPC 自动清理并查询确认。")
