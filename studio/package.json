@@ -7,12 +7,15 @@
     "packages/*"
   ],
   "scripts": {
-    "dev": "npm --workspace @opendesign/studio-web run dev",
+    "dev": "node scripts/dev.mjs",
+    "dev:web": "npm --workspace @opendesign/studio-web run dev",
+    "dev:api": "npm --workspace @opendesign/studio-local-api run dev",
     "build": "npm run build --workspaces --if-present",
     "typecheck": "npm run typecheck --workspaces --if-present",
     "test": "npm run test --workspaces --if-present"
   },
   "devDependencies": {
+    "@types/node": "^24.2.1",
     "typescript": "^5.9.2"
   },
   "engines": {

@@ -7,6 +7,7 @@ import type { AssetInput, EditabilityReport, ElementEditability, PptxExportOptio
 
 const PX_PER_INCH = 120;
 const PX_TO_POINT = 0.75;
+const LOGICAL_PX_TO_POINT = 72 / PX_PER_INCH;
 
 function selectedDirection(document: SceneDocument): DesignDirection {
   const direction = document.directions.find((candidate) => candidate.id === document.selectedDirectionId);
@@ -18,8 +19,65 @@ function firstFont(stack: string): string {
   return stack.split(",")[0]?.trim().replace(/^['"]|['"]$/g, "") || "Arial";
 }
 
+const CJK_TEXT = /[\u2e80-\u2fff\u3040-\u30ff\u3400-\u4dbf\u4e00-\u9fff\uf900-\ufaff\uac00-\ud7af]/u;
+const CJK_PPTX_FONT = "Hiragino Sans GB";
+
+export function pptxFontFace(content: string, stack: string): string {
+  return CJK_TEXT.test(content) ? CJK_PPTX_FONT : firstFont(stack);
+}
+
+export function pptxTextLanguage(content: string): string {
+  return CJK_TEXT.test(content) ? "zh-CN" : "en-US";
+}
+
 function inches(value: number): number {
   return value / PX_PER_INCH;
+}
+
+function textUnits(value: string): number {
+  return [...value].reduce((total, character) => {
+    if (/\s/u.test(character)) return total + 0.35;
+    if (/[\u0000-\u024f]/u.test(character)) return total + 0.58;
+    return total + 1;
+  }, 0);
+}
+
+export function fitTextFontSize(element: SceneElement): number {
+  const content = element.content ?? "";
+  const requested = (element.fontSize ?? 24) * PX_TO_POINT * (element.role === "body" && textUnits(content) > 18 ? 0.92 : 1);
+  if (!content.trim()) return requested;
+  const widthPoints = element.frame.width * LOGICAL_PX_TO_POINT;
+  const roleLines: Partial<Record<SceneElement["role"], number>> = {
+    eyebrow: 1,
+    title: 2,
+    caption: 2,
+    metric: 3,
+    quote: 4,
+    body: 6,
+  };
+  const maximumLines = roleLines[element.role] ?? 4;
+  const widthLimited = (widthPoints * maximumLines * 0.88) / Math.max(textUnits(content), 1);
+  const minimum = element.role === "title" ? 35 : element.role === "eyebrow" ? 16 : 14;
+  return Math.max(minimum, Math.min(requested, widthLimited));
+}
+
+export function preparePptxText(element: SceneElement, fontSize: number): string {
+  const content = element.content ?? "";
+  if (element.role !== "body" || !CJK_TEXT.test(content) || content.includes("\n")) return content;
+  const maximumUnits = (element.frame.width * LOGICAL_PX_TO_POINT * 0.94) / Math.max(fontSize, 1);
+  const segments = content.match(/[^，。！？；：、,.!?;:]+[，。！？；：、,.!?;:]?/gu) ?? [content];
+  const lines: string[] = [];
+  let line = "";
+  for (const segment of segments) {
+    if (line && textUnits(`${line}${segment}`) > maximumUnits) {
+      lines.push(line);
+      line = segment;
+    } else {
+      line += segment;
+    }
+  }
+  if (line) lines.push(line);
+  return lines.join("\n");
 }
 
 const SAFE_IMAGE_PATH = /\.(?:png|jpe?g)$/i;
@@ -117,10 +175,13 @@ export async function exportDocumentToPptx(document: SceneDocument, options: Ppt
       }
 
       const fontStack = element.role === "title" || element.role === "quote" ? direction.tokens.headingFamily : direction.tokens.fontFamily;
-      slide.addText(element.content ?? "", {
+      const fontSize = fitTextFontSize(element);
+      const content = preparePptxText(element, fontSize);
+      slide.addText(content, {
         ...position,
-        fontFace: firstFont(fontStack),
-        fontSize: (element.fontSize ?? 24) * PX_TO_POINT,
+        fontFace: pptxFontFace(content, fontStack),
+        lang: pptxTextLanguage(content),
+        fontSize,
         bold: (element.fontWeight ?? 400) >= 600,
         color: resolveColor(element.color, direction.tokens, direction.tokens.text),
         align: element.align ?? "left",

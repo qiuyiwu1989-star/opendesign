@@ -2,6 +2,7 @@ import { useEffect, useMemo, useRef, useState, type CSSProperties } from "react"
 import type { DesignDirection, Scene, SceneDocument, SceneElement, ScenePatch, StudioIssue } from "@opendesign/studio-contracts";
 import fixture from "@opendesign/studio-contracts/fixtures/proposal-v0";
 import { Badge, Button, Icon, Kicker, ProgressRing, Tabs } from "@opendesign/studio-ui";
+import { createExport, loadProject, persistProject, type StudioExportResult } from "./api";
 
 const initialDocument = fixture as unknown as SceneDocument;
 
@@ -40,7 +41,8 @@ const initialIssues: StudioIssue[] = [
 
 type InspectorTab = "edit" | "qa" | "export";
 type ExportKind = "html" | "png" | "pptx";
-type ExportState = "idle" | "working" | "ready";
+type ExportState = "idle" | "working" | "ready" | "error";
+type SyncState = "local" | "saving" | "saved" | "error";
 
 const processSteps = [
   ["01", "项目输入"],
@@ -163,8 +165,8 @@ function SceneThumbnail({ scene, direction, active, issueCount, onSelect }: { sc
   );
 }
 
-function ExportCard({ kind, title, description, state, onExport }: { kind: ExportKind; title: string; description: string; state: ExportState; onExport: () => void }) {
-  const labels: Record<ExportState, string> = { idle: "生成", working: "处理中", ready: "重新生成" };
+function ExportCard({ kind, title, description, state, result, onExport }: { kind: ExportKind; title: string; description: string; state: ExportState; result: StudioExportResult | undefined; onExport: () => void }) {
+  const labels: Record<ExportState, string> = { idle: "生成", working: "处理中", ready: "重新生成", error: "重试" };
   return (
     <div className="export-card">
       <span className={`export-card__icon export-card__icon--${kind}`}><Icon name={kind === "png" ? "image" : kind === "pptx" ? "layers" : "code"} /></span>
@@ -173,6 +175,8 @@ function ExportCard({ kind, title, description, state, onExport }: { kind: Expor
         {state === "working" ? <span className="spinner" /> : state === "ready" ? <Icon name="check" size={13} /> : <Icon name="download" size={13} />}
         {labels[state]}
       </Button>
+      {state === "ready" && result?.files[0] && <a className="export-card__download" href={result.files[0].downloadUrl} download>{kind === "png" ? `下载 ${result.files.length} 页` : "下载文件"}</a>}
+      {state === "error" && <small className="export-card__error">生成失败，请检查本地 API。</small>}
     </div>
   );
 }
@@ -187,6 +191,22 @@ export function App() {
   const [savedPatchCount, setSavedPatchCount] = useState(0);
   const [issues, setIssues] = useState(initialIssues);
   const [exportStates, setExportStates] = useState<Record<ExportKind, ExportState>>({ html: "idle", png: "idle", pptx: "idle" });
+  const [exportResults, setExportResults] = useState<Partial<Record<ExportKind, StudioExportResult>>>({});
+  const [syncState, setSyncState] = useState<SyncState>("local");
+
+  useEffect(() => {
+    let active = true;
+    loadProject(initialDocument.documentId)
+      .then((stored) => {
+        if (active && stored) {
+          setDocument(stored);
+          setSelectedSceneId(stored.scenes[0]?.id ?? "");
+          setSyncState("saved");
+        }
+      })
+      .catch(() => { if (active) setSyncState("local"); });
+    return () => { active = false; };
+  }, []);
 
   const scene = document.scenes.find((item) => item.id === selectedSceneId) ?? document.scenes[0]!;
   const direction = document.directions.find((item) => item.id === document.selectedDirectionId) ?? document.directions[0]!;
@@ -235,9 +255,29 @@ export function App() {
     setIssues((current) => current.map((issue) => issue.issueId === issueId ? { ...issue, status: "fixed" } : issue));
   }
 
-  function startExport(kind: ExportKind) {
+  async function saveRevision() {
+    setSyncState("saving");
+    try {
+      await persistProject(document);
+      setSavedPatchCount(patches.length);
+      setSyncState("saved");
+    } catch {
+      setSyncState("error");
+    }
+  }
+
+  async function startExport(kind: ExportKind) {
     setExportStates((current) => ({ ...current, [kind]: "working" }));
-    window.setTimeout(() => setExportStates((current) => ({ ...current, [kind]: "ready" })), 850);
+    try {
+      await persistProject(document);
+      setSavedPatchCount(patches.length);
+      setSyncState("saved");
+      const result = await createExport(document.documentId, kind);
+      setExportResults((current) => ({ ...current, [kind]: result }));
+      setExportStates((current) => ({ ...current, [kind]: "ready" }));
+    } catch {
+      setExportStates((current) => ({ ...current, [kind]: "error" }));
+    }
   }
 
   return (
@@ -254,8 +294,8 @@ export function App() {
           <strong>{document.title}</strong>
         </div>
         <div className="topbar__actions">
-          <span className={`sync-state ${unsavedCount > 0 ? "is-dirty" : ""}`}><i />{unsavedCount > 0 ? `${unsavedCount} 个 IR patch` : "已存为本地修订"}</span>
-          <Button size="sm" tone="outline" onClick={() => setSavedPatchCount(patches.length)} disabled={unsavedCount === 0}>保存修订</Button>
+          <span className={`sync-state ${unsavedCount > 0 || syncState === "error" ? "is-dirty" : ""}`}><i />{syncState === "saving" ? "正在保存" : syncState === "error" ? "本地 API 不可用" : unsavedCount > 0 ? `${unsavedCount} 个 IR patch` : syncState === "saved" ? "已持久化到本地" : "本地修订"}</span>
+          <Button size="sm" tone="outline" onClick={saveRevision} disabled={unsavedCount === 0 || syncState === "saving"}>保存修订</Button>
           <Button size="sm" tone="primary" onClick={() => setInspectorTab("export")}><Icon name="play" size={13} /> 导出作品</Button>
           <Button size="sm" aria-label="更多操作"><Icon name="more" size={17} /></Button>
         </div>
@@ -354,12 +394,12 @@ export function App() {
               <div className="inspector-heading"><div><Kicker>Export center</Kicker><h2>一次编辑，三个输出</h2></div><Badge tone="success">QA 82</Badge></div>
               <p className="export-intro">三个格式共享当前 Scene IR 修订，不从 HTML 反推 PPT。</p>
               <div className="export-list">
-                <ExportCard kind="html" title="交互式 HTML" description="保留语义与响应式预览" state={exportStates.html} onExport={() => startExport("html")} />
-                <ExportCard kind="png" title="PNG 图集" description="6 页 · 2× 清晰度" state={exportStates.png} onExport={() => startExport("png")} />
-                <ExportCard kind="pptx" title="可编辑 PPTX" description="原生文字与形状优先" state={exportStates.pptx} onExport={() => startExport("pptx")} />
+                <ExportCard kind="html" title="交互式 HTML" description="保留语义与响应式预览" state={exportStates.html} result={exportResults.html} onExport={() => startExport("html")} />
+                <ExportCard kind="png" title="PNG 图集" description="6 页 · 本地 Office fallback" state={exportStates.png} result={exportResults.png} onExport={() => startExport("png")} />
+                <ExportCard kind="pptx" title="可编辑 PPTX" description="原生文字与形状优先" state={exportStates.pptx} result={exportResults.pptx} onExport={() => startExport("pptx")} />
               </div>
               <div className="export-report"><div><Icon name="layers" size={16} /><strong>编辑性预检</strong></div><dl><div><dt>原生可编辑</dt><dd>21 元素</dd></div><div><dt>组件级栅格</dt><dd>0 元素</dd></div><div><dt>字体替换</dt><dd>1 项</dd></div></dl><Button tone="outline" size="sm">查看完整报告 <Icon name="arrow" size={13} /></Button></div>
-              {Object.values(exportStates).some((state) => state === "ready") && <div className="ready-callout"><Icon name="check" size={16} /><div><strong>本地模拟文件已生成</strong><small>Mock adapter 不会上传或写入生产存储。</small></div></div>}
+              {Object.values(exportStates).some((state) => state === "ready") && <div className="ready-callout"><Icon name="check" size={16} /><div><strong>真实导出文件已生成</strong><small>文件仅保存在本机 .local-data，不会上传生产存储。</small></div></div>}
             </div>
           )}
         </aside>
