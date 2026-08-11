@@ -726,7 +726,7 @@ def render_site_html(site: dict, lang: str) -> str:
 # Build target #4: downloadable DESIGN_SPEC.<lang>.md per pack
 # ============================================================
 # 拼接 narrative.<lang>（mimo 写的 10 个叙事段）+ 结构化数据表格（模板渲染）
-# → magazine 风格 8 章 markdown，进 pack 文件夹给 AI agent 下载。
+# → magazine 风格最多 9 章 markdown，进 pack 文件夹给 AI agent 下载。
 
 MD_CHAPTER_HEADINGS = {
     "en":    ["Identity DNA", "Color", "Typography", "Spacing", "Surfaces", "Layout", "Motion & Interaction", "Voice & Don'ts"],
@@ -956,7 +956,7 @@ def render_pack_manifest(site: dict, doc_langs: list, has_design_md: bool,
 # Build target #4b: DESIGN.md (Google Stitch / VoltAgent compat)
 # ============================================================
 # 让我们的 spec 同时能被 Google Stitch + Anthropic Claude + Cursor + Lovable 用。
-# 11 层 spec → YAML front matter + 8 章 markdown body（Google design.md 格式）。
+# 11 层 spec → YAML front matter + 最多 9 章 markdown body（Google design.md 格式）。
 
 def to_kebab(s: str) -> str:
     import re as _re
@@ -964,7 +964,7 @@ def to_kebab(s: str) -> str:
 
 
 def render_google_design_md(site: dict, lang: str = "en") -> str:
-    """生成 Google design.md 格式（YAML front matter + 8 章 prose）"""
+    """生成 Google design.md 格式（YAML front matter + 最多 9 章 prose）"""
     slug = site["id"]
     title = site["title"]
     spec = site.get("spec", {})
@@ -1037,7 +1037,7 @@ def render_google_design_md(site: dict, lang: str = "en") -> str:
     lines.append("---")
     lines.append("")
 
-    # ---- Markdown body (8 sections) ----
+    # ---- Markdown body (up to 9 sections; optional sections are omitted) ----
     ident = spec_i18n.get("identity") or {}
     lines.append("## Overview")
     lines.append("")
@@ -1151,7 +1151,7 @@ def build_llms_txt(sites: list[dict], pidx: dict) -> str:
         "## ⭐ AI / Agent 从这里开始",
         "",
         "**先 GET `https://opendesign.cc/skill.md`** —— 它会把你变成一位「设计总监」："
-        "理解需求 → 给专业意见 → 从 545+ 真实设计系统里推荐合适的作品 → 拆解成 grounded 落地方案。"
+        "理解需求 → 给专业意见 → 从 1,400+ 真实设计系统里推荐合适的作品 → 拆解成 grounded 落地方案。"
         "这是用本库的正确姿势；下面的端点是它会用到的原料。",
         "",
         "## 给 AI / Agent：原料端点",
@@ -1161,7 +1161,7 @@ def build_llms_txt(sites: list[dict], pidx: dict) -> str:
         "",
         "```",
         "https://opendesign.cc/packs/<slug>/                  → DESIGN.md（folder 默认页）",
-        "https://opendesign.cc/packs/<slug>/DESIGN.md          → Google design.md 兼容格式（YAML + 8 段）",
+        "https://opendesign.cc/packs/<slug>/DESIGN.md          → Google design.md 兼容格式（YAML + 最多 9 章）",
         "https://opendesign.cc/packs/<slug>/DESIGN_SPEC.en.md  → OpenDesign 11 层规范（en/zh-CN/zh-TW/ja/ko）",
         "https://opendesign.cc/packs/<slug>/spec.json          → 11 层设计 tokens（机器可读）",
         "```",
@@ -1375,7 +1375,7 @@ def main():
                 (slug_dir / f"DESIGN_SPEC.{lang}.md").write_text(render_design_spec_md(s, lang), encoding="utf-8")
                 doc_langs.append(lang)
                 md_count += 1
-            # Tier 1 · Google Stitch / VoltAgent 兼容（YAML front matter + 8 章）
+            # Tier 1 · Google Stitch / VoltAgent 兼容（YAML front matter + 最多 9 章）
             has_design_md = False
             if s.get("spec") and any(v for v in s.get("spec", {}).get("colors", {}).values()):
                 (slug_dir / "DESIGN.md").write_text(render_google_design_md(s, "en"), encoding="utf-8")
