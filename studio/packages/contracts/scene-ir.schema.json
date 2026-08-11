@@ -1,0 +1,113 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://opendesign.cc/schemas/studio/scene-ir-0.1.0.json",
+  "title": "OpenDesign Studio Scene IR",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "documentId", "title", "canvas", "directions", "selectedDirectionId", "scenes"],
+  "properties": {
+    "schemaVersion": { "const": "0.1.0" },
+    "documentId": { "$ref": "#/$defs/id" },
+    "title": { "type": "string", "minLength": 1 },
+    "canvas": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["width", "height", "unit"],
+      "properties": {
+        "width": { "const": 1600 },
+        "height": { "const": 900 },
+        "unit": { "const": "logical-px" }
+      }
+    },
+    "directions": {
+      "type": "array",
+      "minItems": 3,
+      "maxItems": 3,
+      "items": { "$ref": "#/$defs/direction" }
+    },
+    "selectedDirectionId": { "$ref": "#/$defs/id" },
+    "scenes": {
+      "type": "array",
+      "minItems": 6,
+      "maxItems": 10,
+      "items": { "$ref": "#/$defs/scene" }
+    }
+  },
+  "$defs": {
+    "id": { "type": "string", "pattern": "^[a-z][a-z0-9_-]{2,63}$" },
+    "frame": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["x", "y", "width", "height"],
+      "properties": {
+        "x": { "type": "number", "minimum": 0, "maximum": 1600 },
+        "y": { "type": "number", "minimum": 0, "maximum": 900 },
+        "width": { "type": "number", "exclusiveMinimum": 0, "maximum": 1600 },
+        "height": { "type": "number", "exclusiveMinimum": 0, "maximum": 900 }
+      }
+    },
+    "tokens": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["background", "surface", "text", "muted", "accent", "line", "fontFamily", "headingFamily"],
+      "properties": {
+        "background": { "type": "string" },
+        "surface": { "type": "string" },
+        "text": { "type": "string" },
+        "muted": { "type": "string" },
+        "accent": { "type": "string" },
+        "line": { "type": "string" },
+        "fontFamily": { "type": "string" },
+        "headingFamily": { "type": "string" }
+      }
+    },
+    "direction": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "name", "stance", "rationale", "referenceSlug", "referenceVersion", "tokens"],
+      "properties": {
+        "id": { "$ref": "#/$defs/id" },
+        "name": { "type": "string", "minLength": 1 },
+        "stance": { "enum": ["primary", "alternate"] },
+        "rationale": { "type": "string", "minLength": 1 },
+        "referenceSlug": { "type": "string", "minLength": 1 },
+        "referenceVersion": { "type": "string", "minLength": 1 },
+        "tokens": { "$ref": "#/$defs/tokens" }
+      }
+    },
+    "element": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "type", "role", "frame", "editable"],
+      "properties": {
+        "id": { "$ref": "#/$defs/id" },
+        "type": { "enum": ["text", "image", "shape", "metric", "quote"] },
+        "role": { "enum": ["eyebrow", "title", "body", "caption", "metric", "quote", "image", "shape"] },
+        "frame": { "$ref": "#/$defs/frame" },
+        "content": { "type": "string" },
+        "assetSrc": { "type": "string" },
+        "alt": { "type": "string" },
+        "fill": { "type": "string" },
+        "color": { "type": "string" },
+        "fontSize": { "type": "number", "minimum": 8, "maximum": 240 },
+        "fontWeight": { "type": "integer", "minimum": 100, "maximum": 900 },
+        "align": { "enum": ["left", "center", "right"] },
+        "zIndex": { "type": "integer", "minimum": 0 },
+        "editable": { "type": "boolean" }
+      }
+    },
+    "scene": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "order", "title", "purpose", "layout", "elements"],
+      "properties": {
+        "id": { "$ref": "#/$defs/id" },
+        "order": { "type": "integer", "minimum": 1, "maximum": 10 },
+        "title": { "type": "string", "minLength": 1 },
+        "purpose": { "type": "string", "minLength": 1 },
+        "layout": { "type": "string", "minLength": 1 },
+        "elements": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/element" } }
+      }
+    }
+  }
+}
