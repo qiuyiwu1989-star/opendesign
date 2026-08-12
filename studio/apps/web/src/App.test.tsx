@@ -19,6 +19,7 @@ beforeEach(() => {
     }
     if (init?.method === "POST" && path.endsWith("/generate")) return new Response(JSON.stringify({ document: generatedDocument, storyline: [], generator: "local-rules-v0" }), { status: 201 });
     if (init?.method === "POST" && path === "/api/qa") return new Response(JSON.stringify({ documentId: fixture.documentId, summary: { blocker: 0, error: 0, warning: 0, note: 0, total: 0 }, issues: [] }), { status: 200 });
+    if (init?.method === "POST" && path.endsWith("/assets")) return new Response(JSON.stringify({ assetId: "asset_test", name: "sample.png", mimeType: "image/png", width: 320, height: 180, url: "/api/assets/doc_studio_v0/asset_test.png" }), { status: 201 });
     if (!init?.method && path === "/api/projects") return new Response(JSON.stringify({ projects: [] }), { status: 200 });
     if (!init?.method && path.endsWith("/revisions")) return new Response(JSON.stringify({ revisions: [] }), { status: 200 });
     if (init?.method === "POST" && path.endsWith("/exports")) {
@@ -81,6 +82,16 @@ describe("OpenDesign Studio workspace", () => {
     fireEvent.click(screen.getByRole("button", { name: "导出作品" }));
     fireEvent.click(screen.getByRole("button", { name: "PNG 图集：生成" }));
     expect(await screen.findByRole("link", { name: "下载 6 页 ZIP" })).toHaveAttribute("href", "/api/exports/export_test_png/doc_studio_v0-png.zip");
+  });
+
+  it("changes direction typography and inserts a local image after generation", async () => {
+    render(<App />);
+    fireEvent.change(screen.getByLabelText("标题字体"), { target: { value: "Songti SC, SimSun, serif" } });
+    expect(screen.getByText("1 个 IR patch")).toBeInTheDocument();
+    const input = document.querySelector('input[type="file"]') as HTMLInputElement;
+    fireEvent.change(input, { target: { files: [new File([new Uint8Array([1, 2, 3])], "sample.png", { type: "image/png" })] } });
+    expect(await screen.findByRole("button", { name: /image: sample/ })).toBeInTheDocument();
+    expect(fetch).toHaveBeenCalledWith("/api/projects/doc_studio_v0/assets", expect.objectContaining({ method: "POST" }));
   });
 
   it("persists before creating a real local export", async () => {

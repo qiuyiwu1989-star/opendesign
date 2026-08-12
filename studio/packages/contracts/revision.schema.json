@@ -25,23 +25,36 @@
     "patch": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["elementId", "field", "value"],
+      "required": ["field", "value"],
       "properties": {
         "elementId": { "$ref": "#/$defs/id" },
-        "field": { "enum": ["content", "assetSrc", "alt", "color", "fontSize"] },
+        "directionId": { "$ref": "#/$defs/id" },
+        "field": { "enum": ["content", "assetSrc", "alt", "color", "fontSize", "fontFamily", "headingFamily"] },
         "value": { "oneOf": [{ "type": "string" }, { "type": "number" }] }
       },
       "oneOf": [
         {
+          "required": ["elementId", "field", "value"],
           "properties": {
+            "elementId": { "$ref": "#/$defs/id" },
             "field": { "enum": ["content", "assetSrc", "alt", "color"] },
             "value": { "type": "string" }
           }
         },
         {
+          "required": ["elementId", "field", "value"],
           "properties": {
+            "elementId": { "$ref": "#/$defs/id" },
             "field": { "const": "fontSize" },
             "value": { "type": "number", "minimum": 8, "maximum": 240 }
+          }
+        },
+        {
+          "required": ["directionId", "field", "value"],
+          "properties": {
+            "directionId": { "$ref": "#/$defs/id" },
+            "field": { "enum": ["fontFamily", "headingFamily"] },
+            "value": { "type": "string", "minLength": 1 }
           }
         }
       ]

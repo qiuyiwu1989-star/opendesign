@@ -138,6 +138,7 @@ button:focus-visible, input:focus-visible, textarea:focus-visible { outline: 2px
 
 .scene-element { position: absolute; border: 0; margin: 0; padding: 0; border-radius: 0; display: flex; align-items: flex-start; justify-content: flex-start; white-space: pre-wrap; line-height: 1.08; letter-spacing: -.035em; background-color: transparent; color: inherit; cursor: default; }
 .scene-element > span { width: 100%; pointer-events: none; }
+.scene-element > img { width: 100%; height: 100%; object-fit: cover; pointer-events: none; }
 .scene-element[style*="text-align: center"] { align-items: center; justify-content: center; }
 .scene-element--eyebrow { color: var(--scene-accent) !important; letter-spacing: .13em; line-height: 1.1; }
 .scene-element--body { color: var(--scene-muted) !important; line-height: 1.38; letter-spacing: -.02em; }
@@ -168,6 +169,12 @@ button:focus-visible, input:focus-visible, textarea:focus-visible { outline: 2px
 .inspector-heading { margin-bottom: 17px; }
 .field { display: grid; gap: 6px; margin-bottom: 12px; color: #8c8d94; font-size: 9px; }
 .field textarea, .field input { width: 100%; border: 1px solid #dcdcdf; border-radius: 7px; padding: 9px 10px; background: #fff; color: #34353a; font-size: 11px; line-height: 1.45; resize: vertical; }
+.field select { width: 100%; height: 36px; border: 1px solid #dcdcdf; border-radius: 7px; padding: 0 9px; background: #fff; color: #34353a; font-size: 10px; }
+.font-controls { display: grid; gap: 4px; }
+.font-controls > .od-button { justify-content: center; }
+.asset-preview { aspect-ratio: 16/9; margin-bottom: 10px; overflow: hidden; border: 1px solid #dddde0; border-radius: 8px; background: #eee; }
+.asset-preview img { width: 100%; height: 100%; object-fit: cover; }
+.visually-hidden { position: absolute !important; width: 1px !important; height: 1px !important; padding: 0 !important; overflow: hidden !important; clip: rect(0 0 0 0) !important; white-space: nowrap !important; border: 0 !important; }
 .field textarea { min-height: 105px; }
 .field input { height: 34px; resize: none; font-family: var(--studio-mono); }
 .property-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0 7px; }

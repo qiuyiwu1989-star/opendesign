@@ -219,6 +219,14 @@ test("applyPatch supports deterministic QA style fixes", () => {
   );
 });
 
+test("applyPatch updates typography tokens on one design direction", () => {
+  const document = copyFixture();
+  const revised = applyPatch(document, { directionId: "direction_editorial", field: "headingFamily", value: "Songti SC, serif" });
+  assert.equal(revised.directions[0]!.tokens.headingFamily, "Songti SC, serif");
+  assert.equal(revised.directions[1]!.tokens.headingFamily, document.directions[1]!.tokens.headingFamily);
+  assert.notEqual(revised, document);
+});
+
 test("createRevision applies ordered patches and copies revision input", () => {
   const document = deepFreeze(copyFixture());
   const patches = [

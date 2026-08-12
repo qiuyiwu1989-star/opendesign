@@ -8,8 +8,12 @@ import { LocalExportService, type ExportKind } from "./exports.js";
 import { generateProjectFromBrief } from "./generator.js";
 import { LocalProjectStore } from "./storage.js";
 import { runDeterministicQa } from "@opendesign/studio-qa";
+import { loadImage } from "@napi-rs/canvas";
+import { mkdir, writeFile } from "node:fs/promises";
+import { join } from "node:path";
 
 const JSON_LIMIT = 5 * 1024 * 1024;
+const SAFE_IMAGE_MIME = new Set(["image/png", "image/jpeg"]);
 
 async function readJson(request: IncomingMessage): Promise<unknown> {
   let size = 0;
@@ -80,6 +84,33 @@ export function createStudioServer(options: { dataDirectory: string }) {
         const document: SceneDocument = { ...structuredClone(source), documentId, title: `${source.title} · 副本` };
         await store.create(document);
         json(response, 201, { document });
+        return;
+      }
+
+      const assetMatch = url.pathname.match(/^\/api\/projects\/([a-z][a-z0-9_-]{2,63})\/assets$/);
+      if (assetMatch && request.method === "POST") {
+        const body = await readJson(request) as { name?: string; mimeType?: string; data?: string };
+        if (!body.mimeType || !SAFE_IMAGE_MIME.has(body.mimeType)) throw new Error("Only PNG and JPEG images are supported");
+        if (!body.data || !/^[a-zA-Z0-9+/]+={0,2}$/.test(body.data)) throw new Error("Image data is invalid");
+        const bytes = Buffer.from(body.data, "base64");
+        if (bytes.byteLength === 0 || bytes.byteLength > 4 * 1024 * 1024) throw new Error("Image must be between 1 byte and 4 MB");
+        const image = await loadImage(bytes);
+        if (image.width < 32 || image.height < 32 || image.width > 8000 || image.height > 8000) throw new Error("Image dimensions must stay between 32 and 8000 pixels");
+        const extension = body.mimeType === "image/png" ? "png" : "jpg";
+        const assetId = `asset_${Date.now().toString(36)}_${randomUUID().slice(0, 8)}`;
+        const directory = join(options.dataDirectory, "assets", assetMatch[1]!);
+        await mkdir(directory, { recursive: true });
+        await writeFile(join(directory, `${assetId}.${extension}`), bytes, { mode: 0o600 });
+        json(response, 201, { assetId, name: body.name?.slice(0, 160) || `${assetId}.${extension}`, mimeType: body.mimeType, width: image.width, height: image.height, url: `/api/assets/${assetMatch[1]}/${assetId}.${extension}` });
+        return;
+      }
+
+      const assetFileMatch = url.pathname.match(/^\/api\/assets\/([a-z][a-z0-9_-]{2,63})\/(asset_[a-z0-9_]+\.(?:png|jpg))$/);
+      if (assetFileMatch && request.method === "GET") {
+        const path = join(options.dataDirectory, "assets", assetFileMatch[1]!, assetFileMatch[2]!);
+        const metadata = await stat(path);
+        response.writeHead(200, { "content-type": contentType(path), "content-length": metadata.size, "cache-control": "private, max-age=31536000, immutable" });
+        createReadStream(path).pipe(response);
         return;
       }
 

@@ -84,6 +84,7 @@ test("PPTX renderer proactively fits long CJK titles instead of leaving orphan p
 test("PPTX renderer selects a CJK-capable face without changing Latin typography", () => {
   assert.equal(pptxFontFace("OpenDesign Studio", "Inter, Arial"), "Inter");
   assert.equal(pptxFontFace("生成可编辑的作品", "Inter, Arial"), "Hiragino Sans GB");
+  assert.equal(pptxFontFace("生成可编辑的作品", "Georgia, Songti SC, serif"), "Songti SC");
   assert.equal(pptxTextLanguage("OpenDesign Studio"), "en-US");
   assert.equal(pptxTextLanguage("生成可编辑的作品"), "zh-CN");
 });
@@ -96,8 +97,8 @@ test("PPTX renderer wraps CJK body copy at semantic punctuation boundaries", () 
   assert.ok(prepared.includes("可修错、可编辑"));
 });
 
-test("Scene IR canvas renderer emits a full-size PNG without an Office conversion", () => {
-  const png = renderSceneToPngBuffer(document, document.scenes[0]!);
+test("Scene IR canvas renderer emits a full-size PNG without an Office conversion", async () => {
+  const png = await renderSceneToPngBuffer(document, document.scenes[0]!);
   assert.deepEqual([...png.subarray(0, 8)], [137, 80, 78, 71, 13, 10, 26, 10]);
   assert.equal(png.readUInt32BE(16), 1600);
   assert.equal(png.readUInt32BE(20), 900);

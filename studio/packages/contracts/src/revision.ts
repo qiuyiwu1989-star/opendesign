@@ -54,6 +54,15 @@ function patchElement(element: SceneElement, patch: ScenePatch): SceneElement {
 }
 
 export function applyPatch(document: SceneDocument, patch: ScenePatch): SceneDocument {
+  if ("directionId" in patch) {
+    const directionIndex = document.directions.findIndex((direction) => direction.id === patch.directionId);
+    if (directionIndex < 0) throw new PatchApplicationError(`Direction "${patch.directionId}" was not found`, patch);
+    if (!patch.value.trim()) throw new PatchApplicationError(`${patch.field} patches cannot be empty`, patch);
+    const directions = document.directions.slice();
+    const direction = directions[directionIndex]!;
+    directions[directionIndex] = { ...direction, tokens: { ...direction.tokens, [patch.field]: patch.value } };
+    return { ...document, directions };
+  }
   let matchCount = 0;
   let changedSceneIndex = -1;
   let changedElementIndex = -1;

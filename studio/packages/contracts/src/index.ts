@@ -76,7 +76,8 @@ export type SceneDocument = {
 
 export type ScenePatch =
   | { elementId: string; field: "content" | "assetSrc" | "alt" | "color"; value: string }
-  | { elementId: string; field: "fontSize"; value: number };
+  | { elementId: string; field: "fontSize"; value: number }
+  | { directionId: string; field: "fontFamily" | "headingFamily"; value: string };
 
 export type Revision = {
   revisionId: string;

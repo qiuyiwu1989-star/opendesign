@@ -1,6 +1,7 @@
 import assert from "node:assert/strict";
 import { once } from "node:events";
 import { mkdtemp, rm } from "node:fs/promises";
+import { createCanvas } from "@napi-rs/canvas";
 import type { AddressInfo } from "node:net";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
@@ -61,6 +62,21 @@ test("local API persists a project and returns a real HTML export", async () => 
     assert.equal(qaResponse.status, 200);
     const qa = await qaResponse.json() as { documentId: string; summary: { total: number } };
     assert.equal(qa.documentId, "doc_studio_v0");
+
+    const sampleCanvas = createCanvas(64, 64);
+    const sampleContext = sampleCanvas.getContext("2d");
+    sampleContext.fillStyle = "#E34A2F";
+    sampleContext.fillRect(0, 0, 64, 64);
+    const assetResponse = await fetch(`${base}/api/projects/doc_studio_v0/assets`, {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify({ name: "sample.png", mimeType: "image/png", data: sampleCanvas.toBuffer("image/png").toString("base64") }),
+    });
+    assert.equal(assetResponse.status, 201);
+    const asset = await assetResponse.json() as { width: number; height: number; url: string };
+    assert.deepEqual({ width: asset.width, height: asset.height }, { width: 64, height: 64 });
+    const assetBytes = new Uint8Array(await fetch(`${base}${asset.url}`).then((response) => response.arrayBuffer()) as ArrayBuffer);
+    assert.deepEqual([...assetBytes.subarray(0, 8)], [137, 80, 78, 71, 13, 10, 26, 10]);
 
     const revisions = await fetch(`${base}/api/projects/doc_studio_v0/revisions`).then((response) => response.json()) as { revisions: Array<{ revision: { reason: string } }> };
     assert.equal(revisions.revisions.length, 1);

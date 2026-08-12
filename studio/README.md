@@ -27,6 +27,10 @@ The v0 workspace includes a deterministic QA pass that follows the active
 Scene IR, locates issues by scene/element ID, and offers bounded fixes for
 contrast and minimum font size. Export output includes semantic HTML, a
 six-page PNG ZIP, and a native-object PPTX plus its editability JSON report.
+Generated work can then be refined with six safe typography stacks and local
+PNG/JPEG assets. Imported images are validated, stored inside the local
+project boundary, embedded into the standalone HTML export, painted into PNG,
+and preserved as native image objects in PPTX.
 
 PNG pages are rendered directly from Scene IR with the native canvas adapter;
 they do not pass through PPTX or LibreOffice. macOS and common Noto CJK Linux

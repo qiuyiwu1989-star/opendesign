@@ -11,12 +11,21 @@ import {
   loadProject,
   persistProject,
   runProjectQa,
+  uploadProjectImage,
   type ProjectSummary,
   type StoredRevision,
   type StudioExportResult,
 } from "./api";
 
 const initialDocument = fixture as unknown as SceneDocument;
+const fontOptions = [
+  { label: "现代无衬线", value: "Inter, system-ui, sans-serif" },
+  { label: "中文黑体", value: "Hiragino Sans GB, Microsoft YaHei, sans-serif" },
+  { label: "编辑宋体", value: "Songti SC, SimSun, serif" },
+  { label: "经典衬线", value: "Georgia, Noto Serif SC, serif" },
+  { label: "演示衬线", value: "Times New Roman, Songti SC, serif" },
+  { label: "等宽技术", value: "Menlo, Consolas, monospace" },
+] as const;
 
 type InspectorTab = "edit" | "qa" | "history" | "export";
 type ExportKind = "html" | "png" | "pptx";
@@ -36,6 +45,9 @@ function getElement(document: SceneDocument, elementId: string | null) {
 }
 
 function patchElement(document: SceneDocument, patch: ScenePatch): SceneDocument {
+  if ("directionId" in patch) {
+    return { ...document, directions: document.directions.map((direction) => direction.id === patch.directionId ? { ...direction, tokens: { ...direction.tokens, [patch.field]: patch.value } } : direction) };
+  }
   return {
     ...document,
     scenes: document.scenes.map((scene) => ({
@@ -122,7 +134,7 @@ function SceneCanvas({ scene, direction, selectedElementId, issueElementIds, onS
             onDoubleClick={() => onSelect(element, true)}
             aria-label={`${element.role}: ${element.content ?? element.alt ?? "视觉元素"}`}
           >
-            {element.type !== "shape" && <span>{element.content}</span>}
+            {element.type === "image" && element.assetSrc ? <img src={element.assetSrc} alt={element.alt ?? ""} /> : element.type !== "shape" && <span>{element.content}</span>}
             {issueElementIds.has(element.id) && <i className="scene-element__issue"><Icon name="warning" size={18} /></i>}
           </button>
         ))}
@@ -178,6 +190,8 @@ export function App() {
   const [projectMenuOpen, setProjectMenuOpen] = useState(false);
   const [generatorState, setGeneratorState] = useState<"idle" | "working" | "error">("idle");
   const [generatorError, setGeneratorError] = useState("");
+  const [assetState, setAssetState] = useState<"idle" | "uploading" | "error">("idle");
+  const imageInputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
     let active = true;
@@ -263,6 +277,38 @@ export function App() {
     setDocument((current) => patchElement(current, patch));
     setPatches((current) => [...current, patch]);
     setDocumentDirty(true);
+  }
+
+  function updateDirectionFont(field: "fontFamily" | "headingFamily", value: string) {
+    const patch: ScenePatch = { directionId: direction.id, field, value };
+    setDocument((current) => patchElement(current, patch));
+    setPatches((current) => [...current, patch]);
+    setDocumentDirty(true);
+  }
+
+  async function insertOrReplaceImage(file: File) {
+    setAssetState("uploading");
+    try {
+      const asset = await uploadProjectImage(document.documentId, file);
+      if (selectedElement?.type === "image") {
+        const sourcePatch: ScenePatch = { elementId: selectedElement.id, field: "assetSrc", value: asset.url };
+        const altPatch: ScenePatch = { elementId: selectedElement.id, field: "alt", value: file.name.replace(/\.[^.]+$/, "") || "项目图片" };
+        setDocument((current) => patchElement(patchElement(current, sourcePatch), altPatch));
+        setPatches((current) => [...current, sourcePatch, altPatch]);
+      } else {
+        const imageId = `image_${Date.now().toString(36)}`;
+        const imageElement: SceneElement = { id: imageId, type: "image", role: "image", frame: { x: 1130, y: 500, width: 300, height: 230 }, assetSrc: asset.url, alt: file.name.replace(/\.[^.]+$/, "") || "项目图片", editable: true, zIndex: 4 };
+        setDocument((current) => ({ ...current, scenes: current.scenes.map((item) => item.id === scene.id ? { ...item, elements: [...item.elements, imageElement] } : item) }));
+        setSelectedElementId(imageId);
+        setDocumentDirty(true);
+      }
+      setDocumentDirty(true);
+      setAssetState("idle");
+    } catch {
+      setAssetState("error");
+    } finally {
+      if (imageInputRef.current) imageInputRef.current.value = "";
+    }
   }
 
   function locateIssue(issue: StudioIssue) {
@@ -467,8 +513,18 @@ export function App() {
                 <div className="property-grid"><label className="field"><span>X</span><input value={selectedElement.frame.x} readOnly /></label><label className="field"><span>Y</span><input value={selectedElement.frame.y} readOnly /></label><label className="field"><span>W</span><input value={selectedElement.frame.width} readOnly /></label><label className="field"><span>H</span><input value={selectedElement.frame.height} readOnly /></label></div>
                 <div className="property-row"><span>类型</span><strong>{selectedElement.type} / {selectedElement.role}</strong></div>
                 <div className="property-row"><span>字号</span><strong>{selectedElement.fontSize ? `${selectedElement.fontSize}px` : "—"}</strong></div>
+                {selectedElement.type === "image" && <><div className="asset-preview"><img src={selectedElement.assetSrc} alt={selectedElement.alt ?? ""} /></div><Button tone="outline" onClick={() => imageInputRef.current?.click()} disabled={assetState === "uploading"}>{assetState === "uploading" ? "正在导入" : "替换图片"}</Button></>}
                 <div className="patch-card"><span><Icon name="code" size={15} /></span><div><strong>IR patch 已就绪</strong><small>{unsavedCount > 0 ? `${unsavedCount} 个变更等待保存为修订` : "当前选择没有未保存变更"}</small></div></div>
-              </> : <div className="empty-selection"><span><Icon name="edit" size={22} /></span><h3>选择画布中的元素</h3><p>双击可编辑文字，修改会记录为可追踪的 Scene IR patch。</p></div>}
+              </> : <>
+                <div className="font-controls">
+                  <label className="field"><span>标题字体</span><select value={direction.tokens.headingFamily} onChange={(event) => updateDirectionFont("headingFamily", event.target.value)}>{fontOptions.map((font) => <option key={font.value} value={font.value}>{font.label}</option>)}</select></label>
+                  <label className="field"><span>正文字体</span><select value={direction.tokens.fontFamily} onChange={(event) => updateDirectionFont("fontFamily", event.target.value)}>{fontOptions.map((font) => <option key={font.value} value={font.value}>{font.label}</option>)}</select></label>
+                  <Button tone="outline" onClick={() => imageInputRef.current?.click()} disabled={assetState === "uploading"}><Icon name="image" size={14} /> {assetState === "uploading" ? "正在导入图片" : "插入本地图片"}</Button>
+                  {assetState === "error" && <small className="generator-error">图片导入失败，仅支持 4MB 内的 PNG/JPEG。</small>}
+                </div>
+                <div className="empty-selection"><span><Icon name="edit" size={22} /></span><h3>选择画布中的元素</h3><p>字体作用于当前设计方向；图片会作为原生元素进入 HTML、PNG 与 PPTX。</p></div>
+              </>}
+              <input ref={imageInputRef} className="visually-hidden" type="file" accept="image/png,image/jpeg" onChange={(event) => { const file = event.target.files?.[0]; if (file) void insertOrReplaceImage(file); }} />
             </div>
           )}
 

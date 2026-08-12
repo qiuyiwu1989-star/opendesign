@@ -23,7 +23,9 @@ const CJK_TEXT = /[\u2e80-\u2fff\u3040-\u30ff\u3400-\u4dbf\u4e00-\u9fff\uf900-\u
 const CJK_PPTX_FONT = "Hiragino Sans GB";
 
 export function pptxFontFace(content: string, stack: string): string {
-  return CJK_TEXT.test(content) ? CJK_PPTX_FONT : firstFont(stack);
+  if (!CJK_TEXT.test(content)) return firstFont(stack);
+  const cjkFace = stack.split(",").map((face) => face.trim().replace(/^['"]|['"]$/g, "")).find((face) => /Songti|SimSun|Hiragino|YaHei|Noto (?:Sans|Serif) CJK|PingFang|Heiti/i.test(face));
+  return cjkFace ?? CJK_PPTX_FONT;
 }
 
 export function pptxTextLanguage(content: string): string {

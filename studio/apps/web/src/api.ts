@@ -35,6 +35,8 @@ export type StudioQaReport = {
   issues: StudioQaIssue[];
 };
 
+export type ProjectAsset = { assetId: string; name: string; mimeType: "image/png" | "image/jpeg"; width: number; height: number; url: string };
+
 async function apiRequest<T>(path: string, init?: RequestInit): Promise<T> {
   const response = await fetch(path, {
     ...init,
@@ -92,5 +94,15 @@ export async function runProjectQa(document: SceneDocument): Promise<StudioQaRep
   return apiRequest<StudioQaReport>("/api/qa", {
     method: "POST",
     body: JSON.stringify({ document }),
+  });
+}
+
+export async function uploadProjectImage(projectId: string, file: File): Promise<ProjectAsset> {
+  const buffer = new Uint8Array(await new Response(file).arrayBuffer());
+  let binary = "";
+  for (const byte of buffer) binary += String.fromCharCode(byte);
+  return apiRequest<ProjectAsset>(`/api/projects/${projectId}/assets`, {
+    method: "POST",
+    body: JSON.stringify({ name: file.name, mimeType: file.type, data: btoa(binary) }),
   });
 }
