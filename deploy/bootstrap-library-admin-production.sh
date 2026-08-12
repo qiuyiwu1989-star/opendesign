@@ -66,9 +66,8 @@ pending_env="/etc/opendesign/admin-api.env.pending"
   printf '%s\n' 'ADMIN_API_PUBLIC_ORIGIN=https://opendesign.cc'
   printf '%s\n' 'ADMIN_API_HOST=127.0.0.1'
   printf '%s\n' 'ADMIN_API_PORT=18790'
-  printf '%s\n' 'ADMIN_API_GITHUB_ALLOWED_USER_IDS=267523620'
+  printf '%s\n' 'ADMIN_API_ADMIN_USERNAME=admin'
   printf '%s\n' 'ADMIN_API_SESSION_TTL_SECONDS=900'
-  printf '%s\n' 'ADMIN_API_STATE_TTL_SECONDS=300'
   printf 'ADMIN_API_SIGNING_SECRET=%s\n' "${signing_secret}"
   printf 'ADMIN_API_AUDIT_HASH_KEY=%s\n' "${audit_hash_key}"
   printf 'ADMIN_DATABASE_URL=postgresql://opendesign_admin_api_read_login:%s@127.0.0.1:5432/opendesign\n' "${read_password}"
@@ -100,4 +99,4 @@ if PGPASSWORD="${audit_password}" psql --host 127.0.0.1 --username opendesign_ad
 fi
 
 ln -sfn "${release_root}" /opt/opendesign/current
-echo "prepared release ${release_id}; OAuth values are still required before service start"
+echo "prepared release ${release_id}; an interactive password hash is still required before service start"

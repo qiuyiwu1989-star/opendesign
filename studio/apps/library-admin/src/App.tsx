@@ -1,10 +1,43 @@
-import { useEffect, useState } from "react";
+import { type FormEvent, useEffect, useState } from "react";
 import type { AdminSnapshot } from "./domain";
-import { ADMIN_LOGIN_ENDPOINT, loadAdminSession, loadAdminSnapshot, logoutAdminSession, type AdminSessionState } from "./data";
+import { loadAdminSession, loadAdminSnapshot, loginAdminSession, logoutAdminSession, type AdminSessionState } from "./data";
 import { AssetsScreen, PipelinesScreen, ReviewScreen, SyncScreen, TodayScreen } from "./components/screens";
 import { EmptyState, LoadingState, PreviewDrawer, Shell, type Screen } from "./components/system";
 
 export interface AppProps { initialSnapshot?: AdminSnapshot; initialSession?: AdminSessionState }
+
+function LoginGate({ onAuthenticated }: { onAuthenticated: (session: Extract<AdminSessionState, { kind: "authenticated" }>) => void }) {
+  const [password, setPassword] = useState("");
+  const [status, setStatus] = useState<"idle" | "submitting" | "invalid" | "rate_limited" | "unavailable">("idle");
+  const submit = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    if (!password || status === "submitting") return;
+    setStatus("submitting");
+    void loginAdminSession("admin", password).then(result => {
+      setPassword("");
+      if (result.ok) onAuthenticated(result.session);
+      else setStatus(result.reason);
+    });
+  };
+  const message = status === "invalid" ? "账号或密码不正确。" : status === "rate_limited" ? "尝试次数过多，请稍后再试。" : status === "unavailable" ? "登录服务暂时不可用。" : "";
+  return <main className="login-gate">
+    <section className="login-card" aria-labelledby="login-title">
+      <div className="login-brand"><span className="brand-mark" aria-hidden="true"><i/><i/><i/></span><span><strong>OpenDesign</strong><small>CONTROL ROOM</small></span></div>
+      <small className="eyebrow">PRIVATE OPERATOR ACCESS</small>
+      <h1 id="login-title">进入设计资源控制室</h1>
+      <p>只读查看内容质量、审核队列、自动化管线与发布漂移。</p>
+      <form onSubmit={submit}>
+        <label htmlFor="admin-username">账号</label>
+        <input id="admin-username" name="username" value="admin" readOnly autoComplete="username"/>
+        <label htmlFor="admin-password">密码</label>
+        <input id="admin-password" name="password" type="password" value={password} onChange={event => setPassword(event.target.value)} autoComplete="current-password" required autoFocus/>
+        {message && <p className="login-error" role="alert">{message}</p>}
+        <button className="button button--solid" type="submit" disabled={status === "submitting"}>{status === "submitting" ? "正在验证…" : "登录控制室"}</button>
+      </form>
+      <small className="login-security">会话采用 Secure · HttpOnly Cookie，密码不会保存在浏览器。</small>
+    </section>
+  </main>;
+}
 
 export function App({ initialSnapshot, initialSession }: AppProps) {
   const [snapshot, setSnapshot] = useState<AdminSnapshot | undefined>(initialSnapshot);
@@ -40,6 +73,9 @@ export function App({ initialSnapshot, initialSession }: AppProps) {
     return () => window.removeEventListener("keydown", onKey);
   }, []);
 
+  if (!initialSnapshot && session.kind === "loading") return <LoadingState/>;
+  if (!initialSnapshot && session.kind === "unauthenticated") return <LoginGate onAuthenticated={setSession}/>;
+  if (!initialSnapshot && session.kind === "unavailable") return <div className="fatal-state"><EmptyState title="登录服务不可用" detail="控制室保持关闭，没有回退到不受保护的快照。"/></div>;
   if (!snapshot && !loadError) return <LoadingState/>;
   if (!snapshot) return <div className="fatal-state"><EmptyState title="控制室快照不可用" detail={`${loadError}。没有把示例数据伪装成生产状态。`}/></div>;
 
@@ -51,9 +87,9 @@ export function App({ initialSnapshot, initialSession }: AppProps) {
   const openPreview = (title: string, detail: string) => setPreview({ title, detail });
 
   const sessionControl = session.kind === "authenticated"
-    ? <button type="button" className="session-control" onClick={() => { void logoutAdminSession().then(ok => { if (ok) setSession({ kind: "unauthenticated" }); }); }} aria-label={`退出 GitHub 账号 ${session.actor.login}`}><span className="signal signal--good"/>{session.actor.login} · 退出</button>
+    ? <button type="button" className="session-control" onClick={() => { void logoutAdminSession().then(ok => { if (ok) setSession({ kind: "unauthenticated" }); }); }} aria-label={`退出管理员账号 ${session.actor.login}`}><span className="signal signal--good"/>{session.actor.login} · 退出</button>
     : session.kind === "unauthenticated"
-      ? <a className="session-control session-control--login" href={ADMIN_LOGIN_ENDPOINT}>使用 GitHub 登录</a>
+      ? <span className="session-control session-control--muted">未登录</span>
       : session.kind === "unavailable"
         ? <span className="session-control session-control--muted">登录服务不可用</span>
         : <span className="session-control session-control--muted">检查登录状态…</span>;

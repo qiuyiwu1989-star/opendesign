@@ -12,11 +12,10 @@ produces deployable code and migration drafts, but does not touch production.
 
 - Browser talks only to same-origin `/admin-api/v1/*`.
 - Admin API binds to `127.0.0.1`; nginx is the only future public ingress.
-- Authentication uses GitHub OAuth identity plus an allowlist of immutable
-  numeric GitHub user ids. Display names and email addresses are not authority.
+- Authentication uses one fixed local operator (`admin`) and a server-only
+  reviewed scrypt password hash. Plaintext passwords are never persisted.
 - Session is opaque to the browser, signed server-side, `HttpOnly`, `Secure`,
   `SameSite=Strict`, short-lived, and rotated after login.
-- OAuth state is signed, single-use, short-lived, and bound to the return path.
 - Secrets come only from process environment; startup fails closed when absent.
 
 ## Database boundaries
@@ -33,8 +32,7 @@ produces deployable code and migration drafts, but does not touch production.
 ## HTTP surface
 
 - `GET /admin-api/v1/session`
-- `GET /admin-api/v1/auth/github/start`
-- `GET /admin-api/v1/auth/github/callback`
+- `POST /admin-api/v1/login`
 - `POST /admin-api/v1/logout` (session invalidation only)
 - `GET /admin-api/v1/operations`
 - `GET /admin-api/v1/sync`
@@ -47,14 +45,14 @@ database internals.
 
 ## Audit model
 
-Record request id, timestamp, immutable actor id, action, outcome, route,
+Record request id, timestamp, operator id, action, outcome, route,
 latency, source IP hash, user-agent hash, and bounded metadata. Never record
-cookies, OAuth codes, tokens, SQL text, passwords, or response bodies.
+cookies, tokens, SQL text, passwords, or response bodies.
 
 ## Acceptance
 
 - Unauthenticated evidence requests return 401 and never query the database.
-- Disallowed OAuth identities cannot receive a session.
+- Invalid local credentials cannot receive a session.
 - Allowed sessions expire, verify integrity, and can be invalidated.
 - Operations and Sync responses satisfy the existing Phase 2 parsers.
 - The SQL draft proves least privilege and contains reversible grants/revokes.

@@ -2,7 +2,7 @@
 
 Status: local acceptance matrix plus production database migration verification.
 Migration `0010_admin_read_api.sql` was applied and privilege-tested on
-2026-08-12. No application LOGIN, OAuth configuration, API/nginx activation,
+2026-08-12. No application LOGIN, local password configuration, API/nginx activation,
 frontend deployment, GitHub push, or public write has been performed.
 
 ## Security matrix
@@ -10,8 +10,8 @@ frontend deployment, GitHub push, or public write has been performed.
 | Boundary | Executable / review evidence | Pass condition |
 | --- | --- | --- |
 | Cookie | `security.security.test.ts` | `__Host-`, Path `/`, no Domain, HttpOnly, Secure, SameSite Strict, max age <= 24h; malformed value denied. |
-| Session | security tests plus HTTP auth tests | Signed purpose-bound payload, numeric actor id, <=24h, expiry/tamper/invalidation denied, session id rotates at login. |
-| CSRF / OAuth | security tests plus callback tests | State signed, <=5m, nonce stored and atomically consumed once, return path limited to `/admin`; logout also verifies Origin/Sec-Fetch-Site. |
+| Session | security tests plus HTTP auth tests | Signed purpose-bound opaque session, <=24h, expiry/tamper/invalidation denied, session id rotates at login. |
+| Local login / CSRF | password verifier and HTTP tests | Reviewed scrypt parameters; exact same-origin JSON POST; generic invalid-credential response; logout verifies Origin/Sec-Fetch-Site. |
 | Headers / CSP | security tests plus HTTP response tests | JSON `no-store`, JSON content type, request id, CSP `default-src 'none'`, frame deny, nosniff, no referrer. |
 | Route / method | HTTP route tests and nginx example review | Exact contract allowlist only; GET routes cannot receive bodies; logout is POST only; unknown prefix route fails closed. |
 | Rate limiting | security tests and nginx staging validation | Separate auth/read budgets, bounded retry, fail closed under key exhaustion; nginx is the public first boundary. |
@@ -64,7 +64,7 @@ are not authorization to change the current server.
 - Phase 3 group roles and read/audit objects exist in production, but remain
   unreachable by an application until separately authorized LOGIN/configuration
   and service deployment work is completed.
-- No OAuth application/allowlist/session secret has been provisioned.
+- No production password hash or session secret has been provisioned.
 - No nginx or systemd example has been installed or activated.
 - No public browser acceptance is valid until those actions receive explicit,
   separate authorization and the green local build is reviewed.

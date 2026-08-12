@@ -1,10 +1,10 @@
 import "@testing-library/jest-dom/vitest";
 import { cleanup, fireEvent, render, screen, within } from "@testing-library/react";
-import { afterEach, describe, expect, it } from "vitest";
+import { afterEach, describe, expect, it, vi } from "vitest";
 import { App } from "./App";
 import { controlRoomSnapshot, emptyControlRoomSnapshot } from "./test/fixtures";
 
-afterEach(cleanup);
+afterEach(() => { cleanup(); vi.restoreAllMocks(); });
 
 function navigate(name: string) {
   const navigation = screen.getByRole("navigation");
@@ -14,9 +14,18 @@ function navigate(name: string) {
 }
 
 describe("OpenDesign Control Room Phase 1", () => {
-  it("shows an explicit GitHub login boundary for unauthenticated operators", () => {
+  it("does not misrepresent fixture mode as an authenticated operator", () => {
     render(<App initialSnapshot={controlRoomSnapshot} initialSession={{ kind: "unauthenticated" }}/>);
-    expect(screen.getByRole("link", { name: "使用 GitHub 登录" })).toHaveAttribute("href", "/admin-api/v1/auth/github/start?return=%2Fadmin%2F");
+    expect(screen.getByText("未登录")).toBeInTheDocument();
+    expect(screen.queryByText("使用 GitHub 登录")).not.toBeInTheDocument();
+  });
+
+  it("requires the local admin login before loading the control room", async () => {
+    render(<App initialSession={{ kind: "unauthenticated" }}/>);
+    expect(screen.getByRole("heading", { name: "进入设计资源控制室" })).toBeInTheDocument();
+    expect(screen.getByLabelText("账号")).toHaveValue("admin");
+    expect(screen.getByLabelText("密码")).toHaveAttribute("type", "password");
+    expect(screen.queryByRole("heading", { name: "今天，先做这三件事" })).not.toBeInTheDocument();
   });
 
   it("exposes five keyboard-operable destinations and identifies the current screen", () => {

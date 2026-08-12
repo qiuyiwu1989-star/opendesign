@@ -1,34 +1,26 @@
 import assert from "node:assert/strict";
 import type { AddressInfo } from "node:net";
 import test from "node:test";
-import type { AdminApiConfig, GitHubOAuthAdapter } from "../auth/index.js";
+import type { AdminApiConfig, LocalPasswordVerifier } from "../auth/index.js";
 import type { AuditEvent, AuditSink } from "../audit/index.js";
 import type { RateLimiter } from "../security/index.js";
 import { createAdminApiServer, type EvidenceHandler } from "../server.js";
 
 const config: AdminApiConfig = {
   publicOrigin: "https://admin.example",
-  githubClientId: "client",
-  githubClientSecret: "secret",
-  allowedGitHubUserIds: new Set([123]),
+  adminUsername: "admin",
+  passwordHash: "unused-by-injected-verifier",
   signingSecret: "test-signing-secret-that-is-at-least-32-bytes",
   host: "127.0.0.1",
   port: 8790,
   sessionTtlSeconds: 900,
-  stateTtlSeconds: 300,
 };
 
-function oauthFor(userId = 123): GitHubOAuthAdapter {
-  return {
-    createAuthorizationUrl: ({ state }) => `https://github.example/authorize?state=${encodeURIComponent(state)}`,
-    authenticate: async () => ({ githubUserId: userId, login: "curator" }),
-  };
-}
+const verifier: LocalPasswordVerifier = { verify: async (password) => password === "correct-password" };
 
 async function withServer(
   callback: (baseUrl: string) => Promise<void>,
   input: {
-    oauth?: GitHubOAuthAdapter;
     operations?: EvidenceHandler;
     sync?: EvidenceHandler;
     readiness?: () => Promise<boolean>;
@@ -36,11 +28,13 @@ async function withServer(
     auditHashKey?: string;
     onAuditFailure?: (requestId: string) => void;
     readLimiter?: RateLimiter;
+    authLimiter?: RateLimiter;
+    passwordVerifier?: LocalPasswordVerifier;
   } = {},
 ): Promise<void> {
   const server = createAdminApiServer({
     config,
-    oauth: input.oauth ?? oauthFor(),
+    passwordVerifier: input.passwordVerifier ?? verifier,
     evidence: { ...(input.operations ? { operations: input.operations } : {}), ...(input.sync ? { sync: input.sync } : {}) },
     ...(input.readiness ? { readiness: input.readiness } : {}),
     ...(input.audit && input.auditHashKey && input.onAuditFailure ? {
@@ -48,7 +42,10 @@ async function withServer(
       auditHashKey: input.auditHashKey,
       onAuditFailure: input.onAuditFailure,
     } : {}),
-    ...(input.readLimiter ? { rateLimiters: { read: input.readLimiter } } : {}),
+    ...((input.readLimiter || input.authLimiter) ? { rateLimiters: {
+      ...(input.readLimiter ? { read: input.readLimiter } : {}),
+      ...(input.authLimiter ? { auth: input.authLimiter } : {}),
+    } } : {}),
   });
   await new Promise<void>((resolve) => server.listen(0, "127.0.0.1", resolve));
   const port = (server.address() as AddressInfo).port;
@@ -59,13 +56,12 @@ async function withServer(
   }
 }
 
-async function login(baseUrl: string): Promise<string> {
-  const start = await fetch(`${baseUrl}/admin-api/v1/auth/github/start?return=${encodeURIComponent("/admin/reviews")}`, { redirect: "manual" });
-  const state = new URL(start.headers.get("location")!).searchParams.get("state")!;
-  const callback = await fetch(`${baseUrl}/admin-api/v1/auth/github/callback?code=test&state=${encodeURIComponent(state)}`, { redirect: "manual" });
-  assert.equal(callback.status, 302);
-  assert.equal(callback.headers.get("location"), "/admin/reviews");
-  return callback.headers.get("set-cookie")!.split(";")[0]!;
+async function login(baseUrl: string, username = "admin", password = "correct-password"): Promise<Response> {
+  return fetch(`${baseUrl}/admin-api/v1/login`, {
+    method: "POST",
+    headers: { "content-type": "application/json", origin: config.publicOrigin, "sec-fetch-site": "same-origin" },
+    body: JSON.stringify({ username, password }),
+  });
 }
 
 test("security headers and fail-closed route, method, query, and body handling", async () => {
@@ -82,38 +78,45 @@ test("security headers and fail-closed route, method, query, and body handling",
   });
 });
 
+test("local login requires exact same-origin JSON and returns one opaque session", async () => {
+  await withServer(async (baseUrl) => {
+    assert.equal((await fetch(`${baseUrl}/admin-api/v1/login`, { method: "POST" })).status, 403);
+    assert.equal((await fetch(`${baseUrl}/admin-api/v1/login`, {
+      method: "POST", headers: { origin: config.publicOrigin, "content-type": "text/plain" }, body: "x",
+    })).status, 400);
+    assert.equal((await login(baseUrl, "admin", "wrong-password")).status, 401);
+    assert.equal((await login(baseUrl, "root", "correct-password")).status, 401);
+    const response = await login(baseUrl);
+    assert.equal(response.status, 200);
+    assert.match(response.headers.get("set-cookie") ?? "", /__Host-opendesign_admin=.*HttpOnly.*Secure.*SameSite=Strict/u);
+    assert.deepEqual((await response.json() as { actor: unknown }).actor, { actorId: "admin", login: "admin" });
+  });
+});
+
 test("evidence remains behind authentication and unavailable handlers return 503", async () => {
   let calls = 0;
   await withServer(async (baseUrl) => {
     assert.equal((await fetch(`${baseUrl}/admin-api/v1/operations`)).status, 401);
     assert.equal(calls, 0);
-    const cookie = await login(baseUrl);
+    const loginResponse = await login(baseUrl);
+    const cookie = loginResponse.headers.get("set-cookie")!.split(";")[0]!;
     const response = await fetch(`${baseUrl}/admin-api/v1/operations`, { headers: { cookie } });
     assert.equal(response.status, 200);
     assert.deepEqual(await response.json(), { source: { kind: "database" }, reviews: [] });
     assert.equal(calls, 1);
     assert.equal((await fetch(`${baseUrl}/admin-api/v1/sync`, { headers: { cookie } })).status, 503);
-  }, { operations: async ({ actor }) => { calls += 1; assert.equal(actor.githubUserId, 123); return { source: { kind: "database" }, reviews: [] }; } });
+  }, { operations: async ({ actor }) => { calls += 1; assert.equal(actor.actorId, "admin"); return { source: { kind: "database" }, reviews: [] }; } });
 });
 
-test("disallowed immutable GitHub ids cannot receive a session", async () => {
+test("logout requires exact origin then invalidates the local session", async () => {
   await withServer(async (baseUrl) => {
-    const start = await fetch(`${baseUrl}/admin-api/v1/auth/github/start`, { redirect: "manual" });
-    const state = new URL(start.headers.get("location")!).searchParams.get("state")!;
-    const callback = await fetch(`${baseUrl}/admin-api/v1/auth/github/callback?code=test&state=${encodeURIComponent(state)}`, { redirect: "manual" });
-    assert.equal(callback.status, 403);
-    assert.equal(callback.headers.get("set-cookie"), null);
-  }, { oauth: oauthFor(999) });
-});
-
-test("OAuth state is single-use and logout requires exact origin then invalidates", async () => {
-  await withServer(async (baseUrl) => {
-    const cookie = await login(baseUrl);
+    const loginResponse = await login(baseUrl);
+    const cookie = loginResponse.headers.get("set-cookie")!.split(";")[0]!;
     assert.equal((await fetch(`${baseUrl}/admin-api/v1/session`, { headers: { cookie } })).status, 200);
     assert.equal((await fetch(`${baseUrl}/admin-api/v1/logout`, { method: "POST", headers: { cookie } })).status, 403);
-    const logout = await fetch(`${baseUrl}/admin-api/v1/logout`, { method: "POST", headers: { cookie, origin: config.publicOrigin } });
+    const logout = await fetch(`${baseUrl}/admin-api/v1/logout`, { method: "POST", headers: { cookie, origin: config.publicOrigin, "sec-fetch-site": "same-origin" } });
     assert.equal(logout.status, 200);
-    assert.match(logout.headers.get("set-cookie")!, /Max-Age=0/);
+    assert.match(logout.headers.get("set-cookie")!, /Max-Age=0/u);
     const session = await fetch(`${baseUrl}/admin-api/v1/session`, { headers: { cookie } });
     assert.deepEqual(await session.json(), { authenticated: false });
   });
@@ -128,25 +131,22 @@ test("readiness checks the database dependency instead of handler presence alone
   }, { operations: evidence, sync: evidence, readiness: async () => false });
 });
 
-test("rate limiting fails closed before session or evidence work", async () => {
-  const denied: RateLimiter = {
-    consume: () => ({ allowed: false, limit: 1, remaining: 0, retryAfterSeconds: 9 }),
-  };
+test("rate limiting fails closed before password verification or evidence work", async () => {
+  const denied: RateLimiter = { consume: () => ({ allowed: false, limit: 1, remaining: 0, retryAfterSeconds: 9 }) };
+  let passwordCalls = 0;
   await withServer(async (baseUrl) => {
-    const response = await fetch(`${baseUrl}/admin-api/v1/session`);
+    const response = await login(baseUrl);
     assert.equal(response.status, 429);
     assert.equal(response.headers.get("retry-after"), "9");
-    assert.equal(response.headers.get("x-ratelimit-remaining"), "0");
-  }, { readLimiter: denied });
+    assert.equal(passwordCalls, 0);
+  }, { authLimiter: denied, passwordVerifier: { verify: async () => { passwordCalls += 1; return true; } } });
 });
 
 test("audits completed requests with hashed identifiers and reports sink failure", async () => {
   let captured: AuditEvent | undefined;
   let finishAudit!: () => void;
   const audited = new Promise<void>((resolve) => { finishAudit = resolve; });
-  const sink: AuditSink = {
-    write: async (event) => { captured = event; finishAudit(); return { written: false, errorCode: "unavailable" }; },
-  };
+  const sink: AuditSink = { write: async (event) => { captured = event; finishAudit(); return { written: false, errorCode: "unavailable" }; } };
   let failedRequestId = "";
   await withServer(async (baseUrl) => {
     const response = await fetch(`${baseUrl}/admin-api/v1/health/live`, { headers: { "user-agent": "server-test" } });

@@ -1,17 +1,16 @@
 import { randomBytes as nodeRandomBytes, randomUUID } from "node:crypto";
 import { createServer, type IncomingMessage, type ServerResponse } from "node:http";
 import {
-  createOAuthStateManager,
   createSessionManager,
   expiredSessionCookie,
   readSessionCookie,
   sessionCookie,
   type AdminApiConfig,
-  type GitHubOAuthAdapter,
+  type LocalPasswordVerifier,
   type SessionClaims,
 } from "./auth/index.js";
 import { sanitizeAuditEvent, type AuditSink } from "./audit/index.js";
-import { applySecurityHeaders, assertExactQuery, errorJson, hasRequestBody, json, originMatches, redirect, safeReturnPath } from "./http/index.js";
+import { applySecurityHeaders, errorJson, hasRequestBody, json, originMatches } from "./http/index.js";
 import {
   clientAddress,
   FixedWindowRateLimiter,
@@ -24,8 +23,7 @@ const API_PREFIX = "/admin-api/v1";
 const EVIDENCE_TIMEOUT_MS = 5_000;
 const ROUTES = new Map<string, ReadonlySet<string>>([
   [`${API_PREFIX}/session`, new Set(["GET"])],
-  [`${API_PREFIX}/auth/github/start`, new Set(["GET"])],
-  [`${API_PREFIX}/auth/github/callback`, new Set(["GET"])],
+  [`${API_PREFIX}/login`, new Set(["POST"])],
   [`${API_PREFIX}/logout`, new Set(["POST"])],
   [`${API_PREFIX}/operations`, new Set(["GET"])],
   [`${API_PREFIX}/sync`, new Set(["GET"])],
@@ -35,7 +33,7 @@ const ROUTES = new Map<string, ReadonlySet<string>>([
 
 export interface EvidenceContext {
   requestId: string;
-  actor: Pick<SessionClaims, "githubUserId">;
+  actor: Pick<SessionClaims, "actorId">;
   signal: AbortSignal;
 }
 
@@ -43,7 +41,7 @@ export type EvidenceHandler = (context: EvidenceContext) => Promise<unknown>;
 
 export interface AdminApiServerOptions {
   config: AdminApiConfig;
-  oauth: GitHubOAuthAdapter;
+  passwordVerifier: LocalPasswordVerifier;
   evidence?: {
     operations?: EvidenceHandler;
     sync?: EvidenceHandler;
@@ -58,10 +56,6 @@ export interface AdminApiServerOptions {
   };
   now?: () => number;
   randomBytes?: (size: number) => Buffer;
-}
-
-function callbackUrl(config: AdminApiConfig): string {
-  return `${config.publicOrigin}${API_PREFIX}/auth/github/callback`;
 }
 
 function methodAllowed(response: ServerResponse, allowed: ReadonlySet<string>, requestId: string): void {
@@ -80,7 +74,7 @@ export function createAdminApiServer(options: AdminApiServerOptions) {
   if (auditParts !== 0 && auditParts !== 3) {
     throw new Error("Audit sink, audit hash key and failure reporter must be configured together");
   }
-  const authLimiter = options.rateLimiters?.auth ?? new FixedWindowRateLimiter(20, 5 * 60_000);
+  const authLimiter = options.rateLimiters?.auth ?? new FixedWindowRateLimiter(5, 15 * 60_000);
   const readLimiter = options.rateLimiters?.read ?? new FixedWindowRateLimiter(120, 60_000);
   const sessions = createSessionManager({
     secret: config.signingSecret,
@@ -88,13 +82,6 @@ export function createAdminApiServer(options: AdminApiServerOptions) {
     ...(options.now ? { now: options.now } : {}),
     ...(options.randomBytes ? { randomBytes: options.randomBytes } : {}),
   });
-  const states = createOAuthStateManager({
-    secret: config.signingSecret,
-    ttlSeconds: config.stateTtlSeconds,
-    ...(options.now ? { now: options.now } : {}),
-    ...(options.randomBytes ? { randomBytes: options.randomBytes } : {}),
-  });
-
   const server = createServer({ maxHeaderSize: 16 * 1024, requestTimeout: 10_000, headersTimeout: 10_000 }, async (request, response) => {
     const requestId = randomUUID();
     const startedAt = Date.now();
@@ -140,15 +127,14 @@ export function createAdminApiServer(options: AdminApiServerOptions) {
         methodAllowed(response, allowed, requestId);
         return;
       }
-      if (hasRequestBody(request)) {
+      const isLogin = url.pathname === `${API_PREFIX}/login`;
+      if (!isLogin && hasRequestBody(request)) {
         errorJson(response, 400, "request_body_not_allowed", requestId);
         return;
       }
 
       if (!url.pathname.startsWith(`${API_PREFIX}/health/`)) {
-        const authRoute = url.pathname === `${API_PREFIX}/auth/github/start`
-          || url.pathname === `${API_PREFIX}/auth/github/callback`
-          || url.pathname === `${API_PREFIX}/logout`;
+        const authRoute = isLogin || url.pathname === `${API_PREFIX}/logout`;
         const address = clientAddress(request.socket.remoteAddress, request.headers["x-forwarded-for"] as string | undefined, true);
         const decision = (authRoute ? authLimiter : readLimiter).consume(address);
         response.setHeader("x-ratelimit-limit", decision.limit);
@@ -193,46 +179,47 @@ export function createAdminApiServer(options: AdminApiServerOptions) {
 
       const sessionToken = readSessionCookie(request.headers.cookie);
       const actor = sessions.verify(sessionToken);
-      actorId = actor ? String(actor.githubUserId) : undefined;
+      actorId = actor?.actorId;
       if (url.pathname === `${API_PREFIX}/session`) {
         if (!noQuery(url)) { errorJson(response, 400, "invalid_query", requestId); return; }
         json(response, 200, actor
-          ? { authenticated: true, actor: { githubUserId: actor.githubUserId, login: actor.login, ...(actor.avatarUrl ? { avatarUrl: actor.avatarUrl } : {}) }, expiresAt: new Date(actor.expiresAt).toISOString() }
+          ? { authenticated: true, actor: { actorId: actor.actorId, login: actor.login }, expiresAt: new Date(actor.expiresAt).toISOString() }
           : { authenticated: false });
         return;
       }
 
-      if (url.pathname === `${API_PREFIX}/auth/github/start`) {
-        if (!assertExactQuery(url, new Set(["return"]))) { errorJson(response, 400, "invalid_query", requestId); return; }
-        const returnPath = safeReturnPath(url.searchParams.get("return"));
-        if (!returnPath) { errorJson(response, 400, "invalid_return_path", requestId); return; }
-        const state = states.create(returnPath);
-        redirect(response, options.oauth.createAuthorizationUrl({ state, redirectUri: callbackUrl(config) }));
-        return;
-      }
-
-      if (url.pathname === `${API_PREFIX}/auth/github/callback`) {
-        if (!assertExactQuery(url, new Set(["code", "state"]))) { errorJson(response, 400, "invalid_query", requestId); return; }
-        const code = url.searchParams.get("code");
-        const stateToken = url.searchParams.get("state");
-        if (!code || code.length > 1024 || !stateToken) { errorJson(response, 400, "invalid_oauth_callback", requestId); return; }
-        const state = states.consume(stateToken);
-        if (!state) { errorJson(response, 400, "invalid_oauth_state", requestId); return; }
-        const abort = AbortSignal.timeout(EVIDENCE_TIMEOUT_MS);
-        let identity;
-        try {
-          identity = await options.oauth.authenticate({ code, redirectUri: callbackUrl(config), signal: abort });
-        } catch {
-          errorJson(response, 502, "github_identity_unavailable", requestId);
-          return;
+      if (isLogin) {
+        if (!noQuery(url)) { errorJson(response, 400, "invalid_query", requestId); return; }
+        if (!originMatches(request, config.publicOrigin) || !isSameOriginMutation({
+          origin: request.headers.origin,
+          secFetchSite: request.headers["sec-fetch-site"],
+        }, config.publicOrigin)) { errorJson(response, 403, "origin_required", requestId); return; }
+        const contentType = request.headers["content-type"]?.split(";", 1)[0]?.trim().toLowerCase();
+        const contentLength = Number(request.headers["content-length"] ?? "0");
+        if (contentType !== "application/json" || !Number.isSafeInteger(contentLength) || contentLength < 1 || contentLength > 2048) {
+          errorJson(response, 400, "invalid_login_request", requestId); return;
         }
-        if (!config.allowedGitHubUserIds.has(identity.githubUserId)) {
-          errorJson(response, 403, "identity_not_allowed", requestId);
-          return;
+        let body = "";
+        for await (const chunk of request) {
+          body += chunk.toString("utf8");
+          if (Buffer.byteLength(body, "utf8") > 2048) { errorJson(response, 413, "request_too_large", requestId); return; }
         }
-        const session = sessions.create(identity);
+        let credentials: unknown;
+        try { credentials = JSON.parse(body); } catch { errorJson(response, 400, "invalid_login_request", requestId); return; }
+        if (!credentials || typeof credentials !== "object" || Array.isArray(credentials)) { errorJson(response, 400, "invalid_login_request", requestId); return; }
+        const fields = credentials as Record<string, unknown>;
+        const keys = Object.keys(fields);
+        if (keys.length !== 2 || !keys.includes("username") || !keys.includes("password")
+            || typeof fields.username !== "string" || typeof fields.password !== "string") {
+          errorJson(response, 400, "invalid_login_request", requestId); return;
+        }
+        const passwordMatches = await options.passwordVerifier.verify(fields.password);
+        if (fields.username !== config.adminUsername || !passwordMatches) {
+          errorJson(response, 401, "invalid_credentials", requestId); return;
+        }
+        const session = sessions.create({ actorId: config.adminUsername, login: config.adminUsername });
         response.setHeader("set-cookie", sessionCookie(session.token, config.sessionTtlSeconds));
-        redirect(response, state.returnPath);
+        json(response, 200, { authenticated: true, actor: { actorId: session.claims.actorId, login: session.claims.login }, expiresAt: new Date(session.claims.expiresAt).toISOString() });
         return;
       }
 
@@ -262,7 +249,7 @@ export function createAdminApiServer(options: AdminApiServerOptions) {
       const controller = new AbortController();
       const timeout = setTimeout(() => controller.abort(), EVIDENCE_TIMEOUT_MS);
       try {
-        json(response, 200, await handler({ requestId, actor: { githubUserId: actor.githubUserId }, signal: controller.signal }));
+        json(response, 200, await handler({ requestId, actor: { actorId: actor.actorId }, signal: controller.signal }));
       } catch {
         errorJson(response, 503, "evidence_unavailable", requestId);
       } finally {

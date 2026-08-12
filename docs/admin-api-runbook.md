@@ -8,7 +8,7 @@ public release requires an explicit approval for that exact action.
 ## Trust and release boundaries
 
 - The API binds to `127.0.0.1`; only nginx exposes `/admin-api/v1/*`.
-- GitHub OAuth authority is an allowlist of immutable numeric GitHub user ids.
+- Authentication uses one fixed local operator name (`admin`) and a deployment-managed scrypt password hash.
 - Browser sessions are opaque, signed, short-lived `__Host-` cookies.
 - Database evidence is read through explicit least-privilege views/functions.
 - The service cannot review, enqueue, publish, push Git, deploy, or write public
@@ -25,16 +25,14 @@ required value is missing or malformed.
 | --- | --- |
 | `ADMIN_API_HOST` | Must be exactly `127.0.0.1`. |
 | `ADMIN_API_PORT` | Loopback listener port; implementation/example default is `8790`. |
-| `ADMIN_API_PUBLIC_ORIGIN` | Exact HTTPS origin used for Origin and OAuth checks. |
-| `ADMIN_API_SIGNING_SECRET` | At least 32 unpredictable bytes; session/state signing only. |
+| `ADMIN_API_PUBLIC_ORIGIN` | Exact HTTPS origin used for Origin checks. |
+| `ADMIN_API_SIGNING_SECRET` | At least 32 unpredictable bytes; session signing only. |
 | `ADMIN_API_AUDIT_HASH_KEY` | Separate at-least-32-byte key for IP/UA HMAC redaction. |
-| `ADMIN_API_GITHUB_CLIENT_ID` | GitHub OAuth application id. |
-| `ADMIN_API_GITHUB_CLIENT_SECRET` | GitHub OAuth secret. |
-| `ADMIN_API_GITHUB_ALLOWED_USER_IDS` | Comma-separated immutable numeric GitHub ids. |
+| `ADMIN_API_ADMIN_USERNAME` | Must be exactly `admin`. |
+| `ADMIN_API_PASSWORD_HASH` | Reviewed scrypt hash generated interactively; never plaintext. |
 | `ADMIN_DATABASE_URL` | Dedicated read login, not an owner/service-role URL. |
 | `ADMIN_AUDIT_DATABASE_URL` | Separately scoped audit client URL. |
 | `ADMIN_API_SESSION_TTL_SECONDS` | Optional; implementation default `900`, maximum `3600` seconds. |
-| `ADMIN_API_STATE_TTL_SECONDS` | Optional; implementation default `300`, maximum remains short-lived. |
 
 Local/Git/GitHub/Public sync evidence providers are not part of this release.
 The API must render those four nodes as `unknown`; do not configure invented
@@ -102,15 +100,14 @@ operational evidence:
 - Unauthenticated `operations` and `sync` return `401` and do not query data.
 - Unknown routes return `404`; wrong methods are rejected (`404`/`405`) before
   reaching a write-capable handler; bodies above the nginx limit are rejected.
-- OAuth state rejects tampering, replay, expiry, and off-origin return targets.
-- Disallowed GitHub ids never receive a session. Allowed sessions use `Secure`,
+- Invalid usernames/passwords never receive a session. Valid sessions use `Secure`,
   `HttpOnly`, `SameSite=Strict`, no `Domain`, and rotate on login.
 - Logout accepts only same-origin POST, invalidates the session, and expires the
   cookie. A replayed invalidated session returns `401`.
 - Auth/read rate limits return `429` and a bounded retry interval.
 - Public JSON has `no-store`, strict CSP, frame/nosniff/referrer protections.
 - Audit has actor/action/outcome/request id/latency and hashed IP/UA; it never
-  contains cookies, OAuth code/tokens, SQL, passwords, or response bodies.
+  contains cookies, tokens, SQL, passwords, or response bodies.
 - Existing public Library and old admin fallback remain unchanged.
 
 ## Rollback
@@ -131,5 +128,5 @@ Rollback is also a production action and requires explicit approval.
 
 Keep commit id, build/test result, migration id, privilege assertions, nginx
 validation, unit hardening result, health status codes, and rollback decision.
-Never retain environment values, cookies, OAuth codes/tokens, raw IP/user-agent,
+Never retain environment values, cookies, tokens, raw IP/user-agent,
 SQL text containing values, operational response bodies, or database dumps.

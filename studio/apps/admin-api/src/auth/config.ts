@@ -1,13 +1,11 @@
 export interface AdminApiConfig {
   publicOrigin: string;
-  githubClientId: string;
-  githubClientSecret: string;
-  allowedGitHubUserIds: ReadonlySet<number>;
+  adminUsername: string;
+  passwordHash: string;
   signingSecret: string;
   host: "127.0.0.1";
   port: number;
   sessionTtlSeconds: number;
-  stateTtlSeconds: number;
   databaseUrl?: string;
   auditDatabaseUrl?: string;
   auditHashKey?: string;
@@ -36,20 +34,6 @@ function integer(value: string | undefined, name: string, fallback: number, mini
   return parsed;
 }
 
-function parseAllowedIds(raw: string): ReadonlySet<number> {
-  const parts = raw.split(",").map((part) => part.trim());
-  if (parts.length === 0 || parts.some((part) => !/^[1-9]\d*$/.test(part))) {
-    throw new ConfigurationError("ADMIN_API_GITHUB_ALLOWED_USER_IDS must contain comma-separated positive numeric ids");
-  }
-  const ids = parts.map(Number);
-  if (ids.some((id) => !Number.isSafeInteger(id))) {
-    throw new ConfigurationError("ADMIN_API_GITHUB_ALLOWED_USER_IDS contains an unsafe numeric id");
-  }
-  const unique = new Set(ids);
-  if (unique.size !== ids.length) throw new ConfigurationError("ADMIN_API_GITHUB_ALLOWED_USER_IDS contains duplicates");
-  return unique;
-}
-
 function parsePublicOrigin(raw: string): string {
   let url: URL;
   try {
@@ -66,6 +50,10 @@ function parsePublicOrigin(raw: string): string {
 export function loadAdminApiConfig(env: NodeJS.ProcessEnv): AdminApiConfig {
   const host = env.ADMIN_API_HOST?.trim() || "127.0.0.1";
   if (host !== "127.0.0.1") throw new ConfigurationError("ADMIN_API_HOST must be 127.0.0.1");
+  const adminUsername = required(env, "ADMIN_API_ADMIN_USERNAME");
+  if (adminUsername !== "admin") throw new ConfigurationError("ADMIN_API_ADMIN_USERNAME must be admin");
+  const passwordHash = required(env, "ADMIN_API_PASSWORD_HASH");
+  if (passwordHash.length > 512) throw new ConfigurationError("ADMIN_API_PASSWORD_HASH is too long");
 
   const signingSecret = required(env, "ADMIN_API_SIGNING_SECRET");
   if (Buffer.byteLength(signingSecret, "utf8") < 32) {
@@ -83,14 +71,12 @@ export function loadAdminApiConfig(env: NodeJS.ProcessEnv): AdminApiConfig {
   }
   return {
     publicOrigin: parsePublicOrigin(required(env, "ADMIN_API_PUBLIC_ORIGIN")),
-    githubClientId: required(env, "ADMIN_API_GITHUB_CLIENT_ID"),
-    githubClientSecret: required(env, "ADMIN_API_GITHUB_CLIENT_SECRET"),
-    allowedGitHubUserIds: parseAllowedIds(required(env, "ADMIN_API_GITHUB_ALLOWED_USER_IDS")),
+    adminUsername,
+    passwordHash,
     signingSecret,
     host,
     port: integer(env.ADMIN_API_PORT, "ADMIN_API_PORT", 8790, 1, 65_535),
     sessionTtlSeconds: integer(env.ADMIN_API_SESSION_TTL_SECONDS, "ADMIN_API_SESSION_TTL_SECONDS", 900, 60, 3_600),
-    stateTtlSeconds: integer(env.ADMIN_API_STATE_TTL_SECONDS, "ADMIN_API_STATE_TTL_SECONDS", 300, 30, 600),
     ...(databaseUrl ? { databaseUrl } : {}),
     ...(auditDatabaseUrl ? { auditDatabaseUrl } : {}),
     ...(auditHashKey ? { auditHashKey } : {}),
