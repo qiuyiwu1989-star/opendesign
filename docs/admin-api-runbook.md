@@ -49,6 +49,9 @@ service unit, startup validation tests, and operator checklist together.
 
 1. Confirm the reviewed commit and a clean production build artifact.
 2. Run Admin API typecheck and tests, including every `*.security.test.ts`.
+   The required database gate is `npm run test:migration --workspace
+   @opendesign/library-admin-api`; it must report the full migration chain,
+   privilege matrix, idempotent recommendation and HTTP terminal-review tests.
 3. Confirm no secret or production URL exists in the artifact or Git diff.
 4. Review SQL grants/revokes and their rollback in the migration draft.
 5. Confirm the database login owns nothing and has no table write privilege.
@@ -133,8 +136,9 @@ Rollback is also a production action and requires explicit approval.
 3. Point `/opt/opendesign/current` back to the last known-good artifact if the
    service itself needs investigation.
 4. Revoke LOGIN memberships first. Then, only with separately reviewed
-   destructive-action approval, use the migration-tail rollback transaction to
-   drop `opendesign_admin_read` and the three NOLOGIN group roles.
+   destructive-action approval, use the consolidated rollback order documented
+   at the end of migration 0011 to drop `opendesign_admin_read` and the three
+   NOLOGIN group roles. Preserve `public.curation_decisions` by default.
 5. Rotate affected secrets if exposure is suspected; invalidate active sessions.
 6. Repeat public Library and Admin API route checks and preserve redacted logs.
 

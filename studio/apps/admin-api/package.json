@@ -8,9 +8,11 @@
     "hash-password": "tsx scripts/hash-password.ts",
     "build": "tsc -p tsconfig.build.json",
     "typecheck": "tsc --noEmit",
-    "test": "vitest run src/audit src/data src/security && node --import tsx --test src/auth/*.test.ts src/http/*.test.ts"
+    "test": "vitest run src/audit src/data src/security && node --import tsx --test src/auth/*.test.ts src/http/*.test.ts",
+    "test:migration": "vitest run src/integration/postgres-migration.integration.test.ts"
   },
   "devDependencies": {
+    "@electric-sql/pglite": "^0.5.4",
     "@types/node": "^24.2.1",
     "@types/pg": "^8.21.0",
     "tsx": "^4.20.5"

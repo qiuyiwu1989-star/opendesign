@@ -67,16 +67,29 @@ Audit failure returns `written: false`; callers must not report it as success.
 
 ## Verification before any release
 
-Run against an ephemeral PostgreSQL clone, never production:
+The repository release gate runs `npm run test:migration --workspace
+@opendesign/library-admin-api`. It boots a disposable in-process PostgreSQL
+environment, applies the baseline schema plus migrations 0002–0011, and proves
+the migration, privilege, idempotency and HTTP-to-SQL review contracts. This
+gate is deterministic and uses fixture credentials only; it never connects to
+production.
 
-1. Apply 0003–0010 in order and confirm both roles have `rolcanlogin = false`.
+Before production, repeat the following against an ephemeral clone made from
+the target PostgreSQL version, never against the live database:
+
+1. Apply the baseline plus 0002–0011 in order and confirm all three group roles
+   have `rolcanlogin = false`.
 2. With a temporary read-role member, select each named view and confirm direct
-   table access, `app_config`, legacy RPC, DML, and audit execution are denied.
+   table access, `app_config`, legacy RPC, DML, audit execution and review
+   execution are denied.
 3. With a temporary audit-role member, execute one valid audit function call;
-   confirm view/table reads, direct inserts, and oversized/sensitive events fail.
-4. Exercise a database timeout and one missing view; verify only that envelope
+   confirm view/table reads, direct inserts, review execution, and
+   oversized/sensitive events fail.
+4. With a temporary review-role member, execute one terminal review; confirm
+   base-table reads/writes, audit execution and every unrelated RPC fail.
+5. Exercise a database timeout and one missing view; verify only that envelope
    section degrades and no driver detail reaches JSON or logs.
-5. Revoke temporary memberships and remove the temporary LOGIN roles.
+6. Revoke temporary memberships and remove the temporary LOGIN roles.
 
 ## Production migration evidence · 2026-08-12
 
@@ -102,6 +115,8 @@ start the API, modify nginx, deploy frontend code, or push GitHub.
 ## Rollback
 
 Before rollback, revoke group-role memberships from deployment-managed LOGINs.
-Then run the commented rollback transaction at the end of migration 0010. It
-drops the isolated schema (including views, function, and audit table) and the
-two group roles. It does not alter the existing public tables or legacy RPCs.
+Then use the consolidated reviewed rollback order documented at the end of
+migration 0011: drop the isolated schema, then the review, audit and read group
+roles. Preserve `public.curation_decisions` as an audit journal unless a
+separate destructive data-removal approval explicitly names it. Service
+rollback does not alter existing public content or legacy RPCs.

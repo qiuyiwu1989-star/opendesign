@@ -201,3 +201,20 @@ revoke all on opendesign_admin_read.curation_decisions from public;
 grant select on opendesign_admin_read.curation_decisions to opendesign_admin_read_role;
 
 commit;
+
+-- Consolidated service-capability rollback (run separately, only after
+-- revoking memberships from every deployment-managed LOGIN). This deliberately
+-- preserves public.curation_decisions as an audit journal and leaves the
+-- existing public runner RPCs unchanged:
+-- begin;
+-- drop schema if exists opendesign_admin_read cascade;
+-- do $$ begin
+--   execute format(
+--     'revoke connect on database %I from opendesign_admin_review_writer_role, opendesign_admin_audit_writer_role, opendesign_admin_read_role',
+--     current_database()
+--   );
+-- end $$;
+-- drop role if exists opendesign_admin_review_writer_role;
+-- drop role if exists opendesign_admin_audit_writer_role;
+-- drop role if exists opendesign_admin_read_role;
+-- commit;

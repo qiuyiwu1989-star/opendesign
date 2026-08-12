@@ -56,6 +56,11 @@ jobs:
           npm test
           npm run build
 
+      - name: Prove database migrations and terminal review end to end
+        run: |
+          cd studio
+          npm run test:migration --workspace @opendesign/library-admin-api
+
       - name: Guard the known PPTX image parser input surface
         run: |
           test -f docs/security/pptx-image-advisory.md
