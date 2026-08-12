@@ -61,8 +61,8 @@ for slug, d in sites.items():
 # 2b) 首页性能契约：轻量索引必须内联 pack 首图，app 启动阶段不得拉完整清单。
 idx = b.build_sites_index([d for d in sites.values() if d.get("status") == "completed"])
 preview_count = sum(bool(row.get("pack_preview")) for row in idx.get("sites", []))
-if preview_count < 800:
-    print(f"  ✗ 首页轻量索引只有 {preview_count} 条 pack_preview（至少 800）"); fail = 1
+if preview_count < 450:
+    print(f"  ✗ 首页轻量索引只有 {preview_count} 条 COS pack_preview（至少 450）"); fail = 1
 membership_count = sum(bool(row.get("has_pack")) for row in idx.get("sites", []))
 if membership_count != len(packs):
     print(f"  ✗ 首页 pack membership {membership_count} 与完整索引 {len(packs)} 不一致"); fail = 1
@@ -75,6 +75,10 @@ if "loadPacksIndex()," in startup[:2500]:
     print("  ✗ 首页启动序列仍会下载完整 packs-index.json"); fail = 1
 if 'loading="eager" fetchpriority="high"' not in app or "LIB_PRIORITY_IMAGES" not in app:
     print("  ✗ 首屏图片优先级契约缺失"); fail = 1
+if 'width="${width}" height="${height}"' not in app:
+    print("  ✗ 卡片图片缺少固有尺寸契约，可能导致布局抖动"); fail = 1
+if "format/webp/quality/78" not in app:
+    print("  ✗ COS 图片兜底没有 WebP 体积约束"); fail = 1
 
 # 3) SEO 落地页渲染健全性：对每个有包的站逐语言渲染，断言不抛异常、无残留 {占位符}
 ph = re.compile(r"(?<![{])\{[a-z_]+\}(?![}])")  # 单括号小写占位符 = format 漏填

@@ -579,7 +579,9 @@ const FOREIGN_SHOT = /thum\.io|wsrv\.nl|microlink\.io/;
 function packPreviewShot(site, width) {
   let url = site && site.pack_preview;
   if (!url) return null;
-  if (width && url.includes("myqcloud.com")) url += `?imageMogr2/thumbnail/${width}x`;
+  if (width && url.includes("myqcloud.com")) {
+    url += `?imageMogr2/thumbnail/${width}x/format/webp/quality/78`;
+  }
   return url;
 }
 
@@ -594,10 +596,14 @@ function imageFallbackChain(site) {
   // 1) 原始 image（优化版 /thumbs/<slug>.webp，最快；若仍是境外代理 URL 则跳过，
   //    交由上面 hasReliableImage 在渲染前就拦掉，这里不再把它当候选）
   if (site.image && !FOREIGN_SHOT.test(site.image)) chain.push(site.image);
+  // /thumbs/<slug>.webp 已经是 768×480 的轻图。若本地缩略图失败，再去 COS；
+  // 不把同一个 /packs 本地路径重复塞进链里，避免连续两个必然 404。
   const compactShot = packPreviewShot(site, 640);
-  if (compactShot) chain.push(compactShot);
+  const localPackDuplicate = compactShot && compactShot.startsWith("/packs/")
+    && String(site.image || "").startsWith("/thumbs/");
+  if (compactShot && !localPackDuplicate) chain.push(compactShot);
   // 2) 素材包真截图（Playwright 实拍，COS 缩放到 640px ~20KB）——本地缩略图 404 时的兜底
-  const packShot = packHeroShot(site.id, 640);
+  const packShot = localPackDuplicate ? null : packHeroShot(site.id, 640);
   if (packShot) chain.push(packShot);
   return [...new Set(chain)];
 }
@@ -616,7 +622,7 @@ const BLANK_PX = "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAA
  *  用 hasReliableImage(site) 判——详情抽屉主图会显式传入包含 packShot /
  *  用户手动刷新覆盖图的 chain，这些来源 hasReliableImage 并不知道，
  *  提前用它拦截会把这些合法图源也一起挡掉。 */
-function imgAttrs(site, { lazy = true, chain = null, priority = false } = {}) {
+function imgAttrs(site, { lazy = true, chain = null, priority = false, width = 768, height = 480 } = {}) {
   if (site.no_preview) {
     return `src="${BLANK_PX}" data-no-preview="1"`;
   }
@@ -627,8 +633,9 @@ function imgAttrs(site, { lazy = true, chain = null, priority = false } = {}) {
   const chainAttr = encodeURIComponent(JSON.stringify(ch));
   const loading = priority ? ' loading="eager" fetchpriority="high" decoding="async"'
     : `${lazy ? ' loading="lazy"' : ' loading="eager"'} fetchpriority="low" decoding="async"`;
+  const intrinsic = ` width="${width}" height="${height}"`;
   // ch[0] 源自远程 JSON（site.image / pack 文件名），必须转义防属性逃逸
-  return `src="${escapeHtml(ch[0])}" data-fallback="${chainAttr}" data-fallback-idx="0" onerror="window.__imgFallback&&window.__imgFallback(this)"${loading}`;
+  return `src="${escapeHtml(ch[0])}" data-fallback="${chainAttr}" data-fallback-idx="0" onerror="window.__imgFallback&&window.__imgFallback(this)"${intrinsic}${loading}`;
 }
 
 /**
@@ -640,8 +647,23 @@ function promoteImagePriorities(root, limit) {
   let promoted = 0;
   root.querySelectorAll("img").forEach((img) => {
     if (promoted >= limit || img.dataset.noPreview || img.dataset.pendingPreview) return;
-    const rect = img.getBoundingClientRect();
+    // 浏览器尚未解码 lazy 图片时 img 自身可能报告 0×0；用固定 aspect-ratio
+    // 的父容器判断可见性，避免切换到列表后首屏图片仍停留在 low。
+    const box = img.closest(".card-thumb, .library-thumb, .related-site-thumb, .drawer-media") || img;
+    const rect = box.getBoundingClientRect();
     if (rect.bottom <= 0 || rect.right <= 0 || rect.top >= innerHeight || rect.left >= innerWidth) return;
+    img.loading = "eager";
+    img.fetchPriority = "high";
+    img.decoding = "async";
+    promoted++;
+  });
+}
+
+function promoteLibraryLeadImages(limit = LIB_PRIORITY_IMAGES) {
+  if (!libraryList) return;
+  let promoted = 0;
+  libraryList.querySelectorAll("img").forEach((img) => {
+    if (promoted >= limit || img.dataset.noPreview || img.dataset.pendingPreview) return;
     img.loading = "eager";
     img.fetchPriority = "high";
     img.decoding = "async";
@@ -672,7 +694,9 @@ function packHeroShot(siteId, width) {
   if (!f) return null;
   let url = f.url || `/packs/${siteId}/${f.name}`;
   // 卡片缩略图：用腾讯 COS 图片处理实时缩放（258KB → ~20KB），省带宽。主图(hero)不传 width 用原图。
-  if (width && url.includes("myqcloud.com")) url += `?imageMogr2/thumbnail/${width}x`;
+  if (width && url.includes("myqcloud.com")) {
+    url += `?imageMogr2/thumbnail/${width}x/format/webp/quality/78`;
+  }
   return url;
 }
 
@@ -1583,7 +1607,7 @@ function openDetail(siteId) {
   drawerMedia.classList.toggle("img-failed", !!activeSite.no_preview || !heroChain.length);
   drawerMedia.innerHTML = `
     <a href="${safeHref(activeSite.url)}" target="_blank" rel="noreferrer" aria-label="${t("drawer.visit.aria")}">
-      <img id="drawerHeroImg" ${imgAttrs(activeSite, { lazy: false, chain: heroChain, priority: true })} alt="${escapeHtml(activeSite.title)} screenshot" />
+      <img id="drawerHeroImg" ${imgAttrs(activeSite, { lazy: false, chain: heroChain, priority: true, width: 1440, height: 900 })} alt="${escapeHtml(activeSite.title)} screenshot" />
       <span class="media-visit-badge">
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8" /></svg>
         ${t("drawer.media.visit")}
@@ -2830,7 +2854,9 @@ function switchView(view, { fromHash = false } = {}) {
     promoteImagePriorities(canvasGrid, 6);
     reflectHomeState();
   }
-  if (view === "library") promoteImagePriorities(libraryList, LIB_PRIORITY_IMAGES);
+  // Library 顶部有大标题，真实卡片在首个 viewport 下方；仍提前提升前 8 张可用预览，
+  // 这样用户开始下滚时图片已经就绪。Canvas 继续只提升严格可见图片。
+  if (view === "library") promoteLibraryLeadImages();
   if (!fromHash) setHash(viewToHash(view), { silent: true });
 }
 

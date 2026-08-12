@@ -76,8 +76,8 @@ size = os.path.getsize(p)
 previews = sum(bool(r.get("pack_preview")) for r in rows)
 if size > 900_000:
     print(f"  ✗ sites-index.json {size} bytes（预算 900000）"); sys.exit(1)
-if previews < 800:
-    print(f"  ✗ 只有 {previews} 条 pack_preview（至少 800）"); sys.exit(1)
+if previews < 450:
+    print(f"  ✗ 只有 {previews} 条 COS pack_preview（至少 450）"); sys.exit(1)
 print(f"  ✓ 首页索引 {size} bytes · {previews} 条可靠 pack preview")
 PERF_GATE
 

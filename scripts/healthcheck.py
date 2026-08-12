@@ -112,7 +112,7 @@ try:
     out(len(rows) >= 1400, "站点条目数 ≥1400", f"{len(rows)} 条")
     out(len(b) <= 900_000, "首页索引体积预算", f"{len(b):,} bytes / 900,000")
     previews = sum(bool(row.get("pack_preview")) for row in rows)
-    out(previews >= 800, "首页轻量预览覆盖", f"{previews}/{len(rows)} 条；首页无需完整 packs-index")
+    out(previews >= 450, "首页轻量 COS 预览覆盖", f"{previews}/{len(rows)} 条；其余 pack 用本地 WebP")
 except Exception as e:
     out(False, "sites-index.json 解析", str(e))
 

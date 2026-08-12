@@ -80,7 +80,10 @@ def pack_preview(site_id: str) -> str:
     shot = next((f for prefix in preferred for f in shots if str(f.get("name", "")).startswith(prefix)), None)
     if not shot:
         return ""
-    return shot.get("url") or f'/packs/{site_id}/{shot.get("name", "")}'
+    # 有 COS URL 才把截图塞进首页索引。没有 URL 的 426 个旧包仍已有
+    # /thumbs/<slug>.webp；额外内联 /packs/... 只会在缩略图缺失时制造第二个
+    # 同源大 PNG 请求/404，不能算轻量兜底。
+    return shot.get("url") or ""
 
 
 def load_all_sites() -> list[dict]:
