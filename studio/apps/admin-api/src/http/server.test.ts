@@ -1,10 +1,11 @@
 import assert from "node:assert/strict";
 import type { AddressInfo } from "node:net";
+import { request as httpRequest } from "node:http";
 import test from "node:test";
 import type { AdminApiConfig, LocalPasswordVerifier } from "../auth/index.js";
 import type { AuditEvent, AuditSink } from "../audit/index.js";
 import type { RateLimiter } from "../security/index.js";
-import { createAdminApiServer, type EvidenceHandler } from "../server.js";
+import { createAdminApiServer, type DecisionReviewHandler, type EvidenceHandler } from "../server.js";
 
 const config: AdminApiConfig = {
   publicOrigin: "https://admin.example",
@@ -30,12 +31,14 @@ async function withServer(
     readLimiter?: RateLimiter;
     authLimiter?: RateLimiter;
     passwordVerifier?: LocalPasswordVerifier;
+    decisionReview?: DecisionReviewHandler;
   } = {},
 ): Promise<void> {
   const server = createAdminApiServer({
     config,
     passwordVerifier: input.passwordVerifier ?? verifier,
     evidence: { ...(input.operations ? { operations: input.operations } : {}), ...(input.sync ? { sync: input.sync } : {}) },
+    ...(input.decisionReview ? { decisionReview: input.decisionReview } : {}),
     ...(input.readiness ? { readiness: input.readiness } : {}),
     ...(input.audit && input.auditHashKey && input.onAuditFailure ? {
       audit: input.audit,
@@ -54,6 +57,27 @@ async function withServer(
   } finally {
     await new Promise<void>((resolve, reject) => server.close((error) => error ? reject(error) : resolve()));
   }
+}
+
+async function chunkedReview(baseUrl: string, cookie: string, body: string): Promise<number> {
+  const target = new URL(`${baseUrl}/admin-api/v1/decisions/review`);
+  return new Promise<number>((resolve, reject) => {
+    const request = httpRequest(target, {
+      method: "POST",
+      headers: {
+        cookie,
+        origin: config.publicOrigin,
+        "sec-fetch-site": "same-origin",
+        "content-type": "application/json",
+      },
+    }, (response) => {
+      response.resume();
+      response.once("end", () => resolve(response.statusCode ?? 0));
+    });
+    request.once("error", reject);
+    request.write(body.slice(0, 5));
+    request.end(body.slice(5));
+  });
 }
 
 async function login(baseUrl: string, username = "admin", password = "correct-password"): Promise<Response> {
@@ -162,5 +186,155 @@ test("audits completed requests with hashed identifiers and reports sink failure
     audit: sink,
     auditHashKey: "audit-hash-key-that-is-at-least-32-bytes",
     onAuditFailure: (requestId) => { failedRequestId = requestId; },
+  });
+});
+
+test("decision review requires authentication, exact same-origin JSON and a configured handler", async () => {
+  let calls = 0;
+  await withServer(async (baseUrl) => {
+    const body = JSON.stringify({ decisionId: "decision-1", action: "confirm", reason: "人工确认质量合格" });
+    assert.equal((await fetch(`${baseUrl}/admin-api/v1/decisions/review`, {
+      method: "POST", headers: { origin: config.publicOrigin, "sec-fetch-site": "same-origin", "content-type": "application/json" }, body,
+    })).status, 401);
+    const loginResponse = await login(baseUrl);
+    const cookie = loginResponse.headers.get("set-cookie")!.split(";")[0]!;
+    assert.equal((await fetch(`${baseUrl}/admin-api/v1/decisions/review`, {
+      method: "POST", headers: { cookie, origin: "https://attacker.example", "sec-fetch-site": "cross-site", "content-type": "application/json" }, body,
+    })).status, 403);
+    assert.equal((await fetch(`${baseUrl}/admin-api/v1/decisions/review`, {
+      method: "POST", headers: { cookie, origin: config.publicOrigin, "sec-fetch-site": "same-origin", "content-type": "text/plain" }, body,
+    })).status, 400);
+    assert.equal(calls, 0);
+  }, { decisionReview: async () => { calls += 1; return { outcome: "unavailable" }; } });
+  await withServer(async (baseUrl) => {
+    const loginResponse = await login(baseUrl);
+    const cookie = loginResponse.headers.get("set-cookie")!.split(";")[0]!;
+    assert.equal((await fetch(`${baseUrl}/admin-api/v1/decisions/review`, {
+      method: "POST",
+      headers: { cookie, origin: config.publicOrigin, "sec-fetch-site": "same-origin", "content-type": "application/json" },
+      body: JSON.stringify({ decisionId: "decision-1", action: "confirm", reason: "人工确认质量合格" }),
+    })).status, 503);
+  });
+});
+
+test("decision review validates confirm and override bodies and fails closed for chunked JSON", async () => {
+  const inputs: unknown[] = [];
+  await withServer(async (baseUrl) => {
+    const loginResponse = await login(baseUrl);
+    const cookie = loginResponse.headers.get("set-cookie")!.split(";")[0]!;
+    const headers = { cookie, origin: config.publicOrigin, "sec-fetch-site": "same-origin", "content-type": "application/json" };
+    const invalidBodies = [
+      { decisionId: "decision-1", action: "confirm", reason: "短" },
+      { decisionId: "decision-1", action: "confirm", recommendation: "approve", reason: "不允许多余字段" },
+      { decisionId: "decision-1", action: "override", reason: "覆盖必须给最终建议" },
+      { decisionId: "decision-1", action: "override", recommendation: "maybe", reason: "建议枚举不合法" },
+    ];
+    for (const body of invalidBodies) {
+      assert.equal((await fetch(`${baseUrl}/admin-api/v1/decisions/review`, {
+        method: "POST", headers, body: JSON.stringify(body),
+      })).status, 400);
+    }
+    assert.equal(await chunkedReview(baseUrl, cookie, JSON.stringify({
+      decisionId: "decision-1", action: "confirm", reason: "分块请求应该拒绝",
+    })), 400);
+    assert.equal(inputs.length, 0);
+  }, { decisionReview: async (input) => { inputs.push(input); return { outcome: "unavailable" }; } });
+});
+
+test("decision review accepts a 1000-character Unicode reason within its 8 KiB lane and rejects larger bodies", async () => {
+  const reasons: string[] = [];
+  await withServer(async (baseUrl) => {
+    const loginResponse = await login(baseUrl);
+    const cookie = loginResponse.headers.get("set-cookie")!.split(";")[0]!;
+    const headers = { cookie, origin: config.publicOrigin, "sec-fetch-site": "same-origin", "content-type": "application/json" };
+    const reason = "设".repeat(1_000);
+    const accepted = await fetch(`${baseUrl}/admin-api/v1/decisions/review`, {
+      method: "POST", headers,
+      body: JSON.stringify({ decisionId: "decision-unicode", action: "confirm", reason }),
+    });
+    assert.equal(accepted.status, 200);
+    assert.equal(reasons[0], reason);
+    const rejected = await fetch(`${baseUrl}/admin-api/v1/decisions/review`, {
+      method: "POST", headers,
+      body: JSON.stringify({ decisionId: "decision-large", action: "confirm", reason: "设".repeat(3_000) }),
+    });
+    assert.equal(rejected.status, 400);
+    assert.equal(reasons.length, 1);
+  }, {
+    decisionReview: async (input) => {
+      reasons.push(input.reason);
+      return {
+        outcome: "reviewed", decisionId: input.decisionId, reviewStatus: "confirmed",
+        recommendation: "approve", reviewedAt: "2026-08-13T09:00:00.000Z", reviewedBy: "admin",
+      };
+    },
+  });
+});
+
+test("decision review confirms original advice, overrides explicitly, and rejects repeats", async () => {
+  let calls = 0;
+  await withServer(async (baseUrl) => {
+    const loginResponse = await login(baseUrl);
+    const cookie = loginResponse.headers.get("set-cookie")!.split(";")[0]!;
+    const headers = { cookie, origin: config.publicOrigin, "sec-fetch-site": "same-origin", "content-type": "application/json" };
+    const confirm = await fetch(`${baseUrl}/admin-api/v1/decisions/review`, {
+      method: "POST", headers, body: JSON.stringify({ decisionId: "decision-confirm", action: "confirm", reason: "证据充分，确认原建议" }),
+    });
+    assert.equal(confirm.status, 200);
+    assert.deepEqual(await confirm.json(), {
+      decisionId: "decision-confirm", reviewStatus: "confirmed", recommendation: "approve",
+      reviewedAt: "2026-08-13T09:00:00.000Z", reviewedBy: "admin",
+    });
+    const override = await fetch(`${baseUrl}/admin-api/v1/decisions/review`, {
+      method: "POST", headers, body: JSON.stringify({ decisionId: "decision-override", action: "override", recommendation: "reject", reason: "发现隐藏广告跳转" }),
+    });
+    assert.equal(override.status, 200);
+    assert.equal((await override.json() as { recommendation: string }).recommendation, "reject");
+    const repeated = await fetch(`${baseUrl}/admin-api/v1/decisions/review`, {
+      method: "POST", headers, body: JSON.stringify({ decisionId: "decision-repeat", action: "confirm", reason: "不允许重复复核" }),
+    });
+    assert.equal(repeated.status, 409);
+    assert.equal(calls, 3);
+  }, {
+    decisionReview: async (input, context) => {
+      calls += 1;
+      assert.equal(context.actor.actorId, "admin");
+      if (input.decisionId === "decision-repeat") return { outcome: "already_reviewed" };
+      return {
+        outcome: "reviewed", decisionId: input.decisionId,
+        reviewStatus: input.action === "confirm" ? "confirmed" : "overridden",
+        recommendation: input.action === "confirm" ? "approve" : input.recommendation!,
+        reviewedAt: "2026-08-13T09:00:00.000Z", reviewedBy: "admin",
+      };
+    },
+  });
+});
+
+test("decision review audit records outcome but never the review reason", async () => {
+  const events: AuditEvent[] = [];
+  await withServer(async (baseUrl) => {
+    const loginResponse = await login(baseUrl);
+    const cookie = loginResponse.headers.get("set-cookie")!.split(";")[0]!;
+    const reason = "这是敏感的人工复核说明正文";
+    const response = await fetch(`${baseUrl}/admin-api/v1/decisions/review`, {
+      method: "POST",
+      headers: { cookie, origin: config.publicOrigin, "sec-fetch-site": "same-origin", "content-type": "application/json" },
+      body: JSON.stringify({ decisionId: "decision-audit", action: "confirm", reason }),
+    });
+    assert.equal(response.status, 200);
+    await new Promise((resolve) => setTimeout(resolve, 20));
+    const reviewEvent = events.find((event) => event.route === "/admin-api/v1/decisions/review");
+    assert.ok(reviewEvent);
+    assert.equal(reviewEvent.actorId, "admin");
+    assert.equal(reviewEvent.metadata.statusCode, 200);
+    assert.equal(JSON.stringify(reviewEvent).includes(reason), false);
+  }, {
+    decisionReview: async (input) => ({
+      outcome: "reviewed", decisionId: input.decisionId, reviewStatus: "confirmed",
+      recommendation: "approve", reviewedAt: "2026-08-13T09:00:00.000Z", reviewedBy: "admin",
+    }),
+    audit: { write: async (event) => { events.push(event); return { written: true, eventId: "event" }; } },
+    auditHashKey: "audit-hash-key-that-is-at-least-32-bytes",
+    onAuditFailure: () => undefined,
   });
 });

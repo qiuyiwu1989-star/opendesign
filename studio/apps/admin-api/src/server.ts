@@ -10,6 +10,7 @@ import {
   type SessionClaims,
 } from "./auth/index.js";
 import { sanitizeAuditEvent, type AuditSink } from "./audit/index.js";
+import type { DecisionRecommendation, DecisionReviewResult } from "./data/index.js";
 import { applySecurityHeaders, errorJson, hasRequestBody, json, originMatches } from "./http/index.js";
 import {
   clientAddress,
@@ -21,12 +22,15 @@ import {
 
 const API_PREFIX = "/admin-api/v1";
 const EVIDENCE_TIMEOUT_MS = 5_000;
+const LOGIN_BODY_LIMIT = 2_048;
+const REVIEW_BODY_LIMIT = 8 * 1_024;
 const ROUTES = new Map<string, ReadonlySet<string>>([
   [`${API_PREFIX}/session`, new Set(["GET"])],
   [`${API_PREFIX}/login`, new Set(["POST"])],
   [`${API_PREFIX}/logout`, new Set(["POST"])],
   [`${API_PREFIX}/operations`, new Set(["GET"])],
   [`${API_PREFIX}/sync`, new Set(["GET"])],
+  [`${API_PREFIX}/decisions/review`, new Set(["POST"])],
   [`${API_PREFIX}/health/live`, new Set(["GET"])],
   [`${API_PREFIX}/health/ready`, new Set(["GET"])],
 ]);
@@ -39,6 +43,18 @@ export interface EvidenceContext {
 
 export type EvidenceHandler = (context: EvidenceContext) => Promise<unknown>;
 
+export interface DecisionReviewRequest {
+  decisionId: string;
+  action: "confirm" | "override";
+  recommendation?: DecisionRecommendation;
+  reason: string;
+}
+
+export type DecisionReviewHandler = (
+  input: DecisionReviewRequest,
+  context: EvidenceContext,
+) => Promise<DecisionReviewResult>;
+
 export interface AdminApiServerOptions {
   config: AdminApiConfig;
   passwordVerifier: LocalPasswordVerifier;
@@ -46,6 +62,7 @@ export interface AdminApiServerOptions {
     operations?: EvidenceHandler;
     sync?: EvidenceHandler;
   };
+  decisionReview?: DecisionReviewHandler;
   readiness?: () => Promise<boolean>;
   audit?: AuditSink;
   auditHashKey?: string;
@@ -53,6 +70,7 @@ export interface AdminApiServerOptions {
   rateLimiters?: {
     auth?: RateLimiter;
     read?: RateLimiter;
+    review?: RateLimiter;
   };
   now?: () => number;
   randomBytes?: (size: number) => Buffer;
@@ -67,6 +85,39 @@ function noQuery(url: URL): boolean {
   return [...url.searchParams].length === 0;
 }
 
+async function readJsonObject(request: IncomingMessage, maxBytes: number): Promise<Record<string, unknown> | undefined> {
+  const contentType = request.headers["content-type"]?.split(";", 1)[0]?.trim().toLowerCase();
+  const contentLength = Number(request.headers["content-length"] ?? "0");
+  if (contentType !== "application/json" || !Number.isSafeInteger(contentLength)
+      || contentLength < 1 || contentLength > maxBytes) return undefined;
+  let body = "";
+  for await (const chunk of request) {
+    body += chunk.toString("utf8");
+    if (Buffer.byteLength(body, "utf8") > maxBytes) return undefined;
+  }
+  let parsed: unknown;
+  try { parsed = JSON.parse(body); } catch { return undefined; }
+  return parsed && typeof parsed === "object" && !Array.isArray(parsed)
+    ? parsed as Record<string, unknown>
+    : undefined;
+}
+
+function parseDecisionReview(fields: Record<string, unknown>): DecisionReviewRequest | undefined {
+  const keys = Object.keys(fields);
+  if (typeof fields.decisionId !== "string" || fields.decisionId.length < 1 || fields.decisionId.length > 128
+      || (fields.action !== "confirm" && fields.action !== "override")
+      || typeof fields.reason !== "string") return undefined;
+  const reason = fields.reason.trim();
+  if (reason.length < 4 || reason.length > 1_000) return undefined;
+  if (fields.action === "confirm") {
+    if (keys.length !== 3 || !keys.every((key) => key === "decisionId" || key === "action" || key === "reason")) return undefined;
+    return { decisionId: fields.decisionId, action: "confirm", reason };
+  }
+  if (keys.length !== 4 || !keys.every((key) => key === "decisionId" || key === "action" || key === "recommendation" || key === "reason")
+      || (fields.recommendation !== "approve" && fields.recommendation !== "review" && fields.recommendation !== "reject")) return undefined;
+  return { decisionId: fields.decisionId, action: "override", recommendation: fields.recommendation, reason };
+}
+
 export function createAdminApiServer(options: AdminApiServerOptions) {
   const config = options.config;
   if (config.host !== "127.0.0.1") throw new Error("Admin API may bind only to 127.0.0.1");
@@ -76,6 +127,7 @@ export function createAdminApiServer(options: AdminApiServerOptions) {
   }
   const authLimiter = options.rateLimiters?.auth ?? new FixedWindowRateLimiter(5, 15 * 60_000);
   const readLimiter = options.rateLimiters?.read ?? new FixedWindowRateLimiter(120, 60_000);
+  const reviewLimiter = options.rateLimiters?.review ?? new FixedWindowRateLimiter(30, 60_000);
   const sessions = createSessionManager({
     secret: config.signingSecret,
     ttlSeconds: config.sessionTtlSeconds,
@@ -128,7 +180,8 @@ export function createAdminApiServer(options: AdminApiServerOptions) {
         return;
       }
       const isLogin = url.pathname === `${API_PREFIX}/login`;
-      if (!isLogin && hasRequestBody(request)) {
+      const isDecisionReview = url.pathname === `${API_PREFIX}/decisions/review`;
+      if (!isLogin && !isDecisionReview && hasRequestBody(request)) {
         errorJson(response, 400, "request_body_not_allowed", requestId);
         return;
       }
@@ -136,7 +189,7 @@ export function createAdminApiServer(options: AdminApiServerOptions) {
       if (!url.pathname.startsWith(`${API_PREFIX}/health/`)) {
         const authRoute = isLogin || url.pathname === `${API_PREFIX}/logout`;
         const address = clientAddress(request.socket.remoteAddress, request.headers["x-forwarded-for"] as string | undefined, true);
-        const decision = (authRoute ? authLimiter : readLimiter).consume(address);
+        const decision = (authRoute ? authLimiter : isDecisionReview ? reviewLimiter : readLimiter).consume(address);
         response.setHeader("x-ratelimit-limit", decision.limit);
         response.setHeader("x-ratelimit-remaining", decision.remaining);
         if (!decision.allowed) {
@@ -194,20 +247,8 @@ export function createAdminApiServer(options: AdminApiServerOptions) {
           origin: request.headers.origin,
           secFetchSite: request.headers["sec-fetch-site"],
         }, config.publicOrigin)) { errorJson(response, 403, "origin_required", requestId); return; }
-        const contentType = request.headers["content-type"]?.split(";", 1)[0]?.trim().toLowerCase();
-        const contentLength = Number(request.headers["content-length"] ?? "0");
-        if (contentType !== "application/json" || !Number.isSafeInteger(contentLength) || contentLength < 1 || contentLength > 2048) {
-          errorJson(response, 400, "invalid_login_request", requestId); return;
-        }
-        let body = "";
-        for await (const chunk of request) {
-          body += chunk.toString("utf8");
-          if (Buffer.byteLength(body, "utf8") > 2048) { errorJson(response, 413, "request_too_large", requestId); return; }
-        }
-        let credentials: unknown;
-        try { credentials = JSON.parse(body); } catch { errorJson(response, 400, "invalid_login_request", requestId); return; }
-        if (!credentials || typeof credentials !== "object" || Array.isArray(credentials)) { errorJson(response, 400, "invalid_login_request", requestId); return; }
-        const fields = credentials as Record<string, unknown>;
+        const fields = await readJsonObject(request, LOGIN_BODY_LIMIT);
+        if (!fields) { errorJson(response, 400, "invalid_login_request", requestId); return; }
         const keys = Object.keys(fields);
         if (keys.length !== 2 || !keys.includes("username") || !keys.includes("password")
             || typeof fields.username !== "string" || typeof fields.password !== "string") {
@@ -238,6 +279,37 @@ export function createAdminApiServer(options: AdminApiServerOptions) {
       if (!noQuery(url)) { errorJson(response, 400, "invalid_query", requestId); return; }
       if (!actor) {
         errorJson(response, 401, "authentication_required", requestId);
+        return;
+      }
+      if (isDecisionReview) {
+        if (!originMatches(request, config.publicOrigin) || !isSameOriginMutation({
+          origin: request.headers.origin,
+          secFetchSite: request.headers["sec-fetch-site"],
+        }, config.publicOrigin)) { errorJson(response, 403, "origin_required", requestId); return; }
+        const input = parseDecisionReview(await readJsonObject(request, REVIEW_BODY_LIMIT) ?? {});
+        if (!input) { errorJson(response, 400, "invalid_decision_review", requestId); return; }
+        if (!options.decisionReview) { errorJson(response, 503, "decision_review_unavailable", requestId); return; }
+        const controller = new AbortController();
+        const timeout = setTimeout(() => controller.abort(), EVIDENCE_TIMEOUT_MS);
+        try {
+          const result = await options.decisionReview(input, {
+            requestId, actor: { actorId: actor.actorId }, signal: controller.signal,
+          });
+          if (result.outcome === "not_found") { errorJson(response, 404, "decision_not_found", requestId); return; }
+          if (result.outcome === "already_reviewed") { errorJson(response, 409, "decision_already_reviewed", requestId); return; }
+          if (result.outcome !== "reviewed") { errorJson(response, 503, "decision_review_unavailable", requestId); return; }
+          json(response, 200, {
+            decisionId: result.decisionId,
+            reviewStatus: result.reviewStatus,
+            recommendation: result.recommendation,
+            reviewedAt: result.reviewedAt,
+            reviewedBy: result.reviewedBy,
+          });
+        } catch {
+          errorJson(response, 503, "decision_review_unavailable", requestId);
+        } finally {
+          clearTimeout(timeout);
+        }
         return;
       }
       const evidenceKey = url.pathname === `${API_PREFIX}/operations` ? "operations" : "sync";

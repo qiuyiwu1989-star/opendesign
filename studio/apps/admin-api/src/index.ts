@@ -1,6 +1,6 @@
 import { createLocalPasswordVerifier, loadAdminApiConfig } from "./auth/index.js";
 import { DatabaseAuditSink } from "./audit/index.js";
-import { createPostgresClient, OperationsRepository, readSyncEvidence } from "./data/index.js";
+import { createPostgresClient, DecisionReviewRepository, OperationsRepository, readSyncEvidence } from "./data/index.js";
 import { createAdminApiServer } from "./server.js";
 
 export * from "./auth/index.js";
@@ -19,7 +19,9 @@ if (isEntrypoint()) {
   const passwordVerifier = createLocalPasswordVerifier(config.passwordHash);
   const readClient = config.databaseUrl ? createPostgresClient(config.databaseUrl) : undefined;
   const auditClient = config.auditDatabaseUrl ? createPostgresClient(config.auditDatabaseUrl, { readOnly: false }) : undefined;
+  const reviewClient = config.reviewDatabaseUrl ? createPostgresClient(config.reviewDatabaseUrl, { readOnly: false }) : undefined;
   const repository = readClient ? new OperationsRepository(readClient) : undefined;
+  const decisionReviews = reviewClient ? new DecisionReviewRepository(reviewClient) : undefined;
   const audit = auditClient ? new DatabaseAuditSink(auditClient) : undefined;
   const server = createAdminApiServer({
     config,
@@ -28,6 +30,11 @@ if (isEntrypoint()) {
       ...(repository ? { operations: ({ signal }) => repository.readOperations(signal) } : {}),
       ...(repository ? { sync: ({ signal }) => readSyncEvidence(repository, signal) } : {}),
     },
+    ...(decisionReviews ? {
+      decisionReview: (input, { actor, signal }) => decisionReviews.review({
+        ...input, reviewedBy: actor.actorId,
+      }, signal),
+    } : {}),
     ...(readClient ? { readiness: () => readClient.ready() } : {}),
     ...(audit && config.auditHashKey ? {
       audit,
@@ -39,7 +46,7 @@ if (isEntrypoint()) {
   });
   const shutdown = (): void => {
     server.close(() => {
-      void Promise.all([readClient?.close(), auditClient?.close()]).finally(() => process.exit(0));
+      void Promise.all([readClient?.close(), auditClient?.close(), reviewClient?.close()]).finally(() => process.exit(0));
     });
   };
   process.once("SIGTERM", shutdown);

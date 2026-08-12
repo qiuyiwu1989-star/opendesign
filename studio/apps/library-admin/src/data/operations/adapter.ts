@@ -81,6 +81,7 @@ function decision(row: RawCurationDecision) {
     model: row.model,
     decidedAt: row.decidedAt,
     reviewStatus: row.reviewStatus,
+    ...(row.finalRecommendation ? { finalRecommendation: row.finalRecommendation } : {}),
     ...(row.reviewedBy ? { reviewedBy: row.reviewedBy } : {}),
     ...(row.reviewedAt ? { reviewedAt: row.reviewedAt } : {}),
     signals: row.signals,

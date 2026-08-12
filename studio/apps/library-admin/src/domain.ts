@@ -50,11 +50,12 @@ export interface CurationDecision {
   model: string;
   decidedAt: string;
   reviewStatus: DecisionReviewStatus;
+  finalRecommendation?: DecisionRecommendation;
   reviewedBy?: string;
   reviewedAt?: string;
   signals: DecisionSignal[];
   source: DataSourceDescriptor;
-  previewOnly: true;
+  previewOnly: boolean;
 }
 
 export interface ArtifactEvidence {

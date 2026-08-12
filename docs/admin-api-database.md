@@ -1,8 +1,9 @@
 # Admin API database lane
 
-Status: migration `0010_admin_read_api.sql` applied to the production
-`opendesign` database on 2026-08-12; application LOGIN roles are not yet
-created or configured, and the Admin API is not deployed.
+Status: migration `0010_admin_read_api.sql` was applied to the production
+`opendesign` database on 2026-08-12. Migration `0011_curation_decisions.sql`
+remains a reviewed local draft and has not been applied. The review LOGIN is
+not configured, so the new human-review write path is not deployed.
 
 ## Runtime interfaces
 
@@ -17,6 +18,9 @@ The HTTP composition root should create separate driver instances:
   `opendesign_admin_read_role`.
 - `ADMIN_AUDIT_DATABASE_URL`: a different LOGIN that is a member only of
   `opendesign_admin_audit_writer_role`.
+- `ADMIN_REVIEW_DATABASE_URL`: a third LOGIN that is a member only of
+  `opendesign_admin_review_writer_role`; it can execute the bounded terminal
+  review function but cannot read or write base tables.
 
 The repository does not load either variable or create connections itself.
 Startup configuration and concrete drivers live outside this database lane.
@@ -34,18 +38,23 @@ Startup configuration and concrete drivers live outside this database lane.
 - Database sync evidence is a non-secret digest of four operational watermark
   timestamps. It is evidence of database change, not a Git revision.
 
-No query reads `app_config`, calls legacy administrator/runner RPC functions,
-or modifies review, queue, runner, publication, Git, or deployment state.
+The read repository never reads `app_config`, calls legacy administrator/runner
+RPC functions, or modifies state. The separate review repository can only call
+`opendesign_admin_read.review_curation_decision(...)`; it cannot change queues,
+publication, Git, deployment, or public Library state.
 
 ## Least privilege migration
 
-`supabase/migrations/0010_admin_read_api.sql` runs after migrations 0003–0009.
-It creates an isolated schema and two `NOLOGIN`, `NOINHERIT` group roles:
+`supabase/migrations/0010_admin_read_api.sql` runs after migrations 0003–0009;
+`0011_curation_decisions.sql` adds the decision journal and review boundary.
+Together they create an isolated schema and three `NOLOGIN`, `NOINHERIT` group roles:
 
 - `opendesign_admin_read_role`: database `CONNECT`, schema `USAGE`, and
   `SELECT` only on seven named views.
 - `opendesign_admin_audit_writer_role`: database `CONNECT`, schema `USAGE`, and
   `EXECUTE` only on `write_audit_event(...)`.
+- `opendesign_admin_review_writer_role`: database `CONNECT`, schema `USAGE`, and
+  `EXECUTE` only on `review_curation_decision(...)`.
 
 `PUBLIC` receives no schema, table, view, or function privilege. The audit role
 cannot select audit rows. The read role cannot execute the audit function.

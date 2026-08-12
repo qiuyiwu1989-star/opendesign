@@ -18,6 +18,7 @@ function operationsEnvelope() {
       items: [{ id: "submission-1", host: "example.test", status: "pending" }],
     },
     discoveries: unavailableSection("discoveries"),
+    decisions: unavailableSection("decisions"),
     quality: unavailableSection("quality"),
     origins: unavailableSection("origins"),
     jobs: {

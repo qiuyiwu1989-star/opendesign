@@ -1,10 +1,10 @@
 import "@testing-library/jest-dom/vitest";
-import { cleanup, fireEvent, render, screen, within } from "@testing-library/react";
+import { cleanup, fireEvent, render, screen, waitFor, within } from "@testing-library/react";
 import { afterEach, describe, expect, it, vi } from "vitest";
 import { App } from "./App";
 import { controlRoomSnapshot, emptyControlRoomSnapshot } from "./test/fixtures";
 
-afterEach(() => { cleanup(); vi.restoreAllMocks(); });
+afterEach(() => { cleanup(); vi.restoreAllMocks(); vi.unstubAllGlobals(); });
 
 function navigate(name: string) {
   const navigation = screen.getByRole("navigation");
@@ -52,11 +52,112 @@ describe("OpenDesign Control Room Phase 1", () => {
     expect(screen.getByRole("heading", { level: 1, name: "每一个收录与拒绝，都留下判断证据" })).toBeInTheDocument();
     const journal = screen.getByRole("list", { name: "每日 AI 决策记录" });
     expect(within(journal).getByRole("listitem")).toHaveTextContent("建议拒绝");
-    expect(screen.getAllByText("opendesign-curation-v1.0")).toHaveLength(2);
+    expect(screen.getByText("opendesign-curation-v1.1")).toBeInTheDocument();
+    expect(screen.getByText("opendesign-curation-v1.0")).toBeInTheDocument();
     expect(screen.getByText("mimo-v2.5")).toBeInTheDocument();
     expect(screen.getByText("垃圾风险")).toBeInTheDocument();
     expect(screen.getByText("广告风险")).toBeInTheDocument();
     expect(screen.getByRole("button", { name: "预览确认" })).toBeInTheDocument();
+  });
+
+  it("keeps fixture review read-only even when it has an unauthenticated session", () => {
+    render(<App initialSnapshot={controlRoomSnapshot} initialSession={{ kind: "unauthenticated" }}/>);
+    navigate("质量决策");
+
+    expect(screen.getByRole("button", { name: "预览确认" })).toBeEnabled();
+    expect(screen.queryByRole("button", { name: "确认并留痕" })).not.toBeInTheDocument();
+    expect(screen.getByText(/登录管理员会话后才可执行终审/)).toBeInTheDocument();
+  });
+
+  it("requires a reason and an override recommendation before authenticated submission", () => {
+    render(<App initialSnapshot={controlRoomSnapshot} initialSession={{ kind: "authenticated", actor: { actorId: "operator-1", login: "admin" }, expiresAt: "2026-08-14T00:00:00.000Z" }}/>);
+    navigate("质量决策");
+
+    const confirm = screen.getByRole("button", { name: "确认并留痕" });
+    expect(confirm).toBeDisabled();
+    fireEvent.click(screen.getByRole("button", { name: "覆盖 AI 建议" }));
+    const override = screen.getByRole("button", { name: "覆盖并留痕" });
+    expect(override).toBeDisabled();
+    fireEvent.change(screen.getByLabelText(/审查理由/), { target: { value: "原创证据足够，人工调整结论" } });
+    expect(override).toBeDisabled();
+    fireEvent.change(screen.getByLabelText("人工结论"), { target: { value: "approve" } });
+    expect(override).toBeEnabled();
+    override.focus();
+    expect(override).toHaveFocus();
+  });
+
+  it("enforces the API-aligned 4 to 1000 character reason boundary", () => {
+    render(<App initialSnapshot={controlRoomSnapshot} initialSession={{ kind: "authenticated", actor: { actorId: "operator-1", login: "admin" }, expiresAt: "2026-08-14T00:00:00.000Z" }}/>);
+    navigate("质量决策");
+
+    const reason = screen.getByLabelText(/审查理由/);
+    fireEvent.change(reason, { target: { value: "三字" } });
+    expect(reason).toHaveAttribute("aria-invalid", "true");
+    expect(screen.getByRole("button", { name: "确认并留痕" })).toBeDisabled();
+    fireEvent.change(reason, { target: { value: "四个汉字" } });
+    expect(reason).toHaveAttribute("aria-invalid", "false");
+    expect(screen.getByRole("button", { name: "确认并留痕" })).toBeEnabled();
+    expect(reason).toHaveAttribute("maxlength", "1000");
+  });
+
+  it("submits from the accessible form flow and applies only the reviewed server decision", async () => {
+    const fetcher = vi.fn(async () => new Response(JSON.stringify({
+      decisionId: "decision-ad",
+      reviewStatus: "confirmed",
+      recommendation: "reject",
+      reviewedAt: "2026-08-13T09:00:00.000Z",
+      reviewedBy: "admin",
+    }), { status: 200 }));
+    vi.stubGlobal("fetch", fetcher);
+    render(<App initialSnapshot={controlRoomSnapshot} initialSession={{ kind: "authenticated", actor: { actorId: "operator-1", login: "admin" }, expiresAt: "2026-08-14T00:00:00.000Z" }}/>);
+    navigate("质量决策");
+
+    const reason = screen.getByLabelText(/审查理由/);
+    fireEvent.change(reason, { target: { value: "核对页面和联盟跳转后，确认拒绝。" } });
+    reason.focus();
+    fireEvent.submit(reason.closest("form")!);
+
+    expect(screen.getByRole("button", { name: "正在提交…" })).toBeDisabled();
+    await waitFor(() => expect(screen.getByText("已留痕")).toBeInTheDocument());
+    expect(screen.getByText(/admin 已确认此判断/)).toBeInTheDocument();
+    expect(screen.getByText("AI 原建议").parentElement).toHaveTextContent("建议拒绝");
+    expect(screen.getByText("人工最终结论").parentElement).toHaveTextContent("建议拒绝");
+    expect(fetcher).toHaveBeenCalledWith("/admin-api/v1/decisions/review", expect.objectContaining({ credentials: "same-origin" }));
+  });
+
+  it("keeps the AI recommendation immutable when an operator overrides it", async () => {
+    vi.stubGlobal("fetch", vi.fn(async () => new Response(JSON.stringify({
+      decisionId: "decision-ad",
+      reviewStatus: "overridden",
+      recommendation: "approve",
+      reviewedAt: "2026-08-13T09:05:00.000Z",
+      reviewedBy: "admin",
+    }), { status: 200 })));
+    render(<App initialSnapshot={controlRoomSnapshot} initialSession={{ kind: "authenticated", actor: { actorId: "operator-1", login: "admin" }, expiresAt: "2026-08-14T00:00:00.000Z" }}/>);
+    navigate("质量决策");
+
+    fireEvent.click(screen.getByRole("button", { name: "覆盖 AI 建议" }));
+    fireEvent.change(screen.getByLabelText("人工结论"), { target: { value: "approve" } });
+    fireEvent.change(screen.getByLabelText(/审查理由/), { target: { value: "已核对原创设计证据，覆盖为收录。" } });
+    fireEvent.click(screen.getByRole("button", { name: "覆盖并留痕" }));
+
+    await waitFor(() => expect(screen.getByText("人工最终结论")).toBeInTheDocument());
+    expect(screen.getByText("AI 原建议").parentElement).toHaveTextContent("建议拒绝");
+    expect(screen.getByText("人工最终结论").parentElement).toHaveTextContent("建议收录");
+  });
+
+  it("shows a mapped API failure and does not mutate the decision", async () => {
+    vi.stubGlobal("fetch", vi.fn(async () => new Response("", { status: 409 })));
+    render(<App initialSnapshot={controlRoomSnapshot} initialSession={{ kind: "authenticated", actor: { actorId: "operator-1", login: "admin" }, expiresAt: "2026-08-14T00:00:00.000Z" }}/>);
+    navigate("质量决策");
+
+    fireEvent.change(screen.getByLabelText(/审查理由/), { target: { value: "确认垃圾与广告信号。" } });
+    fireEvent.click(screen.getByRole("button", { name: "确认并留痕" }));
+
+    expect(await screen.findByRole("alert")).toHaveTextContent("已被其他审查者处理");
+    expect(screen.queryByText("已留痕")).not.toBeInTheDocument();
+    expect(screen.getByRole("button", { name: "确认并留痕" })).toBeEnabled();
+    expect(screen.getAllByText("建议拒绝").length).toBeGreaterThanOrEqual(1);
   });
 
   it("shows the top three actions in their supplied priority order and labels snapshot provenance", () => {

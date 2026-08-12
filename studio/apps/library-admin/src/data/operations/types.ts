@@ -57,6 +57,7 @@ export interface RawCurationDecision {
   model: string;
   decidedAt: string;
   reviewStatus: "pending" | "confirmed" | "overridden";
+  finalRecommendation?: "approve" | "review" | "reject";
   reviewedBy?: string;
   reviewedAt?: string;
   signals: CurationDecision["signals"];

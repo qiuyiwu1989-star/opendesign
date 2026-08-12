@@ -42,3 +42,17 @@ test("requires the production read and audit database settings as one unit", () 
   assert.equal(config.databaseUrl, "postgresql://read-only.invalid/db");
   assert.equal(config.auditDatabaseUrl, "postgresql://audit-only.invalid/db");
 });
+
+test("requires the full audited database trio before enabling the separate review connection", () => {
+  assert.throws(() => loadAdminApiConfig({ ...valid(), ADMIN_REVIEW_DATABASE_URL: "postgresql://review-only.invalid/db" }), /requires the read and audit/);
+  const config = loadAdminApiConfig({
+    ...valid(),
+    ADMIN_DATABASE_URL: "postgresql://read-only.invalid/db",
+    ADMIN_AUDIT_DATABASE_URL: "postgresql://audit-only.invalid/db",
+    ADMIN_API_AUDIT_HASH_KEY: "audit-hash-key-that-is-at-least-32-bytes",
+    ADMIN_REVIEW_DATABASE_URL: "postgresql://review-only.invalid/db",
+  });
+  assert.equal(config.reviewDatabaseUrl, "postgresql://review-only.invalid/db");
+  assert.equal(config.databaseUrl, "postgresql://read-only.invalid/db");
+  assert.equal(config.auditDatabaseUrl, "postgresql://audit-only.invalid/db");
+});

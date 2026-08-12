@@ -1,5 +1,5 @@
 import { dirname } from "node:path";
-import { mkdir } from "node:fs/promises";
+import { mkdir, open } from "node:fs/promises";
 import PptxGenJS from "pptxgenjs";
 import type { DesignDirection, SceneDocument, SceneElement } from "@opendesign/studio-contracts";
 import { resolveColor } from "./colors.js";
@@ -84,6 +84,7 @@ export function preparePptxText(element: SceneElement, fontSize: number): string
 
 const SAFE_IMAGE_PATH = /\.(?:png|jpe?g)$/i;
 const SAFE_IMAGE_DATA = /^data:image\/(?:png|jpeg);base64,/i;
+const MAX_PPTX_ASSET_BYTES = 25 * 1024 * 1024;
 
 export function assertSafePptxAsset(asset: AssetInput): AssetInput {
   if ("path" in asset && !SAFE_IMAGE_PATH.test(asset.path)) {
@@ -93,6 +94,35 @@ export function assertSafePptxAsset(asset: AssetInput): AssetInput {
     throw new Error("PPTX data assets must be PNG or JPEG base64 data URLs");
   }
   return asset;
+}
+
+function hasSafeImageSignature(bytes: Uint8Array): boolean {
+  const png = bytes.length >= 8 && [137, 80, 78, 71, 13, 10, 26, 10].every((value, index) => bytes[index] === value);
+  const jpeg = bytes.length >= 3 && bytes[0] === 0xff && bytes[1] === 0xd8 && bytes[2] === 0xff;
+  return png || jpeg;
+}
+
+export async function validatePptxAsset(asset: AssetInput): Promise<AssetInput> {
+  const safe = assertSafePptxAsset(asset);
+  if ("data" in safe) {
+    if (safe.data.length > Math.ceil(MAX_PPTX_ASSET_BYTES * 4 / 3) + 256) throw new Error("PPTX image asset exceeds 25 MiB");
+    const encoded = safe.data.slice(safe.data.indexOf(",") + 1);
+    const bytes = Buffer.from(encoded, "base64");
+    if (bytes.byteLength > MAX_PPTX_ASSET_BYTES) throw new Error("PPTX image asset exceeds 25 MiB");
+    if (!hasSafeImageSignature(bytes.subarray(0, 16))) throw new Error("PPTX image content must match its PNG or JPEG declaration");
+    return safe;
+  }
+  const file = await open(safe.path, "r");
+  try {
+    const stats = await file.stat();
+    if (!stats.isFile() || stats.size > MAX_PPTX_ASSET_BYTES) throw new Error("PPTX image asset must be a regular file no larger than 25 MiB");
+    const header = Buffer.alloc(16);
+    const { bytesRead } = await file.read(header, 0, header.length, 0);
+    if (!hasSafeImageSignature(header.subarray(0, bytesRead))) throw new Error("PPTX image content must match its PNG or JPEG declaration");
+    return safe;
+  } finally {
+    await file.close();
+  }
 }
 
 function imagePlaceholder(pptx: PptxGenJS, slide: PptxGenJS.Slide, element: SceneElement, direction: DesignDirection): void {
@@ -159,7 +189,7 @@ export async function exportDocumentToPptx(document: SceneDocument, options: Ppt
           ? await options.assetResolver(element.assetSrc, { document, sceneId: scene.id, element })
           : null;
         if (asset) {
-          const safeAsset = assertSafePptxAsset(asset);
+          const safeAsset = await validatePptxAsset(asset);
           const { mimeType: _mimeType, ...pptxAsset } = safeAsset;
           slide.addImage({ ...position, ...pptxAsset });
           elements.push({ sceneId: scene.id, elementId: element.id, declaredEditable: element.editable, outputMode: "native", nativeObjectKind: "image" });

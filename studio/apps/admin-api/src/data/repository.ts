@@ -11,6 +11,7 @@ import type {
   QualityRow,
   RunLogRow,
   SubmissionRow,
+  DecisionRecommendation,
 } from "./types.js";
 
 const DEFAULT_TIMEOUT_MS = 2_500;
@@ -66,6 +67,10 @@ function discovery(row: Record<string, unknown>): DiscoveryRow {
 
 function decision(row: Record<string, unknown>): CurationDecisionRow {
   const recommendation = row.recommendation;
+  const finalRecommendation = row.final_recommendation;
+  const mappedFinalRecommendation: DecisionRecommendation | undefined = finalRecommendation === "approve" || finalRecommendation === "review" || finalRecommendation === "reject"
+    ? finalRecommendation
+    : undefined;
   const reviewStatus = row.review_status;
   return {
     id: String(row.id),
@@ -73,6 +78,7 @@ function decision(row: Record<string, unknown>): CurationDecisionRow {
     candidateTitle: text(row.candidate_title) ?? "候选站点",
     ...optional("candidateUrl", text(row.candidate_url)),
     recommendation: recommendation === "approve" || recommendation === "reject" ? recommendation : "review",
+    ...optional("finalRecommendation", mappedFinalRecommendation),
     confidence: number(row.confidence) ?? 0,
     reason: text(row.reason) ?? "No reason recorded",
     policyVersion: text(row.policy_version) ?? "unknown",
@@ -125,7 +131,7 @@ function log(row: Record<string, unknown>): RunLogRow {
 const SECTIONS: readonly SectionSpec<unknown>[] = [
   { key: "submissions", label: "production submissions", text: "select id, url, host, note, status, kind, slug, created_at, host_voters, host_total from opendesign_admin_read.submissions order by created_at desc, id desc limit $1", map: submission },
   { key: "discoveries", label: "production discoveries", text: "select id, url, host, slug, title, source, score, status, created_at from opendesign_admin_read.discoveries order by score desc, created_at desc, id desc limit $1", map: discovery },
-  { key: "decisions", label: "production curation decisions", text: "select id, discovery_id, candidate_title, candidate_url, recommendation, confidence, reason, policy_version, model, decided_at, review_status, reviewed_by, reviewed_at, review_reason, signals from opendesign_admin_read.curation_decisions order by decided_at desc, id desc limit $1", map: decision },
+  { key: "decisions", label: "production curation decisions", text: "select id, discovery_id, candidate_title, candidate_url, recommendation, final_recommendation, confidence, reason, policy_version, model, decided_at, review_status, reviewed_by, reviewed_at, review_reason, signals from opendesign_admin_read.curation_decisions order by decided_at desc, id desc limit $1", map: decision },
   { key: "quality", label: "production quality evidence", text: "select id, asset_id, title, summary, severity, status, url, created_at, evidence from opendesign_admin_read.quality_issues order by created_at desc, id desc limit $1", map: quality },
   { key: "origins", label: "production origin evidence", text: "select id, asset_id, title, summary, status, url, created_at, evidence from opendesign_admin_read.origin_issues order by created_at desc, id desc limit $1", map: origin },
   { key: "jobs", label: "production jobs", text: "select id, kind, slug, url, status, result, created_at, updated_at from opendesign_admin_read.jobs order by created_at desc, id desc limit $1", map: job },

@@ -8,6 +8,7 @@ export interface AdminApiConfig {
   sessionTtlSeconds: number;
   databaseUrl?: string;
   auditDatabaseUrl?: string;
+  reviewDatabaseUrl?: string;
   auditHashKey?: string;
 }
 
@@ -62,9 +63,13 @@ export function loadAdminApiConfig(env: NodeJS.ProcessEnv): AdminApiConfig {
 
   const databaseUrl = env.ADMIN_DATABASE_URL?.trim();
   const auditDatabaseUrl = env.ADMIN_AUDIT_DATABASE_URL?.trim();
+  const reviewDatabaseUrl = env.ADMIN_REVIEW_DATABASE_URL?.trim();
   const auditHashKey = env.ADMIN_API_AUDIT_HASH_KEY?.trim();
   if ((databaseUrl || auditDatabaseUrl || auditHashKey) && !(databaseUrl && auditDatabaseUrl && auditHashKey)) {
     throw new ConfigurationError("ADMIN_DATABASE_URL, ADMIN_AUDIT_DATABASE_URL and ADMIN_API_AUDIT_HASH_KEY must be configured together");
+  }
+  if (reviewDatabaseUrl && !databaseUrl) {
+    throw new ConfigurationError("ADMIN_REVIEW_DATABASE_URL requires the read and audit database settings");
   }
   if (auditHashKey && Buffer.byteLength(auditHashKey, "utf8") < 32) {
     throw new ConfigurationError("ADMIN_API_AUDIT_HASH_KEY must contain at least 32 bytes");
@@ -79,6 +84,7 @@ export function loadAdminApiConfig(env: NodeJS.ProcessEnv): AdminApiConfig {
     sessionTtlSeconds: integer(env.ADMIN_API_SESSION_TTL_SECONDS, "ADMIN_API_SESSION_TTL_SECONDS", 900, 60, 3_600),
     ...(databaseUrl ? { databaseUrl } : {}),
     ...(auditDatabaseUrl ? { auditDatabaseUrl } : {}),
+    ...(reviewDatabaseUrl ? { reviewDatabaseUrl } : {}),
     ...(auditHashKey ? { auditHashKey } : {}),
   };
 }

@@ -97,11 +97,13 @@ function parseDecision(value: unknown, path: string): RawCurationDecision {
   const reviewedAt = string(pick(row, "reviewedAt", "reviewed_at"));
   const confidence = number(row.confidence);
   const recommendation = row.recommendation;
+  const finalRecommendation = pick(row, "finalRecommendation", "final_recommendation")
+    ?? pick(row, "reviewedRecommendation", "reviewed_recommendation");
   const reviewStatus = pick(row, "reviewStatus", "review_status");
   if (!discoveryId || !candidateTitle || !policyVersion || !decidedAt || confidence === undefined
     || !["approve", "review", "reject"].includes(String(recommendation))
     || !["pending", "confirmed", "overridden"].includes(String(reviewStatus))) throw new OperationsValidationError([`${path} has invalid decision fields`]);
-  return { id: row.id, discoveryId, candidateTitle, ...(candidateUrl ? { candidateUrl } : {}), recommendation: recommendation as RawCurationDecision["recommendation"], confidence, reason: string(row.reason) ?? "No reason recorded", policyVersion, model: string(row.model) ?? "unknown", decidedAt, reviewStatus: reviewStatus as RawCurationDecision["reviewStatus"], ...(reviewedBy ? { reviewedBy } : {}), ...(reviewedAt ? { reviewedAt } : {}), signals: Array.isArray(row.signals) ? row.signals.flatMap(item => { const parsed = parseDecisionSignal(item); return parsed ? [parsed] : []; }) : [] };
+  return { id: row.id, discoveryId, candidateTitle, ...(candidateUrl ? { candidateUrl } : {}), recommendation: recommendation as RawCurationDecision["recommendation"], confidence, reason: string(row.reason) ?? "No reason recorded", policyVersion, model: string(row.model) ?? "unknown", decidedAt, reviewStatus: reviewStatus as RawCurationDecision["reviewStatus"], ...(["approve", "review", "reject"].includes(String(finalRecommendation)) ? { finalRecommendation: finalRecommendation as RawCurationDecision["recommendation"] } : {}), ...(reviewedBy ? { reviewedBy } : {}), ...(reviewedAt ? { reviewedAt } : {}), signals: Array.isArray(row.signals) ? row.signals.flatMap(item => { const parsed = parseDecisionSignal(item); return parsed ? [parsed] : []; }) : [] };
 }
 
 function parseIssue(value: unknown, path: string): RawQualityIssue {

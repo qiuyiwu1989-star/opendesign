@@ -69,6 +69,7 @@ export interface CurationDecisionRow {
   candidateTitle: string;
   candidateUrl?: string;
   recommendation: "approve" | "review" | "reject";
+  finalRecommendation?: "approve" | "review" | "reject";
   confidence: number;
   reason: string;
   policyVersion: string;
@@ -80,6 +81,30 @@ export interface CurationDecisionRow {
   reviewReason?: string;
   signals: unknown[];
 }
+
+export type DecisionRecommendation = "approve" | "review" | "reject";
+export type DecisionReviewAction = "confirm" | "override";
+
+export interface DecisionReviewInput {
+  decisionId: string;
+  action: DecisionReviewAction;
+  recommendation?: DecisionRecommendation;
+  reason: string;
+  reviewedBy: string;
+}
+
+export interface DecisionReviewSuccess {
+  outcome: "reviewed";
+  decisionId: string;
+  reviewStatus: "confirmed" | "overridden";
+  recommendation: DecisionRecommendation;
+  reviewedAt: string;
+  reviewedBy: string;
+}
+
+export type DecisionReviewResult = DecisionReviewSuccess | {
+  outcome: "not_found" | "already_reviewed" | "unavailable";
+};
 
 export interface QualityRow {
   id: string;

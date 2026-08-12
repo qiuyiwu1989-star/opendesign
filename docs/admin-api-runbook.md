@@ -1,6 +1,6 @@
 # OpenDesign Admin API runbook
 
-This is a reviewable future deployment procedure for the read-only Phase 3
+This is a reviewable future deployment procedure for the least-privilege Phase 3
 Admin API. It is not deployment authorization. Every production migration,
 configuration change, service start/restart, nginx activation, rollback, and
 public release requires an explicit approval for that exact action.
@@ -11,8 +11,10 @@ public release requires an explicit approval for that exact action.
 - Authentication uses one fixed local operator name (`admin`) and a deployment-managed scrypt password hash.
 - Browser sessions are opaque, signed, short-lived `__Host-` cookies.
 - Database evidence is read through explicit least-privilege views/functions.
-- The service cannot review, enqueue, publish, push Git, deploy, or write public
-  Library state. Audit writing is a separate, narrowly scoped capability.
+- The service may record one authenticated human terminal review only through a
+  bounded security-definer function. It cannot enqueue, publish, delete, push
+  Git, deploy, or otherwise write public Library state. Review and audit writing
+  use separate, narrowly scoped database capabilities.
 - Never paste secret values into tickets, chat, logs, shell history, Git, or
   systemd unit files. Provision the root-owned environment file out of band.
 
@@ -32,6 +34,7 @@ required value is missing or malformed.
 | `ADMIN_API_PASSWORD_HASH` | Reviewed scrypt hash generated interactively; never plaintext. |
 | `ADMIN_DATABASE_URL` | Dedicated read login, not an owner/service-role URL. |
 | `ADMIN_AUDIT_DATABASE_URL` | Separately scoped audit client URL. |
+| `ADMIN_REVIEW_DATABASE_URL` | Separate LOGIN that can execute only the bounded human-review function; it owns no table. |
 | `ADMIN_API_SESSION_TTL_SECONDS` | Optional; implementation default `900`, maximum `3600` seconds. |
 
 Local/Git/GitHub/Public sync evidence providers are not part of this release.
@@ -60,7 +63,8 @@ Stop after preflight. Production actions below each need separate approval.
 
 1. With explicit **migration approval**, take a schema/grant snapshot, confirm
    migrations through `0009` are present, then apply the reviewed draft
-   `supabase/migrations/0010_admin_read_api.sql` using the migration role.
+   `supabase/migrations/0010_admin_read_api.sql`, followed by
+   `supabase/migrations/0011_curation_decisions.sql`, using the migration role.
 2. From the read login, prove only the named views/functions are selectable.
 3. Prove direct table reads and every insert/update/delete/execute outside the
    allowlist fail.
@@ -68,7 +72,12 @@ Stop after preflight. Production actions below each need separate approval.
    audit client uses a normal transaction because PostgreSQL cannot invoke the
    writing function in a read-only transaction; database grants remain the
    hard boundary.
-5. Save command exit status and object/grant names; never save credentials or
+5. From the review login, prove only
+   `opendesign_admin_read.review_curation_decision(uuid,text,text,text,text)` can
+   execute. Prove base-table reads/writes, runner RPCs, audit writes, job enqueue,
+   delete, and any public-state mutation fail. Confirm duplicate review returns
+   `already_reviewed` without changing the original AI `recommendation`.
+6. Save command exit status and object/grant names; never save credentials or
    returned operational records in CI artifacts.
 
 If any privilege assertion fails, run the reviewed revoke/rollback transaction
@@ -100,6 +109,11 @@ operational evidence:
 - Unauthenticated `operations` and `sync` return `401` and do not query data.
 - Unknown routes return `404`; wrong methods are rejected (`404`/`405`) before
   reaching a write-capable handler; bodies above the nginx limit are rejected.
+- `POST /admin-api/v1/decisions/review` requires a valid session, exact
+  same-origin JSON, a 4..1000-character reason, and a pending decision. Confirm
+  preserves the AI recommendation; override requires an explicit final
+  recommendation; repeated reviews return `409`. Neither action creates work or
+  changes public content.
 - Invalid usernames/passwords never receive a session. Valid sessions use `Secure`,
   `HttpOnly`, `SameSite=Strict`, no `Domain`, and rotate on login.
 - Logout accepts only same-origin POST, invalidates the session, and expires the
@@ -120,7 +134,7 @@ Rollback is also a production action and requires explicit approval.
    service itself needs investigation.
 4. Revoke LOGIN memberships first. Then, only with separately reviewed
    destructive-action approval, use the migration-tail rollback transaction to
-   drop `opendesign_admin_read` and the two NOLOGIN group roles.
+   drop `opendesign_admin_read` and the three NOLOGIN group roles.
 5. Rotate affected secrets if exposure is suspected; invalidate active sessions.
 6. Repeat public Library and Admin API route checks and preserve redacted logs.
 

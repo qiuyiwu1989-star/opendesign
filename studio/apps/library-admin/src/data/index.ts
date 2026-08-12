@@ -6,6 +6,7 @@ import { loadCompactPackManifest } from "./pack";
 import type { LoadAdminSnapshotInput, SnapshotAdapterInput } from "./types";
 
 export * from "./aggregate";
+export * from "./decisions";
 export * from "./fixtures";
 export * from "./quality";
 export * from "./snapshot";

@@ -1,5 +1,6 @@
-import { useMemo, useState } from "react";
+import { type FormEvent, useEffect, useMemo, useState } from "react";
 import type { AdminSnapshot, CurationDecision, DecisionRecommendation, LibraryAsset, PipelineRun, ReviewCase, ReviewSource, SignalState, SyncSnapshot, TodaySnapshot } from "../domain";
+import { submitDecisionReview, type DecisionReviewRequest, type DecisionReviewResult, type ReviewedDecision } from "../data/decisions";
 import { qualitySummary } from "../data/quality";
 import { EmptyState, Icon, PageHeader, Pill, PreviewDrawer, formatTime, type Screen, type Tone } from "./system";
 
@@ -45,17 +46,66 @@ export function TodayScreen({ today, reviews, decisions, pipelines, sync, onNavi
   </section>;
 }
 
-function DecisionDetail({ decision, onPreview }: { decision: CurationDecision; onPreview: (title: string, detail: string) => void }) {
+type DecisionReviewer = (request: DecisionReviewRequest) => Promise<DecisionReviewResult>;
+
+function DecisionDetail({ decision, canReview, onPreview, onReviewed, reviewer }: { decision: CurationDecision; canReview: boolean; onPreview: (title: string, detail: string) => void; onReviewed: (decision: ReviewedDecision) => void; reviewer: DecisionReviewer }) {
   const decisionTone: Tone = decision.recommendation === "approve" ? "good" : decision.recommendation === "reject" ? "bad" : "warn";
+  const [action, setAction] = useState<"confirm" | "override">("confirm");
+  const [reason, setReason] = useState("");
+  const [recommendation, setRecommendation] = useState<DecisionRecommendation | "">("");
+  const [status, setStatus] = useState<"idle" | "submitting" | "succeeded">("idle");
+  const [error, setError] = useState("");
+  const cleanReason = reason.trim();
+  const reasonValid = cleanReason.length >= 4 && cleanReason.length <= 1000;
+
+  useEffect(() => {
+    setAction("confirm");
+    setReason("");
+    setRecommendation("");
+    setStatus("idle");
+    setError("");
+  }, [decision.id]);
+
+  const submit = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    if (!reasonValid || status === "submitting") return;
+    if (action === "override" && !recommendation) return;
+    setStatus("submitting");
+    setError("");
+    const request: DecisionReviewRequest = action === "confirm"
+      ? { decisionId: decision.id, action, reason: cleanReason }
+      : { decisionId: decision.id, action, recommendation: recommendation as DecisionRecommendation, reason: cleanReason };
+    void reviewer(request).then(result => {
+      if (!result.ok) {
+        setStatus("idle");
+        setError(result.message);
+        return;
+      }
+      setStatus("succeeded");
+      onReviewed(result.decision);
+    });
+  };
+
   return <aside className="decision-detail" aria-label={`${decision.candidateTitle} 决策详情`}>
     <header><div><Pill tone={decisionTone}>{recommendationLabels[decision.recommendation]}</Pill><small>{decision.confidence}% 置信度</small></div><h2>{decision.candidateTitle}</h2><p>{decision.reason}</p></header>
     <section className="decision-provenance"><span><small>策略</small><code>{decision.policyVersion}</code></span><span><small>模型</small><code>{decision.model}</code></span><span><small>时间</small><code>{formatTime(decision.decidedAt)}</code></span></section>
     <section><h3>判断信号</h3><div className="decision-signals">{decision.signals.map(signal => <article key={signal.id} className={`decision-signal decision-signal--${signal.state}`}><span><strong>{signal.label}</strong><em>{signal.score}</em></span><p>{signal.evidence.join(" · ")}</p></article>)}</div></section>
-    <section><h3>人工复核</h3><p className="muted">{decision.reviewStatus === "pending" ? "等待人工确认；AI 不会直接发布或永久删除候选。" : `${decision.reviewedBy ?? "管理员"} 已${decision.reviewStatus === "confirmed" ? "确认" : "覆盖"}此判断。`}</p><button className="button button--solid" type="button" onClick={() => onPreview("确认决策预览", `将预览「${recommendationLabels[decision.recommendation]}」的影响、理由与审计字段；当前不会写回。`)}>预览确认</button><button className="button button--outline" type="button" onClick={() => onPreview("覆盖决策预览", "将预览人工覆盖理由与原 AI 决策的并列审计记录；当前不会写回。")}>预览覆盖</button></section>
+    <section><h3>人工复核</h3>{decision.reviewStatus !== "pending"
+      ? <div className="review-record" role="status"><Pill tone="good">已留痕</Pill><p>{decision.reviewedBy ?? "管理员"} 已{decision.reviewStatus === "confirmed" ? "确认" : "覆盖"}此判断。</p><dl><div><dt>AI 原建议</dt><dd>{recommendationLabels[decision.recommendation]}</dd></div><div><dt>人工最终结论</dt><dd>{recommendationLabels[decision.finalRecommendation ?? decision.recommendation]}</dd></div></dl><small>{formatTime(decision.reviewedAt)} · 原模型记录保持不变</small></div>
+      : canReview
+        ? <form className="decision-review-form" onSubmit={submit} noValidate>
+          <fieldset disabled={status === "submitting"}><legend className="sr-only">人工终审动作</legend><div className="review-action-switch" role="group" aria-label="终审动作"><button type="button" aria-pressed={action === "confirm"} onClick={() => { setAction("confirm"); setError(""); }}>确认 AI 建议</button><button type="button" aria-pressed={action === "override"} onClick={() => { setAction("override"); setError(""); }}>覆盖 AI 建议</button></div>
+          {action === "override" && <label className="review-field" htmlFor={`override-${decision.id}`}><span>人工结论</span><select id={`override-${decision.id}`} value={recommendation} onChange={event => setRecommendation(event.target.value as DecisionRecommendation | "")} required><option value="">请选择覆盖后的建议</option>{(["approve", "review", "reject"] as const).filter(item => item !== decision.recommendation).map(item => <option key={item} value={item}>{recommendationLabels[item]}</option>)}</select></label>}
+          <label className="review-field" htmlFor={`reason-${decision.id}`}><span>审查理由 <b>必填</b></span><textarea id={`reason-${decision.id}`} value={reason} onChange={event => setReason(event.target.value)} rows={3} required minLength={4} maxLength={1000} aria-invalid={reason.length > 0 && !reasonValid} aria-describedby={`reason-help-${decision.id}`} placeholder={action === "confirm" ? "说明为何同意 AI 建议，以及核对过的证据" : "说明覆盖依据和与 AI 判断不同之处"}/><small id={`reason-help-${decision.id}`}>4–1000 字；理由会和原 AI 判断并列写入审计记录。</small></label></fieldset>
+          {error && <p className="review-message review-message--error" role="alert">{error}</p>}
+          {status === "succeeded" && <p className="review-message review-message--success" role="status">终审已提交并写入审计记录。</p>}
+          <button className="button button--solid" type="submit" disabled={status === "submitting" || status === "succeeded" || !reasonValid || (action === "override" && !recommendation)}>{status === "submitting" ? "正在提交…" : status === "succeeded" ? "已提交" : action === "confirm" ? "确认并留痕" : "覆盖并留痕"}</button>
+        </form>
+        : <div className="preview-review"><p className="muted">当前为只读快照。登录管理员会话后才可执行终审。</p><button className="button button--solid" type="button" onClick={() => onPreview("确认决策预览", `将预览「${recommendationLabels[decision.recommendation]}」的影响、理由与审计字段；当前不会写回。`)}>预览确认</button><button className="button button--outline" type="button" onClick={() => onPreview("覆盖决策预览", "将预览人工覆盖理由与原 AI 决策的并列审计记录；当前不会写回。")}>预览覆盖</button></div>}</section>
   </aside>;
 }
 
-export function QualityScreen({ decisions, assets, onPreview }: { decisions: CurationDecision[]; assets: LibraryAsset[]; onPreview: (title: string, detail: string) => void }) {
+export function QualityScreen({ decisions, assets, canReview = false, onPreview, onDecisionReviewed, reviewer = submitDecisionReview }: { decisions: CurationDecision[]; assets: LibraryAsset[]; canReview?: boolean; onPreview: (title: string, detail: string) => void; onDecisionReviewed?: (decision: ReviewedDecision) => void; reviewer?: DecisionReviewer }) {
   const [filter, setFilter] = useState<DecisionRecommendation | "all">("all");
   const visible = decisions.filter(decision => filter === "all" || decision.recommendation === filter);
   const [selectedId, setSelectedId] = useState(decisions.find(item => item.reviewStatus === "pending")?.id ?? decisions[0]?.id);
@@ -63,9 +113,9 @@ export function QualityScreen({ decisions, assets, onPreview }: { decisions: Cur
   const summary = qualitySummary(assets, decisions);
   return <section className="screen"><PageHeader eyebrow="AI CURATION JOURNAL" title="每一个收录与拒绝，都留下判断证据" description="按固定策略每日评估公开候选；AI 负责建议和解释，人负责最终确认。垃圾、广告与高风险内容不进入发布管线。" aside={<Pill tone={summary.pendingDecisions ? "warn" : "good"}>{summary.pendingDecisions} 待复核</Pill>}/>
     <div className="quality-metrics"><Metric label="待复核判断" value={summary.pendingDecisions} detail="保留人工最终权"/><Metric label="AI 拒绝建议" value={summary.rejectedByAi} detail="垃圾 / 广告 / 风险"/><Metric label="完整资产" value={summary.readyAssets} detail="预览 + 规范 + Pack + 资产"/><Metric label="复核覆盖率" value={`${summary.reviewRate}%`} detail="有审计记录的人工判断"/></div>
-    <div className="policy-strip"><span><strong>POLICY</strong><code>opendesign-curation-v1.0</code></span><p>硬拒绝：广告/联盟目录、SEO 垃圾、仿冒或重复、恶意下载、与设计无关。软复核：证据不足、价值一般、原创性不确定。</p></div>
+    <div className="policy-strip"><span><strong>POLICY</strong><code>opendesign-curation-v1.1</code></span><p>硬拒绝：广告/联盟目录、SEO 垃圾、仿冒或重复、恶意下载、与设计无关。软复核：证据不足、价值一般、原创性不确定。</p></div>
     <div className="filterbar" aria-label="AI 决策筛选"><span><Icon name="filter"/> 建议</span>{(["all", "approve", "review", "reject"] as const).map(item => <button type="button" key={item} aria-pressed={filter === item} onClick={() => setFilter(item)}>{item === "all" ? "全部" : recommendationLabels[item]}<i>{item === "all" ? decisions.length : decisions.filter(decision => decision.recommendation === item).length}</i></button>)}</div>
-    {decisions.length ? <div className="quality-workbench"><div className="decision-list" role="list" aria-label="每日 AI 决策记录">{visible.map(decision => <button role="listitem" key={decision.id} type="button" className={selected?.id === decision.id ? "is-selected" : ""} onClick={() => setSelectedId(decision.id)}><Pill tone={decision.recommendation === "approve" ? "good" : decision.recommendation === "reject" ? "bad" : "warn"}>{recommendationLabels[decision.recommendation]}</Pill><span><strong>{decision.candidateTitle}</strong><small>{decision.reason}</small><em>{decision.model} · {formatTime(decision.decidedAt)}</em></span><b>{decision.confidence}</b></button>)}</div>{selected && <DecisionDetail decision={selected} onPreview={onPreview}/>}</div> : <EmptyState title="暂无 AI 决策记录" detail="每日评估器接入后，这里会显示策略版本、模型、信号、建议和人工复核痕迹。"/>}
+    {decisions.length ? <div className="quality-workbench"><div className="decision-list" role="list" aria-label="每日 AI 决策记录">{visible.map(decision => <button role="listitem" key={decision.id} type="button" className={selected?.id === decision.id ? "is-selected" : ""} onClick={() => setSelectedId(decision.id)}><Pill tone={decision.recommendation === "approve" ? "good" : decision.recommendation === "reject" ? "bad" : "warn"}>{recommendationLabels[decision.recommendation]}</Pill><span><strong>{decision.candidateTitle}</strong><small>{decision.reason}</small><em>{decision.reviewStatus === "pending" ? `${decision.model} · ${formatTime(decision.decidedAt)}` : `${decision.reviewedBy ?? "管理员"} · 已${decision.reviewStatus === "confirmed" ? "确认" : "覆盖"}`}</em></span><b>{decision.confidence}</b></button>)}</div>{selected && <DecisionDetail decision={selected} canReview={canReview} onPreview={onPreview} onReviewed={onDecisionReviewed ?? (() => undefined)} reviewer={reviewer}/>}</div> : <EmptyState title="暂无 AI 决策记录" detail="每日评估器接入后，这里会显示策略版本、模型、信号、建议和人工复核痕迹。"/>}
   </section>;
 }
 

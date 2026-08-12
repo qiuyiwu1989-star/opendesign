@@ -34,7 +34,18 @@ describe("0011 curation decision SQL draft", () => {
     expect(sql).toMatch(/create table if not exists public\.curation_decisions/iu);
     expect(sql).toMatch(/recommendation in \('approve','review','reject'\)/iu);
     expect(sql).toMatch(/create or replace view opendesign_admin_read\.curation_decisions/iu);
+    expect(sql).toMatch(/create unique index if not exists curation_decisions_fingerprint_idx/iu);
+    expect(sql).toMatch(/runner_find_curation_decision\(/iu);
+    expect(sql).toMatch(/p_decision_fingerprint text/iu);
+    expect(sql).toMatch(/on conflict \(decision_fingerprint\)/iu);
+    expect(sql).toMatch(/c\.review_status,[\s\S]*c\.final_recommendation/iu);
+    expect(sql).toMatch(/create role opendesign_admin_review_writer_role nologin/iu);
+    expect(sql).toMatch(/security definer/iu);
+    expect(sql).toMatch(/review_curation_decision\(uuid,text,text,text,text\)/iu);
+    expect(sql).toMatch(/grant execute on function opendesign_admin_read\.review_curation_decision/iu);
+    expect(sql).toMatch(/from public, anon, authenticated, opendesign_admin_read_role, opendesign_admin_audit_writer_role/iu);
     expect(sql).toMatch(/keep the candidate reviewable/iu);
     expect(sql).not.toMatch(/insert into public\.jobs/iu);
+    expect(sql).not.toMatch(/\bpassword\s+'/iu);
   });
 });

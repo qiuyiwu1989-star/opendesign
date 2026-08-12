@@ -1,6 +1,6 @@
 import { type FormEvent, useEffect, useState } from "react";
 import type { AdminSnapshot } from "./domain";
-import { loadAdminSession, loadAdminSnapshot, loginAdminSession, logoutAdminSession, type AdminSessionState } from "./data";
+import { loadAdminSession, loadAdminSnapshot, loginAdminSession, logoutAdminSession, type AdminSessionState, type ReviewedDecision } from "./data";
 import { AssetsScreen, PipelinesScreen, QualityScreen, ReviewScreen, SyncScreen, TodayScreen } from "./components/screens";
 import { EmptyState, LoadingState, PreviewDrawer, Shell, type Screen } from "./components/system";
 
@@ -86,6 +86,17 @@ export function App({ initialSnapshot, initialSession }: AppProps) {
     pipelines: snapshot.pipelines.filter(item => item.status === "failed").length,
   };
   const openPreview = (title: string, detail: string) => setPreview({ title, detail });
+  const applyReviewedDecision = (reviewed: ReviewedDecision) => setSnapshot(current => current ? {
+    ...current,
+    decisions: current.decisions.map(decision => decision.id === reviewed.decisionId ? {
+      ...decision,
+      reviewStatus: reviewed.reviewStatus,
+      finalRecommendation: reviewed.recommendation,
+      reviewedAt: reviewed.reviewedAt,
+      reviewedBy: reviewed.reviewedBy,
+      previewOnly: false,
+    } : decision),
+  } : current);
 
   const sessionControl = session.kind === "authenticated"
     ? <button type="button" className="session-control" onClick={() => { void logoutAdminSession().then(ok => { if (ok) setSession({ kind: "unauthenticated" }); }); }} aria-label={`退出管理员账号 ${session.actor.login}`}><span className="signal signal--good"/>{session.actor.login} · 退出</button>
@@ -95,9 +106,9 @@ export function App({ initialSnapshot, initialSession }: AppProps) {
         ? <span className="session-control session-control--muted">登录服务不可用</span>
         : <span className="session-control session-control--muted">检查登录状态…</span>;
 
-  return <Shell screen={screen} onScreen={setScreen} source={snapshot.source.kind} generatedAt={snapshot.generatedAt} counts={counts} sessionControl={sessionControl}>
+  return <Shell screen={screen} onScreen={setScreen} source={snapshot.source.kind} generatedAt={snapshot.generatedAt} counts={counts} sessionControl={sessionControl} reviewEnabled={session.kind === "authenticated"}>
     {screen === "today" && <TodayScreen today={snapshot.today} reviews={snapshot.reviews} decisions={snapshot.decisions} pipelines={snapshot.pipelines} sync={snapshot.sync} onNavigate={setScreen} onPreview={openPreview}/>}
-    {screen === "quality" && <QualityScreen decisions={snapshot.decisions} assets={snapshot.assets} onPreview={openPreview}/>}
+    {screen === "quality" && <QualityScreen decisions={snapshot.decisions} assets={snapshot.assets} canReview={session.kind === "authenticated"} onDecisionReviewed={applyReviewedDecision} onPreview={openPreview}/>}
     {screen === "review" && <ReviewScreen reviews={snapshot.reviews} assets={snapshot.assets} onPreview={openPreview}/>} 
     {screen === "assets" && <AssetsScreen assets={snapshot.assets} onPreview={openPreview}/>} 
     {screen === "pipelines" && <PipelinesScreen pipelines={snapshot.pipelines} onPreview={openPreview}/>} 

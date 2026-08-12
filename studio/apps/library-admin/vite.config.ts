@@ -57,14 +57,25 @@ function librarySnapshots(): Plugin {
   };
 }
 
+const devProxyTarget = process.env.ADMIN_API_DEV_PROXY_TARGET;
+
 export default defineConfig({
   base: "/admin/",
   plugins: [react(), librarySnapshots(), {
     name: "read-only-admin-api",
     configureServer(server) {
+      if (devProxyTarget) return;
       server.middlewares.use(createOperationsApiMiddleware());
       server.middlewares.use(createSyncApiMiddleware({ repoRoot: resolve(import.meta.dirname, "../../..") }));
     },
   }],
+  ...(devProxyTarget ? { server: {
+    proxy: {
+      "/admin-api": {
+        target: devProxyTarget,
+        changeOrigin: false,
+      },
+    },
+  } } : {}),
   test: { environment: "jsdom", css: true },
 });

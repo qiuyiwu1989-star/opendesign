@@ -5,7 +5,7 @@ import { join } from "node:path";
 import { test } from "node:test";
 import proposal from "../../contracts/fixtures/proposal-v0.json" with { type: "json" };
 import type { SceneDocument } from "@opendesign/studio-contracts";
-import { assertSafePptxAsset, exportDocumentToPng, exportDocumentToPptx, fitTextFontSize, pptxFontFace, pptxTextLanguage, preparePptxText, renderDocumentToHtml, renderSceneToPngBuffer } from "./index.js";
+import { assertSafePptxAsset, exportDocumentToPng, exportDocumentToPptx, fitTextFontSize, pptxFontFace, pptxTextLanguage, preparePptxText, renderDocumentToHtml, renderSceneToPngBuffer, validatePptxAsset } from "./index.js";
 
 const document = proposal as SceneDocument;
 
@@ -70,6 +70,15 @@ test("PPTX exporter rejects image formats affected by the image-size denial-of-s
     assertSafePptxAsset({ path: "/tmp/safe.png", mimeType: "image/png" }),
     { path: "/tmp/safe.png", mimeType: "image/png" },
   );
+});
+
+test("PPTX exporter verifies bytes instead of trusting a safe-looking extension or MIME", async () => {
+  await assert.rejects(
+    validatePptxAsset({ data: "data:image/png;base64,SUY0MDA=", mimeType: "image/png" }),
+    /content must match/,
+  );
+  const onePixelPng = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNk+A8AAQUBAScY42YAAAAASUVORK5CYII=";
+  await assert.doesNotReject(validatePptxAsset({ data: onePixelPng, mimeType: "image/png" }));
 });
 
 test("PPTX renderer proactively fits long CJK titles instead of leaving orphan punctuation to Office", () => {

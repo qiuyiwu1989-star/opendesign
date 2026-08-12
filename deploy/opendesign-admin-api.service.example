@@ -1,6 +1,6 @@
 # REVIEWED UNIT EXAMPLE ONLY — do not install/start without separate approval.
 [Unit]
-Description=OpenDesign read-only Admin API
+Description=OpenDesign least-privilege Admin API
 After=network-online.target
 Wants=network-online.target
 
@@ -10,6 +10,8 @@ User=opendesign-admin
 Group=opendesign-admin
 WorkingDirectory=/opt/opendesign/current/studio/apps/admin-api
 EnvironmentFile=/etc/opendesign/admin-api.env
+# Required there for review-enabled releases: ADMIN_REVIEW_DATABASE_URL. Its
+# value is provisioned out of band and must never be embedded in this unit.
 Environment=NODE_ENV=production
 Environment=ADMIN_API_HOST=127.0.0.1
 ExecStart=/usr/bin/node dist/index.js
@@ -47,7 +49,11 @@ RuntimeDirectoryMode=0700
 
 # The config validator fails startup unless ADMIN_API_HOST is exactly 127.0.0.1.
 # Confirm the bound socket in release acceptance. Inbound firewall policy is a
-# second boundary; outbound database access is needed for readiness and read-only evidence.
+# second boundary; outbound database access is needed for readiness, read-only
+# evidence, audit writes and bounded human review. The root-owned EnvironmentFile
+# supplies ADMIN_REVIEW_DATABASE_URL for a LOGIN that can execute only
+# opendesign_admin_read.review_curation_decision; it must own no table and cannot
+# enqueue, publish, delete or mutate public Library content.
 
 [Install]
 WantedBy=multi-user.target

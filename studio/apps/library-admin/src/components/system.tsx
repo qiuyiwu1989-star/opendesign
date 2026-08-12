@@ -61,7 +61,7 @@ const nav: { id: Screen; label: string; caption: string }[] = [
   { id: "sync", label: "GitHub Sync", caption: "五层漂移视图" },
 ];
 
-export function Shell({ screen, onScreen, source, generatedAt, counts, sessionControl, children }: { screen: Screen; onScreen: (screen: Screen) => void; source: DataSourceState; generatedAt?: string; counts: Partial<Record<Screen, number>>; sessionControl?: ReactNode; children: ReactNode }) {
+export function Shell({ screen, onScreen, source, generatedAt, counts, sessionControl, reviewEnabled = false, children }: { screen: Screen; onScreen: (screen: Screen) => void; source: DataSourceState; generatedAt?: string; counts: Partial<Record<Screen, number>>; sessionControl?: ReactNode; reviewEnabled?: boolean; children: ReactNode }) {
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
   const selectScreen = (next: Screen) => { onScreen(next); setMobileNavOpen(false); };
   return <div className="control-room">
@@ -69,7 +69,7 @@ export function Shell({ screen, onScreen, source, generatedAt, counts, sessionCo
       <button className="mobile-menu" type="button" aria-label={mobileNavOpen ? "关闭工作区导航" : "打开工作区导航"} aria-expanded={mobileNavOpen} onClick={() => setMobileNavOpen(value => !value)}><Icon name={mobileNavOpen ? "close" : "menu"}/></button>
       <div className="brand"><span className="brand-mark"><i/><i/><i/></span><span><strong>OpenDesign</strong><small>Control Room</small></span></div>
       <div className="masthead-center"><SourceNotice source={source} {...(generatedAt ? { generatedAt } : {})}/></div>
-      <div className="masthead-actions"><button type="button" className="command" onClick={() => selectScreen("assets")}><Icon name="search"/> 全局搜索 <kbd>⌘ K</kbd></button>{sessionControl}<Pill tone="accent">PREVIEW ONLY</Pill></div>
+      <div className="masthead-actions"><button type="button" className="command" onClick={() => selectScreen("assets")}><Icon name="search"/> 全局搜索 <kbd>⌘ K</kbd></button>{sessionControl}<Pill tone={reviewEnabled ? "good" : "accent"}>{reviewEnabled ? "HUMAN REVIEW" : "PREVIEW ONLY"}</Pill></div>
     </header>
     <aside className={`sidebar ${mobileNavOpen ? "is-mobile-open" : ""}`} aria-label="控制室工作区">
       <div className="sidebar-intro"><small>DESIGN INTELLIGENCE</small><p>让每次收录与拒绝都有证据、策略版本和可审查记录。</p></div>
