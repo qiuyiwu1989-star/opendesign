@@ -25,3 +25,21 @@ test("fails closed for absent secrets and malformed authority", () => {
   assert.throws(() => loadAdminApiConfig({ ...valid(), ADMIN_API_HOST: "0.0.0.0" }), /127\.0\.0\.1/);
   assert.throws(() => loadAdminApiConfig({ ...valid(), ADMIN_API_PUBLIC_ORIGIN: "http://admin.example" }), /HTTPS origin/);
 });
+
+test("requires the production read and audit database settings as one unit", () => {
+  assert.throws(() => loadAdminApiConfig({ ...valid(), ADMIN_DATABASE_URL: "postgresql://read-only.invalid/db" }), /configured together/);
+  assert.throws(() => loadAdminApiConfig({
+    ...valid(),
+    ADMIN_DATABASE_URL: "postgresql://read-only.invalid/db",
+    ADMIN_AUDIT_DATABASE_URL: "postgresql://audit-only.invalid/db",
+    ADMIN_API_AUDIT_HASH_KEY: "short",
+  }), /at least 32 bytes/);
+  const config = loadAdminApiConfig({
+    ...valid(),
+    ADMIN_DATABASE_URL: "postgresql://read-only.invalid/db",
+    ADMIN_AUDIT_DATABASE_URL: "postgresql://audit-only.invalid/db",
+    ADMIN_API_AUDIT_HASH_KEY: "audit-hash-key-that-is-at-least-32-bytes",
+  });
+  assert.equal(config.databaseUrl, "postgresql://read-only.invalid/db");
+  assert.equal(config.auditDatabaseUrl, "postgresql://audit-only.invalid/db");
+});

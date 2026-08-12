@@ -8,6 +8,9 @@ export interface AdminApiConfig {
   port: number;
   sessionTtlSeconds: number;
   stateTtlSeconds: number;
+  databaseUrl?: string;
+  auditDatabaseUrl?: string;
+  auditHashKey?: string;
 }
 
 export class ConfigurationError extends Error {
@@ -69,6 +72,15 @@ export function loadAdminApiConfig(env: NodeJS.ProcessEnv): AdminApiConfig {
     throw new ConfigurationError("ADMIN_API_SIGNING_SECRET must contain at least 32 bytes");
   }
 
+  const databaseUrl = env.ADMIN_DATABASE_URL?.trim();
+  const auditDatabaseUrl = env.ADMIN_AUDIT_DATABASE_URL?.trim();
+  const auditHashKey = env.ADMIN_API_AUDIT_HASH_KEY?.trim();
+  if ((databaseUrl || auditDatabaseUrl || auditHashKey) && !(databaseUrl && auditDatabaseUrl && auditHashKey)) {
+    throw new ConfigurationError("ADMIN_DATABASE_URL, ADMIN_AUDIT_DATABASE_URL and ADMIN_API_AUDIT_HASH_KEY must be configured together");
+  }
+  if (auditHashKey && Buffer.byteLength(auditHashKey, "utf8") < 32) {
+    throw new ConfigurationError("ADMIN_API_AUDIT_HASH_KEY must contain at least 32 bytes");
+  }
   return {
     publicOrigin: parsePublicOrigin(required(env, "ADMIN_API_PUBLIC_ORIGIN")),
     githubClientId: required(env, "ADMIN_API_GITHUB_CLIENT_ID"),
@@ -79,5 +91,8 @@ export function loadAdminApiConfig(env: NodeJS.ProcessEnv): AdminApiConfig {
     port: integer(env.ADMIN_API_PORT, "ADMIN_API_PORT", 8790, 1, 65_535),
     sessionTtlSeconds: integer(env.ADMIN_API_SESSION_TTL_SECONDS, "ADMIN_API_SESSION_TTL_SECONDS", 900, 60, 3_600),
     stateTtlSeconds: integer(env.ADMIN_API_STATE_TTL_SECONDS, "ADMIN_API_STATE_TTL_SECONDS", 300, 30, 600),
+    ...(databaseUrl ? { databaseUrl } : {}),
+    ...(auditDatabaseUrl ? { auditDatabaseUrl } : {}),
+    ...(auditHashKey ? { auditHashKey } : {}),
   };
 }

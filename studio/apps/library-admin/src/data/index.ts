@@ -8,6 +8,7 @@ import type { LoadAdminSnapshotInput, SnapshotAdapterInput } from "./types";
 export * from "./aggregate";
 export * from "./fixtures";
 export * from "./snapshot";
+export * from "./session";
 export * from "./types";
 
 const DEFAULT_SITE_INDEX_URL = "/sites-index.json";

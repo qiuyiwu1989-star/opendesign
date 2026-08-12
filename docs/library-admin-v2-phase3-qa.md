@@ -25,7 +25,7 @@ Run from `studio/` after all Phase 3 lanes are integrated:
 
 ```sh
 npm --workspace @opendesign/admin-api run typecheck
-npm --workspace @opendesign/admin-api run test
+npm --workspace @opendesign/library-admin-api run test
 npm --workspace @opendesign/admin-api run build
 npm run typecheck
 npm run test

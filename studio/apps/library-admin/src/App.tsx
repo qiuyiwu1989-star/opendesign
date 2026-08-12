@@ -1,16 +1,17 @@
 import { useEffect, useState } from "react";
 import type { AdminSnapshot } from "./domain";
-import { loadAdminSnapshot } from "./data";
+import { ADMIN_LOGIN_ENDPOINT, loadAdminSession, loadAdminSnapshot, logoutAdminSession, type AdminSessionState } from "./data";
 import { AssetsScreen, PipelinesScreen, ReviewScreen, SyncScreen, TodayScreen } from "./components/screens";
 import { EmptyState, LoadingState, PreviewDrawer, Shell, type Screen } from "./components/system";
 
-export interface AppProps { initialSnapshot?: AdminSnapshot }
+export interface AppProps { initialSnapshot?: AdminSnapshot; initialSession?: AdminSessionState }
 
-export function App({ initialSnapshot }: AppProps) {
+export function App({ initialSnapshot, initialSession }: AppProps) {
   const [snapshot, setSnapshot] = useState<AdminSnapshot | undefined>(initialSnapshot);
   const [loadError, setLoadError] = useState("");
   const [screen, setScreen] = useState<Screen>("today");
   const [preview, setPreview] = useState<{ title: string; detail: string }>();
+  const [session, setSession] = useState<AdminSessionState>(initialSession ?? (initialSnapshot ? { kind: "unavailable" } : { kind: "loading" }));
 
   useEffect(() => {
     if (initialSnapshot) return;
@@ -20,6 +21,13 @@ export function App({ initialSnapshot }: AppProps) {
     });
     return () => { active = false; };
   }, [initialSnapshot]);
+
+  useEffect(() => {
+    if (initialSession || initialSnapshot) return;
+    let active = true;
+    void loadAdminSession().then(value => { if (active) setSession(value); });
+    return () => { active = false; };
+  }, [initialSession, initialSnapshot]);
 
   useEffect(() => {
     function onKey(event: KeyboardEvent) {
@@ -42,7 +50,15 @@ export function App({ initialSnapshot }: AppProps) {
   };
   const openPreview = (title: string, detail: string) => setPreview({ title, detail });
 
-  return <Shell screen={screen} onScreen={setScreen} source={snapshot.source.kind} generatedAt={snapshot.generatedAt} counts={counts}>
+  const sessionControl = session.kind === "authenticated"
+    ? <button type="button" className="session-control" onClick={() => { void logoutAdminSession().then(ok => { if (ok) setSession({ kind: "unauthenticated" }); }); }} aria-label={`退出 GitHub 账号 ${session.actor.login}`}><span className="signal signal--good"/>{session.actor.login} · 退出</button>
+    : session.kind === "unauthenticated"
+      ? <a className="session-control session-control--login" href={ADMIN_LOGIN_ENDPOINT}>使用 GitHub 登录</a>
+      : session.kind === "unavailable"
+        ? <span className="session-control session-control--muted">登录服务不可用</span>
+        : <span className="session-control session-control--muted">检查登录状态…</span>;
+
+  return <Shell screen={screen} onScreen={setScreen} source={snapshot.source.kind} generatedAt={snapshot.generatedAt} counts={counts} sessionControl={sessionControl}>
     {screen === "today" && <TodayScreen today={snapshot.today} reviews={snapshot.reviews} pipelines={snapshot.pipelines} sync={snapshot.sync} onNavigate={setScreen} onPreview={openPreview}/>} 
     {screen === "review" && <ReviewScreen reviews={snapshot.reviews} assets={snapshot.assets} onPreview={openPreview}/>} 
     {screen === "assets" && <AssetsScreen assets={snapshot.assets} onPreview={openPreview}/>} 

@@ -2,6 +2,8 @@ import assert from "node:assert/strict";
 import type { AddressInfo } from "node:net";
 import test from "node:test";
 import type { AdminApiConfig, GitHubOAuthAdapter } from "../auth/index.js";
+import type { AuditEvent, AuditSink } from "../audit/index.js";
+import type { RateLimiter } from "../security/index.js";
 import { createAdminApiServer, type EvidenceHandler } from "../server.js";
 
 const config: AdminApiConfig = {
@@ -25,12 +27,28 @@ function oauthFor(userId = 123): GitHubOAuthAdapter {
 
 async function withServer(
   callback: (baseUrl: string) => Promise<void>,
-  input: { oauth?: GitHubOAuthAdapter; operations?: EvidenceHandler; sync?: EvidenceHandler } = {},
+  input: {
+    oauth?: GitHubOAuthAdapter;
+    operations?: EvidenceHandler;
+    sync?: EvidenceHandler;
+    readiness?: () => Promise<boolean>;
+    audit?: AuditSink;
+    auditHashKey?: string;
+    onAuditFailure?: (requestId: string) => void;
+    readLimiter?: RateLimiter;
+  } = {},
 ): Promise<void> {
   const server = createAdminApiServer({
     config,
     oauth: input.oauth ?? oauthFor(),
     evidence: { ...(input.operations ? { operations: input.operations } : {}), ...(input.sync ? { sync: input.sync } : {}) },
+    ...(input.readiness ? { readiness: input.readiness } : {}),
+    ...(input.audit && input.auditHashKey && input.onAuditFailure ? {
+      audit: input.audit,
+      auditHashKey: input.auditHashKey,
+      onAuditFailure: input.onAuditFailure,
+    } : {}),
+    ...(input.readLimiter ? { rateLimiters: { read: input.readLimiter } } : {}),
   });
   await new Promise<void>((resolve) => server.listen(0, "127.0.0.1", resolve));
   const port = (server.address() as AddressInfo).port;
@@ -98,5 +116,51 @@ test("OAuth state is single-use and logout requires exact origin then invalidate
     assert.match(logout.headers.get("set-cookie")!, /Max-Age=0/);
     const session = await fetch(`${baseUrl}/admin-api/v1/session`, { headers: { cookie } });
     assert.deepEqual(await session.json(), { authenticated: false });
+  });
+});
+
+test("readiness checks the database dependency instead of handler presence alone", async () => {
+  const evidence = async () => ({ ok: true });
+  await withServer(async (baseUrl) => {
+    const response = await fetch(`${baseUrl}/admin-api/v1/health/ready`);
+    assert.equal(response.status, 503);
+    assert.equal((await response.json()).error.code, "database_unavailable");
+  }, { operations: evidence, sync: evidence, readiness: async () => false });
+});
+
+test("rate limiting fails closed before session or evidence work", async () => {
+  const denied: RateLimiter = {
+    consume: () => ({ allowed: false, limit: 1, remaining: 0, retryAfterSeconds: 9 }),
+  };
+  await withServer(async (baseUrl) => {
+    const response = await fetch(`${baseUrl}/admin-api/v1/session`);
+    assert.equal(response.status, 429);
+    assert.equal(response.headers.get("retry-after"), "9");
+    assert.equal(response.headers.get("x-ratelimit-remaining"), "0");
+  }, { readLimiter: denied });
+});
+
+test("audits completed requests with hashed identifiers and reports sink failure", async () => {
+  let captured: AuditEvent | undefined;
+  let finishAudit!: () => void;
+  const audited = new Promise<void>((resolve) => { finishAudit = resolve; });
+  const sink: AuditSink = {
+    write: async (event) => { captured = event; finishAudit(); return { written: false, errorCode: "unavailable" }; },
+  };
+  let failedRequestId = "";
+  await withServer(async (baseUrl) => {
+    const response = await fetch(`${baseUrl}/admin-api/v1/health/live`, { headers: { "user-agent": "server-test" } });
+    assert.equal(response.status, 200);
+    await audited;
+    await new Promise((resolve) => setImmediate(resolve));
+    assert.equal(captured?.route, "/admin-api/v1/health/live");
+    assert.match(captured?.sourceIpHash ?? "", /^ip:[a-f0-9]{24}$/u);
+    assert.match(captured?.userAgentHash ?? "", /^user-agent:[a-f0-9]{24}$/u);
+    assert.equal(captured?.metadata.statusCode, 200);
+    assert.equal(failedRequestId, captured?.requestId);
+  }, {
+    audit: sink,
+    auditHashKey: "audit-hash-key-that-is-at-least-32-bytes",
+    onAuditFailure: (requestId) => { failedRequestId = requestId; },
   });
 });

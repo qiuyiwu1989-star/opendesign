@@ -7,10 +7,14 @@
     "dev": "tsx watch src/index.ts",
     "build": "tsc -p tsconfig.build.json",
     "typecheck": "tsc --noEmit",
-    "test": "vitest run src/audit src/data && node --import tsx --test src/security/*.test.ts src/auth/*.test.ts src/http/*.test.ts"
+    "test": "vitest run src/audit src/data src/security && node --import tsx --test src/auth/*.test.ts src/http/*.test.ts"
   },
   "devDependencies": {
     "@types/node": "^24.2.1",
+    "@types/pg": "^8.21.0",
     "tsx": "^4.20.5"
+  },
+  "dependencies": {
+    "pg": "^8.23.0"
   }
 }

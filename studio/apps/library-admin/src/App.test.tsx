@@ -14,6 +14,11 @@ function navigate(name: string) {
 }
 
 describe("OpenDesign Control Room Phase 1", () => {
+  it("shows an explicit GitHub login boundary for unauthenticated operators", () => {
+    render(<App initialSnapshot={controlRoomSnapshot} initialSession={{ kind: "unauthenticated" }}/>);
+    expect(screen.getByRole("link", { name: "使用 GitHub 登录" })).toHaveAttribute("href", "/admin-api/v1/auth/github/start?return=%2Fadmin%2F");
+  });
+
   it("exposes five keyboard-operable destinations and identifies the current screen", () => {
     render(<App initialSnapshot={controlRoomSnapshot}/>);
 

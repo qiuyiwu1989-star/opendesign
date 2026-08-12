@@ -122,13 +122,14 @@ export class OperationsRepository {
     this.#now = options.now ?? (() => new Date());
   }
 
-  async #section<T>(spec: SectionSpec<T>, observedAt: string, diagnostics: OperationsDiagnostic[]): Promise<OperationsSection<T>> {
+  async #section<T>(spec: SectionSpec<T>, observedAt: string, diagnostics: OperationsDiagnostic[], signal?: AbortSignal): Promise<OperationsSection<T>> {
     try {
       const result = await this.#client.query<Record<string, unknown>>({
         text: spec.text,
         values: [this.#limit],
         timeoutMs: this.#timeoutMs,
         maxRows: this.#limit,
+        ...(signal ? { signal } : {}),
       });
       if (result.rows.length > this.#limit) throw new Error("database adapter exceeded the hard row limit");
       return {
@@ -148,10 +149,10 @@ export class OperationsRepository {
     }
   }
 
-  async readOperations(): Promise<OperationsEnvelope> {
+  async readOperations(signal?: AbortSignal): Promise<OperationsEnvelope> {
     const observedAt = this.#now().toISOString();
     const diagnostics: OperationsDiagnostic[] = [];
-    const results = await Promise.all(SECTIONS.map((spec) => this.#section(spec, observedAt, diagnostics)));
+    const results = await Promise.all(SECTIONS.map((spec) => this.#section(spec, observedAt, diagnostics, signal)));
     const [submissions, discoveries, qualitySection, origins, jobs, logs] = results;
     const available = results.filter((section) => section.source.kind === "live").length;
     return {
@@ -172,12 +173,13 @@ export class OperationsRepository {
     };
   }
 
-  async readDatabaseSyncEvidence(): Promise<DatabaseSyncEvidence> {
+  async readDatabaseSyncEvidence(signal?: AbortSignal): Promise<DatabaseSyncEvidence> {
     const observedAt = this.#now().toISOString();
     try {
       const result = await this.#client.query<Record<string, unknown>>({
         text: "select revision, observed_at, detail from opendesign_admin_read.database_sync limit $1",
         values: [1], timeoutMs: this.#timeoutMs, maxRows: 1,
+        ...(signal ? { signal } : {}),
       });
       const row = result.rows[0];
       if (!row) throw new Error("database sync view returned no evidence");

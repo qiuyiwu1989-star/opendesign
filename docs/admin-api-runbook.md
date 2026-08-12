@@ -33,10 +33,13 @@ required value is missing or malformed.
 | `ADMIN_API_GITHUB_ALLOWED_USER_IDS` | Comma-separated immutable numeric GitHub ids. |
 | `ADMIN_DATABASE_URL` | Dedicated read login, not an owner/service-role URL. |
 | `ADMIN_AUDIT_DATABASE_URL` | Separately scoped audit client URL. |
-| `ADMIN_API_SESSION_TTL_SECONDS` | Optional; implementation default `900`, maximum remains 24 hours. |
+| `ADMIN_API_SESSION_TTL_SECONDS` | Optional; implementation default `900`, maximum `3600` seconds. |
 | `ADMIN_API_STATE_TTL_SECONDS` | Optional; implementation default `300`, maximum remains short-lived. |
-| `ADMIN_API_GITHUB_REPOSITORY` | Fixed owner/repository for read-only sync evidence. |
-| `ADMIN_API_PUBLIC_REVISION_URL` | Fixed HTTPS endpoint for public revision evidence. |
+
+Local/Git/GitHub/Public sync evidence providers are not part of this release.
+The API must render those four nodes as `unknown`; do not configure invented
+revision values. A later reviewed release may add fixed repository/public
+revision endpoints.
 
 When deployment wiring settles on different names, update this table, the
 service unit, startup validation tests, and operator checklist together.
@@ -63,7 +66,10 @@ Stop after preflight. Production actions below each need separate approval.
 2. From the read login, prove only the named views/functions are selectable.
 3. Prove direct table reads and every insert/update/delete/execute outside the
    allowlist fail.
-4. From the audit login, prove only the bounded audit function can execute.
+4. From the audit login, prove only the bounded audit function can execute. The
+   audit client uses a normal transaction because PostgreSQL cannot invoke the
+   writing function in a read-only transaction; database grants remain the
+   hard boundary.
 5. Save command exit status and object/grant names; never save credentials or
    returned operational records in CI artifacts.
 
