@@ -1,6 +1,8 @@
 # Admin API database lane
 
-Status: local Phase 3 implementation; migration not applied.
+Status: migration `0010_admin_read_api.sql` applied to the production
+`opendesign` database on 2026-08-12; application LOGIN roles are not yet
+created or configured, and the Admin API is not deployed.
 
 ## Runtime interfaces
 
@@ -66,6 +68,27 @@ Run against an ephemeral PostgreSQL clone, never production:
 4. Exercise a database timeout and one missing view; verify only that envelope
    section degrades and no driver detail reaches JSON or logs.
 5. Revoke temporary memberships and remove the temporary LOGIN roles.
+
+## Production migration evidence · 2026-08-12
+
+The explicitly authorized database-only release window completed successfully:
+
+- Preflight confirmed PostgreSQL listens on localhost, the four required
+  operational tables exist, and no partial admin schema/role state existed.
+- A schema and role snapshot was captured before the migration; the reviewed
+  migration SHA-256 was recorded without copying credentials or database rows.
+- The migration completed in one transaction with `COMMIT`.
+- Both group roles are `NOLOGIN`, non-superuser, `NOCREATEDB`, `NOCREATEROLE`,
+  and `NOINHERIT`; their statement, lock, and idle transaction timeouts are set.
+- The read role can select exactly the seven named views, but cannot read
+  `public` base tables, insert audit rows, or call the audit function.
+- The audit role cannot select views or audit rows and cannot insert directly;
+  it can call only the bounded audit function.
+- The audit function smoke test ran inside a rolled-back transaction. The audit
+  table contained zero rows after verification.
+
+This window did not create LOGIN roles or passwords, change environment files,
+start the API, modify nginx, deploy frontend code, or push GitHub.
 
 ## Rollback
 

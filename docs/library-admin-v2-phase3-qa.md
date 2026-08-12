@@ -1,7 +1,9 @@
 # OpenDesign Control Room · Phase 3 QA matrix
 
-Status: local acceptance matrix. No server connection, production migration,
-deployment, nginx activation, secret handling, or public write is authorized.
+Status: local acceptance matrix plus production database migration verification.
+Migration `0010_admin_read_api.sql` was applied and privilege-tested on
+2026-08-12. No application LOGIN, OAuth configuration, API/nginx activation,
+frontend deployment, GitHub push, or public write has been performed.
 
 ## Security matrix
 
@@ -24,9 +26,9 @@ deployment, nginx activation, secret handling, or public write is authorized.
 Run from `studio/` after all Phase 3 lanes are integrated:
 
 ```sh
-npm --workspace @opendesign/admin-api run typecheck
+npm --workspace @opendesign/library-admin-api run typecheck
 npm --workspace @opendesign/library-admin-api run test
-npm --workspace @opendesign/admin-api run build
+npm --workspace @opendesign/library-admin-api run build
 npm run typecheck
 npm run test
 npm run build
@@ -59,7 +61,9 @@ are not authorization to change the current server.
 
 ## Release blockers
 
-- No Phase 3 production database role/migration has been applied.
+- Phase 3 group roles and read/audit objects exist in production, but remain
+  unreachable by an application until separately authorized LOGIN/configuration
+  and service deployment work is completed.
 - No OAuth application/allowlist/session secret has been provisioned.
 - No nginx or systemd example has been installed or activated.
 - No public browser acceptance is valid until those actions receive explicit,
