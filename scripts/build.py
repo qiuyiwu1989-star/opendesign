@@ -67,6 +67,22 @@ def card_image(site, w=768, h=480):
     return site.get("image", "")
 
 
+def pack_preview(site_id: str) -> str:
+    """Return one card-sized pack shot URL, not the full multi-file manifest.
+
+    The home page only needs a reliable fallback image. Shipping all file names,
+    descriptions and download metadata costs ~4 MB and blocks image healing.
+    """
+    pack = PACKS.get(site_id) if isinstance(PACKS, dict) else None
+    files = pack.get("files", []) if isinstance(pack, dict) else []
+    preferred = ("02_desktop_hero", "01_desktop_full", "03_desktop_section", "05_mobile_hero")
+    shots = [f for f in files if isinstance(f, dict) and f.get("category") == "shot"]
+    shot = next((f for prefix in preferred for f in shots if str(f.get("name", "")).startswith(prefix)), None)
+    if not shot:
+        return ""
+    return shot.get("url") or f'/packs/{site_id}/{shot.get("name", "")}'
+
+
 def load_all_sites() -> list[dict]:
     if not SITES_DIR.exists():
         raise RuntimeError(f"{SITES_DIR} doesn't exist. Run migrate-to-v0.3.mjs first.")
@@ -145,7 +161,10 @@ def build_sites_index(sites: list[dict]) -> dict:
             "tags": s.get("tags", []),
             "status": s.get("status", "pending"),
             "has_spec": bool(s.get("spec")),
-            "has_pack": bool(s.get("pack", {}).get("available")),
+            # packs-index is the artifact truth; site.pack.available drifted to
+            # five true rows while 920 real packs existed.
+            "has_pack": s["id"] in PACKS,
+            **({"pack_preview": preview} if (preview := pack_preview(s["id"])) else {}),
             **({"no_preview": True} if s.get("no_preview") else {}),
         })
     return {

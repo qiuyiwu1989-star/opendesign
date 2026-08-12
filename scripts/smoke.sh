@@ -42,6 +42,9 @@ for p in glob.glob("sites/*.json"):
         print(f"  ✗ 解析 {p} 失败: {e}"); fail = 1
 
 packs = json.load(open("packs-index.json", encoding="utf-8")) if Path("packs-index.json").exists() else {}
+spec = importlib.util.spec_from_file_location("b", "scripts/build.py")
+b = importlib.util.module_from_spec(spec)
+spec.loader.exec_module(b)
 
 # 1) 每个 packs-index 条目都要有对应 site，且 status=completed —— 否则「有包却没站 / 站没完成」
 for slug in packs:
@@ -55,10 +58,25 @@ for slug, d in sites.items():
     if d.get("pack", {}).get("available") and slug not in packs:
         print(f"  ✗ {slug} pack.available=true，但 packs-index 里没有它"); fail = 1
 
+# 2b) 首页性能契约：轻量索引必须内联 pack 首图，app 启动阶段不得拉完整清单。
+idx = b.build_sites_index([d for d in sites.values() if d.get("status") == "completed"])
+preview_count = sum(bool(row.get("pack_preview")) for row in idx.get("sites", []))
+if preview_count < 800:
+    print(f"  ✗ 首页轻量索引只有 {preview_count} 条 pack_preview（至少 800）"); fail = 1
+membership_count = sum(bool(row.get("has_pack")) for row in idx.get("sites", []))
+if membership_count != len(packs):
+    print(f"  ✗ 首页 pack membership {membership_count} 与完整索引 {len(packs)} 不一致"); fail = 1
+index_bytes = len(json.dumps(idx, ensure_ascii=False, separators=(",", ":")).encode("utf-8"))
+if index_bytes > 900_000:
+    print(f"  ✗ 首页轻量索引 {index_bytes:,} B，超过 900,000 B 门槛"); fail = 1
+app = Path("app.js").read_text(encoding="utf-8")
+startup = app[app.find("/* ========== 启动序列"):]
+if "loadPacksIndex()," in startup[:2500]:
+    print("  ✗ 首页启动序列仍会下载完整 packs-index.json"); fail = 1
+if 'loading="eager" fetchpriority="high"' not in app or "LIB_PRIORITY_IMAGES" not in app:
+    print("  ✗ 首屏图片优先级契约缺失"); fail = 1
+
 # 3) SEO 落地页渲染健全性：对每个有包的站逐语言渲染，断言不抛异常、无残留 {占位符}
-spec = importlib.util.spec_from_file_location("b", "scripts/build.py")
-b = importlib.util.module_from_spec(spec)
-spec.loader.exec_module(b)
 ph = re.compile(r"(?<![{])\{[a-z_]+\}(?![}])")  # 单括号小写占位符 = format 漏填
 rendered = 0
 for slug in packs:
