@@ -17,6 +17,7 @@ function unavailable(error: unknown): OperationsProviderResult {
   const message = error instanceof Error ? error.message : "Unknown operations provider failure";
   return {
     reviews: [],
+    decisions: [],
     pipelines: [],
     reviewSource: { kind: "unavailable", label: "Operations reviews", detail: message },
     pipelineSource: { kind: "unavailable", label: "Operations pipelines", detail: message },

@@ -26,6 +26,14 @@ export const controlRoomSnapshot: AdminSnapshot = {
       hasPack: true,
       publicPath: "/zh-CN/sites/editorial-systems",
       packPath: "/packs/editorial-systems/",
+      artifacts: {
+        preview: { status: "ready", path: "/previews/editorial.webp" },
+        spec: { status: "ready", path: "/zh-CN/sites/editorial-systems" },
+        pack: { status: "ready", path: "/packs/editorial-systems/" },
+        assets: { status: "ready", path: "/packs/editorial-systems/", count: 8 },
+        completeness: 100,
+        issues: [],
+      },
     },
     {
       id: "asset-origin-down",
@@ -37,6 +45,12 @@ export const controlRoomSnapshot: AdminSnapshot = {
       hasSpec: false,
       hasPack: false,
       publicPath: "/zh-CN/sites/unavailable-origin",
+      artifacts: {
+        preview: { status: "missing" }, spec: { status: "missing" },
+        pack: { status: "missing" }, assets: { status: "missing" },
+        completeness: 0,
+        issues: ["缺少可用预览图", "缺少结构化设计规范", "缺少可复制的设计包", "设计资产清单尚未建立"],
+      },
     },
   ],
   reviews: [
@@ -82,6 +96,32 @@ export const controlRoomSnapshot: AdminSnapshot = {
       assetId: "asset-origin-down",
       quality: { evidence: "E0", curation: "unreviewed", origin: "unavailable" },
       evidence: ["origin_status=unavailable"],
+      previewOnly: true,
+    },
+  ],
+  decisions: [
+    {
+      id: "decision-ad",
+      candidateId: "candidate-ad",
+      candidateTitle: "AI tools coupon directory",
+      candidateUrl: "https://ads.example.test",
+      recommendation: "reject",
+      confidence: 96,
+      reason: "广告和联盟跳转占主导，缺少原创设计证据。",
+      policyVersion: "opendesign-curation-v1.0",
+      model: "mimo-v2.5",
+      decidedAt: "2026-08-12T08:20:00.000Z",
+      reviewStatus: "pending",
+      signals: [
+        { id: "design-value", label: "设计价值", state: "warn", score: 40, evidence: ["页面模板化"] },
+        { id: "originality", label: "原创性", state: "fail", score: 18, evidence: ["内容重复"] },
+        { id: "utility", label: "可复用性", state: "fail", score: 20, evidence: ["无 token 价值"] },
+        { id: "evidence", label: "证据完整度", state: "warn", score: 35, evidence: ["仅元信息"] },
+        { id: "spam-risk", label: "垃圾风险", state: "fail", score: 93, evidence: ["关键词堆叠"] },
+        { id: "ad-risk", label: "广告风险", state: "fail", score: 97, evidence: ["联盟链接"] },
+        { id: "safety", label: "安全", state: "pass", score: 90, evidence: ["未发现恶意下载"] },
+      ],
+      source: { kind: "snapshot", label: "每日 AI 决策快照" },
       previewOnly: true,
     },
   ],
@@ -169,6 +209,7 @@ export const controlRoomSnapshot: AdminSnapshot = {
     },
     pipelineSignal: "blocked",
     syncSignal: "attention",
+    decisionSignal: "blocked",
   },
   diagnostics: [
     { code: "snapshot-only", level: "warning", message: "当前数据来自本地只读快照。" },
@@ -179,6 +220,7 @@ export const emptyControlRoomSnapshot: AdminSnapshot = {
   ...controlRoomSnapshot,
   assets: [],
   reviews: [],
+  decisions: [],
   pipelines: [],
   today: {
     state: "healthy",
@@ -193,5 +235,6 @@ export const emptyControlRoomSnapshot: AdminSnapshot = {
     },
     pipelineSignal: "unknown",
     syncSignal: "unknown",
+    decisionSignal: "unknown",
   },
 };

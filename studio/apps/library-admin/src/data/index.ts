@@ -7,6 +7,7 @@ import type { LoadAdminSnapshotInput, SnapshotAdapterInput } from "./types";
 
 export * from "./aggregate";
 export * from "./fixtures";
+export * from "./quality";
 export * from "./snapshot";
 export * from "./session";
 export * from "./types";
@@ -82,6 +83,9 @@ export async function loadAdminSnapshot(
   const reviews = input.reviews
     ?? (operationsReviewsAvailable ? operationsEvidence?.reviews : undefined)
     ?? fallback?.reviews;
+  const decisions = input.decisions
+    ?? (operationsReviewsAvailable ? operationsEvidence?.decisions : undefined)
+    ?? fallback?.decisions;
   const reviewSource = input.reviewSource
     ?? (operationsReviewsAvailable ? operationsEvidence?.reviewSource : undefined)
     ?? fallback?.reviewSource
@@ -104,6 +108,7 @@ export async function loadAdminSnapshot(
   const git = input.git ?? fallback?.git;
   const now = input.now ?? fallback?.now;
   if (reviews) adapterInput.reviews = reviews;
+  if (decisions) adapterInput.decisions = decisions;
   if (reviewSource) adapterInput.reviewSource = reviewSource;
   if (pipelines) adapterInput.pipelines = pipelines;
   if (pipelineSource) adapterInput.pipelineSource = pipelineSource;

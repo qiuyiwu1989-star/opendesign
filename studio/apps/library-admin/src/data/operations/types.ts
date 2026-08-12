@@ -1,5 +1,6 @@
 import type {
   DataSourceDescriptor,
+  CurationDecision,
   PipelineRun,
   QualityAxes,
   ReviewCase,
@@ -42,6 +43,23 @@ export interface RawDiscovery {
   score?: number;
   status?: string;
   createdAt?: string;
+}
+
+export interface RawCurationDecision {
+  id: string;
+  discoveryId: string;
+  candidateTitle: string;
+  candidateUrl?: string;
+  recommendation: "approve" | "review" | "reject";
+  confidence: number;
+  reason: string;
+  policyVersion: string;
+  model: string;
+  decidedAt: string;
+  reviewStatus: "pending" | "confirmed" | "overridden";
+  reviewedBy?: string;
+  reviewedAt?: string;
+  signals: CurationDecision["signals"];
 }
 
 export interface RawQualityIssue {
@@ -96,6 +114,7 @@ export interface OperationsEnvelope {
   diagnostics: SnapshotDiagnostic[];
   submissions: OperationsSection<RawSubmission>;
   discoveries: OperationsSection<RawDiscovery>;
+  decisions: OperationsSection<RawCurationDecision>;
   quality: OperationsSection<RawQualityIssue>;
   origins: OperationsSection<RawOriginIssue>;
   jobs: OperationsSection<RawJob>;
@@ -105,6 +124,7 @@ export interface OperationsEnvelope {
 export interface OperationsSnapshot {
   reviews: ReviewCase[];
   pipelines: PipelineRun[];
+  decisions: CurationDecision[];
   reviewSource: DataSourceDescriptor;
   pipelineSource: DataSourceDescriptor;
   diagnostics: SnapshotDiagnostic[];

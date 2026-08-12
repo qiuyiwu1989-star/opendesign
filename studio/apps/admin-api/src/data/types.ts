@@ -63,6 +63,24 @@ export interface DiscoveryRow {
   createdAt?: string;
 }
 
+export interface CurationDecisionRow {
+  id: string;
+  discoveryId: string;
+  candidateTitle: string;
+  candidateUrl?: string;
+  recommendation: "approve" | "review" | "reject";
+  confidence: number;
+  reason: string;
+  policyVersion: string;
+  model: string;
+  decidedAt: string;
+  reviewStatus: "pending" | "confirmed" | "overridden";
+  reviewedBy?: string;
+  reviewedAt?: string;
+  reviewReason?: string;
+  signals: unknown[];
+}
+
 export interface QualityRow {
   id: string;
   assetId?: string;
@@ -110,6 +128,7 @@ export interface OperationsEnvelope {
   diagnostics: OperationsDiagnostic[];
   submissions: OperationsSection<SubmissionRow>;
   discoveries: OperationsSection<DiscoveryRow>;
+  decisions: OperationsSection<CurationDecisionRow>;
   quality: OperationsSection<QualityRow>;
   origins: OperationsSection<OriginRow>;
   jobs: OperationsSection<JobRow>;

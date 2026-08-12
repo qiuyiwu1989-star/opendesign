@@ -21,7 +21,7 @@ describe("OperationsRepository", () => {
     const envelope = await new OperationsRepository(client, {
       limit: 999, timeoutMs: 99_999, now: () => now,
     }).readOperations();
-    expect(queries).toHaveLength(6);
+    expect(queries).toHaveLength(7);
     expect(queries.every((query) => query.values[0] === 200 && query.maxRows === 200)).toBe(true);
     expect(queries.every((query) => query.timeoutMs === 10_000 && /limit \$1/u.test(query.text))).toBe(true);
     expect(envelope.jobs.items[0]).toEqual({

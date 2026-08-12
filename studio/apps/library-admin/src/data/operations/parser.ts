@@ -4,12 +4,14 @@ import type {
   OperationsSection,
   OperationsSource,
   RawDiscovery,
+  RawCurationDecision,
   RawJob,
   RawOriginIssue,
   RawQualityIssue,
   RawRunLog,
   RawSubmission,
 } from "./types";
+import type { DecisionSignal } from "../../domain";
 
 export class OperationsValidationError extends Error {
   constructor(readonly issues: string[]) {
@@ -73,6 +75,33 @@ function parseDiscovery(value: unknown, path: string): RawDiscovery {
   const createdAt = string(pick(row, "createdAt", "created_at"));
   const score = number(row.score);
   return { id: row.id, ...optionalStrings(row, ["url", "host", "slug", "title", "source", "status"]), ...(score !== undefined ? { score } : {}), ...(createdAt ? { createdAt } : {}) };
+}
+
+function parseDecisionSignal(value: unknown): DecisionSignal | undefined {
+  if (!isRecord(value)) return undefined;
+  const id = string(value.id); const label = string(value.label); const score = number(value.score);
+  const state = value.state;
+  if (!id || !label || score === undefined || !["pass", "warn", "fail"].includes(String(state))) return undefined;
+  if (!["design-value", "originality", "utility", "evidence", "spam-risk", "ad-risk", "safety"].includes(id)) return undefined;
+  return { id: id as DecisionSignal["id"], label, state: state as DecisionSignal["state"], score, evidence: strings(value.evidence) };
+}
+
+function parseDecision(value: unknown, path: string): RawCurationDecision {
+  const row = base(value, path);
+  const discoveryId = string(pick(row, "discoveryId", "discovery_id"));
+  const candidateTitle = string(pick(row, "candidateTitle", "candidate_title"));
+  const candidateUrl = string(pick(row, "candidateUrl", "candidate_url"));
+  const policyVersion = string(pick(row, "policyVersion", "policy_version"));
+  const decidedAt = string(pick(row, "decidedAt", "decided_at"));
+  const reviewedBy = string(pick(row, "reviewedBy", "reviewed_by"));
+  const reviewedAt = string(pick(row, "reviewedAt", "reviewed_at"));
+  const confidence = number(row.confidence);
+  const recommendation = row.recommendation;
+  const reviewStatus = pick(row, "reviewStatus", "review_status");
+  if (!discoveryId || !candidateTitle || !policyVersion || !decidedAt || confidence === undefined
+    || !["approve", "review", "reject"].includes(String(recommendation))
+    || !["pending", "confirmed", "overridden"].includes(String(reviewStatus))) throw new OperationsValidationError([`${path} has invalid decision fields`]);
+  return { id: row.id, discoveryId, candidateTitle, ...(candidateUrl ? { candidateUrl } : {}), recommendation: recommendation as RawCurationDecision["recommendation"], confidence, reason: string(row.reason) ?? "No reason recorded", policyVersion, model: string(row.model) ?? "unknown", decidedAt, reviewStatus: reviewStatus as RawCurationDecision["reviewStatus"], ...(reviewedBy ? { reviewedBy } : {}), ...(reviewedAt ? { reviewedAt } : {}), signals: Array.isArray(row.signals) ? row.signals.flatMap(item => { const parsed = parseDecisionSignal(item); return parsed ? [parsed] : []; }) : [] };
 }
 
 function parseIssue(value: unknown, path: string): RawQualityIssue {
@@ -143,6 +172,7 @@ export function parseOperationsEnvelope(input: unknown): OperationsEnvelope {
     diagnostics,
     submissions: section(input, "submissions", parseSubmission, diagnostics),
     discoveries: section(input, "discoveries", parseDiscovery, diagnostics),
+    decisions: section(input, "decisions", parseDecision, diagnostics),
     quality: section(input, "quality", parseIssue, diagnostics),
     origins: section(input, "origins", parseOrigin, diagnostics),
     jobs: section(input, "jobs", parseJob, diagnostics),

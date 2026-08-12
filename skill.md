@@ -12,7 +12,6 @@ description: >-
   reference(s) from the library, and decompose them into grounded tokens the user's
   own agent can build with. Anti-slop by construction: every choice traces to a
   design real humans shipped.
-license: MIT
 ---
 
 # OpenDesign — your design director, grounded in 1,400+ real systems
@@ -162,6 +161,15 @@ scorecard** (0–10 each), then **Keep / Fix / Quick-wins**:
 
 Output: total + **Keep** (what works) + **Fix** (⚠️ fatal / ⚡ important / 💡 polish) +
 **Quick wins** (top 3 five-minute fixes). Critique the design, not the designer.
+
+## When evaluating a new public reference
+
+Treat curation as a design decision, not a popularity contest. Reject advertising and
+affiliate directories, SEO farms, duplicated aggregators, impersonation, unsafe
+downloads, and sources unrelated to reusable design knowledge. Keep `evidence_tier`,
+`curation_status`, and `origin_status` independent. If evidence is incomplete, route to
+human review instead of inventing confidence. Record the model, policy version, time,
+signals, reasons, and any human override before the reference can enter a build pipeline.
 
 ---
 

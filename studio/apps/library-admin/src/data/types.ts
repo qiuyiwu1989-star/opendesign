@@ -1,5 +1,6 @@
 import type {
   DataSourceDescriptor,
+  CurationDecision,
   PipelineRun,
   ReviewCase,
   SyncSnapshot,
@@ -43,6 +44,7 @@ export interface SnapshotAdapterInput {
   packIndex?: unknown;
   packIndexUnavailable?: boolean;
   reviews?: readonly ReviewCase[];
+  decisions?: readonly CurationDecision[];
   reviewSource?: DataSourceDescriptor;
   pipelines?: readonly PipelineRun[];
   pipelineSource?: DataSourceDescriptor;
@@ -58,6 +60,7 @@ export interface LoadAdminSnapshotInput {
   fetcher?: typeof fetch;
   fallback?: SnapshotAdapterInput;
   reviews?: readonly ReviewCase[];
+  decisions?: readonly CurationDecision[];
   reviewSource?: DataSourceDescriptor;
   pipelines?: readonly PipelineRun[];
   pipelineSource?: DataSourceDescriptor;

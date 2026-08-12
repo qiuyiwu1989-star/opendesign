@@ -1,7 +1,7 @@
 import { type FormEvent, useEffect, useState } from "react";
 import type { AdminSnapshot } from "./domain";
 import { loadAdminSession, loadAdminSnapshot, loginAdminSession, logoutAdminSession, type AdminSessionState } from "./data";
-import { AssetsScreen, PipelinesScreen, ReviewScreen, SyncScreen, TodayScreen } from "./components/screens";
+import { AssetsScreen, PipelinesScreen, QualityScreen, ReviewScreen, SyncScreen, TodayScreen } from "./components/screens";
 import { EmptyState, LoadingState, PreviewDrawer, Shell, type Screen } from "./components/system";
 
 export interface AppProps { initialSnapshot?: AdminSnapshot; initialSession?: AdminSessionState }
@@ -81,6 +81,7 @@ export function App({ initialSnapshot, initialSession }: AppProps) {
 
   const counts = {
     review: snapshot.reviews.filter(item => item.status === "pending").length,
+    quality: snapshot.decisions.filter(item => item.reviewStatus === "pending").length,
     assets: snapshot.assets.length,
     pipelines: snapshot.pipelines.filter(item => item.status === "failed").length,
   };
@@ -95,7 +96,8 @@ export function App({ initialSnapshot, initialSession }: AppProps) {
         : <span className="session-control session-control--muted">检查登录状态…</span>;
 
   return <Shell screen={screen} onScreen={setScreen} source={snapshot.source.kind} generatedAt={snapshot.generatedAt} counts={counts} sessionControl={sessionControl}>
-    {screen === "today" && <TodayScreen today={snapshot.today} reviews={snapshot.reviews} pipelines={snapshot.pipelines} sync={snapshot.sync} onNavigate={setScreen} onPreview={openPreview}/>} 
+    {screen === "today" && <TodayScreen today={snapshot.today} reviews={snapshot.reviews} decisions={snapshot.decisions} pipelines={snapshot.pipelines} sync={snapshot.sync} onNavigate={setScreen} onPreview={openPreview}/>}
+    {screen === "quality" && <QualityScreen decisions={snapshot.decisions} assets={snapshot.assets} onPreview={openPreview}/>}
     {screen === "review" && <ReviewScreen reviews={snapshot.reviews} assets={snapshot.assets} onPreview={openPreview}/>} 
     {screen === "assets" && <AssetsScreen assets={snapshot.assets} onPreview={openPreview}/>} 
     {screen === "pipelines" && <PipelinesScreen pipelines={snapshot.pipelines} onPreview={openPreview}/>} 

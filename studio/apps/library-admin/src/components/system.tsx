@@ -1,12 +1,13 @@
 import { useState, type ReactNode } from "react";
 import type { DataSourceState } from "../domain";
 
-export type Screen = "today" | "review" | "assets" | "pipelines" | "sync";
+export type Screen = "today" | "quality" | "review" | "assets" | "pipelines" | "sync";
 export type Tone = "neutral" | "good" | "warn" | "bad" | "accent";
 
 const iconPaths: Record<string, ReactNode> = {
   today: <><path d="M4 5.5h16M6.5 3v5M17.5 3v5M5 9.5h14v10H5z"/><path d="m8 14 2 2 5-5"/></>,
   review: <><path d="M7 4h10M7 20h10M5 7h14v10H5z"/><path d="m9 12 2 2 4-4"/></>,
+  quality: <><path d="M12 3 4.5 6v5.5c0 4.6 3 7.7 7.5 9.5 4.5-1.8 7.5-4.9 7.5-9.5V6z"/><path d="m8.5 12 2.2 2.2 4.8-5"/></>,
   assets: <><rect x="4" y="4" width="7" height="7"/><rect x="13" y="4" width="7" height="7"/><rect x="4" y="13" width="7" height="7"/><rect x="13" y="13" width="7" height="7"/></>,
   pipelines: <><circle cx="6" cy="6" r="2"/><circle cx="18" cy="12" r="2"/><circle cx="6" cy="18" r="2"/><path d="M8 6h3a4 4 0 0 1 4 4M8 18h3a4 4 0 0 0 4-4"/></>,
   sync: <><path d="M20 7h-7a4 4 0 0 0-4 4v1M4 17h7a4 4 0 0 0 4-4v-1"/><path d="m17 4 3 3-3 3M7 14l-3 3 3 3"/></>,
@@ -53,6 +54,7 @@ export function formatTime(value?: string) {
 
 const nav: { id: Screen; label: string; caption: string }[] = [
   { id: "today", label: "Today", caption: "现在最值得做的事" },
+  { id: "quality", label: "质量决策", caption: "AI 建议与人工复核" },
   { id: "review", label: "统一审核", caption: "四种来源，一个队列" },
   { id: "assets", label: "设计资源", caption: "证据、策展、源站" },
   { id: "pipelines", label: "管线运行", caption: "检查点与失败定位" },
@@ -70,9 +72,9 @@ export function Shell({ screen, onScreen, source, generatedAt, counts, sessionCo
       <div className="masthead-actions"><button type="button" className="command" onClick={() => selectScreen("assets")}><Icon name="search"/> 全局搜索 <kbd>⌘ K</kbd></button>{sessionControl}<Pill tone="accent">PREVIEW ONLY</Pill></div>
     </header>
     <aside className={`sidebar ${mobileNavOpen ? "is-mobile-open" : ""}`} aria-label="控制室工作区">
-      <div className="sidebar-intro"><small>LIBRARY OPERATIONS</small><p>把发现、判断与发布准备收拢到一个编辑台。</p></div>
+      <div className="sidebar-intro"><small>DESIGN INTELLIGENCE</small><p>让每次收录与拒绝都有证据、策略版本和可审查记录。</p></div>
       <nav>{nav.map(item => <button key={item.id} type="button" className={screen === item.id ? "is-current" : ""} onClick={() => selectScreen(item.id)} aria-current={screen === item.id ? "page" : undefined}><Icon name={item.id}/><span><strong>{item.label}</strong><small>{item.caption}</small></span>{counts[item.id] !== undefined && <i>{counts[item.id]}</i>}</button>)}</nav>
-      <div className="sidebar-policy"><Icon name="info"/><span><strong>安全边界</strong><small>本阶段不写生产、不推送、不部署。</small></span></div>
+      <div className="sidebar-policy"><Icon name="info"/><span><strong>最终决定在人</strong><small>AI 提供建议；垃圾和广告优先隔离，人工确认后才写回。</small></span></div>
     </aside>
     <main>{children}</main>
   </div>;

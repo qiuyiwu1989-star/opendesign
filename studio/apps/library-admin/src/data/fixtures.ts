@@ -1,4 +1,4 @@
-import type { PipelineRun, ReviewCase } from "../domain";
+import type { CurationDecision, PipelineRun, ReviewCase } from "../domain";
 import type { GitReadOnlySnapshot, SnapshotAdapterInput } from "./types";
 
 /**
@@ -73,6 +73,31 @@ export const syntheticPipelineFixture: PipelineRun[] = [{
   previewOnly: true,
 }];
 
+export const syntheticDecisionFixture: CurationDecision[] = [{
+  id: "decision:fixture-ad",
+  candidateId: "fixture-ad",
+  candidateTitle: "Synthetic affiliate gallery",
+  candidateUrl: "https://example.com/affiliate",
+  recommendation: "reject",
+  confidence: 96,
+  reason: "页面以联盟跳转和付费推广为主，缺少可复用的原创设计证据。",
+  policyVersion: "opendesign-curation-v1.0",
+  model: "mimo-v2.5",
+  decidedAt: "2026-08-12T00:15:00.000Z",
+  reviewStatus: "pending",
+  signals: [
+    { id: "design-value", label: "设计价值", state: "warn", score: 42, evidence: ["视觉证据不足"] },
+    { id: "originality", label: "原创性", state: "fail", score: 18, evidence: ["聚合内容重复"] },
+    { id: "utility", label: "可复用性", state: "fail", score: 20, evidence: ["无可迁移组件或 token"] },
+    { id: "evidence", label: "证据完整度", state: "warn", score: 36, evidence: ["仅有 meta 信息"] },
+    { id: "spam-risk", label: "垃圾风险", state: "fail", score: 91, evidence: ["关键词堆叠", "重复落地页"] },
+    { id: "ad-risk", label: "广告风险", state: "fail", score: 96, evidence: ["联盟跳转"] },
+    { id: "safety", label: "安全", state: "pass", score: 92, evidence: ["未发现恶意下载"] },
+  ],
+  source: { kind: "snapshot", label: "synthetic AI decision fixture", generatedAt: "2026-08-12T00:15:00.000Z" },
+  previewOnly: true,
+}];
+
 export const syntheticGitFixture: GitReadOnlySnapshot = {
   branch: "fixture/read-only",
   localRevision: "fixture-local",
@@ -86,6 +111,7 @@ export const syntheticSnapshotFixture: SnapshotAdapterInput = {
   siteIndex: syntheticSiteIndexFixture,
   packIndex: { "fixture-complete": { fixture: true } },
   reviews: syntheticReviewFixture,
+  decisions: syntheticDecisionFixture,
   reviewSource: { kind: "snapshot", label: "synthetic review fixture" },
   pipelines: syntheticPipelineFixture,
   pipelineSource: { kind: "snapshot", label: "synthetic pipeline fixture" },

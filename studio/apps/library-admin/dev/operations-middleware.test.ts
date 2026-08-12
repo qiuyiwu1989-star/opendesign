@@ -59,6 +59,14 @@ describe("buildUnavailableOperationsEnvelope", () => {
         },
         items: [],
       },
+      decisions: {
+        source: {
+          kind: "unavailable",
+          label: "production curation decisions",
+          detail: "Development middleware does not read production review or pipeline data.",
+        },
+        items: [],
+      },
       quality: {
         source: {
           kind: "unavailable",
@@ -128,6 +136,7 @@ describe("createOperationsApiMiddleware", () => {
       observedAt: now,
       submissions: { source: { kind: "unavailable" }, items: [] },
       discoveries: { source: { kind: "unavailable" }, items: [] },
+      decisions: { source: { kind: "unavailable" }, items: [] },
       quality: { source: { kind: "unavailable" }, items: [] },
       origins: { source: { kind: "unavailable" }, items: [] },
       jobs: { source: { kind: "unavailable" }, items: [] },

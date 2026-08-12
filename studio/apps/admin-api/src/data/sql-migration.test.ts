@@ -2,6 +2,7 @@ import { readFile } from "node:fs/promises";
 import { describe, expect, it } from "vitest";
 
 const migrationUrl = new URL("../../../../../supabase/migrations/0010_admin_read_api.sql", import.meta.url);
+const decisionMigrationUrl = new URL("../../../../../supabase/migrations/0011_curation_decisions.sql", import.meta.url);
 
 describe("0010 least-privilege SQL draft", () => {
   it("keeps view access independent of base-table grants and supports distinct voter counts", async () => {
@@ -24,5 +25,16 @@ describe("0010 least-privilege SQL draft", () => {
     expect(executable).not.toMatch(/app_config|admin_list_|runner_/iu);
     expect(executable).toMatch(/grant select on opendesign_admin_read\.submissions/iu);
     expect(executable).toMatch(/grant execute on function opendesign_admin_read\.write_audit_event/iu);
+  });
+});
+
+describe("0011 curation decision SQL draft", () => {
+  it("records AI recommendations for human review without enqueuing production work", async () => {
+    const sql = await readFile(decisionMigrationUrl, "utf8");
+    expect(sql).toMatch(/create table if not exists public\.curation_decisions/iu);
+    expect(sql).toMatch(/recommendation in \('approve','review','reject'\)/iu);
+    expect(sql).toMatch(/create or replace view opendesign_admin_read\.curation_decisions/iu);
+    expect(sql).toMatch(/keep the candidate reviewable/iu);
+    expect(sql).not.toMatch(/insert into public\.jobs/iu);
   });
 });

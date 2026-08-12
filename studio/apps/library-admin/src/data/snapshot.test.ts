@@ -114,9 +114,9 @@ describe("Control Room read-only snapshot adapter", () => {
 
     expect(snapshot.today.topActions).toHaveLength(3);
     expect(snapshot.today.topActions.map((action) => action.title)).toEqual([
+      "审查 AI 拒绝建议",
       "检查失败管线",
       "检查同步漂移",
-      "清理统一审阅箱",
     ]);
     expect(snapshot.today.topActions.every((action) => action.previewOnly)).toBe(true);
   });

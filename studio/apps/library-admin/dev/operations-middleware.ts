@@ -30,6 +30,7 @@ interface OperationsUnavailableEnvelope {
   }>;
   submissions: UnavailableOperationsSection;
   discoveries: UnavailableOperationsSection;
+  decisions: UnavailableOperationsSection;
   quality: UnavailableOperationsSection;
   origins: UnavailableOperationsSection;
   jobs: UnavailableOperationsSection;
@@ -62,6 +63,7 @@ export function buildUnavailableOperationsEnvelope(now?: string): OperationsUnav
     }],
     submissions: section("production submissions"),
     discoveries: section("production discoveries"),
+    decisions: section("production curation decisions"),
     quality: section("production quality evidence"),
     origins: section("production origin evidence"),
     jobs: section("production jobs"),

@@ -6,17 +6,15 @@
   1. 读取 Supabase discoveries 表中 status='pending' 的候选站
   2. HTTP fetch 检查可达性 + 提取 title/description
   3. 用 mimo（ANTHROPIC_API_KEY）做轻量 AI 评分（~100 tokens/站，极低成本）
-  4. score ≥ APPROVE_THRESHOLD → approve → 自动创建 collect job → cron-jobrunner 10分钟内执行
-     score ≤ IGNORE_THRESHOLD  → ignore（排除低质量）
-     中间分                    → defer（留人工后台审阅）
-  5. 每日最多自动 approve DAILY_CAP 个站（防成本失控）
+  4. 输出 approve / review / reject 的可解释建议，写入审计记录
+  5. 所有候选仍留人工后台复核；本脚本不发布、不创建 job、不永久删除
 
 环境变量（~/.opendesign-runner.env）：
   SB_URL / SB_ANON_KEY / RUNNER_TOKEN  （必须）
   ANTHROPIC_API_KEY / ANTHROPIC_BASE_URL / ANTHROPIC_MODEL  （可选，无则启发式评分）
-  AUTO_EVAL_DAILY_CAP=10               （每日自动收录上限，默认 10）
-  AUTO_EVAL_APPROVE=7                  （≥ 此分自动收录，默认 7）
-  AUTO_EVAL_IGNORE=4                   （≤ 此分自动忽略，默认 4）
+  AUTO_EVAL_BATCH_LIMIT=50             （每日最多评估数量，默认 50）
+  AUTO_EVAL_APPROVE=7                  （启发式兜底建议收录阈值）
+  AUTO_EVAL_IGNORE=4                   （启发式兜底建议拒绝阈值）
 """
 
 import json
@@ -37,10 +35,9 @@ AI_KEY   = os.environ.get("ANTHROPIC_API_KEY", "")
 AI_BASE  = os.environ.get("ANTHROPIC_BASE_URL", "https://api.anthropic.com").rstrip("/")
 AI_MODEL = os.environ.get("ANTHROPIC_MODEL", "claude-3-haiku-20240307")
 
-DAILY_CAP         = int(os.environ.get("AUTO_EVAL_DAILY_CAP", "10"))
+EVAL_BATCH_LIMIT  = int(os.environ.get("AUTO_EVAL_BATCH_LIMIT", "50"))
 APPROVE_THRESHOLD = int(os.environ.get("AUTO_EVAL_APPROVE",   "7"))
 IGNORE_THRESHOLD  = int(os.environ.get("AUTO_EVAL_IGNORE",    "4"))
-MAX_QUEUE_BEFORE_PAUSE = 20   # 队列里已有超过这么多任务时暂停自动收录，避免服务器过载
 
 
 # ── Supabase RPC ──────────────────────────────────────────────────────────────
@@ -85,24 +82,26 @@ def fetch_meta(url: str) -> dict:
 
 # ── AI 评分 ───────────────────────────────────────────────────────────────────
 
+POLICY_VERSION = "opendesign-curation-v1.0"
+
 EVAL_PROMPT = """\
-You are a curator for a premium web design library. Rate this website's design quality.
+You are the daily curator for OpenDesign, a premium evidence-backed design library.
+Decide whether this public website deserves human review for inclusion. Be strict.
 
 URL: {url}
 Title: {title}
 Description: {description}
 
-Scoring guide (be strict — the bar is high):
-  9-10: Exceptional. Would inspire any designer. Distinctive, tasteful, memorable.
-  7-8:  Strong design. Clear visual identity, worth collecting.
-  5-6:  Decent but generic, or uncertain from metadata alone.
-  3-4:  Below average. Default templates, poor typography, no visual identity.
-  0-2:  Not a design showcase. Docs site, API, utility, landing generator, etc.
+Hard reject: affiliate/ad directories, SEO farms, impersonation, duplicated aggregators,
+malicious downloads, keyword stuffing, or content unrelated to design reference value.
+Insufficient evidence means review, not approve and not an invented conclusion.
 
 Consider: Is this a REAL website (not an app store page, GitHub repo, or docs)?
 Does it have a notable visual design? Would a designer look at it for inspiration?
 
-Reply with ONLY valid JSON: {{"score": <0-10>, "reason": "<one concise sentence>"}}"""
+Reply with ONLY valid JSON:
+{{"recommendation":"approve|review|reject","confidence":<0-100>,"reason":"<concise>",
+"signals":[{{"id":"design-value|originality|utility|evidence|spam-risk|ad-risk|safety","label":"<short>","state":"pass|warn|fail","score":<0-100>,"evidence":["fact"]}}]}}"""
 
 
 def ai_score(url: str, title: str, description: str) -> tuple[int, str]:
@@ -148,6 +147,34 @@ def ai_score(url: str, title: str, description: str) -> tuple[int, str]:
         return 5, f"ai_error: {str(e)[:80]}"
 
 
+def evaluate_decision(url: str, title: str, description: str) -> dict:
+    """Return a bounded, auditable recommendation. Heuristic fallback is marked as such."""
+    if not AI_KEY:
+        score, reason = ai_score(url, title, description)
+        recommendation = "approve" if score >= APPROVE_THRESHOLD else "reject" if score <= IGNORE_THRESHOLD else "review"
+        return {"recommendation": recommendation, "confidence": min(75, 50 + abs(score - 5) * 6), "reason": reason,
+                "signals": [{"id": "evidence", "label": "证据完整度", "state": "warn", "score": 40,
+                             "evidence": ["heuristic fallback; AI model unavailable"]}]}
+    prompt = EVAL_PROMPT.format(url=url, title=title[:100], description=description[:200])
+    try:
+        body = json.dumps({"model": AI_MODEL, "max_tokens": 1200, "thinking": {"type": "disabled"},
+                           "messages": [{"role": "user", "content": prompt}]}).encode()
+        req = urllib.request.Request(f"{AI_BASE}/v1/messages", data=body, method="POST",
+            headers={"x-api-key": AI_KEY, "anthropic-version": "2023-06-01", "content-type": "application/json"})
+        with urllib.request.urlopen(req, timeout=30) as response:
+            payload = json.loads(response.read().decode())
+        raw = next(block["text"] for block in payload["content"] if block.get("type") == "text").strip()
+        result = json.loads(re.sub(r"^```[a-z]*\n?", "", raw).rstrip("`").strip())
+        recommendation = result.get("recommendation") if result.get("recommendation") in ("approve", "review", "reject") else "review"
+        signals = result.get("signals") if isinstance(result.get("signals"), list) else []
+        return {"recommendation": recommendation, "confidence": max(0, min(100, int(result.get("confidence", 50)))),
+                "reason": str(result.get("reason", "Evidence requires human review"))[:1000], "signals": signals[:20]}
+    except Exception as error:
+        return {"recommendation": "review", "confidence": 0, "reason": f"ai_error: {str(error)[:160]}",
+                "signals": [{"id": "evidence", "label": "证据完整度", "state": "warn", "score": 0,
+                             "evidence": ["AI evaluation failed; human review required"]}]}
+
+
 # ── 主流程 ────────────────────────────────────────────────────────────────────
 
 def main():
@@ -159,18 +186,9 @@ def main():
     if not AI_KEY:
         print("⚠  未配 ANTHROPIC_API_KEY，将使用启发式评分（建议配置以提升精准度）")
 
-    # 检查队列负载，避免服务器过载
-    try:
-        pending_jobs = rpc("runner_pending_count", {"p_token": TOKEN})
-        if pending_jobs and pending_jobs > MAX_QUEUE_BEFORE_PAUSE:
-            print(f"⏸  队列已有 {pending_jobs} 个待处理任务，暂停自动收录（上限 {MAX_QUEUE_BEFORE_PAUSE}）")
-            return
-    except Exception as e:
-        print(f"  ⚠ 无法检查队列: {e}")
-
     # 读取待评估候选
     try:
-        pending = rpc("runner_list_pending", {"p_token": TOKEN, "p_limit": 50})
+        pending = rpc("runner_list_pending", {"p_token": TOKEN, "p_limit": EVAL_BATCH_LIMIT})
     except Exception as e:
         print(f"✗ 无法读取候选站: {e}")
         sys.exit(1)
@@ -179,8 +197,8 @@ def main():
         print("✓ 无待评估候选站")
         return
 
-    print(f"▸ 评估 {len(pending)} 个候选站  (每日上限 {DAILY_CAP} 个自动收录)")
-    print(f"  approve ≥ {APPROVE_THRESHOLD}  |  ignore ≤ {IGNORE_THRESHOLD}  |  defer 5-6\n")
+    print(f"▸ 评估 {len(pending)} 个候选站  (本轮上限 {EVAL_BATCH_LIMIT})")
+    print("  AI 只给建议并留痕；人工确认后才进入发布准备。\n")
 
     approved = ignored = deferred = 0
 
@@ -196,12 +214,13 @@ def main():
         meta = fetch_meta(url)
         if not meta["reachable"]:
             err = meta.get("error", "")
-            rpc("runner_auto_evaluate", {
-                "p_token": TOKEN, "p_id": disc_id,
-                "p_action": "ignore", "p_score": 0,
-                "p_reason": f"不可达: {err}"
+            rpc("runner_record_curation_decision", {
+                "p_token": TOKEN, "p_discovery_id": disc_id,
+                "p_recommendation": "reject", "p_confidence": 99,
+                "p_reason": f"不可达: {err}", "p_policy_version": POLICY_VERSION,
+                "p_model": "availability-gate", "p_signals": [{"id": "evidence", "label": "证据完整度", "state": "fail", "score": 0, "evidence": [f"origin unavailable: {err}"]}],
             })
-            print(f"       ✗ 不可达 ({err})，已忽略")
+            print(f"       ✗ 不可达 ({err})，已记录拒绝建议，等待人工复核")
             ignored += 1
             time.sleep(0.3)
             continue
@@ -209,39 +228,23 @@ def main():
         full_title  = meta["title"] or title
         description = meta["description"]
 
-        # 2. AI 评分
-        score, reason = ai_score(url, full_title, description)
-        print(f"       {score:2d}/10  {reason[:70]}")
-
-        # 3. 决策
-        if score >= APPROVE_THRESHOLD and approved < DAILY_CAP:
-            action = "approve"
-            approved += 1
-            label = f"✓ 自动收录 ({approved}/{DAILY_CAP})"
-        elif score >= APPROVE_THRESHOLD and approved >= DAILY_CAP:
-            action = "defer"
-            label  = f"~ 今日配额已满，留待明日"
-            deferred += 1
-        elif score <= IGNORE_THRESHOLD:
-            action = "ignore"
-            label  = "✗ 质量不足，忽略"
-            ignored += 1
-        else:
-            action = "defer"
-            label  = "~ 存疑，留人工后台审阅"
-            deferred += 1
-
-        rpc("runner_auto_evaluate", {
-            "p_token": TOKEN, "p_id": disc_id,
-            "p_action": action, "p_score": score,
-            "p_reason": reason
+        # 2. AI 结构化建议；只写审计记录，不直接发布或入队
+        decision = evaluate_decision(url, full_title, description)
+        recommendation = decision["recommendation"]
+        rpc("runner_record_curation_decision", {
+            "p_token": TOKEN, "p_discovery_id": disc_id,
+            "p_recommendation": recommendation, "p_confidence": decision["confidence"],
+            "p_reason": decision["reason"], "p_policy_version": POLICY_VERSION,
+            "p_model": AI_MODEL if AI_KEY else "heuristic-fallback", "p_signals": decision["signals"],
         })
-        print(f"       {label}")
+        if recommendation == "approve": approved += 1
+        elif recommendation == "reject": ignored += 1
+        else: deferred += 1
+        print(f"       {recommendation.upper()} {decision['confidence']}% · 已记录，等待人工复核")
         time.sleep(0.5)   # AI API 限流缓冲
 
-    print(f"\n完成：✓ {approved} 收录  ✗ {ignored} 忽略  ~ {deferred} 存疑")
-    if approved > 0:
-        print(f"  → job_runner 将在 10 分钟内开始 Playwright+mimo 完整提取")
+    print(f"\n完成：{approved} 建议收录 · {ignored} 建议拒绝 · {deferred} 人工复核")
+    print("  → 所有判断均已留痕；没有创建发布任务。")
 
 
 if __name__ == "__main__":

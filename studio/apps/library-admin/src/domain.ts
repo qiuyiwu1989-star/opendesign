@@ -12,6 +12,10 @@ export type CurationStatus = "unreviewed" | "accepted" | "recommended";
 export type OriginStatus = "alive" | "changed" | "degraded" | "unavailable";
 export type ReviewSource = "discovery" | "submission" | "quality" | "origin";
 export type SignalState = "healthy" | "attention" | "blocked" | "unknown";
+export type DecisionRecommendation = "approve" | "review" | "reject";
+export type DecisionReviewStatus = "pending" | "confirmed" | "overridden";
+export type DecisionSignalState = "pass" | "warn" | "fail";
+export type ArtifactStatus = "ready" | "missing" | "stale" | "failed" | "unknown";
 
 export interface DataSourceDescriptor {
   kind: DataSourceState;
@@ -24,6 +28,51 @@ export interface QualityAxes {
   evidence: EvidenceTier;
   curation: CurationStatus;
   origin: OriginStatus;
+}
+
+export interface DecisionSignal {
+  id: "design-value" | "originality" | "utility" | "evidence" | "spam-risk" | "ad-risk" | "safety";
+  label: string;
+  state: DecisionSignalState;
+  score: number;
+  evidence: string[];
+}
+
+export interface CurationDecision {
+  id: string;
+  candidateId: string;
+  candidateTitle: string;
+  candidateUrl?: string;
+  recommendation: DecisionRecommendation;
+  confidence: number;
+  reason: string;
+  policyVersion: string;
+  model: string;
+  decidedAt: string;
+  reviewStatus: DecisionReviewStatus;
+  reviewedBy?: string;
+  reviewedAt?: string;
+  signals: DecisionSignal[];
+  source: DataSourceDescriptor;
+  previewOnly: true;
+}
+
+export interface ArtifactEvidence {
+  status: ArtifactStatus;
+  path?: string;
+  count?: number;
+  bytes?: number;
+  observedAt?: string;
+  detail?: string;
+}
+
+export interface AssetCoverage {
+  preview: ArtifactEvidence;
+  spec: ArtifactEvidence;
+  pack: ArtifactEvidence;
+  assets: ArtifactEvidence;
+  completeness: number;
+  issues: string[];
 }
 
 export interface LibraryAsset {
@@ -39,6 +88,7 @@ export interface LibraryAsset {
   publicPath: string;
   packPath?: string;
   updatedAt?: string;
+  artifacts: AssetCoverage;
 }
 
 export type ReviewStatus = "pending" | "resolved" | "dismissed";
@@ -56,6 +106,7 @@ export interface ReviewCase {
   createdAt?: string;
   quality?: QualityAxes;
   evidence: string[];
+  decisionId?: string;
   previewOnly: true;
 }
 
@@ -128,7 +179,7 @@ export interface TodayAction {
   priority: ReviewPriority;
   title: string;
   summary: string;
-  target: "review" | "assets" | "pipelines" | "sync";
+  target: "review" | "quality" | "assets" | "pipelines" | "sync";
   targetId?: string;
   count?: number;
   previewOnly: true;
@@ -149,6 +200,7 @@ export interface TodaySnapshot {
   funnel: ContentFunnel;
   pipelineSignal: SignalState;
   syncSignal: SignalState;
+  decisionSignal: SignalState;
 }
 
 export interface SnapshotDiagnostic {
@@ -170,6 +222,7 @@ export interface AdminSnapshot {
   generatedAt: string;
   assets: LibraryAsset[];
   reviews: ReviewCase[];
+  decisions: CurationDecision[];
   pipelines: PipelineRun[];
   sync: SyncSnapshot;
   today: TodaySnapshot;

@@ -8,6 +8,7 @@ import type {
   SnapshotDiagnostic,
 } from "../domain";
 import { aggregatePipelines, aggregateReviews, aggregateSync, aggregateToday } from "./aggregate";
+import { assetCoverage } from "./quality";
 import {
   SnapshotValidationError,
   type SnapshotAdapterInput,
@@ -107,7 +108,11 @@ export function mapStaticAssets(
   index: StaticSiteIndex,
   packIds?: ReadonlySet<string>,
 ): LibraryAsset[] {
-  return index.sites.map((site) => ({
+  return index.sites.map((site) => {
+    const hasPack = packIds?.has(site.id) ?? site.has_pack === true;
+    const publicPath = `/en/sites/${encodeURIComponent(site.id)}`;
+    const packPath = hasPack ? `/packs/${encodeURIComponent(site.id)}/` : undefined;
+    return {
     id: site.id,
     title: site.title,
     url: site.url,
@@ -120,11 +125,20 @@ export function mapStaticAssets(
       origin: originStatus(site),
     },
     hasSpec: site.has_spec === true,
-    hasPack: packIds?.has(site.id) ?? site.has_pack === true,
-    publicPath: `/en/sites/${encodeURIComponent(site.id)}`,
-    ...(packIds?.has(site.id) || site.has_pack ? { packPath: `/packs/${encodeURIComponent(site.id)}/` } : {}),
+    hasPack,
+    publicPath,
+    ...(packPath ? { packPath } : {}),
     ...(index._meta?.built_at ? { updatedAt: index._meta.built_at } : {}),
-  }));
+    artifacts: assetCoverage({
+      ...(site.image ? { imageUrl: site.image } : {}),
+      hasSpec: site.has_spec === true,
+      hasPack,
+      publicPath,
+      ...(packPath ? { packPath } : {}),
+      ...(index._meta?.built_at ? { observedAt: index._meta.built_at } : {}),
+    }),
+  };
+  });
 }
 
 function unavailable(label: string, detail: string): DataSourceDescriptor {
@@ -171,7 +185,8 @@ export function createSnapshotAdapter(input: SnapshotAdapterInput) {
       const reviews = aggregateReviews(assets, input.reviews);
       const pipelines = aggregatePipelines(input.pipelines);
       const sync = input.sync ?? aggregateSync(input.git);
-      const today = aggregateToday(assets, reviews, pipelines, sync);
+      const decisions = input.decisions ? input.decisions.map((decision) => ({ ...decision, signals: decision.signals.map((signal) => ({ ...signal, evidence: [...signal.evidence] })) })) : [];
+      const today = aggregateToday(assets, reviews, pipelines, sync, decisions);
       const librarySource: DataSourceDescriptor = {
         kind: "snapshot",
         label: packIds ? "sites-index.json + packs-index.json" : "sites-index.json",
@@ -205,6 +220,7 @@ export function createSnapshotAdapter(input: SnapshotAdapterInput) {
         generatedAt,
         assets,
         reviews,
+        decisions,
         pipelines,
         sync,
         today,

@@ -1,5 +1,6 @@
 import type {
   LibraryAsset,
+  CurationDecision,
   PipelineRun,
   ReviewCase,
   ReviewPriority,
@@ -9,6 +10,7 @@ import type {
   TodayAction,
   TodaySnapshot,
 } from "../domain";
+import { decisionSignal } from "./quality";
 import type { GitReadOnlySnapshot } from "./types";
 
 const priorityRank: Record<ReviewPriority, number> = {
@@ -174,11 +176,37 @@ export function aggregateToday(
   reviews: readonly ReviewCase[],
   pipelines: readonly PipelineRun[],
   sync: SyncSnapshot,
+  decisions: readonly CurationDecision[] = [],
 ): TodaySnapshot {
   const pendingReviews = reviews.filter((review) => review.status === "pending");
   const criticalReviews = pendingReviews.filter((review) => review.priority === "critical");
   const failedRuns = pipelines.filter((run) => run.status === "failed");
   const actions: TodayAction[] = [];
+
+  const pendingDecisions = decisions.filter((decision) => decision.reviewStatus === "pending");
+  const pendingRejects = pendingDecisions.filter((decision) => decision.recommendation === "reject");
+  if (pendingRejects.length) actions.push({
+    id: "today:ai-rejections",
+    kind: "quality",
+    priority: "critical",
+    title: "审查 AI 拒绝建议",
+    summary: `${pendingRejects.length} 个候选命中垃圾、广告或安全拒绝规则。`,
+    target: "quality",
+    ...(pendingRejects[0] ? { targetId: pendingRejects[0].id } : {}),
+    count: pendingRejects.length,
+    previewOnly: true,
+  });
+  else if (pendingDecisions.length) actions.push({
+    id: "today:ai-decisions",
+    kind: "quality",
+    priority: "high",
+    title: "审查每日 AI 判断",
+    summary: `${pendingDecisions.length} 个候选已有可解释建议，等待人工确认。`,
+    target: "quality",
+    ...(pendingDecisions[0] ? { targetId: pendingDecisions[0].id } : {}),
+    count: pendingDecisions.length,
+    previewOnly: true,
+  });
 
   if (criticalReviews.length) actions.push({
     id: "today:critical-reviews",
@@ -271,5 +299,6 @@ export function aggregateToday(
     },
     pipelineSignal: pSignal,
     syncSignal: sync.state,
+    decisionSignal: decisionSignal(decisions),
   };
 }

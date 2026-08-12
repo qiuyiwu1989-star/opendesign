@@ -13,6 +13,7 @@ import type {
   OperationsSection,
   OperationsSnapshot,
   RawDiscovery,
+  RawCurationDecision,
   RawJob,
   RawOriginIssue,
   RawQualityIssue,
@@ -64,6 +65,27 @@ function discovery(row: RawDiscovery): ReviewCase {
     ...(row.createdAt ? { createdAt: row.createdAt } : {}),
     evidence: [`source=${row.source ?? "unknown"}`, `score=${score}`, `status=${row.status ?? "pending"}`],
     previewOnly: true,
+  };
+}
+
+function decision(row: RawCurationDecision) {
+  return {
+    id: row.id,
+    candidateId: row.discoveryId,
+    candidateTitle: row.candidateTitle,
+    ...(row.candidateUrl ? { candidateUrl: row.candidateUrl } : {}),
+    recommendation: row.recommendation,
+    confidence: row.confidence,
+    reason: row.reason,
+    policyVersion: row.policyVersion,
+    model: row.model,
+    decidedAt: row.decidedAt,
+    reviewStatus: row.reviewStatus,
+    ...(row.reviewedBy ? { reviewedBy: row.reviewedBy } : {}),
+    ...(row.reviewedAt ? { reviewedAt: row.reviewedAt } : {}),
+    signals: row.signals,
+    source: { kind: "live" as const, label: "production curation decisions", generatedAt: row.decidedAt },
+    previewOnly: true as const,
   };
 }
 
@@ -188,12 +210,14 @@ export function adaptOperationsEnvelope(envelope: OperationsEnvelope): Operation
     ...envelope.quality.items.map(quality),
     ...envelope.origins.items.map(origin),
   ];
+  const decisions = envelope.decisions.items.map(decision);
   const pipelines = [...envelope.jobs.items.map(job), ...envelope.logs.items.map(log)]
     .sort((a, b) => (b.createdAt ?? "").localeCompare(a.createdAt ?? "") || a.id.localeCompare(b.id));
   return {
     reviews,
+    decisions,
     pipelines,
-    reviewSource: descriptor([envelope.submissions, envelope.discoveries, envelope.quality, envelope.origins], "Operations reviews", diagnostics),
+    reviewSource: descriptor([envelope.submissions, envelope.discoveries, envelope.decisions, envelope.quality, envelope.origins], "Operations reviews", diagnostics),
     pipelineSource: descriptor([envelope.jobs, envelope.logs], "Operations pipelines", diagnostics),
     diagnostics,
     observedAt: envelope.observedAt,

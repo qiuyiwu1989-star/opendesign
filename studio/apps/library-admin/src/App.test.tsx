@@ -28,11 +28,11 @@ describe("OpenDesign Control Room Phase 1", () => {
     expect(screen.queryByRole("heading", { name: "今天，先做这三件事" })).not.toBeInTheDocument();
   });
 
-  it("exposes five keyboard-operable destinations and identifies the current screen", () => {
+  it("exposes six keyboard-operable destinations and identifies the current screen", () => {
     render(<App initialSnapshot={controlRoomSnapshot}/>);
 
     const navigation = screen.getByRole("navigation");
-    const destinations = ["Today", "统一审核", "设计资源", "管线运行", "GitHub Sync"];
+    const destinations = ["Today", "质量决策", "统一审核", "设计资源", "管线运行", "GitHub Sync"];
     for (const name of destinations) {
       expect(within(navigation).getByRole("button", { name: new RegExp(name, "i") })).toBeEnabled();
     }
@@ -43,6 +43,20 @@ describe("OpenDesign Control Room Phase 1", () => {
     expect(sync).toHaveAttribute("aria-current", "page");
     expect(within(navigation).getByRole("button", { name: /Today/i })).not.toHaveAttribute("aria-current");
     expect(screen.getByRole("heading", { level: 1, name: "看见内容在五层之间的漂移" })).toBeInTheDocument();
+  });
+
+  it("shows an auditable AI curation journal with hard spam and ad signals", () => {
+    render(<App initialSnapshot={controlRoomSnapshot}/>);
+    navigate("质量决策");
+
+    expect(screen.getByRole("heading", { level: 1, name: "每一个收录与拒绝，都留下判断证据" })).toBeInTheDocument();
+    const journal = screen.getByRole("list", { name: "每日 AI 决策记录" });
+    expect(within(journal).getByRole("listitem")).toHaveTextContent("建议拒绝");
+    expect(screen.getAllByText("opendesign-curation-v1.0")).toHaveLength(2);
+    expect(screen.getByText("mimo-v2.5")).toBeInTheDocument();
+    expect(screen.getByText("垃圾风险")).toBeInTheDocument();
+    expect(screen.getByText("广告风险")).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: "预览确认" })).toBeInTheDocument();
   });
 
   it("shows the top three actions in their supplied priority order and labels snapshot provenance", () => {
@@ -87,6 +101,7 @@ describe("OpenDesign Control Room Phase 1", () => {
     expect(within(recommendedRow).getByText("E3")).toBeInTheDocument();
     expect(within(recommendedRow).getByText("推荐")).toBeInTheDocument();
     expect(within(recommendedRow).getByText("正常")).toBeInTheDocument();
+    expect(within(recommendedRow).getByLabelText("资产完整度 100%")).toBeInTheDocument();
   });
 
   it("shows ordered pipeline checkpoints without an execution or retry control", () => {
