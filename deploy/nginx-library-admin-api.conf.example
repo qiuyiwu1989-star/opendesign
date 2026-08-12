@@ -1,6 +1,6 @@
 # REVIEWED INCLUDE EXAMPLE ONLY — do not install without a separate deployment approval.
 # Include inside the existing HTTPS opendesign.cc server block. The application
-# process must bind only to 127.0.0.1:8790; nginx remains the public boundary.
+# process must bind only to 127.0.0.1:18790; nginx remains the public boundary.
 # Define these zones once in the nginx `http {}` context:
 # limit_req_zone $binary_remote_addr zone=opendesign_admin_read:10m rate=60r/m;
 # limit_req_zone $binary_remote_addr zone=opendesign_admin_auth:10m rate=10r/m;
@@ -11,7 +11,7 @@ location = /admin-api/v1/login {
     limit_except POST { deny all; }
     add_header Strict-Transport-Security "max-age=63072000; includeSubDomains; preload" always;
     add_header Access-Control-Allow-Origin "" always;
-    proxy_pass http://127.0.0.1:8790;
+    proxy_pass http://127.0.0.1:18790;
     include proxy_params;
     proxy_set_header Host $host;
     proxy_set_header X-Forwarded-Proto https;
@@ -31,7 +31,7 @@ location ~ ^/admin-api/v1/(session|operations|sync|health/(live|ready))$ {
     limit_except GET { deny all; }
     add_header Strict-Transport-Security "max-age=63072000; includeSubDomains; preload" always;
     add_header Access-Control-Allow-Origin "" always;
-    proxy_pass http://127.0.0.1:8790;
+    proxy_pass http://127.0.0.1:18790;
     include proxy_params;
     proxy_set_header Host $host;
     proxy_set_header X-Forwarded-Proto https;
@@ -51,7 +51,7 @@ location = /admin-api/v1/logout {
     limit_except POST { deny all; }
     add_header Strict-Transport-Security "max-age=63072000; includeSubDomains; preload" always;
     add_header Access-Control-Allow-Origin "" always;
-    proxy_pass http://127.0.0.1:8790;
+    proxy_pass http://127.0.0.1:18790;
     include proxy_params;
     proxy_set_header Host $host;
     proxy_set_header X-Forwarded-Proto https;

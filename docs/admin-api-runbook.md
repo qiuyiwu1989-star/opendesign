@@ -24,7 +24,7 @@ required value is missing or malformed.
 | Name | Purpose / constraint |
 | --- | --- |
 | `ADMIN_API_HOST` | Must be exactly `127.0.0.1`. |
-| `ADMIN_API_PORT` | Loopback listener port; implementation/example default is `8790`. |
+| `ADMIN_API_PORT` | Loopback listener port; production release uses `18790` to avoid the existing `8790` listener. |
 | `ADMIN_API_PUBLIC_ORIGIN` | Exact HTTPS origin used for Origin checks. |
 | `ADMIN_API_SIGNING_SECRET` | At least 32 unpredictable bytes; session signing only. |
 | `ADMIN_API_AUDIT_HASH_KEY` | Separate at-least-32-byte key for IP/UA HMAC redaction. |
