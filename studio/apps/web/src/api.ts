@@ -15,7 +15,24 @@ export type StudioExportResult = {
   renderer: string;
   warning?: string;
   files: Array<{ name: string; downloadUrl: string }>;
+  bundle?: { name: string; downloadUrl: string };
   editabilityReport?: unknown;
+};
+
+export type StudioQaIssue = {
+  issueId: string;
+  sceneId: string;
+  elementIds: string[];
+  category: string;
+  severity: "blocker" | "error" | "warning" | "note";
+  message: string;
+  safeAutoFix: boolean;
+};
+
+export type StudioQaReport = {
+  documentId: string;
+  summary: { blocker: number; error: number; warning: number; note: number; total: number };
+  issues: StudioQaIssue[];
 };
 
 async function apiRequest<T>(path: string, init?: RequestInit): Promise<T> {
@@ -68,5 +85,12 @@ export async function createExport(projectId: string, kind: StudioExportKind): P
   return apiRequest<StudioExportResult>(`/api/projects/${projectId}/exports`, {
     method: "POST",
     body: JSON.stringify({ kind }),
+  });
+}
+
+export async function runProjectQa(document: SceneDocument): Promise<StudioQaReport> {
+  return apiRequest<StudioQaReport>("/api/qa", {
+    method: "POST",
+    body: JSON.stringify({ document }),
   });
 }

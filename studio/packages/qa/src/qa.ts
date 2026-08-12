@@ -37,7 +37,7 @@ function issue(category: QaIssue["category"], severity: QaIssue["severity"], sce
     category,
     severity,
     message,
-    safeAutoFix: false,
+    safeAutoFix: category === "readability.contrast" || category === "readability.font_size",
   };
 }
 

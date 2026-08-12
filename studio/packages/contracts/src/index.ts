@@ -108,8 +108,12 @@ export type StudioIssue = {
     | "layout.out_of_bounds"
     | "readability.font_size"
     | "readability.contrast"
+    | "asset.missing"
+    | "asset.alt_missing"
     | "export.font_missing"
-    | "export.raster_fallback";
+    | "export.font_fallback"
+    | "export.raster_fallback"
+    | "export.omitted";
   severity: IssueSeverity;
   message: string;
   status: IssueStatus;

@@ -18,6 +18,7 @@ beforeEach(() => {
       return new Response(JSON.stringify({ document: request.document, revision: { revisionId: "revision_test", parentRevisionId: null, createdAt: new Date().toISOString(), reason: "edit", patches: [] }, persisted: true }), { status: 200 });
     }
     if (init?.method === "POST" && path.endsWith("/generate")) return new Response(JSON.stringify({ document: generatedDocument, storyline: [], generator: "local-rules-v0" }), { status: 201 });
+    if (init?.method === "POST" && path === "/api/qa") return new Response(JSON.stringify({ documentId: fixture.documentId, summary: { blocker: 0, error: 0, warning: 0, note: 0, total: 0 }, issues: [] }), { status: 200 });
     if (!init?.method && path === "/api/projects") return new Response(JSON.stringify({ projects: [] }), { status: 200 });
     if (!init?.method && path.endsWith("/revisions")) return new Response(JSON.stringify({ revisions: [] }), { status: 200 });
     if (init?.method === "POST" && path.endsWith("/exports")) {
@@ -26,7 +27,10 @@ beforeEach(() => {
         exportId: `export_test_${kind.kind}`,
         kind: kind.kind,
         renderer: "test-renderer",
-        files: [{ name: `doc_studio_v0.${kind.kind}`, downloadUrl: `/api/exports/export_test_${kind.kind}/doc_studio_v0.${kind.kind}` }],
+        files: kind.kind === "png"
+          ? Array.from({ length: 6 }, (_, index) => ({ name: `slide-${index + 1}.png`, downloadUrl: `/api/exports/export_test_png/slide-${index + 1}.png` }))
+          : [{ name: `doc_studio_v0.${kind.kind}`, downloadUrl: `/api/exports/export_test_${kind.kind}/doc_studio_v0.${kind.kind}` }],
+        ...(kind.kind === "png" ? { bundle: { name: "doc_studio_v0-png.zip", downloadUrl: "/api/exports/export_test_png/doc_studio_v0-png.zip" } } : {}),
       }), { status: 201 });
     }
     return new Response(JSON.stringify({ error: "Project not found" }), { status: 404 });
@@ -65,16 +69,18 @@ describe("OpenDesign Studio workspace", () => {
     await waitFor(() => expect(screen.getByText("已持久化到本地")).toBeInTheDocument());
   });
 
-  it("locates QA issues and exposes safe fixes", () => {
+  it("shows live deterministic QA rather than canned issues", async () => {
     render(<App />);
     fireEvent.click(screen.getByRole("tab", { name: /QA/ }));
+    expect(await screen.findByText("确定性检查已通过")).toBeInTheDocument();
+    expect(fetch).toHaveBeenCalledWith("/api/qa", expect.objectContaining({ method: "POST" }));
+  });
 
-    fireEvent.click(screen.getByText("正文接近安全行数上限，建议精简 12–18 个字。"));
-    expect(screen.getAllByText("漂亮截图，不等于可用作品。").length).toBeGreaterThan(0);
-
-    fireEvent.click(screen.getByRole("button", { name: "安全修复" }));
-    expect(screen.getByText("2 项需要确认")).toBeInTheDocument();
-    expect(screen.getByText("1 个 IR patch")).toBeInTheDocument();
+  it("offers one PNG ZIP download for the complete deck", async () => {
+    render(<App />);
+    fireEvent.click(screen.getByRole("button", { name: "导出作品" }));
+    fireEvent.click(screen.getByRole("button", { name: "PNG 图集：生成" }));
+    expect(await screen.findByRole("link", { name: "下载 6 页 ZIP" })).toHaveAttribute("href", "/api/exports/export_test_png/doc_studio_v0-png.zip");
   });
 
   it("persists before creating a real local export", async () => {

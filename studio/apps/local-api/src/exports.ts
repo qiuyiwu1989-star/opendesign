@@ -1,6 +1,7 @@
 import { randomUUID } from "node:crypto";
 import { mkdir, writeFile } from "node:fs/promises";
 import { basename, join } from "node:path";
+import JSZip from "jszip";
 import type { SceneDocument } from "@opendesign/studio-contracts";
 import { runDeterministicQa } from "@opendesign/studio-qa";
 import { exportDocumentToPptx, renderDocumentToHtml, renderSceneToPngBuffer } from "@opendesign/studio-renderers";
@@ -11,6 +12,7 @@ export type LocalExportResult = {
   exportId: string;
   kind: ExportKind;
   files: ExportFile[];
+  bundle?: ExportFile;
   renderer: string;
   warning?: string;
   editabilityReport?: unknown;
@@ -49,16 +51,23 @@ export class LocalExportService {
 
     if (kind === "png") {
       const pngNames: string[] = [];
+      const zip = new JSZip();
       for (const [index, scene] of document.scenes.slice().sort((left, right) => left.order - right.order).entries()) {
         const name = `slide-${index + 1}.png`;
-        await writeFile(join(directory, name), renderSceneToPngBuffer(document, scene));
+        const buffer = renderSceneToPngBuffer(document, scene);
+        await writeFile(join(directory, name), buffer);
+        zip.file(name, buffer);
         pngNames.push(name);
       }
+      const bundleName = `${document.documentId}-png.zip`;
+      await writeFile(join(directory, bundleName), await zip.generateAsync({ type: "nodebuffer", compression: "DEFLATE", compressionOptions: { level: 6 } }));
+      const bundle = this.files(exportId, [bundleName])[0]!;
       return {
         exportId,
         kind,
         renderer: "scene-ir-native-canvas",
         files: this.files(exportId, pngNames),
+        bundle,
         qa,
       };
     }

@@ -10,45 +10,13 @@ import {
   listRevisions,
   loadProject,
   persistProject,
+  runProjectQa,
   type ProjectSummary,
   type StoredRevision,
   type StudioExportResult,
 } from "./api";
 
 const initialDocument = fixture as unknown as SceneDocument;
-
-const initialIssues: StudioIssue[] = [
-  {
-    issueId: "issue_reading_length",
-    sceneId: "scene_problem",
-    elementIds: ["problem_body"],
-    category: "layout.overflow",
-    severity: "warning",
-    message: "正文接近安全行数上限，建议精简 12–18 个字。",
-    status: "open",
-    safeAutoFix: false,
-  },
-  {
-    issueId: "issue_metric_contrast",
-    sceneId: "scene_system",
-    elementIds: ["system_html"],
-    category: "readability.contrast",
-    severity: "error",
-    message: "该输出标签在当前方向下的对比度低于 4.5:1。",
-    status: "open",
-    safeAutoFix: true,
-  },
-  {
-    issueId: "issue_title_export",
-    sceneId: "scene_cover",
-    elementIds: ["cover_title"],
-    category: "export.font_missing",
-    severity: "note",
-    message: "PPTX 将使用可编辑的系统衬线字体替代。",
-    status: "open",
-    safeAutoFix: false,
-  },
-];
 
 type InspectorTab = "edit" | "qa" | "history" | "export";
 type ExportKind = "html" | "png" | "pptx";
@@ -186,7 +154,7 @@ function ExportCard({ kind, title, description, state, result, onExport }: { kin
         {state === "working" ? <span className="spinner" /> : state === "ready" ? <Icon name="check" size={13} /> : <Icon name="download" size={13} />}
         {labels[state]}
       </Button>
-      {state === "ready" && result?.files[0] && <a className="export-card__download" href={result.files[0].downloadUrl} download>{kind === "png" ? `下载 ${result.files.length} 页` : "下载文件"}</a>}
+      {state === "ready" && result?.files[0] && <a className="export-card__download" href={(kind === "png" ? result.bundle : result.files[0])?.downloadUrl ?? result.files[0].downloadUrl} download>{kind === "png" ? `下载 ${result.files.length} 页 ZIP` : "下载文件"}</a>}
       {state === "error" && <small className="export-card__error">生成失败，请检查本地 API。</small>}
     </div>
   );
@@ -200,7 +168,8 @@ export function App() {
   const [brief, setBrief] = useState("把文章或提案转化成一套能继续编辑、持续迭代的视觉叙事。核心受众是需要快速交付提案的独立创作者与小团队。");
   const [patches, setPatches] = useState<ScenePatch[]>([]);
   const [documentDirty, setDocumentDirty] = useState(false);
-  const [issues, setIssues] = useState(initialIssues);
+  const [issues, setIssues] = useState<StudioIssue[]>([]);
+  const [qaState, setQaState] = useState<"checking" | "ready" | "error">("checking");
   const [exportStates, setExportStates] = useState<Record<ExportKind, ExportState>>({ html: "idle", png: "idle", pptx: "idle" });
   const [exportResults, setExportResults] = useState<Partial<Record<ExportKind, StudioExportResult>>>({});
   const [syncState, setSyncState] = useState<SyncState>("local");
@@ -234,6 +203,24 @@ export function App() {
   const issueElementIds = useMemo(() => new Set(sceneIssues.flatMap((issue) => issue.elementIds)), [sceneIssues]);
   const unsavedCount = patches.length;
   const hasUnsavedChanges = documentDirty || unsavedCount > 0;
+  const qaScore = qaState === "ready" ? Math.max(0, 100 - openIssues.reduce((score, issue) => score + ({ blocker: 35, error: 20, warning: 8, note: 2 }[issue.severity]), 0)) : 0;
+  const totalElements = document.scenes.reduce((count, item) => count + item.elements.length, 0);
+  const pptxReport = exportResults.pptx?.editabilityReport as { summary?: { nativeElements?: number; rasterFallbacks?: number; omittedElements?: number } } | undefined;
+
+  useEffect(() => {
+    let active = true;
+    setQaState("checking");
+    const timeout = window.setTimeout(() => {
+      runProjectQa(document)
+        .then((report) => {
+          if (!active) return;
+          setIssues(report.issues.map((issue) => ({ ...issue, category: issue.category as StudioIssue["category"], status: "open" })));
+          setQaState("ready");
+        })
+        .catch(() => { if (active) setQaState("error"); });
+    }, 180);
+    return () => { active = false; window.clearTimeout(timeout); };
+  }, [document]);
 
   async function refreshProjects() {
     setProjects(await listProjects());
@@ -252,6 +239,7 @@ export function App() {
     setExportResults({});
     setExportStates({ html: "idle", png: "idle", pptx: "idle" });
     setSyncState("saved");
+    setInspectorTab("edit");
   }
 
   function selectDirection(directionId: string) {
@@ -293,7 +281,16 @@ export function App() {
       setPatches((current) => [...current, patch]);
       setDocumentDirty(true);
     }
-    setIssues((current) => current.map((issue) => issue.issueId === issueId ? { ...issue, status: "fixed" } : issue));
+    if (issue.category === "readability.font_size" && targetElementId) {
+      const target = getElement(document, targetElementId);
+      if (target) {
+        const minimum = target.role === "eyebrow" ? 16 : target.role === "title" ? 35 : target.role === "metric" || target.role === "quote" ? 24 : target.role === "caption" ? 14 : 16;
+        const patch: ScenePatch = { elementId: targetElementId, field: "fontSize", value: minimum };
+        setDocument((current) => patchElement(current, patch));
+        setPatches((current) => [...current, patch]);
+        setDocumentDirty(true);
+      }
+    }
   }
 
   async function saveRevision() {
@@ -401,7 +398,7 @@ export function App() {
           <span className={`sync-state ${hasUnsavedChanges || syncState === "error" ? "is-dirty" : ""}`}><i />{syncState === "saving" ? "正在保存" : syncState === "error" ? "本地 API 不可用" : unsavedCount > 0 ? `${unsavedCount} 个 IR patch` : documentDirty ? "有未保存的设计变更" : syncState === "saved" ? "已持久化到本地" : "本地修订"}</span>
           <Button size="sm" tone="outline" onClick={saveRevision} disabled={!hasUnsavedChanges || syncState === "saving"}>保存修订</Button>
           <Button size="sm" tone="primary" onClick={() => setInspectorTab("export")}><Icon name="play" size={13} /> 导出作品</Button>
-          <Button size="sm" aria-label="更多操作"><Icon name="more" size={17} /></Button>
+          <Button size="sm" aria-label="更多操作" disabled title="首版暂不提供更多操作"><Icon name="more" size={17} /></Button>
         </div>
       </header>
 
@@ -420,7 +417,7 @@ export function App() {
           </section>
 
           <section className="panel-section storyline-section">
-            <div className="section-heading"><div><Kicker>Storyline</Kicker><h2>故事线</h2></div><Button size="sm" aria-label="添加页面"><Icon name="plus" size={13} /></Button></div>
+            <div className="section-heading"><div><Kicker>Storyline</Kicker><h2>故事线</h2></div><Badge>固定 6 页</Badge></div>
             <ol className="storyline-list">
               {document.scenes.map((item) => {
                 const count = openIssues.filter((issue) => issue.sceneId === item.id).length;
@@ -442,11 +439,7 @@ export function App() {
           <div className="stage-toolbar">
             <div className="stage-toolbar__scene"><Kicker>Page {String(scene.order).padStart(2, "0")}</Kicker><strong>{scene.title}</strong><Badge>{scene.layout}</Badge></div>
             <div className="stage-toolbar__tools">
-              <Button size="sm" aria-label="文本工具"><Icon name="text" size={15} /></Button>
-              <Button size="sm" aria-label="图片工具"><Icon name="image" size={15} /></Button>
-              <Button size="sm" aria-label="图层"><Icon name="layers" size={15} /></Button>
-              <span />
-              <Button size="sm"><Icon name="eye" size={15} /> 适应画布</Button>
+              <Badge tone="success">Scene IR 0.1</Badge>
               <span className="zoom-label">67%</span>
             </div>
           </div>
@@ -458,7 +451,6 @@ export function App() {
 
           <div className="filmstrip" aria-label="页面缩略图">
             {document.scenes.map((item) => <SceneThumbnail key={item.id} scene={item} direction={direction} active={item.id === scene.id} issueCount={openIssues.filter((issue) => issue.sceneId === item.id).length} onSelect={() => selectScene(item.id)} />)}
-            <button type="button" className="filmstrip__add"><Icon name="plus" /><span>新增页面</span></button>
           </div>
         </section>
 
@@ -482,9 +474,10 @@ export function App() {
 
           {inspectorTab === "qa" && (
             <div className="inspector-content">
-              <div className="qa-summary"><ProgressRing value={82} /><div><Kicker>Render health</Kicker><h2>{openIssues.length} 项需要确认</h2><p>{openIssues.filter((issue) => issue.severity === "error").length} 错误 · {openIssues.filter((issue) => issue.severity === "warning").length} 警告 · {openIssues.filter((issue) => issue.severity === "note").length} 提示</p></div></div>
+              <div className="qa-summary"><ProgressRing value={qaScore} /><div><Kicker>Render health</Kicker><h2>{qaState === "checking" ? "正在检查当前作品" : qaState === "error" ? "本地 QA 不可用" : `${openIssues.length} 项需要确认`}</h2><p>{openIssues.filter((issue) => issue.severity === "error" || issue.severity === "blocker").length} 错误 · {openIssues.filter((issue) => issue.severity === "warning").length} 警告 · {openIssues.filter((issue) => issue.severity === "note").length} 提示</p></div></div>
               <div className="qa-filter"><button type="button" className="is-active">全部 {openIssues.length}</button><button type="button">当前页 {sceneIssues.length}</button><button type="button">已修复 {issues.length - openIssues.length}</button></div>
               <div className="issue-list">
+                {qaState === "ready" && openIssues.length === 0 && <div className="empty-history"><Icon name="check" size={22} /><strong>确定性检查已通过</strong><small>没有发现越界、碰撞、字号、对比度或资产问题。</small></div>}
                 {openIssues.map((issue) => <div role="button" tabIndex={0} key={issue.issueId} className={`issue-card issue-card--${issue.severity} ${issue.sceneId === scene.id ? "is-current" : ""}`} onClick={() => locateIssue(issue)} onKeyDown={(event) => { if (event.key === "Enter" || event.key === " ") locateIssue(issue); }}>
                   <span className="issue-card__icon"><Icon name="warning" size={15} /></span>
                   <span className="issue-card__copy"><span><Badge tone={issue.severity === "error" ? "warning" : "neutral"}>{issue.category.split(".")[1]}</Badge><small>{document.scenes.find((item) => item.id === issue.sceneId)?.title}</small></span><strong>{issue.message}</strong><small>{issue.elementIds.join(" · ")}</small></span>
@@ -512,14 +505,14 @@ export function App() {
 
           {inspectorTab === "export" && (
             <div className="inspector-content">
-              <div className="inspector-heading"><div><Kicker>Export center</Kicker><h2>一次编辑，三个输出</h2></div><Badge tone="success">QA 82</Badge></div>
+              <div className="inspector-heading"><div><Kicker>Export center</Kicker><h2>一次编辑，三个输出</h2></div><Badge tone={qaState === "ready" && openIssues.length === 0 ? "success" : "neutral"}>QA {qaState === "ready" ? qaScore : "—"}</Badge></div>
               <p className="export-intro">三个格式共享当前 Scene IR 修订，不从 HTML 反推 PPT。</p>
               <div className="export-list">
                 <ExportCard kind="html" title="交互式 HTML" description="保留语义与响应式预览" state={exportStates.html} result={exportResults.html} onExport={() => startExport("html")} />
                 <ExportCard kind="png" title="PNG 图集" description="6 页 · Scene IR 原生渲染" state={exportStates.png} result={exportResults.png} onExport={() => startExport("png")} />
                 <ExportCard kind="pptx" title="可编辑 PPTX" description="原生文字与形状优先" state={exportStates.pptx} result={exportResults.pptx} onExport={() => startExport("pptx")} />
               </div>
-              <div className="export-report"><div><Icon name="layers" size={16} /><strong>编辑性预检</strong></div><dl><div><dt>原生可编辑</dt><dd>21 元素</dd></div><div><dt>组件级栅格</dt><dd>0 元素</dd></div><div><dt>字体替换</dt><dd>1 项</dd></div></dl><Button tone="outline" size="sm">查看完整报告 <Icon name="arrow" size={13} /></Button></div>
+              <div className="export-report"><div><Icon name="layers" size={16} /><strong>编辑性预检</strong></div><dl><div><dt>原生可编辑</dt><dd>{pptxReport?.summary?.nativeElements ?? totalElements} 元素</dd></div><div><dt>组件级栅格</dt><dd>{pptxReport?.summary?.rasterFallbacks ?? 0} 元素</dd></div><div><dt>遗漏或占位</dt><dd>{pptxReport?.summary?.omittedElements ?? 0} 元素</dd></div></dl>{exportResults.pptx?.files.find((file) => file.name === "editability.json") && <a className="report-download" href={exportResults.pptx.files.find((file) => file.name === "editability.json")!.downloadUrl} download>下载完整报告 <Icon name="arrow" size={13} /></a>}</div>
               {Object.values(exportStates).some((state) => state === "ready") && <div className="ready-callout"><Icon name="check" size={16} /><div><strong>真实导出文件已生成</strong><small>文件仅保存在本机 .local-data，不会上传生产存储。</small></div></div>}
             </div>
           )}

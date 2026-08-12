@@ -23,6 +23,11 @@ API on `127.0.0.1:8787`. Project revisions and exports are written under
 `studio/.local-data/`, which is ignored by Git. The API is deliberately bound
 to loopback and has no production credentials or cloud adapters.
 
+The v0 workspace includes a deterministic QA pass that follows the active
+Scene IR, locates issues by scene/element ID, and offers bounded fixes for
+contrast and minimum font size. Export output includes semantic HTML, a
+six-page PNG ZIP, and a native-object PPTX plus its editability JSON report.
+
 PNG pages are rendered directly from Scene IR with the native canvas adapter;
 they do not pass through PPTX or LibreOffice. macOS and common Noto CJK Linux
 font locations are detected automatically. Other environments can set

@@ -43,15 +43,28 @@ test("local API persists a project and returns a real HTML export", async () => 
       body: JSON.stringify({ kind: "png" }),
     });
     assert.equal(pngExport.status, 201);
-    const pngResult = await pngExport.json() as { renderer: string; files: Array<{ downloadUrl: string }> };
+    const pngResult = await pngExport.json() as { renderer: string; files: Array<{ downloadUrl: string }>; bundle: { downloadUrl: string } };
     assert.equal(pngResult.renderer, "scene-ir-native-canvas");
     assert.equal(pngResult.files.length, 6);
     const pngBytes = await fetch(`${base}${pngResult.files[0]!.downloadUrl}`).then((response) => response.arrayBuffer()) as ArrayBuffer;
     const png = new Uint8Array(pngBytes);
     assert.deepEqual([...png.subarray(0, 8)], [137, 80, 78, 71, 13, 10, 26, 10]);
+    const zipBuffer = await fetch(`${base}${pngResult.bundle.downloadUrl}`).then((response) => response.arrayBuffer());
+    const zipBytes = new Uint8Array(zipBuffer as ArrayBuffer);
+    assert.deepEqual([...zipBytes.subarray(0, 4)], [80, 75, 3, 4]);
 
-    const revisions = await fetch(`${base}/api/projects/doc_studio_v0/revisions`).then((response) => response.json()) as { revisions: unknown[] };
+    const qaResponse = await fetch(`${base}/api/qa`, {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify({ document: fixture }),
+    });
+    assert.equal(qaResponse.status, 200);
+    const qa = await qaResponse.json() as { documentId: string; summary: { total: number } };
+    assert.equal(qa.documentId, "doc_studio_v0");
+
+    const revisions = await fetch(`${base}/api/projects/doc_studio_v0/revisions`).then((response) => response.json()) as { revisions: Array<{ revision: { reason: string } }> };
     assert.equal(revisions.revisions.length, 1);
+    assert.equal(revisions.revisions[0]?.revision.reason, "initial");
     const projects = await fetch(`${base}/api/projects`).then((response) => response.json()) as { projects: Array<{ projectId: string }> };
     assert.equal(projects.projects[0]?.projectId, "doc_studio_v0");
   } finally {

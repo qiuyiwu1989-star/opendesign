@@ -3,10 +3,11 @@ import { randomUUID } from "node:crypto";
 import { stat } from "node:fs/promises";
 import { createServer, type IncomingMessage, type ServerResponse } from "node:http";
 import { extname } from "node:path";
-import type { SceneDocument, ScenePatch } from "@opendesign/studio-contracts";
+import { assertSceneDocument, type SceneDocument, type ScenePatch } from "@opendesign/studio-contracts";
 import { LocalExportService, type ExportKind } from "./exports.js";
 import { generateProjectFromBrief } from "./generator.js";
 import { LocalProjectStore } from "./storage.js";
+import { runDeterministicQa } from "@opendesign/studio-qa";
 
 const JSON_LIMIT = 5 * 1024 * 1024;
 
@@ -34,6 +35,7 @@ function contentType(path: string): string {
     ".json": "application/json; charset=utf-8",
     ".pptx": "application/vnd.openxmlformats-officedocument.presentationml.presentation",
     ".png": "image/png",
+    ".zip": "application/zip",
     ".pdf": "application/pdf",
   } as Record<string, string>)[extname(path)] ?? "application/octet-stream";
 }
@@ -53,6 +55,13 @@ export function createStudioServer(options: { dataDirectory: string }) {
 
       if (request.method === "GET" && url.pathname === "/api/projects") {
         json(response, 200, { projects: await store.list() });
+        return;
+      }
+      if (request.method === "POST" && url.pathname === "/api/qa") {
+        const body = await readJson(request) as { document?: SceneDocument };
+        if (!body.document) throw new Error("Scene document is required");
+        assertSceneDocument(body.document);
+        json(response, 200, runDeterministicQa(body.document));
         return;
       }
       if (request.method === "POST" && url.pathname === "/api/projects/generate") {
@@ -83,7 +92,8 @@ export function createStudioServer(options: { dataDirectory: string }) {
       if (projectMatch && request.method === "PUT") {
         const body = await readJson(request) as { document?: SceneDocument; reason?: "edit" | "qa-fix" | "regenerate"; patches?: ScenePatch[] } | SceneDocument;
         const document = "document" in body && body.document ? body.document : body as SceneDocument;
-        const reason = "reason" in body && body.reason ? body.reason : "edit";
+        const existing = await store.read(projectMatch[1]!);
+        const reason = existing ? ("reason" in body && body.reason ? body.reason : "edit") : "initial";
         const patches = "patches" in body && Array.isArray(body.patches) ? body.patches : [];
         const stored = await store.appendRevision(projectMatch[1]!, document, { reason, patches });
         json(response, 200, { document: stored.document, revision: stored.revision, persisted: true });
