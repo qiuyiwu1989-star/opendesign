@@ -121,6 +121,20 @@ describe("Control Room read-only snapshot adapter", () => {
     expect(snapshot.today.topActions.every((action) => action.previewOnly)).toBe(true);
   });
 
+  it("turns missing operational evidence into explicit Today actions", async () => {
+    const snapshot = await createSnapshotAdapter({
+      siteIndex: syntheticSiteIndexFixture,
+      now: "2026-08-12T01:00:00.000Z",
+    }).load();
+
+    expect(snapshot.today.topActions).toHaveLength(3);
+    expect(snapshot.today.topActions.map((action) => action.title)).toEqual([
+      "补齐管线运行证据",
+      "清理统一审阅箱",
+      "补齐同步证据",
+    ]);
+  });
+
   it("rejects malformed site records instead of silently treating them as an empty library", () => {
     expect(() => parseStaticSiteIndex({ sites: [{ id: "missing-title-and-url" }] })).toThrowError(SnapshotValidationError);
     expect(() => parseStaticSiteIndex({ sites: "not-an-array" })).toThrowError(/sites must be an array/);

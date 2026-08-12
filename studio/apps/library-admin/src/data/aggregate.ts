@@ -211,6 +211,24 @@ export function aggregateToday(
     target: "sync",
     previewOnly: true,
   });
+  if (pipelines.length === 0) actions.push({
+    id: "today:pipeline-evidence",
+    kind: "pipeline",
+    priority: "medium",
+    title: "补齐管线运行证据",
+    summary: "当前未注入任务与日志快照；先接入只读运行记录，再判断自动化健康度。",
+    target: "pipelines",
+    previewOnly: true,
+  });
+  if (sync.state === "unknown") actions.push({
+    id: "today:sync-evidence",
+    kind: "sync",
+    priority: "medium",
+    title: "补齐同步证据",
+    summary: "Git、GitHub 与公开站修订信息尚不可比较，需要生成只读同步快照。",
+    target: "sync",
+    previewOnly: true,
+  });
   const regularReviews = pendingReviews.filter((review) => review.priority !== "critical");
   if (regularReviews.length) actions.push({
     id: "today:review-inbox",
