@@ -1,0 +1,53 @@
+# REVIEWED UNIT EXAMPLE ONLY — do not install/start without separate approval.
+[Unit]
+Description=OpenDesign read-only Admin API
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=opendesign-admin
+Group=opendesign-admin
+WorkingDirectory=/opt/opendesign/current/studio/apps/admin-api
+EnvironmentFile=/etc/opendesign/admin-api.env
+Environment=NODE_ENV=production
+Environment=ADMIN_API_HOST=127.0.0.1
+ExecStart=/usr/bin/node dist/index.js
+Restart=on-failure
+RestartSec=5s
+TimeoutStartSec=30s
+TimeoutStopSec=15s
+UMask=0077
+
+# Least privilege / filesystem isolation. Writable runtime state must stay in
+# RuntimeDirectory; code and environment files remain read-only to the service.
+NoNewPrivileges=true
+PrivateDevices=true
+PrivateTmp=true
+ProtectClock=true
+ProtectControlGroups=true
+ProtectHome=true
+ProtectHostname=true
+ProtectKernelLogs=true
+ProtectKernelModules=true
+ProtectKernelTunables=true
+ProtectProc=invisible
+ProtectSystem=strict
+ProcSubset=pid
+RestrictAddressFamilies=AF_UNIX AF_INET AF_INET6
+RestrictNamespaces=true
+RestrictRealtime=true
+RestrictSUIDSGID=true
+LockPersonality=true
+CapabilityBoundingSet=
+AmbientCapabilities=
+SystemCallArchitectures=native
+RuntimeDirectory=opendesign-admin-api
+RuntimeDirectoryMode=0700
+
+# The config validator fails startup unless ADMIN_API_HOST is exactly 127.0.0.1.
+# Confirm the bound socket in release acceptance. Inbound firewall policy is a
+# second boundary; outbound HTTPS/database access is needed for OAuth/readiness.
+
+[Install]
+WantedBy=multi-user.target
