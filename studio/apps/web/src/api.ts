@@ -1,4 +1,12 @@
-import type { SceneDocument } from "@opendesign/studio-contracts";
+import type { Revision, SceneDocument, ScenePatch } from "@opendesign/studio-contracts";
+
+export type ProjectSummary = { projectId: string; title: string; sceneCount: number; updatedAt: string };
+export type StoredRevision = { revision: Revision; document: SceneDocument };
+export type GeneratedProject = {
+  document: SceneDocument;
+  storyline: Array<{ sceneId: string; order: number; title: string; purpose: string; headline: string }>;
+  generator: "local-rules-v0";
+};
 
 export type StudioExportKind = "html" | "png" | "pptx";
 export type StudioExportResult = {
@@ -29,11 +37,31 @@ export async function loadProject(projectId: string): Promise<SceneDocument | nu
   }
 }
 
-export async function persistProject(document: SceneDocument): Promise<void> {
-  await apiRequest(`/api/projects/${document.documentId}`, {
-    method: "PUT",
-    body: JSON.stringify(document),
+export async function listProjects(): Promise<ProjectSummary[]> {
+  return (await apiRequest<{ projects: ProjectSummary[] }>("/api/projects")).projects;
+}
+
+export async function generateProject(brief: string, title?: string): Promise<GeneratedProject> {
+  return apiRequest<GeneratedProject>("/api/projects/generate", {
+    method: "POST",
+    body: JSON.stringify({ brief, ...(title ? { title } : {}) }),
   });
+}
+
+export async function duplicateProject(projectId: string): Promise<SceneDocument> {
+  return (await apiRequest<{ document: SceneDocument }>(`/api/projects/${projectId}/duplicate`, { method: "POST", body: "{}" })).document;
+}
+
+export async function listRevisions(projectId: string): Promise<StoredRevision[]> {
+  return (await apiRequest<{ revisions: StoredRevision[] }>(`/api/projects/${projectId}/revisions`)).revisions;
+}
+
+export async function persistProject(document: SceneDocument, patches: ScenePatch[] = [], reason: "edit" | "qa-fix" | "regenerate" = "edit"): Promise<StoredRevision> {
+  const result = await apiRequest<{ document: SceneDocument; revision: Revision }>(`/api/projects/${document.documentId}`, {
+    method: "PUT",
+    body: JSON.stringify({ document, patches, reason }),
+  });
+  return { document: result.document, revision: result.revision };
 }
 
 export async function createExport(projectId: string, kind: StudioExportKind): Promise<StudioExportResult> {

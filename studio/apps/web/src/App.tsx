@@ -2,7 +2,18 @@ import { useEffect, useMemo, useRef, useState, type CSSProperties } from "react"
 import type { DesignDirection, Scene, SceneDocument, SceneElement, ScenePatch, StudioIssue } from "@opendesign/studio-contracts";
 import fixture from "@opendesign/studio-contracts/fixtures/proposal-v0";
 import { Badge, Button, Icon, Kicker, ProgressRing, Tabs } from "@opendesign/studio-ui";
-import { createExport, loadProject, persistProject, type StudioExportResult } from "./api";
+import {
+  createExport,
+  duplicateProject,
+  generateProject,
+  listProjects,
+  listRevisions,
+  loadProject,
+  persistProject,
+  type ProjectSummary,
+  type StoredRevision,
+  type StudioExportResult,
+} from "./api";
 
 const initialDocument = fixture as unknown as SceneDocument;
 
@@ -39,7 +50,7 @@ const initialIssues: StudioIssue[] = [
   },
 ];
 
-type InspectorTab = "edit" | "qa" | "export";
+type InspectorTab = "edit" | "qa" | "history" | "export";
 type ExportKind = "html" | "png" | "pptx";
 type ExportState = "idle" | "working" | "ready" | "error";
 type SyncState = "local" | "saving" | "saved" | "error";
@@ -188,20 +199,27 @@ export function App() {
   const [inspectorTab, setInspectorTab] = useState<InspectorTab>("edit");
   const [brief, setBrief] = useState("把文章或提案转化成一套能继续编辑、持续迭代的视觉叙事。核心受众是需要快速交付提案的独立创作者与小团队。");
   const [patches, setPatches] = useState<ScenePatch[]>([]);
-  const [savedPatchCount, setSavedPatchCount] = useState(0);
+  const [documentDirty, setDocumentDirty] = useState(false);
   const [issues, setIssues] = useState(initialIssues);
   const [exportStates, setExportStates] = useState<Record<ExportKind, ExportState>>({ html: "idle", png: "idle", pptx: "idle" });
   const [exportResults, setExportResults] = useState<Partial<Record<ExportKind, StudioExportResult>>>({});
   const [syncState, setSyncState] = useState<SyncState>("local");
+  const [projects, setProjects] = useState<ProjectSummary[]>([]);
+  const [revisions, setRevisions] = useState<StoredRevision[]>([]);
+  const [projectMenuOpen, setProjectMenuOpen] = useState(false);
+  const [generatorState, setGeneratorState] = useState<"idle" | "working" | "error">("idle");
+  const [generatorError, setGeneratorError] = useState("");
 
   useEffect(() => {
     let active = true;
-    loadProject(initialDocument.documentId)
-      .then((stored) => {
+    Promise.all([loadProject(initialDocument.documentId), listProjects()])
+      .then(([stored, availableProjects]) => {
+        if (active) setProjects(availableProjects);
         if (active && stored) {
           setDocument(stored);
           setSelectedSceneId(stored.scenes[0]?.id ?? "");
           setSyncState("saved");
+          void refreshRevisions(stored.documentId);
         }
       })
       .catch(() => { if (active) setSyncState("local"); });
@@ -214,10 +232,31 @@ export function App() {
   const openIssues = issues.filter((issue) => issue.status === "open");
   const sceneIssues = openIssues.filter((issue) => issue.sceneId === scene.id);
   const issueElementIds = useMemo(() => new Set(sceneIssues.flatMap((issue) => issue.elementIds)), [sceneIssues]);
-  const unsavedCount = patches.length - savedPatchCount;
+  const unsavedCount = patches.length;
+  const hasUnsavedChanges = documentDirty || unsavedCount > 0;
+
+  async function refreshProjects() {
+    setProjects(await listProjects());
+  }
+
+  async function refreshRevisions(projectId = document.documentId) {
+    setRevisions(await listRevisions(projectId));
+  }
+
+  function openDocument(next: SceneDocument) {
+    setDocument(next);
+    setSelectedSceneId(next.scenes[0]?.id ?? "");
+    setSelectedElementId(null);
+    setPatches([]);
+    setDocumentDirty(false);
+    setExportResults({});
+    setExportStates({ html: "idle", png: "idle", pptx: "idle" });
+    setSyncState("saved");
+  }
 
   function selectDirection(directionId: string) {
     setDocument((current) => ({ ...current, selectedDirectionId: directionId }));
+    setDocumentDirty(true);
   }
 
   function selectScene(sceneId: string) {
@@ -235,6 +274,7 @@ export function App() {
     const patch: ScenePatch = { elementId: selectedElement.id, field: "content", value };
     setDocument((current) => patchElement(current, patch));
     setPatches((current) => [...current, patch]);
+    setDocumentDirty(true);
   }
 
   function locateIssue(issue: StudioIssue) {
@@ -251,6 +291,7 @@ export function App() {
       const patch: ScenePatch = { elementId: targetElementId, field: "color", value: "text" };
       setDocument((current) => patchElement(current, patch));
       setPatches((current) => [...current, patch]);
+      setDocumentDirty(true);
     }
     setIssues((current) => current.map((issue) => issue.issueId === issueId ? { ...issue, status: "fixed" } : issue));
   }
@@ -258,9 +299,11 @@ export function App() {
   async function saveRevision() {
     setSyncState("saving");
     try {
-      await persistProject(document);
-      setSavedPatchCount(patches.length);
+      await persistProject(document, patches, "edit");
+      setPatches([]);
+      setDocumentDirty(false);
       setSyncState("saved");
+      await Promise.all([refreshProjects(), refreshRevisions()]);
     } catch {
       setSyncState("error");
     }
@@ -269,14 +312,65 @@ export function App() {
   async function startExport(kind: ExportKind) {
     setExportStates((current) => ({ ...current, [kind]: "working" }));
     try {
-      await persistProject(document);
-      setSavedPatchCount(patches.length);
-      setSyncState("saved");
+      if (hasUnsavedChanges) {
+        await persistProject(document, patches, "edit");
+        setPatches([]);
+        setDocumentDirty(false);
+        setSyncState("saved");
+        await Promise.all([refreshProjects(), refreshRevisions()]);
+      }
       const result = await createExport(document.documentId, kind);
       setExportResults((current) => ({ ...current, [kind]: result }));
       setExportStates((current) => ({ ...current, [kind]: "ready" }));
     } catch {
       setExportStates((current) => ({ ...current, [kind]: "error" }));
+    }
+  }
+
+  async function switchProject(projectId: string) {
+    const stored = await loadProject(projectId);
+    if (!stored) return;
+    openDocument(stored);
+    setProjectMenuOpen(false);
+    await refreshRevisions(projectId);
+  }
+
+  async function createFromBrief() {
+    setGeneratorState("working");
+    setGeneratorError("");
+    try {
+      const generated = await generateProject(brief);
+      openDocument(generated.document);
+      await Promise.all([refreshProjects(), refreshRevisions(generated.document.documentId)]);
+      setGeneratorState("idle");
+    } catch (error) {
+      setGeneratorError(error instanceof Error ? error.message : "生成失败");
+      setGeneratorState("error");
+    }
+  }
+
+  async function copyCurrentProject() {
+    setGeneratorState("working");
+    try {
+      const copy = await duplicateProject(document.documentId);
+      openDocument(copy);
+      setProjectMenuOpen(false);
+      await Promise.all([refreshProjects(), refreshRevisions(copy.documentId)]);
+      setGeneratorState("idle");
+    } catch (error) {
+      setGeneratorError(error instanceof Error ? error.message : "复制失败");
+      setGeneratorState("error");
+    }
+  }
+
+  async function restoreRevision(stored: StoredRevision) {
+    setSyncState("saving");
+    try {
+      await persistProject(stored.document, [], "regenerate");
+      openDocument(stored.document);
+      await Promise.all([refreshProjects(), refreshRevisions(stored.document.documentId)]);
+    } catch {
+      setSyncState("error");
     }
   }
 
@@ -289,13 +383,23 @@ export function App() {
           <span className="brand__product">Studio</span>
         </div>
         <div className="project-title">
-          <button type="button"><Icon name="chevron" size={14} /> 项目</button>
+          <button type="button" onClick={() => setProjectMenuOpen((open) => !open)} aria-expanded={projectMenuOpen}><Icon name="chevron" size={14} /> 项目</button>
           <span>/</span>
           <strong>{document.title}</strong>
+          {projectMenuOpen && <div className="project-menu">
+            <div className="project-menu__heading"><span><Kicker>Local projects</Kicker><strong>{projects.length} 个本地项目</strong></span><Button size="sm" tone="outline" onClick={copyCurrentProject} disabled={generatorState === "working"}><Icon name="plus" size={12} /> 复制当前</Button></div>
+            <div className="project-menu__list">
+              {projects.length === 0 && <p>保存当前项目或从 Brief 生成一个新项目。</p>}
+              {projects.map((project) => <button type="button" key={project.projectId} className={project.projectId === document.documentId ? "is-active" : ""} onClick={() => switchProject(project.projectId)}>
+                <span><strong>{project.title}</strong><small>{project.sceneCount} 页 · {new Date(project.updatedAt).toLocaleString("zh-CN", { month: "numeric", day: "numeric", hour: "2-digit", minute: "2-digit" })}</small></span>
+                {project.projectId === document.documentId && <Icon name="check" size={13} />}
+              </button>)}
+            </div>
+          </div>}
         </div>
         <div className="topbar__actions">
-          <span className={`sync-state ${unsavedCount > 0 || syncState === "error" ? "is-dirty" : ""}`}><i />{syncState === "saving" ? "正在保存" : syncState === "error" ? "本地 API 不可用" : unsavedCount > 0 ? `${unsavedCount} 个 IR patch` : syncState === "saved" ? "已持久化到本地" : "本地修订"}</span>
-          <Button size="sm" tone="outline" onClick={saveRevision} disabled={unsavedCount === 0 || syncState === "saving"}>保存修订</Button>
+          <span className={`sync-state ${hasUnsavedChanges || syncState === "error" ? "is-dirty" : ""}`}><i />{syncState === "saving" ? "正在保存" : syncState === "error" ? "本地 API 不可用" : unsavedCount > 0 ? `${unsavedCount} 个 IR patch` : documentDirty ? "有未保存的设计变更" : syncState === "saved" ? "已持久化到本地" : "本地修订"}</span>
+          <Button size="sm" tone="outline" onClick={saveRevision} disabled={!hasUnsavedChanges || syncState === "saving"}>保存修订</Button>
           <Button size="sm" tone="primary" onClick={() => setInspectorTab("export")}><Icon name="play" size={13} /> 导出作品</Button>
           <Button size="sm" aria-label="更多操作"><Icon name="more" size={17} /></Button>
         </div>
@@ -310,7 +414,9 @@ export function App() {
           <section className="panel-section brief-section">
             <div className="section-heading"><Kicker>Project input</Kicker><Button size="sm" aria-label="编辑项目输入"><Icon name="edit" size={13} /></Button></div>
             <textarea value={brief} onChange={(event) => setBrief(event.target.value)} aria-label="项目 Brief" />
-            <div className="source-meta"><span><Icon name="file" size={13} /> Brief · 84 字</span><Badge tone="success">已解析</Badge></div>
+            <div className="source-meta"><span><Icon name="file" size={13} /> Brief · {[...brief].length} 字</span><Badge tone={brief.trim().length >= 12 ? "success" : "neutral"}>{brief.trim().length >= 12 ? "可生成" : "继续输入"}</Badge></div>
+            <Button size="sm" tone="primary" onClick={createFromBrief} disabled={generatorState === "working" || brief.trim().length < 12}><Icon name="spark" size={13} />{generatorState === "working" ? "正在生成故事线" : "生成新项目"}</Button>
+            {generatorState === "error" && <small className="generator-error">{generatorError}</small>}
           </section>
 
           <section className="panel-section storyline-section">
@@ -358,7 +464,7 @@ export function App() {
 
         <aside className="inspector-panel">
           <div className="inspector-tabs">
-            <Tabs value={inspectorTab} onChange={setInspectorTab} label="检查器" items={[{ value: "edit", label: "编辑" }, { value: "qa", label: "QA", count: openIssues.length }, { value: "export", label: "导出" }]} />
+            <Tabs value={inspectorTab} onChange={setInspectorTab} label="检查器" items={[{ value: "edit", label: "编辑" }, { value: "qa", label: "QA", count: openIssues.length }, { value: "history", label: "版本", count: revisions.length }, { value: "export", label: "导出" }]} />
           </div>
 
           {inspectorTab === "edit" && (
@@ -389,13 +495,28 @@ export function App() {
             </div>
           )}
 
+          {inspectorTab === "history" && (
+            <div className="inspector-content">
+              <div className="inspector-heading"><div><Kicker>Revision history</Kicker><h2>完整快照，可随时回退</h2></div><Badge>{revisions.length} 个版本</Badge></div>
+              <p className="history-intro">每次保存都记录原因、时间和 Scene IR patch；回退会生成一个新版本，不会覆盖旧记录。</p>
+              <div className="revision-list">
+                {revisions.length === 0 && <div className="empty-history"><Icon name="layers" size={22} /><strong>还没有版本记录</strong><small>修改内容后点击“保存修订”。</small></div>}
+                {revisions.map((stored, index) => <article className={index === 0 ? "is-current" : ""} key={stored.revision.revisionId}>
+                  <div><span className="revision-dot" /><span><strong>{stored.revision.reason === "initial" ? "初始生成" : stored.revision.reason === "regenerate" ? "版本回退" : stored.revision.reason === "qa-fix" ? "QA 修复" : "编辑修订"}</strong><small>{new Date(stored.revision.createdAt).toLocaleString("zh-CN")}</small></span>{index === 0 && <Badge tone="success">当前</Badge>}</div>
+                  <p>{stored.revision.patches.length > 0 ? `${stored.revision.patches.length} 个可追踪 patch` : "完整 Scene IR 快照"}</p>
+                  {index > 0 && <Button size="sm" tone="outline" onClick={() => restoreRevision(stored)}>恢复此版本</Button>}
+                </article>)}
+              </div>
+            </div>
+          )}
+
           {inspectorTab === "export" && (
             <div className="inspector-content">
               <div className="inspector-heading"><div><Kicker>Export center</Kicker><h2>一次编辑，三个输出</h2></div><Badge tone="success">QA 82</Badge></div>
               <p className="export-intro">三个格式共享当前 Scene IR 修订，不从 HTML 反推 PPT。</p>
               <div className="export-list">
                 <ExportCard kind="html" title="交互式 HTML" description="保留语义与响应式预览" state={exportStates.html} result={exportResults.html} onExport={() => startExport("html")} />
-                <ExportCard kind="png" title="PNG 图集" description="6 页 · 本地 Office fallback" state={exportStates.png} result={exportResults.png} onExport={() => startExport("png")} />
+                <ExportCard kind="png" title="PNG 图集" description="6 页 · Scene IR 原生渲染" state={exportStates.png} result={exportResults.png} onExport={() => startExport("png")} />
                 <ExportCard kind="pptx" title="可编辑 PPTX" description="原生文字与形状优先" state={exportStates.pptx} result={exportResults.pptx} onExport={() => startExport("pptx")} />
               </div>
               <div className="export-report"><div><Icon name="layers" size={16} /><strong>编辑性预检</strong></div><dl><div><dt>原生可编辑</dt><dd>21 元素</dd></div><div><dt>组件级栅格</dt><dd>0 元素</dd></div><div><dt>字体替换</dt><dd>1 项</dd></div></dl><Button tone="outline" size="sm">查看完整报告 <Icon name="arrow" size={13} /></Button></div>

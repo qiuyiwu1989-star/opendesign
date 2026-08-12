@@ -26,3 +26,23 @@ test("local project store rejects traversal and mismatched document identity", a
   await assert.rejects(() => store.read("../escape"), /Invalid project ID/);
   await assert.rejects(() => store.write("different_project", document), /does not match/);
 });
+
+test("local project store lists projects and keeps full revision snapshots", async () => {
+  const directory = await mkdtemp(join(tmpdir(), "opendesign-history-"));
+  try {
+    const store = new LocalProjectStore(directory);
+    await store.create(document);
+    const revised = structuredClone(document);
+    revised.title = "Revised Studio project";
+    await store.appendRevision(document.documentId, revised, { reason: "edit", patches: [] });
+    const projects = await store.list();
+    const revisions = await store.listRevisions(document.documentId);
+    assert.equal(projects[0]?.title, "Revised Studio project");
+    assert.equal(revisions.length, 2);
+    assert.equal(revisions[0]?.revision.reason, "edit");
+    assert.equal(revisions[0]?.revision.parentRevisionId, revisions[1]?.revision.revisionId);
+    assert.equal(revisions[1]?.document.title, document.title);
+  } finally {
+    await rm(directory, { recursive: true, force: true });
+  }
+});

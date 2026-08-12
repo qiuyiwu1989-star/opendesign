@@ -42,8 +42,20 @@ button:focus-visible, input:focus-visible, textarea:focus-visible { outline: 2px
 .brand__product { border-left: 1px solid #d4d4d7; padding-left: 8px; color: #8b8c93; font: 600 10px/1 var(--studio-mono); letter-spacing: .05em; text-transform: uppercase; }
 
 .project-title { display: flex; align-items: center; justify-content: center; min-width: 0; color: #a0a1a7; font-size: 11px; }
+.project-title { position: relative; }
 .project-title button { border: 0; background: none; color: #929399; cursor: pointer; display: flex; align-items: center; gap: 2px; }
 .project-title strong { color: #4b4c52; font-weight: 600; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 440px; }
+.project-menu { position: absolute; top: 38px; left: 50%; width: 360px; transform: translateX(-50%); overflow: hidden; border: 1px solid #d9d9dc; border-radius: 12px; background: #fff; box-shadow: 0 18px 50px #19191f24; color: #393a40; }
+.project-menu__heading { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 12px; border-bottom: 1px solid #ececee; }
+.project-menu__heading > span { display: grid; gap: 4px; }
+.project-menu__heading strong { font-size: 11px; }
+.project-menu__list { max-height: 280px; padding: 5px; overflow: auto; }
+.project-menu__list > p { margin: 0; padding: 20px; color: #929399; font-size: 9px; text-align: center; }
+.project-menu__list > button { width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 9px; border: 0; border-radius: 8px; padding: 9px; background: transparent; color: #4d4e54; text-align: left; cursor: pointer; }
+.project-menu__list > button:hover, .project-menu__list > button.is-active { background: #f0eff8; }
+.project-menu__list > button > span { min-width: 0; display: grid; gap: 4px; }
+.project-menu__list > button strong { max-width: 295px; font-size: 10px; }
+.project-menu__list > button small { color: #999aa0; font-size: 8px; }
 
 .topbar__actions { display: flex; align-items: center; justify-content: flex-end; gap: 5px; }
 .sync-state { display: inline-flex; align-items: center; gap: 6px; padding-right: 7px; color: #898a90; font-size: 10px; white-space: nowrap; }
@@ -82,6 +94,8 @@ button:focus-visible, input:focus-visible, textarea:focus-visible { outline: 2px
 .brief-section textarea { width: 100%; height: 85px; margin-top: 8px; border: 0; padding: 0; resize: none; background: transparent; color: #4e4f56; font-size: 11px; line-height: 1.65; }
 .source-meta { margin-top: 9px; display: flex; align-items: center; justify-content: space-between; }
 .source-meta > span { display: flex; align-items: center; gap: 5px; color: #999aa1; font: 500 9px/1 var(--studio-mono); }
+.brief-section > .od-button { width: 100%; margin-top: 10px; justify-content: center; }
+.generator-error { display: block; margin-top: 7px; color: #a43d30; font-size: 8px; line-height: 1.45; }
 
 .storyline-section { padding-inline: 9px; }
 .storyline-section > .section-heading { padding-inline: 6px; margin-bottom: 9px; }
@@ -191,6 +205,20 @@ button:focus-visible, input:focus-visible, textarea:focus-visible { outline: 2px
 .qa-note svg { flex: none; color: #6959df; }
 .qa-note p { margin: 0; font-size: 8px; line-height: 1.55; }
 .qa-note strong { color: #504a73; font-size: 9px; }
+
+.history-intro { margin: -5px 0 14px; color: #929399; font-size: 9px; line-height: 1.55; }
+.revision-list { display: grid; gap: 8px; }
+.revision-list article { padding: 11px; border: 1px solid #e1e1e4; border-radius: 9px; background: #fff; }
+.revision-list article.is-current { border-color: #cac6f3; background: #f7f6ff; }
+.revision-list article > div { display: flex; align-items: center; gap: 8px; }
+.revision-list article > div > span:nth-child(2) { min-width: 0; flex: 1; display: grid; gap: 3px; }
+.revision-list article strong { color: #4c4d53; font-size: 9px; }
+.revision-list article small { color: #9b9ca2; font: 500 7px/1 var(--studio-mono); }
+.revision-list article p { margin: 9px 0; color: #8e8f95; font-size: 8px; }
+.revision-dot { width: 8px; height: 8px; flex: none; border-radius: 50%; background: #bbb9c8; box-shadow: 0 0 0 3px #ededf0; }
+.is-current .revision-dot { background: #6c5ce2; box-shadow: 0 0 0 3px #e3dfff; }
+.empty-history { min-height: 180px; display: grid; place-items: center; align-content: center; gap: 7px; color: #8e8f95; text-align: center; }
+.empty-history strong { color: #55565c; font-size: 10px; }
 
 .export-intro { margin: -6px 0 15px; color: #929399; font-size: 9px; line-height: 1.55; }
 .export-list { display: grid; gap: 7px; }

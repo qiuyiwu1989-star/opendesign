@@ -1,9 +1,11 @@
 import { createReadStream } from "node:fs";
+import { randomUUID } from "node:crypto";
 import { stat } from "node:fs/promises";
 import { createServer, type IncomingMessage, type ServerResponse } from "node:http";
 import { extname } from "node:path";
-import type { SceneDocument } from "@opendesign/studio-contracts";
+import type { SceneDocument, ScenePatch } from "@opendesign/studio-contracts";
 import { LocalExportService, type ExportKind } from "./exports.js";
+import { generateProjectFromBrief } from "./generator.js";
 import { LocalProjectStore } from "./storage.js";
 
 const JSON_LIMIT = 5 * 1024 * 1024;
@@ -49,6 +51,29 @@ export function createStudioServer(options: { dataDirectory: string }) {
         return;
       }
 
+      if (request.method === "GET" && url.pathname === "/api/projects") {
+        json(response, 200, { projects: await store.list() });
+        return;
+      }
+      if (request.method === "POST" && url.pathname === "/api/projects/generate") {
+        const body = await readJson(request) as { brief?: string; title?: string };
+        const generated = generateProjectFromBrief({ brief: body.brief ?? "", ...(body.title === undefined ? {} : { title: body.title }) });
+        await store.create(generated.document);
+        json(response, 201, generated);
+        return;
+      }
+
+      const duplicateMatch = url.pathname.match(/^\/api\/projects\/([a-z][a-z0-9_-]{2,63})\/duplicate$/);
+      if (duplicateMatch && request.method === "POST") {
+        const source = await store.read(duplicateMatch[1]!);
+        if (!source) { json(response, 404, { error: "Project not found" }); return; }
+        const documentId = `project_${Date.now().toString(36)}_${randomUUID().slice(0, 6)}`;
+        const document: SceneDocument = { ...structuredClone(source), documentId, title: `${source.title} · 副本` };
+        await store.create(document);
+        json(response, 201, { document });
+        return;
+      }
+
       const projectMatch = url.pathname.match(/^\/api\/projects\/([a-z][a-z0-9_-]{2,63})$/);
       if (projectMatch && request.method === "GET") {
         const document = await store.read(projectMatch[1]!);
@@ -56,8 +81,18 @@ export function createStudioServer(options: { dataDirectory: string }) {
         return;
       }
       if (projectMatch && request.method === "PUT") {
-        const document = await store.write(projectMatch[1]!, await readJson(request) as SceneDocument);
-        json(response, 200, { document, persisted: true });
+        const body = await readJson(request) as { document?: SceneDocument; reason?: "edit" | "qa-fix" | "regenerate"; patches?: ScenePatch[] } | SceneDocument;
+        const document = "document" in body && body.document ? body.document : body as SceneDocument;
+        const reason = "reason" in body && body.reason ? body.reason : "edit";
+        const patches = "patches" in body && Array.isArray(body.patches) ? body.patches : [];
+        const stored = await store.appendRevision(projectMatch[1]!, document, { reason, patches });
+        json(response, 200, { document: stored.document, revision: stored.revision, persisted: true });
+        return;
+      }
+
+      const revisionMatch = url.pathname.match(/^\/api\/projects\/([a-z][a-z0-9_-]{2,63})\/revisions$/);
+      if (revisionMatch && request.method === "GET") {
+        json(response, 200, { revisions: await store.listRevisions(revisionMatch[1]!) });
         return;
       }
 
