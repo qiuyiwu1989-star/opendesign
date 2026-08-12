@@ -48,6 +48,6 @@ export function App({ initialSnapshot }: AppProps) {
     {screen === "assets" && <AssetsScreen assets={snapshot.assets} onPreview={openPreview}/>} 
     {screen === "pipelines" && <PipelinesScreen pipelines={snapshot.pipelines} onPreview={openPreview}/>} 
     {screen === "sync" && <SyncScreen sync={snapshot.sync} diagnostics={snapshot.diagnostics} onPreview={openPreview}/>} 
-    {preview && <PreviewDrawer title={preview.title} kicker="PREVIEW · NO WRITE" onClose={() => setPreview(undefined)}><div className="drawer-section preview-copy"><p>{preview.detail}</p><div className="preview-diff"><span>当前快照</span><i/><span>建议状态</span></div><small>变更确认、审计记录和写回能力不在 Phase 1 范围内。</small></div></PreviewDrawer>}
+    {preview && <PreviewDrawer title={preview.title} kicker="PREVIEW · NO WRITE" onClose={() => setPreview(undefined)}><div className="drawer-section preview-copy"><p>{preview.detail}</p><div className="preview-diff"><span>当前快照</span><i/><span>建议状态</span></div><small>变更确认、审计记录和写回能力不在当前只读阶段范围内。</small></div></PreviewDrawer>}
   </Shell>;
 }

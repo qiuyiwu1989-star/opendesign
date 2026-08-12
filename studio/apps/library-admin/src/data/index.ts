@@ -1,5 +1,8 @@
 import type { AdminSnapshot } from "../domain";
 import { createSnapshotAdapter } from "./snapshot";
+import { loadOperations } from "./providers/operations";
+import { loadSyncEvidence } from "./sync";
+import { loadCompactPackManifest } from "./pack";
 import type { LoadAdminSnapshotInput, SnapshotAdapterInput } from "./types";
 
 export * from "./aggregate";
@@ -8,7 +11,7 @@ export * from "./snapshot";
 export * from "./types";
 
 const DEFAULT_SITE_INDEX_URL = "/sites-index.json";
-const DEFAULT_PACK_INDEX_URL = "/packs-index.json";
+const DEFAULT_PACK_INDEX_URL = "/pack-manifest.json";
 
 async function fetchSiteIndex(url: string, fetcher: typeof fetch): Promise<unknown> {
   const response = await fetcher(url, {
@@ -41,24 +44,62 @@ export async function loadAdminSnapshot(
   try {
     const fetcher = input.fetcher ?? globalThis.fetch;
     if (!fetcher) throw new Error("fetch is unavailable");
-    packIndex = await fetchSiteIndex(input.packIndexUrl ?? DEFAULT_PACK_INDEX_URL, fetcher);
+    const manifest = await loadCompactPackManifest({
+      fetcher,
+      url: input.packIndexUrl ?? DEFAULT_PACK_INDEX_URL,
+    });
+    if (!manifest.ids) throw new Error("compact pack manifest unavailable");
+    packIndex = Object.fromEntries([...manifest.ids].map((id) => [id, true]));
   } catch {
     packIndex = input.fallback?.packIndex;
     packIndexUnavailable = !packIndex;
   }
 
   const fallback = input.fallback;
+  const shouldLoadOperationalEvidence = input.loadOperationalEvidence !== false;
+  const [operationsEvidence, syncEvidence] = shouldLoadOperationalEvidence
+    ? await Promise.all([
+        loadOperations({
+          ...(input.fetcher ? { fetcher: input.fetcher } : {}),
+          ...(input.operationsUrl ? { endpoint: input.operationsUrl } : {}),
+        }),
+        loadSyncEvidence({
+          ...(input.fetcher ? { fetcher: input.fetcher } : {}),
+          ...(input.syncUrl ? { url: input.syncUrl } : {}),
+          ...(input.now ? { now: input.now } : {}),
+        }),
+      ])
+    : [undefined, undefined];
   const adapterInput: SnapshotAdapterInput = {
     siteIndex,
     ...(packIndex ? { packIndex } : {}),
     ...(packIndexUnavailable ? { packIndexUnavailable: true } : {}),
   };
-  const reviews = input.reviews ?? fallback?.reviews;
-  const reviewSource = input.reviewSource ?? fallback?.reviewSource;
-  const pipelines = input.pipelines ?? fallback?.pipelines;
-  const pipelineSource = input.pipelineSource ?? fallback?.pipelineSource;
-  const sync = input.sync ?? fallback?.sync;
-  const syncSource = input.syncSource ?? fallback?.syncSource;
+  const operationsReviewsAvailable = operationsEvidence?.reviewSource.kind !== "unavailable";
+  const operationsPipelinesAvailable = operationsEvidence?.pipelineSource.kind !== "unavailable";
+  const syncAvailable = syncEvidence?.source.kind !== "unavailable";
+  const reviews = input.reviews
+    ?? (operationsReviewsAvailable ? operationsEvidence?.reviews : undefined)
+    ?? fallback?.reviews;
+  const reviewSource = input.reviewSource
+    ?? (operationsReviewsAvailable ? operationsEvidence?.reviewSource : undefined)
+    ?? fallback?.reviewSource
+    ?? operationsEvidence?.reviewSource;
+  const pipelines = input.pipelines
+    ?? (operationsPipelinesAvailable ? operationsEvidence?.pipelines : undefined)
+    ?? fallback?.pipelines;
+  const pipelineSource = input.pipelineSource
+    ?? (operationsPipelinesAvailable ? operationsEvidence?.pipelineSource : undefined)
+    ?? fallback?.pipelineSource
+    ?? operationsEvidence?.pipelineSource;
+  const sync = input.sync
+    ?? (syncAvailable ? syncEvidence?.sync : undefined)
+    ?? fallback?.sync
+    ?? syncEvidence?.sync;
+  const syncSource = input.syncSource
+    ?? (syncAvailable ? syncEvidence?.source : undefined)
+    ?? fallback?.syncSource
+    ?? syncEvidence?.source;
   const git = input.git ?? fallback?.git;
   const now = input.now ?? fallback?.now;
   if (reviews) adapterInput.reviews = reviews;

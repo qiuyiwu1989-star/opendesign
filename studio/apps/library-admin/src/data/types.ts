@@ -65,6 +65,9 @@ export interface LoadAdminSnapshotInput {
   syncSource?: DataSourceDescriptor;
   git?: GitReadOnlySnapshot;
   now?: string;
+  operationsUrl?: string;
+  syncUrl?: string;
+  loadOperationalEvidence?: boolean;
 }
 
 export class SnapshotValidationError extends Error {
