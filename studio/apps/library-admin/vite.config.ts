@@ -58,6 +58,7 @@ function librarySnapshots(): Plugin {
 }
 
 export default defineConfig({
+  base: "/admin/",
   plugins: [react(), librarySnapshots(), {
     name: "read-only-admin-api",
     configureServer(server) {
