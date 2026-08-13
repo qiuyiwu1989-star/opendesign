@@ -7,13 +7,23 @@ Create `/etc/opendesign/studio-api.env` as root, mode `0600`, owned by root. Do 
 ```dotenv
 STUDIO_PUBLIC_SESSION_SECRET=<at-least-32-random-bytes>
 STUDIO_GENERATION_MODE=live
-STUDIO_GENERATION_ENDPOINT=https://provider.example/v1/chat/completions
-STUDIO_GENERATION_MODEL=<model-id>
+STUDIO_GENERATION_PROVIDER=kimi-cn
 STUDIO_GENERATION_API_KEY=<server-side-key>
-STUDIO_GENERATION_PROVIDER_ID=<lowercase-provider-id>
 ```
 
 `STUDIO_GENERATION_MODE=fixture` is allowed only for an explicitly labelled non-production demo. Missing or invalid live configuration becomes `generationMode=unavailable`; it never silently falls back to fixture.
+
+`kimi-cn` pins the official `https://api.moonshot.cn/v1/chat/completions` endpoint, provider ID `kimi`, and current default `kimi-k3`. Use `kimi-global` only for a key issued by the global platform; it pins `https://api.moonshot.ai/v1/chat/completions`. `STUDIO_GENERATION_MODEL` may explicitly override the preset model after a reviewed compatibility test.
+
+For a different OpenAI-compatible provider, omit `STUDIO_GENERATION_PROVIDER` and configure all three generic values explicitly:
+
+```dotenv
+STUDIO_GENERATION_ENDPOINT=https://provider.example/v1/chat/completions
+STUDIO_GENERATION_MODEL=<model-id>
+STUDIO_GENERATION_PROVIDER_ID=<lowercase-provider-id>
+```
+
+The Kimi key must exist only in the root-owned environment file. Do not pass it through a shell command line, systemd `Environment=`, a frontend variable, a health response, GitHub Actions output, or a smoke-test fixture. The repository contains only provider identifiers and public endpoints.
 
 ## Preflight
 
@@ -21,8 +31,9 @@ STUDIO_GENERATION_PROVIDER_ID=<lowercase-provider-id>
 2. Build the immutable Studio release and run the repository release gate.
 3. Start the candidate API on a spare loopback port with the same service user and data directory copy.
 4. Confirm `/api/health` reports the intended `generationMode` without a credential.
-5. Use two independent cookie jars. Create one project and one fixture/mock job in jar A; jar B must receive `404` for both IDs and an empty project list.
-6. Confirm the first response sets `HttpOnly; Secure; SameSite=Lax; Path=/` and a seven-day `Max-Age`.
+5. Run one bounded live Kimi smoke task using non-confidential fixture content. Verify the result passes Design Director validation, compiler, inert importer and QA; HTTP success alone is insufficient evidence.
+6. Use two independent cookie jars. Create one project and one mock job in jar A; jar B must receive `404` for both IDs and an empty project list.
+7. Confirm the first response sets `HttpOnly; Secure; SameSite=Lax; Path=/` and a seven-day `Max-Age`.
 
 ## Runtime evidence
 

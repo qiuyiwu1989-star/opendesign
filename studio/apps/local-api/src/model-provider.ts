@@ -10,7 +10,7 @@ export type GenerationProviderPublicInfo = {
   generationMode: GenerationMode;
   providerId?: string;
   model?: string;
-  reason?: "mode_not_configured" | "live_configuration_incomplete" | "live_configuration_invalid";
+  reason?: "mode_not_configured" | "live_configuration_incomplete" | "live_configuration_invalid" | "live_preset_unsupported";
 };
 
 export type GenerationProviderConfiguration = {
@@ -34,6 +34,35 @@ function unavailable(reason: NonNullable<GenerationProviderPublicInfo["reason"]>
   return { mode: "unavailable", provider: null, publicInfo: { generationMode: "unavailable", reason } };
 }
 
+type LiveProviderPreset = {
+  endpoint: string;
+  providerId: string;
+  defaultModel: string;
+};
+
+export const KIMI_CHINA_CHAT_COMPLETIONS_ENDPOINT = "https://api.moonshot.cn/v1/chat/completions" as const;
+export const KIMI_GLOBAL_CHAT_COMPLETIONS_ENDPOINT = "https://api.moonshot.ai/v1/chat/completions" as const;
+export const KIMI_DEFAULT_MODEL = "kimi-k3" as const;
+
+const LIVE_PROVIDER_PRESETS = {
+  "kimi-cn": {
+    endpoint: KIMI_CHINA_CHAT_COMPLETIONS_ENDPOINT,
+    providerId: "kimi",
+    defaultModel: KIMI_DEFAULT_MODEL,
+  },
+  "kimi-global": {
+    endpoint: KIMI_GLOBAL_CHAT_COMPLETIONS_ENDPOINT,
+    providerId: "kimi",
+    defaultModel: KIMI_DEFAULT_MODEL,
+  },
+} as const satisfies Record<string, LiveProviderPreset>;
+
+function preset(value: string | undefined): LiveProviderPreset | undefined | null {
+  const name = trimmed(value);
+  if (name === undefined) return undefined;
+  return name in LIVE_PROVIDER_PRESETS ? LIVE_PROVIDER_PRESETS[name as keyof typeof LIVE_PROVIDER_PRESETS] : null;
+}
+
 /**
  * Converts explicit server environment configuration into a provider. It never
  * performs I/O, never exposes the API key and never falls back from live to a
@@ -51,20 +80,21 @@ export function configureGenerationProvider(options: ConfigureGenerationProvider
   }
   if (mode !== "live") return unavailable("mode_not_configured");
 
-  const endpoint = trimmed(options.env.STUDIO_GENERATION_ENDPOINT);
-  const model = trimmed(options.env.STUDIO_GENERATION_MODEL);
+  const selectedPreset = preset(options.env.STUDIO_GENERATION_PROVIDER);
+  if (selectedPreset === null) return unavailable("live_preset_unsupported");
+  const endpoint = selectedPreset?.endpoint ?? trimmed(options.env.STUDIO_GENERATION_ENDPOINT);
+  const model = trimmed(options.env.STUDIO_GENERATION_MODEL) ?? selectedPreset?.defaultModel;
   const apiKey = trimmed(options.env.STUDIO_GENERATION_API_KEY);
   if (!endpoint || !model || !apiKey) return unavailable("live_configuration_incomplete");
 
   try {
+    const configuredProviderId = selectedPreset?.providerId ?? trimmed(options.env.STUDIO_GENERATION_PROVIDER_ID);
     const provider = createOpenAICompatibleAdapter({
       endpoint,
       model,
       apiKey,
       fetch: options.fetch ?? globalThis.fetch,
-      ...(trimmed(options.env.STUDIO_GENERATION_PROVIDER_ID)
-        ? { providerId: trimmed(options.env.STUDIO_GENERATION_PROVIDER_ID)! }
-        : {}),
+      ...(configuredProviderId ? { providerId: configuredProviderId } : {}),
     });
     return {
       mode: "live",

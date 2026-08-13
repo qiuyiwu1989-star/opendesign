@@ -7,7 +7,7 @@
 
 ## Next（已排序的待办）
 - [ ] 建立任务感知的 Library Pattern 检索，返回适用理由、来源和许可状态
-- [ ] 增加 Kimi HTML/CSS Worker adapter；输出继续经过 compiler/importer/Scene IR/QA
+- [ ] 在隔离预检中用非机密 fixture 执行一次有界 Kimi live smoke，并归档 compiler/importer/QA 结果
 - [ ] 修复 Benchmark 已识别的研究演讲 7 个、文章配图 12 个 QA error
 - [ ] 扩展首批 10 套经过 Golden Task 验证的 Design Pack
 - [ ] 建立设计质量、人工修正时间与可编辑率 Benchmark
@@ -17,6 +17,7 @@
 - [ ] 定义人工确认后的发布候选变更集，继续保持 preview-first
 
 ## Done（倒序，保留最近 20 条，附 commit hash）
+- [x] Kimi China/Global 生产 preset、安全配置门禁和运行手册；继续复用 provider-neutral compiler/importer/QA 链（待本次提交）
 - [x] Agent Design OS Phase 0：核心对象 schema、Capability Manifest、跨对象门禁与可重放运行事件状态机（待本次提交，spec: 007）
 - [x] 将产品升级为 Agent Design OS，冻结 Library/Registry/Studio/Runtime/Connect 五面架构与用户旅程（9e5c868，spec: 007）
 - [x] Studio v0.7：真实模型生成 Job、匿名会话隔离/配额/清理、对话区任务体验与跨 Cookie 安全门禁（待本次提交，spec: 006）
