@@ -1,5 +1,7 @@
 import { randomUUID } from "node:crypto";
-import type { SceneDocument, SceneElement } from "@opendesign/studio-contracts";
+import { createHash } from "node:crypto";
+import type { DesignPackPin, SceneDocument, SceneElement } from "@opendesign/studio-contracts";
+import { designDirections, getDesignPack } from "@opendesign/studio-design-packs/catalog";
 import fixture from "../../../packages/contracts/fixtures/proposal-v0.json" with { type: "json" };
 
 export type StorylineItem = { sceneId: string; order: number; title: string; purpose: string; headline: string };
@@ -25,7 +27,7 @@ function text(element: SceneElement, content: string): SceneElement {
   return element.content === undefined ? element : { ...element, content };
 }
 
-export function generateProjectFromBrief(input: { brief: string; documentId?: string; title?: string }): GeneratedProject {
+export function generateProjectFromBrief(input: { brief: string; documentId?: string; title?: string; designPack?: DesignPackPin }): GeneratedProject {
   const brief = clean(input.brief);
   if (brief.length < 12) throw new Error("Brief 至少需要 12 个字符");
   if (brief.length > 12_000) throw new Error("Brief 不能超过 12,000 个字符");
@@ -35,6 +37,9 @@ export function generateProjectFromBrief(input: { brief: string; documentId?: st
   const detail = trimSentence(parts.slice(2).join(" ") || brief, 64);
   const title = clean(input.title ?? "") || thesis;
   const documentId = input.documentId ?? `project_${Date.now().toString(36)}_${randomUUID().slice(0, 6)}`;
+  const packPin = input.designPack ?? { id: "executive-proposal-cn", version: "1.0.0" };
+  const pack = getDesignPack(packPin.id, packPin.version);
+  if (!pack) throw new Error(`Unknown Design Pack ${packPin.id}@${packPin.version}`);
   const base = structuredClone(fixture) as SceneDocument;
 
   const sceneCopy: Array<{ title: string; purpose: string; contentById: Record<string, string> }> = [
@@ -55,7 +60,20 @@ export function generateProjectFromBrief(input: { brief: string; documentId?: st
       elements: scene.elements.map((element) => copy.contentById[element.id] === undefined ? element : text(element, copy.contentById[element.id]!)),
     };
   });
-  const document: SceneDocument = { ...base, documentId, title, scenes };
+  const directions = designDirections(pack.id);
+  const document: SceneDocument = {
+    ...base,
+    documentId,
+    title,
+    directions,
+    selectedDirectionId: `direction_${pack.id}`,
+    scenes,
+    designPack: { id: pack.id, version: pack.version },
+    provenance: {
+      sources: [{ sourceId: "source_brief", type: "brief", title: "Studio Brief", contentHash: `sha256:${createHash("sha256").update(brief).digest("hex")}` }],
+      generatedBy: { kind: "human", name: "studio-local-generator", version: "0.3.0" },
+    },
+  };
   return {
     document,
     generator: "local-rules-v0",

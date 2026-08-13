@@ -3,7 +3,8 @@ import { randomUUID } from "node:crypto";
 import { stat } from "node:fs/promises";
 import { createServer, type IncomingMessage, type ServerResponse } from "node:http";
 import { extname } from "node:path";
-import { assertSceneDocument, type SceneDocument, type ScenePatch } from "@opendesign/studio-contracts";
+import { assertSceneDocument, type DesignPackPin, type DocumentProvenance, type SceneDocument, type ScenePatch } from "@opendesign/studio-contracts";
+import { importStructuredHtml } from "@opendesign/studio-html-importer";
 import { LocalExportService, type ExportKind } from "./exports.js";
 import { generateProjectFromBrief } from "./generator.js";
 import { LocalProjectStore } from "./storage.js";
@@ -15,13 +16,13 @@ import { join } from "node:path";
 const JSON_LIMIT = 5 * 1024 * 1024;
 const SAFE_IMAGE_MIME = new Set(["image/png", "image/jpeg"]);
 
-async function readJson(request: IncomingMessage): Promise<unknown> {
+async function readJson(request: IncomingMessage, limit = JSON_LIMIT): Promise<unknown> {
   let size = 0;
   const chunks: Buffer[] = [];
   for await (const chunk of request) {
     const buffer = Buffer.isBuffer(chunk) ? chunk : Buffer.from(chunk);
     size += buffer.byteLength;
-    if (size > JSON_LIMIT) throw new Error("Request body exceeds 5 MB");
+    if (size > limit) throw new Error(`Request body exceeds ${Math.floor(limit / 1024)} KiB`);
     chunks.push(buffer);
   }
   return JSON.parse(Buffer.concat(chunks).toString("utf8"));
@@ -69,10 +70,25 @@ export function createStudioServer(options: { dataDirectory: string }) {
         return;
       }
       if (request.method === "POST" && url.pathname === "/api/projects/generate") {
-        const body = await readJson(request) as { brief?: string; title?: string };
-        const generated = generateProjectFromBrief({ brief: body.brief ?? "", ...(body.title === undefined ? {} : { title: body.title }) });
+        const body = await readJson(request) as { brief?: string; title?: string; designPack?: DesignPackPin };
+        const generated = generateProjectFromBrief({ brief: body.brief ?? "", ...(body.title === undefined ? {} : { title: body.title }), ...(body.designPack === undefined ? {} : { designPack: body.designPack }) });
         await store.create(generated.document);
         json(response, 201, generated);
+        return;
+      }
+      if (request.method === "POST" && url.pathname === "/api/imports/html") {
+        const body = await readJson(request, 640 * 1024) as { html?: string; provenance?: DocumentProvenance };
+        if (typeof body.html !== "string") throw new Error("HTML is required");
+        if (!body.provenance) throw new Error("Provenance is required");
+        const imported = importStructuredHtml({ html: body.html, provenance: body.provenance });
+        if (imported.status === "accepted" && imported.document) {
+          if (await store.read(imported.document.documentId)) {
+            json(response, 409, { error: "Project already exists", ...imported });
+            return;
+          }
+          await store.create(imported.document);
+        }
+        json(response, imported.status === "rejected" ? 422 : 201, imported);
         return;
       }
 

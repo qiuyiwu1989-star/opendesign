@@ -18,6 +18,16 @@ beforeEach(() => {
       return new Response(JSON.stringify({ document: request.document, revision: { revisionId: "revision_test", parentRevisionId: null, createdAt: new Date().toISOString(), reason: "edit", patches: [] }, persisted: true }), { status: 200 });
     }
     if (init?.method === "POST" && path.endsWith("/generate")) return new Response(JSON.stringify({ document: generatedDocument, storyline: [], generator: "local-rules-v0" }), { status: 201 });
+    if (init?.method === "POST" && path === "/api/imports/html") {
+      const request = JSON.parse(String(init.body)) as { html: string; provenance: unknown };
+      return new Response(JSON.stringify({
+        importVersion: "0.1.0",
+        status: request.html.includes("data-od-contract-version") ? "accepted" : "rejected",
+        ...(request.html.includes("data-od-contract-version") ? { document: { ...fixture, documentId: "doc_imported_ui", title: "安全导入作品", designPack: { id: "executive-proposal-cn", version: "1.0.0" }, provenance: request.provenance } } : {}),
+        diagnostics: request.html.includes("data-od-contract-version") ? [] : [{ diagnosticId: "diag_test", code: "design_pack.pin_missing", severity: "error", disposition: "blocked", message: "Contract root is missing", sourcePath: "/html" }],
+        security: { untrustedInput: true, executableContent: "blocked", blockedNodeCount: 0 },
+      }), { status: request.html.includes("data-od-contract-version") ? 201 : 422 });
+    }
     if (init?.method === "POST" && path === "/api/qa") return new Response(JSON.stringify({ documentId: fixture.documentId, summary: { blocker: 0, error: 0, warning: 0, note: 0, total: 0 }, issues: [] }), { status: 200 });
     if (init?.method === "POST" && path.endsWith("/assets")) return new Response(JSON.stringify({ assetId: "asset_test", name: "sample.png", mimeType: "image/png", width: 320, height: 180, url: "/api/assets/doc_studio_v0/asset_test.png" }), { status: 201 });
     if (!init?.method && path === "/api/projects") return new Response(JSON.stringify({ projects: [] }), { status: 200 });
@@ -78,6 +88,26 @@ describe("OpenDesign Studio workspace", () => {
     fireEvent.click(screen.getByRole("button", { name: "复制 Agent 标注" }));
     await waitFor(() => expect(writeText).toHaveBeenCalledWith(expect.stringContaining("editorial-story-graphics-cn@1.0.0")));
     expect(screen.getByRole("button", { name: "已复制 Agent 标注" })).toBeInTheDocument();
+  });
+
+  it("003 imports Structured HTML through the inert API and opens returned Scene IR", async () => {
+    render(<App />);
+    fireEvent.click(screen.getByRole("button", { name: /Sources/ }));
+    fireEvent.click(screen.getByRole("button", { name: "加载 Golden HTML" }));
+    expect(screen.getByLabelText<HTMLTextAreaElement>("Structured HTML 源码").value).toContain("data-od-contract-version");
+    fireEvent.click(screen.getByRole("button", { name: "安全导入 Scene IR" }));
+    expect(await screen.findByText("安全导入作品")).toBeInTheDocument();
+    expect(fetch).toHaveBeenCalledWith("/api/imports/html", expect.objectContaining({ method: "POST" }));
+  });
+
+  it("003 shows rejected import diagnostics without opening or persisting a document", async () => {
+    render(<App />);
+    fireEvent.click(screen.getByRole("button", { name: /Sources/ }));
+    fireEvent.change(screen.getByLabelText("Structured HTML 源码"), { target: { value: "<main>unsupported</main>" } });
+    fireEvent.click(screen.getByRole("button", { name: "安全导入 Scene IR" }));
+    expect(await screen.findByText("rejected")).toBeInTheDocument();
+    expect(screen.getByText("design_pack.pin_missing")).toBeInTheDocument();
+    expect(screen.getAllByText("OpenDesign Studio：让视觉作品继续生长").length).toBeGreaterThan(0);
   });
 
   it("records and persists text edits as Scene IR patches", async () => {

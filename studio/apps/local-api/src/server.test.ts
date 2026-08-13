@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import { once } from "node:events";
-import { mkdtemp, rm } from "node:fs/promises";
+import { mkdtemp, readFile, rm } from "node:fs/promises";
 import { createCanvas } from "@napi-rs/canvas";
 import type { AddressInfo } from "node:net";
 import { tmpdir } from "node:os";
@@ -103,10 +103,60 @@ test("local API creates a new generated project from a Brief", async () => {
       body: JSON.stringify({ brief: "把一篇关于创造者教育的文章转化为可以继续编辑的提案。内容要呈现作者身份，并说明 AI 时代为什么更需要主动创造。" }),
     });
     assert.equal(response.status, 201);
-    const generated = await response.json() as { document: { documentId: string; scenes: unknown[] }; storyline: unknown[] };
+    const generated = await response.json() as { document: { documentId: string; scenes: unknown[]; designPack: { id: string; version: string }; provenance: { sources: Array<{ contentHash: string }> }; directions: Array<{ id: string; tokens: { accent: string } }> }; storyline: unknown[] };
     assert.match(generated.document.documentId, /^project_/);
     assert.equal(generated.document.scenes.length, 6);
     assert.equal(generated.storyline.length, 6);
+    assert.deepEqual(generated.document.designPack, { id: "executive-proposal-cn", version: "1.0.0" });
+    assert.match(generated.document.provenance.sources[0]?.contentHash ?? "", /^sha256:[a-f0-9]{64}$/);
+    assert.equal(generated.document.directions[0]?.tokens.accent, "#D84A2F");
+  } finally {
+    server.close();
+    await once(server, "close");
+    await rm(directory, { recursive: true, force: true });
+  }
+});
+
+test("003 local API imports inert Structured HTML with diagnostics and persists only accepted documents", async () => {
+  const directory = await mkdtemp(join(tmpdir(), "opendesign-import-api-"));
+  const server = createStudioServer({ dataDirectory: directory });
+  server.listen(0, "127.0.0.1");
+  await once(server, "listening");
+  const port = (server.address() as AddressInfo).port;
+  const base = `http://127.0.0.1:${port}`;
+  const provenance = {
+    sources: [
+      { sourceId: "source_brief", type: "brief", title: "Brief" },
+      { sourceId: "source_constraints", type: "manual", title: "Constraints" },
+      { sourceId: "source_benchmark", type: "document", title: "Benchmark" },
+    ],
+    generatedBy: { kind: "skill", name: "opendesign-director", version: "0.3.0" },
+  };
+  try {
+    const html = await readFile(new URL("../../../fixtures/golden-task/structured-html-v01.html", import.meta.url), "utf8");
+    const accepted = await fetch(`${base}/api/imports/html`, { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ html, provenance }) });
+    assert.equal(accepted.status, 201);
+    const result = await accepted.json() as { status: string; document: { documentId: string } };
+    assert.equal(result.status, "accepted");
+    assert.equal(result.document.documentId, "doc_golden_import");
+    const revisions = await fetch(`${base}/api/projects/doc_golden_import/revisions`).then((response) => response.json()) as { revisions: Array<{ revision: { reason: string } }> };
+    assert.equal(revisions.revisions[0]?.revision.reason, "initial");
+
+    const dangerous = html.replace('data-od-document-id="doc_golden_import"', 'data-od-document-id="doc_rejected_import"').replace("scene_01_title", "scene_02_title");
+    const rejected = await fetch(`${base}/api/imports/html`, { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ html: dangerous, provenance }) });
+    assert.equal(rejected.status, 422);
+    const rejectedBody = await rejected.json() as { status: string; diagnostics: Array<{ code: string }> };
+    assert.equal(rejectedBody.status, "rejected");
+    assert.ok(rejectedBody.diagnostics.some((diagnostic) => diagnostic.code === "id.duplicate"));
+    assert.equal((await fetch(`${base}/api/projects/doc_rejected_import`)).status, 404);
+
+    const executable = html.replace('data-od-document-id="doc_golden_import"', 'data-od-document-id="doc_script_import"').replace("</main>", '<script>alert(1)</script></main>');
+    const scriptResponse = await fetch(`${base}/api/imports/html`, { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ html: executable, provenance }) });
+    assert.equal(scriptResponse.status, 422);
+    const scriptBody = await scriptResponse.json() as { status: string; diagnostics: Array<{ code: string }> };
+    assert.equal(scriptBody.status, "rejected");
+    assert.ok(scriptBody.diagnostics.some((diagnostic) => diagnostic.code === "security.script_blocked"));
+    assert.equal((await fetch(`${base}/api/projects/doc_script_import`)).status, 404);
   } finally {
     server.close();
     await once(server, "close");

@@ -1,4 +1,4 @@
-import type { Revision, SceneDocument, ScenePatch } from "@opendesign/studio-contracts";
+import type { DesignPackPin, DocumentProvenance, HtmlImportResult, Revision, SceneDocument, ScenePatch } from "@opendesign/studio-contracts";
 
 export type ProjectSummary = { projectId: string; title: string; sceneCount: number; updatedAt: string };
 export type StoredRevision = { revision: Revision; document: SceneDocument };
@@ -60,11 +60,23 @@ export async function listProjects(): Promise<ProjectSummary[]> {
   return (await apiRequest<{ projects: ProjectSummary[] }>("/api/projects")).projects;
 }
 
-export async function generateProject(brief: string, title?: string): Promise<GeneratedProject> {
+export async function generateProject(brief: string, title?: string, designPack?: DesignPackPin): Promise<GeneratedProject> {
   return apiRequest<GeneratedProject>("/api/projects/generate", {
     method: "POST",
-    body: JSON.stringify({ brief, ...(title ? { title } : {}) }),
+    body: JSON.stringify({ brief, ...(title ? { title } : {}), ...(designPack ? { designPack } : {}) }),
   });
+}
+
+export async function importProjectHtml(html: string, provenance: DocumentProvenance): Promise<HtmlImportResult> {
+  const response = await fetch("/api/imports/html", {
+    method: "POST",
+    headers: { "content-type": "application/json" },
+    body: JSON.stringify({ html, provenance }),
+  });
+  const payload = await response.json() as HtmlImportResult & { error?: string };
+  if (response.status === 422 && payload.status === "rejected") return payload;
+  if (!response.ok) throw new Error(payload.error || `Studio API returned ${response.status}`);
+  return payload;
 }
 
 export async function duplicateProject(projectId: string): Promise<SceneDocument> {

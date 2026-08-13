@@ -1,13 +1,15 @@
 import { useEffect, useMemo, useRef, useState, type CSSProperties, type PointerEvent as ReactPointerEvent } from "react";
-import type { DesignDirection, Scene, SceneDocument, SceneElement, ScenePatch, StudioIssue } from "@opendesign/studio-contracts";
+import type { DesignDirection, HtmlImportResult, Scene, SceneDocument, SceneElement, ScenePatch, StudioIssue } from "@opendesign/studio-contracts";
 import fixture from "@opendesign/studio-contracts/fixtures/proposal-v0";
 import { designPacks, getDesignPack } from "@opendesign/studio-design-packs/catalog";
 import { Badge, Button, Icon, Kicker, ProgressRing, Tabs } from "@opendesign/studio-ui";
 import goldenTaskFixture from "../../../fixtures/golden-task/design-studio-brief-v01.json";
+import goldenStructuredHtml from "../../../fixtures/golden-task/structured-html-v01.html?raw";
 import {
   createExport,
   duplicateProject,
   generateProject,
+  importProjectHtml,
   listProjects,
   listRevisions,
   loadProject,
@@ -256,6 +258,10 @@ export function App() {
   const initialPack = goldenTask.directions.find((item) => item.id === goldenTask.selectedDirectionId)?.pack;
   const [selectedPackId, setSelectedPackId] = useState(initialPack?.id ?? designPacks[0]?.id ?? "");
   const [annotationCopyState, setAnnotationCopyState] = useState<"idle" | "copied" | "manual">("idle");
+  const [htmlInput, setHtmlInput] = useState("");
+  const [importState, setImportState] = useState<"idle" | "working" | "ready" | "error">("idle");
+  const [importResult, setImportResult] = useState<HtmlImportResult | null>(null);
+  const [importError, setImportError] = useState("");
   const selectedPack = getDesignPack(selectedPackId);
 
   function commitDocument(update: SceneDocument | ((current: SceneDocument) => SceneDocument), localOnly = false) {
@@ -356,6 +362,32 @@ export function App() {
       setAnnotationCopyState("copied");
     } catch {
       setAnnotationCopyState("manual");
+    }
+  }
+
+  async function importHtml() {
+    setImportState("working");
+    setImportError("");
+    setImportResult(null);
+    try {
+      const result = await importProjectHtml(htmlInput, {
+        sources: [
+          { sourceId: "source_brief", type: "brief", title: goldenTask.sources[0]?.title ?? "Studio 产品简报", sourceRef: goldenTask.sources[0]?.sourceRef ?? "fixture://golden/brief" },
+          { sourceId: "source_constraints", type: "manual", title: goldenTask.sources[1]?.title ?? "安全约束", sourceRef: goldenTask.sources[1]?.sourceRef ?? "fixture://golden/constraints" },
+          { sourceId: "source_benchmark", type: "document", title: goldenTask.sources[2]?.title ?? "验收基线", sourceRef: goldenTask.sources[2]?.sourceRef ?? "fixture://golden/benchmark" },
+        ],
+        generatedBy: { kind: "skill", name: "opendesign-director", version: "0.3.0" },
+      });
+      setImportResult(result);
+      if (result.document) {
+        openDocument(result.document);
+        setSelectedPackId(result.document.designPack?.id ?? selectedPackId);
+        await Promise.all([refreshProjects(), refreshRevisions(result.document.documentId)]);
+      }
+      setImportState("ready");
+    } catch (error) {
+      setImportState("error");
+      setImportError(error instanceof Error ? error.message : "HTML 导入失败");
     }
   }
 
@@ -547,7 +579,7 @@ export function App() {
     setGeneratorState("working");
     setGeneratorError("");
     try {
-      const generated = await generateProject(brief);
+      const generated = await generateProject(brief, undefined, selectedPack ? { id: selectedPack.id, version: selectedPack.version } : undefined);
       if (hasUnsavedChanges) {
         const conflict = regenerationConflicts(document, generated.document);
         setRegenerationPreview({ document: generated.document, changedElementIds: conflict.changedElementIds });
@@ -637,6 +669,13 @@ export function App() {
               <div className="section-heading"><div><Kicker>Grounded input</Kicker><h2>来源与证据边界</h2></div><Badge tone="success">3 snapshots</Badge></div>
               <div className="source-list">{goldenTask.sources.map((source) => <article key={source.sourceId}><span><strong>{source.title}</strong><small>{source.sourceRef}</small></span><Badge>{source.status}</Badge></article>)}</div>
               <Button size="sm" tone="primary" onClick={loadGoldenBrief}>载入 Golden Brief</Button>
+              <div className="html-importer">
+                <div className="section-heading"><div><Kicker>Structured HTML</Kicker><h2>导入 Skill 生成结果</h2></div><Badge tone="accent">Inert parser</Badge></div>
+                <label><span>HTML 源码</span><textarea aria-label="Structured HTML 源码" value={htmlInput} onChange={(event) => setHtmlInput(event.target.value)} placeholder="粘贴带 data-od-* 标注的 HTML；不会执行脚本或加载远程资源。" /></label>
+                <div className="html-importer__actions"><Button size="sm" onClick={() => setHtmlInput(goldenStructuredHtml)}>加载 Golden HTML</Button><Button size="sm" tone="outline" onClick={importHtml} disabled={importState === "working" || htmlInput.trim().length === 0}>{importState === "working" ? "正在安全解析" : "安全导入 Scene IR"}</Button></div>
+                {importState === "error" && <p className="import-error" role="alert">{importError}</p>}
+                {importResult && <div className={`import-result import-result--${importResult.status}`} role="status"><span><strong>{importResult.status}</strong><small>{importResult.security.blockedNodeCount} 个可执行节点被阻断 · {importResult.diagnostics.length} 条诊断</small></span>{importResult.diagnostics.length > 0 && <ol>{importResult.diagnostics.slice(0, 6).map((diagnostic) => <li key={diagnostic.diagnosticId}><code>{diagnostic.code}</code><span>{diagnostic.sceneId ?? "document"}{diagnostic.elementId ? ` / ${diagnostic.elementId}` : ""}</span><p>{diagnostic.message}</p></li>)}</ol>}</div>}
+              </div>
             </>}
             {workflowStep === "outline" && <>
               <div className="section-heading"><div><Kicker>Narrative plan</Kicker><h2>7 页决策故事线</h2></div><Badge>{goldenTask.expectedOutline.length} roles</Badge></div>

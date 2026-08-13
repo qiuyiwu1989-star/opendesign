@@ -1,4 +1,4 @@
-import type { DesignPack } from "@opendesign/studio-contracts";
+import type { DesignDirection, DesignPack } from "@opendesign/studio-contracts";
 
 import editorialStoryGraphics from "../packs/editorial-story-graphics-cn.json" with { type: "json" };
 import executiveProposal from "../packs/executive-proposal-cn.json" with { type: "json" };
@@ -14,4 +14,16 @@ export function getDesignPack(id: string, version?: string): DesignPack | undefi
 
 export function copyAgentAnnotation(id: string, version?: string): string | undefined {
   return getDesignPack(id, version)?.agentAnnotation.copyText;
+}
+
+export function designDirections(selectedPackId: string): DesignDirection[] {
+  return designPacks.map((pack) => ({
+    id: `direction_${pack.id}`,
+    name: pack.name,
+    stance: pack.id === selectedPackId ? "primary" : "alternate",
+    rationale: pack.summary,
+    referenceSlug: pack.id,
+    referenceVersion: pack.version,
+    tokens: structuredClone(pack.tokens),
+  }));
 }
