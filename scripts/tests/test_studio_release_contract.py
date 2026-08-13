@@ -28,12 +28,15 @@ class StudioReleaseContractTest(unittest.TestCase):
         self.assertNotIn("Access-Control-Allow-Origin", nginx)
 
     def test_release_has_atomic_activation_and_rollback(self):
+        prepare = (ROOT / "deploy/prepare-studio-release.sh").read_text(encoding="utf-8")
         activate = (ROOT / "deploy/activate-studio-release.sh").read_text(encoding="utf-8")
         rollback = (ROOT / "deploy/rollback-studio-release.sh").read_text(encoding="utf-8")
         self.assertIn("mv -Tf", activate)
         self.assertIn("studio-previous", activate)
         self.assertIn("studio-previous", rollback)
         self.assertIn("mv -Tf", rollback)
+        self.assertIn("npm ci --ignore-scripts", prepare)
+        self.assertIn("test -x node_modules/@esbuild/linux-x64/bin/esbuild", prepare)
 
 
 if __name__ == "__main__":

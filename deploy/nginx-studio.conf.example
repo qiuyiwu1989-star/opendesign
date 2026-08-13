@@ -5,7 +5,9 @@
 # This fails closed when the Admin API or its read dependency is unavailable.
 location = /studio { return 302 /studio/; }
 
-location /studio/ {
+location ^~ /studio/ {
+    auth_request /studio-auth-check;
+    error_page 401 403 = @studio-login-required;
     alias /var/www/opendesign.cc/studio/;
     try_files $uri $uri/ /studio/index.html;
     add_header Cache-Control "no-cache, must-revalidate" always;
