@@ -22,12 +22,17 @@
 一句话定位(对外):**The taste layer for AI-built software.**
 一句话定位(对内):给任何 Agent 即插即用的"品味外挂"。
 
-## 产品双层结构
+## 产品结构：从双层产品升级为 Agent Design OS
 
-- **OpenDesign Library** 是开放的品味基础设施：负责真实设计系统、策展、检索、Skill、MCP 和公共设计包。
-- **OpenDesign Studio** 是第一方创作应用：把文章、Brief 和结构化内容转成 HTML、PPTX、PDF、PNG 与文章配图。
-- Studio 消费 Library 的同一套公开协议，不把公共设计资产锁进私有产品；第三方 Agent 仍可直接使用 Library。
-- 两者分开部署、分开数据权限。Library 保持静态优先和只读公共接口；Studio 承担账号、项目、版本、异步生成与私有资产。
+- **Library / Evidence Plane**：开放的设计证据基础设施，负责真实设计系统、来源、tokens、Pattern、受许可资产和策展。
+- **Capability Registry**：把 Design Pack、专家 Skill、Industry Kit、Tool Adapter 和 Eval Suite 注册为版本化能力。
+- **Agent Studio / Creation Plane**：Design Director 组织专家方法，把 Brief 和资料变成可编辑、可评审、可导出的作品。
+- **Runtime Plane**：以 provider-neutral adapter 调度 Kimi、OpenAI-compatible 模型、图像模型、浏览器、renderer 和存储。
+- **Connect / Platform Plane**：通过 Skill、MCP、API、Webhook 和 Embed Review 让第三方 Agent 与产品复用同一能力。
+
+Library 和 Studio 继续分开部署、分开数据权限。Studio 消费 Library 的公开协议，不把公共设计资产锁进第一方产品；第三方 Agent 也能直接使用 Registry 和 Connect。
+
+完整升级定义见 [Agent Design OS v1](../specs/007-agent-design-operating-system.md)。
 
 
 "设计总监"的原始愿景在这个框架里是准确的,但要拆开看:设计总监的价值 = 判断力 + 参照系 + 落地能力。**判断力来自调用方的大模型(它们已经很强),OpenDesign 供给的是后两者**——1,400+ 个真实参照系,和每个参照系可直接执行的 11 层 tokens。skill.md 的作用是把三者组装成一个完整的总监人格。
