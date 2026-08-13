@@ -3,6 +3,7 @@
 ## Now（本次会话正在做，最多 3 项）
 
 - [ ] 修复 Benchmark 已识别的研究演讲 7 个、文章配图 12 个 QA error
+- [ ] 为公开 Studio 增加匿名会话/项目隔离、数据过期和存储配额
 
 ## Next（已排序的待办）
 - [ ] 扩展首批 10 套经过 Golden Task 验证的 Design Pack
@@ -13,6 +14,7 @@
 - [ ] 定义人工确认后的发布候选变更集，继续保持 preview-first
 
 ## Done（倒序，保留最近 20 条，附 commit hash）
+- [x] Studio 公开预览：移除 Admin 登录门禁，保留独立 API 限流、6 MiB 上限与可回滚配置（待本次提交）
 - [x] Studio 0.5：Model Adapter、人工审核 Candidate Ledger、Design Quality Benchmark 与工作台闭环（待本次提交）
 - [x] Studio 初版隔离部署至 `/studio/`，复用 Admin 会话门禁并完成回滚路径（7ef53c7, c607725）
 - [x] Design Director Skill、确定性 HTML compiler、三类 Golden eval 与 Studio/API 闭环（待本次提交）
@@ -25,5 +27,4 @@
 - [x] Studio 本地创作闭环及字体/图片插入（d2d0d57, fa5bf90）
 
 ## Blocked
-- 生产内部状态验证：当前没有可用 SSH 公钥；不得用聊天中的密码降级访问。
 - RC2 生产激活：公网预检仅 10/17，TLS 证书续期与数据库/服务内部状态尚未证明。

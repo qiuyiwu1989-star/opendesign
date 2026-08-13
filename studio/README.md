@@ -9,7 +9,11 @@ PNG snapshots, and an editable PPTX.
 - Local fixtures only; no production Library, database, COS, or credentials.
 - Fixed 1600×900 logical canvas and six scenes.
 - Scene IR is the source of truth. HTML and PPTX are separate renderers.
-- No deployment, public publishing, authentication, or arbitrary HTML/CSS.
+- The repository defaults to a loopback-only development API and does not
+  contain production credentials or a publishing adapter.
+- The temporary production preview at `/studio/` is anonymous. Its projects
+  currently share one server-local workspace, so it must not be used for
+  confidential material until per-session isolation, expiry, and quotas land.
 
 ## Run the local vertical slice
 
