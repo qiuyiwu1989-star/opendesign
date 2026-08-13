@@ -3,10 +3,9 @@
 ## Now（本次会话正在做，最多 3 项）
 
 - [ ] 为 Studio v0.7 配置生产 Session secret 与模型 provider，执行隔离预检后部署 (spec: 006)
-- [ ] 冻结 DesignWorkOrder、ExecutionPlan、ArtifactEnvelope、AgentRunEvent 与 Capability Registry 契约 (spec: 007)
+- [ ] 制作 proposal 纵向切片：诊断 → 计划确认 → 三方向 → 局部编辑 → 人工批准 → PPTX/HTML (spec: 007)
 
 ## Next（已排序的待办）
-- [ ] 制作 proposal 纵向切片：诊断 → 计划确认 → 三方向 → 局部编辑 → 人工批准 → PPTX/HTML
 - [ ] 建立任务感知的 Library Pattern 检索，返回适用理由、来源和许可状态
 - [ ] 增加 Kimi HTML/CSS Worker adapter；输出继续经过 compiler/importer/Scene IR/QA
 - [ ] 修复 Benchmark 已识别的研究演讲 7 个、文章配图 12 个 QA error
@@ -18,6 +17,7 @@
 - [ ] 定义人工确认后的发布候选变更集，继续保持 preview-first
 
 ## Done（倒序，保留最近 20 条，附 commit hash）
+- [x] Agent Design OS Phase 0：核心对象 schema、Capability Manifest、跨对象门禁与可重放运行事件状态机（待本次提交，spec: 007）
 - [x] 将产品升级为 Agent Design OS，冻结 Library/Registry/Studio/Runtime/Connect 五面架构与用户旅程（9e5c868，spec: 007）
 - [x] Studio v0.7：真实模型生成 Job、匿名会话隔离/配额/清理、对话区任务体验与跨 Cookie 安全门禁（待本次提交，spec: 006）
 - [x] Studio v0.6：项目—设计总监对话—实时作品三栏工作台、结果视图与按需检查器（待本次提交）

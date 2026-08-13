@@ -176,4 +176,4 @@ Scene IR 继续是编辑、版本、QA 与导出的事实源；Structured HTML �
 
 ## 状态
 
-defined（产品架构与纵向切片已冻结；实现待 Phase 0/1）
+in progress（Phase 0 核心契约与运行事件状态机已在 `@opendesign/studio-agent-os` 实现并通过全仓门禁；proposal 纵向切片待 Phase 1）
