@@ -8,16 +8,46 @@ import { join } from "node:path";
 import test from "node:test";
 import fixture from "../../../packages/contracts/fixtures/proposal-v0.json" with { type: "json" };
 import { createStudioServer } from "./server.js";
+import { createPublicSessionCodec } from "./public-session.js";
+import { configureGenerationProvider } from "./model-provider.js";
+
+const TEST_SESSION_SECRET = "test-only-studio-session-signing-secret-32-bytes-minimum";
+function createTestStudioServer(dataDirectory: string) {
+  return createStudioServer({
+    dataDirectory,
+    sessionCodec: createPublicSessionCodec({ secret: TEST_SESSION_SECRET, random: { bytes: (size) => new Uint8Array(size).fill(7) } }),
+  });
+}
+
+function createFixtureTestStudioServer(dataDirectory: string) {
+  return createStudioServer({
+    dataDirectory,
+    sessionCodec: createPublicSessionCodec({ secret: TEST_SESSION_SECRET, random: { bytes: (size) => new Uint8Array(size).fill(8) } }),
+    generationProvider: configureGenerationProvider({ env: { STUDIO_GENERATION_MODE: "fixture" } }),
+  });
+}
+
+function cookieFrom(response: Response): string {
+  const setCookie = response.headers.get("set-cookie");
+  assert.ok(setCookie);
+  return setCookie.split(";", 1)[0]!;
+}
+
+async function withCookie(url: string, cookie: string, init: RequestInit = {}): Promise<Response> {
+  return fetch(url, { ...init, headers: { ...init.headers, cookie } });
+}
 
 test("local API persists a project and returns a real HTML export", async () => {
   const directory = await mkdtemp(join(tmpdir(), "opendesign-api-"));
-  const server = createStudioServer({ dataDirectory: directory });
+  const server = createTestStudioServer(directory);
   server.listen(0, "127.0.0.1");
   await once(server, "listening");
   const port = (server.address() as AddressInfo).port;
   const base = `http://127.0.0.1:${port}`;
   try {
-    const health = await fetch(`${base}/api/health`).then((response) => response.json()) as { ok: boolean };
+    const healthResponse = await fetch(`${base}/api/health`);
+    assert.equal(healthResponse.headers.get("set-cookie"), null);
+    const health = await healthResponse.json() as { ok: boolean };
     assert.equal(health.ok, true);
 
     const saved = await fetch(`${base}/api/projects/doc_studio_v0`, {
@@ -92,7 +122,7 @@ test("local API persists a project and returns a real HTML export", async () => 
 
 test("local API creates a new generated project from a Brief", async () => {
   const directory = await mkdtemp(join(tmpdir(), "opendesign-generator-api-"));
-  const server = createStudioServer({ dataDirectory: directory });
+  const server = createTestStudioServer(directory);
   server.listen(0, "127.0.0.1");
   await once(server, "listening");
   const port = (server.address() as AddressInfo).port;
@@ -119,7 +149,7 @@ test("local API creates a new generated project from a Brief", async () => {
 
 test("003 local API imports inert Structured HTML with diagnostics and persists only accepted documents", async () => {
   const directory = await mkdtemp(join(tmpdir(), "opendesign-import-api-"));
-  const server = createStudioServer({ dataDirectory: directory });
+  const server = createTestStudioServer(directory);
   server.listen(0, "127.0.0.1");
   await once(server, "listening");
   const port = (server.address() as AddressInfo).port;
@@ -166,7 +196,7 @@ test("003 local API imports inert Structured HTML with diagnostics and persists 
 
 test("004 local API compiles a Design Director Skill draft and persists only accepted Scene IR", async () => {
   const directory = await mkdtemp(join(tmpdir(), "opendesign-director-api-"));
-  const server = createStudioServer({ dataDirectory: directory });
+  const server = createTestStudioServer(directory);
   server.listen(0, "127.0.0.1");
   await once(server, "listening");
   const port = (server.address() as AddressInfo).port;
@@ -207,7 +237,7 @@ test("004 local API compiles a Design Director Skill draft and persists only acc
 
 test("005 fixture model draft can be human-edited, reviewed, and approved only as an unpublished candidate", async () => {
   const directory = await mkdtemp(join(tmpdir(), "opendesign-model-review-api-"));
-  const server = createStudioServer({ dataDirectory: directory });
+  const server = createFixtureTestStudioServer(directory);
   server.listen(0, "127.0.0.1");
   await once(server, "listening");
   const port = (server.address() as AddressInfo).port;
@@ -262,7 +292,7 @@ test("005 fixture model draft can be human-edited, reviewed, and approved only a
 
 test("local API duplicates a project with independent identity and history", async () => {
   const directory = await mkdtemp(join(tmpdir(), "opendesign-duplicate-api-"));
-  const server = createStudioServer({ dataDirectory: directory });
+  const server = createTestStudioServer(directory);
   server.listen(0, "127.0.0.1");
   await once(server, "listening");
   const port = (server.address() as AddressInfo).port;
@@ -280,6 +310,74 @@ test("local API duplicates a project with independent identity and history", asy
     assert.match(duplicate.document.title, /副本$/);
     const revisions = await fetch(`${base}/api/projects/${duplicate.document.documentId}/revisions`).then((result) => result.json()) as { revisions: unknown[] };
     assert.equal(revisions.revisions.length, 1);
+  } finally {
+    server.close();
+    await once(server, "close");
+    await rm(directory, { recursive: true, force: true });
+  }
+});
+
+test("006 public API isolates projects and generation jobs between anonymous cookie spaces", async () => {
+  const directory = await mkdtemp(join(tmpdir(), "opendesign-session-api-"));
+  let fill = 10;
+  const server = createStudioServer({
+    dataDirectory: directory,
+    sessionCodec: createPublicSessionCodec({
+      secret: TEST_SESSION_SECRET,
+      random: { bytes: (size) => new Uint8Array(size).fill(fill++) },
+    }),
+    generationProvider: configureGenerationProvider({ env: { STUDIO_GENERATION_MODE: "fixture" } }),
+  });
+  server.listen(0, "127.0.0.1");
+  await once(server, "listening");
+  const port = (server.address() as AddressInfo).port;
+  const base = `http://127.0.0.1:${port}`;
+  try {
+    const sessionA = await fetch(`${base}/api/projects`);
+    const sessionB = await fetch(`${base}/api/projects`);
+    const cookieA = cookieFrom(sessionA);
+    const cookieB = cookieFrom(sessionB);
+    assert.notEqual(cookieA, cookieB);
+    assert.match(sessionA.headers.get("set-cookie") ?? "", /HttpOnly; Secure; SameSite=Lax/u);
+
+    const saved = await withCookie(`${base}/api/projects/doc_studio_v0`, cookieA, {
+      method: "PUT",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify({ document: fixture, reason: "edit", patches: [] }),
+    });
+    assert.equal(saved.status, 200);
+    const projectsA = await withCookie(`${base}/api/projects`, cookieA).then((response) => response.json()) as { projects: Array<{ projectId: string }> };
+    const projectsB = await withCookie(`${base}/api/projects`, cookieB).then((response) => response.json()) as { projects: Array<{ projectId: string }> };
+    assert.deepEqual(projectsA.projects.map((project) => project.projectId), ["doc_studio_v0"]);
+    assert.deepEqual(projectsB.projects, []);
+    assert.equal((await withCookie(`${base}/api/projects/doc_studio_v0`, cookieB)).status, 404);
+    assert.equal((await withCookie(`${base}/api/projects/doc_studio_v0/revisions`, cookieB)).status, 404);
+    assert.equal((await withCookie(`${base}/api/projects/doc_studio_v0/exports`, cookieB, { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ kind: "html" }) })).status, 404);
+
+    const exported = await withCookie(`${base}/api/projects/doc_studio_v0/exports`, cookieA, { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ kind: "html" }) });
+    assert.equal(exported.status, 201);
+    const exportBody = await exported.json() as { files: Array<{ downloadUrl: string }> };
+    assert.equal((await withCookie(`${base}${exportBody.files[0]!.downloadUrl}`, cookieB)).status, 404);
+
+    const created = await withCookie(`${base}/api/generation-jobs`, cookieA, {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify({ brief: "把公开 Studio 的匿名隔离与可编辑生成能力整理成一份六页提案。" }),
+    });
+    assert.equal(created.status, 202);
+    const body = await created.json() as { job: { jobId: string } };
+    assert.equal((await withCookie(`${base}/api/generation-jobs/${body.job.jobId}`, cookieB)).status, 404);
+
+    let completed: { job: { status: string; projectId?: string } } | undefined;
+    for (let attempt = 0; attempt < 50; attempt += 1) {
+      completed = await withCookie(`${base}/api/generation-jobs/${body.job.jobId}`, cookieA).then((response) => response.json()) as typeof completed;
+      if (completed?.job.status === "completed") break;
+      await new Promise((resolve) => setTimeout(resolve, 5));
+    }
+    assert.equal(completed?.job.status, "completed");
+    assert.ok(completed?.job.projectId);
+    assert.equal((await withCookie(`${base}/api/projects/${completed.job.projectId}`, cookieA)).status, 200);
+    assert.equal((await withCookie(`${base}/api/projects/${completed.job.projectId}`, cookieB)).status, 404);
   } finally {
     server.close();
     await once(server, "close");

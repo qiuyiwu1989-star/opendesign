@@ -11,13 +11,15 @@ const generatedDocument = {
 };
 
 beforeEach(() => {
+  window.localStorage.clear();
   vi.stubGlobal("fetch", vi.fn(async (input: string | URL | Request, init?: RequestInit) => {
     const path = String(input);
     if (init?.method === "PUT") {
       const request = JSON.parse(String(init.body)) as { document: typeof fixture };
       return new Response(JSON.stringify({ document: request.document, revision: { revisionId: "revision_test", parentRevisionId: null, createdAt: new Date().toISOString(), reason: "edit", patches: [] }, persisted: true }), { status: 200 });
     }
-    if (init?.method === "POST" && path.endsWith("/generate")) return new Response(JSON.stringify({ document: generatedDocument, storyline: [], generator: "local-rules-v0" }), { status: 201 });
+    if (init?.method === "POST" && path === "/api/generation-jobs") return new Response(JSON.stringify({ job: { jobId: "job_completed_001", status: "completed", createdAt: "2026-08-14T01:00:00.000Z", updatedAt: "2026-08-14T01:00:05.000Z", projectId: generatedDocument.documentId } }), { status: 202 });
+    if (init?.method === "POST" && path === "/api/generation-jobs/job_queued_001/cancel") return new Response(JSON.stringify({ job: { jobId: "job_queued_001", status: "cancelled", createdAt: "2026-08-14T01:00:00.000Z", updatedAt: "2026-08-14T01:00:02.000Z" } }), { status: 200 });
     if (init?.method === "POST" && path === "/api/design-director/drafts") return new Response(JSON.stringify({
       outputVersion: "0.1.0",
       status: "accepted",
@@ -75,6 +77,7 @@ beforeEach(() => {
     if (init?.method === "POST" && path === "/api/qa") return new Response(JSON.stringify({ documentId: fixture.documentId, summary: { blocker: 0, error: 0, warning: 0, note: 0, total: 0 }, issues: [] }), { status: 200 });
     if (init?.method === "POST" && path.endsWith("/assets")) return new Response(JSON.stringify({ assetId: "asset_test", name: "sample.png", mimeType: "image/png", width: 320, height: 180, url: "/api/assets/doc_studio_v0/asset_test.png" }), { status: 201 });
     if (!init?.method && path === "/api/projects") return new Response(JSON.stringify({ projects: [] }), { status: 200 });
+    if (!init?.method && path === `/api/projects/${generatedDocument.documentId}`) return new Response(JSON.stringify(generatedDocument), { status: 200 });
     if (!init?.method && path.endsWith("/revisions")) return new Response(JSON.stringify({ revisions: [] }), { status: 200 });
     if (init?.method === "POST" && path.endsWith("/exports")) {
       const kind = JSON.parse(String(init.body)) as { kind: "html" | "png" | "pptx" };
@@ -231,12 +234,16 @@ describe("OpenDesign Studio workspace", () => {
     expect(screen.getByRole("link", { name: "下载文件" })).toHaveAttribute("href", "/api/exports/export_test_html/doc_studio_v0.html");
   });
 
-  it("generates a new six-page project from the Brief", async () => {
+  it("creates a generation job and opens the completed project only after confirmation", async () => {
     render(<App />);
     fireEvent.click(screen.getByRole("button", { name: /生成新项目/ }));
-
+    expect(await screen.findByText("生成完成")).toBeInTheDocument();
+    expect(screen.getAllByText("让视觉作品在生成之后，继续生长。").length).toBeGreaterThan(0);
+    fireEvent.click(screen.getByRole("button", { name: "打开新作品" }));
     expect(await screen.findAllByText("让文章成为一套可编辑的视觉提案")).not.toHaveLength(0);
-    expect(fetch).toHaveBeenCalledWith("/api/projects/generate", expect.objectContaining({ method: "POST" }));
+    expect(fetch).toHaveBeenCalledWith("/api/generation-jobs", expect.objectContaining({ method: "POST" }));
+    const call = vi.mocked(fetch).mock.calls.find(([path]) => path === "/api/generation-jobs");
+    expect(JSON.parse(String(call?.[1]?.body))).toEqual(expect.objectContaining({ brief: expect.any(String), title: expect.any(String), designPack: expect.objectContaining({ id: expect.any(String), version: expect.any(String) }) }));
   });
 
   it("shows version history and can restore an earlier snapshot", async () => {
@@ -282,15 +289,17 @@ describe("OpenDesign Studio workspace", () => {
     expect(screen.getByLabelText("元素 x")).toHaveValue(200);
   });
 
-  it("previews AI regeneration conflicts instead of replacing a dirty draft", async () => {
+  it("keeps a dirty draft visible until the user opens a completed generation", async () => {
     render(<App />);
     fireEvent.doubleClick(screen.getByRole("button", { name: /title: 让视觉作品/ }));
     fireEvent.change(screen.getByLabelText("文字内容"), { target: { value: "保留我的人工判断" } });
     fireEvent.click(screen.getByRole("button", { name: /生成新项目/ }));
-    expect(await screen.findByRole("alertdialog", { name: "AI 重新生成冲突预览" })).toBeInTheDocument();
+    expect(await screen.findByText("生成完成")).toBeInTheDocument();
     expect(screen.getAllByText("保留我的人工判断").length).toBeGreaterThan(0);
-    fireEvent.click(screen.getByRole("button", { name: "保留当前草稿" }));
-    expect(screen.queryByRole("alertdialog", { name: "AI 重新生成冲突预览" })).not.toBeInTheDocument();
+    expect(screen.getByText("当前作品不会自动被覆盖。")).toBeInTheDocument();
+    fireEvent.click(screen.getByRole("button", { name: "打开新作品" }));
+    expect(await screen.findAllByText("让文章成为一套可编辑的视觉提案")).not.toHaveLength(0);
+    expect(screen.queryByText("保留我的人工判断")).not.toBeInTheDocument();
   });
 
   it("presents a conversation-first project, director and result workspace", () => {
@@ -311,5 +320,109 @@ describe("OpenDesign Studio workspace", () => {
     expect(inspector).toHaveClass("is-open");
     fireEvent.click(screen.getByRole("button", { name: "关闭检查器" }));
     expect(inspector).not.toHaveClass("is-open");
+  });
+
+  it("shows a clearly labeled first-use example without starting generation", () => {
+    render(<App />);
+    fireEvent.click(screen.getByRole("button", { name: "新建设计" }));
+    expect(screen.getByText("第一次使用？从一个完整示例开始")).toBeInTheDocument();
+    expect(screen.getByText("示例只会填入输入框，不代表已经开始生成。")).toBeInTheDocument();
+    fireEvent.click(screen.getByRole("button", { name: "使用示例需求" }));
+    expect(screen.getByLabelText<HTMLTextAreaElement>("项目 Brief").value).toContain("AI 如何改变创作者工作流");
+    expect(fetch).not.toHaveBeenCalledWith("/api/generation-jobs", expect.anything());
+    expect(screen.getByText(/清除浏览器 Cookie 后/)).toBeInTheDocument();
+  });
+
+  it("polls a bounded job, exposes all explicit stages and supports cancellation", async () => {
+    let poll = 0;
+    vi.mocked(fetch).mockImplementation(async (input: string | URL | Request, init?: RequestInit) => {
+      const path = String(input);
+      const now = "2026-08-14T01:00:00.000Z";
+      if (init?.method === "POST" && path === "/api/generation-jobs") return new Response(JSON.stringify({ job: { jobId: "job_queued_001", status: "queued", createdAt: now, updatedAt: now } }), { status: 202 });
+      if (init?.method === "POST" && path.endsWith("/cancel")) return new Response(JSON.stringify({ job: { jobId: "job_queued_001", status: "cancelled", createdAt: now, updatedAt: now } }), { status: 200 });
+      if (!init?.method && path === "/api/generation-jobs/job_queued_001") {
+        const status = (["analyzing", "generating", "validating"] as const)[Math.min(poll++, 2)]!;
+        return new Response(JSON.stringify({ job: { jobId: "job_queued_001", status, createdAt: now, updatedAt: now } }), { status: 200 });
+      }
+      if (!init?.method && path === "/api/projects") return new Response(JSON.stringify({ projects: [] }), { status: 200 });
+      if (!init?.method && path.endsWith("/revisions")) return new Response(JSON.stringify({ revisions: [] }), { status: 200 });
+      return new Response(JSON.stringify({ error: "Project not found" }), { status: 404 });
+    });
+    render(<App />);
+    fireEvent.click(screen.getByRole("button", { name: /生成新项目/ }));
+    expect(await screen.findByText("已排队")).toBeInTheDocument();
+    fireEvent.click(screen.getByRole("button", { name: "取消生成" }));
+    expect(await screen.findByText("已取消")).toBeInTheDocument();
+    expect(fetch).toHaveBeenCalledWith("/api/generation-jobs/job_queued_001/cancel", expect.objectContaining({ method: "POST" }));
+  });
+
+  it("restores only the recent job id after refresh and never stores brief content", async () => {
+    window.localStorage.setItem("opendesign.studio.active-generation-job", "job_restore_001");
+    vi.mocked(fetch).mockImplementation(async (input: string | URL | Request) => {
+      const path = String(input);
+      if (path === "/api/generation-jobs/job_restore_001") return new Response(JSON.stringify({ job: { jobId: "job_restore_001", status: "completed", createdAt: "2026-08-14T01:00:00.000Z", updatedAt: "2026-08-14T01:00:05.000Z", projectId: generatedDocument.documentId } }), { status: 200 });
+      if (path === "/api/projects") return new Response(JSON.stringify({ projects: [] }), { status: 200 });
+      return new Response(JSON.stringify({ error: "Project not found" }), { status: 404 });
+    });
+    render(<App />);
+    expect(await screen.findByText("生成完成")).toBeInTheDocument();
+    expect(fetch).toHaveBeenCalledWith("/api/generation-jobs/job_restore_001", expect.any(Object));
+    expect(JSON.stringify(window.localStorage)).not.toContain("把文章或提案");
+  });
+
+  it.each([
+    [429, { error: { code: "rate_limited", message: "too many" } }, "当前任务已达上限"],
+    [503, { error: { code: "provider_unavailable", message: "missing provider" } }, "生成服务暂未配置"],
+    [422, { error: { code: "invalid_input", message: "brief too short" } }, "需求还不够完整"],
+  ])("explains generation HTTP failures with an actionable state", async (status, payload, expected) => {
+    vi.mocked(fetch).mockImplementation(async (input: string | URL | Request, init?: RequestInit) => {
+      const path = String(input);
+      if (init?.method === "POST" && path === "/api/generation-jobs") return new Response(JSON.stringify(payload), { status });
+      if (path === "/api/projects") return new Response(JSON.stringify({ projects: [] }), { status: 200 });
+      return new Response(JSON.stringify({ error: "Project not found" }), { status: 404 });
+    });
+    render(<App />);
+    fireEvent.click(screen.getByRole("button", { name: /生成新项目/ }));
+    expect(await screen.findByText(expected)).toBeInTheDocument();
+  });
+
+  it("rejects a malformed completed job response instead of opening an unknown project", async () => {
+    vi.mocked(fetch).mockImplementation(async (input: string | URL | Request, init?: RequestInit) => {
+      const path = String(input);
+      if (init?.method === "POST" && path === "/api/generation-jobs") return new Response(JSON.stringify({ job: { jobId: "job_bad", status: "completed", createdAt: "2026-08-14T01:00:00.000Z", updatedAt: "2026-08-14T01:00:01.000Z" } }), { status: 202 });
+      if (path === "/api/projects") return new Response(JSON.stringify({ projects: [] }), { status: 200 });
+      return new Response(JSON.stringify({ error: "Project not found" }), { status: 404 });
+    });
+    render(<App />);
+    fireEvent.click(screen.getByRole("button", { name: /生成新项目/ }));
+    expect(await screen.findByText("生成任务没有完成")).toBeInTheDocument();
+    expect(screen.queryByRole("button", { name: "打开新作品" })).not.toBeInTheDocument();
+  });
+
+  it("renders a terminal job failure without changing the open project", async () => {
+    vi.mocked(fetch).mockImplementation(async (input: string | URL | Request, init?: RequestInit) => {
+      const path = String(input);
+      if (init?.method === "POST" && path === "/api/generation-jobs") return new Response(JSON.stringify({ job: { jobId: "job_failed_001", status: "failed", createdAt: "2026-08-14T01:00:00.000Z", updatedAt: "2026-08-14T01:00:03.000Z", error: { code: "generation_internal_failure", message: "validation stopped", retryable: true } } }), { status: 202 });
+      if (path === "/api/projects") return new Response(JSON.stringify({ projects: [] }), { status: 200 });
+      return new Response(JSON.stringify({ error: "Project not found" }), { status: 404 });
+    });
+    render(<App />);
+    fireEvent.click(screen.getByRole("button", { name: /生成新项目/ }));
+    expect(await screen.findByText("生成失败")).toBeInTheDocument();
+    expect(screen.getByText("validation stopped")).toBeInTheDocument();
+    expect(screen.getAllByText("让视觉作品在生成之后，继续生长。").length).toBeGreaterThan(0);
+  });
+
+  it("distinguishes an offline submit from provider and input failures", async () => {
+    vi.mocked(fetch).mockImplementation(async (input: string | URL | Request, init?: RequestInit) => {
+      const path = String(input);
+      if (init?.method === "POST" && path === "/api/generation-jobs") throw new TypeError("offline");
+      if (path === "/api/projects") return new Response(JSON.stringify({ projects: [] }), { status: 200 });
+      return new Response(JSON.stringify({ error: "Project not found" }), { status: 404 });
+    });
+    render(<App />);
+    fireEvent.click(screen.getByRole("button", { name: /生成新项目/ }));
+    expect(await screen.findByText("网络已断开")).toBeInTheDocument();
+    expect(screen.getByText("检查网络后恢复任务")).toBeInTheDocument();
   });
 });

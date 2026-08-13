@@ -5,6 +5,7 @@ import JSZip from "jszip";
 import type { SceneDocument } from "@opendesign/studio-contracts";
 import { runDeterministicQa } from "@opendesign/studio-qa";
 import { exportDocumentToPptx, renderDocumentToHtml, renderSceneToPngBuffer } from "@opendesign/studio-renderers";
+import { parseSessionScope, type SessionScope } from "./public-session.js";
 export type ExportKind = "html" | "png" | "pptx";
 
 export type ExportFile = { name: string; downloadUrl: string };
@@ -26,19 +27,19 @@ function safeExportId(): string {
 export class LocalExportService {
   constructor(readonly rootDirectory: string) {}
 
-  exportDirectory(exportId: string): string {
+  exportDirectory(scope: SessionScope, exportId: string): string {
     if (!/^export_[a-z0-9_]+$/.test(exportId)) throw new Error("Invalid export ID");
-    return join(this.rootDirectory, "exports", exportId);
+    return join(this.rootDirectory, "sessions", parseSessionScope(scope), "exports", exportId);
   }
 
-  exportFilePath(exportId: string, fileName: string): string {
+  exportFilePath(scope: SessionScope, exportId: string, fileName: string): string {
     if (basename(fileName) !== fileName || !/^[a-zA-Z0-9._-]+$/.test(fileName)) throw new Error("Invalid export file name");
-    return join(this.exportDirectory(exportId), fileName);
+    return join(this.exportDirectory(scope, exportId), fileName);
   }
 
-  async create(document: SceneDocument, kind: ExportKind): Promise<LocalExportResult> {
+  async create(scope: SessionScope, document: SceneDocument, kind: ExportKind): Promise<LocalExportResult> {
     const exportId = safeExportId();
-    const directory = this.exportDirectory(exportId);
+    const directory = this.exportDirectory(scope, exportId);
     await mkdir(directory, { recursive: true });
     const qa = runDeterministicQa(document);
     if (qa.summary.blocker > 0) throw new Error("Export blocked by deterministic QA blocker");
@@ -49,7 +50,7 @@ export class LocalExportService {
       for (const scene of portableDocument.scenes) {
         for (const element of scene.elements) {
           if (element.type !== "image" || !element.assetSrc) continue;
-          const path = this.localAssetPath(document.documentId, element.assetSrc);
+          const path = this.localAssetPath(scope, document.documentId, element.assetSrc);
           if (!path) continue;
           const bytes = await readFile(path);
           element.assetSrc = `data:${path.endsWith(".png") ? "image/png" : "image/jpeg"};base64,${bytes.toString("base64")}`;
@@ -64,7 +65,7 @@ export class LocalExportService {
       const zip = new JSZip();
       for (const [index, scene] of document.scenes.slice().sort((left, right) => left.order - right.order).entries()) {
         const name = `slide-${index + 1}.png`;
-        const buffer = await renderSceneToPngBuffer(document, scene, (source) => this.resolveAsset(document.documentId, source));
+        const buffer = await renderSceneToPngBuffer(document, scene, (source) => this.resolveAsset(scope, document.documentId, source));
         await writeFile(join(directory, name), buffer);
         zip.file(name, buffer);
         pngNames.push(name);
@@ -87,7 +88,7 @@ export class LocalExportService {
       outputPath: join(directory, pptxName),
       generatedAt: new Date().toISOString(),
       assetResolver: async (source) => {
-        const path = this.localAssetPath(document.documentId, source);
+        const path = this.localAssetPath(scope, document.documentId, source);
         if (!path) return null;
         return { path, mimeType: path.endsWith(".png") ? "image/png" : "image/jpeg" };
       },
@@ -108,14 +109,14 @@ export class LocalExportService {
     return names.map((name) => ({ name, downloadUrl: `/api/exports/${exportId}/${name}` }));
   }
 
-  private localAssetPath(projectId: string, source: string): string | null {
+  private localAssetPath(scope: SessionScope, projectId: string, source: string): string | null {
     const match = source.match(/^\/api\/assets\/([a-z][a-z0-9_-]{2,63})\/(asset_[a-z0-9_]+\.(?:png|jpg))$/);
     if (!match || match[1] !== projectId) return null;
-    return join(this.rootDirectory, "assets", projectId, match[2]!);
+    return join(this.rootDirectory, "sessions", parseSessionScope(scope), "assets", projectId, match[2]!);
   }
 
-  private async resolveAsset(projectId: string, source: string): Promise<Buffer | null> {
-    const path = this.localAssetPath(projectId, source);
+  private async resolveAsset(scope: SessionScope, projectId: string, source: string): Promise<Buffer | null> {
+    const path = this.localAssetPath(scope, projectId, source);
     if (!path) return null;
     try { return await readFile(path); } catch { return null; }
   }

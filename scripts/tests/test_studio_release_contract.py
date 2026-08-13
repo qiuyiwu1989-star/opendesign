@@ -15,6 +15,8 @@ class StudioReleaseContractTest(unittest.TestCase):
         service = (ROOT / "deploy/opendesign-studio-api.service.example").read_text(encoding="utf-8")
         self.assertIn('.listen(port, "127.0.0.1"', main)
         self.assertIn("STUDIO_LOCAL_API_PORT=8794", service)
+        self.assertIn("EnvironmentFile=/etc/opendesign/studio-api.env", service)
+        self.assertIn("STUDIO_PUBLIC_SESSION_SECRET", (ROOT / "studio/apps/local-api/src/main.ts").read_text(encoding="utf-8"))
         self.assertIn("/usr/bin/node /opt/opendesign/studio-current/studio/node_modules/tsx/dist/cli.mjs src/main.ts", service)
         self.assertIn("NoNewPrivileges=true", service)
         self.assertIn("ProtectSystem=strict", service)
@@ -34,6 +36,7 @@ class StudioReleaseContractTest(unittest.TestCase):
             rate_limit,
         )
         self.assertIn("proxy_pass http://127.0.0.1:8794", nginx)
+        self.assertIn("HttpOnly signed cookie", nginx)
         self.assertNotIn("Access-Control-Allow-Origin", nginx)
 
     def test_release_has_atomic_activation_and_rollback(self):

@@ -124,6 +124,34 @@ button:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-
 .chat-message--user { align-self: flex-end; max-width: 88%; padding: 10px 12px; border-radius: 13px 13px 3px 13px; background: #f0f1f2; color: #34363b; }
 .chat-message--success > div { padding: 10px; border: 1px solid #cde6d7; border-radius: 10px; background: #f4fbf6; color: #3d7250; }
 .chat-message--success strong { color: #28563a; }
+.chat-message--example { padding-left: 37px; }
+.chat-message--example > div { display: grid; gap: 7px; padding: 12px; border: 1px dashed #c9cbd0; border-radius: 10px; background: #f8f9fa; }
+.chat-message--example .od-button { justify-self: start; }
+.chat-message--example small { color: #9699a0; font-size: 8px; line-height: 1.45; }
+
+.generation-job { display: grid; gap: 10px; margin-left: 37px; padding: 12px; border: 1px solid #d9d7ec; border-radius: 11px; background: #f7f6fc; color: #5a5868; }
+.generation-job > header { display: flex; align-items: center; justify-content: space-between; gap: 9px; }
+.generation-job > header > span, .generation-job__state { min-width: 0; display: flex; align-items: center; gap: 9px; }
+.generation-job > header > span > span, .generation-job--error header > span { min-width: 0; display: grid; gap: 3px; }
+.generation-job header strong { color: #373640; font-size: 10px; }
+.generation-job header small { overflow: hidden; color: #9794a6; font: 500 7px/1 var(--studio-mono); text-overflow: ellipsis; white-space: nowrap; }
+.generation-job__state > i { width: 10px; height: 10px; flex: none; border: 2px solid #8c82d8; border-radius: 50%; background: #fff; }
+.generation-job--queued .generation-job__state > i, .generation-job--analyzing .generation-job__state > i, .generation-job--generating .generation-job__state > i, .generation-job--validating .generation-job__state > i { animation: job-pulse 1.5s ease-in-out infinite; }
+.generation-job--completed .generation-job__state > i { border-color: #3a9363; background: #3a9363; }
+.generation-job--failed .generation-job__state > i, .generation-job--cancelled .generation-job__state > i { border-color: #aaa8af; background: #aaa8af; }
+.generation-job__track { height: 3px; overflow: hidden; border-radius: 3px; background: #e2e0ec; }
+.generation-job__track > span { display: block; height: 100%; border-radius: inherit; background: #6c5ce2; transition: width .25s ease; }
+.generation-job > p { margin: 0; font-size: 9px; line-height: 1.55; }
+.generation-job > .od-button { justify-self: start; }
+.generation-job__actions { display: flex; align-items: center; gap: 9px; }
+.generation-job__actions small { color: #8c8998; font-size: 8px; }
+.generation-job__error { padding-top: 9px; border-top: 1px solid #dfdce9; }
+.generation-job__error strong { color: #7a4238; font-size: 9px; }
+.generation-job__error p { margin: 4px 0; color: #8c625a; font-size: 8px; line-height: 1.45; }
+.generation-job__error small { color: #a07168; font-size: 8px; font-weight: 700; }
+.generation-job--error { border-color: #ebc8c2; background: #fff7f5; color: #7b534c; }
+.generation-job--error > header { display: block; }
+@keyframes job-pulse { 50% { box-shadow: 0 0 0 4px #dedaf5; transform: scale(.9); } }
 
 .narrative-panel > .workflow-section { max-height: 260px; overflow: auto; }
 .narrative-panel--studio > .workflow-section { display: none; }
@@ -134,6 +162,10 @@ button:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-
 .brief-section textarea::placeholder { color: #a5a7ad; }
 .composer-actions { display: grid; grid-template-columns: auto 1fr; gap: 7px; margin-top: 9px; }
 .composer-actions .od-button { width: auto; margin: 0; justify-content: center; }
+.composer-example { margin-top: 7px; border: 0; padding: 0; background: transparent; color: #6b5bd8; font-size: 8px; font-weight: 700; cursor: pointer; }
+.composer-example:hover { text-decoration: underline; text-underline-offset: 3px; }
+.anonymous-space-note { display: flex; align-items: flex-start; gap: 6px; margin: 9px 0 0; color: #96989e; font-size: 7px; line-height: 1.5; }
+.anonymous-space-note svg { flex: none; margin-top: 1px; color: #8b7d55; }
 .advanced-generation { margin-top: 8px; }
 .advanced-generation summary { color: #92949b; font-size: 8px; cursor: pointer; }
 .advanced-generation[open] { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }

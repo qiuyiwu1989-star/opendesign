@@ -11,6 +11,7 @@ WorkingDirectory=/opt/opendesign/studio-current/studio/apps/local-api
 Environment=NODE_ENV=production
 Environment=STUDIO_LOCAL_API_PORT=8794
 Environment=STUDIO_LOCAL_DATA_DIR=/var/lib/opendesign-studio
+EnvironmentFile=/etc/opendesign/studio-api.env
 ExecStart=/usr/bin/node /opt/opendesign/studio-current/studio/node_modules/tsx/dist/cli.mjs src/main.ts
 Restart=on-failure
 RestartSec=5s
