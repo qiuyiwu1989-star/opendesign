@@ -1,0 +1,37 @@
+# Included inside the HTTPS opendesign.cc server block.
+# Studio API reuses the authenticated Admin session boundary: nginx first asks
+# the Admin API to verify the __Host cookie, then proxies only authenticated
+# requests to the loopback Studio API.
+location = /studio { return 302 /studio/; }
+
+location /studio/ {
+    alias /var/www/opendesign.cc/studio/;
+    try_files $uri $uri/ /studio/index.html;
+    add_header Cache-Control "no-cache, must-revalidate" always;
+}
+
+location = /studio-auth-check {
+    internal;
+    proxy_pass http://127.0.0.1:8790/admin-api/v1/session;
+    proxy_pass_request_body off;
+    proxy_set_header Content-Length "";
+    proxy_set_header Cookie $http_cookie;
+    proxy_set_header Host $host;
+}
+
+location @studio-login-required {
+    return 302 /admin/;
+}
+
+location ^~ /api/ {
+    auth_request /studio-auth-check;
+    error_page 401 403 = @studio-login-required;
+    proxy_pass http://127.0.0.1:8788;
+    proxy_http_version 1.1;
+    proxy_set_header Connection "";
+    proxy_set_header Host $host;
+    proxy_set_header X-Forwarded-Proto $scheme;
+    proxy_read_timeout 60s;
+    client_max_body_size 6m;
+    add_header Cache-Control "no-store" always;
+}
