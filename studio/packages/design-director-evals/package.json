@@ -1,0 +1,23 @@
+{
+  "name": "@opendesign/studio-design-director-evals",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "typecheck": "tsc --noEmit",
+    "test": "node --import tsx --test src/**/*.test.ts"
+  },
+  "dependencies": {
+    "@opendesign/studio-contracts": "0.0.1",
+    "@opendesign/studio-design-director": "0.0.1",
+    "@opendesign/studio-design-packs": "0.0.1"
+  },
+  "devDependencies": {
+    "@types/node": "^24.2.1",
+    "tsx": "^4.20.5"
+  }
+}

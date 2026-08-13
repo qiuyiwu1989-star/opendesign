@@ -98,7 +98,7 @@ if a.from_cos:
         if pick:
             # 让 COS 先缩到 768 宽再传：原图常有 258KB+，缩完 ~20KB，
             # 545 张的差别是 140MB vs 11MB
-            COS_URLS[slug] = pick["url"] + "?imageMogr2/thumbnail/768x"
+            COS_URLS[slug] = pick["url"] + "?imageMogr2/thumbnail/768x/format/webp/quality/80"
     slugs |= set(COS_URLS)
     print(f"  ⓘ --from-cos：packs-index 提供了 {len(COS_URLS)} 个可回源的 slug")
 

@@ -64,7 +64,22 @@ for _lang in en zh-CN zh-TW ja ko; do
   cp "${ROOT_DIR}/dist/legacy/sites-i18n.${_lang}.json" "${ROOT_DIR}/sites-i18n.${_lang}.json"
 done
 cp "${ROOT_DIR}/dist/sitemap.xml"              "${ROOT_DIR}/sitemap.xml"
-cp "${ROOT_DIR}/dist/sites-index.json"         "${ROOT_DIR}/sites-index.json"   # 精简索引 14KB（异步加载用）
+cp "${ROOT_DIR}/dist/sites-index.json"         "${ROOT_DIR}/sites-index.json"   # 精简首页索引（含单张 pack preview）
+
+# 首页性能闸门：卡片只消费折叠后的 preview URL，不能再依赖约 4MB 的完整清单。
+python3 - "$ROOT_DIR/sites-index.json" <<'PERF_GATE' || { echo "✗ 首页预览性能闸门未通过"; exit 1; }
+import json, os, sys
+p = sys.argv[1]
+d = json.load(open(p, encoding="utf-8"))
+rows = d.get("sites", []) if isinstance(d, dict) else d
+size = os.path.getsize(p)
+previews = sum(bool(r.get("pack_preview")) for r in rows)
+if size > 900_000:
+    print(f"  ✗ sites-index.json {size} bytes（预算 900000）"); sys.exit(1)
+if previews < 450:
+    print(f"  ✗ 只有 {previews} 条 COS pack_preview（至少 450）"); sys.exit(1)
+print(f"  ✓ 首页索引 {size} bytes · {previews} 条可靠 pack preview")
+PERF_GATE
 
 # 网站运行所需的前端资源
 FILES=(

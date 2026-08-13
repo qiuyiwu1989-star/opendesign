@@ -1,0 +1,32 @@
+[Unit]
+Description=OpenDesign Studio local API
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=opendesign-studio
+Group=opendesign-studio
+WorkingDirectory=/opt/opendesign/studio-current/studio/apps/local-api
+Environment=NODE_ENV=production
+Environment=STUDIO_LOCAL_API_PORT=8794
+Environment=STUDIO_LOCAL_DATA_DIR=/var/lib/opendesign-studio
+EnvironmentFile=/etc/opendesign/studio-api.env
+ExecStart=/usr/bin/node /opt/opendesign/studio-current/studio/node_modules/tsx/dist/cli.mjs src/main.ts
+Restart=on-failure
+RestartSec=5s
+UMask=0077
+NoNewPrivileges=true
+PrivateDevices=true
+PrivateTmp=true
+ProtectHome=true
+ProtectSystem=strict
+ReadWritePaths=/var/lib/opendesign-studio
+RestrictAddressFamilies=AF_UNIX AF_INET AF_INET6
+RestrictNamespaces=true
+LockPersonality=true
+CapabilityBoundingSet=
+AmbientCapabilities=
+
+[Install]
+WantedBy=multi-user.target

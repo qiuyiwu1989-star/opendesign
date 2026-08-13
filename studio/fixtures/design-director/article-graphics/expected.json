@@ -1,0 +1,17 @@
+{
+  "expectedStatus": "accepted",
+  "expectedPack": { "id": "editorial-story-graphics-cn", "version": "1.0.0" },
+  "requiredSourceIds": ["source_article", "source_editor_notes"],
+  "requiredCapabilities": ["text", "typography", "asset", "frame", "order"],
+  "distinctiveStructure": {
+    "requiredPageRoles": ["article-hero", "section-opener", "key-quote", "concept-diagram"],
+    "forbiddenPackIds": ["executive-proposal-cn", "research-keynote-cn"],
+    "rationale": "内容需要可独立传播的头图、转折、引语与关系图，并保持系列母题；它不是线性汇报。"
+  },
+  "manualReview": [
+    "系列是否共享一个内容相关的视觉母题，同时构图有变化",
+    "每张图离开正文后是否仍表达一个可理解观点",
+    "16:9 与 4:5 公共安全区是否保护标题和核心视觉",
+    "是否避开通用 AI 发光背景、无语义 3D 装饰和逐段机械配图"
+  ]
+}

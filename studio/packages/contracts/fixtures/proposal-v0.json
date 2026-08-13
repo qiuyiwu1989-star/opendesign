@@ -1,0 +1,146 @@
+{
+  "schemaVersion": "0.1.0",
+  "documentId": "doc_studio_v0",
+  "title": "OpenDesign Studio：让视觉作品继续生长",
+  "canvas": { "width": 1600, "height": 900, "unit": "logical-px" },
+  "directions": [
+    {
+      "id": "direction_editorial",
+      "name": "Editorial Signal",
+      "stance": "primary",
+      "rationale": "大字号、克制色彩与清晰编排让核心判断先于装饰出现。",
+      "referenceSlug": "linear",
+      "referenceVersion": "local-snapshot-2026-08",
+      "tokens": {
+        "background": "#F2F0EA",
+        "surface": "#FFFDF7",
+        "text": "#171713",
+        "muted": "#6F7068",
+        "accent": "#E34A2F",
+        "line": "#D8D5CC",
+        "fontFamily": "Inter, system-ui, sans-serif",
+        "headingFamily": "Georgia, Noto Serif SC, serif"
+      }
+    },
+    {
+      "id": "direction_structural",
+      "name": "Structural Blue",
+      "stance": "alternate",
+      "rationale": "冷静的蓝灰体系适合呈现系统架构与实施路径。",
+      "referenceSlug": "stripe",
+      "referenceVersion": "local-snapshot-2026-08",
+      "tokens": {
+        "background": "#EEF3F8",
+        "surface": "#FFFFFF",
+        "text": "#10243E",
+        "muted": "#607287",
+        "accent": "#2563EB",
+        "line": "#C9D5E2",
+        "fontFamily": "Inter, system-ui, sans-serif",
+        "headingFamily": "Inter, system-ui, sans-serif"
+      }
+    },
+    {
+      "id": "direction_nocturne",
+      "name": "Nocturne",
+      "stance": "alternate",
+      "rationale": "深色高对比方向适合强调 AI 创作工具的未来感。",
+      "referenceSlug": "vercel",
+      "referenceVersion": "local-snapshot-2026-08",
+      "tokens": {
+        "background": "#0D0E10",
+        "surface": "#181A1F",
+        "text": "#F7F5EF",
+        "muted": "#A6A9B0",
+        "accent": "#C6FF4A",
+        "line": "#30333A",
+        "fontFamily": "Inter, system-ui, sans-serif",
+        "headingFamily": "Inter, system-ui, sans-serif"
+      }
+    }
+  ],
+  "selectedDirectionId": "direction_editorial",
+  "scenes": [
+    {
+      "id": "scene_cover",
+      "order": 1,
+      "title": "封面",
+      "purpose": "建立产品命题",
+      "layout": "cover-offset-v1",
+      "elements": [
+        { "id": "cover_eyebrow", "type": "text", "role": "eyebrow", "frame": { "x": 112, "y": 92, "width": 540, "height": 44 }, "content": "OPENDESIGN STUDIO · V0", "fontSize": 20, "fontWeight": 700, "editable": true },
+        { "id": "cover_title", "type": "text", "role": "title", "frame": { "x": 108, "y": 200, "width": 1120, "height": 300 }, "content": "让视觉作品在生成之后，继续生长。", "fontSize": 92, "fontWeight": 600, "editable": true },
+        { "id": "cover_body", "type": "text", "role": "body", "frame": { "x": 112, "y": 650, "width": 680, "height": 110 }, "content": "从文章与 Brief 出发，生成可追踪、可修错、可编辑的视觉叙事。", "fontSize": 28, "fontWeight": 400, "editable": true },
+        { "id": "cover_shape", "type": "shape", "role": "shape", "frame": { "x": 1320, "y": 96, "width": 168, "height": 708 }, "fill": "accent", "editable": false }
+      ]
+    },
+    {
+      "id": "scene_problem",
+      "order": 2,
+      "title": "问题",
+      "purpose": "说明现有生成工具的断点",
+      "layout": "statement-metric-v1",
+      "elements": [
+        { "id": "problem_eyebrow", "type": "text", "role": "eyebrow", "frame": { "x": 112, "y": 84, "width": 340, "height": 40 }, "content": "01 · THE GAP", "fontSize": 18, "fontWeight": 700, "editable": true },
+        { "id": "problem_title", "type": "text", "role": "title", "frame": { "x": 112, "y": 180, "width": 980, "height": 200 }, "content": "漂亮截图，不等于可用作品。", "fontSize": 72, "fontWeight": 600, "editable": true },
+        { "id": "problem_body", "type": "text", "role": "body", "frame": { "x": 112, "y": 474, "width": 750, "height": 170 }, "content": "生成之后，用户仍然需要改文案、换图片、修布局、调整故事线，并在 PowerPoint 里继续工作。", "fontSize": 30, "fontWeight": 400, "editable": true },
+        { "id": "problem_metric", "type": "metric", "role": "metric", "frame": { "x": 1110, "y": 380, "width": 350, "height": 250 }, "content": "1 个改动\n≠\n整份重来", "fontSize": 52, "fontWeight": 700, "align": "center", "editable": true }
+      ]
+    },
+    {
+      "id": "scene_thesis",
+      "order": 3,
+      "title": "核心判断",
+      "purpose": "定义 Studio 的核心差异",
+      "layout": "quote-system-v1",
+      "elements": [
+        { "id": "thesis_eyebrow", "type": "text", "role": "eyebrow", "frame": { "x": 112, "y": 84, "width": 400, "height": 40 }, "content": "02 · THE THESIS", "fontSize": 18, "fontWeight": 700, "editable": true },
+        { "id": "thesis_quote", "type": "quote", "role": "quote", "frame": { "x": 180, "y": 220, "width": 1240, "height": 290 }, "content": "真正的 AI 设计工具，不只负责第一次生成，也要负责之后每一次正确的修改。", "fontSize": 64, "fontWeight": 600, "align": "center", "editable": true },
+        { "id": "thesis_body", "type": "text", "role": "body", "frame": { "x": 390, "y": 620, "width": 820, "height": 90 }, "content": "内容、设计方向与渲染结果必须彼此解耦。", "fontSize": 28, "fontWeight": 400, "align": "center", "editable": true }
+      ]
+    },
+    {
+      "id": "scene_system",
+      "order": 4,
+      "title": "系统",
+      "purpose": "解释 Scene IR 双渲染架构",
+      "layout": "system-flow-v1",
+      "elements": [
+        { "id": "system_eyebrow", "type": "text", "role": "eyebrow", "frame": { "x": 112, "y": 84, "width": 400, "height": 40 }, "content": "03 · ONE SOURCE", "fontSize": 18, "fontWeight": 700, "editable": true },
+        { "id": "system_title", "type": "text", "role": "title", "frame": { "x": 112, "y": 160, "width": 1120, "height": 130 }, "content": "一份 Scene IR，多个真实输出。", "fontSize": 64, "fontWeight": 600, "editable": true },
+        { "id": "system_ir", "type": "shape", "role": "shape", "frame": { "x": 112, "y": 420, "width": 330, "height": 190 }, "fill": "surface", "editable": false },
+        { "id": "system_ir_label", "type": "text", "role": "metric", "frame": { "x": 150, "y": 475, "width": 250, "height": 80 }, "content": "SCENE IR", "fontSize": 34, "fontWeight": 700, "align": "center", "editable": true },
+        { "id": "system_html", "type": "metric", "role": "metric", "frame": { "x": 610, "y": 380, "width": 300, "height": 120 }, "content": "HTML / PNG", "fontSize": 32, "fontWeight": 700, "align": "center", "editable": true },
+        { "id": "system_pptx", "type": "metric", "role": "metric", "frame": { "x": 610, "y": 570, "width": 300, "height": 120 }, "content": "EDITABLE PPTX", "fontSize": 32, "fontWeight": 700, "align": "center", "editable": true },
+        { "id": "system_qa", "type": "metric", "role": "metric", "frame": { "x": 1080, "y": 475, "width": 330, "height": 120 }, "content": "RENDER QA", "fontSize": 34, "fontWeight": 700, "align": "center", "editable": true }
+      ]
+    },
+    {
+      "id": "scene_editability",
+      "order": 5,
+      "title": "可编辑性",
+      "purpose": "展示可修复而非重做",
+      "layout": "three-actions-v1",
+      "elements": [
+        { "id": "edit_eyebrow", "type": "text", "role": "eyebrow", "frame": { "x": 112, "y": 84, "width": 420, "height": 40 }, "content": "04 · EDIT, DON'T RESTART", "fontSize": 18, "fontWeight": 700, "editable": true },
+        { "id": "edit_title", "type": "text", "role": "title", "frame": { "x": 112, "y": 165, "width": 1050, "height": 130 }, "content": "错误应该可以被定位和编辑。", "fontSize": 64, "fontWeight": 600, "editable": true },
+        { "id": "edit_card_1", "type": "metric", "role": "metric", "frame": { "x": 112, "y": 410, "width": 390, "height": 220 }, "content": "01\n改文字", "fontSize": 38, "fontWeight": 700, "editable": true },
+        { "id": "edit_card_2", "type": "metric", "role": "metric", "frame": { "x": 604, "y": 410, "width": 390, "height": 220 }, "content": "02\n换版式", "fontSize": 38, "fontWeight": 700, "editable": true },
+        { "id": "edit_card_3", "type": "metric", "role": "metric", "frame": { "x": 1096, "y": 410, "width": 390, "height": 220 }, "content": "03\n修当前页", "fontSize": 38, "fontWeight": 700, "editable": true }
+      ]
+    },
+    {
+      "id": "scene_roadmap",
+      "order": 6,
+      "title": "下一步",
+      "purpose": "收束第一版交付",
+      "layout": "roadmap-v1",
+      "elements": [
+        { "id": "roadmap_eyebrow", "type": "text", "role": "eyebrow", "frame": { "x": 112, "y": 84, "width": 400, "height": 40 }, "content": "05 · V0 VERTICAL SLICE", "fontSize": 18, "fontWeight": 700, "editable": true },
+        { "id": "roadmap_title", "type": "text", "role": "title", "frame": { "x": 112, "y": 165, "width": 1080, "height": 140 }, "content": "先证明闭环，再连接生产。", "fontSize": 68, "fontWeight": 600, "editable": true },
+        { "id": "roadmap_body", "type": "text", "role": "body", "frame": { "x": 112, "y": 390, "width": 720, "height": 190 }, "content": "第一版只验证 Scene IR、编辑、QA 与双渲染。AI、数据库、COS 和发布在闭环通过后逐项接入。", "fontSize": 30, "fontWeight": 400, "editable": true },
+        { "id": "roadmap_metric", "type": "metric", "role": "metric", "frame": { "x": 1040, "y": 370, "width": 400, "height": 260 }, "content": "6 PAGES\n3 OUTPUTS\n1 SOURCE", "fontSize": 44, "fontWeight": 700, "align": "center", "editable": true }
+      ]
+    }
+  ]
+}

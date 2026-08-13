@@ -1,0 +1,155 @@
+{
+  "packSchemaVersion": "0.1.0",
+  "id": "executive-proposal-cn",
+  "version": "1.0.0",
+  "name": "决策型商业提案",
+  "summary": "为高层决策与客户提案设计的结论先行叙事，以一页一个判断、证据绑定和清晰行动收束复杂内容。",
+  "positioning": {
+    "scenarios": ["商业提案", "战略评审", "客户汇报"],
+    "audiences": ["企业决策者", "业务负责人", "客户评审组"],
+    "contentTypes": ["建议", "商业论证", "路线图", "风险与选择"]
+  },
+  "designDna": {
+    "principles": ["结论先行", "一页一个判断", "证据与主张同页", "行动必须可执行"],
+    "mood": ["克制", "权威", "编辑感"],
+    "composition": {
+      "grid": "12-column editorial grid; 112px outer margin",
+      "density": "balanced",
+      "rhythm": "判断页与证据页交替，关键建议前后留出呼吸页"
+    },
+    "typography": {
+      "headingFamily": "Noto Serif CJK SC, Georgia, serif",
+      "bodyFamily": "Noto Sans CJK SC, Arial, sans-serif",
+      "languageSupport": ["zh-CN", "en"]
+    }
+  },
+  "tokens": {
+    "background": "#F4F1E9",
+    "surface": "#FFFDF8",
+    "text": "#171713",
+    "muted": "#66675F",
+    "accent": "#D84A2F",
+    "line": "#D5D0C4",
+    "fontFamily": "Noto Sans CJK SC, Arial, sans-serif",
+    "headingFamily": "Noto Serif CJK SC, Georgia, serif"
+  },
+  "narrativeArc": [
+    { "order": 1, "role": "cover", "purpose": "用一个明确命题建立决策语境", "required": true },
+    { "order": 2, "role": "executive-summary", "purpose": "先给出建议、价值和所需决策", "required": true },
+    { "order": 3, "role": "context", "purpose": "解释为什么现在必须处理", "required": true },
+    { "order": 4, "role": "evidence", "purpose": "用可追溯事实支持核心判断", "required": true },
+    { "order": 5, "role": "recommendation", "purpose": "呈现方案、取舍与选择理由", "required": true },
+    { "order": 6, "role": "roadmap", "purpose": "把建议转为阶段、责任和成功条件", "required": true },
+    { "order": 7, "role": "closing", "purpose": "重申决策请求并形成下一步", "required": false }
+  ],
+  "pageRoles": [
+    {
+      "id": "cover",
+      "purpose": "用结果导向标题界定提案主题与受众",
+      "contentSlots": [
+        { "id": "eyebrow", "kind": "text", "required": false, "maxChars": 32 },
+        { "id": "thesis", "kind": "text", "required": true, "maxChars": 34 },
+        { "id": "context-line", "kind": "text", "required": true, "maxChars": 70 },
+        { "id": "brand-mark", "kind": "image", "required": false }
+      ],
+      "layoutGuidance": ["标题占画布主要视觉权重", "只保留一个强调色区域", "不使用无语义装饰图"]
+    },
+    {
+      "id": "executive-summary",
+      "purpose": "让决策者在一分钟内知道建议与回报",
+      "contentSlots": [
+        { "id": "recommendation", "kind": "text", "required": true, "maxChars": 72 },
+        { "id": "value", "kind": "metric", "required": true, "maxChars": 24 },
+        { "id": "decision-request", "kind": "text", "required": true, "maxChars": 56 }
+      ],
+      "layoutGuidance": ["建议必须先于解释", "主指标必须带口径", "决策请求与建议分区"]
+    },
+    {
+      "id": "context",
+      "purpose": "用变化、问题和窗口建立紧迫性",
+      "contentSlots": [
+        { "id": "judgment", "kind": "text", "required": true, "maxChars": 40 },
+        { "id": "signals", "kind": "text", "required": true, "maxChars": 160 },
+        { "id": "context-visual", "kind": "image", "required": false }
+      ],
+      "layoutGuidance": ["信号不超过三组", "标题表达判断而非章节名", "视觉素材必须承担解释功能"]
+    },
+    {
+      "id": "evidence",
+      "purpose": "把主张与来源明确绑定",
+      "contentSlots": [
+        { "id": "claim", "kind": "text", "required": true, "maxChars": 46 },
+        { "id": "evidence-visual", "kind": "shape", "required": true },
+        { "id": "source-note", "kind": "text", "required": true, "maxChars": 90 }
+      ],
+      "layoutGuidance": ["图表标题直接写结论", "来源紧邻图表", "不使用截断坐标制造差异"]
+    },
+    {
+      "id": "recommendation",
+      "purpose": "比较选项并说明为何选择当前方案",
+      "contentSlots": [
+        { "id": "chosen-option", "kind": "text", "required": true, "maxChars": 56 },
+        { "id": "tradeoffs", "kind": "text", "required": true, "maxChars": 180 },
+        { "id": "decision-criteria", "kind": "text", "required": true, "maxChars": 100 }
+      ],
+      "layoutGuidance": ["先写选择标准再写偏好", "明确未选择方案的代价", "避免伪精确评分"]
+    },
+    {
+      "id": "roadmap",
+      "purpose": "形成有门槛、有责任人的执行路径",
+      "contentSlots": [
+        { "id": "phases", "kind": "text", "required": true, "maxChars": 180 },
+        { "id": "owner", "kind": "text", "required": true, "maxChars": 48 },
+        { "id": "success-gate", "kind": "metric", "required": true, "maxChars": 40 }
+      ],
+      "layoutGuidance": ["阶段不超过四段", "每段有可验证门槛", "时间只是辅助，结果是主轴"]
+    },
+    {
+      "id": "closing",
+      "purpose": "用一个可回答的问题结束提案",
+      "contentSlots": [
+        { "id": "decision", "kind": "text", "required": true, "maxChars": 52 },
+        { "id": "next-action", "kind": "text", "required": true, "maxChars": 64 }
+      ],
+      "layoutGuidance": ["不重复整份目录", "最后一页只保留一个行动", "避免空泛致谢页"]
+    }
+  ],
+  "assetStrategy": {
+    "imagePolicy": "provided-first",
+    "requiredAltText": true,
+    "allowedSchemes": ["asset"]
+  },
+  "agentGuidance": [
+    "先识别需要谁做什么决定，再生成页面。",
+    "每页标题必须是可独立阅读的完整判断。",
+    "所有数字、图表和外部事实必须绑定 sourceIds。",
+    "当证据不足时标注缺口，不得补造数字。",
+      "首版用原生文字、指标与 Shape 组合证据图形；复杂效果只允许组件级降级。",
+    "重新生成不得覆盖已确认的人工修改。"
+  ],
+  "editability": {
+    "text": "native",
+    "image": "replaceable",
+    "frame": true,
+    "order": true,
+    "decoration": "native"
+  },
+  "export": {
+    "html": "high-fidelity",
+    "pptx": "native-first",
+    "png": "supported",
+    "rasterFallback": "component-only"
+  },
+  "qaRules": [
+    { "id": "proposal-title-is-judgment", "severity": "warning", "scope": "scene", "rule": "除封面外，页面标题必须表达判断，不得只写主题名。" },
+    { "id": "proposal-one-decision", "severity": "error", "scope": "scene", "rule": "单页不得同时要求两个互不相关的决策。" },
+    { "id": "proposal-evidence-source", "severity": "blocker", "scope": "element", "rule": "指标、图表和外部事实必须至少绑定一个可用 sourceId。" },
+    { "id": "proposal-native-pptx", "severity": "warning", "scope": "element", "rule": "可表达为原生对象的内容不得整页栅格化。" },
+    { "id": "proposal-readable", "severity": "error", "scope": "element", "rule": "正文不小于 20px，来源注释不小于 14px，文字不得溢出画布。" }
+  ],
+  "agentAnnotation": {
+    "copyText": "使用 executive-proposal-cn@1.0.0。先明确决策者、决策请求与证据缺口；采用结论先行叙事，每页只表达一个判断；数字绑定 sourceIds；输出符合 Structured HTML Contract 0.1.0 的 HTML，保留稳定 scene/element ID，并优先保证原生可编辑 PPTX。",
+    "requiredCapabilities": ["text", "typography", "asset", "frame", "order"],
+    "contractVersion": "0.1.0"
+  }
+}

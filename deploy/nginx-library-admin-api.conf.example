@@ -1,0 +1,111 @@
+# REVIEWED INCLUDE EXAMPLE ONLY — do not install without a separate deployment approval.
+# Include inside the existing HTTPS opendesign.cc server block. The application
+# process must bind only to 127.0.0.1:18790; nginx remains the public boundary.
+# Define these zones once in the nginx `http {}` context:
+# limit_req_zone $binary_remote_addr zone=opendesign_admin_read:10m rate=60r/m;
+# limit_req_zone $binary_remote_addr zone=opendesign_admin_auth:10m rate=10r/m;
+# limit_req_zone $binary_remote_addr zone=opendesign_admin_review:10m rate=30r/m;
+
+# New Control Room. `/var/www/opendesign.cc/admin` is an atomically switched
+# symlink to one immutable `admin.release-*` directory. Keep the legacy static
+# admin.html file as a filesystem fallback, but direct the public entry to the
+# reviewed Control Room after activation.
+location = /admin.html {
+    return 302 /admin/;
+}
+
+location = /admin {
+    return 308 /admin/;
+}
+
+location ^~ /admin/ {
+    try_files $uri $uri/ /admin/index.html;
+    add_header Cache-Control "no-cache, must-revalidate" always;
+    add_header Strict-Transport-Security "max-age=63072000; includeSubDomains; preload" always;
+    add_header Content-Security-Policy "default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self'; form-action 'self'; frame-ancestors 'none'; base-uri 'self';" always;
+    add_header X-Content-Type-Options "nosniff" always;
+    add_header X-Frame-Options "DENY" always;
+    add_header Referrer-Policy "no-referrer" always;
+}
+
+location = /admin-api/v1/login {
+    limit_req zone=opendesign_admin_auth burst=3 nodelay;
+    limit_req_status 429;
+    limit_except POST { deny all; }
+    add_header Strict-Transport-Security "max-age=63072000; includeSubDomains; preload" always;
+    add_header Access-Control-Allow-Origin "" always;
+    proxy_pass http://127.0.0.1:18790;
+    include proxy_params;
+    proxy_set_header Host $host;
+    proxy_set_header X-Forwarded-Proto https;
+    proxy_set_header X-Forwarded-For $remote_addr;
+    proxy_set_header Connection "";
+    proxy_http_version 1.1;
+    proxy_read_timeout 15s;
+    proxy_send_timeout 15s;
+    client_max_body_size 2k;
+}
+
+# This regex is evaluated before the ordinary fallback prefix below. Do not
+# change that fallback to `^~`, or nginx would bypass this route allowlist.
+location ~ ^/admin-api/v1/(session|operations|sync|health/(live|ready))$ {
+    limit_req zone=opendesign_admin_read burst=20 nodelay;
+    limit_req_status 429;
+    limit_except GET { deny all; }
+    add_header Strict-Transport-Security "max-age=63072000; includeSubDomains; preload" always;
+    add_header Access-Control-Allow-Origin "" always;
+    proxy_pass http://127.0.0.1:18790;
+    include proxy_params;
+    proxy_set_header Host $host;
+    proxy_set_header X-Forwarded-Proto https;
+    proxy_set_header X-Forwarded-For $remote_addr;
+    proxy_set_header Connection "";
+    proxy_http_version 1.1;
+    proxy_pass_request_body off;
+    proxy_set_header Content-Length "";
+    proxy_read_timeout 15s;
+    proxy_send_timeout 15s;
+    client_max_body_size 1k;
+}
+
+location = /admin-api/v1/logout {
+    limit_req zone=opendesign_admin_auth burst=3 nodelay;
+    limit_req_status 429;
+    limit_except POST { deny all; }
+    add_header Strict-Transport-Security "max-age=63072000; includeSubDomains; preload" always;
+    add_header Access-Control-Allow-Origin "" always;
+    proxy_pass http://127.0.0.1:18790;
+    include proxy_params;
+    proxy_set_header Host $host;
+    proxy_set_header X-Forwarded-Proto https;
+    proxy_set_header X-Forwarded-For $remote_addr;
+    proxy_set_header Connection "";
+    proxy_http_version 1.1;
+    proxy_read_timeout 15s;
+    proxy_send_timeout 15s;
+    client_max_body_size 1k;
+}
+
+location = /admin-api/v1/decisions/review {
+    limit_req zone=opendesign_admin_review burst=5 nodelay;
+    limit_req_status 429;
+    limit_except POST { deny all; }
+    add_header Strict-Transport-Security "max-age=63072000; includeSubDomains; preload" always;
+    add_header Access-Control-Allow-Origin "" always;
+    proxy_pass http://127.0.0.1:18790;
+    include proxy_params;
+    proxy_set_header Host $host;
+    proxy_set_header X-Forwarded-Proto https;
+    proxy_set_header X-Forwarded-For $remote_addr;
+    proxy_set_header Connection "";
+    proxy_http_version 1.1;
+    proxy_read_timeout 15s;
+    proxy_send_timeout 15s;
+    client_max_body_size 8k;
+}
+
+# Fail closed: no unknown method or route under the Admin API prefix reaches
+# the SPA fallback or the upstream service.
+location /admin-api/ {
+    return 404;
+}

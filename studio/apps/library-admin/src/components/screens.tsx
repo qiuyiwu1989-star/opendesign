@@ -1,0 +1,152 @@
+import { type FormEvent, useEffect, useMemo, useState } from "react";
+import type { AdminSnapshot, CurationDecision, DecisionRecommendation, LibraryAsset, PipelineRun, ReviewCase, ReviewSource, SignalState, SyncSnapshot, TodaySnapshot } from "../domain";
+import { submitDecisionReview, type DecisionReviewRequest, type DecisionReviewResult, type ReviewedDecision } from "../data/decisions";
+import { qualitySummary } from "../data/quality";
+import { EmptyState, Icon, PageHeader, Pill, PreviewDrawer, formatTime, type Screen, type Tone } from "./system";
+
+const priorityLabels = { critical: "立即", high: "高", medium: "中", low: "低" } as const;
+const sourceLabels: Record<ReviewSource, string> = { discovery: "自动发现", submission: "用户投稿", quality: "质量检查", origin: "源站状态" };
+const statusLabels: Record<string, string> = { unreviewed: "未审", accepted: "已收录", recommended: "推荐", alive: "正常", changed: "有变化", degraded: "降级", unavailable: "不可用", healthy: "正常", attention: "需关注", blocked: "受阻", unknown: "未知", queued: "排队", running: "运行中", completed: "完成", failed: "失败", cancelled: "取消", pending: "待执行", skipped: "跳过", "in-sync": "一致", ahead: "领先", behind: "滞后", diverged: "分叉" };
+const recommendationLabels: Record<DecisionRecommendation, string> = { approve: "建议收录", review: "人工复核", reject: "建议拒绝" };
+
+function signalTone(value: SignalState | string): Tone {
+  if (["healthy", "completed", "alive", "accepted", "recommended", "in-sync"].includes(value)) return "good";
+  if (["blocked", "failed", "unavailable", "critical"].includes(value)) return "bad";
+  if (["attention", "running", "queued", "changed", "degraded", "high", "ahead", "behind", "diverged"].includes(value)) return "warn";
+  return "neutral";
+}
+
+function QualityAxes({ asset }: { asset: Pick<LibraryAsset, "quality"> }) {
+  return <div className="quality-axes" aria-label="质量三轴">
+    <span><small>证据</small><Pill tone={asset.quality.evidence === "E0" ? "warn" : asset.quality.evidence === "E3" ? "good" : "neutral"}>{asset.quality.evidence}</Pill></span>
+    <span><small>策展</small><Pill tone={signalTone(asset.quality.curation)}>{statusLabels[asset.quality.curation]}</Pill></span>
+    <span><small>源站</small><Pill tone={signalTone(asset.quality.origin)}>{statusLabels[asset.quality.origin]}</Pill></span>
+  </div>;
+}
+
+function Metric({ label, value, detail }: { label: string; value: number | string; detail: string }) {
+  return <article className="metric"><small>{label}</small><strong>{value}</strong><p>{detail}</p></article>;
+}
+
+export function TodayScreen({ today, reviews, decisions, pipelines, sync, onNavigate, onPreview }: { today: TodaySnapshot; reviews: ReviewCase[]; decisions: CurationDecision[]; pipelines: PipelineRun[]; sync: SyncSnapshot; onNavigate: (screen: Screen) => void; onPreview: (title: string, detail: string) => void }) {
+  const funnel = today.funnel;
+  const funnelItems = [
+    ["资源总量", funnel.totalAssets, 100], ["有规范", funnel.withSpec, funnel.totalAssets ? funnel.withSpec / funnel.totalAssets * 100 : 0],
+    ["有完整包", funnel.withPack, funnel.totalAssets ? funnel.withPack / funnel.totalAssets * 100 : 0], ["已推荐", funnel.recommended, funnel.totalAssets ? funnel.recommended / funnel.totalAssets * 100 : 0],
+  ] as const;
+  return <section className="screen screen--today">
+    <PageHeader eyebrow="TUESDAY · EDITORIAL DESK" title="今天，先做这三件事" description="按风险和影响排序，不让数字淹没编辑判断。" aside={<button className="button button--outline" type="button" onClick={() => onPreview("今日工作简报", `${today.topActions.length} 项行动已进入预览队列。`)}>预览工作简报 <Icon name="arrow"/></button>}/>
+    {today.topActions.length ? <ol className="action-stack" aria-label="今日优先行动">{today.topActions.map((action, index) => <li key={action.id} data-testid={`today-action-${action.id}`} className={`action-card action-card--${action.priority}`}>
+      <span className="action-index">0{index + 1}</span><div><span className="action-meta"><Pill tone={signalTone(action.priority)}>{priorityLabels[action.priority]}优先级</Pill><small>{action.kind.toUpperCase()}</small></span><h2>{action.title}</h2><p>{action.summary}</p></div><button type="button" onClick={() => onNavigate(action.target)}>进入工作区 <Icon name="arrow"/></button>
+    </li>)}</ol> : <EmptyState title="今日队列已清空" detail="快照里没有等待处理的高优先级项目。"/>}
+    <div className="editorial-grid">
+      <section className="panel panel--funnel"><div className="panel-heading"><div><small className="eyebrow">CONTENT FUNNEL</small><h2>内容从收录到推荐</h2></div><button type="button" onClick={() => onNavigate("assets")}>查看资源</button></div><div className="funnel">{funnelItems.map(([label, value, width], index) => <div key={label}><span><strong>{label}</strong><em>{value}</em></span><i style={{ width: `${Math.max(2, width)}%` }} className={`funnel-${index}`}/></div>)}</div></section>
+      <section className="panel panel--signals"><div className="panel-heading"><div><small className="eyebrow">CURATION SIGNALS</small><h2>编辑判断</h2></div></div><SignalRow label="每日 AI 决策" state={today.decisionSignal} detail={`${decisions.filter(item => item.reviewStatus === "pending").length} 项待复核`} onClick={() => onNavigate("quality")}/><SignalRow label="统一审核" state={reviews.some(item => item.status === "pending") ? "attention" : "healthy"} detail={`${reviews.filter(item => item.status === "pending").length} 项待判断`} onClick={() => onNavigate("review")}/><SignalRow label="自动化管线" state={today.pipelineSignal} detail={`${pipelines.length} 次运行可追溯`} onClick={() => onNavigate("pipelines")}/><SignalRow label="GitHub 同步" state={today.syncSignal} detail={sync.summary} onClick={() => onNavigate("sync")}/></section>
+    </div>
+  </section>;
+}
+
+type DecisionReviewer = (request: DecisionReviewRequest) => Promise<DecisionReviewResult>;
+
+function DecisionDetail({ decision, canReview, onPreview, onReviewed, reviewer }: { decision: CurationDecision; canReview: boolean; onPreview: (title: string, detail: string) => void; onReviewed: (decision: ReviewedDecision) => void; reviewer: DecisionReviewer }) {
+  const decisionTone: Tone = decision.recommendation === "approve" ? "good" : decision.recommendation === "reject" ? "bad" : "warn";
+  const [action, setAction] = useState<"confirm" | "override">("confirm");
+  const [reason, setReason] = useState("");
+  const [recommendation, setRecommendation] = useState<DecisionRecommendation | "">("");
+  const [status, setStatus] = useState<"idle" | "submitting" | "succeeded">("idle");
+  const [error, setError] = useState("");
+  const cleanReason = reason.trim();
+  const reasonValid = cleanReason.length >= 4 && cleanReason.length <= 1000;
+
+  useEffect(() => {
+    setAction("confirm");
+    setReason("");
+    setRecommendation("");
+    setStatus("idle");
+    setError("");
+  }, [decision.id]);
+
+  const submit = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    if (!reasonValid || status === "submitting") return;
+    if (action === "override" && !recommendation) return;
+    setStatus("submitting");
+    setError("");
+    const request: DecisionReviewRequest = action === "confirm"
+      ? { decisionId: decision.id, action, reason: cleanReason }
+      : { decisionId: decision.id, action, recommendation: recommendation as DecisionRecommendation, reason: cleanReason };
+    void reviewer(request).then(result => {
+      if (!result.ok) {
+        setStatus("idle");
+        setError(result.message);
+        return;
+      }
+      setStatus("succeeded");
+      onReviewed(result.decision);
+    });
+  };
+
+  return <aside className="decision-detail" aria-label={`${decision.candidateTitle} 决策详情`}>
+    <header><div><Pill tone={decisionTone}>{recommendationLabels[decision.recommendation]}</Pill><small>{decision.confidence}% 置信度</small></div><h2>{decision.candidateTitle}</h2><p>{decision.reason}</p></header>
+    <section><h3>AI 判断五位</h3><dl className="judgment-card judgment-card--agent"><div><dt>谁认为</dt><dd>{decision.aiJudgment.holderId} · Agent</dd></div><div><dt>关于谁</dt><dd>{decision.candidateTitle}<code>{decision.aiJudgment.subjectId}</code></dd></div><div><dt>什么判断</dt><dd>{recommendationLabels[decision.aiJudgment.statement]}</dd></div><div><dt>何时成立</dt><dd>{formatTime(decision.aiJudgment.asOf)}</dd></div><div><dt>依据在哪</dt><dd>{decision.aiJudgment.provenance.source}<code>{decision.aiJudgment.provenance.policyVersion ?? decision.policyVersion}</code></dd></div></dl></section>
+    <section className="decision-provenance"><span><small>策略</small><code>{decision.policyVersion}</code></span><span><small>模型</small><code>{decision.model}</code></span><span><small>时间</small><code>{formatTime(decision.decidedAt)}</code></span></section>
+    <section><h3>判断信号</h3><div className="decision-signals">{decision.signals.map(signal => <article key={signal.id} className={`decision-signal decision-signal--${signal.state}`}><span><strong>{signal.label}</strong><em>{signal.score}</em></span><p>{signal.evidence.join(" · ")}</p></article>)}</div></section>
+    <section><h3>人工复核</h3>{decision.reviewStatus !== "pending"
+      ? <div className="review-record" role="status"><Pill tone="good">已留痕</Pill><p>{decision.reviewJudgment?.holderId ?? decision.reviewedBy ?? "管理员"} 已{decision.reviewStatus === "confirmed" ? "确认" : "覆盖"}此判断。</p><dl><div><dt>AI 原建议</dt><dd>{recommendationLabels[decision.recommendation]}</dd></div><div><dt>人工最终结论</dt><dd>{recommendationLabels[decision.reviewJudgment?.statement ?? decision.finalRecommendation ?? decision.recommendation]}</dd></div></dl>{decision.reviewJudgment && <dl className="judgment-card judgment-card--user" aria-label="人工判断五位"><div><dt>谁认为</dt><dd>{decision.reviewJudgment.holderId} · User</dd></div><div><dt>关于谁</dt><dd>{decision.candidateTitle}<code>{decision.reviewJudgment.subjectId}</code></dd></div><div><dt>什么判断</dt><dd>{recommendationLabels[decision.reviewJudgment.statement]}</dd></div><div><dt>何时成立</dt><dd>{formatTime(decision.reviewJudgment.asOf)}</dd></div><div><dt>依据在哪</dt><dd>{decision.reviewJudgment.provenance.source}<code>{decision.reviewJudgment.provenance.requestId ?? decision.reviewJudgment.id}</code></dd></div><div><dt>判断理由</dt><dd>{decision.reviewJudgment.reason}</dd></div><div><dt>取代关系</dt><dd>supersedes<code>{decision.reviewJudgment.supersedesDecisionId}</code></dd></div></dl>}<small>{formatTime(decision.reviewedAt)} · 原模型记录保持不变</small></div>
+      : canReview
+        ? <form className="decision-review-form" onSubmit={submit} noValidate>
+          <fieldset disabled={status === "submitting"}><legend className="sr-only">人工终审动作</legend><div className="review-action-switch" role="group" aria-label="终审动作"><button type="button" aria-pressed={action === "confirm"} onClick={() => { setAction("confirm"); setError(""); }}>确认 AI 建议</button><button type="button" aria-pressed={action === "override"} onClick={() => { setAction("override"); setError(""); }}>覆盖 AI 建议</button></div>
+          {action === "override" && <label className="review-field" htmlFor={`override-${decision.id}`}><span>人工结论</span><select id={`override-${decision.id}`} value={recommendation} onChange={event => setRecommendation(event.target.value as DecisionRecommendation | "")} required><option value="">请选择覆盖后的建议</option>{(["approve", "review", "reject"] as const).filter(item => item !== decision.recommendation).map(item => <option key={item} value={item}>{recommendationLabels[item]}</option>)}</select></label>}
+          <label className="review-field" htmlFor={`reason-${decision.id}`}><span>审查理由 <b>必填</b></span><textarea id={`reason-${decision.id}`} value={reason} onChange={event => setReason(event.target.value)} rows={3} required minLength={4} maxLength={1000} aria-invalid={reason.length > 0 && !reasonValid} aria-describedby={`reason-help-${decision.id}`} placeholder={action === "confirm" ? "说明为何同意 AI 建议，以及核对过的证据" : "说明覆盖依据和与 AI 判断不同之处"}/><small id={`reason-help-${decision.id}`}>4–1000 字；理由会和原 AI 判断并列写入审计记录。</small></label></fieldset>
+          {error && <p className="review-message review-message--error" role="alert">{error}</p>}
+          {status === "succeeded" && <p className="review-message review-message--success" role="status">终审已提交并写入审计记录。</p>}
+          <button className="button button--solid" type="submit" disabled={status === "submitting" || status === "succeeded" || !reasonValid || (action === "override" && !recommendation)}>{status === "submitting" ? "正在提交…" : status === "succeeded" ? "已提交" : action === "confirm" ? "确认并留痕" : "覆盖并留痕"}</button>
+        </form>
+        : <div className="preview-review"><p className="muted">当前为只读快照。登录管理员会话后才可执行终审。</p><button className="button button--solid" type="button" onClick={() => onPreview("确认决策预览", `将预览「${recommendationLabels[decision.recommendation]}」的影响、理由与审计字段；当前不会写回。`)}>预览确认</button><button className="button button--outline" type="button" onClick={() => onPreview("覆盖决策预览", "将预览人工覆盖理由与原 AI 决策的并列审计记录；当前不会写回。")}>预览覆盖</button></div>}</section>
+  </aside>;
+}
+
+export function QualityScreen({ decisions, assets, canReview = false, onPreview, onDecisionReviewed, reviewer = submitDecisionReview }: { decisions: CurationDecision[]; assets: LibraryAsset[]; canReview?: boolean; onPreview: (title: string, detail: string) => void; onDecisionReviewed?: (decision: ReviewedDecision) => void; reviewer?: DecisionReviewer }) {
+  const [filter, setFilter] = useState<DecisionRecommendation | "all">("all");
+  const visible = decisions.filter(decision => filter === "all" || decision.recommendation === filter);
+  const [selectedId, setSelectedId] = useState(decisions.find(item => item.reviewStatus === "pending")?.id ?? decisions[0]?.id);
+  const selected = visible.find(item => item.id === selectedId) ?? visible[0];
+  const summary = qualitySummary(assets, decisions);
+  return <section className="screen"><PageHeader eyebrow="AI CURATION JOURNAL" title="每一个收录与拒绝，都留下判断证据" description="按固定策略每日评估公开候选；AI 负责建议和解释，人负责最终确认。垃圾、广告与高风险内容不进入发布管线。" aside={<Pill tone={summary.pendingDecisions ? "warn" : "good"}>{summary.pendingDecisions} 待复核</Pill>}/>
+    <div className="quality-metrics"><Metric label="待复核判断" value={summary.pendingDecisions} detail="保留人工最终权"/><Metric label="AI 拒绝建议" value={summary.rejectedByAi} detail="垃圾 / 广告 / 风险"/><Metric label="完整资产" value={summary.readyAssets} detail="预览 + 规范 + Pack + 资产"/><Metric label="复核覆盖率" value={`${summary.reviewRate}%`} detail="有审计记录的人工判断"/></div>
+    <div className="policy-strip"><span><strong>POLICY</strong><code>opendesign-curation-v1.1</code></span><p>硬拒绝：广告/联盟目录、SEO 垃圾、仿冒或重复、恶意下载、与设计无关。软复核：证据不足、价值一般、原创性不确定。</p></div>
+    <div className="filterbar" aria-label="AI 决策筛选"><span><Icon name="filter"/> 建议</span>{(["all", "approve", "review", "reject"] as const).map(item => <button type="button" key={item} aria-pressed={filter === item} onClick={() => setFilter(item)}>{item === "all" ? "全部" : recommendationLabels[item]}<i>{item === "all" ? decisions.length : decisions.filter(decision => decision.recommendation === item).length}</i></button>)}</div>
+    {decisions.length ? <div className="quality-workbench"><div className="decision-list" role="list" aria-label="每日 AI 决策记录">{visible.map(decision => <button role="listitem" key={decision.id} type="button" className={selected?.id === decision.id ? "is-selected" : ""} onClick={() => setSelectedId(decision.id)}><Pill tone={decision.recommendation === "approve" ? "good" : decision.recommendation === "reject" ? "bad" : "warn"}>{recommendationLabels[decision.recommendation]}</Pill><span><strong>{decision.candidateTitle}</strong><small>{decision.reason}</small><em>{decision.reviewStatus === "pending" ? `${decision.model} · ${formatTime(decision.decidedAt)}` : `${decision.reviewedBy ?? "管理员"} · 已${decision.reviewStatus === "confirmed" ? "确认" : "覆盖"}`}</em></span><b>{decision.confidence}</b></button>)}</div>{selected && <DecisionDetail decision={selected} canReview={canReview} onPreview={onPreview} onReviewed={onDecisionReviewed ?? (() => undefined)} reviewer={reviewer}/>}</div> : <EmptyState title="暂无 AI 决策记录" detail="每日评估器接入后，这里会显示策略版本、模型、信号、建议和人工复核痕迹。"/>}
+  </section>;
+}
+
+function SignalRow({ label, state, detail, onClick }: { label: string; state: SignalState; detail: string; onClick: () => void }) {
+  return <button className="signal-row" type="button" onClick={onClick}><span className={`signal signal--${signalTone(state)}`}/><span><strong>{label}</strong><small>{detail}</small></span><Pill tone={signalTone(state)}>{statusLabels[state]}</Pill><Icon name="arrow"/></button>;
+}
+
+function ReviewDetail({ review, asset, onPreview }: { review: ReviewCase; asset?: LibraryAsset; onPreview: (title: string, detail: string) => void }) {
+  return <aside className="review-detail" aria-label={`${review.title} 审核详情`}><header><div><Pill tone={signalTone(review.priority)}>{priorityLabels[review.priority]}优先级</Pill><small>{sourceLabels[review.source]}</small></div><h2>{review.title}</h2><p>{review.summary}</p></header>{asset && <section><h3>资源质量</h3><QualityAxes asset={asset}/></section>}<section><h3>判断依据</h3>{review.evidence.length ? <ul className="evidence-list">{review.evidence.map(item => <li key={item}>{item}</li>)}</ul> : <p className="muted">当前快照没有附带证据。</p>}</section><section><h3>预览动作</h3><button className="button button--solid" type="button" onClick={() => onPreview("判断变更集", `将预览「${review.title}」可能产生的字段变化，不会写回。`)}>预览判断变更</button><button className="button button--outline" type="button" onClick={() => onPreview("忽略建议", "仅预览忽略理由和影响范围，不改变队列状态。")}>预览忽略影响</button></section></aside>;
+}
+
+export function ReviewScreen({ reviews, assets, onPreview }: { reviews: ReviewCase[]; assets: LibraryAsset[]; onPreview: (title: string, detail: string) => void }) {
+  const [source, setSource] = useState<ReviewSource | "all">("all");
+  const [selectedId, setSelectedId] = useState(reviews.find(item => item.status === "pending")?.id ?? reviews[0]?.id);
+  const visible = reviews.filter(item => source === "all" || item.source === source);
+  const selected = visible.find(item => item.id === selectedId) ?? visible[0];
+  return <section className="screen"><PageHeader eyebrow="UNIFIED REVIEW" title="一个队列，处理所有判断" description="自动发现、用户投稿、内容质量与源站变化在同一语境里审核。" aside={<Pill tone="warn">{reviews.filter(item => item.status === "pending").length} 待判断</Pill>}/><div className="filterbar" aria-label="审核来源筛选"><span><Icon name="filter"/> 来源</span>{(["all", "discovery", "submission", "quality", "origin"] as const).map(item => <button type="button" key={item} aria-label={`筛选来源：${item === "all" ? "全部" : sourceLabels[item]}`} aria-pressed={source === item} onClick={() => setSource(item)}>{item === "all" ? "全部" : sourceLabels[item]}<i>{item === "all" ? reviews.length : reviews.filter(review => review.source === item).length}</i></button>)}</div><div className="review-workbench"><div className="review-list" role="list" aria-label="统一审核案例">{visible.map(review => <button role="listitem" key={review.id} type="button" className={selected?.id === review.id ? "is-selected" : ""} onClick={() => setSelectedId(review.id)}><span className={`source-flag source-flag--${review.source}`}>{sourceLabels[review.source]}</span><span><strong>{review.title}</strong><small>{review.summary}</small><em><Pill tone={signalTone(review.priority)}>{priorityLabels[review.priority]}</Pill>{formatTime(review.createdAt)}</em></span><Icon name="arrow"/></button>)}{!visible.length && <EmptyState title="这个来源没有案例" detail="更换来源筛选，或等待下一份只读快照。"/>}</div>{selected && <ReviewDetail review={selected} {...(assets.find(item => item.id === selected.assetId) ? { asset: assets.find(item => item.id === selected.assetId)! } : {})} onPreview={onPreview}/>}</div></section>;
+}
+
+export function AssetsScreen({ assets, onPreview }: { assets: LibraryAsset[]; onPreview: (title: string, detail: string) => void }) {
+  const [query, setQuery] = useState(""); const [selected, setSelected] = useState<LibraryAsset>();
+  const visible = useMemo(() => assets.filter(asset => `${asset.title} ${asset.tags.join(" ")}`.toLowerCase().includes(query.toLowerCase())), [assets, query]);
+  return <section className="screen"><PageHeader eyebrow="DESIGN ASSETS" title="不是网址收藏，是可追溯的设计资产" description="每条资源都分别核对预览、结构化规范、可复制设计包和资产清单，同时保留证据、策展与源站三轴。" aside={<div className="searchbox"><Icon name="search"/><label className="sr-only" htmlFor="asset-search">搜索资源</label><input id="asset-search" value={query} onChange={event => setQuery(event.target.value)} placeholder="搜索名称或标签"/></div>}/><div className="asset-metrics"><Metric label="资源总量" value={assets.length} detail="当前快照"/><Metric label="100% 完整" value={assets.filter(item => item.artifacts.completeness === 100).length} detail="四类资产齐备"/><Metric label="缺少预览" value={assets.filter(item => item.artifacts.preview.status !== "ready").length} detail="需采集或从 Pack 恢复"/><Metric label="缺少设计包" value={assets.filter(item => item.artifacts.pack.status !== "ready").length} detail="尚不可被 Agent 完整复用"/></div>{visible.length ? <div className="asset-table-wrap"><table className="asset-table"><thead><tr><th>设计资源</th><th>证据</th><th>策展</th><th>源站</th><th>资产完整度</th><th aria-label="操作" /></tr></thead><tbody>{visible.map(asset => <tr key={asset.id}><td><button className="asset-title" type="button" onClick={() => setSelected(asset)}><span className="asset-monogram">{asset.title.slice(0, 2).toUpperCase()}</span><span><strong>{asset.title}</strong><small>{asset.tags.slice(0, 3).join(" · ") || "尚未标注标签"}</small></span></button></td><td><Pill tone={asset.quality.evidence === "E3" ? "good" : asset.quality.evidence === "E0" ? "warn" : "neutral"}>{asset.quality.evidence}</Pill></td><td><Pill tone={signalTone(asset.quality.curation)}>{statusLabels[asset.quality.curation]}</Pill></td><td><Pill tone={signalTone(asset.quality.origin)}>{statusLabels[asset.quality.origin]}</Pill></td><td><div className="artifact-dots" aria-label={`资产完整度 ${asset.artifacts.completeness}%`}><span><i className={asset.artifacts.preview.status === "ready" ? "is-on" : ""}/>预览</span><span><i className={asset.artifacts.spec.status === "ready" ? "is-on" : ""}/>规范</span><span><i className={asset.artifacts.pack.status === "ready" ? "is-on" : ""}/>Pack</span><span><i className={asset.artifacts.assets.status === "ready" ? "is-on" : ""}/>资产</span><b>{asset.artifacts.completeness}%</b></div></td><td><button type="button" className="icon-button" aria-label={`预览 ${asset.title}`} onClick={() => setSelected(asset)}><Icon name="panel"/></button></td></tr>)}</tbody></table></div> : <EmptyState title="没有匹配资源" detail="尝试更短的关键词或清空搜索。"/>}{selected && <PreviewDrawer title={selected.title} kicker="DESIGN PACK" onClose={() => setSelected(undefined)}><div className="drawer-section"><QualityAxes asset={selected}/></div><div className="drawer-section"><h3>资产完整性</h3><div className="artifact-grid">{(["preview", "spec", "pack", "assets"] as const).map(key => <article key={key}><span><strong>{{ preview: "预览图", spec: "设计规范", pack: "设计包", assets: "设计资产" }[key]}</strong><Pill tone={selected.artifacts[key].status === "ready" ? "good" : "warn"}>{selected.artifacts[key].status === "ready" ? "就绪" : "缺失"}</Pill></span><code>{selected.artifacts[key].path ?? "尚无路径"}</code></article>)}</div>{selected.artifacts.issues.length > 0 && <ul className="evidence-list">{selected.artifacts.issues.map(issue => <li key={issue}>{issue}</li>)}</ul>}</div><div className="drawer-section"><h3>资源说明</h3><dl className="metadata"><div><dt>公开路径</dt><dd>{selected.publicPath}</dd></div><div><dt>完整度</dt><dd>{selected.artifacts.completeness}%</dd></div><div><dt>更新时间</dt><dd>{formatTime(selected.updatedAt)}</dd></div></dl></div><div className="drawer-section"><h3>标签</h3><div className="tag-list">{selected.tags.map(tag => <span key={tag}>{tag}</span>)}</div></div><button className="button button--solid" type="button" onClick={() => onPreview("资产修复计划", `将预览 ${selected.title} 缺失预览、Pack 与设计资产的恢复步骤，不会直接执行。`)}>预览资产修复计划</button></PreviewDrawer>}</section>;
+}
+
+export function PipelinesScreen({ pipelines, onPreview }: { pipelines: PipelineRun[]; onPreview: (title: string, detail: string) => void }) {
+  const [selectedId, setSelectedId] = useState(pipelines[0]?.id); const selected = pipelines.find(item => item.id === selectedId) ?? pipelines[0];
+  return <section className="screen"><PageHeader eyebrow="PIPELINE RUNS" title="从结果，深入到失败检查点" description="每次运行都拆成可定位的阶段；Phase 1 只读，不执行重试。" aside={<Pill tone={pipelines.some(item => item.status === "failed") ? "bad" : "good"}>{pipelines.filter(item => item.status === "failed").length} 次失败</Pill>}/>{pipelines.length ? <div className="pipeline-layout"><div className="run-list" role="list" aria-label="管线运行记录">{pipelines.map(run => <button role="listitem" type="button" key={run.id} className={selected?.id === run.id ? "is-selected" : ""} onClick={() => setSelectedId(run.id)}><span className={`signal signal--${signalTone(run.status)}`}/><span><strong>{run.label}</strong><small>{run.kind} · {formatTime(run.createdAt ?? run.startedAt)}</small></span><Pill tone={signalTone(run.status)}>{statusLabels[run.status] ?? run.status}</Pill></button>)}</div>{selected && <article className="run-detail"><header><div><small className="eyebrow">RUN {selected.id}</small><h2>{selected.label}</h2><p>{selected.summary ?? "这次运行没有附加摘要。"}</p></div><Pill tone={signalTone(selected.status)}>{statusLabels[selected.status] ?? selected.status}</Pill></header><ol className="checkpoint-list">{selected.checkpoints.map((step, index) => <li key={step.id} className={`checkpoint checkpoint--${step.status}`}><span>{String(index + 1).padStart(2, "0")}</span><div><strong>{step.label}</strong><small>{step.detail ?? `${statusLabels[step.status] ?? step.status} · ${formatTime(step.finishedAt ?? step.startedAt)}`}</small></div><Pill tone={signalTone(step.status)}>{statusLabels[step.status] ?? step.status}</Pill></li>)}</ol>{selected.retryFromCheckpointId && <div className="preview-callout"><Icon name="info"/><span><strong>可从失败点生成重试计划</strong><small>这只会打开预览，不触发管线。</small></span><button type="button" onClick={() => onPreview("重试计划预览", `建议从检查点 ${selected.retryFromCheckpointId} 恢复；当前不会执行。`)}>预览重试计划</button></div>}</article>}</div> : <EmptyState title="没有管线快照" detail="Phase 1 不会主动调用服务器；注入只读运行记录后才会显示。"/>}</section>;
+}
+
+export function SyncScreen({ sync, diagnostics, onPreview }: { sync: SyncSnapshot; diagnostics: AdminSnapshot["diagnostics"]; onPreview: (title: string, detail: string) => void }) {
+  return <section className="screen"><PageHeader eyebrow="GITHUB SYNC" title="看见内容在五层之间的漂移" description="Database、Local、Git、GitHub 与 Public 都是独立状态；这里只读观察。" aside={<Pill tone={signalTone(sync.state)}>{statusLabels[sync.state]}</Pill>}/><div className="sync-summary"><span className={`sync-orbit sync-orbit--${signalTone(sync.state)}`}><Icon name="sync" size={28}/></span><div><h2>{sync.summary}</h2><p>{sync.branch ? `当前分支 ${sync.branch}` : "没有可验证的分支信息"}{sync.localRevision ? ` · ${sync.localRevision.slice(0, 9)}` : ""}</p></div><button className="button button--outline" type="button" onClick={() => onPreview("Change Set 预览", "将比较已注入的五层只读修订信息，不创建分支或远程变更。")}>预览 Change Set</button></div><ol className="sync-track" aria-label="同步位置状态">{sync.nodes.map((node, index) => <li key={node.location}><div className={`sync-node sync-node--${signalTone(node.state)}`}><span>{String(index + 1).padStart(2, "0")}</span><Icon name={node.location === "github" ? "review" : node.location === "public" ? "external" : node.location === "database" ? "assets" : "sync"}/></div><div><small>{node.location.toUpperCase()}</small><h2>{node.label}</h2><Pill tone={signalTone(node.drift)}>{statusLabels[node.drift] ?? node.drift}</Pill><code>{node.revision?.slice(0, 12) ?? "revision unknown"}</code><p>{node.detail ?? `观测于 ${formatTime(node.observedAt)}`}</p></div>{index < sync.nodes.length - 1 && <i className="track-line"/>}</li>)}</ol>{diagnostics.length > 0 && <section className="diagnostics"><div className="panel-heading"><div><small className="eyebrow">DIAGNOSTICS</small><h2>快照说明</h2></div></div>{diagnostics.map(item => <div key={item.code}><Pill tone={item.level === "error" ? "bad" : item.level === "warning" ? "warn" : "neutral"}>{item.code}</Pill><p>{item.message}</p></div>)}</section>}</section>;
+}

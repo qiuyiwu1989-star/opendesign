@@ -1,0 +1,30 @@
+{
+  "name": "@opendesign/studio-contracts",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts",
+    "./schema": "./scene-ir.schema.json",
+    "./revision-schema": "./revision.schema.json",
+    "./issue-schema": "./issue.schema.json",
+    "./structured-html-schema": "./structured-html.schema.json",
+    "./design-pack-schema": "./design-pack.schema.json",
+    "./html-import-result-schema": "./html-import-result.schema.json",
+    "./fixtures/proposal-v0": "./fixtures/proposal-v0.json",
+    "./fixtures/design-pack-v01": "./fixtures/design-pack-v01.json",
+    "./fixtures/structured-html-v01": "./fixtures/structured-html-v01.json"
+  },
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "test": "node --import tsx --test src/*.test.ts"
+  },
+  "dependencies": {
+    "ajv": "^8.17.1",
+    "ajv-formats": "^3.0.1"
+  },
+  "devDependencies": {
+    "@types/node": "^24.2.1",
+    "tsx": "^4.20.5"
+  }
+}

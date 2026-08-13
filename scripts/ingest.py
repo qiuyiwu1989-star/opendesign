@@ -43,6 +43,7 @@ import sys
 import time
 import urllib.parse
 import urllib.request
+import urllib.error
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any, Optional
@@ -121,12 +122,33 @@ def call_mimo(
         },
     )
 
-    try:
-        with urllib.request.urlopen(req, timeout=timeout) as r:
-            resp = json.loads(r.read().decode("utf-8"))
-    except urllib.error.HTTPError as e:
-        err_body = e.read().decode("utf-8", errors="replace")
-        raise RuntimeError(f"API HTTP {e.code}: {err_body[:500]}") from e
+    # Every AI stage goes through this one entrypoint. Retrying only in selected
+    # callers left translation/narrative exposed: a single provider 429 used to
+    # fail the whole site after screenshots and vision had already succeeded.
+    retry_delays = (20, 40, 80)
+    for attempt in range(len(retry_delays) + 1):
+        try:
+            with urllib.request.urlopen(req, timeout=timeout) as r:
+                resp = json.loads(r.read().decode("utf-8"))
+            break
+        except urllib.error.HTTPError as e:
+            err_body = e.read().decode("utf-8", errors="replace")
+            transient = e.code == 429 or 500 <= e.code < 600
+            if not transient or attempt >= len(retry_delays):
+                raise RuntimeError(f"API HTTP {e.code}: {err_body[:500]}") from e
+            retry_after = e.headers.get("Retry-After") if e.headers else None
+            try:
+                delay = max(retry_delays[attempt], min(int(retry_after or 0), 120))
+            except ValueError:
+                delay = retry_delays[attempt]
+            print(f"    ⚠ API HTTP {e.code}，{delay}s 后重试（{attempt + 1}/{len(retry_delays)}）…")
+            time.sleep(delay)
+        except (TimeoutError, urllib.error.URLError) as e:
+            if attempt >= len(retry_delays):
+                raise RuntimeError(f"API network error after retries: {type(e).__name__}: {e}") from e
+            delay = retry_delays[attempt]
+            print(f"    ⚠ API 网络抖动，{delay}s 后重试（{attempt + 1}/{len(retry_delays)}）…")
+            time.sleep(delay)
 
     text_chunks = [c.get("text", "") for c in resp.get("content", []) if c.get("type") == "text"]
     return {
