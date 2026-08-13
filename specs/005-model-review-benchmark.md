@@ -30,7 +30,7 @@
 - 状态机固定为 `draft → in_review → approved_candidate | changes_requested | rejected`。
 - 所有判断采用追加事件；AI 输出、人工理由、候选 snapshot 分离且不可原地覆盖。
 - 批准必须包含 actor、时间、revision、Pack pin、source coverage、QA 摘要和 artifact hashes。
-- revision 漂移、QA blocker、来源缺失、未通过 importer 时拒绝批准。
+- revision 漂移、QA blocker/error、来源缺失、未通过 importer 时拒绝批准。
 - 本阶段只形成 candidate，不自动写公共站、不推 GitHub、不部署。
 
 ## Lane C：Design Quality Benchmark
@@ -53,13 +53,13 @@
 
 ## P0 验收
 
-- [ ] fixture provider 端到端生成 3 类任务，结果通过 Design Director 与 importer 门禁。
-- [ ] 任一 provider 超时、非法 JSON、超限、缺来源或未知 Pack 均产生稳定错误码，且不落 draft。
-- [ ] 人工批准形成追加式 candidate；旧 revision、QA blocker 或未接受导入均 fail closed。
-- [ ] candidate 明确标注 `notPublished: true`，不存在自动发布副作用。
-- [ ] Benchmark 同时报告机器指标和人工 rubric 空位，不输出虚假的综合审美分。
-- [ ] Web 可以完成“生成 → 冲突预览 → 打开草稿 → 送审 → 批准候选”的本地闭环。
-- [ ] 全仓 typecheck、test、build、diff check 和凭证扫描通过。
+- [x] fixture provider 端到端生成 3 类任务，结果通过 Design Director 与 importer 门禁。
+- [x] 任一 provider 超时、非法 JSON、超限、缺来源或未知 Pack 均产生稳定错误码，且不落 draft。
+- [x] 人工批准形成追加式 candidate；旧 revision、QA blocker/error 或未接受导入均 fail closed。
+- [x] candidate 明确标注 `notPublished: true`，不存在自动发布副作用。
+- [x] Benchmark 同时报告机器指标和人工 rubric 空位，不输出虚假的综合审美分。
+- [x] Web 可以完成“生成 → 冲突预览 → 打开草稿 → 送审 → 批准候选”的本地闭环。
+- [x] 全仓 typecheck、test、build、diff check 和凭证扫描通过。
 
 ## P1 / Stretch
 
@@ -85,4 +85,4 @@
 
 ## 状态
 
-in_progress
+complete

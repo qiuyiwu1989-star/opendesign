@@ -1,14 +1,17 @@
 import { createReadStream } from "node:fs";
-import { randomUUID } from "node:crypto";
+import { createHash, randomUUID } from "node:crypto";
 import { stat } from "node:fs/promises";
 import { createServer, type IncomingMessage, type ServerResponse } from "node:http";
 import { extname } from "node:path";
 import { assertSceneDocument, type DesignPackPin, type DocumentProvenance, type SceneDocument, type ScenePatch } from "@opendesign/studio-contracts";
 import { compileDesignDirector } from "@opendesign/studio-design-director";
+import { createFixtureModelProvider, generateWithModel } from "@opendesign/studio-model-adapter";
+import { approveCandidate, createReviewLedger, replayReviewLedger, submitReview } from "@opendesign/studio-publishing";
 import { importStructuredHtml } from "@opendesign/studio-html-importer";
 import { LocalExportService, type ExportKind } from "./exports.js";
 import { generateProjectFromBrief } from "./generator.js";
 import { LocalProjectStore } from "./storage.js";
+import { LocalReviewStore } from "./review-store.js";
 import { runDeterministicQa } from "@opendesign/studio-qa";
 import { loadImage } from "@napi-rs/canvas";
 import { mkdir, writeFile } from "node:fs/promises";
@@ -16,6 +19,7 @@ import { join } from "node:path";
 
 const JSON_LIMIT = 5 * 1024 * 1024;
 const SAFE_IMAGE_MIME = new Set(["image/png", "image/jpeg"]);
+const AUTHENTICATED_ADMIN_ACTOR = { actorId: "studio_admin_session", kind: "human", displayName: "Authenticated Admin Session" } as const;
 
 async function readJson(request: IncomingMessage, limit = JSON_LIMIT): Promise<unknown> {
   let size = 0;
@@ -48,6 +52,7 @@ function contentType(path: string): string {
 
 export function createStudioServer(options: { dataDirectory: string }) {
   const store = new LocalProjectStore(options.dataDirectory);
+  const reviews = new LocalReviewStore(options.dataDirectory);
   const exports = new LocalExportService(options.dataDirectory);
 
   return createServer(async (request, response) => {
@@ -87,6 +92,94 @@ export function createStudioServer(options: { dataDirectory: string }) {
           await store.create(compiled.importResult.document);
         }
         json(response, compiled.status === "accepted" ? 201 : 422, compiled);
+        return;
+      }
+      if (request.method === "POST" && url.pathname === "/api/model/drafts") {
+        const body = await readJson(request, 640 * 1024) as { requestId?: string; input?: unknown };
+        const generated = await generateWithModel(createFixtureModelProvider(), {
+          contractVersion: "0.1.0",
+          requestId: body.requestId ?? "studio_fixture_request",
+          input: body.input as never,
+        });
+        if (generated.status === "accepted") {
+          const document = generated.output.importResult.document;
+          if (await store.read(document.documentId)) {
+            json(response, 409, { error: "Project already exists", ...generated });
+            return;
+          }
+          await store.create(document);
+          const revision = (await store.listRevisions(document.documentId))[0];
+          if (!revision) throw new Error("Initial revision was not created");
+          const reviewId = `review_${document.documentId}`;
+          const ledger = createReviewLedger({
+            commandId: `create_${document.documentId}`,
+            occurredAt: revision.revision.createdAt,
+            actor: { actorId: "studio_fixture_model", kind: "agent", displayName: generated.provider.model },
+            reviewId,
+            draft: {
+              revisionId: revision.revision.revisionId,
+              designPack: generated.output.manifest.designPack,
+              sourceCoverage: generated.output.manifest.sourceCoverage,
+              importResult: generated.output.importResult,
+              aiOutput: generated,
+            },
+          });
+          await reviews.write(ledger);
+          json(response, 201, { generation: generated, review: replayReviewLedger(ledger) });
+          return;
+        }
+        json(response, 422, { generation: generated });
+        return;
+      }
+
+      const reviewMatch = url.pathname.match(/^\/api\/reviews\/([a-z][a-z0-9_-]{2,63})(?:\/(submit|approve))?$/u);
+      if (reviewMatch && request.method === "GET" && !reviewMatch[2]) {
+        const ledger = await reviews.read(reviewMatch[1]!);
+        json(response, ledger ? 200 : 404, ledger ? { ledger, projection: replayReviewLedger(ledger) } : { error: "Review not found" });
+        return;
+      }
+      if (reviewMatch && request.method === "POST" && reviewMatch[2] === "submit") {
+        const ledger = await reviews.read(reviewMatch[1]!);
+        if (!ledger) { json(response, 404, { error: "Review not found" }); return; }
+        const body = await readJson(request) as { revisionId?: string; currentDocument?: SceneDocument };
+        if (!body.revisionId || !body.currentDocument) throw new Error("revisionId and currentDocument are required");
+        const next = submitReview(ledger, {
+          commandId: `submit_${body.revisionId}`,
+          occurredAt: new Date().toISOString(),
+          actor: AUTHENTICATED_ADMIN_ACTOR,
+          currentRevisionId: body.revisionId,
+          currentDocument: body.currentDocument,
+        });
+        await reviews.write(next);
+        json(response, 200, { ledger: next, projection: replayReviewLedger(next) });
+        return;
+      }
+      if (reviewMatch && request.method === "POST" && reviewMatch[2] === "approve") {
+        const ledger = await reviews.read(reviewMatch[1]!);
+        if (!ledger) { json(response, 404, { error: "Review not found" }); return; }
+        const body = await readJson(request) as { revisionId?: string; reason?: string };
+        if (!body.revisionId || !body.reason) throw new Error("revisionId and reason are required");
+        const projection = replayReviewLedger(ledger);
+        const document = await store.read(projection.draft.importResult.document?.documentId ?? "missing");
+        if (!document) throw new Error("Current project was not found");
+        const currentRevision = (await store.listRevisions(document.documentId))[0];
+        if (!currentRevision || currentRevision.revision.revisionId !== body.revisionId) throw new Error("Current project revision drifted after review submission");
+        const qa = runDeterministicQa(document);
+        const digest = createHash("sha256").update(JSON.stringify(document)).digest("hex");
+        const next = approveCandidate(ledger, {
+          commandId: `approve_${body.revisionId}`,
+          occurredAt: new Date().toISOString(),
+          actor: AUTHENTICATED_ADMIN_ACTOR,
+          candidateId: `candidate_${document.documentId}_${body.revisionId.slice(-8)}`,
+          expectedRevisionId: body.revisionId,
+          currentRevisionId: body.revisionId,
+          currentDocument: document,
+          reason: body.reason,
+          qa,
+          artifactHashes: [{ artifactId: "scene-ir", digest: `sha256:${digest}` }],
+        });
+        await reviews.write(next);
+        json(response, 200, { ledger: next, projection: replayReviewLedger(next) });
         return;
       }
       if (request.method === "POST" && url.pathname === "/api/imports/html") {

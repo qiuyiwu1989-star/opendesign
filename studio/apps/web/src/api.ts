@@ -1,5 +1,7 @@
 import type { DesignPackPin, DocumentProvenance, HtmlImportResult, Revision, SceneDocument, ScenePatch } from "@opendesign/studio-contracts";
 import type { DesignDirectorInput, DesignDirectorOutput } from "@opendesign/studio-design-director";
+import type { ModelGenerationResult } from "@opendesign/studio-model-adapter";
+import type { ReviewLedger, ReviewProjection } from "@opendesign/studio-publishing";
 
 export type ProjectSummary = { projectId: string; title: string; sceneCount: number; updatedAt: string };
 export type StoredRevision = { revision: Revision; document: SceneDocument };
@@ -37,6 +39,8 @@ export type StudioQaReport = {
 };
 
 export type ProjectAsset = { assetId: string; name: string; mimeType: "image/png" | "image/jpeg"; width: number; height: number; url: string };
+export type ReviewResponse = { ledger: ReviewLedger; projection: ReviewProjection };
+export type ModelDraftResponse = { generation: ModelGenerationResult; review?: ReviewProjection };
 
 async function apiRequest<T>(path: string, init?: RequestInit): Promise<T> {
   const response = await fetch(path, {
@@ -78,6 +82,37 @@ export async function createDesignDirectorDraft(input: DesignDirectorInput): Pro
   if (response.status === 422 && payload.status === "rejected") return payload;
   if (!response.ok) throw new Error(payload.error || `Studio API returned ${response.status}`);
   return payload;
+}
+
+export async function createModelDraft(input: DesignDirectorInput): Promise<ModelDraftResponse> {
+  const result = await apiRequest<ModelDraftResponse>("/api/model/drafts", {
+    method: "POST",
+    body: JSON.stringify({ requestId: `model_${Date.now().toString(36)}`, input }),
+  });
+  return result;
+}
+
+export async function loadReview(reviewId: string): Promise<ReviewResponse | null> {
+  try {
+    return await apiRequest<ReviewResponse>(`/api/reviews/${reviewId}`);
+  } catch (error) {
+    if (error instanceof Error && error.message === "Review not found") return null;
+    throw error;
+  }
+}
+
+export async function submitProjectReview(reviewId: string, revisionId: string, currentDocument: SceneDocument): Promise<ReviewResponse> {
+  return apiRequest<ReviewResponse>(`/api/reviews/${reviewId}/submit`, {
+    method: "POST",
+    body: JSON.stringify({ revisionId, currentDocument }),
+  });
+}
+
+export async function approveProjectCandidate(reviewId: string, revisionId: string, reason: string): Promise<ReviewResponse> {
+  return apiRequest<ReviewResponse>(`/api/reviews/${reviewId}/approve`, {
+    method: "POST",
+    body: JSON.stringify({ revisionId, reason }),
+  });
 }
 
 export async function importProjectHtml(html: string, provenance: DocumentProvenance): Promise<HtmlImportResult> {

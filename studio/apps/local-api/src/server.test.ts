@@ -205,6 +205,61 @@ test("004 local API compiles a Design Director Skill draft and persists only acc
   }
 });
 
+test("005 fixture model draft can be human-edited, reviewed, and approved only as an unpublished candidate", async () => {
+  const directory = await mkdtemp(join(tmpdir(), "opendesign-model-review-api-"));
+  const server = createStudioServer({ dataDirectory: directory });
+  server.listen(0, "127.0.0.1");
+  await once(server, "listening");
+  const port = (server.address() as AddressInfo).port;
+  const base = `http://127.0.0.1:${port}`;
+  const input = {
+    inputVersion: "0.1.0",
+    taskId: "model_review_test",
+    title: "人工确认闭环",
+    brief: { objective: "让模型生成的结构化 HTML 在人工编辑后进入可追踪审核。", audience: "产品负责人", decisionRequest: "确认候选，不自动发布。" },
+    content: { summary: "模型只提供候选输入，compiler 与 importer 决定能否进入 Studio。", keyPoints: [{ id: "point_gate", text: "人工修改必须形成新 revision 后再审批", sourceIds: ["source_brief"] }], callToAction: "确认后仅形成发布候选。" },
+    sources: [{ sourceId: "source_brief", type: "brief", title: "产品简报", sourceRef: "fixture://api/model-review", content: "候选与生产发布必须分层，并保留来源与修订证据。" }],
+    brand: { name: "OpenDesign", tone: ["清晰", "克制"] },
+    deliverable: { kind: "proposal", audience: "产品负责人", language: "zh-CN", format: "structured-html", pageCount: 6 },
+    designPack: { id: "executive-proposal-cn", version: "1.0.0" },
+    editability: { requiredCapabilities: ["text", "typography", "asset", "frame", "order"], requireNativeText: true, requireReplaceableImages: true, requireReorderablePages: true },
+  };
+  try {
+    const generatedResponse = await fetch(`${base}/api/model/drafts`, { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ requestId: "model_review_request", input }) });
+    assert.equal(generatedResponse.status, 201);
+    const generated = await generatedResponse.json() as { generation: { status: string; provider: { id: string }; output: { importResult: { document: typeof fixture } } }; review: { reviewId: string; status: string } };
+    assert.equal(generated.generation.status, "accepted");
+    assert.equal(generated.generation.provider.id, "fixture");
+    assert.equal(generated.review.status, "draft");
+
+    const document = structuredClone(generated.generation.output.importResult.document);
+    const firstText = document.scenes.flatMap((scene) => scene.elements).find((element) => element.content !== undefined);
+    assert.ok(firstText);
+    firstText.content = `${firstText.content} · 人工已核对`;
+    const savedResponse = await fetch(`${base}/api/projects/${document.documentId}`, { method: "PUT", headers: { "content-type": "application/json" }, body: JSON.stringify({ document, reason: "edit", patches: [] }) });
+    assert.equal(savedResponse.status, 200);
+    const saved = await savedResponse.json() as { revision: { revisionId: string } };
+
+    const submittedResponse = await fetch(`${base}/api/reviews/${generated.review.reviewId}/submit`, { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ revisionId: saved.revision.revisionId, currentDocument: document, actor: { actorId: "human_test", kind: "human" } }) });
+    assert.equal(submittedResponse.status, 200);
+    const submitted = await submittedResponse.json() as { projection: { status: string; reviewRevisionId: string } };
+    assert.equal(submitted.projection.status, "in_review");
+    assert.equal(submitted.projection.reviewRevisionId, saved.revision.revisionId);
+
+    const approvedResponse = await fetch(`${base}/api/reviews/${generated.review.reviewId}/approve`, { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ revisionId: saved.revision.revisionId, reason: "人工已经核对内容、来源、设计细节与 QA。", actor: { actorId: "human_test", kind: "human" } }) });
+    assert.equal(approvedResponse.status, 200);
+    const approved = await approvedResponse.json() as { projection: { status: string; candidate: { notPublished: boolean; document: typeof fixture; artifactHashes: Array<{ digest: string }> } } };
+    assert.equal(approved.projection.status, "approved_candidate");
+    assert.equal(approved.projection.candidate.notPublished, true);
+    assert.match(approved.projection.candidate.artifactHashes[0]?.digest ?? "", /^sha256:[a-f0-9]{64}$/u);
+    assert.match(approved.projection.candidate.document.scenes.flatMap((scene) => scene.elements).find((element) => element.id === firstText.id)?.content ?? "", /人工已核对/u);
+  } finally {
+    server.close();
+    await once(server, "close");
+    await rm(directory, { recursive: true, force: true });
+  }
+});
+
 test("local API duplicates a project with independent identity and history", async () => {
   const directory = await mkdtemp(join(tmpdir(), "opendesign-duplicate-api-"));
   const server = createStudioServer({ dataDirectory: directory });

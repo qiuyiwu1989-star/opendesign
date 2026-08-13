@@ -6,21 +6,27 @@ import { designPacks, getDesignPack } from "@opendesign/studio-design-packs/cata
 import { Badge, Button, Icon, Kicker, ProgressRing, Tabs } from "@opendesign/studio-ui";
 import goldenTaskFixture from "../../../fixtures/golden-task/design-studio-brief-v01.json";
 import goldenStructuredHtml from "../../../fixtures/golden-task/structured-html-v01.html?raw";
+import benchmarkBaseline from "../../../fixtures/design-benchmark/baseline/benchmark-report.json";
 import {
   createExport,
   createDesignDirectorDraft,
+  createModelDraft,
+  approveProjectCandidate,
   duplicateProject,
   generateProject,
   importProjectHtml,
   listProjects,
   listRevisions,
   loadProject,
+  loadReview,
   persistProject,
   runProjectQa,
+  submitProjectReview,
   uploadProjectImage,
   type ProjectSummary,
   type StoredRevision,
   type StudioExportResult,
+  type ReviewResponse,
 } from "./api";
 import {
   changeZIndex,
@@ -63,7 +69,15 @@ type GoldenTaskFixture = {
   selectedDirectionId: string;
 };
 
+type BenchmarkBaseline = {
+  passed: boolean;
+  summary: { taskCount: number; contractPassed: number; nativeEditabilityComplete: number; qaBlockers: number; qaWarnings: number; exportsSucceeded: number; deterministicTasks: number };
+  tasks: Array<{ taskId: string; scenario: string; passed: boolean; machine: { qa: { error: number; warning: number }; nativeEditability: { ratio: number }; export: { succeeded: boolean } } }>;
+  manualAestheticRubric: { aggregation: "prohibited" };
+};
+
 const goldenTask = goldenTaskFixture as GoldenTaskFixture;
+const qualityBaseline = benchmarkBaseline as BenchmarkBaseline;
 
 const processSteps = [
   ["sources", "01", "Sources"],
@@ -258,6 +272,11 @@ export function App() {
   const [generatorState, setGeneratorState] = useState<"idle" | "working" | "error">("idle");
   const [generatorError, setGeneratorError] = useState("");
   const [directorOutput, setDirectorOutput] = useState<DesignDirectorOutput | null>(null);
+  const [modelProvider, setModelProvider] = useState<{ id: string; model: string } | null>(null);
+  const [review, setReview] = useState<ReviewResponse | null>(null);
+  const [reviewState, setReviewState] = useState<"idle" | "working" | "error">("idle");
+  const [reviewReason, setReviewReason] = useState("已核对内容、来源、设计细节与 QA 结果，可作为发布候选继续评审。");
+  const [reviewError, setReviewError] = useState("");
   const [assetState, setAssetState] = useState<"idle" | "uploading" | "error">("idle");
   const imageInputRef = useRef<HTMLInputElement>(null);
   const [localDraftOperations, setLocalDraftOperations] = useState(0);
@@ -333,6 +352,11 @@ export function App() {
     setRevisions(await listRevisions(projectId));
   }
 
+  async function refreshReview(projectId = document.documentId) {
+    const next = await loadReview(`review_${projectId}`);
+    setReview(next);
+  }
+
   function openDocument(next: SceneDocument) {
     setHistory(createHistory(next));
     setSelectedSceneId(next.scenes[0]?.id ?? "");
@@ -345,6 +369,9 @@ export function App() {
     setExportStates({ html: "idle", png: "idle", pptx: "idle" });
     setSyncState("saved");
     setInspectorTab("edit");
+    setReview(null);
+    setModelProvider(null);
+    void refreshReview(next.documentId).catch(() => undefined);
   }
 
   function selectDirection(directionId: string) {
@@ -662,6 +689,69 @@ export function App() {
     }
   }
 
+  async function createFromFixtureModel() {
+    const input = designDirectorInput();
+    if (!input) return;
+    setGeneratorState("working");
+    setGeneratorError("");
+    setDirectorOutput(null);
+    try {
+      const result = await createModelDraft(input);
+      if (result.generation.status === "rejected") {
+        setGeneratorState("error");
+        setGeneratorError(`${result.generation.error.code}: ${result.generation.error.message}`);
+        return;
+      }
+      setDirectorOutput(result.generation.output);
+      if (hasUnsavedChanges) {
+        const conflict = regenerationConflicts(document, result.generation.output.importResult.document);
+        setRegenerationPreview({ document: result.generation.output.importResult.document, changedElementIds: conflict.changedElementIds });
+      } else {
+        openDocument(result.generation.output.importResult.document);
+        await Promise.all([
+          refreshProjects(),
+          refreshRevisions(result.generation.output.importResult.document.documentId),
+          refreshReview(result.generation.output.importResult.document.documentId).catch(() => undefined),
+        ]);
+      }
+      setModelProvider(result.generation.provider);
+      setGeneratorState("idle");
+    } catch (error) {
+      setGeneratorError(error instanceof Error ? error.message : "模型生成失败");
+      setGeneratorState("error");
+    }
+  }
+
+  async function submitCurrentReview() {
+    const currentRevision = revisions[0]?.revision;
+    if (!currentRevision) return;
+    setReviewState("working");
+    setReviewError("");
+    try {
+      const next = await submitProjectReview(`review_${document.documentId}`, currentRevision.revisionId, document);
+      setReview(next);
+      setReviewState("idle");
+    } catch (error) {
+      setReviewError(error instanceof Error ? error.message : "送审失败");
+      setReviewState("error");
+    }
+  }
+
+  async function approveCurrentCandidate() {
+    const currentRevision = revisions[0]?.revision;
+    if (!currentRevision) return;
+    setReviewState("working");
+    setReviewError("");
+    try {
+      const next = await approveProjectCandidate(`review_${document.documentId}`, currentRevision.revisionId, reviewReason);
+      setReview(next);
+      setReviewState("idle");
+    } catch (error) {
+      setReviewError(error instanceof Error ? error.message : "批准失败");
+      setReviewState("error");
+    }
+  }
+
   function acceptRegeneration() {
     if (!regenerationPreview) return;
     openDocument(regenerationPreview.document);
@@ -769,8 +859,17 @@ export function App() {
             <div className="source-meta"><span><Icon name="file" size={13} /> Brief · {[...brief].length} 字</span><Badge tone={brief.trim().length >= 12 ? "success" : "neutral"}>{brief.trim().length >= 12 ? "可生成" : "继续输入"}</Badge></div>
             <Button size="sm" tone="primary" onClick={createFromBrief} disabled={generatorState === "working" || brief.trim().length < 12}><Icon name="spark" size={13} />{generatorState === "working" ? "正在生成故事线" : "生成新项目"}</Button>
             <Button size="sm" tone="outline" onClick={createFromDesignDirector} disabled={generatorState === "working" || brief.trim().length < 12 || !selectedPack}><Icon name="layers" size={13} />Design Director Skill 初稿</Button>
+            <Button size="sm" tone="outline" onClick={createFromFixtureModel} disabled={generatorState === "working" || brief.trim().length < 12 || !selectedPack}><Icon name="spark" size={13} />安全模型生成（Fixture）</Button>
             {generatorState === "error" && <small className="generator-error">{generatorError}</small>}
             {directorOutput?.status === "accepted" && <div className="director-result" role="status"><strong>Skill draft 已通过安全导入</strong><small>{directorOutput.manifest.designPack.id}@{directorOutput.manifest.designPack.version} · {directorOutput.manifest.sceneIds.length} 页 · {directorOutput.manifest.sourceCoverage.usedSourceIds.length}/{directorOutput.manifest.sourceCoverage.declaredSourceIds.length} 来源</small><p>{directorOutput.manifest.diagnosis.evidenceBoundary}</p></div>}
+            {modelProvider && <div className="director-result" role="status"><strong>Provider 证据</strong><small>{modelProvider.id} / {modelProvider.model}</small><p>当前为确定性离线 Provider；真实模型未配置时不会伪装联网成功。</p></div>}
+            {review && <div className="director-result review-result" role="status"><strong>人工审核：{review.projection.status}</strong><small>Revision {review.projection.reviewRevisionId ?? review.projection.draft.revisionId}</small>{review.projection.candidate && <p>候选已形成 · notPublished: {String(review.projection.candidate.notPublished)}</p>}{review.projection.status === "draft" && <Button size="sm" tone="outline" onClick={submitCurrentReview} disabled={reviewState === "working" || hasUnsavedChanges}>送交人工审核</Button>}{review.projection.status === "in_review" && <><label className="field"><span>批准理由</span><textarea aria-label="候选批准理由" value={reviewReason} onChange={(event) => setReviewReason(event.target.value)} /></label><Button size="sm" tone="primary" onClick={approveCurrentCandidate} disabled={reviewState === "working" || hasUnsavedChanges || qaState !== "ready" || openIssues.some((issue) => issue.severity === "blocker" || issue.severity === "error")}>批准为候选（不发布）</Button></>}{reviewError && <small className="generator-error" role="alert">{reviewError}</small>}</div>}
+            <div className="director-result benchmark-result" aria-label="Design Quality Benchmark 基线">
+              <strong>Design Quality Benchmark · {qualityBaseline.passed ? "通过" : "仍有质量债"}</strong>
+              <small>{qualityBaseline.summary.contractPassed}/{qualityBaseline.summary.taskCount} 契约 · {qualityBaseline.summary.nativeEditabilityComplete}/{qualityBaseline.summary.taskCount} 原生可编辑 · {qualityBaseline.summary.exportsSucceeded}/{qualityBaseline.summary.taskCount} 导出</small>
+              <ol>{qualityBaseline.tasks.map((task) => <li key={task.taskId}><span>{task.scenario}</span><strong>{task.passed ? "PASS" : "QA 未过"}</strong><small>{task.machine.qa.error} error · {task.machine.qa.warning} warning · edit {Math.round(task.machine.nativeEditability.ratio * 100)}%</small></li>)}</ol>
+              <p>审美维度由人工逐项评估；aggregation: {qualityBaseline.manualAestheticRubric.aggregation}。</p>
+            </div>
           </section>
 
           <section className="panel-section storyline-section">

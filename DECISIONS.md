@@ -1,5 +1,6 @@
 # Decisions
 
+- 2026-08-13: Studio Candidate 与 Design Quality Benchmark 共用 QA 发布口径：blocker 或 error 均禁止形成候选，warning 保留并允许人工知情确认。理由：当前确定性 QA 的布局碰撞和越界属于 error；若只阻止 blocker，会出现 Benchmark 判失败但候选仍获批的矛盾。备选：仅阻止 blocker（当前规则下几乎失去质量门禁作用）。Confidence: high.
 - 2026-08-13: Studio 下一阶段采用 provider-neutral Model Adapter → 人工审核 Candidate Ledger → Design Quality Benchmark 三层闭环；候选与发布继续分离。理由：模型生成、人工确认和生产发布具有不同证据与风险边界，必须独立验收和回滚。备选：模型生成后直接发布（会静默覆盖编辑且扩大生产风险）；只做供应商 SDK 接入（形成锁定且无法离线复现）。Confidence: high.
 - 2026-08-13: Design Quality Benchmark 分离机器可验证指标与人工审美 rubric，不生成单一“设计总分”。理由：契约、来源、可编辑率和 QA 可确定性测量，但层级、节奏、品牌贴合需要带上下文的人工判断。备选：让模型给统一审美分（不可稳定复现且易产生伪精确）。Confidence: high.
 - 2026-08-13: Design Director 采用仓库内正式 Skill + 确定性 compiler 双层架构；Skill 负责诊断与交接协议，compiler 负责严格输入验证、版本化 Pack 编译、来源覆盖和真实 importer 门禁。理由：让其他 Agent 可复用设计总监思维，同时不把自然语言输出误当成已验证产物。备选：只写提示词（无法自动验收）；让模型直接写 Scene IR（缺少 HTML 创作层与安全导入边界）。Confidence: high.

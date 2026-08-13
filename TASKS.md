@@ -2,9 +2,7 @@
 
 ## Now（本次会话正在做，最多 3 项）
 
-- [ ] Studio 0.5：provider-neutral Model Adapter 与安全生成门禁（spec 005）
-- [ ] Studio 0.5：追加式人工审核 Candidate Ledger（spec 005）
-- [ ] Studio 0.5：Design Quality Benchmark 与工作台闭环（spec 005）
+- [ ] 修复 Benchmark 已识别的研究演讲 7 个、文章配图 12 个 QA error
 
 ## Next（已排序的待办）
 - [ ] 扩展首批 10 套经过 Golden Task 验证的 Design Pack
@@ -15,6 +13,7 @@
 - [ ] 定义人工确认后的发布候选变更集，继续保持 preview-first
 
 ## Done（倒序，保留最近 20 条，附 commit hash）
+- [x] Studio 0.5：Model Adapter、人工审核 Candidate Ledger、Design Quality Benchmark 与工作台闭环（待本次提交）
 - [x] Studio 初版隔离部署至 `/studio/`，复用 Admin 会话门禁并完成回滚路径（7ef53c7, c607725）
 - [x] Design Director Skill、确定性 HTML compiler、三类 Golden eval 与 Studio/API 闭环（待本次提交）
 - [x] Studio 0.3：Structured HTML inert 导入、诊断、持久化和 Pack/provenance 生成链路（0eb46b0）
