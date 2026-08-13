@@ -1,7 +1,9 @@
-import { useEffect, useMemo, useRef, useState, type CSSProperties } from "react";
+import { useEffect, useMemo, useRef, useState, type CSSProperties, type PointerEvent as ReactPointerEvent } from "react";
 import type { DesignDirection, Scene, SceneDocument, SceneElement, ScenePatch, StudioIssue } from "@opendesign/studio-contracts";
 import fixture from "@opendesign/studio-contracts/fixtures/proposal-v0";
+import { designPacks, getDesignPack } from "@opendesign/studio-design-packs/catalog";
 import { Badge, Button, Icon, Kicker, ProgressRing, Tabs } from "@opendesign/studio-ui";
+import goldenTaskFixture from "../../../fixtures/golden-task/design-studio-brief-v01.json";
 import {
   createExport,
   duplicateProject,
@@ -16,6 +18,21 @@ import {
   type StoredRevision,
   type StudioExportResult,
 } from "./api";
+import {
+  changeZIndex,
+  constrainFrame,
+  createHistory,
+  deleteScene as deleteSceneDraft,
+  duplicateScene as duplicateSceneDraft,
+  pushHistory,
+  redoHistory,
+  regenerationConflicts,
+  undoHistory,
+  type DraftHistory,
+  type EditorElement,
+  type FocalPoint,
+  type ImageFit,
+} from "./editor-model";
 
 const initialDocument = fixture as unknown as SceneDocument;
 const fontOptions = [
@@ -31,12 +48,23 @@ type InspectorTab = "edit" | "qa" | "history" | "export";
 type ExportKind = "html" | "png" | "pptx";
 type ExportState = "idle" | "working" | "ready" | "error";
 type SyncState = "local" | "saving" | "saved" | "error";
+type WorkflowStep = "sources" | "outline" | "direction" | "studio";
+
+type GoldenTaskFixture = {
+  sources: Array<{ sourceId: string; title: string; status: "snapshot"; sourceRef: string }>;
+  brief: { objective: string; decisionRequest: string };
+  expectedOutline: Array<{ order: number; pageRole: string; intent: string; sourceIds: string[] }>;
+  directions: Array<{ id: string; name: string; pack: { id: string; version: string }; stance: "primary" | "alternate"; selectionRationale: string }>;
+  selectedDirectionId: string;
+};
+
+const goldenTask = goldenTaskFixture as GoldenTaskFixture;
 
 const processSteps = [
-  ["01", "项目输入"],
-  ["02", "故事线与方向"],
-  ["03", "编辑与检查"],
-  ["04", "导出中心"],
+  ["sources", "01", "Sources"],
+  ["outline", "02", "Outline"],
+  ["direction", "03", "Direction"],
+  ["studio", "04", "Studio"],
 ] as const;
 
 function getElement(document: SceneDocument, elementId: string | null) {
@@ -73,12 +101,13 @@ function DirectionOption({ direction, active, onSelect }: { direction: DesignDir
   );
 }
 
-function SceneCanvas({ scene, direction, selectedElementId, issueElementIds, onSelect }: {
+function SceneCanvas({ scene, direction, selectedElementId, issueElementIds, onSelect, onFrameChange }: {
   scene: Scene;
   direction: DesignDirection;
   selectedElementId: string | null;
   issueElementIds: Set<string>;
   onSelect: (element: SceneElement, edit: boolean) => void;
+  onFrameChange: (elementId: string, frame: SceneElement["frame"]) => void;
 }) {
   const frameRef = useRef<HTMLDivElement>(null);
   const [scale, setScale] = useState(.5);
@@ -92,6 +121,28 @@ function SceneCanvas({ scene, direction, selectedElementId, issueElementIds, onS
     observer.observe(frame);
     return () => observer.disconnect();
   }, []);
+
+  function beginTransform(event: ReactPointerEvent, element: SceneElement, mode: "move" | "resize") {
+    if (!element.editable || event.button !== 0) return;
+    event.preventDefault();
+    event.stopPropagation();
+    onSelect(element, false);
+    const origin = { x: event.clientX, y: event.clientY, frame: element.frame };
+    const move = (pointer: PointerEvent) => {
+      const dx = (pointer.clientX - origin.x) / scale;
+      const dy = (pointer.clientY - origin.y) / scale;
+      const candidate = mode === "move"
+        ? { ...origin.frame, x: origin.frame.x + dx, y: origin.frame.y + dy }
+        : { ...origin.frame, width: origin.frame.width + dx, height: origin.frame.height + dy };
+      onFrameChange(element.id, constrainFrame(candidate, { width: 1600, height: 900 }));
+    };
+    const end = () => {
+      window.removeEventListener("pointermove", move);
+      window.removeEventListener("pointerup", end);
+    };
+    window.addEventListener("pointermove", move);
+    window.addEventListener("pointerup", end, { once: true });
+  }
 
   return (
     <div className="scene-frame" ref={frameRef} data-testid="scene-canvas">
@@ -112,7 +163,9 @@ function SceneCanvas({ scene, direction, selectedElementId, issueElementIds, onS
         } as CSSProperties}
       >
         <span className="scene-canvas__folio">{String(scene.order).padStart(2, "0")}</span>
-        {scene.elements.map((element) => (
+        {scene.elements.map((rawElement) => {
+          const element = rawElement as EditorElement;
+          return (
           <button
             key={element.id}
             type="button"
@@ -126,18 +179,21 @@ function SceneCanvas({ scene, direction, selectedElementId, issueElementIds, onS
               background: element.fill === "accent" ? direction.tokens.accent : element.fill === "surface" ? direction.tokens.surface : element.fill,
               fontSize: element.fontSize,
               fontWeight: element.fontWeight,
+              lineHeight: element.lineHeight,
               textAlign: element.align,
               zIndex: element.zIndex,
-              fontFamily: element.role === "title" || element.role === "quote" ? direction.tokens.headingFamily : undefined,
+              fontFamily: element.fontFamily ?? (element.role === "title" || element.role === "quote" ? direction.tokens.headingFamily : undefined),
             }}
             onClick={() => onSelect(element, false)}
             onDoubleClick={() => onSelect(element, true)}
+            onPointerDown={(event) => beginTransform(event, element, "move")}
             aria-label={`${element.role}: ${element.content ?? element.alt ?? "视觉元素"}`}
           >
-            {element.type === "image" && element.assetSrc ? <img src={element.assetSrc} alt={element.alt ?? ""} /> : element.type !== "shape" && <span>{element.content}</span>}
+            {element.type === "image" && element.assetSrc ? <img src={element.assetSrc} alt={element.alt ?? ""} style={{ objectFit: element.imageFit === "stretch" ? "fill" : element.imageFit ?? "cover", objectPosition: `${(element.focalPoint?.x ?? .5) * 100}% ${(element.focalPoint?.y ?? .5) * 100}%` }} /> : element.type !== "shape" && <span>{element.content}</span>}
             {issueElementIds.has(element.id) && <i className="scene-element__issue"><Icon name="warning" size={18} /></i>}
+            {selectedElementId === element.id && element.editable && <i className="scene-element__resize" aria-label="缩放元素" onPointerDown={(event) => beginTransform(event, element, "resize")} />}
           </button>
-        ))}
+        );})}
       </div>
     </div>
   );
@@ -173,7 +229,8 @@ function ExportCard({ kind, title, description, state, result, onExport }: { kin
 }
 
 export function App() {
-  const [document, setDocument] = useState<SceneDocument>(initialDocument);
+  const [history, setHistory] = useState<DraftHistory<SceneDocument>>(() => createHistory(initialDocument));
+  const document = history.present;
   const [selectedSceneId, setSelectedSceneId] = useState(initialDocument.scenes[0]?.id ?? "");
   const [selectedElementId, setSelectedElementId] = useState<string | null>(null);
   const [inspectorTab, setInspectorTab] = useState<InspectorTab>("edit");
@@ -192,6 +249,23 @@ export function App() {
   const [generatorError, setGeneratorError] = useState("");
   const [assetState, setAssetState] = useState<"idle" | "uploading" | "error">("idle");
   const imageInputRef = useRef<HTMLInputElement>(null);
+  const [localDraftOperations, setLocalDraftOperations] = useState(0);
+  const [regenerationPreview, setRegenerationPreview] = useState<{ document: SceneDocument; changedElementIds: string[] } | null>(null);
+  const [fixPreviewIssueId, setFixPreviewIssueId] = useState<string | null>(null);
+  const [workflowStep, setWorkflowStep] = useState<WorkflowStep>("studio");
+  const initialPack = goldenTask.directions.find((item) => item.id === goldenTask.selectedDirectionId)?.pack;
+  const [selectedPackId, setSelectedPackId] = useState(initialPack?.id ?? designPacks[0]?.id ?? "");
+  const [annotationCopyState, setAnnotationCopyState] = useState<"idle" | "copied" | "manual">("idle");
+  const selectedPack = getDesignPack(selectedPackId);
+
+  function commitDocument(update: SceneDocument | ((current: SceneDocument) => SceneDocument), localOnly = false) {
+    setHistory((current) => {
+      const next = typeof update === "function" ? update(current.present) : update;
+      return pushHistory(current, next);
+    });
+    if (localOnly) setLocalDraftOperations((count) => count + 1);
+    setDocumentDirty(true);
+  }
 
   useEffect(() => {
     let active = true;
@@ -199,7 +273,7 @@ export function App() {
       .then(([stored, availableProjects]) => {
         if (active) setProjects(availableProjects);
         if (active && stored) {
-          setDocument(stored);
+          setHistory(createHistory(stored));
           setSelectedSceneId(stored.scenes[0]?.id ?? "");
           setSyncState("saved");
           void refreshRevisions(stored.documentId);
@@ -245,11 +319,13 @@ export function App() {
   }
 
   function openDocument(next: SceneDocument) {
-    setDocument(next);
+    setHistory(createHistory(next));
     setSelectedSceneId(next.scenes[0]?.id ?? "");
     setSelectedElementId(null);
     setPatches([]);
     setDocumentDirty(false);
+    setLocalDraftOperations(0);
+    setRegenerationPreview(null);
     setExportResults({});
     setExportStates({ html: "idle", png: "idle", pptx: "idle" });
     setSyncState("saved");
@@ -257,8 +333,30 @@ export function App() {
   }
 
   function selectDirection(directionId: string) {
-    setDocument((current) => ({ ...current, selectedDirectionId: directionId }));
-    setDocumentDirty(true);
+    commitDocument((current) => ({ ...current, selectedDirectionId: directionId }));
+  }
+
+  function selectDesignPack(packId: string) {
+    const pack = getDesignPack(packId);
+    if (!pack) return;
+    setSelectedPackId(pack.id);
+    setAnnotationCopyState("idle");
+    commitDocument((current) => ({ ...current, designPack: { id: pack.id, version: pack.version } }), true);
+  }
+
+  function loadGoldenBrief() {
+    setBrief(`${goldenTask.brief.objective}\n\n需要决策：${goldenTask.brief.decisionRequest}`);
+    setWorkflowStep("outline");
+  }
+
+  async function copyAgentAnnotation() {
+    if (!selectedPack) return;
+    try {
+      await navigator.clipboard.writeText(selectedPack.agentAnnotation.copyText);
+      setAnnotationCopyState("copied");
+    } catch {
+      setAnnotationCopyState("manual");
+    }
   }
 
   function selectScene(sceneId: string) {
@@ -274,16 +372,79 @@ export function App() {
   function updateSelectedContent(value: string) {
     if (!selectedElement || !selectedElement.editable) return;
     const patch: ScenePatch = { elementId: selectedElement.id, field: "content", value };
-    setDocument((current) => patchElement(current, patch));
+    commitDocument((current) => patchElement(current, patch));
     setPatches((current) => [...current, patch]);
-    setDocumentDirty(true);
   }
 
   function updateDirectionFont(field: "fontFamily" | "headingFamily", value: string) {
     const patch: ScenePatch = { directionId: direction.id, field, value };
-    setDocument((current) => patchElement(current, patch));
+    commitDocument((current) => patchElement(current, patch));
     setPatches((current) => [...current, patch]);
+  }
+
+  function applyElementPatch(patch: ScenePatch) {
+    commitDocument((current) => patchElement(current, patch));
+    setPatches((current) => [...current, patch]);
+  }
+
+  function updateSelectedField(field: "fontFamily" | "fontSize" | "fontWeight" | "lineHeight" | "color" | "alt" | "imageFit" | "focalPoint", value: string | number | FocalPoint) {
+    if (!selectedElement?.editable) return;
+    applyElementPatch({ elementId: selectedElement.id, field, value } as ScenePatch);
+  }
+
+  function updateElementFrame(elementId: string, frame: SceneElement["frame"]) {
+    const nextFrame = constrainFrame(frame, document.canvas);
+    applyElementPatch({ elementId, field: "frame", value: nextFrame });
+  }
+
+  function duplicateCurrentScene() {
+    const next = duplicateSceneDraft(document, scene.id);
+    const index = document.scenes.findIndex((item) => item.id === scene.id);
+    commitDocument(next, true);
+    setSelectedSceneId(next.scenes[index + 1]?.id ?? scene.id);
+    setSelectedElementId(null);
+  }
+
+  function removeCurrentScene() {
+    if (document.scenes.length <= 1) return;
+    const index = document.scenes.findIndex((item) => item.id === scene.id);
+    const next = deleteSceneDraft(document, scene.id);
+    commitDocument(next, true);
+    setSelectedSceneId(next.scenes[Math.min(index, next.scenes.length - 1)]?.id ?? "");
+    setSelectedElementId(null);
+  }
+
+  function moveLayer(delta: -1 | 1) {
+    if (!selectedElement) return;
+    const next = changeZIndex(document, selectedElement.id, delta);
+    const nextElement = getElement(next, selectedElement.id);
+    if (!nextElement) return;
+    commitDocument(next);
+    setPatches((current) => [...current, { elementId: selectedElement.id, field: "zIndex", value: nextElement.zIndex ?? 0 }]);
+  }
+
+  function alignSelected(axis: "left" | "center" | "right" | "top" | "middle" | "bottom") {
+    if (!selectedElement) return;
+    const frame = selectedElement.frame;
+    const value = axis === "left" ? { ...frame, x: 0 }
+      : axis === "center" ? { ...frame, x: (document.canvas.width - frame.width) / 2 }
+      : axis === "right" ? { ...frame, x: document.canvas.width - frame.width }
+      : axis === "top" ? { ...frame, y: 0 }
+      : axis === "middle" ? { ...frame, y: (document.canvas.height - frame.height) / 2 }
+      : { ...frame, y: document.canvas.height - frame.height };
+    updateElementFrame(selectedElement.id, value);
+  }
+
+  function undo() {
+    setHistory((current) => undoHistory(current));
     setDocumentDirty(true);
+    setPatches([]);
+  }
+
+  function redo() {
+    setHistory((current) => redoHistory(current));
+    setDocumentDirty(true);
+    setPatches([]);
   }
 
   async function insertOrReplaceImage(file: File) {
@@ -293,16 +454,14 @@ export function App() {
       if (selectedElement?.type === "image") {
         const sourcePatch: ScenePatch = { elementId: selectedElement.id, field: "assetSrc", value: asset.url };
         const altPatch: ScenePatch = { elementId: selectedElement.id, field: "alt", value: file.name.replace(/\.[^.]+$/, "") || "项目图片" };
-        setDocument((current) => patchElement(patchElement(current, sourcePatch), altPatch));
+        commitDocument((current) => patchElement(patchElement(current, sourcePatch), altPatch));
         setPatches((current) => [...current, sourcePatch, altPatch]);
       } else {
         const imageId = `image_${Date.now().toString(36)}`;
         const imageElement: SceneElement = { id: imageId, type: "image", role: "image", frame: { x: 1130, y: 500, width: 300, height: 230 }, assetSrc: asset.url, alt: file.name.replace(/\.[^.]+$/, "") || "项目图片", editable: true, zIndex: 4 };
-        setDocument((current) => ({ ...current, scenes: current.scenes.map((item) => item.id === scene.id ? { ...item, elements: [...item.elements, imageElement] } : item) }));
+        commitDocument((current) => ({ ...current, scenes: current.scenes.map((item) => item.id === scene.id ? { ...item, elements: [...item.elements, imageElement] } : item) }), true);
         setSelectedElementId(imageId);
-        setDocumentDirty(true);
       }
-      setDocumentDirty(true);
       setAssetState("idle");
     } catch {
       setAssetState("error");
@@ -317,24 +476,28 @@ export function App() {
     setInspectorTab("qa");
   }
 
-  function fixIssue(issueId: string) {
+  function previewIssueFix(issueId: string) {
+    const issue = issues.find((candidate) => candidate.issueId === issueId);
+    if (issue?.safeAutoFix) setFixPreviewIssueId(issueId);
+  }
+
+  function applyIssueFix(issueId: string) {
     const issue = issues.find((candidate) => candidate.issueId === issueId);
     if (!issue?.safeAutoFix) return;
+    setFixPreviewIssueId(null);
     const targetElementId = issue.elementIds[0];
     if (issue.category === "readability.contrast" && targetElementId) {
       const patch: ScenePatch = { elementId: targetElementId, field: "color", value: "text" };
-      setDocument((current) => patchElement(current, patch));
+      commitDocument((current) => patchElement(current, patch));
       setPatches((current) => [...current, patch]);
-      setDocumentDirty(true);
     }
     if (issue.category === "readability.font_size" && targetElementId) {
       const target = getElement(document, targetElementId);
       if (target) {
         const minimum = target.role === "eyebrow" ? 16 : target.role === "title" ? 35 : target.role === "metric" || target.role === "quote" ? 24 : target.role === "caption" ? 14 : 16;
         const patch: ScenePatch = { elementId: targetElementId, field: "fontSize", value: minimum };
-        setDocument((current) => patchElement(current, patch));
+        commitDocument((current) => patchElement(current, patch));
         setPatches((current) => [...current, patch]);
-        setDocumentDirty(true);
       }
     }
   }
@@ -345,6 +508,7 @@ export function App() {
       await persistProject(document, patches, "edit");
       setPatches([]);
       setDocumentDirty(false);
+      setLocalDraftOperations(0);
       setSyncState("saved");
       await Promise.all([refreshProjects(), refreshRevisions()]);
     } catch {
@@ -359,6 +523,7 @@ export function App() {
         await persistProject(document, patches, "edit");
         setPatches([]);
         setDocumentDirty(false);
+        setLocalDraftOperations(0);
         setSyncState("saved");
         await Promise.all([refreshProjects(), refreshRevisions()]);
       }
@@ -383,13 +548,23 @@ export function App() {
     setGeneratorError("");
     try {
       const generated = await generateProject(brief);
-      openDocument(generated.document);
-      await Promise.all([refreshProjects(), refreshRevisions(generated.document.documentId)]);
+      if (hasUnsavedChanges) {
+        const conflict = regenerationConflicts(document, generated.document);
+        setRegenerationPreview({ document: generated.document, changedElementIds: conflict.changedElementIds });
+      } else {
+        openDocument(generated.document);
+        await Promise.all([refreshProjects(), refreshRevisions(generated.document.documentId)]);
+      }
       setGeneratorState("idle");
     } catch (error) {
       setGeneratorError(error instanceof Error ? error.message : "生成失败");
       setGeneratorState("error");
     }
+  }
+
+  function acceptRegeneration() {
+    if (!regenerationPreview) return;
+    openDocument(regenerationPreview.document);
   }
 
   async function copyCurrentProject() {
@@ -441,7 +616,7 @@ export function App() {
           </div>}
         </div>
         <div className="topbar__actions">
-          <span className={`sync-state ${hasUnsavedChanges || syncState === "error" ? "is-dirty" : ""}`}><i />{syncState === "saving" ? "正在保存" : syncState === "error" ? "本地 API 不可用" : unsavedCount > 0 ? `${unsavedCount} 个 IR patch` : documentDirty ? "有未保存的设计变更" : syncState === "saved" ? "已持久化到本地" : "本地修订"}</span>
+          <span className={`sync-state ${hasUnsavedChanges || syncState === "error" ? "is-dirty" : ""}`}><i />{syncState === "saving" ? "正在保存" : syncState === "error" ? "本地 API 不可用" : localDraftOperations > 0 ? `${localDraftOperations} 项页面草稿 · 待快照保存` : unsavedCount > 0 ? `${unsavedCount} 个 IR patch` : documentDirty ? "有未保存的设计变更" : syncState === "saved" ? "已持久化到本地" : "本地修订"}</span>
           <Button size="sm" tone="outline" onClick={saveRevision} disabled={!hasUnsavedChanges || syncState === "saving"}>保存修订</Button>
           <Button size="sm" tone="primary" onClick={() => setInspectorTab("export")}><Icon name="play" size={13} /> 导出作品</Button>
           <Button size="sm" aria-label="更多操作" disabled title="首版暂不提供更多操作"><Icon name="more" size={17} /></Button>
@@ -449,11 +624,38 @@ export function App() {
       </header>
 
       <nav className="process-rail" aria-label="Studio 工作流">
-        {processSteps.map(([number, label], index) => <div key={number} className={index === 2 ? "is-active" : index < 2 ? "is-done" : ""}><span>{index < 2 ? <Icon name="check" size={11} /> : number}</span><strong>{label}</strong><i /></div>)}
+        {processSteps.map(([id, number, label], index) => {
+          const activeIndex = processSteps.findIndex(([stepId]) => stepId === workflowStep);
+          return <button type="button" key={id} className={id === workflowStep ? "is-active" : index < activeIndex ? "is-done" : ""} aria-current={id === workflowStep ? "step" : undefined} onClick={() => setWorkflowStep(id)}><span>{index < activeIndex ? <Icon name="check" size={11} /> : number}</span><strong>{label}</strong><i /></button>;
+        })}
       </nav>
 
       <div className="workspace">
-        <aside className="narrative-panel">
+        <aside className={`narrative-panel narrative-panel--${workflowStep}`}>
+          <section className="panel-section workflow-section" aria-label="Golden Task 工作流">
+            {workflowStep === "sources" && <>
+              <div className="section-heading"><div><Kicker>Grounded input</Kicker><h2>来源与证据边界</h2></div><Badge tone="success">3 snapshots</Badge></div>
+              <div className="source-list">{goldenTask.sources.map((source) => <article key={source.sourceId}><span><strong>{source.title}</strong><small>{source.sourceRef}</small></span><Badge>{source.status}</Badge></article>)}</div>
+              <Button size="sm" tone="primary" onClick={loadGoldenBrief}>载入 Golden Brief</Button>
+            </>}
+            {workflowStep === "outline" && <>
+              <div className="section-heading"><div><Kicker>Narrative plan</Kicker><h2>7 页决策故事线</h2></div><Badge>{goldenTask.expectedOutline.length} roles</Badge></div>
+              <ol className="outline-list">{goldenTask.expectedOutline.map((item) => <li key={item.order}><span>{String(item.order).padStart(2, "0")}</span><span><strong>{item.pageRole}</strong><small>{item.intent}</small></span></li>)}</ol>
+            </>}
+            {workflowStep === "direction" && <>
+              <div className="section-heading"><div><Kicker>Design packs</Kicker><h2>选择设计判断系统</h2></div><Badge tone="accent">3 packs</Badge></div>
+              <div className="pack-list">{designPacks.map((pack) => {
+                const directionChoice = goldenTask.directions.find((item) => item.pack.id === pack.id);
+                return <button type="button" key={pack.id} className={pack.id === selectedPackId ? "is-active" : ""} aria-label={`${pack.name} · ${pack.id}@${pack.version}`} aria-pressed={pack.id === selectedPackId} onClick={() => selectDesignPack(pack.id)}><span className="pack-swatch" style={{ background: pack.tokens.background, color: pack.tokens.accent }}>Aa</span><span><strong>{pack.name}</strong><small>{pack.id}@{pack.version}</small><em>{directionChoice?.selectionRationale}</em></span>{pack.id === selectedPackId && <Icon name="check" size={13} />}</button>;
+              })}</div>
+            </>}
+            {workflowStep === "studio" && <>
+              <div className="section-heading"><div><Kicker>Agent handoff</Kicker><h2>结构化设计协议</h2></div><Badge tone="success">Scene IR</Badge></div>
+              <dl className="contract-summary"><div><dt>Design Pack</dt><dd>{selectedPack ? `${selectedPack.id}@${selectedPack.version}` : "未选择"}</dd></div><div><dt>Contract</dt><dd>{selectedPack?.agentAnnotation.contractVersion ?? "—"}</dd></div><div><dt>Capabilities</dt><dd>{selectedPack?.agentAnnotation.requiredCapabilities.join(" · ") ?? "—"}</dd></div></dl>
+              {selectedPack && <><label className="agent-annotation"><span>可复制给其他 Agent 的标注</span><textarea readOnly aria-label="Agent 设计标注" value={selectedPack.agentAnnotation.copyText} /></label><Button size="sm" tone="outline" onClick={copyAgentAnnotation}>{annotationCopyState === "copied" ? "已复制 Agent 标注" : annotationCopyState === "manual" ? "请在上方手动复制" : "复制 Agent 标注"}</Button></>}
+            </>}
+          </section>
+
           <section className="panel-section brief-section">
             <div className="section-heading"><Kicker>Project input</Kicker><Button size="sm" aria-label="编辑项目输入"><Icon name="edit" size={13} /></Button></div>
             <textarea value={brief} onChange={(event) => setBrief(event.target.value)} aria-label="项目 Brief" />
@@ -485,18 +687,24 @@ export function App() {
           <div className="stage-toolbar">
             <div className="stage-toolbar__scene"><Kicker>Page {String(scene.order).padStart(2, "0")}</Kicker><strong>{scene.title}</strong><Badge>{scene.layout}</Badge></div>
             <div className="stage-toolbar__tools">
-              <Badge tone="success">Scene IR 0.1</Badge>
+              <Button size="sm" aria-label="撤销" onClick={undo} disabled={history.past.length === 0}>↶</Button>
+              <Button size="sm" aria-label="重做" onClick={redo} disabled={history.future.length === 0}>↷</Button>
+              <span />
+              <Button size="sm" aria-label="复制当前页" onClick={duplicateCurrentScene}>复制页</Button>
+              <Button size="sm" tone="danger" aria-label="删除当前页" onClick={removeCurrentScene} disabled={document.scenes.length <= 1}>删除页</Button>
+              <Badge tone="success">Scene IR {document.schemaVersion}</Badge>
               <span className="zoom-label">67%</span>
             </div>
           </div>
 
           <div className="stage-canvas-wrap">
-            <SceneCanvas scene={scene} direction={direction} selectedElementId={selectedElementId} issueElementIds={issueElementIds} onSelect={selectElement} />
-            <p className="canvas-hint"><Icon name="spark" size={12} /> 双击文字开始编辑 · 所有元素来自 Scene IR 0.1</p>
+            <SceneCanvas scene={scene} direction={direction} selectedElementId={selectedElementId} issueElementIds={issueElementIds} onSelect={selectElement} onFrameChange={updateElementFrame} />
+            <p className="canvas-hint"><Icon name="spark" size={12} /> 拖动元素移动 · 右下角缩放 · 边界自动约束</p>
           </div>
 
           <div className="filmstrip" aria-label="页面缩略图">
             {document.scenes.map((item) => <SceneThumbnail key={item.id} scene={item} direction={direction} active={item.id === scene.id} issueCount={openIssues.filter((issue) => issue.sceneId === item.id).length} onSelect={() => selectScene(item.id)} />)}
+            <button className="filmstrip__add" type="button" onClick={duplicateCurrentScene}><Icon name="plus" size={14} />复制当前页</button>
           </div>
         </section>
 
@@ -510,10 +718,20 @@ export function App() {
               <div className="inspector-heading"><div><Kicker>Selection</Kicker><h2>{selectedElement ? selectedElement.role : "页面属性"}</h2></div>{selectedElement && <Badge tone={selectedElement.editable ? "success" : "neutral"}>{selectedElement.editable ? "可编辑" : "已锁定"}</Badge>}</div>
               {selectedElement ? <>
                 {selectedElement.editable && selectedElement.content !== undefined && <label className="field"><span>文字内容</span><textarea value={selectedElement.content} onChange={(event) => updateSelectedContent(event.target.value)} autoFocus /></label>}
-                <div className="property-grid"><label className="field"><span>X</span><input value={selectedElement.frame.x} readOnly /></label><label className="field"><span>Y</span><input value={selectedElement.frame.y} readOnly /></label><label className="field"><span>W</span><input value={selectedElement.frame.width} readOnly /></label><label className="field"><span>H</span><input value={selectedElement.frame.height} readOnly /></label></div>
+                <div className="property-grid">{(["x", "y", "width", "height"] as const).map((field) => <label className="field" key={field}><span>{field === "width" ? "W" : field === "height" ? "H" : field.toUpperCase()}</span><input aria-label={`元素 ${field}`} type="number" value={Math.round(selectedElement.frame[field])} onChange={(event) => updateElementFrame(selectedElement.id, { ...selectedElement.frame, [field]: Number(event.target.value) })} /></label>)}</div>
+                {selectedElement.content !== undefined && <>
+                  <label className="field"><span>元素字体</span><select aria-label="元素字体" value={(selectedElement as EditorElement).fontFamily ?? ""} onChange={(event) => updateSelectedField("fontFamily", event.target.value)}><option value="">跟随设计方向</option>{fontOptions.map((font) => <option key={font.value} value={font.value}>{font.label}</option>)}</select></label>
+                  <div className="property-grid">
+                    <label className="field"><span>字号</span><input aria-label="字号" type="number" min="8" max="240" value={selectedElement.fontSize ?? 16} onChange={(event) => updateSelectedField("fontSize", Number(event.target.value))} /></label>
+                    <label className="field"><span>字重</span><select aria-label="字重" value={selectedElement.fontWeight ?? 400} onChange={(event) => updateSelectedField("fontWeight", Number(event.target.value))}>{[300, 400, 500, 600, 700, 800, 900].map((weight) => <option value={weight} key={weight}>{weight}</option>)}</select></label>
+                    <label className="field"><span>行距</span><input aria-label="行距" type="number" min="0.8" max="3" step="0.05" value={(selectedElement as EditorElement).lineHeight ?? 1.2} onChange={(event) => updateSelectedField("lineHeight", Number(event.target.value))} /></label>
+                    <label className="field"><span>颜色</span><input aria-label="文字颜色" value={selectedElement.color ?? "text"} onChange={(event) => updateSelectedField("color", event.target.value)} /></label>
+                  </div>
+                </>}
+                <div className="align-tools" aria-label="元素对齐"><Button size="sm" tone="outline" onClick={() => alignSelected("left")}>左</Button><Button size="sm" tone="outline" onClick={() => alignSelected("center")}>水平中</Button><Button size="sm" tone="outline" onClick={() => alignSelected("right")}>右</Button><Button size="sm" tone="outline" onClick={() => alignSelected("top")}>上</Button><Button size="sm" tone="outline" onClick={() => alignSelected("middle")}>垂直中</Button><Button size="sm" tone="outline" onClick={() => alignSelected("bottom")}>下</Button></div>
+                <div className="layer-tools"><Button size="sm" tone="outline" onClick={() => moveLayer(-1)}>下移一层</Button><Button size="sm" tone="outline" onClick={() => moveLayer(1)}>上移一层</Button></div>
                 <div className="property-row"><span>类型</span><strong>{selectedElement.type} / {selectedElement.role}</strong></div>
-                <div className="property-row"><span>字号</span><strong>{selectedElement.fontSize ? `${selectedElement.fontSize}px` : "—"}</strong></div>
-                {selectedElement.type === "image" && <><div className="asset-preview"><img src={selectedElement.assetSrc} alt={selectedElement.alt ?? ""} /></div><Button tone="outline" onClick={() => imageInputRef.current?.click()} disabled={assetState === "uploading"}>{assetState === "uploading" ? "正在导入" : "替换图片"}</Button></>}
+                {selectedElement.type === "image" && <><div className="asset-preview"><img src={selectedElement.assetSrc} alt={selectedElement.alt ?? ""} style={{ objectFit: (selectedElement as EditorElement).imageFit === "stretch" ? "fill" : ((selectedElement as EditorElement).imageFit === "contain" ? "contain" : "cover"), objectPosition: `${((selectedElement as EditorElement).focalPoint?.x ?? .5) * 100}% ${((selectedElement as EditorElement).focalPoint?.y ?? .5) * 100}%` }} /></div><label className="field"><span>替代文本</span><input aria-label="图片替代文本" value={selectedElement.alt ?? ""} onChange={(event) => updateSelectedField("alt", event.target.value)} /></label><label className="field"><span>适配方式</span><select aria-label="图片适配方式" value={(selectedElement as EditorElement).imageFit ?? "cover"} onChange={(event) => updateSelectedField("imageFit", event.target.value as ImageFit)}><option value="cover">裁切填满</option><option value="contain">完整显示</option><option value="stretch">拉伸填满</option></select></label><div className="property-grid"><label className="field"><span>焦点 X</span><input aria-label="图片焦点 X" type="range" min="0" max="1" step="0.05" value={(selectedElement as EditorElement).focalPoint?.x ?? .5} onChange={(event) => updateSelectedField("focalPoint", { x: Number(event.target.value), y: (selectedElement as EditorElement).focalPoint?.y ?? .5 })} /></label><label className="field"><span>焦点 Y</span><input aria-label="图片焦点 Y" type="range" min="0" max="1" step="0.05" value={(selectedElement as EditorElement).focalPoint?.y ?? .5} onChange={(event) => updateSelectedField("focalPoint", { x: (selectedElement as EditorElement).focalPoint?.x ?? .5, y: Number(event.target.value) })} /></label></div><Button tone="outline" onClick={() => imageInputRef.current?.click()} disabled={assetState === "uploading"}>{assetState === "uploading" ? "正在导入" : "替换图片"}</Button></>}
                 <div className="patch-card"><span><Icon name="code" size={15} /></span><div><strong>IR patch 已就绪</strong><small>{unsavedCount > 0 ? `${unsavedCount} 个变更等待保存为修订` : "当前选择没有未保存变更"}</small></div></div>
               </> : <>
                 <div className="font-controls">
@@ -525,6 +743,7 @@ export function App() {
                 <div className="empty-selection"><span><Icon name="edit" size={22} /></span><h3>选择画布中的元素</h3><p>字体作用于当前设计方向；图片会作为原生元素进入 HTML、PNG 与 PPTX。</p></div>
               </>}
               <input ref={imageInputRef} className="visually-hidden" type="file" accept="image/png,image/jpeg" onChange={(event) => { const file = event.target.files?.[0]; if (file) void insertOrReplaceImage(file); }} />
+              {regenerationPreview && <div className="conflict-preview" role="alertdialog" aria-label="AI 重新生成冲突预览"><Kicker>Regeneration conflict</Kicker><strong>AI 新版本没有覆盖你的人工修改</strong><p>{regenerationPreview.changedElementIds.length} 个同 ID 元素发生变化。当前草稿仍保留，可选择采用新版本。</p><div><Button size="sm" tone="primary" onClick={acceptRegeneration}>采用 AI 新版本</Button><Button size="sm" tone="outline" onClick={() => setRegenerationPreview(null)}>保留当前草稿</Button></div></div>}
             </div>
           )}
 
@@ -537,7 +756,8 @@ export function App() {
                 {openIssues.map((issue) => <div role="button" tabIndex={0} key={issue.issueId} className={`issue-card issue-card--${issue.severity} ${issue.sceneId === scene.id ? "is-current" : ""}`} onClick={() => locateIssue(issue)} onKeyDown={(event) => { if (event.key === "Enter" || event.key === " ") locateIssue(issue); }}>
                   <span className="issue-card__icon"><Icon name="warning" size={15} /></span>
                   <span className="issue-card__copy"><span><Badge tone={issue.severity === "error" ? "warning" : "neutral"}>{issue.category.split(".")[1]}</Badge><small>{document.scenes.find((item) => item.id === issue.sceneId)?.title}</small></span><strong>{issue.message}</strong><small>{issue.elementIds.join(" · ")}</small></span>
-                  {issue.safeAutoFix && <Button size="sm" tone="outline" onClick={(event) => { event.stopPropagation(); fixIssue(issue.issueId); }}>安全修复</Button>}
+                  {issue.safeAutoFix && <Button size="sm" tone="outline" onClick={(event) => { event.stopPropagation(); previewIssueFix(issue.issueId); }}>预览安全修复</Button>}
+                  {fixPreviewIssueId === issue.issueId && <div className="fix-preview" onClick={(event) => event.stopPropagation()}><strong>修复影响预览</strong><small>{issue.category === "readability.font_size" ? "将字号提高到该角色的最低可读值；内容和位置不变。" : "将文字颜色恢复为设计方向的正文色；内容和位置不变。"}</small><span><Button size="sm" tone="primary" onClick={() => applyIssueFix(issue.issueId)}>确认应用</Button><Button size="sm" tone="quiet" onClick={() => setFixPreviewIssueId(null)}>取消</Button></span></div>}
                 </div>)}
               </div>
               <div className="qa-note"><Icon name="spark" size={14} /><p><strong>定位，不重做。</strong><br />每个问题都回指具体页面与元素 ID。</p></div>

@@ -2,16 +2,19 @@
 
 ## Now（本次会话正在做，最多 3 项）
 
-当前无进行中的开发项。
+- [ ] 实现真实 DOM parser/sanitizer，将 Structured HTML 安全导入 Scene IR (spec: 002)
 
 ## Next（已排序的待办）
+- [ ] 把 Design Pack pin 与来源 provenance 纳入本地生成 API，而非仅由工作台选择
+- [ ] 扩展首批 10 套经过 Golden Task 验证的 Design Pack
+- [ ] 建立设计质量、人工修正时间与可编辑率 Benchmark
 - [ ] 取得服务器只读预检证据并核验证书续期
 - [ ] 在单独授权窗口准备并激活一致的 Admin RC
 - [ ] 增加策展曝光/反馈事件；反馈只影响排序，不修改判断可信度
 - [ ] 定义人工确认后的发布候选变更集，继续保持 preview-first
-- [ ] 完善 Studio HTML-first 生成、人工编辑与字体/图片资产工作流
 
 ## Done（倒序，保留最近 20 条，附 commit hash）
+- [x] Studio Foundation v0.2：契约、可编辑画布、三套 Design Pack 与 Golden 工作流（本次提交）
 - [x] Quality Judgment Ledger v2：追加式人工判断、五位展示与迁移门禁（a4f0953）
 - [x] 生产公网/服务器只读预检工具与 No-Go 证据（ca5561c）
 - [x] Admin RC2 不可变构建、激活和回滚合同（4584c48）

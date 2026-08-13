@@ -1,0 +1,145 @@
+{
+  "packSchemaVersion": "0.1.0",
+  "id": "editorial-story-graphics-cn",
+  "version": "1.0.0",
+  "name": "文章叙事配图",
+  "summary": "把文章中的命题、段落转折、关键引语和概念关系转成一组视觉一致、可独立传播的结构化配图。",
+  "positioning": {
+    "scenarios": ["文章头图", "章节配图", "社交传播卡片"],
+    "audiences": ["文章读者", "社交媒体受众", "知识内容创作者"],
+    "contentTypes": ["文章命题", "关键引语", "概念关系", "数据摘要", "章节转折"]
+  },
+  "designDna": {
+    "principles": ["图为观点服务", "系列一致而不重复", "裁切安全", "离开正文仍可理解"],
+    "mood": ["当代", "编辑感", "有温度"],
+    "composition": {
+      "grid": "modular editorial grid; central safe area for 16:9 and 4:5 crops",
+      "density": "airy",
+      "rhythm": "头图建立母题，章节图变奏构图，数据卡收束证据"
+    },
+    "typography": {
+      "headingFamily": "Noto Serif CJK SC, Georgia, serif",
+      "bodyFamily": "Noto Sans CJK SC, Arial, sans-serif",
+      "languageSupport": ["zh-CN", "en"]
+    }
+  },
+  "tokens": {
+    "background": "#F7F2E8",
+    "surface": "#FFFDF8",
+    "text": "#20201C",
+    "muted": "#747166",
+    "accent": "#6B4EFF",
+    "line": "#D9D1C3",
+    "fontFamily": "Noto Sans CJK SC, Arial, sans-serif",
+    "headingFamily": "Noto Serif CJK SC, Georgia, serif"
+  },
+  "narrativeArc": [
+    { "order": 1, "role": "article-hero", "purpose": "用一个视觉母题表达全文命题", "required": true },
+    { "order": 2, "role": "section-opener", "purpose": "提示文章从一个问题转入下一层", "required": true },
+    { "order": 3, "role": "key-quote", "purpose": "让关键判断可被独立传播", "required": true },
+    { "order": 4, "role": "concept-diagram", "purpose": "解释正文中的关系或过程", "required": true },
+    { "order": 5, "role": "evidence-card", "purpose": "把关键数据及口径做成可读摘要", "required": false },
+    { "order": 6, "role": "closing-card", "purpose": "以余韵和行动问题收束系列", "required": false }
+  ],
+  "pageRoles": [
+    {
+      "id": "article-hero",
+      "purpose": "在不复述文章标题的前提下建立视觉母题",
+      "contentSlots": [
+        { "id": "title", "kind": "text", "required": true, "maxChars": 30 },
+        { "id": "visual-metaphor", "kind": "image", "required": true },
+        { "id": "series-mark", "kind": "shape", "required": false }
+      ],
+      "layoutGuidance": ["核心信息位于跨比例安全区", "图像与标题共同表达命题", "避免通用 AI 发光背景"]
+    },
+    {
+      "id": "section-opener",
+      "purpose": "用视觉变化标记论述转折",
+      "contentSlots": [
+        { "id": "section-judgment", "kind": "text", "required": true, "maxChars": 36 },
+        { "id": "section-image", "kind": "image", "required": false },
+        { "id": "section-number", "kind": "metric", "required": false, "maxChars": 8 }
+      ],
+      "layoutGuidance": ["沿用头图母题但改变尺度", "章节号不能压过观点", "不为每段正文机械配图"]
+    },
+    {
+      "id": "key-quote",
+      "purpose": "将文章中的原创判断转成可分享引语卡",
+      "contentSlots": [
+        { "id": "quote", "kind": "text", "required": true, "maxChars": 70 },
+        { "id": "attribution", "kind": "text", "required": true, "maxChars": 36 },
+        { "id": "context", "kind": "text", "required": false, "maxChars": 54 }
+      ],
+      "layoutGuidance": ["引语保持原意并可追溯", "优先排版而非装饰", "署名与上下文不可缺失"]
+    },
+    {
+      "id": "concept-diagram",
+      "purpose": "用少量原生对象解释概念关系",
+      "contentSlots": [
+        { "id": "diagram-title", "kind": "text", "required": true, "maxChars": 38 },
+        { "id": "concepts", "kind": "text", "required": true, "maxChars": 100 },
+        { "id": "relations", "kind": "shape", "required": true },
+        { "id": "explanation", "kind": "text", "required": false, "maxChars": 90 }
+      ],
+      "layoutGuidance": ["节点不超过五个", "关系标签使用动词", "阅读顺序无需正文也可理解"]
+    },
+    {
+      "id": "evidence-card",
+      "purpose": "将一个重要数据与其意义做成信息卡",
+      "contentSlots": [
+        { "id": "metric", "kind": "metric", "required": true, "maxChars": 20 },
+        { "id": "meaning", "kind": "text", "required": true, "maxChars": 58 },
+        { "id": "source", "kind": "text", "required": true, "maxChars": 90 }
+      ],
+      "layoutGuidance": ["数字与口径不可分离", "不使用未经比较的巨大数字", "来源保持可读"]
+    },
+    {
+      "id": "closing-card",
+      "purpose": "以一个开放问题或行动邀请结束视觉系列",
+      "contentSlots": [
+        { "id": "closing-line", "kind": "text", "required": true, "maxChars": 44 },
+        { "id": "prompt", "kind": "text", "required": false, "maxChars": 62 },
+        { "id": "brand-mark", "kind": "image", "required": false }
+      ],
+      "layoutGuidance": ["延续系列识别", "避免营销式强 CTA", "保留足够留白"]
+    }
+  ],
+  "assetStrategy": {
+    "imagePolicy": "generated-allowed",
+    "requiredAltText": true,
+    "allowedSchemes": ["asset"]
+  },
+  "agentGuidance": [
+    "先提炼文章的主命题、转折、原创判断和概念关系，再决定需要哪些图。",
+    "每张图必须承担解释、转折或传播任务，禁止按段落数量机械配图。",
+    "生成图像不得模仿在世艺术家或复制受版权保护作品。",
+    "系列共享色彩、字体和视觉母题，但构图应有节奏变化。",
+    "重要文字保留为原生文本，不烘焙进图片。",
+    "每个画面同时检查 16:9 与 4:5 的核心内容安全区。"
+  ],
+  "editability": {
+    "text": "native",
+    "image": "replaceable",
+    "frame": true,
+    "order": true,
+    "decoration": "native"
+  },
+  "export": {
+    "html": "high-fidelity",
+    "pptx": "hybrid",
+    "png": "supported",
+    "rasterFallback": "component-only"
+  },
+  "qaRules": [
+    { "id": "graphics-independent-meaning", "severity": "warning", "scope": "scene", "rule": "画面离开文章上下文后仍需表达一个可理解的观点。" },
+    { "id": "graphics-safe-crop", "severity": "error", "scope": "element", "rule": "标题、品牌标识和关键视觉必须位于 16:9 与 4:5 公共安全区。" },
+    { "id": "graphics-text-native", "severity": "error", "scope": "element", "rule": "标题、引语、数据与来源必须保留为原生文本，不得烘焙进图片。" },
+    { "id": "graphics-rights", "severity": "blocker", "scope": "element", "rule": "资产必须标明来源与许可；不允许来源不明或要求模仿在世艺术家的素材。" },
+    { "id": "graphics-alt", "severity": "error", "scope": "element", "rule": "每张信息图片必须提供描述观点而非只描述外观的 alt。" }
+  ],
+  "agentAnnotation": {
+    "copyText": "使用 editorial-story-graphics-cn@1.0.0。先提炼文章主命题、转折、原创判断和概念关系，只生成承担明确任务的配图；保持系列母题一致与构图变化；文字、引语和来源用原生对象；资产需有许可与 alt；输出符合 Structured HTML Contract 0.1.0，支持人工替换图片、修改字体、裁切和布局。",
+    "requiredCapabilities": ["text", "typography", "asset", "frame", "order"],
+    "contractVersion": "0.1.0"
+  }
+}

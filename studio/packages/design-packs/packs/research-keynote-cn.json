@@ -1,0 +1,154 @@
+{
+  "packSchemaVersion": "0.1.0",
+  "id": "research-keynote-cn",
+  "version": "1.0.0",
+  "name": "研究报告与主题演讲",
+  "summary": "把研究材料转化为可讲述的证据链：问题、发现、证据、反例与启示逐层展开，适合研究发布和知识型演讲。",
+  "positioning": {
+    "scenarios": ["研究报告", "主题演讲", "课程分享"],
+    "audiences": ["专业同行", "创新团队", "学习者"],
+    "contentTypes": ["研究问题", "方法", "发现", "案例", "启示"]
+  },
+  "designDna": {
+    "principles": ["问题驱动", "证据可追溯", "抽象与案例交替", "讲述节奏优先"],
+    "mood": ["理性", "开放", "知识感"],
+    "composition": {
+      "grid": "10-column lecture grid; persistent source rail",
+      "density": "balanced",
+      "rhythm": "问题、证据与停顿页形成长短句节奏"
+    },
+    "typography": {
+      "headingFamily": "Noto Sans CJK SC, Arial, sans-serif",
+      "bodyFamily": "Noto Sans CJK SC, Arial, sans-serif",
+      "languageSupport": ["zh-CN", "en"]
+    }
+  },
+  "tokens": {
+    "background": "#EEF3F8",
+    "surface": "#FFFFFF",
+    "text": "#12253D",
+    "muted": "#5D7087",
+    "accent": "#2161D1",
+    "line": "#C7D4E2",
+    "fontFamily": "Noto Sans CJK SC, Arial, sans-serif",
+    "headingFamily": "Noto Sans CJK SC, Arial, sans-serif"
+  },
+  "narrativeArc": [
+    { "order": 1, "role": "cover", "purpose": "以研究命题和边界开启演讲", "required": true },
+    { "order": 2, "role": "research-question", "purpose": "把主题压缩成一个值得回答的问题", "required": true },
+    { "order": 3, "role": "method", "purpose": "交代证据来源、范围和限制", "required": true },
+    { "order": 4, "role": "finding", "purpose": "呈现核心发现与证据", "required": true },
+    { "order": 5, "role": "case-comparison", "purpose": "用案例与反例解释机制", "required": true },
+    { "order": 6, "role": "implication", "purpose": "把发现翻译为可迁移启示", "required": true },
+    { "order": 7, "role": "closing-question", "purpose": "留下值得继续讨论的问题", "required": false }
+  ],
+  "pageRoles": [
+    {
+      "id": "cover",
+      "purpose": "标明研究命题、作者和材料范围",
+      "contentSlots": [
+        { "id": "topic", "kind": "text", "required": true, "maxChars": 38 },
+        { "id": "scope", "kind": "text", "required": true, "maxChars": 72 },
+        { "id": "author", "kind": "text", "required": false, "maxChars": 36 }
+      ],
+      "layoutGuidance": ["题目要包含研究对象", "副标题说明范围而非重复标题", "封面不堆放摘要"]
+    },
+    {
+      "id": "research-question",
+      "purpose": "用一个问题组织后续证据",
+      "contentSlots": [
+        { "id": "question", "kind": "text", "required": true, "maxChars": 56 },
+        { "id": "why-now", "kind": "text", "required": true, "maxChars": 100 }
+      ],
+      "layoutGuidance": ["问题必须能被证据回答", "使用大字号与充足留白", "不在同页提前塞入全部结论"]
+    },
+    {
+      "id": "method",
+      "purpose": "让受众理解证据如何得出以及不能说明什么",
+      "contentSlots": [
+        { "id": "sources", "kind": "text", "required": true, "maxChars": 140 },
+        { "id": "method-steps", "kind": "text", "required": true, "maxChars": 150 },
+        { "id": "limitations", "kind": "text", "required": true, "maxChars": 100 }
+      ],
+      "layoutGuidance": ["来源、方法和限制分区", "限制不能放入不可读脚注", "不使用装饰性流程箭头"]
+    },
+    {
+      "id": "finding",
+      "purpose": "用一个可验证判断呈现核心发现",
+      "contentSlots": [
+        { "id": "finding-statement", "kind": "text", "required": true, "maxChars": 52 },
+        { "id": "evidence", "kind": "shape", "required": true },
+        { "id": "evidence-note", "kind": "text", "required": true, "maxChars": 110 }
+      ],
+      "layoutGuidance": ["标题写发现而不是“研究结果”", "图表只支持一个主结论", "保留样本和口径说明"]
+    },
+    {
+      "id": "case-comparison",
+      "purpose": "用并列案例揭示差异机制",
+      "contentSlots": [
+        { "id": "shared-question", "kind": "text", "required": true, "maxChars": 48 },
+        { "id": "case-a", "kind": "text", "required": true, "maxChars": 120 },
+        { "id": "case-b", "kind": "text", "required": true, "maxChars": 120 },
+        { "id": "comparison-visual", "kind": "image", "required": false }
+      ],
+      "layoutGuidance": ["两个案例使用相同分析维度", "明确反例而非只展示成功案例", "结论置于比较之后"]
+    },
+    {
+      "id": "implication",
+      "purpose": "把研究发现转换为可迁移原则",
+      "contentSlots": [
+        { "id": "principle", "kind": "text", "required": true, "maxChars": 58 },
+        { "id": "conditions", "kind": "text", "required": true, "maxChars": 130 },
+        { "id": "first-test", "kind": "text", "required": true, "maxChars": 80 }
+      ],
+      "layoutGuidance": ["区分事实、推论和建议", "说明原则成立的条件", "用一个最小实验落地"]
+    },
+    {
+      "id": "closing-question",
+      "purpose": "以未解决的问题而非口号结束",
+      "contentSlots": [
+        { "id": "open-question", "kind": "text", "required": true, "maxChars": 64 },
+        { "id": "takeaway", "kind": "text", "required": true, "maxChars": 80 }
+      ],
+      "layoutGuidance": ["问题必须来自研究限制", "结论只保留一句", "留出讨论空间"]
+    }
+  ],
+  "assetStrategy": {
+    "imagePolicy": "provided-first",
+    "requiredAltText": true,
+    "allowedSchemes": ["asset"]
+  },
+  "agentGuidance": [
+    "先抽取研究问题、事实、推论与建议，禁止混写。",
+    "每项发现必须指出来源范围与限制。",
+    "讲述页优先一屏一观点，报告页可增加来源栏但不得降低正文可读性。",
+    "比较案例必须使用相同维度，不得只挑支持结论的样本。",
+    "引用原文时保持短摘录，主体使用概括并绑定 sourceIds。",
+    "为演讲节奏安排停顿页，不把文章段落直接粘贴到画布。"
+  ],
+  "editability": {
+    "text": "native",
+    "image": "replaceable",
+    "frame": true,
+    "order": true,
+    "decoration": "native"
+  },
+  "export": {
+    "html": "high-fidelity",
+    "pptx": "native-first",
+    "png": "supported",
+    "rasterFallback": "component-only"
+  },
+  "qaRules": [
+    { "id": "research-claim-source", "severity": "blocker", "scope": "element", "rule": "事实、数据与引文必须绑定 sourceId，并保留范围或口径。" },
+    { "id": "research-inference-label", "severity": "error", "scope": "scene", "rule": "推论与建议必须被明确标识，不能伪装成来源事实。" },
+    { "id": "research-readable-stage", "severity": "warning", "scope": "element", "rule": "演讲正文不小于 22px，来源说明不小于 14px。" },
+    { "id": "research-case-symmetry", "severity": "warning", "scope": "scene", "rule": "案例比较必须使用相同维度和相近信息量。" },
+    { "id": "research-image-alt", "severity": "error", "scope": "element", "rule": "图片与图表必须提供描述其信息意义的替代文本。" }
+  ],
+  "agentAnnotation": {
+    "copyText": "使用 research-keynote-cn@1.0.0。先区分研究问题、来源事实、推论和建议；以问题—方法—发现—案例—启示组织内容；所有事实绑定 sourceIds 并保留限制；输出 Structured HTML Contract 0.1.0，确保文本、证据图表、图片和页面顺序可人工修改。",
+    "requiredCapabilities": ["text", "typography", "asset", "frame", "order"],
+    "contractVersion": "0.1.0"
+  }
+}

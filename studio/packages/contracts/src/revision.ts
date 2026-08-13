@@ -32,25 +32,77 @@ export class RevisionContractError extends Error {
   }
 }
 
+function copyPatch(patch: ScenePatch): ScenePatch {
+  if (patch.field === "frame") return { ...patch, value: { ...patch.value } };
+  if (patch.field === "focalPoint") return { ...patch, value: { ...patch.value } };
+  return { ...patch };
+}
+
 function patchElement(element: SceneElement, patch: ScenePatch): SceneElement {
   if (!element.editable) {
     throw new PatchApplicationError(`Element \"${element.id}\" is not editable`, patch);
   }
 
+  const capabilityByField = {
+    content: "text",
+    fontFamily: "typography",
+    fontWeight: "typography",
+    fontSize: "typography",
+    lineHeight: "typography",
+    color: "typography",
+    assetSrc: "asset",
+    alt: "asset",
+    imageFit: "asset",
+    focalPoint: "asset",
+    frame: "frame",
+    zIndex: "order",
+  } as const;
+  if ("elementId" in patch && element.editableCapabilities !== undefined) {
+    const requiredCapability = capabilityByField[patch.field];
+    if (!element.editableCapabilities.includes(requiredCapability)) {
+      throw new PatchApplicationError(`Field \"${patch.field}\" requires the \"${requiredCapability}\" capability`, patch);
+    }
+  }
+
   if (patch.field === "content" && !["text", "metric", "quote"].includes(element.type)) {
     throw new PatchApplicationError(`Field \"content\" cannot be patched on ${element.type} element \"${element.id}\"`, patch);
   }
-  if ((patch.field === "assetSrc" || patch.field === "alt") && element.type !== "image") {
+  if (["assetSrc", "alt", "imageFit", "focalPoint"].includes(patch.field) && element.type !== "image") {
     throw new PatchApplicationError(`Field \"${patch.field}\" can only be patched on image elements`, patch);
   }
-  if ((patch.field === "color" || patch.field === "fontSize") && !["text", "metric", "quote"].includes(element.type)) {
+  if (["color", "fontSize", "fontFamily", "fontWeight", "lineHeight"].includes(patch.field) && !["text", "metric", "quote"].includes(element.type)) {
     throw new PatchApplicationError(`Field \"${patch.field}\" can only be patched on text-like elements`, patch);
   }
   if (patch.field === "fontSize" && (!Number.isFinite(patch.value) || patch.value < 8 || patch.value > 240)) {
     throw new PatchApplicationError("fontSize patches must stay between 8 and 240", patch);
   }
 
-  return { ...element, [patch.field]: patch.value };
+  if (patch.field === "fontWeight" && (!Number.isInteger(patch.value) || patch.value < 100 || patch.value > 900)) {
+    throw new PatchApplicationError("fontWeight patches must be integers between 100 and 900", patch);
+  }
+  if (patch.field === "lineHeight" && (!Number.isFinite(patch.value) || patch.value < 0.5 || patch.value > 4)) {
+    throw new PatchApplicationError("lineHeight patches must stay between 0.5 and 4", patch);
+  }
+  if (patch.field === "zIndex" && (!Number.isInteger(patch.value) || patch.value < 0)) {
+    throw new PatchApplicationError("zIndex patches must be non-negative integers", patch);
+  }
+  if (patch.field === "fontFamily" && !patch.value.trim()) {
+    throw new PatchApplicationError("fontFamily patches cannot be empty", patch);
+  }
+  if (patch.field === "focalPoint" && (![patch.value.x, patch.value.y].every((value) => Number.isFinite(value) && value >= 0 && value <= 1))) {
+    throw new PatchApplicationError("focalPoint coordinates must stay between 0 and 1", patch);
+  }
+  if (patch.field === "frame") {
+    const { x, y, width, height } = patch.value;
+    if (![x, y, width, height].every(Number.isFinite) || x < 0 || y < 0 || width <= 0 || height <= 0) {
+      throw new PatchApplicationError("frame patches require finite, non-negative coordinates and positive dimensions", patch);
+    }
+  }
+
+  const value = patch.field === "frame" || patch.field === "focalPoint"
+    ? { ...patch.value }
+    : patch.value;
+  return { ...element, [patch.field]: value };
 }
 
 export function applyPatch(document: SceneDocument, patch: ScenePatch): SceneDocument {
@@ -104,7 +156,7 @@ export function createRevision(document: SceneDocument, input: RevisionInput): R
     parentRevisionId: input.parentRevisionId,
     createdAt: input.createdAt,
     reason: input.reason,
-    patches: input.patches.map((patch) => ({ ...patch })),
+    patches: input.patches.map(copyPatch),
   };
   const revisionResult = validateRevision(revision);
   if (!revisionResult.ok) {

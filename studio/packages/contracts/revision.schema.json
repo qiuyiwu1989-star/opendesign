@@ -29,8 +29,8 @@
       "properties": {
         "elementId": { "$ref": "#/$defs/id" },
         "directionId": { "$ref": "#/$defs/id" },
-        "field": { "enum": ["content", "assetSrc", "alt", "color", "fontSize", "fontFamily", "headingFamily"] },
-        "value": { "oneOf": [{ "type": "string" }, { "type": "number" }] }
+        "field": { "enum": ["content", "assetSrc", "alt", "color", "fontSize", "fontFamily", "fontWeight", "lineHeight", "imageFit", "frame", "focalPoint", "zIndex", "headingFamily"] },
+        "value": {}
       },
       "oneOf": [
         {
@@ -45,8 +45,58 @@
           "required": ["elementId", "field", "value"],
           "properties": {
             "elementId": { "$ref": "#/$defs/id" },
-            "field": { "const": "fontSize" },
-            "value": { "type": "number", "minimum": 8, "maximum": 240 }
+            "field": { "enum": ["fontSize", "fontWeight", "lineHeight", "zIndex"] },
+            "value": { "type": "number" }
+          }
+        },
+        {
+          "required": ["elementId", "field", "value"],
+          "properties": {
+            "elementId": { "$ref": "#/$defs/id" },
+            "field": { "const": "fontFamily" },
+            "value": { "type": "string", "minLength": 1 }
+          }
+        },
+        {
+          "required": ["elementId", "field", "value"],
+          "properties": {
+            "elementId": { "$ref": "#/$defs/id" },
+            "field": { "const": "imageFit" },
+            "value": { "enum": ["contain", "cover", "stretch"] }
+          }
+        },
+        {
+          "required": ["elementId", "field", "value"],
+          "properties": {
+            "elementId": { "$ref": "#/$defs/id" },
+            "field": { "const": "frame" },
+            "value": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["x", "y", "width", "height"],
+              "properties": {
+                "x": { "type": "number", "minimum": 0, "maximum": 1600 },
+                "y": { "type": "number", "minimum": 0, "maximum": 900 },
+                "width": { "type": "number", "exclusiveMinimum": 0, "maximum": 1600 },
+                "height": { "type": "number", "exclusiveMinimum": 0, "maximum": 900 }
+              }
+            }
+          }
+        },
+        {
+          "required": ["elementId", "field", "value"],
+          "properties": {
+            "elementId": { "$ref": "#/$defs/id" },
+            "field": { "const": "focalPoint" },
+            "value": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["x", "y"],
+              "properties": {
+                "x": { "type": "number", "minimum": 0, "maximum": 1 },
+                "y": { "type": "number", "minimum": 0, "maximum": 1 }
+              }
+            }
           }
         },
         {

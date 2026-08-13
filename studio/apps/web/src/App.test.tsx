@@ -56,6 +56,30 @@ describe("OpenDesign Studio workspace", () => {
     expect(screen.getByRole("button", { name: /Structural Blue/ })).toHaveAttribute("aria-pressed", "true");
   });
 
+  it("walks the offline Golden Task from grounded sources to a pinned Design Pack", async () => {
+    const writeText = vi.fn(async () => undefined);
+    Object.defineProperty(navigator, "clipboard", { configurable: true, value: { writeText } });
+    render(<App />);
+
+    fireEvent.click(screen.getByRole("button", { name: /Sources/ }));
+    expect(screen.getByText("Studio 产品简报")).toBeInTheDocument();
+    expect(screen.getAllByText("snapshot")).toHaveLength(3);
+    fireEvent.click(screen.getByRole("button", { name: "载入 Golden Brief" }));
+    expect(screen.getByRole("button", { name: /Outline/ })).toHaveAttribute("aria-current", "step");
+    expect(screen.getByText("executive-summary")).toBeInTheDocument();
+
+    fireEvent.click(screen.getByRole("button", { name: /Direction/ }));
+    expect(screen.getByRole("button", { name: /商业提案/ })).toHaveAttribute("aria-pressed", "true");
+    fireEvent.click(screen.getByRole("button", { name: /文章叙事配图/ }));
+    expect(screen.getByRole("button", { name: /文章叙事配图/ })).toHaveAttribute("aria-pressed", "true");
+    expect(screen.getByText(/1 项页面草稿/)).toBeInTheDocument();
+
+    fireEvent.click(screen.getByRole("button", { name: "04 Studio" }));
+    fireEvent.click(screen.getByRole("button", { name: "复制 Agent 标注" }));
+    await waitFor(() => expect(writeText).toHaveBeenCalledWith(expect.stringContaining("editorial-story-graphics-cn@1.0.0")));
+    expect(screen.getByRole("button", { name: "已复制 Agent 标注" })).toBeInTheDocument();
+  });
+
   it("records and persists text edits as Scene IR patches", async () => {
     render(<App />);
 
@@ -90,7 +114,11 @@ describe("OpenDesign Studio workspace", () => {
     expect(screen.getByText("1 个 IR patch")).toBeInTheDocument();
     const input = document.querySelector('input[type="file"]') as HTMLInputElement;
     fireEvent.change(input, { target: { files: [new File([new Uint8Array([1, 2, 3])], "sample.png", { type: "image/png" })] } });
-    expect(await screen.findByRole("button", { name: /image: sample/ })).toBeInTheDocument();
+    const image = await screen.findByRole("button", { name: /image: sample/ });
+    fireEvent.click(image);
+    fireEvent.change(screen.getByLabelText("图片替代文本"), { target: { value: "产品工作台预览" } });
+    fireEvent.change(screen.getByLabelText("图片适配方式"), { target: { value: "contain" } });
+    expect(screen.getByRole("button", { name: /image: 产品工作台预览/ })).toBeInTheDocument();
     expect(fetch).toHaveBeenCalledWith("/api/projects/doc_studio_v0/assets", expect.objectContaining({ method: "POST" }));
   });
 
@@ -132,5 +160,37 @@ describe("OpenDesign Studio workspace", () => {
     expect(await screen.findByText("2 个版本")).toBeInTheDocument();
     fireEvent.click(screen.getByRole("button", { name: "恢复此版本" }));
     await waitFor(() => expect(fetch).toHaveBeenCalledWith("/api/projects/doc_studio_v0", expect.objectContaining({ method: "PUT" })));
+  });
+
+  it("duplicates and deletes a page as an explicit local draft", () => {
+    render(<App />);
+    fireEvent.click(screen.getAllByRole("button", { name: "复制当前页" })[0]!);
+    expect(screen.getByRole("button", { name: "第 2 页：封面副本" })).toBeInTheDocument();
+    expect(screen.getByText(/1 项页面草稿/)).toBeInTheDocument();
+    fireEvent.click(screen.getByRole("button", { name: "删除当前页" }));
+    expect(screen.queryByRole("button", { name: "第 2 页：封面副本" })).not.toBeInTheDocument();
+  });
+
+  it("edits typography, frame and layer order as v0.2 patches with undo", () => {
+    render(<App />);
+    fireEvent.click(screen.getByRole("button", { name: /title: 让视觉作品/ }));
+    fireEvent.change(screen.getByLabelText("字号"), { target: { value: "80" } });
+    fireEvent.change(screen.getByLabelText("行距"), { target: { value: "1.4" } });
+    fireEvent.change(screen.getByLabelText("元素 x"), { target: { value: "200" } });
+    fireEvent.click(screen.getByRole("button", { name: "上移一层" }));
+    expect(screen.getByText("4 个 IR patch")).toBeInTheDocument();
+    fireEvent.click(screen.getByRole("button", { name: "撤销" }));
+    expect(screen.getByLabelText("元素 x")).toHaveValue(200);
+  });
+
+  it("previews AI regeneration conflicts instead of replacing a dirty draft", async () => {
+    render(<App />);
+    fireEvent.doubleClick(screen.getByRole("button", { name: /title: 让视觉作品/ }));
+    fireEvent.change(screen.getByLabelText("文字内容"), { target: { value: "保留我的人工判断" } });
+    fireEvent.click(screen.getByRole("button", { name: /生成新项目/ }));
+    expect(await screen.findByRole("alertdialog", { name: "AI 重新生成冲突预览" })).toBeInTheDocument();
+    expect(screen.getAllByText("保留我的人工判断").length).toBeGreaterThan(0);
+    fireEvent.click(screen.getByRole("button", { name: "保留当前草稿" }));
+    expect(screen.queryByRole("alertdialog", { name: "AI 重新生成冲突预览" })).not.toBeInTheDocument();
   });
 });
