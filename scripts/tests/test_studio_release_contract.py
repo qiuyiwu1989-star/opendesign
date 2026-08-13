@@ -15,7 +15,7 @@ class StudioReleaseContractTest(unittest.TestCase):
         service = (ROOT / "deploy/opendesign-studio-api.service.example").read_text(encoding="utf-8")
         self.assertIn('.listen(port, "127.0.0.1"', main)
         self.assertIn("STUDIO_LOCAL_API_PORT=8794", service)
-        self.assertIn("node_modules/.bin/tsx src/main.ts", service)
+        self.assertIn("/usr/bin/node /opt/opendesign/studio-current/studio/node_modules/tsx/dist/cli.mjs src/main.ts", service)
         self.assertIn("NoNewPrivileges=true", service)
         self.assertIn("ProtectSystem=strict", service)
 
