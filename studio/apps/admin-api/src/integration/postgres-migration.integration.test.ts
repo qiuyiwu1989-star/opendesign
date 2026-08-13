@@ -10,6 +10,7 @@ import type { DatabaseClient, DatabaseQuery } from "../data/types.js";
 
 const migration = (name: string) => new URL(`../../../../../supabase/migrations/${name}`, import.meta.url);
 const baselineSchema = new URL("../../../../../supabase/schema.sql", import.meta.url);
+const rollbackScript = new URL("../../../../../deploy/rollback-library-admin-capabilities.sql", import.meta.url);
 const migrations = [
   "0002_sync_codes.sql",
   "0003_submissions.sql",
@@ -37,6 +38,12 @@ async function applyAll(database: PGlite): Promise<void> {
   await database.exec("create role anon nologin; create role authenticated nologin;");
   await database.exec(await readFile(baselineSchema, "utf8"));
   for (const name of migrations) await database.exec(await readFile(migration(name), "utf8"));
+}
+
+async function applyThrough0010(database: PGlite): Promise<void> {
+  await database.exec("create role anon nologin; create role authenticated nologin;");
+  await database.exec(await readFile(baselineSchema, "utf8"));
+  for (const name of migrations.slice(0, -1)) await database.exec(await readFile(migration(name), "utf8"));
 }
 
 function restrictedClient(database: PGlite, role: string): DatabaseClient {
@@ -67,6 +74,26 @@ const apiConfig: AdminApiConfig = {
 const passwordVerifier: LocalPasswordVerifier = { verify: async (password) => password === "fixture-password" };
 
 describe("baseline + 0002–0011 PostgreSQL release candidate", () => {
+  it("reapplies 0011 safely on the embedded PostgreSQL semantic baseline", async () => {
+    const database = await PGlite.create({ dataDir: "memory://", extensions: { pgcrypto } });
+    try {
+      await applyThrough0010(database);
+      const decisionSql = await readFile(migration("0011_curation_decisions.sql"), "utf8");
+      await database.exec(decisionSql);
+      await database.exec(decisionSql);
+      const version = await database.query<{ server_version_num: string }>("show server_version_num");
+      expect(Number(version.rows[0]!.server_version_num)).toBeGreaterThanOrEqual(15_00_00);
+      const objects = await database.query<{ tables: number; review_functions: number }>(`
+        select
+          (select count(*)::int from pg_class where relname='curation_decisions' and relkind='r') tables,
+          (select count(*)::int from pg_proc where proname='review_curation_decision') review_functions
+      `);
+      expect(objects.rows[0]).toEqual({ tables: 1, review_functions: 1 });
+    } finally {
+      await database.close();
+    }
+  });
+
   it("executes the full migration chain and keeps the three group roles mutually bounded", async () => {
     const database = await PGlite.create({ dataDir: "memory://", extensions: { pgcrypto } });
     try {
@@ -233,6 +260,52 @@ describe("baseline + 0002–0011 PostgreSQL release candidate", () => {
       } finally {
         await new Promise<void>((resolve, reject) => server.close((error) => error ? reject(error) : resolve()));
       }
+    } finally {
+      await database.close();
+    }
+  });
+
+  it("rolls back service capabilities while preserving the decision journal", async () => {
+    const database = await PGlite.create({ dataDir: "memory://", extensions: { pgcrypto } });
+    try {
+      await applyAll(database);
+      await database.exec(`
+        create role opendesign_admin_api_read_login login;
+        create role opendesign_admin_api_audit_login login;
+        create role opendesign_admin_api_review_login login;
+        grant opendesign_admin_read_role to opendesign_admin_api_read_login;
+        grant opendesign_admin_audit_writer_role to opendesign_admin_api_audit_login;
+        grant opendesign_admin_review_writer_role to opendesign_admin_api_review_login;
+      `);
+      await database.exec(await readFile(rollbackScript, "utf8"));
+      const state = await database.query<{
+        schema_exists: boolean;
+        group_roles: number;
+        login_roles: number;
+        journal_exists: boolean;
+        runner_exists: boolean;
+        lingering_memberships: number;
+      }>(`
+        select
+          to_regnamespace('opendesign_admin_read') is not null schema_exists,
+          (select count(*)::int from pg_roles where rolname in (
+            'opendesign_admin_read_role','opendesign_admin_audit_writer_role','opendesign_admin_review_writer_role'
+          )) group_roles,
+          (select count(*)::int from pg_roles where rolname like 'opendesign_admin_api_%_login') login_roles,
+          to_regclass('public.curation_decisions') is not null journal_exists,
+          to_regprocedure('public.runner_record_curation_decision(text,uuid,text,integer,text,text,text,jsonb,text)') is not null runner_exists,
+          (select count(*)::int from pg_auth_members m
+            join pg_roles member on member.oid=m.member
+            where member.rolname like 'opendesign_admin_api_%_login') lingering_memberships
+      `);
+      expect(state.rows[0]).toEqual({
+        schema_exists: false,
+        group_roles: 0,
+        login_roles: 3,
+        journal_exists: true,
+        runner_exists: true,
+        lingering_memberships: 0,
+      });
     } finally {
       await database.close();
     }

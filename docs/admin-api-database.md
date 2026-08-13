@@ -67,7 +67,7 @@ Audit failure returns `written: false`; callers must not report it as success.
 
 ## Verification before any release
 
-The repository release gate runs `npm run test:migration --workspace
+The repository release gate runs `npm run test:release --workspace
 @opendesign/library-admin-api`. It boots a disposable in-process PostgreSQL
 environment, applies the baseline schema plus migrations 0002–0011, and proves
 the migration, privilege, idempotency and HTTP-to-SQL review contracts. This
@@ -115,8 +115,8 @@ start the API, modify nginx, deploy frontend code, or push GitHub.
 ## Rollback
 
 Before rollback, revoke group-role memberships from deployment-managed LOGINs.
-Then use the consolidated reviewed rollback order documented at the end of
-migration 0011: drop the isolated schema, then the review, audit and read group
+Then use `deploy/rollback-library-admin-capabilities.sql`: drop the isolated
+schema, then the review, audit and read group
 roles. Preserve `public.curation_decisions` as an audit journal unless a
 separate destructive data-removal approval explicitly names it. Service
 rollback does not alter existing public content or legacy RPCs.

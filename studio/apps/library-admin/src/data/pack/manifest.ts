@@ -51,7 +51,7 @@ export interface LoadCompactPackManifestInput {
   fetcher?: typeof fetch;
 }
 
-const DEFAULT_URL = "/pack-manifest.json";
+const DEFAULT_URL = "/admin/pack-manifest.json";
 const PACK_ID_PATTERN = /^[a-z0-9][a-z0-9._-]*$/;
 
 function isRecord(value: unknown): value is Record<string, unknown> {

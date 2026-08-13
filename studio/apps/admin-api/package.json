@@ -9,7 +9,8 @@
     "build": "tsc -p tsconfig.build.json",
     "typecheck": "tsc --noEmit",
     "test": "vitest run src/audit src/data src/security && node --import tsx --test src/auth/*.test.ts src/http/*.test.ts",
-    "test:migration": "vitest run src/integration/postgres-migration.integration.test.ts"
+    "test:migration": "vitest run src/integration/postgres-migration.integration.test.ts",
+    "test:release": "vitest run src/integration"
   },
   "devDependencies": {
     "@electric-sql/pglite": "^0.5.4",

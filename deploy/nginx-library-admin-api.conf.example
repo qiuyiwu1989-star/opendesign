@@ -6,6 +6,28 @@
 # limit_req_zone $binary_remote_addr zone=opendesign_admin_auth:10m rate=10r/m;
 # limit_req_zone $binary_remote_addr zone=opendesign_admin_review:10m rate=30r/m;
 
+# New Control Room. `/var/www/opendesign.cc/admin` is an atomically switched
+# symlink to one immutable `admin.release-*` directory. Keep the legacy static
+# admin.html file as a filesystem fallback, but direct the public entry to the
+# reviewed Control Room after activation.
+location = /admin.html {
+    return 302 /admin/;
+}
+
+location = /admin {
+    return 308 /admin/;
+}
+
+location ^~ /admin/ {
+    try_files $uri $uri/ /admin/index.html;
+    add_header Cache-Control "no-cache, must-revalidate" always;
+    add_header Strict-Transport-Security "max-age=63072000; includeSubDomains; preload" always;
+    add_header Content-Security-Policy "default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self'; form-action 'self'; frame-ancestors 'none'; base-uri 'self';" always;
+    add_header X-Content-Type-Options "nosniff" always;
+    add_header X-Frame-Options "DENY" always;
+    add_header Referrer-Policy "no-referrer" always;
+}
+
 location = /admin-api/v1/login {
     limit_req zone=opendesign_admin_auth burst=3 nodelay;
     limit_req_status 429;

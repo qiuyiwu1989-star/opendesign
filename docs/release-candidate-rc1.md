@@ -26,7 +26,7 @@ npm ci --ignore-scripts
 npm run typecheck
 npm test
 npm run build
-npm run test:migration --workspace @opendesign/library-admin-api
+npm run test:release --workspace @opendesign/library-admin-api
 ```
 
 From the repository root:
@@ -50,7 +50,24 @@ applies `supabase/schema.sql` and migrations 0002–0011, then proves:
 5. a second terminal review is rejected with conflict semantics.
 
 This gate complements rather than replaces a pre-production clone rehearsal on
-the target PostgreSQL version.
+the target PostgreSQL version. The documented production target is PostgreSQL
+18.4; that version must still be verified read-only and rehearsed on a clone at
+the start of the release window.
+
+## Immutable release artifacts
+
+After the reviewed commit is clean, build outside the repository with an
+absolute output path:
+
+```sh
+bash scripts/build-library-admin-release.sh /absolute/path/to/rc-output
+```
+
+The builder performs a clean dependency install, all workspace gates, the
+release integration suite and production builds. It emits separate Admin API
+and Admin Web archives, SHA-256 sidecars, and `release-manifest.json` containing
+the exact commit, toolchain and artifact hashes. The production bootstrap must
+not contact npm; it verifies archive hashes and members before extraction.
 
 ## Promotion checklist
 

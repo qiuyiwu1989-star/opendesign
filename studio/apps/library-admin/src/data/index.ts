@@ -14,7 +14,7 @@ export * from "./session";
 export * from "./types";
 
 const DEFAULT_SITE_INDEX_URL = "/sites-index.json";
-const DEFAULT_PACK_INDEX_URL = "/pack-manifest.json";
+const DEFAULT_PACK_INDEX_URL = "/admin/pack-manifest.json";
 
 async function fetchSiteIndex(url: string, fetcher: typeof fetch): Promise<unknown> {
   const response = await fetcher(url, {

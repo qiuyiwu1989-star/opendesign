@@ -56,10 +56,19 @@ jobs:
           npm test
           npm run build
 
-      - name: Prove database migrations and terminal review end to end
+      - name: Prove release, database migrations and terminal review end to end
         run: |
           cd studio
-          npm run test:migration --workspace @opendesign/library-admin-api
+          npm run test:release --workspace @opendesign/library-admin-api
+
+      - name: Validate release and rollback scripts
+        run: |
+          bash -n scripts/build-library-admin-release.sh
+          bash -n deploy/bootstrap-library-admin-production.sh
+          bash -n deploy/prepare-library-admin-review-upgrade.sh
+          bash -n deploy/activate-library-admin-release.sh
+          bash -n deploy/rollback-library-admin-release.sh
+          test -f deploy/rollback-library-admin-capabilities.sql
 
       - name: Guard the known PPTX image parser input surface
         run: |

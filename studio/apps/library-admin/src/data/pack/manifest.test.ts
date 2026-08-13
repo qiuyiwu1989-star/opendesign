@@ -63,7 +63,7 @@ describe("compact Pack manifest", () => {
     const result = await loadCompactPackManifest({ fetcher });
 
     expect(fetcher).toHaveBeenCalledOnce();
-    expect(fetcher).toHaveBeenCalledWith("/pack-manifest.json", {
+    expect(fetcher).toHaveBeenCalledWith("/admin/pack-manifest.json", {
       method: "GET",
       headers: { accept: "application/json" },
       cache: "no-store",
