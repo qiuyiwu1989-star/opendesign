@@ -10,20 +10,24 @@ import benchmarkBaseline from "../../../fixtures/design-benchmark/baseline/bench
 import {
   createExport,
   createDesignDirectorDraft,
+  createGenerationJob,
   createModelDraft,
+  cancelGenerationJob,
   approveProjectCandidate,
   duplicateProject,
-  generateProject,
   importProjectHtml,
   listProjects,
   listRevisions,
   loadProject,
+  loadGenerationJob,
   loadReview,
   persistProject,
   runProjectQa,
   submitProjectReview,
   uploadProjectImage,
   type ProjectSummary,
+  type GenerationJob,
+  type GenerationJobErrorCode,
   type StoredRevision,
   type StudioExportResult,
   type ReviewResponse,
@@ -45,6 +49,10 @@ import {
 } from "./editor-model";
 
 const initialDocument = fixture as unknown as SceneDocument;
+const generationJobStorageKey = "opendesign.studio.active-generation-job";
+const generationPollIntervalMs = 1_200;
+const generationPollLimit = 150;
+const exampleBrief = "为一篇讨论 AI 如何改变创作者工作流的文章，制作 6 页中文视觉提案。受众是设计负责人，结论先行，使用真实内容层级，图片保留可替换位置。";
 const fontOptions = [
   { label: "现代无衬线", value: "Inter, system-ui, sans-serif" },
   { label: "中文黑体", value: "Hiragino Sans GB, Microsoft YaHei, sans-serif" },
@@ -87,6 +95,24 @@ const processSteps = [
   ["direction", "03", "Direction"],
   ["studio", "04", "Studio"],
 ] as const;
+
+const generationStageCopy: Record<GenerationJob["status"], { label: string; detail: string; progress: number }> = {
+  queued: { label: "已排队", detail: "任务已进入安全队列，当前作品保持不变。", progress: 12 },
+  analyzing: { label: "正在分析", detail: "设计总监正在提取目标、受众与内容边界。", progress: 30 },
+  generating: { label: "正在生成", detail: "正在构建故事线、页面结构与可编辑元素。", progress: 62 },
+  validating: { label: "正在验证", detail: "正在检查结构、安全性、来源覆盖和画布质量。", progress: 86 },
+  completed: { label: "生成完成", detail: "新作品已经准备好，由你决定何时打开。", progress: 100 },
+  failed: { label: "生成失败", detail: "任务已停止，当前作品没有被修改。", progress: 100 },
+  cancelled: { label: "已取消", detail: "任务已取消，当前作品没有被修改。", progress: 100 },
+};
+
+function generationErrorCopy(code: GenerationJobErrorCode | undefined, fallback?: string) {
+  if (code === "offline") return { title: "网络已断开", action: "检查网络后恢复任务", detail: fallback || "任务 ID 仍保存在此浏览器，不会因此覆盖当前作品。" };
+  if (code === "rate_limited") return { title: "当前任务已达上限", action: "等待一个任务结束后重试", detail: "每个匿名空间最多同时运行 2 个生成任务。" };
+  if (code === "provider_unavailable") return { title: "生成服务暂未配置", action: "稍后重试或联系维护者", detail: fallback || "服务没有伪装成真实 AI，当前作品仍可继续编辑。" };
+  if (code === "invalid_input") return { title: "需求还不够完整", action: "补充受众、内容和交付目标", detail: fallback || "请说明作品给谁看、希望对方做什么决定。" };
+  return { title: "生成任务没有完成", action: "保留当前内容并重新提交", detail: fallback || "任务已停止，当前作品和人工修改均未受影响。" };
+}
 
 function sentenceFromBrief(value: string): string {
   const sentence = value.replace(/\s+/gu, " ").trim().split(/[。！？!?]/u)[0]?.trim() || "OpenDesign Studio 设计初稿";
@@ -275,6 +301,11 @@ export function App() {
   const [projectMenuOpen, setProjectMenuOpen] = useState(false);
   const [generatorState, setGeneratorState] = useState<"idle" | "working" | "error">("idle");
   const [generatorError, setGeneratorError] = useState("");
+  const [generationJob, setGenerationJob] = useState<GenerationJob | null>(null);
+  const [generationJobError, setGenerationJobError] = useState<{ code: GenerationJobErrorCode; message: string } | null>(null);
+  const [generationRecoveryJobId, setGenerationRecoveryJobId] = useState<string | null>(() => window.localStorage.getItem(generationJobStorageKey));
+  const [generationElapsed, setGenerationElapsed] = useState(0);
+  const [generationPolls, setGenerationPolls] = useState(0);
   const [directorOutput, setDirectorOutput] = useState<DesignDirectorOutput | null>(null);
   const [modelProvider, setModelProvider] = useState<{ id: string; model: string } | null>(null);
   const [review, setReview] = useState<ReviewResponse | null>(null);
@@ -295,6 +326,8 @@ export function App() {
   const [importResult, setImportResult] = useState<HtmlImportResult | null>(null);
   const [importError, setImportError] = useState("");
   const selectedPack = getDesignPack(selectedPackId);
+  const generationTerminal = generationJob ? ["completed", "failed", "cancelled"].includes(generationJob.status) : false;
+  const generationRunning = Boolean(generationJob && !generationTerminal && !generationJobError);
 
   function commitDocument(update: SceneDocument | ((current: SceneDocument) => SceneDocument), localOnly = false) {
     setHistory((current) => {
@@ -320,6 +353,68 @@ export function App() {
       .catch(() => { if (active) setSyncState("local"); });
     return () => { active = false; };
   }, []);
+
+  useEffect(() => {
+    const storedJobId = window.localStorage.getItem(generationJobStorageKey);
+    if (!storedJobId) return;
+    let active = true;
+    loadGenerationJob(storedJobId)
+      .then((job) => {
+        if (!active) return;
+        setGenerationJob(job);
+        setGenerationJobError(null);
+      })
+      .catch((error) => {
+        if (!active) return;
+        const code = error instanceof Error && "code" in error ? (error as { code: GenerationJobErrorCode }).code : "generation_failed";
+        setGenerationJobError({ code, message: error instanceof Error ? error.message : "无法恢复最近任务" });
+      });
+    return () => { active = false; };
+  }, []);
+
+  useEffect(() => {
+    if (!generationJob) return;
+    if (generationJob.status === "failed" || generationJob.status === "cancelled") {
+      window.localStorage.removeItem(generationJobStorageKey);
+      setGenerationRecoveryJobId(null);
+      return;
+    }
+    window.localStorage.setItem(generationJobStorageKey, generationJob.jobId);
+    setGenerationRecoveryJobId(generationJob.jobId);
+  }, [generationJob]);
+
+  useEffect(() => {
+    if (!generationJob || generationTerminal || generationJobError || generationPolls >= generationPollLimit) return;
+    let active = true;
+    const timeout = window.setTimeout(() => {
+      loadGenerationJob(generationJob.jobId)
+        .then((job) => {
+          if (!active) return;
+          setGenerationJob(job);
+          setGenerationPolls((count) => count + 1);
+        })
+        .catch((error) => {
+          if (!active) return;
+          const code = error instanceof Error && "code" in error ? (error as { code: GenerationJobErrorCode }).code : "generation_failed";
+          setGenerationJobError({ code, message: error instanceof Error ? error.message : "无法读取生成进度" });
+        });
+    }, generationPollIntervalMs);
+    return () => { active = false; window.clearTimeout(timeout); };
+  }, [generationJob, generationJobError, generationPolls, generationTerminal]);
+
+  useEffect(() => {
+    if (generationJob && !generationTerminal && generationPolls >= generationPollLimit && !generationJobError) {
+      setGenerationJobError({ code: "generation_failed", message: "自动状态检查已停止。你可以手动恢复任务，不会重复提交。" });
+    }
+  }, [generationJob, generationJobError, generationPolls, generationTerminal]);
+
+  useEffect(() => {
+    if (!generationJob || generationTerminal) return;
+    const tick = () => setGenerationElapsed(Math.max(0, Math.floor((Date.now() - Date.parse(generationJob.createdAt)) / 1000)));
+    tick();
+    const interval = window.setInterval(tick, 1_000);
+    return () => window.clearInterval(interval);
+  }, [generationJob?.jobId, generationTerminal]);
 
   const scene = document.scenes.find((item) => item.id === selectedSceneId) ?? document.scenes[0]!;
   const direction = document.directions.find((item) => item.id === document.selectedDirectionId) ?? document.directions[0]!;
@@ -619,18 +714,70 @@ export function App() {
   async function createFromBrief() {
     setGeneratorState("working");
     setGeneratorError("");
+    setGenerationJobError(null);
+    setGenerationPolls(0);
+    setGenerationElapsed(0);
     try {
-      const generated = await generateProject(brief, undefined, selectedPack ? { id: selectedPack.id, version: selectedPack.version } : undefined);
-      if (hasUnsavedChanges) {
-        const conflict = regenerationConflicts(document, generated.document);
-        setRegenerationPreview({ document: generated.document, changedElementIds: conflict.changedElementIds });
-      } else {
-        openDocument(generated.document);
-        await Promise.all([refreshProjects(), refreshRevisions(generated.document.documentId)]);
-      }
+      const job = await createGenerationJob({
+        brief: brief.trim(),
+        title: sentenceFromBrief(brief),
+        ...(selectedPack ? { designPack: { id: selectedPack.id, version: selectedPack.version } } : {}),
+      });
+      setGenerationJob(job);
+      window.localStorage.setItem(generationJobStorageKey, job.jobId);
+      setGenerationRecoveryJobId(job.jobId);
       setGeneratorState("idle");
     } catch (error) {
-      setGeneratorError(error instanceof Error ? error.message : "生成失败");
+      const code = error instanceof Error && "code" in error ? (error as { code: GenerationJobErrorCode }).code : "generation_failed";
+      const message = error instanceof Error ? error.message : "生成失败";
+      setGenerationJobError({ code, message });
+      setGeneratorError(message);
+      setGeneratorState("error");
+    }
+  }
+
+  async function cancelActiveGeneration() {
+    if (!generationJob || generationTerminal) return;
+    try {
+      const job = await cancelGenerationJob(generationJob.jobId);
+      setGenerationJob(job);
+      setGenerationJobError(null);
+      setGeneratorState("idle");
+    } catch (error) {
+      const code = error instanceof Error && "code" in error ? (error as { code: GenerationJobErrorCode }).code : "generation_failed";
+      setGenerationJobError({ code, message: error instanceof Error ? error.message : "取消任务失败" });
+    }
+  }
+
+  async function resumeGeneration() {
+    const jobId = generationJob?.jobId ?? generationRecoveryJobId;
+    if (!jobId) return;
+    setGenerationJobError(null);
+    setGenerationPolls(0);
+    try {
+      setGenerationJob(await loadGenerationJob(jobId));
+    } catch (error) {
+      const code = error instanceof Error && "code" in error ? (error as { code: GenerationJobErrorCode }).code : "generation_failed";
+      setGenerationJobError({ code, message: error instanceof Error ? error.message : "无法恢复任务" });
+    }
+  }
+
+  async function openGeneratedProject() {
+    if (generationJob?.status !== "completed" || !generationJob.projectId) return;
+    setGeneratorState("working");
+    setGeneratorError("");
+    try {
+      const next = await loadProject(generationJob.projectId);
+      if (!next) throw new Error("新作品不可用，请刷新后重试。");
+      openDocument(next);
+      await Promise.all([refreshProjects(), refreshRevisions(next.documentId)]);
+      setGenerationJob(null);
+      setGenerationRecoveryJobId(null);
+      setGenerationJobError(null);
+      window.localStorage.removeItem(generationJobStorageKey);
+      setGeneratorState("idle");
+    } catch (error) {
+      setGeneratorError(error instanceof Error ? error.message : "无法打开新作品");
       setGeneratorState("error");
     }
   }
@@ -847,11 +994,24 @@ export function App() {
               <span className="director-avatar">OD</span>
               <div><strong>先把目标说清楚，再开始设计。</strong><p>告诉我这份作品给谁看、希望对方做什么决定。你也可以上传文章、提案或图片。</p></div>
             </article>
-            <article className="chat-message chat-message--user"><p>{brief}</p></article>
+            {brief.trim() ? <article className="chat-message chat-message--user"><p>{brief}</p></article> : <article className="chat-message chat-message--example"><div><strong>第一次使用？从一个完整示例开始</strong><p>{exampleBrief}</p><Button size="sm" tone="outline" onClick={() => setBrief(exampleBrief)}>使用示例需求</Button><small>示例只会填入输入框，不代表已经开始生成。</small></div></article>}
             <article className="chat-message chat-message--assistant">
               <span className="director-avatar">OD</span>
               <div><strong>我会按“诊断 → 故事线 → 设计方向 → 可编辑成品”推进。</strong><p>当前建议使用 {selectedPack?.name ?? "商业提案"}，生成后你可以直接改文字、字体、图片和版式。</p></div>
             </article>
+            {generationJob && <article className={`generation-job generation-job--${generationJob.status}`} aria-live="polite" aria-label="生成任务状态">
+              <header><span className="generation-job__state"><i /><span><strong>{generationStageCopy[generationJob.status].label}</strong><small>{generationElapsed} 秒 · {generationJob.jobId.slice(0, 12)}</small></span></span><Badge tone={generationJob.status === "completed" ? "success" : generationJob.status === "failed" || generationJob.status === "cancelled" ? "neutral" : "accent"}>{generationJob.status}</Badge></header>
+              <div className="generation-job__track" aria-label={`生成进度 ${generationStageCopy[generationJob.status].progress}%`}><span style={{ width: `${generationStageCopy[generationJob.status].progress}%` }} /></div>
+              <p>{generationStageCopy[generationJob.status].detail}</p>
+              {generationJob.status === "completed" && <div className="generation-job__actions"><Button size="sm" tone="primary" onClick={openGeneratedProject} disabled={generatorState === "working"}>打开新作品</Button><small>当前作品不会自动被覆盖。</small></div>}
+              {generationJob.status === "failed" && <div className="generation-job__error" role="alert"><strong>{generationErrorCopy(generationJob.error?.code, generationJob.error?.message).title}</strong><p>{generationErrorCopy(generationJob.error?.code, generationJob.error?.message).detail}</p><small>{generationErrorCopy(generationJob.error?.code, generationJob.error?.message).action}</small></div>}
+              {generationRunning && <Button size="sm" tone="quiet" onClick={cancelActiveGeneration}>取消生成</Button>}
+            </article>}
+            {generationJobError && <article className="generation-job generation-job--error" role="alert">
+              <header><span><strong>{generationErrorCopy(generationJobError.code, generationJobError.message).title}</strong><small>{generationErrorCopy(generationJobError.code, generationJobError.message).action}</small></span></header>
+              <p>{generationErrorCopy(generationJobError.code, generationJobError.message).detail}</p>
+              {generationRecoveryJobId && <Button size="sm" tone="outline" onClick={resumeGeneration}>恢复任务状态</Button>}
+            </article>}
             {directorOutput?.status === "accepted" && <article className="chat-message chat-message--assistant chat-message--success"><span className="director-avatar">OD</span><div><strong>初稿已经通过结构与安全检查</strong><p>{directorOutput.manifest.sceneIds.length} 页 · {directorOutput.manifest.sourceCoverage.usedSourceIds.length}/{directorOutput.manifest.sourceCoverage.declaredSourceIds.length} 个来源已使用。右侧可以继续人工修改。</p></div></article>}
           </div>
 
@@ -888,7 +1048,7 @@ export function App() {
             </>}
             {workflowStep === "studio" && <>
               <div className="section-heading"><div><Kicker>Agent handoff</Kicker><h2>结构化设计协议</h2></div><Badge tone="success">Scene IR</Badge></div>
-              <dl className="contract-summary"><div><dt>Design Pack</dt><dd>{selectedPack ? `${selectedPack.id}@${selectedPack.version}` : "未选择"}</dd></div><div><dt>Contract</dt><dd>{selectedPack?.agentAnnotation.contractVersion ?? "—"}</dd></div><div><dt>Capabilities</dt><dd>{selectedPack?.agentAnnotation.requiredCapabilities.join(" · ") ?? "—"}</dd></div></dl>
+              <dl className="contract-summary"><div><dt>Design Pack</dt><dd>{selectedPack ? `${selectedPack.id}@${selectedPack.version}` : "未选择"}</dd></div><div><dt>Contract</dt><dd>{selectedPack?.agentAnnotation.contractVersion ?? "-"}</dd></div><div><dt>Capabilities</dt><dd>{selectedPack?.agentAnnotation.requiredCapabilities.join(" · ") ?? "-"}</dd></div></dl>
               {selectedPack && <><label className="agent-annotation"><span>可复制给其他 Agent 的标注</span><textarea readOnly aria-label="Agent 设计标注" value={selectedPack.agentAnnotation.copyText} /></label><Button size="sm" tone="outline" onClick={copyAgentAnnotation}>{annotationCopyState === "copied" ? "已复制 Agent 标注" : annotationCopyState === "manual" ? "请在上方手动复制" : "复制 Agent 标注"}</Button></>}
             </>}
           </section>
@@ -897,9 +1057,11 @@ export function App() {
             <label className="composer-label" htmlFor="studio-brief">给设计总监新的指令</label>
             <textarea id="studio-brief" value={brief} onChange={(event) => setBrief(event.target.value)} aria-label="项目 Brief" placeholder="描述你想制作的提案、演讲或文章配图…" />
             <div className="source-meta"><span><Icon name="file" size={13} /> Brief · {[...brief].length} 字</span><Badge tone={brief.trim().length >= 12 ? "success" : "neutral"}>{brief.trim().length >= 12 ? "可生成" : "继续输入"}</Badge></div>
-            <div className="composer-actions"><Button size="sm" tone="outline" onClick={() => setWorkflowStep("sources")}><Icon name="file" size={13} /> 添加素材</Button><Button size="sm" tone="primary" onClick={createFromBrief} disabled={generatorState === "working" || brief.trim().length < 12}><Icon name="spark" size={13} />{generatorState === "working" ? "正在生成" : "生成新项目"}</Button></div>
+            <div className="composer-actions"><Button size="sm" tone="outline" onClick={() => setWorkflowStep("sources")}><Icon name="file" size={13} /> 添加素材</Button><Button size="sm" tone="primary" onClick={createFromBrief} disabled={generatorState === "working" || generationRunning || brief.trim().length < 12}><Icon name="spark" size={13} />{generatorState === "working" ? "正在提交" : generationRunning ? "任务进行中" : "生成新项目"}</Button></div>
+            <button className="composer-example" type="button" onClick={() => setBrief(exampleBrief)}>使用示例需求（仅填充）</button>
             <details className="advanced-generation"><summary>更多生成方式</summary><Button size="sm" tone="outline" onClick={createFromDesignDirector} disabled={generatorState === "working" || brief.trim().length < 12 || !selectedPack}><Icon name="layers" size={13} />Design Director Skill 初稿</Button><Button size="sm" tone="outline" onClick={createFromFixtureModel} disabled={generatorState === "working" || brief.trim().length < 12 || !selectedPack}><Icon name="spark" size={13} />安全模型生成（Fixture）</Button></details>
-            {generatorState === "error" && <small className="generator-error">{generatorError}</small>}
+            {generatorState === "error" && !generationJobError && <small className="generator-error">{generatorError}</small>}
+            <p className="anonymous-space-note"><Icon name="warning" size={12} /> 此空间由匿名 Cookie 识别。清除浏览器 Cookie 后，你将无法再访问这里的项目与任务。</p>
             {directorOutput?.status === "accepted" && <div className="director-result" role="status"><strong>Skill draft 已通过安全导入</strong><small>{directorOutput.manifest.designPack.id}@{directorOutput.manifest.designPack.version} · {directorOutput.manifest.sceneIds.length} 页 · {directorOutput.manifest.sourceCoverage.usedSourceIds.length}/{directorOutput.manifest.sourceCoverage.declaredSourceIds.length} 来源</small><p>{directorOutput.manifest.diagnosis.evidenceBoundary}</p></div>}
             {modelProvider && <div className="director-result" role="status"><strong>Provider 证据</strong><small>{modelProvider.id} / {modelProvider.model}</small><p>当前为确定性离线 Provider；真实模型未配置时不会伪装联网成功。</p></div>}
             {review && <div className="director-result review-result" role="status"><strong>人工审核：{review.projection.status}</strong><small>Revision {review.projection.reviewRevisionId ?? review.projection.draft.revisionId}</small>{review.projection.candidate && <p>候选已形成 · notPublished: {String(review.projection.candidate.notPublished)}</p>}{review.projection.status === "draft" && <Button size="sm" tone="outline" onClick={submitCurrentReview} disabled={reviewState === "working" || hasUnsavedChanges}>送交人工审核</Button>}{review.projection.status === "in_review" && <><label className="field"><span>批准理由</span><textarea aria-label="候选批准理由" value={reviewReason} onChange={(event) => setReviewReason(event.target.value)} /></label><Button size="sm" tone="primary" onClick={approveCurrentCandidate} disabled={reviewState === "working" || hasUnsavedChanges || qaState !== "ready" || openIssues.some((issue) => issue.severity === "blocker" || issue.severity === "error")}>批准为候选（不发布）</Button></>}{reviewError && <small className="generator-error" role="alert">{reviewError}</small>}</div>}
@@ -1042,7 +1204,7 @@ export function App() {
 
           {inspectorTab === "export" && (
             <div className="inspector-content">
-              <div className="inspector-heading"><div><Kicker>Export center</Kicker><h2>一次编辑，三个输出</h2></div><Badge tone={qaState === "ready" && openIssues.length === 0 ? "success" : "neutral"}>QA {qaState === "ready" ? qaScore : "—"}</Badge></div>
+              <div className="inspector-heading"><div><Kicker>Export center</Kicker><h2>一次编辑，三个输出</h2></div><Badge tone={qaState === "ready" && openIssues.length === 0 ? "success" : "neutral"}>QA {qaState === "ready" ? qaScore : "-"}</Badge></div>
               <p className="export-intro">三个格式共享当前 Scene IR 修订，不从 HTML 反推 PPT。</p>
               <div className="export-list">
                 <ExportCard kind="html" title="交互式 HTML" description="保留语义与响应式预览" state={exportStates.html} result={exportResults.html} onExport={() => startExport("html")} />

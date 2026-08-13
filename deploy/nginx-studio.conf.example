@@ -1,9 +1,8 @@
 # Public preview. Define this once in nginx's `http {}` context:
 # limit_req_zone $binary_remote_addr zone=opendesign_studio_public:10m rate=30r/m;
 #
-# Studio remains an isolated loopback service. Anonymous projects currently
-# share one server-local data directory, so the UI must not invite confidential
-# material until per-session isolation is implemented.
+# Studio remains an isolated loopback service. Anonymous projects are scoped by
+# an HttpOnly signed cookie; nginx must preserve Set-Cookie from the upstream.
 location = /studio { return 302 /studio/; }
 
 location ^~ /studio/ {
@@ -20,6 +19,7 @@ location ^~ /api/ {
     proxy_set_header Connection "";
     proxy_set_header Host $host;
     proxy_set_header X-Forwarded-Proto $scheme;
+    proxy_hide_header X-Powered-By;
     proxy_read_timeout 60s;
     client_max_body_size 6m;
     add_header Cache-Control "no-store" always;

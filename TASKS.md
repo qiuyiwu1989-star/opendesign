@@ -2,10 +2,10 @@
 
 ## Now（本次会话正在做，最多 3 项）
 
-- [ ] 修复 Benchmark 已识别的研究演讲 7 个、文章配图 12 个 QA error
-- [ ] 为公开 Studio 增加匿名会话/项目隔离、数据过期和存储配额
+- [ ] 为 Studio v0.7 配置生产 Session secret 与模型 provider，执行隔离预检后部署 (spec: 006)
 
 ## Next（已排序的待办）
+- [ ] 修复 Benchmark 已识别的研究演讲 7 个、文章配图 12 个 QA error
 - [ ] 扩展首批 10 套经过 Golden Task 验证的 Design Pack
 - [ ] 建立设计质量、人工修正时间与可编辑率 Benchmark
 - [ ] 取得服务器只读预检证据并核验证书续期
@@ -14,6 +14,7 @@
 - [ ] 定义人工确认后的发布候选变更集，继续保持 preview-first
 
 ## Done（倒序，保留最近 20 条，附 commit hash）
+- [x] Studio v0.7：真实模型生成 Job、匿名会话隔离/配额/清理、对话区任务体验与跨 Cookie 安全门禁（待本次提交，spec: 006）
 - [x] Studio v0.6：项目—设计总监对话—实时作品三栏工作台、结果视图与按需检查器（待本次提交）
 - [x] Studio 公开预览：移除 Admin 登录门禁，保留独立 API 限流、6 MiB 上限与可回滚配置（待本次提交）
 - [x] Studio 0.5：Model Adapter、人工审核 Candidate Ledger、Design Quality Benchmark 与工作台闭环（待本次提交）
