@@ -39,7 +39,7 @@ cat > "${output_root}/release-manifest.json" <<EOF
   "webSha256": "${web_sha}",
   "runtimeSha256": "${runtime_sha}",
   "publicPath": "/studio/",
-  "apiBind": "127.0.0.1:8788"
+  "apiBind": "127.0.0.1:8794"
 }
 EOF
 
