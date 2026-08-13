@@ -23,6 +23,10 @@ find "${release_root}" "${web_target}" -type f -exec chmod 0644 {} +
 # retain their executable bits. Scripts are never run during installation.
 cd "${release_root}/studio"
 npm ci --ignore-scripts
+# npm packages do not consistently preserve the executable bit for esbuild
+# when the release archive has first been normalized to 0644. tsx launches
+# this binary at runtime, so restore the narrow permission explicitly.
+chmod 0755 node_modules/@esbuild/linux-x64/bin/esbuild
 test -x node_modules/@esbuild/linux-x64/bin/esbuild
 test -f apps/local-api/dist/main.js
 test -f "${web_target}/index.html"

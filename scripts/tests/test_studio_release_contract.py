@@ -45,6 +45,7 @@ class StudioReleaseContractTest(unittest.TestCase):
         self.assertIn("studio-previous", rollback)
         self.assertIn("mv -Tf", rollback)
         self.assertIn("npm ci --ignore-scripts", prepare)
+        self.assertIn("chmod 0755 node_modules/@esbuild/linux-x64/bin/esbuild", prepare)
         self.assertIn("test -x node_modules/@esbuild/linux-x64/bin/esbuild", prepare)
 
 
