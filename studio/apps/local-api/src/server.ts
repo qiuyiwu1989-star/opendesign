@@ -292,10 +292,11 @@ export function createStudioServer(options: StudioServerOptions) {
         const extension = body.mimeType === "image/png" ? "png" : "jpg";
         const assetId = `asset_${Date.now().toString(36)}_${randomUUID().slice(0, 8)}`;
         if (!await store.readForOwner(scope, assetMatch[1]!)) { json(response, 404, { error: "Project not found" }); return; }
-        await store.assertOwnerQuota(scope, { assetBytes: bytes.byteLength });
         const directory = join(options.dataDirectory, "sessions", scope, "assets", assetMatch[1]!);
-        await mkdir(directory, { recursive: true });
-        await writeFile(join(directory, `${assetId}.${extension}`), bytes, { mode: 0o600 });
+        await store.withOwnerQuota(scope, { assetBytes: bytes.byteLength }, async () => {
+          await mkdir(directory, { recursive: true });
+          await writeFile(join(directory, `${assetId}.${extension}`), bytes, { mode: 0o600 });
+        });
         json(response, 201, { assetId, name: body.name?.slice(0, 160) || `${assetId}.${extension}`, mimeType: body.mimeType, width: image.width, height: image.height, url: `/api/assets/${assetMatch[1]}/${assetId}.${extension}` });
         return;
       }
@@ -340,8 +341,8 @@ export function createStudioServer(options: StudioServerOptions) {
         if (!body.kind || !["html", "png", "pptx"].includes(body.kind)) throw new Error("Unknown export kind");
         const document = await store.readForOwner(scope, exportMatch[1]!);
         if (!document) { json(response, 404, { error: "Project not found" }); return; }
-        await store.assertOwnerQuota(scope, { exports: 1 });
-        json(response, 201, await exports.create(scope, document, body.kind));
+        const exported = await store.withOwnerQuota(scope, { exports: 1 }, () => exports.create(scope, document, body.kind!));
+        json(response, 201, exported);
         return;
       }
 

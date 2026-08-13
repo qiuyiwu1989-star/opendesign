@@ -5,7 +5,7 @@ import { join } from "node:path";
 import test from "node:test";
 import fixture from "../../../packages/contracts/fixtures/proposal-v0.json" with { type: "json" };
 import type { SceneDocument } from "@opendesign/studio-contracts";
-import { hashPublicSessionScope, PublicSessionQuotaError, type PublicSessionRecord } from "./public-session.js";
+import { hashPublicSessionScope, parseSessionScope, PublicSessionQuotaError, type PublicSessionRecord } from "./public-session.js";
 import { cleanupExpiredSessionScopes, LocalProjectStore } from "./storage.js";
 
 const document = fixture as SceneDocument;
@@ -166,6 +166,29 @@ test("expired session cleanup reports before deletion, preserves live and unsafe
     assert.equal((await store.listForOwner(live)).length, 1);
     assert.equal(await readFile(join(outside, "sentinel"), "utf8").catch(() => "safe"), "safe");
     await rm(outside, { recursive: true, force: true });
+  } finally {
+    await rm(directory, { recursive: true, force: true });
+  }
+});
+
+test("owner quota serializes concurrent check-and-write operations", async () => {
+  const directory = await mkdtemp(join(tmpdir(), "opendesign-quota-lock-"));
+  try {
+    const store = new LocalProjectStore(directory, { projects: 20, revisions: 100, assetBytes: 100, exports: 1, runningJobs: 2 });
+    const scope = parseSessionScope(`scope_${"d".repeat(64)}`);
+    const writes: string[] = [];
+    const first = store.withOwnerQuota(scope, { exports: 1 }, async () => {
+      await mkdir(join(directory, "sessions", scope, "exports", "export_first"), { recursive: true });
+      writes.push("first");
+    });
+    const second = store.withOwnerQuota(scope, { exports: 1 }, async () => {
+      await mkdir(join(directory, "sessions", scope, "exports", "export_second"), { recursive: true });
+      writes.push("second");
+    });
+    const results = await Promise.allSettled([first, second]);
+    assert.equal(results.filter((result) => result.status === "fulfilled").length, 1);
+    assert.equal(results.filter((result) => result.status === "rejected").length, 1);
+    assert.equal(writes.length, 1);
   } finally {
     await rm(directory, { recursive: true, force: true });
   }

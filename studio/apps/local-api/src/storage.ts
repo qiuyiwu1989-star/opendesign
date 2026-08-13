@@ -360,6 +360,17 @@ export class LocalProjectStore {
   ): Promise<void> {
     assertPublicSessionQuota(await this.usageForOwner(scope, additional), delta, this.quota);
   }
+
+  async withOwnerQuota<T>(
+    scope: SessionScope,
+    delta: PublicSessionQuotaDelta,
+    operation: () => Promise<T>,
+  ): Promise<T> {
+    return this.withScopeLock(scope, async () => {
+      await this.assertOwnerQuota(scope, delta);
+      return operation();
+    });
+  }
 }
 
 export async function cleanupExpiredSessionScopes(
