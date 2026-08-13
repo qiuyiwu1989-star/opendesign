@@ -1,0 +1,107 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://opendesign.cc/schemas/studio/design-director-output-0.1.0.json",
+  "title": "OpenDesign Design Director Output",
+  "oneOf": [
+    { "$ref": "#/$defs/accepted" },
+    { "$ref": "#/$defs/rejected" }
+  ],
+  "$defs": {
+    "id": { "type": "string", "pattern": "^[a-z][a-z0-9_-]{2,63}$" },
+    "version": { "type": "string", "pattern": "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)(?:-[0-9A-Za-z.-]+)?$" },
+    "diagnostic": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["code", "severity", "path", "message"],
+      "properties": {
+        "code": { "type": "string", "minLength": 1 },
+        "severity": { "const": "error" },
+        "path": { "type": "string", "minLength": 1 },
+        "message": { "type": "string", "minLength": 1 }
+      }
+    },
+    "sourceCoverage": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["declaredSourceIds", "usedSourceIds", "unusedSourceIds", "unresolvedSourceIds"],
+      "properties": {
+        "declaredSourceIds": { "type": "array", "uniqueItems": true, "items": { "$ref": "#/$defs/id" } },
+        "usedSourceIds": { "type": "array", "uniqueItems": true, "items": { "$ref": "#/$defs/id" } },
+        "unusedSourceIds": { "type": "array", "uniqueItems": true, "items": { "$ref": "#/$defs/id" } },
+        "unresolvedSourceIds": { "type": "array", "uniqueItems": true, "items": { "$ref": "#/$defs/id" } }
+      }
+    },
+    "manifest": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["taskId", "documentId", "compiler", "designPack", "sceneIds", "elementIds", "sourceCoverage", "diagnosis"],
+      "properties": {
+        "taskId": { "$ref": "#/$defs/id" },
+        "documentId": { "$ref": "#/$defs/id" },
+        "compiler": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["name", "version", "deterministic"],
+          "properties": {
+            "name": { "const": "opendesign-design-director" },
+            "version": { "const": "0.1.0" },
+            "deterministic": { "const": true }
+          }
+        },
+        "designPack": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["id", "version"],
+          "properties": { "id": { "$ref": "#/$defs/id" }, "version": { "$ref": "#/$defs/version" } }
+        },
+        "sceneIds": { "type": "array", "minItems": 6, "maxItems": 10, "uniqueItems": true, "items": { "$ref": "#/$defs/id" } },
+        "elementIds": { "type": "array", "minItems": 18, "uniqueItems": true, "items": { "$ref": "#/$defs/id" } },
+        "sourceCoverage": { "$ref": "#/$defs/sourceCoverage" },
+        "diagnosis": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["objective", "audience", "designPrinciples", "evidenceBoundary", "risks"],
+          "properties": {
+            "objective": { "type": "string", "minLength": 1 },
+            "audience": { "type": "string", "minLength": 1 },
+            "designPrinciples": { "type": "array", "minItems": 1, "items": { "type": "string", "minLength": 1 } },
+            "evidenceBoundary": { "type": "string", "minLength": 1 },
+            "risks": { "type": "array", "minItems": 1, "items": { "type": "string", "minLength": 1 } }
+          }
+        }
+      }
+    },
+    "accepted": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["outputVersion", "status", "html", "manifest", "diagnostics", "importResult"],
+      "properties": {
+        "outputVersion": { "const": "0.1.0" },
+        "status": { "const": "accepted" },
+        "html": { "type": "string", "minLength": 1, "maxLength": 524288 },
+        "manifest": { "$ref": "#/$defs/manifest" },
+        "diagnostics": { "type": "array", "maxItems": 0 },
+        "importResult": {
+          "type": "object",
+          "required": ["status", "document", "diagnostics", "security"],
+          "properties": {
+            "status": { "const": "accepted" },
+            "document": { "type": "object" },
+            "diagnostics": { "type": "array" },
+            "security": { "type": "object" }
+          }
+        }
+      }
+    },
+    "rejected": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["outputVersion", "status", "diagnostics"],
+      "properties": {
+        "outputVersion": { "const": "0.1.0" },
+        "status": { "const": "rejected" },
+        "diagnostics": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/diagnostic" } }
+      }
+    }
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "expectedStatus": "accepted",
+  "expectedPack": { "id": "executive-proposal-cn", "version": "1.0.0" },
+  "requiredSourceIds": ["source_studio_brief", "source_contract", "source_quality_gate"],
+  "requiredCapabilities": ["text", "typography", "asset", "frame", "order"],
+  "distinctiveStructure": {
+    "requiredPageRoles": ["executive-summary", "evidence", "recommendation", "roadmap"],
+    "forbiddenPackIds": ["research-keynote-cn", "editorial-story-graphics-cn"],
+    "rationale": "高层需要先看到建议、证据、取舍和决策门槛；这不是研究方法讲解或文章传播卡片。"
+  },
+  "manualReview": [
+    "结论是否在前 60 秒内可理解",
+    "证据页与建议页是否形成判断—依据关系，而非只换背景色",
+    "是否只有一个与内容有关的签名动作",
+    "页面节奏是否在判断、证据和行动之间有变化"
+  ]
+}

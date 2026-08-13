@@ -1,4 +1,5 @@
 import type { DesignPackPin, DocumentProvenance, HtmlImportResult, Revision, SceneDocument, ScenePatch } from "@opendesign/studio-contracts";
+import type { DesignDirectorInput, DesignDirectorOutput } from "@opendesign/studio-design-director";
 
 export type ProjectSummary = { projectId: string; title: string; sceneCount: number; updatedAt: string };
 export type StoredRevision = { revision: Revision; document: SceneDocument };
@@ -65,6 +66,18 @@ export async function generateProject(brief: string, title?: string, designPack?
     method: "POST",
     body: JSON.stringify({ brief, ...(title ? { title } : {}), ...(designPack ? { designPack } : {}) }),
   });
+}
+
+export async function createDesignDirectorDraft(input: DesignDirectorInput): Promise<DesignDirectorOutput> {
+  const response = await fetch("/api/design-director/drafts", {
+    method: "POST",
+    headers: { "content-type": "application/json" },
+    body: JSON.stringify(input),
+  });
+  const payload = await response.json() as DesignDirectorOutput & { error?: string };
+  if (response.status === 422 && payload.status === "rejected") return payload;
+  if (!response.ok) throw new Error(payload.error || `Studio API returned ${response.status}`);
+  return payload;
 }
 
 export async function importProjectHtml(html: string, provenance: DocumentProvenance): Promise<HtmlImportResult> {

@@ -18,6 +18,23 @@ beforeEach(() => {
       return new Response(JSON.stringify({ document: request.document, revision: { revisionId: "revision_test", parentRevisionId: null, createdAt: new Date().toISOString(), reason: "edit", patches: [] }, persisted: true }), { status: 200 });
     }
     if (init?.method === "POST" && path.endsWith("/generate")) return new Response(JSON.stringify({ document: generatedDocument, storyline: [], generator: "local-rules-v0" }), { status: 201 });
+    if (init?.method === "POST" && path === "/api/design-director/drafts") return new Response(JSON.stringify({
+      outputVersion: "0.1.0",
+      status: "accepted",
+      html: "<main data-od-contract-version=\"0.1.0\"></main>",
+      manifest: {
+        taskId: "studio_test",
+        documentId: "project_director_001",
+        compiler: { name: "opendesign-design-director", version: "0.1.0", deterministic: true },
+        designPack: { id: "executive-proposal-cn", version: "1.0.0" },
+        sceneIds: fixture.scenes.map((scene) => scene.id),
+        elementIds: fixture.scenes.flatMap((scene) => scene.elements.map((element) => element.id)),
+        sourceCoverage: { declaredSourceIds: ["source-product-brief", "source-constraints", "source-benchmark"], usedSourceIds: ["source-product-brief", "source-constraints", "source-benchmark"], unusedSourceIds: [], unresolvedSourceIds: [] },
+        diagnosis: { objective: "把内容转成可编辑提案", audience: "产品负责人", designPrinciples: ["结论先行"], evidenceBoundary: "仅使用三个已声明来源。", risks: ["发布前人工确认"] },
+      },
+      diagnostics: [],
+      importResult: { importVersion: "0.1.0", status: "accepted", document: { ...generatedDocument, documentId: "project_director_001" }, diagnostics: [], security: { untrustedInput: true, executableContent: "blocked", blockedNodeCount: 0 } },
+    }), { status: 201 });
     if (init?.method === "POST" && path === "/api/imports/html") {
       const request = JSON.parse(String(init.body)) as { html: string; provenance: unknown };
       return new Response(JSON.stringify({
@@ -108,6 +125,19 @@ describe("OpenDesign Studio workspace", () => {
     expect(await screen.findByText("rejected")).toBeInTheDocument();
     expect(screen.getByText("design_pack.pin_missing")).toBeInTheDocument();
     expect(screen.getAllByText("OpenDesign Studio：让视觉作品继续生长").length).toBeGreaterThan(0);
+  });
+
+  it("004 creates a grounded Design Director Skill draft and opens accepted Scene IR", async () => {
+    render(<App />);
+    fireEvent.click(screen.getByRole("button", { name: /Design Director Skill 初稿/ }));
+    expect(await screen.findByText("Skill draft 已通过安全导入")).toBeInTheDocument();
+    expect(screen.getByText(/3\/3 来源/)).toBeInTheDocument();
+    expect(fetch).toHaveBeenCalledWith("/api/design-director/drafts", expect.objectContaining({ method: "POST" }));
+    const call = vi.mocked(fetch).mock.calls.find(([path]) => path === "/api/design-director/drafts");
+    const request = JSON.parse(String(call?.[1]?.body)) as { designPack: { id: string }; editability: { requireNativeText: boolean }; sources: unknown[] };
+    expect(request.designPack.id).toBe("executive-proposal-cn");
+    expect(request.editability.requireNativeText).toBe(true);
+    expect(request.sources).toHaveLength(3);
   });
 
   it("records and persists text edits as Scene IR patches", async () => {

@@ -164,6 +164,47 @@ test("003 local API imports inert Structured HTML with diagnostics and persists 
   }
 });
 
+test("004 local API compiles a Design Director Skill draft and persists only accepted Scene IR", async () => {
+  const directory = await mkdtemp(join(tmpdir(), "opendesign-director-api-"));
+  const server = createStudioServer({ dataDirectory: directory });
+  server.listen(0, "127.0.0.1");
+  await once(server, "listening");
+  const port = (server.address() as AddressInfo).port;
+  const base = `http://127.0.0.1:${port}`;
+  const input = {
+    inputVersion: "0.1.0",
+    taskId: "api_director_test",
+    title: "Studio 设计闭环",
+    brief: { objective: "把已有内容编译为可安全导入且能继续人工编辑的提案。", audience: "产品负责人", decisionRequest: "确认下一阶段实现路径。" },
+    content: { summary: "先诊断目标和证据边界，再生成结构化 HTML，并由 importer 建立 Scene IR。", keyPoints: [{ id: "point_path", text: "生成与人工编辑必须共享可追溯事实源", sourceIds: ["source_brief"] }], callToAction: "确认后进入人工编辑与 QA。" },
+    sources: [{ sourceId: "source_brief", type: "brief", title: "产品简报", sourceRef: "fixture://api/design-director", content: "Studio 使用 Scene IR 作为编辑、QA 和导出的事实源。" }],
+    brand: { name: "OpenDesign", tone: ["清晰", "克制"] },
+    deliverable: { kind: "proposal", audience: "产品负责人", language: "zh-CN", format: "structured-html", pageCount: 6 },
+    designPack: { id: "executive-proposal-cn", version: "1.0.0" },
+    editability: { requiredCapabilities: ["text", "typography", "asset", "frame", "order"], requireNativeText: true, requireReplaceableImages: true, requireReorderablePages: true },
+  };
+  try {
+    const accepted = await fetch(`${base}/api/design-director/drafts`, { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify(input) });
+    assert.equal(accepted.status, 201);
+    const result = await accepted.json() as { status: string; manifest: { compiler: { deterministic: boolean }; sourceCoverage: { unresolvedSourceIds: string[] } }; importResult: { document: { documentId: string } } };
+    assert.equal(result.status, "accepted");
+    assert.equal(result.manifest.compiler.deterministic, true);
+    assert.deepEqual(result.manifest.sourceCoverage.unresolvedSourceIds, []);
+    assert.equal((await fetch(`${base}/api/projects/${result.importResult.document.documentId}`)).status, 200);
+
+    const rejected = await fetch(`${base}/api/design-director/drafts`, { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ ...input, taskId: "api_director_bad", designPack: { id: "unknown-pack", version: "1.0.0" } }) });
+    assert.equal(rejected.status, 422);
+    const rejectedBody = await rejected.json() as { status: string; diagnostics: Array<{ code: string }> };
+    assert.equal(rejectedBody.status, "rejected");
+    assert.ok(rejectedBody.diagnostics.some((diagnostic) => diagnostic.code === "pack.unknown"));
+    assert.equal((await fetch(`${base}/api/projects/doc_api_director_bad`)).status, 404);
+  } finally {
+    server.close();
+    await once(server, "close");
+    await rm(directory, { recursive: true, force: true });
+  }
+});
+
 test("local API duplicates a project with independent identity and history", async () => {
   const directory = await mkdtemp(join(tmpdir(), "opendesign-duplicate-api-"));
   const server = createStudioServer({ dataDirectory: directory });

@@ -1,0 +1,30 @@
+{
+  "inputVersion": "0.1.0",
+  "taskId": "golden_proposal",
+  "title": "把 OpenDesign Studio 建成可确认的设计生产线",
+  "brief": {
+    "objective": "说服产品负责人批准 Studio 下一阶段试点：Agent 先生成可编辑 Structured HTML，设计师再确认细节并导出。",
+    "audience": "需要决定是否投入一个季度验证的产品与设计负责人",
+    "decisionRequest": "批准以三类 Golden 任务完成一个季度的受控试点。",
+    "constraints": ["不得把 AI 生成结果自动发布", "所有事实必须可追溯", "人工修改不能被重新生成覆盖"]
+  },
+  "content": {
+    "summary": "Studio 将生成、设计判断、人工编辑和多格式交付放入一条可审计链路。首期先验证提案、研究演讲与文章配图，不追求任意网页兼容。",
+    "keyPoints": [
+      { "id": "proposal_problem", "text": "当前生成工具通常把快速出图当作终点，确认与返工成本没有进入产品模型。", "sourceIds": ["source_studio_brief"] },
+      { "id": "proposal_solution", "text": "Structured HTML 与 Scene IR 分离预览和编辑事实源，可让 Agent 生成后继续人工修改。", "sourceIds": ["source_contract"] },
+      { "id": "proposal_gate", "text": "试点只在 importer accepted、来源完整、可编辑性检查通过后进入人工确认。", "sourceIds": ["source_quality_gate"] },
+      { "id": "proposal_scope", "text": "一个季度只验证三类 Golden 任务，暂不接模型 API 或自动发布。", "sourceIds": ["source_studio_brief", "source_quality_gate"] }
+    ],
+    "callToAction": "批准受控试点，并以 Golden 评测与人工审美复核共同决定下一轮投入。"
+  },
+  "sources": [
+    { "sourceId": "source_studio_brief", "type": "brief", "title": "Studio 试点简报", "sourceRef": "fixture://design-director/proposal/studio-brief", "content": "首期目标是证明 Agent 生成 Structured HTML 后仍可人工编辑。范围限定为提案、研究演讲、文章配图；不接真实模型，不自动发布。" },
+    { "sourceId": "source_contract", "type": "document", "title": "Structured HTML 与 Scene IR 契约说明", "sourceRef": "fixture://design-director/proposal/contracts", "content": "Structured HTML 是可移植生成格式；Scene IR 是编辑、修订和导出的事实源。导入必须保留稳定 ID、来源与 editable capabilities。" },
+    { "sourceId": "source_quality_gate", "type": "manual", "title": "试点质量门槛", "sourceRef": "fixture://design-director/proposal/quality-gate", "content": "所有输出先通过安全导入、来源覆盖、可编辑性和确定性 QA，再由设计师确认事实、层级、节奏与发布状态。" }
+  ],
+  "brand": { "name": "OpenDesign", "tone": ["克制", "可信", "编辑感"], "primaryColor": "#D84A2F" },
+  "deliverable": { "kind": "proposal", "audience": "产品与设计负责人", "language": "zh-CN", "format": "structured-html", "pageCount": 7 },
+  "designPack": { "id": "executive-proposal-cn", "version": "1.0.0" },
+  "editability": { "requiredCapabilities": ["text", "typography", "asset", "frame", "order"], "requireNativeText": true, "requireReplaceableImages": true, "requireReorderablePages": true }
+}

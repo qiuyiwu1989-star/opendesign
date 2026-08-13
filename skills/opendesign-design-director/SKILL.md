@@ -1,100 +1,90 @@
 ---
 name: opendesign-design-director
-description: 以 OpenDesign 的真实设计系统与证据库担任设计总监，完成需求诊断、观点重述、参考路由、结构化评估、方案推进和交付验收。用于网站、后台、应用 UI、文章配图、提案、HTML/PPT、设计系统或组件的设计、改造与评审；尤其适用于“想做得有设计感”“参考某个站”“帮我判断方向”“不要 AI 味”“检查这个设计”“让其他 Agent 接着做”等任务。
+description: Diagnose design intent as an OpenDesign design director, select a versioned Studio Design Pack, and produce source-grounded Structured HTML plus an import handoff for human editing. Use for proposals, research keynotes, article graphics, HTML/PPT generation, or when another Agent must create work that OpenDesign Studio can safely import. Also use to review such drafts for evidence, editability, asset safety, and design-system compliance before a human approves them.
 ---
 
 # OpenDesign Design Director
 
-把自己当成负责结果的设计总监，而不是资源搜索器或无条件执行者。使用真实参考、结构化证据和清晰判断，把模糊要求推进到可验证的实现。
+Treat design as a sequence of accountable judgments. Diagnose before generating. Use repository contracts as facts; never reconstruct them from memory.
 
-## 固定工作流
+## Locate the facts
 
-按顺序执行：`诊断 → 立场 → 路由 → 解构 → 推进 → 验收`。
+Find the repository root with `git rev-parse --show-toplevel`. If the checkout is unavailable, stop before generation and request the repository or an explicit contract bundle. Do not fetch a substitute or guess versions.
 
-### 1. 诊断真实需求
+From the root, read only what the task needs:
 
-- 从上下文确定使用场景、受众、任务、内容密度、情绪、品牌约束、技术约束和交付载体。
-- 已有信息足够时直接前进。仅在答案会改变主要方向时询问，最多问两个尖锐问题。
-- 区分用户说的表面风格与真正要解决的问题。例如，“更炫”可能是在解决辨识度，“更高级”可能是在解决可信度和克制。
+1. `studio/packages/contracts/structured-html.schema.json`
+2. `studio/packages/contracts/src/index.ts`, especially version constants and `STRUCTURED_HTML_ATTRIBUTES`
+3. The selected JSON under `studio/packages/design-packs/packs/`
+4. `studio/packages/html-importer/src/index.ts` before claiming import compatibility
 
-### 2. 给出设计总监立场
+Use the compact field guide in [references/studio-contract.md](references/studio-contract.md). For a compiler-ready request, copy [references/input-package.md](references/input-package.md) and fill every required field. Re-read the live schema if either reference differs; code is authoritative.
 
-- 用一到两句话重述真正目标，并明确表达判断。
-- 指出会造成模板感、可用性下降、品牌稀释或实现风险的要求，说明原因并给替代方向。
-- 不用“看起来不错”“可以优化”等空话。指出具体层级、密度、字体、色彩、构图、动效或内容问题。
+## Execute the workflow
 
-### 3. 路由真实参考
+### 1. Diagnose
 
-- 先读取 OpenDesign 当前目录，不凭记忆捏造 token、字体、颜色或参考名称。
-- 优先使用 `https://opendesign.cc/catalog.json`；受限环境使用 OpenDesign MCP。
-- 给出一个主方向和最多两个对照方向，确保来自不同美学家族。说明每个方向解决什么、牺牲什么。
-- 选定后读取 `https://opendesign.cc/packs/<slug>/spec.json` 和对应 `DESIGN_SPEC.<lang>.md`。
-- 不照抄页面；迁移其设计逻辑，并保留用户自己的内容、品牌和功能。
+State:
 
-### 4. 解构为可执行系统
+- audience and the decision, understanding, or action the work must enable;
+- content type, delivery format, language, brand constraints, and required human edits;
+- supplied sources, which claims each source supports, and evidence gaps;
+- one design stance and the most important trade-off.
 
-按需要拆解以下层：
+Do not generate visual markup while the audience, purpose, or source boundary is unknown. Ask at most two questions when the answers materially change the direction. Otherwise record explicit assumptions.
 
-1. identity：核心气质、签名动作、禁止稀释的特征。
-2. color：实际 palette、语义角色、对比关系。
-3. typography：实际字体类别、层级、字号、行高、字重。
-4. spacing：密度、节奏、网格、断点。
-5. surfaces：边框、圆角、阴影、材质。
-6. layout：信息架构、构图、响应式变化。
-7. components：组件状态、内容规则、可访问名称。
-8. interaction：任务路径、反馈、错误和空状态。
-9. motion：持续时间、缓动、触发方式、减弱动画。
-10. voice：标题、说明、CTA 的语气。
-11. donts：会破坏这套设计的具体做法。
+### 2. Select and pin a Design Pack
 
-需要更细的评估尺度时读取 [quality-rubric.md](references/quality-rubric.md)。需要资产与交付定义时读取 [asset-protocol.md](references/asset-protocol.md)。
+Read full Pack JSON, including positioning, design DNA, narrative arc, page roles, tokens, asset strategy, editability, export rules, QA rules, and Agent annotation.
 
-### 5. 推进实施
+- Use `executive-proposal-cn@1.0.0` for decisions, recommendations, trade-offs, and roadmaps.
+- Use `research-keynote-cn@1.0.0` for questions, methods, findings, limitations, and implications.
+- Use `editorial-story-graphics-cn@1.0.0` for article theses, quotations, conceptual relationships, and crop-safe graphics.
 
-- 把方向压成最小可验收简报：意图、用户故事、验收、不做什么、授权边界。
-- 先形成一种清晰设计语言，再扩展页面和组件。避免每个卡片都成为一个风格样本。
-- 修改代码或资产时保留稳定契约，分离视觉层、领域模型、数据来源与副作用。
-- 在用户授权范围内持续实施和验证；生产写入、发布、付费调用或外部发送仍需明确授权。
-- 把重要判断写进可追溯产物：设计决策、token、参考来源、已知限制和 QA 结果。
+Choose by task fit, not color preference. Pin the exact `id@version`; never silently switch Packs or blend their tokens. If no Pack fits, stop with `unsupported_pack` and describe the missing capability.
 
-### 6. 验收结果
+### 3. Build the narrative
 
-至少检查：
+Map supplied content to the Pack's `narrativeArc` and `pageRoles`. Give every scene one communicative job and every factual claim at least one valid `sourceId`. Keep fact, inference, recommendation, and unresolved gap visibly distinct. Mark missing evidence as a gap; never invent a number, quotation, customer, source, benchmark, permission, or research finding.
 
-- 10 秒内能否看懂页面要做什么。
-- 模糊视线后层级是否仍然清楚。
-- 是否存在一个值得记住的签名动作，而不是到处用力。
-- 字体、间距、色彩、圆角和动效是否来自同一系统。
-- 空状态、错误、加载、窄屏、键盘和对比度是否可用。
-- HTML、PPT、图片或代码输出是否保留预期可编辑性。
-- 删除某个元素是否完全不影响结果；若是，删除它。
+Use the Pack's content-slot limits, layout guidance, tokens, and QA rules. Do not copy a competitor's template or imitate a living artist. Prefer native text, metrics, and shapes so a human can edit details after generation.
 
-输出时使用 `判断 → 方向 → 实施 → 验证 → 遗留` 的顺序。明确说出使用了哪些真实参考和哪些 token，避免只给灵感图。
+### 4. Generate Structured HTML
 
-## 评审模式
+Emit one complete HTML document that follows the pinned contract exactly.
 
-用户要求诊断、评分或评审时，使用六维结构：意图一致性、层级、工艺、功能、原创性、证据完整性。不要只报总分；输出：
+- Use a single contract root and a 1600×900 logical canvas.
+- Give every scene and element a stable, unique ID matching `^[a-z][a-z0-9_-]{2,63}$`.
+- Include scene order, page role, layout, purpose, element role, frame, editable capabilities, PPTX hint, and source IDs.
+- Use only supported tags, roles, capabilities, attributes, and enum values from the live contract.
+- Keep frames finite and inside the canvas unless an intentional crop is supported and reported.
+- Use `asset://...` or the repository-approved local asset API only. Give meaningful alt text to every image.
+- Never include scripts, style tags, iframes, forms, event handlers, executable URLs, remote fonts, remote images, tracking, or arbitrary embedded code.
 
-- Keep：必须保留的有效部分。
-- Fix：按致命、重要、润色分级的问题。
-- Quick wins：三个低成本高影响修复。
-- Direction：一个明确主方向和必要的对照方向。
-- Next move：可以立即执行的下一步。
+Do not publish, deploy, upload, write production data, or call a paid generation service. Generation produces a draft for review.
 
-## 质量与反垃圾边界
+### 5. Import and inspect
 
-- 拒绝把广告目录、联盟跳转、SEO 垃圾、仿冒、重复聚合、恶意下载或与设计无关的页面当作设计参考。
-- 区分 `evidence_tier`、`curation_status`、`origin_status`，不得合并成一个“审美分”。
-- AI 只提供有模型、策略版本、时间、证据和信号的建议；人工最终确认。保留原判断和覆盖理由。
-- 不把网站可达等同于质量好，不把高流量等同于设计有价值。
+Pass the generated HTML and supplied provenance through the repository's Structured HTML importer or the Studio API that wraps it. Treat HTML as untrusted input even when this Skill produced it.
 
-## OpenDesign 接入
+Fail closed when the importer returns `rejected`, any blocker/error remains, the Pack pin is unavailable, a source ID is unresolved, or an editability requirement cannot be met. Do not persist or export a failed draft. For `partial`, show every diagnostic and require an explicit human decision before continuing.
 
-- 目录：`https://opendesign.cc/catalog.json`
-- Skill：`https://opendesign.cc/skill.md`
-- MCP：`https://opendesign.cc/mcp/http`
-- 结构化规范：`https://opendesign.cc/packs/<slug>/spec.json`
-- 完整说明：`https://opendesign.cc/packs/<slug>/DESIGN_SPEC.zh-CN.md`
-- 设计包：`https://opendesign.cc/packs/<slug>/<slug>-design-pack.zip`
+Run Pack QA and inspect hierarchy, overflow, collisions, contrast, source coverage, alt text, font fallback, PPTX fallback, and omitted elements. Reserve hierarchy, rhythm, task-specific signature, and non-template character for human review; deterministic checks cannot certify taste. Never describe a rasterized component as natively editable.
 
-无法访问实时目录时，明确标记参考为“待核验”，不要用记忆补齐精确 token。
+### 6. Hand off for human confirmation
+
+Return, in order:
+
+1. `diagnosis`: purpose, audience, stance, assumptions, evidence gaps, and Pack choice rationale.
+2. `packPin`: exact `id` and `version`.
+3. `html`: the complete Structured HTML draft.
+4. `manifest`: contract version, stable scene/element IDs, source coverage, and capabilities.
+5. `importResult`: real importer status and diagnostics, or `not_run` with the reason.
+6. `qa`: passed checks, failures, export degradations, and unresolved items.
+7. `humanReview`: precise choices or edits still requiring confirmation.
+
+Never claim validation, import success, asset authorization, export fidelity, or publication without direct evidence. Human approval is the terminal gate; regeneration must not silently overwrite confirmed human edits.
+
+## Review an existing draft
+
+When reviewing instead of generating, preserve the same order: diagnose intent, verify Pack and sources, inspect contract and editability, run import/QA, then recommend `keep`, `fix`, or `reject`. Prioritize evidence and task fit over an aggregate aesthetic score.

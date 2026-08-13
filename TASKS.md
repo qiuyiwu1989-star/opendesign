@@ -2,10 +2,9 @@
 
 ## Now（本次会话正在做，最多 3 项）
 
-- 当前无进行中的开发项。
+- [ ] 规划下一阶段：真实模型 adapter、人工确认闸门与 Design Quality Benchmark
 
 ## Next（已排序的待办）
-- [ ] 定义 Design Director Skill 的正式输入/输出包，并让 Agent 直接生成契约化 HTML
 - [ ] 扩展首批 10 套经过 Golden Task 验证的 Design Pack
 - [ ] 建立设计质量、人工修正时间与可编辑率 Benchmark
 - [ ] 取得服务器只读预检证据并核验证书续期
@@ -14,8 +13,9 @@
 - [ ] 定义人工确认后的发布候选变更集，继续保持 preview-first
 
 ## Done（倒序，保留最近 20 条，附 commit hash）
-- [x] Studio 0.3：Structured HTML inert 导入、诊断、持久化和 Pack/provenance 生成链路（本次提交）
-- [x] Studio Foundation v0.2：契约、可编辑画布、三套 Design Pack 与 Golden 工作流（本次提交）
+- [x] Design Director Skill、确定性 HTML compiler、三类 Golden eval 与 Studio/API 闭环（待本次提交）
+- [x] Studio 0.3：Structured HTML inert 导入、诊断、持久化和 Pack/provenance 生成链路（0eb46b0）
+- [x] Studio Foundation v0.2：契约、可编辑画布、三套 Design Pack 与 Golden 工作流（1cec9c5）
 - [x] Quality Judgment Ledger v2：追加式人工判断、五位展示与迁移门禁（a4f0953）
 - [x] 生产公网/服务器只读预检工具与 No-Go 证据（ca5561c）
 - [x] Admin RC2 不可变构建、激活和回滚合同（4584c48）

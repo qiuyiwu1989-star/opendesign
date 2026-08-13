@@ -4,6 +4,7 @@ import { stat } from "node:fs/promises";
 import { createServer, type IncomingMessage, type ServerResponse } from "node:http";
 import { extname } from "node:path";
 import { assertSceneDocument, type DesignPackPin, type DocumentProvenance, type SceneDocument, type ScenePatch } from "@opendesign/studio-contracts";
+import { compileDesignDirector } from "@opendesign/studio-design-director";
 import { importStructuredHtml } from "@opendesign/studio-html-importer";
 import { LocalExportService, type ExportKind } from "./exports.js";
 import { generateProjectFromBrief } from "./generator.js";
@@ -74,6 +75,18 @@ export function createStudioServer(options: { dataDirectory: string }) {
         const generated = generateProjectFromBrief({ brief: body.brief ?? "", ...(body.title === undefined ? {} : { title: body.title }), ...(body.designPack === undefined ? {} : { designPack: body.designPack }) });
         await store.create(generated.document);
         json(response, 201, generated);
+        return;
+      }
+      if (request.method === "POST" && url.pathname === "/api/design-director/drafts") {
+        const compiled = compileDesignDirector(await readJson(request, 640 * 1024));
+        if (compiled.status === "accepted" && compiled.importResult.document) {
+          if (await store.read(compiled.importResult.document.documentId)) {
+            json(response, 409, { error: "Project already exists", ...compiled });
+            return;
+          }
+          await store.create(compiled.importResult.document);
+        }
+        json(response, compiled.status === "accepted" ? 201 : 422, compiled);
         return;
       }
       if (request.method === "POST" && url.pathname === "/api/imports/html") {

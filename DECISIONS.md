@@ -1,5 +1,6 @@
 # Decisions
 
+- 2026-08-13: Design Director 采用仓库内正式 Skill + 确定性 compiler 双层架构；Skill 负责诊断与交接协议，compiler 负责严格输入验证、版本化 Pack 编译、来源覆盖和真实 importer 门禁。理由：让其他 Agent 可复用设计总监思维，同时不把自然语言输出误当成已验证产物。备选：只写提示词（无法自动验收）；让模型直接写 Scene IR（缺少 HTML 创作层与安全导入边界）。Confidence: high.
 - 2026-08-13: Studio v0.2 采用 Skill-first Structured HTML → Scene IR → 人工编辑 → QA → 多格式导出的主流程；Scene IR 是版本、编辑、QA 与导出的事实源，HTML 是主要预览和发布结果。理由：兼顾 HTML 生成自由度、人工可编辑性与 PPTX 原生对象输出。备选：任意 HTML 作为唯一事实源（安全、版本和可编辑性不可控）；HTML 截图转 PPTX（不可编辑）。Confidence: high.
 - 2026-08-13: 模板升级为结构化 Design Pack，必须包含 Design DNA、Tokens、Narrative Arc、Page Roles、Agent Guidance、编辑/导出/QA 规则；首轮只做三套 Golden Pack。理由：模板需要同时服务人和 Agent，质量优先于数量。备选：继续扩充图片模板库（无法稳定组合和编辑）。Confidence: high.
 - 2026-08-13: Studio 浏览器端只消费经过构建门禁验证的 Design Pack catalog，完整 Ajv/schema 校验留在契约、导入和构建边界。理由：直接把校验器打进 Web 会让主 JS 从约 265KB 增至约 431KB。备选：浏览器运行完整包校验（重复校验且显著增加加载成本）。Confidence: high.

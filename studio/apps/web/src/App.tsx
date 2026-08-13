@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useRef, useState, type CSSProperties, type PointerEvent as ReactPointerEvent } from "react";
 import type { DesignDirection, HtmlImportResult, Scene, SceneDocument, SceneElement, ScenePatch, StudioIssue } from "@opendesign/studio-contracts";
+import type { DesignDirectorInput, DesignDirectorOutput } from "@opendesign/studio-design-director";
 import fixture from "@opendesign/studio-contracts/fixtures/proposal-v0";
 import { designPacks, getDesignPack } from "@opendesign/studio-design-packs/catalog";
 import { Badge, Button, Icon, Kicker, ProgressRing, Tabs } from "@opendesign/studio-ui";
@@ -7,6 +8,7 @@ import goldenTaskFixture from "../../../fixtures/golden-task/design-studio-brief
 import goldenStructuredHtml from "../../../fixtures/golden-task/structured-html-v01.html?raw";
 import {
   createExport,
+  createDesignDirectorDraft,
   duplicateProject,
   generateProject,
   importProjectHtml,
@@ -53,8 +55,9 @@ type SyncState = "local" | "saving" | "saved" | "error";
 type WorkflowStep = "sources" | "outline" | "direction" | "studio";
 
 type GoldenTaskFixture = {
-  sources: Array<{ sourceId: string; title: string; status: "snapshot"; sourceRef: string }>;
-  brief: { objective: string; decisionRequest: string };
+  sources: Array<{ sourceId: string; type: "brief" | "manual" | "document"; title: string; status: "snapshot"; sourceRef: string; content: string }>;
+  brand: { name: string; voice: string[] };
+  brief: { objective: string; audience: string; decisionRequest: string; mustAvoid: string[] };
   expectedOutline: Array<{ order: number; pageRole: string; intent: string; sourceIds: string[] }>;
   directions: Array<{ id: string; name: string; pack: { id: string; version: string }; stance: "primary" | "alternate"; selectionRationale: string }>;
   selectedDirectionId: string;
@@ -68,6 +71,11 @@ const processSteps = [
   ["direction", "03", "Direction"],
   ["studio", "04", "Studio"],
 ] as const;
+
+function sentenceFromBrief(value: string): string {
+  const sentence = value.replace(/\s+/gu, " ").trim().split(/[。！？!?]/u)[0]?.trim() || "OpenDesign Studio 设计初稿";
+  return sentence.length <= 64 ? sentence : `${sentence.slice(0, 63)}…`;
+}
 
 function getElement(document: SceneDocument, elementId: string | null) {
   if (!elementId) return null;
@@ -249,6 +257,7 @@ export function App() {
   const [projectMenuOpen, setProjectMenuOpen] = useState(false);
   const [generatorState, setGeneratorState] = useState<"idle" | "working" | "error">("idle");
   const [generatorError, setGeneratorError] = useState("");
+  const [directorOutput, setDirectorOutput] = useState<DesignDirectorOutput | null>(null);
   const [assetState, setAssetState] = useState<"idle" | "uploading" | "error">("idle");
   const imageInputRef = useRef<HTMLInputElement>(null);
   const [localDraftOperations, setLocalDraftOperations] = useState(0);
@@ -594,6 +603,65 @@ export function App() {
     }
   }
 
+  function designDirectorInput(): DesignDirectorInput | null {
+    if (!selectedPack) return null;
+    const kind = selectedPack.id === "research-keynote-cn" ? "keynote" : selectedPack.id === "editorial-story-graphics-cn" ? "article-graphics" : "proposal";
+    return {
+      inputVersion: "0.1.0",
+      taskId: `studio_${Date.now().toString(36)}`,
+      title: sentenceFromBrief(brief),
+      brief: {
+        objective: brief.trim(),
+        audience: goldenTask.brief.audience,
+        decisionRequest: goldenTask.brief.decisionRequest,
+        constraints: goldenTask.brief.mustAvoid,
+      },
+      content: {
+        summary: brief.trim(),
+        keyPoints: goldenTask.expectedOutline.slice(0, 7).map((item) => ({ id: `point_${item.order}`, text: item.intent, sourceIds: item.sourceIds })),
+        callToAction: goldenTask.brief.decisionRequest,
+      },
+      sources: goldenTask.sources.map((source) => ({ sourceId: source.sourceId, type: source.type, title: source.title, sourceRef: source.sourceRef, content: source.content })),
+      brand: { name: goldenTask.brand.name, tone: goldenTask.brand.voice },
+      deliverable: { kind, audience: goldenTask.brief.audience, language: "zh-CN", format: "structured-html", pageCount: 7 },
+      designPack: { id: selectedPack.id, version: selectedPack.version },
+      editability: {
+        requiredCapabilities: [...selectedPack.agentAnnotation.requiredCapabilities],
+        requireNativeText: true,
+        requireReplaceableImages: true,
+        requireReorderablePages: true,
+      },
+    };
+  }
+
+  async function createFromDesignDirector() {
+    const input = designDirectorInput();
+    if (!input) return;
+    setGeneratorState("working");
+    setGeneratorError("");
+    setDirectorOutput(null);
+    try {
+      const output = await createDesignDirectorDraft(input);
+      setDirectorOutput(output);
+      if (output.status === "rejected") {
+        setGeneratorState("error");
+        setGeneratorError(output.diagnostics.map((diagnostic) => `${diagnostic.code}: ${diagnostic.message}`).join("；"));
+        return;
+      }
+      if (hasUnsavedChanges) {
+        const conflict = regenerationConflicts(document, output.importResult.document);
+        setRegenerationPreview({ document: output.importResult.document, changedElementIds: conflict.changedElementIds });
+      } else {
+        openDocument(output.importResult.document);
+        await Promise.all([refreshProjects(), refreshRevisions(output.importResult.document.documentId)]);
+      }
+      setGeneratorState("idle");
+    } catch (error) {
+      setGeneratorError(error instanceof Error ? error.message : "Design Director Skill 生成失败");
+      setGeneratorState("error");
+    }
+  }
+
   function acceptRegeneration() {
     if (!regenerationPreview) return;
     openDocument(regenerationPreview.document);
@@ -700,7 +768,9 @@ export function App() {
             <textarea value={brief} onChange={(event) => setBrief(event.target.value)} aria-label="项目 Brief" />
             <div className="source-meta"><span><Icon name="file" size={13} /> Brief · {[...brief].length} 字</span><Badge tone={brief.trim().length >= 12 ? "success" : "neutral"}>{brief.trim().length >= 12 ? "可生成" : "继续输入"}</Badge></div>
             <Button size="sm" tone="primary" onClick={createFromBrief} disabled={generatorState === "working" || brief.trim().length < 12}><Icon name="spark" size={13} />{generatorState === "working" ? "正在生成故事线" : "生成新项目"}</Button>
+            <Button size="sm" tone="outline" onClick={createFromDesignDirector} disabled={generatorState === "working" || brief.trim().length < 12 || !selectedPack}><Icon name="layers" size={13} />Design Director Skill 初稿</Button>
             {generatorState === "error" && <small className="generator-error">{generatorError}</small>}
+            {directorOutput?.status === "accepted" && <div className="director-result" role="status"><strong>Skill draft 已通过安全导入</strong><small>{directorOutput.manifest.designPack.id}@{directorOutput.manifest.designPack.version} · {directorOutput.manifest.sceneIds.length} 页 · {directorOutput.manifest.sourceCoverage.usedSourceIds.length}/{directorOutput.manifest.sourceCoverage.declaredSourceIds.length} 来源</small><p>{directorOutput.manifest.diagnosis.evidenceBoundary}</p></div>}
           </section>
 
           <section className="panel-section storyline-section">
