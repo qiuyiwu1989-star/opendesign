@@ -19,11 +19,20 @@ class StudioReleaseContractTest(unittest.TestCase):
         self.assertIn("NoNewPrivileges=true", service)
         self.assertIn("ProtectSystem=strict", service)
 
-    def test_nginx_requires_admin_session_before_studio_api(self):
+    def test_public_preview_keeps_studio_api_bounded(self):
         nginx = (ROOT / "deploy/nginx-studio.conf.example").read_text(encoding="utf-8")
-        self.assertIn("auth_request /studio-auth-check", nginx)
-        self.assertIn("/admin-api/v1/operations", nginx)
-        self.assertNotIn("/admin-api/v1/session", nginx)
+        rate_limit = (
+            ROOT / "deploy/nginx-studio-rate-limit.conf.example"
+        ).read_text(encoding="utf-8")
+        self.assertNotIn("auth_request", nginx)
+        self.assertNotIn("/admin-api/", nginx)
+        self.assertIn("limit_req zone=opendesign_studio_public", nginx)
+        self.assertIn("limit_req_status 429", nginx)
+        self.assertIn("client_max_body_size 6m", nginx)
+        self.assertIn(
+            "limit_req_zone $binary_remote_addr zone=opendesign_studio_public:10m rate=30r/m",
+            rate_limit,
+        )
         self.assertIn("proxy_pass http://127.0.0.1:8794", nginx)
         self.assertNotIn("Access-Control-Allow-Origin", nginx)
 
