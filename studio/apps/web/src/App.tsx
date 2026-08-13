@@ -55,6 +55,7 @@ const fontOptions = [
 ] as const;
 
 type InspectorTab = "edit" | "qa" | "history" | "export";
+type ResultView = "files" | "images" | "outline" | "slides";
 type ExportKind = "html" | "png" | "pptx";
 type ExportState = "idle" | "working" | "ready" | "error";
 type SyncState = "local" | "saving" | "saved" | "error";
@@ -78,6 +79,7 @@ type BenchmarkBaseline = {
 
 const goldenTask = goldenTaskFixture as GoldenTaskFixture;
 const qualityBaseline = benchmarkBaseline as BenchmarkBaseline;
+const goldenDirections = Array.isArray(goldenTask.directions) ? goldenTask.directions : [];
 
 const processSteps = [
   ["sources", "01", "Sources"],
@@ -258,6 +260,8 @@ export function App() {
   const [selectedSceneId, setSelectedSceneId] = useState(initialDocument.scenes[0]?.id ?? "");
   const [selectedElementId, setSelectedElementId] = useState<string | null>(null);
   const [inspectorTab, setInspectorTab] = useState<InspectorTab>("edit");
+  const [inspectorOpen, setInspectorOpen] = useState(false);
+  const [resultView, setResultView] = useState<ResultView>("slides");
   const [brief, setBrief] = useState("把文章或提案转化成一套能继续编辑、持续迭代的视觉叙事。核心受众是需要快速交付提案的独立创作者与小团队。");
   const [patches, setPatches] = useState<ScenePatch[]>([]);
   const [documentDirty, setDocumentDirty] = useState(false);
@@ -283,7 +287,7 @@ export function App() {
   const [regenerationPreview, setRegenerationPreview] = useState<{ document: SceneDocument; changedElementIds: string[] } | null>(null);
   const [fixPreviewIssueId, setFixPreviewIssueId] = useState<string | null>(null);
   const [workflowStep, setWorkflowStep] = useState<WorkflowStep>("studio");
-  const initialPack = goldenTask.directions.find((item) => item.id === goldenTask.selectedDirectionId)?.pack;
+  const initialPack = goldenDirections.find((item) => item.id === goldenTask.selectedDirectionId)?.pack;
   const [selectedPackId, setSelectedPackId] = useState(initialPack?.id ?? designPacks[0]?.id ?? "");
   const [annotationCopyState, setAnnotationCopyState] = useState<"idle" | "copied" | "manual">("idle");
   const [htmlInput, setHtmlInput] = useState("");
@@ -434,6 +438,7 @@ export function App() {
 
   function selectElement(element: SceneElement, edit = false) {
     setSelectedElementId(element.id);
+    setInspectorOpen(true);
     if (edit && element.editable) setInspectorTab("edit");
   }
 
@@ -808,20 +813,55 @@ export function App() {
         <div className="topbar__actions">
           <span className={`sync-state ${hasUnsavedChanges || syncState === "error" ? "is-dirty" : ""}`}><i />{syncState === "saving" ? "正在保存" : syncState === "error" ? "本地 API 不可用" : localDraftOperations > 0 ? `${localDraftOperations} 项页面草稿 · 待快照保存` : unsavedCount > 0 ? `${unsavedCount} 个 IR patch` : documentDirty ? "有未保存的设计变更" : syncState === "saved" ? "已持久化到本地" : "本地修订"}</span>
           <Button size="sm" tone="outline" onClick={saveRevision} disabled={!hasUnsavedChanges || syncState === "saving"}>保存修订</Button>
-          <Button size="sm" tone="primary" onClick={() => setInspectorTab("export")}><Icon name="play" size={13} /> 导出作品</Button>
+          <Button size="sm" tone="primary" onClick={() => { setInspectorTab("export"); setInspectorOpen(true); }}><Icon name="play" size={13} /> 导出作品</Button>
           <Button size="sm" aria-label="更多操作" disabled title="首版暂不提供更多操作"><Icon name="more" size={17} /></Button>
         </div>
       </header>
 
-      <nav className="process-rail" aria-label="Studio 工作流">
-        {processSteps.map(([id, number, label], index) => {
-          const activeIndex = processSteps.findIndex(([stepId]) => stepId === workflowStep);
-          return <button type="button" key={id} className={id === workflowStep ? "is-active" : index < activeIndex ? "is-done" : ""} aria-current={id === workflowStep ? "step" : undefined} onClick={() => setWorkflowStep(id)}><span>{index < activeIndex ? <Icon name="check" size={11} /> : number}</span><strong>{label}</strong><i /></button>;
-        })}
-      </nav>
-
       <div className="workspace">
+        <aside className="project-sidebar" aria-label="项目导航">
+          <div className="project-sidebar__primary">
+            <Button tone="primary" onClick={() => { setBrief(""); setWorkflowStep("sources"); }}><Icon name="plus" size={14} /> 新建设计</Button>
+            <button type="button" className="project-nav-item is-active"><Icon name="layers" size={15} /><span>我的作品</span><small>{projects.length || 1}</small></button>
+            <button type="button" className="project-nav-item" onClick={() => setResultView("files")}><Icon name="file" size={15} /><span>设计素材</span></button>
+          </div>
+          <div className="project-sidebar__recent">
+            <span className="project-sidebar__label">最近作品</span>
+            <button type="button" className={projects.length === 0 ? "is-active" : ""} onClick={() => openDocument(initialDocument)}><span><i />{document.title}</span><small>{document.scenes.length} 页</small></button>
+            {projects.map((project) => <button type="button" key={project.projectId} className={project.projectId === document.documentId ? "is-active" : ""} onClick={() => switchProject(project.projectId)}><span><i />{project.title}</span><small>{project.sceneCount} 页</small></button>)}
+          </div>
+          <div className="project-sidebar__footer">
+            <button type="button" onClick={() => setWorkflowStep("direction")}><Icon name="spark" size={14} /> Design Packs</button>
+            <button type="button" onClick={() => { setInspectorTab("history"); setInspectorOpen(true); }}><Icon name="layers" size={14} /> 版本记录</button>
+            <p>公开预览 · 请勿上传机密材料</p>
+          </div>
+        </aside>
+
         <aside className={`narrative-panel narrative-panel--${workflowStep}`}>
+          <div className="conversation-header">
+            <span><i className="director-avatar">OD</i><span><strong>设计总监</strong><small>正在协作 · {selectedPack?.name ?? "默认方向"}</small></span></span>
+            <Button size="sm" tone="quiet" aria-label="复制当前项目" onClick={copyCurrentProject}><Icon name="more" size={16} /></Button>
+          </div>
+          <div className="conversation-stream" aria-label="设计总监对话">
+            <article className="chat-message chat-message--assistant">
+              <span className="director-avatar">OD</span>
+              <div><strong>先把目标说清楚，再开始设计。</strong><p>告诉我这份作品给谁看、希望对方做什么决定。你也可以上传文章、提案或图片。</p></div>
+            </article>
+            <article className="chat-message chat-message--user"><p>{brief}</p></article>
+            <article className="chat-message chat-message--assistant">
+              <span className="director-avatar">OD</span>
+              <div><strong>我会按“诊断 → 故事线 → 设计方向 → 可编辑成品”推进。</strong><p>当前建议使用 {selectedPack?.name ?? "商业提案"}，生成后你可以直接改文字、字体、图片和版式。</p></div>
+            </article>
+            {directorOutput?.status === "accepted" && <article className="chat-message chat-message--assistant chat-message--success"><span className="director-avatar">OD</span><div><strong>初稿已经通过结构与安全检查</strong><p>{directorOutput.manifest.sceneIds.length} 页 · {directorOutput.manifest.sourceCoverage.usedSourceIds.length}/{directorOutput.manifest.sourceCoverage.declaredSourceIds.length} 个来源已使用。右侧可以继续人工修改。</p></div></article>}
+          </div>
+
+          <nav className="process-rail" aria-label="Studio 工作流">
+            {processSteps.map(([id, number, label], index) => {
+              const activeIndex = processSteps.findIndex(([stepId]) => stepId === workflowStep);
+              return <button type="button" key={id} className={id === workflowStep ? "is-active" : index < activeIndex ? "is-done" : ""} aria-current={id === workflowStep ? "step" : undefined} onClick={() => setWorkflowStep(id)}><span>{index < activeIndex ? <Icon name="check" size={11} /> : number}</span><strong>{label}</strong></button>;
+            })}
+          </nav>
+
           <section className="panel-section workflow-section" aria-label="Golden Task 工作流">
             {workflowStep === "sources" && <>
               <div className="section-heading"><div><Kicker>Grounded input</Kicker><h2>来源与证据边界</h2></div><Badge tone="success">3 snapshots</Badge></div>
@@ -842,7 +882,7 @@ export function App() {
             {workflowStep === "direction" && <>
               <div className="section-heading"><div><Kicker>Design packs</Kicker><h2>选择设计判断系统</h2></div><Badge tone="accent">3 packs</Badge></div>
               <div className="pack-list">{designPacks.map((pack) => {
-                const directionChoice = goldenTask.directions.find((item) => item.pack.id === pack.id);
+                const directionChoice = goldenDirections.find((item) => item.pack.id === pack.id);
                 return <button type="button" key={pack.id} className={pack.id === selectedPackId ? "is-active" : ""} aria-label={`${pack.name} · ${pack.id}@${pack.version}`} aria-pressed={pack.id === selectedPackId} onClick={() => selectDesignPack(pack.id)}><span className="pack-swatch" style={{ background: pack.tokens.background, color: pack.tokens.accent }}>Aa</span><span><strong>{pack.name}</strong><small>{pack.id}@{pack.version}</small><em>{directionChoice?.selectionRationale}</em></span>{pack.id === selectedPackId && <Icon name="check" size={13} />}</button>;
               })}</div>
             </>}
@@ -854,12 +894,11 @@ export function App() {
           </section>
 
           <section className="panel-section brief-section">
-            <div className="section-heading"><Kicker>Project input</Kicker><Button size="sm" aria-label="编辑项目输入"><Icon name="edit" size={13} /></Button></div>
-            <textarea value={brief} onChange={(event) => setBrief(event.target.value)} aria-label="项目 Brief" />
+            <label className="composer-label" htmlFor="studio-brief">给设计总监新的指令</label>
+            <textarea id="studio-brief" value={brief} onChange={(event) => setBrief(event.target.value)} aria-label="项目 Brief" placeholder="描述你想制作的提案、演讲或文章配图…" />
             <div className="source-meta"><span><Icon name="file" size={13} /> Brief · {[...brief].length} 字</span><Badge tone={brief.trim().length >= 12 ? "success" : "neutral"}>{brief.trim().length >= 12 ? "可生成" : "继续输入"}</Badge></div>
-            <Button size="sm" tone="primary" onClick={createFromBrief} disabled={generatorState === "working" || brief.trim().length < 12}><Icon name="spark" size={13} />{generatorState === "working" ? "正在生成故事线" : "生成新项目"}</Button>
-            <Button size="sm" tone="outline" onClick={createFromDesignDirector} disabled={generatorState === "working" || brief.trim().length < 12 || !selectedPack}><Icon name="layers" size={13} />Design Director Skill 初稿</Button>
-            <Button size="sm" tone="outline" onClick={createFromFixtureModel} disabled={generatorState === "working" || brief.trim().length < 12 || !selectedPack}><Icon name="spark" size={13} />安全模型生成（Fixture）</Button>
+            <div className="composer-actions"><Button size="sm" tone="outline" onClick={() => setWorkflowStep("sources")}><Icon name="file" size={13} /> 添加素材</Button><Button size="sm" tone="primary" onClick={createFromBrief} disabled={generatorState === "working" || brief.trim().length < 12}><Icon name="spark" size={13} />{generatorState === "working" ? "正在生成" : "生成新项目"}</Button></div>
+            <details className="advanced-generation"><summary>更多生成方式</summary><Button size="sm" tone="outline" onClick={createFromDesignDirector} disabled={generatorState === "working" || brief.trim().length < 12 || !selectedPack}><Icon name="layers" size={13} />Design Director Skill 初稿</Button><Button size="sm" tone="outline" onClick={createFromFixtureModel} disabled={generatorState === "working" || brief.trim().length < 12 || !selectedPack}><Icon name="spark" size={13} />安全模型生成（Fixture）</Button></details>
             {generatorState === "error" && <small className="generator-error">{generatorError}</small>}
             {directorOutput?.status === "accepted" && <div className="director-result" role="status"><strong>Skill draft 已通过安全导入</strong><small>{directorOutput.manifest.designPack.id}@{directorOutput.manifest.designPack.version} · {directorOutput.manifest.sceneIds.length} 页 · {directorOutput.manifest.sourceCoverage.usedSourceIds.length}/{directorOutput.manifest.sourceCoverage.declaredSourceIds.length} 来源</small><p>{directorOutput.manifest.diagnosis.evidenceBoundary}</p></div>}
             {modelProvider && <div className="director-result" role="status"><strong>Provider 证据</strong><small>{modelProvider.id} / {modelProvider.model}</small><p>当前为确定性离线 Provider；真实模型未配置时不会伪装联网成功。</p></div>}
@@ -892,6 +931,14 @@ export function App() {
         </aside>
 
         <section className="stage" aria-label="设计画布">
+          <div className="result-tabs" role="tablist" aria-label="作品视图">
+            {([['files', '文件', 'file'], ['images', '图片', 'image'], ['outline', '大纲', 'layers'], ['slides', '页面', 'play']] as const).map(([id, label, icon]) => <button key={id} type="button" role="tab" aria-selected={resultView === id} className={resultView === id ? "is-active" : ""} onClick={() => setResultView(id)}><Icon name={icon} size={14} />{label}</button>)}
+            <span className="result-tabs__count">{document.scenes.length} 页</span>
+            <button type="button" className="result-tabs__tool" aria-label="打开编辑面板" onClick={() => { setInspectorTab("edit"); setInspectorOpen(true); }}><Icon name="edit" size={15} /></button>
+            <button type="button" className="result-tabs__tool" aria-label="打开质量检查" onClick={() => { setInspectorTab("qa"); setInspectorOpen(true); }}><Icon name="check" size={15} /></button>
+          </div>
+
+          {resultView === "slides" && <>
           <div className="stage-toolbar">
             <div className="stage-toolbar__scene"><Kicker>Page {String(scene.order).padStart(2, "0")}</Kicker><strong>{scene.title}</strong><Badge>{scene.layout}</Badge></div>
             <div className="stage-toolbar__tools">
@@ -914,11 +961,17 @@ export function App() {
             {document.scenes.map((item) => <SceneThumbnail key={item.id} scene={item} direction={direction} active={item.id === scene.id} issueCount={openIssues.filter((issue) => issue.sceneId === item.id).length} onSelect={() => selectScene(item.id)} />)}
             <button className="filmstrip__add" type="button" onClick={duplicateCurrentScene}><Icon name="plus" size={14} />复制当前页</button>
           </div>
+          </>}
+
+          {resultView === "outline" && <div className="result-view result-view--outline"><header><Kicker>Story structure</Kicker><h2>先看叙事，再看页面</h2><p>每一页都承担一个明确的沟通任务，并保留来源关系。</p></header><ol>{document.scenes.map((item) => <li key={item.id}><button type="button" onClick={() => { selectScene(item.id); setResultView("slides"); }}><span>{String(item.order).padStart(2, "0")}</span><span><strong>{item.title}</strong><small>{item.purpose}</small></span><Icon name="arrow" size={14} /></button></li>)}</ol></div>}
+          {resultView === "files" && <div className="result-view result-view--files"><header><Kicker>Grounded sources</Kicker><h2>作品使用的材料</h2><p>来源只用于当前设计任务，生成结果会保留可追踪关系。</p></header><div>{goldenTask.sources.map((source) => <article key={source.sourceId}><span className="file-mark"><Icon name="file" size={18} /></span><span><strong>{source.title}</strong><small>{source.type} · {source.status}</small></span><Badge tone="success">已读取</Badge></article>)}</div><Button tone="outline" onClick={() => setWorkflowStep("sources")}><Icon name="plus" size={14} /> 添加文件或 HTML</Button></div>}
+          {resultView === "images" && <div className="result-view result-view--images"><header><Kicker>Visual assets</Kicker><h2>图片与视觉素材</h2><p>插入的图片会进入 HTML、PNG 和可编辑 PPTX。</p></header><div className="asset-grid">{document.scenes.flatMap((item) => item.elements.filter((element) => element.type === "image").map((element) => <button type="button" key={element.id} onClick={() => { selectScene(item.id); selectElement(element); setResultView("slides"); }}>{element.assetSrc ? <img src={element.assetSrc} alt={element.alt ?? ""} /> : <span><Icon name="image" size={22} /></span>}<small>{element.alt || item.title}</small></button>))}<button type="button" className="asset-grid__add" onClick={() => imageInputRef.current?.click()}><Icon name="plus" size={20} /><small>插入图片</small></button></div></div>}
         </section>
 
-        <aside className="inspector-panel">
+        <aside className={`inspector-panel ${inspectorOpen ? "is-open" : ""}`} aria-label="作品检查器">
           <div className="inspector-tabs">
-            <Tabs value={inspectorTab} onChange={setInspectorTab} label="检查器" items={[{ value: "edit", label: "编辑" }, { value: "qa", label: "QA", count: openIssues.length }, { value: "history", label: "版本", count: revisions.length }, { value: "export", label: "导出" }]} />
+            <Tabs value={inspectorTab} onChange={(value) => { setInspectorTab(value); setInspectorOpen(true); }} label="检查器" items={[{ value: "edit", label: "编辑" }, { value: "qa", label: "QA", count: openIssues.length }, { value: "history", label: "版本", count: revisions.length }, { value: "export", label: "导出" }]} />
+            <button type="button" className="inspector-close" aria-label="关闭检查器" onClick={() => setInspectorOpen(false)}>×</button>
           </div>
 
           {inspectorTab === "edit" && (

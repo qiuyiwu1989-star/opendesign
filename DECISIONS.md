@@ -1,5 +1,6 @@
 # Decisions
 
+- 2026-08-14: Studio v0.6 采用 conversation-first 三栏工作台：左侧项目与历史，中间 Design Director 对话/素材/生成，右侧文件、图片、大纲与页面结果；编辑、QA、版本和导出改为按需抽屉。理由：普通创作者的首要任务是描述目标并看到成果，Scene IR、Pack、Benchmark 等工程证据仍保留但不应成为首屏认知负担。备选：延续流程轨道+常驻双侧检查器（功能完整但学习成本高）；照搬 Tosea 视觉（缺少 OpenDesign 的质量与可编辑差异化）。Confidence: high.
 - 2026-08-14: `/studio/` 进入无需 Admin 登录的公开预览期；`/api/` 同步开放，但继续由 loopback Studio 服务承载，并在 Nginx 施加每 IP 30 次/分钟、burst 20、请求体 6 MiB 的边界。Admin API 认证保持不变。理由：先降低体验门槛，验证从输入到 HTML/PNG/PPTX 的创作旅程。当前项目存储仍是服务器共享目录，因此不得处理机密材料；匿名会话隔离、数据过期和配额是公开测试转正式产品前的 P0 门禁。备选：继续复用 Admin 登录（阻碍普通用户试用）；直接开放且不设流量边界（滥用风险过高）。Confidence: high.
 - 2026-08-13: Studio Candidate 与 Design Quality Benchmark 共用 QA 发布口径：blocker 或 error 均禁止形成候选，warning 保留并允许人工知情确认。理由：当前确定性 QA 的布局碰撞和越界属于 error；若只阻止 blocker，会出现 Benchmark 判失败但候选仍获批的矛盾。备选：仅阻止 blocker（当前规则下几乎失去质量门禁作用）。Confidence: high.
 - 2026-08-13: Studio 下一阶段采用 provider-neutral Model Adapter → 人工审核 Candidate Ledger → Design Quality Benchmark 三层闭环；候选与发布继续分离。理由：模型生成、人工确认和生产发布具有不同证据与风险边界，必须独立验收和回滚。备选：模型生成后直接发布（会静默覆盖编辑且扩大生产风险）；只做供应商 SDK 接入（形成锁定且无法离线复现）。Confidence: high.

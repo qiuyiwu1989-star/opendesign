@@ -140,7 +140,7 @@ describe("OpenDesign Studio workspace", () => {
     fireEvent.click(screen.getByRole("button", { name: "加载 Golden HTML" }));
     expect(screen.getByLabelText<HTMLTextAreaElement>("Structured HTML 源码").value).toContain("data-od-contract-version");
     fireEvent.click(screen.getByRole("button", { name: "安全导入 Scene IR" }));
-    expect(await screen.findByText("安全导入作品")).toBeInTheDocument();
+    expect((await screen.findAllByText("安全导入作品")).length).toBeGreaterThan(0);
     expect(fetch).toHaveBeenCalledWith("/api/imports/html", expect.objectContaining({ method: "POST" }));
   });
 
@@ -291,5 +291,25 @@ describe("OpenDesign Studio workspace", () => {
     expect(screen.getAllByText("保留我的人工判断").length).toBeGreaterThan(0);
     fireEvent.click(screen.getByRole("button", { name: "保留当前草稿" }));
     expect(screen.queryByRole("alertdialog", { name: "AI 重新生成冲突预览" })).not.toBeInTheDocument();
+  });
+
+  it("presents a conversation-first project, director and result workspace", () => {
+    render(<App />);
+    expect(screen.getByLabelText("项目导航")).toBeInTheDocument();
+    expect(screen.getByLabelText("设计总监对话")).toBeInTheDocument();
+    expect(screen.getByRole("tab", { name: "页面" })).toHaveAttribute("aria-selected", "true");
+    expect(screen.getByRole("button", { name: "打开编辑面板" })).toBeInTheDocument();
+  });
+
+  it("switches result views and opens the inspector only on demand", () => {
+    render(<App />);
+    const inspector = screen.getByLabelText("作品检查器");
+    expect(inspector).not.toHaveClass("is-open");
+    fireEvent.click(screen.getByRole("tab", { name: "大纲" }));
+    expect(screen.getByText("先看叙事，再看页面")).toBeInTheDocument();
+    fireEvent.click(screen.getByRole("button", { name: "打开质量检查" }));
+    expect(inspector).toHaveClass("is-open");
+    fireEvent.click(screen.getByRole("button", { name: "关闭检查器" }));
+    expect(inspector).not.toHaveClass("is-open");
   });
 });

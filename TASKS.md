@@ -14,6 +14,7 @@
 - [ ] 定义人工确认后的发布候选变更集，继续保持 preview-first
 
 ## Done（倒序，保留最近 20 条，附 commit hash）
+- [x] Studio v0.6：项目—设计总监对话—实时作品三栏工作台、结果视图与按需检查器（待本次提交）
 - [x] Studio 公开预览：移除 Admin 登录门禁，保留独立 API 限流、6 MiB 上限与可回滚配置（待本次提交）
 - [x] Studio 0.5：Model Adapter、人工审核 Candidate Ledger、Design Quality Benchmark 与工作台闭环（待本次提交）
 - [x] Studio 初版隔离部署至 `/studio/`，复用 Admin 会话门禁并完成回滚路径（7ef53c7, c607725）

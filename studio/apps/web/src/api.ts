@@ -54,7 +54,11 @@ async function apiRequest<T>(path: string, init?: RequestInit): Promise<T> {
 
 export async function loadProject(projectId: string): Promise<SceneDocument | null> {
   try {
-    return await apiRequest<SceneDocument>(`/api/projects/${projectId}`);
+    const document = await apiRequest<SceneDocument>(`/api/projects/${projectId}`);
+    if (!document || document.documentId !== projectId || !Array.isArray(document.scenes) || !Array.isArray(document.directions)) {
+      throw new Error("Studio API returned an invalid project document");
+    }
+    return document;
   } catch (error) {
     if (error instanceof Error && error.message === "Project not found") return null;
     throw error;
@@ -62,7 +66,9 @@ export async function loadProject(projectId: string): Promise<SceneDocument | nu
 }
 
 export async function listProjects(): Promise<ProjectSummary[]> {
-  return (await apiRequest<{ projects: ProjectSummary[] }>("/api/projects")).projects;
+  const payload = await apiRequest<{ projects?: ProjectSummary[] }>("/api/projects");
+  if (!Array.isArray(payload.projects)) throw new Error("Studio API returned an invalid project list");
+  return payload.projects;
 }
 
 export async function generateProject(brief: string, title?: string, designPack?: DesignPackPin): Promise<GeneratedProject> {
