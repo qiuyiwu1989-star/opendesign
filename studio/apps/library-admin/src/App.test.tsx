@@ -53,10 +53,14 @@ describe("OpenDesign Control Room Phase 1", () => {
     const journal = screen.getByRole("list", { name: "每日 AI 决策记录" });
     expect(within(journal).getByRole("listitem")).toHaveTextContent("建议拒绝");
     expect(screen.getByText("opendesign-curation-v1.1")).toBeInTheDocument();
-    expect(screen.getByText("opendesign-curation-v1.0")).toBeInTheDocument();
+    expect(screen.getAllByText("opendesign-curation-v1.0")).toHaveLength(2);
     expect(screen.getByText("mimo-v2.5")).toBeInTheDocument();
     expect(screen.getByText("垃圾风险")).toBeInTheDocument();
     expect(screen.getByText("广告风险")).toBeInTheDocument();
+    expect(screen.getByText("AI 判断五位")).toBeInTheDocument();
+    expect(screen.getByText("mimo-v2.5 · Agent")).toBeInTheDocument();
+    expect(screen.getByText("candidate-ad")).toBeInTheDocument();
+    expect(screen.getByText("daily-ai-curator")).toBeInTheDocument();
     expect(screen.getByRole("button", { name: "预览确认" })).toBeInTheDocument();
   });
 
@@ -107,6 +111,10 @@ describe("OpenDesign Control Room Phase 1", () => {
       recommendation: "reject",
       reviewedAt: "2026-08-13T09:00:00.000Z",
       reviewedBy: "admin",
+      reviewEventId: "review-event-ad",
+      subjectId: "candidate-ad",
+      reason: "核对页面和联盟跳转后，确认拒绝。",
+      provenance: { source: "admin-api", requestId: "request-ad", aiDecisionId: "decision-ad", policyVersion: "opendesign-curation-v1.0", model: "mimo-v2.5" },
     }), { status: 200 }));
     vi.stubGlobal("fetch", fetcher);
     render(<App initialSnapshot={controlRoomSnapshot} initialSession={{ kind: "authenticated", actor: { actorId: "operator-1", login: "admin" }, expiresAt: "2026-08-14T00:00:00.000Z" }}/>);
@@ -122,6 +130,11 @@ describe("OpenDesign Control Room Phase 1", () => {
     expect(screen.getByText(/admin 已确认此判断/)).toBeInTheDocument();
     expect(screen.getByText("AI 原建议").parentElement).toHaveTextContent("建议拒绝");
     expect(screen.getByText("人工最终结论").parentElement).toHaveTextContent("建议拒绝");
+    const humanJudgment = screen.getByLabelText("人工判断五位");
+    expect(humanJudgment).toHaveTextContent("admin · User");
+    expect(humanJudgment).toHaveTextContent("candidate-ad");
+    expect(humanJudgment).toHaveTextContent("request-ad");
+    expect(humanJudgment).toHaveTextContent("supersedesdecision-ad");
     expect(fetcher).toHaveBeenCalledWith("/admin-api/v1/decisions/review", expect.objectContaining({ credentials: "same-origin" }));
   });
 
@@ -132,6 +145,10 @@ describe("OpenDesign Control Room Phase 1", () => {
       recommendation: "approve",
       reviewedAt: "2026-08-13T09:05:00.000Z",
       reviewedBy: "admin",
+      reviewEventId: "review-event-ad",
+      subjectId: "candidate-ad",
+      reason: "已核对原创设计证据，覆盖为收录。",
+      provenance: { source: "admin-api", requestId: "request-ad", aiDecisionId: "decision-ad", policyVersion: "opendesign-curation-v1.0", model: "mimo-v2.5" },
     }), { status: 200 })));
     render(<App initialSnapshot={controlRoomSnapshot} initialSession={{ kind: "authenticated", actor: { actorId: "operator-1", login: "admin" }, expiresAt: "2026-08-14T00:00:00.000Z" }}/>);
     navigate("质量决策");

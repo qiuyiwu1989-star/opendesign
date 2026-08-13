@@ -7,6 +7,16 @@ const reviewed = {
   recommendation: "reject",
   reviewedAt: "2026-08-13T09:00:00.000Z",
   reviewedBy: "admin",
+  reviewEventId: "review-event-ad",
+  subjectId: "candidate-ad",
+  reason: "广告证据成立",
+  provenance: {
+    source: "admin-api",
+    requestId: "request-ad",
+    aiDecisionId: "decision-ad",
+    policyVersion: "opendesign-curation-v1.0",
+    model: "mimo-v2.5",
+  },
 };
 
 describe("decision review provider", () => {
@@ -54,6 +64,20 @@ describe("decision review provider", () => {
     await expect(submitDecisionReview({ decisionId: "decision-ad", action: "confirm", reason: "确认" }, wrongDecision))
       .resolves.toMatchObject({ ok: false, reason: "invalid_response" });
     await expect(submitDecisionReview({ decisionId: "decision-ad", action: "confirm", reason: "确认" }, wrongTransition))
+      .resolves.toMatchObject({ ok: false, reason: "invalid_response" });
+  });
+
+  it("rejects provenance that does not bind the event to this decision and request", async () => {
+    const wrongSource = vi.fn(async () => new Response(JSON.stringify({
+      ...reviewed, provenance: { ...reviewed.provenance, source: "browser" },
+    }), { status: 200 }));
+    const wrongDecision = vi.fn(async () => new Response(JSON.stringify({
+      ...reviewed, provenance: { ...reviewed.provenance, aiDecisionId: "decision-other" },
+    }), { status: 200 }));
+
+    await expect(submitDecisionReview({ decisionId: "decision-ad", action: "confirm", reason: "确认" }, wrongSource))
+      .resolves.toMatchObject({ ok: false, reason: "invalid_response" });
+    await expect(submitDecisionReview({ decisionId: "decision-ad", action: "confirm", reason: "确认" }, wrongDecision))
       .resolves.toMatchObject({ ok: false, reason: "invalid_response" });
   });
 });

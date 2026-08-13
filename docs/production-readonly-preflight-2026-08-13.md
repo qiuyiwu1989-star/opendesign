@@ -51,7 +51,7 @@ one named, checksummed API/Web release after its database capability is proven.
 These are unknown, not assumed healthy or failed:
 
 - actual PostgreSQL server version (the reviewed target is 18.4.x);
-- migrations and objects through `0011_curation_decisions.sql`;
+- migrations and objects through `0012_curation_review_events.sql`;
 - isolated read, audit, and review LOGIN memberships;
 - presence of `ADMIN_REVIEW_DATABASE_URL` without exposing its value;
 - active Admin API release pointer, port and systemd unit;
@@ -79,7 +79,7 @@ server operator return its redacted PASS/FAIL output.
    timer cannot prove a safe renewal before 2026-08-25.
 2. **P0 — internal state evidence.** Collect the server-local preflight result;
    do not migrate or activate while database/service state is unknown.
-3. **P0 — version consistency.** Apply the reviewed 0011/review capability and
+3. **P0 — version consistency.** Apply the reviewed 0011–0012 judgment capability and
    activate the matching API and Web artifacts as separately authorized steps.
 4. **P1 — nginx contract.** Activate the exact human-review route, strict Admin
    CSP/frame/cache headers, and the `/admin/pack-manifest.json` contract.
@@ -91,7 +91,7 @@ server operator return its redacted PASS/FAIL output.
 RC2 is eligible for explicit deployment approvals only when:
 
 - the server-local preflight exits `0` without exposing secrets;
-- the PostgreSQL version and 0011 objects are verified on production;
+- the PostgreSQL version and 0011–0012 objects are verified on production;
 - read/audit/review capabilities are mutually exclusive;
 - a clean commit produces matching checksummed API and Web archives;
 - nginx configuration validates before reload;

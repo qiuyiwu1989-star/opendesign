@@ -85,6 +85,21 @@ export const syntheticDecisionFixture: CurationDecision[] = [{
   model: "mimo-v2.5",
   decidedAt: "2026-08-12T00:15:00.000Z",
   reviewStatus: "pending",
+  aiJudgment: {
+    id: "decision:fixture-ad",
+    holderType: "agent",
+    holderId: "mimo-v2.5",
+    subjectId: "fixture-ad",
+    statement: "reject",
+    asOf: "2026-08-12T00:15:00.000Z",
+    reason: "页面以联盟跳转和付费推广为主，缺少可复用的原创设计证据。",
+    provenance: {
+      source: "daily-ai-curator",
+      aiDecisionId: "decision:fixture-ad",
+      policyVersion: "opendesign-curation-v1.0",
+      model: "mimo-v2.5",
+    },
+  },
   signals: [
     { id: "design-value", label: "设计价值", state: "warn", score: 42, evidence: ["视觉证据不足"] },
     { id: "originality", label: "原创性", state: "fail", score: 18, evidence: ["聚合内容重复"] },

@@ -86,6 +86,33 @@ function parseDecisionSignal(value: unknown): DecisionSignal | undefined {
   return { id: id as DecisionSignal["id"], label, state: state as DecisionSignal["state"], score, evidence: strings(value.evidence) };
 }
 
+function parseJudgment(value: unknown, path: string): RawCurationDecision["aiJudgment"] {
+  if (!isRecord(value)) throw new OperationsValidationError([`${path} must be an object`]);
+  const id = string(value.id); const holderType = value.holderType ?? value.holder_type;
+  const holderId = string(pick(value, "holderId", "holder_id"));
+  const subjectId = string(pick(value, "subjectId", "subject_id"));
+  const statement = value.statement; const asOf = string(pick(value, "asOf", "as_of"));
+  const recordedAt = string(pick(value, "recordedAt", "recorded_at"));
+  const supersedesDecisionId = string(pick(value, "supersedesDecisionId", "supersedes_decision_id"));
+  const reason = string(value.reason); const provenanceValue = value.provenance;
+  if (!id || (holderType !== "agent" && holderType !== "user") || !holderId || !subjectId
+    || !["approve", "review", "reject"].includes(String(statement)) || !asOf || !reason
+    || !isRecord(provenanceValue) || !string(provenanceValue.source)) {
+    throw new OperationsValidationError([`${path} has invalid judgment fields`]);
+  }
+  const requestId = string(pick(provenanceValue, "requestId", "request_id"));
+  const aiDecisionId = string(pick(provenanceValue, "aiDecisionId", "ai_decision_id"));
+  const policyVersion = string(pick(provenanceValue, "policyVersion", "policy_version"));
+  const model = string(provenanceValue.model);
+  return {
+    id, holderType, holderId, subjectId,
+    statement: statement as RawCurationDecision["recommendation"], asOf,
+    ...(recordedAt ? { recordedAt } : {}), reason,
+    provenance: { source: string(provenanceValue.source)!, ...(requestId ? { requestId } : {}), ...(aiDecisionId ? { aiDecisionId } : {}), ...(policyVersion ? { policyVersion } : {}), ...(model ? { model } : {}) },
+    ...(supersedesDecisionId ? { supersedesDecisionId } : {}),
+  };
+}
+
 function parseDecision(value: unknown, path: string): RawCurationDecision {
   const row = base(value, path);
   const discoveryId = string(pick(row, "discoveryId", "discovery_id"));
@@ -100,10 +127,14 @@ function parseDecision(value: unknown, path: string): RawCurationDecision {
   const finalRecommendation = pick(row, "finalRecommendation", "final_recommendation")
     ?? pick(row, "reviewedRecommendation", "reviewed_recommendation");
   const reviewStatus = pick(row, "reviewStatus", "review_status");
+  const aiJudgment = parseJudgment(pick(row, "aiJudgment", "ai_judgment"), `${path}.aiJudgment`);
+  const rawReviewJudgment = pick(row, "reviewJudgment", "review_judgment");
+  const reviewJudgment = rawReviewJudgment === undefined || rawReviewJudgment === null
+    ? undefined : parseJudgment(rawReviewJudgment, `${path}.reviewJudgment`);
   if (!discoveryId || !candidateTitle || !policyVersion || !decidedAt || confidence === undefined
     || !["approve", "review", "reject"].includes(String(recommendation))
     || !["pending", "confirmed", "overridden"].includes(String(reviewStatus))) throw new OperationsValidationError([`${path} has invalid decision fields`]);
-  return { id: row.id, discoveryId, candidateTitle, ...(candidateUrl ? { candidateUrl } : {}), recommendation: recommendation as RawCurationDecision["recommendation"], confidence, reason: string(row.reason) ?? "No reason recorded", policyVersion, model: string(row.model) ?? "unknown", decidedAt, reviewStatus: reviewStatus as RawCurationDecision["reviewStatus"], ...(["approve", "review", "reject"].includes(String(finalRecommendation)) ? { finalRecommendation: finalRecommendation as RawCurationDecision["recommendation"] } : {}), ...(reviewedBy ? { reviewedBy } : {}), ...(reviewedAt ? { reviewedAt } : {}), signals: Array.isArray(row.signals) ? row.signals.flatMap(item => { const parsed = parseDecisionSignal(item); return parsed ? [parsed] : []; }) : [] };
+  return { id: row.id, discoveryId, candidateTitle, ...(candidateUrl ? { candidateUrl } : {}), recommendation: recommendation as RawCurationDecision["recommendation"], confidence, reason: string(row.reason) ?? "No reason recorded", policyVersion, model: string(row.model) ?? "unknown", decidedAt, reviewStatus: reviewStatus as RawCurationDecision["reviewStatus"], ...(["approve", "review", "reject"].includes(String(finalRecommendation)) ? { finalRecommendation: finalRecommendation as RawCurationDecision["recommendation"] } : {}), ...(reviewedBy ? { reviewedBy } : {}), ...(reviewedAt ? { reviewedAt } : {}), signals: Array.isArray(row.signals) ? row.signals.flatMap(item => { const parsed = parseDecisionSignal(item); return parsed ? [parsed] : []; }) : [], aiJudgment, ...(reviewJudgment ? { reviewJudgment } : {}) };
 }
 
 function parseIssue(value: unknown, path: string): RawQualityIssue {

@@ -86,7 +86,7 @@ describe("Admin API deployment contract", () => {
     const sql = await readFile(rollbackUrl, "utf8");
     expect(sql).toMatch(/revoke opendesign_admin_review_writer_role from opendesign_admin_api_review_login/iu);
     expect(sql).toMatch(/drop schema if exists opendesign_admin_read cascade/iu);
-    expect(sql).not.toMatch(/drop\s+(?:table|function)[^;]*(?:curation_decisions|runner_)/iu);
+    expect(sql).not.toMatch(/drop\s+(?:table|function)[^;]*(?:curation_decisions|curation_review_events|runner_)/iu);
     expect(sql).not.toMatch(/drop role if exists opendesign_admin_api_\w+_login/iu);
   });
 

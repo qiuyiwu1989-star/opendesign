@@ -22,6 +22,7 @@ const migrations = [
   "0009_lockdown_anon_writes.sql",
   "0010_admin_read_api.sql",
   "0011_curation_decisions.sql",
+  "0012_curation_review_events.sql",
 ] as const;
 
 const signals = [
@@ -43,7 +44,7 @@ async function applyAll(database: PGlite): Promise<void> {
 async function applyThrough0010(database: PGlite): Promise<void> {
   await database.exec("create role anon nologin; create role authenticated nologin;");
   await database.exec(await readFile(baselineSchema, "utf8"));
-  for (const name of migrations.slice(0, -1)) await database.exec(await readFile(migration(name), "utf8"));
+  for (const name of migrations.slice(0, -2)) await database.exec(await readFile(migration(name), "utf8"));
 }
 
 function restrictedClient(database: PGlite, role: string): DatabaseClient {
@@ -73,7 +74,7 @@ const apiConfig: AdminApiConfig = {
 };
 const passwordVerifier: LocalPasswordVerifier = { verify: async (password) => password === "fixture-password" };
 
-describe("baseline + 0002–0011 PostgreSQL release candidate", () => {
+describe("baseline + 0002–0012 PostgreSQL release candidate", () => {
   it("reapplies 0011 safely on the embedded PostgreSQL semantic baseline", async () => {
     const database = await PGlite.create({ dataDir: "memory://", extensions: { pgcrypto } });
     try {
@@ -81,14 +82,18 @@ describe("baseline + 0002–0011 PostgreSQL release candidate", () => {
       const decisionSql = await readFile(migration("0011_curation_decisions.sql"), "utf8");
       await database.exec(decisionSql);
       await database.exec(decisionSql);
+      const reviewLedgerSql = await readFile(migration("0012_curation_review_events.sql"), "utf8");
+      await database.exec(reviewLedgerSql);
+      await database.exec(reviewLedgerSql);
       const version = await database.query<{ server_version_num: string }>("show server_version_num");
       expect(Number(version.rows[0]!.server_version_num)).toBeGreaterThanOrEqual(15_00_00);
-      const objects = await database.query<{ tables: number; review_functions: number }>(`
+      const objects = await database.query<{ tables: number; review_events: number; review_functions: number }>(`
         select
           (select count(*)::int from pg_class where relname='curation_decisions' and relkind='r') tables,
+          (select count(*)::int from pg_class where relname='curation_review_events' and relkind='r') review_events,
           (select count(*)::int from pg_proc where proname='review_curation_decision') review_functions
       `);
-      expect(objects.rows[0]).toEqual({ tables: 1, review_functions: 1 });
+      expect(objects.rows[0]).toEqual({ tables: 1, review_events: 1, review_functions: 1 });
     } finally {
       await database.close();
     }
@@ -113,15 +118,15 @@ describe("baseline + 0002–0011 PostgreSQL release candidate", () => {
         select
           has_table_privilege('opendesign_admin_read_role', 'opendesign_admin_read.discoveries', 'select') read_view,
           has_function_privilege('opendesign_admin_read_role', 'opendesign_admin_read.write_audit_event(text,timestamptz,text,text,text,text,integer,text,jsonb)', 'execute') write_audit,
-          has_function_privilege('opendesign_admin_read_role', 'opendesign_admin_read.review_curation_decision(uuid,text,text,text,text)', 'execute') review_decision
+          has_function_privilege('opendesign_admin_read_role', 'opendesign_admin_read.review_curation_decision(uuid,text,text,text,text,text)', 'execute') review_decision
         union all select
           has_table_privilege('opendesign_admin_audit_writer_role', 'opendesign_admin_read.discoveries', 'select'),
           has_function_privilege('opendesign_admin_audit_writer_role', 'opendesign_admin_read.write_audit_event(text,timestamptz,text,text,text,text,integer,text,jsonb)', 'execute'),
-          has_function_privilege('opendesign_admin_audit_writer_role', 'opendesign_admin_read.review_curation_decision(uuid,text,text,text,text)', 'execute')
+          has_function_privilege('opendesign_admin_audit_writer_role', 'opendesign_admin_read.review_curation_decision(uuid,text,text,text,text,text)', 'execute')
         union all select
           has_table_privilege('opendesign_admin_review_writer_role', 'opendesign_admin_read.discoveries', 'select'),
           has_function_privilege('opendesign_admin_review_writer_role', 'opendesign_admin_read.write_audit_event(text,timestamptz,text,text,text,text,integer,text,jsonb)', 'execute'),
-          has_function_privilege('opendesign_admin_review_writer_role', 'opendesign_admin_read.review_curation_decision(uuid,text,text,text,text)', 'execute')
+          has_function_privilege('opendesign_admin_review_writer_role', 'opendesign_admin_read.review_curation_decision(uuid,text,text,text,text,text)', 'execute')
       `);
       expect(privileges.rows).toEqual([
         { read_view: true, write_audit: false, review_decision: false },
@@ -135,6 +140,42 @@ describe("baseline + 0002–0011 PostgreSQL release candidate", () => {
           has_table_privilege('opendesign_admin_review_writer_role', 'public.curation_decisions', 'update') can_write
       `);
       expect(baseTable.rows[0]).toEqual({ can_read: false, can_write: false });
+    } finally {
+      await database.close();
+    }
+  });
+
+  it("backfills only complete v1 terminal reviews into immutable judgment events", async () => {
+    const database = await PGlite.create({ dataDir: "memory://", extensions: { pgcrypto } });
+    try {
+      await applyThrough0010(database);
+      await database.exec(await readFile(migration("0011_curation_decisions.sql"), "utf8"));
+      const discovery = await database.query<{ id: string }>(`
+        insert into public.discoveries (url, host, slug, title, source, score)
+        values ('https://backfill.example', 'backfill.example', 'backfill', 'Backfill', 'fixture', 12)
+        returning id
+      `);
+      const decision = await database.query<{ id: string }>(`
+        insert into public.curation_decisions
+          (decision_fingerprint, discovery_id, recommendation, confidence, reason,
+           policy_version, model, signals, review_status, reviewed_by, reviewed_at,
+           review_reason, final_recommendation)
+        values ($1,$2::uuid,'review',60,'AI reason','v1','model-1',$3::jsonb,
+          'overridden','admin','2026-08-13T09:00:00Z','Human reason','approve')
+        returning id
+      `, ["f".repeat(64), discovery.rows[0]!.id, JSON.stringify(signals)]);
+      const migrationSql = await readFile(migration("0012_curation_review_events.sql"), "utf8");
+      await database.exec(migrationSql);
+      await database.exec(migrationSql);
+      const events = await database.query<{ count: number; source: string; request_id: string; statement: string }>(`
+        select count(*)::int count, min(provenance->>'source') source,
+          min(provenance->>'requestId') request_id, min(statement) statement
+        from public.curation_review_events where decision_id=$1
+      `, [decision.rows[0]!.id]);
+      expect(events.rows[0]).toEqual({
+        count: 1, source: "migration-backfill",
+        request_id: `migration-0012:${decision.rows[0]!.id}`, statement: "approve",
+      });
     } finally {
       await database.close();
     }
@@ -166,16 +207,30 @@ describe("baseline + 0002–0011 PostgreSQL release candidate", () => {
 
       const reviewed = await database.query<{ outcome: string; review_status: string; recommendation: string }>(`
         select outcome, review_status, recommendation
-        from opendesign_admin_read.review_curation_decision($1::uuid,$2,$3,$4,$5)
-      `, [first.rows[0]!.id, "admin", "override", "approve", "人工核对原创证据后覆盖"]);
+        from opendesign_admin_read.review_curation_decision($1::uuid,$2,$3,$4,$5,$6)
+      `, [first.rows[0]!.id, "admin", "override", "approve", "人工核对原创证据后覆盖", "request-ledger-1"]);
       expect(reviewed.rows[0]).toEqual({ outcome: "reviewed", review_status: "overridden", recommendation: "approve" });
       const record = await database.query<{ recommendation: string; final_recommendation: string; review_status: string }>(`
         select recommendation, final_recommendation, review_status from public.curation_decisions where id=$1
       `, [first.rows[0]!.id]);
       expect(record.rows[0]).toEqual({ recommendation: "reject", final_recommendation: "approve", review_status: "overridden" });
+      const event = await database.query<{ holder_type: string; holder_id: string; subject_id: string; statement: string; supersedes_decision_id: string; request_id: string }>(`
+        select holder_type, holder_id, subject_id::text, statement, supersedes_decision_id::text,
+          provenance->>'requestId' request_id
+        from public.curation_review_events where decision_id=$1
+      `, [first.rows[0]!.id]);
+      expect(event.rows[0]).toEqual({
+        holder_type: "user", holder_id: "admin", subject_id: discoveryId,
+        statement: "approve", supersedes_decision_id: first.rows[0]!.id,
+        request_id: "request-ledger-1",
+      });
+      await expect(database.query("update public.curation_review_events set statement='reject' where decision_id=$1", [first.rows[0]!.id]))
+        .rejects.toThrow(/append-only/iu);
+      await expect(database.query("delete from public.curation_review_events where decision_id=$1", [first.rows[0]!.id]))
+        .rejects.toThrow(/append-only/iu);
       const repeated = await database.query<{ outcome: string }>(`
-        select outcome from opendesign_admin_read.review_curation_decision($1::uuid,$2,$3,$4,$5)
-      `, [first.rows[0]!.id, "admin", "confirm", null, "不允许重复复核"]);
+        select outcome from opendesign_admin_read.review_curation_decision($1::uuid,$2,$3,$4,$5,$6)
+      `, [first.rows[0]!.id, "admin", "confirm", null, "不允许重复复核", "request-ledger-2"]);
       expect(repeated.rows[0]!.outcome).toBe("already_reviewed");
     } finally {
       await database.close();
@@ -209,9 +264,10 @@ describe("baseline + 0002–0011 PostgreSQL release candidate", () => {
       const server = createAdminApiServer({
         config: apiConfig,
         passwordVerifier,
-        decisionReview: (input, context) => repository.review({
+      decisionReview: (input, context) => repository.review({
           ...input,
           reviewedBy: context.actor.actorId,
+          requestId: context.requestId,
         }, context.signal),
       });
       await new Promise<void>((resolve) => server.listen(0, "127.0.0.1", resolve));
@@ -283,6 +339,7 @@ describe("baseline + 0002–0011 PostgreSQL release candidate", () => {
         group_roles: number;
         login_roles: number;
         journal_exists: boolean;
+        review_journal_exists: boolean;
         runner_exists: boolean;
         lingering_memberships: number;
       }>(`
@@ -293,6 +350,7 @@ describe("baseline + 0002–0011 PostgreSQL release candidate", () => {
           )) group_roles,
           (select count(*)::int from pg_roles where rolname like 'opendesign_admin_api_%_login') login_roles,
           to_regclass('public.curation_decisions') is not null journal_exists,
+          to_regclass('public.curation_review_events') is not null review_journal_exists,
           to_regprocedure('public.runner_record_curation_decision(text,uuid,text,integer,text,text,text,jsonb,text)') is not null runner_exists,
           (select count(*)::int from pg_auth_members m
             join pg_roles member on member.oid=m.member
@@ -303,6 +361,7 @@ describe("baseline + 0002–0011 PostgreSQL release candidate", () => {
         group_roles: 0,
         login_roles: 3,
         journal_exists: true,
+        review_journal_exists: true,
         runner_exists: true,
         lingering_memberships: 0,
       });

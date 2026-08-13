@@ -134,7 +134,9 @@ fi
 check_sql_true "curation decision journal exists" \
   "select to_regclass('public.curation_decisions') is not null"
 check_sql_true "review function exists" \
-  "select to_regprocedure('opendesign_admin_read.review_curation_decision(uuid,text,text,text,text)') is not null"
+  "select to_regprocedure('opendesign_admin_read.review_curation_decision(uuid,text,text,text,text,text)') is not null"
+check_sql_true "append-only review judgment ledger exists" \
+  "select to_regclass('public.curation_review_events') is not null"
 check_sql_true "read, audit and review NOLOGIN roles exist" \
   "select count(*) = 3 from pg_roles where rolname in ('opendesign_admin_read_role','opendesign_admin_audit_writer_role','opendesign_admin_review_writer_role') and not rolcanlogin"
 check_sql_true "three isolated deployment LOGINs exist" \

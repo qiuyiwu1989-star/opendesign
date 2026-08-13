@@ -61,6 +61,8 @@ export interface RawCurationDecision {
   reviewedBy?: string;
   reviewedAt?: string;
   signals: CurationDecision["signals"];
+  aiJudgment: CurationDecision["aiJudgment"];
+  reviewJudgment?: CurationDecision["reviewJudgment"];
 }
 
 export interface RawQualityIssue {

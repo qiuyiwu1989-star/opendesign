@@ -3,6 +3,7 @@ import { describe, expect, it } from "vitest";
 
 const migrationUrl = new URL("../../../../../supabase/migrations/0010_admin_read_api.sql", import.meta.url);
 const decisionMigrationUrl = new URL("../../../../../supabase/migrations/0011_curation_decisions.sql", import.meta.url);
+const judgmentLedgerMigrationUrl = new URL("../../../../../supabase/migrations/0012_curation_review_events.sql", import.meta.url);
 
 describe("0010 least-privilege SQL draft", () => {
   it("keeps view access independent of base-table grants and supports distinct voter counts", async () => {
@@ -25,6 +26,25 @@ describe("0010 least-privilege SQL draft", () => {
     expect(executable).not.toMatch(/app_config|admin_list_|runner_/iu);
     expect(executable).toMatch(/grant select on opendesign_admin_read\.submissions/iu);
     expect(executable).toMatch(/grant execute on function opendesign_admin_read\.write_audit_event/iu);
+  });
+});
+
+describe("0012 quality judgment ledger SQL draft", () => {
+  it("adds one append-only human judgment event without widening the review role", async () => {
+    const sql = await readFile(judgmentLedgerMigrationUrl, "utf8");
+    expect(sql).toMatch(/create table if not exists public\.curation_review_events/iu);
+    expect(sql).toMatch(/decision_id uuid not null unique/iu);
+    expect(sql).toMatch(/holder_type text not null default 'user'/iu);
+    expect(sql).toMatch(/subject_id uuid not null references public\.discoveries/iu);
+    expect(sql).toMatch(/as_of timestamptz not null/iu);
+    expect(sql).toMatch(/recorded_at timestamptz not null/iu);
+    expect(sql).toMatch(/supersedes_decision_id uuid not null/iu);
+    expect(sql).toMatch(/provenance jsonb not null/iu);
+    expect(sql).toMatch(/curation_review_events_append_only/iu);
+    expect(sql).toMatch(/review_curation_decision\(uuid,text,text,text,text,text\)/iu);
+    expect(sql).toMatch(/grant execute on function opendesign_admin_read\.review_curation_decision/iu);
+    expect(sql).toMatch(/revoke all on public\.curation_review_events[^;]*opendesign_admin_review_writer_role/isu);
+    expect(sql).not.toMatch(/insert into public\.jobs|delete from public\.|\bpassword\s+'/iu);
   });
 });
 

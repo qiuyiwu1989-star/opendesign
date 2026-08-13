@@ -4,6 +4,7 @@ import { request as httpRequest } from "node:http";
 import test from "node:test";
 import type { AdminApiConfig, LocalPasswordVerifier } from "../auth/index.js";
 import type { AuditEvent, AuditSink } from "../audit/index.js";
+import type { DecisionRecommendation } from "../data/index.js";
 import type { RateLimiter } from "../security/index.js";
 import { createAdminApiServer, type DecisionReviewHandler, type EvidenceHandler } from "../server.js";
 
@@ -18,6 +19,21 @@ const config: AdminApiConfig = {
 };
 
 const verifier: LocalPasswordVerifier = { verify: async (password) => password === "correct-password" };
+
+function reviewedResult(input: { decisionId: string; reason: string }, recommendation: DecisionRecommendation = "approve") {
+  return {
+    outcome: "reviewed" as const,
+    decisionId: input.decisionId,
+    reviewStatus: "confirmed" as const,
+    recommendation,
+    reviewedAt: "2026-08-13T09:00:00.000Z",
+    reviewedBy: "admin",
+    reviewEventId: `review-${input.decisionId}`,
+    subjectId: `subject-${input.decisionId}`,
+    reason: input.reason,
+    provenance: { source: "admin-api", requestId: `request-${input.decisionId}`, aiDecisionId: input.decisionId },
+  };
+}
 
 async function withServer(
   callback: (baseUrl: string) => Promise<void>,
@@ -263,10 +279,7 @@ test("decision review accepts a 1000-character Unicode reason within its 8 KiB l
   }, {
     decisionReview: async (input) => {
       reasons.push(input.reason);
-      return {
-        outcome: "reviewed", decisionId: input.decisionId, reviewStatus: "confirmed",
-        recommendation: "approve", reviewedAt: "2026-08-13T09:00:00.000Z", reviewedBy: "admin",
-      };
+      return reviewedResult(input);
     },
   });
 });
@@ -284,6 +297,9 @@ test("decision review confirms original advice, overrides explicitly, and reject
     assert.deepEqual(await confirm.json(), {
       decisionId: "decision-confirm", reviewStatus: "confirmed", recommendation: "approve",
       reviewedAt: "2026-08-13T09:00:00.000Z", reviewedBy: "admin",
+      reviewEventId: "review-decision-confirm", subjectId: "subject-decision-confirm",
+      reason: "证据充分，确认原建议",
+      provenance: { source: "admin-api", requestId: "request-decision-confirm", aiDecisionId: "decision-confirm" },
     });
     const override = await fetch(`${baseUrl}/admin-api/v1/decisions/review`, {
       method: "POST", headers, body: JSON.stringify({ decisionId: "decision-override", action: "override", recommendation: "reject", reason: "发现隐藏广告跳转" }),
@@ -300,12 +316,8 @@ test("decision review confirms original advice, overrides explicitly, and reject
       calls += 1;
       assert.equal(context.actor.actorId, "admin");
       if (input.decisionId === "decision-repeat") return { outcome: "already_reviewed" };
-      return {
-        outcome: "reviewed", decisionId: input.decisionId,
-        reviewStatus: input.action === "confirm" ? "confirmed" : "overridden",
-        recommendation: input.action === "confirm" ? "approve" : input.recommendation!,
-        reviewedAt: "2026-08-13T09:00:00.000Z", reviewedBy: "admin",
-      };
+      const result = reviewedResult(input, input.action === "confirm" ? "approve" : input.recommendation!);
+      return { ...result, reviewStatus: input.action === "confirm" ? "confirmed" as const : "overridden" as const };
     },
   });
 });
@@ -329,10 +341,7 @@ test("decision review audit records outcome but never the review reason", async 
     assert.equal(reviewEvent.metadata.statusCode, 200);
     assert.equal(JSON.stringify(reviewEvent).includes(reason), false);
   }, {
-    decisionReview: async (input) => ({
-      outcome: "reviewed", decisionId: input.decisionId, reviewStatus: "confirmed",
-      recommendation: "approve", reviewedAt: "2026-08-13T09:00:00.000Z", reviewedBy: "admin",
-    }),
+    decisionReview: async (input) => reviewedResult(input),
     audit: { write: async (event) => { events.push(event); return { written: true, eventId: "event" }; } },
     auditHashKey: "audit-hash-key-that-is-at-least-32-bytes",
     onAuditFailure: () => undefined,

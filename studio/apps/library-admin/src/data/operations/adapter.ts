@@ -85,6 +85,8 @@ function decision(row: RawCurationDecision) {
     ...(row.reviewedBy ? { reviewedBy: row.reviewedBy } : {}),
     ...(row.reviewedAt ? { reviewedAt: row.reviewedAt } : {}),
     signals: row.signals,
+    aiJudgment: row.aiJudgment,
+    ...(row.reviewJudgment ? { reviewJudgment: row.reviewJudgment } : {}),
     source: { kind: "live" as const, label: "production curation decisions", generatedAt: row.decidedAt },
     previewOnly: true as const,
   };

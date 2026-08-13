@@ -12,6 +12,10 @@ export interface ReviewedDecision {
   recommendation: DecisionRecommendation;
   reviewedAt: string;
   reviewedBy: string;
+  reviewEventId: string;
+  subjectId: string;
+  reason: string;
+  provenance: { source: string; requestId?: string; aiDecisionId?: string; policyVersion?: string; model?: string };
 }
 
 export type DecisionReviewFailure =
@@ -40,6 +44,7 @@ function failure(reason: DecisionReviewFailure): DecisionReviewResult {
 function parseReviewedDecision(payload: unknown): ReviewedDecision | undefined {
   if (!payload || typeof payload !== "object" || Array.isArray(payload)) return undefined;
   const value = payload as Record<string, unknown>;
+  const provenance = value.provenance as Record<string, unknown> | undefined;
   if (
     typeof value.decisionId !== "string"
     || !["confirmed", "overridden"].includes(String(value.reviewStatus))
@@ -48,6 +53,13 @@ function parseReviewedDecision(payload: unknown): ReviewedDecision | undefined {
     || !Number.isFinite(Date.parse(value.reviewedAt))
     || typeof value.reviewedBy !== "string"
     || !value.reviewedBy.trim()
+    || typeof value.reviewEventId !== "string"
+    || typeof value.subjectId !== "string"
+    || typeof value.reason !== "string"
+    || !provenance || typeof provenance !== "object" || Array.isArray(provenance)
+    || provenance.source !== "admin-api"
+    || typeof provenance.requestId !== "string" || !provenance.requestId
+    || provenance.aiDecisionId !== value.decisionId
   ) return undefined;
   return {
     decisionId: value.decisionId,
@@ -55,6 +67,16 @@ function parseReviewedDecision(payload: unknown): ReviewedDecision | undefined {
     recommendation: value.recommendation as DecisionRecommendation,
     reviewedAt: value.reviewedAt,
     reviewedBy: value.reviewedBy,
+    reviewEventId: value.reviewEventId,
+    subjectId: value.subjectId,
+    reason: value.reason,
+    provenance: {
+      source: provenance.source,
+      requestId: provenance.requestId,
+      aiDecisionId: value.decisionId,
+      ...(typeof provenance.policyVersion === "string" ? { policyVersion: provenance.policyVersion } : {}),
+      ...(typeof provenance.model === "string" ? { model: provenance.model } : {}),
+    },
   };
 }
 

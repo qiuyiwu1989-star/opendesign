@@ -94,6 +94,18 @@ export function App({ initialSnapshot, initialSession }: AppProps) {
       finalRecommendation: reviewed.recommendation,
       reviewedAt: reviewed.reviewedAt,
       reviewedBy: reviewed.reviewedBy,
+      reviewJudgment: {
+        id: reviewed.reviewEventId,
+        holderType: "user",
+        holderId: reviewed.reviewedBy,
+        subjectId: reviewed.subjectId,
+        statement: reviewed.recommendation,
+        asOf: reviewed.reviewedAt,
+        recordedAt: reviewed.reviewedAt,
+        reason: reviewed.reason,
+        provenance: reviewed.provenance,
+        supersedesDecisionId: reviewed.decisionId,
+      },
       previewOnly: false,
     } : decision),
   } : current);

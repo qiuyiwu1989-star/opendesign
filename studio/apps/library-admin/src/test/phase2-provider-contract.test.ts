@@ -29,6 +29,37 @@ function operationsEnvelope() {
   };
 }
 
+function judgmentDecision() {
+  return {
+    id: "decision-1",
+    discoveryId: "subject-1",
+    candidateTitle: "Independent Studio",
+    recommendation: "approve",
+    confidence: 88,
+    reason: "Original work with reusable typography evidence.",
+    policyVersion: "opendesign-curation-v1.1",
+    model: "fixture-model",
+    decidedAt: observedAt,
+    reviewStatus: "confirmed",
+    finalRecommendation: "approve",
+    reviewedBy: "admin",
+    reviewedAt: observedAt,
+    signals: [],
+    aiJudgment: {
+      id: "decision-1", holderType: "agent", holderId: "fixture-model",
+      subjectId: "subject-1", statement: "approve", asOf: observedAt,
+      reason: "Original work with reusable typography evidence.",
+      provenance: { source: "daily-ai-curator", aiDecisionId: "decision-1", policyVersion: "opendesign-curation-v1.1", model: "fixture-model" },
+    },
+    reviewJudgment: {
+      id: "review-1", holderType: "user", holderId: "admin",
+      subjectId: "subject-1", statement: "approve", asOf: observedAt, recordedAt: observedAt,
+      reason: "Evidence verified by operator.", supersedesDecisionId: "decision-1",
+      provenance: { source: "admin-api", requestId: "request-1", aiDecisionId: "decision-1" },
+    },
+  };
+}
+
 describe("Phase 2 provider boundaries", () => {
   it("keeps unavailable operations sections independent and checkpoints ordered", async () => {
     const fetcher = vi.fn(async () => new Response(JSON.stringify(operationsEnvelope()), { status: 200 }));
@@ -77,5 +108,30 @@ describe("Phase 2 provider boundaries", () => {
     expect(fetcher).not.toHaveBeenCalled();
     expect(result.reviewSource.kind).toBe("unavailable");
     expect(result.diagnostics[0]?.message).toMatch(/same-origin/u);
+  });
+
+  it("preserves the AI and human five-part judgments across the operations boundary", async () => {
+    const envelope = {
+      ...operationsEnvelope(),
+      decisions: {
+        source: { kind: "snapshot", label: "decisions", observedAt },
+        items: [judgmentDecision()],
+      },
+    };
+    const result = await loadOperations({
+      fetcher: vi.fn(async () => new Response(JSON.stringify(envelope), { status: 200 })),
+    });
+
+    expect(result.decisions[0]).toMatchObject({
+      aiJudgment: {
+        holderType: "agent", holderId: "fixture-model", subjectId: "subject-1",
+        statement: "approve", provenance: { source: "daily-ai-curator" },
+      },
+      reviewJudgment: {
+        holderType: "user", holderId: "admin", subjectId: "subject-1",
+        statement: "approve", supersedesDecisionId: "decision-1",
+        provenance: { source: "admin-api", requestId: "request-1" },
+      },
+    });
   });
 });

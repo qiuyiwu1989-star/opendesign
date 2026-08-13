@@ -12,6 +12,7 @@ import type {
   RunLogRow,
   SubmissionRow,
   DecisionRecommendation,
+  JudgmentProvenance,
 } from "./types.js";
 
 const DEFAULT_TIMEOUT_MS = 2_500;
@@ -72,6 +73,14 @@ function decision(row: Record<string, unknown>): CurationDecisionRow {
     ? finalRecommendation
     : undefined;
   const reviewStatus = row.review_status;
+  const subjectId = String(row.subject_id ?? row.discovery_id);
+  const aiProvenance = judgmentProvenance(row.ai_provenance)
+    ?? { source: "daily-ai-curator", aiDecisionId: String(row.id) };
+  const reviewProvenance = judgmentProvenance(row.review_provenance);
+  const reviewEventId = text(row.review_event_id);
+  const reviewStatement = row.review_statement;
+  const reviewAsOf = iso(row.review_as_of);
+  const reviewHolderId = text(row.review_holder_id);
   return {
     id: String(row.id),
     discoveryId: String(row.discovery_id),
@@ -88,6 +97,38 @@ function decision(row: Record<string, unknown>): CurationDecisionRow {
     ...optional("reviewedBy", text(row.reviewed_by)), ...optional("reviewedAt", iso(row.reviewed_at)),
     ...optional("reviewReason", text(row.review_reason)),
     signals: Array.isArray(row.signals) ? row.signals.slice(0, 20) : [],
+    aiJudgment: {
+      id: String(row.id), holderType: "agent", holderId: text(row.ai_holder_id) ?? text(row.model) ?? "unknown",
+      subjectId, statement: recommendation === "approve" || recommendation === "reject" ? recommendation : "review",
+      asOf: iso(row.ai_as_of) ?? iso(row.decided_at) ?? new Date(0).toISOString(),
+      reason: text(row.reason) ?? "No reason recorded", provenance: aiProvenance,
+    },
+    ...(reviewEventId && reviewAsOf && reviewHolderId
+      && (reviewStatement === "approve" || reviewStatement === "review" || reviewStatement === "reject")
+      && reviewProvenance ? {
+        reviewJudgment: {
+          id: reviewEventId, holderType: "user" as const, holderId: reviewHolderId,
+          subjectId, statement: reviewStatement, asOf: reviewAsOf,
+          ...optional("recordedAt", iso(row.review_recorded_at)),
+          reason: text(row.review_reason) ?? "No review reason recorded",
+          provenance: reviewProvenance,
+          supersedesDecisionId: String(row.supersedes_decision_id ?? row.id),
+        },
+      } : {}),
+  };
+}
+
+function judgmentProvenance(value: unknown): JudgmentProvenance | undefined {
+  if (typeof value !== "object" || value === null || Array.isArray(value)) return undefined;
+  const record = value as Record<string, unknown>;
+  const source = text(record.source);
+  if (!source) return undefined;
+  return {
+    source,
+    ...optional("requestId", text(record.requestId)),
+    ...optional("aiDecisionId", text(record.aiDecisionId)),
+    ...optional("policyVersion", text(record.policyVersion)),
+    ...optional("model", text(record.model)),
   };
 }
 
@@ -131,7 +172,7 @@ function log(row: Record<string, unknown>): RunLogRow {
 const SECTIONS: readonly SectionSpec<unknown>[] = [
   { key: "submissions", label: "production submissions", text: "select id, url, host, note, status, kind, slug, created_at, host_voters, host_total from opendesign_admin_read.submissions order by created_at desc, id desc limit $1", map: submission },
   { key: "discoveries", label: "production discoveries", text: "select id, url, host, slug, title, source, score, status, created_at from opendesign_admin_read.discoveries order by score desc, created_at desc, id desc limit $1", map: discovery },
-  { key: "decisions", label: "production curation decisions", text: "select id, discovery_id, candidate_title, candidate_url, recommendation, final_recommendation, confidence, reason, policy_version, model, decided_at, review_status, reviewed_by, reviewed_at, review_reason, signals from opendesign_admin_read.curation_decisions order by decided_at desc, id desc limit $1", map: decision },
+  { key: "decisions", label: "production curation decisions", text: "select id, discovery_id, subject_id, candidate_title, candidate_url, recommendation, final_recommendation, confidence, reason, policy_version, model, decided_at, review_status, reviewed_by, reviewed_at, review_reason, signals, ai_holder_type, ai_holder_id, ai_statement, ai_as_of, ai_provenance, review_event_id, review_holder_type, review_holder_id, review_statement, review_as_of, review_recorded_at, review_provenance, supersedes_decision_id from opendesign_admin_read.curation_decisions order by decided_at desc, id desc limit $1", map: decision },
   { key: "quality", label: "production quality evidence", text: "select id, asset_id, title, summary, severity, status, url, created_at, evidence from opendesign_admin_read.quality_issues order by created_at desc, id desc limit $1", map: quality },
   { key: "origins", label: "production origin evidence", text: "select id, asset_id, title, summary, status, url, created_at, evidence from opendesign_admin_read.origin_issues order by created_at desc, id desc limit $1", map: origin },
   { key: "jobs", label: "production jobs", text: "select id, kind, slug, url, status, result, created_at, updated_at from opendesign_admin_read.jobs order by created_at desc, id desc limit $1", map: job },

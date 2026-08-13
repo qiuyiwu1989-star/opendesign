@@ -31,8 +31,8 @@ if (isEntrypoint()) {
       ...(repository ? { sync: ({ signal }) => readSyncEvidence(repository, signal) } : {}),
     },
     ...(decisionReviews ? {
-      decisionReview: (input, { actor, signal }) => decisionReviews.review({
-        ...input, reviewedBy: actor.actorId,
+      decisionReview: (input, { actor, signal, requestId }) => decisionReviews.review({
+        ...input, reviewedBy: actor.actorId, requestId,
       }, signal),
     } : {}),
     ...(readClient ? { readiness: () => readClient.ready() } : {}),

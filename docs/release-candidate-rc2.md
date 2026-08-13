@@ -14,8 +14,8 @@ active Web/API/nginx contracts are version-skewed and the TLS certificate has a
    review-only database LOGIN and `ADMIN_REVIEW_DATABASE_URL`.
 2. **Existing-install safety** — the current two-login installation uses a
    dedicated upgrade path that never rotates the active read/audit passwords.
-3. **Migration confidence** — 0011 is reapplied safely on the embedded semantic
-   baseline; AI fingerprint idempotency and terminal review remain intact.
+3. **Migration confidence** — 0011–0012 are reapplied safely on the embedded
+   semantic baseline; AI fingerprint idempotency and append-only terminal review remain intact.
 4. **Rollback proof** — the capability rollback removes only the isolated Admin
    schema and group roles while retaining deployment LOGINs, the decision
    journal and runner RPCs.
@@ -47,8 +47,8 @@ npm run test:release --workspace @opendesign/library-admin-api
 
 The release integration suite must prove all of the following:
 
-- baseline and migrations 0002–0011 execute;
-- 0011 can be applied again without duplicating its table or review function;
+- baseline and migrations 0002–0012 execute;
+- 0011–0012 can be applied again without duplicating decision or review-event records;
 - read, audit and review capabilities remain mutually exclusive;
 - login → HTTP terminal review → review-only SQL succeeds;
 - duplicate AI decisions and duplicate terminal review remain idempotent;

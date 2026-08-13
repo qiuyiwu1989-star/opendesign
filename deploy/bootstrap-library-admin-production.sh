@@ -168,7 +168,7 @@ if PGPASSWORD="${audit_password}" psql --host 127.0.0.1 --username opendesign_ad
 fi
 PGPASSWORD="${review_password}" psql --host 127.0.0.1 --username opendesign_admin_api_review_login \
   --dbname opendesign --set ON_ERROR_STOP=1 --tuples-only --no-align \
-  --command "select outcome from opendesign_admin_read.review_curation_decision('00000000-0000-0000-0000-000000000000','deploy-smoke','confirm',null,'权限边界演练')" \
+  --command "select outcome from opendesign_admin_read.review_curation_decision('00000000-0000-0000-0000-000000000000','deploy-smoke','confirm',null,'权限边界演练','deploy-capability-smoke')" \
   | grep -qx 'not_found'
 if PGPASSWORD="${review_password}" psql --host 127.0.0.1 --username opendesign_admin_api_review_login \
   --dbname opendesign --command 'select 1 from public.curation_decisions limit 1' >/dev/null 2>&1; then

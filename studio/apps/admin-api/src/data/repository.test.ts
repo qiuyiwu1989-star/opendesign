@@ -56,4 +56,31 @@ describe("OperationsRepository", () => {
     const evidence = await new OperationsRepository(client, { now: () => now }).readDatabaseSyncEvidence();
     expect(evidence).toMatchObject({ location: "database", revision: "db123", readOnly: true });
   });
+
+  it("maps AI and human judgment provenance without collapsing the event chain", async () => {
+    const client: DatabaseClient = {
+      async query<T>(query: DatabaseQuery<T>) {
+        const rows = query.text.includes(".curation_decisions ") ? [{
+          id: "decision-1", discovery_id: "subject-1", subject_id: "subject-1",
+          candidate_title: "Independent Studio", recommendation: "approve", confidence: 88,
+          reason: "AI evidence", policy_version: "v1", model: "model-1", decided_at: now,
+          review_status: "confirmed", final_recommendation: "approve", reviewed_by: "admin",
+          reviewed_at: now, review_reason: "Human evidence", signals: [],
+          ai_holder_id: "model-1", ai_as_of: now,
+          ai_provenance: { source: "daily-ai-curator", aiDecisionId: "decision-1" },
+          review_event_id: "review-1", review_holder_id: "admin", review_statement: "approve",
+          review_as_of: now, review_recorded_at: now,
+          review_provenance: { source: "admin-api", requestId: "request-1" },
+          supersedes_decision_id: "decision-1",
+        }] : [];
+        return { rows: rows as T[], rowCount: rows.length };
+      },
+    };
+    const envelope = await new OperationsRepository(client, { now: () => now }).readOperations();
+
+    expect(envelope.decisions.items[0]).toMatchObject({
+      aiJudgment: { holderType: "agent", holderId: "model-1", subjectId: "subject-1", statement: "approve" },
+      reviewJudgment: { holderType: "user", holderId: "admin", subjectId: "subject-1", supersedesDecisionId: "decision-1" },
+    });
+  });
 });

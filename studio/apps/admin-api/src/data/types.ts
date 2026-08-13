@@ -80,6 +80,29 @@ export interface CurationDecisionRow {
   reviewedAt?: string;
   reviewReason?: string;
   signals: unknown[];
+  aiJudgment: JudgmentRecord;
+  reviewJudgment?: JudgmentRecord;
+}
+
+export interface JudgmentProvenance {
+  source: string;
+  requestId?: string;
+  aiDecisionId?: string;
+  policyVersion?: string;
+  model?: string;
+}
+
+export interface JudgmentRecord {
+  id: string;
+  holderType: "agent" | "user";
+  holderId: string;
+  subjectId: string;
+  statement: "approve" | "review" | "reject";
+  asOf: string;
+  recordedAt?: string;
+  reason: string;
+  provenance: JudgmentProvenance;
+  supersedesDecisionId?: string;
 }
 
 export type DecisionRecommendation = "approve" | "review" | "reject";
@@ -91,6 +114,7 @@ export interface DecisionReviewInput {
   recommendation?: DecisionRecommendation;
   reason: string;
   reviewedBy: string;
+  requestId: string;
 }
 
 export interface DecisionReviewSuccess {
@@ -100,6 +124,10 @@ export interface DecisionReviewSuccess {
   recommendation: DecisionRecommendation;
   reviewedAt: string;
   reviewedBy: string;
+  reviewEventId: string;
+  subjectId: string;
+  reason: string;
+  provenance: JudgmentProvenance;
 }
 
 export type DecisionReviewResult = DecisionReviewSuccess | {

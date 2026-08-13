@@ -304,6 +304,10 @@ export function createAdminApiServer(options: AdminApiServerOptions) {
             recommendation: result.recommendation,
             reviewedAt: result.reviewedAt,
             reviewedBy: result.reviewedBy,
+            reviewEventId: result.reviewEventId,
+            subjectId: result.subjectId,
+            reason: result.reason,
+            provenance: result.provenance,
           });
         } catch {
           errorJson(response, 503, "decision_review_unavailable", requestId);

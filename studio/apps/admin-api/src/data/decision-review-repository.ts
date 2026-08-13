@@ -3,6 +3,7 @@ import type {
   DecisionRecommendation,
   DecisionReviewInput,
   DecisionReviewResult,
+  JudgmentProvenance,
 } from "./types.js";
 
 const DEFAULT_TIMEOUT_MS = 2_500;
@@ -18,6 +19,10 @@ interface ReviewRow {
   recommendation?: unknown;
   reviewed_at?: unknown;
   reviewed_by?: unknown;
+  review_event_id?: unknown;
+  subject_id?: unknown;
+  review_reason?: unknown;
+  review_provenance?: unknown;
 }
 
 function recommendation(value: unknown): DecisionRecommendation | undefined {
@@ -43,8 +48,8 @@ export class DecisionReviewRepository {
   async review(input: DecisionReviewInput, signal?: AbortSignal): Promise<DecisionReviewResult> {
     try {
       const result = await this.#client.query<ReviewRow>({
-        text: "select outcome, decision_id, review_status, recommendation, reviewed_at, reviewed_by from opendesign_admin_read.review_curation_decision($1::uuid,$2,$3,$4,$5)",
-        values: [input.decisionId, input.reviewedBy, input.action, input.recommendation ?? null, input.reason],
+        text: "select outcome, decision_id, review_status, recommendation, reviewed_at, reviewed_by, review_event_id, subject_id, review_reason, review_provenance from opendesign_admin_read.review_curation_decision($1::uuid,$2,$3,$4,$5,$6)",
+        values: [input.decisionId, input.reviewedBy, input.action, input.recommendation ?? null, input.reason, input.requestId],
         timeoutMs: this.#timeoutMs,
         maxRows: 1,
         ...(signal ? { signal } : {}),
@@ -54,12 +59,21 @@ export class DecisionReviewRepository {
       if (row.outcome === "not_found" || row.outcome === "already_reviewed") return { outcome: row.outcome };
       const finalRecommendation = recommendation(row.recommendation);
       const reviewedAt = iso(row.reviewed_at);
+      const provenance = row.review_provenance as Record<string, unknown> | undefined;
       if (row.outcome !== "reviewed"
           || typeof row.decision_id !== "string"
           || (row.review_status !== "confirmed" && row.review_status !== "overridden")
           || !finalRecommendation
           || !reviewedAt
-          || typeof row.reviewed_by !== "string") {
+          || typeof row.reviewed_by !== "string"
+          || typeof row.review_event_id !== "string"
+          || typeof row.subject_id !== "string"
+          || typeof row.review_reason !== "string"
+          || !provenance || typeof provenance !== "object"
+          || Array.isArray(provenance)
+          || provenance.source !== "admin-api"
+          || typeof provenance.requestId !== "string" || !provenance.requestId
+          || provenance.aiDecisionId !== row.decision_id) {
         return { outcome: "unavailable" };
       }
       return {
@@ -69,6 +83,14 @@ export class DecisionReviewRepository {
         recommendation: finalRecommendation,
         reviewedAt,
         reviewedBy: row.reviewed_by,
+        reviewEventId: row.review_event_id,
+        subjectId: row.subject_id,
+        reason: row.review_reason,
+        provenance: {
+          source: provenance.source,
+          requestId: provenance.requestId,
+          aiDecisionId: row.decision_id,
+        } satisfies JudgmentProvenance,
       };
     } catch {
       return { outcome: "unavailable" };

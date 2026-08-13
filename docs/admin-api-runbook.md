@@ -89,7 +89,8 @@ Stop after preflight. Production actions below each need separate approval.
 1. With explicit **migration approval**, take a schema/grant snapshot, confirm
    migrations through `0009` are present, then apply the reviewed draft
    `supabase/migrations/0010_admin_read_api.sql`, followed by
-   `supabase/migrations/0011_curation_decisions.sql`, using the migration role.
+   `supabase/migrations/0011_curation_decisions.sql`, then
+   `supabase/migrations/0012_curation_review_events.sql`, using the migration role.
 2. From the read login, prove only the named views/functions are selectable.
 3. Prove direct table reads and every insert/update/delete/execute outside the
    allowlist fail.
@@ -98,7 +99,7 @@ Stop after preflight. Production actions below each need separate approval.
    writing function in a read-only transaction; database grants remain the
    hard boundary.
 5. From the review login, prove only
-   `opendesign_admin_read.review_curation_decision(uuid,text,text,text,text)` can
+   `opendesign_admin_read.review_curation_decision(uuid,text,text,text,text,text)` can
    execute. Prove base-table reads/writes, runner RPCs, audit writes, job enqueue,
    delete, and any public-state mutation fail. Confirm duplicate review returns
    `already_reviewed` without changing the original AI `recommendation`.

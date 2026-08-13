@@ -38,6 +38,27 @@ export interface DecisionSignal {
   evidence: string[];
 }
 
+export interface JudgmentProvenance {
+  source: string;
+  requestId?: string;
+  aiDecisionId?: string;
+  policyVersion?: string;
+  model?: string;
+}
+
+export interface JudgmentRecord {
+  id: string;
+  holderType: "agent" | "user";
+  holderId: string;
+  subjectId: string;
+  statement: DecisionRecommendation;
+  asOf: string;
+  recordedAt?: string;
+  reason: string;
+  provenance: JudgmentProvenance;
+  supersedesDecisionId?: string;
+}
+
 export interface CurationDecision {
   id: string;
   candidateId: string;
@@ -54,6 +75,8 @@ export interface CurationDecision {
   reviewedBy?: string;
   reviewedAt?: string;
   signals: DecisionSignal[];
+  aiJudgment: JudgmentRecord;
+  reviewJudgment?: JudgmentRecord;
   source: DataSourceDescriptor;
   previewOnly: boolean;
 }

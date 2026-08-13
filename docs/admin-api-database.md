@@ -1,7 +1,8 @@
 # Admin API database lane
 
 Status: migration `0010_admin_read_api.sql` was applied to the production
-`opendesign` database on 2026-08-12. Migration `0011_curation_decisions.sql`
+`opendesign` database on 2026-08-12. Migrations `0011_curation_decisions.sql`
+and `0012_curation_review_events.sql`
 remains a reviewed local draft and has not been applied. The review LOGIN is
 not configured, so the new human-review write path is not deployed.
 
@@ -46,7 +47,8 @@ publication, Git, deployment, or public Library state.
 ## Least privilege migration
 
 `supabase/migrations/0010_admin_read_api.sql` runs after migrations 0003–0009;
-`0011_curation_decisions.sql` adds the decision journal and review boundary.
+`0011_curation_decisions.sql` adds the AI decision journal and review boundary;
+`0012_curation_review_events.sql` adds the append-only human judgment ledger.
 Together they create an isolated schema and three `NOLOGIN`, `NOINHERIT` group roles:
 
 - `opendesign_admin_read_role`: database `CONNECT`, schema `USAGE`, and
@@ -69,7 +71,7 @@ Audit failure returns `written: false`; callers must not report it as success.
 
 The repository release gate runs `npm run test:release --workspace
 @opendesign/library-admin-api`. It boots a disposable in-process PostgreSQL
-environment, applies the baseline schema plus migrations 0002–0011, and proves
+environment, applies the baseline schema plus migrations 0002–0012, and proves
 the migration, privilege, idempotency and HTTP-to-SQL review contracts. This
 gate is deterministic and uses fixture credentials only; it never connects to
 production.
@@ -77,7 +79,7 @@ production.
 Before production, repeat the following against an ephemeral clone made from
 the target PostgreSQL version, never against the live database:
 
-1. Apply the baseline plus 0002–0011 in order and confirm all three group roles
+1. Apply the baseline plus 0002–0012 in order and confirm all three group roles
    have `rolcanlogin = false`.
 2. With a temporary read-role member, select each named view and confirm direct
    table access, `app_config`, legacy RPC, DML, audit execution and review

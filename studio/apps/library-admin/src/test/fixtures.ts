@@ -112,6 +112,21 @@ export const controlRoomSnapshot: AdminSnapshot = {
       model: "mimo-v2.5",
       decidedAt: "2026-08-12T08:20:00.000Z",
       reviewStatus: "pending",
+      aiJudgment: {
+        id: "decision-ad",
+        holderType: "agent",
+        holderId: "mimo-v2.5",
+        subjectId: "candidate-ad",
+        statement: "reject",
+        asOf: "2026-08-12T08:20:00.000Z",
+        reason: "广告和联盟跳转占主导，缺少原创设计证据。",
+        provenance: {
+          source: "daily-ai-curator",
+          aiDecisionId: "decision-ad",
+          policyVersion: "opendesign-curation-v1.0",
+          model: "mimo-v2.5",
+        },
+      },
       signals: [
         { id: "design-value", label: "设计价值", state: "warn", score: 40, evidence: ["页面模板化"] },
         { id: "originality", label: "原创性", state: "fail", score: 18, evidence: ["内容重复"] },
