@@ -1,7 +1,8 @@
 # Included inside the HTTPS opendesign.cc server block.
-# Studio API reuses the authenticated Admin session boundary: nginx first asks
-# the Admin API to verify the __Host cookie, then proxies only authenticated
-# requests to the loopback Studio API.
+# Studio API reuses the authenticated Admin session boundary. The initial
+# release asks the existing authenticated operations endpoint because the
+# public session endpoint intentionally returns 200 with authenticated=false.
+# This fails closed when the Admin API or its read dependency is unavailable.
 location = /studio { return 302 /studio/; }
 
 location /studio/ {
@@ -12,7 +13,7 @@ location /studio/ {
 
 location = /studio-auth-check {
     internal;
-    proxy_pass http://127.0.0.1:8790/admin-api/v1/session;
+    proxy_pass http://127.0.0.1:8790/admin-api/v1/operations;
     proxy_pass_request_body off;
     proxy_set_header Content-Length "";
     proxy_set_header Cookie $http_cookie;

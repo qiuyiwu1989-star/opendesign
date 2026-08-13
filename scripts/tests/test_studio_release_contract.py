@@ -21,7 +21,8 @@ class StudioReleaseContractTest(unittest.TestCase):
     def test_nginx_requires_admin_session_before_studio_api(self):
         nginx = (ROOT / "deploy/nginx-studio.conf.example").read_text(encoding="utf-8")
         self.assertIn("auth_request /studio-auth-check", nginx)
-        self.assertIn("/admin-api/v1/session", nginx)
+        self.assertIn("/admin-api/v1/operations", nginx)
+        self.assertNotIn("/admin-api/v1/session", nginx)
         self.assertIn("proxy_pass http://127.0.0.1:8788", nginx)
         self.assertNotIn("Access-Control-Allow-Origin", nginx)
 

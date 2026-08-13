@@ -19,11 +19,13 @@ npm run typecheck
 npm test
 npm run build
 
-mkdir -p "${output_root}" "${stage}/runtime"
+mkdir -p "${output_root}" "${stage}/runtime/studio/apps/local-api"
 cp -R "${repo_root}/studio/apps/web/dist" "${stage}/web"
-cp -R "${repo_root}/studio" "${stage}/runtime/studio"
-find "${stage}/runtime/studio" -type d -name dist -prune -o -type d -name node_modules -prune -exec rm -rf {} + 2>/dev/null || true
-rm -rf "${stage}/runtime/studio/node_modules"
+# Build runtime only from tracked files. This prevents ignored local projects,
+# uploaded assets, caches, environment files, or node_modules from entering a
+# release archive. The compiled API is the only generated directory added.
+git -C "${repo_root}" archive HEAD:studio | tar -x -C "${stage}/runtime/studio"
+cp -R "${repo_root}/studio/apps/local-api/dist" "${stage}/runtime/studio/apps/local-api/dist"
 COPYFILE_DISABLE=1 tar -czf "${output_root}/opendesign-studio-web-${release_id}.tar.gz" -C "${stage}/web" .
 COPYFILE_DISABLE=1 tar -czf "${output_root}/opendesign-studio-runtime-${release_id}.tar.gz" -C "${stage}/runtime" studio
 
