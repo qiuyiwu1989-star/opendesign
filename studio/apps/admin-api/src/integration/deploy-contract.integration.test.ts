@@ -9,6 +9,7 @@ const activationUrl = new URL("../../../../../deploy/activate-library-admin-rele
 const releaseRollbackUrl = new URL("../../../../../deploy/rollback-library-admin-release.sh", import.meta.url);
 const nginxUrl = new URL("../../../../../deploy/nginx-library-admin-api.conf.example", import.meta.url);
 const reviewUpgradeUrl = new URL("../../../../../deploy/prepare-library-admin-review-upgrade.sh", import.meta.url);
+const productionPreflightUrl = new URL("../../../../../deploy/preflight-library-admin-production.sh", import.meta.url);
 
 describe("Admin API deployment contract", () => {
   it("keeps the production bootstrap syntactically valid and provisions three isolated logins", async () => {
@@ -87,5 +88,20 @@ describe("Admin API deployment contract", () => {
     expect(sql).toMatch(/drop schema if exists opendesign_admin_read cascade/iu);
     expect(sql).not.toMatch(/drop\s+(?:table|function)[^;]*(?:curation_decisions|runner_)/iu);
     expect(sql).not.toMatch(/drop role if exists opendesign_admin_api_\w+_login/iu);
+  });
+
+  it("keeps the server preflight read-only and secret-safe", async () => {
+    const syntax = spawnSync("bash", ["-n", productionPreflightUrl.pathname], { encoding: "utf8" });
+    expect(syntax.status, syntax.stderr).toBe(0);
+    const script = await readFile(productionPreflightUrl, "utf8");
+    expect(script).toContain("READ-ONLY SERVER PREFLIGHT");
+    expect(script).toContain("show server_version");
+    expect(script).toContain("ADMIN_REVIEW_DATABASE_URL");
+    expect(script).toContain("opendesign_admin_api_review_login");
+    expect(script).toContain("certbot renewal timer");
+    expect(script).not.toMatch(/systemctl\s+(?:start|restart|reload|enable|disable)/iu);
+    expect(script).not.toMatch(/(?:insert|update|delete|alter|create|drop|grant|revoke)\s+/iu);
+    expect(script).not.toMatch(/source\s+"?\$\{environment_file\}/u);
+    expect(script).not.toMatch(/cat\s+"?\$\{environment_file\}/u);
   });
 });

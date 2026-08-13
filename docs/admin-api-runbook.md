@@ -47,6 +47,23 @@ service unit, startup validation tests, and operator checklist together.
 
 ## Preflight (read-only)
 
+Public, unauthenticated release drift can be checked without server access:
+
+```sh
+python3 scripts/admin-public-preflight.py
+```
+
+The command performs HTTPS GET requests and a TLS handshake only. It must pass
+all checks after activation. Before any production mutation, run the reviewed
+server-local collector from the repository checkout:
+
+```sh
+sudo bash deploy/preflight-library-admin-production.sh
+```
+
+That collector reports environment key names, never values, and contains no
+migration, configuration write, reload, restart, activation, or rollback step.
+
 1. Confirm the reviewed commit and a clean production build artifact.
 2. Run Admin API typecheck and tests, including every `*.security.test.ts`.
    The required release gate is `npm run test:release --workspace

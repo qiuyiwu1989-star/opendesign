@@ -4,6 +4,10 @@ Status: local pre-deployment evidence only. RC2 does not authorize production
 database changes, credential changes, public pointer activation, service
 restart, nginx reload, GitHub push or deployment.
 
+The 2026-08-13 public read-only preflight is currently **NO-GO** because the
+active Web/API/nginx contracts are version-skewed and the TLS certificate has a
+12-day remaining window. See `docs/production-readonly-preflight-2026-08-13.md`.
+
 ## Release gaps closed after RC1
 
 1. **Review capability wiring** — production preparation now provides a third,
@@ -33,6 +37,7 @@ bash -n deploy/bootstrap-library-admin-production.sh
 bash -n deploy/prepare-library-admin-review-upgrade.sh
 bash -n deploy/activate-library-admin-release.sh
 bash -n deploy/rollback-library-admin-release.sh
+python3 -m unittest scripts.tests.test_admin_public_preflight
 cd studio
 npm run typecheck
 npm test
