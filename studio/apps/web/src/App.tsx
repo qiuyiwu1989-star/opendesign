@@ -10,7 +10,8 @@ import benchmarkBaseline from "../../../fixtures/design-benchmark/baseline/bench
 import {
   createExport,
   createDesignDirectorDraft,
-  createGenerationJob,
+  createWorkOrder,
+  confirmWorkOrder,
   createModelDraft,
   cancelGenerationJob,
   approveProjectCandidate,
@@ -20,6 +21,7 @@ import {
   listRevisions,
   loadProject,
   loadGenerationJob,
+  loadWorkOrder,
   loadReview,
   persistProject,
   runProjectQa,
@@ -28,6 +30,7 @@ import {
   type ProjectSummary,
   type GenerationJob,
   type GenerationJobErrorCode,
+  type WorkOrderWorkflow,
   type StoredRevision,
   type StudioExportResult,
   type ReviewResponse,
@@ -50,6 +53,7 @@ import {
 
 const initialDocument = fixture as unknown as SceneDocument;
 const generationJobStorageKey = "opendesign.studio.active-generation-job";
+const workOrderStorageKey = "opendesign.studio.active-work-order";
 const generationPollIntervalMs = 1_200;
 const generationPollLimit = 150;
 const exampleBrief = "为一篇讨论 AI 如何改变创作者工作流的文章，制作 6 页中文视觉提案。受众是设计负责人，结论先行，使用真实内容层级，图片保留可替换位置。";
@@ -104,6 +108,11 @@ const generationStageCopy: Record<GenerationJob["status"], { label: string; deta
   completed: { label: "生成完成", detail: "新作品已经准备好，由你决定何时打开。", progress: 100 },
   failed: { label: "生成失败", detail: "任务已停止，当前作品没有被修改。", progress: 100 },
   cancelled: { label: "已取消", detail: "任务已取消，当前作品没有被修改。", progress: 100 },
+};
+
+const agentStageLabels: Record<string, string> = {
+  diagnose: "诊断需求", direction: "设计方向", compose: "内容创作", import: "安全导入",
+  qa: "质量检查", edit: "人工编辑", review: "候选确认", export: "明确导出",
 };
 
 function generationErrorCopy(code: GenerationJobErrorCode | undefined, fallback?: string) {
@@ -302,6 +311,7 @@ export function App() {
   const [generatorState, setGeneratorState] = useState<"idle" | "working" | "error">("idle");
   const [generatorError, setGeneratorError] = useState("");
   const [generationJob, setGenerationJob] = useState<GenerationJob | null>(null);
+  const [workOrderWorkflow, setWorkOrderWorkflow] = useState<WorkOrderWorkflow | null>(null);
   const [generationJobError, setGenerationJobError] = useState<{ code: GenerationJobErrorCode; message: string } | null>(null);
   const [generationRecoveryJobId, setGenerationRecoveryJobId] = useState<string | null>(() => window.localStorage.getItem(generationJobStorageKey));
   const [generationElapsed, setGenerationElapsed] = useState(0);
@@ -355,6 +365,16 @@ export function App() {
   }, []);
 
   useEffect(() => {
+    const storedWorkOrderId = window.localStorage.getItem(workOrderStorageKey);
+    if (!storedWorkOrderId) return;
+    let active = true;
+    loadWorkOrder(storedWorkOrderId)
+      .then((workflow) => { if (active) setWorkOrderWorkflow(workflow); })
+      .catch(() => { if (active) window.localStorage.removeItem(workOrderStorageKey); });
+    return () => { active = false; };
+  }, []);
+
+  useEffect(() => {
     const storedJobId = window.localStorage.getItem(generationJobStorageKey);
     if (!storedJobId) return;
     let active = true;
@@ -388,10 +408,13 @@ export function App() {
     let active = true;
     const timeout = window.setTimeout(() => {
       loadGenerationJob(generationJob.jobId)
-        .then((job) => {
+        .then(async (job) => {
           if (!active) return;
           setGenerationJob(job);
           setGenerationPolls((count) => count + 1);
+          if (workOrderWorkflow) {
+            try { setWorkOrderWorkflow(await loadWorkOrder(workOrderWorkflow.workOrder.workOrderId)); } catch { /* Job remains recoverable even if plan evidence is temporarily unavailable. */ }
+          }
         })
         .catch((error) => {
           if (!active) return;
@@ -400,7 +423,7 @@ export function App() {
         });
     }, generationPollIntervalMs);
     return () => { active = false; window.clearTimeout(timeout); };
-  }, [generationJob, generationJobError, generationPolls, generationTerminal]);
+  }, [generationJob, generationJobError, generationPolls, generationTerminal, workOrderWorkflow?.workOrder.workOrderId]);
 
   useEffect(() => {
     if (generationJob && !generationTerminal && generationPolls >= generationPollLimit && !generationJobError) {
@@ -482,6 +505,10 @@ export function App() {
     if (!pack) return;
     setSelectedPackId(pack.id);
     setAnnotationCopyState("idle");
+    if (workOrderWorkflow?.projection.status === "draft") {
+      setWorkOrderWorkflow(null);
+      window.localStorage.removeItem(workOrderStorageKey);
+    }
     commitDocument((current) => ({ ...current, designPack: { id: pack.id, version: pack.version } }), true);
   }
 
@@ -718,14 +745,16 @@ export function App() {
     setGenerationPolls(0);
     setGenerationElapsed(0);
     try {
-      const job = await createGenerationJob({
+      const workflow = await createWorkOrder({
         brief: brief.trim(),
         title: sentenceFromBrief(brief),
         ...(selectedPack ? { designPack: { id: selectedPack.id, version: selectedPack.version } } : {}),
       });
-      setGenerationJob(job);
-      window.localStorage.setItem(generationJobStorageKey, job.jobId);
-      setGenerationRecoveryJobId(job.jobId);
+      setWorkOrderWorkflow(workflow);
+      setGenerationJob(null);
+      window.localStorage.setItem(workOrderStorageKey, workflow.workOrder.workOrderId);
+      window.localStorage.removeItem(generationJobStorageKey);
+      setGenerationRecoveryJobId(null);
       setGeneratorState("idle");
     } catch (error) {
       const code = error instanceof Error && "code" in error ? (error as { code: GenerationJobErrorCode }).code : "generation_failed";
@@ -733,6 +762,34 @@ export function App() {
       setGenerationJobError({ code, message });
       setGeneratorError(message);
       setGeneratorState("error");
+    }
+  }
+
+  async function confirmCreationPlan() {
+    if (!workOrderWorkflow) return;
+    setGeneratorState("working");
+    setGeneratorError("");
+    setGenerationJobError(null);
+    setGenerationPolls(0);
+    setGenerationElapsed(0);
+    try {
+      const result = await confirmWorkOrder(workOrderWorkflow.workOrder.workOrderId);
+      setWorkOrderWorkflow(result.workflow);
+      setGenerationJob(result.job);
+      window.localStorage.setItem(workOrderStorageKey, result.workflow.workOrder.workOrderId);
+      window.localStorage.setItem(generationJobStorageKey, result.job.jobId);
+      setGenerationRecoveryJobId(result.job.jobId);
+      if (["completed", "failed", "cancelled"].includes(result.job.status)) {
+        try { setWorkOrderWorkflow(await loadWorkOrder(result.workflow.workOrder.workOrderId)); } catch { /* The confirmed contract remains visible if refresh evidence is temporarily unavailable. */ }
+      }
+      setGeneratorState("idle");
+    } catch (error) {
+      const code = error instanceof Error && "code" in error ? (error as { code: GenerationJobErrorCode }).code : "generation_failed";
+      const message = error instanceof Error ? error.message : "无法启动生成任务";
+      setGenerationJobError({ code, message });
+      setGeneratorError(message);
+      setGeneratorState("error");
+      try { setWorkOrderWorkflow(await loadWorkOrder(workOrderWorkflow.workOrder.workOrderId)); } catch { /* Keep the last valid local projection. */ }
     }
   }
 
@@ -999,6 +1056,23 @@ export function App() {
               <span className="director-avatar">OD</span>
               <div><strong>我会按“诊断 → 故事线 → 设计方向 → 可编辑成品”推进。</strong><p>当前建议使用 {selectedPack?.name ?? "商业提案"}，生成后你可以直接改文字、字体、图片和版式。</p></div>
             </article>
+            {workOrderWorkflow && <article className="creation-contract" aria-label="Creation Contract" aria-live="polite">
+              <header><span><Kicker>Creation Contract</Kicker><strong>{workOrderWorkflow.workOrder.title}</strong></span><Badge tone={workOrderWorkflow.projection.status === "draft" ? "accent" : "success"}>{workOrderWorkflow.projection.status === "draft" ? "待你确认" : "计划已确认"}</Badge></header>
+              <dl>
+                <div><dt>目标</dt><dd>{workOrderWorkflow.workOrder.objective}</dd></div>
+                <div><dt>受众与行动</dt><dd>{workOrderWorkflow.workOrder.audience.description} · {workOrderWorkflow.workOrder.audience.decisionOrAction}</dd></div>
+                <div><dt>来源边界</dt><dd>{workOrderWorkflow.workOrder.sources.length} 个用户来源 · {workOrderWorkflow.workOrder.confidentiality === "public" ? "公开试用空间" : "私密空间"}</dd></div>
+                <div><dt>Design Pack</dt><dd>{workOrderWorkflow.plan.designPack.id}@{workOrderWorkflow.plan.designPack.version}</dd></div>
+              </dl>
+              <div className="creation-contract__pins" aria-label="已固定的专家 Skills">{workOrderWorkflow.plan.capabilityPins.map((pin) => <span key={`${pin.id}@${pin.version}`}>{pin.id}<small>@{pin.version}</small></span>)}</div>
+              <ol className="creation-contract__stages">{workOrderWorkflow.plan.stages.map((item) => {
+                const status = workOrderWorkflow.projection.stageStatuses[item.stageId] ?? "queued";
+                return <li key={item.stageId} className={`is-${status}`}><i>{status === "completed" ? <Icon name="check" size={9} /> : item.order}</i><span><strong>{agentStageLabels[item.kind] ?? item.kind}</strong><small>{item.objective}</small></span><em>{status}</em></li>;
+              })}</ol>
+              <p className="creation-contract__budget">预算上限：{workOrderWorkflow.plan.budget.maxDurationSeconds} 秒 · {workOrderWorkflow.plan.budget.maxModelCalls} 次模型调用 · 不自动生成图片</p>
+              {workOrderWorkflow.projection.status === "draft" && <div className="creation-contract__actions"><Button size="sm" tone="primary" onClick={confirmCreationPlan} disabled={generatorState === "working"}>确认计划并开始创作</Button><small>确认前不会调用模型，也不会改动当前作品。</small></div>}
+              {workOrderWorkflow.projection.status === "confirmed" && !generationJob && <div className="creation-contract__actions"><Button size="sm" tone="outline" onClick={confirmCreationPlan} disabled={generatorState === "working"}>启动已确认计划</Button><small>计划已留痕；服务恢复后可继续。</small></div>}
+            </article>}
             {generationJob && <article className={`generation-job generation-job--${generationJob.status}`} aria-live="polite" aria-label="生成任务状态">
               <header><span className="generation-job__state"><i /><span><strong>{generationStageCopy[generationJob.status].label}</strong><small>{generationElapsed} 秒 · {generationJob.jobId.slice(0, 12)}</small></span></span><Badge tone={generationJob.status === "completed" ? "success" : generationJob.status === "failed" || generationJob.status === "cancelled" ? "neutral" : "accent"}>{generationJob.status}</Badge></header>
               <div className="generation-job__track" aria-label={`生成进度 ${generationStageCopy[generationJob.status].progress}%`}><span style={{ width: `${generationStageCopy[generationJob.status].progress}%` }} /></div>
@@ -1055,9 +1129,15 @@ export function App() {
 
           <section className="panel-section brief-section">
             <label className="composer-label" htmlFor="studio-brief">给设计总监新的指令</label>
-            <textarea id="studio-brief" value={brief} onChange={(event) => setBrief(event.target.value)} aria-label="项目 Brief" placeholder="描述你想制作的提案、演讲或文章配图…" />
+            <textarea id="studio-brief" value={brief} onChange={(event) => {
+              setBrief(event.target.value);
+              if (workOrderWorkflow?.projection.status === "draft") {
+                setWorkOrderWorkflow(null);
+                window.localStorage.removeItem(workOrderStorageKey);
+              }
+            }} aria-label="项目 Brief" placeholder="描述你想制作的提案、演讲或文章配图…" />
             <div className="source-meta"><span><Icon name="file" size={13} /> Brief · {[...brief].length} 字</span><Badge tone={brief.trim().length >= 12 ? "success" : "neutral"}>{brief.trim().length >= 12 ? "可生成" : "继续输入"}</Badge></div>
-            <div className="composer-actions"><Button size="sm" tone="outline" onClick={() => setWorkflowStep("sources")}><Icon name="file" size={13} /> 添加素材</Button><Button size="sm" tone="primary" onClick={createFromBrief} disabled={generatorState === "working" || generationRunning || brief.trim().length < 12}><Icon name="spark" size={13} />{generatorState === "working" ? "正在提交" : generationRunning ? "任务进行中" : "生成新项目"}</Button></div>
+            <div className="composer-actions"><Button size="sm" tone="outline" onClick={() => setWorkflowStep("sources")}><Icon name="file" size={13} /> 添加素材</Button><Button size="sm" tone="primary" onClick={createFromBrief} disabled={generatorState === "working" || generationRunning || brief.trim().length < 12}><Icon name="spark" size={13} />{generatorState === "working" ? "正在提交" : generationRunning ? "任务进行中" : workOrderWorkflow?.projection.status === "draft" ? "重新诊断计划" : "诊断并制定计划"}</Button></div>
             <button className="composer-example" type="button" onClick={() => setBrief(exampleBrief)}>使用示例需求（仅填充）</button>
             <details className="advanced-generation"><summary>更多生成方式</summary><Button size="sm" tone="outline" onClick={createFromDesignDirector} disabled={generatorState === "working" || brief.trim().length < 12 || !selectedPack}><Icon name="layers" size={13} />Design Director Skill 初稿</Button><Button size="sm" tone="outline" onClick={createFromFixtureModel} disabled={generatorState === "working" || brief.trim().length < 12 || !selectedPack}><Icon name="spark" size={13} />安全模型生成（Fixture）</Button></details>
             {generatorState === "error" && !generationJobError && <small className="generator-error">{generatorError}</small>}

@@ -2,6 +2,7 @@ import type { DesignPackPin, DocumentProvenance, HtmlImportResult, Revision, Sce
 import type { DesignDirectorInput, DesignDirectorOutput } from "@opendesign/studio-design-director";
 import type { ModelGenerationResult } from "@opendesign/studio-model-adapter";
 import type { ReviewLedger, ReviewProjection } from "@opendesign/studio-publishing";
+import type { AgentRunEvent, AgentRunProjection, DesignWorkOrder, ExecutionPlan } from "@opendesign/studio-agent-os";
 
 export type ProjectSummary = { projectId: string; title: string; sceneCount: number; updatedAt: string };
 export type StoredRevision = { revision: Revision; document: SceneDocument };
@@ -53,7 +54,14 @@ export type GenerationJob = {
   projectId?: string;
   error?: { code: GenerationJobErrorCode; message: string; retryable?: boolean };
 };
-export type CreateGenerationJobInput = { brief: string; title?: string; designPack?: DesignPackPin };
+export type CreateWorkOrderInput = { brief: string; title?: string; designPack?: DesignPackPin };
+export type WorkOrderWorkflow = {
+  workOrder: DesignWorkOrder;
+  plan: ExecutionPlan;
+  projection: AgentRunProjection;
+  events: readonly AgentRunEvent[];
+  generationJobId?: string;
+};
 
 export class StudioApiError extends Error {
   readonly code: GenerationJobErrorCode;
@@ -155,8 +163,56 @@ function parseJobEnvelope(payload: unknown): GenerationJob {
   return parseGenerationJob(payload.job);
 }
 
-export async function createGenerationJob(input: CreateGenerationJobInput): Promise<GenerationJob> {
-  return parseJobEnvelope(await generationRequest("/api/generation-jobs", { method: "POST", body: JSON.stringify(input) }));
+function parseWorkflow(value: unknown): WorkOrderWorkflow {
+  if (!isObject(value) || !isObject(value.workOrder) || !isObject(value.plan) || !isObject(value.projection) || !Array.isArray(value.events)) {
+    throw new StudioApiError("Creation Contract 响应格式无效，请重新建立任务。", "generation_failed");
+  }
+  const workOrder = value.workOrder;
+  const plan = value.plan;
+  const projection = value.projection;
+  const pinsValid = Array.isArray(plan.capabilityPins) && plan.capabilityPins.every((pin) => isObject(pin) && typeof pin.id === "string" && typeof pin.version === "string");
+  const stagesValid = Array.isArray(plan.stages) && plan.stages.length > 0 && plan.stages.every((stage) => isObject(stage)
+    && typeof stage.stageId === "string" && typeof stage.kind === "string" && typeof stage.objective === "string" && typeof stage.order === "number");
+  const sourcesValid = Array.isArray(workOrder.sources) && workOrder.sources.length > 0 && workOrder.sources.every((source) => isObject(source) && typeof source.sourceId === "string" && typeof source.title === "string");
+  if (typeof workOrder.workOrderId !== "string" || !/^workorder_[a-z0-9]{8,59}$/u.test(workOrder.workOrderId)
+    || typeof workOrder.title !== "string" || typeof workOrder.objective !== "string"
+    || !isObject(workOrder.audience) || typeof workOrder.audience.description !== "string" || typeof workOrder.audience.decisionOrAction !== "string"
+    || !sourcesValid || !Array.isArray(workOrder.successCriteria) || !workOrder.successCriteria.every((criterion) => typeof criterion === "string")
+    || typeof plan.planId !== "string" || plan.workOrderId !== workOrder.workOrderId
+    || !isObject(plan.designPack) || typeof plan.designPack.id !== "string" || typeof plan.designPack.version !== "string"
+    || !pinsValid || !stagesValid || !isObject(plan.budget)
+    || typeof plan.budget.maxDurationSeconds !== "number" || typeof plan.budget.maxModelCalls !== "number" || typeof plan.budget.maxImageCalls !== "number"
+    || projection.workOrderId !== workOrder.workOrderId || projection.planId !== plan.planId
+    || typeof projection.status !== "string" || !isObject(projection.stageStatuses)
+    || !Object.values(projection.stageStatuses).every((status) => ["queued", "running", "awaiting-input", "completed", "failed", "cancelled"].includes(String(status)))) {
+    throw new StudioApiError("Creation Contract 缺少目标、能力版本或阶段信息。", "generation_failed");
+  }
+  if (value.generationJobId !== undefined && (typeof value.generationJobId !== "string" || !/^job_[a-z0-9]{8,59}$/u.test(value.generationJobId))) {
+    throw new StudioApiError("Creation Contract 返回了无效的任务关联。", "generation_failed");
+  }
+  return value as unknown as WorkOrderWorkflow;
+}
+
+function parseWorkflowEnvelope(payload: unknown): WorkOrderWorkflow {
+  if (!isObject(payload) || !("workflow" in payload)) throw new StudioApiError("服务端没有返回 Creation Contract。", "generation_failed");
+  return parseWorkflow(payload.workflow);
+}
+
+export async function createWorkOrder(input: CreateWorkOrderInput): Promise<WorkOrderWorkflow> {
+  return parseWorkflowEnvelope(await generationRequest("/api/work-orders", { method: "POST", body: JSON.stringify(input) }));
+}
+
+export async function loadWorkOrder(workOrderId: string): Promise<WorkOrderWorkflow> {
+  return parseWorkflowEnvelope(await generationRequest(`/api/work-orders/${encodeURIComponent(workOrderId)}`));
+}
+
+export async function confirmWorkOrder(workOrderId: string): Promise<{ workflow: WorkOrderWorkflow; job: GenerationJob }> {
+  const payload = await generationRequest(`/api/work-orders/${encodeURIComponent(workOrderId)}/confirm`, { method: "POST", body: "{}" });
+  if (!isObject(payload) || !("workflow" in payload) || !("job" in payload)) throw new StudioApiError("确认计划后没有返回生成任务。", "generation_failed");
+  const workflow = parseWorkflow(payload.workflow);
+  const job = parseGenerationJob(payload.job);
+  if (workflow.generationJobId !== job.jobId) throw new StudioApiError("Creation Contract 与生成任务关联不一致。", "generation_failed");
+  return { workflow, job };
 }
 
 export async function loadGenerationJob(jobId: string): Promise<GenerationJob> {

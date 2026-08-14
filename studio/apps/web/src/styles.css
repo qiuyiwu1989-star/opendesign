@@ -124,6 +124,32 @@ button:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-
 .chat-message--user { align-self: flex-end; max-width: 88%; padding: 10px 12px; border-radius: 13px 13px 3px 13px; background: #f0f1f2; color: #34363b; }
 .chat-message--success > div { padding: 10px; border: 1px solid #cde6d7; border-radius: 10px; background: #f4fbf6; color: #3d7250; }
 .chat-message--success strong { color: #28563a; }
+.creation-contract { display: grid; gap: 11px; margin-left: 37px; border: 1px solid #d7d3ee; border-radius: 12px; padding: 13px; background: linear-gradient(145deg, #fbfaff, #f3f1fb); color: #555362; }
+.creation-contract > header { display: flex; align-items: flex-start; justify-content: space-between; gap: 10px; }
+.creation-contract > header > span { min-width: 0; display: grid; gap: 5px; }
+.creation-contract > header strong { color: #35333d; font-size: 11px; line-height: 1.35; }
+.creation-contract dl { display: grid; gap: 7px; margin: 0; }
+.creation-contract dl > div { display: grid; grid-template-columns: 65px minmax(0, 1fr); gap: 8px; }
+.creation-contract dt { color: #9a96aa; font: 600 7px/1.45 var(--studio-mono); text-transform: uppercase; }
+.creation-contract dd { margin: 0; color: #656270; font-size: 8px; line-height: 1.5; }
+.creation-contract__pins { display: flex; flex-wrap: wrap; gap: 4px; }
+.creation-contract__pins > span { display: inline-flex; align-items: baseline; gap: 2px; border: 1px solid #ddd9ef; border-radius: 99px; padding: 4px 6px; background: #fff; color: #5e5878; font: 600 7px/1 var(--studio-mono); }
+.creation-contract__pins small { color: #aaa5b9; font-size: 6px; }
+.creation-contract__stages { display: grid; gap: 4px; margin: 0; padding: 0; list-style: none; }
+.creation-contract__stages li { display: grid; grid-template-columns: 21px minmax(0, 1fr) auto; align-items: center; gap: 7px; border-radius: 7px; padding: 6px; background: #fff9; }
+.creation-contract__stages li > i { width: 19px; height: 19px; display: grid; place-items: center; border: 1px solid #dcd8e9; border-radius: 50%; color: #9b96a9; font: 600 7px/1 var(--studio-mono); font-style: normal; }
+.creation-contract__stages li > span { min-width: 0; display: grid; gap: 3px; }
+.creation-contract__stages strong { color: #514e5a; font-size: 8px; }
+.creation-contract__stages small { overflow: hidden; color: #9995a3; font-size: 7px; text-overflow: ellipsis; white-space: nowrap; }
+.creation-contract__stages em { color: #aaa5b3; font: 600 6px/1 var(--studio-mono); font-style: normal; text-transform: uppercase; }
+.creation-contract__stages li.is-completed > i { border-color: #57a474; background: #57a474; color: #fff; }
+.creation-contract__stages li.is-running, .creation-contract__stages li.is-awaiting-input { background: #efecff; }
+.creation-contract__stages li.is-running > i, .creation-contract__stages li.is-awaiting-input > i { border-color: #6c5ce2; color: #6c5ce2; }
+.creation-contract__stages li.is-cancelled, .creation-contract__stages li.is-failed { opacity: .62; }
+.creation-contract__budget { margin: 0; color: #8f8b9c; font-size: 7px; line-height: 1.5; }
+.creation-contract__actions { display: grid; gap: 6px; }
+.creation-contract__actions .od-button { width: 100%; justify-content: center; }
+.creation-contract__actions small { color: #8d8998; font-size: 7px; text-align: center; }
 .chat-message--example { padding-left: 37px; }
 .chat-message--example > div { display: grid; gap: 7px; padding: 12px; border: 1px dashed #c9cbd0; border-radius: 10px; background: #f8f9fa; }
 .chat-message--example .od-button { justify-self: start; }

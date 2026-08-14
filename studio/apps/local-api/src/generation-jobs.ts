@@ -47,6 +47,8 @@ export type GenerationJobManagerOptions = {
   rootDirectory: string;
   provider: ModelProvider | null;
   projectWriter: (scopeHash: string, document: SceneDocument) => Promise<void>;
+  documentGate?: (document: SceneDocument) => Promise<{ accepted: boolean; code?: string; message?: string; retryable?: boolean }>;
+  onTransition?: (scopeHash: string, input: DesignDirectorInput, job: GenerationJob) => Promise<void>;
   now?: () => Date;
   id?: () => string;
   maxRunningPerScope?: number;
@@ -294,6 +296,7 @@ export class GenerationJobManager {
       if (error) job.error = error; else delete job.error;
       if (projectId) job.projectId = projectId;
       await this.persist(job);
+      await this.options.onTransition?.(job.scopeHash, structuredClone(job.input), publicJob(job));
     });
   }
 
@@ -367,6 +370,15 @@ export class GenerationJobManager {
       await this.#yieldStage("validating", publicJob(job), controller.signal);
       if (this.wasCancelled(job)) return;
       const document = result.output.importResult.document;
+      const gate = await this.options.documentGate?.(structuredClone(document));
+      if (gate && !gate.accepted) {
+        await this.transition(job, "failed", {
+          code: gate.code ?? "qa_failed",
+          retryable: gate.retryable ?? false,
+          message: safeMessage(gate.message ?? "The generated document did not pass QA"),
+        });
+        return;
+      }
       await this.options.projectWriter(job.scopeHash, structuredClone(document));
       if (this.wasCancelled(job)) return;
       await this.transition(job, "completed", undefined, document.documentId);

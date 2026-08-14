@@ -359,13 +359,19 @@ test("006 public API isolates projects and generation jobs between anonymous coo
     const exportBody = await exported.json() as { files: Array<{ downloadUrl: string }> };
     assert.equal((await withCookie(`${base}${exportBody.files[0]!.downloadUrl}`, cookieB)).status, 404);
 
-    const created = await withCookie(`${base}/api/generation-jobs`, cookieA, {
+    assert.equal((await withCookie(`${base}/api/generation-jobs`, cookieA, {
       method: "POST",
       headers: { "content-type": "application/json" },
       body: JSON.stringify({ brief: "把公开 Studio 的匿名隔离与可编辑生成能力整理成一份六页提案。" }),
-    });
-    assert.equal(created.status, 202);
-    const body = await created.json() as { job: { jobId: string } };
+    })).status, 404);
+    const planned = await withCookie(`${base}/api/work-orders`, cookieA, {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify({ brief: "把公开 Studio 的匿名隔离与可编辑生成能力整理成一份六页提案。" }),
+    }).then((response) => response.json()) as { workflow: { workOrder: { workOrderId: string } } };
+    const body = await withCookie(`${base}/api/work-orders/${planned.workflow.workOrder.workOrderId}/confirm`, cookieA, {
+      method: "POST", headers: { "content-type": "application/json" }, body: "{}",
+    }).then((response) => response.json()) as { job: { jobId: string } };
     assert.equal((await withCookie(`${base}/api/generation-jobs/${body.job.jobId}`, cookieB)).status, 404);
 
     let completed: { job: { status: string; projectId?: string } } | undefined;
@@ -378,6 +384,66 @@ test("006 public API isolates projects and generation jobs between anonymous coo
     assert.ok(completed?.job.projectId);
     assert.equal((await withCookie(`${base}/api/projects/${completed.job.projectId}`, cookieA)).status, 200);
     assert.equal((await withCookie(`${base}/api/projects/${completed.job.projectId}`, cookieB)).status, 404);
+  } finally {
+    server.close();
+    await once(server, "close");
+    await rm(directory, { recursive: true, force: true });
+  }
+});
+
+test("007 Creation Contract stays private and requires explicit confirmation before generation", async () => {
+  const directory = await mkdtemp(join(tmpdir(), "opendesign-work-order-api-"));
+  let fill = 40;
+  const server = createStudioServer({
+    dataDirectory: directory,
+    sessionCodec: createPublicSessionCodec({
+      secret: TEST_SESSION_SECRET,
+      random: { bytes: (size) => new Uint8Array(size).fill(fill++) },
+    }),
+    generationProvider: configureGenerationProvider({ env: { STUDIO_GENERATION_MODE: "fixture" } }),
+  });
+  server.listen(0, "127.0.0.1");
+  await once(server, "listening");
+  const port = (server.address() as AddressInfo).port;
+  const base = `http://127.0.0.1:${port}`;
+  try {
+    const cookieA = cookieFrom(await fetch(`${base}/api/projects`));
+    const cookieB = cookieFrom(await fetch(`${base}/api/projects`));
+    const createdResponse = await withCookie(`${base}/api/work-orders`, cookieA, {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify({ brief: "把 Agent Studio 的设计方法做成一套六页可编辑商业提案，让产品负责人确认下一阶段。" }),
+    });
+    assert.equal(createdResponse.status, 201);
+    const created = await createdResponse.json() as { workflow: { workOrder: { workOrderId: string }; plan: { capabilityPins: Array<{ id: string }>; stages: Array<{ kind: string }> }; projection: { status: string }; events: unknown[]; generationJobId?: string } };
+    assert.equal(created.workflow.projection.status, "draft");
+    assert.equal(created.workflow.events.length, 0);
+    assert.equal(created.workflow.generationJobId, undefined);
+    assert.deepEqual(created.workflow.plan.capabilityPins.map((pin) => pin.id), ["opendesign-design-director", "narrative-architect", "art-director", "design-critic"]);
+    assert.deepEqual(created.workflow.plan.stages.slice(0, 5).map((stage) => stage.kind), ["diagnose", "direction", "compose", "import", "qa"]);
+    const workOrderUrl = `${base}/api/work-orders/${created.workflow.workOrder.workOrderId}`;
+    assert.equal((await withCookie(workOrderUrl, cookieB)).status, 404);
+
+    const confirmedResponse = await withCookie(`${workOrderUrl}/confirm`, cookieA, { method: "POST", headers: { "content-type": "application/json" }, body: "{}" });
+    assert.equal(confirmedResponse.status, 202);
+    const confirmed = await confirmedResponse.json() as { workflow: { projection: { status: string }; events: Array<{ type: string; actor: { kind: string } }>; generationJobId: string }; job: { jobId: string } };
+    assert.equal(confirmed.workflow.projection.status, "confirmed");
+    assert.equal(confirmed.workflow.events[0]?.type, "plan_confirmed");
+    assert.equal(confirmed.workflow.events[0]?.actor.kind, "human");
+    assert.equal(confirmed.workflow.generationJobId, confirmed.job.jobId);
+    const repeated = await withCookie(`${workOrderUrl}/confirm`, cookieA, { method: "POST", headers: { "content-type": "application/json" }, body: "{}" }).then((response) => response.json()) as { job: { jobId: string } };
+    assert.equal(repeated.job.jobId, confirmed.job.jobId);
+
+    let completed: { job: { status: string; projectId?: string } } | undefined;
+    for (let attempt = 0; attempt < 50; attempt += 1) {
+      completed = await withCookie(`${base}/api/generation-jobs/${confirmed.job.jobId}`, cookieA).then((response) => response.json()) as typeof completed;
+      if (completed?.job.status === "completed" || completed?.job.status === "failed") break;
+      await new Promise((resolve) => setTimeout(resolve, 5));
+    }
+    assert.equal(completed?.job.status, "completed");
+    const final = await withCookie(workOrderUrl, cookieA).then((response) => response.json()) as { workflow: { projection: { stageStatuses: Record<string, string> } } };
+    assert.equal(final.workflow.projection.stageStatuses.stage_qa, "completed");
+    assert.equal(final.workflow.projection.stageStatuses.stage_edit, "queued");
   } finally {
     server.close();
     await once(server, "close");

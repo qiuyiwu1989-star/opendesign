@@ -236,6 +236,23 @@ describe("persistent scoped generation jobs", () => {
     assert.doesNotMatch(persisted, /hunter2|sensitive-provider-credential/u);
   });
 
+  it("fails closed at the deterministic document gate before persisting a project", async () => {
+    const directory = await temporaryDirectory();
+    let writes = 0;
+    const manager = new GenerationJobManager(managerOptions(directory, {
+      documentGate: async () => ({ accepted: false, code: "qa_failed", message: "2 layout errors", retryable: false }),
+      projectWriter: async () => { writes += 1; },
+    }));
+    await manager.initialize();
+    const created = await manager.create(scopeA, input());
+    await manager.drain();
+    const failed = manager.get(scopeA, created.jobId);
+    assert.equal(failed?.status, "failed");
+    assert.equal(failed?.error?.code, "qa_failed");
+    assert.equal(failed?.error?.retryable, false);
+    assert.equal(writes, 0);
+  });
+
   it("rejects untrusted scope paths before touching disk", async () => {
     const manager = new GenerationJobManager(managerOptions(await temporaryDirectory()));
     await manager.initialize();

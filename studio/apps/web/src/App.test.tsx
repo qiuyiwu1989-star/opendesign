@@ -10,6 +10,36 @@ const generatedDocument = {
   scenes: fixture.scenes.map((scene, index) => index === 0 ? { ...scene, title: "主张", elements: scene.elements.map((element) => element.role === "title" ? { ...element, content: "让文章成为一套可编辑的视觉提案" } : element) } : scene),
 };
 
+function workflowFixture(status: "draft" | "confirmed" | "running" = "draft", generationJobId?: string) {
+  const stages = [
+    ["stage_diagnose", "diagnose", "确认目标与证据边界"],
+    ["stage_direction", "direction", "形成一主两备设计方向"],
+    ["stage_compose", "compose", "生成 Structured HTML"],
+    ["stage_import", "import", "安全导入 Scene IR"],
+    ["stage_qa", "qa", "执行确定性 QA"],
+    ["stage_edit", "edit", "人工局部编辑"],
+    ["stage_review", "review", "人工候选确认"],
+    ["stage_export", "export", "明确导出"],
+  ].map(([stageId, kind, objective], index) => ({ stageId, order: index + 1, kind, objective, skillPins: [{ id: "opendesign-design-director", version: "0.3.0" }], toolIds: [], requiredArtifactTypes: [], expectedArtifactTypes: [index === 0 ? "diagnosis" : "scene-ir"], approval: index > 4 ? "human-before" : "none", maxAttempts: 1 }));
+  return {
+    workOrder: {
+      contractVersion: "0.1.0", workOrderId: "workorder_ui000001", createdAt: "2026-08-14T01:00:00.000Z", title: "Agent Studio 提案",
+      objective: "把文章或提案转化成一套能继续编辑、持续迭代的视觉叙事。", audience: { description: "内容创作者与决策者", decisionOrAction: "确认下一阶段" },
+      deliverable: { kind: "proposal", formats: ["html", "pptx"], language: "zh-CN", pageCount: { min: 6, max: 8 } },
+      sources: [{ sourceId: "source_brief", type: "brief", title: "用户 Brief" }], brand: { name: "OpenDesign", assetIds: [], guidance: ["清晰"] }, constraints: ["不补造事实"], successCriteria: ["三个方向", "可编辑"], confidentiality: "public",
+    },
+    plan: {
+      contractVersion: "0.1.0", planId: "plan_ui000001", workOrderId: "workorder_ui000001", revision: 1, createdAt: "2026-08-14T01:00:00.000Z", status: "draft",
+      designPack: { id: "executive-proposal-cn", version: "1.0.0" },
+      capabilityPins: [{ id: "opendesign-design-director", version: "0.3.0" }, { id: "narrative-architect", version: "0.1.0" }, { id: "art-director", version: "0.1.0" }, { id: "design-critic", version: "0.1.0" }],
+      stages, budget: { maxDurationSeconds: 180, maxModelCalls: 2, maxImageCalls: 0 },
+    },
+    projection: { workOrderId: "workorder_ui000001", planId: "plan_ui000001", status, stageStatuses: Object.fromEntries(stages.map((stage) => [stage.stageId, "queued"])), lastSequence: status === "draft" ? 0 : 1 },
+    events: status === "draft" ? [] : [{ contractVersion: "0.1.0", eventId: "event_ui_confirm", commandId: "confirm_ui", sequence: 1, workOrderId: "workorder_ui000001", planId: "plan_ui000001", type: "plan_confirmed", occurredAt: "2026-08-14T01:00:01.000Z", actor: { actorId: "studio_public_session", kind: "human" }, inputArtifactIds: [], outputArtifactIds: [] }],
+    ...(generationJobId ? { generationJobId } : {}),
+  };
+}
+
 beforeEach(() => {
   window.localStorage.clear();
   vi.stubGlobal("fetch", vi.fn(async (input: string | URL | Request, init?: RequestInit) => {
@@ -18,8 +48,10 @@ beforeEach(() => {
       const request = JSON.parse(String(init.body)) as { document: typeof fixture };
       return new Response(JSON.stringify({ document: request.document, revision: { revisionId: "revision_test", parentRevisionId: null, createdAt: new Date().toISOString(), reason: "edit", patches: [] }, persisted: true }), { status: 200 });
     }
-    if (init?.method === "POST" && path === "/api/generation-jobs") return new Response(JSON.stringify({ job: { jobId: "job_completed_001", status: "completed", createdAt: "2026-08-14T01:00:00.000Z", updatedAt: "2026-08-14T01:00:05.000Z", projectId: generatedDocument.documentId } }), { status: 202 });
-    if (init?.method === "POST" && path === "/api/generation-jobs/job_queued_001/cancel") return new Response(JSON.stringify({ job: { jobId: "job_queued_001", status: "cancelled", createdAt: "2026-08-14T01:00:00.000Z", updatedAt: "2026-08-14T01:00:02.000Z" } }), { status: 200 });
+    if (init?.method === "POST" && path === "/api/work-orders") return new Response(JSON.stringify({ workflow: workflowFixture() }), { status: 201 });
+    if (init?.method === "POST" && path === "/api/work-orders/workorder_ui000001/confirm") return new Response(JSON.stringify({ workflow: workflowFixture("confirmed", "job_completed001"), job: { jobId: "job_completed001", status: "completed", createdAt: "2026-08-14T01:00:00.000Z", updatedAt: "2026-08-14T01:00:05.000Z", projectId: generatedDocument.documentId } }), { status: 202 });
+    if (!init?.method && path === "/api/work-orders/workorder_ui000001") return new Response(JSON.stringify({ workflow: workflowFixture("confirmed", "job_completed001") }), { status: 200 });
+    if (init?.method === "POST" && path === "/api/generation-jobs/job_queued0001/cancel") return new Response(JSON.stringify({ job: { jobId: "job_queued0001", status: "cancelled", createdAt: "2026-08-14T01:00:00.000Z", updatedAt: "2026-08-14T01:00:02.000Z" } }), { status: 200 });
     if (init?.method === "POST" && path === "/api/design-director/drafts") return new Response(JSON.stringify({
       outputVersion: "0.1.0",
       status: "accepted",
@@ -234,15 +266,21 @@ describe("OpenDesign Studio workspace", () => {
     expect(screen.getByRole("link", { name: "下载文件" })).toHaveAttribute("href", "/api/exports/export_test_html/doc_studio_v0.html");
   });
 
-  it("creates a generation job and opens the completed project only after confirmation", async () => {
+  it("creates a Creation Contract, waits for human confirmation, then opens the completed project", async () => {
     render(<App />);
-    fireEvent.click(screen.getByRole("button", { name: /生成新项目/ }));
+    fireEvent.click(screen.getByRole("button", { name: /诊断并制定计划/ }));
+    expect(await screen.findByRole("button", { name: "确认计划并开始创作" })).toBeInTheDocument();
+    expect(screen.getByLabelText("已固定的专家 Skills")).toHaveTextContent("design-critic@0.1.0");
+    expect(fetch).not.toHaveBeenCalledWith("/api/work-orders/workorder_ui000001/confirm", expect.anything());
+    fireEvent.click(screen.getByRole("button", { name: "确认计划并开始创作" }));
+    await waitFor(() => expect(fetch).toHaveBeenCalledWith("/api/work-orders/workorder_ui000001/confirm", expect.anything()));
     expect(await screen.findByText("生成完成")).toBeInTheDocument();
     expect(screen.getAllByText("让视觉作品在生成之后，继续生长。").length).toBeGreaterThan(0);
     fireEvent.click(screen.getByRole("button", { name: "打开新作品" }));
     expect(await screen.findAllByText("让文章成为一套可编辑的视觉提案")).not.toHaveLength(0);
-    expect(fetch).toHaveBeenCalledWith("/api/generation-jobs", expect.objectContaining({ method: "POST" }));
-    const call = vi.mocked(fetch).mock.calls.find(([path]) => path === "/api/generation-jobs");
+    expect(fetch).toHaveBeenCalledWith("/api/work-orders", expect.objectContaining({ method: "POST" }));
+    expect(fetch).toHaveBeenCalledWith("/api/work-orders/workorder_ui000001/confirm", expect.objectContaining({ method: "POST" }));
+    const call = vi.mocked(fetch).mock.calls.find(([path]) => path === "/api/work-orders");
     expect(JSON.parse(String(call?.[1]?.body))).toEqual(expect.objectContaining({ brief: expect.any(String), title: expect.any(String), designPack: expect.objectContaining({ id: expect.any(String), version: expect.any(String) }) }));
   });
 
@@ -293,7 +331,8 @@ describe("OpenDesign Studio workspace", () => {
     render(<App />);
     fireEvent.doubleClick(screen.getByRole("button", { name: /title: 让视觉作品/ }));
     fireEvent.change(screen.getByLabelText("文字内容"), { target: { value: "保留我的人工判断" } });
-    fireEvent.click(screen.getByRole("button", { name: /生成新项目/ }));
+    fireEvent.click(screen.getByRole("button", { name: /诊断并制定计划/ }));
+    fireEvent.click(await screen.findByRole("button", { name: "确认计划并开始创作" }));
     expect(await screen.findByText("生成完成")).toBeInTheDocument();
     expect(screen.getAllByText("保留我的人工判断").length).toBeGreaterThan(0);
     expect(screen.getByText("当前作品不会自动被覆盖。")).toBeInTheDocument();
@@ -329,7 +368,7 @@ describe("OpenDesign Studio workspace", () => {
     expect(screen.getByText("示例只会填入输入框，不代表已经开始生成。")).toBeInTheDocument();
     fireEvent.click(screen.getByRole("button", { name: "使用示例需求" }));
     expect(screen.getByLabelText<HTMLTextAreaElement>("项目 Brief").value).toContain("AI 如何改变创作者工作流");
-    expect(fetch).not.toHaveBeenCalledWith("/api/generation-jobs", expect.anything());
+    expect(fetch).not.toHaveBeenCalledWith("/api/work-orders", expect.anything());
     expect(screen.getByText(/清除浏览器 Cookie 后/)).toBeInTheDocument();
   });
 
@@ -338,22 +377,24 @@ describe("OpenDesign Studio workspace", () => {
     vi.mocked(fetch).mockImplementation(async (input: string | URL | Request, init?: RequestInit) => {
       const path = String(input);
       const now = "2026-08-14T01:00:00.000Z";
-      if (init?.method === "POST" && path === "/api/generation-jobs") return new Response(JSON.stringify({ job: { jobId: "job_queued_001", status: "queued", createdAt: now, updatedAt: now } }), { status: 202 });
-      if (init?.method === "POST" && path.endsWith("/cancel")) return new Response(JSON.stringify({ job: { jobId: "job_queued_001", status: "cancelled", createdAt: now, updatedAt: now } }), { status: 200 });
-      if (!init?.method && path === "/api/generation-jobs/job_queued_001") {
+      if (init?.method === "POST" && path === "/api/work-orders") return new Response(JSON.stringify({ workflow: workflowFixture() }), { status: 201 });
+      if (init?.method === "POST" && path === "/api/work-orders/workorder_ui000001/confirm") return new Response(JSON.stringify({ workflow: workflowFixture("confirmed", "job_queued0001"), job: { jobId: "job_queued0001", status: "queued", createdAt: now, updatedAt: now } }), { status: 202 });
+      if (init?.method === "POST" && path.endsWith("/cancel")) return new Response(JSON.stringify({ job: { jobId: "job_queued0001", status: "cancelled", createdAt: now, updatedAt: now } }), { status: 200 });
+      if (!init?.method && path === "/api/generation-jobs/job_queued0001") {
         const status = (["analyzing", "generating", "validating"] as const)[Math.min(poll++, 2)]!;
-        return new Response(JSON.stringify({ job: { jobId: "job_queued_001", status, createdAt: now, updatedAt: now } }), { status: 200 });
+        return new Response(JSON.stringify({ job: { jobId: "job_queued0001", status, createdAt: now, updatedAt: now } }), { status: 200 });
       }
       if (!init?.method && path === "/api/projects") return new Response(JSON.stringify({ projects: [] }), { status: 200 });
       if (!init?.method && path.endsWith("/revisions")) return new Response(JSON.stringify({ revisions: [] }), { status: 200 });
       return new Response(JSON.stringify({ error: "Project not found" }), { status: 404 });
     });
     render(<App />);
-    fireEvent.click(screen.getByRole("button", { name: /生成新项目/ }));
+    fireEvent.click(screen.getByRole("button", { name: /诊断并制定计划/ }));
+    fireEvent.click(await screen.findByRole("button", { name: "确认计划并开始创作" }));
     expect(await screen.findByText("已排队")).toBeInTheDocument();
     fireEvent.click(screen.getByRole("button", { name: "取消生成" }));
     expect(await screen.findByText("已取消")).toBeInTheDocument();
-    expect(fetch).toHaveBeenCalledWith("/api/generation-jobs/job_queued_001/cancel", expect.objectContaining({ method: "POST" }));
+    expect(fetch).toHaveBeenCalledWith("/api/generation-jobs/job_queued0001/cancel", expect.objectContaining({ method: "POST" }));
   });
 
   it("restores only the recent job id after refresh and never stores brief content", async () => {
@@ -377,24 +418,29 @@ describe("OpenDesign Studio workspace", () => {
   ])("explains generation HTTP failures with an actionable state", async (status, payload, expected) => {
     vi.mocked(fetch).mockImplementation(async (input: string | URL | Request, init?: RequestInit) => {
       const path = String(input);
-      if (init?.method === "POST" && path === "/api/generation-jobs") return new Response(JSON.stringify(payload), { status });
+      if (init?.method === "POST" && path === "/api/work-orders") return status === 422 ? new Response(JSON.stringify(payload), { status }) : new Response(JSON.stringify({ workflow: workflowFixture() }), { status: 201 });
+      if (init?.method === "POST" && path === "/api/work-orders/workorder_ui000001/confirm") return new Response(JSON.stringify(payload), { status });
       if (path === "/api/projects") return new Response(JSON.stringify({ projects: [] }), { status: 200 });
       return new Response(JSON.stringify({ error: "Project not found" }), { status: 404 });
     });
     render(<App />);
-    fireEvent.click(screen.getByRole("button", { name: /生成新项目/ }));
+    fireEvent.click(screen.getByRole("button", { name: /诊断并制定计划/ }));
+    const confirm = await screen.findByRole("button", { name: "确认计划并开始创作" }).catch(() => null);
+    if (confirm) fireEvent.click(confirm);
     expect(await screen.findByText(expected)).toBeInTheDocument();
   });
 
   it("rejects a malformed completed job response instead of opening an unknown project", async () => {
     vi.mocked(fetch).mockImplementation(async (input: string | URL | Request, init?: RequestInit) => {
       const path = String(input);
-      if (init?.method === "POST" && path === "/api/generation-jobs") return new Response(JSON.stringify({ job: { jobId: "job_bad", status: "completed", createdAt: "2026-08-14T01:00:00.000Z", updatedAt: "2026-08-14T01:00:01.000Z" } }), { status: 202 });
+      if (init?.method === "POST" && path === "/api/work-orders") return new Response(JSON.stringify({ workflow: workflowFixture() }), { status: 201 });
+      if (init?.method === "POST" && path === "/api/work-orders/workorder_ui000001/confirm") return new Response(JSON.stringify({ workflow: workflowFixture("confirmed", "job_bad"), job: { jobId: "job_bad", status: "completed", createdAt: "2026-08-14T01:00:00.000Z", updatedAt: "2026-08-14T01:00:01.000Z" } }), { status: 202 });
       if (path === "/api/projects") return new Response(JSON.stringify({ projects: [] }), { status: 200 });
       return new Response(JSON.stringify({ error: "Project not found" }), { status: 404 });
     });
     render(<App />);
-    fireEvent.click(screen.getByRole("button", { name: /生成新项目/ }));
+    fireEvent.click(screen.getByRole("button", { name: /诊断并制定计划/ }));
+    fireEvent.click(await screen.findByRole("button", { name: "确认计划并开始创作" }));
     expect(await screen.findByText("生成任务没有完成")).toBeInTheDocument();
     expect(screen.queryByRole("button", { name: "打开新作品" })).not.toBeInTheDocument();
   });
@@ -402,12 +448,14 @@ describe("OpenDesign Studio workspace", () => {
   it("renders a terminal job failure without changing the open project", async () => {
     vi.mocked(fetch).mockImplementation(async (input: string | URL | Request, init?: RequestInit) => {
       const path = String(input);
-      if (init?.method === "POST" && path === "/api/generation-jobs") return new Response(JSON.stringify({ job: { jobId: "job_failed_001", status: "failed", createdAt: "2026-08-14T01:00:00.000Z", updatedAt: "2026-08-14T01:00:03.000Z", error: { code: "generation_internal_failure", message: "validation stopped", retryable: true } } }), { status: 202 });
+      if (init?.method === "POST" && path === "/api/work-orders") return new Response(JSON.stringify({ workflow: workflowFixture() }), { status: 201 });
+      if (init?.method === "POST" && path === "/api/work-orders/workorder_ui000001/confirm") return new Response(JSON.stringify({ workflow: workflowFixture("confirmed", "job_failed0001"), job: { jobId: "job_failed0001", status: "failed", createdAt: "2026-08-14T01:00:00.000Z", updatedAt: "2026-08-14T01:00:03.000Z", error: { code: "generation_internal_failure", message: "validation stopped", retryable: true } } }), { status: 202 });
       if (path === "/api/projects") return new Response(JSON.stringify({ projects: [] }), { status: 200 });
       return new Response(JSON.stringify({ error: "Project not found" }), { status: 404 });
     });
     render(<App />);
-    fireEvent.click(screen.getByRole("button", { name: /生成新项目/ }));
+    fireEvent.click(screen.getByRole("button", { name: /诊断并制定计划/ }));
+    fireEvent.click(await screen.findByRole("button", { name: "确认计划并开始创作" }));
     expect(await screen.findByText("生成失败")).toBeInTheDocument();
     expect(screen.getByText("validation stopped")).toBeInTheDocument();
     expect(screen.getAllByText("让视觉作品在生成之后，继续生长。").length).toBeGreaterThan(0);
@@ -416,12 +464,12 @@ describe("OpenDesign Studio workspace", () => {
   it("distinguishes an offline submit from provider and input failures", async () => {
     vi.mocked(fetch).mockImplementation(async (input: string | URL | Request, init?: RequestInit) => {
       const path = String(input);
-      if (init?.method === "POST" && path === "/api/generation-jobs") throw new TypeError("offline");
+      if (init?.method === "POST" && path === "/api/work-orders") throw new TypeError("offline");
       if (path === "/api/projects") return new Response(JSON.stringify({ projects: [] }), { status: 200 });
       return new Response(JSON.stringify({ error: "Project not found" }), { status: 404 });
     });
     render(<App />);
-    fireEvent.click(screen.getByRole("button", { name: /生成新项目/ }));
+    fireEvent.click(screen.getByRole("button", { name: /诊断并制定计划/ }));
     expect(await screen.findByText("网络已断开")).toBeInTheDocument();
     expect(screen.getByText("检查网络后恢复任务")).toBeInTheDocument();
   });

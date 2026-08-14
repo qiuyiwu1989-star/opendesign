@@ -16,10 +16,10 @@ import { runDeterministicQa } from "@opendesign/studio-qa";
 import { loadImage } from "@napi-rs/canvas";
 import { mkdir, writeFile } from "node:fs/promises";
 import { join } from "node:path";
-import type { DesignDirectorInput } from "@opendesign/studio-design-director";
 import { GenerationJobLimitError, GenerationJobManager, GenerationProviderUnavailableError } from "./generation-jobs.js";
 import { createPublicSessionCodec, sessionRecordFromIdentity, type PublicSessionCodec, type SessionScope } from "./public-session.js";
 import { configureGenerationProvider, type GenerationProviderConfiguration } from "./model-provider.js";
+import { WorkOrderLimitError, WorkOrderManager, WorkOrderNotFoundError } from "./work-orders.js";
 
 const JSON_LIMIT = 5 * 1024 * 1024;
 const SAFE_IMAGE_MIME = new Set(["image/png", "image/jpeg"]);
@@ -60,50 +60,33 @@ export type StudioServerOptions = {
   generationProvider?: GenerationProviderConfiguration;
 };
 
-function generationInput(input: { brief?: unknown; title?: unknown; designPack?: unknown }, jobId: string): DesignDirectorInput {
-  if (typeof input.brief !== "string") throw new Error("Brief is required");
-  const brief = input.brief.replace(/\s+/gu, " ").trim();
-  if ([...brief].length < 12 || [...brief].length > 12_000) throw new Error("Brief must contain between 12 and 12,000 characters");
-  const title = typeof input.title === "string" && input.title.trim() ? input.title.trim().slice(0, 120) : brief.slice(0, 64);
-  const pin = input.designPack && typeof input.designPack === "object" ? input.designPack as Partial<DesignPackPin> : {};
-  const designPack = typeof pin.id === "string" && typeof pin.version === "string"
-    ? { id: pin.id, version: pin.version }
-    : { id: "executive-proposal-cn", version: "1.0.0" };
-  const kind = designPack.id === "research-keynote-cn" ? "keynote" : designPack.id === "editorial-story-graphics-cn" ? "article-graphics" : "proposal";
-  return {
-    inputVersion: "0.1.0",
-    taskId: `studio_${jobId.slice(4, 36)}`,
-    title,
-    brief: { objective: brief, audience: "内容创作者与决策者", decisionRequest: "确认叙事、设计方向与下一步行动。", constraints: ["不得补造用户未提供的事实"] },
-    content: {
-      summary: brief,
-      keyPoints: [{ id: "point_brief", text: brief.slice(0, 500), sourceIds: ["source_brief"] }],
-      callToAction: "人工编辑并确认细节后再交付。",
-    },
-    sources: [{ sourceId: "source_brief", type: "brief", title: "用户需求", content: brief }],
-    brand: { name: "OpenDesign", tone: ["清晰", "克制", "有设计判断"] },
-    deliverable: { kind, audience: "内容创作者与决策者", language: "zh-CN", format: "structured-html", pageCount: 6 },
-    designPack,
-    editability: { requiredCapabilities: ["text", "typography", "asset", "frame", "order"], requireNativeText: true, requireReplaceableImages: true, requireReorderablePages: true },
-  };
-}
-
 export function createStudioServer(options: StudioServerOptions) {
   const store = new LocalProjectStore(options.dataDirectory);
   const reviews = new LocalReviewStore(options.dataDirectory);
   const exports = new LocalExportService(options.dataDirectory);
   const generationProvider = options.generationProvider ?? configureGenerationProvider({ env: {} });
+  const workflows = new WorkOrderManager({ rootDirectory: options.dataDirectory });
   const jobs = new GenerationJobManager({
     rootDirectory: options.dataDirectory,
     provider: generationProvider.provider,
     projectWriter: async (scope, document) => { await store.createForOwner(scope as SessionScope, document); },
+    documentGate: async (document) => {
+      const qa = runDeterministicQa(document);
+      const accepted = qa.summary.blocker === 0 && qa.summary.error === 0;
+      return accepted
+        ? { accepted: true }
+        : { accepted: false, code: "qa_failed", message: `Generated document contains ${qa.summary.blocker} blocker and ${qa.summary.error} error issues`, retryable: false };
+    },
+    onTransition: async (scope, input, job) => {
+      if (input.taskId.startsWith("workorder_")) await workflows.recordGenerationTransition(scope, input.taskId, job);
+    },
   });
-  const jobsReady = jobs.initialize();
+  const servicesReady = Promise.all([workflows.initialize(), jobs.initialize()]);
 
   return createServer(async (request, response) => {
     response.setHeader("cache-control", "no-store");
     try {
-      await jobsReady;
+      await servicesReady;
       const url = new URL(request.url ?? "/", "http://127.0.0.1");
       if (request.method === "GET" && url.pathname === "/api/health") {
         json(response, 200, { ok: true, mode: "local-only", ...generationProvider.publicInfo });
@@ -117,11 +100,35 @@ export function createStudioServer(options: StudioServerOptions) {
         json(response, 200, { projects: await store.listForOwner(scope) });
         return;
       }
-      if (request.method === "POST" && url.pathname === "/api/generation-jobs") {
-        const body = await readJson(request, 128 * 1024) as Record<string, unknown>;
-        const jobId = `job_${randomUUID().replaceAll("-", "")}`;
-        const job = await jobs.create(scope, generationInput(body, jobId));
-        json(response, 202, { job });
+      if (request.method === "POST" && url.pathname === "/api/work-orders") {
+        const body = await readJson(request, 128 * 1024) as { brief?: string; title?: string; designPack?: DesignPackPin };
+        const workflow = await workflows.create(scope, {
+          brief: body.brief ?? "",
+          ...(body.title === undefined ? {} : { title: body.title }),
+          ...(body.designPack === undefined ? {} : { designPack: body.designPack }),
+        });
+        json(response, 201, { workflow });
+        return;
+      }
+      const workOrderMatch = url.pathname.match(/^\/api\/work-orders\/(workorder_[a-z0-9]{8,59})(?:\/(confirm))?$/u);
+      if (workOrderMatch && request.method === "GET" && !workOrderMatch[2]) {
+        const workflow = workflows.get(scope, workOrderMatch[1]!);
+        json(response, workflow ? 200 : 404, workflow ? { workflow } : { error: "Work Order not found" });
+        return;
+      }
+      if (workOrderMatch && request.method === "POST" && workOrderMatch[2] === "confirm") {
+        try {
+          const result = await workflows.confirm(
+            scope,
+            workOrderMatch[1]!,
+            (input) => jobs.create(scope, input),
+            (jobId) => jobs.get(scope, jobId),
+          );
+          json(response, 202, result);
+        } catch (error) {
+          if (error instanceof WorkOrderNotFoundError) { json(response, 404, { error: error.message }); return; }
+          throw error;
+        }
         return;
       }
       const generationJobMatch = url.pathname.match(/^\/api\/generation-jobs\/(job_[a-z0-9]{8,59})(?:\/(cancel))?$/u);
@@ -132,6 +139,7 @@ export function createStudioServer(options: StudioServerOptions) {
       }
       if (generationJobMatch && request.method === "POST" && generationJobMatch[2] === "cancel") {
         const job = await jobs.cancel(scope, generationJobMatch[1]!);
+        if (job) await workflows.cancelForJob(scope, job.jobId);
         json(response, job ? 200 : 404, job ? { job } : { error: "Generation job not found" });
         return;
       }
@@ -361,8 +369,8 @@ export function createStudioServer(options: StudioServerOptions) {
 
       json(response, 404, { error: "Not found" });
     } catch (error) {
-      const status = error instanceof GenerationJobLimitError ? 429 : error instanceof GenerationProviderUnavailableError ? 503 : 400;
-      const code = error instanceof GenerationJobLimitError ? "rate_limited" : error instanceof GenerationProviderUnavailableError ? "provider_unavailable" : "invalid_input";
+      const status = error instanceof GenerationJobLimitError || error instanceof WorkOrderLimitError ? 429 : error instanceof GenerationProviderUnavailableError ? 503 : 400;
+      const code = error instanceof GenerationJobLimitError || error instanceof WorkOrderLimitError ? "rate_limited" : error instanceof GenerationProviderUnavailableError ? "provider_unavailable" : "invalid_input";
       json(response, status, { error: error instanceof Error ? error.message : "Unknown error", code, retryable: status !== 400 });
     }
   });

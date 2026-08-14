@@ -143,6 +143,19 @@ Scene IR 继续是编辑、版本、QA 与导出的事实源；Structured HTML �
 - 阶段事件、Skill/Pack/source 可见；
 - 人工 dirty revision 永不被生成任务静默覆盖。
 
+#### Phase 1A：Creation Contract 确认门禁（本次纵向切片）
+
+先把现有“提交 Brief 即创建生成 Job”改为两个明确动作：
+
+1. `POST /api/work-orders` 只做有界诊断，创建匿名会话隔离的 `DesignWorkOrder`、`ExecutionPlan` 与空运行账本；不得调用模型或写入作品。
+2. Studio 展示目标、受众、成功标准、来源边界、被 pin 的 Design Director Skill / Design Pack、阶段计划和预算。
+3. 只有用户点击“确认计划并开始创作”，`POST /api/work-orders/:id/confirm` 才追加 human `plan_confirmed` 事件并创建既有 Generation Job。
+4. Generation Job 的 analyzing / generating / validating / completed / failed 状态同步为可重放的阶段事件；运行完成只结束自动创作与 QA 阶段，编辑、人工审核和导出继续保持待办。
+5. Work Order、Plan、ledger 和 Job 关联只保存在 `sessions/<scope>/work-orders`，每个匿名空间最多保留 20 个 Work Order；跨匿名 Cookie 一律返回 404，响应不返回原始 scope、Cookie 或模型密钥。
+6. 重复确认必须幂等：已有 Job 时返回同一 Job；Provider 不可用时保留已确认计划，允许稍后重试，不伪装已经生成。
+
+首轮 API 响应统一为 `{ workflow }` 或 `{ workflow, job }`。Web 对响应执行严格结构检查，刷新恢复仍只在浏览器保存不含 Brief 的对象 ID；服务端是 Creation Contract 与运行状态的事实源。
+
 ### Phase 2：Library Intelligence
 
 - 将高质量站点转为 Pattern、Pack candidate 和受许可 Asset；
@@ -176,4 +189,4 @@ Scene IR 继续是编辑、版本、QA 与导出的事实源；Structured HTML �
 
 ## 状态
 
-in progress（Phase 0 核心契约与运行事件状态机已在 `@opendesign/studio-agent-os` 实现并通过全仓门禁；proposal 纵向切片待 Phase 1）
+in progress（Phase 0 核心契约与运行事件状态机已在 `@opendesign/studio-agent-os` 实现；Phase 1A 已接入 owner-scoped Work Order API、Creation Contract 人工确认门禁、Job 阶段事件与确定性 QA 写入门禁。下一步继续补齐高信息量澄清、方向选择前置、局部 Agent diff 与完整候选/导出证据。）
