@@ -3,6 +3,8 @@ import { mkdtemp, readFile, rm } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import test from "node:test";
+import { compileDesignDirector } from "@opendesign/studio-design-director";
+import { runDeterministicQa } from "@opendesign/studio-qa";
 import type { GenerationJob, GenerationJobStatus } from "./generation-jobs.js";
 import { WorkOrderDecisionConflictError, WorkOrderLimitError, WorkOrderManager } from "./work-orders.js";
 
@@ -35,7 +37,27 @@ async function completeCreationDecisions(manager: WorkOrderManager, scope = scop
       answer: question.questionId === "clarify_audience" ? "面向产品负责人与管理层" : "确认是否进入下一阶段并批准试点",
     })));
   }
-  await manager.selectDirection(scope, workOrderId, workflow.selectedDirectionId);
+  const directed = await manager.selectDirection(scope, workOrderId, workflow.selectedDirectionId);
+  assert.ok(directed.outlineReview.artifactId);
+  await manager.approveOutline(scope, workOrderId, directed.outlineReview.artifactId);
+}
+
+function acceptedOutput() {
+  const output = compileDesignDirector({
+    inputVersion: "0.1.0",
+    taskId: workOrderId,
+    title: "Agent Studio 提案",
+    brief: { objective: "把 Agent Studio 的阶段工作流整理为可编辑提案", audience: "产品负责人", decisionRequest: "批准下一阶段", constraints: ["不得虚构事实"] },
+    content: { summary: "说明阶段产物与人工确认", keyPoints: [{ id: "point_brief", text: "阶段产物必须可审查", sourceIds: ["source_brief"] }] },
+    sources: [{ sourceId: "source_brief", type: "brief", title: "用户 Brief", content: "阶段产物必须可审查" }],
+    brand: { name: "OpenDesign", tone: ["清晰", "克制"] },
+    deliverable: { kind: "proposal", audience: "产品负责人", language: "zh-CN", format: "structured-html", pageCount: 6 },
+    designPack: { id: "executive-proposal-cn", version: "1.0.0" },
+    editability: { requiredCapabilities: ["text", "typography", "asset", "frame", "order"], requireNativeText: true, requireReplaceableImages: true, requireReorderablePages: true },
+  });
+  assert.equal(output.status, "accepted");
+  if (output.status !== "accepted") throw new Error("fixture compiler rejected");
+  return output;
 }
 
 test("creates a private draft Creation Contract without starting generation", async () => {
@@ -48,11 +70,13 @@ test("creates a private draft Creation Contract without starting generation", as
     assert.equal(workflow.events.length, 0);
     assert.equal(workflow.plan.designPack.id, "executive-proposal-cn");
     assert.deepEqual(workflow.plan.capabilityPins.map((pin) => pin.id), ["opendesign-design-director", "narrative-architect", "art-director", "design-critic"]);
-    assert.deepEqual(workflow.plan.stages.map((stage) => stage.kind), ["diagnose", "direction", "compose", "import", "qa", "edit", "review", "export"]);
+    assert.deepEqual(workflow.plan.stages.map((stage) => stage.kind), ["diagnose", "direction", "outline", "compose", "import", "qa", "edit", "review", "export"]);
     assert.equal(workflow.clarification.questions.length, 2);
     assert.equal(workflow.directionPreviews.length, 3);
     assert.equal(new Set(workflow.directionPreviews.map((direction) => direction.pack.id)).size, 3);
     assert.equal(workflow.readyForConfirmation, false);
+    assert.deepEqual(workflow.artifacts.map((artifact) => artifact.artifactType), ["diagnosis"]);
+    assert.equal(workflow.outlineReview.status, "unavailable");
     assert.equal(manager.get(scopeB, workOrderId), null);
     const persisted = JSON.parse(await readFile(join(directory, "sessions", scopeA, "work-orders", `${workOrderId}.json`), "utf8")) as { generationInput: { brief: { objective: string }; taskId: string }; scopeHash: string };
     assert.equal(persisted.scopeHash, scopeA);
@@ -81,7 +105,14 @@ test("requires one bounded clarification round and an explicit real direction be
     assert.ok(direction);
     const ready = await manager.selectDirection(scopeA, workOrderId, direction.directionId);
     assert.equal(ready.directionConfirmed, true);
-    assert.equal(ready.readyForConfirmation, true);
+    assert.equal(ready.readyForConfirmation, false);
+    assert.equal(ready.outlineReview.status, "draft");
+    assert.ok(ready.outlineReview.artifactId);
+    await assert.rejects(() => manager.confirm(scopeA, workOrderId, async () => job("queued"), () => null), WorkOrderDecisionConflictError);
+    const approved = await manager.approveOutline(scopeA, workOrderId, ready.outlineReview.artifactId);
+    assert.equal(approved.outlineReview.status, "approved");
+    assert.equal(approved.readyForConfirmation, true);
+    assert.equal(approved.artifacts.filter((artifact) => artifact.artifactType === "outline").length, 2);
     assert.equal(ready.plan.designPack.id, "research-keynote-cn");
     assert.equal(ready.workOrder.audience.description, "给业务负责人和评审委员会看");
   } finally {
@@ -146,14 +177,20 @@ test("requires human plan confirmation, starts one job idempotently, and records
     assert.equal(second.job.jobId, first.job.jobId);
     assert.equal(creates, 1);
 
-    for (const status of ["analyzing", "generating", "validating", "completed"] as const) {
-      await manager.recordGenerationTransition(scopeA, workOrderId, job(status, status === "completed" ? { projectId: "project_aaaaaaaa" } : {}));
-    }
+    const output = acceptedOutput();
+    await manager.recordGenerationTransition(scopeA, workOrderId, job("analyzing"));
+    await manager.recordGenerationTransition(scopeA, workOrderId, job("generating"));
+    await manager.recordGeneratedOutput(scopeA, workOrderId, output);
+    await manager.recordGenerationTransition(scopeA, workOrderId, job("validating"));
+    await manager.recordQaArtifact(scopeA, workOrderId, runDeterministicQa(output.importResult.document));
+    await manager.recordGenerationTransition(scopeA, workOrderId, job("completed", { projectId: output.importResult.document.documentId }));
     const completed = manager.get(scopeA, workOrderId);
     assert.ok(completed);
-    for (const stageId of ["stage_diagnose", "stage_direction", "stage_compose", "stage_import", "stage_qa"]) {
+    for (const stageId of ["stage_diagnose", "stage_direction", "stage_outline", "stage_compose", "stage_import", "stage_qa"]) {
       assert.equal(completed.projection.stageStatuses[stageId], "completed");
     }
+    const artifactIds = new Set(completed.artifacts.map((artifact) => artifact.artifactId));
+    for (const event of completed.events.filter((event) => event.type === "stage_completed")) assert.equal(event.outputArtifactIds.every((artifactId) => artifactIds.has(artifactId)), true);
     assert.equal(completed.projection.stageStatuses.stage_edit, "queued");
     assert.equal(completed.projection.status, "running");
   } finally {

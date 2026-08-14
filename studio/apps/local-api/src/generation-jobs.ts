@@ -2,7 +2,7 @@ import { randomUUID } from "node:crypto";
 import { mkdir, readFile, readdir, rename, writeFile } from "node:fs/promises";
 import { join } from "node:path";
 import type { SceneDocument } from "@opendesign/studio-contracts";
-import type { DesignDirectorInput } from "@opendesign/studio-design-director";
+import type { DesignDirectorInput, DesignDirectorOutput } from "@opendesign/studio-design-director";
 import {
   MODEL_ADAPTER_CONTRACT_VERSION,
   generateWithModel,
@@ -48,6 +48,8 @@ export type GenerationJobManagerOptions = {
   provider: ModelProvider | null;
   projectWriter: (scopeHash: string, document: SceneDocument) => Promise<void>;
   documentGate?: (document: SceneDocument) => Promise<{ accepted: boolean; code?: string; message?: string; retryable?: boolean }>;
+  onAcceptedOutput?: (scopeHash: string, input: DesignDirectorInput, output: Extract<DesignDirectorOutput, { status: "accepted" }>) => Promise<void>;
+  onValidatedDocument?: (scopeHash: string, input: DesignDirectorInput, document: SceneDocument) => Promise<void>;
   onTransition?: (scopeHash: string, input: DesignDirectorInput, job: GenerationJob) => Promise<void>;
   now?: () => Date;
   id?: () => string;
@@ -366,6 +368,8 @@ export class GenerationJobManager {
         return;
       }
 
+      await this.options.onAcceptedOutput?.(job.scopeHash, structuredClone(job.input), structuredClone(result.output));
+
       await this.transition(job, "validating");
       await this.#yieldStage("validating", publicJob(job), controller.signal);
       if (this.wasCancelled(job)) return;
@@ -379,6 +383,7 @@ export class GenerationJobManager {
         });
         return;
       }
+      await this.options.onValidatedDocument?.(job.scopeHash, structuredClone(job.input), structuredClone(document));
       await this.options.projectWriter(job.scopeHash, structuredClone(document));
       if (this.wasCancelled(job)) return;
       await this.transition(job, "completed", undefined, document.documentId);

@@ -79,6 +79,12 @@ export function createStudioServer(options: StudioServerOptions) {
         ? { accepted: true }
         : { accepted: false, code: "qa_failed", message: `Generated document contains ${qa.summary.blocker} blocker and ${qa.summary.error} error issues`, retryable: false };
     },
+    onAcceptedOutput: async (scope, input, output) => {
+      if (input.taskId.startsWith("workorder_")) await workflows.recordGeneratedOutput(scope, input.taskId, output);
+    },
+    onValidatedDocument: async (scope, input, document) => {
+      if (input.taskId.startsWith("workorder_")) await workflows.recordQaArtifact(scope, input.taskId, runDeterministicQa(document));
+    },
     onTransition: async (scope, input, job) => {
       if (input.taskId.startsWith("workorder_")) await workflows.recordGenerationTransition(scope, input.taskId, job);
     },
@@ -112,7 +118,13 @@ export function createStudioServer(options: StudioServerOptions) {
         json(response, 201, { workflow });
         return;
       }
-      const workOrderMatch = url.pathname.match(/^\/api\/work-orders\/(workorder_[a-z0-9]{8,59})(?:\/(confirm|clarifications|direction))?$/u);
+      const workOrderArtifactMatch = url.pathname.match(/^\/api\/work-orders\/(workorder_[a-z0-9]{8,59})\/artifacts\/(artifact_[a-z0-9_]{8,88})$/u);
+      if (workOrderArtifactMatch && request.method === "GET") {
+        const artifact = workflows.getArtifact(scope, workOrderArtifactMatch[1]!, workOrderArtifactMatch[2]!);
+        json(response, artifact ? 200 : 404, artifact ?? { error: "Artifact not found" });
+        return;
+      }
+      const workOrderMatch = url.pathname.match(/^\/api\/work-orders\/(workorder_[a-z0-9]{8,59})(?:\/(confirm|clarifications|direction|outline))?$/u);
       if (workOrderMatch && request.method === "GET" && !workOrderMatch[2]) {
         const workflow = workflows.get(scope, workOrderMatch[1]!);
         json(response, workflow ? 200 : 404, workflow ? { workflow } : { error: "Work Order not found" });
@@ -150,6 +162,19 @@ export function createStudioServer(options: StudioServerOptions) {
         try {
           const body = await readJson(request, 8 * 1024) as { directionId?: string };
           const workflow = await workflows.selectDirection(scope, workOrderMatch[1]!, body.directionId ?? "");
+          json(response, 200, { workflow });
+        } catch (error) {
+          if (error instanceof WorkOrderNotFoundError) { json(response, 404, { error: error.message }); return; }
+          if (error instanceof WorkOrderDecisionConflictError) { json(response, 409, { error: { code: error.code, message: error.message } }); return; }
+          throw error;
+        }
+        return;
+      }
+      if (workOrderMatch && request.method === "POST" && workOrderMatch[2] === "outline") {
+        try {
+          const body = await readJson(request, 8 * 1024) as { action?: unknown; expectedArtifactId?: unknown };
+          if (body.action !== "approve" || typeof body.expectedArtifactId !== "string") throw new TypeError("Outline approval requires the current artifact ID");
+          const workflow = await workflows.approveOutline(scope, workOrderMatch[1]!, body.expectedArtifactId);
           json(response, 200, { workflow });
         } catch (error) {
           if (error instanceof WorkOrderNotFoundError) { json(response, 404, { error: error.message }); return; }
@@ -416,6 +441,7 @@ export function createStudioServer(options: StudioServerOptions) {
         const document = await store.readForOwner(scope, exportMatch[1]!);
         if (!document) { json(response, 404, { error: "Project not found" }); return; }
         const exported = await store.withOwnerQuota(scope, { exports: 1 }, () => exports.create(scope, document, body.kind!));
+        await workflows.recordExportArtifact(scope, document.documentId, exported);
         json(response, 201, exported);
         return;
       }

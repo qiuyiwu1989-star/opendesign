@@ -37,6 +37,17 @@ async function withCookie(url: string, cookie: string, init: RequestInit = {}): 
   return fetch(url, { ...init, headers: { ...init.headers, cookie } });
 }
 
+async function approveCurrentOutline(base: string, cookie: string, workOrderId: string): Promise<void> {
+  const workflow = await withCookie(`${base}/api/work-orders/${workOrderId}`, cookie).then((response) => response.json()) as { workflow: { outlineReview: { artifactId?: string } } };
+  assert.ok(workflow.workflow.outlineReview.artifactId);
+  const response = await withCookie(`${base}/api/work-orders/${workOrderId}/outline`, cookie, {
+    method: "POST",
+    headers: { "content-type": "application/json" },
+    body: JSON.stringify({ action: "approve", expectedArtifactId: workflow.workflow.outlineReview.artifactId }),
+  });
+  assert.equal(response.status, 200);
+}
+
 test("local API persists a project and returns a real HTML export", async () => {
   const directory = await mkdtemp(join(tmpdir(), "opendesign-api-"));
   const server = createTestStudioServer(directory);
@@ -372,6 +383,7 @@ test("006 public API isolates projects and generation jobs between anonymous coo
     await withCookie(`${base}/api/work-orders/${planned.workflow.workOrder.workOrderId}/direction`, cookieA, {
       method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ directionId: planned.workflow.selectedDirectionId }),
     });
+    await approveCurrentOutline(base, cookieA, planned.workflow.workOrder.workOrderId);
     const body = await withCookie(`${base}/api/work-orders/${planned.workflow.workOrder.workOrderId}/confirm`, cookieA, {
       method: "POST", headers: { "content-type": "application/json" }, body: "{}",
     }).then((response) => response.json()) as { job: { jobId: string } };
@@ -418,7 +430,7 @@ test("007 Creation Contract stays private and requires explicit confirmation bef
       body: JSON.stringify({ brief: "把 Agent Studio 的方法整理成一套六页可编辑、可导出的商业提案。" }),
     });
     assert.equal(createdResponse.status, 201);
-    const created = await createdResponse.json() as { workflow: { workOrder: { workOrderId: string }; plan: { capabilityPins: Array<{ id: string }>; stages: Array<{ kind: string }> }; projection: { status: string }; events: unknown[]; clarification: { questions: Array<{ questionId: string }> }; directionPreviews: Array<{ directionId: string }>; selectedDirectionId: string; readyForConfirmation: boolean; generationJobId?: string } };
+    const created = await createdResponse.json() as { workflow: { workOrder: { workOrderId: string }; plan: { capabilityPins: Array<{ id: string }>; stages: Array<{ kind: string }> }; projection: { status: string }; events: unknown[]; artifacts: Array<{ artifactId: string; artifactType: string }>; outlineReview: { status: string }; clarification: { questions: Array<{ questionId: string }> }; directionPreviews: Array<{ directionId: string }>; selectedDirectionId: string; readyForConfirmation: boolean; generationJobId?: string } };
     assert.equal(created.workflow.projection.status, "draft");
     assert.equal(created.workflow.events.length, 0);
     assert.equal(created.workflow.generationJobId, undefined);
@@ -426,15 +438,20 @@ test("007 Creation Contract stays private and requires explicit confirmation bef
     assert.equal(created.workflow.directionPreviews.length, 3);
     assert.equal(created.workflow.readyForConfirmation, false);
     assert.deepEqual(created.workflow.plan.capabilityPins.map((pin) => pin.id), ["opendesign-design-director", "narrative-architect", "art-director", "design-critic"]);
-    assert.deepEqual(created.workflow.plan.stages.slice(0, 5).map((stage) => stage.kind), ["diagnose", "direction", "compose", "import", "qa"]);
+    assert.deepEqual(created.workflow.plan.stages.slice(0, 5).map((stage) => stage.kind), ["diagnose", "direction", "outline", "compose", "import"]);
+    assert.deepEqual(created.workflow.artifacts.map((artifact) => artifact.artifactType), ["diagnosis"]);
+    assert.equal(created.workflow.outlineReview.status, "unavailable");
     const workOrderUrl = `${base}/api/work-orders/${created.workflow.workOrder.workOrderId}`;
     assert.equal((await withCookie(workOrderUrl, cookieB)).status, 404);
+    assert.equal((await withCookie(`${base}${created.workflow.artifacts[0]!.artifactId ? `/api/work-orders/${created.workflow.workOrder.workOrderId}/artifacts/${created.workflow.artifacts[0]!.artifactId}` : ""}`, cookieB)).status, 404);
 
     assert.equal((await withCookie(`${workOrderUrl}/confirm`, cookieA, { method: "POST", headers: { "content-type": "application/json" }, body: "{}" })).status, 409);
     assert.equal((await withCookie(`${workOrderUrl}/clarifications`, cookieB, { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ answers: [] }) })).status, 404);
     const answers = created.workflow.clarification.questions.map((question) => ({ questionId: question.questionId, answer: question.questionId === "clarify_audience" ? "面向产品负责人与管理层" : "确认方案并批准下一阶段" }));
     assert.equal((await withCookie(`${workOrderUrl}/clarifications`, cookieA, { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ answers }) })).status, 200);
     assert.equal((await withCookie(`${workOrderUrl}/direction`, cookieA, { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ directionId: created.workflow.selectedDirectionId }) })).status, 200);
+    assert.equal((await withCookie(`${workOrderUrl}/confirm`, cookieA, { method: "POST", headers: { "content-type": "application/json" }, body: "{}" })).status, 409);
+    await approveCurrentOutline(base, cookieA, created.workflow.workOrder.workOrderId);
     const confirmedResponse = await withCookie(`${workOrderUrl}/confirm`, cookieA, { method: "POST", headers: { "content-type": "application/json" }, body: "{}" });
     assert.equal(confirmedResponse.status, 202);
     const confirmed = await confirmedResponse.json() as { workflow: { projection: { status: string }; events: Array<{ type: string; actor: { kind: string } }>; generationJobId: string }; job: { jobId: string } };
@@ -452,9 +469,25 @@ test("007 Creation Contract stays private and requires explicit confirmation bef
       await new Promise((resolve) => setTimeout(resolve, 5));
     }
     assert.equal(completed?.job.status, "completed");
-    const final = await withCookie(workOrderUrl, cookieA).then((response) => response.json()) as { workflow: { projection: { stageStatuses: Record<string, string> } } };
+    const final = await withCookie(workOrderUrl, cookieA).then((response) => response.json()) as { workflow: { projection: { stageStatuses: Record<string, string> }; artifacts: Array<{ artifactId: string; artifactType: string }>; events: Array<{ outputArtifactIds: string[] }> } };
     assert.equal(final.workflow.projection.stageStatuses.stage_qa, "completed");
     assert.equal(final.workflow.projection.stageStatuses.stage_edit, "queued");
+    assert.deepEqual(final.workflow.artifacts.slice(-3).map((artifact) => artifact.artifactType), ["structured-html", "scene-ir", "qa-report"]);
+    const knownArtifactIds = new Set(final.workflow.artifacts.map((artifact) => artifact.artifactId));
+    assert.ok(final.workflow.events.flatMap((event) => event.outputArtifactIds).every((artifactId) => knownArtifactIds.has(artifactId)));
+    const sceneArtifact = final.workflow.artifacts.find((artifact) => artifact.artifactType === "scene-ir");
+    assert.ok(sceneArtifact);
+    assert.equal((await withCookie(`${workOrderUrl}/artifacts/${sceneArtifact.artifactId}`, cookieA)).status, 200);
+
+    assert.ok(completed?.job.projectId);
+    const exportResponse = await withCookie(`${base}/api/projects/${completed.job.projectId}/exports`, cookieA, {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify({ kind: "html" }),
+    });
+    assert.equal(exportResponse.status, 201);
+    const afterExport = await withCookie(workOrderUrl, cookieA).then((response) => response.json()) as { workflow: { artifacts: Array<{ artifactType: string }> } };
+    assert.equal(afterExport.workflow.artifacts.at(-1)?.artifactType, "export-report");
   } finally {
     server.close();
     await once(server, "close");

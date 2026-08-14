@@ -6,17 +6,21 @@ import {
   appendAgentRunEvent,
   createAgentRunLedger,
   replayAgentRunLedger,
+  validateArtifactEnvelope,
   type AgentRunEvent,
   type AgentRunLedger,
   type AgentRunProjection,
+  type ArtifactEnvelope,
+  type ArtifactType,
   type DesignWorkOrder,
   type ExecutionPlan,
   type ExecutionStage,
   type RunActor,
 } from "@opendesign/studio-agent-os";
-import type { DesignPackPin } from "@opendesign/studio-contracts";
-import type { DesignDirectorInput } from "@opendesign/studio-design-director";
+import type { DesignPackPin, SceneDocument } from "@opendesign/studio-contracts";
+import type { DesignDirectorInput, DesignDirectorOutput } from "@opendesign/studio-design-director";
 import { designDirections, getDesignPack } from "@opendesign/studio-design-packs/catalog";
+import type { QaReport } from "@opendesign/studio-qa";
 import type { GenerationJob, GenerationJobStatus } from "./generation-jobs.js";
 
 const SCOPE_HASH = /^(?:scope_)?[a-f0-9]{64}$/u;
@@ -40,8 +44,35 @@ export type WorkOrderWorkflow = {
   selectedDirectionId: string;
   directionConfirmed: boolean;
   readyForConfirmation: boolean;
+  artifacts: readonly ArtifactEnvelope[];
+  outlineReview: WorkOrderOutlineReview;
   generationJobId?: string;
 };
+
+export type WorkOrderOutlineItem = {
+  itemId: string;
+  order: number;
+  role: "cover" | "context" | "insight" | "proposal" | "evidence" | "next-step";
+  title: string;
+  purpose: string;
+  sourceIds: string[];
+};
+
+export type WorkOrderOutlinePayload = {
+  title: string;
+  items: WorkOrderOutlineItem[];
+  method: "deterministic-v0";
+};
+
+export type WorkOrderOutlineReview = {
+  status: "unavailable" | "draft" | "approved";
+  artifactId?: string;
+  revisionId?: string;
+  itemCount: number;
+};
+
+type JsonValue = string | number | boolean | null | JsonValue[] | { [key: string]: JsonValue };
+type PersistedArtifact = { envelope: ArtifactEnvelope; payload: JsonValue };
 
 export type WorkOrderClarificationQuestion = {
   questionId: "clarify_audience" | "clarify_action";
@@ -76,6 +107,8 @@ type PersistedWorkOrder = {
   directionPreviews?: WorkOrderDirectionPreview[];
   selectedDirectionId?: string;
   directionConfirmed?: boolean;
+  artifacts?: PersistedArtifact[];
+  projectId?: string;
   generationJobId?: string;
 };
 
@@ -88,6 +121,7 @@ export type WorkOrderManagerOptions = {
 
 type JobCreator = (input: DesignDirectorInput) => Promise<GenerationJob>;
 type JobReader = (jobId: string) => GenerationJob | null;
+type AcceptedDesignDirectorOutput = Extract<DesignDirectorOutput, { status: "accepted" }>;
 
 function assertScopeHash(scopeHash: string): void {
   if (!SCOPE_HASH.test(scopeHash)) throw new TypeError("Invalid session scope hash");
@@ -177,6 +211,154 @@ function hasValidPersistedDecisions(record: Partial<PersistedWorkOrder>): boolea
   return true;
 }
 
+function canonicalJson(value: unknown, path = "$", seen = new Set<object>()): string {
+  if (value === null) return "null";
+  if (typeof value === "string" || typeof value === "boolean") return JSON.stringify(value);
+  if (typeof value === "number" && Number.isFinite(value)) return JSON.stringify(value);
+  if (!value || typeof value !== "object") throw new TypeError(`${path} is not JSON serializable`);
+  if (seen.has(value)) throw new TypeError(`${path} contains a cycle`);
+  seen.add(value);
+  try {
+    if (Array.isArray(value)) return `[${value.map((item, index) => canonicalJson(item, `${path}[${index}]`, seen)).join(",")}]`;
+    const prototype = Object.getPrototypeOf(value);
+    if (prototype !== Object.prototype && prototype !== null) throw new TypeError(`${path} must be a plain object`);
+    return `{${Object.keys(value as Record<string, unknown>).sort().map((key) => `${JSON.stringify(key)}:${canonicalJson((value as Record<string, unknown>)[key], `${path}.${key}`, seen)}`).join(",")}}`;
+  } finally {
+    seen.delete(value);
+  }
+}
+
+function payloadDigest(payload: JsonValue): `sha256:${string}` {
+  return `sha256:${createHash("sha256").update(canonicalJson(payload)).digest("hex")}`;
+}
+
+function hasValidPersistedArtifacts(record: Partial<PersistedWorkOrder>): boolean {
+  if (record.artifacts === undefined) return true;
+  if (!Array.isArray(record.artifacts)) return false;
+  const ids = new Set<string>();
+  for (const artifact of record.artifacts) {
+    if (!artifact || typeof artifact !== "object" || !("envelope" in artifact) || !("payload" in artifact)) return false;
+    const validation = validateArtifactEnvelope(artifact.envelope);
+    if (!validation.ok || ids.has(artifact.envelope.artifactId) || artifact.envelope.workOrderId !== record.ledger?.workOrder.workOrderId || artifact.envelope.payloadHash !== payloadDigest(artifact.payload)) return false;
+    ids.add(artifact.envelope.artifactId);
+  }
+  return true;
+}
+
+function revisePlan(record: PersistedWorkOrder): void {
+  const current = record.ledger.plan;
+  const revision = current.revision + 1;
+  const plan = structuredClone(current);
+  plan.revision = revision;
+  plan.planId = `plan_${record.ledger.workOrder.workOrderId.slice("workorder_".length)}_r${revision}`;
+  record.ledger = createAgentRunLedger(structuredClone(record.ledger.workOrder), plan);
+}
+
+function createOutline(record: PersistedWorkOrder): WorkOrderOutlinePayload {
+  const title = record.ledger.workOrder.title;
+  const sourceIds = record.ledger.workOrder.sources.map((source) => source.sourceId);
+  const items: Array<Omit<WorkOrderOutlineItem, "itemId" | "order" | "sourceIds">> = [
+    { role: "cover", title, purpose: "明确主题、受众与需要推动的决定" },
+    { role: "context", title: "为什么现在需要讨论", purpose: "界定背景、约束与证据边界" },
+    { role: "insight", title: "关键判断与机会", purpose: "把已知事实与需要验证的推断分开" },
+    { role: "proposal", title: "建议方案与设计原则", purpose: "提出可执行的核心方案" },
+    { role: "evidence", title: "实施路径与验证方式", purpose: "说明行动、责任和成功标准" },
+    { role: "next-step", title: "需要确认的下一步", purpose: "收束到明确决定与行动" },
+  ];
+  return {
+    title: `${title} · 大纲`,
+    items: items.map((item, index) => ({ ...item, itemId: `outline_item_${index + 1}`, order: index + 1, sourceIds })),
+    method: "deterministic-v0",
+  };
+}
+
+function artifactSlug(type: ArtifactType): string {
+  return type.replaceAll("-", "_");
+}
+
+function latestArtifactRecord(record: PersistedWorkOrder, type: ArtifactType, currentPlanOnly = true): PersistedArtifact | null {
+  return (record.artifacts ?? []).filter((artifact) => artifact.envelope.artifactType === type && (!currentPlanOnly || artifact.envelope.planId === record.ledger.plan.planId)).at(-1) ?? null;
+}
+
+function appendArtifactRecord(record: PersistedWorkOrder, input: {
+  stageId: string;
+  artifactType: ArtifactType;
+  payload: JsonValue;
+  validationStatus: ArtifactEnvelope["validationStatus"];
+  editability: ArtifactEnvelope["editability"];
+  createdAt: string;
+}): PersistedArtifact {
+  const stage = record.ledger.plan.stages.find((candidate) => candidate.stageId === input.stageId);
+  if (!stage || !stage.expectedArtifactTypes.includes(input.artifactType)) throw new TypeError(`Stage ${input.stageId} does not produce ${input.artifactType}`);
+  const records = record.artifacts ?? [];
+  const sequence = records.filter((artifact) => artifact.envelope.artifactType === input.artifactType).length + 1;
+  const suffix = record.ledger.workOrder.workOrderId.slice("workorder_".length);
+  const slug = artifactSlug(input.artifactType);
+  const artifactId = `artifact_${suffix}_${slug}_${sequence}`;
+  const envelope: ArtifactEnvelope = {
+    contractVersion: AGENT_OS_CONTRACT_VERSION,
+    artifactId,
+    workOrderId: record.ledger.workOrder.workOrderId,
+    planId: record.ledger.plan.planId,
+    stageId: input.stageId,
+    artifactType: input.artifactType,
+    revisionId: `revision_${suffix}_${slug}_${sequence}`,
+    createdAt: input.createdAt,
+    payloadHash: payloadDigest(input.payload),
+    payloadRef: `/api/work-orders/${record.ledger.workOrder.workOrderId}/artifacts/${artifactId}`,
+    designPack: structuredClone(record.ledger.plan.designPack),
+    skillPins: structuredClone(stage.skillPins),
+    sourceCoverage: {
+      declaredSourceIds: record.ledger.workOrder.sources.map((source) => source.sourceId),
+      usedSourceIds: record.ledger.workOrder.sources.map((source) => source.sourceId),
+      unresolvedSourceIds: [],
+    },
+    editability: structuredClone(input.editability),
+    validationStatus: input.validationStatus,
+  };
+  const validation = validateArtifactEnvelope(envelope);
+  if (!validation.ok) throw new TypeError(`Artifact contract rejected ${artifactId}: ${validation.issues.map((issue) => issue.code).join(", ")}`);
+  const artifact = { envelope, payload: structuredClone(input.payload) };
+  record.artifacts = [...records, artifact];
+  return artifact;
+}
+
+function appendPlanningArtifacts(record: PersistedWorkOrder, createdAt: string): void {
+  appendArtifactRecord(record, {
+    stageId: "stage_diagnose",
+    artifactType: "diagnosis",
+    payload: {
+      objective: record.ledger.workOrder.objective,
+      audience: structuredClone(record.ledger.workOrder.audience),
+      successCriteria: structuredClone(record.ledger.workOrder.successCriteria),
+      evidenceBoundary: "只使用已声明来源；缺少的信息必须标记为缺口。",
+    },
+    validationStatus: "accepted",
+    editability: { editable: false, capabilities: [] },
+    createdAt,
+  });
+  const decisions = decisionState(record);
+  if (!decisions.directionConfirmed) return;
+  const direction = decisions.directionPreviews.find((candidate) => candidate.directionId === decisions.selectedDirectionId);
+  if (!direction) throw new TypeError("Selected direction is unavailable");
+  appendArtifactRecord(record, {
+    stageId: "stage_direction",
+    artifactType: "direction",
+    payload: structuredClone(direction) as unknown as JsonValue,
+    validationStatus: "accepted",
+    editability: { editable: false, capabilities: [] },
+    createdAt,
+  });
+  appendArtifactRecord(record, {
+    stageId: "stage_outline",
+    artifactType: "outline",
+    payload: createOutline(record) as unknown as JsonValue,
+    validationStatus: "draft",
+    editability: { editable: true, capabilities: ["text", "order"] },
+    createdAt,
+  });
+}
+
 const DIRECTOR = { id: "opendesign-design-director", version: "0.3.0" } as const;
 const NARRATIVE = { id: "narrative-architect", version: "0.1.0" } as const;
 const ART_DIRECTOR = { id: "art-director", version: "0.1.0" } as const;
@@ -205,13 +387,14 @@ function createContracts(input: ReturnType<typeof normalizedInput>, workOrderId:
   };
   const stages: ExecutionStage[] = [
     stage({ stageId: "stage_diagnose", kind: "diagnose", objective: "确认目标、受众、证据边界与成功标准", skillPins: [DIRECTOR], toolIds: [], requiredArtifactTypes: [], expectedArtifactTypes: ["diagnosis"], approval: "none", maxAttempts: 1 }, 1),
-    stage({ stageId: "stage_direction", kind: "direction", objective: "形成一主两备的真实视觉方向", skillPins: [DIRECTOR, ART_DIRECTOR], toolIds: ["model-adapter"], requiredArtifactTypes: ["diagnosis"], expectedArtifactTypes: ["direction"], approval: "none", maxAttempts: 2 }, 2),
-    stage({ stageId: "stage_compose", kind: "compose", objective: "将叙事和方向编译为 Structured HTML", skillPins: [DIRECTOR, NARRATIVE, ART_DIRECTOR], toolIds: ["model-adapter", "structured-html-compiler"], requiredArtifactTypes: ["direction"], expectedArtifactTypes: ["structured-html"], approval: "none", maxAttempts: 2 }, 3),
-    stage({ stageId: "stage_import", kind: "import", objective: "安全导入并建立可编辑 Scene IR", skillPins: [DIRECTOR], toolIds: ["inert-html-importer"], requiredArtifactTypes: ["structured-html"], expectedArtifactTypes: ["scene-ir"], approval: "none", maxAttempts: 1 }, 4),
-    stage({ stageId: "stage_qa", kind: "qa", objective: "执行来源、布局、可编辑与导出前质量检查", skillPins: [CRITIC], toolIds: ["scene-ir-qa"], requiredArtifactTypes: ["scene-ir"], expectedArtifactTypes: ["qa-report"], approval: "none", maxAttempts: 1 }, 5),
-    stage({ stageId: "stage_edit", kind: "edit", objective: "保留当前稿并由用户进行局部编辑或请求修改", skillPins: [DIRECTOR, ART_DIRECTOR], toolIds: ["scene-ir-editor"], requiredArtifactTypes: ["scene-ir", "qa-report"], expectedArtifactTypes: ["scene-ir"], approval: "human-before", maxAttempts: 5 }, 6),
-    stage({ stageId: "stage_review", kind: "review", objective: "冻结差异、来源与 QA 证据并由人工确认候选", skillPins: [CRITIC], toolIds: ["candidate-ledger"], requiredArtifactTypes: ["scene-ir", "qa-report"], expectedArtifactTypes: ["scene-ir"], approval: "human-before", maxAttempts: 3 }, 7),
-    stage({ stageId: "stage_export", kind: "export", objective: "按明确动作导出 HTML 与原生可编辑 PPTX", skillPins: [DIRECTOR], toolIds: ["html-renderer", "pptx-renderer"], requiredArtifactTypes: ["scene-ir", "qa-report"], expectedArtifactTypes: ["export-report"], approval: "human-before", maxAttempts: 2 }, 8),
+    stage({ stageId: "stage_direction", kind: "direction", objective: "形成一主两备的真实视觉方向", skillPins: [DIRECTOR, ART_DIRECTOR], toolIds: ["design-pack-catalog"], requiredArtifactTypes: ["diagnosis"], expectedArtifactTypes: ["direction"], approval: "human-before", maxAttempts: 2 }, 2),
+    stage({ stageId: "stage_outline", kind: "outline", objective: "形成可审查且来源化的页面大纲", skillPins: [DIRECTOR, NARRATIVE], toolIds: ["outline-structurer"], requiredArtifactTypes: ["diagnosis", "direction"], expectedArtifactTypes: ["outline"], approval: "human-before", maxAttempts: 2 }, 3),
+    stage({ stageId: "stage_compose", kind: "compose", objective: "将叙事和方向编译为 Structured HTML", skillPins: [DIRECTOR, NARRATIVE, ART_DIRECTOR], toolIds: ["model-adapter", "structured-html-compiler"], requiredArtifactTypes: ["outline", "direction"], expectedArtifactTypes: ["structured-html"], approval: "none", maxAttempts: 2 }, 4),
+    stage({ stageId: "stage_import", kind: "import", objective: "安全导入并建立可编辑 Scene IR", skillPins: [DIRECTOR], toolIds: ["inert-html-importer"], requiredArtifactTypes: ["structured-html"], expectedArtifactTypes: ["scene-ir"], approval: "none", maxAttempts: 1 }, 5),
+    stage({ stageId: "stage_qa", kind: "qa", objective: "执行来源、布局、可编辑与导出前质量检查", skillPins: [CRITIC], toolIds: ["scene-ir-qa"], requiredArtifactTypes: ["scene-ir"], expectedArtifactTypes: ["qa-report"], approval: "none", maxAttempts: 1 }, 6),
+    stage({ stageId: "stage_edit", kind: "edit", objective: "保留当前稿并由用户进行局部编辑或请求修改", skillPins: [DIRECTOR, ART_DIRECTOR], toolIds: ["scene-ir-editor"], requiredArtifactTypes: ["scene-ir", "qa-report"], expectedArtifactTypes: ["scene-ir"], approval: "human-before", maxAttempts: 5 }, 7),
+    stage({ stageId: "stage_review", kind: "review", objective: "冻结差异、来源与 QA 证据并由人工确认候选", skillPins: [CRITIC], toolIds: ["candidate-ledger"], requiredArtifactTypes: ["scene-ir", "qa-report"], expectedArtifactTypes: ["scene-ir"], approval: "human-before", maxAttempts: 3 }, 8),
+    stage({ stageId: "stage_export", kind: "export", objective: "按明确动作导出 HTML 与原生可编辑 PPTX", skillPins: [DIRECTOR], toolIds: ["html-renderer", "pptx-renderer"], requiredArtifactTypes: ["scene-ir", "qa-report"], expectedArtifactTypes: ["export-report"], approval: "human-before", maxAttempts: 2 }, 9),
   ];
   const plan: ExecutionPlan = {
     contractVersion: AGENT_OS_CONTRACT_VERSION,
@@ -243,13 +426,19 @@ function createContracts(input: ReturnType<typeof normalizedInput>, workOrderId:
 function publicWorkflow(record: PersistedWorkOrder): WorkOrderWorkflow {
   const decisions = decisionState(record);
   const clarificationReady = decisions.clarification.status === "complete" || decisions.clarification.status === "not-needed";
+  const outline = latestArtifactRecord(record, "outline");
+  const outlineReview: WorkOrderOutlineReview = outline
+    ? { status: outline.envelope.validationStatus === "accepted" ? "approved" : "draft", artifactId: outline.envelope.artifactId, revisionId: outline.envelope.revisionId, itemCount: Array.isArray((outline.payload as { items?: unknown }).items) ? (outline.payload as { items: unknown[] }).items.length : 0 }
+    : { status: "unavailable", itemCount: 0 };
   return structuredClone({
     workOrder: record.ledger.workOrder,
     plan: record.ledger.plan,
     projection: replayAgentRunLedger(record.ledger),
     events: record.ledger.events,
     ...decisions,
-    readyForConfirmation: clarificationReady && decisions.directionConfirmed,
+    readyForConfirmation: clarificationReady && decisions.directionConfirmed && outlineReview.status === "approved",
+    artifacts: (record.artifacts ?? []).map((artifact) => artifact.envelope),
+    outlineReview,
     ...(record.generationJobId ? { generationJobId: record.generationJobId } : {}),
   });
 }
@@ -258,7 +447,7 @@ function isPersistedWorkOrder(value: unknown, scopeHash: string): value is Persi
   if (!value || typeof value !== "object") return false;
   const record = value as Partial<PersistedWorkOrder>;
   if (record.persistenceVersion !== 1 || record.scopeHash !== scopeHash || !record.ledger || !record.generationInput) return false;
-  if (!hasValidPersistedDecisions(record)) return false;
+  if (!hasValidPersistedDecisions(record) || !hasValidPersistedArtifacts(record)) return false;
   try {
     const projection = replayAgentRunLedger(record.ledger);
     return WORK_ORDER_ID.test(projection.workOrderId) && record.generationInput.taskId === projection.workOrderId;
@@ -320,7 +509,9 @@ export class WorkOrderManager {
       directionPreviews: createDirectionPreviews(contracts.plan.designPack.id),
       selectedDirectionId: `direction_${contracts.plan.designPack.id}`,
       directionConfirmed: false,
+      artifacts: [],
     };
+    appendPlanningArtifacts(record, this.timestamp());
     const records = this.recordsFor(scopeHash);
     if (records.size >= this.#limit) throw new WorkOrderLimitError(this.#limit);
     if (records.has(workOrderId)) throw new Error("Work Order ID already exists");
@@ -362,6 +553,7 @@ export class WorkOrderManager {
       if (action) workOrder.audience.decisionOrAction = action;
       const plan = structuredClone(record.ledger.plan);
       record.ledger = createAgentRunLedger(workOrder, plan);
+      revisePlan(record);
       record.generationInput.brief.audience = workOrder.audience.description;
       record.generationInput.brief.decisionRequest = workOrder.audience.decisionOrAction;
       record.generationInput.deliverable.audience = workOrder.audience.description;
@@ -369,6 +561,7 @@ export class WorkOrderManager {
       record.directionPreviews = state.directionPreviews;
       record.selectedDirectionId = state.selectedDirectionId;
       record.directionConfirmed = state.directionConfirmed;
+      appendPlanningArtifacts(record, this.timestamp());
       await this.persist(record);
       return publicWorkflow(record);
     });
@@ -384,19 +577,107 @@ export class WorkOrderManager {
       if (record.ledger.events.length > 0) throw new WorkOrderDecisionConflictError("Direction is no longer editable");
       const direction = state.directionPreviews.find((candidate) => candidate.directionId === directionId);
       if (!direction) throw new TypeError("Direction is not part of this Creation Contract");
+      if (state.directionConfirmed && state.selectedDirectionId === directionId) return publicWorkflow(record);
       const workOrder = structuredClone(record.ledger.workOrder);
       workOrder.deliverable.kind = deliverableKind(direction.pack.id);
       const plan = structuredClone(record.ledger.plan);
       plan.designPack = structuredClone(direction.pack);
       record.ledger = createAgentRunLedger(workOrder, plan);
+      revisePlan(record);
       record.generationInput.designPack = structuredClone(direction.pack);
       record.generationInput.deliverable.kind = workOrder.deliverable.kind === "research-keynote" ? "keynote" : workOrder.deliverable.kind;
       record.clarification = state.clarification;
       record.directionPreviews = createDirectionPreviews(direction.pack.id);
       record.selectedDirectionId = directionId;
       record.directionConfirmed = true;
+      appendPlanningArtifacts(record, this.timestamp());
       await this.persist(record);
       return publicWorkflow(record);
+    });
+  }
+
+  async approveOutline(scopeHash: string, workOrderId: string, expectedArtifactId: string): Promise<WorkOrderWorkflow> {
+    this.requireInitialized();
+    assertScopeHash(scopeHash);
+    return this.withLock(`${scopeHash}:${workOrderId}`, async () => {
+      const record = this.#records.get(scopeHash)?.get(workOrderId);
+      if (!record) throw new WorkOrderNotFoundError();
+      if (record.ledger.events.length > 0) throw new WorkOrderDecisionConflictError("Outline is no longer editable");
+      const decisions = decisionState(record);
+      const clarificationReady = decisions.clarification.status === "complete" || decisions.clarification.status === "not-needed";
+      if (!clarificationReady || !decisions.directionConfirmed) throw new WorkOrderDecisionConflictError("Complete clarification and confirm a direction before approving the outline");
+      const outline = latestArtifactRecord(record, "outline");
+      if (!outline || outline.envelope.artifactId !== expectedArtifactId) throw new WorkOrderDecisionConflictError("Outline revision changed; review the latest outline before approving");
+      if (outline.envelope.validationStatus === "accepted") return publicWorkflow(record);
+      appendArtifactRecord(record, {
+        stageId: "stage_outline",
+        artifactType: "outline",
+        payload: structuredClone(outline.payload),
+        validationStatus: "accepted",
+        editability: { editable: true, capabilities: ["text", "order"] },
+        createdAt: this.timestamp(),
+      });
+      await this.persist(record);
+      return publicWorkflow(record);
+    });
+  }
+
+  getArtifact(scopeHash: string, workOrderId: string, artifactId: string): { artifact: ArtifactEnvelope; payload: JsonValue } | null {
+    this.requireInitialized();
+    assertScopeHash(scopeHash);
+    if (!WORK_ORDER_ID.test(workOrderId) || !/^artifact_[a-z0-9_]{8,88}$/u.test(artifactId)) return null;
+    const record = this.#records.get(scopeHash)?.get(workOrderId);
+    const stored = record?.artifacts?.find((artifact) => artifact.envelope.artifactId === artifactId);
+    if (!stored || stored.envelope.payloadHash !== payloadDigest(stored.payload)) return null;
+    return structuredClone({ artifact: stored.envelope, payload: stored.payload });
+  }
+
+  async recordGeneratedOutput(scopeHash: string, workOrderId: string, output: AcceptedDesignDirectorOutput): Promise<void> {
+    this.requireInitialized();
+    assertScopeHash(scopeHash);
+    await this.withLock(`${scopeHash}:${workOrderId}`, async () => {
+      const record = this.#records.get(scopeHash)?.get(workOrderId);
+      if (!record) return;
+      const htmlPayload = { html: output.html, manifest: structuredClone(output.manifest) } as unknown as JsonValue;
+      const scenePayload = structuredClone(output.importResult.document) as unknown as JsonValue;
+      const htmlExisting = latestArtifactRecord(record, "structured-html");
+      if (!htmlExisting || htmlExisting.envelope.payloadHash !== payloadDigest(htmlPayload)) {
+        appendArtifactRecord(record, { stageId: "stage_compose", artifactType: "structured-html", payload: htmlPayload, validationStatus: "accepted", editability: { editable: true, capabilities: ["text", "typography", "asset", "frame", "order"] }, createdAt: this.timestamp() });
+      }
+      const sceneExisting = latestArtifactRecord(record, "scene-ir");
+      if (!sceneExisting || sceneExisting.envelope.payloadHash !== payloadDigest(scenePayload)) {
+        appendArtifactRecord(record, { stageId: "stage_import", artifactType: "scene-ir", payload: scenePayload, validationStatus: "accepted", editability: { editable: true, capabilities: ["text", "typography", "asset", "frame", "order"], nativeElementRatio: 1 }, createdAt: this.timestamp() });
+      }
+      record.projectId = output.importResult.document.documentId;
+      await this.persist(record);
+    });
+  }
+
+  async recordQaArtifact(scopeHash: string, workOrderId: string, report: QaReport): Promise<void> {
+    this.requireInitialized();
+    assertScopeHash(scopeHash);
+    await this.withLock(`${scopeHash}:${workOrderId}`, async () => {
+      const record = this.#records.get(scopeHash)?.get(workOrderId);
+      if (!record) return;
+      const payload = structuredClone(report) as unknown as JsonValue;
+      const existing = latestArtifactRecord(record, "qa-report");
+      if (!existing || existing.envelope.payloadHash !== payloadDigest(payload)) {
+        appendArtifactRecord(record, { stageId: "stage_qa", artifactType: "qa-report", payload, validationStatus: report.summary.blocker === 0 && report.summary.error === 0 ? "accepted" : "rejected", editability: { editable: false, capabilities: [] }, createdAt: this.timestamp() });
+        await this.persist(record);
+      }
+    });
+  }
+
+  async recordExportArtifact(scopeHash: string, projectId: string, payloadValue: unknown): Promise<void> {
+    this.requireInitialized();
+    assertScopeHash(scopeHash);
+    const record = [...(this.#records.get(scopeHash)?.values() ?? [])].find((candidate) => candidate.projectId === projectId);
+    if (!record) return;
+    await this.withLock(`${scopeHash}:${record.ledger.workOrder.workOrderId}`, async () => {
+      const payload = structuredClone(payloadValue) as JsonValue;
+      canonicalJson(payload);
+      appendArtifactRecord(record, { stageId: "stage_export", artifactType: "export-report", payload, validationStatus: "accepted", editability: { editable: false, capabilities: [] }, createdAt: this.timestamp() });
+      await this.persist(record);
     });
   }
 
@@ -437,23 +718,31 @@ export class WorkOrderManager {
       const suffix = job.jobId.slice(4);
       const at = job.updatedAt;
       const append = (event: Parameters<typeof appendAgentRunEvent>[1]) => { record.ledger = appendAgentRunEvent(record.ledger, event); };
-      const complete = (stageId: string, name: string) => append({ eventId: `event_${suffix}_${name}`, commandId: `sync_${job.jobId}_${name}`, stageId, type: "stage_completed", occurredAt: at, actor: SYSTEM_ACTOR, inputArtifactIds: [], outputArtifactIds: [`artifact_${suffix}_${name}`] });
+      const artifactId = (type: ArtifactType): string => {
+        const artifact = latestArtifactRecord(record, type);
+        if (!artifact) throw new Error(`Generation stage is missing ${type} artifact evidence`);
+        return artifact.envelope.artifactId;
+      };
+      const complete = (stageId: string, name: string, type: ArtifactType) => append({ eventId: `event_${suffix}_${name}`, commandId: `sync_${job.jobId}_${name}`, stageId, type: "stage_completed", occurredAt: at, actor: SYSTEM_ACTOR, inputArtifactIds: [], outputArtifactIds: [artifactId(type)] });
       const start = (stageId: string, name: string) => append({ eventId: `event_${suffix}_${name}_start`, commandId: `sync_${job.jobId}_${name}_start`, stageId, type: "stage_started", occurredAt: at, actor: SYSTEM_ACTOR, inputArtifactIds: [], outputArtifactIds: [] });
       if (job.status === "analyzing") start("stage_diagnose", "diagnosis");
       if (job.status === "generating") {
-        complete("stage_diagnose", "diagnosis");
+        complete("stage_diagnose", "diagnosis", "diagnosis");
         start("stage_direction", "direction");
-        complete("stage_direction", "direction");
+        complete("stage_direction", "direction", "direction");
+        start("stage_outline", "outline");
+        complete("stage_outline", "outline", "outline");
         start("stage_compose", "compose");
       }
       if (job.status === "validating") {
-        complete("stage_compose", "compose");
+        complete("stage_compose", "compose", "structured-html");
         start("stage_import", "import");
-        complete("stage_import", "import");
+        complete("stage_import", "import", "scene-ir");
         start("stage_qa", "qa");
       }
       if (job.status === "completed") {
-        complete("stage_qa", "qa");
+        complete("stage_qa", "qa", "qa-report");
+        if (job.projectId) record.projectId = job.projectId;
       }
       if (job.status === "failed") {
         const projection = replayAgentRunLedger(record.ledger);

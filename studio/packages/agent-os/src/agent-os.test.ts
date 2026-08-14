@@ -5,10 +5,15 @@ import {
   AGENT_OS_CONTRACT_VERSION,
   CAPABILITY_MANIFEST_VERSION,
   AgentContractError,
+  ArtifactRegistryError,
   AgentRunError,
+  appendArtifact,
   appendAgentRunEvent,
   assertExecutionBundle,
   createAgentRunLedger,
+  createArtifactRegistry,
+  findArtifact,
+  latestArtifactByType,
   replayAgentRunLedger,
   validateAgentRunEvent,
   validateArtifactEnvelope,
@@ -182,6 +187,24 @@ test("prevents accepted artifacts from claiming unresolved evidence or false edi
   const second = validateArtifactEnvelope(falseEditable);
   assert.equal(second.ok, false);
   if (!second.ok) assert.equal(second.issues.some((issue) => issue.code === "artifact.capability_missing"), true);
+});
+
+test("010 registers immutable stage artifacts and rejects cross-task, revision, stage or pack drift", () => {
+  const expanded = plan();
+  expanded.stages[0]!.expectedArtifactTypes = ["diagnosis", "outline"];
+  let registry = createArtifactRegistry(workOrder().workOrderId, expanded);
+  const diagnosis = artifact({ artifactId: "artifact_diagnosis_001", stageId: "stage_diagnose", artifactType: "diagnosis", revisionId: "revision_diagnosis_001", editability: { editable: false, capabilities: [] } });
+  registry = appendArtifact(registry, diagnosis);
+  assert.equal(appendArtifact(registry, diagnosis), registry);
+  const outline = artifact({ artifactId: "artifact_outline_001", stageId: "stage_diagnose", artifactType: "outline", revisionId: "revision_outline_001", editability: { editable: true, capabilities: ["text", "order"] } });
+  registry = appendArtifact(registry, outline);
+  assert.equal(latestArtifactByType(registry, "outline")?.artifactId, outline.artifactId);
+  assert.equal(findArtifact(registry, diagnosis.artifactId)?.artifactType, "diagnosis");
+  assert.throws(() => appendArtifact(registry, { ...outline, payloadHash: `sha256:${"b".repeat(64)}` }), (error: unknown) => error instanceof ArtifactRegistryError && error.code === "artifact.conflict");
+  assert.throws(() => appendArtifact(registry, { ...outline, artifactId: "artifact_outline_002" }), (error: unknown) => error instanceof ArtifactRegistryError && error.code === "artifact.revision_conflict");
+  assert.throws(() => appendArtifact(registry, { ...outline, artifactId: "artifact_outline_003", revisionId: "revision_outline_002", workOrderId: "work_other" }), (error: unknown) => error instanceof ArtifactRegistryError && error.code === "artifact.cross_work_order");
+  assert.throws(() => appendArtifact(registry, { ...outline, artifactId: "artifact_outline_004", revisionId: "revision_outline_003", stageId: "stage_compose" }), (error: unknown) => error instanceof ArtifactRegistryError && error.code === "artifact.stage_mismatch");
+  assert.throws(() => appendArtifact(registry, { ...outline, artifactId: "artifact_outline_005", revisionId: "revision_outline_004", designPack: { id: "other-pack", version: "1.0.0" } }), (error: unknown) => error instanceof ArtifactRegistryError && error.code === "artifact.pack_mismatch");
 });
 
 test("requires human approval and fail-closed QA/export gates while retaining notPublished", () => {

@@ -12,6 +12,7 @@ import {
   createDesignDirectorDraft,
   createWorkOrder,
   answerWorkOrderClarifications,
+  approveWorkOrderOutline,
   confirmWorkOrder,
   createModelDraft,
   cancelGenerationJob,
@@ -26,8 +27,10 @@ import {
   loadProject,
   loadGenerationJob,
   loadWorkOrder,
+  loadWorkOrderArtifact,
   loadReview,
   selectWorkOrderDirection,
+  parseWorkOrderOutlinePayload,
   persistProject,
   rejectAgentChangeCandidate,
   runProjectQa,
@@ -38,6 +41,7 @@ import {
   type GenerationJob,
   type GenerationJobErrorCode,
   type WorkOrderWorkflow,
+  type WorkOrderOutlinePayload,
   type StoredRevision,
   type StudioExportResult,
   type ReviewResponse,
@@ -75,7 +79,7 @@ const fontOptions = [
 ] as const;
 
 type InspectorTab = "edit" | "qa" | "history" | "export";
-type ResultView = "files" | "images" | "outline" | "slides";
+type ResultView = "sources" | "outline" | "directions" | "slides" | "qa" | "export";
 type ExportKind = "html" | "png" | "pptx";
 type ExportState = "idle" | "working" | "ready" | "error";
 type SyncState = "local" | "saving" | "saved" | "error";
@@ -119,7 +123,7 @@ const generationStageCopy: Record<GenerationJob["status"], { label: string; deta
 };
 
 const agentStageLabels: Record<string, string> = {
-  diagnose: "诊断需求", direction: "设计方向", compose: "内容创作", import: "安全导入",
+  diagnose: "诊断需求", direction: "设计方向", outline: "大纲确认", compose: "内容创作", import: "安全导入",
   qa: "质量检查", edit: "人工编辑", review: "候选确认", export: "明确导出",
 };
 
@@ -321,6 +325,8 @@ export function App() {
   const [generatorError, setGeneratorError] = useState("");
   const [generationJob, setGenerationJob] = useState<GenerationJob | null>(null);
   const [workOrderWorkflow, setWorkOrderWorkflow] = useState<WorkOrderWorkflow | null>(null);
+  const [workOrderOutline, setWorkOrderOutline] = useState<WorkOrderOutlinePayload | null>(null);
+  const [artifactState, setArtifactState] = useState<"idle" | "loading" | "ready" | "error">("idle");
   const [clarificationAnswers, setClarificationAnswers] = useState<Record<string, string>>({});
   const [generationJobError, setGenerationJobError] = useState<{ code: GenerationJobErrorCode; message: string } | null>(null);
   const [generationRecoveryJobId, setGenerationRecoveryJobId] = useState<string | null>(() => window.localStorage.getItem(generationJobStorageKey));
@@ -380,6 +386,18 @@ export function App() {
       .catch(() => { if (active) setSyncState("local"); });
     return () => { active = false; };
   }, []);
+
+  useEffect(() => {
+    const workOrderId = workOrderWorkflow?.workOrder.workOrderId;
+    const artifactId = workOrderWorkflow?.outlineReview.artifactId;
+    if (!workOrderId || !artifactId) { setWorkOrderOutline(null); setArtifactState("idle"); return; }
+    let active = true;
+    setArtifactState("loading");
+    loadWorkOrderArtifact(workOrderId, artifactId)
+      .then((artifact) => { if (active) { setWorkOrderOutline(parseWorkOrderOutlinePayload(artifact.payload)); setArtifactState("ready"); } })
+      .catch(() => { if (active) { setWorkOrderOutline(null); setArtifactState("error"); } });
+    return () => { active = false; };
+  }, [workOrderWorkflow?.workOrder.workOrderId, workOrderWorkflow?.outlineReview.artifactId]);
 
   useEffect(() => {
     const storedWorkOrderId = window.localStorage.getItem(workOrderStorageKey);
@@ -467,6 +485,15 @@ export function App() {
   const qaScore = qaState === "ready" ? Math.max(0, 100 - openIssues.reduce((score, issue) => score + ({ blocker: 35, error: 20, warning: 8, note: 2 }[issue.severity]), 0)) : 0;
   const totalElements = document.scenes.reduce((count, item) => count + item.elements.length, 0);
   const pptxReport = exportResults.pptx?.editabilityReport as { summary?: { nativeElements?: number; rasterFallbacks?: number; omittedElements?: number } } | undefined;
+  const latestArtifact = (type: WorkOrderWorkflow["artifacts"][number]["artifactType"]) => workOrderWorkflow?.artifacts.filter((artifact) => artifact.artifactType === type).at(-1);
+  const resultStatus = (view: ResultView): "ready" | "draft" | "waiting" | "error" => {
+    if (view === "sources") return latestArtifact("diagnosis")?.validationStatus === "accepted" ? "ready" : "waiting";
+    if (view === "outline") return workOrderWorkflow?.outlineReview.status === "approved" ? "ready" : workOrderWorkflow?.outlineReview.status === "draft" ? "draft" : "waiting";
+    if (view === "directions") return workOrderWorkflow?.directionConfirmed ? "ready" : "waiting";
+    if (view === "slides") return latestArtifact("scene-ir")?.validationStatus === "accepted" || document.scenes.length > 0 ? "ready" : "waiting";
+    if (view === "qa") return qaState === "error" ? "error" : latestArtifact("qa-report") || qaState === "ready" ? "ready" : "waiting";
+    return latestArtifact("export-report") || Object.values(exportStates).some((state) => state === "ready") ? "ready" : "waiting";
+  };
 
   useEffect(() => {
     let active = true;
@@ -794,6 +821,7 @@ export function App() {
 
   async function confirmCreationPlan() {
     if (!workOrderWorkflow) return;
+    setResultView("slides");
     setGeneratorState("working");
     setGeneratorError("");
     setGenerationJobError(null);
@@ -848,6 +876,22 @@ export function App() {
       setGeneratorState("idle");
     } catch (error) {
       const message = error instanceof Error ? error.message : "设计方向未能保存";
+      setGeneratorError(message);
+      setGeneratorState("error");
+    }
+  }
+
+  async function approveCurrentOutline() {
+    if (!workOrderWorkflow?.outlineReview.artifactId || workOrderWorkflow.outlineReview.status !== "draft") return;
+    setGeneratorState("working");
+    setGeneratorError("");
+    try {
+      const workflow = await approveWorkOrderOutline(workOrderWorkflow.workOrder.workOrderId, workOrderWorkflow.outlineReview.artifactId);
+      setWorkOrderWorkflow(workflow);
+      setResultView("outline");
+      setGeneratorState("idle");
+    } catch (error) {
+      const message = error instanceof Error ? error.message : "大纲未能批准";
       setGeneratorError(message);
       setGeneratorState("error");
     }
@@ -1140,7 +1184,7 @@ export function App() {
           <div className="project-sidebar__primary">
             <Button tone="primary" onClick={() => { setBrief(""); setWorkflowStep("sources"); }}><Icon name="plus" size={14} /> 新建设计</Button>
             <button type="button" className="project-nav-item is-active"><Icon name="layers" size={15} /><span>我的作品</span><small>{projects.length || 1}</small></button>
-            <button type="button" className="project-nav-item" onClick={() => setResultView("files")}><Icon name="file" size={15} /><span>设计素材</span></button>
+            <button type="button" className="project-nav-item" onClick={() => setResultView("sources")}><Icon name="file" size={15} /><span>设计素材</span></button>
           </div>
           <div className="project-sidebar__recent">
             <span className="project-sidebar__label">最近作品</span>
@@ -1193,12 +1237,16 @@ export function App() {
                 </button>)}</div>
                 <small>{workOrderWorkflow.directionConfirmed ? "方向已确认并写入执行计划。" : "当前高亮是建议方向；请点击一次明确确认，也可以选择其他方向。"}</small>
               </section>
+              <section className="creation-contract__outline" aria-label="大纲确认">
+                <span><strong>页面大纲</strong><small>{workOrderWorkflow.outlineReview.status === "unavailable" ? "确认方向后形成" : `${workOrderWorkflow.outlineReview.itemCount} 页 · ${workOrderWorkflow.outlineReview.status === "approved" ? "已批准" : "等待确认"}`}</small></span>
+                {workOrderWorkflow.outlineReview.status !== "unavailable" && <Button size="sm" tone={workOrderWorkflow.outlineReview.status === "draft" ? "primary" : "outline"} onClick={() => setResultView("outline")} disabled={generatorState === "working"}>{workOrderWorkflow.outlineReview.status === "draft" ? "查看大纲" : "查看已批准大纲"}</Button>}
+              </section>
               <ol className="creation-contract__stages">{workOrderWorkflow.plan.stages.map((item) => {
                 const status = workOrderWorkflow.projection.stageStatuses[item.stageId] ?? "queued";
                 return <li key={item.stageId} className={`is-${status}`}><i>{status === "completed" ? <Icon name="check" size={9} /> : item.order}</i><span><strong>{agentStageLabels[item.kind] ?? item.kind}</strong><small>{item.objective}</small></span><em>{status}</em></li>;
               })}</ol>
               <p className="creation-contract__budget">预算上限：{workOrderWorkflow.plan.budget.maxDurationSeconds} 秒 · {workOrderWorkflow.plan.budget.maxModelCalls} 次模型调用 · 不自动生成图片</p>
-              {workOrderWorkflow.projection.status === "draft" && <div className="creation-contract__actions"><Button size="sm" tone="primary" onClick={confirmCreationPlan} disabled={generatorState === "working" || !workOrderWorkflow.readyForConfirmation}>确认计划并开始创作</Button><small>{workOrderWorkflow.readyForConfirmation ? "确认前不会调用模型，也不会改动当前作品。" : "请先补齐必要信息，并明确选择一个设计方向。"}</small></div>}
+              {workOrderWorkflow.projection.status === "draft" && <div className="creation-contract__actions"><Button size="sm" tone="primary" onClick={confirmCreationPlan} disabled={generatorState === "working" || !workOrderWorkflow.readyForConfirmation}>确认计划并开始创作</Button><small>{workOrderWorkflow.readyForConfirmation ? "确认前不会调用模型，也不会改动当前作品。" : "请先补齐必要信息，确认方向并批准大纲。"}</small></div>}
               {workOrderWorkflow.projection.status === "confirmed" && !generationJob && <div className="creation-contract__actions"><Button size="sm" tone="outline" onClick={confirmCreationPlan} disabled={generatorState === "working"}>启动已确认计划</Button><small>计划已留痕；服务恢复后可继续。</small></div>}
             </article>}
             {generationJob && <article className={`generation-job generation-job--${generationJob.status}`} aria-live="polite" aria-label="生成任务状态">
@@ -1302,7 +1350,7 @@ export function App() {
 
         <section className="stage" aria-label="设计画布">
           <div className="result-tabs" role="tablist" aria-label="作品视图">
-            {([['files', '文件', 'file'], ['images', '图片', 'image'], ['outline', '大纲', 'layers'], ['slides', '页面', 'play']] as const).map(([id, label, icon]) => <button key={id} type="button" role="tab" aria-selected={resultView === id} className={resultView === id ? "is-active" : ""} onClick={() => setResultView(id)}><Icon name={icon} size={14} />{label}</button>)}
+            {([['sources', '材料', 'file'], ['outline', '大纲', 'layers'], ['directions', '方向', 'spark'], ['slides', '幻灯片', 'play'], ['qa', 'QA', 'check'], ['export', '导出', 'arrow']] as const).map(([id, label, icon]) => <button key={id} type="button" role="tab" aria-selected={resultView === id} className={resultView === id ? "is-active" : ""} data-status={resultStatus(id)} onClick={() => setResultView(id)}><Icon name={icon} size={14} />{label}<i aria-hidden="true" /></button>)}
             <span className="result-tabs__count">{document.scenes.length} 页</span>
             <button type="button" className="result-tabs__tool" aria-label="打开编辑面板" onClick={() => { setInspectorTab("edit"); setInspectorOpen(true); }}><Icon name="edit" size={15} /></button>
             <button type="button" className="result-tabs__tool" aria-label="打开质量检查" onClick={() => { setInspectorTab("qa"); setInspectorOpen(true); }}><Icon name="check" size={15} /></button>
@@ -1333,9 +1381,11 @@ export function App() {
           </div>
           </>}
 
-          {resultView === "outline" && <div className="result-view result-view--outline"><header><Kicker>Story structure</Kicker><h2>先看叙事，再看页面</h2><p>每一页都承担一个明确的沟通任务，并保留来源关系。</p></header><ol>{document.scenes.map((item) => <li key={item.id}><button type="button" onClick={() => { selectScene(item.id); setResultView("slides"); }}><span>{String(item.order).padStart(2, "0")}</span><span><strong>{item.title}</strong><small>{item.purpose}</small></span><Icon name="arrow" size={14} /></button></li>)}</ol></div>}
-          {resultView === "files" && <div className="result-view result-view--files"><header><Kicker>Grounded sources</Kicker><h2>作品使用的材料</h2><p>来源只用于当前设计任务，生成结果会保留可追踪关系。</p></header><div>{goldenTask.sources.map((source) => <article key={source.sourceId}><span className="file-mark"><Icon name="file" size={18} /></span><span><strong>{source.title}</strong><small>{source.type} · {source.status}</small></span><Badge tone="success">已读取</Badge></article>)}</div><Button tone="outline" onClick={() => setWorkflowStep("sources")}><Icon name="plus" size={14} /> 添加文件或 HTML</Button></div>}
-          {resultView === "images" && <div className="result-view result-view--images"><header><Kicker>Visual assets</Kicker><h2>图片与视觉素材</h2><p>插入的图片会进入 HTML、PNG 和可编辑 PPTX。</p></header><div className="asset-grid">{document.scenes.flatMap((item) => item.elements.filter((element) => element.type === "image").map((element) => <button type="button" key={element.id} onClick={() => { selectScene(item.id); selectElement(element); setResultView("slides"); }}>{element.assetSrc ? <img src={element.assetSrc} alt={element.alt ?? ""} /> : <span><Icon name="image" size={22} /></span>}<small>{element.alt || item.title}</small></button>))}<button type="button" className="asset-grid__add" onClick={() => imageInputRef.current?.click()}><Icon name="plus" size={20} /><small>插入图片</small></button></div></div>}
+          {resultView === "outline" && <div className="result-view result-view--outline artifact-view"><header><span><Kicker>Outline Artifact</Kicker><h2>{workOrderOutline?.title ?? "先看叙事，再看页面"}</h2><p>每一页承担明确任务，并保留来源关系。大纲确认后才会调用生成 Worker。</p></span><Badge tone={workOrderWorkflow?.outlineReview.status === "approved" ? "success" : "accent"}>{artifactState === "loading" ? "读取中" : workOrderWorkflow?.outlineReview.status ?? "本地作品"}</Badge></header><ol>{(workOrderOutline?.items ?? document.scenes.map((item) => ({ itemId: item.id, order: item.order, role: "insight" as const, title: item.title, purpose: item.purpose, sourceIds: [] }))).map((item) => <li key={item.itemId}><button type="button" onClick={() => { const target = document.scenes.find((candidate) => candidate.order === item.order); if (target) { selectScene(target.id); setResultView("slides"); } }}><span>{String(item.order).padStart(2, "0")}</span><span><strong>{item.title}</strong><small>{item.role} · {item.purpose}</small></span><Badge>{item.sourceIds.length} 来源</Badge></button></li>)}</ol>{workOrderWorkflow?.outlineReview.status === "draft" && <div className="artifact-approval"><span><strong>这是确定性大纲候选</strong><small>请确认结构；尚未调用模型，也没有改动当前作品。</small></span><Button tone="primary" onClick={approveCurrentOutline} disabled={generatorState === "working"}>批准大纲</Button></div>}</div>}
+          {resultView === "sources" && <div className="result-view result-view--files artifact-view"><header><span><Kicker>Sources Artifact</Kicker><h2>作品使用的材料</h2><p>来源只用于当前任务；事实、推断和建议不会混为一谈。</p></span><Badge tone="success">{workOrderWorkflow?.workOrder.sources.length ?? goldenTask.sources.length} sources</Badge></header><div>{(workOrderWorkflow?.workOrder.sources ?? goldenTask.sources).map((source) => <article key={source.sourceId}><span className="file-mark"><Icon name="file" size={18} /></span><span><strong>{source.title}</strong><small>{source.type} · {"sourceRef" in source && source.sourceRef ? source.sourceRef : source.sourceId}</small></span><Badge tone="success">已声明</Badge></article>)}</div><Button tone="outline" onClick={() => setWorkflowStep("sources")}><Icon name="plus" size={14} /> 添加文件或 HTML</Button></div>}
+          {resultView === "directions" && <div className="result-view artifact-view artifact-directions"><header><span><Kicker>Direction Artifact</Kicker><h2>一主两备的设计判断</h2><p>方向来自受治理 Design Pack，而不是临时的文字风格名。</p></span><Badge tone={workOrderWorkflow?.directionConfirmed ? "success" : "accent"}>{workOrderWorkflow?.directionConfirmed ? "已确认" : "待选择"}</Badge></header><div>{(workOrderWorkflow?.directionPreviews ?? []).map((item) => <button type="button" key={item.directionId} className={workOrderWorkflow?.selectedDirectionId === item.directionId ? "is-selected" : ""} onClick={() => void chooseWorkOrderDirection(item.directionId)} disabled={workOrderWorkflow?.projection.status !== "draft"}><span style={{ background: item.tokens.background, color: item.tokens.text, borderColor: item.tokens.accent }}><i style={{ background: item.tokens.accent }} />Aa</span><strong>{item.name}</strong><small>{item.pack.id}@{item.pack.version}</small><p>{item.rationale}</p></button>)}</div></div>}
+          {resultView === "qa" && <div className="result-view artifact-view artifact-summary"><header><span><Kicker>QA Artifact</Kicker><h2>{qaState === "ready" ? `${openIssues.length} 项需要确认` : "等待确定性检查"}</h2><p>问题回指页面和元素，不用单一审美总分替代判断。</p></span><Badge tone={openIssues.some((issue) => issue.severity === "blocker" || issue.severity === "error") ? "warning" : "success"}>QA {qaState === "ready" ? qaScore : "-"}</Badge></header><dl><div><dt>错误</dt><dd>{openIssues.filter((issue) => issue.severity === "blocker" || issue.severity === "error").length}</dd></div><div><dt>警告</dt><dd>{openIssues.filter((issue) => issue.severity === "warning").length}</dd></div><div><dt>定位</dt><dd>{new Set(openIssues.map((issue) => issue.sceneId)).size} 页</dd></div></dl><Button tone="outline" onClick={() => { setInspectorTab("qa"); setInspectorOpen(true); }}>打开完整 QA</Button></div>}
+          {resultView === "export" && <div className="result-view artifact-view artifact-summary"><header><span><Kicker>Export Artifact</Kicker><h2>可编辑与高保真明确分开</h2><p>所有格式消费当前 Scene IR；PPTX 不从整页 HTML 截图反推。</p></span><Badge>{latestArtifact("export-report") ? "已有导出证据" : "尚未导出"}</Badge></header><dl><div><dt>HTML</dt><dd>{exportStates.html}</dd></div><div><dt>PNG</dt><dd>{exportStates.png}</dd></div><div><dt>可编辑 PPTX</dt><dd>{exportStates.pptx}</dd></div></dl><Button tone="primary" onClick={() => { setInspectorTab("export"); setInspectorOpen(true); }}>打开导出中心</Button></div>}
         </section>
 
         <aside className={`inspector-panel ${inspectorOpen ? "is-open" : ""}`} aria-label="作品检查器">

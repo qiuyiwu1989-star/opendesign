@@ -2,7 +2,7 @@ import type { DesignPackPin, DocumentProvenance, HtmlImportResult, Revision, Sce
 import type { DesignDirectorInput, DesignDirectorOutput } from "@opendesign/studio-design-director";
 import type { ModelGenerationResult } from "@opendesign/studio-model-adapter";
 import type { ReviewLedger, ReviewProjection } from "@opendesign/studio-publishing";
-import type { AgentRunEvent, AgentRunProjection, DesignWorkOrder, ExecutionPlan } from "@opendesign/studio-agent-os";
+import type { AgentRunEvent, AgentRunProjection, ArtifactEnvelope, DesignWorkOrder, ExecutionPlan } from "@opendesign/studio-agent-os";
 
 export type ProjectSummary = { projectId: string; title: string; sceneCount: number; updatedAt: string };
 export type StoredRevision = { revision: Revision; document: SceneDocument };
@@ -93,8 +93,16 @@ export type WorkOrderWorkflow = {
   selectedDirectionId: string;
   directionConfirmed: boolean;
   readyForConfirmation: boolean;
+  artifacts: ArtifactEnvelope[];
+  outlineReview: { status: "unavailable" | "draft" | "approved"; artifactId?: string; revisionId?: string; itemCount: number };
   generationJobId?: string;
 };
+export type WorkOrderOutlinePayload = {
+  title: string;
+  items: Array<{ itemId: string; order: number; role: "cover" | "context" | "insight" | "proposal" | "evidence" | "next-step"; title: string; purpose: string; sourceIds: string[] }>;
+  method: "deterministic-v0";
+};
+export type WorkOrderArtifact = { artifact: ArtifactEnvelope; payload: unknown };
 
 export class StudioApiError extends Error {
   readonly code: GenerationJobErrorCode;
@@ -226,17 +234,34 @@ function parseWorkflow(value: unknown): WorkOrderWorkflow {
       && isObject(direction.tokens) && [direction.tokens.background, direction.tokens.surface, direction.tokens.text, direction.tokens.accent, direction.tokens.headingFamily].every((token) => typeof token === "string")
       && isObject(direction.composition) && typeof direction.composition.grid === "string"
       && ["airy", "balanced", "dense"].includes(String(direction.composition.density)) && typeof direction.composition.rhythm === "string");
+  const artifacts = Array.isArray(value.artifacts) ? value.artifacts : [];
+  const artifactTypes = ["diagnosis", "outline", "direction", "structured-html", "scene-ir", "qa-report", "export-report"];
+  const artifactsValid = artifacts.length > 0 && artifacts.every((artifact) => isObject(artifact)
+    && typeof artifact.artifactId === "string" && typeof artifact.workOrderId === "string" && typeof artifact.planId === "string" && typeof artifact.stageId === "string"
+    && artifactTypes.includes(String(artifact.artifactType)) && typeof artifact.revisionId === "string" && isIsoDate(artifact.createdAt)
+    && typeof artifact.payloadHash === "string" && /^sha256:[a-f0-9]{64}$/u.test(artifact.payloadHash) && typeof artifact.payloadRef === "string"
+    && isObject(artifact.designPack) && typeof artifact.designPack.id === "string" && typeof artifact.designPack.version === "string"
+    && Array.isArray(artifact.skillPins) && isObject(artifact.sourceCoverage) && Array.isArray(artifact.sourceCoverage.declaredSourceIds) && Array.isArray(artifact.sourceCoverage.usedSourceIds) && Array.isArray(artifact.sourceCoverage.unresolvedSourceIds)
+    && isObject(artifact.editability) && typeof artifact.editability.editable === "boolean" && Array.isArray(artifact.editability.capabilities)
+    && ["draft", "accepted", "rejected"].includes(String(artifact.validationStatus)));
+  const outlineReview = isObject(value.outlineReview) ? value.outlineReview : {};
+  const outlineReviewValid = ["unavailable", "draft", "approved"].includes(String(outlineReview.status))
+    && Number.isSafeInteger(outlineReview.itemCount) && Number(outlineReview.itemCount) >= 0
+    && (outlineReview.artifactId === undefined || typeof outlineReview.artifactId === "string")
+    && (outlineReview.revisionId === undefined || typeof outlineReview.revisionId === "string")
+    && (outlineReview.status === "unavailable" ? outlineReview.artifactId === undefined : artifacts.some((artifact) => isObject(artifact) && artifact.artifactId === outlineReview.artifactId && artifact.artifactType === "outline"));
   if (typeof workOrder.workOrderId !== "string" || !/^workorder_[a-z0-9]{8,59}$/u.test(workOrder.workOrderId)
     || typeof workOrder.title !== "string" || typeof workOrder.objective !== "string"
     || !isObject(workOrder.audience) || typeof workOrder.audience.description !== "string" || typeof workOrder.audience.decisionOrAction !== "string"
-    || !sourcesValid || !Array.isArray(workOrder.successCriteria) || !workOrder.successCriteria.every((criterion) => typeof criterion === "string")
+    || !sourcesValid || !artifactsValid || !outlineReviewValid || new Set(artifacts.map((artifact) => isObject(artifact) ? artifact.artifactId : "")).size !== artifacts.length || artifacts.some((artifact) => isObject(artifact) && artifact.workOrderId !== workOrder.workOrderId)
+    || !Array.isArray(workOrder.successCriteria) || !workOrder.successCriteria.every((criterion) => typeof criterion === "string")
     || typeof plan.planId !== "string" || plan.workOrderId !== workOrder.workOrderId
     || !isObject(plan.designPack) || typeof plan.designPack.id !== "string" || typeof plan.designPack.version !== "string"
     || !pinsValid || !stagesValid || !isObject(plan.budget)
     || !clarificationValid || !directionsValid || typeof value.selectedDirectionId !== "string"
     || !directions.some((direction) => isObject(direction) && direction.directionId === value.selectedDirectionId)
     || typeof value.directionConfirmed !== "boolean" || typeof value.readyForConfirmation !== "boolean"
-    || value.readyForConfirmation !== ((clarification.status === "complete" || clarification.status === "not-needed") && value.directionConfirmed)
+    || value.readyForConfirmation !== ((clarification.status === "complete" || clarification.status === "not-needed") && value.directionConfirmed && outlineReview.status === "approved")
     || typeof plan.budget.maxDurationSeconds !== "number" || typeof plan.budget.maxModelCalls !== "number" || typeof plan.budget.maxImageCalls !== "number"
     || projection.workOrderId !== workOrder.workOrderId || projection.planId !== plan.planId
     || typeof projection.status !== "string" || !isObject(projection.stageStatuses)
@@ -283,6 +308,31 @@ export async function selectWorkOrderDirection(workOrderId: string, directionId:
     method: "POST",
     body: JSON.stringify({ directionId }),
   }));
+}
+
+export async function approveWorkOrderOutline(workOrderId: string, expectedArtifactId: string): Promise<WorkOrderWorkflow> {
+  return parseWorkflowEnvelope(await generationRequest(`/api/work-orders/${encodeURIComponent(workOrderId)}/outline`, {
+    method: "POST",
+    body: JSON.stringify({ action: "approve", expectedArtifactId }),
+  }));
+}
+
+export async function loadWorkOrderArtifact(workOrderId: string, artifactId: string): Promise<WorkOrderArtifact> {
+  const payload = await generationRequest(`/api/work-orders/${encodeURIComponent(workOrderId)}/artifacts/${encodeURIComponent(artifactId)}`);
+  if (!isObject(payload) || !isObject(payload.artifact) || payload.artifact.artifactId !== artifactId || payload.artifact.workOrderId !== workOrderId || !("payload" in payload)) {
+    throw new StudioApiError("阶段产物响应格式无效。", "generation_failed");
+  }
+  return payload as unknown as WorkOrderArtifact;
+}
+
+export function parseWorkOrderOutlinePayload(value: unknown): WorkOrderOutlinePayload {
+  if (!isObject(value) || typeof value.title !== "string" || value.method !== "deterministic-v0" || !Array.isArray(value.items) || value.items.length < 1
+    || !value.items.every((item) => isObject(item) && typeof item.itemId === "string" && Number.isSafeInteger(item.order)
+      && ["cover", "context", "insight", "proposal", "evidence", "next-step"].includes(String(item.role))
+      && typeof item.title === "string" && typeof item.purpose === "string" && Array.isArray(item.sourceIds) && item.sourceIds.every((sourceId) => typeof sourceId === "string"))) {
+    throw new StudioApiError("大纲产物缺少稳定页面角色或来源。", "generation_failed");
+  }
+  return value as unknown as WorkOrderOutlinePayload;
 }
 
 export async function loadGenerationJob(jobId: string): Promise<GenerationJob> {

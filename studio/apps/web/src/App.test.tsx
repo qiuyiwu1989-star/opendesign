@@ -10,10 +10,36 @@ const generatedDocument = {
   scenes: fixture.scenes.map((scene, index) => index === 0 ? { ...scene, title: "主张", elements: scene.elements.map((element) => element.role === "title" ? { ...element, content: "让文章成为一套可编辑的视觉提案" } : element) } : scene),
 };
 
-function workflowFixture(status: "draft" | "confirmed" | "running" = "draft", generationJobId?: string, options: { needsClarification?: boolean; directionConfirmed?: boolean } = {}) {
+const outlinePayload = {
+  title: "Agent Studio 提案大纲",
+  method: "deterministic-v0",
+  items: [
+    ["outline_cover", 1, "cover", "核心主张", "建立主题与决策语境"],
+    ["outline_context", 2, "context", "为什么是现在", "说明背景与问题边界"],
+    ["outline_insight", 3, "insight", "关键洞察", "提炼来自材料的判断"],
+    ["outline_proposal", 4, "proposal", "设计提案", "提出可执行方案"],
+    ["outline_evidence", 5, "evidence", "证据与风险", "展示依据与限制"],
+    ["outline_next", 6, "next-step", "下一步", "明确决定与行动"],
+  ].map(([itemId, order, role, title, purpose]) => ({ itemId, order, role, title, purpose, sourceIds: ["source_brief"] })),
+};
+
+function artifactFixture(artifactId: string, artifactType: "diagnosis" | "outline", revisionId: string, validationStatus: "draft" | "accepted") {
+  return {
+    contractVersion: "0.1.0", artifactId, workOrderId: "workorder_ui000001", planId: "plan_ui000001",
+    stageId: artifactType === "diagnosis" ? "stage_diagnose" : "stage_outline", artifactType, revisionId,
+    createdAt: "2026-08-14T01:00:00.000Z", payloadHash: `sha256:${"a".repeat(64)}`, payloadRef: `workorder://workorder_ui000001/artifacts/${artifactId}`,
+    designPack: { id: "executive-proposal-cn", version: "1.0.0" }, skillPins: [{ id: "opendesign-design-director", version: "0.3.0" }],
+    sourceCoverage: { declaredSourceIds: ["source_brief"], usedSourceIds: ["source_brief"], unresolvedSourceIds: [] },
+    editability: { editable: artifactType === "outline", capabilities: artifactType === "outline" ? ["structure", "order"] : [] },
+    validationStatus,
+  };
+}
+
+function workflowFixture(status: "draft" | "confirmed" | "running" = "draft", generationJobId?: string, options: { needsClarification?: boolean; directionConfirmed?: boolean; outlineStatus?: "unavailable" | "draft" | "approved" } = {}) {
   const stages = [
     ["stage_diagnose", "diagnose", "确认目标与证据边界"],
     ["stage_direction", "direction", "形成一主两备设计方向"],
+    ["stage_outline", "outline", "形成并确认页面大纲"],
     ["stage_compose", "compose", "生成 Structured HTML"],
     ["stage_import", "import", "安全导入 Scene IR"],
     ["stage_qa", "qa", "执行确定性 QA"],
@@ -32,6 +58,9 @@ function workflowFixture(status: "draft" | "confirmed" | "running" = "draft", ge
   }));
   const needsClarification = options.needsClarification ?? false;
   const directionConfirmed = options.directionConfirmed ?? true;
+  const outlineStatus = options.outlineStatus ?? (status === "draft" ? (directionConfirmed && !needsClarification ? "draft" : "unavailable") : "approved");
+  const artifacts = [artifactFixture("artifact_diagnosis_001", "diagnosis", "diagnosis_r1", "accepted")];
+  if (outlineStatus !== "unavailable") artifacts.push(artifactFixture(outlineStatus === "approved" ? "artifact_outline_approved" : "artifact_outline_draft", "outline", outlineStatus === "approved" ? "outline_r2" : "outline_r1", outlineStatus === "approved" ? "accepted" : "draft"));
   return {
     workOrder: {
       contractVersion: "0.1.0", workOrderId: "workorder_ui000001", createdAt: "2026-08-14T01:00:00.000Z", title: "Agent Studio 提案",
@@ -54,9 +83,23 @@ function workflowFixture(status: "draft" | "confirmed" | "running" = "draft", ge
     directionPreviews,
     selectedDirectionId: "direction_executive-proposal-cn",
     directionConfirmed,
-    readyForConfirmation: !needsClarification && directionConfirmed,
+    artifacts,
+    outlineReview: outlineStatus === "unavailable" ? { status: outlineStatus, itemCount: 0 } : { status: outlineStatus, artifactId: outlineStatus === "approved" ? "artifact_outline_approved" : "artifact_outline_draft", revisionId: outlineStatus === "approved" ? "outline_r2" : "outline_r1", itemCount: 6 },
+    readyForConfirmation: !needsClarification && directionConfirmed && outlineStatus === "approved",
     ...(generationJobId ? { generationJobId } : {}),
   };
+}
+
+function defaultArtifactResponse(path: string, init?: RequestInit): Response | null {
+  if (!init?.method && path.includes("/api/work-orders/workorder_ui000001/artifacts/artifact_outline_")) {
+    const approved = path.endsWith("artifact_outline_approved");
+    const workflow = workflowFixture("draft", undefined, { outlineStatus: approved ? "approved" : "draft" });
+    return new Response(JSON.stringify({ artifact: workflow.artifacts.at(-1), payload: outlinePayload }), { status: 200 });
+  }
+  if (init?.method === "POST" && path === "/api/work-orders/workorder_ui000001/outline") {
+    return new Response(JSON.stringify({ workflow: workflowFixture("draft", undefined, { outlineStatus: "approved" }) }), { status: 200 });
+  }
+  return null;
 }
 
 beforeEach(() => {
@@ -68,6 +111,8 @@ beforeEach(() => {
       return new Response(JSON.stringify({ document: request.document, revision: { revisionId: "revision_test", parentRevisionId: null, createdAt: new Date().toISOString(), reason: "edit", patches: [] }, persisted: true }), { status: 200 });
     }
     if (init?.method === "POST" && path === "/api/work-orders") return new Response(JSON.stringify({ workflow: workflowFixture() }), { status: 201 });
+    const artifactResponse = defaultArtifactResponse(path, init);
+    if (artifactResponse) return artifactResponse;
     if (init?.method === "POST" && path === "/api/work-orders/workorder_ui000001/confirm") return new Response(JSON.stringify({ workflow: workflowFixture("confirmed", "job_completed001"), job: { jobId: "job_completed001", status: "completed", createdAt: "2026-08-14T01:00:00.000Z", updatedAt: "2026-08-14T01:00:05.000Z", projectId: generatedDocument.documentId } }), { status: 202 });
     if (!init?.method && path === "/api/work-orders/workorder_ui000001") return new Response(JSON.stringify({ workflow: workflowFixture("confirmed", "job_completed001") }), { status: 200 });
     if (init?.method === "POST" && path === "/api/generation-jobs/job_queued0001/cancel") return new Response(JSON.stringify({ job: { jobId: "job_queued0001", status: "cancelled", createdAt: "2026-08-14T01:00:00.000Z", updatedAt: "2026-08-14T01:00:02.000Z" } }), { status: 200 });
@@ -151,6 +196,12 @@ afterEach(() => {
   vi.useRealTimers();
   vi.unstubAllGlobals();
 });
+
+async function approveOutlineInUi() {
+  fireEvent.click(await screen.findByRole("button", { name: "查看大纲" }));
+  fireEvent.click(await screen.findByRole("button", { name: "批准大纲" }));
+  await waitFor(() => expect(screen.getByRole("button", { name: "确认计划并开始创作" })).toBeEnabled());
+}
 
 describe("OpenDesign Studio workspace", () => {
   it("renders the contracts fixture and switches scenes and directions", () => {
@@ -298,7 +349,8 @@ describe("OpenDesign Studio workspace", () => {
 
   it("shows live deterministic QA rather than canned issues", async () => {
     render(<App />);
-    fireEvent.click(screen.getByRole("tab", { name: /QA/ }));
+    const qaTabs = screen.getAllByRole("tab", { name: /QA/ });
+    fireEvent.click(qaTabs.at(-1)!);
     expect(await screen.findByText("确定性检查已通过")).toBeInTheDocument();
     expect(fetch).toHaveBeenCalledWith("/api/qa", expect.objectContaining({ method: "POST" }));
   });
@@ -337,9 +389,10 @@ describe("OpenDesign Studio workspace", () => {
   it("creates a Creation Contract, waits for human confirmation, then opens the completed project", async () => {
     render(<App />);
     fireEvent.click(screen.getByRole("button", { name: /诊断并制定计划/ }));
-    expect(await screen.findByRole("button", { name: "确认计划并开始创作" })).toBeInTheDocument();
+    expect(await screen.findByRole("button", { name: "确认计划并开始创作" })).toBeDisabled();
     expect(screen.getByLabelText("已固定的专家 Skills")).toHaveTextContent("design-critic@0.1.0");
     expect(fetch).not.toHaveBeenCalledWith("/api/work-orders/workorder_ui000001/confirm", expect.anything());
+    await approveOutlineInUi();
     fireEvent.click(screen.getByRole("button", { name: "确认计划并开始创作" }));
     await waitFor(() => expect(fetch).toHaveBeenCalledWith("/api/work-orders/workorder_ui000001/confirm", expect.anything()));
     expect(await screen.findByText("生成完成")).toBeInTheDocument();
@@ -360,11 +413,19 @@ describe("OpenDesign Studio workspace", () => {
       clarification: { status: "complete", round: 1, maxQuestions: 2, questions: created.clarification.questions.map((question) => ({ ...question, answer: question.questionId === "clarify_audience" ? "产品负责人" : "批准试点" })) },
       readyForConfirmation: false,
     };
+    const selectedBase = workflowFixture("draft", undefined, { directionConfirmed: true, outlineStatus: "draft" });
     const selected = {
-      ...clarified,
-      plan: { ...clarified.plan, designPack: { id: "research-keynote-cn", version: "1.0.0" } },
+      ...selectedBase,
+      clarification: clarified.clarification,
+      plan: { ...selectedBase.plan, designPack: { id: "research-keynote-cn", version: "1.0.0" } },
       selectedDirectionId: "direction_research-keynote-cn",
       directionConfirmed: true,
+      readyForConfirmation: false,
+    };
+    const approvedSelected = {
+      ...selected,
+      artifacts: [artifactFixture("artifact_diagnosis_001", "diagnosis", "diagnosis_r1", "accepted"), artifactFixture("artifact_outline_approved", "outline", "outline_r2", "accepted")],
+      outlineReview: { status: "approved", artifactId: "artifact_outline_approved", revisionId: "outline_r2", itemCount: 6 },
       readyForConfirmation: true,
     };
     vi.mocked(fetch).mockImplementation(async (input: string | URL | Request, init?: RequestInit) => {
@@ -372,6 +433,8 @@ describe("OpenDesign Studio workspace", () => {
       if (init?.method === "POST" && path === "/api/work-orders") return new Response(JSON.stringify({ workflow: created }), { status: 201 });
       if (init?.method === "POST" && path.endsWith("/clarifications")) return new Response(JSON.stringify({ workflow: clarified }), { status: 200 });
       if (init?.method === "POST" && path.endsWith("/direction")) return new Response(JSON.stringify({ workflow: selected }), { status: 200 });
+      if (!init?.method && path.includes("/artifacts/artifact_outline_")) return new Response(JSON.stringify({ artifact: path.endsWith("approved") ? approvedSelected.artifacts.at(-1) : selected.artifacts.at(-1), payload: outlinePayload }), { status: 200 });
+      if (init?.method === "POST" && path.endsWith("/outline")) return new Response(JSON.stringify({ workflow: approvedSelected }), { status: 200 });
       return fallback(input, init);
     });
     render(<App />);
@@ -385,6 +448,8 @@ describe("OpenDesign Studio workspace", () => {
     await waitFor(() => expect(fetch).toHaveBeenCalledWith("/api/work-orders/workorder_ui000001/clarifications", expect.objectContaining({ method: "POST" })));
     fireEvent.click(screen.getByRole("button", { name: "选择方向：研究型主题演讲" }));
     await waitFor(() => expect(fetch).toHaveBeenCalledWith("/api/work-orders/workorder_ui000001/direction", expect.objectContaining({ method: "POST" })));
+    expect(screen.getByRole("button", { name: "确认计划并开始创作" })).toBeDisabled();
+    await approveOutlineInUi();
     expect(screen.getByRole("button", { name: "确认计划并开始创作" })).toBeEnabled();
     expect(screen.getAllByText("research-keynote-cn@1.0.0").length).toBeGreaterThan(0);
   });
@@ -451,6 +516,7 @@ describe("OpenDesign Studio workspace", () => {
     fireEvent.doubleClick(screen.getByRole("button", { name: /title: 让视觉作品/ }));
     fireEvent.change(screen.getByLabelText("文字内容"), { target: { value: "保留我的人工判断" } });
     fireEvent.click(screen.getByRole("button", { name: /诊断并制定计划/ }));
+    await approveOutlineInUi();
     fireEvent.click(await screen.findByRole("button", { name: "确认计划并开始创作" }));
     expect(await screen.findByText("生成完成")).toBeInTheDocument();
     expect(screen.getAllByText("保留我的人工判断").length).toBeGreaterThan(0);
@@ -464,7 +530,7 @@ describe("OpenDesign Studio workspace", () => {
     render(<App />);
     expect(screen.getByLabelText("项目导航")).toBeInTheDocument();
     expect(screen.getByLabelText("设计总监对话")).toBeInTheDocument();
-    expect(screen.getByRole("tab", { name: "页面" })).toHaveAttribute("aria-selected", "true");
+    expect(screen.getByRole("tab", { name: "幻灯片" })).toHaveAttribute("aria-selected", "true");
     expect(screen.getByRole("button", { name: "打开编辑面板" })).toBeInTheDocument();
   });
 
@@ -496,6 +562,8 @@ describe("OpenDesign Studio workspace", () => {
     vi.mocked(fetch).mockImplementation(async (input: string | URL | Request, init?: RequestInit) => {
       const path = String(input);
       const now = "2026-08-14T01:00:00.000Z";
+      const artifactResponse = defaultArtifactResponse(path, init);
+      if (artifactResponse) return artifactResponse;
       if (init?.method === "POST" && path === "/api/work-orders") return new Response(JSON.stringify({ workflow: workflowFixture() }), { status: 201 });
       if (init?.method === "POST" && path === "/api/work-orders/workorder_ui000001/confirm") return new Response(JSON.stringify({ workflow: workflowFixture("confirmed", "job_queued0001"), job: { jobId: "job_queued0001", status: "queued", createdAt: now, updatedAt: now } }), { status: 202 });
       if (init?.method === "POST" && path.endsWith("/cancel")) return new Response(JSON.stringify({ job: { jobId: "job_queued0001", status: "cancelled", createdAt: now, updatedAt: now } }), { status: 200 });
@@ -509,6 +577,7 @@ describe("OpenDesign Studio workspace", () => {
     });
     render(<App />);
     fireEvent.click(screen.getByRole("button", { name: /诊断并制定计划/ }));
+    await approveOutlineInUi();
     fireEvent.click(await screen.findByRole("button", { name: "确认计划并开始创作" }));
     expect(await screen.findByText("已排队")).toBeInTheDocument();
     fireEvent.click(screen.getByRole("button", { name: "取消生成" }));
@@ -537,6 +606,8 @@ describe("OpenDesign Studio workspace", () => {
   ])("explains generation HTTP failures with an actionable state", async (status, payload, expected) => {
     vi.mocked(fetch).mockImplementation(async (input: string | URL | Request, init?: RequestInit) => {
       const path = String(input);
+      const artifactResponse = defaultArtifactResponse(path, init);
+      if (artifactResponse) return artifactResponse;
       if (init?.method === "POST" && path === "/api/work-orders") return status === 422 ? new Response(JSON.stringify(payload), { status }) : new Response(JSON.stringify({ workflow: workflowFixture() }), { status: 201 });
       if (init?.method === "POST" && path === "/api/work-orders/workorder_ui000001/confirm") return new Response(JSON.stringify(payload), { status });
       if (path === "/api/projects") return new Response(JSON.stringify({ projects: [] }), { status: 200 });
@@ -544,14 +615,18 @@ describe("OpenDesign Studio workspace", () => {
     });
     render(<App />);
     fireEvent.click(screen.getByRole("button", { name: /诊断并制定计划/ }));
-    const confirm = await screen.findByRole("button", { name: "确认计划并开始创作" }).catch(() => null);
-    if (confirm) fireEvent.click(confirm);
+    if (status !== 422) {
+      await approveOutlineInUi();
+      fireEvent.click(await screen.findByRole("button", { name: "确认计划并开始创作" }));
+    }
     expect(await screen.findByText(expected)).toBeInTheDocument();
   });
 
   it("rejects a malformed completed job response instead of opening an unknown project", async () => {
     vi.mocked(fetch).mockImplementation(async (input: string | URL | Request, init?: RequestInit) => {
       const path = String(input);
+      const artifactResponse = defaultArtifactResponse(path, init);
+      if (artifactResponse) return artifactResponse;
       if (init?.method === "POST" && path === "/api/work-orders") return new Response(JSON.stringify({ workflow: workflowFixture() }), { status: 201 });
       if (init?.method === "POST" && path === "/api/work-orders/workorder_ui000001/confirm") return new Response(JSON.stringify({ workflow: workflowFixture("confirmed", "job_bad"), job: { jobId: "job_bad", status: "completed", createdAt: "2026-08-14T01:00:00.000Z", updatedAt: "2026-08-14T01:00:01.000Z" } }), { status: 202 });
       if (path === "/api/projects") return new Response(JSON.stringify({ projects: [] }), { status: 200 });
@@ -559,6 +634,7 @@ describe("OpenDesign Studio workspace", () => {
     });
     render(<App />);
     fireEvent.click(screen.getByRole("button", { name: /诊断并制定计划/ }));
+    await approveOutlineInUi();
     fireEvent.click(await screen.findByRole("button", { name: "确认计划并开始创作" }));
     expect(await screen.findByText("生成任务没有完成")).toBeInTheDocument();
     expect(screen.queryByRole("button", { name: "打开新作品" })).not.toBeInTheDocument();
@@ -567,6 +643,8 @@ describe("OpenDesign Studio workspace", () => {
   it("renders a terminal job failure without changing the open project", async () => {
     vi.mocked(fetch).mockImplementation(async (input: string | URL | Request, init?: RequestInit) => {
       const path = String(input);
+      const artifactResponse = defaultArtifactResponse(path, init);
+      if (artifactResponse) return artifactResponse;
       if (init?.method === "POST" && path === "/api/work-orders") return new Response(JSON.stringify({ workflow: workflowFixture() }), { status: 201 });
       if (init?.method === "POST" && path === "/api/work-orders/workorder_ui000001/confirm") return new Response(JSON.stringify({ workflow: workflowFixture("confirmed", "job_failed0001"), job: { jobId: "job_failed0001", status: "failed", createdAt: "2026-08-14T01:00:00.000Z", updatedAt: "2026-08-14T01:00:03.000Z", error: { code: "generation_internal_failure", message: "validation stopped", retryable: true } } }), { status: 202 });
       if (path === "/api/projects") return new Response(JSON.stringify({ projects: [] }), { status: 200 });
@@ -574,6 +652,7 @@ describe("OpenDesign Studio workspace", () => {
     });
     render(<App />);
     fireEvent.click(screen.getByRole("button", { name: /诊断并制定计划/ }));
+    await approveOutlineInUi();
     fireEvent.click(await screen.findByRole("button", { name: "确认计划并开始创作" }));
     expect(await screen.findByText("生成失败")).toBeInTheDocument();
     expect(screen.getByText("validation stopped")).toBeInTheDocument();
