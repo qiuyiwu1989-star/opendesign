@@ -6,7 +6,6 @@
 - [ ] 制作 proposal 纵向切片：诊断 → 计划确认 → 三方向 → 局部编辑 → 人工批准 → PPTX/HTML (spec: 007)
 
 ## Next（已排序的待办）
-- [ ] 用离线 eval 证明模型 adapter 只能提议合法 ScenePatch 后，再接入 Kimi 局部修改
 - [ ] 建立任务感知的 Library Pattern 检索，返回适用理由、来源和许可状态
 - [ ] 在隔离预检中用非机密 fixture 执行一次有界 Kimi live smoke，并归档 compiler/importer/QA 结果
 - [ ] 修复 Benchmark 已识别的研究演讲 7 个、文章配图 12 个 QA error
@@ -18,6 +17,7 @@
 - [ ] 定义人工确认后的发布候选变更集，继续保持 preview-first
 
 ## Done（倒序，保留最近 20 条，附 commit hash）
+- [x] Studio Phase 1E：真实 HTML/Scene IR/QA 渐进式产物、只读生成稿预览，以及 provider-neutral 局部修改门禁（`e3b9362`，spec: 011）
 - [x] Studio Phase 1D：正式 ArtifactEnvelope 链、owner-scoped payload、大纲人工确认门与六阶段产物工作台（e356682，spec: 010）
 - [x] Studio Phase 1C：owner-scoped Agent 修改候选、before/after Diff、人工接受/拒绝、原子 revision 防漂移与候选防篡改（`9e93fcf`，spec: 009）
 - [x] Studio Phase 1B：一轮最多两个高信息量问题、三个真实 Pack 预览、owner-scoped 决策持久化与生成前确认门禁（1cca24a，spec: 008）
@@ -37,7 +37,6 @@
 - [x] 生产公网/服务器只读预检工具与 No-Go 证据（ca5561c）
 - [x] Admin RC2 不可变构建、激活和回滚合同（4584c48）
 - [x] 每日 AI 策展、人工终审和质量控制初版（e78eb48, 758eb4b）
-- [x] Studio 本地创作闭环及字体/图片插入（d2d0d57, fa5bf90）
 
 ## Blocked
 - RC2 生产激活：公网预检仅 10/17，TLS 证书续期与数据库/服务内部状态尚未证明。
