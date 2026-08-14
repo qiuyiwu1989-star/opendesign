@@ -154,6 +154,26 @@ button:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-
 .creation-contract__directions button > span:nth-child(2) { min-width: 0; display: grid; gap: 2px; }
 .creation-contract__directions button > span:nth-child(2) b { overflow: hidden; font-size: 7px; text-overflow: ellipsis; white-space: nowrap; }
 .creation-contract__directions button small, .creation-contract__directions button em, .creation-contract__directions > small { color: #9692a0; font: 6px/1.35 var(--studio-mono); font-style: normal; overflow-wrap: anywhere; }
+.agent-change-panel { display: grid; gap: 9px; margin-top: 14px; border-top: 1px solid var(--studio-line); padding-top: 14px; }
+.agent-change-panel > p { margin: 0; color: #8d8997; font-size: 8px; }
+.agent-change-panel > .od-button { width: 100%; justify-content: center; }
+.agent-change-panel__notice { display: flex; align-items: flex-start; gap: 5px; color: #9a6b2d; font-size: 7px; line-height: 1.45; }
+.agent-change-candidate { display: grid; gap: 9px; border: 1px solid #dcd7ee; border-radius: 10px; padding: 10px; background: #f9f8fd; }
+.agent-change-candidate > header { display: flex; align-items: flex-start; justify-content: space-between; gap: 8px; }
+.agent-change-candidate > header > span { min-width: 0; display: grid; gap: 3px; }
+.agent-change-candidate > header strong { color: #45414f; font-size: 9px; }
+.agent-change-candidate > header small, .agent-change-candidate > small { color: #9691a2; font: 6px/1.4 var(--studio-mono); overflow-wrap: anywhere; }
+.agent-change-candidate > p { margin: 0; color: #777380; font-size: 8px; line-height: 1.5; }
+.agent-change-candidate.is-accepted { border-color: #b9dec6; background: #f5fbf7; }
+.agent-change-candidate.is-conflicted { border-color: #e7c6ac; background: #fff9f3; }
+.agent-change-diff { display: grid; grid-template-columns: minmax(0, 1fr) 14px minmax(0, 1fr); align-items: center; gap: 5px; }
+.agent-change-diff > span { min-width: 0; display: grid; gap: 4px; border-radius: 7px; padding: 7px; background: #fff; }
+.agent-change-diff small { color: #aaa4b4; font: 6px/1 var(--studio-mono); text-transform: uppercase; }
+.agent-change-diff del, .agent-change-diff ins { color: #625e69; font-size: 8px; line-height: 1.45; text-decoration: none; overflow-wrap: anywhere; }
+.agent-change-diff del { color: #8a6262; }
+.agent-change-diff ins { color: #397653; }
+.agent-change-candidate__actions { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
+.agent-change-candidate__actions .od-button { justify-content: center; }
 .creation-contract__stages { display: grid; gap: 4px; margin: 0; padding: 0; list-style: none; }
 .creation-contract__stages li { display: grid; grid-template-columns: 21px minmax(0, 1fr) auto; align-items: center; gap: 7px; border-radius: 7px; padding: 6px; background: #fff9; }
 .creation-contract__stages li > i { width: 19px; height: 19px; display: grid; place-items: center; border: 1px solid #dcd8e9; border-radius: 50%; color: #9b96a9; font: 600 7px/1 var(--studio-mono); font-style: normal; }

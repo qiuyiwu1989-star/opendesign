@@ -20,6 +20,7 @@ import { GenerationJobLimitError, GenerationJobManager, GenerationProviderUnavai
 import { createPublicSessionCodec, sessionRecordFromIdentity, type PublicSessionCodec, type SessionScope } from "./public-session.js";
 import { configureGenerationProvider, type GenerationProviderConfiguration } from "./model-provider.js";
 import { WorkOrderDecisionConflictError, WorkOrderLimitError, WorkOrderManager, WorkOrderNotFoundError } from "./work-orders.js";
+import { AgentChangeConflictError, AgentChangeInstructionError, AgentChangeLimitError, AgentChangeManager, AgentChangeNotFoundError } from "./agent-changes.js";
 
 const JSON_LIMIT = 5 * 1024 * 1024;
 const SAFE_IMAGE_MIME = new Set(["image/png", "image/jpeg"]);
@@ -66,6 +67,7 @@ export function createStudioServer(options: StudioServerOptions) {
   const exports = new LocalExportService(options.dataDirectory);
   const generationProvider = options.generationProvider ?? configureGenerationProvider({ env: {} });
   const workflows = new WorkOrderManager({ rootDirectory: options.dataDirectory });
+  const agentChanges = new AgentChangeManager({ rootDirectory: options.dataDirectory, store });
   const jobs = new GenerationJobManager({
     rootDirectory: options.dataDirectory,
     provider: generationProvider.provider,
@@ -341,6 +343,45 @@ export function createStudioServer(options: StudioServerOptions) {
         const metadata = await stat(path);
         response.writeHead(200, { "content-type": contentType(path), "content-length": metadata.size, "cache-control": "private, max-age=31536000, immutable" });
         createReadStream(path).pipe(response);
+        return;
+      }
+
+      const agentChangeDecisionMatch = url.pathname.match(/^\/api\/projects\/([a-z][a-z0-9_-]{2,63})\/agent-changes\/(change_[a-z0-9]{8,59})\/(accept|reject)$/u);
+      if (agentChangeDecisionMatch && request.method === "POST") {
+        try {
+          const body = await readJson(request, 16 * 1024) as { reason?: unknown };
+          const result = agentChangeDecisionMatch[3] === "accept"
+            ? await agentChanges.accept(scope, agentChangeDecisionMatch[1]!, agentChangeDecisionMatch[2]!, body.reason)
+            : await agentChanges.reject(scope, agentChangeDecisionMatch[1]!, agentChangeDecisionMatch[2]!, body.reason);
+          json(response, 200, result);
+        } catch (error) {
+          if (error instanceof AgentChangeNotFoundError) { json(response, 404, { error: error.message }); return; }
+          if (error instanceof AgentChangeLimitError) { json(response, 429, { error: { code: error.code, message: error.message } }); return; }
+          if (error instanceof AgentChangeConflictError) { json(response, 409, { error: { code: error.code, message: error.message } }); return; }
+          if (error instanceof AgentChangeInstructionError) { json(response, 422, { error: { code: error.code, message: error.message } }); return; }
+          throw error;
+        }
+        return;
+      }
+
+      const agentChangesMatch = url.pathname.match(/^\/api\/projects\/([a-z][a-z0-9_-]{2,63})\/agent-changes$/u);
+      if (agentChangesMatch && request.method === "GET") {
+        if (!await store.readForOwner(scope, agentChangesMatch[1]!)) { json(response, 404, { error: "Project not found" }); return; }
+        json(response, 200, { candidates: await agentChanges.list(scope, agentChangesMatch[1]!) });
+        return;
+      }
+      if (agentChangesMatch && request.method === "POST") {
+        try {
+          const body = await readJson(request, 32 * 1024) as { instruction?: unknown; target?: unknown };
+          const candidate = await agentChanges.create(scope, agentChangesMatch[1]!, { instruction: body.instruction, target: body.target });
+          json(response, 201, { candidate });
+        } catch (error) {
+          if (error instanceof AgentChangeNotFoundError) { json(response, 404, { error: error.message }); return; }
+          if (error instanceof AgentChangeLimitError) { json(response, 429, { error: { code: error.code, message: error.message } }); return; }
+          if (error instanceof AgentChangeConflictError) { json(response, 409, { error: { code: error.code, message: error.message } }); return; }
+          if (error instanceof AgentChangeInstructionError) { json(response, 422, { error: { code: error.code, message: error.message } }); return; }
+          throw error;
+        }
         return;
       }
 

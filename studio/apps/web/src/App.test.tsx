@@ -247,6 +247,55 @@ describe("OpenDesign Studio workspace", () => {
     await waitFor(() => expect(screen.getByText("已持久化到本地")).toBeInTheDocument());
   });
 
+  it("009 previews an Agent text diff without changing the canvas, then accepts it as a new revision", async () => {
+    const fallback = vi.mocked(fetch).getMockImplementation()!;
+    const title = fixture.scenes[0]!.elements.find((element) => element.role === "title")!;
+    const proposedDocument = {
+      ...fixture,
+      scenes: fixture.scenes.map((scene, index) => index === 0 ? { ...scene, elements: scene.elements.map((element) => element.id === title.id ? { ...element, content: "先看 Diff，再接受 Agent 修改" } : element) } : scene),
+    };
+    const revision = { revisionId: "revision_agent_base", parentRevisionId: null, createdAt: "2026-08-14T02:00:00.000Z", reason: "initial", patches: [] };
+    const candidate = {
+      candidateId: "change_ui000001", projectId: fixture.documentId, baseRevisionId: revision.revisionId, createdAt: "2026-08-14T02:01:00.000Z", status: "proposed",
+      target: { kind: "element", sceneId: fixture.scenes[0]!.id, elementId: title.id }, instruction: "标题改成：先看 Diff，再接受 Agent 修改", rationale: "只修改用户明确选中的文字元素，其余 Scene IR 保持不变。",
+      patches: [{ elementId: title.id, field: "content", value: "先看 Diff，再接受 Agent 修改" }], diffs: [{ elementId: title.id, field: "content", before: title.content, after: "先看 Diff，再接受 Agent 修改" }], proposedDocument, notPublished: true,
+    };
+    const acceptedRevision = { revisionId: "revision_agent_accept", parentRevisionId: revision.revisionId, createdAt: "2026-08-14T02:02:00.000Z", reason: "regenerate", patches: candidate.patches };
+    const accepted = { ...candidate, status: "accepted", decision: { kind: "accepted", occurredAt: acceptedRevision.createdAt, reason: "已核对前后内容并确认采用", revision: acceptedRevision } };
+    let candidateList: unknown[] = [];
+    vi.mocked(fetch).mockImplementation(async (input: string | URL | Request, init?: RequestInit) => {
+      const path = String(input);
+      if (!init?.method && path === `/api/projects/${fixture.documentId}`) return new Response(JSON.stringify(fixture), { status: 200 });
+      if (!init?.method && path.endsWith("/revisions")) return new Response(JSON.stringify({ revisions: [{ revision, document: fixture }] }), { status: 200 });
+      if (!init?.method && path.endsWith("/agent-changes")) return new Response(JSON.stringify({ candidates: candidateList }), { status: 200 });
+      if (init?.method === "POST" && path.endsWith("/agent-changes")) { candidateList = [candidate]; return new Response(JSON.stringify({ candidate }), { status: 201 }); }
+      if (init?.method === "POST" && path.endsWith(`/agent-changes/${candidate.candidateId}/accept`)) { candidateList = [accepted]; return new Response(JSON.stringify({ candidate: accepted, document: proposedDocument, revision: acceptedRevision }), { status: 200 }); }
+      return fallback(input, init);
+    });
+    render(<App />);
+    await waitFor(() => expect(fetch).toHaveBeenCalledWith(`/api/projects/${fixture.documentId}/revisions`, expect.anything()));
+    fireEvent.click(screen.getByRole("button", { name: /title: 让视觉作品/ }));
+    fireEvent.change(screen.getByLabelText("Agent 修改要求"), { target: { value: candidate.instruction } });
+    fireEvent.click(screen.getByRole("button", { name: "让 Agent 提出修改" }));
+    expect(await screen.findByText("等待你的决定")).toBeInTheDocument();
+    expect(screen.getAllByText(title.content ?? "").length).toBeGreaterThan(0);
+    expect(screen.getByText("先看 Diff，再接受 Agent 修改")).toBeInTheDocument();
+    expect(screen.getAllByText(title.content ?? "").length).toBeGreaterThan(0);
+    fireEvent.click(screen.getByRole("button", { name: "接受修改" }));
+    expect((await screen.findAllByText("先看 Diff，再接受 Agent 修改")).length).toBeGreaterThan(0);
+    expect(screen.getByText("已接受并生成新 revision")).toBeInTheDocument();
+    expect(fetch).toHaveBeenCalledWith(`/api/projects/${fixture.documentId}/agent-changes/${candidate.candidateId}/accept`, expect.objectContaining({ method: "POST" }));
+  });
+
+  it("009 refuses to request an Agent change while an unsaved human draft exists", async () => {
+    render(<App />);
+    fireEvent.doubleClick(screen.getByRole("button", { name: /title: 让视觉作品/ }));
+    fireEvent.change(screen.getByLabelText("文字内容"), { target: { value: "这是尚未保存的人工修改" } });
+    fireEvent.click(screen.getByRole("button", { name: "让 Agent 提出修改" }));
+    expect(await screen.findByRole("alert")).toHaveTextContent("请先保存当前人工修订");
+    expect(fetch).not.toHaveBeenCalledWith(`/api/projects/${fixture.documentId}/agent-changes`, expect.objectContaining({ method: "POST" }));
+  });
+
   it("shows live deterministic QA rather than canned issues", async () => {
     render(<App />);
     fireEvent.click(screen.getByRole("tab", { name: /QA/ }));

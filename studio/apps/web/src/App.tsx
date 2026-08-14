@@ -16,9 +16,12 @@ import {
   createModelDraft,
   cancelGenerationJob,
   approveProjectCandidate,
+  acceptAgentChangeCandidate,
+  createAgentChangeCandidate,
   duplicateProject,
   importProjectHtml,
   listProjects,
+  listAgentChangeCandidates,
   listRevisions,
   loadProject,
   loadGenerationJob,
@@ -26,10 +29,12 @@ import {
   loadReview,
   selectWorkOrderDirection,
   persistProject,
+  rejectAgentChangeCandidate,
   runProjectQa,
   submitProjectReview,
   uploadProjectImage,
   type ProjectSummary,
+  type AgentChangeCandidate,
   type GenerationJob,
   type GenerationJobErrorCode,
   type WorkOrderWorkflow,
@@ -55,6 +60,7 @@ import {
 
 const initialDocument = fixture as unknown as SceneDocument;
 const generationJobStorageKey = "opendesign.studio.active-generation-job";
+const agentChangeStorageKey = "opendesign.studio.active-agent-change";
 const workOrderStorageKey = "opendesign.studio.active-work-order";
 const generationPollIntervalMs = 1_200;
 const generationPollLimit = 150;
@@ -330,6 +336,12 @@ export function App() {
   const imageInputRef = useRef<HTMLInputElement>(null);
   const [localDraftOperations, setLocalDraftOperations] = useState(0);
   const [regenerationPreview, setRegenerationPreview] = useState<{ document: SceneDocument; changedElementIds: string[] } | null>(null);
+  const [agentChangeCandidates, setAgentChangeCandidates] = useState<AgentChangeCandidate[]>([]);
+  const [activeAgentChange, setActiveAgentChange] = useState<AgentChangeCandidate | null>(null);
+  const [agentChangeInstruction, setAgentChangeInstruction] = useState("改成：让 Agent 的每次修改都先成为可审查的候选");
+  const [agentChangeReason, setAgentChangeReason] = useState("已对比修改前后内容，并确认采用这项局部调整。");
+  const [agentChangeState, setAgentChangeState] = useState<"idle" | "working" | "error">("idle");
+  const [agentChangeError, setAgentChangeError] = useState("");
   const [fixPreviewIssueId, setFixPreviewIssueId] = useState<string | null>(null);
   const [workflowStep, setWorkflowStep] = useState<WorkflowStep>("studio");
   const initialPack = goldenDirections.find((item) => item.id === goldenTask.selectedDirectionId)?.pack;
@@ -362,6 +374,7 @@ export function App() {
           setSelectedSceneId(stored.scenes[0]?.id ?? "");
           setSyncState("saved");
           void refreshRevisions(stored.documentId);
+          void refreshAgentChanges(stored.documentId).catch(() => undefined);
         }
       })
       .catch(() => { if (active) setSyncState("local"); });
@@ -478,6 +491,13 @@ export function App() {
     setRevisions(await listRevisions(projectId));
   }
 
+  async function refreshAgentChanges(projectId = document.documentId) {
+    const candidates = await listAgentChangeCandidates(projectId);
+    setAgentChangeCandidates(candidates);
+    const storedId = window.localStorage.getItem(agentChangeStorageKey);
+    setActiveAgentChange(candidates.find((candidate) => candidate.candidateId === storedId) ?? candidates.find((candidate) => candidate.status === "proposed") ?? candidates[0] ?? null);
+  }
+
   async function refreshReview(projectId = document.documentId) {
     const next = await loadReview(`review_${projectId}`);
     setReview(next);
@@ -491,6 +511,8 @@ export function App() {
     setDocumentDirty(false);
     setLocalDraftOperations(0);
     setRegenerationPreview(null);
+    setAgentChangeCandidates([]);
+    setActiveAgentChange(null);
     setExportResults({});
     setExportStates({ html: "idle", png: "idle", pptx: "idle" });
     setSyncState("saved");
@@ -498,6 +520,7 @@ export function App() {
     setReview(null);
     setModelProvider(null);
     void refreshReview(next.documentId).catch(() => undefined);
+    void refreshAgentChanges(next.documentId).catch(() => undefined);
   }
 
   function selectDirection(directionId: string) {
@@ -1003,6 +1026,59 @@ export function App() {
     openDocument(regenerationPreview.document);
   }
 
+  async function requestAgentChange() {
+    setAgentChangeError("");
+    if (hasUnsavedChanges) {
+      setAgentChangeState("error");
+      setAgentChangeError("请先保存当前人工修订，再让 Agent 基于稳定版本提出修改。");
+      return;
+    }
+    if (!revisions[0]) {
+      setAgentChangeState("error");
+      setAgentChangeError("当前作品还没有可引用的持久化 revision。");
+      return;
+    }
+    const target = selectedElement && typeof selectedElement.content === "string"
+      ? { kind: "element" as const, sceneId: scene.id, elementId: selectedElement.id }
+      : { kind: "scene" as const, sceneId: scene.id };
+    setAgentChangeState("working");
+    try {
+      const candidate = await createAgentChangeCandidate(document.documentId, { instruction: agentChangeInstruction, target });
+      setAgentChangeCandidates((current) => [candidate, ...current.filter((item) => item.candidateId !== candidate.candidateId)]);
+      setActiveAgentChange(candidate);
+      window.localStorage.setItem(agentChangeStorageKey, candidate.candidateId);
+      setAgentChangeState("idle");
+    } catch (error) {
+      setAgentChangeState("error");
+      setAgentChangeError(error instanceof Error ? error.message : "Agent 未能生成修改候选");
+    }
+  }
+
+  async function decideAgentChange(decision: "accept" | "reject") {
+    if (!activeAgentChange || activeAgentChange.status !== "proposed") return;
+    setAgentChangeState("working");
+    setAgentChangeError("");
+    try {
+      if (decision === "accept") {
+        const result = await acceptAgentChangeCandidate(document.documentId, activeAgentChange.candidateId, agentChangeReason);
+        openDocument(result.document);
+        setActiveAgentChange(result.candidate);
+        setAgentChangeCandidates((current) => current.map((item) => item.candidateId === result.candidate.candidateId ? result.candidate : item));
+        await Promise.all([refreshProjects(), refreshRevisions(result.document.documentId)]);
+      } else {
+        const candidate = await rejectAgentChangeCandidate(document.documentId, activeAgentChange.candidateId, agentChangeReason);
+        setActiveAgentChange(candidate);
+        setAgentChangeCandidates((current) => current.map((item) => item.candidateId === candidate.candidateId ? candidate : item));
+      }
+      window.localStorage.removeItem(agentChangeStorageKey);
+      setAgentChangeState("idle");
+    } catch (error) {
+      setAgentChangeState("error");
+      setAgentChangeError(error instanceof Error ? error.message : "Agent 修改候选决定失败");
+      await refreshAgentChanges(document.documentId).catch(() => undefined);
+    }
+  }
+
   async function copyCurrentProject() {
     setGeneratorState("working");
     try {
@@ -1298,6 +1374,21 @@ export function App() {
                 <div className="empty-selection"><span><Icon name="edit" size={22} /></span><h3>选择画布中的元素</h3><p>字体作用于当前设计方向；图片会作为原生元素进入 HTML、PNG 与 PPTX。</p></div>
               </>}
               <input ref={imageInputRef} className="visually-hidden" type="file" accept="image/png,image/jpeg" onChange={(event) => { const file = event.target.files?.[0]; if (file) void insertOrReplaceImage(file); }} />
+              <section className="agent-change-panel" aria-label="Agent 局部修改">
+                <div className="inspector-heading"><div><Kicker>Agent change</Kicker><h2>先预览 Diff，再决定是否采用</h2></div><Badge>{agentChangeCandidates.filter((candidate) => candidate.status === "proposed").length} 待确认</Badge></div>
+                <p>目标：{selectedElement && typeof selectedElement.content === "string" ? `${scene.title} / ${selectedElement.role}` : `${scene.title} / 页面标题`}</p>
+                <label className="field"><span>修改要求</span><textarea aria-label="Agent 修改要求" value={agentChangeInstruction} onChange={(event) => setAgentChangeInstruction(event.target.value)} placeholder="例如：改成：新的页面判断" /></label>
+                <Button tone="outline" onClick={requestAgentChange} disabled={agentChangeState === "working"}>{agentChangeState === "working" ? "正在形成候选" : "让 Agent 提出修改"}</Button>
+                {hasUnsavedChanges && <small className="agent-change-panel__notice"><Icon name="warning" size={11} /> 当前有人工草稿；请先保存，Agent 不会基于未固定版本改写。</small>}
+                {agentChangeError && <small className="generator-error" role="alert">{agentChangeError}</small>}
+                {activeAgentChange && <article className={`agent-change-candidate is-${activeAgentChange.status}`} aria-label="Agent 修改候选" aria-live="polite">
+                  <header><span><strong>{activeAgentChange.status === "proposed" ? "等待你的决定" : activeAgentChange.status === "accepted" ? "已接受并生成新 revision" : activeAgentChange.status === "rejected" ? "已拒绝，当前稿未变" : "基线已漂移，未覆盖当前稿"}</strong><small>{activeAgentChange.baseRevisionId}</small></span><Badge tone={activeAgentChange.status === "accepted" ? "success" : "neutral"}>{activeAgentChange.status}</Badge></header>
+                  <p>{activeAgentChange.rationale}</p>
+                  {activeAgentChange.diffs.map((diff) => <div className="agent-change-diff" key={`${activeAgentChange.candidateId}-${diff.elementId}`}><span><small>Before</small><del>{diff.before}</del></span><Icon name="arrow" size={13} /><span><small>After</small><ins>{diff.after}</ins></span></div>)}
+                  <small>1 个 Scene IR patch · notPublished: true</small>
+                  {activeAgentChange.status === "proposed" && <><label className="field"><span>决定理由</span><textarea aria-label="Agent 候选决定理由" value={agentChangeReason} onChange={(event) => setAgentChangeReason(event.target.value)} /></label><div className="agent-change-candidate__actions"><Button size="sm" tone="primary" onClick={() => decideAgentChange("accept")} disabled={agentChangeState === "working"}>接受修改</Button><Button size="sm" tone="outline" onClick={() => decideAgentChange("reject")} disabled={agentChangeState === "working"}>拒绝修改</Button></div></>}
+                </article>}
+              </section>
               {regenerationPreview && <div className="conflict-preview" role="alertdialog" aria-label="AI 重新生成冲突预览"><Kicker>Regeneration conflict</Kicker><strong>AI 新版本没有覆盖你的人工修改</strong><p>{regenerationPreview.changedElementIds.length} 个同 ID 元素发生变化。当前草稿仍保留，可选择采用新版本。</p><div><Button size="sm" tone="primary" onClick={acceptRegeneration}>采用 AI 新版本</Button><Button size="sm" tone="outline" onClick={() => setRegenerationPreview(null)}>保留当前草稿</Button></div></div>}
             </div>
           )}

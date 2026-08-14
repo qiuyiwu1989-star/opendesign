@@ -20,6 +20,14 @@ const SAFE_ID = /^[a-z][a-z0-9_-]{2,63}$/;
 export type ProjectSummary = { projectId: string; title: string; sceneCount: number; updatedAt: string };
 export type StoredRevision = { revision: Revision; document: SceneDocument };
 
+export class RevisionDriftError extends Error {
+  readonly code = "revision_drift";
+  constructor(readonly expectedRevisionId: string, readonly currentRevisionId: string | null) {
+    super(`Revision drift: expected ${expectedRevisionId}, current ${currentRevisionId ?? "missing"}`);
+    this.name = "RevisionDriftError";
+  }
+}
+
 export type SessionCleanupSummary = {
   scope: SessionScope;
   expiredAt: string;
@@ -290,6 +298,25 @@ export class LocalProjectStore {
   ): Promise<StoredRevision> {
     return this.withScopeLock(scope, async () => {
       await this.assertOwnerQuota(scope, { revisions: 1, projects: (await this.readForOwner(scope, projectId)) ? 0 : 1 });
+      return this.appendRevisionForOwnerUnlocked(scope, projectId, document, input);
+    });
+  }
+
+  async currentRevisionForOwner(scope: SessionScope, projectId: string): Promise<StoredRevision | null> {
+    return this.withScopeLock(scope, async () => (await this.listRevisionsForOwner(scope, projectId))[0] ?? null);
+  }
+
+  async appendRevisionForOwnerIfCurrent(
+    scope: SessionScope,
+    projectId: string,
+    expectedRevisionId: string,
+    document: SceneDocument,
+    input: { reason: Revision["reason"]; patches: Revision["patches"] },
+  ): Promise<StoredRevision> {
+    return this.withScopeLock(scope, async () => {
+      const current = (await this.listRevisionsForOwner(scope, projectId))[0];
+      if (!current || current.revision.revisionId !== expectedRevisionId) throw new RevisionDriftError(expectedRevisionId, current?.revision.revisionId ?? null);
+      await this.assertOwnerQuota(scope, { revisions: 1 });
       return this.appendRevisionForOwnerUnlocked(scope, projectId, document, input);
     });
   }

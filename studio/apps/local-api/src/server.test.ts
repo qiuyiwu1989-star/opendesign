@@ -461,3 +461,45 @@ test("007 Creation Contract stays private and requires explicit confirmation bef
     await rm(directory, { recursive: true, force: true });
   }
 });
+
+test("009 Agent change API keeps proposals private and only writes a revision after explicit acceptance", async () => {
+  const directory = await mkdtemp(join(tmpdir(), "opendesign-agent-change-api-"));
+  let fill = 70;
+  const server = createStudioServer({
+    dataDirectory: directory,
+    sessionCodec: createPublicSessionCodec({ secret: TEST_SESSION_SECRET, random: { bytes: (size) => new Uint8Array(size).fill(fill++) } }),
+  });
+  server.listen(0, "127.0.0.1");
+  await once(server, "listening");
+  const base = `http://127.0.0.1:${(server.address() as AddressInfo).port}`;
+  try {
+    const cookieA = cookieFrom(await fetch(`${base}/api/projects`));
+    const cookieB = cookieFrom(await fetch(`${base}/api/projects`));
+    assert.equal((await withCookie(`${base}/api/projects/${fixture.documentId}`, cookieA, { method: "PUT", headers: { "content-type": "application/json" }, body: JSON.stringify({ document: fixture }) })).status, 200);
+    const scene = fixture.scenes[0]!;
+    const title = scene.elements.find((element) => element.role === "title")!;
+    const endpoint = `${base}/api/projects/${fixture.documentId}/agent-changes`;
+    assert.equal((await withCookie(endpoint, cookieA, { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ instruction: "帮我优化一下", target: { kind: "scene", sceneId: scene.id } }) })).status, 422);
+    const createdResponse = await withCookie(endpoint, cookieA, { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ instruction: "标题改成：先保留人工版本，再评审 Agent 修改", target: { kind: "element", sceneId: scene.id, elementId: title.id } }) });
+    assert.equal(createdResponse.status, 201);
+    const created = await createdResponse.json() as { candidate: { candidateId: string; status: string; diffs: Array<{ before: string; after: string }> } };
+    assert.equal(created.candidate.status, "proposed");
+    assert.equal(created.candidate.diffs[0]?.before, title.content);
+    assert.equal((await withCookie(`${base}/api/projects/${fixture.documentId}/revisions`, cookieA).then((response) => response.json()) as { revisions: unknown[] }).revisions.length, 1);
+    assert.equal((await withCookie(endpoint, cookieB)).status, 404);
+    assert.equal((await withCookie(`${endpoint}/${created.candidate.candidateId}/accept`, cookieB, { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ reason: "跨空间接受应失败" }) })).status, 404);
+
+    const acceptedResponse = await withCookie(`${endpoint}/${created.candidate.candidateId}/accept`, cookieA, { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ reason: "已经对比前后内容并确认采用" }) });
+    assert.equal(acceptedResponse.status, 200);
+    const accepted = await acceptedResponse.json() as { candidate: { status: string; notPublished: boolean }; revision: { reason: string }; document: typeof fixture };
+    assert.equal(accepted.candidate.status, "accepted");
+    assert.equal(accepted.candidate.notPublished, true);
+    assert.equal(accepted.revision.reason, "regenerate");
+    assert.equal(accepted.document.scenes[0]?.elements.find((element) => element.id === title.id)?.content, "先保留人工版本，再评审 Agent 修改");
+    assert.equal((await withCookie(`${base}/api/projects/${fixture.documentId}/revisions`, cookieA).then((response) => response.json()) as { revisions: unknown[] }).revisions.length, 2);
+  } finally {
+    server.close();
+    await once(server, "close");
+    await rm(directory, { recursive: true, force: true });
+  }
+});

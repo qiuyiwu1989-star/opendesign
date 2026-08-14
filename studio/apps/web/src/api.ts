@@ -6,6 +6,21 @@ import type { AgentRunEvent, AgentRunProjection, DesignWorkOrder, ExecutionPlan 
 
 export type ProjectSummary = { projectId: string; title: string; sceneCount: number; updatedAt: string };
 export type StoredRevision = { revision: Revision; document: SceneDocument };
+export type AgentChangeCandidate = {
+  candidateId: string;
+  projectId: string;
+  baseRevisionId: string;
+  createdAt: string;
+  status: "proposed" | "accepted" | "rejected" | "conflicted";
+  target: { kind: "scene"; sceneId: string } | { kind: "element"; sceneId: string; elementId: string };
+  instruction: string;
+  rationale: string;
+  patches: ScenePatch[];
+  diffs: Array<{ elementId: string; field: "content"; before: string; after: string }>;
+  proposedDocument: SceneDocument;
+  decision?: { kind: "accepted" | "rejected" | "conflicted"; occurredAt: string; reason: string; revision?: Revision };
+  notPublished: true;
+};
 export type GeneratedProject = {
   document: SceneDocument;
   storyline: Array<{ sceneId: string; order: number; title: string; purpose: string; headline: string }>;
@@ -283,9 +298,36 @@ async function apiRequest<T>(path: string, init?: RequestInit): Promise<T> {
     ...init,
     headers: { "content-type": "application/json", ...init?.headers },
   });
-  const payload = await response.json() as T & { error?: string };
-  if (!response.ok) throw new Error(payload.error || `Studio API returned ${response.status}`);
+  const payload = await response.json() as T & { error?: unknown };
+  if (!response.ok) {
+    const message = typeof payload.error === "string" ? payload.error : isObject(payload.error) && typeof payload.error.message === "string" ? payload.error.message : `Studio API returned ${response.status}`;
+    throw new Error(message);
+  }
   return payload;
+}
+
+function parseAgentChangeCandidate(value: unknown): AgentChangeCandidate {
+  if (!isObject(value)
+    || typeof value.candidateId !== "string" || !/^change_[a-z0-9]{8,59}$/u.test(value.candidateId)
+    || typeof value.projectId !== "string" || typeof value.baseRevisionId !== "string" || !isIsoDate(value.createdAt)
+    || !["proposed", "accepted", "rejected", "conflicted"].includes(String(value.status))
+    || typeof value.instruction !== "string" || typeof value.rationale !== "string" || value.notPublished !== true
+    || !isObject(value.target) || !["scene", "element"].includes(String(value.target.kind)) || typeof value.target.sceneId !== "string"
+    || (value.target.kind === "element" && typeof value.target.elementId !== "string")
+    || !Array.isArray(value.patches) || value.patches.length !== 1 || !Array.isArray(value.diffs) || value.diffs.length !== 1
+    || !isObject(value.proposedDocument) || value.proposedDocument.documentId !== value.projectId || !Array.isArray(value.proposedDocument.scenes) || !Array.isArray(value.proposedDocument.directions)) {
+    throw new Error("Agent 修改候选响应格式无效。");
+  }
+  const patch = value.patches[0];
+  const diff = value.diffs[0];
+  if (!isObject(patch) || patch.field !== "content" || typeof patch.elementId !== "string" || typeof patch.value !== "string"
+    || !isObject(diff) || diff.field !== "content" || diff.elementId !== patch.elementId || typeof diff.before !== "string" || diff.after !== patch.value) {
+    throw new Error("Agent 修改候选缺少可验证的文字 Diff。");
+  }
+  if (value.decision !== undefined && (!isObject(value.decision) || !["accepted", "rejected", "conflicted"].includes(String(value.decision.kind)) || !isIsoDate(value.decision.occurredAt) || typeof value.decision.reason !== "string")) {
+    throw new Error("Agent 修改候选的人工决定格式无效。");
+  }
+  return value as unknown as AgentChangeCandidate;
 }
 
 export async function loadProject(projectId: string): Promise<SceneDocument | null> {
@@ -383,6 +425,29 @@ export async function persistProject(document: SceneDocument, patches: ScenePatc
     body: JSON.stringify({ document, patches, reason }),
   });
   return { document: result.document, revision: result.revision };
+}
+
+export async function listAgentChangeCandidates(projectId: string): Promise<AgentChangeCandidate[]> {
+  const payload = await apiRequest<{ candidates?: unknown[] }>(`/api/projects/${projectId}/agent-changes`);
+  if (!Array.isArray(payload.candidates)) throw new Error("Studio API 没有返回修改候选列表。");
+  return payload.candidates.map(parseAgentChangeCandidate);
+}
+
+export async function createAgentChangeCandidate(projectId: string, input: { instruction: string; target: AgentChangeCandidate["target"] }): Promise<AgentChangeCandidate> {
+  const payload = await apiRequest<{ candidate?: unknown }>(`/api/projects/${projectId}/agent-changes`, { method: "POST", body: JSON.stringify(input) });
+  return parseAgentChangeCandidate(payload.candidate);
+}
+
+export async function acceptAgentChangeCandidate(projectId: string, candidateId: string, reason: string): Promise<{ candidate: AgentChangeCandidate; document: SceneDocument; revision: Revision }> {
+  const payload = await apiRequest<{ candidate?: unknown; document?: SceneDocument; revision?: Revision }>(`/api/projects/${projectId}/agent-changes/${candidateId}/accept`, { method: "POST", body: JSON.stringify({ reason }) });
+  const candidate = parseAgentChangeCandidate(payload.candidate);
+  if (!payload.document || payload.document.documentId !== projectId || !payload.revision || payload.revision.revisionId !== candidate.decision?.revision?.revisionId) throw new Error("接受候选后没有返回一致的新修订。");
+  return { candidate, document: payload.document, revision: payload.revision };
+}
+
+export async function rejectAgentChangeCandidate(projectId: string, candidateId: string, reason: string): Promise<AgentChangeCandidate> {
+  const payload = await apiRequest<{ candidate?: unknown }>(`/api/projects/${projectId}/agent-changes/${candidateId}/reject`, { method: "POST", body: JSON.stringify({ reason }) });
+  return parseAgentChangeCandidate(payload.candidate);
 }
 
 export async function createExport(projectId: string, kind: StudioExportKind): Promise<StudioExportResult> {
