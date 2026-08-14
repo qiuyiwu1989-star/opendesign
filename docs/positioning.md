@@ -24,9 +24,9 @@
 
 ## 产品结构：从双层产品升级为 Agent Design OS
 
-- **Library / Evidence Plane**：开放的设计证据基础设施，负责真实设计系统、来源、tokens、Pattern、受许可资产和策展。
+- **OpenDesign Library / Evidence Plane**：开放的设计证据基础设施，负责真实设计系统、来源、tokens、Pattern、受许可资产和策展。
 - **Capability Registry**：把 Design Pack、专家 Skill、Industry Kit、Tool Adapter 和 Eval Suite 注册为版本化能力。
-- **Agent Studio / Creation Plane**：Design Director 组织专家方法，把 Brief 和资料变成可编辑、可评审、可导出的作品。
+- **OpenDesign Studio / Creation Plane**：Design Director 组织专家方法，把 Brief 和资料变成可编辑、可评审、可导出的作品。
 - **Runtime Plane**：以 provider-neutral adapter 调度 Kimi、OpenAI-compatible 模型、图像模型、浏览器、renderer 和存储。
 - **Connect / Platform Plane**：通过 Skill、MCP、API、Webhook 和 Embed Review 让第三方 Agent 与产品复用同一能力。
 
