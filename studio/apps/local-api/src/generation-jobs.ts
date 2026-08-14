@@ -37,6 +37,8 @@ export type GenerationJob = {
   error?: GenerationJobError;
 };
 
+export type GenerationDocumentGate = { accepted: boolean; code?: string; message?: string; retryable?: boolean };
+
 type PersistedGenerationJob = GenerationJob & {
   persistenceVersion: 1;
   scopeHash: string;
@@ -47,8 +49,10 @@ export type GenerationJobManagerOptions = {
   rootDirectory: string;
   provider: ModelProvider | null;
   projectWriter: (scopeHash: string, document: SceneDocument) => Promise<void>;
-  documentGate?: (document: SceneDocument) => Promise<{ accepted: boolean; code?: string; message?: string; retryable?: boolean }>;
+  documentGate?: (document: SceneDocument) => Promise<GenerationDocumentGate>;
   onAcceptedOutput?: (scopeHash: string, input: DesignDirectorInput, output: Extract<DesignDirectorOutput, { status: "accepted" }>) => Promise<void>;
+  onDocumentChecked?: (scopeHash: string, input: DesignDirectorInput, document: SceneDocument, gate: GenerationDocumentGate) => Promise<void>;
+  /** @deprecated Prefer onDocumentChecked so rejected QA evidence is also recorded. */
   onValidatedDocument?: (scopeHash: string, input: DesignDirectorInput, document: SceneDocument) => Promise<void>;
   onTransition?: (scopeHash: string, input: DesignDirectorInput, job: GenerationJob) => Promise<void>;
   now?: () => Date;
@@ -374,8 +378,9 @@ export class GenerationJobManager {
       await this.#yieldStage("validating", publicJob(job), controller.signal);
       if (this.wasCancelled(job)) return;
       const document = result.output.importResult.document;
-      const gate = await this.options.documentGate?.(structuredClone(document));
-      if (gate && !gate.accepted) {
+      const gate = await this.options.documentGate?.(structuredClone(document)) ?? { accepted: true };
+      await this.options.onDocumentChecked?.(job.scopeHash, structuredClone(job.input), structuredClone(document), structuredClone(gate));
+      if (!gate.accepted) {
         await this.transition(job, "failed", {
           code: gate.code ?? "qa_failed",
           retryable: gate.retryable ?? false,

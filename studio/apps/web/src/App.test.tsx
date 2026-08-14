@@ -23,14 +23,22 @@ const outlinePayload = {
   ].map(([itemId, order, role, title, purpose]) => ({ itemId, order, role, title, purpose, sourceIds: ["source_brief"] })),
 };
 
-function artifactFixture(artifactId: string, artifactType: "diagnosis" | "outline", revisionId: string, validationStatus: "draft" | "accepted") {
+function artifactFixture(artifactId: string, artifactType: "diagnosis" | "outline" | "structured-html" | "scene-ir" | "qa-report", revisionId: string, validationStatus: "draft" | "accepted" | "rejected") {
+  const stageId = {
+    diagnosis: "stage_diagnose",
+    outline: "stage_outline",
+    "structured-html": "stage_compose",
+    "scene-ir": "stage_import",
+    "qa-report": "stage_qa",
+  }[artifactType];
+  const editable = artifactType === "outline" || artifactType === "structured-html" || artifactType === "scene-ir";
   return {
     contractVersion: "0.1.0", artifactId, workOrderId: "workorder_ui000001", planId: "plan_ui000001",
-    stageId: artifactType === "diagnosis" ? "stage_diagnose" : "stage_outline", artifactType, revisionId,
+    stageId, artifactType, revisionId,
     createdAt: "2026-08-14T01:00:00.000Z", payloadHash: `sha256:${"a".repeat(64)}`, payloadRef: `workorder://workorder_ui000001/artifacts/${artifactId}`,
     designPack: { id: "executive-proposal-cn", version: "1.0.0" }, skillPins: [{ id: "opendesign-design-director", version: "0.3.0" }],
     sourceCoverage: { declaredSourceIds: ["source_brief"], usedSourceIds: ["source_brief"], unresolvedSourceIds: [] },
-    editability: { editable: artifactType === "outline", capabilities: artifactType === "outline" ? ["structure", "order"] : [] },
+    editability: { editable, capabilities: artifactType === "outline" ? ["structure", "order"] : editable ? ["text", "typography", "asset", "frame", "order"] : [] },
     validationStatus,
   };
 }
@@ -524,6 +532,62 @@ describe("OpenDesign Studio workspace", () => {
     fireEvent.click(screen.getByRole("button", { name: "打开新作品" }));
     expect(await screen.findAllByText("让文章成为一套可编辑的视觉提案")).not.toHaveLength(0);
     expect(screen.queryByText("保留我的人工判断")).not.toBeInTheDocument();
+  });
+
+  it("011 reveals real progressive artifacts in a read-only preview without replacing the human draft", async () => {
+    const runningWorkflow = workflowFixture("running", "job_preview001", { outlineStatus: "approved" });
+    const progressiveWorkflow = structuredClone(runningWorkflow);
+    progressiveWorkflow.artifacts.push(
+      artifactFixture("artifact_html_preview001", "structured-html", "compose_r1", "accepted"),
+      artifactFixture("artifact_scene_preview01", "scene-ir", "import_r1", "accepted"),
+      artifactFixture("artifact_qa_preview0001", "qa-report", "qa_r1", "accepted"),
+    );
+    vi.mocked(fetch).mockImplementation(async (input: string | URL | Request, init?: RequestInit) => {
+      const path = String(input);
+      const artifactResponse = defaultArtifactResponse(path, init);
+      if (artifactResponse) return artifactResponse;
+      if (init?.method === "POST" && path === "/api/work-orders") return new Response(JSON.stringify({ workflow: workflowFixture() }), { status: 201 });
+      if (init?.method === "POST" && path === "/api/work-orders/workorder_ui000001/confirm") return new Response(JSON.stringify({
+        workflow: runningWorkflow,
+        job: { jobId: "job_preview001", status: "validating", createdAt: "2026-08-14T01:00:00.000Z", updatedAt: "2026-08-14T01:00:04.000Z" },
+      }), { status: 202 });
+      if (!init?.method && path.endsWith("/artifacts/artifact_scene_preview01")) return new Response(JSON.stringify({ artifact: progressiveWorkflow.artifacts.at(-2), payload: generatedDocument }), { status: 200 });
+      if (!init?.method && path.endsWith("/artifacts/artifact_qa_preview0001")) return new Response(JSON.stringify({ artifact: progressiveWorkflow.artifacts.at(-1), payload: {
+        documentId: generatedDocument.documentId,
+        schemaVersion: generatedDocument.schemaVersion,
+        deterministic: true,
+        summary: { blocker: 0, error: 0, warning: 0, note: 0, total: 0 },
+        issues: [],
+      } }), { status: 200 });
+      if (!init?.method && path === "/api/generation-jobs/job_preview001") return new Response(JSON.stringify({ job: { jobId: "job_preview001", status: "validating", createdAt: "2026-08-14T01:00:00.000Z", updatedAt: "2026-08-14T01:00:04.000Z" } }), { status: 200 });
+      if (!init?.method && path === "/api/work-orders/workorder_ui000001") return new Response(JSON.stringify({ workflow: progressiveWorkflow }), { status: 200 });
+      if (!init?.method && path === "/api/projects") return new Response(JSON.stringify({ projects: [] }), { status: 200 });
+      if (!init?.method && path.endsWith("/revisions")) return new Response(JSON.stringify({ revisions: [] }), { status: 200 });
+      return new Response(JSON.stringify({ error: "Project not found" }), { status: 404 });
+    });
+
+    render(<App />);
+    fireEvent.doubleClick(screen.getByRole("button", { name: /title: 让视觉作品/ }));
+    fireEvent.change(screen.getByLabelText("文字内容"), { target: { value: "保留这份人工稿" } });
+    fireEvent.click(screen.getByRole("button", { name: /诊断并制定计划/ }));
+    await approveOutlineInUi();
+    fireEvent.click(await screen.findByRole("button", { name: "确认计划并开始创作" }));
+
+    await waitFor(() => expect(screen.getByRole("button", { name: "查看阶段预览" })).toBeInTheDocument(), { timeout: 3_000 });
+    expect(screen.getByText("已编译并登记")).toBeInTheDocument();
+    expect(screen.getByText(/已安全导入，可只读预览/)).toBeInTheDocument();
+    expect(screen.getByText("检查已通过")).toBeInTheDocument();
+    expect(screen.getAllByText("保留这份人工稿").length).toBeGreaterThan(0);
+    expect(screen.queryByRole("button", { name: "打开新作品" })).not.toBeInTheDocument();
+
+    fireEvent.click(screen.getByRole("button", { name: "查看阶段预览" }));
+    expect(await screen.findByText("只读阶段预览")).toBeInTheDocument();
+    expect(screen.getByText(/QA 已通过.*当前人工稿未被覆盖/)).toBeInTheDocument();
+    expect(screen.getAllByText("让文章成为一套可编辑的视觉提案").length).toBeGreaterThan(0);
+    expect(screen.queryByRole("button", { name: "保存到匿名空间" })).not.toBeInTheDocument();
+    fireEvent.click(screen.getByRole("button", { name: "返回当前人工稿" }));
+    expect(screen.getAllByText("保留这份人工稿").length).toBeGreaterThan(0);
+    expect(vi.mocked(fetch).mock.calls.some(([, init]) => init?.method === "PUT")).toBe(false);
   });
 
   it("presents a conversation-first project, director and result workspace", () => {

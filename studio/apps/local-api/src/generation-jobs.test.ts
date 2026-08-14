@@ -239,8 +239,10 @@ describe("persistent scoped generation jobs", () => {
   it("fails closed at the deterministic document gate before persisting a project", async () => {
     const directory = await temporaryDirectory();
     let writes = 0;
+    const checks: Array<{ accepted: boolean; documentId: string }> = [];
     const manager = new GenerationJobManager(managerOptions(directory, {
       documentGate: async () => ({ accepted: false, code: "qa_failed", message: "2 layout errors", retryable: false }),
+      onDocumentChecked: async (_scope, _input, document, gate) => { checks.push({ accepted: gate.accepted, documentId: document.documentId }); },
       projectWriter: async () => { writes += 1; },
     }));
     await manager.initialize();
@@ -251,6 +253,7 @@ describe("persistent scoped generation jobs", () => {
     assert.equal(failed?.error?.code, "qa_failed");
     assert.equal(failed?.error?.retryable, false);
     assert.equal(writes, 0);
+    assert.deepEqual(checks, [{ accepted: false, documentId: "doc_job_task_01" }]);
   });
 
   it("rejects untrusted scope paths before touching disk", async () => {

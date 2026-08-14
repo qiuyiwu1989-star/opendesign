@@ -335,6 +335,36 @@ export function parseWorkOrderOutlinePayload(value: unknown): WorkOrderOutlinePa
   return value as unknown as WorkOrderOutlinePayload;
 }
 
+export function parseWorkOrderScenePayload(value: unknown): SceneDocument {
+  if (!isObject(value) || typeof value.schemaVersion !== "string" || typeof value.documentId !== "string" || typeof value.title !== "string"
+    || !isObject(value.canvas) || value.canvas.width !== 1600 || value.canvas.height !== 900 || value.canvas.unit !== "logical-px"
+    || !Array.isArray(value.directions) || value.directions.length < 1 || !Array.isArray(value.scenes) || value.scenes.length < 1
+    || !value.directions.every((direction) => isObject(direction) && typeof direction.id === "string" && typeof direction.name === "string" && isObject(direction.tokens))
+    || !value.scenes.every((scene) => isObject(scene) && typeof scene.id === "string" && Number.isSafeInteger(scene.order) && typeof scene.title === "string"
+      && typeof scene.purpose === "string" && typeof scene.layout === "string" && Array.isArray(scene.elements)
+      && scene.elements.every((element) => isObject(element) && typeof element.id === "string" && typeof element.type === "string" && typeof element.role === "string" && isObject(element.frame)))) {
+    throw new StudioApiError("Scene IR 阶段产物格式无效。", "generation_failed");
+  }
+  return value as unknown as SceneDocument;
+}
+
+export function parseWorkOrderQaPayload(value: unknown): StudioQaReport {
+  if (!isObject(value) || typeof value.documentId !== "string" || !isObject(value.summary) || !Array.isArray(value.issues)) {
+    throw new StudioApiError("QA 阶段产物格式无效。", "generation_failed");
+  }
+  const rawCounts = [value.summary.blocker, value.summary.error, value.summary.warning, value.summary.note, value.summary.total];
+  if (!rawCounts.every((count) => typeof count === "number" && Number.isSafeInteger(count) && count >= 0)) {
+    throw new StudioApiError("QA 阶段产物格式无效。", "generation_failed");
+  }
+  const counts = rawCounts as number[];
+  if (!counts.every((count) => Number.isSafeInteger(count) && count >= 0)
+    || counts[4] !== counts[0]! + counts[1]! + counts[2]! + counts[3]!
+    || !value.issues.every((issue) => isObject(issue) && typeof issue.issueId === "string" && typeof issue.sceneId === "string" && typeof issue.message === "string")) {
+    throw new StudioApiError("QA 阶段产物格式无效。", "generation_failed");
+  }
+  return value as unknown as StudioQaReport;
+}
+
 export async function loadGenerationJob(jobId: string): Promise<GenerationJob> {
   return parseJobEnvelope(await generationRequest(`/api/generation-jobs/${encodeURIComponent(jobId)}`));
 }

@@ -198,6 +198,47 @@ test("requires human plan confirmation, starts one job idempotently, and records
   }
 });
 
+test("011 retains accepted and rejected QA artifacts as owner-scoped immutable evidence", async () => {
+  const directory = await temporaryDirectory();
+  try {
+    const manager = new WorkOrderManager({ rootDirectory: directory, now: () => new Date(now), id: () => workOrderId });
+    await manager.initialize();
+    await manager.create(scopeA, { brief: "把现有材料做成一套可以人工确认、继续编辑的六页提案。" });
+    const output = acceptedOutput();
+    const acceptedReport = runDeterministicQa(output.importResult.document);
+    assert.equal(acceptedReport.summary.blocker + acceptedReport.summary.error, 0);
+    await manager.recordQaArtifact(scopeA, workOrderId, acceptedReport);
+    const firstWorkflow = manager.get(scopeA, workOrderId);
+    const acceptedArtifact = firstWorkflow?.artifacts.filter((artifact) => artifact.artifactType === "qa-report").at(-1);
+    assert.ok(acceptedArtifact);
+    assert.equal(acceptedArtifact.validationStatus, "accepted");
+
+    const rejectedReport = structuredClone(acceptedReport);
+    rejectedReport.summary.error += 1;
+    rejectedReport.summary.total += 1;
+    rejectedReport.issues.push({
+      issueId: "qa_forced_layout_error",
+      sceneId: output.importResult.document.scenes[0]!.id,
+      elementIds: [output.importResult.document.scenes[0]!.elements[0]!.id],
+      category: "layout.out_of_bounds",
+      severity: "error",
+      message: "离线门禁样例：元素超出画布。",
+      safeAutoFix: false,
+    });
+    await manager.recordQaArtifact(scopeA, workOrderId, rejectedReport);
+    const secondWorkflow = manager.get(scopeA, workOrderId);
+    const qaArtifacts = secondWorkflow?.artifacts.filter((artifact) => artifact.artifactType === "qa-report") ?? [];
+    assert.equal(qaArtifacts.length, 2);
+    assert.equal(qaArtifacts[0]?.artifactId, acceptedArtifact.artifactId);
+    assert.equal(qaArtifacts[0]?.validationStatus, "accepted");
+    assert.equal(qaArtifacts[1]?.validationStatus, "rejected");
+    assert.equal(manager.getArtifact(scopeB, workOrderId, qaArtifacts[1]!.artifactId), null);
+    assert.deepEqual(manager.getArtifact(scopeA, workOrderId, qaArtifacts[1]!.artifactId)?.payload, rejectedReport);
+  } finally {
+    await rm(directory, { recursive: true, force: true });
+  }
+});
+
 test("restores only valid owner-scoped Work Orders and records human cancellation", async () => {
   const directory = await temporaryDirectory();
   try {

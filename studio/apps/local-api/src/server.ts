@@ -82,7 +82,7 @@ export function createStudioServer(options: StudioServerOptions) {
     onAcceptedOutput: async (scope, input, output) => {
       if (input.taskId.startsWith("workorder_")) await workflows.recordGeneratedOutput(scope, input.taskId, output);
     },
-    onValidatedDocument: async (scope, input, document) => {
+    onDocumentChecked: async (scope, input, document) => {
       if (input.taskId.startsWith("workorder_")) await workflows.recordQaArtifact(scope, input.taskId, runDeterministicQa(document));
     },
     onTransition: async (scope, input, job) => {
