@@ -17,6 +17,7 @@
 - [ ] 定义人工确认后的发布候选变更集，继续保持 preview-first
 
 ## Done（倒序，保留最近 20 条，附 commit hash）
+- [x] Studio Phase 1B：一轮最多两个高信息量问题、三个真实 Pack 预览、owner-scoped 决策持久化与生成前确认门禁（待本次提交，spec: 008）
 - [x] Studio Phase 1A：Creation Contract → 人工确认计划 → owner-scoped Job，Skill/Pack/source/stage 可见，自动产物通过确定性 QA 后才持久化（5e5db67，spec: 007）
 - [x] Kimi China/Global 生产 preset、安全配置门禁和运行手册；继续复用 provider-neutral compiler/importer/QA 链（待本次提交）
 - [x] Agent Design OS Phase 0：核心对象 schema、Capability Manifest、跨对象门禁与可重放运行事件状态机（待本次提交，spec: 007）

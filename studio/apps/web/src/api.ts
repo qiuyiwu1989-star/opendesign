@@ -45,7 +45,7 @@ export type ModelDraftResponse = { generation: ModelGenerationResult; review?: R
 
 export const generationJobStatuses = ["queued", "analyzing", "generating", "validating", "completed", "failed", "cancelled"] as const;
 export type GenerationJobStatus = typeof generationJobStatuses[number];
-export type GenerationJobErrorCode = "offline" | "rate_limited" | "provider_unavailable" | "invalid_input" | "generation_failed";
+export type GenerationJobErrorCode = "offline" | "rate_limited" | "provider_unavailable" | "invalid_input" | "creation_contract_incomplete" | "generation_failed";
 export type GenerationJob = {
   jobId: string;
   status: GenerationJobStatus;
@@ -60,6 +60,24 @@ export type WorkOrderWorkflow = {
   plan: ExecutionPlan;
   projection: AgentRunProjection;
   events: readonly AgentRunEvent[];
+  clarification: {
+    status: "required" | "complete" | "not-needed";
+    round: 0 | 1;
+    maxQuestions: 2;
+    questions: Array<{ questionId: "clarify_audience" | "clarify_action"; prompt: string; reason: string; answer?: string }>;
+  };
+  directionPreviews: Array<{
+    directionId: string;
+    name: string;
+    pack: DesignPackPin;
+    stance: "primary" | "alternate";
+    rationale: string;
+    tokens: { background: string; surface: string; text: string; accent: string; headingFamily: string };
+    composition: { grid: string; density: "airy" | "balanced" | "dense"; rhythm: string };
+  }>;
+  selectedDirectionId: string;
+  directionConfirmed: boolean;
+  readyForConfirmation: boolean;
   generationJobId?: string;
 };
 
@@ -101,7 +119,7 @@ function parseGenerationJob(value: unknown): GenerationJob {
       || (value.error.retryable !== undefined && typeof value.error.retryable !== "boolean")) {
       throw new StudioApiError("生成任务返回了无效的错误信息。", "generation_failed");
     }
-    const code = ["offline", "rate_limited", "provider_unavailable", "invalid_input"].includes(value.error.code) ? value.error.code as GenerationJobErrorCode : "generation_failed";
+    const code = ["offline", "rate_limited", "provider_unavailable", "invalid_input", "creation_contract_incomplete"].includes(value.error.code) ? value.error.code as GenerationJobErrorCode : "generation_failed";
     error = { code, message: value.error.message, ...(value.error.retryable === undefined ? {} : { retryable: value.error.retryable }) };
   }
   if (value.status === "completed" && !value.projectId) {
@@ -127,6 +145,7 @@ function apiErrorFromPayload(payload: unknown, status: number): StudioApiError {
   const code = status === 429 ? "rate_limited"
     : rawCode === "provider_unavailable" ? "provider_unavailable"
     : rawCode === "invalid_input" ? "invalid_input"
+    : rawCode === "creation_contract_incomplete" ? "creation_contract_incomplete"
     : rawCode === "rate_limited" ? "rate_limited"
     : "generation_failed";
   const message = typeof nested?.message === "string" ? nested.message
@@ -174,6 +193,24 @@ function parseWorkflow(value: unknown): WorkOrderWorkflow {
   const stagesValid = Array.isArray(plan.stages) && plan.stages.length > 0 && plan.stages.every((stage) => isObject(stage)
     && typeof stage.stageId === "string" && typeof stage.kind === "string" && typeof stage.objective === "string" && typeof stage.order === "number");
   const sourcesValid = Array.isArray(workOrder.sources) && workOrder.sources.length > 0 && workOrder.sources.every((source) => isObject(source) && typeof source.sourceId === "string" && typeof source.title === "string");
+  const clarification = isObject(value.clarification) ? value.clarification : {};
+  const directions = Array.isArray(value.directionPreviews) ? value.directionPreviews : [];
+  const clarificationValid = ["required", "complete", "not-needed"].includes(String(clarification.status))
+    && (clarification.round === 0 || clarification.round === 1)
+    && clarification.maxQuestions === 2
+    && Array.isArray(clarification.questions) && clarification.questions.length <= 2
+    && clarification.questions.every((question) => isObject(question)
+      && ["clarify_audience", "clarify_action"].includes(String(question.questionId))
+      && typeof question.prompt === "string" && typeof question.reason === "string"
+      && (question.answer === undefined || typeof question.answer === "string"));
+  const directionsValid = directions.length === 3
+    && directions.every((direction) => isObject(direction)
+      && typeof direction.directionId === "string" && typeof direction.name === "string"
+      && isObject(direction.pack) && typeof direction.pack.id === "string" && typeof direction.pack.version === "string"
+      && ["primary", "alternate"].includes(String(direction.stance)) && typeof direction.rationale === "string"
+      && isObject(direction.tokens) && [direction.tokens.background, direction.tokens.surface, direction.tokens.text, direction.tokens.accent, direction.tokens.headingFamily].every((token) => typeof token === "string")
+      && isObject(direction.composition) && typeof direction.composition.grid === "string"
+      && ["airy", "balanced", "dense"].includes(String(direction.composition.density)) && typeof direction.composition.rhythm === "string");
   if (typeof workOrder.workOrderId !== "string" || !/^workorder_[a-z0-9]{8,59}$/u.test(workOrder.workOrderId)
     || typeof workOrder.title !== "string" || typeof workOrder.objective !== "string"
     || !isObject(workOrder.audience) || typeof workOrder.audience.description !== "string" || typeof workOrder.audience.decisionOrAction !== "string"
@@ -181,6 +218,10 @@ function parseWorkflow(value: unknown): WorkOrderWorkflow {
     || typeof plan.planId !== "string" || plan.workOrderId !== workOrder.workOrderId
     || !isObject(plan.designPack) || typeof plan.designPack.id !== "string" || typeof plan.designPack.version !== "string"
     || !pinsValid || !stagesValid || !isObject(plan.budget)
+    || !clarificationValid || !directionsValid || typeof value.selectedDirectionId !== "string"
+    || !directions.some((direction) => isObject(direction) && direction.directionId === value.selectedDirectionId)
+    || typeof value.directionConfirmed !== "boolean" || typeof value.readyForConfirmation !== "boolean"
+    || value.readyForConfirmation !== ((clarification.status === "complete" || clarification.status === "not-needed") && value.directionConfirmed)
     || typeof plan.budget.maxDurationSeconds !== "number" || typeof plan.budget.maxModelCalls !== "number" || typeof plan.budget.maxImageCalls !== "number"
     || projection.workOrderId !== workOrder.workOrderId || projection.planId !== plan.planId
     || typeof projection.status !== "string" || !isObject(projection.stageStatuses)
@@ -213,6 +254,20 @@ export async function confirmWorkOrder(workOrderId: string): Promise<{ workflow:
   const job = parseGenerationJob(payload.job);
   if (workflow.generationJobId !== job.jobId) throw new StudioApiError("Creation Contract 与生成任务关联不一致。", "generation_failed");
   return { workflow, job };
+}
+
+export async function answerWorkOrderClarifications(workOrderId: string, answers: Array<{ questionId: string; answer: string }>): Promise<WorkOrderWorkflow> {
+  return parseWorkflowEnvelope(await generationRequest(`/api/work-orders/${encodeURIComponent(workOrderId)}/clarifications`, {
+    method: "POST",
+    body: JSON.stringify({ answers }),
+  }));
+}
+
+export async function selectWorkOrderDirection(workOrderId: string, directionId: string): Promise<WorkOrderWorkflow> {
+  return parseWorkflowEnvelope(await generationRequest(`/api/work-orders/${encodeURIComponent(workOrderId)}/direction`, {
+    method: "POST",
+    body: JSON.stringify({ directionId }),
+  }));
 }
 
 export async function loadGenerationJob(jobId: string): Promise<GenerationJob> {

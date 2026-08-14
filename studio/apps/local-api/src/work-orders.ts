@@ -16,7 +16,7 @@ import {
 } from "@opendesign/studio-agent-os";
 import type { DesignPackPin } from "@opendesign/studio-contracts";
 import type { DesignDirectorInput } from "@opendesign/studio-design-director";
-import { getDesignPack } from "@opendesign/studio-design-packs/catalog";
+import { designDirections, getDesignPack } from "@opendesign/studio-design-packs/catalog";
 import type { GenerationJob, GenerationJobStatus } from "./generation-jobs.js";
 
 const SCOPE_HASH = /^(?:scope_)?[a-f0-9]{64}$/u;
@@ -35,7 +35,36 @@ export type WorkOrderWorkflow = {
   plan: ExecutionPlan;
   projection: AgentRunProjection;
   events: readonly AgentRunEvent[];
+  clarification: WorkOrderClarification;
+  directionPreviews: readonly WorkOrderDirectionPreview[];
+  selectedDirectionId: string;
+  directionConfirmed: boolean;
+  readyForConfirmation: boolean;
   generationJobId?: string;
+};
+
+export type WorkOrderClarificationQuestion = {
+  questionId: "clarify_audience" | "clarify_action";
+  prompt: string;
+  reason: string;
+  answer?: string;
+};
+
+export type WorkOrderClarification = {
+  status: "required" | "complete" | "not-needed";
+  round: 0 | 1;
+  maxQuestions: 2;
+  questions: WorkOrderClarificationQuestion[];
+};
+
+export type WorkOrderDirectionPreview = {
+  directionId: string;
+  name: string;
+  pack: DesignPackPin;
+  stance: "primary" | "alternate";
+  rationale: string;
+  tokens: { background: string; surface: string; text: string; accent: string; headingFamily: string };
+  composition: { grid: string; density: "airy" | "balanced" | "dense"; rhythm: string };
 };
 
 type PersistedWorkOrder = {
@@ -43,6 +72,10 @@ type PersistedWorkOrder = {
   scopeHash: string;
   ledger: AgentRunLedger;
   generationInput: DesignDirectorInput;
+  clarification?: WorkOrderClarification;
+  directionPreviews?: WorkOrderDirectionPreview[];
+  selectedDirectionId?: string;
+  directionConfirmed?: boolean;
   generationJobId?: string;
 };
 
@@ -75,6 +108,73 @@ function deliverableKind(packId: string): DesignWorkOrder["deliverable"]["kind"]
   if (packId === "research-keynote-cn") return "research-keynote";
   if (packId === "editorial-story-graphics-cn") return "article-graphics";
   return "proposal";
+}
+
+const AUDIENCE_CUE = /受众|面向|给.{0,12}(?:看|汇报)|audience|投资人|管理层|客户|学生|设计师|产品负责人|决策者/iu;
+const ACTION_CUE = /希望.{0,20}(?:决定|行动|理解|相信|购买|批准|选择)|需要.{0,20}(?:确认|批准|决策)|确认.{0,12}(?:阶段|方案|方向)|decision|call\s*to\s*action|下一步/iu;
+
+function createClarification(brief: string): WorkOrderClarification {
+  const questions: WorkOrderClarificationQuestion[] = [];
+  if (!AUDIENCE_CUE.test(brief)) questions.push({ questionId: "clarify_audience", prompt: "这份作品主要给谁看？", reason: "受众会改变论证深度、语言和视觉密度。" });
+  if (!ACTION_CUE.test(brief)) questions.push({ questionId: "clarify_action", prompt: "看完后希望对方做出什么决定或行动？", reason: "明确行动才能让叙事收束到可确认的结果。" });
+  return { status: questions.length === 0 ? "not-needed" : "required", round: questions.length === 0 ? 0 : 1, maxQuestions: 2, questions };
+}
+
+function createDirectionPreviews(selectedPackId: string): WorkOrderDirectionPreview[] {
+  return designDirections(selectedPackId).map((direction) => {
+    const pack = getDesignPack(direction.referenceSlug, direction.referenceVersion);
+    if (!pack) throw new TypeError("Design Pack direction is not available in the approved catalog");
+    return {
+      directionId: direction.id,
+      name: direction.name,
+      pack: { id: pack.id, version: pack.version },
+      stance: direction.stance,
+      rationale: direction.rationale,
+      tokens: {
+        background: pack.tokens.background,
+        surface: pack.tokens.surface,
+        text: pack.tokens.text,
+        accent: pack.tokens.accent,
+        headingFamily: pack.tokens.headingFamily,
+      },
+      composition: structuredClone(pack.designDna.composition),
+    };
+  });
+}
+
+function decisionState(record: PersistedWorkOrder): Required<Pick<PersistedWorkOrder, "clarification" | "directionPreviews" | "selectedDirectionId" | "directionConfirmed">> {
+  const selectedDirectionId = record.selectedDirectionId ?? `direction_${record.ledger.plan.designPack.id}`;
+  return {
+    clarification: record.clarification ?? createClarification(record.generationInput.brief.objective),
+    directionPreviews: record.directionPreviews ?? createDirectionPreviews(record.ledger.plan.designPack.id),
+    selectedDirectionId,
+    directionConfirmed: record.directionConfirmed ?? false,
+  };
+}
+
+function hasValidPersistedDecisions(record: Partial<PersistedWorkOrder>): boolean {
+  if (record.clarification !== undefined) {
+    const clarification = record.clarification;
+    if (!["required", "complete", "not-needed"].includes(clarification.status)
+      || ![0, 1].includes(clarification.round) || clarification.maxQuestions !== 2
+      || !Array.isArray(clarification.questions) || clarification.questions.length > 2
+      || clarification.questions.some((question) => !["clarify_audience", "clarify_action"].includes(question.questionId)
+        || typeof question.prompt !== "string" || typeof question.reason !== "string"
+        || (question.answer !== undefined && typeof question.answer !== "string"))) return false;
+  }
+  if (record.directionPreviews !== undefined) {
+    if (!Array.isArray(record.directionPreviews) || record.directionPreviews.length !== 3) return false;
+    for (const direction of record.directionPreviews) {
+      const pack = getDesignPack(direction.pack?.id, direction.pack?.version);
+      if (!pack || direction.directionId !== `direction_${pack.id}` || typeof direction.name !== "string"
+        || !["primary", "alternate"].includes(direction.stance) || typeof direction.rationale !== "string"
+        || !direction.tokens || !direction.composition) return false;
+    }
+  }
+  if (record.selectedDirectionId !== undefined && (typeof record.selectedDirectionId !== "string" || !/^direction_[a-z][a-z0-9_-]{2,95}$/u.test(record.selectedDirectionId))) return false;
+  if (record.directionConfirmed !== undefined && typeof record.directionConfirmed !== "boolean") return false;
+  if (record.directionPreviews && record.selectedDirectionId && !record.directionPreviews.some((direction) => direction.directionId === record.selectedDirectionId)) return false;
+  return true;
 }
 
 const DIRECTOR = { id: "opendesign-design-director", version: "0.3.0" } as const;
@@ -141,11 +241,15 @@ function createContracts(input: ReturnType<typeof normalizedInput>, workOrderId:
 }
 
 function publicWorkflow(record: PersistedWorkOrder): WorkOrderWorkflow {
+  const decisions = decisionState(record);
+  const clarificationReady = decisions.clarification.status === "complete" || decisions.clarification.status === "not-needed";
   return structuredClone({
     workOrder: record.ledger.workOrder,
     plan: record.ledger.plan,
     projection: replayAgentRunLedger(record.ledger),
     events: record.ledger.events,
+    ...decisions,
+    readyForConfirmation: clarificationReady && decisions.directionConfirmed,
     ...(record.generationJobId ? { generationJobId: record.generationJobId } : {}),
   });
 }
@@ -154,6 +258,7 @@ function isPersistedWorkOrder(value: unknown, scopeHash: string): value is Persi
   if (!value || typeof value !== "object") return false;
   const record = value as Partial<PersistedWorkOrder>;
   if (record.persistenceVersion !== 1 || record.scopeHash !== scopeHash || !record.ledger || !record.generationInput) return false;
+  if (!hasValidPersistedDecisions(record)) return false;
   try {
     const projection = replayAgentRunLedger(record.ledger);
     return WORK_ORDER_ID.test(projection.workOrderId) && record.generationInput.taskId === projection.workOrderId;
@@ -211,6 +316,10 @@ export class WorkOrderManager {
       scopeHash,
       ledger: createAgentRunLedger(contracts.workOrder, contracts.plan),
       generationInput: contracts.generationInput,
+      clarification: createClarification(contracts.generationInput.brief.objective),
+      directionPreviews: createDirectionPreviews(contracts.plan.designPack.id),
+      selectedDirectionId: `direction_${contracts.plan.designPack.id}`,
+      directionConfirmed: false,
     };
     const records = this.recordsFor(scopeHash);
     if (records.size >= this.#limit) throw new WorkOrderLimitError(this.#limit);
@@ -228,6 +337,69 @@ export class WorkOrderManager {
     return record ? publicWorkflow(record) : null;
   }
 
+  async answerClarifications(scopeHash: string, workOrderId: string, answers: Array<{ questionId: string; answer: string }>): Promise<WorkOrderWorkflow> {
+    this.requireInitialized();
+    assertScopeHash(scopeHash);
+    return this.withLock(`${scopeHash}:${workOrderId}`, async () => {
+      const record = this.#records.get(scopeHash)?.get(workOrderId);
+      if (!record) throw new WorkOrderNotFoundError();
+      const state = decisionState(record);
+      if (record.ledger.events.length > 0 || state.clarification.status !== "required") throw new WorkOrderDecisionConflictError("Clarification is no longer editable");
+      if (!Array.isArray(answers) || answers.length !== state.clarification.questions.length) throw new TypeError("All clarification questions must be answered once");
+      const byId = new Map<string, string>();
+      for (const item of answers) {
+        if (!item || typeof item.questionId !== "string" || typeof item.answer !== "string" || byId.has(item.questionId)) throw new TypeError("Clarification answer is invalid");
+        const answer = item.answer.replace(/\s+/gu, " ").trim();
+        if ([...answer].length < 2 || [...answer].length > 240) throw new TypeError("Clarification answer must contain between 2 and 240 characters");
+        byId.set(item.questionId, answer);
+      }
+      if (state.clarification.questions.some((question) => !byId.has(question.questionId))) throw new TypeError("Clarification question ID is invalid");
+      const questions = state.clarification.questions.map((question) => ({ ...question, answer: byId.get(question.questionId)! }));
+      const workOrder = structuredClone(record.ledger.workOrder);
+      const audience = byId.get("clarify_audience");
+      const action = byId.get("clarify_action");
+      if (audience) workOrder.audience.description = audience;
+      if (action) workOrder.audience.decisionOrAction = action;
+      const plan = structuredClone(record.ledger.plan);
+      record.ledger = createAgentRunLedger(workOrder, plan);
+      record.generationInput.brief.audience = workOrder.audience.description;
+      record.generationInput.brief.decisionRequest = workOrder.audience.decisionOrAction;
+      record.generationInput.deliverable.audience = workOrder.audience.description;
+      record.clarification = { status: "complete", round: 1, maxQuestions: 2, questions };
+      record.directionPreviews = state.directionPreviews;
+      record.selectedDirectionId = state.selectedDirectionId;
+      record.directionConfirmed = state.directionConfirmed;
+      await this.persist(record);
+      return publicWorkflow(record);
+    });
+  }
+
+  async selectDirection(scopeHash: string, workOrderId: string, directionId: string): Promise<WorkOrderWorkflow> {
+    this.requireInitialized();
+    assertScopeHash(scopeHash);
+    return this.withLock(`${scopeHash}:${workOrderId}`, async () => {
+      const record = this.#records.get(scopeHash)?.get(workOrderId);
+      if (!record) throw new WorkOrderNotFoundError();
+      const state = decisionState(record);
+      if (record.ledger.events.length > 0) throw new WorkOrderDecisionConflictError("Direction is no longer editable");
+      const direction = state.directionPreviews.find((candidate) => candidate.directionId === directionId);
+      if (!direction) throw new TypeError("Direction is not part of this Creation Contract");
+      const workOrder = structuredClone(record.ledger.workOrder);
+      workOrder.deliverable.kind = deliverableKind(direction.pack.id);
+      const plan = structuredClone(record.ledger.plan);
+      plan.designPack = structuredClone(direction.pack);
+      record.ledger = createAgentRunLedger(workOrder, plan);
+      record.generationInput.designPack = structuredClone(direction.pack);
+      record.generationInput.deliverable.kind = workOrder.deliverable.kind === "research-keynote" ? "keynote" : workOrder.deliverable.kind;
+      record.clarification = state.clarification;
+      record.directionPreviews = createDirectionPreviews(direction.pack.id);
+      record.selectedDirectionId = directionId;
+      record.directionConfirmed = true;
+      await this.persist(record);
+      return publicWorkflow(record);
+    });
+  }
+
   async confirm(scopeHash: string, workOrderId: string, createJob: JobCreator, readJob: JobReader): Promise<{ workflow: WorkOrderWorkflow; job: GenerationJob }> {
     this.requireInitialized();
     assertScopeHash(scopeHash);
@@ -240,6 +412,7 @@ export class WorkOrderManager {
         if (!existing) throw new Error("Work Order generation job is unavailable");
         return { workflow: publicWorkflow(record), job: existing };
       }
+      if (!publicWorkflow(record).readyForConfirmation) throw new WorkOrderDecisionConflictError("Complete clarification and confirm a design direction before generation");
       if (replayAgentRunLedger(record.ledger).status === "draft") {
         record.ledger = appendAgentRunEvent(record.ledger, {
           eventId: `event_${workOrderId.slice(10)}_confirmed`, commandId: `confirm_${workOrderId}`,
@@ -355,4 +528,10 @@ export class WorkOrderLimitError extends Error {
   readonly code = "work_order_limit";
   readonly retryable = false;
   constructor(readonly limit: number) { super(`This anonymous space can keep at most ${limit} Work Orders`); this.name = "WorkOrderLimitError"; }
+}
+
+export class WorkOrderDecisionConflictError extends Error {
+  readonly code = "creation_contract_incomplete";
+  readonly retryable = false;
+  constructor(message: string) { super(message); this.name = "WorkOrderDecisionConflictError"; }
 }

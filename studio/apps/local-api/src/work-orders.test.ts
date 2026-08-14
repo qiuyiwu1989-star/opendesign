@@ -4,7 +4,7 @@ import { tmpdir } from "node:os";
 import { join } from "node:path";
 import test from "node:test";
 import type { GenerationJob, GenerationJobStatus } from "./generation-jobs.js";
-import { WorkOrderLimitError, WorkOrderManager } from "./work-orders.js";
+import { WorkOrderDecisionConflictError, WorkOrderLimitError, WorkOrderManager } from "./work-orders.js";
 
 const scopeA = "a".repeat(64);
 const scopeB = "b".repeat(64);
@@ -26,6 +26,18 @@ async function temporaryDirectory(): Promise<string> {
   return mkdtemp(join(tmpdir(), "opendesign-work-orders-"));
 }
 
+async function completeCreationDecisions(manager: WorkOrderManager, scope = scopeA): Promise<void> {
+  const workflow = manager.get(scope, workOrderId);
+  assert.ok(workflow);
+  if (workflow.clarification.status === "required") {
+    await manager.answerClarifications(scope, workOrderId, workflow.clarification.questions.map((question) => ({
+      questionId: question.questionId,
+      answer: question.questionId === "clarify_audience" ? "面向产品负责人与管理层" : "确认是否进入下一阶段并批准试点",
+    })));
+  }
+  await manager.selectDirection(scope, workOrderId, workflow.selectedDirectionId);
+}
+
 test("creates a private draft Creation Contract without starting generation", async () => {
   const directory = await temporaryDirectory();
   try {
@@ -37,11 +49,41 @@ test("creates a private draft Creation Contract without starting generation", as
     assert.equal(workflow.plan.designPack.id, "executive-proposal-cn");
     assert.deepEqual(workflow.plan.capabilityPins.map((pin) => pin.id), ["opendesign-design-director", "narrative-architect", "art-director", "design-critic"]);
     assert.deepEqual(workflow.plan.stages.map((stage) => stage.kind), ["diagnose", "direction", "compose", "import", "qa", "edit", "review", "export"]);
+    assert.equal(workflow.clarification.questions.length, 2);
+    assert.equal(workflow.directionPreviews.length, 3);
+    assert.equal(new Set(workflow.directionPreviews.map((direction) => direction.pack.id)).size, 3);
+    assert.equal(workflow.readyForConfirmation, false);
     assert.equal(manager.get(scopeB, workOrderId), null);
     const persisted = JSON.parse(await readFile(join(directory, "sessions", scopeA, "work-orders", `${workOrderId}.json`), "utf8")) as { generationInput: { brief: { objective: string }; taskId: string }; scopeHash: string };
     assert.equal(persisted.scopeHash, scopeA);
     assert.equal(persisted.generationInput.taskId, workOrderId);
     assert.match(persisted.generationInput.brief.objective, /Agent 设计工作流/u);
+  } finally {
+    await rm(directory, { recursive: true, force: true });
+  }
+});
+
+test("requires one bounded clarification round and an explicit real direction before confirmation", async () => {
+  const directory = await temporaryDirectory();
+  try {
+    const manager = new WorkOrderManager({ rootDirectory: directory, now: () => new Date(now), id: () => workOrderId });
+    await manager.initialize();
+    const created = await manager.create(scopeA, { brief: "把这些材料整理成一套清晰、可编辑并可以导出的六页提案。" });
+    await assert.rejects(() => manager.confirm(scopeA, workOrderId, async () => job("queued"), () => null), WorkOrderDecisionConflictError);
+    const clarified = await manager.answerClarifications(scopeA, workOrderId, created.clarification.questions.map((question) => ({
+      questionId: question.questionId,
+      answer: question.questionId === "clarify_audience" ? "给业务负责人和评审委员会看" : "批准方案并确定下周的执行负责人",
+    })));
+    assert.equal(clarified.clarification.status, "complete");
+    assert.equal(clarified.readyForConfirmation, false);
+    await assert.rejects(() => manager.answerClarifications(scopeA, workOrderId, []), WorkOrderDecisionConflictError);
+    const direction = clarified.directionPreviews.find((item) => item.pack.id === "research-keynote-cn");
+    assert.ok(direction);
+    const ready = await manager.selectDirection(scopeA, workOrderId, direction.directionId);
+    assert.equal(ready.directionConfirmed, true);
+    assert.equal(ready.readyForConfirmation, true);
+    assert.equal(ready.plan.designPack.id, "research-keynote-cn");
+    assert.equal(ready.workOrder.audience.description, "给业务负责人和评审委员会看");
   } finally {
     await rm(directory, { recursive: true, force: true });
   }
@@ -85,6 +127,7 @@ test("requires human plan confirmation, starts one job idempotently, and records
     const manager = new WorkOrderManager({ rootDirectory: directory, now: () => new Date(now), id: () => workOrderId });
     await manager.initialize();
     await manager.create(scopeA, { brief: "把现有内容整理为有证据边界、可编辑并可导出的商业提案。" });
+    await completeCreationDecisions(manager);
     let creates = 0;
     const jobs = new Map<string, GenerationJob>();
     const createJob = async () => {
@@ -124,6 +167,7 @@ test("restores only valid owner-scoped Work Orders and records human cancellatio
     const first = new WorkOrderManager({ rootDirectory: directory, now: () => new Date(now), id: () => workOrderId });
     await first.initialize();
     await first.create(scopeA, { brief: "为产品负责人制作一套说明 Agent Studio 路径的六页提案。" });
+    await completeCreationDecisions(first);
     const createdJob = job("queued");
     await first.confirm(scopeA, workOrderId, async () => createdJob, () => null);
     await first.recordGenerationTransition(scopeA, workOrderId, job("analyzing"));

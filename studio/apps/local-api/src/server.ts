@@ -19,7 +19,7 @@ import { join } from "node:path";
 import { GenerationJobLimitError, GenerationJobManager, GenerationProviderUnavailableError } from "./generation-jobs.js";
 import { createPublicSessionCodec, sessionRecordFromIdentity, type PublicSessionCodec, type SessionScope } from "./public-session.js";
 import { configureGenerationProvider, type GenerationProviderConfiguration } from "./model-provider.js";
-import { WorkOrderLimitError, WorkOrderManager, WorkOrderNotFoundError } from "./work-orders.js";
+import { WorkOrderDecisionConflictError, WorkOrderLimitError, WorkOrderManager, WorkOrderNotFoundError } from "./work-orders.js";
 
 const JSON_LIMIT = 5 * 1024 * 1024;
 const SAFE_IMAGE_MIME = new Set(["image/png", "image/jpeg"]);
@@ -110,7 +110,7 @@ export function createStudioServer(options: StudioServerOptions) {
         json(response, 201, { workflow });
         return;
       }
-      const workOrderMatch = url.pathname.match(/^\/api\/work-orders\/(workorder_[a-z0-9]{8,59})(?:\/(confirm))?$/u);
+      const workOrderMatch = url.pathname.match(/^\/api\/work-orders\/(workorder_[a-z0-9]{8,59})(?:\/(confirm|clarifications|direction))?$/u);
       if (workOrderMatch && request.method === "GET" && !workOrderMatch[2]) {
         const workflow = workflows.get(scope, workOrderMatch[1]!);
         json(response, workflow ? 200 : 404, workflow ? { workflow } : { error: "Work Order not found" });
@@ -127,6 +127,31 @@ export function createStudioServer(options: StudioServerOptions) {
           json(response, 202, result);
         } catch (error) {
           if (error instanceof WorkOrderNotFoundError) { json(response, 404, { error: error.message }); return; }
+          if (error instanceof WorkOrderDecisionConflictError) { json(response, 409, { error: { code: error.code, message: error.message } }); return; }
+          throw error;
+        }
+        return;
+      }
+      if (workOrderMatch && request.method === "POST" && workOrderMatch[2] === "clarifications") {
+        try {
+          const body = await readJson(request, 32 * 1024) as { answers?: Array<{ questionId: string; answer: string }> };
+          const workflow = await workflows.answerClarifications(scope, workOrderMatch[1]!, body.answers ?? []);
+          json(response, 200, { workflow });
+        } catch (error) {
+          if (error instanceof WorkOrderNotFoundError) { json(response, 404, { error: error.message }); return; }
+          if (error instanceof WorkOrderDecisionConflictError) { json(response, 409, { error: { code: error.code, message: error.message } }); return; }
+          throw error;
+        }
+        return;
+      }
+      if (workOrderMatch && request.method === "POST" && workOrderMatch[2] === "direction") {
+        try {
+          const body = await readJson(request, 8 * 1024) as { directionId?: string };
+          const workflow = await workflows.selectDirection(scope, workOrderMatch[1]!, body.directionId ?? "");
+          json(response, 200, { workflow });
+        } catch (error) {
+          if (error instanceof WorkOrderNotFoundError) { json(response, 404, { error: error.message }); return; }
+          if (error instanceof WorkOrderDecisionConflictError) { json(response, 409, { error: { code: error.code, message: error.message } }); return; }
           throw error;
         }
         return;

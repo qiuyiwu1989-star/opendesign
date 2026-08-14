@@ -10,7 +10,7 @@ const generatedDocument = {
   scenes: fixture.scenes.map((scene, index) => index === 0 ? { ...scene, title: "主张", elements: scene.elements.map((element) => element.role === "title" ? { ...element, content: "让文章成为一套可编辑的视觉提案" } : element) } : scene),
 };
 
-function workflowFixture(status: "draft" | "confirmed" | "running" = "draft", generationJobId?: string) {
+function workflowFixture(status: "draft" | "confirmed" | "running" = "draft", generationJobId?: string, options: { needsClarification?: boolean; directionConfirmed?: boolean } = {}) {
   const stages = [
     ["stage_diagnose", "diagnose", "确认目标与证据边界"],
     ["stage_direction", "direction", "形成一主两备设计方向"],
@@ -21,6 +21,17 @@ function workflowFixture(status: "draft" | "confirmed" | "running" = "draft", ge
     ["stage_review", "review", "人工候选确认"],
     ["stage_export", "export", "明确导出"],
   ].map(([stageId, kind, objective], index) => ({ stageId, order: index + 1, kind, objective, skillPins: [{ id: "opendesign-design-director", version: "0.3.0" }], toolIds: [], requiredArtifactTypes: [], expectedArtifactTypes: [index === 0 ? "diagnosis" : "scene-ir"], approval: index > 4 ? "human-before" : "none", maxAttempts: 1 }));
+  const directionPreviews = [
+    ["executive-proposal-cn", "决策型商业提案", "#F4F1E9", "#171713", "#D84A2F", "Noto Serif CJK SC, serif", "balanced"],
+    ["research-keynote-cn", "研究型主题演讲", "#F3F6F9", "#10202D", "#1D6A8D", "Noto Sans CJK SC, sans-serif", "dense"],
+    ["editorial-story-graphics-cn", "文章叙事配图", "#FBF5EE", "#29231F", "#C15438", "Songti SC, serif", "airy"],
+  ].map(([id, name, background, text, accent, headingFamily, density], index) => ({
+    directionId: `direction_${id}`, name, pack: { id, version: "1.0.0" }, stance: index === 0 ? "primary" : "alternate", rationale: `${name} 的适用理由`,
+    tokens: { background, surface: "#FFFFFF", text, accent, headingFamily },
+    composition: { grid: `${index === 0 ? 12 : index === 1 ? 10 : 8}-column grid`, density, rhythm: "清晰的页面节奏" },
+  }));
+  const needsClarification = options.needsClarification ?? false;
+  const directionConfirmed = options.directionConfirmed ?? true;
   return {
     workOrder: {
       contractVersion: "0.1.0", workOrderId: "workorder_ui000001", createdAt: "2026-08-14T01:00:00.000Z", title: "Agent Studio 提案",
@@ -36,6 +47,14 @@ function workflowFixture(status: "draft" | "confirmed" | "running" = "draft", ge
     },
     projection: { workOrderId: "workorder_ui000001", planId: "plan_ui000001", status, stageStatuses: Object.fromEntries(stages.map((stage) => [stage.stageId, "queued"])), lastSequence: status === "draft" ? 0 : 1 },
     events: status === "draft" ? [] : [{ contractVersion: "0.1.0", eventId: "event_ui_confirm", commandId: "confirm_ui", sequence: 1, workOrderId: "workorder_ui000001", planId: "plan_ui000001", type: "plan_confirmed", occurredAt: "2026-08-14T01:00:01.000Z", actor: { actorId: "studio_public_session", kind: "human" }, inputArtifactIds: [], outputArtifactIds: [] }],
+    clarification: needsClarification ? { status: "required", round: 1, maxQuestions: 2, questions: [
+      { questionId: "clarify_audience", prompt: "这份作品主要给谁看？", reason: "受众会改变论证深度。" },
+      { questionId: "clarify_action", prompt: "看完后希望对方做出什么决定或行动？", reason: "行动决定叙事收束。" },
+    ] } : { status: "not-needed", round: 0, maxQuestions: 2, questions: [] },
+    directionPreviews,
+    selectedDirectionId: "direction_executive-proposal-cn",
+    directionConfirmed,
+    readyForConfirmation: !needsClarification && directionConfirmed,
     ...(generationJobId ? { generationJobId } : {}),
   };
 }
@@ -282,6 +301,57 @@ describe("OpenDesign Studio workspace", () => {
     expect(fetch).toHaveBeenCalledWith("/api/work-orders/workorder_ui000001/confirm", expect.objectContaining({ method: "POST" }));
     const call = vi.mocked(fetch).mock.calls.find(([path]) => path === "/api/work-orders");
     expect(JSON.parse(String(call?.[1]?.body))).toEqual(expect.objectContaining({ brief: expect.any(String), title: expect.any(String), designPack: expect.objectContaining({ id: expect.any(String), version: expect.any(String) }) }));
+  });
+
+  it("answers at most two clarification questions and explicitly selects one of three visual directions", async () => {
+    const fallback = vi.mocked(fetch).getMockImplementation()!;
+    const created = workflowFixture("draft", undefined, { needsClarification: true, directionConfirmed: false });
+    const clarified = {
+      ...created,
+      clarification: { status: "complete", round: 1, maxQuestions: 2, questions: created.clarification.questions.map((question) => ({ ...question, answer: question.questionId === "clarify_audience" ? "产品负责人" : "批准试点" })) },
+      readyForConfirmation: false,
+    };
+    const selected = {
+      ...clarified,
+      plan: { ...clarified.plan, designPack: { id: "research-keynote-cn", version: "1.0.0" } },
+      selectedDirectionId: "direction_research-keynote-cn",
+      directionConfirmed: true,
+      readyForConfirmation: true,
+    };
+    vi.mocked(fetch).mockImplementation(async (input: string | URL | Request, init?: RequestInit) => {
+      const path = String(input);
+      if (init?.method === "POST" && path === "/api/work-orders") return new Response(JSON.stringify({ workflow: created }), { status: 201 });
+      if (init?.method === "POST" && path.endsWith("/clarifications")) return new Response(JSON.stringify({ workflow: clarified }), { status: 200 });
+      if (init?.method === "POST" && path.endsWith("/direction")) return new Response(JSON.stringify({ workflow: selected }), { status: 200 });
+      return fallback(input, init);
+    });
+    render(<App />);
+    fireEvent.click(screen.getByRole("button", { name: /诊断并制定计划/ }));
+    const confirm = await screen.findByRole("button", { name: "确认计划并开始创作" });
+    expect(confirm).toBeDisabled();
+    expect(screen.getByLabelText("三个设计方向").querySelectorAll("button")).toHaveLength(3);
+    fireEvent.change(screen.getByLabelText("这份作品主要给谁看？"), { target: { value: "产品负责人" } });
+    fireEvent.change(screen.getByLabelText("看完后希望对方做出什么决定或行动？"), { target: { value: "批准试点" } });
+    fireEvent.click(screen.getByRole("button", { name: "保存补充信息" }));
+    await waitFor(() => expect(fetch).toHaveBeenCalledWith("/api/work-orders/workorder_ui000001/clarifications", expect.objectContaining({ method: "POST" })));
+    fireEvent.click(screen.getByRole("button", { name: "选择方向：研究型主题演讲" }));
+    await waitFor(() => expect(fetch).toHaveBeenCalledWith("/api/work-orders/workorder_ui000001/direction", expect.objectContaining({ method: "POST" })));
+    expect(screen.getByRole("button", { name: "确认计划并开始创作" })).toBeEnabled();
+    expect(screen.getAllByText("research-keynote-cn@1.0.0").length).toBeGreaterThan(0);
+  });
+
+  it("rejects a malformed Creation Contract instead of enabling generation", async () => {
+    const fallback = vi.mocked(fetch).getMockImplementation()!;
+    const malformed = { ...workflowFixture(), directionPreviews: workflowFixture().directionPreviews.slice(0, 2), readyForConfirmation: true };
+    vi.mocked(fetch).mockImplementation(async (input: string | URL | Request, init?: RequestInit) => {
+      if (init?.method === "POST" && String(input) === "/api/work-orders") return new Response(JSON.stringify({ workflow: malformed }), { status: 201 });
+      return fallback(input, init);
+    });
+    render(<App />);
+    fireEvent.click(screen.getByRole("button", { name: /诊断并制定计划/ }));
+    expect(await screen.findByText("生成任务没有完成")).toBeInTheDocument();
+    expect(screen.queryByLabelText("Creation Contract")).not.toBeInTheDocument();
+    expect(fetch).not.toHaveBeenCalledWith("/api/work-orders/workorder_ui000001/confirm", expect.anything());
   });
 
   it("shows version history and can restore an earlier snapshot", async () => {

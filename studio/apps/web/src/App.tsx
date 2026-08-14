@@ -11,6 +11,7 @@ import {
   createExport,
   createDesignDirectorDraft,
   createWorkOrder,
+  answerWorkOrderClarifications,
   confirmWorkOrder,
   createModelDraft,
   cancelGenerationJob,
@@ -23,6 +24,7 @@ import {
   loadGenerationJob,
   loadWorkOrder,
   loadReview,
+  selectWorkOrderDirection,
   persistProject,
   runProjectQa,
   submitProjectReview,
@@ -120,6 +122,7 @@ function generationErrorCopy(code: GenerationJobErrorCode | undefined, fallback?
   if (code === "rate_limited") return { title: "当前任务已达上限", action: "等待一个任务结束后重试", detail: "每个匿名空间最多同时运行 2 个生成任务。" };
   if (code === "provider_unavailable") return { title: "生成服务暂未配置", action: "稍后重试或联系维护者", detail: fallback || "服务没有伪装成真实 AI，当前作品仍可继续编辑。" };
   if (code === "invalid_input") return { title: "需求还不够完整", action: "补充受众、内容和交付目标", detail: fallback || "请说明作品给谁看、希望对方做什么决定。" };
+  if (code === "creation_contract_incomplete") return { title: "Creation Contract 尚未确认", action: "回答必要问题并选择一个设计方向", detail: fallback || "完成两个决策点后才会启动生成。" };
   return { title: "生成任务没有完成", action: "保留当前内容并重新提交", detail: fallback || "任务已停止，当前作品和人工修改均未受影响。" };
 }
 
@@ -312,6 +315,7 @@ export function App() {
   const [generatorError, setGeneratorError] = useState("");
   const [generationJob, setGenerationJob] = useState<GenerationJob | null>(null);
   const [workOrderWorkflow, setWorkOrderWorkflow] = useState<WorkOrderWorkflow | null>(null);
+  const [clarificationAnswers, setClarificationAnswers] = useState<Record<string, string>>({});
   const [generationJobError, setGenerationJobError] = useState<{ code: GenerationJobErrorCode; message: string } | null>(null);
   const [generationRecoveryJobId, setGenerationRecoveryJobId] = useState<string | null>(() => window.localStorage.getItem(generationJobStorageKey));
   const [generationElapsed, setGenerationElapsed] = useState(0);
@@ -793,6 +797,39 @@ export function App() {
     }
   }
 
+  async function submitClarifications() {
+    if (!workOrderWorkflow || workOrderWorkflow.clarification.status !== "required") return;
+    setGeneratorState("working");
+    setGeneratorError("");
+    try {
+      const answers = workOrderWorkflow.clarification.questions.map((question) => ({ questionId: question.questionId, answer: clarificationAnswers[question.questionId] ?? "" }));
+      const workflow = await answerWorkOrderClarifications(workOrderWorkflow.workOrder.workOrderId, answers);
+      setWorkOrderWorkflow(workflow);
+      setClarificationAnswers({});
+      setGeneratorState("idle");
+    } catch (error) {
+      const message = error instanceof Error ? error.message : "补充信息未能保存";
+      setGeneratorError(message);
+      setGeneratorState("error");
+    }
+  }
+
+  async function chooseWorkOrderDirection(directionId: string) {
+    if (!workOrderWorkflow) return;
+    setGeneratorState("working");
+    setGeneratorError("");
+    try {
+      const workflow = await selectWorkOrderDirection(workOrderWorkflow.workOrder.workOrderId, directionId);
+      setWorkOrderWorkflow(workflow);
+      setSelectedPackId(workflow.plan.designPack.id);
+      setGeneratorState("idle");
+    } catch (error) {
+      const message = error instanceof Error ? error.message : "设计方向未能保存";
+      setGeneratorError(message);
+      setGeneratorState("error");
+    }
+  }
+
   async function cancelActiveGeneration() {
     if (!generationJob || generationTerminal) return;
     try {
@@ -1065,12 +1102,27 @@ export function App() {
                 <div><dt>Design Pack</dt><dd>{workOrderWorkflow.plan.designPack.id}@{workOrderWorkflow.plan.designPack.version}</dd></div>
               </dl>
               <div className="creation-contract__pins" aria-label="已固定的专家 Skills">{workOrderWorkflow.plan.capabilityPins.map((pin) => <span key={`${pin.id}@${pin.version}`}>{pin.id}<small>@{pin.version}</small></span>)}</div>
+              {workOrderWorkflow.projection.status === "draft" && workOrderWorkflow.clarification.status === "required" && <section className="creation-contract__clarification" aria-label="澄清问题">
+                <strong>开始设计前，还需要 {workOrderWorkflow.clarification.questions.length} 个关键信息</strong>
+                {workOrderWorkflow.clarification.questions.map((question) => <label key={question.questionId}><span>{question.prompt}</span><small>{question.reason}</small><input aria-label={question.prompt} value={clarificationAnswers[question.questionId] ?? ""} onChange={(event) => setClarificationAnswers((current) => ({ ...current, [question.questionId]: event.target.value }))} maxLength={240} /></label>)}
+                <Button size="sm" tone="outline" onClick={submitClarifications} disabled={generatorState === "working" || workOrderWorkflow.clarification.questions.some((question) => (clarificationAnswers[question.questionId] ?? "").trim().length < 2)}>保存补充信息</Button>
+              </section>}
+              {workOrderWorkflow.clarification.status !== "required" && <p className="creation-contract__decision-ok"><Icon name="check" size={10} /> {workOrderWorkflow.clarification.status === "not-needed" ? "Brief 已包含明确受众与行动" : "关键信息已补充并留痕"}</p>}
+              <section className="creation-contract__directions" aria-label="三个设计方向">
+                <strong>选择一个真实设计方向</strong>
+                <div>{workOrderWorkflow.directionPreviews.map((direction) => <button type="button" key={direction.directionId} className={direction.directionId === workOrderWorkflow.selectedDirectionId ? "is-selected" : ""} aria-pressed={workOrderWorkflow.directionConfirmed && direction.directionId === workOrderWorkflow.selectedDirectionId} aria-label={`选择方向：${direction.name}`} onClick={() => chooseWorkOrderDirection(direction.directionId)} disabled={generatorState === "working" || workOrderWorkflow.projection.status !== "draft"}>
+                  <span className="creation-contract__direction-slide" style={{ background: direction.tokens.background, color: direction.tokens.text, borderColor: direction.tokens.accent }}><i style={{ background: direction.tokens.accent }} /><b style={{ fontFamily: direction.tokens.headingFamily }}>Aa</b></span>
+                  <span><b>{direction.name}</b><small>{direction.pack.id}@{direction.pack.version}</small><em>{direction.rationale}</em><em>{direction.composition.density} · {direction.composition.grid}</em><em>{direction.composition.rhythm}</em></span>
+                  {direction.directionId === workOrderWorkflow.selectedDirectionId && workOrderWorkflow.directionConfirmed && <Icon name="check" size={11} />}
+                </button>)}</div>
+                <small>{workOrderWorkflow.directionConfirmed ? "方向已确认并写入执行计划。" : "当前高亮是建议方向；请点击一次明确确认，也可以选择其他方向。"}</small>
+              </section>
               <ol className="creation-contract__stages">{workOrderWorkflow.plan.stages.map((item) => {
                 const status = workOrderWorkflow.projection.stageStatuses[item.stageId] ?? "queued";
                 return <li key={item.stageId} className={`is-${status}`}><i>{status === "completed" ? <Icon name="check" size={9} /> : item.order}</i><span><strong>{agentStageLabels[item.kind] ?? item.kind}</strong><small>{item.objective}</small></span><em>{status}</em></li>;
               })}</ol>
               <p className="creation-contract__budget">预算上限：{workOrderWorkflow.plan.budget.maxDurationSeconds} 秒 · {workOrderWorkflow.plan.budget.maxModelCalls} 次模型调用 · 不自动生成图片</p>
-              {workOrderWorkflow.projection.status === "draft" && <div className="creation-contract__actions"><Button size="sm" tone="primary" onClick={confirmCreationPlan} disabled={generatorState === "working"}>确认计划并开始创作</Button><small>确认前不会调用模型，也不会改动当前作品。</small></div>}
+              {workOrderWorkflow.projection.status === "draft" && <div className="creation-contract__actions"><Button size="sm" tone="primary" onClick={confirmCreationPlan} disabled={generatorState === "working" || !workOrderWorkflow.readyForConfirmation}>确认计划并开始创作</Button><small>{workOrderWorkflow.readyForConfirmation ? "确认前不会调用模型，也不会改动当前作品。" : "请先补齐必要信息，并明确选择一个设计方向。"}</small></div>}
               {workOrderWorkflow.projection.status === "confirmed" && !generationJob && <div className="creation-contract__actions"><Button size="sm" tone="outline" onClick={confirmCreationPlan} disabled={generatorState === "working"}>启动已确认计划</Button><small>计划已留痕；服务恢复后可继续。</small></div>}
             </article>}
             {generationJob && <article className={`generation-job generation-job--${generationJob.status}`} aria-live="polite" aria-label="生成任务状态">

@@ -367,8 +367,11 @@ test("006 public API isolates projects and generation jobs between anonymous coo
     const planned = await withCookie(`${base}/api/work-orders`, cookieA, {
       method: "POST",
       headers: { "content-type": "application/json" },
-      body: JSON.stringify({ brief: "把公开 Studio 的匿名隔离与可编辑生成能力整理成一份六页提案。" }),
-    }).then((response) => response.json()) as { workflow: { workOrder: { workOrderId: string } } };
+      body: JSON.stringify({ brief: "面向产品负责人，把公开 Studio 的匿名隔离能力整理成六页提案，让他们确认下一阶段。" }),
+    }).then((response) => response.json()) as { workflow: { workOrder: { workOrderId: string }; selectedDirectionId: string } };
+    await withCookie(`${base}/api/work-orders/${planned.workflow.workOrder.workOrderId}/direction`, cookieA, {
+      method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ directionId: planned.workflow.selectedDirectionId }),
+    });
     const body = await withCookie(`${base}/api/work-orders/${planned.workflow.workOrder.workOrderId}/confirm`, cookieA, {
       method: "POST", headers: { "content-type": "application/json" }, body: "{}",
     }).then((response) => response.json()) as { job: { jobId: string } };
@@ -412,18 +415,26 @@ test("007 Creation Contract stays private and requires explicit confirmation bef
     const createdResponse = await withCookie(`${base}/api/work-orders`, cookieA, {
       method: "POST",
       headers: { "content-type": "application/json" },
-      body: JSON.stringify({ brief: "把 Agent Studio 的设计方法做成一套六页可编辑商业提案，让产品负责人确认下一阶段。" }),
+      body: JSON.stringify({ brief: "把 Agent Studio 的方法整理成一套六页可编辑、可导出的商业提案。" }),
     });
     assert.equal(createdResponse.status, 201);
-    const created = await createdResponse.json() as { workflow: { workOrder: { workOrderId: string }; plan: { capabilityPins: Array<{ id: string }>; stages: Array<{ kind: string }> }; projection: { status: string }; events: unknown[]; generationJobId?: string } };
+    const created = await createdResponse.json() as { workflow: { workOrder: { workOrderId: string }; plan: { capabilityPins: Array<{ id: string }>; stages: Array<{ kind: string }> }; projection: { status: string }; events: unknown[]; clarification: { questions: Array<{ questionId: string }> }; directionPreviews: Array<{ directionId: string }>; selectedDirectionId: string; readyForConfirmation: boolean; generationJobId?: string } };
     assert.equal(created.workflow.projection.status, "draft");
     assert.equal(created.workflow.events.length, 0);
     assert.equal(created.workflow.generationJobId, undefined);
+    assert.equal(created.workflow.clarification.questions.length, 2);
+    assert.equal(created.workflow.directionPreviews.length, 3);
+    assert.equal(created.workflow.readyForConfirmation, false);
     assert.deepEqual(created.workflow.plan.capabilityPins.map((pin) => pin.id), ["opendesign-design-director", "narrative-architect", "art-director", "design-critic"]);
     assert.deepEqual(created.workflow.plan.stages.slice(0, 5).map((stage) => stage.kind), ["diagnose", "direction", "compose", "import", "qa"]);
     const workOrderUrl = `${base}/api/work-orders/${created.workflow.workOrder.workOrderId}`;
     assert.equal((await withCookie(workOrderUrl, cookieB)).status, 404);
 
+    assert.equal((await withCookie(`${workOrderUrl}/confirm`, cookieA, { method: "POST", headers: { "content-type": "application/json" }, body: "{}" })).status, 409);
+    assert.equal((await withCookie(`${workOrderUrl}/clarifications`, cookieB, { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ answers: [] }) })).status, 404);
+    const answers = created.workflow.clarification.questions.map((question) => ({ questionId: question.questionId, answer: question.questionId === "clarify_audience" ? "面向产品负责人与管理层" : "确认方案并批准下一阶段" }));
+    assert.equal((await withCookie(`${workOrderUrl}/clarifications`, cookieA, { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ answers }) })).status, 200);
+    assert.equal((await withCookie(`${workOrderUrl}/direction`, cookieA, { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ directionId: created.workflow.selectedDirectionId }) })).status, 200);
     const confirmedResponse = await withCookie(`${workOrderUrl}/confirm`, cookieA, { method: "POST", headers: { "content-type": "application/json" }, body: "{}" });
     assert.equal(confirmedResponse.status, 202);
     const confirmed = await confirmedResponse.json() as { workflow: { projection: { status: string }; events: Array<{ type: string; actor: { kind: string } }>; generationJobId: string }; job: { jobId: string } };
