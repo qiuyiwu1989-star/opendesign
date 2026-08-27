@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://opendesign.cc/schemas/studio/html-import-result-0.1.0.json",
+  "title": "OpenDesign HTML Import Result",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["importVersion", "status", "diagnostics", "security"],
+  "properties": {
+    "importVersion": { "const": "0.1.0" },
+    "status": { "enum": ["accepted", "partial", "rejected"] },
+    "document": { "$ref": "https://opendesign.cc/schemas/studio/scene-ir-0.1.0.json" },
+    "diagnostics": { "type": "array", "items": { "$ref": "#/$defs/diagnostic" } },
+    "security": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["untrustedInput", "executableContent", "blockedNodeCount"],
+      "properties": {
+        "untrustedInput": { "const": true },
+        "executableContent": { "const": "blocked" },
+        "blockedNodeCount": { "type": "integer", "minimum": 0 }
+      }
+    }
+  },
+  "$defs": {
+    "id": { "type": "string", "pattern": "^[a-z][a-z0-9_-]{2,63}$" },
+    "diagnostic": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["diagnosticId", "code", "severity", "disposition", "message", "sourcePath"],
+      "properties": {
+        "diagnosticId": { "$ref": "#/$defs/id" },
+        "code": { "enum": ["security.script_blocked", "security.event_handler_blocked", "security.url_blocked", "node.unsupported", "id.missing", "id.duplicate", "role.missing", "role.unsupported", "capability.invalid", "design_pack.pin_missing", "provenance.missing", "scene_ir.invalid", "import.empty"] },
+        "severity": { "enum": ["error", "warning", "note"] },
+        "disposition": { "enum": ["blocked", "unsupported", "normalized"] },
+        "message": { "type": "string", "minLength": 1 },
+        "sourcePath": { "type": "string", "minLength": 1 },
+        "sceneId": { "$ref": "#/$defs/id" },
+        "elementId": { "$ref": "#/$defs/id" },
+        "nodeName": { "type": "string", "minLength": 1 }
+      }
+    }
+  }
+}

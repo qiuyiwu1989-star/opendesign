@@ -1,0 +1,264 @@
+import assert from "node:assert/strict";
+import { mkdtemp, readFile, rm } from "node:fs/promises";
+import { tmpdir } from "node:os";
+import { join } from "node:path";
+import test from "node:test";
+import { compileDesignDirector } from "@opendesign/studio-design-director";
+import { runDeterministicQa } from "@opendesign/studio-qa";
+import type { GenerationJob, GenerationJobStatus } from "./generation-jobs.js";
+import { WorkOrderDecisionConflictError, WorkOrderLimitError, WorkOrderManager } from "./work-orders.js";
+
+const scopeA = "a".repeat(64);
+const scopeB = "b".repeat(64);
+const workOrderId = "workorder_aaaaaaaa";
+const now = "2026-08-14T04:00:00.000Z";
+
+function job(status: GenerationJobStatus, overrides: Partial<GenerationJob> = {}): GenerationJob {
+  return {
+    jobId: "job_aaaaaaaa",
+    status,
+    createdAt: now,
+    updatedAt: now,
+    stages: [{ status, at: now }],
+    ...overrides,
+  };
+}
+
+async function temporaryDirectory(): Promise<string> {
+  return mkdtemp(join(tmpdir(), "opendesign-work-orders-"));
+}
+
+async function completeCreationDecisions(manager: WorkOrderManager, scope = scopeA): Promise<void> {
+  const workflow = manager.get(scope, workOrderId);
+  assert.ok(workflow);
+  if (workflow.clarification.status === "required") {
+    await manager.answerClarifications(scope, workOrderId, workflow.clarification.questions.map((question) => ({
+      questionId: question.questionId,
+      answer: question.questionId === "clarify_audience" ? "面向产品负责人与管理层" : "确认是否进入下一阶段并批准试点",
+    })));
+  }
+  const directed = await manager.selectDirection(scope, workOrderId, workflow.selectedDirectionId);
+  assert.ok(directed.outlineReview.artifactId);
+  await manager.approveOutline(scope, workOrderId, directed.outlineReview.artifactId);
+}
+
+function acceptedOutput() {
+  const output = compileDesignDirector({
+    inputVersion: "0.1.0",
+    taskId: workOrderId,
+    title: "Agent Studio 提案",
+    brief: { objective: "把 Agent Studio 的阶段工作流整理为可编辑提案", audience: "产品负责人", decisionRequest: "批准下一阶段", constraints: ["不得虚构事实"] },
+    content: { summary: "说明阶段产物与人工确认", keyPoints: [{ id: "point_brief", text: "阶段产物必须可审查", sourceIds: ["source_brief"] }] },
+    sources: [{ sourceId: "source_brief", type: "brief", title: "用户 Brief", content: "阶段产物必须可审查" }],
+    brand: { name: "OpenDesign", tone: ["清晰", "克制"] },
+    deliverable: { kind: "proposal", audience: "产品负责人", language: "zh-CN", format: "structured-html", pageCount: 6 },
+    designPack: { id: "executive-proposal-cn", version: "1.0.0" },
+    editability: { requiredCapabilities: ["text", "typography", "asset", "frame", "order"], requireNativeText: true, requireReplaceableImages: true, requireReorderablePages: true },
+  });
+  assert.equal(output.status, "accepted");
+  if (output.status !== "accepted") throw new Error("fixture compiler rejected");
+  return output;
+}
+
+test("creates a private draft Creation Contract without starting generation", async () => {
+  const directory = await temporaryDirectory();
+  try {
+    const manager = new WorkOrderManager({ rootDirectory: directory, now: () => new Date(now), id: () => workOrderId });
+    await manager.initialize();
+    const workflow = await manager.create(scopeA, { brief: "把一篇关于 Agent 设计工作流的文章做成六页可编辑提案。" });
+    assert.equal(workflow.projection.status, "draft");
+    assert.equal(workflow.events.length, 0);
+    assert.equal(workflow.plan.designPack.id, "executive-proposal-cn");
+    assert.deepEqual(workflow.plan.capabilityPins.map((pin) => pin.id), ["opendesign-design-director", "narrative-architect", "art-director", "design-critic"]);
+    assert.deepEqual(workflow.plan.stages.map((stage) => stage.kind), ["diagnose", "direction", "outline", "compose", "import", "qa", "edit", "review", "export"]);
+    assert.equal(workflow.clarification.questions.length, 2);
+    assert.equal(workflow.directionPreviews.length, 3);
+    assert.equal(new Set(workflow.directionPreviews.map((direction) => direction.pack.id)).size, 3);
+    assert.equal(workflow.readyForConfirmation, false);
+    assert.deepEqual(workflow.artifacts.map((artifact) => artifact.artifactType), ["diagnosis"]);
+    assert.equal(workflow.outlineReview.status, "unavailable");
+    assert.equal(manager.get(scopeB, workOrderId), null);
+    const persisted = JSON.parse(await readFile(join(directory, "sessions", scopeA, "work-orders", `${workOrderId}.json`), "utf8")) as { generationInput: { brief: { objective: string }; taskId: string }; scopeHash: string };
+    assert.equal(persisted.scopeHash, scopeA);
+    assert.equal(persisted.generationInput.taskId, workOrderId);
+    assert.match(persisted.generationInput.brief.objective, /Agent 设计工作流/u);
+  } finally {
+    await rm(directory, { recursive: true, force: true });
+  }
+});
+
+test("requires one bounded clarification round and an explicit real direction before confirmation", async () => {
+  const directory = await temporaryDirectory();
+  try {
+    const manager = new WorkOrderManager({ rootDirectory: directory, now: () => new Date(now), id: () => workOrderId });
+    await manager.initialize();
+    const created = await manager.create(scopeA, { brief: "把这些材料整理成一套清晰、可编辑并可以导出的六页提案。" });
+    await assert.rejects(() => manager.confirm(scopeA, workOrderId, async () => job("queued"), () => null), WorkOrderDecisionConflictError);
+    const clarified = await manager.answerClarifications(scopeA, workOrderId, created.clarification.questions.map((question) => ({
+      questionId: question.questionId,
+      answer: question.questionId === "clarify_audience" ? "给业务负责人和评审委员会看" : "批准方案并确定下周的执行负责人",
+    })));
+    assert.equal(clarified.clarification.status, "complete");
+    assert.equal(clarified.readyForConfirmation, false);
+    await assert.rejects(() => manager.answerClarifications(scopeA, workOrderId, []), WorkOrderDecisionConflictError);
+    const direction = clarified.directionPreviews.find((item) => item.pack.id === "research-keynote-cn");
+    assert.ok(direction);
+    const ready = await manager.selectDirection(scopeA, workOrderId, direction.directionId);
+    assert.equal(ready.directionConfirmed, true);
+    assert.equal(ready.readyForConfirmation, false);
+    assert.equal(ready.outlineReview.status, "draft");
+    assert.ok(ready.outlineReview.artifactId);
+    await assert.rejects(() => manager.confirm(scopeA, workOrderId, async () => job("queued"), () => null), WorkOrderDecisionConflictError);
+    const approved = await manager.approveOutline(scopeA, workOrderId, ready.outlineReview.artifactId);
+    assert.equal(approved.outlineReview.status, "approved");
+    assert.equal(approved.readyForConfirmation, true);
+    assert.equal(approved.artifacts.filter((artifact) => artifact.artifactType === "outline").length, 2);
+    assert.equal(ready.plan.designPack.id, "research-keynote-cn");
+    assert.equal(ready.workOrder.audience.description, "给业务负责人和评审委员会看");
+  } finally {
+    await rm(directory, { recursive: true, force: true });
+  }
+});
+
+test("rejects an unapproved Design Pack before persisting a Work Order", async () => {
+  const directory = await temporaryDirectory();
+  try {
+    const manager = new WorkOrderManager({ rootDirectory: directory, id: () => workOrderId });
+    await manager.initialize();
+    await assert.rejects(
+      () => manager.create(scopeA, { brief: "把产品内容整理为一套可编辑提案，并保留来源和人工确认。", designPack: { id: "unknown-pack", version: "1.0.0" } }),
+      /not available in the approved catalog/u,
+    );
+    assert.equal(manager.get(scopeA, workOrderId), null);
+  } finally {
+    await rm(directory, { recursive: true, force: true });
+  }
+});
+
+test("bounds persisted Work Orders per anonymous scope", async () => {
+  const directory = await temporaryDirectory();
+  try {
+    let index = 0;
+    const manager = new WorkOrderManager({ rootDirectory: directory, maxPerScope: 1, id: () => `workorder_${String(++index).padStart(8, "0")}` });
+    await manager.initialize();
+    await manager.create(scopeA, { brief: "把已有材料制作成一份可以编辑并由人工确认的提案。" });
+    await assert.rejects(
+      () => manager.create(scopeA, { brief: "第二个任务不应该绕过匿名空间的持久化数量边界。" }),
+      WorkOrderLimitError,
+    );
+    await manager.create(scopeB, { brief: "另一个匿名空间拥有独立的任务数量配额与持久化目录。" });
+  } finally {
+    await rm(directory, { recursive: true, force: true });
+  }
+});
+
+test("requires human plan confirmation, starts one job idempotently, and records automatic stages", async () => {
+  const directory = await temporaryDirectory();
+  try {
+    const manager = new WorkOrderManager({ rootDirectory: directory, now: () => new Date(now), id: () => workOrderId });
+    await manager.initialize();
+    await manager.create(scopeA, { brief: "把现有内容整理为有证据边界、可编辑并可导出的商业提案。" });
+    await completeCreationDecisions(manager);
+    let creates = 0;
+    const jobs = new Map<string, GenerationJob>();
+    const createJob = async () => {
+      creates += 1;
+      const created = job("queued");
+      jobs.set(created.jobId, created);
+      return created;
+    };
+    const first = await manager.confirm(scopeA, workOrderId, createJob, (jobId) => jobs.get(jobId) ?? null);
+    assert.equal(first.workflow.projection.status, "confirmed");
+    assert.equal(first.workflow.events[0]?.type, "plan_confirmed");
+    assert.equal(first.workflow.events[0]?.actor.kind, "human");
+    assert.equal(first.workflow.generationJobId, "job_aaaaaaaa");
+
+    const second = await manager.confirm(scopeA, workOrderId, createJob, (jobId) => jobs.get(jobId) ?? null);
+    assert.equal(second.job.jobId, first.job.jobId);
+    assert.equal(creates, 1);
+
+    const output = acceptedOutput();
+    await manager.recordGenerationTransition(scopeA, workOrderId, job("analyzing"));
+    await manager.recordGenerationTransition(scopeA, workOrderId, job("generating"));
+    await manager.recordGeneratedOutput(scopeA, workOrderId, output);
+    await manager.recordGenerationTransition(scopeA, workOrderId, job("validating"));
+    await manager.recordQaArtifact(scopeA, workOrderId, runDeterministicQa(output.importResult.document));
+    await manager.recordGenerationTransition(scopeA, workOrderId, job("completed", { projectId: output.importResult.document.documentId }));
+    const completed = manager.get(scopeA, workOrderId);
+    assert.ok(completed);
+    for (const stageId of ["stage_diagnose", "stage_direction", "stage_outline", "stage_compose", "stage_import", "stage_qa"]) {
+      assert.equal(completed.projection.stageStatuses[stageId], "completed");
+    }
+    const artifactIds = new Set(completed.artifacts.map((artifact) => artifact.artifactId));
+    for (const event of completed.events.filter((event) => event.type === "stage_completed")) assert.equal(event.outputArtifactIds.every((artifactId) => artifactIds.has(artifactId)), true);
+    assert.equal(completed.projection.stageStatuses.stage_edit, "queued");
+    assert.equal(completed.projection.status, "running");
+  } finally {
+    await rm(directory, { recursive: true, force: true });
+  }
+});
+
+test("011 retains accepted and rejected QA artifacts as owner-scoped immutable evidence", async () => {
+  const directory = await temporaryDirectory();
+  try {
+    const manager = new WorkOrderManager({ rootDirectory: directory, now: () => new Date(now), id: () => workOrderId });
+    await manager.initialize();
+    await manager.create(scopeA, { brief: "把现有材料做成一套可以人工确认、继续编辑的六页提案。" });
+    const output = acceptedOutput();
+    const acceptedReport = runDeterministicQa(output.importResult.document);
+    assert.equal(acceptedReport.summary.blocker + acceptedReport.summary.error, 0);
+    await manager.recordQaArtifact(scopeA, workOrderId, acceptedReport);
+    const firstWorkflow = manager.get(scopeA, workOrderId);
+    const acceptedArtifact = firstWorkflow?.artifacts.filter((artifact) => artifact.artifactType === "qa-report").at(-1);
+    assert.ok(acceptedArtifact);
+    assert.equal(acceptedArtifact.validationStatus, "accepted");
+
+    const rejectedReport = structuredClone(acceptedReport);
+    rejectedReport.summary.error += 1;
+    rejectedReport.summary.total += 1;
+    rejectedReport.issues.push({
+      issueId: "qa_forced_layout_error",
+      sceneId: output.importResult.document.scenes[0]!.id,
+      elementIds: [output.importResult.document.scenes[0]!.elements[0]!.id],
+      category: "layout.out_of_bounds",
+      severity: "error",
+      message: "离线门禁样例：元素超出画布。",
+      safeAutoFix: false,
+    });
+    await manager.recordQaArtifact(scopeA, workOrderId, rejectedReport);
+    const secondWorkflow = manager.get(scopeA, workOrderId);
+    const qaArtifacts = secondWorkflow?.artifacts.filter((artifact) => artifact.artifactType === "qa-report") ?? [];
+    assert.equal(qaArtifacts.length, 2);
+    assert.equal(qaArtifacts[0]?.artifactId, acceptedArtifact.artifactId);
+    assert.equal(qaArtifacts[0]?.validationStatus, "accepted");
+    assert.equal(qaArtifacts[1]?.validationStatus, "rejected");
+    assert.equal(manager.getArtifact(scopeB, workOrderId, qaArtifacts[1]!.artifactId), null);
+    assert.deepEqual(manager.getArtifact(scopeA, workOrderId, qaArtifacts[1]!.artifactId)?.payload, rejectedReport);
+  } finally {
+    await rm(directory, { recursive: true, force: true });
+  }
+});
+
+test("restores only valid owner-scoped Work Orders and records human cancellation", async () => {
+  const directory = await temporaryDirectory();
+  try {
+    const first = new WorkOrderManager({ rootDirectory: directory, now: () => new Date(now), id: () => workOrderId });
+    await first.initialize();
+    await first.create(scopeA, { brief: "为产品负责人制作一套说明 Agent Studio 路径的六页提案。" });
+    await completeCreationDecisions(first);
+    const createdJob = job("queued");
+    await first.confirm(scopeA, workOrderId, async () => createdJob, () => null);
+    await first.recordGenerationTransition(scopeA, workOrderId, job("analyzing"));
+
+    const restored = new WorkOrderManager({ rootDirectory: directory, now: () => new Date(now) });
+    await restored.initialize();
+    assert.equal(restored.get(scopeA, workOrderId)?.projection.status, "running");
+    assert.equal(restored.get(scopeB, workOrderId), null);
+    await restored.cancelForJob(scopeA, createdJob.jobId);
+    const cancelled = restored.get(scopeA, workOrderId);
+    assert.equal(cancelled?.projection.status, "cancelled");
+    assert.equal(cancelled?.events.at(-1)?.actor.kind, "human");
+  } finally {
+    await rm(directory, { recursive: true, force: true });
+  }
+});

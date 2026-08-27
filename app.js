@@ -77,7 +77,8 @@ let searchQuery = "";
 let sortMode = "curated"; // "curated"（curator 给的顺序）| "popular"（全站收藏 desc）| "random"（随机探索）
 let randomOrder = new Map(); // site.id → 随机序号（随机探索时用）
 let sitesI18n = {};        // overlay：site_id → { lang → { palette, layout, interaction, motion, notes } }
-let packsIndex = {};       // overlay：site_id → { file, size, agentUrl, ... }
+let packsIndex = {};       // 详情按需加载：site_id → 完整文件清单
+let packsIndexPromise = null;
 let currentView = "canvas";
 const HOME_VIEW = { x: -110, y: -70, scale: 1 };  // 画布默认原点
 let viewState = { ...HOME_VIEW };
@@ -575,8 +576,18 @@ function domainFromUrl(url) {
 const FOREIGN_SHOT = /thum\.io|wsrv\.nl|microlink\.io/;
 
 /** 这个站有没有一个「不依赖境外代理」的可靠图源：本地缩略图，或素材包真截图 */
+function packPreviewShot(site, width) {
+  let url = site && site.pack_preview;
+  if (!url) return null;
+  if (width && url.includes("myqcloud.com")) {
+    url += `?imageMogr2/thumbnail/${width}x/format/webp/quality/78`;
+  }
+  return url;
+}
+
 function hasReliableImage(site) {
   if (site.image && !FOREIGN_SHOT.test(site.image)) return true;
+  if (packPreviewShot(site, 640)) return true;
   return !!packHeroShot(site.id, 640);
 }
 
@@ -585,8 +596,14 @@ function imageFallbackChain(site) {
   // 1) 原始 image（优化版 /thumbs/<slug>.webp，最快；若仍是境外代理 URL 则跳过，
   //    交由上面 hasReliableImage 在渲染前就拦掉，这里不再把它当候选）
   if (site.image && !FOREIGN_SHOT.test(site.image)) chain.push(site.image);
+  // /thumbs/<slug>.webp 已经是 768×480 的轻图。若本地缩略图失败，再去 COS；
+  // 不把同一个 /packs 本地路径重复塞进链里，避免连续两个必然 404。
+  const compactShot = packPreviewShot(site, 640);
+  const localPackDuplicate = compactShot && compactShot.startsWith("/packs/")
+    && String(site.image || "").startsWith("/thumbs/");
+  if (compactShot && !localPackDuplicate) chain.push(compactShot);
   // 2) 素材包真截图（Playwright 实拍，COS 缩放到 640px ~20KB）——本地缩略图 404 时的兜底
-  const packShot = packHeroShot(site.id, 640);
+  const packShot = localPackDuplicate ? null : packHeroShot(site.id, 640);
   if (packShot) chain.push(packShot);
   return [...new Set(chain)];
 }
@@ -605,7 +622,7 @@ const BLANK_PX = "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAA
  *  用 hasReliableImage(site) 判——详情抽屉主图会显式传入包含 packShot /
  *  用户手动刷新覆盖图的 chain，这些来源 hasReliableImage 并不知道，
  *  提前用它拦截会把这些合法图源也一起挡掉。 */
-function imgAttrs(site, { lazy = true, chain = null } = {}) {
+function imgAttrs(site, { lazy = true, chain = null, priority = false, width = 768, height = 480 } = {}) {
   if (site.no_preview) {
     return `src="${BLANK_PX}" data-no-preview="1"`;
   }
@@ -614,9 +631,44 @@ function imgAttrs(site, { lazy = true, chain = null } = {}) {
     return `src="${BLANK_PX}" data-pending-preview="1"`;
   }
   const chainAttr = encodeURIComponent(JSON.stringify(ch));
-  const loading = lazy ? ' loading="lazy"' : "";
+  const loading = priority ? ' loading="eager" fetchpriority="high" decoding="async"'
+    : `${lazy ? ' loading="lazy"' : ' loading="eager"'} fetchpriority="low" decoding="async"`;
+  const intrinsic = ` width="${width}" height="${height}"`;
   // ch[0] 源自远程 JSON（site.image / pack 文件名），必须转义防属性逃逸
-  return `src="${escapeHtml(ch[0])}" data-fallback="${chainAttr}" data-fallback-idx="0" onerror="window.__imgFallback&&window.__imgFallback(this)"${loading}`;
+  return `src="${escapeHtml(ch[0])}" data-fallback="${chainAttr}" data-fallback-idx="0" onerror="window.__imgFallback&&window.__imgFallback(this)"${intrinsic}${loading}`;
+}
+
+/**
+ * 视图切换后提升已经存在的首屏图片。隐藏视图初次渲染时一律保持 lazy/low，
+ * 防止桌面同时抢载 Canvas 和 Library；用户真正进入该视图时再提升优先级。
+ */
+function promoteImagePriorities(root, limit) {
+  if (!root) return;
+  let promoted = 0;
+  root.querySelectorAll("img").forEach((img) => {
+    if (promoted >= limit || img.dataset.noPreview || img.dataset.pendingPreview) return;
+    // 浏览器尚未解码 lazy 图片时 img 自身可能报告 0×0；用固定 aspect-ratio
+    // 的父容器判断可见性，避免切换到列表后首屏图片仍停留在 low。
+    const box = img.closest(".card-thumb, .library-thumb, .related-site-thumb, .drawer-media") || img;
+    const rect = box.getBoundingClientRect();
+    if (rect.bottom <= 0 || rect.right <= 0 || rect.top >= innerHeight || rect.left >= innerWidth) return;
+    img.loading = "eager";
+    img.fetchPriority = "high";
+    img.decoding = "async";
+    promoted++;
+  });
+}
+
+function promoteLibraryLeadImages(limit = LIB_PRIORITY_IMAGES) {
+  if (!libraryList) return;
+  let promoted = 0;
+  libraryList.querySelectorAll("img").forEach((img) => {
+    if (promoted >= limit || img.dataset.noPreview || img.dataset.pendingPreview) return;
+    img.loading = "eager";
+    img.fetchPriority = "high";
+    img.decoding = "async";
+    promoted++;
+  });
 }
 
 /** site.no_preview 或没有可靠图源时，卡片容器直接带上失败态 class，
@@ -631,6 +683,9 @@ function thumbClass(site) {
  * （thum.io 对深色/重 JS 的站常返回黑图）。优先桌面首屏，依次降级。
  */
 function packHeroShot(siteId, width) {
+  const site = sites.find((candidate) => candidate.id === siteId);
+  const compact = packPreviewShot(site, width);
+  if (compact) return compact;
   const pack = (typeof packsIndex !== "undefined") && packsIndex[siteId];
   if (!pack || !pack.files) return null;
   const find = (re) => pack.files.find((f) => f.category === "shot" && re.test(f.name));
@@ -639,7 +694,9 @@ function packHeroShot(siteId, width) {
   if (!f) return null;
   let url = f.url || `/packs/${siteId}/${f.name}`;
   // 卡片缩略图：用腾讯 COS 图片处理实时缩放（258KB → ~20KB），省带宽。主图(hero)不传 width 用原图。
-  if (width && url.includes("myqcloud.com")) url += `?imageMogr2/thumbnail/${width}x`;
+  if (width && url.includes("myqcloud.com")) {
+    url += `?imageMogr2/thumbnail/${width}x/format/webp/quality/78`;
+  }
   return url;
 }
 
@@ -1175,7 +1232,7 @@ function renderRelatedTags() {
 
 /** 单个画布节点的 HTML（虚拟化时按需创建）。
  *  site.* 全部来自 mimo 管线生成的远程 JSON —— 文本/属性一律 escapeHtml，href 走 safeHref。 */
-function siteNodeHTML(site, x, y) {
+function siteNodeHTML(site, x, y, priority = false) {
   const safeId = escapeHtml(site.id);
   const safeTitle = escapeHtml(site.title);
   const tagText = escapeHtml(site.tags.slice(0, 3).map((tg) => window.i18n.tag(tg)).join(" · "));
@@ -1184,7 +1241,7 @@ function siteNodeHTML(site, x, y) {
     <div class="site-node" data-node="${safeId}" style="transform: translate3d(${x}px, ${y}px, 0);">
       <article class="site-card" data-id="${safeId}"${saved ? ' data-saved="true"' : ""}>
         <div class="card-thumb${thumbClass(site)}">
-          <img ${imgAttrs(site)} alt="${t("img.alt.screenshot", { title: safeTitle })}" draggable="false" />
+          <img ${imgAttrs(site, { priority })} alt="${t("img.alt.screenshot", { title: safeTitle })}" draggable="false" />
           <a class="card-hit" href="${escapeHtml(siteDetailHref(site.id))}" aria-label="${t("card.open.aria", { title: safeTitle })}"></a>
           <a class="card-visit" href="${safeHref(site.url)}" target="_blank" rel="noreferrer" aria-label="${t("card.visit.aria", { title: safeTitle })}">
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8" /></svg>
@@ -1252,7 +1309,7 @@ function updateCanvasWindow() {
   const originY = surfaceH / 2 + viewState.y;
   const cw = canvasLayout.nodeW;                // 格距（世界单位）
   const ch = canvasLayout.nodeH;
-  const margin = Math.max(cw, ch) * 1.2 * s;    // 预渲染余量（屏幕 px）
+  const margin = Math.max(cw, ch) * 0.45 * s;   // 只保留一小圈预渲染，避免 lazy-load 阈值提前拉数十张图
 
   // 屏幕可见区 → 世界坐标 → 格子范围
   const worldLeft   = (-margin - originX) / s;
@@ -1265,6 +1322,7 @@ function updateCanvasWindow() {
   const gy1 = Math.ceil (worldBottom / ch);
 
   const wanted = new Set();
+  let priorityBudget = 6;            // 只提升当前视口最先遇到的少量图片
   let budget = 240;                  // 安全上限：极端缩放下也不会爆 DOM
   for (let gy = gy0; gy <= gy1 && budget > 0; gy++) {
     for (let gx = gx0; gx <= gx1 && budget > 0; gx++) {
@@ -1274,8 +1332,14 @@ function updateCanvasWindow() {
       if (!renderedNodes.has(key)) {
         const idx = cellSiteIndex(gx, gy);
         if (idx < 0) continue;
+        const nodeLeft = gx * cw * s + originX;
+        const nodeTop = gy * ch * s + originY;
+        const visible = nodeLeft < surfaceW && nodeLeft + cw * s > 0
+          && nodeTop < surfaceH && nodeTop + ch * s > 0;
+        const priority = currentView === "canvas" && visible && priorityBudget > 0;
+        if (priority) priorityBudget--;
         const tpl = document.createElement("template");
-        tpl.innerHTML = siteNodeHTML(canvasAll[idx], gx * cw, gy * ch).trim();
+        tpl.innerHTML = siteNodeHTML(canvasAll[idx], gx * cw, gy * ch, priority).trim();
         const el = tpl.content.firstElementChild;
         canvasGrid.appendChild(el);
         renderedNodes.set(key, el);
@@ -1312,7 +1376,8 @@ function renderCanvas() {
      第一遍按策展顺序展示全部；耗尽后随机洗牌重新追加，循环 MAX_LOOPS 次。
      没有"终点"：用户向下滚动永远有新卡片出现。
    ═══════════════════════════════════════════════════════════════════ */
-const LIB_PAGE_SIZE = 48;    // 每批 48 张，首屏 ~1.5 屏，预加载几乎无感
+const LIB_PAGE_SIZE = 24;    // 首批只建首屏附近 DOM；后续由 observer 增量追加
+const LIB_PRIORITY_IMAGES = 8;
 const MAX_LIB_LOOPS = 20;    // 最多循环 20 遍（~10 000 张卡片）防止 DOM 无限膨胀
 
 let _libAllSites  = [];      // 当前过滤结果全集
@@ -1380,7 +1445,7 @@ function _libAppendCards(count) {
           _libAppendCards(LIB_PAGE_SIZE);
         }
       },
-      { rootMargin: "600px" }   // 提前 600 px 预加载，保证丝滑
+      { rootMargin: "320px" }   // 屏外卡片少抢首屏带宽，仍保留平滑衔接
     );
     _libObserver.observe(sentinel);
   } else {
@@ -1416,7 +1481,7 @@ function libraryCardHTML(site, index) {
     <article class="library-card" data-id="${safeId}"${saved ? ' data-saved="true"' : ""}>
       <a class="library-hit" href="${escapeHtml(siteDetailHref(site.id))}" aria-label="${t("card.open.aria", { title: safeTitle })}"></a>
       <div class="library-thumb${thumbClass(site)}">
-        <img ${imgAttrs(site)} alt="${t("img.alt.screenshot", { title: safeTitle })}" />
+        <img ${imgAttrs(site, { priority: currentView === "library" && index < LIB_PRIORITY_IMAGES })} alt="${t("img.alt.screenshot", { title: safeTitle })}" />
         <button class="card-save library-save" type="button" data-save="${safeId}" aria-label="${t(saved ? "drawer.save.done" : "drawer.save")}" aria-pressed="${saved}">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-4.5-9.3-9A5.4 5.4 0 0 1 12 6a5.4 5.4 0 0 1 9.3 6c-2.3 4.5-9.3 9-9.3 9Z" /></svg>
         </button>
@@ -1506,6 +1571,14 @@ function applyTransform() {
 function openDetail(siteId) {
   activeSite = sites.find((site) => site.id === siteId) || sites[0];
   track("card_view", { category: "card", slug: activeSite.id, name: activeSite.title });
+  // 精简首页索引已经知道 pack membership。没有包的详情无需下载 4MB 清单。
+  if (activeSite.has_pack) {
+    ensurePacksIndex().then(() => {
+      if (activeSite && activeSite.id === siteId) refreshDrawerActions();
+    }).catch(() => {
+      if (activeSite && activeSite.id === siteId) refreshDrawerActions();
+    });
+  }
   // Lazy-load specs: 开抽屉时触发（mergeExternalSpecs 幂等，重复调用共享同一 promise）；
   // 无条件挂回调 —— 之前包在 if(!_specsLoadP) 里，第二次及以后开抽屉时 spec 已在加载中/已加载
   // 的站拿不到补渲染，markdown / 相关推荐停留在旧内容
@@ -1534,7 +1607,7 @@ function openDetail(siteId) {
   drawerMedia.classList.toggle("img-failed", !!activeSite.no_preview || !heroChain.length);
   drawerMedia.innerHTML = `
     <a href="${safeHref(activeSite.url)}" target="_blank" rel="noreferrer" aria-label="${t("drawer.visit.aria")}">
-      <img id="drawerHeroImg" ${imgAttrs(activeSite, { lazy: false, chain: heroChain })} alt="${escapeHtml(activeSite.title)} screenshot" />
+      <img id="drawerHeroImg" ${imgAttrs(activeSite, { lazy: false, chain: heroChain, priority: true, width: 1440, height: 900 })} alt="${escapeHtml(activeSite.title)} screenshot" />
       <span class="media-visit-badge">
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8" /></svg>
         ${t("drawer.media.visit")}
@@ -1729,6 +1802,12 @@ function renderPackManifest() {
   if (!manifest || !activeSite) return;
   const gen = document.querySelector("#packGenerate");
   const pack = packsIndex[activeSite.id];
+  // 已知有包但清单还在按需加载时，不短暂误显示“生成设计系统”。
+  if (activeSite.has_pack && packsIndexPromise && !pack) {
+    manifest.hidden = true;
+    if (gen) gen.hidden = true;
+    return;
+  }
   if (!pack || !pack.files || !pack.files.length) {
     // 没有 ZIP 素材包 → 显示「生成设计系统」面板（客户端从 11 层 spec 实时组装）
     manifest.hidden = true;
@@ -2770,7 +2849,14 @@ function switchView(view, { fromHash = false } = {}) {
     mergeExternalSpecs().then(() => renderSpecExample()).catch(() => {});
   }
   // 进入画布时 surface 才有真实尺寸 —— 补一次虚拟化窗口渲染 + 复位提示
-  if (view === "canvas") { updateCanvasWindow(); reflectHomeState(); }
+  if (view === "canvas") {
+    updateCanvasWindow();
+    promoteImagePriorities(canvasGrid, 6);
+    reflectHomeState();
+  }
+  // Library 顶部有大标题，真实卡片在首个 viewport 下方；仍提前提升前 8 张可用预览，
+  // 这样用户开始下滚时图片已经就绪。Canvas 继续只提升严格可见图片。
+  if (view === "library") promoteLibraryLeadImages();
   if (!fromHash) setHash(viewToHash(view), { silent: true });
 }
 
@@ -3616,12 +3702,9 @@ if (!applyPathRoute()) applyHash();
   // 路由需要重跑一次：数据加载前 sites 为空，find(slug) 会失败
   if (!applyPathRoute() && !applyOpenParam()) applyHash();
 
-  // 5. 后台并行：packs / i18n / Supabase（不阻塞首屏）
-  //    sites-specs.json 改为懒加载：首次开详情抽屉 / About 时才触发，节省 ~186KB
-  await Promise.all([
-    loadPacksIndex(),
-    loadSitesI18n()
-  ]);
+  // 5. 后台只加载语言数据；完整 packs-index (~4 MB) 改为详情打开时请求。
+  //    首页图片兜底已折叠进 sites-index.pack_preview。
+  await loadSitesI18n();
   await store.init();
   // 二次渲染：更新 canvas / filters / counts / saved，但 不 重置 library 分页
   // （重置会把用户已滚动加载的卡片清掉，体验很差）
@@ -3749,18 +3832,27 @@ function localizedField(site, field) {
 /** 设计素材包索引（site.id → {file, size}）—— 决定详情抽屉是否显示「下载」按钮
  *  注：packsIndex 变量声明在文件顶部状态区，避免 TDZ。 */
 async function loadPacksIndex() {
-  try {
-    const res = await fetch("/packs-index.json", { cache: "default" }); // 日更一次，用浏览器缓存
-    if (!res.ok) return;
-    packsIndex = await res.json();
-    healPackImages();   // 索引到手后，把「加载期落到境外兜底/已失败」的卡图统一换成 COS 真截图
-  } catch (err) {
-    // 没索引也没关系，按钮就藏着
-  }
+  if (packsIndexPromise) return packsIndexPromise;
+  packsIndexPromise = (async () => {
+    try {
+      const res = await fetch("/packs-index.json", { cache: "default" });
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      packsIndex = await res.json();
+      healPackImages();
+    } catch (err) {
+      packsIndexPromise = null;
+      throw err;
+    }
+  })();
+  return packsIndexPromise;
+}
+
+function ensurePacksIndex() {
+  return Object.keys(packsIndex).length ? Promise.resolve() : loadPacksIndex();
 }
 
 /**
- * packs-index.json ~2MB，加载要几秒，首屏渲染时通常还没到手。这期间没有本地
+ * packs-index.json 约 4MB，只在用户打开详情时按需加载。极少数没有本地
  * /thumbs/ 的站会先按 imgAttrs() 的判定渲成占位（data-pending-preview，见上），
  * 因为那一刻还不知道它有没有素材包。索引到手后在这里补一次：凡是占位态、但
  * 现在查出确实有素材包真截图的，换成 COS 图并摘掉占位标记。

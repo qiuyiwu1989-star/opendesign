@@ -1,0 +1,379 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://opendesign.cc/schemas/agent-os-0.1.0.json",
+  "title": "OpenDesign Agent OS contracts",
+  "$defs": {
+    "id": { "type": "string", "pattern": "^[a-z][a-z0-9_-]{2,95}$" },
+    "version": { "type": "string", "pattern": "^\\d+\\.\\d+\\.\\d+$" },
+    "timestamp": { "type": "string", "format": "date-time" },
+    "digest": { "type": "string", "pattern": "^sha256:[a-f0-9]{64}$" },
+    "pin": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "version"],
+      "properties": { "id": { "$ref": "#/$defs/id" }, "version": { "$ref": "#/$defs/version" } }
+    },
+    "actor": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["actorId", "kind"],
+      "properties": {
+        "actorId": { "$ref": "#/$defs/id" },
+        "kind": { "enum": ["human", "agent", "system"] }
+      }
+    },
+    "sourceCoverage": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["declaredSourceIds", "usedSourceIds", "unresolvedSourceIds"],
+      "properties": {
+        "declaredSourceIds": { "type": "array", "items": { "$ref": "#/$defs/id" }, "uniqueItems": true },
+        "usedSourceIds": { "type": "array", "items": { "$ref": "#/$defs/id" }, "uniqueItems": true },
+        "unresolvedSourceIds": { "type": "array", "items": { "$ref": "#/$defs/id" }, "uniqueItems": true }
+      }
+    },
+    "workOrder": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["contractVersion", "workOrderId", "createdAt", "title", "objective", "audience", "deliverable", "sources", "brand", "constraints", "successCriteria", "confidentiality"],
+      "properties": {
+        "contractVersion": { "const": "0.1.0" },
+        "workOrderId": { "$ref": "#/$defs/id" },
+        "createdAt": { "$ref": "#/$defs/timestamp" },
+        "title": { "type": "string", "minLength": 1, "maxLength": 160 },
+        "objective": { "type": "string", "minLength": 1, "maxLength": 2000 },
+        "audience": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["description", "decisionOrAction"],
+          "properties": {
+            "description": { "type": "string", "minLength": 1, "maxLength": 1000 },
+            "decisionOrAction": { "type": "string", "minLength": 1, "maxLength": 1000 }
+          }
+        },
+        "deliverable": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["kind", "formats", "language"],
+          "properties": {
+            "kind": { "enum": ["proposal", "research-keynote", "article-graphics"] },
+            "formats": { "type": "array", "minItems": 1, "uniqueItems": true, "items": { "enum": ["html", "pptx", "pdf", "png"] } },
+            "language": { "enum": ["zh-CN", "en"] },
+            "pageCount": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["min", "max"],
+              "properties": {
+                "min": { "type": "integer", "minimum": 1, "maximum": 100 },
+                "max": { "type": "integer", "minimum": 1, "maximum": 100 }
+              }
+            }
+          }
+        },
+        "sources": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["sourceId", "type", "title"],
+            "properties": {
+              "sourceId": { "$ref": "#/$defs/id" },
+              "type": { "enum": ["brief", "article", "document", "url", "manual"] },
+              "title": { "type": "string", "minLength": 1, "maxLength": 300 },
+              "sourceRef": { "type": "string", "minLength": 1, "maxLength": 2048 },
+              "contentHash": { "$ref": "#/$defs/digest" }
+            }
+          }
+        },
+        "brand": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["name", "assetIds", "guidance"],
+          "properties": {
+            "name": { "type": "string", "minLength": 1, "maxLength": 200 },
+            "assetIds": { "type": "array", "uniqueItems": true, "items": { "$ref": "#/$defs/id" } },
+            "guidance": { "type": "array", "maxItems": 20, "items": { "type": "string", "minLength": 1, "maxLength": 1000 } }
+          }
+        },
+        "constraints": { "type": "array", "maxItems": 30, "items": { "type": "string", "minLength": 1, "maxLength": 1000 } },
+        "successCriteria": { "type": "array", "minItems": 1, "maxItems": 20, "items": { "type": "string", "minLength": 1, "maxLength": 1000 } },
+        "confidentiality": { "enum": ["public", "private"] }
+      }
+    },
+    "stage": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["stageId", "order", "kind", "objective", "skillPins", "toolIds", "requiredArtifactTypes", "expectedArtifactTypes", "approval", "maxAttempts"],
+      "properties": {
+        "stageId": { "$ref": "#/$defs/id" },
+        "order": { "type": "integer", "minimum": 1, "maximum": 50 },
+        "kind": { "enum": ["diagnose", "research", "outline", "direction", "compose", "import", "qa", "edit", "review", "export"] },
+        "objective": { "type": "string", "minLength": 1, "maxLength": 1000 },
+        "skillPins": { "type": "array", "items": { "$ref": "#/$defs/pin" } },
+        "toolIds": { "type": "array", "uniqueItems": true, "items": { "$ref": "#/$defs/id" } },
+        "requiredArtifactTypes": { "type": "array", "uniqueItems": true, "items": { "$ref": "#/$defs/artifactType" } },
+        "expectedArtifactTypes": { "type": "array", "minItems": 1, "uniqueItems": true, "items": { "$ref": "#/$defs/artifactType" } },
+        "approval": { "enum": ["none", "human-before", "human-after"] },
+        "maxAttempts": { "type": "integer", "minimum": 1, "maximum": 5 }
+      }
+    },
+    "plan": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["contractVersion", "planId", "workOrderId", "revision", "createdAt", "status", "designPack", "capabilityPins", "stages", "budget"],
+      "properties": {
+        "contractVersion": { "const": "0.1.0" },
+        "planId": { "$ref": "#/$defs/id" },
+        "workOrderId": { "$ref": "#/$defs/id" },
+        "revision": { "type": "integer", "minimum": 1 },
+        "createdAt": { "$ref": "#/$defs/timestamp" },
+        "status": { "const": "draft" },
+        "designPack": { "$ref": "#/$defs/pin" },
+        "industryKit": { "$ref": "#/$defs/pin" },
+        "capabilityPins": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/pin" } },
+        "stages": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/stage" } },
+        "budget": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["maxDurationSeconds", "maxModelCalls", "maxImageCalls"],
+          "properties": {
+            "maxDurationSeconds": { "type": "integer", "minimum": 1, "maximum": 86400 },
+            "maxModelCalls": { "type": "integer", "minimum": 0, "maximum": 1000 },
+            "maxImageCalls": { "type": "integer", "minimum": 0, "maximum": 1000 }
+          }
+        }
+      }
+    },
+    "evidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["contractVersion", "evidenceBundleId", "workOrderId", "createdAt", "sources", "claims"],
+      "properties": {
+        "contractVersion": { "const": "0.1.0" },
+        "evidenceBundleId": { "$ref": "#/$defs/id" },
+        "workOrderId": { "$ref": "#/$defs/id" },
+        "createdAt": { "$ref": "#/$defs/timestamp" },
+        "sources": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["sourceId", "title", "contentHash", "trust", "license", "capturedAt"],
+            "properties": {
+              "sourceId": { "$ref": "#/$defs/id" },
+              "title": { "type": "string", "minLength": 1, "maxLength": 300 },
+              "contentHash": { "$ref": "#/$defs/digest" },
+              "trust": { "enum": ["user-provided", "library-verified", "external-unverified", "generated"] },
+              "license": { "enum": ["unknown", "reference-only", "permissive", "owned", "generated", "restricted"] },
+              "capturedAt": { "$ref": "#/$defs/timestamp" },
+              "sourceRef": { "type": "string", "minLength": 1, "maxLength": 2048 }
+            }
+          }
+        },
+        "claims": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["claimId", "statement", "sourceIds", "kind"],
+            "properties": {
+              "claimId": { "$ref": "#/$defs/id" },
+              "statement": { "type": "string", "minLength": 1, "maxLength": 2000 },
+              "sourceIds": { "type": "array", "uniqueItems": true, "items": { "$ref": "#/$defs/id" } },
+              "kind": { "enum": ["fact", "inference", "recommendation", "gap"] }
+            }
+          }
+        }
+      }
+    },
+    "artifactType": { "enum": ["diagnosis", "outline", "direction", "structured-html", "scene-ir", "qa-report", "export-report"] },
+    "artifact": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["contractVersion", "artifactId", "workOrderId", "planId", "stageId", "artifactType", "revisionId", "createdAt", "payloadHash", "payloadRef", "designPack", "skillPins", "sourceCoverage", "editability", "validationStatus"],
+      "properties": {
+        "contractVersion": { "const": "0.1.0" },
+        "artifactId": { "$ref": "#/$defs/id" },
+        "workOrderId": { "$ref": "#/$defs/id" },
+        "planId": { "$ref": "#/$defs/id" },
+        "stageId": { "$ref": "#/$defs/id" },
+        "artifactType": { "$ref": "#/$defs/artifactType" },
+        "revisionId": { "$ref": "#/$defs/id" },
+        "createdAt": { "$ref": "#/$defs/timestamp" },
+        "payloadHash": { "$ref": "#/$defs/digest" },
+        "payloadRef": { "type": "string", "minLength": 1, "maxLength": 2048 },
+        "designPack": { "$ref": "#/$defs/pin" },
+        "skillPins": { "type": "array", "items": { "$ref": "#/$defs/pin" } },
+        "sourceCoverage": { "$ref": "#/$defs/sourceCoverage" },
+        "editability": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["editable", "capabilities"],
+          "properties": {
+            "editable": { "type": "boolean" },
+            "capabilities": { "type": "array", "uniqueItems": true, "items": { "enum": ["text", "typography", "asset", "frame", "order"] } },
+            "nativeElementRatio": { "type": "number", "minimum": 0, "maximum": 1 }
+          }
+        },
+        "validationStatus": { "enum": ["draft", "accepted", "rejected"] }
+      }
+    },
+    "runEvent": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["contractVersion", "eventId", "commandId", "sequence", "workOrderId", "planId", "type", "occurredAt", "actor", "inputArtifactIds", "outputArtifactIds"],
+      "properties": {
+        "contractVersion": { "const": "0.1.0" },
+        "eventId": { "$ref": "#/$defs/id" },
+        "commandId": { "$ref": "#/$defs/id" },
+        "sequence": { "type": "integer", "minimum": 1 },
+        "workOrderId": { "$ref": "#/$defs/id" },
+        "planId": { "$ref": "#/$defs/id" },
+        "stageId": { "$ref": "#/$defs/id" },
+        "type": { "enum": ["plan_confirmed", "stage_started", "stage_awaiting_input", "stage_resumed", "stage_completed", "stage_failed", "plan_completed", "plan_failed", "plan_cancelled"] },
+        "occurredAt": { "$ref": "#/$defs/timestamp" },
+        "actor": { "$ref": "#/$defs/actor" },
+        "inputArtifactIds": { "type": "array", "uniqueItems": true, "items": { "$ref": "#/$defs/id" } },
+        "outputArtifactIds": { "type": "array", "uniqueItems": true, "items": { "$ref": "#/$defs/id" } },
+        "diagnosticCode": { "type": "string", "pattern": "^[a-z][a-z0-9_.-]{2,95}$" },
+        "message": { "type": "string", "minLength": 1, "maxLength": 1000 }
+      }
+    },
+    "candidate": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["contractVersion", "candidateId", "workOrderId", "planId", "artifactId", "revisionId", "createdAt", "createdBy", "status", "diff", "qa", "export", "sourceCoverage", "notPublished"],
+      "properties": {
+        "contractVersion": { "const": "0.1.0" },
+        "candidateId": { "$ref": "#/$defs/id" },
+        "workOrderId": { "$ref": "#/$defs/id" },
+        "planId": { "$ref": "#/$defs/id" },
+        "artifactId": { "$ref": "#/$defs/id" },
+        "revisionId": { "$ref": "#/$defs/id" },
+        "createdAt": { "$ref": "#/$defs/timestamp" },
+        "createdBy": { "$ref": "#/$defs/actor" },
+        "status": { "enum": ["awaiting-human", "approved", "changes-requested", "rejected"] },
+        "diff": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["baseRevisionId", "currentRevisionId", "changedElementIds"],
+          "properties": {
+            "baseRevisionId": { "$ref": "#/$defs/id" },
+            "currentRevisionId": { "$ref": "#/$defs/id" },
+            "changedElementIds": { "type": "array", "uniqueItems": true, "items": { "$ref": "#/$defs/id" } }
+          }
+        },
+        "qa": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["reportArtifactId", "blocker", "error", "warning"],
+          "properties": {
+            "reportArtifactId": { "$ref": "#/$defs/id" },
+            "blocker": { "type": "integer", "minimum": 0 },
+            "error": { "type": "integer", "minimum": 0 },
+            "warning": { "type": "integer", "minimum": 0 }
+          }
+        },
+        "export": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["reportArtifactId", "succeeded", "artifactIds"],
+          "properties": {
+            "reportArtifactId": { "$ref": "#/$defs/id" },
+            "succeeded": { "type": "boolean" },
+            "artifactIds": { "type": "array", "minItems": 1, "uniqueItems": true, "items": { "$ref": "#/$defs/id" } }
+          }
+        },
+        "sourceCoverage": { "$ref": "#/$defs/sourceCoverage" },
+        "decidedBy": { "$ref": "#/$defs/actor" },
+        "decisionReason": { "type": "string", "minLength": 4, "maxLength": 1000 },
+        "notPublished": { "const": true }
+      }
+    },
+    "feedback": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["contractVersion", "feedbackId", "workOrderId", "occurredAt", "actor", "target", "signal", "visibility", "changesHistoricalJudgment"],
+      "properties": {
+        "contractVersion": { "const": "0.1.0" },
+        "feedbackId": { "$ref": "#/$defs/id" },
+        "workOrderId": { "$ref": "#/$defs/id" },
+        "occurredAt": { "$ref": "#/$defs/timestamp" },
+        "actor": { "$ref": "#/$defs/actor" },
+        "target": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["kind", "id"],
+          "properties": {
+            "kind": { "enum": ["artifact", "skill", "design-pack", "stage"] },
+            "id": { "$ref": "#/$defs/id" },
+            "version": { "$ref": "#/$defs/version" }
+          }
+        },
+        "signal": { "enum": ["accepted", "rejected", "modified"] },
+        "reason": { "type": "string", "minLength": 1, "maxLength": 1000 },
+        "measurement": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["operationCount", "durationSeconds"],
+          "properties": {
+            "operationCount": { "type": "integer", "minimum": 0 },
+            "durationSeconds": { "type": "integer", "minimum": 0 }
+          }
+        },
+        "visibility": { "enum": ["private", "aggregate-only"] },
+        "changesHistoricalJudgment": { "const": false }
+      }
+    },
+    "capability": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["manifestVersion", "id", "version", "kind", "name", "summary", "lifecycle", "compatibility", "permissions", "provenance", "taskKinds", "inputs", "outputs", "stages", "stoppingConditions", "evalSuiteIds"],
+      "properties": {
+        "manifestVersion": { "const": "0.1.0" },
+        "id": { "$ref": "#/$defs/id" },
+        "version": { "$ref": "#/$defs/version" },
+        "kind": { "enum": ["skill", "design-pack", "industry-kit", "tool-adapter", "eval-suite"] },
+        "name": { "type": "string", "minLength": 1, "maxLength": 200 },
+        "summary": { "type": "string", "minLength": 1, "maxLength": 1000 },
+        "lifecycle": { "enum": ["draft", "evaluated", "approved", "deprecated"] },
+        "compatibility": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["workOrderContract", "artifactContract"],
+          "properties": { "workOrderContract": { "const": "0.1.0" }, "artifactContract": { "const": "0.1.0" } }
+        },
+        "permissions": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["network", "fileRead", "fileWrite", "model", "publish"],
+          "properties": {
+            "network": { "enum": ["none", "allowlisted"] },
+            "fileRead": { "type": "boolean" },
+            "fileWrite": { "type": "boolean" },
+            "model": { "type": "boolean" },
+            "publish": { "const": false }
+          }
+        },
+        "provenance": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["sourceRef", "license"],
+          "properties": {
+            "sourceRef": { "type": "string", "minLength": 1, "maxLength": 2048 },
+            "license": { "type": "string", "minLength": 1, "maxLength": 100 },
+            "reviewedAt": { "$ref": "#/$defs/timestamp" }
+          }
+        },
+        "taskKinds": { "type": "array", "minItems": 1, "uniqueItems": true, "items": { "enum": ["proposal", "research-keynote", "article-graphics"] } },
+        "inputs": { "type": "array", "minItems": 1, "uniqueItems": true, "items": { "type": "string", "minLength": 1, "maxLength": 200 } },
+        "outputs": { "type": "array", "minItems": 1, "uniqueItems": true, "items": { "type": "string", "minLength": 1, "maxLength": 200 } },
+        "stages": { "type": "array", "minItems": 1, "uniqueItems": true, "items": { "$ref": "#/$defs/stage/properties/kind" } },
+        "stoppingConditions": { "type": "array", "minItems": 1, "items": { "type": "string", "minLength": 1, "maxLength": 500 } },
+        "evalSuiteIds": { "type": "array", "minItems": 1, "uniqueItems": true, "items": { "$ref": "#/$defs/id" } }
+      }
+    }
+  }
+}

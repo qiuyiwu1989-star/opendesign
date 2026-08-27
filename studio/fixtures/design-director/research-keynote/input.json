@@ -1,0 +1,29 @@
+{
+  "inputVersion": "0.1.0",
+  "taskId": "golden_research",
+  "title": "生成之后，为什么还需要编辑？",
+  "brief": {
+    "objective": "向设计工具研究者解释 AI 生成与人工编辑不是替代关系，而是同一生产闭环的两个阶段。",
+    "audience": "设计工具研究者、产品设计师与 AI 应用开发者",
+    "constraints": ["区分来源事实、推论和建议", "说明样本范围与限制", "不把案例观察写成普遍因果"]
+  },
+  "content": {
+    "summary": "材料显示，结构化中间层能把一次性生成转为可修订对象；但目前证据仅来自三个开源工具案例，不能推出所有创作流程的普遍结论。",
+    "keyPoints": [
+      { "id": "research_question", "text": "关键问题不是 AI 能否生成画面，而是生成结果能否安全进入人工确认。", "sourceIds": ["source_research_question"] },
+      { "id": "research_method", "text": "观察比较了三个开源项目的内容模型、编辑入口与导出边界。", "sourceIds": ["source_method"] },
+      { "id": "research_finding", "text": "稳定结构和显式编辑能力比 DOM 像素复刻更适合持续修改。", "sourceIds": ["source_findings"] },
+      { "id": "research_limit", "text": "当前样本不足以证明同一架构适合所有网页、视频或多人实时协作。", "sourceIds": ["source_method", "source_findings"] }
+    ],
+    "callToAction": "下一步用三类 Golden 任务验证结构、来源和人工修改是否能同时保留。"
+  },
+  "sources": [
+    { "sourceId": "source_research_question", "type": "article", "title": "研究问题笔记", "sourceRef": "fixture://design-director/research/question", "content": "生成速度已经不是唯一问题。设计交付仍需要事实校对、品牌细节、版式调整和导出确认，因此要研究生成结果如何进入编辑闭环。" },
+    { "sourceId": "source_method", "type": "document", "title": "案例比较方法", "sourceRef": "fixture://design-director/research/method", "content": "样本仅包括 Bento、Slidev 和 Huashu Design。比较维度为内容表示、编辑方式、模板结构和导出路径；没有用户规模数据，也没有长期生产观察。" },
+    { "sourceId": "source_findings", "type": "document", "title": "初步发现", "sourceRef": "fixture://design-director/research/findings", "content": "三个案例共同显示：可复用模板、结构化内容与明确的编辑接口有助于迭代。此处是案例观察，不构成对全部创作工具的因果证明。" }
+  ],
+  "brand": { "name": "OpenDesign Research", "tone": ["理性", "开放", "知识感"], "primaryColor": "#2161D1" },
+  "deliverable": { "kind": "keynote", "audience": "设计工具研究者与产品设计师", "language": "zh-CN", "format": "structured-html", "pageCount": 7 },
+  "designPack": { "id": "research-keynote-cn", "version": "1.0.0" },
+  "editability": { "requiredCapabilities": ["text", "typography", "asset", "frame", "order"], "requireNativeText": true, "requireReplaceableImages": true, "requireReorderablePages": true }
+}

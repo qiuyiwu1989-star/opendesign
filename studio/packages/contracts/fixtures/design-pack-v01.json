@@ -1,0 +1,37 @@
+{
+  "packSchemaVersion": "0.1.0",
+  "id": "editorial-proposal",
+  "version": "1.0.0",
+  "name": "Editorial Proposal",
+  "summary": "A restrained proposal system for decision-oriented narratives.",
+  "positioning": {
+    "scenarios": ["commercial proposal"],
+    "audiences": ["executive"],
+    "contentTypes": ["recommendation"]
+  },
+  "designDna": {
+    "principles": ["one conclusion per scene"],
+    "mood": ["editorial"],
+    "composition": { "grid": "12-column", "density": "balanced", "rhythm": "statement then evidence" },
+    "typography": { "headingFamily": "Georgia", "bodyFamily": "Inter", "languageSupport": ["zh-CN", "en"] }
+  },
+  "tokens": {
+    "background": "#F2F0EA", "surface": "#FFFDF7", "text": "#171713", "muted": "#6F7068",
+    "accent": "#E34A2F", "line": "#D8D5CC", "fontFamily": "Inter, sans-serif", "headingFamily": "Georgia, serif"
+  },
+  "narrativeArc": [{ "order": 1, "role": "cover", "purpose": "State the proposal", "required": true }],
+  "pageRoles": [{
+    "id": "cover", "purpose": "State the proposal", "contentSlots": [{ "id": "title", "kind": "text", "required": true, "maxChars": 48 }],
+    "layoutGuidance": ["Keep the title dominant"]
+  }],
+  "assetStrategy": { "imagePolicy": "provided-first", "requiredAltText": true, "allowedSchemes": ["asset"] },
+  "agentGuidance": ["Write titles as conclusions"],
+  "editability": { "text": "native", "image": "replaceable", "frame": true, "order": true, "decoration": "native" },
+  "export": { "html": "high-fidelity", "pptx": "native-first", "png": "supported", "rasterFallback": "component-only" },
+  "qaRules": [{ "id": "title-length", "severity": "warning", "scope": "element", "rule": "Title must not exceed its slot maxChars" }],
+  "agentAnnotation": {
+    "copyText": "Use editorial-proposal@1.0.0 and keep every conclusion traceable.",
+    "requiredCapabilities": ["text", "typography", "asset", "frame", "order"],
+    "contractVersion": "0.1.0"
+  }
+}

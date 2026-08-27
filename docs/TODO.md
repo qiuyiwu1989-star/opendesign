@@ -49,7 +49,7 @@ cd mcp && npm login && npm publish --access public
 三个 systemd timer(jobrunner / publisher / cos-sync)还是你当初要求的**暂停**状态。
 
 - 现状:队列已清空,不开也不会有积压
-- 开了会怎样:`discover.py` 每天爬新候选 → `auto-evaluate` 自动评分 → 高分自动收录(每天上限 10 站,约 $1/天)
+- 开了会怎样：`discover.py` 每天爬新候选 → `auto-evaluate` 生成有版本、有证据的 AI 建议 → 后台人工终审；不会自动收录、入队或发布。详见 `docs/daily-curation-operations.md`。
 - 这轮修完的东西:预算记账、死站重试、schema 剪枝、探活误杀、锁竞争,都是为了让它开着不出事
 - **2026-08-05 补**:顺带发现服务器上整个 `extract/` 目录缺失(迁移时 rsync 漏了),
   意味着 Tier-2 出完整包链路(`upgrade-pack.sh` → `extract/extract.py`)本来是断的

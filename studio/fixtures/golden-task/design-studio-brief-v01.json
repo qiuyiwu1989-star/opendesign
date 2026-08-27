@@ -1,0 +1,123 @@
+{
+  "fixtureVersion": "0.1.0",
+  "taskId": "golden-task-design-studio-brief",
+  "title": "OpenDesign Studio：让生成之后的设计继续生长",
+  "locale": "zh-CN",
+  "output": {
+    "primary": "proposal",
+    "canvas": { "width": 1600, "height": 900, "unit": "logical-px" },
+    "targetPages": 7,
+    "formats": ["html", "pptx", "png"],
+    "pptxRequirement": "文字、图片、Shape 优先为原生对象；任何栅格或省略必须逐元素报告。"
+  },
+  "sources": [
+    {
+      "sourceId": "source-product-brief",
+      "type": "brief",
+      "title": "Studio 产品简报",
+      "status": "snapshot",
+      "sourceRef": "fixture://golden-task/sources/product-brief.md",
+      "rights": "project-authored",
+      "content": "非设计师希望让 AI 先完成视觉作品的大部分工作，再在 Studio 中修改文字、字体、图片、位置和层级。系统使用结构化 HTML 作为预览和发布表达，使用 Scene IR 作为编辑、版本、QA 与导出的事实源。"
+    },
+    {
+      "sourceId": "source-constraints",
+      "type": "manual",
+      "title": "首版交付约束",
+      "status": "snapshot",
+      "sourceRef": "fixture://golden-task/sources/constraints.md",
+      "rights": "project-authored",
+      "content": "首版不执行任意脚本、不把整页截图伪装成可编辑 PPTX、不覆盖人工修改、不连接生产数据库或网络素材。失败必须返回可定位 diagnostic。"
+    },
+    {
+      "sourceId": "source-benchmark",
+      "type": "document",
+      "title": "Golden 验收基线",
+      "status": "snapshot",
+      "sourceRef": "fixture://golden-task/sources/benchmark.md",
+      "rights": "project-authored",
+      "content": "验收关注四项：稳定 ID 是否保留；文字、字体、图片、frame 和层级是否可编辑；QA 是否定位到页面和元素；HTML、PPTX 与 PNG 是否报告真实导出状态。本文档不提供虚构市场数据。"
+    }
+  ],
+  "brand": {
+    "name": "OpenDesign",
+    "voice": ["清晰", "克制", "有判断", "不夸大"],
+    "logo": {
+      "status": "described-only",
+      "sourceRef": "fixture://golden-task/brand/logo-description.txt",
+      "description": "仅使用 OpenDesign 文字标，不依赖外部图像文件。"
+    },
+    "colorIntent": {
+      "neutral": "暖白与墨黑构成编辑感",
+      "accent": "单一强调色只用于决策或状态",
+      "avoid": ["无语义渐变", "大面积霓虹", "假 3D 装饰"]
+    },
+    "typography": {
+      "heading": "本地可替换的中文衬线字体栈",
+      "body": "本地可替换的中文无衬线字体栈",
+      "licenseConstraint": "只声明字体栈，不附带字体二进制。"
+    }
+  },
+  "brief": {
+    "objective": "让产品负责人判断 Studio Foundation v0.2 是否已经形成从 Skill 生成到人工修改再到多格式导出的最小闭环。",
+    "audience": "OpenDesign 产品负责人和后续接手实现的 Agent",
+    "decisionRequest": "批准以 Structured HTML → Scene IR → 人工编辑 → QA → 导出作为下一阶段主路径。",
+    "mustCommunicate": [
+      "Skill 负责生成结构化初稿，人工负责确认和修正。",
+      "Scene IR 是唯一编辑与版本事实源。",
+      "错误必须能定位到页面和元素。",
+      "PPTX 的可编辑性必须按元素诚实报告。"
+    ],
+    "mustAvoid": [
+      "未经来源支持的市场数字",
+      "把竞品界面或模板直接复制为资产",
+      "把 AI 建议描述成自动发布",
+      "依赖网络图片、远程字体或外部脚本"
+    ]
+  },
+  "expectedOutline": [
+    { "order": 1, "pageRole": "cover", "intent": "提出生成之后仍可编辑的产品命题", "sourceIds": ["source-product-brief"] },
+    { "order": 2, "pageRole": "executive-summary", "intent": "先给出主路径、价值与所需决策", "sourceIds": ["source-product-brief", "source-constraints"] },
+    { "order": 3, "pageRole": "context", "intent": "说明一次性生成在人工修正阶段断裂", "sourceIds": ["source-product-brief"] },
+    { "order": 4, "pageRole": "evidence", "intent": "用验收基线说明闭环必须被怎样证明", "sourceIds": ["source-benchmark"] },
+    { "order": 5, "pageRole": "recommendation", "intent": "比较三种方向并选择决策提案作为主要交付", "sourceIds": ["source-product-brief", "source-constraints"] },
+    { "order": 6, "pageRole": "roadmap", "intent": "呈现协议、编辑、QA 和导出的分阶段门槛", "sourceIds": ["source-constraints", "source-benchmark"] },
+    { "order": 7, "pageRole": "closing", "intent": "形成批准 Golden vertical slice 的明确请求", "sourceIds": ["source-benchmark"] }
+  ],
+  "directions": [
+    {
+      "id": "direction-proposal",
+      "name": "决策编辑部",
+      "pack": { "id": "executive-proposal-cn", "version": "1.0.0" },
+      "stance": "primary",
+      "selectionRationale": "本任务的首要目标是让产品负责人批准一条实现路径，受众时间有限且需要看到风险、证据和门槛，因此结论先行的商业提案结构最匹配决策任务。",
+      "tradeoff": "研究方法和知识铺陈会被压缩，需要通过来源注释保留完整证据边界。"
+    },
+    {
+      "id": "direction-research",
+      "name": "系统研究讲述",
+      "pack": { "id": "research-keynote-cn", "version": "1.0.0" },
+      "stance": "alternate",
+      "selectionRationale": "若主要场景改为向开发与设计团队解释方法论，这一方向能更完整呈现问题、约束、验证方法和失败边界，适合知识传递而非快速批准。",
+      "tradeoff": "对决策请求的突出程度较弱，演讲节奏也会增加页面数量。"
+    },
+    {
+      "id": "direction-graphics",
+      "name": "文章视觉系列",
+      "pack": { "id": "editorial-story-graphics-cn", "version": "1.0.0" },
+      "stance": "alternate",
+      "selectionRationale": "若输出目标改为产品文章和社交传播，这一方向能把命题、架构关系和验收原则拆成可独立分享的图组，但不适合作为完整决策提案。",
+      "tradeoff": "缺少连续汇报所需的路线图和决策收束，需要另配正文。"
+    }
+  ],
+  "selectedDirectionId": "direction-proposal",
+  "selectionDecision": "选择 direction-proposal 是因为当前任务要求获得路线批准，并非因为它获得了主观审美高分；另外两套方向保留为同一内容后续转演讲和文章配图的适配路径。",
+  "acceptance": [
+    "所有来源均为 fixture:// snapshot，无网络请求。",
+    "生成 HTML pin executive-proposal-cn@1.0.0 与 Contract 0.1.0。",
+    "所有事实元素绑定 sourceIds；证据不足时显式标注缺口。",
+    "人工至少完成一次文字、字体、图片或 frame 修改，并保留 revision。",
+    "QA 能定位溢出、冲突、缺资产、字体或导出降级问题。",
+    "PPTX editability report 不出现未说明的整页 raster fallback。"
+  ]
+}

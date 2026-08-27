@@ -1,0 +1,113 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://opendesign.cc/schemas/studio/revision-0.1.0.json",
+  "title": "OpenDesign Studio Revision",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["revisionId", "parentRevisionId", "createdAt", "reason", "patches"],
+  "properties": {
+    "revisionId": { "$ref": "#/$defs/id" },
+    "parentRevisionId": {
+      "oneOf": [
+        { "$ref": "#/$defs/id" },
+        { "type": "null" }
+      ]
+    },
+    "createdAt": { "type": "string", "format": "date-time" },
+    "reason": { "enum": ["initial", "edit", "qa-fix", "regenerate"] },
+    "patches": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/patch" }
+    }
+  },
+  "$defs": {
+    "id": { "type": "string", "pattern": "^[a-z][a-z0-9_-]{2,63}$" },
+    "patch": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["field", "value"],
+      "properties": {
+        "elementId": { "$ref": "#/$defs/id" },
+        "directionId": { "$ref": "#/$defs/id" },
+        "field": { "enum": ["content", "assetSrc", "alt", "color", "fontSize", "fontFamily", "fontWeight", "lineHeight", "imageFit", "frame", "focalPoint", "zIndex", "headingFamily"] },
+        "value": {}
+      },
+      "oneOf": [
+        {
+          "required": ["elementId", "field", "value"],
+          "properties": {
+            "elementId": { "$ref": "#/$defs/id" },
+            "field": { "enum": ["content", "assetSrc", "alt", "color"] },
+            "value": { "type": "string" }
+          }
+        },
+        {
+          "required": ["elementId", "field", "value"],
+          "properties": {
+            "elementId": { "$ref": "#/$defs/id" },
+            "field": { "enum": ["fontSize", "fontWeight", "lineHeight", "zIndex"] },
+            "value": { "type": "number" }
+          }
+        },
+        {
+          "required": ["elementId", "field", "value"],
+          "properties": {
+            "elementId": { "$ref": "#/$defs/id" },
+            "field": { "const": "fontFamily" },
+            "value": { "type": "string", "minLength": 1 }
+          }
+        },
+        {
+          "required": ["elementId", "field", "value"],
+          "properties": {
+            "elementId": { "$ref": "#/$defs/id" },
+            "field": { "const": "imageFit" },
+            "value": { "enum": ["contain", "cover", "stretch"] }
+          }
+        },
+        {
+          "required": ["elementId", "field", "value"],
+          "properties": {
+            "elementId": { "$ref": "#/$defs/id" },
+            "field": { "const": "frame" },
+            "value": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["x", "y", "width", "height"],
+              "properties": {
+                "x": { "type": "number", "minimum": 0, "maximum": 1600 },
+                "y": { "type": "number", "minimum": 0, "maximum": 900 },
+                "width": { "type": "number", "exclusiveMinimum": 0, "maximum": 1600 },
+                "height": { "type": "number", "exclusiveMinimum": 0, "maximum": 900 }
+              }
+            }
+          }
+        },
+        {
+          "required": ["elementId", "field", "value"],
+          "properties": {
+            "elementId": { "$ref": "#/$defs/id" },
+            "field": { "const": "focalPoint" },
+            "value": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["x", "y"],
+              "properties": {
+                "x": { "type": "number", "minimum": 0, "maximum": 1 },
+                "y": { "type": "number", "minimum": 0, "maximum": 1 }
+              }
+            }
+          }
+        },
+        {
+          "required": ["directionId", "field", "value"],
+          "properties": {
+            "directionId": { "$ref": "#/$defs/id" },
+            "field": { "enum": ["fontFamily", "headingFamily"] },
+            "value": { "type": "string", "minLength": 1 }
+          }
+        }
+      ]
+    }
+  }
+}

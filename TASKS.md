@@ -1,0 +1,42 @@
+# Tasks
+
+## Now（本次会话正在做，最多 3 项）
+
+- [ ] 为 Studio v0.7 配置生产 Session secret 与模型 provider，执行隔离预检后部署 (spec: 006)
+- [ ] 制作 proposal 纵向切片：诊断 → 计划确认 → 三方向 → 局部编辑 → 人工批准 → PPTX/HTML (spec: 007)
+
+## Next（已排序的待办）
+- [ ] 建立任务感知的 Library Pattern 检索，返回适用理由、来源和许可状态
+- [ ] 在隔离预检中用非机密 fixture 执行一次有界 Kimi live smoke，并归档 compiler/importer/QA 结果
+- [ ] 修复 Benchmark 已识别的研究演讲 7 个、文章配图 12 个 QA error
+- [ ] 扩展首批 10 套经过 Golden Task 验证的 Design Pack
+- [ ] 建立设计质量、人工修正时间与可编辑率 Benchmark
+- [ ] 取得服务器只读预检证据并核验证书续期
+- [ ] 在单独授权窗口准备并激活一致的 Admin RC
+- [ ] 增加策展曝光/反馈事件；反馈只影响排序，不修改判断可信度
+- [ ] 定义人工确认后的发布候选变更集，继续保持 preview-first
+
+## Done（倒序，保留最近 20 条，附 commit hash）
+- [x] Studio Phase 1E：真实 HTML/Scene IR/QA 渐进式产物、只读生成稿预览，以及 provider-neutral 局部修改门禁（`e3b9362`，spec: 011）
+- [x] Studio Phase 1D：正式 ArtifactEnvelope 链、owner-scoped payload、大纲人工确认门与六阶段产物工作台（e356682，spec: 010）
+- [x] Studio Phase 1C：owner-scoped Agent 修改候选、before/after Diff、人工接受/拒绝、原子 revision 防漂移与候选防篡改（`9e93fcf`，spec: 009）
+- [x] Studio Phase 1B：一轮最多两个高信息量问题、三个真实 Pack 预览、owner-scoped 决策持久化与生成前确认门禁（1cca24a，spec: 008）
+- [x] Studio Phase 1A：Creation Contract → 人工确认计划 → owner-scoped Job，Skill/Pack/source/stage 可见，自动产物通过确定性 QA 后才持久化（5e5db67，spec: 007）
+- [x] Kimi China/Global 生产 preset、安全配置门禁和运行手册；继续复用 provider-neutral compiler/importer/QA 链（待本次提交）
+- [x] Agent Design OS Phase 0：核心对象 schema、Capability Manifest、跨对象门禁与可重放运行事件状态机（待本次提交，spec: 007）
+- [x] 将产品升级为 Agent Design OS，冻结 Library/Registry/Studio/Runtime/Connect 五面架构与用户旅程（9e5c868，spec: 007）
+- [x] Studio v0.7：真实模型生成 Job、匿名会话隔离/配额/清理、对话区任务体验与跨 Cookie 安全门禁（待本次提交，spec: 006）
+- [x] Studio v0.6：项目—设计总监对话—实时作品三栏工作台、结果视图与按需检查器（待本次提交）
+- [x] Studio 公开预览：移除 Admin 登录门禁，保留独立 API 限流、6 MiB 上限与可回滚配置（待本次提交）
+- [x] Studio 0.5：Model Adapter、人工审核 Candidate Ledger、Design Quality Benchmark 与工作台闭环（待本次提交）
+- [x] Studio 初版隔离部署至 `/studio/`，复用 Admin 会话门禁并完成回滚路径（7ef53c7, c607725）
+- [x] Design Director Skill、确定性 HTML compiler、三类 Golden eval 与 Studio/API 闭环（待本次提交）
+- [x] Studio 0.3：Structured HTML inert 导入、诊断、持久化和 Pack/provenance 生成链路（0eb46b0）
+- [x] Studio Foundation v0.2：契约、可编辑画布、三套 Design Pack 与 Golden 工作流（1cec9c5）
+- [x] Quality Judgment Ledger v2：追加式人工判断、五位展示与迁移门禁（a4f0953）
+- [x] 生产公网/服务器只读预检工具与 No-Go 证据（ca5561c）
+- [x] Admin RC2 不可变构建、激活和回滚合同（4584c48）
+- [x] 每日 AI 策展、人工终审和质量控制初版（e78eb48, 758eb4b）
+
+## Blocked
+- RC2 生产激活：公网预检仅 10/17，TLS 证书续期与数据库/服务内部状态尚未证明。

@@ -1,0 +1,10 @@
+[Unit]
+Description=Renew opendesign.cc TLS certificate with ACME TLS-ALPN
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+Environment=HOME=/root
+ExecStart=/usr/bin/acme.sh --home /root/.acme.sh --config-home /root/.acme.sh --renew -d opendesign.cc --ecc
+SuccessExitStatus=2

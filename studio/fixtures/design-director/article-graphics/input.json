@@ -1,0 +1,28 @@
+{
+  "inputVersion": "0.1.0",
+  "taskId": "golden_article",
+  "title": "真正可编辑的 AI 设计，不应在生成时结束",
+  "brief": {
+    "objective": "为一篇讨论 AI 设计工作流的文章生成一组能独立传播、又保持系列母题的结构化配图。",
+    "audience": "关注 AI、产品与设计工具的中文读者",
+    "constraints": ["图片不能承载关键文字", "每张图必须承担解释或转折任务", "核心内容需兼顾 16:9 与 4:5 裁切"]
+  },
+  "content": {
+    "summary": "文章主张生成只解决首稿速度，真正的产品价值来自结构化对象、人工确认和可追溯交付。配图应围绕“画布之后仍可生长”的母题做不同构图变奏。",
+    "keyPoints": [
+      { "id": "article_thesis", "text": "生成不是终点；可编辑性决定作品能否进入真实生产。", "sourceIds": ["source_article"] },
+      { "id": "article_turn", "text": "从像素结果转向结构化对象，修改才不必回到提示词重来。", "sourceIds": ["source_article", "source_editor_notes"] },
+      { "id": "article_quote", "text": "真正的智能，不是替你做完，而是让你更容易继续做。", "sourceIds": ["source_article"] },
+      { "id": "article_relation", "text": "来源、结构、编辑和导出共同构成可信交付。", "sourceIds": ["source_editor_notes"] }
+    ],
+    "callToAction": "把每次生成都变成一个可确认、可修订、可交接的设计版本。"
+  },
+  "sources": [
+    { "sourceId": "source_article", "type": "article", "title": "文章正文定稿", "sourceRef": "fixture://design-director/article/body", "content": "文章提出：生成只缩短首稿时间，设计师仍需校对事实、调整层级、替换资产并确认导出。原创判断为“真正的智能，不是替你做完，而是让你更容易继续做”。" },
+    { "sourceId": "source_editor_notes", "type": "manual", "title": "编辑配图说明", "sourceRef": "fixture://design-director/article/editor-notes", "content": "需要头图、章节转折、引语卡、概念关系图、证据卡和收束卡。系列母题是从封闭画布向外生长的结构线；不能使用通用发光球或无语义 3D 装饰。" }
+  ],
+  "brand": { "name": "略懂 AI × OpenDesign", "tone": ["当代", "编辑感", "有温度"], "primaryColor": "#6B4EFF" },
+  "deliverable": { "kind": "article-graphics", "audience": "AI 与设计工具中文读者", "language": "zh-CN", "format": "structured-html", "pageCount": 6 },
+  "designPack": { "id": "editorial-story-graphics-cn", "version": "1.0.0" },
+  "editability": { "requiredCapabilities": ["text", "typography", "asset", "frame", "order"], "requireNativeText": true, "requireReplaceableImages": true, "requireReorderablePages": true }
+}

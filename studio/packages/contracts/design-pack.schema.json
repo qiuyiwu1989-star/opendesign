@@ -1,0 +1,106 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://opendesign.cc/schemas/studio/design-pack-0.1.0.json",
+  "title": "OpenDesign Design Pack",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["packSchemaVersion", "id", "version", "name", "summary", "positioning", "designDna", "tokens", "narrativeArc", "pageRoles", "assetStrategy", "agentGuidance", "editability", "export", "qaRules", "agentAnnotation"],
+  "properties": {
+    "packSchemaVersion": { "const": "0.1.0" },
+    "id": { "$ref": "#/$defs/id" },
+    "version": { "$ref": "#/$defs/version" },
+    "name": { "$ref": "#/$defs/text" },
+    "summary": { "$ref": "#/$defs/text" },
+    "positioning": {
+      "type": "object", "additionalProperties": false,
+      "required": ["scenarios", "audiences", "contentTypes"],
+      "properties": {
+        "scenarios": { "$ref": "#/$defs/textList" },
+        "audiences": { "$ref": "#/$defs/textList" },
+        "contentTypes": { "$ref": "#/$defs/textList" }
+      }
+    },
+    "designDna": {
+      "type": "object", "additionalProperties": false,
+      "required": ["principles", "mood", "composition", "typography"],
+      "properties": {
+        "principles": { "$ref": "#/$defs/textList" },
+        "mood": { "$ref": "#/$defs/textList" },
+        "composition": {
+          "type": "object", "additionalProperties": false,
+          "required": ["grid", "density", "rhythm"],
+          "properties": { "grid": { "$ref": "#/$defs/text" }, "density": { "enum": ["airy", "balanced", "dense"] }, "rhythm": { "$ref": "#/$defs/text" } }
+        },
+        "typography": {
+          "type": "object", "additionalProperties": false,
+          "required": ["headingFamily", "bodyFamily", "languageSupport"],
+          "properties": { "headingFamily": { "$ref": "#/$defs/text" }, "bodyFamily": { "$ref": "#/$defs/text" }, "languageSupport": { "$ref": "#/$defs/textList" } }
+        }
+      }
+    },
+    "tokens": { "$ref": "#/$defs/tokens" },
+    "narrativeArc": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/narrativeStep" } },
+    "pageRoles": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/pageRole" } },
+    "assetStrategy": {
+      "type": "object", "additionalProperties": false,
+      "required": ["imagePolicy", "requiredAltText", "allowedSchemes"],
+      "properties": {
+        "imagePolicy": { "enum": ["provided-first", "library-first", "generated-allowed"] },
+        "requiredAltText": { "const": true },
+        "allowedSchemes": { "type": "array", "minItems": 1, "uniqueItems": true, "items": { "enum": ["https", "asset"] } }
+      }
+    },
+    "agentGuidance": { "$ref": "#/$defs/textList" },
+    "editability": {
+      "type": "object", "additionalProperties": false,
+      "required": ["text", "image", "frame", "order", "decoration"],
+      "properties": {
+        "text": { "const": "native" }, "image": { "enum": ["replaceable", "locked"] },
+        "frame": { "type": "boolean" }, "order": { "type": "boolean" }, "decoration": { "enum": ["native", "raster", "locked"] }
+      }
+    },
+    "export": {
+      "type": "object", "additionalProperties": false,
+      "required": ["html", "pptx", "png", "rasterFallback"],
+      "properties": { "html": { "const": "high-fidelity" }, "pptx": { "enum": ["native-first", "hybrid"] }, "png": { "const": "supported" }, "rasterFallback": { "enum": ["component-only", "forbidden"] } }
+    },
+    "qaRules": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/qaRule" } },
+    "agentAnnotation": {
+      "type": "object", "additionalProperties": false,
+      "required": ["copyText", "requiredCapabilities", "contractVersion"],
+      "properties": {
+        "copyText": { "$ref": "#/$defs/text" },
+        "requiredCapabilities": { "type": "array", "minItems": 1, "uniqueItems": true, "items": { "$ref": "#/$defs/capability" } },
+        "contractVersion": { "const": "0.1.0" }
+      }
+    }
+  },
+  "$defs": {
+    "id": { "type": "string", "pattern": "^[a-z][a-z0-9_-]{2,63}$" },
+    "version": { "type": "string", "pattern": "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)(?:-[0-9A-Za-z.-]+)?$" },
+    "text": { "type": "string", "minLength": 1 },
+    "textList": { "type": "array", "minItems": 1, "uniqueItems": true, "items": { "$ref": "#/$defs/text" } },
+    "capability": { "enum": ["text", "typography", "asset", "frame", "order"] },
+    "tokens": {
+      "type": "object", "additionalProperties": false,
+      "required": ["background", "surface", "text", "muted", "accent", "line", "fontFamily", "headingFamily"],
+      "properties": { "background": { "$ref": "#/$defs/text" }, "surface": { "$ref": "#/$defs/text" }, "text": { "$ref": "#/$defs/text" }, "muted": { "$ref": "#/$defs/text" }, "accent": { "$ref": "#/$defs/text" }, "line": { "$ref": "#/$defs/text" }, "fontFamily": { "$ref": "#/$defs/text" }, "headingFamily": { "$ref": "#/$defs/text" } }
+    },
+    "narrativeStep": {
+      "type": "object", "additionalProperties": false, "required": ["order", "role", "purpose", "required"],
+      "properties": { "order": { "type": "integer", "minimum": 1 }, "role": { "$ref": "#/$defs/id" }, "purpose": { "$ref": "#/$defs/text" }, "required": { "type": "boolean" } }
+    },
+    "contentSlot": {
+      "type": "object", "additionalProperties": false, "required": ["id", "kind", "required"],
+      "properties": { "id": { "$ref": "#/$defs/id" }, "kind": { "enum": ["text", "image", "metric", "chart", "shape"] }, "required": { "type": "boolean" }, "maxChars": { "type": "integer", "minimum": 1 } }
+    },
+    "pageRole": {
+      "type": "object", "additionalProperties": false, "required": ["id", "purpose", "contentSlots", "layoutGuidance"],
+      "properties": { "id": { "$ref": "#/$defs/id" }, "purpose": { "$ref": "#/$defs/text" }, "contentSlots": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/contentSlot" } }, "layoutGuidance": { "$ref": "#/$defs/textList" } }
+    },
+    "qaRule": {
+      "type": "object", "additionalProperties": false, "required": ["id", "severity", "scope", "rule"],
+      "properties": { "id": { "$ref": "#/$defs/id" }, "severity": { "enum": ["blocker", "error", "warning", "note"] }, "scope": { "enum": ["pack", "scene", "element"] }, "rule": { "$ref": "#/$defs/text" } }
+    }
+  }
+}

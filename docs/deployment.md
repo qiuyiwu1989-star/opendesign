@@ -10,7 +10,7 @@
   五个部署脚本都 source 它（以前各自硬编码，迁完漏改过一轮）
 - SSH 账户: `ubuntu`
 - Web 根目录: `/var/www/opendesign.cc`
-- TLS: Let's Encrypt 自动续期
+- TLS: Let's Encrypt TLS-ALPN 自动续期（`opendesign-acme-renew.timer`）
 - 旧域名 `style.qiuyiwu.com`: 301 跳转到 opendesign.cc
 
 ---
@@ -43,9 +43,33 @@ dig +short www.opendesign.cc    # 应返回 146.56.239.22
 
 ### 3. 申请 HTTPS（DNS 生效后）
 
+`opendesign.cc` 的 80 端口在部分公网验证节点会被云平台备案页接管，因此不要使用
+HTTP-01。使用 `acme.sh` 的 TLS-ALPN 模式在 443 端口签发，证书安装到独立目录；
+签发期间 Nginx 会短暂停止，post hook 会无条件恢复服务。
+
 ```bash
-ssh ubuntu@146.56.239.22 'sudo certbot --nginx -d opendesign.cc -d www.opendesign.cc --non-interactive --agree-tos -m hi@opendesign.cc --redirect'
+sudo apt-get install -y acme.sh
+sudo mkdir -p /root/.acme.sh /etc/nginx/certs/opendesign.cc
+sudo env -u SUDO_COMMAND -u SUDO_USER -u SUDO_UID -u SUDO_GID HOME=/root \
+  acme.sh --home /root/.acme.sh --config-home /root/.acme.sh \
+  --register-account --server letsencrypt -m hi@opendesign.cc
+sudo env -u SUDO_COMMAND -u SUDO_USER -u SUDO_UID -u SUDO_GID HOME=/root \
+  acme.sh --home /root/.acme.sh --config-home /root/.acme.sh \
+  --issue --server letsencrypt --alpn -d opendesign.cc -d www.opendesign.cc \
+  --keylength ec-256 --pre-hook 'systemctl stop nginx' --post-hook 'systemctl start nginx'
+sudo env -u SUDO_COMMAND -u SUDO_USER -u SUDO_UID -u SUDO_GID HOME=/root \
+  acme.sh --home /root/.acme.sh --config-home /root/.acme.sh \
+  --install-cert -d opendesign.cc --ecc \
+  --key-file /etc/nginx/certs/opendesign.cc/privkey.pem \
+  --fullchain-file /etc/nginx/certs/opendesign.cc/fullchain.pem \
+  --reloadcmd 'systemctl reload nginx'
+sudo install -m 0644 deploy/opendesign-acme-renew.service /etc/systemd/system/
+sudo install -m 0644 deploy/opendesign-acme-renew.timer /etc/systemd/system/
+sudo systemctl daemon-reload
+sudo systemctl enable --now opendesign-acme-renew.timer
 ```
+
+验收：`nginx -t` 成功、证书剩余时间超过 21 天，并且 timer 为 `active (waiting)`。
 
 ### 4. 首次推送
 

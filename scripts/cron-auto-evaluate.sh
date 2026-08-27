@@ -4,7 +4,7 @@
 #
 # 逻辑：
 #   1. cron-discover.sh (09:30) → 抓 HN 候选站 → discoveries 表
-#   2. cron-auto-evaluate.sh (10:00) → AI 评分 → 高分站自动创建 collect job
+#   2. cron-auto-evaluate.sh (10:00) → AI 生成建议 → 后台人工终审（不自动创建 job）
 #   3. cron-jobrunner.sh (每10分钟) → 领 collect job → Playwright+mimo → 上线
 #
 # 安装（服务器上跑一次）：
@@ -39,7 +39,7 @@ if [[ $_CODE -ne 0 ]]; then
 fi
 echo "" >> "$LOG"
 
-# 提取摘要（"完成：✓ N 收录  ✗ M 忽略  ~ K 存疑" 那行）
+# 提取仅包含建议统计的摘要；这里没有自动收录或最终拒绝。
 _SUMMARY=$(grep -E '完成：|✓.*收录|评估.*站' "$_TMP" 2>/dev/null | tail -1 || true)
 [[ -z "$_SUMMARY" ]] && _SUMMARY="（无输出）"
 

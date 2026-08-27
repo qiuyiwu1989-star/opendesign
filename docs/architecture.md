@@ -4,6 +4,8 @@
 >
 > 数据层 2026-08 已从 Supabase 迁到自己的服务器，细节见 [self-hosted-db.md](self-hosted-db.md)。
 
+本文记录现有 Library 的部署与数据管线。跨 Library、Capability Registry、Agent Studio、Runtime 和 Connect 的目标产品架构，以 [Spec 007 · Agent Design OS](../specs/007-agent-design-operating-system.md) 为准。
+
 ```
 ┌──────────────────────────────────────────────────────────────────┐
 │                         访客 / 设计师                              │

@@ -67,6 +67,25 @@ def card_image(site, w=768, h=480):
     return site.get("image", "")
 
 
+def pack_preview(site_id: str) -> str:
+    """Return one card-sized pack shot URL, not the full multi-file manifest.
+
+    The home page only needs a reliable fallback image. Shipping all file names,
+    descriptions and download metadata costs ~4 MB and blocks image healing.
+    """
+    pack = PACKS.get(site_id) if isinstance(PACKS, dict) else None
+    files = pack.get("files", []) if isinstance(pack, dict) else []
+    preferred = ("02_desktop_hero", "01_desktop_full", "03_desktop_section", "05_mobile_hero")
+    shots = [f for f in files if isinstance(f, dict) and f.get("category") == "shot"]
+    shot = next((f for prefix in preferred for f in shots if str(f.get("name", "")).startswith(prefix)), None)
+    if not shot:
+        return ""
+    # 有 COS URL 才把截图塞进首页索引。没有 URL 的 426 个旧包仍已有
+    # /thumbs/<slug>.webp；额外内联 /packs/... 只会在缩略图缺失时制造第二个
+    # 同源大 PNG 请求/404，不能算轻量兜底。
+    return shot.get("url") or ""
+
+
 def load_all_sites() -> list[dict]:
     if not SITES_DIR.exists():
         raise RuntimeError(f"{SITES_DIR} doesn't exist. Run migrate-to-v0.3.mjs first.")
@@ -145,7 +164,10 @@ def build_sites_index(sites: list[dict]) -> dict:
             "tags": s.get("tags", []),
             "status": s.get("status", "pending"),
             "has_spec": bool(s.get("spec")),
-            "has_pack": bool(s.get("pack", {}).get("available")),
+            # packs-index is the artifact truth; site.pack.available drifted to
+            # five true rows while 920 real packs existed.
+            "has_pack": s["id"] in PACKS,
+            **({"pack_preview": preview} if (preview := pack_preview(s["id"])) else {}),
             **({"no_preview": True} if s.get("no_preview") else {}),
         })
     return {
@@ -726,7 +748,7 @@ def render_site_html(site: dict, lang: str) -> str:
 # Build target #4: downloadable DESIGN_SPEC.<lang>.md per pack
 # ============================================================
 # 拼接 narrative.<lang>（mimo 写的 10 个叙事段）+ 结构化数据表格（模板渲染）
-# → magazine 风格 8 章 markdown，进 pack 文件夹给 AI agent 下载。
+# → magazine 风格最多 9 章 markdown，进 pack 文件夹给 AI agent 下载。
 
 MD_CHAPTER_HEADINGS = {
     "en":    ["Identity DNA", "Color", "Typography", "Spacing", "Surfaces", "Layout", "Motion & Interaction", "Voice & Don'ts"],
@@ -956,7 +978,7 @@ def render_pack_manifest(site: dict, doc_langs: list, has_design_md: bool,
 # Build target #4b: DESIGN.md (Google Stitch / VoltAgent compat)
 # ============================================================
 # 让我们的 spec 同时能被 Google Stitch + Anthropic Claude + Cursor + Lovable 用。
-# 11 层 spec → YAML front matter + 8 章 markdown body（Google design.md 格式）。
+# 11 层 spec → YAML front matter + 最多 9 章 markdown body（Google design.md 格式）。
 
 def to_kebab(s: str) -> str:
     import re as _re
@@ -964,7 +986,7 @@ def to_kebab(s: str) -> str:
 
 
 def render_google_design_md(site: dict, lang: str = "en") -> str:
-    """生成 Google design.md 格式（YAML front matter + 8 章 prose）"""
+    """生成 Google design.md 格式（YAML front matter + 最多 9 章 prose）"""
     slug = site["id"]
     title = site["title"]
     spec = site.get("spec", {})
@@ -1037,7 +1059,7 @@ def render_google_design_md(site: dict, lang: str = "en") -> str:
     lines.append("---")
     lines.append("")
 
-    # ---- Markdown body (8 sections) ----
+    # ---- Markdown body (up to 9 sections; optional sections are omitted) ----
     ident = spec_i18n.get("identity") or {}
     lines.append("## Overview")
     lines.append("")
@@ -1151,7 +1173,7 @@ def build_llms_txt(sites: list[dict], pidx: dict) -> str:
         "## ⭐ AI / Agent 从这里开始",
         "",
         "**先 GET `https://opendesign.cc/skill.md`** —— 它会把你变成一位「设计总监」："
-        "理解需求 → 给专业意见 → 从 545+ 真实设计系统里推荐合适的作品 → 拆解成 grounded 落地方案。"
+        "理解需求 → 给专业意见 → 从 1,400+ 真实设计系统里推荐合适的作品 → 拆解成 grounded 落地方案。"
         "这是用本库的正确姿势；下面的端点是它会用到的原料。",
         "",
         "## 给 AI / Agent：原料端点",
@@ -1161,7 +1183,7 @@ def build_llms_txt(sites: list[dict], pidx: dict) -> str:
         "",
         "```",
         "https://opendesign.cc/packs/<slug>/                  → DESIGN.md（folder 默认页）",
-        "https://opendesign.cc/packs/<slug>/DESIGN.md          → Google design.md 兼容格式（YAML + 8 段）",
+        "https://opendesign.cc/packs/<slug>/DESIGN.md          → Google design.md 兼容格式（YAML + 最多 9 章）",
         "https://opendesign.cc/packs/<slug>/DESIGN_SPEC.en.md  → OpenDesign 11 层规范（en/zh-CN/zh-TW/ja/ko）",
         "https://opendesign.cc/packs/<slug>/spec.json          → 11 层设计 tokens（机器可读）",
         "```",
@@ -1375,7 +1397,7 @@ def main():
                 (slug_dir / f"DESIGN_SPEC.{lang}.md").write_text(render_design_spec_md(s, lang), encoding="utf-8")
                 doc_langs.append(lang)
                 md_count += 1
-            # Tier 1 · Google Stitch / VoltAgent 兼容（YAML front matter + 8 章）
+            # Tier 1 · Google Stitch / VoltAgent 兼容（YAML front matter + 最多 9 章）
             has_design_md = False
             if s.get("spec") and any(v for v in s.get("spec", {}).get("colors", {}).values()):
                 (slug_dir / "DESIGN.md").write_text(render_google_design_md(s, "en"), encoding="utf-8")

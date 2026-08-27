@@ -1,0 +1,11 @@
+[Unit]
+Description=Daily renewal check for opendesign.cc TLS certificate
+
+[Timer]
+OnCalendar=daily
+RandomizedDelaySec=6h
+Persistent=true
+Unit=opendesign-acme-renew.service
+
+[Install]
+WantedBy=timers.target
