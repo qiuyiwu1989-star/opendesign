@@ -261,6 +261,8 @@ button:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-
 .result-tabs > button[data-status="error"] > i { background: #c75046; }
 .result-tabs__count { margin-left: auto; border: 1px solid #dfe0e3; border-radius: 99px; padding: 5px 9px; color: #666970; font-size: 9px; }
 .result-tabs > .result-tabs__tool { width: 32px; height: 32px; justify-content: center; border: 1px solid #e1e2e4; border-radius: 8px; padding: 0; }
+.result-tabs > .result-tabs__tool--labeled { width: auto; padding: 0 10px; }
+.result-tabs > .result-tabs__tool--labeled.is-active { border-color: #b9c9e9; border-bottom-color: #b9c9e9; background: #edf4ff; color: #155fb8; }
 .stage { grid-template-rows: 45px 44px minmax(290px, 1fr) 126px; }
 .result-view { grid-row: 2 / -1; min-height: 0; padding: 46px max(32px, 7vw); overflow: auto; background: #f6f7f8; }
 .result-view > header { max-width: 560px; margin-bottom: 28px; }
@@ -311,6 +313,7 @@ button:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-
 .panel-section { padding: 17px 15px; border-bottom: 1px solid #e4e4e5; }
 .section-heading, .inspector-heading { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
 .section-heading > div h2, .inspector-heading h2 { margin: 5px 0 0; font-size: 13px; letter-spacing: -.02em; }
+.inspector-heading__actions { display: inline-flex; align-items: center; gap: 6px; }
 .workflow-section { background: #f4f3ff; }
 .workflow-section > .od-button { width: 100%; justify-content: center; margin-top: 10px; }
 .source-list, .pack-list { display: grid; gap: 6px; margin-top: 12px; }
@@ -582,6 +585,8 @@ button:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-
   .scene-thumb { width: 100px; }
   .result-tabs > button { gap: 0; font-size: 0; }
   .result-tabs > button svg { width: 16px; height: 16px; }
+  .result-tabs__tool--labeled span { display: none; }
+  .result-tabs > .result-tabs__tool--labeled { width: 32px; padding: 0; }
   .result-tabs__count { margin-left: auto; }
   .result-view { padding: 30px 20px; }
   .asset-grid { grid-template-columns: repeat(2, minmax(110px, 1fr)); }

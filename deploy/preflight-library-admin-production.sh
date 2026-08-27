@@ -154,12 +154,14 @@ for pointer in /opt/opendesign/current /var/www/opendesign.cc/admin; do
   fi
 done
 
-if systemctl is-enabled --quiet certbot.timer && systemctl is-active --quiet certbot.timer; then
+if systemctl is-enabled --quiet opendesign-acme-renew.timer && systemctl is-active --quiet opendesign-acme-renew.timer; then
+  pass "opendesign TLS-ALPN renewal timer enabled and active"
+elif systemctl is-enabled --quiet certbot.timer && systemctl is-active --quiet certbot.timer; then
   pass "certbot renewal timer enabled and active"
 elif systemctl is-enabled --quiet snap.certbot.renew.timer && systemctl is-active --quiet snap.certbot.renew.timer; then
   pass "snap certbot renewal timer enabled and active"
 else
-  fail "no enabled and active certbot renewal timer found"
+  fail "no enabled and active TLS renewal timer found"
 fi
 
 if (( failures > 0 )); then

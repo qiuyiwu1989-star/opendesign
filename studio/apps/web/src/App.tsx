@@ -304,13 +304,21 @@ function ExportCard({ kind, title, description, state, result, onExport }: { kin
   );
 }
 
+function firstEditableElementId(document: SceneDocument, sceneId = document.scenes[0]?.id ?? "") {
+  return document.scenes.find((scene) => scene.id === sceneId)?.elements.find((element) => element.editable)?.id ?? null;
+}
+
+function shouldOpenInspectorByDefault() {
+  return typeof window === "undefined" || typeof window.matchMedia !== "function" || window.matchMedia("(min-width: 941px)").matches;
+}
+
 export function App() {
   const [history, setHistory] = useState<DraftHistory<SceneDocument>>(() => createHistory(initialDocument));
   const document = history.present;
   const [selectedSceneId, setSelectedSceneId] = useState(initialDocument.scenes[0]?.id ?? "");
-  const [selectedElementId, setSelectedElementId] = useState<string | null>(null);
+  const [selectedElementId, setSelectedElementId] = useState<string | null>(() => firstEditableElementId(initialDocument));
   const [inspectorTab, setInspectorTab] = useState<InspectorTab>("edit");
-  const [inspectorOpen, setInspectorOpen] = useState(false);
+  const [inspectorOpen, setInspectorOpen] = useState(shouldOpenInspectorByDefault);
   const [resultView, setResultView] = useState<ResultView>("slides");
   const [brief, setBrief] = useState("把文章或提案转化成一套能继续编辑、持续迭代的视觉叙事。核心受众是需要快速交付提案的独立创作者与小团队。");
   const [patches, setPatches] = useState<ScenePatch[]>([]);
@@ -383,7 +391,9 @@ export function App() {
         if (active) setProjects(availableProjects);
         if (active && stored) {
           setHistory(createHistory(stored));
-          setSelectedSceneId(stored.scenes[0]?.id ?? "");
+          const firstSceneId = stored.scenes[0]?.id ?? "";
+          setSelectedSceneId(firstSceneId);
+          setSelectedElementId(firstEditableElementId(stored, firstSceneId));
           setSyncState("saved");
           void refreshRevisions(stored.documentId);
           void refreshAgentChanges(stored.documentId).catch(() => undefined);
@@ -569,8 +579,9 @@ export function App() {
 
   function openDocument(next: SceneDocument) {
     setHistory(createHistory(next));
-    setSelectedSceneId(next.scenes[0]?.id ?? "");
-    setSelectedElementId(null);
+    const firstSceneId = next.scenes[0]?.id ?? "";
+    setSelectedSceneId(firstSceneId);
+    setSelectedElementId(firstEditableElementId(next, firstSceneId));
     setPatches([]);
     setDocumentDirty(false);
     setLocalDraftOperations(0);
@@ -582,6 +593,7 @@ export function App() {
     setExportStates({ html: "idle", png: "idle", pptx: "idle" });
     setSyncState("saved");
     setInspectorTab("edit");
+    setInspectorOpen(shouldOpenInspectorByDefault());
     setReview(null);
     setModelProvider(null);
     void refreshReview(next.documentId).catch(() => undefined);
@@ -647,7 +659,7 @@ export function App() {
 
   function selectScene(sceneId: string) {
     setSelectedSceneId(sceneId);
-    setSelectedElementId(null);
+    setSelectedElementId(firstEditableElementId(document, sceneId));
   }
 
   function selectElement(element: SceneElement, edit = false) {
@@ -688,8 +700,9 @@ export function App() {
     const next = duplicateSceneDraft(document, scene.id);
     const index = document.scenes.findIndex((item) => item.id === scene.id);
     commitDocument(next, true);
-    setSelectedSceneId(next.scenes[index + 1]?.id ?? scene.id);
-    setSelectedElementId(null);
+    const nextSceneId = next.scenes[index + 1]?.id ?? scene.id;
+    setSelectedSceneId(nextSceneId);
+    setSelectedElementId(firstEditableElementId(next, nextSceneId));
   }
 
   function removeCurrentScene() {
@@ -697,8 +710,9 @@ export function App() {
     const index = document.scenes.findIndex((item) => item.id === scene.id);
     const next = deleteSceneDraft(document, scene.id);
     commitDocument(next, true);
-    setSelectedSceneId(next.scenes[Math.min(index, next.scenes.length - 1)]?.id ?? "");
-    setSelectedElementId(null);
+    const nextSceneId = next.scenes[Math.min(index, next.scenes.length - 1)]?.id ?? "";
+    setSelectedSceneId(nextSceneId);
+    setSelectedElementId(firstEditableElementId(next, nextSceneId));
   }
 
   function moveLayer(delta: -1 | 1) {
@@ -1396,7 +1410,7 @@ export function App() {
           <div className="result-tabs" role="tablist" aria-label="作品视图">
             {([['sources', '材料', 'file'], ['outline', '大纲', 'layers'], ['directions', '方向', 'spark'], ['slides', '幻灯片', 'play'], ['qa', 'QA', 'check'], ['export', '导出', 'arrow']] as const).map(([id, label, icon]) => <button key={id} type="button" role="tab" aria-selected={resultView === id} className={resultView === id ? "is-active" : ""} data-status={resultStatus(id)} onClick={() => setResultView(id)}><Icon name={icon} size={14} />{label}<i aria-hidden="true" /></button>)}
             <span className="result-tabs__count">{document.scenes.length} 页</span>
-            <button type="button" className="result-tabs__tool" aria-label="打开编辑面板" onClick={() => { setInspectorTab("edit"); setInspectorOpen(true); }}><Icon name="edit" size={15} /></button>
+            <button type="button" className={`result-tabs__tool result-tabs__tool--labeled ${inspectorOpen && inspectorTab === "edit" ? "is-active" : ""}`} aria-label="编辑当前页" aria-pressed={inspectorOpen && inspectorTab === "edit"} onClick={() => { setInspectorTab("edit"); setInspectorOpen(true); }}><Icon name="edit" size={15} /><span>编辑</span></button>
             <button type="button" className="result-tabs__tool" aria-label="打开质量检查" onClick={() => { setInspectorTab("qa"); setInspectorOpen(true); }}><Icon name="check" size={15} /></button>
           </div>
 
@@ -1452,7 +1466,7 @@ export function App() {
 
           {inspectorTab === "edit" && (
             <div className="inspector-content">
-              <div className="inspector-heading"><div><Kicker>Selection</Kicker><h2>{selectedElement ? selectedElement.role : "页面属性"}</h2></div>{selectedElement && <Badge tone={selectedElement.editable ? "success" : "neutral"}>{selectedElement.editable ? "可编辑" : "已锁定"}</Badge>}</div>
+              <div className="inspector-heading"><div><Kicker>Selection</Kicker><h2>{selectedElement ? selectedElement.role : "页面属性"}</h2></div>{selectedElement && <span className="inspector-heading__actions"><Badge tone={selectedElement.editable ? "success" : "neutral"}>{selectedElement.editable ? "可编辑" : "已锁定"}</Badge><Button size="sm" tone="quiet" onClick={() => setSelectedElementId(null)}>页面设置</Button></span>}</div>
               {selectedElement ? <>
                 {selectedElement.editable && selectedElement.content !== undefined && <label className="field"><span>文字内容</span><textarea value={selectedElement.content} onChange={(event) => updateSelectedContent(event.target.value)} autoFocus /></label>}
                 <div className="property-grid">{(["x", "y", "width", "height"] as const).map((field) => <label className="field" key={field}><span>{field === "width" ? "W" : field === "height" ? "H" : field.toUpperCase()}</span><input aria-label={`元素 ${field}`} type="number" value={Math.round(selectedElement.frame[field])} onChange={(event) => updateElementFrame(selectedElement.id, { ...selectedElement.frame, [field]: Number(event.target.value) })} /></label>)}</div>

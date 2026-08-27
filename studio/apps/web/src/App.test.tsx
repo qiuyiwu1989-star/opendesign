@@ -372,6 +372,7 @@ describe("OpenDesign Studio workspace", () => {
 
   it("changes direction typography and inserts a local image after generation", async () => {
     render(<App />);
+    fireEvent.click(screen.getByRole("button", { name: "页面设置" }));
     fireEvent.change(screen.getByLabelText("标题字体"), { target: { value: "Songti SC, SimSun, serif" } });
     expect(screen.getByText("1 个 IR patch")).toBeInTheDocument();
     const input = document.querySelector('input[type="file"]') as HTMLInputElement;
@@ -595,12 +596,16 @@ describe("OpenDesign Studio workspace", () => {
     expect(screen.getByLabelText("项目导航")).toBeInTheDocument();
     expect(screen.getByLabelText("设计总监对话")).toBeInTheDocument();
     expect(screen.getByRole("tab", { name: "幻灯片" })).toHaveAttribute("aria-selected", "true");
-    expect(screen.getByRole("button", { name: "打开编辑面板" })).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: "编辑当前页" })).toHaveAttribute("aria-pressed", "true");
+    expect(screen.getByLabelText("作品检查器")).toHaveClass("is-open");
+    expect(screen.getByLabelText("文字内容")).toBeInTheDocument();
   });
 
-  it("switches result views and opens the inspector only on demand", () => {
+  it("starts in edit mode and lets the user close and reopen the inspector", () => {
     render(<App />);
     const inspector = screen.getByLabelText("作品检查器");
+    expect(inspector).toHaveClass("is-open");
+    fireEvent.click(screen.getByRole("button", { name: "关闭检查器" }));
     expect(inspector).not.toHaveClass("is-open");
     fireEvent.click(screen.getByRole("tab", { name: "大纲" }));
     expect(screen.getByText("先看叙事，再看页面")).toBeInTheDocument();
@@ -608,6 +613,8 @@ describe("OpenDesign Studio workspace", () => {
     expect(inspector).toHaveClass("is-open");
     fireEvent.click(screen.getByRole("button", { name: "关闭检查器" }));
     expect(inspector).not.toHaveClass("is-open");
+    fireEvent.click(screen.getByRole("button", { name: "编辑当前页" }));
+    expect(inspector).toHaveClass("is-open");
   });
 
   it("shows a clearly labeled first-use example without starting generation", () => {
